@@ -154,3 +154,18 @@ The website must maintain attribution and access to supporting research and evid
 The React/TypeScript static website presents the accepted Episode 002 call, derived market-layer data, domain postures, latest signals, account prompts, and an evidence library with source links, excerpts, limitations, conflicting evidence, and research-artifact access.
 
 Evidence, accessibility, and leadership-product reviews passed after correcting unsupported chart data, evidence navigation, modal accessibility, mobile behavior, and first-screen usability. Local build and lint pass. Deployment remains a later explicit decision.
+
+**D-20 · 2026-08-16 — Emergency model-usage recalibration.**
+
+The Ultra plan’s Other Models pool reached approximately 65% usage one day into the cycle.
+
+Effective immediately:
+
+- Composer 2.5 is the default for all project orchestration, implementation, research, testing, and review.
+- GPT, Claude, Gemini, and other external models require explicit owner authorization for each invocation.
+- Grok remains disabled until the owner confirms the Cursor Models pool status.
+- Only one agent runs at a time unless the owner explicitly authorizes parallel work.
+- Direct work is preferred when delegation would duplicate context.
+- Automatic council/reviewer/verifier launches are disabled.
+
+The owner must switch the main chat model to Composer 2.5 in Cursor; agents cannot change the parent model from inside a session.

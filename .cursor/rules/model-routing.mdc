@@ -3,21 +3,21 @@ description: Route Security Market Signal work to proportionate models and limit
 alwaysApply: true
 ---
 
-# Model Routing
+# Model Routing — Cost Emergency
 
-- Main human alignment and consequential orchestration: GPT-5.6 Sol or Claude Sonnet high.
-- Project lead orchestration: `sec-market-lead` on Claude Sonnet high.
-- Normal implementation and test work: `sec-market-builder` on Composer 2.5.
-- Fast independent research or mechanical investigation: Grok 4.6.
-- Defect-first evidence/product review: `sec-market-reviewer` on Claude Sonnet high.
-- Claude Opus: only consequential architecture, intent reconciliation, security boundary, or final high-risk council review.
+- Default model for all project work: Composer 2.5.
+- Main human conversation: Composer 2.5 until the owner explicitly changes this policy.
+- Project lead, implementation, research, testing, and review: Composer 2.5.
+- GPT, Claude, Gemini, and every other external model: prohibited unless the owner explicitly authorizes that exact invocation.
+- Grok 4.6: do not use until the owner confirms the Cursor Models pool status.
 
 Controls:
 
-- Pin worker models explicitly; do not inherit an expensive lead model by default.
-- Use one worker by default and at most two concurrent workers unless streams are independent.
+- Pin every project agent to Composer 2.5.
+- Use one agent at a time. Parallel agents require explicit owner authorization.
 - Do not use a subagent for a task the lead can finish in one short pass.
-- Lower reasoning effort for mechanical implementation and test work.
+- Prefer direct work over delegation to avoid duplicate context and token use.
 - Every delegated task must name scope, output, prohibited changes, and verification.
+- Do not launch council, reviewer, or verifier agents automatically.
 - Check Cursor’s spending dashboard rather than assuming plan usage.
 

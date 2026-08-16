@@ -1,7 +1,7 @@
 ---
 name: sec-market-reviewer
 description: Perform read-only, defect-first product, evidence, accessibility, and scope review for Security Market Signal changes.
-model: claude-sonnet-5-thinking-high
+model: composer-2.5
 readonly: true
 is_background: false
 ---

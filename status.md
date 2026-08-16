@@ -9,7 +9,7 @@ updated: 2026-08-16
 ## Current State
 
 - **Phase:** Security Market Pulse web MVP ready for owner review
-- **Focus:** user-visible market briefing, evidence access, and product feedback
+- **Focus:** emergency model-usage recalibration; Composer-only project operation
 
 ## Project truth
 
@@ -51,11 +51,13 @@ updated: 2026-08-16
 - Whether to authorize implementation of the Gate S1 specification
 - Named human verifier and separate promotion authority
 - Whether and where to deploy the website
+- Cursor Models pool status for Grok usage
 
 ## Blockers
 
 - Implementation/replay blockers: owner authorization plus named distinct human verifier and promotion authority
 - Fixture capture/source retrieval and replay each require later separate authorization
+- Main chat remains on an external model until the owner switches it to Composer 2.5
 
 ## Session Log
 
@@ -69,3 +71,4 @@ updated: 2026-08-16
 | 2026-08-15 | Human-verified shadow collection design v0.2 and seven-row replay corpus passed Gate S0 review; implementation remains unauthorized |
 | 2026-08-15 | Gate S1 implementation specification v0.2 passed architecture, security, and builder review; implementation and replay remain unauthorized |
 | 2026-08-16 | Security Market Pulse web MVP implemented; unsupported chart data corrected; evidence and leadership-product reviews passed |
+| 2026-08-16 | Other Models usage reached ~65%; project switched to Composer-only, single-agent operation |
