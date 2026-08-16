@@ -12,7 +12,6 @@ import {
   type PanelQuarter,
   ZSCALER_REVENUE_MILLIONS,
 } from './panelRaw'
-import './panelIntegrity'
 
 export interface CompanyIndexSeries {
   company: string

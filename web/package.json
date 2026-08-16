@@ -8,7 +8,9 @@
     "verify:panel": "tsx scripts/verify-panel.ts",
     "build": "npm run verify:panel && tsc -b && vite build",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test:e2e": "playwright test",
+    "test": "npm run build && npm run test:e2e"
   },
   "dependencies": {
     "lucide-react": "^1.31.0",
@@ -17,6 +19,7 @@
     "recharts": "^3.10.1"
   },
   "devDependencies": {
+    "@playwright/test": "^1.62.1",
     "@types/node": "^24.13.3",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",

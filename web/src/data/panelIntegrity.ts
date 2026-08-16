@@ -43,5 +43,3 @@ export function assertPanelIntegrity(): void {
 export function exportCanonicalDerivedPayload(): string {
   return canonicalDerivedPayload()
 }
-
-assertPanelIntegrity()
