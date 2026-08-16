@@ -22,11 +22,13 @@ Read in this order:
 1. `intent.md` — governing purpose, outcome, beneficiaries, and boundaries
 2. `outcome-architecture.md` — minimum causal architecture
 3. `intervention-selection.md` — why the manual decision episode was selected
-4. `market-signal-episode-001-change-manifest.md` — current packet version authority
-5. `market-signal-episode-001-brief.md` — accepted timing judgment
-6. `market-signal-episode-001-evidence.md` — frozen claim evidence
-7. `market-signal-episode-001-source-manifest.md` — source index and integrity hashes
-8. `market-signal-runbook.md` — manual repeatable method
+4. `decision-contract.md` — sealed initial decision and authorization boundary
+5. `execution-specification.md` — completed initial pilot specification
+6. `market-signal-episode-001-change-manifest.md` — current packet version authority
+7. `market-signal-episode-001-brief.md` — accepted timing judgment
+8. `market-signal-episode-001-evidence.md` — frozen claim evidence
+9. `market-signal-episode-001-source-manifest.md` — source index and integrity hashes
+10. `market-signal-runbook.md` — manual repeatable method
 
 `security-signal-workflow-spec-v0.4.md` and `security-signal-BUILD-SPEC-v1.0.md` are historical source hypotheses. They are not implementation authority.
 
@@ -47,7 +49,9 @@ Read in this order:
 
 Run one materially different cybersecurity market-signal episode to test whether the manual method is repeatable across domains.
 
-Identity is a candidate domain, not an automatic choice. The next episode still requires:
+Identity is a candidate domain, not an automatic choice for the next **market-timing** episode. Earlier owner direction to move into identity applied to the vendor-research sequence; the market-signal lane still requires a materially different, consequential timing question.
+
+The next episode still requires:
 
 - one consequential market-shift question;
 - a decision and beneficiary;

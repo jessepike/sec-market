@@ -126,7 +126,7 @@ Completing agents, a website, reports, or other deliverables alone does not cons
 
 ## Traceability and handoff
 
-- **Governing sources:** `security-signal-workflow-spec-v0.4.md`; `security-signal-BUILD-SPEC-v1.0.md`; Gate 1 discussion completed 2026-08-15
+- **Originating source documents:** `security-signal-workflow-spec-v0.4.md`; `security-signal-BUILD-SPEC-v1.0.md`; Gate 1 discussion completed 2026-08-15
 - **Downstream items governed:** Existing specifications require review against this intent. In particular, the build spec's partner-risk-first Phase 1 conflicts with the accepted priority and is not authorized merely by its presence in that document.
 - **Active reconciliation events:** none
 - **Current operational validation:** `SEC-MARKET-SIG-001` v0.2 completed and independently reviewed; see `market-signal-episode-001-change-manifest.md`
