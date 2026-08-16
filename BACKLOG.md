@@ -4,32 +4,40 @@ Canonical work queue for the Security Market Signal Pipeline. Owner decisions li
 
 ## Active — next authorized work
 
-### SEC-002 — Run materially different market-signal episode
+### SEC-002 — Test infrastructure-to-security demand lag
 
-Run one cybersecurity market-signal episode in a domain materially different from Episode 001 (agents/action surface) to test whether the manual method is repeatable.
+**Status:** completed
+
+Run `SEC-MARKET-SIG-002` to determine whether infrastructure and AI-capex acceleration leads increased cybersecurity demand, over what horizon, and in which domains.
 
 **Requires:**
 
-- One consequential market-shift question
-- A decision and beneficiary
-- An exposure or applicability boundary
+- A 2023-to-current quarterly baseline
+- Infrastructure-supplier and hyperscaler-capex signals
+- Cybersecurity financial and demand-side signals
+- A 0–8-quarter lag assessment
+- Category-shift versus share-shift decomposition
 - A public evidence freeze
 - A timing posture with falsifiers
 - Independent review
 
-**Candidate domain:** Identity (not an automatic choice)
-
 **Method:** [market-signal-runbook.md](docs/reference/market-signal-runbook.md)
 
-**Not authorized until:** Episode 002 passes independent review
+**Contract:** [market-signal-episode-002.md](docs/active/market-signal-episode-002.md)
 
-## Parked — after Episode 002
+**Result:** completed and independently reviewed; stable lag remains `NO-CALL`
+
+**Not authorized by this work:** production infrastructure or automated posture judgment
+
+## Pending owner authorization
 
 ### SEC-003 — Human-verified shadow mode exploration
 
 Consider collection and normalization mechanics for human-verified shadow mode only after a second episode passes.
 
-**Blocked by:** SEC-002 completion + independent review
+**Eligibility condition:** satisfied by SEC-002 completion and independent review
+
+**Authorization state:** not authorized; requires a separate owner decision
 
 ## Not authorized
 

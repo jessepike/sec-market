@@ -17,7 +17,7 @@ See [intent.md](intent.md)
 
 ## Current Stage
 
-Deliver — manual method validated once; next episode not started
+Deliver — Episode 002 v0.2 completed; owner review and next authorization decision
 
 ## Context Map
 
@@ -51,4 +51,5 @@ Manual — market-timing episodes run on consequential questions
 1. [README.md](README.md)
 2. [intent.md](intent.md)
 3. [outcome-architecture.md](docs/reference/outcome-architecture.md)
-4. Current episode packet under [docs/reference/](docs/reference/) (`SEC-MARKET-SIG-001` v0.2)
+4. Current reconciliation and active episode under [docs/active/](docs/active/) (`SEC-MARKET-RECON-001`, `SEC-MARKET-SIG-002`)
+5. Frozen thematic packet under [docs/reference/](docs/reference/) (`SEC-MARKET-SIG-001` v0.2) only when needed

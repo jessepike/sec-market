@@ -8,7 +8,7 @@
 - **Gate 1:** `passed`
 - **Supersedes:** none
 - **Created:** 2026-08-15
-- **Last reconciled:** not yet reconciled
+- **Last reconciled:** 2026-08-15 — `SEC-MARKET-RECON-001`; no semantic intent change
 
 ## Compressed governing intent
 
@@ -128,9 +128,9 @@ Completing agents, a website, reports, or other deliverables alone does not cons
 
 - **Originating source documents:** [security-signal-workflow-spec-v0.4.md](docs/archive/security-signal-workflow-spec-v0.4.md); [security-signal-BUILD-SPEC-v1.0.md](docs/archive/security-signal-BUILD-SPEC-v1.0.md); Gate 1 discussion completed 2026-08-15
 - **Downstream items governed:** Existing specifications require review against this intent. In particular, the build spec's partner-risk-first Phase 1 conflicts with the accepted priority and is not authorized merely by its presence in that document.
-- **Active reconciliation events:** none
-- **Current operational validation:** `SEC-MARKET-SIG-001` v0.2 completed and independently reviewed; see [market-signal-episode-001-change-manifest.md](docs/reference/market-signal-episode-001-change-manifest.md)
-- **Fresh-agent minimum context:** [README.md](README.md), this artifact, [outcome-architecture.md](docs/reference/outcome-architecture.md), and the current market-signal packet in [docs/reference/](docs/reference/). Consult the two historical specifications in [docs/archive/](docs/archive/) only for hypotheses and proposed mechanisms.
+- **Reconciliation events:** `SEC-MARKET-RECON-001` resolved 2026-08-15; Episode 001 reclassified as thematic, governing intent unchanged
+- **Current operational validation:** `SEC-MARKET-SIG-002` v0.2 completed and independently reviewed; stable infrastructure-to-security lag remains `NO-CALL`
+- **Fresh-agent minimum context:** [README.md](README.md), this artifact, [intent-reconciliation-2026-08-15.md](docs/active/intent-reconciliation-2026-08-15.md), the Episode 002 packet in [docs/active/](docs/active/), and [outcome-architecture.md](docs/reference/outcome-architecture.md). Consult historical specifications only for hypotheses and proposed mechanisms.
 
 ## Revision record
 

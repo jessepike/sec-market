@@ -6,7 +6,7 @@ Managed with [ADF](https://github.com/your-org/acm) (Agentic Development Framewo
 
 This project creates public, publishable cybersecurity market intelligence that helps security leadership, account teams, and clients recognize consequential shifts early enough to make better-timed decisions.
 
-The first genuine market-signal episode is complete:
+The first completed episode is now classified as a thematic validation episode:
 
 - **Episode:** `SEC-MARKET-SIG-001` v0.2
 - **Question:** Are agents becoming a consequential cybersecurity action surface quickly enough to require preparation?
@@ -16,21 +16,38 @@ The first genuine market-signal episode is complete:
   - no standing program, specialist-platform motion, or broad procurement is authorized.
 - **Research freeze:** `2026-08-15T18:18:04-07:00`
 - **Independent review:** passed
+- **Classification:** valid thematic application; does not validate the core infrastructure-to-security signal thesis
+
+The primary core-signal validation episode is complete:
+
+- **Episode:** `SEC-MARKET-SIG-002` v0.2
+- **Question:** Is the current infrastructure and AI-capex cycle producing a measurable leading signal for increased cybersecurity demand, over what horizon, and which security domains are likely to capture it first?
+- **Contract:** [market-signal-episode-002.md](docs/active/market-signal-episode-002.md)
+- **Evidence:** [market-signal-episode-002-evidence.md](docs/active/market-signal-episode-002-evidence.md)
+- **Baseline and panel:** [market-signal-episode-002-baseline.md](docs/active/market-signal-episode-002-baseline.md), [market-signal-episode-002-panel.md](docs/active/market-signal-episode-002-panel.md)
+- **Accepted brief:** [market-signal-episode-002-brief.md](docs/active/market-signal-episode-002-brief.md)
+- **Current gate:** passed
+- **Decision:** infrastructure acceleration is evidenced; a stable infrastructure-to-security lag remains `NO-CALL`; use infrastructure activation as an account qualification trigger, not as proof of a cybersecurity boom
+- **Reconciliation authority:** [intent-reconciliation-2026-08-15.md](docs/active/intent-reconciliation-2026-08-15.md)
 
 ## Authority order
 
 Read in this order:
 
 1. [intent.md](intent.md) — governing purpose, outcome, beneficiaries, and boundaries
-2. [outcome-architecture.md](docs/reference/outcome-architecture.md) — minimum causal architecture
-3. [intervention-selection.md](docs/reference/intervention-selection.md) — why the manual decision episode was selected
-4. [decision-contract.md](docs/reference/decision-contract.md) — sealed initial decision and authorization boundary
-5. [execution-specification.md](docs/reference/execution-specification.md) — completed initial pilot specification
-6. [market-signal-episode-001-change-manifest.md](docs/reference/market-signal-episode-001-change-manifest.md) — current packet version authority
-7. [market-signal-episode-001-brief.md](docs/reference/market-signal-episode-001-brief.md) — accepted timing judgment
-8. [market-signal-episode-001-evidence.md](docs/reference/market-signal-episode-001-evidence.md) — frozen claim evidence
-9. [market-signal-episode-001-source-manifest.md](docs/reference/market-signal-episode-001-source-manifest.md) — source index and integrity hashes
-10. [market-signal-runbook.md](docs/reference/market-signal-runbook.md) — manual repeatable method
+2. [intent-reconciliation-2026-08-15.md](docs/active/intent-reconciliation-2026-08-15.md) — current downstream correction
+3. [market-signal-episode-002.md](docs/active/market-signal-episode-002.md) — completed primary episode contract
+4. [market-signal-episode-002-change-manifest.md](docs/active/market-signal-episode-002-change-manifest.md) — accepted packet version authority
+5. [market-signal-episode-002-brief.md](docs/active/market-signal-episode-002-brief.md) — accepted timing judgment
+6. [market-signal-episode-002-evidence.md](docs/active/market-signal-episode-002-evidence.md) — frozen evidence
+7. [market-signal-episode-002-baseline.md](docs/active/market-signal-episode-002-baseline.md) — lag disposition and domain sufficiency
+8. [market-signal-episode-002-panel.md](docs/active/market-signal-episode-002-panel.md) — sparse period-end panel
+9. [market-signal-episode-002-source-manifest.md](docs/active/market-signal-episode-002-source-manifest.md) — atomic claim provenance
+10. [outcome-architecture.md](docs/reference/outcome-architecture.md) — minimum causal architecture
+11. [intervention-selection.md](docs/reference/intervention-selection.md) — why the manual decision episode was selected
+12. [market-signal-runbook.md](docs/reference/market-signal-runbook.md) — frozen v0.2 manual method
+13. [market-signal-runbook-validation.md](docs/active/market-signal-runbook-validation.md) — current second-domain validation authority
+14. [market-signal-episode-001-change-manifest.md](docs/reference/market-signal-episode-001-change-manifest.md) — frozen Episode 001 version authority
 
 Session state: [status.md](status.md) · Work queue: [BACKLOG.md](BACKLOG.md) · Decisions: [decisions.md](decisions.md)
 
@@ -44,27 +61,17 @@ Session state: [status.md](status.md) · Work queue: [BACKLOG.md](BACKLOG.md) ·
 | Outcome Architecture / Gate 2 | Passed — provisional |
 | Intervention Selection / Gate 3 | Passed — provisional |
 | Initial vendor-landscape pilot | Completed; historical validation input |
-| First market-timing episode | Completed and independently reviewed |
-| Manual runbook | Validated once |
+| Episode 001 — agentic runtime readiness | Completed and independently reviewed; reclassified as thematic validation |
+| Episode 002 — infrastructure-to-security lag | Completed and independently reviewed |
+| Manual runbook | Exercised across two materially different episodes; second-domain gate passed |
 | Production collectors, database, scheduler, website, or digest | Not started and not authorized |
 | Autonomous signal pipeline | Not authorized |
 
 ## Next authorized action
 
-Run one materially different cybersecurity market-signal episode to test whether the manual method is repeatable across domains.
+Review the accepted Episode 002 brief and decide whether to authorize a separate human-verified shadow-mode design. No collection build or automation is authorized by Episode 002 alone.
 
-Identity is a candidate domain, not an automatic choice for the next **market-timing** episode. Earlier owner direction to move into identity applied to the vendor-research sequence; the market-signal lane still requires a materially different, consequential timing question.
-
-The next episode still requires:
-
-- one consequential market-shift question;
-- a decision and beneficiary;
-- an exposure or applicability boundary;
-- a public evidence freeze;
-- a timing posture with falsifiers; and
-- independent review.
-
-Only after that episode passes may collection and normalization mechanics be considered for **human-verified shadow mode**. Posture judgment and authorization remain human-steered.
+Episode 002 passed, and [market-signal-runbook-validation.md](docs/active/market-signal-runbook-validation.md) records shadow-mode eligibility. Design still requires a separate owner authorization. Posture judgment and authorization remain human-steered.
 
 ## Not authorized
 
@@ -78,7 +85,7 @@ Only after that episode passes may collection and normalization mechanics be con
 
 The security-market project may reference CISO Advisory concepts where useful, but it owns market timing, signal evidence, and timing judgments.
 
-## Exit condition reached for Episode 001
+## Episode 001 learning
 
-The episode produced a reconstructable timing judgment, survived independent evidence and strategy review, recorded falsifiers and no-call areas, and identified automation candidates without authorizing infrastructure.
+Episode 001 produced a reconstructable thematic timing judgment and improved the manual method, but it did not test the core infrastructure-to-security lag thesis. Episode 002 now carries that validation burden.
 
