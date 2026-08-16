@@ -17,7 +17,7 @@ See [intent.md](intent.md)
 
 ## Current Stage
 
-Deliver — Gate S1 implementation specification accepted; implementation awaits owner authorization and human-role assignment
+Deliver — Security Market Pulse web MVP ready for owner review; deployment awaits authorization
 
 ## Context Map
 
@@ -30,6 +30,7 @@ Deliver — Gate S1 implementation specification accepted; implementation awaits
 | [README.md](README.md) | Always | Authority order and project truth |
 | [docs/reference/](docs/reference/) | Design, episode work | Settled governance and episode packet |
 | [docs/active/](docs/active/) | Current work | In-progress specs and plans |
+| [web/](web/) | Web product work | Security Market Pulse MVP |
 | [docs/archive/](docs/archive/) | Never auto | Historical hypotheses — explicit instruction only |
 | [.claude/rules/](.claude/rules/) | Always | Hard constraints |
 
@@ -55,3 +56,4 @@ Manual — market-timing episodes run on consequential questions
 5. Frozen thematic packet under [docs/reference/](docs/reference/) (`SEC-MARKET-SIG-001` v0.2) only when needed
 6. Accepted shadow design and replay corpus under [docs/active/](docs/active/) (`SEC-MARKET-SHADOW-001` v0.2, `SEC-MARKET-SHADOW-CORPUS-001` v0.1)
 7. Accepted Gate S1 implementation specification under [docs/active/](docs/active/) (`SEC-MARKET-SHADOW-S1-SPEC-001` v0.2)
+8. Accepted web MVP contract and implementation under [docs/active/](docs/active/) and [web/](web/) (`SEC-MARKET-WEB-001`)

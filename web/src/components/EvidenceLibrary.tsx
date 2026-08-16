@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react'
 import { Search } from 'lucide-react'
 import { evidenceRecords } from '../data/evidence'
 import type { SourceClass } from '../data/types'
-import { useEvidence } from '../context/EvidenceContext'
+import { useEvidence } from '../context/useEvidence'
 
 const ALL_CLASSES: SourceClass[] = [
   'FILING',
@@ -42,7 +42,7 @@ export function EvidenceLibrary() {
     <section id="research" className="evidence-library" aria-labelledby="research-heading">
       <div className="section-heading">
         <h2 id="research-heading">Research &amp; evidence library</h2>
-        <p>Search and filter frozen Episode 002 sources. Click any item to inspect full attribution.</p>
+        <p>Search frozen Episode 002 sources. Click any row to inspect full attribution.</p>
       </div>
       <div className="evidence-library__controls">
         <label className="search-field">
@@ -81,7 +81,6 @@ export function EvidenceLibrary() {
               className="evidence-library__item"
               onClick={() => openEvidence(record.id)}
             >
-              <span className="evidence-library__id">{record.id}</span>
               <span className="evidence-library__title">{record.title}</span>
               <span className="evidence-library__org">{record.organization}</span>
               <span className="evidence-library__class">{record.sourceClass}</span>

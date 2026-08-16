@@ -6,6 +6,14 @@ Managed with [ADF](https://github.com/your-org/acm) (Agentic Development Framewo
 
 This project creates public, publishable cybersecurity market intelligence that helps security leadership, account teams, and clients recognize consequential shifts early enough to make better-timed decisions.
 
+The MVP consumption surface is now the **Security Market Pulse** website:
+
+- **Product contract:** [web-mvp-product-contract.md](docs/active/web-mvp-product-contract.md)
+- **Local development:** `orb run -m dev npm run dev --prefix web`
+- **Production build:** `orb run -m dev npm run build --prefix web`
+- **Evidence contract:** every material call, chart, and domain posture links to source, excerpt/locator, limitations, conflicting evidence, and research artifacts
+- **Deployment:** not yet authorized
+
 The first completed episode is now classified as a thematic validation episode:
 
 - **Episode:** `SEC-MARKET-SIG-001` v0.2
@@ -35,24 +43,25 @@ The primary core-signal validation episode is complete:
 Read in this order:
 
 1. [intent.md](intent.md) — governing purpose, outcome, beneficiaries, and boundaries
-2. [intent-reconciliation-2026-08-15.md](docs/active/intent-reconciliation-2026-08-15.md) — current downstream correction
-3. [market-signal-episode-002.md](docs/active/market-signal-episode-002.md) — completed primary episode contract
-4. [market-signal-episode-002-change-manifest.md](docs/active/market-signal-episode-002-change-manifest.md) — accepted packet version authority
-5. [market-signal-episode-002-brief.md](docs/active/market-signal-episode-002-brief.md) — accepted timing judgment
-6. [market-signal-episode-002-evidence.md](docs/active/market-signal-episode-002-evidence.md) — frozen evidence
-7. [market-signal-episode-002-baseline.md](docs/active/market-signal-episode-002-baseline.md) — lag disposition and domain sufficiency
-8. [market-signal-episode-002-panel.md](docs/active/market-signal-episode-002-panel.md) — sparse period-end panel
-9. [market-signal-episode-002-source-manifest.md](docs/active/market-signal-episode-002-source-manifest.md) — atomic claim provenance
-10. [outcome-architecture.md](docs/reference/outcome-architecture.md) — minimum causal architecture
-11. [intervention-selection.md](docs/reference/intervention-selection.md) — why the manual decision episode was selected
-12. [market-signal-runbook.md](docs/reference/market-signal-runbook.md) — frozen v0.2 manual method
-13. [market-signal-runbook-validation.md](docs/active/market-signal-runbook-validation.md) — current second-domain validation authority
-14. [shadow-collection-design-change-manifest.md](docs/active/shadow-collection-design-change-manifest.md) — shadow design version authority
-15. [shadow-collection-design-v0.2.md](docs/active/shadow-collection-design-v0.2.md) — accepted design-only shadow process
-16. [shadow-replay-corpus-v0.1.md](docs/active/shadow-replay-corpus-v0.1.md) — accepted seven-row Gate S1 oracle
-17. [shadow-replay-implementation-spec-change-manifest.md](docs/active/shadow-replay-implementation-spec-change-manifest.md) — Gate S1 specification version authority
-18. [shadow-replay-implementation-spec-v0.2.md](docs/active/shadow-replay-implementation-spec-v0.2.md) — accepted implementation specification
-19. [market-signal-episode-001-change-manifest.md](docs/reference/market-signal-episode-001-change-manifest.md) — frozen Episode 001 version authority
+2. [web-mvp-product-contract.md](docs/active/web-mvp-product-contract.md) — accepted MVP product and evidence UX
+3. [intent-reconciliation-2026-08-15.md](docs/active/intent-reconciliation-2026-08-15.md) — prior downstream correction
+4. [market-signal-episode-002.md](docs/active/market-signal-episode-002.md) — completed primary episode contract
+5. [market-signal-episode-002-change-manifest.md](docs/active/market-signal-episode-002-change-manifest.md) — accepted packet version authority
+6. [market-signal-episode-002-brief.md](docs/active/market-signal-episode-002-brief.md) — accepted timing judgment
+7. [market-signal-episode-002-evidence.md](docs/active/market-signal-episode-002-evidence.md) — frozen evidence
+8. [market-signal-episode-002-baseline.md](docs/active/market-signal-episode-002-baseline.md) — lag disposition and domain sufficiency
+9. [market-signal-episode-002-panel.md](docs/active/market-signal-episode-002-panel.md) — sparse period-end panel
+10. [market-signal-episode-002-source-manifest.md](docs/active/market-signal-episode-002-source-manifest.md) — atomic claim provenance
+11. [outcome-architecture.md](docs/reference/outcome-architecture.md) — minimum causal architecture
+12. [intervention-selection.md](docs/reference/intervention-selection.md) — why the manual decision episode was selected
+13. [market-signal-runbook.md](docs/reference/market-signal-runbook.md) — frozen v0.2 manual method
+14. [market-signal-runbook-validation.md](docs/active/market-signal-runbook-validation.md) — current second-domain validation authority
+15. [shadow-collection-design-change-manifest.md](docs/active/shadow-collection-design-change-manifest.md) — shadow design version authority
+16. [shadow-collection-design-v0.2.md](docs/active/shadow-collection-design-v0.2.md) — accepted design-only shadow process
+17. [shadow-replay-corpus-v0.1.md](docs/active/shadow-replay-corpus-v0.1.md) — accepted seven-row Gate S1 oracle
+18. [shadow-replay-implementation-spec-change-manifest.md](docs/active/shadow-replay-implementation-spec-change-manifest.md) — Gate S1 specification version authority
+19. [shadow-replay-implementation-spec-v0.2.md](docs/active/shadow-replay-implementation-spec-v0.2.md) — accepted implementation specification
+20. [market-signal-episode-001-change-manifest.md](docs/reference/market-signal-episode-001-change-manifest.md) — frozen Episode 001 version authority
 
 Session state: [status.md](status.md) · Work queue: [BACKLOG.md](BACKLOG.md) · Decisions: [decisions.md](decisions.md)
 
@@ -72,14 +81,16 @@ Session state: [status.md](status.md) · Work queue: [BACKLOG.md](BACKLOG.md) ·
 | Human-verified shadow collection design | Gate S0 passed; design accepted |
 | Gate S1 replay implementation specification | Accepted after independent review |
 | Gate S1 implementation and replay | Not started and not authorized |
+| Security Market Pulse web MVP | Implemented; evidence and product review passed |
+| Website deployment | Not started and not authorized |
 | Production collectors, database, scheduler, website, or digest | Not started and not authorized |
 | Autonomous signal pipeline | Not authorized |
 
 ## Next authorized action
 
-Decide whether to authorize implementation of the accepted [Gate S1 specification](docs/active/shadow-replay-implementation-spec-v0.2.md) and assign two distinct humans as verifier and promotion authority.
+Review the Security Market Pulse website locally and provide product feedback. Decide separately whether to deploy it publicly.
 
-No implementation, fixture capture, identity assignment, source retrieval, replay run, live cycle, scheduler, or automation is authorized. Posture judgment and promotion remain human-controlled.
+Shadow replay implementation, fixture capture, source retrieval, replay, scheduling, automation, and website deployment remain separately governed. Posture judgment and evidence promotion remain human-controlled.
 
 ## Not authorized
 

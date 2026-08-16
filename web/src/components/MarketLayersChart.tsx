@@ -1,6 +1,5 @@
 import {
   CartesianGrid,
-  Legend,
   Line,
   LineChart,
   ResponsiveContainer,
@@ -8,15 +7,36 @@ import {
   XAxis,
   YAxis,
 } from 'recharts'
-import { chartEvidenceIds, chartMetricNote, marketLayerSeries } from '../data/market'
+import { chartEvidenceIds, chartLayerPoints, chartMetricNote } from '../data/market'
+import { derivedPanelRows } from '../data/derivePanel'
 import { EvidenceLink } from './EvidenceLink'
+import { BuyerBudgetChart } from './BuyerBudgetChart'
 
-const SERIES = [
-  { key: 'infrastructure', name: 'Infrastructure (NVIDIA DC)', color: '#1d4ed8' },
-  { key: 'hyperscaler', name: 'Hyperscaler capex (median)', color: '#7c3aed' },
-  { key: 'security', name: 'Security vendors (median)', color: '#0f766e' },
-  { key: 'buyerBudget', name: 'Buyer budget growth (%)', color: '#b45309' },
-] as const
+const SHARED_LOG_DOMAIN: [number, number] = [50, 1800]
+
+const SMALL_MULTIPLES = [
+  {
+    key: 'infrastructure' as const,
+    dataKey: 'infrastructure' as const,
+    title: 'Infrastructure',
+    subtitle: 'NVIDIA Data Center revenue',
+    color: '#1d4ed8',
+  },
+  {
+    key: 'hyperscaler' as const,
+    dataKey: 'hyperscalerMedian' as const,
+    title: 'Hyperscaler capex',
+    subtitle: 'Median of Microsoft, Amazon, Alphabet',
+    color: '#7c3aed',
+  },
+  {
+    key: 'security' as const,
+    dataKey: 'securityMedian' as const,
+    title: 'Security vendors',
+    subtitle: 'Median of CRWD, OKTA, FTNT, ZS, CHKP',
+    color: '#0f766e',
+  },
+]
 
 export function MarketLayersChart() {
   return (
@@ -24,68 +44,114 @@ export function MarketLayersChart() {
       <div className="section-heading">
         <h2 id="layers-heading">Market layers</h2>
         <p>
-          Descriptive sequence across infrastructure, hyperscaler investment, security vendor
-          outcomes, and buyer budgets — not a fitted lag model.
+          Quarterly indexed series (2023-Q1 = 100) derived from the frozen sparse panel — descriptive
+          sequence only, not a fitted lag model.
         </p>
       </div>
-      <div className="chart-panel" role="img" aria-label="Indexed market layer trends from 2023-Q1 to 2026-Q1">
-        <ResponsiveContainer width="100%" height={360}>
-          <LineChart data={marketLayerSeries} margin={{ top: 8, right: 16, left: 0, bottom: 8 }}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
-            <XAxis dataKey="quarter" tick={{ fontSize: 12 }} interval="preserveStartEnd" />
-            <YAxis
-              yAxisId="index"
-              tick={{ fontSize: 12 }}
-              label={{ value: 'Index (2023-Q1 = 100)', angle: -90, position: 'insideLeft', offset: 12 }}
-            />
-            <YAxis
-              yAxisId="budget"
-              orientation="right"
-              tick={{ fontSize: 12 }}
-              domain={[0, 12]}
-              label={{ value: 'Budget growth %', angle: 90, position: 'insideRight', offset: 12 }}
-            />
-            <Tooltip
-              contentStyle={{ borderRadius: 8, border: '1px solid #e2e8f0' }}
-              formatter={(value, name) => {
-                const num = typeof value === 'number' ? value : null
-                const label = String(name)
-                return [
-                  num === null ? '—' : label === 'Buyer budget growth (%)' ? `${num}%` : num,
-                  label,
-                ]
-              }}
-            />
-            <Legend />
-            {SERIES.slice(0, 3).map((series) => (
-              <Line
-                key={series.key}
-                yAxisId="index"
-                type="monotone"
-                dataKey={series.key}
-                name={series.name}
-                stroke={series.color}
-                strokeWidth={2}
-                dot={{ r: 2 }}
-                connectNulls={false}
-              />
-            ))}
-            <Line
-              yAxisId="budget"
-              type="monotone"
-              dataKey="buyerBudget"
-              name="Buyer budget growth (%)"
-              stroke="#b45309"
-              strokeWidth={2}
-              strokeDasharray="6 4"
-              dot={{ r: 3 }}
-              connectNulls={false}
-            />
-          </LineChart>
-        </ResponsiveContainer>
+
+        <p className="chart-shared-scale-caption">
+          All three charts use the same log-scale index axis (50–1800; 2023-Q1 = 100) so proportional
+          differences are visually honest — e.g. infrastructure near 18× vs. security near 2×.
+        </p>
+
+      <div className="chart-multiples" role="img" aria-label="Indexed quarterly market layers">
+        {SMALL_MULTIPLES.map((series) => (
+          <figure key={series.key} className="chart-multiple">
+            <figcaption>
+              <strong>{series.title}</strong>
+              <span>{series.subtitle}</span>
+            </figcaption>
+            <ResponsiveContainer width="100%" height={200}>
+              <LineChart data={chartLayerPoints} margin={{ top: 4, right: 8, left: 0, bottom: 0 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+                <XAxis dataKey="quarter" tick={{ fontSize: 10 }} interval="preserveStartEnd" />
+                <YAxis
+                  scale="log"
+                  domain={SHARED_LOG_DOMAIN}
+                  tick={{ fontSize: 10 }}
+                  allowDataOverflow
+                  label={{
+                    value: 'Index (log)',
+                    angle: -90,
+                    position: 'insideLeft',
+                    offset: 4,
+                    style: { fontSize: 10 },
+                  }}
+                />
+                <Tooltip
+                  contentStyle={{ borderRadius: 8, border: '1px solid #e2e8f0', fontSize: 12 }}
+                  formatter={(value) => {
+                    const num = typeof value === 'number' ? value : null
+                    return [num === null ? '—' : num.toFixed(1), 'Index']
+                  }}
+                />
+                <Line
+                  type="monotone"
+                  dataKey={series.dataKey}
+                  name={series.title}
+                  stroke={series.color}
+                  strokeWidth={2}
+                  dot={{ r: 2 }}
+                  connectNulls={false}
+                />
+              </LineChart>
+            </ResponsiveContainer>
+          </figure>
+        ))}
       </div>
+
+      <BuyerBudgetChart />
+
+      <details className="chart-table-details">
+        <summary>View data table (accessible alternative)</summary>
+        <div className="table-scroll">
+          <table className="data-table">
+            <caption>Derived panel indices by quarter (2023-Q1 = 100)</caption>
+            <thead>
+              <tr>
+                <th scope="col">Quarter</th>
+                <th scope="col">NVIDIA DC</th>
+                <th scope="col">MSFT</th>
+                <th scope="col">AMZN</th>
+                <th scope="col">GOOG</th>
+                <th scope="col">Hyperscaler median</th>
+                <th scope="col">CRWD</th>
+                <th scope="col">OKTA</th>
+                <th scope="col">FTNT</th>
+                <th scope="col">ZS</th>
+                <th scope="col">CHKP</th>
+                <th scope="col">Security median</th>
+              </tr>
+            </thead>
+            <tbody>
+              {derivedPanelRows.map((row) => (
+                <tr key={row.quarter}>
+                  <th scope="row">{row.quarter}</th>
+                  <td>{fmt(row.nvidiaIndex)}</td>
+                  <td>{fmt(row.microsoftIndex)}</td>
+                  <td>{fmt(row.amazonIndex)}</td>
+                  <td>{fmt(row.alphabetIndex)}</td>
+                  <td>{fmt(row.hyperscalerMedianIndex)}</td>
+                  <td>{fmt(row.crowdstrikeIndex)}</td>
+                  <td>{fmt(row.oktaIndex)}</td>
+                  <td>{fmt(row.fortinetIndex)}</td>
+                  <td>{fmt(row.zscalerIndex)}</td>
+                  <td>{fmt(row.checkpointIndex)}</td>
+                  <td>{fmt(row.securityMedianIndex)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </details>
+
       <p className="chart-note">{chartMetricNote}</p>
-      <EvidenceLink ids={chartEvidenceIds} label="Chart sources and definitions" />
+      <EvidenceLink ids={chartEvidenceIds} label="Chart sources" />
     </section>
   )
+}
+
+function fmt(value: number | null): string {
+  if (value === null) return '—'
+  return value.toFixed(1)
 }

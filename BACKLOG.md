@@ -69,6 +69,24 @@ Build—but do not run—the accepted seven-row replay instrument.
 
 **Authorization state:** not authorized
 
+## Completed product MVP
+
+### SEC-006 — Security Market Pulse website
+
+Build a responsive, evidence-linked website using accepted Episode 002 research.
+
+**Result:** implemented under `web/`; build, lint, evidence review, accessibility review, and leadership-product review passed
+
+## Pending product decisions
+
+### SEC-007 — Owner review and deployment
+
+- review the local Security Market Pulse experience;
+- record product feedback;
+- decide whether to deploy publicly and select the host.
+
+**Authorization state:** local review authorized; deployment not authorized
+
 ## Not authorized
 
 - Partner-risk-first sequencing

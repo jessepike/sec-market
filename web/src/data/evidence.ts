@@ -32,7 +32,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     interpretation: 'Compute demand remains elevated in absolute dollars; infrastructure cycle still accelerating.',
     limitations:
       'China restrictions and product transitions affect quarter-to-quarter comparability. Data Center is not a deployed-workload measure.',
-    conflictingEvidenceIds: [],
+    conflictingEvidenceIds: ['D1', 'LAG-NO-CALL'],
     artifactLabel: 'SEC-MARKET-SIG-SRC-002 / A1b',
     tags: ['infrastructure', 'supplier', 'compute'],
   },
@@ -237,7 +237,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     sourceClass: 'FILING',
     interpretation: 'Positive organic demand with acquisition-heavy headline growth.',
     limitations: 'Platformization and M&A deliberately alter period comparability.',
-    conflictingEvidenceIds: ['C6'],
+    conflictingEvidenceIds: ['C6', 'D1'],
     artifactLabel: 'SEC-MARKET-SIG-SRC-002 / C2',
     tags: ['security-vendor', 'platform', 'm-and-a'],
   },
@@ -253,7 +253,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     sourceClass: 'IR',
     interpretation: 'Current network/firewall demand is real; strongest realized network-security acceleration in the panel.',
     limitations: 'Refresh, pricing, and share shift may explain part of the result independently of AI infrastructure.',
-    conflictingEvidenceIds: ['C6'],
+    conflictingEvidenceIds: ['C6', 'D1', 'LAG-NO-CALL'],
     artifactLabel: 'SEC-MARKET-SIG-SRC-002 / C3',
     tags: ['security-vendor', 'network', 'firewall'],
   },
@@ -304,7 +304,23 @@ export const evidenceRecords: EvidenceRecord[] = [
     sourceClass: 'IR',
     interpretation: 'Quarterly momentum improved at Cisco, but full-year breadth remained weak; blocks uniform-category acceleration call.',
     limitations: 'Splunk is embedded in Cisco security segment; not an organic Cisco-security measure.',
-    conflictingEvidenceIds: ['C3', 'C4', 'C1'],
+    conflictingEvidenceIds: ['C1', 'C2', 'C3', 'C4', 'A2'],
+    sourceAttributions: [
+      {
+        organization: 'Cisco',
+        publicationDate: '2026-08-12',
+        economicPeriod: 'Quarter ended 2026-07-25',
+        canonicalUrl:
+          'https://investor.cisco.com/news/news-details/2026/CISCO-REPORTS-FOURTH-QUARTER-AND-FISCAL-YEAR-2026-EARNINGS/default.aspx',
+      },
+      {
+        organization: 'Check Point',
+        publicationDate: '2026-06-30',
+        economicPeriod: 'Quarter ended 2026-06-30 (Q2 2026 results)',
+        canonicalUrl:
+          'https://www.checkpoint.com/downloads/investor/check-point-software-second-quarter-2026-financial-results.pdf',
+      },
+    ],
     artifactLabel: 'SEC-MARKET-SIG-SRC-002 / C6',
     tags: ['security-vendor', 'counter-evidence'],
   },
@@ -372,7 +388,7 @@ export const evidenceRecords: EvidenceRecord[] = [
       'No simultaneous broad security-budget acceleration; security lost share of IT as AI and cloud IT spending rebounded.',
     limitations:
       'Self-reported survey; 2024 contemporaneous report said 13.2%; 2025 restated methodology. AI/cloud attribution is IANS interpretation.',
-    conflictingEvidenceIds: ['C1', 'C3', 'D2'],
+    conflictingEvidenceIds: ['C1', 'C2', 'C3', 'D2', 'A1b'],
     artifactLabel: 'SEC-MARKET-SIG-SRC-002 / D1',
     tags: ['buyer', 'budget'],
   },
@@ -389,7 +405,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     sourceClass: 'INDEPENDENT',
     interpretation: 'Category intent strengthened later in the sequence; not broad realized spend.',
     limitations: 'Intent and self-reported tool use are not realized market spend.',
-    conflictingEvidenceIds: ['D1'],
+    conflictingEvidenceIds: ['D1', 'LAG-NO-CALL'],
     artifactLabel: 'SEC-MARKET-SIG-SRC-002 / D2',
     tags: ['buyer', 'intent', 'ai-security'],
   },
@@ -473,6 +489,20 @@ export const evidenceRecords: EvidenceRecord[] = [
       'Governance, identity, resilience, and third-party requirements can move independently of infrastructure.',
     limitations: 'Requirements and insurance controls do not establish product spending.',
     conflictingEvidenceIds: [],
+    sourceAttributions: [
+      {
+        organization: 'SEC',
+        publicationDate: '2023-07-26',
+        economicPeriod: 'Final rule effective 2023-12-18',
+        canonicalUrl: 'https://www.sec.gov/files/rules/final/2023/33-11216.pdf',
+      },
+      {
+        organization: 'EIOPA (DORA)',
+        publicationDate: '2025-01-17',
+        economicPeriod: 'Application date',
+        canonicalUrl: 'https://www.eiopa.europa.eu/digital-operational-resilience-act-dora_en',
+      },
+    ],
     artifactLabel: 'SEC-MARKET-SIG-SRC-002 / D6',
     tags: ['regulation', 'insurance'],
   },
@@ -490,6 +520,21 @@ export const evidenceRecords: EvidenceRecord[] = [
     interpretation: 'Identity, posture, and data-security need can be incident-driven.',
     limitations: 'Vendor-authored research and selected incidents are not a representative loss series.',
     conflictingEvidenceIds: [],
+    sourceAttributions: [
+      {
+        organization: 'Mandiant',
+        publicationDate: '2024-06',
+        economicPeriod: 'Snowflake tenant compromise',
+        canonicalUrl:
+          'https://cloud.google.com/blog/topics/threat-intelligence/unc5537-snowflake-data-theft-extortion',
+      },
+      {
+        organization: 'Wiz',
+        publicationDate: '2025-01-29',
+        economicPeriod: 'DeepSeek exposed database',
+        canonicalUrl: 'https://www.wiz.io/blog/wiz-research-uncovers-exposed-deepseek-database-leak',
+      },
+    ],
     artifactLabel: 'SEC-MARKET-SIG-SRC-002 / D7',
     tags: ['incident', 'identity', 'data-security'],
   },
@@ -506,7 +551,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     interpretation:
       'The evidence supports a descriptive sequence, not a constant infrastructure-to-security lag.',
     limitations:
-      'One broad mature infrastructure impulse; second impulse right-censored; incompatible metric definitions across vendors.',
+      'One broad mature infrastructure impulse; later wave still deploying at freeze; incompatible metric definitions across vendors.',
     conflictingEvidenceIds: ['A1b', 'C3', 'D2'],
     artifactLabel: 'SEC-MARKET-SIG-BL-002',
     tags: ['lag', 'no-call', 'methodology'],

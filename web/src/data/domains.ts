@@ -4,7 +4,7 @@ export const securityDomains: SecurityDomain[] = [
   {
     id: 'network-sase',
     name: 'Network / SASE',
-    coverage: 'PASS',
+    coverage: 'PASS_WITH_LIMITATION',
     posture: 'PREPARE',
     momentum: 'accelerating',
     evidenceStrength: 'medium',
@@ -26,13 +26,13 @@ export const securityDomains: SecurityDomain[] = [
     momentum: 'mixed-positive',
     evidenceStrength: 'low',
     summary:
-      'Cloud and AI-capacity investment is broad; IANS ranks cloud security among first incremental priorities; Alphabet allocated $32B to Wiz. No clean three-company domain-specific financial series exists.',
+      'Cloud and AI-capacity investment continues; Alphabet announced a ~$32B Wiz acquisition. Cloud incidents expose posture gaps. No clean three-company domain-specific financial series exists.',
     watchItems: [
       'Workload migration and AI-capacity activation milestones',
       'Native cloud controls vs. residual specialist gaps',
       'CNAPP consolidation and platform absorption',
     ],
-    supportingEvidenceIds: ['D5a', 'D1', 'D7'],
+    supportingEvidenceIds: ['D5a', 'D7'],
     counterEvidenceIds: ['D1'],
   },
   {
@@ -49,7 +49,7 @@ export const securityDomains: SecurityDomain[] = [
       'MFA, credential, and delegated-access gaps from incidents',
       'Hygiene bundling vs. specialist spend',
     ],
-    supportingEvidenceIds: ['D5b', 'C7', 'D7', 'D6'],
+    supportingEvidenceIds: ['D5b', 'D7', 'D6'],
     counterEvidenceIds: ['C7'],
   },
   {
@@ -84,7 +84,7 @@ export const securityDomains: SecurityDomain[] = [
       'Organic bridges after major acquisitions',
     ],
     supportingEvidenceIds: ['C1', 'C2', 'D4'],
-    counterEvidenceIds: ['C6', 'D4'],
+    counterEvidenceIds: ['C6'],
   },
   {
     id: 'ai-runtime',
@@ -101,6 +101,6 @@ export const securityDomains: SecurityDomain[] = [
       'Realized specialist bookings vs. intent surveys',
     ],
     supportingEvidenceIds: ['D2', 'D3'],
-    counterEvidenceIds: ['D1', 'D3'],
+    counterEvidenceIds: ['D1'],
   },
 ]

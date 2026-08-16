@@ -1,15 +1,15 @@
 ---
 project: Security Market Signal Pipeline
 stage: Deliver
-updated: 2026-08-15
+updated: 2026-08-16
 ---
 
 # Status
 
 ## Current State
 
-- **Phase:** Gate S1 implementation specification accepted — implementation authorization pending
-- **Focus:** bounded seven-row replay specification; identities and implementation remain blocked
+- **Phase:** Security Market Pulse web MVP ready for owner review
+- **Focus:** user-visible market briefing, evidence access, and product feedback
 
 ## Project truth
 
@@ -25,6 +25,8 @@ updated: 2026-08-15
 | Shadow collection design (`SEC-MARKET-SHADOW-001` v0.2) | Accepted; Gate S0 passed |
 | Gate S1 implementation specification (`SEC-MARKET-SHADOW-S1-SPEC-001` v0.2) | Accepted and independently reviewed |
 | Gate S1 implementation and replay | Not started and not authorized |
+| Security Market Pulse web MVP (`SEC-MARKET-WEB-001`) | Implemented; evidence and product review passed |
+| Website deployment | Not started and not authorized |
 | ADF scaffolding | Initialized 2026-08-15 |
 | Production infrastructure | Not started and not authorized |
 | Autonomous signal pipeline | Not authorized |
@@ -38,6 +40,9 @@ updated: 2026-08-15
 - [x] Design the human-verified shadow collection process
 - [x] Pass architecture, governance, and operator review
 - [x] Produce and independently review the Gate S1 implementation specification
+- [x] Implement and independently review the evidence-linked web MVP
+- [ ] Owner product review and feedback
+- [ ] Separate website deployment decision
 - [ ] Owner decision on implementation
 - [ ] Assign distinct human verifier and promotion authority
 
@@ -45,6 +50,7 @@ updated: 2026-08-15
 
 - Whether to authorize implementation of the Gate S1 specification
 - Named human verifier and separate promotion authority
+- Whether and where to deploy the website
 
 ## Blockers
 
@@ -62,3 +68,4 @@ updated: 2026-08-15
 | 2026-08-15 | Episode 002 v0.2 passed evidence, strategy, and practitioner review; fixed-lag result remains `NO-CALL` |
 | 2026-08-15 | Human-verified shadow collection design v0.2 and seven-row replay corpus passed Gate S0 review; implementation remains unauthorized |
 | 2026-08-15 | Gate S1 implementation specification v0.2 passed architecture, security, and builder review; implementation and replay remain unauthorized |
+| 2026-08-16 | Security Market Pulse web MVP implemented; unsupported chart data corrected; evidence and leadership-product reviews passed |

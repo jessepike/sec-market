@@ -12,6 +12,13 @@ export type Posture = 'PREPARE' | 'INVESTIGATE' | 'NO-CALL'
 export type CoverageResult = 'PASS' | 'PASS_WITH_LIMITATION' | 'INSUFFICIENT_COVERAGE' | 'NO-CALL'
 export type Momentum = 'accelerating' | 'stable-positive' | 'stable-to-decelerating' | 'mixed-positive' | 'weak'
 
+export interface SourceAttribution {
+  organization: string
+  publicationDate: string
+  economicPeriod: string
+  canonicalUrl?: string
+}
+
 export interface EvidenceRecord {
   id: string
   title: string
@@ -26,6 +33,8 @@ export interface EvidenceRecord {
   conflictingEvidenceIds: string[]
   artifactLabel: string
   tags: string[]
+  /** Per-source dates when one record combines multiple organizations */
+  sourceAttributions?: SourceAttribution[]
 }
 
 export interface SummaryCard {
@@ -35,14 +44,6 @@ export interface SummaryCard {
   detail: string
   disposition: string
   evidenceIds: string[]
-}
-
-export interface MarketLayerSeries {
-  quarter: string
-  infrastructure: number | null
-  hyperscaler: number | null
-  security: number | null
-  buyerBudget: number | null
 }
 
 export interface SecurityDomain {
@@ -72,15 +73,5 @@ export interface ConversationPrompt {
   audience: string
   prompt: string
   whenToUse: string
-  evidenceIds: string[]
-}
-
-export interface MarketCall {
-  headline: string
-  subhead: string
-  meaning: string
-  confidenceNote: string
-  noCallBoundaries: string[]
-  changeTriggers: string[]
   evidenceIds: string[]
 }

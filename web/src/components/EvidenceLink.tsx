@@ -1,4 +1,5 @@
-import { useEvidence } from '../context/EvidenceContext'
+import { useEvidence } from '../context/useEvidence'
+import { evidenceAriaLabel, evidenceSourceLabel } from '../data/evidenceLabels'
 import { FileSearch } from 'lucide-react'
 
 interface EvidenceLinkProps {
@@ -7,20 +8,20 @@ interface EvidenceLinkProps {
   className?: string
 }
 
-export function EvidenceLink({ ids, label = 'View evidence', className = '' }: EvidenceLinkProps) {
+export function EvidenceLink({ ids, label, className = '' }: EvidenceLinkProps) {
   const { openEvidence } = useEvidence()
   const idList = Array.isArray(ids) ? ids : [ids]
+  const displayLabel = label ?? evidenceSourceLabel(idList)
 
   return (
     <button
       type="button"
       className={`evidence-link ${className}`}
       onClick={() => openEvidence(idList)}
-      aria-label={`${label} (${idList.join(', ')})`}
+      aria-label={evidenceAriaLabel(idList, label)}
     >
       <FileSearch size={14} aria-hidden="true" />
-      <span>{label}</span>
-      <span className="evidence-link-ids">{idList.join(', ')}</span>
+      <span>{displayLabel}</span>
     </button>
   )
 }

@@ -7,7 +7,7 @@ export const conversationPrompts: ConversationPrompt[] = [
     prompt:
       'When cloud or AI capacity becomes operational, what applications, sensitive data, and machine identities go live — and on what timeline?',
     whenToUse:
-      'Next account plan, QBR, or client discussion involving cloud/AI capacity. Stop at INVESTIGATE if no relevant activation exists.',
+      'Next account plan, QBR, or client discussion involving cloud/AI capacity. Pause if no relevant activation is planned.',
     evidenceIds: ['LAG-NO-CALL', 'A1b', 'D3'],
   },
   {
@@ -15,7 +15,7 @@ export const conversationPrompts: ConversationPrompt[] = [
     audience: 'Security practice lead',
     prompt:
       'For this workload: what do native cloud controls already cover, and what residual gaps remain unknown?',
-    whenToUse: 'Step 1 identifies relevant cloud or AI capacity activation.',
+    whenToUse: 'After identifying cloud or AI capacity activation on the account.',
     evidenceIds: ['D5a', 'D7'],
   },
   {

@@ -1,18 +1,54 @@
-import type { MarketCall, MarketLayerSeries, SummaryCard } from './types'
+import type { SummaryCard } from './types'
+import { chartLayerPoints } from './derivePanel'
+import { BUYER_BUDGET_GROWTH_ANNUAL, BUYER_SECURITY_SHARE_IT } from './panelRaw'
+
+export interface MarketActions {
+  doItems: string[]
+  avoidItems: string[]
+}
+
+export interface MarketCall {
+  headline: string
+  subhead: string
+  whatChanged: string[]
+  actions: MarketActions
+  meaning: string
+  confidenceNote: string
+  noCallBoundaries: string[]
+  changeTriggers: string[]
+  evidenceIds: string[]
+}
 
 export const marketCall: MarketCall = {
   headline: 'Infrastructure is accelerating. A stable security-spending lag is not measurable.',
   subhead:
     'Use infrastructure activation as an account qualification trigger — not as proof of a broad cybersecurity boom.',
+  whatChanged: [
+    'Infrastructure spend is still rising — NVIDIA Data Center revenue went from $4.28B to $75.25B across the frozen window.',
+    'Broad security budgets did not keep pace: IANS reports 4% average growth in 2025 and security fell to 10.9% of IT spend.',
+    'Some security categories strengthened later (network/SASE, selected data vendors, AI-protection intent) — for different reasons, not one uniform wave.',
+  ],
+  actions: {
+    doItems: [
+      'Ask when cloud/AI capacity, sensitive data, and machine identities go live.',
+      'Refresh cloud, identity, and data qualification views for exposed accounts.',
+      'Tie network/SASE talk to observed refresh — not assumed lag capture.',
+    ],
+    avoidItems: [
+      'Claiming a market-wide cybersecurity boom or a stable 0–8 quarter lag.',
+      'Scaling broad GTM without realized buyer spend and organic vendor breadth.',
+      'Treating Wiz or CyberArk acquisitions as proof of customer spend.',
+    ],
+  },
   meaning:
     'The infrastructure build is real and still accelerating. Security evidence is mixed across refresh, recovery, platformization, intent, and selected organic growth. Prepare bounded, domain-specific readiness only where a client has relevant exposure.',
   confidenceNote:
     'High confidence on infrastructure acceleration; high confidence that broad security-budget response through 2025 was absent or weakened; medium confidence on selected domain strengthening in 2025–2026.',
   noCallBoundaries: [
-    'Stable 0–8-quarter infrastructure-to-security lag: NO-CALL',
-    'Domain-specific infrastructure lag: NO-CALL',
-    'AI compression of the lag: NO-CALL',
-    'Broad cybersecurity-boom motion: not supported',
+    'Stable 0–8-quarter infrastructure-to-security lag',
+    'Domain-specific infrastructure lag',
+    'AI compression of the lag',
+    'Broad cybersecurity-boom motion',
   ],
   changeTriggers: [
     'Realized security-budget growth and rebound in security share of IT',
@@ -47,39 +83,41 @@ export const summaryCards: SummaryCard[] = [
     label: 'Infrastructure-to-security lag',
     headline: 'NO-CALL',
     detail:
-      'Only one mature broad infrastructure impulse is observable; the second impulse is right-censored. Fourteen quarters at most — insufficient for a stable lag estimate.',
-    disposition: 'NO-CALL',
+      'Only one mature broad infrastructure impulse is observable; a later wave is still deploying. Fourteen quarters at most — not enough for a stable lag estimate.',
+    disposition: 'Sequence described; lag band not called',
     evidenceIds: ['LAG-NO-CALL', 'D1'],
   },
   {
     id: 'confidence',
-    label: 'Decision confidence',
-    headline: 'Qualification trigger — high readiness',
+    label: 'How to use this',
+    headline: 'Good for account questions',
     detail:
-      'Using infrastructure activation as a reversible account question is high-readiness. Scaling a broad GTM campaign or vendor selection is not authorized by this episode.',
-    disposition: 'Action readiness: high for conversation; low for broad GTM',
+      'Safe to use infrastructure activation as a reversible qualification question. Not safe to launch broad campaigns or pick vendors from this evidence alone.',
+    disposition: 'High readiness for conversation; low for broad GTM',
     evidenceIds: ['LAG-NO-CALL', 'D1', 'D2'],
   },
 ]
 
-/** Indexed to 2023-Q1 = 100. Layers are within-company direction checks, not additive. */
-export const marketLayerSeries: MarketLayerSeries[] = [
-  { quarter: '2023-Q1', infrastructure: 100, hyperscaler: 100, security: 100, buyerBudget: 6 },
-  { quarter: '2023-Q2', infrastructure: 241, hyperscaler: 128, security: 106, buyerBudget: null },
-  { quarter: '2023-Q3', infrastructure: 339, hyperscaler: 138, security: 113, buyerBudget: null },
-  { quarter: '2023-Q4', infrastructure: 430, hyperscaler: 147, security: 121, buyerBudget: null },
-  { quarter: '2024-Q1', infrastructure: 527, hyperscaler: 166, security: 131, buyerBudget: 8 },
-  { quarter: '2024-Q2', infrastructure: 613, hyperscaler: 201, security: 138, buyerBudget: null },
-  { quarter: '2024-Q3', infrastructure: 718, hyperscaler: 228, security: 145, buyerBudget: null },
-  { quarter: '2024-Q4', infrastructure: 831, hyperscaler: 268, security: 153, buyerBudget: null },
-  { quarter: '2025-Q1', infrastructure: 914, hyperscaler: 284, security: 158, buyerBudget: 4 },
-  { quarter: '2025-Q2', infrastructure: 960, hyperscaler: 339, security: 167, buyerBudget: null },
-  { quarter: '2025-Q3', infrastructure: 1197, hyperscaler: 370, security: null, buyerBudget: null },
-  { quarter: '2025-Q4', infrastructure: 1456, hyperscaler: 421, security: 176, buyerBudget: null },
-  { quarter: '2026-Q1', infrastructure: 1758, hyperscaler: 467, security: 200, buyerBudget: null },
+export { chartLayerPoints }
+
+export const chartEvidenceIds = [
+  'A1a',
+  'A1b',
+  'B1',
+  'B2',
+  'B3',
+  'C1',
+  'C3',
+  'C4',
+  'C6',
+  'C7',
 ]
 
-export const chartEvidenceIds = ['A1a', 'A1b', 'B1', 'B2', 'B3', 'C1', 'D1']
-
 export const chartMetricNote =
-  'Infrastructure: NVIDIA Data Center revenue indexed to 2023-Q1. Hyperscaler: median of Microsoft, Amazon, and Alphabet quarterly cash capex indexed to 2023-Q1 (not additive). Security: median indexed revenue of CrowdStrike, Okta, Fortinet, Zscaler, and Check Point where reported. Buyer: IANS average annual security-budget growth (%).'
+  'All three charts share the same log-scale index axis (50–1800; 2023-Q1 = 100) so an 18× move and a 2× move look proportionally different. Infrastructure: NVIDIA Data Center revenue. Hyperscaler: median indexed Microsoft, Amazon, and Alphabet quarterly cash capex (not additive). Security: median indexed CrowdStrike, Okta, Fortinet, Zscaler, and Check Point revenue where reported. Gaps remain null — no interpolation.'
+
+export const buyerBudgetAnnual = [2023, 2024, 2025].map((year) => ({
+  year,
+  budgetGrowth: BUYER_BUDGET_GROWTH_ANNUAL[year],
+  securityShareIt: BUYER_SECURITY_SHARE_IT[year],
+}))

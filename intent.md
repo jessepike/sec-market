@@ -3,12 +3,12 @@
 ## Control
 
 - **Intent ID:** `SEC-MARKET-001`
-- **Version:** `1.0`
+- **Version:** `1.1`
 - **Lifecycle state:** `accepted`
 - **Gate 1:** `passed`
-- **Supersedes:** none
+- **Supersedes:** `SEC-MARKET-001` v1.0
 - **Created:** 2026-08-15
-- **Last reconciled:** 2026-08-15 — `SEC-MARKET-RECON-001`; no semantic intent change
+- **Last reconciled:** 2026-08-16 — website selected as the MVP delivery mechanism
 
 ## Compressed governing intent
 
@@ -88,7 +88,7 @@ Completing agents, a website, reports, or other deliverables alone does not cons
 
 | Unknown | Blocking? | Why it matters | Resolution path |
 |---|---|---|---|
-| Presentation format, including a website or newsletters | no | Affects accessibility, not the intended outcome | Decide during downstream design |
+| Longer-term distribution beyond the website, including newsletters | no | May extend reach after the core website proves useful | Learn from actual use |
 | Autonomous-agent architecture | no | Affects implementation and maintainability | Decide during downstream design |
 | Detailed confidence and evidence-weighting rubric | no | Affects consistency and trust | Develop and test without changing the transparency boundary |
 | Audience- or region-specific views | no | May improve relevance after the core proves useful | Learn from actual use |
@@ -103,7 +103,7 @@ Completing agents, a website, reports, or other deliverables alone does not cons
 | National and global market observation | Decided | Source and analysis scope | New accepted intent version |
 | Transparent, calibrated judgments | Decided | Reasoning and output behavior | New accepted intent version |
 | Autonomous worker agents and reasoning layer | Exploring | Implementation | Downstream design decision |
-| Public website | Exploring | Distribution | Evidence that it is an appropriate delivery mechanism |
+| Responsive public-data website | Decided | MVP presentation and distribution | New accepted intent version |
 | Audience- or region-specific views and newsletters | Exploring | Presentation and distribution | Demonstrated user need |
 | Partner-risk monitor | Exploring | Potential backlog | Separate prioritization and scope decision |
 | Confidential client overlay | Exploring | Potential future product boundary | Explicit reconciliation and governance decision |
@@ -117,12 +117,21 @@ Completing agents, a website, reports, or other deliverables alone does not cons
 - **Accepted by:** project owner
 - **Date:** 2026-08-15
 
+### Delivery Acceptance
+
+- **Result:** accepted
+- **Statement:** “yes this represents what i want to use”
+- **Requirement:** maintain attribution and access to supporting research and evidence
+- **Date:** 2026-08-16
+
 ### AI Readiness
 
 - **Result:** ready
 - **Statement:** “Yes. I have sufficient context to reason and act against this intent without filling consequential gaps with assumptions.”
 - **Agent or model:** GPT-5.6 Sol
 - **Date:** 2026-08-15
+- **Reconfirmed for v1.1:** ready — website delivery, attribution, and evidence-access requirements are explicit
+- **Reconfirmed:** 2026-08-16
 
 ## Traceability and handoff
 
@@ -130,6 +139,7 @@ Completing agents, a website, reports, or other deliverables alone does not cons
 - **Downstream items governed:** Existing specifications require review against this intent. In particular, the build spec's partner-risk-first Phase 1 conflicts with the accepted priority and is not authorized merely by its presence in that document.
 - **Reconciliation events:** `SEC-MARKET-RECON-001` resolved 2026-08-15; Episode 001 reclassified as thematic, governing intent unchanged
 - **Current operational validation:** `SEC-MARKET-SIG-002` v0.2 completed and independently reviewed; stable infrastructure-to-security lag remains `NO-CALL`
+- **Current MVP delivery:** `SEC-MARKET-WEB-001` — responsive evidence-linked website
 - **Fresh-agent minimum context:** [README.md](README.md), this artifact, [intent-reconciliation-2026-08-15.md](docs/active/intent-reconciliation-2026-08-15.md), the Episode 002 packet in [docs/active/](docs/active/), and [outcome-architecture.md](docs/reference/outcome-architecture.md). Consult historical specifications only for hypotheses and proposed mechanisms.
 
 ## Revision record
@@ -137,6 +147,7 @@ Completing agents, a website, reports, or other deliverables alone does not cons
 | Version | State | Change rationale | Human Acceptance | AI Readiness | Supersession impact |
 |---|---|---|---|---|---|
 | 1.0 | accepted | Establish governing authority for the new project | accepted, 2026-08-15 | ready, 2026-08-15 | Existing working and build specifications require downstream review |
+| 1.1 | accepted | Promote the responsive evidence-linked website from Exploring to Decided for MVP delivery | accepted, 2026-08-16 | ready, 2026-08-16 | Website becomes the primary MVP consumption surface; purpose and evidence boundaries unchanged |
 
 ## Gate result
 

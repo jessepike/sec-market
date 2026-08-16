@@ -1,0 +1,23 @@
+---
+description: Route Security Market Signal work to proportionate models and limit unnecessary agent fan-out
+alwaysApply: true
+---
+
+# Model Routing
+
+- Main human alignment and consequential orchestration: GPT-5.6 Sol or Claude Sonnet high.
+- Project lead orchestration: `sec-market-lead` on Claude Sonnet high.
+- Normal implementation and test work: `sec-market-builder` on Composer 2.5.
+- Fast independent research or mechanical investigation: Grok 4.6.
+- Defect-first evidence/product review: `sec-market-reviewer` on Claude Sonnet high.
+- Claude Opus: only consequential architecture, intent reconciliation, security boundary, or final high-risk council review.
+
+Controls:
+
+- Pin worker models explicitly; do not inherit an expensive lead model by default.
+- Use one worker by default and at most two concurrent workers unless streams are independent.
+- Do not use a subagent for a task the lead can finish in one short pass.
+- Lower reasoning effort for mechanical implementation and test work.
+- Every delegated task must name scope, output, prohibited changes, and verification.
+- Check Cursor’s spending dashboard rather than assuming plan usage.
+
