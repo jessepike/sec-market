@@ -153,4 +153,4 @@ The website must maintain attribution and access to supporting research and evid
 
 The React/TypeScript static website presents the accepted Episode 002 call, derived market-layer data, domain postures, latest signals, account prompts, and an evidence library with source links, excerpts, limitations, conflicting evidence, and research-artifact access.
 
-Evidence and product reviews passed after correcting unsupported chart data and first-screen usability. Local build and lint pass. Deployment remains a later explicit decision.
+Evidence, accessibility, and leadership-product reviews passed after correcting unsupported chart data, evidence navigation, modal accessibility, mobile behavior, and first-screen usability. Local build and lint pass. Deployment remains a later explicit decision.

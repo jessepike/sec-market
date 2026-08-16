@@ -4,10 +4,10 @@
 
 - **Product ID:** `SEC-MARKET-WEB-001`
 - **Version:** `0.1`
-- **Lifecycle state:** `accepted — implementation authorized`
+- **Lifecycle state:** `implemented — owner review pending`
 - **Owner acceptance:** “yes this represents what i want to use”
 - **Evidence requirement:** “ensure it maintains attribution and access to research and supporting evidence if people want to validate or dive deeper”
-- **Governing Intent:** `SEC-MARKET-001` v1.0
+- **Governing Intent:** `SEC-MARKET-001` v1.1
 - **Initial evidence basis:** `SEC-MARKET-SIG-002` v0.2
 
 ## Outcome
