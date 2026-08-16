@@ -8,9 +8,9 @@
 - **Gate 2:** `not independently active`
 - **Governing intent:** `SEC-MARKET-001` v1.0, accepted 2026-08-15
 - **Created:** 2026-08-15
-- **Consolidated into:** `SEC-MARKET-OA-001` v0.1 in `outcome-architecture.md`
+- **Consolidated into:** `SEC-MARKET-OA-001` v0.1 in [outcome-architecture.md](outcome-architecture.md)
 
-> **Handoff notice:** This exploratory model is retained as supporting reasoning. Its decision-episode, warranted-judgment, timely-advantage, and reasoned-uptake concepts have been reconciled into `outcome-architecture.md`, which is the sole active Gate 2 candidate.
+> **Handoff notice:** This exploratory model is retained as supporting reasoning. Its decision-episode, warranted-judgment, timely-advantage, and reasoned-uptake concepts have been reconciled into [outcome-architecture.md](outcome-architecture.md), which is the sole active Gate 2 candidate.
 
 ## Candidate minimum sufficient model
 
@@ -182,7 +182,7 @@ As currently written, the governing intent requires evidence across all three be
 |---|---|---|
 | Public evidence can provide useful lead time | Assumption under test | Existing sources support bounded experiments |
 | One common core can serve all three beneficiary groups | Assumption under test | Initial use can reveal where tuning or separation is necessary |
-| First live decision episode | Provisionally resolved in `outcome-architecture.md` | The selected security-leadership lane supports gap analysis and may be refined before final intervention selection |
+| First live decision episode | Provisionally resolved in [outcome-architecture.md](outcome-architecture.md) | The selected security-leadership lane supports gap analysis and may be refined before final intervention selection |
 | What baseline defines “early enough” or “better-timed” | Unknown | It can be defined relative to each selected decision |
 | What false-positive cost is acceptable | Unknown | It varies by reversible versus irreversible decision |
 | How client contribution will be observed without confidential data in the core | Unknown | Account-mediated observation is a viable hypothesis |
@@ -196,4 +196,4 @@ No current unknown blocks acceptance of this necessary-conditions model. An unkn
 - **Gate 2:** `consolidated into SEC-MARKET-OA-001`
 - **Historical acceptance test:** The project owner agrees that P1–P3 and C1–C4 create the minimum causal opportunity for B1 and the intended outcomes; that empirical sufficiency remains to be tested; that validation evidence and outcome evidence are correctly separated; and that the reconciliation preserves useful prior work without allowing mechanisms to govern. This wording is retained for provenance and is not the active Gate 2 acceptance question.
 - **Mechanism selection:** not authorized by this draft
-- **Next interface:** governed by `outcome-architecture.md`
+- **Next interface:** governed by [outcome-architecture.md](outcome-architecture.md)

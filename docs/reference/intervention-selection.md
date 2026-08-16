@@ -7,10 +7,10 @@
 - **Lifecycle state:** `accepted — provisional`
 - **Gate 3:** `passed — provisional`
 - **Execution readiness:** `completed — manual signal method validated once`
-- **Governing Intent:** `SEC-MARKET-001` v1.0 in `intent.md`
-- **Outcome Architecture:** `SEC-MARKET-OA-001` v0.1 in `outcome-architecture.md`
-- **Live Decision Contract:** `SEC-MARKET-DC-001` v0.1 in `decision-contract.md` — completed and sealed
-- **Execution Specification:** `SEC-MARKET-EX-001` v0.1 in `execution-specification.md` — completed
+- **Governing Intent:** `SEC-MARKET-001` v1.0 in [intent.md](../../intent.md)
+- **Outcome Architecture:** `SEC-MARKET-OA-001` v0.1 in [outcome-architecture.md](outcome-architecture.md)
+- **Live Decision Contract:** `SEC-MARKET-DC-001` v0.1 in [decision-contract.md](decision-contract.md) — completed and sealed
+- **Execution Specification:** `SEC-MARKET-EX-001` v0.1 in [execution-specification.md](execution-specification.md) — completed
 - **Market Signal Episode:** `SEC-MARKET-SIG-001` v0.2 — completed and independently reviewed
 - **Plan implementation authorized:** 2026-08-15
 - **Authorization evidence:** “Implement the plan as specified.”
@@ -207,7 +207,7 @@ These require reconciliation against the live decision contract and are not inhe
 - **Baseline:** active partner engagements with no formal comparative market posture
 - **Boundary:** one bounded public-evidence pass, reversible actions only, public intelligence core, private decision-effect record
 
-The full contract is authoritative in `decision-contract.md`.
+The full contract is authoritative in [decision-contract.md](decision-contract.md).
 
 ## Nonblocking unknowns
 

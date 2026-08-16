@@ -4,7 +4,7 @@
 **Date:** 2026-08-14
 **Supersedes:** v0.1, v0.2, v0.3
 
-> **Handoff notice:** `intent.md` is the governing authority. The accepted Gate chain and completed `SEC-MARKET-SIG-001` packet supersede this document wherever they conflict. Do not treat this file as a build order or canonical current state. Its tempo, posture, tier, coverage, and mechanism proposals remain inputs to test rather than authorized project controls.
+> **Handoff notice:** [intent.md](../../intent.md) is the governing authority. The accepted Gate chain and completed `SEC-MARKET-SIG-001` packet supersede this document wherever they conflict. Do not treat this file as a build order or canonical current state. Its tempo, posture, tier, coverage, and mechanism proposals remain inputs to test rather than authorized project controls.
 
 **Changes in v0.4:**
 - Added §5 **demand-side signal layer** — job postings, transcript term frequency, analyst category creation, startup formation. First inputs that observe buyers rather than vendors.

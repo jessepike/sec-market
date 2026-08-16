@@ -6,12 +6,12 @@
 - **Version:** `0.1`
 - **Lifecycle state:** `accepted — provisional`
 - **Gate 2:** `passed — provisional`
-- **Governing Intent:** `SEC-MARKET-001` v1.0 in `intent.md`
+- **Governing Intent:** `SEC-MARKET-001` v1.0 in [intent.md](../../intent.md)
 - **Plan implementation authorized:** 2026-08-15
 - **Authorization evidence:** “Implement the plan as specified.”
 - **Human Acceptance:** accepted 2026-08-15 — “approved.”
 - **AI Readiness:** ready
-- **Consolidates:** draft `SEC-MARKET-NC-001` v0.1 in `necessary-conditions.md`
+- **Consolidates:** draft `SEC-MARKET-NC-001` v0.1 in [necessary-conditions.md](necessary-conditions.md)
 - **Current validation:** `SEC-MARKET-SIG-001` v0.2 completed and independently reviewed
 
 ## Minimum sufficient architecture
@@ -40,7 +40,7 @@ flowchart LR
 Purpose, beneficiaries, observable success, public-data boundaries, and non-goals must be sufficiently clear.
 
 - **State:** evidenced and decided
-- **Presence:** present in `intent.md`
+- **Presence:** present in [intent.md](../../intent.md)
 - **Causal role:** prevents downstream work from substituting a deliverable, geographic cut, or narrow use case for the governing outcome.
 
 ### P2 — Real timing-sensitive decision context
@@ -64,7 +64,7 @@ Relevant national and global evidence must exist and be observable lawfully and 
 Provenance, uncertainty, alternatives, confidence, public/confidential separation, and no-forced-call rules must govern the work.
 
 - **State:** decided
-- **Presence:** present as policy in `intent.md` and reinforced by workflow spec §§6 and 10; operational detail is missing
+- **Presence:** present as policy in [intent.md](../../intent.md) and reinforced by workflow spec §§6 and 10; operational detail is missing
 - **Causal role:** makes reliance rational and allows trust to be earned rather than asserted.
 
 ## Creation conditions
@@ -162,8 +162,8 @@ These conditions recognize success. They are not permission slips to begin work.
 
 ### Present
 
-- Accepted purpose, beneficiaries, boundaries, assumptions, and observable success in `intent.md`
-- The sharper decision-episode, warranted-judgment, timely-advantage, and reasoned-uptake concepts developed in draft `necessary-conditions.md`
+- Accepted purpose, beneficiaries, boundaries, assumptions, and observable success in [intent.md](../../intent.md)
+- The sharper decision-episode, warranted-judgment, timely-advantage, and reasoned-uptake concepts developed in draft [necessary-conditions.md](necessary-conditions.md)
 - Candidate public source landscape and signal families in workflow spec §5 and build spec §2.3
 - Coverage gaps and minimum-coverage reasoning in workflow spec §§4.2 and 6.1
 - Explicit lag-thesis falsifiers in workflow spec §3
@@ -201,7 +201,7 @@ These conditions recognize success. They are not permission slips to begin work.
 - `security-signal-BUILD-SPEC-v1.0.md` is named v1.0 but identifies its contents as v1.1.
 - Existing build completion criteria measure a partner-risk mechanism rather than the accepted outcome.
 - The T0–T5 evidence-confidence concept and partner-risk alert tiers answer different questions and must not be conflated.
-- Draft `necessary-conditions.md` has been consolidated into this architecture and is retained only as supporting reasoning, not as a competing Gate 2 candidate.
+- Draft [necessary-conditions.md](necessary-conditions.md) has been consolidated into this architecture and is retained only as supporting reasoning, not as a competing Gate 2 candidate.
 
 ## Present versus missing assessment
 

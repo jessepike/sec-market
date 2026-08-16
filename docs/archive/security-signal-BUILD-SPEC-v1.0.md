@@ -1,6 +1,6 @@
 # Security Signal Pipeline — BUILD SPEC v1.1
 
-> **Handoff notice — not authorized for implementation:** `intent.md` is the governing authority. Partner-risk-first Phase 1, the Varonis backtest gate, T0–T5 scoring, West/NorCal-first delivery, and the production pipeline described here are not authorized. Use this document only as a historical mechanism proposal until a later accepted intervention explicitly promotes part of it.
+> **Handoff notice — not authorized for implementation:** [intent.md](../../intent.md) is the governing authority. Partner-risk-first Phase 1, the Varonis backtest gate, T0–T5 scoring, West/NorCal-first delivery, and the production pipeline described here are not authorized. Use this document only as a historical mechanism proposal until a later accepted intervention explicitly promotes part of it.
 
 **For:** coding session (Cowork / Codex / Claude Code)
 **Companion doc:** `security-signal-workflow-spec-v0.4.md` — that's the *reasoning* document. This is the *build* document.
@@ -32,7 +32,7 @@ Three questions were surfaced rather than answered, because they are the owner's
 
 ## 0. How to use these two documents
 
-**Historical instruction only:** do not hand this file to a coding agent as current authority. Begin with `README.md`, `intent.md`, and the current accepted episode packet.
+**Historical instruction only:** do not hand this file to a coding agent as current authority. Begin with [README.md](../../README.md), [intent.md](../../intent.md), and the current accepted episode packet in [docs/reference/](../reference/).
 
 v0.4 describes an eleven-domain analytical system with four signal layers. Handed to a builder as-is, it produces a sprawling half-finished thing. This file specifies one working slice at a time, each independently valuable.
 

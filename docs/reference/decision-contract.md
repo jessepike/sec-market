@@ -6,9 +6,9 @@
 - **Version:** `0.1`
 - **Lifecycle state:** `completed and sealed`
 - **Execution readiness:** `completed — initial pilot`
-- **Intervention Selection:** `SEC-MARKET-G3-001` v0.1 in `intervention-selection.md`
-- **Outcome Architecture:** `SEC-MARKET-OA-001` v0.1 in `outcome-architecture.md`
-- **Execution Specification:** `SEC-MARKET-EX-001` v0.1 in `execution-specification.md` — completed
+- **Intervention Selection:** `SEC-MARKET-G3-001` v0.1 in [intervention-selection.md](intervention-selection.md)
+- **Outcome Architecture:** `SEC-MARKET-OA-001` v0.1 in [outcome-architecture.md](outcome-architecture.md)
+- **Execution Specification:** `SEC-MARKET-EX-001` v0.1 in [execution-specification.md](execution-specification.md) — completed
 - **Subsequent market validation:** `SEC-MARKET-SIG-001` v0.2 — completed and independently reviewed
 - **Created:** 2026-08-15
 - **Sealed:** 2026-08-15

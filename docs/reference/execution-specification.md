@@ -12,9 +12,9 @@
 - **AI Readiness:** completed
 - **Research execution:** completed
 - **Verification:** passed by two independent reviewers 2026-08-15
-- **Decision brief:** `SEC-MARKET-DB-001` v0.1 in `ai-data-security-governance-brief.md`
-- **Evidence ledger:** `SEC-MARKET-EV-001` v0.1 in `ai-data-security-governance-evidence.md`
-- **Alternative comparison:** `SEC-MARKET-ALT-001` v0.1 in `ai-data-security-governance-alternatives.md`
+- **Decision brief:** `SEC-MARKET-DB-001` v0.1 in [ai-data-security-governance-brief.md](../archive/ai-data-security-governance-brief.md)
+- **Evidence ledger:** `SEC-MARKET-EV-001` v0.1 in [ai-data-security-governance-evidence.md](../archive/ai-data-security-governance-evidence.md)
+- **Alternative comparison:** `SEC-MARKET-ALT-001` v0.1 in [ai-data-security-governance-alternatives.md](../archive/ai-data-security-governance-alternatives.md)
 
 ## Research question
 

@@ -1,5 +1,7 @@
 # Security Market Signal Pipeline
 
+Managed with [ADF](https://github.com/your-org/acm) (Agentic Development Framework) v2 folder structure.
+
 ## Current truth
 
 This project creates public, publishable cybersecurity market intelligence that helps security leadership, account teams, and clients recognize consequential shifts early enough to make better-timed decisions.
@@ -19,18 +21,20 @@ The first genuine market-signal episode is complete:
 
 Read in this order:
 
-1. `intent.md` — governing purpose, outcome, beneficiaries, and boundaries
-2. `outcome-architecture.md` — minimum causal architecture
-3. `intervention-selection.md` — why the manual decision episode was selected
-4. `decision-contract.md` — sealed initial decision and authorization boundary
-5. `execution-specification.md` — completed initial pilot specification
-6. `market-signal-episode-001-change-manifest.md` — current packet version authority
-7. `market-signal-episode-001-brief.md` — accepted timing judgment
-8. `market-signal-episode-001-evidence.md` — frozen claim evidence
-9. `market-signal-episode-001-source-manifest.md` — source index and integrity hashes
-10. `market-signal-runbook.md` — manual repeatable method
+1. [intent.md](intent.md) — governing purpose, outcome, beneficiaries, and boundaries
+2. [outcome-architecture.md](docs/reference/outcome-architecture.md) — minimum causal architecture
+3. [intervention-selection.md](docs/reference/intervention-selection.md) — why the manual decision episode was selected
+4. [decision-contract.md](docs/reference/decision-contract.md) — sealed initial decision and authorization boundary
+5. [execution-specification.md](docs/reference/execution-specification.md) — completed initial pilot specification
+6. [market-signal-episode-001-change-manifest.md](docs/reference/market-signal-episode-001-change-manifest.md) — current packet version authority
+7. [market-signal-episode-001-brief.md](docs/reference/market-signal-episode-001-brief.md) — accepted timing judgment
+8. [market-signal-episode-001-evidence.md](docs/reference/market-signal-episode-001-evidence.md) — frozen claim evidence
+9. [market-signal-episode-001-source-manifest.md](docs/reference/market-signal-episode-001-source-manifest.md) — source index and integrity hashes
+10. [market-signal-runbook.md](docs/reference/market-signal-runbook.md) — manual repeatable method
 
-`security-signal-workflow-spec-v0.4.md` and `security-signal-BUILD-SPEC-v1.0.md` are historical source hypotheses. They are not implementation authority.
+Session state: [status.md](status.md) · Work queue: [BACKLOG.md](BACKLOG.md) · Decisions: [decisions.md](decisions.md)
+
+[security-signal-workflow-spec-v0.4.md](docs/archive/security-signal-workflow-spec-v0.4.md) and [security-signal-BUILD-SPEC-v1.0.md](docs/archive/security-signal-BUILD-SPEC-v1.0.md) are historical source hypotheses. They are not implementation authority.
 
 ## Project state
 

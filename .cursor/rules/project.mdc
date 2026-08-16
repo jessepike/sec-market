@@ -1,0 +1,20 @@
+---
+description: Security Market Signal Pipeline — ADF project rules
+globs:
+  - "**/*"
+---
+
+# Security Market Signal Pipeline
+
+Follow [AGENTS.md](../../AGENTS.md) for project context and the context map.
+
+## Authority
+
+Read [README.md](../../README.md) authority order before acting. [intent.md](../../intent.md) is immutable without explicit owner permission.
+
+## Constraints
+
+- Public, publishable evidence only in the initial core
+- No production infrastructure or autonomous pipeline without explicit authorization
+- Do not read [docs/archive/](../../docs/archive/) unless instructed
+- Update [status.md](../../status.md) at session end; log decisions in [decisions.md](../../decisions.md)
