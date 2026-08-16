@@ -77,3 +77,27 @@ Current supporting authorities:
 - `SEC-MARKET-RUN-VAL-002` — second-domain validation overlay for frozen runbook v0.2
 
 These records preserve the frozen Episode 001 packet while making current handoff state explicit.
+
+**D-13 · 2026-08-15 — Human-verified shadow collection design authorized.**
+
+Owner selection: “design of a human-verified shadow collection process.”
+
+Authorization was limited to design. It did not authorize a collector, storage implementation, replay, live cycle, scheduler, database, publication, or automated evidence promotion.
+
+**D-14 · 2026-08-15 — Shadow collection design v0.2 accepted; Gate S0 passed.**
+
+`SEC-MARKET-SHADOW-001` v0.2 and `SEC-MARKET-SHADOW-CORPUS-001` v0.1 passed independent architecture, governance, and operator reviews.
+
+Version authority: `SEC-MARKET-SHADOW-MAN-001`.
+
+The accepted design:
+
+- limits the first slice to seven primary financial facts;
+- requires human-only verification and a different human promotion authority;
+- makes blind bulk promotion structurally invalid;
+- preserves source, definition, omission, and failure provenance;
+- writes only append-only shadow evidence;
+- prohibits automated posture, publication, and run closure; and
+- keeps S1–S3 manually triggered.
+
+The next possible step is a bounded Gate S1 replay implementation specification. It requires separate owner authorization and assignment of two distinct human identities. No implementation or replay is authorized by this decision.

@@ -2,7 +2,7 @@
 
 Canonical work queue for the Security Market Signal Pipeline. Owner decisions live in [decisions.md](decisions.md). Nothing here is authorized merely by appearing in this file unless [README.md](README.md) or [intent.md](intent.md) already authorize it.
 
-## Active — next authorized work
+## Completed episode
 
 ### SEC-002 — Test infrastructure-to-security demand lag
 
@@ -29,15 +29,31 @@ Run `SEC-MARKET-SIG-002` to determine whether infrastructure and AI-capex accele
 
 **Not authorized by this work:** production infrastructure or automated posture judgment
 
-## Pending owner authorization
+## Completed design
 
 ### SEC-003 — Human-verified shadow mode exploration
 
-Consider collection and normalization mechanics for human-verified shadow mode only after a second episode passes.
+Design a human-verified shadow collection process after the second episode passes.
 
 **Eligibility condition:** satisfied by SEC-002 completion and independent review
 
-**Authorization state:** not authorized; requires a separate owner decision
+**Result:** `SEC-MARKET-SHADOW-001` v0.2 and replay corpus v0.1 accepted; Gate S0 passed
+
+## Pending owner authorization
+
+### SEC-004 — Gate S1 replay implementation specification
+
+Specify—but do not yet run—the bounded seven-row replay implementation.
+
+**Requires:**
+
+- explicit owner authorization;
+- named human verifier and separate promotion authority;
+- implementation choices for runtime and storage;
+- replay tests against `SEC-MARKET-SHADOW-CORPUS-001`; and
+- no scheduler, live run, or automated promotion.
+
+**Authorization state:** not authorized
 
 ## Not authorized
 

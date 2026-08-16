@@ -47,7 +47,10 @@ Read in this order:
 11. [intervention-selection.md](docs/reference/intervention-selection.md) — why the manual decision episode was selected
 12. [market-signal-runbook.md](docs/reference/market-signal-runbook.md) — frozen v0.2 manual method
 13. [market-signal-runbook-validation.md](docs/active/market-signal-runbook-validation.md) — current second-domain validation authority
-14. [market-signal-episode-001-change-manifest.md](docs/reference/market-signal-episode-001-change-manifest.md) — frozen Episode 001 version authority
+14. [shadow-collection-design-change-manifest.md](docs/active/shadow-collection-design-change-manifest.md) — shadow design version authority
+15. [shadow-collection-design-v0.2.md](docs/active/shadow-collection-design-v0.2.md) — accepted design-only shadow process
+16. [shadow-replay-corpus-v0.1.md](docs/active/shadow-replay-corpus-v0.1.md) — accepted seven-row Gate S1 oracle
+17. [market-signal-episode-001-change-manifest.md](docs/reference/market-signal-episode-001-change-manifest.md) — frozen Episode 001 version authority
 
 Session state: [status.md](status.md) · Work queue: [BACKLOG.md](BACKLOG.md) · Decisions: [decisions.md](decisions.md)
 
@@ -64,14 +67,16 @@ Session state: [status.md](status.md) · Work queue: [BACKLOG.md](BACKLOG.md) ·
 | Episode 001 — agentic runtime readiness | Completed and independently reviewed; reclassified as thematic validation |
 | Episode 002 — infrastructure-to-security lag | Completed and independently reviewed |
 | Manual runbook | Exercised across two materially different episodes; second-domain gate passed |
+| Human-verified shadow collection design | Gate S0 passed; design accepted |
+| Gate S1 replay implementation | Not started and not authorized |
 | Production collectors, database, scheduler, website, or digest | Not started and not authorized |
 | Autonomous signal pipeline | Not authorized |
 
 ## Next authorized action
 
-Review the accepted Episode 002 brief and decide whether to authorize a separate human-verified shadow-mode design. No collection build or automation is authorized by Episode 002 alone.
+Review the accepted [shadow collection design](docs/active/shadow-collection-design-v0.2.md) and decide whether to authorize a bounded Gate S1 replay implementation specification.
 
-Episode 002 passed, and [market-signal-runbook-validation.md](docs/active/market-signal-runbook-validation.md) records shadow-mode eligibility. Design still requires a separate owner authorization. Posture judgment and authorization remain human-steered.
+The design and replay corpus are complete. No collector, storage implementation, replay run, live cycle, scheduler, or automation is authorized. Posture judgment and promotion remain human-controlled.
 
 ## Not authorized
 
