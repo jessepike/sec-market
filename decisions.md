@@ -134,3 +134,23 @@ The accepted specification selects:
 - a complete negative/bypass test matrix.
 
 Implementation remains unauthorized. Fixture capture/source retrieval and the replay run each require later separate authorization. The named human verifier and different promotion authority remain unset.
+
+**D-17 · 2026-08-16 — Responsive website selected as the MVP delivery mechanism.**
+
+Owner acceptance: “yes this represents what i want to use.”
+
+The website must maintain attribution and access to supporting research and evidence for users who want to validate or investigate a claim. This promotes the website from Exploring to Decided in Governing Intent v1.1 without changing the project’s purpose or public-evidence boundary.
+
+**D-18 · 2026-08-16 — Project lead and model-routing team established.**
+
+- `sec-market-lead`: Claude Sonnet high, outcome and orchestration
+- `sec-market-builder`: Composer 2.5, implementation
+- `sec-market-reviewer`: Claude Sonnet high, read-only review
+- Claude Opus reserved for consequential architecture or final high-risk review
+- One worker by default; at most two concurrent workers unless independent
+
+**D-19 · 2026-08-16 — Security Market Pulse web MVP completed for local review.**
+
+The React/TypeScript static website presents the accepted Episode 002 call, derived market-layer data, domain postures, latest signals, account prompts, and an evidence library with source links, excerpts, limitations, conflicting evidence, and research-artifact access.
+
+Evidence and product reviews passed after correcting unsupported chart data and first-screen usability. Local build and lint pass. Deployment remains a later explicit decision.
