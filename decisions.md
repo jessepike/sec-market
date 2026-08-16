@@ -169,3 +169,65 @@ Effective immediately:
 - Automatic council/reviewer/verifier launches are disabled.
 
 The owner must switch the main chat model to Composer 2.5 in Cursor; agents cannot change the parent model from inside a session.
+
+**D-21 · 2026-08-16 — Grok restored to the Cursor Models pool.**
+
+Owner confirmed Grok is included in the same Cursor Models pool as Composer. The emergency Composer-only hold on Grok is lifted.
+
+Effective immediately:
+
+- Lead / orchestrator / thinking: Grok 4.6 (`grok-4.6` frontmatter; `cursor-grok-4.6-high-fast` for Task).
+- Worker / implementer / routine review: Composer 2.5 (`composer-2.5` frontmatter; `composer-2.5-fast` for Task).
+- GPT, Claude, Gemini, and other Other Models invocations still require explicit owner authorization.
+- Single-worker default, no automatic council launches, and no `inherit`/omitted Task models remain in force.
+
+This aligns the project with the global Ultra model-routing rule.
+
+**D-22 · 2026-08-16 — Pulse is a frozen edition with headline-first depth.**
+
+The website is a dated edition, not a live feed. Old data is demoted, not deleted: current on the scorecard, still-true context in Background, superseded prints in evidence only, acquired vendors frozen and annotated.
+
+Capital activity (M&A and funding) shows one section read and five headlines; notes and sources expand on the row. Remaining window events and last-disclosed raises stay collapsed.
+
+Refresh is manual: earnings clusters, material closes or raises, and Watch-next falsifiers. Not a weekly news cycle. Raises and deal values are not ARR.
+
+External reviewers start at [web-mvp-external-review-brief.md](docs/active/web-mvp-external-review-brief.md). Deploy remains a separate track.
+
+**D-23 · 2026-08-16 — External review P1 fixes before public ship.**
+
+Research-artifact links no longer point at a private GitHub repo; packet labels are text and canonical sources stay in the drawer. Network / SASE is capped at PREPARE, matching Episode 002. Tempo and Method guardrails stack on small screens instead of hiding. Scorecard cards are current prints only; no-series names collapse under the group.
+
+**D-24 · 2026-08-16 — Render the written judgment; prints become a table.**
+
+The overview contract fields in `market.ts` (what changed, do/avoid, meaning, confidence, no-call boundaries, change triggers) are now on the page. Prints are a comparable table. The content shell is 1200px for data; prose stays at 68ch.
+
+An edition archive / back catalogue is a product-strategy decision and is not authorized by this change.
+
+**D-25 · 2026-08-16 — Public website deployment authorized on Vercel.**
+
+Owner selected `securitymarketpulse.com` and authorized public hosting. Vercel project `pikeholdings/security-market-pulse` is linked to `jessepike/sec-market` with root directory `web`.
+
+- Production: https://security-market-pulse.vercel.app
+- Custom hosts claimed: `securitymarketpulse.com` (apex) and `www.securitymarketpulse.com` (308 to apex)
+- DNS remains on Cloudflare (`georgia` / `jerry`). Records must be DNS-only (grey cloud), not proxied.
+- First production deploy was a CLI upload of the current working tree.
+
+This authorizes the public static website. It does not by itself authorize auto-publishing judgments without a human check.
+
+**D-26 · 2026-08-16 — `securitymarketpulse.com` DNS cutover complete.**
+
+Two unproxied CNAMEs written on Cloudflare zone `34251ea7b517605f017007f13625555a` to `8406d7f2fc89acd7.vercel-dns-016.com`. Vercel domain config is no longer misconfigured. Apex returns HTTP 200 with a Vercel-issued Let’s Encrypt cert (`CN=securitymarketpulse.com`, SAN includes www). `www` 308s to apex. Title: `Security Market Pulse | Episode 002`.
+
+GitHub `main` was behind the live CLI deploy at the time of cutover.
+
+**D-27 · 2026-08-16 — Owner product review is complete.**
+
+Owner stated the live Pulse site has already been reviewed and that “owner review pending” is stale. `SEC-MARKET-WEB-001` is accepted for use. Remaining work is to keep the site current and turn one-shot research into recurring market intelligence.
+
+**D-28 · 2026-08-16 — Recurring public-signal intelligence is now the job.**
+
+Owner direction: Security Market Pulse is a cybersecurity market-intelligence site, not a finished research paper. It must regularly show what is happening in the market — including new security startups, funding, and M&A — from public sources.
+
+The previous hold that blocked collectors, schedulers, and a signal pipeline is lifted for this purpose. A dedicated signals job will gather public events, reason on them, and turn them into intelligence the site can publish. Auto-publishing a market call without a human check remains out of bounds.
+
+Numbering note: the two 2026-08-16 entries previously both labeled D-23/D-24 are now D-25 (deploy) and D-26 (DNS).

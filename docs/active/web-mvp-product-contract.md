@@ -4,7 +4,7 @@
 
 - **Product ID:** `SEC-MARKET-WEB-001`
 - **Version:** `0.1`
-- **Lifecycle state:** `implemented — owner review pending`
+- **Lifecycle state:** `accepted — live`
 - **Owner acceptance:** “yes this represents what i want to use”
 - **Evidence requirement:** “ensure it maintains attribution and access to research and supporting evidence if people want to validate or dive deeper”
 - **Governing Intent:** `SEC-MARKET-001` v1.1
@@ -55,7 +55,19 @@ Each domain displays momentum, evidence strength, posture, supporting evidence, 
 
 ### Latest signals
 
-A dated stream of financial results, investment, acquisitions, buyer evidence, regulation, and operating events.
+A dated stream of financial results, investment, acquisitions, buyer evidence, regulation, and operating events. On the current surface this is expressed as current prints plus a headline-first M&A/startup list, not a news ticker.
+
+### Progressive disclosure
+
+- First screen: market call, context numbers, current prints, domain tempo.
+- Capital activity: one section read, five headlines, expand for note and sources.
+- Remaining window events and older still-true context collapse behind More / Background.
+- Method, watch, layers, and the evidence library stay collapsed.
+- Evidence excerpts open in the drawer, not inline.
+
+### Edition and freshness
+
+The site is a frozen edition, not a live feed. Current prints stay on the scorecard. Older still-true context collapses to Background. Superseded prints leave the card and stay in evidence. Acquired vendors keep their last independent print. Refresh is manual: earnings clusters, material closes or raises, and Watch-next falsifiers.
 
 ### Research and evidence
 
@@ -99,7 +111,7 @@ Episode 001 may appear as a thematic research item but must not replace the core
 - static, version-controlled data derived from accepted research
 - local development and production build
 - no database, scheduler, authentication, or autonomous collection required for MVP
-- deployment is a later explicit decision
+- public static hosting on Vercel at `securitymarketpulse.com`
 
 ## Acceptance criteria
 

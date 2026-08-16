@@ -17,7 +17,7 @@ See [intent.md](intent.md)
 
 ## Current Stage
 
-Deliver — Security Market Pulse web MVP ready for owner review; deployment awaits authorization
+Operate — Security Market Pulse is live; next job is recurring public-signal intelligence
 
 ## Context Map
 
@@ -40,12 +40,13 @@ Probabilistic/Agentic — human-steered judgment with transparent evidence
 
 ## Trigger
 
-Manual — market-timing episodes run on consequential questions
+Recurring — public market signals are gathered on a cadence; market calls stay human-checked
 
 ## Integrations
 
 - CISO Advisory concepts may be referenced; this project owns market timing and signal evidence
-- No production infrastructure integrations are authorized
+- Public static website: Vercel project `security-market-pulse`, domain `securitymarketpulse.com`
+- Recurring public-signal intake is authorized; auto-publish of market calls is not
 
 ## Fresh-agent minimum context
 
@@ -57,3 +58,4 @@ Manual — market-timing episodes run on consequential questions
 6. Accepted shadow design and replay corpus under [docs/active/](docs/active/) (`SEC-MARKET-SHADOW-001` v0.2, `SEC-MARKET-SHADOW-CORPUS-001` v0.1)
 7. Accepted Gate S1 implementation specification under [docs/active/](docs/active/) (`SEC-MARKET-SHADOW-S1-SPEC-001` v0.2)
 8. Accepted web MVP contract and implementation under [docs/active/](docs/active/) and [web/](web/) (`SEC-MARKET-WEB-001`)
+9. Current signals job under [docs/active/signals-job.md](docs/active/signals-job.md)

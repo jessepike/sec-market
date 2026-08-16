@@ -1,6 +1,6 @@
 ---
 project: Security Market Signal Pipeline
-stage: Deliver
+stage: Operate
 updated: 2026-08-16
 ---
 
@@ -8,56 +8,37 @@ updated: 2026-08-16
 
 ## Current State
 
-- **Phase:** Security Market Pulse web MVP ready for owner review
-- **Focus:** emergency model-usage recalibration; Composer-only project operation
+Security Market Pulse is live at https://securitymarketpulse.com. Owner has already reviewed it. The site currently shows one frozen research edition (Episode 002). That is not enough. The product job is now recurring cybersecurity market intelligence: what changed, what it means, and what new startups, funding, and M&A belong on the page.
 
 ## Project truth
 
 | Layer | State |
 |---|---|
-| Governing Intent / Gate 1 | Passed |
-| Outcome Architecture / Gate 2 | Passed — provisional |
-| Intervention Selection / Gate 3 | Passed — provisional |
-| Initial vendor-landscape pilot | Completed; historical validation input |
-| Episode 001 (`SEC-MARKET-SIG-001` v0.2) | Completed and independently reviewed; reclassified as thematic validation |
-| Episode 002 (`SEC-MARKET-SIG-002` v0.2) | Completed and independently reviewed |
-| Manual runbook | Exercised across two materially different episodes; second-domain gate passed |
-| Shadow collection design (`SEC-MARKET-SHADOW-001` v0.2) | Accepted; Gate S0 passed |
-| Gate S1 implementation specification (`SEC-MARKET-SHADOW-S1-SPEC-001` v0.2) | Accepted and independently reviewed |
-| Gate S1 implementation and replay | Not started and not authorized |
-| Security Market Pulse web MVP (`SEC-MARKET-WEB-001`) | Implemented; evidence and product review passed |
-| Website deployment | Not started and not authorized |
-| ADF scaffolding | Initialized 2026-08-15 |
-| Production infrastructure | Not started and not authorized |
-| Autonomous signal pipeline | Not authorized |
+| Purpose | Help security leaders, account teams, and clients time GTM, account, and technology decisions |
+| Live site | https://securitymarketpulse.com — accepted by owner |
+| Episode 001 | Done. One-time call on agent security readiness. Still usable as background. |
+| Episode 002 | Done. Current published market call. Infra spend is up. We will not fake a security-spend lag. |
+| Recurring signals | Not built. This is the stall. Now the next job. |
+| Git / production | Live site was uploaded from the working tree. GitHub `main` is behind until that tree is committed and pushed. |
+| Auto-publish judgments | Still not allowed without a human check |
 
 ## Next Steps
 
-- [x] Reconcile Episode 001 classification and authorize the core signal question
-- [x] Establish the 2023-to-current infrastructure, hyperscaler, security, and demand baseline
-- [x] Test the 0–8-quarter lag thesis; disposition is `NO-CALL`
-- [x] Close independent-review remediation and re-run the gate
-- [x] Design the human-verified shadow collection process
-- [x] Pass architecture, governance, and operator review
-- [x] Produce and independently review the Gate S1 implementation specification
-- [x] Implement and independently review the evidence-linked web MVP
-- [ ] Owner product review and feedback
-- [ ] Separate website deployment decision
-- [ ] Owner decision on implementation
-- [ ] Assign distinct human verifier and promotion authority
+- [x] Publish the first market call on a public site
+- [x] Point `securitymarketpulse.com` at Vercel
+- [x] Owner reviewed the live site
+- [ ] Commit and push the live working tree so GitHub matches production
+- [ ] Stand up a signals job: gather public startup, funding, and M&A events, reason on them, and feed the site
+- [ ] Keep the published call honest when new evidence arrives
 
 ## Pending Decisions
 
-- Whether to authorize implementation of the Gate S1 specification
-- Named human verifier and separate promotion authority
-- Whether and where to deploy the website
-- Cursor Models pool status for Grok usage
+None blocking the signals job. Feed design (which VC pages, which public-record sources, what cadence) is lead work, not an owner gate.
 
 ## Blockers
 
-- Implementation/replay blockers: owner authorization plus named distinct human verifier and promotion authority
-- Fixture capture/source retrieval and replay each require later separate authorization
-- Main chat remains on an external model until the owner switches it to Composer 2.5
+- Another local session (`bc-a52b0155-9d4a-4ccf-9450-aa99b8de1ad1`) may still be editing the site. Do not overwrite that work.
+- GitHub `main` is stale relative to the live CLI deploy. Commit the live tree, then push. Do not push the old committed `main`.
 
 ## Session Log
 
@@ -70,5 +51,8 @@ updated: 2026-08-16
 | 2026-08-15 | Episode 002 v0.2 passed evidence, strategy, and practitioner review; fixed-lag result remains `NO-CALL` |
 | 2026-08-15 | Human-verified shadow collection design v0.2 and seven-row replay corpus passed Gate S0 review; implementation remains unauthorized |
 | 2026-08-15 | Gate S1 implementation specification v0.2 passed architecture, security, and builder review; implementation and replay remain unauthorized |
-| 2026-08-16 | Security Market Pulse web MVP implemented; unsupported chart data corrected; evidence and leadership-product reviews passed |
-| 2026-08-16 | Other Models usage reached ~65%; project switched to Composer-only, single-agent operation |
+| 2026-08-16 | Security Market Pulse web MVP implemented; unsupported chart data corrected; evidence and product reviews passed |
+| 2026-08-16 | Other Models usage reached ~65%; project switched to Composer-only, then Grok restored on the Cursor Models pool |
+| 2026-08-16 | Website recalibrated: 2025 items moved to background, current 2026 prints and domain heat added |
+| 2026-08-16 | Public Vercel project live; custom-domain cutover complete |
+| 2026-08-16 | Owner closed product-review pending. Duplicate decision IDs fixed (deploy=D-25, DNS=D-26). Recurring public-signal intelligence is now the job (D-28). |

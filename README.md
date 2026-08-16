@@ -9,10 +9,13 @@ This project creates public, publishable cybersecurity market intelligence that 
 The MVP consumption surface is now the **Security Market Pulse** website:
 
 - **Product contract:** [web-mvp-product-contract.md](docs/active/web-mvp-product-contract.md)
+- **External review brief:** [web-mvp-external-review-brief.md](docs/active/web-mvp-external-review-brief.md)
 - **Local development:** `orb run -m dev npm run dev --prefix web`
 - **Production build:** `orb run -m dev npm run build --prefix web`
 - **Evidence contract:** every material call, chart, and domain posture links to source, excerpt/locator, limitations, conflicting evidence, and research artifacts
-- **Deployment:** not yet authorized
+- **Production:** https://security-market-pulse.vercel.app
+- **Custom domain:** `securitymarketpulse.com` (claimed on Vercel; Cloudflare DNS still required)
+- **Deploy:** Vercel project `security-market-pulse`, GitHub repo `jessepike/sec-market`, root directory `web`
 
 The first completed episode is now classified as a thematic validation episode:
 
@@ -81,16 +84,16 @@ Session state: [status.md](status.md) · Work queue: [BACKLOG.md](BACKLOG.md) ·
 | Human-verified shadow collection design | Gate S0 passed; design accepted |
 | Gate S1 replay implementation specification | Accepted after independent review |
 | Gate S1 implementation and replay | Not started and not authorized |
-| Security Market Pulse web MVP | Implemented; evidence and product review passed |
-| Website deployment | Not started and not authorized |
-| Production collectors, database, scheduler, website, or digest | Not started and not authorized |
-| Autonomous signal pipeline | Not authorized |
+| Security Market Pulse web MVP | Live at https://securitymarketpulse.com; owner reviewed |
+| Website deployment | Vercel + custom domain live |
+| Recurring public-signal intake | Authorized; not built |
+| Auto-publish of market calls | Not allowed without a human check |
 
 ## Next authorized action
 
-Review the Security Market Pulse website locally and provide product feedback. Decide separately whether to deploy it publicly.
+Commit and push the live working tree so GitHub matches production, then stand up the signals job: gather public startup, funding, and M&A events, reason on them, and keep the site current.
 
-Shadow replay implementation, fixture capture, source retrieval, replay, scheduling, automation, and website deployment remain separately governed. Posture judgment and evidence promotion remain human-controlled.
+Do not auto-publish a market call without a human check.
 
 ## Not authorized
 
@@ -99,7 +102,7 @@ Shadow replay implementation, fixture capture, source retrieval, replay, schedul
 - T0–T5 as a collapsed evidence, inference, and action score;
 - West/NorCal-first core delivery;
 - a universal AI-security platform call;
-- production infrastructure or broad automation; or
+- auto-publishing a market call without a human check; or
 - reproducing or modifying the CISO Advisory ontology or vendor catalog.
 
 The security-market project may reference CISO Advisory concepts where useful, but it owns market timing, signal evidence, and timing judgments.

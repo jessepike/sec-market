@@ -6,7 +6,7 @@
 - **Version:** `0.1`
 - **Lifecycle state:** `accepted — provisional`
 - **Gate 2:** `passed — provisional`
-- **Governing Intent:** `SEC-MARKET-001` v1.0 in [intent.md](../../intent.md)
+- **Governing Intent:** `SEC-MARKET-001` v1.0 in [intent.md](../../intent.md) at acceptance; current accepted intent is v1.1 (website is the MVP surface). This Gate 2 record is not rewritten.
 - **Plan implementation authorized:** 2026-08-15
 - **Authorization evidence:** “Implement the plan as specified.”
 - **Human Acceptance:** accepted 2026-08-15 — “approved.”

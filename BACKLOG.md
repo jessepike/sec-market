@@ -77,15 +77,32 @@ Build a responsive, evidence-linked website using accepted Episode 002 research.
 
 **Result:** implemented under `web/`; build, lint, evidence review, accessibility review, and leadership-product review passed
 
-## Pending product decisions
+## Completed product decisions
 
 ### SEC-007 — Owner review and deployment
 
-- review the local Security Market Pulse experience;
-- record product feedback;
-- decide whether to deploy publicly and select the host.
+Owner reviewed the live site. Public Vercel deploy is live at https://security-market-pulse.vercel.app and https://securitymarketpulse.com.
 
-**Authorization state:** local review authorized; deployment not authorized
+**Remaining hygiene:** commit and push the live working tree so GitHub matches production.
+
+## Active work
+
+### SEC-009 — Recurring public-signal intelligence
+
+Turn Pulse from a one-shot research edition into a living cybersecurity market-intelligence site.
+
+**Must cover:**
+
+- new security startups;
+- funding and the VC activity behind them;
+- M&A;
+- public records and filings that change the market call.
+
+**Job:** a signals function that gathers public events, reasons on them, and turns them into intelligence the site can use.
+
+**Authorization state:** authorized by owner on 2026-08-16 (D-28)
+
+**Not authorized by this work:** auto-publishing a market call without a human check; inventing sources; using confidential ePlus data
 
 ### SEC-008 — Account conversation prompts
 
