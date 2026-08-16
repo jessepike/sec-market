@@ -17,7 +17,7 @@ See [intent.md](intent.md)
 
 ## Current Stage
 
-Deliver — Shadow design Gate S0 passed; Gate S1 implementation specification awaits owner authorization
+Deliver — Gate S1 implementation specification accepted; implementation awaits owner authorization and human-role assignment
 
 ## Context Map
 
@@ -54,3 +54,4 @@ Manual — market-timing episodes run on consequential questions
 4. Current reconciliation and active episode under [docs/active/](docs/active/) (`SEC-MARKET-RECON-001`, `SEC-MARKET-SIG-002`)
 5. Frozen thematic packet under [docs/reference/](docs/reference/) (`SEC-MARKET-SIG-001` v0.2) only when needed
 6. Accepted shadow design and replay corpus under [docs/active/](docs/active/) (`SEC-MARKET-SHADOW-001` v0.2, `SEC-MARKET-SHADOW-CORPUS-001` v0.1)
+7. Accepted Gate S1 implementation specification under [docs/active/](docs/active/) (`SEC-MARKET-SHADOW-S1-SPEC-001` v0.2)

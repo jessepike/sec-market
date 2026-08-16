@@ -50,7 +50,9 @@ Read in this order:
 14. [shadow-collection-design-change-manifest.md](docs/active/shadow-collection-design-change-manifest.md) — shadow design version authority
 15. [shadow-collection-design-v0.2.md](docs/active/shadow-collection-design-v0.2.md) — accepted design-only shadow process
 16. [shadow-replay-corpus-v0.1.md](docs/active/shadow-replay-corpus-v0.1.md) — accepted seven-row Gate S1 oracle
-17. [market-signal-episode-001-change-manifest.md](docs/reference/market-signal-episode-001-change-manifest.md) — frozen Episode 001 version authority
+17. [shadow-replay-implementation-spec-change-manifest.md](docs/active/shadow-replay-implementation-spec-change-manifest.md) — Gate S1 specification version authority
+18. [shadow-replay-implementation-spec-v0.2.md](docs/active/shadow-replay-implementation-spec-v0.2.md) — accepted implementation specification
+19. [market-signal-episode-001-change-manifest.md](docs/reference/market-signal-episode-001-change-manifest.md) — frozen Episode 001 version authority
 
 Session state: [status.md](status.md) · Work queue: [BACKLOG.md](BACKLOG.md) · Decisions: [decisions.md](decisions.md)
 
@@ -68,15 +70,16 @@ Session state: [status.md](status.md) · Work queue: [BACKLOG.md](BACKLOG.md) ·
 | Episode 002 — infrastructure-to-security lag | Completed and independently reviewed |
 | Manual runbook | Exercised across two materially different episodes; second-domain gate passed |
 | Human-verified shadow collection design | Gate S0 passed; design accepted |
-| Gate S1 replay implementation | Not started and not authorized |
+| Gate S1 replay implementation specification | Accepted after independent review |
+| Gate S1 implementation and replay | Not started and not authorized |
 | Production collectors, database, scheduler, website, or digest | Not started and not authorized |
 | Autonomous signal pipeline | Not authorized |
 
 ## Next authorized action
 
-Review the accepted [shadow collection design](docs/active/shadow-collection-design-v0.2.md) and decide whether to authorize a bounded Gate S1 replay implementation specification.
+Decide whether to authorize implementation of the accepted [Gate S1 specification](docs/active/shadow-replay-implementation-spec-v0.2.md) and assign two distinct humans as verifier and promotion authority.
 
-The design and replay corpus are complete. No collector, storage implementation, replay run, live cycle, scheduler, or automation is authorized. Posture judgment and promotion remain human-controlled.
+No implementation, fixture capture, identity assignment, source retrieval, replay run, live cycle, scheduler, or automation is authorized. Posture judgment and promotion remain human-controlled.
 
 ## Not authorized
 

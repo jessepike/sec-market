@@ -39,7 +39,7 @@ Design a human-verified shadow collection process after the second episode passe
 
 **Result:** `SEC-MARKET-SHADOW-001` v0.2 and replay corpus v0.1 accepted; Gate S0 passed
 
-## Pending owner authorization
+## Completed specification
 
 ### SEC-004 — Gate S1 replay implementation specification
 
@@ -47,11 +47,25 @@ Specify—but do not yet run—the bounded seven-row replay implementation.
 
 **Requires:**
 
-- explicit owner authorization;
-- named human verifier and separate promotion authority;
+- explicit owner authorization to specify;
 - implementation choices for runtime and storage;
 - replay tests against `SEC-MARKET-SHADOW-CORPUS-001`; and
 - no scheduler, live run, or automated promotion.
+
+**Result:** `SEC-MARKET-SHADOW-S1-SPEC-001` v0.2 accepted and independently reviewed
+
+## Pending owner authorization
+
+### SEC-005 — Implement the Gate S1 replay instrument
+
+Build—but do not run—the accepted seven-row replay instrument.
+
+**Hard prerequisites:**
+
+- separate owner authorization for implementation;
+- named human verifier and different promotion authority;
+- later separate authorization for fixture capture/source retrieval; and
+- later separate authorization for the replay run.
 
 **Authorization state:** not authorized
 

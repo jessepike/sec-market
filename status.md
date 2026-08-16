@@ -8,8 +8,8 @@ updated: 2026-08-15
 
 ## Current State
 
-- **Phase:** Shadow design Gate S0 passed — owner authorization pending
-- **Focus:** human-verified shadow collection design; no implementation authorized
+- **Phase:** Gate S1 implementation specification accepted — implementation authorization pending
+- **Focus:** bounded seven-row replay specification; identities and implementation remain blocked
 
 ## Project truth
 
@@ -23,7 +23,8 @@ updated: 2026-08-15
 | Episode 002 (`SEC-MARKET-SIG-002` v0.2) | Completed and independently reviewed |
 | Manual runbook | Exercised across two materially different episodes; second-domain gate passed |
 | Shadow collection design (`SEC-MARKET-SHADOW-001` v0.2) | Accepted; Gate S0 passed |
-| Gate S1 replay implementation | Not started and not authorized |
+| Gate S1 implementation specification (`SEC-MARKET-SHADOW-S1-SPEC-001` v0.2) | Accepted and independently reviewed |
+| Gate S1 implementation and replay | Not started and not authorized |
 | ADF scaffolding | Initialized 2026-08-15 |
 | Production infrastructure | Not started and not authorized |
 | Autonomous signal pipeline | Not authorized |
@@ -36,15 +37,19 @@ updated: 2026-08-15
 - [x] Close independent-review remediation and re-run the gate
 - [x] Design the human-verified shadow collection process
 - [x] Pass architecture, governance, and operator review
-- [ ] Owner decision on a bounded Gate S1 replay implementation specification
+- [x] Produce and independently review the Gate S1 implementation specification
+- [ ] Owner decision on implementation
+- [ ] Assign distinct human verifier and promotion authority
 
 ## Pending Decisions
 
-- Whether to authorize a Gate S1 replay implementation specification
+- Whether to authorize implementation of the Gate S1 specification
+- Named human verifier and separate promotion authority
 
 ## Blockers
 
-- None for review; automation remains unauthorized
+- Implementation/replay blockers: owner authorization plus named distinct human verifier and promotion authority
+- Fixture capture/source retrieval and replay each require later separate authorization
 
 ## Session Log
 
@@ -56,3 +61,4 @@ updated: 2026-08-15
 | 2026-08-15 | Episode 002 research frozen; first review held the gate; v0.2 correction added a sparse quarterly panel, atomic provenance, coverage-limited domain calls, and bounded CSP actions |
 | 2026-08-15 | Episode 002 v0.2 passed evidence, strategy, and practitioner review; fixed-lag result remains `NO-CALL` |
 | 2026-08-15 | Human-verified shadow collection design v0.2 and seven-row replay corpus passed Gate S0 review; implementation remains unauthorized |
+| 2026-08-15 | Gate S1 implementation specification v0.2 passed architecture, security, and builder review; implementation and replay remain unauthorized |

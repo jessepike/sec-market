@@ -101,3 +101,36 @@ The accepted design:
 - keeps S1–S3 manually triggered.
 
 The next possible step is a bounded Gate S1 replay implementation specification. It requires separate owner authorization and assignment of two distinct human identities. No implementation or replay is authorized by this decision.
+
+**D-15 · 2026-08-15 — Gate S1 replay implementation specification authorized.**
+
+Owner authorization: “go.”
+
+Authorization is limited to producing and independently reviewing the implementation specification. It does not authorize:
+
+- implementation or package installation;
+- fixture capture or source retrieval;
+- assignment of invented human identities;
+- the replay run;
+- S2/S3 live collection;
+- a scheduler, database service, posture change, or publication.
+
+The two distinct human identities remain a hard blocker for implementation and replay.
+
+**D-16 · 2026-08-15 — Gate S1 implementation specification v0.2 accepted.**
+
+`SEC-MARKET-SHADOW-S1-SPEC-001` v0.2 passed architecture, security/governance, and builder/operator review.
+
+The accepted specification selects:
+
+- Python 3.12 standard library in the OrbStack `dev` VM;
+- local content-addressed artifacts and append-only/tamper-evident SQLite state;
+- seven issuer runs in one replay cycle;
+- canonical source and locator recipes for the seven gold facts;
+- owner-attested SSH identities with human-only verification and separate promotion;
+- signed two-person manual retrieval fallback for blocked IR sources;
+- manually triggered commands only;
+- atomic promotion and rollback testing; and
+- a complete negative/bypass test matrix.
+
+Implementation remains unauthorized. Fixture capture/source retrieval and the replay run each require later separate authorization. The named human verifier and different promotion authority remain unset.
