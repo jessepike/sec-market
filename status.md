@@ -18,7 +18,7 @@ Security Market Pulse is live at https://securitymarketpulse.com. Owner has alre
 | Live site | https://securitymarketpulse.com — accepted by owner |
 | Episode 001 | Done. One-time call on agent security readiness. Still usable as background. |
 | Episode 002 | Done. Current published market call. Infra spend is up. We will not fake a security-spend lag. |
-| Recurring signals | Not built. This is the stall. Now the next job. |
+| Recurring signals | Startup sources found. First collection week not started. M&A parked. |
 | Git / production | Live site was uploaded from the working tree. GitHub `main` is behind until that tree is committed and pushed. |
 | Auto-publish judgments | Still not allowed without a human check |
 
@@ -28,7 +28,8 @@ Security Market Pulse is live at https://securitymarketpulse.com. Owner has alre
 - [x] Point `securitymarketpulse.com` at Vercel
 - [x] Owner reviewed the live site
 - [ ] Commit and push the live working tree so GitHub matches production
-- [ ] Stand up a signals job: gather public startup, funding, and M&A events, reason on them, and feed the site
+- [x] Startup-source research: catalog written and lead-reviewed (`SEC-MARKET-STARTUP-SRC-001`)
+- [ ] First collection week from the 10 allowed sources (manual, no scrapers)
 - [ ] Keep the published call honest when new evidence arrives
 
 ## Pending Decisions
@@ -56,3 +57,4 @@ None blocking the signals job. Feed design (which VC pages, which public-record 
 | 2026-08-16 | Website recalibrated: 2025 items moved to background, current 2026 prints and domain heat added |
 | 2026-08-16 | Public Vercel project live; custom-domain cutover complete |
 | 2026-08-16 | Owner closed product-review pending. Duplicate decision IDs fixed (deploy=D-25, DNS=D-26). Recurring public-signal intelligence is now the job (D-28). |
+| 2026-08-16 | Startup-source catalog completed and lead-reviewed. First-week set is specialist cyber VC pages plus Return on Security and Cybersecurity Ventures. |

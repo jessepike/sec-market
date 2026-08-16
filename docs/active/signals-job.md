@@ -10,29 +10,21 @@
 
 ## Job
 
-Find public cybersecurity market events, decide which ones matter, and turn them into intelligence the site can show.
+Find public cybersecurity startup events, decide which ones matter, and turn them into intelligence the site can show.
 
 This is how Pulse stays current. Episodes 001 and 002 were one-time research. They are not a feed.
 
-## What “done” looks like for the first cut
+## First slice — startups only
 
-A named person or agent can, on a repeatable cadence:
+Owner direction 2026-08-16: do not work M&A yet. First question: where do new security startups and their funding show up in public, and which sources can we actually use?
 
-1. pull public startup, funding, and M&A events;
-2. keep the source, date, and a short excerpt for each event;
-3. say what changed and why it matters, or say we do not know;
-4. hand a human a publish packet for the site;
-5. leave a trail so someone else can check the work.
+M&A and public-company prints stay parked.
 
-The site then shows the new intelligence. A human still signs the market call.
+## What “done” looks like for this slice
 
-## First feeds to stand up
+A research packet that names the best public sources for new security startups, what each source actually gives us, and how we can collect it without breaking terms.
 
-| Feed | Why | First sources to try |
-|---|---|---|
-| Security startups and funding | Owner asked for a regular read on new companies | Public pages of a defined top-20/30 security-relevant VC set; Crunchbase/PitchBook-class public pages only where terms allow |
-| M&A | Deals change who matters and what got absorbed | Public 8-Ks, issuer IR, and reputable deal notices |
-| Public company prints | Already on the site; must stay current | SEC EDGAR and issuer IR |
+Then, later: one manual collection week against the best of those sources.
 
 Do not scrape a site that forbids it. Prefer official public pages, RSS, and filings. If a source is blocked, record the miss instead of inventing coverage.
 
@@ -47,10 +39,13 @@ Do not scrape a site that forbids it. Prefer official public pages, RSS, and fil
 
 ## First build slice
 
-1. Write the top VC list and the M&A/filings source list.
-2. Define the event record: who, what, date, source URL, excerpt, why it might matter, confidence.
-3. Run one manual week of collection against that record.
-4. Only then automate retrieval for sources that are allowed and stable.
+1. Research the top public sources for new security startups and funding. Write the catalog. **Done:** [startup-source-catalog.md](startup-source-catalog.md) (`SEC-MARKET-STARTUP-SRC-001`), lead reviewed.
+2. Pick the first 8–10 we can actually collect from.
+3. Define the event record: company, what they do, date, round if any, source URL, excerpt, why it might matter.
+4. Run one manual week of collection.
+5. Only then automate retrieval for sources that are allowed and stable.
+
+M&A source work is parked.
 
 ## Stop
 

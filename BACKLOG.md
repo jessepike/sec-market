@@ -91,16 +91,11 @@ Owner reviewed the live site. Public Vercel deploy is live at https://security-m
 
 Turn Pulse from a one-shot research edition into a living cybersecurity market-intelligence site.
 
-**Must cover:**
+**First slice:** new security startups and their funding. M&A is parked.
 
-- new security startups;
-- funding and the VC activity behind them;
-- M&A;
-- public records and filings that change the market call.
+**Now:** research the public sources and what we can actually collect. Implementation and scraping come after the catalog is reviewed.
 
-**Job:** a signals function that gathers public events, reasons on them, and turns them into intelligence the site can use.
-
-**Authorization state:** authorized by owner on 2026-08-16 (D-28)
+**Authorization state:** authorized by owner on 2026-08-16 (D-28); startups-only first slice confirmed 2026-08-16
 
 **Not authorized by this work:** auto-publishing a market call without a human check; inventing sources; using confidential ePlus data
 
