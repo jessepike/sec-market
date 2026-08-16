@@ -6,7 +6,6 @@ const navItems = [
   { href: '#layers', label: 'Layers' },
   { href: '#domains', label: 'Domains' },
   { href: '#signals', label: 'Signals' },
-  { href: '#prompts', label: 'Prompts' },
   { href: '#research', label: 'Research' },
 ]
 

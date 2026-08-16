@@ -87,6 +87,12 @@ Build a responsive, evidence-linked website using accepted Episode 002 research.
 
 **Authorization state:** local review authorized; deployment not authorized
 
+### SEC-008 — Account conversation prompts
+
+Reconsider account-facing prompts only after the core monthly scorecard, recency model, and domain coverage are trusted.
+
+**Status:** parked by owner feedback; removed from the MVP website
+
 ## Not authorized
 
 - Partner-risk-first sequencing

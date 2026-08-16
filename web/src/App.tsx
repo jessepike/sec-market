@@ -1,4 +1,3 @@
-import { ConversationPrompts } from './components/ConversationPrompts'
 import { DomainBoard } from './components/DomainBoard'
 import { EvidenceDrawer } from './components/EvidenceDrawer'
 import { EvidenceLibrary } from './components/EvidenceLibrary'
@@ -26,7 +25,6 @@ function AppShell() {
           <MarketLayersChart />
           <DomainBoard />
           <SignalFeed />
-          <ConversationPrompts />
           <EvidenceLibrary />
         </main>
         <MethodologyNote />

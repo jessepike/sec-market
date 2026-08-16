@@ -1,4 +1,5 @@
 import { securityDomains } from '../data/domains'
+import { DomainSignalMetrics } from './DomainSignalMetrics'
 import { EvidenceLink } from './EvidenceLink'
 import { StatusBadge } from './StatusBadge'
 
@@ -29,16 +30,10 @@ export function DomainBoard() {
                 </div>
               </header>
               {note && <p className="domain-card__note">{note}</p>}
-              <dl className="domain-card__meta">
-                <div>
-                  <dt>Momentum</dt>
-                  <dd>{domain.momentum.replace(/-/g, ' ')}</dd>
-                </div>
-                <div>
-                  <dt>Signal strength</dt>
-                  <dd>{domain.evidenceStrength}</dd>
-                </div>
-              </dl>
+              <DomainSignalMetrics
+                momentum={domain.momentum}
+                evidenceStrength={domain.evidenceStrength}
+              />
               <p className="domain-card__summary">{domain.summary}</p>
               <div className="domain-card__watch">
                 <h4>What to watch</h4>

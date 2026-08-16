@@ -67,11 +67,3 @@ export interface MarketSignal {
   detail: string
   evidenceIds: string[]
 }
-
-export interface ConversationPrompt {
-  id: string
-  audience: string
-  prompt: string
-  whenToUse: string
-  evidenceIds: string[]
-}
