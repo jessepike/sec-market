@@ -74,7 +74,43 @@ syndicated mirror. The A2 Cisco fix added period labels and changed no number: $
 $9.3B, $7.5B, $9.791B, +28% and +40% are byte-identical before and after. No
 out-of-scope record was touched.
 
-**Group A, hardening, and both verification agents were still running at 06:15 PT.**
+**Wave 3 completed.** Group A repaired all seven wrong-document citations (`833d3b8`) and
+notably did NOT trim claims where a real source existed — it located Palo Alto's,
+Microsoft's, Dell's and Alphabet's own IR-hosted earnings-call transcripts and repointed
+to those, so the figures survive with correct provenance. Hardening applied (`637a46e`):
+the OG staleness gate is proven fail-closed (perturb a stat → build refuses with a
+specific message → revert → build passes), the internal `SEC-MARKET-SIG-002` ID is out of
+the crawler-facing JSON-LD `name`, `datePublished` now uses the edition date rather than
+the research-freeze timestamp, and Node is pinned to 22.x.
+
+**Independent re-verification: NO OVERREACH.** All 13 changed records re-fetched and
+confirmed by a second agent against sources it read itself. Exactly 13 records differ from
+`main`, 72 records on both sides, not one numeric figure altered, added, or strengthened
+anywhere in the file. The single unverified item is the BeyondTrust attribution inside
+D12, which is Cloudflare-blocked and was honestly reported as unverified rather than
+passed.
+
+## In flight
+
+Wave 4, dispatched 2026-08-17 ~06:45 PT (`wf_a9fdf50c-221`): residual cleanup plus a
+merge gate.
+
+Residuals being cleared: **C25 (the blocker)** — identical defect to C24, a transcript
+quote cited to a press release, sitting one record away from the one that got fixed;
+stale `interpretation`/`limitations` prose on D24 and D12 describing citations that were
+replaced; D12's excerpt needing a homepage source again so its present-tense disclosure
+claim is supported as well as its ownership history; C23's `economicPeriod` still saying
+"Acquisition close" against an announcement date; A2 needing Cisco's "from hyperscalers"
+qualifier; and an EvidenceDrawer bug where records with `sourceAttributions` render the
+attribution list INSTEAD of their publication date and canonical link.
+
+The gate agent must also sweep the whole evidence file for a THIRD instance of the
+transcript-cited-to-press-release defect, since C24 and C25 turned out to be the same bug
+one record apart. It ends with an explicit MERGE-READY or DO NOT MERGE verdict.
+
+Next cycle: if the verdict is MERGE-READY, merge to `main`, push, confirm the Vercel
+deploy reaches Ready, then curl the live host before calling it shipped. If it died on a
+session limit, resume with `resumeFromRunId: wf_a9fdf50c-221`.
 
 Next cycle: if re-verify says the evidence file is safe to publish and the build passes,
 merge to `main`, push, confirm the Vercel deploy reaches Ready, then curl the live host
