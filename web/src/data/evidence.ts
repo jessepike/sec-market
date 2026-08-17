@@ -45,7 +45,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     canonicalUrl:
       'https://investor.cisco.com/news/news-details/2026/CISCO-REPORTS-FOURTH-QUARTER-AND-FISCAL-YEAR-2026-EARNINGS/default.aspx',
     excerpt:
-      '$4 billion of Q4 AI-infrastructure orders, bringing the cumulative FY 2026 AI-infrastructure order total to $9.3 billion. Delivered approximately $4 billion of AI-infrastructure revenue in FY 2026; $7.5 billion expected in FY 2027. Q4 Networking revenue $9.791 billion, +28 percent; Q4 networking product orders +40 percent.',
+      '$4 billion of Q4 AI-infrastructure orders from hyperscalers, bringing the cumulative FY 2026 AI-infrastructure order total to $9.3 billion. Delivered approximately $4 billion of AI-infrastructure revenue from hyperscalers in FY 2026; $7.5 billion expected in FY 2027. Q4 Networking revenue $9.791 billion, +28 percent; Q4 networking product orders +40 percent.',
     sourceClass: 'IR',
     interpretation: 'Networking joined the AI cycle after the initial compute impulse.',
     limitations: 'Orders are concentrated and are not revenue; Splunk distorts total-company comparability.',
@@ -731,7 +731,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     sourceClass: 'IR',
     interpretation: 'Material identity competitors exist off-public-markets. Absence of prints is a coverage fact, not a demand fact.',
     limitations:
-      'Company homepages confirm current private / PE status only. They are not independent research and do not support a financial excerpt. Ping take-private date is 2022; 2026 date is the status check.',
+      'The Thoma Bravo / BeyondTrust press releases (2021-2022) establish each company’s take-private transaction on its stated date; they say nothing about current financial reporting. Ping Identity and Delinea homepages, checked 2026-08-17, show no stock ticker or investor-relations section, supporting the no-public-ARR claim for those two as of that check. BeyondTrust’s homepage returned a blocked response to automated fetching, so its current status is not independently re-verified here; the BeyondTrust press release is kept for the same reason — a blocked source is not a dead one — but is not claimed as verified.',
     conflictingEvidenceIds: [],
     sourceAttributions: [
       {
@@ -742,17 +742,29 @@ export const evidenceRecords: EvidenceRecord[] = [
           'https://www.thomabravo.com/press-releases/thoma-bravo-completes-acquisition-of-ping-identity',
       },
       {
+        organization: 'Ping Identity',
+        publicationDate: '2026-08-17',
+        economicPeriod: 'Current homepage check',
+        canonicalUrl: 'https://www.pingidentity.com',
+      },
+      {
         organization: 'BeyondTrust',
         publicationDate: '2021-08-17',
-        economicPeriod: 'Current private status',
+        economicPeriod: 'Clearlake / Francisco Partners transaction',
         canonicalUrl:
           'https://www.beyondtrust.com/press/beyondtrust-completes-transaction-with-clearlake-capital-and-francisco-partners',
       },
       {
         organization: 'Delinea',
         publicationDate: '2022-02-01',
-        economicPeriod: 'Current private status',
+        economicPeriod: 'Thoma Bravo take-private (as Centrify)',
         canonicalUrl: 'https://www.thomabravo.com/press-releases/centrify-now-delinea',
+      },
+      {
+        organization: 'Delinea',
+        publicationDate: '2026-08-17',
+        economicPeriod: 'Current homepage check',
+        canonicalUrl: 'https://delinea.com',
       },
     ],
     artifactLabel: 'Surface refresh / D12',
@@ -961,9 +973,8 @@ export const evidenceRecords: EvidenceRecord[] = [
     canonicalUrl: 'https://www.glow.io/news/glow-emerges-from-stealth-with-180-million',
     excerpt: 'Glow emerged from stealth with $180 million in funding at a $1.2 billion valuation.',
     sourceClass: 'IR',
-    interpretation:
-      'AI endpoint prevention capital. Primary source resolves RoS round-label difference; not left as unresolved conflict.',
-    limitations: 'Private company. Valuation and raise are not ARR. RoS round type differs from company PR.',
+    interpretation: 'AI endpoint prevention capital. Funding amount and valuation as stated by the company at stealth exit.',
+    limitations: 'Private company. Valuation and raise are not ARR. Company PR does not label a round type (e.g., Series A/B).',
     conflictingEvidenceIds: [],
     artifactLabel: 'Activity edition / D24',
     tags: ['investment', 'endpoint', 'private'],
@@ -1290,7 +1301,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     title: 'ServiceNow acquisition of Veza',
     organization: 'ServiceNow',
     publicationDate: '2025-12-02',
-    economicPeriod: 'Acquisition close',
+    economicPeriod: 'Acquisition announcement',
     canonicalUrl:
       'https://newsroom.servicenow.com/press-releases/details/2025/ServiceNow-to-Expand-Security-Portfolio-With-Acquisition-of-Vezas-Leading-AI-native-Identity-Security-Platform/default.aspx',
     excerpt:
@@ -1326,7 +1337,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     publicationDate: '2026-06-02',
     economicPeriod: 'Q3 FY26 earnings call',
     canonicalUrl:
-      'https://investors.paloaltonetworks.com/news-releases/news-release-details/palo-alto-networks-reports-fiscal-third-quarter-2026-financial',
+      'https://investors.paloaltonetworks.com/static-files/ea18c9ae-cbe6-4b5d-aa7c-65a6b9aeb2e2',
     excerpt:
       'We ended third quarter with more than $600 million in ARR, representing 100% year-over-year increase across a growing base of 740 customers.',
     sourceClass: 'TRANSCRIPT',

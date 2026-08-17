@@ -122,7 +122,7 @@ export const activityItems: ActivityItem[] = [
     value: '$180M',
     domain: 'Endpoint',
     headline: 'Glow emerged with $180M',
-    note: 'Company PR: $180M at launch. RoS listed $100M Series B — round label differs; resolved via primary source.',
+    note: 'Company PR: $180M at launch. Source does not label a round type.',
     surface: 'more',
     evidenceIds: ['D24'],
   },
