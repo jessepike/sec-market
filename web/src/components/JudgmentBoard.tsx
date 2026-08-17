@@ -3,7 +3,7 @@ import { EvidenceLink } from './EvidenceLink'
 
 export function JudgmentBoard() {
   return (
-    <section className="judgment" aria-labelledby="judgment-heading">
+    <section id="read" className="judgment" aria-labelledby="judgment-heading">
       <div className="section-heading">
         <h2 id="judgment-heading">The read</h2>
         <p>{marketCall.confidenceNote}</p>

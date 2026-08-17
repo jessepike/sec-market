@@ -20,8 +20,8 @@ Local, GitHub `main`, and Vercel are synced by committing the live scorecard tre
 | Live site | https://securitymarketpulse.com — accepted by owner |
 | Episode 001 | Done. One-time call on agent security readiness. Still usable as background. |
 | Episode 002 | Done. Current published market call. Infra spend is up. We will not fake a security-spend lag. |
-| Recurring signals | Activity edition drafted, held for RoS 257+. Vendor prints + table authorized to ship now (D-40). |
-| Git / production | `main` `67b53ff` is live on Vercel. Deploy only via `git push origin main`. |
+| Recurring signals | Activity edition drafted, held for RoS 257+. Prints table is live. Next: RoS 257 desk when it exists. |
+| Git / production | `main` is live on Vercel. Deploy only via `git push origin main`. |
 | Auto-publish judgments | Still not allowed without a human check |
 
 ## Next Steps

@@ -3,6 +3,7 @@ import { LAST_UPDATED_DISPLAY, PRODUCT_TITLE } from '../data/meta'
 
 const navItems = [
   { href: '#overview', label: 'Call' },
+  { href: '#read', label: 'Read' },
   { href: '#prints', label: 'Prints' },
   { href: '#domains', label: 'Tempo' },
   { href: '#activity', label: 'Activity' },
