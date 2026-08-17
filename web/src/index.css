@@ -22,7 +22,7 @@
   --radius: 0;
   --radius-sm: 0;
   --header-height: 56px;
-  --content-max: 1000px;
+  --content-max: 1280px;
   --prose-max: 68ch;
 }
 
@@ -539,76 +539,45 @@ select:focus-visible {
   margin-top: 0.85rem;
 }
 
-.print-cards {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.65rem;
-}
-
-.print-card {
+.print-table-scroll {
   background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  padding: 0.9rem 1rem;
-}
-
-.print-card__top {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 0.5rem;
-}
-
-.print-card__top h3 {
-  margin: 0;
-  font-family: var(--font-display);
-  font-size: 0.95rem;
-}
-
-.print-card__top span {
-  font-family: var(--font-mono);
-  font-size: 0.625rem;
-  color: var(--color-text-muted);
-}
-
-.print-card__value {
-  margin: 0.65rem 0 0;
-  font-family: var(--font-mono);
-  font-size: 1.7rem;
-  font-weight: 600;
-  letter-spacing: -0.025em;
-  line-height: 1;
-  color: var(--color-heading);
-}
-
-.print-card__value--up {
-  color: var(--color-success);
-}
-
-.print-card__value--down {
-  color: var(--color-alert);
-}
-
-.print-card__metric,
-.print-card__note {
-  margin: 0.3rem 0 0;
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--color-text-muted);
-}
-
-.print-card__note {
-  text-transform: none;
-  letter-spacing: 0;
-  margin-bottom: 0.65rem;
 }
 
 .print-table {
-  font-size: 0.88rem;
+  width: 100%;
+  min-width: 42rem;
+  border-collapse: collapse;
+  background: var(--color-surface);
+  font-size: 0.85rem;
 }
 
-.print-table__group th {
+.print-table th,
+.print-table td {
+  text-align: left;
+  padding: 0.42rem 0.65rem;
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: middle;
+}
+
+.print-table thead th {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  font-weight: 500;
+  border-bottom: 1px solid var(--color-heading);
+  background: var(--color-surface);
+}
+
+.print-table tbody th[scope='row'] {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.print-table__group th[colspan] {
   font-family: var(--font-display);
   font-size: 0.8rem;
   letter-spacing: 0;
@@ -616,7 +585,7 @@ select:focus-visible {
   color: var(--color-heading);
   background: var(--color-bg);
   border-bottom: 1px solid var(--color-heading);
-  padding: 0.55rem 0.75rem;
+  padding: 0.5rem 0.65rem;
 }
 
 .print-table__period,
@@ -625,9 +594,18 @@ select:focus-visible {
   white-space: nowrap;
 }
 
+.print-table__metric {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.03em;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
 .print-table__value {
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
+  color: var(--color-heading);
 }
 
 .print-table__value--up {
@@ -638,14 +616,25 @@ select:focus-visible {
   color: var(--color-alert);
 }
 
-.print-table__coverage td {
-  background: var(--color-bg);
+.print-table__note {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  min-width: 10rem;
 }
 
-.print-table__coverage details {
-  border: 0;
-  background: transparent;
-  padding: 0;
+.print-table__source {
+  width: 1%;
+  white-space: nowrap;
+}
+
+.print-table__source .evidence-link {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.45rem;
+}
+
+.print-table__coverage td,
+.print-table__coverage th[scope='row'] {
+  background: var(--color-bg);
 }
 
 /* Tempo */
@@ -1709,10 +1698,6 @@ select:focus-visible {
 
 /* Responsive */
 @media (max-width: 860px) {
-  .print-cards {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .judgment__grid {
     grid-template-columns: 1fr;
   }
@@ -1745,9 +1730,12 @@ select:focus-visible {
   }
 
   .chart-multiples,
-  .print-cards,
   .context-band__grid {
     grid-template-columns: 1fr;
+  }
+
+  .print-table-scroll {
+    margin-inline: -0.25rem;
   }
 
   .activity-row summary {
