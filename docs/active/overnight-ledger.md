@@ -90,10 +90,50 @@ anywhere in the file. The single unverified item is the BeyondTrust attribution 
 D12, which is Cloudflare-blocked and was honestly reported as unverified rather than
 passed.
 
-## In flight
+## MERGED — 2026-08-17 ~07:15 PT
 
-Wave 4, dispatched 2026-08-17 ~06:45 PT (`wf_a9fdf50c-221`): residual cleanup plus a
-merge gate.
+Wave 4 completed. The merge gate returned **DO NOT MERGE** and it was right: the cleanup
+commit had labelled D12's Delinea attribution `Thoma Bravo take-private (as Centrify)`,
+but that page documents a rebrand, names TPG Capital as the backer, and never uses the
+words acquired, acquisition, or take-private. Its `limitations` compounded it by
+asserting all three press releases establish a take-private, true only of Ping —
+BeyondTrust's 2021 release records Clearlake joining Francisco Partners, which had
+already acquired the company in 2018. Both strings rendered on the public evidence
+drawer. Corrected in `07d2947` to what each document actually says, using text the gate
+had fetched and quoted. Build clean, panel hash unchanged, Playwright 2/2.
+
+Merged to `main` as `1079046` and pushed (`ab8a6fd..1079046`). Vercel deploy verification
+in progress — the live host was still serving the old 1,103-byte shell immediately after
+the push.
+
+**This is the pipeline working.** An agent introduced a plausible-sounding transaction
+claim its own cited source contradicted, and an independent gate caught it before it
+reached production. Keep the gate on every future content wave.
+
+## Deferred from the gate (backlog, not blocking)
+
+- **A4** carries `sourceClass: 'IR'` but its canonicalUrl resolves to a PDF titled
+  "TRANSCRIPT / DELL – Q1 2027 Dell Technologies Inc Earnings Call". Third instance of the
+  C24/C25 defect class, mirrored: there the class was right and the URL wrong, here the
+  URL is right and the class wrong.
+- **C24's excerpt reads "over 300 Prisma AIRS customers"; the transcript says "over 300
+  Prisma AIRS *as* customers."** A speech artifact was silently cleaned. No figure
+  affected, but the promise is verbatim excerpts.
+- The Playwright smoke spec listens only for `pageerror`, so console errors pass
+  unnoticed. Add a console listener with an allowlist for the `/_vercel/insights` 404.
+- D12's top-level `publicationDate` (2026-08-16) does not correspond to its top-level
+  canonicalUrl (the 2022 Ping release). Pre-existing, reads oddly now that attributions
+  render alongside.
+
+## Correction to my own briefing
+
+I told several agents that Cisco IR, the ServiceNow newsroom, and BeyondTrust were
+bot-blocked. The gate fetched all three successfully with a browser User-Agent over
+HTTP/1.1. sec.gov and Palo Alto's IR host need `--http1.1` to avoid an HTTP/2 stream
+error, not a block. Carrying a stale blocked-list into a prompt lets real verification get
+skipped, which is the opposite of what the list was for. Do not repeat it.
+
+## Previously in flight
 
 Residuals being cleared: **C25 (the blocker)** — identical defect to C24, a transcript
 quote cited to a press release, sitting one record away from the one that got fixed;
