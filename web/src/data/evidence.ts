@@ -731,7 +731,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     sourceClass: 'IR',
     interpretation: 'Material identity competitors exist off-public-markets. Absence of prints is a coverage fact, not a demand fact.',
     limitations:
-      'The Thoma Bravo / BeyondTrust press releases (2021-2022) establish each company’s take-private transaction on its stated date; they say nothing about current financial reporting. Ping Identity and Delinea homepages, checked 2026-08-17, show no stock ticker or investor-relations section, supporting the no-public-ARR claim for those two as of that check. BeyondTrust’s homepage returned a blocked response to automated fetching, so its current status is not independently re-verified here; the BeyondTrust press release is kept for the same reason — a blocked source is not a dead one — but is not claimed as verified.',
+      'The 2021-2022 press releases document three different transactions, not one common one: Ping Identity’s completed take-private by Thoma Bravo, Clearlake Capital closing an investment in BeyondTrust alongside existing owner Francisco Partners, which had acquired it in 2018, and Delinea’s formation and rebrand out of the Thycotic/Centrify merger under TPG Capital. None of them speak to current financial reporting. Ping Identity and Delinea homepages, checked 2026-08-17, show no stock ticker or investor-relations section, supporting the no-public-ARR claim for those two as of that check. BeyondTrust’s current disclosure status was not independently re-verified in this pass.',
     conflictingEvidenceIds: [],
     sourceAttributions: [
       {
@@ -757,7 +757,7 @@ export const evidenceRecords: EvidenceRecord[] = [
       {
         organization: 'Delinea',
         publicationDate: '2022-02-01',
-        economicPeriod: 'Thoma Bravo take-private (as Centrify)',
+        economicPeriod: 'Rebrand from Thycotic/Centrify merger',
         canonicalUrl: 'https://www.thomabravo.com/press-releases/centrify-now-delinea',
       },
       {
