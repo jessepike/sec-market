@@ -18,4 +18,4 @@ Read [README.md](../../README.md) authority order before acting. [intent.md](../
 - No production infrastructure or autonomous pipeline without explicit authorization
 - Do not read [docs/archive/](../../docs/archive/) unless instructed
 - Update [status.md](../../status.md) at session end; log decisions in [decisions.md](../../decisions.md)
-- Production deploys only via local commit → `git push origin main` → Vercel GitHub integration. Never CLI-upload a dirty working tree.
+- Production deploys only via local commit → `git push origin main` → Vercel GitHub integration. Never CLI-upload a dirty working tree. Commit as `jesse@keatingpike.com`; `jesse@pikeholdings.co` blocks Vercel.

@@ -8,9 +8,9 @@
 The only production path is **local → GitHub → Vercel**.
 
 1. Preview on OrbStack: `orb run -m dev npm run dev --prefix web -- --host 0.0.0.0 --port 5173 --force`
-2. Commit a clean tree on `main`.
+2. Commit a clean tree on `main` as `jesse@keatingpike.com` (not `jesse@pikeholdings.co`).
 3. `git push origin main`.
-4. Vercel builds that GitHub commit (`pikeholdings/security-market-pulse`, root `web`).
+4. Vercel builds that GitHub commit (`pikeholdings/security-market-pulse`, root `web`). If the deploy is BLOCKED with `COMMIT_AUTHOR_REQUIRED`, the commit email is wrong.
 5. Curl https://securitymarketpulse.com before calling it shipped.
 
 Never CLI-upload a dirty working tree. That is how the three copies drifted the first time.
