@@ -39,8 +39,8 @@ Local, GitHub `main`, and Vercel are synced by committing the live scorecard tre
 - [x] Prints board converted to a dense table; `--content-max` 1280px
 - [x] Ship ungated slice to `main` `67b53ff` (judgment + prints + table + Avoid) — live
 - [x] SEC-009 execution plan written (D-41) — this is the steering page
-- [ ] Re-gather RoS 257+ when a newer issue exists; then ship the Activity edition
-- [x] Activity-ready branch `cursor/activity-edition-ready` sitting on current `main` (data staged, not live)
+- [x] Activity edition shipping with labeled RoS #256 window (D-42)
+- [ ] Refresh Activity when RoS 257+ exists
 - [x] Weekly desk: first real gather + reusable checklist (RoS #256; not published)
 - [x] Domain coverage map: watch list across Pulse domains
 - [x] M&A source catalog (map only) — lead reviewed
