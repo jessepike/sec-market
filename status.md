@@ -34,9 +34,9 @@ Local, GitHub `main`, and Vercel are synced by committing the live scorecard tre
 - [x] Cheap collection packet from the 10 allowed sources
 - [x] Lead critique of startup insights and first-screen shape
 - [ ] Owner critique of that startup section (design waits)
-- [ ] M&A source catalog (map only)
-- [ ] Durable gather → synthesize → check → post model (map only)
-- [x] Local / GitHub / Vercel sync finished (`f85821f`, D-31 / D-32)
+- [x] M&A source catalog (map only) — lead reviewed
+- [x] Durable gather → synthesize → check → post model (map only) — lead reviewed
+- [x] Local / GitHub / Vercel sync finished (`8b35e45`, D-31 / D-32)
 
 ## Pending Decisions
 
@@ -44,7 +44,7 @@ None blocking the signals job. Feed design (which VC pages, which public-record 
 
 ## Blockers
 
-None for the three-copy sync. Another local session may still exist; do not overwrite unrelated work, but `main` is now the production source of truth.
+None. Pulse sync session is wrapped. Uncommitted signals docs in this working tree belong to the signals session — do not mix them into a site deploy.
 
 ## Session Log
 
@@ -63,4 +63,5 @@ None for the three-copy sync. Another local session may still exist; do not over
 | 2026-08-16 | Public Vercel project live; custom-domain cutover complete |
 | 2026-08-16 | Owner closed product-review pending. Duplicate decision IDs fixed (deploy=D-25, DNS=D-26). Recurring public-signal intelligence is now the job (D-28). |
 | 2026-08-16 | Startup-source catalog completed and lead-reviewed. First-week set is specialist cyber VC pages plus Return on Security and Cybersecurity Ventures. |
-| 2026-08-16 | Three-copy sync closed. `main` `f85821f` is live on Vercel via GitHub. Commit email must be `jesse@keatingpike.com` (D-31, D-32). |
+| 2026-08-16 | Three-copy sync closed. `main` `8b35e45` is live on Vercel via GitHub. Commit email must be `jesse@keatingpike.com` (D-31, D-32). |
+| 2026-08-16 | Pulse sync session wrapped. Comparison shots deleted. Deploy path and email trap recorded in AGENTS.md and KB. |
