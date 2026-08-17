@@ -50,15 +50,20 @@ Recurring — public market signals are gathered on a cadence; market calls stay
 
 ## Production deploy (mandatory)
 
-The only allowed path is **local → GitHub → Vercel**.
+The only allowed path is **local → GitHub → preview branch → owner approval → `main` → Vercel production**.
+
+`main` is production. Pushing to `main` publishes to https://securitymarketpulse.com with no human between the commit and the public site. Treat every push to `main` as a publish decision that belongs to the owner, not to an agent.
 
 1. Develop and preview on the OrbStack dev server (`orb run -m dev npm run dev --prefix web`).
-2. Commit a clean tree on `main`.
-3. `git push origin main`.
-4. Vercel builds that GitHub commit (project `pikeholdings/security-market-pulse`, root `web`) and serves https://securitymarketpulse.com.
+2. Commit a clean tree on a **branch**, never directly on `main`.
+3. `git push origin <branch>`. Vercel builds a preview URL for that branch.
+4. Run the visual review below and send the owner the preview URL plus the before/after screenshots.
+5. Only after the owner says yes: merge to `main` and push.
+6. Vercel builds that `main` commit (project `pikeholdings/security-market-pulse`, root `web`) and serves the live domain.
 
 Do **not**:
 
+- push to `main` any change that touches `web/` without owner approval of a preview
 - `vercel --prod` / CLI-upload a dirty or uncommitted working tree
 - treat `origin/main` as live until that commit has actually deployed
 - push an older `main` that would regress the scorecard already on production
@@ -67,6 +72,24 @@ Do **not**:
 This repo’s commit email must be the GitHub-verified address `jesse@keatingpike.com` (`git config user.email` in this repo). After a push, confirm the Vercel deploy is Ready, then curl the live host before telling the owner it is shipped.
 
 First production ship was a CLI upload. That split local, GitHub, and Vercel. Do not recreate it.
+
+## Visual review before publish (mandatory)
+
+A build that passes is not a page that looks right. No change touching `web/` reaches `main` until an agent has **rendered the page and looked at it**.
+
+Before asking for approval, capture full-page screenshots of the current production site and of the preview build at **1440px and 390px** widths, compare them, and state plainly what moved. Send the owner the images with the preview URL. Run from `web/`:
+
+```
+node scripts/shot.mjs https://securitymarketpulse.com/ /tmp/prod
+node scripts/shot.mjs <preview-url> /tmp/preview
+```
+
+Hard rules:
+
+- **Never delete a component, a CSS rule, a data export, or a page section on the strength of static analysis alone.** "No importers found" is a hypothesis. Render the page before and after and prove the pixels did not move. Two independent agents can both be wrong about the same file.
+- A claim that the site improved must be backed by a render, not by a build log, a lighthouse score, or a passing test.
+- Separate **invisible** work (SEO, prerendering, bundle size, citation accuracy, accessibility) from **visible** work (layout, typography, colour, hierarchy, charts) when reporting. Say which of the two you did. Never let a long list of invisible wins imply the page looks different.
+- If a session's goal is "make it better" and no visible change was made, say so in the first sentence of the report.
 
 ## Fresh-agent minimum context
 
