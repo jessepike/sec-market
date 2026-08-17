@@ -6,10 +6,10 @@
 |---|---|
 | **ID** | `SEC-MARKET-ACTIVITY-ED-001` |
 | **Date** | 2026-08-16 |
-| **Status** | draft — lead reviewed 2026-08-16; pending RoS 257–258 re-gather at ship |
+| **Status** | shipping — labeled window Jul 6 – Aug 10; refresh when RoS 257+ exists (D-42) |
 | **Authority** | D-36, D-37; [review-findings-2026-08-16.md](review-findings-2026-08-16.md) Part 2 |
 | **Window** | **Jul 6 – Aug 10, 2026** (Return on Security Security, Funded #252–#256) |
-| **Ship dependency** | Re-gather against RoS **257–258** before public ship; this edition uses the August value-test packet window as-is |
+| **Ship dependency** | None for first ship (D-42). Refresh against RoS 257+ when it exists. |
 
 ---
 

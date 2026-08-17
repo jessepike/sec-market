@@ -95,7 +95,7 @@ Turn Pulse from a one-shot research edition into a living cybersecurity market-i
 
 **Shipped:** prints table, five new vendor rows, judgment layer, Avoid-line, Tempo join (D-40).
 
-**This increment:** Activity edition live after a newer RoS than #256. That is the done condition.
+**This increment:** Activity edition live with the newest RoS window that exists (#256 labeled, D-42). Refresh when #257+ exists.
 
 **Also done:** M&A catalog, weekly desk checklist, domain vendor packet. Mapping and desk only — no scrapers.
 

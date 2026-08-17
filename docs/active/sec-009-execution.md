@@ -35,7 +35,7 @@ Not a new section. Not a RoS reprint. Not a 58-row dump. The next edition of the
 **Increment exit (done):**
 
 - Activity edition is **live** on https://securitymarketpulse.com
-- Window label matches the newest Return on Security Security, Funded issue that existed at ship
+- Window label is the newest RoS issue that existed at ship (**#256 / Jul 6 – Aug 10** until a newer issue exists)
 - Five shared lead slots + section read match D-36
 - Avoid line and Activity board do not contradict
 - Published market call **unchanged** unless the lead escalates to the owner
@@ -91,4 +91,4 @@ Scrapers, archive, Gate S1 collector, account-prompt copy, new Startups nav, Orc
 
 ## Current block
 
-Return on Security #256 (2026-08-10) is the latest Security, Funded post. #257–#258 are not published. Loop 1 cannot finish until one of them exists. Typical next post: the following Monday.
+None for first ship (D-42). #257 is still unpublished. First ship uses the labeled #256 window. Loop 1 after that is a refresh.

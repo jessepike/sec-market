@@ -336,3 +336,11 @@ Hold: Activity edition rewrite (`activity.ts` + D19–D29). Re-gather when a new
 No new Governing Intent. `SEC-MARKET-001` v1.1 still governs. The lost-in-the-weeds problem is execution, not purpose.
 
 The lead steers from [sec-009-execution.md](docs/active/sec-009-execution.md). One increment: ship the Activity edition after a newer RoS than #256. One loop: gather → lead-check → ship. Owner is not in that loop unless the published market call would change.
+
+**D-42 · 2026-08-16 — Ship the labeled Activity window now. Do not wait on unpublished RoS issues.**
+
+#257 is 404. #256 (Aug 10) is still the latest Security, Funded post. Holding the edition until a future Monday is how the lead went idle.
+
+Ship the D-36 edition with the window on the page: **Jul 6 – Aug 10, 2026 / RoS #252–#256**. Market call stays frozen. When a newer issue exists, Loop 1 is a refresh, not a gate on first ship.
+
+Supersedes the D-39 / D-40 / D-41 hold that blocked Activity until #257–#258.
