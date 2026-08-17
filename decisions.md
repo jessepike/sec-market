@@ -330,3 +330,9 @@ RoS #256 (Aug 10) is still the latest Security, Funded post. #257–#258 are not
 Ship to production: JudgmentBoard, D-38 Avoid wording, five new prints, prints table, Identity coverage collapse (Entra / Ping / PE PAM as one row).
 
 Hold: Activity edition rewrite (`activity.ts` + D19–D29). Re-gather when a newer RoS issue exists, then ship that edition.
+
+**D-41 · 2026-08-16 — SEC-009 execution plan is the steering page.**
+
+No new Governing Intent. `SEC-MARKET-001` v1.1 still governs. The lost-in-the-weeds problem is execution, not purpose.
+
+The lead steers from [sec-009-execution.md](docs/active/sec-009-execution.md). One increment: ship the Activity edition after a newer RoS than #256. One loop: gather → lead-check → ship. Owner is not in that loop unless the published market call would change.

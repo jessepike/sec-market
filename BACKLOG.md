@@ -91,9 +91,11 @@ Owner reviewed the live site. Public Vercel deploy is live at https://security-m
 
 Turn Pulse from a one-shot research edition into a living cybersecurity market-intelligence site.
 
-**Shipped next:** prints table, five new vendor rows, judgment layer, Avoid-line (D-40).
+**Steer from:** [docs/active/sec-009-execution.md](docs/active/sec-009-execution.md) (D-41).
 
-**Held:** Activity edition rewrite until a newer Return on Security issue than #256 exists.
+**Shipped:** prints table, five new vendor rows, judgment layer, Avoid-line, Tempo join (D-40).
+
+**This increment:** Activity edition live after a newer RoS than #256. That is the done condition.
 
 **Also done:** M&A catalog, weekly desk checklist, domain vendor packet. Mapping and desk only — no scrapers.
 

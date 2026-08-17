@@ -20,7 +20,7 @@ Local, GitHub `main`, and Vercel are synced by committing the live scorecard tre
 | Live site | https://securitymarketpulse.com — accepted by owner |
 | Episode 001 | Done. One-time call on agent security readiness. Still usable as background. |
 | Episode 002 | Done. Current published market call. Infra spend is up. We will not fake a security-spend lag. |
-| Recurring signals | Activity edition drafted, held for RoS 257+. Prints table is live. Next: RoS 257 desk when it exists. |
+| Recurring signals | Steer from [sec-009-execution.md](docs/active/sec-009-execution.md). Prints live. Activity held for RoS 257+. |
 | Git / production | `main` is live on Vercel. Deploy only via `git push origin main`. |
 | Auto-publish judgments | Still not allowed without a human check |
 
@@ -38,7 +38,9 @@ Local, GitHub `main`, and Vercel are synced by committing the live scorecard tre
 - [x] Five vendor prints on the scorecard (Cato, Netskope, Upwind, CRWD cloud, Torq)
 - [x] Prints board converted to a dense table; `--content-max` 1280px
 - [x] Ship ungated slice to `main` `67b53ff` (judgment + prints + table + Avoid) — live
+- [x] SEC-009 execution plan written (D-41) — this is the steering page
 - [ ] Re-gather RoS 257+ when a newer issue exists; then ship the Activity edition
+- [ ] Activity-ready branch sitting on current `main` (data staged, not live)
 - [x] Weekly desk: first real gather + reusable checklist (RoS #256; not published)
 - [x] Domain coverage map: watch list across Pulse domains
 - [x] M&A source catalog (map only) — lead reviewed
