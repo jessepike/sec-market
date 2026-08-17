@@ -14,7 +14,8 @@ test('renders the market briefing without runtime errors', async ({ page }) => {
   await expect(page.getByText('The market call did not move').first()).toBeVisible()
   await expect(page.getByText('This quarter', { exact: true })).toBeVisible()
   await expect(page.getByText('This planning cycle', { exact: true })).toBeVisible()
-  await expect(page.getByRole('button', { name: /Produced by/ }).first()).toBeVisible()
+  await expect(page.getByText('Produced by', { exact: true }).first()).toBeVisible()
+  await expect(page.getByRole('button', { name: /Fortinet/ }).first()).toBeVisible()
   await expect(page.locator('#method summary')).toHaveText('How this is built')
   await expect(page.getByRole('heading', { name: 'M&A and startups' })).toBeVisible()
   // Background-surface item: collapsed inside a <details>, so it's in the DOM

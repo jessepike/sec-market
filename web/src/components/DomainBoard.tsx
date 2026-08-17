@@ -104,13 +104,16 @@ export function DomainBoard() {
                     <p>{domain.why}</p>
                     {note ? <p className="tempo-table__delta">{note.note}</p> : null}
                     <div className="tempo-table__evidence">
-                      <EvidenceLink ids={domain.supportingEvidenceIds} label="Produced by" />
+                      <p className="tempo-table__produced">Produced by</p>
+                      <EvidenceLink ids={domain.supportingEvidenceIds} />
                       {domain.counterEvidenceIds.length > 0 ? (
-                        <EvidenceLink
-                          ids={domain.counterEvidenceIds}
-                          label="Tension"
-                          className="evidence-link--counter"
-                        />
+                        <>
+                          <p className="tempo-table__produced">Tension</p>
+                          <EvidenceLink
+                            ids={domain.counterEvidenceIds}
+                            className="evidence-link--counter"
+                          />
+                        </>
                       ) : null}
                     </div>
                   </td>
