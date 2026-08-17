@@ -275,3 +275,58 @@ Two research jobs only:
 2. Durable operating model — how gather → synthesize → human check → post repeats without a one-off hero pull.
 
 No collectors, scrapers, schedulers, or auto-posting. Mapping only.
+
+**D-35 · 2026-08-16 — Stand up the weekly desk and widen domain coverage, in parallel.**
+
+The durability *map* exists. The repeating job does not. Owner wants ground made up now, independent of the Fable review and the startups-section design.
+
+Two sessions:
+
+1. Domain coverage — we are thin outside agent governance and identity. Map watch companies and extra lawful sources across Pulse domains.
+2. Weekly desk — run the first real gather (funding + M&A from the latest Return on Security post) and leave a reusable checklist.
+
+Still no scrapers, no auto-publish, no site design in these sessions.
+
+**D-36 · 2026-08-16 — Accept the 2026-08-16 review findings for the Activity rewrite.**
+
+Authority: [review-findings-2026-08-16.md](docs/active/review-findings-2026-08-16.md).
+
+The standing rewrite agent may resolve amounts and rewrite the statements. It may not edit `web/`, ship, build an archive, or change domain postures.
+
+Accepted:
+
+- Zenity is $115M Series C + $10M secondary, not an unresolved conflict.
+- Kill the named “barbell” claim.
+- This is the next edition of the existing Activity board, not a new Startups section.
+- Spine of the read: platforms that just bought identity are now seeding and buying agent control.
+- Insight 1 is stage-spread, not formation. Drop “buyers are in pain.” Keyfactor is not part of that sentence.
+- Five shared funding + M&A slots. Arcade/CodeIntegrity are “just appeared.” Horizon3.ai is not a lead.
+- Public cadence stays the monthly edition. Re-gather RoS 257–258 before ship, not before the rewrite.
+- State that capital heat is ahead of disclosed revenue. Keep the agentic-identity revenue falsifier.
+
+**D-37 · 2026-08-16 — Fill domain vendor signals and apply the Fable Activity rewrite, in parallel.**
+
+1. Operator: pull a current public signal for five or six top vendors in each Pulse domain. Names are not enough. Need a print, raise, or deal with source and excerpt.
+2. Apply D-36: rewrite the Activity edition (read + five shared slots) and update the live Activity data. Judgment layer is already on the page — do not rebuild it.
+
+No scrapers. No auto-publish of the market call. No new Startups section.
+
+**D-38 · 2026-08-16 — Avoid-line wording: announcements, not deals.**
+
+The judgment layer is now on the page. The Avoid item “Treating 2025 Wiz or CyberArk deals as this month’s demand signal” collided with the Activity board, which correctly shows the **2026 closes** as current capital events.
+
+Accepted wording: “Treating the 2025 Wiz or CyberArk **announcements** as this month’s demand signal.”
+
+The 2025 announce is not this month’s demand. The 2026 close may stay on the board as capital, not spend. Do not treat either as buyer demand.
+
+**D-39 · 2026-08-16 — Next build: put pulled vendor signals on the prints board, and convert prints to a table.**
+
+The vendor pull is accepted as a research packet. Next is to show the five new prints we did not have (Cato, Netskope, Upwind, CrowdStrike cloud, Torq) and turn the prints wall into a dense table. Do not wait on Orca/Aqua. Do not ship the Activity edition to production until RoS 257–258 are re-gathered.
+
+**D-40 · 2026-08-16 — Ship the ungated slice now; hold the Activity edition.**
+
+RoS #256 (Aug 10) is still the latest Security, Funded post. #257–#258 are not published. Sitting on the prints table, vendor rows, judgment layer, and Avoid-line until those issues exist would stall authorized work.
+
+Ship to production: JudgmentBoard, D-38 Avoid wording, five new prints, prints table, Identity coverage collapse (Entra / Ping / PE PAM as one row).
+
+Hold: Activity edition rewrite (`activity.ts` + D19–D29). Re-gather when a newer RoS issue exists, then ship that edition.

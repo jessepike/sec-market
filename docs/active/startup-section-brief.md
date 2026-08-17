@@ -6,7 +6,7 @@
 |---|---|
 | **ID** | `SEC-MARKET-STARTUP-UX-001` |
 | **Date** | 2026-08-16 |
-| **Status** | lead critique — owner review |
+| **Status** | superseded for rewrite by `SEC-MARKET-REVIEW-FINDINGS-001` / D-36 |
 | **Based on** | `SEC-MARKET-STARTUP-PKT-001` |
 | **Not for publication** | Until owner agrees the story and the shape |
 | **Design agent** | Do not start until this brief is accepted |

@@ -20,8 +20,8 @@ Local, GitHub `main`, and Vercel are synced by committing the live scorecard tre
 | Live site | https://securitymarketpulse.com — accepted by owner |
 | Episode 001 | Done. One-time call on agent security readiness. Still usable as background. |
 | Episode 002 | Done. Current published market call. Infra spend is up. We will not fake a security-spend lag. |
-| Recurring signals | Startup packet + lead critique done. M&A catalog and weekly ops model done. Nothing is in flight. |
-| Git / production | Local, GitHub `main`, and Vercel match after the D-31 sync. Deploy only via `git push origin main`. |
+| Recurring signals | Activity edition drafted, held for RoS 257+. Vendor prints + table authorized to ship now (D-40). |
+| Git / production | Working tree is ahead of `main`. Live site is still the prior edition until the ungated slice lands. |
 | Auto-publish judgments | Still not allowed without a human check |
 
 ## Next Steps
@@ -33,7 +33,14 @@ Local, GitHub `main`, and Vercel are synced by committing the live scorecard tre
 - [x] Startup-source research: catalog written and lead-reviewed (`SEC-MARKET-STARTUP-SRC-001`)
 - [x] Cheap collection packet from the 10 allowed sources
 - [x] Lead critique of startup insights and first-screen shape
-- [ ] Owner critique of that startup section (design waits)
+- [x] Fable review accepted (D-36); Activity edition drafted — held for RoS 257+ (D-40)
+- [x] Judgment layer wired; D-38 Avoid-line on the working tree
+- [x] Five vendor prints on the scorecard (Cato, Netskope, Upwind, CRWD cloud, Torq)
+- [x] Prints board converted to a dense table; `--content-max` 1280px
+- [ ] Ship ungated slice to `main` (judgment + prints + table + Avoid)
+- [ ] Re-gather RoS 257+ when a newer issue exists; then ship the Activity edition
+- [x] Weekly desk: first real gather + reusable checklist (RoS #256; not published)
+- [x] Domain coverage map: watch list across Pulse domains
 - [x] M&A source catalog (map only) — lead reviewed
 - [x] Durable gather → synthesize → check → post model (map only) — lead reviewed
 - [x] Local / GitHub / Vercel sync finished (`8b35e45`, D-31 / D-32)

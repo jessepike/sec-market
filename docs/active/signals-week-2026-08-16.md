@@ -13,7 +13,7 @@ First real weekly desk run. **Not for publication** until lead signs read + head
 | **RoS URL** | https://www.returnonsecurity.com/p/security-funded-256 |
 | **RoS publish date** | 2026-08-10 |
 | **Window covered** | Week of **2026-08-03** (per RoS intro) |
-| **Status** | `desk-run — lead review pending` |
+| **Status** | `desk-run — lead reviewed 2026-08-16; not for publication` |
 | **Collector** | sec-market weekly desk |
 | **Collected at** | 2026-08-16 |
 | **Newer issue check** | Homepage and `/p/security-funded-257` checked — **#256 is the latest Security, Funded post** as of this gather (#257 returned 403 to direct fetch; no #257 on homepage) |

@@ -43,7 +43,7 @@ export const marketCall: MarketCall = {
     avoidItems: [
       'Claiming a market-wide cybersecurity boom or a stable 0–8 quarter lag.',
       'Reading headline security growth without stripping acquisitions.',
-      'Treating 2025 Wiz or CyberArk deals as this month’s demand signal.',
+      'Treating the 2025 Wiz or CyberArk announcements as this month’s demand signal.',
     ],
   },
   meaning:
