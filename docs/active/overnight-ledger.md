@@ -66,6 +66,16 @@ actually contains the text, trim an unsupported clause, or correct a date to wha
 source states. They may not add or strengthen any claim. The re-verify agent's primary
 job is to catch OVERREACH against that constraint.
 
+**Group B is committed (`c7a3b7f`) and spot-checked by the orchestrator.** Five dates
+corrected — C6a 06-30→07-30, D23 and D28 07-20→07-27, D26 08-03→08-10, C23 2026-03-02→
+2025-12-02 — each against the source's own stated dateline. D9 Secuvy was correctly left
+alone because Business Wire is bot-blocked and the only contrary date came from a
+syndicated mirror. The A2 Cisco fix added period labels and changed no number: $4B,
+$9.3B, $7.5B, $9.791B, +28% and +40% are byte-identical before and after. No
+out-of-scope record was touched.
+
+**Group A, hardening, and both verification agents were still running at 06:15 PT.**
+
 Next cycle: if re-verify says the evidence file is safe to publish and the build passes,
 merge to `main`, push, confirm the Vercel deploy reaches Ready, then curl the live host
 before calling it shipped. If it died on a session limit, resume with
