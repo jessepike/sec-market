@@ -91,9 +91,11 @@ Owner reviewed the live site. Public Vercel deploy is live at https://security-m
 
 Turn Pulse from a one-shot research edition into a living cybersecurity market-intelligence site.
 
-**First slice:** new security startups and their funding. Packet and lead critique exist. Design waits on owner.
+**Shipped next:** prints table, five new vendor rows, judgment layer, Avoid-line (D-40).
 
-**Now also:** M&A source research and a durable gather → synthesize → check → post model (D-33). Mapping only.
+**Held:** Activity edition rewrite until a newer Return on Security issue than #256 exists.
+
+**Also done:** M&A catalog, weekly desk checklist, domain vendor packet. Mapping and desk only — no scrapers.
 
 **Authorization state:** authorized by owner on 2026-08-16 (D-28); parallel mapping authorized 2026-08-16 (D-33)
 

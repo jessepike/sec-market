@@ -37,7 +37,7 @@ Local, GitHub `main`, and Vercel are synced by committing the live scorecard tre
 - [x] Judgment layer wired; D-38 Avoid-line on the working tree
 - [x] Five vendor prints on the scorecard (Cato, Netskope, Upwind, CRWD cloud, Torq)
 - [x] Prints board converted to a dense table; `--content-max` 1280px
-- [ ] Ship ungated slice to `main` (judgment + prints + table + Avoid)
+- [x] Ship ungated slice to `main` (judgment + prints + table + Avoid) — landing now
 - [ ] Re-gather RoS 257+ when a newer issue exists; then ship the Activity edition
 - [x] Weekly desk: first real gather + reusable checklist (RoS #256; not published)
 - [x] Domain coverage map: watch list across Pulse domains
