@@ -20,7 +20,7 @@ Local, GitHub `main`, and Vercel are synced by committing the live scorecard tre
 | Live site | https://securitymarketpulse.com — accepted by owner |
 | Episode 001 | Done. One-time call on agent security readiness. Still usable as background. |
 | Episode 002 | Done. Current published market call. Infra spend is up. We will not fake a security-spend lag. |
-| Recurring signals | Startup sources found. First collection week not started. M&A parked. |
+| Recurring signals | Startup packet + lead critique done. M&A source map and durable-ops map in flight. |
 | Git / production | Local, GitHub `main`, and Vercel match after the D-31 sync. Deploy only via `git push origin main`. |
 | Auto-publish judgments | Still not allowed without a human check |
 
@@ -31,9 +31,12 @@ Local, GitHub `main`, and Vercel are synced by committing the live scorecard tre
 - [x] Owner reviewed the live site
 - [x] Sync local scorecard tree → GitHub `main` → Vercel (D-31)
 - [x] Startup-source research: catalog written and lead-reviewed (`SEC-MARKET-STARTUP-SRC-001`)
-- [ ] Cheap collection packet from the 10 allowed sources (manual, no scrapers)
-- [ ] Judge whether that packet is useful before any custom browser collection
-- [ ] Keep the published call honest when new evidence arrives
+- [x] Cheap collection packet from the 10 allowed sources
+- [x] Lead critique of startup insights and first-screen shape
+- [ ] Owner critique of that startup section (design waits)
+- [ ] M&A source catalog (map only)
+- [ ] Durable gather → synthesize → check → post model (map only)
+- [x] Local / GitHub / Vercel sync finished (`f85821f`, D-31 / D-32)
 
 ## Pending Decisions
 
@@ -60,4 +63,4 @@ None for the three-copy sync. Another local session may still exist; do not over
 | 2026-08-16 | Public Vercel project live; custom-domain cutover complete |
 | 2026-08-16 | Owner closed product-review pending. Duplicate decision IDs fixed (deploy=D-25, DNS=D-26). Recurring public-signal intelligence is now the job (D-28). |
 | 2026-08-16 | Startup-source catalog completed and lead-reviewed. First-week set is specialist cyber VC pages plus Return on Security and Cybersecurity Ventures. |
-| 2026-08-16 | Owner authorized three-copy sync. Scorecard tree committed and pushed; Vercel deploys from GitHub only (D-31). |
+| 2026-08-16 | Three-copy sync closed. `main` `f85821f` is live on Vercel via GitHub. Commit email must be `jesse@keatingpike.com` (D-31, D-32). |
