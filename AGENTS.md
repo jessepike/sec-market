@@ -62,8 +62,11 @@ Do **not**:
 - `vercel --prod` / CLI-upload a dirty or uncommitted working tree
 - treat `origin/main` as live until that commit has actually deployed
 - push an older `main` that would regress the scorecard already on production
+- commit with `jesse@pikeholdings.co` — Vercel blocks the GitHub deploy (`COMMIT_AUTHOR_REQUIRED`) because GitHub cannot map that address to a user
 
-First production ship was a CLI upload. That split local, GitHub, and Vercel. Do not recreate it. After a push, curl the live host before telling the owner it is shipped.
+This repo’s commit email must be the GitHub-verified address `jesse@keatingpike.com` (`git config user.email` in this repo). After a push, confirm the Vercel deploy is Ready, then curl the live host before telling the owner it is shipped.
+
+First production ship was a CLI upload. That split local, GitHub, and Vercel. Do not recreate it.
 
 ## Fresh-agent minimum context
 

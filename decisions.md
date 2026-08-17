@@ -255,8 +255,23 @@ Standing rule:
 
 Do not `vercel --prod` an uncommitted tree. Do not treat `origin/main` as live until that commit has deployed. After this decision, the scorecard working tree is the git and production source of truth.
 
-**D-31 · 2026-08-16 — Startup work is a site feature, not another research episode.**
+**D-32 · 2026-08-16 — Pulse git commits must use `jesse@keatingpike.com`.**
+
+Vercel blocked GitHub production deploys of `90689cc` with `COMMIT_AUTHOR_REQUIRED`: GitHub could not associate committer `jesse@pikeholdings.co` with a user. This repo’s `user.email` is `jesse@keatingpike.com`. Do not change it back to `pikeholdings.co` or the local → GitHub → Vercel path breaks again.
+
+**D-32 · 2026-08-16 — Startup work is a site feature, not another research episode.**
 
 Owner correction: stop calling this an episode. The live site is one published research edition. Startups is a new section of Security Market Pulse.
 
 Sequence: (1) collection packet, (2) owner + lead critique for insights and presentation, (3) a separate design/front-end agent only after the packet is good enough for a sharp San Francisco audience. Do not spin design before that review. World-class bar: if smart operators would dismiss it as a link dump, it is not ready.
+
+**D-33 · 2026-08-16 — Map M&A sources and a durable signals operation in parallel.**
+
+Owner authorized parallel mapping while another session repairs local / GitHub / Vercel sync. This session does not touch `web/`, Vercel, or that sync.
+
+Two research jobs only:
+
+1. M&A source catalog — where public cybersecurity deal news actually lives, and what we can use.
+2. Durable operating model — how gather → synthesize → human check → post repeats without a one-off hero pull.
+
+No collectors, scrapers, schedulers, or auto-posting. Mapping only.

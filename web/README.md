@@ -24,9 +24,9 @@ Open the URL printed by Vite (typically `http://localhost:5173`).
 
 ### Deploy path (only)
 
-Local OrbStack preview → commit on `main` → `git push origin main` → Vercel builds that commit.
+Local OrbStack preview → commit on `main` with `jesse@keatingpike.com` → `git push origin main` → Vercel builds that commit.
 
-Do not `vercel --prod` or otherwise CLI-upload a dirty working tree. That is how local, GitHub, and production drifted the first time. After a push, curl https://securitymarketpulse.com before calling it shipped.
+Do not `vercel --prod` or otherwise CLI-upload a dirty working tree. That is how local, GitHub, and production drifted the first time. Do not commit as `jesse@pikeholdings.co` — Vercel blocks those GitHub deploys. After a push, confirm the deploy is Ready, then curl https://securitymarketpulse.com before calling it shipped.
 
 ## Production build
 

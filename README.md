@@ -15,7 +15,7 @@ The MVP consumption surface is now the **Security Market Pulse** website:
 - **Evidence contract:** every material call, chart, and domain posture links to source, excerpt/locator, limitations, conflicting evidence, and research artifacts
 - **Production:** https://securitymarketpulse.com (Vercel alias: https://security-market-pulse.vercel.app)
 - **Custom domain:** `securitymarketpulse.com` (Cloudflare DNS, unproxied CNAME to Vercel)
-- **Deploy path (only):** local OrbStack preview → commit on `main` → `git push origin main` → Vercel builds that GitHub commit. Project `pikeholdings/security-market-pulse`, repo `jessepike/sec-market`, root `web`. Never CLI-upload a dirty working tree.
+- **Deploy path (only):** local OrbStack preview → commit on `main` with GitHub-verified email `jesse@keatingpike.com` → `git push origin main` → Vercel builds that GitHub commit. Project `pikeholdings/security-market-pulse`, repo `jessepike/sec-market`, root `web`. Never CLI-upload a dirty working tree. `jesse@pikeholdings.co` blocks Vercel GitHub deploys.
 
 The first completed episode is now classified as a thematic validation episode:
 
