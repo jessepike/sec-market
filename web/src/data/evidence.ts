@@ -45,7 +45,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     canonicalUrl:
       'https://investor.cisco.com/news/news-details/2026/CISCO-REPORTS-FOURTH-QUARTER-AND-FISCAL-YEAR-2026-EARNINGS/default.aspx',
     excerpt:
-      '$4 billion of orders taken in Q4, bringing the total for FY 2026 to $9.3 billion. Delivered approximately $4 billion of revenue in FY 2026; $7.5 billion expected in FY 2027. Networking revenue $9.791 billion, +28 percent; Q4 networking product orders +40 percent.',
+      '$4 billion of Q4 AI-infrastructure orders, bringing the cumulative FY 2026 AI-infrastructure order total to $9.3 billion. Delivered approximately $4 billion of AI-infrastructure revenue in FY 2026; $7.5 billion expected in FY 2027. Q4 Networking revenue $9.791 billion, +28 percent; Q4 networking product orders +40 percent.',
     sourceClass: 'IR',
     interpretation: 'Networking joined the AI cycle after the initial compute impulse.',
     limitations: 'Orders are concentrated and are not revenue; Splunk distorts total-company comparability.',
@@ -295,7 +295,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     id: 'C6a',
     title: 'Check Point Q2 2026 Results',
     organization: 'Check Point',
-    publicationDate: '2026-06-30',
+    publicationDate: '2026-07-30',
     economicPeriod: 'Quarter ended 2026-06-30',
     canonicalUrl:
       'https://www.checkpoint.com/downloads/investor/check-point-software-second-quarter-2026-financial-results.pdf',
@@ -908,7 +908,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     id: 'D23',
     title: 'Cathedral venture round',
     organization: 'Return on Security',
-    publicationDate: '2026-07-20',
+    publicationDate: '2026-07-27',
     economicPeriod: 'Security, Funded #254 week',
     canonicalUrl: 'https://www.returnonsecurity.com/p/security-funded-254',
     excerpt:
@@ -959,7 +959,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     id: 'D26',
     title: 'Horizon3.ai Series E',
     organization: 'Return on Security',
-    publicationDate: '2026-08-03',
+    publicationDate: '2026-08-10',
     economicPeriod: 'Security, Funded #256 week',
     canonicalUrl: 'https://www.returnonsecurity.com/p/security-funded-256',
     excerpt:
@@ -991,7 +991,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     id: 'D28',
     title: 'Zafran Security strategic round from Cisco Investments',
     organization: 'Return on Security',
-    publicationDate: '2026-07-20',
+    publicationDate: '2026-07-27',
     economicPeriod: 'Security, Funded #254 week',
     canonicalUrl: 'https://www.returnonsecurity.com/p/security-funded-254',
     excerpt:
@@ -1258,7 +1258,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     id: 'C23',
     title: 'ServiceNow acquisition of Veza',
     organization: 'ServiceNow',
-    publicationDate: '2026-03-02',
+    publicationDate: '2025-12-02',
     economicPeriod: 'Acquisition close',
     canonicalUrl:
       'https://newsroom.servicenow.com/press-releases/details/2025/ServiceNow-to-Expand-Security-Portfolio-With-Acquisition-of-Vezas-Leading-AI-native-Identity-Security-Platform/default.aspx',
