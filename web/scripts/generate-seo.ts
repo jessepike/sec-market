@@ -3,10 +3,13 @@
  *
  * Runs after `vite build` and after scripts/prerender.ts, against dist/.
  *
- * Two jobs, both driven off src/data/meta.ts and src/data/market.ts so that
+ * Three jobs, all driven off src/data/meta.ts and src/data/market.ts so that
  * nothing here can drift from the page content when a new edition ships:
- *   1. Inject a schema.org JSON-LD block into dist/index.html.
- *   2. Write dist/sitemap.xml with lastmod set from LAST_UPDATED_ISO.
+ *   1. Fail the build if the hand-maintained OG image (assets-src/og.svg) or
+ *      index.html's og:image:alt / twitter:image:alt no longer match the
+ *      current headline and contextStats — see the OG staleness gate below.
+ *   2. Inject a schema.org JSON-LD block into dist/index.html.
+ *   3. Write dist/sitemap.xml with lastmod set from LAST_UPDATED_ISO.
  *
  * robots.txt is static and lives in public/, because it never changes.
  *
@@ -16,14 +19,13 @@
 import { readFileSync, writeFileSync } from 'node:fs'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { marketCall } from '../src/data/market.ts'
+import { contextStats, marketCall } from '../src/data/market.ts'
 import {
   AUTHOR_NAME,
   EPISODE_ID,
   EPISODE_VERSION,
   LAST_UPDATED_ISO,
   PRODUCT_TITLE,
-  RESEARCH_FREEZE,
   SITE_URL,
 } from '../src/data/meta.ts'
 
@@ -48,7 +50,80 @@ function readDescription(html: string): string {
   return match[1]
 }
 
+/** Reads the <title> already declared in index.html. */
+function readTitle(html: string): string {
+  const match = html.match(/<title>([^<]+)<\/title>/)
+  if (!match) {
+    fail('could not find <title> in dist/index.html.')
+  }
+  return match[1]
+}
+
 const html = readFileSync(htmlPath, 'utf8')
+
+// --- OG staleness gate ------------------------------------------------------
+// assets-src/og.svg bakes marketCall.headline and every contextStats[].value
+// into the image as literal text; it is rasterized to public/og.png by the
+// manual step assets-src/render-og.mjs, which nothing in `npm run build` runs.
+// index.html's og:image:alt and twitter:image:alt duplicate the headline for
+// the same unfurl. None of that is derived at build time, so editing
+// src/data/market.ts alone leaves the build green while every LinkedIn/Slack
+// unfurl keeps showing the old headline and stats under the new page. Fail
+// closed instead.
+const ogSvg = readFileSync(resolve(webRoot, 'assets-src/og.svg'), 'utf8')
+
+// The headline is laid out as two separate <text> elements (one per line), so
+// strip comments/tags and collapse whitespace to read the image's text as the
+// single sentence a viewer sees.
+const ogSvgText = ogSvg
+  .replace(/<!--[\s\S]*?-->/g, ' ')
+  .replace(/<[^>]+>/g, ' ')
+  .replace(/\s+/g, ' ')
+  .trim()
+
+const ogDrift: string[] = []
+
+if (!ogSvgText.includes(marketCall.headline)) {
+  ogDrift.push(`assets-src/og.svg does not contain the current headline: "${marketCall.headline}"`)
+}
+
+for (const stat of contextStats) {
+  if (!ogSvgText.includes(stat.value)) {
+    ogDrift.push(
+      `assets-src/og.svg does not contain the current contextStats value "${stat.value}" (${stat.label})`,
+    )
+  }
+}
+
+/** Reads a `content="…"` attribute off the named property/name meta tag in index.html. */
+function readMetaContent(attr: 'property' | 'name', key: string): string | null {
+  const match = html.match(new RegExp(`${attr}="${key}"[\\s\\S]*?content="([^"]*)"`))
+  return match ? match[1] : null
+}
+
+const ogImageAlt = readMetaContent('property', 'og:image:alt')
+const twitterImageAlt = readMetaContent('name', 'twitter:image:alt')
+
+if (ogImageAlt === null) {
+  ogDrift.push('index.html has no og:image:alt meta tag to check against the current headline')
+} else if (!ogImageAlt.includes(marketCall.headline)) {
+  ogDrift.push(`index.html's og:image:alt does not contain the current headline: "${marketCall.headline}"`)
+}
+
+if (twitterImageAlt === null) {
+  ogDrift.push('index.html has no twitter:image:alt meta tag to check against the current headline')
+} else if (!twitterImageAlt.includes(marketCall.headline)) {
+  ogDrift.push(`index.html's twitter:image:alt does not contain the current headline: "${marketCall.headline}"`)
+}
+
+if (ogDrift.length > 0) {
+  fail(
+    `${ogDrift.join('; ')}. src/data/market.ts changed and the OG image / social meta tags were not ` +
+      "updated to match: edit assets-src/og.svg's text to match, then re-run assets-src/render-og.mjs " +
+      '(from web/, inside the OrbStack dev VM) to rebuild public/og.png, and update index.html\'s ' +
+      'og:image:alt and twitter:image:alt to the current headline.',
+  )
+}
 
 // Anchoring on the head-closing tag is only safe when there is exactly one of
 // them. A stray copy inside a comment silently swallows the injected block (and
@@ -72,14 +147,14 @@ const structuredData = {
   '@id': `${CANONICAL_URL}#report`,
   url: CANONICAL_URL,
   mainEntityOfPage: { '@type': 'WebPage', '@id': CANONICAL_URL },
-  name: `${PRODUCT_TITLE} — ${EPISODE_ID} v${EPISODE_VERSION}`,
+  name: readTitle(html),
   headline: marketCall.headline,
   description: readDescription(html),
   abstract: marketCall.subhead,
   reportNumber: `${EPISODE_ID} v${EPISODE_VERSION}`,
   inLanguage: 'en',
   isAccessibleForFree: true,
-  datePublished: RESEARCH_FREEZE,
+  datePublished: LAST_UPDATED_ISO,
   dateModified: LAST_UPDATED_ISO,
   image: OG_IMAGE_URL,
   author: { '@type': 'Person', name: AUTHOR_NAME },
