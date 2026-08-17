@@ -1,7 +1,7 @@
 ---
 project: Security Market Signal Pipeline
 stage: Operate
-updated: 2026-08-16
+updated: 2026-08-17
 ---
 
 # Status
@@ -40,6 +40,7 @@ Local, GitHub `main`, and Vercel are synced by committing the live scorecard tre
 - [x] Ship ungated slice to `main` `67b53ff` (judgment + prints + table + Avoid) — live
 - [x] SEC-009 execution plan written (D-41) — this is the steering page
 - [x] Leadership ops artifacts: funding, M&A, domains, dashboard, brief (D-43)
+- [x] Dated domain postures + edition delta on Tempo (D-45)
 - [ ] Loop A: first Tuesday multi-source gather under new ops docs
 - [ ] Refresh Activity when Return on Security publishes a new Security, Funded issue
 - [x] Weekly desk: first real gather + reusable checklist (RoS #256; not published)
@@ -76,3 +77,4 @@ None. Local, GitHub, and Vercel are in sync. This session owns all remaining wor
 | 2026-08-16 | Three-copy sync closed. `main` `8b35e45` is live on Vercel via GitHub. Commit email must be `jesse@keatingpike.com` (D-31, D-32). |
 | 2026-08-16 | Pulse sync session wrapped. Comparison shots deleted. Deploy path and email trap recorded in AGENTS.md and KB. |
 | 2026-08-16 | D-40: shipped prints table, five vendor rows, judgment layer, Avoid-line (`67b53ff`). Activity edition held for RoS 257+. |
+| 2026-08-17 | D-45: dated domain postures, horizons, producing evidence, and edition-to-edition delta on Tempo. Market call unchanged. |

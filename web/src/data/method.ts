@@ -80,4 +80,8 @@ export const reasoningSteps: ReasoningStep[] = [
     step: 'Age the edition; do not pretend it is live',
     rule: 'Keep the latest comparable print on the card. Demote still-true context. Leave superseded prints in evidence. Freeze acquired entities. Refresh on earnings, material capital events, and falsifiers — not on a news clock.',
   },
+  {
+    step: 'Date the posture; show the delta',
+    rule: 'Every domain posture carries the date it was set, the horizon it governs, and the evidence that produced it. Each edition states what held or moved versus the prior edition. Do not overwrite the last state.',
+  },
 ]

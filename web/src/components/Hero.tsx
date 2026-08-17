@@ -1,3 +1,4 @@
+import { currentEdition } from '../data/edition'
 import { contextStats, marketCall } from '../data/market'
 import { LAST_UPDATED_DISPLAY } from '../data/meta'
 import { EvidenceLink } from './EvidenceLink'
@@ -13,7 +14,7 @@ export function Hero() {
       </h1>
       <div className="stamp">
         <span>
-          PERIOD <b>2026-08</b>
+          EDITION <b>{currentEdition.id}</b>
         </span>
         <span>
           UPDATED <b>{LAST_UPDATED_DISPLAY}</b>

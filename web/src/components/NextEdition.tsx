@@ -11,9 +11,10 @@ export function NextEdition() {
       <p className="eyebrow">Next edition</p>
       <h2 id="next-edition-heading">Get the next read, or argue with this one</h2>
       <p>
-        Editions publish when the evidence moves, not on a fixed schedule. Ask to be told when the
-        next one is out and you will get an email when it publishes. There is no form and no signup
-        behind these links — they open a plain message to me.
+        Editions publish when the evidence moves, not on a fixed schedule. The next one will show
+        what held or moved from this edition. Ask to be told when it is out and you will get an
+        email when it publishes. There is no form and no signup behind these links — they open a
+        plain message to me.
       </p>
       <p>
         Corrections and counter-evidence are more useful than agreement. If a print is wrong, a

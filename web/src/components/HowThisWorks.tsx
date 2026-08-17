@@ -9,8 +9,9 @@ export function HowThisWorks() {
         <p>
           Public sources only. This edition is the Episode 002 packet ({EPISODE_ID} v{EPISODE_VERSION})
           plus an August 2026 surface refresh — SentinelOne, SailPoint, identity coverage names, and
-          2026 capital events — updated {LAST_UPDATED_DISPLAY}. Not a live feed. Every number links to
-          a source excerpt and its limits.
+          2026 capital events — updated {LAST_UPDATED_DISPLAY}. Each domain posture is dated, with a
+          horizon and the evidence that produced it. This edition shows what held or moved versus the
+          one before. Not a live feed. Every number links to a source excerpt and its limits.
         </p>
       </div>
 
@@ -18,7 +19,8 @@ export function HowThisWorks() {
       <p className="method-copy">
         Current prints stay on the scorecard. Older still-true context collapses to Background.
         Superseded prints leave the card and stay in evidence. Acquired vendors keep their last
-        independent print — we do not rewrite them into the buyer. Refresh is manual: earnings
+        independent print — we do not rewrite them into the buyer. Domain postures keep the date
+        they were set; the next edition shows what held or moved. Refresh is manual: earnings
         clusters, material closes or raises, and Watch-next falsifiers. Not a weekly news cycle.
       </p>
 
