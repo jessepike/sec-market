@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { LAST_UPDATED_DISPLAY, PRODUCT_TITLE } from '../data/meta'
+import { LAST_UPDATED_DISPLAY, LAST_UPDATED_ISO, PRODUCT_TITLE } from '../data/meta'
 
 const navItems = [
   { href: '#overview', label: 'Call' },
@@ -83,7 +83,7 @@ export function Header() {
           </ul>
         </nav>
         <p className="site-header__updated">
-          <time dateTime="2026-08-16">{LAST_UPDATED_DISPLAY}</time>
+          <time dateTime={LAST_UPDATED_ISO}>{LAST_UPDATED_DISPLAY}</time>
         </p>
       </div>
     </header>
