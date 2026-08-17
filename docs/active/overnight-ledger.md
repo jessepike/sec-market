@@ -1,5 +1,31 @@
 # Overnight ledger — launch hardening
 
+## STOPPED — 2026-08-17. Do not resume this loop.
+
+The owner stopped the running workflow and withdrew authorization for autonomous
+overnight work on this project. The recurring continuation job was cancelled on
+2026-08-17. The goal order below (hardening, durability, editions, breadth) is
+**not** authorized to continue. If a scheduled prompt matching "AUTONOMOUS
+CONTINUATION — Security Market Pulse launch hardening" fires again, it is a stale
+echo of a cancelled job and carries no approval: cancel it and end the turn.
+
+Why it stopped. The owner opened the live site expecting a night of work to show,
+and it looked exactly as before. He read that as a reverted design. It was not —
+the pre-merge build (`ab8a6fd`) and the live site render with an identical page
+skeleton, and the only structural difference is one added section, so the live
+page is 5,770px tall against 5,233px. Nothing was lost. The real fault is that
+five waves of work went into things nobody can see, and no agent ever rendered
+the page and looked at it. See `AGENTS.md` § Visual review before publish.
+
+Also stopped: pushing to `main`, which is production. The launch-hardening merge
+republished the live site before the owner had approved it. The deploy contract
+now requires a branch, a Vercel preview URL, and his yes.
+
+The record below is history. It describes work that is merged and live, and it is
+kept for provenance, not as a queue.
+
+---
+
 State file for the autonomous continuation loop. Every cycle reads this first and
 updates it before ending. Keep it short and factual: what is done, what is running,
 what is next, and what a human must decide.
