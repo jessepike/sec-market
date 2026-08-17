@@ -259,7 +259,7 @@ Do not `vercel --prod` an uncommitted tree. Do not treat `origin/main` as live u
 
 Vercel blocked GitHub production deploys of `90689cc` with `COMMIT_AUTHOR_REQUIRED`: GitHub could not associate committer `jesse@pikeholdings.co` with a user. This repo’s `user.email` is `jesse@keatingpike.com`. Do not change it back to `pikeholdings.co` or the local → GitHub → Vercel path breaks again.
 
-**D-32 · 2026-08-16 — Startup work is a site feature, not another research episode.**
+**D-34 · 2026-08-16 — Startup work is a site feature, not another research episode.**
 
 Owner correction: stop calling this an episode. The live site is one published research edition. Startups is a new section of Security Market Pulse.
 
@@ -267,7 +267,7 @@ Sequence: (1) collection packet, (2) owner + lead critique for insights and pres
 
 **D-33 · 2026-08-16 — Map M&A sources and a durable signals operation in parallel.**
 
-Owner authorized parallel mapping while another session repairs local / GitHub / Vercel sync. This session does not touch `web/`, Vercel, or that sync.
+Owner authorized parallel mapping of M&A sources and a durable weekly operation. Site deploy path is already settled (D-31 / D-32).
 
 Two research jobs only:
 

@@ -16,9 +16,9 @@ This is how Pulse stays current. The site today is one frozen research edition a
 
 ## First slice — startups only
 
-Owner direction 2026-08-16: do not work M&A yet. First question: where do new security startups and their funding show up in public, and which sources can we actually use?
+Startup source catalog and first packet are done. M&A source *research* is now open (D-33). M&A collection and posting are not.
 
-M&A and public-company prints stay parked.
+Public-company prints stay parked. GitHub / Vercel sync is owned by another session. Do not touch `web/`.
 
 ## What “done” looks like for this slice
 
@@ -42,10 +42,10 @@ Do not scrape a site that forbids it. Prefer official public pages, RSS, and fil
 1. Research the top public sources for new security startups and funding. Write the catalog. **Done:** [startup-source-catalog.md](startup-source-catalog.md) (`SEC-MARKET-STARTUP-SRC-001`), lead reviewed.
 2. Pick the first 8–10 we can actually collect from. **Done:** first-week set in the catalog.
 3. Define the event record: company, what they do, date, round if any, source URL, excerpt, why it might matter.
-4. Run one cheap collection packet from those sources. **In progress.**
-5. Judge value from the packet. Only if it is useful, consider light automation of allowed pages. Custom browser scraping stays parked.
-
-M&A source work is parked.
+4. Run one cheap collection packet from those sources. **Done.**
+5. Judge value and presentation. **Lead brief done.** Owner critique and design still waiting.
+6. Map a durable weekly operation. **Done:** [signals-operating-model.md](signals-operating-model.md).
+7. Map M&A sources. **Done:** [ma-source-catalog.md](ma-source-catalog.md). Same weekly RoS pass covers funding and deals. Collection not started.
 
 ## Stop
 

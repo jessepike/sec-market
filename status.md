@@ -20,7 +20,7 @@ Local, GitHub `main`, and Vercel are synced by committing the live scorecard tre
 | Live site | https://securitymarketpulse.com — accepted by owner |
 | Episode 001 | Done. One-time call on agent security readiness. Still usable as background. |
 | Episode 002 | Done. Current published market call. Infra spend is up. We will not fake a security-spend lag. |
-| Recurring signals | Startup packet + lead critique done. M&A source map and durable-ops map in flight. |
+| Recurring signals | Startup packet + lead critique done. M&A catalog and weekly ops model done. Nothing is in flight. |
 | Git / production | Local, GitHub `main`, and Vercel match after the D-31 sync. Deploy only via `git push origin main`. |
 | Auto-publish judgments | Still not allowed without a human check |
 
@@ -44,7 +44,7 @@ None blocking the signals job. Feed design (which VC pages, which public-record 
 
 ## Blockers
 
-None. Pulse sync session is wrapped. Uncommitted signals docs in this working tree belong to the signals session — do not mix them into a site deploy.
+None. Local, GitHub, and Vercel are in sync. This session owns all remaining work.
 
 ## Session Log
 

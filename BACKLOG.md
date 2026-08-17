@@ -83,7 +83,7 @@ Build a responsive, evidence-linked website using accepted Episode 002 research.
 
 Owner reviewed the live site. Public Vercel deploy is live at https://security-market-pulse.vercel.app and https://securitymarketpulse.com.
 
-**Remaining hygiene:** commit and push the live working tree so GitHub matches production.
+**Result:** live at https://securitymarketpulse.com. Local, GitHub `main`, and Vercel match (`8b35e45` / `f780e88`). Deploy only via `git push origin main` with `jesse@keatingpike.com`.
 
 ## Active work
 
@@ -91,13 +91,29 @@ Owner reviewed the live site. Public Vercel deploy is live at https://security-m
 
 Turn Pulse from a one-shot research edition into a living cybersecurity market-intelligence site.
 
-**First slice:** new security startups and their funding. M&A is parked.
+**First slice:** new security startups and their funding. Packet and lead critique exist. Design waits on owner.
 
-**Now:** research the public sources and what we can actually collect. Implementation and scraping come after the catalog is reviewed.
+**Now also:** M&A source research and a durable gather → synthesize → check → post model (D-33). Mapping only.
 
-**Authorization state:** authorized by owner on 2026-08-16 (D-28); startups-only first slice confirmed 2026-08-16
+**Authorization state:** authorized by owner on 2026-08-16 (D-28); parallel mapping authorized 2026-08-16 (D-33)
 
 **Not authorized by this work:** auto-publishing a market call without a human check; inventing sources; using confidential ePlus data
+
+### SEC-010 — Durable signals operation (map only)
+
+How weekly gather → synthesize → human check → post works so this is not a one-off.
+
+**Output:** `docs/active/signals-operating-model.md`
+
+**Authorization state:** mapping authorized (D-33). Build not authorized.
+
+### SEC-011 — M&A source catalog (map only)
+
+Where public cybersecurity M&A actually shows up, and what we can use. Same shape as the startup catalog. No collection week until the catalog is reviewed.
+
+**Output:** `docs/active/ma-source-catalog.md`
+
+**Authorization state:** research authorized (D-33). Collection not authorized.
 
 ### SEC-008 — Account conversation prompts
 
