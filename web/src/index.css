@@ -401,6 +401,12 @@ summary:focus-visible,
   gap: 1rem;
 }
 
+.judgment__card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  padding: 1.1rem 1.15rem;
+}
+
 .judgment__list {
   margin: 0;
   padding-left: 1.1rem;
@@ -419,9 +425,104 @@ summary:focus-visible,
   color: #d7dee6;
 }
 
-/* Prints */
+/* Prints — vendor cards (scorecard v2 language) */
 .print-group + .print-group {
   margin-top: 1.35rem;
+}
+
+.print-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+.print-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  padding: 0.9rem 0.95rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.print-card--coverage {
+  background: var(--color-bg);
+}
+
+.print-card__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.print-card__top h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.print-card__top span {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.print-card__value {
+  margin: 0.65rem 0 0;
+  font-family: var(--font-mono);
+  font-size: 1.65rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1;
+  color: var(--color-heading);
+}
+
+.print-card__value--up {
+  color: var(--color-success);
+}
+
+.print-card__value--down {
+  color: var(--color-alert);
+}
+
+.print-card__metric {
+  margin: 0.3rem 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.print-card__spark {
+  margin-top: 0.75rem;
+  min-height: 2.35rem;
+}
+
+.print-card__spark-empty {
+  display: flex;
+  align-items: center;
+  min-height: 2.35rem;
+  border-top: 1px dashed var(--color-border);
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.04em;
+  color: #a8b0ba;
+}
+
+.print-card__note {
+  margin: 0.55rem 0 0.65rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #edf0f4;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--color-text);
+}
+
+.print-card .evidence-link {
+  margin-top: auto;
 }
 
 .grouphdr {
@@ -1521,6 +1622,10 @@ summary:focus-visible,
 
 /* Responsive */
 @media (max-width: 860px) {
+  .print-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .judgment__grid {
     grid-template-columns: 1fr;
   }
@@ -1560,6 +1665,7 @@ summary:focus-visible,
   }
 
   .chart-multiples,
+  .print-cards,
   .context-band__grid {
     grid-template-columns: 1fr;
   }

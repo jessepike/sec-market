@@ -8,57 +8,43 @@ export function PrintGrid() {
         <h2 id="prints-heading">This period</h2>
         <p>Public prints first. Private names stay on the board as capital or “no series” — not invented ARR.</p>
       </div>
-      <div className="table-scroll print-table-scroll">
-        <table className="print-table">
-          <caption className="visually-hidden">
-            Vendor prints for the current period, grouped by domain, with period, metric,
-            value, note, and source
-          </caption>
-          <thead>
-            <tr>
-              <th scope="col">Vendor</th>
-              <th scope="col">Period</th>
-              <th scope="col">Metric</th>
-              <th scope="col">Value</th>
-              <th scope="col">Note</th>
-              {/* aria-label directly on the cell, not a nested visually-hidden
-                  span: an absolutely-positioned descendant with no visible
-                  sibling content in a header cell defeats this table's
-                  auto width algorithm and makes the page scroll
-                  horizontally on narrow viewports. */}
-              <th scope="col" aria-label="Source" />
-            </tr>
-          </thead>
-          {printGroups.map((group) => {
-            const prints = vendorPrints.filter((print) => print.group === group)
-            if (prints.length === 0) return null
-            return (
-              <tbody key={group} className="print-table__group">
-                <tr>
-                  <th scope="colgroup" colSpan={6}>
-                    {group}
-                  </th>
-                </tr>
-                {prints.map((print) => (
-                  <tr
-                    key={print.id}
-                    className={print.surface === 'coverage' ? 'print-table__coverage' : undefined}
-                  >
-                    <th scope="row">{print.name}</th>
-                    <td className="print-table__period">{print.period}</td>
-                    <td className="print-table__metric">{print.metric}</td>
-                    <td className={`print-table__value print-table__value--${print.tone}`}>{print.value}</td>
-                    <td className="print-table__note">{print.note}</td>
-                    <td className="print-table__source">
-                      <EvidenceLink ids={print.evidenceIds} />
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            )
-          })}
-        </table>
-      </div>
+      {printGroups.map((group) => {
+        const prints = vendorPrints.filter((print) => print.group === group)
+        if (prints.length === 0) return null
+        const comparable = prints.filter((print) => print.surface !== 'coverage').length
+        return (
+          <div key={group} className="print-group">
+            <div className="grouphdr">
+              <span className="grouphdr__title">{group}</span>
+              <span className="grouphdr__count">
+                {comparable} print{comparable === 1 ? '' : 's'} · {prints.length} covered
+              </span>
+            </div>
+            <div className="print-cards">
+              {prints.map((print) => (
+                <article
+                  key={print.id}
+                  className={
+                    print.surface === 'coverage' ? 'print-card print-card--coverage' : 'print-card'
+                  }
+                >
+                  <header className="print-card__top">
+                    <h3>{print.name}</h3>
+                    <span>{print.period}</span>
+                  </header>
+                  <p className={`print-card__value print-card__value--${print.tone}`}>{print.value}</p>
+                  <p className="print-card__metric">{print.metric}</p>
+                  <div className="print-card__spark" aria-hidden="true">
+                    <span className="print-card__spark-empty">— no series yet —</span>
+                  </div>
+                  <p className="print-card__note">{print.note}</p>
+                  <EvidenceLink ids={print.evidenceIds} />
+                </article>
+              ))}
+            </div>
+          </div>
+        )
+      })}
     </section>
   )
 }
