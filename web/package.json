@@ -3,16 +3,24 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
     "dev": "vite",
     "verify:panel": "tsx scripts/verify-panel.ts",
-    "build": "npm run verify:panel && tsc -b && vite build",
+    "build:client": "vite build",
+    "build:server": "vite build --ssr src/entry-server.tsx --outDir dist-ssr",
+    "prerender": "tsx scripts/prerender.ts",
+    "seo": "tsx scripts/generate-seo.ts",
+    "build": "npm run verify:panel && tsc -b && npm run build:client && npm run build:server && npm run prerender && npm run seo",
     "lint": "oxlint",
     "preview": "vite preview",
     "test:e2e": "playwright test",
     "test": "npm run build && npm run test:e2e"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "lucide-react": "^1.31.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",

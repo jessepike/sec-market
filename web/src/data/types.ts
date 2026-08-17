@@ -40,15 +40,6 @@ export interface EvidenceRecord {
   sourceAttributions?: SourceAttribution[]
 }
 
-export interface SummaryCard {
-  id: string
-  label: string
-  headline: string
-  detail: string
-  disposition: string
-  evidenceIds: string[]
-}
-
 export interface SecurityDomain {
   id: string
   name: string

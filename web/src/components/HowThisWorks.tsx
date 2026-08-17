@@ -25,6 +25,9 @@ export function HowThisWorks() {
       <h3 className="method__subhead">Signals we use</h3>
       <div className="table-scroll">
         <table className="tempo-table method-table">
+          <caption className="visually-hidden">
+            Signal families used in this analysis, with examples and how each is treated
+          </caption>
           <thead>
             <tr>
               <th scope="col">Signal</th>

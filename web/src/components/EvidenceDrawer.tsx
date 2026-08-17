@@ -98,13 +98,31 @@ export function EvidenceDrawer() {
                 <h3>{record.title}</h3>
                 <p className="evidence-record__org">{record.organization}</p>
                 <dl className="evidence-record__grid">
-                  {record.sourceAttributions ? (
+                  <div>
+                    <dt>Publication date</dt>
+                    <dd>
+                      <time dateTime={record.publicationDate}>{record.publicationDate}</time>
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>Economic period</dt>
+                    <dd>{record.economicPeriod}</dd>
+                  </div>
+                  <div>
+                    <dt>Source class</dt>
+                    <dd>{record.sourceClass}</dd>
+                  </div>
+                  <div>
+                    <dt>Packet label</dt>
+                    <dd>{record.artifactLabel}</dd>
+                  </div>
+                  {record.sourceAttributions && (
                     <div className="evidence-record__sources">
                       <dt>Source dates</dt>
                       <dd>
                         <ul className="source-attribution-list">
-                          {record.sourceAttributions.map((source) => (
-                            <li key={source.organization}>
+                          {record.sourceAttributions.map((source, index) => (
+                            <li key={`${source.organization}-${index}`}>
                               <strong>{source.organization}</strong>
                               {' — '}
                               <time dateTime={source.publicationDate}>{source.publicationDate}</time>
@@ -127,41 +145,20 @@ export function EvidenceDrawer() {
                         </ul>
                       </dd>
                     </div>
-                  ) : (
-                    <>
-                      <div>
-                        <dt>Publication date</dt>
-                        <dd>
-                          <time dateTime={record.publicationDate}>{record.publicationDate}</time>
-                        </dd>
-                      </div>
-                      <div>
-                        <dt>Economic period</dt>
-                        <dd>{record.economicPeriod}</dd>
-                      </div>
-                    </>
                   )}
-                  <div>
-                    <dt>Source class</dt>
-                    <dd>{record.sourceClass}</dd>
-                  </div>
-                  <div>
-                    <dt>Packet label</dt>
-                    <dd>{record.artifactLabel}</dd>
-                  </div>
                 </dl>
-                {record.canonicalUrl && !record.sourceAttributions ? (
+                {record.canonicalUrl ? (
                   <p className="evidence-record__url">
                     <a href={record.canonicalUrl} target="_blank" rel="noopener noreferrer">
                       Canonical source
                       <ExternalLink size={14} aria-hidden="true" />
                     </a>
                   </p>
-                ) : !record.sourceAttributions && !record.canonicalUrl ? (
+                ) : (
                   <p className="evidence-record__url evidence-record__url--missing">
                     Canonical URL unavailable for this internal disposition record.
                   </p>
-                ) : null}
+                )}
                 <div className="evidence-record__section">
                   <h4>Excerpt / locator</h4>
                   <blockquote>{record.excerpt}</blockquote>

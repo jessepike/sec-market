@@ -119,6 +119,21 @@ Where public cybersecurity M&A actually shows up, and what we can use. Same shap
 
 **Authorization state:** research authorized (D-33). Collection not authorized.
 
+### SEC-012 — Orphaned signals data (map only, no deletion authorized)
+
+`web/src/data/signals.ts` (the `marketSignals` array) and the `MarketSignal`
+type in `web/src/data/types.ts` lost their only consumer when the unused
+`SignalFeed` component was deleted during the 2026-08 hardening pass. The
+data itself is real evidence-linked content (headlines, dates, evidence
+IDs), not scaffolding, so it was left in place rather than deleted — that
+call belongs to whoever decides whether this content should be surfaced
+somewhere on the page or formally retired.
+
+**Output:** a decision — either wire `marketSignals` into a live section, or
+remove the array/type as dead content.
+
+**Authorization state:** not authorized either way; flagged only.
+
 ### SEC-008 — Account conversation prompts
 
 Reconsider account-facing prompts only after the core monthly scorecard, recency model, and domain coverage are trusted.

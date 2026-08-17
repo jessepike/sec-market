@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react'
 import { ActivityBoard } from './components/ActivityBoard'
 import { DomainBoard } from './components/DomainBoard'
 import { EvidenceDrawer } from './components/EvidenceDrawer'
@@ -8,6 +9,7 @@ import { HowThisWorks } from './components/HowThisWorks'
 import { JudgmentBoard } from './components/JudgmentBoard'
 import { MarketLayersChart } from './components/MarketLayersChart'
 import { MethodologyNote } from './components/MethodologyNote'
+import { NextEdition } from './components/NextEdition'
 import { PrintGrid } from './components/PrintGrid'
 import { SkipLink } from './components/SkipLink'
 import { WatchList } from './components/WatchList'
@@ -44,10 +46,15 @@ function AppShell() {
             <summary>Research &amp; evidence</summary>
             <EvidenceLibrary />
           </details>
+          <NextEdition />
         </main>
         <MethodologyNote />
       </div>
       <EvidenceDrawer />
+      {/* Renders null on the server and on the client's first pass; it injects the
+          beacon from a useEffect, so it cannot desync prerendered markup. Data only
+          flows once Web Analytics is enabled in the Vercel project settings. */}
+      <Analytics />
     </>
   )
 }

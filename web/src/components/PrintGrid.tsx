@@ -10,6 +10,10 @@ export function PrintGrid() {
       </div>
       <div className="table-scroll print-table-scroll">
         <table className="print-table">
+          <caption className="visually-hidden">
+            Vendor prints for the current period, grouped by domain, with period, metric,
+            value, note, and source
+          </caption>
           <thead>
             <tr>
               <th scope="col">Vendor</th>
@@ -17,9 +21,12 @@ export function PrintGrid() {
               <th scope="col">Metric</th>
               <th scope="col">Value</th>
               <th scope="col">Note</th>
-              <th scope="col">
-                <span className="visually-hidden">Source</span>
-              </th>
+              {/* aria-label directly on the cell, not a nested visually-hidden
+                  span: an absolutely-positioned descendant with no visible
+                  sibling content in a header cell defeats this table's
+                  auto width algorithm and makes the page scroll
+                  horizontally on narrow viewports. */}
+              <th scope="col" aria-label="Source" />
             </tr>
           </thead>
           {printGroups.map((group) => {

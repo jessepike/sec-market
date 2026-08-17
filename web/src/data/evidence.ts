@@ -45,7 +45,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     canonicalUrl:
       'https://investor.cisco.com/news/news-details/2026/CISCO-REPORTS-FOURTH-QUARTER-AND-FISCAL-YEAR-2026-EARNINGS/default.aspx',
     excerpt:
-      '$4 billion of orders taken in Q4, bringing the total for FY 2026 to $9.3 billion. Delivered approximately $4 billion of revenue in FY 2026; $7.5 billion expected in FY 2027. Networking revenue $9.791 billion, +28 percent; Q4 networking product orders +40 percent.',
+      '$4 billion of Q4 AI-infrastructure orders from hyperscalers, bringing the cumulative FY 2026 AI-infrastructure order total to $9.3 billion. Delivered approximately $4 billion of AI-infrastructure revenue from hyperscalers in FY 2026; $7.5 billion expected in FY 2027. Q4 Networking revenue $9.791 billion, +28 percent; Q4 networking product orders +40 percent.',
     sourceClass: 'IR',
     interpretation: 'Networking joined the AI cycle after the initial compute impulse.',
     limitations: 'Orders are concentrated and are not revenue; Splunk distorts total-company comparability.',
@@ -77,7 +77,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     publicationDate: '2026-05-28',
     economicPeriod: 'Quarter ended 2026-05-01',
     canonicalUrl:
-      'https://investors.delltechnologies.com/news-releases/news-release-details/dell-technologies-delivers-first-quarter-fiscal-2027-financial',
+      'https://investors.delltechnologies.com/static-files/b63ffff9-b729-403b-a231-c6af05667759',
     excerpt:
       'We booked $24.4 billion in AI orders and recognized $16.1 billion of AI server revenue. We\'re increasing our AI server revenue expectations for FY27 to $60 billion. AI-server backlog $51.3 billion.',
     sourceClass: 'IR',
@@ -170,6 +170,22 @@ export const evidenceRecords: EvidenceRecord[] = [
     interpretation: 'Broad hyperscaler capacity acceleration.',
     limitations: 'Capex is not an AI-only metric; 2023 quarterly figures are reconstructed.',
     conflictingEvidenceIds: [],
+    sourceAttributions: [
+      {
+        organization: 'Alphabet',
+        publicationDate: '2026-07-22',
+        economicPeriod: 'Quarter ended 2026-06-30',
+        canonicalUrl:
+          'https://www.sec.gov/Archives/edgar/data/1652044/000165204426000066/googexhibit991q22026.htm',
+      },
+      {
+        organization: 'Alphabet',
+        publicationDate: '2026-07-22',
+        economicPeriod: 'Q2 2026 earnings call',
+        canonicalUrl:
+          'https://s206.q4cdn.com/479360582/files/doc_events/2026/Jul/22/2026_Q2_Earnings_Transcript.pdf',
+      },
+    ],
     artifactLabel: 'SEC-MARKET-SIG-SRC-002 / B3',
     tags: ['hyperscaler', 'capex'],
   },
@@ -295,7 +311,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     id: 'C6a',
     title: 'Check Point Q2 2026 Results',
     organization: 'Check Point',
-    publicationDate: '2026-06-30',
+    publicationDate: '2026-07-30',
     economicPeriod: 'Quarter ended 2026-06-30',
     canonicalUrl:
       'https://www.checkpoint.com/downloads/investor/check-point-software-second-quarter-2026-financial-results.pdf',
@@ -467,7 +483,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     publicationDate: '2025-07-30',
     economicPeriod: 'Transaction announcement',
     canonicalUrl:
-      'https://www.sec.gov/Archives/edgar/data/1327567/000119312525168821/d67702d8k.htm',
+      'https://www.sec.gov/Archives/edgar/data/1327567/000119312525168821/d67702dex992.htm',
     excerpt: 'Approximately $25 billion equity value for CyberArk.',
     sourceClass: 'FILING',
     interpretation: 'Identity became a platform priority for strategic capital.',
@@ -686,6 +702,20 @@ export const evidenceRecords: EvidenceRecord[] = [
     interpretation: 'Largest identity installed base. Unusable as a domain financial print.',
     limitations: 'Bundled into Microsoft 365 Commercial and security suites. Cannot carry an identity-category growth call.',
     conflictingEvidenceIds: [],
+    sourceAttributions: [
+      {
+        organization: 'Microsoft',
+        publicationDate: '2026-07-29',
+        economicPeriod: 'Quarter ended 2026-06-30',
+        canonicalUrl: 'https://www.sec.gov/Archives/edgar/data/789019/000119312526323632/msft-ex99_1.htm',
+      },
+      {
+        organization: 'Microsoft',
+        publicationDate: '2026-07-29',
+        economicPeriod: 'FY2026 Q4 earnings call',
+        canonicalUrl: 'https://aka.ms/transcriptfy26q4',
+      },
+    ],
     artifactLabel: 'Surface refresh / D11',
     tags: ['identity', 'platform', 'no-segment'],
   },
@@ -695,32 +725,46 @@ export const evidenceRecords: EvidenceRecord[] = [
     organization: 'Ping Identity / BeyondTrust / Delinea',
     publicationDate: '2026-08-16',
     economicPeriod: 'Current private status as of surface refresh',
-    canonicalUrl: 'https://pingidentity.com/',
+    canonicalUrl: 'https://www.thomabravo.com/press-releases/thoma-bravo-completes-acquisition-of-ping-identity',
     excerpt:
       'Ping Identity was taken private by Thoma Bravo in 2022. BeyondTrust and Delinea are PE-owned privileged-access / identity platforms. None currently disclose a public quarterly revenue or ARR series.',
     sourceClass: 'IR',
     interpretation: 'Material identity competitors exist off-public-markets. Absence of prints is a coverage fact, not a demand fact.',
     limitations:
-      'Company homepages confirm current private / PE status only. They are not independent research and do not support a financial excerpt. Ping take-private date is 2022; 2026 date is the status check.',
+      'The 2021-2022 press releases document three different transactions, not one common one: Ping Identity’s completed take-private by Thoma Bravo, Clearlake Capital closing an investment in BeyondTrust alongside existing owner Francisco Partners, which had acquired it in 2018, and Delinea’s formation and rebrand out of the Thycotic/Centrify merger under TPG Capital. None of them speak to current financial reporting. Ping Identity and Delinea homepages, checked 2026-08-17, show no stock ticker or investor-relations section, supporting the no-public-ARR claim for those two as of that check. BeyondTrust’s current disclosure status was not independently re-verified in this pass.',
     conflictingEvidenceIds: [],
     sourceAttributions: [
       {
         organization: 'Ping Identity',
-        publicationDate: '2022-08-02',
+        publicationDate: '2022-10-18',
         economicPeriod: 'Thoma Bravo take-private',
-        canonicalUrl: 'https://pingidentity.com/',
+        canonicalUrl:
+          'https://www.thomabravo.com/press-releases/thoma-bravo-completes-acquisition-of-ping-identity',
+      },
+      {
+        organization: 'Ping Identity',
+        publicationDate: '2026-08-17',
+        economicPeriod: 'Current homepage check',
+        canonicalUrl: 'https://www.pingidentity.com',
       },
       {
         organization: 'BeyondTrust',
-        publicationDate: '2026-08',
-        economicPeriod: 'Current private status',
-        canonicalUrl: 'https://www.beyondtrust.com/',
+        publicationDate: '2021-08-17',
+        economicPeriod: 'Clearlake / Francisco Partners transaction',
+        canonicalUrl:
+          'https://www.beyondtrust.com/press/beyondtrust-completes-transaction-with-clearlake-capital-and-francisco-partners',
       },
       {
         organization: 'Delinea',
-        publicationDate: '2026-08',
-        economicPeriod: 'Current private status',
-        canonicalUrl: 'https://delinea.com/',
+        publicationDate: '2022-02-01',
+        economicPeriod: 'Rebrand from Thycotic/Centrify merger',
+        canonicalUrl: 'https://www.thomabravo.com/press-releases/centrify-now-delinea',
+      },
+      {
+        organization: 'Delinea',
+        publicationDate: '2026-08-17',
+        economicPeriod: 'Current homepage check',
+        canonicalUrl: 'https://delinea.com',
       },
     ],
     artifactLabel: 'Surface refresh / D12',
@@ -908,7 +952,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     id: 'D23',
     title: 'Cathedral venture round',
     organization: 'Return on Security',
-    publicationDate: '2026-07-20',
+    publicationDate: '2026-07-27',
     economicPeriod: 'Security, Funded #254 week',
     canonicalUrl: 'https://www.returnonsecurity.com/p/security-funded-254',
     excerpt:
@@ -927,12 +971,10 @@ export const evidenceRecords: EvidenceRecord[] = [
     publicationDate: '2026-07-22',
     economicPeriod: 'Stealth exit',
     canonicalUrl: 'https://www.glow.io/news/glow-emerges-from-stealth-with-180-million',
-    excerpt:
-      'Glow emerged from stealth with $180 million in funding at a $1.2 billion valuation. Return on Security listed a $100.0M Series B in the same window — company PR frames $180M at launch as Series A.',
+    excerpt: 'Glow emerged from stealth with $180 million in funding at a $1.2 billion valuation.',
     sourceClass: 'IR',
-    interpretation:
-      'AI endpoint prevention capital. Primary source resolves RoS round-label difference; not left as unresolved conflict.',
-    limitations: 'Private company. Valuation and raise are not ARR. RoS round type differs from company PR.',
+    interpretation: 'AI endpoint prevention capital. Funding amount and valuation as stated by the company at stealth exit.',
+    limitations: 'Private company. Valuation and raise are not ARR. Company PR does not label a round type (e.g., Series A/B).',
     conflictingEvidenceIds: [],
     artifactLabel: 'Activity edition / D24',
     tags: ['investment', 'endpoint', 'private'],
@@ -959,7 +1001,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     id: 'D26',
     title: 'Horizon3.ai Series E',
     organization: 'Return on Security',
-    publicationDate: '2026-08-03',
+    publicationDate: '2026-08-10',
     economicPeriod: 'Security, Funded #256 week',
     canonicalUrl: 'https://www.returnonsecurity.com/p/security-funded-256',
     excerpt:
@@ -991,7 +1033,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     id: 'D28',
     title: 'Zafran Security strategic round from Cisco Investments',
     organization: 'Return on Security',
-    publicationDate: '2026-07-20',
+    publicationDate: '2026-07-27',
     economicPeriod: 'Security, Funded #254 week',
     canonicalUrl: 'https://www.returnonsecurity.com/p/security-funded-254',
     excerpt:
@@ -1258,8 +1300,8 @@ export const evidenceRecords: EvidenceRecord[] = [
     id: 'C23',
     title: 'ServiceNow acquisition of Veza',
     organization: 'ServiceNow',
-    publicationDate: '2026-03-02',
-    economicPeriod: 'Acquisition close',
+    publicationDate: '2025-12-02',
+    economicPeriod: 'Acquisition announcement',
     canonicalUrl:
       'https://newsroom.servicenow.com/press-releases/details/2025/ServiceNow-to-Expand-Security-Portfolio-With-Acquisition-of-Vezas-Leading-AI-native-Identity-Security-Platform/default.aspx',
     excerpt:
@@ -1278,7 +1320,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     publicationDate: '2026-06-02',
     economicPeriod: 'Q3 FY26 earnings call',
     canonicalUrl:
-      'https://investors.paloaltonetworks.com/news-releases/news-release-details/palo-alto-networks-reports-fiscal-third-quarter-2026-financial',
+      'https://investors.paloaltonetworks.com/static-files/ea18c9ae-cbe6-4b5d-aa7c-65a6b9aeb2e2',
     excerpt:
       'We have over 300 Prisma AIRS customers as of Q3, up from just 100 at the end of Q2.',
     sourceClass: 'TRANSCRIPT',
@@ -1295,7 +1337,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     publicationDate: '2026-06-02',
     economicPeriod: 'Q3 FY26 earnings call',
     canonicalUrl:
-      'https://investors.paloaltonetworks.com/news-releases/news-release-details/palo-alto-networks-reports-fiscal-third-quarter-2026-financial',
+      'https://investors.paloaltonetworks.com/static-files/ea18c9ae-cbe6-4b5d-aa7c-65a6b9aeb2e2',
     excerpt:
       'We ended third quarter with more than $600 million in ARR, representing 100% year-over-year increase across a growing base of 740 customers.',
     sourceClass: 'TRANSCRIPT',
