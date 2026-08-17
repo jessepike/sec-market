@@ -1019,6 +1019,90 @@ export const evidenceRecords: EvidenceRecord[] = [
     artifactLabel: 'Activity edition / D29',
     tags: ['investment', 'ai-runtime', 'private'],
   },
+  {
+    id: 'C11',
+    title: 'Cato Networks 2025 ARR milestone',
+    organization: 'Cato Networks',
+    publicationDate: '2026-02-24',
+    economicPeriod: 'Calendar year 2025',
+    canonicalUrl:
+      'https://www.catonetworks.com/news/cato-surpasses-350-million-arr-with-43-yoy-growth-in-2025/',
+    excerpt:
+      'Its 2025 annual recurring revenue (ARR) surpassed $350 million, an increase of 43% year-over-year (YoY) compared to 2024.',
+    sourceClass: 'IR',
+    interpretation: 'Private SASE scale print. Fills the Network/SASE bench beside public SSE vendors.',
+    limitations: 'Private company. Company-stated ARR, not audited filing. Threshold is >$350M, not an exact figure.',
+    conflictingEvidenceIds: [],
+    artifactLabel: 'D-39 vendor signals / C11',
+    tags: ['security-vendor', 'sase', 'network'],
+  },
+  {
+    id: 'C12',
+    title: 'Netskope FY2026 Results',
+    organization: 'Netskope',
+    publicationDate: '2026-03-11',
+    economicPeriod: 'Fiscal year ended 2026-01-31',
+    canonicalUrl:
+      'https://investors.netskope.com/news-releases/news-release-details/netskope-announces-strong-fourth-quarter-and-fiscal-year-2026',
+    excerpt: 'ARR grew 31% year-over-year to $811 million as of January 31, 2026.',
+    sourceClass: 'IR',
+    interpretation: 'Public SSE/SASE bellwether now on investor relations. Strong growth at scale.',
+    limitations: 'Annual print; not a quarterly series aligned to the Episode 002 panel.',
+    conflictingEvidenceIds: [],
+    artifactLabel: 'D-39 vendor signals / C12',
+    tags: ['security-vendor', 'sase', 'network'],
+  },
+  {
+    id: 'C13',
+    title: 'CrowdStrike Q4 FY2026 Results — Falcon Cloud segment',
+    organization: 'CrowdStrike',
+    publicationDate: '2026-03-03',
+    economicPeriod: 'Quarter ended 2026-01-31',
+    canonicalUrl:
+      'https://ir.crowdstrike.com/news-releases/news-release-details/crowdstrike-reports-fourth-quarter-and-fiscal-year-2026',
+    excerpt:
+      'For the first time, our cloud business exceeded $800 million in ending ARR… grew more than 35% year over year.',
+    sourceClass: 'IR',
+    interpretation: 'Cloud-security segment ARR at scale. Distinct from total ending ARR on the SecOps card.',
+    limitations:
+      'Earnings-call metric, not a filing line item. Segment definition is company-defined. Use C1 for total CrowdStrike ARR.',
+    conflictingEvidenceIds: ['C1'],
+    artifactLabel: 'D-39 vendor signals / C13',
+    tags: ['security-vendor', 'cloud-security', 'secops'],
+  },
+  {
+    id: 'D30',
+    title: 'Upwind Series B funding announcement',
+    organization: 'Upwind',
+    publicationDate: '2026-01-26',
+    economicPeriod: 'Series B close',
+    canonicalUrl: 'https://www.securityweek.com/upwind-raises-250-million-at-1-5-billion-valuation/',
+    excerpt:
+      'Upwind today announced raising $250 million in a Series B funding round… valuation to $1.5 billion… total raised… $430 million.',
+    sourceClass: 'INDEPENDENT',
+    interpretation: 'First Cloud-domain CNAPP capital signal on the prints board. Category formation, not buyer spend.',
+    limitations:
+      'Company-quoted via SecurityWeek; official Upwind press paths returned 404 on fetch. Valuation and raise are not ARR.',
+    conflictingEvidenceIds: [],
+    artifactLabel: 'D-39 vendor signals / D30',
+    tags: ['investment', 'cloud-security', 'private'],
+  },
+  {
+    id: 'D31',
+    title: 'Torq Series D funding announcement',
+    organization: 'Torq',
+    publicationDate: '2026-01-12',
+    economicPeriod: 'Series D close',
+    canonicalUrl: 'https://torq.io/news/torq-seriesd/',
+    excerpt:
+      'Closed a massive $140 million Series D funding round, propelling its valuation to $1.2 billion and total funding to $332M.',
+    sourceClass: 'IR',
+    interpretation: 'SOAR / agentic SecOps scale capital. Platform bet, not a disclosed ARR series.',
+    limitations: 'Private company. Valuation and raise are not ARR or bookings.',
+    conflictingEvidenceIds: [],
+    artifactLabel: 'D-39 vendor signals / D31',
+    tags: ['investment', 'secops', 'private'],
+  },
 ]
 
 export const evidenceById = Object.fromEntries(
