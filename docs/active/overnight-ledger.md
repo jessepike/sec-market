@@ -102,9 +102,17 @@ already acquired the company in 2018. Both strings rendered on the public eviden
 drawer. Corrected in `07d2947` to what each document actually says, using text the gate
 had fetched and quoted. Build clean, panel hash unchanged, Playwright 2/2.
 
-Merged to `main` as `1079046` and pushed (`ab8a6fd..1079046`). Vercel deploy verification
-in progress — the live host was still serving the old 1,103-byte shell immediately after
-the push.
+Merged to `main` as `1079046`, pushed, and **verified live**. `curl` of
+https://securitymarketpulse.com now returns **117,649 bytes** against 1,103 before. Title
+is "Security Market Pulse — what changed in the cybersecurity market" with no internal
+episode jargon. Confirmed present in the served HTML: og:image, og:title, twitter:card,
+canonical, and one JSON-LD block whose `name` is the clean public title and whose
+`reportNumber` carries `SEC-MARKET-SIG-002 v0.2` — the correct schema.org home for a
+tracker ID. `datePublished`/`dateModified` both 2026-08-16. The headline, CrowdStrike,
+Fortinet, AI Runtime and Zenity all present as literal prerendered text. `/sitemap.xml`,
+`/robots.txt` and `/og.png` all 200, og.png 54,382 bytes.
+
+Goal (1), launch hardening, is COMPLETE.
 
 **This is the pipeline working.** An agent introduced a plausible-sounding transaction
 claim its own cited source contradicted, and an independent gate caught it before it
