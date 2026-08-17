@@ -20,7 +20,7 @@ Local, GitHub `main`, and Vercel are synced by committing the live scorecard tre
 | Live site | https://securitymarketpulse.com — accepted by owner |
 | Episode 001 | Done. One-time call on agent security readiness. Still usable as background. |
 | Episode 002 | Done. Current published market call. Infra spend is up. We will not fake a security-spend lag. |
-| Recurring signals | Activity edition **live** (`160c29c`). Refresh when a new Return on Security weekly post appears. |
+| Recurring signals | Ops artifacts live (D-43). Activity + prints on site. Loop A: Tuesday multi-source gather. |
 | Git / production | `main` is live on Vercel. Deploy only via `git push origin main`. |
 | Auto-publish judgments | Still not allowed without a human check |
 
@@ -39,7 +39,8 @@ Local, GitHub `main`, and Vercel are synced by committing the live scorecard tre
 - [x] Prints board converted to a dense table; `--content-max` 1280px
 - [x] Ship ungated slice to `main` `67b53ff` (judgment + prints + table + Avoid) — live
 - [x] SEC-009 execution plan written (D-41) — this is the steering page
-- [x] Activity edition live with labeled RoS #256 window (D-42) — `160c29c`
+- [x] Leadership ops artifacts: funding, M&A, domains, dashboard, brief (D-43)
+- [ ] Loop A: first Tuesday multi-source gather under new ops docs
 - [ ] Refresh Activity when Return on Security publishes a new Security, Funded issue
 - [x] Weekly desk: first real gather + reusable checklist (RoS #256; not published)
 - [x] Domain coverage map: watch list across Pulse domains

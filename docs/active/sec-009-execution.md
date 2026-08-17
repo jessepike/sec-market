@@ -1,94 +1,56 @@
 # SEC-009 execution plan
 
-One page. This is what the lead steers from. Not a new Governing Intent.
+Steering page. Detail in the intelligence ops docs and [leadership-brief-2026-08.md](leadership-brief-2026-08.md).
 
 | Field | Value |
 |---|---|
-| **Governs** | [intent.md](../../intent.md) `SEC-MARKET-001` v1.1 (`84619b48`, 2026-08-16, clean) |
-| **Job** | [BACKLOG.md](../../BACKLOG.md) SEC-009 — living public-signal intelligence on the website |
-| **Authority** | D-28, D-36, D-39, D-40, D-41 |
-| **Owner babysitting** | Only if the **published market call** would change |
+| **Governs** | [intent.md](../../intent.md) `SEC-MARKET-001` v1.1 |
+| **Owner loop** | Market call change only |
 
 ---
 
-## Where we are
+## Artifacts (leadership + operators)
 
-The site is live. The frozen infrastructure-lag call is on the page, with a judgment layer, a prints table, and Tempo joined to the new vendor rows.
+| Artifact | Purpose |
+|---|---|
+| [leadership-brief-2026-08.md](leadership-brief-2026-08.md) | **Take to leadership** — vision, done, gaps, cadence |
+| [intelligence-funding-ops.md](intelligence-funding-ops.md) | Startup/funding sources, refresh, decisions |
+| [intelligence-ma-ops.md](intelligence-ma-ops.md) | M&A sources, refresh, decisions |
+| [intelligence-domains-ops.md](intelligence-domains-ops.md) | Domain vendors, earnings, postures |
+| [intelligence-dashboard-ops.md](intelligence-dashboard-ops.md) | How the live page joins signals |
 
-That is still a **one-shot research edition plus a capital board that is a month behind the story**. SEC-009 first increment is **done** (Activity edition live). Ongoing job: refresh the board on a cadence without reinventing the project.
-
-| Surface | Live now | Next |
-|---|---|---|
-| Market call | Episode 002 NO-CALL — frozen | Do not touch unless evidence forces an escalate |
-| The read / prints / Tempo | Shipped `8b16cfe` | Maintenance only |
-| Activity | **Live** — Zenity / Oak / Hush / Oasis / Onyx leads; window Jul 6 – Aug 10 (`160c29c`, D-42) | Refresh when Mike Privette publishes a newer Security, Funded post |
-| Desk | Checklist + #256 packet exist | Re-run gather → ship refresh (Loop 1) |
+Research depth: [startup-source-catalog.md](startup-source-catalog.md), [ma-source-catalog.md](ma-source-catalog.md), [domain-coverage-map.md](domain-coverage-map.md).
 
 ---
 
 ## One goal
 
-**A reader can open the site, see what moved in funding and M&A this window, and decide what to prepare or ignore — from sourced evidence, in two minutes.**
+Reader opens https://securitymarketpulse.com, sees what moved, verifies sources, decides what to prepare — **two minutes**.
 
-Not a new section. Not a RoS reprint. Not a 58-row dump. The next edition of the existing Activity board.
-
-**Increment exit (done):**
-
-- Activity edition is **live** on https://securitymarketpulse.com
-- Window label is the newest RoS issue that existed at ship (**#256 / Jul 6 – Aug 10** until a newer issue exists)
-- Five shared lead slots + section read match D-36
-- Avoid line and Activity board do not contradict
-- Published market call **unchanged** unless the lead escalates to the owner
-- Vercel Ready on that commit; live JS contains the new leads (Zenity / Oak / Hush / Oasis / Onyx) and not Wiz as lead
-
-**Prep exit (done before RoS exists):**
-
-- This plan is on `main`
-- Activity data + D19–D29 sit on `cursor/activity-edition-ready`, rebased on current `main`
-- Lead has already checked the five headlines against the live Avoid line
-- Desk runbook is the existing checklist — no new process
-- **Lead check 2026-08-16:** five headlines vs live Avoid line — **pass**. New leads are this-window capital. Wiz/CyberArk move to background, which is what Avoid is for. Market call stays frozen.
+**Done (2026-08-16):** Activity edition live (`160c29c`). Prints + Read + Tempo live. Ops artifacts above on `main`.
 
 ---
 
-## Loops (run without asking)
+## Autonomous loops (no owner unless Loop E)
 
-### Loop 1 — RoS desk → Activity ship
+| Loop | When | Action |
+|---|---|---|
+| **A — Weekly gather** | **Every Tuesday** | [Funding ops](intelligence-funding-ops.md) + [M&A ops](intelligence-ma-ops.md) — 10+ sources, not RoS-only |
+| **B — Activity ship** | Material window OR monthly | Update Activity → preview → `main` → Vercel |
+| **C — Prints pass** | Earnings season | [Domain ops](intelligence-domains-ops.md) — IR/SEC → prints + Tempo |
+| **D — Live honesty** | Contradiction | Fix join → ship |
+| **E — Market call** | Falsifier | **Owner only** |
 
-When https://www.returnonsecurity.com/ shows a Security, Funded issue **newer than #256**:
-
-1. Gather per `signals-weekly-checklist.md` (RoS + SYN + Forgepoint). No scrapers.
-2. Diff against the August Activity draft. Keep D-36 spine unless a new issue **breaks** it.
-3. Lead-check five headlines + read + Avoid. Default: market call stays frozen.
-4. Update `web/src/data/activity.ts` + evidence on the ready branch.
-5. Preview on OrbStack. Build + lint.
-6. Merge to `main` as `jesse@keatingpike.com`, push, confirm Vercel Ready, curl live JS.
-7. Stop. Do not invent the next episode.
-
-If no newer issue exists: do not sit idle on this loop — the increment is **blocked**, not the project. See Loop 2.
-
-### Loop 2 — Live-page honesty
-
-If the live page contradicts itself (prints vs Tempo vs Avoid vs Activity), fix and ship. Do not change domain **tags** or the market call.
-
-### Loop 3 — Stop / escalate
-
-Stop and tell the owner only when:
-
-- the published market call would change
-- a source conflict cannot be resolved from official pages / RoS / filings
-- a deploy would require `vercel --prod` or a dirty tree
-
-Do **not** stop to ask whether to keep working, whether to plan again, or whether Orca/Aqua are ready.
+Return on Security is **one spine**, not a gate. SecurityWeek, EDGAR, VC portfolios, and company IR run on their own schedules in Loop A.
 
 ---
 
-## Out of this increment
+## Current state
 
-Scrapers, archive, Gate S1 collector, account-prompt copy, new Startups nav, Orca/Aqua hunt, weekly public refresh (cadence is **monthly edition**).
+| Surface | Live |
+|---|---|
+| Market call | Episode 002 NO-CALL — frozen |
+| Read / Prints / Tempo | Yes |
+| Activity | Zenity / Oak / Hush / Oasis / Onyx — window Jul 6 – Aug 10 |
 
----
-
-## Current block
-
-None for first ship (D-42). #257 is still unpublished. First ship uses the labeled #256 window. Loop 1 after that is a refresh.
+**Next autonomous action:** Loop A on next Tuesday — full multi-source gather per ops docs.
