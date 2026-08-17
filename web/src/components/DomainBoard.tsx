@@ -10,6 +10,9 @@ export function DomainBoard() {
       </div>
       <div className="table-scroll">
         <table className="tempo-table">
+          <caption className="visually-hidden">
+            Security domain tempo: window and recommended action for each domain
+          </caption>
           <thead>
             <tr>
               <th scope="col">Domain</th>
