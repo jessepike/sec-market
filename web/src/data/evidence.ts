@@ -27,7 +27,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     canonicalUrl:
       'https://www.sec.gov/Archives/edgar/data/1045810/000104581026000052/nvda-20260426.htm',
     excerpt:
-      'Data Center revenue was $75.2 billion, up 92% from a year ago and up 21% sequentially.',
+      'Data Center revenue was $75.25 billion, up 92% from a year ago and up 21% sequentially.',
     sourceClass: 'FILING',
     interpretation: 'Compute demand remains elevated in absolute dollars; infrastructure cycle still accelerating.',
     limitations:
@@ -49,7 +49,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     sourceClass: 'IR',
     interpretation: 'Networking joined the AI cycle after the initial compute impulse.',
     limitations: 'Orders are concentrated and are not revenue; Splunk distorts total-company comparability.',
-    conflictingEvidenceIds: ['C6'],
+    conflictingEvidenceIds: ['C6a', 'C6b'],
     artifactLabel: 'SEC-MARKET-SIG-SRC-002 / A2',
     tags: ['infrastructure', 'supplier', 'networking'],
   },
@@ -220,7 +220,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     sourceClass: 'FILING',
     interpretation: 'Selected platform-vendor re-acceleration after slower period.',
     limitations: 'Recovery from 2024 outage and platform share capture; not sufficient for category breadth.',
-    conflictingEvidenceIds: ['C6', 'D1'],
+    conflictingEvidenceIds: ['C6a', 'C6b', 'D1'],
     artifactLabel: 'SEC-MARKET-SIG-SRC-002 / C1',
     tags: ['security-vendor', 'secops', 'platform'],
   },
@@ -237,7 +237,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     sourceClass: 'FILING',
     interpretation: 'Positive organic demand with acquisition-heavy headline growth.',
     limitations: 'Platformization and M&A deliberately alter period comparability.',
-    conflictingEvidenceIds: ['C6', 'D1'],
+    conflictingEvidenceIds: ['C6a', 'C6b', 'D1'],
     artifactLabel: 'SEC-MARKET-SIG-SRC-002 / C2',
     tags: ['security-vendor', 'platform', 'm-and-a'],
   },
@@ -253,7 +253,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     sourceClass: 'IR',
     interpretation: 'Current network/firewall demand is real; strongest realized network-security acceleration in the panel.',
     limitations: 'Refresh, pricing, and share shift may explain part of the result independently of AI infrastructure.',
-    conflictingEvidenceIds: ['C6', 'D1', 'LAG-NO-CALL'],
+    conflictingEvidenceIds: ['C6a', 'C6b', 'D1', 'LAG-NO-CALL'],
     artifactLabel: 'SEC-MARKET-SIG-SRC-002 / C3',
     tags: ['security-vendor', 'network', 'firewall'],
   },
@@ -269,7 +269,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     sourceClass: 'FILING',
     interpretation: 'Sustained SASE demand, not a clean new inflection.',
     limitations: 'Red Canary affects headline ARR; subscription timing differs from product vendors.',
-    conflictingEvidenceIds: ['C6'],
+    conflictingEvidenceIds: ['C6a', 'C6b'],
     artifactLabel: 'SEC-MARKET-SIG-SRC-002 / C4',
     tags: ['security-vendor', 'sase'],
   },
@@ -292,35 +292,36 @@ export const evidenceRecords: EvidenceRecord[] = [
     tags: ['security-vendor', 'sase', 'edge'],
   },
   {
-    id: 'C6',
-    title: 'Check Point and Cisco Security Results',
-    organization: 'Check Point / Cisco',
+    id: 'C6a',
+    title: 'Check Point Q2 2026 Results',
+    organization: 'Check Point',
+    publicationDate: '2026-06-30',
+    economicPeriod: 'Quarter ended 2026-06-30',
+    canonicalUrl:
+      'https://www.checkpoint.com/downloads/investor/check-point-software-second-quarter-2026-financial-results.pdf',
+    excerpt:
+      'Check Point revenue grew approximately 1 percent while security subscriptions grew 12 percent and product/license revenue declined.',
+    sourceClass: 'IR',
+    interpretation: 'Near-flat total revenue. Blocks a uniform network-security acceleration call.',
+    limitations: 'One vendor. Subscription growth is not product-cycle proof.',
+    conflictingEvidenceIds: ['C1', 'C2', 'C3', 'C4', 'A2'],
+    artifactLabel: 'SEC-MARKET-SIG-SRC-002 / C6',
+    tags: ['security-vendor', 'counter-evidence'],
+  },
+  {
+    id: 'C6b',
+    title: 'Cisco Security Q4 and FY2026 Results',
+    organization: 'Cisco',
     publicationDate: '2026-08-12',
-    economicPeriod: 'Quarter ended 2026-07-25',
+    economicPeriod: 'FY2026 and quarter ended 2026-07-25',
     canonicalUrl:
       'https://investor.cisco.com/news/news-details/2026/CISCO-REPORTS-FOURTH-QUARTER-AND-FISCAL-YEAR-2026-EARNINGS/default.aspx',
     excerpt:
-      'Check Point revenue grew approximately 1 percent while security subscriptions grew 12 percent and product/license revenue declined. Cisco Security revenue $2.226 billion, +14 percent for Q4; $8.232 billion, +2 percent for FY2026.',
+      'Cisco Security revenue $2.226 billion, +14 percent for Q4; $8.232 billion, +2 percent for FY2026.',
     sourceClass: 'IR',
-    interpretation: 'Quarterly momentum improved at Cisco, but full-year breadth remained weak; blocks uniform-category acceleration call.',
-    limitations: 'Splunk is embedded in Cisco security segment; not an organic Cisco-security measure.',
+    interpretation: 'Quarterly momentum improved; full-year security breadth remained weak.',
+    limitations: 'Splunk is embedded in Cisco security segment; not an organic Cisco-security measure. FY +2% is an annual print, not a quarterly series.',
     conflictingEvidenceIds: ['C1', 'C2', 'C3', 'C4', 'A2'],
-    sourceAttributions: [
-      {
-        organization: 'Cisco',
-        publicationDate: '2026-08-12',
-        economicPeriod: 'Quarter ended 2026-07-25',
-        canonicalUrl:
-          'https://investor.cisco.com/news/news-details/2026/CISCO-REPORTS-FOURTH-QUARTER-AND-FISCAL-YEAR-2026-EARNINGS/default.aspx',
-      },
-      {
-        organization: 'Check Point',
-        publicationDate: '2026-06-30',
-        economicPeriod: 'Quarter ended 2026-06-30 (Q2 2026 results)',
-        canonicalUrl:
-          'https://www.checkpoint.com/downloads/investor/check-point-software-second-quarter-2026-financial-results.pdf',
-      },
-    ],
     artifactLabel: 'SEC-MARKET-SIG-SRC-002 / C6',
     tags: ['security-vendor', 'counter-evidence'],
   },
@@ -547,7 +548,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     canonicalUrl: '',
     excerpt:
       'H1 Infrastructure leads cybersecurity demand: NO-CALL — later sequence observed, not validated. H2 Domain-specific lag: NO-CALL. H3 AI compresses lag: NO-CALL. At most fourteen aligned quarters; eight-quarter lag leaves six raw pairs.',
-    sourceClass: 'INDEPENDENT',
+    sourceClass: 'OWN_ANALYSIS',
     interpretation:
       'The evidence supports a descriptive sequence, not a constant infrastructure-to-security lag.',
     limitations:
@@ -555,6 +556,280 @@ export const evidenceRecords: EvidenceRecord[] = [
     conflictingEvidenceIds: ['A1b', 'C3', 'D2'],
     artifactLabel: 'SEC-MARKET-SIG-BL-002',
     tags: ['lag', 'no-call', 'methodology'],
+  },
+  {
+    id: 'C9',
+    title: 'SentinelOne Q1 FY27 Results',
+    organization: 'SentinelOne',
+    publicationDate: '2026-05-28',
+    economicPeriod: 'Quarter ended 2026-04-30',
+    canonicalUrl:
+      'https://investors.sentinelone.com/press-releases/news-details/2026/SentinelOne-Announces-First-Quarter-Fiscal-Year-2027-Financial-Results/default.aspx',
+    excerpt:
+      'Total revenue grew 21% to $277 million. Annualized recurring revenue (ARR) grew 23% to $1,163 million. Quarterly net new ARR $44 million, +55% year-over-year.',
+    sourceClass: 'IR',
+    interpretation: 'Endpoint/XDR and emerging-platform re-acceleration. Second public SecOps print beside CrowdStrike.',
+    limitations: 'Net-new ARR is a growth-rate print, not category breadth. Q2 FY27 results were not yet released at this update.',
+    conflictingEvidenceIds: ['C6a', 'C6b', 'D1'],
+    artifactLabel: 'Surface refresh / C9',
+    tags: ['security-vendor', 'secops', 'endpoint'],
+  },
+  {
+    id: 'C10',
+    title: 'SailPoint FY2026 Results',
+    organization: 'SailPoint',
+    publicationDate: '2026-03-18',
+    economicPeriod: 'Fiscal year ended 2026-01-31',
+    canonicalUrl:
+      'https://www.sec.gov/Archives/edgar/data/2030781/000162828026019034/sailpointinc-20260131x991x.htm',
+    excerpt:
+      'Total ARR was $1.125 billion, an increase of 28% year-over-year. SaaS ARR was $746 million, an increase of 38% year-over-year. Full-year revenue $1.071 billion, +24%.',
+    sourceClass: 'FILING',
+    interpretation: 'IGA demand is accelerating while workforce-IAM (Okta) decelerated. Identity is splitting, not one category.',
+    limitations: 'Annual print; not a quarterly series aligned to the Episode 002 panel.',
+    conflictingEvidenceIds: ['C7'],
+    artifactLabel: 'Surface refresh / C10',
+    tags: ['security-vendor', 'identity', 'iga'],
+  },
+  {
+    id: 'D8',
+    title: 'Cyera Series G announcement',
+    organization: 'Cyera',
+    publicationDate: '2026-06-10',
+    economicPeriod: 'Series G close',
+    canonicalUrl:
+      'https://www.cyera.com/press-releases/cyera-raises-600-million-at-12-billion-valuation-to-continue-building-the-trust-layer-for-the-ai-era',
+    excerpt:
+      'Latest funding round of $600 million, quadrupling the company’s valuation over the last 18 months to $12 billion. Led by Evolution Equity Partners. Total funding over $2 billion.',
+    sourceClass: 'IR',
+    interpretation: 'Strategic capital into DSPM / AI-data security. Category formation signal, not realized customer spend.',
+    limitations: 'Private company. Valuation and raise are not ARR or bookings.',
+    conflictingEvidenceIds: ['D1'],
+    artifactLabel: 'Surface refresh / D8',
+    tags: ['investment', 'data-security', 'private'],
+  },
+  {
+    id: 'D9',
+    title: 'Secuvy funding and 2026 positioning',
+    organization: 'Secuvy',
+    publicationDate: '2023-03-10',
+    economicPeriod: 'Last disclosed raise; 2026 product/partner signals',
+    canonicalUrl:
+      'https://www.businesswire.com/news/home/20230310005374/en/Secuvy-Announces-New-Investments-from-Dell-Technologies-Capital-and-WestWave-Capital-to-Modernize-Data-Privacy-and-Security',
+    excerpt:
+      'Funding round led by Dell Technologies Capital and WestWave Capital, with participation from Z5 Capital. Amount undisclosed. 2026 site notes Forrester Landscape recognition and Armada Bridge Marketplace listing.',
+    sourceClass: 'IR',
+    interpretation: 'Named data-security specialist in the partner set. No public ARR or growth series.',
+    limitations: 'Last disclosed financing is 2023. Do not infer current demand from an old seed round.',
+    conflictingEvidenceIds: [],
+    sourceAttributions: [
+      {
+        organization: 'Secuvy / Business Wire',
+        publicationDate: '2023-03-10',
+        economicPeriod: 'Seed-stage financing',
+        canonicalUrl:
+          'https://www.businesswire.com/news/home/20230310005374/en/Secuvy-Announces-New-Investments-from-Dell-Technologies-Capital-and-WestWave-Capital-to-Modernize-Data-Privacy-and-Security',
+      },
+      {
+        organization: 'Secuvy',
+        publicationDate: '2026-05',
+        economicPeriod: 'Armada Bridge Marketplace listing',
+        canonicalUrl: 'https://secuvy.ai/',
+      },
+    ],
+    artifactLabel: 'Surface refresh / D9',
+    tags: ['investment', 'data-security', 'private'],
+  },
+  {
+    id: 'D10',
+    title: 'Lumos Series B and 2026 identity-agent launch',
+    organization: 'Lumos',
+    publicationDate: '2024-05-23',
+    economicPeriod: 'Series B; March 2026 product launch',
+    canonicalUrl:
+      'https://www.businesswire.com/news/home/20240523314788/en/Lumos-Secures-%2435M-Series-B-Funding-to-Unify-the-SaaS-and-Identity-Management-Industries',
+    excerpt:
+      'Lumos announced $35M Series B led by Scale Venture Partners. March 24, 2026: launched Identity Security Agents on its Autonomous Identity platform. No public ARR disclosed.',
+    sourceClass: 'IR',
+    interpretation: 'IGA / SaaS-identity specialist with agent-identity product language. Capital and product formation, not a spend series.',
+    limitations: 'Private. Series B is two years old. Product launch is not bookings.',
+    conflictingEvidenceIds: ['C7'],
+    sourceAttributions: [
+      {
+        organization: 'Lumos / Business Wire',
+        publicationDate: '2024-05-23',
+        economicPeriod: 'Series B',
+        canonicalUrl:
+          'https://www.businesswire.com/news/home/20240523314788/en/Lumos-Secures-%2435M-Series-B-Funding-to-Unify-the-SaaS-and-Identity-Management-Industries',
+      },
+      {
+        organization: 'Lumos / PR Newswire',
+        publicationDate: '2026-03-24',
+        economicPeriod: 'Identity Security Agents launch',
+        canonicalUrl:
+          'https://www.prnewswire.com/news-releases/lumos-launches-identity-security-agents-that-turn-intelligence-into-enhanced-security-posture-at-scale-302722638.html',
+      },
+    ],
+    artifactLabel: 'Surface refresh / D10',
+    tags: ['investment', 'identity', 'private'],
+  },
+  {
+    id: 'D11',
+    title: 'Microsoft FY2026 Q4 — Entra not disclosed separately',
+    organization: 'Microsoft',
+    publicationDate: '2026-07-29',
+    economicPeriod: 'Quarter ended 2026-06-30',
+    canonicalUrl: 'https://www.sec.gov/Archives/edgar/data/789019/000119312526323632/msft-ex99_1.htm',
+    excerpt:
+      'Microsoft reports Productivity and Business Processes, Intelligent Cloud, and More Personal Computing. Entra is discussed on the call as part of E7 / Copilot / Agent 365. No Entra or identity-security revenue line is disclosed.',
+    sourceClass: 'FILING',
+    interpretation: 'Largest identity installed base. Unusable as a domain financial print.',
+    limitations: 'Bundled into Microsoft 365 Commercial and security suites. Cannot carry an identity-category growth call.',
+    conflictingEvidenceIds: [],
+    artifactLabel: 'Surface refresh / D11',
+    tags: ['identity', 'platform', 'no-segment'],
+  },
+  {
+    id: 'D12',
+    title: 'Ping, BeyondTrust, and Delinea — private identity platforms',
+    organization: 'Ping Identity / BeyondTrust / Delinea',
+    publicationDate: '2026-08-16',
+    economicPeriod: 'Current private status as of surface refresh',
+    canonicalUrl: 'https://pingidentity.com/',
+    excerpt:
+      'Ping Identity was taken private by Thoma Bravo in 2022. BeyondTrust and Delinea are PE-owned privileged-access / identity platforms. None currently disclose a public quarterly revenue or ARR series.',
+    sourceClass: 'IR',
+    interpretation: 'Material identity competitors exist off-public-markets. Absence of prints is a coverage fact, not a demand fact.',
+    limitations:
+      'Company homepages confirm current private / PE status only. They are not independent research and do not support a financial excerpt. Ping take-private date is 2022; 2026 date is the status check.',
+    conflictingEvidenceIds: [],
+    sourceAttributions: [
+      {
+        organization: 'Ping Identity',
+        publicationDate: '2022-08-02',
+        economicPeriod: 'Thoma Bravo take-private',
+        canonicalUrl: 'https://pingidentity.com/',
+      },
+      {
+        organization: 'BeyondTrust',
+        publicationDate: '2026-08',
+        economicPeriod: 'Current private status',
+        canonicalUrl: 'https://www.beyondtrust.com/',
+      },
+      {
+        organization: 'Delinea',
+        publicationDate: '2026-08',
+        economicPeriod: 'Current private status',
+        canonicalUrl: 'https://delinea.com/',
+      },
+    ],
+    artifactLabel: 'Surface refresh / D12',
+    tags: ['identity', 'private'],
+  },
+  {
+    id: 'D13',
+    title: 'Google completes Wiz acquisition',
+    organization: 'Google',
+    publicationDate: '2026-03-11',
+    economicPeriod: 'Transaction close',
+    canonicalUrl:
+      'https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/wiz-acquisition/',
+    excerpt:
+      'Google LLC today announced the completion of its acquisition of Wiz, a leading cloud and AI security platform. Wiz will join Google Cloud and maintain its brand and commitment to securing customers across all cloud environments. This deal was initially announced in March 2025.',
+    sourceClass: 'IR',
+    interpretation: 'Close of the announced cloud-security platform deal. Capital event, not a customer-spend print.',
+    limitations:
+      'Close announcement does not restate consideration. Use D5a for the ~$32B 8-K. Not proof of category demand.',
+    conflictingEvidenceIds: [],
+    artifactLabel: 'Surface refresh / D13',
+    tags: ['investment', 'cloud-security', 'm-and-a'],
+  },
+  {
+    id: 'D14',
+    title: 'Palo Alto Networks completes CyberArk acquisition',
+    organization: 'Palo Alto Networks',
+    publicationDate: '2026-02-11',
+    economicPeriod: 'Transaction close',
+    canonicalUrl:
+      'https://www.paloaltonetworks.com/company/press/2026/palo-alto-networks-completes-acquisition-of-cyberark-to-secure-the-ai-era/',
+    excerpt:
+      'Palo Alto Networks today announced the completion of its acquisition of CyberArk, establishing Identity Security as a core pillar of its platformization strategy. Under the terms of the agreement, CyberArk shareholders are entitled to receive $45.00 in cash and 2.2005 shares of Palo Alto Networks common stock for each CyberArk ordinary share.',
+    sourceClass: 'IR',
+    interpretation: 'Identity becomes a PANW platform pillar. Capital allocation, not organic identity demand.',
+    limitations:
+      'Close is not a growth print. Use D5b for the announced ~$25B equity value. Subsequent PANW prints include CyberArk.',
+    conflictingEvidenceIds: ['C7'],
+    artifactLabel: 'Surface refresh / D14',
+    tags: ['investment', 'identity', 'm-and-a'],
+  },
+  {
+    id: 'D15',
+    title: 'Palo Alto Networks completes Portkey acquisition',
+    organization: 'Palo Alto Networks',
+    publicationDate: '2026-05-29',
+    economicPeriod: 'Transaction close',
+    canonicalUrl:
+      'https://www.paloaltonetworks.com/company/press/2026/palo-alto-networks-completes-acquisition-of-portkey-to-secure-ai-agents',
+    excerpt:
+      'Palo Alto Networks today announced it has closed the acquisition of Portkey, a pioneer in AI Gateways. This acquisition establishes the AI Gateway as a mission-critical control plane for the enterprise. Portkey becomes the core AI Gateway for Prisma AIRS.',
+    sourceClass: 'IR',
+    interpretation: 'AI-runtime tuck-in into Prisma AIRS. Control-plane bet, not a demand series.',
+    limitations: 'Terms not disclosed. Not a customer-spend or ARR print.',
+    conflictingEvidenceIds: [],
+    artifactLabel: 'Surface refresh / D15',
+    tags: ['investment', 'ai-runtime', 'm-and-a'],
+  },
+  {
+    id: 'D16',
+    title: 'Cisco completes Astrix Security acquisition',
+    organization: 'Cisco',
+    publicationDate: '2026-06-29',
+    economicPeriod: 'Intent announced; completed 2026-06-29',
+    canonicalUrl: 'https://blogs.cisco.com/news/cisco-announces-intent-to-acquire-astrix-security',
+    excerpt:
+      'June 29, 2026 Update: We have completed the acquisition of Astrix Security. Astrix is described as a pioneer in Non-Human Identity (NHI) Security, focused on API keys, service accounts, and OAuth tokens. Cisco plans to integrate the capabilities into Cisco Identity Intelligence.',
+    sourceClass: 'IR',
+    interpretation: 'NHI / agent-identity tuck-in into Cisco Security. Platform assembly, not a category growth print.',
+    limitations:
+      'Cisco did not disclose terms. Same page carries both intent and the completion update. Do not treat secondary price rumors as a primary figure.',
+    conflictingEvidenceIds: [],
+    artifactLabel: 'Surface refresh / D16',
+    tags: ['investment', 'identity', 'm-and-a'],
+  },
+  {
+    id: 'D17',
+    title: 'Zscaler announces intent to acquire Symmetry Systems',
+    organization: 'Zscaler',
+    publicationDate: '2026-05-21',
+    economicPeriod: 'Transaction intent — not close',
+    canonicalUrl:
+      'https://ir.zscaler.com/news-releases/news-release-details/zscaler-acquire-symmetry-systems-combining-zero-trust-and-access',
+    excerpt:
+      'Zscaler today announced the intent to acquire Symmetry Systems, Inc., a pioneer in identity mapping and data access for AI security. Symmetry Systems’ access graph maps how human and non-human identities, applications, and data connect across the enterprise.',
+    sourceClass: 'IR',
+    interpretation: 'Data/identity access-graph tuck-in. Intent is a capital signal, not a close and not buyer spend.',
+    limitations: 'Intent, not close. Terms not disclosed.',
+    conflictingEvidenceIds: [],
+    artifactLabel: 'Surface refresh / D17',
+    tags: ['investment', 'data-security', 'm-and-a'],
+  },
+  {
+    id: 'D18',
+    title: 'Onyx Security raises $113M Series B',
+    organization: 'Onyx Security',
+    publicationDate: '2026-07-29',
+    economicPeriod: 'Series B',
+    canonicalUrl:
+      'https://www.onyx.security/press-release/onyx-security-raises-113m-series-b-to-control-advanced-ai-quadrupling-revenue-since-stealth-launch-four-months-ago',
+    excerpt:
+      'Onyx Security announced a $113 million Series B funding round led by Bessemer Venture Partners. This brings the company’s total funding to $153M. The company said revenue grew fourfold in the four months since leaving stealth.',
+    sourceClass: 'IR',
+    interpretation: 'AI-control-plane formation capital. Category bet, not a disclosed ARR series.',
+    limitations:
+      'Private-company press. Company-stated revenue growth is not a public ARR or bookings print. Do not convert the raise into demand.',
+    conflictingEvidenceIds: [],
+    artifactLabel: 'Surface refresh / D18',
+    tags: ['investment', 'ai-runtime', 'private'],
   },
 ]
 

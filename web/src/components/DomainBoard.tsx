@@ -1,61 +1,42 @@
 import { securityDomains } from '../data/domains'
-import { DomainSignalMetrics } from './DomainSignalMetrics'
 import { EvidenceLink } from './EvidenceLink'
-import { StatusBadge } from './StatusBadge'
-
-function coverageNote(coverage: string): string | null {
-  if (coverage === 'PASS_WITH_LIMITATION') return 'Evidence with comparability limits'
-  return null
-}
 
 export function DomainBoard() {
   return (
-    <section id="domains" className="domain-board" aria-labelledby="domains-heading">
+    <section id="domains" className="tempo-board" aria-labelledby="domains-heading">
       <div className="section-heading">
-        <h2 id="domains-heading">Security domains</h2>
-        <p>Current momentum, recommended posture, and what to watch.</p>
+        <h2 id="domains-heading">Tempo</h2>
+        <p>Where the prints convert into a decision. Tag will not exceed the Episode 002 posture.</p>
       </div>
-      <div className="domain-board__grid">
-        {securityDomains.map((domain) => {
-          const note = coverageNote(domain.coverage)
-          return (
-            <article key={domain.id} className="domain-card">
-              <header className="domain-card__header">
-                <h3>{domain.name}</h3>
-                <div className="domain-card__badges">
-                  {domain.coverage === 'INSUFFICIENT_COVERAGE' && (
-                    <StatusBadge kind="insufficient" />
-                  )}
-                  <StatusBadge kind={domain.posture} />
-                </div>
-              </header>
-              {note && <p className="domain-card__note">{note}</p>}
-              <DomainSignalMetrics
-                momentum={domain.momentum}
-                evidenceStrength={domain.evidenceStrength}
-              />
-              <p className="domain-card__summary">{domain.summary}</p>
-              <div className="domain-card__watch">
-                <h4>What to watch</h4>
-                <ul>
-                  {domain.watchItems.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-              <div className="domain-card__evidence">
-                <EvidenceLink ids={domain.supportingEvidenceIds} label="Supporting sources" />
-                {domain.counterEvidenceIds.length > 0 && (
+      <div className="table-scroll">
+        <table className="tempo-table">
+          <thead>
+            <tr>
+              <th scope="col">Domain</th>
+              <th scope="col">Window</th>
+              <th scope="col">Do</th>
+            </tr>
+          </thead>
+          {securityDomains.map((domain) => (
+            <tbody key={domain.id} className="tempo-block">
+              <tr>
+                <th scope="row">{domain.name}</th>
+                <td className="tempo-table__win">{domain.tempo}</td>
+                <td>
+                  <span className={`tag tag--${domain.tag.toLowerCase()}`}>{domain.tag}</span>
+                </td>
+              </tr>
+              <tr className="tempo-table__detail">
+                <td colSpan={3}>
+                  <p>{domain.why}</p>
                   <EvidenceLink
-                    ids={domain.counterEvidenceIds}
-                    label="Counter-sources"
-                    className="evidence-link--counter"
+                    ids={[...domain.supportingEvidenceIds, ...domain.counterEvidenceIds]}
                   />
-                )}
-              </div>
-            </article>
-          )
-        })}
+                </td>
+              </tr>
+            </tbody>
+          ))}
+        </table>
       </div>
     </section>
   )

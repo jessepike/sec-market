@@ -235,3 +235,28 @@ Numbering note: the two 2026-08-16 entries previously both labeled D-23/D-24 are
 **D-29 · 2026-08-16 — Signals first slice is startups only.**
 
 Owner direction: branch the signals work into a separate session. Do not work M&A yet. First find the public sources for new security startups and see what information we can actually get. A source catalog comes before any collector or scrape.
+
+**D-30 · 2026-08-16 — Prove startup-feed value with the easy set before any custom collection.**
+
+The allowed public sources are enough to test whether a startup feed is worth building. Do not build browser scraping, click-through skills, or other custom collectors until one real packet is useful in an account conversation or on the site.
+
+Value test: one cheap collection packet from the first-week set in `startup-source-catalog.md`. Completeness is not the test. Decision usefulness is.
+
+**D-31 · 2026-08-16 — Production deploys only via local → GitHub → Vercel.**
+
+Owner direction after the first public ship drifted: local, GitHub `main`, and Vercel were three different copies because production was a CLI upload of a dirty working tree.
+
+Standing rule:
+
+1. Preview on the OrbStack dev server.
+2. Commit the accepted tree on `main`.
+3. `git push origin main`.
+4. Vercel builds that GitHub commit (`pikeholdings/security-market-pulse`, root `web`).
+
+Do not `vercel --prod` an uncommitted tree. Do not treat `origin/main` as live until that commit has deployed. After this decision, the scorecard working tree is the git and production source of truth.
+
+**D-31 · 2026-08-16 — Startup work is a site feature, not another research episode.**
+
+Owner correction: stop calling this an episode. The live site is one published research edition. Startups is a new section of Security Market Pulse.
+
+Sequence: (1) collection packet, (2) owner + lead critique for insights and presentation, (3) a separate design/front-end agent only after the packet is good enough for a sharp San Francisco audience. Do not spin design before that review. World-class bar: if smart operators would dismiss it as a link dump, it is not ready.

@@ -10,6 +10,7 @@ const ALL_CLASSES: SourceClass[] = [
   'TRANSCRIPT',
   'OFFICIAL',
   'INDEPENDENT',
+  'OWN_ANALYSIS',
   'VENDOR-SURVEY',
   'VENDOR-RESEARCH',
 ]
@@ -39,7 +40,7 @@ export function EvidenceLibrary() {
   }, [query, classFilter])
 
   return (
-    <section id="research" className="evidence-library" aria-labelledby="research-heading">
+    <section className="evidence-library" aria-labelledby="research-heading">
       <div className="section-heading">
         <h2 id="research-heading">Research &amp; evidence library</h2>
         <p>Search frozen Episode 002 sources. Click any row to inspect full attribution.</p>

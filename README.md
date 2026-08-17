@@ -13,9 +13,9 @@ The MVP consumption surface is now the **Security Market Pulse** website:
 - **Local development:** `orb run -m dev npm run dev --prefix web`
 - **Production build:** `orb run -m dev npm run build --prefix web`
 - **Evidence contract:** every material call, chart, and domain posture links to source, excerpt/locator, limitations, conflicting evidence, and research artifacts
-- **Production:** https://security-market-pulse.vercel.app
-- **Custom domain:** `securitymarketpulse.com` (claimed on Vercel; Cloudflare DNS still required)
-- **Deploy:** Vercel project `security-market-pulse`, GitHub repo `jessepike/sec-market`, root directory `web`
+- **Production:** https://securitymarketpulse.com (Vercel alias: https://security-market-pulse.vercel.app)
+- **Custom domain:** `securitymarketpulse.com` (Cloudflare DNS, unproxied CNAME to Vercel)
+- **Deploy path (only):** local OrbStack preview → commit on `main` → `git push origin main` → Vercel builds that GitHub commit. Project `pikeholdings/security-market-pulse`, repo `jessepike/sec-market`, root `web`. Never CLI-upload a dirty working tree.
 
 The first completed episode is now classified as a thematic validation episode:
 
@@ -91,9 +91,9 @@ Session state: [status.md](status.md) · Work queue: [BACKLOG.md](BACKLOG.md) ·
 
 ## Next authorized action
 
-Commit and push the live working tree so GitHub matches production, then stand up the signals job: gather public startup, funding, and M&A events, reason on them, and keep the site current.
+Stand up the signals job: gather public startup, funding, and M&A events, reason on them, and keep the site current.
 
-Do not auto-publish a market call without a human check.
+Ship site changes only by committing locally, pushing `main`, and letting Vercel deploy that commit. Do not auto-publish a market call without a human check.
 
 ## Not authorized
 

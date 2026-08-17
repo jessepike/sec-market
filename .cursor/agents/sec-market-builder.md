@@ -21,5 +21,5 @@ Implement only the bounded increment supplied by the lead.
 - Run the specified build, type, lint, and test checks.
 - Return changed files, verification evidence, limitations, and any blocked requirement.
 
-Do not start a scheduler, collector, database, deployment, or autonomous workflow unless the lead provides explicit authorization.
+Do not start a scheduler, collector, database, or autonomous workflow unless the lead provides explicit authorization. Production deploys are local commit → `git push origin main` → Vercel only. Never CLI-upload a dirty working tree.
 

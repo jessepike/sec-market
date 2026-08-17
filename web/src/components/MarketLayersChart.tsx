@@ -40,12 +40,13 @@ const SMALL_MULTIPLES = [
 
 export function MarketLayersChart() {
   return (
-    <section id="layers" className="chart-section" aria-labelledby="layers-heading">
+    <section className="chart-section" aria-labelledby="layers-heading">
       <div className="section-heading">
         <h2 id="layers-heading">Market layers</h2>
         <p>
-          Quarterly indexed series (2023-Q1 = 100) derived from the frozen sparse panel — descriptive
-          sequence only, not a fitted lag model.
+          Panel window 2023-Q1 through 2026-Q1 (2023-Q1 = 100). Later JUL ’26 scorecard prints are
+          not on these charts. Fiscal quarters are mapped into calendar buckets — NVIDIA FY27 Q1
+          ended 2026-04-26 sits in 2026-Q1. Descriptive sequence only, not a fitted lag.
         </p>
       </div>
 

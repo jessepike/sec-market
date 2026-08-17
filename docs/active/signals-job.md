@@ -12,7 +12,7 @@
 
 Find public cybersecurity startup events, decide which ones matter, and turn them into intelligence the site can show.
 
-This is how Pulse stays current. Episodes 001 and 002 were one-time research. They are not a feed.
+This is how Pulse stays current. The site today is one frozen research edition about infrastructure spending. The startup section is a new feature on that same site, not another research paper.
 
 ## First slice — startups only
 
@@ -24,7 +24,7 @@ M&A and public-company prints stay parked.
 
 A research packet that names the best public sources for new security startups, what each source actually gives us, and how we can collect it without breaking terms.
 
-Then, later: one manual collection week against the best of those sources.
+Catalog is done. Next: one cheap collection packet from the allowed first-week sources so we can judge value. No custom browser scraping, click-through skills, or collectors until that packet is useful in a real conversation or on the site.
 
 Do not scrape a site that forbids it. Prefer official public pages, RSS, and filings. If a source is blocked, record the miss instead of inventing coverage.
 
@@ -40,10 +40,10 @@ Do not scrape a site that forbids it. Prefer official public pages, RSS, and fil
 ## First build slice
 
 1. Research the top public sources for new security startups and funding. Write the catalog. **Done:** [startup-source-catalog.md](startup-source-catalog.md) (`SEC-MARKET-STARTUP-SRC-001`), lead reviewed.
-2. Pick the first 8–10 we can actually collect from.
+2. Pick the first 8–10 we can actually collect from. **Done:** first-week set in the catalog.
 3. Define the event record: company, what they do, date, round if any, source URL, excerpt, why it might matter.
-4. Run one manual week of collection.
-5. Only then automate retrieval for sources that are allowed and stable.
+4. Run one cheap collection packet from those sources. **In progress.**
+5. Judge value from the packet. Only if it is useful, consider light automation of allowed pages. Custom browser scraping stays parked.
 
 M&A source work is parked.
 

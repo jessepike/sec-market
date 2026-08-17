@@ -1,2 +1,5 @@
 .DS_Store
 .ctx/
+.vercel
+web/scripts/shot-*.png
+

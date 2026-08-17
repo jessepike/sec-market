@@ -48,6 +48,23 @@ Recurring — public market signals are gathered on a cadence; market calls stay
 - Public static website: Vercel project `security-market-pulse`, domain `securitymarketpulse.com`
 - Recurring public-signal intake is authorized; auto-publish of market calls is not
 
+## Production deploy (mandatory)
+
+The only allowed path is **local → GitHub → Vercel**.
+
+1. Develop and preview on the OrbStack dev server (`orb run -m dev npm run dev --prefix web`).
+2. Commit a clean tree on `main`.
+3. `git push origin main`.
+4. Vercel builds that GitHub commit (project `pikeholdings/security-market-pulse`, root `web`) and serves https://securitymarketpulse.com.
+
+Do **not**:
+
+- `vercel --prod` / CLI-upload a dirty or uncommitted working tree
+- treat `origin/main` as live until that commit has actually deployed
+- push an older `main` that would regress the scorecard already on production
+
+First production ship was a CLI upload. That split local, GitHub, and Vercel. Do not recreate it. After a push, curl the live host before telling the owner it is shipped.
+
 ## Fresh-agent minimum context
 
 1. [README.md](README.md)
@@ -59,3 +76,4 @@ Recurring — public market signals are gathered on a cadence; market calls stay
 7. Accepted Gate S1 implementation specification under [docs/active/](docs/active/) (`SEC-MARKET-SHADOW-S1-SPEC-001` v0.2)
 8. Accepted web MVP contract and implementation under [docs/active/](docs/active/) and [web/](web/) (`SEC-MARKET-WEB-001`)
 9. Current signals job under [docs/active/signals-job.md](docs/active/signals-job.md)
+10. Production deploys only via local → GitHub → Vercel (this file, D-31)

@@ -26,7 +26,8 @@ Operating rules:
 - Orchestrate on Grok 4.6. Delegate implementation and review to Composer 2.5. Other Models (GPT, Claude, Gemini) require explicit owner authorization for each invocation.
 - Prefer direct work when delegation would duplicate context.
 - Do not edit `intent.md` without explicit owner authorization.
-- Do not expand into collectors, automation, deployment, or publication unless separately authorized.
+- Do not expand into collectors, automation, or publication unless separately authorized.
+- Site deploys are authorized only as local commit → `git push origin main` → Vercel. Never CLI-upload a dirty working tree.
 - Integrate worker results, run the final verification, then update `status.md`, `BACKLOG.md`, and `decisions.md` once.
 - Stop when the accepted exit condition is met; do not create another gate by habit.
 

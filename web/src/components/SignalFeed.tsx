@@ -11,28 +11,69 @@ const categoryLabels: Record<string, string> = {
   incident: 'Incident',
 }
 
-export function SignalFeed() {
-  const sorted = [...marketSignals].sort((a, b) => b.date.localeCompare(a.date))
-
+function SignalList({
+  signals,
+  headingId,
+  heading,
+  intro,
+}: {
+  signals: typeof marketSignals
+  headingId: string
+  heading: string
+  intro: string
+}) {
   return (
-    <section id="signals" className="signal-feed" aria-labelledby="signals-heading">
+    <div className="signal-group">
       <div className="section-heading">
-        <h2 id="signals-heading">Latest signals</h2>
-        <p>Financial results, investment, buyer evidence, regulation, and operating events.</p>
+        <h3 id={headingId}>{heading}</h3>
+        <p>{intro}</p>
       </div>
       <ol className="signal-feed__list">
-        {sorted.map((signal) => (
+        {signals.map((signal) => (
           <li key={signal.id} className="signal-item">
             <div className="signal-item__meta">
               <time dateTime={signal.date}>{formatIsoDate(signal.date)}</time>
               <span className="signal-item__category">{categoryLabels[signal.category]}</span>
             </div>
-            <h3>{signal.headline}</h3>
+            <h4>{signal.headline}</h4>
             <p>{signal.detail}</p>
             <EvidenceLink ids={signal.evidenceIds} />
           </li>
         ))}
       </ol>
+    </div>
+  )
+}
+
+export function SignalFeed() {
+  const current = marketSignals
+    .filter((signal) => signal.freshness === 'current')
+    .sort((a, b) => b.date.localeCompare(a.date))
+  const background = marketSignals
+    .filter((signal) => signal.freshness === 'background')
+    .sort((a, b) => b.date.localeCompare(a.date))
+
+  return (
+    <section id="signals" className="signal-feed" aria-labelledby="signals-heading">
+      <div className="section-heading">
+        <h2 id="signals-heading">Signals</h2>
+        <p>Current-period prints first. Older context stays in the background.</p>
+      </div>
+      <SignalList
+        signals={current}
+        headingId="signals-current"
+        heading="This period"
+        intro="Latest frozen financial prints, buyer intent, and operating events."
+      />
+      <details className="signal-background">
+        <summary>Background — 2025 budget, M&A, regulation, and incidents</summary>
+        <SignalList
+          signals={background}
+          headingId="signals-background"
+          heading="Background"
+          intro="Still in the evidence base. Not this month’s news."
+        />
+      </details>
     </section>
   )
 }

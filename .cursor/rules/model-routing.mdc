@@ -1,23 +1,34 @@
 ---
-description: Route Security Market Signal work to proportionate models and limit unnecessary agent fan-out
+description: Route Security Market Signal work to Cursor Models first; reserve Other Models for authorized council
 alwaysApply: true
 ---
 
-# Model Routing — Cost Emergency
+# Model Routing
 
-- Default model for all project work: Composer 2.5.
-- Main human conversation: Composer 2.5 until the owner explicitly changes this policy.
-- Project lead, implementation, research, testing, and review: Composer 2.5.
-- GPT, Claude, Gemini, and every other external model: prohibited unless the owner explicitly authorizes that exact invocation.
-- Grok 4.6: do not use until the owner confirms the Cursor Models pool status.
+Follow the global Ultra rule: spend **Cursor Models** (Grok + Composer) first. Reserve **Other Models** for owner-authorized council or escalation only.
 
-Controls:
+## Roles
 
-- Pin every project agent to Composer 2.5.
-- Use one agent at a time. Parallel agents require explicit owner authorization.
+| Role | Model | Pool | When |
+|------|-------|------|------|
+| Lead / orchestrator / thinking | Grok 4.6 | Cursor Models | Main chat, planning, delegation, synthesis |
+| Worker / implementer / review | Composer 2.5 | Cursor Models | Edits, explore, tests, verifier, bulk reads |
+| Architecture / code / security council | GPT or Claude | Other Models | Only with explicit owner authorization for that invocation |
+
+## IDs
+
+| Context | Orchestrator | Worker |
+|---------|--------------|--------|
+| Agent frontmatter (`model:`) | `grok-4.6` | `composer-2.5` |
+| Task tool `model` | `cursor-grok-4.6-high-fast` | `composer-2.5-fast` |
+
+## Controls
+
+- Pin `sec-market-lead` to Grok 4.6. Pin builder and reviewer to Composer 2.5.
+- Always set `model` on Task subagents. Never use `inherit` or omit it.
+- Use one worker at a time. Parallel workers require explicit owner authorization.
 - Do not use a subagent for a task the lead can finish in one short pass.
-- Prefer direct work over delegation to avoid duplicate context and token use.
-- Every delegated task must name scope, output, prohibited changes, and verification.
+- Prefer direct work over delegation when it would duplicate context.
+- GPT, Claude, Gemini, and other Other Models invocations require explicit owner authorization.
 - Do not launch council, reviewer, or verifier agents automatically.
-- Check Cursor’s spending dashboard rather than assuming plan usage.
-
+- Do not use Auto Balance / Auto Intelligence.

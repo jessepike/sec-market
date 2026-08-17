@@ -10,6 +10,8 @@ updated: 2026-08-16
 
 Security Market Pulse is live at https://securitymarketpulse.com. Owner has already reviewed it. The site currently shows one frozen research edition (Episode 002). That is not enough. The product job is now recurring cybersecurity market intelligence: what changed, what it means, and what new startups, funding, and M&A belong on the page.
 
+Local, GitHub `main`, and Vercel are synced by committing the live scorecard tree and deploying that GitHub commit (D-31). Future ships go local → GitHub → Vercel only.
+
 ## Project truth
 
 | Layer | State |
@@ -19,7 +21,7 @@ Security Market Pulse is live at https://securitymarketpulse.com. Owner has alre
 | Episode 001 | Done. One-time call on agent security readiness. Still usable as background. |
 | Episode 002 | Done. Current published market call. Infra spend is up. We will not fake a security-spend lag. |
 | Recurring signals | Startup sources found. First collection week not started. M&A parked. |
-| Git / production | Live site was uploaded from the working tree. GitHub `main` is behind until that tree is committed and pushed. |
+| Git / production | Local, GitHub `main`, and Vercel match after the D-31 sync. Deploy only via `git push origin main`. |
 | Auto-publish judgments | Still not allowed without a human check |
 
 ## Next Steps
@@ -27,9 +29,10 @@ Security Market Pulse is live at https://securitymarketpulse.com. Owner has alre
 - [x] Publish the first market call on a public site
 - [x] Point `securitymarketpulse.com` at Vercel
 - [x] Owner reviewed the live site
-- [ ] Commit and push the live working tree so GitHub matches production
+- [x] Sync local scorecard tree → GitHub `main` → Vercel (D-31)
 - [x] Startup-source research: catalog written and lead-reviewed (`SEC-MARKET-STARTUP-SRC-001`)
-- [ ] First collection week from the 10 allowed sources (manual, no scrapers)
+- [ ] Cheap collection packet from the 10 allowed sources (manual, no scrapers)
+- [ ] Judge whether that packet is useful before any custom browser collection
 - [ ] Keep the published call honest when new evidence arrives
 
 ## Pending Decisions
@@ -38,8 +41,7 @@ None blocking the signals job. Feed design (which VC pages, which public-record 
 
 ## Blockers
 
-- Another local session (`bc-a52b0155-9d4a-4ccf-9450-aa99b8de1ad1`) may still be editing the site. Do not overwrite that work.
-- GitHub `main` is stale relative to the live CLI deploy. Commit the live tree, then push. Do not push the old committed `main`.
+None for the three-copy sync. Another local session may still exist; do not overwrite unrelated work, but `main` is now the production source of truth.
 
 ## Session Log
 
@@ -58,3 +60,4 @@ None blocking the signals job. Feed design (which VC pages, which public-record 
 | 2026-08-16 | Public Vercel project live; custom-domain cutover complete |
 | 2026-08-16 | Owner closed product-review pending. Duplicate decision IDs fixed (deploy=D-25, DNS=D-26). Recurring public-signal intelligence is now the job (D-28). |
 | 2026-08-16 | Startup-source catalog completed and lead-reviewed. First-week set is specialist cyber VC pages plus Return on Security and Cybersecurity Ventures. |
+| 2026-08-16 | Owner authorized three-copy sync. Scorecard tree committed and pushed; Vercel deploys from GitHub only (D-31). |

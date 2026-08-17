@@ -3,10 +3,13 @@ import { evidenceById } from './evidence'
 export function evidenceSourceLabel(ids: string | string[]): string {
   const list = Array.isArray(ids) ? ids : [ids]
   const names = list
-    .map((id) => {
+    .flatMap((id) => {
       const record = evidenceById[id]
-      if (!record) return id
-      return record.organization
+      if (!record) return [id]
+      if (record.sourceAttributions?.length) {
+        return record.sourceAttributions.map((source) => source.organization)
+      }
+      return record.organization.split(/\s*\/\s*/)
     })
     .filter(Boolean)
 

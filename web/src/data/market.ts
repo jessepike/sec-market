@@ -1,4 +1,4 @@
-import type { SummaryCard } from './types'
+import type { ContextStat, SummaryCard } from './types'
 import { chartLayerPoints } from './derivePanel'
 import { BUYER_BUDGET_GROWTH_ANNUAL, BUYER_SECURITY_SHARE_IT } from './panelRaw'
 
@@ -19,31 +19,37 @@ export interface MarketCall {
   evidenceIds: string[]
 }
 
+export const contextStats: ContextStat[] = [
+  { value: '+92%', label: 'NVIDIA Data Center', tone: 'up', evidenceIds: ['A1b'] },
+  { value: '+4%', label: '2025 security budgets', tone: 'down', evidenceIds: ['D1'] },
+  { value: 'NO-CALL', label: 'Infra → security lag', tone: 'hold', evidenceIds: ['LAG-NO-CALL'] },
+]
+
 export const marketCall: MarketCall = {
-  headline: 'Infrastructure is accelerating. A stable security-spending lag is not measurable.',
+  headline: 'Infrastructure is running ahead. Security is splitting, not booming.',
   subhead:
-    'Use infrastructure activation as an account qualification trigger — not as proof of a broad cybersecurity boom.',
+    'Use infrastructure activation as an account qualification trigger — not as proof of a broad cybersecurity boom. A stable lag is still not measurable.',
   whatChanged: [
-    'Infrastructure spend is still rising — NVIDIA Data Center revenue went from $4.28B to $75.25B across the frozen window.',
-    'Broad security budgets did not keep pace: IANS reports 4% average growth in 2025 and security fell to 10.9% of IT spend.',
-    'Some security categories strengthened later (network/SASE, selected data vendors, AI-protection intent) — for different reasons, not one uniform wave.',
+    'Cisco Q4 networking orders +40% and NVIDIA Data Center at $75.25B. The build is still on.',
+    'Fortinet product +52% while Zscaler organic ARR is +21% and Cisco FY security is +2%. Network iron is hot; the category is not.',
+    'Rubrik and Varonis are accelerating. Okta decelerated. CrowdStrike recovered. That is a split, not a wave.',
   ],
   actions: {
     doItems: [
+      'Prepare the observed network refresh motion where it is already in flight. Do not rebrand it as infrastructure-lag capture.',
       'Ask when cloud/AI capacity, sensitive data, and machine identities go live.',
-      'Refresh cloud, identity, and data qualification views for exposed accounts.',
-      'Tie network/SASE talk to observed refresh — not assumed lag capture.',
+      'Prepare data/AI only for accounts putting sensitive data into new workloads.',
     ],
     avoidItems: [
       'Claiming a market-wide cybersecurity boom or a stable 0–8 quarter lag.',
-      'Scaling broad GTM without realized buyer spend and organic vendor breadth.',
-      'Treating Wiz or CyberArk acquisitions as proof of customer spend.',
+      'Reading headline security growth without stripping acquisitions.',
+      'Treating 2025 Wiz or CyberArk deals as this month’s demand signal.',
     ],
   },
   meaning:
-    'The infrastructure build is real and still accelerating. Security evidence is mixed across refresh, recovery, platformization, intent, and selected organic growth. Prepare bounded, domain-specific readiness only where a client has relevant exposure.',
+    'Infrastructure is leading by a wide margin. Security’s useful movement is underneath the composite: appliance-led network is live, selected data vendors are up, identity and cloud lack a clean spend series, and buyer budgets did not follow in 2025. Prepare only where a client has matching exposure.',
   confidenceNote:
-    'High confidence on infrastructure acceleration; high confidence that broad security-budget response through 2025 was absent or weakened; medium confidence on selected domain strengthening in 2025–2026.',
+    'High on infrastructure acceleration. High that 2025 security budgets did not follow. Medium on the 2026 domain split. No-call on a stable lag.',
   noCallBoundaries: [
     'Stable 0–8-quarter infrastructure-to-security lag',
     'Domain-specific infrastructure lag',
@@ -56,7 +62,7 @@ export const marketCall: MarketCall = {
     'Expansion from AI pilots into consequential production workloads',
     'A registered infrastructure impulse followed by a registered security response under fixed cohort rules',
   ],
-  evidenceIds: ['A1b', 'D1', 'LAG-NO-CALL', 'C3', 'C6'],
+  evidenceIds: ['A1b', 'D1', 'LAG-NO-CALL', 'C3', 'C6b'],
 }
 
 export const summaryCards: SummaryCard[] = [
@@ -76,7 +82,7 @@ export const summaryCards: SummaryCard[] = [
     detail:
       '2025 security-budget growth fell to 4% and security share of IT dropped to 10.9%. Selected vendors strengthened; Check Point, Cisco FY, and Okta remain weak or decelerating.',
     disposition: 'High confidence on budgets; mixed vendor breadth',
-    evidenceIds: ['D1', 'C3', 'C6', 'C7'],
+    evidenceIds: ['D1', 'C3', 'C6a', 'C6b', 'C7'],
   },
   {
     id: 'lag',
@@ -109,12 +115,13 @@ export const chartEvidenceIds = [
   'C1',
   'C3',
   'C4',
-  'C6',
+  'C6a',
+  'C6b',
   'C7',
 ]
 
 export const chartMetricNote =
-  'All three charts share the same log-scale index axis (50–1800; 2023-Q1 = 100) so an 18× move and a 2× move look proportionally different. Infrastructure: NVIDIA Data Center revenue. Hyperscaler: median indexed Microsoft, Amazon, and Alphabet quarterly cash capex (not additive). Security: median indexed CrowdStrike, Okta, Fortinet, Zscaler, and Check Point revenue where reported. Gaps remain null — no interpolation.'
+  'Panel window is calendar 2023-Q1 through 2026-Q1. Later JUL ’26 scorecard prints are not on these charts. Company fiscal quarters are mapped into those calendar buckets — NVIDIA FY27 Q1 (ended 2026-04-26) sits in 2026-Q1. All three charts share the same log-scale index axis (50–1800; 2023-Q1 = 100). Infrastructure: NVIDIA Data Center revenue. Hyperscaler: median indexed Microsoft, Amazon, and Alphabet quarterly cash capex (not additive). Security: median indexed CrowdStrike, Okta, Fortinet, Zscaler, and Check Point revenue where reported. Gaps remain null — no interpolation.'
 
 export const buyerBudgetAnnual = [2023, 2024, 2025].map((year) => ({
   year,

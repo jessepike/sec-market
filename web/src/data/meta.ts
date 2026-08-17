@@ -1,5 +1,5 @@
 export const EPISODE_ID = 'SEC-MARKET-SIG-002'
 export const EPISODE_VERSION = '0.2'
 export const RESEARCH_FREEZE = '2026-08-15T19:03:08-07:00'
-export const LAST_UPDATED_DISPLAY = 'August 15, 2026'
+export const LAST_UPDATED_DISPLAY = 'August 16, 2026'
 export const PRODUCT_TITLE = 'Security Market Pulse'

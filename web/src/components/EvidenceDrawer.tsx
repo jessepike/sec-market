@@ -1,6 +1,5 @@
 import { useEffect, useId, useRef } from 'react'
 import { ArrowLeft, ExternalLink, X } from 'lucide-react'
-import { researchArtifactUrl } from '../data/artifactLinks'
 import { evidenceById } from '../data/evidence'
 import { useEvidence } from '../context/useEvidence'
 
@@ -94,8 +93,6 @@ export function EvidenceDrawer() {
               .map((id) => evidenceById[id])
               .filter(Boolean)
 
-            const artifactUrl = researchArtifactUrl(record.artifactLabel)
-
             return (
               <article key={record.id} className="evidence-record">
                 <h3>{record.title}</h3>
@@ -149,17 +146,8 @@ export function EvidenceDrawer() {
                     <dd>{record.sourceClass}</dd>
                   </div>
                   <div>
-                    <dt>Research artifact</dt>
-                    <dd>
-                      {artifactUrl ? (
-                        <a href={artifactUrl} target="_blank" rel="noopener noreferrer">
-                          {record.artifactLabel}
-                          <ExternalLink size={12} aria-hidden="true" />
-                        </a>
-                      ) : (
-                        record.artifactLabel
-                      )}
-                    </dd>
+                    <dt>Packet label</dt>
+                    <dd>{record.artifactLabel}</dd>
                   </div>
                 </dl>
                 {record.canonicalUrl && !record.sourceAttributions ? (
