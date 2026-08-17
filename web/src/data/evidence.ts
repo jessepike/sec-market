@@ -77,7 +77,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     publicationDate: '2026-05-28',
     economicPeriod: 'Quarter ended 2026-05-01',
     canonicalUrl:
-      'https://investors.delltechnologies.com/news-releases/news-release-details/dell-technologies-delivers-first-quarter-fiscal-2027-financial',
+      'https://investors.delltechnologies.com/static-files/b63ffff9-b729-403b-a231-c6af05667759',
     excerpt:
       'We booked $24.4 billion in AI orders and recognized $16.1 billion of AI server revenue. We\'re increasing our AI server revenue expectations for FY27 to $60 billion. AI-server backlog $51.3 billion.',
     sourceClass: 'IR',
@@ -170,6 +170,22 @@ export const evidenceRecords: EvidenceRecord[] = [
     interpretation: 'Broad hyperscaler capacity acceleration.',
     limitations: 'Capex is not an AI-only metric; 2023 quarterly figures are reconstructed.',
     conflictingEvidenceIds: [],
+    sourceAttributions: [
+      {
+        organization: 'Alphabet',
+        publicationDate: '2026-07-22',
+        economicPeriod: 'Quarter ended 2026-06-30',
+        canonicalUrl:
+          'https://www.sec.gov/Archives/edgar/data/1652044/000165204426000066/googexhibit991q22026.htm',
+      },
+      {
+        organization: 'Alphabet',
+        publicationDate: '2026-07-22',
+        economicPeriod: 'Q2 2026 earnings call',
+        canonicalUrl:
+          'https://s206.q4cdn.com/479360582/files/doc_events/2026/Jul/22/2026_Q2_Earnings_Transcript.pdf',
+      },
+    ],
     artifactLabel: 'SEC-MARKET-SIG-SRC-002 / B3',
     tags: ['hyperscaler', 'capex'],
   },
@@ -467,7 +483,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     publicationDate: '2025-07-30',
     economicPeriod: 'Transaction announcement',
     canonicalUrl:
-      'https://www.sec.gov/Archives/edgar/data/1327567/000119312525168821/d67702d8k.htm',
+      'https://www.sec.gov/Archives/edgar/data/1327567/000119312525168821/d67702dex992.htm',
     excerpt: 'Approximately $25 billion equity value for CyberArk.',
     sourceClass: 'FILING',
     interpretation: 'Identity became a platform priority for strategic capital.',
@@ -686,6 +702,20 @@ export const evidenceRecords: EvidenceRecord[] = [
     interpretation: 'Largest identity installed base. Unusable as a domain financial print.',
     limitations: 'Bundled into Microsoft 365 Commercial and security suites. Cannot carry an identity-category growth call.',
     conflictingEvidenceIds: [],
+    sourceAttributions: [
+      {
+        organization: 'Microsoft',
+        publicationDate: '2026-07-29',
+        economicPeriod: 'Quarter ended 2026-06-30',
+        canonicalUrl: 'https://www.sec.gov/Archives/edgar/data/789019/000119312526323632/msft-ex99_1.htm',
+      },
+      {
+        organization: 'Microsoft',
+        publicationDate: '2026-07-29',
+        economicPeriod: 'FY2026 Q4 earnings call',
+        canonicalUrl: 'https://aka.ms/transcriptfy26q4',
+      },
+    ],
     artifactLabel: 'Surface refresh / D11',
     tags: ['identity', 'platform', 'no-segment'],
   },
@@ -695,7 +725,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     organization: 'Ping Identity / BeyondTrust / Delinea',
     publicationDate: '2026-08-16',
     economicPeriod: 'Current private status as of surface refresh',
-    canonicalUrl: 'https://pingidentity.com/',
+    canonicalUrl: 'https://www.thomabravo.com/press-releases/thoma-bravo-completes-acquisition-of-ping-identity',
     excerpt:
       'Ping Identity was taken private by Thoma Bravo in 2022. BeyondTrust and Delinea are PE-owned privileged-access / identity platforms. None currently disclose a public quarterly revenue or ARR series.',
     sourceClass: 'IR',
@@ -706,21 +736,23 @@ export const evidenceRecords: EvidenceRecord[] = [
     sourceAttributions: [
       {
         organization: 'Ping Identity',
-        publicationDate: '2022-08-02',
+        publicationDate: '2022-10-18',
         economicPeriod: 'Thoma Bravo take-private',
-        canonicalUrl: 'https://pingidentity.com/',
+        canonicalUrl:
+          'https://www.thomabravo.com/press-releases/thoma-bravo-completes-acquisition-of-ping-identity',
       },
       {
         organization: 'BeyondTrust',
-        publicationDate: '2026-08',
+        publicationDate: '2021-08-17',
         economicPeriod: 'Current private status',
-        canonicalUrl: 'https://www.beyondtrust.com/',
+        canonicalUrl:
+          'https://www.beyondtrust.com/press/beyondtrust-completes-transaction-with-clearlake-capital-and-francisco-partners',
       },
       {
         organization: 'Delinea',
-        publicationDate: '2026-08',
+        publicationDate: '2022-02-01',
         economicPeriod: 'Current private status',
-        canonicalUrl: 'https://delinea.com/',
+        canonicalUrl: 'https://www.thomabravo.com/press-releases/centrify-now-delinea',
       },
     ],
     artifactLabel: 'Surface refresh / D12',
@@ -927,8 +959,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     publicationDate: '2026-07-22',
     economicPeriod: 'Stealth exit',
     canonicalUrl: 'https://www.glow.io/news/glow-emerges-from-stealth-with-180-million',
-    excerpt:
-      'Glow emerged from stealth with $180 million in funding at a $1.2 billion valuation. Return on Security listed a $100.0M Series B in the same window — company PR frames $180M at launch as Series A.',
+    excerpt: 'Glow emerged from stealth with $180 million in funding at a $1.2 billion valuation.',
     sourceClass: 'IR',
     interpretation:
       'AI endpoint prevention capital. Primary source resolves RoS round-label difference; not left as unresolved conflict.',
@@ -1278,7 +1309,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     publicationDate: '2026-06-02',
     economicPeriod: 'Q3 FY26 earnings call',
     canonicalUrl:
-      'https://investors.paloaltonetworks.com/news-releases/news-release-details/palo-alto-networks-reports-fiscal-third-quarter-2026-financial',
+      'https://investors.paloaltonetworks.com/static-files/ea18c9ae-cbe6-4b5d-aa7c-65a6b9aeb2e2',
     excerpt:
       'We have over 300 Prisma AIRS customers as of Q3, up from just 100 at the end of Q2.',
     sourceClass: 'TRANSCRIPT',
