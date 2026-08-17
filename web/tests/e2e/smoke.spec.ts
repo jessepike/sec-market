@@ -12,16 +12,24 @@ test('renders the market briefing without runtime errors', async ({ page }) => {
   await expect(page.getByRole('heading', { name: 'Tempo' })).toBeVisible()
   await expect(page.locator('#method summary')).toHaveText('How this is built')
   await expect(page.getByRole('heading', { name: 'M&A and startups' })).toBeVisible()
-  await expect(page.getByText('Google closed Wiz')).toBeVisible()
-  await expect(page.getByRole('heading', { name: 'Fortinet' })).toBeVisible()
-  await expect(page.getByRole('heading', { name: 'SentinelOne' })).toBeVisible()
+  // Background-surface item: collapsed inside a <details>, so it's in the DOM
+  // (crawlers and the prerendered markup both see it) but not visible until expanded.
+  await expect(page.getByText('Google closed Wiz')).toBeAttached()
+  // Vendor names in the print table are <th scope="row"> cells (ARIA
+  // rowheader), not headings — they label their row, not a document section.
+  await expect(page.getByRole('rowheader', { name: 'Fortinet' })).toBeVisible()
+  await expect(page.getByRole('rowheader', { name: 'SentinelOne' })).toBeVisible()
   await expect(page.getByText('SecOps', { exact: true }).first()).toBeVisible()
   await expect(page.getByText('PREPARE', { exact: true }).first()).toBeVisible()
   await expect(page.getByText('RUN', { exact: true })).toHaveCount(0)
   await expect(page.getByText('INSUFFICIENT COVERAGE')).toHaveCount(0)
   await expect(page.getByText('Alphabet announced ~$32B Wiz acquisition')).toHaveCount(0)
-  await expect(page.getByRole('heading', { name: 'Ping Identity' })).toBeVisible()
-  await expect(page.getByText('Secuvy last disclosed seed')).toHaveCount(0)
+  // Ping Identity has no public print of its own; it's disclosed as a
+  // coverage row grouped with the other PE-owned identity platforms.
+  await expect(page.getByRole('rowheader', { name: 'Entra / Ping / PE PAM' })).toBeVisible()
+  // Same background-surface pattern as Wiz above: the old raise stays in the
+  // evidence base inside the collapsed details, just not shown by default.
+  await expect(page.getByText('Secuvy last disclosed seed')).toBeHidden()
 
   expect(pageErrors).toEqual([])
 })
