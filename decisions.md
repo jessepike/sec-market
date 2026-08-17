@@ -355,4 +355,8 @@ Owner needs plain artifacts for leadership in two days — not scattered researc
 - [intelligence-dashboard-ops.md](docs/active/intelligence-dashboard-ops.md)
 - [leadership-brief-2026-08.md](docs/active/leadership-brief-2026-08.md)
 
-Each doc: question answered, sources, refresh cadence, aggregation, signal quality, decisions driven. Multi-source — RoS is spine, not sole gate. Weekly Loop A (Tuesday gather) runs without owner babysitting.
+Each doc: question answered, sources, refresh cadence, aggregation, signal quality, decisions driven. Multi-source — Return on Security is one weekly source among many. Weekly Loop A (Tuesday gather) runs without owner babysitting.
+
+**D-44 · 2026-08-16 — Fill domain vendor tables on the live site.**
+
+Populate Cloud security and AI runtime print groups; add sourced rows for top vendors per domain from the August operator pass (BigID, Sentra, Securiti, Oak, Hush, Veza, Tines, WitnessAI, Lakera, Orca, Aqua, Wiz, Prisma AIRS, XSIAM). Orca/Aqua get official 2026 GTM or last-disclosed equity — not invented ARR. Rewrite leadership brief in plain English; add decision-impact log template.

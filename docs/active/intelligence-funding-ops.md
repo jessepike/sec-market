@@ -33,7 +33,7 @@ We do **not** answer “should we invest?” We answer: *what names and categori
 
 ## Sources we pull (multi-source — not one newsletter)
 
-### Tier 1 — spine (dated rounds, amounts)
+### Tier 1 — primary weekly sources (dated rounds, amounts)
 
 | Source | URL | What we get | How often |
 |---|---|---|---|
@@ -67,7 +67,7 @@ We do **not** answer “should we invest?” We answer: *what names and categori
 | Cadence | Action | Who | Output |
 |---|---|---|---|
 | **Weekly (Tue AM)** | Read latest Security, Funded + 15-min VC spot-check | Lead gather | Working packet if anything new |
-| **Weekly (Tue PM)** | Draft read + five headlines; market call default = frozen | Lead synthesize | Draft for lead check |
+| **Weekly (Tue PM)** | Draft read + five headlines; top headline stays unless macro changes | Lead synthesize | Draft for lead check |
 | **Monthly (or when material)** | Ship Activity edition to live site | Lead → push `main` | Updated https://securitymarketpulse.com |
 | **Event-driven** | Mega-round ($100M+) or category-defining name | Same day gather | May promote one headline between editions |
 
@@ -102,5 +102,5 @@ We do **not** answer “should we invest?” We answer: *what names and categori
 
 - Qualify accounts in **named categories** (agent governance, AI identity, DSPM).
 - **Do not** launch broad campaigns from funding noise alone.
-- Watch **falsifiers** on the site (e.g. first disclosed agentic-identity revenue print).
-- Pair with **vendor prints** (public ARR) and **market call** (macro — frozen today).
+- Watch for **first disclosed agentic-identity revenue** on the site before treating agent governance as buyer spend.
+- Pair with **vendor prints** (public ARR) and the **published top headline** (Episode 002 macro read).

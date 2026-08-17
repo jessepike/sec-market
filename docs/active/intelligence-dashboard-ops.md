@@ -70,7 +70,7 @@ Account question: prepare where exposure matches; don't boom-claim
 | Macro | Infrastructure accelerating; 2025 security budgets did not follow; stable lag not measurable |
 | Vendor | Network iron hot; SASE split; data selected vendors up; identity/SecOps mixed |
 | Capital | Platforms that bought identity now funding/buying agent control; capital ≠ spend |
-| Action | Qualify on exposure; prepare network refresh where in flight; falsifier = agentic-identity revenue |
+| Action | Qualify on exposure; prepare network refresh where in flight; watch for first public agentic-identity revenue |
 
 ---
 
@@ -92,8 +92,8 @@ Account question: prepare where exposure matches; don't boom-claim
 |---|---|
 | Manual multi-source gather — no automation yet | Weekly desk loop documented; ~2 hr/week |
 | Activity edition lags real time by design (monthly) | Weekly gather; ship when material |
-| Cloud bench short (Orca, Aqua) | NO-PRINT until public signal |
-| Market call frozen on Episode 002 | Correct — changes need human gate |
+| Private vendor ARR | Many vendors only disclose equity or deals — labeled on the table |
+| Top headline | Stays on Episode 002 until macro evidence changes — owner approves any rewrite |
 | No regional tuning | Core is national/global per intent |
 
 ---
@@ -106,6 +106,6 @@ Account question: prepare where exposure matches; don't boom-claim
 | **B — Activity ship** | Material new window OR monthly | Update Activity → `main` → Vercel |
 | **C — Prints pass** | Earnings season | Update vendor rows + Tempo copy |
 | **D — Live honesty** | Contradiction found | Fix prints/Tempo/Avoid/Activity join → ship |
-| **E — Market call** | Watch-next falsifier hit | **Escalate to owner** — only human gate |
+| **E — Top headline change** | Macro evidence would rewrite Episode 002 | **Escalate to owner** — only human gate |
 
 Owner ping: **Loop E only.**

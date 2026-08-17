@@ -29,7 +29,7 @@ Vendor **prints** = disclosed revenue/ARR where it exists. **Capital** (raises, 
 | **SecOps** | WATCH | XDR recovery vs platform SecOps drag? | SentinelOne, CrowdStrike, Cisco SecOps, Torq |
 | **AI runtime** | WATCH | Intent strong, bookings unproven? | Survey + Activity capital (Zenity, Onyx) |
 
-**Bench today:** 34/36 slots have a 2025–2026 signal. **Gaps:** Orca, Aqua (NO-PRINT — checked, no public number).
+**Vendor coverage today:** six Cloud rows (Wiz, Falcon Cloud, Upwind, Orca, Aqua, Prisma AIRS) plus five to eight names per other domain on the prints table.
 
 ---
 
