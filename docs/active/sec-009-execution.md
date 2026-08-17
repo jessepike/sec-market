@@ -15,14 +15,14 @@ One page. This is what the lead steers from. Not a new Governing Intent.
 
 The site is live. The frozen infrastructure-lag call is on the page, with a judgment layer, a prints table, and Tempo joined to the new vendor rows.
 
-That is still a **one-shot research edition plus a capital board that is a month behind the story**. SEC-009 is not done until the Activity board is the current edition and a desk loop can refresh it without reinventing the project.
+That is still a **one-shot research edition plus a capital board that is a month behind the story**. SEC-009 first increment is **done** (Activity edition live). Ongoing job: refresh the board on a cadence without reinventing the project.
 
 | Surface | Live now | Next |
 |---|---|---|
 | Market call | Episode 002 NO-CALL — frozen | Do not touch unless evidence forces an escalate |
 | The read / prints / Tempo | Shipped `8b16cfe` | Maintenance only |
-| Activity | Old leads (Wiz, CyberArk, Cyera, Onyx, Astrix) | Fable rewrite, held for a newer RoS than #256 |
-| Desk | Checklist + #256 packet exist | Run when #257+ exists, then ship |
+| Activity | **Live** — Zenity / Oak / Hush / Oasis / Onyx leads; window Jul 6 – Aug 10 (`160c29c`, D-42) | Refresh when Mike Privette publishes a newer Security, Funded post |
+| Desk | Checklist + #256 packet exist | Re-run gather → ship refresh (Loop 1) |
 
 ---
 
