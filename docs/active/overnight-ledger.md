@@ -28,11 +28,20 @@ what is next, and what a human must decide.
 |---|---|---|---|
 | 1 | Static prerendering at build time | `9aaf386` | `dist/index.html` 1,103 → ~118,000 bytes; headline, prints, tempo, activity, and all 72 evidence records present as real text; no hydration warnings |
 | 2 | Discoverability layer | `786188d` | OG/Twitter/canonical tags, `og.png` verified 1200×630 at 54KB, JSON-LD + `sitemap.xml` generated at build from `meta.ts`, `robots.txt`, Vercel Analytics mounted, reader CTA (`NextEdition`) |
+| 3 | Polish pass | `197a000` `354d39e` `003ac24` `d7a1ebf` `2d55b19` | Dead components and the inert `artifactLinks` stub removed; accessibility fixes and a mobile horizontal-scroll bug; recharts code-split out of the initial bundle; stale smoke-test assertions repaired; orphaned signals data flagged to the backlog |
+
+Not yet independently verified — the polish agent's own claims still have to survive the
+build check and adversarial review below before any of this merges.
 
 ## In flight
 
-Wave 2: polish (dead code, accessibility, mobile, bundle size), evidence URL audit,
-and adversarial review. Dispatched after the 2026-08-17 05:00 PT restart.
+Wave 2, dispatched 2026-08-17 ~05:10 PT. Polish is committed. Still running: the
+six-way evidence URL audit and the two verification agents (independent clean-build
+check, adversarial fabrication/overclaim/deploy-contract review).
+
+Next cycle: if the workflow has reported, triage its findings, fix what is real, then
+merge to `main` and confirm the live deploy. If it died on a session limit, resume it
+with `resumeFromRunId: wf_315e236a-31e`.
 
 ## Next, in order
 
