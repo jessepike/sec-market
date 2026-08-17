@@ -47,6 +47,7 @@ Not a new section. Not a RoS reprint. Not a 58-row dump. The next edition of the
 - Activity data + D19–D29 sit on `cursor/activity-edition-ready`, rebased on current `main`
 - Lead has already checked the five headlines against the live Avoid line
 - Desk runbook is the existing checklist — no new process
+- **Lead check 2026-08-16:** five headlines vs live Avoid line — **pass**. New leads are this-window capital. Wiz/CyberArk move to background, which is what Avoid is for. Market call stays frozen.
 
 ---
 
