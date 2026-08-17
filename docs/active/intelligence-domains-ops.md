@@ -72,9 +72,9 @@ Vendor **prints** = disclosed revenue/ARR where it exists. **Capital** (raises, 
 | Domain | Current read (live) | Decision it drives |
 |---|---|---|
 | Network/SASE | Appliance hot; SASE split (Cato/Netskope > Zscaler organic) | Prepare network refresh accounts; don’t claim SASE wave |
-| Cloud | Falcon Cloud segment strong; no clean CNAPP series | Qualify when workloads go live; don’t sell from Wiz close alone |
-| Data | Rubrik/Varonis up; Cyera capital not spend | Prepare data/AI only where sensitive data in production |
-| Identity | SailPoint up, Okta decelerating | Ask when machine identities go live; falsifier = agentic-identity revenue |
+| Cloud | Falcon Cloud segment strong; CNAPP names on table with equity or GTM | Qualify when workloads go live |
+| Data | Rubrik/Varonis up; DSPM capital and M&A on table | Prepare data/AI only where sensitive data in production |
+| Identity | SailPoint up; Oak/Hush capital on table | Ask when machine identities go live |
 | SecOps | S1/CRWD healthy; Cisco FY SecOps weak | Share-shift story, not new SecOps cycle |
 | AI runtime | Capital heat; survey intent ≠ bookings | Do not run specialist motion from intent alone |
 
@@ -84,10 +84,10 @@ Vendor **prints** = disclosed revenue/ARR where it exists. **Capital** (raises, 
 
 | Strength | Limitation |
 |---|---|
-| **High** on public vendor quarterly prints with SEC/IR | Private vendors often NO-PRINT |
+| **High** on public vendor quarterly prints with SEC/IR | Private vendors may only have last disclosed equity or GTM news |
 | **High** when segment disclosed (Falcon Cloud) | Bundled SKUs (Entra, PANW organic vs headline) |
-| Domain postures capped by Episode 002 | Cannot call RUN without new decision episode |
-| 34/36 bench filled | Orca/Aqua silent; Cloud domain short |
+| Domain postures capped by Episode 002 | Cannot call RUN without a new research decision |
+| Prints table populated per domain | Private ARR often unavailable — labeled capital vs revenue |
 
 **Value:** Strong for **vendor tempo and account qualification**. Weak for **predicting your pipeline** without client-specific data.
 
