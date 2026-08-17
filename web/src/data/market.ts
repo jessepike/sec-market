@@ -1,4 +1,4 @@
-import type { ContextStat, SummaryCard } from './types'
+import type { ContextStat } from './types'
 import { chartLayerPoints } from './derivePanel'
 import { BUYER_BUDGET_GROWTH_ANNUAL, BUYER_SECURITY_SHARE_IT } from './panelRaw'
 
@@ -64,45 +64,6 @@ export const marketCall: MarketCall = {
   ],
   evidenceIds: ['A1b', 'D1', 'LAG-NO-CALL', 'C3', 'C6b'],
 }
-
-export const summaryCards: SummaryCard[] = [
-  {
-    id: 'infrastructure',
-    label: 'Infrastructure cycle',
-    headline: 'Accelerating',
-    detail:
-      'NVIDIA Data Center revenue reached $75.25B (+92% YoY). Hyperscaler capex and supplier orders/backlog remain broadly up.',
-    disposition: 'High confidence',
-    evidenceIds: ['A1b', 'B1', 'B2', 'A4', 'A5'],
-  },
-  {
-    id: 'security-response',
-    label: 'Security response',
-    headline: 'Absent / mixed',
-    detail:
-      '2025 security-budget growth fell to 4% and security share of IT dropped to 10.9%. Selected vendors strengthened; Check Point, Cisco FY, and Okta remain weak or decelerating.',
-    disposition: 'High confidence on budgets; mixed vendor breadth',
-    evidenceIds: ['D1', 'C3', 'C6a', 'C6b', 'C7'],
-  },
-  {
-    id: 'lag',
-    label: 'Infrastructure-to-security lag',
-    headline: 'NO-CALL',
-    detail:
-      'Only one mature broad infrastructure impulse is observable; a later wave is still deploying. Fourteen quarters at most — not enough for a stable lag estimate.',
-    disposition: 'Sequence described; lag band not called',
-    evidenceIds: ['LAG-NO-CALL', 'D1'],
-  },
-  {
-    id: 'confidence',
-    label: 'How to use this',
-    headline: 'Good for account questions',
-    detail:
-      'Safe to use infrastructure activation as a reversible qualification question. Not safe to launch broad campaigns or pick vendors from this evidence alone.',
-    disposition: 'High readiness for conversation; low for broad GTM',
-    evidenceIds: ['LAG-NO-CALL', 'D1', 'D2'],
-  },
-]
 
 export { chartLayerPoints }
 
