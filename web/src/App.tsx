@@ -5,6 +5,7 @@ import { EvidenceLibrary } from './components/EvidenceLibrary'
 import { Header } from './components/Header'
 import { Hero } from './components/Hero'
 import { HowThisWorks } from './components/HowThisWorks'
+import { JudgmentBoard } from './components/JudgmentBoard'
 import { MarketLayersChart } from './components/MarketLayersChart'
 import { MethodologyNote } from './components/MethodologyNote'
 import { PrintGrid } from './components/PrintGrid'
@@ -23,6 +24,7 @@ function AppShell() {
         <Header />
         <main id="main" className="main-content" tabIndex={-1}>
           <Hero />
+          <JudgmentBoard />
           <PrintGrid />
           <DomainBoard />
           <ActivityBoard />

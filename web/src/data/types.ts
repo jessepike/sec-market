@@ -10,7 +10,8 @@ export type SourceClass =
 
 export type ConfidenceLevel = 'high' | 'medium' | 'low'
 export type Posture = 'PREPARE' | 'INVESTIGATE' | 'NO-CALL'
-export type TempoTag = 'RUN' | 'PREPARE' | 'WATCH'
+/** No RUN. Episode 002 caps Network/SASE at PREPARE; PRIORITIZE needs a separate decision episode. */
+export type TempoTag = 'PREPARE' | 'WATCH'
 export type CoverageResult = 'PASS' | 'PASS_WITH_LIMITATION' | 'INSUFFICIENT_COVERAGE' | 'NO-CALL'
 export type Momentum = 'accelerating' | 'stable-positive' | 'stable-to-decelerating' | 'mixed-positive' | 'weak'
 

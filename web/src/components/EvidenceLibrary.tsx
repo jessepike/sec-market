@@ -43,7 +43,10 @@ export function EvidenceLibrary() {
     <section className="evidence-library" aria-labelledby="research-heading">
       <div className="section-heading">
         <h2 id="research-heading">Research &amp; evidence library</h2>
-        <p>Search frozen Episode 002 sources. Click any row to inspect full attribution.</p>
+        <p>
+          Search the Episode 002 packet and the August 2026 surface refresh. Click any row to
+          inspect full attribution.
+        </p>
       </div>
       <div className="evidence-library__controls">
         <label className="search-field">
