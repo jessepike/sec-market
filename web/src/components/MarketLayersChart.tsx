@@ -1,44 +1,42 @@
-import {
-  CartesianGrid,
-  Line,
-  LineChart,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from 'recharts'
-import { chartEvidenceIds, chartLayerPoints, chartMetricNote } from '../data/market'
+import { useEffect, useState, type ComponentType } from 'react'
+import { chartEvidenceIds, chartMetricNote } from '../data/market'
 import { derivedPanelRows } from '../data/derivePanel'
 import { EvidenceLink } from './EvidenceLink'
-import { BuyerBudgetChart } from './BuyerBudgetChart'
 
-const SHARED_LOG_DOMAIN: [number, number] = [50, 1800]
+// Recharts (and BuyerBudgetChart, which also pulls it in) is the single
+// largest dependency in the bundle. It renders inside a collapsed <details>,
+// so it is split into its own chunk and fetched only after mount, instead of
+// shipping in the initial bundle.
+//
+// This deliberately does NOT use React.lazy()/Suspense: React's own docs
+// note lazy() is not supported by ReactDOMServer, and in practice, against
+// this app's synchronous renderToString prerender (not a streaming SSR
+// setup), it hydrates fine on a cold cache but throws a real hydration
+// error (React #419) whenever the chunk resolves fast enough to beat
+// hydration to that boundary — reliably reproducible on localhost. A plain
+// useEffect-driven dynamic import never runs during SSR or during the
+// initial client render, so both start from the identical fallback markup
+// and hydrate cleanly; the swap to the real component happens afterward, as
+// an ordinary state update.
+function useChartsPanel() {
+  const [Panel, setPanel] = useState<ComponentType | null>(null)
 
-const SMALL_MULTIPLES = [
-  {
-    key: 'infrastructure' as const,
-    dataKey: 'infrastructure' as const,
-    title: 'Infrastructure',
-    subtitle: 'NVIDIA Data Center revenue',
-    color: '#1d4ed8',
-  },
-  {
-    key: 'hyperscaler' as const,
-    dataKey: 'hyperscalerMedian' as const,
-    title: 'Hyperscaler capex',
-    subtitle: 'Median of Microsoft, Amazon, Alphabet',
-    color: '#7c3aed',
-  },
-  {
-    key: 'security' as const,
-    dataKey: 'securityMedian' as const,
-    title: 'Security vendors',
-    subtitle: 'Median of CRWD, OKTA, FTNT, ZS, CHKP',
-    color: '#0f766e',
-  },
-]
+  useEffect(() => {
+    let cancelled = false
+    import('./ChartsPanel').then((mod) => {
+      if (!cancelled) setPanel(() => mod.default)
+    })
+    return () => {
+      cancelled = true
+    }
+  }, [])
+
+  return Panel
+}
 
 export function MarketLayersChart() {
+  const ChartsPanel = useChartsPanel()
+
   return (
     <section className="chart-section" aria-labelledby="layers-heading">
       <div className="section-heading">
@@ -55,53 +53,7 @@ export function MarketLayersChart() {
           differences are visually honest — e.g. infrastructure near 18× vs. security near 2×.
         </p>
 
-      <div className="chart-multiples" role="img" aria-label="Indexed quarterly market layers">
-        {SMALL_MULTIPLES.map((series) => (
-          <figure key={series.key} className="chart-multiple">
-            <figcaption>
-              <strong>{series.title}</strong>
-              <span>{series.subtitle}</span>
-            </figcaption>
-            <ResponsiveContainer width="100%" height={200}>
-              <LineChart data={chartLayerPoints} margin={{ top: 4, right: 8, left: 0, bottom: 0 }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
-                <XAxis dataKey="quarter" tick={{ fontSize: 10 }} interval="preserveStartEnd" />
-                <YAxis
-                  scale="log"
-                  domain={SHARED_LOG_DOMAIN}
-                  tick={{ fontSize: 10 }}
-                  allowDataOverflow
-                  label={{
-                    value: 'Index (log)',
-                    angle: -90,
-                    position: 'insideLeft',
-                    offset: 4,
-                    style: { fontSize: 10 },
-                  }}
-                />
-                <Tooltip
-                  contentStyle={{ borderRadius: 8, border: '1px solid #e2e8f0', fontSize: 12 }}
-                  formatter={(value) => {
-                    const num = typeof value === 'number' ? value : null
-                    return [num === null ? '—' : num.toFixed(1), 'Index']
-                  }}
-                />
-                <Line
-                  type="monotone"
-                  dataKey={series.dataKey}
-                  name={series.title}
-                  stroke={series.color}
-                  strokeWidth={2}
-                  dot={{ r: 2 }}
-                  connectNulls={false}
-                />
-              </LineChart>
-            </ResponsiveContainer>
-          </figure>
-        ))}
-      </div>
-
-      <BuyerBudgetChart />
+      {ChartsPanel ? <ChartsPanel /> : <p className="chart-loading">Loading charts…</p>}
 
       <details className="chart-table-details">
         <summary>View data table (accessible alternative)</summary>
