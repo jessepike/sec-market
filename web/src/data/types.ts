@@ -70,12 +70,28 @@ export interface EditionSurfaceChange {
   detail: string
 }
 
-export interface DomainEditionNote {
+/** What a single edition published for one domain. Frozen once the edition ships. */
+export interface PostureSnapshot {
   domainId: string
-  kind: EditionChangeKind
-  note: string
+  posture: Posture
+  tag: TempoTag
+  /** null when that edition published no horizon for the domain. Never backfilled. */
+  horizon: DecisionHorizon | null
 }
 
+/** One entry in the append-only edition history. */
+export interface EditionRecord {
+  id: string
+  date: string
+  dateDisplay: string
+  summary: string
+  surfaces: EditionSurfaceChange[]
+  postures: PostureSnapshot[]
+  /** Human judgment about a posture, keyed by domain id. Optional per domain. */
+  notes: Record<string, string>
+}
+
+/** Derived view of the current edition. Prior identity comes from the history. */
 export interface Edition {
   id: string
   date: string
@@ -84,7 +100,6 @@ export interface Edition {
   priorDateDisplay: string | null
   summary: string
   surfaces: EditionSurfaceChange[]
-  domainNotes: DomainEditionNote[]
 }
 
 export interface VendorPrint {

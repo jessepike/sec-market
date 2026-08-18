@@ -1733,6 +1733,18 @@ summary:focus-visible,
     margin-inline: -0.25rem;
   }
 
+  /* The As-of and Horizon columns pushed the Tempo table past a phone viewport.
+     Let the horizon wrap and hold the detail prose to the screen so the reading
+     column stays put while only the header row scrolls. */
+  .tempo-table__win {
+    white-space: normal;
+  }
+
+  .tempo-table__detail p,
+  .tempo-table__detail .tempo-table__evidence {
+    max-width: calc(100vw - 3rem);
+  }
+
   .activity-row summary {
     grid-template-columns: 1fr auto;
   }

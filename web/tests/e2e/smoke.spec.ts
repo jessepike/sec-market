@@ -11,7 +11,9 @@ test('renders the market briefing without runtime errors', async ({ page }) => {
   await expect(page.getByRole('heading', { name: 'This period' })).toBeVisible()
   await expect(page.getByRole('heading', { name: 'Tempo' })).toBeVisible()
   await expect(page.getByRole('heading', { name: 'Since 16 August 2026' })).toBeVisible()
-  await expect(page.getByText('The market call did not move').first()).toBeVisible()
+  // Assert the delta renders structurally, not by its prose. The summary is
+  // rewritten every edition; the derived Held/Moved chip is the durable contract.
+  await expect(page.locator('.edition-table .edition-kind').first()).toBeVisible()
   await expect(page.getByText('This quarter', { exact: true })).toBeVisible()
   await expect(page.getByText('This planning cycle', { exact: true })).toBeVisible()
   await expect(page.getByText('Produced by', { exact: true }).first()).toBeVisible()

@@ -57,9 +57,7 @@ export function DomainBoard() {
               {domainRows.map((row) => (
                 <tr key={row.id}>
                   <th scope="row">{row.name}</th>
-                  <td>
-                    {row.tag} · {row.horizon}
-                  </td>
+                  <td>{row.change}</td>
                   <td>
                     <span className={`edition-kind edition-kind--${row.kind}`}>
                       {kindLabel(row.kind)}
@@ -86,7 +84,7 @@ export function DomainBoard() {
             </tr>
           </thead>
           {securityDomains.map((domain) => {
-            const note = currentEdition.domainNotes.find((item) => item.domainId === domain.id)
+            const row = domainRows.find((item) => item.id === domain.id)
             return (
               <tbody key={domain.id} className="tempo-block">
                 <tr>
@@ -102,7 +100,14 @@ export function DomainBoard() {
                 <tr className="tempo-table__detail">
                   <td colSpan={4}>
                     <p>{domain.why}</p>
-                    {note ? <p className="tempo-table__delta">{note.note}</p> : null}
+                    {row?.note ? (
+                      <p className="tempo-table__delta">
+                        <span className={`edition-kind edition-kind--${row.kind}`}>
+                          {kindLabel(row.kind)}
+                        </span>{' '}
+                        {row.note}
+                      </p>
+                    ) : null}
                     <div className="tempo-table__evidence">
                       <p className="tempo-table__produced">Produced by</p>
                       <EvidenceLink ids={domain.supportingEvidenceIds} />
