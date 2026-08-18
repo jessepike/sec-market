@@ -18,6 +18,67 @@ export type EditionChangeKind = 'held' | 'revised' | 'new'
 export type CoverageResult = 'PASS' | 'PASS_WITH_LIMITATION' | 'INSUFFICIENT_COVERAGE' | 'NO-CALL'
 export type Momentum = 'accelerating' | 'stable-positive' | 'stable-to-decelerating' | 'mixed-positive' | 'weak'
 
+/**
+ * Who is accountable for a claim.
+ * 'tracked'  — mechanically refreshed from a public source. No judgment applied.
+ * 'judged'   — a person set this, on a date, at a stated confidence.
+ * 'unsourced'— surfaced by collection but not yet tied to an evidence record.
+ */
+export type ProvenanceLayer = 'tracked' | 'judged' | 'unsourced'
+
+export interface TrackedClaim {
+  layer: 'tracked'
+  evidenceIds: [string, ...string[]]
+  observedOn: string
+}
+
+export interface JudgedClaim {
+  layer: 'judged'
+  judgedOn: string
+  confidence: ConfidenceLevel
+  evidenceIds: string[]
+}
+
+export interface UnsourcedClaim {
+  layer: 'unsourced'
+  surfacedOn: string
+  reason: string
+}
+
+export type Provenance = TrackedClaim | JudgedClaim | UnsourcedClaim
+
+export type VendorPosition = 'platform' | 'incumbent' | 'challenger' | 'early' | 'absorbed'
+
+export type PressureGroup = 'holding' | 'buying-in' | 'outrun' | 'challengers'
+
+export interface PressureRow {
+  id: string
+  vendors: string[]
+  position: VendorPosition
+  print: string
+  read: string
+  provenance: { print: Provenance; read: Provenance }
+}
+
+export type HypothesisState = 'NO-CALL' | 'TRACKING' | 'SUPPORTED' | 'FALSIFIED'
+
+export interface Hypothesis {
+  id: string
+  claim: string
+  state: HypothesisState
+  note: string
+  firstTest: string | null
+  evidenceIds: string[]
+  provenance: JudgedClaim
+}
+
+// A tracked claim without evidence must not compile. Uncomment to prove it:
+// const _invalidTracked: TrackedClaim = {
+//   layer: 'tracked',
+//   evidenceIds: [],
+//   observedOn: '2026-08-17',
+// }
+
 export interface SourceAttribution {
   organization: string
   publicationDate: string
@@ -113,6 +174,7 @@ export interface VendorPrint {
   tone: 'up' | 'down' | 'flat'
   /** Default print. Coverage names have no comparable series this window. */
   surface?: 'print' | 'coverage'
+  position?: VendorPosition
   evidenceIds: string[]
 }
 
