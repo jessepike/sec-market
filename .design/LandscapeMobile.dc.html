@@ -1,0 +1,273 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap">
+  <style>
+    body { margin: 0; font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 16px; line-height: 1.6; color: #3a424e; background: #e9ecf0; -webkit-font-smoothing: antialiased; }
+    *, *::before, *::after { box-sizing: border-box; }
+    a { color: #0b6b5e; text-decoration: none; }
+    a:hover { color: #12161c; }
+    h1, h2, h3 { color: #12161c; margin: 0; text-wrap: pretty; }
+    p { margin: 0; }
+    .mono { font-family: 'IBM Plex Mono', ui-monospace, monospace; }
+    .eyebrow { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #57606e; margin: 0; }
+    .stamp { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.1em; }
+    .chip { display: inline-block; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.1em; padding: 3px 8px; border: 1px solid currentColor; }
+    .vrow { padding: 13px 16px; border-top: 1px solid #d3d8df; }
+    .glabel { padding: 8px 16px; background: #e9ecf0; border-top: 1px solid #12161c; }
+  </style>
+</helmet>
+
+<div style="width: 390px; background: #e9ecf0;">
+
+  <!-- rail: three layer states, wrapped for phone -->
+  <div style="background: #12161c; padding: 8px 16px;">
+    <div style="display: flex; align-items: center; justify-content: space-between;">
+      <span class="stamp" style="color: #ffffff; font-size: 10px;">SECURITY MARKET PULSE</span>
+      <span class="stamp" style="color: #8b97a6; font-size: 10px;">AS OF 17 AUG</span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 12px; margin-top: 7px; flex-wrap: wrap;">
+      <span style="display: flex; align-items: center; gap: 5px;"><span style="width: 3px; height: 10px; background: #8b97a6;"></span><span class="stamp" style="color: #8b97a6;">TRACKED</span></span>
+      <span style="display: flex; align-items: center; gap: 5px;"><span style="width: 3px; height: 10px; background: #5fd4c0;"></span><span class="stamp" style="color: #5fd4c0;">JUDGED</span></span>
+      <span style="display: flex; align-items: center; gap: 5px;"><span style="width: 3px; height: 10px; background: #e8a0c4;"></span><span class="stamp" style="color: #e8a0c4;">NEEDS A SOURCE</span></span>
+    </div>
+  </div>
+
+  <div style="background: #ffffff; border-bottom: 1px solid #d3d8df; padding: 10px 16px; display: flex; align-items: center; justify-content: space-between;">
+    <div style="display: flex; align-items: center; gap: 9px;">
+      <svg width="20" height="20" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+        <rect x="0.5" y="0.5" width="21" height="21" stroke="#12161c"></rect>
+        <path d="M3 15 L7 15 L9 6 L12 18 L14 11 L19 11" stroke="{{accent}}" stroke-width="1.5" fill="none"></path>
+      </svg>
+      <strong style="color: #12161c; font-size: 14px;">Security Market Pulse</strong>
+    </div>
+    <button style="font: inherit; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; color: #12161c; background: #ffffff; border: 1px solid #d3d8df; min-height: 44px; min-width: 62px; cursor: pointer;">MENU</button>
+  </div>
+
+  <!-- the glance: postures come before the pitch on a phone -->
+  <div style="padding: 20px 16px 0;">
+    <h1 style="font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 17px; font-weight: 500; line-height: 1.4; letter-spacing: 0; color: #12161c;">Dated postures across four security domains, with the evidence under each one.</h1>
+
+    <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 16px;">
+
+      <div style="background: #ffffff; border: 1px solid #12161c; border-left: 4px solid {{accent}}; padding: 14px 16px;">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+          <h3 style="font-family: 'Archivo', system-ui, sans-serif; font-size: 18px; font-weight: 600; letter-spacing: -0.02em;">Network / SASE</h3>
+          <span style="display: flex; align-items: center; gap: 8px; flex-shrink: 0;">
+            <svg width="17" height="17" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 14 L16 5 M11 5 h5 v5" stroke="#0b6b5e" stroke-width="1.9"></path></svg>
+            <span class="chip" style="color: {{accent}};">PREPARE</span>
+          </span>
+        </div>
+        <p style="font-size: 14px; line-height: 1.45; color: #57606e; margin-top: 8px;">Refresh is live and running now. A split, not a new SASE wave.</p>
+        <p class="mono" style="font-size: 12px; color: #3a424e; margin-top: 9px; border-left: 3px solid #d3d8df; padding-left: 9px;">Fortinet +52% &#8226; Cato +43% &#8226; Netskope +31%</p>
+        <p class="stamp" style="color: {{accent}}; margin-top: 8px;">JUDGED 17 AUG &#8226; THIS QUARTER &#8226; CONF MEDIUM</p>
+      </div>
+
+      <div style="background: #ffffff; border: 1px solid #12161c; border-left: 4px solid {{accent}}; padding: 14px 16px;">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+          <h3 style="font-family: 'Archivo', system-ui, sans-serif; font-size: 18px; font-weight: 600; letter-spacing: -0.02em;">Data / AI Security</h3>
+          <span style="display: flex; align-items: center; gap: 8px; flex-shrink: 0;">
+            <svg width="17" height="17" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 14 L16 5 M11 5 h5 v5" stroke="#0b6b5e" stroke-width="1.9"></path></svg>
+            <span class="chip" style="color: {{accent}};">PREPARE</span>
+          </span>
+        </div>
+        <p style="font-size: 14px; line-height: 1.45; color: #57606e; margin-top: 8px;">Selected data vendors are accelerating. Not a broad series yet.</p>
+        <p class="mono" style="font-size: 12px; color: #3a424e; margin-top: 9px; border-left: 3px solid #d3d8df; padding-left: 9px;">Rubrik +32% &#8226; Varonis +25% &#8226; Sentra &#8226; Securiti close</p>
+        <p class="stamp" style="color: {{accent}}; margin-top: 8px;">JUDGED 17 AUG &#8226; EXPOSED ACCOUNTS &#8226; CONF MEDIUM</p>
+      </div>
+
+      <div style="background: #ffffff; border: 1px solid #d3d8df; border-left: 4px solid #6b5c28; padding: 14px 16px;">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+          <h3 style="font-family: 'Archivo', system-ui, sans-serif; font-size: 18px; font-weight: 600; letter-spacing: -0.02em;">Cloud Security</h3>
+          <span style="display: flex; align-items: center; gap: 8px; flex-shrink: 0;">
+            <svg width="17" height="17" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 12 L9 8 L13 11 L16 7" stroke="#6b5c28" stroke-width="1.9" fill="none"></path></svg>
+            <span class="chip" style="color: #6b5c28;">WATCH</span>
+          </span>
+        </div>
+        <p style="font-size: 14px; line-height: 1.45; color: #57606e; margin-top: 8px;">Qualify residual gaps when new capacity actually goes live.</p>
+        <p class="mono" style="font-size: 12px; color: #3a424e; margin-top: 9px; border-left: 3px solid #d3d8df; padding-left: 9px;">Falcon Cloud &gt;$800M &#8226; Upwind &#8226; Orca &#8226; Aqua</p>
+        <p class="stamp" style="color: #6b5c28; margin-top: 8px;">JUDGED 17 AUG &#8226; WATCH &#8226; CONF MEDIUM</p>
+      </div>
+
+      <div style="background: #ffffff; border: 1px solid #d3d8df; border-left: 4px solid #6b5c28; padding: 14px 16px;">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+          <h3 style="font-family: 'Archivo', system-ui, sans-serif; font-size: 18px; font-weight: 600; letter-spacing: -0.02em;">Identity</h3>
+          <span style="display: flex; align-items: center; gap: 8px; flex-shrink: 0;">
+            <svg width="17" height="17" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10 h12" stroke="#6b5c28" stroke-width="1.9"></path></svg>
+            <span class="chip" style="color: #6b5c28;">WATCH</span>
+          </span>
+        </div>
+        <p style="font-size: 14px; line-height: 1.45; color: #57606e; margin-top: 8px;">A qualification topic where machine identities are going live.</p>
+        <p class="mono" style="font-size: 12px; color: #3a424e; margin-top: 9px; border-left: 3px solid #d3d8df; padding-left: 9px;">SailPoint +28% &#8226; Oak $60M &#8226; Hush $30M</p>
+        <p class="stamp" style="color: #6b5c28; margin-top: 8px;">JUDGED 17 AUG &#8226; WATCH &#8226; CONF MEDIUM</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- what moved this week -->
+  <div style="background: #1b2430; margin-top: 26px; padding: 28px 16px;">
+    <h2 style="font-family: 'Archivo', system-ui, sans-serif; font-size: 25px; font-weight: 800; letter-spacing: -0.03em; color: #ffffff;">What moved this week</h2>
+    <p class="stamp" style="color: #8b97a6; margin-top: 6px;">WEEK OF 11&#8211;17 AUG 2026</p>
+
+    <div style="border-left: 3px solid #8b97a6; padding-left: 14px; margin-top: 18px;">
+      <p class="stamp" style="color: #8b97a6;">TRACKED &#8226; NO JUDGMENT APPLIED</p>
+      <div style="display: flex; gap: 12px; padding: 10px 0; border-top: 1px solid #3a424e; margin-top: 10px;">
+        <span class="mono" style="font-size: 10px; color: #8b97a6; width: 58px; flex-shrink: 0; padding-top: 3px;">PRINT</span>
+        <span style="font-size: 14px; color: #e7ebf0;">Cato at +43% and Netskope at +31% both print above Zscaler organic ARR of +21%.</span>
+      </div>
+      <div style="display: flex; gap: 12px; padding: 10px 0; border-top: 1px solid #3a424e;">
+        <span class="mono" style="font-size: 10px; color: #8b97a6; width: 58px; flex-shrink: 0; padding-top: 3px;">CAPITAL</span>
+        <span style="font-size: 14px; color: #e7ebf0;">Oak raised $60M, Hush raised $30M, both agentic identity. Capital heat, not revenue.</span>
+      </div>
+      <div style="display: flex; gap: 12px; padding: 10px 0; border-top: 1px solid #3a424e; border-bottom: 1px solid #3a424e;">
+        <span class="mono" style="font-size: 10px; color: #8b97a6; width: 58px; flex-shrink: 0; padding-top: 3px;">M&amp;A</span>
+        <span style="font-size: 14px; color: #e7ebf0;">No new closed transaction in the window. Google closed Wiz in March, Palo Alto closed CyberArk in February.</span>
+      </div>
+    </div>
+
+    <div style="border-left: 3px solid #5fd4c0; padding-left: 14px; margin-top: 20px;">
+      <p class="stamp" style="color: #5fd4c0;">JUDGED &#8226; A PERSON SIGNED THIS</p>
+      <div style="display: flex; gap: 12px; padding: 10px 0; border-top: 1px solid #3a424e; margin-top: 10px;">
+        <span class="mono" style="font-size: 10px; color: #5fd4c0; width: 44px; flex-shrink: 0; padding-top: 3px;">HELD</span>
+        <span style="font-size: 14px; color: #e7ebf0;">All four postures unchanged.</span>
+      </div>
+      <div style="display: flex; gap: 12px; padding: 10px 0; border-top: 1px solid #3a424e; border-bottom: 1px solid #3a424e;">
+        <span class="mono" style="font-size: 10px; color: #f3d48a; width: 44px; flex-shrink: 0; padding-top: 3px;">WHY</span>
+        <span style="font-size: 14px; color: #e7ebf0;">Faster challenger prints inside one domain are not yet breadth.</span>
+      </div>
+      <p style="font-size: 13px; line-height: 1.5; color: #aab5c2; margin-top: 14px;">A quiet week is reported as a quiet week.</p>
+    </div>
+  </div>
+
+  <!-- platform pressure -->
+  <div style="padding: 30px 16px 0;">
+    <p class="eyebrow">Platform pressure</p>
+    <h2 style="font-family: 'Archivo', system-ui, sans-serif; font-size: 25px; font-weight: 800; letter-spacing: -0.03em; margin: 7px 0 8px;">Who is holding, who is buying in, who is being outrun</h2>
+    <p style="font-size: 14px; line-height: 1.5; color: #57606e;">The partner question. Where an incumbent is still the safe pick, and where a challenger is printing faster inside the same motion.</p>
+
+    <div style="background: #ffffff; border: 1px solid #12161c; margin-top: 14px;">
+      <div class="glabel" style="border-top: none;"><span class="stamp" style="color: {{accent}};">HOLDING POSITION</span></div>
+      <div class="vrow">
+        <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px;"><b style="color: #12161c; font-size: 15px;">Fortinet</b><span class="mono" style="font-size: 11px; color: #57606e;">INCUMBENT</span></div>
+        <p class="mono" style="font-size: 12px; color: #3a424e; margin-top: 5px;">Product +52%</p>
+        <p style="font-size: 13px; line-height: 1.45; color: #57606e; margin-top: 5px;">Refresh spike. Not yet proven as a lasting rotation.</p>
+      </div>
+      <div class="vrow">
+        <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px;"><b style="color: #12161c; font-size: 15px;">CrowdStrike</b><span class="mono" style="font-size: 11px; color: #57606e;">PLATFORM</span></div>
+        <p class="mono" style="font-size: 12px; color: #3a424e; margin-top: 5px;">Falcon Cloud &gt;$800M</p>
+        <p style="font-size: 13px; line-height: 1.45; color: #57606e; margin-top: 5px;">Recovered. Real revenue, not a category series.</p>
+      </div>
+      <div class="vrow">
+        <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px;"><b style="color: #12161c; font-size: 15px;">SailPoint</b><span class="mono" style="font-size: 11px; color: #57606e;">INCUMBENT</span></div>
+        <p class="mono" style="font-size: 12px; color: #3a424e; margin-top: 5px;">+28%</p>
+        <p style="font-size: 13px; line-height: 1.45; color: #57606e; margin-top: 5px;">IGA is up while the identity domain overall is stable to decelerating.</p>
+      </div>
+
+      <div class="glabel"><span class="stamp" style="color: #6b5c28;">BUYING IN RATHER THAN BUILDING</span></div>
+      <div class="vrow">
+        <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px;"><b style="color: #12161c; font-size: 15px;">CyberArk</b><span class="mono" style="font-size: 11px; color: #57606e;">ABSORBED</span></div>
+        <p class="mono" style="font-size: 12px; color: #3a424e; margin-top: 5px;">Palo Alto &#8226; $25B &#8226; closed Feb 2026</p>
+        <p style="font-size: 13px; line-height: 1.45; color: #57606e; margin-top: 5px;">Identity becomes a Palo Alto platform pillar. Capital, not spend.</p>
+      </div>
+      <div class="vrow">
+        <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px;"><b style="color: #12161c; font-size: 15px;">Wiz</b><span class="mono" style="font-size: 11px; color: #57606e;">ABSORBED</span></div>
+        <p class="mono" style="font-size: 12px; color: #3a424e; margin-top: 5px;">Google &#8226; $32B &#8226; closed Mar 2026</p>
+        <p style="font-size: 13px; line-height: 1.45; color: #57606e; margin-top: 5px;">Cloud security absorbed into a hyperscaler. Watch the specialist gap.</p>
+      </div>
+
+      <div class="glabel"><span class="stamp" style="color: #8e2f5e;">BEING OUTRUN IN THEIR OWN MOTION</span></div>
+      <div class="vrow">
+        <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px;"><b style="color: #12161c; font-size: 15px;">Zscaler</b><span class="mono" style="font-size: 11px; color: #57606e;">PLATFORM</span></div>
+        <p class="mono" style="font-size: 12px; color: #3a424e; margin-top: 5px;">Organic ARR +21%</p>
+        <p style="font-size: 13px; line-height: 1.45; color: #57606e; margin-top: 5px;">Cato +43% and Netskope +31% print faster in the same category.</p>
+      </div>
+      <div class="vrow">
+        <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px;"><b style="color: #12161c; font-size: 15px;">Cisco</b><span class="mono" style="font-size: 11px; color: #57606e;">PLATFORM</span></div>
+        <p class="mono" style="font-size: 12px; color: #3a424e; margin-top: 5px;">FY security +2%</p>
+        <p style="font-size: 13px; line-height: 1.45; color: #57606e; margin-top: 5px;">Networking orders +40% carried the quarter. Security did not.</p>
+      </div>
+      <div class="vrow">
+        <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px;"><b style="color: #12161c; font-size: 15px;">Okta</b><span class="mono" style="font-size: 11px; color: #57606e;">PLATFORM</span></div>
+        <p class="mono" style="font-size: 12px; color: #3a424e; margin-top: 5px;">Decelerating</p>
+        <p style="font-size: 13px; line-height: 1.45; color: #57606e; margin-top: 5px;">No clean re-acceleration inside this window.</p>
+      </div>
+
+      <div class="glabel"><span class="stamp" style="color: #57606e;">CHALLENGERS WORTH A LOOK</span></div>
+      <div class="vrow">
+        <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px;"><b style="color: #12161c; font-size: 15px;">Cato &#8226; Netskope</b><span class="mono" style="font-size: 11px; color: #57606e;">CHALLENGER</span></div>
+        <p class="mono" style="font-size: 12px; color: #3a424e; margin-top: 5px;">+43% &#8226; +31%</p>
+        <p style="font-size: 13px; line-height: 1.45; color: #57606e; margin-top: 5px;">Growing faster than Zscaler organic. A split inside the category.</p>
+      </div>
+      <div class="vrow">
+        <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px;"><b style="color: #12161c; font-size: 15px;">Rubrik &#8226; Varonis</b><span class="mono" style="font-size: 11px; color: #57606e;">CHALLENGER</span></div>
+        <p class="mono" style="font-size: 12px; color: #3a424e; margin-top: 5px;">+32% &#8226; +25%</p>
+        <p style="font-size: 13px; line-height: 1.45; color: #57606e; margin-top: 5px;">Both accelerating on public numbers. The cleanest data-side signal.</p>
+      </div>
+      <div class="vrow">
+        <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 10px;"><b style="color: #12161c; font-size: 15px;">Oak &#8226; Hush</b><span class="mono" style="font-size: 11px; color: #57606e;">EARLY</span></div>
+        <p class="mono" style="font-size: 12px; color: #3a424e; margin-top: 5px;">$60M &#8226; $30M raised</p>
+        <p style="font-size: 13px; line-height: 1.45; color: #57606e; margin-top: 5px;">Agentic identity. Capital, not customers. Too early to bet on.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- tracked hypotheses -->
+  <div style="padding: 30px 16px 0;">
+    <h2 style="font-family: 'Archivo', system-ui, sans-serif; font-size: 22px; font-weight: 800; letter-spacing: -0.028em;">Tracked hypotheses</h2>
+    <p class="stamp" style="color: #57606e; margin-top: 6px;">STATED IN ADVANCE &#8226; SCORED AGAINST EVIDENCE</p>
+    <div style="background: #ffffff; border: 1px solid #d3d8df; margin-top: 12px;">
+      <div style="padding: 14px 16px;">
+        <span class="chip" style="color: #6b5c28;">NO-CALL</span>
+        <p style="font-size: 14px; line-height: 1.45; color: #12161c; margin-top: 8px;">Infrastructure spend leads security spend by a stable 0 to 8 quarters</p>
+        <p class="mono" style="font-size: 11px; color: #57606e; margin-top: 5px;">Needs two mature buildout impulses. This window has one.</p>
+      </div>
+      <div style="padding: 14px 16px; border-top: 1px solid #d3d8df;">
+        <span class="chip" style="color: #6b5c28;">NO-CALL</span>
+        <p style="font-size: 14px; line-height: 1.45; color: #12161c; margin-top: 8px;">AI adoption compresses that lag</p>
+        <p class="mono" style="font-size: 11px; color: #57606e; margin-top: 5px;">No series exists to test it against yet.</p>
+      </div>
+      <div style="padding: 14px 16px; border-top: 1px solid #d3d8df;">
+        <span class="chip" style="color: {{accent}};">TRACKING</span>
+        <p style="font-size: 14px; line-height: 1.45; color: #12161c; margin-top: 8px;">Platforms absorb adjacent security categories rather than compete with them</p>
+        <p class="mono" style="font-size: 11px; color: #57606e; margin-top: 5px;">Wiz in cloud and CyberArk in identity are the first two.</p>
+      </div>
+      <div style="padding: 14px 16px; border-top: 1px solid #d3d8df;">
+        <span class="chip" style="color: {{accent}};">TRACKING</span>
+        <p style="font-size: 14px; line-height: 1.45; color: #12161c; margin-top: 8px;">Incumbents that cannot pivot lose ground to challengers inside their own motion</p>
+        <p class="mono" style="font-size: 11px; color: #57606e; margin-top: 5px;">Cato and Netskope against Zscaler organic is the first test.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- method -->
+  <div style="padding: 28px 16px 44px;">
+    <div style="background: #12161c; padding: 24px 20px;">
+      <p class="eyebrow" style="color: #8b97a6;">How a posture is set</p>
+      <p style="font-size: 15px; line-height: 1.5; color: #ffffff; margin-top: 9px;">One strong print is a card. A posture needs more than one company and a reason the movement is not just share shift or an acquisition.</p>
+      <div style="display: flex; flex-direction: column; margin-top: 16px;">
+        <a href="#" style="display: flex; align-items: center; gap: 9px; color: #5fd4c0; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.09em; min-height: 44px; border-top: 1px solid #3a424e;">READ THE METHOD <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.6"></path></svg></a>
+        <a href="#" style="display: flex; align-items: center; gap: 9px; color: #5fd4c0; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.09em; min-height: 44px; border-top: 1px solid #3a424e;">OPEN THE EVIDENCE LIBRARY <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.6"></path></svg></a>
+        <a href="#" style="display: flex; align-items: center; gap: 9px; color: #8b97a6; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.09em; min-height: 44px; border-top: 1px solid #3a424e; border-bottom: 1px solid #3a424e;">SEND A CORRECTION <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.6"></path></svg></a>
+      </div>
+    </div>
+    <p style="font-size: 13px; line-height: 1.5; color: #57606e; margin-top: 14px;">Corrections and counter-evidence are more useful than agreement.</p>
+  </div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{"accent":{"editor":"color","default":"#0b6b5e","options":["#0b6b5e","#8e2f5e","#1d4ed8","#6b5c28"],"section":"Theme"}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { accent: this.props.accent ?? '#0b6b5e' };
+  }
+}
+</script>
+</body>
+</html>
