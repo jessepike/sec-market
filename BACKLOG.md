@@ -149,3 +149,24 @@ Reconsider account-facing prompts only after the core monthly scorecard, recency
 - Universal AI-security platform call
 - Production infrastructure or broad automation
 - Reproducing or modifying CISO Advisory ontology or vendor catalog
+
+### SEC-012 — Landscape page
+
+Rebuild the front page as a standing landscape reference rather than a single dated edition. Accepted direction is Option D (D-46).
+
+**Two tasks, in order:**
+
+1. [landscape-data-spec.md](docs/active/landscape-data-spec.md) — provenance layer, vendor position, derived platform pressure, tracked hypotheses. No visible change.
+2. [landscape-ui-spec.md](docs/active/landscape-ui-spec.md) — the layout consuming it, desktop and phone.
+
+**Hard prerequisite:** `edition-dated-postures` merges to `main` first, or both tasks branch from it. That branch holds `asOf`, `horizon`, and the whole edition-delta model these specs depend on.
+
+**Authorization state:** design accepted (D-46). Implementation not authorized.
+
+**Not authorized by this work:** the weekly collection loop, new sources, auto-publishing, any change to the published market call or Episode 002 tags.
+
+### SEC-013 — Weekly refresh loop
+
+Make the tracked layer actually refresh weekly. Separate from SEC-012 on purpose; the page can ship and be updated by hand while this is built. Conflating them is how both slip.
+
+**Authorization state:** not authorized. Scope not yet written.

@@ -1,0 +1,99 @@
+{
+  "artboards": [
+    {
+      "file": "Landscape.dc.html",
+      "title": "Option D · The Landscape",
+      "x": -2360,
+      "y": 0,
+      "w": 1440,
+      "h": 3150
+    },
+    {
+      "file": "LandscapeMobile.dc.html",
+      "title": "Option D at 390px",
+      "x": -780,
+      "y": 0,
+      "w": 390,
+      "h": 4230
+    },
+    {
+      "file": "Main.dc.html",
+      "title": "Option A · The Instrument",
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 2450
+    },
+    {
+      "file": "Record.dc.html",
+      "title": "Option B · The Record",
+      "x": 1580,
+      "y": 0,
+      "w": 1440,
+      "h": 1620
+    },
+    {
+      "file": "Calibration.dc.html",
+      "title": "Option C · The Calibration",
+      "x": 3160,
+      "y": 0,
+      "w": 1440,
+      "h": 1780
+    },
+    {
+      "file": "InstrumentMobile.dc.html",
+      "title": "Option A at 390px",
+      "x": 4740,
+      "y": 0,
+      "w": 390,
+      "h": 2800
+    }
+  ],
+  "annotations": [
+    {
+      "id": "recommendation",
+      "x": -2360,
+      "y": -440,
+      "w": 700,
+      "text": "RECOMMENDATION · UPDATED\n\nBuild D. It replaces the answer I gave you before.\n\nOnce you described the actual job, A, B and C all turned out to be organised around the wrong thing: a market call. That call is Episode 002's answer to Episode 002's question. The durable product is the landscape.\n\nD keeps the parts of A and C that survived. A's instrumentation and density, because the real use is glance and lookup rather than reading. C's calibration, because a CISO weighing a three-year commitment trusts a source that marks what it does not know.\n\nThe new idea is the TRACKED, JUDGED and NEEDS A SOURCE marking, carried on every element. Prints, funding and M&A refresh weekly with no judgment applied. Postures and reads are signed and dated by a person. Anything the mechanical layer surfaces ahead of its sourcing is marked as such rather than quietly published. That is what lets the page move weekly without you approving each change.\n\nThe platform pressure table is your first use case, partner selection. It existed on no earlier board and does not exist on the live site.\n\nTwo of the four tracked hypotheses come from our conversation rather than the data files. Both are marked TRACKING rather than claimed.\n\nNo edition CTA anywhere. B is out."
+    },
+    {
+      "id": "note-d-mobile",
+      "x": -780,
+      "y": -260,
+      "w": 420,
+      "text": "OPTION D AT 390PX\n\nOne deliberate change from the desktop board: the four domain postures come BEFORE the positioning line, because an account exec opening this on a phone is checking status, not reading a pitch.\n\nThe platform pressure table becomes four labelled groups of stacked rows, since an eleven-row four-column table cannot survive a phone. Every link and control clears 44px. The three layer states wrap onto their own line in the top rail."
+    },
+    {
+      "id": "note-option-a",
+      "x": 0,
+      "y": -250,
+      "w": 460,
+      "text": "OPTION A · THE INSTRUMENT\n\nThe page as a measuring device. Instrument status rail, a live readout panel beside the headline, a dense dated posture table, hairline rules and tick marks.\n\nSuperseded by D, which keeps this density but drops the market call as the spine."
+    },
+    {
+      "id": "note-option-b",
+      "x": 1580,
+      "y": -250,
+      "w": 460,
+      "text": "OPTION B · THE RECORD\n\nA publication of record. Centered masthead, broadsheet columns, superscript evidence marks, a stock-listing rail.\n\nOut. A masthead promises an archive and a cadence that do not exist yet, and the product is not a publication at all."
+    },
+    {
+      "id": "note-option-c",
+      "x": 3160,
+      "y": -250,
+      "w": 460,
+      "text": "OPTION C · THE CALIBRATION\n\nThe hero splits down the middle: what the edition says on the left, the calls it refuses to make on the right.\n\nThe idea survives into D, but as a property carried by every claim rather than as the front door."
+    },
+    {
+      "id": "note-mobile",
+      "x": 4740,
+      "y": -250,
+      "w": 400,
+      "text": "OPTION A AT 390PX\n\nSuperseded by the D phone board. Kept only to show the density survives a phone."
+    }
+  ],
+  "launch": {
+    "view": "canvas"
+  }
+}

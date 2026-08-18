@@ -1,0 +1,177 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap">
+  <style>
+    body { margin: 0; font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 16px; line-height: 1.6; color: #3a424e; background: #e9ecf0; -webkit-font-smoothing: antialiased; }
+    *, *::before, *::after { box-sizing: border-box; }
+    a { color: #0b6b5e; text-decoration: none; }
+    a:hover { color: #12161c; }
+    h1, h2, h3 { color: #12161c; margin: 0; text-wrap: pretty; }
+    p { margin: 0; }
+    .mono { font-family: 'IBM Plex Mono', ui-monospace, monospace; }
+    .eyebrow { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #57606e; margin: 0; }
+    .rule-ticks { height: 8px; background-image: repeating-linear-gradient(to right, #12161c 0 1px, transparent 1px 12px); opacity: 0.28; }
+    .chip { display: inline-block; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.1em; padding: 3px 8px; border: 1px solid currentColor; }
+  </style>
+</helmet>
+
+<div style="width: 390px; background: #e9ecf0;">
+
+  <div style="background: #12161c; color: #8b97a6; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 10px; letter-spacing: 0.08em; padding: 8px 20px; display: flex; align-items: center; justify-content: space-between;">
+    <span>EDITION 2026-08</span>
+    <span style="display: flex; align-items: center; gap: 6px;"><span style="width: 6px; height: 6px; background: #f3d48a;"></span><span style="color: #f3d48a;">NO-CALL</span></span>
+  </div>
+
+  <div style="background: #ffffff; border-bottom: 1px solid #d3d8df; padding: 12px 20px; display: flex; align-items: center; justify-content: space-between;">
+    <div style="display: flex; align-items: center; gap: 9px;">
+      <svg width="20" height="20" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+        <rect x="0.5" y="0.5" width="21" height="21" stroke="#12161c"></rect>
+        <path d="M3 15 L7 15 L9 6 L12 18 L14 11 L19 11" stroke="{{accent}}" stroke-width="1.5" fill="none"></path>
+      </svg>
+      <strong style="color: #12161c; font-size: 14px;">Security Market Pulse</strong>
+    </div>
+    <button style="font: inherit; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; color: #12161c; background: #ffffff; border: 1px solid #d3d8df; min-height: 44px; min-width: 62px; cursor: pointer;">MENU</button>
+  </div>
+
+  <div style="padding: 32px 20px 0;">
+    <p class="eyebrow">Market condition &#8226; August 2026</p>
+    <h1 style="font-family: 'Archivo', system-ui, sans-serif; font-size: 34px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin: 14px 0 0;">Infrastructure is running ahead. Security is splitting, not booming.</h1>
+    <div class="rule-ticks" style="margin: 20px 0 16px;"></div>
+    <p style="font-size: 16px; line-height: 1.55;">A monthly read on the cybersecurity market for the people who decide what to prepare, what to investigate, and what to leave alone. Every figure links to its public source.</p>
+    <a href="#" style="display: flex; align-items: center; justify-content: center; gap: 10px; background: #12161c; color: #ffffff; font-size: 16px; font-weight: 600; min-height: 52px; margin-top: 22px;">
+      Read the August edition
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5"></path></svg>
+    </a>
+    <a href="#" style="display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 600; color: #12161c; border: 1px solid #12161c; min-height: 52px; margin-top: 10px;">See how the call is made</a>
+  </div>
+
+  <div style="padding: 28px 20px 0;">
+    <div style="background: #1b2430; padding: 22px 20px;">
+      <p class="eyebrow" style="color: #8b97a6;">Current readout</p>
+      <div style="margin-top: 16px;">
+        <div style="display: flex; align-items: baseline; justify-content: space-between; padding: 14px 0; border-top: 1px solid #3a424e;">
+          <p class="mono" style="font-size: 30px; font-weight: 600; letter-spacing: -0.03em; line-height: 1; color: #5fd4c0;">+92%</p>
+          <p class="mono" style="font-size: 10px; letter-spacing: 0.09em; text-transform: uppercase; color: #aab5c2; text-align: right;">NVIDIA<br>Data Center</p>
+        </div>
+        <div style="display: flex; align-items: baseline; justify-content: space-between; padding: 14px 0; border-top: 1px solid #3a424e;">
+          <p class="mono" style="font-size: 30px; font-weight: 600; letter-spacing: -0.03em; line-height: 1; color: #e8a0c4;">+4%</p>
+          <p class="mono" style="font-size: 10px; letter-spacing: 0.09em; text-transform: uppercase; color: #aab5c2; text-align: right;">2025 security<br>budgets</p>
+        </div>
+        <div style="display: flex; align-items: baseline; justify-content: space-between; padding: 14px 0; border-top: 1px solid #3a424e; border-bottom: 1px solid #3a424e;">
+          <p class="mono" style="font-size: 26px; font-weight: 600; letter-spacing: -0.03em; line-height: 1; color: #f3d48a;">NO-CALL</p>
+          <p class="mono" style="font-size: 10px; letter-spacing: 0.09em; text-transform: uppercase; color: #aab5c2; text-align: right;">Infra &#8594;<br>security lag</p>
+        </div>
+      </div>
+      <p style="font-size: 13px; line-height: 1.5; color: #aab5c2; margin-top: 16px;">The build is still on. Buyer budgets did not follow in 2025. A stable lag between the two is still not measurable.</p>
+    </div>
+  </div>
+
+  <div style="padding: 32px 20px 0;">
+    <div style="border-top: 2px solid #12161c; padding-top: 20px; display: flex; flex-direction: column; gap: 22px;">
+      <div>
+        <p class="eyebrow" style="color: {{accent}};">Security leadership &amp; CSPs</p>
+        <p style="font-size: 15px; line-height: 1.55; color: #57606e; margin-top: 7px;">Set priorities against observed movement, before the demand is obvious enough that everyone is chasing it.</p>
+      </div>
+      <div>
+        <p class="eyebrow" style="color: {{accent}};">Sales &amp; account teams</p>
+        <p style="font-size: 15px; line-height: 1.55; color: #57606e; margin-top: 7px;">Walk into an account with a market read the client can check line by line.</p>
+      </div>
+      <div>
+        <p class="eyebrow" style="color: {{accent}};">Clients</p>
+        <p style="font-size: 15px; line-height: 1.55; color: #57606e; margin-top: 7px;">Independent context for technology, timing, and partner choices.</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding: 32px 20px 0;">
+    <p class="eyebrow">Tempo by domain</p>
+    <h2 style="font-family: 'Archivo', system-ui, sans-serif; font-size: 24px; font-weight: 800; letter-spacing: -0.028em; margin: 7px 0 14px;">Where the market actually is</h2>
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <div style="background: #ffffff; border: 1px solid #12161c; padding: 16px 18px;">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+          <b style="color: #12161c; font-size: 15px;">Network / SASE</b>
+          <span class="chip" style="color: {{accent}};">PREPARE</span>
+        </div>
+        <p class="mono" style="font-size: 12px; color: #57606e; margin-top: 8px;">Fortinet +52% &#8226; Cato +43% &#8226; Netskope +31%</p>
+        <p class="mono" style="font-size: 10px; letter-spacing: 0.09em; color: #57606e; margin-top: 6px;">HORIZON &#8226; THIS QUARTER</p>
+      </div>
+      <div style="background: #ffffff; border: 1px solid #12161c; padding: 16px 18px;">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+          <b style="color: #12161c; font-size: 15px;">Data / AI Security</b>
+          <span class="chip" style="color: {{accent}};">PREPARE</span>
+        </div>
+        <p class="mono" style="font-size: 12px; color: #57606e; margin-top: 8px;">Rubrik +32% &#8226; Varonis +25%</p>
+        <p class="mono" style="font-size: 10px; letter-spacing: 0.09em; color: #57606e; margin-top: 6px;">HORIZON &#8226; EXPOSED ACCOUNTS</p>
+      </div>
+      <div style="background: #ffffff; border: 1px solid #d3d8df; padding: 16px 18px;">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+          <b style="color: #12161c; font-size: 15px;">Cloud Security</b>
+          <span class="chip" style="color: #6b5c28;">WATCH</span>
+        </div>
+        <p class="mono" style="font-size: 12px; color: #57606e; margin-top: 8px;">Falcon Cloud &gt;$800M &#8226; Upwind &#8226; Orca &#8226; Aqua</p>
+      </div>
+      <div style="background: #ffffff; border: 1px solid #d3d8df; padding: 16px 18px;">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px;">
+          <b style="color: #12161c; font-size: 15px;">Identity</b>
+          <span class="chip" style="color: #6b5c28;">WATCH</span>
+        </div>
+        <p class="mono" style="font-size: 12px; color: #57606e; margin-top: 8px;">SailPoint +28% &#8226; Oak $60M &#8226; Hush $30M</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="background: #1b2430; margin-top: 32px; padding: 34px 20px;">
+    <p class="eyebrow" style="color: #8b97a6;">The part most reads leave out</p>
+    <h2 style="font-family: 'Archivo', system-ui, sans-serif; font-size: 26px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.12; color: #ffffff; margin: 12px 0 12px;">Four things this edition will not tell you</h2>
+    <p style="font-size: 15px; line-height: 1.6; color: #aab5c2;">A forced call is worth less than an honest gap. When the window cannot support a claim, the page holds and shows you why.</p>
+    <div style="margin-top: 20px;">
+      <div style="display: flex; align-items: flex-start; gap: 12px; padding: 12px 0; border-top: 1px solid #3a424e;">
+        <span class="mono" style="font-size: 10px; color: #f3d48a; letter-spacing: 0.1em; flex-shrink: 0; padding-top: 3px;">NO-CALL</span>
+        <span style="font-size: 14px; color: #e7ebf0;">A stable 0 to 8 quarter infrastructure-to-security lag</span>
+      </div>
+      <div style="display: flex; align-items: flex-start; gap: 12px; padding: 12px 0; border-top: 1px solid #3a424e;">
+        <span class="mono" style="font-size: 10px; color: #f3d48a; letter-spacing: 0.1em; flex-shrink: 0; padding-top: 3px;">NO-CALL</span>
+        <span style="font-size: 14px; color: #e7ebf0;">A domain-specific infrastructure lag</span>
+      </div>
+      <div style="display: flex; align-items: flex-start; gap: 12px; padding: 12px 0; border-top: 1px solid #3a424e;">
+        <span class="mono" style="font-size: 10px; color: #f3d48a; letter-spacing: 0.1em; flex-shrink: 0; padding-top: 3px;">NO-CALL</span>
+        <span style="font-size: 14px; color: #e7ebf0;">AI compression of that lag</span>
+      </div>
+      <div style="display: flex; align-items: flex-start; gap: 12px; padding: 12px 0; border-top: 1px solid #3a424e; border-bottom: 1px solid #3a424e;">
+        <span class="mono" style="font-size: 10px; color: #f3d48a; letter-spacing: 0.1em; flex-shrink: 0; padding-top: 3px;">NO-CALL</span>
+        <span style="font-size: 14px; color: #e7ebf0;">A broad cybersecurity boom motion</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding: 32px 20px 44px;">
+    <div style="background: #ffffff; border: 1px solid #12161c; padding: 26px 22px;">
+      <h2 style="font-family: 'Archivo', system-ui, sans-serif; font-size: 24px; font-weight: 800; letter-spacing: -0.028em; margin: 0 0 9px;">The August edition is live</h2>
+      <p style="font-size: 15px; color: #57606e;">The full read, the evidence behind every figure, and what would have to change for the call to move.</p>
+      <a href="#" style="display: flex; align-items: center; justify-content: center; gap: 10px; background: #12161c; color: #ffffff; font-size: 16px; font-weight: 600; min-height: 52px; margin-top: 18px;">
+        Read the August edition
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5"></path></svg>
+      </a>
+    </div>
+    <div class="rule-ticks" style="margin-top: 26px;"></div>
+    <p class="mono" style="font-size: 10px; letter-spacing: 0.09em; color: #57606e; margin-top: 14px;">PUBLIC EVIDENCE &#8226; JESSE PIKE</p>
+  </div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{"accent":{"editor":"color","default":"#0b6b5e","options":["#0b6b5e","#8e2f5e","#1d4ed8","#6b5c28"],"section":"Theme"}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { accent: this.props.accent ?? '#0b6b5e' };
+  }
+}
+</script>
+</body>
+</html>
