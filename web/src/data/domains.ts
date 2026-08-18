@@ -1,5 +1,13 @@
 import type { SecurityDomain } from './types'
 
+/** The four landscape cards. Remaining domains stay on prints and Activity. */
+export const landscapeDomainIds = [
+  'network-sase',
+  'data-ai-security',
+  'cloud-security',
+  'identity',
+] as const
+
 export const securityDomains: SecurityDomain[] = [
   {
     id: 'network-sase',
@@ -108,3 +116,11 @@ export const securityDomains: SecurityDomain[] = [
     counterEvidenceIds: ['D1'],
   },
 ]
+
+export const landscapeDomains: SecurityDomain[] = landscapeDomainIds.map((id) => {
+  const domain = securityDomains.find((item) => item.id === id)
+  if (!domain) {
+    throw new Error('Landscape is missing domain ' + id)
+  }
+  return domain
+})

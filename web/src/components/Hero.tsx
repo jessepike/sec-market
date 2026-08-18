@@ -7,11 +7,11 @@ export function Hero() {
   return (
     <section id="overview" className="masthead" aria-labelledby="market-call-heading">
       <p className="eyebrow">Security Market Pulse · August 2026</p>
-      <h1 id="market-call-heading">
+      <h2 id="market-call-heading">
         Infrastructure is running ahead.
         <br />
         Security is splitting, not booming.
-      </h1>
+      </h2>
       <div className="stamp">
         <span>
           EDITION <b>{currentEdition.id}</b>

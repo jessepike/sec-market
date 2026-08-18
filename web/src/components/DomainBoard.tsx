@@ -1,6 +1,7 @@
 import { formatShortDate } from '../data/dates'
-import { securityDomains } from '../data/domains'
+import { landscapeDomains, securityDomains } from '../data/domains'
 import { currentEdition, editionDomainRows } from '../data/edition'
+import type { Momentum, TempoTag } from '../data/types'
 import { EvidenceLink } from './EvidenceLink'
 
 function kindLabel(kind: string): string {
@@ -9,7 +10,74 @@ function kindLabel(kind: string): string {
   return 'Held'
 }
 
-export function DomainBoard() {
+function DirectionGlyph({ tag, momentum }: { tag: TempoTag; momentum: Momentum }) {
+  if (tag === 'PREPARE') {
+    return (
+      <svg className="domain-card__glyph" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <path d="M4 14 L16 5 M11 5 h5 v5" stroke="currentColor" strokeWidth="1.8" />
+      </svg>
+    )
+  }
+  if (momentum === 'stable-to-decelerating') {
+    return (
+      <svg className="domain-card__glyph" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <path d="M4 10 h12" stroke="currentColor" strokeWidth="1.8" />
+      </svg>
+    )
+  }
+  return (
+    <svg className="domain-card__glyph" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+      <path d="M4 12 L9 8 L13 11 L16 7" stroke="currentColor" strokeWidth="1.8" fill="none" />
+    </svg>
+  )
+}
+
+function LandscapeSection() {
+  return (
+    <section id="landscape" className="landscape" aria-labelledby="landscape-heading">
+      <div className="landscape__intro">
+        <p className="eyebrow">The landscape · four domains</p>
+        <h1 id="landscape-heading">Where the security market is going, not where it has been.</h1>
+        <p className="landscape__lede">
+          Dated postures, the evidence under each one, and an honest mark on how sure anyone is.
+          Prints and capital events refresh weekly. A posture moves only when a person signs it.
+        </p>
+      </div>
+      <div className="landscape__cards">
+        {landscapeDomains.map((domain) => (
+          <article
+            key={domain.id}
+            className={'domain-card domain-card--' + domain.tag.toLowerCase()}
+          >
+            <div className="domain-card__top">
+              <h2>{domain.name}</h2>
+              <DirectionGlyph tag={domain.tag} momentum={domain.momentum} />
+              <span className={'chip chip--' + domain.tag.toLowerCase()}>{domain.tag}</span>
+            </div>
+            <p className="domain-card__read">{domain.summary}</p>
+            <div className="domain-card__layer domain-card__layer--tracked">
+              <p className="stamp-label">TRACKED</p>
+              <p className="domain-card__print">{domain.print}</p>
+              <EvidenceLink ids={domain.supportingEvidenceIds} />
+            </div>
+            <div className="domain-card__layer domain-card__layer--judged">
+              <p className="stamp-label">
+                JUDGED <time dateTime={domain.asOf}>{formatShortDate(domain.asOf)}</time>
+              </p>
+              <p className="domain-card__judged">
+                HORIZON · {domain.horizon}
+                <br />
+                CONFIDENCE · {domain.evidenceStrength.toUpperCase()}
+              </p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  )
+}
+
+function TempoSection() {
   const prior = currentEdition.priorDateDisplay
   const domainRows = editionDomainRows()
 
@@ -25,9 +93,7 @@ export function DomainBoard() {
 
       <div className="edition-delta" aria-labelledby="edition-delta-heading">
         <div className="edition-delta__head">
-          <h3 id="edition-delta-heading">
-            {prior ? `Since ${prior}` : 'Opening edition'}
-          </h3>
+          <h3 id="edition-delta-heading">{prior ? `Since ${prior}` : 'Opening edition'}</h3>
           <p>{currentEdition.summary}</p>
         </div>
         <div className="table-scroll">
@@ -130,4 +196,9 @@ export function DomainBoard() {
       </div>
     </section>
   )
+}
+
+export function DomainBoard({ surface = 'landscape' }: { surface?: 'landscape' | 'tempo' }) {
+  if (surface === 'tempo') return <TempoSection />
+  return <LandscapeSection />
 }
