@@ -41,6 +41,9 @@ Local, GitHub `main`, and Vercel are synced by committing the live scorecard tre
 - [x] SEC-009 execution plan written (D-41) — this is the steering page
 - [x] Leadership ops artifacts: funding, M&A, domains, dashboard, brief (D-43)
 - [x] Dated domain postures + edition delta on Tempo (D-45)
+- [x] Edition delta derived from an append-only posture history, not hand-written (D-46)
+- [ ] Owner review of branch `edition-dated-postures` on its Vercel preview, then merge
+- [ ] Visual design pass — the site has never had one; it is the gating work for a public share
 - [ ] Loop A: first Tuesday multi-source gather under new ops docs
 - [ ] Refresh Activity when Return on Security publishes a new Security, Funded issue
 - [x] Weekly desk: first real gather + reusable checklist (RoS #256; not published)
@@ -55,7 +58,11 @@ None blocking the signals job. Feed design (which VC pages, which public-record 
 
 ## Blockers
 
-None. Local, GitHub, and Vercel are in sync. This session owns all remaining work.
+Branch `edition-dated-postures` is waiting on owner review before it merges. `main` is production, so an agent no longer merges web changes without that review (AGENTS.md § Production deploy).
+
+More than one session is working this repository. On 2026-08-17 a Cursor session built the dated postures on a branch and separately restored the vendor print cards to `main`, while a Claude session held the branch checked out. Branch checkouts moved under an active session. Use a worktree for any parallel work, and do not assume the branch you checked out is still the branch you are on.
+
+`main` is two commits ahead of `origin/main` and unpushed. Pushing `main` publishes.
 
 ## Session Log
 
@@ -78,3 +85,6 @@ None. Local, GitHub, and Vercel are in sync. This session owns all remaining wor
 | 2026-08-16 | Pulse sync session wrapped. Comparison shots deleted. Deploy path and email trap recorded in AGENTS.md and KB. |
 | 2026-08-16 | D-40: shipped prints table, five vendor rows, judgment layer, Avoid-line (`67b53ff`). Activity edition held for RoS 257+. |
 | 2026-08-17 | D-45: dated domain postures, horizons, producing evidence, and edition-to-edition delta on Tempo. Market call unchanged. |
+| 2026-08-17 | Overnight launch hardening merged and live: prerendering, discoverability, bundle split, 11 citation repairs, mobile scroll fix. All invisible to a reader. Owner stopped the autonomous loop; it is cancelled and must not be resumed. |
+| 2026-08-17 | Deploy contract changed: `web/` changes go branch → Vercel preview → owner approval → `main`. New mandatory visual review at 1440px and 390px, and a ban on deleting components on static analysis alone (AGENTS.md, CLAUDE.md, `web/scripts/shot.mjs`). |
+| 2026-08-17 | D-46: edition delta rebuilt on an append-only posture history with two fail-closed build gates. Duplicate change line removed; mobile Tempo overflow fixed. On branch `edition-dated-postures`, awaiting owner review. |

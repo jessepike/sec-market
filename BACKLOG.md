@@ -134,6 +134,47 @@ remove the array/type as dead content.
 
 **Authorization state:** not authorized either way; flagged only.
 
+### SEC-010 — Visual design pass on the live site
+
+The site has never had one. Five waves of launch hardening on 2026-08-17 improved
+prerendering, discoverability, bundle size, citation accuracy, and accessibility, and
+changed nothing a reader can see. The owner opened it expecting a night of work to show
+and read the absence of change as a regression.
+
+This is the gating work for a public share, and it is a governance concern rather than a
+vanity one: B1 (reasoned beneficiary uptake) cannot begin until a CSP peer reads the page,
+and the surface has to earn that read.
+
+Do it on a branch with a Vercel preview and owner approval before merge, per AGENTS.md.
+
+**Status:** highest priority. Not started.
+
+### SEC-011 — Lock past editions against silent edits
+
+`web/src/data/edition.ts` is append-only by convention and by comment. Two build gates
+check that the CURRENT edition's snapshot matches what the site publishes, but nothing
+stops a future session from quietly editing a SHIPPED edition's snapshot, which would
+falsify every delta computed against it.
+
+The repository already solves this shape of problem for the derived data panel with a
+SHA-256 hash lock (`web/scripts/verify-panel.ts`). The same pattern applies here.
+
+Needs a decision on where the lock file lives and whether it covers all prior editions or
+only the immediately preceding one.
+
+**Status:** flagged, not authorized.
+
+### SEC-012 — Decide whether the restored vendor print cards stay
+
+A parallel session restored the vendor print cards to `main` on 2026-08-17 (commit
+`727ce6a`, "Restore vendor print cards from the scorecard visual"). That reverses part of
+a prints-table conversion made earlier.
+
+Nobody has confirmed which presentation the owner wants. Resolve before the next public
+share so the two do not keep swapping.
+
+**Status:** open question for the owner.
+
 ### SEC-008 — Account conversation prompts
 
 Reconsider account-facing prompts only after the core monthly scorecard, recency model, and domain coverage are trusted.
