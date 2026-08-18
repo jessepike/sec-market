@@ -1,14 +1,14 @@
 ---
 project: Security Market Signal Pipeline
 stage: Operate
-updated: 2026-08-17
+updated: 2026-08-18
 ---
 
 # Status
 
 ## Current State
 
-Security Market Pulse is live at https://securitymarketpulse.com. Owner has already reviewed it. The site currently shows one frozen research edition (Episode 002). That is not enough. The product job is now recurring cybersecurity market intelligence: what changed, what it means, and what new startups, funding, and M&A belong on the page.
+Security Market Pulse is live at https://securitymarketpulse.com as the frozen Episode 002 edition. The Option D landscape is on branch `landscape/ui` (`045a772`) and its Vercel preview; the owner is holding that preview and has not merged. Production is unchanged.
 
 Local, GitHub `main`, and Vercel are synced by committing the live scorecard tree and deploying that GitHub commit (D-31). Future ships go local → GitHub → Vercel only.
 
@@ -42,9 +42,8 @@ Local, GitHub `main`, and Vercel are synced by committing the live scorecard tre
 - [x] Leadership ops artifacts: funding, M&A, domains, dashboard, brief (D-43)
 - [x] Dated domain postures + edition delta on Tempo (D-45)
 - [x] Edition delta derived from an append-only posture history, not hand-written (D-46)
-- [ ] Owner review of branch `edition-dated-postures` on its Vercel preview, then merge
-- [ ] Owner review of branch `landscape/ui` Vercel preview (Task 2 landscape page), then merge
-- [ ] Visual design pass — Option D landscape is on `landscape/ui`; not on `main`
+- [ ] Owner review of branch `landscape/ui` preview, then merge (holds dated postures + landscape data + Option D UI)
+- [ ] Visual design pass — Option D is implemented on `landscape/ui`; parked for owner review. Not on `main`
 - [ ] Loop A: first Tuesday multi-source gather under new ops docs
 - [ ] Refresh Activity when Return on Security publishes a new Security, Funded issue
 - [x] Weekly desk: first real gather + reusable checklist (RoS #256; not published)
@@ -59,11 +58,11 @@ None blocking the signals job. Feed design (which VC pages, which public-record 
 
 ## Blockers
 
-Branch `edition-dated-postures` is waiting on owner review before it merges. `main` is production, so an agent no longer merges web changes without that review (AGENTS.md § Production deploy).
+None for agents. Next move is owner review of `landscape/ui`, or an explicit ask to change it. Do not merge or push `main`.
 
-More than one session is working this repository. On 2026-08-17 a Cursor session built the dated postures on a branch and separately restored the vendor print cards to `main`, while a Claude session held the branch checked out. Branch checkouts moved under an active session. Use a worktree for any parallel work, and do not assume the branch you checked out is still the branch you are on.
+Local `main` is two IL-classifier commits ahead of `origin/main` (`9a97f3c`, `e63fece`). Those are not web changes. Still do not push `main` — a push publishes.
 
-`main` is two commits ahead of `origin/main` and unpushed. Pushing `main` publishes.
+Use a worktree for any parallel work. Do not assume the branch you checked out is still the branch you are on.
 
 ## Session Log
 
@@ -90,3 +89,4 @@ More than one session is working this repository. On 2026-08-17 a Cursor session
 | 2026-08-17 | Deploy contract changed: `web/` changes go branch → Vercel preview → owner approval → `main`. New mandatory visual review at 1440px and 390px, and a ban on deleting components on static analysis alone (AGENTS.md, CLAUDE.md, `web/scripts/shot.mjs`). |
 | 2026-08-17 | D-46: edition delta rebuilt on an append-only posture history with two fail-closed build gates. Duplicate change line removed; mobile Tempo overflow fixed. On branch `edition-dated-postures`, awaiting owner review. |
 | 2026-08-17 | Landscape UI (Task 2) on branch `landscape/ui`: provenance rail, four domain cards, what-moved, platform pressure, hypotheses, corrections. Not merged. |
+| 2026-08-18 | Session wrap. Owner is holding the `landscape/ui` preview. Repo left clean. No P0 implementation work remains. |

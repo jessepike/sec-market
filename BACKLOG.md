@@ -136,18 +136,11 @@ remove the array/type as dead content.
 
 ### SEC-010 — Visual design pass on the live site
 
-The site has never had one. Five waves of launch hardening on 2026-08-17 improved
-prerendering, discoverability, bundle size, citation accuracy, and accessibility, and
-changed nothing a reader can see. The owner opened it expecting a night of work to show
-and read the absence of change as a regression.
+Option D landscape is the accepted visual pass. It is implemented on `landscape/ui`
+(`045a772`) and waiting on owner review of the Vercel preview. Not on `main`.
 
-This is the gating work for a public share, and it is a governance concern rather than a
-vanity one: B1 (reasoned beneficiary uptake) cannot begin until a CSP peer reads the page,
-and the surface has to earn that read.
-
-Do it on a branch with a Vercel preview and owner approval before merge, per AGENTS.md.
-
-**Status:** highest priority. Not started.
+**Status:** preview ready. No further implementation until the owner says yes or asks
+for a change.
 
 ### SEC-011 — Lock past editions against silent edits
 
@@ -197,14 +190,14 @@ Rebuild the front page as a standing landscape reference rather than a single da
 
 **Two tasks, in order:**
 
-1. [landscape-data-spec.md](docs/active/landscape-data-spec.md) — provenance layer, vendor position, derived platform pressure, tracked hypotheses. No visible change.
-2. [landscape-ui-spec.md](docs/active/landscape-ui-spec.md) — the layout consuming it, desktop and phone.
+1. [landscape-data-spec.md](docs/active/landscape-data-spec.md) — done on `landscape/data`.
+2. [landscape-ui-spec.md](docs/active/landscape-ui-spec.md) — done on `landscape/ui` (`045a772`).
 
-**Hard prerequisite:** `edition-dated-postures` merges to `main` first, or both tasks branch from it. That branch holds `asOf`, `horizon`, and the whole edition-delta model these specs depend on.
+**Preview:** https://security-market-pulse-git-landscape-ui-pikeholdings.vercel.app (Vercel SSO). Production is unchanged.
 
-**Authorization state:** design accepted (D-46). Implementation not authorized.
+**Authorization state:** design accepted (D-46). Implementation is on a branch, not merged. Owner is holding the preview.
 
-**Not authorized by this work:** the weekly collection loop, new sources, auto-publishing, any change to the published market call or Episode 002 tags.
+**Not authorized by this work:** the weekly collection loop, new sources, auto-publishing, any change to the published market call or Episode 002 tags. Merge to `main` only after an explicit owner yes.
 
 ### SEC-013 — Weekly refresh loop
 
