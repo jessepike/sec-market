@@ -6,9 +6,9 @@ cross-project patterns to the knowledge base and drop them from here.
 ## 2026-08-19
 
 - [promoted:kb:4e46b8a2:2026-08-19] A review subagent briefed against the files I already read confirms my own blind spot. I flagged an acquirer and a price as unsourced; both were sitting in `activity.ts`, which I had not opened and had not told the reviewer to open. Scope a reviewer against the data, not against my reading list.
-- A fabricated "needs a source" marker is the same class of defect as a fabricated figure. Both put an untrue statement about the evidence on a page whose only claim is that every figure is checkable.
+- [promoted:kb:4a4d0db6:2026-08-19] A fabricated "needs a source" marker is the same class of defect as a fabricated figure. Both put an untrue statement about the evidence on a page whose only claim is that every figure is checkable.
 - A figure in a record's `note` field is not interchangeable with one in its `value` field. Falcon Cloud at $800M is an absolute amount; every other row in that table is a growth rate. The delegate caught this and was right.
-- Asked for an opinion, I gave a hedge (run two directions together). The hedge was worse than either direction and the owner had to ask again. Pick one and say why.
+- [promoted:kb:88658cce:2026-08-19] Asked for an opinion, I gave a hedge (run two directions together). The hedge was worse than either direction and the owner had to ask again. Pick one and say why.
 - [promoted:kb:4c2dc09e:2026-08-19] A SHARE token is not a public preview. Vercel Authentication on `all_except_custom_domains` still sends strangers to login; disable SSO on the project, or they cannot give feedback.
 - Putting the new landscape on top of the old edition is two products. Collapse the edition; do not delete it.
 
