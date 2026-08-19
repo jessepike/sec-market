@@ -1,3 +1,4 @@
+import { vendorPrints } from './prints'
 import type { SecurityDomain } from './types'
 
 /** The four landscape cards. Remaining domains stay on prints and Activity. */
@@ -124,3 +125,46 @@ export const landscapeDomains: SecurityDomain[] = landscapeDomainIds.map((id) =>
   }
   return domain
 })
+
+/** Names written on a landscape card's TRACKED print line, in display order. */
+function namesOnPrintLine(line: string): string[] {
+  return line
+    .split('·')
+    .map((part) =>
+      part
+        .replace(/\s+[+$].*$/, '')
+        .replace(/\s+>\$\d.*$/, '')
+        .replace(/\s+\$\d.*$/, '')
+        .replace(/\s+close\s*$/i, '')
+        .trim(),
+    )
+    .filter(Boolean)
+}
+
+function printMatchesName(printName: string, token: string): boolean {
+  return printName === token || printName.startsWith(token + ' ') || printName.endsWith(' ' + token)
+}
+
+/**
+ * Evidence for the prints on a landscape card, not the wider posture bundle.
+ * Cloud's supporting list includes the Wiz close; that must not label Falcon Cloud.
+ */
+export function trackedPrintEvidenceIds(domain: SecurityDomain): string[] {
+  const ids: string[] = []
+  const seen = new Set<string>()
+  for (const token of namesOnPrintLine(domain.print)) {
+    const print = vendorPrints.find((row) => printMatchesName(row.name, token))
+    if (!print) {
+      throw new Error(`Landscape card ${domain.id} print "${token}" has no vendor print`)
+    }
+    for (const id of print.evidenceIds) {
+      if (seen.has(id)) continue
+      seen.add(id)
+      ids.push(id)
+    }
+  }
+  if (ids.length === 0) {
+    throw new Error(`Landscape card ${domain.id} has no print-linked evidence`)
+  }
+  return ids
+}

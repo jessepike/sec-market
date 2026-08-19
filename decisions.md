@@ -390,3 +390,14 @@ No "read the edition" call to action. The page is the product. `NextEdition.tsx`
 Platform pressure is derived from existing sourced records, not hand-authored. Two owner hypotheses recorded 2026-08-17 enter as `TRACKING`, not as claims.
 
 Specs: [landscape-data-spec.md](docs/active/landscape-data-spec.md) then [landscape-ui-spec.md](docs/active/landscape-ui-spec.md). Neither is authorized to implement yet. `edition-dated-postures` must land first.
+
+**D-48 · 2026-08-19 — Landscape preview is one product, and preview URLs are public.**
+
+Owner direction before wider feedback: the `landscape/ui` preview must read as the landscape, not as the landscape plus the old edition. Episode 002, prints, Tempo, and Activity stay in the page, collapsed under “Episode 002 research and the full scorecard.” Do not delete those components.
+
+Also accepted in the same pass:
+
+- TRACKED chips on the four domain cards use the prints on the card. Cloud no longer labels Falcon Cloud / Upwind / Orca / Aqua as Alphabet / Mandiant.
+- Remove the “tell me when the next edition publishes” CTA and the edition-era page title.
+- Do not say “refreshed weekly” until the weekly loop exists.
+- Disable Vercel Authentication on project `security-market-pulse` so the preview URL can be shared without SSO. Production custom domain was already public. Do not merge to `main`.

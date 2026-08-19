@@ -3,6 +3,11 @@
 Hot buffer. One line per insight, newest date first. Keep the last ~15; promote
 cross-project patterns to the knowledge base and drop them from here.
 
+## 2026-08-19
+
+- A SHARE token is not a public preview. Vercel Authentication on `all_except_custom_domains` still sends strangers to login; disable SSO on the project, or they cannot give feedback.
+- Putting the new landscape on top of the old edition is two products. Collapse the edition; do not delete it.
+
 ## 2026-08-17
 
 - A passing build is not a rendered page. Five waves of work shipped without anyone opening the site, and the owner's first look was the first look anyone had taken.

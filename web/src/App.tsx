@@ -35,11 +35,14 @@ function AppShell() {
           <PlatformPressure />
           <Hypotheses />
           <NextEdition />
-          <Hero />
-          <JudgmentBoard />
-          <PrintGrid />
-          <DomainBoard surface="tempo" />
-          <ActivityBoard />
+          <details className="depth" id="research-depth">
+            <summary>Episode 002 research and the full scorecard</summary>
+            <Hero />
+            <JudgmentBoard />
+            <PrintGrid />
+            <DomainBoard surface="tempo" />
+            <ActivityBoard />
+          </details>
           <details className="depth" id="layers">
             <summary>Market layers</summary>
             <MarketLayersChart />

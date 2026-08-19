@@ -136,11 +136,10 @@ remove the array/type as dead content.
 
 ### SEC-010 — Visual design pass on the live site
 
-Option D landscape is the accepted visual pass. It is implemented on `landscape/ui`
-(`045a772`) and waiting on owner review of the Vercel preview. Not on `main`.
+Option D landscape is the accepted visual pass. One-product preview is on `landscape/ui`
+(D-48) and waiting on owner review. Not on `main`.
 
-**Status:** preview ready. No further implementation until the owner says yes or asks
-for a change.
+**Status:** public preview ready. Merge only after an explicit owner yes.
 
 ### SEC-011 — Lock past editions against silent edits
 
@@ -191,11 +190,11 @@ Rebuild the front page as a standing landscape reference rather than a single da
 **Two tasks, in order:**
 
 1. [landscape-data-spec.md](docs/active/landscape-data-spec.md) — done on `landscape/data`.
-2. [landscape-ui-spec.md](docs/active/landscape-ui-spec.md) — done on `landscape/ui` (`045a772`).
+2. [landscape-ui-spec.md](docs/active/landscape-ui-spec.md) — Option D on `landscape/ui`; D-48 one-product pass awaiting owner review.
 
-**Preview:** https://security-market-pulse-git-landscape-ui-pikeholdings.vercel.app (Vercel SSO). Production is unchanged.
+**Preview:** https://security-market-pulse-git-landscape-ui-pikeholdings.vercel.app — public, no Vercel login. Production is unchanged.
 
-**Authorization state:** design accepted (D-46). Implementation is on a branch, not merged. Owner is holding the preview.
+**Authorization state:** design accepted (D-47). One-product preview accepted to iterate (D-48). Not merged. Merge to `main` only after an explicit owner yes.
 
 **Not authorized by this work:** the weekly collection loop, new sources, auto-publishing, any change to the published market call or Episode 002 tags. Merge to `main` only after an explicit owner yes.
 

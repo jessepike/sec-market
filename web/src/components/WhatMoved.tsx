@@ -12,7 +12,7 @@ export function WhatMoved() {
         </div>
         <div className="week-moved__grid">
           <div className="week-moved__col week-moved__col--tracked">
-            <p className="stamp-label stamp-label--tracked">TRACKED · machine-refreshed, no judgment applied</p>
+            <p className="stamp-label stamp-label--tracked">TRACKED · public prints, no judgment applied</p>
             <ul className="week-moved__list">
               {weekMoves.tracked.map((item) => (
                 <li key={item.kind}>

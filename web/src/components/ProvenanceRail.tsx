@@ -13,7 +13,7 @@ export function ProvenanceRail() {
         <ul className="rail__legend">
           <li className="rail__state rail__state--tracked">
             <span className="rail__swatch" aria-hidden="true" />
-            <span>TRACKED · refreshed weekly</span>
+            <span>TRACKED · public prints, no judgment</span>
           </li>
           <li className="rail__state rail__state--judged">
             <span className="rail__swatch" aria-hidden="true" />

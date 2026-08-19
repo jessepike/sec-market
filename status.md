@@ -1,14 +1,14 @@
 ---
 project: Security Market Signal Pipeline
 stage: Operate
-updated: 2026-08-18
+updated: 2026-08-19
 ---
 
 # Status
 
 ## Current State
 
-Security Market Pulse is live at https://securitymarketpulse.com as the frozen Episode 002 edition. The Option D landscape is on branch `landscape/ui` (`045a772`) and its Vercel preview; the owner is holding that preview and has not merged. Production is unchanged.
+Security Market Pulse is live at https://securitymarketpulse.com as the frozen Episode 002 edition. The Option D landscape is on branch `landscape/ui`. The preview is now one product (D-48): landscape through corrections, with Episode 002 and the scorecard collapsed. Preview URL is public. Owner has not merged. Production is unchanged.
 
 Local, GitHub `main`, and Vercel are synced by committing the live scorecard tree and deploying that GitHub commit (D-31). Future ships go local → GitHub → Vercel only.
 
@@ -42,8 +42,8 @@ Local, GitHub `main`, and Vercel are synced by committing the live scorecard tre
 - [x] Leadership ops artifacts: funding, M&A, domains, dashboard, brief (D-43)
 - [x] Dated domain postures + edition delta on Tempo (D-45)
 - [x] Edition delta derived from an append-only posture history, not hand-written (D-46)
-- [ ] Owner review of branch `landscape/ui` preview, then merge (holds dated postures + landscape data + Option D UI)
-- [ ] Visual design pass — Option D is implemented on `landscape/ui`; parked for owner review. Not on `main`
+- [ ] Owner review of the public `landscape/ui` one-product preview (D-48), then merge
+- [x] One-product preview pass: collapse edition stack, fix Cloud chip, drop edition CTA and weekly claim, unprotect preview URLs (D-48)
 - [ ] Loop A: first Tuesday multi-source gather under new ops docs
 - [ ] Refresh Activity when Return on Security publishes a new Security, Funded issue
 - [x] Weekly desk: first real gather + reusable checklist (RoS #256; not published)
@@ -68,6 +68,7 @@ Use a worktree for any parallel work. Do not assume the branch you checked out i
 
 | Date | Summary |
 |------|---------|
+| 2026-08-19 | D-48: landscape preview is one product; Cloud chip matches prints; edition CTA and weekly claim removed; Vercel SSO disabled so the preview URL is shareable. Not merged. |
 | 2026-08-15 | ADF v2 scaffolding initialized; governance and episode docs moved to `docs/reference/`; historical specs to `docs/archive/` |
 | 2026-08-15 | Episode 001 (`SEC-MARKET-SIG-001` v0.2) completed; research freeze and independent review passed |
 | 2026-08-15 | Owner reconciliation reclassified Episode 001 as thematic and authorized Episode 002 to test the infrastructure-to-security demand lag thesis |

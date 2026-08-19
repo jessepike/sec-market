@@ -1,4 +1,4 @@
-import { Mail, MessageSquare } from 'lucide-react'
+import { MessageSquare } from 'lucide-react'
 import { AUTHOR_NAME, CONTACT_EMAIL } from '../data/meta'
 import { reasoningSteps } from '../data/method'
 
@@ -31,18 +31,11 @@ export function NextEdition() {
       <p>
         Corrections and counter-evidence are more useful than agreement. If a print is wrong, a
         source has been superseded, or a read goes further than the evidence does, that is worth an
-        email. Both links go to the same inbox. There is no form and no list.
+        email. There is no form and no list.
       </p>
       <div className="next-edition__actions">
         <a
           className="next-edition__action"
-          href={mailto('Security Market Pulse — tell me when the next edition publishes')}
-        >
-          <Mail size={14} aria-hidden="true" />
-          <span>Tell me when the next edition publishes</span>
-        </a>
-        <a
-          className="next-edition__action next-edition__action--quiet"
           href={mailto('Security Market Pulse — correction or question')}
         >
           <MessageSquare size={14} aria-hidden="true" />

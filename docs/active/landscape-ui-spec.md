@@ -36,9 +36,10 @@ The site stops presenting itself as an edition to be read and starts presenting 
 checked. Order, top to bottom:
 
 1. **Provenance rail.** New, full width, `#12161c`. Brand, `AS OF <date>`, and the three-state
-   legend: TRACKED refreshed weekly, JUDGED signed and dated by a person, NEEDS A SOURCE. Render
+   legend: TRACKED public prints, no judgment, JUDGED signed and dated by a person, NEEDS A SOURCE.
+   Do not say “refreshed weekly” until the weekly loop exists (D-48). Render
    all three states even when nothing currently carries the third; the legend is a statement about
-   how the page behaves, and the weekly loop will populate it.
+   how the page behaves.
 2. **Header.** Existing `Header.tsx`, nav relabelled to Landscape, This week, Platforms,
    Hypotheses, Method, Evidence.
 3. **The landscape.** `h1`, one supporting paragraph, then four domain cards in a

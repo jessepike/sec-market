@@ -4,6 +4,7 @@ import { dirname, resolve } from 'node:path'
 import { describe, it } from 'node:test'
 import { fileURLToPath } from 'node:url'
 import { evidenceById } from '../src/data/evidence.ts'
+import { landscapeDomains, trackedPrintEvidenceIds } from '../src/data/domains.ts'
 import { hypotheses } from '../src/data/hypotheses.ts'
 import { allPressureRows, platformPressure } from '../src/data/platformPressure.ts'
 import type { Provenance } from '../src/data/types.ts'
@@ -50,6 +51,21 @@ describe('landscape data provenance', () => {
     const source = readFileSync(resolve(here, '../src/data/platformPressure.ts'), 'utf8')
     assert.doesNotMatch(source, /%/)
     assert.doesNotMatch(source, /\$/)
+  })
+
+  it('labels landscape TRACKED chips from the prints on the card', () => {
+    const cloud = landscapeDomains.find((domain) => domain.id === 'cloud-security')
+    assert.ok(cloud)
+    const ids = trackedPrintEvidenceIds(cloud)
+    assert.ok(ids.includes('C13'), 'Falcon Cloud print is missing')
+    assert.equal(
+      ids.includes('D5a'),
+      false,
+      'Wiz/Alphabet close must not label the Cloud card prints',
+    )
+    for (const domain of landscapeDomains) {
+      assert.ok(trackedPrintEvidenceIds(domain).length > 0, domain.id)
+    }
   })
 
   it('derives one row per pressure group from sourced records', () => {

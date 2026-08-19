@@ -1,5 +1,5 @@
 import { formatShortDate } from '../data/dates'
-import { landscapeDomains, securityDomains } from '../data/domains'
+import { landscapeDomains, securityDomains, trackedPrintEvidenceIds } from '../data/domains'
 import { currentEdition, editionDomainRows } from '../data/edition'
 import type { Momentum, TempoTag } from '../data/types'
 import { EvidenceLink } from './EvidenceLink'
@@ -40,7 +40,7 @@ function LandscapeSection() {
         <h1 id="landscape-heading">Where the security market is going, not where it has been.</h1>
         <p className="landscape__lede">
           Dated postures, the evidence under each one, and an honest mark on how sure anyone is.
-          Prints and capital events refresh weekly. A posture moves only when a person signs it.
+          A posture moves only when a person signs it.
         </p>
       </div>
       <div className="landscape__cards">
@@ -58,7 +58,7 @@ function LandscapeSection() {
             <div className="domain-card__layer domain-card__layer--tracked">
               <p className="stamp-label">TRACKED</p>
               <p className="domain-card__print">{domain.print}</p>
-              <EvidenceLink ids={domain.supportingEvidenceIds} />
+              <EvidenceLink ids={trackedPrintEvidenceIds(domain)} />
             </div>
             <div className="domain-card__layer domain-card__layer--judged">
               <p className="stamp-label">
