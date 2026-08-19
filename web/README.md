@@ -41,6 +41,10 @@ orb run -m dev npm run preview --prefix web
 orb run -m dev npm run lint --prefix web
 ```
 
+## CI
+
+GitHub Actions runs `npm ci`, `npm run lint`, and `npm test` on PRs and pushes that touch `web/`. Local parity: `orb run -m dev npm test --prefix web`.
+
 ## Panel data integrity
 
 Quarterly chart indices are **derived in code** from frozen raw panel values in `src/data/panelRaw.ts` (`derivePanel.ts`, `panelIntegrity.ts`). The build runs `verify:panel` before compile; it fails if derived values drift from the frozen snapshot.

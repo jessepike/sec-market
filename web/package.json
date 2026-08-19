@@ -18,7 +18,7 @@
     "preview": "vite preview",
     "test:e2e": "playwright test",
     "test:data": "tsx --test tests/landscape-data.test.ts",
-    "test": "npm run test:data && npm run build && npm run test:e2e"
+    "test": "npm run lint && npm run test:data && npm run build && npm run test:e2e"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
