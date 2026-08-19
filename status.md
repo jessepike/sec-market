@@ -8,9 +8,9 @@ updated: 2026-08-19
 
 ## Current State
 
-Security Market Pulse is live at https://securitymarketpulse.com as the frozen Episode 002 edition. The Option D landscape is merged locally on `main`. Production is unchanged until `git push origin main`. Verify preview first before pushing.
+Security Market Pulse is live at https://securitymarketpulse.com. The D-48 Option D landscape is merged on `main` and pushed to `origin/main` (`68b74e9`). Vercel should build that commit for production — confirm at https://securitymarketpulse.com after deploy completes.
 
-Local, GitHub `main`, and Vercel are synced by committing the live scorecard tree and deploying that GitHub commit (D-31). Future ships go local → GitHub → Vercel only.
+Local, GitHub `main`, and Vercel deploy from the same GitHub commit (D-31). Future ships go local → GitHub → Vercel only.
 
 ## Project truth
 
@@ -42,7 +42,7 @@ Local, GitHub `main`, and Vercel are synced by committing the live scorecard tre
 - [x] Leadership ops artifacts: funding, M&A, domains, dashboard, brief (D-43)
 - [x] Dated domain postures + edition delta on Tempo (D-45)
 - [x] Edition delta derived from an append-only posture history, not hand-written (D-46)
-- [ ] Landscape merged locally; push to `origin/main` deploys production — verify preview first
+- [x] D-48 landscape merged and pushed to `origin/main` (`68b74e9`) — confirm production after Vercel deploy
 - [x] One-product preview pass: collapse edition stack, fix Cloud chip, drop edition CTA and weekly claim, unprotect preview URLs (D-48)
 - [ ] Loop A: first Tuesday multi-source gather under new ops docs
 - [ ] Refresh Activity when Return on Security publishes a new Security, Funded issue
@@ -58,14 +58,13 @@ None blocking the signals job. Feed design (which VC pages, which public-record 
 
 ## Blockers
 
-None for agents. Local `main` is ahead of `origin/main` with the landscape merge and repo health cleanup. Do not push `origin/main` until owner verifies preview — a push publishes to production.
-
-Use a worktree for any parallel work. Do not assume the branch you checked out is still the branch you are on.
+None. `main` is synced with `origin/main`. Confirm Vercel production deploy of `68b74e9` at https://securitymarketpulse.com (1440px + 390px visual check per AGENTS.md).
 
 ## Session Log
 
 | Date | Summary |
 |------|---------|
+| 2026-08-19 | Repo health cleanup pushed to `origin/main` (`68b74e9`): landscape merge, CI, doc reorg, edition gate, signals retired. |
 | 2026-08-19 | Repo health cleanup complete: edition integrity gate, orphaned signals retired, branch cleanup. |
 | 2026-08-19 | Repo health cleanup: governance backported to `main` (D-45–D-48). PR #1 closed as superseded by `landscape/ui`. Production unchanged. |
 | 2026-08-19 | Session wrap. D-48 one-product preview is public and ready for feedback. Production unchanged. Do not merge. |
