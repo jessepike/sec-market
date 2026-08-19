@@ -114,7 +114,7 @@ Rebuild the front page as a standing landscape reference rather than a single da
 
 **Preview:** https://security-market-pulse-git-landscape-ui-pikeholdings.vercel.app — public, no Vercel login. Production is unchanged.
 
-**Authorization state:** design accepted (D-47). One-product preview accepted to iterate (D-48). Not merged. Merge to `main` only after an explicit owner yes.
+**Authorization state:** design accepted (D-47), one-product pass accepted (D-48). Merged to `main` and live in production as of 2026-08-19, verified by query against https://securitymarketpulse.com. The publish itself has no recorded owner approval; D-48 ends with "Do not merge to `main`" and the merge landed the same day. Confirm and log it, or treat it as a gate crossing.
 
 **Not authorized by this work:** the weekly collection loop, new sources, auto-publishing, any change to the published market call or Episode 002 tags.
 
@@ -183,24 +183,3 @@ Reconsider account-facing prompts only after the core monthly scorecard, recency
 - Universal AI-security platform call
 - Production infrastructure or broad automation
 - Reproducing or modifying CISO Advisory ontology or vendor catalog
-
-### SEC-012 — Landscape page
-
-Rebuild the front page as a standing landscape reference rather than a single dated edition. Accepted direction is Option D (D-47).
-
-**Two tasks, in order:**
-
-1. [landscape-data-spec.md](docs/active/landscape-data-spec.md) — done on `landscape/data`.
-2. [landscape-ui-spec.md](docs/active/landscape-ui-spec.md) — Option D on `landscape/ui`; D-48 one-product pass awaiting owner review.
-
-**Preview:** https://security-market-pulse-git-landscape-ui-pikeholdings.vercel.app — public, no Vercel login. Production is unchanged.
-
-**Authorization state:** design accepted (D-47). One-product preview accepted to iterate (D-48). Not merged. Merge to `main` only after an explicit owner yes.
-
-**Not authorized by this work:** the weekly collection loop, new sources, auto-publishing, any change to the published market call or Episode 002 tags. Merge to `main` only after an explicit owner yes.
-
-### SEC-013 — Weekly refresh loop
-
-Make the tracked layer actually refresh weekly. Separate from SEC-012 on purpose; the page can ship and be updated by hand while this is built. Conflating them is how both slip.
-
-**Authorization state:** not authorized. Scope not yet written.

@@ -8,7 +8,9 @@ updated: 2026-08-19
 
 ## Current State
 
-Security Market Pulse is live at https://securitymarketpulse.com. The D-48 Option D landscape is merged on `main` and pushed to `origin/main` (`68b74e9`). Vercel should build that commit for production — confirm at https://securitymarketpulse.com after deploy completes.
+Security Market Pulse is live at https://securitymarketpulse.com and the D-48 Option D landscape is what a visitor now sees. Confirmed by query against the live host on 2026-08-19: HTTP 200, served from the Vercel edge, and the page carries the provenance rail, the four domain postures, What moved this week, Platform pressure and Tracked hypotheses.
+
+One thing is unreconciled. D-48 in `decisions.md` ends with "Do not merge to `main`", and `57d4f5b` merged it to `main` the same day. The publish itself has no recorded owner approval. Either log the approval or treat it as a gate crossing worth naming; do not leave the record as it stands.
 
 Local, GitHub `main`, and Vercel deploy from the same GitHub commit (D-31). Future ships go local → GitHub → Vercel only.
 
@@ -42,7 +44,7 @@ Local, GitHub `main`, and Vercel deploy from the same GitHub commit (D-31). Futu
 - [x] Leadership ops artifacts: funding, M&A, domains, dashboard, brief (D-43)
 - [x] Dated domain postures + edition delta on Tempo (D-45)
 - [x] Edition delta derived from an append-only posture history, not hand-written (D-46)
-- [x] D-48 landscape merged and pushed to `origin/main` (`68b74e9`) — confirm production after Vercel deploy
+- [x] D-48 landscape merged, pushed, and confirmed serving on https://securitymarketpulse.com
 - [x] One-product preview pass: collapse edition stack, fix Cloud chip, drop edition CTA and weekly claim, unprotect preview URLs (D-48)
 - [ ] Loop A: first Tuesday multi-source gather under new ops docs
 - [ ] Refresh Activity when Return on Security publishes a new Security, Funded issue
@@ -58,12 +60,13 @@ None blocking the signals job. Feed design (which VC pages, which public-record 
 
 ## Blockers
 
-None. `main` is synced with `origin/main`. Confirm Vercel production deploy of `68b74e9` at https://securitymarketpulse.com (1440px + 390px visual check per AGENTS.md).
+None on the build. The open item is a record problem, not a code problem: D-48 says do not merge and the merge happened. See Current State.
 
 ## Session Log
 
 | Date | Summary |
 |------|---------|
+| 2026-08-19 | CTO verified the D-48 landscape is genuinely serving on production by query, not by doc. Backlog duplicates removed. Open: D-48 says do not merge to `main` and the merge landed with no recorded approval. |
 | 2026-08-19 | Repo health cleanup pushed to `origin/main` (`68b74e9`): landscape merge, CI, doc reorg, edition gate, signals retired. |
 | 2026-08-19 | Repo health cleanup complete: edition integrity gate, orphaned signals retired, branch cleanup. |
 | 2026-08-19 | Repo health cleanup: governance backported to `main` (D-45–D-48). PR #1 closed as superseded by `landscape/ui`. Production unchanged. |
@@ -90,3 +93,22 @@ None. `main` is synced with `origin/main`. Confirm Vercel production deploy of `
 | 2026-08-17 | D-46: edition delta rebuilt on an append-only posture history with two fail-closed build gates. Duplicate change line removed; mobile Tempo overflow fixed. On branch `edition-dated-postures`, awaiting owner review. |
 | 2026-08-17 | Landscape UI (Task 2) on branch `landscape/ui`: provenance rail, four domain cards, what-moved, platform pressure, hypotheses, corrections. Not merged. |
 | 2026-08-18 | Session wrap. Owner is holding the `landscape/ui` preview. Repo left clean. No P0 implementation work remains. |
+
+## Handoff — 2026-08-19
+
+**From:** CTO session (Opus), sec-market design and delegation arc
+**To:** fresh CTO session (Opus)
+**Context:** The Option D landscape shipped and is confirmed live. Design, both implementation specs, and the delegation to Cursor Composer are done. This repo has no P0 build work left. The next session's job is the CTO inbox first, then small repo tidying here.
+
+**Next actions:**
+1. Work the CTO inbox at `/Users/jessepike/code/_shared/agent-exec/cto/inbox/` — 10 notes are open. Start with `2026-08-19-1654-knowledge-items-sit-in-three-client-repo-kb-db-silos-an.md`, which needs a real architecture call: 2023 knowledge extractions sit in 12 repo-local `kb.db` files, ten of them client repos, and bulk-loading them into the shared store is an unreviewed cross-boundary export. Sequence the redaction stage before any migration, or decide some silos are written off.
+2. Then `2026-07-25-config-drift-findings.md`, which expires 2026-08-25.
+3. Then `2026-07-27-cls-sync-ssh-alias-exit-255.md` (P1, one line in the owner's `~/.ssh/config`, needs him).
+4. Then the small sec-market items: resolve the D-48 record above, and check whether Task 2's `landscape/ui` branch still needs deleting now that it is merged.
+
+**Key files:**
+- `/Users/jessepike/code/_shared/agent-exec/cto/inbox/` — the actual queue
+- `/Users/jessepike/code/projects/sec-market/decisions.md` — D-48 is the unreconciled entry
+- `/Users/jessepike/code/projects/sec-market/BACKLOG.md` — SEC-013 carries the current landscape state
+
+**Model recommendation:** Opus. Every remaining item is a judgment call about data boundaries or a governance record, not implementation.
