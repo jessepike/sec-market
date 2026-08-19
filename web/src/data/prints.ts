@@ -21,6 +21,7 @@ export const vendorPrints: VendorPrint[] = [
     metric: 'product revenue',
     note: 'Revenue +26% · billings +33%',
     tone: 'up',
+    position: 'incumbent',
     evidenceIds: ['C3'],
   },
   {
@@ -43,6 +44,7 @@ export const vendorPrints: VendorPrint[] = [
     metric: 'organic ARR',
     note: 'Headline ARR +25% includes Red Canary',
     tone: 'flat',
+    position: 'platform',
     evidenceIds: ['C4'],
   },
   {
@@ -65,6 +67,7 @@ export const vendorPrints: VendorPrint[] = [
     metric: '2025 ARR',
     note: '>$350M · private SASE',
     tone: 'up',
+    position: 'challenger',
     evidenceIds: ['C11'],
   },
   {
@@ -76,6 +79,7 @@ export const vendorPrints: VendorPrint[] = [
     metric: 'ARR (annual)',
     note: '$811M · public SSE bellwether',
     tone: 'up',
+    position: 'challenger',
     evidenceIds: ['C12'],
   },
   {
@@ -88,6 +92,7 @@ export const vendorPrints: VendorPrint[] = [
     note: 'Mar 2026 close · capital, not spend',
     tone: 'flat',
     surface: 'coverage',
+    position: 'absorbed',
     evidenceIds: ['D5a', 'D13'],
   },
   {
@@ -99,6 +104,7 @@ export const vendorPrints: VendorPrint[] = [
     metric: 'cloud ending ARR',
     note: '>$800M · segment, not total ARR',
     tone: 'up',
+    position: 'platform',
     evidenceIds: ['C13'],
   },
   {
@@ -179,6 +185,7 @@ export const vendorPrints: VendorPrint[] = [
     metric: 'FY2026 security revenue',
     note: 'Annual print. Q4 +14% · Splunk embedded',
     tone: 'down',
+    position: 'platform',
     evidenceIds: ['C6b'],
   },
   {
@@ -225,6 +232,7 @@ export const vendorPrints: VendorPrint[] = [
     metric: 'subscription ARR',
     note: '$1.57B · short public history',
     tone: 'up',
+    position: 'challenger',
     evidenceIds: ['C8a'],
   },
   {
@@ -236,6 +244,7 @@ export const vendorPrints: VendorPrint[] = [
     metric: 'SaaS ARR ex-conversions',
     note: 'Headline 52% includes conversions',
     tone: 'up',
+    position: 'challenger',
     evidenceIds: ['C8b'],
   },
   {
@@ -307,6 +316,7 @@ export const vendorPrints: VendorPrint[] = [
     metric: 'cRPO',
     note: 'Revenue +11% · decelerating',
     tone: 'down',
+    position: 'platform',
     evidenceIds: ['C7'],
   },
   {
@@ -318,6 +328,7 @@ export const vendorPrints: VendorPrint[] = [
     metric: 'ARR (annual)',
     note: 'Fiscal year ended Jan 2026. Not a quarterly series aligned to the panel.',
     tone: 'up',
+    position: 'incumbent',
     evidenceIds: ['C10'],
   },
   {
@@ -330,6 +341,7 @@ export const vendorPrints: VendorPrint[] = [
     note: 'No standalone series after close. On the Activity board.',
     tone: 'flat',
     surface: 'coverage',
+    position: 'absorbed',
     evidenceIds: ['D14', 'D5b'],
   },
   {
@@ -354,6 +366,7 @@ export const vendorPrints: VendorPrint[] = [
     note: 'AI-native identity OS · capital, not spend',
     tone: 'flat',
     surface: 'coverage',
+    position: 'early',
     evidenceIds: ['D20'],
   },
   {
@@ -366,6 +379,7 @@ export const vendorPrints: VendorPrint[] = [
     note: 'Akamai strategic · on Activity board',
     tone: 'flat',
     surface: 'coverage',
+    position: 'early',
     evidenceIds: ['D21'],
   },
   {

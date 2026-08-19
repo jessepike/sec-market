@@ -198,7 +198,7 @@ before calling it shipped. If it died on a session limit, resume with
 2. Durability: split content out of TypeScript literals in `web/src/data/` into
    validated data files, so a weekly update is a data edit rather than a code change.
    This is the fix that makes the weekly loop survivable.
-3. Edition + "what changed" model, so a returning reader has a reason to come back.
+3. Edition + "what changed" model — shipped 2026-08-17 (D-45). Next edition writes the first real domain delta into `edition.ts`.
 4. Sourced breadth into uncovered domains — application security, OT, and services —
    with hard source verification on every new claim.
 

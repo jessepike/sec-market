@@ -1,0 +1,360 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap">
+  <style>
+    body { margin: 0; font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 16px; line-height: 1.6; color: #3a424e; background: #e9ecf0; -webkit-font-smoothing: antialiased; }
+    *, *::before, *::after { box-sizing: border-box; }
+    a { color: #0b6b5e; text-decoration: none; }
+    a:hover { color: #12161c; }
+    h1, h2, h3 { color: #12161c; margin: 0; text-wrap: pretty; }
+    p { margin: 0; }
+    .mono { font-family: 'IBM Plex Mono', ui-monospace, monospace; }
+    .eyebrow { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #57606e; margin: 0; }
+    .stamp { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.1em; }
+    .chip { display: inline-block; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.1em; padding: 3px 8px; border: 1px solid currentColor; }
+    .cell { padding: 13px 18px; border-top: 1px solid #d3d8df; font-size: 14px; vertical-align: middle; }
+    .hd { padding: 11px 18px; background: #12161c; color: #e7ebf0; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.11em; text-align: left; }
+  </style>
+</helmet>
+
+<div style="width: 1440px; background: #e9ecf0;">
+
+  <!-- rail with the two-layer legend -->
+  <div style="background: #12161c;">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 10px 80px; display: flex; align-items: center; gap: 26px;">
+      <span class="stamp" style="color: #ffffff;">SECURITY MARKET PULSE</span>
+      <span style="width: 1px; height: 13px; background: #3a424e;"></span>
+      <span class="stamp" style="color: #8b97a6;">AS OF 17 AUG 2026</span>
+      <span style="margin-left: auto; display: flex; align-items: center; gap: 22px;">
+        <span style="display: flex; align-items: center; gap: 8px;">
+          <span style="width: 3px; height: 13px; background: #8b97a6;"></span>
+          <span class="stamp" style="color: #8b97a6;">TRACKED &#8226; REFRESHED WEEKLY</span>
+        </span>
+        <span style="display: flex; align-items: center; gap: 8px;">
+          <span style="width: 3px; height: 13px; background: #5fd4c0;"></span>
+          <span class="stamp" style="color: #5fd4c0;">JUDGED &#8226; SIGNED AND DATED BY A PERSON</span>
+        </span>
+        <span style="display: flex; align-items: center; gap: 8px;">
+          <span style="width: 3px; height: 13px; background: #e8a0c4;"></span>
+          <span class="stamp" style="color: #e8a0c4;">NEEDS A SOURCE</span>
+        </span>
+      </span>
+    </div>
+  </div>
+
+  <div style="background: #ffffff; border-bottom: 1px solid #d3d8df;">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 14px 80px; display: flex; align-items: center; gap: 30px;">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+          <rect x="0.5" y="0.5" width="21" height="21" stroke="#12161c"></rect>
+          <path d="M3 15 L7 15 L9 6 L12 18 L14 11 L19 11" stroke="{{accent}}" stroke-width="1.5" fill="none"></path>
+        </svg>
+        <strong style="color: #12161c; font-size: 15px;">Security Market Pulse</strong>
+      </div>
+      <div style="display: flex; gap: 22px; font-size: 14px; color: #57606e;">
+        <a href="#" style="color: #57606e;">Landscape</a>
+        <a href="#" style="color: #57606e;">This week</a>
+        <a href="#" style="color: #57606e;">Platforms</a>
+        <a href="#" style="color: #57606e;">Hypotheses</a>
+        <a href="#" style="color: #57606e;">Method</a>
+        <a href="#" style="color: #57606e;">Evidence</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- the ten seconds -->
+  <div style="max-width: 1280px; margin: 0 auto; padding: 52px 80px 0;">
+    <p class="eyebrow">The landscape &#8226; four domains</p>
+    <h1 style="font-family: 'Archivo', system-ui, sans-serif; font-size: 52px; font-weight: 800; letter-spacing: -0.032em; line-height: 1.04; margin: 14px 0 0; max-width: 22ch;">Where the security market is going, not where it has been.</h1>
+    <p style="font-size: 18px; line-height: 1.55; color: #3a424e; margin-top: 18px; max-width: 66ch;">Dated postures, the evidence under each one, and an honest mark on how sure anyone is. Prints and capital events refresh weekly. A posture moves only when a person signs it.</p>
+
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; margin-top: 34px;">
+
+      <div style="background: #ffffff; border: 1px solid #12161c; border-left: 4px solid {{accent}}; padding: 20px 20px 18px;">
+        <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 10px;">
+          <h3 style="font-family: 'Archivo', system-ui, sans-serif; font-size: 19px; font-weight: 600; letter-spacing: -0.02em;">Network / SASE</h3>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="flex-shrink: 0; margin-top: 2px;"><path d="M4 14 L16 5 M11 5 h5 v5" stroke="#0b6b5e" stroke-width="1.8"></path></svg>
+        </div>
+        <span class="chip" style="color: {{accent}}; margin-top: 12px;">PREPARE</span>
+        <p style="font-size: 14px; line-height: 1.5; color: #57606e; margin-top: 12px;">Refresh is live and running now. A split, not a new SASE wave.</p>
+        <div style="border-left: 3px solid #d3d8df; padding-left: 10px; margin-top: 14px;">
+          <p class="stamp" style="color: #57606e;">TRACKED</p>
+          <p class="mono" style="font-size: 12px; color: #3a424e; margin-top: 4px;">Fortinet +52%<br>Cato +43% &#8226; Netskope +31%</p>
+        </div>
+        <div style="border-left: 3px solid {{accent}}; padding-left: 10px; margin-top: 12px;">
+          <p class="stamp" style="color: {{accent}};">JUDGED 17 AUG</p>
+          <p class="mono" style="font-size: 12px; color: #3a424e; margin-top: 4px;">HORIZON &#8226; THIS QUARTER<br>CONFIDENCE &#8226; MEDIUM</p>
+        </div>
+      </div>
+
+      <div style="background: #ffffff; border: 1px solid #12161c; border-left: 4px solid {{accent}}; padding: 20px 20px 18px;">
+        <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 10px;">
+          <h3 style="font-family: 'Archivo', system-ui, sans-serif; font-size: 19px; font-weight: 600; letter-spacing: -0.02em;">Data / AI Security</h3>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="flex-shrink: 0; margin-top: 2px;"><path d="M4 14 L16 5 M11 5 h5 v5" stroke="#0b6b5e" stroke-width="1.8"></path></svg>
+        </div>
+        <span class="chip" style="color: {{accent}}; margin-top: 12px;">PREPARE</span>
+        <p style="font-size: 14px; line-height: 1.5; color: #57606e; margin-top: 12px;">Selected data vendors are accelerating. Not a broad series yet.</p>
+        <div style="border-left: 3px solid #d3d8df; padding-left: 10px; margin-top: 14px;">
+          <p class="stamp" style="color: #57606e;">TRACKED</p>
+          <p class="mono" style="font-size: 12px; color: #3a424e; margin-top: 4px;">Rubrik +32% &#8226; Varonis +25%<br>Sentra &#8226; Securiti close</p>
+        </div>
+        <div style="border-left: 3px solid {{accent}}; padding-left: 10px; margin-top: 12px;">
+          <p class="stamp" style="color: {{accent}};">JUDGED 17 AUG</p>
+          <p class="mono" style="font-size: 12px; color: #3a424e; margin-top: 4px;">HORIZON &#8226; EXPOSED ACCOUNTS<br>CONFIDENCE &#8226; MEDIUM</p>
+        </div>
+      </div>
+
+      <div style="background: #ffffff; border: 1px solid #d3d8df; border-left: 4px solid #6b5c28; padding: 20px 20px 18px;">
+        <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 10px;">
+          <h3 style="font-family: 'Archivo', system-ui, sans-serif; font-size: 19px; font-weight: 600; letter-spacing: -0.02em;">Cloud Security</h3>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="flex-shrink: 0; margin-top: 2px;"><path d="M4 12 L9 8 L13 11 L16 7" stroke="#6b5c28" stroke-width="1.8" fill="none"></path></svg>
+        </div>
+        <span class="chip" style="color: #6b5c28; margin-top: 12px;">WATCH</span>
+        <p style="font-size: 14px; line-height: 1.5; color: #57606e; margin-top: 12px;">Qualify residual gaps when new capacity actually goes live.</p>
+        <div style="border-left: 3px solid #d3d8df; padding-left: 10px; margin-top: 14px;">
+          <p class="stamp" style="color: #57606e;">TRACKED</p>
+          <p class="mono" style="font-size: 12px; color: #3a424e; margin-top: 4px;">Falcon Cloud &gt;$800M<br>Upwind &#8226; Orca &#8226; Aqua</p>
+        </div>
+        <div style="border-left: 3px solid #6b5c28; padding-left: 10px; margin-top: 12px;">
+          <p class="stamp" style="color: #6b5c28;">JUDGED 17 AUG</p>
+          <p class="mono" style="font-size: 12px; color: #3a424e; margin-top: 4px;">HORIZON &#8226; WATCH<br>CONFIDENCE &#8226; MEDIUM</p>
+        </div>
+      </div>
+
+      <div style="background: #ffffff; border: 1px solid #d3d8df; border-left: 4px solid #6b5c28; padding: 20px 20px 18px;">
+        <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 10px;">
+          <h3 style="font-family: 'Archivo', system-ui, sans-serif; font-size: 19px; font-weight: 600; letter-spacing: -0.02em;">Identity</h3>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" style="flex-shrink: 0; margin-top: 2px;"><path d="M4 10 h12" stroke="#6b5c28" stroke-width="1.8"></path></svg>
+        </div>
+        <span class="chip" style="color: #6b5c28; margin-top: 12px;">WATCH</span>
+        <p style="font-size: 14px; line-height: 1.5; color: #57606e; margin-top: 12px;">A qualification topic where machine identities are going live.</p>
+        <div style="border-left: 3px solid #d3d8df; padding-left: 10px; margin-top: 14px;">
+          <p class="stamp" style="color: #57606e;">TRACKED</p>
+          <p class="mono" style="font-size: 12px; color: #3a424e; margin-top: 4px;">SailPoint +28%<br>Oak $60M &#8226; Hush $30M</p>
+        </div>
+        <div style="border-left: 3px solid #6b5c28; padding-left: 10px; margin-top: 12px;">
+          <p class="stamp" style="color: #6b5c28;">JUDGED 17 AUG</p>
+          <p class="mono" style="font-size: 12px; color: #3a424e; margin-top: 4px;">HORIZON &#8226; WATCH<br>CONFIDENCE &#8226; MEDIUM</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- what moved this week -->
+  <div style="background: #1b2430; margin-top: 60px;">
+    <div style="max-width: 1280px; margin: 0 auto; padding: 44px 80px;">
+      <div style="display: flex; align-items: baseline; gap: 20px;">
+        <h2 style="font-family: 'Archivo', system-ui, sans-serif; font-size: 30px; font-weight: 800; letter-spacing: -0.03em; color: #ffffff;">What moved this week</h2>
+        <p class="stamp" style="color: #8b97a6;">WEEK OF 11&#8211;17 AUG 2026</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 40px; margin-top: 26px;">
+        <div style="grid-column: span 7; border-left: 3px solid #8b97a6; padding-left: 20px;">
+          <p class="stamp" style="color: #8b97a6;">TRACKED &#8226; MACHINE-REFRESHED, NO JUDGMENT APPLIED</p>
+          <div style="margin-top: 14px;">
+            <div style="display: flex; gap: 18px; padding: 11px 0; border-top: 1px solid #3a424e;">
+              <span class="mono" style="font-size: 11px; color: #8b97a6; width: 76px; flex-shrink: 0;">PRINT</span>
+              <span style="font-size: 15px; color: #e7ebf0;">Cato at +43% and Netskope at +31% now both print above Zscaler organic ARR of +21%.</span>
+            </div>
+            <div style="display: flex; gap: 18px; padding: 11px 0; border-top: 1px solid #3a424e;">
+              <span class="mono" style="font-size: 11px; color: #8b97a6; width: 76px; flex-shrink: 0;">CAPITAL</span>
+              <span style="font-size: 15px; color: #e7ebf0;">Oak raised $60M and Hush raised $30M, both in agentic identity. Capital heat, not disclosed revenue.</span>
+            </div>
+            <div style="display: flex; gap: 18px; padding: 11px 0; border-top: 1px solid #3a424e; border-bottom: 1px solid #3a424e;">
+              <span class="mono" style="font-size: 11px; color: #8b97a6; width: 76px; flex-shrink: 0;">M&amp;A</span>
+              <span style="font-size: 15px; color: #e7ebf0;">No new closed transaction in the window. Google closed Wiz in March and Palo Alto closed CyberArk in February. Neither is this month's demand signal.</span>
+            </div>
+          </div>
+        </div>
+        <div style="grid-column: span 5; border-left: 3px solid #5fd4c0; padding-left: 20px;">
+          <p class="stamp" style="color: #5fd4c0;">JUDGED &#8226; A PERSON SIGNED THIS</p>
+          <div style="margin-top: 14px;">
+            <div style="display: flex; gap: 18px; padding: 11px 0; border-top: 1px solid #3a424e;">
+              <span class="mono" style="font-size: 11px; color: #5fd4c0; width: 58px; flex-shrink: 0;">HELD</span>
+              <span style="font-size: 15px; color: #e7ebf0;">All four postures unchanged.</span>
+            </div>
+            <div style="display: flex; gap: 18px; padding: 11px 0; border-top: 1px solid #3a424e; border-bottom: 1px solid #3a424e;">
+              <span class="mono" style="font-size: 11px; color: #f3d48a; width: 58px; flex-shrink: 0;">WHY</span>
+              <span style="font-size: 15px; color: #e7ebf0;">Faster challenger prints inside one domain are not yet breadth. A posture needs more than one company moving.</span>
+            </div>
+          </div>
+          <p style="font-size: 14px; line-height: 1.55; color: #aab5c2; margin-top: 18px;">A quiet week is reported as a quiet week. Nothing is invented to fill the space.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- platform pressure -->
+  <div style="max-width: 1280px; margin: 60px auto 0; padding: 0 80px;">
+    <div style="display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 8px;">
+      <div style="max-width: 62ch;">
+        <p class="eyebrow">Platform pressure</p>
+        <h2 style="font-family: 'Archivo', system-ui, sans-serif; font-size: 32px; font-weight: 800; letter-spacing: -0.03em; margin: 8px 0 10px;">Who is holding, who is buying in, who is being outrun</h2>
+        <p style="font-size: 16px; color: #57606e;">The partner question. Where an incumbent is still the safe pick, where it is acquiring its way into a category, and where a challenger is printing faster inside the same motion.</p>
+      </div>
+      <p class="stamp" style="color: #57606e; padding-bottom: 10px;">TRACKED PRINTS &#8226; JUDGED READ</p>
+    </div>
+    <div style="background: #ffffff; border: 1px solid #12161c; margin-top: 16px;">
+      <table style="width: 100%; border-collapse: collapse;">
+        <thead>
+          <tr>
+            <th class="hd" style="width: 190px;">VENDOR</th>
+            <th class="hd" style="width: 130px;">POSITION</th>
+            <th class="hd" style="width: 250px;">LATEST TRACKED PRINT</th>
+            <th class="hd">JUDGED READ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="cell" colspan="4" style="background: #e9ecf0; padding: 9px 18px;"><span class="stamp" style="color: {{accent}};">HOLDING POSITION</span></td></tr>
+          <tr>
+            <td class="cell" style="color: #12161c; font-weight: 600;">Fortinet</td>
+            <td class="cell mono" style="font-size: 12px; color: #57606e;">Incumbent</td>
+            <td class="cell mono" style="font-size: 13px;">Product +52%</td>
+            <td class="cell" style="color: #57606e;">Refresh spike. Not yet proven as a lasting rotation.</td>
+          </tr>
+          <tr>
+            <td class="cell" style="color: #12161c; font-weight: 600;">CrowdStrike</td>
+            <td class="cell mono" style="font-size: 12px; color: #57606e;">Platform</td>
+            <td class="cell mono" style="font-size: 13px;">cloud ending ARR &gt;35%</td>
+            <td class="cell" style="color: #57606e;">Recovered. The cloud segment is real revenue, not a category series.</td>
+          </tr>
+          <tr>
+            <td class="cell" style="color: #12161c; font-weight: 600;">SailPoint</td>
+            <td class="cell mono" style="font-size: 12px; color: #57606e;">Incumbent</td>
+            <td class="cell mono" style="font-size: 13px;">+28%</td>
+            <td class="cell" style="color: #57606e;">IGA is up while the identity domain overall is stable to decelerating.</td>
+          </tr>
+
+          <tr><td class="cell" colspan="4" style="background: #e9ecf0; padding: 9px 18px; border-top: 1px solid #12161c;"><span class="stamp" style="color: #6b5c28;">BUYING IN RATHER THAN BUILDING</span></td></tr>
+          <tr>
+            <td class="cell" style="color: #12161c; font-weight: 600;">CyberArk</td>
+            <td class="cell mono" style="font-size: 12px; color: #57606e;">Absorbed</td>
+            <td class="cell mono" style="font-size: 13px;">Palo Alto &#8226; $25B &#8226; closed Feb 2026</td>
+            <td class="cell" style="color: #57606e;">Identity becomes a Palo Alto platform pillar. Capital, not customer spend.</td>
+          </tr>
+          <tr>
+            <td class="cell" style="color: #12161c; font-weight: 600;">Wiz</td>
+            <td class="cell mono" style="font-size: 12px; color: #57606e;">Absorbed</td>
+            <td class="cell mono" style="font-size: 13px;">Google &#8226; $32B &#8226; closed Mar 2026</td>
+            <td class="cell" style="color: #57606e;">Cloud security absorbed into a hyperscaler. Watch what it does to the specialist gap.</td>
+          </tr>
+
+          <tr><td class="cell" colspan="4" style="background: #e9ecf0; padding: 9px 18px; border-top: 1px solid #12161c;"><span class="stamp" style="color: #8e2f5e;">BEING OUTRUN IN THEIR OWN MOTION</span></td></tr>
+          <tr>
+            <td class="cell" style="color: #12161c; font-weight: 600;">Zscaler</td>
+            <td class="cell mono" style="font-size: 12px; color: #57606e;">Platform</td>
+            <td class="cell mono" style="font-size: 13px;">Organic ARR +21%</td>
+            <td class="cell" style="color: #57606e;">Cato at +43% and Netskope at +31% are printing faster in the same category.</td>
+          </tr>
+          <tr>
+            <td class="cell" style="color: #12161c; font-weight: 600;">Cisco</td>
+            <td class="cell mono" style="font-size: 12px; color: #57606e;">Platform</td>
+            <td class="cell mono" style="font-size: 13px;">FY security +2%</td>
+            <td class="cell" style="color: #57606e;">Networking orders +40% carried the quarter. Security did not.</td>
+          </tr>
+          <tr>
+            <td class="cell" style="color: #12161c; font-weight: 600;">Okta</td>
+            <td class="cell mono" style="font-size: 12px; color: #57606e;">Platform</td>
+            <td class="cell mono" style="font-size: 13px;">Decelerating</td>
+            <td class="cell" style="color: #57606e;">No clean re-acceleration inside this window.</td>
+          </tr>
+
+          <tr><td class="cell" colspan="4" style="background: #e9ecf0; padding: 9px 18px; border-top: 1px solid #12161c;"><span class="stamp" style="color: #57606e;">CHALLENGERS WORTH A LOOK</span></td></tr>
+          <tr>
+            <td class="cell" style="color: #12161c; font-weight: 600;">Cato &#8226; Netskope</td>
+            <td class="cell mono" style="font-size: 12px; color: #57606e;">Challenger</td>
+            <td class="cell mono" style="font-size: 13px;">+43% &#8226; +31%</td>
+            <td class="cell" style="color: #57606e;">Growing faster than Zscaler organic. A split inside the category, not a new SASE wave.</td>
+          </tr>
+          <tr>
+            <td class="cell" style="color: #12161c; font-weight: 600;">Rubrik &#8226; Varonis</td>
+            <td class="cell mono" style="font-size: 12px; color: #57606e;">Challenger</td>
+            <td class="cell mono" style="font-size: 13px;">+32% &#8226; +25%</td>
+            <td class="cell" style="color: #57606e;">Both accelerating on public numbers. The cleanest data-side signal here.</td>
+          </tr>
+          <tr>
+            <td class="cell" style="color: #12161c; font-weight: 600;">Oak &#8226; Hush</td>
+            <td class="cell mono" style="font-size: 12px; color: #57606e;">Early</td>
+            <td class="cell mono" style="font-size: 13px;">$60M &#8226; $30M raised</td>
+            <td class="cell" style="color: #57606e;">Agentic identity. Capital, not customers. Too early to place a bet on.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- tracked hypotheses -->
+  <div style="max-width: 1280px; margin: 56px auto 0; padding: 0 80px;">
+    <div style="border-top: 2px solid #12161c; padding-top: 24px;">
+      <div style="display: flex; align-items: baseline; gap: 20px; margin-bottom: 18px;">
+        <h2 style="font-family: 'Archivo', system-ui, sans-serif; font-size: 26px; font-weight: 800; letter-spacing: -0.028em;">Tracked hypotheses</h2>
+        <p class="stamp" style="color: #57606e;">STATED IN ADVANCE &#8226; SCORED AGAINST EVIDENCE, NOT OPINION</p>
+      </div>
+      <div style="background: #ffffff; border: 1px solid #d3d8df;">
+        <div style="display: flex; align-items: center; gap: 26px; padding: 17px 24px;">
+          <span class="chip" style="color: #6b5c28; width: 96px; text-align: center; flex-shrink: 0;">NO-CALL</span>
+          <span style="font-size: 15px; color: #12161c; flex-grow: 1;">Infrastructure spend leads security spend by a stable 0 to 8 quarters</span>
+          <span class="mono" style="font-size: 12px; color: #57606e; text-align: left; width: 280px; flex-shrink: 0;">Needs two mature buildout impulses. This window has one.</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 26px; padding: 17px 24px; border-top: 1px solid #d3d8df;">
+          <span class="chip" style="color: #6b5c28; width: 96px; text-align: center; flex-shrink: 0;">NO-CALL</span>
+          <span style="font-size: 15px; color: #12161c; flex-grow: 1;">AI adoption compresses that lag</span>
+          <span class="mono" style="font-size: 12px; color: #57606e; text-align: left; width: 280px; flex-shrink: 0;">No series exists to test it against yet.</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 26px; padding: 17px 24px; border-top: 1px solid #d3d8df;">
+          <span class="chip" style="color: {{accent}}; width: 96px; text-align: center; flex-shrink: 0;">TRACKING</span>
+          <span style="font-size: 15px; color: #12161c; flex-grow: 1;">Platforms absorb adjacent security categories rather than compete with them</span>
+          <span class="mono" style="font-size: 12px; color: #57606e; text-align: left; width: 280px; flex-shrink: 0;">Wiz in cloud and CyberArk in identity are the first two.</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 26px; padding: 17px 24px; border-top: 1px solid #d3d8df;">
+          <span class="chip" style="color: {{accent}}; width: 96px; text-align: center; flex-shrink: 0;">TRACKING</span>
+          <span style="font-size: 15px; color: #12161c; flex-grow: 1;">Incumbents that cannot pivot lose ground to challengers inside their own motion</span>
+          <span class="mono" style="font-size: 12px; color: #57606e; text-align: left; width: 280px; flex-shrink: 0;">Cato and Netskope against Zscaler organic is the first test.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- method + corrections -->
+  <div style="max-width: 1280px; margin: 52px auto 0; padding: 0 80px 64px;">
+    <div style="background: #12161c; padding: 36px 44px; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 44px; align-items: center;">
+      <div style="grid-column: span 7;">
+        <p class="eyebrow" style="color: #8b97a6;">How a posture is set</p>
+        <p style="font-size: 17px; line-height: 1.55; color: #ffffff; margin-top: 10px; max-width: 56ch;">One strong print is a card. A posture needs more than one company and a reason the movement is not just share shift or an acquisition. Every figure keeps its excerpt, date, period, and metric definition.</p>
+      </div>
+      <div style="grid-column: span 5; display: flex; flex-direction: column; gap: 10px; align-items: flex-start;">
+        <a href="#" style="display: inline-flex; align-items: center; gap: 9px; color: #5fd4c0; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.09em;">
+          READ THE METHOD
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.6"></path></svg>
+        </a>
+        <a href="#" style="display: inline-flex; align-items: center; gap: 9px; color: #5fd4c0; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.09em;">
+          OPEN THE EVIDENCE LIBRARY
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.6"></path></svg>
+        </a>
+        <a href="#" style="display: inline-flex; align-items: center; gap: 9px; color: #8b97a6; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12px; font-weight: 600; letter-spacing: 0.09em;">
+          SEND A CORRECTION
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.6"></path></svg>
+        </a>
+      </div>
+    </div>
+    <p style="font-size: 14px; color: #57606e; margin-top: 18px; max-width: 78ch;">Corrections and counter-evidence are more useful than agreement. If a print is wrong, a source has been superseded, or a read goes further than the evidence does, that is worth an email.</p>
+  </div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{"accent":{"editor":"color","default":"#0b6b5e","options":["#0b6b5e","#8e2f5e","#1d4ed8","#6b5c28"],"section":"Theme"}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { accent: this.props.accent ?? '#0b6b5e' };
+  }
+}
+</script>
+</body>
+</html>

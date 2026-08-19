@@ -1,3 +1,4 @@
+import { currentEdition } from '../data/edition'
 import { contextStats, marketCall } from '../data/market'
 import { LAST_UPDATED_DISPLAY } from '../data/meta'
 import { EvidenceLink } from './EvidenceLink'
@@ -6,14 +7,14 @@ export function Hero() {
   return (
     <section id="overview" className="masthead" aria-labelledby="market-call-heading">
       <p className="eyebrow">Security Market Pulse · August 2026</p>
-      <h1 id="market-call-heading">
+      <h2 id="market-call-heading">
         Infrastructure is running ahead.
         <br />
         Security is splitting, not booming.
-      </h1>
+      </h2>
       <div className="stamp">
         <span>
-          PERIOD <b>2026-08</b>
+          EDITION <b>{currentEdition.id}</b>
         </span>
         <span>
           UPDATED <b>{LAST_UPDATED_DISPLAY}</b>

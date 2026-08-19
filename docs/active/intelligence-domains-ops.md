@@ -5,8 +5,8 @@ One page per operating model; vendor tables in [domain-vendor-signals-2026-08.md
 | Field | Value |
 |---|---|
 | **ID** | `SEC-MARKET-INT-DOMAIN-001` |
-| **Updated** | 2026-08-16 |
-| **Live surfaces** | Prints table, Tempo board, domain posture in `web/src/data/domains.ts` |
+| **Updated** | 2026-08-17 |
+| **Live surfaces** | Prints table, Tempo board (dated posture + horizon + producing evidence), edition delta in `web/src/data/edition.ts` |
 
 ---
 
@@ -60,7 +60,7 @@ Vendor **prints** = disclosed revenue/ARR where it exists. **Capital** (raises, 
 |---|---|---|
 | **Quarterly earnings wave** | Pull new prints for vendors that reported | Prints table, Tempo copy |
 | **Weekly desk** | New private names affecting domain heat | Activity, optional Tempo note |
-| **Monthly** | Re-read domain postures vs prints — tags change only with decision | Tempo tags (PREPARE/WATCH) |
+| **Monthly** | Re-read domain postures vs prints — tags change only with decision. Date any change, write the edition delta, keep the prior state. | Tempo tags, `asOf`, `edition.ts` |
 | **Event-driven** | Private ARR press, segment breakout, major M&A in domain | Prints or Activity |
 
 **Last vendor pass:** 2026-08-16. **Last prints ship:** Cato, Netskope, Falcon Cloud, Upwind, Torq on live site.

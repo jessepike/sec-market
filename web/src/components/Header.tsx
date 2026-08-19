@@ -2,14 +2,12 @@ import { useEffect, useState } from 'react'
 import { LAST_UPDATED_DISPLAY, LAST_UPDATED_ISO, PRODUCT_TITLE } from '../data/meta'
 
 const navItems = [
-  { href: '#overview', label: 'Call' },
-  { href: '#read', label: 'Read' },
-  { href: '#prints', label: 'Prints' },
-  { href: '#domains', label: 'Tempo' },
-  { href: '#activity', label: 'Activity' },
-  { href: '#layers', label: 'Layers' },
+  { href: '#landscape', label: 'Landscape' },
+  { href: '#moved', label: 'This week' },
+  { href: '#platforms', label: 'Platforms' },
+  { href: '#hypotheses', label: 'Hypotheses' },
   { href: '#method', label: 'Method' },
-  { href: '#research', label: 'Research' },
+  { href: '#research', label: 'Evidence' },
 ]
 
 function scrollToHash(hash: string) {
@@ -42,13 +40,13 @@ export function Header() {
     <header className="site-header">
       <div className="site-header__inner">
         <a
-          href="#overview"
+          href="#landscape"
           className="site-header__brand"
           onClick={(event) => {
             event.preventDefault()
             setNavOpen(false)
-            scrollToHash('#overview')
-            window.history.replaceState(null, '', '#overview')
+            scrollToHash('#landscape')
+            window.history.replaceState(null, '', '#landscape')
           }}
         >
           <span className="site-header__mark" aria-hidden="true" />

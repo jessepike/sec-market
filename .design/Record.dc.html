@@ -1,0 +1,178 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap">
+  <style>
+    body { margin: 0; font-family: 'IBM Plex Sans', system-ui, sans-serif; font-size: 16px; line-height: 1.6; color: #3a424e; background: #e9ecf0; -webkit-font-smoothing: antialiased; }
+    *, *::before, *::after { box-sizing: border-box; }
+    a { color: #0b6b5e; text-decoration: none; }
+    a:hover { color: #12161c; }
+    h1, h2, h3 { color: #12161c; margin: 0; text-wrap: pretty; }
+    p { margin: 0; }
+    .mono { font-family: 'IBM Plex Mono', ui-monospace, monospace; }
+    .eyebrow { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #57606e; margin: 0; }
+    .ref { font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.04em; color: #0b6b5e; vertical-align: super; }
+    .lede { font-size: 15px; line-height: 1.62; color: #3a424e; }
+    .lede + .lede { margin-top: 11px; }
+    .listing { padding: 12px 0; border-top: 1px solid #d3d8df; display: flex; align-items: baseline; gap: 14px; font-size: 14px; }
+  </style>
+</helmet>
+
+<div style="width: 1440px; background: #e9ecf0;">
+
+  <!-- masthead -->
+  <div style="max-width: 1180px; margin: 0 auto; padding: 40px 60px 0;">
+    <div style="display: flex; align-items: center; justify-content: space-between; padding-bottom: 14px;">
+      <p class="mono" style="font-size: 11px; letter-spacing: 0.12em; color: #57606e;">EST. 2026 &#8226; PUBLIC EVIDENCE ONLY</p>
+      <p class="mono" style="font-size: 11px; letter-spacing: 0.12em; color: #57606e;">NO INVESTMENT ADVICE</p>
+    </div>
+    <div style="border-top: 3px solid #12161c; border-bottom: 1px solid #12161c; padding: 26px 0 24px; text-align: center;">
+      <h1 style="font-family: 'Archivo', system-ui, sans-serif; font-size: 62px; font-weight: 800; letter-spacing: 0.02em; line-height: 1; text-transform: uppercase;">Security Market Pulse</h1>
+      <p class="mono" style="font-size: 12px; letter-spacing: 0.2em; color: #57606e; margin-top: 14px;">A DATED READ ON WHERE CYBERSECURITY DEMAND IS ACTUALLY MOVING</p>
+    </div>
+    <div style="border-bottom: 1px solid #12161c; padding: 11px 0; display: flex; align-items: center; justify-content: space-between;">
+      <p class="mono" style="font-size: 11px; font-weight: 600; letter-spacing: 0.12em; color: #12161c;">EDITION NO. 08</p>
+      <p class="mono" style="font-size: 11px; font-weight: 600; letter-spacing: 0.12em; color: #12161c;">AUGUST 16, 2026</p>
+      <p class="mono" style="font-size: 11px; font-weight: 600; letter-spacing: 0.12em; color: #8e2f5e;">LAG &#8226; NO-CALL</p>
+      <p class="mono" style="font-size: 11px; font-weight: 600; letter-spacing: 0.12em; color: #12161c;">PANEL 2023-Q1 &#8594; 2026-Q1</p>
+    </div>
+  </div>
+
+  <!-- lead story -->
+  <div style="max-width: 1180px; margin: 0 auto; padding: 34px 60px 0;">
+    <div style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 40px;">
+
+      <div style="grid-column: span 8;">
+        <p class="eyebrow" style="color: {{accent}};">The lead</p>
+        <h2 style="font-family: 'Archivo', system-ui, sans-serif; font-size: 52px; font-weight: 800; letter-spacing: -0.032em; line-height: 1.03; margin: 12px 0 0;">Infrastructure is running ahead. Security is splitting, not booming.</h2>
+        <p style="font-size: 19px; line-height: 1.5; color: #3a424e; margin: 18px 0 0; max-width: 60ch;">Use infrastructure activation as an account qualification trigger. Do not read it as proof of a broad cybersecurity boom.</p>
+
+        <div style="border-top: 1px solid #12161c; margin-top: 26px; padding-top: 22px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px;">
+          <div>
+            <p class="mono" style="font-size: 10px; font-weight: 600; letter-spacing: 0.12em; color: {{accent}}; margin-bottom: 9px;">THE BUILD</p>
+            <p class="lede">Cisco Q4 networking orders rose 40 per cent and NVIDIA Data Center printed $75.25B.<span class="ref">A1b</span> The buildout is still on, and it is not slowing on any series in the panel.</p>
+          </div>
+          <div>
+            <p class="mono" style="font-size: 10px; font-weight: 600; letter-spacing: 0.12em; color: {{accent}}; margin-bottom: 9px;">THE SPLIT</p>
+            <p class="lede">Fortinet product grew 52 per cent while Zscaler organic ARR grew 21 and Cisco FY security grew 2.<span class="ref">C3</span> Network iron is hot. The category is not.</p>
+          </div>
+          <div>
+            <p class="mono" style="font-size: 10px; font-weight: 600; letter-spacing: 0.12em; color: {{accent}}; margin-bottom: 9px;">THE CHECK</p>
+            <p class="lede">Rubrik and Varonis accelerated. Okta decelerated. CrowdStrike recovered.<span class="ref">C6b</span> Buyer budgets grew 4 per cent in 2025.<span class="ref">D1</span> That is a split, not a wave.</p>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 14px; margin-top: 30px; padding-top: 22px; border-top: 1px solid #d3d8df;">
+          <a href="#" style="display: inline-flex; align-items: center; gap: 10px; background: #12161c; color: #ffffff; font-size: 15px; font-weight: 600; padding: 14px 26px;">
+            Read the full edition
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5"></path></svg>
+          </a>
+          <a href="#" style="font-size: 15px; font-weight: 600; color: #12161c; border-bottom: 2px solid {{accent}}; padding-bottom: 2px;">Read the method</a>
+        </div>
+      </div>
+
+      <!-- listings rail -->
+      <div style="grid-column: span 4; border-left: 1px solid #12161c; padding-left: 32px;">
+        <p class="eyebrow">Domain listings</p>
+        <p class="mono" style="font-size: 10px; letter-spacing: 0.1em; color: #57606e; margin: 6px 0 12px;">POSTURE DATED 2026-08-17</p>
+
+        <div class="listing" style="border-top: 1px solid #12161c;">
+          <span class="mono" style="font-size: 10px; font-weight: 600; letter-spacing: 0.09em; color: {{accent}}; width: 68px; flex-shrink: 0;">PREPARE</span>
+          <span style="flex-grow: 1;"><b style="color: #12161c;">Network / SASE</b><br><span class="mono" style="font-size: 12px; color: #57606e;">Fortinet +52 &#8226; Cato +43 &#8226; Netskope +31</span></span>
+        </div>
+        <div class="listing">
+          <span class="mono" style="font-size: 10px; font-weight: 600; letter-spacing: 0.09em; color: {{accent}}; width: 68px; flex-shrink: 0;">PREPARE</span>
+          <span style="flex-grow: 1;"><b style="color: #12161c;">Data / AI Security</b><br><span class="mono" style="font-size: 12px; color: #57606e;">Rubrik +32 &#8226; Varonis +25</span></span>
+        </div>
+        <div class="listing">
+          <span class="mono" style="font-size: 10px; font-weight: 600; letter-spacing: 0.09em; color: #6b5c28; width: 68px; flex-shrink: 0;">WATCH</span>
+          <span style="flex-grow: 1;"><b style="color: #12161c;">Cloud Security</b><br><span class="mono" style="font-size: 12px; color: #57606e;">Falcon Cloud &gt;$800M</span></span>
+        </div>
+        <div class="listing" style="border-bottom: 1px solid #12161c;">
+          <span class="mono" style="font-size: 10px; font-weight: 600; letter-spacing: 0.09em; color: #6b5c28; width: 68px; flex-shrink: 0;">WATCH</span>
+          <span style="flex-grow: 1;"><b style="color: #12161c;">Identity</b><br><span class="mono" style="font-size: 12px; color: #57606e;">SailPoint +28 &#8226; Oak $60M</span></span>
+        </div>
+
+        <div style="background: #1b2430; padding: 20px 22px; margin-top: 24px;">
+          <p class="eyebrow" style="color: #8b97a6;">Held this edition</p>
+          <p class="mono" style="font-size: 26px; font-weight: 600; letter-spacing: -0.02em; color: #f3d48a; margin: 10px 0 8px;">NO-CALL</p>
+          <p style="font-size: 13px; line-height: 1.5; color: #aab5c2;">A stable infrastructure-to-security lag needs two mature buildout impulses. This window has one. The number is withheld rather than guessed.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- since last edition -->
+  <div style="max-width: 1180px; margin: 46px auto 0; padding: 0 60px;">
+    <div style="border-top: 3px solid #12161c; border-bottom: 1px solid #12161c; padding: 22px 0;">
+      <div style="display: flex; align-items: baseline; gap: 24px; margin-bottom: 18px;">
+        <p class="eyebrow" style="color: #12161c;">Since edition no. 07</p>
+        <span style="flex-grow: 1; height: 1px; background: #d3d8df;"></span>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px;">
+        <div style="border-left: 3px solid {{accent}}; padding-left: 16px;">
+          <p class="mono" style="font-size: 10px; font-weight: 600; letter-spacing: 0.12em; color: {{accent}};">MOVED</p>
+          <p class="lede" style="margin-top: 7px;">Network / SASE holds PREPARE on a wider base. Cato and Netskope now print above Zscaler organic.</p>
+        </div>
+        <div style="border-left: 3px solid #57606e; padding-left: 16px;">
+          <p class="mono" style="font-size: 10px; font-weight: 600; letter-spacing: 0.12em; color: #57606e;">HELD</p>
+          <p class="lede" style="margin-top: 7px;">Cloud and Identity stay WATCH. Neither has a clean category revenue series to move on.</p>
+        </div>
+        <div style="border-left: 3px solid #8e2f5e; padding-left: 16px;">
+          <p class="mono" style="font-size: 10px; font-weight: 600; letter-spacing: 0.12em; color: #8e2f5e;">WOULD FLIP IT</p>
+          <p class="lede" style="margin-top: 7px;">Realized budget growth, organic acceleration across most comparable vendors, or AI pilots reaching production workloads.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- readership -->
+  <div style="max-width: 1180px; margin: 40px auto 0; padding: 0 60px;">
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px;">
+      <div style="background: #ffffff; border: 1px solid #12161c; padding: 24px 26px;">
+        <p class="mono" style="font-size: 10px; font-weight: 600; letter-spacing: 0.12em; color: {{accent}};">FOR SECURITY LEADERSHIP</p>
+        <p class="lede" style="margin-top: 10px;">Allocate attention and budget against observed movement, before the demand is obvious enough that everyone is chasing it.</p>
+      </div>
+      <div style="background: #ffffff; border: 1px solid #12161c; padding: 24px 26px;">
+        <p class="mono" style="font-size: 10px; font-weight: 600; letter-spacing: 0.12em; color: {{accent}};">FOR ACCOUNT TEAMS</p>
+        <p class="lede" style="margin-top: 10px;">Bring a market read into the room that the client can check line by line, rather than a vendor deck they have already seen.</p>
+      </div>
+      <div style="background: #ffffff; border: 1px solid #12161c; padding: 24px 26px;">
+        <p class="mono" style="font-size: 10px; font-weight: 600; letter-spacing: 0.12em; color: {{accent}};">FOR CLIENTS</p>
+        <p class="lede" style="margin-top: 10px;">Independent context for technology, timing, and partner choices that would otherwise rest on one supplier's roadmap.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- colophon -->
+  <div style="max-width: 1180px; margin: 44px auto 0; padding: 0 60px 64px;">
+    <div style="border-top: 3px solid #12161c; padding-top: 22px; display: flex; align-items: flex-start; gap: 48px;">
+      <div style="flex-grow: 1;">
+        <p class="eyebrow">Colophon</p>
+        <p class="lede" style="margin-top: 9px; max-width: 74ch;">Every figure on this page carries its excerpt, date, period, and metric definition. Interpretation sits next to the fact, never on top of it. Realized revenue, organic growth, guidance, intent, funding, and acquisitions stay in separate buckets. The edition ages on earnings and material capital events, not on a news clock.</p>
+      </div>
+      <a href="#" style="display: inline-flex; align-items: center; gap: 10px; background: #12161c; color: #ffffff; font-size: 15px; font-weight: 600; padding: 14px 26px; flex-shrink: 0;">
+        Read the full edition
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2.5 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" stroke-width="1.5"></path></svg>
+      </a>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{"accent":{"editor":"color","default":"#0b6b5e","options":["#0b6b5e","#8e2f5e","#1d4ed8","#6b5c28"],"section":"Theme"}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { accent: this.props.accent ?? '#0b6b5e' };
+  }
+}
+</script>
+</body>
+</html>
