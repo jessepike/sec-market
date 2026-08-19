@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+# Refuses a direct push to main. Production moves only by promotion from preview (D-50).
+#
+# On 2026-08-19 the D-48 landscape reached production by an ordinary push while the
+# decision record said "do not merge" and the owner believed nothing had been promoted
+# (D-49). A rule that lives only in a document is not a control. This is the control.
+#
+# Enabled per clone with:  git config core.hooksPath .githooks
+# Deliberate promotion:    PROMOTE=1 git push origin main
+
+set -euo pipefail
+
+while read -r _local_ref local_sha remote_ref _remote_sha; do
+  [ "$remote_ref" = "refs/heads/main" ] || continue
+  # Deleting a branch pushes the all-zero sha. Let that through.
+  case "$local_sha" in *[!0]*) ;; *) continue ;; esac
+
+  if [ "${PROMOTE:-}" = "1" ]; then
+    echo "pre-push: PROMOTE=1 — allowing promotion to main." >&2
+    continue
+  fi
+
+  cat >&2 <<'MSG'
+
+  pre-push refused: main is production.
+
+  main serves https://securitymarketpulse.com and moves only by promoting
+  preview after the owner says yes (D-50).
+
+    git checkout main
+    git merge --ff-only preview
+    PROMOTE=1 git push origin main
+
+  If you are not promoting on an explicit owner yes, you are on the wrong
+  branch. Push to preview instead.
+
+MSG
+  exit 1
+done
+
+exit 0
