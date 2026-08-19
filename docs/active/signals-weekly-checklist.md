@@ -63,7 +63,7 @@ One-page runbook for a fresh agent. **~2 hours total.** Plain English. **Do not 
 ## 4. Synthesize (~30 min)
 
 - [ ] Dedupe against prior week packets — this file is **this week only**, not a cumulative summer dump
-- [ ] Target **8–15 funding events** from the RoS window (product companies first; note service/media rounds separately)
+- [ ] Capture **every** product-company round in the RoS window; note service/media rounds separately. A typical week runs 8–15, but that is an observation, not a quota — **report what the source shows and never pad toward a range.** If the count is unusually low or high, say so in the control block and quote the source's own Market Summary count.
 - [ ] Include **all M&A rows** from the same RoS post (product + service; label type)
 - [ ] Draft **one section read** (3–4 sentences): what pattern moved capital this week; attribute Return on Security; no boom/bust hype
 - [ ] Draft **five headlines** — funding and/or M&A share the five slots; mega-deals or strategic acquirers may take a slot
