@@ -419,3 +419,15 @@ Two properties are the point. The preview URL never changes, so it can be bookma
 At the time of this entry the two surfaces render identically: production and preview differ only by the feedback widget Vercel injects into preview builds.
 
 A `pre-push` hook now refuses a direct push to `main`, because D-49 happened by an ordinary push and a convention that only exists in a document is not a control.
+
+**D-51 · 2026-08-19 — Retracting D-49. The D-48 promotion was approved; what failed was legibility, not authorization.**
+
+D-49 recorded the landscape reaching production as an unapproved gate crossing. That is wrong and is retracted. Asked directly, the owner confirmed the same day: he approved D-48.
+
+D-49 is left standing rather than edited, because a decision log that quietly rewrites its own wrong entries is worth less than one that shows where it was wrong. Treat D-49 as superseded in full by this entry.
+
+What remains true, and is the part worth keeping: for roughly three hours the live site and the owner's understanding of the live site disagreed. The D-48 text ends "Do not merge to `main`", no promotion was recorded in this log or in `status.md`, and when the subject came up the owner's read was that the preview had not been promoted. The approval existed and simply never became visible anywhere a later reader — human or agent — would look.
+
+So the defect was never authorization. It was that "what is live" could not be answered from the repository, only by querying the host. D-50's two-branch model is the response to that and stands unchanged: production as a fast-forward of the trunk makes the live state readable from one `git log`, and the pre-push guard makes a promotion a deliberate act that leaves a trace rather than an ordinary push that leaves none.
+
+The prior session's instinct to verify production by query rather than by document was right, and remains the rule. This entry adds the other half: a promotion is not complete until it is written down.
