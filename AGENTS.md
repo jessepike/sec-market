@@ -68,6 +68,8 @@ There are exactly two long-lived branches and each one owns a URL:
 5. **Promotion, and only after the owner says yes:** `git checkout main && git merge --ff-only preview && git push origin main`.
 6. Vercel builds that `main` commit (project `pikeholdings/security-market-pulse`, root `web`) and serves the live domain. Confirm Ready, then curl the live host.
 
+A `pre-push` hook refuses a direct push to `main`. Install it once per clone with `./.githooks/install`; promotion then needs `PROMOTE=1` in front of the push, which makes publishing a deliberate act rather than an ordinary one.
+
 Keeping `main` a fast-forward of `preview` is deliberate. It means production is always an exact earlier state of the trunk, never a parallel history, so "what is live" is answerable by one `git log`.
 
 Do **not**:

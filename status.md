@@ -10,9 +10,9 @@ updated: 2026-08-19
 
 Security Market Pulse is live at https://securitymarketpulse.com and the D-48 Option D landscape is what a visitor now sees. Confirmed by query against the live host on 2026-08-19: HTTP 200, served from the Vercel edge, and the page carries the provenance rail, the four domain postures, What moved this week, Platform pressure and Tracked hypotheses.
 
-One thing is unreconciled. D-48 in `decisions.md` ends with "Do not merge to `main`", and `57d4f5b` merged it to `main` the same day. The publish itself has no recorded owner approval. Either log the approval or treat it as a gate crossing worth naming; do not leave the record as it stands.
+That promotion is now reconciled. The owner confirmed on 2026-08-19 that he approved D-48; the approval had simply never been written down, so for a few hours the live site and the owner's understanding of it disagreed. D-49 recorded it as an unapproved gate crossing and is retracted by D-51.
 
-Local, GitHub `main`, and Vercel deploy from the same GitHub commit (D-31). Future ships go local → GitHub → Vercel only.
+There are two long-lived branches (D-50). `preview` is the trunk and serves a fixed public URL at https://security-market-pulse-git-preview-pikeholdings.vercel.app. `main` is production, serves https://securitymarketpulse.com, and moves only by a fast-forward promotion from `preview` on an explicit owner yes. A pre-push hook refuses a direct push to `main`; promotion requires `PROMOTE=1`. Install per clone with `./.githooks/install`.
 
 ## Project truth
 
@@ -66,6 +66,7 @@ None on the build. The open item is a record problem, not a code problem: D-48 s
 
 | Date | Summary |
 |------|---------|
+| 2026-08-19 | Prod and preview put on a stable footing. Production verified by query to be serving the accepted D-48 landscape. `preview` created as the standing trunk with a fixed public URL; `main` is production and moves only by fast-forward promotion (D-50). Pre-push guard added and proven to fire. Owner confirmed he approved D-48, so D-49 is retracted by D-51: the failure was that the approval was never written down, not that it was missing. |
 | 2026-08-19 | Loop A ran for the first time since the landscape shipped. RoS #257: four product rounds totalling $97.1M, one $2.2B public-markets debt raise held out of the product count, eight M&A deals with one disclosed value, no net-new VC portfolio names. Every figure re-verified against the source directly. Two lead corrections: the Fortinet earnings line omitted the 3.08% day decline, and its 33% billings figure is the print already frozen as evidence C3, not new. Market call frozen. Three merged branches deleted. |
 | 2026-08-19 | CTO verified the D-48 landscape is genuinely serving on production by query, not by doc. Backlog duplicates removed. Open: D-48 says do not merge to `main` and the merge landed with no recorded approval. |
 | 2026-08-19 | Repo health cleanup pushed to `origin/main` (`68b74e9`): landscape merge, CI, doc reorg, edition gate, signals retired. |
