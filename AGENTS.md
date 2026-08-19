@@ -50,19 +50,29 @@ Recurring — public market signals are gathered on a cadence; market calls stay
 
 ## Production deploy (mandatory)
 
-The only allowed path is **local → GitHub → preview branch → owner approval → `main` → Vercel production**.
+The only allowed path is **local → `preview` → owner approval → `main` → Vercel production**.
 
-`main` is production. Pushing to `main` publishes to https://securitymarketpulse.com with no human between the commit and the public site. Treat every push to `main` as a publish decision that belongs to the owner, not to an agent.
+There are exactly two long-lived branches and each one owns a URL:
 
-1. Develop and preview on the OrbStack dev server (`orb run -m dev npm run dev --prefix web`).
-2. Commit a clean tree on a **branch**, never directly on `main`.
-3. `git push origin <branch>`. Vercel builds a preview URL for that branch.
-4. Run the visual review below and send the owner the preview URL plus the before/after screenshots.
-5. Only after the owner says yes: merge to `main` and push.
-6. Vercel builds that `main` commit (project `pikeholdings/security-market-pulse`, root `web`) and serves the live domain.
+| Branch | URL | What it is |
+|---|---|---|
+| `preview` | https://security-market-pulse-git-preview-pikeholdings.vercel.app | The trunk. All work lands here. The URL is stable — bookmark it and refresh. |
+| `main` | https://securitymarketpulse.com | Production. Moves **only** by a deliberate merge from `preview`. |
+
+`main` is production. Pushing to `main` publishes to the public site with no human between the commit and the world, so `main` moves only when the owner says to promote. Every other branch is short-lived and merges into `preview`, not into `main`.
+
+1. Develop against the OrbStack dev server (`orb run -m dev npm run dev --prefix web`).
+2. Commit a clean tree on `preview`, or on a short-lived branch that merges into `preview`. **Never commit directly on `main`.**
+3. `git push origin preview`. Vercel rebuilds the same stable preview URL above.
+4. Run the visual review below and send the owner that URL plus the before/after screenshots.
+5. **Promotion, and only after the owner says yes:** `git checkout main && git merge --ff-only preview && git push origin main`.
+6. Vercel builds that `main` commit (project `pikeholdings/security-market-pulse`, root `web`) and serves the live domain. Confirm Ready, then curl the live host.
+
+Keeping `main` a fast-forward of `preview` is deliberate. It means production is always an exact earlier state of the trunk, never a parallel history, so "what is live" is answerable by one `git log`.
 
 Do **not**:
 
+- commit or push anything directly to `main` — it moves only by promotion from `preview`
 - push to `main` any change that touches `web/` without owner approval of a preview
 - `vercel --prod` / CLI-upload a dirty or uncommitted working tree
 - treat `origin/main` as live until that commit has actually deployed

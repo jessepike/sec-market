@@ -8,7 +8,7 @@
 
 `main` is production. A push to `main` publishes to https://securitymarketpulse.com with nobody between the commit and the public site.
 
-- **Never push a `web/` change to `main`.** Push a branch, get the Vercel preview URL, and ask the owner. Merging to `main` is his call, not yours.
+- **Never commit or push to `main`.** All work lands on `preview`, which serves a stable URL at https://security-market-pulse-git-preview-pikeholdings.vercel.app. Production moves only by promoting `preview` to `main`, and that is the owner's call, not yours.
 - **Render the page and look at it** before you claim anything about how it looks. `node scripts/shot.mjs <url> <prefix>` from `web/` captures full-page images at 1440px and 390px. Compare production against the preview and say what moved.
 - **Never delete a component, CSS rule, or export because static analysis says it is unused.** Prove it with a before/after render.
 - When you report, separate invisible work (SEO, prerendering, bundle size, citations, accessibility) from visible work (layout, type, colour, hierarchy). If nothing visible changed, say that first.
