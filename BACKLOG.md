@@ -109,10 +109,10 @@ Rebuild the front page as a standing landscape reference rather than a single da
 
 **Two tasks, in order:**
 
-1. [landscape-data-spec.md](docs/active/landscape-data-spec.md) — done on `landscape/data`.
-2. [landscape-ui-spec.md](docs/active/landscape-ui-spec.md) — Option D on `landscape/ui`; D-48 one-product pass awaiting owner review.
+1. [landscape-data-spec.md](docs/active/landscape-data-spec.md) — merged to `main`.
+2. [landscape-ui-spec.md](docs/active/landscape-ui-spec.md) — Option D, merged to `main` in `57d4f5b`.
 
-**Preview:** https://security-market-pulse-git-landscape-ui-pikeholdings.vercel.app — public, no Vercel login. Production is unchanged.
+**Live:** https://securitymarketpulse.com. The `landscape/ui`, `landscape/data`, and `edition-dated-postures` branches were merged and deleted on 2026-08-19; their preview URLs no longer resolve.
 
 **Authorization state:** design accepted (D-47), one-product pass accepted (D-48). Merged to `main` and live in production as of 2026-08-19, verified by query against https://securitymarketpulse.com. The publish itself has no recorded owner approval; D-48 ends with "Do not merge to `main`" and the merge landed the same day. Confirm and log it, or treat it as a gate crossing.
 
@@ -120,9 +120,9 @@ Rebuild the front page as a standing landscape reference rather than a single da
 
 ### SEC-014 — Visual design pass on the live site
 
-Option D landscape is the accepted visual pass. One-product preview is on `landscape/ui` (D-48) and waiting on owner review. Not on `main`.
+Option D landscape is the accepted visual pass (D-47, D-48). It is merged and serving on production.
 
-**Status:** public preview ready. Merge only after an explicit owner yes.
+**Status:** shipped. The only open item is the D-48 record described under SEC-013.
 
 ## Completed mapping
 
