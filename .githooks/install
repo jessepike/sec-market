@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Installs this repo's git hooks into .git/hooks/.
+#
+# By copy, not by core.hooksPath: a hook that lives on a branch disappears when
+# you check out a different branch, and the branch it guards is exactly the one
+# you switch to in order to push. .git/hooks/ is branch-independent.
+set -euo pipefail
+root="$(git rev-parse --show-toplevel)"
+cd "$root"
+for hook in .githooks/*; do
+  name="$(basename "$hook")"
+  [ "$name" = "install" ] && continue
+  install -m 755 "$hook" ".git/hooks/$name"
+  echo "installed .git/hooks/$name"
+done

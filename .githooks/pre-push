@@ -5,8 +5,13 @@
 # decision record said "do not merge" and the owner believed nothing had been promoted
 # (D-49). A rule that lives only in a document is not a control. This is the control.
 #
-# Enabled per clone with:  git config core.hooksPath .githooks
+# Install per clone with:  ./.githooks/install
 # Deliberate promotion:    PROMOTE=1 git push origin main
+#
+# Installed by COPY into .git/hooks/, deliberately, not via core.hooksPath.
+# core.hooksPath pointing at a tracked directory looks tidier and is wrong here:
+# the guard then only exists on branches that carry the directory, so checking
+# out main -- the one branch it guards -- removes it. Verified the hard way.
 
 set -euo pipefail
 
