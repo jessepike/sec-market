@@ -57,5 +57,5 @@ The accepted design:
 
 Only `shadow-collection-design-v0.2.md` governs future shadow-process design.
 
-`shadow-collection-design.md` v0.1 is retained as a failed candidate and is not implementation authority.
+[shadow-collection-design.md](../archive/shadow-collection-design.md) v0.1 is retained as a failed candidate and is not implementation authority.
 

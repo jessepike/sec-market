@@ -50,5 +50,5 @@ The accepted specification adds:
 
 Only `shadow-replay-implementation-spec-v0.2.md` governs a future Gate S1 implementation.
 
-`shadow-replay-implementation-spec.md` v0.1 is retained as a failed candidate and is not implementation authority.
+[shadow-replay-implementation-spec.md](../archive/shadow-replay-implementation-spec.md) v0.1 is retained as a failed candidate and is not implementation authority.
 

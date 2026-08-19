@@ -48,7 +48,7 @@ Owner acceptance: “agree. proceed.”
 
 Question: Is the current infrastructure and AI-capex cycle producing a measurable leading signal for increased cybersecurity demand, over what horizon, and which security domains are likely to capture it first?
 
-Episode contract: [market-signal-episode-002.md](docs/active/market-signal-episode-002.md). Production automation remains unauthorized.
+Episode contract: [market-signal-episode-002.md](docs/episodes/002/market-signal-episode-002.md). Production automation remains unauthorized.
 
 **D-10 · 2026-08-15 — Episode 002 decision accepted after independent review (`SEC-MARKET-SIG-002` v0.2).**
 
@@ -289,7 +289,7 @@ Still no scrapers, no auto-publish, no site design in these sessions.
 
 **D-36 · 2026-08-16 — Accept the 2026-08-16 review findings for the Activity rewrite.**
 
-Authority: [review-findings-2026-08-16.md](docs/active/review-findings-2026-08-16.md).
+Authority: [review-findings-2026-08-16.md](docs/archive/review-findings-2026-08-16.md).
 
 The standing rewrite agent may resolve amounts and rewrite the statements. It may not edit `web/`, ship, build an archive, or change domain postures.
 

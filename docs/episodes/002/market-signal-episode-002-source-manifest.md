@@ -359,11 +359,11 @@ This manifest preserves the decision-bearing claims. The exact sparse-panel cell
 SHA-256 before final gate disposition:
 
 ```text
-6fb310d094dc4b61a34fa2e1db49e175a4cfe3b151e504cbd9cca1eb11a76a59  docs/active/market-signal-episode-002.md
-5151fc7efead9d19a75d993348bfe78e2818fe854692b1152bad44d0f1a56fdd  docs/active/market-signal-episode-002-evidence.md
-e2736c464647e612d73f7ef59f79ae95a4aa9280225e75dfb39d2b9850695e45  docs/active/market-signal-episode-002-baseline.md
-e2134c606764ccbde3ef13076f0d23ff48b1b5bb4132ea796b93890cec903760  docs/active/market-signal-episode-002-panel.md
-9c974a021c77c67ab20f7621d3244bed8e80c516af33b3d26f01b49f9872e252  docs/active/market-signal-episode-002-brief.md
+6fb310d094dc4b61a34fa2e1db49e175a4cfe3b151e504cbd9cca1eb11a76a59  docs/episodes/002/market-signal-episode-002.md
+5151fc7efead9d19a75d993348bfe78e2818fe854692b1152bad44d0f1a56fdd  docs/episodes/002/market-signal-episode-002-evidence.md
+e2736c464647e612d73f7ef59f79ae95a4aa9280225e75dfb39d2b9850695e45  docs/episodes/002/market-signal-episode-002-baseline.md
+e2134c606764ccbde3ef13076f0d23ff48b1b5bb4132ea796b93890cec903760  docs/episodes/002/market-signal-episode-002-panel.md
+9c974a021c77c67ab20f7621d3244bed8e80c516af33b3d26f01b49f9872e252  docs/episodes/002/market-signal-episode-002-brief.md
 b2c5abf4c08786b22a5a5d1a8a8a7c986a70cbe91df74488f0531ea91505f3c5  docs/active/intent-reconciliation-2026-08-15.md
 ```
 

@@ -23,7 +23,7 @@ Run `SEC-MARKET-SIG-002` to determine whether infrastructure and AI-capex accele
 
 **Method:** [market-signal-runbook.md](docs/reference/market-signal-runbook.md)
 
-**Contract:** [market-signal-episode-002.md](docs/active/market-signal-episode-002.md)
+**Contract:** [market-signal-episode-002.md](docs/episodes/002/market-signal-episode-002.md)
 
 **Result:** completed and independently reviewed; stable lag remains `NO-CALL`
 

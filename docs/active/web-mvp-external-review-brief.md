@@ -55,7 +55,7 @@ The site is a **frozen edition**, not a live feed.
 | 1 | This brief | Scope, questions, freshness rules |
 | 2 | Local site at `http://localhost:5173/` (hard-refresh) | The actual user experience |
 | 3 | [web-mvp-product-contract.md](web-mvp-product-contract.md) | Accepted MVP outcome and evidence UX |
-| 4 | [market-signal-episode-002-brief.md](market-signal-episode-002-brief.md) | Accepted call and postures |
+| 4 | [market-signal-episode-002-brief.md](../episodes/002/market-signal-episode-002-brief.md) | Accepted call and postures |
 | 5 | Files below | Only if the site and contract disagree |
 
 ### Run locally

@@ -5,7 +5,7 @@
 - **Specification ID:** `SEC-MARKET-SHADOW-S1-SPEC-001`
 - **Version:** `0.2`
 - **Lifecycle state:** `accepted — implementation not authorized`
-- **Supersedes:** `shadow-replay-implementation-spec.md` v0.1 candidate
+- **Supersedes:** [shadow-replay-implementation-spec.md](../archive/shadow-replay-implementation-spec.md) v0.1 candidate
 - **Design:** `SEC-MARKET-SHADOW-001` v0.2
 - **Corpus:** `SEC-MARKET-SHADOW-CORPUS-001` v0.1
 - **Authorization record:** `D-15`

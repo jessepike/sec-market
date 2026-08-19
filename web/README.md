@@ -21,12 +21,7 @@ Open the URL printed by Vite (typically `http://localhost:5173`).
 - **Custom domain:** `securitymarketpulse.com` (www redirects to apex)
 - **Root directory:** `web`
 - **Git:** `jessepike/sec-market` → production on `main`
-
-### Deploy path (only)
-
-Local OrbStack preview → commit on `main` with `jesse@keatingpike.com` → `git push origin main` → Vercel builds that commit.
-
-Do not `vercel --prod` or otherwise CLI-upload a dirty working tree. That is how local, GitHub, and production drifted the first time. Do not commit as `jesse@pikeholdings.co` — Vercel blocks those GitHub deploys. After a push, confirm the deploy is Ready, then curl https://securitymarketpulse.com before calling it shipped.
+- **Deploy contract:** [AGENTS.md](../AGENTS.md) § Production deploy
 
 ## Production build
 
@@ -59,7 +54,7 @@ orb run -m dev npm run verify:panel --prefix web
 
 ## Updating evidence and content
 
-1. **Evidence records** — Edit `src/data/evidence.ts` using only claims from accepted docs in `docs/active/market-signal-episode-002-*.md`. Each record needs: title, organization, dates, canonical URL, excerpt, interpretation, limitations, conflicting IDs, and artifact label.
+1. **Evidence records** — Edit `src/data/evidence.ts` using only claims from accepted docs in `docs/episodes/002/market-signal-episode-002-*.md`. Each record needs: title, organization, dates, canonical URL, excerpt, interpretation, limitations, conflicting IDs, and artifact label.
 2. **Sparse panel raw values** — Edit `src/data/panelRaw.ts` from `SEC-MARKET-SIG-PANEL-002`; run `verify:panel` and update the frozen JSON in `panelIntegrity.ts`.
 3. **Market call, domains, activity, signals** — Edit the typed modules in `src/data/` (`market.ts`, `domains.ts`, `activity.ts`, `signals.ts`). Keep claims aligned with the brief and source manifest. Activity items use `surface: lead | more | background`.
 4. **Metadata** — `src/data/meta.ts` for freeze date and episode version.

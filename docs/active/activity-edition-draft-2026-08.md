@@ -7,7 +7,7 @@
 | **ID** | `SEC-MARKET-ACTIVITY-ED-001` |
 | **Date** | 2026-08-16 |
 | **Status** | shipping — labeled window Jul 6 – Aug 10; refresh when RoS 257+ exists (D-42) |
-| **Authority** | D-36, D-37; [review-findings-2026-08-16.md](review-findings-2026-08-16.md) Part 2 |
+| **Authority** | D-36, D-37; [review-findings-2026-08-16.md](../archive/review-findings-2026-08-16.md) Part 2 |
 | **Window** | **Jul 6 – Aug 10, 2026** (Return on Security Security, Funded #252–#256) |
 | **Ship dependency** | None for first ship (D-42). Refresh against RoS 257+ when it exists. |
 

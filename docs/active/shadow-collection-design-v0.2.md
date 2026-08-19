@@ -5,7 +5,7 @@
 - **Design ID:** `SEC-MARKET-SHADOW-001`
 - **Version:** `0.2`
 - **Lifecycle state:** `accepted — Gate S0 passed`
-- **Supersedes:** `shadow-collection-design.md` v0.1 candidate
+- **Supersedes:** [shadow-collection-design.md](../archive/shadow-collection-design.md) v0.1 candidate
 - **Governing Intent:** `SEC-MARKET-001` v1.0
 - **Eligibility authority:** `SEC-MARKET-RUN-VAL-002`
 - **Replay corpus:** `SEC-MARKET-SHADOW-CORPUS-001` v0.1

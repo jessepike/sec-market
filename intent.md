@@ -140,7 +140,7 @@ Completing agents, a website, reports, or other deliverables alone does not cons
 - **Reconciliation events:** `SEC-MARKET-RECON-001` resolved 2026-08-15; Episode 001 reclassified as thematic, governing intent unchanged
 - **Current operational validation:** `SEC-MARKET-SIG-002` v0.2 completed and independently reviewed; stable infrastructure-to-security lag remains `NO-CALL`
 - **Current MVP delivery:** `SEC-MARKET-WEB-001` — responsive evidence-linked website
-- **Fresh-agent minimum context:** [README.md](README.md), this artifact, [intent-reconciliation-2026-08-15.md](docs/active/intent-reconciliation-2026-08-15.md), the Episode 002 packet in [docs/active/](docs/active/), and [outcome-architecture.md](docs/reference/outcome-architecture.md). Consult historical specifications only for hypotheses and proposed mechanisms.
+- **Fresh-agent minimum context:** [README.md](README.md), this artifact, [intent-reconciliation-2026-08-15.md](docs/active/intent-reconciliation-2026-08-15.md), the Episode 002 packet in [docs/episodes/002/](docs/episodes/002/), and [outcome-architecture.md](docs/reference/outcome-architecture.md). Consult historical specifications only for hypotheses and proposed mechanisms.
 
 ## Revision record
 

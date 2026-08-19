@@ -15,7 +15,7 @@ The MVP consumption surface is now the **Security Market Pulse** website:
 - **Evidence contract:** every material call, chart, and domain posture links to source, excerpt/locator, limitations, conflicting evidence, and research artifacts
 - **Production:** https://securitymarketpulse.com (Vercel alias: https://security-market-pulse.vercel.app)
 - **Custom domain:** `securitymarketpulse.com` (Cloudflare DNS, unproxied CNAME to Vercel)
-- **Deploy path (only):** local OrbStack preview → commit on `main` with GitHub-verified email `jesse@keatingpike.com` → `git push origin main` → Vercel builds that GitHub commit. Project `pikeholdings/security-market-pulse`, repo `jessepike/sec-market`, root `web`. Never CLI-upload a dirty working tree. `jesse@pikeholdings.co` blocks Vercel GitHub deploys.
+- **Deploy contract:** [AGENTS.md](AGENTS.md) § Production deploy
 
 The first completed episode is now classified as a thematic validation episode:
 
@@ -33,10 +33,10 @@ The primary core-signal validation episode is complete:
 
 - **Episode:** `SEC-MARKET-SIG-002` v0.2
 - **Question:** Is the current infrastructure and AI-capex cycle producing a measurable leading signal for increased cybersecurity demand, over what horizon, and which security domains are likely to capture it first?
-- **Contract:** [market-signal-episode-002.md](docs/active/market-signal-episode-002.md)
-- **Evidence:** [market-signal-episode-002-evidence.md](docs/active/market-signal-episode-002-evidence.md)
-- **Baseline and panel:** [market-signal-episode-002-baseline.md](docs/active/market-signal-episode-002-baseline.md), [market-signal-episode-002-panel.md](docs/active/market-signal-episode-002-panel.md)
-- **Accepted brief:** [market-signal-episode-002-brief.md](docs/active/market-signal-episode-002-brief.md)
+- **Contract:** [market-signal-episode-002.md](docs/episodes/002/market-signal-episode-002.md)
+- **Evidence:** [market-signal-episode-002-evidence.md](docs/episodes/002/market-signal-episode-002-evidence.md)
+- **Baseline and panel:** [market-signal-episode-002-baseline.md](docs/episodes/002/market-signal-episode-002-baseline.md), [market-signal-episode-002-panel.md](docs/episodes/002/market-signal-episode-002-panel.md)
+- **Accepted brief:** [market-signal-episode-002-brief.md](docs/episodes/002/market-signal-episode-002-brief.md)
 - **Current gate:** passed
 - **Decision:** infrastructure acceleration is evidenced; a stable infrastructure-to-security lag remains `NO-CALL`; use infrastructure activation as an account qualification trigger, not as proof of a cybersecurity boom
 - **Reconciliation authority:** [intent-reconciliation-2026-08-15.md](docs/active/intent-reconciliation-2026-08-15.md)
@@ -48,13 +48,13 @@ Read in this order:
 1. [intent.md](intent.md) — governing purpose, outcome, beneficiaries, and boundaries
 2. [web-mvp-product-contract.md](docs/active/web-mvp-product-contract.md) — accepted MVP product and evidence UX
 3. [intent-reconciliation-2026-08-15.md](docs/active/intent-reconciliation-2026-08-15.md) — prior downstream correction
-4. [market-signal-episode-002.md](docs/active/market-signal-episode-002.md) — completed primary episode contract
-5. [market-signal-episode-002-change-manifest.md](docs/active/market-signal-episode-002-change-manifest.md) — accepted packet version authority
-6. [market-signal-episode-002-brief.md](docs/active/market-signal-episode-002-brief.md) — accepted timing judgment
-7. [market-signal-episode-002-evidence.md](docs/active/market-signal-episode-002-evidence.md) — frozen evidence
-8. [market-signal-episode-002-baseline.md](docs/active/market-signal-episode-002-baseline.md) — lag disposition and domain sufficiency
-9. [market-signal-episode-002-panel.md](docs/active/market-signal-episode-002-panel.md) — sparse period-end panel
-10. [market-signal-episode-002-source-manifest.md](docs/active/market-signal-episode-002-source-manifest.md) — atomic claim provenance
+4. [market-signal-episode-002.md](docs/episodes/002/market-signal-episode-002.md) — completed primary episode contract
+5. [market-signal-episode-002-change-manifest.md](docs/episodes/002/market-signal-episode-002-change-manifest.md) — accepted packet version authority
+6. [market-signal-episode-002-brief.md](docs/episodes/002/market-signal-episode-002-brief.md) — accepted timing judgment
+7. [market-signal-episode-002-evidence.md](docs/episodes/002/market-signal-episode-002-evidence.md) — frozen evidence
+8. [market-signal-episode-002-baseline.md](docs/episodes/002/market-signal-episode-002-baseline.md) — lag disposition and domain sufficiency
+9. [market-signal-episode-002-panel.md](docs/episodes/002/market-signal-episode-002-panel.md) — sparse period-end panel
+10. [market-signal-episode-002-source-manifest.md](docs/episodes/002/market-signal-episode-002-source-manifest.md) — atomic claim provenance
 11. [outcome-architecture.md](docs/reference/outcome-architecture.md) — minimum causal architecture
 12. [intervention-selection.md](docs/reference/intervention-selection.md) — why the manual decision episode was selected
 13. [market-signal-runbook.md](docs/reference/market-signal-runbook.md) — frozen v0.2 manual method
@@ -93,7 +93,7 @@ Session state: [status.md](status.md) · Work queue: [BACKLOG.md](BACKLOG.md) ·
 
 Stand up the signals job: gather public startup, funding, and M&A events, reason on them, and keep the site current.
 
-Ship site changes only by committing locally, pushing `main`, and letting Vercel deploy that commit. Do not auto-publish a market call without a human check.
+Ship site changes per [AGENTS.md](AGENTS.md) § Production deploy. Do not auto-publish a market call without a human check.
 
 ## Not authorized
 
