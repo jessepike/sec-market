@@ -46,7 +46,7 @@ Local, GitHub `main`, and Vercel deploy from the same GitHub commit (D-31). Futu
 - [x] Edition delta derived from an append-only posture history, not hand-written (D-46)
 - [x] D-48 landscape merged, pushed, and confirmed serving on https://securitymarketpulse.com
 - [x] One-product preview pass: collapse edition stack, fix Cloud chip, drop edition CTA and weekly claim, unprotect preview URLs (D-48)
-- [ ] Loop A: first Tuesday multi-source gather under new ops docs
+- [x] Loop A: first multi-source gather under the new ops docs (RoS #257) — packet at `docs/active/signals-week-2026-08-19.md`, lead reviewed, owner sign-off pending
 - [ ] Refresh Activity when Return on Security publishes a new Security, Funded issue
 - [x] Weekly desk: first real gather + reusable checklist (RoS #256; not published)
 - [x] Domain coverage map: watch list across Pulse domains
@@ -66,6 +66,7 @@ None on the build. The open item is a record problem, not a code problem: D-48 s
 
 | Date | Summary |
 |------|---------|
+| 2026-08-19 | Loop A ran for the first time since the landscape shipped. RoS #257: four product rounds totalling $97.1M, one $2.2B public-markets debt raise held out of the product count, eight M&A deals with one disclosed value, no net-new VC portfolio names. Every figure re-verified against the source directly. Two lead corrections: the Fortinet earnings line omitted the 3.08% day decline, and its 33% billings figure is the print already frozen as evidence C3, not new. Market call frozen. Three merged branches deleted. |
 | 2026-08-19 | CTO verified the D-48 landscape is genuinely serving on production by query, not by doc. Backlog duplicates removed. Open: D-48 says do not merge to `main` and the merge landed with no recorded approval. |
 | 2026-08-19 | Repo health cleanup pushed to `origin/main` (`68b74e9`): landscape merge, CI, doc reorg, edition gate, signals retired. |
 | 2026-08-19 | Repo health cleanup complete: edition integrity gate, orphaned signals retired, branch cleanup. |
