@@ -185,16 +185,6 @@ export interface ContextStat {
   evidenceIds: string[]
 }
 
-export interface MarketSignal {
-  id: string
-  date: string
-  category: 'financial' | 'investment' | 'buyer' | 'regulation' | 'operating' | 'incident'
-  freshness: 'current' | 'background'
-  headline: string
-  detail: string
-  evidenceIds: string[]
-}
-
 export interface WatchItem {
   id: string
   window: string

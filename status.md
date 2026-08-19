@@ -8,7 +8,7 @@ updated: 2026-08-19
 
 ## Current State
 
-Security Market Pulse is live at https://securitymarketpulse.com as the frozen Episode 002 edition. The Option D landscape is on branch `landscape/ui`. The preview is now one product (D-48): landscape through corrections, with Episode 002 and the scorecard collapsed. Preview URL is public. Owner has not merged. Production is unchanged.
+Security Market Pulse is live at https://securitymarketpulse.com as the frozen Episode 002 edition. The Option D landscape is merged locally on `main`. Production is unchanged until `git push origin main`. Verify preview first before pushing.
 
 Local, GitHub `main`, and Vercel are synced by committing the live scorecard tree and deploying that GitHub commit (D-31). Future ships go local → GitHub → Vercel only.
 
@@ -42,7 +42,7 @@ Local, GitHub `main`, and Vercel are synced by committing the live scorecard tre
 - [x] Leadership ops artifacts: funding, M&A, domains, dashboard, brief (D-43)
 - [x] Dated domain postures + edition delta on Tempo (D-45)
 - [x] Edition delta derived from an append-only posture history, not hand-written (D-46)
-- [ ] Owner review of the public `landscape/ui` one-product preview (D-48), then merge
+- [ ] Landscape merged locally; push to `origin/main` deploys production — verify preview first
 - [x] One-product preview pass: collapse edition stack, fix Cloud chip, drop edition CTA and weekly claim, unprotect preview URLs (D-48)
 - [ ] Loop A: first Tuesday multi-source gather under new ops docs
 - [ ] Refresh Activity when Return on Security publishes a new Security, Funded issue
@@ -58,9 +58,7 @@ None blocking the signals job. Feed design (which VC pages, which public-record 
 
 ## Blockers
 
-None for agents. Owner is sharing the public `landscape/ui` preview for feedback. Do not merge or push `main` until an explicit yes.
-
-Local `main` is two IL-classifier commits ahead of `origin/main` (`9a97f3c`, `e63fece`). Those are not web changes. Still do not push `main` — a push publishes.
+None for agents. Local `main` is ahead of `origin/main` with the landscape merge and repo health cleanup. Do not push `origin/main` until owner verifies preview — a push publishes to production.
 
 Use a worktree for any parallel work. Do not assume the branch you checked out is still the branch you are on.
 
@@ -68,6 +66,7 @@ Use a worktree for any parallel work. Do not assume the branch you checked out i
 
 | Date | Summary |
 |------|---------|
+| 2026-08-19 | Repo health cleanup complete: edition integrity gate, orphaned signals retired, branch cleanup. |
 | 2026-08-19 | Repo health cleanup: governance backported to `main` (D-45–D-48). PR #1 closed as superseded by `landscape/ui`. Production unchanged. |
 | 2026-08-19 | Session wrap. D-48 one-product preview is public and ready for feedback. Production unchanged. Do not merge. |
 | 2026-08-15 | ADF v2 scaffolding initialized; governance and episode docs moved to `docs/reference/`; historical specs to `docs/archive/` |

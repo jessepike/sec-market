@@ -148,19 +148,19 @@ Where public cybersecurity M&A actually shows up, and what we can use. Same shap
 
 `web/src/data/signals.ts` (`marketSignals`) and `MarketSignal` in `types.ts` lost their only consumer when `SignalFeed` was removed. Real evidence-linked content — wire into UI or retire with a logged decision.
 
-**Authorization state:** not authorized either way; flagged only.
+**Status:** resolved — retired 2026-08-19. Content superseded by Activity board and landscape what-moved; array removed.
 
 ### SEC-015 — Lock past editions against silent edits
 
 `web/src/data/edition.ts` is append-only by convention. Two build gates check the current edition snapshot, but nothing stops editing a shipped edition snapshot. Extend the `verify-panel.ts` SHA-256 pattern.
 
-**Status:** flagged, not authorized.
+**Status:** partial — `verify-edition.ts` added (locks full editions array hash).
 
 ### SEC-016 — Print cards vs table presentation
 
 Commit `727ce6a` restored vendor print cards on `main`, partially reversing the prints-table conversion. Resolve before the next public share.
 
-**Status:** open question for the owner.
+**Status:** resolved by landscape merge — print cards remain in collapsed scorecard section per D-48.
 
 ### SEC-017 — Weekly refresh loop
 
