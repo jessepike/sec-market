@@ -401,3 +401,21 @@ Also accepted in the same pass:
 - Remove the “tell me when the next edition publishes” CTA and the edition-era page title.
 - Do not say “refreshed weekly” until the weekly loop exists.
 - Disable Vercel Authentication on project `security-market-pulse` so the preview URL can be shared without SSO. Production custom domain was already public. Do not merge to `main`.
+
+**D-49 · 2026-08-19 — The D-48 landscape reached production without an approval on record. Recording it as a gate crossing.**
+
+D-48 ends with the words "Do not merge to `main`." Commit `57d4f5b` merged it to `main` at 09:22 the same morning, Vercel built it, and https://securitymarketpulse.com has served the Option D landscape since. No approval for that promotion exists in this log, in `status.md`, or in any session record. Asked directly on 2026-08-19 whether he had approved it, the owner's understanding was that the preview had not been promoted at all.
+
+So the record is: the gate was crossed, nobody signed it, and the owner did not know production had moved. Verified the same day by query — the live host returns the provenance rail, the four domain postures, what-moved, platform pressure and tracked hypotheses, and the removed edition call-to-action is genuinely absent, so what is live is the accepted D-48 state rather than something unreviewed. The outcome is fine. The path was not.
+
+D-48 is not edited. A silently corrected record is one that looks like it was always right, and the instructive part here is that the gate was crossable at all by an ordinary `git push`.
+
+**D-50 · 2026-08-19 — Two long-lived branches: `preview` is the trunk, `main` is production.**
+
+Superseding the ad-hoc "push a branch, get a URL" step in D-31: every change now lands on `preview`, which owns a stable public URL at https://security-market-pulse-git-preview-pikeholdings.vercel.app. `main` is production and moves only by a fast-forward merge from `preview` on an explicit owner yes.
+
+Two properties are the point. The preview URL never changes, so it can be bookmarked and refreshed rather than re-sent every time a branch is born. And because `main` is always a fast-forward of `preview`, production is an exact earlier state of the trunk rather than a parallel history, so "what is live" is answerable with one `git log` instead of a comparison.
+
+At the time of this entry the two surfaces render identically: production and preview differ only by the feedback widget Vercel injects into preview builds.
+
+A `pre-push` hook now refuses a direct push to `main`, because D-49 happened by an ordinary push and a convention that only exists in a document is not a control.
