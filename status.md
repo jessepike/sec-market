@@ -58,7 +58,7 @@ None blocking the signals job. Feed design (which VC pages, which public-record 
 
 ## Blockers
 
-None for agents. Next move is owner review of `landscape/ui`, or an explicit ask to change it. Do not merge or push `main`.
+None for agents. Owner is sharing the public `landscape/ui` preview for feedback. Do not merge or push `main` until an explicit yes.
 
 Local `main` is two IL-classifier commits ahead of `origin/main` (`9a97f3c`, `e63fece`). Those are not web changes. Still do not push `main` — a push publishes.
 
@@ -68,7 +68,7 @@ Use a worktree for any parallel work. Do not assume the branch you checked out i
 
 | Date | Summary |
 |------|---------|
-| 2026-08-19 | D-48: landscape preview is one product; Cloud chip matches prints; edition CTA and weekly claim removed; Vercel SSO disabled so the preview URL is shareable. Not merged. |
+| 2026-08-19 | Session wrap. D-48 one-product preview is public and ready for feedback. Production unchanged. Do not merge. |
 | 2026-08-15 | ADF v2 scaffolding initialized; governance and episode docs moved to `docs/reference/`; historical specs to `docs/archive/` |
 | 2026-08-15 | Episode 001 (`SEC-MARKET-SIG-001` v0.2) completed; research freeze and independent review passed |
 | 2026-08-15 | Owner reconciliation reclassified Episode 001 as thematic and authorized Episode 002 to test the infrastructure-to-security demand lag thesis |
