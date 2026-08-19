@@ -103,6 +103,29 @@ Turn Pulse from a one-shot research edition into a living cybersecurity market-i
 
 **Not authorized by this work:** auto-publishing a market call without a human check; inventing sources; using confidential ePlus data
 
+### SEC-013 — Landscape page (Option D)
+
+Rebuild the front page as a standing landscape reference rather than a single dated edition. Accepted direction is Option D (D-47).
+
+**Two tasks, in order:**
+
+1. [landscape-data-spec.md](docs/active/landscape-data-spec.md) — done on `landscape/data`.
+2. [landscape-ui-spec.md](docs/active/landscape-ui-spec.md) — Option D on `landscape/ui`; D-48 one-product pass awaiting owner review.
+
+**Preview:** https://security-market-pulse-git-landscape-ui-pikeholdings.vercel.app — public, no Vercel login. Production is unchanged.
+
+**Authorization state:** design accepted (D-47). One-product preview accepted to iterate (D-48). Not merged. Merge to `main` only after an explicit owner yes.
+
+**Not authorized by this work:** the weekly collection loop, new sources, auto-publishing, any change to the published market call or Episode 002 tags.
+
+### SEC-014 — Visual design pass on the live site
+
+Option D landscape is the accepted visual pass. One-product preview is on `landscape/ui` (D-48) and waiting on owner review. Not on `main`.
+
+**Status:** public preview ready. Merge only after an explicit owner yes.
+
+## Completed mapping
+
 ### SEC-010 — Durable signals operation (map only)
 
 How weekly gather → synthesize → human check → post works so this is not a one-off.
@@ -113,26 +136,37 @@ How weekly gather → synthesize → human check → post works so this is not a
 
 ### SEC-011 — M&A source catalog (map only)
 
-Where public cybersecurity M&A actually shows up, and what we can use. Same shape as the startup catalog. No collection week until the catalog is reviewed.
+Where public cybersecurity M&A actually shows up, and what we can use. Same shape as the startup catalog.
 
 **Output:** `docs/active/ma-source-catalog.md`
 
 **Authorization state:** research authorized (D-33). Collection not authorized.
 
-### SEC-012 — Orphaned signals data (map only, no deletion authorized)
+## Flagged (not authorized)
 
-`web/src/data/signals.ts` (the `marketSignals` array) and the `MarketSignal`
-type in `web/src/data/types.ts` lost their only consumer when the unused
-`SignalFeed` component was deleted during the 2026-08 hardening pass. The
-data itself is real evidence-linked content (headlines, dates, evidence
-IDs), not scaffolding, so it was left in place rather than deleted — that
-call belongs to whoever decides whether this content should be surfaced
-somewhere on the page or formally retired.
+### SEC-012 — Orphaned signals data
 
-**Output:** a decision — either wire `marketSignals` into a live section, or
-remove the array/type as dead content.
+`web/src/data/signals.ts` (`marketSignals`) and `MarketSignal` in `types.ts` lost their only consumer when `SignalFeed` was removed. Real evidence-linked content — wire into UI or retire with a logged decision.
 
 **Authorization state:** not authorized either way; flagged only.
+
+### SEC-015 — Lock past editions against silent edits
+
+`web/src/data/edition.ts` is append-only by convention. Two build gates check the current edition snapshot, but nothing stops editing a shipped edition snapshot. Extend the `verify-panel.ts` SHA-256 pattern.
+
+**Status:** flagged, not authorized.
+
+### SEC-016 — Print cards vs table presentation
+
+Commit `727ce6a` restored vendor print cards on `main`, partially reversing the prints-table conversion. Resolve before the next public share.
+
+**Status:** open question for the owner.
+
+### SEC-017 — Weekly refresh loop
+
+Make the tracked layer actually refresh weekly. Separate from SEC-013 on purpose.
+
+**Authorization state:** not authorized. Scope not yet written.
 
 ### SEC-008 — Account conversation prompts
 

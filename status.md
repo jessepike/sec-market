@@ -1,14 +1,14 @@
 ---
 project: Security Market Signal Pipeline
 stage: Operate
-updated: 2026-08-16
+updated: 2026-08-19
 ---
 
 # Status
 
 ## Current State
 
-Security Market Pulse is live at https://securitymarketpulse.com. Owner has already reviewed it. The site currently shows one frozen research edition (Episode 002). That is not enough. The product job is now recurring cybersecurity market intelligence: what changed, what it means, and what new startups, funding, and M&A belong on the page.
+Security Market Pulse is live at https://securitymarketpulse.com as the frozen Episode 002 edition. The Option D landscape is on branch `landscape/ui`. The preview is now one product (D-48): landscape through corrections, with Episode 002 and the scorecard collapsed. Preview URL is public. Owner has not merged. Production is unchanged.
 
 Local, GitHub `main`, and Vercel are synced by committing the live scorecard tree and deploying that GitHub commit (D-31). Future ships go local → GitHub → Vercel only.
 
@@ -40,6 +40,10 @@ Local, GitHub `main`, and Vercel are synced by committing the live scorecard tre
 - [x] Ship ungated slice to `main` `67b53ff` (judgment + prints + table + Avoid) — live
 - [x] SEC-009 execution plan written (D-41) — this is the steering page
 - [x] Leadership ops artifacts: funding, M&A, domains, dashboard, brief (D-43)
+- [x] Dated domain postures + edition delta on Tempo (D-45)
+- [x] Edition delta derived from an append-only posture history, not hand-written (D-46)
+- [ ] Owner review of the public `landscape/ui` one-product preview (D-48), then merge
+- [x] One-product preview pass: collapse edition stack, fix Cloud chip, drop edition CTA and weekly claim, unprotect preview URLs (D-48)
 - [ ] Loop A: first Tuesday multi-source gather under new ops docs
 - [ ] Refresh Activity when Return on Security publishes a new Security, Funded issue
 - [x] Weekly desk: first real gather + reusable checklist (RoS #256; not published)
@@ -54,12 +58,18 @@ None blocking the signals job. Feed design (which VC pages, which public-record 
 
 ## Blockers
 
-None. Local, GitHub, and Vercel are in sync. This session owns all remaining work.
+None for agents. Owner is sharing the public `landscape/ui` preview for feedback. Do not merge or push `main` until an explicit yes.
+
+Local `main` is two IL-classifier commits ahead of `origin/main` (`9a97f3c`, `e63fece`). Those are not web changes. Still do not push `main` — a push publishes.
+
+Use a worktree for any parallel work. Do not assume the branch you checked out is still the branch you are on.
 
 ## Session Log
 
 | Date | Summary |
 |------|---------|
+| 2026-08-19 | Repo health cleanup: governance backported to `main` (D-45–D-48). PR #1 closed as superseded by `landscape/ui`. Production unchanged. |
+| 2026-08-19 | Session wrap. D-48 one-product preview is public and ready for feedback. Production unchanged. Do not merge. |
 | 2026-08-15 | ADF v2 scaffolding initialized; governance and episode docs moved to `docs/reference/`; historical specs to `docs/archive/` |
 | 2026-08-15 | Episode 001 (`SEC-MARKET-SIG-001` v0.2) completed; research freeze and independent review passed |
 | 2026-08-15 | Owner reconciliation reclassified Episode 001 as thematic and authorized Episode 002 to test the infrastructure-to-security demand lag thesis |
@@ -76,3 +86,9 @@ None. Local, GitHub, and Vercel are in sync. This session owns all remaining wor
 | 2026-08-16 | Three-copy sync closed. `main` `8b35e45` is live on Vercel via GitHub. Commit email must be `jesse@keatingpike.com` (D-31, D-32). |
 | 2026-08-16 | Pulse sync session wrapped. Comparison shots deleted. Deploy path and email trap recorded in AGENTS.md and KB. |
 | 2026-08-16 | D-40: shipped prints table, five vendor rows, judgment layer, Avoid-line (`67b53ff`). Activity edition held for RoS 257+. |
+| 2026-08-17 | D-45: dated domain postures, horizons, producing evidence, and edition-to-edition delta on Tempo. Market call unchanged. |
+| 2026-08-17 | Overnight launch hardening merged and live: prerendering, discoverability, bundle split, 11 citation repairs, mobile scroll fix. All invisible to a reader. Owner stopped the autonomous loop; it is cancelled and must not be resumed. |
+| 2026-08-17 | Deploy contract changed: `web/` changes go branch → Vercel preview → owner approval → `main`. New mandatory visual review at 1440px and 390px, and a ban on deleting components on static analysis alone (AGENTS.md, CLAUDE.md, `web/scripts/shot.mjs`). |
+| 2026-08-17 | D-46: edition delta rebuilt on an append-only posture history with two fail-closed build gates. Duplicate change line removed; mobile Tempo overflow fixed. On branch `edition-dated-postures`, awaiting owner review. |
+| 2026-08-17 | Landscape UI (Task 2) on branch `landscape/ui`: provenance rail, four domain cards, what-moved, platform pressure, hypotheses, corrections. Not merged. |
+| 2026-08-18 | Session wrap. Owner is holding the `landscape/ui` preview. Repo left clean. No P0 implementation work remains. |
