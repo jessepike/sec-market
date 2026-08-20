@@ -67,6 +67,21 @@ export const evidenceRecords: EvidenceRecord[] = [
     interpretation: 'Cloud and AI networking broadened the supplier cycle.',
     limitations: 'Total revenue is not an AI-only series.',
     conflictingEvidenceIds: [],
+    sourceAttributions: [
+      {
+        organization: 'Arista Networks',
+        publicationDate: '2026-08-04',
+        economicPeriod: 'Quarter ended 2026-06-30',
+        canonicalUrl:
+          'https://investors.arista.com/Communications/Press-Releases-and-Events/Press-Release-Detail/2026/Arista-Networks-Inc--Reports-Second-Quarter-2026-Financial-Results/default.aspx',
+      },
+      {
+        organization: 'Arista Networks',
+        publicationDate: '2023-05-01',
+        economicPeriod: 'Quarter ended 2023-03-31',
+        canonicalUrl: 'https://www.arista.com/en/company/news/press-release/17252-pr-20230501',
+      },
+    ],
     artifactLabel: 'SEC-MARKET-SIG-SRC-002 / A3',
     tags: ['infrastructure', 'supplier', 'networking'],
   },
@@ -101,6 +116,22 @@ export const evidenceRecords: EvidenceRecord[] = [
     interpretation: 'Physical support infrastructure inflected after compute and server demand.',
     limitations: 'Quarterly order disclosure later changed; backlog is not deployed capacity.',
     conflictingEvidenceIds: [],
+    sourceAttributions: [
+      {
+        organization: 'Vertiv',
+        publicationDate: '2026-07-29',
+        economicPeriod: 'Quarter ended 2026-06-30',
+        canonicalUrl:
+          'https://www.sec.gov/Archives/edgar/data/1674101/000162828026050323/q22026exhibit991vrt07292026.htm',
+      },
+      {
+        organization: 'Vertiv',
+        publicationDate: '2026-02-11',
+        economicPeriod: 'Quarter ended 2025-12-31',
+        canonicalUrl:
+          'https://www.sec.gov/Archives/edgar/data/1674101/000167410126000006/exhibit991vrt02112026.htm',
+      },
+    ],
     artifactLabel: 'SEC-MARKET-SIG-SRC-002 / A5',
     tags: ['infrastructure', 'supplier', 'power-thermal'],
   },
@@ -136,6 +167,21 @@ export const evidenceRecords: EvidenceRecord[] = [
     limitations:
       'Finance-to-operating-lease reclassification changes reported capex without equivalent reduction in build intent.',
     conflictingEvidenceIds: [],
+    sourceAttributions: [
+      {
+        organization: 'Microsoft',
+        publicationDate: '2026-07-29',
+        economicPeriod: 'Quarter ended 2026-06-30',
+        canonicalUrl:
+          'https://www.microsoft.com/en-us/Investor/earnings/FY-2026-Q4/press-release-webcast',
+      },
+      {
+        organization: 'Microsoft',
+        publicationDate: '2026-07-29',
+        economicPeriod: 'FY2026 Q4 earnings call',
+        canonicalUrl: 'https://aka.ms/transcriptfy26q4',
+      },
+    ],
     artifactLabel: 'SEC-MARKET-SIG-SRC-002 / B1',
     tags: ['hyperscaler', 'capex'],
   },

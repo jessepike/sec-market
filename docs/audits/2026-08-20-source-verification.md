@@ -4,6 +4,47 @@
 **Run by:** CPO, six parallel verification agents (pass one), three recovery agents (pass two)
 **Status of this document:** append-only historical record. Do not edit a past run; add a new dated file.
 
+## Correction — this sweep overstated the defect
+
+**Read this before the sections above.** The sweep fed its agents only each record's top-level
+`canonicalUrl`. The schema also has a `sourceAttributions` array carrying a per-source
+`canonicalUrl`, it is rendered by `EvidenceDrawer.tsx`, and seven records already use it correctly.
+Agents therefore reported claims as unsourced when their source was sitting in a field they had
+never been shown.
+
+Five of the eleven flagged records were **already correctly cited** and are not defects: B3
+(Alphabet's capex commentary attributes the Q2 2026 earnings-call transcript), D7 (the Wiz claim
+attributes the exact Wiz DeepSeek post an agent later went and "found"), D10 (the March 2026 launch
+attributes its own PR Newswire release), D11 (the earnings call attributes `aka.ms/transcriptfy26q4`),
+and D12 (Ping, BeyondTrust and Delinea each attributed). D9 likewise.
+
+**The real defect is six records, roughly eight percent of the corpus**, not eleven at fifteen
+percent:
+
+| id | Status | Second claim needing a source |
+|---|---|---|
+| A3 | Fixed 2026-08-20 | Q1 2023 revenue comparison — now attributes Arista's 2023-05-01 release |
+| A5 | Fixed 2026-08-20 | Orders, book-to-bill, backlog — now attributes Vertiv's Q4 2025 exhibit |
+| B1 | Fixed 2026-08-20 | "Demand exceeds available capacity" — now attributes the FY26 Q4 call |
+| C2 | Open | Palo Alto growth excluding acquisitions (~14% / 28% / 22%) |
+| C7 | Open | Okta dollar-based net retention 107% |
+| D6 | Open, partial | SEC and EIOPA/DORA are attributed; **Marsh is not** |
+
+The three fixed records were repaired using primary sources independently located and quoted
+verbatim, not by deleting the claim or rewording it to match the page.
+
+**This error is the same class as the one recorded under "Method note" below.** There, a grep
+searched a corpus containing its own definitions file and reported full coverage. Here, a
+verification scoped itself to one field when the data used two. Both are a check that could only
+return the answer it returned. Scope a verification against the schema, not against the subset of
+it you happened to extract.
+
+**The durable fix is a gate, not a data pass.** `verify:integrity` should fail the build when a
+record's excerpt spans more than one organization or economic period and the record carries no
+`sourceAttributions`. Every one of the six defects would have been caught at authoring time. That
+check is owed and not yet built.
+
+
 ## Why this run happened
 
 The owner set the standard on 2026-08-19: everything the site shows must be accurate, current,
@@ -103,10 +144,9 @@ identified.
 D6 was suspected structurally in pass one and is now confirmed: two of its three source
 organizations are wholly absent from the only URL it cites.
 
-**The defect class now covers eleven records, roughly fifteen percent of the corpus.** Eight are
-confirmed drift; three more (D12, D10, D11) are the same shape, milder or already self-disclosed.
-Every single one is a claim assembled from more than one document and filed under a single link.
-Not one is a wrong number.
+**Superseded by the Correction section at the top of this document.** The count stated here
+(eleven records) was wrong: it treated correctly-attributed records as defects because the agents
+were only shown the top-level `canonicalUrl`. The true figure is six. Still not one wrong number.
 
 
 ## Link integrity

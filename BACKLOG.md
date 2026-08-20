@@ -235,27 +235,40 @@ excerpt actually on that page, and is there any sign the page was corrected or r
 [docs/audits/2026-08-20-source-verification.md](docs/audits/2026-08-20-source-verification.md).
 
 **No figure on the site contradicts its source.** Every drift is a missing source rather than a
-wrong number, and all of them share one cause: an excerpt synthesized from several documents while
-the record carries only one `canonicalUrl`, so the extra claims lose their provenance silently.
+wrong number.
 
-Drift records needing a source, not an edit — A3 Arista (the $1.351B 2023-03-31 comparison), A5
-Vertiv (orders +252%, book-to-bill 2.9x, backlog $15.0B), B1 Microsoft ("customer demand continues
-to exceed available capacity"), D7 Mandiant/Wiz (the Wiz/ClickHouse/DeepSeek half). Same shape,
-milder or self-disclosed: D12, D6, D10, D11. Do not resolve any of these by deleting the claim or
-rewording it to match the page — the facts appear real and published elsewhere.
+**The sweep initially overstated the defect and was corrected the same day.** Agents were fed only
+each record's top-level `canonicalUrl`, but the schema also carries a `sourceAttributions` array
+with a per-source `canonicalUrl` that `EvidenceDrawer.tsx` already renders and seven records already
+use. Five records reported as drift (B3, D7, D10, D11, D12) were correctly cited all along. The real
+defect is six records, not eleven.
 
-Also open from pass one: D21 Hush Security's stored URL redirects off-domain to prnewswire.com;
-stored publication dates disagree with page bylines on D2 and D29; C23, D16 and C18 show
-post-publication edits; D4 is a "first look" with a fuller study likely available.
+**Fixed 2026-08-20** — `sourceAttributions` added, each URL independently located and quoted
+verbatim from the primary document before use:
 
-**Owner decision owed — the data model.** One record holds one URL, but several excerpts carry
-claims from more than one document. Two ways out: add a supporting-sources array, or split
-multi-source records so each one cites exactly the document that proves it. Splitting is more
-faithful to "one record, one source" but changes ids, which ripple through every `evidenceIds`
-array in the app. Recommend splitting despite the churn, because an array of URLs invites the same
-defect back — nothing would tie a specific clause to a specific link.
+- A3 Arista: the $1.351B comparison now attributes Arista's 2023-05-01 Q1 2023 release.
+- A5 Vertiv: orders +252%, book-to-bill 2.9x, backlog $15.0B now attribute the Q4 2025 exhibit
+  (2026-02-11), which states them verbatim.
+- B1 Microsoft: "Customer demand continues to exceed available capacity" now attributes the FY26 Q4
+  earnings call, which is where the CFO said it, using the same `aka.ms/transcriptfy26q4` link D11
+  already uses for that document.
 
-**Pass two running:** re-fetching the 23 unverifiable records with the method that worked (SEC.gov's
+**Open — still needs a source, hunt dispatched:**
+
+- C2 Palo Alto: growth excluding CyberArk and Chronosphere (~14% revenue, 28% NGS ARR, 22% RPO). Not
+  in the press release; likely the call or the investor supplement.
+- C7 Okta: dollar-based net retention 107%. The word "retention" appears zero times in the cited
+  exhibit.
+- D6: SEC and EIOPA/DORA are properly attributed; the **Marsh** cyber-insurance claim has no
+  attribution at all.
+
+**Owed and not built — the durable fix.** `verify:integrity` should fail the build when a record's
+excerpt spans more than one organization or economic period and the record carries no
+`sourceAttributions`. All six defects would have been caught at authoring time. This replaces the
+earlier data-model recommendation: no schema change is needed, because the field already exists and
+already renders. It is not being enforced.
+
+**Pass two running:** re-fetching the remaining 12 unverifiable records with the method that worked (SEC.gov's
 documented identified-User-Agent policy, `pdftotext` on PDFs, browser user agent on IR hosts) and
 hunting the real primary source for each of the four drift claims.
 

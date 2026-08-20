@@ -5,12 +5,12 @@ cross-project patterns to the knowledge base and drop them from here.
 
 ## 2026-08-20
 
-- A verification tool's account of what it fetched is not proof it fetched the right document. One fetch returned a Check Point earnings PDF in place of the requested IANS report; it surfaced only because the agent read the downloaded bytes instead of the tool's summary. Any unattended pipeline that trusts the summary can verify a claim against the wrong document and report a pass.
-- Never let the search corpus contain the thing being searched for. A grep run from `data/` matching evidence ids against `..` included `evidence.ts` itself, so every id matched its own definition and the check reported full coverage. Five records were actually orphaned.
-- A gate that returns nothing is not a gate that passed. A perturbation test produced no verdict because the edit broke the file's syntax and the script died before the assertion ran. Empty must fail loudly, or an unproven gate ships looking proven.
-- HTTP 403 from SEC.gov is a published access policy, not a dead link. SEC asks automated requesters to declare an identifying User-Agent; doing so returns 200. Roughly half of a curl-based link check was false failures — 25 bot-blocks and 9 identical HTTP/2 errors across unrelated hosts, all healthy in a real browser.
-- Server-rendered comment markers split text nodes, so a string-presence check against rendered HTML gives a false absent. `four<!-- --> <!-- -->domains` does not match `four domains`. Strip the markers before asserting.
-- Every drift found in a 71-source sweep was a missing source, never a wrong number. One `canonicalUrl` per record cannot carry an excerpt synthesized from several sources, so the extra claims silently lose their provenance. A schema limit surfaces as an accuracy defect.
+- [promoted:kb:4d7e316f:2026-08-20] A verification tool's account of what it fetched is not proof it fetched the right document. One fetch returned a Check Point earnings PDF in place of the requested IANS report; it surfaced only because the agent read the downloaded bytes instead of the tool's summary. Any unattended pipeline that trusts the summary can verify a claim against the wrong document and report a pass.
+- [promoted:kb:0af2d678:2026-08-20] Never let the search corpus contain the thing being searched for. A grep run from `data/` matching evidence ids against `..` included `evidence.ts` itself, so every id matched its own definition and the check reported full coverage. Five records were actually orphaned.
+- [promoted:kb:80b4d1bd:2026-08-20] A gate that returns nothing is not a gate that passed. A perturbation test produced no verdict because the edit broke the file's syntax and the script died before the assertion ran. Empty must fail loudly, or an unproven gate ships looking proven.
+- [promoted:kb:dfe234cc:2026-08-20] HTTP 403 from SEC.gov is a published access policy, not a dead link. SEC asks automated requesters to declare an identifying User-Agent; doing so returns 200. Roughly half of a curl-based link check was false failures — 25 bot-blocks and 9 identical HTTP/2 errors across unrelated hosts, all healthy in a real browser.
+- [promoted:kb:346eba72:2026-08-20] Server-rendered comment markers split text nodes, so a string-presence check against rendered HTML gives a false absent. `four<!-- --> <!-- -->domains` does not match `four domains`. Strip the markers before asserting.
+- [promoted:kb:e9f33563:2026-08-20] Every drift found in a 71-source sweep was a missing source, never a wrong number. One `canonicalUrl` per record cannot carry an excerpt synthesized from several sources, so the extra claims silently lose their provenance. A schema limit surfaces as an accuracy defect.
 
 ## 2026-08-19
 
