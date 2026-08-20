@@ -228,6 +228,35 @@ The owner's standard is 100% certainty that everything shown is accurate, curren
 - `print-varonis` sources its "headline 52%" from evidence C8b's `limitations` field rather than its excerpt; `print-secuvy` and `act-secuvy` source the "Seed" label from a structured attribution field, not the excerpt. Defensible, but both should be confirmed against the primary release during the source sweep.
 - Latent, not currently visible: `trackedPrintEvidenceIds()` resolves print-line tokens by prefix, and `print-crwd-cloud` precedes `print-crwd` in the array, so a bare "CrowdStrike" token would silently bind to the Falcon Cloud segment (C13) rather than total ending ARR (C1). The SecOps print line now contains exactly that token. It does not fire today because SecOps is not a landscape card — but promoting SecOps is under active consideration and would mis-cite on the first render. Fix the resolver before any promotion.
 
-**Not yet run — the expensive half:** verifying each of the 71 canonical sources against what the page actually says, confirming every link resolves, and checking whether any print has been superseded. Curl cannot do this — 36 of 71 URLs return blocks or protocol errors that are not real failures, confirmed by pulling C3 into a browser and finding it healthy with figures matching exactly. Needs page-fetching agents.
+**Source sweep pass one complete 2026-08-20.** All 71 canonical sources checked by six parallel
+agents on three questions each: does the link resolve, is every figure and clause in the stored
+excerpt actually on that page, and is there any sign the page was corrected or restated. Results:
+39 exact, 5 close, 4 drift, 23 unverifiable (recounted from per-record rows; one agent's own summary line miscounted its table). Full record at
+[docs/audits/2026-08-20-source-verification.md](docs/audits/2026-08-20-source-verification.md).
+
+**No figure on the site contradicts its source.** Every drift is a missing source rather than a
+wrong number, and all of them share one cause: an excerpt synthesized from several documents while
+the record carries only one `canonicalUrl`, so the extra claims lose their provenance silently.
+
+Drift records needing a source, not an edit — A3 Arista (the $1.351B 2023-03-31 comparison), A5
+Vertiv (orders +252%, book-to-bill 2.9x, backlog $15.0B), B1 Microsoft ("customer demand continues
+to exceed available capacity"), D7 Mandiant/Wiz (the Wiz/ClickHouse/DeepSeek half). Same shape,
+milder or self-disclosed: D12, D6, D10, D11. Do not resolve any of these by deleting the claim or
+rewording it to match the page — the facts appear real and published elsewhere.
+
+Also open from pass one: D21 Hush Security's stored URL redirects off-domain to prnewswire.com;
+stored publication dates disagree with page bylines on D2 and D29; C23, D16 and C18 show
+post-publication edits; D4 is a "first look" with a fuller study likely available.
+
+**Owner decision owed — the data model.** One record holds one URL, but several excerpts carry
+claims from more than one document. Two ways out: add a supporting-sources array, or split
+multi-source records so each one cites exactly the document that proves it. Splitting is more
+faithful to "one record, one source" but changes ids, which ripple through every `evidenceIds`
+array in the app. Recommend splitting despite the churn, because an array of URLs invites the same
+defect back — nothing would tie a specific clause to a specific link.
+
+**Pass two running:** re-fetching the 23 unverifiable records with the method that worked (SEC.gov's
+documented identified-User-Agent policy, `pdftotext` on PDFs, browser user agent on IR hosts) and
+hunting the real primary source for each of the four drift claims.
 
 **Authorization state:** authorized by the owner 2026-08-20. Fixes above already applied; the source sweep is scoped and awaiting a go on full versus partial.
