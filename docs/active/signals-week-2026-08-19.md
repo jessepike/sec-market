@@ -1,6 +1,6 @@
 # Signals week packet — 2026-08-19
 
-Second weekly desk run (one day late — due Tue 2026-08-18, run Wed 2026-08-19). **Not for publication** until lead signs read + headlines.
+Second weekly desk run (one day late — due Tue 2026-08-18, run Wed 2026-08-19). **Signed by the owner 2026-08-20.** Publication is still blocked on primary sourcing — see Owner sign-off below.
 
 ---
 
@@ -13,7 +13,7 @@ Second weekly desk run (one day late — due Tue 2026-08-18, run Wed 2026-08-19)
 | **RoS URL** | https://www.returnonsecurity.com/p/security-funded-257 |
 | **RoS publish date** | 2026-08-17 |
 | **Window covered** | Week of **2026-08-10** (per RoS intro) |
-| **Status** | `desk-run — lead reviewed 2026-08-19; owner sign-off pending` |
+| **Status** | `owner-signed 2026-08-20 — read, headlines, heat chips and frozen market call all approved; headline order amended (see below). Not yet published.` |
 | **Collector** | sec-market weekly desk |
 | **Collected at** | 2026-08-19 |
 | **Newer issue check** | Homepage confirmed #257 as latest "Security, Funded" post; direct fetch of `/p/security-funded-258` returned **404 Not Found** — #257 is current as of this gather |
@@ -177,4 +177,18 @@ The one item in this packet that *looks* like macro evidence — Fortinet's 33% 
 - [x] Conflicts and thin-count flagged; market call unchanged pending checker
 - [x] No code; no `web/` edits
 
-**Next:** Lead human checker — sign or reject read + headlines; poster handoff only if approved later.
+**Next:** primary-source retrieval before any publish. See Owner sign-off.
+
+---
+
+## Owner sign-off — 2026-08-20
+
+Jesse approved the section read, the five headlines, the three heat chips, and the recommendation that the published market call stays frozen.
+
+**One amendment applied to the headline order.** Cloudflare's $2.2B post-IPO debt raise moves out of the number-one slot and becomes a context line; **Corma's $60M seed becomes headline one** as the largest actual venture round in the window. A non-venture debt raise at the top of a security-funding list reads as market heat regardless of how it is captioned, which is the misreading this packet already warns about two sections earlier. The neutral call and the analytically correct call agree here. Recorded as an amendment rather than folded in silently, so if the owner meant to approve the original ordering he can say so and it reverts.
+
+Revised order: 1. Corma $60M Seed · 2. Datavault AI acquires CyberCatch $94.5M · 3. Mindgard $30M Series A · 4. Cytix $7M Series A · 5. Cloudflare $2.2B post-IPO debt, explicitly flagged as public-markets debt and not a startup round.
+
+**Publication remains blocked, and not on judgment.** The Activity board's sourcing standard is the company's own announcement as the evidence record, with Return on Security used only as a corroborating cross-check inside the excerpt — the Zenity row (`act-zenity` / evidence `D19`) is the worked example, and it explicitly reconciles the company announcement against the RoS figure. This packet carries only the RoS URL. Before any row reaches `activity.ts`, primary announcements are needed for Corma, Mindgard, Cytix, AlpacaX and the Datavault AI / CyberCatch transaction.
+
+**Cloudflare, for the record.** It stays on the public site on merit — it carries a public +36% revenue print in the network and edge group on the same basis as Fortinet and Zscaler. Partner-specific depth was routed to the ePlus cockpit as a P1 on 2026-08-20 and does not belong on this surface.
