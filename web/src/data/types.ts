@@ -22,9 +22,8 @@ export type Momentum = 'accelerating' | 'stable-positive' | 'stable-to-decelerat
  * Who is accountable for a claim.
  * 'tracked'  — mechanically refreshed from a public source. No judgment applied.
  * 'judged'   — a person set this, on a date, at a stated confidence.
- * 'unsourced'— surfaced by collection but not yet tied to an evidence record.
  */
-export type ProvenanceLayer = 'tracked' | 'judged' | 'unsourced'
+export type ProvenanceLayer = 'tracked' | 'judged'
 
 export interface TrackedClaim {
   layer: 'tracked'
@@ -39,13 +38,7 @@ export interface JudgedClaim {
   evidenceIds: string[]
 }
 
-export interface UnsourcedClaim {
-  layer: 'unsourced'
-  surfacedOn: string
-  reason: string
-}
-
-export type Provenance = TrackedClaim | JudgedClaim | UnsourcedClaim
+export type Provenance = TrackedClaim | JudgedClaim
 
 export type VendorPosition = 'platform' | 'incumbent' | 'challenger' | 'early' | 'absorbed'
 

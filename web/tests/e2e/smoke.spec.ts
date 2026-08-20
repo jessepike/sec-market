@@ -12,7 +12,6 @@ test('renders the market briefing without runtime errors', async ({ page }) => {
   await expect(page.getByText('refreshed weekly')).toHaveCount(0)
   await expect(page.getByText('Tell me when the next edition publishes')).toHaveCount(0)
   await expect(page.getByText('TRACKED', { exact: false }).first()).toBeVisible()
-  await expect(page.getByText('NEEDS A SOURCE')).toBeVisible()
   await expect(page.getByRole('heading', { name: 'What moved this week' })).toBeVisible()
   await expect(page.getByRole('heading', { name: 'Tracked hypotheses' })).toBeVisible()
   await expect(page.getByText('NO-CALL', { exact: true }).first()).toBeVisible()
