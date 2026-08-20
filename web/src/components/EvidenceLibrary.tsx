@@ -4,16 +4,9 @@ import { evidenceRecords } from '../data/evidence'
 import type { SourceClass } from '../data/types'
 import { useEvidence } from '../context/useEvidence'
 
-const ALL_CLASSES: SourceClass[] = [
-  'FILING',
-  'IR',
-  'TRANSCRIPT',
-  'OFFICIAL',
-  'INDEPENDENT',
-  'OWN_ANALYSIS',
-  'VENDOR-SURVEY',
-  'VENDOR-RESEARCH',
-]
+const PRESENT_CLASSES: SourceClass[] = [
+  ...new Set(evidenceRecords.map((record) => record.sourceClass)),
+].sort()
 
 export function EvidenceLibrary() {
   const { openEvidence } = useEvidence()
@@ -66,7 +59,7 @@ export function EvidenceLibrary() {
             onChange={(e) => setClassFilter(e.target.value as SourceClass | 'ALL')}
           >
             <option value="ALL">All classes</option>
-            {ALL_CLASSES.map((cls) => (
+            {PRESENT_CLASSES.map((cls) => (
               <option key={cls} value={cls}>
                 {cls}
               </option>
