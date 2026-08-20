@@ -114,7 +114,7 @@ Rebuild the front page as a standing landscape reference rather than a single da
 
 **Live:** https://securitymarketpulse.com. The `landscape/ui`, `landscape/data`, and `edition-dated-postures` branches were merged and deleted on 2026-08-19; their preview URLs no longer resolve.
 
-**Authorization state:** design accepted (D-47), one-product pass accepted (D-48). Merged to `main` and live in production as of 2026-08-19, verified by query against https://securitymarketpulse.com. The publish itself has no recorded owner approval; D-48 ends with "Do not merge to `main`" and the merge landed the same day. Confirm and log it, or treat it as a gate crossing.
+**Authorization state:** design accepted (D-47), one-product pass accepted (D-48), promotion to production approved by the owner and reconciled on 2026-08-19 (D-51 retracts D-49). Merged to `main` and live, verified by query against https://securitymarketpulse.com. Closed.
 
 **Not authorized by this work:** the weekly collection loop, new sources, auto-publishing, any change to the published market call or Episode 002 tags.
 
@@ -122,7 +122,7 @@ Rebuild the front page as a standing landscape reference rather than a single da
 
 Option D landscape is the accepted visual pass (D-47, D-48). It is merged and serving on production.
 
-**Status:** shipped. The only open item is the D-48 record described under SEC-013.
+**Status:** shipped. No open items; the D-48 promotion record was reconciled on 2026-08-19 (D-51).
 
 ## Completed mapping
 
