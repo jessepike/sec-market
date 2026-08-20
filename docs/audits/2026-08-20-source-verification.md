@@ -32,18 +32,19 @@ and it came back clean.
 
 The defects that did surface are all the same shape, and it is a different shape than expected.
 
-## Results at a glance — pass one
+## Results at a glance
 
-| Verdict | Count | Share |
+| Verdict | Pass one | After SEC recovery |
 |---|---|---|
-| EXACT — every figure and clause present and matching | 39 | 55% |
-| CLOSE — substance matches, wording paraphrased rather than quotable | 5 | 7% |
-| DRIFT — a claim with no support at the cited URL | 4 | 6% |
-| UNVERIFIABLE — page could not be read (a tooling limit, see below) | 23 | 32% |
-| **Total** | **71** | |
+| EXACT — every figure and clause present and matching | 39 | 46 |
+| CLOSE — substance matches, wording paraphrased rather than quotable | 5 | 5 |
+| DRIFT — a claim with no support at the cited URL | 4 | 8 |
+| UNVERIFIABLE — page could not be read (a tooling limit, see below) | 23 | 12 |
+| **Total** | **71** | **71** |
 
 Zero records showed a figure contradicting its source. Every `DRIFT` is a missing source, not a
-wrong number. Pass two re-runs the 23 unverifiable records with a method proven to work on them.
+wrong number. The second column reflects re-reading the 11 SEC.gov records that a generic fetch
+could not open; the remaining 12 unverifiable records are still in recovery.
 
 One agent's own summary line disagreed with its own table — it reported seven exact where its rows
 showed eight. The totals above are recounted from the per-record rows, not from the agents' summary
@@ -81,6 +82,32 @@ than one source, while `canonicalUrl` holds only one link. The data model allows
 record, so a multi-source claim silently loses its other sources. This is a schema limitation
 surfacing as an accuracy defect, not a research failure — the underlying facts appear to be real
 and published, just published elsewhere.
+
+## Pass two — SEC.gov recovery
+
+All 11 records that SEC.gov had refused were read directly, HTTP 200, no redirects, using the
+identifying User-Agent that SEC's own fair-access policy asks automated requesters to declare.
+Every link resolved. None showed any sign of correction or restatement.
+
+Seven were exact. **Four were new instances of the same defect**, which is the significant result:
+recovering blocked records did not just close gaps, it found more of the one problem this sweep
+identified.
+
+| id | Organization | What checks out | What has no source at the cited URL |
+|---|---|---|---|
+| C2 | Palo Alto Networks | 31% revenue growth to $3.0B, $388M from CyberArk and Chronosphere | "approximately 14 percent revenue, 28 percent NGS ARR, 22 percent RPO growth excluding those acquisitions" — the strings 14%, 28%, 22%, "organic" and "excluding" return zero matches |
+| C7 | Okta | Revenue $765M (+11%), cRPO $2.499B (+12%) | "DBNRR 107 percent" — the word "retention" appears zero times; this is reported in the investor deck, a different document |
+| B3 | Alphabet | Capex $44.924B (Q2) and $80.598B (H1), both in the cash-flow table | "the increase in the range is primarily due to an acceleration in the delivery of capacity" — "range", "outlook", "acceleration" and "capacity" all appear zero times; this is earnings-call commentary |
+| D6 | SEC / EIOPA / Marsh | The SEC final rule's cyber-incident and board-oversight disclosure content | The DORA application date and the entire Marsh cyber-insurance claim — "DORA" and "Marsh" each appear zero times in a 391KB document |
+
+D6 was suspected structurally in pass one and is now confirmed: two of its three source
+organizations are wholly absent from the only URL it cites.
+
+**The defect class now covers eleven records, roughly fifteen percent of the corpus.** Eight are
+confirmed drift; three more (D12, D10, D11) are the same shape, milder or already self-disclosed.
+Every single one is a claim assembled from more than one document and filed under a single link.
+Not one is a wrong number.
+
 
 ## Link integrity
 
