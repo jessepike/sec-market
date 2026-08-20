@@ -124,6 +124,29 @@ Option D landscape is the accepted visual pass (D-47, D-48). It is merged and se
 
 **Status:** shipped. No open items; the D-48 promotion record was reconciled on 2026-08-19 (D-51).
 
+### SEC-018 — Integrity pass
+
+Remove the places where the site states something about itself that is not true. Eight items: derive the landscape eyebrow from the data, remove the never-used "needs a source" provenance state, stop asserting a weekly cadence, fix the SecOps print line before promoting SecOps crashes the page, de-duplicate evidence ids in the moved-this-window section, give the two judged rows a stated basis, add a `verify:integrity` build gate, and derive the evidence-library filter options from the records present.
+
+**Spec:** [integrity-pass-spec.md](docs/active/integrity-pass-spec.md) (`SEC-MARKET-INTEGRITY-001` v0.1)
+
+**Authorization state:** approved by the owner 2026-08-20 (D-52). Implementation delegated to an external operator.
+
+**Not authorized by this work:** new content of any kind — no new domains, sources, vendors, figures, print cards, or changed postures. No push or merge to `main`.
+
+### SEC-019 — Make the declared model mean something
+
+Deferred from SEC-018 on purpose, because each item is a judgment or design call rather than a correction.
+
+- Confidence is `medium` on all six domains, so the mark carries no information. Either it varies or it goes.
+- `DecisionHorizon` tops out at "Next 1–4 quarters" while intent promises the present through 24 months. The longer horizon is currently unrepresentable in the type.
+- Three domain taxonomies coexist and share no identifiers: six posture domains, eight scorecard groups, seven free-text activity labels.
+- All 42 print cards render a hardcoded "— no series yet —" placeholder. There is no sparkline behind it. Build it or remove the slot.
+- Wire the five unreferenced evidence records — Dell, Vertiv, Broadcom, Meta, Oracle — into the infrastructure and hyperscaler-capex surfaces the method already names. Figures must be verified against each source.
+- Intent names relevance as one of four properties every claim preserves. No field or proxy for it exists anywhere.
+
+**Authorization state:** not authorized. Needs the owner's direction first on what belongs above the fold — six of thirteen top-level sections are currently collapsed behind a click, including the market call, the scorecard, the method and the evidence library.
+
 ## Completed mapping
 
 ### SEC-010 — Durable signals operation (map only)
