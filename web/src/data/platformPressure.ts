@@ -91,7 +91,8 @@ function buyingInRows(): PressureRow[] {
       const print = absorbed.find((row) => row.name === item.target)
       if (!print || !print.position) return []
       const rendered = renderClosePrint(item.actor, item.value, item.date)
-      const evidenceIds = [...print.evidenceIds, ...item.evidenceIds]
+      const combined = [...print.evidenceIds, ...item.evidenceIds]
+      const evidenceIds = combined.filter((id, index) => combined.indexOf(id) === index)
       const read =
         print.group === 'Identity'
           ? identityAbsorbedRead(item.actor)
