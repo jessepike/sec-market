@@ -130,7 +130,9 @@ Remove the places where the site states something about itself that is not true.
 
 **Spec:** [integrity-pass-spec.md](docs/active/integrity-pass-spec.md) (`SEC-MARKET-INTEGRITY-001` v0.1)
 
-**Authorization state:** approved by the owner 2026-08-20 (D-52). Implementation delegated to an external operator.
+**Status:** complete. All eight items landed as eight atomic commits, merged to `preview` in `c9384de`. Verified independently on 2026-08-20: every acceptance criterion in the spec holds, all five `verify:integrity` checks were observed to fail closed under deliberate perturbation and to pass once reverted, and the rendered diff against production shows only the six expected visible changes. `main` untouched and still a fast-forward ancestor of `preview`.
+
+**Authorization state:** approved by the owner 2026-08-20 (D-52). Implemented by Cursor Composer, verified by the CPO session. Promotion to production is a separate owner decision and has not been made.
 
 **Not authorized by this work:** new content of any kind — no new domains, sources, vendors, figures, print cards, or changed postures. No push or merge to `main`.
 
