@@ -19,10 +19,6 @@ export function ProvenanceRail() {
             <span className="rail__swatch" aria-hidden="true" />
             <span>JUDGED · signed and dated by a person</span>
           </li>
-          <li className="rail__state rail__state--unsourced">
-            <span className="rail__swatch" aria-hidden="true" />
-            <span>NEEDS A SOURCE</span>
-          </li>
         </ul>
       </div>
     </div>

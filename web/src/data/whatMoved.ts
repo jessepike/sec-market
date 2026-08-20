@@ -11,6 +11,19 @@ export interface WeekMove {
   kind: string
   text: string
   evidenceIds: string[]
+  basisHref?: string
+  basisLabel?: string
+}
+
+function uniq(ids: string[]): string[] {
+  const seen = new Set<string>()
+  const out: string[] = []
+  for (const id of ids) {
+    if (seen.has(id)) continue
+    seen.add(id)
+    out.push(id)
+  }
+  return out
 }
 
 const fasterRead = 'printing faster'
@@ -34,7 +47,9 @@ function trackedPrint(): WeekMove | null {
   return {
     kind: 'PRINT',
     text: printMove.read,
-    evidenceIds: printMove.provenance.print.layer === 'tracked' ? printMove.provenance.print.evidenceIds : [],
+    evidenceIds: uniq(
+      printMove.provenance.print.layer === 'tracked' ? printMove.provenance.print.evidenceIds : [],
+    ),
   }
 }
 
@@ -45,7 +60,7 @@ function trackedCapital(): WeekMove | null {
     text:
       capitalItems.map((item) => item.target + ' raised ' + item.value).join(', ') +
       '. Capital heat, not disclosed revenue.',
-    evidenceIds: capitalItems.flatMap((item) => item.evidenceIds),
+    evidenceIds: uniq(capitalItems.flatMap((item) => item.evidenceIds)),
   }
 }
 
@@ -54,7 +69,7 @@ function trackedMa(): WeekMove {
     return {
       kind: 'M&A',
       text: closedLeadMa.map((item) => item.headline).join(' '),
-      evidenceIds: closedLeadMa.flatMap((item) => item.evidenceIds),
+      evidenceIds: uniq(closedLeadMa.flatMap((item) => item.evidenceIds)),
     }
   }
   const priorCloses = absorbed.map((row) => row.print).join(' and ')
@@ -63,8 +78,10 @@ function trackedMa(): WeekMove {
     text:
       'No new closed transaction in the window.' +
       (priorCloses ? ' ' + priorCloses + '. Neither is this month\'s demand signal.' : ''),
-    evidenceIds: absorbed.flatMap((row) =>
-      row.provenance.print.layer === 'tracked' ? row.provenance.print.evidenceIds : [],
+    evidenceIds: uniq(
+      absorbed.flatMap((row) =>
+        row.provenance.print.layer === 'tracked' ? row.provenance.print.evidenceIds : [],
+      ),
     ),
   }
 }
@@ -89,6 +106,8 @@ export const weekMoves = {
             .map((row) => row.name + ' ' + row.change)
             .join(' '),
       evidenceIds: [],
+      basisHref: '#domains',
+      basisLabel: 'Edition delta',
     },
     {
       kind: 'WHY',
@@ -96,6 +115,8 @@ export const weekMoves = {
         ? breadthRule.rule
         : 'A posture needs more than one company and a reason the motion is not just share shift.',
       evidenceIds: [],
+      basisHref: '#method',
+      basisLabel: 'Method · breadth rule',
     },
   ] satisfies WeekMove[],
   quietNote: 'A quiet week is reported as a quiet week. Nothing is invented to fill the space.',

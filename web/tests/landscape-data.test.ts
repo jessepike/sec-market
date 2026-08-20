@@ -12,7 +12,6 @@ import type { Provenance } from '../src/data/types.ts'
 const here = dirname(fileURLToPath(import.meta.url))
 
 function evidenceIdsFrom(provenance: Provenance): string[] {
-  if (provenance.layer === 'unsourced') return []
   return provenance.evidenceIds
 }
 

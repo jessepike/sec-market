@@ -92,7 +92,7 @@ export const securityDomains: SecurityDomain[] = [
     horizon: 'Next 1–4 quarters',
     momentum: 'mixed-positive',
     evidenceStrength: 'medium',
-    print: 'S1 +23% · CRWD +24% · XSIAM +100% · Torq $1.2B',
+    print: 'SentinelOne +23% · CrowdStrike +24% · XSIAM +100% · Torq $1.2B',
     why: 'Public XDR and XSIAM segments are healthy. SOAR capital (Torq, Tines) is scale-up, not a new cycle.',
     summary: 'Share shift and platformization, not a new SecOps cycle.',
     watchItems: ['Organic bridges after acquisitions'],

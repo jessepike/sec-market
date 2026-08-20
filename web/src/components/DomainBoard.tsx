@@ -10,6 +10,25 @@ function kindLabel(kind: string): string {
   return 'Held'
 }
 
+const COUNT_WORDS = [
+  'zero',
+  'one',
+  'two',
+  'three',
+  'four',
+  'five',
+  'six',
+  'seven',
+  'eight',
+  'nine',
+  'ten',
+] as const
+
+function countWord(n: number): string {
+  if (n >= 1 && n <= 10) return COUNT_WORDS[n]
+  return String(n)
+}
+
 function DirectionGlyph({ tag, momentum }: { tag: TempoTag; momentum: Momentum }) {
   if (tag === 'PREPARE') {
     return (
@@ -33,10 +52,15 @@ function DirectionGlyph({ tag, momentum }: { tag: TempoTag; momentum: Momentum }
 }
 
 function LandscapeSection() {
+  const domainCount = landscapeDomains.length
+  const domainLabel = domainCount === 1 ? 'domain' : 'domains'
+
   return (
     <section id="landscape" className="landscape" aria-labelledby="landscape-heading">
       <div className="landscape__intro">
-        <p className="eyebrow">The landscape · four domains</p>
+        <p className="eyebrow">
+          The landscape · {countWord(domainCount)} {domainLabel}
+        </p>
         <h1 id="landscape-heading">Where the security market is going, not where it has been.</h1>
         <p className="landscape__lede">
           Dated postures, the evidence under each one, and an honest mark on how sure anyone is.
