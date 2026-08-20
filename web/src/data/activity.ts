@@ -55,7 +55,7 @@ export const activityItems: ActivityItem[] = [
     value: '~$1B',
     domain: 'Data / identity',
     headline: 'Cyera to acquire Oasis Security',
-    note: 'LOI, not close. Cyera raised $600M eight weeks earlier — raise-then-acquirer. Capital, not ARR.',
+    note: 'LOI, not close. Cyera raised $600M weeks earlier — raise-then-acquirer. Capital, not ARR.',
     surface: 'lead',
     leadOrder: 4,
     evidenceIds: ['D22', 'D8'],

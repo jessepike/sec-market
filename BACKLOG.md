@@ -208,3 +208,26 @@ Reconsider account-facing prompts only after the core monthly scorecard, recency
 - Universal AI-security platform call
 - Production infrastructure or broad automation
 - Reproducing or modifying CISO Advisory ontology or vendor catalog
+
+### SEC-020 — Accuracy and traceability sweep
+
+The owner's standard is 100% certainty that everything shown is accurate, current, and traceable to a source a reader can check. Opened 2026-08-20.
+
+**Desk audit complete.** 150 displayed figures checked against the evidence records they cite: 141 fully supported, 8 partial, 1 unsupported. Three defects were corrected the same day (see below). The rest need a source, not a judgment.
+
+**Fixed 2026-08-20:**
+
+- `act-oasis` claimed Cyera raised $600M "eight weeks earlier". No cited source states a week count, and the gap between the two records' own dates is 48 days. Now reads "weeks earlier", matching what evidence D22 actually says.
+- `print-panw` attributed the whole headline-versus-organic gap to CyberArk. Evidence C2 names CyberArk *and Chronosphere*. Corrected.
+- `marketCall` quoted Cisco networking orders +40% and Zscaler organic ARR +21% without citing A2 or C4, the records that prove them. Both added. Separately, `chartEvidenceIds` cited C6b (Cisco) although the security composite in `derivePanel.ts` is a median of CrowdStrike, Okta, Fortinet, Zscaler and Check Point — no Cisco. Removed from the chart citations; it stays on the market call where it belongs.
+
+**Open — needs a source or an owner answer, not a guess:**
+
+- The Activity board states "Window: Jul 6 – Aug 10, 2026" while four items predate it and none reach the end date. It is unclear whether this describes a *collection* window (in which case background items are outside it by design and the wording should say so) or an event-date window (in which case it is wrong). Do not rewrite it until that is settled.
+- `edition.ts` claims the activity window covers RoS issues #252–#256. Only #254 and #256 are cited anywhere in the evidence set. Verify before the next edition.
+- `print-varonis` sources its "headline 52%" from evidence C8b's `limitations` field rather than its excerpt; `print-secuvy` and `act-secuvy` source the "Seed" label from a structured attribution field, not the excerpt. Defensible, but both should be confirmed against the primary release during the source sweep.
+- Latent, not currently visible: `trackedPrintEvidenceIds()` resolves print-line tokens by prefix, and `print-crwd-cloud` precedes `print-crwd` in the array, so a bare "CrowdStrike" token would silently bind to the Falcon Cloud segment (C13) rather than total ending ARR (C1). The SecOps print line now contains exactly that token. It does not fire today because SecOps is not a landscape card — but promoting SecOps is under active consideration and would mis-cite on the first render. Fix the resolver before any promotion.
+
+**Not yet run — the expensive half:** verifying each of the 71 canonical sources against what the page actually says, confirming every link resolves, and checking whether any print has been superseded. Curl cannot do this — 36 of 71 URLs return blocks or protocol errors that are not real failures, confirmed by pulling C3 into a browser and finding it healthy with figures matching exactly. Needs page-fetching agents.
+
+**Authorization state:** authorized by the owner 2026-08-20. Fixes above already applied; the source sweep is scoped and awaiting a go on full versus partial.

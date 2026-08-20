@@ -62,7 +62,7 @@ export const marketCall: MarketCall = {
     'Expansion from AI pilots into consequential production workloads',
     'A registered infrastructure impulse followed by a registered security response under fixed cohort rules',
   ],
-  evidenceIds: ['A1b', 'D1', 'LAG-NO-CALL', 'C3', 'C6b'],
+  evidenceIds: ['A1b', 'A2', 'D1', 'LAG-NO-CALL', 'C3', 'C4', 'C6b'],
 }
 
 export { chartLayerPoints }
@@ -77,7 +77,6 @@ export const chartEvidenceIds = [
   'C3',
   'C4',
   'C6a',
-  'C6b',
   'C7',
 ]
 

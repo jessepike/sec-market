@@ -461,7 +461,7 @@ export const vendorPrints: VendorPrint[] = [
     period: 'APR ’26',
     value: '+14%',
     metric: 'organic revenue',
-    note: 'Headline +31% includes CyberArk',
+    note: 'Headline +31% includes CyberArk and Chronosphere',
     tone: 'flat',
     evidenceIds: ['C2'],
   },
