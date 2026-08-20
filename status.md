@@ -115,3 +115,40 @@ None on the build. The open item is a record problem, not a code problem: D-48 s
 - `/Users/jessepike/code/projects/sec-market/BACKLOG.md` — SEC-013 carries the current landscape state
 
 **Model recommendation:** Opus. Every remaining item is a judgment call about data boundaries or a governance record, not implementation.
+
+## Session — 2026-08-20 (CPO): source verification sweep
+
+**What ran.** Every one of the 71 canonical evidence sources in `web/src/data/evidence.ts` was
+checked against the live page on three questions: does the link resolve, is every figure and clause
+in the stored excerpt actually on that page, and is there any sign the page was corrected or
+restated. Six agents in pass one, three more to recover blocked records and hunt missing sources.
+
+**The result that matters: no figure on the site contradicts its source.** Not one. Every number
+that could be read against its page matched.
+
+**Six records had a genuinely unattributed second claim. All six are fixed and committed.** Each
+bundled a claim from a second document without using the `sourceAttributions` array the schema
+already provides and `EvidenceDrawer.tsx` already renders. A3 Arista, A5 Vertiv, B1 Microsoft, C2
+Palo Alto, C7 Okta, and the Marsh half of D6 now each name the document that states the claim, with
+every URL fetched and quoted verbatim before use. Nothing was deleted, reworded, or re-dated to fit
+a page. Build passes `verify:edition`, `verify:panel` and `verify:integrity`.
+
+**Owed and not built — the one thing that stops this recurring.** `verify:integrity` should fail the
+build when a record's excerpt spans more than one organization or economic period and the record
+carries no `sourceAttributions`. All six defects would have been caught at authoring time. This is
+the durable fix and it is the recommended next action here.
+
+**Read the audit before trusting any count in it.** `docs/audits/2026-08-20-source-verification.md`
+is the append-only record, and its Correction section at the top matters more than its findings: the
+sweep overstated the defect twice before landing on six. Three separate false-positive rounds all
+came from the same mistake — a check scoped narrower than the data it was checking. The third round
+was mine, and it produced a well-evidenced recommendation to delete two entirely accurate records.
+
+**Still unreadable: 11 records, all host-side blocks.** Investor-relations timeouts, two Akamai 403s,
+and one Incapsula bot challenge on Cato that must not be bypassed. None are dead links, none are
+known defects. Broadcom needs a real browser rather than a fetcher.
+
+**Untouched and still owed by the owner:** the above-the-fold decision that blocks SEC-019, the
+cadence table naming which signal families refresh at what interval, and the Activity board's
+"Jul 6 – Aug 10" window question. Nothing was promoted to production this session; `preview` carries
+the work.

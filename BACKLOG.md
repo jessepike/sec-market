@@ -253,14 +253,22 @@ verbatim from the primary document before use:
   earnings call, which is where the CFO said it, using the same `aka.ms/transcriptfy26q4` link D11
   already uses for that document.
 
-**Open — still needs a source, hunt dispatched:**
+**Closed 2026-08-20 — all six.** C2 attributes the Q3 FY2026 investor deck (slide 3) for the
+excluding-acquisition growth rates. C7 attributes Okta's Q1 FY2027 posted commentary for the 107%
+net retention figure. D6 attributes Marsh for both halves — the Q2 2026 US rates page and the
+twelve-controls page.
 
-- C2 Palo Alto: growth excluding CyberArk and Chronosphere (~14% revenue, 28% NGS ARR, 22% RPO). Not
-  in the press release; likely the call or the investor supplement.
-- C7 Okta: dollar-based net retention 107%. The word "retention" appears zero times in the cited
-  exhibit.
-- D6: SEC and EIOPA/DORA are properly attributed; the **Marsh** cyber-insurance claim has no
-  attribution at all.
+A caution recorded with them: the source hunt recommended deleting C2 and C7 as unverifiable,
+because I told it in the prompt that they claimed a quarter ended 2026-07-31. They do not; both
+correctly state the quarter ended 2026-04-30. The agent reasoned correctly from a false premise I
+supplied and produced a well-evidenced recommendation to remove two accurate records. D9 and D10
+were flagged the same way and are also fine.
+
+**Still unreadable — 11 records, all host-side.** Eight investor-relations timeouts, two BusinessWire
+403s from Akamai, one Incapsula bot challenge on Cato which must not be bypassed. Broadcom loads but
+serves a JavaScript shell that a fetcher cannot read; a browser would resolve it. Fortinet was
+separately confirmed healthy in a real browser. None of these are dead links and none are known
+defects.
 
 **Owed and not built — the durable fix.** `verify:integrity` should fail the build when a record's
 excerpt spans more than one organization or economic period and the record carries no
