@@ -3,7 +3,7 @@ import { LAST_UPDATED_DISPLAY, LAST_UPDATED_ISO, PRODUCT_TITLE } from '../data/m
 
 const navItems = [
   { href: '#landscape', label: 'Landscape' },
-  { href: '#moved', label: 'This week' },
+  { href: '#moved', label: 'What moved' },
   { href: '#platforms', label: 'Platforms' },
   { href: '#hypotheses', label: 'Hypotheses' },
   { href: '#method', label: 'Method' },

@@ -7,8 +7,8 @@ export function WhatMoved() {
     <section id="moved" className="week-moved" aria-labelledby="moved-heading">
       <div className="week-moved__inner">
         <div className="week-moved__head">
-          <h2 id="moved-heading">What moved this week</h2>
-          <p className="stamp-label stamp-label--muted">WEEK OF {weekMoves.label}</p>
+          <h2 id="moved-heading">What moved</h2>
+          <p className="stamp-label stamp-label--muted">WINDOW · {weekMoves.label}</p>
         </div>
         <div className="week-moved__grid">
           <div className="week-moved__col week-moved__col--tracked">
