@@ -23,12 +23,15 @@ percent:
 
 | id | Status | Second claim needing a source |
 |---|---|---|
-| A3 | Fixed 2026-08-20 | Q1 2023 revenue comparison — now attributes Arista's 2023-05-01 release |
-| A5 | Fixed 2026-08-20 | Orders, book-to-bill, backlog — now attributes Vertiv's Q4 2025 exhibit |
-| B1 | Fixed 2026-08-20 | "Demand exceeds available capacity" — now attributes the FY26 Q4 call |
-| C2 | Open | Palo Alto growth excluding acquisitions (~14% / 28% / 22%) |
-| C7 | Open | Okta dollar-based net retention 107% |
-| D6 | Open, partial | SEC and EIOPA/DORA are attributed; **Marsh is not** |
+| A3 | Fixed | Q1 2023 revenue comparison — attributes Arista's 2023-05-01 release |
+| A5 | Fixed | Orders, book-to-bill, backlog — attributes Vertiv's Q4 2025 exhibit |
+| B1 | Fixed | "Demand exceeds available capacity" — attributes the FY26 Q4 earnings call |
+| C2 | Fixed | Growth excluding acquisitions — attributes the Q3 FY2026 investor deck, slide 3 |
+| C7 | Fixed | Net retention 107% — attributes Okta's Q1 FY2027 posted commentary |
+| D6 | Fixed | Marsh now attributed: the Q2 2026 US rates page and the twelve-controls page |
+
+**All six are closed as of 2026-08-20.** Every URL was fetched and its supporting sentence quoted
+verbatim before use. No claim was deleted, reworded, or re-dated to match a page.
 
 The three fixed records were repaired using primary sources independently located and quoted
 verbatim, not by deleting the claim or rewording it to match the page.
@@ -149,6 +152,31 @@ organizations are wholly absent from the only URL it cites.
 were only shown the top-level `canonicalUrl`. The true figure is six. Still not one wrong number.
 
 
+## Pass three — and a third instance of the same error, this one mine
+
+The hunt for the three remaining sources returned all three, and also returned a confident
+recommendation to **delete two correct claims from the site**. It was wrong, and it was wrong
+because of a mistake in the prompt I wrote for it.
+
+I told the agent that the Palo Alto and Okta claims described the quarter ended 2026-07-31. Nothing
+in the data says that. Both records state the quarter ended 2026-04-30, and both are correctly
+titled and dated. I invented the period. The agent then did excellent work against a false premise:
+it correctly established that neither company has reported a July quarter yet, correctly found the
+real figures in the April quarter, and correctly concluded the claim could not be verified as
+stated. Its recommendation followed logically from what I told it and would have removed two
+accurate, properly dated records from a production site.
+
+That is the third instance of one error class in this session, and the most dangerous form of it.
+The first two produced findings that were merely wrong. This one produced a wrong finding wearing
+verified evidence, a named source document, a slide number and a verbatim quote, which is precisely
+what makes a claim persuasive. **A subagent inherits the premises of its prompt and hands them back
+with new evidence attached, which makes an error harder to see, not easier.** Check a delegated
+finding against the data before acting on it, especially when the finding is well supported.
+
+The same pass also flagged D9 and D10 as drift on a date impossibility. Both already carry correct
+per-source attributions. Same false-positive class as the Correction section above.
+
+
 ## Link integrity
 
 One genuine link defect:
@@ -185,11 +213,13 @@ where other agents left theirs open. Pass two applies that method to the remaini
 
 The failure modes, kept separate because they need different fixes:
 
-| Cause | Count | Recoverable |
+| Cause | Count | Outcome |
 |---|---|---|
-| SEC.gov HTTP 403 to a generic user agent | 11 | Yes — documented identified-UA method |
-| Investor-relations or newswire host timeout | 10 | Usually — retry, or a browser user agent |
-| JavaScript-rendered page returning empty text | 2 | Yes — needs a real browser |
+| SEC.gov HTTP 403 to a generic user agent | 11 | **Recovered.** All 11 read at HTTP 200 under the documented identified-User-Agent policy |
+| Investor-relations or newswire host timeout | 8 | Still blocked after retries. C3 Fortinet was separately verified healthy in a real browser earlier in the session |
+| Akamai 403 on BusinessWire | 2 | Still blocked. Both records already carry correct per-source attributions |
+| JavaScript-rendered page, no challenge | 1 | A6 Broadcom loads but serves an empty shell to a fetcher. A browser would read it |
+| Bot-detection challenge | 1 | C11 Cato serves an Incapsula challenge. **Not bypassed, and it must not be** |
 
 ## Tooling defect worth knowing about
 

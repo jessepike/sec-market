@@ -300,6 +300,22 @@ export const evidenceRecords: EvidenceRecord[] = [
     interpretation: 'Positive organic demand with acquisition-heavy headline growth.',
     limitations: 'Platformization and M&A deliberately alter period comparability.',
     conflictingEvidenceIds: ['C6a', 'C6b', 'D1'],
+    sourceAttributions: [
+      {
+        organization: 'Palo Alto Networks',
+        publicationDate: '2026-06-02',
+        economicPeriod: 'Quarter ended 2026-04-30',
+        canonicalUrl:
+          'https://www.sec.gov/Archives/edgar/data/1327567/000132756726000012/ex991q326earningsrelease.htm',
+      },
+      {
+        organization: 'Palo Alto Networks',
+        publicationDate: '2026-06-02',
+        economicPeriod: 'Q3 FY2026 earnings call investor deck',
+        canonicalUrl:
+          'https://investors.paloaltonetworks.com/static-files/67ce9226-4fe0-43cd-b83e-42efb035f38c',
+      },
+    ],
     artifactLabel: 'SEC-MARKET-SIG-SRC-002 / C2',
     tags: ['security-vendor', 'platform', 'm-and-a'],
   },
@@ -401,6 +417,22 @@ export const evidenceRecords: EvidenceRecord[] = [
     interpretation: 'Identity demand positive but not broadly accelerating.',
     limitations: 'cRPO is sensitive to contract duration and sales timing.',
     conflictingEvidenceIds: ['D5b'],
+    sourceAttributions: [
+      {
+        organization: 'Okta',
+        publicationDate: '2026-05-28',
+        economicPeriod: 'Quarter ended 2026-04-30',
+        canonicalUrl:
+          'https://www.sec.gov/Archives/edgar/data/1660134/000166013426000050/okta-4302026_ex991.htm',
+      },
+      {
+        organization: 'Okta',
+        publicationDate: '2026-05-28',
+        economicPeriod: 'Q1 FY2027 posted commentary',
+        canonicalUrl:
+          'https://s205.q4cdn.com/566291348/files/doc_financials/2027/q1/Q1FY27PostedCommentary.pdf',
+      },
+    ],
     artifactLabel: 'SEC-MARKET-SIG-SRC-002 / C7',
     tags: ['security-vendor', 'identity'],
   },
@@ -564,6 +596,20 @@ export const evidenceRecords: EvidenceRecord[] = [
         publicationDate: '2025-01-17',
         economicPeriod: 'Application date',
         canonicalUrl: 'https://www.eiopa.europa.eu/digital-operational-resilience-act-dora_en',
+      },
+      {
+        organization: 'Marsh',
+        publicationDate: '2026-07-17',
+        economicPeriod: 'US insurance rates, Q2 2026',
+        canonicalUrl:
+          'https://www.marsh.com/en/services/international-placement-services/insights/us-insurance-rates.html',
+      },
+      {
+        organization: 'Marsh',
+        publicationDate: '2022-03',
+        economicPeriod: 'Twelve key cybersecurity controls',
+        canonicalUrl:
+          'https://www.marsh.com/my/services/cyber-risk/insights/cyber-resilience-twelve-key-controls-strengthen-your-security.html',
       },
     ],
     artifactLabel: 'SEC-MARKET-SIG-SRC-002 / D6',
