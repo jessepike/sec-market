@@ -106,6 +106,8 @@ export const weekMoves = {
             .map((row) => row.name + ' ' + row.change)
             .join(' '),
       evidenceIds: [],
+      basisHref: '#domains',
+      basisLabel: 'Edition delta',
     },
     {
       kind: 'WHY',
@@ -113,6 +115,8 @@ export const weekMoves = {
         ? breadthRule.rule
         : 'A posture needs more than one company and a reason the motion is not just share shift.',
       evidenceIds: [],
+      basisHref: '#method',
+      basisLabel: 'Method · breadth rule',
     },
   ] satisfies WeekMove[],
   quietNote: 'A quiet week is reported as a quiet week. Nothing is invented to fill the space.',

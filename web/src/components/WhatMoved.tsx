@@ -1,6 +1,7 @@
 import { formatShortDate } from '../data/dates'
 import { weekMoves } from '../data/whatMoved'
 import { EvidenceLink } from './EvidenceLink'
+import { FileSearch } from 'lucide-react'
 
 export function WhatMoved() {
   return (
@@ -36,7 +37,17 @@ export function WhatMoved() {
                   <span className={'week-moved__kind week-moved__kind--' + item.kind.toLowerCase()}>
                     {item.kind}
                   </span>
-                  <p>{item.text}</p>
+                  <div>
+                    <p>{item.text}</p>
+                    {item.evidenceIds.length > 0 ? (
+                      <EvidenceLink ids={item.evidenceIds} />
+                    ) : item.basisHref && item.basisLabel ? (
+                      <a href={item.basisHref} className="evidence-link">
+                        <FileSearch size={14} aria-hidden="true" />
+                        <span>{item.basisLabel}</span>
+                      </a>
+                    ) : null}
+                  </div>
                 </li>
               ))}
             </ul>
