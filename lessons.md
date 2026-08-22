@@ -5,10 +5,10 @@ cross-project patterns to the knowledge base and drop them from here.
 
 ## 2026-08-22
 
-- [pending] Being in the served HTML is not being on the page. Forty-two vendor cards were present in the markup and zero were visible; I reported them as shipped from a `curl`, and the owner was right to call it. `checkVisibility()` settles this question and `getComputedStyle` does not.
-- [pending] `git add -A` while another worker is editing the same directory sweeps its in-flight edits into your commit. Stage explicit paths by name whenever a session is not the only writer.
-- [pending] A build can pass every gate while silently reversing the accepted design. The phone view put the framing sentence below the four cards because of two CSS `order` declarations; nothing failed, and only rendering at the design's own width against the accepted render caught it.
-- [pending] Codex CLI needs its prompt on stdin. Passing the prompt as a positional argument leaves it blocked reading stdin, producing nothing while appearing to work — I told the owner a review was running when it had not started.
+- [promoted:kb:7c349194:2026-08-22] Being in the served HTML is not being on the page. Forty-two vendor cards were present in the markup and zero were visible; I reported them as shipped from a `curl`, and the owner was right to call it. `checkVisibility()` settles this question and `getComputedStyle` does not.
+- [promoted:kb:d5b498ae:2026-08-22] `git add -A` while another worker is editing the same directory sweeps its in-flight edits into your commit. Stage explicit paths by name whenever a session is not the only writer.
+- [promoted:kb:64b7354d:2026-08-22] A build can pass every gate while silently reversing the accepted design. The phone view put the framing sentence below the four cards because of two CSS `order` declarations; nothing failed, and only rendering at the design's own width against the accepted render caught it.
+- [promoted:kb:7e7d7efa:2026-08-22] Codex CLI needs its prompt on stdin. Passing the prompt as a positional argument leaves it blocked reading stdin, producing nothing while appearing to work — I told the owner a review was running when it had not started.
 
 ## 2026-08-20
 
