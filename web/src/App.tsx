@@ -34,12 +34,11 @@ function AppShell() {
           <WhatMoved />
           <PlatformPressure />
           <Hypotheses />
-          <NextEdition />
+          <PrintGrid />
           <details className="depth" id="research-depth">
-            <summary>Episode 002 research and the full scorecard</summary>
+            <summary>The market read, domain tempo and M&amp;A activity</summary>
             <Hero />
             <JudgmentBoard />
-            <PrintGrid />
             <DomainBoard surface="tempo" />
             <ActivityBoard />
           </details>
@@ -59,8 +58,9 @@ function AppShell() {
             <summary>Research &amp; evidence</summary>
             <EvidenceLibrary />
           </details>
+          <MethodologyNote />
+          <NextEdition />
         </main>
-        <MethodologyNote />
       </div>
       <EvidenceDrawer />
       {/* Renders null on the server and on the client's first pass; it injects the
