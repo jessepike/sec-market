@@ -2101,6 +2101,10 @@ summary:focus-visible,
   color: var(--color-text);
 }
 
+.domain-card__judged-part {
+  display: block;
+}
+
 .week-moved {
   background: var(--color-context);
   width: 100vw;
@@ -2503,12 +2507,20 @@ summary:focus-visible,
   }
 
   .landscape__intro {
-    order: 2;
     margin-top: 1.25rem;
   }
 
+  .landscape__intro .eyebrow {
+    display: none;
+  }
+
+  .landscape__lede {
+    margin-top: 0.5rem;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+  }
+
   .landscape__cards {
-    order: 1;
     grid-template-columns: minmax(0, 1fr);
     gap: 0.625rem;
     margin-top: 1.25rem;
@@ -2536,6 +2548,14 @@ summary:focus-visible,
 
   .landscape .domain-card {
     padding: 0.875rem 1rem;
+  }
+
+  .domain-card__judged-part {
+    display: inline;
+  }
+
+  .domain-card__judged-part + .domain-card__judged-part::before {
+    content: ' · ';
   }
 
   .week-moved__head {

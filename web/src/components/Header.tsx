@@ -6,6 +6,7 @@ const navItems = [
   { href: '#moved', label: 'What moved' },
   { href: '#platforms', label: 'Platforms' },
   { href: '#hypotheses', label: 'Hypotheses' },
+  { href: '#prints', label: 'Scorecard' },
   { href: '#method', label: 'Method' },
   { href: '#research', label: 'Evidence' },
 ]

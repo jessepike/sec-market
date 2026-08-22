@@ -89,9 +89,10 @@ function LandscapeSection() {
                 JUDGED <time dateTime={domain.asOf}>{formatShortDate(domain.asOf)}</time>
               </p>
               <p className="domain-card__judged">
-                HORIZON · {domain.horizon}
-                <br />
-                CONFIDENCE · {domain.evidenceStrength.toUpperCase()}
+                <span className="domain-card__judged-part">HORIZON · {domain.horizon}</span>
+                <span className="domain-card__judged-part">
+                  CONFIDENCE · {domain.evidenceStrength.toUpperCase()}
+                </span>
               </p>
             </div>
           </article>
