@@ -554,6 +554,52 @@ summary:focus-visible,
   color: var(--color-text-muted);
 }
 
+.grouphdr__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* Hidden by default (desktop): there's nothing to tap, so no affordance.
+   Sized and shown only inside the max-width:768px block below. */
+.grouphdr__chevron {
+  display: none;
+  flex-shrink: 0;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-right: 1.5px solid var(--color-text-muted);
+  border-bottom: 1.5px solid var(--color-text-muted);
+  transform: rotate(-45deg);
+  transition: transform 0.15s ease;
+}
+
+.print-group[open] .grouphdr__chevron {
+  transform: rotate(45deg);
+}
+
+/* .print-group is a <details> element so a group's cards can collapse on
+   narrow viewports using the browser's native disclosure behaviour — no
+   custom open/closed state to keep in sync. The <summary> wraps .grouphdr, so
+   the header stays visible and in the accessibility tree at every width; it
+   is the part of <details> that never hides. Desktop opens every group via a
+   small effect in PrintGrid.tsx (a closed <details>' children aren't just
+   `display:none` — the browser excludes them from paint/hit-testing in a way
+   plain CSS can't override, so the [open] attribute itself has to be set).
+   The min-width block below only removes the now-redundant toggle affordance
+   on desktop; the max-width block is the actual mobile collapse. The native
+   disclosure marker is suppressed everywhere in favour of .grouphdr__chevron
+   — a browser's marker box doesn't align on the same line as a flex child
+   the way a normal flex item does, so it renders above .grouphdr instead of
+   beside it. */
+.print-group > summary {
+  cursor: pointer;
+  list-style: none;
+}
+
+.print-group > summary::-webkit-details-marker {
+  display: none;
+}
+
 .activity-intro {
   margin: -0.35rem 0 0.85rem;
   max-width: var(--prose-max);
@@ -1700,6 +1746,18 @@ summary:focus-visible,
   }
 }
 
+/* Desktop: PrintGrid's effect sets [open] on every group once mounted, so the
+   cards are already showing by the time this rule matters. This just removes
+   the click itself, so a group header doesn't invite a tap that would only
+   ever re-collapse a view meant to stay fully open. (The marker and chevron
+   are already suppressed at this width — see .grouphdr__chevron above.) */
+@media (min-width: 769px) {
+  .print-group > summary {
+    cursor: default;
+    pointer-events: none;
+  }
+}
+
 @media (max-width: 768px) {
   .nav-toggle {
     display: inline-flex;
@@ -1737,6 +1795,20 @@ summary:focus-visible,
   .print-cards,
   .context-band__grid {
     grid-template-columns: 1fr;
+  }
+
+  /* Collapsed by default: the initial render never sets [open] (see
+     PrintGrid's effect), and the browser already hides a closed <details>'
+     children on its own — this rule is a deliberate, explicit backstop for
+     engines whose default rendering is less aggressive about it. Either way,
+     a closed group's cards are the only thing hidden; .grouphdr lives in the
+     <summary>, so it stays visible and tappable regardless. */
+  .print-group:not([open]) .print-cards {
+    display: none;
+  }
+
+  .grouphdr__chevron {
+    display: block;
   }
 
   .print-table-scroll {
