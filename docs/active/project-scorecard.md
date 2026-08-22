@@ -1,172 +1,175 @@
 # Project scorecard
 
-**ID:** `SEC-MARKET-SCORE-001` · **Version:** v0.1 draft · **Opened:** 2026-08-22
+**ID:** `SEC-MARKET-SCORE-001` · **Version:** v0.2 · **Opened:** 2026-08-22
 
-## What this is
+## Why v0.2 replaces v0.1 the same day
 
-A standing instrument for rating this project against its own governing intent, so the roadmap is
-chosen by evidence instead of by whatever is easiest to build next.
+v0.1 was sent for independent critique and largely failed it. The failures are recorded here rather
+than quietly fixed, because the instrument's whole purpose is to stop this project fooling itself.
 
-It is append-only. A past score is never edited. Each new assessment adds a row and says what
-changed and why.
+1. **It scored "nobody has tried it yet" as failure.** Client value was scored 0. A zero means tested
+   and found useless. Nothing had been tested. The instrument manufactured a deficit and then used
+   that deficit to set priorities.
+2. **It rewarded exactly the inflation it claimed to prevent.** Decision impact scored 2 for having
+   an empty logging template. That is enabling work scoring as an outcome.
+3. **The single overall number hid the thing that mattered.** A compensatory mean let a strong craft
+   score cover a nonexistent use score.
+4. **The author scored his own work.** The three highest scores all rated work done in the previous
+   three days by the person doing the scoring.
+5. **It confused source integrity with reconstructable reasoning.** Verifying that a figure matches
+   its document does not show that another person could rebuild the call. Those are different claims
+   and v0.1 collapsed them.
+6. **It invented an intent claim.** v0.1 said intent orders the beneficiaries, leadership before
+   account teams before clients. It does not. Intent lists them in a table. That was a fabrication
+   of the same kind this project has been fixing all week.
+7. **It missed the central thesis.** Nothing measured earliness, which is the entire purpose.
 
-## What this is not
+## What this rates
 
-It is not the vendor scorecard on the website. That is a different thing with a confusingly similar
-name. This rates the project. That rates the market.
+The project, against `intent.md`. Not the vendor scorecard on the website, which is a different
+thing with a confusingly similar name.
 
-It does not rate effort, output, or shipping. `intent.md` is explicit: "Completing agents, a
-website, reports, or other deliverables alone does not constitute success." A score cannot rise
-because work happened.
+Append-only. A past assessment is never edited.
 
-## The two tiers, and why the split matters
+## Two instruments, deliberately separate
 
-**Outcome dimensions** are lifted directly from Observable Success in `intent.md`. They are what
-intent says success *is*.
+Eight scored dimensions every edition would go stale or become a ritual of copying last month's
+numbers forward. So the work splits by how fast each thing can actually change.
 
-**Enabling dimensions** come from Must Remain True and Must Not Optimize. They are what has to be
-true for an outcome to become possible. They are not success.
+**The outcome review** runs monthly, or whenever evidence appears that something moved. It asks
+whether the intelligence is doing its job.
 
-**The capping rule.** The overall grade is capped at the mean of the four outcome scores. Enabling
-work can never lift the grade past what the project has actually achieved. Without this rule the
-instrument would reward polishing the website forever, which is the exact failure intent warns
-against.
+**The edition health check** runs every edition. It is pass, fail, or exception. No scores.
+
+---
+
+# Instrument 1 — Outcome review
+
+## States, not scores
+
+Every outcome carries a state, not a number. The distinction that matters most is between *nobody
+tried it* and *someone tried it and it did nothing*.
+
+| State | Meaning |
+|---|---|
+| `not_assessed` | No qualified person had a real chance to use it. Not a failure |
+| `no_observed_effect` | A real opportunity existed and nothing happened. This is the honest bad result |
+| `anecdotal` | Recorded, but self-reported by the author |
+| `independently_evidenced` | Recorded by somebody who did not build it |
+| `repeated` | Happened across more than one edition |
+
+## The exposure denominator
+
+Recorded first, every time, because no use measure means anything without it.
+
+**How many qualified people had a genuine opportunity to use this intelligence, and who were they?**
+
+An outcome cannot be rated better than `not_assessed` while the denominator is zero.
 
 ## Outcome dimensions
 
-### O1 — Decision impact
-*Intent: "changed or accelerated a GTM or resource decision."*
+| # | Dimension | The question |
+|---|---|---|
+| U1 | Observed use | Did someone act differently? Tagged by beneficiary: leadership/CSP, account team, or client |
+| U2 | Incremental value | Did it add anything beyond what that person already had from conversations, pipeline, partners, or their own judgment? Intent requires augmenting rather than replacing, so this is the load-bearing one |
+| U3 | Lead time | Was it early enough that options were still open? Intent's purpose is recognizing shifts *early enough* to change timing. Nothing in v0.1 measured this |
+| U4 | Reconstructable reasoning | Has another person actually rebuilt a call from the evidence and landed in the same place? Source verification is not this |
+| U5 | Call calibration | Over time, were the postures and confidence levels borne out? Requires editions to age before it can be answered |
+| U6 | Learning velocity | Are editions resolving the assumptions in `intent.md`, or just accumulating material? |
 
-| Band | What it takes |
-|---|---|
-| 0 | No decision influenced, and no way to know if one was |
-| 1–2 | A mechanism exists to capture impact; nothing recorded in it |
-| 3–4 | One decision recorded, self-reported by the author |
-| 5–6 | One decision recorded by somebody other than the author |
-| 7–8 | Several decisions, across more than one kind of beneficiary |
-| 9–10 | Decisions trace to specific evidence, and repeat across more than one edition |
+U1 keeps beneficiary tags rather than splitting into three dimensions, because three separate scores
+implied a precision that did not exist.
 
-### O2 — Account-team conversation
-*Intent: "supported a meaningful account-team client conversation."*
+---
 
-Same bands, reading "conversation" for "decision."
+# Instrument 2 — Edition health check
 
-### O3 — Client decision support
-*Intent: "helped a client evaluate technology, timing, or partner choices."*
+Pass, fail, or exception. An exception must name what and why.
 
-Same bands, reading "client choice" for "decision."
+| # | Check | Passes when |
+|---|---|---|
+| H1 | Provenance and evidence integrity | Sources resolve, figures match their documents, multi-source claims name every source |
+| H2 | Uncertainty and alternatives | Conflicting evidence and credible alternatives are expressed as clearly as supporting evidence. Confidence carries information rather than reading the same everywhere |
+| H3 | Freshness | Each signal family has a declared refresh rate and staleness is visible to a reader |
+| H4 | Legibility | The substance renders. Content that exists but does not display fails this outright |
+| H5 | Boundary safety | No client-identifying or confidential information, no investment advice, no forced call the evidence cannot support, no manufactured certainty |
 
-### O4 — Reconstructable reasoning
-*Intent: "produced reasoning another person can reconstruct from its evidence."*
+H5 exists because those are hard prohibitions in intent, and v0.1 never checked them at all.
 
-| Band | What it takes |
-|---|---|
-| 0 | Claims appear without sources |
-| 1–2 | Sources listed but unverified, or links that do not resolve |
-| 3–4 | Sources verified once, by the author |
-| 5–6 | Every figure traces to a primary document, verified independently |
-| 7–8 | Verification repeats on a stated cadence, and a build gate enforces it |
-| 9–10 | A stranger has actually rebuilt a call from the evidence and reached the same place |
+---
 
-## Enabling dimensions
+# Baseline — 2026-08-22
 
-### E1 — Evidence integrity
-Sources resolve, figures match the document, freshness is known, multi-source claims name every
-source. Enforced by gates rather than by care.
+## Exposure denominator: 1
 
-### E2 — Epistemic honesty
-*Intent: "preserve provenance, uncertainty, conflicting evidence, and credible alternatives," and
-label the confidence and basis of forward-looking judgments.*
+The site has been shown to one person. That single number governs everything below it.
 
-Scores low when a confidence field is present but uniform, because a field that always says the same
-thing carries no information. Scores high when contradicting evidence is expressed as clearly as
-supporting evidence, and when the page can say what would change a call.
+## Outcome review
 
-### E3 — Legibility
-Can a reader find and use what is there. Content that exists but does not render scores zero here,
-however good it is.
-
-### E4 — Operating cadence
-The loop runs at a stated interval, each signal family has a declared refresh rate, and staleness is
-visible. Scores low if the cadence is undeclared, and also low if volume or automation grows at the
-expense of decision value — intent forbids optimizing for those.
-
-## How a score is set
-
-1. Every score cites evidence. A number without a reason is not a score.
-2. Evidence is a thing that can be checked: a log entry, a measurement, a commit, a verification run.
-   Not an impression.
-3. When unsure between two bands, take the lower one.
-4. Movement is explained in the history table. A score that moves without a stated cause is a
-   drafting error, not a result.
-
-## How this drives the roadmap
-
-**The next work attacks the lowest outcome dimension, or the enabling dimension most clearly
-blocking it.** Nothing else gets picked up while an outcome dimension sits below 3, unless it is a
-correctness or trust defect, which is always allowed to jump the queue.
-
-This is the whole point of the instrument. It exists to stop the roadmap drifting toward pleasant
-enabling work while the outcomes stay at zero.
-
-## Baseline — 2026-08-22
-
-| # | Dimension | Score | Evidence |
+| # | Dimension | State | Evidence |
 |---|---|---|---|
-| O1 | Decision impact | **2** | `docs/active/decision-impact-log.md` exists with a template and reads "None yet — first use wins the proof." Mechanism present, zero entries |
-| O2 | Account-team conversation | **1** | No capture mechanism distinct from O1's log; no entries |
-| O3 | Client decision support | **0** | Site has been shared with one person. No client has used it. No mechanism to know |
-| O4 | Reconstructable reasoning | **6** | All 71 canonical sources verified against live pages 2026-08-20; no figure contradicts its source; six unattributed claims found and fixed with primary documents. Not yet on a cadence, so not 7 |
-| E1 | Evidence integrity | **7** | Three build gates enforce it, proven fail-closed by perturbation. Freshness is not yet checked, and 11 sources remain unread behind host blocks |
-| E2 | Epistemic honesty | **3** | Provenance model is genuinely good — tracked versus judged, signed and dated. But confidence reads MEDIUM on all four domains, so it carries no information, and contradicting evidence has no place in the data model at all |
-| E3 | Legibility | **2** | 42 vendor cards exist and zero render. Measured, not estimated. They sit below the author signature behind a bar named for a past episode |
-| E4 | Operating cadence | **3** | A weekly loop is running and documented, but no signal family has a declared refresh rate and staleness is invisible to a reader |
+| U1 | Observed use | `not_assessed` | `docs/active/decision-impact-log.md` holds a template and zero entries. With a denominator of 1, no use outcome can be rated |
+| U2 | Incremental value | `not_assessed` | No mechanism exists to ask whether it added anything beyond what a reader already knew |
+| U3 | Lead time | `not_assessed` | Not measured, and no mechanism exists to measure it. This is the largest gap in the instrument and the project |
+| U4 | Reconstructable reasoning | `not_assessed` | Nobody has attempted a reconstruction. The 2026-08-20 sweep proved sources match figures, which is a different claim |
+| U5 | Call calibration | `not_assessed` | Two editions exist. Nothing has aged enough to be right or wrong yet |
+| U6 | Learning velocity | `not_assessed` | The core lag hypothesis stands at `NO-CALL`, which is honest, but no assumption has been resolved either way |
 
-**Overall: 2.25**, capped by the mean of O1–O4. Enabling work sits well above it, which is exactly
-the imbalance the capping rule is built to expose.
+**Every outcome is `not_assessed`, and that is the correct reading.** The project is one week old with
+one reader. It has not failed at anything. It has not yet been given the chance to succeed.
 
-### What the baseline says
+## Edition health check
 
-The project is good at being trustworthy and bad at being used. Evidence integrity and
-reconstructable reasoning are the two strongest scores, and both came from work done in the last
-three days. Every outcome dimension except O4 is at or near zero, and O4 is the one outcome
-dimension that is really about craft rather than about anybody using anything.
+| # | Check | Result | Evidence |
+|---|---|---|---|
+| H1 | Provenance and evidence integrity | **Pass with exception** | All 71 canonical sources verified 2026-08-20; no figure contradicts its source; six unattributed claims fixed. Exception: 11 sources unread behind host blocks, and no freshness checking exists |
+| H2 | Uncertainty and alternatives | **Fail** | Confidence reads MEDIUM on all four domains, so it carries no information. Contradicting evidence has no place in the data model at all |
+| H3 | Freshness | **Fail** | No signal family has a declared refresh rate. Staleness is invisible |
+| H4 | Legibility | **Fail** | 42 vendor cards exist and zero render. Measured, not estimated |
+| H5 | Boundary safety | **Pass** | Public sources only. No investment advice. The core lag hypothesis is held at `NO-CALL` rather than forced, which is the specific behaviour intent demands |
 
-Nothing here is a surprise given the site is a week old and has been shown to one person. The
-number is not a judgment about effort. It is a statement about where the next work has to go.
+## Independence
 
-### What the baseline implies for the roadmap
+The author of this baseline performed the 2026-08-20 verification work that H1 rates, and the page
+measurements that H4 rates. **Both are self-assessed and should be treated as provisional until an
+independent scorer confirms them.** H4 is a measurement anyone can repeat in a browser, so it is the
+lower risk of the two. H1 rests on judgment about what "verified" means and is the one that needs a
+second pair of eyes.
 
-O3 is lowest, but it is not the right first target — a client cannot use something that has not
-proven useful internally first, and intent orders the beneficiaries that way too.
+There is no composite score. There deliberately never will be.
 
-**O1 is the first target.** It is the load-bearing one in intent, it has a mechanism already built
-and unused, and it needs one real logged use rather than a feature.
+---
 
-**E3 is the enabling dimension most clearly blocking it**, because a reader cannot act on a page
-where the substance does not render. That is already specced as
-`docs/active/scorecard-visibility-spec.md` and in build.
+## How this guides the roadmap
 
-E2 is the second enabling target, and it is larger than it looks: making confidence mean something
-and giving contradicting evidence a place in the data model is the same work the outside review
-called the missing link between evidence and judgment.
+The scorecard **informs** the roadmap. It does not dictate it. v0.1 had a rule forcing work at the
+lowest score, which would have prioritised whatever happened to be least measurable.
 
-## Score history
+Work is chosen by the largest evidenced obstacle to learning or to intended value, weighing exposure,
+dependencies, risk, reversibility, and how much would actually be learned.
 
-| Date | O1 | O2 | O3 | O4 | E1 | E2 | E3 | E4 | Overall | What moved and why |
-|---|---|---|---|---|---|---|---|---|---|---|
-| 2026-08-22 | 2 | 1 | 0 | 6 | 7 | 3 | 2 | 3 | 2.25 | Baseline. First assessment |
+### What this baseline says to do
 
-## Review cadence
+Every outcome is `not_assessed` and the exposure denominator is 1. **The binding constraint is not
+quality. It is that almost nobody has seen it.** No amount of further polish changes a `not_assessed`
+into anything else.
 
-Scored at each edition, and whenever an outcome dimension has evidence that it moved. Not scored on
-a calendar, because a score that changes without evidence is noise.
+That points at three things, in order:
 
-## Open questions on the instrument itself
+1. **Raise the denominator.** Get it in front of a defined set of qualified people. Until that
+   happens the outcome review cannot report anything, and the project cannot learn.
+2. **Fix H4, legibility.** This one is genuinely blocking, not merely low. A reader cannot act on a
+   page where the substance does not render, so exposure without it wastes the exposure. Already
+   specced and in build.
+3. **Build the lead-time and incremental-value questions into the impact log.** Right now the log
+   asks what changed. It does not ask whether the reader already knew, or whether they still had
+   options. Those two questions are the difference between counting uses and knowing if this works.
 
-- Should O2 and O3 stay separate? They may collapse into one beneficiary-use dimension if the
-  distinction never produces different roadmap choices.
-- Is an eight-dimension instrument too heavy to actually run every edition? Prefer cutting a
-  dimension to letting the scorecard go unscored.
-- The capping rule is deliberately harsh. Confirm it survives contact with a quarter where enabling
-  work genuinely was the right call.
+H2 and H3 are real failures but they are not what is stopping the project learning this month.
+
+## Open questions
+
+- Who is the independent scorer? Without one, H1 stays provisional indefinitely.
+- What is the qualified-exposure list, and how large does it need to be before `no_observed_effect`
+  becomes a meaningful verdict rather than a small sample?
+- U5 calibration needs aged editions. What is the shortest honest interval before it can be asked?
