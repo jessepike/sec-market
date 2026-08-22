@@ -1,7 +1,7 @@
 ---
 project: Security Market Signal Pipeline
 stage: Operate
-updated: 2026-08-20
+updated: 2026-08-22
 ---
 
 # Status
@@ -152,3 +152,38 @@ known defects. Broadcom needs a real browser rather than a fetcher.
 cadence table naming which signal families refresh at what interval, and the Activity board's
 "Jul 6 – Aug 10" window question. Nothing was promoted to production this session; `preview` carries
 the work.
+
+## Session — 2026-08-20/22 (CPO): the missing scorecard, a project scorecard, and the phone view
+
+**The vendor cards were never removed.** The owner remembered a grid of per-vendor cards organised
+by domain and asked which decision had taken it away. None had. All 42 were in the served markup,
+nested inside a collapsed `<details>` four sections down. I first said they were present on the
+strength of the HTML, which was wrong in the way that matters — being in the markup is not being on
+the page. A browser measurement returned 42 in the document and zero visible. D-54 records this.
+
+**Phase 1 of the visibility fix is on `preview`.** The scorecard is now a top-level section under
+the tracked hypotheses, its eight domain groups collapse individually so a phone does not get a
+17,000-pixel wall, and the group counts derive from the data. Specification:
+`docs/active/scorecard-visibility-spec.md` (`SEC-MARKET-VIS-001`). Phases 2 and 3 — mapping each
+print to the posture it supports, and a real archive of prior editions — are specified and not
+started.
+
+**A project scorecard now exists and its baseline is deliberately unflattering.**
+`docs/active/project-scorecard.md`, v0.2 after an external model took v0.1 apart and was right on
+every count. It measures outcomes by evidence state against an exposure denominator that currently
+reads one, refuses a composite number, and keeps per-edition shipping discipline separate from
+impact. Every outcome is `not_assessed`, legibility fails, and the decision impact log has zero
+entries. Two questions belong to the owner: who scores this independently, and who counts as
+qualified exposure. D-55 records the design.
+
+**The phone view had drifted from the accepted design.** Rendered at 390 pixels, the page opened
+straight into four domain cards with no framing at all — the eyebrow, headline and lede all rendered
+after them, because the Option D implementation set `order: 2` on the intro and `order: 1` on the
+cards. The accepted render at `.design/out/option-d-mobile-1of2.png` shows one short framing
+sentence above the cards. Every build gate passed the whole time; nobody had rendered a phone width
+since Option D landed. A worker is fixing the order, hiding the phone eyebrow, compacting the lede,
+collapsing the card judged footer to one line, and adding the missing scorecard entry to the
+navigation. D-56 records it. The rest of the phone page was inspected end to end and reads
+correctly.
+
+**Nothing has been promoted to production.** `preview` carries all of the above.
