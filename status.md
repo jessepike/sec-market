@@ -1,7 +1,7 @@
 ---
 project: Security Market Signal Pipeline
 stage: Operate
-updated: 2026-08-22
+updated: 2026-08-23
 ---
 
 # Status
@@ -47,6 +47,13 @@ There are two long-lived branches (D-50). `preview` is the trunk and serves a fi
 - [x] D-48 landscape merged, pushed, and confirmed serving on https://securitymarketpulse.com
 - [x] One-product preview pass: collapse edition stack, fix Cloud chip, drop edition CTA and weekly claim, unprotect preview URLs (D-48)
 - [x] Loop A: first multi-source gather under the new ops docs (RoS #257) — packet at `docs/active/signals-week-2026-08-19.md`, lead reviewed, owner sign-off pending
+- [x] 71-source verification sweep; six unattributed claims fixed (SEC-020)
+- [x] Vendor scorecard made findable — Phase 1 top-level section, per-group collapse (SEC-021, D-54)
+- [x] Project scorecard v0.2 written with an honest baseline (SEC-022, D-55)
+- [x] Phone view corrected back to the accepted Option D design (SEC-023, D-56)
+- [ ] Owner: who scores the project scorecard independently, and who counts as qualified exposure
+- [ ] Owner: shorter phone footer labels, yes or no (SEC-023)
+- [ ] Enforce `sourceAttributions` in `verify:integrity` when an excerpt spans more than one source
 - [ ] Refresh Activity when Return on Security publishes a new Security, Funded issue
 - [x] Weekly desk: first real gather + reusable checklist (RoS #256; not published)
 - [x] Domain coverage map: watch list across Pulse domains
@@ -181,9 +188,16 @@ straight into four domain cards with no framing at all — the eyebrow, headline
 after them, because the Option D implementation set `order: 2` on the intro and `order: 1` on the
 cards. The accepted render at `.design/out/option-d-mobile-1of2.png` shows one short framing
 sentence above the cards. Every build gate passed the whole time; nobody had rendered a phone width
-since Option D landed. A worker is fixing the order, hiding the phone eyebrow, compacting the lede,
-collapsing the card judged footer to one line, and adding the missing scorecard entry to the
-navigation. D-56 records it. The rest of the phone page was inspected end to end and reads
+since Option D landed. Fixed on `preview` and confirmed by render, not by report: document order
+restored, the phone eyebrow hidden as the design has it, the lede tightened, the card judged footer
+collapsed from three stacked lines to one, and the missing Scorecard entry added to the navigation.
+Phone page 8,309 → 8,237 pixels; desktop identical at 8,274 pixels with its judged footer still two
+stacked lines. D-56 records it. The rest of the phone page was inspected end to end and reads
 correctly.
+
+One phone item is left deliberately undecided. The accepted design uses shorter footer labels
+("JUDGED 17 AUG · THIS QUARTER · CONF MEDIUM") that fit one line where the current wording wraps to
+two. That drops the year and the word CONFIDENCE from a provenance stamp, so it is the owner's call
+rather than mine. SEC-023 carries it.
 
 **Nothing has been promoted to production.** `preview` carries all of the above.

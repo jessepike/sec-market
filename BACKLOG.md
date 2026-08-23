@@ -149,6 +149,67 @@ Deferred from SEC-018 on purpose, because each item is a judgment or design call
 
 **Authorization state:** not authorized. Needs the owner's direction first on what belongs above the fold — six of thirteen top-level sections are currently collapsed behind a click, including the market call, the scorecard, the method and the evidence library.
 
+### SEC-021 — Make the vendor scorecard findable
+
+The owner remembered a per-vendor, per-domain card grid and asked which decision removed it. None
+did. All 42 cards were in the served markup, nested inside a collapsed `<details>` four sections
+down, so nothing told a reader they existed. Measured in a browser: 42 in the document, zero visible.
+
+**Spec:** [scorecard-visibility-spec.md](docs/active/scorecard-visibility-spec.md) (`SEC-MARKET-VIS-001`). Decision: D-54.
+
+**Phase 1 complete and on `preview`.** The scorecard is a top-level section under the tracked
+hypotheses, its eight domain groups collapse individually so a phone does not receive a 17,000-pixel
+wall, the group counts derive from the data, and the placeholder spark that never became a chart is
+gone. Phone page height fell from 17,013 to 8,309 pixels; desktop unchanged.
+
+**Phase 2 — not started.** Map each print to the posture it supports, so a reader can move from a
+domain card to the evidence under it rather than to an undifferentiated list.
+
+**Phase 3 — not started.** Give the archive real prior editions instead of a single frozen snapshot.
+
+**Rejected in review before it was built:** promoting all 42 cards to the top of the page. That
+trades a reader who cannot find the evidence for a reader who cannot find the read.
+
+**Authorization state:** Phase 1 authorized and built. Phases 2 and 3 need an owner go, and Phase 2
+overlaps the above-the-fold question that gates SEC-019.
+
+### SEC-022 — Project scorecard and its baseline
+
+An instrument to keep the work honest against `intent.md`, which says plainly that completing agents,
+a website or reports does not constitute success.
+
+**Instrument:** [project-scorecard.md](docs/active/project-scorecard.md) v0.2. Decision: D-55.
+
+Outcomes carry an evidence state rather than a score, every rate reads against an exposure
+denominator, there is no composite number to optimise, and the per-edition pass/fail health check is
+kept separate from the outcome review so shipping discipline is never mistaken for impact.
+
+**Baseline, deliberately unflattering:** every outcome is `not_assessed`, the exposure denominator is
+1, legibility fails, and [decision-impact-log.md](docs/active/decision-impact-log.md) has zero entries.
+
+**Owner owes two answers, and I should not guess either:** who scores this independently, and which
+named people count as qualified exposure.
+
+**Open work off the baseline:** raise the exposure denominator above 1; close the legibility check;
+add lead-time and incremental-value questions to the decision impact log.
+
+### SEC-023 — Phone view
+
+**Fixed 2026-08-22 (D-56).** The phone view had drifted from the accepted Option D design: the
+framing sentence, headline and lede all rendered *after* the four domain cards, because the
+implementation set `order: 2` on the intro and `order: 1` on the cards inside the phone breakpoint.
+Every build gate passed the whole time and nobody had rendered a phone width since Option D landed.
+
+Corrected on `preview`: document order restored, the eyebrow hidden above the framing line as the
+design has it, the lede tightened, the card judged footer collapsed from three stacked lines to one,
+and the missing Scorecard entry added to the navigation. Phone page 8,309 → 8,237 pixels; desktop
+identical at 8,274 pixels and its judged footer still two stacked lines, both confirmed by render.
+
+**Open, needs an owner yes or no:** the accepted design uses shorter footer labels — "JUDGED 17 AUG ·
+THIS QUARTER · CONF MEDIUM" — which fit one line where the current wording wraps to two. That drops
+the year and the word CONFIDENCE from a provenance stamp, so it is a content call rather than a
+styling one. Worth roughly another 70 pixels off the phone page.
+
 ## Completed mapping
 
 ### SEC-010 — Durable signals operation (map only)
@@ -276,8 +337,9 @@ excerpt spans more than one organization or economic period and the record carri
 earlier data-model recommendation: no schema change is needed, because the field already exists and
 already renders. It is not being enforced.
 
-**Pass two running:** re-fetching the remaining 12 unverifiable records with the method that worked (SEC.gov's
-documented identified-User-Agent policy, `pdftotext` on PDFs, browser user agent on IR hosts) and
-hunting the real primary source for each of the four drift claims.
+**Pass two complete.** The recoverable records were re-fetched with the method that worked (SEC.gov's
+documented identified-User-Agent policy, `pdftotext` on PDFs, a browser user agent on investor-relations
+hosts) and a primary source was located for each genuinely unattributed claim. Eleven records remain
+unreadable for host-side reasons only, listed above.
 
 **Authorization state:** authorized by the owner 2026-08-20. Fixes above already applied; the source sweep is scoped and awaiting a go on full versus partial.
