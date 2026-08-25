@@ -146,6 +146,34 @@ function printMatchesName(printName: string, token: string): boolean {
 }
 
 /**
+ * Resolve one print-line token to exactly one vendor print.
+ *
+ * An exact name wins outright. Failing that, a token resolves only if a single
+ * print matches loosely; two or more is an ambiguity the author has to settle,
+ * never something this function picks a winner for.
+ *
+ * Taking the first array match is how a bare "CrowdStrike" token bound to the
+ * Falcon Cloud segment rather than to CrowdStrike itself: both match loosely and
+ * the segment row happens to sit earlier in the array. That mislabels a growth
+ * rate with a dollar-figure record. It did not fire while SecOps stayed off the
+ * landscape, and it would have fired silently on the first render after it was
+ * promoted.
+ */
+function resolvePrint(domainId: string, token: string) {
+  const exact = vendorPrints.find((row) => row.name === token)
+  if (exact) return exact
+  const loose = vendorPrints.filter((row) => printMatchesName(row.name, token))
+  if (loose.length > 1) {
+    throw new Error(
+      `Landscape card ${domainId} print token "${token}" matches ${loose.length} vendor prints ` +
+        `(${loose.map((row) => row.name).join(', ')}). Write the full print name on the card's ` +
+        `print line so the citation is unambiguous.`,
+    )
+  }
+  return loose[0]
+}
+
+/**
  * Evidence for the prints on a landscape card, not the wider posture bundle.
  * Cloud's supporting list includes the Wiz close; that must not label Falcon Cloud.
  */
@@ -153,7 +181,7 @@ export function trackedPrintEvidenceIds(domain: SecurityDomain): string[] {
   const ids: string[] = []
   const seen = new Set<string>()
   for (const token of namesOnPrintLine(domain.print)) {
-    const print = vendorPrints.find((row) => printMatchesName(row.name, token))
+    const print = resolvePrint(domain.id, token)
     if (!print) {
       throw new Error(`Landscape card ${domain.id} print "${token}" has no vendor print`)
     }
