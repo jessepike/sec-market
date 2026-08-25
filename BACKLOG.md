@@ -279,6 +279,30 @@ confirm which two stay before the other seven go to `docs/archive/`.
 
 **Authorization state:** not authorized. Proposed 2026-08-25.
 
+### SEC-025 — AI security coverage
+
+A reader told the owner the AI security coverage is too thin. Measured, they are right twice over.
+Seven AI-relevant items exist across the 42-print scorecard and six of them are capital. The single
+buyer-side item, Palo Alto Prisma AIRS at 300-plus customers up from 100, is filed under Cloud
+security. Three of the seven sit under other domains, none of them misfiled: each print carries one
+`group` string and the model cannot say a print belongs to two domains.
+
+**Spec:** [ai-coverage-spec.md](docs/active/ai-coverage-spec.md) (`SEC-MARKET-AI-001` v0.1)
+
+Part 1 adds an optional secondary domain to a print, with a visible primary-group label on any
+borrowed card and three new `verify:integrity` checks, because once a print appears twice the group
+counts sum to 45 against an eyebrow that says 42.
+
+Part 2 is a bounded gather for buyer-side AI security evidence, the acquisition record, and
+AI-native vendors carrying any public number. Capital is deliberately deprioritised: every round we
+already hold says the same thing, and the read cannot improve without buyer-side evidence.
+
+**Authorization state:** both parts authorized by the owner 2026-08-25. Findings are re-verified by
+the lead against primary documents before anything reaches `preview`.
+
+**Not authorized by this work:** changing any published posture, market call or confidence value;
+adding a domain card; changing the landscape frame. Presentation waits until coverage is known.
+
 ## Flagged (not authorized)
 
 ### SEC-012 — Orphaned signals data
