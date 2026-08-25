@@ -482,3 +482,17 @@ Rendering the deployed preview at 390 pixels showed the page opening straight in
 Three further phone changes go with it. The eyebrow is hidden above the framing line, which is what the accepted design does. The lede is set smaller so the intro block stays short. And each card's judged footer collapses from three stacked lines to one wrapped line, which is again what the design shows; the desktop footer keeps its two stacked lines, and that must be proven by render rather than asserted. The navigation also gains the scorecard entry it was missing after D-54 made that section top-level.
 
 The rest of the phone page was inspected end to end and is sound. What moved, platform pressure, tracked hypotheses, the collapsed scorecard groups and the corrections invite all read correctly at 390 pixels.
+
+**D-57 · 2026-08-25 — The scorecard visibility work, the phone correction and the source attributions are promoted to production. Owner approved after a rendered before-and-after.**
+
+`origin/main` moved `9a75169` → `4916a95` by fast-forward from `preview`, carrying eighteen commits. This is the first promotion since D-53 on 2026-08-20.
+
+Approval followed the visual review the deploy contract requires rather than preceding it. Production and preview were both rendered at 1440 and 390 pixels, the differences were stated in full, and the owner approved what he had actually seen. Confirmed live two ways: the served markup carries the renamed disclosure and no longer contains the "no series yet" string, and a fresh render of https://securitymarketpulse.com returns 8,274 pixels at 1440 and 8,237 at 390, identical to the preview render at both widths.
+
+What a reader gets that they did not have before. The vendor scorecard is a top-level section rather than forty-two cards buried inside a collapsed block below the author's signature (D-54). The phone page opens with its framing sentence and headline above the four domain cards instead of below them (D-56). The placeholder spark that never became a chart is gone from all forty-two cards. Six evidence records carry the source attributions the 71-source sweep found missing, so every claim on the page names the document that states it.
+
+The desktop page roughly doubled in length, 4,315 pixels to 8,274. That is the honest price of making the evidence findable and it was approved as such, not overlooked.
+
+One ordering change was a judgment rather than a correction and is recorded as such: the frozen provenance line and the closing method-and-corrections block swapped places, so the page now ends on a named person and an email address rather than on a disclaimer. A page whose entire claim is that a human signs the judgments should end on the human.
+
+Still open and deliberately not decided here: the shorter phone footer labels in SEC-023, which drop the year and the word CONFIDENCE from a provenance stamp and are therefore a content call.

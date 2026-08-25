@@ -1,16 +1,18 @@
 ---
 project: Security Market Signal Pipeline
 stage: Operate
-updated: 2026-08-23
+updated: 2026-08-25
 ---
 
 # Status
 
 ## Current State
 
-Security Market Pulse is live at https://securitymarketpulse.com and the D-48 Option D landscape is what a visitor now sees. Confirmed by query against the live host on 2026-08-19: HTTP 200, served from the Vercel edge, and the page carries the provenance rail, the four domain postures, What moved this week, Platform pressure and Tracked hypotheses.
+Security Market Pulse is live at https://securitymarketpulse.com and production is current. `main` was promoted to `4916a95` on 2026-08-25 (D-57), carrying eighteen commits and closing a five-day gap in which the trunk held finished work that no reader could see.
 
-That promotion is now reconciled. The owner confirmed on 2026-08-19 that he approved D-48; the approval had simply never been written down, so for a few hours the live site and the owner's understanding of it disagreed. D-49 recorded it as an unapproved gate crossing and is retracted by D-51.
+A visitor now gets three things production did not have before. The vendor scorecard is a top-level section with its forty-two cards grouped by domain, rather than buried inside a collapsed block below the author's signature. The phone page opens with its framing sentence and headline above the four domain cards. And six evidence records carry source attributions the 71-source sweep found missing, so every claim on the page names the document that states it. Confirmed by render, not by deploy log: production returns 8,274 pixels at 1440 and 8,237 at 390, identical to preview at both widths.
+
+The desktop page roughly doubled in length as a result, 4,315 to 8,274 pixels. That is the cost of making the evidence findable and it was approved knowingly.
 
 There are two long-lived branches (D-50). `preview` is the trunk and serves a fixed public URL at https://security-market-pulse-git-preview-pikeholdings.vercel.app. `main` is production, serves https://securitymarketpulse.com, and moves only by a fast-forward promotion from `preview` on an explicit owner yes. A pre-push hook refuses a direct push to `main`; promotion requires `PROMOTE=1`. Install per clone with `./.githooks/install`.
 
@@ -23,7 +25,7 @@ There are two long-lived branches (D-50). `preview` is the trunk and serves a fi
 | Episode 001 | Done. One-time call on agent security readiness. Still usable as background. |
 | Episode 002 | Done. Current published market call. Infra spend is up. We will not fake a security-spend lag. |
 | Recurring signals | Ops artifacts live (D-43). Activity + prints on site. Loop A: Tuesday multi-source gather. |
-| Git / production | `main` at `9a75169` is live on Vercel, promoted 2026-08-20 (D-53). Promotion only by fast-forward from `preview` with `PROMOTE=1`. |
+| Git / production | `main` at `4916a95` is live on Vercel, promoted 2026-08-25 (D-57). Promotion only by fast-forward from `preview` with `PROMOTE=1`. |
 | Auto-publish judgments | Still not allowed without a human check |
 
 ## Next Steps
@@ -51,6 +53,7 @@ There are two long-lived branches (D-50). `preview` is the trunk and serves a fi
 - [x] Vendor scorecard made findable — Phase 1 top-level section, per-group collapse (SEC-021, D-54)
 - [x] Project scorecard v0.2 written with an honest baseline (SEC-022, D-55)
 - [x] Phone view corrected back to the accepted Option D design (SEC-023, D-56)
+- [x] Promote the eighteen pending commits to production after a rendered before-and-after (D-57)
 - [ ] Owner: who scores the project scorecard independently, and who counts as qualified exposure
 - [ ] Owner: shorter phone footer labels, yes or no (SEC-023)
 - [ ] Enforce `sourceAttributions` in `verify:integrity` when an excerpt spans more than one source
@@ -67,12 +70,13 @@ None blocking the signals job. Feed design (which VC pages, which public-record 
 
 ## Blockers
 
-None on the build. The open item is a record problem, not a code problem: D-48 says do not merge and the merge happened. See Current State.
+None. The D-48 promotion record was reconciled on 2026-08-19 (D-51) and production is current as of D-57. What remains open is owner input, listed under Next Steps, and it blocks the roadmap rather than the build.
 
 ## Session Log
 
 | Date | Summary |
 |------|---------|
+| 2026-08-25 | Production promoted to `4916a95` (D-57), the first promotion since 2026-08-20 and eighteen commits' worth. Approval followed a rendered before-and-after at 1440 and 390 rather than preceding it. The scorecard is findable, the phone opens with its framing line, the placeholder spark is gone from all forty-two cards, and six evidence records carry their missing source attributions. Confirmed live by render at both widths. Next work is the roadmap, grounded in intent's four observable-success tests rather than in further site features. |
 | 2026-08-20 | Integrity pass shipped and promoted. An intent-versus-built audit found the site asserting things about itself that were not true — a provenance legend state with zero instances, a hero saying four domains while six carried postures, a navigation claiming a weekly cadence the method denied, and an evidence resolver that would have crashed the moment SecOps was promoted. `SEC-MARKET-INTEGRITY-001` specified eight corrections and a `verify:integrity` build gate; Cursor Composer implemented, the CPO session verified by perturbing all five gate checks and by rendering the page. Owner promoted to production (D-53). Live and confirmed by query. |
 | 2026-08-19 | Prod and preview put on a stable footing. Production verified by query to be serving the accepted D-48 landscape. `preview` created as the standing trunk with a fixed public URL; `main` is production and moves only by fast-forward promotion (D-50). Pre-push guard added and proven to fire. Owner confirmed he approved D-48, so D-49 is retracted by D-51: the failure was that the approval was never written down, not that it was missing. |
 | 2026-08-19 | Loop A ran for the first time since the landscape shipped. RoS #257: four product rounds totalling $97.1M, one $2.2B public-markets debt raise held out of the product count, eight M&A deals with one disclosed value, no net-new VC portfolio names. Every figure re-verified against the source directly. Two lead corrections: the Fortinet earnings line omitted the 3.08% day decline, and its 33% billings figure is the print already frozen as evidence C3, not new. Market call frozen. Three merged branches deleted. |

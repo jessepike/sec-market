@@ -157,7 +157,7 @@ down, so nothing told a reader they existed. Measured in a browser: 42 in the do
 
 **Spec:** [scorecard-visibility-spec.md](docs/active/scorecard-visibility-spec.md) (`SEC-MARKET-VIS-001`). Decision: D-54.
 
-**Phase 1 complete and on `preview`.** The scorecard is a top-level section under the tracked
+**Phase 1 complete and live in production** (promoted 2026-08-25, D-57). The scorecard is a top-level section under the tracked
 hypotheses, its eight domain groups collapse individually so a phone does not receive a 17,000-pixel
 wall, the group counts derive from the data, and the placeholder spark that never became a chart is
 gone. Phone page height fell from 17,013 to 8,309 pixels; desktop unchanged.
@@ -195,12 +195,12 @@ add lead-time and incremental-value questions to the decision impact log.
 
 ### SEC-023 — Phone view
 
-**Fixed 2026-08-22 (D-56).** The phone view had drifted from the accepted Option D design: the
+**Fixed 2026-08-22 (D-56) and live in production since 2026-08-25 (D-57).** The phone view had drifted from the accepted Option D design: the
 framing sentence, headline and lede all rendered *after* the four domain cards, because the
 implementation set `order: 2` on the intro and `order: 1` on the cards inside the phone breakpoint.
 Every build gate passed the whole time and nobody had rendered a phone width since Option D landed.
 
-Corrected on `preview`: document order restored, the eyebrow hidden above the framing line as the
+Corrected and now serving: document order restored, the eyebrow hidden above the framing line as the
 design has it, the lede tightened, the card judged footer collapsed from three stacked lines to one,
 and the missing Scorecard entry added to the navigation. Phone page 8,309 → 8,237 pixels; desktop
 identical at 8,274 pixels and its judged footer still two stacked lines, both confirmed by render.
