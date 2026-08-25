@@ -41,6 +41,23 @@ whether the intelligence is doing its job.
 
 **The edition health check** runs every edition. It is pass, fail, or exception. No scores.
 
+### Who scores which — settled 2026-08-25 (D-58)
+
+The two instruments have different independence needs, so they get different scorers.
+
+The **outcome review is scored by a named human who did not build this**. It is the only instrument
+where independence is load-bearing, because `independently_evidenced` is defined as recorded by
+somebody who did not build it, and an author cannot satisfy that definition about his own work at
+any level of care.
+
+The **edition health check is scored by an agent**. Its five checks are mechanical enough to be
+repeatable — sources resolve or they do not, content renders or it does not — and H4 in particular
+is a browser measurement anyone can reproduce. An agent running the same checks every edition is
+more consistent than a human doing it occasionally, and it costs nobody's calendar.
+
+The corollary is that the author of an edition never scores its outcome review, including when the
+author is an agent.
+
 ---
 
 # Instrument 1 — Outcome review
@@ -65,6 +82,31 @@ Recorded first, every time, because no use measure means anything without it.
 **How many qualified people had a genuine opportunity to use this intelligence, and who were they?**
 
 An outcome cannot be rated better than `not_assessed` while the denominator is zero.
+
+### Who counts — settled 2026-08-25 (D-58)
+
+Qualified exposure is a **small deliberate pilot set, named in advance**, drawn from two of intent's
+three beneficiaries: ePlus account teams and CSPs, and named clients. Security leadership peers
+outside the engagement are deliberately excluded from the denominator. They may still read the site
+and their reactions are worth having, but their decisions are not observable to us, so counting them
+would inflate the denominator with exposure that can never produce an outcome.
+
+Naming the set in advance is the point. A denominator assembled afterwards from whoever happened to
+respond measures reach, not opportunity.
+
+### How identities are recorded
+
+Intent excludes client-identifying and confidential ePlus information from this project, and H5
+checks for it. The repository is private, so this is a boundary rule rather than a disclosure risk,
+but the rule holds either way.
+
+**This repository records role, segment and a stable pseudonymous identifier. It does not record
+names of ePlus personnel, accounts, or clients.** An entry reads "account team A, West NorCal" or
+"client 3, financial services". The mapping from identifier to person lives in the ePlus operating
+cockpit, which is the private store built for confidential engagement data, and it stays there.
+
+This preserves everything the instrument actually needs. The denominator is a count, the beneficiary
+tag is a role, and the outcome is a described change. None of those require a name to be true.
 
 ## Outcome dimensions
 

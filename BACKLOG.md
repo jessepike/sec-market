@@ -187,8 +187,15 @@ kept separate from the outcome review so shipping discipline is never mistaken f
 **Baseline, deliberately unflattering:** every outcome is `not_assessed`, the exposure denominator is
 1, legibility fails, and [decision-impact-log.md](docs/active/decision-impact-log.md) has zero entries.
 
-**Owner owes two answers, and I should not guess either:** who scores this independently, and which
-named people count as qualified exposure.
+**Both answers settled 2026-08-25 (D-58).** Qualified exposure is a named pilot set drawn from ePlus
+account teams and CSPs and from named clients; peers outside the engagement are excluded because
+their decisions are not observable. The outcome review is scored by a named human who did not build
+this; the edition health check is scored by an agent. Identities are recorded as role, segment and a
+pseudonymous identifier here, with the mapping held in the ePlus operating cockpit.
+
+**Still owner-owned:** the actual names. Who is in the pilot set, and who scores the outcome review.
+The denominator stays at 1 until the first exists, and H1 and H4 stay self-assessed until the second
+does.
 
 **Open work off the baseline:** raise the exposure denominator above 1; close the legibility check;
 add lead-time and incremental-value questions to the decision impact log.
