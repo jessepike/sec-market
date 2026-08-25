@@ -521,6 +521,18 @@ summary:focus-visible,
   color: #a8b0ba;
 }
 
+/* Only present on a card borrowed into a secondary group — names the print's
+   primary group so the count here is never mistaken for a second, unrelated
+   print. See scripts/verify-integrity.ts for the gate that enforces it. */
+.print-card__borrowed {
+  margin: 0.35rem 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.03em;
+  font-style: italic;
+  color: var(--color-text-muted);
+}
+
 .print-card__note {
   margin: 0.55rem 0 0.65rem;
   padding-top: 0.5rem;

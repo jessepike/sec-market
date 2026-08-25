@@ -69,8 +69,24 @@ export function PrintGrid() {
         <p>Public prints first. Private names stay on the board as capital or “no series” — not invented ARR.</p>
       </div>
       {printGroups.map((group) => {
-        const prints = vendorPrints.filter((print) => print.group === group)
+        // A group's own prints (this is their primary `group`) plus any
+        // prints that name this group as their `secondaryGroup` — borrowed
+        // cards that also render here so a domain's AI-relevant coverage
+        // isn't hidden behind a single group string. Borrowed cards carry a
+        // visible primary-group label (below) so the two never look like one
+        // undifferentiated count — see the eyebrow/gate note in prints.ts's
+        // sibling check in scripts/verify-integrity.ts.
+        const ownPrints = vendorPrints.filter((print) => print.group === group)
+        const borrowedPrints = vendorPrints.filter((print) => print.secondaryGroup === group)
+        const prints = [...ownPrints, ...borrowedPrints]
         if (prints.length === 0) return null
+        // Every number in the header describes what is actually rendered in
+        // this group, borrowed cards included, and the borrowed count then
+        // discloses how many of them are also counted elsewhere. Counting only
+        // `ownPrints` here read "0 prints" for AI runtime while the group
+        // displayed Prisma AIRS at 300+ customers, which is a comparable print.
+        // A header that undercounts what is on screen is the same defect as one
+        // that inflates it.
         const comparable = prints.filter((print) => print.surface !== 'coverage').length
         return (
           // No `open` prop here — see the effect above for why. The <summary>
@@ -84,6 +100,9 @@ export function PrintGrid() {
                 <span className="grouphdr__meta">
                   <span className="grouphdr__count">
                     {comparable} print{comparable === 1 ? '' : 's'} · {prints.length} covered
+                    {borrowedPrints.length > 0
+                      ? ` · ${borrowedPrints.length} borrowed`
+                      : ''}
                   </span>
                   {/* Mobile-only tap affordance — the native <details> marker
                       doesn't align on the same line as a flex child, so we
@@ -95,23 +114,33 @@ export function PrintGrid() {
               </div>
             </summary>
             <div className="print-cards">
-              {prints.map((print) => (
-                <article
-                  key={print.id}
-                  className={
-                    print.surface === 'coverage' ? 'print-card print-card--coverage' : 'print-card'
-                  }
-                >
-                  <header className="print-card__top">
-                    <h3>{print.name}</h3>
-                    <span>{print.period}</span>
-                  </header>
-                  <p className={`print-card__value print-card__value--${print.tone}`}>{print.value}</p>
-                  <p className="print-card__metric">{print.metric}</p>
-                  <p className="print-card__note">{print.note}</p>
-                  <EvidenceLink ids={print.evidenceIds} />
-                </article>
-              ))}
+              {prints.map((print) => {
+                const isBorrowed = print.secondaryGroup === group
+                return (
+                  <article
+                    key={print.id}
+                    className={
+                      print.surface === 'coverage'
+                        ? 'print-card print-card--coverage'
+                        : 'print-card'
+                    }
+                  >
+                    <header className="print-card__top">
+                      <h3>{print.name}</h3>
+                      <span>{print.period}</span>
+                    </header>
+                    <p className={`print-card__value print-card__value--${print.tone}`}>
+                      {print.value}
+                    </p>
+                    <p className="print-card__metric">{print.metric}</p>
+                    {isBorrowed ? (
+                      <p className="print-card__borrowed">also counted under {print.group}</p>
+                    ) : null}
+                    <p className="print-card__note">{print.note}</p>
+                    <EvidenceLink ids={print.evidenceIds} />
+                  </article>
+                )
+              })}
             </div>
           </details>
         )

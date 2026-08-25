@@ -10,7 +10,7 @@
     "dev": "vite",
     "verify:edition": "tsx scripts/verify-edition.ts",
     "verify:panel": "tsx scripts/verify-panel.ts",
-    "verify:integrity": "tsx scripts/verify-integrity.ts",
+    "verify:integrity": "tsx --tsconfig tsconfig.app.json scripts/verify-integrity.ts",
     "build:client": "vite build",
     "build:server": "vite build --ssr src/entry-server.tsx --outDir dist-ssr",
     "prerender": "tsx scripts/prerender.ts",

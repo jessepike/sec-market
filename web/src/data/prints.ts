@@ -146,6 +146,7 @@ export const vendorPrints: VendorPrint[] = [
   {
     id: 'print-panw-cloud',
     group: 'Cloud security',
+    secondaryGroup: 'AI runtime',
     name: 'Palo Alto Prisma AIRS',
     period: 'Q3 FY26',
     value: '300+',
@@ -359,6 +360,7 @@ export const vendorPrints: VendorPrint[] = [
   {
     id: 'print-oak',
     group: 'Identity',
+    secondaryGroup: 'AI runtime',
     name: 'Oak',
     period: 'JUL ’26',
     value: '$60M',
@@ -372,6 +374,7 @@ export const vendorPrints: VendorPrint[] = [
   {
     id: 'print-hush',
     group: 'Identity',
+    secondaryGroup: 'AI runtime',
     name: 'Hush Security',
     period: 'JUL ’26',
     value: '$30M',

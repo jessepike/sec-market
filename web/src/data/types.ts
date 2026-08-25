@@ -1,3 +1,5 @@
+import type { printGroups } from './prints'
+
 export type SourceClass =
   | 'FILING'
   | 'IR'
@@ -169,6 +171,14 @@ export interface VendorPrint {
   surface?: 'print' | 'coverage'
   position?: VendorPosition
   evidenceIds: string[]
+  /**
+   * Optional second domain this print is also counted under. Must differ from
+   * `group` and be one of `printGroups`. The eyebrow's distinct-print total is
+   * unaffected — this only makes the print's card also render, with a
+   * primary-group label, inside the secondary group's section. See
+   * PrintGrid.tsx and scripts/verify-integrity.ts.
+   */
+  secondaryGroup?: (typeof printGroups)[number]
 }
 
 export interface ContextStat {

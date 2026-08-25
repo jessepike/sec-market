@@ -297,6 +297,22 @@ Part 2 is a bounded gather for buyer-side AI security evidence, the acquisition 
 AI-native vendors carrying any public number. Capital is deliberately deprioritised: every round we
 already hold says the same thing, and the read cannot improve without buyer-side evidence.
 
+**Part 1 complete and on `preview` 2026-08-25.** Three prints now carry `secondaryGroup: 'AI runtime'`
+and render in both sections with an "also counted under X" label. AI runtime went from 4 cards to 7,
+including Palo Alto Prisma AIRS at 300-plus customers, which is the only buyer-side AI item we hold.
+Three new gate checks were each observed to fail with exit code 1 under deliberate perturbation and
+to pass on revert.
+
+**Part 2 incomplete.** The gather was cut off by a session usage limit. Three of four lanes died
+mid-flight; one sub-lane on agentic identity returned verified findings and they are not yet in the
+site. Re-run needed.
+
+**A gate hole this exposed, not yet closed.** My spec told the implementer to keep primary and
+borrowed counts separate, which produced a header reading "0 prints" for AI runtime while the group
+displayed a genuine comparable print. Every existing gate passed. The counts now describe what is
+actually rendered, but nothing enforces that a group header's number matches the cards in that group.
+`verify:integrity` should assert it, since check 8 already renders the component.
+
 **Authorization state:** both parts authorized by the owner 2026-08-25. Findings are re-verified by
 the lead against primary documents before anything reaches `preview`.
 

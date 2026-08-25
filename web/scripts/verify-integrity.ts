@@ -1,12 +1,16 @@
+import { createElement } from 'react'
+import { renderToStaticMarkup } from 'react-dom/server'
 import { activityItems } from '../src/data/activity.ts'
 import { evidenceById, evidenceRecords } from '../src/data/evidence.ts'
 import { securityDomains, trackedPrintEvidenceIds } from '../src/data/domains.ts'
 import { hypotheses } from '../src/data/hypotheses.ts'
 import { contextStats, chartEvidenceIds, marketCall } from '../src/data/market.ts'
 import { allPressureRows } from '../src/data/platformPressure.ts'
-import { vendorPrints } from '../src/data/prints.ts'
+import { printGroups, vendorPrints } from '../src/data/prints.ts'
 import type { Provenance } from '../src/data/types.ts'
 import { weekMoves } from '../src/data/whatMoved.ts'
+import { PrintGrid } from '../src/components/PrintGrid.tsx'
+import { EvidenceProvider } from '../src/context/EvidenceProvider.tsx'
 
 const MAX_UNREFERENCED = 5
 
@@ -137,6 +141,46 @@ if (unreferenced.length > MAX_UNREFERENCED) {
   fail(
     `${unreferenced.length} unreferenced evidence records exceeds the allowed ${MAX_UNREFERENCED}`,
   )
+}
+
+// 6. A print's secondaryGroup, when present, must name a real domain.
+for (const print of vendorPrints) {
+  if (print.secondaryGroup === undefined) continue
+  if (!(printGroups as readonly string[]).includes(print.secondaryGroup)) {
+    fail(
+      `Print "${print.id}" has secondaryGroup "${print.secondaryGroup}" which is not a member of printGroups`,
+    )
+  }
+}
+
+// 7. A print's secondaryGroup must differ from its primary group — a print
+// cannot borrow into the domain it already belongs to.
+for (const print of vendorPrints) {
+  if (print.secondaryGroup !== undefined && print.secondaryGroup === print.group) {
+    fail(
+      `Print "${print.id}" has secondaryGroup equal to its primary group "${print.group}" — that is not a second domain`,
+    )
+  }
+}
+
+// 8. Every print carrying a secondaryGroup must render, in the secondary
+// group's section, a visible label naming its primary group. This is the
+// check that keeps a borrowed card from silently reading like an extra,
+// undifferentiated print in the group it was borrowed into.
+const borrowedPrints = vendorPrints.filter((print) => print.secondaryGroup !== undefined)
+if (borrowedPrints.length > 0) {
+  const markup = renderToStaticMarkup(
+    createElement(EvidenceProvider, null, createElement(PrintGrid)),
+  )
+  for (const print of borrowedPrints) {
+    const label = `also counted under ${print.group}`
+    if (!markup.includes(label)) {
+      fail(
+        `Print "${print.id}" carries secondaryGroup "${print.secondaryGroup}" but the rendered ` +
+          `output does not contain the primary-group label "${label}"`,
+      )
+    }
+  }
 }
 
 console.log('Integrity check passed')
