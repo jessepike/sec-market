@@ -235,6 +235,24 @@ Where public cybersecurity M&A actually shows up, and what we can use. Same shap
 
 **Authorization state:** research authorized (D-33). Collection not authorized.
 
+### SEC-024 — Working-zone hygiene in `docs/active/`
+
+`docs/active/` holds 35 files and nine of them are orphaned: nothing in `BACKLOG.md`, `status.md`,
+`decisions.md`, `README.md`, `AGENTS.md` or `docs/reference/` points at them. Since the context map
+sends every fresh agent into `docs/active/` as the default working zone, a new session currently
+reads mostly finished work.
+
+Orphaned: `activity-edition-draft-2026-08.md`, `domain-coverage-map.md`,
+`domain-vendor-signals-2026-08.md`, `durable-signals-job.md`, `signals-week-2026-08-16.md`,
+`signals-weekly-checklist.md`, `startup-collection-packet-2026-08.md`, `startup-section-brief.md`,
+`vercel-dns-handoff.md`.
+
+Most are plainly finished. Two are not obviously dead despite being unlinked — the weekly signals
+checklist and the domain coverage map both sound operationally live — so the move needs the owner to
+confirm which two stay before the other seven go to `docs/archive/`.
+
+**Authorization state:** not authorized. Proposed 2026-08-25.
+
 ## Flagged (not authorized)
 
 ### SEC-012 — Orphaned signals data
