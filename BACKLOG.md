@@ -147,6 +147,32 @@ Deferred from SEC-018 on purpose, because each item is a judgment or design call
 - Wire the five unreferenced evidence records — Dell, Vertiv, Broadcom, Meta, Oracle — into the infrastructure and hyperscaler-capex surfaces the method already names. Figures must be verified against each source.
 - Intent names relevance as one of four properties every claim preserves. No field or proxy for it exists anywhere.
 
+**Measured 2026-08-25, and it corrects an earlier overstatement in this session.** Six domains carry
+a signed, dated posture; four render as landscape cards. I first said the other two "do not render
+anywhere," which was wrong. They render inside the collapsed market-read disclosure, on the Tempo
+board, which maps over all six. Browser measurement at 1440 and 390 pixels: the string "AI Runtime"
+is in the document twice and visible zero times at both widths, and "SecOps" is in the document three
+times and visible once, where the one visible instance is the scorecard group header rather than the
+posture. So both postures are one click away, not absent. That is the collapsed pattern, not the
+buried-and-unlabeled pattern D-54 dealt with.
+
+**The frame question, opened 2026-08-25 and deliberately not answered.** The domain axis is not
+discriminating well. Across the six postures there are two distinct posture values (two PREPARE, four
+INVESTIGATE), confidence reads MEDIUM on every one, and the horizons collapse to three values with
+repeats. Meanwhile the market call, which is the sharpest writing on the site, does not use the domain
+frame at all: it is written as do and avoid, with the do items expressed as client triggers. That is
+evidence the trigger-and-action frame carries more of the value than the category frame does.
+
+Candidate change, unbuilt on purpose: lead each card with its trigger sentence and demote the domain
+name to a label. Cloud currently reads "Cloud Security / WATCH / Qualify residual gaps when capacity
+goes live"; the third line is the useful one.
+
+This is not being built because it is a theory about what a reader needs, and the D-58 pilot answers
+it more cheaply and more honestly than reasoning does. Changing the accepted Option D front page
+immediately before exposing it would also destroy the baseline: reader reactions could not then be
+separated from an untested edit. Whichever frame wins determines what the canonical identifiers
+should be, so the three-taxonomy reconciliation above waits on the same answer.
+
 **Authorization state:** not authorized. Needs the owner's direction first on what belongs above the fold — six of thirteen top-level sections are currently collapsed behind a click, including the market call, the scorecard, the method and the evidence library.
 
 ### SEC-021 — Make the vendor scorecard findable
