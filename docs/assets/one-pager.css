@@ -1,0 +1,143 @@
+/* pdf-report — default print stylesheet for md_to_pdf.py.
+   Sane print defaults for a hand-written prose document (headings, paragraphs,
+   lists, tables) converted from markdown via pandoc. Consumes ONLY brand CSS
+   variables (--brand-*, with fallbacks) — never a literal color — so a
+   --brand swap restyles this without editing a single rule here, same
+   contract as scripts/styles/base.css. This file is the DEFAULT used when
+   --css is not given; --css replaces it entirely rather than layering on
+   top of it. */
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--brand-font-body, Helvetica, Arial, sans-serif);
+  color: var(--brand-body-text, #111111);
+  font-size: 10pt;
+  line-height: 1.36;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--brand-font-head, Helvetica, Arial, sans-serif);
+  color: var(--brand-body-text, #111111);
+  break-after: avoid;
+  margin-top: 0.17in;
+  margin-bottom: 0.06in;
+}
+
+h1 {
+  font-size: 1.6em;
+  border-bottom: 2px solid var(--brand-accent, #1f3864);
+  padding-bottom: 0.06in;
+}
+
+h2 {
+  font-size: 1.3em;
+}
+
+h3 {
+  font-size: 1.1em;
+}
+
+p, ul, ol {
+  margin: 0.055in 0;
+}
+
+ul, ol {
+  padding-left: 0.3in;
+}
+
+li {
+  margin: 0.03in 0;
+}
+
+a {
+  color: var(--brand-accent, #1f3864);
+}
+
+code {
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.9em;
+  background: var(--brand-zebra, #f4f6fa);
+  padding: 0.02in 0.05in;
+  border-radius: 2px;
+}
+
+pre {
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.85em;
+  background: var(--brand-zebra, #f4f6fa);
+  border: 1px solid var(--brand-rule, #bbbbbb);
+  padding: 0.1in;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  break-inside: avoid;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+}
+
+blockquote {
+  margin: 0.1in 0;
+  padding: 0.05in 0.15in;
+  border-left: 3px solid var(--brand-accent, #1f3864);
+  color: var(--brand-muted-text, #666666);
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--brand-rule, #bbbbbb);
+  margin: 0.2in 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.15in 0;
+}
+
+/* Repeating headers on multi-page tables (chromium print). This is the
+   documented, expected source of the validator's "benign over-count": a
+   currency token inside a <thead> is legitimately counted once per printed
+   page. See references/05-markdown-to-pdf.md. */
+thead {
+  display: table-header-group;
+}
+
+th {
+  background: var(--brand-header-bg, #404040);
+  color: var(--brand-header-text, #ffffff);
+  text-align: left;
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--brand-rule, #bbbbbb);
+}
+
+td {
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--brand-rule, #bbbbbb);
+}
+
+tbody tr {
+  break-inside: avoid;
+}
+
+tbody tr:nth-child(even) {
+  background: var(--brand-zebra, #f4f6fa);
+}
+
+img {
+  max-width: 100%;
+}
+
+/* One-pager overrides: this handout must fit a single page. */
+@page { margin: 0.6in; }
+h1 { margin-top: 0; }
+h1 + p { margin-top: 0.04in; }
