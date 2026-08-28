@@ -596,3 +596,39 @@ be rejected without unpicking the promotion.
 Specified in [read-promotion-spec.md](docs/active/read-promotion-spec.md) (`SEC-MARKET-READ-001`).
 This also answers a large part of SEC-019, the above-the-fold question that had been open since
 2026-08-20. Production still moves only on an explicit owner yes after a rendered review.
+
+**D-61 · 2026-08-28 — The read, the AI acquisition coverage and two new gates are promoted to production. Twenty-two commits.**
+
+`origin/main` moved `4916a95` → `b423b70` by fast-forward from `preview`. Confirmed serving on
+https://securitymarketpulse.com by browser query rather than by deploy log: `#read` returns true from
+`checkVisibility()` with no disclosure ancestor, the page's single `h1` is the market call, the AI
+runtime group header states ten covered against ten cards actually rendered, and the stamp and rail
+both read 28 August while every judgment still reads 15, 16 or 17 August.
+
+**What a reader gets that they did not have before.** The market read is on the page. Until today the
+headline, what changed, the Do and Avoid lists, the no-call boundaries and what would change the call
+were all inside a closed disclosure, so a reader saw evidence and none of the judgment it produced.
+The read now opens the page. Under it the AI runtime coverage carries three acquisitions sourced to
+audited filings rather than to funding announcements, and the read itself names the finding: platforms
+are paying disclosed prices for AI security companies whose revenue those filings call immaterial.
+
+**A date defect was fixed on the way rather than shipped.** The stamp read "EDITION 2026-08-28" beside
+"UPDATED August 17, 2026", because one constant carried the site's as-of stamp, the date on the tracked
+hypotheses, the date on the platform-pressure reads, and the window `weekMoves` describes. Publishing
+an edition moved all four together, which would have re-dated judgments nobody had revisited. The
+constant is split. The site stamp moves when the site ships; the judgment dates move only when a person
+reviews those judgments again. Nothing was re-dated that was not re-judged.
+
+**Two gates ship with it, both proven by perturbation rather than asserted.** The build now fails when
+any of seven must-see sections is nested inside a disclosure, which is the defect this session found
+twice. And a print-group header whose count disagrees with the cards rendered under it now fails the
+build, which is the defect my own specification caused earlier in the session. The first attempt at
+proving the first gate was invalid, because the script died on a stale artifact before reaching the
+assertion and returned no verdict at all; that is the third time this project has hit that trap and it
+is why the proof was redone against a clean build.
+
+The stale end-to-end smoke test was also repaired, without touching a line of application code. It had
+been asserting a page structure that stopped existing on 2026-08-22. The suite runs green.
+
+Page height 8,274 → 10,340 pixels at desktop and 8,237 → 11,369 on the phone. That is the price of
+showing a reader the judgments instead of hiding them, and it was paid deliberately.

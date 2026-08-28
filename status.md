@@ -25,7 +25,7 @@ There are two long-lived branches (D-50). `preview` is the trunk and serves a fi
 | Episode 001 | Done. One-time call on agent security readiness. Still usable as background. |
 | Episode 002 | Done. Current published market call. Infra spend is up. We will not fake a security-spend lag. |
 | Recurring signals | Ops artifacts live (D-43). Activity + prints on site. Loop A: Tuesday multi-source gather. |
-| Git / production | `main` at `4916a95` is live on Vercel, promoted 2026-08-25 (D-57). Promotion only by fast-forward from `preview` with `PROMOTE=1`. |
+| Git / production | `main` at `b423b70` is live on Vercel, promoted 2026-08-28 (D-61). Promotion only by fast-forward from `preview` with `PROMOTE=1`. |
 | Auto-publish judgments | Still not allowed without a human check |
 
 ## Next Steps
@@ -60,7 +60,8 @@ There are two long-lived branches (D-50). `preview` is the trunk and serves a fi
 - [x] SEC-MARKET-READ-001: the market read promoted out of the disclosure to the top of the page (D-60)
 - [x] Build gate: a must-see section nested in a disclosure now fails the build
 - [x] Stale end-to-end smoke test repaired; suite green
-- [ ] **Owner, blocks promotion:** the stamp reads EDITION 2026-08-28 next to UPDATED August 17, 2026
+- [x] Date constant split so the site stamp and the judgment dates move independently
+- [x] Promoted to production `b423b70` (D-61), confirmed serving by browser query
 - [ ] Owner: how the AI coverage finding gets presented on the site — this is the open call
 - [ ] Owner: who scores the project scorecard independently, and who counts as qualified exposure
 - [ ] Owner: shorter phone footer labels, yes or no (SEC-023)
