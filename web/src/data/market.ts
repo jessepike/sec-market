@@ -33,6 +33,7 @@ export const marketCall: MarketCall = {
     'Cisco Q4 networking orders +40% and NVIDIA Data Center at $75.25B. The build is still on.',
     'Fortinet product +52% while Zscaler organic ARR is +21% and Cisco FY security is +2%. Network iron is hot; the category is not.',
     'Rubrik and Varonis are accelerating. Okta decelerated. CrowdStrike recovered. That is a split, not a wave.',
+    'Palo Alto paid $634.5M for Protect AI and F5 paid $145.2M for CalypsoAI, and both filings call the acquired revenue immaterial. Platforms are buying AI security ahead of any visible buyer spend.',
   ],
   actions: {
     doItems: [
@@ -44,12 +45,13 @@ export const marketCall: MarketCall = {
       'Claiming a market-wide cybersecurity boom or a stable 0–8 quarter lag.',
       'Reading headline security growth without stripping acquisitions.',
       'Treating the 2025 Wiz or CyberArk announcements as this month’s demand signal.',
+      'Reading AI-security acquisition prices as evidence of AI-security demand. The filings say the acquired revenue was not material.',
     ],
   },
   meaning:
     'Infrastructure is leading by a wide margin. Security’s useful movement is underneath the composite: appliance-led network is live, selected data vendors are up, identity and cloud lack a clean spend series, and buyer budgets did not follow in 2025. Prepare only where a client has matching exposure.',
   confidenceNote:
-    'High on infrastructure acceleration. High that 2025 security budgets did not follow. Medium on the 2026 domain split. No-call on a stable lag.',
+    'High on infrastructure acceleration. High that 2025 security budgets did not follow. Medium on the 2026 domain split. No-call on a stable lag. High that platforms are acquiring AI security ahead of any disclosed revenue.',
   noCallBoundaries: [
     'Stable 0–8-quarter infrastructure-to-security lag',
     'Domain-specific infrastructure lag',
@@ -62,7 +64,7 @@ export const marketCall: MarketCall = {
     'Expansion from AI pilots into consequential production workloads',
     'A registered infrastructure impulse followed by a registered security response under fixed cohort rules',
   ],
-  evidenceIds: ['A1b', 'A2', 'D1', 'LAG-NO-CALL', 'C3', 'C4', 'C6b'],
+  evidenceIds: ['A1b', 'A2', 'D1', 'LAG-NO-CALL', 'C3', 'C4', 'C6b', 'D32', 'D33', 'D34', 'D35'],
 }
 
 export { chartLayerPoints }
