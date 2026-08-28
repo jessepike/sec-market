@@ -1,7 +1,7 @@
 ---
 project: Security Market Signal Pipeline
 stage: Operate
-updated: 2026-08-25
+updated: 2026-08-27
 ---
 
 # Status
@@ -54,6 +54,9 @@ There are two long-lived branches (D-50). `preview` is the trunk and serves a fi
 - [x] Project scorecard v0.2 written with an honest baseline (SEC-022, D-55)
 - [x] Phone view corrected back to the accepted Option D design (SEC-023, D-56)
 - [x] Promote the eighteen pending commits to production after a rendered before-and-after (D-57)
+- [x] SEC-025 Part 1: a print may carry a secondary domain, with three new integrity gates (`preview` only)
+- [x] SEC-025 Part 2: bounded AI coverage gather across twelve vendors, lead-verified against filings
+- [ ] Owner: how the AI coverage finding gets presented on the site — this is the open call
 - [ ] Owner: who scores the project scorecard independently, and who counts as qualified exposure
 - [ ] Owner: shorter phone footer labels, yes or no (SEC-023)
 - [ ] Enforce `sourceAttributions` in `verify:integrity` when an excerpt spans more than one source
@@ -205,3 +208,42 @@ two. That drops the year and the word CONFIDENCE from a provenance stamp, so it 
 rather than mine. SEC-023 carries it.
 
 **Nothing has been promoted to production.** `preview` carries all of the above.
+
+## Session — 2026-08-25/27 (CPO): AI security coverage
+
+**A reader said the AI security coverage was thin and the measurement agreed.** Seven AI-relevant
+items across the 42-print scorecard, six of them capital. The single buyer-side item sat under Cloud
+security. Three of the seven sat under other domains and none was misfiled — each print carries one
+`group` string, so the model could not say a print belongs to two domains. Spec:
+`docs/active/ai-coverage-spec.md` (`SEC-MARKET-AI-001`).
+
+**Part 1 is on `preview` at `810e13e` and not promoted.** A print may now carry a `secondaryGroup`,
+set on exactly three records. A borrowed card renders in the second group with a visible label
+naming its primary group, and the eyebrow still counts distinct prints, so the board cannot inflate
+itself. Three new `verify:integrity` checks, each observed to fail under a deliberate perturbation
+before being accepted; the third server-renders the component and asserts the label is really in the
+output. One defect came from my own spec: I told the implementer to keep primary and borrowed counts
+separate, which produced a header reading "0 prints" above a group displaying a genuine comparable
+print. Every gate passed. Fixed so every number in a header describes what is actually rendered.
+Nothing yet enforces that relationship, which is the remaining hole.
+
+**Part 2, the gather, is complete and lead-verified.** Record:
+`docs/active/ai-coverage-gather-2026-08-27.md`. Twelve public companies checked across investor
+pages, newsrooms and their two most recent filings. None discloses revenue, ARR, customer count,
+seats or attach rate for an AI security product. That null result is real but it was the wrong
+altitude: the hard evidence sits one layer down in the same filings. F5 paid $145.2M for CalypsoAI
+and states its revenue and earnings were not material; $114.2M of that price is goodwill and nothing
+is assigned to customer relationships. Palo Alto paid $634.5M for Protect AI with $515.8M goodwill,
+$70.0M of developed technology and again no customer-relationships intangible, against the IBM
+QRadar deal in the same filing where $464M of $476M in intangibles was customer relationships. A
+third F5 deal, SurePath AI at $50.1M closed 2026-06-15, was on no list and surfaced only from
+reading the filing. Every figure in that paragraph was re-extracted from the filing by the lead
+rather than taken from a lane report.
+
+**One finding touches live site data.** CyberArk filed Form 15-12G on 2026-02-23 and no longer
+trades or files. The Identity card's watch item "Palo Alto vs CyberArk mix" cannot resolve as
+written, because they are now one filer.
+
+**Nothing has been promoted and no posture, call or confidence value has been changed.** How the
+finding gets presented is the owner's call and the spec deliberately held it until coverage was
+known. Coverage is now known.

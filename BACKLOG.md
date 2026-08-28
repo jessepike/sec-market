@@ -303,9 +303,19 @@ including Palo Alto Prisma AIRS at 300-plus customers, which is the only buyer-s
 Three new gate checks were each observed to fail with exit code 1 under deliberate perturbation and
 to pass on revert.
 
-**Part 2 incomplete.** The gather was cut off by a session usage limit. Three of four lanes died
-mid-flight; one sub-lane on agentic identity returned verified findings and they are not yet in the
-site. Re-run needed.
+**Part 2 complete 2026-08-27.** Record: [ai-coverage-gather-2026-08-27.md](docs/active/ai-coverage-gather-2026-08-27.md).
+The first attempt died on a session usage limit because the lanes fanned out into their own
+sub-agents; the re-run banned that, used fixed target lists, and held. Twelve public companies
+checked: none discloses revenue, ARR, customer count, seats or attach rate for an AI security
+product. The evidence that matters is one layer down in the same filings, in the acquisition
+accounting — F5 paid $145.2M for CalypsoAI and states its revenue was not material, with $114.2M in
+goodwill and nothing assigned to customer relationships; Palo Alto paid $634.5M for Protect AI on
+the same shape, against an IBM QRadar deal in that filing where $464M of $476M went to customer
+relationships. A third F5 deal, SurePath AI at $50.1M closed 2026-06-15, was on no list. Every one
+of those figures was re-extracted from the filing by the lead.
+
+**Open and owner-gated: how this gets presented.** The spec held presentation until coverage was
+known and coverage is now known. This is the decision that unblocks the rest of SEC-025.
 
 **A gate hole this exposed, not yet closed.** My spec told the implementer to keep primary and
 borrowed counts separate, which produced a header reading "0 prints" for AI runtime while the group
@@ -318,6 +328,19 @@ the lead against primary documents before anything reaches `preview`.
 
 **Not authorized by this work:** changing any published posture, market call or confidence value;
 adding a domain card; changing the landscape frame. Presentation waits until coverage is known.
+
+### SEC-026 — the Identity card's CyberArk watch item cannot resolve
+
+CyberArk filed Form 15-12G on 2026-02-23 and no longer trades or files; its investor pages redirect
+to Palo Alto Networks' Idira platform. The Identity domain card in `web/src/data/domains.ts` carries
+the watch item "Palo Alto vs CyberArk mix," which is now unanswerable as written because the two are
+one filer. Its sibling watch item, "First disclosed agentic-identity revenue," is also harder than
+when it was written: all four identity vendors checked disclose nothing and one has stopped filing.
+
+Rewording a watch item on a published card is a judgment change, so it needs the owner rather than a
+silent edit. Surfaced by the SEC-025 gather.
+
+**Authorization state:** not authorized. Proposed 2026-08-27.
 
 ## Flagged (not authorized)
 
