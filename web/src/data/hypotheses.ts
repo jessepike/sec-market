@@ -1,10 +1,10 @@
 import { activityItems } from './activity'
-import { LAST_UPDATED_ISO, RESEARCH_FREEZE } from './meta'
+import { JUDGED_AS_OF_ISO, RESEARCH_FREEZE } from './meta'
 import { vendorPrints } from './prints'
 import type { Hypothesis, JudgedClaim } from './types'
 
 const freezeDate = RESEARCH_FREEZE.slice(0, 10)
-const trackingDate = LAST_UPDATED_ISO
+const trackingDate = JUDGED_AS_OF_ISO
 
 function judged(evidenceIds: string[], judgedOn: string, confidence: JudgedClaim['confidence']): JudgedClaim {
   return { layer: 'judged', judgedOn, confidence, evidenceIds }

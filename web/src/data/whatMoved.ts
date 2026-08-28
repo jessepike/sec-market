@@ -2,7 +2,7 @@ import { activityItems } from './activity'
 import { formatWeekRange } from './dates'
 import { landscapeDomainIds } from './domains'
 import { currentEdition, editionDomainRows } from './edition'
-import { LAST_UPDATED_ISO } from './meta'
+import { WEEK_MOVES_ENDING_ISO } from './meta'
 import { reasoningSteps } from './method'
 import { platformPressure } from './platformPressure'
 import { vendorPrints } from './prints'
@@ -93,8 +93,8 @@ const heldCount = landscapeRows.filter((row) => row.kind === 'held').length
 const allHeld = heldCount === landscapeRows.length && landscapeRows.length > 0
 
 export const weekMoves = {
-  label: formatWeekRange(LAST_UPDATED_ISO),
-  asOf: LAST_UPDATED_ISO,
+  label: formatWeekRange(WEEK_MOVES_ENDING_ISO),
+  asOf: WEEK_MOVES_ENDING_ISO,
   tracked: [trackedPrint(), trackedCapital(), trackedMa()].filter((item): item is WeekMove => item !== null),
   judged: [
     {

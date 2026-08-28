@@ -1,6 +1,6 @@
 import { activityItems } from './activity'
 import { securityDomains } from './domains'
-import { LAST_UPDATED_ISO } from './meta'
+import { JUDGED_AS_OF_ISO } from './meta'
 import {
   fasterPeerRead,
   fasterThanOrganicRead,
@@ -17,7 +17,7 @@ import {
 import { vendorPrints } from './prints'
 import type { JudgedClaim, PressureGroup, PressureRow, VendorPosition, VendorPrint } from './types'
 
-const judgedOn = LAST_UPDATED_ISO
+const judgedOn = JUDGED_AS_OF_ISO
 
 function judged(evidenceIds: string[], confidence: JudgedClaim['confidence'] = 'medium'): JudgedClaim {
   return { layer: 'judged', judgedOn, confidence, evidenceIds }
