@@ -6,8 +6,15 @@ test('renders the market briefing without runtime errors', async ({ page }) => {
 
   await page.goto('/')
 
+  // The h1 is now the market call itself (promoted out of the collapsed
+  // scorecard on 2026-08-25). Checked as two substrings either side of the
+  // <br/> in the markup, since a line break produces no text-node space for
+  // toContainText to match across.
   await expect(page.getByRole('heading', { level: 1 })).toContainText(
-    'Where the security market is going',
+    'Infrastructure is running ahead',
+  )
+  await expect(page.getByRole('heading', { level: 1 })).toContainText(
+    'Security is splitting, not booming.',
   )
   await expect(page.getByText('refreshed weekly')).toHaveCount(0)
   await expect(page.getByText('Tell me when the next edition publishes')).toHaveCount(0)
@@ -21,16 +28,31 @@ test('renders the market briefing without runtime errors', async ({ page }) => {
   await expect(page.locator('.landscape .evidence-link').nth(2)).not.toContainText('Alphabet')
   await expect(page.locator('#method summary')).toHaveText('How this is built')
   await expect(page.locator('#research-depth > summary')).toHaveText(
-    'Episode 002 research and the full scorecard',
+    'Domain tempo and M&A activity',
   )
 
-  // Edition stack stays in the markup for evidence and crawlers, closed until opened.
+  // The market call (2026-08-25) and the full scorecard's prints (2026-08-22)
+  // were both promoted out of the collapsed disclosure and are now visible on
+  // first paint — no click required to reach them.
+  await expect(page.locator('#market-call-heading')).toBeVisible()
+  await expect(page.locator('#prints-heading')).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Fortinet' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'SentinelOne' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Entra / Ping / PE PAM' })).toBeVisible()
+  // SecOps and PREPARE now surface pre-click too: SecOps as a promoted print-group
+  // title, PREPARE as a landscape domain chip — neither lives inside the
+  // remaining disclosure any more.
+  await expect(page.getByText('SecOps', { exact: true }).first()).toBeVisible()
+  await expect(page.getByText('PREPARE', { exact: true }).first()).toBeVisible()
+
+  // Domain tempo and M&A activity are still gated behind #research-depth:
+  // present in the markup for evidence and crawlers, closed until opened.
   // Closed <details> content is not in the accessibility tree, so query the DOM.
   const scorecard = page.locator('#research-depth')
-  await expect(scorecard.locator('#market-call-heading')).toBeAttached()
-  await expect(scorecard.locator('#prints-heading')).toBeAttached()
   await expect(scorecard.locator('#domains-heading')).toBeAttached()
+  await expect(scorecard.locator('#domains-heading')).toBeHidden()
   await expect(scorecard.locator('#activity-heading')).toBeAttached()
+  await expect(scorecard.locator('#activity-heading')).toBeHidden()
   await expect(page.getByText('Google closed Wiz')).toBeAttached()
   await expect(page.getByText('Alphabet announced ~$32B Wiz acquisition')).toHaveCount(0)
   await expect(page.getByText('Secuvy last disclosed seed')).toBeHidden()
@@ -38,17 +60,13 @@ test('renders the market briefing without runtime errors', async ({ page }) => {
   await expect(page.getByText('INSUFFICIENT COVERAGE')).toHaveCount(0)
 
   await page.locator('#research-depth > summary').click()
-  await expect(page.locator('#market-call-heading')).toBeVisible()
-  await expect(page.locator('#prints-heading')).toBeVisible()
   await expect(page.locator('#domains-heading')).toBeVisible()
-  await expect(page.getByRole('heading', { name: 'Since 16 August 2026' })).toBeVisible()
+  await expect(page.locator('#activity-heading')).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Since 17 August 2026' })).toBeVisible()
   await expect(page.locator('.edition-table .edition-kind').first()).toBeVisible()
   await expect(page.getByText('Produced by', { exact: true }).first()).toBeVisible()
-  await expect(page.getByRole('heading', { name: 'Fortinet' })).toBeVisible()
-  await expect(page.getByRole('heading', { name: 'SentinelOne' })).toBeVisible()
-  await expect(page.getByRole('heading', { name: 'Entra / Ping / PE PAM' })).toBeVisible()
-  await expect(page.getByText('SecOps', { exact: true }).first()).toBeVisible()
-  await expect(page.getByText('PREPARE', { exact: true }).first()).toBeVisible()
+  // Only becomes visible once the disclosure opens — the lead M&A/funding row.
+  await expect(page.getByText('Zenity raised $115M Series C')).toBeVisible()
 
   expect(pageErrors).toEqual([])
 })
