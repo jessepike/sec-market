@@ -510,3 +510,47 @@ These were the two questions D-55 left open and explicitly refused to guess.
 Two things remain owner-owned and unanswerable by me: the names in the pilot set, and the name of the human who scores the outcome review. Until the first exists the denominator stays at one, and until the second exists the H1 and H4 health results stay self-assessed and provisional.
 
 Encoded in [project-scorecard.md](docs/active/project-scorecard.md) and [decision-impact-log.md](docs/active/decision-impact-log.md). The impact log also gains the two questions D-55 flagged as missing, asking whether the reader already knew and whether their options were still open, because counting uses is not the same as knowing whether this works.
+
+**D-59 · 2026-08-28 — The AI security coverage gets published as the acquisition read, not as more vendor cards. Posture unchanged.**
+
+A reader said the AI security coverage was thin. It was, and the fix everyone reaches for first — add
+more AI vendors to the board — would have made it thicker without making it better, because the
+capital rounds already on the board all say the same thing and the site already carries six of them.
+
+The bounded gather (`SEC-MARKET-AI-001` Part 2, recorded at
+[ai-coverage-gather-2026-08-27.md](docs/active/ai-coverage-gather-2026-08-27.md)) asked twelve public
+companies what they disclose about AI security revenue and got nothing from any of them. That null
+result was real and it was also the wrong altitude. The evidence sits one layer down in the same
+filings: Palo Alto paid $634.5M for Protect AI, F5 paid $145.2M for CalypsoAI and $50.1M for SurePath
+AI, and in each case the filing states the acquired revenue was not material and assigns nothing to
+customer relationships. The IBM QRadar transaction in the same Palo Alto filing put $464M of $476M in
+intangibles into customer relationships, which is what buying a business with customers looks like in
+accounting.
+
+So the published read is that acquisition is running ahead of any visible buyer spend, sourced
+entirely to audited filings rather than to funding announcements. This is a class change in the
+evidence under the AI runtime domain, from press releases to `FILING`, which is the strongest source
+class the site has.
+
+**Two bounds go on the page with it, because without them the read overreaches.** "Not material" is a
+threshold relative to the acquirer's own size, so it is an upper bound and not a claim that these
+products earn nothing; Palo Alto's threshold is much higher than F5's. And an absent
+customer-relationships intangible is a valuation judgment about separable contract value, not a count
+of customers.
+
+**Nothing moves that would need a second look.** The AI runtime posture stays INVESTIGATE / WATCH and
+its `asOf` stays 2026-08-16, because the posture did not move and re-dating it would claim a change
+that did not happen. The re-judgment is dated instead by appending an edition record whose derived
+delta reads held across all six domains, with a note explaining that the rationale hardened while the
+call stayed put. The platform-absorption hypothesis stays TRACKING rather than being promoted to
+SUPPORTED; more absorptions strengthen its evidence, and moving a tracked hypothesis is a decision in
+its own right, not a side effect of loading data.
+
+Specified in [ai-coverage-presentation-spec.md](docs/active/ai-coverage-presentation-spec.md)
+(`SEC-MARKET-AI-002`). Lands on `preview` for a rendered review; production moves only on an explicit
+owner yes, as always.
+
+One thing this deliberately does not touch. The Identity card's watch item reads "Palo Alto vs
+CyberArk mix" and cannot resolve as written, because CyberArk filed Form 15-12G on 2026-02-23 and no
+longer trades or files. Rewording a published watch item is a judgment change and it is carried as
+SEC-026 for the owner rather than fixed quietly here.
