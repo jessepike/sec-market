@@ -554,3 +554,45 @@ One thing this deliberately does not touch. The Identity card's watch item reads
 CyberArk mix" and cannot resolve as written, because CyberArk filed Form 15-12G on 2026-02-23 and no
 longer trades or files. Rewording a published watch item is a judgment change and it is carried as
 SEC-026 for the owner rather than fixed quietly here.
+
+**D-60 · 2026-08-28 — The market read is promoted to the top of the page. It was never visible on production.**
+
+The site's entire message layer was hidden. `#read` — the market call, what changed, the Do and Avoid
+lists, what we will not call and what would change the call — sat inside a closed disclosure labelled
+"The market read, domain tempo and M&A activity", and so did the masthead carrying the headline
+"Infrastructure is running ahead. Security is splitting, not booming." A reader on production saw a
+tagline, four domain cards, what moved, platform pressure, hypotheses and forty-two vendor cards.
+Evidence with no read attached.
+
+Confirmed in a browser at 1561 pixels rather than from the markup: `#read` was in the document and
+`checkVisibility()` returned false.
+
+This is the second instance of the defect D-54 fixed for the vendor scorecard six days earlier, and
+it was sitting on more valuable content. **Fixing one instance of a pattern is not fixing the
+pattern.** Nobody thought to test the read after fixing the cards, because the cards were what had
+been complained about. The general lesson is now in `lessons.md`: after fixing a visibility defect,
+test every other surface for the same defect before closing it out.
+
+How it was found is worth recording too. The owner asked how a research finding actually reaches the
+page. I had specced three acquisition cards into a collapsed scorecard group and reported that as
+publishing the finding. Adding evidence is not publishing a read, and the question that exposed it was
+his, not mine.
+
+**What moves.** The masthead and the read go to the top of `<main>`, above the domain cards. The
+disclosure keeps domain tempo and the activity board and is renamed accordingly. The market call
+becomes the page's `<h1>` and the landscape tagline becomes an `<h2>`, which is the correct outline
+for a page whose primary statement is a market call. Both headings keep their exact current
+appearance; the only visible change is position.
+
+One trap was found while specifying rather than after shipping: each domain card renders its vendor
+name as an `<h2>` inside `.landscape`, so restyling on `.landscape h2` would have blown all four card
+titles up to masthead size. The selectors are scoped to `.landscape__intro` instead.
+
+**A separable content change ships with it.** The read gains one line in What changed and one in
+Avoid, both carrying the acquisition finding from D-59, plus its four filing sources and a confidence
+clause. That edits a published, dated, human-signed judgment, so it is kept in its own commit and can
+be rejected without unpicking the promotion.
+
+Specified in [read-promotion-spec.md](docs/active/read-promotion-spec.md) (`SEC-MARKET-READ-001`).
+This also answers a large part of SEC-019, the above-the-fold question that had been open since
+2026-08-20. Production still moves only on an explicit owner yes after a rendered review.
