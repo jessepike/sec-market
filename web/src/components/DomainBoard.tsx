@@ -61,7 +61,7 @@ function LandscapeSection() {
         <p className="eyebrow">
           The landscape · {countWord(domainCount)} {domainLabel}
         </p>
-        <h1 id="landscape-heading">Where the security market is going, not where it has been.</h1>
+        <h2 id="landscape-heading">Where the security market is going, not where it has been.</h2>
         <p className="landscape__lede">
           Dated postures, the evidence under each one, and an honest mark on how sure anyone is.
           A posture moves only when a person signs it.

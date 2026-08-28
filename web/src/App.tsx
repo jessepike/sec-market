@@ -30,15 +30,15 @@ function AppShell() {
       <div className="app-shell" inert={isOpen ? true : undefined}>
         <Header />
         <main id="main" className="main-content" tabIndex={-1}>
+          <Hero />
+          <JudgmentBoard />
           <DomainBoard />
           <WhatMoved />
           <PlatformPressure />
           <Hypotheses />
           <PrintGrid />
           <details className="depth" id="research-depth">
-            <summary>The market read, domain tempo and M&amp;A activity</summary>
-            <Hero />
-            <JudgmentBoard />
+            <summary>Domain tempo and M&amp;A activity</summary>
             <DomainBoard surface="tempo" />
             <ActivityBoard />
           </details>

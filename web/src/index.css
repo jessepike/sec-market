@@ -302,7 +302,7 @@ summary:focus-visible,
   margin: 0.5rem 0 0.75rem;
 }
 
-.masthead h2 {
+.masthead h1 {
   font-size: clamp(1.75rem, 5vw, 2.65rem);
   font-weight: 800;
   letter-spacing: -0.028em;
@@ -1986,7 +1986,7 @@ summary:focus-visible,
   flex-direction: column;
 }
 
-.landscape h1 {
+.landscape__intro h2 {
   margin: 0.875rem 0 0;
   max-width: 22ch;
   font-size: clamp(1.75rem, 5vw, 3.25rem);
@@ -2538,7 +2538,7 @@ summary:focus-visible,
     margin-top: 1.25rem;
   }
 
-  .landscape h1 {
+  .landscape__intro h2 {
     font-family: var(--font-sans);
     font-size: 1.0625rem;
     font-weight: 500;
