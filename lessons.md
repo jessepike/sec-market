@@ -5,8 +5,8 @@ cross-project patterns to the knowledge base and drop them from here.
 
 ## 2026-08-28
 
-- The site's whole message layer was collapsed and nobody had checked. "The read" — the market call, the do and avoid lists, the no-call boundaries — sits inside a closed `<details>` on production; `checkVisibility()` at 1561px returns false. The vendor scorecard was promoted out of exactly this pattern six days earlier and the read was never tested for it. Fixing one instance of a defect is not fixing the pattern, and the second instance was hiding the more valuable content.
-- Adding evidence is not publishing a read. I specced three acquisition cards into a collapsed scorecard group and called it publishing the finding. The owner asked how the message actually reaches the page, which was the right question and one I had not asked myself.
+- [promoted:kb:b51ee163:2026-08-28] The site's whole message layer was collapsed and nobody had checked. "The read" — the market call, the do and avoid lists, the no-call boundaries — sits inside a closed `<details>` on production; `checkVisibility()` at 1561px returns false. The vendor scorecard was promoted out of exactly this pattern six days earlier and the read was never tested for it. Fixing one instance of a defect is not fixing the pattern, and the second instance was hiding the more valuable content.
+- [promoted:kb:2f162256:2026-08-28] Adding evidence is not publishing a read. I specced three acquisition cards into a collapsed scorecard group and called it publishing the finding. The owner asked how the message actually reaches the page, which was the right question and one I had not asked myself.
 
 ## 2026-08-27
 
