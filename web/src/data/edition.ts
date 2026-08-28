@@ -93,6 +93,60 @@ export const editions: EditionRecord[] = [
       'ai-runtime': 'Capital heat is not a specialist-platform motion.',
     },
   },
+  {
+    id: '2026-08-28',
+    date: '2026-08-28',
+    dateDisplay: '28 August 2026',
+    summary:
+      'No posture moved. The AI runtime rationale is now carried by filings rather than by funding rounds.',
+    surfaces: [
+      {
+        id: 'prints',
+        label: 'Prints',
+        kind: 'revised',
+        detail: 'AI runtime gains three absorbed-close prints: Protect AI, CalypsoAI and SurePath AI.',
+      },
+      {
+        id: 'activity',
+        label: 'Activity',
+        kind: 'revised',
+        detail: 'Three M&A closes added to the AI runtime board — two background, one at more.',
+      },
+      {
+        id: 'evidence',
+        label: 'Evidence',
+        kind: 'new',
+        detail: 'Five FILING-class records (D32–D36) added from SEC filings on the three closes and the CyberArk deregistration.',
+      },
+    ],
+    postures: [
+      { domainId: 'network-sase', posture: 'PREPARE', tag: 'PREPARE', horizon: 'This quarter' },
+      {
+        domainId: 'data-ai-security',
+        posture: 'PREPARE',
+        tag: 'PREPARE',
+        horizon: 'This planning cycle',
+      },
+      {
+        domainId: 'cloud-security',
+        posture: 'INVESTIGATE',
+        tag: 'WATCH',
+        horizon: 'Next 1–4 quarters',
+      },
+      { domainId: 'identity', posture: 'INVESTIGATE', tag: 'WATCH', horizon: 'Next 1–4 quarters' },
+      { domainId: 'secops', posture: 'INVESTIGATE', tag: 'WATCH', horizon: 'Next 1–4 quarters' },
+      {
+        domainId: 'ai-runtime',
+        posture: 'INVESTIGATE',
+        tag: 'WATCH',
+        horizon: 'Next 1–4 quarters',
+      },
+    ],
+    notes: {
+      'ai-runtime':
+        'Posture held. The evidence under AI runtime changed class, from funding announcements to audited SEC filings: three more platform closes, each priced, each with revenue the filing calls immaterial. Buyer spend is still not visible — a purchase price is not a spend series.',
+    },
+  },
 ]
 
 if (editions.length === 0) {

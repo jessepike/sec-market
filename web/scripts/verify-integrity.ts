@@ -166,20 +166,49 @@ for (const print of vendorPrints) {
 // 8. Every print carrying a secondaryGroup must render, in the secondary
 // group's section, a visible label naming its primary group. This is the
 // check that keeps a borrowed card from silently reading like an extra,
-// undifferentiated print in the group it was borrowed into.
+// undifferentiated print in the group it was borrowed into. The same
+// server render is reused below (8b) to check each group header's stated
+// count against what the render actually shows.
+const markup = renderToStaticMarkup(createElement(EvidenceProvider, null, createElement(PrintGrid)))
+
 const borrowedPrints = vendorPrints.filter((print) => print.secondaryGroup !== undefined)
-if (borrowedPrints.length > 0) {
-  const markup = renderToStaticMarkup(
-    createElement(EvidenceProvider, null, createElement(PrintGrid)),
-  )
-  for (const print of borrowedPrints) {
-    const label = `also counted under ${print.group}`
-    if (!markup.includes(label)) {
-      fail(
-        `Print "${print.id}" carries secondaryGroup "${print.secondaryGroup}" but the rendered ` +
-          `output does not contain the primary-group label "${label}"`,
-      )
-    }
+for (const print of borrowedPrints) {
+  const label = `also counted under ${print.group}`
+  if (!markup.includes(label)) {
+    fail(
+      `Print "${print.id}" carries secondaryGroup "${print.secondaryGroup}" but the rendered ` +
+        `output does not contain the primary-group label "${label}"`,
+    )
+  }
+}
+
+// 8b. Every print-group header's stated "covered" count must equal the
+// number of print-card articles actually rendered inside that group. A
+// header reading "0 prints" shipped above a group displaying a real
+// comparable print, and every gate passed — this parses the header back out
+// of the server-rendered markup and checks it against the actual cards
+// rather than trusting the component's own arithmetic.
+const groupBlocks = [...markup.matchAll(/<details class="print-group">([\s\S]*?)<\/details>/g)]
+if (groupBlocks.length === 0) {
+  fail('No print-group sections found in the rendered PrintGrid markup')
+}
+for (const match of groupBlocks) {
+  const block = match[1]
+  const titleMatch = block.match(/<span class="grouphdr__title">([^<]*)<\/span>/)
+  const groupName = titleMatch?.[1] ?? '(unknown group)'
+  const countMatch = block.match(/(\d+) covered/)
+  if (!countMatch) {
+    fail(`Print-group "${groupName}" header is missing a "covered" count`)
+  }
+  const statedCount = Number(countMatch[1])
+  const renderedCount = (
+    block.match(/<article class="print-card(?: print-card--coverage)?">/g) ?? []
+  ).length
+  if (statedCount !== renderedCount) {
+    fail(
+      `Print-group "${groupName}" header states ${statedCount} covered but ${renderedCount} ` +
+        `print-card articles are actually rendered in that group`,
+    )
   }
 }
 

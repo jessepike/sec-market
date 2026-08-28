@@ -10,6 +10,13 @@ function judged(evidenceIds: string[], judgedOn: string, confidence: JudgedClaim
   return { layer: 'judged', judgedOn, confidence, evidenceIds }
 }
 
+/** Renders a list as "A, B, C, D and E" instead of chaining " and " for every item. */
+function formatList(items: string[]): string {
+  if (items.length <= 1) return items.join('')
+  if (items.length === 2) return items.join(' and ')
+  return `${items.slice(0, -1).join(', ')} and ${items[items.length - 1]}`
+}
+
 const absorbedCloses = activityItems.filter(
   (item) =>
     item.kind === 'ma' && vendorPrints.some((print) => print.position === 'absorbed' && print.name === item.target),
@@ -45,8 +52,8 @@ export const hypotheses: Hypothesis[] = [
     id: 'hyp-platform-absorb',
     claim: 'Platforms absorb adjacent security categories rather than compete with them',
     state: 'TRACKING',
-    note: absorbedCloses.map((item) => `${item.target} in ${item.domain}`).join(' and '),
-    firstTest: absorbedCloses.map((item) => `${item.target} in ${item.domain}`).join(', '),
+    note: formatList(absorbedCloses.map((item) => `${item.target} in ${item.domain}`)),
+    firstTest: formatList(absorbedCloses.map((item) => `${item.target} in ${item.domain}`)),
     evidenceIds: absorbedCloses.flatMap((item) => item.evidenceIds),
     provenance: judged(
       absorbedCloses.flatMap((item) => item.evidenceIds),
