@@ -1,7 +1,7 @@
 ---
 project: Security Market Signal Pipeline
 stage: Operate
-updated: 2026-08-27
+updated: 2026-08-28
 ---
 
 # Status
@@ -56,6 +56,11 @@ There are two long-lived branches (D-50). `preview` is the trunk and serves a fi
 - [x] Promote the eighteen pending commits to production after a rendered before-and-after (D-57)
 - [x] SEC-025 Part 1: a print may carry a secondary domain, with three new integrity gates (`preview` only)
 - [x] SEC-025 Part 2: bounded AI coverage gather across twelve vendors, lead-verified against filings
+- [x] SEC-MARKET-AI-002: the AI acquisition read published to the scorecard and the domain rationale
+- [x] SEC-MARKET-READ-001: the market read promoted out of the disclosure to the top of the page (D-60)
+- [x] Build gate: a must-see section nested in a disclosure now fails the build
+- [x] Stale end-to-end smoke test repaired; suite green
+- [ ] **Owner, blocks promotion:** the stamp reads EDITION 2026-08-28 next to UPDATED August 17, 2026
 - [ ] Owner: how the AI coverage finding gets presented on the site — this is the open call
 - [ ] Owner: who scores the project scorecard independently, and who counts as qualified exposure
 - [ ] Owner: shorter phone footer labels, yes or no (SEC-023)
@@ -247,3 +252,41 @@ written, because they are now one filer.
 **Nothing has been promoted and no posture, call or confidence value has been changed.** How the
 finding gets presented is the owner's call and the spec deliberately held it until coverage was
 known. Coverage is now known.
+
+## Session — 2026-08-28 (CPO): the read was never on the page
+
+**The owner asked how a research finding actually reaches the page, and the answer was that it
+doesn't.** I had specced three acquisition cards into a collapsed scorecard group and reported that
+as publishing the finding. Adding evidence is not publishing a read.
+
+Chasing that turned up something worse. `#read` — the market call, what changed, Do, Avoid, the
+no-call boundaries — was inside a closed disclosure on production, along with the masthead carrying
+the headline. Confirmed in a browser at 1561 pixels: in the document, `checkVisibility()` false. A
+reader saw a tagline, four domain cards and forty-two vendor cards. Evidence with no read attached.
+This is the same defect D-54 fixed for the scorecard six days earlier, on more valuable content.
+D-60 records it.
+
+**Both are now on `preview` and verified by me, not by report.** `#read` returns true at 1440 and
+390, has no disclosure ancestor, and the page's single `h1` is the market call. The landscape tagline
+dropped to `h2`; both headings kept their exact sizes, and all four domain card titles still compute
+to 19px at weight 600, so the `.landscape h2` collision that would have blown them up did not happen.
+The read carries the acquisition finding in What changed and in Avoid, in a separate commit so it can
+be rejected without unpicking the promotion. Desktop 8,274 → 10,340 pixels, phone 8,237 → 11,369,
+because content that rendered at zero height now always renders.
+
+**Two durable fixes shipped with it.** The build now fails when any of seven must-see sections ends
+up nested in a disclosure, proven by perturbation — moving the read back inside exits 1 with a named
+failure, reverting exits 0. My first attempt at that proof was invalid because the script died on a
+stale artifact before reaching the assertion, which is the same trap this project hit on 2026-08-20.
+And the end-to-end smoke test, which had been asserting a page structure that stopped existing over a
+week ago, was repaired without touching a line of application code; the suite runs green.
+
+**One thing blocks promotion and it is visible on the page.** The stamp reads "EDITION 2026-08-28"
+beside "UPDATED August 17, 2026". `LAST_UPDATED_ISO` is doing four jobs at once: the site's as-of
+stamp, the judgment date on the tracked hypotheses, the judgment date on the platform pressure reads,
+and the date deriving the "what moved" week window. Recommended fix is to split it, move the site
+stamp to 28 August, and pin the judgment dates at 17 August because nobody re-judged them. The fourth
+job is the "Jul 6 – Aug 10" window question already owed by the owner, so both should be decided
+together.
+
+Twenty commits now sit on `preview` ahead of production.
