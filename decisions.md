@@ -675,3 +675,27 @@ boundary and "Must not optimize" are unchanged.
 This clears the intent gate on SEC-027 to SEC-031. It does not by itself authorise a build; the
 issue-model and gather-job specifications come next and each build is dispatched against its spec.
 
+**D-64 · 2026-09-03 — Build the whole weekly-issue improvement into `preview` autonomously, without milestone gates.**
+
+The owner's direction, in his words: plan the work to execute autonomously, use Codex and GPT models
+for third-party review, validate every change in the browser, no milestones, "the entire improvement
+intent completed into preview for me to review along with a summary of what was done." The project
+is exploratory and the work carries no critical harm.
+
+What holds: `main` is untouched and moves only on the owner's promotion; every judgment stays a named
+person's act, so the first issue ships to `preview` as a labelled, unsigned draft; every figure is
+quoted verbatim from a fetched document; every gate is proven by perturbation; every change is
+rendered at 1440 and 390 and checked with `checkVisibility()` against the live preview deploy, not a
+local build; nothing is deleted on static analysis; explicit paths are staged.
+
+What is relaxed: no intermediate promotions; no spec approval gate before build, the specs ship
+with the work; external review runs once on the specs and once on the whole diff rather than per
+task; the visual review states what moved against the spec rather than halting on any unexpected
+pixel.
+
+Specifications: [weekly-issue-spec.md](docs/active/weekly-issue-spec.md) (`SEC-MARKET-ISSUE-001`)
+and [gather-job-spec.md](docs/active/gather-job-spec.md) (`SEC-MARKET-GATHER-001`). The gather job
+runs as a Claude Code cloud routine rather than a launchd job, which removes the Forge and jobs-agent
+dependencies the plan had assumed. Work lands on branch `weekly-issue`, is validated on its Vercel
+preview deploy, and merges to `preview` when the whole improvement passes.
+

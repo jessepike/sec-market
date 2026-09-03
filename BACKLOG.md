@@ -96,7 +96,7 @@ SEC-019 frame question. Absorbs SEC-021 Phase 3 (the archive).
 
 **Plan:** [weekly-issue-plan.md](docs/active/weekly-issue-plan.md) (`SEC-MARKET-WEEKLY-001` v0.1, WS-B). Spec to follow: `weekly-issue-spec.md`.
 
-**Authorization state:** approach approved 2026-09-03 (D-62); intent v1.2 accepted the same day (D-63). Spec next (`weekly-issue-spec.md`); build dispatched against the spec.
+**Authorization state:** approach approved (D-62), intent v1.2 accepted (D-63), autonomous build to `preview` authorized (D-64), all 2026-09-03. Spec: [weekly-issue-spec.md](docs/active/weekly-issue-spec.md). Building on branch `weekly-issue`.
 
 **Not authorized by this work:** changing a posture, call or confidence without a signature; any push to `main` except by promotion.
 
@@ -108,7 +108,7 @@ person reviews, signs and merges. Supersedes SEC-017.
 
 **Plan:** [weekly-issue-plan.md](docs/active/weekly-issue-plan.md) WS-C. Spec to follow: `gather-job-spec.md`. Schedule registered by jobs-agent; any agent definition by Forge.
 
-**Authorization state:** approach approved 2026-09-03 (D-62); intent v1.2 accepted the same day (D-63). Spec next (`gather-job-spec.md`); schedule registration via jobs-agent, agent definition via Forge if one is needed.
+**Authorization state:** approach approved (D-62), intent v1.2 accepted (D-63), build authorized (D-64), all 2026-09-03. Spec: [gather-job-spec.md](docs/active/gather-job-spec.md). Runs as a Claude Code cloud routine; no jobs-agent or Forge dependency.
 
 **Not authorized by this work:** auto-publishing; editing intent, decisions, the call, a posture or a confidence; scrapers or collectors beyond the one job.
 
@@ -119,7 +119,7 @@ Graph image by issue #2, email provider and public list only after four held iss
 
 **Plan:** [weekly-issue-plan.md](docs/active/weekly-issue-plan.md) WS-D.
 
-**Authorization state:** approach approved 2026-09-03 (D-62). Public email not authorized before the 2026-10-08 review.
+**Authorization state:** build authorized 2026-09-03 (D-64) for analytics, feed, permalinks and the JSON copy. Public email not authorized before the 2026-10-08 review.
 
 ### SEC-030 — ePlus downstream digest interface
 
@@ -138,7 +138,7 @@ non-confidential. After issue #2.
 
 **Plan:** [weekly-issue-plan.md](docs/active/weekly-issue-plan.md) WS-F.
 
-**Authorization state:** approach approved 2026-09-03 (D-62). Build after issue #2.
+**Authorization state:** build authorized 2026-09-03 (D-64), in the same pass as SEC-027.
 
 ### SEC-009 — Recurring public-signal intelligence
 
