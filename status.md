@@ -62,7 +62,8 @@ There are two long-lived branches (D-50). `preview` is the trunk and serves a fi
 - [x] Stale end-to-end smoke test repaired; suite green
 - [x] Date constant split so the site stamp and the judgment dates move independently
 - [x] Promoted to production `b423b70` (D-61), confirmed serving by browser query
-- [ ] Owner: review [weekly-issue-plan.md](docs/active/weekly-issue-plan.md) on canvas and accept or edit the intent v1.2 text in its §3 — this gates SEC-027 to SEC-031
+- [x] Owner accepted intent v1.2 as written (D-63); `intent.md` updated
+- [ ] Write `weekly-issue-spec.md` and `gather-job-spec.md`, review, then dispatch the builds (SEC-027, SEC-028)
 - [ ] Owner: name the pilot set and the independent scorer (D-58 shape, names still missing)
 - [ ] Owner: how the AI coverage finding gets presented on the site — largely answered by the weekly issue model if the plan is accepted
 - [ ] Owner: who scores the project scorecard independently, and who counts as qualified exposure

@@ -3,12 +3,12 @@
 ## Control
 
 - **Intent ID:** `SEC-MARKET-001`
-- **Version:** `1.1`
+- **Version:** `1.2`
 - **Lifecycle state:** `accepted`
 - **Gate 1:** `passed`
-- **Supersedes:** `SEC-MARKET-001` v1.0
+- **Supersedes:** `SEC-MARKET-001` v1.1
 - **Created:** 2026-08-15
-- **Last reconciled:** 2026-08-16 — website selected as the MVP delivery mechanism
+- **Last reconciled:** 2026-09-03 — weekly issue as the unit of product; a machine drafts, a named person signs
 
 ## Compressed governing intent
 
@@ -61,6 +61,7 @@ Completing agents, a website, reports, or other deliverables alone does not cons
 - The intelligence may make provisional forward-looking judgments, but must label their confidence and basis.
 - Public intelligence augments rather than replaces client conversations, pipeline evidence, partner information, and local judgment.
 - Scope remains practical enough to learn and deliver value incrementally.
+- A machine may retrieve, extract, compare and propose. Only a named person signs a judgment or publishes an issue.
 
 ### Explicitly out of scope
 
@@ -102,11 +103,12 @@ Completing agents, a website, reports, or other deliverables alone does not cons
 | Public, publishable initial core | Decided | All downstream scope | New accepted intent version |
 | National and global market observation | Decided | Source and analysis scope | New accepted intent version |
 | Transparent, calibrated judgments | Decided | Reasoning and output behavior | New accepted intent version |
-| Autonomous worker agents and reasoning layer | Exploring | Implementation | Downstream design decision |
+| Weekly issue as the unit of product | Decided | Product shape, cadence, presentation | New accepted intent version |
+| Autonomous worker agents and reasoning layer | Decided for gather and draft only; publication and every judgment remain a named person's act | Implementation | New accepted intent version |
 | Responsive public-data website | Decided | MVP presentation and distribution | New accepted intent version |
-| Audience- or region-specific views and newsletters | Exploring | Presentation and distribution | Demonstrated user need |
+| Audience- or region-specific views and newsletters | Decided for a named pilot list; public distribution follows four held issues | Presentation and distribution | Owner decision at the 2026-10-08 review |
 | Partner-risk monitor | Exploring | Potential backlog | Separate prioritization and scope decision |
-| Confidential client overlay | Exploring | Potential future product boundary | Explicit reconciliation and governance decision |
+| Confidential client overlay | Exploring, with a decided boundary: built downstream inside ePlus surfaces, never in the core, never on this domain | Potential future product boundary | Explicit reconciliation and governance decision |
 
 ## Dual acceptance
 
@@ -123,6 +125,7 @@ Completing agents, a website, reports, or other deliverables alone does not cons
 - **Statement:** “yes this represents what i want to use”
 - **Requirement:** maintain attribution and access to supporting research and evidence
 - **Date:** 2026-08-16
+- **v1.2 Human Acceptance:** accepted — "approve the intent v1.2 text as written" — project owner, 2026-09-03
 
 ### AI Readiness
 
@@ -132,6 +135,9 @@ Completing agents, a website, reports, or other deliverables alone does not cons
 - **Date:** 2026-08-15
 - **Reconfirmed for v1.1:** ready — website delivery, attribution, and evidence-access requirements are explicit
 - **Reconfirmed:** 2026-08-16
+- **Reconfirmed for v1.2:** ready — the weekly issue, the machine-proposes / person-signs line, the pilot list and the downstream ePlus boundary are explicit; purpose, beneficiaries and the public-evidence boundary are unchanged
+- **Agent or model:** Claude Fable 5.1, sec-market orchestrator session
+- **Reconfirmed:** 2026-09-03
 
 ## Traceability and handoff
 
@@ -140,6 +146,7 @@ Completing agents, a website, reports, or other deliverables alone does not cons
 - **Reconciliation events:** `SEC-MARKET-RECON-001` resolved 2026-08-15; Episode 001 reclassified as thematic, governing intent unchanged
 - **Current operational validation:** `SEC-MARKET-SIG-002` v0.2 completed and independently reviewed; stable infrastructure-to-security lag remains `NO-CALL`
 - **Current MVP delivery:** `SEC-MARKET-WEB-001` — responsive evidence-linked website
+- **Current product direction:** `SEC-MARKET-WEEKLY-001` — the weekly issue is the unit of product. The Episode 002 market call is a standing thesis scored by each weekly issue, not the site headline.
 - **Fresh-agent minimum context:** [README.md](README.md), this artifact, [intent-reconciliation-2026-08-15.md](docs/active/intent-reconciliation-2026-08-15.md), the Episode 002 packet in [docs/episodes/002/](docs/episodes/002/), and [outcome-architecture.md](docs/reference/outcome-architecture.md). Consult historical specifications only for hypotheses and proposed mechanisms.
 
 ## Revision record
@@ -148,6 +155,7 @@ Completing agents, a website, reports, or other deliverables alone does not cons
 |---|---|---|---|---|---|
 | 1.0 | accepted | Establish governing authority for the new project | accepted, 2026-08-15 | ready, 2026-08-15 | Existing working and build specifications require downstream review |
 | 1.1 | accepted | Promote the responsive evidence-linked website from Exploring to Decided for MVP delivery | accepted, 2026-08-16 | ready, 2026-08-16 | Website becomes the primary MVP consumption surface; purpose and evidence boundaries unchanged |
+| 1.2 | accepted | Weekly issue as the unit of product; agent-drafted gather with a named person signing; newsletter to a named pilot list; ePlus overlay bounded downstream | accepted, 2026-09-03 | ready, 2026-09-03 | Episode 002 call becomes a standing thesis; purpose, beneficiaries and evidence boundaries unchanged |
 
 ## Gate result
 

@@ -658,3 +658,20 @@ offering on an ePlus domain, if that conversation ever opens.
 waits for the owner's acceptance. It does not authorise any build. Plan:
 [weekly-issue-plan.md](docs/active/weekly-issue-plan.md) (`SEC-MARKET-WEEKLY-001` v0.1). Backlog:
 SEC-027 to SEC-031; SEC-017 superseded.
+
+**D-63 · 2026-09-03 — Intent v1.2 accepted as written.**
+
+The owner accepted the v1.2 text proposed in §3 of
+[weekly-issue-plan.md](docs/active/weekly-issue-plan.md): "approve the intent v1.2 text as written."
+`intent.md` now carries it. Four state-register rows moved: the weekly issue is Decided as the unit
+of product; autonomous agents are Decided for gather and draft only, with publication and every
+judgment a named person's act; newsletters are Decided for a named pilot list with public timing held
+to the 2026-10-08 review; the confidential overlay stays Exploring with a decided boundary, downstream
+inside ePlus surfaces and never on this domain. One line joined "Must remain true": a machine may
+retrieve, extract, compare and propose, and only a named person signs a judgment or publishes an
+issue. Purpose, desired outcome, value, beneficiaries, observable success, the public-evidence
+boundary and "Must not optimize" are unchanged.
+
+This clears the intent gate on SEC-027 to SEC-031. It does not by itself authorise a build; the
+issue-model and gather-job specifications come next and each build is dispatched against its spec.
+

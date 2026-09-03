@@ -96,7 +96,7 @@ SEC-019 frame question. Absorbs SEC-021 Phase 3 (the archive).
 
 **Plan:** [weekly-issue-plan.md](docs/active/weekly-issue-plan.md) (`SEC-MARKET-WEEKLY-001` v0.1, WS-B). Spec to follow: `weekly-issue-spec.md`.
 
-**Authorization state:** approach approved by the owner 2026-09-03 (D-62). Plan under owner review. Build not yet authorized; needs intent v1.2 accepted first.
+**Authorization state:** approach approved 2026-09-03 (D-62); intent v1.2 accepted the same day (D-63). Spec next (`weekly-issue-spec.md`); build dispatched against the spec.
 
 **Not authorized by this work:** changing a posture, call or confidence without a signature; any push to `main` except by promotion.
 
@@ -108,7 +108,7 @@ person reviews, signs and merges. Supersedes SEC-017.
 
 **Plan:** [weekly-issue-plan.md](docs/active/weekly-issue-plan.md) WS-C. Spec to follow: `gather-job-spec.md`. Schedule registered by jobs-agent; any agent definition by Forge.
 
-**Authorization state:** approach approved 2026-09-03 (D-62). Build waits on intent v1.2 and the spec.
+**Authorization state:** approach approved 2026-09-03 (D-62); intent v1.2 accepted the same day (D-63). Spec next (`gather-job-spec.md`); schedule registration via jobs-agent, agent definition via Forge if one is needed.
 
 **Not authorized by this work:** auto-publishing; editing intent, decisions, the call, a posture or a confidence; scrapers or collectors beyond the one job.
 
