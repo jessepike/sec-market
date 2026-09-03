@@ -1,7 +1,7 @@
 ---
 project: Security Market Signal Pipeline
 stage: Operate
-updated: 2026-08-28
+updated: 2026-09-03
 ---
 
 # Status
@@ -62,7 +62,9 @@ There are two long-lived branches (D-50). `preview` is the trunk and serves a fi
 - [x] Stale end-to-end smoke test repaired; suite green
 - [x] Date constant split so the site stamp and the judgment dates move independently
 - [x] Promoted to production `b423b70` (D-61), confirmed serving by browser query
-- [ ] Owner: how the AI coverage finding gets presented on the site — this is the open call
+- [ ] Owner: review [weekly-issue-plan.md](docs/active/weekly-issue-plan.md) on canvas and accept or edit the intent v1.2 text in its §3 — this gates SEC-027 to SEC-031
+- [ ] Owner: name the pilot set and the independent scorer (D-58 shape, names still missing)
+- [ ] Owner: how the AI coverage finding gets presented on the site — largely answered by the weekly issue model if the plan is accepted
 - [ ] Owner: who scores the project scorecard independently, and who counts as qualified exposure
 - [ ] Owner: shorter phone footer labels, yes or no (SEC-023)
 - [ ] Enforce `sourceAttributions` in `verify:integrity` when an excerpt spans more than one source
@@ -85,6 +87,7 @@ None. The D-48 promotion record was reconciled on 2026-08-19 (D-51) and producti
 
 | Date | Summary |
 |------|---------|
+| 2026-09-03 | Orientation and intent-versus-built review. Finding: the intent describes a decision instrument and the site is a research edition with excellent hygiene; exposure denominator still 1, decision log still empty, and the frozen Episode 002 call sits where a weekly read should. Owner confirmed the two goals (ePlus GTM anticipation; a low-friction weekly pulse for CISOs on formation, absorption, prints and capital) and approved the approach: weekly issue as the product, agent-drafted and human-signed, emailed to a named pilot, ePlus consuming downstream (D-62). An `eplus.` subdomain was declined. Plan written to `docs/active/weekly-issue-plan.md` and sent to canvas; SEC-027 to SEC-031 opened; SEC-017 superseded. Nothing on `web/` changed. |
 | 2026-08-25 | Production promoted to `4916a95` (D-57), the first promotion since 2026-08-20 and eighteen commits' worth. Approval followed a rendered before-and-after at 1440 and 390 rather than preceding it. The scorecard is findable, the phone opens with its framing line, the placeholder spark is gone from all forty-two cards, and six evidence records carry their missing source attributions. Confirmed live by render at both widths. Next work is the roadmap, grounded in intent's four observable-success tests rather than in further site features. |
 | 2026-08-20 | Integrity pass shipped and promoted. An intent-versus-built audit found the site asserting things about itself that were not true — a provenance legend state with zero instances, a hero saying four domains while six carried postures, a navigation claiming a weekly cadence the method denied, and an evidence resolver that would have crashed the moment SecOps was promoted. `SEC-MARKET-INTEGRITY-001` specified eight corrections and a `verify:integrity` build gate; Cursor Composer implemented, the CPO session verified by perturbing all five gate checks and by rendering the page. Owner promoted to production (D-53). Live and confirmed by query. |
 | 2026-08-19 | Prod and preview put on a stable footing. Production verified by query to be serving the accepted D-48 landscape. `preview` created as the standing trunk with a fixed public URL; `main` is production and moves only by fast-forward promotion (D-50). Pre-push guard added and proven to fire. Owner confirmed he approved D-48, so D-49 is retracted by D-51: the failure was that the approval was never written down, not that it was missing. |

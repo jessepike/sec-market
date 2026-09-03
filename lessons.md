@@ -3,6 +3,11 @@
 Hot buffer. One line per insight, newest date first. Keep the last ~15; promote
 cross-project patterns to the knowledge base and drop them from here.
 
+## 2026-09-03
+
+- The first research question's frozen answer became the headline of a product meant to be a weekly pulse, and the recurring content sat in a collapsed board whose window had ended three weeks earlier. When a project moves from an episode to a recurring product, check that the front page carries the recurring question rather than the first one asked.
+- Three weeks of gates, sweeps and visibility fixes were all correct and none of them moved the exposure denominator off one. Craft work on an unread page has a ceiling; the next unit of work should be the one that puts the page in front of a named reader.
+
 ## 2026-08-28
 
 - [promoted:kb:b51ee163:2026-08-28] The site's whole message layer was collapsed and nobody had checked. "The read" — the market call, the do and avoid lists, the no-call boundaries — sits inside a closed `<details>` on production; `checkVisibility()` at 1561px returns false. The vendor scorecard was promoted out of exactly this pattern six days earlier and the read was never tested for it. Fixing one instance of a defect is not fixing the pattern, and the second instance was hiding the more valuable content.
@@ -36,10 +41,6 @@ cross-project patterns to the knowledge base and drop them from here.
 
 ## 2026-08-19
 
-- [promoted:kb:4e46b8a2:2026-08-19] A review subagent briefed against the files I already read confirms my own blind spot. I flagged an acquirer and a price as unsourced; both were sitting in `activity.ts`, which I had not opened and had not told the reviewer to open. Scope a reviewer against the data, not against my reading list.
-- [promoted:kb:4a4d0db6:2026-08-19] A fabricated "needs a source" marker is the same class of defect as a fabricated figure. Both put an untrue statement about the evidence on a page whose only claim is that every figure is checkable.
 - [withheld:2026-08-19] A figure in a record's `note` field is not interchangeable with one in its `value` field. Falcon Cloud at $800M is an absolute amount; every other row in that table is a growth rate. The delegate caught this and was right.
-- [promoted:kb:88658cce:2026-08-19] Asked for an opinion, I gave a hedge (run two directions together). The hedge was worse than either direction and the owner had to ask again. Pick one and say why.
-- [promoted:kb:4c2dc09e:2026-08-19] A SHARE token is not a public preview. Vercel Authentication on `all_except_custom_domains` still sends strangers to login; disable SSO on the project, or they cannot give feedback.
 - [promoted:kb:010f9cd6:2026-08-22] Putting the new landscape on top of the old edition is two products. Collapse the edition; do not delete it.
 

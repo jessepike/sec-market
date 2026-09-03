@@ -87,6 +87,59 @@ Owner reviewed the live site. Public Vercel deploy is live at https://security-m
 
 ## Active work
 
+### SEC-027 — The weekly issue is the product
+
+Turn the site from a dated research edition into a weekly issue: five sourced lanes, a signed "what we
+now think", an archive with a permalink per issue, and the Episode 002 call demoted to a standing
+thesis each issue scores against. Domain cards lead with their trigger sentence, which closes the
+SEC-019 frame question. Absorbs SEC-021 Phase 3 (the archive).
+
+**Plan:** [weekly-issue-plan.md](docs/active/weekly-issue-plan.md) (`SEC-MARKET-WEEKLY-001` v0.1, WS-B). Spec to follow: `weekly-issue-spec.md`.
+
+**Authorization state:** approach approved by the owner 2026-09-03 (D-62). Plan under owner review. Build not yet authorized; needs intent v1.2 accepted first.
+
+**Not authorized by this work:** changing a posture, call or confidence without a signature; any push to `main` except by promotion.
+
+### SEC-028 — The Tuesday gather job
+
+A scheduled agent gathers from the catalogued sources every Tuesday, drafts the issue as a pull request
+against `preview` with every figure quoted verbatim from a fetched document, and never publishes. A
+person reviews, signs and merges. Supersedes SEC-017.
+
+**Plan:** [weekly-issue-plan.md](docs/active/weekly-issue-plan.md) WS-C. Spec to follow: `gather-job-spec.md`. Schedule registered by jobs-agent; any agent definition by Forge.
+
+**Authorization state:** approach approved 2026-09-03 (D-62). Build waits on intent v1.2 and the spec.
+
+**Not authorized by this work:** auto-publishing; editing intent, decisions, the call, a posture or a confidence; scrapers or collectors beyond the one job.
+
+### SEC-029 — Distribution
+
+Analytics on, issue #1 emailed to the pilot list by hand, RSS feed and per-issue permalink and Open
+Graph image by issue #2, email provider and public list only after four held issues.
+
+**Plan:** [weekly-issue-plan.md](docs/active/weekly-issue-plan.md) WS-D.
+
+**Authorization state:** approach approved 2026-09-03 (D-62). Public email not authorized before the 2026-10-08 review.
+
+### SEC-030 — ePlus downstream digest interface
+
+Pulse ships a machine-readable copy of each issue at `/issues/<id>.json`. That file is the whole
+interface. The ePlus internal digest, with account triggers and partner framing, is built and owned
+in the ePlus channel repo and cockpit. No ePlus surface on this domain; no account data flows back.
+
+**Plan:** [weekly-issue-plan.md](docs/active/weekly-issue-plan.md) WS-E. Handoffs to `eplus-security-advisor` and `eplus-ops` after plan acceptance.
+
+**Authorization state:** approach approved 2026-09-03 (D-62). An `eplus.securitymarketpulse.com` subdomain was considered and declined the same day.
+
+### SEC-031 — Vendor lens
+
+Filter the current issue and the scorecard by vendor or OEM, shareable by URL. Public and
+non-confidential. After issue #2.
+
+**Plan:** [weekly-issue-plan.md](docs/active/weekly-issue-plan.md) WS-F.
+
+**Authorization state:** approach approved 2026-09-03 (D-62). Build after issue #2.
+
 ### SEC-009 — Recurring public-signal intelligence
 
 Turn Pulse from a one-shot research edition into a living cybersecurity market-intelligence site.
@@ -366,7 +419,7 @@ Commit `727ce6a` restored vendor print cards on `main`, partially reversing the 
 
 Make the tracked layer actually refresh weekly. Separate from SEC-013 on purpose.
 
-**Authorization state:** not authorized. Scope not yet written.
+**Status:** superseded by SEC-028 on 2026-09-03.
 
 ### SEC-008 — Account conversation prompts
 

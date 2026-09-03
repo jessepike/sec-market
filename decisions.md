@@ -632,3 +632,29 @@ been asserting a page structure that stopped existing on 2026-08-22. The suite r
 
 Page height 8,274 → 10,340 pixels at desktop and 8,237 → 11,369 on the phone. That is the price of
 showing a reader the judgments instead of hiding them, and it was paid deliberately.
+
+**D-62 · 2026-09-03 — The weekly issue is the product; a machine drafts and a person signs; ePlus consumes downstream. Approach approved; plan to follow.**
+
+An intent-versus-built review found the site answering the first research question, the
+infrastructure-to-security lag, in its headline, while the thing the owner actually wants readers to
+return for each week, who is forming, who is absorbing whom, who is printing growth, where capital is
+going, sits in a collapsed Activity board whose window ended 10 August. The decision impact log has
+zero entries and the exposure denominator is one, nineteen days into the two-quarter success test.
+
+The owner restated the two goals in his own words and approved this approach: the weekly issue
+becomes the unit of product, with five sourced lanes and a signed "what we now think"; the Episode 002
+call becomes a standing thesis each issue scores against rather than the headline; a scheduled agent
+gathers and drafts every Tuesday as a pull request and a named person signs and publishes, on the
+line the shadow design v0.2 already drew; the issue is emailed to a named pilot list from issue #1
+and to the public only after four held issues; ePlus consumes a machine-readable copy downstream and
+builds its overlay inside its own channel and cockpit.
+
+**Declined the same day:** an `eplus.securitymarketpulse.com` subdomain. The tailoring ePlus needs is
+confidential and cannot sit on this domain, and an ePlus-branded surface on the owner's domain
+entangles ownership in both directions. A branded ePlus surface is only appropriate as a licensed
+offering on an ePlus domain, if that conversation ever opens.
+
+**What this does not do.** It does not change `intent.md`; the proposed v1.2 text is in the plan and
+waits for the owner's acceptance. It does not authorise any build. Plan:
+[weekly-issue-plan.md](docs/active/weekly-issue-plan.md) (`SEC-MARKET-WEEKLY-001` v0.1). Backlog:
+SEC-027 to SEC-031; SEC-017 superseded.
