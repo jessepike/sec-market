@@ -5,8 +5,8 @@ cross-project patterns to the knowledge base and drop them from here.
 
 ## 2026-09-03
 
-- The first research question's frozen answer became the headline of a product meant to be a weekly pulse, and the recurring content sat in a collapsed board whose window had ended three weeks earlier. When a project moves from an episode to a recurring product, check that the front page carries the recurring question rather than the first one asked.
-- Three weeks of gates, sweeps and visibility fixes were all correct and none of them moved the exposure denominator off one. Craft work on an unread page has a ceiling; the next unit of work should be the one that puts the page in front of a named reader.
+- [promoted:kb:eb06c6c0:2026-09-03] The first research question's frozen answer became the headline of a product meant to be a weekly pulse, and the recurring content sat in a collapsed board whose window had ended three weeks earlier. When a project moves from an episode to a recurring product, check that the front page carries the recurring question rather than the first one asked.
+- [promoted:kb:1406388d:2026-09-03] Three weeks of gates, sweeps and visibility fixes were all correct and none of them moved the exposure denominator off one. Craft work on an unread page has a ceiling; the next unit of work should be the one that puts the page in front of a named reader.
 
 ## 2026-08-28
 
@@ -30,14 +30,6 @@ cross-project patterns to the knowledge base and drop them from here.
 
 ## 2026-08-20
 
-- [promoted:kb:f9e2584f:2026-08-20] A subagent inherits the premises of its prompt and returns them with fresh evidence attached, which makes an inherited error harder to see rather than easier. I put a wrong quarter into a source-hunt prompt; the agent reasoned correctly from it and recommended deleting two accurate records, supported by a real document, a slide number and a verbatim quote. Check a delegated finding against the data before acting on it, and check hardest when the finding looks well supported.
-- [promoted:kb:e171ddd5:2026-08-20] Scope a verification against the schema, not against the subset of fields you extracted. Feeding agents only `canonicalUrl` while records also carry a `sourceAttributions` array produced five false "unsourced" findings, including one where the hunt "found" a URL already sitting in the record.
-- [promoted:kb:4d7e316f:2026-08-20] A verification tool's account of what it fetched is not proof it fetched the right document. One fetch returned a Check Point earnings PDF in place of the requested IANS report; it surfaced only because the agent read the downloaded bytes instead of the tool's summary. Any unattended pipeline that trusts the summary can verify a claim against the wrong document and report a pass.
-- [promoted:kb:0af2d678:2026-08-20] Never let the search corpus contain the thing being searched for. A grep run from `data/` matching evidence ids against `..` included `evidence.ts` itself, so every id matched its own definition and the check reported full coverage. Five records were actually orphaned.
-- [promoted:kb:80b4d1bd:2026-08-20] A gate that returns nothing is not a gate that passed. A perturbation test produced no verdict because the edit broke the file's syntax and the script died before the assertion ran. Empty must fail loudly, or an unproven gate ships looking proven.
-- [promoted:kb:dfe234cc:2026-08-20] HTTP 403 from SEC.gov is a published access policy, not a dead link. SEC asks automated requesters to declare an identifying User-Agent; doing so returns 200. Roughly half of a curl-based link check was false failures — 25 bot-blocks and 9 identical HTTP/2 errors across unrelated hosts, all healthy in a real browser.
-- [promoted:kb:346eba72:2026-08-20] Server-rendered comment markers split text nodes, so a string-presence check against rendered HTML gives a false absent. `four<!-- --> <!-- -->domains` does not match `four domains`. Strip the markers before asserting.
-- [promoted:kb:e9f33563:2026-08-20] Every drift found in a 71-source sweep was a missing source, never a wrong number. One `canonicalUrl` per record cannot carry an excerpt synthesized from several sources, so the extra claims silently lose their provenance. A schema limit surfaces as an accuracy defect.
 
 ## 2026-08-19
 
