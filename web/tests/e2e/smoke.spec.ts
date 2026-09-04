@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test'
+import { latestIssue } from '../../src/data/issues/index.ts'
 
 test('renders the market briefing without runtime errors', async ({ page }) => {
   const pageErrors: string[] = []
@@ -6,23 +7,31 @@ test('renders the market briefing without runtime errors', async ({ page }) => {
 
   await page.goto('/')
 
-  // The h1 is now the market call itself (promoted out of the collapsed
-  // scorecard on 2026-08-25). Checked as two substrings either side of the
-  // <br/> in the markup, since a line break produces no text-node space for
-  // toContainText to match across.
-  await expect(page.getByRole('heading', { level: 1 })).toContainText(
-    'Infrastructure is running ahead',
-  )
-  await expect(page.getByRole('heading', { level: 1 })).toContainText(
-    'Security is splitting, not booming.',
-  )
+  // The h1 is now the newest weekly issue's one-line read (promoted to the
+  // top of the page under D-64 / SEC-MARKET-ISSUE-001). The former market-call
+  // h1 moved into the standing-reference thesis block (#read) as an h2 — see
+  // the #market-call-heading assertions below, unchanged in content.
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText(latestIssue.read)
+
   await expect(page.getByText('refreshed weekly')).toHaveCount(0)
   await expect(page.getByText('Tell me when the next edition publishes')).toHaveCount(0)
   await expect(page.getByText('TRACKED', { exact: false }).first()).toBeVisible()
-  await expect(page.locator('#moved')).toBeVisible()
+
+  // "What moved" now sits inside a closed depth disclosure (#moved-depth) —
+  // the issue's four lanes are the always-visible account of what moved, per
+  // §4 of docs/active/weekly-issue-spec.md. Present for evidence/crawlers,
+  // closed until opened, exactly like #research-depth below.
+  await expect(page.locator('#moved-depth > summary')).toHaveText('What moved: edition delta')
+  await expect(page.locator('#moved-depth #moved')).toBeAttached()
+  await expect(page.locator('#moved-depth #moved')).toBeHidden()
+
   await expect(page.getByRole('heading', { name: 'Tracked hypotheses' })).toBeVisible()
   await expect(page.getByText('NO-CALL', { exact: true }).first()).toBeVisible()
-  await expect(page.getByRole('heading', { name: 'Network / SASE' })).toBeVisible()
+
+  // Landscape cards now lead with the trigger sentence as their title (an h2);
+  // the domain name moved to a label above it, no longer a heading itself.
+  await expect(page.locator('#landscape').getByText('Network / SASE', { exact: true })).toBeVisible()
+
   await expect(page.getByRole('button', { name: /Fortinet/ }).first()).toBeVisible()
   await expect(page.locator('.landscape .evidence-link').nth(2)).toContainText(/CrowdStrike|Upwind|Orca|Aqua/)
   await expect(page.locator('.landscape .evidence-link').nth(2)).not.toContainText('Alphabet')
@@ -32,9 +41,13 @@ test('renders the market briefing without runtime errors', async ({ page }) => {
   )
 
   // The market call (2026-08-25) and the full scorecard's prints (2026-08-22)
-  // were both promoted out of the collapsed disclosure and are now visible on
-  // first paint — no click required to reach them.
+  // were both promoted out of the collapsed disclosure and stay visible on
+  // first paint — no click required to reach them. The market-call headline
+  // is now an h2 inside #read (see the top of this test) rather than the h1,
+  // but the id and text are unchanged.
   await expect(page.locator('#market-call-heading')).toBeVisible()
+  await expect(page.locator('#market-call-heading')).toContainText('Infrastructure is running ahead')
+  await expect(page.locator('#market-call-heading')).toContainText('Security is splitting, not booming.')
   await expect(page.locator('#prints-heading')).toBeVisible()
   await expect(page.getByRole('heading', { name: 'Fortinet' })).toBeVisible()
   await expect(page.getByRole('heading', { name: 'SentinelOne' })).toBeVisible()
@@ -67,6 +80,11 @@ test('renders the market briefing without runtime errors', async ({ page }) => {
   await expect(page.getByText('Produced by', { exact: true }).first()).toBeVisible()
   // Only becomes visible once the disclosure opens — the lead M&A/funding row.
   await expect(page.getByText('Zenity raised $115M Series C')).toBeVisible()
+
+  // Opening #moved-depth reveals the edition-delta account "What moved" used
+  // to give on its own — still there, just one click deeper now.
+  await page.locator('#moved-depth > summary').click()
+  await expect(page.locator('#moved-heading')).toBeVisible()
 
   expect(pageErrors).toEqual([])
 })
