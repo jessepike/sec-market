@@ -1,18 +1,24 @@
+import { createElement } from 'react'
+import { renderToStaticMarkup } from 'react-dom/server'
 import { createHash } from 'node:crypto'
 import { existsSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { editions } from '../src/data/edition.ts'
 import { evidenceById } from '../src/data/evidence.ts'
+import { formatShortDate } from '../src/data/dates.ts'
 import { securityDomains } from '../src/data/domains.ts'
-import { issues } from '../src/data/issues/index.ts'
+import { issues, latestIssue } from '../src/data/issues/index.ts'
 import { isoWeekSunday, windowOf } from '../src/data/issueHelpers.ts'
 import { AUTHOR_NAME } from '../src/data/meta.ts'
 import type { Issue, Lane } from '../src/data/types.ts'
+import { IssueHero } from '../src/components/IssueHero.tsx'
+import { IssueLanes } from '../src/components/IssueLanes.tsx'
+import { WeThink } from '../src/components/WeThink.tsx'
+import { EvidenceProvider } from '../src/context/EvidenceProvider.tsx'
 
 // Check 11 (dist output — permalinks, JSON copies, feed.xml, sitemap.xml)
-// belongs to scripts/verify-dist.ts, a separate post-build script written
-// under task B2. It is not implemented in this file.
+// belongs to scripts/verify-dist.ts, a separate post-build script.
 
 const LANE_ORDER: Lane[] = ['formation', 'absorption', 'prints', 'capital']
 
@@ -371,9 +377,84 @@ check('12 numeric-tokens-cited', () => {
   }
 })
 
+// 10. Render check: renderToStaticMarkup of the issue view for the newest
+//     issue. Each lane heading's rendered item count equals items.length, the
+//     draft banner is present iff status === 'draft', and the signature line
+//     text matches the data.
+const LANE_HEADING_IDS: Record<Lane, string> = {
+  formation: 'formation-heading',
+  absorption: 'absorption-heading',
+  prints: 'prints-this-week-heading',
+  capital: 'capital-heading',
+}
+
+check('10 render-check', () => {
+  const markup = renderToStaticMarkup(
+    createElement(
+      EvidenceProvider,
+      null,
+      createElement(IssueHero, { issue: latestIssue }),
+      createElement(IssueLanes, { issue: latestIssue }),
+      createElement(WeThink, { issue: latestIssue }),
+    ),
+  )
+
+  const hasDraftBanner = markup.includes('issue-draft-banner')
+  if (latestIssue.status === 'draft' && !hasDraftBanner) {
+    throw new Error(
+      `newest issue "${latestIssue.id}" is a draft but no element with class "issue-draft-banner" rendered`,
+    )
+  }
+  if (latestIssue.status === 'published' && hasDraftBanner) {
+    throw new Error(
+      `newest issue "${latestIssue.id}" is published but a "issue-draft-banner" element still rendered`,
+    )
+  }
+
+  const headingPositions = latestIssue.sections.map((section) => {
+    const marker = `id="${LANE_HEADING_IDS[section.lane]}"`
+    const at = markup.indexOf(marker)
+    if (at === -1) {
+      throw new Error(`lane heading ${marker} not found in the rendered issue view`)
+    }
+    return { lane: section.lane, at, itemCount: section.items.length }
+  })
+
+  for (let i = 0; i < headingPositions.length; i++) {
+    const start = headingPositions[i].at
+    const end = i + 1 < headingPositions.length ? headingPositions[i + 1].at : markup.length
+    const slice = markup.slice(start, end)
+    const renderedCount = (slice.match(/class="issue-lane__item"/g) ?? []).length
+    if (renderedCount !== headingPositions[i].itemCount) {
+      throw new Error(
+        `lane "${headingPositions[i].lane}" renders ${renderedCount} item(s) but the data has ` +
+          `${headingPositions[i].itemCount}`,
+      )
+    }
+  }
+
+  if (latestIssue.status === 'published') {
+    const expectedSignature = `Signed by ${latestIssue.weThink.signedBy}${
+      latestIssue.weThink.signedOn ? ` · ${formatShortDate(latestIssue.weThink.signedOn)}` : ''
+    }`
+    if (!markup.includes(expectedSignature)) {
+      throw new Error(
+        `published newest issue "${latestIssue.id}" does not render the expected signature line "${expectedSignature}"`,
+      )
+    }
+  } else {
+    const expectedUnsignedLine = 'Unsigned draft. Nothing here is a judgment until a named person signs it.'
+    if (latestIssue.proposed && !markup.includes(expectedUnsignedLine)) {
+      throw new Error(
+        `draft newest issue "${latestIssue.id}" with a proposal does not render the unsigned-draft line`,
+      )
+    }
+  }
+})
+
 // --- Report ---
 
-const EXPECTED_CHECK_COUNT = 10
+const EXPECTED_CHECK_COUNT = 11
 
 /**
  * Everything from here down runs inside one try/catch so that a bug in the
@@ -397,10 +478,6 @@ function report(): void {
       console.error(`FAIL  ${result.name} — ${result.detail}`)
     }
   }
-
-  // Check 10 (render check) belongs to task B2: the issue view components it
-  // renders do not exist yet. Marked skipped, not failing, until they land.
-  console.log('SKIP  10 render-check — belongs to task B2 (issue view components)')
 
   if (anyFail) {
     console.error('verify:issue FAILED')
