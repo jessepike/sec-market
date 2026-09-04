@@ -2721,6 +2721,83 @@ summary:focus-visible,
   color: var(--color-text);
 }
 
+/* Vendor lens (SEC-031) — the per-surface "Showing N of M" line, on the issue
+   lanes and (below, .print-grid__filter-status) the scorecard. Tokens only,
+   matching .issue-lane__meta's mono/muted treatment. */
+.issue-lane__filter-status,
+.print-grid__filter-status {
+  margin: 0 0 0.85rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+}
+
+.issue-lane__filter-status a,
+.print-grid__filter-status a,
+.vendor-lens__clear {
+  color: var(--color-accent);
+}
+
+/* The lens control itself, in #vendor-lens-slot at the top of the scorecard. */
+.vendor-lens {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+  padding: 0.65rem 0.85rem;
+  background: var(--color-accent-soft);
+  border: 1px solid var(--color-accent);
+}
+
+.vendor-lens__label {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.vendor-lens__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  flex: 1 1 auto;
+}
+
+.vendor-lens__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding: 3px 8px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-accent);
+  color: var(--color-accent);
+  cursor: pointer;
+}
+
+.vendor-lens__chip:hover,
+.vendor-lens__chip:focus-visible {
+  background: var(--color-accent);
+  color: var(--color-surface);
+}
+
+.vendor-lens__empty-note {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+}
+
+.vendor-lens__clear {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
 .we-think {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
@@ -2848,5 +2925,22 @@ summary:focus-visible,
   .issue-archive__row {
     grid-template-columns: 1fr;
     gap: 0.35rem;
+  }
+
+  /* Vendor lens (SEC-031) §4: at 390 the chip row collapses to a single row
+     of chips with horizontal scroll, rather than wrapping to several lines. */
+  .vendor-lens {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+
+  .vendor-lens__chips {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .vendor-lens__chip {
+    flex: 0 0 auto;
   }
 }

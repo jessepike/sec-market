@@ -1,3 +1,4 @@
+import { vendorSlug } from './issueHelpers'
 import type { VendorPrint } from './types'
 
 export const printGroups = [
@@ -11,7 +12,13 @@ export const printGroups = [
   'Infrastructure',
 ] as const
 
-export const vendorPrints: VendorPrint[] = [
+// Every field below is exactly as it was before the vendor lens (SEC-031):
+// no value changed, none reordered. `vendorSlug` is populated derived, in
+// `vendorPrints` below, rather than typed by hand on each of these — no
+// gate hashes this array (verify:edition hashes editions.ts; verify:panel
+// hashes the derived stock-index panel; neither reads prints.ts), so there
+// was nothing to preserve by keeping the field off this literal.
+const vendorPrintsBase: Omit<VendorPrint, 'vendorSlug'>[] = [
   {
     id: 'print-fortinet',
     group: 'Network & edge',
@@ -552,3 +559,9 @@ export const vendorPrints: VendorPrint[] = [
     evidenceIds: ['A2'],
   },
 ]
+
+/** Lower-case, hyphenated vendor slug per print (SEC-031, the vendor lens key). */
+export const vendorPrints: VendorPrint[] = vendorPrintsBase.map((print) => ({
+  ...print,
+  vendorSlug: vendorSlug(print.name),
+}))

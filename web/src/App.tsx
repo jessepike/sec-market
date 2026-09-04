@@ -20,19 +20,29 @@ import { PrintGrid } from './components/PrintGrid'
 import { ProvenanceRail } from './components/ProvenanceRail'
 import { SkipLink } from './components/SkipLink'
 import { ThesisRunningScore } from './components/ThesisRunningScore'
+import { VendorLens } from './components/VendorLens'
 import { WatchList } from './components/WatchList'
 import { WeThink } from './components/WeThink'
 import { WhatMoved } from './components/WhatMoved'
 import { EvidenceProvider } from './context/EvidenceProvider'
 import { useEvidence } from './context/useEvidence'
+import { VendorLensProvider } from './context/VendorLensProvider'
 import { issueById, latestIssue } from './data/issues/index'
 import { matchRoute } from './data/routes'
 import type { Issue } from './data/types'
 
-/** `/` — this week's issue, then the standing reference, then depth. */
+/**
+ * `/` — this week's issue, then the standing reference, then depth.
+ *
+ * Wrapped in VendorLensProvider (SEC-031): IssueLanes and PrintGrid, both
+ * inside, read the lens state to filter; VendorLens is the control. Scoped
+ * to this page on purpose — the issue permalink page has no lens control, so
+ * it never mounts the provider, and its IssueLanes renders unfiltered via
+ * useVendorLens()'s inactive fallback.
+ */
 function FrontPage() {
   return (
-    <>
+    <VendorLensProvider>
       <IssueHero issue={latestIssue} />
       <IssueLanes issue={latestIssue} />
       <WeThink issue={latestIssue} />
@@ -48,8 +58,7 @@ function FrontPage() {
       <DomainBoard />
       <PlatformPressure />
       <Hypotheses />
-      {/* Reserved for the vendor lens control (SEC-031 / task B4). Not built here. */}
-      <div id="vendor-lens-slot" />
+      <VendorLens />
       <PrintGrid />
 
       <details className="depth" id="moved-depth">
@@ -83,7 +92,7 @@ function FrontPage() {
       </details>
       <MethodologyNote />
       <NextEdition />
-    </>
+    </VendorLensProvider>
   )
 }
 

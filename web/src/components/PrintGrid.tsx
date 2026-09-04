@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { useVendorLens } from '../context/useVendorLens'
 import { printGroups, vendorPrints } from '../data/prints'
 import { EvidenceLink } from './EvidenceLink'
 
@@ -27,6 +28,18 @@ function countWord(n: number): string {
 }
 
 export function PrintGrid() {
+  // Vendor lens (SEC-031): outside a VendorLensProvider (there is none today
+  // besides the front page) useVendorLens() returns its inactive fallback,
+  // so displayedPrints === vendorPrints and every number below is exactly
+  // what it was before the lens existed.
+  const { activeSlugs, clear } = useVendorLens()
+  const isFiltered = activeSlugs !== null
+  const displayedPrints = isFiltered
+    ? vendorPrints.filter((print) => print.vendorSlug !== undefined && activeSlugs.includes(print.vendorSlug))
+    : vendorPrints
+
+  // The eyebrow states the full scorecard's size — always the whole board,
+  // never the filtered view — so it stays true regardless of the lens.
   const printCount = vendorPrints.length
   const domainCount = printGroups.filter((group) =>
     vendorPrints.some((print) => print.group === group),
@@ -67,6 +80,20 @@ export function PrintGrid() {
         </p>
         <h2 id="prints-heading">This period</h2>
         <p>Public prints first. Private names stay on the board as capital or “no series” — not invented ARR.</p>
+        {isFiltered ? (
+          <p className="print-grid__filter-status" role="status">
+            Vendor lens active · Showing {displayedPrints.length} of {printCount} prints ·{' '}
+            <a
+              href="#"
+              onClick={(event) => {
+                event.preventDefault()
+                clear()
+              }}
+            >
+              Clear
+            </a>
+          </p>
+        ) : null}
       </div>
       {printGroups.map((group) => {
         // A group's own prints (this is their primary `group`) plus any
@@ -76,8 +103,13 @@ export function PrintGrid() {
         // visible primary-group label (below) so the two never look like one
         // undifferentiated count — see the eyebrow/gate note in prints.ts's
         // sibling check in scripts/verify-integrity.ts.
-        const ownPrints = vendorPrints.filter((print) => print.group === group)
-        const borrowedPrints = vendorPrints.filter((print) => print.secondaryGroup === group)
+        //
+        // Filtered by the vendor lens when active, per the same "every
+        // number describes what is actually rendered" rule the comment below
+        // already states — a group's per-header counts shrink with the lens
+        // exactly like the cards inside it do.
+        const ownPrints = displayedPrints.filter((print) => print.group === group)
+        const borrowedPrints = displayedPrints.filter((print) => print.secondaryGroup === group)
         const prints = [...ownPrints, ...borrowedPrints]
         if (prints.length === 0) return null
         // Every number in the header describes what is actually rendered in

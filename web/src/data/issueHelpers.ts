@@ -101,6 +101,36 @@ export function vendorSlug(name: string): string {
 }
 
 /**
+ * Parses the `vendors` query parameter (SEC-031, the vendor lens) out of a
+ * `location.search` string, e.g. `"?vendors=crowdstrike,zscaler"`. Returns
+ * `null` when the parameter is absent — the lens is inactive and the caller
+ * must render unfiltered. Returns an array (possibly empty, when the
+ * parameter is present but empty or holds only blank entries) otherwise;
+ * an unrecognised slug in that array is not an error, it just matches
+ * nothing. Round-trips with `serializeVendorsParam`.
+ */
+export function parseVendorsParam(search: string): string[] | null {
+  const params = new URLSearchParams(search)
+  if (!params.has('vendors')) return null
+  const raw = params.get('vendors') ?? ''
+  return raw
+    .split(',')
+    .map((slug) => slug.trim())
+    .filter((slug) => slug.length > 0)
+}
+
+/**
+ * Serialises active vendor slugs back into a `vendors` query parameter value.
+ * Returns `null` for `null` or an empty list, signalling the caller to drop
+ * the parameter entirely rather than write `?vendors=`. Round-trips with
+ * `parseVendorsParam`.
+ */
+export function serializeVendorsParam(slugs: string[] | null): string | null {
+  if (slugs === null || slugs.length === 0) return null
+  return slugs.join(',')
+}
+
+/**
  * Every evidence id an issue cites: lane items, posture deltas, the signed
  * thesis when set, and the machine proposal's thesis when still on a draft.
  */
