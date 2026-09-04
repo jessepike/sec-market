@@ -15,6 +15,7 @@
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
+import { escapeHtmlAttr } from '../src/data/htmlEscape.ts'
 import { issueById } from '../src/data/issues/index.ts'
 import { routes, type RouteEntry } from '../src/data/routes.ts'
 
@@ -128,11 +129,23 @@ function headFor(routeEntry: RouteEntry): RouteHead {
   }
 }
 
-/** Rewrites <title>, canonical, description and OG/Twitter tags for one route's HTML. */
+/**
+ * Rewrites <title>, canonical, description and OG/Twitter tags for one
+ * route's HTML. Every dynamic value (an issue's `read`, its id, the site
+ * URL) is HTML-attribute-escaped before insertion — `headFor` returns raw
+ * text, so a `read` line free-authored by the gather job or a human can
+ * safely carry `&`, `<`, `>`, `"` or `'` without breaking the attribute or
+ * the `<title>` text node it lands in.
+ */
 function rewriteHead(html: string, routeEntry: RouteEntry): string {
   if (routeEntry.kind === 'front') return html // front page keeps the hand-authored head verbatim
 
-  const head = headFor(routeEntry)
+  const raw = headFor(routeEntry)
+  const head = {
+    title: escapeHtmlAttr(raw.title),
+    description: escapeHtmlAttr(raw.description),
+    ogUrl: escapeHtmlAttr(raw.ogUrl),
+  }
   let next = html
   next = next.replace(/<title>[^<]*<\/title>/, `<title>${head.title}</title>`)
   next = next.replace(
