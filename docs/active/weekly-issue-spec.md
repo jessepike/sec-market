@@ -312,3 +312,41 @@ retrieval receipts and one record per document (§3); posture change as one sign
 widened (§7). Declined: an authenticated signer, which static data cannot carry; the merge by the
 repository owner is the authentication.
 
+### Amendments after the whole-diff review (2026-09-04)
+
+A whole-diff external review (Codex and a fresh Claude session) of the built implementation found
+gaps between what §6 described and what `scripts/verify-issue.ts` and `scripts/verify-dist.ts`
+actually checked. Accepted and folded in:
+
+- F1: check 4 now resolves `weThink.thesis.evidenceIds`, `weThink.postureDeltas[].evidenceIds`, and
+  on a draft `proposed.thesis.evidenceIds`, the same way lane-item ids are resolved; check 12 no
+  longer silently skips an unresolved id, it fails.
+- F2: dates are now strict — every `date`, `weekEnding`, `windowStart`, `published` and `signedOn`
+  must match `^\d{4}-\d{2}-\d{2}$` and name a real calendar date; a published issue requires
+  non-empty `published` and `signedOn`; an item dated after `weekEnding` fails regardless of
+  `background`, and `background` is only valid when the item is dated before `windowStart`.
+- F3: a draft is now checked for an empty `weThink` block — empty `summary`, empty `postureDeltas`
+  and `noCalls`, and null `thesis`, `signedBy`, `signedOn`, `published` — not just a published
+  issue's completeness.
+- F4: added bounds — at most eight items per lane, `read` at most 140 characters, an item
+  `headline` at most 110 characters, and a non-empty `why` — each failure names the offending id
+  and the measured length.
+- F5: `--write` now validates the candidate issue on every other check before writing the
+  manifest, and the manifest is append-only against a trusted base ref (`origin/preview`, else
+  `preview`, else `HEAD~1`), not just self-consistent with the current `issues` array; a shallow
+  clone with no matching ref prints one loud warning and continues rather than failing the build.
+- F6: `verify:dist` now checks identity, not just presence — each `dist/issues/<id>.json`'s
+  `issue.id` must match its filename and its `evidence` array must equal the ids the issue cites;
+  `dist/issues/index.json` is checked for the exact newest-first id/status order, not just its
+  length; `dist/feed.xml` is parsed for every `<item>`'s `guid` and `pubDate`, checked against the
+  published-issue permalink set and RFC 822 respectively.
+- F7: off the front page, `Header`'s brand link and section links now point to `/#<id>` and only
+  intercept the click when that id exists in the current document, so a link to a front-page-only
+  section navigates there instead of silently doing nothing.
+- F8: every dynamic value `scripts/prerender.ts` inserts into `<title>` and a `<meta>` tag's
+  `content` is now HTML-attribute-escaped, so an issue `read` line carrying `&`, `<`, `>`, `"` or
+  `'` cannot break the tag it lands in.
+- F9: every evidence record cited by an issue must now carry a machine-readable `retrieval`
+  receipt (`finalUrl`, a 64-hex `sha256`, `fetchedAt`, and an optional `locator`) confirmed against
+  a live re-fetch of its `canonicalUrl`; check 15 fails a citation with no receipt, naming the id.
+

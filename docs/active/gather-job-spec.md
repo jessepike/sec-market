@@ -111,8 +111,8 @@ Tuesday or Wednesday, twenty to thirty minutes, owner:
 3. Cut anything thin. Edit headlines and "why it matters" freely.
 4. Form your own view. Write `weThink` yourself, converting only what you accept from `proposed`
    into `thesis`, `postureDeltas` and `noCalls`, each with a confidence. Set `proposed: null`,
-   `signedBy`, `signedOn`, `published`, `status: 'published'`, and run `verify:issue --write` to add
-   the issue to the lock manifest.
+   `signedBy`, `signedOn`, `published`, `status: 'published'`, and run
+   `npm run verify:issue -- --write` to add the issue to the lock manifest.
 5. If the branch's Vercel build failed, do not merge on the strength of the PR body; fix or reject.
 6. Merge to `preview`. Promote with `PROMOTE=1` after the render check.
 
