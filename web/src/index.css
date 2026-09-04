@@ -2629,3 +2629,224 @@ summary:focus-visible,
     border-bottom: 1px solid var(--color-text);
   }
 }
+
+/* Weekly issue — hero, lanes, we-think, archive, draft banner. Tokens only. */
+
+.domain-card__label {
+  margin: 0 0 0.375rem;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.issue-hero {
+  border-bottom: 2px solid var(--color-heading);
+  padding-bottom: 1.25rem;
+}
+
+.issue-hero h1 {
+  margin: 0.5rem 0 0.75rem;
+}
+
+/* Visible at every width, high contrast, not a modal — an inline banner, not
+   an overlay, so it reads on the page itself rather than blocking it. */
+.issue-draft-banner {
+  display: inline-block;
+  margin: 0.5rem 0 0;
+  padding: 0.4rem 0.75rem;
+  background: var(--color-alert-soft);
+  color: var(--color-alert);
+  border: 1px solid var(--color-alert);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.issue-lane {
+  border-top: 1px solid var(--color-border);
+  padding-top: 1.25rem;
+}
+
+.issue-lane__intro {
+  max-width: var(--prose-max);
+  color: var(--color-text-muted);
+}
+
+.issue-lane__empty {
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+.issue-lane__list {
+  list-style: none;
+  padding: 0;
+  margin: 0.75rem 0 0;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.issue-lane__item {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  padding: 0.85rem 1rem;
+}
+
+.issue-lane__headline {
+  margin: 0 0 0.25rem;
+  font-weight: 600;
+  color: var(--color-heading);
+}
+
+.issue-lane__background {
+  font-weight: 400;
+  font-style: italic;
+  color: var(--color-text-muted);
+}
+
+.issue-lane__meta {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.issue-lane__why {
+  margin: 0 0 0.6rem;
+  font-size: 0.9rem;
+  color: var(--color-text);
+}
+
+.we-think {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-top: 2px solid var(--color-heading);
+  padding: 1.25rem;
+}
+
+.we-think__summary {
+  max-width: var(--prose-max);
+}
+
+.we-think__deltas {
+  list-style: none;
+  padding: 0;
+  margin: 0.75rem 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.we-think__delta {
+  border-left: 3px solid var(--color-accent);
+  padding-left: 0.75rem;
+}
+
+.we-think__delta-move {
+  font-size: 0.95rem;
+}
+
+.we-think__thesis {
+  margin: 0.75rem 0;
+  padding: 0.75rem;
+  background: var(--color-bg);
+}
+
+.we-think__nocalls {
+  margin: 0.5rem 0;
+}
+
+.we-think__signature {
+  margin-top: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.we-think__proposed-read {
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--color-heading);
+}
+
+.we-think__posture-deltas-prose {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.thesis-running-score {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.issue-archive {
+  padding: 1rem 0;
+}
+
+.issue-archive__list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.issue-archive__row {
+  display: grid;
+  grid-template-columns: auto auto 1fr auto auto;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+
+.issue-archive__id {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.issue-archive__week,
+.issue-archive__status {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.issue-archive__back {
+  margin-top: 1rem;
+}
+
+.research-depth__note {
+  margin: 0.75rem 0;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--color-text-muted);
+}
+
+.tempo-confidence-note {
+  margin: 0.5rem 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.issue-permalink-links {
+  border-top: 1px solid var(--color-border);
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .issue-archive__row {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+}
