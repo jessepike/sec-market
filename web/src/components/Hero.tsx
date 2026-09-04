@@ -3,15 +3,22 @@ import { contextStats, marketCall } from '../data/market'
 import { LAST_UPDATED_DISPLAY } from '../data/meta'
 import { EvidenceLink } from './EvidenceLink'
 
-export function Hero() {
+/**
+ * Shared body for the market-call headline, stamp and context band. Extracted
+ * so the weekly-issue front page can carry this same content as an `h2`
+ * inside the standing-reference thesis block (`#read`) instead of duplicating
+ * it — see HeroContent below and JudgmentBoard's `leadContent` prop.
+ */
+function HeroBody({ headingLevel }: { headingLevel: 'h1' | 'h2' }) {
+  const Heading = headingLevel
   return (
-    <section id="overview" className="masthead" aria-labelledby="market-call-heading">
+    <>
       <p className="eyebrow">Security Market Pulse · August 2026</p>
-      <h1 id="market-call-heading">
+      <Heading id="market-call-heading">
         Infrastructure is running ahead.
         <br />
         Security is splitting, not booming.
-      </h1>
+      </Heading>
       <div className="stamp">
         <span>
           EDITION <b>{currentEdition.id}</b>
@@ -37,6 +44,30 @@ export function Hero() {
         <p className="context-band__note">{marketCall.subhead}</p>
         <EvidenceLink ids={marketCall.evidenceIds} label="Sources" />
       </div>
+    </>
+  )
+}
+
+/**
+ * The original standalone masthead. Unused on the weekly-issue front page
+ * (superseded there by IssueHero's `#overview`, and by HeroContent inside the
+ * standing-reference thesis block) but kept exported and working so nothing
+ * that already imports it breaks.
+ */
+export function Hero() {
+  return (
+    <section id="overview" className="masthead" aria-labelledby="market-call-heading">
+      <HeroBody headingLevel="h1" />
     </section>
   )
+}
+
+/**
+ * The same market-call headline, stamp and context band as Hero(), without
+ * the outer `<section id="overview">` wrapper and as an `h2` rather than an
+ * `h1` — for embedding inside another section (the thesis block, `#read`)
+ * that already owns the top-level heading and section id.
+ */
+export function HeroContent() {
+  return <HeroBody headingLevel="h2" />
 }

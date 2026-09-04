@@ -51,9 +51,27 @@ function DirectionGlyph({ tag, momentum }: { tag: TempoTag; momentum: Momentum }
   )
 }
 
+/**
+ * Whether the landscape cards' confidence chip is worth showing at all. Per
+ * spec §4, the chip is shown per-card only when confidence actually differs
+ * across the four landscape cards; when every card carries the same value the
+ * chip is dropped from the cards and the shared value is stated once, in the
+ * Tempo table instead (see TempoSection's confidence note below).
+ */
+function landscapeConfidenceVaries(): boolean {
+  return new Set(landscapeDomains.map((domain) => domain.evidenceStrength)).size > 1
+}
+
+/** The one confidence value every landscape card shares, when they agree. */
+function uniformLandscapeConfidence(): string | null {
+  const values = new Set(landscapeDomains.map((domain) => domain.evidenceStrength))
+  return values.size === 1 ? [...values][0] : null
+}
+
 function LandscapeSection() {
   const domainCount = landscapeDomains.length
   const domainLabel = domainCount === 1 ? 'domain' : 'domains'
+  const showConfidenceChip = landscapeConfidenceVaries()
 
   return (
     <section id="landscape" className="landscape" aria-labelledby="landscape-heading">
@@ -73,8 +91,9 @@ function LandscapeSection() {
             key={domain.id}
             className={'domain-card domain-card--' + domain.tag.toLowerCase()}
           >
+            <p className="domain-card__label">{domain.name}</p>
             <div className="domain-card__top">
-              <h2>{domain.name}</h2>
+              <h2>{domain.why}</h2>
               <DirectionGlyph tag={domain.tag} momentum={domain.momentum} />
               <span className={'chip chip--' + domain.tag.toLowerCase()}>{domain.tag}</span>
             </div>
@@ -90,9 +109,11 @@ function LandscapeSection() {
               </p>
               <p className="domain-card__judged">
                 <span className="domain-card__judged-part">HORIZON · {domain.horizon}</span>
-                <span className="domain-card__judged-part">
-                  CONFIDENCE · {domain.evidenceStrength.toUpperCase()}
-                </span>
+                {showConfidenceChip ? (
+                  <span className="domain-card__judged-part">
+                    CONFIDENCE · {domain.evidenceStrength.toUpperCase()}
+                  </span>
+                ) : null}
               </p>
             </div>
           </article>
@@ -105,6 +126,7 @@ function LandscapeSection() {
 function TempoSection() {
   const prior = currentEdition.priorDateDisplay
   const domainRows = editionDomainRows()
+  const uniformConfidence = uniformLandscapeConfidence()
 
   return (
     <section id="domains" className="tempo-board" aria-labelledby="domains-heading">
@@ -114,6 +136,11 @@ function TempoSection() {
           Each domain has a dated posture, a horizon, and the evidence that produced it. Tag will
           not exceed the Episode 002 posture.
         </p>
+        {uniformConfidence ? (
+          <p className="tempo-confidence-note">
+            Confidence: {uniformConfidence.toUpperCase()} across every landscape domain.
+          </p>
+        ) : null}
       </div>
 
       <div className="edition-delta" aria-labelledby="edition-delta-heading">

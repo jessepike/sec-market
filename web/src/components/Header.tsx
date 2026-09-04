@@ -1,15 +1,21 @@
 import { useEffect, useState } from 'react'
 import { LAST_UPDATED_DISPLAY, LAST_UPDATED_ISO, PRODUCT_TITLE } from '../data/meta'
 
-const navItems = [
-  { href: '#read', label: 'The read' },
+interface NavItem {
+  href: string
+  label: string
+  /** Cross-page link (Archive lives at /issues/, not a same-page hash). */
+  crossPage?: true
+}
+
+const navItems: NavItem[] = [
+  { href: '#overview', label: 'Issue' },
+  { href: '/issues/', label: 'Archive', crossPage: true },
+  { href: '#read', label: 'Thesis' },
   { href: '#landscape', label: 'Landscape' },
-  { href: '#moved', label: 'What moved' },
-  { href: '#platforms', label: 'Platforms' },
-  { href: '#hypotheses', label: 'Hypotheses' },
   { href: '#prints', label: 'Scorecard' },
-  { href: '#method', label: 'Method' },
   { href: '#research', label: 'Evidence' },
+  { href: '#method', label: 'Method' },
 ]
 
 function scrollToHash(hash: string) {
@@ -65,21 +71,29 @@ export function Header() {
             {navOpen ? 'Close' : 'Menu'}
           </button>
           <ul id="primary-nav">
-            {navItems.map((item) => (
-              <li key={item.href}>
-                <a
-                  href={item.href}
-                  onClick={(event) => {
-                    event.preventDefault()
-                    setNavOpen(false)
-                    scrollToHash(item.href)
-                    window.history.replaceState(null, '', item.href)
-                  }}
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
+            {navItems.map((item) =>
+              item.crossPage ? (
+                <li key={item.href}>
+                  <a href={item.href} onClick={() => setNavOpen(false)}>
+                    {item.label}
+                  </a>
+                </li>
+              ) : (
+                <li key={item.href}>
+                  <a
+                    href={item.href}
+                    onClick={(event) => {
+                      event.preventDefault()
+                      setNavOpen(false)
+                      scrollToHash(item.href)
+                      window.history.replaceState(null, '', item.href)
+                    }}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ),
+            )}
           </ul>
         </nav>
         <p className="site-header__updated">

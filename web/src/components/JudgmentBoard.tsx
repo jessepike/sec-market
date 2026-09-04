@@ -1,9 +1,18 @@
+import type { ReactNode } from 'react'
 import { marketCall } from '../data/market'
 import { EvidenceLink } from './EvidenceLink'
 
-export function JudgmentBoard() {
+/**
+ * `leadContent` renders inside `#read` before the existing "The read" content
+ * — the weekly-issue front page uses it to carry the thesis running score and
+ * the market-call headline (HeroContent) into this same section, so `#read`
+ * stays the one standing-reference thesis block the spec calls for. Omitted,
+ * this renders exactly as it always has.
+ */
+export function JudgmentBoard({ leadContent }: { leadContent?: ReactNode } = {}) {
   return (
     <section id="read" className="judgment" aria-labelledby="judgment-heading">
+      {leadContent}
       <div className="section-heading">
         <h2 id="judgment-heading">The read</h2>
         <p>{marketCall.confidenceNote}</p>
