@@ -1,4 +1,4 @@
-import type { Issue, ThesisScore } from './types'
+import type { EvidenceRecord, Issue, ThesisScore } from './types'
 
 /**
  * ISO 8601 week id (`2026-w36`) for a given date. Weeks run Monday–Sunday;
@@ -151,4 +151,59 @@ export function issueEvidenceIds(issue: Issue): string[] {
     for (const id of issue.proposed.thesis.evidenceIds) ids.add(id)
   }
   return [...ids]
+}
+
+/**
+ * Archive/index entries for every issue, newest first — the exact ordering
+ * `dist/issues/index.json` and the `/issues/` archive page use. Pure: it
+ * takes the metadata straight off each issue, with no dependency on `dist`
+ * or a site URL, so it is testable without touching the built output.
+ */
+export function archiveEntriesNewestFirst(
+  issues: Issue[],
+): Array<Pick<Issue, 'id' | 'weekEnding' | 'published' | 'status' | 'read'>> {
+  return issues
+    .slice()
+    .reverse()
+    .map((issue) => ({
+      id: issue.id,
+      weekEnding: issue.weekEnding,
+      published: issue.published,
+      status: issue.status,
+      read: issue.read,
+    }))
+}
+
+/**
+ * The issues that belong in the RSS feed, newest first by `published`. A
+ * draft, or a published issue whose `published` is somehow still null, is
+ * never a feed item — this is the one function both `generate-feed.ts` and
+ * `verify-dist.ts` should call so "which issues are feed items, in what
+ * order" cannot drift between the writer and its own checker.
+ */
+export function feedIssuesNewestFirst(issues: Issue[]): Issue[] {
+  return issues
+    .filter((issue): issue is Issue & { published: string } => issue.status === 'published' && issue.published !== null)
+    .slice()
+    .sort((a, b) => b.published.localeCompare(a.published))
+}
+
+/**
+ * The `{ issue, evidence }` shape written to `dist/issues/<id>.json`: the
+ * issue plus every evidence record it cites, resolved through
+ * `issueEvidenceIds` so the JSON copy can never cite a different evidence
+ * set than the page itself considers cited.
+ */
+export function issueJsonCopy(
+  issue: Issue,
+  evidenceById: Record<string, EvidenceRecord>,
+): { issue: Issue; evidence: EvidenceRecord[] } {
+  const evidence = issueEvidenceIds(issue).map((id) => {
+    const record = evidenceById[id]
+    if (!record) {
+      throw new Error(`issue "${issue.id}" cites evidence id "${id}" which does not resolve`)
+    }
+    return record
+  })
+  return { issue, evidence }
 }

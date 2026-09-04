@@ -16,7 +16,7 @@ import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { evidenceById } from '../src/data/evidence.ts'
-import { issueEvidenceIds } from '../src/data/issueHelpers.ts'
+import { archiveEntriesNewestFirst, feedIssuesNewestFirst, issueJsonCopy } from '../src/data/issueHelpers.ts'
 import { issues } from '../src/data/issues/index.ts'
 import { PRODUCT_TITLE, SITE_URL } from '../src/data/meta.ts'
 import { routes, type RouteEntry } from '../src/data/routes.ts'
@@ -55,11 +55,9 @@ function toRfc822(isoDate: string): string {
 
 // --- feed.xml -----------------------------------------------------------
 
-const publishedIssues = issues.filter((issue) => issue.status === 'published' && issue.published)
+const publishedIssues = feedIssuesNewestFirst(issues)
 
 const items = publishedIssues
-  .slice()
-  .sort((a, b) => (b.published ?? '').localeCompare(a.published ?? ''))
   .map((issue) => {
     const url = `${SITE_URL}/issues/${issue.id}/`
     return `    <item>
@@ -92,15 +90,12 @@ console.log(`generate-feed OK: dist/feed.xml written with ${publishedIssues.leng
 mkdirSync(resolve(webRoot, 'dist/issues'), { recursive: true })
 
 for (const issue of issues) {
-  const evidenceIds = issueEvidenceIds(issue)
-  const evidence = evidenceIds.map((id) => {
-    const record = evidenceById[id]
-    if (!record) {
-      fail(`issue "${issue.id}" cites evidence id "${id}" which does not resolve in evidenceById`)
-    }
-    return record
-  })
-  const payload = { issue, evidence }
+  let payload: { issue: typeof issue; evidence: unknown[] }
+  try {
+    payload = issueJsonCopy(issue, evidenceById)
+  } catch (error) {
+    fail(error instanceof Error ? error.message : String(error))
+  }
   writeFileSync(
     resolve(webRoot, 'dist/issues', `${issue.id}.json`),
     JSON.stringify(payload, null, 2),
@@ -111,17 +106,10 @@ console.log(`generate-feed OK: wrote ${issues.length} dist/issues/<id>.json file
 
 // --- issues/index.json ------------------------------------------------------
 
-const indexPayload = issues
-  .slice()
-  .reverse()
-  .map((issue) => ({
-    id: issue.id,
-    weekEnding: issue.weekEnding,
-    published: issue.published,
-    status: issue.status,
-    read: issue.read,
-    url: `${SITE_URL}/issues/${issue.id}/`,
-  }))
+const indexPayload = archiveEntriesNewestFirst(issues).map((entry) => ({
+  ...entry,
+  url: `${SITE_URL}/issues/${entry.id}/`,
+}))
 
 writeFileSync(
   resolve(webRoot, 'dist/issues/index.json'),

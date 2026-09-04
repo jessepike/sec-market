@@ -9,7 +9,9 @@
 import { existsSync, readFileSync } from 'node:fs'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { archiveEntriesNewestFirst, feedIssuesNewestFirst, issueEvidenceIds } from '../src/data/issueHelpers.ts'
 import { issues } from '../src/data/issues/index.ts'
+import { SITE_URL } from '../src/data/meta.ts'
 import { routes } from '../src/data/routes.ts'
 
 const webRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..')
@@ -57,8 +59,30 @@ check('11b every-issue-json-exists', () => {
     if (!parsed.issue || !Array.isArray(parsed.evidence)) {
       throw new Error(`issue "${issue.id}" JSON copy does not have the shape { issue, evidence: [] }`)
     }
+    // Identity: the id inside the file must match the id in its own
+    // filename, and the evidence array must be exactly the set of ids the
+    // issue cites — via issueEvidenceIds, the same helper the site's own
+    // evidence drawer and generate-feed.ts's issueJsonCopy use — not merely
+    // a non-empty array that happens to be the right length.
+    if (parsed.issue.id !== issue.id) {
+      throw new Error(
+        `dist/issues/${issue.id}.json has issue.id "${parsed.issue.id}", expected "${issue.id}" (from the filename)`,
+      )
+    }
+    const expectedEvidenceIds = new Set(issueEvidenceIds(issue))
+    const actualEvidenceIds = new Set(
+      (parsed.evidence as Array<{ id: string }>).map((record) => record.id),
+    )
+    const missing = [...expectedEvidenceIds].filter((id) => !actualEvidenceIds.has(id))
+    const extra = [...actualEvidenceIds].filter((id) => !expectedEvidenceIds.has(id))
+    if (missing.length > 0 || extra.length > 0) {
+      throw new Error(
+        `dist/issues/${issue.id}.json evidence ids do not equal the issue's cited ids — ` +
+          `missing: [${missing.join(', ')}], extra: [${extra.join(', ')}]`,
+      )
+    }
   }
-  return `${issues.length} issue JSON file(s) present and well-formed`
+  return `${issues.length} issue JSON file(s) present, well-formed, and identity-checked`
 })
 
 check('11c issues-index-json-exists', () => {
@@ -73,7 +97,54 @@ check('11c issues-index-json-exists', () => {
   if (parsed.length !== issues.length) {
     throw new Error(`dist/issues/index.json has ${parsed.length} entries, expected ${issues.length}`)
   }
+  // The archive is newest-first; check the exact ordered id/status sequence,
+  // not just the count, using the same helper generate-feed.ts writes from.
+  const expectedOrder = archiveEntriesNewestFirst(issues)
+  for (let i = 0; i < expectedOrder.length; i++) {
+    const actual = parsed[i] as { id?: string; status?: string }
+    const expected = expectedOrder[i]
+    if (actual?.id !== expected.id || actual?.status !== expected.status) {
+      throw new Error(
+        `dist/issues/index.json entry ${i} is {id: "${actual?.id}", status: "${actual?.status}"}, ` +
+          `expected {id: "${expected.id}", status: "${expected.status}"} (newest first)`,
+      )
+    }
+  }
+  return `${parsed.length} entries in the expected newest-first order`
 })
+
+/** One RSS <item>'s guid and pubDate, as extracted by the tolerant parser below. */
+interface FeedItem {
+  guid: string
+  pubDate: string
+}
+
+/**
+ * A deliberately narrow, tolerant RSS item extractor — not a general XML
+ * parser. No XML-parsing package is present in node_modules (checked before
+ * writing this), and generate-feed.ts's own output has a fixed, simple shape
+ * with no CDATA or nested markup inside <item>, so a block-then-tag regex
+ * extraction is sufficient to check what this gate needs: every item's guid
+ * and pubDate. It throws rather than silently producing a short list if an
+ * <item> block is missing either tag.
+ */
+function extractFeedItems(xml: string): FeedItem[] {
+  const blocks = xml.match(/<item>[\s\S]*?<\/item>/g) ?? []
+  return blocks.map((block, index) => {
+    const guidMatch = block.match(/<guid[^>]*>([^<]*)<\/guid>/)
+    const pubDateMatch = block.match(/<pubDate>([^<]*)<\/pubDate>/)
+    if (!guidMatch) {
+      throw new Error(`dist/feed.xml <item> block ${index} has no <guid>`)
+    }
+    if (!pubDateMatch) {
+      throw new Error(`dist/feed.xml <item> block ${index} has no <pubDate>`)
+    }
+    return { guid: guidMatch[1], pubDate: pubDateMatch[1] }
+  })
+}
+
+// RFC 822 as Date.prototype.toUTCString() produces it: "Sun, 06 Sep 2026 00:00:00 GMT".
+const RFC_822_PATTERN = /^[A-Za-z]{3}, \d{2} [A-Za-z]{3} \d{4} \d{2}:\d{2}:\d{2} GMT$/
 
 check('11d feed-xml-exists-and-parses', () => {
   const path = resolve(distDir, 'feed.xml')
@@ -92,12 +163,35 @@ check('11d feed-xml-exists-and-parses', () => {
   if (openTags !== closeTags) {
     throw new Error(`dist/feed.xml has ${openTags} <item> and ${closeTags} </item> — not well-formed`)
   }
-  const publishedCount = issues.filter((issue) => issue.status === 'published' && issue.published).length
-  if (openTags !== publishedCount) {
+
+  const publishedIssues = feedIssuesNewestFirst(issues)
+  if (openTags !== publishedIssues.length) {
     throw new Error(
-      `dist/feed.xml has ${openTags} <item> element(s), expected exactly one per published issue (${publishedCount})`,
+      `dist/feed.xml has ${openTags} <item> element(s), expected exactly one per published issue (${publishedIssues.length})`,
     )
   }
+
+  const parsedItems = extractFeedItems(xml)
+
+  const expectedGuids = new Set(publishedIssues.map((issue) => `${SITE_URL}/issues/${issue.id}/`))
+  const actualGuids = new Set(parsedItems.map((item) => item.guid))
+  const missingGuids = [...expectedGuids].filter((guid) => !actualGuids.has(guid))
+  const extraGuids = [...actualGuids].filter((guid) => !expectedGuids.has(guid))
+  if (missingGuids.length > 0 || extraGuids.length > 0) {
+    throw new Error(
+      `dist/feed.xml guid set does not equal the set of published issue permalinks — ` +
+        `missing: [${missingGuids.join(', ')}], extra: [${extraGuids.join(', ')}]`,
+    )
+  }
+
+  for (const item of parsedItems) {
+    const parsedDate = new Date(item.pubDate)
+    if (Number.isNaN(parsedDate.getTime()) || !RFC_822_PATTERN.test(item.pubDate)) {
+      throw new Error(`dist/feed.xml item "${item.guid}" has an invalid RFC 822 pubDate "${item.pubDate}"`)
+    }
+  }
+
+  return `${parsedItems.length} <item>(s), guid set and pubDate format verified`
 })
 
 check('11e sitemap-xml-lists-every-route', () => {
