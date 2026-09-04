@@ -1550,6 +1550,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     artifactLabel: 'SEC-MARKET-ISSUE-001 / W36-01',
     tags: ['investment', 'identity', 'private'],
     retrievedAt: '2026-09-03',
+    retrieval: { finalUrl: 'https://www.returnonsecurity.com/p/security-funded-259', sha256: '28ceedf3b9fd2795594b02e73401a4177f7d5cb2454eb4f28487ee83ce4dc05b', fetchedAt: '2026-09-04T16:31:56Z', locator: 'Security, Funded #259 — Product Companies list, Socure entry' },
   },
   {
     id: 'W36-02',
@@ -1567,6 +1568,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     artifactLabel: 'SEC-MARKET-ISSUE-001 / W36-02',
     tags: ['investment', 'private'],
     retrievedAt: '2026-09-03',
+    retrieval: { finalUrl: 'https://www.returnonsecurity.com/p/security-funded-259', sha256: '28ceedf3b9fd2795594b02e73401a4177f7d5cb2454eb4f28487ee83ce4dc05b', fetchedAt: '2026-09-04T16:31:56Z', locator: 'Security, Funded #259 — Product Companies list, KAZIMI entry' },
   },
   {
     id: 'W36-03',
@@ -1584,6 +1586,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     artifactLabel: 'SEC-MARKET-ISSUE-001 / W36-03',
     tags: ['investment', 'network', 'private'],
     retrievedAt: '2026-09-03',
+    retrieval: { finalUrl: 'https://www.returnonsecurity.com/p/security-funded-259', sha256: '28ceedf3b9fd2795594b02e73401a4177f7d5cb2454eb4f28487ee83ce4dc05b', fetchedAt: '2026-09-04T16:31:56Z', locator: 'Security, Funded #259 — Product Companies list, CYBERA entry' },
   },
   {
     id: 'W36-04',
@@ -1601,6 +1604,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     artifactLabel: 'SEC-MARKET-ISSUE-001 / W36-04',
     tags: ['investment', 'ai-runtime', 'private'],
     retrievedAt: '2026-09-03',
+    retrieval: { finalUrl: 'https://www.returnonsecurity.com/p/security-funded-259', sha256: '28ceedf3b9fd2795594b02e73401a4177f7d5cb2454eb4f28487ee83ce4dc05b', fetchedAt: '2026-09-04T16:31:56Z', locator: 'Security, Funded #259 — Product Companies list, Opgate entry' },
   },
   {
     id: 'W36-05',
@@ -1618,23 +1622,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     artifactLabel: 'SEC-MARKET-ISSUE-001 / W36-05',
     tags: ['investment', 'private'],
     retrievedAt: '2026-09-03',
-  },
-  {
-    id: 'W36-06',
-    title: 'HiddenLayer Series B funding announcement',
-    organization: 'HiddenLayer',
-    publicationDate: '2026-09-03',
-    economicPeriod: 'Series B close',
-    canonicalUrl: 'https://www.securityweek.com/hiddenlayer-raises-100-million-for-ai-runtime-security/',
-    excerpt:
-      '"This funding lets us keep growing the purpose-built team and platform required to meet that moment as agentic AI becomes core to how enterprises operate," said CEO Chris Sestito. (Round: $100M Series B, lead Delta-v Capital, with Booz Allen Ventures, M12, Morgan Stanley, Ten Eleven Ventures.)',
-    sourceClass: 'INDEPENDENT',
-    interpretation: 'A large, well-syndicated round for AI runtime security, the biggest formation print this window.',
-    limitations: 'Reported via SecurityWeek, not the company’s own release page.',
-    conflictingEvidenceIds: [],
-    artifactLabel: 'SEC-MARKET-ISSUE-001 / W36-06',
-    tags: ['investment', 'ai-runtime', 'private'],
-    retrievedAt: '2026-09-03',
+    retrieval: { finalUrl: 'https://www.returnonsecurity.com/p/security-funded-259', sha256: '28ceedf3b9fd2795594b02e73401a4177f7d5cb2454eb4f28487ee83ce4dc05b', fetchedAt: '2026-09-04T16:31:56Z', locator: 'Security, Funded #259 — Product Companies list, DetectifAI entry' },
   },
   {
     id: 'W36-07',
@@ -1653,6 +1641,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     artifactLabel: 'SEC-MARKET-ISSUE-001 / W36-07',
     tags: ['investment', 'ai-runtime', 'private'],
     retrievedAt: '2026-09-03',
+    retrieval: { finalUrl: 'https://www.securityweek.com/ai-agent-firewall-startup-air-security-emerges-from-stealth-with-50-million/', sha256: '49ba1583879378c9799ea3856cb0e20d375730e24c3890b26ce89f044f845cc7', fetchedAt: '2026-09-04T16:31:56Z', locator: 'Article body, funding paragraph' },
   },
   {
     id: 'W36-08',
@@ -1672,6 +1661,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     artifactLabel: 'SEC-MARKET-ISSUE-001 / W36-08',
     tags: ['investment', 'm-and-a'],
     retrievedAt: '2026-09-03',
+    retrieval: { finalUrl: 'https://techcrunch.com/2026/09/02/palo-alto-networks-paid-500m-for-thrive-backed-console-sources-say/', sha256: 'c7448145fa3a830cae2d434b65b236dc7fe61bd2f8ba54b21062d2faafc54151', fetchedAt: '2026-09-04T16:31:56Z', locator: 'Article body, opening paragraph' },
   },
   {
     id: 'W36-09',
@@ -1688,23 +1678,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     artifactLabel: 'SEC-MARKET-ISSUE-001 / W36-09',
     tags: ['investment', 'm-and-a'],
     retrievedAt: '2026-09-03',
-  },
-  {
-    id: 'W36-10',
-    title: 'Echo acquisition of Minimus (formerly Gutsy)',
-    organization: 'Return on Security',
-    publicationDate: '2026-08-24',
-    economicPeriod: 'Security, Funded #259 week',
-    canonicalUrl: 'https://www.returnonsecurity.com/p/security-funded-259',
-    excerpt:
-      'Minimus (formerly Gutsy), an Israel-based secure-by-design container image company, was acquired by Echo for an undisclosed amount.',
-    sourceClass: 'INDEPENDENT',
-    interpretation: 'A quiet, undisclosed-value container-security tuck-in.',
-    limitations: 'Aggregator-sourced description; deal value not disclosed.',
-    conflictingEvidenceIds: [],
-    artifactLabel: 'SEC-MARKET-ISSUE-001 / W36-10',
-    tags: ['investment', 'cloud-security', 'm-and-a'],
-    retrievedAt: '2026-09-03',
+    retrieval: { finalUrl: 'https://www.returnonsecurity.com/p/security-funded-259', sha256: '28ceedf3b9fd2795594b02e73401a4177f7d5cb2454eb4f28487ee83ce4dc05b', fetchedAt: '2026-09-04T16:31:56Z', locator: 'Security, Funded #259 — M&A list, ePlus / Daymark Solutions entry' },
   },
   {
     id: 'W36-11',
@@ -1722,6 +1696,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     artifactLabel: 'SEC-MARKET-ISSUE-001 / W36-11',
     tags: ['investment', 'm-and-a'],
     retrievedAt: '2026-09-03',
+    retrieval: { finalUrl: 'https://www.returnonsecurity.com/p/security-funded-259', sha256: '28ceedf3b9fd2795594b02e73401a4177f7d5cb2454eb4f28487ee83ce4dc05b', fetchedAt: '2026-09-04T16:31:56Z', locator: 'Security, Funded #259 — M&A list, Ampcus / smarterd entry' },
   },
   {
     id: 'W36-12',
@@ -1739,6 +1714,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     artifactLabel: 'SEC-MARKET-ISSUE-001 / W36-12',
     tags: ['investment', 'secops', 'm-and-a'],
     retrievedAt: '2026-09-03',
+    retrieval: { finalUrl: 'https://www.returnonsecurity.com/p/security-funded-259', sha256: '28ceedf3b9fd2795594b02e73401a4177f7d5cb2454eb4f28487ee83ce4dc05b', fetchedAt: '2026-09-04T16:31:56Z', locator: 'Security, Funded #259 — M&A list, Trace3 / Calian\'s U.S. Commercial IT Business entry' },
   },
   {
     id: 'W36-13',
@@ -1756,6 +1732,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     artifactLabel: 'SEC-MARKET-ISSUE-001 / W36-13',
     tags: ['investment', 'identity', 'm-and-a'],
     retrievedAt: '2026-09-03',
+    retrieval: { finalUrl: 'https://www.returnonsecurity.com/p/security-funded-259', sha256: '28ceedf3b9fd2795594b02e73401a4177f7d5cb2454eb4f28487ee83ce4dc05b', fetchedAt: '2026-09-04T16:31:56Z', locator: 'Security, Funded #259 — M&A list, Integrity360 / CyberIAM entry' },
   },
   {
     id: 'W36-14',
@@ -1774,6 +1751,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     artifactLabel: 'SEC-MARKET-ISSUE-001 / W36-14',
     tags: ['security-vendor', 'secops', 'public'],
     retrievedAt: '2026-09-03',
+    retrieval: { finalUrl: 'https://www.sec.gov/Archives/edgar/data/1535527/000153552726000029/crwd-20260826xex991.htm', sha256: '55bfc3ec3d51b325dcc39a3b1d23a2ef7a56d9b9d216c456a3d39b50083fdfcb', fetchedAt: '2026-09-04T16:31:56Z', locator: 'EX-99.1, revenue and net-new-ARR paragraph' },
   },
   {
     id: 'W36-15',
@@ -1792,6 +1770,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     artifactLabel: 'SEC-MARKET-ISSUE-001 / W36-15',
     tags: ['security-vendor', 'sase', 'network'],
     retrievedAt: '2026-09-03',
+    retrieval: { finalUrl: 'https://www.sec.gov/Archives/edgar/data/1713683/000171368326000156/zs-07312026_991.htm', sha256: '1d2e6e883821e405ca08482d7e381b7f979a9337ecc564cca19e6ab347519173', fetchedAt: '2026-09-04T16:31:56Z', locator: 'EX-99.1, revenue and ARR bullet points' },
   },
   {
     id: 'W36-16',
@@ -1810,6 +1789,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     artifactLabel: 'SEC-MARKET-ISSUE-001 / W36-16',
     tags: ['security-vendor', 'secops', 'public'],
     retrievedAt: '2026-09-03',
+    retrieval: { finalUrl: 'https://www.sec.gov/Archives/edgar/data/1583708/000158370826000052/sentineloneq227exhibit991.htm', sha256: 'cf829186ef50df7c177000aabef60335accb235ba439671e93f91ee5292c8293', fetchedAt: '2026-09-04T16:31:56Z', locator: 'EX-99.1, revenue and ARR paragraph' },
   },
   {
     id: 'W36-17',
@@ -1828,6 +1808,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     artifactLabel: 'SEC-MARKET-ISSUE-001 / W36-17',
     tags: ['security-vendor', 'identity', 'public'],
     retrievedAt: '2026-09-03',
+    retrieval: { finalUrl: 'https://www.sec.gov/Archives/edgar/data/1660134/000166013426000068/okta-7312026_ex991.htm', sha256: '5547ef7e7f3aaf24bfa43c8b795b8a9316aea034dd3d9e0af0461e999a6ca067', fetchedAt: '2026-09-04T16:31:56Z', locator: 'EX-99.1, revenue paragraph' },
   },
   {
     id: 'W36-18',
@@ -1846,6 +1827,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     artifactLabel: 'SEC-MARKET-ISSUE-001 / W36-18',
     tags: ['security-vendor', 'data-security', 'public'],
     retrievedAt: '2026-09-03',
+    retrieval: { finalUrl: 'https://www.sec.gov/Archives/edgar/data/1943896/000194389626000055/rubrikinc-991pressrelease7.htm', sha256: 'dde91722cd830efaee460a4e01ad8a76e5f5d7083fafddbb630895fc4c99c9d6', fetchedAt: '2026-09-04T16:31:56Z', locator: 'EX-99.1, headline metrics bullets' },
   },
   {
     id: 'W36-19',
@@ -1864,6 +1846,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     artifactLabel: 'SEC-MARKET-ISSUE-001 / W36-19',
     tags: ['security-vendor', 'public'],
     retrievedAt: '2026-09-03',
+    retrieval: { finalUrl: 'https://www.sec.gov/Archives/edgar/data/1327567/000132756726000019/ex991q426earningsrelease.htm', sha256: '4743aea7568eeff9b80a62b14f8fafb6018a085e876e77bf198642ab8b4c8aed', fetchedAt: '2026-09-04T16:31:56Z', locator: 'EX-99.1, revenue and Next-Generation Security ARR paragraph' },
   },
   {
     id: 'W36-20',
@@ -1882,6 +1865,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     artifactLabel: 'SEC-MARKET-ISSUE-001 / W36-20',
     tags: ['infrastructure', 'supplier', 'semiconductor'],
     retrievedAt: '2026-09-03',
+    retrieval: { finalUrl: 'https://www.sec.gov/Archives/edgar/data/1730168/000173016826000076/avgo-08022026x8kxex99.htm', sha256: 'cce08d125724af16210eb7480ea5486a145ffc44ba66f5e25b8311158fa3b07b', fetchedAt: '2026-09-04T16:31:56Z', locator: 'EX-99, CEO Hock Tan quote paragraph' },
   },
   {
     id: 'W36-21',
@@ -1899,6 +1883,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     artifactLabel: 'SEC-MARKET-ISSUE-001 / W36-21',
     tags: ['infrastructure', 'supplier', 'compute'],
     retrievedAt: '2026-09-03',
+    retrieval: { finalUrl: 'https://www.sec.gov/Archives/edgar/data/1618732/000117184326005752/exh_991.htm', sha256: '58493df53fa2b319caff903723e73d2146a9cc1455644801bbb48e70e9b607a5', fetchedAt: '2026-09-04T16:31:56Z', locator: 'EX-99.1, headline metrics table' },
   },
   {
     id: 'W36-22',
@@ -1916,6 +1901,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     artifactLabel: 'SEC-MARKET-ISSUE-001 / W36-22',
     tags: ['infrastructure', 'supplier', 'compute'],
     retrievedAt: '2026-09-03',
+    retrieval: { finalUrl: 'https://www.sec.gov/Archives/edgar/data/1045810/000104581026000073/q2fy27pr.htm', sha256: '1809cb206590dcfeb959f3a1a64157f4e5ee42788ec51289b74f3ea299931eb7', fetchedAt: '2026-09-04T16:31:56Z', locator: 'EX-99.1, revenue and Data Center revenue bullets' },
   },
   {
     id: 'W36-23',
@@ -1934,6 +1920,7 @@ export const evidenceRecords: EvidenceRecord[] = [
     artifactLabel: 'SEC-MARKET-ISSUE-001 / W36-23',
     tags: ['infrastructure', 'supplier', 'compute'],
     retrievedAt: '2026-09-03',
+    retrieval: { finalUrl: 'https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm', sha256: '557161af7ac2f2eed02c2ad77b8d5e1e21acd35173e46519981ad85d28a15be5', fetchedAt: '2026-09-04T16:31:56Z', locator: 'EX-99.1, capital expenditures guidance line' },
   },
 ]
 

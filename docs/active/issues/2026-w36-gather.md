@@ -118,3 +118,31 @@ None. Every Prints-lane figure this window is a strong beat with accelerating or
 - **Marvell, Dell, HPE earnings**: all three reported in-window (Marvell 2026-08-27, Dell 2026-09-01, HPE 2026-09-02) and verbatim figures were pulled from their SEC exhibits, but they were dropped from the Prints table to stay at the 8-item cap, in favor of the more directly security-relevant issuers (CrowdStrike, Zscaler, SentinelOne, Okta, Rubrik, Palo Alto Networks, Broadcom, Nutanix). For the record: Marvell Q2 FY2027 net revenue $2.739B (+37% YoY, Data Center revenue +46% YoY); Dell Q2 FY2027 revenue $47.0B (+58% YoY, AI server revenue $16.4B); HPE Q3 FY2026 revenue $12.2B (+34% YoY).
 - **Palo Alto Networks / Console deal — primary-source confirmation**: Palo Alto's own press page did not surface a matching release in the fetch (content was truncated to navigation). The deal is carried at "reported" confidence from TechCrunch only; a human should look for the acquirer's own announcement before this reaches any published surface, consistent with the sourcing standard set in the prior packet's owner sign-off.
 - **Team8, Ballistic Ventures, Evolution Equity, Paladin Capital**: homepages/portfolio pages don't carry per-item dates, so "no item in window" here means no dated item was found, not a confirmed absence of activity. Flagged as a source-quality gap, not a finding.
+
+## Receipts, 2026-09-04
+
+Re-fetched all 23 `W36-*` evidence records' `canonicalUrl` from the live source (14 distinct URLs;
+several records share the Return on Security "Security, Funded #259" page and the SEC EDGAR
+filings are one URL per issuer), computed a sha256 of the fetched bytes, and confirmed each
+record's `excerpt` appears in the fetched bytes after stripping HTML tags, normalising whitespace,
+curly quotes, and the space tag-stripping leaves before punctuation. 21 of 23 records confirmed
+verbatim and now carry a `retrieval` receipt in `web/src/data/evidence.ts`. Two did not, and were
+excluded rather than receipted with an invented value:
+
+- **W36-06** (HiddenLayer Series B) — `https://www.securityweek.com/hiddenlayer-raises-100-million-for-ai-runtime-security/`, fetched 200. The excerpt's attribution reads "said CEO Chris Sestito," but the article's exact wording is "said HiddenLayer co-founder and CEO Chris Sestito" — the excerpt silently drops "HiddenLayer co-founder and" rather than marking the elision. Not verbatim; no receipt issued. The issue item that cited this as its only evidence, `2026-w36-formation-6` (HiddenLayer raises $100M Series B), has been removed from `web/src/data/issues/2026-w36.ts` rather than left with an empty evidence list.
+- **W36-10** (Echo / Minimus acquisition) — `https://www.returnonsecurity.com/p/security-funded-259`, fetched 200. The excerpt reads "Minimus (formerly Gutsy), an Israel-based secure-by-design container image company, was acquired by Echo..." but the live page's exact wording is "Minimus (formerly Gutsy) and there assets thereof, an Israel-based secure-by-design container image company, was acquired by Echo..." — the excerpt silently drops "and there assets thereof" (the source's own wording, not a transcription artifact on our side). Not verbatim; no receipt issued. The issue item that cited this as its only evidence, `2026-w36-absorption-3` (Echo acquires container security firm Minimus), has been removed from `web/src/data/issues/2026-w36.ts` rather than left with an empty evidence list.
+
+Both exclusions are content differences inside the quoted span (a dropped clause), not a punctuation or
+whitespace artifact — the comparison already tolerates a truncated clause closed with a period where
+the source continues with different punctuation, and treats quotation marks as typographic apparatus
+rather than content, so these two survived that tolerance and still failed. Everything else — including
+the AIR Security and Palo Alto/Console press excerpts, which also close a truncated quotation with a
+period the source does not use at that exact point, and the Broadcom CEO quote, which drops a closing
+quotation mark the source carries — matched on content and is receipted.
+
+The `W36-06` and `W36-10` evidence records themselves were removed from `web/src/data/evidence.ts`,
+not just left uncited: once their citing items were removed, `verify:integrity`'s unreferenced-evidence
+threshold (5, unchanged) would have failed on the two new orphans on top of the five pre-existing ones.
+Deleting a record with a confirmed-wrong excerpt rather than leaving it uncited in the data set is the
+more correct outcome, not merely a build workaround — the exact wording each one got wrong is preserved
+above for the record.

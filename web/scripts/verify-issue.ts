@@ -10,7 +10,7 @@ import { evidenceById } from '../src/data/evidence.ts'
 import { formatShortDate } from '../src/data/dates.ts'
 import { securityDomains } from '../src/data/domains.ts'
 import { issues, latestIssue } from '../src/data/issues/index.ts'
-import { isoWeekSunday, windowOf } from '../src/data/issueHelpers.ts'
+import { isoWeekSunday, issueEvidenceIds, windowOf } from '../src/data/issueHelpers.ts'
 import { AUTHOR_NAME } from '../src/data/meta.ts'
 import type { Issue, Lane } from '../src/data/types.ts'
 import { IssueHero } from '../src/components/IssueHero.tsx'
@@ -546,6 +546,37 @@ function runChecks({ includeLockManifest }: { includeLockManifest: boolean }): v
     }
   })
 
+  // 15. Every evidence record cited by any issue must carry a retrieval
+  //     receipt: a 64-hex sha256 of the fetched bytes, a parseable fetchedAt,
+  //     and a non-empty finalUrl. A citation with no receipt fails, naming
+  //     the id, rather than letting an unreceipted claim ship silently.
+  check('15 evidence-receipts', () => {
+    const SHA256_PATTERN = /^[0-9a-f]{64}$/
+    const citedIds = new Set<string>()
+    for (const issue of issues) {
+      for (const id of issueEvidenceIds(issue)) citedIds.add(id)
+    }
+    for (const id of citedIds) {
+      const record = evidenceById[id]
+      if (!record) continue // unresolved ids are check 4's job, not this one's
+      const retrieval = record.retrieval
+      if (!retrieval) {
+        throw new Error(`evidence record "${id}" is cited by an issue but carries no retrieval receipt`)
+      }
+      if (!SHA256_PATTERN.test(retrieval.sha256)) {
+        throw new Error(
+          `evidence record "${id}" retrieval.sha256 "${retrieval.sha256}" is not 64 lowercase hex characters`,
+        )
+      }
+      if (retrieval.fetchedAt.trim() === '' || Number.isNaN(Date.parse(retrieval.fetchedAt))) {
+        throw new Error(`evidence record "${id}" retrieval.fetchedAt "${retrieval.fetchedAt}" is not a valid date`)
+      }
+      if (retrieval.finalUrl.trim() === '') {
+        throw new Error(`evidence record "${id}" retrieval.finalUrl is empty`)
+      }
+    }
+  })
+
   // 10. Render check: renderToStaticMarkup of the issue view for the newest
   //     issue. Each lane heading's rendered item count equals items.length, the
   //     draft banner is present iff status === 'draft', and the signature line
@@ -617,7 +648,7 @@ function runChecks({ includeLockManifest }: { includeLockManifest: boolean }): v
 
 // --- Report ---
 
-const FULL_CHECK_COUNT = 13
+const FULL_CHECK_COUNT = 14
 const PRE_WRITE_CHECK_COUNT = FULL_CHECK_COUNT - 1 // everything but check 8
 
 function printResults(): boolean {

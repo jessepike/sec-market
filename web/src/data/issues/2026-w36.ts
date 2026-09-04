@@ -66,16 +66,6 @@ export const issue2026w36: Issue = {
           vendors: ['detectifai'],
         },
         {
-          id: '2026-w36-formation-6',
-          lane: 'formation',
-          headline: 'HiddenLayer raises $100M Series B for AI runtime security',
-          why: 'Delta-v Capital led, with Booz Allen Ventures, M12, Morgan Stanley and Ten Eleven Ventures joining.',
-          date: '2026-09-03',
-          evidenceIds: ['W36-06'],
-          vendors: ['hiddenlayer'],
-          domainId: 'ai-runtime',
-        },
-        {
           id: '2026-w36-formation-7',
           lane: 'formation',
           headline: 'AIR Security emerges from stealth with $50M for an AI agent firewall',
@@ -107,16 +97,6 @@ export const issue2026w36: Issue = {
           date: '2026-08-24',
           evidenceIds: ['W36-09'],
           vendors: ['eplus', 'daymark-solutions'],
-        },
-        {
-          id: '2026-w36-absorption-3',
-          lane: 'absorption',
-          headline: 'Echo acquires container security firm Minimus (formerly Gutsy)',
-          why: 'The Israel-based secure-by-design container image company was acquired for an undisclosed amount.',
-          date: '2026-08-24',
-          evidenceIds: ['W36-10'],
-          vendors: ['echo', 'minimus'],
-          domainId: 'cloud-security',
         },
         {
           id: '2026-w36-absorption-4',
