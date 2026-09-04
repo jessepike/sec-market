@@ -88,4 +88,24 @@ test.describe('weekly issue — front page', () => {
     expect(Array.isArray(body.evidence)).toBe(true)
     expect(body.evidence.length).toBeGreaterThan(0)
   })
+
+  // F7: on the permalink page, "Thesis" (#read) has no local target — the
+  // click must fall through to a real navigation to /#read on the front
+  // page, not a same-page no-op.
+  test('permalink page: clicking "Thesis" navigates to the front page at #read', async ({
+    page,
+  }) => {
+    await page.goto(`/issues/${latestIssue.id}/`)
+
+    const navToggle = page.locator('.nav-toggle')
+    if (await navToggle.isVisible()) {
+      await navToggle.click()
+    }
+
+    await page.getByRole('link', { name: 'Thesis' }).click()
+    await page.waitForURL(/\/#read$/)
+
+    expect(new URL(page.url()).hash).toBe('#read')
+    await expect(page.locator('#read')).toBeVisible()
+  })
 })

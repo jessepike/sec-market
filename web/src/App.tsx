@@ -130,7 +130,7 @@ function AppShell({ path }: { path: string }) {
       <SkipLink />
       <ProvenanceRail />
       <div className="app-shell" inert={isOpen ? true : undefined}>
-        <Header />
+        <Header path={path} />
         <main id="main" className="main-content" tabIndex={-1}>
           <RouteContent path={path} />
         </main>

@@ -1,5 +1,7 @@
+import type { MouseEvent } from 'react'
 import { useEffect, useState } from 'react'
 import { LAST_UPDATED_DISPLAY, LAST_UPDATED_ISO, PRODUCT_TITLE } from '../data/meta'
+import { normalizePath } from '../data/routes'
 
 interface NavItem {
   href: string
@@ -32,8 +34,19 @@ function scrollToHash(hash: string) {
   })
 }
 
-export function Header() {
+/**
+ * `path` is the route this Header is rendered on (see src/data/routes.ts —
+ * threaded down from App via AppShell). On the front page every hash target
+ * in navItems exists in the document, so the in-page scroll behaviour below
+ * is unconditional there and unchanged from before this route-awareness was
+ * added. On any other route (the archive, an issue permalink) some targets
+ * — "read", "landscape", "prints", "research", "method" — live only on the
+ * front page, so the href must point there (`/#<id>`) and a click must be
+ * allowed to navigate normally rather than preventDefault into a no-op.
+ */
+export function Header({ path = '/' }: { path?: string }) {
   const [navOpen, setNavOpen] = useState(false)
+  const onFrontPage = normalizePath(path) === '/'
 
   useEffect(() => {
     if (window.location.hash) {
@@ -44,18 +57,38 @@ export function Header() {
     return () => window.removeEventListener('hashchange', onHash)
   }, [])
 
+  /** `hash` is always the bare `#id` form; resolves to a same-page or a cross-page href. */
+  function hrefFor(hash: string): string {
+    return onFrontPage ? hash : `/${hash}`
+  }
+
+  /**
+   * Only intercepts the click (and scrolls in place) when `hash`'s target
+   * actually exists in the current document. Otherwise it leaves the
+   * default navigation alone, so the browser follows the href — a same-page
+   * jump on the front page, or a real navigation to `/#<id>` elsewhere.
+   */
+  function handleNavClick(hash: string) {
+    return (event: MouseEvent<HTMLAnchorElement>) => {
+      const id = hash.slice(1)
+      if (typeof document === 'undefined' || !document.getElementById(id)) {
+        setNavOpen(false)
+        return
+      }
+      event.preventDefault()
+      setNavOpen(false)
+      scrollToHash(hash)
+      window.history.replaceState(null, '', hash)
+    }
+  }
+
   return (
     <header className="site-header">
       <div className="site-header__inner">
         <a
-          href="#overview"
+          href={hrefFor('#overview')}
           className="site-header__brand"
-          onClick={(event) => {
-            event.preventDefault()
-            setNavOpen(false)
-            scrollToHash('#overview')
-            window.history.replaceState(null, '', '#overview')
-          }}
+          onClick={handleNavClick('#overview')}
         >
           <span className="site-header__mark" aria-hidden="true" />
           <strong>{PRODUCT_TITLE}</strong>
@@ -80,15 +113,7 @@ export function Header() {
                 </li>
               ) : (
                 <li key={item.href}>
-                  <a
-                    href={item.href}
-                    onClick={(event) => {
-                      event.preventDefault()
-                      setNavOpen(false)
-                      scrollToHash(item.href)
-                      window.history.replaceState(null, '', item.href)
-                    }}
-                  >
+                  <a href={hrefFor(item.href)} onClick={handleNavClick(item.href)}>
                     {item.label}
                   </a>
                 </li>
