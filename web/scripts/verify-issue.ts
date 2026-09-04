@@ -112,6 +112,16 @@ function check(name: string, fn: () => string | void): void {
   }
 }
 
+/** True iff `value` matches `^\d{4}-\d{2}-\d{2}$` and names a real calendar date. */
+function isValidIsoDate(value: string): boolean {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) return false
+  const [year, month, day] = value.split('-').map(Number)
+  const date = new Date(Date.UTC(year, month - 1, day))
+  return (
+    date.getUTCFullYear() === year && date.getUTCMonth() === month - 1 && date.getUTCDate() === day
+  )
+}
+
 function windowsOverlap(
   a: { start: string; end: string },
   b: { start: string; end: string },
@@ -209,9 +219,23 @@ check('4 item-evidence-and-window', () => {
             )
           }
         }
-        if (!item.background && (item.date < start || item.date > end)) {
+        // A future-dated item fails outright — "background" only ever means
+        // "dated before the window," never "dated after it," so it cannot be
+        // used to exempt a date past weekEnding.
+        if (item.date > end) {
           throw new Error(
-            `issue "${issue.id}" item "${item.id}" is dated ${item.date}, outside window [${start}, ${end}], and is not marked background`,
+            `issue "${issue.id}" item "${item.id}" is dated ${item.date}, after weekEnding ${end} — background does not exempt a future-dated item`,
+          )
+        }
+        if (item.background) {
+          if (!(item.date < start)) {
+            throw new Error(
+              `issue "${issue.id}" item "${item.id}" is marked background but dated ${item.date}, which is not before windowStart ${start}`,
+            )
+          }
+        } else if (item.date < start) {
+          throw new Error(
+            `issue "${issue.id}" item "${item.id}" is dated ${item.date}, before windowStart ${start}, and is not marked background`,
           )
         }
       }
@@ -253,9 +277,9 @@ check('4 item-evidence-and-window', () => {
 check('5 publish-signature-consistency', () => {
   for (const issue of issues) {
     if (issue.status === 'published') {
-      if (issue.published === null || issue.weThink.signedBy === null || issue.weThink.signedOn === null) {
+      if (!issue.published || issue.weThink.signedBy === null || !issue.weThink.signedOn) {
         throw new Error(
-          `issue "${issue.id}" is published but missing one of published/signedBy/signedOn`,
+          `issue "${issue.id}" is published but missing (or has an empty) published/signedBy/signedOn`,
         )
       }
       if (issue.weThink.signedBy !== AUTHOR_NAME) {
@@ -413,6 +437,42 @@ check('12 numeric-tokens-cited', () => {
   }
 })
 
+// 13. Strict dates. Every date, weekEnding, windowStart, published and
+//     signedOn must match ^\d{4}-\d{2}-\d{2}$ and be a real calendar date.
+//     A non-null published/signedOn must also be non-empty.
+check('13 strict-dates', () => {
+  function assertDate(label: string, value: string): void {
+    if (!isValidIsoDate(value)) {
+      throw new Error(`${label} "${value}" is not a valid ^\\d{4}-\\d{2}-\\d{2}$ calendar date`)
+    }
+  }
+
+  for (const issue of issues) {
+    assertDate(`issue "${issue.id}" weekEnding`, issue.weekEnding)
+    assertDate(`issue "${issue.id}" windowStart`, issue.windowStart)
+
+    if (issue.published !== null) {
+      if (issue.published === '') {
+        throw new Error(`issue "${issue.id}" published is an empty string, not a valid date`)
+      }
+      assertDate(`issue "${issue.id}" published`, issue.published)
+    }
+
+    if (issue.weThink.signedOn !== null) {
+      if (issue.weThink.signedOn === '') {
+        throw new Error(`issue "${issue.id}" weThink.signedOn is an empty string, not a valid date`)
+      }
+      assertDate(`issue "${issue.id}" weThink.signedOn`, issue.weThink.signedOn)
+    }
+
+    for (const section of issue.sections) {
+      for (const item of section.items) {
+        assertDate(`issue "${issue.id}" item "${item.id}" date`, item.date)
+      }
+    }
+  }
+})
+
 // 10. Render check: renderToStaticMarkup of the issue view for the newest
 //     issue. Each lane heading's rendered item count equals items.length, the
 //     draft banner is present iff status === 'draft', and the signature line
@@ -490,7 +550,7 @@ check('10 render-check', () => {
 
 // --- Report ---
 
-const EXPECTED_CHECK_COUNT = 11
+const EXPECTED_CHECK_COUNT = 12
 
 /**
  * Everything from here down runs inside one try/catch so that a bug in the
