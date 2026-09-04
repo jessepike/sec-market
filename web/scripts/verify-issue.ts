@@ -482,6 +482,40 @@ check('13 strict-dates', () => {
   }
 })
 
+// 14. Bounds: at most eight items per lane; read <= 140 chars; headline <=
+//     110 chars; why non-empty. Each failure names the offending id and the
+//     measured length.
+check('14 bounds', () => {
+  const MAX_ITEMS_PER_LANE = 8
+  const MAX_READ_LENGTH = 140
+  const MAX_HEADLINE_LENGTH = 110
+
+  for (const issue of issues) {
+    if (issue.read.length > MAX_READ_LENGTH) {
+      throw new Error(
+        `issue "${issue.id}" read is ${issue.read.length} characters, exceeding the ${MAX_READ_LENGTH}-character limit`,
+      )
+    }
+    for (const section of issue.sections) {
+      if (section.items.length > MAX_ITEMS_PER_LANE) {
+        throw new Error(
+          `issue "${issue.id}" lane "${section.lane}" has ${section.items.length} items, exceeding the ${MAX_ITEMS_PER_LANE}-item limit`,
+        )
+      }
+      for (const item of section.items) {
+        if (item.headline.length > MAX_HEADLINE_LENGTH) {
+          throw new Error(
+            `issue "${issue.id}" item "${item.id}" headline is ${item.headline.length} characters, exceeding the ${MAX_HEADLINE_LENGTH}-character limit`,
+          )
+        }
+        if (item.why.trim() === '') {
+          throw new Error(`issue "${issue.id}" item "${item.id}" has an empty "why"`)
+        }
+      }
+    }
+  }
+})
+
 // 10. Render check: renderToStaticMarkup of the issue view for the newest
 //     issue. Each lane heading's rendered item count equals items.length, the
 //     draft banner is present iff status === 'draft', and the signature line
@@ -559,7 +593,7 @@ check('10 render-check', () => {
 
 // --- Report ---
 
-const EXPECTED_CHECK_COUNT = 12
+const EXPECTED_CHECK_COUNT = 13
 
 /**
  * Everything from here down runs inside one try/catch so that a bug in the
