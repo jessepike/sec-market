@@ -194,7 +194,9 @@ check('3 four-sections-lane-order', () => {
   }
 })
 
-// 4. Every item evidenceId resolves; every item date is inside the window unless background.
+// 4. Every item evidenceId resolves, exactly as weThink.thesis.evidenceIds,
+//    weThink.postureDeltas[].evidenceIds and (on a draft) proposed.thesis.evidenceIds
+//    resolve; every item date is inside the window unless background.
 check('4 item-evidence-and-window', () => {
   for (const issue of issues) {
     const { start, end } = windowOf(issue)
@@ -210,6 +212,36 @@ check('4 item-evidence-and-window', () => {
         if (!item.background && (item.date < start || item.date > end)) {
           throw new Error(
             `issue "${issue.id}" item "${item.id}" is dated ${item.date}, outside window [${start}, ${end}], and is not marked background`,
+          )
+        }
+      }
+    }
+
+    for (const delta of issue.weThink.postureDeltas) {
+      for (const id of delta.evidenceIds) {
+        if (!evidenceById[id]) {
+          throw new Error(
+            `issue "${issue.id}" weThink.postureDeltas for domain "${delta.domainId}" cites unresolved evidence id "${id}"`,
+          )
+        }
+      }
+    }
+
+    if (issue.weThink.thesis) {
+      for (const id of issue.weThink.thesis.evidenceIds) {
+        if (!evidenceById[id]) {
+          throw new Error(
+            `issue "${issue.id}" weThink.thesis cites unresolved evidence id "${id}"`,
+          )
+        }
+      }
+    }
+
+    if (issue.proposed) {
+      for (const id of issue.proposed.thesis.evidenceIds) {
+        if (!evidenceById[id]) {
+          throw new Error(
+            `issue "${issue.id}" proposed.thesis cites unresolved evidence id "${id}"`,
           )
         }
       }
@@ -361,7 +393,11 @@ check('12 numeric-tokens-cited', () => {
         const cited = new Set<string>()
         for (const id of item.evidenceIds) {
           const record = evidenceById[id]
-          if (!record) continue
+          if (!record) {
+            throw new Error(
+              `issue "${issue.id}" item "${item.id}" cites unresolved evidence id "${id}"`,
+            )
+          }
           for (const token of extractNumericTokens(record.excerpt)) cited.add(token)
         }
 
