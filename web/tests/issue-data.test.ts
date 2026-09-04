@@ -5,6 +5,8 @@ import {
   isoWeekId,
   isoWeekSunday,
   issueEvidenceIds,
+  parseVendorsParam,
+  serializeVendorsParam,
   thesisRunningScore,
   vendorSlug,
   windowOf,
@@ -169,6 +171,41 @@ describe('vendorSlug', () => {
 
   it('trims leading and trailing hyphens', () => {
     assert.equal(vendorSlug('  Zscaler  '), 'zscaler')
+  })
+})
+
+describe('parseVendorsParam / serializeVendorsParam', () => {
+  it('returns null when the vendors parameter is absent', () => {
+    assert.equal(parseVendorsParam(''), null)
+    assert.equal(parseVendorsParam('?other=1'), null)
+  })
+
+  it('splits, trims, and drops empty entries', () => {
+    assert.deepEqual(parseVendorsParam('?vendors=crowdstrike,zscaler'), ['crowdstrike', 'zscaler'])
+    assert.deepEqual(parseVendorsParam('?vendors= crowdstrike , zscaler '), ['crowdstrike', 'zscaler'])
+    assert.deepEqual(parseVendorsParam('?vendors=crowdstrike,,zscaler'), ['crowdstrike', 'zscaler'])
+  })
+
+  it('returns an empty array (not null) for a present but empty parameter', () => {
+    assert.deepEqual(parseVendorsParam('?vendors='), [])
+  })
+
+  it('preserves an unrecognised slug rather than erroring', () => {
+    assert.deepEqual(parseVendorsParam('?vendors=not-a-real-vendor'), ['not-a-real-vendor'])
+  })
+
+  it('serializes a slug list back into a comma-joined value', () => {
+    assert.equal(serializeVendorsParam(['crowdstrike', 'zscaler']), 'crowdstrike,zscaler')
+  })
+
+  it('serializes null or an empty list to null, signalling "drop the parameter"', () => {
+    assert.equal(serializeVendorsParam(null), null)
+    assert.equal(serializeVendorsParam([]), null)
+  })
+
+  it('round-trips a slug list through parse and serialize', () => {
+    const slugs = ['crowdstrike', 'zscaler']
+    assert.deepEqual(parseVendorsParam(`?vendors=${serializeVendorsParam(slugs)}`), slugs)
   })
 })
 

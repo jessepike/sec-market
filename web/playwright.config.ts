@@ -13,24 +13,26 @@ export default defineConfig({
   },
   projects: [
     // Existing single-width smoke coverage. Kept separate from issue.spec.ts
-    // (which needs both widths below) so smoke does not also run at 390 —
-    // the print scorecard groups collapse below the 769px breakpoint, and
-    // smoke's heading-visibility assertions assume the desktop, open state.
+    // and lens.spec.ts (both need both widths below) so smoke does not also
+    // run at 390 — the print scorecard groups collapse below the 769px
+    // breakpoint, and smoke's heading-visibility assertions assume the
+    // desktop, open state.
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
-      testIgnore: /issue\.spec\.ts/,
+      testIgnore: /(issue|lens)\.spec\.ts/,
     },
-    // Spec §7: tests/e2e/issue.spec.ts runs at both 1440×900 and 390×844.
+    // Spec §7: tests/e2e/issue.spec.ts and tests/e2e/lens.spec.ts both run at
+    // 1440×900 and 390×844.
     {
       name: 'desktop',
       use: { ...devices['Desktop Chrome'], viewport: { width: 1440, height: 900 } },
-      testMatch: /issue\.spec\.ts/,
+      testMatch: /(issue|lens)\.spec\.ts/,
     },
     {
       name: 'phone',
       use: { ...devices['Desktop Chrome'], viewport: { width: 390, height: 844 } },
-      testMatch: /issue\.spec\.ts/,
+      testMatch: /(issue|lens)\.spec\.ts/,
     },
   ],
   // When E2E_BASE_URL is set (e.g. the live preview URL), there is nothing
