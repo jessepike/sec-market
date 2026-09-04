@@ -4,6 +4,8 @@ import { activityItems } from '../src/data/activity.ts'
 import { evidenceById, evidenceRecords } from '../src/data/evidence.ts'
 import { securityDomains, trackedPrintEvidenceIds } from '../src/data/domains.ts'
 import { hypotheses } from '../src/data/hypotheses.ts'
+import { issueEvidenceIds } from '../src/data/issueHelpers.ts'
+import { issues } from '../src/data/issues/index.ts'
 import { contextStats, chartEvidenceIds, marketCall } from '../src/data/market.ts'
 import { allPressureRows } from '../src/data/platformPressure.ts'
 import { printGroups, vendorPrints } from '../src/data/prints.ts'
@@ -91,6 +93,7 @@ function collectAllReferencedIds(): Set<string> {
   add(chartEvidenceIds)
   for (const stat of contextStats) add(stat.evidenceIds)
   for (const record of evidenceRecords) add(record.conflictingEvidenceIds)
+  for (const issue of issues) add(issueEvidenceIds(issue))
 
   return ids
 }
