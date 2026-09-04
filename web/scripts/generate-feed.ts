@@ -47,7 +47,7 @@ function xmlEscape(text: string): string {
 /** ISO calendar date -> RFC 822 date-time, as RSS pubDate requires. */
 function toRfc822(isoDate: string): string {
   const date = new Date(`${isoDate}T00:00:00Z`)
-  return date.toUTCString().replace('GMT', 'GMT')
+  return date.toUTCString()
 }
 
 // --- feed.xml -----------------------------------------------------------
