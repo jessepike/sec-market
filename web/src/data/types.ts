@@ -15,7 +15,12 @@ export type Posture = 'PREPARE' | 'INVESTIGATE' | 'NO-CALL'
 /** No RUN. Episode 002 caps Network/SASE at PREPARE; PRIORITIZE needs a separate decision episode. */
 export type TempoTag = 'PREPARE' | 'WATCH'
 /** Decision window the posture is meant to govern. Not a freshness stamp. */
-export type DecisionHorizon = 'This quarter' | 'This planning cycle' | 'Next 1–4 quarters'
+export type DecisionHorizon =
+  | 'This quarter'
+  | 'This planning cycle'
+  | 'Next 1–4 quarters'
+  | 'Next 4–8 quarters'
+  | 'Beyond 8 quarters'
 export type EditionChangeKind = 'held' | 'revised' | 'new'
 export type CoverageResult = 'PASS' | 'PASS_WITH_LIMITATION' | 'INSUFFICIENT_COVERAGE' | 'NO-CALL'
 export type Momentum = 'accelerating' | 'stable-positive' | 'stable-to-decelerating' | 'mixed-positive' | 'weak'
@@ -97,6 +102,10 @@ export interface EvidenceRecord {
   tags: string[]
   /** Per-source dates when one record combines multiple organizations */
   sourceAttributions?: SourceAttribution[]
+  /** ISO date the underlying source was retrieved, when it differs from publicationDate. */
+  retrievedAt?: string
+  /** Machine-readable retrieval receipt for the underlying source, when captured. */
+  retrieval?: { finalUrl: string; sha256: string; fetchedAt: string; locator?: string }
 }
 
 export interface SecurityDomain {
@@ -179,6 +188,8 @@ export interface VendorPrint {
    * PrintGrid.tsx and scripts/verify-integrity.ts.
    */
   secondaryGroup?: (typeof printGroups)[number]
+  /** Lower-case, hyphenated vendor slug for the vendor lens. Populated in a later task. */
+  vendorSlug?: string
 }
 
 export interface ContextStat {
@@ -211,4 +222,68 @@ export interface ActivityItem {
   /** Sort key for lead headlines. Lower is higher on the page. */
   leadOrder?: number
   evidenceIds: string[]
+}
+
+// --- Weekly issue (SEC-MARKET-ISSUE-001 §3) ---
+
+export type Lane = 'formation' | 'absorption' | 'prints' | 'capital'
+export type IssueStatus = 'draft' | 'published'
+
+export interface IssueItem {
+  id: string // `${issueId}-${lane}-${n}`
+  lane: Lane
+  headline: string // ≤ 110 chars, states the fact
+  why: string // one sentence, why it matters, may be empty on a draft
+  date: string // ISO date of the event or filing
+  evidenceIds: [string, ...string[]]
+  vendors?: string[] // vendor slugs, for the lens
+  domainId?: SecurityDomain['id']
+  background?: true // dated before the window; must say so on the page
+}
+
+export interface PostureDelta {
+  domainId: SecurityDomain['id']
+  from: Posture
+  to: Posture
+  basis: string
+  confidence: ConfidenceLevel
+  evidenceIds: [string, ...string[]]
+}
+
+export interface ThesisScore {
+  thesis: 'episode-002'
+  verdict: 'holds' | 'strengthens' | 'weakens' | 'no-call'
+  basis: string
+  confidence: ConfidenceLevel
+  evidenceIds: string[]
+}
+
+/** What the gather proposes. Visible on a draft, labelled as a machine proposal; must be null once published. */
+export interface MachineProposal {
+  read: string
+  thesis: ThesisScore
+  noCalls: string[]
+  postureDeltas: string // prose only; the signer converts what they accept into PostureDelta records
+  summary: string
+}
+
+export interface Issue {
+  id: string // ISO week, `2026-w36`
+  weekEnding: string // ISO date, the Sunday
+  windowStart: string // ISO date; normally weekEnding − 6, longer only for the opening issue
+  published: string | null // ISO date; null while draft
+  status: IssueStatus
+  read: string // one line, ≤ 140 chars, the h1
+  quiet?: true // a quiet week says so
+  sections: Array<{ lane: Lane; intro?: string; items: IssueItem[] }> // exactly four, in Lane order
+  weThink: {
+    summary: string
+    postureDeltas: PostureDelta[]
+    thesis: ThesisScore | null // null on a draft; the signer sets it
+    noCalls: string[]
+    signedBy: string | null // must equal AUTHOR_NAME in meta.ts when set
+    signedOn: string | null
+  }
+  proposed: MachineProposal | null // set by the gather on a draft; null once published
+  sources: { readable: number; unreadable: string[] }
 }
