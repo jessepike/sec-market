@@ -321,6 +321,15 @@ check('5 publish-signature-consistency', () => {
       if (issue.weThink.thesis !== null) {
         throw new Error(`issue "${issue.id}" is a draft but weThink.thesis is not null`)
       }
+      if (issue.weThink.summary !== '') {
+        throw new Error(`issue "${issue.id}" is a draft but weThink.summary is not empty`)
+      }
+      if (issue.weThink.postureDeltas.length !== 0) {
+        throw new Error(`issue "${issue.id}" is a draft but weThink.postureDeltas is not empty`)
+      }
+      if (issue.weThink.noCalls.length !== 0) {
+        throw new Error(`issue "${issue.id}" is a draft but weThink.noCalls is not empty`)
+      }
     }
   }
 })
