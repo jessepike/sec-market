@@ -258,7 +258,7 @@ export const issue2026w36: Issue = {
     postureDeltas:
       'None proposed. Every Prints-lane figure this window is a strong beat with accelerating or steady growth, which supports the existing infrastructure-to-security lag call rather than arguing for a change to any domain posture. No M&A or funding item this week is large or structurally unusual enough to warrant a posture change on its own. The Microsoft capex line and the Broadcom AI-semiconductor figure are new infrastructure-buildout data points worth a human look, but neither is, on its own, a reason to move a posture.',
     summary:
-      'This week combined five public-issuer earnings beats — CrowdStrike, Zscaler, SentinelOne, Okta, Rubrik, Palo Alto Networks, Broadcom and Nutanix all reported in-window — with thin early-stage funding and quiet, mostly undisclosed M&A. The pattern is consistent with the standing infrastructure-to-security lag call, not a change to it.',
+      'This week combined eight public-issuer earnings prints — CrowdStrike, Zscaler, SentinelOne, Okta, Rubrik, Palo Alto Networks, Broadcom and Nutanix all reported in-window — with thin early-stage funding and quiet, mostly undisclosed M&A. The pattern is consistent with the standing infrastructure-to-security lag call, not a change to it.',
   },
   sources: {
     readable: 21,
