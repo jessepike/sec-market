@@ -3,13 +3,17 @@
  *
  * Runs after `vite build` and after scripts/prerender.ts, against dist/.
  *
- * Three jobs, all driven off src/data/meta.ts and src/data/market.ts so that
- * nothing here can drift from the page content when a new edition ships:
+ * Jobs, all driven off src/data so that nothing here can drift from the page
+ * content when a new edition or issue ships:
  *   1. Fail the build if the hand-maintained OG image (assets-src/og.svg) or
- *      index.html's og:image:alt / twitter:image:alt no longer match the
+ *      the front page's og:image:alt / twitter:image:alt no longer match the
  *      current headline and contextStats — see the OG staleness gate below.
- *   2. Inject a schema.org JSON-LD block into dist/index.html.
- *   3. Write dist/sitemap.xml with lastmod set from LAST_UPDATED_ISO.
+ *      This check runs against the front page only; it is the only route with
+ *      a hand-authored social image.
+ *   2. Inject a schema.org JSON-LD block into every emitted route's HTML —
+ *      `Report` for the front page, `CollectionPage` for the archive, and
+ *      `Article` (with `datePublished` when published) for each issue.
+ *   3. Write dist/sitemap.xml with one `<url>` per route in the route table.
  *
  * robots.txt is static and lives in public/, because it never changes.
  *
@@ -19,6 +23,8 @@
 import { readFileSync, writeFileSync } from 'node:fs'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { issueById } from '../src/data/issues/index.ts'
+import { routes, type RouteEntry } from '../src/data/routes.ts'
 import { contextStats, marketCall } from '../src/data/market.ts'
 import {
   AUTHOR_NAME,
@@ -41,27 +47,33 @@ function fail(message: string): never {
   process.exit(1)
 }
 
-/** Reads the <meta name="description"> already declared in index.html. */
+function outPathFor(routeEntry: RouteEntry): string {
+  return routeEntry.path === '/'
+    ? htmlPath
+    : resolve(webRoot, 'dist', routeEntry.path.replace(/^\//, ''), 'index.html')
+}
+
+/** Reads the <meta name="description"> already declared in an emitted route's HTML. */
 function readDescription(html: string): string {
   const match = html.match(/<meta\s+name="description"\s+content="([^"]+)"/)
   if (!match) {
-    fail('could not find <meta name="description"> in dist/index.html.')
+    fail('could not find <meta name="description"> in the route HTML.')
   }
   return match[1]
 }
 
-/** Reads the <title> already declared in index.html. */
+/** Reads the <title> already declared in an emitted route's HTML. */
 function readTitle(html: string): string {
   const match = html.match(/<title>([^<]+)<\/title>/)
   if (!match) {
-    fail('could not find <title> in dist/index.html.')
+    fail('could not find <title> in the route HTML.')
   }
   return match[1]
 }
 
-const html = readFileSync(htmlPath, 'utf8')
+const frontHtml = readFileSync(htmlPath, 'utf8')
 
-// --- OG staleness gate ------------------------------------------------------
+// --- OG staleness gate (front page only) ------------------------------------
 // assets-src/og.svg bakes marketCall.headline and every contextStats[].value
 // into the image as literal text; it is rasterized to public/og.png by the
 // manual step assets-src/render-og.mjs, which nothing in `npm run build` runs.
@@ -95,9 +107,9 @@ for (const stat of contextStats) {
   }
 }
 
-/** Reads a `content="…"` attribute off the named property/name meta tag in index.html. */
+/** Reads a `content="…"` attribute off the named property/name meta tag in the front page HTML. */
 function readMetaContent(attr: 'property' | 'name', key: string): string | null {
-  const match = html.match(new RegExp(`${attr}="${key}"[\\s\\S]*?content="([^"]*)"`))
+  const match = frontHtml.match(new RegExp(`${attr}="${key}"[\\s\\S]*?content="([^"]*)"`))
   return match ? match[1] : null
 }
 
@@ -125,67 +137,127 @@ if (ogDrift.length > 0) {
   )
 }
 
-// Anchoring on the head-closing tag is only safe when there is exactly one of
-// them. A stray copy inside a comment silently swallows the injected block (and
-// Vite's own script tags with it), so refuse to guess which one is real.
-const headCloseCount = html.split('</head>').length - 1
+// --- JSON-LD injection, per route --------------------------------------------
 
-if (headCloseCount !== 1) {
-  fail(
-    `expected exactly one head-closing tag in dist/index.html, found ${headCloseCount}. ` +
-      'Remove the extra one (check for it inside an HTML comment in index.html).',
-  )
+function structuredDataFor(routeEntry: RouteEntry, html: string) {
+  const url = `${SITE_URL}${routeEntry.path}`
+
+  if (routeEntry.kind === 'archive') {
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      '@id': `${url}#collection`,
+      url,
+      name: readTitle(html),
+      description: readDescription(html),
+      isPartOf: { '@type': 'WebSite', name: PRODUCT_TITLE, url: `${SITE_URL}/` },
+      inLanguage: 'en',
+    }
+  }
+
+  if (routeEntry.kind === 'issue' && routeEntry.issueId) {
+    const issue = issueById[routeEntry.issueId]
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      '@id': `${url}#article`,
+      url,
+      mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+      headline: issue.read,
+      name: readTitle(html),
+      description: readDescription(html),
+      inLanguage: 'en',
+      isAccessibleForFree: true,
+      ...(issue.published ? { datePublished: issue.published, dateModified: issue.published } : {}),
+      author: { '@type': 'Person', name: AUTHOR_NAME },
+      publisher: { '@type': 'Organization', name: PRODUCT_TITLE, url: `${SITE_URL}/` },
+      isPartOf: { '@type': 'WebSite', name: PRODUCT_TITLE, url: `${SITE_URL}/` },
+    }
+  }
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Report',
+    '@id': `${CANONICAL_URL}#report`,
+    url: CANONICAL_URL,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': CANONICAL_URL },
+    name: readTitle(html),
+    headline: marketCall.headline,
+    description: readDescription(html),
+    abstract: marketCall.subhead,
+    reportNumber: `${EPISODE_ID} v${EPISODE_VERSION}`,
+    inLanguage: 'en',
+    isAccessibleForFree: true,
+    datePublished: LAST_UPDATED_ISO,
+    dateModified: LAST_UPDATED_ISO,
+    image: OG_IMAGE_URL,
+    author: { '@type': 'Person', name: AUTHOR_NAME },
+    publisher: { '@type': 'Organization', name: PRODUCT_TITLE, url: CANONICAL_URL },
+  }
 }
 
-if (html.includes('application/ld+json')) {
-  fail('dist/index.html already contains a JSON-LD block; refusing to inject a second one.')
+function injectJsonLd(routeEntry: RouteEntry): void {
+  const outPath = outPathFor(routeEntry)
+  const html = readFileSync(outPath, 'utf8')
+
+  // Anchoring on the head-closing tag is only safe when there is exactly one of
+  // them. A stray copy inside a comment silently swallows the injected block (and
+  // Vite's own script tags with it), so refuse to guess which one is real.
+  const headCloseCount = html.split('</head>').length - 1
+  if (headCloseCount !== 1) {
+    fail(
+      `route "${routeEntry.path}": expected exactly one head-closing tag, found ${headCloseCount}. ` +
+        'Remove the extra one (check for it inside an HTML comment).',
+    )
+  }
+
+  if (html.includes('application/ld+json')) {
+    fail(`route "${routeEntry.path}" already contains a JSON-LD block; refusing to inject a second one.`)
+  }
+
+  const structuredData = structuredDataFor(routeEntry, html)
+
+  // JSON.stringify cannot emit "<", but a "</script" sequence inside any string value
+  // would still close the tag early, so escape the one character that can do it.
+  const jsonLd = JSON.stringify(structuredData, null, 2).replace(/</g, '\\u003c')
+  const scriptTag = `    <script type="application/ld+json">\n${jsonLd}\n    </script>\n  `
+
+  // Replacer-function form: the payload is untrusted as a replacement pattern.
+  const nextHtml = html.replace('</head>', () => `${scriptTag}</head>`)
+  writeFileSync(outPath, nextHtml)
+
+  console.log(`SEO OK: injected ${jsonLd.length} chars of JSON-LD into route "${routeEntry.path}".`)
 }
 
-const structuredData = {
-  '@context': 'https://schema.org',
-  '@type': 'Report',
-  '@id': `${CANONICAL_URL}#report`,
-  url: CANONICAL_URL,
-  mainEntityOfPage: { '@type': 'WebPage', '@id': CANONICAL_URL },
-  name: readTitle(html),
-  headline: marketCall.headline,
-  description: readDescription(html),
-  abstract: marketCall.subhead,
-  reportNumber: `${EPISODE_ID} v${EPISODE_VERSION}`,
-  inLanguage: 'en',
-  isAccessibleForFree: true,
-  datePublished: LAST_UPDATED_ISO,
-  dateModified: LAST_UPDATED_ISO,
-  image: OG_IMAGE_URL,
-  author: { '@type': 'Person', name: AUTHOR_NAME },
-  publisher: { '@type': 'Organization', name: PRODUCT_TITLE, url: CANONICAL_URL },
+for (const routeEntry of routes) {
+  injectJsonLd(routeEntry)
 }
 
-// JSON.stringify cannot emit "<", but a "</script" sequence inside any string value
-// would still close the tag early, so escape the one character that can do it.
-const jsonLd = JSON.stringify(structuredData, null, 2).replace(/</g, '\\u003c')
+// --- Sitemap: one <url> per route --------------------------------------------
 
-const scriptTag = `    <script type="application/ld+json">\n${jsonLd}\n    </script>\n  `
-
-// Replacer-function form: the payload is untrusted as a replacement pattern.
-const nextHtml = html.replace('</head>', () => `${scriptTag}</head>`)
-
-writeFileSync(htmlPath, nextHtml)
+const urlEntries = routes
+  .map((routeEntry) => {
+    const url = `${SITE_URL}${routeEntry.path}`
+    const lastmod =
+      routeEntry.kind === 'issue' && routeEntry.issueId
+        ? (issueById[routeEntry.issueId].published ?? LAST_UPDATED_ISO)
+        : LAST_UPDATED_ISO
+    const priority = routeEntry.kind === 'front' ? '1.0' : '0.7'
+    return `  <url>
+    <loc>${url}</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>${priority}</priority>
+  </url>`
+  })
+  .join('\n')
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>${CANONICAL_URL}</loc>
-    <lastmod>${LAST_UPDATED_ISO}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
+${urlEntries}
 </urlset>
 `
 
 writeFileSync(sitemapPath, sitemap)
 
-console.log(
-  `SEO OK: injected ${jsonLd.length} chars of JSON-LD into dist/index.html and wrote ` +
-    `dist/sitemap.xml (lastmod ${LAST_UPDATED_ISO}).`,
-)
+console.log(`SEO OK: wrote dist/sitemap.xml with ${routes.length} route(s).`)
