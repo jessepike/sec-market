@@ -3,7 +3,7 @@
 | Field | Value |
 |---|---|
 | **ID** | `SEC-MARKET-ISSUE-001` |
-| **Version** | v0.1 |
+| **Version** | v0.2 — amended 2026-09-03 after Codex (gpt-5.6-sol) and Claude reviews; see §11 |
 | **Status** | specification, being built under D-64 |
 | **Date** | 2026-09-03 |
 | **Governs** | SEC-027 (issue model, page, gates), SEC-029 (feed, permalinks, JSON copy), SEC-030 (JSON interface), SEC-031 (vendor lens) |
@@ -76,6 +76,7 @@ export interface PostureDelta {
   from: Posture
   to: Posture
   basis: string
+  confidence: ConfidenceLevel
   evidenceIds: [string, ...string[]]
 }
 
@@ -83,7 +84,17 @@ export interface ThesisScore {
   thesis: 'episode-002'
   verdict: 'holds' | 'strengthens' | 'weakens' | 'no-call'
   basis: string
+  confidence: ConfidenceLevel
   evidenceIds: string[]
+}
+
+/** What the gather proposes. Visible on a draft, labelled as a machine proposal; must be null once published. */
+export interface MachineProposal {
+  read: string
+  thesis: ThesisScore
+  noCalls: string[]
+  postureDeltas: string          // prose only; the signer converts what they accept into PostureDelta records
+  summary: string
 }
 
 export interface Issue {
@@ -98,14 +109,35 @@ export interface Issue {
   weThink: {
     summary: string
     postureDeltas: PostureDelta[]
-    thesis: ThesisScore
+    thesis: ThesisScore | null   // null on a draft; the signer sets it
     noCalls: string[]
-    signedBy: string | null
+    signedBy: string | null      // must equal AUTHOR_NAME in meta.ts when set
     signedOn: string | null
   }
+  proposed: MachineProposal | null   // set by the gather on a draft; null once published
   sources: { readable: number; unreadable: string[] }
 }
 ```
+
+**Who writes what.** The gather writes `read`, the four sections, `sources`, and `proposed`. It leaves
+`weThink.thesis` null, `weThink.postureDeltas` empty, `weThink.summary` empty. The signer reads the
+proposal, writes `weThink` themselves, sets `proposed: null`, `signedBy`, `signedOn`, `published`,
+`status: 'published'`. A posture change is one human-signed transaction that edits the issue's
+`postureDeltas`, `domains.ts` and an appended `edition.ts` record together; posture-change language
+belongs in `postureDeltas` and nowhere else. Issue `2026-w36` carries no deltas.
+
+Evidence records gain an optional retrieval receipt:
+
+```ts
+retrieval?: { finalUrl: string; sha256: string; fetchedAt: string; locator?: string }
+```
+
+One evidence record per document. An excerpt never combines documents; an item cites several ids
+instead.
+
+**Cadence, canonical.** An issue id is the ISO week it covers; `weekEnding` is that week's Sunday. The
+Tuesday gather drafts the ISO week that ended the previous Sunday. The first issue is `2026-w36`.
+Dates elsewhere in the plan that imply a different first week are superseded by this paragraph.
 
 `DecisionHorizon` gains `'Next 4–8 quarters'` and `'Beyond 8 quarters'` so the 24-month horizon intent
 promises is representable. No existing posture is re-judged by this spec.
@@ -123,16 +155,18 @@ owner's first review is of a real issue.
 
 1. **Header.** Nav: Issue · Archive · Thesis · Landscape · Scorecard · Evidence · Method. Archive is a
    cross-page link; the rest are hash anchors.
-2. **Issue hero** (`#issue`). Eyebrow: `Issue 2026-w36 · week ending 6 Sep 2026 · published 16 Sep
+2. **Issue hero** (`#overview`). Eyebrow: `Issue 2026-w36 · week ending 6 Sep 2026 · published 16 Sep
    2026` or `· draft, awaiting signature`. `h1` is `issue.read`. A draft shows a visible banner
    reading "Draft. Not yet signed." on every width.
 3. **Four lane sections** (`#formation`, `#absorption`, `#prints-this-week`, `#capital`). Each: the
    lane name as `h2`, optional intro, items as a list. An item shows headline, date, why, the
    evidence links, and a small "background" label when `background` is set. An empty lane renders
    its heading and one line: "Nothing new this week."
-4. **What we now think** (`#we-think`). Summary, posture deltas as `from → to` with basis and
-   evidence, the thesis score as a labelled line, no-calls, then the signature line
-   `Signed by Jesse Pike · 16 Sep 2026` or `Unsigned draft`.
+4. **What we now think** (`#we-think`). On a published issue: summary, posture deltas as
+   `from → to` with basis, confidence and evidence, the thesis score as a labelled line with its
+   confidence, no-calls, then the signature line `Signed by Jesse Pike · 16 Sep 2026`. On a draft:
+   the block is headed "Machine proposal, unsigned" and shows `proposed.*` in the same layout, with
+   the line `Unsigned draft. Nothing here is a judgment until a named person signs it.`
 5. **Standing reference**, all visible, in this order:
    - **Thesis** (`#thesis`): the Episode 002 market call as today's `JudgmentBoard` content, with a
      new first line: the running score, derived from every published issue's `thesis.verdict`
@@ -150,8 +184,11 @@ owner's first review is of a real issue.
    labelled as the pre-issue window it is), Layers, Watch next, Method, Evidence library.
 7. Methodology note and the corrections block, as today.
 
-Must-see ids for `/`: `issue`, `formation`, `absorption`, `prints-this-week`, `capital`, `we-think`,
-`thesis`, `landscape`, `platforms`, `hypotheses`, `prints`.
+Must-see ids for `/`: `overview` (the issue hero keeps this id), `formation`, `absorption`,
+`prints-this-week`, `capital`, `we-think`, `read` (the thesis block keeps this id), `landscape`,
+`platforms`, `hypotheses`, `prints`. The `moved` section leaves the must-see list deliberately: the
+issue's four lanes replace it as the account of what moved, and the edition delta stays reachable in
+depth. This is a recorded replacement, accepted under D-64, not a dropped guarantee.
 
 ### `/issues/` archive
 
@@ -165,7 +202,7 @@ Must-see ids: `issues`.
 Header, the issue hero, four lanes, what we now think, exactly as on `/`, then a short block linking
 to the archive and the standing reference. Canonical URL is itself.
 
-Must-see ids: `issue`, `formation`, `absorption`, `prints-this-week`, `capital`, `we-think`.
+Must-see ids: `overview`, `formation`, `absorption`, `prints-this-week`, `capital`, `we-think`.
 
 ### Phone (390)
 
@@ -184,27 +221,41 @@ tell it is active.
 
 ## 6. Gates
 
-New `scripts/verify-issue.ts`, wired into `npm run build` after `verify:integrity`. Each check is
-proven by perturbation before it counts.
+Two scripts. `scripts/verify-issue.ts` runs before the build (after `verify:integrity`) and checks
+the data, checks 1 to 10 and 12. `scripts/verify-dist.ts` runs last, after `seo`, and checks the
+emitted files, check 11. Build order: `verify:edition && verify:panel && verify:integrity &&
+verify:issue && tsc -b && build:client && build:server && prerender && seo && verify:dist`. Each
+check is proven by perturbation before it counts.
 
-1. `issues` is ordered by `weekEnding` ascending, ids match `^\d{4}-w\d{2}$`, and each `weekEnding`
-   is the Sunday of that ISO week.
+1. `issues` is ordered by `weekEnding` ascending, ids match `^\d{4}-w\d{2}$`, each `weekEnding`
+   is the Sunday of that ISO week, and both `id` and `weekEnding` are unique.
 2. Windows do not overlap.
 3. Exactly four sections in Lane order per issue.
 4. Every `IssueItem.evidenceIds` entry resolves in `evidenceRecords`; every item `date` falls inside
    the window unless `background` is set.
-5. A `published` issue has `published`, `signedBy` and `signedOn` set; a `draft` has all three null.
+5. A `published` issue has `published`, `signedBy`, `signedOn` set, `signedBy` equal to
+   `AUTHOR_NAME` from `meta.ts`, `proposed` null, `weThink.summary` non-empty, `weThink.thesis`
+   non-null with non-empty `basis` and `evidenceIds`, and every `PostureDelta` and the thesis carrying
+   a `confidence`. A `draft` has `published`, `signedBy`, `signedOn` null and `weThink.thesis` null.
 6. At most one draft, and it is the newest issue.
 7. Production guard: when `VERCEL_GIT_COMMIT_REF` is `main`, the newest issue must be `published`.
-8. Published issues are hash-locked: `sha256(JSON.stringify(issues.filter(published)))` must equal
-   `EXPECTED_ISSUES_SHA`, with `--write` to print the new value, the `verify-edition` pattern.
+8. Published issues are append-only, enforced by a manifest `src/data/issues/issues.lock.json`
+   mapping each published id to `sha256(JSON.stringify(issue))`. The check fails if a manifest id is
+   missing from `issues`, if a published issue's hash differs from its manifest entry, or if a
+   published issue has no manifest entry. `--write` adds entries for new ids only and refuses to
+   alter or remove an existing one; changing history requires deleting the entry by hand in a
+   reviewed commit.
 9. Every `PostureDelta` in a published issue agrees with `securityDomains` (the domain's posture is
    `to`) and with `editions` (a record dated on or after `published` carries `to` for that domain).
 10. Render check: `renderToStaticMarkup` of the issue view for the newest issue; each lane heading's
     rendered item count equals `items.length`, the draft banner is present iff `status === 'draft'`,
     and the signature line text matches the data.
-11. Every published issue's permalink, JSON copy and the feed exist in `dist` after prerender, and
-    `feed.xml` parses as XML with one `<item>` per published issue.
+11. (`verify:dist`) Every issue's permalink and JSON copy, `issues/index.html`,
+    `issues/index.json`, `feed.xml` and `sitemap.xml` exist in `dist`; `feed.xml` parses as XML with
+    one `<item>` per published issue; the sitemap lists every route.
+12. Every numeric token in an item's `headline` and `why` (integers, decimals, percentages, currency
+    amounts with M or B suffixes, normalised for separators) appears in at least one cited evidence
+    record's `excerpt`. A figure the page states that no cited excerpt states fails the build.
 
 `scripts/prerender.ts` runs its must-see gate per route with the id lists in §4. `verify-integrity`
 check 5 (unreferenced evidence) counts issue citations as references.
@@ -216,7 +267,11 @@ check 5 (unreferenced evidence) counts issue citations as references.
   are visible via `checkVisibility()`; the draft banner is visible iff the newest issue is a draft;
   `/issues/` lists every issue; `/issues/<newest>/` renders with the same `h1`; `/feed.xml` returns
   200 and `content-type` XML; `/issues/<newest>.json` parses and its `evidence` array is non-empty;
-  `?vendors=` filters the scorecard and shows "Showing N of M"; zero page errors.
+  zero page errors and zero console errors.
+- `tests/e2e/lens.spec.ts`, both widths: `?vendors=` filters both the issue items and the scorecard
+  and shows "Showing N of M" on each; an unknown slug yields "Showing 0 of M" and a clear link, not
+  an error; the clear link restores the unfiltered URL; the URL round-trips through the control; at
+  390 the chip row is reachable and scrollable; zero console errors.
 - `playwright.config.ts` honours `E2E_BASE_URL` so the same suite runs against the live preview URL.
 - `tests/issue-data.test.ts` covers the derived helpers (ISO week, window, thesis score, lens slugs).
 - The existing smoke test is updated for the new `h1` and structure, without deleting any assertion
@@ -244,3 +299,16 @@ this spec's §4. Everything on production is accounted for as kept, moved to dep
 
 Per-issue Open Graph images. An email provider. Any change to a posture, confidence, call or
 hypothesis state. Anything on `main`.
+
+## 11. Amendments after external review (2026-09-03)
+
+Codex `gpt-5.6-sol` and a fresh Claude Sonnet session reviewed v0.1 against intent v1.2, the plan
+and the code. Accepted and folded in above: one canonical cadence (§3); confidence on every judgment
+and a machine-proposal block that must be null at publication (§3, §6.5); `signedBy` allow-listed to
+`AUTHOR_NAME` (§6.5); per-issue append-only lock manifest instead of one array hash (§6.8); split of
+data and dist gates with the build order fixed (§6); uniqueness (§6.1); numeric-token check (§6.12);
+retrieval receipts and one record per document (§3); posture change as one signed transaction (§3);
+`overview` and `read` retained as must-see ids and the `moved` replacement recorded (§4); lens tests
+widened (§7). Declined: an authenticated signer, which static data cannot carry; the merge by the
+repository owner is the authentication.
+

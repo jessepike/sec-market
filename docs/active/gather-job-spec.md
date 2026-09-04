@@ -3,7 +3,7 @@
 | Field | Value |
 |---|---|
 | **ID** | `SEC-MARKET-GATHER-001` |
-| **Version** | v0.1 |
+| **Version** | v0.2 — amended 2026-09-03 after external review |
 | **Status** | specification, being built under D-64 |
 | **Date** | 2026-09-03 |
 | **Governs** | SEC-028 |
@@ -12,9 +12,10 @@
 
 ## 1. Job
 
-Every Tuesday, draft next week's issue as a pull request against `preview`. Every figure in the
-draft is quoted verbatim from a document the job fetched and read. The job never publishes, never
-changes a judgment, and never touches `main`.
+Every Tuesday, draft the issue for the ISO week that ended the previous Sunday, as a pull request
+against `preview`. Every figure in the draft is quoted verbatim from a document the job fetched
+with `curl` and read as bytes. The job proposes; it never signs, never applies a judgment, never
+publishes, and never touches `main`.
 
 ## 2. Runtime
 
@@ -27,7 +28,7 @@ logs are inspectable from any session.
 |---|---|
 | Schedule | Tuesdays 06:00 America/Los_Angeles = `0 13 * * 2` UTC (winter: 14:00 UTC; accept the drift) |
 | Model | `claude-sonnet-5` |
-| Tools | Bash, Read, Write, Edit, Glob, Grep, WebFetch |
+| Tools | Bash, Read, Write, Edit, Glob, Grep. No WebFetch: every document is fetched with `curl` so the job holds the bytes it quotes and can hash them |
 | Sources | the repo, checked out at `preview` |
 | Connectors | none. The job needs nothing but the public web and the repo |
 | Prompt | `docs/active/gather-brief.md`, read from the checkout, so the brief is versioned with the data model |
@@ -40,12 +41,15 @@ exactly what it says. That keeps the operative instructions in git, reviewable, 
 One pull request, branch `issue/<id>` where `<id>` is the ISO week being drafted (`2026-w38`), base
 `preview`, containing:
 
-1. `web/src/data/issues/<id>.ts` — a draft `Issue` (shape in the issue spec §3) with
-   `weThink.signedBy: null`, `weThink.signedOn: null`, and `status: 'draft'`.
-2. New evidence records appended to `web/src/data/evidence.ts`, one per fetched document, each with a
-   verbatim `excerpt`, `canonicalUrl`, `retrievedAt`, and `sourceAttributions` where the excerpt spans
-   documents.
-3. The PR body, in this order: the one-line read the job proposes; what it found per lane with counts;
+1. `web/src/data/issues/<id>.ts` — a draft `Issue` (shape in the issue spec §3): `status: 'draft'`,
+   `weThink.thesis: null`, `weThink.postureDeltas: []`, `weThink.summary: ''`, signature fields null,
+   and `proposed` filled with the machine's proposal.
+2. `web/src/data/issues/index.ts` with the new issue appended last.
+3. New evidence records appended to `web/src/data/evidence.ts`, exactly one per fetched document,
+   each with a verbatim `excerpt`, `canonicalUrl`, `retrievedAt`, and a `retrieval` receipt (final
+   URL, sha256 of the bytes, fetch time, locator such as a page or section). An excerpt never spans
+   documents; an item cites several records instead.
+4. The PR body, in this order: the one-line read the job proposes; what it found per lane with counts;
    proposed posture deltas as text, never applied; sources it could not read and why; what it
    deliberately left out and why; the exact commands it ran and their exit codes.
 
@@ -65,6 +69,11 @@ The target list is closed. The job reads these and nothing else, in this order.
 | Prints | Investor-relations pages and SEC filings for the issuers in `prints.ts` whose fiscal quarter closed in the last five weeks | earnings release and 10-Q or 10-K; quote the figure and its period |
 | Capital and backdrop | The hyperscaler and infrastructure issuers already in `panelRaw.ts`, same rule | quarterly capex figure and any demand-versus-capacity sentence |
 
+The exact URLs and query templates live in the brief's source manifest and are versioned with it.
+The VC list is read from `docs/active/startup-source-catalog.md` and the issuer lists from
+`prints.ts` and `panelRaw.ts` at run time, so the brief has no second copy to drift. An EDGAR hit is
+quoted only after the filer name and CIK are confirmed against the intended issuer.
+
 SEC.gov is fetched with the identified `User-Agent` its access policy asks for. A host that blocks
 is recorded as unreadable, never bypassed, and never retried through a proxy. Return on Security is
 read once, summarised, and linked.
@@ -80,9 +89,10 @@ Each of these is a lesson this project has already paid for.
   paraphrased. A figure that cannot be quoted does not enter the draft.
 - **Record none found and move on.** A source with nothing new yields a one-line note in the PR body
   and no item. An empty lane is an empty lane.
-- **Never a judgment.** The job never writes to `domains.ts`, `hypotheses.ts`, `market.ts`,
-  `meta.ts`, `intent.md`, `decisions.md`, or any prior issue. Posture deltas it believes the evidence
-  supports go in the PR body as proposals.
+- **Proposes, never signs or applies.** The job's read, thesis verdict, no-calls and posture
+  suggestions go in `proposed` on the draft and in the PR body, labelled as a machine proposal. It
+  never writes `weThink.thesis`, `weThink.postureDeltas`, a signature, `domains.ts`,
+  `hypotheses.ts`, `market.ts`, `meta.ts`, `intent.md`, `decisions.md`, or any prior issue.
 - **Gates before push.** The job runs `npm run verify:edition`, `verify:panel`, `verify:integrity`
   and `verify:issue` in its sandbox and includes the exit codes in the PR body. A failing gate does
   not block the PR; it is reported at the top of the body so the reviewer sees it first.
@@ -99,10 +109,15 @@ Tuesday or Wednesday, twenty to thirty minutes, owner:
 1. Open the PR. Read the body top to bottom.
 2. Open the preview deploy of the branch. Read the draft issue as a reader would.
 3. Cut anything thin. Edit headlines and "why it matters" freely.
-4. Write or edit `weThink`, set `signedBy` and `signedOn`, set `status: 'published'`.
-5. Merge to `preview`. Promote with `PROMOTE=1` after the render check.
+4. Form your own view. Write `weThink` yourself, converting only what you accept from `proposed`
+   into `thesis`, `postureDeltas` and `noCalls`, each with a confidence. Set `proposed: null`,
+   `signedBy`, `signedOn`, `published`, `status: 'published'`, and run `verify:issue --write` to add
+   the issue to the lock manifest.
+5. If the branch's Vercel build failed, do not merge on the strength of the PR body; fix or reject.
+6. Merge to `preview`. Promote with `PROMOTE=1` after the render check.
 
-The `verify:issue` gate refuses a build where the newest issue is `published` without a signature.
+`verify:issue` refuses a build where a published issue lacks a signature, still carries a
+proposal, or names a signer other than `AUTHOR_NAME`.
 
 ## 7. First run
 
@@ -117,7 +132,8 @@ is the last step of SEC-028 and is recorded in the PR that closes it.
 - The dry run opens a PR on `issue/<id>` against `preview` with the three artefacts in §3 and a body
   in the order given.
 - Every evidence record in the PR carries a verbatim excerpt and a URL that resolves.
-- The job wrote to nothing outside `web/src/data/issues/<id>.ts` and `web/src/data/evidence.ts`.
+- The job wrote to nothing outside `web/src/data/issues/<id>.ts`, `web/src/data/issues/index.ts`
+  and `web/src/data/evidence.ts`.
 - Exit codes for all four gates appear in the PR body.
 - The brief is committed at `docs/active/gather-brief.md` and is the only instruction the routine
   receives beyond "read it and do it".
