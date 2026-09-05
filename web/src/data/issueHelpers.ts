@@ -216,6 +216,21 @@ export function feedIssuesNewestFirst(issues: Issue[]): Issue[] {
 }
 
 /**
+ * ISO calendar date -> RFC 822 date-time, as RSS `pubDate` requires (and as
+ * `Date.prototype.toUTCString()` produces: `"Sun, 06 Sep 2026 00:00:00 GMT"`).
+ * Shared by generate-feed.ts (which writes it) and verify-dist.ts (which
+ * checks every feed item's pubDate against it), so the writer and its own
+ * checker cannot compute the date two different ways.
+ */
+export function toRfc822(isoDate: string): string {
+  const date = new Date(`${isoDate}T00:00:00Z`)
+  if (Number.isNaN(date.getTime())) {
+    throw new Error(`toRfc822: "${isoDate}" does not convert to a valid Date`)
+  }
+  return date.toUTCString()
+}
+
+/**
  * The `{ issue, evidence }` shape written to `dist/issues/<id>.json`: the
  * issue plus every evidence record it cites, resolved through
  * `issueEvidenceIds` so the JSON copy can never cite a different evidence
