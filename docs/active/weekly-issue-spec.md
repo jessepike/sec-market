@@ -244,15 +244,30 @@ check is proven by perturbation before it counts.
    missing from `issues`, if a published issue's hash differs from its manifest entry, or if a
    published issue has no manifest entry. `--write` adds entries for new ids only and refuses to
    alter or remove an existing one; changing history requires deleting the entry by hand in a
-   reviewed commit.
+   reviewed commit. Append-only history is checked against two independent anchors rather than the
+   working manifest comparing against itself: the git-parent anchor (the lock manifest at every
+   parent of `HEAD`, plus `origin/preview` when it resolves to a commit distinct from `HEAD`) and
+   the network anchor (the live production manifest at `/issues/lock.json`, fetched over HTTPS with
+   a 10-second timeout, overridable with `SMP_LOCK_BASE_URL` or skipped with the literal value
+   `none`). On a protected build (`VERCEL_GIT_COMMIT_REF` of `main` or `preview`) the build fails
+   closed if neither anchor is readable or if either anchor disagrees with the working manifest; off
+   a protected build, an unreadable anchor is a loud warning, not a failure. `dist/issues/lock.json`
+   (written by `scripts/generate-feed.ts` as a verbatim copy of the source manifest, checked by
+   `verify:dist`) is what makes the network anchor answerable in the first place.
 9. Every `PostureDelta` in a published issue agrees with `securityDomains` (the domain's posture is
    `to`) and with `editions` (a record dated on or after `published` carries `to` for that domain).
 10. Render check: `renderToStaticMarkup` of the issue view for the newest issue; each lane heading's
     rendered item count equals `items.length`, the draft banner is present iff `status === 'draft'`,
     and the signature line text matches the data.
 11. (`verify:dist`) Every issue's permalink and JSON copy, `issues/index.html`,
-    `issues/index.json`, `feed.xml` and `sitemap.xml` exist in `dist`; `feed.xml` parses as XML with
-    one `<item>` per published issue; the sitemap lists every route.
+    `issues/index.json`, `feed.xml`, `sitemap.xml` and `issues/lock.json` exist in `dist`; each
+    issue's JSON copy and each `issues/index.json` row deep-equal the source data, not merely exist;
+    `feed.xml` parses as XML with one `<item>` per published issue, each `<item>`'s `guid` mapped to
+    its issue and its `pubDate` equal to that issue's `published` date in RFC 822, and a nested or
+    unbalanced `<item>` tag fails the build; the sitemap lists every route; `dist/issues/lock.json`
+    equals the source lock manifest exactly; every non-front route's `description`, `og:description`
+    and `twitter:description` meta content equals that route's expected text and differs from the
+    front page's.
 12. Every numeric token in an item's `headline` and `why` (integers, decimals, percentages, currency
     amounts with M or B suffixes, normalised for separators) appears in at least one cited evidence
     record's `excerpt`. A figure the page states that no cited excerpt states fails the build.
@@ -350,3 +365,48 @@ actually checked. Accepted and folded in:
   receipt (`finalUrl`, a 64-hex `sha256`, `fetchedAt`, and an optional `locator`) confirmed against
   a live re-fetch of its `canonicalUrl`; check 15 fails a citation with no receipt, naming the id.
 
+
+### Amendments after the second external review (2026-09-05)
+
+A second external review (Codex and a fresh Claude session) of the built implementation found one
+blocker and four should-fixes, plus three further findings from a follow-on Claude review pass.
+Accepted and folded in:
+
+- G1: the append-only lock check no longer compares a build against itself. It now reads two
+  independent anchors — the lock manifest at every git parent of `HEAD` plus `origin/preview` when
+  that resolves to a different commit, and the live production manifest at `/issues/lock.json`
+  fetched over HTTPS with a 10-second timeout (overridable with `SMP_LOCK_BASE_URL`, or skippable
+  with the literal value `none`) — and fails the build on `main` or `preview` if neither anchor is
+  readable or if either anchor disagrees with the working manifest, instead of warning and passing.
+- G2: the numeric-token check no longer flags a digit run immediately preceded by a letter, so
+  identifiers like `M12`, `FY2027` and `Q2` are no longer mistaken for figures the page must cite
+  evidence for.
+- G3: `verify:dist` now deep-equals each issue's JSON copy and each archive row against the source
+  data instead of checking presence alone, maps every feed item's `guid` to its issue and requires
+  its `pubDate` to equal that issue's `published` date in RFC 822, and rejects a feed with a nested
+  or unbalanced `<item>` tag. `scripts/generate-feed.ts`'s writers are now parameterised, exported
+  functions, and `tests/dist-fixtures.test.ts` runs those real writers and the real `verify:dist`
+  checks against a temporary directory instead of a hand-rolled approximation of both.
+- G4: `tests/e2e/lens.spec.ts` now derives its vendor slugs from the newest issue's own data at test
+  time instead of hard-coding week-36's vendors, and asserts the actual rendered headline and print
+  names the lens should show, not just the reported counts — so the suite cannot pass vacuously
+  once a different issue becomes newest.
+- G5: `DomainBoard`'s domain name now sits inside the card's `<h2>` as a leading span, so it reaches
+  heading-level navigation (screen readers, browser "jump to heading") instead of sitting beside the
+  heading as an unrelated paragraph; the visual layout is unchanged, confirmed by before-and-after
+  renders at 1440 and 390.
+- G6: `vercel.json` now sets `"trailingSlash": true`, matching the trailing-slash URLs every route
+  and the sitemap already use. This can only be exercised fully once a build is live on the preview
+  URL, so it is asserted by config alone here.
+- G8: `verify:dist` now reads each built non-front route's HTML and checks that its `description`,
+  `og:description` and `twitter:description` meta content (HTML-unescaped) equals that route's
+  expected text, and that the front page's description differs from every other route's.
+- G9: `verify-issue.ts` check 4 now resolves the same evidence-id set as check 12 through the
+  shared `issueEvidenceIds()` helper instead of a second, hand-rolled collection of the same ids,
+  removing a place the two checks could quietly drift apart. The per-id error message still names
+  the offending id.
+- G10: the vendor lens now treats `?vendors=` with an empty value the same as no `vendors` parameter
+  at all — the lens stays inactive rather than showing an empty, seemingly-broken filtered view.
+
+Section 6 below reflects G1's two-anchor append-only design and the `/issues/lock.json` publication
+it depends on.
