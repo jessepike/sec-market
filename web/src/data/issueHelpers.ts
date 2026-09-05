@@ -131,6 +131,29 @@ export function serializeVendorsParam(slugs: string[] | null): string | null {
 }
 
 /**
+ * Numeric tokens a piece of prose states: integers, decimals, percentages,
+ * and currency amounts with M/B suffixes. Normalised so "$450M", "450 M" and
+ * "450M" all reduce to the same token, and thousands separators are dropped
+ * so "1,200" and "1200" match. A digit run immediately preceded by a letter
+ * — "M12" (the investor M12), "FY2027", "Q2" — is not a stated figure, it is
+ * a name or label with digits glued onto it, so it is excluded rather than
+ * being read as the number 12/2027/2. This does not merely shift where the
+ * match starts: `matchAll` finds the whole digit run as a single match
+ * starting right after the letter, so excluding that match drops the token
+ * entirely instead of accidentally re-matching a truncated remainder (e.g.
+ * "M12" never yields a stray "2").
+ */
+export function extractNumericTokens(text: string): string[] {
+  const tokens: string[] = []
+  for (const match of text.matchAll(/\$?\d[\d,]*(?:\.\d+)?\s?[MB]?%?/gi)) {
+    const precedingChar = match.index > 0 ? text[match.index - 1] : undefined
+    if (precedingChar && /[A-Za-z]/.test(precedingChar)) continue
+    tokens.push(match[0].replace(/\$/g, '').replace(/,/g, '').replace(/\s+/g, '').toUpperCase())
+  }
+  return tokens
+}
+
+/**
  * Every evidence id an issue cites: lane items, posture deltas, the signed
  * thesis when set, and the machine proposal's thesis when still on a draft.
  */

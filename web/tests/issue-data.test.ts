@@ -2,6 +2,7 @@ import assert from 'node:assert/strict'
 import { describe, it } from 'node:test'
 import { issues } from '../src/data/issues/index.ts'
 import {
+  extractNumericTokens,
   isoWeekId,
   isoWeekSunday,
   issueEvidenceIds,
@@ -206,6 +207,38 @@ describe('parseVendorsParam / serializeVendorsParam', () => {
   it('round-trips a slug list through parse and serialize', () => {
     const slugs = ['crowdstrike', 'zscaler']
     assert.deepEqual(parseVendorsParam(`?vendors=${serializeVendorsParam(slugs)}`), slugs)
+  })
+})
+
+describe('extractNumericTokens', () => {
+  it('excludes a digit run immediately preceded by a letter — a name/label, not a figure', () => {
+    assert.deepEqual(extractNumericTokens('M12 led the round'), [])
+    assert.deepEqual(extractNumericTokens('guidance holds into FY2027'), [])
+    assert.deepEqual(extractNumericTokens('a Q2 update'), [])
+  })
+
+  it('keeps a currency amount with an M/B suffix', () => {
+    assert.deepEqual(extractNumericTokens('HiddenLayer raises $100M Series B'), ['100M'])
+    assert.deepEqual(extractNumericTokens('ARR crossed $1.47B this quarter'), ['1.47B'])
+  })
+
+  it('keeps a plain percentage, including a leading sign', () => {
+    assert.deepEqual(extractNumericTokens('revenue grew 26%'), ['26%'])
+    assert.deepEqual(extractNumericTokens('billings were +51% year over year'), ['51%'])
+  })
+
+  it('keeps a plain number with no letter attached', () => {
+    assert.deepEqual(extractNumericTokens('the round brought in 1,200 new seats'), ['1200'])
+  })
+
+  it('does not truncate a name+digits token into a spurious remainder', () => {
+    // "M12" must vanish entirely — not degrade into a stray "2" from the tail
+    // of the digit run.
+    assert.deepEqual(extractNumericTokens('backed by M12'), [])
+  })
+
+  it('still matches a genuine figure that happens to follow a name+digits token', () => {
+    assert.deepEqual(extractNumericTokens('M12 joined the $100M round'), ['100M'])
   })
 })
 

@@ -69,7 +69,7 @@ export const issue2026w36: Issue = {
           id: '2026-w36-formation-6',
           lane: 'formation',
           headline: 'HiddenLayer raises $100M Series B for AI runtime security',
-          why: 'Delta-v Capital led the round, joined by Booz Allen Ventures, Microsoft’s venture fund, Morgan Stanley and Ten Eleven Ventures.',
+          why: 'Delta-v Capital led the round, joined by Booz Allen Ventures, M12, Morgan Stanley and Ten Eleven Ventures.',
           date: '2026-09-03',
           evidenceIds: ['W36-06'],
           vendors: ['hiddenlayer'],
