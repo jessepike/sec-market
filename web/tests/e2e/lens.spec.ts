@@ -2,10 +2,41 @@ import { expect, test } from '@playwright/test'
 import { latestIssue } from '../../src/data/issues/index.ts'
 import { vendorPrints } from '../../src/data/prints.ts'
 
-// Real slugs from the 2026-w36 data (both appear on an issue item's `vendors`
-// and on a VendorPrint's derived `vendorSlug`, so filtering has something to
-// show on both surfaces).
-const LENS_SLUGS = ['crowdstrike', 'zscaler']
+/**
+ * Slugs derived from the newest issue's own data at test time, not
+ * hard-coded — Codex whole-diff review finding 4: hard-coding week-36's
+ * "crowdstrike"/"zscaler" meant the item-filter half of this suite silently
+ * turned into a zero-match, vacuously-passing test the moment a second issue
+ * without those vendors became the newest. `ITEM_SLUG` is guaranteed to
+ * appear on at least one item of the newest issue; `PRINT_SLUG` is
+ * guaranteed to appear on at least one vendorPrints entry (distinct from
+ * `ITEM_SLUG` when the data offers a distinct one) — between the two, both
+ * filterable surfaces (issue items and the scorecard) always have something
+ * real to show, regardless of which issue is newest.
+ */
+function pickItemVendorSlug(): string {
+  for (const section of latestIssue.sections) {
+    for (const item of section.items) {
+      const first = (item.vendors ?? [])[0]
+      if (first) return first
+    }
+  }
+  throw new Error(
+    'lens.spec.ts: no item on the newest issue carries a vendors slug — cannot derive a lens test fixture from data.',
+  )
+}
+
+function pickPrintVendorSlug(excluding: string): string {
+  const distinct = vendorPrints.find((print) => print.vendorSlug !== undefined && print.vendorSlug !== excluding)
+  if (distinct?.vendorSlug) return distinct.vendorSlug
+  const anyPrint = vendorPrints.find((print) => print.vendorSlug !== undefined)
+  if (anyPrint?.vendorSlug) return anyPrint.vendorSlug
+  throw new Error('lens.spec.ts: no vendorPrints entry carries a vendorSlug — cannot derive a lens test fixture from data.')
+}
+
+const ITEM_SLUG = pickItemVendorSlug()
+const PRINT_SLUG = pickPrintVendorSlug(ITEM_SLUG)
+const LENS_SLUGS = [ITEM_SLUG, PRINT_SLUG]
 const UNKNOWN_SLUG = 'not-a-real-vendor'
 
 function totalIssueItems(): number {
@@ -22,9 +53,29 @@ function matchingIssueItems(slugs: string[]): number {
   )
 }
 
+/** The exact headline text of every issue item the given slugs match, across all lanes. */
+function matchingIssueHeadlines(slugs: string[]): string[] {
+  const headlines: string[] = []
+  for (const section of latestIssue.sections) {
+    for (const item of section.items) {
+      if ((item.vendors ?? []).some((vendor) => slugs.includes(vendor))) {
+        headlines.push(item.headline)
+      }
+    }
+  }
+  return headlines
+}
+
 function matchingPrints(slugs: string[]): number {
   return vendorPrints.filter((print) => print.vendorSlug !== undefined && slugs.includes(print.vendorSlug))
     .length
+}
+
+/** The exact card name of every vendorPrints entry the given slugs match. */
+function matchingPrintNames(slugs: string[]): string[] {
+  return vendorPrints
+    .filter((print) => print.vendorSlug !== undefined && slugs.includes(print.vendorSlug))
+    .map((print) => print.name)
 }
 
 function trackConsole(page: import('@playwright/test').Page) {
@@ -42,7 +93,7 @@ function trackConsole(page: import('@playwright/test').Page) {
 }
 
 test.describe('vendor lens', () => {
-  test('?vendors= filters both the issue items and the scorecard, showing Showing N of M on each', async ({
+  test('?vendors= filters both the issue items and the scorecard, showing the exact matching items/cards and Showing N of M on each', async ({
     page,
   }) => {
     const { pageErrors, consoleErrors } = trackConsole(page)
@@ -58,6 +109,17 @@ test.describe('vendor lens', () => {
     await expect(page.locator('.print-grid__filter-status')).toContainText(
       `Showing ${expectedPrints} of ${vendorPrints.length}`,
     )
+
+    // Not just the self-reported count — the actual rendered identities.
+    // A build that filtered to the right COUNT but the wrong ITEMS would
+    // pass the assertions above and fail these.
+    const actualHeadlines = (await page.locator('.issue-lane__headline').allTextContents()).map((text) =>
+      text.replace(/\s*·\s*background\s*$/, '').trim(),
+    )
+    expect(actualHeadlines.slice().sort()).toEqual(matchingIssueHeadlines(LENS_SLUGS).slice().sort())
+
+    const actualPrintNames = (await page.locator('.print-card h3').allTextContents()).map((text) => text.trim())
+    expect(actualPrintNames.slice().sort()).toEqual(matchingPrintNames(LENS_SLUGS).slice().sort())
 
     expect(pageErrors).toEqual([])
     expect(consoleErrors).toEqual([])
@@ -75,6 +137,20 @@ test.describe('vendor lens', () => {
       `Showing 0 of ${vendorPrints.length}`,
     )
     await expect(page.locator('#vendor-lens-slot .vendor-lens__clear')).toBeVisible()
+
+    expect(pageErrors).toEqual([])
+    expect(consoleErrors).toEqual([])
+  })
+
+  test('an empty vendors parameter is treated as no lens — identical to no parameter at all', async ({ page }) => {
+    const { pageErrors, consoleErrors } = trackConsole(page)
+
+    await page.goto('/?vendors=')
+
+    await expect(page.locator('.issue-lane__filter-status')).toHaveCount(0)
+    await expect(page.locator('.print-grid__filter-status')).toHaveCount(0)
+    await expect(page.locator('#vendor-lens-slot .vendor-lens__clear')).toHaveCount(0)
+    await expect(page.locator('#vendor-lens-slot .vendor-lens__chip')).toHaveCount(0)
 
     expect(pageErrors).toEqual([])
     expect(consoleErrors).toEqual([])
