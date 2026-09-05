@@ -245,6 +245,21 @@ describe('extractNumericTokens', () => {
   it('still matches a genuine figure that happens to follow a name+digits token', () => {
     assert.deepEqual(extractNumericTokens('M12 joined the $100M round'), ['100M'])
   })
+
+  it('excludes a digit run immediately followed by a non-magnitude letter — a name, not a figure', () => {
+    assert.deepEqual(extractNumericTokens('1Password rolled out passkeys'), [])
+  })
+
+  it('keeps a bare figure with a legitimate M/B/K magnitude suffix', () => {
+    assert.deepEqual(extractNumericTokens('$100M'), ['100M'])
+    assert.deepEqual(extractNumericTokens('3M'), ['3M'])
+  })
+
+  it('keeps a bare percentage and a bare integer with no surrounding context', () => {
+    assert.deepEqual(extractNumericTokens('26%'), ['26%'])
+    assert.deepEqual(extractNumericTokens('+51%'), ['51%'])
+    assert.deepEqual(extractNumericTokens('12'), ['12'])
+  })
 })
 
 describe('issueEvidenceIds', () => {
