@@ -244,16 +244,24 @@ check is proven by perturbation before it counts.
    missing from `issues`, if a published issue's hash differs from its manifest entry, or if a
    published issue has no manifest entry. `--write` adds entries for new ids only and refuses to
    alter or remove an existing one; changing history requires deleting the entry by hand in a
-   reviewed commit. Append-only history is checked against two independent anchors rather than the
-   working manifest comparing against itself: the git-parent anchor (the lock manifest at every
-   parent of `HEAD`, plus `origin/preview` when it resolves to a commit distinct from `HEAD`) and
-   the network anchor (the live production manifest at `/issues/lock.json`, fetched over HTTPS with
-   a 10-second timeout, overridable with `SMP_LOCK_BASE_URL` or skipped with the literal value
-   `none`). On a protected build (`VERCEL_GIT_COMMIT_REF` of `main` or `preview`) the build fails
-   closed if neither anchor is readable or if either anchor disagrees with the working manifest; off
-   a protected build, an unreadable anchor is a loud warning, not a failure. `dist/issues/lock.json`
-   (written by `scripts/generate-feed.ts` as a verbatim copy of the source manifest, checked by
-   `verify:dist`) is what makes the network anchor answerable in the first place.
+   reviewed commit. Append-only history is checked against two independent anchors, each validated
+   on its own terms rather than merged into the working manifest's own self-comparison. The
+   git-parent anchor is available only when `HEAD` has at least one parent and at least one of those
+   parents' lock manifests can be read (a depth-1/shallow clone has zero parents and is therefore
+   unavailable, not empty-but-trusted); every readable parent's manifest is validated separately —
+   never merged into one object — so one parent can never shadow another's conflicting hash for the
+   same id. The network anchor is available only on an HTTP 200 (fetched with `redirect: 'manual'`,
+   so a 3xx is treated as unavailable rather than followed) whose body is a plain JSON object with
+   keys matching `^\d{4}-w\d{2}$` and lowercase-64-hex values; a 404, any other status, a redirect, or
+   a malformed body is unavailable, with the reason printed, and `SMP_LOCK_BASE_URL=none` also counts
+   as unavailable. If at least one anchor is available, every available anchor is enforced and the
+   build passes only if all of them agree with the working manifest; a network failure never fails
+   the build when the git-parent anchor is available. If neither anchor is available, the build fails
+   on a protected build (`VERCEL_GIT_COMMIT_REF` of `main` or `preview`) and otherwise prints one
+   loud warning and passes. The PASS line names each anchor and its state (git: N parents read /
+   unavailable; network: 200 + N entries / 404 / skipped / error). `dist/issues/lock.json` (written by
+   `scripts/generate-feed.ts` as a verbatim copy of the source manifest, checked by `verify:dist`) is
+   what makes the network anchor answerable in the first place.
 9. Every `PostureDelta` in a published issue agrees with `securityDomains` (the domain's posture is
    `to`) and with `editions` (a record dated on or after `published` carries `to` for that domain).
 10. Render check: `renderToStaticMarkup` of the issue view for the newest issue; each lane heading's
@@ -261,16 +269,23 @@ check is proven by perturbation before it counts.
     and the signature line text matches the data.
 11. (`verify:dist`) Every issue's permalink and JSON copy, `issues/index.html`,
     `issues/index.json`, `feed.xml`, `sitemap.xml` and `issues/lock.json` exist in `dist`; each
-    issue's JSON copy and each `issues/index.json` row deep-equal the source data, not merely exist;
-    `feed.xml` parses as XML with one `<item>` per published issue, each `<item>`'s `guid` mapped to
-    its issue and its `pubDate` equal to that issue's `published` date in RFC 822, and a nested or
-    unbalanced `<item>` tag fails the build; the sitemap lists every route; `dist/issues/lock.json`
-    equals the source lock manifest exactly; every non-front route's `description`, `og:description`
-    and `twitter:description` meta content equals that route's expected text and differs from the
+    issue's JSON copy (both the `issue` object and its full `evidence` array, body-for-body in the
+    order the writer emits, not just the id set) and each `issues/index.json` row deep-equal the
+    source data, not merely exist; `feed.xml` is parsed by a hand-written well-formedness XML
+    tokeniser (open-tag stack, every open tag must close in order, no XML-parsing package) rather
+    than a regex scan, with `<item>` elements found by walking the parsed tree; one `<item>` per
+    published issue, each `<item>`'s `guid` mapped to its issue and its `pubDate` equal to that
+    issue's `published` date in RFC 822, and a nested or unbalanced tag fails the build; the sitemap
+    lists every route; `dist/issues/lock.json` equals the source lock manifest exactly; every
+    non-front route's `description`, `og:description` and `twitter:description` meta content equals
+    that route's expected text and differs from the
     front page's.
 12. Every numeric token in an item's `headline` and `why` (integers, decimals, percentages, currency
-    amounts with M or B suffixes, normalised for separators) appears in at least one cited evidence
-    record's `excerpt`. A figure the page states that no cited excerpt states fails the build.
+    amounts with M, B, or K suffixes, normalised for separators) appears in at least one cited
+    evidence record's `excerpt`. A figure the page states that no cited excerpt states fails the
+    build. A digit run glued to a letter — preceded by one ("M12", "FY2027") or followed by one that
+    is not a legitimate M/B/K magnitude suffix ("1Password") — is a name or label, not a stated
+    figure, and is excluded rather than misread as a number.
 
 `scripts/prerender.ts` runs its must-see gate per route with the id lists in §4. `verify-integrity`
 check 5 (unreferenced evidence) counts issue citations as references.
@@ -408,5 +423,23 @@ Accepted and folded in:
 - G10: the vendor lens now treats `?vendors=` with an empty value the same as no `vendors` parameter
   at all — the lens stays inactive rather than showing an empty, seemingly-broken filtered view.
 
-Section 6 below reflects G1's two-anchor append-only design and the `/issues/lock.json` publication
-it depends on.
+A third external review found G1's append-only anchor still failed open in three ways, and G2 and G3
+incomplete. Accepted and folded in:
+
+- H1: the git-parent anchor is now available only when at least one of `HEAD`'s parents has a
+  readable lock manifest (a shallow clone's zero parents no longer read as an empty-but-available
+  anchor), every readable parent is validated separately rather than merged into one object, and the
+  network anchor requires an HTTP 200 with a validated body (a plain object, canonical issue-id keys,
+  lowercase-64-hex values) fetched with `redirect: 'manual'` so a redirect counts as unavailable
+  rather than being silently followed; a network failure no longer fails the build when the
+  git-parent anchor is available.
+- H2: the numeric-token check's tokenizer now also rejects a digit run immediately followed by a
+  letter that is not a legitimate M/B/K magnitude suffix, so a name like "1Password" is excluded the
+  same way "M12" already was.
+- H3: `verify:dist` now deep-compares each issue's full evidence array (not just its id set) against
+  the source evidence records in the writer's own order, and `feed.xml` is parsed by a hand-written
+  well-formedness XML tokeniser with an explicit open-tag stack instead of a narrow `<item>` boundary
+  scan, with `<item>` elements extracted from the parsed tree.
+
+Section 6 below reflects G1/H1's two-anchor append-only design and the `/issues/lock.json`
+publication it depends on.
