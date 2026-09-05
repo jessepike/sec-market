@@ -91,9 +91,11 @@ function LandscapeSection() {
             key={domain.id}
             className={'domain-card domain-card--' + domain.tag.toLowerCase()}
           >
-            <p className="domain-card__label">{domain.name}</p>
             <div className="domain-card__top">
-              <h2>{domain.why}</h2>
+              <h2>
+                <span className="domain-card__label">{domain.name}</span>
+                {domain.why}
+              </h2>
               <DirectionGlyph tag={domain.tag} momentum={domain.momentum} />
               <span className={'chip chip--' + domain.tag.toLowerCase()}>{domain.tag}</span>
             </div>
