@@ -232,7 +232,7 @@ describe('dist pipeline (real writers + real checks, fixture data)', () => {
     writeLockManifestCopy(tmpDir, lockSourcePath)
 
     const results = [
-      checkEveryIssueJsonExists(tmpDir, fixtureIssues),
+      checkEveryIssueJsonExists(tmpDir, fixtureIssues, evidenceById),
       checkIssuesIndexJsonExists(tmpDir, fixtureIssues),
       checkFeedXmlExistsAndParses(tmpDir, fixtureIssues),
       checkLockJsonMatchesSource(tmpDir, lockSourcePath),
@@ -249,12 +249,30 @@ describe('dist pipeline (real writers + real checks, fixture data)', () => {
     perturbed.issue.read = 'Perturbed for the test — this must not deep-equal the source issue.'
     writeFileSync(path, JSON.stringify(perturbed, null, 2))
 
-    const failed = checkEveryIssueJsonExists(tmpDir, fixtureIssues)
+    const failed = checkEveryIssueJsonExists(tmpDir, fixtureIssues, evidenceById)
     assert.equal(failed.pass, false)
     assert.match(failed.detail ?? '', /does not deep-equal the source issue/)
 
     writeFileSync(path, original)
-    const restored = checkEveryIssueJsonExists(tmpDir, fixtureIssues)
+    const restored = checkEveryIssueJsonExists(tmpDir, fixtureIssues, evidenceById)
+    assert.equal(restored.pass, true, `expected 11b to pass after restoring: ${restored.detail}`)
+  })
+
+  it('perturbation: an evidence body that disagrees with the source evidence record fails 11b, and restoring it passes again', () => {
+    const path = join(tmpDir, 'issues', '2026-w10.json')
+    const original = readFileSync(path, 'utf8')
+    const perturbed = JSON.parse(original)
+    // The issue object itself is untouched — only the evidence body diverges,
+    // proving 11b now checks evidence content, not just the id set.
+    perturbed.evidence[0].excerpt = 'Perturbed excerpt — this must not deep-equal the source evidence record.'
+    writeFileSync(path, JSON.stringify(perturbed, null, 2))
+
+    const failed = checkEveryIssueJsonExists(tmpDir, fixtureIssues, evidenceById)
+    assert.equal(failed.pass, false)
+    assert.match(failed.detail ?? '', /"evidence" does not deep-equal the source evidence records/)
+
+    writeFileSync(path, original)
+    const restored = checkEveryIssueJsonExists(tmpDir, fixtureIssues, evidenceById)
     assert.equal(restored.pass, true, `expected 11b to pass after restoring: ${restored.detail}`)
   })
 
@@ -302,7 +320,43 @@ describe('dist pipeline (real writers + real checks, fixture data)', () => {
 
     const failed = checkFeedXmlExistsAndParses(tmpDir, fixtureIssues)
     assert.equal(failed.pass, false)
+    // Duplicating only the opening tag also unbalances the whole document —
+    // the real XML parser catches that as a mismatched closing tag before a
+    // tree walk ever gets a chance to see two <item> elements nested inside
+    // one another.
+    assert.match(failed.detail ?? '', /not well-formed/)
+
+    writeFileSync(path, original)
+    const restored = checkFeedXmlExistsAndParses(tmpDir, fixtureIssues)
+    assert.equal(restored.pass, true, `expected 11d to pass after restoring: ${restored.detail}`)
+  })
+
+  it('perturbation: a well-formed but genuinely nested <item> (balanced open/close) is rejected as nested, and restoring it passes again', () => {
+    const path = join(tmpDir, 'feed.xml')
+    const original = readFileSync(path, 'utf8')
+    const nested = original.replace('</item>', '<item><guid>x</guid><pubDate>x</pubDate></item></item>')
+    assert.notEqual(nested, original, 'the test fixture setup did not find an </item> to nest inside')
+    writeFileSync(path, nested)
+
+    const failed = checkFeedXmlExistsAndParses(tmpDir, fixtureIssues)
+    assert.equal(failed.pass, false)
     assert.match(failed.detail ?? '', /nested <item>/)
+
+    writeFileSync(path, original)
+    const restored = checkFeedXmlExistsAndParses(tmpDir, fixtureIssues)
+    assert.equal(restored.pass, true, `expected 11d to pass after restoring: ${restored.detail}`)
+  })
+
+  it('perturbation: an unbalanced (unclosed) tag in feed.xml is rejected, and restoring it passes again', () => {
+    const path = join(tmpDir, 'feed.xml')
+    const original = readFileSync(path, 'utf8')
+    const unbalanced = original.replace('</channel>', '')
+    assert.notEqual(unbalanced, original, 'the test fixture setup did not find a </channel> to remove')
+    writeFileSync(path, unbalanced)
+
+    const failed = checkFeedXmlExistsAndParses(tmpDir, fixtureIssues)
+    assert.equal(failed.pass, false)
+    assert.match(failed.detail ?? '', /not well-formed/)
 
     writeFileSync(path, original)
     const restored = checkFeedXmlExistsAndParses(tmpDir, fixtureIssues)

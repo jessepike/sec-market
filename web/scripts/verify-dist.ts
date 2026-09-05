@@ -16,6 +16,7 @@ import assert from 'node:assert/strict'
 import { existsSync, readFileSync } from 'node:fs'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
+import { evidenceById } from '../src/data/evidence.ts'
 import {
   archiveEntriesNewestFirst,
   feedIssuesNewestFirst,
@@ -25,7 +26,7 @@ import {
 import { issues } from '../src/data/issues/index.ts'
 import { SITE_URL } from '../src/data/meta.ts'
 import { routesFor } from '../src/data/routes.ts'
-import type { Issue } from '../src/data/types.ts'
+import type { EvidenceRecord, Issue } from '../src/data/types.ts'
 
 const webRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const SOURCE_LOCK_PATH = resolve(webRoot, 'src/data/issues/issues.lock.json')
@@ -67,7 +68,11 @@ export function checkEveryRouteHtmlExists(distDir: string, issuesList: Issue[]):
 
 // --- 11b: every issue JSON copy exists, is well-formed, and identity-checked
 
-export function checkEveryIssueJsonExists(distDir: string, issuesList: Issue[]): CheckResult {
+export function checkEveryIssueJsonExists(
+  distDir: string,
+  issuesList: Issue[],
+  evidenceByIdMap: Record<string, EvidenceRecord>,
+): CheckResult {
   return runCheck('11b every-issue-json-exists', () => {
     for (const issue of issuesList) {
       const path = resolve(distDir, 'issues', `${issue.id}.json`)
@@ -97,20 +102,30 @@ export function checkEveryIssueJsonExists(distDir: string, issuesList: Issue[]):
           }`,
         )
       }
-      const expectedEvidenceIds = new Set(issueEvidenceIds(issue))
-      const actualEvidenceIds = new Set(
-        (parsed.evidence as Array<{ id: string }>).map((record) => record.id),
-      )
-      const missing = [...expectedEvidenceIds].filter((id) => !actualEvidenceIds.has(id))
-      const extra = [...actualEvidenceIds].filter((id) => !expectedEvidenceIds.has(id))
-      if (missing.length > 0 || extra.length > 0) {
+      // Full evidence-body identity, in the same order the writer emits
+      // (issueEvidenceIds' order via evidenceByIdMap), round-tripped through
+      // JSON — not just an id-set comparison, which could pass while an
+      // evidence record's excerpt, receipt, or any other field silently
+      // diverged from the source that produced it.
+      const expectedEvidence = issueEvidenceIds(issue).map((id) => {
+        const record = evidenceByIdMap[id]
+        if (!record) {
+          throw new Error(`issue "${issue.id}" cites evidence id "${id}" which does not resolve`)
+        }
+        return record
+      })
+      const expectedEvidenceRoundTripped = JSON.parse(JSON.stringify(expectedEvidence))
+      try {
+        assert.deepStrictEqual(parsed.evidence, expectedEvidenceRoundTripped)
+      } catch (error) {
         throw new Error(
-          `dist/issues/${issue.id}.json evidence ids do not equal the issue's cited ids — ` +
-            `missing: [${missing.join(', ')}], extra: [${extra.join(', ')}]`,
+          `dist/issues/${issue.id}.json "evidence" does not deep-equal the source evidence records in the expected order: ${
+            error instanceof Error ? error.message : String(error)
+          }`,
         )
       }
     }
-    return `${issuesList.length} issue JSON file(s) present, well-formed, and identity-checked`
+    return `${issuesList.length} issue JSON file(s) present, well-formed, and identity-checked (issue + full evidence bodies)`
   })
 }
 
@@ -157,52 +172,201 @@ interface FeedItem {
   pubDate: string
 }
 
+type XmlNode =
+  | { type: 'element'; name: string; children: XmlNode[] }
+  | { type: 'text'; value: string }
+
+function isNameStartChar(ch: string): boolean {
+  return /[A-Za-z_:]/.test(ch)
+}
+
+function isNameChar(ch: string): boolean {
+  return /[A-Za-z0-9_:.-]/.test(ch)
+}
+
 /**
- * A deliberately narrow, tolerant RSS item extractor — not a general XML
- * parser. No XML-parsing package is present in node_modules, and
- * generate-feed.ts's own output has a fixed, simple shape with no CDATA
- * inside <item>, so a boundary-tracking scan is enough to check what this
- * gate needs. Unlike a naive `<item>[\s\S]*?<\/item>` regex — which silently
- * truncates at the FIRST `</item>` it finds, mis-extracting a block that
- * contains a nested `<item>` — this tracks open/close depth explicitly and
- * throws on a nested `<item>` or an unbalanced tag, rather than returning a
- * quietly-wrong block.
+ * A small hand-written well-formedness XML tokeniser/parser — no package
+ * dependency (none is present in node_modules), and generate-feed.ts's own
+ * output has a fixed, simple shape (no CDATA, no DTD, no namespaces), so
+ * this is enough for what this gate needs. It tokenises tags one at a time,
+ * maintains an explicit open-tag stack, and requires every open tag to
+ * close in order — a mismatched close, an unmatched close, an unterminated
+ * tag, or an unescaped "<" found inside a tag or loose in text content
+ * throws rather than silently truncating or ignoring the problem. Unlike a
+ * regex-based item scanner, `<item>` blocks are found by walking the parsed
+ * tree afterward, not by pattern-matching the raw text.
  */
-function extractFeedItems(xml: string): FeedItem[] {
-  const tagPattern = /<(\/?)item>/g
-  const blocks: string[] = []
-  let depth = 0
-  let blockStart = -1
-  let match: RegExpExecArray | null
-  while ((match = tagPattern.exec(xml)) !== null) {
-    const closing = match[1] === '/'
-    if (!closing) {
-      depth++
-      if (depth > 1) {
-        throw new Error(`dist/feed.xml has a nested <item> at character ${match.index} — not well-formed`)
+function parseXmlDocument(xml: string): XmlNode[] {
+  const len = xml.length
+  let pos = 0
+
+  interface Frame {
+    name: string
+    children: XmlNode[]
+  }
+  const stack: Frame[] = []
+  const root: XmlNode[] = []
+
+  function currentChildren(): XmlNode[] {
+    return stack.length > 0 ? stack[stack.length - 1].children : root
+  }
+
+  function readTagName(start: number): { name: string; end: number } {
+    if (start >= len || !isNameStartChar(xml[start])) {
+      throw new Error(`dist/feed.xml: expected a tag name at character ${start} — not well-formed`)
+    }
+    let i = start
+    while (i < len && isNameChar(xml[i])) i++
+    return { name: xml.slice(start, i), end: i }
+  }
+
+  /**
+   * Scans from just after the tag name to the closing '>', rejecting a bare
+   * unescaped '<' inside the tag and an unterminated tag; quoted attribute
+   * values are skipped whole so a '<' or '>' inside one does not confuse the
+   * scan. Returns whether the tag was self-closing ("/>").
+   */
+  function readTagRest(start: number): { end: number; selfClosing: boolean } {
+    let i = start
+    let quote: string | null = null
+    while (i < len) {
+      const ch = xml[i]
+      if (quote) {
+        if (ch === quote) quote = null
+        i++
+        continue
       }
-      blockStart = match.index
+      if (ch === '"' || ch === "'") {
+        quote = ch
+        i++
+        continue
+      }
+      if (ch === '<') {
+        throw new Error(`dist/feed.xml: unescaped "<" inside a tag at character ${i} — not well-formed`)
+      }
+      if (ch === '>') {
+        const selfClosing = i > start && xml[i - 1] === '/'
+        return { end: i + 1, selfClosing }
+      }
+      i++
+    }
+    throw new Error(`dist/feed.xml: unterminated tag starting at character ${start} — not well-formed`)
+  }
+
+  while (pos < len) {
+    const lt = xml.indexOf('<', pos)
+    if (lt === -1) {
+      const text = xml.slice(pos)
+      if (text.trim() !== '') currentChildren().push({ type: 'text', value: text })
+      break
+    }
+    if (lt > pos) {
+      currentChildren().push({ type: 'text', value: xml.slice(pos, lt) })
+    }
+
+    if (xml.startsWith('<?', lt)) {
+      const end = xml.indexOf('?>', lt)
+      if (end === -1) {
+        throw new Error(`dist/feed.xml: unterminated "<?...?>" declaration at character ${lt} — not well-formed`)
+      }
+      pos = end + 2
+      continue
+    }
+    if (xml.startsWith('<!--', lt)) {
+      const end = xml.indexOf('-->', lt)
+      if (end === -1) {
+        throw new Error(`dist/feed.xml: unterminated comment at character ${lt} — not well-formed`)
+      }
+      pos = end + 3
+      continue
+    }
+    if (xml[lt + 1] === '/') {
+      const { name, end: nameEnd } = readTagName(lt + 2)
+      let i = nameEnd
+      while (i < len && /\s/.test(xml[i])) i++
+      if (xml[i] !== '>') {
+        throw new Error(`dist/feed.xml: malformed closing tag "</${name}" at character ${lt} — not well-formed`)
+      }
+      pos = i + 1
+      if (stack.length === 0) {
+        throw new Error(`dist/feed.xml: unmatched closing tag "</${name}>" at character ${lt} — not well-formed`)
+      }
+      const top = stack.pop()!
+      if (top.name !== name) {
+        throw new Error(
+          `dist/feed.xml: closing tag "</${name}>" at character ${lt} does not match open tag "<${top.name}>" — not well-formed`,
+        )
+      }
+      currentChildren().push({ type: 'element', name: top.name, children: top.children })
+      continue
+    }
+
+    // Opening (or self-closing) tag.
+    const { name, end: nameEnd } = readTagName(lt + 1)
+    const { end, selfClosing } = readTagRest(nameEnd)
+    pos = end
+    if (selfClosing) {
+      currentChildren().push({ type: 'element', name, children: [] })
     } else {
-      depth--
-      if (depth < 0) {
-        throw new Error(`dist/feed.xml has an unmatched </item> at character ${match.index} — not well-formed`)
-      }
-      blocks.push(xml.slice(blockStart, match.index + '</item>'.length))
+      stack.push({ name, children: [] })
     }
   }
-  if (depth !== 0) {
-    throw new Error(`dist/feed.xml has ${depth} unclosed <item> tag(s) — not well-formed`)
+
+  if (stack.length > 0) {
+    throw new Error(
+      `dist/feed.xml has ${stack.length} unclosed tag(s), innermost "<${stack[stack.length - 1].name}>" — not well-formed`,
+    )
   }
-  return blocks.map((block, index) => {
-    const guidMatch = block.match(/<guid[^>]*>([^<]*)<\/guid>/)
-    const pubDateMatch = block.match(/<pubDate>([^<]*)<\/pubDate>/)
-    if (!guidMatch) {
+
+  return root
+}
+
+/**
+ * Depth-first walk collecting every element named `name`, wherever it is
+ * nested in the tree, in document order — throwing if one such element is
+ * itself nested inside another of the same name (RSS's `<item>` is never
+ * meant to nest).
+ */
+function collectElements(nodes: XmlNode[], name: string, insideSameName = false): XmlNode[] {
+  const found: XmlNode[] = []
+  for (const node of nodes) {
+    if (node.type !== 'element') continue
+    const isMatch = node.name === name
+    if (isMatch && insideSameName) {
+      throw new Error(`dist/feed.xml has a nested <${name}> — not well-formed`)
+    }
+    if (isMatch) found.push(node)
+    found.push(...collectElements(node.children, name, insideSameName || isMatch))
+  }
+  return found
+}
+
+function elementText(node: XmlNode): string {
+  if (node.type !== 'element') return ''
+  return node.children
+    .filter((child): child is Extract<XmlNode, { type: 'text' }> => child.type === 'text')
+    .map((child) => child.value)
+    .join('')
+}
+
+function childElement(node: XmlNode, name: string): XmlNode | undefined {
+  if (node.type !== 'element') return undefined
+  return node.children.find((child): child is Extract<XmlNode, { type: 'element' }> => child.type === 'element' && child.name === name)
+}
+
+function extractFeedItems(xml: string): FeedItem[] {
+  const tree = parseXmlDocument(xml)
+  const itemElements = collectElements(tree, 'item')
+  return itemElements.map((item, index) => {
+    const guidEl = childElement(item, 'guid')
+    const pubDateEl = childElement(item, 'pubDate')
+    if (!guidEl) {
       throw new Error(`dist/feed.xml <item> block ${index} has no <guid>`)
     }
-    if (!pubDateMatch) {
+    if (!pubDateEl) {
       throw new Error(`dist/feed.xml <item> block ${index} has no <pubDate>`)
     }
-    return { guid: guidMatch[1], pubDate: pubDateMatch[1] }
+    return { guid: elementText(guidEl).trim(), pubDate: elementText(pubDateEl).trim() }
   })
 }
 
@@ -430,7 +594,7 @@ if (isMainModule()) {
     const distDir = resolve(webRoot, 'dist')
     const results = [
       checkEveryRouteHtmlExists(distDir, issues),
-      checkEveryIssueJsonExists(distDir, issues),
+      checkEveryIssueJsonExists(distDir, issues, evidenceById),
       checkIssuesIndexJsonExists(distDir, issues),
       checkFeedXmlExistsAndParses(distDir, issues),
       checkSitemapXmlListsEveryRoute(distDir, issues),
