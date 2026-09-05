@@ -103,20 +103,24 @@ export function vendorSlug(name: string): string {
 /**
  * Parses the `vendors` query parameter (SEC-031, the vendor lens) out of a
  * `location.search` string, e.g. `"?vendors=crowdstrike,zscaler"`. Returns
- * `null` when the parameter is absent — the lens is inactive and the caller
- * must render unfiltered. Returns an array (possibly empty, when the
- * parameter is present but empty or holds only blank entries) otherwise;
- * an unrecognised slug in that array is not an error, it just matches
- * nothing. Round-trips with `serializeVendorsParam`.
+ * `null` when the parameter is absent, empty, or names no real slug (just
+ * commas/whitespace) — the lens is inactive and the caller must render
+ * unfiltered. This makes a cleared lens (which drops the parameter, see
+ * `serializeVendorsParam`) and a bare `?vendors=` render identically, rather
+ * than the latter reading as "filtered, matching nothing." Otherwise returns
+ * the non-empty array of trimmed slugs; an unrecognised slug in that array is
+ * not an error, it just matches nothing. Round-trips with
+ * `serializeVendorsParam`.
  */
 export function parseVendorsParam(search: string): string[] | null {
   const params = new URLSearchParams(search)
   if (!params.has('vendors')) return null
   const raw = params.get('vendors') ?? ''
-  return raw
+  const slugs = raw
     .split(',')
     .map((slug) => slug.trim())
     .filter((slug) => slug.length > 0)
+  return slugs.length === 0 ? null : slugs
 }
 
 /**

@@ -187,8 +187,13 @@ describe('parseVendorsParam / serializeVendorsParam', () => {
     assert.deepEqual(parseVendorsParam('?vendors=crowdstrike,,zscaler'), ['crowdstrike', 'zscaler'])
   })
 
-  it('returns an empty array (not null) for a present but empty parameter', () => {
-    assert.deepEqual(parseVendorsParam('?vendors='), [])
+  it('returns null (same as absent) for a present but empty parameter — a cleared lens and a bare "?vendors=" render identically', () => {
+    assert.equal(parseVendorsParam('?vendors='), null)
+  })
+
+  it('returns null for a parameter holding only commas/whitespace, since it names no real slug', () => {
+    assert.equal(parseVendorsParam('?vendors=,,,'), null)
+    assert.equal(parseVendorsParam('?vendors=  ,  '), null)
   })
 
   it('preserves an unrecognised slug rather than erroring', () => {
