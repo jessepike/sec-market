@@ -55,31 +55,42 @@ function isProtectedBuild(): boolean {
   return ref === 'main' || ref === 'preview'
 }
 
-interface GitAnchorResult {
-  /** False only when git itself could not be queried (no HEAD at all). A
-   * HEAD with zero parents, or a parent with no lock file yet, is a
-   * legitimately empty — but available — anchor. */
-  available: boolean
+interface ParentManifest {
+  sha: string
   manifest: LockManifest
-  sources: string[]
+}
+
+interface GitAnchorResult {
+  /**
+   * True only when HEAD has at least one parent AND at least one of those
+   * parents' lock manifest could actually be read. A depth-1 (shallow)
+   * clone has zero parents (`git rev-parse HEAD^@` succeeds with empty
+   * output) and is therefore unavailable, not "empty but available" — a
+   * production build may legitimately lack a preview-only issue, so an
+   * empty git anchor must never be treated as silent proof of append-only
+   * history.
+   */
+  available: boolean
+  /** Total parent count from `git rev-parse HEAD^@` (0 for a shallow clone). */
+  parentCount: number
+  /** Only the parents whose lock manifest was actually read, each kept
+   * separate — never merged into one object, so one parent's entries can
+   * never be shadowed by another's. */
+  readableParents: ParentManifest[]
 }
 
 /**
- * Reads the lock manifest from every parent of HEAD, plus `origin/preview`
- * when that ref does NOT resolve to HEAD itself. This replaces trusting
- * `origin/preview` first: on a build of `preview` itself, `origin/preview`
- * IS `HEAD`, so comparing the manifest against it compared the manifest with
- * itself and a rewrite of history plus its hash together sailed through.
- * HEAD's parent(s) are a real prior state, not the commit under test, so
- * they anchor "append-only" against something other than the working tree.
- * A shallow (depth-1) clone legitimately has no parent to read — `git
- * rev-parse HEAD^@` then succeeds with zero output — which is why this alone
- * is not the only anchor; see readNetworkAnchor below.
+ * Reads the lock manifest from every parent of HEAD, keeping each parent's
+ * manifest separate (never `Object.assign`ed together — a merge would let
+ * one parent silently overwrite another's conflicting hash for the same
+ * id). HEAD's parent(s) are a real prior state, not the commit under test,
+ * so they anchor "append-only" against something other than the working
+ * tree itself. A shallow (depth-1) clone legitimately has no parent to
+ * read — `git rev-parse HEAD^@` then succeeds with zero output — which
+ * makes the git anchor unavailable outright; see readNetworkAnchor below
+ * for the second, independent anchor that covers that case.
  */
 function readGitParentAnchor(): GitAnchorResult {
-  const manifest: LockManifest = {}
-  const sources: string[] = []
-
   let parents: string[]
   try {
     const raw = execFileSync('git', ['rev-parse', 'HEAD^@'], {
@@ -90,53 +101,28 @@ function readGitParentAnchor(): GitAnchorResult {
       .trim()
     parents = raw === '' ? [] : raw.split('\n')
   } catch {
-    return { available: false, manifest, sources }
+    return { available: false, parentCount: 0, readableParents: [] }
   }
 
-  function mergeFrom(ref: string, label: string): void {
+  const readableParents: ParentManifest[] = []
+  for (const sha of parents) {
     try {
-      const raw = execFileSync('git', ['show', `${ref}:${LOCK_PATH_IN_REPO}`], {
+      const raw = execFileSync('git', ['show', `${sha}:${LOCK_PATH_IN_REPO}`], {
         cwd: WEB_ROOT,
         stdio: ['ignore', 'pipe', 'ignore'],
       })
         .toString('utf8')
         .trim()
-      const parsed: LockManifest = raw === '' ? {} : JSON.parse(raw)
-      Object.assign(manifest, parsed)
-      sources.push(label)
+      const manifest: LockManifest = raw === '' ? {} : JSON.parse(raw)
+      readableParents.push({ sha, manifest })
     } catch {
-      // No lock file at that ref yet (or the ref itself does not resolve) —
-      // contributes nothing. Not a failure: an early commit legitimately
-      // predates the lock file.
+      // No lock file at that ref yet (an early commit predating the lock
+      // file), or the ref itself does not resolve — this parent contributes
+      // nothing and is not counted as readable.
     }
   }
 
-  for (const parentSha of parents) {
-    mergeFrom(parentSha, `parent ${parentSha.slice(0, 8)}`)
-  }
-
-  try {
-    const headSha = execFileSync('git', ['rev-parse', 'HEAD'], {
-      cwd: WEB_ROOT,
-      stdio: ['ignore', 'pipe', 'ignore'],
-    })
-      .toString('utf8')
-      .trim()
-    const previewSha = execFileSync('git', ['rev-parse', 'origin/preview'], {
-      cwd: WEB_ROOT,
-      stdio: ['ignore', 'pipe', 'ignore'],
-    })
-      .toString('utf8')
-      .trim()
-    if (previewSha !== '' && previewSha !== headSha) {
-      mergeFrom('origin/preview', 'origin/preview')
-    }
-  } catch {
-    // origin/preview does not resolve (no remote, shallow clone) — fine, the
-    // parent anchor above still stands.
-  }
-
-  return { available: true, manifest, sources }
+  return { available: readableParents.length > 0, parentCount: parents.length, readableParents }
 }
 
 type NetworkAnchorStatus = 'ok' | 'not-found' | 'error' | 'skipped'
@@ -150,14 +136,41 @@ interface NetworkAnchorResult {
 
 const DEFAULT_LOCK_URL = 'https://securitymarketpulse.com/issues/lock.json'
 const NETWORK_ANCHOR_TIMEOUT_MS = 10_000
+const ISSUE_ID_PATTERN = /^\d{4}-w\d{2}$/
+const HEX64_LOWER_PATTERN = /^[0-9a-f]{64}$/
+
+/**
+ * Validates the shape of a parsed network-anchor body: a plain JSON object
+ * (not an array, not null) whose keys all match the issue id pattern and
+ * whose values are all lowercase 64-hex sha256 strings. Anything else is not
+ * a manifest this build can trust as an anchor.
+ */
+function validateLockManifestShape(value: unknown): { ok: true } | { ok: false; reason: string } {
+  if (typeof value !== 'object' || value === null || Array.isArray(value)) {
+    return { ok: false, reason: 'response body is not a plain JSON object' }
+  }
+  for (const [key, val] of Object.entries(value as Record<string, unknown>)) {
+    if (!ISSUE_ID_PATTERN.test(key)) {
+      return { ok: false, reason: `key "${key}" does not match ^\\d{4}-w\\d{2}$` }
+    }
+    if (typeof val !== 'string' || !HEX64_LOWER_PATTERN.test(val)) {
+      return { ok: false, reason: `value for "${key}" is not a lowercase 64-hex string` }
+    }
+  }
+  return { ok: true }
+}
 
 /**
  * Fetches the live production manifest at `dist/issues/lock.json` (see
  * generate-feed.ts and verify-dist.ts, which publish and check it) as the
  * second append-only anchor — one that survives even a shallow clone with no
- * git history at all. `SMP_LOCK_BASE_URL` overrides the URL; the literal
- * value `"none"` skips the fetch entirely, for offline local runs and this
- * script's own perturbation tests.
+ * git history at all. Only an HTTP 200 whose body validates as a plain
+ * manifest object counts as available: a redirect (fetched with
+ * `redirect: 'manual'` so a 3xx is observed rather than silently followed),
+ * a non-200/404 status, or a malformed body is treated as unavailable, with
+ * the reason recorded in `detail`. `SMP_LOCK_BASE_URL` overrides the URL;
+ * the literal value `"none"` skips the fetch entirely, for offline local
+ * runs and this script's own perturbation tests.
  */
 async function readNetworkAnchor(): Promise<NetworkAnchorResult> {
   const override = process.env.SMP_LOCK_BASE_URL
@@ -169,16 +182,33 @@ async function readNetworkAnchor(): Promise<NetworkAnchorResult> {
   const controller = new AbortController()
   const timeout = setTimeout(() => controller.abort(), NETWORK_ANCHOR_TIMEOUT_MS)
   try {
-    const response = await fetch(url, { signal: controller.signal })
+    const response = await fetch(url, { signal: controller.signal, redirect: 'manual' })
+    if (response.type === 'opaqueredirect' || (response.status >= 300 && response.status < 400)) {
+      return {
+        status: 'error',
+        manifest: {},
+        detail: `redirect (HTTP ${response.status || 'opaque'}) — treated as unavailable`,
+        url,
+      }
+    }
     if (response.status === 404) {
       return { status: 'not-found', manifest: {}, detail: '404 Not Found', url }
     }
-    if (!response.ok) {
+    if (response.status !== 200) {
       return { status: 'error', manifest: {}, detail: `HTTP ${response.status}`, url }
     }
     const text = (await response.text()).trim()
-    const manifest: LockManifest = text === '' ? {} : JSON.parse(text)
-    return { status: 'ok', manifest, detail: `HTTP ${response.status}`, url }
+    let parsed: unknown
+    try {
+      parsed = text === '' ? {} : JSON.parse(text)
+    } catch {
+      return { status: 'error', manifest: {}, detail: 'response body is not valid JSON', url }
+    }
+    const shape = validateLockManifestShape(parsed)
+    if (!shape.ok) {
+      return { status: 'error', manifest: {}, detail: `malformed manifest body — ${shape.reason}`, url }
+    }
+    return { status: 'ok', manifest: parsed as LockManifest, detail: 'HTTP 200', url }
   } catch (error) {
     const detail = error instanceof Error ? error.message : String(error)
     return { status: 'error', manifest: {}, detail, url }
@@ -198,9 +228,14 @@ async function computeAppendOnlyAnchors(): Promise<AppendOnlyAnchors> {
 
 /**
  * Checks a working manifest's append-only property against both anchors.
- * Returns violation messages (empty = passes), informational lines to log
- * regardless of pass/fail, and a one-line summary of which anchors were used
- * for the PASS line.
+ * An anchor that is unavailable contributes no entries and no violations —
+ * it is simply absent from enforcement. If at least one anchor is
+ * available, every available anchor is enforced and the check passes only
+ * if all of them agree with the working manifest. If neither anchor is
+ * available, the build fails on a protected branch (main/preview) and
+ * otherwise prints one loud warning and passes. Returns violation messages
+ * (empty = passes), informational lines to log regardless of pass/fail, and
+ * a one-line summary naming each anchor and its state for the PASS line.
  */
 function validateAppendOnly(
   workingManifest: LockManifest,
@@ -209,27 +244,35 @@ function validateAppendOnly(
   const violations: string[] = []
   const infoLines: string[] = []
 
-  const gitEntries = Object.entries(anchors.git.manifest)
-  const gitSourceLabel = anchors.git.sources.length > 0 ? anchors.git.sources.join(', ') : 'no parent manifest'
-  for (const [id, hash] of gitEntries) {
-    if (!(id in workingManifest)) {
-      violations.push(
-        `append-only violation: git-parent anchor (${gitSourceLabel}) has entry "${id}" missing from the working manifest`,
-      )
-    } else if (workingManifest[id] !== hash) {
-      violations.push(
-        `append-only violation: git-parent anchor (${gitSourceLabel}) entry "${id}" has hash ${hash}, working manifest has ${workingManifest[id]}`,
-      )
+  // --- Git-parent anchor: each readable parent validated separately. -------
+  if (anchors.git.available) {
+    for (const parent of anchors.git.readableParents) {
+      const shortSha = parent.sha.slice(0, 8)
+      for (const [id, hash] of Object.entries(parent.manifest)) {
+        if (!(id in workingManifest)) {
+          violations.push(
+            `append-only violation: git parent ${shortSha} has entry "${id}" missing from the working manifest`,
+          )
+        } else if (workingManifest[id] !== hash) {
+          violations.push(
+            `append-only violation: git parent ${shortSha} entry "${id}" has hash ${hash}, working manifest has ${workingManifest[id]}`,
+          )
+        }
+      }
     }
-  }
-  if (!anchors.git.available) {
-    infoLines.push('WARNING — could not resolve HEAD^@ via git; the git-parent anchor was SKIPPED.')
-  } else {
+    const shas = anchors.git.readableParents.map((p) => p.sha.slice(0, 8)).join(', ')
     infoLines.push(
-      `git-parent anchor read (${gitSourceLabel}), ${gitEntries.length} entr${gitEntries.length === 1 ? 'y' : 'ies'}.`,
+      `git-parent anchor: ${anchors.git.readableParents.length} parent manifest(s) read (${shas}).`,
     )
+  } else {
+    const reason =
+      anchors.git.parentCount === 0
+        ? 'HEAD has zero parents (shallow clone)'
+        : `HEAD has ${anchors.git.parentCount} parent(s) but no parent manifest could be read`
+    infoLines.push(`git-parent anchor unavailable: ${reason}.`)
   }
 
+  // --- Network anchor. -------------------------------------------------
   if (anchors.network.status === 'ok') {
     for (const [id, hash] of Object.entries(anchors.network.manifest)) {
       if (!(id in workingManifest)) {
@@ -242,39 +285,45 @@ function validateAppendOnly(
         )
       }
     }
-    infoLines.push(`network anchor OK (${anchors.network.url}), ${Object.keys(anchors.network.manifest).length} entries.`)
-  } else if (anchors.network.status === 'not-found') {
-    infoLines.push(`network anchor ${anchors.network.url} returned 404 — not yet live, treated as empty.`)
+    infoLines.push(
+      `network anchor: HTTP 200, ${Object.keys(anchors.network.manifest).length} entries from ${anchors.network.url}.`,
+    )
   } else if (anchors.network.status === 'skipped') {
-    infoLines.push(`network anchor SKIPPED (${anchors.network.detail}).`)
+    infoLines.push(`network anchor unavailable (skipped): ${anchors.network.detail}.`)
+  } else if (anchors.network.status === 'not-found') {
+    infoLines.push(`network anchor unavailable (404): ${anchors.network.url} — not yet live.`)
   } else {
+    infoLines.push(`network anchor unavailable (error): ${anchors.network.detail}.`)
+  }
+
+  // --- No anchor available at all. --------------------------------------
+  // A network failure never fails the build when a git anchor is available
+  // — this branch only fires when BOTH anchors are unavailable.
+  const anyAvailable = anchors.git.available || anchors.network.status === 'ok'
+  if (!anyAvailable) {
     if (isProtectedBuild()) {
       violations.push(
-        `append-only violation: network anchor fetch failed on a protected build (VERCEL_GIT_COMMIT_REF="${process.env.VERCEL_GIT_COMMIT_REF}") — ${anchors.network.detail}`,
+        `append-only violation: no anchor available — neither the git-parent anchor nor the network anchor could be read, on a protected build (VERCEL_GIT_COMMIT_REF="${process.env.VERCEL_GIT_COMMIT_REF}") — refusing to proceed without a history anchor.`,
       )
     } else {
       infoLines.push(
-        `WARNING — network anchor fetch failed (${anchors.network.detail}); continuing because this is not a protected (main/preview) build.`,
+        'WARNING — no append-only anchor available (neither git-parent nor network); continuing because this is not a protected (main/preview) build.',
       )
     }
   }
 
-  const gitReadable = anchors.git.available
-  const networkReadable = anchors.network.status === 'ok' || anchors.network.status === 'not-found'
-  if (isProtectedBuild() && !gitReadable && !networkReadable) {
-    violations.push(
-      'append-only violation: on a protected build, neither the git-parent manifest nor the network manifest could be read — refusing to proceed without a history anchor.',
-    )
-  }
-
-  const gitSummary = anchors.git.available
-    ? `${gitEntries.length} entr${gitEntries.length === 1 ? 'y' : 'ies'} from ${anchors.git.sources.length > 0 ? anchors.git.sources.join('+') : 'no parent'}`
+  const gitState = anchors.git.available
+    ? `${anchors.git.readableParents.length} parents read`
     : 'unavailable'
-  const networkSummary =
+  const networkState =
     anchors.network.status === 'ok'
-      ? `ok, ${Object.keys(anchors.network.manifest).length} entries from ${anchors.network.url}`
-      : `${anchors.network.status}${anchors.network.url ? ` (${anchors.network.url})` : ''}`
-  const anchorSummary = `git-parent(${gitSummary}), network(${networkSummary})`
+      ? `200 + ${Object.keys(anchors.network.manifest).length} entries`
+      : anchors.network.status === 'not-found'
+        ? '404'
+        : anchors.network.status === 'skipped'
+          ? 'skipped'
+          : 'error'
+  const anchorSummary = `git: ${gitState}; network: ${networkState}`
 
   return { violations, infoLines, anchorSummary }
 }
