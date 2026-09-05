@@ -443,3 +443,14 @@ incomplete. Accepted and folded in:
 
 Section 6 below reflects G1/H1's two-anchor append-only design and the `/issues/lock.json`
 publication it depends on.
+
+### Amendments after the final external review (2026-09-05)
+
+A final external review found one blocker and one should-fix in the two verify scripts themselves.
+Accepted and folded in:
+
+- I1: the network anchor now rejects an HTTP 200 with an empty or whitespace-only body before
+  `JSON.parse` runs, classifying it as `network anchor unavailable (error): empty body` instead of
+  parsing it to `{}` and accepting it as an available zero-entry manifest — closing the depth-1
+  protected-build bypass where a poisoned empty response could stand in for a missing git anchor and
+  let rewritten history pass.

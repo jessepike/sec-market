@@ -167,8 +167,14 @@ function validateLockManifestShape(value: unknown): { ok: true } | { ok: false; 
  * git history at all. Only an HTTP 200 whose body validates as a plain
  * manifest object counts as available: a redirect (fetched with
  * `redirect: 'manual'` so a 3xx is observed rather than silently followed),
- * a non-200/404 status, or a malformed body is treated as unavailable, with
- * the reason recorded in `detail`. `SMP_LOCK_BASE_URL` overrides the URL;
+ * a non-200/404 status, an empty or whitespace-only body, or a malformed body
+ * (including a parsed value that is an array or null, not a plain object) is
+ * treated as unavailable, with the reason recorded in `detail`. An empty body
+ * is rejected before `JSON.parse` runs — `JSON.parse('')` throws, so without
+ * this check a blank HTTP 200 would otherwise need to fall through the parse
+ * `catch` to be caught at all, and the previous behavior of treating '' as
+ * `{}` let an empty response pass as a valid, zero-entry manifest.
+ * `SMP_LOCK_BASE_URL` overrides the URL;
  * the literal value `"none"` skips the fetch entirely, for offline local
  * runs and this script's own perturbation tests.
  */
@@ -198,9 +204,12 @@ async function readNetworkAnchor(): Promise<NetworkAnchorResult> {
       return { status: 'error', manifest: {}, detail: `HTTP ${response.status}`, url }
     }
     const text = (await response.text()).trim()
+    if (text === '') {
+      return { status: 'error', manifest: {}, detail: 'empty body', url }
+    }
     let parsed: unknown
     try {
-      parsed = text === '' ? {} : JSON.parse(text)
+      parsed = JSON.parse(text)
     } catch {
       return { status: 'error', manifest: {}, detail: 'response body is not valid JSON', url }
     }
