@@ -157,10 +157,16 @@ function rewriteHead(html: string, routeEntry: RouteEntry): string {
     `$1${head.description}$2`,
   )
   next = next.replace(/(property="og:title" content=")[^"]*(")/, `$1${head.title}$2`)
-  next = next.replace(/(property="og:description" content=")[^"]*(")/, `$1${head.description}$2`)
+  next = next.replace(
+    /(<meta\b[^>]*?property="og:description"[^>]*?content=")[^"]*(")/,
+    `$1${head.description}$2`,
+  )
   next = next.replace(/(property="og:url" content=")[^"]*(")/, `$1${head.ogUrl}$2`)
   next = next.replace(/(name="twitter:title" content=")[^"]*(")/, `$1${head.title}$2`)
-  next = next.replace(/(name="twitter:description" content=")[^"]*(")/, `$1${head.description}$2`)
+  next = next.replace(
+    /(<meta\b[^>]*?name="twitter:description"[^>]*?content=")[^"]*(")/,
+    `$1${head.description}$2`,
+  )
   return next
 }
 
