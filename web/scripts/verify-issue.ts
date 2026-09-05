@@ -10,7 +10,12 @@ import { evidenceById } from '../src/data/evidence.ts'
 import { formatShortDate } from '../src/data/dates.ts'
 import { securityDomains } from '../src/data/domains.ts'
 import { issues, latestIssue } from '../src/data/issues/index.ts'
-import { isoWeekSunday, issueEvidenceIds, windowOf } from '../src/data/issueHelpers.ts'
+import {
+  extractNumericTokens,
+  isoWeekSunday,
+  issueEvidenceIds,
+  windowOf,
+} from '../src/data/issueHelpers.ts'
 import { AUTHOR_NAME } from '../src/data/meta.ts'
 import type { Issue, Lane } from '../src/data/types.ts'
 import { IssueHero } from '../src/components/IssueHero.tsx'
@@ -44,38 +49,234 @@ function publishedIssuesOf(list: Issue[]): Issue[] {
   return list.filter((issue) => issue.status === 'published')
 }
 
+/** True on a Vercel build of a protected branch — main or preview. */
+function isProtectedBuild(): boolean {
+  const ref = process.env.VERCEL_GIT_COMMIT_REF
+  return ref === 'main' || ref === 'preview'
+}
+
+interface GitAnchorResult {
+  /** False only when git itself could not be queried (no HEAD at all). A
+   * HEAD with zero parents, or a parent with no lock file yet, is a
+   * legitimately empty — but available — anchor. */
+  available: boolean
+  manifest: LockManifest
+  sources: string[]
+}
+
 /**
- * Reads the lock manifest as it existed at a trusted base ref, so check 8 can
- * tell "append-only" from "self-consistent" — a manifest can agree with the
- * issues array that produced it while still having quietly dropped or
- * rewritten an entry relative to history. Tries, in order, the `preview`
- * branch on `origin`, a local `preview` branch, and `HEAD~1`; the first ref
- * `git show` can resolve wins. Returns `manifest: null` (never a thrown
- * error) when none of the three resolve — the expected shape of a shallow CI
- * clone with no matching ref — so the caller can print one loud line and
- * continue rather than fail a build that has no history to compare against.
+ * Reads the lock manifest from every parent of HEAD, plus `origin/preview`
+ * when that ref does NOT resolve to HEAD itself. This replaces trusting
+ * `origin/preview` first: on a build of `preview` itself, `origin/preview`
+ * IS `HEAD`, so comparing the manifest against it compared the manifest with
+ * itself and a rewrite of history plus its hash together sailed through.
+ * HEAD's parent(s) are a real prior state, not the commit under test, so
+ * they anchor "append-only" against something other than the working tree.
+ * A shallow (depth-1) clone legitimately has no parent to read — `git
+ * rev-parse HEAD^@` then succeeds with zero output — which is why this alone
+ * is not the only anchor; see readNetworkAnchor below.
  */
-function readBaseManifest(): { manifest: LockManifest | null; source: string | null } {
-  const candidates = [
-    { ref: `origin/preview:${LOCK_PATH_IN_REPO}`, label: 'origin/preview' },
-    { ref: `preview:${LOCK_PATH_IN_REPO}`, label: 'preview' },
-    { ref: `HEAD~1:${LOCK_PATH_IN_REPO}`, label: 'HEAD~1' },
-  ]
-  for (const candidate of candidates) {
+function readGitParentAnchor(): GitAnchorResult {
+  const manifest: LockManifest = {}
+  const sources: string[] = []
+
+  let parents: string[]
+  try {
+    const raw = execFileSync('git', ['rev-parse', 'HEAD^@'], {
+      cwd: WEB_ROOT,
+      stdio: ['ignore', 'pipe', 'ignore'],
+    })
+      .toString('utf8')
+      .trim()
+    parents = raw === '' ? [] : raw.split('\n')
+  } catch {
+    return { available: false, manifest, sources }
+  }
+
+  function mergeFrom(ref: string, label: string): void {
     try {
-      const raw = execFileSync('git', ['show', candidate.ref], {
+      const raw = execFileSync('git', ['show', `${ref}:${LOCK_PATH_IN_REPO}`], {
         cwd: WEB_ROOT,
         stdio: ['ignore', 'pipe', 'ignore'],
       })
         .toString('utf8')
         .trim()
-      const manifest: LockManifest = raw === '' ? {} : JSON.parse(raw)
-      return { manifest, source: candidate.label }
+      const parsed: LockManifest = raw === '' ? {} : JSON.parse(raw)
+      Object.assign(manifest, parsed)
+      sources.push(label)
     } catch {
-      continue
+      // No lock file at that ref yet (or the ref itself does not resolve) —
+      // contributes nothing. Not a failure: an early commit legitimately
+      // predates the lock file.
     }
   }
-  return { manifest: null, source: null }
+
+  for (const parentSha of parents) {
+    mergeFrom(parentSha, `parent ${parentSha.slice(0, 8)}`)
+  }
+
+  try {
+    const headSha = execFileSync('git', ['rev-parse', 'HEAD'], {
+      cwd: WEB_ROOT,
+      stdio: ['ignore', 'pipe', 'ignore'],
+    })
+      .toString('utf8')
+      .trim()
+    const previewSha = execFileSync('git', ['rev-parse', 'origin/preview'], {
+      cwd: WEB_ROOT,
+      stdio: ['ignore', 'pipe', 'ignore'],
+    })
+      .toString('utf8')
+      .trim()
+    if (previewSha !== '' && previewSha !== headSha) {
+      mergeFrom('origin/preview', 'origin/preview')
+    }
+  } catch {
+    // origin/preview does not resolve (no remote, shallow clone) — fine, the
+    // parent anchor above still stands.
+  }
+
+  return { available: true, manifest, sources }
+}
+
+type NetworkAnchorStatus = 'ok' | 'not-found' | 'error' | 'skipped'
+
+interface NetworkAnchorResult {
+  status: NetworkAnchorStatus
+  manifest: LockManifest
+  detail: string
+  url: string | null
+}
+
+const DEFAULT_LOCK_URL = 'https://securitymarketpulse.com/issues/lock.json'
+const NETWORK_ANCHOR_TIMEOUT_MS = 10_000
+
+/**
+ * Fetches the live production manifest at `dist/issues/lock.json` (see
+ * generate-feed.ts and verify-dist.ts, which publish and check it) as the
+ * second append-only anchor — one that survives even a shallow clone with no
+ * git history at all. `SMP_LOCK_BASE_URL` overrides the URL; the literal
+ * value `"none"` skips the fetch entirely, for offline local runs and this
+ * script's own perturbation tests.
+ */
+async function readNetworkAnchor(): Promise<NetworkAnchorResult> {
+  const override = process.env.SMP_LOCK_BASE_URL
+  if (override === 'none') {
+    return { status: 'skipped', manifest: {}, detail: 'SMP_LOCK_BASE_URL=none', url: null }
+  }
+  const url = override && override.trim() !== '' ? override : DEFAULT_LOCK_URL
+
+  const controller = new AbortController()
+  const timeout = setTimeout(() => controller.abort(), NETWORK_ANCHOR_TIMEOUT_MS)
+  try {
+    const response = await fetch(url, { signal: controller.signal })
+    if (response.status === 404) {
+      return { status: 'not-found', manifest: {}, detail: '404 Not Found', url }
+    }
+    if (!response.ok) {
+      return { status: 'error', manifest: {}, detail: `HTTP ${response.status}`, url }
+    }
+    const text = (await response.text()).trim()
+    const manifest: LockManifest = text === '' ? {} : JSON.parse(text)
+    return { status: 'ok', manifest, detail: `HTTP ${response.status}`, url }
+  } catch (error) {
+    const detail = error instanceof Error ? error.message : String(error)
+    return { status: 'error', manifest: {}, detail, url }
+  } finally {
+    clearTimeout(timeout)
+  }
+}
+
+interface AppendOnlyAnchors {
+  git: GitAnchorResult
+  network: NetworkAnchorResult
+}
+
+async function computeAppendOnlyAnchors(): Promise<AppendOnlyAnchors> {
+  return { git: readGitParentAnchor(), network: await readNetworkAnchor() }
+}
+
+/**
+ * Checks a working manifest's append-only property against both anchors.
+ * Returns violation messages (empty = passes), informational lines to log
+ * regardless of pass/fail, and a one-line summary of which anchors were used
+ * for the PASS line.
+ */
+function validateAppendOnly(
+  workingManifest: LockManifest,
+  anchors: AppendOnlyAnchors,
+): { violations: string[]; infoLines: string[]; anchorSummary: string } {
+  const violations: string[] = []
+  const infoLines: string[] = []
+
+  const gitEntries = Object.entries(anchors.git.manifest)
+  const gitSourceLabel = anchors.git.sources.length > 0 ? anchors.git.sources.join(', ') : 'no parent manifest'
+  for (const [id, hash] of gitEntries) {
+    if (!(id in workingManifest)) {
+      violations.push(
+        `append-only violation: git-parent anchor (${gitSourceLabel}) has entry "${id}" missing from the working manifest`,
+      )
+    } else if (workingManifest[id] !== hash) {
+      violations.push(
+        `append-only violation: git-parent anchor (${gitSourceLabel}) entry "${id}" has hash ${hash}, working manifest has ${workingManifest[id]}`,
+      )
+    }
+  }
+  if (!anchors.git.available) {
+    infoLines.push('WARNING — could not resolve HEAD^@ via git; the git-parent anchor was SKIPPED.')
+  } else {
+    infoLines.push(
+      `git-parent anchor read (${gitSourceLabel}), ${gitEntries.length} entr${gitEntries.length === 1 ? 'y' : 'ies'}.`,
+    )
+  }
+
+  if (anchors.network.status === 'ok') {
+    for (const [id, hash] of Object.entries(anchors.network.manifest)) {
+      if (!(id in workingManifest)) {
+        violations.push(
+          `append-only violation: network anchor (${anchors.network.url}) has entry "${id}" missing from the working manifest`,
+        )
+      } else if (workingManifest[id] !== hash) {
+        violations.push(
+          `append-only violation: network anchor (${anchors.network.url}) entry "${id}" has hash ${hash}, working manifest has ${workingManifest[id]}`,
+        )
+      }
+    }
+    infoLines.push(`network anchor OK (${anchors.network.url}), ${Object.keys(anchors.network.manifest).length} entries.`)
+  } else if (anchors.network.status === 'not-found') {
+    infoLines.push(`network anchor ${anchors.network.url} returned 404 — not yet live, treated as empty.`)
+  } else if (anchors.network.status === 'skipped') {
+    infoLines.push(`network anchor SKIPPED (${anchors.network.detail}).`)
+  } else {
+    if (isProtectedBuild()) {
+      violations.push(
+        `append-only violation: network anchor fetch failed on a protected build (VERCEL_GIT_COMMIT_REF="${process.env.VERCEL_GIT_COMMIT_REF}") — ${anchors.network.detail}`,
+      )
+    } else {
+      infoLines.push(
+        `WARNING — network anchor fetch failed (${anchors.network.detail}); continuing because this is not a protected (main/preview) build.`,
+      )
+    }
+  }
+
+  const gitReadable = anchors.git.available
+  const networkReadable = anchors.network.status === 'ok' || anchors.network.status === 'not-found'
+  if (isProtectedBuild() && !gitReadable && !networkReadable) {
+    violations.push(
+      'append-only violation: on a protected build, neither the git-parent manifest nor the network manifest could be read — refusing to proceed without a history anchor.',
+    )
+  }
+
+  const gitSummary = anchors.git.available
+    ? `${gitEntries.length} entr${gitEntries.length === 1 ? 'y' : 'ies'} from ${anchors.git.sources.length > 0 ? anchors.git.sources.join('+') : 'no parent'}`
+    : 'unavailable'
+  const networkSummary =
+    anchors.network.status === 'ok'
+      ? `ok, ${Object.keys(anchors.network.manifest).length} entries from ${anchors.network.url}`
+      : `${anchors.network.status}${anchors.network.url ? ` (${anchors.network.url})` : ''}`
+  const anchorSummary = `git-parent(${gitSummary}), network(${networkSummary})`
+
+  return { violations, infoLines, anchorSummary }
 }
 
 interface CheckResult {
@@ -86,10 +287,13 @@ interface CheckResult {
 
 const results: CheckResult[] = []
 
-/** Runs one check; a thrown error becomes a FAIL with the error's message. */
-function check(name: string, fn: () => string | void): void {
+/**
+ * Runs one check; a thrown error becomes a FAIL with the error's message.
+ * `fn` may be async — check 8's append-only gate fetches the network anchor.
+ */
+async function check(name: string, fn: () => string | void | Promise<string | void>): Promise<void> {
   try {
-    const detail = fn()
+    const detail = await fn()
     results.push({ name, pass: true, detail: detail ?? undefined })
   } catch (error) {
     const detail = error instanceof Error ? error.message : String(error)
@@ -114,17 +318,6 @@ function windowsOverlap(
   return a.start <= b.end && b.start <= a.end
 }
 
-/**
- * Numeric tokens a piece of prose states: integers, decimals, percentages,
- * and currency amounts with M/B suffixes. Normalised so "$450M", "450 M" and
- * "450M" all reduce to the same token, and thousands separators are dropped
- * so "1,200" and "1200" match.
- */
-function extractNumericTokens(text: string): string[] {
-  const matches = text.match(/\$?\d[\d,]*(?:\.\d+)?\s?[MB]?%?/gi) ?? []
-  return matches.map((raw) => raw.replace(/\$/g, '').replace(/,/g, '').replace(/\s+/g, '').toUpperCase())
-}
-
 const LANE_HEADING_IDS: Record<Lane, string> = {
   formation: 'formation-heading',
   absorption: 'absorption-heading',
@@ -140,10 +333,10 @@ const LANE_HEADING_IDS: Record<Lane, string> = {
  * no manifest entry yet, so it is excluded from that pre-write pass and
  * included again in the full re-run against the manifest `--write` produces.
  */
-function runChecks({ includeLockManifest }: { includeLockManifest: boolean }): void {
+async function runChecks({ includeLockManifest }: { includeLockManifest: boolean }): Promise<void> {
   // 1. Ordering, id format, weekEnding is the ISO week's Sunday, and both id
   //    and weekEnding are unique.
-  check('1 ordering-id-format-sunday-unique', () => {
+  await check('1 ordering-id-format-sunday-unique', () => {
     const seenIds = new Set<string>()
     const seenWeekEndings = new Set<string>()
     for (let i = 0; i < issues.length; i++) {
@@ -175,7 +368,7 @@ function runChecks({ includeLockManifest }: { includeLockManifest: boolean }): v
   })
 
   // 2. Windows do not overlap.
-  check('2 windows-no-overlap', () => {
+  await check('2 windows-no-overlap', () => {
     for (let i = 0; i < issues.length; i++) {
       for (let j = i + 1; j < issues.length; j++) {
         const a = windowOf(issues[i])
@@ -190,7 +383,7 @@ function runChecks({ includeLockManifest }: { includeLockManifest: boolean }): v
   })
 
   // 3. Exactly four sections, in Lane order, per issue.
-  check('3 four-sections-lane-order', () => {
+  await check('3 four-sections-lane-order', () => {
     for (const issue of issues) {
       if (issue.sections.length !== 4) {
         throw new Error(`issue "${issue.id}" has ${issue.sections.length} sections, expected 4`)
@@ -205,21 +398,17 @@ function runChecks({ includeLockManifest }: { includeLockManifest: boolean }): v
     }
   })
 
-  // 4. Every item evidenceId resolves, exactly as weThink.thesis.evidenceIds,
-  //    weThink.postureDeltas[].evidenceIds and (on a draft) proposed.thesis.evidenceIds
-  //    resolve; every item date is inside the window unless background.
-  check('4 item-evidence-and-window', () => {
+  // 4. Every evidence id the issue cites resolves — items, weThink.thesis,
+  //    weThink.postureDeltas[], and (on a draft) proposed.thesis — read
+  //    through the same issueEvidenceIds() helper the site's evidence drawer
+  //    and dist JSON copy use, so this check and the site cannot drift on
+  //    what "cited" means. Every item date is inside the window unless
+  //    background.
+  await check('4 item-evidence-and-window', () => {
     for (const issue of issues) {
       const { start, end } = windowOf(issue)
       for (const section of issue.sections) {
         for (const item of section.items) {
-          for (const id of item.evidenceIds) {
-            if (!evidenceById[id]) {
-              throw new Error(
-                `issue "${issue.id}" item "${item.id}" cites unresolved evidence id "${id}"`,
-              )
-            }
-          }
           // A future-dated item fails outright — "background" only ever means
           // "dated before the window," never "dated after it," so it cannot be
           // used to exempt a date past weekEnding.
@@ -242,40 +431,16 @@ function runChecks({ includeLockManifest }: { includeLockManifest: boolean }): v
         }
       }
 
-      for (const delta of issue.weThink.postureDeltas) {
-        for (const id of delta.evidenceIds) {
-          if (!evidenceById[id]) {
-            throw new Error(
-              `issue "${issue.id}" weThink.postureDeltas for domain "${delta.domainId}" cites unresolved evidence id "${id}"`,
-            )
-          }
-        }
-      }
-
-      if (issue.weThink.thesis) {
-        for (const id of issue.weThink.thesis.evidenceIds) {
-          if (!evidenceById[id]) {
-            throw new Error(
-              `issue "${issue.id}" weThink.thesis cites unresolved evidence id "${id}"`,
-            )
-          }
-        }
-      }
-
-      if (issue.proposed) {
-        for (const id of issue.proposed.thesis.evidenceIds) {
-          if (!evidenceById[id]) {
-            throw new Error(
-              `issue "${issue.id}" proposed.thesis cites unresolved evidence id "${id}"`,
-            )
-          }
+      for (const id of issueEvidenceIds(issue)) {
+        if (!evidenceById[id]) {
+          throw new Error(`issue "${issue.id}" cites unresolved evidence id "${id}"`)
         }
       }
     }
   })
 
   // 5. Published issues are signed and complete; drafts are unsigned and unjudged.
-  check('5 publish-signature-consistency', () => {
+  await check('5 publish-signature-consistency', () => {
     for (const issue of issues) {
       if (issue.status === 'published') {
         if (!issue.published || issue.weThink.signedBy === null || !issue.weThink.signedOn) {
@@ -336,7 +501,7 @@ function runChecks({ includeLockManifest }: { includeLockManifest: boolean }): v
   })
 
   // 6. At most one draft, and it is the newest issue.
-  check('6 at-most-one-draft-newest', () => {
+  await check('6 at-most-one-draft-newest', () => {
     const drafts = issues.filter((issue) => issue.status === 'draft')
     if (drafts.length > 1) {
       throw new Error(`${drafts.length} draft issues found: ${drafts.map((d) => d.id).join(', ')}`)
@@ -347,7 +512,7 @@ function runChecks({ includeLockManifest }: { includeLockManifest: boolean }): v
   })
 
   // 7. Production guard: on main, the newest issue must be published.
-  check('7 production-guard-main-published', () => {
+  await check('7 production-guard-main-published', () => {
     if (process.env.VERCEL_GIT_COMMIT_REF === 'main') {
       const newest = issues[issues.length - 1]
       if (newest.status !== 'published') {
@@ -360,12 +525,14 @@ function runChecks({ includeLockManifest }: { includeLockManifest: boolean }): v
 
   // 8. Published issues are append-only: the manifest must be internally
   //    self-consistent with the issues array AND every entry inherited from
-  //    a trusted base ref (origin/preview, else preview, else HEAD~1) must
-  //    still be present with an identical hash. Skipped only (with a loud
-  //    warning) when none of those three refs can be resolved, e.g. a
-  //    shallow CI clone.
+  //    two independent anchors — HEAD's git parent(s) (plus origin/preview
+  //    when it is not HEAD itself) and the live production manifest at
+  //    https://securitymarketpulse.com/issues/lock.json — must still be
+  //    present with an identical hash. Fails closed on a protected build
+  //    (main/preview) when the network anchor errors, or when neither anchor
+  //    could be read at all.
   if (includeLockManifest) {
-    check('8 issues-lock-manifest', () => {
+    await check('8 issues-lock-manifest', async () => {
       const manifest = readManifest()
       const published = publishedIssuesOf(issues)
 
@@ -390,32 +557,20 @@ function runChecks({ includeLockManifest }: { includeLockManifest: boolean }): v
         }
       }
 
-      const { manifest: baseManifest, source } = readBaseManifest()
-      if (baseManifest === null) {
-        console.error(
-          'verify:issue check 8: WARNING — could not read a base manifest from git ' +
-            '(tried origin/preview, preview, HEAD~1); the append-only comparison against ' +
-            'history was SKIPPED. This is expected only in a shallow clone with no matching ref.',
-        )
-      } else {
-        for (const [id, hash] of Object.entries(baseManifest)) {
-          if (!(id in manifest)) {
-            throw new Error(
-              `append-only violation: base manifest (${source}) has entry "${id}" which is missing from the working manifest`,
-            )
-          }
-          if (manifest[id] !== hash) {
-            throw new Error(
-              `append-only violation: base manifest (${source}) entry "${id}" has hash ${hash}, working manifest has ${manifest[id]} — a published issue's history was altered`,
-            )
-          }
-        }
+      const anchors = await computeAppendOnlyAnchors()
+      const { violations, infoLines, anchorSummary } = validateAppendOnly(manifest, anchors)
+      for (const line of infoLines) {
+        console.error(`verify:issue check 8: ${line}`)
       }
+      if (violations.length > 0) {
+        throw new Error(violations.join('; '))
+      }
+      return `anchors: ${anchorSummary}`
     })
   }
 
   // 9. Published PostureDeltas agree with securityDomains and editions.
-  check('9 posture-deltas-agree', () => {
+  await check('9 posture-deltas-agree', () => {
     for (const issue of publishedIssuesOf(issues)) {
       for (const delta of issue.weThink.postureDeltas) {
         const domain = securityDomains.find((d) => d.id === delta.domainId)
@@ -443,7 +598,7 @@ function runChecks({ includeLockManifest }: { includeLockManifest: boolean }): v
 
   // 12. Every numeric token an item states in its headline or why must appear in
   //     at least one of that item's cited evidence excerpts.
-  check('12 numeric-tokens-cited', () => {
+  await check('12 numeric-tokens-cited', () => {
     for (const issue of issues) {
       for (const section of issue.sections) {
         for (const item of section.items) {
@@ -479,7 +634,7 @@ function runChecks({ includeLockManifest }: { includeLockManifest: boolean }): v
   // 13. Strict dates. Every date, weekEnding, windowStart, published and
   //     signedOn must match ^\d{4}-\d{2}-\d{2}$ and be a real calendar date.
   //     A non-null published/signedOn must also be non-empty.
-  check('13 strict-dates', () => {
+  await check('13 strict-dates', () => {
     function assertDate(label: string, value: string): void {
       if (!isValidIsoDate(value)) {
         throw new Error(`${label} "${value}" is not a valid ^\\d{4}-\\d{2}-\\d{2}$ calendar date`)
@@ -515,7 +670,7 @@ function runChecks({ includeLockManifest }: { includeLockManifest: boolean }): v
   // 14. Bounds: at most eight items per lane; read <= 140 chars; headline <=
   //     110 chars; why non-empty. Each failure names the offending id and the
   //     measured length.
-  check('14 bounds', () => {
+  await check('14 bounds', () => {
     const MAX_ITEMS_PER_LANE = 8
     const MAX_READ_LENGTH = 140
     const MAX_HEADLINE_LENGTH = 110
@@ -550,7 +705,7 @@ function runChecks({ includeLockManifest }: { includeLockManifest: boolean }): v
   //     receipt: a 64-hex sha256 of the fetched bytes, a parseable fetchedAt,
   //     and a non-empty finalUrl. A citation with no receipt fails, naming
   //     the id, rather than letting an unreceipted claim ship silently.
-  check('15 evidence-receipts', () => {
+  await check('15 evidence-receipts', () => {
     const SHA256_PATTERN = /^[0-9a-f]{64}$/
     const citedIds = new Set<string>()
     for (const issue of issues) {
@@ -581,7 +736,7 @@ function runChecks({ includeLockManifest }: { includeLockManifest: boolean }): v
   //     issue. Each lane heading's rendered item count equals items.length, the
   //     draft banner is present iff status === 'draft', and the signature line
   //     text matches the data.
-  check('10 render-check', () => {
+  await check('10 render-check', () => {
     const markup = renderToStaticMarkup(
       createElement(
         EvidenceProvider,
@@ -670,7 +825,7 @@ function printResults(): boolean {
  * exits non-zero rather than falling through to a false "passed". An empty
  * or partial `results` array is treated the same way: it is not a pass.
  */
-function main(): void {
+async function main(): Promise<void> {
   if (process.argv.includes('--write')) {
     // (a) Validate the candidate issue on every check that does not itself
     // depend on the manifest BEFORE writing anything. Check 8 is excluded
@@ -679,7 +834,7 @@ function main(): void {
     // one — running check 8 here would fail every legitimate --write.
     console.log('verify:issue --write: validating the candidate issue before writing the manifest...')
     results.length = 0
-    runChecks({ includeLockManifest: false })
+    await runChecks({ includeLockManifest: false })
     if (results.length !== PRE_WRITE_CHECK_COUNT) {
       console.error(
         `--write aborted: expected ${PRE_WRITE_CHECK_COUNT} pre-write check results, got ${results.length} — the run did not reach a verdict`,
@@ -718,27 +873,18 @@ function main(): void {
       }
     }
 
-    // (b) Append-only against a trusted base, not just self-consistency: a
-    // base ref's entries must all survive into the manifest about to be
-    // written, unchanged. No resolvable base ref is reported once, loudly,
-    // and does not by itself refuse the write (a shallow clone has no
-    // history to compare against).
-    const { manifest: baseManifest, source: baseSource } = readBaseManifest()
-    if (baseManifest === null) {
-      console.error(
-        'verify:issue --write: WARNING — could not read a base manifest from git ' +
-          '(tried origin/preview, preview, HEAD~1); the append-only comparison against ' +
-          'history was SKIPPED. This is expected only in a shallow clone with no matching ref.',
-      )
-    } else {
-      for (const [id, hash] of Object.entries(baseManifest)) {
-        if (!(id in nextManifest) || nextManifest[id] !== hash) {
-          console.error(
-            `--write refused: base manifest (${baseSource}) entry "${id}" is missing or would change from ${hash} — append-only history forbids it`,
-          )
-          refused = true
-        }
-      }
+    // (b) Append-only against both anchors, not just self-consistency: every
+    // entry either anchor already carries must survive into the manifest
+    // about to be written, unchanged.
+    const anchors = await computeAppendOnlyAnchors()
+    const { violations: anchorViolations, infoLines, anchorSummary } = validateAppendOnly(nextManifest, anchors)
+    for (const line of infoLines) {
+      console.error(`verify:issue --write: ${line}`)
+    }
+    console.log(`verify:issue --write: append-only anchors — ${anchorSummary}`)
+    for (const violation of anchorViolations) {
+      console.error(`--write refused: ${violation}`)
+      refused = true
     }
 
     if (refused) {
@@ -771,7 +917,7 @@ function main(): void {
     // manifest that was just written.
     console.log('Re-running the full check suite against the written manifest...')
     results.length = 0
-    runChecks({ includeLockManifest: true })
+    await runChecks({ includeLockManifest: true })
     if (results.length !== FULL_CHECK_COUNT) {
       console.error(
         `expected ${FULL_CHECK_COUNT} check results, got ${results.length} — the run did not reach a verdict`,
@@ -788,7 +934,7 @@ function main(): void {
   }
 
   results.length = 0
-  runChecks({ includeLockManifest: true })
+  await runChecks({ includeLockManifest: true })
   if (results.length !== FULL_CHECK_COUNT) {
     throw new Error(
       `expected ${FULL_CHECK_COUNT} check results, got ${results.length} — the run did not reach a verdict`,
@@ -803,7 +949,7 @@ function main(): void {
 }
 
 try {
-  main()
+  await main()
 } catch (error) {
   const detail = error instanceof Error ? (error.stack ?? error.message) : String(error)
   console.error('verify:issue CRASHED before reaching a verdict:')
