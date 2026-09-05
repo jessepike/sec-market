@@ -84,10 +84,29 @@ None blocking the signals job. Feed design (which VC pages, which public-record 
 
 None. The D-48 promotion record was reconciled on 2026-08-19 (D-51) and production is current as of D-57. What remains open is owner input, listed under Next Steps, and it blocks the roadmap rather than the build.
 
+## Merged to `preview` 2026-09-05 — awaiting owner review (D-65)
+
+Stable preview: https://security-market-pulse-git-preview-pikeholdings.vercel.app (commit `604e900`).
+Production `main` is untouched at `b423b70`. What is on preview: issue `2026-w36` as a labelled
+unsigned draft (23 items, machine proposal, receipts on every record), the reframed front page,
+archive and permalink routes, JSON copies, RSS feed, lock manifest, vendor lens, fifteen-check issue
+gate and seven-check distribution gate, specs v0.2 with amendment records, gather brief v0.2.
+External reviews are filed under `docs/active/issues/2026-w36-review-*.md`.
+
+Owner actions open: read the draft and decide whether to sign it (gather-job-spec §6, then
+`npm run verify:issue -- --write`); name the pilot list; decide on promotion with `PROMOTE=1`;
+decide whether to arm routine `trig_01VeQpLYzXjccqKeSFS1Xgo6` after reading the dry-run result
+below; re-authenticate the Vercel CLI (`vercel login`) since the stored token expired on
+2026-09-05 and neither the CLI nor the Vercel MCP can read deployments from this machine.
+
+Gather dry run: one-off routine `trig_01La16jZAq9WaQPHyqpUUcyG` fired 2026-09-05 16:45 UTC,
+drafting `2026-w35` onto `issue/2026-w35-dryrun` without a PR. Result: the mechanics passed and the network did not. The routine checked out `preview`, read the brief, wrote the issue file and index, ran all five gates and recorded their exit codes (the overlap failure was the expected one), committed with the right author and pushed `issue/2026-w35-dryrun` without opening a PR. But every source fetch was refused: the cloud environment's egress proxy returns 403 on CONNECT to any host outside its allowlist (npm, GitHub, Anthropic), so Return on Security, SEC.gov, SecurityWeek, Cybersecurity Ventures and even example.com were unreachable. Zero evidence was gathered. The run log is at https://claude.ai/code/session_019GoBZ3Bwt2x7zMmivUUvuU. Do not arm the schedule in this environment until its network allowlist includes the brief's §2 hosts (set at https://claude.ai/code/environments), or move the job to a runtime that can reach the public web (a Tuesday `claude -p` run from the repo on the laptop, or a launchd job on macmini). The stray branch `issue/2026-w35-dryrun` on GitHub can be deleted.
+
 ## Session Log
 
 | Date | Summary |
 |------|---------|
+| 2026-09-05 | Autonomous build finished and merged to `preview` (D-65): weekly issue model and gates, `2026-w36` unsigned draft with receipts, reframed front page, archive and permalinks, JSON and RSS, lock manifest, vendor lens, three external review rounds, live e2e and screenshots at 1440 and 390. Gather dry run fired on a one-off cloud routine. Owner review, signature, pilot list, promotion and schedule arming are open. |
 | 2026-09-03 | Orientation and intent-versus-built review. Finding: the intent describes a decision instrument and the site is a research edition with excellent hygiene; exposure denominator still 1, decision log still empty, and the frozen Episode 002 call sits where a weekly read should. Owner confirmed the two goals (ePlus GTM anticipation; a low-friction weekly pulse for CISOs on formation, absorption, prints and capital) and approved the approach: weekly issue as the product, agent-drafted and human-signed, emailed to a named pilot, ePlus consuming downstream (D-62). An `eplus.` subdomain was declined. Plan written to `docs/active/weekly-issue-plan.md` and sent to canvas; SEC-027 to SEC-031 opened; SEC-017 superseded. Nothing on `web/` changed. |
 | 2026-08-25 | Production promoted to `4916a95` (D-57), the first promotion since 2026-08-20 and eighteen commits' worth. Approval followed a rendered before-and-after at 1440 and 390 rather than preceding it. The scorecard is findable, the phone opens with its framing line, the placeholder spark is gone from all forty-two cards, and six evidence records carry their missing source attributions. Confirmed live by render at both widths. Next work is the roadmap, grounded in intent's four observable-success tests rather than in further site features. |
 | 2026-08-20 | Integrity pass shipped and promoted. An intent-versus-built audit found the site asserting things about itself that were not true — a provenance legend state with zero instances, a hero saying four domains while six carried postures, a navigation claiming a weekly cadence the method denied, and an evidence resolver that would have crashed the moment SecOps was promoted. `SEC-MARKET-INTEGRITY-001` specified eight corrections and a `verify:integrity` build gate; Cursor Composer implemented, the CPO session verified by perturbing all five gate checks and by rendering the page. Owner promoted to production (D-53). Live and confirmed by query. |

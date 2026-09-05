@@ -1,0 +1,14 @@
+1. **Blocker — [web/scripts/verify-issue.ts:85–139](/Users/jessepike/code/projects/sec-market/web/scripts/verify-issue.ts:85)** — The blocker remains open. A depth-1 clone with no parents is marked `available`; 404 and `SMP_LOCK_BASE_URL=none` also provide no history. Production may legitimately lack a preview-only issue, allowing that issue and its hash to be rewritten together. Additionally, `Object.assign` collapses parent manifests, so one merge parent can overwrite another parent’s conflicting hash. Smallest fix: require a distinct prior-preview/base anchor, validate parents separately, treat zero-parent Git/404/skipped as unavailable, and permit 404 only through an explicit one-time production-bootstrap path.
+
+2. **Should-fix — [web/scripts/verify-issue.ts:251–258](/Users/jessepike/code/projects/sec-market/web/scripts/verify-issue.ts:251)** — Any network failure blocks `main` and `preview` even when a genuine Git anchor exists, creating a production-availability dependency contrary to [spec §6](/Users/jessepike/code/projects/sec-market/docs/active/weekly-issue-spec.md:252). Smallest fix: fail only when no genuine anchor remains; otherwise warn.
+
+3. **Should-fix — [web/scripts/verify-issue.ts:162–181](/Users/jessepike/code/projects/sec-market/web/scripts/verify-issue.ts:162)** — The network fetch follows redirects and accepts unvalidated JSON without checking the final URL, object shape, issue IDs, or hashes. A poisoned response can weaken the anchor or deny builds. Smallest fix: reject redirects or require the exact HTTPS destination, then validate a plain-object manifest with canonical IDs and lowercase 64-hex hashes.
+
+4. **Should-fix — [web/src/data/issueHelpers.ts:152–155](/Users/jessepike/code/projects/sec-market/web/src/data/issueHelpers.ts:152)** — `1314f62` partially closes the numeric-tokenizer finding: left-adjacent labels such as `M12` are excluded, but `1Password` still yields `1`. Smallest fix: also reject a following letter and add coverage.
+
+5. **Should-fix — [web/scripts/verify-dist.ts:86–110](/Users/jessepike/code/projects/sec-market/web/scripts/verify-dist.ts:86)** — `9fc1b7e` partially closes dist identity: source issues, archive rows, and GUID dates are checked, but evidence bodies remain ID-only and [the RSS check](/Users/jessepike/code/projects/sec-market/web/scripts/verify-dist.ts:160) is still a narrow tag scanner rather than XML parsing. Smallest fix: deep-compare the complete issue/evidence payload and parse XML, with perturbation tests.
+
+6. **Closed — [web/tests/e2e/lens.spec.ts:17–123](/Users/jessepike/code/projects/sec-market/web/tests/e2e/lens.spec.ts:17)** — `161b21e` closes lens derivation: nonzero slugs come from current data, and exact rendered item/card identities are asserted.
+
+Verdict: **do not merge.**  
+The append-only blocker remains open; two prior should-fixes are also incomplete.

@@ -699,3 +699,31 @@ runs as a Claude Code cloud routine rather than a launchd job, which removes the
 dependencies the plan had assumed. Work lands on branch `weekly-issue`, is validated on its Vercel
 preview deploy, and merges to `preview` when the whole improvement passes.
 
+**D-65 · 2026-09-05 — The weekly-issue improvement is merged to `preview` for owner review; production is the trust anchor for published history.**
+
+Branch `weekly-issue` (37 commits over 2026-09-03 to 2026-09-05) fast-forwarded `preview` from
+`7a9234f` to `604e900`. What landed: the weekly issue data model and `verify:issue` gate (fifteen
+checks, every one proven by perturbation); issue `2026-w36` as a labelled, unsigned draft with 23
+items and a machine proposal, every figure quoted verbatim from a document fetched with `curl` and
+carrying a sha256 receipt; the front page reframed around the issue with the Episode 002 call as a
+standing thesis; `/issues/`, `/issues/<id>/`, `/issues/<id>.json`, `/issues/index.json`,
+`/issues/lock.json`, `/feed.xml` and a per-route sitemap; the vendor lens; the gather brief and
+specs v0.2 with amendment records; and the cloud routine, still disabled.
+
+Validation: three rounds of external review (Codex gpt-5.6-sol and a fresh Claude Sonnet session)
+on the whole diff, each round's findings fixed and re-reviewed; the full Playwright suite run against
+the live branch deploy and again against the stable preview URL at 1440 and 390; screenshots of
+production and preview compared; a Chrome walk of the archive, permalink and lens pages with no
+console errors.
+
+The decision inside the build: an in-repo hash manifest cannot stop a committer rewriting history, so
+the append-only gate anchors on two things outside the working tree, the git parents of the commit
+being built and the manifest served live by production at `/issues/lock.json`. An issue published on
+`preview` but not yet promoted is still under owner review and may change; once promoted it is
+anchored. On a `main` or `preview` build with no readable anchor the gate fails closed. Codex's last
+verdict on the gate, after the empty-body fix, is recorded in
+`docs/active/issues/2026-w36-review-final-codex.md`; the residual it names (feed well-formedness)
+was closed in the same pass.
+
+Not decided here: promotion to `main`; signing `2026-w36`; arming the Tuesday schedule; the pilot
+list. All four are the owner's.

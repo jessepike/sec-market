@@ -3,6 +3,19 @@
 Hot buffer. One line per insight, newest date first. Keep the last ~15; promote
 cross-project patterns to the knowledge base and drop them from here.
 
+## 2026-09-05
+
+- Claude Code cloud routines run behind an egress proxy that refuses CONNECT to any host outside a short allowlist (npm, GitHub, Anthropic). A job whose whole purpose is fetching the public web cannot run there until the environment's allowlist is set. Probe the network with one curl in the first run of any fetch job before trusting the design.
+
+## 2026-09-04
+
+- [promoted:kb:f42e4576:2026-09-04] An operator testing a gate's "no git remote" fallback ran `git remote remove origin` and never restored it; the next push failed with "'origin' does not appear to be a git repository". Tell operators to test such fallbacks with an env override or a temp clone, never by mutating the working repo's remotes, and check `git remote -v` before any push.
+- [promoted:kb:8f53a57c:2026-09-03] Sub-agents stall on any Bash command containing `cd`: the permission prompt goes unanswered and the agent dies silently. Put the prohibition at the very top of every operator brief; use absolute paths, `git -C`, `npm --prefix`.
+- [promoted:kb:66e6a872:2026-09-03] Creating a Claude Code cloud routine auto-attaches every account MCP connector. Clear them explicitly with `clear_mcp_connections: true` and confirm with `get` before arming a job that must see only the public web and the repo.
+- [promoted:kb:20eae532:2026-09-03] `vercel project web-analytics <project> --scope <team> --format json` is the non-interactive form on CLI 54; `--yes` is rejected.
+- [promoted:kb:c7efa364:2026-09-05] `verify:issue` check 12 reads bare digits in quarter labels ("Q2 FY2027", "M12") as numeric claims. Keep period labels out of headlines or extend the allow-list; do not weaken the check.
+- [promoted:kb:dd61935e:2026-09-03] External review invocations that work: `codex exec -m gpt-5.6-sol --sandbox read-only -C "$PWD" - < prompt` and `claude -p --model claude-sonnet-5 --permission-mode plan`. Feed each the spec plus the diff, ask for numbered findings with severity, and fold them into the spec's amendment record.
+
 ## 2026-09-03
 
 - [promoted:kb:eb06c6c0:2026-09-03] The first research question's frozen answer became the headline of a product meant to be a weekly pulse, and the recurring content sat in a collapsed board whose window had ended three weeks earlier. When a project moves from an episode to a recurring product, check that the front page carries the recurring question rather than the first one asked.
@@ -23,10 +36,6 @@ cross-project patterns to the knowledge base and drop them from here.
 
 ## 2026-08-22
 
-- [promoted:kb:7c349194:2026-08-22] Being in the served HTML is not being on the page. Forty-two vendor cards were present in the markup and zero were visible; I reported them as shipped from a `curl`, and the owner was right to call it. `checkVisibility()` settles this question and `getComputedStyle` does not.
-- [promoted:kb:d5b498ae:2026-08-22] `git add -A` while another worker is editing the same directory sweeps its in-flight edits into your commit. Stage explicit paths by name whenever a session is not the only writer.
-- [promoted:kb:64b7354d:2026-08-22] A build can pass every gate while silently reversing the accepted design. The phone view put the framing sentence below the four cards because of two CSS `order` declarations; nothing failed, and only rendering at the design's own width against the accepted render caught it.
-- [promoted:kb:7e7d7efa:2026-08-22] Codex CLI needs its prompt on stdin. Passing the prompt as a positional argument leaves it blocked reading stdin, producing nothing while appearing to work — I told the owner a review was running when it had not started.
 
 ## 2026-08-20
 
@@ -34,5 +43,4 @@ cross-project patterns to the knowledge base and drop them from here.
 ## 2026-08-19
 
 - [withheld:2026-08-19] A figure in a record's `note` field is not interchangeable with one in its `value` field. Falcon Cloud at $800M is an absolute amount; every other row in that table is a growth rate. The delegate caught this and was right.
-- [promoted:kb:010f9cd6:2026-08-22] Putting the new landscape on top of the old edition is two products. Collapse the edition; do not delete it.
 

@@ -100,6 +100,8 @@ SEC-019 frame question. Absorbs SEC-021 Phase 3 (the archive).
 
 **Not authorized by this work:** changing a posture, call or confidence without a signature; any push to `main` except by promotion.
 
+**Status 2026-09-05:** built and merged to `preview` (D-65). Issue `2026-w36` is on the preview site as a labelled unsigned draft with 23 items and a machine proposal; the archive and permalink routes, the standing-thesis block and the trigger-sentence landscape cards are live. The owner signs the first issue by hand per gather-job-spec §6. Promotion to `main` is the owner's call.
+
 ### SEC-028 — The Tuesday gather job
 
 A scheduled agent gathers from the catalogued sources every Tuesday, drafts the issue as a pull request
@@ -112,6 +114,8 @@ person reviews, signs and merges. Supersedes SEC-017.
 
 **Not authorized by this work:** auto-publishing; editing intent, decisions, the call, a posture or a confidence; scrapers or collectors beyond the one job.
 
+**Status 2026-09-05:** routine `trig_01VeQpLYzXjccqKeSFS1Xgo6` exists, disabled, no connectors, brief v0.2 on `preview`. A one-off dry run (`trig_01La16jZAq9WaQPHyqpUUcyG`, drafting `2026-w35` onto `issue/2026-w35-dryrun` without a PR) fired 2026-09-05; its result is recorded in status.md. Because the first issue covers two weeks (window 2026-08-24 to 2026-09-06), the first useful scheduled run is Tuesday 2026-09-15 for `2026-w37`; a 2026-09-08 fire would stop at "issue exists". The dry run proved the mechanics (checkout, brief, files, gates, commit, push) and failed on network: the cloud environment's egress proxy blocks every public host, so zero sources were read. Before arming, either add the brief's §2 hosts to the environment allowlist at https://claude.ai/code/environments or move the job to a runtime with public-web access (`claude -p` from the repo on Tuesdays, or a macmini launchd job). Owner decision.
+
 ### SEC-029 — Distribution
 
 Analytics on, issue #1 emailed to the pilot list by hand, RSS feed and per-issue permalink and Open
@@ -120,6 +124,8 @@ Graph image by issue #2, email provider and public list only after four held iss
 **Plan:** [weekly-issue-plan.md](docs/active/weekly-issue-plan.md) WS-D.
 
 **Authorization state:** build authorized 2026-09-03 (D-64) for analytics, feed, permalinks and the JSON copy. Public email not authorized before the 2026-10-08 review.
+
+**Status 2026-09-05:** Web Analytics on; `/feed.xml`, `/issues/<id>/`, `/issues/<id>.json`, `/issues/index.json` and `/issues/lock.json` build and serve on `preview`. The feed carries only published issues, so it is empty until the first signature. Per-issue Open Graph images are SEC-032. The pilot email is still by hand; provider choice is SEC-034.
 
 ### SEC-030 — ePlus downstream digest interface
 
@@ -131,6 +137,8 @@ in the ePlus channel repo and cockpit. No ePlus surface on this domain; no accou
 
 **Authorization state:** approach approved 2026-09-03 (D-62). An `eplus.securitymarketpulse.com` subdomain was considered and declined the same day.
 
+**Status 2026-09-05:** the JSON copy is live on `preview` at `/issues/2026-w36.json` with the issue object and its full evidence records, identity-checked by `verify:dist`. Handoffs sent to `eplus-security-advisor` and `eplus-ops` on 2026-09-05 with that URL shape.
+
 ### SEC-031 — Vendor lens
 
 Filter the current issue and the scorecard by vendor or OEM, shareable by URL. Public and
@@ -139,6 +147,8 @@ non-confidential. After issue #2.
 **Plan:** [weekly-issue-plan.md](docs/active/weekly-issue-plan.md) WS-F.
 
 **Authorization state:** build authorized 2026-09-03 (D-64), in the same pass as SEC-027.
+
+**Status 2026-09-05:** built and merged to `preview`. `?vendors=a,b` filters the issue lanes and the scorecard after hydration, shows "Showing N of M" on each, clears by link, round-trips through the chips, and scrolls as one row at 390. Prerendered HTML is never filtered. Only on `/`; permalinks carry no lens. An in-page vendor picker is SEC-036.
 
 ### SEC-009 — Recurring public-signal intelligence
 
@@ -426,6 +436,67 @@ Make the tracked layer actually refresh weekly. Separate from SEC-013 on purpose
 Reconsider account-facing prompts only after the core monthly scorecard, recency model, and domain coverage are trusted.
 
 **Status:** parked by owner feedback; removed from the MVP website
+
+### SEC-032 — Per-issue social preview images
+
+Each `/issues/<id>/` page shares the site-wide OG image. A per-issue image carrying the read and the
+week would make a shared permalink recognisable in Slack and email. Generate at build from the issue
+data; no design tooling.
+
+**Status:** flagged 2026-09-04 during the weekly-issue build. Not authorized.
+
+### SEC-033 — `verify:issue` check 12 and period labels
+
+Check 12 treats bare digits inside quarter and fiscal labels ("Q2 FY2027", "M12") as numeric claims
+and fails a headline that carries one. The 2026-w36 draft worked around it by keeping period labels
+out of headlines. Decide whether to allow-list period-label patterns or keep the rule as is and say
+so in the gather brief.
+
+**Status:** flagged 2026-09-04. Not authorized; do not weaken the check without a decision.
+
+### SEC-034 — Email provider for the pilot list
+
+The pilot issue is sent by hand from the owner's mailbox until four issues have held (D-64,
+SEC-029). Choose a provider only after that: one that takes the `/issues/<id>.json` copy, keeps the
+list private, and needs no tracking pixels.
+
+**Status:** flagged 2026-09-04. Decision at the 2026-10-08 review.
+
+### SEC-035 — Archive rows as a real table
+
+`IssueArchive.tsx` lays each issue out as a flex row of spans. A `<table>` with column headers would
+read better in a screen reader once there are several issues. Small and reversible; do it after the
+second issue exists so the table has more than one row to justify it.
+
+**Status:** flagged 2026-09-04 by the page-build operator. Not authorized.
+
+### SEC-036 — Vendor picker for the lens
+
+The vendor lens (SEC-031) is driven by the URL alone: a reader can remove or clear vendors from
+the control but cannot add one without editing the address bar. An in-page picker listing the
+scorecard's vendors would make the lens discoverable. Net-new surface; needs a product decision.
+
+**Status:** flagged 2026-09-04 by the lens operator. Not authorized.
+
+### SEC-037 — Local e2e and the analytics script
+
+Against a local `vite preview`, the `@vercel/analytics` tag requests `/_vercel/insights/script.js`;
+newer Vite preview servers answer that path with the SPA index instead of a 404, so the page logs
+"Unexpected token '<'" and the suite's zero-page-errors assertion fails on nine tests. Against the
+live preview the script exists and the suite is green. Route that path to an empty script in the
+Playwright config when `E2E_BASE_URL` is unset, or drop the tag from local builds.
+
+**Status:** flagged 2026-09-05 by the second fix operator. Small; do it with the next test change.
+
+### SEC-038 — Make `verify-issue.ts` unit-testable
+
+The issue gate is a plain script with no exported functions, so its validators (the network-anchor
+body check, the date rules, the tokenizer's callers) can only be proven by perturbation runs.
+`verify-dist.ts` already exports its checks and is exercised by a fixture test. Bring the issue gate
+to the same shape. Also note the feed parser's entity and attribute checks do not cover CDATA or
+DOCTYPE, which the writer never emits today.
+
+**Status:** flagged 2026-09-05 by the final fix operator. Not authorized.
 
 ## Not authorized
 
