@@ -185,6 +185,83 @@ function isNameChar(ch: string): boolean {
 }
 
 /**
+ * Matches one legal entity reference at the start of the given string: one of
+ * the five XML predefined entities, or a numeric character reference in
+ * decimal (`&#123;`) or hex (`&#x7B;`) form. Anything else starting with "&"
+ * — a bare "&", an unknown named entity, an unterminated reference — is not
+ * matched and the caller treats that as a well-formedness violation.
+ */
+const ENTITY_REF_PATTERN = /^&(amp|lt|gt|quot|apos|#[0-9]+|#x[0-9A-Fa-f]+);/
+
+/**
+ * Scans a run of character data (text found between tags) for every "&" and
+ * requires each one to begin one of the five predefined entities or a
+ * numeric character reference — a bare "&" or an unrecognised entity name
+ * throws, naming the offending position, rather than being passed through as
+ * literal text the way the tokeniser otherwise treats ordinary characters.
+ */
+function validateEntities(text: string, sliceStart: number): void {
+  let i = 0
+  while (i < text.length) {
+    const amp = text.indexOf('&', i)
+    if (amp === -1) return
+    if (!ENTITY_REF_PATTERN.test(text.slice(amp))) {
+      throw new Error(
+        `dist/feed.xml: invalid entity reference at character ${sliceStart + amp} — not well-formed`,
+      )
+    }
+    i = amp + 1
+  }
+}
+
+/**
+ * Validates the raw attribute region of a tag (everything after the tag
+ * name, up to but not including the trailing "/" of a self-closing tag or
+ * the final ">"). Each attribute must be `name="value"` or `name='value'` —
+ * a name with no "=", an "=" not followed by a quote character (an unquoted
+ * value), or an unterminated quoted value throws, naming the tag and the
+ * attribute.
+ */
+function validateAttributes(raw: string, tagName: string, tagStart: number): void {
+  const len = raw.length
+  let i = 0
+  while (i < len) {
+    while (i < len && /\s/.test(raw[i])) i++
+    if (i >= len) return
+    if (!isNameStartChar(raw[i])) {
+      throw new Error(
+        `dist/feed.xml: malformed attribute syntax on "<${tagName}" at character ${tagStart} — not well-formed`,
+      )
+    }
+    let nameEnd = i
+    while (nameEnd < len && isNameChar(raw[nameEnd])) nameEnd++
+    const attrName = raw.slice(i, nameEnd)
+    let k = nameEnd
+    while (k < len && /\s/.test(raw[k])) k++
+    if (raw[k] !== '=') {
+      throw new Error(
+        `dist/feed.xml: attribute "${attrName}" on "<${tagName}" at character ${tagStart} has no value — not well-formed`,
+      )
+    }
+    k++
+    while (k < len && /\s/.test(raw[k])) k++
+    const quote = raw[k]
+    if (quote !== '"' && quote !== "'") {
+      throw new Error(
+        `dist/feed.xml: attribute "${attrName}" on "<${tagName}" at character ${tagStart} is not a quoted value — not well-formed`,
+      )
+    }
+    const closeQuote = raw.indexOf(quote, k + 1)
+    if (closeQuote === -1) {
+      throw new Error(
+        `dist/feed.xml: attribute "${attrName}" on "<${tagName}" at character ${tagStart} has an unterminated quoted value — not well-formed`,
+      )
+    }
+    i = closeQuote + 1
+  }
+}
+
+/**
  * A small hand-written well-formedness XML tokeniser/parser — no package
  * dependency (none is present in node_modules), and generate-feed.ts's own
  * output has a fixed, simple shape (no CDATA, no DTD, no namespaces), so
@@ -194,7 +271,11 @@ function isNameChar(ch: string): boolean {
  * tag, or an unescaped "<" found inside a tag or loose in text content
  * throws rather than silently truncating or ignoring the problem. Unlike a
  * regex-based item scanner, `<item>` blocks are found by walking the parsed
- * tree afterward, not by pattern-matching the raw text.
+ * tree afterward, not by pattern-matching the raw text. It also requires
+ * exactly one root element, named "rss"; rejects non-whitespace text found
+ * at the document's root level, outside that element; rejects an entity
+ * reference that is not one of the five XML predefined entities or a numeric
+ * character reference; and rejects an attribute with no quoted value.
  */
 function parseXmlDocument(xml: string): XmlNode[] {
   const len = xml.length
@@ -224,9 +305,11 @@ function parseXmlDocument(xml: string): XmlNode[] {
    * Scans from just after the tag name to the closing '>', rejecting a bare
    * unescaped '<' inside the tag and an unterminated tag; quoted attribute
    * values are skipped whole so a '<' or '>' inside one does not confuse the
-   * scan. Returns whether the tag was self-closing ("/>").
+   * scan. Once the tag's end is found, the raw attribute region (name to the
+   * trailing "/" of a self-closing tag or the final ">") is validated with
+   * `validateAttributes`. Returns whether the tag was self-closing ("/>").
    */
-  function readTagRest(start: number): { end: number; selfClosing: boolean } {
+  function readTagRest(start: number, tagName: string, tagStart: number): { end: number; selfClosing: boolean } {
     let i = start
     let quote: string | null = null
     while (i < len) {
@@ -246,6 +329,8 @@ function parseXmlDocument(xml: string): XmlNode[] {
       }
       if (ch === '>') {
         const selfClosing = i > start && xml[i - 1] === '/'
+        const attrEnd = selfClosing ? i - 1 : i
+        validateAttributes(xml.slice(start, attrEnd), tagName, tagStart)
         return { end: i + 1, selfClosing }
       }
       i++
@@ -257,11 +342,16 @@ function parseXmlDocument(xml: string): XmlNode[] {
     const lt = xml.indexOf('<', pos)
     if (lt === -1) {
       const text = xml.slice(pos)
-      if (text.trim() !== '') currentChildren().push({ type: 'text', value: text })
+      if (text.trim() !== '') {
+        validateEntities(text, pos)
+        currentChildren().push({ type: 'text', value: text })
+      }
       break
     }
     if (lt > pos) {
-      currentChildren().push({ type: 'text', value: xml.slice(pos, lt) })
+      const text = xml.slice(pos, lt)
+      validateEntities(text, pos)
+      currentChildren().push({ type: 'text', value: text })
     }
 
     if (xml.startsWith('<?', lt)) {
@@ -303,7 +393,7 @@ function parseXmlDocument(xml: string): XmlNode[] {
 
     // Opening (or self-closing) tag.
     const { name, end: nameEnd } = readTagName(lt + 1)
-    const { end, selfClosing } = readTagRest(nameEnd)
+    const { end, selfClosing } = readTagRest(nameEnd, name, lt)
     pos = end
     if (selfClosing) {
       currentChildren().push({ type: 'element', name, children: [] })
@@ -315,6 +405,28 @@ function parseXmlDocument(xml: string): XmlNode[] {
   if (stack.length > 0) {
     throw new Error(
       `dist/feed.xml has ${stack.length} unclosed tag(s), innermost "<${stack[stack.length - 1].name}>" — not well-formed`,
+    )
+  }
+
+  // Root-level whitespace (formatting between the XML declaration and the
+  // root element, or a trailing newline) is stored as an ordinary text node
+  // like anywhere else in the tree, so only non-whitespace text at the root
+  // counts as stray content outside the document element.
+  const strayText = root.find((node) => node.type === 'text' && node.value.trim() !== '')
+  if (strayText && strayText.type === 'text') {
+    throw new Error(
+      `dist/feed.xml has non-whitespace text outside the root element: "${strayText.value.trim()}" — not well-formed`,
+    )
+  }
+  const rootElements = root.filter((node): node is Extract<XmlNode, { type: 'element' }> => node.type === 'element')
+  if (rootElements.length !== 1) {
+    throw new Error(
+      `dist/feed.xml has ${rootElements.length} root element(s), expected exactly one — not well-formed`,
+    )
+  }
+  if (rootElements[0].name !== 'rss') {
+    throw new Error(
+      `dist/feed.xml root element is "<${rootElements[0].name}>", expected "<rss>" — not well-formed`,
     )
   }
 

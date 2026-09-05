@@ -363,6 +363,70 @@ describe('dist pipeline (real writers + real checks, fixture data)', () => {
     assert.equal(restored.pass, true, `expected 11d to pass after restoring: ${restored.detail}`)
   })
 
+  it('perturbation: a second root element in feed.xml is rejected, and restoring it passes again', () => {
+    const path = join(tmpDir, 'feed.xml')
+    const original = readFileSync(path, 'utf8')
+    const secondRoot = `${original}<extra/>`
+    assert.notEqual(secondRoot, original)
+    writeFileSync(path, secondRoot)
+
+    const failed = checkFeedXmlExistsAndParses(tmpDir, fixtureIssues)
+    assert.equal(failed.pass, false)
+    assert.match(failed.detail ?? '', /root element\(s\), expected exactly one/)
+
+    writeFileSync(path, original)
+    const restored = checkFeedXmlExistsAndParses(tmpDir, fixtureIssues)
+    assert.equal(restored.pass, true, `expected 11d to pass after restoring: ${restored.detail}`)
+  })
+
+  it('perturbation: non-whitespace text outside the root element in feed.xml is rejected, and restoring it passes again', () => {
+    const path = join(tmpDir, 'feed.xml')
+    const original = readFileSync(path, 'utf8')
+    const strayText = `${original} stray text`
+    assert.notEqual(strayText, original)
+    writeFileSync(path, strayText)
+
+    const failed = checkFeedXmlExistsAndParses(tmpDir, fixtureIssues)
+    assert.equal(failed.pass, false)
+    assert.match(failed.detail ?? '', /non-whitespace text outside the root element/)
+
+    writeFileSync(path, original)
+    const restored = checkFeedXmlExistsAndParses(tmpDir, fixtureIssues)
+    assert.equal(restored.pass, true, `expected 11d to pass after restoring: ${restored.detail}`)
+  })
+
+  it('perturbation: a bare "&" (not a legal entity reference) in feed.xml is rejected, and restoring it passes again', () => {
+    const path = join(tmpDir, 'feed.xml')
+    const original = readFileSync(path, 'utf8')
+    const bareAmp = original.replace('<language>en-us</language>', '<language>en-us & bad</language>')
+    assert.notEqual(bareAmp, original, 'the test fixture setup did not find <language>en-us</language> to perturb')
+    writeFileSync(path, bareAmp)
+
+    const failed = checkFeedXmlExistsAndParses(tmpDir, fixtureIssues)
+    assert.equal(failed.pass, false)
+    assert.match(failed.detail ?? '', /invalid entity reference/)
+
+    writeFileSync(path, original)
+    const restored = checkFeedXmlExistsAndParses(tmpDir, fixtureIssues)
+    assert.equal(restored.pass, true, `expected 11d to pass after restoring: ${restored.detail}`)
+  })
+
+  it('perturbation: an unquoted attribute value in feed.xml is rejected, and restoring it passes again', () => {
+    const path = join(tmpDir, 'feed.xml')
+    const original = readFileSync(path, 'utf8')
+    const unquoted = original.replace('isPermaLink="true"', 'isPermaLink=true')
+    assert.notEqual(unquoted, original, 'the test fixture setup did not find isPermaLink="true" to perturb')
+    writeFileSync(path, unquoted)
+
+    const failed = checkFeedXmlExistsAndParses(tmpDir, fixtureIssues)
+    assert.equal(failed.pass, false)
+    assert.match(failed.detail ?? '', /is not a quoted value/)
+
+    writeFileSync(path, original)
+    const restored = checkFeedXmlExistsAndParses(tmpDir, fixtureIssues)
+    assert.equal(restored.pass, true, `expected 11d to pass after restoring: ${restored.detail}`)
+  })
+
   it('perturbation: dist/issues/lock.json disagreeing with the source manifest fails 11f, and restoring it passes again', () => {
     const path = join(tmpDir, 'issues/lock.json')
     const original = readFileSync(path, 'utf8')

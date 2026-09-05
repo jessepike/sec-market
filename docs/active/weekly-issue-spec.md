@@ -454,3 +454,7 @@ Accepted and folded in:
   parsing it to `{}` and accepting it as an available zero-entry manifest — closing the depth-1
   protected-build bypass where a poisoned empty response could stand in for a missing git anchor and
   let rewritten history pass.
+- I2: `verify:dist`'s feed parser now enforces exactly one root element named `rss`, rejects
+  non-whitespace text found outside that root, rejects an entity reference that is not one of the
+  five XML predefined entities or a numeric character reference, and rejects an attribute with no
+  quoted value — so `feed.xml` can no longer pass the gate while not being well-formed XML.
