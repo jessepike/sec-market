@@ -498,6 +498,26 @@ DOCTYPE, which the writer never emits today.
 
 **Status:** flagged 2026-09-05 by the final fix operator. Not authorized.
 
+### SEC-039 — Durable weekly pipeline
+
+Sunday-afternoon cadence, a runtime that can reach the web (allowlist or local runner chosen by a
+probe), run receipts with alerts, a daily site probe owned by jobs-agent, a fifteen-minute signing
+pass, a post-promote check, source alternates.
+
+**Spec:** [durability-spec.md](docs/active/durability-spec.md) (`SEC-MARKET-DURABLE-001` v0.1).
+
+**Authorization state:** proposed 2026-09-07; owner decisions listed in spec §12. Not yet authorized.
+
+### SEC-040 — A frontier lane
+
+A weekly fifth lane on AI-frontier security developments (model and agent capabilities that move
+security demand, frontier-lab security disclosures, major incident reports), sourced and quoted like
+the other four. The ePlus-relative reading of it belongs in the ePlus channel digest, not here. A
+daily cadence is out: it would optimise output volume, which the intent forbids.
+
+**Authorization state:** idea 2026-09-07; needs an owner decision on scope and a data-model change
+(the `Lane` type has four values). Not authorized.
+
 ## Not authorized
 
 - Partner-risk-first sequencing
