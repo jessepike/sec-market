@@ -518,6 +518,18 @@ daily cadence is out: it would optimise output volume, which the intent forbids.
 **Authorization state:** idea 2026-09-07; needs an owner decision on scope and a data-model change
 (the `Lane` type has four values). Not authorized.
 
+### SEC-041 — Triage the category-compression intake
+
+Ten documents from an owner exploration on 2026-09-09 landed in
+`docs/inbox/2026-09-09-category-compression/` with an intake note. Two things to decide, separately:
+whether the vendor claims on Cloudflare, Fortinet, SentinelOne, Varonis and Rubrik enter the next
+gather packet as candidate card updates, and whether the structural lens (barbell market, category
+compression into outcome loops, ecosystem as the unit of analysis) becomes a proposed market read for
+the owner to sign or reject. The twelve-item hypothesis register is the likeliest durable piece.
+
+**Authorization state:** intake only, 2026-09-09. Nothing on the scorecard or the read changes until
+the owner signs.
+
 ## Not authorized
 
 - Partner-risk-first sequencing
