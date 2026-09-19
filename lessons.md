@@ -3,6 +3,10 @@
 Hot buffer. One line per insight, newest date first. Keep the last ~15; promote
 cross-project patterns to the knowledge base and drop them from here.
 
+## 2026-09-19
+
+- A 12-day silent gap between build-review turns let a locally-committed change (`d2cae33`, an inbox intake) sit unpushed and undiscovered until session-wrap's own `git log`/`git status` pass caught it. Re-check `git status`, unpushed-commit count, and the D-65-style owner-action list at the start of any session that resumes after a long gap, not just at wrap.
+
 ## 2026-09-05
 
 - [promoted:kb:aa5fea38:2026-09-05] Claude Code cloud routines run behind an egress proxy that refuses CONNECT to any host outside a short allowlist (npm, GitHub, Anthropic). A job whose whole purpose is fetching the public web cannot run there until the environment's allowlist is set. Probe the network with one curl in the first run of any fetch job before trusting the design.
