@@ -1,0 +1,136 @@
+{
+  "disclosures": {
+    "total": 41,
+    "open": 8
+  },
+  "words": {
+    "visibleWordCount": 3098,
+    "totalWordCountIncludingClosedDisclosures": 5235
+  },
+  "headings": {
+    "totalHeadings": 108,
+    "emptyHeadings": [],
+    "levelSkips": []
+  },
+  "targetSize": {
+    "totalElements": 240,
+    "eligibleElements": 239,
+    "excludedInlineInSentence": 1,
+    "smallCount": 0,
+    "tenSmallest": []
+  },
+  "reflow": {
+    "scrollWidth": 320,
+    "clientWidth": 320,
+    "horizontalScroll": false,
+    "overflowingCount": 40,
+    "overflowingSample": [
+      {
+        "selector": "section#domains > div.table-scroll:nth-child(3) > table.tempo-table:nth-child(1)",
+        "tag": "TABLE",
+        "left": 34,
+        "right": 346,
+        "width": 312
+      },
+      {
+        "selector": "section#domains > div.table-scroll:nth-child(3) > table.tempo-table:nth-child(1) > thead:nth-child(2)",
+        "tag": "THEAD",
+        "left": 34,
+        "right": 346,
+        "width": 312
+      },
+      {
+        "selector": "section#domains > div.table-scroll:nth-child(3) > table.tempo-table:nth-child(1) > thead:nth-child(2) > tr:nth-child(1)",
+        "tag": "TR",
+        "left": 34,
+        "right": 346,
+        "width": 312
+      },
+      {
+        "selector": "section#domains > div.table-scroll:nth-child(3) > table.tempo-table:nth-child(1) > thead:nth-child(2) > tr:nth-child(1) > th:nth-child(4)",
+        "tag": "TH",
+        "left": 258,
+        "right": 346,
+        "width": 88
+      },
+      {
+        "selector": "section#domains > div.table-scroll:nth-child(3) > table.tempo-table:nth-child(1) > tbody.tempo-block:nth-child(3)",
+        "tag": "TBODY",
+        "left": 34,
+        "right": 346,
+        "width": 312
+      },
+      {
+        "selector": "section#domains > div.table-scroll:nth-child(3) > table.tempo-table:nth-child(1) > tbody.tempo-block:nth-child(3) > tr:nth-child(1)",
+        "tag": "TR",
+        "left": 34,
+        "right": 346,
+        "width": 312
+      },
+      {
+        "selector": "section#domains > div.table-scroll:nth-child(3) > table.tempo-table:nth-child(1) > tbody.tempo-block:nth-child(3) > tr:nth-child(1) > td:nth-child(4)",
+        "tag": "TD",
+        "left": 258,
+        "right": 346,
+        "width": 88
+      },
+      {
+        "selector": "div.table-scroll:nth-child(3) > table.tempo-table:nth-child(1) > tbody.tempo-block:nth-child(3) > tr:nth-child(1) > td:nth-child(4) > span.tag.tag--prepare:nth-child(1)",
+        "tag": "SPAN",
+        "left": 270,
+        "right": 334,
+        "width": 64
+      },
+      {
+        "selector": "section#domains > div.table-scroll:nth-child(3) > table.tempo-table:nth-child(1) > tbody.tempo-block:nth-child(3) > tr.tempo-table__detail:nth-child(2)",
+        "tag": "TR",
+        "left": 34,
+        "right": 346,
+        "width": 312
+      },
+      {
+        "selector": "section#domains > div.table-scroll:nth-child(3) > table.tempo-table:nth-child(1) > tbody.tempo-block:nth-child(3) > tr.tempo-table__detail:nth-child(2) > td:nth-child(1)",
+        "tag": "TD",
+        "left": 34,
+        "right": 346,
+        "width": 312
+      }
+    ]
+  },
+  "contrast": {
+    "totalSmallTextNodes": 1219,
+    "failingCount": 0,
+    "failingNonTopBarCount": 0,
+    "failingTopBarCount": 0,
+    "fiveWorstNonTopBar": [],
+    "topBarSample": []
+  },
+  "position_1440x900": {
+    "docHeight": 15022,
+    "signedOffset": 5137,
+    "whatWeThinkOffset": 4682,
+    "infraOffset": 5269,
+    "totalLaneItems": 23,
+    "fullyVisibleInFirstViewport": 2,
+    "signedPct": 34.2,
+    "whatWeThinkPct": 31.2,
+    "infraPct": 35.1,
+    "signedViewportHeights": 5.71,
+    "whatWeThinkViewportHeights": 5.2,
+    "infraViewportHeights": 5.85
+  },
+  "position_390x844": {
+    "docHeight": 17715,
+    "signedOffset": 7323,
+    "whatWeThinkOffset": 6258,
+    "infraOffset": 7455,
+    "totalLaneItems": 23,
+    "fullyVisibleInFirstViewport": 1,
+    "signedPct": 41.3,
+    "whatWeThinkPct": 35.3,
+    "infraPct": 42.1,
+    "signedViewportHeights": 8.68,
+    "whatWeThinkViewportHeights": 7.41,
+    "infraViewportHeights": 8.83
+  }
+}

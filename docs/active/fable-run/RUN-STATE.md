@@ -36,9 +36,9 @@ Phase 2 — rubric and baseline. Closes when `site-rubric.md` and `score-baselin
 | T1-7 | Current-site teardown: render production and preview at 1440 and 390, read the markup, describe 5s / 30s / 3min | claude-sonnet-5 (with a claude-haiku-4-5 screenshot step inside it) | done | none | preview | n/a | docs/active/fable-run/research/07-site-teardown.md | 2026-09-20T07:05Z |
 | T1-8 | Inventory of dated thesis history already in the repository (added by the coordinator; a history surface built from issues alone has one row) | claude-haiku-4-5 | done | none | preview | n/a | docs/active/fable-run/research/08-thesis-history-inventory.md | 2026-09-20T04:05Z |
 | T1-9 | Browser follow-up for pages that blocked fetch: capture and describe Cloudflare Radar first screen at 1440 and 390; read rendered pricing on Return on Security, SemiAnalysis, The Information, Platformer, Latent Space, Software Analyst Cyber Research | claude-sonnet-5 | done | none | preview | n/a | docs/active/fable-run/research/09-browser-followup.md | 2026-09-20T06:55Z |
-| T2-1 | Baseline measurement pack on production: performance (Lighthouse mobile and desktop, three runs, medians), accessibility (axe pass, keyboard walk, focus visibility, target sizes, 320 px reflow, contrast on small metadata), DOM-measured pixel depth of thesis and signature, items per first screen | claude-sonnet-5 | running | none | preview | n/a | docs/active/fable-run/evidence/baseline/measurements.md | 2026-09-20T07:15Z |
+| T2-1 | Baseline measurement pack on production: performance (Lighthouse mobile and desktop, three runs, medians), accessibility (axe pass, keyboard walk, focus visibility, target sizes, 320 px reflow, contrast on small metadata), DOM-measured pixel depth of thesis and signature, items per first screen | claude-sonnet-5 | done | none | preview | n/a | docs/active/fable-run/evidence/baseline/measurements.md | 2026-09-20T08:15Z |
 | T2-2 | Machine-extraction test on production for D8: a cold agent with only the home URL tries to extract thesis, verdict, signer, date, one claim with its source, and the archive list; records every step and failure | claude-sonnet-5 | done | none | preview | n/a | docs/active/fable-run/evidence/baseline/machine-extraction.md | 2026-09-20T07:55Z |
-| T2-3 | Independent rubric scoring of production from the evidence, blind to the coordinator's scores | claude-sonnet-5 | pending | none | preview | n/a | docs/active/fable-run/evidence/baseline/independent-scores.md | 2026-09-20T07:15Z |
+| T2-3 | Independent rubric scoring of production from the evidence, blind to the coordinator's scores | claude-sonnet-5 | running | none | preview | n/a | docs/active/fable-run/evidence/baseline/independent-scores.md | 2026-09-20T08:15Z |
 
 Status is one of: pending, running, blocked, in-review, done, abandoned.
 
@@ -174,4 +174,15 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
   T2-2 was wrong on two: `/issues/index.json` is 200 and `/index.json` is 404. Correction note
   added at the top of `machine-extraction.md`. Lesson for scoring: subagent status codes get a
   spot check before a score cites them.
+- 2026-09-20T08:15Z — T2-1 returned, 220 lines. Lighthouse mobile performance 76 with LCP 4.36 s,
+  desktop 98 with LCP 0.86 s; axe zero violations on three routes at both widths; zero targets
+  under 24 px; zero small-text contrast failures; Tab never lands in the signed judgment or the
+  thesis; 0 `details` open in served HTML, 8 opened by client code after load. T2-3 row set to
+  running and dispatched.
+- 2026-09-20T08:20Z — HOST PROBLEM, not caused by this run: `/usr/bin/git` and `/usr/bin/python3`
+  began failing mid-session with "You have not agreed to the Xcode license agreements" (an Xcode
+  update on the host, most likely). Workaround that needs no sudo and changes nothing on the host:
+  prefix every shell command with `export DEVELOPER_DIR=/Library/Developer/CommandLineTools`.
+  Every subagent prompt from here on carries that line. The real fix is the owner running
+  `sudo xcodebuild -license` once.
 
