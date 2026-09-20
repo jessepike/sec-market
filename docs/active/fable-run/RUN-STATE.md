@@ -2,28 +2,36 @@
 
 ## Resume here
 
-Phase 3, design and plan. The three specs are at v0.2, revised after the adversarial pass
-(`consults/adversarial-pass.md`, T3-3, done), and the rubric is at v1.2. The main change: Phase 4
-is now proposed to the owner as two waves (wave 1 is a small reorder in one worktree; wave 2 waits
-for a second signed issue), with the full brief and wave-1-only as the alternatives. Task T3-4
-(`claude-sonnet-5`) builds `docs/active/fable-run/owner-packet-phase3.html`. If that file is
-missing or incomplete, re-dispatch T3-4. When it exists: spot-check it, commit, push, then send it
-with `mcp__agent-canvas__dispatch_interaction` (class `document-review`, `artifact_path` absolute)
-and `mcp__agent-canvas__notify_user`, log the interaction id here, and END THE TURN. THIS IS A HARD
-STOP: no Phase 4 work of any kind until the owner answers. His "Continue until fully completed"
-came before any plan existed and is not acceptance of it. If canvas fails, retry once, then
-deliver in the terminal and say canvas failed. On the next resume, first call
-`mcp__agent-canvas__get_user_messages` for the owner's answer.
-Host note: every shell command needs `export DEVELOPER_DIR=/Library/Developer/CommandLineTools`
-until the owner runs `sudo xcodebuild -license`. A parallel session is working in this checkout
-and has a draft issue on branch `issue/2026-w37`: stage named paths only, never `git add -A`, and
-never edit `web/src/data/issues/` or `web/src/data/evidence.ts`.
+STOPPED AT THE PHASE 3 OWNER GATE. The packet
+`docs/active/fable-run/owner-packet-phase3.html` (design spec v0.2, agent-surface spec v0.2,
+monetization plan v0.2, baseline 33.0, adversarial result) was sent to agent-canvas on
+2026-09-20 as a `document-review`, interaction id `sec-market-fable-001-phase3-packet`, and the
+owner was notified. NO PHASE 4 WORK OF ANY KIND until he answers. His earlier "Continue until
+fully completed" came before any plan existed and is not acceptance.
 
-Last updated: 2026-09-20T12:40:00Z
+On resume, in this order: (1) call `mcp__agent-canvas__get_user_messages` and
+`mcp__agent-canvas__get_comments` for the answer; a failed readback is not approval, so if it
+fails twice ask in the terminal. (2) Record his answers in "Owner gates" and "Decisions" below.
+(3) The first answer needed is the size of Phase 4: A the brief as written, B two waves
+(recommended), C wave 1 only. (4) If B or C: check whether `issue/2026-w37` has landed on
+`preview`; branch ONE worktree from `preview` per brief section 6
+(`git worktree add /Users/jessepike/code/projects/sec-market-wt/wave1 -b mon/wave1 preview`);
+the first build task is a rendered, measured prototype of the first screen at 1440 and 390 with
+the real strings (design-spec 3.1), which the owner approves before the rest of wave 1 proceeds.
+Write each task row here before dispatching. Code goes to `claude-sonnet-5`, captures to
+`claude-haiku-4-5`. All node work runs in the OrbStack dev VM. Never push to `main`.
+Parked until he answers and until he has asked his employer the outside-activity question (M-3):
+crawler policy, content licence, the independence statement, the contact sentence.
+Host note: every shell command needs `export DEVELOPER_DIR=/Library/Developer/CommandLineTools`
+until the owner runs `sudo xcodebuild -license`. A parallel session works in this checkout: stage
+named paths only, never edit `web/src/data/issues/`, `web/src/data/evidence.ts` or `lessons.md`
+while it has them open.
+
+Last updated: 2026-09-20T13:25:00Z
 
 ## Phase
 
-Phase 3 — design and plan. Closes when the package is on agent-canvas and the owner is notified.
+Phase 3 — design and plan. The package is on agent-canvas and the owner is notified. Waiting at the owner gate.
 
 ## Task ledger
 
@@ -48,7 +56,7 @@ Phase 3 — design and plan. Closes when the package is on agent-canvas and the 
 
 Status is one of: pending, running, blocked, in-review, done, abandoned.
 | T3-3 | Adversarial pass on the three Phase 3 specs: argue the plan fails, find what is wrong, unsupported, contradictory or unsafe against the gates; read-only apart from its one output file | claude-opus-5 | done | none (read-only) | preview | n/a | docs/active/fable-run/consults/adversarial-pass.md | 2026-09-20T12:10Z |
-| T3-4 | Build ONE light-theme HTML owner packet from the shared agent-canvas review template, containing the design spec, the agent-surface spec, the monetization plan, the baseline and the adversarial result; no new claims, content only from the committed documents | claude-sonnet-5 | running | none | preview | n/a | docs/active/fable-run/owner-packet-phase3.html | 2026-09-20T12:40Z |
+| T3-4 | Build ONE light-theme HTML owner packet from the shared agent-canvas review template, containing the design spec, the agent-surface spec, the monetization plan, the baseline and the adversarial result; no new claims, content only from the committed documents | claude-sonnet-5 | done | none | preview | n/a | docs/active/fable-run/owner-packet-phase3.html | 2026-09-20T13:20Z |
 
 ## Owner gates
 
@@ -59,6 +67,7 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
   the pilot list. Neither blocks Phase 1 to 3. Both are preconditions in the monetization plan.
 - 2026-09-20 — Path ownership between this run and the parallel session in the same checkout.
   Blocks nothing until Phase 4 merges into `preview`.
+| Phase 3 acceptance: size of Phase 4 (A brief as written, B two waves, C wave 1 only), design decisions D-1 to D-7, monetization decisions M-1 to M-11, crawler policy and terms (after M-3) | waiting, sent 2026-09-20 on agent-canvas, interaction `sec-market-fable-001-phase3-packet` | All of Phase 4 |
 
 ## Decisions made this run
 
@@ -258,4 +267,10 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
   no `Accept` negotiation. One correction to the reviewer: production can never show a draft
   (`verify-issue` production guard), so finding 1 affects previews and merges only.
 - 2026-09-20T12:40Z — Specs v0.2 and rubric v1.2 committed. T3-4 row written, then dispatched.
+- 2026-09-20T13:25Z — T3-4 packet built (316 KB, self-contained, light theme, both baseline
+  screenshots embedded). Coordinator read its opening cards against the specs, repaired one
+  paragraph the converter had cut after its first line, and added a note that the reviewer read
+  v0.1. Committed `df78c25`, pushed. Dispatched to agent-canvas as `document-review`
+  (`sec-market-fable-001-phase3-packet`), dispatch and notify both succeeded first time. Turn
+  ended at the hard stop.
 
