@@ -1,7 +1,9 @@
 # Site quality rubric — Security Market Pulse
 
-**Artifact ID:** `SEC-MARKET-FABLE-RUBRIC` v1.2
-**Written by:** the run coordinator, 2026-09-20, from `docs/active/fable-run/research-synthesis.md`
+**Artifact ID:** `SEC-MARKET-FABLE-RUBRIC` v2.0
+**Written by:** the run coordinator, 2026-09-20. v2.0 re-aims the instrument at
+`docs/active/product-core.md`, the owner's statement of what the site is for. v1.2 measured a site
+built around one standing thesis; the owner has said that is not the centre. Git history keeps v1.2.
 **Used for:** the baseline in `score-baseline.md`, every build decision in Phase 4, and the
 re-score in `score-after.md`.
 
@@ -80,138 +82,140 @@ DOM as the top offset of the first content element.
 
 | # | Dimension | Weight | Why this weight |
 |---|---|---|---|
-| D1 | Thesis clarity | 12 | The centre of the brief; the teardown found the thesis six screens down. |
-| D2 | Thesis development | 12 | The unoccupied position among peers (synthesis 2.2). |
-| D3 | Reason to return weekly | 10 | The stated goal; capped by real cadence. |
-| D4 | First-screen decision value | 12 | The brief says first screen matters most. |
-| D5 | Evidence legibility | 8 | The project's founding promise is traceable claims. |
-| D6 | Density and scanability | 8 | House style; current lanes show about three items a screen. |
-| D7 | Wayfinding | 5 | Matters more as the archive grows; one issue today. |
-| D8 | Agent legibility | 10 | One of the brief's three pillars. |
-| D9 | Performance | 5 | Already a static prerender; hygiene, not a differentiator. |
+| D1 | Market picture clarity | 14 | The product core: a security leader should see what is happening in the market they buy from. |
+| D2 | Look back, look ahead | 10 | The owner's method: three to six months of evidence behind, a labelled view ahead. Holds the standing analyses, including the founding thesis. |
+| D3 | Freshness and reason to return | 12 | "If it is not updated flawlessly with accurate, fresh information, it is worthless." Capped by real cadence. |
+| D4 | Decision value for a security leader | 12 | Includes the owner's own use: which vendors in a domain are on solid footing. |
+| D5 | Evidence legibility | 9 | Trust is the asset. Every figure traceable. |
+| D6 | Density and scanability | 8 | House style. |
+| D7 | Wayfinding | 5 | Domains, vendors, issues and analyses each need an address. |
+| D8 | Agent legibility | 7 | Still wanted, no longer a pillar. |
+| D9 | Performance | 5 | Hygiene. |
 | D10 | Accessibility | 7 | WCAG 2.2 AA is a design input, and dense designs break it. |
-| D11 | Conversion architecture | 3 | Low on purpose: governance holds public email until 2026-10-08 (SEC-029). Raise to 8 and rebalance when the owner opens the list. |
-| D12 | Trust and authority | 5 | Signature, method, corrections, calibration. |
+| D11 | Follow and share | 3 | Sales teams forwarding it is a stated success signal. Public email is held until 2026-10-08. |
+| D12 | Trust and authority | 5 | Named author, method, corrections, separation of fact from opinion. |
 | D13 | Craft | 3 | Low on purpose, so polish cannot carry the composite. |
 
-Changes from the brief's starting table, with reasons: D3 gained a cadence-honesty test and the
-cadence cap (synthesis section 5). D2's anchors are written to be scorable at one issue. D6 counts
-items per screen and does not reward monospace for its own sake, because Cloudflare Radar uses
-none (synthesis section 3). D8 is scored by a scripted cold-agent extraction test, not by the
-presence of files. D11 is scored against what the project's rules allow today. No dimension was
-cut. None was added: cadence honesty lives inside D3 and D12 so it cannot be traded away.
+Changes from v1.2: D1 was "thesis clarity" and D2 "thesis development" (24 points on one analysis);
+they now measure the market picture and the look back and ahead. D3 rises from 10 to 12 and gains a
+per-dataset freshness test. D4 gains the owner's real use case as a test. D5 rises by one. D8 falls
+from 10 to 7. D11 drops its paid-offer tests, because monetization is parked, and gains sharing.
+No test anywhere rewards volume of traffic.
 
 ## 4. The dimensions
 
-### D1 — Thesis clarity (12)
+### D1 — Market picture clarity (14)
 
-*Can a first-time reader state the site's current market position in one sentence after ten
-seconds?*
+*Can a security leader say, after ten seconds, what this site is and one thing that is happening
+in the market they buy from?*
 
-**0:** The thesis is not stated anywhere a reader reaches without expanding a section or
-scrolling more than three screens.
-
-**Level 3**
-1. The standing thesis appears verbatim, as a sentence of its own, within the first screen at
-   1440 and at 390.
-2. Within the first screen, it is visually distinct from this week's headline and labelled as
-   the standing thesis or equivalent, so a reader can tell the argument from the news.
-3. It is written without internal jargon: no term on the first screen needs another page to
-   decode it ("the lag call", episode numbers, internal ids).
-4. One plain line on the first screen says what the site is and who signs it.
-
-**Level 5**
-1. The current verdict on the thesis, its confidence, and the date it was last judged sit next to
-   the thesis within the first screen at both widths.
-2. The thesis has a stable address of its own (a page or an anchored section with a permanent
-   URL) that states it, defines it and links its supporting evidence.
-3. The thesis states what it does not claim (its no-call boundary) in one line within one scroll
-   of the statement.
-4. A cold reader test passes: a scorer shown only the first-screen capture for ten seconds can
-   write the site's position in one sentence that matches the thesis in substance.
-
-### D2 — Thesis development (12)
-
-*Can a returning reader see what changed in the argument this week, and its history?*
-
-**0:** No visible record that the thesis has ever been re-examined; past states cannot be found.
+**0:** The first screen does not say what the site is, and the market picture cannot be reached
+without expanding a section or scrolling more than three screens.
 
 **Level 3**
-1. A dated sequence of verdicts on the thesis is visible without expanding anything, each linking
-   to the signed issue that set it, however few there are.
-2. A "what changed since the last issue" statement is visible without expanding anything, and
-   says so plainly when nothing changed.
-3. The conditions that would change the call are visible without expanding anything.
-4. Every past state shown is dated and attributed (signed by a named person, or marked as an
-   unsigned edition record).
+1. One plain line on the first screen, at 1440 and at 390, says what the site is, who it is
+   written for and who writes it.
+2. The first screen at both widths carries this period's read as a statement about the market,
+   not only a list of tracked items.
+3. No term on the first screen needs another page to decode it (no internal labels such as "the
+   lag call", "prints", "formation", episode numbers or ids).
+4. Within the first screen plus one scroll at 1440 (under 1,800 pixels), a by-domain picture is
+   visible without expanding anything: each covered domain with its direction or stance in plain
+   words.
 
 **Level 5**
-1. Each change condition carries a current status with a date (for example: no movement, moving
-   toward, moving away, met), so a week in which the verdict holds still shows movement
-   underneath.
-2. The full dated history of the thesis (original call, edition records, weekly verdicts) is on
-   one surface in order, and distinguishes signed judgments from unsigned records.
-3. A corrections record exists as a page or section with a stable address, and says "none to
-   date" when empty.
-4. The scoring method is stated once, in plain sentences, at a stable address: what the four
-   verdicts mean and how the running score is computed.
-5. A calibration view exists that compares stated confidence with outcomes, or an explicit
-   statement of when there will be enough history to show one.
+1. For each covered domain, the leading vendors are named with a current, sourced figure and its
+   date, in a table that lets a reader compare a vendor with its peers.
+2. Consolidation and distress (acquired, taken private, shut down, debt, layoffs) have a visible
+   place of their own, which says "none recorded this period" when empty.
+3. Cold reader test: a scorer shown only the first-screen capture for ten seconds, asked to
+   answer as a security leader, writes what the site is for and one true thing it says about the
+   market.
+4. Every domain and every vendor has a stable address (a page or an anchored section) that can
+   be linked and forwarded.
 
-### D3 — Reason to return weekly (10)
+### D2 — Look back, look ahead (10)
 
-*Is there something here on Monday that was not here last Monday, and is that visible without
-hunting?* Subject to the cadence cap.
+*Can a reader see what happened over the last three to six months, what the site expects next,
+and how past expectations held up?*
+
+**0:** Figures carry no period, nothing looks forward, and past calls cannot be found.
+
+**Level 3**
+1. "What changed since the last update" is visible without expanding anything, and says so
+   plainly when nothing changed.
+2. Backward view: tracked figures carry their period and date, and for a vendor or a domain a
+   reader can see at least the previous period or the direction of travel, not a single point.
+3. A forward view exists, is labelled as judgment and not as fact, carries its confidence, and
+   says what would change it.
+4. Every past judgment shown is dated and attributed (signed by a named person, or marked as an
+   unsigned record).
+
+**Level 5**
+1. Standing analyses (the founding infrastructure-and-security thesis is one) each have a stable
+   address with their dated record in order, distinguishing signed judgments from unsigned ones.
+2. Each forward call lists its change conditions, each with a current status and a date.
+3. A corrections record exists at a stable address, and says "none to date" when empty.
+4. How judgments are made and scored is stated once, in plain sentences, at a stable address.
+5. A calibration view compares stated confidence with outcomes, or a plain statement says when
+   there will be enough history to show one.
+
+### D3 — Freshness and reason to return (12)
+
+*Is there something here this week that was not here last week, is that visible without hunting,
+and can a reader tell how old everything is?* Subject to the cadence cap.
 
 **0:** Nothing on the site indicates when it last changed or when it will change again.
 
 **Level 3**
-1. The date of the newest signed issue and the week it covers are visible in the first screen.
+1. The date of the newest update and the period it covers are visible in the first screen.
 2. The publishing cadence is stated as a sentence somewhere a reader reaches without expanding
    anything, and no other text on the site contradicts it.
-3. What is new since the previous issue is identifiable on the front page without comparing pages
-   by memory.
-4. At least one way to be told about a new issue is visible without expanding anything (a feed
+3. What is new since the previous update is identifiable on the front page without comparing
+   pages by memory.
+4. At least one way to be told about a new update is visible without expanding anything (a feed
    link counts).
+5. Every dataset on the front page shows its own "as of" date, and nothing older than 45 days is
+   shown without saying how old it is.
 
 **Level 5**
-1. The next expected issue date is shown, and if it has passed, the site says the issue is late.
-2. The front page differs from the newest issue's permalink in purpose: the front page shows the
-   current state of the argument, the permalink is the immutable record.
-3. The age of the newest issue is honest at a glance: a reader cannot mistake a three-week-old
+1. If the promised cadence has been missed, the site says so without anyone editing it by hand.
+2. The front page differs from a dated issue's permalink in purpose: the front page shows the
+   current picture, the permalink is the record of one period.
+3. The age of the newest update is honest at a glance: a reader cannot mistake a three-week-old
    read for this week's.
-4. A returning reader can see the last three issues' verdicts and headlines from the front page,
-   or as many as exist.
+4. A returning reader can see the last three updates' headlines from the front page, or as many
+   as exist.
 
-### D4 — First-screen decision value (12)
+### D4 — Decision value for a security leader (12)
 
-*What does a chief information security officer learn in five seconds, thirty seconds, three
-minutes?*
+*What does someone running a security program learn in five seconds, thirty seconds, three
+minutes? Can the owner's own question be answered from it?*
 
 **0:** The first screen carries no judgment: navigation, a headline and raw items only.
 
 **Level 3**
-1. Five seconds: the first screen at both widths carries a statement of judgment (the thesis, or
-   this week's read; a headline that states the read counts), not only tracked items.
+1. Five seconds: the first screen at both widths carries a statement of judgment about the
+   market (a headline that states the read counts).
 2. Thirty seconds: within two screens of scrolling at 1440, a reader reaches what changed and
-   what to do or avoid, without expanding anything.
-3. The highest-consequence items of the week are ordered or marked as such; a reader is not left
-   to infer importance from a chronological list.
-4. At 390, the first screen carries the judgment in the same order as desktop, and site chrome
-   takes no more than a quarter of the viewport height, measured by DOM.
+   what it means for someone running a program or advising one, without expanding anything.
+3. The highest-consequence events of the period are ordered or marked as such; a reader is not
+   left to infer importance from a chronological list.
+4. At 390, the first screen carries the same things in the same order as desktop, and site
+   chrome takes no more than a quarter of the viewport height, measured by DOM.
 
 **Level 5**
-1. Three minutes: a reader who scrolls at reading pace for three minutes at 1440 has passed the
-   judgment, the change conditions, the domain postures and the week's main evidence, measured as
-   everything essential sitting within the first 5,000 pixels, by DOM.
-2. The signed judgment sits within the first screen's height plus one scroll (under 1,800 pixels
-   at 1440, under 1,700 at 390), measured by DOM.
-3. The first screen names the decision horizon or the reader it is written for, so a security
-   leader knows the read is for them.
+1. The vendor question: starting from the front page, a reader can answer "in this domain, which
+   vendors are on solid footing, and how does this vendor compare with its peers" in under a
+   minute, from one view, with a source behind every figure.
+2. Three minutes: everything essential (the read, the by-domain picture, the period's main
+   events and the forward view) sits within the first 5,000 pixels at 1440, by DOM.
+3. The first screen names the reader it is written for, so a security leader knows it is for
+   them.
 4. Nothing on the first screen is decoration: every element is navigation, provenance, judgment
    or evidence.
 
-### D5 — Evidence legibility (8)
+### D5 — Evidence legibility (9)
 
 *Can a claim be traced to a named source without leaving the flow of reading?*
 
@@ -276,14 +280,14 @@ undifferentiated wall of text with no structure.
 
 **Level 5**
 1. Issues link to the previous and next issue.
-2. The thesis surface and the issues cross-reference each other: each verdict links to its issue
-   and each issue links to the thesis state it set.
+2. Standing analyses and dated issues cross-reference each other: each verdict links to its issue
+   and each issue links to the analysis it judged.
 3. A reader can filter or find items across issues by vendor or domain (the vendor lens counts
    if it is discoverable from the page, not only by editing the URL).
-4. Keyboard shortcuts for next and previous issue and jump to thesis exist and are documented on
+4. Keyboard shortcuts for next and previous issue and jump to the market picture exist and are documented on
    the page.
 
-### D8 — Agent legibility (10)
+### D8 — Agent legibility (7)
 
 *Can a machine reader parse, cite precisely, and come back for structured data?* Scored from the
 cold-agent extraction test (method in `evidence/baseline/machine-extraction.md`): a program given
@@ -301,8 +305,8 @@ only the home URL, with no rendering.
 5. A feed exists and is advertised by an autodiscovery link.
 
 **Level 5**
-1. The cold agent gets the standing thesis, the current verdict, confidence, signer and date from
-   structured data (a JSON endpoint or JSON-LD), without parsing prose.
+1. The cold agent gets the current read, its confidence, author and date, and the by-domain
+   picture, from structured data (a JSON endpoint or JSON-LD), without parsing prose.
 2. Each claim or lane item has a stable anchor id, so a single claim can be cited by URL, and the
    id appears in the JSON.
 3. A plain-text or Markdown representation of each route exists and is advertised
@@ -360,11 +364,11 @@ the front page; field data replaces lab data when it exists.
    control borders, focus indicators and chart marks against their backgrounds; this test fails
    as "not measured" until that sample exists.
 
-### D11 — Conversion architecture (3)
+### D11 — Follow and share (3)
 
-*Is there a clear path from reading to following to paying, and is the value at each step
-obvious?* Scored against what the project's governance allows on the scoring date. While public
-email is held (SEC-029), "follow" means the feed and any owner-approved pilot path.
+*Can a reader follow it, and can someone forward it to a client without embarrassment?* Scored
+against what the project's governance allows on the scoring date. While public email is held
+(SEC-029), "follow" means the feed and any owner-approved pilot path.
 
 **0:** No way to follow the site is visible anywhere.
 
@@ -372,15 +376,15 @@ email is held (SEC-029), "follow" means the feed and any owner-approved pilot pa
 1. A way to follow the site is visible on the front page without expanding anything, at both
    widths.
 2. The follow prompt says what the reader will get and how often.
-3. The prompt appears at a moment of value (after the judgment), not only in a footer.
+3. The prompt appears at a moment of value (after the read), not only in a footer.
 
 **Level 5**
 1. Whatever capture path the owner has authorized works end to end and has been tested.
-2. The site states plainly what is free and will stay free.
-3. If any paid offer exists, its price and contents are visible without an account; if none
-   exists, nothing on the site implies one.
-4. A contact path for organizations (team use, briefings, sponsorship) exists, if and only if the
-   owner has approved offering it.
+2. Every route has its own title, description and social card, so a forwarded link previews as
+   what it is.
+3. A way to reach the author with a request or a correction is visible without expanding
+   anything.
+4. Nothing on the site implies a paid offer while none exists.
 
 ### D12 — Trust and authority (5)
 
@@ -447,3 +451,4 @@ the change is recorded here.
 | 1.0 | 2026-09-20 | First version, from the brief's thirteen dimensions revised against Phase 1 research. |
 | 1.1 | 2026-09-20 | After the agreement check. Two scorers landed within one point on all thirteen dimensions at v1.0 (five dimensions differed by one). Every test they read differently was reworded: the 0 rule is now "no level-3 test passes" (D1's anchor overlapped its first test); D1 test 2 is tied to the first screen; D4 test 1 says a headline stating the read counts; "link or control", "visible after at most one click", "without expanding anything" and "site chrome" are defined once; D7 test 1 requires the verdict as a labelled field; D8 level-5 test 6 and D10 level-5 test 4 were each split in two; the freshness cap names which contradictions trigger it; the small-scale rule is stated as general. |
 | 1.2 | 2026-09-20 | After the adversarial pass on the Phase 3 specs (`consults/adversarial-pass.md`, finding 8). D4 level-5 test 1 read "within the first 40 percent of page height or within 5,000 pixels, whichever is smaller", which no short page can pass and which pulled against D6 level-5 test 1 (a page under 6,000 pixels). It is now a flat 5,000 pixels. The baseline is unaffected: D4 fails at level 3, so no level-5 test changes its score. |
+| 2.0 | 2026-09-20 | Re-aimed at `docs/active/product-core.md` after the owner restated the purpose: a practitioner's market pulse for security leaders, with the founding thesis as one standing analysis. D1 to D4 and D11 rewritten, weights changed (section 3), D8 level-5 test 1 reworded. D5 to D7, D9, D10, D12 and D13 tests unchanged. The v1.2 baseline of 33.0 is not comparable with v2.0 scores; the baseline is re-scored under v2.0 from the same evidence in `score-baseline-v2.md`. |

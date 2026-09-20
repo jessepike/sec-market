@@ -304,4 +304,10 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
   full automation with a one-tap decision is a requirement; "sign every judgment" is in question
   (coordinator recommends: validated tracked facts may auto-publish, judgments need his tap; his
   call). T5-1 to T5-5 rows written, then dispatched together.
+- 2026-09-20T22:10Z — Rubric rewritten as v2.0 against the product core: D1 market picture clarity
+  (14), D2 look back and look ahead (10), D3 freshness (12), D4 decision value for a security
+  leader including the owner's vendor question (12), D8 down to 7, D11 becomes follow and share.
+  The 33.0 baseline is a v1.2 number; a v2.0 re-score from the same evidence is still to do
+  (`score-baseline-v2.md`), after the content inventory lands. Two memory notes written for
+  future sessions (run end to end with few owner decisions; where the product core lives).
 
