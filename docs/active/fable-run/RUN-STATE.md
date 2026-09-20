@@ -41,8 +41,8 @@ Phase 3 — design and plan. Closes when the package is on agent-canvas and the 
 | T2-2 | Machine-extraction test on production for D8: a cold agent with only the home URL tries to extract thesis, verdict, signer, date, one claim with its source, and the archive list; records every step and failure | claude-sonnet-5 | done | none | preview | n/a | docs/active/fable-run/evidence/baseline/machine-extraction.md | 2026-09-20T07:55Z |
 | T2-3 | Independent rubric scoring of production from the evidence, blind to the coordinator's scores | claude-sonnet-5 | done | none | preview | n/a | docs/active/fable-run/evidence/baseline/independent-scores.md | 2026-09-20T09:10Z |
 | T2-4 | Two missing measurements both scorers needed: capture of an opened evidence control on production (what a reader sees, whether it carries a real source link, source kind and retrieval date), and DOM height of site chrome at 390 | claude-haiku-4-5 | done | none | preview | n/a | docs/active/fable-run/evidence/baseline/evidence-drawer.md | 2026-09-20T09:50Z |
-| T3-1 | Codebase map for the design spec: routes, components and which page sections each renders, data files and types (issue, weThink, market call, editions, domains), CSS tokens and structure, what every e2e test and verify gate asserts about page composition, build scripts for SEO and feed | claude-sonnet-5 | running | none (read-only) | preview | n/a | docs/active/fable-run/codebase-map.md | 2026-09-20T09:30Z |
-| T3-2 | Monetization model consult: who pays, for what, price, order and preconditions, 90-day and 12-month paths, what not to do, intent conflicts; argued from the research, with guesses labelled | claude-opus-5 | running | none (read-only) | preview | n/a | docs/active/fable-run/consults/monetization-consult.md | 2026-09-20T09:30Z |
+| T3-1 | Codebase map for the design spec: routes, components and which page sections each renders, data files and types (issue, weThink, market call, editions, domains), CSS tokens and structure, what every e2e test and verify gate asserts about page composition, build scripts for SEO and feed | claude-sonnet-5 | done | none (read-only) | preview | n/a | docs/active/fable-run/codebase-map.md | 2026-09-20T10:10Z |
+| T3-2 | Monetization model consult: who pays, for what, price, order and preconditions, 90-day and 12-month paths, what not to do, intent conflicts; argued from the research, with guesses labelled | claude-opus-5 | done | none (read-only) | preview | n/a | docs/active/fable-run/consults/monetization-consult.md | 2026-09-20T10:10Z |
 
 Status is one of: pending, running, blocked, in-review, done, abandoned.
 
@@ -214,4 +214,17 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
 - 2026-09-20T09:55Z — Phase 2 closed. `score-baseline.md` written: reconciled composite 33.0
   (coordinator 31.4, independent 37.2, no dimension more than one point apart). D1 0, D2 2, D3 1,
   D4 1, D5 3, D6 2, D7 1, D8 2, D9 2, D10 4, D11 0, D12 2, D13 2.
+- 2026-09-20T10:10Z — Owner said "Continue until fully completed". Read as: carry on through
+  Phase 3 without check-ins. It is NOT read as acceptance of a plan he has not seen, so the Phase 3
+  hard stop stands and no Phase 4 work starts on the strength of it.
+- 2026-09-20T10:10Z — T3-1 and T3-2 files complete and read in full. Codebase map: reorder is safe
+  if section ids and `details` nesting are kept (prerender must-see gate, verify-issue render
+  check, e2e id lists); `.issue-lane__headline` and `.issue-lane__item` selectors must survive the
+  rows change (lens.spec); a new route needs RouteEntry, must-see ids, SEO and sitemap updates by
+  hand; fonts are remote Google Fonts (likely the 3.9 s mobile first paint); published issue text
+  is hash-locked, so the jargon in the 2026-w36 headline cannot be edited, only decoded beside it;
+  new optional Issue fields and new JSON outputs are lock-safe. Monetization consult: indirect
+  value first, no vendor sponsorship ever, archive free forever, first paid thing is a $3,000
+  organizational licence (a guess) after twelve consecutive issues, no commercial plumbing built
+  ahead of need, and an employment-policy question only the owner can answer.
 
