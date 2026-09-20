@@ -67,7 +67,11 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
   the pilot list. Neither blocks Phase 1 to 3. Both are preconditions in the monetization plan.
 - 2026-09-20 — Path ownership between this run and the parallel session in the same checkout.
   Blocks nothing until Phase 4 merges into `preview`.
-| Phase 3 acceptance: size of Phase 4 (A brief as written, B two waves, C wave 1 only), design decisions D-1 to D-7, monetization decisions M-1 to M-11, crawler policy and terms (after M-3) | waiting, sent 2026-09-20 on agent-canvas, interaction `sec-market-fable-001-phase3-packet` | All of Phase 4 |
+- 2026-09-20 — **Phase 3 acceptance. WAITING.** Sent on agent-canvas, interaction
+  `sec-market-fable-001-phase3-packet`. Asks for: the size of Phase 4 (A the brief as written,
+  B two waves, C wave 1 only), design decisions D-1 to D-7, monetization decisions M-1 to M-11,
+  and, only after the employment question M-3 is answered, a crawler policy and content terms.
+  Blocks all of Phase 4.
 
 ## Decisions made this run
 
