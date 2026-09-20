@@ -22,7 +22,7 @@
     "lint": "oxlint",
     "preview": "vite preview",
     "test:e2e": "playwright test",
-    "test:data": "tsx --test tests/landscape-data.test.ts tests/issue-data.test.ts tests/dist-fixtures.test.ts tests/html-escape.test.ts",
+    "test:data": "tsx --test tests/landscape-data.test.ts tests/issue-data.test.ts tests/dist-fixtures.test.ts tests/html-escape.test.ts tests/market-picture.test.ts",
     "test": "npm run lint && npm run test:data && npm run build && npm run test:e2e"
   },
   "dependencies": {
