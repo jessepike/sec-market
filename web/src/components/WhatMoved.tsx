@@ -1,4 +1,5 @@
 import { formatShortDate } from '../data/dates'
+import { AUTHOR_NAME } from '../data/meta'
 import { weekMoves } from '../data/whatMoved'
 import { EvidenceLink } from './EvidenceLink'
 import { FileSearch } from 'lucide-react'
@@ -29,7 +30,8 @@ export function WhatMoved() {
           <div className="week-moved__col week-moved__col--judged">
             <p className="stamp-label stamp-label--judged">
               JUDGED · a person signed this ·{' '}
-              <time dateTime={weekMoves.asOf}>{formatShortDate(weekMoves.asOf)}</time>
+              <time dateTime={weekMoves.asOf}>{formatShortDate(weekMoves.asOf)}</time> &middot;{' '}
+              {AUTHOR_NAME}
             </p>
             <ul className="week-moved__list">
               {weekMoves.judged.map((item) => (

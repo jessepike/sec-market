@@ -1,4 +1,5 @@
 import { formatShortDate } from '../data/dates'
+import { AUTHOR_NAME } from '../data/meta'
 import { platformPressure } from '../data/platformPressure'
 import type { PressureGroup, VendorPosition } from '../data/types'
 import { EvidenceLink } from './EvidenceLink'
@@ -63,7 +64,8 @@ export function PlatformPressure() {
                         JUDGED{' '}
                         <time dateTime={row.provenance.read.judgedOn}>
                           {formatShortDate(row.provenance.read.judgedOn)}
-                        </time>
+                        </time>{' '}
+                        &middot; {AUTHOR_NAME}
                       </p>
                     ) : null}
                   </td>
@@ -93,7 +95,8 @@ export function PlatformPressure() {
                     JUDGED{' '}
                     <time dateTime={row.provenance.read.judgedOn}>
                       {formatShortDate(row.provenance.read.judgedOn)}
-                    </time>
+                    </time>{' '}
+                    &middot; {AUTHOR_NAME}
                   </p>
                 ) : null}
               </article>
