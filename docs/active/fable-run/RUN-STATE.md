@@ -2,36 +2,44 @@
 
 ## Resume here
 
-STOPPED AT THE PHASE 3 OWNER GATE. The packet
-`docs/active/fable-run/owner-packet-phase3.html` (design spec v0.2, agent-surface spec v0.2,
-monetization plan v0.2, baseline 33.0, adversarial result) was sent to agent-canvas on
-2026-09-20 as a `document-review`, interaction id `sec-market-fable-001-phase3-packet`, and the
-owner was notified. NO PHASE 4 WORK OF ANY KIND until he answers. His earlier "Continue until
-fully completed" came before any plan existed and is not acceptance.
+THE OWNER ANSWERED THE PHASE 3 GATE IN THE TERMINAL on 2026-09-20 about 14:30 Pacific, and changed
+the premise. Read `docs/active/product-core.md` FIRST: it is his intent in his words and it
+supersedes the brief and `design-spec.md` v0.2 wherever they put the founding thesis at the centre.
+Short form: the site is a credibility asset for his advisory work and a working instrument for
+vendor and domain decisions; written for security leaders and practitioners first, advisors and
+vendor partners second, not investors; the infrastructure-lag thesis is one standing analysis and
+leaves the first screen; monetization and the employer question are parked; he wants it fully
+automated with a one-tap decision arriving in a channel; he wants a core document, a rubric
+aligned to it, and external reviews (he named Codex and `gpt-6-astra`); he wants motion and cannot
+give more time today. His Claude subscription window ends 23:00 Pacific on 2026-09-20.
 
-On resume, in this order: (1) call `mcp__agent-canvas__get_user_messages` and
-`mcp__agent-canvas__get_comments` for the answer; a failed readback is not approval, so if it
-fails twice ask in the terminal. (2) Record his answers in "Owner gates" and "Decisions" below.
-(3) The first answer needed is the size of Phase 4: A the brief as written, B two waves
-(recommended), C wave 1 only. (4) If B or C: check whether `issue/2026-w37` has landed on
-`preview`; branch ONE worktree from `preview` per brief section 6
-(`git worktree add /Users/jessepike/code/projects/sec-market-wt/wave1 -b mon/wave1 preview`);
-the first build task is a rendered, measured prototype of the first screen at 1440 and 390 with
-the real strings (design-spec 3.1), which the owner approves before the rest of wave 1 proceeds.
-Write each task row here before dispatching. Code goes to `claude-sonnet-5`, captures to
-`claude-haiku-4-5`. All node work runs in the OrbStack dev VM. Never push to `main`.
-Parked until he answers and until he has asked his employer the outside-activity question (M-3):
-crawler policy, content licence, the independence statement, the contact sentence.
-Host note: every shell command needs `export DEVELOPER_DIR=/Library/Developer/CommandLineTools`
-until the owner runs `sudo xcodebuild -license`. A parallel session works in this checkout: stage
-named paths only, never edit `web/src/data/issues/`, `web/src/data/evidence.ts` or `lessons.md`
-while it has them open.
+What he authorized: build, to `preview`. What he did NOT clearly authorize: promotion to `main`.
+He said both "I want to look at the preview" and "let's get it deployed". Treat promotion as
+still needing his explicit word. Never push to `main`.
 
-Last updated: 2026-09-20T13:25:00Z
+Work plan for the rest of the day (Phase 3b then Phase 4, one worktree):
+1. T5-1 automation plan, T5-2 content inventory, T5-3 practitioner market-pulse research, T5-4
+   distress-signal sourcing research, T5-5 analytics options. Dispatched together.
+2. Coordinator writes `site-rubric.md` v2.0 (re-aimed at the product core) and `design-spec.md`
+   v0.3 (first screen is the market picture, not the thesis). A sonnet scorer re-scores the
+   existing baseline evidence under v2.0.
+3. External review of the product core, rubric v2.0 and design v0.3 with Codex
+   (`codex exec -m gpt-6-astra`, read-only, always pass `-m`). Record what changed.
+4. Build in ONE worktree: `git worktree add /Users/jessepike/code/projects/sec-market-wt/wave1 -b
+   mon/wave1 preview`. First task is a rendered, measured first screen at 1440 and 390. All node
+   work in the OrbStack dev VM. Do not touch `web/src/data/issues/` or `web/src/data/evidence.ts`
+   (a parallel session has a draft on `issue/2026-w37`). Tests green, captures with
+   `evidence/baseline/capture.mjs`, before-and-after compared, then merge into `preview` and push.
+5. Re-score, write the owner packet with before-and-after images, the preview URL and the exact
+   promotion command, send on agent-canvas, stop.
+Host note: every shell command needs `export DEVELOPER_DIR=/Library/Developer/CommandLineTools`.
+Stage named paths only. `lessons.md` belongs to the parallel session until it commits.
+
+Last updated: 2026-09-20T21:45:00Z
 
 ## Phase
 
-Phase 3 — design and plan. The package is on agent-canvas and the owner is notified. Waiting at the owner gate.
+Phase 3b — re-aim at the owner's stated intent (`docs/active/product-core.md`), then Phase 4 build in one worktree to `preview`.
 
 ## Task ledger
 
@@ -57,6 +65,11 @@ Phase 3 — design and plan. The package is on agent-canvas and the owner is not
 Status is one of: pending, running, blocked, in-review, done, abandoned.
 | T3-3 | Adversarial pass on the three Phase 3 specs: argue the plan fails, find what is wrong, unsupported, contradictory or unsafe against the gates; read-only apart from its one output file | claude-opus-5 | done | none (read-only) | preview | n/a | docs/active/fable-run/consults/adversarial-pass.md | 2026-09-20T12:10Z |
 | T3-4 | Build ONE light-theme HTML owner packet from the shared agent-canvas review template, containing the design spec, the agent-surface spec, the monetization plan, the baseline and the adversarial result; no new claims, content only from the committed documents | claude-sonnet-5 | done | none | preview | n/a | docs/active/fable-run/owner-packet-phase3.html | 2026-09-20T13:20Z |
+| T5-1 | Automation and durability plan: what exists (gather job, draft pipeline, signing, lock), what is broken, where jobs should run, how a one-tap decision reaches the owner in a channel, the facts-versus-judgments publishing split, cost, exact steps; read-only apart from its output | claude-sonnet-5 | running | none | preview | n/a | docs/active/fable-run/automation-plan.md | 2026-09-20T21:45Z |
+| T5-2 | Content inventory against the product core: what vendor, domain, M&A, funding and distress data the site already holds and how fresh it is; what a security leader's first screen can be built from today with no new judgment; gaps | claude-sonnet-5 | running | none | preview | n/a | docs/active/fable-run/content-inventory.md | 2026-09-20T21:45Z |
+| T5-3 | Research: how market-pulse products written for practitioners (not investors) present vendor standing, consolidation and outlook; what makes them credible and returned to | claude-sonnet-5 | running | none | preview | n/a | docs/active/fable-run/research/10-practitioner-market-pulse.md | 2026-09-20T21:45Z |
+| T5-4 | Research: reliable public sources for distress and consolidation signals (debt, ratings actions, layoffs, shutdowns, take-privates) for security vendors and service firms, and how to cite them safely | claude-sonnet-5 | running | none | preview | n/a | docs/active/fable-run/research/11-distress-signal-sources.md | 2026-09-20T21:45Z |
+| T5-5 | Research: privacy-respecting analytics options for a static Vercel site, prices read from vendors' own pages, what each can say about return visits and sharing | claude-haiku-4-5 | running | none | preview | n/a | docs/active/fable-run/research/12-analytics-options.md | 2026-09-20T21:45Z |
 
 ## Owner gates
 
@@ -67,7 +80,7 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
   the pilot list. Neither blocks Phase 1 to 3. Both are preconditions in the monetization plan.
 - 2026-09-20 — Path ownership between this run and the parallel session in the same checkout.
   Blocks nothing until Phase 4 merges into `preview`.
-- 2026-09-20 — **Phase 3 acceptance. WAITING.** Sent on agent-canvas, interaction
+- 2026-09-20 — **Phase 3 acceptance. ANSWERED IN THE TERMINAL, with a changed premise; see Resume here. Promotion to `main` still needs his explicit word.** Original entry: Sent on agent-canvas, interaction
   `sec-market-fable-001-phase3-packet`. Asks for: the size of Phase 4 (A the brief as written,
   B two waves, C wave 1 only), design decisions D-1 to D-7, monetization decisions M-1 to M-11,
   and, only after the employment question M-3 is answered, a crawler policy and content terms.
@@ -284,4 +297,11 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
   the monetization research better. Coordinator wrote `decision-map.md` (seven buckets, a split
   between what only he can do and what the run will do on one yes, an order of work). Still at
   the Phase 3 gate: no build started. Monetization is paused pending the intent session.
+- 2026-09-20T21:45Z — Owner gave a long steer in the terminal (about 14:30 Pacific). Recorded in his
+  words in `docs/active/product-core.md` (v0.1), including an open-questions register so nothing
+  from the decision map is lost, and proposed intent amendments (not applied). Key reversals: the
+  thesis is not the centre; investors are out; monetization and the employer question are parked;
+  full automation with a one-tap decision is a requirement; "sign every judgment" is in question
+  (coordinator recommends: validated tracked facts may auto-publish, judgments need his tap; his
+  call). T5-1 to T5-5 rows written, then dispatched together.
 
