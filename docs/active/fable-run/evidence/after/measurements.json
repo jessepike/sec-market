@@ -1,0 +1,58 @@
+{
+  "preview-1440": {
+    "scrollHeight": 17084,
+    "overview": 113,
+    "market": 514,
+    "we-think": 2234,
+    "follow": 7144,
+    "landscape": 7254,
+    "platforms": 8031,
+    "prints": 9726,
+    "read": 14111,
+    "hypotheses": 15319,
+    "method": 16175,
+    "next": 16486
+  },
+  "preview-390": {
+    "scrollHeight": 21437,
+    "overview": 221,
+    "market": 799,
+    "we-think": 3991,
+    "follow": 10919,
+    "landscape": 11081,
+    "platforms": 12771,
+    "prints": 15895,
+    "read": 16570,
+    "hypotheses": 18900,
+    "method": 20266,
+    "next": 20637
+  },
+  "production-1440": {
+    "scrollHeight": 15022,
+    "overview": 113,
+    "market": null,
+    "we-think": 4660,
+    "follow": null,
+    "landscape": 6431,
+    "platforms": 7207,
+    "prints": 9411,
+    "read": 5223,
+    "hypotheses": 8870,
+    "method": 14144,
+    "next": 14423
+  },
+  "production-390": {
+    "scrollHeight": 17715,
+    "overview": 221,
+    "market": null,
+    "we-think": 6236,
+    "follow": null,
+    "landscape": 9739,
+    "platforms": 11429,
+    "prints": 15572,
+    "read": 7409,
+    "hypotheses": 14521,
+    "method": 16594,
+    "next": 16915
+  }
+}

@@ -77,7 +77,7 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
 | T6-5 | Proposed correction for the two mislabelled figures in signed issue `2026-w36`, with the exact text and the smallest mechanism that keeps the issue locked; a document for the owner, nothing published | coordinator | done | none | preview | n/a | docs/active/fable-run/drafts/correction-2026-w36.md | 2026-09-21T00:45Z |
 | T6-6 | Machine-drafted buyer brief for one domain (network and secure access), built only from evidence already in the repository, every claim tied to an evidence record, marked as an unpublished draft for the owner to edit or reject | claude-sonnet-5 | done; coordinator read it in full | none | preview | n/a | docs/active/fable-run/drafts/buyer-brief-network-sase.md | 2026-09-21T00:45Z |
 | T6-7 | Fix pass on `mon/wave1` after the coordinator's visual review: neutral ink for growth figures in MarketPicture (green and red imply a comparison the caption disclaims), three-column grid with cards that do not stretch, space between the as-of line and the issue line, as-of line on the front page only; full tests, recapture, push | claude-sonnet-5 (same builder, resumed) | done: three commits, head f56c609, `npm test` green; the 17 Aug date was a wrong constant, now read from domain data | /Users/jessepike/code/projects/sec-market-wt/wave1 | mon/wave1 | https://security-market-pulse-git-mon-wave1-pikeholdings.vercel.app | branch push plus refreshed `evidence/wave1/` | 2026-09-21T01:25Z |
-| T6-8 | Capture the deployed `preview` URL and production at 1440 and 390 with `evidence/baseline/capture.mjs`, confirm the deploy serves `id="market"`, write offsets and page heights side by side | claude-haiku-4-5 | running | none | preview | https://security-market-pulse-git-preview-pikeholdings.vercel.app | docs/active/fable-run/evidence/after/ | 2026-09-21T02:10Z |
+| T6-8 | Capture the deployed `preview` URL and production at 1440 and 390 with `evidence/baseline/capture.mjs`, confirm the deploy serves `id="market"`, write offsets and page heights side by side | claude-haiku-4-5 | done; coordinator looked at the deployed 1440 first screen, it matches the local render | none | preview | https://security-market-pulse-git-preview-pikeholdings.vercel.app | docs/active/fable-run/evidence/after/ | 2026-09-21T02:10Z |
 | T6-9 | Blind score of the rebuilt page under rubric v2.1, including the four blockers, from `evidence/wave1/` and the deployed preview; no sight of the baseline answers | claude-sonnet-5 | running | none | preview | same | docs/active/fable-run/score-after-v2.1.md | 2026-09-21T02:10Z |
 
 ## Owner gates
@@ -392,3 +392,7 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
   in both places. Merged `origin/mon/wave1` into `preview` as f557b4c and pushed; `web/` on
   `preview` is byte-identical to the tested branch head. `main` untouched. T6-8 and T6-9 rows
   written, then dispatched together.
+- 2026-09-21T02:30Z — T6-8 returned. Deployed `preview` serves the new page. At 1440: `market`
+  absent on production, 514 px on preview; `we-think` 4,660 to 2,234; `read` (the thesis) 5,223 to
+  14,111; page height 15,022 to 17,084 (up 14 percent). At 390: `market` at 799 px; page height
+  17,715 to 21,437 (up 21 percent). The page got longer; that is a cost to state to the owner.
