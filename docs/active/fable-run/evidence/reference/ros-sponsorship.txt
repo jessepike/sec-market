@@ -1,0 +1,169 @@
+URL: https://www.returnonsecurity.com/sponsorship
+Nav status: HTTP 200
+Page title: Sponsoring Return on Security | Return on Security
+
+=== VISIBLE TEXT (document.body.innerText) ===
+This website uses cookies
+
+Read our Privacy policy and Terms of use for more information.
+
+Accept
+Customize
+Decline
+Start Here
+About
+Topics
+The Signal ↗
+Partner With Us
+Login
+Get the Briefing
+Advertise to an audience of key decision-makers looking to stay current on market trends.
+
+Promote your brand to an audience passionate about understanding the trends, players, and investors shaping the cybersecurity market.
+
+Pricing and Availability
+
+Ready to work together? That's awesome!
+
+Package options and the onboarding process can be made available by emailing sponsorships@returnonsecurity.com.
+
+What Content Does The Best?
+❝
+
+We live in a noisy world and there is nothing more important than creating a direct relationship with someone.
+
+For those of us who are close to the cybersecurity industry, this is even more apparent.
+
+This is a highly engaged audience. The sponsors that gain the most traction are those that offer something beyond their standard branding messaging.
+
+The best performers have content that looks like this:
+
+Webinars (live or pre-recorded)
+
+Workshops
+
+Fireside Chats
+
+Whitepapers or eBooks
+
+Emerging research or technical posts breaking down a complex topic
+
+Salary insights (everyone wants to get paid)
+
+Industry or "State of the [X]" style reports
+
+The number of clicks through to your ad is influenced by your offer, the quality of your ad copy, the wording in your CTA, and more.
+
+It’s also important to note that newsletters are more closely aligned with influencer marketing than with traditional paid advertising.
+
+Types of Sponsors
+
+Who would be a good fit to sponsor this newsletter?
+
+Return on Security is about providing unique content that advances readers from where they are. Any person, project, or resource that offers advancement could be a good fit.
+
+Examples can include:
+
+Cybersecurity or privacy product companies of any stage
+
+Organizations focused on a safer and more private Internet
+
+Productized services
+
+Industry research groups
+
+Services that create a "better pickaxe" for people in the trenches mining for information
+
+Non-US companies looking to get exposure to the US market
+
+The domain does not have to be in cybersecurity, but it must be useful and move people forward.
+
+Why Sponsor this Newsletter?
+
+Here are a few reasons to consider:
+
+Email has some of the best returns of any marketing channel.
+
+It's more targeted than running ads on other media.
+
+It's a great way to get visibility for your brand or project to an active audience.
+
+You can help support independent publishing.
+
+You can help me continue writing and improving content.
+
+Sponsorship Issue Metrics
+
+I provide the following metrics to help you understand the return on [security] investment for each sponsored issue:
+
+The number of subscribers the email was sent to
+
+The number of unique users who opened the email
+
+The newsletter click-through rate (CTR)
+
+The number of unique users who clicked the sponsored link
+
+Metrics will be provided approximately one week after the sponsored issue to allow people time to open emails and engage with the social media content.
+
+What's Not Included
+
+Sponsoring this newsletter is a simple value exchange.
+
+Sponsoring the newsletter does not:
+
+Get your company access to the companies I work for or partner with
+
+Guarantee I'll take a product demo or talk to your sales team
+
+Privacy is also very important, so I will not share:
+
+Any names or email addresses of subscribers
+
+Any names or email addresses of subscribers who interacted with sponsored content
+
+Any information about users who engaged with the sponsored tweet thread or LinkedIn post
+
+Companies get a canvas to shoot their best shots to a group of highly engaged decision-makers, buyers, and investors in this industry.
+
+Let’s make it count.
+
+Return on Security
+
+Your weekly 5-minute briefing on the cybersecurity market, providing key trends and analysis. The business of the cyber industry with zero fluff.
+
+Get the Briefing
+
+Data Methodology | Market Eras | MCP ↗ | About | Partner With Us
+
+Privacy Policy · Terms of Use
+
+Search
+Start Here
+About
+Topics
+Topics
+Partner With Us
+Login
+Get the Briefing
+
+=== LINKS (text -> href) ===
+Privacy policy -> https://www.beehiiv.com/privacy
+Terms of use -> https://www.beehiiv.com/tou
+(no text) -> /
+Start Here -> /start-here
+About -> /about
+Topics -> https://www.returnonsecurity.com/tags
+The Signal ↗ -> https://signal.returnonsecurity.com/
+Partner With Us -> /sponsorship
+sponsorships@returnonsecurity.com -> mailto:sponsorships@returnonsecurity.com
+(no text) -> https://twitter.com/mikepsecuritee
+(no text) -> https://www.linkedin.com/in/mikeprivette
+Data Methodology -> https://www.returnonsecurity.com/data-methodology
+Market Eras -> https://www.returnonsecurity.com/cyber-market-eras
+MCP ↗ -> https://mcp.returnonsecurity.com
+About -> https://www.returnonsecurity.com/about
+Partner With Us -> https://www.returnonsecurity.com/sponsorship
+Privacy Policy -> https://www.beehiiv.com/privacy
+Terms of Use -> https://www.beehiiv.com/tou
+Topics -> /tags

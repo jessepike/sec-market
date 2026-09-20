@@ -1,0 +1,303 @@
+URL: https://radar.cloudflare.com/
+
+=== VISIBLE TEXT (document.body.innerText) ===
+Cloudflare Radar
+Search
+Search for locations, autonomous systems, reports, domains and more...
+Language
+English
+Ask AI
+Beta
+Theme
+Overview
+Traffic
+Expand
+Overview
+Adoption & Usage
+AI Insights
+Bots
+Expand
+Traffic
+Directory
+Security
+Expand
+Application Layer
+Network Layer
+Email
+Post-Quantum Encryption
+Certificate Transparency
+Key Transparency
+Connectivity
+Expand
+Internet Quality
+Outage Center
+Cloud Observatory
+IP Address Information
+Updated
+Routing
+Collapse
+Overview
+RPKI
+Anomalies
+ASPA Validation
+New
+MRT Explorer
+DNS
+Expand
+1.1.1.1 Resolver
+AS112 Project
+Top-Level Domains
+Domain Rankings
+Domain Information
+Domain Categorization
+Tools
+Expand
+Data Explorer
+URL Scanner
+Network Quality Test
+Reports
+API
+Expand
+Specification
+Documentation
+MCP Server
+Resources
+Expand
+About
+Press
+Glossary
+Changelog
+Release Notes
+Collapse sidebar
+Overview
+Worldwide
+Location
+Worldwide
+Date range:
+Last 7 days
+New on Radar:
+Radar Researcher
+Ask AI anything about Internet data and get answers with interactive charts.
+Read the blog post
+Traffic trends
+worldwide
+
+Bytes transferred over the selected time period
+
+Learn more...
+Share this...
+More actions...
+Traffic type
+Total & HTTP bytes
+Total bytes
+HTTP bytes
+Previous 7 days
+0
+Max
+Sep 13
+Sep 14
+Sep 15
+Sep 16
+Sep 17
+Sep 18
+Sep 19
+Protocols
+worldwide
+
+Share of bytes
+
+HTTP
+72.9%
+Other
+27.1%
+Traffic
+
+Insight into HTTP requests distribution
+
+Bot vs. Human (HTML)
+worldwide
+
+Percentage of bot vs. human HTTP requests to HTML content
+
+Learn more...
+Share this...
+More actions...
+Bot
+60.9%
+Human
+39.1%
+Mobile vs. Desktop
+worldwide
+
+Percentage of HTTP requests from mobile devices vs. desktop
+
+Learn more...
+Share this...
+More actions...
+Adoption & Usage
+
+Insight into adoption and usage of key protocols
+
+Internet Protocol versions
+worldwide
+
+IPv4 vs. IPv6
+
+Learn more...
+Share this...
+More actions...
+IPv4
+58.9%
+IPv6
+41.1%
+HTTP versions
+worldwide
+
+HTTP/1.x vs. HTTP/2 vs. HTTP/3
+
+Learn more...
+Share this...
+More actions...
+Security & Attacks
+
+Insight into network and application layer attack traffic
+
+Layer 7 Attacks
+worldwide
+
+Top mitigation techniques
+
+Learn more...
+Share this...
+More actions...
+Layer 3 & 4 Attacks
+worldwide
+
+DDoS attack type
+
+Learn more...
+Share this...
+More actions...
+1.1.1.1 Resolver
+
+Insights based on DNS queries to 1.1.1.1 DNS resolver
+
+DNS transport protocol
+worldwide
+
+Top protocols
+
+Learn more...
+Share this...
+More actions...
+DNS query type
+worldwide
+
+Top record types
+
+Learn more...
+Share this...
+More actions...
+TLD popularity
+worldwide
+
+Top 10 TLDs by DNS magnitude based on 1.1.1.1 DNS resolver traffic
+
+Learn more...
+Share this...
+More actions...
+Domain popularity
+worldwide
+
+Top 10 domains based on 1.1.1.1 DNS resolver traffic
+
+Learn more...
+Share this...
+More actions...
+Internet services popularity
+worldwide
+
+Top 10 services based on 1.1.1.1 DNS resolver traffic
+
+Learn more...
+Share this...
+More actions...
+Top browsers & user agents
+worldwide
+
+Distribution of requests to Cloudflare by user agent
+
+Learn more...
+Share this...
+More actions...
+Last observed outage
+worldwide
+
+Internet disruptions observed in analysis of Cloudflare traffic
+
+Learn more...
+Share this...
+More actions...
+Location
+Cuba
+ASN
+AS27725
+Type
+Nationwide
+Cause
+Power Outage
+Scope
+—
+Start
+Sep 18, 2026, 00:00 UTC
+End
+—
+Total eclipse of the Internet: traffic impacts in Iceland, Spain, and Portugal
+
+Cloudflare's data shows a clear impact on Internet traffic from Iceland to Spain and Portugal, following the path of totality of the total solar eclipse that occurred on August 12, 2026.
+
+Internet Traffic
+Internet Trends
+Radar
+Sabina Zejnilovic, Lai Yi Ohlsen
+Aug 2026
+Cloudflare DDoS Threat Report H1 2026: 1 Tbps attacks soar as DNS floods and geopolitical tensions drive a new wave
+
+In the first half of 2026, Cloudflare detected a 519% surge in hyper-volumetric DDos attacks across its network. These attacks were driven heavily by DNS and CLDAP reflection vectors. This report breaks down how major geopolitical conflicts reshaped the global cyber threat landscape.
+
+Attacks
+Cloudforce One
+DDoS
+Radar
+Threat Report
+Cloudforce One
+Aug 2026
+
+© 2026 Cloudflare, Inc.
+
+Privacy Policy
+Terms of Use
+Disclosure
+Trust & Safety
+Trademark
+Support
+Max
+
+=== BUTTON / ARIA-LABEL / TITLE STRINGS ===
+Open menu
+Open toolbar
+Ask AIBeta
+Theme
+Expand
+Collapse
+API
+Collapse sidebar
+Date range:Last 7 days
+Share this...
+More actions...
+HyperText Transfer Protocol
+Radar Researcher
+
+=== LINES MENTIONING updated/license/source/attribution ===
+Updated
+© 2026 Cloudflare, Inc.

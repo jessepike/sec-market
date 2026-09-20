@@ -1,0 +1,6 @@
+found 14 "more actions" buttons
+=== MORE ACTIONS MENU TEXT ===
+Explain with AI
+View in Data Explorer
+Generate citation
+Notify me of traffic anomalies or Internet outages

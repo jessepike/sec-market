@@ -1,0 +1,161 @@
+URL: https://signal.returnonsecurity.com/
+Nav status: HTTP 200
+Page title: The Signal — Cybersecurity Market Intelligence
+
+=== VISIBLE TEXT (document.body.innerText) ===
+Skip to main content
+The Signal
+Developers
+Pricing
+About
+Sign In
+GET STARTED
+The cybersecurity economy, charted.
+
+Real-time venture funding, M&A, and market intelligence across thousands of companies and investors in the global cybersecurity industry. The market intelligence platform behind the Return on Security briefing.
+
+GET STARTED — FREE
+Explore the data
+Subscribe to the briefing
+
+Free to start · No credit card · Save charts and follow companies
+
+8,947
+FUNDING ROUNDS
+2,255
+M&A DEALS
+7,196
+COMPANIES
+5,617
+INVESTORS
+HOW YOU USE IT
+Dashboard
+
+Charts, filters, and company profiles for the live cybersecurity market.
+
+MCP
+
+Attach The Signal inside Claude, Cursor, Codex, and other MCP harnesses. Ask in the same chat workspace you already use.
+
+API
+
+REST for pipelines and products. Docs and OpenAPI for applications that need structured pulls.
+
+WHO IT IS FOR
+Recruiting
+
+Map which cyber vendors are hiring after funding, and which stages are active in your specialty.
+
+GTM in cyber
+
+See who just raised, who is consolidating, and where category capital is moving before you prioritize outreach.
+
+Analyst firms
+
+Ground market maps and briefings in a curated funding and M&A corpus instead of scrapes.
+
+Cyber selling to cyber
+
+Find peer vendors, buyers, and category neighbors when you sell into the security stack.
+
+Also used by investors and corporate development for deal screening and landscape work. See about for how the corpus is built, or developers for MCP and API access.
+
+Built for the briefing, open as a platform
+
+The same curated dataset behind the Return on Security Security, Funded briefing. Explore it as charts, attach it to an AI harness over MCP, or pull it over REST. Start free on the dashboard; paid plans unlock deeper tools and API access.
+
+How the corpus is built
+Docs
+Pricing
+EXPLORE
+1W
+1M
+1Q
+6M
+YTD
+TTM
+Last Yr
+5Q
+All
+🔒
+Funding
+
+$7.6B raised · 136 deals
+
+Last Quarter
+
+AI
+
+AI security deal analysis
+
+Percentile benchmarks · Last Quarter
+
+M&A
+
+$4.8B · 87 deals
+
+Last Quarter
+
+Geography
+
+United States · $5.8B · 71 deals
+
+Last Quarter
+
+Categories
+
+Top segment: Network Security
+
+$2.2B · Last Quarter
+
+DIRECTORIES
+Companies
+
+Funding history, M&A, and peer analysis
+
+Company directory
+
+Investors
+
+Portfolio companies, deal history, and exits
+
+Investor directory
+
+Rounds
+
+Comparable deals, drill-throughs, and round detail
+
+Funding events explorer
+
+=== LINKS (text -> href) ===
+Skip to main content -> #main-content
+The Signal -> /
+Developers -> /developers
+Pricing -> /pricing
+About -> /about
+Sign In -> /login
+Get Started -> /signup
+Return on Security -> https://returnonsecurity.com
+Get Started — free -> /signup
+Explore the data -> /funding
+Subscribe to the briefing -> https://returnonsecurity.com/subscribe
+8,947Funding Rounds -> /rounds
+2,255M&A Deals -> /ma
+7,196Companies -> /companies
+5,617Investors -> /investors
+(no text) -> /funding
+DashboardCharts, filters, and company profiles for the live cybersecurity market. -> /funding
+MCPAttach The Signal inside Claude, Cursor, Codex, and other MCP harnesses. Ask in the same chat workspace you already use. -> https://mcp.returnonsecurity.com/
+APIREST for pipelines and products. Docs and OpenAPI for applications that need structured pulls. -> /developers
+about -> /about
+developers -> /developers
+How the corpus is built -> /about
+Docs -> https://docs.returnonsecurity.com/
+Funding$7.6B raised · 136 dealsLast Quarter -> /funding
+AIAI security deal analysisPercentile benchmarks · Last Quarter -> /ai
+M&A$4.8B · 87 dealsLast Quarter -> /ma
+GeographyUnited States · $5.8B · 71 dealsLast Quarter -> /geographic
+CategoriesTop segment: Network Security$2.2B · Last Quarter -> /categories
+CompaniesFunding history, M&A, and peer analysisCompany directory -> /companies
+InvestorsPortfolio companies, deal history, and exitsInvestor directory -> /investors
+RoundsComparable deals, drill-throughs, and round detailFunding events explorer -> /rounds

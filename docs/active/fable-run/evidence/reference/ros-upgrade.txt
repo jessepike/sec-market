@@ -1,0 +1,53 @@
+URL: https://www.returnonsecurity.com/upgrade
+Nav status: HTTP 200
+Page title: Upgrade to Premium | Return on Security
+
+=== VISIBLE TEXT (document.body.innerText) ===
+This website uses cookies
+
+Read our Privacy policy and Terms of use for more information.
+
+Accept
+Customize
+Decline
+Return on Security
+
+Your weekly 5-minute briefing on the cybersecurity market, providing key trends and analysis. The business of the cyber industry with zero fluff.
+
+RoS Backer
+
+$12.00
+
+/month
+
+Support the work you rely on and back the mission.
+
+Support a writer sharing 35,000+ hours of real-world cybersecurity experience.
+No extra perks, just a shared belief that this work should exist in the world.
+Recommended
+RoS Backer
+
+$120.00
+
+/year
+
+Support the work you rely on and back the mission.
+
+17% cheaper than subscribing monthly
+Support a writer sharing 35,000+ hours of real-world cybersecurity experience.
+No extra perks, just a shared belief that this work should exist in the world.
+RoS Backer
+
+$250.00
+
+/once
+
+Support the work you rely on and back the mission.
+
+This one-time boost goes beyond support, it plants a flag. Consider this your honorary badge in RoS history.
+Support a writer sharing 35,000+ hours of real-world cybersecurity experience.
+No extra perks, just a shared belief that this work should exist in the world.
+
+=== LINKS (text -> href) ===
+Privacy policy -> https://www.beehiiv.com/privacy
+Terms of use -> https://www.beehiiv.com/tou

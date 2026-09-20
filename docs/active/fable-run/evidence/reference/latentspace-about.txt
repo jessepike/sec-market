@@ -1,0 +1,420 @@
+URL: https://www.latent.space/about
+Nav status: HTTP 200
+Page title: About - Latent.Space
+
+=== VISIBLE TEXT (document.body.innerText) ===
+Subscribe
+Sign in
+Home
+YouTube
+X
+Discord & Meetups
+Write for us!
+Latent Space: AI for Science
+AINews: Weekday Roundups
+About
+What is Latent.Space?
+
+A technical newsletter, podcast (top 10 in US Tech! in audio podcast and YouTube video formats), and community (VERY active Discord online and in person) by and for the rising class of AI Engineers, focusing on the business and technology of this new AI summer. Last year we crossed 200k subs/10m viewers across all channels.
+
+seriously please like and subscribe on youtube, substack, and your podcatcher
+Contact
+
+Notes for PR & Media Agencies: We’re interested to work with you ahead of major funding and product announcements (give ~1 month lead time).
+
+Sponsorship, partnership, job and business inquiries: business@latent.space.
+
+News tips and pitches: tips@latent.space.
+
+Quotes
+
+“Great episode, good technical discussion on LLM pretraining 👍” - Andrej Karpathy
+
+“In numbers, there's probably going to be significantly more AI Engineers than there are ML engineers / LLM engineers. One can be quite successful in this role without ever training anything.” - Andrej Karpathy
+
+“This was a wonderful chat w Alessio and @swyx - diving much deeper into the AI infra + compiler + language + implementation details of the Modular AI Engine than ever before.” - Chris Lattner
+
+“You guys taught me a lot of what I think I know.” - Dharmesh Shah
+
+“A good intro to the tiny corp for people who want to come work here.” - George Hotz (+ Soumith Chintala)
+
+“Probably the highest-leverage 45 mins I spend everyday on catching up with what's going on in AI. So much alpha, organized hierarchically; an exceptionally well curated (and summarized) daily newslettter.” - Soumith Chintala
+
+“Unless you're an alien, this will take a long time to get through. But this "2025 AI Engineer Reading List" from @latentspacepod is *fantastic*.” - Richard Seroter
+
+“This is encouraging for builders like me who focus on solving user problems and the production side of things.” - Eugene Yan
+
+“One of my favorite parts of events like #NeurIPS2024 is getting to meet online friends from places like the @latentspacepod Discord IRL!” - Sam Julien
+
+“Probably the most comprehensive overview of where we’ve been, where we’re going, and what’s on our minds at LangChain” - Harrison Chase
+
+“Your pods are a legitimate highlight of life for me. They’re amazing.” - Mckay Wrigley
+
+“This is spot on. Multiverse is the real metaverse.“ - Emad Mostaque
+
+“A very useful summary of the state of play in open source generative AI, including a bunch of projects I hadn't heard about before” - Simon Willison
+
+“I was driving, laughed so hard I almost had to pull over.” - Gene Kim
+
+“I listen to a ton of AI podcasts and by far the best are where the host is a technical expert rather than a journalist or other generalist. Deeper, smarter, more in tune with their audience. The gold standards are @latentspacepod, @CogRev_Podcast and @NoPriorsPod IMO” — Chris Anderson
+
+“Best introduction to LLM benchmarks…It really shows that you always do your homework deeply before addressing any topic, which provides a lot of trust to your listeners. Thank you for that!” — Samuel Path
+
+“I have like 20 tabs open with links now” - Kevin Hu
+
+“Extremely high signal to noise ratio, pretty much the only resource I follow devoutly. Every episode is gold.” - Francisco Pingham
+
+“The All-In podcast equivalent for AI” - Atlantis Labs
+
+“Highest-signal pod” - AI Safety Memes
+
+“Some terrifyingly and delightfully sharp insights here by @swyx into generative AI, capitalism, and how the multiverse will come to our rescue as the metaverse encroaches.” - gabor ugray
+
+"But you cannot own a Multiverse. Whatever virtual land you “own”, my next favorite one is one seed away in a neighboring universe." - Jim OShaughnessy
+
+“Terrific interview” - Eric Ries
+
+“I listen to many podcasts. This has been one of the most interesting conversations I've heard on language models.” - Ben Dickson
+
+What We Cover
+
+Our pet topics:
+
+Fundamentals
+
+Intros: Benchmarks 101, Datasets 101, RLHF 201
+
+Frontier Labs: Anthropic, OpenAI (repeatedly), DeepMind, Meta, Reka
+
+Model/Training: FlashAttention, Transformers Math, Pytorch
+
+Executive Summaries: ChatGPT, GPT4, Auto-GPT, GPT4.5, LangChain, The Ultimate Guide to Prompting, LLM Leaderboards
+
+Opinions and guest posts: o1 isn’t a chat model (and that’s the point), 2024 Year in Review, OpenAI Realtime API Missing Manual, Inference Fast and Slow, $2 H100s, Winds of AI Winter
+
+AI Engineers - The Rise of the AI Engineer, You are not too old
+
+The 2025 AI Engineer Reading List
+
+AI Engineer Themes
+
+AI UX - It’s Time To Build AI UX, How to Make AI UX your Moat, Retool
+
+Multimodal AI - IDEFICS (HuggingFace M4), TLDraw MakeItReal, Suno AI, Segment Anything 1/2
+
+AI Agents - The Anatomy of Autonomy, Codium/AutoGPT, Imbue (Kanjun Qiu), Lindy, Dust, ReAct/Tree of Thought
+
+AI Coding Tools - Cursor, Phind, Codeium / Windsurf, Sourcegraph Cody, Bolt, Cosine
+
+AI LLM Tooling - Langchain, LlamaIndex, Guardrails, Copilot for X, ComfyUI
+
+LLM OS ecosystem - Exa, Braintrust
+
+AI Infra/Compilers/Inference Hardware - MLC.ai, Modular (Chris Lattner), Pytorch (Soumith Chintala), Replicate, Modal, Together, Fireworks
+
+Actually Open AI and Finetuning - How Open Source is Eating AI, Replit, Mosaic, Dolly v1/v2, Llama 2, Fast.ai (Jeremy Howard), Together
+
+AI Products: NotebookLM, Dropbox
+
+AI Startups and Builders - Adept, Lexica, Glean, Roboflow, Seek.ai, Cube.dev, Notion, Amplitude, tiny (George Hotz), Playground (Suhail Doshi), Brightwave, Elicit, NSFW Chatbots
+
+Recaps
+
+Breaking News: ChatGPT, GPT4, Stable Diffusion 2, Functions, Code Interpreter
+
+Event Recaps: OpenAI DevDay, NeurIPS 2023 Papers and Startups, ICLR 2024, ICML 2024, Latent Space Anniversary
+
+Monthly Recaps: Aug, Sept, Oct, Nov, Dec 2023, Jan, Feb 2024
+
+Misc: Reverse Prompt Engineering, Academia, AI Product/Moats/Eigenquestions, AI outside of the US
+
+Other AI Podcasts: AI Breakdown, AI Breakdown 2 (part 1 and part 2), Practical AI, Cognitive Revolution, ThursdAI, Thursday Nights in AI, ChinaTalk, Techmeme Ride Home, Unsupervised Learning
+
+Areas we de-emphasize and rarely discuss (bc undifferentiated, covered elsewhere):
+
+Law, Regulation, Politics, Safety and X-risk (check out our friends at PracticalAI, CogRev, and AI Breakdown for that)
+
+Defense/Biotech/Medical/Crypto/High Frequency Trading AI
+
+BigTech power plays (e.g. Google vs Microsoft - tho we covered the No Moat memo)
+
+Aliens
+
+Many of our guests and topics are now also featured at the AI Engineer Summit.
+
+Components
+
+The newsletter was first started by swyx in 2022, whose regular blog is more career and engineering focused, and DXTips is more DevRel focused.
+
+The podcast (RSS feed here) was then started in 2023, led by swyx with cohosts from Alessio to Vibhu to a rotating cast of guests, recording mostly in-person with technical deep dives and a real look at the people behind the major projects and news in AI. (see our guest prompt here! and our new YouTube channel). Our podcast intro music is “Ice & Fire - King Canyon”.
+
+Both projects grew out of an informal Discord community that has run since Covid. The community now has an active LLM Paper Club that has unrecorded Zoom meetings every week (join here) covering one important paper or reading in AI.
+
+Origin and other naming notes - from swyx
+
+In 2022 I was undecided on how seriously I wanted to pursue AI, so decided to carve out a new space, and originally hosted it on lspace.swyx.io. With the success of the newsletter and podcast, I realized I was not too old and found I could ramp it up by moving to the latent.space domain thanks to a friendly offer from Brian McMahan, coauthor of Natural Language Processing with PyTorch.
+
+This blog was originally named “L-Space Diaries”, which nominally stands for Latent Space, but also it is a reference to the L-space of Discworld, by Sir Terry Pratchett (GNU).
+
+Open Source Brand Assets
+
+If you’d like to use our assets, just give swyx a heads up and use rules of normal business engagement — use with respect and common sense, and you’re good. Our font is Tachyon, though we used to use Loos Extrawide.
+
+There are two versions: the “full” wide version evocative of the Variational Autoencoder:
+
+and the “hex” with gradient ((Orange (#FFA363) and Pink (#E56EFF)):
+
+We are not strict about the background or the colors. Modify as needed.
+
+where the e2b team did a stylized white version that we do love in context (put the below on black background)
+
+We’ll happily adopt your modifications if you have a better one!
+
+We do like gradients though.
+
+Our old (retired) podcast logo
+
+When Alessio was lead cohost:
+
+and even older hex
+
+and large logo
+
+Subscribe to Latent.Space
+THE AI ENGINEER NEWSLETTER + TOP TECHNICAL AI PODCAST. HOW LEADING LABS BUILD AGENTS, MODELS, INFRA, & AI FOR SCIENCE. SEE HTTPS://LATENT.SPACE/ABOUT FOR HIGHLIGHTS FROM GREG BROCKMAN, ANDREJ KARPATHY, GEORGE HOTZ, SIMON WILLISON, SOUMITH CHINTALA ET AL!
+Subscribe
+People
+Latent.Space 
+@swyx
+Writer, curator, latent space explorer. Main blog: https://swyx.io Devrel/Dev community: https://dx.tips/ Twitter: https://twitter.com/swyx
+Subscribe
+Message
+Adlin Zainal 
+@adlinz
+Subscribe
+Message
+Latent.Space
+Richard MacManus 
+@ricmac
+Head of Editorial at Latent Space, a leading AI engineering publication · Founded ReadWriteWeb (2003–2012) · 🥝 in 🇬🇧
+Subscribe
+Message
+Latent.Space
+© 2026 Latent.Space · Privacy ∙ Terms ∙ Collection notice
+Start your Substack
+Get the app
+Substack is the home for great culture
+
+=== LINKS (text -> href) ===
+(no text) -> /
+Home -> /
+YouTube -> https://www.youtube.com/playlist?list=PLWEAb1SXhjlfkEF_PxzYHonU_v5LPMI8L
+X -> https://x.com/latentspacepod
+Discord & Meetups -> /p/community
+Write for us! -> https://docs.google.com/forms/d/e/1FAIpQLSeHQAgupNkVRgjNfMJG9d7SFTWUytdS6SNCJVkd0SMNMXHHwA/viewform
+Latent Space: AI for Science -> /s/cience
+AINews: Weekday Roundups -> /s/ainews
+About -> /about
+top 10 in US Tech -> https://twitter.com/swyx/status/1672306744884887553
+audio podcast -> https://www.listennotes.com/podcasts/latent-space-the-ai-engineer-podcast-PjNDalXm_GZ/
+YouTube video -> https://www.youtube.com/@LatentSpaceTV
+online -> https://www.latent.space/p/community
+in person -> https://ai.engineer/
+AI Engineers -> https://www.latent.space/p/ai-engineer
+(no text) -> https://substackcdn.com/image/fetch/$s_!WeMX!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb6473bab-9c8c-463f-940a-7f7a3e8b3f6d_1942x852.png
+youtube -> https://www.youtube.com/@LatentSpaceTV/videos
+substack -> https://latent.space/subscribe
+business@latent.space -> http://business@latent.space
+tips@latent.space -> http://tips@latent.space
+Andrej Karpathy -> https://twitter.com/karpathy/status/1660824101412548609
+Andrej Karpathy -> https://twitter.com/karpathy/status/1674873002314563584
+Chris Lattner -> https://x.com/clattner_llvm/status/1702378998268043735?s=46&t=90xQ8sGy63D2OtiaoGJuww
+Dharmesh Shah -> https://www.latent.space/p/dharmesh
+George Hotz -> https://twitter.com/realGeorgeHotz/status/1671207867045806080
+Soumith Chintala -> https://twitter.com/swyx/status/1671274223384547328
+Soumith Chintala -> https://twitter.com/soumithchintala/status/1764853209498034537?utm_source=ainews&utm_medium=email
+@latentspacepod -> https://x.com/latentspacepod
+Richard Seroter -> https://x.com/rseroter/status/1879559175396536530
+Eugene Yan -> https://twitter.com/eugeneyan/status/1772647455420731741
+Sam Julien -> https://x.com/samjulien/status/1866877393493016668
+Harrison Chase -> https://twitter.com/LangChainAI/status/1700580580046540811
+Mckay Wrigley -> https://twitter.com/mckaywrigley/status/1691864273059004590?s=20
+Emad Mostaque -> https://twitter.com/EMostaque/status/1571393537865916417
+Simon Willison -> https://twitter.com/simonw/status/1579203392706007040
+Gene Kim -> https://twitter.com/RealGeneKim/status/1678841773794230275?s=20
+@latentspacepod -> https://twitter.com/latentspacepod
+Chris Anderson -> https://twitter.com/chr1sa/status/1741994360219242739
+Samuel Path -> https://twitter.com/smlpth/status/1750593594971275332
+Kevin Hu -> https://twitter.com/kevinzenghu/status/1586069398501982209
+Francisco Pingham -> https://twitter.com/fpingham/status/1661725836784062465?s=20
+Atlantis Labs -> https://twitter.com/atlantis__labs/status/1672117953809076226?s=20
+AI Safety Memes -> https://twitter.com/AISafetyMemes/status/1691864307946975461?s=20
+@swyx -> https://twitter.com/swyx
+gabor ugray -> https://twitter.com/twilliability/status/1576169905266663425
+Jim OShaughnessy -> https://twitter.com/jposhaughnessy/status/1584027160964055040
+Eric Ries -> https://x.com/ericries/status/1715250471462645856?s=20
+Ben Dickson -> https://twitter.com/bendee983/status/1717512508838466031
+Benchmarks 101 -> https://www.latent.space/p/benchmarks-101
+Datasets 101 -> https://www.latent.space/p/datasets-101#details
+RLHF 201 -> https://www.latent.space/p/rlhf-201
+Anthropic -> https://www.latent.space/p/claude-sonnet
+OpenAI -> https://www.latent.space/p/devday-2024
+repeatedly -> https://www.latent.space/p/openai-api-and-o1
+DeepMind -> https://www.latent.space/p/carlini
+Meta -> https://www.latent.space/p/llama-3
+Reka -> https://www.latent.space/p/yitay
+FlashAttention -> https://www.listennotes.com/podcasts/latent-space-the/flashattention-2-making-eD_3Rjb0hwf/
+Transformers Math -> https://www.latent.space/p/transformers-math#details
+Pytorch -> https://www.latent.space/p/soumith
+ChatGPT -> https://www.latent.space/p/everything-we-know-about-chatgpt
+GPT4 -> https://www.latent.space/p/multimodal-gpt4
+Auto-GPT -> https://www.latent.space/p/agents?utm_source=%2Fsearch%2Fexecutive%2520summary&utm_medium=reader2
+GPT4.5 -> https://www.latent.space/i/134257068/code-interpreter-executive-summary
+LangChain -> https://www.latent.space/p/langchain#details
+The Ultimate Guide to Prompting -> https://www.latent.space/p/learn-prompting
+LLM Leaderboards -> https://www.latent.space/p/benchmarks-201
+o1 isn’t a chat model (and that’s the point) -> https://www.latent.space/p/o1-skill-issue
+2024 Year in Review -> https://www.latent.space/p/2024-review
+OpenAI Realtime API Missing Manual -> https://www.latent.space/p/realtime-api
+Inference Fast and Slow -> https://www.latent.space/p/inference-fast-and-slow
+$2 H100s -> https://www.latent.space/p/gpu-bubble
+Winds of AI Winter -> https://www.latent.space/p/q2-2024-recap
+The Rise of the AI Engineer -> https://www.latent.space/p/ai-engineer
+You are not too old -> https://www.latent.space/p/not-old
+The 2025 AI Engineer Reading List -> https://www.latent.space/p/2025-papers
+It’s Time To Build AI UX -> https://www.latent.space/p/build-ai-ux
+How to Make AI UX your Moat -> https://www.latent.space/p/ai-ux-moat
+Retool -> https://www.latent.space/p/retool
+IDEFICS -> https://www.latent.space/p/idefics
+TLDraw MakeItReal -> https://www.latent.space/p/tldraw
+Suno AI -> https://www.latent.space/p/suno
+Segment Anything 1/2 -> https://www.latent.space/p/sam2
+The Anatomy of Autonomy -> https://www.latent.space/p/agents
+Codium/AutoGPT -> https://www.latent.space/p/codium-agents
+Imbue -> https://www.latent.space/p/imbue
+Lindy -> https://www.latent.space/p/lindy
+Dust -> https://www.latent.space/p/dust
+ReAct/Tree of Thought -> https://www.latent.space/p/shunyu
+Cursor -> https://www.latent.space/p/cursor#details
+Phind -> https://www.latent.space/p/phind
+Codeium -> https://www.latent.space/p/varun-mohan
+Windsurf -> https://www.latent.space/p/windsurf
+Sourcegraph Cody -> https://www.latent.space/p/sourcegraph
+Bolt -> https://www.latent.space/p/bolt
+Cosine -> https://www.latent.space/p/cosine
+Langchain -> https://www.latent.space/p/langchain#details
+LlamaIndex -> https://www.latent.space/p/llamaindex#details
+Guardrails -> https://www.latent.space/p/guaranteed-quality-and-structure
+Copilot for X -> https://www.latent.space/p/what-building-copilot-for-x-really
+ComfyUI -> https://www.latent.space/p/comfyui
+Exa -> https://www.latent.space/p/exa
+Braintrust -> https://www.latent.space/p/braintrust
+MLC.ai -> https://www.latent.space/p/llms-everywhere
+Modular -> https://www.latent.space/p/modular
+Replicate -> https://www.latent.space/p/replicate
+Modal -> https://www.latent.space/p/modal
+Together -> https://www.latent.space/p/together
+Fireworks -> https://www.latent.space/p/fireworks
+How Open Source is Eating AI -> https://www.latent.space/p/open-source-ai
+Replit -> https://www.latent.space/p/reza-shabani#details
+Mosaic -> https://www.latent.space/p/mosaic-mpt-7b
+Dolly -> https://www.latent.space/p/mike-conover
+Llama 2 -> https://www.latent.space/p/llama2
+Fast.ai -> https://www.latent.space/p/fastai
+NotebookLM -> https://www.latent.space/p/notebooklm
+Dropbox -> https://www.latent.space/p/drew-houston
+Adept -> https://www.latent.space/p/adept
+Lexica -> https://www.latent.space/p/sharif-shameem
+Glean -> https://www.latent.space/p/deedy-das
+Roboflow -> https://www.latent.space/p/segment-anything-roboflow
+Seek.ai -> https://www.latent.space/p/sarah-nagy
+Cube.dev -> https://www.latent.space/p/cube#details
+Notion -> https://www.latent.space/p/ai-interfaces-and-notion#details
+Amplitude -> https://www.latent.space/p/amplitude#details
+tiny -> https://www.latent.space/p/geohot#details
+Playground -> https://www.latent.space/p/suhail-doshi
+Brightwave -> https://www.latent.space/p/brightwave
+Elicit -> https://www.latent.space/p/hiring
+NSFW Chatbots -> https://www.latent.space/p/nsfw-chatbots
+Stable Diffusion 2 -> https://www.latent.space/p/why-prompt-engineering-and-generative
+Functions -> https://open.substack.com/pub/swyx/p/function-agents?r=1h4isl&utm_campaign=post&utm_medium=web
+Code Interpreter -> https://www.latent.space/p/code-interpreter#details
+OpenAI DevDay -> https://www.latent.space/p/devday
+NeurIPS 2023 Papers -> https://www.latent.space/p/neurips-2023-papers
+Startups -> https://www.latent.space/p/neurips-2023-startups
+ICLR 2024 -> https://www.latent.space/p/iclr-2024-benchmarks-agents
+ICML 2024 -> https://www.latent.space/p/icml-2024-video-robots
+Latent Space Anniversary -> https://www.latent.space/p/jan-feb-2024-recap-audio
+Aug -> https://www.latent.space/p/aug-2023
+Sept -> https://www.latent.space/p/sep-2023
+Oct -> https://www.latent.space/p/oct-2023
+Nov -> https://www.latent.space/p/nov-2023
+Dec -> https://www.latent.space/p/dec-2023
+Jan -> https://www.latent.space/p/jan-2024
+Feb -> https://www.latent.space/p/feb-2024
+Reverse Prompt Engineering -> https://www.latent.space/p/reverse-prompt-eng
+Academia -> https://www.latent.space/p/shreya-shankar
+Product/Moats -> https://www.latent.space/p/eigenquestions-for-the-ai-red-wedding
+Eigenquestions -> https://www.latent.space/p/eigenquestions-for-the-ai-red-wedding
+AI outside of the US -> https://www.latent.space/p/josephine-teo
+AI Breakdown -> https://www.listennotes.com/podcasts/latent-space-the/ai-breakdown-summer-ai-f1DNlmpPUnG/
+part 1 -> https://www.listennotes.com/podcasts/the-ai-breakdown/the-four-wars-of-the-ai-Fhtlb4M2yzI/
+part 2 -> https://www.listennotes.com/podcasts/the-ai-breakdown/what-ai-developers-are-CPKz4Yed9rv/
+Practical AI -> https://www.listennotes.com/podcasts/latent-space-the/practical-ai-ai-trends-a-4gnGMveVkpF/
+Cognitive Revolution -> https://www.listennotes.com/podcasts/latent-space-the/cognitive-revolution-the-vpE8-2w5NQI/
+ThursdAI -> https://sub.thursdai.news/p/thursdai-feb-15-2024-openai-changes
+Thursday Nights in AI -> https://www.youtube.com/watch?v=yj2Bm_XYOVs
+ChinaTalk -> https://www.lawfaremedia.org/article/chinatalk-can-china-fast-follow-on-ai-forever
+Techmeme Ride Home -> https://www.latent.space/p/2024-simonw
+Unsupervised Learning -> https://www.latent.space/p/unsupervised-learning
+our friends at PracticalAI -> https://changelog.com/practicalai/235
+CogRev -> https://www.cognitiverevolution.ai/e41-bonus-episode-latentspace-building-the-ai-x-ux-scenius-with-linus-lee-of-notion-ai/
+AI Breakdown -> https://www.latent.space/p/breakdown#details
+Google vs Microsoft -> https://www.latent.space/p/google-vs-openai
+No Moat -> https://www.latent.space/p/no-moat
+the AI Engineer Summit -> https://www.youtube.com/@aidotengineer
+(no text) -> https://substackcdn.com/image/fetch/$s_!e_My!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3f2c32e8-687f-4aae-8fc7-599a75d5baad_1974x1270.png
+regular blog -> https://www.swyx.io/ideas
+DXTips -> https://dx.tips/
+RSS feed here -> https://www.listennotes.com/podcasts/latent-space-the-ai-engineer-podcast-PjNDalXm_GZ/#
+guest prompt here -> https://www.latent.space/p/prompt
+our new YouTube channel -> https://www.youtube.com/@LatentSpaceTV
+Ice & Fire - King Canyon -> https://www.youtube.com/watch?v=0dUmCKfwCG4
+join here -> https://lu.ma/llm-paper-club
+(no text) -> https://substackcdn.com/image/fetch/$s_!zXsm!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F667b759a-4601-4644-929f-42b568a046da_1549x631.png
+lspace.swyx.io -> https://hn.algolia.com/?q=lspace.swyx.io
+not too old -> https://www.latent.space/p/not-old
+Natural Language Processing with PyTorch -> https://www.oreilly.com/library/view/natural-language-processing/9781491978221/
+Latent Space -> https://en.wikipedia.org/wiki/Latent_space
+L-space -> https://wiki.lspace.org/L-space
+swyx -> https://x.com/swyx
+(no text) -> https://substackcdn.com/image/fetch/$s_!M5Aa!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1c5848ce-76e7-4739-ad2b-2e793ef2b428_3208x1898.png
+(no text) -> https://substackcdn.com/image/fetch/$s_!OyTA!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd932ba26-2171-4074-9255-aeed9b2d68a8_3208x1898.png
+(no text) -> https://substackcdn.com/image/fetch/$s_!-5-G!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0a3be84c-d8df-40b4-9b31-81c65629bd0f_2048x1152.png
+(no text) -> https://substackcdn.com/image/fetch/$s_!PELF!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9c02beab-5dc1-426d-90ae-f283a32b698b_1130x1130.png
+(no text) -> https://substackcdn.com/image/fetch/$s_!WZRp!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4c30ef1e-c320-4d6f-b115-e15832847de3_1130x1130.png
+(no text) -> https://substackcdn.com/image/fetch/$s_!ICg3!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F8cad5d50-8125-4067-8104-532096c1c218_1130x1130.png
+(no text) -> https://substackcdn.com/image/fetch/$s_!bc-8!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Ffca11212-4f76-4914-81e0-045e1b344469_2222x1226.png
+(no text) -> https://substackcdn.com/image/fetch/$s_!xPP-!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F386a3757-d191-4342-a1bd-93ff7c3072aa_1024x1024.png
+(no text) -> https://substackcdn.com/image/fetch/$s_!lp_e!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd352ee12-f913-4256-92f0-5a913a3b17aa_3840x2160.jpeg
+(no text) -> https://substackcdn.com/image/fetch/$s_!7yM6!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F685c49b8-c73c-49af-9a16-160ccd676ff6_385x444.png
+(no text) -> https://substackcdn.com/image/fetch/$s_!Dhf_!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F069eb73e-ea93-4745-8ddc-4f60be680cf4_1978x1334.jpeg
+(no text) -> https://substackcdn.com/image/fetch/$s_!3JSO!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5f07527a-d072-422e-a736-a316b7430d91_152x152.jpeg
+(no text) -> https://substackcdn.com/image/fetch/$s_!rKg0!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5c88a8e3-b46c-40ba-8140-512db81d37ae_400x400.png
+(no text) -> https://substackcdn.com/feed/podcast/1084089/92120159a90420fb694c09dfd0a904e8.jpg
+Latent.Space -> https://substack.com/@swyx?utm_source=about-page
+@swyx -> https://substack.com/@swyx?utm_source=about-page
+(no text) -> https://substack.com/@swyx
+Adlin Zainal -> https://substack.com/@adlinz?utm_source=about-page
+@adlinz -> https://substack.com/@adlinz?utm_source=about-page
+(no text) -> https://substack.com/@adlinz
+Latent.Space -> https://www.latent.space/?utm_source=about-page&utm_content=writes
+Richard MacManus -> https://substack.com/@ricmac?utm_source=about-page
+@ricmac -> https://substack.com/@ricmac?utm_source=about-page
+(no text) -> https://substack.com/@ricmac
+Privacy -> https://substack.com/privacy
+Terms -> https://substack.com/tos
+Collection notice -> https://substack.com/ccpa#personal-data-collected
+Start your Substack -> https://substack.com/signup?utm_source=substack&utm_medium=web&utm_content=footer
+Get the app -> https://substack.com/app/app-store-redirect?utm_campaign=app-marketing&utm_content=web-footer-button
+Substack -> https://substack.com

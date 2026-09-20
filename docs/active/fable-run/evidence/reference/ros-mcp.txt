@@ -1,0 +1,280 @@
+URL: https://mcp.returnonsecurity.com
+Nav status: HTTP 200
+Page title: MCP Server: The Signal by Return on Security
+
+=== VISIBLE TEXT (document.body.innerText) ===
+The
+Signal
+Dashboard
+Account
+API Docs
+View Plans
+FREE TIER: COMPANY AND MARKET LOOKUP, 180 CALLS/DAY
+Cybersecurity intelligence
+for your AI workflows
+
+Connect Claude, Cursor, or any MCP client to The Signal. Query companies, investors, funding rounds, and M&A activity with natural language.
+
+Get started
+View Plans →
+7,196
+Cybersecurity companies
+5,617
+Investors tracked
+8,947
+Funding rounds
+2,255
+M&A deals
+How it works
+
+Three steps to cybersecurity market intelligence in your AI workflows.
+
+1
+Sign up
+
+Create your free Signal account in 30 seconds. No credit card required.
+
+2
+Connect
+
+Add The Signal's MCP server URL to Claude, Cursor, or any MCP-compatible client.
+
+3
+Ask
+
+Authenticate via your browser, then ask questions in natural language.
+
+Connect the MCP
+BEFORE YOU BEGIN
+You need a free Signal account
+
+The MCP server authenticates against your Signal account. Create one first (takes 30 seconds, no credit card), then come back to connect your client.
+
+Create free account
+I already have one
+Claude
+Claude Code
+Cursor
+Codex
+Other
+1
+
+In Claude or Claude Desktop, open Settings → Connectors → Add custom connector.
+
+2
+
+Set the name to "The Signal" and paste this connector URL:
+
+https://mcp.returnonsecurity.com/mcp
+Copy
+3
+
+Sign in with your Signal account when Claude redirects you. Open a new chat. The Signal's tools will appear in the connector menu.
+
+Free is enough to screen the market: look up a company, size a category, see who the top investors are (180 calls/day, no credit card). Pro and Enterprise answer the harder questions, like who is likely to buy a company and which categories are consolidating (400+ calls/day). View Plans →
+
+Example prompts
+
+Ask these questions in natural language. Your AI tool translates them into the right tool calls.
+
+SCREENING
+"Which Series B+ cloud security companies in Europe raised funding in the last 12 months?"
+MARKET OVERVIEW
+"Give me a 1-quarter overview of cybersecurity funding and M&A."
+HOT MARKETS
+"Tell me about the Post-Quantum Security market: who's funded, who's investing, and is it heating up or cooling?"
+COMPANY DEEP-DIVE
+"Enrich Wiz with funding history, investor network, and growth signals."
+WHAT'S NEW ENT
+"What funding rounds has The Signal added since last Tuesday?"
+RELATIONSHIP
+"How is Sequoia connected to CrowdStrike?"
+INVESTOR ANALYSIS
+"Which PE firms are most active in identity security?"
+LIKELY ACQUIRERS
+"Who are the most likely acquirers for a CSPM company like Wiz?"
+EXIT READINESS PRO
+"How ready is Netskope to exit, and is it more likely to IPO, get bought, or go private?"
+CORPORATE LINEAGE
+"What did FireEye become, and what happened to the pieces?"
+IPO HISTORY
+"Which cybersecurity companies have filed or listed, and what did they raise at listing?"
+BENCHMARKING
+"Is a $40M Series B in cloud security big or small? Show me where it sits in the distribution."
+CONSOLIDATION PRO
+"Which security categories are consolidating fastest, and who's doing the buying?"
+CROSS-BORDER FLOWS PRO
+"Which countries are US investors funding most in cyber, and how has that shifted in two years?"
+ACQUIRER HISTORY PRO
+"Map everything Palo Alto Networks has acquired and what categories they were in."
+PARTNERSHIP OVERLAP PRO
+"Do CrowdStrike and Zscaler share partners, and which ones overlap?"
+DISTRESS SIGNALS PRO
+"Which funded security companies have had layoffs or shut down in the last year?"
+PACE OF FUNDING PRO
+"Is identity security funding accelerating or cooling? Compare this year to last."
+FORECAST PRO
+"Based on the last three years, what should Q4 cyber funding look like?"
+LOOK-ALIKES PRO
+"Find companies similar to Vanta that haven't raised since 2023."
+MISSING SOMETHING?
+"Tell The Signal I need breach-cost data by sector. It isn't in the toolset."
+Workflows worth automating
+
+Single questions are the easy part. These are multi-step jobs an agent can run on a schedule and hand you the result. Each one chains several tools together.
+
+COMPETITIVE WATCH
+"Every Monday, tell me which of my 12 named competitors raised, got acquired, hired, or had layoffs last week, and skip the weeks where nothing happened."
+DEAL SOURCING PRO
+"Find Series A/B companies in categories that are consolidating, whose investors have a track record of exits, and that haven't raised in 18 months. Rank by exit readiness."
+DILIGENCE PACK PRO
+"Build me a one-page brief on this company: funding history, investor quality, closest competitors, likely acquirers, category momentum, and any distress signals."
+CATEGORY SIZING PRO
+"How much capital has gone into SSPM in three years, how many companies are funded, who leads, and is it consolidating or still fragmenting?"
+BOARD UPDATE
+"Draft the market section of our board deck: quarter's funding and M&A totals, the notable deals in our category, and how our raise compares to peers."
+PARTNER TARGETING PRO
+"Who partners with companies like ours but not with us, and which of them share an investor we could get a warm intro through?"
+Available tools
+
+Every real market question starts as a research project. Who else backed this founder. Which acquirer keeps buying in this category. Is this space consolidating or just loud. That is a day of tab-hopping, and the answer is stale by the time you write it down.
+
+Ask it in the chat window you already have open instead. Free answers who and what: the companies, the money, the investors, the exits. Pro answers so what: where capital is moving, who is likely to buy, which companies rise and fall together. Enterprise checks your own list against the whole market in one pass.
+
+FREE
+in every plan
+PRO
+Pro, Enterprise
+ENT
+Enterprise only
+Free tools
+12 tools, no credit card
+COMPANIES
+search_companies FREE
+Filter companies by category, stage, geography, status, and funding. Free searches the top 1,000 by funding, 10 results at a time.
+enrich_company FREE
+One company's profile, any company, with the last 3 rounds on Free. Pro adds full history, competitors, investor network, growth signals, and exit score.
+MARKETS
+get_market_overview FREE
+Funding and M&A totals with top companies, top investors, and recent unicorns.
+get_category_momentum FREE
+Which security categories are heating up or cooling, ranked.
+INVESTORS
+get_investor_centrality FREE
+The most connected investors, scored by graph centrality.
+get_investor_tiers FREE
+Investor tier classification with deal metrics. Free shows Tier 1.
+PUBLIC MARKETS AND LINEAGE
+get_company_ipo FREE
+IPO and S-1 history: filing and listing dates, price, capital raised, exchange, ticker.
+get_company_public_lifecycle FREE
+Public-market status and dates: went public, taken private, and years to each.
+get_entity_transitions FREE
+Corporate lineage as dated edges: FireEye to Trellix, F-Secure to WithSecure.
+REFERENCE
+list_categories FREE
+Every product category, grouped by domain. The valid filter values for every other tool.
+list_countries FREE
+Every country and continent with cybersecurity activity.
+get_data_status FREE
+Data freshness: last sync, node and edge counts, cache version.
+Pro tools
+22 tools, higher limits
+INVESTORS
+search_investors PRO
+Find investors by sector focus, deal activity, geography, and type (VC, PE, corporate).
+get_investor_portfolio PRO
+One investor's full deal history: company, amount, stage, date, and category per round.
+find_similar_investors PRO
+"Who invests like Ten Eleven Ventures?" Matched on portfolio thesis, not name.
+FUNDING AND VALUATION
+get_funding_rounds PRO
+Rounds filtered by company, category, country, stage, investor, size, or date.
+get_funding_timeseries PRO
+Funding bucketed by month, quarter, or year in a single call.
+compare_periods PRO
+Two periods side by side: counts, totals, averages, and percent deltas.
+forecast_funding PRO
+Project the next one to four quarters from trend plus quarterly seasonality.
+get_valuation_trends PRO
+Post-money valuation percentiles by quarter or year, with coverage so thin buckets show.
+get_round_velocity PRO
+Days between rounds, per company or aggregated by category, stage, or country.
+get_cross_border_flows PRO
+Which investor geographies fund which company geographies, as a crosstab.
+M&A AND CONSOLIDATION
+get_ma_activity PRO
+M&A deals by category, geography, acquirer, acquirer type, size, or date.
+category_consolidation_signals PRO
+Which categories are consolidating, scored 0 to 100 with the buyers behind it.
+get_acquirer_empire PRO
+A buyer's acquired portfolio and deal velocity, with CVC arms folded into the parent.
+suggest_acquirers PRO
+Likely acquirers for a company, from category overlap, deal history, and graph adjacency.
+RELATIONSHIPS AND SIMILARITY
+find_connections PRO
+Paths between any two entities up to 6 hops, with a provable "no" and as-of-date queries.
+find_similar_companies PRO
+"Companies like Wiz, but only European Cloud Security." Semantic match plus hard filters.
+get_company_partnerships PRO
+Announced partnerships: partner, type (OEM, integration, channel, alliance), date, scope.
+compare_partnership_overlap PRO
+Shared partners between two companies, with mutual counts and type distributions.
+find_partnership_cohort PRO
+Companies that behave like a target, scored 0 to 100 on partner-ecosystem overlap.
+COMPANY SIGNALS
+search_growth_signals PRO
+Rank companies on a 0 to 100 score blending funding velocity, investor quality, and momentum.
+get_company_layoffs PRO
+Recorded layoff events: date, workforce impact, stage, reason, and departments hit.
+get_company_shutdown PRO
+Whether a company has ceased operations, with shutdown date and source.
+Enterprise
+1 tool
+reconcile_companies ENT
+Diff up to 100 company names from your CRM against The Signal in one call: match, known alias, fuzzy, or missing.
+Troubleshooting
+Verify your connection
+Your MCP client should list The Signal's tools after sign-in (in Claude's connector menu, Cursor's MCP settings, or via claude mcp list in Claude Code). If you see them, you're connected. Access tokens last 24 hours.
+Tools not loading?
+Open a fresh client session. Your MCP client will automatically authenticate via your browser on first use.
+Building software, not an agent?
+
+MCP is for AI clients. If you are writing code that calls us directly, use the REST API.
+
+Use MCP when
+
+An AI client is doing the calling — Claude, Cursor, a Claude Code session, or your own agent. Tools, arguments and tier requirements are described in the protocol, so the model discovers what it can ask for.
+
+Use the REST API when
+
+Your own code is doing the calling — a scheduled job, a dashboard, an internal service. Bearer auth with a ros_live_ key, typed JSON, and an OpenAPI 3.1 spec you can generate a client from.
+
+Same data either way
+
+One dataset behind both, so the answer does not change with the transport. REST keys are a paid add-on on an existing plan, or included with Enterprise.
+
+Read the API docs →
+Ready to connect?
+
+Start free. Screen companies and size up any category, 180 calls/day, no credit card. Upgrade when you need to know where the capital is heading and who is likely to buy next.
+
+Start Free
+View Plans →
+
+The Signal · API Docs · Return on Security · Contact
+
+=== LINKS (text -> href) ===
+The Signal -> https://signal.returnonsecurity.com
+Dashboard -> https://signal.returnonsecurity.com
+Account -> https://signal.returnonsecurity.com/account
+API Docs -> https://docs.returnonsecurity.com/
+View Plans -> https://signal.returnonsecurity.com/pricing
+Get started -> #setup
+View Plans → -> https://signal.returnonsecurity.com/pricing
+Create free account -> https://signal.returnonsecurity.com/signup
+I already have one -> https://signal.returnonsecurity.com/login
+Read the API docs → -> https://docs.returnonsecurity.com/
+Start Free -> https://signal.returnonsecurity.com/signup
+Return on Security -> https://returnonsecurity.com
+Contact -> mailto:mike@returnonsecurity.com

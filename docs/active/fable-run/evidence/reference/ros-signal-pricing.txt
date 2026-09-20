@@ -1,0 +1,238 @@
+URL: https://signal.returnonsecurity.com/pricing
+Nav status: HTTP 200
+Page title: Pricing | The Signal — Cybersecurity Market Intelligence
+
+=== VISIBLE TEXT (document.body.innerText) ===
+Skip to main content
+The Signal
+Developers
+Pricing
+About
+Sign In
+GET STARTED
+Simple, transparent pricing
+
+Full cybersecurity market intelligence. Start free, upgrade when you need more.
+
+7,196
+COMPANIES
+5,617
+INVESTORS
+8,947
+FUNDING ROUNDS
+2,255
+M&A DEALS
+210+
+CATEGORIES
+Monthly
+AnnualSave 25%
+Free
+
+$0/month
+
+Explore the market
+
+Weekly funding & M&A dashboards
+Funded & acquired companies + full investor directory (basic profiles)
+Search, filter & save
+AI lookups — 180/day
+Unlock individual Pro profiles free (limited monthly credits)
+
+Full profiles, competitive intel, and AI/API access start on Pro.
+
+Get Started Free
+Most Popular
+Pro
+
+$199/month
+
+Full market intelligence + AI-native access
+
+FULL MARKET INTELLIGENCE
+
+Every company & investor, in full
+Exit Outlook — IPO / PE / M&A readiness scoring
+Competitive set, peer analysis & partnership mapping
+Category momentum & consolidation signals
+Company momentum, layoffs & shutdown tracking
+Vet investors — co-investors & state-backed flags
+All-time & custom date ranges
+
+AI-NATIVE ACCESS
+
+Native MCP server
+— Claude, Cursor, any agent
+400 AI calls/day
+Knowledge-graph queries, acquisition scoring & funding forecasts
+Get Started
+
+Need programmatic API access too? See the add-on ↓
+
+Enterprise
+
+Custom
+
+Programmatic access & support
+
+Everything in Pro
+Bulk CSV data export
+API access included — no add-on
+Custom data integrations
+Dedicated support
+Contact us
+Your workflows run themselves
+$79/MO
+
+Stop pulling exports by hand. Point the API at your Slack alerts, your CRM, or your own scripts once — funding rounds, M&A deals, and competitor moves keep flowing in automatically on Pro, no one at the keyboard. Prorated and co-termed with your plan.
+
+REST access with long-lived ros_live_ bearer keys and a monthly call allowance.
+
+Available on Pro
+Compare plans in detail
+Feature	Free	Pro	Enterprise
+PLATFORM BASICS
+Search & browse the full directory	
+	
+	
+
+Save companies, investors & views	
+	
+	
+
+Weekly funding & M&A dashboards	
+	
+	
+
+Standard timeframes (quarter, TTM, YTD)	
+	
+	
+
+All-time & custom date ranges
+Pull any historical window on demand, not just the standard presets above
+	
+	
+	
+
+MARKET DATA
+Company database
+Pro+ also includes unfunded and pre-raise companies free tier can't see at all
+	Funded & acquired companies — basic profiles	7,196 companies — full profiles	7,196 companies — full profiles
+Investor database
+Same universe as free — the upgrade is full profile depth and deal-by-deal history
+	5,617 investors — basic profiles	5,617 investors — full profiles + deal history	5,617 investors — full profiles + deal history
+Funding rounds
+Free sees rounds on a company's own profile; Pro+ can query and filter every round market-wide
+	Per-company detail	8,947 rounds — full dataset, filterable	8,947 rounds — full dataset, filterable
+M&A deals
+Free sees deals on a company's own profile; Pro+ can query and filter every deal market-wide
+	Per-company detail	2,255 deals — full dataset, filterable	2,255 deals — full dataset, filterable
+Category taxonomy
+Free sees a broad domain (e.g. "Network Security"); Pro+ unlocks all 210+ granular sub-categories (e.g. "MDR", "CSPM") to browse and filter by
+	Broad domain grouping	210+ sub-categories — view & filter	210+ sub-categories — view & filter
+ANALYTICS
+Exit Outlook — IPO / PE / M&A readiness
+One composite score covering every exit path, not just a single signal
+	
+	
+	
+
+Competitive intelligence
+See every other company competing in the same space
+	
+	
+	
+
+Peer analysis
+Benchmark a company against similar-stage, similar-category peers
+	
+	
+	
+
+Partnership & integration ecosystem mapping
+See who a company already partners or integrates with — for BD targeting or competitive scoping
+	
+	
+	
+
+Category momentum
+Growth & consolidation trends by category, dashboard-level (a capped preview is also free via the MCP tool — see AI & Automation below)
+	
+	
+	
+
+Investor tiering & network centrality
+Rank investors by portfolio tier and co-investment network position (a capped preview is also free via MCP)
+	
+	
+	
+
+Company momentum score
+A composite growth score plus a funding trajectory label (accelerating, stable, or decelerating)
+	
+	
+	
+
+Layoffs & shutdown tracking
+Free sees the market-wide feed; Pro+ ties layoffs/shutdowns to the specific company's own profile
+	Market-wide feed	Market feed + per-company timeline	Market feed + per-company timeline
+AI & AUTOMATION
+MCP server access
+Free includes a capped preview of category momentum & investor tiering, not just plain lookup
+	Lookup, market overview & capped previews	Full depth — knowledge graph (connections, ego networks, temporal as-of queries), exit scoring, forecasting	Full depth — knowledge graph (connections, ego networks, temporal as-of queries), exit scoring, forecasting
+Daily MCP call allowance	180 / day	400 / day	Unlimited
+VC / PE / bootstrapped filtering
+Filter any search by funding source — applies even on otherwise-free tools
+	
+	
+	
+
+ACCESS
+Seats	1 user	1 user	Custom
+Bulk CSV data export
+One-click export with enrichment, audit logging, and export rate limits
+	
+	
+	
+
+Programmatic REST API access
+Alert on competitor raises & acquisitions, feed your CRM or dashboard, or query the market from your own scripts
+	
+	+$79/mo add-on	Included
+Custom integrations
+Talk to us about connecting Signal directly to your existing stack
+	
+	
+	
+
+Dedicated support	
+	
+	
+Frequently asked questions
+What's included in the free plan?
+How does annual billing work?
+What is the MCP server?
+What is The Signal knowledge graph?
+Can I cancel anytime?
+What data sources does The Signal use?
+What does Enterprise include?
+How do I connect the MCP server?
+Start tracking the cybersecurity market today
+
+Join security leaders, investors, and analysts using The Signal for market intelligence.
+
+Get Started Free
+Explore the data
+
+=== LINKS (text -> href) ===
+Skip to main content -> #main-content
+The Signal -> /
+Developers -> /developers
+Pricing -> /pricing
+About -> /about
+Sign In -> /login
+Get Started -> /signup
+Get Started Free -> /signup
+Native MCP server -> https://mcp.returnonsecurity.com
+See the add-on ↓ -> #api-addon
+Contact us -> mailto:mike@returnonsecurity.com?subject=Signal Enterprise
+Explore the data -> /

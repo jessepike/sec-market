@@ -1,0 +1,160 @@
+URL: https://www.platformer.news/
+Nav status: HTTP 200
+Page title: Platformer
+
+=== VISIBLE TEXT (document.body.innerText) ===
+Skip to content
+Home
+About
+Ethics
+Sign in
+Subscribe
+Independent reporting on AI, social platforms, and the people shaping technology.
+
+Original reporting and analysis from Casey Newton, delivered to your inbox.
+
+Join free
+
+Become a paid subscriber
+LATEST
+What was Hard Fork?
+
+Saying goodbye to some old friends — and hello to Machine Gods
+
+By Casey Newton 17 Sep 2026
+Following: The government doesn't want to regulate AI
+
+The leaders of AI labs agree that the United States to act, and soon. But the president and the speaker of the House aren't interested
+
+Paid
+ By Ella Markianos, Lindsey Choo 14 Sep 2026
+The AI safety vibe shift
+
+Once a fringe obsession of Bay Area rationalists, existential risk is suddenly all anyone is talking about
+
+By Casey Newton 10 Sep 2026
+The AI warnings are coming from inside the lab
+
+Frontier labs make for lousy messengers on AI safety — but it would be foolish to ignore them
+
+Paid
+ By Casey Newton 08 Sep 2026
+Google gets away with it
+
+A third loss in antitrust court leads to ... very little. PLUS: GPT-6 Astra and 'the AGI era'
+
+Paid
+ By Casey Newton 03 Sep 2026
+The Hugging Face attack was worse than we thought
+
+The AI industry is begging for a slowdown. Maybe we should listen?
+
+By Casey Newton 31 Aug 2026
+How AI agents "radicalized" a top Meta exec into quitting her job
+
+Clara Shih on how AI will soon displace the first few rungs on the career ladder — and why she left Big Tech to do something about it
+
+By Casey Newton 27 Aug 2026
+Meta settles with the states over child safety failures
+
+Will significant changes to Facebook and Instagram be enough to beat back a global wave of bans?
+
+By Casey Newton 26 Aug 2026
+The website that created an AI clone of its editor in chief
+
+Every CEO Dan Shipper on doubling headcount while automating everything, building an agent out of 30,000 copyedits, and the “dirty secret” of writing with AI
+
+By Casey Newton 20 Aug 2026
+An LLM wiki changed how I work
+
+And everything else I learned about productivity this year
+
+By Casey Newton 18 Aug 2026
+Town's CEO on the self-organizing company
+
+Jean-Denis Greze on AI assistants, building a better corporate workspace, and avoiding "egg on face"
+
+By Casey Newton 13 Aug 2026
+Superintelligence is a dragon
+
+What Mark Zuckerberg misunderstands about powerful AI
+
+By Casey Newton 10 Aug 2026
+See all
+START HERE
+Why social media bans are gaining steam
+
+How a recent talk by researcher Candice Odgers explains why ban critics are losing
+
+Paid
+ By Casey Newton 02 Jul 2026
+Yes, Elon Musk created a special system for showing you all his tweets first
+
+After his Super Bowl tweet did worse numbers than President Biden’s, Twitter’s CEO ordered major changes to the algorithm
+
+By Zoë Schiffer, Casey Newton 14 Feb 2023
+🚨 What really happened at Basecamp
+
+How a list of "funny" customer names triggered an internal reckoning
+
+By Casey Newton 27 Apr 2021
+PLATFORMER POD
+The case for making your own apps
+
+Glaze's Thomas Paul Mann on disposable software, the SaaS apocalypse, and why half the software you use in a few years will be something you made. PLUS: OpenAI's rogue model, and the distillation debate
+
+21 Jul 2026
+Open episode
+Platformer
+
+At least one free edition comes out every week. Paid subscribers receive at least one additional update each week.
+
+Subscribe
+
+About
+Ethics
+Advertising Policy
+Posting Schedule
+Tip Jar
+Sign up
+Advanced User Settings
+Powered by Ghost
+
+=== LINKS (text -> href) ===
+Skip to content -> #main-content
+(no text) -> https://www.platformer.news
+Home -> https://www.platformer.news/
+About -> https://www.platformer.news/about/
+Ethics -> https://www.platformer.news/ethics/
+Sign in -> #/portal/signin
+Subscribe -> #/portal/signup
+What was Hard Fork? Saying goodbye to some old friends — and hello to Machine Gods By Casey Newton 17 Sep 2026 -> /hard-fork-machine-gods/
+Following: The government doesn't want to regulate AI The leaders of AI labs agree that the United States to act, and soon. But the president and the speaker of the House aren't interested lock-1 Paid By Ella Markianos, Lindsey Choo 14 Sep 2026 -> /trump-johnson-ai-safety-regulation/
+The AI safety vibe shift Once a fringe obsession of Bay Area rationalists, existential risk is suddenly all anyone is talking about By Casey Newton 10 Sep 2026 -> /ai-safety-vibe-shift-coxon-anthropic/
+The AI warnings are coming from inside the lab Frontier labs make for lousy messengers on AI safety — but it would be foolish to ignore them lock-1 Paid By Casey Newton 08 Sep 2026 -> /openai-astra-warning-alignment-monitoring-pachocki/
+Google gets away with it A third loss in antitrust court leads to ... very little. PLUS: GPT-6 Astra and 'the AGI era' lock-1 Paid By Casey Newton 03 Sep 2026 -> /google-ad-tech-antitrust-futility/
+The Hugging Face attack was worse than we thought The AI industry is begging for a slowdown. Maybe we should listen? By Casey Newton 31 Aug 2026 -> /openai-huggingface-metr-report-slowdown/
+How AI agents "radicalized" a top Meta exec into quitting her job Clara Shih on how AI will soon displace the first few rungs on the career ladder — and why she left Big Tech to do something about it By Casey Newton 27 Aug 2026 -> /clara-shih-new-work-dear-cc-interview-meta-salesforce/
+Meta settles with the states over child safety failures Will significant changes to Facebook and Instagram be enough to beat back a global wave of bans? By Casey Newton 26 Aug 2026 -> /meta-child-safety-settlement-instagram-facebook-youtube-tiktok/
+The website that created an AI clone of its editor in chief Every CEO Dan Shipper on doubling headcount while automating everything, building an agent out of 30,000 copyedits, and the “dirty secret” of writing with AI By Casey Newton 20 Aug 2026 -> /every-dan-shipper-interview-ai-writing/
+An LLM wiki changed how I work And everything else I learned about productivity this year By Casey Newton 18 Aug 2026 -> /karpathy-llm-wiki-journalism-productivity/
+Town's CEO on the self-organizing company Jean-Denis Greze on AI assistants, building a better corporate workspace, and avoiding "egg on face" By Casey Newton 13 Aug 2026 -> /town-interview-jean-denis-greze-assistants/
+Superintelligence is a dragon What Mark Zuckerberg misunderstands about powerful AI By Casey Newton 10 Aug 2026 -> /zuckerberg-ai-manifesto-dragons/
+See all -> https://www.platformer.news/page/2/
+Why social media bans are gaining steam How a recent talk by researcher Candice Odgers explains why ban critics are losing lock-1 Paid By Casey Newton 02 Jul 2026 -> /social-media-bans-candice-odgers-haidt/
+Yes, Elon Musk created a special system for showing you all his tweets first After his Super Bowl tweet did worse numbers than President Biden’s, Twitter’s CEO ordered major changes to the algorithm By Zoë Schiffer, Casey Newton 14 Feb 2023 -> /yes-elon-musk-created-a-special-system/
+🚨 What really happened at Basecamp How a list of "funny" customer names triggered an internal reckoning By Casey Newton 27 Apr 2021 -> /-what-really-happened-at-basecamp/
+Platformer Pod -> /tag/platformer-pod/
+The case for making your own apps Glaze's Thomas Paul Mann on disposable software, the SaaS apocalypse, and why half the software you use in a few years will be something you made. PLUS: OpenAI's rogue model, and the distillation debate 21 Jul 2026 Open episode -> /glaze-raycast-ceo-thomas-paul-mann-interview-apps/
+(no text) -> https://x.com/platformer
+(no text) -> https://www.linkedin.com/in/caseynewton1
+(no text) -> https://bsky.app/profile/caseynewton.bsky.social
+(no text) -> https://www.threads.net/@crumbler
+(no text) -> https://www.youtube.com/@caseynewton
+(no text) -> https://www.instagram.com/crumbler
+Advertising Policy -> https://www.platformer.news/advertising-policy/
+Posting Schedule -> https://www.platformer.news/posting-schedule/
+Tip Jar -> https://www.platformer.news/tip-jar/
+Sign up -> #/portal/
+Advanced User Settings -> https://www.platformer.news/advanced-settings/
+Ghost -> https://ghost.org/

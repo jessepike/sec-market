@@ -1,0 +1,252 @@
+URL: https://www.returnonsecurity.com/
+Nav status: HTTP 200
+Page title: Cyber Security Insights and ROI Strategies | Return on Security
+
+=== VISIBLE TEXT (document.body.innerText) ===
+This website uses cookies
+
+Read our Privacy policy and Terms of use for more information.
+
+Accept
+Customize
+Decline
+Start Here
+About
+Topics
+The Signal ↗
+Partner With Us
+Login
+Get the Briefing
+Return on Security
+
+Your weekly 5-minute briefing on the cybersecurity market, providing key trends and analysis. The business of the cyber industry with zero fluff.
+
+Get the Briefing
+Featured Posts
+
+Guides
+
++1
+
+Sep 11, 2026
+
+•
+
+12 min read
+
+The AI-Era GRC Market: What Investors Fund, What Practitioners Need, and Which Platforms Survive 
+
+A security practitioner's guide to the GRC software market, the limits of audit automation, and the AI-driven shift toward better decisions.
+
+Ayoub Fandi
+
+Guides
+
+Jun 27, 2025
+
+•
+
+5 min read
+
+The Foolproof Guide to Building a Miserable Security Program
+
+Want to guarantee frustration, wasted budget, and career stagnation? Follow this advice for spectacular security program failure.
+
+Mike Privette
+
+Deep Dive
+
+Aug 12, 2026
+
+•
+
+8 min read
+
+A Tale of Two Planes
+
+Most AI security focuses on governing agents, but the real risk lies in the data. Discover why unifying your identity and data control planes is the future of AI
+
+Mike Privette
+
+Point of View
+
++1
+
+Jul 2, 2026
+
+•
+
+8 min read
+
+Quantum Security Is a One-Company Market
+
+Quantum computing raised $3.9 billion in 2025. The security built to survive it raised 15 times less, and one company is 78% of every dollar ever invested. Washington just mandated the migration anyway.
+
+Mike Privette
+
+Deep Dive
+
+Apr 15, 2026
+
+•
+
+10 min read
+
+Governing the Ungovernable: Why AI Governance is the Blueprint for Everything Else
+
+Traditional risk management is failing in the AI era. Discover why AI governance requires a strategic shift from static checklists to real-time orchestration, and how this new framework becomes the blueprint for the future of all corporate governance.
+
+Mike Privette
+
+Point of View
+
+Nov 5, 2025
+
+•
+
+5 min read
+
+The AI Security Absorption Has Begun
+
+Three years of funding data reveal AI Security represents just 9% of cybersecurity deals and 3% of funding. We're not witnessing a revolution. We're watching absorption into existing security categories, just as cloud security was before it.
+
+Mike Privette
+From the Archives
+
+Newsletter
+
+Sep 14, 2026
+
+•
+
+6 min read
+
+💰 Security, Funded #261 - [AI] Agent Provocateur
+
+The weekly economic brief for cybersecurity operators, founders, and investors. The funding, M&A, and category movement that actually moved the industry from the week of September 7th, 2026. 
+
+Mike Privette
+
+Guides
+
++1
+
+Sep 11, 2026
+
+•
+
+12 min read
+
+The AI-Era GRC Market: What Investors Fund, What Practitioners Need, and Which Platforms Survive 
+
+A security practitioner's guide to the GRC software market, the limits of audit automation, and the AI-driven shift toward better decisions.
+
+Ayoub Fandi
+
+Sep 8, 2026
+
+•
+
+6 min read
+
+💰 Security, Funded #260 - Model Behavior
+
+The weekly economic brief for cybersecurity operators, founders, and investors. The funding, M&A, and category movement that actually moved the industry from the week of August 31st, 2026. 
+
+Mike Privette
+
+Newsletter
+
+Aug 31, 2026
+
+•
+
+5 min read
+
+💰 Security, Funded #259 - In Fraud We Trust
+
+The weekly economic brief for cybersecurity operators, founders, and investors. The funding, M&A, and category movement that actually moved the industry from the week of August 24th, 2026. 
+
+Mike Privette
+
+Newsletter
+
+Aug 24, 2026
+
+•
+
+5 min read
+
+💰 Security, Funded #258 - CyberCatch 'Em All
+
+The weekly economic brief for cybersecurity operators, founders, and investors. The funding, M&A, and category movement that actually moved the industry from the week of August 17th, 2026. 
+
+Mike Privette
+
+Newsletter
+
+Aug 17, 2026
+
+•
+
+5 min read
+
+💰 Security, Funded #257 - SASE and Sound
+
+The weekly economic brief for cybersecurity operators, founders, and investors. The funding, M&A, and category movement that actually moved the industry from the week of August 10th, 2026. 
+
+Mike Privette
+Load more
+Return on Security
+
+Your weekly 5-minute briefing on the cybersecurity market, providing key trends and analysis. The business of the cyber industry with zero fluff.
+
+Get the Briefing
+
+Data Methodology | Market Eras | MCP ↗ | About | Partner With Us
+
+Privacy Policy · Terms of Use
+
+Search
+Start Here
+About
+Topics
+Topics
+Partner With Us
+Login
+Get the Briefing
+
+=== LINKS (text -> href) ===
+Privacy policy -> https://www.beehiiv.com/privacy
+Terms of use -> https://www.beehiiv.com/tou
+(no text) -> /
+Start Here -> /start-here
+About -> /about
+Topics -> https://www.returnonsecurity.com/tags
+The Signal ↗ -> https://signal.returnonsecurity.com/
+Partner With Us -> /sponsorship
+Guides+1Sep 11, 2026•12 min readThe AI-Era GRC Market: What Investors Fund, What Practitioners Need, and Which Platforms Survive A security practitioner's guide to the GRC software market, the limits of audit automation, and the AI-driven shift toward better decisions.Ayoub Fandi -> /p/ai-era-grc-market
+Guides -> /t/guides
+GuidesJun 27, 2025•5 min readThe Foolproof Guide to Building a Miserable Security ProgramWant to guarantee frustration, wasted budget, and career stagnation? Follow this advice for spectacular security program failure.Mike Privette -> /p/building-a-miserable-security-program
+Deep DiveAug 12, 2026•8 min readA Tale of Two PlanesMost AI security focuses on governing agents, but the real risk lies in the data. Discover why unifying your identity and data control planes is the future of AIMike Privette -> /p/a-tale-of-two-planes
+Deep Dive -> /t/deep-dive
+Point of View+1Jul 2, 2026•8 min readQuantum Security Is a One-Company MarketQuantum computing raised $3.9 billion in 2025. The security built to survive it raised 15 times less, and one company is 78% of every dollar ever invested. Washington just mandated the migration anyway.Mike Privette -> /p/quantum-security-is-a-one-company-market
+Point of View -> /t/point-of-view
+Deep DiveApr 15, 2026•10 min readGoverning the Ungovernable: Why AI Governance is the Blueprint for Everything ElseTraditional risk management is failing in the AI era. Discover why AI governance requires a strategic shift from static checklists to real-time orchestration, and how this new framework becomes the blueprint for the future of all corporate governance.Mike Privette -> /p/ai-governance-tier-zero-strategy
+Point of ViewNov 5, 2025•5 min readThe AI Security Absorption Has BegunThree years of funding data reveal AI Security represents just 9% of cybersecurity deals and 3% of funding. We're not witnessing a revolution. We're watching absorption into existing security categories, just as cloud security was before it.Mike Privette -> /p/ai-security-absorption-2023-2025
+NewsletterSep 14, 2026•6 min read💰 Security, Funded #261 - [AI] Agent ProvocateurThe weekly economic brief for cybersecurity operators, founders, and investors. The funding, M&A, and category movement that actually moved the industry from the week of September 7th, 2026. Mike Privette -> /p/security-funded-261
+Newsletter -> /t/newsletter
+Sep 8, 2026•6 min read💰 Security, Funded #260 - Model BehaviorThe weekly economic brief for cybersecurity operators, founders, and investors. The funding, M&A, and category movement that actually moved the industry from the week of August 31st, 2026. Mike Privette -> /p/security-funded-260
+NewsletterAug 31, 2026•5 min read💰 Security, Funded #259 - In Fraud We TrustThe weekly economic brief for cybersecurity operators, founders, and investors. The funding, M&A, and category movement that actually moved the industry from the week of August 24th, 2026. Mike Privette -> /p/security-funded-259
+NewsletterAug 24, 2026•5 min read💰 Security, Funded #258 - CyberCatch 'Em AllThe weekly economic brief for cybersecurity operators, founders, and investors. The funding, M&A, and category movement that actually moved the industry from the week of August 17th, 2026. Mike Privette -> /p/security-funded-258
+NewsletterAug 17, 2026•5 min read💰 Security, Funded #257 - SASE and SoundThe weekly economic brief for cybersecurity operators, founders, and investors. The funding, M&A, and category movement that actually moved the industry from the week of August 10th, 2026. Mike Privette -> /p/security-funded-257
+(no text) -> https://twitter.com/mikepsecuritee
+(no text) -> https://www.linkedin.com/in/mikeprivette
+Data Methodology -> https://www.returnonsecurity.com/data-methodology
+Market Eras -> https://www.returnonsecurity.com/cyber-market-eras
+MCP ↗ -> https://mcp.returnonsecurity.com
+About -> https://www.returnonsecurity.com/about
+Partner With Us -> https://www.returnonsecurity.com/sponsorship
+Privacy Policy -> https://www.beehiiv.com/privacy
+Terms of Use -> https://www.beehiiv.com/tou
+Topics -> /tags

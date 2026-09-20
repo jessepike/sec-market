@@ -1,0 +1,18 @@
+URL: https://softwareanalyst.substack.com/subscribe
+Nav status: HTTP 200
+Page title: Subscribe to Software Analyst Cyber Research
+
+=== VISIBLE TEXT (document.body.innerText) ===
+Software Analyst Cyber Research
+
+We deliver clear, concise, and in-depth analysis of the rapidly evolving cybersecurity landscape—built for cyber leaders, operators, and investors.
+
+Over 17,000 subscribers
+Subscribe
+By subscribing, you agree Substack's Terms of Use, and acknowledge its Information Collection Notice and Privacy Policy.
+No thanks, give it a try!
+
+=== LINKS (text -> href) ===
+Terms of Use -> https://substack.com/tos
+Information Collection Notice -> https://substack.com/ccpa#personal-data-collected
+Privacy Policy -> https://substack.com/privacy

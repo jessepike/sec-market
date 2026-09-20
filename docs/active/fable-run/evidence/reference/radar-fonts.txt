@@ -1,0 +1,36 @@
+{
+  "pct": [
+    {
+      "text": "72.9%",
+      "font": "system-ui, sans-serif"
+    },
+    {
+      "text": "27.1%",
+      "font": "system-ui, sans-serif"
+    },
+    {
+      "text": "60.9%",
+      "font": "system-ui, sans-serif"
+    },
+    {
+      "text": "39.1%",
+      "font": "system-ui, sans-serif"
+    },
+    {
+      "text": "58.9%",
+      "font": "system-ui, sans-serif"
+    }
+  ],
+  "asn": [
+    {
+      "text": "AS112 Project",
+      "font": "system-ui, sans-serif"
+    },
+    {
+      "text": "AS27725",
+      "font": "system-ui, sans-serif"
+    }
+  ],
+  "bodyFont": "system-ui, sans-serif",
+  "headingFont": "system-ui, sans-serif"
+}

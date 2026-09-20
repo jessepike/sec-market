@@ -1,0 +1,210 @@
+URL: https://softwareanalyst.substack.com/about
+Nav status: HTTP 200
+Page title: About - Software Analyst Cyber Research
+
+=== VISIBLE TEXT (document.body.innerText) ===
+Subscribe
+Sign in
+Home
+SACR Website
+Security Operations
+Cloud & AppSec
+Data & AI Agent Security
+Identity Security
+Company Reports
+All Reports
+About
+About This Research Platform
+
+The Software Analyst Cyber Research delivers in-depth analysis of the ever-evolving cybersecurity industry. Our mission is to empower security leaders, operators, investors, and cybersecurity professionals with the knowledge they need to navigate this complex field.
+
+Areas Of Specialization
+
+SOC (Security Operations Center)
+
+Identity & Network Security
+
+Cloud & Application Security
+
+Data and AI Security
+
+What You’ll Get
+
+Technological Analysis: In-depth coverage and the latest developments on public and private software companies, with a focus on leading cybersecurity organizations shaping the future of digital defense, including Palo Alto Networks, CrowdStrike, Fortinet, Datadog, Zscaler, Okta, SentinelOne, and Cloudflare, among others.
+
+Trends and Themes: Exploration of critical trends, emerging security technologies, and industry-defining themes.
+
+Deep Dives: Simplified, easy-to-digest yet comprehensive breakdowns of complex cybersecurity topics.
+
+Data-Driven Insights: Actionable, research-backed intelligence to guide informed decision-making.
+
+Whether you're a seasoned security professional, an industry investor, or just curious about the rapidly advancing world of cybersecurity, this newsletter is your trusted resource for staying ahead.
+
+Past Research Work
+
+As a subscriber, you’ll get access to some of our best work in each of these cybersecurity domains. Here are three reports to get you started:
+
+The Beginner's Guide to Cybersecurity
+FRANCIS (SOFTWARE ANALYST)
+·
+SEPTEMBER 5, 2023
+
+Actionable Summary
+
+Read full story
+An In-Depth Overview: The Future of Cloud-Native Identity Security
+FRANCIS (SOFTWARE ANALYST)
+·
+MAY 1, 2024
+
+Welcome to all the software analyst readers!
+
+Read full story
+How Wiz Became the Fastest Software Company to Hit $500M & Its Path to $1B
+FRANCIS (SOFTWARE ANALYST)
+·
+OCTOBER 22, 2024
+
+Read full story
+Redefining CNAPP: A Complete Guide To the Future of Cloud Security
+FRANCIS (SOFTWARE ANALYST) AND JAMES BERTHOTY
+·
+SEPTEMBER 12, 2024
+
+Readers, today I'm incredibly excited to publish one of the biggest reports I’ve ever done within any cybersecurity industry. This report provides a holistic view of cloud security's evolution, tracing its major milestones, a detailed breakdown of the key vendors today, and evolving market shifts. It presents a new framework for redefining Cloud Native…
+
+Read full story
+
+Read full story
+
+Additionally, SACR goes beyond just research. We offer:
+
+Cybersecurity Bootcamp – Practical, hands-on training for aspiring cybersecurity professionals.
+
+Speaking Gigs and Collaborations—We work with experts and thought leaders in the field to share relevant insights, emerging trends, and key developments in cybersecurity.
+
+Get Involved
+
+Connect with Us: Stay up-to-date and engage with our community on LinkedIn and X.
+
+Please note that this article or newsletter does not constitute investment advice in any form. This article is not a research report and is not intended to serve as the basis for any investment decision.
+
+Subscribe to Software Analyst Cyber Research
+WE DELIVER CLEAR, CONCISE, AND IN-DEPTH ANALYSIS OF THE RAPIDLY EVOLVING CYBERSECURITY LANDSCAPE—BUILT FOR CYBER LEADERS, OPERATORS, AND INVESTORS.
+Subscribe
+People
+SACR 
+@softwareanalyst
+Cybersecurity Researcher and Industry Analyst | Founder of the Software Analyst | Ex. Cybersecurity Research | Advisor to the most prominent cyber companies.
+Subscribe
+Message
+Software Analyst Cyber Research
+By SACR Research
+Jocelyn Lee 
+@jocelynleeyh
+Subscribe
+Message
+Francis Odum 
+@francissoftwareanalyst
+Cybersecurity
+Subscribe
+Message
+Kevin He 
+@kevinhe1
+Subscribe
+Message
+Paul Webber 
+@paulwebbersacr
+Industry Analyst, Thought Leader and Business Adviser providing prescient and pragmatic guidance and incisive analysis @Software Analyst Cyber Research
+Subscribe
+Message
+Aqsa Taylor 
+@aqsat
+Subscribe
+Message
+Software Analyst Cyber Research
+By SACR Research
+Lawrence Pingree 
+@lpingreesacr
+Thoughtful idea leader in emerging security tech. Former Gartner analyst collaborating globally to shape cyber innovation. Published 300+ research notes, advised top security firms, and helped define concepts like EDR, SD-WAN, CWP, SASE, and GARD.
+Subscribe
+Message
+Software Analyst Cyber Research
+By SACR Research
+Sean Sosnowski 
+@seansosnowski1
+Subscribe
+Message
+Software Analyst Cyber Research
+By SACR Research
+Deutsch & Co. 
+@deutschco
+A private equity firm with branding & positioning expertise
+Subscribe
+Message
+© 2026 SACR · Privacy ∙ Terms ∙ Collection notice
+Start your Substack
+Get the app
+Substack is the home for great culture
+
+=== LINKS (text -> href) ===
+(no text) -> /
+Home -> /
+SACR Website -> https://softwareanalyst.io/
+Security Operations -> /t/security-operations
+Cloud & AppSec -> /t/cloud-and-appsec
+Data & AI Agent Security -> /t/data-and-ai-security
+Identity Security -> /t/identity-and-network-security
+Company Reports -> /t/company-reports
+All Reports -> /t/all-reports
+About -> /about
+The Beginner's Guide to Cybersecurity -> https://softwareanalyst.substack.com/p/the-beginners-guide-to-cybersecurity
+Francis (Software Analyst) -> https://substack.com/profile/6770950-francis-software-analyst
+(no text) -> https://softwareanalyst.substack.com/p/the-beginners-guide-to-cybersecurity
+Read full story -> https://softwareanalyst.substack.com/p/the-beginners-guide-to-cybersecurity
+An In-Depth Overview: The Future of Cloud-Native Identity Security -> https://softwareanalyst.substack.com/p/an-in-depth-overview-the-future-of
+(no text) -> https://softwareanalyst.substack.com/p/an-in-depth-overview-the-future-of
+Read full story -> https://softwareanalyst.substack.com/p/an-in-depth-overview-the-future-of
+How Wiz Became the Fastest Software Company to Hit $500M & Its Path to $1B -> https://softwareanalyst.substack.com/p/the-wiz-playbook-how-they-dominated
+(no text) -> https://softwareanalyst.substack.com/p/the-wiz-playbook-how-they-dominated
+Read full story -> https://softwareanalyst.substack.com/p/the-wiz-playbook-how-they-dominated
+Redefining CNAPP: A Complete Guide To the Future of Cloud Security -> https://softwareanalyst.substack.com/p/redefining-cnapp-a-complete-guide
+James Berthoty -> https://substack.com/profile/215222117-james-berthoty
+(no text) -> https://softwareanalyst.substack.com/p/redefining-cnapp-a-complete-guide
+Read full story -> https://softwareanalyst.substack.com/p/redefining-cnapp-a-complete-guide
+LinkedIn -> https://www.linkedin.com/in/francis-odum-0a8673100/
+X -> https://x.com/InvestiAnalyst?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor
+SACR -> https://substack.com/@softwareanalyst?utm_source=about-page
+@softwareanalyst -> https://substack.com/@softwareanalyst?utm_source=about-page
+(no text) -> https://substack.com/@softwareanalyst
+Software Analyst Cyber ResearchBy SACR Research -> https://softwareanalyst.substack.com/?utm_source=about-page&utm_content=writes
+Jocelyn Lee -> https://substack.com/@jocelynleeyh?utm_source=about-page
+@jocelynleeyh -> https://substack.com/@jocelynleeyh?utm_source=about-page
+(no text) -> https://substack.com/@jocelynleeyh
+Francis Odum -> https://substack.com/@francissoftwareanalyst?utm_source=about-page
+@francissoftwareanalyst -> https://substack.com/@francissoftwareanalyst?utm_source=about-page
+(no text) -> https://substack.com/@francissoftwareanalyst
+Kevin He -> https://substack.com/@kevinhe1?utm_source=about-page
+@kevinhe1 -> https://substack.com/@kevinhe1?utm_source=about-page
+(no text) -> https://substack.com/@kevinhe1
+Paul Webber -> https://substack.com/@paulwebbersacr?utm_source=about-page
+@paulwebbersacr -> https://substack.com/@paulwebbersacr?utm_source=about-page
+(no text) -> https://substack.com/@paulwebbersacr
+Aqsa Taylor -> https://substack.com/@aqsat?utm_source=about-page
+@aqsat -> https://substack.com/@aqsat?utm_source=about-page
+(no text) -> https://substack.com/@aqsat
+Lawrence Pingree -> https://substack.com/@lpingreesacr?utm_source=about-page
+@lpingreesacr -> https://substack.com/@lpingreesacr?utm_source=about-page
+(no text) -> https://substack.com/@lpingreesacr
+Sean Sosnowski -> https://substack.com/@seansosnowski1?utm_source=about-page
+@seansosnowski1 -> https://substack.com/@seansosnowski1?utm_source=about-page
+(no text) -> https://substack.com/@seansosnowski1
+Deutsch & Co. -> https://substack.com/@deutschco?utm_source=about-page
+@deutschco -> https://substack.com/@deutschco?utm_source=about-page
+(no text) -> https://substack.com/@deutschco
+Privacy -> https://substack.com/privacy
+Terms -> https://substack.com/tos
+Collection notice -> https://substack.com/ccpa#personal-data-collected
+Start your Substack -> https://substack.com/signup?utm_source=substack&utm_medium=web&utm_content=footer
+Get the app -> https://substack.com/app/app-store-redirect?utm_campaign=app-marketing&utm_content=web-footer-button
+Substack -> https://substack.com

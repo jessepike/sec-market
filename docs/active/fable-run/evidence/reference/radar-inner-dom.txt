@@ -1,0 +1,256 @@
+URL: https://radar.cloudflare.com/security/application-layer
+
+=== VISIBLE TEXT (document.body.innerText) ===
+Cloudflare Radar
+Search
+Search for locations, autonomous systems, reports, domains and more...
+Language
+English
+Ask AI
+Beta
+Theme
+Overview
+Traffic
+Expand
+Overview
+Adoption & Usage
+AI Insights
+Bots
+Expand
+Traffic
+Directory
+Security
+Collapse
+Application Layer
+Network Layer
+Email
+Post-Quantum Encryption
+Certificate Transparency
+Key Transparency
+Connectivity
+Expand
+Internet Quality
+Outage Center
+Cloud Observatory
+IP Address Information
+Updated
+Routing
+Expand
+Overview
+RPKI
+Anomalies
+ASPA Validation
+New
+MRT Explorer
+DNS
+Expand
+1.1.1.1 Resolver
+AS112 Project
+Top-Level Domains
+Domain Rankings
+Domain Information
+Domain Categorization
+Tools
+Expand
+Data Explorer
+URL Scanner
+Network Quality Test
+Reports
+API
+Expand
+Specification
+Documentation
+MCP Server
+Resources
+Expand
+About
+Press
+Glossary
+Changelog
+Release Notes
+Collapse sidebar
+Application Layer Security
+Worldwide
+Location
+Worldwide
+Date range:
+Last 7 days
+Application layer attack volume change
+worldwide
+
+Relative change from previous period
+
+Learn more...
+Share this...
+More actions...
+Application layer
+0%
+-33%
+19%
+Sep 13
+Sep 15
+Sep 17
+Sep 19
+WAF
+61%
+DDoS
+32.3%
+Top sources of application layer attacks
+
+Top five locations
+
+Ranking
+	
+Location
+	
+Percentage
+
+1.	
+United States
+	24.3%
+2.	
+India
+	6.2%
+3.	
+Singapore
+	4.7%
+4.	
+China
+	4.5%
+5.	
+Germany
+	4.5%
+
+Top ASes
+
+Ranking
+	
+ASN
+	
+Percentage
+
+1.	
+AS396982 - Google LLC
+	7.9%
+2.	
+AS16509 - Amazon.com, Inc.
+	3.8%
+3.	
+AS14618 - Amazon.com, Inc.
+	2.3%
+4.	
+AS55836 - Reliance Jio Infocomm Limited
+	2.1%
+5.	
+AS45102 - Alibaba (US) Technology Co., Ltd.
+	2.0%
+Application layer attack volume
+worldwide
+
+Layer 7 attack volume trends over time
+
+Learn more...
+Share this...
+More actions...
+Layer 7 attack volume
+Previous 7 days
+0
+Max
+Sep 13
+Sep 14
+Sep 15
+Sep 16
+Sep 17
+Sep 18
+Sep 19
+Application layer attack distribution
+worldwide
+
+Distribution of application layer attacks
+
+Learn more...
+Share this...
+More actions...
+Attacks by
+Mitigation Product
+Application layer attack activity
+worldwide
+
+Top attacks by target location
+
+Learn more...
+Share this...
+More actions...
+Attacks by
+Source
+Target
+Application layer DDoS attacks distribution
+Read the latest DDoS report
+Application layer DDoS attacks geographical distribution
+worldwide
+
+Share of application layer DDoS attacks by target location
+
+Learn more...
+Share this...
+More actions...
+Attacks by
+Source
+Target
+Application layer DDoS attacks source AS distribution
+worldwide
+
+Share of application layer DDoS attacks by source autonomous system
+
+Learn more...
+Share this...
+More actions...
+Leaked credentials usage
+worldwide
+
+Credential status of HTTPS authentication requests
+
+Learn more...
+Share this...
+More actions...
+Traffic type
+All traffic
+Bot vs. Human
+worldwide
+
+Share of HTTPS authentication requests
+
+Learn more...
+Share this...
+More actions...
+
+© 2026 Cloudflare, Inc.
+
+Privacy Policy
+Terms of Use
+Disclosure
+Trust & Safety
+Trademark
+Support
+Max
+
+=== BUTTON / ARIA-LABEL / TITLE STRINGS ===
+Open menu
+Open toolbar
+Ask AIBeta
+Theme
+Expand
+Collapse
+API
+Collapse sidebar
+Date range:Last 7 days
+Share this...
+More actions...
+Web Application Firewall
+Distributed Denial of Service
+Autonomous System Number
+Radar Researcher
+
+=== LINES MENTIONING updated/license/source/attribution ===
+Updated
+© 2026 Cloudflare, Inc.

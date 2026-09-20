@@ -1,0 +1,23 @@
+URL: https://www.returnonsecurity.com/subscribe
+Nav status: HTTP 200
+Page title: Subscribe to Return on Security
+
+=== VISIBLE TEXT (document.body.innerText) ===
+This website uses cookies
+
+Read our Privacy policy and Terms of use for more information.
+
+Accept
+Customize
+Decline
+Return on Security
+Your Weekly Cyber Market 
+Intelligence Edge
+
+5 minutes to master cybersecurity's biggest market moves. Zero fluff. Your weekly briefing on the business of security.
+
+Get the Briefing
+
+=== LINKS (text -> href) ===
+Privacy policy -> https://www.beehiiv.com/privacy
+Terms of use -> https://www.beehiiv.com/tou

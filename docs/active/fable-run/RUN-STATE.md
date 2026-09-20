@@ -2,22 +2,25 @@
 
 ## Resume here
 
-Phase 1, research fan-out. The owner said go on 2026-09-20 with no changes to the prompts. All
-eight research tasks T1-1 to T1-8 were dispatched in one message at about 04:00Z, each told to
-follow its section of `docs/active/fable-run/phase1-dispatch.md`. If this session died while they
-were running, check which of the eight output files exist under
-`docs/active/fable-run/research/`, mark those rows done after skimming them, and re-dispatch only
-the missing ones from the same dispatch file with the model in each heading. Once all eight are
-done: commit the research files (named paths only, never `lessons.md`), then the coordinator
-writes `docs/active/fable-run/research-synthesis.md`, then Phase 2 (rubric and production
-baseline).
+Phase 2, the rubric and the baseline. Phase 1 is closed: nine research files, the captures and
+`docs/active/fable-run/research-synthesis.md` are committed. The coordinator is writing
+`docs/active/fable-run/site-rubric.md` itself (thirteen dimensions from the brief, revised per
+section 6 of the synthesis, anchors at 0, 3 and 5, weights, an explicit statement that it measures
+site quality and not outcomes, with a link to `docs/active/project-scorecard.md`). The exact next
+action after the rubric is committed: write ledger rows T2-1 to T2-3 to running and dispatch them
+in one message — T2-1 measurement pack on production (performance trace, accessibility tool pass
+and keyboard walk, DOM-measured pixel depths, items per screen), T2-2 machine-extraction test for
+D8, both `claude-sonnet-5`; then T2-3, a `claude-sonnet-5` scorer that scores production against
+the rubric from the evidence, independently of the coordinator, who scores it too. The two score
+sets are compared to test the "within one point" requirement, and the result goes into
+`docs/active/fable-run/score-baseline.md`. Baseline target is production,
+https://securitymarketpulse.com.
 
-Last updated: 2026-09-20T04:00:00Z
+Last updated: 2026-09-20T07:10:00Z
 
 ## Phase
 
-Phase 1 — research fan-out. Closes when all eight research files exist, are committed, and
-`research-synthesis.md` is written and committed.
+Phase 2 — rubric and baseline. Closes when `site-rubric.md` and `score-baseline.md` are committed.
 
 ## Task ledger
 
@@ -32,7 +35,7 @@ Phase 1 — research fan-out. Closes when all eight research files exist, are co
 | T1-6 | Research: first-screen and information design craft, WCAG 2.2 AA as a design input | claude-sonnet-5 | done | none | preview | n/a | docs/active/fable-run/research/06-first-screen-craft.md | 2026-09-20T04:18Z |
 | T1-7 | Current-site teardown: render production and preview at 1440 and 390, read the markup, describe 5s / 30s / 3min | claude-sonnet-5 (with a claude-haiku-4-5 screenshot step inside it) | done | none | preview | n/a | docs/active/fable-run/research/07-site-teardown.md | 2026-09-20T07:05Z |
 | T1-8 | Inventory of dated thesis history already in the repository (added by the coordinator; a history surface built from issues alone has one row) | claude-haiku-4-5 | done | none | preview | n/a | docs/active/fable-run/research/08-thesis-history-inventory.md | 2026-09-20T04:05Z |
-| T1-9 | Browser follow-up for pages that blocked fetch: capture and describe Cloudflare Radar first screen at 1440 and 390; read rendered pricing on Return on Security, SemiAnalysis, The Information, Platformer, Latent Space, Software Analyst Cyber Research | claude-sonnet-5 | running | none | preview | n/a | docs/active/fable-run/research/09-browser-followup.md | 2026-09-20T04:30Z |
+| T1-9 | Browser follow-up for pages that blocked fetch: capture and describe Cloudflare Radar first screen at 1440 and 390; read rendered pricing on Return on Security, SemiAnalysis, The Information, Platformer, Latent Space, Software Analyst Cyber Research | claude-sonnet-5 | done | none | preview | n/a | docs/active/fable-run/research/09-browser-followup.md | 2026-09-20T06:55Z |
 
 Status is one of: pending, running, blocked, in-review, done, abandoned.
 
@@ -140,4 +143,17 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
   and `capture.mjs`, and committed them as the baseline evidence for Phase 2 and the Phase 5
   before-and-after packet. (Log timestamps before this line ran ahead of the wall clock by up to
   twenty minutes; this one is from `date -u`.)
+- 2026-09-20T06:55Z — T1-9 returned. Radar: one global time-range control, per-chart menu is
+  "Explain with AI / View in Data Explorer / Generate citation / Notify me of anomalies". Return on
+  Security sells a data product, The Signal, at $199 a month with a $79 a month API add-on, and asks
+  only a voluntary $12 a month for the newsletter. The Information publishes $399 to $749 a year.
+  SemiAnalysis sat behind a human-check challenge (not attempted); Platformer, Latent Space and
+  Software Analyst Cyber Research render no public price. All nine Phase 1 research tasks done.
+- 2026-09-20T07:10Z — Phase 1 closed. `research-synthesis.md` written by the coordinator. Central
+  findings: the site hides its own argument (thesis six screens down, 41 closed disclosures); a
+  public record of one's own calls is the unoccupied position and the mechanism already exists;
+  honest history is five flat rows, so a weekly status against the four change triggers is the
+  proposal that makes a quiet week readable; the paid data lane belongs to Return on Security
+  (The Signal, $199 a month, MCP included), so this site sells judgment, not rows; strongest
+  counter-argument is that presentation is not the binding constraint, cadence and exposure are.
 
