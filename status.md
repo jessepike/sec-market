@@ -1,12 +1,44 @@
 ---
 project: Security Market Signal Pipeline
 stage: Operate
-updated: 2026-09-19
+updated: 2026-09-20
 ---
 
 # Status
 
 ## Current State
+
+**2026-09-20: the owner restated what the site is for, and `preview` now carries a front page aimed
+at it. Production is unchanged and waits for his word.** The working statement of purpose is
+`docs/active/product-core.md` (D-67): a credibility asset for his advisory work and a working
+instrument for supplier decisions, written for security leaders first, not for investors, with the
+founding thesis as one standing analysis. Read it before any design, rubric or review work.
+
+What is on `preview` and not on `main` (merge f557b4c): a one-sentence description, "Not a news
+site and not investment advice.", a line giving the update date and the date the domain stances
+were judged, a plain-words note under the headline, and a new first section, "The market by
+domain", which lists every tracked supplier alphabetically under the owner's dated stance with its
+exact metric and period and ranks nothing. Lane headings are in plain words, there is a visible
+feed link and a follow line, and the page links its machine-readable files. The preview URL is
+https://security-market-pulse-git-preview-pikeholdings.vercel.app. Promotion is the owner's call:
+`git checkout main && git merge --ff-only preview && PROMOTE=1 git push origin main`.
+
+**A live error needs his approval to correct (SEC-043).** Signed issue `2026-w36` gives Zscaler's
+$898.2M and Palo Alto's $3.41B as fiscal-year revenue; both are fourth-quarter figures. Proposed
+text and a mechanism that leaves the locked issue untouched:
+`docs/active/fable-run/drafts/correction-2026-w36.md`.
+
+Waiting on the owner, in order of value: approve the correction; look at the preview and say
+whether to promote; run `gh auth refresh -h github.com -s workflow` so the notification action on
+branch `mon/notify` can be pushed, then save a webhook URL as the secret `DECISION_WEBHOOK_URL`;
+choose a runtime that can reach the web and one cadence (SEC-049); decide the split between what
+publishes automatically and what needs his tap (`product-core.md` section 6), which also means
+amending `intent.md` and `.claude/rules/constraints.md`; edit or reject the first machine-drafted
+buyer brief (`docs/active/fable-run/drafts/buyer-brief-network-sase.md`).
+
+The run's state, ledger and log are in `docs/active/fable-run/RUN-STATE.md`. Its lessons are held in
+`docs/active/fable-run/lessons-pending.md` because `lessons.md` carried another session's
+uncommitted change. New backlog items: SEC-043 to SEC-050.
 
 **The weekly issue is published.** `2026-w36` was signed by the owner on 2026-09-19, who adopted the
 gather's proposal as written, and `main` was promoted `b423b70` → `aa04875` the same day (D-66). That
