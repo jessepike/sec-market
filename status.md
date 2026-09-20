@@ -8,7 +8,31 @@ updated: 2026-09-19
 
 ## Current State
 
-Security Market Pulse is live at https://securitymarketpulse.com and production is current. `main` was promoted to `4916a95` on 2026-08-25 (D-57), carrying eighteen commits and closing a five-day gap in which the trunk held finished work that no reader could see.
+**The weekly issue is published.** `2026-w36` was signed by the owner on 2026-09-19, who adopted the
+gather's proposal as written, and `main` was promoted `b423b70` → `aa04875` the same day (D-66). That
+is fifty-four commits and the first promotion since 2026-08-28, and it carries the whole weekly-issue
+model into production: the issue hero and its four lanes, the `/issues/` archive, per-issue
+permalinks, `/feed.xml`, `/issues/<id>.json`, the lock manifest at `/issues/lock.json`, and the
+vendor lens. Confirmed by render rather than by deploy log — production returns 15,033 pixels at 1440
+and 17,760 at 390, identical to preview at both widths, and every new endpoint returns 200. The page
+carries `Signed by Jesse Pike · 19 Sep 2026` and `Holds in 1 of 1 issues since 19 Sep 2026`.
+
+**The thing to look at next is the first screen.** Production used to open with a two-line thesis
+headline, a stat band of three numbers, "The read" with its confidence lines, and the Do and Avoid
+panels. It now opens with the issue headline and goes straight into the Formation lane — a
+chronological list of funding rounds starting at $156.0M and running down to a $60.0K pre-seed. The
+judgment sits below four lanes of items. That is the accepted D-64 composition rendering exactly as
+`weekly-issue-spec.md` §4 specifies, so nothing is broken, but it is a real change in what a reader
+meets first and nobody had seen it at full page height before the promotion. It is the first thing
+SEC-042 should be pointed at.
+
+A run brief for that work exists: `docs/active/fable-run-brief.md` (`SEC-MARKET-FABLE-001` v0.1),
+written for Fable 5.1 as coordinator — a thesis surface that develops week over week, a researched
+site scoring rubric, an agent-readable machine surface, and a monetization plan, with worktrees,
+branch previews and a resumable run state. Owner-approved as a brief; the gates inside it are still
+owner-held.
+
+Earlier context: `main` was promoted to `4916a95` on 2026-08-25 (D-57), carrying eighteen commits and closing a five-day gap in which the trunk held finished work that no reader could see.
 
 A visitor now gets three things production did not have before. The vendor scorecard is a top-level section with its forty-two cards grouped by domain, rather than buried inside a collapsed block below the author's signature. The phone page opens with its framing sentence and headline above the four domain cards. And six evidence records carry source attributions the 71-source sweep found missing, so every claim on the page names the document that states it. Confirmed by render, not by deploy log: production returns 8,274 pixels at 1440 and 8,237 at 390, identical to preview at both widths.
 
@@ -24,8 +48,8 @@ There are two long-lived branches (D-50). `preview` is the trunk and serves a fi
 | Live site | https://securitymarketpulse.com — accepted by owner |
 | Episode 001 | Done. One-time call on agent security readiness. Still usable as background. |
 | Episode 002 | Done. Current published market call. Infra spend is up. We will not fake a security-spend lag. |
-| Recurring signals | Ops artifacts live (D-43). Activity + prints on site. Loop A: Tuesday multi-source gather. |
-| Git / production | `main` at `b423b70` is live on Vercel, promoted 2026-08-28 (D-61). Promotion only by fast-forward from `preview` with `PROMOTE=1`. |
+| Recurring signals | Ops artifacts live (D-43). Issue `2026-w36` published and signed 2026-09-19 (D-66). The gather job is still unarmed and has no working runtime. |
+| Git / production | `main` at `aa04875` is live on Vercel, promoted 2026-09-19 (D-66). Promotion only by fast-forward from `preview` with `PROMOTE=1`. |
 | Auto-publish judgments | Still not allowed without a human check |
 
 ## Next Steps
@@ -65,6 +89,7 @@ There are two long-lived branches (D-50). `preview` is the trunk and serves a fi
 - [x] Owner accepted intent v1.2 as written (D-63); `intent.md` updated
 - [ ] Write `weekly-issue-spec.md` and `gather-job-spec.md`, review, then dispatch the builds (SEC-027, SEC-028)
 - [ ] Owner: name the pilot set and the independent scorer (D-58 shape, names still missing)
+- [x] Sign `2026-w36` and promote the weekly-issue model to production (D-66)
 - [ ] Owner: how the AI coverage finding gets presented on the site — largely answered by the weekly issue model if the plan is accepted
 - [ ] Owner: who scores the project scorecard independently, and who counts as qualified exposure
 - [ ] Owner: shorter phone footer labels, yes or no (SEC-023)
@@ -84,13 +109,13 @@ None blocking the signals job. Feed design (which VC pages, which public-record 
 
 None. The D-48 promotion record was reconciled on 2026-08-19 (D-51) and production is current as of D-57. What remains open is owner input, listed under Next Steps, and it blocks the roadmap rather than the build.
 
-## Merged to `preview`, still awaiting owner review (D-65) — checked 2026-09-19
+## Merged to `preview`, still awaiting owner review (D-65) — RESOLVED 2026-09-19 by D-66
 
-No owner action has landed yet. `main` is still `b423b70`; `2026-w36` is still `status: 'draft'`
-with `signedBy: null`; routine `trig_01VeQpLYzXjccqKeSFS1Xgo6` is still disabled; the pilot list is
-still unnamed. Fourteen days have passed since the draft went up — past the Sunday cadence the
-durability spec (SEC-039) proposes, which is itself still unauthorized. Nothing here is broken;
-it is waiting on the four decisions D-65 named.
+Two of the four decisions D-65 named have landed. The owner signed `2026-w36` on 2026-09-19 and
+authorized the promotion, so `main` is now `aa04875` and the issue is published. Two remain open:
+the pilot list is still unnamed, and routine `trig_01VeQpLYzXjccqKeSFS1Xgo6` is still disabled with
+no runtime that can reach the public web. The account below is kept for the record of what was
+pending.
 
 **New since D-65:** a durability specification, `docs/active/durability-spec.md`
 (`SEC-MARKET-DURABLE-001` v0.1, SEC-039), proposing a Sunday-afternoon cadence, a runtime chosen by
@@ -119,6 +144,7 @@ drafting `2026-w35` onto `issue/2026-w35-dryrun` without a PR. Result: the mecha
 
 | Date | Summary |
 |------|---------|
+| 2026-09-19 | `2026-w36` signed and production promoted (D-66): `main` `b423b70` → `aa04875`, fifty-four commits, the weekly-issue model live at last. Owner adopted the gather proposal as written. All gates, 58 data tests and 25 e2e green; one live test repaired that had asserted against real data. Confirmed live by render at both widths and by four endpoint checks. Recorded that the first screen now leads with the Formation lane rather than the judgment. Fable run brief `SEC-MARKET-FABLE-001` written and backlogged as SEC-042. |
 | 2026-09-19 | Session wrap: confirmed no owner action has landed on D-65 (issue still unsigned, `main` unchanged, routine still disabled); found and reconciled an unpushed local commit (`d2cae33`, the 2026-09-09 SEC-041 inbox intake) that this session did not make; recorded durability-spec follow-up state. No code changed. |
 | 2026-09-05 | Autonomous build finished and merged to `preview` (D-65): weekly issue model and gates, `2026-w36` unsigned draft with receipts, reframed front page, archive and permalinks, JSON and RSS, lock manifest, vendor lens, three external review rounds, live e2e and screenshots at 1440 and 390. Gather dry run fired on a one-off cloud routine. Owner review, signature, pilot list, promotion and schedule arming are open. |
 | 2026-09-03 | Orientation and intent-versus-built review. Finding: the intent describes a decision instrument and the site is a research edition with excellent hygiene; exposure denominator still 1, decision log still empty, and the frozen Episode 002 call sits where a weekly read should. Owner confirmed the two goals (ePlus GTM anticipation; a low-friction weekly pulse for CISOs on formation, absorption, prints and capital) and approved the approach: weekly issue as the product, agent-drafted and human-signed, emailed to a named pilot, ePlus consuming downstream (D-62). An `eplus.` subdomain was declined. Plan written to `docs/active/weekly-issue-plan.md` and sent to canvas; SEC-027 to SEC-031 opened; SEC-017 superseded. Nothing on `web/` changed. |

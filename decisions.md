@@ -727,3 +727,40 @@ was closed in the same pass.
 
 Not decided here: promotion to `main`; signing `2026-w36`; arming the Tuesday schedule; the pilot
 list. All four are the owner's.
+
+**D-66 · 2026-09-19 — `2026-w36` signed and promoted; production is current for the first time since 2026-08-28.**
+
+The owner adopted the gather's proposal as written and signed it. `weThink` now carries the summary,
+the episode-002 thesis verdict (`holds`, medium confidence, four evidence ids) and the lag no-call;
+`proposed` is nulled on publish so the page carries one judgment rather than two, and no posture
+deltas were accepted. The signature line reads `Signed by Jesse Pike · 19 Sep 2026` and the running
+score reads `Holds in 1 of 1 issues since 19 Sep 2026`.
+
+`main` moved `b423b70` → `aa04875`, fifty-four commits, the first promotion since 2026-08-28. That
+carries the entire weekly-issue model into production: the issue hero and four lanes, the
+`/issues/` archive, per-issue permalinks, `/feed.xml`, `/issues/<id>.json`, the lock manifest at
+`/issues/lock.json`, and the vendor lens. Confirmed by render, not by deploy log: production returns
+15,033 pixels at 1440 and 17,760 at 390, identical to preview at both widths, and the four new
+endpoints all return 200.
+
+Two things worth recording because they are consequences rather than intentions. First, the page
+grew from 10,340 to 15,033 pixels at 1440 — a 45% increase, on top of the doubling recorded in D-57.
+Second, and more important, **the first screen is now materially different in kind.** Production
+previously opened with a two-line thesis headline, a dark stat band carrying three numbers, "The
+read" with its confidence lines, and the Do and Avoid panels — a decision instrument. It now opens
+with the issue headline and goes straight into the Formation lane, which is a chronological list of
+funding rounds beginning at $156.0M and running down to a $60.0K pre-seed. The judgment moved below
+four lanes of items.
+
+This is the accepted D-64 composition rendering exactly as `weekly-issue-spec.md` §4 specifies, so
+it is not a defect and nothing was broken. It is a design consequence that nobody had seen at full
+page height until this promotion, and it is the first thing the SEC-042 run should be pointed at.
+
+Also in this commit: `LAST_UPDATED` moved to 2026-09-19, which its own contract requires whenever the
+site ships, and `tests/issue-data.test.ts` was repaired. Its "is empty when there are no published
+issues" case asserted `thesisRunningScore` against the live issues array, so it passed only while
+every issue was a draft and signing broke it. Rewritten against fixtures with the assertion
+unchanged.
+
+Still open and unchanged: the pilot list, arming the Tuesday schedule, and the runtime the gather job
+runs on now that the cloud environment has been proven unable to reach the public web.

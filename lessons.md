@@ -5,6 +5,8 @@ cross-project patterns to the knowledge base and drop them from here.
 
 ## 2026-09-19
 
+- A unit test that asserts against the live data array instead of a fixture is a time bomb, not a test. `thesisRunningScore` had a case named "is empty when there are no published issues" that read the real issues array, so it passed only while every issue was a draft and failed the moment the first one was signed. The test was wrong, not the code. Assert behaviour against fixtures; use live data only for invariants that must hold for every row.
+- Page composition accepted on a spec is not page composition anyone has seen. The weekly-issue front page passed three external review rounds, a full e2e suite and five build gates, and still nobody had looked at it at full page height until the promotion render: it opens with a chronological list of funding rounds down to a $60.0K pre-seed, with the judgment below four lanes. Render the whole page at both widths at the point the composition changes, not at the point it ships.
 - [promoted:kb:d4734a32:2026-09-19] A 12-day silent gap between build-review turns let a locally-committed change (`d2cae33`, an inbox intake) sit unpushed and undiscovered until session-wrap's own `git log`/`git status` pass caught it. Re-check `git status`, unpushed-commit count, and the D-65-style owner-action list at the start of any session that resumes after a long gap, not just at wrap.
 
 ## 2026-09-05
