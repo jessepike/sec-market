@@ -37,7 +37,7 @@ Phase 2 — rubric and baseline. Closes when `site-rubric.md` and `score-baselin
 | T1-8 | Inventory of dated thesis history already in the repository (added by the coordinator; a history surface built from issues alone has one row) | claude-haiku-4-5 | done | none | preview | n/a | docs/active/fable-run/research/08-thesis-history-inventory.md | 2026-09-20T04:05Z |
 | T1-9 | Browser follow-up for pages that blocked fetch: capture and describe Cloudflare Radar first screen at 1440 and 390; read rendered pricing on Return on Security, SemiAnalysis, The Information, Platformer, Latent Space, Software Analyst Cyber Research | claude-sonnet-5 | done | none | preview | n/a | docs/active/fable-run/research/09-browser-followup.md | 2026-09-20T06:55Z |
 | T2-1 | Baseline measurement pack on production: performance (Lighthouse mobile and desktop, three runs, medians), accessibility (axe pass, keyboard walk, focus visibility, target sizes, 320 px reflow, contrast on small metadata), DOM-measured pixel depth of thesis and signature, items per first screen | claude-sonnet-5 | running | none | preview | n/a | docs/active/fable-run/evidence/baseline/measurements.md | 2026-09-20T07:15Z |
-| T2-2 | Machine-extraction test on production for D8: a cold agent with only the home URL tries to extract thesis, verdict, signer, date, one claim with its source, and the archive list; records every step and failure | claude-sonnet-5 | running | none | preview | n/a | docs/active/fable-run/evidence/baseline/machine-extraction.md | 2026-09-20T07:15Z |
+| T2-2 | Machine-extraction test on production for D8: a cold agent with only the home URL tries to extract thesis, verdict, signer, date, one claim with its source, and the archive list; records every step and failure | claude-sonnet-5 | done | none | preview | n/a | docs/active/fable-run/evidence/baseline/machine-extraction.md | 2026-09-20T07:55Z |
 | T2-3 | Independent rubric scoring of production from the evidence, blind to the coordinator's scores | claude-sonnet-5 | pending | none | preview | n/a | docs/active/fable-run/evidence/baseline/independent-scores.md | 2026-09-20T07:15Z |
 
 Status is one of: pending, running, blocked, in-review, done, abandoned.
@@ -164,4 +164,14 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
   dimensions kept, yes/no tests at level 3 and level 5 with a mechanical score rule, weights sum to
   100 (D1, D2, D4 at 12; D3 and D8 at 10; D11 and D13 at 3), two caps (cadence, misstated
   freshness). T2-3 independent scorer is dispatched when T2-1 and T2-2 return.
+- 2026-09-20T07:55Z — T2-2 returned, 171 lines, 21 requests. The per-issue JSON is rich (verdict,
+  signer, 23 evidence records with source URLs, retrieval hashes and locators; 43 KB against 216 KB
+  of HTML) but nothing links to it: a cold agent finds it only by guessing the `.json` suffix.
+  Every citation on the page is a script-only button with no `href` and no anchor id, so a single
+  claim cannot be cited more precisely than the page. No `llms.txt`, no crawler rules by name, no
+  licence statement.
+- 2026-09-20T08:00Z — Coordinator re-checked T2-2's endpoint codes because they contradicted T1-7.
+  T2-2 was wrong on two: `/issues/index.json` is 200 and `/index.json` is 404. Correction note
+  added at the top of `machine-extraction.md`. Lesson for scoring: subagent status codes get a
+  spot check before a score cites them.
 
