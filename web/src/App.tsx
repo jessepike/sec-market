@@ -4,6 +4,7 @@ import { ActivityBoard } from './components/ActivityBoard'
 import { DomainBoard } from './components/DomainBoard'
 import { EvidenceDrawer } from './components/EvidenceDrawer'
 import { EvidenceLibrary } from './components/EvidenceLibrary'
+import { FollowLine } from './components/FollowLine'
 import { Header } from './components/Header'
 import { HeroContent } from './components/Hero'
 import { HowThisWorks } from './components/HowThisWorks'
@@ -13,6 +14,7 @@ import { IssueHero } from './components/IssueHero'
 import { IssueLanes } from './components/IssueLanes'
 import { JudgmentBoard } from './components/JudgmentBoard'
 import { MarketLayersChart } from './components/MarketLayersChart'
+import { MarketPicture } from './components/MarketPicture'
 import { MethodologyNote } from './components/MethodologyNote'
 import { NextEdition } from './components/NextEdition'
 import { PlatformPressure } from './components/PlatformPressure'
@@ -32,7 +34,14 @@ import { matchRoute } from './data/routes'
 import type { Issue } from './data/types'
 
 /**
- * `/` — this week's issue, then the standing reference, then depth.
+ * `/` — this week's issue, then the market picture, then the standing
+ * reference, then depth.
+ *
+ * Order per design-spec v0.3 §3.1: overview, market, we-think, the four
+ * lanes, follow, landscape, platforms/vendor-lens-slot/prints (kept
+ * together), the standing thesis (`#read`), hypotheses, then depth sections
+ * unchanged. `#read` and `#hypotheses` moved down from directly under
+ * `#we-think`; nothing about their own content changed.
  *
  * Wrapped in VendorLensProvider (SEC-031): IssueLanes and PrintGrid, both
  * inside, read the lens state to filter; VendorLens is the control. Scoped
@@ -43,10 +52,15 @@ import type { Issue } from './data/types'
 function FrontPage() {
   return (
     <VendorLensProvider>
-      <IssueHero issue={latestIssue} />
-      <IssueLanes issue={latestIssue} />
+      <IssueHero issue={latestIssue} showAsOf />
+      <MarketPicture />
       <WeThink issue={latestIssue} />
-
+      <IssueLanes issue={latestIssue} />
+      <FollowLine />
+      <DomainBoard />
+      <PlatformPressure />
+      <VendorLens />
+      <PrintGrid />
       <JudgmentBoard
         leadContent={
           <>
@@ -55,11 +69,7 @@ function FrontPage() {
           </>
         }
       />
-      <DomainBoard />
-      <PlatformPressure />
       <Hypotheses />
-      <VendorLens />
-      <PrintGrid />
 
       <details className="depth" id="moved-depth">
         <summary>What moved: edition delta</summary>
@@ -69,8 +79,8 @@ function FrontPage() {
         <summary>Domain tempo and M&amp;A activity</summary>
         <DomainBoard surface="tempo" />
         <p className="research-depth__note">
-          Activity below is the pre-issue window (RoS) — going forward each issue's Formation and
-          Absorption lanes carry this account.
+          Activity below is the pre-issue window (RoS) — going forward each issue's "New companies
+          and funding" and "Acquisitions and consolidation" lanes carry this account.
         </p>
         <ActivityBoard />
       </details>

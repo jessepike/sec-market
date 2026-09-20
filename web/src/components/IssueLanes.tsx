@@ -3,12 +3,17 @@ import type { Issue, IssueItem, Lane } from '../data/types'
 import { useVendorLens } from '../context/useVendorLens'
 import { EvidenceLink } from './EvidenceLink'
 
-/** Section id and display title per lane, in the fixed Lane order (types.ts). */
+/**
+ * Section id and display title per lane, in the fixed Lane order (types.ts).
+ * Titles are plain-word site copy (design-spec v0.3 §3.5) — ids and the
+ * underlying `Lane` data-key values are unchanged, since those are load-bearing
+ * for `lens.spec.ts` and the published issue data.
+ */
 const LANE_META: Record<Lane, { id: string; title: string }> = {
-  formation: { id: 'formation', title: 'Formation' },
-  absorption: { id: 'absorption', title: 'Absorption' },
-  prints: { id: 'prints-this-week', title: 'Prints' },
-  capital: { id: 'capital', title: 'Capital and backdrop' },
+  formation: { id: 'formation', title: 'New companies and funding' },
+  absorption: { id: 'absorption', title: 'Acquisitions and consolidation' },
+  prints: { id: 'prints-this-week', title: 'Earnings and reported numbers' },
+  capital: { id: 'capital', title: 'Capital and financial position' },
 }
 
 function itemMatchesLens(item: IssueItem, activeSlugs: string[]): boolean {

@@ -57,10 +57,12 @@ if (typeof mod.render !== 'function') {
 const MUST_SEE_SECTION_IDS: Record<RouteEntry['kind'], string[]> = {
   front: [
     'overview',
+    'market',
     'formation',
     'absorption',
     'prints-this-week',
     'capital',
+    'follow',
     'we-think',
     'read',
     'landscape',

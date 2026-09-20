@@ -2949,3 +2949,223 @@ summary:focus-visible,
     flex: 0 0 auto;
   }
 }
+
+/* ==========================================================================
+   T6-2 (fable run, wave 1): the market-picture front-page redesign.
+   New rules only, appended rather than interleaved with the sections above,
+   per this task's own instruction. Tokens only — no new colour, font or
+   radius. Grouped by: issue-hero additions, the follow line, the footer
+   "Data" line, the market-picture component itself (block-per-domain at
+   every width, per design-spec v0.3 §3.3 — no literal <table>, since a
+   variable-length vendor list per domain does not map cleanly onto one),
+   and the two posture chip modifiers TempoTag never needed (INVESTIGATE,
+   NO-CALL) that domain.posture can carry here.
+   ========================================================================== */
+
+.issue-hero__description {
+  max-width: var(--prose-max);
+  color: var(--color-text);
+}
+
+.issue-hero__disclaimer,
+.issue-hero__asof {
+  margin: 0.35rem 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+/* Fix pass T6-7 item 3: without this, .issue-hero__asof's own margin-bottom
+   was 0 and .eyebrow's margin is 0 on all sides (it's shared by other bands
+   that space it differently), so the two lines sat flush against each other
+   with no gap at either width. */
+.issue-hero__asof {
+  margin-bottom: 0.6rem;
+}
+
+.issue-hero__note {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.issue-hero__note-label {
+  display: inline-block;
+  margin-right: 0.4em;
+  padding: 1px 6px;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-text-muted);
+}
+
+.follow-line {
+  margin: 1.5rem 0;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.follow-line p {
+  margin: 0;
+  color: var(--color-text);
+}
+
+.methodology-note__data {
+  margin-top: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.market-picture__caption {
+  max-width: var(--prose-max);
+}
+
+/* Fix pass T6-7 item 2: three columns at wide widths (two rows of three
+   for six domains, no orphan row), two in the middle, one at 390 — and
+   align-items: start so a short card (Cloud Security, Identity) keeps its
+   own height instead of stretching to match the tallest card in its row. */
+.market-picture__domains {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: start;
+  gap: 1rem;
+}
+
+@media (min-width: 700px) {
+  .market-picture__domains {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1100px) {
+  .market-picture__domains {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.market-picture__domain {
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.market-picture__domain-name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+}
+
+.market-picture__stance {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.market-picture__posture {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.market-picture__posture-meaning {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.market-picture__horizon {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.market-picture__vendor-list {
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.market-picture__vendor {
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.market-picture__vendor:first-child {
+  padding-top: 0;
+  border-top: none;
+}
+
+.market-picture__vendor-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.market-picture__vendor-name {
+  font-weight: 600;
+  color: var(--color-heading);
+}
+
+.market-picture__vendor-value {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.market-picture__vendor-value--up {
+  color: var(--color-success);
+}
+
+.market-picture__vendor-value--down {
+  color: var(--color-alert);
+}
+
+.market-picture__vendor-meta {
+  margin: 0.2rem 0 0;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.market-picture__older-figure,
+.market-picture__segment-tag {
+  font-style: italic;
+}
+
+.market-picture__previous {
+  margin: 0.15rem 0 0;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.market-picture__empty {
+  margin: 0.5rem 0 0;
+  color: var(--color-text-muted);
+}
+
+.market-picture__show-all {
+  margin: 0.5rem 0 0;
+  font-size: 0.8rem;
+}
+
+.chip--investigate {
+  color: var(--color-warning);
+}
+
+.chip--no-call {
+  color: var(--color-alert);
+}

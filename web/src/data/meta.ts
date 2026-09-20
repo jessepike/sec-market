@@ -28,3 +28,18 @@ export const PRODUCT_TITLE = 'Security Market Pulse'
 export const SITE_URL = 'https://securitymarketpulse.com'
 export const AUTHOR_NAME = 'Jesse Pike'
 export const CONTACT_EMAIL = 'jesse@keatingpike.com'
+
+/**
+ * One-sentence description of what the site is (design-spec v0.3 §3.2). Shown
+ * as the first content in #overview and reused for the page description —
+ * see index.html's <meta name="description"> and the machine surface
+ * (scripts/generate-seo.ts reads it back off the built page). The owner edits
+ * this on the preview.
+ */
+export const SITE_DESCRIPTION =
+  "A practitioner's read on the business of the security market: who is growing, who is " +
+  'consolidating, who is being bought, and what it means if you run a security program. Public ' +
+  'sources only. Written by Jesse Pike.'
+
+/** One-line disclaimer shown directly under SITE_DESCRIPTION, first screen, both widths. */
+export const SITE_DISCLAIMER = 'Not a news site and not investment advice.'

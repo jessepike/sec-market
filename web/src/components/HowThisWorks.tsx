@@ -20,8 +20,8 @@ export function HowThisWorks() {
         Current prints stay on the scorecard. Older still-true context collapses to Background.
         Superseded prints leave the card and stay in evidence. Acquired vendors keep their last
         independent print — we do not rewrite them into the buyer. Domain postures keep the date
-        they were set; the next edition shows what held or moved. Refresh is manual: earnings
-        clusters, material closes or raises, and Watch-next falsifiers. Not a weekly news cycle.
+        they were set; the next edition shows what held or moved. Tracked figures are updated as
+        companies report. A signed read is published most weeks.
       </p>
 
       <h3 className="method__subhead">Signals we use</h3>

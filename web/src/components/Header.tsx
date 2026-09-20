@@ -18,6 +18,7 @@ const navItems: NavItem[] = [
   { href: '#prints', label: 'Scorecard' },
   { href: '#research', label: 'Evidence' },
   { href: '#method', label: 'Method' },
+  { href: '/feed.xml', label: 'Feed', crossPage: true },
 ]
 
 function scrollToHash(hash: string) {
