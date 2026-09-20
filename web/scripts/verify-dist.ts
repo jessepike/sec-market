@@ -674,13 +674,64 @@ export function checkRouteDescriptionMeta(distDir: string, issuesList: Issue[]):
   })
 }
 
+// --- 11h: every <link rel="alternate"> target exists in dist (agent-surface-spec.md §6.3) --
+
+const ALTERNATE_LINK_TAG_PATTERN = /<link\b[^>]*\brel="alternate"[^>]*>/g
+const HREF_ATTR_PATTERN = /\bhref="([^"]+)"/
+
+/** A `<link rel="alternate">` href, resolved to the dist-relative file it should name. */
+function alternateLinkFilePath(distDir: string, href: string): string {
+  let path = href.startsWith(SITE_URL) ? href.slice(SITE_URL.length) : href
+  if (!path.startsWith('/')) path = `/${path}`
+  return path.endsWith('/') ? resolve(distDir, path.replace(/^\//, ''), 'index.html') : resolve(distDir, path.replace(/^\//, ''))
+}
+
+/**
+ * Every route's `<link rel="alternate">` tags (RSS feed, JSON machine-surface
+ * files) must point at a file that actually exists in `dist` — wired up per
+ * agent-surface-spec.md §6.3 so a stale or broken machine link fails the
+ * build instead of quietly 404ing for whatever program follows it.
+ */
+export function checkAlternateLinksResolve(distDir: string, issuesList: Issue[]): CheckResult {
+  return runCheck('11h alternate-link-targets-exist', () => {
+    const routesList = routesFor(issuesList)
+    let checkedCount = 0
+    for (const routeEntry of routesList) {
+      const path = routeHtmlPath(distDir, routeEntry.path)
+      if (!existsSync(path)) {
+        throw new Error(`route "${routeEntry.path}": HTML file is missing at ${path}`)
+      }
+      const html = readFileSync(path, 'utf8')
+      const tags = html.match(ALTERNATE_LINK_TAG_PATTERN) ?? []
+      if (tags.length === 0) {
+        throw new Error(`route "${routeEntry.path}": no <link rel="alternate"> tags found`)
+      }
+      for (const tag of tags) {
+        const hrefMatch = tag.match(HREF_ATTR_PATTERN)
+        if (!hrefMatch) {
+          throw new Error(`route "${routeEntry.path}": an alternate link tag has no href — ${tag}`)
+        }
+        const href = hrefMatch[1]
+        const filePath = alternateLinkFilePath(distDir, href)
+        if (!existsSync(filePath)) {
+          throw new Error(
+            `route "${routeEntry.path}": alternate link target "${href}" does not exist in dist (expected ${filePath})`,
+          )
+        }
+        checkedCount++
+      }
+    }
+    return `${checkedCount} alternate link target(s) verified across ${routesList.length} route(s)`
+  })
+}
+
 // --- Script entry point: only runs when this file is executed directly -----
 
 function isMainModule(): boolean {
   return process.argv[1] !== undefined && pathToFileURL(process.argv[1]).href === import.meta.url
 }
 
-const EXPECTED_CHECK_COUNT = 7
+const EXPECTED_CHECK_COUNT = 8
 
 export function report(results: CheckResult[]): boolean {
   if (results.length !== EXPECTED_CHECK_COUNT) {
@@ -712,6 +763,7 @@ if (isMainModule()) {
       checkSitemapXmlListsEveryRoute(distDir, issues),
       checkLockJsonMatchesSource(distDir, SOURCE_LOCK_PATH),
       checkRouteDescriptionMeta(distDir, issues),
+      checkAlternateLinksResolve(distDir, issues),
     ]
     const anyFail = report(results)
     if (anyFail) {

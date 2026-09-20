@@ -183,7 +183,24 @@ if (isMainModule()) {
     `generate-feed OK: wrote dist/issues/lock.json with ${lockResult.entryCount} entr${lockResult.entryCount === 1 ? 'y' : 'ies'}.`,
   )
 
-  // --- feed autodiscovery link, every route ------------------------------
+  // --- feed + JSON machine-surface autodiscovery links, every route -------
+  //
+  // Wave 1 of agent-surface-spec.md §3.6/§6: the three JSON files above were
+  // already written but linked from nowhere. Every route now advertises the
+  // RSS feed and all three JSON files with a <link rel="alternate">, so a
+  // program that starts from any page can reach them without guessing an
+  // address — and scripts/verify-dist.ts's alternate-link check (11h) fails
+  // the build if any of these targets stops existing in dist.
+
+  const newestPublished = feedIssuesNewestFirst(issues)[0]
+
+  const jsonLinkTargets: Array<{ href: string; title: string }> = [
+    { href: `${SITE_URL}/issues/index.json`, title: 'Issue index (JSON)' },
+    ...(newestPublished
+      ? [{ href: `${SITE_URL}/issues/${newestPublished.id}.json`, title: 'Newest issue (JSON)' }]
+      : []),
+    { href: `${SITE_URL}/issues/lock.json`, title: 'Publication ledger (JSON)' },
+  ]
 
   for (const routeEntry of routes) {
     const outPath = outPathFor(routeEntry)
@@ -192,16 +209,29 @@ if (isMainModule()) {
     if (html.includes('type="application/rss+xml"')) {
       fail(`route "${routeEntry.path}" already has an rss+xml alternate link; refusing to add a second one.`)
     }
+    if (html.includes('rel="alternate" type="application/json"')) {
+      fail(`route "${routeEntry.path}" already has a JSON alternate link; refusing to add a second one.`)
+    }
 
     const headCloseCount = html.split('</head>').length - 1
     if (headCloseCount !== 1) {
       fail(`route "${routeEntry.path}": expected exactly one head-closing tag, found ${headCloseCount}.`)
     }
 
-    const linkTag = `    <link rel="alternate" type="application/rss+xml" title="${xmlEscape(PRODUCT_TITLE)}" href="${SITE_URL}/feed.xml" />\n  `
-    const nextHtml = html.replace('</head>', () => `${linkTag}</head>`)
+    const rssLinkTag = `    <link rel="alternate" type="application/rss+xml" title="${xmlEscape(PRODUCT_TITLE)}" href="${SITE_URL}/feed.xml" />`
+    const jsonLinkTags = jsonLinkTargets
+      .map(
+        (link) =>
+          `    <link rel="alternate" type="application/json" title="${xmlEscape(link.title)}" href="${link.href}" />`,
+      )
+      .join('\n')
+
+    const linkTags = `${rssLinkTag}\n${jsonLinkTags}\n  `
+    const nextHtml = html.replace('</head>', () => `${linkTags}</head>`)
     writeFileSync(outPath, nextHtml)
   }
 
-  console.log(`generate-feed OK: added feed-autodiscovery link to ${routes.length} route(s).`)
+  console.log(
+    `generate-feed OK: added feed + ${jsonLinkTargets.length} JSON alternate link(s) to ${routes.length} route(s).`,
+  )
 }

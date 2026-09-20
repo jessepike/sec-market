@@ -23,7 +23,8 @@
 import { readFileSync, writeFileSync } from 'node:fs'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { issueById } from '../src/data/issues/index.ts'
+import { feedIssuesNewestFirst } from '../src/data/issueHelpers.ts'
+import { issueById, issues } from '../src/data/issues/index.ts'
 import { routes, type RouteEntry } from '../src/data/routes.ts'
 import { contextStats, marketCall } from '../src/data/market.ts'
 import {
@@ -143,6 +144,13 @@ function structuredDataFor(routeEntry: RouteEntry, html: string) {
   const url = `${SITE_URL}${routeEntry.path}`
 
   if (routeEntry.kind === 'archive') {
+    // Wave 1 of agent-surface-spec.md §3.5: author + dates were the one L3
+    // JSON-LD test this block failed. Both dates come from the published
+    // issues themselves (never the render-time clock), falling back to the
+    // site's own build stamp only if no issue has published yet.
+    const published = feedIssuesNewestFirst(issues)
+    const datePublished = published.at(-1)?.published ?? LAST_UPDATED_ISO
+    const dateModified = published.at(0)?.published ?? LAST_UPDATED_ISO
     return {
       '@context': 'https://schema.org',
       '@type': 'CollectionPage',
@@ -152,6 +160,9 @@ function structuredDataFor(routeEntry: RouteEntry, html: string) {
       description: readDescription(html),
       isPartOf: { '@type': 'WebSite', name: PRODUCT_TITLE, url: `${SITE_URL}/` },
       inLanguage: 'en',
+      author: { '@type': 'Person', name: AUTHOR_NAME },
+      datePublished,
+      dateModified,
     }
   }
 
@@ -252,12 +263,34 @@ const urlEntries = routes
   })
   .join('\n')
 
+// Wave 1 of agent-surface-spec.md §3.6: the three JSON machine-surface files
+// that already existed but appeared nowhere else in the sitemap.
+const newestPublishedForSitemap = feedIssuesNewestFirst(issues)[0]
+const jsonUrls = [
+  `${SITE_URL}/issues/index.json`,
+  ...(newestPublishedForSitemap ? [`${SITE_URL}/issues/${newestPublishedForSitemap.id}.json`] : []),
+  `${SITE_URL}/issues/lock.json`,
+]
+const jsonEntries = jsonUrls
+  .map(
+    (url) => `  <url>
+    <loc>${url}</loc>
+    <lastmod>${LAST_UPDATED_ISO}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.3</priority>
+  </url>`,
+  )
+  .join('\n')
+
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urlEntries}
+${jsonEntries}
 </urlset>
 `
 
 writeFileSync(sitemapPath, sitemap)
 
-console.log(`SEO OK: wrote dist/sitemap.xml with ${routes.length} route(s).`)
+console.log(
+  `SEO OK: wrote dist/sitemap.xml with ${routes.length} route(s) and ${jsonUrls.length} JSON machine-surface entr${jsonUrls.length === 1 ? 'y' : 'ies'}.`,
+)
