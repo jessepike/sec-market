@@ -540,6 +540,26 @@ the owner signs.
 - Production infrastructure or broad automation
 - Reproducing or modifying CISO Advisory ontology or vendor catalog
 
+### SEC-042 — Weekly destination and monetization run
+
+Turn the site into a place CISOs, investors, and security leaders return to weekly, and give it a
+monetization model. Three parts: a thesis that visibly develops week over week, a first-screen and
+information design rebuilt against a researched scoring rubric, and a machine-readable surface that
+treats an AI agent as a first-class reader.
+
+The run brief is `docs/active/fable-run-brief.md` (`SEC-MARKET-FABLE-001` v0.1), written for Fable
+5.1 as coordinator with subagents on the cheapest model that fits each task, worktrees per stream,
+Vercel branch previews, and a resumable run state at `docs/active/fable-run/RUN-STATE.md`.
+
+**Authorization state:** the brief is owner-approved as a build brief, 2026-09-19. The gates inside
+it are still owner-held — no promotion to `main`, no paywall or payment provider, no signed thesis,
+no `intent.md` amendment, no robots policy change without an explicit yes.
+
+**Known precondition, recorded honestly:** the weekly cadence is not running. `2026-w36` is an
+unsigned draft, the gather routine is disabled, and the exposure denominator is 1. A paywall in
+front of a site that does not publish is worth nothing, so cadence sequencing belongs inside this
+run's plan rather than after it. SEC-027, SEC-028 and SEC-039 carry the cadence work itself.
+
 ### SEC-020 — Accuracy and traceability sweep
 
 The owner's standard is 100% certainty that everything shown is accurate, current, and traceable to a source a reader can check. Opened 2026-08-20.
