@@ -65,14 +65,15 @@ Phase 3b — re-aim at the owner's stated intent (`docs/active/product-core.md`)
 Status is one of: pending, running, blocked, in-review, done, abandoned.
 | T3-3 | Adversarial pass on the three Phase 3 specs: argue the plan fails, find what is wrong, unsupported, contradictory or unsafe against the gates; read-only apart from its one output file | claude-opus-5 | done | none (read-only) | preview | n/a | docs/active/fable-run/consults/adversarial-pass.md | 2026-09-20T12:10Z |
 | T3-4 | Build ONE light-theme HTML owner packet from the shared agent-canvas review template, containing the design spec, the agent-surface spec, the monetization plan, the baseline and the adversarial result; no new claims, content only from the committed documents | claude-sonnet-5 | done | none | preview | n/a | docs/active/fable-run/owner-packet-phase3.html | 2026-09-20T13:20Z |
-| T5-1 | Automation and durability plan: what exists (gather job, draft pipeline, signing, lock), what is broken, where jobs should run, how a one-tap decision reaches the owner in a channel, the facts-versus-judgments publishing split, cost, exact steps; read-only apart from its output | claude-sonnet-5 | running | none | preview | n/a | docs/active/fable-run/automation-plan.md | 2026-09-20T21:45Z |
+| T5-1 | Automation and durability plan: what exists (gather job, draft pipeline, signing, lock), what is broken, where jobs should run, how a one-tap decision reaches the owner in a channel, the facts-versus-judgments publishing split, cost, exact steps; read-only apart from its output | claude-sonnet-5 | done | none | preview | n/a | docs/active/fable-run/automation-plan.md | 2026-09-20T21:45Z |
 | T5-2 | Content inventory against the product core: what vendor, domain, M&A, funding and distress data the site already holds and how fresh it is; what a security leader's first screen can be built from today with no new judgment; gaps | claude-sonnet-5 | done | none | preview | n/a | docs/active/fable-run/content-inventory.md | 2026-09-20T21:45Z |
 | T5-3 | Research: how market-pulse products written for practitioners (not investors) present vendor standing, consolidation and outlook; what makes them credible and returned to | claude-sonnet-5 | done | none | preview | n/a | docs/active/fable-run/research/10-practitioner-market-pulse.md | 2026-09-20T21:45Z |
 | T5-4 | Research: reliable public sources for distress and consolidation signals (debt, ratings actions, layoffs, shutdowns, take-privates) for security vendors and service firms, and how to cite them safely | claude-sonnet-5 | done | none | preview | n/a | docs/active/fable-run/research/11-distress-signal-sources.md | 2026-09-20T21:45Z |
 | T5-5 | Research: privacy-respecting analytics options for a static Vercel site, prices read from vendors' own pages, what each can say about return visits and sharing | claude-haiku-4-5 | done | none | preview | n/a | docs/active/fable-run/research/12-analytics-options.md | 2026-09-20T21:45Z |
-| T6-1 | External review of `product-core.md`, `site-rubric.md` v2.0 and `design-spec.md` v0.3 by Codex, read-only, the owner asked for this model by name | gpt-6-astra (codex exec -m) | running | none | preview | n/a | docs/active/fable-run/consults/external-review-astra.md | 2026-09-20T22:50Z |
+| T6-1 | External review of `product-core.md`, `site-rubric.md` v2.0 and `design-spec.md` v0.3 by Codex, read-only, the owner asked for this model by name | gpt-6-astra (codex exec -m) | done | none | preview | n/a | docs/active/fable-run/consults/external-review-astra.md | 2026-09-20T22:50Z |
 | T6-2 | Build step A of design-spec v0.3 in one worktree: description line, as-of line with both dates, plain-words note, `MarketPicture` by-domain table, section reorder, plain lane headings, follow line and visible feed link, machine links, cadence sentence; tests green in the dev VM; captures at 1440 and 390 | claude-sonnet-5 | running | /Users/jessepike/code/projects/sec-market-wt/wave1 | mon/wave1 | https://security-market-pulse-git-mon-wave1-pikeholdings.vercel.app | branch `mon/wave1` plus `docs/active/fable-run/evidence/wave1/` | 2026-09-20T22:50Z |
 | T6-3 | Re-score the existing production baseline evidence under rubric v2.0, blind | claude-sonnet-5 | running | none | preview | n/a | docs/active/fable-run/score-baseline-v2.md | 2026-09-20T22:50Z |
+| T6-4 | Automation step 0 from `automation-plan.md`: a GitHub Action that posts to a channel webhook when a gather or issue pull request opens or a draft is ready; does nothing until the owner adds the secret; own worktree and branch, not merged | claude-sonnet-5 | running | /Users/jessepike/code/projects/sec-market-wt/notify | mon/notify | n/a | branch `mon/notify` plus `docs/active/fable-run/evidence/notify/report.md` | 2026-09-21T00:10Z |
 
 ## Owner gates
 
@@ -332,4 +333,23 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
   reading as investment advice; trusted solo practitioners name themselves and their day job
   openly; failed newsletters drift from weekly to "whenever", survivors never miss, so promise less
   cadence than feels ambitious. Feeds product core questions 10 and 13.
+- 2026-09-21T00:10Z — T6-1 external review by Codex on `gpt-6-astra` done, thirteen findings, saved
+  unedited in `consults/external-review-astra.md`. Verdict: the core deserves to continue; v0.3
+  "improves presentation while deferring the buyer value". Coordinator verified its sharpest
+  factual claim: the signed, locked issue 2026-w36 labels two QUARTERLY revenue figures as
+  full-year (`web/src/data/issues/2026-w36.ts` line 168 Zscaler "$898.2M", line 208 Palo Alto
+  "$3.41B"; the evidence titles are fourth-quarter results). That is a live error under the owner's
+  signature; the remedy is a dated correction he approves, not an edit. Changes made: the market
+  table lists suppliers alphabetically and ranks nothing (builder T6-2 was messaged mid-flight);
+  design spec v0.4; step B's data refresh is held until figures are validated for metric, period
+  and units together; product core v0.2 tightens the auto-publish split and records four points
+  for the owner (the missing buyer brief, reader-facing disclosure of his role, a bounded coverage
+  list, promise less); rubric v2.1 reweights toward decision value and trust and adds
+  fit-for-purpose blockers. Production today fails blocker 1 (mislabelled figures).
+- 2026-09-21T00:10Z — T5-1 automation plan done: keep the existing pipeline, fix the runtime
+  (allowlist, else launchd on an always-on Mac), notify a channel when a draft is ready, make "the
+  tap" a pull-request merge from the GitHub phone app into `preview`, build the two monitoring
+  probes. Four causes of the stall: the cloud runtime cannot reach the web; nothing tells the owner
+  a draft is waiting; the fixes are designed but never authorized; two specs disagree on Tuesday
+  versus Sunday. T6-4 row written, then dispatched (step 0 only).
 

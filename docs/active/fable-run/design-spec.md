@@ -1,12 +1,12 @@
 # Design specification — Security Market Pulse
 
-**Artifact ID:** `SEC-MARKET-FABLE-DESIGN` v0.3
+**Artifact ID:** `SEC-MARKET-FABLE-DESIGN` v0.4
 **Written by:** the run coordinator, 2026-09-20.
 **Governing document:** `docs/active/product-core.md`. v0.3 replaces v0.2 because the owner
 restated what the site is for: a practitioner's market pulse for people who run security programs,
 with the founding thesis as one standing analysis. v0.2 (git history) put a thesis panel on the
 first screen; that is withdrawn. What v0.2 got right and still holds is carried over and marked.
-**Built on:** `site-rubric.md` v2.0, `content-inventory.md`, `codebase-map.md`,
+**Built on:** `site-rubric.md` v2.1, `consults/external-review-astra.md`, `content-inventory.md`, `codebase-map.md`,
 `consults/adversarial-pass.md`.
 **Authorization:** the owner said to build. Everything lands on `preview`. Promotion to production
 needs his explicit word.
@@ -14,20 +14,20 @@ needs his explicit word.
 ## 1. The design in one paragraph
 
 A security leader should land on the site and see, without scrolling far, what it is, this
-period's read of the market, and a picture of each security domain with the vendors that are
-growing fastest in it and the evidence behind each figure. Below that: what happened this period,
+period's read of the market, and a picture of each security domain: the owner's stance on it, and what each tracked supplier in it
+last reported, with the evidence behind each figure. Below that: what happened this period,
 most consequential first. Below that: the standing analyses, of which the infrastructure-and-
 security thesis is one, labelled for the advisors and partner teams who care about it. Every
-figure says what it measures, where it came from and how old it is. Nothing a machine ranked is
-presented as the owner's opinion.
+figure says what it measures, where it came from and how old it is. Nothing is ranked by a
+machine, and nothing a machine assembled is presented as the owner's opinion.
 
 ## 2. Principles
 
 1. **Market picture before inventory, inventory before analysis.** The reader is a security
    leader first.
-2. **Tracked and judged never blur.** A vendor table ordered by reported growth is tracked fact
-   and says so in its caption: how it is ordered, that the metrics differ, and that it is not a
-   recommendation. A stance on a domain is the owner's judgment and carries his name and date.
+2. **Tracked and judged never blur.** The supplier table is tracked fact, alphabetical, and says
+   so in its caption: the metrics differ, nothing is ranked, and listing is not a recommendation.
+   A stance on a domain is the owner's judgment and carries his name and date.
 3. **Every number carries its kind, its period and its date** on the row, not only in a panel.
 4. **Honest about gaps and age.** A domain with no comparable public growth figures says so. A
    judgment made five weeks ago shows that date, not the build date.
@@ -66,35 +66,39 @@ It goes in `src/data/meta.ts` and is reused for the page description and the mac
 
 ### 3.3 The market by domain (new component `MarketPicture`)
 
-One table, six rows, built only from data that exists.
+One table, six rows, built only from data that exists. **Changed in v0.4 after the external
+review: vendors are listed alphabetically and are not ranked.** v0.3 ordered a top three by
+reported growth. Growth percentages here sit on different bases (a small company can grow faster
+while adding less revenue; acquisitions, hardware cycles and changed definitions move the number),
+so ordering by them implies a comparison the data cannot support, and for an author who works at a
+reseller of these vendors a ranked list reads as his endorsement whatever the caption says.
 
 | Column | Source | Tracked or judged |
 |---|---|---|
 | Domain | `domains.ts` | n/a |
-| Stance, in plain words, with its horizon and the date it was judged | `domains.ts` `posture`, `tag`, `horizon`, `asOf` | **Judged.** Labelled with the owner's name and the date |
-| Leading vendors by latest reported growth: up to three, each with the figure, what it measures, the period, and a source control that opens the existing evidence panel | `prints.ts`, only records whose `surface` is `print` | **Tracked.** Ordered mechanically |
-| Direction, where two periods exist for the same vendor and metric | `prints.ts` | Tracked |
+| Stance, in plain words, with its horizon and the date it was judged | `domains.ts` `posture`, `tag`, `horizon`, `asOf` | **Judged.** The owner's name and the date. This is where "who is winning" belongs, because it is his call |
+| Tracked suppliers and what they last reported: every vendor with a comparable public figure, alphabetical, each with the figure, the exact metric, the period, a "product line, not the whole company" tag where that applies, the earlier figure for the same metric where one exists, and the existing source control | `prints.ts`, only records whose `surface` is `print` | **Tracked.** Not ordered by size |
 
-Caption, always visible: "Vendors are ordered by their latest publicly reported growth. The
-figures measure different things (total revenue, product revenue, recurring revenue, one product
-line) and are labelled. This is what companies reported, not a recommendation."
+Caption, always visible: "These are figures the companies themselves reported, listed
+alphabetically. They measure different things over different periods, so they are labelled and not
+ranked. Being listed is not a recommendation, and being absent is not a criticism. Private
+companies that publish no comparable figures are tracked through funding and acquisitions
+instead."
 
-Two domains, Cloud Security and AI Runtime, have no comparable public growth figures. Their rows
-say so: "No comparable public growth figures yet. Tracked through funding and acquisitions", with
-a link to those records. A product line (Palo Alto's XSIAM) is labelled as a product line and is
-never placed as if it were a company total.
-
-At 390 the table becomes one block per domain, same content, same order.
-
-Each domain row gets `id="domain-<id>"` and each vendor entry `id="vendor-<slug>"`, so a colleague
-can be sent a link to one domain (rubric D1 L5-4).
+No direction arrow or "accelerating" wording appears unless two records carry the identical metric
+label. A figure more than 120 days old is marked "older figure". Cloud Security and AI Runtime say
+plainly that no comparable public figures exist yet, with a link to their funding and acquisition
+records. At 390 the table becomes one block per domain, same content, same order. Each domain row
+gets `id="domain-<id>"` and each vendor entry a unique `id`, so a colleague can be sent a link to
+one domain.
 
 ### 3.4 Freshness, shown honestly
 
 The header badge says "September 19, 2026" because the site rebuilt that day, while the domain
 stances were last judged on 16 August. The as-of line shows both, from constants that already
 exist in `meta.ts`: "Updated 19 Sep 2026. Domain stances judged 16 Aug 2026." Each vendor figure
-shows its own period. Any figure older than 45 days shows its age in words.
+shows its own period. A figure more than 120 days old is marked "older figure"; quarterly results
+are legitimately months old, so a shorter threshold would cry wolf.
 
 ### 3.5 Plain words for site copy
 
@@ -117,17 +121,22 @@ is in `content-inventory.md` section 7; anything not in this table waits.
 class names `.issue-lane__item` and `.issue-lane__headline` kept for `lens.spec.ts`, the source
 class shown on the row, `id={item.id}` on each row, targets at least 24 by 24 pixels.
 
-**Fresher vendor figures.** The content inventory found the vendor scorecard (`prints.ts`) still
-showing April to June figures for CrowdStrike, Zscaler, SentinelOne, Okta, Rubrik and Palo Alto
-Networks, while the signed issue of 19 September reports late August and early September figures
-for the same companies. Two different growth rates for one company on one page is a trust defect,
-and the market picture would inherit it. Step B adds the newer figures to `prints.ts` as **new
-records beside the old ones** (the old ones become the previous period, which is what gives the
-direction column its data). Each new record cites an evidence record that already exists in
-`evidence.ts` and was already published in the signed issue. No new fetching, no edit to
-`evidence.ts`, no edit to any issue, no judgment. Every number must appear in its evidence excerpt,
-which `verify-integrity` and `verify-panel` check. If those gates cannot be satisfied without
-touching `evidence.ts`, step B's data part is dropped and reported, not forced.
+**Fresher vendor figures: held, not built today.** The content inventory found the vendor
+scorecard (`prints.ts`) showing April to June figures for six vendors while the signed issue of
+19 September reports later figures for the same companies. v0.3 proposed copying the newer figures
+into the scorecard. The external review checked the sources and found that is not safe to do
+mechanically: the signed issue's own headlines call two quarterly revenue figures full-year
+figures (Zscaler "FY2026 revenue grows to \.2M" and Palo Alto "FY2026 revenue grows 34% to
+\.41B", where the cited evidence records are fourth-quarter results), and the older Zscaler entry
+is organic ARR growth while the newer one is total ARR growth, so the two cannot be read as a trend.
+A number appearing in a source is not enough; the company or segment, the metric definition, the
+period, the units and the acquisition treatment have to be validated together. That validation is
+specified in the automation plan and the refresh waits for it. Until then the market table marks
+older figures as older.
+
+**A correction the owner needs to see.** Those two headlines are in a published, hash-locked
+issue under his signature. They cannot be edited. The right remedy is a dated correction entry,
+which he approves. It is listed in the owner packet.
 
 The longer fix is architectural: the weekly pipeline should write its figures back into the
 scorecard so the two never drift. That belongs to the automation plan.
@@ -188,7 +197,23 @@ look at this table on the preview with that reading in mind.
 
 ## 10. Reviews
 
-The adversarial pass on v0.2 is recorded in git history and in `consults/adversarial-pass.md`;
-its accepted findings are carried into section 7. The external review of v0.3 by Codex
-(`gpt-6-astra`) is recorded in `consults/external-review-astra.md`, and what changed because of it
-is added here when it lands.
+The adversarial pass on v0.2 is in `consults/adversarial-pass.md`; its accepted findings are
+carried into section 7.
+
+**External review of v0.3 by Codex on `gpt-6-astra`** (`consults/external-review-astra.md`,
+thirteen findings). Its verdict: the core deserves to continue, but v0.3 "improves presentation
+while deferring the buyer value". What was done with it:
+
+| # | Finding | Outcome |
+|---|---|---|
+| 1 | The design leaves out the thing that would justify a security leader reading it: what a development means for someone who buys from these suppliers (continuity, renewals, consolidation, what to ask the supplier) | Accepted as the most important gap. It is new judgment, so it cannot be published without the owner. A machine-drafted buyer brief for his approval is specified in the automation plan and listed in the owner packet. Not on the page today |
+| 2 | Replace the growth leaderboard with a supplier comparison that declares no winners | **Accepted and built.** Section 3.3 |
+| 3 | The recurring product should be a dependable weekly account of material changes, including "no material change found", kept distinct from "collection incomplete" and "interpretation pending" | Accepted into the automation plan as the target output. The three states are a requirement there |
+| 4 | The facts-versus-judgments split leaks: choosing vendors, metrics and which events matter is judgment, and the existing "why" lines contain interpretation | Accepted. `product-core.md` section 6 is tightened: only bounded, attributed observations publish automatically, under collection and presentation rules the owner approves in advance; "why it matters" text is judgment |
+| 5 | The reseller relationship needs real editorial safeguards: disclosure, inclusion rules, equal standards for partners and competitors | Accepted as an owner decision. He parked the employer question; the reader-facing disclosure is separate and is raised in the owner packet. The rubric gains a disclosure test |
+| 6 | Refreshing figures is not enough; their meaning needs validation. Found two mislabelled figures in the signed issue | **Accepted, verified by the coordinator against `web/src/data/issues/2026-w36.ts` lines 168 and 208 and the evidence titles.** Step B's data refresh is held (section 4) and a correction is put to the owner |
+| 7, 8, 9 | The rubric is a presentation checklist, some tests reward the author's own design, weights under-value decision usefulness and trust | Accepted. Rubric v2.1: reweighted, fit-for-purpose blockers added, self-serving tests replaced |
+| 10 | A universal 45-day age threshold is wrong; show the period, the source date, the last check and the judgment date separately | Accepted. The 120-day "older figure" mark is a stopgap; the four dates are an automation requirement |
+| 11 | Six inherited domains do not cover what a security program buys (endpoint and managed services have no home); publish a bounded coverage list | Accepted as an open question for the owner (product core question 11). Not changed today |
+| 12 | Cut the ranked podium, the thesis-centred headline and its note, and the full four-lane inventory from the front page | First: done. Second: the headline is the locked read of a published issue; a new front-page introduction is new judgment and waits for the owner, so the plain-words note stays as the interim. Third: removing the lanes from the front page is an owner gate and the build gates require them; they stay, below the market picture |
+| 13 | Promise less: a declared supplier set and one short weekly buyer brief, with a reduced-service state when the owner cannot review | Accepted into the automation plan |

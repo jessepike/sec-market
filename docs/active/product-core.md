@@ -1,6 +1,6 @@
 # Product core — Security Market Pulse
 
-**Artifact ID:** `SEC-MARKET-CORE-001` v0.1
+**Artifact ID:** `SEC-MARKET-CORE-001` v0.2
 **Source:** the owner's own words, given in the terminal on 2026-09-20, written down by the run
 coordinator so that no later session or reviewer has to reconstruct them.
 **Standing:** this is the working statement of what the product is for. Where it disagrees with
@@ -93,12 +93,23 @@ rules say a machine drafts and a named person signs every judgment. The owner no
 "sign every judgment" fits what the product needs. The coordinator's recommendation, to be decided
 by the owner, is a split:
 
-- **Tracked facts** (an earnings figure, a funding round, an acquisition, a filing), each with a
-  source, a retrieval receipt and machine validation, may publish automatically on a schedule.
-  They are not opinions. This is what keeps the site fresh in a week where the owner is busy.
-- **Judgments** (who is winning a domain, a posture, a forecast, anything that says "we think")
-  are drafted by the machine and published only after the owner approves, and the approval is one
-  tap in the channel, not a working session.
+- **Bounded observations** may publish automatically on a schedule: "this company reported this
+  figure, for this period, in this filing", "this acquisition was announced" (kept distinct from
+  "this acquisition closed"). Each carries its source, a retrieval receipt, and machine validation
+  of the company or segment, the metric definition, the period and the units together. They
+  publish under collection and presentation rules the owner approves once, in advance: which
+  suppliers are covered, which metric is shown for each, how they are listed.
+- **Judgments** need the owner's approval, one tap in the channel, and the approval covers the
+  exact text and the evidence it rested on. This includes more than it first seems: which events
+  matter, any "why it matters" sentence, any word such as accelerating or leading, any stance,
+  forecast or claim of distress. When the evidence under an approved judgment changes materially,
+  the judgment shows as awaiting review and is not presented as freshly endorsed.
+- The weekly output always states one of three things plainly: material changes found, no
+  material change found within our coverage, or collection incomplete. A failed run and a quiet
+  week must never look the same.
+
+(v0.2, tightened after the external review, which showed that choosing vendors, metrics and what
+matters is itself judgment, and that the existing "why it matters" lines contain interpretation.)
 
 This keeps the promise that matters (nothing that reads as the owner's opinion goes out without
 him) while removing the thing that stalled the site (nothing at all going out without him).
@@ -160,3 +171,20 @@ For the owner to accept, change or reject. The run does not edit `intent.md`.
    the expense of an unbought judgment.
 7. **Must not optimize.** Keep "traffic". Add that measuring return visits, sharing and engagement
    is allowed and wanted, because the owner needs to know whether the work is being used.
+
+## 10. Raised by the external review, for the owner
+
+1. **What a security leader actually needs is mostly not on the site yet**: what a development
+   means for someone who buys from these suppliers (continuity, renewals, consolidation, support
+   changes, what to ask the supplier). This is the product's missing centre. It is judgment, so it
+   is his to write or approve; a machine can draft it.
+2. **The reader needs to know the author's interests.** Separate from the parked employer-policy
+   question: a reader judging a market read is entitled to know the author works for a reseller of
+   these vendors, how suppliers are chosen for coverage, and that partners and competitors are
+   held to the same evidence standard. Whether and how to say this on the site is his decision.
+3. **Coverage.** Six inherited domains do not cover what a security program buys; endpoint and
+   managed security services have no home. Start with a declared, bounded supplier list he can
+   keep current, and publish what is not covered.
+4. **Promise less.** A declared supplier set and one short weekly brief, with an honest
+   reduced-service state when he cannot review, will earn more trust than broad coverage approved
+   in a hurry.

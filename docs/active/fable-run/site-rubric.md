@@ -1,6 +1,6 @@
 # Site quality rubric — Security Market Pulse
 
-**Artifact ID:** `SEC-MARKET-FABLE-RUBRIC` v2.0
+**Artifact ID:** `SEC-MARKET-FABLE-RUBRIC` v2.1
 **Written by:** the run coordinator, 2026-09-20. v2.0 re-aims the instrument at
 `docs/active/product-core.md`, the owner's statement of what the site is for. v1.2 measured a site
 built around one standing thesis; the owner has said that is not the centre. Git history keeps v1.2.
@@ -70,6 +70,25 @@ DOM as the top offset of the first content element.
 
 **Composite.** Composite = sum over dimensions of (score ÷ 5 × weight). Weights sum to 100.
 
+**Fit-for-purpose blockers.** These are checked before any score is quoted. If any one fails, the
+result is reported as "not fit for purpose: <which blocker>" next to the composite, however high
+the composite is.
+
+1. *Factual meaning.* No figure on the page is wrong or mislabelled as to company or segment,
+   metric, period or units. Checked by sampling at least ten figures against their sources.
+2. *Comparison validity.* Nothing is ranked, ordered or described as leading, accelerating or
+   slowing on the strength of figures that are not like for like.
+3. *Tracked and judged.* Nothing assembled by a machine is presented as the author's opinion, and
+   every judgment carries a name and a date.
+4. *Accessibility.* Zero critical and zero serious axe violations, and the page can be operated
+   by keyboard.
+
+**What this instrument cannot show.** Two scorers agreeing proves the rubric is consistent, not
+that the site is useful. A scorer imagining a security leader is not a security leader. The check
+that matters is to put the page in front of three real security leaders facing a renewal or a
+supplier decision and ask what they learned, what they would ask next, and what the evidence does
+not establish. That is the owner's to arrange and is recorded in the project scorecard, not here.
+
 **Two caps.** They exist so craft cannot paper over the product's real weaknesses.
 
 - **Cadence cap.** If the newest signed issue was published more than 14 days before the scoring
@@ -82,19 +101,19 @@ DOM as the top offset of the first content element.
 
 | # | Dimension | Weight | Why this weight |
 |---|---|---|---|
-| D1 | Market picture clarity | 14 | The product core: a security leader should see what is happening in the market they buy from. |
-| D2 | Look back, look ahead | 10 | The owner's method: three to six months of evidence behind, a labelled view ahead. Holds the standing analyses, including the founding thesis. |
-| D3 | Freshness and reason to return | 12 | "If it is not updated flawlessly with accurate, fresh information, it is worthless." Capped by real cadence. |
-| D4 | Decision value for a security leader | 12 | Includes the owner's own use: which vendors in a domain are on solid footing. |
-| D5 | Evidence legibility | 9 | Trust is the asset. Every figure traceable. |
-| D6 | Density and scanability | 8 | House style. |
-| D7 | Wayfinding | 5 | Domains, vendors, issues and analyses each need an address. |
-| D8 | Agent legibility | 7 | Still wanted, no longer a pillar. |
-| D9 | Performance | 5 | Hygiene. |
-| D10 | Accessibility | 7 | WCAG 2.2 AA is a design input, and dense designs break it. |
+| D1 | Market picture clarity | 10 | The product core: a security leader should see what is happening in the market they buy from. |
+| D2 | Look back, look ahead | 7 | The owner's method: three to six months of evidence behind, a labelled view ahead. Holds the standing analyses, including the founding thesis. |
+| D3 | Freshness and reason to return | 15 | "If it is not updated flawlessly with accurate, fresh information, it is worthless." Capped by real cadence. |
+| D4 | Decision value for a security leader | 20 | Includes the owner's own use: which vendors in a domain are on solid footing. |
+| D5 | Evidence legibility | 12 | Trust is the asset. Every figure traceable. |
+| D6 | Density and scanability | 4 | House style. |
+| D7 | Wayfinding | 3 | Domains, vendors, issues and analyses each need an address. |
+| D8 | Agent legibility | 3 | Still wanted, no longer a pillar. |
+| D9 | Performance | 4 | Hygiene. |
+| D10 | Accessibility | 8 | WCAG 2.2 AA is a design input, and dense designs break it. |
 | D11 | Follow and share | 3 | Sales teams forwarding it is a stated success signal. Public email is held until 2026-10-08. |
-| D12 | Trust and authority | 5 | Named author, method, corrections, separation of fact from opinion. |
-| D13 | Craft | 3 | Low on purpose, so polish cannot carry the composite. |
+| D12 | Trust and authority | 10 | Named author, method, corrections, separation of fact from opinion. |
+| D13 | Craft | 1 | Low on purpose, so polish cannot carry the composite. |
 
 Changes from v1.2: D1 was "thesis clarity" and D2 "thesis development" (24 points on one analysis);
 they now measure the market picture and the look back and ahead. D3 rises from 10 to 12 and gains a
@@ -102,9 +121,13 @@ per-dataset freshness test. D4 gains the owner's real use case as a test. D5 ris
 from 10 to 7. D11 drops its paid-offer tests, because monetization is parked, and gains sharing.
 No test anywhere rewards volume of traffic.
 
+v2.1 weights follow the external review (`consults/external-review-astra.md`, finding 9): decision
+value and trust were under-weighted, and density, agent legibility and craft were over-weighted
+for a site whose purpose is to be trusted by buyers.
+
 ## 4. The dimensions
 
-### D1 — Market picture clarity (14)
+### D1 — Market picture clarity (10)
 
 *Can a security leader say, after ten seconds, what this site is and one thing that is happening
 in the market they buy from?*
@@ -124,8 +147,9 @@ without expanding a section or scrolling more than three screens.
    words.
 
 **Level 5**
-1. For each covered domain, the leading vendors are named with a current, sourced figure and its
-   date, in a table that lets a reader compare a vendor with its peers.
+1. For each covered domain, the tracked suppliers are shown with sourced figures, each labelled
+   with its metric and period, in a form that does not rank them on figures that are not like for
+   like.
 2. Consolidation and distress (acquired, taken private, shut down, debt, layoffs) have a visible
    place of their own, which says "none recorded this period" when empty.
 3. Cold reader test: a scorer shown only the first-screen capture for ten seconds, asked to
@@ -134,7 +158,7 @@ without expanding a section or scrolling more than three screens.
 4. Every domain and every vendor has a stable address (a page or an anchored section) that can
    be linked and forwarded.
 
-### D2 — Look back, look ahead (10)
+### D2 — Look back, look ahead (7)
 
 *Can a reader see what happened over the last three to six months, what the site expects next,
 and how past expectations held up?*
@@ -160,7 +184,7 @@ and how past expectations held up?*
 5. A calibration view compares stated confidence with outcomes, or a plain statement says when
    there will be enough history to show one.
 
-### D3 — Freshness and reason to return (12)
+### D3 — Freshness and reason to return (15)
 
 *Is there something here this week that was not here last week, is that visible without hunting,
 and can a reader tell how old everything is?* Subject to the cadence cap.
@@ -175,8 +199,8 @@ and can a reader tell how old everything is?* Subject to the cadence cap.
    pages by memory.
 4. At least one way to be told about a new update is visible without expanding anything (a feed
    link counts).
-5. Every dataset on the front page shows its own "as of" date, and nothing older than 45 days is
-   shown without saying how old it is.
+5. Dates are kept apart and shown: the period a figure covers, when its source was published, and
+   when a judgment was last reviewed. A page-level "updated" date never stands in for them.
 
 **Level 5**
 1. If the promised cadence has been missed, the site says so without anyone editing it by hand.
@@ -187,7 +211,7 @@ and can a reader tell how old everything is?* Subject to the cadence cap.
 4. A returning reader can see the last three updates' headlines from the front page, or as many
    as exist.
 
-### D4 — Decision value for a security leader (12)
+### D4 — Decision value for a security leader (20)
 
 *What does someone running a security program learn in five seconds, thirty seconds, three
 minutes? Can the owner's own question be answered from it?*
@@ -205,9 +229,10 @@ minutes? Can the owner's own question be answered from it?*
    chrome takes no more than a quarter of the viewport height, measured by DOM.
 
 **Level 5**
-1. The vendor question: starting from the front page, a reader can answer "in this domain, which
-   vendors are on solid footing, and how does this vendor compare with its peers" in under a
-   minute, from one view, with a source behind every figure.
+1. The supplier question: starting from the front page, a reader can find, for a named supplier,
+   in under a minute and from one view: what it last reported (with metric and period), what
+   changed recently, the author's stance on its domain, and what is not publicly disclosed. The
+   view keeps commercial momentum, continuity evidence and unknowns apart.
 2. Three minutes: everything essential (the read, the by-domain picture, the period's main
    events and the forward view) sits within the first 5,000 pixels at 1440, by DOM.
 3. The first screen names the reader it is written for, so a security leader knows it is for
@@ -215,7 +240,7 @@ minutes? Can the owner's own question be answered from it?*
 4. Nothing on the first screen is decoration: every element is navigation, provenance, judgment
    or evidence.
 
-### D5 — Evidence legibility (9)
+### D5 — Evidence legibility (12)
 
 *Can a claim be traced to a named source without leaving the flow of reading?*
 
@@ -239,7 +264,7 @@ minutes? Can the owner's own question be answered from it?*
    without expanding a closed section.
 4. A way to report a wrong figure is reachable from the evidence itself.
 
-### D6 — Density and scanability (8)
+### D6 — Density and scanability (4)
 
 *Real information per screen, at the Zed standard, without becoming a wall.*
 
@@ -264,7 +289,7 @@ undifferentiated wall of text with no structure.
 4. A reader can scan one full lane (all items of one kind for the week) without scrolling at
    1440.
 
-### D7 — Wayfinding (5)
+### D7 — Wayfinding (3)
 
 *Archive, search, permalinks, cross-references, "where am I in this".*
 
@@ -287,7 +312,7 @@ undifferentiated wall of text with no structure.
 4. Keyboard shortcuts for next and previous issue and jump to the market picture exist and are documented on
    the page.
 
-### D8 — Agent legibility (7)
+### D8 — Agent legibility (3)
 
 *Can a machine reader parse, cite precisely, and come back for structured data?* Scored from the
 cold-agent extraction test (method in `evidence/baseline/machine-extraction.md`): a program given
@@ -318,7 +343,7 @@ only the home URL, with no rendering.
 6. A crawler policy is stated deliberately (whatever the owner decides), not left as a default.
 7. The HTML has no empty headings and no duplicate ids on any route.
 
-### D9 — Performance (5)
+### D9 — Performance (4)
 
 *Core Web Vitals on a real network, measured not assumed.* Lab medians of three Lighthouse runs on
 the front page; field data replaces lab data when it exists.
@@ -338,7 +363,7 @@ the front page; field data replaces lab data when it exists.
 3. The HTML document is at or under 100 KB compressed.
 4. No render-blocking third-party request on the front page.
 
-### D10 — Accessibility (7)
+### D10 — Accessibility (8)
 
 *WCAG 2.2 AA, verified by tooling and by keyboard.*
 
@@ -386,7 +411,7 @@ against what the project's governance allows on the scoring date. While public e
    anything.
 4. Nothing on the site implies a paid offer while none exists.
 
-### D12 — Trust and authority (5)
+### D12 — Trust and authority (10)
 
 *Named author, visible method, corrections record, calibration of past calls.* Subject to the
 misstated freshness cap.
@@ -400,15 +425,19 @@ misstated freshness cap.
 3. The site says what it will not call and why.
 4. Who the author is, in one or two lines beyond a name and an address, is visible after at most
    one click.
+5. The author's professional role and the commercial relationships relevant to the coverage are
+   disclosed, visible after at most one click.
 
 **Level 5**
 1. A corrections record with a stable address exists.
 2. The record of past calls is public and complete, including any that aged badly.
 3. The site states that published issues are immutable and links the proof.
-4. The boundary statements are present and findable: public information only, not investment
+4. How suppliers are chosen for coverage is stated, and says that partners and competitors are
+   held to the same evidence standard.
+5. The boundary statements are present and findable: public information only, not investment
    advice, a machine drafts and a named person signs.
 
-### D13 — Craft (3)
+### D13 — Craft (1)
 
 *Typography, restraint, colour discipline, the feeling of a well-made instrument.*
 
@@ -452,3 +481,4 @@ the change is recorded here.
 | 1.1 | 2026-09-20 | After the agreement check. Two scorers landed within one point on all thirteen dimensions at v1.0 (five dimensions differed by one). Every test they read differently was reworded: the 0 rule is now "no level-3 test passes" (D1's anchor overlapped its first test); D1 test 2 is tied to the first screen; D4 test 1 says a headline stating the read counts; "link or control", "visible after at most one click", "without expanding anything" and "site chrome" are defined once; D7 test 1 requires the verdict as a labelled field; D8 level-5 test 6 and D10 level-5 test 4 were each split in two; the freshness cap names which contradictions trigger it; the small-scale rule is stated as general. |
 | 1.2 | 2026-09-20 | After the adversarial pass on the Phase 3 specs (`consults/adversarial-pass.md`, finding 8). D4 level-5 test 1 read "within the first 40 percent of page height or within 5,000 pixels, whichever is smaller", which no short page can pass and which pulled against D6 level-5 test 1 (a page under 6,000 pixels). It is now a flat 5,000 pixels. The baseline is unaffected: D4 fails at level 3, so no level-5 test changes its score. |
 | 2.0 | 2026-09-20 | Re-aimed at `docs/active/product-core.md` after the owner restated the purpose: a practitioner's market pulse for security leaders, with the founding thesis as one standing analysis. D1 to D4 and D11 rewritten, weights changed (section 3), D8 level-5 test 1 reworded. D5 to D7, D9, D10, D12 and D13 tests unchanged. The v1.2 baseline of 33.0 is not comparable with v2.0 scores; the baseline is re-scored under v2.0 from the same evidence in `score-baseline-v2.md`. |
+| 2.1 | 2026-09-20 | After the external review by Codex on `gpt-6-astra`. Weights changed toward decision value (20), freshness (15), evidence (12) and trust (10). Fit-for-purpose blockers added, so a high composite cannot hide a mislabelled figure, an unsupported comparison, machine content posing as judgment, or an accessibility failure. D1 level-5 test 1 and D4 level-5 test 1 no longer reward a ranked vendor table. D3 level-3 test 5 asks for separate dates in place of a 45-day threshold. D12 gains a disclosure test at level 3 and an inclusion-rules test at level 5. A statement of what the instrument cannot show was added. Not yet addressed from the review: double counting between D1 and D4 and between D3 and D11, and replacing D6's item counts with a scanning task. |
