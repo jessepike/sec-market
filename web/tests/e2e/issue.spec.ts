@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test'
 import { issues, latestIssue } from '../../src/data/issues/index.ts'
 
-const STANDING_REFERENCE_IDS = ['read', 'landscape', 'platforms', 'hypotheses', 'prints']
+const STANDING_REFERENCE_IDS = ['market', 'follow', 'read', 'landscape', 'platforms', 'hypotheses', 'prints']
 const ISSUE_SECTION_IDS = ['overview', 'formation', 'absorption', 'prints-this-week', 'capital', 'we-think']
 
 test.describe('weekly issue — front page', () => {
