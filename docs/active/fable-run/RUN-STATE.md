@@ -185,4 +185,12 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
   prefix every shell command with `export DEVELOPER_DIR=/Library/Developer/CommandLineTools`.
   Every subagent prompt from here on carries that line. The real fix is the owner running
   `sudo xcodebuild -license` once.
+- 2026-09-20T08:45Z — Coordinator's own baseline scores, recorded before the independent scorer
+  returns so the comparison is honest: D1 0, D2 2, D3 1, D4 1, D5 3, D6 1, D7 1, D8 2, D9 2,
+  D10 4, D11 0, D12 2 (freshness cap applies: "Not a weekly news cycle"), D13 2. Composite 31.4.
+  Facts checked by the coordinator for these: no visible feed link anywhere in the body (only the
+  head autodiscovery tag), so D11 is 0 and D3 test 4 fails; the archive row shows date, headline
+  and signer but no verdict field; `time` elements carry `dateTime`; the issue permalink HTML is
+  31 KB against 216 KB for home, so T1-7's claim that home and permalink are pixel-identical is
+  true of the first viewport only, not the full page.
 
