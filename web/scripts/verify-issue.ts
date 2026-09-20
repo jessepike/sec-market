@@ -6,6 +6,8 @@ import { existsSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { editions } from '../src/data/edition.ts'
+import { findFiscalPeriodMismatches } from '../src/data/correctionHelpers.ts'
+import { corrections } from '../src/data/corrections.ts'
 import { evidenceById } from '../src/data/evidence.ts'
 import { formatShortDate } from '../src/data/dates.ts'
 import { securityDomains } from '../src/data/domains.ts'
@@ -790,6 +792,30 @@ async function runChecks({ includeLockManifest }: { includeLockManifest: boolean
     }
   })
 
+  // 16. A headline stating a fiscal-year/full-year period ("FY2026", "fiscal
+  //     year", "full-year", "full year") while citing evidence whose
+  //     economicPeriod begins with "Quarter" is exactly the mistake
+  //     corrected by SEC-MARKET-FABLE-001 T6-13 (docs/active/fable-run/
+  //     drafts/correction-2026-w36.md) — the gate that would have caught it
+  //     before publication. Every match must be covered by an entry in
+  //     corrections.ts; see findFiscalPeriodMismatches for the shared logic,
+  //     also unit-tested directly in tests/corrections-data.test.ts.
+  await check('16 fiscal-period-mismatch', () => {
+    const violations = findFiscalPeriodMismatches(issues, evidenceById, corrections)
+    if (violations.length > 0) {
+      throw new Error(
+        violations
+          .map(
+            (v) =>
+              `issue "${v.issueId}" item "${v.itemId}" headline "${v.headline}" states a fiscal-year/full-year ` +
+              `period but cites evidence "${v.evidenceId}" with economicPeriod "${v.economicPeriod}" — not ` +
+              'covered by an entry in corrections.ts',
+          )
+          .join('; '),
+      )
+    }
+  })
+
   // 10. Render check: renderToStaticMarkup of the issue view for the newest
   //     issue. Each lane heading's rendered item count equals items.length, the
   //     draft banner is present iff status === 'draft', and the signature line
@@ -861,7 +887,7 @@ async function runChecks({ includeLockManifest }: { includeLockManifest: boolean
 
 // --- Report ---
 
-const FULL_CHECK_COUNT = 14
+const FULL_CHECK_COUNT = 15
 const PRE_WRITE_CHECK_COUNT = FULL_CHECK_COUNT - 1 // everything but check 8
 
 function printResults(): boolean {

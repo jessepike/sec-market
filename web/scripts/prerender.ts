@@ -71,6 +71,7 @@ const MUST_SEE_SECTION_IDS: Record<RouteEntry['kind'], string[]> = {
     'prints',
   ],
   archive: ['issues'],
+  corrections: ['corrections'],
   issue: ['overview', 'formation', 'absorption', 'prints-this-week', 'capital', 'we-think'],
 }
 
@@ -119,6 +120,14 @@ function headFor(routeEntry: RouteEntry): RouteHead {
     return {
       title: `Issue ${issue.id} · Security Market Pulse`,
       description: issue.read,
+      ogUrl: url,
+    }
+  }
+  if (routeEntry.kind === 'corrections') {
+    return {
+      title: 'Corrections · Security Market Pulse',
+      description:
+        'Every correction published to Security Market Pulse, newest first, with the issue and item it applies to.',
       ogUrl: url,
     }
   }
