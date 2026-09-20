@@ -1,6 +1,7 @@
 import { formatShortDate } from '../data/dates'
 import { landscapeDomains, securityDomains, trackedPrintEvidenceIds } from '../data/domains'
 import { currentEdition, editionDomainRows } from '../data/edition'
+import { AUTHOR_NAME } from '../data/meta'
 import type { Momentum, TempoTag } from '../data/types'
 import { EvidenceLink } from './EvidenceLink'
 
@@ -107,7 +108,8 @@ function LandscapeSection() {
             </div>
             <div className="domain-card__layer domain-card__layer--judged">
               <p className="stamp-label">
-                JUDGED <time dateTime={domain.asOf}>{formatShortDate(domain.asOf)}</time>
+                JUDGED <time dateTime={domain.asOf}>{formatShortDate(domain.asOf)}</time> &middot;{' '}
+                {AUTHOR_NAME}
               </p>
               <p className="domain-card__judged">
                 <span className="domain-card__judged-part">HORIZON · {domain.horizon}</span>

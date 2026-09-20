@@ -1,5 +1,6 @@
 import { formatShortDate } from '../data/dates'
 import { hypotheses } from '../data/hypotheses'
+import { AUTHOR_NAME } from '../data/meta'
 import { EvidenceLink } from './EvidenceLink'
 
 export function Hypotheses() {
@@ -23,7 +24,8 @@ export function Hypotheses() {
                   JUDGED{' '}
                   <time dateTime={item.provenance.judgedOn}>
                     {formatShortDate(item.provenance.judgedOn)}
-                  </time>
+                  </time>{' '}
+                  &middot; {AUTHOR_NAME}
                 </p>
               ) : null}
               {item.evidenceIds.length > 0 ? <EvidenceLink ids={item.evidenceIds} /> : null}

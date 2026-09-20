@@ -89,6 +89,28 @@ test('renders the market briefing without runtime errors', async ({ page }) => {
   expect(pageErrors).toEqual([])
 })
 
+test('every judged stamp with a date also names who judged it', async ({ page }) => {
+  await page.goto('/')
+
+  // A judged stamp is any element carrying the literal word JUDGED next to a
+  // dated <time> element (the legend text in the provenance rail and the
+  // "TRACKED PRINTS · JUDGED READ" column header both say JUDGED without a
+  // date and are correctly excluded here). Queried directly against the DOM
+  // so stamps inside closed <details> disclosures (e.g. "What moved") are
+  // still checked without needing to open them first.
+  const judgedStamps = await page.locator('body').evaluate(() => {
+    const candidates = Array.from(document.querySelectorAll('.stamp-label'))
+    return candidates
+      .filter((el) => (el.textContent ?? '').includes('JUDGED') && el.querySelector('time'))
+      .map((el) => el.textContent ?? '')
+  })
+
+  expect(judgedStamps.length).toBeGreaterThan(0)
+  for (const stamp of judgedStamps) {
+    expect(stamp).toContain('Jesse Pike')
+  }
+})
+
 test('opens attributed evidence without a private GitHub artifact link', async ({ page }) => {
   await page.goto('/')
 
