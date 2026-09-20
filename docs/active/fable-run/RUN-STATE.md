@@ -66,10 +66,13 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
 | T3-3 | Adversarial pass on the three Phase 3 specs: argue the plan fails, find what is wrong, unsupported, contradictory or unsafe against the gates; read-only apart from its one output file | claude-opus-5 | done | none (read-only) | preview | n/a | docs/active/fable-run/consults/adversarial-pass.md | 2026-09-20T12:10Z |
 | T3-4 | Build ONE light-theme HTML owner packet from the shared agent-canvas review template, containing the design spec, the agent-surface spec, the monetization plan, the baseline and the adversarial result; no new claims, content only from the committed documents | claude-sonnet-5 | done | none | preview | n/a | docs/active/fable-run/owner-packet-phase3.html | 2026-09-20T13:20Z |
 | T5-1 | Automation and durability plan: what exists (gather job, draft pipeline, signing, lock), what is broken, where jobs should run, how a one-tap decision reaches the owner in a channel, the facts-versus-judgments publishing split, cost, exact steps; read-only apart from its output | claude-sonnet-5 | running | none | preview | n/a | docs/active/fable-run/automation-plan.md | 2026-09-20T21:45Z |
-| T5-2 | Content inventory against the product core: what vendor, domain, M&A, funding and distress data the site already holds and how fresh it is; what a security leader's first screen can be built from today with no new judgment; gaps | claude-sonnet-5 | running | none | preview | n/a | docs/active/fable-run/content-inventory.md | 2026-09-20T21:45Z |
+| T5-2 | Content inventory against the product core: what vendor, domain, M&A, funding and distress data the site already holds and how fresh it is; what a security leader's first screen can be built from today with no new judgment; gaps | claude-sonnet-5 | done | none | preview | n/a | docs/active/fable-run/content-inventory.md | 2026-09-20T21:45Z |
 | T5-3 | Research: how market-pulse products written for practitioners (not investors) present vendor standing, consolidation and outlook; what makes them credible and returned to | claude-sonnet-5 | running | none | preview | n/a | docs/active/fable-run/research/10-practitioner-market-pulse.md | 2026-09-20T21:45Z |
-| T5-4 | Research: reliable public sources for distress and consolidation signals (debt, ratings actions, layoffs, shutdowns, take-privates) for security vendors and service firms, and how to cite them safely | claude-sonnet-5 | running | none | preview | n/a | docs/active/fable-run/research/11-distress-signal-sources.md | 2026-09-20T21:45Z |
-| T5-5 | Research: privacy-respecting analytics options for a static Vercel site, prices read from vendors' own pages, what each can say about return visits and sharing | claude-haiku-4-5 | running | none | preview | n/a | docs/active/fable-run/research/12-analytics-options.md | 2026-09-20T21:45Z |
+| T5-4 | Research: reliable public sources for distress and consolidation signals (debt, ratings actions, layoffs, shutdowns, take-privates) for security vendors and service firms, and how to cite them safely | claude-sonnet-5 | done | none | preview | n/a | docs/active/fable-run/research/11-distress-signal-sources.md | 2026-09-20T21:45Z |
+| T5-5 | Research: privacy-respecting analytics options for a static Vercel site, prices read from vendors' own pages, what each can say about return visits and sharing | claude-haiku-4-5 | done | none | preview | n/a | docs/active/fable-run/research/12-analytics-options.md | 2026-09-20T21:45Z |
+| T6-1 | External review of `product-core.md`, `site-rubric.md` v2.0 and `design-spec.md` v0.3 by Codex, read-only, the owner asked for this model by name | gpt-6-astra (codex exec -m) | running | none | preview | n/a | docs/active/fable-run/consults/external-review-astra.md | 2026-09-20T22:50Z |
+| T6-2 | Build step A of design-spec v0.3 in one worktree: description line, as-of line with both dates, plain-words note, `MarketPicture` by-domain table, section reorder, plain lane headings, follow line and visible feed link, machine links, cadence sentence; tests green in the dev VM; captures at 1440 and 390 | claude-sonnet-5 | running | /Users/jessepike/code/projects/sec-market-wt/wave1 | mon/wave1 | https://security-market-pulse-git-mon-wave1-pikeholdings.vercel.app | branch `mon/wave1` plus `docs/active/fable-run/evidence/wave1/` | 2026-09-20T22:50Z |
+| T6-3 | Re-score the existing production baseline evidence under rubric v2.0, blind | claude-sonnet-5 | running | none | preview | n/a | docs/active/fable-run/score-baseline-v2.md | 2026-09-20T22:50Z |
 
 ## Owner gates
 
@@ -310,4 +313,17 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
   The 33.0 baseline is a v1.2 number; a v2.0 re-score from the same evidence is still to do
   (`score-baseline-v2.md`), after the content inventory lands. Two memory notes written for
   future sessions (run end to end with few owner decisions; where the product core lives).
+- 2026-09-20T22:50Z — T5-2 content inventory, T5-4 distress sources and T5-5 analytics done. Key
+  inventory findings: four of six domains can honestly carry a leading-vendors-by-growth table
+  today (Cloud Security and AI Runtime cannot); the vendor scorecard `prints.ts` shows April to
+  June figures for six vendors while the signed issue reports August to September figures for the
+  same companies, on the same page; the header date reads fresher than the 16 August domain
+  judgments beneath it; no distress data exists at all; `ActivityItem` already has `surface` and
+  `leadOrder` for consequence ordering. Distress research: a five-rung signal ladder from a
+  company's own filing down to trade press; EDGAR and California WARN data are scriptable for free;
+  rule: never say more than a named source said; take a media lawyer's view before publishing
+  distress claims regularly. Analytics: Plausible at $9 a month recommended (haiku research, prices
+  read from vendor pages; its claim that Fathom shows returning visitors is unverified).
+  Coordinator wrote `design-spec.md` v0.3 (market picture first, thesis moved down as a standing
+  analysis, build steps A and B). T6-1, T6-2, T6-3 rows written, then dispatched.
 
