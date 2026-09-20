@@ -1,4 +1,6 @@
 import { formatShortDate } from '../data/dates'
+import { correctionForItem } from '../data/correctionHelpers'
+import { corrections } from '../data/corrections'
 import type { Issue, IssueItem, Lane } from '../data/types'
 import { useVendorLens } from '../context/useVendorLens'
 import { EvidenceLink } from './EvidenceLink'
@@ -75,21 +77,43 @@ export function IssueLanes({ issue }: { issue: Issue }) {
               </p>
             ) : (
               <ul className="issue-lane__list">
-                {items.map((item) => (
-                  <li key={item.id} className="issue-lane__item">
-                    <p className="issue-lane__headline">
-                      {item.headline}
-                      {item.background ? (
-                        <span className="issue-lane__background"> · background</span>
+                {items.map((item) => {
+                  const correctionMatch = correctionForItem(corrections, item.id)
+                  return (
+                    <li key={item.id} className="issue-lane__item">
+                      <p className="issue-lane__headline">
+                        {item.headline}
+                        {item.background ? (
+                          <span className="issue-lane__background"> · background</span>
+                        ) : null}
+                      </p>
+                      <p className="issue-lane__meta">
+                        <time dateTime={item.date}>{formatShortDate(item.date)}</time>
+                      </p>
+                      {item.why ? <p className="issue-lane__why">{item.why}</p> : null}
+                      {correctionMatch ? (
+                        <div className="issue-lane__correction" aria-label="Correction to this item">
+                          <p className="issue-lane__correction-stamp">
+                            CORRECTED{' '}
+                            <time dateTime={correctionMatch.correction.date}>
+                              {formatShortDate(correctionMatch.correction.date).toUpperCase()}
+                            </time>
+                          </p>
+                          <p className="issue-lane__correction-text">
+                            {correctionMatch.reading.correctedHeadline}
+                          </p>
+                          {correctionMatch.reading.note ? (
+                            <p className="issue-lane__correction-note">{correctionMatch.reading.note}</p>
+                          ) : null}
+                          <p className="issue-lane__correction-link">
+                            <a href={`/corrections/#${correctionMatch.correction.id}`}>See correction</a>
+                          </p>
+                        </div>
                       ) : null}
-                    </p>
-                    <p className="issue-lane__meta">
-                      <time dateTime={item.date}>{formatShortDate(item.date)}</time>
-                    </p>
-                    {item.why ? <p className="issue-lane__why">{item.why}</p> : null}
-                    <EvidenceLink ids={item.evidenceIds} />
-                  </li>
-                ))}
+                      <EvidenceLink ids={item.evidenceIds} />
+                    </li>
+                  )
+                })}
               </ul>
             )}
           </section>

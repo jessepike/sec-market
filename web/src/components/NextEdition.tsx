@@ -31,7 +31,8 @@ export function NextEdition() {
       <p>
         Corrections and counter-evidence are more useful than agreement. If a print is wrong, a
         source has been superseded, or a read goes further than the evidence does, that is worth an
-        email. There is no form and no list.
+        email. There is no form, and every correction that gets published is listed at{' '}
+        <a href="/corrections/">/corrections/</a>.
       </p>
       <div className="next-edition__actions">
         <a
