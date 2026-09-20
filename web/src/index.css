@@ -2975,6 +2975,14 @@ summary:focus-visible,
   color: var(--color-text-muted);
 }
 
+/* Fix pass T6-7 item 3: without this, .issue-hero__asof's own margin-bottom
+   was 0 and .eyebrow's margin is 0 on all sides (it's shared by other bands
+   that space it differently), so the two lines sat flush against each other
+   with no gap at either width. */
+.issue-hero__asof {
+  margin-bottom: 0.6rem;
+}
+
 .issue-hero__note {
   margin-top: 0.5rem;
   font-size: 0.9rem;
@@ -3017,10 +3025,27 @@ summary:focus-visible,
   max-width: var(--prose-max);
 }
 
+/* Fix pass T6-7 item 2: three columns at wide widths (two rows of three
+   for six domains, no orphan row), two in the middle, one at 390 — and
+   align-items: start so a short card (Cloud Security, Identity) keeps its
+   own height instead of stretching to match the tallest card in its row. */
 .market-picture__domains {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: 1fr;
+  align-items: start;
   gap: 1rem;
+}
+
+@media (min-width: 700px) {
+  .market-picture__domains {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1100px) {
+  .market-picture__domains {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .market-picture__domain {
