@@ -1,0 +1,456 @@
+{
+  "stickyElementsOnPage": [
+    {
+      "selector": "div#root > div.app-shell > header.site-header",
+      "tag": "HEADER",
+      "position": "sticky",
+      "top": "0px",
+      "computedRectTop": 36,
+      "height": 53
+    },
+    {
+      "selector": "div.table-scroll > table.data-table > thead > tr > th",
+      "tag": "TH",
+      "position": "sticky",
+      "top": "auto",
+      "computedRectTop": 16993,
+      "height": 32
+    },
+    {
+      "selector": "div.table-scroll > table.data-table > tbody > tr > th",
+      "tag": "TH",
+      "position": "sticky",
+      "top": "auto",
+      "computedRectTop": 17025,
+      "height": 33
+    },
+    {
+      "selector": "div.table-scroll > table.data-table > tbody > tr > th",
+      "tag": "TH",
+      "position": "sticky",
+      "top": "auto",
+      "computedRectTop": 17058,
+      "height": 33
+    },
+    {
+      "selector": "div.table-scroll > table.data-table > tbody > tr > th",
+      "tag": "TH",
+      "position": "sticky",
+      "top": "auto",
+      "computedRectTop": 17091,
+      "height": 33
+    },
+    {
+      "selector": "div.table-scroll > table.data-table > tbody > tr > th",
+      "tag": "TH",
+      "position": "sticky",
+      "top": "auto",
+      "computedRectTop": 17124,
+      "height": 33
+    },
+    {
+      "selector": "div.table-scroll > table.data-table > tbody > tr > th",
+      "tag": "TH",
+      "position": "sticky",
+      "top": "auto",
+      "computedRectTop": 17157,
+      "height": 33
+    },
+    {
+      "selector": "div.table-scroll > table.data-table > tbody > tr > th",
+      "tag": "TH",
+      "position": "sticky",
+      "top": "auto",
+      "computedRectTop": 17190,
+      "height": 33
+    },
+    {
+      "selector": "div.table-scroll > table.data-table > tbody > tr > th",
+      "tag": "TH",
+      "position": "sticky",
+      "top": "auto",
+      "computedRectTop": 17223,
+      "height": 33
+    },
+    {
+      "selector": "div.table-scroll > table.data-table > tbody > tr > th",
+      "tag": "TH",
+      "position": "sticky",
+      "top": "auto",
+      "computedRectTop": 17256,
+      "height": 33
+    },
+    {
+      "selector": "div.table-scroll > table.data-table > tbody > tr > th",
+      "tag": "TH",
+      "position": "sticky",
+      "top": "auto",
+      "computedRectTop": 17289,
+      "height": 33
+    },
+    {
+      "selector": "div.table-scroll > table.data-table > tbody > tr > th",
+      "tag": "TH",
+      "position": "sticky",
+      "top": "auto",
+      "computedRectTop": 17322,
+      "height": 33
+    },
+    {
+      "selector": "div.table-scroll > table.data-table > tbody > tr > th",
+      "tag": "TH",
+      "position": "sticky",
+      "top": "auto",
+      "computedRectTop": 17355,
+      "height": 33
+    },
+    {
+      "selector": "div.table-scroll > table.data-table > tbody > tr > th",
+      "tag": "TH",
+      "position": "sticky",
+      "top": "auto",
+      "computedRectTop": 17388,
+      "height": 33
+    },
+    {
+      "selector": "div.table-scroll > table.data-table > tbody > tr > th",
+      "tag": "TH",
+      "position": "sticky",
+      "top": "auto",
+      "computedRectTop": 17421,
+      "height": 33
+    }
+  ],
+  "headerInfo": {
+    "height": 0
+  },
+  "firstStopIsSkipLink": true,
+  "first25Stops": [
+    {
+      "press": 1,
+      "tag": "A",
+      "name": "Skip to main content",
+      "selector": "div#root > a.skip-link",
+      "isSkipLink": true,
+      "hasVisibleFocusIndicator": true,
+      "hiddenBehindStickyHeader": false,
+      "hiddenBehindAnySticky": false,
+      "coveringStickyElements": [],
+      "bboxOverlapOnly": [
+        "div#root > div.app-shell > header.site-header"
+      ]
+    },
+    {
+      "press": 2,
+      "tag": "A",
+      "name": "Security Market Pulse",
+      "selector": "div#root > div.app-shell > header.site-header > div.site-header__inner > a.site-header__brand",
+      "isSkipLink": false,
+      "hasVisibleFocusIndicator": true,
+      "hiddenBehindStickyHeader": false,
+      "hiddenBehindAnySticky": false,
+      "coveringStickyElements": [],
+      "bboxOverlapOnly": []
+    },
+    {
+      "press": 3,
+      "tag": "A",
+      "name": "Issue",
+      "selector": "ul#primary-nav > li > a",
+      "isSkipLink": false,
+      "hasVisibleFocusIndicator": true,
+      "hiddenBehindStickyHeader": false,
+      "hiddenBehindAnySticky": false,
+      "coveringStickyElements": [],
+      "bboxOverlapOnly": []
+    },
+    {
+      "press": 4,
+      "tag": "A",
+      "name": "Archive",
+      "selector": "ul#primary-nav > li > a",
+      "isSkipLink": false,
+      "hasVisibleFocusIndicator": true,
+      "hiddenBehindStickyHeader": false,
+      "hiddenBehindAnySticky": false,
+      "coveringStickyElements": [],
+      "bboxOverlapOnly": []
+    },
+    {
+      "press": 5,
+      "tag": "A",
+      "name": "Thesis",
+      "selector": "ul#primary-nav > li > a",
+      "isSkipLink": false,
+      "hasVisibleFocusIndicator": true,
+      "hiddenBehindStickyHeader": false,
+      "hiddenBehindAnySticky": false,
+      "coveringStickyElements": [],
+      "bboxOverlapOnly": []
+    },
+    {
+      "press": 6,
+      "tag": "A",
+      "name": "Landscape",
+      "selector": "ul#primary-nav > li > a",
+      "isSkipLink": false,
+      "hasVisibleFocusIndicator": true,
+      "hiddenBehindStickyHeader": false,
+      "hiddenBehindAnySticky": false,
+      "coveringStickyElements": [],
+      "bboxOverlapOnly": []
+    },
+    {
+      "press": 7,
+      "tag": "A",
+      "name": "Scorecard",
+      "selector": "ul#primary-nav > li > a",
+      "isSkipLink": false,
+      "hasVisibleFocusIndicator": true,
+      "hiddenBehindStickyHeader": false,
+      "hiddenBehindAnySticky": false,
+      "coveringStickyElements": [],
+      "bboxOverlapOnly": []
+    },
+    {
+      "press": 8,
+      "tag": "A",
+      "name": "Evidence",
+      "selector": "ul#primary-nav > li > a",
+      "isSkipLink": false,
+      "hasVisibleFocusIndicator": true,
+      "hiddenBehindStickyHeader": false,
+      "hiddenBehindAnySticky": false,
+      "coveringStickyElements": [],
+      "bboxOverlapOnly": []
+    },
+    {
+      "press": 9,
+      "tag": "A",
+      "name": "Method",
+      "selector": "ul#primary-nav > li > a",
+      "isSkipLink": false,
+      "hasVisibleFocusIndicator": true,
+      "hiddenBehindStickyHeader": false,
+      "hiddenBehindAnySticky": false,
+      "coveringStickyElements": [],
+      "bboxOverlapOnly": []
+    },
+    {
+      "press": 10,
+      "tag": "A",
+      "name": "Feed",
+      "selector": "ul#primary-nav > li > a",
+      "isSkipLink": false,
+      "hasVisibleFocusIndicator": true,
+      "hiddenBehindStickyHeader": false,
+      "hiddenBehindAnySticky": false,
+      "coveringStickyElements": [],
+      "bboxOverlapOnly": []
+    },
+    {
+      "press": 11,
+      "tag": "A",
+      "name": "Feed",
+      "selector": "section#overview > p.eyebrow > a",
+      "isSkipLink": false,
+      "hasVisibleFocusIndicator": true,
+      "hiddenBehindStickyHeader": false,
+      "hiddenBehindAnySticky": false,
+      "coveringStickyElements": [],
+      "bboxOverlapOnly": []
+    },
+    {
+      "press": 12,
+      "tag": "BUTTON",
+      "name": "View evidence: Cato Networks",
+      "selector": "li#vendor-network-sase-cato-networks > button.evidence-link",
+      "isSkipLink": false,
+      "hasVisibleFocusIndicator": true,
+      "hiddenBehindStickyHeader": false,
+      "hiddenBehindAnySticky": false,
+      "coveringStickyElements": [],
+      "bboxOverlapOnly": []
+    },
+    {
+      "press": 13,
+      "tag": "BUTTON",
+      "name": "View evidence: Check Point",
+      "selector": "li#vendor-network-sase-check-point > button.evidence-link",
+      "isSkipLink": false,
+      "hasVisibleFocusIndicator": true,
+      "hiddenBehindStickyHeader": false,
+      "hiddenBehindAnySticky": false,
+      "coveringStickyElements": [],
+      "bboxOverlapOnly": []
+    },
+    {
+      "press": 14,
+      "tag": "BUTTON",
+      "name": "View evidence: Cloudflare",
+      "selector": "li#vendor-network-sase-cloudflare > button.evidence-link",
+      "isSkipLink": false,
+      "hasVisibleFocusIndicator": true,
+      "hiddenBehindStickyHeader": false,
+      "hiddenBehindAnySticky": false,
+      "coveringStickyElements": [],
+      "bboxOverlapOnly": []
+    },
+    {
+      "press": 15,
+      "tag": "BUTTON",
+      "name": "View evidence: Fortinet",
+      "selector": "li#vendor-network-sase-fortinet > button.evidence-link",
+      "isSkipLink": false,
+      "hasVisibleFocusIndicator": true,
+      "hiddenBehindStickyHeader": false,
+      "hiddenBehindAnySticky": false,
+      "coveringStickyElements": [],
+      "bboxOverlapOnly": []
+    },
+    {
+      "press": 16,
+      "tag": "BUTTON",
+      "name": "View evidence: Netskope",
+      "selector": "li#vendor-network-sase-netskope > button.evidence-link",
+      "isSkipLink": false,
+      "hasVisibleFocusIndicator": true,
+      "hiddenBehindStickyHeader": false,
+      "hiddenBehindAnySticky": false,
+      "coveringStickyElements": [],
+      "bboxOverlapOnly": []
+    },
+    {
+      "press": 17,
+      "tag": "BUTTON",
+      "name": "View evidence: Zscaler",
+      "selector": "li#vendor-network-sase-zscaler > button.evidence-link",
+      "isSkipLink": false,
+      "hasVisibleFocusIndicator": true,
+      "hiddenBehindStickyHeader": false,
+      "hiddenBehindAnySticky": false,
+      "coveringStickyElements": [],
+      "bboxOverlapOnly": []
+    },
+    {
+      "press": 18,
+      "tag": "BUTTON",
+      "name": "View evidence: Rubrik",
+      "selector": "li#vendor-data-ai-security-rubrik > button.evidence-link",
+      "isSkipLink": false,
+      "hasVisibleFocusIndicator": true,
+      "hiddenBehindStickyHeader": false,
+      "hiddenBehindAnySticky": false,
+      "coveringStickyElements": [],
+      "bboxOverlapOnly": []
+    },
+    {
+      "press": 19,
+      "tag": "BUTTON",
+      "name": "View evidence: Varonis",
+      "selector": "li#vendor-data-ai-security-varonis > button.evidence-link",
+      "isSkipLink": false,
+      "hasVisibleFocusIndicator": true,
+      "hiddenBehindStickyHeader": false,
+      "hiddenBehindAnySticky": false,
+      "coveringStickyElements": [],
+      "bboxOverlapOnly": []
+    },
+    {
+      "press": 20,
+      "tag": "BUTTON",
+      "name": "View evidence: CrowdStrike",
+      "selector": "li#vendor-cloud-security-crowdstrike-falcon-cloud > button.evidence-link",
+      "isSkipLink": false,
+      "hasVisibleFocusIndicator": true,
+      "hiddenBehindStickyHeader": false,
+      "hiddenBehindAnySticky": false,
+      "coveringStickyElements": [],
+      "bboxOverlapOnly": []
+    },
+    {
+      "press": 21,
+      "tag": "BUTTON",
+      "name": "View evidence: Okta",
+      "selector": "li#vendor-identity-okta > button.evidence-link",
+      "isSkipLink": false,
+      "hasVisibleFocusIndicator": true,
+      "hiddenBehindStickyHeader": false,
+      "hiddenBehindAnySticky": false,
+      "coveringStickyElements": [],
+      "bboxOverlapOnly": []
+    },
+    {
+      "press": 22,
+      "tag": "BUTTON",
+      "name": "View evidence: SailPoint",
+      "selector": "li#vendor-identity-sailpoint > button.evidence-link",
+      "isSkipLink": false,
+      "hasVisibleFocusIndicator": true,
+      "hiddenBehindStickyHeader": false,
+      "hiddenBehindAnySticky": false,
+      "coveringStickyElements": [],
+      "bboxOverlapOnly": []
+    },
+    {
+      "press": 23,
+      "tag": "BUTTON",
+      "name": "View evidence: Cisco",
+      "selector": "li#vendor-secops-cisco-security > button.evidence-link",
+      "isSkipLink": false,
+      "hasVisibleFocusIndicator": true,
+      "hiddenBehindStickyHeader": false,
+      "hiddenBehindAnySticky": false,
+      "coveringStickyElements": [],
+      "bboxOverlapOnly": []
+    },
+    {
+      "press": 24,
+      "tag": "BUTTON",
+      "name": "View evidence: CrowdStrike",
+      "selector": "li#vendor-secops-crowdstrike > button.evidence-link",
+      "isSkipLink": false,
+      "hasVisibleFocusIndicator": true,
+      "hiddenBehindStickyHeader": false,
+      "hiddenBehindAnySticky": false,
+      "coveringStickyElements": [],
+      "bboxOverlapOnly": []
+    },
+    {
+      "press": 25,
+      "tag": "BUTTON",
+      "name": "View evidence: Palo Alto Networks",
+      "selector": "li#vendor-secops-palo-alto-xsiam > button.evidence-link",
+      "isSkipLink": false,
+      "hasVisibleFocusIndicator": true,
+      "hiddenBehindStickyHeader": false,
+      "hiddenBehindAnySticky": false,
+      "coveringStickyElements": [],
+      "bboxOverlapOnly": []
+    }
+  ],
+  "allStopsFocusIndicatorSummary": {
+    "total": 80,
+    "withVisibleIndicator": 80,
+    "withoutVisibleIndicator": []
+  },
+  "stopsHiddenBehindHeader": [],
+  "stopsHiddenBehindAnySticky": [],
+  "signedByPressCount": null,
+  "disclosureCheck": {
+    "hasDetails": true,
+    "hasSummary": true,
+    "summaryTabIndex": 0,
+    "initiallyOpen": true
+  },
+  "enterToggle": {
+    "before": true,
+    "afterEnter": false,
+    "toggled": true
+  },
+  "spaceToggle": {
+    "beforeSpace": true,
+    "afterSpace": false,
+    "toggled": true
+  }
+}

@@ -1,0 +1,398 @@
+{
+  "mobile": {
+    "performance": 0.73,
+    "accessibility": 1,
+    "best-practices": 1,
+    "seo": 0.66,
+    "lcp": 4544.823,
+    "cls": 0,
+    "tbt": 93,
+    "fcp": 3929.9980000000005,
+    "speed-index": 4031.772,
+    "total-bytes": 376643,
+    "num-requests": 14,
+    "html-bytes": 27630,
+    "main-doc-bytes": 27630,
+    "js-bytes": 230933,
+    "css-bytes": 10798,
+    "lcp-element": "div.app-shell > main#main > section#overview > h1#issue-hero-heading \u2014 \"Record earnings from CrowdStrike, Zscaler, Palo Alto, Rubrik and NVIDIA meet th\u2026\"",
+    "third-party": [
+      {
+        "origin": "fonts.googleapis.com",
+        "requestCount": 1,
+        "renderBlocking": false,
+        "urls": [
+          "https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+        ]
+      },
+      {
+        "origin": "vercel.live",
+        "requestCount": 1,
+        "renderBlocking": false,
+        "urls": [
+          "https://vercel.live/_next-live/feedback/feedback.js"
+        ]
+      },
+      {
+        "origin": "fonts.gstatic.com",
+        "requestCount": 5,
+        "renderBlocking": false,
+        "urls": [
+          "https://fonts.gstatic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxeKYbSB4Zh.woff2",
+          "https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3twJwlBFgsAXHNk.woff2",
+          "https://fonts.gstatic.com/s/ibmplexmono/v20/-F63fjptAgt5VM-kVkqdyU8n1i8q131nj-o.woff2",
+          "https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3vAOwlBFgsAXHNk.woff2",
+          "https://fonts.gstatic.com/s/archivo/v25/k3kPo8UDI-1M0wlSV9XAw6lQkqWY8Q82sLydOxKsv4Rn.woff2"
+        ]
+      }
+    ],
+    "_raw_runs": [
+      {
+        "performance": 0.88,
+        "accessibility": 1,
+        "best-practices": 1,
+        "seo": 0.66,
+        "lcp": 2904.7710000000006,
+        "cls": 0.06396680051062076,
+        "tbt": 93,
+        "fcp": 2714.418,
+        "speed-index": 3670.40877189891,
+        "total-bytes": 376629,
+        "num-requests": 14,
+        "html-bytes": 27632,
+        "main-doc-bytes": 27632,
+        "js-bytes": 230969,
+        "css-bytes": 10745,
+        "lcp-element": "div.app-shell > main#main > section#overview > h1#issue-hero-heading \u2014 \"Record earnings from CrowdStrike, Zscaler, Palo Alto, Rubrik and NVIDIA meet th\u2026\"",
+        "third-party": [
+          {
+            "origin": "fonts.googleapis.com",
+            "requestCount": 1,
+            "renderBlocking": false,
+            "urls": [
+              "https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+            ]
+          },
+          {
+            "origin": "vercel.live",
+            "requestCount": 1,
+            "renderBlocking": false,
+            "urls": [
+              "https://vercel.live/_next-live/feedback/feedback.js"
+            ]
+          },
+          {
+            "origin": "fonts.gstatic.com",
+            "requestCount": 5,
+            "renderBlocking": false,
+            "urls": [
+              "https://fonts.gstatic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxeKYbSB4Zh.woff2",
+              "https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3twJwlBFgsAXHNk.woff2",
+              "https://fonts.gstatic.com/s/ibmplexmono/v20/-F63fjptAgt5VM-kVkqdyU8n1i8q131nj-o.woff2",
+              "https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3vAOwlBFgsAXHNk.woff2",
+              "https://fonts.gstatic.com/s/archivo/v25/k3kPo8UDI-1M0wlSV9XAw6lQkqWY8Q82sLydOxKsv4Rn.woff2"
+            ]
+          }
+        ]
+      },
+      {
+        "performance": 0.73,
+        "accessibility": 1,
+        "best-practices": 1,
+        "seo": 0.66,
+        "lcp": 4669.789,
+        "cls": 0,
+        "tbt": 93,
+        "fcp": 4031.772,
+        "speed-index": 4031.772,
+        "total-bytes": 376649,
+        "num-requests": 14,
+        "html-bytes": 27630,
+        "main-doc-bytes": 27630,
+        "js-bytes": 230933,
+        "css-bytes": 10798,
+        "lcp-element": "div.app-shell > main#main > section#overview > h1#issue-hero-heading \u2014 \"Record earnings from CrowdStrike, Zscaler, Palo Alto, Rubrik and NVIDIA meet th\u2026\"",
+        "third-party": [
+          {
+            "origin": "fonts.googleapis.com",
+            "requestCount": 1,
+            "renderBlocking": false,
+            "urls": [
+              "https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+            ]
+          },
+          {
+            "origin": "vercel.live",
+            "requestCount": 1,
+            "renderBlocking": false,
+            "urls": [
+              "https://vercel.live/_next-live/feedback/feedback.js"
+            ]
+          },
+          {
+            "origin": "fonts.gstatic.com",
+            "requestCount": 5,
+            "renderBlocking": false,
+            "urls": [
+              "https://fonts.gstatic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxeKYbSB4Zh.woff2",
+              "https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3twJwlBFgsAXHNk.woff2",
+              "https://fonts.gstatic.com/s/ibmplexmono/v20/-F63fjptAgt5VM-kVkqdyU8n1i8q131nj-o.woff2",
+              "https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3vAOwlBFgsAXHNk.woff2",
+              "https://fonts.gstatic.com/s/archivo/v25/k3kPo8UDI-1M0wlSV9XAw6lQkqWY8Q82sLydOxKsv4Rn.woff2"
+            ]
+          }
+        ]
+      },
+      {
+        "performance": 0.73,
+        "accessibility": 1,
+        "best-practices": 1,
+        "seo": 0.66,
+        "lcp": 4544.823,
+        "cls": 0,
+        "tbt": 48.774000000000115,
+        "fcp": 3929.9980000000005,
+        "speed-index": 5147.707572522975,
+        "total-bytes": 376643,
+        "num-requests": 14,
+        "html-bytes": 27626,
+        "main-doc-bytes": 27626,
+        "js-bytes": 230931,
+        "css-bytes": 10798,
+        "lcp-element": "div.app-shell > main#main > section#overview > h1#issue-hero-heading \u2014 \"Record earnings from CrowdStrike, Zscaler, Palo Alto, Rubrik and NVIDIA meet th\u2026\"",
+        "third-party": [
+          {
+            "origin": "fonts.googleapis.com",
+            "requestCount": 1,
+            "renderBlocking": false,
+            "urls": [
+              "https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+            ]
+          },
+          {
+            "origin": "vercel.live",
+            "requestCount": 1,
+            "renderBlocking": false,
+            "urls": [
+              "https://vercel.live/_next-live/feedback/feedback.js"
+            ]
+          },
+          {
+            "origin": "fonts.gstatic.com",
+            "requestCount": 5,
+            "renderBlocking": false,
+            "urls": [
+              "https://fonts.gstatic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxeKYbSB4Zh.woff2",
+              "https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3twJwlBFgsAXHNk.woff2",
+              "https://fonts.gstatic.com/s/ibmplexmono/v20/-F63fjptAgt5VM-kVkqdyU8n1i8q131nj-o.woff2",
+              "https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3vAOwlBFgsAXHNk.woff2",
+              "https://fonts.gstatic.com/s/archivo/v25/k3kPo8UDI-1M0wlSV9XAw6lQkqWY8Q82sLydOxKsv4Rn.woff2"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "desktop": {
+    "performance": 0.94,
+    "accessibility": 1,
+    "best-practices": 1,
+    "seo": 0.66,
+    "lcp": 1200.672,
+    "cls": 0.01293070549214868,
+    "tbt": 0,
+    "fcp": 1164.5789999999997,
+    "speed-index": 1255.848602959133,
+    "total-bytes": 435711,
+    "num-requests": 18,
+    "html-bytes": 62817,
+    "main-doc-bytes": 27625,
+    "js-bytes": 254343,
+    "css-bytes": 10798,
+    "lcp-element": "div.app-shell > main#main > section#overview > h1#issue-hero-heading \u2014 \"Record earnings from CrowdStrike, Zscaler, Palo Alto, Rubrik and NVIDIA meet th\u2026\"",
+    "third-party": [
+      {
+        "origin": "fonts.googleapis.com",
+        "requestCount": 1,
+        "renderBlocking": false,
+        "urls": [
+          "https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+        ]
+      },
+      {
+        "origin": "vercel.live",
+        "requestCount": 3,
+        "renderBlocking": false,
+        "urls": [
+          "https://vercel.live/_next-live/feedback/feedback.js",
+          "https://vercel.live/_next-live/feedback/feedback.html?dpl=dpl_FSu3UMxkVEZSUz3U1Rre4JB7tEYF",
+          "https://vercel.live/login/validate?hostname=security-market-pulse-git-preview-pikeholdings.vercel.app&deploymentId=dpl_8wcicyZMySXTUXckeAweu5ZSanEP"
+        ]
+      },
+      {
+        "origin": "fonts.gstatic.com",
+        "requestCount": 5,
+        "renderBlocking": false,
+        "urls": [
+          "https://fonts.gstatic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxeKYbSB4Zh.woff2",
+          "https://fonts.gstatic.com/s/archivo/v25/k3kPo8UDI-1M0wlSV9XAw6lQkqWY8Q82sLydOxKsv4Rn.woff2",
+          "https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3twJwlBFgsAXHNk.woff2",
+          "https://fonts.gstatic.com/s/ibmplexmono/v20/-F63fjptAgt5VM-kVkqdyU8n1i8q131nj-o.woff2",
+          "https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3vAOwlBFgsAXHNk.woff2"
+        ]
+      }
+    ],
+    "_raw_runs": [
+      {
+        "performance": 0.96,
+        "accessibility": 1,
+        "best-practices": 1,
+        "seo": 0.66,
+        "lcp": 1078.565,
+        "cls": 0.01293070549214868,
+        "tbt": 0,
+        "fcp": 986.1545,
+        "speed-index": 1186.5550621262769,
+        "total-bytes": 435720,
+        "num-requests": 18,
+        "html-bytes": 62822,
+        "main-doc-bytes": 27630,
+        "js-bytes": 254340,
+        "css-bytes": 10821,
+        "lcp-element": "div.app-shell > main#main > section#overview > h1#issue-hero-heading \u2014 \"Record earnings from CrowdStrike, Zscaler, Palo Alto, Rubrik and NVIDIA meet th\u2026\"",
+        "third-party": [
+          {
+            "origin": "fonts.googleapis.com",
+            "requestCount": 1,
+            "renderBlocking": false,
+            "urls": [
+              "https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+            ]
+          },
+          {
+            "origin": "vercel.live",
+            "requestCount": 3,
+            "renderBlocking": false,
+            "urls": [
+              "https://vercel.live/_next-live/feedback/feedback.js",
+              "https://vercel.live/_next-live/feedback/feedback.html?dpl=dpl_FSu3UMxkVEZSUz3U1Rre4JB7tEYF",
+              "https://vercel.live/login/validate?hostname=security-market-pulse-git-preview-pikeholdings.vercel.app&deploymentId=dpl_8wcicyZMySXTUXckeAweu5ZSanEP"
+            ]
+          },
+          {
+            "origin": "fonts.gstatic.com",
+            "requestCount": 5,
+            "renderBlocking": false,
+            "urls": [
+              "https://fonts.gstatic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxeKYbSB4Zh.woff2",
+              "https://fonts.gstatic.com/s/archivo/v25/k3kPo8UDI-1M0wlSV9XAw6lQkqWY8Q82sLydOxKsv4Rn.woff2",
+              "https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3twJwlBFgsAXHNk.woff2",
+              "https://fonts.gstatic.com/s/ibmplexmono/v20/-F63fjptAgt5VM-kVkqdyU8n1i8q131nj-o.woff2",
+              "https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3vAOwlBFgsAXHNk.woff2"
+            ]
+          }
+        ]
+      },
+      {
+        "performance": 0.94,
+        "accessibility": 1,
+        "best-practices": 1,
+        "seo": 0.66,
+        "lcp": 1200.672,
+        "cls": 0.01293070549214868,
+        "tbt": 0,
+        "fcp": 1164.5789999999997,
+        "speed-index": 1255.848602959133,
+        "total-bytes": 435711,
+        "num-requests": 18,
+        "html-bytes": 62817,
+        "main-doc-bytes": 27625,
+        "js-bytes": 254344,
+        "css-bytes": 10798,
+        "lcp-element": "div.app-shell > main#main > section#overview > h1#issue-hero-heading \u2014 \"Record earnings from CrowdStrike, Zscaler, Palo Alto, Rubrik and NVIDIA meet th\u2026\"",
+        "third-party": [
+          {
+            "origin": "fonts.googleapis.com",
+            "requestCount": 1,
+            "renderBlocking": false,
+            "urls": [
+              "https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+            ]
+          },
+          {
+            "origin": "vercel.live",
+            "requestCount": 3,
+            "renderBlocking": false,
+            "urls": [
+              "https://vercel.live/_next-live/feedback/feedback.js",
+              "https://vercel.live/_next-live/feedback/feedback.html?dpl=dpl_FSu3UMxkVEZSUz3U1Rre4JB7tEYF",
+              "https://vercel.live/login/validate?hostname=security-market-pulse-git-preview-pikeholdings.vercel.app&deploymentId=dpl_8wcicyZMySXTUXckeAweu5ZSanEP"
+            ]
+          },
+          {
+            "origin": "fonts.gstatic.com",
+            "requestCount": 5,
+            "renderBlocking": false,
+            "urls": [
+              "https://fonts.gstatic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxeKYbSB4Zh.woff2",
+              "https://fonts.gstatic.com/s/archivo/v25/k3kPo8UDI-1M0wlSV9XAw6lQkqWY8Q82sLydOxKsv4Rn.woff2",
+              "https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3twJwlBFgsAXHNk.woff2",
+              "https://fonts.gstatic.com/s/ibmplexmono/v20/-F63fjptAgt5VM-kVkqdyU8n1i8q131nj-o.woff2",
+              "https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3vAOwlBFgsAXHNk.woff2"
+            ]
+          }
+        ]
+      },
+      {
+        "performance": 0.92,
+        "accessibility": 1,
+        "best-practices": 1,
+        "seo": 0.66,
+        "lcp": 1307.665,
+        "cls": 0.01293070549214868,
+        "tbt": 0,
+        "fcp": 1307.665,
+        "speed-index": 1307.665,
+        "total-bytes": 435699,
+        "num-requests": 18,
+        "html-bytes": 62799,
+        "main-doc-bytes": 27607,
+        "js-bytes": 254343,
+        "css-bytes": 10798,
+        "lcp-element": "div.app-shell > main#main > section#overview > h1#issue-hero-heading \u2014 \"Record earnings from CrowdStrike, Zscaler, Palo Alto, Rubrik and NVIDIA meet th\u2026\"",
+        "third-party": [
+          {
+            "origin": "fonts.googleapis.com",
+            "requestCount": 1,
+            "renderBlocking": false,
+            "urls": [
+              "https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+            ]
+          },
+          {
+            "origin": "vercel.live",
+            "requestCount": 3,
+            "renderBlocking": false,
+            "urls": [
+              "https://vercel.live/_next-live/feedback/feedback.js",
+              "https://vercel.live/_next-live/feedback/feedback.html?dpl=dpl_FSu3UMxkVEZSUz3U1Rre4JB7tEYF",
+              "https://vercel.live/login/validate?hostname=security-market-pulse-git-preview-pikeholdings.vercel.app&deploymentId=dpl_8wcicyZMySXTUXckeAweu5ZSanEP"
+            ]
+          },
+          {
+            "origin": "fonts.gstatic.com",
+            "requestCount": 5,
+            "renderBlocking": false,
+            "urls": [
+              "https://fonts.gstatic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxeKYbSB4Zh.woff2",
+              "https://fonts.gstatic.com/s/archivo/v25/k3kPo8UDI-1M0wlSV9XAw6lQkqWY8Q82sLydOxKsv4Rn.woff2",
+              "https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3twJwlBFgsAXHNk.woff2",
+              "https://fonts.gstatic.com/s/ibmplexmono/v20/-F63fjptAgt5VM-kVkqdyU8n1i8q131nj-o.woff2",
+              "https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3vAOwlBFgsAXHNk.woff2"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

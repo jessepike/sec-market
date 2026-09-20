@@ -1,0 +1,140 @@
+{
+  "disclosures": {
+    "total": 41,
+    "open": 8
+  },
+  "words": {
+    "visibleWordCount": 3577,
+    "totalWordCountIncludingClosedDisclosures": 5610
+  },
+  "headings": {
+    "totalHeadings": 115,
+    "emptyHeadings": [],
+    "levelSkips": []
+  },
+  "targetSize": {
+    "totalElements": 261,
+    "eligibleElements": 254,
+    "excludedInlineInSentence": 7,
+    "smallCount": 0,
+    "tenSmallest": []
+  },
+  "reflow": {
+    "scrollWidth": 320,
+    "clientWidth": 320,
+    "horizontalScroll": false,
+    "overflowingCount": 40,
+    "overflowingSample": [
+      {
+        "selector": "section#domains > div.table-scroll:nth-child(3) > table.tempo-table:nth-child(1)",
+        "tag": "TABLE",
+        "left": 34,
+        "right": 346,
+        "width": 312
+      },
+      {
+        "selector": "section#domains > div.table-scroll:nth-child(3) > table.tempo-table:nth-child(1) > thead:nth-child(2)",
+        "tag": "THEAD",
+        "left": 34,
+        "right": 346,
+        "width": 312
+      },
+      {
+        "selector": "section#domains > div.table-scroll:nth-child(3) > table.tempo-table:nth-child(1) > thead:nth-child(2) > tr:nth-child(1)",
+        "tag": "TR",
+        "left": 34,
+        "right": 346,
+        "width": 312
+      },
+      {
+        "selector": "section#domains > div.table-scroll:nth-child(3) > table.tempo-table:nth-child(1) > thead:nth-child(2) > tr:nth-child(1) > th:nth-child(4)",
+        "tag": "TH",
+        "left": 258,
+        "right": 346,
+        "width": 88
+      },
+      {
+        "selector": "section#domains > div.table-scroll:nth-child(3) > table.tempo-table:nth-child(1) > tbody.tempo-block:nth-child(3)",
+        "tag": "TBODY",
+        "left": 34,
+        "right": 346,
+        "width": 312
+      },
+      {
+        "selector": "section#domains > div.table-scroll:nth-child(3) > table.tempo-table:nth-child(1) > tbody.tempo-block:nth-child(3) > tr:nth-child(1)",
+        "tag": "TR",
+        "left": 34,
+        "right": 346,
+        "width": 312
+      },
+      {
+        "selector": "section#domains > div.table-scroll:nth-child(3) > table.tempo-table:nth-child(1) > tbody.tempo-block:nth-child(3) > tr:nth-child(1) > td:nth-child(4)",
+        "tag": "TD",
+        "left": 258,
+        "right": 346,
+        "width": 88
+      },
+      {
+        "selector": "div.table-scroll:nth-child(3) > table.tempo-table:nth-child(1) > tbody.tempo-block:nth-child(3) > tr:nth-child(1) > td:nth-child(4) > span.tag.tag--prepare:nth-child(1)",
+        "tag": "SPAN",
+        "left": 270,
+        "right": 334,
+        "width": 64
+      },
+      {
+        "selector": "section#domains > div.table-scroll:nth-child(3) > table.tempo-table:nth-child(1) > tbody.tempo-block:nth-child(3) > tr.tempo-table__detail:nth-child(2)",
+        "tag": "TR",
+        "left": 34,
+        "right": 346,
+        "width": 312
+      },
+      {
+        "selector": "section#domains > div.table-scroll:nth-child(3) > table.tempo-table:nth-child(1) > tbody.tempo-block:nth-child(3) > tr.tempo-table__detail:nth-child(2) > td:nth-child(1)",
+        "tag": "TD",
+        "left": 34,
+        "right": 346,
+        "width": 312
+      }
+    ]
+  },
+  "contrast": {
+    "totalSmallTextNodes": 1299,
+    "failingCount": 0,
+    "failingNonTopBarCount": 0,
+    "failingTopBarCount": 0,
+    "fiveWorstNonTopBar": [],
+    "topBarSample": []
+  },
+  "position_1440x900": {
+    "docHeight": 17084,
+    "signedOffset": 2711,
+    "whatWeThinkOffset": 2256,
+    "infraOffset": 14157,
+    "totalLaneItems": 23,
+    "fullyVisibleInFirstViewport": 0,
+    "overviewTop": 113,
+    "overviewFirstTextTop": 113,
+    "signedPct": 15.9,
+    "whatWeThinkPct": 13.2,
+    "infraPct": 82.9,
+    "signedViewportHeights": 3.01,
+    "whatWeThinkViewportHeights": 2.51,
+    "infraViewportHeights": 15.73
+  },
+  "position_390x844": {
+    "docHeight": 21437,
+    "signedOffset": 5078,
+    "whatWeThinkOffset": 4013,
+    "infraOffset": 16616,
+    "totalLaneItems": 23,
+    "fullyVisibleInFirstViewport": 0,
+    "overviewTop": 221,
+    "overviewFirstTextTop": 221,
+    "signedPct": 23.7,
+    "whatWeThinkPct": 18.7,
+    "infraPct": 77.5,
+    "signedViewportHeights": 6.02,
+    "whatWeThinkViewportHeights": 4.75,
+    "infraViewportHeights": 19.69
+  }
+}

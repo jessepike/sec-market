@@ -24,6 +24,65 @@ entry in that file updates the figure. The composite below says nothing about wh
 reached, or changed the mind of, an actual security leader — that is a different question, answered
 by the exposure denominator and the outcome review in the project scorecard, not by this instrument.
 
+## Coordinator reconciliation (added 2026-09-20, after task T6-10)
+
+Everything below this section is the blind scorer's record, left unedited. Three things in it
+need correcting before the number is compared with the production baseline of 32.8.
+
+**Blocker 1 fails.** The scorer sampled seventeen figures and found none wrong, but the sample
+missed two lane headlines that are in the deployed HTML: "Zscaler FY2026 revenue grows to $898.2M"
+and "Palo Alto FY2026 revenue grows 34% to $3.41B". Both are fourth-quarter figures (evidence
+records `W36-15` and `W36-19`). They sit in the signed, locked issue, so only an owner-approved
+correction can fix them (`drafts/correction-2026-w36.md`).
+
+**D9 and D10 were scored without measurements.** The scorer had no Lighthouse run, keyboard walk or
+320 px capture, and the rubric fails an unmeasured test. Task T6-10 then ran the baseline's own
+scripts against the deployed preview (`evidence/after/measurements.md`):
+
+- D9 Performance: mobile LCP 4,545 ms (fails 2.5 s), CLS 0, TBT 93 ms, desktop LCP 1,201 ms. Three
+  of four level-3 tests pass. Score 2, the same as production. The rebuilt page is slightly slower
+  than production (mobile LCP 4,356 ms, desktop LCP 859 ms) and about 2 KB heavier in JavaScript.
+  The Google Fonts stylesheet was judged not render-blocking by the measurement and
+  render-blocking by the scorer's reading of the markup; it does not change the score.
+- D10 Accessibility: zero axe violations on six page and width combinations; 80 of 80 focus stops
+  visible; 15 sticky elements found and no focus stop hidden under any of them; no horizontal
+  scroll at 320 px; small-text contrast and headings pass. All five level-3 tests pass. At level
+  5, tests 1, 2, 4 and 5 pass (the coordinator confirmed on the deployed page that the chart's
+  "View data table (accessible alternative)" disclosure, the single `<main>` landmark and 98
+  `<time>` elements are still there, the same basis the baseline used); test 3 (signed judgment
+  within 15 Tab presses) and test 6 (non-text contrast, never measured) fail. Score 4, the same as
+  production.
+
+**Composite after reconciliation: 49.2** (44.4, less 0.0 and 3.2 for D9 and D10 as scored, plus 1.6
+and 6.4 as measured). Production on the same rubric and the same kind of evidence: 32.8.
+
+| Dimension | Production | Rebuilt page |
+|---|---|---|
+| D1 Market picture clarity | 1 | 2 |
+| D2 Look back, look ahead | 2 | 2 |
+| D3 Freshness and reason to return | 1 | 4 |
+| D4 Decision value for a security leader | 1 | 1 |
+| D5 Evidence legibility | 3 | 3 |
+| D6 Density and scanability | 2 | 2 |
+| D7 Wayfinding | 1 | 1 |
+| D8 Agent legibility | 2 | 3 |
+| D9 Performance | 2 | 2 |
+| D10 Accessibility | 4 | 4 |
+| D11 Follow and share | 0 | 5 |
+| D12 Trust and authority | 1 | 2 |
+| D13 Craft | 2 | 1 |
+| **Composite** | **32.8** | **49.2** |
+
+Blockers on the rebuilt page as deployed at merge f557b4c: 1 fails (above); 2 fails on the
+Platform pressure wording, which is the owner's judgment text; 3 fails on judged stamps without a
+name, fixed on branch `mon/wave1b` (efa8ca2); 4 passes, now with a keyboard walk behind it. On
+blocker 2 the scorer also named the scorecard's green and red values. Those come from a hand-set
+`tone` field comparing a supplier with its own earlier figure, not from cross-supplier size, so the
+coordinator does not count them as a failure; the page gives no legend for them, which is why a
+careful reader took them for a ranking.
+
+The exposure denominator is still 1. Neither number says anything about a real reader.
+
 ## Score table
 
 | # | Dimension | Score /5 | Weight | Score÷5×Weight |
