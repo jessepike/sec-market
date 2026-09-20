@@ -277,4 +277,11 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
   v0.1. Committed `df78c25`, pushed. Dispatched to agent-canvas as `document-review`
   (`sec-market-fable-001-phase3-packet`), dispatch and notify both succeeded first time. Turn
   ended at the hard stop.
+- 2026-09-20T14:30Z — Owner, in the terminal (no canvas answer yet): the run was meant to be end to
+  end and he now has to steer more than expected; he wants the work sorted into buckets with
+  questions, recommendations, open research and a priority order; he thinks monetization and
+  intent are not aligned and wants a separate high-altitude intent session; he wants to understand
+  the monetization research better. Coordinator wrote `decision-map.md` (seven buckets, a split
+  between what only he can do and what the run will do on one yes, an order of work). Still at
+  the Phase 3 gate: no build started. Monetization is paused pending the intent session.
 
