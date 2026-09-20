@@ -52,7 +52,7 @@ import type { Issue } from './data/types'
 function FrontPage() {
   return (
     <VendorLensProvider>
-      <IssueHero issue={latestIssue} />
+      <IssueHero issue={latestIssue} showAsOf />
       <MarketPicture />
       <WeThink issue={latestIssue} />
       <IssueLanes issue={latestIssue} />
