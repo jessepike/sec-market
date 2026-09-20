@@ -38,7 +38,8 @@ Phase 2 — rubric and baseline. Closes when `site-rubric.md` and `score-baselin
 | T1-9 | Browser follow-up for pages that blocked fetch: capture and describe Cloudflare Radar first screen at 1440 and 390; read rendered pricing on Return on Security, SemiAnalysis, The Information, Platformer, Latent Space, Software Analyst Cyber Research | claude-sonnet-5 | done | none | preview | n/a | docs/active/fable-run/research/09-browser-followup.md | 2026-09-20T06:55Z |
 | T2-1 | Baseline measurement pack on production: performance (Lighthouse mobile and desktop, three runs, medians), accessibility (axe pass, keyboard walk, focus visibility, target sizes, 320 px reflow, contrast on small metadata), DOM-measured pixel depth of thesis and signature, items per first screen | claude-sonnet-5 | done | none | preview | n/a | docs/active/fable-run/evidence/baseline/measurements.md | 2026-09-20T08:15Z |
 | T2-2 | Machine-extraction test on production for D8: a cold agent with only the home URL tries to extract thesis, verdict, signer, date, one claim with its source, and the archive list; records every step and failure | claude-sonnet-5 | done | none | preview | n/a | docs/active/fable-run/evidence/baseline/machine-extraction.md | 2026-09-20T07:55Z |
-| T2-3 | Independent rubric scoring of production from the evidence, blind to the coordinator's scores | claude-sonnet-5 | running | none | preview | n/a | docs/active/fable-run/evidence/baseline/independent-scores.md | 2026-09-20T08:15Z |
+| T2-3 | Independent rubric scoring of production from the evidence, blind to the coordinator's scores | claude-sonnet-5 | done | none | preview | n/a | docs/active/fable-run/evidence/baseline/independent-scores.md | 2026-09-20T09:10Z |
+| T2-4 | Two missing measurements both scorers needed: capture of an opened evidence control on production (what a reader sees, whether it carries a real source link, source kind and retrieval date), and DOM height of site chrome at 390 | claude-haiku-4-5 | running | none | preview | n/a | docs/active/fable-run/evidence/baseline/evidence-drawer.md | 2026-09-20T09:20Z |
 
 Status is one of: pending, running, blocked, in-review, done, abandoned.
 
@@ -193,4 +194,10 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
   and signer but no verdict field; `time` elements carry `dateTime`; the issue permalink HTML is
   31 KB against 216 KB for home, so T1-7's claim that home and permalink are pixel-identical is
   true of the first viewport only, not the full page.
+- 2026-09-20T09:10Z — T2-3 returned. Independent scores D1 to D13: 1, 2, 1, 2, 2, 2, 2, 2, 2, 4,
+  0, 2, 2; composite 37.2. Coordinator: 0, 2, 1, 1, 3, 1, 1, 2, 2, 4, 0, 2, 2; composite 31.4.
+  Largest gap is one point (D1, D4, D5, D6, D7), so the within-one-point requirement holds at
+  v1.0. The scorer listed wording problems; the coordinator reconciles each differing test and
+  bumps the rubric to v1.1.
+- 2026-09-20T09:20Z — T2-4 row written and dispatched (haiku): the evidence-drawer capture decides D5, which both scorers marked not determinable, and the chrome height closes wording problem 9.
 
