@@ -75,7 +75,7 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
 | T6-3 | Re-score the existing production baseline evidence under rubric v2.0, blind | claude-sonnet-5 | done (37.2 under v2.0; coordinator reconciled to v2.1: 32.8 and fails blocker 1) | none | preview | n/a | docs/active/fable-run/score-baseline-v2.md | 2026-09-20T22:50Z |
 | T6-4 | Automation step 0 from `automation-plan.md`: a GitHub Action that posts to a channel webhook when a gather or issue pull request opens or a draft is ready; does nothing until the owner adds the secret; own worktree and branch, not merged | claude-sonnet-5 | done locally, commit 1f5f992; push refused because the GitHub token lacks the `workflow` scope (owner runs `gh auth refresh -h github.com -s workflow`) | /Users/jessepike/code/projects/sec-market-wt/notify | mon/notify | n/a | branch `mon/notify` plus `docs/active/fable-run/evidence/notify/report.md` | 2026-09-21T00:10Z |
 | T6-5 | Proposed correction for the two mislabelled figures in signed issue `2026-w36`, with the exact text and the smallest mechanism that keeps the issue locked; a document for the owner, nothing published | coordinator | done | none | preview | n/a | docs/active/fable-run/drafts/correction-2026-w36.md | 2026-09-21T00:45Z |
-| T6-6 | Machine-drafted buyer brief for one domain (network and secure access), built only from evidence already in the repository, every claim tied to an evidence record, marked as an unpublished draft for the owner to edit or reject | claude-sonnet-5 | running | none | preview | n/a | docs/active/fable-run/drafts/buyer-brief-network-sase.md | 2026-09-21T00:45Z |
+| T6-6 | Machine-drafted buyer brief for one domain (network and secure access), built only from evidence already in the repository, every claim tied to an evidence record, marked as an unpublished draft for the owner to edit or reject | claude-sonnet-5 | done; coordinator read it in full | none | preview | n/a | docs/active/fable-run/drafts/buyer-brief-network-sase.md | 2026-09-21T00:45Z |
 
 ## Owner gates
 
@@ -369,3 +369,11 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
   checking: the Palo Alto "why it matters" line compares a company-defined segment with other
   companies' total revenue growth, which fails rubric blocker 2. T6-6 (buyer brief draft for the
   network and secure access domain, repository evidence only) dispatched to claude-sonnet-5.
+- 2026-09-21T01:10Z — T6-6 returned: `drafts/buyer-brief-network-sase.md`, about 1,000 words,
+  sixteen evidence records cited, every figure with metric and period, no ranking. Coordinator read
+  it in full and removed two em-dashes. It used the evidence records for the two mislabelled
+  figures, not the issue headlines. Its most useful output is the gaps list: no debt or liquidity
+  data for any supplier, no close confirmation for the Lakera and Symmetry Systems deals. Its
+  riskiest judgment (that a bundling competitor changes renewal leverage for the other suppliers'
+  customers) is flagged in the draft itself. Unpublished; the owner edits or rejects it. T6-2 still
+  running.
