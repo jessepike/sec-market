@@ -1,7 +1,7 @@
 import { formatShortDate } from '../data/dates'
 import { securityDomains } from '../data/domains'
 import { jargonNoteFor } from '../data/jargonNotes'
-import { LAST_UPDATED_DISPLAY, SITE_DESCRIPTION, SITE_DISCLAIMER } from '../data/meta'
+import { AUTHOR_NAME, LAST_UPDATED_DISPLAY, SITE_DESCRIPTION, SITE_DISCLAIMER } from '../data/meta'
 import type { Issue } from '../data/types'
 
 // Fix pass T6-7 item 4: the front page's as-of line previously read
@@ -20,10 +20,14 @@ const domainsJudgedIso = securityDomains.reduce(
 
 export function IssueHero({ issue, showAsOf = false }: { issue: Issue; showAsOf?: boolean }) {
   const weekEndingLabel = formatShortDate(issue.weekEnding)
-  const eyebrow =
+  // T6-12 pass 2: split off the id-bearing lead-in so the front page (where
+  // showAsOf is true — see the comment below) can swap it for a plain-word
+  // link, while the permalink and the render check below keep seeing the
+  // exact same "Issue <id> · ..." text as before.
+  const eyebrowRest =
     issue.status === 'published' && issue.published
-      ? `Issue ${issue.id} · week ending ${weekEndingLabel} · published ${formatShortDate(issue.published)}`
-      : `Issue ${issue.id} · week ending ${weekEndingLabel} · draft, awaiting signature`
+      ? `week ending ${weekEndingLabel} · published ${formatShortDate(issue.published)}`
+      : `week ending ${weekEndingLabel} · draft, awaiting signature`
   // Read off the newest issue's own headline, never generated from the
   // clock — see data/jargonNotes.ts. Rendered by this component only, so it
   // can never enter issue.read itself, the issue JSON export, or the feed.
@@ -38,11 +42,21 @@ export function IssueHero({ issue, showAsOf = false }: { issue: Issue; showAsOf?
           there — IssuePage doesn't pass showAsOf, so it defaults to false. */}
       {showAsOf ? (
         <p className="issue-hero__asof">
-          Updated {LAST_UPDATED_DISPLAY}. Domain stances judged {formatShortDate(domainsJudgedIso)}.
+          Updated {LAST_UPDATED_DISPLAY}. Domain stances judged {formatShortDate(domainsJudgedIso)} by{' '}
+          {AUTHOR_NAME}.
         </p>
       ) : null}
       <p className="eyebrow">
-        {eyebrow} · <a href="/feed.xml">Feed</a>
+        {/* T6-12 pass 2: "2026-w36" is an internal id a new reader can't
+            decode. showAsOf is true only on the front page (see above), so
+            only there the lead-in becomes a plain-word link to this issue's
+            own permalink, where the id is still shown in full. */}
+        {showAsOf ? (
+          <a href={`/issues/${issue.id}/`}>Weekly issue</a>
+        ) : (
+          `Issue ${issue.id}`
+        )}{' '}
+        · {eyebrowRest} · <a href="/feed.xml">Feed</a>
       </p>
       <h1 id="issue-hero-heading">{issue.read}</h1>
       {note ? (

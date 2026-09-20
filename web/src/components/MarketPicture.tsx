@@ -71,24 +71,26 @@ function DomainRow({ domain }: { domain: SecurityDomain }) {
                       keeps its own tone colouring; this component never reads .tone at all. */}
                   <span className="market-picture__vendor-value">{entry.print.value}</span>
                 </p>
-                <p className="market-picture__vendor-meta">
-                  {entry.print.metric} &middot; {entry.print.period}
-                  {entry.isOlderFigure ? (
-                    <span className="market-picture__older-figure"> &middot; older figure</span>
-                  ) : null}
-                  {entry.isSegment ? (
-                    <span className="market-picture__segment-tag">
-                      {' '}
-                      &middot; product line, not the whole company
-                    </span>
-                  ) : null}
-                </p>
+                <div className="market-picture__vendor-metaRow">
+                  <p className="market-picture__vendor-meta">
+                    {entry.print.metric} &middot; {entry.print.period}
+                    {entry.isOlderFigure ? (
+                      <span className="market-picture__older-figure"> &middot; older figure</span>
+                    ) : null}
+                    {entry.isSegment ? (
+                      <span className="market-picture__segment-tag">
+                        {' '}
+                        &middot; product line, not the whole company
+                      </span>
+                    ) : null}
+                  </p>
+                  <EvidenceLink ids={entry.print.evidenceIds} className="market-picture__evidence" />
+                </div>
                 {entry.previous ? (
                   <p className="market-picture__previous">
                     Previously {entry.previous.value} ({entry.previous.period})
                   </p>
                 ) : null}
-                <EvidenceLink ids={entry.print.evidenceIds} />
               </li>
             ))}
           </ul>
