@@ -799,3 +799,15 @@ fourth-quarter revenue figures as full-year figures (SEC-043, live on production
 months behind the issue for six suppliers (SEC-045); every domain judgment dates from 2026-08-16;
 `.claude/rules/constraints.md` still lists the website and an autonomous pipeline as not
 authorized, which only the owner can amend.
+
+**D-68 · 2026-09-20 — The owner approved a public correction to signed issue `2026-w36`, and the way corrections are published.**
+
+Two headlines in the issue gave fourth-quarter revenue as fiscal-year revenue (Zscaler $898.2M, Palo
+Alto $3.41B), and one "why it matters" line called a company-defined segment's growth the fastest of
+the week against other companies' total revenue. Shown the drafted correction text and the
+mechanism in the terminal, the owner said yes. The text is the one in
+`docs/active/fable-run/drafts/correction-2026-w36.md` section 2, dated 2026-09-20. Published issues
+stay locked: corrections live in an append-only `web/src/data/corrections.ts`, show as a dated note
+beside the affected item with the original left as it was, are listed at `/corrections/`, and are
+carried in the machine-readable files. A gate now fails a fiscal-year label over a quarterly source
+(SEC-043, SEC-044 in part). Built to `preview`; promotion to `main` remains a separate owner call.

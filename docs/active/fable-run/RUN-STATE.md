@@ -82,6 +82,7 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
 | T6-10 | Run the baseline's measurement scripts (Lighthouse medians, keyboard walk, target size, 320 px reflow, small-text contrast, headings) against the deployed preview so D9 and D10 are scored on the same evidence as the baseline | claude-sonnet-5 | done: D9 2 and D10 4 on measured evidence, same as production; zero focus stops hidden under sticky content | none | preview | https://security-market-pulse-git-preview-pikeholdings.vercel.app | docs/active/fable-run/evidence/after/measurements.md | 2026-09-21T03:00Z |
 | T6-11 | Put the author's name beside every JUDGED date stamp that lacks one (Platform pressure, and any other section found), so rubric blocker 3 passes; tests, render, push | claude-sonnet-5 | done: efa8ca2 on `mon/wave1b`, five components fixed, a new e2e test fails any dated JUDGED stamp without the name, `npm test` green, page height unchanged; coordinator looked at the platforms crop | /Users/jessepike/code/projects/sec-market-wt/wave1 | mon/wave1b | https://security-market-pulse-git-mon-wave1b-pikeholdings.vercel.app | branch `mon/wave1b` plus `evidence/wave1b/` | 2026-09-21T03:00Z |
 | T6-12 | Second pass on `mon/wave1b`, from the blind score's cheapest failing tests: compact the supplier rows so the domain section ends above 1,800 px at 1440 and `we-think` moves up; bring phone chrome above the first content under a quarter of the viewport (221 px today, limit 211); replace the undecoded issue id on the front-page eyebrow with plain words linking to the permalink; name on the as-of line. Nothing deleted | claude-sonnet-5 (same agent, resumed) | running | /Users/jessepike/code/projects/sec-market-wt/wave1 | mon/wave1b | https://security-market-pulse-git-mon-wave1b-pikeholdings.vercel.app | branch push plus `evidence/wave1b/` | 2026-09-21T03:20Z |
+| T6-13 | Build the owner-approved correction for issue `2026-w36`: append-only `corrections.ts`, a dated note beside the two items on the front page and the issue page, a `/corrections/` page, the correction in the machine-readable files and the feed, a data test, and a gate that fails a fiscal-year label over a quarterly source. The locked issue file is not touched | claude-sonnet-5 | running | /Users/jessepike/code/projects/sec-market-wt/corrections | mon/corrections | https://security-market-pulse-git-mon-corrections-pikeholdings.vercel.app | branch `mon/corrections` plus `docs/active/fable-run/evidence/corrections/` | 2026-09-21T04:00Z |
 
 ## Owner gates
 
@@ -417,3 +418,9 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
   (scorer's sample missed the two w36 headlines), blocker 3 fixed on `mon/wave1b`, blocker 2 rests
   on the owner's Platform pressure wording. Raw Lighthouse JSON removed from the evidence folder to
   match what the baseline kept (medians only). T6-12 still running.
+- 2026-09-21T04:00Z — OWNER APPROVAL, in the terminal: asked what the correction needed from him,
+  shown the drafted text and the mechanism, he answered "yes". That approves the correction text
+  as drafted in `drafts/correction-2026-w36.md` section 2 (dated 2026-09-20, including the
+  withdrawn "fastest" comparison) and the mechanism in section 3, built to `preview`. It does not
+  approve promotion to `main`. T6-13 row written, then dispatched in its own worktree so it does
+  not collide with T6-12.
