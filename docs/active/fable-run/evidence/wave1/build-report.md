@@ -1,6 +1,51 @@
 # T6-2 build report — front-page redesign, step A, wave 1
 
-Branch `mon/wave1`, built from a worktree at `/Users/jessepike/code/projects/sec-market-wt/wave1`, off `preview`. Not merged anywhere. Last commit: `ca2e529 feat(web): add machine-surface links per agent-surface-spec section 6`.
+Branch `mon/wave1`, built from a worktree at `/Users/jessepike/code/projects/sec-market-wt/wave1`, off `preview`. Not merged anywhere. Original build's last commit: `ca2e529 feat(web): add machine-surface links per agent-surface-spec section 6`. A fix pass (T6-7) landed after this report was first written — see that section below for what changed and the branch's current last commit.
+
+## Fix pass T6-7
+
+Four small visual fixes from the coordinator's review of the wave 1 renders, applied on top of the build described below. No new features, no data changes.
+
+1. **Growth figures were colour-coded green/high, red/low in MarketPicture**, which visually ranks suppliers right under a caption that says they are labelled and not ranked, and the figures aren't like for like across vendors. Removed the tone-based colour class from `MarketPicture.tsx` (`market-picture__vendor-value--up`/`--down`) so every figure renders in the same neutral ink colour, same weight and size as before. `PrintGrid`'s scorecard uses its own separate `print-card__value--*` classes and was not touched, confirmed by grep before making the change. The two now-unused CSS rules (`.market-picture__vendor-value--up`, `--down`) were left in `web/src/index.css` rather than deleted, per this fix pass's own instruction not to delete a CSS rule; they're simply unreferenced now.
+2. **The domain grid was four columns at 1440**, leaving two orphan cards on their own row, and `align-items` defaulted to `stretch`, so short cards (Cloud Security, Identity, with only one or two vendors) stretched to match the tallest card in their row, leaving large empty white space. Changed `.market-picture__domains` to one column below 700px, two columns from 700px, three columns from 1100px (two even rows of three for the six domains, no orphan), and added `align-items: start` so each card sizes to its own content. Confirmed by screenshot at 390, 800, and 1440 that no card stretches and the three-column layout has no orphan row.
+3. **The as-of line sat flush against the issue-meta line with no gap**, because `.issue-hero__asof` had no bottom margin and the shared `.eyebrow` class has zero margin everywhere it's reused. Added `margin-bottom: 0.6rem` (about 10px) scoped to `.issue-hero__asof` alone, so nothing else that reuses `.eyebrow` elsewhere on the site is affected. Confirmed by screenshot that the two lines read as two lines at both widths.
+4. **The as-of line mentioned domain stances but rendered on the issue permalink too**, where no domains appear. Added a `showAsOf` prop to `IssueHero` (default `false`); the front page passes `showAsOf`, the permalink page does not, so the description and disclaimer lines still appear on both pages but the as-of line now appears on the front page only. Confirmed by screenshot of `/issues/2026-w36/` that the as-of line is gone while the description and disclaimer remain.
+
+   On the date question: it was a mistake, not a deliberate "latest across domains, platforms, and hypotheses" computation. The as-of line was reading `JUDGED_AS_OF_ISO` from `meta.ts`, a constant whose own doc comment says it covers the tracked hypotheses and platform-pressure reads specifically — not domains — and which happens to hold a different date (17 Aug 2026) than the domain cards (`domain.asOf`, all six of which are `2026-08-16`). I used the wrong constant when I first wrote this line. Fixed by sourcing the date directly from `securityDomains` (the same data `MarketPicture`'s cards read), computed as the latest `asOf` across all domains, so the line can never drift from what the cards say. It now reads "Domain stances judged 16 Aug 2026," matching the cards, and `JUDGED_AS_OF_ISO` remains correctly in use by `hypotheses.ts` and `platformPressure.ts`, which is what it was always for.
+
+### Assertion changes in the fix pass
+
+None. No test's expected behavior was changed. `IssueHero`'s new `showAsOf` prop is additive (defaults to `false`, matching the permalink's existing unchanged call site); the front page's call site was the only one updated.
+
+### Retest and recapture
+
+Killed a leftover `vite preview` process before testing this time (none was actually running, confirmed via `ss -ltnp | grep 4173` before starting). Full `npm test` passed clean: lint (0 warnings, 0 errors), 67 data tests, the full build with all 8 verify:dist checks, and 26 e2e tests (25 passed, 1 skipped). Tail:
+
+```
+> web@0.0.0 test:e2e
+> playwright test
+
+Running 26 tests using 5 workers
+1 skipped
+25 passed (9.8s)
+```
+
+Recaptured all 12 required screenshots, the market and follow crops, DOM measurements, and the axe scan; overwrote the originals in this folder. New measurements:
+
+| | 1440px | 390px |
+|---|---|---|
+| `#market` top | 514 | 799 |
+| `#follow` top | 7144 | 10919 |
+| `#read` top | 14111 | 16570 |
+| `#we-think` top | 2234 | 3991 |
+| `.we-think__signature` top | 2711 | 5078 |
+| Header height | 53 | 113 |
+| `#overview` top | 113 | 221 |
+| Total page height | 17084 | 21437 |
+
+`#market`'s top moved from 505 to 514 at 1440 (and 789 to 799 at 390) — the small gap added under the as-of line pushes everything below it down by roughly the same amount; nothing else changed shape. Page height moved by single-digit pixels for the same reason. Axe: zero violations at all six page/width combinations, same as the original build.
+
+Nothing looked wrong in the new renders. The three-column grid has no orphan row and no stretched short cards at 1440; the two-column middle breakpoint (checked at 800px) shows the same non-stretching behavior; the single column at 390 is unaffected by the grid change since it was already one column. The neutral-colour growth figures read cleanly against the alphabetical, unranked framing the caption already states. The gap between the as-of line and the issue-meta line reads as two distinct lines at both widths. The permalink page shows the description and disclaimer but not the as-of line, and its layout is otherwise unaffected.
 
 ## What was built, file by file
 
