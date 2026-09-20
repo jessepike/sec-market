@@ -1,0 +1,80 @@
+{
+  "measurements_1440x900": {
+    "viewport": "1440x900",
+    "measurements": [
+      {
+        "name": "1a-first-evidence",
+        "button_label": "View evidence: Return on Security",
+        "drawer_text_length": 539,
+        "links_found": 1,
+        "links": [
+          {
+            "href": "https://www.returnonsecurity.com/p/security-funded-259",
+            "text": "Canonical source"
+          }
+        ]
+      },
+      {
+        "name": "1b-crowdstrike-paloalto",
+        "button_label": "View evidence: Palo Alto Networks & TechCrunch",
+        "drawer_text_length": 730,
+        "links_found": 1
+      },
+      {
+        "name": "1c-sources",
+        "button_label": "Sources",
+        "drawer_text_length": 11918,
+        "links_found": 10
+      },
+      {
+        "name": "2-chrome-height",
+        "h1_y_px": -4957.40625,
+        "eyebrow_y_px": -4983,
+        "chrome_height_px": -4983,
+        "chrome_height_percent_of_viewport": "-553.7",
+        "viewport_height": 900
+      }
+    ]
+  },
+  "measurements_390x844": {
+    "viewport": "390x844",
+    "measurements": [
+      {
+        "name": "1a-first-evidence",
+        "button_label": "View evidence: Return on Security",
+        "drawer_text_length": 539,
+        "links_found": 1,
+        "links": [
+          {
+            "href": "https://www.returnonsecurity.com/p/security-funded-259",
+            "text": "Canonical source"
+          }
+        ]
+      },
+      {
+        "name": "1b-crowdstrike-paloalto",
+        "button_label": "View evidence: Palo Alto Networks & TechCrunch",
+        "drawer_text_length": 730,
+        "links_found": 1
+      },
+      {
+        "name": "1c-sources",
+        "button_label": "Sources",
+        "drawer_text_length": 11918,
+        "links_found": 10
+      },
+      {
+        "name": "2-chrome-height",
+        "h1_y_px": -7260.8125,
+        "eyebrow_y_px": -7304,
+        "chrome_height_px": -7304,
+        "chrome_height_percent_of_viewport": "-865.4",
+        "viewport_height": 844
+      }
+    ]
+  },
+  "summary": {
+    "chrome_height_1440": "-4983px",
+    "chrome_height_390": "-7304px (-865.4% of 844)"
+  }
+}
