@@ -3091,15 +3091,21 @@ summary:focus-visible,
 
 .market-picture__vendor-list {
   list-style: none;
-  margin: 0.5rem 0 0;
+  margin: 0.35rem 0 0;
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  /* T6-12 pass 2: tightened from 0.75rem — the evidence chip moved onto the
+     metric/period row (see .market-picture__vendor-metaRow below), so each
+     supplier no longer needs a full chip-height of extra breathing room
+     between rows. */
+  gap: 0.3rem;
 }
 
 .market-picture__vendor {
-  padding-top: 0.65rem;
+  /* T6-12 pass 2: tightened from 0.65rem for the same reason as the list gap
+     above — less vertical rhythm is needed once the chip shares a row. */
+  padding-top: 0.3rem;
   border-top: 1px solid var(--color-border);
 }
 
@@ -3135,10 +3141,40 @@ summary:focus-visible,
   color: var(--color-alert);
 }
 
+/* T6-12 pass 2: the evidence chip used to sit on its own line below the
+   metric/period text, costing a full chip-height per supplier. Putting the
+   two in one row (metric text left, chip right) is what let the six-supplier
+   Network card and the rest of "The market by domain" fit inside the 1440
+   budget below. Wraps to two lines on its own — long metric text (an older
+   figure plus a segment tag, for example) pushes the chip below rather than
+   overlapping it — and at narrow widths it's expected to drop to its own
+   line entirely. */
+.market-picture__vendor-metaRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.3rem 0.6rem;
+  margin-top: 0.15rem;
+}
+
 .market-picture__vendor-meta {
-  margin: 0.2rem 0 0;
+  margin: 0;
+  flex: 1 1 auto;
+  min-width: 0;
   font-size: 0.8rem;
   color: var(--color-text-muted);
+}
+
+/* T6-12 pass 2: a smaller chip only in this list — every other .evidence-link
+   on the page (print cards, week-moved, etc.) is untouched. Still comfortably
+   above the 24x24 CSS px minimum pointer target (WCAG 2.5.8), just no longer
+   the full 44px touch-target size the rest of the page uses. */
+.market-picture__evidence {
+  flex: 0 0 auto;
+  min-height: 28px;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.75rem;
 }
 
 .market-picture__older-figure,
