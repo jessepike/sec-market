@@ -1775,6 +1775,16 @@ summary:focus-visible,
     display: inline-flex;
   }
 
+  /* T6-12 pass 2: the header wraps the brand row and the Menu-button row
+     onto two lines at this width (nav order:3/width:100% below), so the
+     padding and the gap between those two wrapped rows cost proportionally
+     more of the viewport than at 1440, where everything fits on one line.
+     Menu stays >=44px tall (min-height on .nav-toggle, untouched). */
+  .site-header__inner {
+    padding: 0.5rem 1.25rem;
+    gap: 0.5rem 1rem;
+  }
+
   .site-header__nav ul {
     display: none;
     flex-direction: column;
@@ -2503,8 +2513,21 @@ summary:focus-visible,
 
   .rail__inner {
     flex-wrap: wrap;
-    gap: 0.5rem 1rem;
-    padding: 8px 1rem;
+    /* T6-12 pass 2: row-gap tightened from 0.5rem — the rail's brand+as-of
+       line and its two legend lines (three lines total at 390) is more
+       stacking than at 1440, so the gap between them costs proportionally
+       more of the viewport. Column-gap (1rem) is unchanged. */
+    gap: 0.3rem 1rem;
+    padding: 6px 1rem;
+  }
+
+  /* T6-12 pass 2: tightened from the body default (1.6) for the rail's three
+     narrow-width text elements only — same words, same date, same two
+     legend lines, just less line-box padding around each. */
+  .rail__brand,
+  .rail__asof,
+  .rail__legend {
+    line-height: 1.2;
   }
 
   .rail__rule {
@@ -2514,7 +2537,7 @@ summary:focus-visible,
   .rail__legend {
     flex-basis: 100%;
     margin-left: 0;
-    gap: 0.75rem;
+    gap: 0.5rem;
     flex-wrap: wrap;
   }
 
