@@ -83,3 +83,91 @@ Nothing else in any of the four crops moved. No colour changed. No section was r
 ## Assertions changed
 
 None. The new test is additive; no existing test's expected text, count, or visibility was touched.
+
+## Second pass (T6-12)
+
+Four small fixes on the same branch, addressing the cheapest failing tests an independent scorer identified. Commits, in order: `00e4ed1`, `7849c1f`, `9cb3c08`, `0523c8f`.
+
+### 1. Compact the supplier rows in "The market by domain"
+
+Each supplier's evidence chip sat on its own line below the metric and period text, costing a full chip-height per row. Moved the chip onto the same row as the metric/period text in `web/src/components/MarketPicture.tsx` (wrapped both in a new `market-picture__vendor-metaRow` div) and tightened the vertical gaps in `web/src/index.css`: the vendor list's gap went from 0.75rem to 0.3rem, each vendor's top padding from 0.65rem to 0.3rem, and the list's top margin from 0.5rem to 0.35rem. The evidence chip gets a smaller size only inside this list (`market-picture__evidence`: 28px min-height, 0.2rem/0.5rem padding, 0.75rem font), still above the 24x24 CSS px minimum pointer target, and every other evidence chip on the page is untouched.
+
+Where the metric text is long enough that it and the chip would collide (an older figure plus a segment tag, for example — CrowdStrike Falcon Cloud and Palo Alto XSIAM both hit this), the row wraps and the chip drops to its own line underneath rather than overlapping. Checked this directly in the crops below.
+
+Measurements, before and after, at 1440:
+
+| | Before | After | Target |
+|---|---|---|---|
+| `#market` bottom | 2202px | 1747px | ≤1750px |
+| `#we-think` top | 2234px | 1779px | <1800px |
+
+At 390 nothing needed to change beyond what the CSS already does; rows still read cleanly and the chip drops to its own line where the metric text is long, which is expected and fine per the task.
+
+### 2. Phone chrome — get `#overview` higher at 390
+
+At 390x844 the dark provenance rail (`web/src/components/ProvenanceRail.tsx`) stacks to three lines (brand + as-of on one line, then each legend line on its own), and the header wraps the Menu button onto its own row below the brand/date row. Neither component's markup changed; only `web/src/index.css`'s existing `@media (max-width: 768px)` rules were tightened:
+
+- `.rail__inner`: padding from `8px 1rem` to `6px 1rem`, row-gap from 0.5rem to 0.3rem (column-gap unchanged at 1rem).
+- Added `line-height: 1.2` for `.rail__brand`, `.rail__asof`, `.rail__legend` at this width only (body default is 1.6).
+- `.rail__legend`'s internal gap from 0.75rem to 0.5rem.
+- `.site-header__inner`: padding from `0.75rem 1.25rem` (the all-widths default) to `0.5rem 1.25rem`, and the wrap row-gap set to 0.5rem, at this breakpoint only.
+
+Nothing removed: the rail still shows the AS OF date and both legend lines ("TRACKED · public prints, no judgment" and "JUDGED · signed and dated by a person"), and the Menu button measured 44px tall in the browser (`min-height: 44px` on `.nav-toggle`, untouched). 1440 is untouched because every edit sits inside the existing max-width:768px media query.
+
+Measurements:
+
+| | Before | After | Target |
+|---|---|---|---|
+| `#overview` top at 390 | 221px | 184px | ≤205px |
+| `#overview` top at 1440 | 113px | 113px (unchanged) | n/a |
+
+### 3. Front-page eyebrow: link instead of raw id
+
+The first-screen eyebrow read "ISSUE 2026-W36 · WEEK ENDING 6 SEP 2026 · PUBLISHED 19 SEP 2026 · FEED" — "2026-w36" is an internal id a new reader has no way to decode. In `web/src/components/IssueHero.tsx`, on the front page only (gated on the existing `showAsOf` prop, which is already true only on the front page's call site and false everywhere else), the "Issue 2026-w36" lead-in becomes a link reading "Weekly issue" pointing at `/issues/2026-w36/`. The permalink page and the archive are unaffected — `showAsOf` defaults to false there, so they keep rendering the plain "Issue 2026-w36 · ..." text exactly as before. Confirmed by loading both routes directly:
+
+- Front page: `WEEKLY ISSUE · WEEK ENDING 6 SEP 2026 · PUBLISHED 19 SEP 2026 · FEED`, with "Weekly issue" linking to `/issues/2026-w36/`.
+- Permalink (`/issues/2026-w36/`): `ISSUE 2026-W36 · WEEK ENDING 6 SEP 2026 · PUBLISHED 19 SEP 2026 · FEED`, unchanged.
+
+Checked `web/tests/e2e/issue.spec.ts`, `web/tests/e2e/smoke.spec.ts`, and `verify:issue`'s render check (`scripts/verify-issue.ts`, check 10) for any assertion on the front-page eyebrow's id text. None exists — the render check calls `IssueHero` without `showAsOf`, so it exercises the unchanged permalink-style text, and the e2e specs check the archive list and the JSON feed by `issue.id` directly, never the front-page eyebrow string. No assertion changed.
+
+### 4. Name the author on the domain-stances as-of line
+
+Changed "Domain stances judged 16 Aug 2026." to "Domain stances judged 16 Aug 2026 by Jesse Pike." in `web/src/components/IssueHero.tsx`, using the `AUTHOR_NAME` constant from `web/src/data/meta.ts` (imported alongside the existing `LAST_UPDATED_DISPLAY` import) rather than typing the name again.
+
+### Test run (second pass)
+
+Ran `npm test` in the OrbStack dev VM after all four changes, and again after splitting the working tree into the four commits above to confirm the final state is identical. Both runs: fully green.
+
+```
+> web@0.0.0 lint
+> oxlint
+Found 0 warnings and 0 errors.
+
+> web@0.0.0 test:data
+(all data test suites passed)
+
+> web@0.0.0 build
+(verify:edition, verify:panel, verify:integrity, verify:issue all PASS; tsc, build:client, build:server, prerender, seo, build:feed, verify:dist all PASS)
+
+> web@0.0.0 test:e2e
+> playwright test
+
+Running 27 tests using 5 workers
+1 skipped
+26 passed (9.6s)
+```
+
+No existing assertion was weakened, changed, or removed. Page height dropped from 17084px to 16630px at 1440, and from 21437px to 20752px at 390 — expected, since compacting the market-by-domain section and the phone chrome both remove vertical space rather than add it.
+
+### What the crops show
+
+Captured `pass2-home-<width>-viewport.png`, `pass2-home-<width>-full.png`, and `pass2-home-<width>-market.png` at 1440 and 390 into this folder.
+
+- Viewport shots: at 1440 the rail, header, description, disclaimer, the new "Domain stances judged 16 Aug 2026 by Jesse Pike." line, the "WEEKLY ISSUE" link, and the top of "The market by domain" all read cleanly with nothing overlapping. At 390 the same content is visibly more compact at the top — rail on three tight lines, header on two tight lines, Menu button clearly tappable — before the h1 and the market section begin.
+- Market crops: every supplier row's evidence chip sits inline with short metric text (Cato Networks, Check Point, Fortinet, and so on) and drops cleanly to its own line under long metric text (CrowdStrike Falcon Cloud's "cloud ending ARR · FY26 · older figure · product line, not the whole company", Palo Alto XSIAM's similar combination) at both widths, with no overlap or collision in either case.
+
+Nothing else in any of the crops looked wrong.
+
+### Assertions changed
+
+None, in either the compaction work or the eyebrow-link work. The e2e suite passed unmodified.
