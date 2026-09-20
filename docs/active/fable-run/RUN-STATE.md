@@ -2,25 +2,26 @@
 
 ## Resume here
 
-Phase 2, the rubric and the baseline. Phase 1 is closed: nine research files, the captures and
-`docs/active/fable-run/research-synthesis.md` are committed. The coordinator is writing
-`docs/active/fable-run/site-rubric.md` itself (thirteen dimensions from the brief, revised per
-section 6 of the synthesis, anchors at 0, 3 and 5, weights, an explicit statement that it measures
-site quality and not outcomes, with a link to `docs/active/project-scorecard.md`). The exact next
-action after the rubric is committed: write ledger rows T2-1 to T2-3 to running and dispatch them
-in one message — T2-1 measurement pack on production (performance trace, accessibility tool pass
-and keyboard walk, DOM-measured pixel depths, items per screen), T2-2 machine-extraction test for
-D8, both `claude-sonnet-5`; then T2-3, a `claude-sonnet-5` scorer that scores production against
-the rubric from the evidence, independently of the coordinator, who scores it too. The two score
-sets are compared to test the "within one point" requirement, and the result goes into
-`docs/active/fable-run/score-baseline.md`. Baseline target is production,
-https://securitymarketpulse.com.
+Phase 3, design and plan. Phase 2 is closed: `site-rubric.md` v1.1 and `score-baseline.md`
+(production, composite 33.0, exposure denominator 1) are committed. Two preparation tasks were
+dispatched and may still be running: T3-1 codebase map (`docs/active/fable-run/codebase-map.md`,
+sonnet) and T3-2 monetization consult (`docs/active/fable-run/consults/monetization-consult.md`,
+opus). When both files exist, the coordinator writes three specs itself: `design-spec.md`,
+`agent-surface-spec.md`, `monetization-plan.md`. Then one `claude-opus-5` adversarial pass whose
+only job is to argue the plan fails (row T3-3), what survived is recorded in the specs, and the
+whole package (three specs plus the baseline) goes to the owner on agent-canvas as ONE
+`document-review` artifact using
+`~/code/_shared/capabilities-registry/templates/agent-canvas-review.html`, light theme, followed by
+`notify_user`. Then the turn ends. THIS IS A HARD STOP: no Phase 4 work of any kind until the
+owner answers. If canvas fails, retry once, then deliver in the terminal and say canvas failed.
+Host note: every shell command needs `export DEVELOPER_DIR=/Library/Developer/CommandLineTools`
+until the owner runs `sudo xcodebuild -license`.
 
-Last updated: 2026-09-20T07:10:00Z
+Last updated: 2026-09-20T09:55:00Z
 
 ## Phase
 
-Phase 2 — rubric and baseline. Closes when `site-rubric.md` and `score-baseline.md` are committed.
+Phase 3 — design and plan. Closes when the package is on agent-canvas and the owner is notified.
 
 ## Task ledger
 
@@ -39,7 +40,7 @@ Phase 2 — rubric and baseline. Closes when `site-rubric.md` and `score-baselin
 | T2-1 | Baseline measurement pack on production: performance (Lighthouse mobile and desktop, three runs, medians), accessibility (axe pass, keyboard walk, focus visibility, target sizes, 320 px reflow, contrast on small metadata), DOM-measured pixel depth of thesis and signature, items per first screen | claude-sonnet-5 | done | none | preview | n/a | docs/active/fable-run/evidence/baseline/measurements.md | 2026-09-20T08:15Z |
 | T2-2 | Machine-extraction test on production for D8: a cold agent with only the home URL tries to extract thesis, verdict, signer, date, one claim with its source, and the archive list; records every step and failure | claude-sonnet-5 | done | none | preview | n/a | docs/active/fable-run/evidence/baseline/machine-extraction.md | 2026-09-20T07:55Z |
 | T2-3 | Independent rubric scoring of production from the evidence, blind to the coordinator's scores | claude-sonnet-5 | done | none | preview | n/a | docs/active/fable-run/evidence/baseline/independent-scores.md | 2026-09-20T09:10Z |
-| T2-4 | Two missing measurements both scorers needed: capture of an opened evidence control on production (what a reader sees, whether it carries a real source link, source kind and retrieval date), and DOM height of site chrome at 390 | claude-haiku-4-5 | running | none | preview | n/a | docs/active/fable-run/evidence/baseline/evidence-drawer.md | 2026-09-20T09:20Z |
+| T2-4 | Two missing measurements both scorers needed: capture of an opened evidence control on production (what a reader sees, whether it carries a real source link, source kind and retrieval date), and DOM height of site chrome at 390 | claude-haiku-4-5 | done | none | preview | n/a | docs/active/fable-run/evidence/baseline/evidence-drawer.md | 2026-09-20T09:50Z |
 | T3-1 | Codebase map for the design spec: routes, components and which page sections each renders, data files and types (issue, weThink, market call, editions, domains), CSS tokens and structure, what every e2e test and verify gate asserts about page composition, build scripts for SEO and feed | claude-sonnet-5 | running | none (read-only) | preview | n/a | docs/active/fable-run/codebase-map.md | 2026-09-20T09:30Z |
 | T3-2 | Monetization model consult: who pays, for what, price, order and preconditions, 90-day and 12-month paths, what not to do, intent conflicts; argued from the research, with guesses labelled | claude-opus-5 | running | none (read-only) | preview | n/a | docs/active/fable-run/consults/monetization-consult.md | 2026-09-20T09:30Z |
 
@@ -206,4 +207,11 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
   (revision record in the file). Phase 3 preparation started in parallel with T2-4: T3-1 codebase
   map (sonnet) and T3-2 monetization consult (opus) rows written and dispatched. The baseline
   document is written when T2-4 returns.
+- 2026-09-20T09:50Z — T2-4 returned. Evidence panel carries a real "Canonical source" href,
+  publisher, publication date, source class, excerpt, interpretation and limitations, with correct
+  focus handling; no retrieved date shown. Site chrome at 390 is 221 px, 26.2 percent of the
+  viewport, so D4 test 4 fails.
+- 2026-09-20T09:55Z — Phase 2 closed. `score-baseline.md` written: reconciled composite 33.0
+  (coordinator 31.4, independent 37.2, no dimension more than one point apart). D1 0, D2 2, D3 1,
+  D4 1, D5 3, D6 2, D7 1, D8 2, D9 2, D10 4, D11 0, D12 2, D13 2.
 
