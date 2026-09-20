@@ -20,19 +20,21 @@ export default defineConfig({
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
-      testIgnore: /(issue|lens)\.spec\.ts/,
+      testIgnore: /(issue|lens|corrections)\.spec\.ts/,
     },
     // Spec §7: tests/e2e/issue.spec.ts and tests/e2e/lens.spec.ts both run at
-    // 1440×900 and 390×844.
+    // 1440×900 and 390×844. tests/e2e/corrections.spec.ts (SEC-MARKET-FABLE-001
+    // T6-13) joins them for the same reason — it checks the corrected-item
+    // note at both widths.
     {
       name: 'desktop',
       use: { ...devices['Desktop Chrome'], viewport: { width: 1440, height: 900 } },
-      testMatch: /(issue|lens)\.spec\.ts/,
+      testMatch: /(issue|lens|corrections)\.spec\.ts/,
     },
     {
       name: 'phone',
       use: { ...devices['Desktop Chrome'], viewport: { width: 390, height: 844 } },
-      testMatch: /(issue|lens)\.spec\.ts/,
+      testMatch: /(issue|lens|corrections)\.spec\.ts/,
     },
   ],
   // When E2E_BASE_URL is set (e.g. the live preview URL), there is nothing

@@ -225,7 +225,7 @@ describe('dist pipeline (real writers + real checks, fixture data)', () => {
   }
 
   it('writes feed.xml, issue JSON copies, index.json and lock.json, and every real check passes', () => {
-    writeFeedXml(fixtureIssues, tmpDir)
+    writeFeedXml(fixtureIssues, [], tmpDir)
     writeIssueJsonCopies(fixtureIssues, evidenceById, tmpDir)
     writeIssuesIndexJson(fixtureIssues, tmpDir)
     writeFileSync(lockSourcePath, `${JSON.stringify(fixtureLockManifest, null, 2)}\n`)
