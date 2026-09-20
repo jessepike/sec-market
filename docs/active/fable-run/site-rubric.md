@@ -1,6 +1,6 @@
 # Site quality rubric — Security Market Pulse
 
-**Artifact ID:** `SEC-MARKET-FABLE-RUBRIC` v1.0
+**Artifact ID:** `SEC-MARKET-FABLE-RUBRIC` v1.1
 **Written by:** the run coordinator, 2026-09-20, from `docs/active/fable-run/research-synthesis.md`
 **Used for:** the baseline in `score-baseline.md`, every build decision in Phase 4, and the
 re-score in `score-after.md`.
@@ -41,8 +41,8 @@ mechanically:
 
 | Score | Rule |
 |---|---|
-| 0 | The 0 anchor describes the site. |
-| 1 | Better than the 0 anchor, but fewer than half of the level-3 tests pass. |
+| 0 | No level-3 test passes. The 0 anchor is a description of what that usually looks like, not a separate test. |
+| 1 | At least one level-3 test passes, but fewer than half. |
 | 2 | At least half of the level-3 tests pass, but not all. |
 | 3 | All level-3 tests pass, and fewer than half of the level-5 tests pass. |
 | 4 | All level-3 tests pass and at least half of the level-5 tests pass, but not all. |
@@ -52,9 +52,19 @@ Half is rounded up (two of three, three of five). A scorer records the result of
 two scorers who disagree can find the test they read differently. Level-5 tests passed while a
 level-3 test fails do not raise the score; note them as credit waiting.
 
-**Honesty at small scale.** The site has one signed issue. No test rewards volume. Tests about
-history pass when the mechanism is visible and the real history is shown truthfully, however
-short.
+**Honesty at small scale.** This rule applies to every dimension. The site has one signed issue.
+No test rewards volume. Tests about history pass when the mechanism is visible and the real
+history is shown truthfully, however short. A test that cannot be exercised with one issue (for
+example, a past issue identifying itself as past) is scored on whether the mechanism exists in
+the page as served, and fails if it does not.
+
+**Defined terms.** *Link or control*: for a human reader, a button that reveals a source counts
+the same as a link, provided what it reveals contains a real `href` to the source; machine
+citability is scored only in D8. *Visible after at most one click*: the content itself is on
+screen after one click or tap; arriving at a closed section that needs a second click does not
+count. *Without expanding anything*: visible in the page's state after load with no interaction
+other than scrolling. *Site chrome*: everything above the first line of page content, measured by
+DOM as the top offset of the first content element.
 
 **Composite.** Composite = sum over dimensions of (score ÷ 5 × weight). Weights sum to 100.
 
@@ -62,8 +72,9 @@ short.
 
 - **Cadence cap.** If the newest signed issue was published more than 14 days before the scoring
   date, D3 cannot score above 2, whatever its tests say.
-- **Misstated freshness cap.** If any visible text claims or implies a cadence or freshness the
-  record contradicts, D12 cannot score above 2.
+- **Misstated freshness cap.** If any text on the site, including text inside a closed section,
+  states a cadence or freshness that contradicts either the publishing record or another statement
+  on the site, D12 cannot score above 2.
 
 ## 3. Weights
 
@@ -103,8 +114,8 @@ scrolling more than three screens.
 **Level 3**
 1. The standing thesis appears verbatim, as a sentence of its own, within the first screen at
    1440 and at 390.
-2. It is visually distinct from this week's headline, and labelled as the standing thesis or
-   equivalent, so a reader can tell the argument from the news.
+2. Within the first screen, it is visually distinct from this week's headline and labelled as
+   the standing thesis or equivalent, so a reader can tell the argument from the news.
 3. It is written without internal jargon: no term on the first screen needs another page to
    decode it ("the lag call", episode numbers, internal ids).
 4. One plain line on the first screen says what the site is and who signs it.
@@ -180,14 +191,14 @@ minutes?*
 **0:** The first screen carries no judgment: navigation, a headline and raw items only.
 
 **Level 3**
-1. Five seconds: the first screen at both widths carries a signed judgment (the thesis or this
-   week's read), not only tracked items.
+1. Five seconds: the first screen at both widths carries a statement of judgment (the thesis, or
+   this week's read; a headline that states the read counts), not only tracked items.
 2. Thirty seconds: within two screens of scrolling at 1440, a reader reaches what changed and
    what to do or avoid, without expanding anything.
 3. The highest-consequence items of the week are ordered or marked as such; a reader is not left
    to infer importance from a chronological list.
 4. At 390, the first screen carries the judgment in the same order as desktop, and site chrome
-   takes no more than a quarter of the viewport height.
+   takes no more than a quarter of the viewport height, measured by DOM.
 
 **Level 5**
 1. Three minutes: a reader who scrolls at reading pace for three minutes at 1440 has passed the
@@ -208,7 +219,8 @@ minutes?*
 **0:** Claims carry no sources, or sources are only listed in bulk elsewhere.
 
 **Level 3**
-1. Every tracked item on the front page names its source next to the item, with a working link.
+1. Every tracked item on the front page names its source next to the item, with a link or
+   control (see defined terms) that reaches the source.
 2. Every judgment block shows the evidence it rests on, or links to it directly, within one
    interaction.
 3. Tracked facts and signed judgments are visually distinguishable wherever both appear, not only
@@ -256,7 +268,8 @@ undifferentiated wall of text with no structure.
 **0:** One long page with no working navigation to past material.
 
 **Level 3**
-1. Every issue has a permanent URL, and the archive lists every issue with its date and verdict.
+1. Every issue has a permanent URL, and the archive lists every issue with its date and with its
+   verdict as a distinct labelled field (a verdict word inside a headline does not count).
 2. The current location is indicated (which issue, current or past), and a past issue says it is
    not the newest and links to the newest.
 3. Main sections of a long page are reachable by in-page navigation that works at both widths.
@@ -299,8 +312,8 @@ only the home URL, with no rendering.
    licence or terms statement for content and data is machine-discoverable.
 5. Immutability is discoverable and explained: the lock manifest is linked from the issue data,
    and a machine-readable statement says published issues do not change.
-6. A crawler policy is stated deliberately (whatever the owner decides), not left as a default,
-   and the HTML has no empty headings or duplicate ids.
+6. A crawler policy is stated deliberately (whatever the owner decides), not left as a default.
+7. The HTML has no empty headings and no duplicate ids on any route.
 
 ### D9 — Performance (5)
 
@@ -342,9 +355,11 @@ the front page; field data replaces lab data when it exists.
 2. Every pointer target is at least 24 by 24 CSS pixels or meets a listed exception (SC 2.5.8).
 3. A skip link is the first focus stop, and the signed judgment is reachable within 15 Tab
    presses.
-4. Charts have a text or table alternative that is reachable without a pointer, and non-text
-   contrast meets 3:1 (SC 1.4.11).
+4. Every chart has a text or table alternative that is reachable without a pointer.
 5. Landmarks and `time` elements with `datetime` are used throughout.
+6. Non-text contrast meets 3:1 (SC 1.4.11), measured by sampling the computed colours of
+   control borders, focus indicators and chart marks against their backgrounds; this test fails
+   as "not measured" until that sample exists.
 
 ### D11 — Conversion architecture (3)
 
@@ -377,10 +392,11 @@ misstated freshness cap.
 
 **Level 3**
 1. A named person signs the judgment, with a date, visibly.
-2. The method is reachable in one interaction from the front page and says how evidence becomes a
-   call.
+2. The method is visible after at most one click from the front page and says how evidence
+   becomes a call.
 3. The site says what it will not call and why.
-4. Who the author is, in one or two lines, is reachable in one interaction.
+4. Who the author is, in one or two lines beyond a name and an address, is visible after at most
+   one click.
 
 **Level 5**
 1. A corrections record with a stable address exists.
@@ -430,3 +446,4 @@ the change is recorded here.
 | Version | Date | Change |
 |---|---|---|
 | 1.0 | 2026-09-20 | First version, from the brief's thirteen dimensions revised against Phase 1 research. |
+| 1.1 | 2026-09-20 | After the agreement check. Two scorers landed within one point on all thirteen dimensions at v1.0 (five dimensions differed by one). Every test they read differently was reworded: the 0 rule is now "no level-3 test passes" (D1's anchor overlapped its first test); D1 test 2 is tied to the first screen; D4 test 1 says a headline stating the read counts; "link or control", "visible after at most one click", "without expanding anything" and "site chrome" are defined once; D7 test 1 requires the verdict as a labelled field; D8 level-5 test 6 and D10 level-5 test 4 were each split in two; the freshness cap names which contradictions trigger it; the small-scale rule is stated as general. |

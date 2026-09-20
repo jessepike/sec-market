@@ -40,6 +40,8 @@ Phase 2 — rubric and baseline. Closes when `site-rubric.md` and `score-baselin
 | T2-2 | Machine-extraction test on production for D8: a cold agent with only the home URL tries to extract thesis, verdict, signer, date, one claim with its source, and the archive list; records every step and failure | claude-sonnet-5 | done | none | preview | n/a | docs/active/fable-run/evidence/baseline/machine-extraction.md | 2026-09-20T07:55Z |
 | T2-3 | Independent rubric scoring of production from the evidence, blind to the coordinator's scores | claude-sonnet-5 | done | none | preview | n/a | docs/active/fable-run/evidence/baseline/independent-scores.md | 2026-09-20T09:10Z |
 | T2-4 | Two missing measurements both scorers needed: capture of an opened evidence control on production (what a reader sees, whether it carries a real source link, source kind and retrieval date), and DOM height of site chrome at 390 | claude-haiku-4-5 | running | none | preview | n/a | docs/active/fable-run/evidence/baseline/evidence-drawer.md | 2026-09-20T09:20Z |
+| T3-1 | Codebase map for the design spec: routes, components and which page sections each renders, data files and types (issue, weThink, market call, editions, domains), CSS tokens and structure, what every e2e test and verify gate asserts about page composition, build scripts for SEO and feed | claude-sonnet-5 | running | none (read-only) | preview | n/a | docs/active/fable-run/codebase-map.md | 2026-09-20T09:30Z |
+| T3-2 | Monetization model consult: who pays, for what, price, order and preconditions, 90-day and 12-month paths, what not to do, intent conflicts; argued from the research, with guesses labelled | claude-opus-5 | running | none (read-only) | preview | n/a | docs/active/fable-run/consults/monetization-consult.md | 2026-09-20T09:30Z |
 
 Status is one of: pending, running, blocked, in-review, done, abandoned.
 
@@ -200,4 +202,8 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
   v1.0. The scorer listed wording problems; the coordinator reconciles each differing test and
   bumps the rubric to v1.1.
 - 2026-09-20T09:20Z — T2-4 row written and dispatched (haiku): the evidence-drawer capture decides D5, which both scorers marked not determinable, and the chrome height closes wording problem 9.
+- 2026-09-20T09:30Z — `site-rubric.md` bumped to v1.1 with every differently-read test reworded
+  (revision record in the file). Phase 3 preparation started in parallel with T2-4: T3-1 codebase
+  map (sonnet) and T3-2 monetization consult (opus) rows written and dispatched. The baseline
+  document is written when T2-4 returns.
 
