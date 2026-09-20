@@ -764,3 +764,38 @@ unchanged.
 
 Still open and unchanged: the pilot list, arming the Tuesday schedule, and the runtime the gather job
 runs on now that the cloud environment has been proven unable to reach the public web.
+
+**D-67 · 2026-09-20 — The owner restated what the site is for; `docs/active/product-core.md` is the working statement, and the front page is re-aimed at it on `preview`.**
+
+In the terminal on 2026-09-20 the owner said the site is first a credibility asset for his advisory
+work and a working instrument for deciding which suppliers and domains deserve attention. It is
+written for security leaders and practitioners first, advisors and vendor partner teams second, and
+not for investors. The founding thesis becomes one standing analysis, no longer the centre.
+Monetization and the employer outside-activity question are parked by him. He wants it fully
+automated with a decision arriving in a channel once or twice a week, and he doubts that "a person
+signs every judgment" is the right model. `intent.md` and `.claude/rules/constraints.md` are
+unchanged; the proposed amendments are in `product-core.md` section 9 and wait for his word.
+
+Decisions the run took on its own recommendation, each recorded in
+`docs/active/fable-run/RUN-STATE.md`:
+
+- The scoring rubric is `docs/active/fable-run/site-rubric.md` v2.1. Decision value and trust carry
+  the most weight, and four blockers override any score: a mislabelled figure, an unsupported
+  comparison, machine content presented as the author's opinion, an accessibility failure.
+- The supplier table on the front page is alphabetical and ranks nothing. An external review on
+  `gpt-6-astra` showed that a table ranked by growth compares figures that are not like for like
+  and reads as an endorsement from an author who works for a reseller of these suppliers.
+- Copying newer issue figures into `prints.ts` is on hold until a gate checks company or segment,
+  metric, period and units together (SEC-044).
+- Promotion to `main` still needs the owner's explicit word. "Let's get it deployed" was read as
+  authority to build to `preview`, not to publish.
+- Automation step 0 is a GitHub Action that messages a webhook when a draft pull request opens;
+  approval is merging that pull request from the phone. No new backend.
+- Recommended and not yet decided by the owner: never take vendor sponsorship; concede the paid
+  data lane to existing newsletters; Plausible for analytics.
+
+Facts found on the way, all still true at the time of writing: signed issue `2026-w36` gives two
+fourth-quarter revenue figures as full-year figures (SEC-043, live on production); `prints.ts` is
+months behind the issue for six suppliers (SEC-045); every domain judgment dates from 2026-08-16;
+`.claude/rules/constraints.md` still lists the website and an autonomous pipeline as not
+authorized, which only the owner can amend.
