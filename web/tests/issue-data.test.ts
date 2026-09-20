@@ -73,8 +73,15 @@ describe('windowOf', () => {
 
 describe('thesisRunningScore', () => {
   it('is empty when there are no published issues', () => {
-    const score = thesisRunningScore(issues)
-    assert.deepEqual(score, { holds: 0, total: 0, since: null })
+    // Fixtures, not the live issues array: this asserted against real data and
+    // so passed only while every issue was a draft. Signing 2026-w36 on
+    // 2026-09-19 broke it, which was the test's fault rather than the code's.
+    assert.deepEqual(thesisRunningScore([]), { holds: 0, total: 0, since: null })
+    assert.deepEqual(thesisRunningScore([makeIssue({ id: '2026-w36' })]), {
+      holds: 0,
+      total: 0,
+      since: null,
+    })
   })
 
   it('counts holds and strengthens but not no-call, and ignores drafts', () => {
