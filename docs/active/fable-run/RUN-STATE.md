@@ -67,7 +67,7 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
 | T3-4 | Build ONE light-theme HTML owner packet from the shared agent-canvas review template, containing the design spec, the agent-surface spec, the monetization plan, the baseline and the adversarial result; no new claims, content only from the committed documents | claude-sonnet-5 | done | none | preview | n/a | docs/active/fable-run/owner-packet-phase3.html | 2026-09-20T13:20Z |
 | T5-1 | Automation and durability plan: what exists (gather job, draft pipeline, signing, lock), what is broken, where jobs should run, how a one-tap decision reaches the owner in a channel, the facts-versus-judgments publishing split, cost, exact steps; read-only apart from its output | claude-sonnet-5 | running | none | preview | n/a | docs/active/fable-run/automation-plan.md | 2026-09-20T21:45Z |
 | T5-2 | Content inventory against the product core: what vendor, domain, M&A, funding and distress data the site already holds and how fresh it is; what a security leader's first screen can be built from today with no new judgment; gaps | claude-sonnet-5 | done | none | preview | n/a | docs/active/fable-run/content-inventory.md | 2026-09-20T21:45Z |
-| T5-3 | Research: how market-pulse products written for practitioners (not investors) present vendor standing, consolidation and outlook; what makes them credible and returned to | claude-sonnet-5 | running | none | preview | n/a | docs/active/fable-run/research/10-practitioner-market-pulse.md | 2026-09-20T21:45Z |
+| T5-3 | Research: how market-pulse products written for practitioners (not investors) present vendor standing, consolidation and outlook; what makes them credible and returned to | claude-sonnet-5 | done | none | preview | n/a | docs/active/fable-run/research/10-practitioner-market-pulse.md | 2026-09-20T21:45Z |
 | T5-4 | Research: reliable public sources for distress and consolidation signals (debt, ratings actions, layoffs, shutdowns, take-privates) for security vendors and service firms, and how to cite them safely | claude-sonnet-5 | done | none | preview | n/a | docs/active/fable-run/research/11-distress-signal-sources.md | 2026-09-20T21:45Z |
 | T5-5 | Research: privacy-respecting analytics options for a static Vercel site, prices read from vendors' own pages, what each can say about return visits and sharing | claude-haiku-4-5 | done | none | preview | n/a | docs/active/fable-run/research/12-analytics-options.md | 2026-09-20T21:45Z |
 | T6-1 | External review of `product-core.md`, `site-rubric.md` v2.0 and `design-spec.md` v0.3 by Codex, read-only, the owner asked for this model by name | gpt-6-astra (codex exec -m) | running | none | preview | n/a | docs/active/fable-run/consults/external-review-astra.md | 2026-09-20T22:50Z |
@@ -326,4 +326,10 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
   read from vendor pages; its claim that Fathom shows returning visitors is unverified).
   Coordinator wrote `design-spec.md` v0.3 (market picture first, thesis moved down as a standing
   analysis, build steps A and B). T6-1, T6-2, T6-3 rows written, then dispatched.
+- 2026-09-20T23:10Z — T5-3 practitioner research done. Useful: peers bury the market read behind a
+  subscribe box; a plain "what this site does not cover" sentence works (Return on Security);
+  RapidRatings shows vendor financial standing can be scored for procurement readers without
+  reading as investment advice; trusted solo practitioners name themselves and their day job
+  openly; failed newsletters drift from weekly to "whenever", survivors never miss, so promise less
+  cadence than feels ambitious. Feeds product core questions 10 and 13.
 
