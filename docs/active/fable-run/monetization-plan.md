@@ -1,10 +1,21 @@
 # Monetization plan — Security Market Pulse
 
-**Artifact ID:** `SEC-MARKET-FABLE-MONEY` v0.1 (proposal, awaiting owner acceptance)
-**Written by:** the run coordinator, 2026-09-20
+**Artifact ID:** `SEC-MARKET-FABLE-MONEY` v0.2 (proposal, awaiting owner acceptance)
+**Written by:** the run coordinator, 2026-09-20. v0.2 is v0.1 revised after the adversarial pass
+(`consults/adversarial-pass.md`); section 11 lists what changed.
 **Built on:** `consults/monetization-consult.md` (an outside commercial read, consulted once),
 `research/03-peers-and-pricing.md`, `research/04-monetization-mechanics.md`,
 `research/09-browser-followup.md`, `research-synthesis.md`, `intent.md` v1.2 (read, not edited)
+
+**Whose judgment this is.** The sequence, the price, the stage gates, the twelve-month arithmetic,
+the three intent amendments and the independence text come from the outside consult, and this plan
+adopts them because the coordinator tried to fault them against the research and could not. The
+coordinator's own positions, where they add to or depart from the consult, are these: the
+employment question gates publishing and not only payment, so it moves to the front (section 1
+and M-3); the $3,000 figure rests on no organizational comparable and should not be refined further
+on paper (section 2); where and whether the employer is named is the owner's decision alone
+(section 7); crawler and licensing choices wait for the employment answer (agent-surface spec);
+and the tension with this run's own kickoff over investors (section 8).
 
 **How numbers are labelled.** *Fetched* means read from the publisher's own rendered page during
 this run. *Second-hand* means a platform report or blog that nobody on this run read at source.
@@ -12,6 +23,15 @@ this run. *Second-hand* means a platform report or blog that nobody on this run 
 second-hand or worse, and the plan says so wherever it leans on it.
 
 ## 1. The answer
+
+**Before any of it: one question for the owner's employer, this week.** The consult framed the
+employment question as a gate on taking money, nine months out. Its first part is about
+publishing: whether the employer's outside-activity policy requires disclosure or approval of a
+personally-owned publication that judges the market the employer sells into. The site is already
+live, already names its author, and already renders verdicts on segments containing vendors the
+employer resells. If disclosure or approval is required, it is required now. Nobody on this run has
+read those policies, so this is unverified in both directions, and it is the single question that
+could stop the project. Ask it in writing, now, alongside the gather runtime and the pilot list.
 
 Do not charge for anything for roughly nine months. Never charge for the content. Keep every
 issue, the archive, the thesis page and the machine surface free permanently, and rule out
@@ -33,13 +53,13 @@ this site's own sources. This site sells judgment and its track record, or it se
 |---|---|---|---|---|---|
 | 0, now | Nothing. The site is a credibility asset for the owner's existing advisory and account work. | Nobody | $0 | Not applicable. The return is real and cannot be attributed, which is its one weakness. | A named pilot list of ten to thirty of the right people |
 | 1, months 4 to 7 | A free quarterly scored recap: every verdict of the quarter against what happened, misses named | Nobody | $0 | Not applicable | Twelve or so issues to recap |
-| 2, months 8 to 12 | **Annual organizational licence**: a seat on the quarterly walk-through, a standing right to ask a question, internal circulation rights with attribution. No gated content. | Vendor competitive-intelligence or strategy teams, practice leaders at other resellers and integrators, CISO leadership teams, a conference or professional body | **$3,000 a year, range $2,400 to $6,000. A guess.** | Anchors, both fetched: Return on Security Signal Pro is $2,388 a year; The Information Pro is $999 a year. No team pricing below enterprise level was found anywhere, so there is no true comparable. | Twelve consecutive signed issues, two published recaps, three unprompted organizational enquiries, the employment question answered in writing, intent amended |
+| 2, months 8 to 12 | **Annual organizational licence**: a seat on the quarterly walk-through, a standing right to ask a question, internal circulation rights with attribution. No gated content. | Vendor competitive-intelligence or strategy teams, practice leaders at other resellers and integrators, CISO leadership teams, a conference or professional body | **$3,000 a year. A guess with nothing under it.** | The two fetched prices nearby (Return on Security Signal Pro at $2,388 a year, The Information Pro at $999 a year) are **individual** subscriptions, so they do not bound an organizational licence. The only organizational anchor found is second-hand (analyst-firm seats at $20,000 to $50,000). The number is bounded by nothing in either direction. | Twelve consecutive signed issues, two published recaps, three unprompted organizational enquiries, the employment question answered in writing, intent amended |
 | 3, from month 9, inbound only | Briefings: the judgment applied live to one organization's situation | The same buyers | $2,500 to $7,500 each. A guess. | The nearest anchor is second-hand (an analyst firm's day rate of $5,000 to $15,000) | The same, capped at two a quarter, and preferably treated as the owner's own advisory work outside this project |
 | Low priority | A voluntary supporter tier with no perks | Individual readers | $9 a month. A guess. | Fetched comparable: Return on Security's backer tier at $12 a month with "no extra perks" | A payment provider, which is an owner gate. Expect almost nothing: the median paid conversion of 0.62 percent is second-hand, and at a thousand readers it means six people. |
 
-**One thing a real conversation would settle better than this whole file.** The $3,000 figure
-carries the plan and rests on no comparable. One honest conversation with one plausible buyer
-would tell the owner more than all the pricing research did.
+**Stop researching this number.** The $3,000 figure carries the plan and rests on no comparable.
+More desk research will not settle it. One honest conversation with one plausible buyer will, and
+that conversation cannot happen until the track record exists.
 
 ## 3. What is free, permanently
 
@@ -86,6 +106,10 @@ machinery:**
 4. One contact sentence for organizations, **only if the owner approves it** (rubric D11 L5-4 is
    written to pass only with that approval): "This publication takes no vendor sponsorship. If
    your organization wants this judgment applied to its situation, write to me."
+
+Item 1 is wave 1. Items 2, 3 and 4 are wave 2, after a second signed issue, and items 3 and 4 also
+wait for the answer to M-3, because they are public statements about the owner's commercial
+independence.
 
 No email capture (held until the 2026-10-08 review under SEC-029), no form, no price, no payment
 code, no feature flag. The brief is the constitution for this run, so this is a proposed change to
@@ -146,7 +170,8 @@ employer is the owner's decision alone, and nothing in this run names it.
 
 ## 8. Conflicts with intent, as proposed amendments only
 
-`intent.md` is not edited by this run. Stages 0 to 3 need **no** amendment: free issues, the
+`intent.md` is not edited by this run. Stages 0 to 3 need **no** intent amendment (they do still
+depend on the answer to M-3): free issues, the
 thesis page, the machine surface, the pilot list, a public list after the review and a free recap
 are all inside intent v1.2 as written. Only stage 4 needs these, and only when it is reached.
 
@@ -172,7 +197,7 @@ security leaders and lets investors read.
 |---|---|---|---|
 | M-1 | Gather runtime under SEC-039 | Everything, including the project itself | Hold the one-week deadline on the cloud allowlist; if the probe fails, go local |
 | M-2 | Name the pilot list | The exposure denominator, the impact log, every claim of value | Ten to fifteen people this week |
-| M-3 | **The employment question.** Does the employer's outside-activity policy require disclosure or approval of this publication? Does taking payment from a partner, competitor or client need approval? Does the gift policy treat sponsorship as an inducement? | Every direct-revenue model | Ask now, in writing, while the answer is hypothetical and cheap. Nobody on this run has read those policies, and every statement here about them is unverified. |
+| M-3 | **The employment question. Ranked with M-1 and M-2, ahead of everything else.** Does the employer's outside-activity policy require disclosure or approval of this publication? (This part is about publishing and applies today.) Does taking payment from a partner, competitor or client need approval? Does the gift policy treat sponsorship as an inducement? | Possibly the site itself; certainly every direct-revenue model, the crawler policy and the content licence | Ask this week, in writing. Nobody on this run has read those policies, and every statement here about them is unverified. |
 | M-4 | Vendor sponsorship: ever? | The independence statement | Never, and publish it |
 | M-5 | May this project ever earn money directly? | Amendments A to C | Allowed, not pursued until the stage 4 gate, written down so nobody guesses |
 | M-6 | May an investor hold a licence? | Two buyer types | Yes, with the written line in section 4; prefer other buyers |
@@ -202,6 +227,22 @@ this project has been unable to make. Two things end the commercial path outrigh
 M-3 that makes outside payment awkward, or twelve signed issues with no unprompted organizational
 enquiry. In either case stop at stage 3 and keep the site as a free credibility asset.
 
-## 11. Adversarial pass
+## 11. Adversarial pass: what changed and what survived
 
-To be completed after task T3-3.
+Task T3-3, `claude-opus-5`, `consults/adversarial-pass.md`.
+
+| Finding | Outcome |
+|---|---|
+| 10. The employment question was parked nine months out, and its first part bites today | Accepted in full. Now the first thing in section 1 and ranked with M-1 and M-2. This is the most important change the pass produced |
+| 11. The plan was the consult with a cover sheet, with no recorded disagreement | Accepted. The header now says what is the consult's and what is the coordinator's. The plan still adopts most of the consult, and says so, because the coordinator could not fault it |
+| 11. $3,000 was presented as bounded by a range when its anchors are individual subscriptions | Accepted. Section 2 now says the number is bounded by nothing |
+| 5 (front). Is cutting `mon/convert` the coordinator avoiding work? | The reviewer went further and would drop the stream entirely until four issues are signed. Of section 5's four items only the first (the feed and follow line) is in wave 1; the free-forever sentence, the independence text and the contact sentence wait for wave 2 and for M-3 |
+
+**What the reviewer tried to break and could not:** the refusal to gate content, the permanent
+refusal of vendor sponsorship, and section 10, which it judged to argue the case against
+monetizing at full strength.
+
+**Is this a plan, or a decision to do nothing dressed as strategy?** For the first nine months it
+is a decision to earn nothing, made on purpose, with gates that are counts of signed issues and
+unprompted enquiries and with two stated conditions that end the commercial path. That is a plan
+only if the gates are kept. If cadence does not start, none of it applies.

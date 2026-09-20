@@ -1,6 +1,6 @@
 # Site quality rubric — Security Market Pulse
 
-**Artifact ID:** `SEC-MARKET-FABLE-RUBRIC` v1.1
+**Artifact ID:** `SEC-MARKET-FABLE-RUBRIC` v1.2
 **Written by:** the run coordinator, 2026-09-20, from `docs/active/fable-run/research-synthesis.md`
 **Used for:** the baseline in `score-baseline.md`, every build decision in Phase 4, and the
 re-score in `score-after.md`.
@@ -203,8 +203,7 @@ minutes?*
 **Level 5**
 1. Three minutes: a reader who scrolls at reading pace for three minutes at 1440 has passed the
    judgment, the change conditions, the domain postures and the week's main evidence, measured as
-   everything essential sitting within the first 40 percent of page height or within 5,000
-   pixels, whichever is smaller.
+   everything essential sitting within the first 5,000 pixels, by DOM.
 2. The signed judgment sits within the first screen's height plus one scroll (under 1,800 pixels
    at 1440, under 1,700 at 390), measured by DOM.
 3. The first screen names the decision horizon or the reader it is written for, so a security
@@ -447,3 +446,4 @@ the change is recorded here.
 |---|---|---|
 | 1.0 | 2026-09-20 | First version, from the brief's thirteen dimensions revised against Phase 1 research. |
 | 1.1 | 2026-09-20 | After the agreement check. Two scorers landed within one point on all thirteen dimensions at v1.0 (five dimensions differed by one). Every test they read differently was reworded: the 0 rule is now "no level-3 test passes" (D1's anchor overlapped its first test); D1 test 2 is tied to the first screen; D4 test 1 says a headline stating the read counts; "link or control", "visible after at most one click", "without expanding anything" and "site chrome" are defined once; D7 test 1 requires the verdict as a labelled field; D8 level-5 test 6 and D10 level-5 test 4 were each split in two; the freshness cap names which contradictions trigger it; the small-scale rule is stated as general. |
+| 1.2 | 2026-09-20 | After the adversarial pass on the Phase 3 specs (`consults/adversarial-pass.md`, finding 8). D4 level-5 test 1 read "within the first 40 percent of page height or within 5,000 pixels, whichever is smaller", which no short page can pass and which pulled against D6 level-5 test 1 (a page under 6,000 pixels). It is now a flat 5,000 pixels. The baseline is unaffected: D4 fails at level 3, so no level-5 test changes its score. |

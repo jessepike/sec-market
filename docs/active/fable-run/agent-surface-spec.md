@@ -1,9 +1,10 @@
 # Agent surface specification — Security Market Pulse
 
-**Artifact ID:** `SEC-MARKET-FABLE-AGENT` v0.1 (proposal, awaiting owner acceptance)
-**Written by:** the run coordinator, 2026-09-20
+**Artifact ID:** `SEC-MARKET-FABLE-AGENT` v0.2 (proposal, awaiting owner acceptance)
+**Written by:** the run coordinator, 2026-09-20. v0.2 is v0.1 revised after the adversarial pass
+(`consults/adversarial-pass.md`); section 10 lists what changed.
 **Built on:** `research/05-agent-readable-web.md`, `evidence/baseline/machine-extraction.md` (with
-the coordinator's correction note), `codebase-map.md`, `site-rubric.md` v1.1 dimension D8
+the coordinator's correction note), `codebase-map.md`, `site-rubric.md` v1.2 dimension D8
 
 ## 1. The position
 
@@ -17,6 +18,11 @@ Most of the work is linking and labelling things that already exist. The baselin
 working JSON files and a lock manifest that nothing on the site links to, so a cold agent found
 one by guessing and never found the others. D8 scores 2 of 5 today. Linking the files and
 completing one JSON-LD block reaches 3 on its own.
+
+The work is split the same way as the design. **Wave 1** is linking what exists: links from the
+HTML and the sitemap to the three JSON files and the lock manifest, a visible feed link, and
+`author` and dates on the archive JSON-LD. That alone takes D8 from 2 to 3. **Wave 2** is
+everything else in section 3, and starts only after a second issue has been signed.
 
 Everything in this specification is a static file produced at build time. There is no server, no
 function, no database, no key and no account. The whole surface is free, and the monetization
@@ -37,7 +43,7 @@ is what this project lacks.
 | Robots | `/robots.txt` | Static default `Allow: /`. No stated policy. |
 | Markdown | none | `.md` addresses and `Accept: text/markdown` return nothing. |
 
-## 3. What gets added
+## 3. What gets added (wave 2, except where marked)
 
 ### 3.1 A site manifest: `/index.json`
 
@@ -85,18 +91,23 @@ verdict, confidence, signer and date, with no prose parsing.
 {
   "schemaVersion": 1,
   "id": "standing-thesis",
-  "statement": "Infrastructure is running ahead. Security is splitting, not booming.",
+  "position": {
+    "text": "Infrastructure is running ahead. Security is splitting, not booming.",
+    "verdict": "holds",
+    "confidence": "medium",
+    "asOf": "2026-09-19",
+    "signedBy": "Jesse Pike",
+    "issueId": "2026-w36",
+    "doesNotClaim": ["<marketCall.noCallBoundaries>"],
+    "basis": "<weThink.thesis.basis>",
+    "url": "https://securitymarketpulse.com/issues/2026-w36/#we-think",
+    "restatement": "If you restate this position, carry its confidence, its date and its signer."
+  },
   "meaning": "<marketCall.meaning>",
   "since": "2026-08-15",
-  "doesNotClaim": ["<marketCall.noCallBoundaries>"],
   "changeConditions": [
-    { "id": "c1", "text": "<marketCall.changeTriggers[0]>", "status": "no-movement", "asOf": "2026-09-19" }
+    { "id": "c1", "text": "<marketCall.changeTriggers[0]>" }
   ],
-  "current": {
-    "verdict": "holds", "confidence": "medium", "basis": "<weThink.thesis.basis>",
-    "issueId": "2026-w36", "signedBy": "Jesse Pike", "signedOn": "2026-09-19",
-    "url": "https://securitymarketpulse.com/issues/2026-w36/#we-think"
-  },
   "history": [
     { "issueId": "2026-w36", "weekEnding": "2026-09-06", "published": "2026-09-19",
       "verdict": "holds", "confidence": "medium", "signedBy": "Jesse Pike",
@@ -109,7 +120,17 @@ verdict, confidence, signer and date, with no prose parsing.
 }
 ```
 
-`status` and `asOf` on the conditions appear only if the owner accepts design decision D-3. The
+**There is no bare `statement` field, on purpose.** Intent requires that claims keep their
+uncertainty and that judgments carry their confidence and basis. A top-level one-sentence market
+position is the easiest thing for an answer engine to quote with everything else stripped off. So
+the smallest quotable unit is the `position` object, and the sentence cannot be read from it
+without its verdict, confidence, date, signer and what it does not claim sitting beside it. The
+terms ask any restatement to carry them. This does not force anyone to comply; it makes the
+labelled form the easy form.
+
+`position` is always built from the **newest published issue**, never from a draft. Each condition
+gains `status` and `asOf` only once the owner has set them on the standing call in
+`web/src/data/market.ts` (design decision D-3); until then the fields are absent, not invented. The
 public id is `standing-thesis`. The internal id `episode-002` does not appear on any public
 surface.
 
@@ -138,16 +159,16 @@ At build time, one Markdown file per route, written from the same data the HTML 
 `<link rel="alternate" type="text/markdown" href="index.md">`. Each file starts with a short
 front-matter block: title, canonical address, signer, signed date, verdict, and the lock address.
 
-Serving the Markdown in answer to `Accept: text/markdown` is possible with a header-matched
-rewrite in `vercel.json` and no function. It is a stretch item: verify on a preview that the CDN
-does not serve the Markdown to a browser from cache before it goes near `main`.
+The site does not negotiate on `Accept: text/markdown`. A header-matched rewrite serves two bodies
+from one address, the CDN caches by address, and a wrong cached body would reach browsers. The
+files and the `rel="alternate"` links are what the rubric asks for, and they cannot fail that way.
 
 ### 3.5 JSON-LD
 
 - `Organization` with `@id` `https://securitymarketpulse.com/#publisher` and `Person` with `@id`
   `https://securitymarketpulse.com/#author`, declared once and referenced from every route.
 - `WebSite` on the front page.
-- `author`, `datePublished` and `dateModified` added to the archive's `CollectionPage`, which is
+- **Wave 1.** `author`, `datePublished` and `dateModified` added to the archive's `CollectionPage`, which is
   the one L3 test the JSON-LD fails today.
 - `license` and `usageInfo` pointing at `/method/#terms` on every `Report` and `Article`.
 - `/thesis/` is an `Article` whose `about` names the thesis, with `hasPart` linking the issues
@@ -155,9 +176,10 @@ does not serve the Markdown to a browser from cache before it goes near `main`.
 
 ### 3.6 Feed, sitemap, robots, llms.txt
 
-- The feed gets a visible link in the navigation and in the follow line. Each entry's summary
+- **Wave 1.** The feed gets a visible link in the navigation and in the follow line. Each entry's summary
   leads with the verdict word.
-- The sitemap lists the JSON endpoints, the Markdown copies and the new routes.
+- The sitemap lists the JSON endpoints (wave 1: the three that exist and the lock manifest), then
+  the Markdown copies and the new routes.
 - `robots.txt` stops being a default and states a policy, section 4.
 - `/llms.txt`: about twenty lines pointing at `/index.json`, `/thesis/index.md` and the archive.
   The research found that the large crawlers ignore this file today. It costs almost nothing and
@@ -174,10 +196,15 @@ policy is.
 | B. Allow search and answer-time retrieval, disallow training crawlers | Named training agents disallowed (for example GPTBot, CCBot, Google-Extended); retrieval agents allowed. | Keeps live citation. Holds back the corpus. | The list of agents goes stale. Compliance is voluntary. Costs recall in future models, which is where a standing thesis would most like to be remembered. |
 | C. Block all AI crawlers | Disallow every known AI agent. | Maximum control. | Directly opposes one of the brief's three pillars. |
 
-**Recommendation: A.** The exposure denominator is one. The scarce thing is being read and cited
-at all, and the monetization plan sells access to the author, never the text. A is also the only
-option that needs no owner gate, only an acknowledgement. If the owner prefers B or C, that is an
-owner-gated change and is parked until he says so.
+**Nothing here is decided or built until the owner has asked his employer the outside-activity
+question (monetization plan, M-3).** Granting the public, and machine training, standing
+permission over his judgments about a market his employer sells into is a decision to make after
+that answer, not before. Wave 1 leaves `robots.txt` exactly as it is.
+
+**Recommendation once M-3 is answered: A.** The exposure denominator is one. The scarce thing is
+being read and cited at all, and the monetization plan sells access to the author, never the text.
+The honest cost, stated plainly: A is the one choice on this page that cannot be taken back, since
+text already crawled stays crawled. B and C are owner-gated changes and are parked until he says so.
 
 ## 5. Terms for content and data
 
@@ -188,11 +215,18 @@ D8 L5-4 needs a machine-discoverable licence or terms statement. Three options:
 2. Creative Commons Attribution 4.0 for text and data.
 3. Creative Commons Attribution-NonCommercial 4.0.
 
-**Recommendation: 1 for now.** A Creative Commons grant cannot be withdrawn, the owner has an
-unanswered question with his employer about this publication (see the monetization plan), and
-NonCommercial is ambiguous for enterprise and agent use. Plain terms give agents the permission
-they need and can be widened to CC BY later, after twelve issues. This is the owner's call and
-the text is his to edit; it lives at `/method/#terms`.
+**Recommendation: match the terms to the crawler policy.** v0.1 recommended plain terms because a
+Creative Commons grant cannot be withdrawn, while recommending crawler option A, which also cannot
+be withdrawn. The adversarial pass was right that those two positions contradict each other, and
+right that "all rights reserved" beside a robots file inviting training is a signal no crawler
+resolves in the author's favour. The consistent pairs are:
+
+- Crawler option A with **CC BY 4.0**, declared by its URL and SPDX identifier in the JSON-LD, so
+  a machine can interpret it and not merely find it. This is the recommendation if the owner wants
+  reach.
+- Crawler option B with plain permissive terms, if the owner wants to hold the corpus back.
+
+Either way the text lives at `/method/#terms`, is the owner's to edit, and waits for M-3.
 
 ## 6. Verification
 
@@ -224,12 +258,10 @@ links, and cites one item by address.
 
 ## 8. What this should do to the score
 
-D8 from 2 to 4 with the build alone, and to 5 once the owner has acknowledged a crawler policy
-and approved the terms text. Ten points of weight, so four to six points of composite.
+D8 from 2 to 3 with wave 1, to 4 with wave 2, and to 5 once the owner has decided a crawler policy
+and approved terms. Ten points of weight, so two, four and six points of composite.
 
 ## 9. The strongest case against this surface
-
-Written before the adversarial pass; section 10 records what that pass added.
 
 No agent is asking for this. The research could not find evidence that Markdown copies, `llms.txt`
 or a thesis endpoint cause any agent to cite a small publication more often, and the large
@@ -243,6 +275,20 @@ weekly signing, and the immutability claim is a real difference worth stating to
 It is sequenced after the first screen and the thesis page for exactly this reason, and nothing
 in it is worth delaying an issue for.
 
-## 10. Adversarial pass
+## 10. Adversarial pass: what changed and what survived
 
-To be completed after task T3-3.
+Task T3-3, `claude-opus-5`, `consults/adversarial-pass.md`.
+
+| Finding | Outcome |
+|---|---|
+| 1. A draft 2026-w37 exists; `current` assumed a signed newest issue | Accepted. `position` is built from the newest published issue |
+| 3. The example showed condition statuses dated to a locked issue | Accepted. Statuses come from `market.ts`, set by the owner, absent until then |
+| 12. Recommending irreversible crawler access while rejecting Creative Commons as irreversible; bespoke terms are findable but not interpretable; approving either before the employment question is the wrong order | Accepted in full. Sections 4 and 5 rewritten; nothing is decided before M-3; wave 1 leaves `robots.txt` alone |
+| 13. A bare thesis string strips the labels intent requires | Accepted. The `position` object in 3.2. The sharpest catch of the pass |
+| 15. A fail-closed build check bolted onto an `Accept` rewrite nobody has seen work | Accepted. No content negotiation; files and `rel="alternate"` only |
+| 2. Build a quarter | Accepted as wave 1: links, sitemap entries, visible feed, archive JSON-LD |
+
+**What the reviewer tried to break and could not:** leaving the issue JSON bodies untouched and
+publishing the address rule once keeps the immutability proof simple; item ids on front-page rows
+create no duplicate ids; `verify-dist` compares `JSON.parse(JSON.stringify(issue))` on both sides,
+so nothing here disturbs the lock.

@@ -2,26 +2,24 @@
 
 ## Resume here
 
-Phase 3, design and plan. The three specs are written and committed as v0.1 proposals:
-`design-spec.md`, `agent-surface-spec.md`, `monetization-plan.md`. Task T3-3, one `claude-opus-5`
-adversarial pass whose only job is to argue the plan fails, writes
-`consults/adversarial-pass.md`. If that file does not exist or is incomplete, re-dispatch T3-3.
-When it exists: the coordinator fills the "Adversarial pass" section at the end of each spec with
-what survived and what changed, then task T3-4 (`claude-sonnet-5`) builds ONE light-theme HTML
-artifact at `docs/active/fable-run/owner-packet-phase3.html` from
-`~/code/_shared/capabilities-registry/templates/agent-canvas-review.html`, containing the design
-spec, the agent-surface spec, the monetization plan and the baseline. The coordinator sends it
-with `mcp__agent-canvas__dispatch_interaction` (class `document-review`) and then
-`mcp__agent-canvas__notify_user`. Then the turn ends. THIS IS A HARD STOP: no Phase 4 work of any
-kind until the owner answers. The owner's "Continue until fully completed" was given before any
-plan existed and is not acceptance of it. If canvas fails, retry once, then deliver in the
-terminal and say canvas failed.
+Phase 3, design and plan. The three specs are at v0.2, revised after the adversarial pass
+(`consults/adversarial-pass.md`, T3-3, done), and the rubric is at v1.2. The main change: Phase 4
+is now proposed to the owner as two waves (wave 1 is a small reorder in one worktree; wave 2 waits
+for a second signed issue), with the full brief and wave-1-only as the alternatives. Task T3-4
+(`claude-sonnet-5`) builds `docs/active/fable-run/owner-packet-phase3.html`. If that file is
+missing or incomplete, re-dispatch T3-4. When it exists: spot-check it, commit, push, then send it
+with `mcp__agent-canvas__dispatch_interaction` (class `document-review`, `artifact_path` absolute)
+and `mcp__agent-canvas__notify_user`, log the interaction id here, and END THE TURN. THIS IS A HARD
+STOP: no Phase 4 work of any kind until the owner answers. His "Continue until fully completed"
+came before any plan existed and is not acceptance of it. If canvas fails, retry once, then
+deliver in the terminal and say canvas failed. On the next resume, first call
+`mcp__agent-canvas__get_user_messages` for the owner's answer.
 Host note: every shell command needs `export DEVELOPER_DIR=/Library/Developer/CommandLineTools`
 until the owner runs `sudo xcodebuild -license`. A parallel session is working in this checkout
-(it has touched `lessons.md`, `web/src/data/evidence.ts` and a draft `2026-w37` issue): stage
-named paths only, never `git add -A`.
+and has a draft issue on branch `issue/2026-w37`: stage named paths only, never `git add -A`, and
+never edit `web/src/data/issues/` or `web/src/data/evidence.ts`.
 
-Last updated: 2026-09-20T11:20:00Z
+Last updated: 2026-09-20T12:40:00Z
 
 ## Phase
 
@@ -49,7 +47,8 @@ Phase 3 — design and plan. Closes when the package is on agent-canvas and the 
 | T3-2 | Monetization model consult: who pays, for what, price, order and preconditions, 90-day and 12-month paths, what not to do, intent conflicts; argued from the research, with guesses labelled | claude-opus-5 | done | none (read-only) | preview | n/a | docs/active/fable-run/consults/monetization-consult.md | 2026-09-20T10:10Z |
 
 Status is one of: pending, running, blocked, in-review, done, abandoned.
-| T3-3 | Adversarial pass on the three Phase 3 specs: argue the plan fails, find what is wrong, unsupported, contradictory or unsafe against the gates; read-only apart from its one output file | claude-opus-5 | running | none (read-only) | preview | n/a | docs/active/fable-run/consults/adversarial-pass.md | 2026-09-20T11:20Z |
+| T3-3 | Adversarial pass on the three Phase 3 specs: argue the plan fails, find what is wrong, unsupported, contradictory or unsafe against the gates; read-only apart from its one output file | claude-opus-5 | done | none (read-only) | preview | n/a | docs/active/fable-run/consults/adversarial-pass.md | 2026-09-20T12:10Z |
+| T3-4 | Build ONE light-theme HTML owner packet from the shared agent-canvas review template, containing the design spec, the agent-surface spec, the monetization plan, the baseline and the adversarial result; no new claims, content only from the committed documents | claude-sonnet-5 | running | none | preview | n/a | docs/active/fable-run/owner-packet-phase3.html | 2026-09-20T12:40Z |
 
 ## Owner gates
 
@@ -244,4 +243,19 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
   twelve issues; recommends cutting the brief's `mon/convert` stream to four non-commercial items,
   which is a proposed change to the brief and needs the owner's yes. T3-3 row written, then
   dispatched.
+- 2026-09-20T12:10Z — T3-3 adversarial pass done: sixteen findings. Coordinator spot-checked the
+  five most load-bearing facts against the code (branch `issue/2026-w37`, `ProvenanceRail` in
+  `App.tsx`, `smoke.spec.ts` line 38, `NextEdition.tsx` text, `constraints.md` line 19); all
+  correct. Accepted: draft-issue state and branching rule; two-wave scope; condition statuses move
+  from the issue model to `market.ts` and the `lead` field is dropped (SEC-027 owns the issue
+  model); the 48 px chrome claim was wrong (needed deleting the provenance rail), now 138 px with
+  the header date stamp as its own owner decision; first screen respecified from the real strings
+  with a measured prototype as the first build task; the "late" label dropped as impossible on a
+  static site; projection recomputed (wave 1 about 55 to 60, both waves about 69 to 79, was
+  misadded in v0.1); rubric v1.2 fixes an unpassable D4 test; the employment question moved to
+  the front because its first part is about publishing, not payment; crawler and licence choices
+  wait for that answer; `/thesis.json` carries a labelled `position` object and no bare statement;
+  no `Accept` negotiation. One correction to the reviewer: production can never show a draft
+  (`verify-issue` production guard), so finding 1 affects previews and merges only.
+- 2026-09-20T12:40Z — Specs v0.2 and rubric v1.2 committed. T3-4 row written, then dispatched.
 
