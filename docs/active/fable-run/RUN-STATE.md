@@ -30,7 +30,7 @@ Phase 1 — research fan-out. Closes when all eight research files exist, are co
 | T1-4 | Research: monetization mechanics with real numbers | claude-haiku-4-5 | done | none | preview | n/a | docs/active/fable-run/research/04-monetization-mechanics.md | 2026-09-20T04:10Z |
 | T1-5 | Research: agent-readable web, current practice, both sides of the crawler argument | claude-sonnet-5 | done | none | preview | n/a | docs/active/fable-run/research/05-agent-readable-web.md | 2026-09-20T04:15Z |
 | T1-6 | Research: first-screen and information design craft, WCAG 2.2 AA as a design input | claude-sonnet-5 | done | none | preview | n/a | docs/active/fable-run/research/06-first-screen-craft.md | 2026-09-20T04:18Z |
-| T1-7 | Current-site teardown: render production and preview at 1440 and 390, read the markup, describe 5s / 30s / 3min | claude-sonnet-5 (with a claude-haiku-4-5 screenshot step inside it) | running | none | preview | n/a | docs/active/fable-run/research/07-site-teardown.md | 2026-09-20T04:00Z |
+| T1-7 | Current-site teardown: render production and preview at 1440 and 390, read the markup, describe 5s / 30s / 3min | claude-sonnet-5 (with a claude-haiku-4-5 screenshot step inside it) | done | none | preview | n/a | docs/active/fable-run/research/07-site-teardown.md | 2026-09-20T07:05Z |
 | T1-8 | Inventory of dated thesis history already in the repository (added by the coordinator; a history surface built from issues alone has one row) | claude-haiku-4-5 | done | none | preview | n/a | docs/active/fable-run/research/08-thesis-history-inventory.md | 2026-09-20T04:05Z |
 | T1-9 | Browser follow-up for pages that blocked fetch: capture and describe Cloudflare Radar first screen at 1440 and 390; read rendered pricing on Return on Security, SemiAnalysis, The Information, Platformer, Latent Space, Software Analyst Cyber Research | claude-sonnet-5 | running | none | preview | n/a | docs/active/fable-run/research/09-browser-followup.md | 2026-09-20T04:30Z |
 
@@ -124,3 +124,20 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
   24 by 24 pixel target rule is the one that constrains dense rows. Palette rule worth adopting:
   one functional accent on a neutral scale.
 - 2026-09-20T04:30Z — Owner said keep going. T1-7 still running. Added and dispatched T1-9 to close the two evidence holes from T1-2 (Radar blocked) and T1-1/T1-3 (prices rendered by JavaScript). Coordinator reading research files for the synthesis meanwhile.
+- 2026-09-20T07:05Z — T1-7 returned, 259 lines, 24 captures in `evidence/baseline/`. Thesis and
+  signature sit about a third of the way down a 15,022 px desktop page (about six screens) and 41
+  percent down a 17,715 px phone page; 41 disclosure widgets on the front page, none open by
+  default; home and the single issue permalink are pixel-identical; archive is one row; no
+  subscribe path, RSS only; the collapsed method copy says "Refresh is manual... Not a weekly news
+  cycle", which contradicts the weekly product. Production and preview are visually identical.
+  Pixel depths came from cropping captures, not DOM queries: re-measure by DOM in the baseline.
+- 2026-09-20T07:05Z — Tooling fact for Phase 4: `web/scripts/shot.mjs` launches Playwright with
+  `channel: 'chrome'`, which the dev VM does not have, so it cannot run in the VM as written.
+  The throwaway `evidence/baseline/capture.mjs` works with plain chromium. Phase 4 capture tasks
+  use that script (or a copy) until the owner decides whether `shot.mjs` should change.
+- 2026-09-20T06:45Z — Removed the twelve `preview-*.png` captures from `evidence/baseline/`: T1-7
+  proved they are byte-identical to the `prod-*` set. Kept the twelve production captures (3.6 MB)
+  and `capture.mjs`, and committed them as the baseline evidence for Phase 2 and the Phase 5
+  before-and-after packet. (Log timestamps before this line ran ahead of the wall clock by up to
+  twenty minutes; this one is from `date -u`.)
+
