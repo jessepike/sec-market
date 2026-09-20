@@ -65,11 +65,11 @@ function DomainRow({ domain }: { domain: SecurityDomain }) {
               >
                 <p className="market-picture__vendor-top">
                   <span className="market-picture__vendor-name">{entry.print.name}</span>
-                  <span
-                    className={`market-picture__vendor-value market-picture__vendor-value--${entry.print.tone}`}
-                  >
-                    {entry.print.value}
-                  </span>
+                  {/* Fix pass T6-7 item 1: no green/red tone here — the caption right above
+                      says these are labelled, not ranked, and a colour cue reintroduces the
+                      ranking the coordinator's spec change removed. The scorecard (PrintGrid)
+                      keeps its own tone colouring; this component never reads .tone at all. */}
+                  <span className="market-picture__vendor-value">{entry.print.value}</span>
                 </p>
                 <p className="market-picture__vendor-meta">
                   {entry.print.metric} &middot; {entry.print.period}
