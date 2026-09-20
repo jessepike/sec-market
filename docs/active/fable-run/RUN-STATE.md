@@ -74,6 +74,8 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
 | T6-2 | Build step A of design-spec v0.3 in one worktree: description line, as-of line with both dates, plain-words note, `MarketPicture` by-domain table, section reorder, plain lane headings, follow line and visible feed link, machine links, cadence sentence; tests green in the dev VM; captures at 1440 and 390 | claude-sonnet-5 | running | /Users/jessepike/code/projects/sec-market-wt/wave1 | mon/wave1 | https://security-market-pulse-git-mon-wave1-pikeholdings.vercel.app | branch `mon/wave1` plus `docs/active/fable-run/evidence/wave1/` | 2026-09-20T22:50Z |
 | T6-3 | Re-score the existing production baseline evidence under rubric v2.0, blind | claude-sonnet-5 | done (37.2 under v2.0; coordinator reconciled to v2.1: 32.8 and fails blocker 1) | none | preview | n/a | docs/active/fable-run/score-baseline-v2.md | 2026-09-20T22:50Z |
 | T6-4 | Automation step 0 from `automation-plan.md`: a GitHub Action that posts to a channel webhook when a gather or issue pull request opens or a draft is ready; does nothing until the owner adds the secret; own worktree and branch, not merged | claude-sonnet-5 | done locally, commit 1f5f992; push refused because the GitHub token lacks the `workflow` scope (owner runs `gh auth refresh -h github.com -s workflow`) | /Users/jessepike/code/projects/sec-market-wt/notify | mon/notify | n/a | branch `mon/notify` plus `docs/active/fable-run/evidence/notify/report.md` | 2026-09-21T00:10Z |
+| T6-5 | Proposed correction for the two mislabelled figures in signed issue `2026-w36`, with the exact text and the smallest mechanism that keeps the issue locked; a document for the owner, nothing published | coordinator | done | none | preview | n/a | docs/active/fable-run/drafts/correction-2026-w36.md | 2026-09-21T00:45Z |
+| T6-6 | Machine-drafted buyer brief for one domain (network and secure access), built only from evidence already in the repository, every claim tied to an evidence record, marked as an unpublished draft for the owner to edit or reject | claude-sonnet-5 | running | none | preview | n/a | docs/active/fable-run/drafts/buyer-brief-network-sase.md | 2026-09-21T00:45Z |
 
 ## Owner gates
 
@@ -360,3 +362,10 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
   returned: 37.2 under v2.0. Coordinator added a v2.1 reconciliation to `score-baseline-v2.md`:
   D3 and D12 each fall from 2 to 1 on the new level-3 tests, composite 32.8, and production fails
   blocker 1 on the two mislabelled figures in `2026-w36`. T6-2 still running.
+- 2026-09-21T00:55Z — T6-5 done: `drafts/correction-2026-w36.md` gives the exact correction text,
+  a mechanism that leaves the locked issue untouched (an append-only `corrections.ts`, a note
+  beside each item, a `/corrections/` page), and the gate that would have caught it. Not built:
+  it publishes a statement under the owner's name, so it is an owner gate. Also found while
+  checking: the Palo Alto "why it matters" line compares a company-defined segment with other
+  companies' total revenue growth, which fails rubric blocker 2. T6-6 (buyer brief draft for the
+  network and secure access domain, repository evidence only) dispatched to claude-sonnet-5.
