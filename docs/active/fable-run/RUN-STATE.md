@@ -160,4 +160,8 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
   (The Signal, $199 a month, MCP included), so this site sells judgment, not rows; strongest
   counter-argument is that presentation is not the binding constraint, cadence and exposure are.
 - 2026-09-20T07:15Z — T2-1 and T2-2 rows written and dispatched together; they are measurements and do not depend on the rubric text, so they run while the coordinator writes the rubric. T2-3 waits for the rubric and both measurement files.
+- 2026-09-20T07:40Z — `site-rubric.md` v1.0 written by the coordinator and committed. Thirteen
+  dimensions kept, yes/no tests at level 3 and level 5 with a mechanical score rule, weights sum to
+  100 (D1, D2, D4 at 12; D3 and D8 at 10; D11 and D13 at 3), two caps (cadence, misstated
+  freshness). T2-3 independent scorer is dispatched when T2-1 and T2-2 return.
 
