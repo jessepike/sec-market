@@ -530,6 +530,80 @@ the owner to sign or reject. The twelve-item hypothesis register is the likelies
 **Authorization state:** intake only, 2026-09-09. Nothing on the scorecard or the read changes until
 the owner signs.
 
+### SEC-043 — Correct the two mislabelled figures in issue `2026-w36`
+
+The signed issue gives Zscaler's $898.2M and Palo Alto's $3.41B as fiscal-year revenue. Both are
+fourth-quarter figures (evidence records `W36-15`, `W36-19`). Live on production. Proposed text and a
+mechanism that leaves the locked issue untouched (an append-only `corrections.ts`, a note beside
+each item, a `/corrections/` page) are in `docs/active/fable-run/drafts/correction-2026-w36.md`.
+Found by the external review on 2026-09-20. **Owner gate:** it publishes a statement under his name.
+Highest priority item on this list.
+
+### SEC-044 — Validate what a figure means, not only that it appears
+
+The gates confirm a headline number exists in its source. They do not check company or segment,
+metric, period and units together, which is how SEC-043 got through. Add a gate that reads the
+evidence record's period and fails a headline whose words ("FY", "quarter") disagree with it. The
+same check is the precondition for copying newer issue figures into `prints.ts`, which is on hold
+(design-spec v0.4 section 4). Requirement recorded in `docs/active/fable-run/automation-plan.md`.
+
+### SEC-045 — The issue pipeline never writes back to the scorecard
+
+`prints.ts` still carries April-to-June figures for CrowdStrike, Zscaler, SentinelOne, Okta, Rubrik
+and Palo Alto while issue `2026-w36` has August-to-September figures for the same companies
+(`docs/active/fable-run/content-inventory.md`). The gather job should propose scorecard updates in
+the same pull request as the issue, behind SEC-044.
+
+### SEC-046 — Buyer brief
+
+What a development means for someone who buys from these suppliers: continuity, renewals,
+consolidation, what to ask the supplier. The external review called it the product's missing
+centre (`docs/active/product-core.md` section 10). A first machine draft for one domain is at
+`docs/active/fable-run/drafts/buyer-brief-network-sase.md`. It is judgment, so it is the owner's to
+edit and approve. Not published and not on the site.
+
+### SEC-047 — Distress and financial-position signals
+
+Debt, layoffs, shutdowns. The owner asked for these by name on 2026-09-20. Sources and a five-rung
+signal ladder are researched in `docs/active/fable-run/research/11-distress-signal-sources.md`.
+Rule from that research: never say more than a named source said, and take a media lawyer's advice
+before publishing distress claims regularly. Not built.
+
+### SEC-048 — Declared coverage list and reader-facing disclosure
+
+Six inherited domains leave endpoint and managed security services with no home. Publish a bounded
+supplier list, how suppliers are chosen, that partners and competitors are held to the same
+evidence standard, and the author's professional role. Both are the owner's wording to decide
+(`docs/active/product-core.md` section 10, points 2 and 3).
+
+### SEC-049 — Automation: runtime, channel, cadence
+
+Build order in `docs/active/fable-run/automation-plan.md`. Step 0, a GitHub Action that messages a
+webhook when a draft pull request opens, is committed on branch `mon/notify` (1f5f992) and cannot
+be pushed until the GitHub token has the `workflow` scope (`gh auth refresh -h github.com -s
+workflow`). Still owed by the owner: a webhook URL saved as the repository secret
+`DECISION_WEBHOOK_URL`, a runtime that can reach the web (cloud allowlist, or launchd on
+macbook2014 or macmini), and one cadence (the specs disagree on Tuesday versus Sunday). Supersedes
+the open parts of SEC-039.
+
+### SEC-050 — Smaller items deferred by the Fable run
+
+- Order lane items by consequence, not by date (belongs with SEC-027)
+- Keyboard shortcuts and a command palette
+- A "late" label when the promised cadence is missed (not possible on a static site without a
+  build-time clock rule)
+- Counting fetches by AI agents
+- A quarterly scored recap of past calls
+- A plain-chromium fallback in `web/scripts/shot.mjs`, which needs Google Chrome and fails in the
+  OrbStack VM; `docs/active/fable-run/evidence/baseline/capture.mjs` works there
+- Rubric v2.1 still double counts between D1 and D4 and between D3 and D11, and D6 uses item
+  counts where a scanning task would be better
+- Analytics: Plausible at about $9 a month is the recommendation
+  (`docs/active/fable-run/research/12-analytics-options.md`); paid service, owner gate
+- Wave 2 of the machine-readable surface (`docs/active/fable-run/agent-surface-spec.md` v0.2)
+- Parked by the owner on 2026-09-20: monetization
+  (`docs/active/fable-run/monetization-plan.md`) and the employer outside-activity question
+
 ## Not authorized
 
 - Partner-risk-first sequencing
