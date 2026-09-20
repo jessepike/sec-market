@@ -2,16 +2,17 @@
 
 ## Resume here
 
-Phase 0, orientation. The state file was created fresh on the first session. The coordinator has
-read the brief, `AGENTS.md`, `intent.md` and `.claude/rules/constraints.md` itself, and task T0-1
-(a `claude-haiku-4-5` reader summarizing the rest of the section 11 reading list into
-`docs/active/fable-run/reading-summary.md`) was dispatched. The owner asked for the coordinator's
-read on the situation and the Phase 1 plan **before** any Phase 1 research agent is dispatched, so
-the exact next action is: confirm T0-1 returned and its file exists, give the owner the read and
-the Phase 1 plan in the terminal, and wait for his go-ahead. Only then write the seven Phase 1 task
-rows (T1-1 to T1-7, drafted below as pending) to running and dispatch them in one message.
+Phase 0, orientation, is finished apart from the owner's go. T0-1 returned and
+`docs/active/fable-run/reading-summary.md` exists. The coordinator gave the owner its read on the
+situation and the Phase 1 plan in the terminal on 2026-09-20 and is waiting for his go-ahead,
+because he asked to see both before anything is dispatched. The full prompts for the eight Phase 1
+research tasks are written down in `docs/active/fable-run/phase1-dispatch.md`. The exact next
+action on the owner's go: apply any changes he asked for to that file, set rows T1-1 to T1-8 to
+running in the ledger, commit, then dispatch all eight in a single message with the model in each
+heading passed explicitly. When they return, update each row first, then write
+`docs/active/fable-run/research-synthesis.md`.
 
-Last updated: 2026-09-20T03:26:00Z
+Last updated: 2026-09-20T03:45:00Z
 
 ## Phase
 
@@ -22,7 +23,7 @@ says go. Phase 1 (research fan-out) follows.
 
 | ID | Task | Model | Status | Worktree | Branch | Preview URL | Artifact | Updated |
 |---|---|---|---|---|---|---|---|---|
-| T0-1 | Read the section 11 list (README, status, weekly-issue-spec, project-scorecard, durability-spec, routes.ts, generate-seo.ts, generate-feed.ts, BACKLOG SEC-027 to SEC-042, decisions D-60 onward) and write a summary | claude-haiku-4-5 | running | none (read-only, main checkout) | preview | n/a | docs/active/fable-run/reading-summary.md | 2026-09-20T03:26Z |
+| T0-1 | Read the section 11 list (README, status, weekly-issue-spec, project-scorecard, durability-spec, routes.ts, generate-seo.ts, generate-feed.ts, BACKLOG SEC-027 to SEC-042, decisions D-60 onward) and write a summary | claude-haiku-4-5 | done | none (read-only, main checkout) | preview | n/a | docs/active/fable-run/reading-summary.md | 2026-09-20T03:40Z |
 | T1-1 | Research: thesis-driven publications | claude-sonnet-5 | pending | none | preview | n/a | docs/active/fable-run/research/01-thesis-publications.md | 2026-09-20T03:26Z |
 | T1-2 | Research: data-dense public intelligence products | claude-sonnet-5 | pending | none | preview | n/a | docs/active/fable-run/research/02-data-dense-products.md | 2026-09-20T03:26Z |
 | T1-3 | Research: security-market peers and the price umbrella | claude-haiku-4-5 | pending | none | preview | n/a | docs/active/fable-run/research/03-peers-and-pricing.md | 2026-09-20T03:26Z |
@@ -30,13 +31,19 @@ says go. Phase 1 (research fan-out) follows.
 | T1-5 | Research: agent-readable web, current practice, both sides of the crawler argument | claude-sonnet-5 | pending | none | preview | n/a | docs/active/fable-run/research/05-agent-readable-web.md | 2026-09-20T03:26Z |
 | T1-6 | Research: first-screen and information design craft, WCAG 2.2 AA as a design input | claude-sonnet-5 | pending | none | preview | n/a | docs/active/fable-run/research/06-first-screen-craft.md | 2026-09-20T03:26Z |
 | T1-7 | Current-site teardown: render production and preview at 1440 and 390, read the markup, describe 5s / 30s / 3min | claude-sonnet-5 (with a claude-haiku-4-5 screenshot step inside it) | pending | none | preview | n/a | docs/active/fable-run/research/07-site-teardown.md | 2026-09-20T03:26Z |
+| T1-8 | Inventory of dated thesis history already in the repository (added by the coordinator; a history surface built from issues alone has one row) | claude-haiku-4-5 | pending | none | preview | n/a | docs/active/fable-run/research/08-thesis-history-inventory.md | 2026-09-20T03:45Z |
 
 Status is one of: pending, running, blocked, in-review, done, abandoned.
 
 ## Owner gates
 
 - 2026-09-20 — Phase 1 go-ahead. The owner asked to see the read and the Phase 1 plan before
-  anything is dispatched. Blocks T1-1 to T1-7.
+  anything is dispatched. Blocks T1-1 to T1-8. Read and plan delivered 2026-09-20T03:45Z.
+- 2026-09-20 — Two owner actions outside this run cap its value and were raised in the terminal:
+  choosing the gather runtime in `docs/active/durability-spec.md` section 12 (SEC-039), and naming
+  the pilot list. Neither blocks Phase 1 to 3. Both are preconditions in the monetization plan.
+- 2026-09-20 — Path ownership between this run and the parallel session in the same checkout.
+  Blocks nothing until Phase 4 merges into `preview`.
 
 ## Decisions made this run
 
@@ -62,3 +69,16 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
   tags) that this session did not make. It belongs to the parallel session. This run will not
   touch, stage or commit `lessons.md`; every commit from this run stages named paths only.
 - 2026-09-20T03:26Z — T0-1 row written, then dispatched.
+- 2026-09-20T03:40Z — T0-1 returned. Summary is 156 lines. Key facts: the thesis is "Infrastructure
+  is running ahead. Security is splitting, not booming." and each signed issue gives it a verdict;
+  the running score reads "Holds in 1 of 1 issues"; the front page opens with the funding lane and
+  the signed judgment sits below all four lanes (D-66 names this as the first thing for this run);
+  issue 2026-w37 was due 2026-09-15 and does not exist; no `llms.txt`, no Markdown variants, no
+  thesis endpoint; public email is held to the 2026-10-08 review and four held issues.
+- 2026-09-20T03:45Z — Phase 1 prompts written to `phase1-dispatch.md`. Added T1-8. Model split:
+  sonnet for the four tasks that need design judgment and for the teardown, haiku for pricing,
+  monetization numbers and the repository inventory, with a fetched-versus-remembered rule on
+  every number.
+- 2026-09-20T03:45Z — Noted, not acted on: `.claude/rules/constraints.md` still says the website
+  is not authorized, which the live site and `intent.md` v1.2 contradict. Not this run's file to
+  edit. Raised with the owner.
