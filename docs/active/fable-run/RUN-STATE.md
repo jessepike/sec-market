@@ -78,7 +78,9 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
 | T6-6 | Machine-drafted buyer brief for one domain (network and secure access), built only from evidence already in the repository, every claim tied to an evidence record, marked as an unpublished draft for the owner to edit or reject | claude-sonnet-5 | done; coordinator read it in full | none | preview | n/a | docs/active/fable-run/drafts/buyer-brief-network-sase.md | 2026-09-21T00:45Z |
 | T6-7 | Fix pass on `mon/wave1` after the coordinator's visual review: neutral ink for growth figures in MarketPicture (green and red imply a comparison the caption disclaims), three-column grid with cards that do not stretch, space between the as-of line and the issue line, as-of line on the front page only; full tests, recapture, push | claude-sonnet-5 (same builder, resumed) | done: three commits, head f56c609, `npm test` green; the 17 Aug date was a wrong constant, now read from domain data | /Users/jessepike/code/projects/sec-market-wt/wave1 | mon/wave1 | https://security-market-pulse-git-mon-wave1-pikeholdings.vercel.app | branch push plus refreshed `evidence/wave1/` | 2026-09-21T01:25Z |
 | T6-8 | Capture the deployed `preview` URL and production at 1440 and 390 with `evidence/baseline/capture.mjs`, confirm the deploy serves `id="market"`, write offsets and page heights side by side | claude-haiku-4-5 | done; coordinator looked at the deployed 1440 first screen, it matches the local render | none | preview | https://security-market-pulse-git-preview-pikeholdings.vercel.app | docs/active/fable-run/evidence/after/ | 2026-09-21T02:10Z |
-| T6-9 | Blind score of the rebuilt page under rubric v2.1, including the four blockers, from `evidence/wave1/` and the deployed preview; no sight of the baseline answers | claude-sonnet-5 | running | none | preview | same | docs/active/fable-run/score-after-v2.1.md | 2026-09-21T02:10Z |
+| T6-9 | Blind score of the rebuilt page under rubric v2.1, including the four blockers, from `evidence/wave1/` and the deployed preview; no sight of the baseline answers | claude-sonnet-5 | done: 44.4 under v2.1; scorer reported blockers 2 and 3 failing; coordinator adds blocker 1, which the scorer's sample missed | none | preview | same | docs/active/fable-run/score-after-v2.1.md | 2026-09-21T02:10Z |
+| T6-10 | Run the baseline's measurement scripts (Lighthouse medians, keyboard walk, target size, 320 px reflow, small-text contrast, headings) against the deployed preview so D9 and D10 are scored on the same evidence as the baseline | claude-sonnet-5 | running | none | preview | https://security-market-pulse-git-preview-pikeholdings.vercel.app | docs/active/fable-run/evidence/after/measurements.md | 2026-09-21T03:00Z |
+| T6-11 | Put the author's name beside every JUDGED date stamp that lacks one (Platform pressure, and any other section found), so rubric blocker 3 passes; tests, render, push | claude-sonnet-5 | running | /Users/jessepike/code/projects/sec-market-wt/wave1 | mon/wave1b | https://security-market-pulse-git-mon-wave1b-pikeholdings.vercel.app | branch `mon/wave1b` plus `evidence/wave1b/` | 2026-09-21T03:00Z |
 
 ## Owner gates
 
@@ -396,3 +398,15 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
   absent on production, 514 px on preview; `we-think` 4,660 to 2,234; `read` (the thesis) 5,223 to
   14,111; page height 15,022 to 17,084 (up 14 percent). At 390: `market` at 799 px; page height
   17,715 to 21,437 (up 21 percent). The page got longer; that is a cost to state to the owner.
+- 2026-09-21T03:00Z — T6-9 returned: 44.4 of 100 under v2.1 against a reconciled baseline of 32.8.
+  Not a clean comparison yet: the scorer had no Lighthouse, keyboard-walk or 320 px evidence for
+  the new page, so D9 fell to 0 and D10 to 2 on "not measured" alone. T6-10 runs the baseline's
+  scripts against preview to fix that. Blockers: the scorer sampled seventeen figures and passed
+  blocker 1, but its sample missed the two mislabelled w36 headlines, which the coordinator
+  confirmed are in the deployed HTML, so blocker 1 still fails. Blocker 3 fails because Platform
+  pressure rows carry a judged date and no name; T6-11 fixes that. Blocker 2 fails on two things.
+  One is the wording in Platform pressure ("printing faster", "being outrun") set against figures
+  on different bases; that is the owner's judgment text and is his to reword. The other is the
+  scorecard's green and red values; the coordinator checked and these come from a hand-set `tone`
+  field on each print (a supplier against its own earlier figure), not from cross-supplier size,
+  so they are left alone and the missing legend is reported to the owner.
