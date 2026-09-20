@@ -1,7 +1,7 @@
 import { formatShortDate } from '../data/dates'
 import { securityDomains } from '../data/domains'
 import { jargonNoteFor } from '../data/jargonNotes'
-import { LAST_UPDATED_DISPLAY, SITE_DESCRIPTION, SITE_DISCLAIMER } from '../data/meta'
+import { AUTHOR_NAME, LAST_UPDATED_DISPLAY, SITE_DESCRIPTION, SITE_DISCLAIMER } from '../data/meta'
 import type { Issue } from '../data/types'
 
 // Fix pass T6-7 item 4: the front page's as-of line previously read
@@ -42,7 +42,8 @@ export function IssueHero({ issue, showAsOf = false }: { issue: Issue; showAsOf?
           there — IssuePage doesn't pass showAsOf, so it defaults to false. */}
       {showAsOf ? (
         <p className="issue-hero__asof">
-          Updated {LAST_UPDATED_DISPLAY}. Domain stances judged {formatShortDate(domainsJudgedIso)}.
+          Updated {LAST_UPDATED_DISPLAY}. Domain stances judged {formatShortDate(domainsJudgedIso)} by{' '}
+          {AUTHOR_NAME}.
         </p>
       ) : null}
       <p className="eyebrow">
