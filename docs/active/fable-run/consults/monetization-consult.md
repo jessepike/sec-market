@@ -101,9 +101,8 @@ problem is not, and it alone rules out a whole model.
 ## 3. Recommended model, as a sequence
 
 Free forever: every signed issue at a stable immutable address, the whole archive, the thesis page with its verdict sequence and
-change-trigger status and corrections, the quarterly scored recap, and the machine surface. The reason is one sentence. The archive is the
-track record, the track record is the differentiator, and a track record nobody can check is not one. The free machine layer aims the same
-argument at a different reader.
+change-trigger status and corrections, the quarterly scored recap, and the machine surface. The archive is the track record, the track record
+is the differentiator, and a track record nobody can check is not one. The free machine layer aims the same argument at a different reader.
 
 The first paid thing is one annual organizational licence at $3,000, sold by conversation rather than by a checkout page. An invoice or
 payment link suffices, with no auth, database, gating or tiers. What is sold is access to the author around a public record. The first ten
@@ -153,8 +152,8 @@ sponsorship, gating or data product (decided by this recommendation).
 | Indirect return | not measured | not measured | not measured | no mechanism exists to attribute it; inventing one would be dishonest |
 
 Two honest readings. The largest single line in the central case is one day of the author's time sold as a briefing, which makes the central
-case a consulting case wearing a publication's clothes. And the optimistic list of 1,200 assumes a pickup by a larger publication or an
-agent-citation effect nobody can predict, so do not plan on it arriving.
+case a consulting case wearing a publication's clothes. The optimistic list of 1,200 assumes a pickup nobody can predict, so do not plan on
+it.
 
 ## 5. What not to do
 
@@ -176,7 +175,7 @@ investor in a security company may buy advertising, sponsorship, placement, or a
 scores. An organizational licence confers access to the author and confers no influence; holders are disclosed by category on the about page
 and receive no advance notice of a verdict. The author's employer is disclosed on every page, not in a buried about section. No paid
 engagement may concern a vendor whose segment the standing thesis scores within the quarter that it scores it, and if that cannot be honoured
-the engagement is declined. Every correction is published dated, whatever its source.
+the engagement is declined.
 
 How "not investment advice" constrains selling to investors. The exclusion does not stop an investor reading or even licensing; it stops the
 product becoming a view on securities, positions or timing. The workable test: the publication may say what it believes about a segment's
@@ -215,8 +214,7 @@ outside this project and governed by his employment arrangements, so intent need
    Hold the spec's one-week deadline on the allowlist; if the probe fails, go local and delete the cloud routine.
 2. **Name the pilot list.** Blocks the exposure denominator, the impact log, stage 1's gate, and every claim this project makes about value.
    Name ten to fifteen people this week, per D-58.
-3. **Whether vendor sponsorship is ever permissible.** Blocks the independence policy. Rule it out permanently and publish that line on the
-   site.
+3. **Whether vendor sponsorship is ever permissible.** Blocks the independence policy. Rule it out permanently and publish it.
 4. **The employment question in §6.** Blocks stages 4 and 5, meaning every direct-revenue model. Ask now, in writing, while the answer is
    cheap and hypothetical.
 5. **Whether this project may ever earn money directly.** Blocks amendments A, B and C. Decide it is allowed but not pursued until the stage-4

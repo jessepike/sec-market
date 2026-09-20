@@ -187,18 +187,7 @@ and market-call subhead; "How a posture is set" is `NextEdition.tsx`'s `.method-
   real/different; checks 8/8b server-render `PrintGrid`, asserting every borrowed print shows
   "also counted under X" and each print-group header's "N covered" equals the actual rendered
   `print-card` count — guarding against a header reading "0 prints" over visible cards.
-- **`verify-issue.ts`** — 14 numbered checks: id format/uniqueness/order/Sunday-weekEnding;
-  no overlapping windows; exactly 4 sections in Lane order; every cited evidence id resolves,
-  item dates inside window unless `background`; publish/signature consistency; at most one
-  draft (must be newest); production guard (newest published on `main`); (8) append-only lock
-  manifest (§8); published `PostureDelta`s agree with live domains/editions; (10) **render
-  check** — server-renders `IssueHero+IssueLanes+WeThink` for the newest issue, asserts
-  draft-banner presence matches status, per-lane rendered item counts match data, exact
-  signature-line text matches; (12) **numeric-token check** — every number in an item's
-  headline/why (`extractNumericTokens`) must appear in at least one cited evidence excerpt;
-  strict ISO-date validation everywhere; bounds (≤8 items/lane, read ≤140 chars, headline
-  ≤110, why non-empty); every cited evidence record needs a `retrieval` receipt (64-hex
-  sha256, valid `fetchedAt`, non-empty `finalUrl`).
+- **`verify-issue.ts`** — 14 numbered checks: id format/uniqueness/order/Sunday-weekEnding; no overlapping windows; exactly 4 sections in Lane order; every cited evidence id resolves, item dates inside window unless `background`; publish/signature consistency; at most one draft (must be newest); production guard (newest published on `main`); (8) append-only lock manifest (§8); published `PostureDelta`s agree with live domains/editions; (10) **render check** — server-renders `IssueHero+IssueLanes+WeThink` for the newest issue, asserting draft-banner presence, per-lane rendered item counts, and exact signature-line text match the data; (12) **numeric-token check** — every number in an item's headline/why (`extractNumericTokens`) must appear in a cited evidence excerpt; strict ISO-date validation; bounds (≤8 items/lane, read ≤140 chars, headline ≤110, why non-empty); every cited evidence record needs a `retrieval` receipt (64-hex sha256, valid `fetchedAt`, non-empty `finalUrl`).
 - **`verify-dist.ts`** — post-build file checks: every route HTML exists; every issue JSON
   deep-equals source issue + full evidence bodies; `issues/index.json` newest-first and
   row-identical; `feed.xml` parses (hand-written XML tokenizer) with correct guid set and

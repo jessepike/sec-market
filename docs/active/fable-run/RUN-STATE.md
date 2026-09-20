@@ -2,22 +2,26 @@
 
 ## Resume here
 
-Phase 3, design and plan. Phase 2 is closed: `site-rubric.md` v1.1 and `score-baseline.md`
-(production, composite 33.0, exposure denominator 1) are committed. Two preparation tasks were
-dispatched and may still be running: T3-1 codebase map (`docs/active/fable-run/codebase-map.md`,
-sonnet) and T3-2 monetization consult (`docs/active/fable-run/consults/monetization-consult.md`,
-opus). When both files exist, the coordinator writes three specs itself: `design-spec.md`,
-`agent-surface-spec.md`, `monetization-plan.md`. Then one `claude-opus-5` adversarial pass whose
-only job is to argue the plan fails (row T3-3), what survived is recorded in the specs, and the
-whole package (three specs plus the baseline) goes to the owner on agent-canvas as ONE
-`document-review` artifact using
-`~/code/_shared/capabilities-registry/templates/agent-canvas-review.html`, light theme, followed by
-`notify_user`. Then the turn ends. THIS IS A HARD STOP: no Phase 4 work of any kind until the
-owner answers. If canvas fails, retry once, then deliver in the terminal and say canvas failed.
+Phase 3, design and plan. The three specs are written and committed as v0.1 proposals:
+`design-spec.md`, `agent-surface-spec.md`, `monetization-plan.md`. Task T3-3, one `claude-opus-5`
+adversarial pass whose only job is to argue the plan fails, writes
+`consults/adversarial-pass.md`. If that file does not exist or is incomplete, re-dispatch T3-3.
+When it exists: the coordinator fills the "Adversarial pass" section at the end of each spec with
+what survived and what changed, then task T3-4 (`claude-sonnet-5`) builds ONE light-theme HTML
+artifact at `docs/active/fable-run/owner-packet-phase3.html` from
+`~/code/_shared/capabilities-registry/templates/agent-canvas-review.html`, containing the design
+spec, the agent-surface spec, the monetization plan and the baseline. The coordinator sends it
+with `mcp__agent-canvas__dispatch_interaction` (class `document-review`) and then
+`mcp__agent-canvas__notify_user`. Then the turn ends. THIS IS A HARD STOP: no Phase 4 work of any
+kind until the owner answers. The owner's "Continue until fully completed" was given before any
+plan existed and is not acceptance of it. If canvas fails, retry once, then deliver in the
+terminal and say canvas failed.
 Host note: every shell command needs `export DEVELOPER_DIR=/Library/Developer/CommandLineTools`
-until the owner runs `sudo xcodebuild -license`.
+until the owner runs `sudo xcodebuild -license`. A parallel session is working in this checkout
+(it has touched `lessons.md`, `web/src/data/evidence.ts` and a draft `2026-w37` issue): stage
+named paths only, never `git add -A`.
 
-Last updated: 2026-09-20T09:55:00Z
+Last updated: 2026-09-20T11:20:00Z
 
 ## Phase
 
@@ -45,6 +49,7 @@ Phase 3 — design and plan. Closes when the package is on agent-canvas and the 
 | T3-2 | Monetization model consult: who pays, for what, price, order and preconditions, 90-day and 12-month paths, what not to do, intent conflicts; argued from the research, with guesses labelled | claude-opus-5 | done | none (read-only) | preview | n/a | docs/active/fable-run/consults/monetization-consult.md | 2026-09-20T10:10Z |
 
 Status is one of: pending, running, blocked, in-review, done, abandoned.
+| T3-3 | Adversarial pass on the three Phase 3 specs: argue the plan fails, find what is wrong, unsupported, contradictory or unsafe against the gates; read-only apart from its one output file | claude-opus-5 | running | none (read-only) | preview | n/a | docs/active/fable-run/consults/adversarial-pass.md | 2026-09-20T11:20Z |
 
 ## Owner gates
 
@@ -227,4 +232,16 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
   value first, no vendor sponsorship ever, archive free forever, first paid thing is a $3,000
   organizational licence (a guess) after twelve consecutive issues, no commercial plumbing built
   ahead of need, and an employment-policy question only the owner can answer.
+- 2026-09-20T11:20Z — Coordinator wrote the three Phase 3 specs as v0.1 proposals. Design: reorder
+  the front page so the argument leads, a standing-thesis panel in the first screen, rows for
+  cards, a `/thesis/` route with a verdict ledger that grows one row per signed issue, a
+  `/method/` route, one sans and one mono self-hosted, one accent, no dark panels; projected
+  composite about 75 to 83 if all six design decisions are yes, exposure denominator unchanged.
+  Agent surface: `/index.json`, `/thesis.json`, Markdown copies, item anchors with the address
+  rule published once so locked issue JSON is untouched, JSON-LD entities, stated crawler policy
+  (recommend allow-all), plain permissive terms. Money: nothing paid for about nine months, content
+  free permanently, no vendor sponsorship ever, first paid thing a $3,000 licence (a guess) after
+  twelve issues; recommends cutting the brief's `mon/convert` stream to four non-commercial items,
+  which is a proposed change to the brief and needs the owner's yes. T3-3 row written, then
+  dispatched.
 
