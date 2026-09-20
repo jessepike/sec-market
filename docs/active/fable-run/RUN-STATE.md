@@ -24,14 +24,15 @@ Phase 1 — research fan-out. Closes when all eight research files exist, are co
 | ID | Task | Model | Status | Worktree | Branch | Preview URL | Artifact | Updated |
 |---|---|---|---|---|---|---|---|---|
 | T0-1 | Read the section 11 list (README, status, weekly-issue-spec, project-scorecard, durability-spec, routes.ts, generate-seo.ts, generate-feed.ts, BACKLOG SEC-027 to SEC-042, decisions D-60 onward) and write a summary | claude-haiku-4-5 | done | none (read-only, main checkout) | preview | n/a | docs/active/fable-run/reading-summary.md | 2026-09-20T03:40Z |
-| T1-1 | Research: thesis-driven publications | claude-sonnet-5 | running | none | preview | n/a | docs/active/fable-run/research/01-thesis-publications.md | 2026-09-20T04:00Z |
-| T1-2 | Research: data-dense public intelligence products | claude-sonnet-5 | running | none | preview | n/a | docs/active/fable-run/research/02-data-dense-products.md | 2026-09-20T04:00Z |
-| T1-3 | Research: security-market peers and the price umbrella | claude-haiku-4-5 | running | none | preview | n/a | docs/active/fable-run/research/03-peers-and-pricing.md | 2026-09-20T04:00Z |
-| T1-4 | Research: monetization mechanics with real numbers | claude-haiku-4-5 | running | none | preview | n/a | docs/active/fable-run/research/04-monetization-mechanics.md | 2026-09-20T04:00Z |
-| T1-5 | Research: agent-readable web, current practice, both sides of the crawler argument | claude-sonnet-5 | running | none | preview | n/a | docs/active/fable-run/research/05-agent-readable-web.md | 2026-09-20T04:00Z |
-| T1-6 | Research: first-screen and information design craft, WCAG 2.2 AA as a design input | claude-sonnet-5 | running | none | preview | n/a | docs/active/fable-run/research/06-first-screen-craft.md | 2026-09-20T04:00Z |
+| T1-1 | Research: thesis-driven publications | claude-sonnet-5 | done | none | preview | n/a | docs/active/fable-run/research/01-thesis-publications.md | 2026-09-20T04:12Z |
+| T1-2 | Research: data-dense public intelligence products | claude-sonnet-5 | done | none | preview | n/a | docs/active/fable-run/research/02-data-dense-products.md | 2026-09-20T04:17Z |
+| T1-3 | Research: security-market peers and the price umbrella | claude-haiku-4-5 | done | none | preview | n/a | docs/active/fable-run/research/03-peers-and-pricing.md | 2026-09-20T04:08Z |
+| T1-4 | Research: monetization mechanics with real numbers | claude-haiku-4-5 | done | none | preview | n/a | docs/active/fable-run/research/04-monetization-mechanics.md | 2026-09-20T04:10Z |
+| T1-5 | Research: agent-readable web, current practice, both sides of the crawler argument | claude-sonnet-5 | done | none | preview | n/a | docs/active/fable-run/research/05-agent-readable-web.md | 2026-09-20T04:15Z |
+| T1-6 | Research: first-screen and information design craft, WCAG 2.2 AA as a design input | claude-sonnet-5 | done | none | preview | n/a | docs/active/fable-run/research/06-first-screen-craft.md | 2026-09-20T04:18Z |
 | T1-7 | Current-site teardown: render production and preview at 1440 and 390, read the markup, describe 5s / 30s / 3min | claude-sonnet-5 (with a claude-haiku-4-5 screenshot step inside it) | running | none | preview | n/a | docs/active/fable-run/research/07-site-teardown.md | 2026-09-20T04:00Z |
-| T1-8 | Inventory of dated thesis history already in the repository (added by the coordinator; a history surface built from issues alone has one row) | claude-haiku-4-5 | running | none | preview | n/a | docs/active/fable-run/research/08-thesis-history-inventory.md | 2026-09-20T04:00Z |
+| T1-8 | Inventory of dated thesis history already in the repository (added by the coordinator; a history surface built from issues alone has one row) | claude-haiku-4-5 | done | none | preview | n/a | docs/active/fable-run/research/08-thesis-history-inventory.md | 2026-09-20T04:05Z |
+| T1-9 | Browser follow-up for pages that blocked fetch: capture and describe Cloudflare Radar first screen at 1440 and 390; read rendered pricing on Return on Security, SemiAnalysis, The Information, Platformer, Latent Space, Software Analyst Cyber Research | claude-sonnet-5 | running | none | preview | n/a | docs/active/fable-run/research/09-browser-followup.md | 2026-09-20T04:30Z |
 
 Status is one of: pending, running, blocked, in-review, done, abandoned.
 
@@ -83,3 +84,43 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
   is not authorized, which the live site and `intent.md` v1.2 contradict. Not this run's file to
   edit. Raised with the owner.
 - 2026-09-20T04:00Z — Owner said go. Rows T1-1 to T1-8 set to running, then dispatched in one message.
+- 2026-09-20T04:05Z — T1-8 returned, file written. Three frozen editions exist (2026-08-16,
+  2026-08-17, 2026-08-28), all recording "no posture moved"; one signed weekly verdict (holds,
+  medium, 2026-09-19); no reversals and no confidence changes on record; the repository does not
+  track movement toward or away from the stated falsifiers. So honest history is about four dated
+  rows, all "unchanged", and the falsifier watch is the missing piece that would make a quiet week
+  worth reading.
+- 2026-09-20T04:08Z — T1-3 returned, 234 lines. Claims: direct weekly peers are free or freemium
+  with unpublished paid tiers; enterprise research has no list price; nobody publishes a visible
+  record of their own past calls. Caution: the agent inferred Substack-standard prices for Return
+  on Security and others and quoted buyer-reported ranges for PitchBook; both are unverified and
+  must be treated as such in the monetization plan. Return on Security's paid tier needs a second
+  look in Phase 3.
+- 2026-09-20T04:10Z — T1-4 returned. Claims: sponsorship is the fastest model for a security
+  audience (needs roughly 2,000 to 5,000 subscribers); beehiiv and Ghost take no transaction cut;
+  team licences are unpriced anywhere public. Caution: the "team licence is a moat" and "testable
+  at week 1" lines are the agent's opinion, not evidence, and with a list of zero none of these
+  start soon. Check which CPM and conversion figures are marked fetched before using any.
+- 2026-09-20T04:12Z — T1-1 returned, 182 lines. Stratechery keeps its standing frameworks on a
+  separate concepts page apart from the daily writing, and treats corrections as a norm with no
+  visible log. Astral Codex Ten is the best public calibration record: one-sentence method, a
+  plotted chart, and an admission when the result is bad. Only Stratechery's price ($15 a month,
+  $150 a year) was fetched; the other four are unverified.
+- 2026-09-20T04:15Z — T1-5 returned, 235 lines. `llms.txt` and Content Signals are reported as
+  largely ignored by the major crawlers: cheap hedge only. Markdown copies of each route and more
+  JSON-LD (Organization, Dataset, ClaimReview) are build-step changes that fit the static Vercel
+  prerender. A remote MCP server needs a serverless endpoint and pay-per-crawl needs Cloudflare in
+  front of the site; both are out of scope without an owner yes. Usage numbers are from
+  aggregators, not primary sources.
+- 2026-09-20T04:17Z — T1-2 returned, 211 lines. Cloudflare Radar blocked every fetch, so its
+  layout is unverified memory in the file; its API and licence facts came from Cloudflare's docs
+  and are solid. Best transferable pattern: Sacra and Public Comps label the source or the
+  estimate-versus-fact status of a number inside its own presentation, not in a footnote. Follow-up
+  candidate: have the T1-7-style browser capture look at Radar directly, since a real browser may
+  get past the block.
+- 2026-09-20T04:18Z — T1-6 returned, 249 lines. Most product sites served a stripped agent version
+  to the fetch tool, so colour and type numbers come from third-party CSS scrapers and are marked
+  so. Six WCAG 2.2 AA criteria quoted from W3C (1.4.3, 1.4.11, 1.4.10, 2.4.7, 2.4.11, 2.5.8); the
+  24 by 24 pixel target rule is the one that constrains dense rows. Palette rule worth adopting:
+  one functional accent on a neutral scale.
+- 2026-09-20T04:30Z — Owner said keep going. T1-7 still running. Added and dispatched T1-9 to close the two evidence holes from T1-2 (Radar blocked) and T1-1/T1-3 (prices rendered by JavaScript). Coordinator reading research files for the synthesis meanwhile.
