@@ -2860,6 +2860,15 @@ summary:focus-visible,
   background: var(--color-bg);
 }
 
+.we-think__thesis-link {
+  margin: 0.75rem 0;
+  color: var(--color-text-muted);
+}
+
+.we-think__thesis-link a {
+  color: var(--color-accent);
+}
+
 .we-think__nocalls {
   margin: 0.5rem 0;
 }
@@ -2988,6 +2997,53 @@ summary:focus-visible,
 
 .corrections-page__back {
   margin-top: 1rem;
+}
+
+/* SEC-MARKET-FABLE-001 T6-16: the front page's compact pointer to the
+   standing thesis, now at /thesis/ (product-core.md §5). Deliberately quiet
+   and short — roughly 150 to 220px tall at 1440 — since the front page no
+   longer treats this as its centre. */
+.thesis-pointer {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  padding: 1rem 1.25rem;
+  max-width: var(--prose-max);
+}
+
+.thesis-pointer h2 {
+  margin: 0.35rem 0 0.5rem;
+  font-size: 1.15rem;
+}
+
+.thesis-pointer__position {
+  margin: 0 0 0.5rem;
+  color: var(--color-text-muted);
+}
+
+.thesis-pointer__link {
+  margin: 0.5rem 0 0;
+}
+
+.thesis-pointer__link a {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+/* /thesis/ — the standing thesis's own page. Reuses .judgment (JudgmentBoard)
+   unchanged; these rules cover only the h1, intro and back-link this page
+   adds around it. */
+.thesis-page {
+  padding: 1rem 0;
+}
+
+.thesis-page__intro {
+  max-width: var(--prose-max);
+  color: var(--color-text);
+  margin: 0.5rem 0 1.5rem;
+}
+
+.thesis-page__back {
+  margin-top: 1.5rem;
 }
 
 /* An owner-approved dated note beside a corrected lane item (front page and

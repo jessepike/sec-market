@@ -24,6 +24,7 @@ import { PrintGrid } from './components/PrintGrid'
 import { ProvenanceRail } from './components/ProvenanceRail'
 import { SiteMasthead } from './components/SiteMasthead'
 import { SkipLink } from './components/SkipLink'
+import { ThesisPointer } from './components/ThesisPointer'
 import { ThesisRunningScore } from './components/ThesisRunningScore'
 import { VendorLens } from './components/VendorLens'
 import { WatchList } from './components/WatchList'
@@ -48,8 +49,18 @@ import type { Issue } from './data/types'
  * untouched and still renders the issue permalink below.
  *
  * Then: market, we-think, the four lanes, follow, landscape,
- * platforms/vendor-lens-slot/prints (kept together), the standing thesis
- * (`#read`), hypotheses, then depth sections unchanged.
+ * platforms/vendor-lens-slot/prints (kept together), hypotheses, the thesis
+ * pointer (`#read`), then depth sections unchanged.
+ *
+ * SEC-MARKET-FABLE-001 T6-16 (product-core.md §5): the founding thesis is
+ * "one standing analysis on the site, not the site's identity" and moved to
+ * its own page, `/thesis/` (see ThesisPage below). `#read` here is now
+ * ThesisPointer, a compact pointer to that page, moved to sit after
+ * `#hypotheses` — no gate or test asserts front-page section order (the
+ * adversarial pass in docs/active/fable-run/consults/adversarial-pass.md
+ * confirmed this), so this is a deliberate placement choice, not a
+ * constraint. `WeThink` gets `condenseThesis` here so its thesis verdict is
+ * also a quiet pointer rather than the full paragraph — see WeThink.tsx.
  *
  * Wrapped in VendorLensProvider (SEC-031): IssueLanes and PrintGrid, both
  * inside, read the lens state to filter; VendorLens is the control. Scoped
@@ -63,22 +74,15 @@ function FrontPage() {
       <SiteMasthead />
       <IssueStrip issue={latestIssue} />
       <MarketPicture />
-      <WeThink issue={latestIssue} />
+      <WeThink issue={latestIssue} condenseThesis />
       <IssueLanes issue={latestIssue} />
       <FollowLine />
       <DomainBoard />
       <PlatformPressure />
       <VendorLens />
       <PrintGrid />
-      <JudgmentBoard
-        leadContent={
-          <>
-            <ThesisRunningScore />
-            <HeroContent />
-          </>
-        }
-      />
       <Hypotheses />
+      <ThesisPointer />
 
       <details className="depth" id="moved-depth">
         <summary>What moved: edition delta</summary>
@@ -131,11 +135,50 @@ function IssuePage({ issue }: { issue: Issue }) {
   )
 }
 
+/**
+ * `/thesis/` — the standing home for the founding thesis (SEC-MARKET-FABLE-001
+ * T6-16, product-core.md §5): one h1 framing it as one analysis among the
+ * site's outputs, then the exact same JudgmentBoard the front page used to
+ * carry at `#read`, unchanged. No VendorLensProvider — nothing rendered here
+ * (JudgmentBoard, ThesisRunningScore, HeroContent, EvidenceLink) reads the
+ * vendor lens; EvidenceLink's drawer comes from EvidenceProvider, which
+ * already wraps every route in App() below.
+ */
+function ThesisPage() {
+  return (
+    <>
+      <section id="thesis" className="thesis-page" aria-labelledby="thesis-heading">
+        <h1 id="thesis-heading">Standing analysis: does security spending lag infrastructure spending?</h1>
+        <p className="thesis-page__intro">
+          This site began from one question: when spending on computing infrastructure rises, does
+          security spending follow, and how long after. This page keeps that analysis and its
+          record. It is one analysis among the site&rsquo;s outputs. If you run a security program
+          you can skip it; if you plan where security spending goes next, it is for you.
+        </p>
+      </section>
+      <JudgmentBoard
+        leadContent={
+          <>
+            <ThesisRunningScore />
+            <HeroContent />
+          </>
+        }
+      />
+      <section className="thesis-page-links" aria-label="More">
+        <p className="thesis-page__back">
+          <a href="/">Back to the front page</a>
+        </p>
+      </section>
+    </>
+  )
+}
+
 function RouteContent({ path }: { path: string }) {
   const route = matchRoute(path)
 
   if (route.kind === 'archive') return <IssueArchive />
   if (route.kind === 'corrections') return <Corrections />
+  if (route.kind === 'thesis') return <ThesisPage />
   if (route.kind === 'issue' && route.issueId && issueById[route.issueId]) {
     return <IssuePage issue={issueById[route.issueId]} />
   }

@@ -73,6 +73,10 @@ const MUST_SEE_SECTION_IDS: Record<RouteEntry['kind'], string[]> = {
   archive: ['issues'],
   corrections: ['corrections'],
   issue: ['overview', 'formation', 'absorption', 'prints-this-week', 'capital', 'we-think'],
+  // SEC-MARKET-FABLE-001 T6-16: 'read' here is JudgmentBoard, the same
+  // section id the front page's own #read pointer reuses (ThesisPointer) —
+  // never nested on either page, both routes covered by this one entry.
+  thesis: ['thesis', 'read'],
 }
 
 function runMustSeeGate(routeEntry: RouteEntry, appHtml: string): void {
@@ -128,6 +132,16 @@ function headFor(routeEntry: RouteEntry): RouteHead {
       title: 'Corrections · Security Market Pulse',
       description:
         'Every correction published to Security Market Pulse, newest first, with the issue and item it applies to.',
+      ogUrl: url,
+    }
+  }
+  if (routeEntry.kind === 'thesis') {
+    return {
+      title: 'Standing analysis: does security spending lag infrastructure spending? · Security Market Pulse',
+      description:
+        'The standing analysis behind Security Market Pulse: whether security spending follows a rise in ' +
+        'infrastructure spending, and how long after. One analysis among the site’s outputs, kept here with ' +
+        'its record.',
       ogUrl: url,
     }
   }

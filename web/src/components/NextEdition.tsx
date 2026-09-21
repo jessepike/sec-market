@@ -21,6 +21,10 @@ export function NextEdition() {
           </p>
         </div>
         <div className="method-band__links">
+          {/* SEC-MARKET-FABLE-001 T6-16: "Thesis" left the top nav (product-core.md
+              §5), so this secondary-links block is where the front page still
+              points a reader at the standing analysis and its record. */}
+          <a href="/thesis/">Standing analysis</a>
           <a href="#method">Read the method</a>
           <a href="#research">Open the evidence library</a>
           <a href={mailto('Security Market Pulse — correction or question')}>Send a correction</a>

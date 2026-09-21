@@ -1,13 +1,46 @@
 import { formatShortDate } from '../data/dates'
 import { securityDomains } from '../data/domains'
-import type { Issue } from '../data/types'
+import type { Issue, ThesisScore } from '../data/types'
 import { EvidenceLink } from './EvidenceLink'
 
 function domainName(domainId: string): string {
   return securityDomains.find((domain) => domain.id === domainId)?.name ?? domainId
 }
 
-export function WeThink({ issue }: { issue: Issue }) {
+/**
+ * The thesis verdict, in one of two shapes. Full (the default, and always
+ * what the issue permalink shows — the permalink is the record of that
+ * period) is the original paragraph, confidence stamp and evidence link.
+ * `condense` (front page only, SEC-MARKET-FABLE-001 T6-16) reduces it to one
+ * quiet line pointing at `/thesis/`, now the standing home for the thesis
+ * and its record — product-core.md §5.
+ */
+function ThesisLine({ thesis, condense }: { thesis: ThesisScore; condense: boolean }) {
+  if (condense) {
+    return (
+      <p className="we-think__thesis-link">
+        Standing analysis: {thesis.verdict}. <a href="/thesis/">See the record.</a>
+      </p>
+    )
+  }
+  return (
+    <div className="we-think__thesis">
+      <p>
+        Thesis &mdash; {thesis.verdict}: {thesis.basis}
+      </p>
+      <p className="stamp-label">CONFIDENCE &middot; {thesis.confidence.toUpperCase()}</p>
+      <EvidenceLink ids={thesis.evidenceIds} />
+    </div>
+  )
+}
+
+/**
+ * `condenseThesis` defaults to false, today's behaviour, unchanged — the
+ * issue permalink page never passes it. The front page passes it as true
+ * (see src/App.tsx) so this block's thesis verdict becomes a quiet pointer
+ * to `/thesis/` instead of the full paragraph.
+ */
+export function WeThink({ issue, condenseThesis = false }: { issue: Issue; condenseThesis?: boolean }) {
   const isPublished = issue.status === 'published'
 
   return (
@@ -36,15 +69,7 @@ export function WeThink({ issue }: { issue: Issue }) {
           ) : null}
 
           {issue.weThink.thesis ? (
-            <div className="we-think__thesis">
-              <p>
-                Thesis &mdash; {issue.weThink.thesis.verdict}: {issue.weThink.thesis.basis}
-              </p>
-              <p className="stamp-label">
-                CONFIDENCE &middot; {issue.weThink.thesis.confidence.toUpperCase()}
-              </p>
-              <EvidenceLink ids={issue.weThink.thesis.evidenceIds} />
-            </div>
+            <ThesisLine thesis={issue.weThink.thesis} condense={condenseThesis} />
           ) : null}
 
           {issue.weThink.noCalls.length > 0 ? (
@@ -65,15 +90,7 @@ export function WeThink({ issue }: { issue: Issue }) {
           <p className="we-think__proposed-read">{issue.proposed.read}</p>
           <p className="we-think__summary">{issue.proposed.summary}</p>
 
-          <div className="we-think__thesis">
-            <p>
-              Thesis &mdash; {issue.proposed.thesis.verdict}: {issue.proposed.thesis.basis}
-            </p>
-            <p className="stamp-label">
-              CONFIDENCE &middot; {issue.proposed.thesis.confidence.toUpperCase()}
-            </p>
-            <EvidenceLink ids={issue.proposed.thesis.evidenceIds} />
-          </div>
+          <ThesisLine thesis={issue.proposed.thesis} condense={condenseThesis} />
 
           {issue.proposed.noCalls.length > 0 ? (
             <ul className="we-think__nocalls">
