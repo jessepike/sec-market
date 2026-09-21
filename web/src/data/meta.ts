@@ -11,9 +11,9 @@ export const RESEARCH_FREEZE = '2026-08-15T19:03:08-07:00'
  * four together and re-dated judgments nobody had revisited. The other three
  * are now their own constants below. Move this one whenever the site ships.
  */
-export const LAST_UPDATED_DISPLAY = 'September 20, 2026'
+export const LAST_UPDATED_DISPLAY = 'September 21, 2026'
 /** Machine-readable form of LAST_UPDATED_DISPLAY. Same date, ISO 8601. */
-export const LAST_UPDATED_ISO = '2026-09-20'
+export const LAST_UPDATED_ISO = '2026-09-21'
 
 /**
  * When a person last signed the tracked hypotheses and the platform-pressure

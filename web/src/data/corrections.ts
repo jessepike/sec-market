@@ -45,4 +45,18 @@ export const corrections: Correction[] = [
       },
     ],
   },
+  {
+    id: 'C-2026-09-21-01',
+    date: '2026-09-21',
+    approvedBy: AUTHOR_NAME,
+    text:
+      'Correction, 21 September 2026. The Platform pressure table described three closed ' +
+      'acquisitions as cloud security absorbed into a hyperscaler: Palo Alto Networks acquiring ' +
+      'Protect AI, and F5 acquiring CalypsoAI and SurePath AI. Neither Palo Alto Networks nor F5 ' +
+      'is a hyperscaler, and all three targets are AI security companies, not cloud security ' +
+      'companies. Each of those three rows now reads "AI security absorbed into a platform ' +
+      'vendor. Watch whether it survives as a product or becomes a feature." and is dated to this ' +
+      'approval. The row for Wiz, bought by Google, was correct as printed and is unchanged. Jesse Pike.',
+    correctedReadings: [],
+  },
 ]

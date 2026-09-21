@@ -99,8 +99,11 @@ export function buildFeedXml(issuesList: Issue[], correctionsList: Correction[] 
 
   const correctionItems = correctionsNewestFirst(correctionsList).map((correction) => {
     const url = `${SITE_URL}/corrections/#${correction.id}`
+    const title = correction.issueId
+      ? `Correction — issue ${correction.issueId}`
+      : 'Correction — standing reference'
     return `    <item>
-      <title>${xmlEscape(`Correction — issue ${correction.issueId}`)}</title>
+      <title>${xmlEscape(title)}</title>
       <link>${url}</link>
       <guid isPermaLink="false">${url}</guid>
       <pubDate>${toRfc822(correction.date)}</pubDate>

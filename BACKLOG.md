@@ -670,15 +670,40 @@ ARR) from a flow (revenue) because evidence has no structured metric field. Need
 
 ### SEC-054 — Platform pressure fallback sentence is wrong for most rows (owner wording needed)
 
+**Status:** done on `mon/pressure-wording`, built to `preview` only, waiting on the owner's word to
+promote to `main`.
+
 Found by the blind score of 2026-09-21 and confirmed against the live page.
-`web/src/data/platformPressure.ts` gives every absorbed supplier outside Identity the sentence
-"Cloud security absorbed into a hyperscaler. Watch what it does to the specialist gap." That is
-right for Wiz under Google and wrong for Protect AI under Palo Alto Networks and for the F5 row:
-neither acquirer is a hyperscaler and those targets are AI security. It sits under a signed JUDGED
-stamp, so new wording is the owner's. Proposed: choose the sentence by acquirer type and target
-group, for example "AI security absorbed into a platform vendor. Watch whether it survives as a
-product or becomes a feature." This is what fails blockers 1 and 2 on the current score together
-with the locked issue's withdrawn "fastest" line.
+`web/src/data/platformPressure.ts` gave every absorbed supplier outside Identity the sentence
+"Cloud security absorbed into a hyperscaler. Watch what it does to the specialist gap." That was
+right for Wiz under Google and wrong for Protect AI under Palo Alto Networks and for the two F5
+rows (CalypsoAI, SurePath AI): neither acquirer is a hyperscaler and all three targets are AI
+security, not cloud security.
+
+Owner-approved wording (D-75, 2026-09-21) is built and tested. The acquirer/target decision reads
+from an explicit, documented hyperscaler list (Alphabet, Google, Microsoft, Amazon, AWS) and the
+row's own `VendorPrint.group`, never string-guessing in a component
+(`buyingInWording` in `web/src/data/platformPressure.ts`). Every non-Identity buying-in row today
+falls inside one of the three approved cases; none needed to be left alone. Each reworded row's
+JUDGED stamp now carries its own 2026-09-21 date rather than the shared August date, done by
+passing an override into the existing `judged()` helper — no reconfirmation record was used, since
+a reworded claim is a new judgment, not a reconfirmation.
+
+A correction (`C-2026-09-21-01`) is published at `/corrections/`, naming Palo Alto Networks/Protect
+AI and F5/CalypsoAI and SurePath AI and the corrected sentence. It has no `issueId` because it
+corrects the standing Platform pressure table, not a published issue — `Correction.issueId` is now
+optional to allow that, and the existing 2026-09-20 issue correction renders exactly as before. No
+inline "CORRECTED" banner was added beside the reworded rows: issue items keep their original wrong
+text and get a note added beside it, but Platform pressure rows are corrected in place, so the two
+correction UIs are not the same shape and forcing them to match would be a new design call, not a
+natural reuse. Flagging this rather than building it (scope discipline).
+
+`web/src/data/meta.ts`'s `LAST_UPDATED_ISO`/`LAST_UPDATED_DISPLAY` moved to 2026-09-21 to match — it
+drives the as-of stamp, the sitemap `lastmod`, and the JSON-LD dates, and this is a real site
+update, not free text.
+
+Full test suite (`npm test`: lint, 199 data tests, build+verify, e2e) passes. Visual review done —
+see `docs/active/fable-run/evidence/pressure/report.md`.
 
 ### SEC-055 — The two largest score gains left (from `docs/active/fable-run/score-2026-09-21.md`)
 

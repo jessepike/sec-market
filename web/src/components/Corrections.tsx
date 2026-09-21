@@ -26,17 +26,21 @@ export function Corrections() {
       ) : (
         <ul className="corrections-page__list">
           {ordered.map((correction) => {
-            const issue = issueById[correction.issueId]
+            const issue = correction.issueId ? issueById[correction.issueId] : undefined
             return (
               <li key={correction.id} id={correction.id} className="corrections-page__item">
                 <p className="corrections-page__meta">
                   <time dateTime={correction.date}>{formatShortDate(correction.date)}</time>
-                  {' · '}
-                  {issue ? (
-                    <a href={`/issues/${issue.id}/`}>Issue {issue.id}</a>
-                  ) : (
-                    <span>Issue {correction.issueId}</span>
-                  )}
+                  {correction.issueId ? (
+                    <>
+                      {' · '}
+                      {issue ? (
+                        <a href={`/issues/${issue.id}/`}>Issue {issue.id}</a>
+                      ) : (
+                        <span>Issue {correction.issueId}</span>
+                      )}
+                    </>
+                  ) : null}
                 </p>
                 <p className="corrections-page__text">{correction.text}</p>
                 <p className="corrections-page__approved">Approved by {correction.approvedBy}</p>
