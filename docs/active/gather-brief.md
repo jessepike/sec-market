@@ -98,9 +98,10 @@ acquisition.
    week's most consequential fact. Four sections in order: formation, absorption, prints, capital;
    `why` in one sentence per item; `vendors` slugs and `domainId` where clear. `weThink`: `summary`
    empty string, `postureDeltas` empty, `thesis` null, `noCalls` empty, `signedBy` null, `signedOn`
-   null. `proposed`: your proposal, all of it: `read`, `thesis` with verdict, basis, confidence and
-   evidence ids, `noCalls`, `postureDeltas` as prose, `summary` in two sentences. `sources` from your
-   read log. If nothing happened, set `quiet: true` and say so in `read`.
+   null. `proposed`: your proposal, all of it: `read`, `noCalls`, `postureDeltas` as prose, `summary`
+   in two sentences. The founding thesis is a standing analysis at `/thesis/`, not a weekly verdict
+   (D-72, D-73) — do not set `proposed.thesis`. `sources` from your read log. If nothing happened,
+   set `quiet: true` and say so in `read`.
 3. Append the new issue to the array in `web/src/data/issues/index.ts`, last.
 4. From `web/`, run `npm install` if `node_modules` is absent, then `npm run verify:edition`,
    `npm run verify:panel`, `npm run verify:integrity`, `npm run verify:issue`, `npm run test:data`.
@@ -119,7 +120,6 @@ acquisition.
    - the one-line read you propose;
    - per lane, the item count and a one-line list;
    - proposed posture deltas as prose, or "none proposed";
-   - proposed thesis verdict, basis and confidence;
    - sources you could not read and why;
    - what you left out and why;
    - the exact commands you ran.

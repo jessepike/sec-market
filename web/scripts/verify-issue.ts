@@ -519,17 +519,20 @@ async function runChecks({ includeLockManifest }: { includeLockManifest: boolean
         if (issue.weThink.summary.trim() === '') {
           throw new Error(`issue "${issue.id}" is published but weThink.summary is empty`)
         }
-        if (issue.weThink.thesis === null) {
-          throw new Error(`issue "${issue.id}" is published but weThink.thesis is null`)
-        }
-        if (issue.weThink.thesis.basis.trim() === '') {
-          throw new Error(`issue "${issue.id}" is published but weThink.thesis.basis is empty`)
-        }
-        if (issue.weThink.thesis.evidenceIds.length === 0) {
-          throw new Error(`issue "${issue.id}" is published but weThink.thesis.evidenceIds is empty`)
-        }
-        if (!issue.weThink.thesis.confidence) {
-          throw new Error(`issue "${issue.id}" is published but weThink.thesis has no confidence`)
+        // SEC-MARKET-PUBLISH-001 §3 (D-72/D-73): the founding thesis left the
+        // weekly issue for its own standing page, so a published issue may
+        // legitimately carry weThink.thesis: null. When one is present it
+        // must still be complete.
+        if (issue.weThink.thesis !== null) {
+          if (issue.weThink.thesis.basis.trim() === '') {
+            throw new Error(`issue "${issue.id}" is published but weThink.thesis.basis is empty`)
+          }
+          if (issue.weThink.thesis.evidenceIds.length === 0) {
+            throw new Error(`issue "${issue.id}" is published but weThink.thesis.evidenceIds is empty`)
+          }
+          if (!issue.weThink.thesis.confidence) {
+            throw new Error(`issue "${issue.id}" is published but weThink.thesis has no confidence`)
+          }
         }
         for (const delta of issue.weThink.postureDeltas) {
           if (!delta.confidence) {

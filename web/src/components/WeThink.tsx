@@ -90,7 +90,9 @@ export function WeThink({ issue, condenseThesis = false }: { issue: Issue; conde
           <p className="we-think__proposed-read">{issue.proposed.read}</p>
           <p className="we-think__summary">{issue.proposed.summary}</p>
 
-          <ThesisLine thesis={issue.proposed.thesis} condense={condenseThesis} />
+          {issue.proposed.thesis ? (
+            <ThesisLine thesis={issue.proposed.thesis} condense={condenseThesis} />
+          ) : null}
 
           {issue.proposed.noCalls.length > 0 ? (
             <ul className="we-think__nocalls">

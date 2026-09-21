@@ -222,7 +222,7 @@ export function issueEvidenceIds(issue: Issue): string[] {
   if (issue.weThink.thesis) {
     for (const id of issue.weThink.thesis.evidenceIds) ids.add(id)
   }
-  if (issue.proposed) {
+  if (issue.proposed?.thesis) {
     for (const id of issue.proposed.thesis.evidenceIds) ids.add(id)
   }
   return [...ids]
