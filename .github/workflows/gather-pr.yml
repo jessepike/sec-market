@@ -1,0 +1,67 @@
+name: gather pull request
+
+# The weekly gather runs on macbook2014 and pushes a branch over a deploy key.
+# That host has no GitHub token by design, so opening the pull request happens
+# here instead, using the token GitHub gives every workflow run. The pull
+# request is what reaches Jesse's phone, and merging it is the whole decision.
+
+on:
+  push:
+    branches: ['issue/**']
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  open:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Open the pull request if there is not one already
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BRANCH: ${{ github.ref_name }}
+        run: |
+          set -euo pipefail
+
+          existing=$(gh pr list --head "$BRANCH" --base preview --state open --json number --jq 'length')
+          if [ "$existing" != "0" ]; then
+            echo "A pull request for $BRANCH is already open. Nothing to do."
+            exit 0
+          fi
+
+          issue_id="${BRANCH#issue/}"
+          body_file=.gather/pr-body.md
+
+          if [ ! -f "$body_file" ]; then
+            # The gather is meant to write this file. If it did not, say so in
+            # the pull request rather than opening a silent one — a run that
+            # half-worked must not look like a clean one.
+            mkdir -p .gather
+            {
+              echo "The gather pushed this branch but did not write \`.gather/pr-body.md\`,"
+              echo "so there is no run report here. Treat the draft as unverified and check"
+              echo "the run log on macbook2014 under \`~/gather-logs/\` before merging."
+            } > "$body_file"
+          fi
+
+          {
+            echo "Unsigned draft of issue \`$issue_id\`, gathered automatically."
+            echo
+            echo "Merging this into \`preview\` publishes nothing on its own: the issue is a"
+            echo "draft until it is signed, and production only moves by a separate promotion."
+            echo
+            echo "---"
+            echo
+            cat "$body_file"
+          } > /tmp/pr-body.md
+
+          gh pr create \
+            --base preview \
+            --head "$BRANCH" \
+            --title "Issue $issue_id draft" \
+            --body-file /tmp/pr-body.md

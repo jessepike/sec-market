@@ -69,6 +69,25 @@ For each item you keep, record: date, company, one line of what happened, the ve
 at most sixty words, the URL, the document title, the sha256 of the bytes, and whether the date is
 inside the window. An item dated before the window may be kept only with `background: true`.
 
+**An item's date is the date of the event, taken from a primary document, never the publication
+date of the roundup that told you about it.** This has already broken one run. Return on Security
+publishes early in the week and reports the week that just ended, so its publication date sits one
+week ahead of the events it describes. Dating items from the newsletter puts every one of them
+outside the window and `verify:issue` check 4 fails closed, which is the gate behaving correctly
+and the gather behaving wrongly.
+
+So treat Return on Security as a **lead list only**. For every deal it names, fetch the company's,
+acquirer's or investor's own release and take the date from that document. If no primary document
+carries a date, **drop the item** and list it in the pull request body under what you left out. Do
+not infer a date, do not substitute the window's last day, and do not mark it `background` to get
+it past the gate — `background` means genuinely dated before the window, and using it to pass an
+undated item is a lie the gate cannot catch.
+
+Verifying against primary documents is also what catches aggregator errors. The 2026-09-20 run
+found three in one week: a round reported as $25M from one investor was $30M from two, a company
+reported as American was Irish, and one event was listed twice as both a funding round and an
+acquisition.
+
 ## 3. Write
 
 1. Append one `EvidenceRecord` per fetched document to `web/src/data/evidence.ts`, following the

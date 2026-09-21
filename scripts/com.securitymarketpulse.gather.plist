@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Weekly gather for Security Market Pulse.
+
+  Installed on macbook2014 at ~/Library/LaunchAgents/. Fires Tuesdays at 07:00
+  local time, which is late enough in the week that Return on Security has
+  published the week that just ended — it puts out its roundup on a Monday or
+  Tuesday, and the gather needs it as a lead list.
+
+  RunAtLoad is deliberately false: loading the agent should not kick off a
+  gather. StartCalendarInterval catches up after a sleep or a reboot, so a
+  machine that was off on Tuesday morning still runs when it wakes.
+
+  Install:  launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.securitymarketpulse.gather.plist
+  Run now:  launchctl kickstart -k gui/$(id -u)/com.securitymarketpulse.gather
+  Remove:   launchctl bootout gui/$(id -u)/com.securitymarketpulse.gather
+-->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.securitymarketpulse.gather</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>-lc</string>
+        <string>$HOME/code/projects/sec-market/scripts/gather.sh</string>
+    </array>
+
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Weekday</key>
+        <integer>2</integer>
+        <key>Hour</key>
+        <integer>7</integer>
+        <key>Minute</key>
+        <integer>0</integer>
+    </dict>
+
+    <key>RunAtLoad</key>
+    <false/>
+
+    <key>StandardOutPath</key>
+    <string>/tmp/smp-gather.out.log</string>
+    <key>StandardErrorPath</key>
+    <string>/tmp/smp-gather.err.log</string>
+
+    <key>ProcessType</key>
+    <string>Background</string>
+</dict>
+</plist>
