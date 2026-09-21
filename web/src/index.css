@@ -1907,6 +1907,16 @@ summary:focus-visible,
   color: var(--color-text-muted);
 }
 
+/* Only present once a claim carries a reconfirmation (JudgedStamp.tsx) — the
+   stamp then has three segments ("JUDGED <date>", "RECONFIRMED <date>", the
+   name), and at phone widths the line wraps between segments rather than
+   inside one of them (e.g. splitting "JESSE" from "PIKE"). The
+   no-reconfirmation stamp never renders this class, so this rule changes
+   nothing about it. */
+.stamp-segment {
+  white-space: nowrap;
+}
+
 .rail {
   background: var(--color-heading);
 }

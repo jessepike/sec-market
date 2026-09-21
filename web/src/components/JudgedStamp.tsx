@@ -9,7 +9,12 @@ import { AUTHOR_NAME } from '../data/meta'
  * never change on the page until an owner-approved reconfirmation exists.
  * With one, both dates show, honestly: "JUDGED <date> · RECONFIRMED <date> ·
  * NAME". `by` is always `AUTHOR_NAME` (validated in verify-issue.ts's
- * reconfirmations check), so this never takes a name prop.
+ * reconfirmations check), so this never takes a name prop. The reconfirmed
+ * form only — never the no-reconfirmation form, which must stay untouched —
+ * wraps each of its three segments ("JUDGED <date>", "RECONFIRMED <date>",
+ * the name) in a `.stamp-segment` span (`white-space: nowrap` in
+ * index.css), so a narrow phone screen wraps the line between segments
+ * rather than inside one, e.g. splitting "Jesse" from "Pike".
  *
  * Three shapes exist, not one, because the four call sites wrote this stamp
  * as three different literal JSX structures before this refactor, and
@@ -49,8 +54,14 @@ export function JudgedStamp({
   }
   return (
     <p className="stamp-label">
-      JUDGED <time dateTime={judgedOn}>{formatShortDate(judgedOn)}</time> &middot; RECONFIRMED{' '}
-      <time dateTime={reconfirmedOn}>{formatShortDate(reconfirmedOn)}</time> &middot; {AUTHOR_NAME}
+      <span className="stamp-segment">
+        JUDGED <time dateTime={judgedOn}>{formatShortDate(judgedOn)}</time>
+      </span>{' '}
+      &middot;{' '}
+      <span className="stamp-segment">
+        RECONFIRMED <time dateTime={reconfirmedOn}>{formatShortDate(reconfirmedOn)}</time>
+      </span>{' '}
+      &middot; <span className="stamp-segment">{AUTHOR_NAME}</span>
     </p>
   )
 }
@@ -72,9 +83,14 @@ export function JudgedStampSpaced({
   }
   return (
     <p className="stamp-label">
-      JUDGED <time dateTime={judgedOn}>{formatShortDate(judgedOn)}</time> &middot; RECONFIRMED{' '}
-      <time dateTime={reconfirmedOn}>{formatShortDate(reconfirmedOn)}</time> &middot;{' '}
-      {AUTHOR_NAME}
+      <span className="stamp-segment">
+        JUDGED <time dateTime={judgedOn}>{formatShortDate(judgedOn)}</time>
+      </span>{' '}
+      &middot;{' '}
+      <span className="stamp-segment">
+        RECONFIRMED <time dateTime={reconfirmedOn}>{formatShortDate(reconfirmedOn)}</time>
+      </span>{' '}
+      &middot; <span className="stamp-segment">{AUTHOR_NAME}</span>
     </p>
   )
 }
@@ -97,11 +113,14 @@ export function JudgedStampStacked({
   }
   return (
     <p className="stamp-label">
-      JUDGED{' '}
-      <time dateTime={judgedOn}>{formatShortDate(judgedOn)}</time>{' '}
-      &middot; RECONFIRMED{' '}
-      <time dateTime={reconfirmedOn}>{formatShortDate(reconfirmedOn)}</time>{' '}
-      &middot; {AUTHOR_NAME}
+      <span className="stamp-segment">
+        JUDGED <time dateTime={judgedOn}>{formatShortDate(judgedOn)}</time>
+      </span>{' '}
+      &middot;{' '}
+      <span className="stamp-segment">
+        RECONFIRMED <time dateTime={reconfirmedOn}>{formatShortDate(reconfirmedOn)}</time>
+      </span>{' '}
+      &middot; <span className="stamp-segment">{AUTHOR_NAME}</span>
     </p>
   )
 }

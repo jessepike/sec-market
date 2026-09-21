@@ -41,6 +41,16 @@ overflow, no overlapping text — it just takes visibly more vertical space than
 never-reconfirmed stamp. Screenshots: `domain-board-stamp-1440.png`, `domain-board-stamp-390.png`,
 `platform-pressure-stamp-390.png`.
 
+**Follow-up fix.** The first Platform-pressure capture (since replaced) showed the name itself
+breaking mid-word — "Jesse" on one line, "Pike" on the next — because nothing stopped a normal
+line break from landing inside a segment. The reconfirmed form only (never the no-reconfirmation
+form) now wraps each of its three segments (`JUDGED <date>`, `RECONFIRMED <date>`, the name) in a
+`.stamp-segment` span with `white-space: nowrap` (`web/src/index.css`), so a narrow screen can
+only break the line at a separator, never inside a date or a name. Re-captured
+`platform-pressure-stamp-390.png` now shows "JESSE PIKE" together on its own line, and the
+narrower `domain-board-stamp-390.png` was already wrapping at a safe point and is byte-identical
+to the earlier capture.
+
 ## Claim id scheme
 
 `${kind}:${id}` reusing each claim type's own existing stable id — `domain:network-sase`,
@@ -50,16 +60,21 @@ never-reconfirmed stamp. Screenshots: `domain-board-stamp-1440.png`, `domain-boa
 
 ## Test counts
 
-- `web/tests/reconfirmations.test.ts`: 33 tests, all passing (helpers, staleness, validation,
-  `computeReconfirmations` — all 5 required scenarios plus 2 extra — module regeneration, and
-  three `JudgedStamp` byte-identical checks).
-- `npm run test:data` (all data test files): 187 tests, 0 failures.
+- `web/tests/reconfirmations.test.ts`: 35 tests, all passing (helpers, staleness, validation,
+  `computeReconfirmations` — all 5 required scenarios plus 2 extra — module regeneration, three
+  `JudgedStamp` byte-identical checks, plus two added for the segment-wrap fix: the reconfirmed
+  form always has exactly three `.stamp-segment` spans, and the no-reconfirmation form never has
+  the class at all).
+- `npm run test:data` (all data test files): 189 tests, 0 failures.
 - `npm run lint`: 0 warnings, 0 errors.
-- `npm run build` (full chain, including new `verify:issue` check 17
-  `reconfirmations-valid`): passes.
+- `npm run build` (full chain, including `verify:issue` check 17 `reconfirmations-valid`):
+  passes.
 - `npm run test:e2e`: 37 passed, 1 skipped, matching the pre-existing baseline exactly — no
   e2e test needed to change for this feature.
-- `npm test` (lint + test:data + build + test:e2e) run end to end: passes.
+- `npm test` (lint + test:data + build + test:e2e) run end to end: passes, re-run after merging
+  `origin/preview` and the segment-wrap fix.
+- `bash scripts/test-publish-issue.sh`: all checks pass, including the `--reconfirm` flag
+  construction test and the end-to-end release-phase push-order test.
 
 ## Dry-run results, both flag values
 
@@ -88,6 +103,15 @@ plumbing that only runs on a real pull request; the dry run above starts from `R
 already resolved, matching how `scripts/test-publish-issue.sh`'s existing guard-logic tests treat
 it. Live promotion to `main` and the fifteen-minute site poll (step 8) are also unverifiable
 outside GitHub and were not exercised (`DRY_RUN=1` skips all pushes and the poll by design).
+
+## Merge with preview
+
+`origin/preview` moved on since this branch was cut (the weekly gather's shell-permission
+allowlist and login fixes). Merged clean except one conflict in `scripts/README.md`, on two
+independent paragraphs added on each side (the `reconfirm` word here, the allowed-tools/login
+fix there); kept both. The full dist-parity check (`/`, `/thesis/`, `/issues/2026-w36/`) was
+re-run after the merge and after the segment-wrap fix: all three routes are still byte-identical
+between `origin/preview` and this branch.
 
 ## What was noticed and left alone
 

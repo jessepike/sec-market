@@ -461,4 +461,24 @@ describe('JudgedStamp', () => {
       assert.match(markup, /<time dateTime="2026-11-02">/)
     }
   })
+
+  it('wraps each reconfirmed segment in .stamp-segment (nowrap) so a phone width breaks between segments, not inside a name or date', () => {
+    for (const Component of [JudgedStamp, JudgedStampSpaced, JudgedStampStacked]) {
+      const markup = renderToString(
+        createElement(Component, { judgedOn: '2026-08-16', reconfirmedOn: '2026-11-02' }),
+      )
+      const segments = [...markup.matchAll(/<span class="stamp-segment">(.*?)<\/span>/g)].map((m) => m[1])
+      assert.equal(segments.length, 3)
+      assert.match(segments[0], /^JUDGED/)
+      assert.match(segments[1], /^RECONFIRMED/)
+      assert.equal(segments[2], 'Jesse Pike')
+    }
+  })
+
+  it('never wraps a segment span around the no-reconfirmation form', () => {
+    for (const Component of [JudgedStamp, JudgedStampSpaced, JudgedStampStacked]) {
+      const markup = renderToString(createElement(Component, { judgedOn: '2026-08-16', reconfirmedOn: null }))
+      assert.doesNotMatch(markup, /stamp-segment/)
+    }
+  })
 })
