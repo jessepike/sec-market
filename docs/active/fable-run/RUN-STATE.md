@@ -96,6 +96,7 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
 | T6-13 | Build the owner-approved correction for issue `2026-w36`: append-only `corrections.ts`, a dated note beside the two items on the front page and the issue page, a `/corrections/` page, the correction in the machine-readable files and the feed, a data test, and a gate that fails a fiscal-year label over a quarterly source. The locked issue file is not touched | claude-sonnet-5 | done: head 0ca804b, `npm test` green three times (80 data tests, 15 verify:issue checks, 9 verify:dist checks, 34 e2e); gate proven to fail on exactly the two items without the correction; locked issue and evidence files untouched; coordinator read the diff of the config, fixture and helper changes | /Users/jessepike/code/projects/sec-market-wt/corrections | mon/corrections | https://security-market-pulse-git-mon-corrections-pikeholdings.vercel.app | branch `mon/corrections` plus `docs/active/fable-run/evidence/corrections/` | 2026-09-21T04:00Z |
 | T6-14 | Final score of `preview` at 7535fc4 under rubric v2.1 by the same blind scorer, resumed: re-answer every test and blocker whose evidence changed, using the deployed page, `evidence/after/measurements.md`, `evidence/wave1b/` and `evidence/corrections/` | claude-sonnet-5 (scorer resumed) | done: 57.2 of 100 against 32.8 for production; blockers 3 and 4 pass, 1 and 2 fail | none | preview | https://security-market-pulse-git-preview-pikeholdings.vercel.app | docs/active/fable-run/score-final-v2.1.md | 2026-09-21T01:45Z |
 | T6-15 | Recapture the final deployed `preview` (home, `/corrections/`, issue page) at 1440 and 390 and re-measure section offsets, for the owner packet | claude-haiku-4-5 | done; coordinator looked at the final 1440 first screen | none | preview | https://security-market-pulse-git-preview-pikeholdings.vercel.app | docs/active/fable-run/evidence/final/ | 2026-09-21T01:50Z |
+| T6-16 | Move the founding thesis off the front page to its own `/thesis/` page as one standing analysis: the whole judgment board (running score, thesis headline, stat band, the read, Do and Avoid) renders there; the front page keeps a three-line pointer at the same anchor; "Thesis" leaves the top navigation; the front-page signed block shows the thesis verdict as one quiet linked line. Issue permalinks, issue data and the lock are untouched. Nothing deleted. To `preview` only after coordinator review | claude-sonnet-5 | running | /Users/jessepike/code/projects/sec-market-wt/thesis | mon/thesis | https://security-market-pulse-git-mon-thesis-pikeholdings.vercel.app | branch `mon/thesis` plus `docs/active/fable-run/evidence/thesis/` | 2026-09-21T03:30Z |
 
 ## Owner gates
 
@@ -476,3 +477,10 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
   securitymarketpulse.com serves "The market by domain", "Not a news site and not investment
   advice." and both CORRECTED notes; `/`, `/corrections/`, `/corrections.json`,
   `/issues/2026-w36/`, `/feed.xml` and `/issues/lock.json` all return 200.
+- 2026-09-21T03:30Z — The owner asked whether the thesis is needed for his audience. Coordinator
+  answered no for a security leader, mildly for advisors, recommended moving it to its own page,
+  and asked for a yes. He replied "Continue". Read as go-ahead to build the move to `preview` and
+  show him; it removes a visible front-page section, so it does not go to `main` without his
+  explicit word. Also noted: the parallel session shipped the durable gather (D-70: launchd on
+  macbook2014, Tuesday 07:00, GitHub carries the notification), which answers most of SEC-049.
+  T6-16 row written, then dispatched.
