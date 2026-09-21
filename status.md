@@ -14,7 +14,7 @@ at it. Production is unchanged and waits for his word.** The working statement o
 instrument for supplier decisions, written for security leaders first, not for investors, with the
 founding thesis as one standing analysis. Read it before any design, rubric or review work.
 
-What is on `preview` and not on `main` (merge f557b4c): a one-sentence description, "Not a news
+What is on `preview` and not on `main` (merges f557b4c, 0ece0ce, 7535fc4): a one-sentence description, "Not a news
 site and not investment advice.", a line giving the update date and the date the domain stances
 were judged, a plain-words note under the headline, and a new first section, "The market by
 domain", which lists every tracked supplier alphabetically under the owner's dated stance with its
@@ -23,13 +23,19 @@ feed link and a follow line, and the page links its machine-readable files. The 
 https://security-market-pulse-git-preview-pikeholdings.vercel.app. Promotion is the owner's call:
 `git checkout main && git merge --ff-only preview && PROMOTE=1 git push origin main`.
 
-**A live error needs his approval to correct (SEC-043).** Signed issue `2026-w36` gives Zscaler's
-$898.2M and Palo Alto's $3.41B as fiscal-year revenue; both are fourth-quarter figures. Proposed
-text and a mechanism that leaves the locked issue untouched:
-`docs/active/fable-run/drafts/correction-2026-w36.md`.
+**The correction to issue `2026-w36` is approved and on `preview` (SEC-043, D-68).** The signed issue
+gave Zscaler's $898.2M and Palo Alto's $3.41B as fiscal-year revenue; both are fourth-quarter
+figures. The owner approved the correction text on 2026-09-20. The locked issue is untouched: a
+dated CORRECTED note sits beside each item, `/corrections/` lists it, the machine-readable files
+carry it, and a gate now fails a fiscal-year label over a quarterly source. The error stays live on
+production until `preview` is promoted.
 
-Waiting on the owner, in order of value: approve the correction; look at the preview and say
-whether to promote; run `gh auth refresh -h github.com -s workflow` so the notification action on
+Also on `preview` since the first merge (0ece0ce): the author's name on every dated JUDGED stamp
+with a test behind it, compacted supplier rows so the signed read starts within two screens at
+1440, phone chrome cut from 221 to 184 px, and "Weekly issue" in place of the issue id on the
+front-page eyebrow.
+
+Waiting on the owner, in order of value: look at the preview and say whether to promote; run `gh auth refresh -h github.com -s workflow` so the notification action on
 branch `mon/notify` can be pushed, then save a webhook URL as the secret `DECISION_WEBHOOK_URL`;
 choose a runtime that can reach the web and one cadence (SEC-049); decide the split between what
 publishes automatically and what needs his tap (`product-core.md` section 6), which also means

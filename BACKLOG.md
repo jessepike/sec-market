@@ -536,13 +536,21 @@ The signed issue gives Zscaler's $898.2M and Palo Alto's $3.41B as fiscal-year r
 fourth-quarter figures (evidence records `W36-15`, `W36-19`). Live on production. Proposed text and a
 mechanism that leaves the locked issue untouched (an append-only `corrections.ts`, a note beside
 each item, a `/corrections/` page) are in `docs/active/fable-run/drafts/correction-2026-w36.md`.
-Found by the external review on 2026-09-20. **Owner gate:** it publishes a statement under his name.
-Highest priority item on this list.
+Found by the external review on 2026-09-20.
+
+**Status 2026-09-20:** the owner approved the text and the mechanism (D-68). Built and merged to
+`preview` (7535fc4): `web/src/data/corrections.ts`, a dated note beside both items, `/corrections/`,
+`/corrections.json`, a `corrections` field in the per-issue JSON, a feed entry, and a
+`verify:issue` gate that fails a fiscal-year label over a quarterly source. The locked issue file
+is untouched. It reaches production when the owner promotes `preview`. Noted and not built: a
+correction cannot itself be marked as amended later; the list is flat and append-only.
 
 ### SEC-044 — Validate what a figure means, not only that it appears
 
 The gates confirm a headline number exists in its source. They do not check company or segment,
-metric, period and units together, which is how SEC-043 got through. Add a gate that reads the
+metric, period and units together, which is how SEC-043 got through. The period-label part is done
+(SEC-043: fiscal-year words over a quarterly source now fail). Still open: company or segment,
+metric and units. Add a gate that reads the
 evidence record's period and fails a headline whose words ("FY", "quarter") disagree with it. The
 same check is the precondition for copying newer issue figures into `prints.ts`, which is on hold
 (design-spec v0.4 section 4). Requirement recorded in `docs/active/fable-run/automation-plan.md`.
