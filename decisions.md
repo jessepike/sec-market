@@ -872,3 +872,20 @@ is where this site has twice now shipped a composition nobody had looked at.
 
 The headline itself is copy, so it is the owner's to change. It lives in one constant,
 `SITE_HEADLINE` in `web/src/data/meta.ts`.
+
+**D-72 · 2026-09-21 — The founding thesis leaves the front page for `/thesis/`, and `preview` was promoted on the owner's word; `main` moved `fe944b2` → `35a888f`.**
+
+The owner asked whether the thesis (does security spending lag infrastructure spending) is something
+his audience needs. Answer recorded: not for a security leader, mildly for advisors and vendor
+partner teams, which matches `docs/active/product-core.md` section 5. He said to continue, the move
+was built to `preview`, he was shown it, and he said "Promote".
+
+The whole judgment board (running score, thesis headline, stat band, the read, change triggers,
+no-call boundaries, Do and Avoid) renders unchanged at `/thesis/` under a short plain introduction.
+The front page keeps a five-line pointer at `#read`, stamped with the date of the newest signed
+verdict read from issue data, and the signed block carries the verdict as one linked line. "Thesis"
+left the top navigation. Issue permalinks differ only by that navigation link. Nothing was deleted.
+The same promotion carried the parallel session's D-70 (durable gather, PR and freshness workflows)
+and D-71 (masthead heading "The security market, from public numbers"). Confirmed by fetching the
+live host: the pointer is on the front page, the change-trigger list is not, `/thesis/` serves it,
+both CORRECTED notes are present, and eight routes and files return 200.

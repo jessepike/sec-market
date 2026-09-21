@@ -1,7 +1,7 @@
 ---
 project: Security Market Signal Pipeline
 stage: Operate
-updated: 2026-09-20
+updated: 2026-09-21
 ---
 
 # Status
@@ -9,7 +9,9 @@ updated: 2026-09-20
 ## Current State
 
 **2026-09-20: the owner restated what the site is for, a front page aimed at it was built, and he
-promoted it the same day (D-69). `main` is at `fe944b2` and the live host was checked.** The working statement of purpose is
+promoted it the same day (D-69). On 2026-09-21 he promoted again (D-72): the founding thesis moved to
+`/thesis/`, with D-70 and D-71 from a parallel session. `main` is at `35a888f` and the live host was
+checked.** The working statement of purpose is
 `docs/active/product-core.md` (D-67): a credibility asset for his advisory work and a working
 instrument for supplier decisions, written for security leaders first, not for investors, with the
 founding thesis as one standing analysis. Read it before any design, rubric or review work.
@@ -34,8 +36,7 @@ with a test behind it, compacted supplier rows so the signed read starts within 
 1440, phone chrome cut from 221 to 184 px, and "Weekly issue" in place of the issue id on the
 front-page eyebrow.
 
-Waiting on the owner, in order of value: whether the founding thesis leaves the front page for its
-own page; run `claude setup-token` on macbook2014 so the
+Waiting on the owner, in order of value: run `claude setup-token` on macbook2014 so the
 weekly gather can log in (D-70; the webhook notification action from this run is superseded and
 needs nothing from him); decide the split between what
 publishes automatically and what needs his tap (`product-core.md` section 6), which also means
@@ -87,7 +88,7 @@ There are two long-lived branches (D-50). `preview` is the trunk and serves a fi
 | Episode 001 | Done. One-time call on agent security readiness. Still usable as background. |
 | Episode 002 | Done. Current published market call. Infra spend is up. We will not fake a security-spend lag. |
 | Recurring signals | Ops artifacts live (D-43). Issue `2026-w36` published and signed 2026-09-19 (D-66). The gather job is still unarmed and has no working runtime. |
-| Git / production | `main` at `fe944b2` is live on Vercel, promoted 2026-09-20 (D-69). Promotion only by fast-forward from `preview` with `PROMOTE=1`. |
+| Git / production | `main` at `35a888f` is live on Vercel, promoted 2026-09-21 (D-72). Promotion only by fast-forward from `preview` with `PROMOTE=1`. |
 | Auto-publish judgments | Still not allowed without a human check |
 
 ## Next Steps

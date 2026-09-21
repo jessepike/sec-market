@@ -2,8 +2,9 @@
 
 ## Resume here
 
-PROMOTED TO PRODUCTION on 2026-09-20 on the owner's word (D-69): `main` is at fe944b2 and the live
-host was checked. THE RUN HAS DELIVERED AND IS WAITING ON THE OWNER for the remaining items. The final packet went to agent-canvas on
+PROMOTED TO PRODUCTION twice on the owner's word: D-69 on 2026-09-20 (`main` to fe944b2) and D-72
+on 2026-09-21 (`main` to 35a888f, the thesis move plus the parallel session's D-70 and D-71). The
+live host was checked both times. THE RUN HAS DELIVERED AND IS WAITING ON THE OWNER for the remaining items. The final packet went to agent-canvas on
 2026-09-20 about 19:40 Pacific as interaction `sec-market-fable-001-final-packet`
 (`docs/active/fable-run/owner-packet-final.html`). On resume, FIRST read `get_user_messages` and
 `get_comments` on agent-canvas for his response. A failed readback is not approval; if canvas is
@@ -492,3 +493,9 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
   it removes a visible front-page section, so `main` waits for the owner's explicit word. Note:
   a parallel session shipped D-71 (masthead h1 "The security market, from public numbers") to
   `preview` during this task; two sessions are editing the same page.
+- 2026-09-21T05:40Z — OWNER APPROVAL in the terminal: "Promote". Fast-forward push
+  `35a888f -> main` with `PROMOTE=1`, local `main` synced. Live host checked by fetching it: the
+  `#read` pointer is on the front page, the change-trigger list is gone from it and is served at
+  `/thesis/`, the D-71 masthead is live, both CORRECTED notes are present, and `/`, `/thesis/`,
+  `/corrections/`, `/issues/`, `/issues/2026-w36/`, `/feed.xml`, `/corrections.json` and
+  `/issues/lock.json` return 200. Recorded as D-72. Worktree `thesis` removed.
