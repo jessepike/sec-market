@@ -100,7 +100,7 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
 | T7-2 | Build 1 and build 3 per `docs/active/publish-path-spec.md` sections 2 and 3: `web/scripts/sign-issue.ts`, `scripts/publish-issue.sh`, `.github/workflows/publish-issue.yml`, the AGENTS.md paragraph, thesis verdict out of the brief and optional in the model. Dry run against `issue/2026-w37` with pushes off | claude-sonnet-5 | done, merged e456d2d | T7-1 | mon/publish (worktree `../sec-market-wt-publish`) | coordinator pushes via macbook2014 deploy key (workflow file) | `docs/active/fable-run/evidence/publish/report.md` | 2026-09-21T06:40Z |
 | T7-3 | Build 2 first step per spec section 4.1 and 4.2: the figure-meaning check on `prints.ts`, the shrink-only unverified list, `web/scripts/stale-report.ts`, the brief's scorecard and "Going stale" steps | claude-sonnet-5 | done, merged 146a40b | T7-1 | mon/upkeep (worktree `../sec-market-wt-upkeep`) | yes | `docs/active/fable-run/evidence/upkeep/report.md` | 2026-09-21T06:40Z |
 | T7-5 | Adversarial read-only pass on `publish-issue.yml`, `scripts/publish-issue.sh`, the sign scripts and the brief's handoff: ways a wrong or hostile draft, a race, or a GitHub behaviour could publish something the owner did not approve, move `main` wrongly, or fail silently | claude-opus-5 | done | T7-2 fixes (b24fb2b) | mon/publish, read only | n/a | returned findings, logged here | 2026-09-21T08:40Z |
-| T7-4 | Build 2 second step per spec section 4.3: per-claim judged dates and the `reconfirm` word | claude-sonnet-5 | running | T7-2, T7-3 merged | mon/reconfirm | yes | `docs/active/fable-run/evidence/reconfirm/report.md` | 2026-09-21T10:20Z |
+| T7-4 | Build 2 second step per spec section 4.3: per-claim judged dates and the `reconfirm` word | claude-sonnet-5 | done, merged 9d7c049 | T7-2, T7-3 merged | mon/reconfirm | yes | `docs/active/fable-run/evidence/reconfirm/report.md` | 2026-09-21T10:20Z |
 | T7-6 | `scripts/gather.sh` loads `~/.env.local` when present before its login probe, so the job authenticates the same way under launchd and over ssh; README note | claude-sonnet-5 | done, merged e71b0f7 | none | mon/gather-env (worktree `../sec-market-wt-gather-env`) | yes | returned summary | 2026-09-21T20:10Z |
 | T7-7 | Fresh blind score of production (`main` 51dbffd) under rubric v2.1: rerun the measurement scripts against the live host first, then score every dimension and all four blockers, checking every lane headline | claude-sonnet-5 | done: 59.6, not fit for purpose on blockers 1 and 2 | none | preview, writes only `docs/active/fable-run/score-2026-09-21.md` and `evidence/score-0921/` | n/a | `docs/active/fable-run/score-2026-09-21.md` | 2026-09-21T20:15Z |
 | T7-8 | `scripts/gather.sh` pre-approves the narrow set of shell commands the brief needs (`--allowedTools`), because a headless run cannot answer permission prompts and the hand-started run of 2026-09-21 stopped at its first `curl` | claude-sonnet-5 | done, merged 2202030 | T7-6 | mon/gather-perms (worktree `../sec-market-wt-gather-perms`) | yes | returned summary | 2026-09-21T20:50Z |
@@ -622,3 +622,15 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
   21:08Z (`~/gather-logs/manual-2026-09-21b.out`); a background poll is waiting for its receipt.
   Waiting on the owner: wording for the Platform pressure fallback sentence (three variants
   proposed in the terminal). T7-4 still running.
+- 2026-09-21T22:30Z — T7-4 returned and was merged to `preview` as 9d7c049 after one visual fix
+  (the owner's name broke across lines in the reconfirmed stamp at 390; segments are now
+  unbreakable, in the reconfirmed form only). 189 data tests, 37 end-to-end, script tests pass; dry
+  runs: flag off re-dates nothing, flag on with a November signing date re-dates all 24 claims. The
+  builder's own parity check caught that a shared stamp component had changed React's markup in two
+  of four places, and fixed it. Pushed through a temporary bare clone on macbook2014, not the
+  gather's clone, because the weekly job was running in that one. The Vercel preview deploy
+  succeeded; four pages compared against production differ only in the stylesheet's hashed file
+  name. Spec moved to v0.2 with an as-built section. SEC-054 and SEC-055 added to BACKLOG. All of
+  phase T7's builds are now on `preview`; builds 1, 3 and 2's first step are on `main` (D-74).
+  Not yet promoted: T7-4, T7-6, T7-8. Waiting on the owner: the word to promote those, and wording
+  for SEC-054. The weekly job started at 21:08Z is still running.

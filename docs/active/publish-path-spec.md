@@ -1,7 +1,7 @@
 ---
 id: SEC-MARKET-PUBLISH-001
-version: 0.1
-status: accepted for build (owner approval D-73, 2026-09-21)
+version: 0.2
+status: built and merged to preview 2026-09-21; builds 1, 3 and 2 (first step) promoted under D-74
 owner: Jesse Pike
 author: run SEC-MARKET-FABLE-001 coordinator
 ---
@@ -105,6 +105,28 @@ Two files are the owner's alone to amend and this run does not touch them. The p
   opened by the GitHub Actions bot, so approval works; the `publish` comment covers the other case.
 - This laptop's GitHub token cannot push workflow files. The branch is pushed through the read-write
   deploy key on macbook2014.
+
+### 2.5 As built (v0.2), where it differs from 2.2
+
+One coordinator review and one adversarial review changed the design. The script is the authority;
+this is the summary.
+
+- Three phases. `guard` and `build` hold no token and the issue branch is checked out without
+  stored credentials; only `release` can push. The script runs from a trusted checkout of `preview`,
+  never from the issue branch.
+- `guard` runs before anything from the branch executes. It refuses unless the branch tip is the
+  commit he approved, unless (on the comment route) the tip is no newer than his comment, and unless
+  the branch changes only `web/src/data/evidence.ts`, `web/src/data/issues/<id>.ts`,
+  `web/src/data/issues/index.ts`, `web/src/data/prints.ts` and `.gather/pr-body.md`.
+- The comment must be exactly `publish` or `publish reconfirm`.
+- The production guard covers the whole tree except record-keeping paths (`docs/`, `status.md`,
+  `decisions.md`, `BACKLOG.md`, `lessons.md`, `README.md`), not only `web/`.
+- Pushes go to `preview` first, then the issue branch, then `main`. A run that signs but does not
+  promote ends as a failed run so that he is told.
+- The top-level `read` comes from `proposed.read`. Proposed stance notes are not applied; the
+  confirmation comment says how many were left.
+- An owner approval that does not qualify gets a comment saying why. Anyone else gets silence.
+- Residual risks are in `BACKLOG.md` as SEC-051.
 
 ## 3. Build 3: the thesis verdict leaves the weekly issue
 

@@ -668,6 +668,27 @@ ARR) from a flow (revenue) because evidence has no structured metric field. Need
 `web/src/data/evidence.ts`. One entry, `print-crwd-cloud`, waits on this or on the owner's word in
 `web/src/data/printsUnverified.ts`.
 
+### SEC-054 — Platform pressure fallback sentence is wrong for most rows (owner wording needed)
+
+Found by the blind score of 2026-09-21 and confirmed against the live page.
+`web/src/data/platformPressure.ts` gives every absorbed supplier outside Identity the sentence
+"Cloud security absorbed into a hyperscaler. Watch what it does to the specialist gap." That is
+right for Wiz under Google and wrong for Protect AI under Palo Alto Networks and for the F5 row:
+neither acquirer is a hyperscaler and those targets are AI security. It sits under a signed JUDGED
+stamp, so new wording is the owner's. Proposed: choose the sentence by acquirer type and target
+group, for example "AI security absorbed into a platform vendor. Watch whether it survives as a
+product or becomes a feature." This is what fails blockers 1 and 2 on the current score together
+with the locked issue's withdrawn "fastest" line.
+
+### SEC-055 — The two largest score gains left (from `docs/active/fable-run/score-2026-09-21.md`)
+
+- Mark which weekly items matter most to a security leader. Decision value carries the most weight
+  in the rubric and sits at 2 of 5 because a plain list gives no signal of consequence (relates to
+  SEC-027 and the ordering item in SEC-050).
+- A short note on who the author is, including that he works for a security reseller and
+  integrator, which the scorer puts at trust 2 to 4. The employer is not to be named in this
+  repository; the wording is the owner's.
+
 ## Not authorized
 
 - Partner-risk-first sequencing
