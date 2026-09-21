@@ -10,10 +10,15 @@ interface NavItem {
   crossPage?: true
 }
 
+// "Thesis" left this list under SEC-MARKET-FABLE-001 T6-16: the founding
+// thesis moved to its own page, /thesis/ (product-core.md §5 — it is "one
+// standing analysis on the site, not the site's identity"), and is linked
+// from the front page's #read pointer and the footer instead of the primary
+// nav. #read still exists on the front page; it just carries a different,
+// quieter block now — see ThesisPointer.tsx.
 const navItems: NavItem[] = [
   { href: '#overview', label: 'Issue' },
   { href: '/issues/', label: 'Archive', crossPage: true },
-  { href: '#read', label: 'Thesis' },
   { href: '#landscape', label: 'Landscape' },
   { href: '#prints', label: 'Scorecard' },
   { href: '#research', label: 'Evidence' },

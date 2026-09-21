@@ -187,6 +187,33 @@ function structuredDataFor(routeEntry: RouteEntry, html: string) {
     }
   }
 
+  if (routeEntry.kind === 'thesis') {
+    // SEC-MARKET-FABLE-001 T6-16: the standing thesis, moved off the front
+    // page to its own address. Modeled as an Article, like an issue
+    // permalink, rather than the front page's own Report type, because it is
+    // one analysis among the site's outputs (product-core.md §5), not the
+    // site itself. No page-specific judged date exists (see ThesisPointer.tsx
+    // and HeroContent in Hero.tsx) so this falls back to the site's own
+    // LAST_UPDATED_ISO, same as every other non-issue route below.
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      '@id': `${url}#article`,
+      url,
+      mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+      headline: marketCall.headline,
+      name: readTitle(html),
+      description: readDescription(html),
+      inLanguage: 'en',
+      isAccessibleForFree: true,
+      datePublished: LAST_UPDATED_ISO,
+      dateModified: LAST_UPDATED_ISO,
+      author: { '@type': 'Person', name: AUTHOR_NAME },
+      publisher: { '@type': 'Organization', name: PRODUCT_TITLE, url: `${SITE_URL}/` },
+      isPartOf: { '@type': 'WebSite', name: PRODUCT_TITLE, url: `${SITE_URL}/` },
+    }
+  }
+
   if (routeEntry.kind === 'issue' && routeEntry.issueId) {
     const issue = issueById[routeEntry.issueId]
     return {

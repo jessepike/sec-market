@@ -90,6 +90,40 @@ export function thesisRunningScore(issues: Issue[]): {
   }
 }
 
+/**
+ * The most recent time a person actually signed a thesis verdict: the
+ * `published` date, descending, of the newest published issue that carries a
+ * signed thesis score. Returns `null` when no published issue has signed one
+ * yet, so a caller can render no stamp rather than inventing a date. This is
+ * the one place "when was the thesis last judged" is computed, so a
+ * front-page pointer and the issue's own signature line can never disagree
+ * about it (SEC-MARKET-FABLE-001 T6-16 fix: the site's LAST_UPDATED stamp is
+ * when the site last shipped, not when anyone judged anything).
+ */
+export function newestThesisJudgment(issues: Issue[]): { signedOn: string; signedBy: string } | null {
+  type SignedThesis = Issue & {
+    published: string
+    weThink: Issue['weThink'] & { thesis: ThesisScore; signedOn: string; signedBy: string }
+  }
+
+  const signed = issues
+    .filter(
+      (issue): issue is SignedThesis =>
+        issue.status === 'published' &&
+        issue.published !== null &&
+        issue.weThink.thesis !== null &&
+        issue.weThink.signedOn !== null &&
+        issue.weThink.signedBy !== null,
+    )
+    .slice()
+    .sort((a, b) => a.published.localeCompare(b.published))
+
+  if (signed.length === 0) return null
+
+  const newest = signed[signed.length - 1]
+  return { signedOn: newest.weThink.signedOn, signedBy: newest.weThink.signedBy }
+}
+
 /** Lower-case, hyphenated, ASCII slug for a vendor name — the vendor lens key. */
 export function vendorSlug(name: string): string {
   return name
