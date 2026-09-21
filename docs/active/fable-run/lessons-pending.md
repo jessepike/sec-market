@@ -15,3 +15,14 @@ touch it. Whoever next owns `lessons.md` should move these lines in and delete t
 - 2026-09-20: GitHub refuses a push that touches `.github/workflows/` unless the token has the `workflow` scope. `gh auth refresh -h github.com -s workflow` adds it and needs a browser approval.
 - 2026-09-20: A leftover `vite preview` process on port 4173 makes the Playwright suite time out. Kill it before running `npm test`.
 - 2026-09-20: `codex exec -m gpt-6-astra -s read-only -C <dir> -o <file> "<prompt>"` works for a read-only external review. SendMessage can redirect a background agent that is still running, and resume one that has finished.
+- 2026-09-21: Promotion can be done without switching branches: `PROMOTE=1 git push origin <preview-sha>:refs/heads/main`, then `git fetch origin main:main`, then fetch the live host and check for content, not only a 200. Safe when the shared checkout holds another session's uncommitted files.
+- 2026-09-21: After merging a tested branch, run `git diff --stat HEAD origin/<branch> -- web`. An empty result proves the trunk's `web/` equals the head that was tested.
+- 2026-09-21: A blind scorer's sample can miss errors the coordinator already knows about. Tell it to check every lane headline, not only the scorecard.
+- 2026-09-21: A scorer with no measurement evidence scores "not measured" as a fail. Run the baseline's measurement scripts against the new build before scoring it.
+- 2026-09-21: A subagent filled a JUDGED stamp with the site's last-updated date. A date under the author's name must come from signed data, never from a build constant.
+- 2026-09-21: A Haiku capture agent can leave stray image copies in `web/`. Check `git status` after any capture task.
+- 2026-09-21: A subagent can die on a subscription usage limit (429) in the middle of a task. Check the branch and the deploy, then resume it with SendMessage.
+- 2026-09-21: Two sessions reshaping the same page force a rebase mid-task. Give `web/` a single owner at session open.
+- 2026-09-21: The owner does not want commands handed to him or a long list of things that need him. Ask for the word in one sentence and run it.
+- 2026-09-21: A gate on what a figure means needs an exemption that reads `corrections.ts`, because a locked issue cannot be edited to pass it.
+- 2026-09-21: macbook2014 is reachable over ssh from the laptop. Its Claude login expired (401 on `claude -p`), which blocks every headless job there until `claude setup-token` is run interactively.

@@ -889,3 +889,27 @@ The same promotion carried the parallel session's D-70 (durable gather, PR and f
 and D-71 (masthead heading "The security market, from public numbers"). Confirmed by fetching the
 live host: the pointer is on the front page, the change-trigger list is not, `/thesis/` serves it,
 both CORRECTED notes are present, and eight routes and files return 200.
+
+**D-73 · 2026-09-21 — The owner approved three maintenance builds: his approval of the draft pull request becomes the signature and publishes the issue, the weekly job maintains the standing picture, and the thesis verdict leaves the weekly brief.**
+
+The owner asked how the site is actually maintained. The answer recorded: the weekly issue has a
+scheduled job (D-70), blocked today by an expired Claude login on macbook2014; nothing maintains the
+scorecard, the domain stances, Platform pressure or the hypotheses; and signing, publishing and
+promotion each still need an agent session at a terminal. Three builds were proposed and he said
+"yes to all 3".
+
+1. His approval of the weekly draft pull request, given from the GitHub phone app, is the
+   signature. A workflow applies the proposal as signed by him on that date, runs every check,
+   merges to `preview`, promotes to `main` and confirms the live site. The machine still only
+   drafts; the named person still signs. What changes is that the signature is a tap and not a
+   terminal session. This narrows the promotion rule in `AGENTS.md` for one case only: a weekly
+   issue he approved. Every other change to `main` still needs his word in a session.
+2. The weekly job also proposes scorecard updates, held behind a check on company or segment,
+   metric, period and units (SEC-044, SEC-045), and flags stances that have gone stale so he can
+   re-confirm them with the same approval.
+3. The thesis verdict leaves the weekly brief and the draft issue. `/thesis/` and its record stay.
+   The locked issue 2026-w36 is not touched.
+
+`intent.md` and `.claude/rules/constraints.md` are his to amend and are not edited by this run. The
+wording changes they need are proposed separately in `docs/active/publish-path-spec.md`.
+
