@@ -392,3 +392,42 @@ job is the "Jul 6 – Aug 10" window question already owed by the owner, so both
 together.
 
 Twenty commits now sit on `preview` ahead of production.
+
+## Next session — start here (written 2026-09-20)
+
+Two jobs are open and both are unblocked. Read `docs/active/product-core.md` first.
+
+**1. The first screen still leads with the thesis, and it should not.** Product core §5 says the
+founding lag thesis leaves the first screen and the market picture takes it. On the current preview
+trunk the standfirst and "The market by domain" are in place and good, but the `h1` is still the
+weekly issue read ("Record earnings from CrowdStrike, Zscaler..."), and it takes the whole fold.
+The fix is to put the market picture above the issue block and demote the issue read from `h1` to a
+compact strip that links to the issue. `web/src/App.tsx` line 56 onward is the order to change
+(`IssueHero`, `IssueLanes`, then `DomainBoard`). Note that `web/tests/e2e/issue.spec.ts:8` asserts
+"h1 is the newest issue read" and must be updated with the change, because the spec moved, not the
+code.
+
+**2. The durable gather job can be built now, without asking the owner anything.**
+`docs/active/fable-run/automation-plan.md` says the choice is a cloud-routine allowlist (needs his
+access) or a local runner (needs host reachability it could not verify), and it recommends trying
+the cloud first. **Measured 2026-09-20: skip the cloud. Build the local runner on macbook2014.**
+`ssh macbook2014` connects, returns hostname `macbook2014-338.local`, and `claude` is installed at
+`/usr/local/bin/claude`. The reachability table in
+`~/code/_shared/agent-exec/docs/infrastructure.md` is stale — it was measured 2026-08-02 and says no
+host on the LAN answers SSH, which is no longer true. That was the only thing making Step 1 of the
+build order an owner decision, so it is not one any more.
+
+For the channel, do not buy or wire anything: the gather opens a pull request, and GitHub's own
+mobile notification is the one tap. Build order Step 4 already says merging the PR from the GitHub
+app is the whole action. That needs no webhook, no credential and no spend.
+
+**3. A defect in the gather brief will fail the next scheduled run.**
+`docs/active/gather-brief.md` §1.3 dates items from the Return on Security issue whose publication
+date falls inside the window. That newsletter reports the *previous* week, so every item comes out
+dated outside the window and `verify:issue` check 4 fails closed. The manual run on 2026-09-20 hit
+this and worked around it by taking event dates from each primary document instead. Fix the brief
+before arming any schedule.
+
+**Open and not mine to decide:** promotion to `main`. Production is 71 commits behind the trunk.
+
+**Also open:** pull request #2, the unsigned `2026-w37` draft, https://github.com/jessepike/sec-market/pull/2
