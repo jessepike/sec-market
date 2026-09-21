@@ -616,6 +616,9 @@ figures back to the scorecard (SEC-045) behind the figure-meaning gate (SEC-044)
 - Analytics: Plausible at about $9 a month is the recommendation
   (`docs/active/fable-run/research/12-analytics-options.md`); paid service, owner gate
 - Wave 2 of the machine-readable surface (`docs/active/fable-run/agent-surface-spec.md` v0.2)
+- After the thesis moved to `/thesis/` (2026-09-20), the "Standing analysis" link is reachable only
+  from the front page; `/corrections/`, `/issues/` and issue pages have no link to it. Needs a
+  site-wide footer
 - Parked by the owner on 2026-09-20: monetization
   (`docs/active/fable-run/monetization-plan.md`) and the employer outside-activity question
 

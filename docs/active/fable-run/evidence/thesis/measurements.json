@@ -1,0 +1,58 @@
+{
+  "before": {
+    "1440px": {
+      "pageHeight": 16873,
+      "overview": 338,
+      "market": 505,
+      "we-think": 1770,
+      "follow": 6908,
+      "landscape": 7019,
+      "platforms": 7795,
+      "prints": 9490,
+      "hypotheses": 15083,
+      "read": 13875,
+      "method": 15940
+    },
+    "390px": {
+      "pageHeight": 21250,
+      "overview": 493,
+      "market": 804,
+      "we-think": 3348,
+      "follow": 10683,
+      "landscape": 10845,
+      "platforms": 12535,
+      "prints": 15659,
+      "hypotheses": 18664,
+      "read": 16334,
+      "method": 20030
+    }
+  },
+  "after": {
+    "1440px": {
+      "pageHeight": 15724,
+      "overview": 338,
+      "market": 505,
+      "we-think": 1770,
+      "follow": 6710,
+      "landscape": 6820,
+      "platforms": 7597,
+      "prints": 9292,
+      "hypotheses": 13677,
+      "read": 14186,
+      "method": 14737
+    },
+    "390px": {
+      "pageHeight": 18669,
+      "overview": 493,
+      "market": 804,
+      "we-think": 3348,
+      "follow": 10126,
+      "landscape": 10288,
+      "platforms": 11978,
+      "prints": 15103,
+      "hypotheses": 15777,
+      "read": 16796,
+      "method": 17395
+    }
+  }
+}
