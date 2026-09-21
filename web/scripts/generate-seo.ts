@@ -23,6 +23,8 @@
 import { readFileSync, writeFileSync } from 'node:fs'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { correctionsNewestFirst } from '../src/data/correctionHelpers.ts'
+import { corrections } from '../src/data/corrections.ts'
 import { feedIssuesNewestFirst } from '../src/data/issueHelpers.ts'
 import { issueById, issues } from '../src/data/issues/index.ts'
 import { routes, type RouteEntry } from '../src/data/routes.ts'
@@ -166,6 +168,25 @@ function structuredDataFor(routeEntry: RouteEntry, html: string) {
     }
   }
 
+  if (routeEntry.kind === 'corrections') {
+    const ordered = correctionsNewestFirst(corrections)
+    const datePublished = ordered.at(-1)?.date ?? LAST_UPDATED_ISO
+    const dateModified = ordered.at(0)?.date ?? LAST_UPDATED_ISO
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      '@id': `${url}#collection`,
+      url,
+      name: readTitle(html),
+      description: readDescription(html),
+      isPartOf: { '@type': 'WebSite', name: PRODUCT_TITLE, url: `${SITE_URL}/` },
+      inLanguage: 'en',
+      author: { '@type': 'Person', name: AUTHOR_NAME },
+      datePublished,
+      dateModified,
+    }
+  }
+
   if (routeEntry.kind === 'issue' && routeEntry.issueId) {
     const issue = issueById[routeEntry.issueId]
     return {
@@ -252,7 +273,9 @@ const urlEntries = routes
     const lastmod =
       routeEntry.kind === 'issue' && routeEntry.issueId
         ? (issueById[routeEntry.issueId].published ?? LAST_UPDATED_ISO)
-        : LAST_UPDATED_ISO
+        : routeEntry.kind === 'corrections'
+          ? (correctionsNewestFirst(corrections).at(0)?.date ?? LAST_UPDATED_ISO)
+          : LAST_UPDATED_ISO
     const priority = routeEntry.kind === 'front' ? '1.0' : '0.7'
     return `  <url>
     <loc>${url}</loc>
@@ -270,6 +293,7 @@ const jsonUrls = [
   `${SITE_URL}/issues/index.json`,
   ...(newestPublishedForSitemap ? [`${SITE_URL}/issues/${newestPublishedForSitemap.id}.json`] : []),
   `${SITE_URL}/issues/lock.json`,
+  `${SITE_URL}/corrections.json`,
 ]
 const jsonEntries = jsonUrls
   .map(

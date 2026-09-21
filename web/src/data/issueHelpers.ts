@@ -1,4 +1,4 @@
-import type { EvidenceRecord, Issue, ThesisScore } from './types'
+import type { Correction, EvidenceRecord, Issue, ThesisScore } from './types'
 
 /**
  * ISO 8601 week id (`2026-w36`) for a given date. Weeks run Monday–Sunday;
@@ -245,15 +245,20 @@ export function toRfc822(isoDate: string): string {
 }
 
 /**
- * The `{ issue, evidence }` shape written to `dist/issues/<id>.json`: the
- * issue plus every evidence record it cites, resolved through
- * `issueEvidenceIds` so the JSON copy can never cite a different evidence
- * set than the page itself considers cited.
+ * The `{ issue, evidence, corrections }` shape written to
+ * `dist/issues/<id>.json`: the issue plus every evidence record it cites,
+ * resolved through `issueEvidenceIds` so the JSON copy can never cite a
+ * different evidence set than the page itself considers cited, plus any
+ * corrections that apply to this issue as a sibling field. `corrections`
+ * defaults to `[]` and never touches the `issue` object itself — the hashed,
+ * append-only publication record (see issues.lock.json) is unaffected by
+ * this field either being present or changing.
  */
 export function issueJsonCopy(
   issue: Issue,
   evidenceById: Record<string, EvidenceRecord>,
-): { issue: Issue; evidence: EvidenceRecord[] } {
+  correctionsList: Correction[] = [],
+): { issue: Issue; evidence: EvidenceRecord[]; corrections: Correction[] } {
   const evidence = issueEvidenceIds(issue).map((id) => {
     const record = evidenceById[id]
     if (!record) {
@@ -261,5 +266,6 @@ export function issueJsonCopy(
     }
     return record
   })
-  return { issue, evidence }
+  const corrections = correctionsList.filter((correction) => correction.issueId === issue.id)
+  return { issue, evidence, corrections }
 }

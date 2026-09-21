@@ -1,6 +1,7 @@
 import { Analytics } from '@vercel/analytics/react'
 import type { ReactNode } from 'react'
 import { ActivityBoard } from './components/ActivityBoard'
+import { Corrections } from './components/Corrections'
 import { DomainBoard } from './components/DomainBoard'
 import { EvidenceDrawer } from './components/EvidenceDrawer'
 import { EvidenceLibrary } from './components/EvidenceLibrary'
@@ -126,6 +127,7 @@ function RouteContent({ path }: { path: string }) {
   const route = matchRoute(path)
 
   if (route.kind === 'archive') return <IssueArchive />
+  if (route.kind === 'corrections') return <Corrections />
   if (route.kind === 'issue' && route.issueId && issueById[route.issueId]) {
     return <IssuePage issue={issueById[route.issueId]} />
   }

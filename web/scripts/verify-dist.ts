@@ -16,6 +16,8 @@ import assert from 'node:assert/strict'
 import { existsSync, readFileSync } from 'node:fs'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
+import { correctionsJsonPayload } from '../src/data/correctionHelpers.ts'
+import { corrections } from '../src/data/corrections.ts'
 import { evidenceById } from '../src/data/evidence.ts'
 import {
   archiveEntriesNewestFirst,
@@ -26,7 +28,7 @@ import {
 import { issues } from '../src/data/issues/index.ts'
 import { SITE_URL } from '../src/data/meta.ts'
 import { routesFor } from '../src/data/routes.ts'
-import type { EvidenceRecord, Issue } from '../src/data/types.ts'
+import type { Correction, EvidenceRecord, Issue } from '../src/data/types.ts'
 
 const webRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const SOURCE_LOCK_PATH = resolve(webRoot, 'src/data/issues/issues.lock.json')
@@ -482,7 +484,16 @@ function extractFeedItems(xml: string): FeedItem[] {
   })
 }
 
-export function checkFeedXmlExistsAndParses(distDir: string, issuesList: Issue[]): CheckResult {
+/** A correction's feed guid never has a trailing "/issues/<id>/" shape, so this is unambiguous either way. */
+function isCorrectionGuid(guid: string): boolean {
+  return guid.includes('/corrections/#')
+}
+
+export function checkFeedXmlExistsAndParses(
+  distDir: string,
+  issuesList: Issue[],
+  correctionsList: Correction[] = [],
+): CheckResult {
   return runCheck('11d feed-xml-exists-and-parses', () => {
     const path = resolve(distDir, 'feed.xml')
     if (!existsSync(path)) {
@@ -497,11 +508,13 @@ export function checkFeedXmlExistsAndParses(distDir: string, issuesList: Issue[]
     }
 
     const publishedIssues = feedIssuesNewestFirst(issuesList)
-    const parsedItems = extractFeedItems(xml) // throws on a nested/unbalanced <item>
+    const allParsedItems = extractFeedItems(xml) // throws on a nested/unbalanced <item>
+    const parsedItems = allParsedItems.filter((item) => !isCorrectionGuid(item.guid))
+    const correctionParsedItems = allParsedItems.filter((item) => isCorrectionGuid(item.guid))
 
     if (parsedItems.length !== publishedIssues.length) {
       throw new Error(
-        `dist/feed.xml has ${parsedItems.length} <item> element(s), expected exactly one per published issue (${publishedIssues.length})`,
+        `dist/feed.xml has ${parsedItems.length} issue <item> element(s), expected exactly one per published issue (${publishedIssues.length})`,
       )
     }
 
@@ -538,7 +551,49 @@ export function checkFeedXmlExistsAndParses(distDir: string, issuesList: Issue[]
       }
     }
 
-    return `${parsedItems.length} <item>(s), guid set and per-item pubDate verified against their issue's published date`
+    // --- Correction items (SEC-MARKET-FABLE-001 T6-13): same discipline as
+    // above — exact count, exact guid set, and per-item pubDate identity —
+    // applied to the separate, appended set of correction <item>s. ---------
+    if (correctionParsedItems.length !== correctionsList.length) {
+      throw new Error(
+        `dist/feed.xml has ${correctionParsedItems.length} correction <item> element(s), expected exactly one per correction (${correctionsList.length})`,
+      )
+    }
+
+    const correctionById = new Map(correctionsList.map((correction) => [correction.id, correction]))
+    const expectedCorrectionGuids = new Set(
+      correctionsList.map((correction) => `${SITE_URL}/corrections/#${correction.id}`),
+    )
+    const actualCorrectionGuids = new Set(correctionParsedItems.map((item) => item.guid))
+    const missingCorrectionGuids = [...expectedCorrectionGuids].filter(
+      (guid) => !actualCorrectionGuids.has(guid),
+    )
+    const extraCorrectionGuids = [...actualCorrectionGuids].filter(
+      (guid) => !expectedCorrectionGuids.has(guid),
+    )
+    if (missingCorrectionGuids.length > 0 || extraCorrectionGuids.length > 0) {
+      throw new Error(
+        `dist/feed.xml correction guid set does not equal the set of published corrections — ` +
+          `missing: [${missingCorrectionGuids.join(', ')}], extra: [${extraCorrectionGuids.join(', ')}]`,
+      )
+    }
+
+    for (const item of correctionParsedItems) {
+      const idMatch = item.guid.match(/\/corrections\/#(.+)$/)
+      const correction = idMatch ? correctionById.get(idMatch[1]) : undefined
+      if (!correction) {
+        throw new Error(`dist/feed.xml correction item guid "${item.guid}" does not map to a known correction id`)
+      }
+      const expectedPubDate = toRfc822(correction.date)
+      if (item.pubDate !== expectedPubDate) {
+        throw new Error(
+          `dist/feed.xml correction item "${item.guid}" pubDate is "${item.pubDate}", expected "${expectedPubDate}" ` +
+            `(the RFC 822 form of correction "${correction.id}"'s date "${correction.date}")`,
+        )
+      }
+    }
+
+    return `${parsedItems.length} issue <item>(s) + ${correctionParsedItems.length} correction <item>(s), guid sets and per-item pubDate verified`
   })
 }
 
@@ -690,11 +745,16 @@ function alternateLinkFilePath(distDir: string, href: string): string {
  * Every route's `<link rel="alternate">` tags (RSS feed, JSON machine-surface
  * files) must point at a file that actually exists in `dist` — wired up per
  * agent-surface-spec.md §6.3 so a stale or broken machine link fails the
- * build instead of quietly 404ing for whatever program follows it.
+ * build instead of quietly 404ing for whatever program follows it. Extended
+ * for SEC-MARKET-FABLE-001 T6-13: every route must also specifically
+ * advertise `/corrections.json`, not merely have *some* alternate links that
+ * happen to resolve — a build that silently dropped that one link target
+ * would otherwise still pass.
  */
 export function checkAlternateLinksResolve(distDir: string, issuesList: Issue[]): CheckResult {
   return runCheck('11h alternate-link-targets-exist', () => {
     const routesList = routesFor(issuesList)
+    const correctionsJsonHref = `${SITE_URL}/corrections.json`
     let checkedCount = 0
     for (const routeEntry of routesList) {
       const path = routeHtmlPath(distDir, routeEntry.path)
@@ -706,12 +766,14 @@ export function checkAlternateLinksResolve(distDir: string, issuesList: Issue[])
       if (tags.length === 0) {
         throw new Error(`route "${routeEntry.path}": no <link rel="alternate"> tags found`)
       }
+      const hrefsSeen: string[] = []
       for (const tag of tags) {
         const hrefMatch = tag.match(HREF_ATTR_PATTERN)
         if (!hrefMatch) {
           throw new Error(`route "${routeEntry.path}": an alternate link tag has no href — ${tag}`)
         }
         const href = hrefMatch[1]
+        hrefsSeen.push(href)
         const filePath = alternateLinkFilePath(distDir, href)
         if (!existsSync(filePath)) {
           throw new Error(
@@ -720,8 +782,44 @@ export function checkAlternateLinksResolve(distDir: string, issuesList: Issue[])
         }
         checkedCount++
       }
+      if (!hrefsSeen.includes(correctionsJsonHref)) {
+        throw new Error(
+          `route "${routeEntry.path}": no <link rel="alternate"> advertises "${correctionsJsonHref}"`,
+        )
+      }
     }
-    return `${checkedCount} alternate link target(s) verified across ${routesList.length} route(s)`
+    return `${checkedCount} alternate link target(s) verified across ${routesList.length} route(s), corrections.json link confirmed on every route`
+  })
+}
+
+// --- 11i: dist/corrections.json exists and identity-matches the source data
+
+/**
+ * `dist/corrections.json` must exist, parse, and deep-equal the payload
+ * `correctionsJsonPayload` builds from the source `corrections` array — the
+ * same identity discipline check 11b applies to each issue's JSON copy.
+ */
+export function checkCorrectionsJsonExists(distDir: string, correctionsList: Correction[]): CheckResult {
+  return runCheck('11i corrections-json-exists', () => {
+    const path = resolve(distDir, 'corrections.json')
+    if (!existsSync(path)) {
+      throw new Error('dist/corrections.json is missing')
+    }
+    const parsed = JSON.parse(readFileSync(path, 'utf8'))
+    if (!Array.isArray(parsed)) {
+      throw new Error('dist/corrections.json does not parse to an array')
+    }
+    const expected = JSON.parse(JSON.stringify(correctionsJsonPayload(correctionsList, SITE_URL)))
+    try {
+      assert.deepStrictEqual(parsed, expected)
+    } catch (error) {
+      throw new Error(
+        `dist/corrections.json does not deep-equal the expected payload: ${
+          error instanceof Error ? error.message : String(error)
+        }`,
+      )
+    }
+    return `${parsed.length} correction(s) present, well-formed, and identity-checked`
   })
 }
 
@@ -731,7 +829,7 @@ function isMainModule(): boolean {
   return process.argv[1] !== undefined && pathToFileURL(process.argv[1]).href === import.meta.url
 }
 
-const EXPECTED_CHECK_COUNT = 8
+const EXPECTED_CHECK_COUNT = 9
 
 export function report(results: CheckResult[]): boolean {
   if (results.length !== EXPECTED_CHECK_COUNT) {
@@ -759,11 +857,12 @@ if (isMainModule()) {
       checkEveryRouteHtmlExists(distDir, issues),
       checkEveryIssueJsonExists(distDir, issues, evidenceById),
       checkIssuesIndexJsonExists(distDir, issues),
-      checkFeedXmlExistsAndParses(distDir, issues),
+      checkFeedXmlExistsAndParses(distDir, issues, corrections),
       checkSitemapXmlListsEveryRoute(distDir, issues),
       checkLockJsonMatchesSource(distDir, SOURCE_LOCK_PATH),
       checkRouteDescriptionMeta(distDir, issues),
       checkAlternateLinksResolve(distDir, issues),
+      checkCorrectionsJsonExists(distDir, corrections),
     ]
     const anyFail = report(results)
     if (anyFail) {

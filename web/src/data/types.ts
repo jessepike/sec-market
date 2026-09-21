@@ -267,6 +267,33 @@ export interface MachineProposal {
   summary: string
 }
 
+// --- Corrections (SEC-MARKET-FABLE-001 T6-13) ---
+
+/** One item's corrected reading, carried alongside the original in the record. */
+export interface CorrectedReading {
+  itemId: IssueItem['id']
+  correctedHeadline: string
+  evidenceIds: string[]
+  /** Set when a claim beyond the headline (e.g. a "why it matters" comparison) is withdrawn. */
+  note?: string
+}
+
+/**
+ * An owner-approved, append-only correction to a published issue. Never
+ * edits the issue itself — see web/src/data/issues/issues.lock.json, the
+ * append-only publication manifest the issue data is hashed into. A
+ * correction is a dated note that travels beside the affected item(s) and
+ * is also listed on its own page at /corrections/.
+ */
+export interface Correction {
+  id: string // `C-<published-date>-<sequence>`, e.g. `C-2026-09-20-01`
+  date: string // ISO date the correction was approved and published
+  issueId: Issue['id']
+  text: string // the full owner-approved correction text, verbatim
+  approvedBy: string // must equal AUTHOR_NAME in meta.ts
+  correctedReadings: CorrectedReading[]
+}
+
 export interface Issue {
   id: string // ISO week, `2026-w36`
   weekEnding: string // ISO date, the Sunday

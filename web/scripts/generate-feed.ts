@@ -3,10 +3,13 @@
  *
  * Runs after scripts/generate-seo.ts, against dist/. Writes:
  *   - dist/feed.xml — RSS 2.0, one <item> per published issue (valid XML with
- *     zero items when none are published yet, as issue 2026-w36 is at launch).
- *   - dist/issues/<id>.json — { issue, evidence } for every issue, `evidence`
- *     holding every evidence record the issue cites (issueEvidenceIds already
- *     folds in weThink.thesis and, on a draft, proposed.thesis).
+ *     zero items when none are published yet, as issue 2026-w36 is at launch),
+ *     plus one <item> per published correction (SEC-MARKET-FABLE-001 T6-13).
+ *   - dist/issues/<id>.json — { issue, evidence, corrections } for every
+ *     issue, `evidence` holding every evidence record the issue cites
+ *     (issueEvidenceIds already folds in weThink.thesis and, on a draft,
+ *     proposed.thesis), `corrections` holding any corrections that apply to
+ *     that issue as a sibling field — the hashed `issue` object is untouched.
  *   - dist/issues/index.json — [{ id, weekEnding, published, status, read, url }].
  *   - dist/issues/lock.json — a public copy of src/data/issues/issues.lock.json,
  *     the append-only publication manifest. verify-issue.ts's check 8 fetches
@@ -14,23 +17,27 @@
  *     git parent commits), so a build with no git history to compare against
  *     still has something to check append-only against. verify-dist.ts
  *     requires it to exist and equal the source file exactly.
+ *   - dist/corrections.json — every correction, newest first, in the shape
+ *     src/data/correctionHelpers.ts's correctionsJsonPayload builds.
  *
  * Also adds a feed-autodiscovery <link rel="alternate" type="application/
  * rss+xml"> to every emitted route's <head>.
  *
- * The four writers above (buildFeedXml/writeFeedXml, writeIssueJsonCopies,
- * writeIssuesIndexJson, writeLockManifestCopy) are exported and parameterised
- * by an issues array and an output directory, so tests/dist-fixtures.test.ts
- * can run the real writers against a fixture into a temp directory and then
- * run the real verify-dist.ts checks against that directory — instead of
- * only exercising the pure helpers underneath and hoping the writer that
- * calls them still agrees. The feed-autodiscovery injection below stays
- * script-only: it rewrites already-prerendered HTML, which a fixture test
- * has no reason to fabricate.
+ * The writers above (buildFeedXml/writeFeedXml, writeIssueJsonCopies,
+ * writeIssuesIndexJson, writeLockManifestCopy, writeCorrectionsJson) are
+ * exported and parameterised by an issues array and an output directory, so
+ * tests/dist-fixtures.test.ts can run the real writers against a fixture
+ * into a temp directory and then run the real verify-dist.ts checks against
+ * that directory — instead of only exercising the pure helpers underneath
+ * and hoping the writer that calls them still agrees. The feed-autodiscovery
+ * injection below stays script-only: it rewrites already-prerendered HTML,
+ * which a fixture test has no reason to fabricate.
  */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
+import { correctionsJsonPayload, correctionsNewestFirst } from '../src/data/correctionHelpers.ts'
+import { corrections } from '../src/data/corrections.ts'
 import { evidenceById } from '../src/data/evidence.ts'
 import {
   archiveEntriesNewestFirst,
@@ -41,7 +48,7 @@ import {
 import { issues } from '../src/data/issues/index.ts'
 import { PRODUCT_TITLE, SITE_URL } from '../src/data/meta.ts'
 import { routes, type RouteEntry } from '../src/data/routes.ts'
-import type { EvidenceRecord, Issue } from '../src/data/types.ts'
+import type { Correction, EvidenceRecord, Issue } from '../src/data/types.ts'
 
 const webRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const SOURCE_LOCK_PATH = resolve(webRoot, 'src/data/issues/issues.lock.json')
@@ -69,22 +76,39 @@ function xmlEscape(text: string): string {
 
 // --- Pure writers: issues + an output directory in, files out ---------------
 
-/** The RSS 2.0 document `dist/feed.xml` holds — one `<item>` per published issue. */
-export function buildFeedXml(issuesList: Issue[]): string {
+/**
+ * The RSS 2.0 document `dist/feed.xml` holds — one `<item>` per published
+ * issue, plus one `<item>` per correction (`correctionsList`, defaulting to
+ * none). Correction items are appended after issue items and use
+ * `isPermaLink="false"` since their guid is an anchor on `/corrections/`,
+ * not a standalone resource of its own.
+ */
+export function buildFeedXml(issuesList: Issue[], correctionsList: Correction[] = []): string {
   const publishedIssues = feedIssuesNewestFirst(issuesList)
 
-  const items = publishedIssues
-    .map((issue) => {
-      const url = `${SITE_URL}/issues/${issue.id}/`
-      return `    <item>
+  const issueItems = publishedIssues.map((issue) => {
+    const url = `${SITE_URL}/issues/${issue.id}/`
+    return `    <item>
       <title>${xmlEscape(`Issue ${issue.id}`)}</title>
       <link>${url}</link>
       <guid isPermaLink="true">${url}</guid>
       <pubDate>${toRfc822(issue.published!)}</pubDate>
       <description>${xmlEscape(issue.read)}</description>
     </item>`
-    })
-    .join('\n')
+  })
+
+  const correctionItems = correctionsNewestFirst(correctionsList).map((correction) => {
+    const url = `${SITE_URL}/corrections/#${correction.id}`
+    return `    <item>
+      <title>${xmlEscape(`Correction — issue ${correction.issueId}`)}</title>
+      <link>${url}</link>
+      <guid isPermaLink="false">${url}</guid>
+      <pubDate>${toRfc822(correction.date)}</pubDate>
+      <description>${xmlEscape(correction.text)}</description>
+    </item>`
+  })
+
+  const items = [...issueItems, ...correctionItems].join('\n')
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
@@ -99,11 +123,33 @@ ${items}
 `
 }
 
-export function writeFeedXml(issuesList: Issue[], distDir: string): { path: string; itemCount: number } {
-  const feed = buildFeedXml(issuesList)
+export function writeFeedXml(
+  issuesList: Issue[],
+  correctionsList: Correction[],
+  distDir: string,
+): { path: string; itemCount: number } {
+  const feed = buildFeedXml(issuesList, correctionsList)
   const path = resolve(distDir, 'feed.xml')
   writeFileSync(path, feed)
-  return { path, itemCount: feedIssuesNewestFirst(issuesList).length }
+  return { path, itemCount: feedIssuesNewestFirst(issuesList).length + correctionsList.length }
+}
+
+/**
+ * Writes `dist/corrections.json` — every correction, newest first, in the
+ * stable shape `correctionsJsonPayload` builds. Mirrors
+ * `writeIssueJsonCopies` below: a pure payload builder in
+ * src/data/correctionHelpers.ts, a thin writer here, and a matching checker
+ * in verify-dist.ts, so the writer and its checker cannot compute the shape
+ * two different ways.
+ */
+export function writeCorrectionsJson(
+  correctionsList: Correction[],
+  distDir: string,
+): { path: string; count: number } {
+  const payload = correctionsJsonPayload(correctionsList, SITE_URL)
+  const path = resolve(distDir, 'corrections.json')
+  writeFileSync(path, JSON.stringify(payload, null, 2))
+  return { path, count: payload.length }
 }
 
 /** Writes dist/issues/<id>.json for every issue. Throws (does not exit) on an unresolved evidence id. */
@@ -111,11 +157,12 @@ export function writeIssueJsonCopies(
   issuesList: Issue[],
   evidenceByIdMap: Record<string, EvidenceRecord>,
   distDir: string,
+  correctionsList: Correction[] = [],
 ): string[] {
   mkdirSync(resolve(distDir, 'issues'), { recursive: true })
   const written: string[] = []
   for (const issue of issuesList) {
-    const payload = issueJsonCopy(issue, evidenceByIdMap)
+    const payload = issueJsonCopy(issue, evidenceByIdMap, correctionsList)
     const path = resolve(distDir, 'issues', `${issue.id}.json`)
     writeFileSync(path, JSON.stringify(payload, null, 2))
     written.push(path)
@@ -159,7 +206,7 @@ if (isMainModule()) {
 
   let feedResult: { path: string; itemCount: number }
   try {
-    feedResult = writeFeedXml(issues, distDir)
+    feedResult = writeFeedXml(issues, corrections, distDir)
   } catch (error) {
     fail(error instanceof Error ? error.message : String(error))
   }
@@ -167,11 +214,16 @@ if (isMainModule()) {
 
   let jsonPaths: string[]
   try {
-    jsonPaths = writeIssueJsonCopies(issues, evidenceById, distDir)
+    jsonPaths = writeIssueJsonCopies(issues, evidenceById, distDir, corrections)
   } catch (error) {
     fail(error instanceof Error ? error.message : String(error))
   }
   console.log(`generate-feed OK: wrote ${jsonPaths.length} dist/issues/<id>.json file(s).`)
+
+  const correctionsResult = writeCorrectionsJson(corrections, distDir)
+  console.log(
+    `generate-feed OK: wrote dist/corrections.json with ${correctionsResult.count} entr${correctionsResult.count === 1 ? 'y' : 'ies'}.`,
+  )
 
   const indexResult = writeIssuesIndexJson(issues, distDir)
   console.log(
@@ -200,6 +252,7 @@ if (isMainModule()) {
       ? [{ href: `${SITE_URL}/issues/${newestPublished.id}.json`, title: 'Newest issue (JSON)' }]
       : []),
     { href: `${SITE_URL}/issues/lock.json`, title: 'Publication ledger (JSON)' },
+    { href: `${SITE_URL}/corrections.json`, title: 'Corrections (JSON)' },
   ]
 
   for (const routeEntry of routes) {
