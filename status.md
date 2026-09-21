@@ -404,53 +404,26 @@ together.
 
 Twenty commits now sit on `preview` ahead of production.
 
-## Next session — start here (written 2026-09-20, evening)
+## Next session — start here (written 2026-09-21, superseding the 2026-09-20 block below it)
 
-**The durable weekly gather is built and armed. One step is the owner's.**
+**Both items the previous block left open are done. Read the "Current State" section at the top of
+this file first — it carries D-70 through D-74, all landed.** The design fix (D-71) is live on
+production, not just on preview. The gather's login (D-70's one open step) has a fix in flight: the
+owner authenticated on macbook2014, but a bare `claude -p` over ssh still returned 401 because the
+stored credentials are stale and the keychain isn't readable over ssh; `scripts/gather.sh` did not
+load `~/.env.local`, where the working token actually lives. That load was added
+(`1de8afa`/`e71b0f7`, T7-6) and is on `preview`; whether it has reached a real Tuesday run and
+produced a `state: drafted` receipt (rather than `blocked-auth`) is not yet confirmed as of this
+writing — check `~/gather-logs/receipts/` on macbook2014 for the newest entry.
 
-`scripts/gather.sh` runs on macbook2014 under launchd
-(`com.securitymarketpulse.gather`, Tuesdays 07:00). It resets to `origin/preview`, works out the due
-ISO week, exits early if that issue or its branch already exists, probes its own Claude login, hands
-the job to `claude -p --model claude-sonnet-5` with `docs/active/gather-brief.md` as the instruction,
-and confirms a branch reached GitHub. `.github/workflows/gather-pr.yml` opens the pull request from
-that branch; GitHub's mobile notification is the one tap. `.github/workflows/freshness.yml` watches
-the live site daily from GitHub. Every run writes a receipt to `~/gather-logs/receipts/` on
-macbook2014. Full rationale in D-70.
+**A second coordinator run (Fable, phase T7) is active in parallel on this repo**, building the
+publish-on-approval path from `docs/active/publish-path-spec.md`
+(`SEC-MARKET-PUBLISH-001`). Its ledger and log are `docs/active/fable-run/RUN-STATE.md` — read that
+before touching `scripts/gather.sh`, `scripts/publish-issue.sh`, or `.github/workflows/*.yml`, since
+a session unaware of it will look like it is stepping on uncommitted work. As of this writing it has
+landed the approve-to-publish workflow, a scorecard staleness check, and two more promotions (D-73,
+D-74); `main` is `51dbffd`.
 
-Proven end to end on 2026-09-20 with `SMP_WEEK_ENDING=2026-09-20 ./scripts/gather.sh` on macbook2014:
-correct week arithmetic (`2026-w38`, window `2026-09-14..2026-09-20`), clean trunk reset, valid JSON
-receipt. Three defects were found and fixed doing it, all of which had been invisible because every
-prior run took the early-exit path: the script did not parse at all under bash 3.2, the log line
-after the model call had unterminated quoting, and the receipt's JSON broke on a multi-line error.
-
-**The one remaining step, and it needs the owner:** the Claude subscription login on macbook2014
-expired on 2026-05-10 and returns `401 OAuth access token is invalid`. The job detects this, records
-`state: blocked-auth`, and stops before spending an hour. Fix it with one interactive login on that
-host, from a terminal on this laptop:
-
-```
-ssh macbook2014
-claude setup-token
-```
-
-Then the job resumes by itself on the next Tuesday. To confirm sooner, run
-`SMP_WEEK_ENDING=2026-09-20 ./scripts/gather.sh` from `~/code/projects/sec-market` on macbook2014 and
-read the newest file in `~/gather-logs/receipts/`.
-
-**The design fix is done and is on the preview, waiting for you (D-71).**
-
-https://security-market-pulse-git-preview-pikeholdings.vercel.app
-
-The front page used to lead with the newest issue's one-line read as its `h1`, which ran to three
-lines of 44px type at 1440 and described one week rather than the site. It now opens with a masthead
-whose `h1` is a standing headline, then the weekly read as a single-line strip that keeps
-`#overview`, then the market by domain, which reaches the first screen at 1440 with three domain
-cards visible. The issue permalink still carries the read as its own `h1` and was not touched.
-
-The headline is copy and is yours to change: one constant, `SITE_HEADLINE`, in
-`web/src/data/meta.ts`, currently "The security market, from public numbers".
-
-Promotion to `main` is the owner's call and has not been made.
-
-**Also open:** pull request #2, the unsigned `2026-w37` draft,
-https://github.com/jessepike/sec-market/pull/2
+**Pull request #2, the unsigned `2026-w37` draft, is still open**
+(https://github.com/jessepike/sec-market/pull/2) and predates the thesis moving off the weekly issue
+(D-72). Whether it still matches the current issue schema is unverified — check before signing it.
