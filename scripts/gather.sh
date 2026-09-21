@@ -43,7 +43,7 @@ receipt() {
   "branch": "$BRANCH",
   "pushedToOrigin": $PUSHED,
   "state": "$STATE",
-  "detail": $(printf '%s' "$DETAIL" | sed 's/\\/\\\\/g; s/"/\\"/g; s/^/"/; s/$/"/'),
+  "detail": $(printf '%s' "$DETAIL" | tr '\n\r\t' '   ' | sed 's/\\/\\\\/g; s/"/\\"/g; s/^/"/; s/$/"/'),
   "log": "$RUN_LOG"
 }
 JSON
@@ -89,7 +89,7 @@ fi
 # subscription login on this host expires and a dead one returns 401 from the
 # first call, so without this check the receipt would blame the gather for a
 # problem that is really an expired login and needs a person at a browser.
-AUTH_OUT="$(claude -p "ok" --model "$MODEL" 2>&1)"
+AUTH_OUT="$(claude -p "ok" --model "$MODEL" < /dev/null 2>&1)"
 case "$AUTH_OUT" in
   *401*|*uthenticat*|*"access token"*)
     STATE="blocked-auth"
