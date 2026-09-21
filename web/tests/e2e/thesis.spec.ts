@@ -1,4 +1,6 @@
 import { expect, test } from '@playwright/test'
+import { issues } from '../../src/data/issues/index.ts'
+import { newestThesisJudgment } from '../../src/data/issueHelpers.ts'
 import { marketCall } from '../../src/data/market.ts'
 
 /**
@@ -102,5 +104,14 @@ test.describe('/thesis/ — the standing thesis', () => {
       'href',
       '/thesis/',
     )
+
+    // The pointer's JUDGED stamp is the newest published issue's actual
+    // signed thesis date (SEC-MARKET-FABLE-001 T6-16 fix), not the site's
+    // LAST_UPDATED stamp — read here from the data the way the page itself
+    // computes it (newestThesisJudgment), not hard-coded.
+    const judgment = newestThesisJudgment(issues)
+    expect(judgment).not.toBeNull()
+    await expect(pointer.locator('.stamp-label time')).toHaveAttribute('datetime', judgment!.signedOn)
+    await expect(pointer.locator('.stamp-label')).toContainText(judgment!.signedBy)
   })
 })

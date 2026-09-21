@@ -1,5 +1,7 @@
+import { formatShortDate } from '../data/dates'
+import { issues } from '../data/issues/index'
+import { newestThesisJudgment } from '../data/issueHelpers'
 import { marketCall } from '../data/market'
-import { AUTHOR_NAME, LAST_UPDATED_DISPLAY, LAST_UPDATED_ISO } from '../data/meta'
 
 /**
  * Front-page pointer to the standing thesis (SEC-MARKET-FABLE-001 T6-16).
@@ -13,20 +15,27 @@ import { AUTHOR_NAME, LAST_UPDATED_DISPLAY, LAST_UPDATED_ISO } from '../data/met
  * render here, so `/#read` anchors, the prerender must-see gate, and any
  * existing deep link keep resolving to this same spot on the front page.
  *
- * marketCall carries no thesis-specific "judged" date of its own — only the
- * site-wide LAST_UPDATED stamp, which is the same date HeroContent shows in
- * its own UPDATED line on the full /thesis/ page — so the JUDGED line here
- * reuses that constant rather than inventing a new one.
+ * The JUDGED stamp is the newest published issue's actual signed thesis
+ * date (`newestThesisJudgment`, sourced from `weThink.signedOn`/`signedBy`)
+ * — never the site-wide LAST_UPDATED stamp, which only says when the site
+ * last shipped a change, not when anyone judged the thesis. When no issue
+ * has signed a thesis verdict yet, the stamp is omitted rather than
+ * inventing one.
  */
 export function ThesisPointer() {
+  const judgment = newestThesisJudgment(issues)
+
   return (
     <section id="read" className="thesis-pointer" aria-labelledby="thesis-pointer-heading">
       <p className="eyebrow">Standing analysis</p>
       <h2 id="thesis-pointer-heading">Does security spending lag infrastructure spending?</h2>
       <p className="thesis-pointer__position">{marketCall.headline}</p>
-      <p className="stamp-label">
-        JUDGED <time dateTime={LAST_UPDATED_ISO}>{LAST_UPDATED_DISPLAY}</time> &middot; {AUTHOR_NAME}
-      </p>
+      {judgment && (
+        <p className="stamp-label">
+          JUDGED <time dateTime={judgment.signedOn}>{formatShortDate(judgment.signedOn)}</time> &middot;{' '}
+          {judgment.signedBy}
+        </p>
+      )}
       <p className="thesis-pointer__link">
         <a href="/thesis/">Read the analysis and its record</a>
       </p>
