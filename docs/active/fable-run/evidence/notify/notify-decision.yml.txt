@@ -1,0 +1,73 @@
+name: notify-decision
+
+on:
+  pull_request:
+    types: [opened, reopened, ready_for_review]
+  workflow_dispatch:
+    inputs:
+      message:
+        description: 'Free-text message to send (manual test of the notify channel)'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send decision notification
+        env:
+          WEBHOOK_URL: ${{ secrets.DECISION_WEBHOOK_URL }}
+          EVENT_NAME: ${{ github.event_name }}
+          DISPATCH_MESSAGE: ${{ github.event.inputs.message }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          PR_HEAD_REF: ${{ github.event.pull_request.head.ref }}
+          PR_BASE_REF: ${{ github.event.pull_request.base.ref }}
+          PR_LABELS_JSON: ${{ toJson(github.event.pull_request.labels) }}
+        run: |
+          set -euo pipefail
+
+          if [ -z "${WEBHOOK_URL:-}" ]; then
+            echo "No DECISION_WEBHOOK_URL secret set; nothing sent."
+            exit 0
+          fi
+
+          # A manual (workflow_dispatch) run always sends, so the owner can test
+          # delivery by hand. A pull_request event only sends when it matches
+          # the pattern the weekly draft-issue and decision PRs actually use:
+          # a head branch starting with issue/, or a needs-decision label on a
+          # PR whose base is preview.
+          if [ "$EVENT_NAME" = "pull_request" ]; then
+            MATCH=false
+            case "$PR_HEAD_REF" in
+              issue/*) MATCH=true ;;
+            esac
+            if [ "$PR_BASE_REF" = "preview" ]; then
+              if printf '%s' "$PR_LABELS_JSON" | jq -e 'any(.[]; .name == "needs-decision")' >/dev/null 2>&1; then
+                MATCH=true
+              fi
+            fi
+            if [ "$MATCH" != "true" ]; then
+              echo "Pull request does not match the notify pattern (head branch not issue/*, and no needs-decision label on a preview-base PR); nothing sent."
+              exit 0
+            fi
+          fi
+
+          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
+            TEXT="Security Market Pulse: ${DISPATCH_MESSAGE}"
+          else
+            # Derived from the project's Vercel branch-URL pattern: slashes to
+            # dashes, lowercased. This is a guess at the URL, not a lookup
+            # against Vercel, so it can lag the actual build.
+            SLUG=$(printf '%s' "$PR_HEAD_REF" | tr '[:upper:]' '[:lower:]' | tr '/' '-')
+            PREVIEW_URL="https://security-market-pulse-git-${SLUG}-pikeholdings.vercel.app"
+            TEXT="Security Market Pulse: a draft is ready for your read. ${PR_TITLE}. Open: ${PR_URL}. Preview (derived from the branch name, may lag the actual build): ${PREVIEW_URL}. Merging this pull request into preview is your approval; nothing reaches the live site until you promote."
+          fi
+
+          jq -n --arg text "$TEXT" '{text: $text}' > payload.json
+          curl -sf -X POST -H 'Content-Type: application/json' --data @payload.json "$WEBHOOK_URL"
+          echo "Notification sent."

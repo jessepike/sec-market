@@ -35,9 +35,9 @@ with a test behind it, compacted supplier rows so the signed read starts within 
 front-page eyebrow.
 
 Waiting on the owner, in order of value: whether the founding thesis leaves the front page for its
-own page; run `gh auth refresh -h github.com -s workflow` so the notification action on
-branch `mon/notify` can be pushed, then save a webhook URL as the secret `DECISION_WEBHOOK_URL`;
-choose a runtime that can reach the web and one cadence (SEC-049); decide the split between what
+own page; run `claude setup-token` on macbook2014 so the
+weekly gather can log in (D-70; the webhook notification action from this run is superseded and
+needs nothing from him); decide the split between what
 publishes automatically and what needs his tap (`product-core.md` section 6), which also means
 amending `intent.md` and `.claude/rules/constraints.md`; edit or reject the first machine-drafted
 buyer brief (`docs/active/fable-run/drafts/buyer-brief-network-sase.md`).

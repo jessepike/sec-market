@@ -27,10 +27,7 @@ Blocker 2 fails on the owner's Platform pressure wording and on two "strongest" 
 issue (`2026-w36-prints-1`, `2026-w36-capital-1`).
 
 What he has been asked, in order: promote or say what to change; reword Platform pressure and
-approve a second small correction (offer made: say yes and the coordinator drafts both); run
-`gh auth refresh -h github.com -s workflow` so `mon/notify` (1f5f992, worktree
-`/Users/jessepike/code/projects/sec-market-wt/notify`) can be pushed, then save a webhook URL as
-the secret `DECISION_WEBHOOK_URL`; pick the gather runtime and one cadence; decide what may publish
+approve a second small correction (offer made: say yes and the coordinator drafts both); (the webhook action is superseded by D-70 and needs nothing from him); decide what may publish
 without him and amend `intent.md` and `.claude/rules/constraints.md` (only he can); say who he is
 on the site; analytics (Plausible, paid).
 
@@ -484,3 +481,7 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
   explicit word. Also noted: the parallel session shipped the durable gather (D-70: launchd on
   macbook2014, Tuesday 07:00, GitHub carries the notification), which answers most of SEC-049.
   T6-16 row written, then dispatched.
+- 2026-09-21T03:40Z — D-70 (parallel session) delivers the gather runtime and uses GitHub's own
+  notification as the tap, so this run's webhook action is superseded. Kept the file at
+  `evidence/notify/notify-decision.yml.txt`, removed the `notify` worktree and the unpushed
+  `mon/notify` branch, rewrote SEC-049, and took the two webhook steps off the owner's list.
