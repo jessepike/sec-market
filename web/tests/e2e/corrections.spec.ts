@@ -1,14 +1,20 @@
 import { expect, test } from '@playwright/test'
 import { corrections } from '../../src/data/corrections.ts'
-import { latestIssue } from '../../src/data/issues/index.ts'
 
 const correction = corrections.find((c) => c.id === 'C-2026-09-20-01')!
 
 test.describe('corrections (SEC-MARKET-FABLE-001 T6-13)', () => {
-  test('front page shows the corrected note beside both items, originals still present', async ({
+  // The correction is fixed to the issue it corrected (2026-w36), not to
+  // whatever issue happens to be newest — so this and the next test both
+  // target that issue's own permalink, never "/" or `latestIssue.id`. Both
+  // used to point at the front page / latestIssue, which only worked by
+  // coincidence while 2026-w36 was still the newest issue; publishing any
+  // later issue broke that assumption, which is exactly what happened the
+  // first time this suite ran against a newly-signed 2026-w37.
+  test("the corrected issue's own page shows the corrected note beside both items, originals still present", async ({
     page,
   }) => {
-    await page.goto('/')
+    await page.goto(`/issues/${correction.issueId}/`)
 
     for (const original of [
       'Zscaler FY2026 revenue grows to $898.2M, +25% YoY; ARR grows to $3,771M, +25%',
@@ -30,7 +36,7 @@ test.describe('corrections (SEC-MARKET-FABLE-001 T6-13)', () => {
   })
 
   test('issue permalink shows the corrected note beside both items', async ({ page }) => {
-    await page.goto(`/issues/${latestIssue.id}/`)
+    await page.goto(`/issues/${correction.issueId}/`)
     for (const reading of correction.correctedReadings) {
       await expect(page.locator(`text=${reading.correctedHeadline}`).first()).toBeVisible()
     }

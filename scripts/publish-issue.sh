@@ -153,7 +153,7 @@ echo "preview matches main on $WEB_DIR/: $PREVIEW_MATCHES_MAIN"
 
 # --- Step 1: merge preview into the (already checked out) head branch -------
 step1_merge() {
-  git fetch "$REMOTE" preview "$HEAD_BRANCH" &&
+  git fetch "$REMOTE" preview &&
     git merge --no-edit "$REMOTE/preview"
 }
 run_step "1 merge origin/preview" step1_merge
