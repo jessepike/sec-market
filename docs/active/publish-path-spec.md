@@ -160,6 +160,23 @@ stances the pull request listed as stale and unchanged by this week's evidence. 
 nothing is re-dated. This needs the judged dates to be stored per claim; today most come from one
 constant. That refactor is part of this step and is invisible on the page.
 
+**As built (T7-4, 2026-09-21).** Every judged claim already carried its own `judgedOn` field
+(`SecurityDomain.asOf`, `Hypothesis.provenance.judgedOn`, `PressureRow.provenance.read.judgedOn`) —
+several draw the same literal date from a shared constant today, but the field itself is per-claim,
+so no data-shape refactor was needed. A reconfirmation is a new, append-only record in
+`web/src/data/reconfirmations.ts` (`claimId`, `reconfirmedOn`, `by`, `via`), keyed by
+`${kind}:${id}` where `id` is the claim's own existing stable id — never a rewrite of the original
+judgment. `effectiveJudgment()` (`web/src/data/reconfirmationHelpers.ts`) combines the two for
+staleness and display; a claim with no reconfirmation renders exactly as before. `scripts/
+stale-report.ts --json` lists every claim stale by that effective date; `scripts/sign-issue.ts
+--reconfirm` (called only when the gate step resolved the owner's approval as carrying the word)
+re-dates every one of those not named in the draft's `proposed.challengedClaimIds`, dated the
+signing date, credited to `AUTHOR_NAME`, `via` the issue being signed. The gather may populate
+`challengedClaimIds` to protect a stance it has reason to doubt; it never reconfirms one itself.
+`scripts/verify-issue.ts` check 17 validates every reconfirmation against the claim it names, the
+owner's name, its date bounds, and its `via` issue. The release phase's success comment states how
+many stances were re-dated and names any left stale because they were challenged.
+
 ## 5. Out of scope, recorded in BACKLOG.md
 
 - A `promote` comment that moves everything on `preview` to production from the phone.

@@ -122,6 +122,19 @@ acquisition.
    already existed before your edit is the owner's correction to make, not yours to hide.
 6. Going stale (publish-path-spec.md §4.2). Run `npm run report:stale` and keep its output
    verbatim; it goes under "Going stale" in the pull request body.
+7. Challenged stances (publish-path-spec.md §4.3). Read the stale-report output from the step above.
+   For each stale claim, ask only this: does anything you read this week — a print, a filing, an
+   M&A close, a funding round — cut against that stance? Most weeks the answer is no for every one
+   of them. When it is yes for a claim, add its id (the `` `domain:...` ``, `` `hypothesis:...` `` or
+   `` `platform-pressure:...` `` id the stale report already prints) to `proposed.challengedClaimIds`
+   in the issue module, and write one sentence in the pull request body, under "Going stale", saying
+   what you read and why it cuts against the stance. This is a flag, not a judgment: you never
+   reword the stance, never touch `web/src/data/domains.ts`, `hypotheses.ts` or
+   `platformPressure.ts`, and you never write to `web/src/data/reconfirmations.ts` — that file is
+   written only by the sign step, only on the owner's word. A claim you flag this way is the one
+   kind of stale claim that stays stale even if he signs `reconfirm` on this issue; everything else
+   stale and unflagged gets re-dated automatically. Leave `challengedClaimIds` off the proposal
+   entirely (or empty) in the ordinary week where nothing challenges anything.
 
 ## 4. Deliver
 
@@ -139,7 +152,9 @@ acquisition.
    - proposed posture deltas as prose, or "none proposed";
    - sources you could not read and why;
    - what you left out and why;
-   - "Going stale", the verbatim output of `npm run report:stale`;
+   - "Going stale", the verbatim output of `npm run report:stale`, followed by one sentence per
+     claim you added to `proposed.challengedClaimIds` (§3 step 7), or nothing extra when the list
+     is empty;
    - the exact commands you ran.
 4. If you could read zero sources, still open the pull request with that as the first line of the
    body, and end your run with a non-zero exit so it shows as failed.
