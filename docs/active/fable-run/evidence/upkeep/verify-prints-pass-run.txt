@@ -1,0 +1,5 @@
+WARN  print-crwd-cloud — on the unverified list; fails period (card period "FY26" labels a full year, but its only period evidence ("C13": economicPeriod "Quarter ended 2026-01-31") is a single quarter)
+
+verify:prints — 44 pass, 1 on the unverified list, 0 fail (45 prints total)
+not-checkable by dimension: metric=45, period=6, value=6, units=6
+verify:prints passed

@@ -1,0 +1,19 @@
+T7-3 upkeep build — visible-parity check, 2026-09-21
+
+Built origin/preview (f47fd633, in a scratch worktree) and mon/upkeep (this branch) with the same
+`npm run build` in the OrbStack dev VM, then diffed the two builds' dist/index.html and
+dist/thesis/index.html after normalizing hashed asset filenames (the `-XXXXXXXX.js` / `.css`
+suffixes Vite assigns per build):
+
+  sed -E 's/-[A-Za-z0-9_]{8,10}\.(js|css)/-HASH.\1/g' <file> > normalized
+
+  diff preview/dist/index.html(normalized)         branch/dist/index.html(normalized)         -> no differences
+  diff preview/dist/thesis/index.html(normalized)  branch/dist/thesis/index.html(normalized)  -> no differences
+
+Both files are byte-identical once the hashed asset names are normalized out. This task changed no
+reader-visible output: the new checks (verify:prints, report:stale) run at build time and write
+nothing into the rendered pages, and no value in prints.ts, domains.ts, hypotheses.ts, or any other
+rendered data file was edited.
+
+The scratch worktree used for the preview build (sec-market-preview-diffcheck) was removed after
+this check; it was never the assigned worktree and nothing was committed there.

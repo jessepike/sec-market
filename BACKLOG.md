@@ -547,20 +547,38 @@ correction cannot itself be marked as amended later; the list is flat and append
 
 ### SEC-044 — Validate what a figure means, not only that it appears
 
-The gates confirm a headline number exists in its source. They do not check company or segment,
-metric, period and units together, which is how SEC-043 got through. The period-label part is done
-(SEC-043: fiscal-year words over a quarterly source now fail). Still open: company or segment,
-metric and units. Add a gate that reads the
-evidence record's period and fails a headline whose words ("FY", "quarter") disagree with it. The
-same check is the precondition for copying newer issue figures into `prints.ts`, which is on hold
-(design-spec v0.4 section 4). Requirement recorded in `docs/active/fable-run/automation-plan.md`.
+**Status 2026-09-21: built.** `web/scripts/verify-prints.ts` (npm script `verify:prints`, in the
+`build` chain) compares every scorecard print with the evidence it cites on company or segment,
+period, and value/units together; the comparison logic is a pure module
+(`web/src/data/printChecks.ts`, `web/src/data/printPeriod.ts`) with data tests
+(`web/tests/print-checks.test.ts`), including a deliberately wrong period label and a value absent
+from evidence, both of which fail. Metric has no structured field on `EvidenceRecord`, so that
+dimension is always reported "not-checkable" rather than guessed — see the module's own comments.
+The check found one real defect: `print-crwd-cloud` labels its period "FY26" (a full fiscal year)
+while its only cited evidence (`C13`) is a single quarter — the same shape of mistake SEC-043
+corrected on an issue headline. It is recorded in the new `web/src/data/printsUnverified.ts`
+(dated, shrink-only against `web/scripts/prints-unverified-baseline.json`) rather than fixed, per
+the owner's correction process. The figure-meaning check is the precondition SEC-045 needed and is
+now in place.
 
 ### SEC-045 — The issue pipeline never writes back to the scorecard
 
 `prints.ts` still carries April-to-June figures for CrowdStrike, Zscaler, SentinelOne, Okta, Rubrik
 and Palo Alto while issue `2026-w36` has August-to-September figures for the same companies
-(`docs/active/fable-run/content-inventory.md`). The gather job should propose scorecard updates in
-the same pull request as the issue, behind SEC-044.
+(`docs/active/fable-run/content-inventory.md`). **Still open:** the gather job itself does not yet
+write `prints.ts` updates. `docs/active/gather-brief.md` §3 step 5 now instructs the job to update
+the matching scorecard entry for each supplier print in the window, from the same evidence it
+gathers, and run `verify:prints` (SEC-044, now built) before opening the pull request — but no
+gather run has exercised that step yet. `tone` is scoped to compare a supplier only against its own
+previous figure on the same metric.
+
+**Also built 2026-09-21 (publish-path-spec.md §4.2, same task as SEC-044):** `web/scripts/stale-report.ts`
+(npm script `report:stale`, pure logic in `web/src/data/staleReport.ts`, data-tested in
+`web/tests/stale-report.test.ts`) prints every judged claim older than 45 days and every scorecard
+print whose period ended more than 150 days ago, oldest first, plus a "period not understood" list
+for anything the parser cannot place. `docs/active/gather-brief.md` §3 step 6 now has the job paste
+its output under "Going stale" in the pull request body. No SEC number of its own; tracked here
+because it shipped alongside SEC-044/045.
 
 ### SEC-046 — Buyer brief
 
