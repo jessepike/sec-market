@@ -101,7 +101,8 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
 | T7-3 | Build 2 first step per spec section 4.1 and 4.2: the figure-meaning check on `prints.ts`, the shrink-only unverified list, `web/scripts/stale-report.ts`, the brief's scorecard and "Going stale" steps | claude-sonnet-5 | done, merged 146a40b | T7-1 | mon/upkeep (worktree `../sec-market-wt-upkeep`) | yes | `docs/active/fable-run/evidence/upkeep/report.md` | 2026-09-21T06:40Z |
 | T7-5 | Adversarial read-only pass on `publish-issue.yml`, `scripts/publish-issue.sh`, the sign scripts and the brief's handoff: ways a wrong or hostile draft, a race, or a GitHub behaviour could publish something the owner did not approve, move `main` wrongly, or fail silently | claude-opus-5 | done | T7-2 fixes (b24fb2b) | mon/publish, read only | n/a | returned findings, logged here | 2026-09-21T08:40Z |
 | T7-4 | Build 2 second step per spec section 4.3: per-claim judged dates and the `reconfirm` word | claude-sonnet-5 | running | T7-2, T7-3 merged | mon/reconfirm | yes | `docs/active/fable-run/evidence/reconfirm/report.md` | 2026-09-21T10:20Z |
-| T7-6 | `scripts/gather.sh` loads `~/.env.local` when present before its login probe, so the job authenticates the same way under launchd and over ssh; README note | claude-sonnet-5 | running | none | mon/gather-env (worktree `../sec-market-wt-gather-env`) | yes | returned summary | 2026-09-21T20:10Z |
+| T7-6 | `scripts/gather.sh` loads `~/.env.local` when present before its login probe, so the job authenticates the same way under launchd and over ssh; README note | claude-sonnet-5 | done, merged e71b0f7 | none | mon/gather-env (worktree `../sec-market-wt-gather-env`) | yes | returned summary | 2026-09-21T20:10Z |
+| T7-7 | Fresh blind score of production (`main` 51dbffd) under rubric v2.1: rerun the measurement scripts against the live host first, then score every dimension and all four blockers, checking every lane headline | claude-sonnet-5 | running | none | preview, writes only `docs/active/fable-run/score-2026-09-21.md` and `evidence/score-0921/` | n/a | `docs/active/fable-run/score-2026-09-21.md` | 2026-09-21T20:15Z |
 
 ## Owner gates
 
@@ -594,3 +595,8 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
   `claude -p` over ssh still returns 401 (the stored credentials file is from May and the keychain
   is not readable over ssh), but with `~/.env.local` loaded it answers. `scripts/gather.sh` never
   loads that file. T7-6 row written, then dispatched: load it when present.
+- 2026-09-21T20:15Z — T7-6 merged (e71b0f7). The clone on macbook2014 was fast-forwarded and the
+  weekly job was started there by hand for the week ending 2026-09-20 (`~/gather-logs/manual-2026-09-21.out`);
+  it loaded `~/.env.local`, passed the login probe, found issue 2026-w38 due and invoked the model.
+  The owner asked for the site's current score. The last blind score (57.2) predates the thesis
+  move and D-71, so T7-7 row written, then dispatched: measure, then score production blind.
