@@ -426,12 +426,20 @@ Then the job resumes by itself on the next Tuesday. To confirm sooner, run
 `SMP_WEEK_ENDING=2026-09-20 ./scripts/gather.sh` from `~/code/projects/sec-market` on macbook2014 and
 read the newest file in `~/gather-logs/receipts/`.
 
-**Still open and still not done: the design fix.** The front page leads with the weekly issue read as
-its `h1`, and `docs/active/product-core.md` §5 now says the first screen belongs to the market
-picture with the founding thesis demoted to a standing analysis. `web/src/App.tsx` from line 56
-(`IssueHero`, `IssueLanes`, then `DomainBoard`) is the order to change, and
-`web/tests/e2e/issue.spec.ts:8` asserts "h1 is the newest issue read" and must change with it,
-because the spec moved rather than the code.
+**The design fix is done and is on the preview, waiting for you (D-71).**
+
+https://security-market-pulse-git-preview-pikeholdings.vercel.app
+
+The front page used to lead with the newest issue's one-line read as its `h1`, which ran to three
+lines of 44px type at 1440 and described one week rather than the site. It now opens with a masthead
+whose `h1` is a standing headline, then the weekly read as a single-line strip that keeps
+`#overview`, then the market by domain, which reaches the first screen at 1440 with three domain
+cards visible. The issue permalink still carries the read as its own `h1` and was not touched.
+
+The headline is copy and is yours to change: one constant, `SITE_HEADLINE`, in
+`web/src/data/meta.ts`, currently "The security market, from public numbers".
+
+Promotion to `main` is the owner's call and has not been made.
 
 **Also open:** pull request #2, the unsigned `2026-w37` draft,
 https://github.com/jessepike/sec-market/pull/2

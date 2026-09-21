@@ -847,3 +847,28 @@ silent failure and a quiet week never look the same.
 One step is not the agent's: the Claude subscription login on macbook2014 expired in May and needs
 an interactive `claude setup-token` on that host. Until then the job fires, detects it, and records
 `blocked-auth`.
+
+**D-71 · 2026-09-20 — the front page's `h1` is the site's subject, not the week's headline.**
+
+`product-core.md` (SEC-MARKET-CORE-001) §5 says the first screen belongs to the market picture. It
+did not. D-64 had promoted the newest issue's one-line read to the `h1`, which at 1440 ran to three
+lines of 44px type and told a first-time reader about one week rather than about the site. A page
+whose own description says it is not a news site was leading with a news headline.
+
+The front page now opens with a masthead carrying a standing headline, "The security market, from
+public numbers", then the description, the disclaimer and both date stamps on one line. Under it the
+weekly read is a single-line strip that keeps the id `#overview`, so the header's "Issue" link and
+prerender's front-page section list did not change. Then the market by domain, which now reaches the
+first screen at 1440 with three domain cards visible.
+
+The issue permalink is untouched and still carries the read as its own `h1`, where it genuinely is
+the subject of the page. `IssueHero` was not deleted or edited; the front page simply stopped using
+it. Rendered at 1440x900 and 390x844 before and after; full page height moved 16,884px to 16,873px,
+so nothing below the fold shifted. Five gates, the data tests and 34 end-to-end tests pass.
+
+`web/scripts/shot.mjs` gained `--fold`, which captures the viewport rather than the whole page. A
+full-page image of a 17,000px page cannot answer what is on the first screen, and the first screen
+is where this site has twice now shipped a composition nobody had looked at.
+
+The headline itself is copy, so it is the owner's to change. It lives in one constant,
+`SITE_HEADLINE` in `web/src/data/meta.ts`.
