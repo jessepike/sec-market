@@ -1,14 +1,17 @@
 # T7-2 report: signing on approval, and the thesis leaves the weekly issue
 
 Task T7-2, spec `docs/active/publish-path-spec.md` (SEC-MARKET-PUBLISH-001), builds 3 and 1. Branch
-`mon/publish`, worktree `/Users/jessepike/code/projects/sec-market-wt-publish`. Three commits:
+`mon/publish`, worktree `/Users/jessepike/code/projects/sec-market-wt-publish`. Commits:
 
 - `b93cf05` — `feat(web): thesis verdict leaves the weekly issue (SEC-MARKET-PUBLISH-001 build 3)`
 - `692b704` — `feat(publish): sign a weekly issue from the owner's PR approval (SEC-MARKET-PUBLISH-001 build 1)`
 - `79b7388` — `fix(publish): step 1 needs no HEAD_BRANCH fetch; two e2e tests assumed the latest issue`
+- `2c82876` — first report
+- `0bcc0a6` — merge of `origin/preview` (the scorecard-upkeep build)
+- `b24fb2b` — `fix(publish): sign exactly what was approved, allowlist the branch, fix the promote-guard subshell bug` — the coordinator's five fixes, covered below
 
-No file under `web/src/data/issues/` was edited, and `2026-w36`'s lock hash is unchanged (see
-below). Nothing in `evidence.ts` was touched.
+No file under `web/src/data/issues/` was edited, and `2026-w36`'s lock hash is unchanged throughout
+(checked again after every dry run). Nothing in `evidence.ts` was hand-edited.
 
 ## Build 3 — the thesis is no longer a weekly verdict
 
@@ -25,156 +28,193 @@ word "null": `WeThink.tsx`'s draft path (the published path already had one), an
 `newestThesisJudgment` and `thesisRunningScore` needed no change — both already filter on
 `weThink.thesis !== null`, so an issue with no verdict was already excluded correctly.
 
-Tests added to `web/tests/issue-data.test.ts`: `newestThesisJudgment` returns `null` when no issue
-has signed a verdict, and keeps the date of the last signed verdict when a newer issue has none.
-`WeThink` is rendered to static markup (both the published and draft paths) for a newest issue
-with no thesis, and the test asserts the output contains neither the string `null` nor the
-`we-think__thesis` class. `issueEvidenceIds` with no proposed thesis returns an empty array
-without throwing.
-
 `2026-w36` itself, the one published issue, is untouched — it still carries its original signed
 thesis verdict, and its lock hash did not move.
 
 ## Build 1 — signing an issue from the owner's approval
 
-**`web/scripts/sign-issue.ts`** is a thin CLI (`npm run sign:issue -- --signed-on YYYY-MM-DD
-[--id 2026-w37]`) over two pure modules so the logic is unit-testable without touching the
-filesystem:
+`web/scripts/sign-issue.ts` is a thin CLI (`npm run sign:issue -- --signed-on YYYY-MM-DD
+[--id 2026-w37]`) over two pure modules — `signIssueLogic.ts` (date validation, `findDraftToSign`,
+`computeSignedIssue`) and `signIssueRender.ts` (serializes the published `Issue` back into a
+TypeScript module matching the hand-written files) — so the logic is unit-testable without
+touching the filesystem.
 
-- `signIssueLogic.ts` — date validation, `findDraftToSign` (refuses on no draft, more than one
-  draft, an empty or null proposed block, or an issue that is already published), and
-  `computeSignedIssue`, which turns a draft into a published `Issue`.
-- `signIssueRender.ts` — serializes the resulting `Issue` back into a TypeScript module in the
-  same shape and style as the hand-written files under `web/src/data/issues/`.
+`scripts/publish-issue.sh` runs spec §2.2's eight steps: merge `origin/preview`, sign the one
+draft, append to the lock manifest, run `npm test`, commit and push, fast-forward `preview`,
+promote to `main` only if `preview` already matched `main` on `web/` before the run started, then
+poll the live site and comment the result. `.github/workflows/publish-issue.yml` triggers on an
+approving PR review or a "publish" comment, gated on the actor being the repo owner, head branch
+`issue/*`, base `preview`.
 
-**The posture-deltas question.** The spec said the signed issue's `weThink.postureDeltas` comes
-from `proposed`, but `MachineProposal.postureDeltas` is a prose string ("None proposed, with one
-flagged for a human look...") while `Issue.weThink.postureDeltas` is a structured, evidence-cited
-array. There is no safe mechanical way to turn prose into a cited record, and the spec's own §4.3
-describes that conversion as a second, not-yet-built step that happens after this one is merged.
-So `computeSignedIssue` always signs with `postureDeltas: []`, never attempts to parse the prose,
-and check 9 (`posture-deltas-agree`) passes on an empty array by construction. This is documented
-in a comment on `computeSignedIssue` and confirmed against the real `origin/issue/2026-w37` draft,
-whose `proposed.postureDeltas` is genuinely prose, not data.
+**The posture-deltas question**, from the first review: `computeSignedIssue` always signs with
+`postureDeltas: []`, since `MachineProposal.postureDeltas` is prose, not the structured record
+`weThink.postureDeltas` needs, and converting one into the other is spec §4.3's separate, not-yet-
+built step. Confirmed against the real `origin/issue/2026-w37` draft, whose `proposed.postureDeltas`
+is genuinely prose ("None proposed, with one flagged for a human look at the CrowdStrike stance").
 
-**`scripts/publish-issue.sh`** runs spec §2.2's eight steps in order: merge `origin/preview`, sign
-the one draft, append to the lock manifest, run `npm test`, commit and push, fast-forward
-`preview`, promote to `main` only if `preview` already matched `main` on `web/` before the run
-started, then poll the live site for up to fifteen minutes and comment the result (or open a
-GitHub issue on timeout). `DRY_RUN=1` runs everything through the commit and skips every push and
-the live poll. A failed step prints its name and the last 40 lines of its output and exits
-non-zero; outside `DRY_RUN`, it also comments that on the pull request.
+## The coordinator's five fixes (commit `b24fb2b`)
 
-**`.github/workflows/publish-issue.yml`** triggers on an approving PR review or a comment whose
-first word is "publish," gated on the actor being the repo owner, the head branch matching
-`issue/*`, and the base branch being `preview`. The signing date is computed from the event
-timestamp in America/Los_Angeles, never from when the job happens to run. Every value that comes
-from the triggering event (`github.event.*`) is passed through `env:` and read as a shell
-variable; none of it is interpolated directly into a `run:` block. I checked this by eye and
-confirmed it with `awk` across the whole file: no `github.event.` string appears inside any
-`run: |` body.
+**1. The `NO_PROMOTE` subshell bug, fixed and regression-tested.** `run_step` puts each step on the
+left side of a pipe (`"$@" 2>&1 | tee`), and bash always forks a subshell for the left side of a
+pipe. `step7_promote` used to set `NO_PROMOTE="1"` inside that subshell; the write never reached
+`step8_live_check`, so a "not promoted" run would still poll the live site for fifteen minutes,
+fail, and file a spurious GitHub issue every time. Fixed by having step 8 read `PREVIEW_MATCHES_MAIN`
+instead — a variable `main()` sets once, in the parent shell, before any step runs, and no step ever
+writes to. I audited every other step for the same pattern; `PREVIEW_MATCHES_MAIN`, `ISSUE_ID`, and
+the new `posture_note` are the only cross-step variables, and all three are set in `main()`, never
+inside a step. Added `scripts/test-publish-issue.sh`, which sources `publish-issue.sh` (its `main`
+only runs when the file is executed directly, guarded by a `BASH_SOURCE` check) and calls
+`step8_live_check` directly with `DRY_RUN=0`, `PREVIEW_MATCHES_MAIN=false`, and an unreachable
+`LIVE_BASE_URL`. This is a real regression test: with the old bug, this exact scenario would have
+fallen through to the live poll and hung for `LIVE_POLL_SECONDS`; it now returns in under a second.
+Also added `FORCE_PREVIEW_MATCHES_MAIN` as a documented test-only seam.
 
-`AGENTS.md` gets one new paragraph in the Production deploy section naming this as the one
-approval that can itself promote to `main`, and only for that issue. `scripts/README.md` gets a
-short "Publishing from the phone" note.
+**2. `GH_REPO` for the gate step.** `gh pr view` in the gate step ran before any checkout, so `gh`
+had no git remote to infer a repository from. Added `GH_REPO: ${{ github.repository }}` to that
+step's `env`, and to the Publish step's `env` as well since it also calls `gh`. No other `gh` call
+in the workflow runs outside a checkout.
 
-## Acceptance test, outside both checkouts
+**3. Sign exactly what was approved.** The gate step now also computes `approved_sha`: for a review,
+`github.event.review.commit_id` directly; for a "publish" comment (which carries no commit id of its
+own), `headRefOid` from the same `gh pr view` call that already resolves head/base refs. Passed to
+the script as `APPROVED_SHA`. Before step 1, `publish-issue.sh` now refuses unless
+`git rev-parse HEAD` equals `APPROVED_SHA`, commenting that the branch moved and asking for a fresh
+approval. Required outside `DRY_RUN`; optional in `DRY_RUN`, matching the instruction.
 
-Spec §6 asks for this to run in a scratch clone, merging `origin/issue/2026-w37`. `origin/preview`
-had genuinely moved during the session (another builder's work landed), so a real merge against
-it correctly produced a real conflict — proving the script's step 1 detects divergence rather than
-papering over it, but not useful for testing the rest of the pipeline in isolation. I built a
-frozen reference remote pinned to the commit `mon/publish` actually forked from, and ran the same
-scratch-clone test against that, so every other step got exercised end to end.
+**4. The file allowlist guard, and the trusted checkout.** Before step 1, the script now computes
+`git diff --name-only "$REMOTE/preview...HEAD"` and refuses unless every changed path is one
+`docs/active/gather-brief.md` actually authorizes the gather job to write. I read `gather-brief.md`
+itself rather than trust the coordinator's example list: it names exactly four paths — the new
+issue module (`web/src/data/issues/<id>.ts`), `web/src/data/issues/index.ts`,
+`web/src/data/evidence.ts` (append only), and `web/src/data/prints.ts` — and says nothing about
+`.gather/`. The suggested `.gather/` pattern is **not** in the allowlist because gather-brief.md
+does not authorize it; if that's wrong, it's one line to add back, with the owner's word, per the
+comment above the array. The workflow now also does a second `actions/checkout@v4` of `preview`
+into `path: trusted` with `sparse-checkout: scripts`, and the Publish step runs
+`./trusted/scripts/publish-issue.sh` — a compromised issue branch cannot rewrite the very script
+that decides how it gets published. Recorded honestly, in both the script's header comment and the
+workflow's own top-of-file comment: for the `pull_request_review` trigger, GitHub reads the workflow
+YAML *itself* from the pull request's merge commit, so a branch that rewrote
+`.github/workflows/publish-issue.yml` could still change what runs before the trusted script ever
+gets a say. The `publish` comment trigger doesn't have this gap. The trusted checkout closes "the
+branch alters the publisher script"; it does not close "the branch alters the workflow that invokes
+it." Not solved here, per the instruction — recorded so it isn't rediscovered.
 
-Result, `DRY_RUN=1 SIGNED_ON=2026-09-21 ... scripts/publish-issue.sh`, exit 0. Excerpt:
+**5. Posture-deltas visibility.** `sign-issue.ts` now prints
+`sign-issue: posture-deltas-dropped: N` on stdout (new `postureDeltasDroppedCount` in
+`signIssueLogic.ts`), grepped by `publish-issue.sh` right after step 2. Since
+`MachineProposal.postureDeltas` is one prose string, not a list, there's no reliable way to count
+individual notes inside it — the function counts the field itself: 0 for blank or exactly
+gather-brief.md's "none proposed" convention (case-insensitive), 1 for anything else, including
+"None proposed, with one flagged..." (the real 2026-w37 draft, which does exactly this). That's a
+stated limitation, not a silent one: a draft that ever needs more than one tracked stance note would
+undercount. When the count is greater than zero, both success comments (the "signed and on preview,
+not promoted" comment and the "is live" comment) append a sentence saying a posture note was signed
+away unapplied and that stance changes happen separately.
+
+## Merging `origin/preview`
+
+`git fetch origin && git merge --no-edit origin/preview` brought in the scorecard-upkeep build
+(`verify:prints`, `stale-report.ts`, new `gather-brief.md` passages, new `package.json` scripts).
+One real conflict, in `web/package.json`: both sides added a script line and a `test:data` entry.
+Resolved by keeping both new scripts (`sign:issue` and `verify:prints`) and both new test files
+(`sign-issue.test.ts` plus `print-checks.test.ts`/`stale-report.test.ts`), and keeping the
+`--tsconfig tsconfig.app.json` flag `test:data` needs for the JSX-rendering tests in
+`issue-data.test.ts`. `docs/active/gather-brief.md` auto-merged cleanly; my "do not set
+`proposed.thesis`" wording and their scorecard-figures instructions both survived intact. Full
+`npm test` afterward: lint clean, 151 data tests (148 plus 3 new for `postureDeltasDroppedCount`),
+the full build including `verify:prints`, and 37 e2e passed with 1 pre-existing unrelated skip.
+
+## Acceptance dry run, rerun after the fixes
+
+Built fresh, outside both checkouts: a frozen reference remote with `main` and `preview` both
+pinned to `mon/publish`'s tip (`b24fb2b`) — simulating "preview after this merges" — and a scratch
+clone checked out at the real, untouched `origin/issue/2026-w37` (`7647baa`), with the trusted
+`publish-issue.sh` copied in from the frozen `preview`, exactly matching the workflow's own
+two-checkout arrangement. `APPROVED_SHA` set to the branch's real tip. Result: exit 0.
 
 ```
+approved-sha guard: HEAD matches the approved commit (7647baa7...)
 === PRE-FLIGHT: production-guard snapshot ===
 preview matches main on web/: true
+file allowlist guard: only allowed paths changed on issue/2026-w37
 
 === STEP: 2 sign ===
 sign-issue: signed "2026-w37" as Jesse Pike on 2026-09-21
+sign-issue: posture-deltas-dropped: 1
 
 === STEP: 3 lock manifest ===
 PASS  9 posture-deltas-agree
-...
 Added 1 new entry: 2026-w37
 
 === STEP: 4 npm test ===
-...
-37 passed (13.3s)
+37 passed (12.1s)
+  1 skipped
 
 === STEP: 5 commit and push ===
-[mon/publish c8c72a2] feat(issue): publish 2026-w37, signed by approval of #99
+[issue/2026-w37 542e376] feat(issue): publish 2026-w37, signed by approval of #101
 DRY_RUN=1: not pushing to issue/2026-w37
-
 === STEP: 6 fast-forward preview ===
 DRY_RUN=1: not fast-forwarding preview
-
 === STEP: 7 promote to main ===
 DRY_RUN=1: not promoting to main
-
 === STEP: 8 live check ===
 DRY_RUN=1: not polling the live site
+
+publish-issue.sh: done.
 ```
 
-The signed issue came out published, signed by "Jesse Pike," locked. The lock manifest gained one
-entry, `2026-w37`; `2026-w36`'s hash,
-`be70d2ae9a7af0ac77e75df2cd9e9cd9ae03363168477517f69ba659c8d5fdbd`, is identical before and after
-— I diffed it directly against the manifest on `mon/publish` to confirm. `npm test` passed in
-full: lint clean, `test:data` (104 tests), the build with all verify gates, and 37 e2e passed with
-1 pre-existing, unrelated skip. Nothing from this dry run touched my actual branch — the commit
-`c8c72a2` exists only in the scratch clone, which has been deleted, along with the frozen
-reference remote.
+**Allowlist result for w37, asked for explicitly**: it passes. `git diff --name-only
+origin/preview...origin/issue/2026-w37` on the real repo shows exactly three files —
+`web/src/data/evidence.ts`, `web/src/data/issues/2026-w37.ts`, `web/src/data/issues/index.ts` — all
+three on the allowlist. I did not widen the list; the branch simply stays inside what
+gather-brief.md already authorizes.
 
-`npm test` also passed on `mon/publish` itself, after the two e2e fixes below.
+The lock manifest gained one entry, `2026-w37`; `2026-w36`'s hash,
+`be70d2ae9a7af0ac77e75df2cd9e9cd9ae03363168477517f69ba659c8d5fdbd`, is byte-identical to the one on
+`mon/publish` — confirmed by diffing both files directly. `postureDeltasDroppedCount` correctly
+read the real draft's prose as 1 (a genuine flagged item, not "none proposed" alone). Nothing from
+this run touched `mon/publish`; the commit `542e376` exists only in the now-deleted scratch clone.
 
-## The two e2e fixes (not originally scoped, but required)
+`scripts/test-publish-issue.sh` (17 assertions: the allowlist against 4 allowed and 6 disallowed
+paths including `.gather/state.json`, the approved-sha check both ways, and the two step-8 skip
+cases) — all pass, run with `bash scripts/test-publish-issue.sh`.
 
-Running the acceptance test surfaced five failures, all in `corrections.spec.ts` and
-`thesis.spec.ts`. Both files had hardcoded the assumption that `2026-w36` is always the newest
-issue — true before this task, false the moment `2026-w37` gets signed. `corrections.spec.ts`'s
-two tests now navigate to `/issues/${correction.issueId}/` (the issue the correction actually
-belongs to) instead of `/` or `latestIssue.id`. `thesis.spec.ts`'s front-page test now computes
-whether the newest issue actually carries a thesis verdict and asserts the pointer either shows it
-or shows neither the pointer nor the word "null," instead of assuming a verdict is always present.
-These are pre-existing test bugs the spec's own scope exposed, not new coverage for new behavior;
-I fixed them because build 3 makes the previously-safe assumption false, and left everything else
-in both files as it was.
+## YAML validation
+
+Same two methods as before, rerun against the updated file: `npx --yes js-yaml
+.github/workflows/publish-issue.yml` parses without error. I re-audited every `${{ }}` expression
+by eye and confirmed the new `GH_REPO`, `REVIEW_COMMIT_SHA`, and `approved_sha` additions all stay
+inside `env:` blocks or `GITHUB_OUTPUT` writes — none of them, or any pre-existing expression, sits
+inside a `run: |` body. `actionlint` remains unavailable in the OrbStack VM.
 
 ## What I could not verify
 
-The workflow YAML cannot run locally — GitHub Actions only executes on GitHub. `actionlint` is not
-available in the OrbStack VM and host-protection rules disallow installing new system packages
-there, so I validated it two ways instead: `npx --yes js-yaml` parsed the file into JSON without
-error, confirming it is structurally valid YAML with every `if:` condition present, and I reviewed
-every `${{ }}` expression by eye plus the `awk` scan described above. The actual trigger conditions
-(actor is the repo owner, head branch matches `issue/*`, base is `preview`) and the `gh pr view`
-call that resolves head/base refs for the `issue_comment` trigger are unverified beyond that
-review — they cannot be exercised without a real PR and a real GitHub Actions run.
+Everything from the first report still holds: the workflow only truly runs on GitHub, so the actual
+trigger gate (actor, head/base branch, review state, comment wording), the `gh pr view` calls, and
+the trusted second checkout's exact behavior are unverified beyond YAML parsing, manual review, and
+the local dry run's proof that the script side of the contract works. The `pull_request_review`
+workflow-YAML gap described under fix 4 is a known, recorded limitation, not something this task
+attempted to close.
 
 ## Visible changes
 
-Nothing changed on the currently rendered site. `2026-w36` is the only published issue and its
-data, hash, and rendering are untouched; no draft in the real preview data lacks a thesis yet, so
-there was nothing new to screenshot. No before/after images were captured for this task.
+Nothing changed on the currently rendered site — same as the first report. `2026-w36` is still the
+only published issue; its data, hash, and rendering are untouched.
 
 ## What I noticed but did not build
 
-`docs/active/gather-job-spec.md` still describes the gather job proposing a thesis verdict at
-lines 45, 92, and 94, which is now inconsistent with the updated `gather-brief.md`. That file was
-not named in this task's scope, so I left it as found rather than editing it; it should be updated
-the next time someone touches the gather job spec. Spec §4.3 (converting an accepted posture-delta
-sentence into a structured record) and any change to `.claude/rules/constraints.md` or
-`intent.md` are both explicitly out of this task's scope per the spec itself, and I did not touch
-either. Build 2 (spec §4) is separate scope, being built in parallel by another session.
+Same as the first report: `docs/active/gather-job-spec.md` still describes the gather job proposing
+a thesis verdict (lines 45, 92, 94), now stale against `gather-brief.md`; not touched, not in scope.
+Spec §4.3 (converting an accepted posture note into a structured `PostureDelta`) is explicitly a
+separate, later step and I did not build it — this round makes the dropped note visible in a PR
+comment, which is different from applying it. Build 2 (spec §4) is separate scope, built in
+parallel. I did not widen the file allowlist to include `.gather/`, since nothing in
+`gather-brief.md` authorizes it; if the gather job is meant to write there, that's the owner's call
+to make, not mine to assume.
 
-Deferred to backlog: the stale thesis references in `docs/active/gather-job-spec.md` noted above
-are the one concrete item; I did not edit that file since it was not named in my task, and I am
-flagging it here rather than fixing it silently. Everything else noticed during this task (the
-§4.3 posture-delta conversion, the constraints/intent files) was already explicitly out of scope
-in the governing spec, not a new idea I'm introducing.
+Deferred to backlog: the stale `gather-job-spec.md` thesis references, unchanged from the first
+report. Everything else this round was the coordinator's own fix list, already built, not deferred.
 
 Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01AdcpLzcT3PoSBWQ7nuRLAT
