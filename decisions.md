@@ -811,3 +811,16 @@ stay locked: corrections live in an append-only `web/src/data/corrections.ts`, s
 beside the affected item with the original left as it was, are listed at `/corrections/`, and are
 carried in the machine-readable files. A gate now fails a fiscal-year label over a quarterly source
 (SEC-043, SEC-044 in part). Built to `preview`; promotion to `main` remains a separate owner call.
+
+**D-69 · 2026-09-20 — `preview` promoted to production on the owner's word; `main` moved `aa04875` → `fe944b2`.**
+
+After reading the final packet summary the owner said "go ahead and promote this". The promotion was
+a fast-forward push of the `preview` head to `main` with `PROMOTE=1`, done without switching
+branches because the shared checkout held another session's uncommitted changes. It carries the
+rebuilt front page (the market by domain first, the founding thesis lower as a standing analysis),
+the author's name on every dated judgment, and the owner-approved correction to issue `2026-w36`
+with the `/corrections/` page (D-67, D-68). Rubric v2.1 blind score: 32.8 before, 57.2 after.
+
+The owner also asked why promotion and commands needed him at all. Recorded as a standing
+preference: he says the word and the agent runs the command; the agent does not hand him commands
+to run unless the step is tied to his own account (a browser approval, a secret from his Slack).

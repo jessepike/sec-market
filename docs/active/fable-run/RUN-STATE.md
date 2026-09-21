@@ -2,7 +2,8 @@
 
 ## Resume here
 
-THE RUN HAS DELIVERED AND IS WAITING ON THE OWNER. The final packet went to agent-canvas on
+PROMOTED TO PRODUCTION on 2026-09-20 on the owner's word (D-69): `main` is at fe944b2 and the live
+host was checked. THE RUN HAS DELIVERED AND IS WAITING ON THE OWNER for the remaining items. The final packet went to agent-canvas on
 2026-09-20 about 19:40 Pacific as interaction `sec-market-fable-001-final-packet`
 (`docs/active/fable-run/owner-packet-final.html`). On resume, FIRST read `get_user_messages` and
 `get_comments` on agent-canvas for his response. A failed readback is not approval; if canvas is
@@ -14,8 +15,8 @@ his words.
 State of the branches. `preview` carries three merges that `main` does not: f557b4c (front page,
 market picture first), 0ece0ce (names on judged stamps, compact supplier rows, phone header,
 plain eyebrow) and 7535fc4 (the owner-approved correction to issue `2026-w36` and the corrections
-mechanism, D-68). Full `npm test` was green on exactly the code that is on `preview`. `main` is
-untouched at aa04875. Promotion needs his explicit word:
+mechanism, D-68). Full `npm test` was green on exactly the code that is on `preview`. `main` was
+at aa04875 before D-69. Any FUTURE promotion still needs his explicit word; when he gives it, the agent runs it:
 `git checkout main && git merge --ff-only preview && PROMOTE=1 git push origin main && git checkout preview`,
 then confirm the Vercel deploy is Ready and curl the live host. Never push to `main` without it.
 
@@ -466,3 +467,12 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
 - 2026-09-21T02:45Z — Final packet dispatched to agent-canvas as `document-review`
   (`sec-market-fable-001-final-packet`) and the owner notified. Worktrees `wave1` and
   `corrections` removed. Resume block rewritten. Run stops here and waits for the owner.
+- 2026-09-21T03:00Z — OWNER APPROVAL in the terminal: "go ahead and promote this". Promoted by
+  fast-forward push `fe944b2 -> main` with `PROMOTE=1` (no branch switch; the checkout holds
+  another session's uncommitted `lessons.md` and `docs/active/gather-brief.md`). Local `main`
+  synced. Live-host check running. He also asked whether the thesis is needed at all and why
+  promotion and commands need him; answered in the terminal, thesis move offered as one yes.
+- 2026-09-21T03:05Z — Production confirmed by fetching the live host, not by the deploy log:
+  securitymarketpulse.com serves "The market by domain", "Not a news site and not investment
+  advice." and both CORRECTED notes; `/`, `/corrections/`, `/corrections.json`,
+  `/issues/2026-w36/`, `/feed.xml` and `/issues/lock.json` all return 200.
