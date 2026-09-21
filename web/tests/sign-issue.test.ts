@@ -9,6 +9,7 @@ import {
   findDraftToSign,
   isProposedEmpty,
   isValidIsoDate,
+  postureDeltasDroppedCount,
 } from '../scripts/signIssueLogic.ts'
 import { issueExportName, renderIssueModule, tsLiteral } from '../scripts/signIssueRender.ts'
 import type { Issue } from '../src/data/types.ts'
@@ -83,6 +84,45 @@ describe('isProposedEmpty', () => {
 
   it('is false for a substantive proposal', () => {
     assert.equal(isProposedEmpty({ read: 'x', noCalls: [], postureDeltas: '', summary: 'y' }), false)
+  })
+})
+
+describe('postureDeltasDroppedCount', () => {
+  it('is 0 for a blank string', () => {
+    assert.equal(postureDeltasDroppedCount({ read: 'x', noCalls: [], postureDeltas: '', summary: 'y' }), 0)
+    assert.equal(postureDeltasDroppedCount({ read: 'x', noCalls: [], postureDeltas: '   ', summary: 'y' }), 0)
+  })
+
+  it('is 0 for the gather-brief.md "nothing to propose" convention, case-insensitively', () => {
+    assert.equal(
+      postureDeltasDroppedCount({ read: 'x', noCalls: [], postureDeltas: 'None proposed.', summary: 'y' }),
+      0,
+    )
+    assert.equal(
+      postureDeltasDroppedCount({ read: 'x', noCalls: [], postureDeltas: 'none proposed', summary: 'y' }),
+      0,
+    )
+  })
+
+  it('is 1 for a real proposed note, even one that leads with "none proposed"', () => {
+    assert.equal(
+      postureDeltasDroppedCount({
+        read: 'x',
+        noCalls: [],
+        postureDeltas: 'None proposed, with one flagged for a human look at the CrowdStrike stance.',
+        summary: 'y',
+      }),
+      1,
+    )
+    assert.equal(
+      postureDeltasDroppedCount({
+        read: 'x',
+        noCalls: [],
+        postureDeltas: 'Consider softening the cloud-security stance given two weak prints.',
+        summary: 'y',
+      }),
+      1,
+    )
   })
 })
 

@@ -11,6 +11,15 @@ name: publish issue
 # Event text (a comment body, a branch name) is untrusted input and is never
 # interpolated into a `run:` script directly — it only ever reaches a script
 # through `env:`.
+#
+# Known gap: for the pull_request_review trigger, GitHub reads this workflow
+# file itself from the pull request's merge commit, not from the default
+# branch — so a branch that rewrote this file could still change what runs
+# here before scripts/publish-issue.sh ever gets a say. The `publish` comment
+# trigger doesn't have this gap (issue_comment always runs the default
+# branch's copy of the workflow). The second, trusted checkout below closes
+# a different gap — a branch altering the publisher script itself — and does
+# not close this one. Not solved here; recorded so it isn't rediscovered.
 
 on:
   pull_request_review:
@@ -45,6 +54,7 @@ jobs:
           ACTOR: ${{ github.actor }}
           REPO_OWNER: ${{ github.repository_owner }}
           REVIEW_STATE: ${{ github.event.review.state }}
+          REVIEW_COMMIT_SHA: ${{ github.event.review.commit_id }}
           PR_NUMBER_REVIEW: ${{ github.event.pull_request.number }}
           PR_HEAD_REF_REVIEW: ${{ github.event.pull_request.head.ref }}
           PR_BASE_REF_REVIEW: ${{ github.event.pull_request.base.ref }}
@@ -52,6 +62,10 @@ jobs:
           COMMENT_BODY: ${{ github.event.comment.body }}
           PR_NUMBER_COMMENT: ${{ github.event.issue.number }}
           GH_TOKEN: ${{ github.token }}
+          # gh pr view below runs before this job checks anything out, so it
+          # has no git remote to infer a repository from — without this it
+          # fails and the `publish` comment path never resolves a PR.
+          GH_REPO: ${{ github.repository }}
         run: |
           set -euo pipefail
 
@@ -59,6 +73,7 @@ jobs:
           pr_number=""
           head_branch=""
           base_branch=""
+          approved_sha=""
 
           if [ "$ACTOR" != "$REPO_OWNER" ]; then
             reason="actor \"$ACTOR\" is not the repository owner"
@@ -69,6 +84,9 @@ jobs:
               pr_number="$PR_NUMBER_REVIEW"
               head_branch="$PR_HEAD_REF_REVIEW"
               base_branch="$PR_BASE_REF_REVIEW"
+              # The review's own commit_id is exactly the commit he approved
+              # — no extra call needed for this trigger.
+              approved_sha="$REVIEW_COMMIT_SHA"
             fi
           elif [ "$EVENT_NAME" = "issue_comment" ]; then
             if [ "$IS_PULL_REQUEST_COMMENT" != "true" ]; then
@@ -79,9 +97,14 @@ jobs:
                 reason="the comment's first word is \"$first_word\", not \"publish\""
               else
                 pr_number="$PR_NUMBER_COMMENT"
-                pr_json="$(gh pr view "$pr_number" --json headRefName,baseRefName)"
+                pr_json="$(gh pr view "$pr_number" --json headRefName,baseRefName,headRefOid)"
                 head_branch="$(printf '%s' "$pr_json" | jq -r '.headRefName')"
                 base_branch="$(printf '%s' "$pr_json" | jq -r '.baseRefName')"
+                # A "publish" comment has no commit_id of its own — sign
+                # exactly what the branch tip was at the moment this gate
+                # ran, read fresh from the PR rather than trusted from the
+                # comment event.
+                approved_sha="$(printf '%s' "$pr_json" | jq -r '.headRefOid')"
               fi
             fi
           else
@@ -104,11 +127,12 @@ jobs:
             exit 0
           fi
 
-          echo "eligible, pull request #$pr_number, head $head_branch, base $base_branch"
+          echo "eligible, pull request #$pr_number, head $head_branch, base $base_branch, approved $approved_sha"
           {
             echo "eligible=true"
             echo "pr_number=$pr_number"
             echo "head_branch=$head_branch"
+            echo "approved_sha=$approved_sha"
           } >> "$GITHUB_OUTPUT"
 
       # The signature is his approval "today" — today in his timezone, at the
@@ -137,6 +161,20 @@ jobs:
           ref: ${{ steps.gate.outputs.head_branch }}
           fetch-depth: 0
 
+      # A second, separate checkout of `preview` — the branch he doesn't
+      # control by pushing an issue branch — holding just scripts/. The
+      # Publish step below runs *this* copy of publish-issue.sh, not the
+      # issue branch's own, so a branch cannot rewrite the script that
+      # decides how it gets published. See the "Known gap" note at the top
+      # of this file for what this does not cover.
+      - name: Check out the trusted publisher script from preview
+        if: steps.gate.outputs.eligible == 'true'
+        uses: actions/checkout@v4
+        with:
+          ref: preview
+          path: trusted
+          sparse-checkout: scripts
+
       - uses: actions/setup-node@v4
         if: steps.gate.outputs.eligible == 'true'
         with:
@@ -160,7 +198,13 @@ jobs:
           HEAD_BRANCH: ${{ steps.gate.outputs.head_branch }}
           SIGNED_ON: ${{ steps.signed.outputs.signed_on }}
           PR_NUMBER: ${{ steps.gate.outputs.pr_number }}
+          APPROVED_SHA: ${{ steps.gate.outputs.approved_sha }}
           GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
           AUTHOR_NAME: Jesse Pike
           AUTHOR_EMAIL: jesse@keatingpike.com
-        run: ./scripts/publish-issue.sh
+        # Runs the trusted copy of the script (checked out from `preview`
+        # above, into ./trusted/), with the working directory still the
+        # issue-branch checkout at $GITHUB_WORKSPACE — WEB_DIR ("web",
+        # default) resolves against that, not against trusted/.
+        run: ./trusted/scripts/publish-issue.sh

@@ -18,7 +18,7 @@ import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { issues } from '../src/data/issues/index.ts'
 import { AUTHOR_NAME } from '../src/data/meta.ts'
-import { computeSignedIssue, findDraftToSign, isValidIsoDate } from './signIssueLogic.ts'
+import { computeSignedIssue, findDraftToSign, isValidIsoDate, postureDeltasDroppedCount } from './signIssueLogic.ts'
 import { renderIssueModule } from './signIssueRender.ts'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
@@ -62,6 +62,10 @@ function main(): void {
   console.log(`sign-issue: signed "${signed.id}" as ${AUTHOR_NAME} on ${signedOn}`)
   console.log(`sign-issue: wrote ${modulePath}`)
   console.log('sign-issue: next, run "npm run verify:issue -- --write" to append the lock manifest.')
+  // Grepped by scripts/publish-issue.sh so the pull request comment can say
+  // when a proposed posture note was signed away unapplied. draft.proposed is
+  // non-null here — computeSignedIssue above already throws otherwise.
+  console.log(`sign-issue: posture-deltas-dropped: ${postureDeltasDroppedCount(draft.proposed!)}`)
 }
 
 try {

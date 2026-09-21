@@ -77,6 +77,27 @@ export function findDraftToSign(issues: Issue[], id: string | null): Issue {
   return draft
 }
 
+/**
+ * How many proposed stance notes `computeSignedIssue` silently drops by
+ * always signing with `postureDeltas: []` (coordinator review of
+ * SEC-MARKET-PUBLISH-001 build 1, 2026-09-21). `MachineProposal.postureDeltas`
+ * is one prose string, not a list, so there is no reliable way to count
+ * individual notes inside it — this counts the field itself: 0 when it is
+ * blank or exactly the gather-brief.md convention for "nothing to propose"
+ * ("none proposed", case-insensitive, optional trailing period), 1 for
+ * anything else, including a draft that leads with "none proposed" but then
+ * goes on to flag something (the real 2026-w37 draft does exactly this: "None
+ * proposed, with one flagged for a human look..."). If a future draft's prose
+ * ever needs to be split into more than one tracked note, this undercounts —
+ * a known, stated limitation, not a silent one.
+ */
+export function postureDeltasDroppedCount(proposed: MachineProposal): number {
+  const text = proposed.postureDeltas.trim()
+  if (text === '') return 0
+  if (/^none proposed\.?$/i.test(text)) return 0
+  return 1
+}
+
 export interface SignIssueOptions {
   signedOn: string
   authorName: string
