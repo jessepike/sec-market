@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test'
 import { latestIssue } from '../../src/data/issues/index.ts'
+import { marketCall } from '../../src/data/market.ts'
 import { SITE_HEADLINE } from '../../src/data/meta.ts'
 
 test('renders the market briefing without runtime errors', async ({ page }) => {
@@ -8,12 +9,14 @@ test('renders the market briefing without runtime errors', async ({ page }) => {
 
   await page.goto('/')
 
-  // The h1 is the site's standing headline (SEC-MARKET-CORE-001 §5). It was
-  // briefly the newest issue's one-line read, under D-64, which made the
-  // biggest type on the page a news headline for one week. The read is now in
-  // the issue strip right below it; the market call stayed where D-64 put it,
-  // as an h2 inside #read — see the #market-call-heading assertions below,
-  // unchanged in content.
+  // The h1 is the site's standing headline (SEC-MARKET-CORE-001 §5); the
+  // newest issue's read lives in the issue strip right below it (D-71). The
+  // former market-call h1 used to live on this same page as an h2 inside
+  // #read; under SEC-MARKET-FABLE-001 T6-16 that whole argument
+  // (JudgmentBoard, the running score, the market-call heading) moved to its
+  // own page at /thesis/ (product-core.md §5) — see tests/e2e/thesis.spec.ts.
+  // #read here is now a compact pointer to that page; see the assertions
+  // further down.
   await expect(page.getByRole('heading', { level: 1 })).toHaveText(SITE_HEADLINE)
   await expect(page.locator('#overview .issue-strip__read')).toHaveText(latestIssue.read)
 
@@ -44,14 +47,19 @@ test('renders the market briefing without runtime errors', async ({ page }) => {
     'Domain tempo and M&A activity',
   )
 
-  // The market call (2026-08-25) and the full scorecard's prints (2026-08-22)
-  // were both promoted out of the collapsed disclosure and stay visible on
-  // first paint — no click required to reach them. The market-call headline
-  // is now an h2 inside #read (see the top of this test) rather than the h1,
-  // but the id and text are unchanged.
-  await expect(page.locator('#market-call-heading')).toBeVisible()
-  await expect(page.locator('#market-call-heading')).toContainText('Infrastructure is running ahead')
-  await expect(page.locator('#market-call-heading')).toContainText('Security is splitting, not booming.')
+  // The full scorecard's prints (2026-08-22) stay visible on first paint — no
+  // click required to reach them. The market-call headline itself
+  // (#market-call-heading) no longer lives on the front page — it moved to
+  // /thesis/ with the rest of the thesis argument; see tests/e2e/thesis.spec.ts.
+  // What stays here is the compact pointer at #read: its own heading, and the
+  // market-call headline text quoted from data, not retyped.
+  await expect(page.locator('#market-call-heading')).toHaveCount(0)
+  await expect(page.locator('#read')).toContainText('Does security spending lag infrastructure spending?')
+  await expect(page.locator('#read')).toContainText(marketCall.headline)
+  await expect(page.locator('#read').getByRole('link', { name: 'Read the analysis and its record' })).toHaveAttribute(
+    'href',
+    '/thesis/',
+  )
   await expect(page.locator('#prints-heading')).toBeVisible()
   await expect(page.getByRole('heading', { name: 'Fortinet' })).toBeVisible()
   await expect(page.getByRole('heading', { name: 'SentinelOne' })).toBeVisible()

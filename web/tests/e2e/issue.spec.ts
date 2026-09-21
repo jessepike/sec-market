@@ -95,10 +95,15 @@ test.describe('weekly issue — front page', () => {
     expect(body.evidence.length).toBeGreaterThan(0)
   })
 
-  // F7: on the permalink page, "Thesis" (#read) has no local target — the
-  // click must fall through to a real navigation to /#read on the front
-  // page, not a same-page no-op.
-  test('permalink page: clicking "Thesis" navigates to the front page at #read', async ({
+  // F7: on the permalink page, a front-page-only nav hash target has no local
+  // target — the click must fall through to a real navigation to /#<id> on
+  // the front page, not a same-page no-op. This used to be exercised through
+  // "Thesis" (#read); under SEC-MARKET-FABLE-001 T6-16 "Thesis" left the top
+  // nav entirely (product-core.md §5 — the founding thesis moved to its own
+  // page, /thesis/, and #read on the front page is now a compact pointer, not
+  // a nav target — see tests/e2e/thesis.spec.ts). "Landscape" (#landscape) is
+  // still a front-page-only hash item and exercises the same regression.
+  test('permalink page: clicking "Landscape" navigates to the front page at #landscape', async ({
     page,
   }) => {
     await page.goto(`/issues/${latestIssue.id}/`)
@@ -108,10 +113,10 @@ test.describe('weekly issue — front page', () => {
       await navToggle.click()
     }
 
-    await page.getByRole('link', { name: 'Thesis' }).click()
-    await page.waitForURL(/\/#read$/)
+    await page.getByRole('link', { name: 'Landscape' }).click()
+    await page.waitForURL(/\/#landscape$/)
 
-    expect(new URL(page.url()).hash).toBe('#read')
-    await expect(page.locator('#read')).toBeVisible()
+    expect(new URL(page.url()).hash).toBe('#landscape')
+    await expect(page.locator('#landscape')).toBeVisible()
   })
 })
