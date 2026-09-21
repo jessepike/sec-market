@@ -47,7 +47,8 @@ Last updated: 2026-09-21T02:45:00Z
 
 ## Phase
 
-Phase 5 done (scored and handed off). Phase 6 close-out done except moving the held lessons into
+Phase 7 (owner-approved 2026-09-21): make publishing a phone tap, make the weekly job maintain the
+standing picture, take the thesis verdict out of the weekly brief. Earlier: Phase 5 done (scored and handed off). Phase 6 close-out done except moving the held lessons into
 `lessons.md`. Waiting on the owner.
 
 ## Task ledger
@@ -95,6 +96,7 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
 | T6-14 | Final score of `preview` at 7535fc4 under rubric v2.1 by the same blind scorer, resumed: re-answer every test and blocker whose evidence changed, using the deployed page, `evidence/after/measurements.md`, `evidence/wave1b/` and `evidence/corrections/` | claude-sonnet-5 (scorer resumed) | done: 57.2 of 100 against 32.8 for production; blockers 3 and 4 pass, 1 and 2 fail | none | preview | https://security-market-pulse-git-preview-pikeholdings.vercel.app | docs/active/fable-run/score-final-v2.1.md | 2026-09-21T01:45Z |
 | T6-15 | Recapture the final deployed `preview` (home, `/corrections/`, issue page) at 1440 and 390 and re-measure section offsets, for the owner packet | claude-haiku-4-5 | done; coordinator looked at the final 1440 first screen | none | preview | https://security-market-pulse-git-preview-pikeholdings.vercel.app | docs/active/fable-run/evidence/final/ | 2026-09-21T01:50Z |
 | T6-16 | Move the founding thesis off the front page to its own `/thesis/` page as one standing analysis: the whole judgment board (running score, thesis headline, stat band, the read, Do and Avoid) renders there; the front page keeps a three-line pointer at the same anchor; "Thesis" leaves the top navigation; the front-page signed block shows the thesis verdict as one quiet linked line. Issue permalinks, issue data and the lock are untouched. Nothing deleted. To `preview` only after coordinator review | claude-sonnet-5 | done: head 27fcf10, rebased on the other session's D-71 front page, `npm test` green (80 data tests, 37 e2e), permalink HTML differs only by the removed nav link, zero axe violations on `/thesis/`; coordinator caught and had fixed a stamp that gave the site-updated date as a judged date | /Users/jessepike/code/projects/sec-market-wt/thesis | mon/thesis | https://security-market-pulse-git-mon-thesis-pikeholdings.vercel.app | branch `mon/thesis` plus `docs/active/fable-run/evidence/thesis/` | 2026-09-21T03:30Z |
+| T7-1 | Extract the facts the publish-path spec needs: issue and proposal types, how an issue becomes published and how the lock manifest is written, the production guard in `verify-issue`, what CI runs today, how `gather-pr.yml` and `gather.sh` hand off, where `weThink.thesis` is required | claude-haiku-4-5 | running | none | preview | n/a | returned summary, folded into `docs/active/publish-path-spec.md` | 2026-09-21T06:10Z |
 
 ## Owner gates
 
@@ -499,3 +501,13 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
   `/thesis/`, the D-71 masthead is live, both CORRECTED notes are present, and `/`, `/thesis/`,
   `/corrections/`, `/issues/`, `/issues/2026-w36/`, `/feed.xml`, `/corrections.json` and
   `/issues/lock.json` return 200. Recorded as D-72. Worktree `thesis` removed.
+- 2026-09-21T06:10Z — The owner asked how the site is maintained. Answered: the weekly issue has a
+  job (D-70) that is blocked on an expired Claude login on macbook2014 (verified by ssh: receipt
+  `2026-09-21T02-08-14Z.json` says `blocked-auth`, and `claude -p` there returns 401); nothing
+  maintains the scorecard, domain stances, Platform pressure or hypotheses; signing and promotion
+  both still need a terminal session. Proposed three builds. OWNER APPROVAL in the terminal: "yes
+  to all 3": (1) his approval of the draft pull request from the GitHub phone app becomes the
+  signature and publishes to the live site after every check passes; (2) the weekly job also
+  proposes scorecard updates behind a figure-meaning gate and flags stale stances; (3) the thesis
+  verdict leaves the weekly brief. This phase is T7. `intent.md` and `.claude/rules/constraints.md`
+  stay his to amend. T7-1 row written, then dispatched.
