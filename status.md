@@ -16,6 +16,15 @@ checked.** The working statement of purpose is
 instrument for supplier decisions, written for security leaders first, not for investors, with the
 founding thesis as one standing analysis. Read it before any design, rubric or review work.
 
+**2026-09-21, in progress (D-73): the owner approved three builds so the site can be kept up from his
+phone.** His approval of the weekly draft pull request becomes the signature and publishes the issue
+after every check passes; the weekly job proposes scorecard updates behind a check on what each
+figure means and lists what is going stale; the thesis verdict leaves the weekly issue. The spec is
+`docs/active/publish-path-spec.md` (SEC-MARKET-PUBLISH-001). Builders are on branches `mon/publish`
+and `mon/upkeep` in worktrees beside this checkout; nothing is merged yet. This phase edits
+`docs/active/gather-brief.md`, so any other session holding a copy of it should re-read it. The task
+ledger is in `docs/active/fable-run/RUN-STATE.md`, phase T7.
+
 What that promotion put on production (merges f557b4c, 0ece0ce, 7535fc4): a one-sentence description, "Not a news
 site and not investment advice.", a line giving the update date and the date the domain stances
 were judged, a plain-words note under the headline, and a new first section, "The market by
