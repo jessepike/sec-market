@@ -2,7 +2,7 @@ import { hypotheses } from '../data/hypotheses'
 import { claimId, effectiveJudgment } from '../data/reconfirmationHelpers'
 import { reconfirmations } from '../data/reconfirmations'
 import { EvidenceLink } from './EvidenceLink'
-import { JudgedStamp } from './JudgedStamp'
+import { JudgedStampStacked } from './JudgedStamp'
 
 export function Hypotheses() {
   return (
@@ -21,7 +21,7 @@ export function Hypotheses() {
             <p className="hypotheses__note">{item.note}</p>
             <div className="hypotheses__meta">
               {item.provenance.layer === 'judged' ? (
-                <JudgedStamp
+                <JudgedStampStacked
                   judgedOn={item.provenance.judgedOn}
                   reconfirmedOn={
                     effectiveJudgment(claimId('hypothesis', item.id), item.provenance.judgedOn, reconfirmations)

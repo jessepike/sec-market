@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import { describe, it } from 'node:test'
-import { renderToStaticMarkup } from 'react-dom/server'
+import { renderToString } from 'react-dom/server'
 import { createElement } from 'react'
 import {
   claimId,
@@ -13,7 +13,7 @@ import {
   validateReconfirmations,
 } from '../src/data/reconfirmationHelpers.ts'
 import { buildStaleReportJson } from '../src/data/staleReport.ts'
-import { JudgedStamp } from '../src/components/JudgedStamp.tsx'
+import { JudgedStamp, JudgedStampSpaced, JudgedStampStacked } from '../src/components/JudgedStamp.tsx'
 import { computeReconfirmations } from '../scripts/reconfirmLogic.ts'
 import { renderReconfirmationsModule } from '../scripts/reconfirmRender.ts'
 import type { EvidenceRecord, Hypothesis, Issue, PressureRow, Reconfirmation, SecurityDomain } from '../src/data/types.ts'
@@ -409,24 +409,56 @@ describe('renderReconfirmationsModule', () => {
 })
 
 describe('JudgedStamp', () => {
-  it('renders byte-identical markup to the pre-reconfirmation form when there is no reconfirmation', () => {
-    const markup = renderToStaticMarkup(createElement(JudgedStamp, { judgedOn: '2026-08-16', reconfirmedOn: null }))
+  // The real page is server-rendered with `renderToString` (src/entry-server.tsx), which
+  // inserts `<!-- -->` hydration boundary comments between adjacent children that both
+  // render as plain text — `renderToStaticMarkup` never does this, so it cannot prove
+  // byte-identical output against what actually ships. `renderToString` under this test
+  // runner's own esbuild-based JSX transform was checked, exact byte for byte, against the
+  // real `vite build` + prerender output for all three shapes (T7-4 evidence step, diffing
+  // `dist/index.html` between `preview` and this branch down to zero lines); it agreed on
+  // every one, so the strings below are the real ground truth, not a guess from reading the
+  // JSX. If a future change to the toolchain makes this test disagree with a real dist
+  // build again, trust the dist build and update this test, not the other way round.
+  it('renders byte-identical markup to the pre-reconfirmation form when there is no reconfirmation (market-picture shape)', () => {
+    const markup = renderToString(createElement(JudgedStamp, { judgedOn: '2026-08-16', reconfirmedOn: null }))
     assert.equal(
       markup,
-      '<p class="stamp-label">JUDGED <time dateTime="2026-08-16">16 Aug 2026</time> · Jesse Pike</p>',
+      '<p class="stamp-label">JUDGED <time dateTime="2026-08-16">16 Aug 2026</time> · <!-- -->Jesse Pike</p>',
+    )
+  })
+
+  it('renders byte-identical markup to the pre-reconfirmation form when there is no reconfirmation (domain-stance shape)', () => {
+    const markup = renderToString(
+      createElement(JudgedStampSpaced, { judgedOn: '2026-08-16', reconfirmedOn: null }),
+    )
+    assert.equal(
+      markup,
+      '<p class="stamp-label">JUDGED <time dateTime="2026-08-16">16 Aug 2026</time> ·<!-- --> <!-- -->Jesse Pike</p>',
+    )
+  })
+
+  it('renders byte-identical markup to the pre-reconfirmation form when there is no reconfirmation (hypothesis / Platform-pressure shape)', () => {
+    const markup = renderToString(
+      createElement(JudgedStampStacked, { judgedOn: '2026-08-16', reconfirmedOn: null }),
+    )
+    assert.equal(
+      markup,
+      '<p class="stamp-label">JUDGED<!-- --> <time dateTime="2026-08-16">16 Aug 2026</time> <!-- -->· <!-- -->Jesse Pike</p>',
     )
   })
 
   it('shows both dates, honestly, when reconfirmed (fixture only — no real data touched)', () => {
-    const markup = renderToStaticMarkup(
-      createElement(JudgedStamp, { judgedOn: '2026-08-16', reconfirmedOn: '2026-11-02' }),
-    )
-    assert.match(markup, /JUDGED/)
-    assert.match(markup, /16 Aug 2026/)
-    assert.match(markup, /RECONFIRMED/)
-    assert.match(markup, /2 Nov 2026/)
-    assert.match(markup, /Jesse Pike/)
-    assert.match(markup, /<time dateTime="2026-08-16">/)
-    assert.match(markup, /<time dateTime="2026-11-02">/)
+    for (const Component of [JudgedStamp, JudgedStampSpaced, JudgedStampStacked]) {
+      const markup = renderToString(
+        createElement(Component, { judgedOn: '2026-08-16', reconfirmedOn: '2026-11-02' }),
+      )
+      assert.match(markup, /JUDGED/)
+      assert.match(markup, /16 Aug 2026/)
+      assert.match(markup, /RECONFIRMED/)
+      assert.match(markup, /2 Nov 2026/)
+      assert.match(markup, /Jesse Pike/)
+      assert.match(markup, /<time dateTime="2026-08-16">/)
+      assert.match(markup, /<time dateTime="2026-11-02">/)
+    }
   })
 })

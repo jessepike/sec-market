@@ -3,7 +3,7 @@ import { claimId, effectiveJudgment } from '../data/reconfirmationHelpers'
 import { reconfirmations } from '../data/reconfirmations'
 import type { PressureGroup, VendorPosition } from '../data/types'
 import { EvidenceLink } from './EvidenceLink'
-import { JudgedStamp } from './JudgedStamp'
+import { JudgedStampStacked } from './JudgedStamp'
 
 const groupCopy: Record<PressureGroup, string> = {
   holding: 'Holding position',
@@ -61,7 +61,7 @@ export function PlatformPressure() {
                   <td>
                     <p>{row.read}</p>
                     {row.provenance.read.layer === 'judged' ? (
-                      <JudgedStamp
+                      <JudgedStampStacked
                         judgedOn={row.provenance.read.judgedOn}
                         reconfirmedOn={
                           effectiveJudgment(
@@ -95,7 +95,7 @@ export function PlatformPressure() {
                 ) : null}
                 <p>{row.read}</p>
                 {row.provenance.read.layer === 'judged' ? (
-                  <JudgedStamp
+                  <JudgedStampStacked
                     judgedOn={row.provenance.read.judgedOn}
                     reconfirmedOn={
                       effectiveJudgment(

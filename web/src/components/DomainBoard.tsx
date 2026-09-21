@@ -5,7 +5,7 @@ import { claimId, effectiveJudgment } from '../data/reconfirmationHelpers'
 import { reconfirmations } from '../data/reconfirmations'
 import type { Momentum, TempoTag } from '../data/types'
 import { EvidenceLink } from './EvidenceLink'
-import { JudgedStamp } from './JudgedStamp'
+import { JudgedStampSpaced } from './JudgedStamp'
 
 function kindLabel(kind: string): string {
   if (kind === 'revised') return 'Moved'
@@ -109,7 +109,7 @@ function LandscapeSection() {
               <EvidenceLink ids={trackedPrintEvidenceIds(domain)} />
             </div>
             <div className="domain-card__layer domain-card__layer--judged">
-              <JudgedStamp
+              <JudgedStampSpaced
                 judgedOn={domain.asOf}
                 reconfirmedOn={effectiveJudgment(claimId('domain', domain.id), domain.asOf, reconfirmations).reconfirmedOn}
               />
