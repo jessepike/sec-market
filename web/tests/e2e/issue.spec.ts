@@ -1,11 +1,12 @@
 import { expect, test } from '@playwright/test'
 import { issues, latestIssue } from '../../src/data/issues/index.ts'
+import { SITE_HEADLINE } from '../../src/data/meta.ts'
 
 const STANDING_REFERENCE_IDS = ['market', 'follow', 'read', 'landscape', 'platforms', 'hypotheses', 'prints']
 const ISSUE_SECTION_IDS = ['overview', 'formation', 'absorption', 'prints-this-week', 'capital', 'we-think']
 
 test.describe('weekly issue — front page', () => {
-  test('h1 is the newest issue read; issue sections and standing reference are visible', async ({
+  test('h1 is the site headline, the issue strip carries the read; issue sections and standing reference are visible', async ({
     page,
   }) => {
     const pageErrors: string[] = []
@@ -37,7 +38,12 @@ test.describe('weekly issue — front page', () => {
 
     await page.goto('/')
 
-    await expect(page.getByRole('heading', { level: 1 })).toHaveText(latestIssue.read)
+    // SEC-MARKET-CORE-001 §5: the front page's h1 is the site's own subject
+    // and does not change week to week. The newest read moved into the issue
+    // strip directly below it, where it is still the first thing a returning
+    // reader sees. The issue permalink below still has the read as its h1.
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText(SITE_HEADLINE)
+    await expect(page.locator('#overview .issue-strip__read')).toHaveText(latestIssue.read)
 
     for (const id of ISSUE_SECTION_IDS) {
       await expect(page.locator(`#${id}`)).toBeVisible()
@@ -46,7 +52,7 @@ test.describe('weekly issue — front page', () => {
       await expect(page.locator(`#${id}`)).toBeVisible()
     }
 
-    const draftBanner = page.locator('.issue-hero .issue-draft-banner')
+    const draftBanner = page.locator('.issue-strip .issue-draft-banner')
     if (latestIssue.status === 'draft') {
       await expect(draftBanner).toBeVisible()
     } else {

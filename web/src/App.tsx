@@ -13,6 +13,7 @@ import { Hypotheses } from './components/Hypotheses'
 import { IssueArchive } from './components/IssueArchive'
 import { IssueHero } from './components/IssueHero'
 import { IssueLanes } from './components/IssueLanes'
+import { IssueStrip } from './components/IssueStrip'
 import { JudgmentBoard } from './components/JudgmentBoard'
 import { MarketLayersChart } from './components/MarketLayersChart'
 import { MarketPicture } from './components/MarketPicture'
@@ -21,6 +22,7 @@ import { NextEdition } from './components/NextEdition'
 import { PlatformPressure } from './components/PlatformPressure'
 import { PrintGrid } from './components/PrintGrid'
 import { ProvenanceRail } from './components/ProvenanceRail'
+import { SiteMasthead } from './components/SiteMasthead'
 import { SkipLink } from './components/SkipLink'
 import { ThesisRunningScore } from './components/ThesisRunningScore'
 import { VendorLens } from './components/VendorLens'
@@ -35,14 +37,19 @@ import { matchRoute } from './data/routes'
 import type { Issue } from './data/types'
 
 /**
- * `/` — this week's issue, then the market picture, then the standing
- * reference, then depth.
+ * `/` — what the site is, this week's read in one strip, then the market
+ * picture, then the issue in full, then the standing reference and depth.
  *
- * Order per design-spec v0.3 §3.1: overview, market, we-think, the four
- * lanes, follow, landscape, platforms/vendor-lens-slot/prints (kept
- * together), the standing thesis (`#read`), hypotheses, then depth sections
- * unchanged. `#read` and `#hypotheses` moved down from directly under
- * `#we-think`; nothing about their own content changed.
+ * Order per design-spec v0.3 §3.1, amended by SEC-MARKET-CORE-001 §5: the
+ * first screen belongs to the market picture, so the masthead and the issue
+ * strip above it are deliberately short. The strip replaced IssueHero here
+ * and carries `#overview` forward, so the header's "Issue" link and
+ * prerender's front-page section list are unchanged. IssueHero itself is
+ * untouched and still renders the issue permalink below.
+ *
+ * Then: market, we-think, the four lanes, follow, landscape,
+ * platforms/vendor-lens-slot/prints (kept together), the standing thesis
+ * (`#read`), hypotheses, then depth sections unchanged.
  *
  * Wrapped in VendorLensProvider (SEC-031): IssueLanes and PrintGrid, both
  * inside, read the lens state to filter; VendorLens is the control. Scoped
@@ -53,7 +60,8 @@ import type { Issue } from './data/types'
 function FrontPage() {
   return (
     <VendorLensProvider>
-      <IssueHero issue={latestIssue} showAsOf />
+      <SiteMasthead />
+      <IssueStrip issue={latestIssue} />
       <MarketPicture />
       <WeThink issue={latestIssue} />
       <IssueLanes issue={latestIssue} />

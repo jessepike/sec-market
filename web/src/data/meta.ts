@@ -36,6 +36,20 @@ export const CONTACT_EMAIL = 'jesse@keatingpike.com'
  * (scripts/generate-seo.ts reads it back off the built page). The owner edits
  * this on the preview.
  */
+/**
+ * The front page's `h1` (SEC-MARKET-CORE-001 §5). It names what the site is
+ * about and does not change from week to week.
+ *
+ * It used to be the newest issue's one-line read, which made the biggest type
+ * on the page a news headline for one week — wrong for a site whose own
+ * description says it is not a news site, and wrong for a first-time reader
+ * who learns what the site covers only from the grey line above it. The
+ * weekly read now sits in the issue strip under this, still the first thing
+ * a returning reader sees, and it is still the `h1` on the issue's own page
+ * where it is genuinely that page's subject. The owner edits this line.
+ */
+export const SITE_HEADLINE = 'The security market, from public numbers'
+
 export const SITE_DESCRIPTION =
   "A practitioner's read on the business of the security market: who is growing, who is " +
   'consolidating, who is being bought, and what it means if you run a security program. Public ' +

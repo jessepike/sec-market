@@ -3333,3 +3333,88 @@ summary:focus-visible,
 .chip--no-call {
   color: var(--color-alert);
 }
+
+/* ==========================================================================
+   SEC-MARKET-CORE-001 §5: the first screen belongs to the market picture.
+
+   The masthead says what the site is in the largest type and stays the same
+   every week; the weekly read drops from a three-line h1 to a strip. Both
+   are front-page only — the issue permalink still renders IssueHero, whose
+   rules above are untouched. Tokens only, no new colour, font or radius.
+   ========================================================================== */
+
+.site-masthead {
+  padding-bottom: 1rem;
+}
+
+.site-masthead h1 {
+  margin: 0 0 0.6rem;
+}
+
+.site-masthead__description {
+  max-width: var(--prose-max);
+  margin: 0;
+  color: var(--color-text);
+}
+
+.site-masthead__stamps {
+  max-width: var(--prose-max);
+  margin: 0.5rem 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+}
+
+.issue-strip {
+  margin: 0 0 1.5rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--color-border-strong);
+  border-left-width: 3px;
+  background: var(--color-surface);
+}
+
+.issue-strip__eyebrow {
+  margin: 0 0 0.35rem;
+}
+
+.issue-strip__label {
+  font-weight: 700;
+  color: var(--color-heading);
+}
+
+/* Deliberately smaller than an h2 elsewhere on the page. It is the week's
+   headline, not a section title, and at h2 size it re-created the wall of
+   type this change exists to remove. */
+.issue-strip__read {
+  margin: 0;
+  font-size: 1.15rem;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.issue-strip__read a {
+  color: var(--color-heading);
+  text-decoration: none;
+}
+
+.issue-strip__read a:hover,
+.issue-strip__read a:focus-visible {
+  text-decoration: underline;
+}
+
+.issue-strip__note {
+  margin: 0.5rem 0 0;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 640px) {
+  .issue-strip {
+    padding: 0.8rem 0.85rem;
+  }
+
+  .issue-strip__read {
+    font-size: 1.05rem;
+  }
+}

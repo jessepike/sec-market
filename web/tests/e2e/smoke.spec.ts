@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test'
 import { latestIssue } from '../../src/data/issues/index.ts'
+import { SITE_HEADLINE } from '../../src/data/meta.ts'
 
 test('renders the market briefing without runtime errors', async ({ page }) => {
   const pageErrors: string[] = []
@@ -7,11 +8,14 @@ test('renders the market briefing without runtime errors', async ({ page }) => {
 
   await page.goto('/')
 
-  // The h1 is now the newest weekly issue's one-line read (promoted to the
-  // top of the page under D-64 / SEC-MARKET-ISSUE-001). The former market-call
-  // h1 moved into the standing-reference thesis block (#read) as an h2 — see
-  // the #market-call-heading assertions below, unchanged in content.
-  await expect(page.getByRole('heading', { level: 1 })).toHaveText(latestIssue.read)
+  // The h1 is the site's standing headline (SEC-MARKET-CORE-001 §5). It was
+  // briefly the newest issue's one-line read, under D-64, which made the
+  // biggest type on the page a news headline for one week. The read is now in
+  // the issue strip right below it; the market call stayed where D-64 put it,
+  // as an h2 inside #read — see the #market-call-heading assertions below,
+  // unchanged in content.
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText(SITE_HEADLINE)
+  await expect(page.locator('#overview .issue-strip__read')).toHaveText(latestIssue.read)
 
   await expect(page.getByText('refreshed weekly')).toHaveCount(0)
   await expect(page.getByText('Tell me when the next edition publishes')).toHaveCount(0)
