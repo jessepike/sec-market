@@ -19,8 +19,78 @@ import type { JudgedClaim, PressureGroup, PressureRow, VendorPosition, VendorPri
 
 const judgedOn = JUDGED_AS_OF_ISO
 
-function judged(evidenceIds: string[], confidence: JudgedClaim['confidence'] = 'medium'): JudgedClaim {
-  return { layer: 'judged', judgedOn, confidence, evidenceIds }
+function judged(
+  evidenceIds: string[],
+  confidence: JudgedClaim['confidence'] = 'medium',
+  judgedOnOverride: string = judgedOn,
+): JudgedClaim {
+  return { layer: 'judged', judgedOn: judgedOnOverride, confidence, evidenceIds }
+}
+
+/**
+ * Acquirers whose purchase of a security company counts as absorption into
+ * the cloud itself, not into a security platform (D-75, BACKLOG SEC-054).
+ * Kept here, explicit and small, so the sentence a "buying in" row gets
+ * never depends on guessing a name inside a component. Palo Alto Networks
+ * and F5 buy and absorb security companies too, but neither belongs on this
+ * list — they are platform vendors, not hyperscalers.
+ */
+const HYPERSCALER_ACQUIRERS = ['Alphabet', 'Google', 'Microsoft', 'Amazon', 'AWS']
+
+function isHyperscaler(actor: string): boolean {
+  return HYPERSCALER_ACQUIRERS.includes(actor.trim())
+}
+
+/** The two `VendorPrint.group` values D-75's wording turns on. */
+const AI_SECURITY_GROUP = 'AI runtime'
+const CLOUD_SECURITY_GROUP = 'Cloud security'
+
+const CLOUD_INTO_HYPERSCALER_SENTENCE =
+  'Cloud security absorbed into a hyperscaler. Watch what it does to the specialist gap.'
+const AI_SECURITY_INTO_PLATFORM_SENTENCE =
+  'AI security absorbed into a platform vendor. Watch whether it survives as a product or becomes a feature.'
+const CLOUD_INTO_PLATFORM_SENTENCE =
+  'Cloud security absorbed into a platform vendor. Watch whether it survives as a product or becomes a feature.'
+
+/** The date the owner approved the reworded sentences below (D-75, 2026-09-21). */
+const WORDING_JUDGED_ON = '2026-09-21'
+
+export interface BuyingInWording {
+  text: string
+  /** True when `text` is D-75's new wording — the row's judged date moves to WORDING_JUDGED_ON. */
+  reworded: boolean
+  /**
+   * False when the acquirer/target combination is none of D-75's three
+   * approved cases. `text` is then the row's original (imprecise) sentence,
+   * left alone rather than guessed at — see SEC-054 and the T7-9 report.
+   */
+  approved: boolean
+}
+
+/**
+ * D-75: the sentence a non-Identity "buying in" row gets, chosen by who
+ * bought the company and what kind of company it was.
+ *   - hyperscaler acquirer, cloud security target: the original sentence, unchanged.
+ *   - platform-vendor acquirer, AI security target: the AI-security sentence.
+ *   - platform-vendor acquirer, cloud security target: the same sentence, said of cloud security.
+ * Anything else — a hyperscaler buying something that is not cloud
+ * security, or a platform vendor buying a target that is neither AI
+ * security nor cloud security — is outside the three cases the owner
+ * approved. This never invents wording for that case; it returns the
+ * original sentence with `approved: false` so the caller can flag it.
+ */
+export function buyingInWording(actor: string, targetGroup: string): BuyingInWording {
+  const hyperscaler = isHyperscaler(actor)
+  if (hyperscaler && targetGroup === CLOUD_SECURITY_GROUP) {
+    return { text: CLOUD_INTO_HYPERSCALER_SENTENCE, reworded: false, approved: true }
+  }
+  if (!hyperscaler && targetGroup === AI_SECURITY_GROUP) {
+    return { text: AI_SECURITY_INTO_PLATFORM_SENTENCE, reworded: true, approved: true }
+  }
+  if (!hyperscaler && targetGroup === CLOUD_SECURITY_GROUP) {
+    return { text: CLOUD_INTO_PLATFORM_SENTENCE, reworded: true, approved: true }
+  }
+  return { text: CLOUD_INTO_HYPERSCALER_SENTENCE, reworded: false, approved: false }
 }
 
 function positioned(position: VendorPosition): VendorPrint[] {
@@ -93,10 +163,15 @@ function buyingInRows(): PressureRow[] {
       const rendered = renderClosePrint(item.actor, item.value, item.date)
       const combined = [...print.evidenceIds, ...item.evidenceIds]
       const evidenceIds = combined.filter((id, index) => combined.indexOf(id) === index)
-      const read =
-        print.group === 'Identity'
-          ? identityAbsorbedRead(item.actor)
-          : 'Cloud security absorbed into a hyperscaler. Watch what it does to the specialist gap.'
+      let read: string
+      let readJudgedOn = judgedOn
+      if (print.group === 'Identity') {
+        read = identityAbsorbedRead(item.actor)
+      } else {
+        const wording = buyingInWording(item.actor, print.group)
+        read = wording.text
+        if (wording.reworded) readJudgedOn = WORDING_JUDGED_ON
+      }
       return [
         {
           id: item.id,
@@ -106,8 +181,45 @@ function buyingInRows(): PressureRow[] {
           read,
           provenance: {
             print: trackedFrom(evidenceIds),
-            read: judged(evidenceIds),
+            read: judged(evidenceIds, 'medium', readJudgedOn),
           },
+        },
+      ]
+    })
+}
+
+export interface BuyingInWordingDecision {
+  id: string
+  actor: string
+  target: string
+  targetGroup: string
+  approved: boolean
+  reworded: boolean
+  read: string
+}
+
+/**
+ * Every non-Identity "buying in" row's acquirer, target, and the sentence
+ * `buyingInRows` gave it, for tests and for reporting which rows, if any,
+ * fall outside D-75's three approved cases (SEC-054).
+ */
+export function buyingInWordingDecisions(): BuyingInWordingDecision[] {
+  const absorbed = positioned('absorbed')
+  return activityItems
+    .filter((item) => item.kind === 'ma')
+    .flatMap((item) => {
+      const print = absorbed.find((row) => row.name === item.target)
+      if (!print || !print.position || print.group === 'Identity') return []
+      const wording = buyingInWording(item.actor, print.group)
+      return [
+        {
+          id: item.id,
+          actor: item.actor,
+          target: item.target,
+          targetGroup: print.group,
+          approved: wording.approved,
+          reworded: wording.reworded,
+          read: wording.text,
         },
       ]
     })

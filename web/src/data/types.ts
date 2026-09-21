@@ -301,11 +301,20 @@ export interface CorrectedReading {
  * append-only publication manifest the issue data is hashed into. A
  * correction is a dated note that travels beside the affected item(s) and
  * is also listed on its own page at /corrections/.
+ *
+ * `issueId` and `correctedReadings` are for a correction to a published
+ * issue's own text, which stays exactly as printed and gets a note beside
+ * it (see IssueLanes.tsx). A correction to the standing reference — a page
+ * that is not a frozen issue and is corrected in place, such as the
+ * Platform pressure table — has no issue to name and no per-item reading to
+ * attach; it omits `issueId` and leaves `correctedReadings` empty, carrying
+ * the full explanation in `text` instead (SEC-054, D-75).
  */
 export interface Correction {
   id: string // `C-<published-date>-<sequence>`, e.g. `C-2026-09-20-01`
   date: string // ISO date the correction was approved and published
-  issueId: Issue['id']
+  /** Absent for a correction to the standing reference rather than a published issue. */
+  issueId?: Issue['id']
   text: string // the full owner-approved correction text, verbatim
   approvedBy: string // must equal AUTHOR_NAME in meta.ts
   correctedReadings: CorrectedReading[]

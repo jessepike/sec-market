@@ -21,8 +21,9 @@ describe('corrections data', () => {
     assert.equal(new Set(ids).size, ids.length, `duplicate correction id among: ${ids.join(', ')}`)
   })
 
-  it('every correction names an issue that exists', () => {
+  it('every correction naming an issue names one that exists (a standing-reference correction names none)', () => {
     for (const correction of corrections) {
+      if (correction.issueId === undefined) continue
       assert.ok(
         issueById[correction.issueId],
         `correction "${correction.id}" names issue "${correction.issueId}", which does not exist`,
@@ -30,8 +31,16 @@ describe('corrections data', () => {
     }
   })
 
-  it('every corrected item id exists in that correction\'s issue', () => {
+  it('every corrected item id exists in that correction\'s issue, for a correction that names one', () => {
     for (const correction of corrections) {
+      if (correction.issueId === undefined) {
+        assert.deepEqual(
+          correction.correctedReadings,
+          [],
+          `correction "${correction.id}" has correctedReadings but no issueId to resolve them against`,
+        )
+        continue
+      }
       const issue = issueById[correction.issueId]
       assert.ok(issue, `correction "${correction.id}" names issue "${correction.issueId}", which does not exist`)
       const itemIds = new Set(
@@ -100,6 +109,22 @@ describe('corrections data', () => {
     assert.deepEqual(paloAlto!.evidenceIds, ['W36-19'])
     assert.match(paloAlto!.correctedHeadline, /quarter ended 31 July 2026/)
     assert.ok(paloAlto!.note && paloAlto!.note.length > 0, 'expected the withdrawn-comparison note')
+  })
+
+  it('the 2026-09-21 Platform pressure correction names the right acquirers and targets, and no issue', () => {
+    const correction = corrections.find((c) => c.id === 'C-2026-09-21-01')
+    assert.ok(correction, 'expected the C-2026-09-21-01 correction to exist')
+    assert.equal(correction!.issueId, undefined, 'a standing-reference correction should not name an issue')
+    assert.deepEqual(correction!.correctedReadings, [])
+    assert.equal(correction!.approvedBy, 'Jesse Pike')
+    assert.equal(correction!.date, '2026-09-21')
+    for (const text of ['Palo Alto Networks', 'Protect AI', 'F5', 'CalypsoAI', 'SurePath AI', 'hyperscaler']) {
+      assert.match(correction!.text, new RegExp(text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')))
+    }
+    assert.match(
+      correction!.text,
+      /AI security absorbed into a platform vendor\. Watch whether it survives as a product or becomes a feature\./,
+    )
   })
 })
 
