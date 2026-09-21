@@ -21,8 +21,12 @@ company or segment, metric, reporting period, and value/units.
 - **Reporting period** — checkable, using `EvidenceRecord.economicPeriod`'s free text. It classifies
   both the card's compact tag ("JUN '26", "FY26", "Q3 FY26", "Closed") and the evidence's period
   text into quarter / fiscal-year / calendar-year / point-in-time / unknown, and fails a card that
-  labels a full year when its only cited evidence is a single quarter — the same shape of mistake
-  SEC-043 corrected on an issue headline.
+  labels a full year when its only cited evidence is a single quarter — the mistake this dimension
+  is built to catch is a flow figure (revenue, a growth rate) for one quarter mislabelled a full
+  year's figure, the kind SEC-043 corrected on an issue headline. It cannot by itself tell whether a
+  quarter-labelled-as-a-year is that mistake or a balance metric (an ending-ARR figure, which is the
+  same number at a quarter's end and its fiscal year's end) legitimately carrying either label — see
+  "not checkable" below.
 - **Value and units** — checkable. It extracts the card's numeric figure and the evidence excerpt's
   figures (expanding spelled-out "million"/"billion"/"percent" so "$12 billion" is comparable to
   "$12B"), and requires a matching figure of the same unit, exact or within a small, stated rounding
@@ -33,6 +37,12 @@ company or segment, metric, reporting period, and value/units.
   Matching a metric label like "organic revenue" or "ending ARR" against prose would mean guessing
   at phrasing, which the spec asked me not to do. Every print reports this dimension
   "not-checkable," never a guessed pass.
+- **Balance versus flow — also not checkable, and it follows from the metric gap above.** Without a
+  structured metric field, the period check cannot tell a balance (a value as of a point in time,
+  such as ending ARR) from a flow (a value over a span, such as revenue or a growth rate). A quarter
+  labelled as a fiscal year is a real defect for a flow metric and is possibly just a convention for
+  a balance metric, since a balance's quarter-end and year-end values coincide. `print-crwd-cloud`
+  below is exactly this ambiguity, not a confirmed mistake.
 
 A print's overall result fails only if a *checkable* dimension fails; a not-checkable dimension
 never blocks a pass or hides a real problem, since it is reported separately and counted.
@@ -44,14 +54,16 @@ counts: metric 45 of 45 (always, by design), period 6, value 6, units 6 — the 
 entries whose card value is categorical rather than numeric ("Closed" close-events, "No series",
 "Seed," "Undisclosed," "Split," "TD SYNNEX"), so there is no figure to check.
 
-**One real defect found, one entry on the unverified list — there are not three reasons to report,
-only one:** `print-crwd-cloud` (CrowdStrike Falcon Cloud) labels its period "FY26," a full fiscal
-year, while the only evidence it cites (`C13`) states "Quarter ended 2026-01-31" — a single
-quarter's ending ARR. The figure itself (`>$800M`, `>35%`) is not in question, only the period
-label. This is recorded in the new `web/src/data/printsUnverified.ts`, dated 2026-09-21, and its id
-is in the shrink-only baseline `web/scripts/prints-unverified-baseline.json` — I did not fix the
-label, per the instruction to record rather than fix a wrong figure; that is the owner's correction
-process.
+**One entry on the unverified list — not a confirmed defect:** `print-crwd-cloud` (CrowdStrike
+Falcon Cloud) is labelled "FY26," while the only evidence it cites (`C13`) states "Quarter ended
+2026-01-31." For an ending-ARR balance, the quarter-end balance and the fiscal-year-end balance are
+the same number, so the label is probably acceptable — it is not the flow mistake SEC-043
+corrected, where a quarter's revenue was mislabelled a year's revenue. The check cannot tell a
+balance metric from a flow metric, because `EvidenceRecord` has no structured metric field, so this
+is recorded in the new `web/src/data/printsUnverified.ts`, dated 2026-09-21 (id in the shrink-only
+baseline `web/scripts/prints-unverified-baseline.json`), for the owner to confirm or to relabel as
+"JAN '26," the way the total CrowdStrike ARR card (`print-crwd`) is labelled "APR '26" rather than
+by fiscal year. Nothing was changed on the card either way.
 
 The check was proven to fail closed on two synthetic cases that are not on any list: a card
 labelling a full year over quarterly-only evidence, and a card value absent from its cited

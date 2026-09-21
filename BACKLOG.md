@@ -553,13 +553,15 @@ period, and value/units together; the comparison logic is a pure module
 (`web/src/data/printChecks.ts`, `web/src/data/printPeriod.ts`) with data tests
 (`web/tests/print-checks.test.ts`), including a deliberately wrong period label and a value absent
 from evidence, both of which fail. Metric has no structured field on `EvidenceRecord`, so that
-dimension is always reported "not-checkable" rather than guessed — see the module's own comments.
-The check found one real defect: `print-crwd-cloud` labels its period "FY26" (a full fiscal year)
-while its only cited evidence (`C13`) is a single quarter — the same shape of mistake SEC-043
-corrected on an issue headline. It is recorded in the new `web/src/data/printsUnverified.ts`
-(dated, shrink-only against `web/scripts/prints-unverified-baseline.json`) rather than fixed, per
-the owner's correction process. The figure-meaning check is the precondition SEC-045 needed and is
-now in place.
+dimension is always reported "not-checkable" rather than guessed — see the module's own comments;
+the same gap means the check cannot tell a balance metric (e.g. ending ARR) from a flow metric
+(e.g. revenue), which matters because a quarter labelled a fiscal year is a real mistake for a flow
+and a probably-fine convention for a balance, since a balance's quarter-end and year-end values
+coincide. One print, `print-crwd-cloud`, is listed on `web/src/data/printsUnverified.ts` for this
+exact reason (dated, shrink-only against `web/scripts/prints-unverified-baseline.json`) — its
+"FY26" label against a quarterly ending-ARR record is not a confirmed defect, only a case the check
+cannot resolve on its own, flagged for the owner to confirm or relabel. The figure-meaning check is
+the precondition SEC-045 needed and is now in place.
 
 ### SEC-045 — The issue pipeline never writes back to the scorecard
 

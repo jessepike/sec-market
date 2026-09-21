@@ -28,11 +28,14 @@ export const printsUnverified: PrintsUnverifiedEntry[] = [
     id: 'print-crwd-cloud',
     dateListed: '2026-09-21',
     reason:
-      'The card labels the period "FY26" (a full fiscal year), but the print cites only C13, ' +
-      'whose economicPeriod is "Quarter ended 2026-01-31" — a single quarter\'s ending ARR ' +
-      '(CrowdStrike\'s Q4 FY2026 Falcon Cloud segment), not a fiscal-year figure. The same shape ' +
-      'of mistake SEC-043 corrected on an issue headline. The figure itself ($800M+, >35%) is not ' +
-      'in question — only the period label is wrong. Found by scripts/verify-prints.ts (SEC-044); ' +
-      'not fixed here per the owner\'s correction process.',
+      'The card is labelled "FY26," and its cited evidence (C13) gives economicPeriod "Quarter ' +
+      'ended 2026-01-31." For an ending-ARR balance, the balance at that quarter end and the ' +
+      'balance at fiscal year end are the same number, so the label is probably acceptable — it is ' +
+      'not the flow mistake SEC-043 corrected, where a quarter\'s revenue was mislabelled a year\'s ' +
+      'revenue. But the check cannot tell a balance metric from a flow metric, because ' +
+      'EvidenceRecord carries no structured metric field, so this is listed for the owner to ' +
+      'confirm or to relabel as "JAN ’26," the way the total CrowdStrike ARR card ' +
+      '(print-crwd) is labelled "APR ’26" rather than "FY26." Found by scripts/verify-prints.ts ' +
+      '(SEC-044); not changed here.',
   },
 ]
