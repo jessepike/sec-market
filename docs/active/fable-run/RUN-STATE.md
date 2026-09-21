@@ -2,44 +2,54 @@
 
 ## Resume here
 
-THE OWNER ANSWERED THE PHASE 3 GATE IN THE TERMINAL on 2026-09-20 about 14:30 Pacific, and changed
-the premise. Read `docs/active/product-core.md` FIRST: it is his intent in his words and it
-supersedes the brief and `design-spec.md` v0.2 wherever they put the founding thesis at the centre.
-Short form: the site is a credibility asset for his advisory work and a working instrument for
-vendor and domain decisions; written for security leaders and practitioners first, advisors and
-vendor partners second, not investors; the infrastructure-lag thesis is one standing analysis and
-leaves the first screen; monetization and the employer question are parked; he wants it fully
-automated with a one-tap decision arriving in a channel; he wants a core document, a rubric
-aligned to it, and external reviews (he named Codex and `gpt-6-astra`); he wants motion and cannot
-give more time today. His Claude subscription window ends 23:00 Pacific on 2026-09-20.
+THE RUN HAS DELIVERED AND IS WAITING ON THE OWNER. The final packet went to agent-canvas on
+2026-09-20 about 19:40 Pacific as interaction `sec-market-fable-001-final-packet`
+(`docs/active/fable-run/owner-packet-final.html`). On resume, FIRST read `get_user_messages` and
+`get_comments` on agent-canvas for his response. A failed readback is not approval; if canvas is
+unreachable, retry once and ask in the terminal.
 
-What he authorized: build, to `preview`. What he did NOT clearly authorize: promotion to `main`.
-He said both "I want to look at the preview" and "let's get it deployed". Treat promotion as
-still needing his explicit word. Never push to `main`.
+Read `docs/active/product-core.md` before any design, rubric or review work. It is his intent in
+his words.
 
-Work plan for the rest of the day (Phase 3b then Phase 4, one worktree):
-1. T5-1 automation plan, T5-2 content inventory, T5-3 practitioner market-pulse research, T5-4
-   distress-signal sourcing research, T5-5 analytics options. Dispatched together.
-2. Coordinator writes `site-rubric.md` v2.0 (re-aimed at the product core) and `design-spec.md`
-   v0.3 (first screen is the market picture, not the thesis). A sonnet scorer re-scores the
-   existing baseline evidence under v2.0.
-3. External review of the product core, rubric v2.0 and design v0.3 with Codex
-   (`codex exec -m gpt-6-astra`, read-only, always pass `-m`). Record what changed.
-4. Build in ONE worktree: `git worktree add /Users/jessepike/code/projects/sec-market-wt/wave1 -b
-   mon/wave1 preview`. First task is a rendered, measured first screen at 1440 and 390. All node
-   work in the OrbStack dev VM. Do not touch `web/src/data/issues/` or `web/src/data/evidence.ts`
-   (a parallel session has a draft on `issue/2026-w37`). Tests green, captures with
-   `evidence/baseline/capture.mjs`, before-and-after compared, then merge into `preview` and push.
-5. Re-score, write the owner packet with before-and-after images, the preview URL and the exact
-   promotion command, send on agent-canvas, stop.
-Host note: every shell command needs `export DEVELOPER_DIR=/Library/Developer/CommandLineTools`.
-Stage named paths only. `lessons.md` belongs to the parallel session until it commits.
+State of the branches. `preview` carries three merges that `main` does not: f557b4c (front page,
+market picture first), 0ece0ce (names on judged stamps, compact supplier rows, phone header,
+plain eyebrow) and 7535fc4 (the owner-approved correction to issue `2026-w36` and the corrections
+mechanism, D-68). Full `npm test` was green on exactly the code that is on `preview`. `main` is
+untouched at aa04875. Promotion needs his explicit word:
+`git checkout main && git merge --ff-only preview && PROMOTE=1 git push origin main && git checkout preview`,
+then confirm the Vercel deploy is Ready and curl the live host. Never push to `main` without it.
 
-Last updated: 2026-09-20T21:45:00Z
+Score under rubric v2.1, blind scorer: production 32.8, preview 57.2. Blockers 3 and 4 pass.
+Blocker 1 fails on the scorer's reading that a wrong headline with a dated correction beside it is
+still wrong (do not reword the rubric to pass it; it is an owner and outside-review question).
+Blocker 2 fails on the owner's Platform pressure wording and on two "strongest" lines in the locked
+issue (`2026-w36-prints-1`, `2026-w36-capital-1`).
+
+What he has been asked, in order: promote or say what to change; reword Platform pressure and
+approve a second small correction (offer made: say yes and the coordinator drafts both); run
+`gh auth refresh -h github.com -s workflow` so `mon/notify` (1f5f992, worktree
+`/Users/jessepike/code/projects/sec-market-wt/notify`) can be pushed, then save a webhook URL as
+the secret `DECISION_WEBHOOK_URL`; pick the gather runtime and one cadence; decide what may publish
+without him and amend `intent.md` and `.claude/rules/constraints.md` (only he can); say who he is
+on the site; analytics (Plausible, paid).
+
+If he says nothing, the next useful work that needs no further yes: none on `web/`. Do not start
+the automation build, the buyer-brief surface or distress collection without his word; they are
+SEC-046 to SEC-049 in `BACKLOG.md`.
+
+Housekeeping: worktrees `wave1` and `corrections` are removed; their branches are pushed and
+merged. `lessons.md` still carries another session's uncommitted change; this run's lessons are
+in `docs/active/fable-run/lessons-pending.md`. A draft issue sits on branch `issue/2026-w37`
+(7647baa) and belongs to the parallel session. Every shell command needs
+`export DEVELOPER_DIR=/Library/Developer/CommandLineTools` until the owner runs
+`sudo xcodebuild -license`. Stage named paths only.
+
+Last updated: 2026-09-21T02:45:00Z
 
 ## Phase
 
-Phase 3b — re-aim at the owner's stated intent (`docs/active/product-core.md`), then Phase 4 build in one worktree to `preview`.
+Phase 5 done (scored and handed off). Phase 6 close-out done except moving the held lessons into
+`lessons.md`. Waiting on the owner.
 
 ## Task ledger
 
@@ -453,3 +463,6 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
   mislabelled figure; the coordinator will not reword its own rubric to pass its own work and
   records it as an owner and outside-review question. Blocker 2 fails on the owner's Platform
   pressure wording and on two more "strongest" lines in the locked issue. Next: owner packet.
+- 2026-09-21T02:45Z — Final packet dispatched to agent-canvas as `document-review`
+  (`sec-market-fable-001-final-packet`) and the owner notified. Worktrees `wave1` and
+  `corrections` removed. Resume block rewritten. Run stops here and waits for the owner.
