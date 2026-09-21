@@ -1,0 +1,54 @@
+=== Deliberate failure 1: wrong period label (fiscal year over a single quarter) ===
+{
+  "printId": "fixture-wrong-period-label",
+  "company": {
+    "status": "pass",
+    "reason": "\"Fixture Corp\" corroborated by FX-PERIOD"
+  },
+  "metric": {
+    "status": "not-checkable",
+    "reason": "EvidenceRecord carries no structured metric field — only free text — so the metric a print names cannot be mechanically confirmed without guessing"
+  },
+  "period": {
+    "status": "fail",
+    "reason": "card period \"FY26\" labels a full year, but its only period evidence (\"FX-PERIOD\": economicPeriod \"Quarter ended 2026-01-31\") is a single quarter"
+  },
+  "value": {
+    "status": "fail",
+    "reason": "card value \">35%\" not found in any cited evidence excerpt"
+  },
+  "units": {
+    "status": "not-checkable",
+    "reason": "value itself did not resolve, so a unit comparison is not meaningful"
+  },
+  "overall": "fail"
+}
+
+=== Deliberate failure 2: value absent from cited evidence ===
+{
+  "printId": "fixture-value-absent",
+  "company": {
+    "status": "pass",
+    "reason": "\"Fixture Corp\" corroborated by FX-VALUE"
+  },
+  "metric": {
+    "status": "not-checkable",
+    "reason": "EvidenceRecord carries no structured metric field — only free text — so the metric a print names cannot be mechanically confirmed without guessing"
+  },
+  "period": {
+    "status": "pass",
+    "reason": "matches FX-VALUE's economicPeriod end date 2026-06-30"
+  },
+  "value": {
+    "status": "fail",
+    "reason": "card value \"$999M\" not found in any cited evidence excerpt"
+  },
+  "units": {
+    "status": "not-checkable",
+    "reason": "value itself did not resolve, so a unit comparison is not meaningful"
+  },
+  "overall": "fail"
+}
+
+RESULT: fixture-wrong-period-label overall=fail (expected fail); fixture-value-absent overall=fail (expected fail)
+PASS: both deliberate fixtures failed as expected — the check fails closed.
