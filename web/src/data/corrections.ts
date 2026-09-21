@@ -3,7 +3,7 @@ import type { Correction } from './types'
 
 /**
  * Append-only list of owner-approved corrections. Never edit an existing
- * entry once published — add a new one instead. See docs/active/fable-run/
+ * entry once published: add a new one instead. See docs/active/fable-run/
  * drafts/correction-2026-w36.md for the approval record (owner approved
  * 2026-09-20, decisions.md D-68) and CorrectedReading in types.ts for the
  * per-item shape.
@@ -39,8 +39,8 @@ export const corrections: Correction[] = [
           'Palo Alto fiscal fourth-quarter revenue (quarter ended 31 July 2026) grows 34% to $3.41B; Next-Gen Security ARR $9.10B, +63%',
         evidenceIds: ['W36-19'],
         note:
-          'The original "why it matters" comparison — that this growth was the fastest among this ' +
-          "week's public-issuer prints — is withdrawn. Next-Gen Security ARR is a company-defined " +
+          'The original "why it matters" comparison, that this growth was the fastest among this ' +
+          "week's public-issuer prints, is withdrawn. Next-Gen Security ARR is a company-defined " +
           "segment and is not comparable with other companies' total revenue growth.",
       },
     ],

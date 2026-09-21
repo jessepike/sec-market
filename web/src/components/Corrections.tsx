@@ -8,7 +8,7 @@ function mailto(subject: string): string {
   return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}`
 }
 
-/** `/corrections/` — every published correction, newest first (SEC-MARKET-FABLE-001 T6-13). */
+/** `/corrections/`: every published correction, newest first (SEC-MARKET-FABLE-001 T6-13). */
 export function Corrections() {
   const ordered = correctionsNewestFirst(corrections)
 
