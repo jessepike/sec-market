@@ -85,7 +85,13 @@ if git ls-remote --exit-code --heads "$REMOTE" "$BRANCH" >/dev/null 2>&1; then
 fi
 
 # ---- 3. hand it to the model ----------------------------------------------
-PROMPT="$(cat <<EOM
+# The prompt goes to a file rather than straight into a variable. macbook2014
+# runs bash 3.2, which cannot parse a here-document nested inside command
+# substitution: it reads the apostrophes in the prose below as opening quotes
+# and the whole script fails to parse. Writing the file first keeps the
+# here-document at the top level where every bash handles it.
+PROMPT_FILE="$LOG_DIR/runs/$STAMP.prompt.txt"
+cat > "$PROMPT_FILE" <<EOM
 Read docs/active/gather-brief.md in this repository and carry it out in full, now.
 
 You are drafting issue $ISSUE_ID, window $WINDOW_START to $WEEK_ENDING inclusive.
@@ -106,7 +112,8 @@ from a primary document rather than from a weekly roundup, and drop any item
 you cannot date. Record "none found" rather than inventing. Run the gates and
 record their exit codes before you push.
 EOM
-)"
+
+PROMPT=$(cat "$PROMPT_FILE")
 
 log "invoking claude -p --model $MODEL"
 CLAUDE_OUT="$LOG_DIR/runs/$STAMP.claude.txt"
