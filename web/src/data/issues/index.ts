@@ -1,8 +1,9 @@
 import type { Issue } from '../types'
 import { issue2026w36 } from './2026-w36'
+import { issue2026w38 } from './2026-w38'
 
 /** Append-only issue history, newest last. */
-export const issues: Issue[] = [issue2026w36]
+export const issues: Issue[] = [issue2026w36, issue2026w38]
 
 if (issues.length === 0) {
   throw new Error('Issue history is empty')
