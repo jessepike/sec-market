@@ -427,3 +427,10 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
 - 2026-09-21T04:40Z — T6-12 returned. Coordinator looked at the 1440 market crop (chips inline,
   long rows wrap and drop the chip cleanly) and the 390 first screen (rail reads, "Weekly issue"
   link, name on the as-of line). Merging `origin/mon/wave1b` into `preview`.
+- 2026-09-21T01:10Z (18:10 Pacific; earlier log stamps in this file ran ahead of the wall clock) —
+  Merged `origin/mon/wave1b` into `preview` as 0ece0ce and pushed. T6-13 was cut off by a usage
+  limit just after pushing `mon/corrections` at 3364845, which already includes a merge of the new
+  `preview`. Coordinator checked the branch deploy (all five URLs return 200) and looked at three
+  renders: original headline readable, a CORRECTED 20 SEP 2026 note under it, `/corrections/`
+  clear. One defect: two em-dashes in the Palo Alto note. Agent resumed to fix that, run the full
+  suite on the merged head, record the gate proof and write its report. Not merged yet.
