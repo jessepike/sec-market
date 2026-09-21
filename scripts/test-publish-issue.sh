@@ -77,6 +77,7 @@ for disallowed in \
   "web/src/data/domains.ts" \
   "web/src/data/meta.ts" \
   "web/scripts/verify-issue.ts" \
+  "web/src/data/reconfirmations.ts" \
   ".gather/state.json" \
   "intent.md" \
   ".claude/rules/constraints.md"; do
@@ -183,6 +184,51 @@ else
 fi
 
 rm -rf "$PG_REPO"
+
+echo ""
+echo "--- step2_sign: passes --reconfirm to sign:issue only when RECONFIRM=true (SEC-MARKET-PUBLISH-001 §4.3) ---"
+# Stubs `npm` as a shell function so this stays a unit test (no real npm, no
+# network, no actual signing) while still exercising step2_sign's own
+# command construction — the thing coordinator task T7-4 changed.
+STEP2_DIR="$(mktemp -d)"
+mkdir -p "$STEP2_DIR/web"
+npm() {
+  printf 'npm-called: %s\n' "$*" > "$STEP2_DIR/npm-call.txt"
+}
+export -f npm
+
+(
+  cd "$STEP2_DIR" || exit 1
+  WEB_DIR="web"
+  SIGNED_ON="2026-09-21"
+  ISSUE_ID="2026-w37"
+  RECONFIRM="false"
+  step2_sign
+)
+if grep -q -- '--reconfirm' "$STEP2_DIR/npm-call.txt"; then
+  echo "FAIL: RECONFIRM=false should not pass --reconfirm to sign:issue"
+  FAILURES=$((FAILURES + 1))
+else
+  echo "PASS: RECONFIRM=false omits --reconfirm"
+fi
+
+(
+  cd "$STEP2_DIR" || exit 1
+  WEB_DIR="web"
+  SIGNED_ON="2026-09-21"
+  ISSUE_ID="2026-w37"
+  RECONFIRM="true"
+  step2_sign
+)
+if grep -q -- '--reconfirm' "$STEP2_DIR/npm-call.txt"; then
+  echo "PASS: RECONFIRM=true passes --reconfirm"
+else
+  echo "FAIL: RECONFIRM=true should pass --reconfirm to sign:issue"
+  FAILURES=$((FAILURES + 1))
+fi
+
+unset -f npm
+rm -rf "$STEP2_DIR"
 
 echo ""
 echo "--- step9_live_check: the not-promoted path skips the live check ---"

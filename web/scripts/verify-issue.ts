@@ -11,6 +11,7 @@ import { corrections } from '../src/data/corrections.ts'
 import { evidenceById } from '../src/data/evidence.ts'
 import { formatShortDate } from '../src/data/dates.ts'
 import { securityDomains } from '../src/data/domains.ts'
+import { hypotheses } from '../src/data/hypotheses.ts'
 import { issues, latestIssue } from '../src/data/issues/index.ts'
 import {
   extractNumericTokens,
@@ -19,6 +20,14 @@ import {
   windowOf,
 } from '../src/data/issueHelpers.ts'
 import { AUTHOR_NAME } from '../src/data/meta.ts'
+import { allPressureRows } from '../src/data/platformPressure.ts'
+import { reconfirmations } from '../src/data/reconfirmations.ts'
+import {
+  collectJudgedClaimRefs,
+  newestPublishedSignedOn,
+  unknownClaimIds,
+  validateReconfirmations,
+} from '../src/data/reconfirmationHelpers.ts'
 import type { Issue, Lane } from '../src/data/types.ts'
 import { IssueHero } from '../src/components/IssueHero.tsx'
 import { IssueLanes } from '../src/components/IssueLanes.tsx'
@@ -559,6 +568,24 @@ async function runChecks({ includeLockManifest }: { includeLockManifest: boolean
         if (issue.weThink.noCalls.length !== 0) {
           throw new Error(`issue "${issue.id}" is a draft but weThink.noCalls is not empty`)
         }
+        // SEC-MARKET-PUBLISH-001 §4.3: every id the gather names as
+        // "this week's evidence cuts against this stance" must actually
+        // name a judged claim, or it silently protects nothing at
+        // reconfirm time.
+        const challengedIds = issue.proposed?.challengedClaimIds ?? []
+        if (challengedIds.length > 0) {
+          const claims = collectJudgedClaimRefs({
+            domains: securityDomains,
+            hypotheses,
+            pressureRows: allPressureRows(),
+          })
+          const unknown = unknownClaimIds(challengedIds, claims)
+          if (unknown.length > 0) {
+            throw new Error(
+              `issue "${issue.id}" proposed.challengedClaimIds names unknown claim id(s): ${unknown.join(', ')}`,
+            )
+          }
+        }
       }
     }
   })
@@ -819,6 +846,36 @@ async function runChecks({ includeLockManifest }: { includeLockManifest: boolean
     }
   })
 
+  // 17. Every reconfirmation in web/src/data/reconfirmations.ts names a real
+  //     judged claim, is credited to AUTHOR_NAME, carries a valid date no
+  //     earlier than that claim's own judgedOn and no later than the newest
+  //     published issue's signedOn plus one day, and names a published issue
+  //     as its `via` (SEC-MARKET-PUBLISH-001 §4.3). Logic lives in
+  //     validateReconfirmations (src/data/reconfirmationHelpers.ts), unit-
+  //     tested directly in tests/reconfirmations.test.ts.
+  await check('17 reconfirmations-valid', () => {
+    const claims = collectJudgedClaimRefs({
+      domains: securityDomains,
+      hypotheses,
+      pressureRows: allPressureRows(),
+    })
+    const publishedIssueIds = new Set(publishedIssuesOf(issues).map((issue) => issue.id))
+    const violations = validateReconfirmations(
+      reconfirmations,
+      claims,
+      AUTHOR_NAME,
+      publishedIssueIds,
+      newestPublishedSignedOn(issues),
+    )
+    if (violations.length > 0) {
+      throw new Error(
+        violations
+          .map((v) => `reconfirmations[${v.index}] ("${v.claimId}"): ${v.reason}`)
+          .join('; '),
+      )
+    }
+  })
+
   // 10. Render check: renderToStaticMarkup of the issue view for the newest
   //     issue. Each lane heading's rendered item count equals items.length, the
   //     draft banner is present iff status === 'draft', and the signature line
@@ -890,7 +947,7 @@ async function runChecks({ includeLockManifest }: { includeLockManifest: boolean
 
 // --- Report ---
 
-const FULL_CHECK_COUNT = 15
+const FULL_CHECK_COUNT = 16
 const PRE_WRITE_CHECK_COUNT = FULL_CHECK_COUNT - 1 // everything but check 8
 
 function printResults(): boolean {

@@ -111,9 +111,13 @@
 #                       triggered path, where commit_id is already atomic
 #                       with the approval. (default: unset — the check is
 #                       skipped)
-#   RECONFIRM           logged only; not yet used for anything (coordinator
-#                       review point I, 2026-09-21 — a later task wires this
-#                       up). (default: false)
+#   RECONFIRM           "true" only when the owner's own approval contained
+#                       the word `reconfirm` (SEC-MARKET-PUBLISH-001 §4.3,
+#                       coordinator task T7-4, wiring up review point I).
+#                       Passed to `npm run sign:issue -- --reconfirm` in step
+#                       2, which then re-dates every stale, unchallenged
+#                       judged claim under the owner's name. "false" (the
+#                       default) re-dates nothing. (default: false)
 #   REMOTE              git remote name (default: origin)
 #   WEB_DIR             the web app's directory (default: web)
 #   STATE_DIR           a directory this script's phases share small,
@@ -344,7 +348,11 @@ step1_merge() {
 }
 
 step2_sign() {
-  ( cd "$WEB_DIR" && npm run sign:issue -- --signed-on "$SIGNED_ON" --id "$ISSUE_ID" )
+  local reconfirm_flag=()
+  if [ "$RECONFIRM" = "true" ]; then
+    reconfirm_flag=(--reconfirm)
+  fi
+  ( cd "$WEB_DIR" && npm run sign:issue -- --signed-on "$SIGNED_ON" --id "$ISSUE_ID" "${reconfirm_flag[@]}" )
 }
 
 step3_lock() {
@@ -356,9 +364,15 @@ step4_test() {
 }
 
 step5_commit() {
+  # web/src/data/reconfirmations.ts is written by step2_sign only when
+  # --reconfirm added an entry; git add on an unchanged tracked file is a
+  # no-op, so this is safe to run every time (coordinator task T7-4). It is
+  # deliberately NOT in is_allowed_issue_branch_path — the gather job never
+  # writes it, only this step does.
   git add \
     "$WEB_DIR/src/data/issues/$ISSUE_ID.ts" \
-    "$WEB_DIR/src/data/issues/issues.lock.json" &&
+    "$WEB_DIR/src/data/issues/issues.lock.json" \
+    "$WEB_DIR/src/data/reconfirmations.ts" &&
     git commit -m "feat(issue): publish $ISSUE_ID, signed by approval of #${PR_NUMBER:-?}"
 }
 
@@ -406,7 +420,7 @@ step8_promote() {
     # same message. Not calling comment_pr directly here — run_step's
     # generic failure handler tails this echoed message and posts the one
     # comment, so a caller does not get this reason twice.
-    echo "preview carried unpromoted site work before this run; not promoting to main. Issue $ISSUE_ID is signed and on preview, but production did not move: promote preview separately, then this issue reaches production on the next promotion.${posture_note:-}"
+    echo "preview carried unpromoted site work before this run; not promoting to main. Issue $ISSUE_ID is signed and on preview, but production did not move: promote preview separately, then this issue reaches production on the next promotion.${posture_note:-}${reconfirm_note:-}"
     return 1
   fi
   if [ "$DRY_RUN" = "1" ]; then
@@ -438,7 +452,7 @@ step9_live_check() {
       && printf '%s' "$page_body" | grep -qF "$AUTHOR_NAME" \
       && printf '%s' "$page_body" | grep -qF "$SIGNED_ON"
     then
-      comment_pr "Issue $ISSUE_ID is live at $LIVE_BASE_URL/issues/$ISSUE_ID/, signed by $AUTHOR_NAME on $SIGNED_ON.${posture_note:-}"
+      comment_pr "Issue $ISSUE_ID is live at $LIVE_BASE_URL/issues/$ISSUE_ID/, signed by $AUTHOR_NAME on $SIGNED_ON.${posture_note:-}${reconfirm_note:-}"
       return 0
     fi
     sleep "$LIVE_POLL_INTERVAL"
@@ -529,7 +543,7 @@ validate_common() {
 
 guard_phase() {
   echo "publish-issue.sh: phase = guard"
-  echo "RECONFIRM=$RECONFIRM (logged only — coordinator review point I, 2026-09-21; not yet used for anything)"
+  echo "RECONFIRM=$RECONFIRM (SEC-MARKET-PUBLISH-001 §4.3 — true re-dates stale, unchallenged judged claims at sign time)"
 
   if [ "$DRY_RUN" != "1" ] && [ -z "$APPROVED_SHA" ]; then
     echo "publish-issue.sh: APPROVED_SHA is required outside DRY_RUN (sign exactly what was approved)" >&2
@@ -655,6 +669,20 @@ build_phase() {
   posture_dropped="${posture_dropped:-0}"
   printf '%s' "$posture_dropped" > "$STATE_DIR/posture-dropped"
 
+  # sign-issue.ts also prints "sign-issue: reconfirmed: N" and
+  # "sign-issue: challenged-left-stale: id1,id2" (comma-joined, possibly
+  # empty) on every run, --reconfirm or not (SEC-MARKET-PUBLISH-001 §4.3,
+  # coordinator task T7-4) — read here the same way posture_dropped is, for
+  # the release phase's success comment.
+  local reconfirmed_count
+  reconfirmed_count="$(grep -oE 'sign-issue: reconfirmed: [0-9]+' "$STEP_LOG" | grep -oE '[0-9]+$' || true)"
+  reconfirmed_count="${reconfirmed_count:-0}"
+  printf '%s' "$reconfirmed_count" > "$STATE_DIR/reconfirmed-count"
+
+  local challenged_left_stale
+  challenged_left_stale="$(grep -E '^sign-issue: challenged-left-stale: ' "$STEP_LOG" | sed -E 's/^sign-issue: challenged-left-stale: //' || true)"
+  printf '%s' "$challenged_left_stale" > "$STATE_DIR/challenged-left-stale"
+
   run_step "3 lock manifest" step3_lock
   run_step "4 npm test" step4_test
   run_step "5 commit" step5_commit
@@ -706,6 +734,30 @@ release_phase() {
     esac
     if [ "$posture_dropped" -gt 0 ]; then
       posture_note=" The proposal's posture-deltas note was not applied automatically (the signer never converts prose stance notes into structured posture deltas); stance changes are made separately."
+    fi
+  fi
+
+  # Reconfirmation note (SEC-MARKET-PUBLISH-001 §4.3, coordinator task T7-4):
+  # says how many stale, unchallenged stances this approval just re-dated,
+  # and names any challenged ones it deliberately left stale because this
+  # week's evidence cuts against them — those need a human look, not a
+  # rubber stamp, so the comment says so plainly.
+  local reconfirm_note=""
+  local reconfirmed_count=0
+  if [ -f "$STATE_DIR/reconfirmed-count" ]; then
+    reconfirmed_count="$(cat "$STATE_DIR/reconfirmed-count")"
+    case "$reconfirmed_count" in
+      ''|*[!0-9]*) reconfirmed_count=0 ;;
+    esac
+  fi
+  local challenged_left_stale=""
+  if [ -f "$STATE_DIR/challenged-left-stale" ]; then
+    challenged_left_stale="$(cat "$STATE_DIR/challenged-left-stale")"
+  fi
+  if [ "$RECONFIRM" = "true" ]; then
+    reconfirm_note=" $reconfirmed_count stance(s) re-dated on this approval."
+    if [ -n "$challenged_left_stale" ]; then
+      reconfirm_note="${reconfirm_note} Left stale because this week's evidence cuts against them (needs a session): ${challenged_left_stale}."
     fi
   fi
 
