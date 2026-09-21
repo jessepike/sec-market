@@ -84,7 +84,21 @@ if git ls-remote --exit-code --heads "$REMOTE" "$BRANCH" >/dev/null 2>&1; then
   log "$DETAIL"; finish 0
 fi
 
-# ---- 3. hand it to the model ----------------------------------------------
+# ---- 3. is this host still logged in? --------------------------------------
+# A one-token probe, seconds and pennies, asked before the hour-long run. The
+# subscription login on this host expires and a dead one returns 401 from the
+# first call, so without this check the receipt would blame the gather for a
+# problem that is really an expired login and needs a person at a browser.
+AUTH_OUT="$(claude -p "ok" --model "$MODEL" 2>&1)"
+case "$AUTH_OUT" in
+  *401*|*uthenticat*|*"access token"*)
+    STATE="blocked-auth"
+    DETAIL="the Claude login on this host is not valid: $AUTH_OUT. Run 'claude setup-token' here, then the job resumes on its own next Tuesday."
+    log "$DETAIL"; finish 1
+    ;;
+esac
+
+# ---- 4. hand it to the model ----------------------------------------------
 # The prompt goes to a file rather than straight into a variable. macbook2014
 # runs bash 3.2, which cannot parse a here-document nested inside command
 # substitution: it reads the apostrophes in the prose below as opening quotes
@@ -134,7 +148,7 @@ CLAUDE_LINES=$(wc -l < "$CLAUDE_OUT")
 CLAUDE_LINES=${CLAUDE_LINES// /}
 log "claude exited rc=$CLAUDE_RC, ${CLAUDE_LINES} lines of output"
 
-# ---- 4. did a branch actually reach GitHub? --------------------------------
+# ---- 5. did a branch actually reach GitHub? --------------------------------
 if git ls-remote --exit-code --heads "$REMOTE" "$BRANCH" >/dev/null 2>&1; then
   PUSHED="true"
   STATE="drafted"
