@@ -1,0 +1,32 @@
+{
+  "1440px": {
+    "pageHeight": 16882,
+    "overview": 113,
+    "market": 514,
+    "we-think": 1779,
+    "follow": 6917,
+    "landscape": 7028,
+    "platforms": 7804,
+    "prints": 9499,
+    "read": 13884,
+    "hypotheses": 15092,
+    "method": 15949,
+    "next": 16259,
+    "market-bottom": 1747
+  },
+  "390px": {
+    "pageHeight": 21208,
+    "overview": 184,
+    "market": 762,
+    "we-think": 3305,
+    "follow": 10640,
+    "landscape": 10802,
+    "platforms": 12492,
+    "prints": 15616,
+    "read": 16291,
+    "hypotheses": 18621,
+    "method": 19987,
+    "next": 20359,
+    "market-bottom": 3273
+  }
+}
