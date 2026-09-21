@@ -104,7 +104,7 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
 | T7-6 | `scripts/gather.sh` loads `~/.env.local` when present before its login probe, so the job authenticates the same way under launchd and over ssh; README note | claude-sonnet-5 | done, merged e71b0f7 | none | mon/gather-env (worktree `../sec-market-wt-gather-env`) | yes | returned summary | 2026-09-21T20:10Z |
 | T7-7 | Fresh blind score of production (`main` 51dbffd) under rubric v2.1: rerun the measurement scripts against the live host first, then score every dimension and all four blockers, checking every lane headline | claude-sonnet-5 | done: 59.6, not fit for purpose on blockers 1 and 2 | none | preview, writes only `docs/active/fable-run/score-2026-09-21.md` and `evidence/score-0921/` | n/a | `docs/active/fable-run/score-2026-09-21.md` | 2026-09-21T20:15Z |
 | T7-8 | `scripts/gather.sh` pre-approves the narrow set of shell commands the brief needs (`--allowedTools`), because a headless run cannot answer permission prompts and the hand-started run of 2026-09-21 stopped at its first `curl` | claude-sonnet-5 | done, merged 2202030 | T7-6 | mon/gather-perms (worktree `../sec-market-wt-gather-perms`) | yes | returned summary | 2026-09-21T20:50Z |
-| T7-9 | SEC-054: Platform pressure absorbed-row sentence chosen by acquirer type and target group, owner-approved wording (D-75); changed rows dated 2026-09-21; the error listed at `/corrections/`; before and after renders | claude-sonnet-5 | running | none | mon/pressure-wording (worktree `../sec-market-wt-pressure`) | yes | `docs/active/fable-run/evidence/pressure/report.md` | 2026-09-21T23:00Z |
+| T7-9 | SEC-054: Platform pressure absorbed-row sentence chosen by acquirer type and target group, owner-approved wording (D-75); changed rows dated 2026-09-21; the error listed at `/corrections/`; before and after renders | claude-sonnet-5 | done, merged 48fd77f, not promoted | none | mon/pressure-wording (worktree `../sec-market-wt-pressure`) | yes | `docs/active/fable-run/evidence/pressure/report.md` | 2026-09-21T23:00Z |
 
 ## Owner gates
 
@@ -640,3 +640,12 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
   approves the SEC-054 wording. T7-9 row written, then dispatched. Coordinator decisions inside it:
   the reworded rows carry the date of this approval, not 17 Aug, and the error is listed at
   `/corrections/` because the site promises every published correction is listed there.
+- 2026-09-21T23:50Z — T7-9 stalled once on a stream watchdog with its work uncommitted, was resumed
+  with SendMessage, and returned: three rows reworded with the owner's sentence and dated
+  21 Sep 2026 (Protect AI under Palo Alto, CalypsoAI and SurePath AI under F5), Wiz and CyberArk
+  unchanged, no row outside the approved cases, a correction entry with no issue id, 199 data tests
+  and 37 end-to-end. Coordinator looked at the 390 Platform pressure crop and the corrections page
+  and asked for one sentence on the corrections introduction saying standing tables are fixed in
+  place. Merged to `preview` as 48fd77f; visible change, waiting on the owner's word to promote.
+  macbook2014 stopped answering ssh at about 21:40Z with the 2026-w38 job running; no receipt and
+  no pull request yet.
