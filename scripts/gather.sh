@@ -64,8 +64,12 @@ log "trunk at $(git log --oneline -1)"
 # ---- 2. which issue is due -------------------------------------------------
 # The ISO week that ended on the most recent Sunday. %u is 1..7 with Sunday 7,
 # so subtracting it lands on that Sunday from any day of the week.
+# SMP_WEEK_ENDING overrides the computed Sunday. It exists for two real needs:
+# backfilling a week the job missed, and proving the whole chain end to end
+# without waiting a week for the next fire. It must be a Sunday; the gates
+# reject anything else anyway.
 DOW="$(date +%u)"
-WEEK_ENDING="$(date -v-"${DOW}"d +%Y-%m-%d)"
+WEEK_ENDING="${SMP_WEEK_ENDING:-$(date -v-"${DOW}"d +%Y-%m-%d)}"
 ISSUE_ID="$(date -j -f %Y-%m-%d "$WEEK_ENDING" +%G-w%V)"
 WINDOW_START="$(date -j -v-6d -f %Y-%m-%d "$WEEK_ENDING" +%Y-%m-%d)"
 BRANCH="issue/$ISSUE_ID"
