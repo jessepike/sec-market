@@ -9,6 +9,13 @@ directory sign the issue, run the full test suite, and promote to production, un
 already carries other site work nobody has promoted yet, in which case the issue is signed and left
 on `preview` for a separate, deliberate promotion.
 
+Before it starts the hour-long draft, `gather.sh` checks that the Claude login on the host running
+it (macbook2014, under launchd) is still good, since launchd and a non-interactive ssh shell never
+load a shell profile. It loads the subscription token from `~/.env.local` on that host, a
+plain-text `KEY=value` file, mode 600, never committed, holding `CLAUDE_CODE_OAUTH_TOKEN=...`. If
+that login has gone stale, the receipt says so and names the fix: run `claude setup-token` on that
+host and put the printed token into `~/.env.local`.
+
 The workflow runs in three phases, so a token is only ever in the hands of code that actually needs
 to push (`.github/workflows/publish-issue.yml`, `publish-issue.sh --phase guard|build|release`).
 Guard and build hold no token at all — the issue branch's own checkout has no stored git

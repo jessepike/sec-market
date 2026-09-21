@@ -53,6 +53,20 @@ finish() { receipt; exit "${1:-0}"; }
 
 log "gather run $STAMP on $(hostname)"
 
+# ---- 0. load the subscription token, if this host keeps one locally -------
+# launchd and a non-interactive ssh shell load neither the shell profile nor
+# any login environment, so a CLAUDE_CODE_OAUTH_TOKEN left in ~/.env.local by
+# a prior `claude setup-token` (plain KEY=value lines, mode 600, never
+# committed) is otherwise invisible here, and the probe in section 3 below
+# would see a valid login as a 401. Never echo or log a value from this file.
+ENV_FILE="$HOME/.env.local"
+if [ -r "$ENV_FILE" ]; then
+  set -a; . "$ENV_FILE"; set +a
+  log "loaded $ENV_FILE"
+else
+  log "no $ENV_FILE to load"
+fi
+
 # ---- 1. the repository, on a clean trunk -----------------------------------
 cd "$REPO" || { STATE="failed"; DETAIL="repo not found at $REPO"; finish 1; }
 git fetch -q "$REMOTE" || { STATE="failed"; DETAIL="git fetch failed"; finish 1; }
@@ -93,7 +107,7 @@ AUTH_OUT="$(claude -p "ok" --model "$MODEL" < /dev/null 2>&1)"
 case "$AUTH_OUT" in
   *401*|*uthenticat*|*"access token"*)
     STATE="blocked-auth"
-    DETAIL="the Claude login on this host is not valid: $AUTH_OUT. Run 'claude setup-token' here, then the job resumes on its own next Tuesday."
+    DETAIL="the Claude login on this host is not valid: $AUTH_OUT. Run 'claude setup-token' on this host and put the token it prints into ~/.env.local as CLAUDE_CODE_OAUTH_TOKEN=..., then the job resumes on its own next Tuesday."
     log "$DETAIL"; finish 1
     ;;
 esac
