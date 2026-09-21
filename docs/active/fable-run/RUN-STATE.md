@@ -101,6 +101,7 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
 | T7-3 | Build 2 first step per spec section 4.1 and 4.2: the figure-meaning check on `prints.ts`, the shrink-only unverified list, `web/scripts/stale-report.ts`, the brief's scorecard and "Going stale" steps | claude-sonnet-5 | done, merged 146a40b | T7-1 | mon/upkeep (worktree `../sec-market-wt-upkeep`) | yes | `docs/active/fable-run/evidence/upkeep/report.md` | 2026-09-21T06:40Z |
 | T7-5 | Adversarial read-only pass on `publish-issue.yml`, `scripts/publish-issue.sh`, the sign scripts and the brief's handoff: ways a wrong or hostile draft, a race, or a GitHub behaviour could publish something the owner did not approve, move `main` wrongly, or fail silently | claude-opus-5 | done | T7-2 fixes (b24fb2b) | mon/publish, read only | n/a | returned findings, logged here | 2026-09-21T08:40Z |
 | T7-4 | Build 2 second step per spec section 4.3: per-claim judged dates and the `reconfirm` word | claude-sonnet-5 | running | T7-2, T7-3 merged | mon/reconfirm | yes | `docs/active/fable-run/evidence/reconfirm/report.md` | 2026-09-21T10:20Z |
+| T7-6 | `scripts/gather.sh` loads `~/.env.local` when present before its login probe, so the job authenticates the same way under launchd and over ssh; README note | claude-sonnet-5 | running | none | mon/gather-env (worktree `../sec-market-wt-gather-env`) | yes | returned summary | 2026-09-21T20:10Z |
 
 ## Owner gates
 
@@ -580,3 +581,16 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
   `docs/active/gather-job-spec.md`; added SEC-051 (lock `main`), SEC-052 and SEC-053 to BACKLOG.
   The phone path cannot move production until `main` carries these workflow and script changes,
   which needs one ordinary promotion on the owner's word. T7-4 row set to running, then dispatched.
+- 2026-09-21T20:10Z — OWNER WORD "promote" in the terminal. `preview` 51dbffd was a fast-forward of
+  `main` 35a888f; the four pages compared (`/`, `/thesis/`, `/issues/2026-w36/`, `/corrections/`)
+  were identical between production and the preview host after normalising hashed asset names and
+  hosts, so this promotion changes nothing a reader sees. Pushed from macbook2014 with `PROMOTE=1`
+  because the push carries workflow files; `main` is now 51dbffd, local `main` fetched to match.
+  Vercel production deploy succeeded; seven live routes and files return 200, the masthead heading
+  and the CORRECTED note are present. The publish workflow is now on the default branch, so both
+  the approval and the `publish` comment can work. T7-4 is still building and will need its own
+  promotion word.
+- 2026-09-21T20:10Z — Owner reported he authenticated Claude on macbook2014. Checked: a bare
+  `claude -p` over ssh still returns 401 (the stored credentials file is from May and the keychain
+  is not readable over ssh), but with `~/.env.local` loaded it answers. `scripts/gather.sh` never
+  loads that file. T7-6 row written, then dispatched: load it when present.
