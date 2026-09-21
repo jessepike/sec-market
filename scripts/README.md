@@ -9,6 +9,16 @@ directory sign the issue, run the full test suite, and promote to production, un
 already carries other site work nobody has promoted yet, in which case the issue is signed and left
 on `preview` for a separate, deliberate promotion.
 
+`gather.sh` runs the model with `claude -p --permission-mode acceptEdits`, and a headless run cannot
+answer a permission prompt, so the script also passes `--allowedTools` with the narrow, commented
+list of shell and file commands the gather brief actually needs (curl, hashing, EDGAR's JSON, PDF
+extraction, date arithmetic, the specific git subcommands, and `npm run`/`npm ci`), plus
+`--disallowedTools` for the handful of push forms that could reach `main` or `preview`. It is a
+guard against a mistaken command, not a sandbox — curl is still allowed and the subscription token
+is still in this process's environment, tracked as BACKLOG SEC-051. To add or narrow a pre-approved
+command, edit the `ALLOWED_TOOLS`/`DISALLOWED_TOOLS` arrays inside `gather.sh` itself, just above
+where it invokes `claude -p`.
+
 Before it starts the hour-long draft, `gather.sh` checks that the Claude login on the host running
 it (macbook2014, under launchd) is still good, since launchd and a non-interactive ssh shell never
 load a shell profile. It loads the subscription token from `~/.env.local` on that host, a
