@@ -72,6 +72,8 @@ A `pre-push` hook refuses a direct push to `main`. Install it once per clone wit
 
 Keeping `main` a fast-forward of `preview` is deliberate. It means production is always an exact earlier state of the trunk, never a parallel history, so "what is live" is answerable by one `git log`.
 
+One narrow exception (D-73, SEC-MARKET-PUBLISH-001): the owner's approval of the weekly issue pull request — an approving review, or a comment whose first word is `publish` — is itself the promotion word, but only for that one issue. `.github/workflows/publish-issue.yml` and `scripts/publish-issue.sh` carry it out, and they promote to `main` only under the step 7 condition: `preview` must already match `main` on `web/` before the run starts, so his approval of an issue is never approval of unrelated site work sitting on `preview`. Every other change to `main` still reaches it exactly the way described above.
+
 Do **not**:
 
 - commit or push anything directly to `main` — it moves only by promotion from `preview`

@@ -12,6 +12,7 @@
     "verify:panel": "tsx scripts/verify-panel.ts",
     "verify:integrity": "tsx --tsconfig tsconfig.app.json scripts/verify-integrity.ts",
     "verify:issue": "tsx --tsconfig tsconfig.app.json scripts/verify-issue.ts",
+    "sign:issue": "tsx scripts/sign-issue.ts",
     "verify:dist": "tsx --tsconfig tsconfig.app.json scripts/verify-dist.ts",
     "build:client": "vite build",
     "build:server": "vite build --ssr src/entry-server.tsx --outDir dist-ssr",
@@ -22,7 +23,7 @@
     "lint": "oxlint",
     "preview": "vite preview",
     "test:e2e": "playwright test",
-    "test:data": "tsx --tsconfig tsconfig.app.json --test tests/landscape-data.test.ts tests/issue-data.test.ts tests/dist-fixtures.test.ts tests/html-escape.test.ts tests/market-picture.test.ts tests/corrections-data.test.ts",
+    "test:data": "tsx --tsconfig tsconfig.app.json --test tests/landscape-data.test.ts tests/issue-data.test.ts tests/dist-fixtures.test.ts tests/html-escape.test.ts tests/market-picture.test.ts tests/corrections-data.test.ts tests/sign-issue.test.ts",
     "test": "npm run lint && npm run test:data && npm run build && npm run test:e2e"
   },
   "dependencies": {

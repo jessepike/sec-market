@@ -1,0 +1,166 @@
+name: publish issue
+
+# His approval of the weekly issue pull request IS the signature
+# (SEC-MARKET-PUBLISH-001 §2). This workflow is kept thin on purpose: it
+# resolves which pull request and branch the triggering event is about,
+# decides whether the strict conditions below hold, computes the signing
+# date, and hands everything else to scripts/publish-issue.sh — the ordered
+# steps, every refusal, and the pull request comments all live there so they
+# can be run and tested outside GitHub.
+#
+# Event text (a comment body, a branch name) is untrusted input and is never
+# interpolated into a `run:` script directly — it only ever reaches a script
+# through `env:`.
+
+on:
+  pull_request_review:
+    types: [submitted]
+  issue_comment:
+    types: [created]
+
+# Only one publish at a time, ever — across every event that could trigger
+# one. A second approval or a second "publish" comment while one run is still
+# signing, testing, or pushing must wait rather than race it.
+concurrency:
+  group: publish-issue
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      # Coarse, cheap, no network call: skip immediately for anyone but the
+      # owner. The full conditions (head branch, base branch, review state /
+      # comment wording) are resolved next, in a script, because issue_comment
+      # doesn't carry the pull request's head/base refs in its payload.
+      - name: Resolve the event and check every condition
+        id: gate
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          ACTOR: ${{ github.actor }}
+          REPO_OWNER: ${{ github.repository_owner }}
+          REVIEW_STATE: ${{ github.event.review.state }}
+          PR_NUMBER_REVIEW: ${{ github.event.pull_request.number }}
+          PR_HEAD_REF_REVIEW: ${{ github.event.pull_request.head.ref }}
+          PR_BASE_REF_REVIEW: ${{ github.event.pull_request.base.ref }}
+          IS_PULL_REQUEST_COMMENT: ${{ github.event.issue.pull_request != null }}
+          COMMENT_BODY: ${{ github.event.comment.body }}
+          PR_NUMBER_COMMENT: ${{ github.event.issue.number }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+
+          reason=""
+          pr_number=""
+          head_branch=""
+          base_branch=""
+
+          if [ "$ACTOR" != "$REPO_OWNER" ]; then
+            reason="actor \"$ACTOR\" is not the repository owner"
+          elif [ "$EVENT_NAME" = "pull_request_review" ]; then
+            if [ "$REVIEW_STATE" != "approved" ]; then
+              reason="review state is \"$REVIEW_STATE\", not approved"
+            else
+              pr_number="$PR_NUMBER_REVIEW"
+              head_branch="$PR_HEAD_REF_REVIEW"
+              base_branch="$PR_BASE_REF_REVIEW"
+            fi
+          elif [ "$EVENT_NAME" = "issue_comment" ]; then
+            if [ "$IS_PULL_REQUEST_COMMENT" != "true" ]; then
+              reason="the comment is not on a pull request"
+            else
+              first_word="$(printf '%s' "$COMMENT_BODY" | awk '{print $1}')"
+              if [ "$first_word" != "publish" ]; then
+                reason="the comment's first word is \"$first_word\", not \"publish\""
+              else
+                pr_number="$PR_NUMBER_COMMENT"
+                pr_json="$(gh pr view "$pr_number" --json headRefName,baseRefName)"
+                head_branch="$(printf '%s' "$pr_json" | jq -r '.headRefName')"
+                base_branch="$(printf '%s' "$pr_json" | jq -r '.baseRefName')"
+              fi
+            fi
+          else
+            reason="unsupported event \"$EVENT_NAME\""
+          fi
+
+          if [ -z "$reason" ]; then
+            case "$head_branch" in
+              issue/*) : ;;
+              *) reason="head branch \"$head_branch\" does not match issue/*" ;;
+            esac
+          fi
+          if [ -z "$reason" ] && [ "$base_branch" != "preview" ]; then
+            reason="base branch \"$base_branch\" is not preview"
+          fi
+
+          if [ -n "$reason" ]; then
+            echo "not eligible: $reason"
+            echo "eligible=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          echo "eligible, pull request #$pr_number, head $head_branch, base $base_branch"
+          {
+            echo "eligible=true"
+            echo "pr_number=$pr_number"
+            echo "head_branch=$head_branch"
+          } >> "$GITHUB_OUTPUT"
+
+      # The signature is his approval "today" — today in his timezone, at the
+      # moment of that approval, never the date this job happens to run.
+      - name: Compute the signing date (America/Los_Angeles)
+        id: signed
+        if: steps.gate.outputs.eligible == 'true'
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          REVIEW_TIMESTAMP: ${{ github.event.review.submitted_at }}
+          COMMENT_TIMESTAMP: ${{ github.event.comment.created_at }}
+        run: |
+          set -euo pipefail
+          if [ "$EVENT_NAME" = "pull_request_review" ]; then
+            timestamp="$REVIEW_TIMESTAMP"
+          else
+            timestamp="$COMMENT_TIMESTAMP"
+          fi
+          signed_on="$(TZ='America/Los_Angeles' date -d "$timestamp" +%Y-%m-%d)"
+          echo "signed_on=$signed_on" >> "$GITHUB_OUTPUT"
+
+      - name: Check out the issue branch
+        if: steps.gate.outputs.eligible == 'true'
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ steps.gate.outputs.head_branch }}
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        if: steps.gate.outputs.eligible == 'true'
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      - name: Install dependencies
+        if: steps.gate.outputs.eligible == 'true'
+        working-directory: web
+        run: npm ci
+
+      - name: Install Playwright's Chromium
+        if: steps.gate.outputs.eligible == 'true'
+        working-directory: web
+        run: npx playwright install --with-deps chromium
+
+      - name: Publish
+        if: steps.gate.outputs.eligible == 'true'
+        env:
+          HEAD_BRANCH: ${{ steps.gate.outputs.head_branch }}
+          SIGNED_ON: ${{ steps.signed.outputs.signed_on }}
+          PR_NUMBER: ${{ steps.gate.outputs.pr_number }}
+          GH_TOKEN: ${{ github.token }}
+          AUTHOR_NAME: Jesse Pike
+          AUTHOR_EMAIL: jesse@keatingpike.com
+        run: ./scripts/publish-issue.sh
