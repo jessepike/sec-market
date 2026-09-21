@@ -99,7 +99,7 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
 | T7-1 | Extract the facts the publish-path spec needs: issue and proposal types, how an issue becomes published and how the lock manifest is written, the production guard in `verify-issue`, what CI runs today, how `gather-pr.yml` and `gather.sh` hand off, where `weThink.thesis` is required | claude-haiku-4-5 | done | none | preview | n/a | returned summary, folded into `docs/active/publish-path-spec.md` | 2026-09-21T06:10Z |
 | T7-2 | Build 1 and build 3 per `docs/active/publish-path-spec.md` sections 2 and 3: `web/scripts/sign-issue.ts`, `scripts/publish-issue.sh`, `.github/workflows/publish-issue.yml`, the AGENTS.md paragraph, thesis verdict out of the brief and optional in the model. Dry run against `issue/2026-w37` with pushes off | claude-sonnet-5 | running | T7-1 | mon/publish (worktree `../sec-market-wt-publish`) | coordinator pushes via macbook2014 deploy key (workflow file) | `docs/active/fable-run/evidence/publish/report.md` | 2026-09-21T06:40Z |
 | T7-3 | Build 2 first step per spec section 4.1 and 4.2: the figure-meaning check on `prints.ts`, the shrink-only unverified list, `web/scripts/stale-report.ts`, the brief's scorecard and "Going stale" steps | claude-sonnet-5 | done, merged 146a40b | T7-1 | mon/upkeep (worktree `../sec-market-wt-upkeep`) | yes | `docs/active/fable-run/evidence/upkeep/report.md` | 2026-09-21T06:40Z |
-| T7-5 | Adversarial read-only pass on `publish-issue.yml`, `scripts/publish-issue.sh`, the sign scripts and the brief's handoff: ways a wrong or hostile draft, a race, or a GitHub behaviour could publish something the owner did not approve, move `main` wrongly, or fail silently | claude-opus-5 | running | T7-2 fixes (b24fb2b) | mon/publish, read only | n/a | returned findings, logged here | 2026-09-21T08:40Z |
+| T7-5 | Adversarial read-only pass on `publish-issue.yml`, `scripts/publish-issue.sh`, the sign scripts and the brief's handoff: ways a wrong or hostile draft, a race, or a GitHub behaviour could publish something the owner did not approve, move `main` wrongly, or fail silently | claude-opus-5 | done | T7-2 fixes (b24fb2b) | mon/publish, read only | n/a | returned findings, logged here | 2026-09-21T08:40Z |
 | T7-4 | Build 2 second step per spec section 4.3: per-claim judged dates and the `reconfirm` word | claude-sonnet-5 | pending | T7-2, T7-3 merged | mon/reconfirm | yes | `docs/active/fable-run/evidence/reconfirm/report.md` | |
 
 ## Owner gates
@@ -554,3 +554,16 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
   `scripts/gather.sh` line 119 tells the job to commit that file on the branch, so the first real
   publish would have been refused. To be fixed with the adversarial findings. T7-5 row written,
   then dispatched.
+- 2026-09-21T09:00Z — T7-5 (Opus, adversarial) returned twelve findings, all accepted, four of them
+  blockers: branch code (`npm ci`, tests, the TypeScript data files) ran with a write token before
+  any guard; the allowlist would refuse every real branch (`.gather/pr-body.md`); the signer ignored
+  `proposed.read`, so an owner edit to the headline would have been discarded; and the `publish`
+  comment signed whatever the branch held at gate time. Coordinator decisions on the rest: the
+  step 7 guard now covers the whole tree except record-keeping paths (`docs/`, `status.md`,
+  `decisions.md`, `BACKLOG.md`, `lessons.md`, `README.md`), because a whole-tree guard with no
+  exclusions would never promote while this run keeps committing docs to `preview`; pushes go
+  `preview`, then issue branch, then `main`; the comment must be exactly `publish` or
+  `publish reconfirm`; ineligible approvals by the owner get a comment, not silence. Residual risks
+  to be written into the report and BACKLOG: the review event uses the pull request's own workflow
+  file; the weekly job's deploy key can push to `main` on a repository with no branch protection.
+  Sent back to the T7-2 builder.
