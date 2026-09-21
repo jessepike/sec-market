@@ -824,3 +824,26 @@ with the `/corrections/` page (D-67, D-68). Rubric v2.1 blind score: 32.8 before
 The owner also asked why promotion and commands needed him at all. Recorded as a standing
 preference: he says the word and the agent runs the command; the agent does not hand him commands
 to run unless the step is tied to his own account (a browser approval, a secret from his Slack).
+
+**D-70 · 2026-09-20 — the weekly gather runs on macbook2014 under launchd, and GitHub carries the notification.**
+
+The automation plan left the runtime open between a Claude cloud routine, which cannot reach the
+public web without an allowlist the owner controls, and a local runner on a host nothing had proved
+was reachable. Measured: `ssh macbook2014` connects and `claude` is installed there, so the local
+runner needs no owner decision. The reachability table in
+`~/code/_shared/agent-exec/docs/infrastructure.md` says otherwise and is stale, measured 2026-08-02.
+
+The chain is: launchd fires `scripts/gather.sh` on macbook2014 every Tuesday at 07:00; the script
+resets to `origin/preview`, works out the due ISO week, exits early if that issue or its branch
+already exists, checks its own Claude login, hands the job to `claude -p` with
+`docs/active/gather-brief.md` as the instruction, and confirms a branch reached GitHub. The host
+pushes over a read-write deploy key and holds no GitHub API token. `.github/workflows/gather-pr.yml`
+opens the pull request from the pushed branch, and GitHub's own mobile notification is the one tap —
+no webhook, no credential, no spend. `.github/workflows/freshness.yml` watches the live site daily
+from GitHub rather than from macbook2014, because a probe on the watched host goes quiet exactly
+when that host dies. Every run writes a receipt to `~/gather-logs/receipts/` whatever happens, so a
+silent failure and a quiet week never look the same.
+
+One step is not the agent's: the Claude subscription login on macbook2014 expired in May and needs
+an interactive `claude setup-token` on that host. Until then the job fires, detects it, and records
+`blocked-auth`.
