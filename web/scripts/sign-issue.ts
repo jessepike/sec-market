@@ -18,7 +18,13 @@ import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { issues } from '../src/data/issues/index.ts'
 import { AUTHOR_NAME } from '../src/data/meta.ts'
-import { computeSignedIssue, findDraftToSign, isValidIsoDate, postureDeltasDroppedCount } from './signIssueLogic.ts'
+import {
+  AlreadyPublishedError,
+  computeSignedIssue,
+  findDraftToSign,
+  isValidIsoDate,
+  postureDeltasDroppedCount,
+} from './signIssueLogic.ts'
 import { renderIssueModule } from './signIssueRender.ts'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
@@ -72,5 +78,9 @@ try {
   main()
 } catch (error) {
   console.error(error instanceof Error ? error.message : String(error))
-  process.exit(1)
+  // Exit code 2 is a distinct, benign signal that scripts/publish-issue.sh
+  // (coordinator review point L, 2026-09-21) checks for specifically: the
+  // named issue is already published, so there was never anything to sign.
+  // Every other failure keeps exit code 1.
+  process.exit(error instanceof AlreadyPublishedError ? 2 : 1)
 }

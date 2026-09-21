@@ -4,6 +4,20 @@ import type { Issue } from '../src/data/types.ts'
  * Quotes a string as this codebase's issue files do: single quotes by
  * default, double quotes only when the string itself contains a single quote
  * and no double quote (so an apostrophe in prose never needs escaping).
+ *
+ * Escapes the backslash, the chosen quote character, and every character
+ * that is legal inside a JS string literal but would corrupt the generated
+ * *source file* if left raw: `\n`, `\r` (a bare CR before an LF can be eaten
+ * or duplicated by different editors/tools reading the generated file), and
+ * U+2028/U+2029 (LINE SEPARATOR / PARAGRAPH SEPARATOR — valid inside a JS
+ * string literal, but historically mishandled by JSON tooling and by naive
+ * line-splitting, so this codebase never emits either one literally).
+ * Coordinator review, point K, 2026-09-21: a backtick, `${...}`, and
+ * `</script>` need no escaping here — this always renders a single- or
+ * double-quoted string, never a template literal, and the output is a `.ts`
+ * module, never inlined into an HTML `<script>` tag — but they are exercised
+ * by tests all the same, to prove they pass through unmangled rather than
+ * assuming it.
  */
 function quoteString(value: string): string {
   const hasSingle = value.includes("'")
@@ -13,7 +27,10 @@ function quoteString(value: string): string {
   const escaped = value
     .replace(/\\/g, '\\\\')
     .replace(new RegExp(quote, 'g'), `\\${quote}`)
+    .replace(/\r/g, '\\r')
     .replace(/\n/g, '\\n')
+    .replace(/\u2028/g, '\\u2028')
+    .replace(/\u2029/g, '\\u2029')
   return `${quote}${escaped}${quote}`
 }
 

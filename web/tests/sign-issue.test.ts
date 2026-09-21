@@ -5,6 +5,7 @@ import { join } from 'node:path'
 import { describe, it } from 'node:test'
 import { pathToFileURL } from 'node:url'
 import {
+  AlreadyPublishedError,
   computeSignedIssue,
   findDraftToSign,
   isProposedEmpty,
@@ -150,8 +151,16 @@ describe('findDraftToSign', () => {
     )
   })
 
-  it('refuses an issue that is already signed', () => {
+  it('refuses an issue that is already signed, with AlreadyPublishedError specifically', () => {
     assert.throws(() => findDraftToSign([publishedIssue()], '2026-w37'), /already signed/)
+    try {
+      findDraftToSign([publishedIssue()], '2026-w37')
+      assert.fail('expected findDraftToSign to throw')
+    } catch (error) {
+      // sign-issue.ts's CLI shell checks specifically for this class to exit
+      // 2 (benign "nothing to do") instead of 1 (coordinator review point L).
+      assert.ok(error instanceof AlreadyPublishedError)
+    }
   })
 
   it('refuses when --id names no known issue', () => {
@@ -186,7 +195,21 @@ describe('computeSignedIssue', () => {
     assert.deepEqual(signed.weThink.noCalls, draft.proposed?.noCalls)
     assert.equal(signed.weThink.thesis, null)
     assert.deepEqual(signed.weThink.postureDeltas, [])
-    assert.equal(signed.read, draft.read) // untouched — already equals proposed.read
+    assert.equal(signed.read, draft.proposed?.read)
+  })
+
+  it('takes the top-level read from proposed.read, not from the draft\'s own read (coordinator review point C)', () => {
+    const draft = draftIssue({
+      read: 'A stale top-level read that does not match the proposal.',
+      proposed: {
+        read: 'The real, current read the gather actually proposed.',
+        noCalls: [],
+        postureDeltas: '',
+        summary: 'summary',
+      },
+    })
+    const signed = computeSignedIssue(draft, { signedOn: '2026-09-20', authorName: 'Jesse Pike' })
+    assert.equal(signed.read, 'The real, current read the gather actually proposed.')
   })
 
   it("ignores an older draft's proposed.thesis rather than carrying it forward", () => {
@@ -218,6 +241,31 @@ describe('tsLiteral / renderIssueModule', () => {
     assert.equal(tsLiteral('plain text'), "'plain text'")
     assert.equal(tsLiteral("O'Reilly"), '"O\'Reilly"')
     assert.equal(tsLiteral('says "hi"'), "'says \"hi\"'")
+  })
+
+  it('escapes CR and the Unicode line/paragraph separators (coordinator review point K)', () => {
+    assert.equal(tsLiteral('a\rb'), "'a\\rb'")
+    assert.equal(tsLiteral('a b'), "'a\\u2028b'")
+    assert.equal(tsLiteral('a b'), "'a\\u2029b'")
+    assert.equal(tsLiteral('crlf\r\nhere'), "'crlf\\r\\nhere'")
+  })
+
+  it('passes a backtick, ${}, and </script> through unmangled (coordinator review point K)', async () => {
+    for (const value of ['a `backtick`', 'template ${injected}', 'a </script> tag']) {
+      const rendered = tsLiteral(value)
+      // Round-trip through a real module to prove the emitted source is
+      // valid TS and evaluates back to the exact original string — not just
+      // that the escaping regexes look right in isolation.
+      const dir = mkdtempSync(join(tmpdir(), 'quote-string-test-'))
+      try {
+        const modulePath = join(dir, 'value.ts')
+        writeFileSync(modulePath, `export const value = ${rendered}\n`)
+        const imported = (await import(pathToFileURL(modulePath).href)) as { value: string }
+        assert.equal(imported.value, value)
+      } finally {
+        rmSync(dir, { recursive: true, force: true })
+      }
+    }
   })
 
   it('drops undefined-valued keys, matching JSON.stringify', () => {

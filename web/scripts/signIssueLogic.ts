@@ -22,10 +22,21 @@ export function isProposedEmpty(proposed: MachineProposal | null): boolean {
 }
 
 /**
+ * Thrown by `findDraftToSign` specifically when `--id` names an issue that
+ * exists but is already published (SEC-MARKET-PUBLISH-001, coordinator
+ * review point L, 2026-09-21). This is not a broken state — it means the
+ * approval arrived for an issue someone (or some earlier, retried run)
+ * already signed — so the CLI shell treats it as a distinct, benign outcome
+ * (exit code 2) rather than the generic failure every other refusal here is.
+ */
+export class AlreadyPublishedError extends Error {}
+
+/**
  * Picks the one draft issue to sign, refusing on every unsafe state
  * (SEC-MARKET-PUBLISH-001 §2.2):
  * - `id` given but no issue carries it
- * - `id` given but that issue is not a draft (already signed/published)
+ * - `id` given but that issue is not a draft (already signed/published) —
+ *   throws `AlreadyPublishedError`, handled as a benign no-op by the CLI
  * - no draft issue at all
  * - more than one draft issue, even if `id` would otherwise disambiguate —
  *   more than one draft existing at all means the trunk is in a state
@@ -43,7 +54,7 @@ export function findDraftToSign(issues: Issue[], id: string | null): Issue {
       throw new Error(`sign-issue: no issue with id "${id}" found`)
     }
     if (target.status !== 'draft') {
-      throw new Error(`sign-issue: issue "${id}" is already signed (status "${target.status}")`)
+      throw new AlreadyPublishedError(`sign-issue: issue "${id}" is already signed (status "${target.status}")`)
     }
   }
 
@@ -122,8 +133,12 @@ export interface SignIssueOptions {
  *   built) — his approval of an issue's read is not approval of a posture
  *   change.
  * - `signedBy` is `authorName`; `published` and `signedOn` are `signedOn`.
- * - The top-level `read` is left untouched: the gather already wrote the same
- *   text to both `read` and `proposed.read` when it drafted the issue.
+ * - The top-level `read` is taken explicitly from `proposed.read`
+ *   (SEC-MARKET-PUBLISH-001 §2.2; coordinator review point C, 2026-09-21).
+ *   An earlier version left `issue.read` untouched on the assumption that the
+ *   gather always writes the same text to both fields — true today, but an
+ *   assumption a future draft could quietly violate, and the spec says to
+ *   take it from `proposed` explicitly rather than lean on that coincidence.
  * - `proposed` becomes `null`.
  *
  * Callers are expected to have already validated preconditions with
@@ -137,6 +152,7 @@ export function computeSignedIssue(issue: Issue, options: SignIssueOptions): Iss
   const { signedOn, authorName } = options
   return {
     ...issue,
+    read: issue.proposed.read,
     published: signedOn,
     status: 'published',
     weThink: {

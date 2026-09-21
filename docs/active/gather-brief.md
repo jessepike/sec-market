@@ -26,9 +26,11 @@ apply a judgment, never publish.
 - Record "none found" and move on. An empty lane is an empty lane. Never invent.
 - At most eight items per lane. What you left out goes in the pull request body.
 - If a source fails three attempts, mark it unreadable and move on.
-- You write to exactly four files: `web/src/data/issues/<id>.ts` (new),
-  `web/src/data/issues/index.ts`, `web/src/data/evidence.ts` (append only), and
-  `web/src/data/prints.ts` (scorecard figures only — see §3 step 5). You never edit
+- You write to exactly five files: `web/src/data/issues/<id>.ts` (new),
+  `web/src/data/issues/index.ts`, `web/src/data/evidence.ts` (append only),
+  `web/src/data/prints.ts` (scorecard figures only — see §3 step 5), and `.gather/pr-body.md` (the
+  pull request body you compose in §4, when you cannot open the pull request yourself). You never
+  edit
   `intent.md`, `decisions.md`, `status.md`, `BACKLOG.md`, `web/src/data/domains.ts`,
   `web/src/data/hypotheses.ts`, `web/src/data/market.ts`, `web/src/data/meta.ts`,
   `web/src/data/printsUnverified.ts`, `web/scripts/prints-unverified-baseline.json`, or any existing
@@ -126,8 +128,9 @@ acquisition.
 1. `git checkout -b issue/<id>`; stage the three issue/evidence files plus `web/src/data/prints.ts`
    when step 5 changed it; commit as `draft(issue): <id> gathered <today>`.
 2. Push the branch and open a pull request against `preview` titled `Issue <id> draft`. If a pull
-   request cannot be opened from this environment, push the branch and put the full body below in
-   your final message.
+   request cannot be opened from this environment, write the body below to `.gather/pr-body.md`,
+   commit it alongside your other files, and push the branch — a GitHub Action opens the pull
+   request from the pushed branch and uses that file as the body.
 3. Pull request body, in this order:
    - gate exit codes, failures first;
    - the one-line read you propose;
