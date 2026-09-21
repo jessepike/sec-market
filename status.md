@@ -22,7 +22,9 @@ after every check passes; the weekly job proposes scorecard updates behind a che
 figure means and lists what is going stale; the thesis verdict leaves the weekly issue. The spec is
 `docs/active/publish-path-spec.md` (SEC-MARKET-PUBLISH-001). Builders are on branches `mon/publish`
 and `mon/upkeep`, both merged to `preview` and promoted the same day (D-74, `main` at `51dbffd`); the
-last piece, re-dating stale stances on the word `reconfirm`, is on `mon/reconfirm` and not merged. This phase edits
+last piece, re-dating stale stances on the word `reconfirm`, merged and was promoted with the weekly
+job's two fixes (D-75, `main` at `9b98353`). In progress: SEC-054, new owner-approved wording for the
+Platform pressure sentence that called platform vendors hyperscalers, on `mon/pressure-wording`. This phase edits
 `docs/active/gather-brief.md`, so any other session holding a copy of it should re-read it. The task
 ledger is in `docs/active/fable-run/RUN-STATE.md`, phase T7.
 
@@ -98,7 +100,7 @@ There are two long-lived branches (D-50). `preview` is the trunk and serves a fi
 | Episode 001 | Done. One-time call on agent security readiness. Still usable as background. |
 | Episode 002 | Done. Current published market call. Infra spend is up. We will not fake a security-spend lag. |
 | Recurring signals | Ops artifacts live (D-43). Issue `2026-w36` published and signed 2026-09-19 (D-66). The gather job is still unarmed and has no working runtime. |
-| Git / production | `main` at `51dbffd` is live on Vercel, promoted 2026-09-21 (D-74). Promotion only by fast-forward from `preview` with `PROMOTE=1`. |
+| Git / production | `main` at `9b98353` is live on Vercel, promoted 2026-09-21 (D-75). Promotion only by fast-forward from `preview` with `PROMOTE=1`. |
 | Auto-publish judgments | Still not allowed without a human check |
 
 ## Next Steps

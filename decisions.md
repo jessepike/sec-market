@@ -926,3 +926,22 @@ for content. From this commit on, the owner's approval of an `issue/*` pull requ
 or his comment `publish`, signs and publishes that issue under the conditions in the spec. Known
 residual risks are recorded as SEC-051 in `BACKLOG.md`.
 
+**D-75 · 2026-09-21 — Second promotion of the day on the owner's word (`main` `51dbffd` → `9b98353`), and he approved new wording for the Platform pressure sentence that wrongly called platform vendors hyperscalers.**
+
+The owner said "promote and yes". "Promote" carried the `reconfirm` word (spec section 4.3), the
+weekly job loading `~/.env.local`, and the weekly job's pre-approved shell commands. Four pages
+compared between production and the preview host differed only in the stylesheet's hashed file
+name, so nothing a reader sees changed. Pushed from a temporary clone on macbook2014 because the
+push carries a workflow file. Vercel's production deploy succeeded, seven live routes return 200,
+and production now serves the same stylesheet as `preview`.
+
+"Yes" answered SEC-054. The blind score of 2026-09-21 found, and the coordinator confirmed, that
+every absorbed supplier outside Identity carried the sentence "Cloud security absorbed into a
+hyperscaler", including rows where the acquirer is Palo Alto Networks or F5 and the target is an AI
+security company. Approved wording, chosen by who bought and what was bought: a hyperscaler buyer
+keeps the current sentence; a platform vendor buying AI security reads "AI security absorbed into a
+platform vendor. Watch whether it survives as a product or becomes a feature."; a platform vendor
+buying cloud security reads the same with "Cloud security". It is built to `preview` first, with
+the changed rows dated to this approval and the error listed at `/corrections/`, and it reaches
+production only on a further word from him.
+
