@@ -123,7 +123,9 @@ CLAUDE_PID=$!
 WATCHDOG=$!
 wait "$CLAUDE_PID"; CLAUDE_RC=$?
 kill -TERM "$WATCHDOG" 2>/dev/null
-log "claude exited rc=$CLAUDE_RC ($(wc -l < "$CLAUDE_OUT" | tr -d ' ') lines)"
+CLAUDE_LINES=$(wc -l < "$CLAUDE_OUT")
+CLAUDE_LINES=${CLAUDE_LINES// /}
+log "claude exited rc=$CLAUDE_RC, ${CLAUDE_LINES} lines of output"
 
 # ---- 4. did a branch actually reach GitHub? --------------------------------
 if git ls-remote --exit-code --heads "$REMOTE" "$BRANCH" >/dev/null 2>&1; then
