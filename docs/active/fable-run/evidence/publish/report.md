@@ -9,6 +9,7 @@ Task T7-2, spec `docs/active/publish-path-spec.md` (SEC-MARKET-PUBLISH-001), bui
 - `2c82876` — first report
 - `0bcc0a6` — merge of `origin/preview` (the scorecard-upkeep build)
 - `b24fb2b` — `fix(publish): sign exactly what was approved, allowlist the branch, fix the promote-guard subshell bug` — the coordinator's five fixes, covered below
+- `b6a8a8f` — `fix(publish): split guard/build/release phases, close the twelve adversarial findings` — the coordinator's twelve-point adversarial review, covered below
 
 No file under `web/src/data/issues/` was edited, and `2026-w36`'s lock hash is unchanged throughout
 (checked again after every dry run). Nothing in `evidence.ts` was hand-edited.
@@ -197,6 +198,215 @@ the local dry run's proof that the script side of the contract works. The `pull_
 workflow-YAML gap described under fix 4 is a known, recorded limitation, not something this task
 attempted to close.
 
+## The coordinator's twelve-point adversarial review (commit `b6a8a8f`)
+
+An adversarial review found twelve findings, A through L, all accepted, several in a modified form.
+The fix that mattered most: **publish-issue.sh now runs as three phases** —
+`--phase guard|build|release` — because the issue branch this checks out is not trusted, and nothing
+it could influence should ever run holding write credentials. Everything else below either serves
+that split or is a smaller, independent fix.
+
+**A — the phase split itself.** `guard` is pure git plumbing (the approved-sha check, the D and E
+guards below, the file allowlist) and holds no token; it runs from the trusted checkout, before
+`setup-node`, `npm ci`, or Playwright install ever touch what the branch shipped. `build` (merge,
+sign, lock, `npm test`, one local commit) also holds no token — this is where the branch's own
+TypeScript actually executes, in the sign step and in the test suite's own imports. Only `release`
+holds `GH_TOKEN`, and it does three things the earlier version didn't: it authenticates each push
+with an explicit per-invocation header (`git -c http.extraheader=...`, built fresh each call, never
+written to `.git/config` or echoed) rather than a stored credential — the issue-branch checkout uses
+`persist-credentials: false`, so nothing else has push rights at all; it runs with
+`core.hooksPath=/dev/null`; and before it pushes anything, it re-verifies the trusted checkout
+(`trusted/`) is still exactly what the workflow checked out — same commit, no local changes — using a
+SHA the workflow captured right after that checkout step. A guard or build refusal can't call `gh`
+(no token), so it writes a plain-text reason to `$STATE_DIR/phase-result.txt`; a later workflow step,
+which does hold a token, reads that file and posts it — truncated, inside a code block, since it's
+untrusted regardless of which phase wrote it. Cross-phase state (whether preview matched main, how
+many posture notes were dropped) crosses the same way: small, narrowly-typed plain-text files in
+`$STATE_DIR`, read with a strict `true`/`false` or digits-only check, never sourced or evaluated.
+
+**B — `.gather/pr-body.md` added to the allowlist.** `gather.sh` line ~120 already told the job to
+commit this file on every branch; `gather-brief.md`'s own list just hadn't caught up. Both now agree
+on five files, not four.
+
+**C — `computeSignedIssue` takes `read` from `proposed.read` explicitly**, rather than leaving
+`issue.read` untouched on the assumption the gather always writes the same text to both fields.
+`web/tests/sign-issue.test.ts` has a dedicated test with a draft whose top-level `read` deliberately
+differs from `proposed.read`, proving the signed issue takes the latter.
+
+**D — the comment-race guard.** A "publish" comment has no commit id of its own; the gate step reads
+the PR's `headRefOid` fresh, but a new commit could land in the gap between the comment being posted
+and that read resolving. Guard now refuses if the branch's own committer time is later than the
+comment's timestamp. Both are compared as **Unix-epoch seconds**, never as ISO-8601 text — the gate
+step computes the epoch itself (it always runs on `ubuntu-latest`, where GNU `date -d` works), so
+`publish-issue.sh` — which is also tested on this Mac host, whose BSD `date` does not understand
+`-d` — never has to parse a timestamp at all. Not applied to the review-triggered path: a review's
+`commit_id` is already atomic with the approval, no race window to close.
+
+**E — the production-parity guard now covers the whole tree.** It used to diff `origin/main` against
+`origin/preview` on `-- web` only; a difference in `scripts/`, `.github/`, hooks, rules, or
+`AGENTS.md` would have gone unnoticed. It now diffs everything except pure record-keeping paths
+(`docs/`, `status.md`, `decisions.md`, `BACKLOG.md`, `lessons.md`, `README.md`), kept in one
+commented array (`PRODUCTION_GUARD_EXCLUDE`). `scripts/test-publish-issue.sh` proves the old guard's
+gap directly: an identical-except-`scripts/foo.sh` pair of branches reads as *not* matching under the
+new guard.
+
+**F — `gather.sh` checks its own push.** After confirming the branch reached the remote (the real
+push happens inside the delegated `claude -p` subprocess, so this can't run strictly *before* it),
+`gather.sh` now diffs the pushed branch against `origin/preview` and records a new `blocked-paths`
+receipt state, in the same style as the existing `blocked-auth` state, if anything outside the same
+five-path allowlist was touched. A minimal, independent duplicate of the check in
+`publish-issue.sh` — that file belongs to another session, so the two are not sharing code, just the
+same five paths.
+
+**G — a real publish attempt that fails now gets a reason.** The gate step used to resolve the pull
+request's head/base branches only *after* confirming the comment said "publish" — so a wrong-wording
+comment, or an unapproved review, on a genuine `issue/*`-into-`preview` pull request from the owner
+went completely silent. It now resolves head/base first for any owner-authored comment, checks
+wording after, and posts the reason whenever the actor is the owner and the resolved pull request is
+`issue/*`→`preview` but something else failed. Every other actor and every other pull request stays
+silent, exactly as before.
+
+**H — push order: preview, then the issue branch, then main.** A rejected preview push (someone else
+moved it first) now means nothing else has happened yet, so "approve again" is a complete, honest
+instruction. `scripts/test-publish-issue.sh` proves the order against a real, local, file-based git
+remote (not a network call — a bare repo on disk): the commit lands on preview, then the issue
+branch, then main, in that order, and each push actually reaches that remote's refs.
+
+**I — the comment trigger is now an exact match.** "publish" or "publish reconfirm" (trimmed,
+lower-cased) — not just "the first word is publish", which used to let "publish now please" through.
+A `RECONFIRM` flag is computed in the gate step from untrusted event text (never interpolated into a
+`run:` body directly, per this file's own rule — only through `env:`), passed to guard/build as an
+env var, and logged. Nothing else consumes it yet, per the instruction; a later task wires it up.
+
+**J — "production did not move" is now a failed run.** It used to return 0 with just a comment,
+which is exactly the kind of thing that's easy to miss on a phone. `step8_promote` now returns 1 in
+that case, and `scripts/test-publish-issue.sh`'s local-remote integration test proves both halves at
+once: preview and the issue branch still take the push, main does not move, and the run reports
+failure.
+
+**K — `quoteString` also escapes `\r`, U+2028, and U+2029** (LINE SEPARATOR / PARAGRAPH SEPARATOR —
+legal inside a JS string literal, historically mishandled by naive line-splitting and JSON tooling).
+A backtick, `${...}`, and `</script>` need no escaping here (never a template literal, never inlined
+into HTML) but are tested anyway, round-tripped through a real dynamic `import()` of a generated
+module, to prove they pass through unmangled rather than assuming it. One real bug found and fixed
+while building this: the first draft of the fix put the literal U+2028/U+2029 *characters* inside the
+regex slashes instead of the ` `/` ` escape sequences — a line separator character inside a
+regex literal's source text is itself a line terminator in JS grammar, so esbuild read it as an
+unterminated regex. Fixed to use the escape-sequence text, not the raw character.
+
+**L — an already-published issue is not a failure.** `findDraftToSign` throws a distinct
+`AlreadyPublishedError` when `--id` names an issue that exists but isn't a draft; `sign-issue.ts`
+exits with code 2 specifically for that class (every other failure still exits 1). The build phase
+checks for exit code 2 after step 2, and when it sees it, prints "already published — nothing to
+sign", sets a `already-published` step output, and returns success — the workflow's release phase is
+skipped entirely (via that output), and a dedicated step posts a plain "already published, nothing to
+do" comment instead of the release phase ever running.
+
+**Test results.** `web/tests/sign-issue.test.ts`: 25/25 (covers C, K, L's TypeScript side).
+`scripts/test-publish-issue.sh`: 33/33 — the original allowlist/approved-sha/not-promoted-skips-live-
+check assertions, plus new coverage for D (`branch_changed_after_comment`, both directions and the
+equal-epoch edge), E (the five-branch production-guard pathspec scenario above), and a combined H/J
+integration test that runs `step6_push_preview`/`step7_push_issue_branch`/`step8_promote` for real
+against a local file-based git remote, twice — once where preview already matches main (all three
+pushes land, main included) and once where it doesn't (preview and the issue branch still take the
+push, main does not move, and the run fails). Full `npm test` in the OrbStack VM: 154/154 data tests,
+37/37 e2e (1 pre-existing unrelated skip), lint clean, full build including `verify:prints`.
+
+**Acceptance dry run, rerun against the phase-split script.** Built fresh: a frozen reference remote
+with `main` and `preview` both pinned to `mon/publish`'s tip (`b6a8a8f`) and a scratch clone checked
+out at the real, untouched `origin/issue/2026-w37` (`7647baa`), with the trusted `publish-issue.sh`
+copied in from the frozen `preview` — byte-identical to the worktree's own copy, confirmed by diff.
+Run as **three separate process invocations**, `--phase guard` then `--phase build` then
+`--phase release`, sharing one `$STATE_DIR` — exactly how the three workflow steps share state in CI,
+not the single-process `--phase all` convenience path. All three exited 0:
+
+```
+=================== GUARD PHASE ===================
+publish-issue.sh: phase = guard
+RECONFIRM=false (logged only — coordinator review point I, 2026-09-21; not yet used for anything)
+approved-sha guard: HEAD matches the approved commit (7647baa7...)
+
+=== PRE-FLIGHT: production-guard snapshot ===
+preview matches main (excluding record-keeping paths): true
+file allowlist guard: only allowed paths changed on issue/2026-w37
+publish-issue.sh: guard phase passed.
+guard exit=0
+
+=================== BUILD PHASE ===================
+[... step 1 merge, step 2 sign, step 3 lock (9 posture-deltas-agree, PASS), step 4 npm test
+     (154 data tests, 37/38 e2e with 1 pre-existing skip, verify:dist, verify:prints) ...]
+=== STEP: 5 commit ===
+[issue/2026-w37 2b94e12] feat(issue): publish 2026-w37, signed by approval of #?
+build exit=0
+
+=================== RELEASE PHASE ===================
+publish-issue.sh: phase = release
+no TRUSTED_SHA_EXPECTED given, skipping the trusted-checkout integrity check (local/manual run)
+
+=== STEP: 6 push preview ===
+DRY_RUN=1: not pushing to preview
+=== STEP: 7 push issue branch ===
+DRY_RUN=1: not pushing to issue/2026-w37
+=== STEP: 8 promote to main ===
+DRY_RUN=1: not promoting to main
+=== STEP: 9 live check ===
+DRY_RUN=1: not polling the live site
+
+publish-issue.sh: done.
+release exit=0
+```
+
+`$STATE_DIR` correctly carried `preview-matches-main=true` and `posture-dropped=1` from the guard and
+build processes into the release process — proving the cross-process state-file mechanism (point A)
+actually works, not just the same-process `--phase all` path. `2026-w36`'s lock hash,
+`be70d2ae9a7af0ac77e75df2cd9e9cd9ae03363168477517f69ba659c8d5fdbd`, is confirmed byte-identical to
+before. The allowlist result for `origin/issue/2026-w37` is unchanged: exactly the same three files
+as the first report (`web/src/data/evidence.ts`, `web/src/data/issues/2026-w37.ts`,
+`web/src/data/issues/index.ts`), all allowed, still including `.gather/pr-body.md` in the allowlist
+even though this real branch doesn't use it.
+
+**YAML validation.** `npx --yes js-yaml .github/workflows/publish-issue.yml` parses without error. I
+re-audited every `${{ }}` expression by eye, including the one I initially got wrong and then fixed:
+the "Post the result of a failed guard or build phase" step first referenced `${{ steps.build.outcome
+}}` directly inside its `run:` body, which violates this file's own stated rule that event/step text
+only ever reaches a script through `env:`; moved to a `BUILD_OUTCOME` env var instead. Confirmed no
+other `run:` body anywhere in the file contains a bare `${{ }}` expression (checked programmatically,
+not just by eye, this time). `actionlint` remains unavailable in the OrbStack VM.
+
+**What I could not do exactly as specified, and why.** Point F's `gather.sh` check runs *after* the
+push, not before it, because the actual push happens inside a delegated `claude -p` subprocess that
+does its own commit-and-push — this script can observe the result but can't interpose before it. The
+coordinator's own instruction acknowledged this ("this can only run AFTER the push above"), so this
+isn't a deviation, just recorded plainly. Point I's `RECONFIRM` is computed and threaded through as
+asked, but nothing consumes it — that's the instruction, not a gap. I did not add an `actionlint`
+check; it remains unavailable in the OrbStack VM, same as every prior round.
+
+### Residual risks
+
+Three things this build does not close, stated plainly rather than left to be rediscovered:
+
+1. For the `pull_request_review` trigger, GitHub reads this workflow's own YAML from the pull
+   request's merge commit, not from the default branch. A branch that rewrote
+   `.github/workflows/publish-issue.yml` could still change what runs — including before the guard
+   phase or the trusted checkout ever get a say — on that trigger. The `issue_comment` ("publish")
+   trigger doesn't have this gap; `issue_comment` always runs the default branch's copy of the
+   workflow. The trusted second checkout closes "the branch alters the publisher script itself"; it
+   does not and cannot close "the branch alters the workflow that invokes it."
+2. The data files on the issue branch (`web/src/data/issues/<id>.ts`, `evidence.ts`, `prints.ts`) are
+   executable TypeScript, not inert JSON — anything that imports them actually runs whatever a
+   compromised branch put there. The sign step and the full test suite both import them, and both run
+   in the build phase, which holds no token, specifically because of this. That mitigation is real
+   but partial: a compromised branch running inside build could still, for example, try to exfiltrate
+   whatever it can reach on the runner (source, environment) over the network, even without a GitHub
+   token. Nothing in this build sandboxes that further.
+3. The weekly gather job (`scripts/gather.sh`, run by `launchd` on macbook2014) pushes with a
+   read-write deploy key that is not scoped to `issue/*` — it can push to any branch, including
+   `main`, if the host or the key were ever compromised. This is a free private GitHub repository,
+   which has no branch protection rules available to enforce that scoping server-side. Point F's new
+   `blocked-paths` check in `gather.sh` catches an accidental over-broad commit; it does nothing
+   against a compromised host that pushes deliberately. Scoping the key, or moving to a paid plan with
+   branch protection, is outside this build's scope.
+
 ## Visible changes
 
 Nothing changed on the currently rendered site — same as the first report. `2026-w36` is still the
@@ -204,17 +414,20 @@ only published issue; its data, hash, and rendering are untouched.
 
 ## What I noticed but did not build
 
-Same as the first report: `docs/active/gather-job-spec.md` still describes the gather job proposing
-a thesis verdict (lines 45, 92, 94), now stale against `gather-brief.md`; not touched, not in scope.
-Spec §4.3 (converting an accepted posture note into a structured `PostureDelta`) is explicitly a
-separate, later step and I did not build it — this round makes the dropped note visible in a PR
-comment, which is different from applying it. Build 2 (spec §4) is separate scope, built in
-parallel. I did not widen the file allowlist to include `.gather/`, since nothing in
-`gather-brief.md` authorizes it; if the gather job is meant to write there, that's the owner's call
-to make, not mine to assume.
+`docs/active/gather-job-spec.md` still describes the gather job proposing a thesis verdict (lines 45,
+92, 94), now stale against `gather-brief.md`; not touched, not in scope, unchanged since the first
+report. Spec §4.3 (converting an accepted posture note into a structured `PostureDelta`) is still a
+separate, later step, not built here. Point I's `RECONFIRM` flag is computed, threaded through, and
+logged, exactly as asked, with nothing built on top of it — a later task is explicitly meant to wire
+it up, per the coordinator's own instruction. The three residual risks above (the
+`pull_request_review` workflow-YAML gap, executable data files on the branch, and the gather job's
+unscoped deploy key) are none of them built against in this round; they're recorded so a future
+session doesn't have to rediscover them, not because I judged them out of scope on my own — the
+coordinator asked for exactly this list.
 
 Deferred to backlog: the stale `gather-job-spec.md` thesis references, unchanged from the first
-report. Everything else this round was the coordinator's own fix list, already built, not deferred.
+report. Everything else this round was the coordinator's own twelve-point fix list, already built,
+not deferred.
 
 Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01AdcpLzcT3PoSBWQ7nuRLAT
