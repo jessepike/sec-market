@@ -1,0 +1,106 @@
+{
+  "1440x900": {
+    "maxFitInOneScreen": 5,
+    "bySections": [
+      {
+        "heading": "New companies and funding",
+        "count": 7,
+        "heights": [
+          160,
+          160,
+          160,
+          160,
+          160,
+          160,
+          160
+        ]
+      },
+      {
+        "heading": "Acquisitions and consolidation",
+        "count": 6,
+        "heights": [
+          160,
+          160,
+          160,
+          160,
+          160,
+          160
+        ]
+      },
+      {
+        "heading": "Earnings and reported numbers",
+        "count": 8,
+        "heights": [
+          160,
+          250,
+          160,
+          160,
+          160,
+          299,
+          160,
+          160
+        ]
+      },
+      {
+        "heading": "Capital and financial position",
+        "count": 2,
+        "heights": [
+          160,
+          160
+        ]
+      }
+    ]
+  },
+  "390x844": {
+    "maxFitInOneScreen": 3,
+    "bySections": [
+      {
+        "heading": "New companies and funding",
+        "count": 7,
+        "heights": [
+          209,
+          209,
+          209,
+          234,
+          209,
+          232,
+          209
+        ]
+      },
+      {
+        "heading": "Acquisitions and consolidation",
+        "count": 6,
+        "heights": [
+          209,
+          209,
+          232,
+          209,
+          209,
+          234
+        ]
+      },
+      {
+        "heading": "Earnings and reported numbers",
+        "count": 8,
+        "heights": [
+          232,
+          370,
+          232,
+          232,
+          232,
+          506,
+          232,
+          209
+        ]
+      },
+      {
+        "heading": "Capital and financial position",
+        "count": 2,
+        "heights": [
+          232,
+          232
+        ]
+      }
+    ]
+  }
+}

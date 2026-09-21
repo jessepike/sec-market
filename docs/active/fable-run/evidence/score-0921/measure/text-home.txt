@@ -1,0 +1,2229 @@
+Skip to main content
+
+SECURITY MARKET PULSE
+
+AS OF 20 SEP 2026
+
+TRACKED · PUBLIC PRINTS, NO JUDGMENT
+JUDGED · SIGNED AND DATED BY A PERSON
+Security Market Pulse
+Issue
+Archive
+Landscape
+Scorecard
+Evidence
+Method
+Feed
+
+September 20, 2026
+
+The security market, from public numbers
+
+A practitioner's read on the business of the security market: who is growing, who is consolidating, who is being bought, and what it means if you run a security program. Public sources only. Written by Jesse Pike.
+
+Not a news site and not investment advice. · Site updated September 20, 2026 · Domain stances judged 16 Aug 2026 by Jesse Pike.
+
+THIS WEEK · WEEK ENDING 6 SEP 2026 · PUBLISHED 19 SEP 2026 · ISSUE 2026-W36 · FEED
+
+Record earnings from CrowdStrike, Zscaler, Palo Alto, Rubrik and NVIDIA meet thin VC and quiet M&A — the infra-to-security lag call holds.
+
+SITE NOTE The lag call is this site's refusal to claim that infrastructure spending leads security spending by a fixed interval.
+
+The market by domain
+
+These are figures the companies themselves reported, listed alphabetically. They measure different things over different periods, so they are labelled and not ranked. Being listed is not a recommendation, and being absent is not a criticism. Private companies that publish no comparable figures are tracked through funding and acquisitions instead.
+
+Network / SASE
+
+JUDGED 16 AUG 2026 · JESSE PIKE
+
+PREPARE
+Act now
+
+Horizon · This quarter
+
+TRACKED SUPPLIERS AND WHAT THEY LAST REPORTED
+
+Cato Networks
++43%
+
+2025 ARR · 2025 · older figure
+
+Cato Networks
+
+Check Point
++1%
+
+revenue · JUN ’26
+
+Check Point
+
+Cloudflare
++36%
+
+revenue · JUN ’26
+
+Cloudflare
+
+Fortinet
++52%
+
+product revenue · JUN ’26
+
+Fortinet
+
+Netskope
++31%
+
+ARR (annual) · FY26 · older figure
+
+Netskope
+
+Zscaler
++21%
+
+organic ARR · APR ’26
+
+Zscaler
+Data / AI Security
+
+JUDGED 16 AUG 2026 · JESSE PIKE
+
+PREPARE
+Act now
+
+Horizon · This planning cycle
+
+TRACKED SUPPLIERS AND WHAT THEY LAST REPORTED
+
+Rubrik
++32%
+
+subscription ARR · APR ’26
+
+Rubrik
+
+Varonis
++25%
+
+SaaS ARR ex-conversions · JUN ’26
+
+Varonis
+Cloud Security
+
+JUDGED 16 AUG 2026 · JESSE PIKE
+
+INVESTIGATE
+Watch closely
+
+Horizon · Next 1–4 quarters
+
+TRACKED SUPPLIERS AND WHAT THEY LAST REPORTED
+
+CrowdStrike Falcon Cloud
+>35%
+
+cloud ending ARR · FY26 · older figure · product line, not the whole company
+
+CrowdStrike
+Identity
+
+JUDGED 16 AUG 2026 · JESSE PIKE
+
+INVESTIGATE
+Watch closely
+
+Horizon · Next 1–4 quarters
+
+TRACKED SUPPLIERS AND WHAT THEY LAST REPORTED
+
+Okta
++12%
+
+cRPO · APR ’26
+
+Okta
+
+SailPoint
++28%
+
+ARR (annual) · FY26 · older figure
+
+SailPoint
+SecOps
+
+JUDGED 16 AUG 2026 · JESSE PIKE
+
+INVESTIGATE
+Watch closely
+
+Horizon · Next 1–4 quarters
+
+TRACKED SUPPLIERS AND WHAT THEY LAST REPORTED
+
+Cisco Security
++2%
+
+FY2026 security revenue · FY26
+
+Cisco
+
+CrowdStrike
++24%
+
+ending ARR · APR ’26
+
+CrowdStrike
+
+Palo Alto XSIAM
++100%
+
+segment ARR YoY · Q3 FY26 · product line, not the whole company
+
+Palo Alto Networks
+
+SentinelOne
++23%
+
+ARR · APR ’26
+
+SentinelOne
+AI Runtime
+
+JUDGED 16 AUG 2026 · JESSE PIKE
+
+INVESTIGATE
+Watch closely
+
+Horizon · Next 1–4 quarters
+
+TRACKED SUPPLIERS AND WHAT THEY LAST REPORTED
+
+No comparable public growth figures yet. Tracked through funding and acquisitions.
+
+What we now think
+
+This week combined eight public-issuer earnings prints — CrowdStrike, Zscaler, SentinelOne, Okta, Rubrik, Palo Alto Networks, Broadcom and Nutanix all reported in-window — with thin early-stage funding and quiet, mostly undisclosed M&A. The pattern is consistent with the standing infrastructure-to-security lag call, not a change to it.
+
+Standing analysis: holds. See the record.
+
+Stable 0–8-quarter infrastructure-to-security lag: this window adds one mature infrastructure impulse and no comparable registered security response, so the lag stays a no-call rather than a measured number of quarters.
+
+Signed by Jesse Pike · 19 Sep 2026
+
+New companies and funding
+
+Socure raises $156.0M Series E for digital identity and fraud prevention
+
+24 Aug 2026
+
+Summit Partners led one of the week's larger identity-fraud raises.
+
+Return on Security
+
+KAZIMI raises $2.6M Pre-Seed for mobile anti-bot protection (Germany)
+
+24 Aug 2026
+
+Market One Capital backed the anti-bot platform, a small early-stage formation signal.
+
+Return on Security
+
+CYBERA raises $2.5M Venture round for SD-WAN with built-in network security
+
+24 Aug 2026
+
+The US SD-WAN vendor folds network security into its platform for distributed enterprises.
+
+Return on Security
+
+Opgate raises $60.0K Pre-Seed for AI-agent runtime security and policy enforcement
+
+24 Aug 2026
+
+A very early formation bet on runtime controls for autonomous AI agents.
+
+Return on Security
+
+DetectifAI raises undisclosed Seed round for AI deepfake voice detection
+
+24 Aug 2026
+
+Backers include Josh Constine and Manohar Kamath; no round size was disclosed.
+
+Return on Security
+
+HiddenLayer raises $100M Series B for AI runtime security
+
+3 Sep 2026
+
+Delta-v Capital led the round, joined by Booz Allen Ventures, M12, Morgan Stanley and Ten Eleven Ventures.
+
+HiddenLayer
+
+AIR Security emerges from stealth with $50M for an AI agent firewall
+
+3 Sep 2026
+
+Sequoia Capital and Greenoaks led the round alongside individual industry angels.
+
+AIR Security
+Acquisitions and consolidation
+
+Palo Alto Networks reportedly paid $500M for Console, sources say
+
+2 Sep 2026
+
+TechCrunch reports the AI-agent IT helpdesk startup deal; Palo Alto has not confirmed it.
+
+Palo Alto Networks & TechCrunch
+
+ePlus acquires Daymark Solutions for an undisclosed amount
+
+24 Aug 2026
+
+Adds Daymark to ePlus’s portfolio; deal terms were not disclosed.
+
+Return on Security
+
+Echo acquires container security firm Minimus (formerly Gutsy)
+
+24 Aug 2026
+
+The Israel-based secure-by-design container image company was acquired for an undisclosed amount.
+
+Return on Security
+
+Ampcus acquires smarterd, an IT asset management and risk platform
+
+24 Aug 2026
+
+Terms were undisclosed for the US-based IT asset management and risk-prioritization deal.
+
+Return on Security
+
+Trace3 acquires Calian's U.S. Commercial IT Business, an MSSP
+
+24 Aug 2026
+
+The managed security services provider was acquired for an undisclosed amount.
+
+Return on Security
+
+Integrity360 acquires CyberIAM, a UK identity and access management consultancy
+
+24 Aug 2026
+
+The IAM professional-services firm was acquired for an undisclosed amount.
+
+Return on Security
+Earnings and reported numbers
+
+CrowdStrike revenue hits $1.47B, +26% YoY; net new ARR $333M, +51%
+
+26 Aug 2026
+
+Net new ARR accelerated to 51% year-over-year, the strongest reacceleration among this week’s prints.
+
+CrowdStrike
+
+Zscaler FY2026 revenue grows to $898.2M, +25% YoY; ARR grows to $3,771M, +25%
+
+3 Sep 2026
+
+Net new ARR added $246M in the quarter, extending Zscaler’s growth at scale.
+
+CORRECTED 20 SEP 2026
+
+Zscaler fiscal fourth-quarter revenue (quarter ended 31 July 2026) grows to $898.2M, +25% YoY; ARR grows to $3,771M, +25%
+
+See correction
+
+Zscaler
+
+SentinelOne revenue grows 21% to $292M; ARR up 22% to $1,218M
+
+27 Aug 2026
+
+SentinelOne’s revenue and ARR growth held steady this quarter, consistent with a platformizing XDR market.
+
+SentinelOne
+
+Okta revenue rises 11% to $805M, subscription revenue $793M
+
+26 Aug 2026
+
+Subscription revenue grew 12% year-over-year, Okta’s core identity business still expanding steadily.
+
+Okta
+
+Rubrik revenue grows 38% to $427.3M; subscription ARR $1.66B, +33%
+
+27 Aug 2026
+
+Subscription ARR growth accelerated to 33%, reinforcing Rubrik’s place in the data-security landscape.
+
+Rubrik
+
+Palo Alto FY2026 revenue grows 34% to $3.41B; Next-Gen Security ARR $9.10B, +63%
+
+1 Sep 2026
+
+Next-Gen Security ARR growth of 63% is the fastest among this week’s public-issuer prints.
+
+CORRECTED 20 SEP 2026
+
+Palo Alto fiscal fourth-quarter revenue (quarter ended 31 July 2026) grows 34% to $3.41B; Next-Gen Security ARR $9.10B, +63%
+
+The original "why it matters" comparison, that this growth was the fastest among this week's public-issuer prints, is withdrawn. Next-Gen Security ARR is a company-defined segment and is not comparable with other companies' total revenue growth.
+
+See correction
+
+Palo Alto Networks
+
+Broadcom Q3 revenue up 86 percent to $29.6B; AI chip revenue $16.7B, +221%
+
+2 Sep 2026
+
+AI semiconductor revenue grew 221% year-over-year and 54% quarter-over-quarter, per CEO Hock Tan.
+
+Broadcom
+
+Nutanix revenue grows 16% to $757.1M; ARR reaches $2.55B, +16%
+
+26 Aug 2026
+
+Nutanix’s ARR growth held at 16% for a second straight readout, a steady infrastructure-layer print.
+
+Nutanix
+Capital and financial position
+
+NVIDIA revenue hits $96.2B, +106% YoY; Data Center revenue $89.0B, +117%
+
+26 Aug 2026
+
+Data Center revenue growth accelerated to 117% year-over-year, the strongest print in this week’s set.
+
+NVIDIA
+
+Microsoft guides capex to over $50B, citing a useful-life update
+
+2 Sep 2026
+
+The next-quarter capex guide is a new infrastructure-buildout data point for the standing infra-to-security lag call.
+
+Microsoft
+
+Tracked figures arrive through the week as companies report them, and a signed read publishes most weeks — follow by RSS.
+
+THE LANDSCAPE · FOUR DOMAINS
+
+Where the security market is going, not where it has been.
+
+Dated postures, the evidence under each one, and an honest mark on how sure anyone is. A posture moves only when a person signs it.
+
+NETWORK / SASE
+Refresh is live. Cato and Netskope are growing faster than Zscaler organic. That is a split, not a new SASE wave.
+PREPARE
+
+Appliance-led network security is live now. Private SASE and public SSE are split from Zscaler organic — not a category re-acceleration.
+
+TRACKED
+
+Fortinet +52% · Cato +43% · Netskope +31%
+
+Fortinet, Cato Networks, Netskope
+
+JUDGED 16 AUG 2026 · JESSE PIKE
+
+HORIZON · This quarter
+
+DATA / AI SECURITY
+Public data vendors are up. DSPM names are capital and M&A, not a broad spend series.
+PREPARE
+
+Selected data vendors are accelerating. Not a broad realized series yet.
+
+TRACKED
+
+Rubrik +32% · Varonis +25% · Sentra · Securiti close
+
+Rubrik, Varonis +3
+
+JUDGED 16 AUG 2026 · JESSE PIKE
+
+HORIZON · This planning cycle
+
+CLOUD SECURITY
+CrowdStrike cloud segment is real. CNAPP names show 2026 GTM or last disclosed equity — not a clean category ARR series.
+WATCH
+
+Qualify residual gaps when capacity goes live.
+
+TRACKED
+
+Falcon Cloud >$800M · Upwind · Orca · Aqua
+
+CrowdStrike, Upwind +2
+
+JUDGED 16 AUG 2026 · JESSE PIKE
+
+HORIZON · Next 1–4 quarters
+
+IDENTITY
+IGA is up. Mega-seed and strategic rounds are capital heat in agentic identity — not buyer spend yet.
+WATCH
+
+Use identity as a qualification topic where machine identities go live.
+
+TRACKED
+
+SailPoint +28% · Oak $60M · Hush $30M
+
+SailPoint, Oak, Hush Security
+
+JUDGED 16 AUG 2026 · JESSE PIKE
+
+HORIZON · Next 1–4 quarters
+
+PLATFORM PRESSURE
+
+Who is holding, who is buying in, who is being outrun
+
+The partner question. Where an incumbent is still the safe pick, where it is acquiring its way into a category, and where a challenger is printing faster inside the same motion.
+
+TRACKED PRINTS · JUDGED READ
+
+Platform pressure by vendor position
+VENDOR	POSITION	LATEST TRACKED PRINT	JUDGED READ
+HOLDING POSITION
+Fortinet	Incumbent	
+
+product revenue +52%
+
+Fortinet
+	
+
+Refresh spike. Not yet proven as a lasting rotation.
+
+JUDGED 17 AUG 2026 · JESSE PIKE
+
+
+CrowdStrike Falcon Cloud	Platform	
+
+cloud ending ARR >35%
+
+CrowdStrike
+	
+
+Recovered. The cloud segment is real revenue, not a category series.
+
+JUDGED 17 AUG 2026 · JESSE PIKE
+
+
+SailPoint	Incumbent	
+
+ARR (annual) +28%
+
+SailPoint
+	
+
+IGA is up while the Identity domain overall is stable to decelerating.
+
+JUDGED 17 AUG 2026 · JESSE PIKE
+
+
+BUYING IN RATHER THAN BUILDING
+Protect AI	Absorbed	
+
+Palo Alto · $634.5M · closed Jul 2025
+
+Palo Alto Networks
+	
+
+Cloud security absorbed into a hyperscaler. Watch what it does to the specialist gap.
+
+JUDGED 17 AUG 2026 · JESSE PIKE
+
+
+CalypsoAI	Absorbed	
+
+F5 · $145.2M · closed Sep 2025
+
+F5
+	
+
+Cloud security absorbed into a hyperscaler. Watch what it does to the specialist gap.
+
+JUDGED 17 AUG 2026 · JESSE PIKE
+
+
+CyberArk	Absorbed	
+
+Palo Alto · $25B · closed Feb 2026
+
+Palo Alto Networks & CyberArk Software Ltd.
+	
+
+Identity becomes a Palo Alto platform pillar. Capital, not customer spend.
+
+JUDGED 17 AUG 2026 · JESSE PIKE
+
+
+Wiz	Absorbed	
+
+Google · $32B · closed Mar 2026
+
+Alphabet & Google
+	
+
+Cloud security absorbed into a hyperscaler. Watch what it does to the specialist gap.
+
+JUDGED 17 AUG 2026 · JESSE PIKE
+
+
+SurePath AI	Absorbed	
+
+F5 · $50.1M · closed Jun 2026
+
+F5
+	
+
+Cloud security absorbed into a hyperscaler. Watch what it does to the specialist gap.
+
+JUDGED 17 AUG 2026 · JESSE PIKE
+
+
+BEING OUTRUN IN THEIR OWN MOTION
+Zscaler	Platform	
+
+organic ARR +21%
+
+Zscaler
+	
+
+Cato Networks at +43% and Netskope at +31% are printing faster in the same category.
+
+JUDGED 17 AUG 2026 · JESSE PIKE
+
+
+Cisco Security	Platform	
+
+FY2026 security revenue +2%
+
+Cisco
+	
+
+Networking orders +40% carried the quarter. Security did not.
+
+JUDGED 17 AUG 2026 · JESSE PIKE
+
+
+Okta	Platform	
+
+cRPO +12%
+
+Okta
+	
+
+No clean re-acceleration inside this window.
+
+JUDGED 17 AUG 2026 · JESSE PIKE
+
+
+CHALLENGERS WORTH A LOOK
+Cato Networks · Netskope	Challenger	
+
++43% · +31%
+
+Cato Networks & Netskope
+	
+
+Growing faster than Zscaler organic. A split inside the category, not a new SASE wave.
+
+JUDGED 17 AUG 2026 · JESSE PIKE
+
+
+Rubrik · Varonis	Challenger	
+
++32% · +25%
+
+Rubrik & Varonis
+	
+
+Both accelerating on public numbers. The cleanest data-side signal here.
+
+JUDGED 17 AUG 2026 · JESSE PIKE
+
+
+Oak · Hush Security	Early	
+
+$60M · $30M
+
+Oak & Hush Security
+	
+
+Agentic identity. Capital, not customers. Too early to place a bet on.
+
+JUDGED 17 AUG 2026 · JESSE PIKE
+
+THE FULL SCORECARD · 45 PRINTS ACROSS EIGHT DOMAINS
+
+This period
+
+Public prints first. Private names stay on the board as capital or “no series” — not invented ARR.
+
+Network & edge
+6 prints · 6 covered
+Fortinet
+JUN ’26
+
++52%
+
+PRODUCT REVENUE
+
+Revenue +26% · billings +33%
+
+Fortinet
+Cloudflare
+JUN ’26
+
++36%
+
+REVENUE
+
+Current RPO +35%
+
+Cloudflare
+Zscaler
+APR ’26
+
++21%
+
+ORGANIC ARR
+
+Headline ARR +25% includes Red Canary
+
+Zscaler
+Check Point
+JUN ’26
+
++1%
+
+REVENUE
+
+Subscriptions +12%
+
+Check Point
+Cato Networks
+2025
+
++43%
+
+2025 ARR
+
+>$350M · private SASE
+
+Cato Networks
+Netskope
+FY26
+
++31%
+
+ARR (ANNUAL)
+
+$811M · public SSE bellwether
+
+Netskope
+Cloud security
+2 prints · 6 covered
+Wiz
+Closed
+
+$32B
+
+INSIDE GOOGLE CLOUD
+
+Mar 2026 close · capital, not spend
+
+Alphabet & Google
+CrowdStrike Falcon Cloud
+FY26
+
+>35%
+
+CLOUD ENDING ARR
+
+>$800M · segment, not total ARR
+
+CrowdStrike
+Upwind
+JAN ’26
+
+$1.5B
+
+PRIVATE VALUATION
+
+Series B $250M · not ARR
+
+Upwind
+Orca Security
+APR ’26
+
+TD SYNNEX
+
+NA DISTRIBUTION DEAL
+
+2026 GTM · last equity Oct 2021 · $1.8B Series C
+
+Orca Security
+Aqua Security
+JAN ’24
+
+$1B+
+
+SERIES E EXTENSION
+
+$60M · $325M total · last disclosed equity
+
+Aqua Security
+Palo Alto Prisma AIRS
+Q3 FY26
+
+300+
+
+CUSTOMER COUNT
+
+Up from 100 at Q2 · adoption, not ARR
+
+Palo Alto Networks
+Data
+2 prints · 7 covered
+Rubrik
+APR ’26
+
++32%
+
+SUBSCRIPTION ARR
+
+$1.57B · short public history
+
+Rubrik
+Varonis
+JUN ’26
+
++25%
+
+SAAS ARR EX-CONVERSIONS
+
+Headline 52% includes conversions
+
+Varonis
+Cyera
+JUN ’26
+
+$12B
+
+PRIVATE VALUATION
+
+Series G $600M · not ARR. On the Activity board.
+
+Cyera
+Secuvy
+2023
+
+Seed
+
+LAST DISCLOSED RAISE
+
+No public ARR. On the Activity board.
+
+Secuvy / Business Wire & Secuvy
+BigID
+2025
+
+>$100M
+
+COMPANY-STATED REVENUE
+
+DSPM · not audited ARR
+
+BigID
+Sentra
+APR ’25
+
+$50M
+
+SERIES B
+
+>$100M total · +300% revenue (co-stated)
+
+Sentra
+Securiti
+DEC ’25
+
+$1.725B
+
+ACQUIRED BY VEEAM
+
+DSPM close · capital, not spend
+
+Veeam & Securiti
+Identity
+2 prints · 8 covered
+Okta
+APR ’26
+
++12%
+
+CRPO
+
+Revenue +11% · decelerating
+
+Okta
+SailPoint
+FY26
+
++28%
+
+ARR (ANNUAL)
+
+Fiscal year ended Jan 2026. Not a quarterly series aligned to the panel.
+
+SailPoint
+CyberArk
+Closed
+
+$25B
+
+INSIDE PALO ALTO
+
+No standalone series after close. On the Activity board.
+
+Palo Alto Networks & CyberArk Software Ltd.
+Lumos
+2024
+
+$35M
+
+LAST DISCLOSED RAISE
+
+Series B May 2024. On the Activity board.
+
+Lumos / Business Wire & Lumos / PR Newswire
+Oak
+JUL ’26
+
+$60M
+
+SEED ROUND
+
+AI-native identity OS · capital, not spend
+
+Oak
+Hush Security
+JUL ’26
+
+$30M
+
+SERIES A
+
+Akamai strategic · on Activity board
+
+Hush Security
+Veza
+MAR ’26
+
+Closed
+
+INSIDE SERVICENOW
+
+Identity security tuck-in · price undisclosed
+
+ServiceNow
+Entra / Ping / PE PAM
+No series
+
+—
+
+NO PUBLIC PRINT
+
+Entra bundled in M365. Ping, BeyondTrust, Delinea PE-owned.
+
+Microsoft, Ping Identity +2
+SecOps
+4 prints · 6 covered
+SentinelOne
+APR ’26
+
++23%
+
+ARR
+
+Revenue +21% · net-new ARR +55%
+
+SentinelOne
+CrowdStrike
+APR ’26
+
++24%
+
+ENDING ARR
+
+Recovery, not category breadth
+
+CrowdStrike
+Cisco Security
+FY26
+
++2%
+
+FY2026 SECURITY REVENUE
+
+Annual print. Q4 +14% · Splunk embedded
+
+Cisco
+Tines
+FEB ’25
+
+$1.125B
+
+PRIVATE VALUATION
+
+Series C $125M · workflow / SOAR-adjacent
+
+Tines
+Palo Alto XSIAM
+Q3 FY26
+
++100%
+
+SEGMENT ARR YOY
+
+>$600M ARR · 740 customers
+
+Palo Alto Networks
+Torq
+JAN ’26
+
+$1.2B
+
+PRIVATE VALUATION
+
+Series D $140M · not ARR
+
+Torq
+AI runtime
+1 print · 10 covered · 3 borrowed
+Zenity
+AUG ’26
+
+$125M
+
+SERIES C
+
+Agent governance · on Activity board
+
+Zenity
+Onyx
+JUL ’26
+
+$113M
+
+SERIES B
+
+Agent control plane · on Activity board
+
+Onyx Security
+WitnessAI
+JAN ’26
+
+$58M
+
+STRATEGIC ROUND
+
++500% ARR (company-stated) · not audited
+
+WitnessAI
+Lakera
+SEP ’25
+
+Undisclosed
+
+CHECK POINT DEAL
+
+Agreement announced · terms not disclosed
+
+Check Point & Lakera
+Protect AI
+Closed
+
+$634.5M
+
+INSIDE PALO ALTO
+
+Jul 2025 close · revenue not material in the filing
+
+Palo Alto Networks
+CalypsoAI
+Closed
+
+$145.2M
+
+INSIDE F5
+
+Sep 2025 close · revenue not material in the filing
+
+F5
+SurePath AI
+Closed
+
+$50.1M
+
+INSIDE F5
+
+Jun 2026 close · $39.1M of it goodwill
+
+F5
+Palo Alto Prisma AIRS
+Q3 FY26
+
+300+
+
+CUSTOMER COUNT
+
+also counted under Cloud security
+
+Up from 100 at Q2 · adoption, not ARR
+
+Palo Alto Networks
+Oak
+JUL ’26
+
+$60M
+
+SEED ROUND
+
+also counted under Identity
+
+AI-native identity OS · capital, not spend
+
+Oak
+Hush Security
+JUL ’26
+
+$30M
+
+SERIES A
+
+also counted under Identity
+
+Akamai strategic · on Activity board
+
+Hush Security
+Platform
+2 prints · 2 covered
+Palo Alto
+APR ’26
+
++14%
+
+ORGANIC REVENUE
+
+Headline +31% includes CyberArk and Chronosphere
+
+Palo Alto Networks
+Cisco
+JUL ’26
+
+Split
+
+NETWORKING + SECURITY + SPLUNK
+
+FY security +2% is the SecOps card. Q4 networking orders +40% is Infrastructure.
+
+Cisco
+Infrastructure
+3 prints · 3 covered
+NVIDIA
+APR ’26
+
++92%
+
+DATA CENTER REVENUE
+
+$75.25B · FY27 Q1, mapped to 2026-Q1 on the panel
+
+NVIDIA
+Arista
+JUN ’26
+
++38%
+
+REVENUE
+
+$3.04B
+
+Arista Networks
+Cisco
+JUL ’26
+
++40%
+
+Q4 NETWORKING ORDERS
+
+FY AI infra orders $9.3B
+
+Cisco
+Tracked hypotheses
+
+STATED IN ADVANCE · SCORED AGAINST EVIDENCE, NOT OPINION
+
+NO-CALL
+
+Infrastructure spend leads security spend by a stable 0 to 8 quarters
+
+Needs two mature buildout impulses. This window has one.
+
+JUDGED 15 AUG 2026 · JESSE PIKE
+
+SEC-MARKET-SIG-BL-002, NVIDIA, IANS Research
+NO-CALL
+
+AI adoption compresses that lag
+
+No series exists to test it against yet.
+
+JUDGED 15 AUG 2026 · JESSE PIKE
+
+SEC-MARKET-SIG-BL-002
+TRACKING
+
+Platforms absorb adjacent security categories rather than compete with them
+
+Wiz in Cloud, CyberArk in Identity, Protect AI in AI runtime, CalypsoAI in AI runtime and SurePath AI in AI runtime
+
+JUDGED 17 AUG 2026 · JESSE PIKE
+
+Google, Alphabet +2
+TRACKING
+
+Incumbents that cannot pivot lose ground to challengers inside their own motion
+
+Cato Networks and Netskope against Zscaler organic is the first test.
+
+JUDGED 17 AUG 2026 · JESSE PIKE
+
+Zscaler, Cato Networks, Netskope
+
+STANDING ANALYSIS
+
+Does security spending lag infrastructure spending?
+
+Infrastructure is running ahead. Security is splitting, not booming.
+
+JUDGED 19 SEP 2026 · JESSE PIKE
+
+Read the analysis and its record
+
+What moved: edition delta
+What moved
+
+WINDOW · 11 AUG–17 AUG 2026
+
+TRACKED · PUBLIC PRINTS, NO JUDGMENT APPLIED
+
+PRINT
+
+Cato Networks at +43% and Netskope at +31% are printing faster in the same category.
+
+Zscaler
+CAPITAL
+
+Oak raised $60M, Hush Security raised $30M. Capital heat, not disclosed revenue.
+
+Oak & Hush Security
+M&A
+
+No new closed transaction in the window. Palo Alto · $634.5M · closed Jul 2025 and F5 · $145.2M · closed Sep 2025 and Palo Alto · $25B · closed Feb 2026 and Google · $32B · closed Mar 2026 and F5 · $50.1M · closed Jun 2026. Neither is this month's demand signal.
+
+Palo Alto Networks, F5 +3
+
+JUDGED · A PERSON SIGNED THIS · 17 AUG 2026 · JESSE PIKE
+
+HELD
+
+All 4 postures unchanged.
+
+Edition delta
+WHY
+
+One strong print is a card. A domain posture needs more than one company and a reason the motion is not just share shift or M&A.
+
+Method · breadth rule
+
+A quiet week is reported as a quiet week. Nothing is invented to fill the space.
+
+Domain tempo and M&A activity
+Tempo
+
+Each domain has a dated posture, a horizon, and the evidence that produced it. Tag will not exceed the Episode 002 posture.
+
+Confidence: MEDIUM across every landscape domain.
+
+Since 17 August 2026
+
+No posture moved. The AI runtime rationale is now carried by filings rather than by funding rounds.
+
+What changed in this edition versus the prior published edition
+SURFACE	THIS EDITION	VS LAST
+Prints	AI runtime gains three absorbed-close prints: Protect AI, CalypsoAI and SurePath AI.	MOVED
+Activity	Three M&A closes added to the AI runtime board — two background, one at more.	MOVED
+Evidence	Five FILING-class records (D32–D36) added from SEC filings on the three closes and the CyberArk deregistration.	NEW
+Network / SASE	Unchanged.	HELD
+Data / AI Security	Unchanged.	HELD
+Cloud Security	Unchanged.	HELD
+Identity	Unchanged.	HELD
+SecOps	Unchanged.	HELD
+AI Runtime	Unchanged.	HELD
+Security domain tempo: dated posture, horizon, and recommended action
+DOMAIN	AS OF	HORIZON	DO
+Network / SASE	16 Aug 2026	This quarter	PREPARE
+
+
+Refresh is live. Cato and Netskope are growing faster than Zscaler organic. That is a split, not a new SASE wave.
+
+PRODUCED BY
+
+Fortinet, Zscaler +4
+
+TENSION
+
+Check Point & Cisco
+
+Data / AI Security	16 Aug 2026	This planning cycle	PREPARE
+
+
+Public data vendors are up. DSPM names are capital and M&A, not a broad spend series.
+
+PRODUCED BY
+
+Rubrik, Varonis +10
+
+TENSION
+
+IANS Research
+
+Cloud Security	16 Aug 2026	Next 1–4 quarters	WATCH
+
+
+CrowdStrike cloud segment is real. CNAPP names show 2026 GTM or last disclosed equity — not a clean category ARR series.
+
+PRODUCED BY
+
+Alphabet, Mandiant +6
+
+TENSION
+
+IANS Research
+
+Identity	16 Aug 2026	Next 1–4 quarters	WATCH
+
+
+IGA is up. Mega-seed and strategic rounds are capital heat in agentic identity — not buyer spend yet.
+
+PRODUCED BY
+
+SailPoint, Palo Alto Networks +11
+
+TENSION
+
+Okta, Ping Identity +2
+
+SecOps	16 Aug 2026	Next 1–4 quarters	WATCH
+
+
+Public XDR and XSIAM segments are healthy. SOAR capital (Torq, Tines) is scale-up, not a new cycle.
+
+PRODUCED BY
+
+SentinelOne, CrowdStrike +5
+
+TENSION
+
+Check Point & Cisco
+
+AI Runtime	16 Aug 2026	Next 1–4 quarters	WATCH
+
+
+Platforms are paying disclosed prices for AI security companies whose revenue the filings call immaterial. Acquisition is running ahead of any visible buyer spend.
+
+HELD Posture held. The evidence under AI runtime changed class, from funding announcements to audited SEC filings: three more platform closes, each priced, each with revenue the filing calls immaterial. Buyer spend is still not visible — a purchase price is not a spend series.
+
+PRODUCED BY
+
+Zenity, Onyx Security +7
+
+TENSION
+
+IANS Research
+
+Activity below is the pre-issue window (RoS) — going forward each issue's "New companies and funding" and "Acquisitions and consolidation" lanes carry this account.
+
+M&A and startups
+
+Window: Jul 6 – Aug 10, 2026. Platforms that bought identity are now seeding and buying agent control. Agent governance funded at every stage in one window; capital heat runs ahead of disclosed revenue. First disclosed agentic-identity revenue is the falsifier.
+
+Zenity raised $115M Series C (+ $10M secondary)
+$115M + $10M
+Aug 3, 2026
+
+NORWEST · AI RUNTIME
+
+Series C. Some outlets report $125M total — primary plus secondary, not a conflict. Valuation is not ARR.
+
+Zenity
+Oak raised $60M seed
+$60M
+Jul 15, 2026
+
+ACCEL, CRV, GREYLOCK · IDENTITY
+
+Mega-seed for AI-native identity OS. Capital, not buyer spend.
+
+Oak
+Hush raised $30M with Akamai strategic
+$30M
+Jul 28, 2026
+
+AKAMAI, BATTERY, YL VENTURES · IDENTITY
+
+Series A. Akamai joined as strategic investor — cap table is the story.
+
+Hush Security
+Cyera to acquire Oasis Security
+~$1B
+Jul 28, 2026
+
+CYERA · DATA / IDENTITY
+
+LOI, not close. Cyera raised $600M weeks earlier — raise-then-acquirer. Capital, not ARR.
+
+Cyera & SecurityWeek
+Onyx raised $113M
+$113M
+Jul 29, 2026
+
+BESSEMER · AI RUNTIME
+
+Series B. Agent control plane. Company-stated revenue growth is not a public ARR series.
+
+Onyx Security
+More in this window (13)
+Horizon3.ai raised $250M Series E
+$250M
+Aug 3, 2026
+
+NIGHTDRAGON, NEA · EXPOSURE
+
+Autonomous pentest scale-up. Not a lead — mature-category check.
+
+Return on Security
+CrowdStrike fund backed Above Security
+Undisclosed
+Aug 3, 2026
+
+CROWDSTRIKE FALCON FUND · AI RUNTIME
+
+Agent-driven insider threat. Strategic fund signal; amount undisclosed.
+
+Return on Security
+Glow emerged with $180M
+$180M
+Jul 22, 2026
+
+SEQUOIA, CYBERSTARTS · ENDPOINT
+
+Company PR: $180M at launch. Source does not label a round type.
+
+Glow
+Cathedral raised $160M
+$160M
+Jul 20, 2026
+
+A16Z, SEQUOIA · EXPOSURE
+
+Defense-tech: autonomous red team for military cyber operations. Different audience than enterprise agent governance.
+
+Return on Security
+Neo launched with $100M
+$100M
+Jul 20, 2026
+
+A16Z, BESSEMER · AI RUNTIME
+
+Company PR: $100M at emergence. RoS listed $75M Series A — priced round vs total at launch.
+
+Neo Security
+Cisco invested in Zafran
+Undisclosed
+Jul 20, 2026
+
+CISCO INVESTMENTS · EXPOSURE
+
+Strategic round in exposure/risk prioritization. Amount undisclosed.
+
+Return on Security
+Arcade just appeared (Series A 2026)
+Undisclosed
+Jul 1, 2026
+
+SYN VENTURES · AI RUNTIME
+
+Secure action layer for production AI agents. SYN portfolio — round year 2026 only; no public amount or date.
+
+SYN Ventures
+CodeIntegrity just appeared (Seed 2026)
+Undisclosed
+Jul 1, 2026
+
+SYN VENTURES · AI RUNTIME
+
+Runtime control layer for AI agents. SYN portfolio — round year 2026 only; no public amount or date.
+
+SYN Ventures
+Cisco completed Astrix
+Undisclosed
+Jun 29, 2026
+
+CISCO · IDENTITY
+
+NHI / agent identity into Cisco Identity Intelligence. Cisco did not disclose terms.
+
+Cisco
+F5 closed SurePath AI
+$50.1M
+Jun 15, 2026
+
+F5 · AI RUNTIME
+
+$39.1M of the price is goodwill.
+
+F5
+Cyera raised $600M at $12B
+$600M / $12B
+Jun 10, 2026
+
+EVOLUTION EQUITY · DATA
+
+Series G. Context for Oasis lead row. Valuation is not ARR.
+
+Cyera
+Palo Alto closed Portkey
+Undisclosed
+May 29, 2026
+
+PALO ALTO · AI RUNTIME
+
+AI gateway into Prisma AIRS. Control, not demand. Terms not disclosed.
+
+Palo Alto Networks
+Zscaler intends Symmetry Systems
+Intent
+May 21, 2026
+
+ZSCALER · DATA / IDENTITY
+
+Intent, not close. Access graph to govern agent-to-data communication. Terms not disclosed.
+
+Zscaler
+Background — last disclosed raises (6)
+Google closed Wiz
+$32B
+Mar 11, 2026
+
+GOOGLE · CLOUD
+
+Closed. Announced Mar 2025. Capital, not customer spend.
+
+Google & Alphabet
+Palo Alto closed CyberArk
+$25B
+Feb 11, 2026
+
+PALO ALTO · IDENTITY
+
+Closed. Identity becomes a PANW platform pillar.
+
+Palo Alto Networks
+F5 closed CalypsoAI
+$145.2M
+Sep 26, 2025
+
+F5 · AI RUNTIME
+
+Closed. Revenue not material in the filing.
+
+F5
+Palo Alto closed Protect AI
+$634.5M
+Jul 22, 2025
+
+PALO ALTO · AI RUNTIME
+
+Closed. Revenue not material in the filing.
+
+Palo Alto Networks
+Lumos last disclosed $35M Series B
+$35M
+May 23, 2024
+
+SCALE VP · IDENTITY
+
+Last disclosed raise. Mar 2026 agent-identity product launch is not a new capital print.
+
+Lumos / Business Wire & Lumos / PR Newswire
+Secuvy last disclosed seed
+Seed
+Mar 10, 2023
+
+DELL CAPITAL · DATA
+
+Last disclosed raise. 2026 partner listings only. Do not invent ARR.
+
+Secuvy / Business Wire & Secuvy
+Market layers
+Market layers
+
+Panel window 2023-Q1 through 2026-Q1 (2023-Q1 = 100). Later JUL ’26 scorecard prints are not on these charts. Fiscal quarters are mapped into calendar buckets — NVIDIA FY27 Q1 ended 2026-04-26 sits in 2026-Q1. Descriptive sequence only, not a fitted lag.
+
+All three charts use the same log-scale index axis (50–1800; 2023-Q1 = 100) so proportional differences are visually honest — e.g. infrastructure near 18× vs. security near 2×.
+
+Infrastructure
+NVIDIA Data Center revenue
+2023-Q1
+2023-Q3
+2024-Q1
+2024-Q3
+2025-Q1
+2026-Q1
+60
+100
+300
+600
+1000
+Index (log)
+Hyperscaler capex
+Median of Microsoft, Amazon, Alphabet
+2023-Q1
+2023-Q3
+2024-Q1
+2024-Q3
+2025-Q1
+2026-Q1
+60
+100
+300
+600
+1000
+Index (log)
+Security vendors
+Median of CRWD, OKTA, FTNT, ZS, CHKP
+2023-Q1
+2023-Q3
+2024-Q1
+2024-Q3
+2025-Q1
+2026-Q1
+60
+100
+300
+600
+1000
+Index (log)
+Buyer budgets (annual)
+IANS average security-budget growth and security share of IT — separate from quarterly panel
+Avg. security-budget growthSecurity share of IT
+2023
+2024
+2025
+0
+4
+8
+14
+Percent
+IANS Research
+View data table (accessible alternative)
+Derived panel indices by quarter (2023-Q1 = 100)
+Quarter	NVIDIA DC	MSFT	AMZN	GOOG	Hyperscaler median	CRWD	OKTA	FTNT	ZS	CHKP	Security median
+2023-Q1	100.0	100.0	100.0	100.0	100.0	100.0	100.0	100.0	100.0	100.0	100.0
+2023-Q2	241.1	135.2	80.6	109.5	109.5	105.6	107.3	102.4	108.6	104.1	105.6
+2023-Q3	339.0	150.1	87.8	128.1	128.1	113.5	112.7	105.7	118.6	105.3	112.7
+2023-Q4	429.9	147.4	102.7	175.2	147.4	122.0	116.8	112.1	125.4	117.3	117.3
+2024-Q1	527.1	165.7	105.1	190.9	165.7	133.0	119.1	107.2	132.1	105.8	119.1
+2024-Q2	613.8	209.8	124.0	209.7	209.7	139.2	124.7	113.6	141.6	110.8	124.7
+2024-Q3	718.9	225.7	159.2	207.6	207.6	145.9	128.4	119.5	150.0	112.2	128.4
+2024-Q4	831.3	239.0	195.8	227.0	227.0	152.9	131.7	131.5	154.7	124.4	131.7
+2025-Q1	913.8	253.4	176.1	273.4	253.4	159.3	132.8	122.0	161.9	112.7	132.8
+2025-Q2	960.3	258.4	226.5	356.9	258.4	168.8	140.5	129.1	171.7	117.5	140.5
+2025-Q3	1196.7	293.3	247.0	380.8	293.3	178.2	143.2	—	—	119.8	143.2
+2025-Q4	1455.8	452.0	278.1	442.8	442.8	188.4	146.9	150.9	—	131.6	148.9
+2026-Q1	1758.2	467.2	311.0	567.1	467.2	200.1	147.7	—	203.1	118.0	173.9
+
+Panel window is calendar 2023-Q1 through 2026-Q1. Later JUL ’26 scorecard prints are not on these charts. Company fiscal quarters are mapped into those calendar buckets — NVIDIA FY27 Q1 (ended 2026-04-26) sits in 2026-Q1. All three charts share the same log-scale index axis (50–1800; 2023-Q1 = 100). Infrastructure: NVIDIA Data Center revenue. Hyperscaler: median indexed Microsoft, Amazon, and Alphabet quarterly cash capex (not additive). Security: median indexed CrowdStrike, Okta, Fortinet, Zscaler, and Check Point revenue where reported. Gaps remain null — no interpolation.
+
+Chart sources
+Watch next
+Watch next
+
+What would change the read before the next freeze.
+
+NEXT IANS PUBLICATION
+
+2026 security-budget growth and share of IT
+
+The +4% / 10.9% hero numbers are the 2025 IANS print (published August 2025). A 2026 edition is the first buyer-budget falsifier.
+
+NEXT 60 DAYS
+
+Palo Alto Q4 FY26 — first full CyberArk quarter
+
+Separates organic platform demand from acquired identity revenue.
+
+NEXT PRINT
+
+Fortinet product-revenue follow-through
+
+Tells refresh spike vs architectural rotation toward converged appliance.
+
+NEXT PRINT
+
+Zscaler FY27 ARR guide
+
+Tests whether SASE deceleration is company-specific or category-wide.
+
+ANY HYPERSCALER PRINT
+
+A 2027 capex guidance cut
+
+Largest threat to the infrastructure-lead story. Would change the call.
+
+OPEN
+
+Any vendor disclosing agentic-identity revenue
+
+First disclosed number defines whether the category is real spend or product naming.
+
+How this is built
+How this is built
+
+Public sources only. This edition is the Episode 002 packet (SEC-MARKET-SIG-002 v0.2) plus an August 2026 surface refresh — SentinelOne, SailPoint, identity coverage names, and 2026 capital events — updated September 20, 2026. Each domain posture is dated, with a horizon and the evidence that produced it. This edition shows what held or moved versus the one before. Not a live feed. Every number links to a source excerpt and its limits.
+
+How editions age
+
+Current prints stay on the scorecard. Older still-true context collapses to Background. Superseded prints leave the card and stay in evidence. Acquired vendors keep their last independent print — we do not rewrite them into the buyer. Domain postures keep the date they were set; the next edition shows what held or moved. Tracked figures are updated as companies report. A signed read is published most weeks.
+
+Signals we use
+Signal families used in this analysis, with examples and how each is treated
+SIGNAL	EXAMPLES	WE TREAT IT AS
+Infrastructure prints	NVIDIA Data Center, Cisco orders, Arista, Dell, Vertiv	Supply and buildout. The lead layer.
+We do not. Proof that security budgets will follow.
+Hyperscaler capex	Microsoft, Amazon, Alphabet cash investment	Demand for capacity. Market condition, not a vendor score.
+We do not. A security-spending forecast.
+Security vendor prints	Fortinet, SentinelOne, CrowdStrike, Rubrik, Varonis, SailPoint, Okta, Palo Alto, Cisco	Realized category motion — after stripping acquisitions.
+We do not. A boom from one headline growth rate.
+Buyer budgets	IANS security-budget growth and share of IT	The best check on whether customers actually spent.
+We do not. Vendor guidance dressed up as demand.
+Buyer intent	ETR planned increases, McKinsey AI-use surveys	Direction of attention. Useful, early, weak.
+We do not. Bookings or a category call.
+Capital and M&A	Wiz, CyberArk, Portkey, Astrix, Symmetry, Cyera, Onyx, Lumos	Where incumbents are placing bets.
+We do not. Customer spend. A $32B deal is not a demand series.
+Forcing events	DORA, SEC cyber rule, incidents, insurance hygiene	Reasons spend can move on a different clock than infra.
+We do not. A product-revenue print.
+How we turn that into a call
+
+1
+
+Separate the fact from the story
+
+Keep the excerpt, date, period, and metric definition. Interpretation sits next to it, not on top of it.
+
+2
+
+Do not collapse signal types
+
+Realized revenue, organic growth, guidance, intent, funding, and acquisitions stay in different buckets.
+
+3
+
+Need breadth before a domain call
+
+One strong print is a card. A domain posture needs more than one company and a reason the motion is not just share shift or M&A.
+
+4
+
+Refuse the lag if the window cannot support it
+
+A stable infra-to-security lag needs two mature buildout impulses and a comparable security response. This window has one mature impulse. That is a no-call, not a guessed number of quarters.
+
+5
+
+Action follows exposure, not the composite
+
+PREPARE only where the account has a matching live motion. A split market is not a license for a broad campaign, and this episode does not authorize RUN.
+
+6
+
+Age the edition; do not pretend it is live
+
+Keep the latest comparable print on the card. Demote still-true context. Leave superseded prints in evidence. Freeze acquired entities. Refresh on earnings, material capital events, and falsifiers — not on a news clock.
+
+7
+
+Date the posture; show the delta
+
+Every domain posture carries the date it was set, the horizon it governs, and the evidence that produced it. Each edition states what held or moved versus the prior edition. Do not overwrite the last state.
+
+Research & evidence
+Research & evidence library
+
+Search the Episode 002 packet and the August 2026 surface refresh. Click any row to inspect full attribution.
+
+Search evidence
+Source class
+All classes
+FILING
+INDEPENDENT
+IR
+OFFICIAL
+OWN_ANALYSIS
+TRANSCRIPT
+VENDOR-RESEARCH
+
+100 sources
+
+NVIDIA Q1 FY24 Financial Results
+NVIDIA
+IR
+2023-05-24
+NVIDIA Q1 FY27 Financial Results
+NVIDIA
+FILING
+2026-05-20
+Cisco Q4 and FY2026 Earnings
+Cisco
+IR
+2026-08-12
+Arista Networks Financial Results
+Arista Networks
+IR
+2026-08-04
+Dell Q1 FY27 Financial Results
+Dell Technologies
+IR
+2026-05-28
+Vertiv Q4 2025 and Q2 2026 Results
+Vertiv
+FILING
+2026-07-29
+Broadcom Q1–Q2 FY26 Financial Results
+Broadcom
+IR
+2026-06-03
+Microsoft FY2026 Q4 Earnings
+Microsoft
+IR
+2026-07-29
+Amazon Q2 2026 Results
+Amazon
+IR
+2026-07-30
+Alphabet Q2 2026 Results
+Alphabet
+FILING
+2026-07-22
+Meta Q2 2026 Results
+Meta
+IR
+2026-07-29
+Oracle FY2026 Results
+Oracle
+IR
+2026-06-10
+CrowdStrike Q1 FY27 Results
+CrowdStrike
+FILING
+2026-06-03
+Palo Alto Networks Q3 FY26 Results
+Palo Alto Networks
+FILING
+2026-06-02
+Fortinet Q2 2026 Results
+Fortinet
+IR
+2026-07-29
+Zscaler Q3 FY26 Results
+Zscaler
+FILING
+2026-05-26
+Cloudflare Q2 2026 Results
+Cloudflare
+IR
+2026-08-06
+Check Point Q2 2026 Results
+Check Point
+IR
+2026-07-30
+Cisco Security Q4 and FY2026 Results
+Cisco
+IR
+2026-08-12
+Okta Q1 FY27 Results
+Okta
+FILING
+2026-05-28
+Rubrik Q1 FY27 Results
+Rubrik
+IR
+2026-06-04
+Varonis Q2 2026 Results
+Varonis
+FILING
+2026-07-28
+IANS Security Budget Benchmark (2023–2025)
+IANS Research
+INDEPENDENT
+2025-08-05
+ETR Enterprise Security Priorities 2026
+Enterprise Technology Research
+INDEPENDENT
+2026-04-29
+McKinsey State of AI 2025
+McKinsey & Company
+INDEPENDENT
+2025-11
+ISC2 Cybersecurity Workforce Study 2024
+(ISC)²
+INDEPENDENT
+2024-09-11
+Alphabet / Wiz Acquisition 8-K
+Alphabet
+FILING
+2025-03-18
+Palo Alto / CyberArk Acquisition 8-K
+Palo Alto Networks
+FILING
+2025-07-30
+SEC Cyber Disclosure Rule / DORA / Marsh Cyber Insurance Update
+SEC / EIOPA / Marsh
+OFFICIAL
+2023-07-26
+Snowflake and DeepSeek Incident Research
+Mandiant / Wiz
+VENDOR-RESEARCH
+2024-06
+Lag Hypothesis Disposition — Episode 002 Baseline
+SEC-MARKET-SIG-BL-002
+OWN_ANALYSIS
+2026-08-15
+SentinelOne Q1 FY27 Results
+SentinelOne
+IR
+2026-05-28
+SailPoint FY2026 Results
+SailPoint
+FILING
+2026-03-18
+Cyera Series G announcement
+Cyera
+IR
+2026-06-10
+Secuvy funding and 2026 positioning
+Secuvy
+IR
+2023-03-10
+Lumos Series B and 2026 identity-agent launch
+Lumos
+IR
+2024-05-23
+Microsoft FY2026 Q4 — Entra not disclosed separately
+Microsoft
+FILING
+2026-07-29
+Ping, BeyondTrust, and Delinea — private identity platforms
+Ping Identity / BeyondTrust / Delinea
+IR
+2026-08-16
+Google completes Wiz acquisition
+Google
+IR
+2026-03-11
+Palo Alto Networks completes CyberArk acquisition
+Palo Alto Networks
+IR
+2026-02-11
+Palo Alto Networks completes Portkey acquisition
+Palo Alto Networks
+IR
+2026-05-29
+Cisco completes Astrix Security acquisition
+Cisco
+IR
+2026-06-29
+Zscaler announces intent to acquire Symmetry Systems
+Zscaler
+IR
+2026-05-21
+Onyx Security raises $113M Series B
+Onyx Security
+IR
+2026-07-29
+Zenity Series C funding announcement
+Zenity
+IR
+2026-08-03
+Oak seed funding announcement
+Oak
+IR
+2026-07-15
+Hush Security Series A with Akamai strategic
+Hush Security
+IR
+2026-07-28
+Cyera agreement to acquire Oasis Security
+Cyera / SecurityWeek
+INDEPENDENT
+2026-07-28
+Cathedral venture round
+Return on Security
+INDEPENDENT
+2026-07-27
+Glow emergence funding announcement
+Glow
+IR
+2026-07-22
+Neo launch funding announcement
+Neo Security
+IR
+2026-07-20
+Horizon3.ai Series E
+Return on Security
+INDEPENDENT
+2026-08-10
+SYN Ventures 2026 agent-runtime portfolio
+SYN Ventures
+IR
+2026-08-16
+Zafran Security strategic round from Cisco Investments
+Return on Security
+INDEPENDENT
+2026-07-27
+Above Security venture round from CrowdStrike Falcon Fund
+Return on Security
+INDEPENDENT
+2026-08-03
+Cato Networks 2025 ARR milestone
+Cato Networks
+IR
+2026-02-24
+Netskope FY2026 Results
+Netskope
+IR
+2026-03-11
+CrowdStrike Q4 FY2026 Results — Falcon Cloud segment
+CrowdStrike
+IR
+2026-03-03
+Upwind Series B funding announcement
+Upwind
+INDEPENDENT
+2026-01-26
+Torq Series D funding announcement
+Torq
+IR
+2026-01-12
+BigID revenue milestone
+BigID
+IR
+2025-05-16
+Sentra Series B funding announcement
+Sentra
+IR
+2025-04-22
+Veeam completes acquisition of Securiti AI
+Veeam / Securiti
+IR
+2025-12-11
+Orca Security TD SYNNEX distribution partnership
+Orca Security
+IR
+2026-04-13
+Orca Security Series C extension
+Orca Security
+IR
+2021-10-05
+Aqua Security Series E extension
+Aqua Security
+IR
+2024-01-03
+WitnessAI strategic funding announcement
+WitnessAI
+IR
+2026-01-13
+Tines Series C funding announcement
+Tines
+IR
+2025-02-11
+Check Point agreement to acquire Lakera
+Check Point / Lakera
+IR
+2025-09-16
+ServiceNow acquisition of Veza
+ServiceNow
+IR
+2025-12-02
+Palo Alto Networks Prisma AIRS customer count
+Palo Alto Networks
+TRANSCRIPT
+2026-06-02
+Palo Alto Networks XSIAM ARR
+Palo Alto Networks
+TRANSCRIPT
+2026-06-02
+Palo Alto Networks acquisition of Protect AI — price and allocation
+Palo Alto Networks
+FILING
+2025-08-29
+Palo Alto Networks FY2025 acquisitions immateriality statement
+Palo Alto Networks
+FILING
+2025-08-29
+F5 acquisition of CalypsoAI — close, price, allocation and immateriality
+F5
+FILING
+2026-08-06
+F5 acquisition of SurePath AI — close, price and immateriality
+F5
+FILING
+2026-08-06
+CyberArk Software Ltd. Form 15-12G — deregistration
+CyberArk Software Ltd.
+FILING
+2026-02-23
+Socure Series E funding announcement
+Return on Security
+INDEPENDENT
+2026-08-24
+KAZIMI Pre-Seed funding announcement
+Return on Security
+INDEPENDENT
+2026-08-24
+CYBERA Venture Round funding announcement
+Return on Security
+INDEPENDENT
+2026-08-24
+Opgate Pre-Seed funding announcement
+Return on Security
+INDEPENDENT
+2026-08-24
+DetectifAI Seed funding announcement
+Return on Security
+INDEPENDENT
+2026-08-24
+HiddenLayer Series B funding announcement
+HiddenLayer
+INDEPENDENT
+2026-09-03
+AIR Security stealth-exit funding announcement
+AIR Security
+INDEPENDENT
+2026-09-03
+Palo Alto Networks reported acquisition of Console
+Palo Alto Networks / TechCrunch
+INDEPENDENT
+2026-09-02
+ePlus acquisition of Daymark Solutions
+Return on Security
+INDEPENDENT
+2026-08-24
+Echo acquisition of Minimus (formerly Gutsy)
+Return on Security
+INDEPENDENT
+2026-08-24
+Ampcus acquisition of smarterd
+Return on Security
+INDEPENDENT
+2026-08-24
+Trace3 acquisition of Calian's U.S. Commercial IT Business
+Return on Security
+INDEPENDENT
+2026-08-24
+Integrity360 acquisition of CyberIAM
+Return on Security
+INDEPENDENT
+2026-08-24
+CrowdStrike Q2 FY2027 Financial Results
+CrowdStrike
+FILING
+2026-08-26
+Zscaler Announces Strong Fourth Quarter and Fiscal 2026 Financial Results
+Zscaler
+FILING
+2026-09-03
+SentinelOne Announces Second Quarter Fiscal Year 2027 Financial Results
+SentinelOne
+FILING
+2026-08-27
+Okta Announces Second Quarter Fiscal Year 2027 Financial Results
+Okta
+FILING
+2026-08-26
+Rubrik Reports Second Quarter Fiscal Year 2027 Financial Results
+Rubrik
+FILING
+2026-08-27
+Palo Alto Networks Reports Fiscal Fourth Quarter and Fiscal Year 2026 Financial Results
+Palo Alto Networks
+FILING
+2026-09-01
+Broadcom Inc. Announces Third Quarter Fiscal Year 2026 Financial Results and Quarterly Dividend
+Broadcom
+FILING
+2026-09-02
+Nutanix Reports Fourth Quarter and Fiscal 2026 Financial Results
+Nutanix
+FILING
+2026-08-26
+NVIDIA Announces Financial Results for Second Quarter Fiscal 2027
+NVIDIA
+FILING
+2026-08-26
+FY27 Segments and Investor Metrics — September 2026
+Microsoft
+FILING
+2026-09-02
+
+Frozen from SEC-MARKET-SIG-002 v0.2 (2026-08-15T19:03:08-07:00). Public sources only. Not investment advice. See How this is built.
+
+Data: issue index · newest issue · publication ledger
+
+HOW A POSTURE IS SET
+
+One strong print is a card. A domain posture needs more than one company and a reason the motion is not just share shift or M&A.
+
+STANDING ANALYSIS
+READ THE METHOD
+OPEN THE EVIDENCE LIBRARY
+SEND A CORRECTION
+
+CORRECTIONS
+
+If a figure is wrong, send it
+
+Corrections and counter-evidence are more useful than agreement. If a print is wrong, a source has been superseded, or a read goes further than the evidence does, that is worth an email. There is no form, and every correction that gets published is listed at /corrections/.
+
+Send a correction or a question
+
+Jesse Pike · jesse@keatingpike.com
+
+0

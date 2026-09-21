@@ -1,0 +1,165 @@
+{
+  "disclosures": {
+    "total": 41,
+    "open": 8
+  },
+  "words": {
+    "visibleWordCount": 3314,
+    "totalWordCountIncludingClosedDisclosures": 5425
+  },
+  "headings": {
+    "totalHeadings": 110,
+    "emptyHeadings": [],
+    "levelSkips": []
+  },
+  "targetSize": {
+    "totalElements": 266,
+    "eligibleElements": 256,
+    "excludedInlineInSentence": 10,
+    "smallCount": 3,
+    "tenSmallest": [
+      {
+        "tag": "A",
+        "selector": "section#prints-this-week > ul.issue-lane__list:nth-child(2) > li.issue-lane__item:nth-child(2) > div.issue-lane__correction:nth-child(4) > p.issue-lane__correction-link:nth-child(3) > a:nth-child(1)",
+        "width": 85,
+        "height": 17,
+        "inlineInSentence": false,
+        "text": "See correction"
+      },
+      {
+        "tag": "A",
+        "selector": "section#prints-this-week > ul.issue-lane__list:nth-child(2) > li.issue-lane__item:nth-child(6) > div.issue-lane__correction:nth-child(4) > p.issue-lane__correction-link:nth-child(4) > a:nth-child(1)",
+        "width": 85,
+        "height": 17,
+        "inlineInSentence": false,
+        "text": "See correction"
+      },
+      {
+        "tag": "A",
+        "selector": "section#read > p.thesis-pointer__link:nth-child(5) > a:nth-child(1)",
+        "width": 237,
+        "height": 20,
+        "inlineInSentence": false,
+        "text": "Read the analysis and its record"
+      }
+    ]
+  },
+  "reflow": {
+    "scrollWidth": 320,
+    "clientWidth": 320,
+    "horizontalScroll": false,
+    "overflowingCount": 40,
+    "overflowingSample": [
+      {
+        "selector": "section#domains > div.table-scroll:nth-child(3) > table.tempo-table:nth-child(1)",
+        "tag": "TABLE",
+        "left": 34,
+        "right": 346,
+        "width": 312
+      },
+      {
+        "selector": "section#domains > div.table-scroll:nth-child(3) > table.tempo-table:nth-child(1) > thead:nth-child(2)",
+        "tag": "THEAD",
+        "left": 34,
+        "right": 346,
+        "width": 312
+      },
+      {
+        "selector": "section#domains > div.table-scroll:nth-child(3) > table.tempo-table:nth-child(1) > thead:nth-child(2) > tr:nth-child(1)",
+        "tag": "TR",
+        "left": 34,
+        "right": 346,
+        "width": 312
+      },
+      {
+        "selector": "section#domains > div.table-scroll:nth-child(3) > table.tempo-table:nth-child(1) > thead:nth-child(2) > tr:nth-child(1) > th:nth-child(4)",
+        "tag": "TH",
+        "left": 258,
+        "right": 346,
+        "width": 88
+      },
+      {
+        "selector": "section#domains > div.table-scroll:nth-child(3) > table.tempo-table:nth-child(1) > tbody.tempo-block:nth-child(3)",
+        "tag": "TBODY",
+        "left": 34,
+        "right": 346,
+        "width": 312
+      },
+      {
+        "selector": "section#domains > div.table-scroll:nth-child(3) > table.tempo-table:nth-child(1) > tbody.tempo-block:nth-child(3) > tr:nth-child(1)",
+        "tag": "TR",
+        "left": 34,
+        "right": 346,
+        "width": 312
+      },
+      {
+        "selector": "section#domains > div.table-scroll:nth-child(3) > table.tempo-table:nth-child(1) > tbody.tempo-block:nth-child(3) > tr:nth-child(1) > td:nth-child(4)",
+        "tag": "TD",
+        "left": 258,
+        "right": 346,
+        "width": 88
+      },
+      {
+        "selector": "div.table-scroll:nth-child(3) > table.tempo-table:nth-child(1) > tbody.tempo-block:nth-child(3) > tr:nth-child(1) > td:nth-child(4) > span.tag.tag--prepare:nth-child(1)",
+        "tag": "SPAN",
+        "left": 270,
+        "right": 334,
+        "width": 64
+      },
+      {
+        "selector": "section#domains > div.table-scroll:nth-child(3) > table.tempo-table:nth-child(1) > tbody.tempo-block:nth-child(3) > tr.tempo-table__detail:nth-child(2)",
+        "tag": "TR",
+        "left": 34,
+        "right": 346,
+        "width": 312
+      },
+      {
+        "selector": "section#domains > div.table-scroll:nth-child(3) > table.tempo-table:nth-child(1) > tbody.tempo-block:nth-child(3) > tr.tempo-table__detail:nth-child(2) > td:nth-child(1)",
+        "tag": "TD",
+        "left": 34,
+        "right": 346,
+        "width": 312
+      }
+    ]
+  },
+  "contrast": {
+    "totalSmallTextNodes": 1291,
+    "failingCount": 0,
+    "failingNonTopBarCount": 0,
+    "failingTopBarCount": 0,
+    "fiveWorstNonTopBar": [],
+    "topBarSample": []
+  },
+  "position_1440x900": {
+    "docHeight": 15724,
+    "signedOffset": 2049,
+    "whatWeThinkOffset": 1792,
+    "infraOffset": 14258,
+    "totalLaneItems": 23,
+    "fullyVisibleInFirstViewport": 0,
+    "overviewTop": 338,
+    "overviewFirstTextTop": 352,
+    "signedPct": 13,
+    "whatWeThinkPct": 11.4,
+    "infraPct": 90.7,
+    "signedViewportHeights": 2.28,
+    "whatWeThinkViewportHeights": 1.99,
+    "infraViewportHeights": 15.84
+  },
+  "position_390x844": {
+    "docHeight": 18669,
+    "signedOffset": 3878,
+    "whatWeThinkOffset": 3370,
+    "infraOffset": 16890,
+    "totalLaneItems": 23,
+    "fullyVisibleInFirstViewport": 0,
+    "overviewTop": 493,
+    "overviewFirstTextTop": 506,
+    "signedPct": 20.8,
+    "whatWeThinkPct": 18.1,
+    "infraPct": 90.5,
+    "signedViewportHeights": 4.59,
+    "whatWeThinkViewportHeights": 3.99,
+    "infraViewportHeights": 20.01
+  }
+}
