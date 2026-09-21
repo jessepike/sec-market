@@ -26,10 +26,12 @@ apply a judgment, never publish.
 - Record "none found" and move on. An empty lane is an empty lane. Never invent.
 - At most eight items per lane. What you left out goes in the pull request body.
 - If a source fails three attempts, mark it unreadable and move on.
-- You write to exactly three files: `web/src/data/issues/<id>.ts` (new),
-  `web/src/data/issues/index.ts`, and `web/src/data/evidence.ts` (append only). You never edit
+- You write to exactly four files: `web/src/data/issues/<id>.ts` (new),
+  `web/src/data/issues/index.ts`, `web/src/data/evidence.ts` (append only), and
+  `web/src/data/prints.ts` (scorecard figures only — see §3 step 5). You never edit
   `intent.md`, `decisions.md`, `status.md`, `BACKLOG.md`, `web/src/data/domains.ts`,
-  `web/src/data/hypotheses.ts`, `web/src/data/market.ts`, `web/src/data/meta.ts`, or any existing
+  `web/src/data/hypotheses.ts`, `web/src/data/market.ts`, `web/src/data/meta.ts`,
+  `web/src/data/printsUnverified.ts`, `web/scripts/prints-unverified-baseline.json`, or any existing
   issue file.
 - You never push to `main` or `preview`. You push one branch, `issue/<id>`, and open one pull
   request against `preview`.
@@ -105,13 +107,24 @@ acquisition.
 3. Append the new issue to the array in `web/src/data/issues/index.ts`, last.
 4. From `web/`, run `npm install` if `node_modules` is absent, then `npm run verify:edition`,
    `npm run verify:panel`, `npm run verify:integrity`, `npm run verify:issue`, `npm run test:data`.
-   Record every exit code. Fix a failure in your three files if you can; never fix a failure by
+   Record every exit code. Fix a failure in your files if you can; never fix a failure by
    editing anything else.
+5. Scorecard figures (publish-path-spec.md §4.1, SEC-044/SEC-045). For every supplier print whose
+   company reported a new, evidenced figure inside this week's window, update the matching entry in
+   `web/src/data/prints.ts` — `period`, `value`, `metric`, `note`, `evidenceIds` — from the same
+   evidence you just wrote to `evidence.ts`. `tone` compares the supplier only against its own
+   previous figure on the same metric, nothing else — never against a peer, never against the
+   market. Then run `npm run verify:prints`; record its exit code. If it fails on a print you
+   touched, fix your `prints.ts` edit. Never touch `web/src/data/printsUnverified.ts` or
+   `web/scripts/prints-unverified-baseline.json` to make it pass — a print that cannot pass and
+   already existed before your edit is the owner's correction to make, not yours to hide.
+6. Going stale (publish-path-spec.md §4.2). Run `npm run report:stale` and keep its output
+   verbatim; it goes under "Going stale" in the pull request body.
 
 ## 4. Deliver
 
-1. `git checkout -b issue/<id>`; stage exactly the three files; commit as
-   `draft(issue): <id> gathered <today>`.
+1. `git checkout -b issue/<id>`; stage the three issue/evidence files plus `web/src/data/prints.ts`
+   when step 5 changed it; commit as `draft(issue): <id> gathered <today>`.
 2. Push the branch and open a pull request against `preview` titled `Issue <id> draft`. If a pull
    request cannot be opened from this environment, push the branch and put the full body below in
    your final message.
@@ -119,9 +132,11 @@ acquisition.
    - gate exit codes, failures first;
    - the one-line read you propose;
    - per lane, the item count and a one-line list;
+   - scorecard changes, each as old value, new value, and the source link, or "none this week";
    - proposed posture deltas as prose, or "none proposed";
    - sources you could not read and why;
    - what you left out and why;
+   - "Going stale", the verbatim output of `npm run report:stale`;
    - the exact commands you ran.
 4. If you could read zero sources, still open the pull request with that as the first line of the
    body, and end your run with a non-zero exit so it shows as failed.

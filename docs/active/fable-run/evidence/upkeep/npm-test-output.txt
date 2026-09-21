@@ -1,0 +1,1123 @@
+
+> web@0.0.0 test
+> npm run lint && npm run test:data && npm run build && npm run test:e2e
+
+
+> web@0.0.0 lint
+> oxlint
+
+Found 0 warnings and 0 errors.
+Finished in 25ms on 102 files with 104 rules using 17 threads.
+
+> web@0.0.0 test:data
+> tsx --test tests/landscape-data.test.ts tests/issue-data.test.ts tests/dist-fixtures.test.ts tests/html-escape.test.ts tests/market-picture.test.ts tests/corrections-data.test.ts tests/print-checks.test.ts tests/stale-report.test.ts
+
+TAP version 13
+# Subtest: corrections data
+    # Subtest: every correction id is unique
+    ok 1 - every correction id is unique
+      ---
+      duration_ms: 0.317542
+      type: 'test'
+      ...
+    # Subtest: every correction names an issue that exists
+    ok 2 - every correction names an issue that exists
+      ---
+      duration_ms: 0.064833
+      type: 'test'
+      ...
+    # Subtest: every corrected item id exists in that correction's issue
+    ok 3 - every corrected item id exists in that correction's issue
+      ---
+      duration_ms: 0.061375
+      type: 'test'
+      ...
+    # Subtest: every correction has a valid ISO date, not after LAST_UPDATED_ISO
+    ok 4 - every correction has a valid ISO date, not after LAST_UPDATED_ISO
+      ---
+      duration_ms: 0.083875
+      type: 'test'
+      ...
+    # Subtest: every correction has a non-empty approvedBy and text
+    ok 5 - every correction has a non-empty approvedBy and text
+      ---
+      duration_ms: 0.048708
+      type: 'test'
+      ...
+    # Subtest: every corrected reading has a non-empty headline and at least one evidence id
+    ok 6 - every corrected reading has a non-empty headline and at least one evidence id
+      ---
+      duration_ms: 0.053125
+      type: 'test'
+      ...
+    # Subtest: the real 2026-w36 correction covers the two known FY/quarter-mismatch items with the right evidence
+    ok 7 - the real 2026-w36 correction covers the two known FY/quarter-mismatch items with the right evidence
+      ---
+      duration_ms: 0.331876
+      type: 'test'
+      ...
+    1..7
+ok 1 - corrections data
+  ---
+  duration_ms: 1.426209
+  type: 'suite'
+  ...
+# Subtest: findFiscalPeriodMismatches — the gate (SEC-MARKET-FABLE-001 T6-13)
+    # Subtest: finds no uncorrected mismatch against the real, current issue and correction data
+    ok 1 - finds no uncorrected mismatch against the real, current issue and correction data
+      ---
+      duration_ms: 0.309834
+      type: 'test'
+      ...
+    # Subtest: flags an "FY" headline citing quarterly evidence, when uncorrected
+    ok 2 - flags an "FY" headline citing quarterly evidence, when uncorrected
+      ---
+      duration_ms: 0.123042
+      type: 'test'
+      ...
+    # Subtest: flags "fiscal year" / "full-year" / "full year" phrasing too
+    ok 3 - flags "fiscal year" / "full-year" / "full year" phrasing too
+      ---
+      duration_ms: 0.184959
+      type: 'test'
+      ...
+    # Subtest: does not flag an "FY" headline whose cited evidence is not quarterly
+    ok 4 - does not flag an "FY" headline whose cited evidence is not quarterly
+      ---
+      duration_ms: 0.049375
+      type: 'test'
+      ...
+    # Subtest: does not flag a headline with no fiscal-year/full-year language
+    ok 5 - does not flag a headline with no fiscal-year/full-year language
+      ---
+      duration_ms: 0.040625
+      type: 'test'
+      ...
+    # Subtest: is silenced by a correction covering the exact item, and re-flags if the correction is removed
+    ok 6 - is silenced by a correction covering the exact item, and re-flags if the correction is removed
+      ---
+      duration_ms: 0.046583
+      type: 'test'
+      ...
+    1..6
+ok 2 - findFiscalPeriodMismatches — the gate (SEC-MARKET-FABLE-001 T6-13)
+  ---
+  duration_ms: 0.912417
+  type: 'suite'
+  ...
+# Subtest: archiveEntriesNewestFirst
+    # Subtest: reverses the array order (newest first) and carries only the archive fields
+    ok 1 - reverses the array order (newest first) and carries only the archive fields
+      ---
+      duration_ms: 0.490167
+      type: 'test'
+      ...
+    # Subtest: preserves the exact length — one entry per issue, draft included
+    ok 2 - preserves the exact length — one entry per issue, draft included
+      ---
+      duration_ms: 0.059458
+      type: 'test'
+      ...
+    1..2
+ok 3 - archiveEntriesNewestFirst
+  ---
+  duration_ms: 0.920125
+  type: 'suite'
+  ...
+# Subtest: feedIssuesNewestFirst
+    # Subtest: excludes the draft and orders the two published issues newest-published-first
+    ok 1 - excludes the draft and orders the two published issues newest-published-first
+      ---
+      duration_ms: 4.099086
+      type: 'test'
+      ...
+    # Subtest: excludes a "published" issue whose published date is still null
+    ok 2 - excludes a "published" issue whose published date is still null
+      ---
+      duration_ms: 0.077292
+      type: 'test'
+      ...
+    1..2
+ok 4 - feedIssuesNewestFirst
+  ---
+  duration_ms: 4.229128
+  type: 'suite'
+  ...
+# Subtest: issueJsonCopy
+    # Subtest: resolves the { issue, evidence } shape via issueEvidenceIds
+    ok 1 - resolves the { issue, evidence } shape via issueEvidenceIds
+      ---
+      duration_ms: 0.163041
+      type: 'test'
+      ...
+    # Subtest: throws, naming the issue and the unresolved id, when a cited evidence id does not resolve
+    ok 2 - throws, naming the issue and the unresolved id, when a cited evidence id does not resolve
+      ---
+      duration_ms: 0.187708
+      type: 'test'
+      ...
+    1..2
+ok 5 - issueJsonCopy
+  ---
+  duration_ms: 0.511709
+  type: 'suite'
+  ...
+# Subtest: dist pipeline (real writers + real checks, fixture data)
+    # Subtest: writes feed.xml, issue JSON copies, index.json and lock.json, and every real check passes
+    ok 1 - writes feed.xml, issue JSON copies, index.json and lock.json, and every real check passes
+      ---
+      duration_ms: 1.678126
+      type: 'test'
+      ...
+    # Subtest: perturbation: an issue JSON copy that disagrees with the source issue fails 11b, and restoring it passes again
+    ok 2 - perturbation: an issue JSON copy that disagrees with the source issue fails 11b, and restoring it passes again
+      ---
+      duration_ms: 2.575086
+      type: 'test'
+      ...
+    # Subtest: perturbation: an evidence body that disagrees with the source evidence record fails 11b, and restoring it passes again
+    ok 3 - perturbation: an evidence body that disagrees with the source evidence record fails 11b, and restoring it passes again
+      ---
+      duration_ms: 0.360166
+      type: 'test'
+      ...
+    # Subtest: perturbation: an archive row missing a field fails 11c, and restoring it passes again
+    ok 4 - perturbation: an archive row missing a field fails 11c, and restoring it passes again
+      ---
+      duration_ms: 0.27925
+      type: 'test'
+      ...
+    # Subtest: perturbation: a feed item pubDate that disagrees with its issue fails 11d, and restoring it passes again
+    ok 5 - perturbation: a feed item pubDate that disagrees with its issue fails 11d, and restoring it passes again
+      ---
+      duration_ms: 0.244958
+      type: 'test'
+      ...
+    # Subtest: perturbation: a nested <item> in feed.xml is rejected rather than silently truncated, and restoring it passes again
+    ok 6 - perturbation: a nested <item> in feed.xml is rejected rather than silently truncated, and restoring it passes again
+      ---
+      duration_ms: 0.186792
+      type: 'test'
+      ...
+    # Subtest: perturbation: a well-formed but genuinely nested <item> (balanced open/close) is rejected as nested, and restoring it passes again
+    ok 7 - perturbation: a well-formed but genuinely nested <item> (balanced open/close) is rejected as nested, and restoring it passes again
+      ---
+      duration_ms: 0.164292
+      type: 'test'
+      ...
+    # Subtest: perturbation: an unbalanced (unclosed) tag in feed.xml is rejected, and restoring it passes again
+    ok 8 - perturbation: an unbalanced (unclosed) tag in feed.xml is rejected, and restoring it passes again
+      ---
+      duration_ms: 0.185875
+      type: 'test'
+      ...
+    # Subtest: perturbation: a second root element in feed.xml is rejected, and restoring it passes again
+    ok 9 - perturbation: a second root element in feed.xml is rejected, and restoring it passes again
+      ---
+      duration_ms: 0.222875
+      type: 'test'
+      ...
+    # Subtest: perturbation: non-whitespace text outside the root element in feed.xml is rejected, and restoring it passes again
+    ok 10 - perturbation: non-whitespace text outside the root element in feed.xml is rejected, and restoring it passes again
+      ---
+      duration_ms: 0.158917
+      type: 'test'
+      ...
+    # Subtest: perturbation: a bare "&" (not a legal entity reference) in feed.xml is rejected, and restoring it passes again
+    ok 11 - perturbation: a bare "&" (not a legal entity reference) in feed.xml is rejected, and restoring it passes again
+      ---
+      duration_ms: 0.133792
+      type: 'test'
+      ...
+    # Subtest: perturbation: an unquoted attribute value in feed.xml is rejected, and restoring it passes again
+    ok 12 - perturbation: an unquoted attribute value in feed.xml is rejected, and restoring it passes again
+      ---
+      duration_ms: 0.126292
+      type: 'test'
+      ...
+    # Subtest: perturbation: dist/issues/lock.json disagreeing with the source manifest fails 11f, and restoring it passes again
+    ok 13 - perturbation: dist/issues/lock.json disagreeing with the source manifest fails 11f, and restoring it passes again
+      ---
+      duration_ms: 0.543292
+      type: 'test'
+      ...
+    1..13
+ok 6 - dist pipeline (real writers + real checks, fixture data)
+  ---
+  duration_ms: 7.053504
+  type: 'suite'
+  ...
+# Subtest: escapeHtmlAttr
+    # Subtest: escapes & < > " ' in that order, without double-escaping its own output
+    ok 1 - escapes & < > " ' in that order, without double-escaping its own output
+      ---
+      duration_ms: 0.259625
+      type: 'test'
+      ...
+    # Subtest: escapes a value that would otherwise close an attribute early
+    ok 2 - escapes a value that would otherwise close an attribute early
+      ---
+      duration_ms: 0.068542
+      type: 'test'
+      ...
+    # Subtest: leaves plain text untouched
+    ok 3 - leaves plain text untouched
+      ---
+      duration_ms: 0.036916
+      type: 'test'
+      ...
+    # Subtest: round-trips a realistic issue read containing an ampersand and quotes
+    ok 4 - round-trips a realistic issue read containing an ampersand and quotes
+      ---
+      duration_ms: 0.072875
+      type: 'test'
+      ...
+    1..4
+ok 7 - escapeHtmlAttr
+  ---
+  duration_ms: 0.807334
+  type: 'suite'
+  ...
+# Subtest: isoWeekId / isoWeekSunday
+    # Subtest: round-trips a known ISO week
+    ok 1 - round-trips a known ISO week
+      ---
+      duration_ms: 0.503875
+      type: 'test'
+      ...
+    # Subtest: agrees with every issue in the data set
+    ok 2 - agrees with every issue in the data set
+      ---
+      duration_ms: 0.056417
+      type: 'test'
+      ...
+    # Subtest: rejects a malformed week id
+    ok 3 - rejects a malformed week id
+      ---
+      duration_ms: 0.081041
+      type: 'test'
+      ...
+    1..3
+ok 8 - isoWeekId / isoWeekSunday
+  ---
+  duration_ms: 0.986459
+  type: 'suite'
+  ...
+# Subtest: windowOf
+    # Subtest: returns the issue window bounds
+    ok 1 - returns the issue window bounds
+      ---
+      duration_ms: 0.300042
+      type: 'test'
+      ...
+    1..1
+ok 9 - windowOf
+  ---
+  duration_ms: 0.380751
+  type: 'suite'
+  ...
+# Subtest: thesisRunningScore
+    # Subtest: is empty when there are no published issues
+    ok 1 - is empty when there are no published issues
+      ---
+      duration_ms: 0.090916
+      type: 'test'
+      ...
+    # Subtest: counts holds and strengthens but not no-call, and ignores drafts
+    ok 2 - counts holds and strengthens but not no-call, and ignores drafts
+      ---
+      duration_ms: 5.049462
+      type: 'test'
+      ...
+    # Subtest: counts a weakens verdict toward the total but not toward holds
+    ok 3 - counts a weakens verdict toward the total but not toward holds
+      ---
+      duration_ms: 0.181375
+      type: 'test'
+      ...
+    1..3
+ok 10 - thesisRunningScore
+  ---
+  duration_ms: 5.450628
+  type: 'suite'
+  ...
+# Subtest: vendorSlug
+    # Subtest: lower-cases and hyphenates
+    ok 1 - lower-cases and hyphenates
+      ---
+      duration_ms: 0.225375
+      type: 'test'
+      ...
+    # Subtest: strips diacritics and non-ASCII punctuation
+    ok 2 - strips diacritics and non-ASCII punctuation
+      ---
+      duration_ms: 0.077416
+      type: 'test'
+      ...
+    # Subtest: trims leading and trailing hyphens
+    ok 3 - trims leading and trailing hyphens
+      ---
+      duration_ms: 0.114042
+      type: 'test'
+      ...
+    1..3
+ok 11 - vendorSlug
+  ---
+  duration_ms: 0.48175
+  type: 'suite'
+  ...
+# Subtest: parseVendorsParam / serializeVendorsParam
+    # Subtest: returns null when the vendors parameter is absent
+    ok 1 - returns null when the vendors parameter is absent
+      ---
+      duration_ms: 0.087958
+      type: 'test'
+      ...
+    # Subtest: splits, trims, and drops empty entries
+    ok 2 - splits, trims, and drops empty entries
+      ---
+      duration_ms: 0.083792
+      type: 'test'
+      ...
+    # Subtest: returns null (same as absent) for a present but empty parameter — a cleared lens and a bare "?vendors=" render identically
+    ok 3 - returns null (same as absent) for a present but empty parameter — a cleared lens and a bare "?vendors=" render identically
+      ---
+      duration_ms: 0.078833
+      type: 'test'
+      ...
+    # Subtest: returns null for a parameter holding only commas/whitespace, since it names no real slug
+    ok 4 - returns null for a parameter holding only commas/whitespace, since it names no real slug
+      ---
+      duration_ms: 0.034958
+      type: 'test'
+      ...
+    # Subtest: preserves an unrecognised slug rather than erroring
+    ok 5 - preserves an unrecognised slug rather than erroring
+      ---
+      duration_ms: 0.067417
+      type: 'test'
+      ...
+    # Subtest: serializes a slug list back into a comma-joined value
+    ok 6 - serializes a slug list back into a comma-joined value
+      ---
+      duration_ms: 0.029167
+      type: 'test'
+      ...
+    # Subtest: serializes null or an empty list to null, signalling "drop the parameter"
+    ok 7 - serializes null or an empty list to null, signalling "drop the parameter"
+      ---
+      duration_ms: 0.023625
+      type: 'test'
+      ...
+    # Subtest: round-trips a slug list through parse and serialize
+    ok 8 - round-trips a slug list through parse and serialize
+      ---
+      duration_ms: 0.03475
+      type: 'test'
+      ...
+    1..8
+ok 12 - parseVendorsParam / serializeVendorsParam
+  ---
+  duration_ms: 0.539292
+  type: 'suite'
+  ...
+# Subtest: extractNumericTokens
+    # Subtest: excludes a digit run immediately preceded by a letter — a name/label, not a figure
+    ok 1 - excludes a digit run immediately preceded by a letter — a name/label, not a figure
+      ---
+      duration_ms: 0.176791
+      type: 'test'
+      ...
+    # Subtest: keeps a currency amount with an M/B suffix
+    ok 2 - keeps a currency amount with an M/B suffix
+      ---
+      duration_ms: 3.443711
+      type: 'test'
+      ...
+    # Subtest: keeps a plain percentage, including a leading sign
+    ok 3 - keeps a plain percentage, including a leading sign
+      ---
+      duration_ms: 0.053584
+      type: 'test'
+      ...
+    # Subtest: keeps a plain number with no letter attached
+    ok 4 - keeps a plain number with no letter attached
+      ---
+      duration_ms: 0.035583
+      type: 'test'
+      ...
+    # Subtest: does not truncate a name+digits token into a spurious remainder
+    ok 5 - does not truncate a name+digits token into a spurious remainder
+      ---
+      duration_ms: 0.036
+      type: 'test'
+      ...
+    # Subtest: still matches a genuine figure that happens to follow a name+digits token
+    ok 6 - still matches a genuine figure that happens to follow a name+digits token
+      ---
+      duration_ms: 0.026042
+      type: 'test'
+      ...
+    # Subtest: excludes a digit run immediately followed by a non-magnitude letter — a name, not a figure
+    ok 7 - excludes a digit run immediately followed by a non-magnitude letter — a name, not a figure
+      ---
+      duration_ms: 0.032542
+      type: 'test'
+      ...
+    # Subtest: keeps a bare figure with a legitimate M/B/K magnitude suffix
+    ok 8 - keeps a bare figure with a legitimate M/B/K magnitude suffix
+      ---
+      duration_ms: 0.026791
+      type: 'test'
+      ...
+    # Subtest: keeps a bare percentage and a bare integer with no surrounding context
+    ok 9 - keeps a bare percentage and a bare integer with no surrounding context
+      ---
+      duration_ms: 0.036167
+      type: 'test'
+      ...
+    1..9
+ok 13 - extractNumericTokens
+  ---
+  duration_ms: 4.552503
+  type: 'suite'
+  ...
+# Subtest: issueEvidenceIds
+    # Subtest: collects ids from items, posture deltas, and the thesis, deduplicated
+    ok 1 - collects ids from items, posture deltas, and the thesis, deduplicated
+      ---
+      duration_ms: 0.137792
+      type: 'test'
+      ...
+    # Subtest: includes the machine proposal thesis evidence on a draft
+    ok 2 - includes the machine proposal thesis evidence on a draft
+      ---
+      duration_ms: 0.048041
+      type: 'test'
+      ...
+    # Subtest: returns an empty array for the empty-lane skeleton
+    ok 3 - returns an empty array for the empty-lane skeleton
+      ---
+      duration_ms: 0.032459
+      type: 'test'
+      ...
+    1..3
+ok 14 - issueEvidenceIds
+  ---
+  duration_ms: 0.251542
+  type: 'suite'
+  ...
+# Subtest: landscape data provenance
+    # Subtest: resolves every evidence id used by the new datasets
+    ok 1 - resolves every evidence id used by the new datasets
+      ---
+      duration_ms: 0.589208
+      type: 'test'
+      ...
+    # Subtest: gives every tracked print claim a non-empty evidence tuple
+    ok 2 - gives every tracked print claim a non-empty evidence tuple
+      ---
+      duration_ms: 0.094834
+      type: 'test'
+      ...
+    # Subtest: keeps figures out of platformPressure.ts
+    ok 3 - keeps figures out of platformPressure.ts
+      ---
+      duration_ms: 0.209417
+      type: 'test'
+      ...
+    # Subtest: labels landscape TRACKED chips from the prints on the card
+    ok 4 - labels landscape TRACKED chips from the prints on the card
+      ---
+      duration_ms: 0.359125
+      type: 'test'
+      ...
+    # Subtest: derives one row per pressure group from sourced records
+    ok 5 - derives one row per pressure group from sourced records
+      ---
+      duration_ms: 0.035416
+      type: 'test'
+      ...
+    1..5
+ok 15 - landscape data provenance
+  ---
+  duration_ms: 1.659835
+  type: 'suite'
+  ...
+# Subtest: marketPictureVendorEntries
+    # Subtest: orders entries alphabetically by vendor name regardless of figure size
+    ok 1 - orders entries alphabetically by vendor name regardless of figure size
+      ---
+      duration_ms: 4.552711
+      type: 'test'
+      ...
+    # Subtest: never includes a record whose surface is not a real print
+    ok 2 - never includes a record whose surface is not a real print
+      ---
+      duration_ms: 0.1165
+      type: 'test'
+      ...
+    # Subtest: excludes a record with no percent figure at all (a valuation, a count, a close)
+    ok 3 - excludes a record with no percent figure at all (a valuation, a count, a close)
+      ---
+      duration_ms: 0.068792
+      type: 'test'
+      ...
+    # Subtest: attaches a "previous" value only when the vendor name AND the metric label both match exactly
+    ok 4 - attaches a "previous" value only when the vendor name AND the metric label both match exactly
+      ---
+      duration_ms: 0.209709
+      type: 'test'
+      ...
+    # Subtest: marks a figure "older" only once its evidence predates today by more than the threshold
+    ok 5 - marks a figure "older" only once its evidence predates today by more than the threshold
+      ---
+      duration_ms: 0.207125
+      type: 'test'
+      ...
+    # Subtest: flags a print id in SEGMENT_PRINT_IDS as a segment, and nothing else
+    ok 6 - flags a print id in SEGMENT_PRINT_IDS as a segment, and nothing else
+      ---
+      duration_ms: 0.083626
+      type: 'test'
+      ...
+    1..6
+ok 16 - marketPictureVendorEntries
+  ---
+  duration_ms: 5.674004
+  type: 'suite'
+  ...
+# Subtest: marketPictureVendorEntries against real site data
+    # Subtest: every domain resolves to a print group, and no domain silently loses its group mapping
+    ok 1 - every domain resolves to a print group, and no domain silently loses its group mapping
+      ---
+      duration_ms: 0.119792
+      type: 'test'
+      ...
+    # Subtest: no domain today shows more vendors than the site actually has to show (sanity bound)
+    ok 2 - no domain today shows more vendors than the site actually has to show (sanity bound)
+      ---
+      duration_ms: 0.215834
+      type: 'test'
+      ...
+    # Subtest: MAX_VISIBLE_VENDORS_PER_DOMAIN is a positive number the component can slice by
+    ok 3 - MAX_VISIBLE_VENDORS_PER_DOMAIN is a positive number the component can slice by
+      ---
+      duration_ms: 0.071208
+      type: 'test'
+      ...
+    1..3
+ok 17 - marketPictureVendorEntries against real site data
+  ---
+  duration_ms: 0.625792
+  type: 'suite'
+  ...
+# Subtest: classifyCardPeriod
+    # Subtest: parses a month-year tag with a curly apostrophe
+    ok 1 - parses a month-year tag with a curly apostrophe
+      ---
+      duration_ms: 0.607209
+      type: 'test'
+      ...
+    # Subtest: parses a month-year tag with a straight apostrophe
+    ok 2 - parses a month-year tag with a straight apostrophe
+      ---
+      duration_ms: 0.076583
+      type: 'test'
+      ...
+    # Subtest: parses a bare fiscal year
+    ok 3 - parses a bare fiscal year
+      ---
+      duration_ms: 0.07725
+      type: 'test'
+      ...
+    # Subtest: parses a bare calendar year
+    ok 4 - parses a bare calendar year
+      ---
+      duration_ms: 0.069708
+      type: 'test'
+      ...
+    # Subtest: parses an explicit fiscal quarter
+    ok 5 - parses an explicit fiscal quarter
+      ---
+      duration_ms: 0.033625
+      type: 'test'
+      ...
+    # Subtest: treats "Closed" and "No series" as non-comparable
+    ok 6 - treats "Closed" and "No series" as non-comparable
+      ---
+      duration_ms: 0.042791
+      type: 'test'
+      ...
+    # Subtest: falls back to unknown for text it does not recognise
+    ok 7 - falls back to unknown for text it does not recognise
+      ---
+      duration_ms: 0.07425
+      type: 'test'
+      ...
+    1..7
+ok 18 - classifyCardPeriod
+  ---
+  duration_ms: 1.368668
+  type: 'suite'
+  ...
+# Subtest: classifyEvidencePeriod
+    # Subtest: reads a bare quarter
+    ok 1 - reads a bare quarter
+      ---
+      duration_ms: 0.19875
+      type: 'test'
+      ...
+    # Subtest: reads a combined fiscal-year-and-quarter record
+    ok 2 - reads a combined fiscal-year-and-quarter record
+      ---
+      duration_ms: 0.126541
+      type: 'test'
+      ...
+    # Subtest: reads a fiscal year
+    ok 3 - reads a fiscal year
+      ---
+      duration_ms: 0.142458
+      type: 'test'
+      ...
+    # Subtest: reads a point-in-time funding event
+    ok 4 - reads a point-in-time funding event
+      ---
+      duration_ms: 0.237667
+      type: 'test'
+      ...
+    1..4
+ok 19 - classifyEvidencePeriod
+  ---
+  duration_ms: 0.85175
+  type: 'suite'
+  ...
+# Subtest: checkPrintPeriod — the deliberately wrong case
+    # Subtest: fails a card labelling a full fiscal year when the only evidence is a single quarter
+    ok 1 - fails a card labelling a full fiscal year when the only evidence is a single quarter
+      ---
+      duration_ms: 0.204167
+      type: 'test'
+      ...
+    # Subtest: mirrors the real print-crwd-cloud defect exactly
+    ok 2 - mirrors the real print-crwd-cloud defect exactly
+      ---
+      duration_ms: 0.044041
+      type: 'test'
+      ...
+    # Subtest: passes a month-year card against a matching quarter
+    ok 3 - passes a month-year card against a matching quarter
+      ---
+      duration_ms: 0.058876
+      type: 'test'
+      ...
+    # Subtest: passes a fiscal-year card against a matching fiscal-year record
+    ok 4 - passes a fiscal-year card against a matching fiscal-year record
+      ---
+      duration_ms: 0.042416
+      type: 'test'
+      ...
+    # Subtest: passes a bare year against a point-in-time record dated that year
+    ok 5 - passes a bare year against a point-in-time record dated that year
+      ---
+      duration_ms: 0.079792
+      type: 'test'
+      ...
+    # Subtest: passes a month-year card via a later date named only in the excerpt text
+    ok 6 - passes a month-year card via a later date named only in the excerpt text
+      ---
+      duration_ms: 0.051042
+      type: 'test'
+      ...
+    # Subtest: is not-checkable for a non-comparable card period
+    ok 7 - is not-checkable for a non-comparable card period
+      ---
+      duration_ms: 0.719167
+      type: 'test'
+      ...
+    # Subtest: fails a bare year that matches nothing in the cited evidence
+    ok 8 - fails a bare year that matches nothing in the cited evidence
+      ---
+      duration_ms: 0.099792
+      type: 'test'
+      ...
+    1..8
+ok 20 - checkPrintPeriod — the deliberately wrong case
+  ---
+  duration_ms: 1.398001
+  type: 'suite'
+  ...
+# Subtest: derivePeriodEndDate
+    # Subtest: derives the last day of a month-year tag with no evidence needed
+    ok 1 - derives the last day of a month-year tag with no evidence needed
+      ---
+      duration_ms: 0.116833
+      type: 'test'
+      ...
+    # Subtest: derives December 31 for a bare year
+    ok 2 - derives December 31 for a bare year
+      ---
+      duration_ms: 0.032291
+      type: 'test'
+      ...
+    # Subtest: falls back to the newest cited evidence publicationDate for FY / quarter / non-comparable tags
+    ok 3 - falls back to the newest cited evidence publicationDate for FY / quarter / non-comparable tags
+      ---
+      duration_ms: 0.047041
+      type: 'test'
+      ...
+    # Subtest: is unparseable when no evidence resolves and the card names no dated period
+    ok 4 - is unparseable when no evidence resolves and the card names no dated period
+      ---
+      duration_ms: 0.027916
+      type: 'test'
+      ...
+    1..4
+ok 21 - derivePeriodEndDate
+  ---
+  duration_ms: 0.275584
+  type: 'suite'
+  ...
+# Subtest: checkPrintCompany
+    # Subtest: matches directly on organization
+    ok 1 - matches directly on organization
+      ---
+      duration_ms: 0.208542
+      type: 'test'
+      ...
+    # Subtest: falls back to title/excerpt when a small company is bylined under its acquirer
+    ok 2 - falls back to title/excerpt when a small company is bylined under its acquirer
+      ---
+      duration_ms: 0.045625
+      type: 'test'
+      ...
+    # Subtest: fails when no cited evidence names the company at all
+    ok 3 - fails when no cited evidence names the company at all
+      ---
+      duration_ms: 0.039583
+      type: 'test'
+      ...
+    # Subtest: passes a multi-part name if any part is corroborated
+    ok 4 - passes a multi-part name if any part is corroborated
+      ---
+      duration_ms: 0.046709
+      type: 'test'
+      ...
+    1..4
+ok 22 - checkPrintCompany
+  ---
+  duration_ms: 0.393125
+  type: 'suite'
+  ...
+# Subtest: checkPrintMetric
+    # Subtest: is always not-checkable
+    ok 1 - is always not-checkable
+      ---
+      duration_ms: 0.047125
+      type: 'test'
+      ...
+    1..1
+ok 23 - checkPrintMetric
+  ---
+  duration_ms: 0.074375
+  type: 'suite'
+  ...
+# Subtest: checkPrintValueAndUnits — the deliberately absent case
+    # Subtest: fails a value that does not appear in any cited evidence
+    ok 1 - fails a value that does not appear in any cited evidence
+      ---
+      duration_ms: 0.474209
+      type: 'test'
+      ...
+    # Subtest: passes an exact percentage match
+    ok 2 - passes an exact percentage match
+      ---
+      duration_ms: 0.245417
+      type: 'test'
+      ...
+    # Subtest: passes a spelled-out billion figure against a compact card value
+    ok 3 - passes a spelled-out billion figure against a compact card value
+      ---
+      duration_ms: 0.259625
+      type: 'test'
+      ...
+    # Subtest: passes a rounded percentage within tolerance (the Arista case)
+    ok 4 - passes a rounded percentage within tolerance (the Arista case)
+      ---
+      duration_ms: 0.105876
+      type: 'test'
+      ...
+    # Subtest: fails units when the same number appears under a different unit
+    ok 5 - fails units when the same number appears under a different unit
+      ---
+      duration_ms: 0.056833
+      type: 'test'
+      ...
+    # Subtest: is not-checkable for a categorical, non-numeric value
+    ok 6 - is not-checkable for a categorical, non-numeric value
+      ---
+      duration_ms: 0.038791
+      type: 'test'
+      ...
+    1..6
+ok 24 - checkPrintValueAndUnits — the deliberately absent case
+  ---
+  duration_ms: 1.297792
+  type: 'suite'
+  ...
+# Subtest: verifyPrint — overall pass/fail
+    # Subtest: passes a print that is correct on every checkable dimension
+    ok 1 - passes a print that is correct on every checkable dimension
+      ---
+      duration_ms: 0.135625
+      type: 'test'
+      ...
+    # Subtest: fails overall when only the period is wrong, mirroring print-crwd-cloud
+    ok 2 - fails overall when only the period is wrong, mirroring print-crwd-cloud
+      ---
+      duration_ms: 0.229917
+      type: 'test'
+      ...
+    # Subtest: fails overall when the value is absent from evidence
+    ok 3 - fails overall when the value is absent from evidence
+      ---
+      duration_ms: 0.182792
+      type: 'test'
+      ...
+    1..3
+ok 25 - verifyPrint — overall pass/fail
+  ---
+  duration_ms: 0.596292
+  type: 'suite'
+  ...
+# Subtest: buildStaleReport
+    # Subtest: reports no judged claims and no scorecard entries when nothing is old
+    ok 1 - reports no judged claims and no scorecard entries when nothing is old
+      ---
+      duration_ms: 0.484625
+      type: 'test'
+      ...
+    # Subtest: flags a domain stance judged more than 45 days before the as-of date
+    ok 2 - flags a domain stance judged more than 45 days before the as-of date
+      ---
+      duration_ms: 0.058792
+      type: 'test'
+      ...
+    # Subtest: does not flag a domain stance judged exactly 45 days ago (boundary is exclusive of the threshold)
+    ok 3 - does not flag a domain stance judged exactly 45 days ago (boundary is exclusive of the threshold)
+      ---
+      duration_ms: 0.043375
+      type: 'test'
+      ...
+    # Subtest: flags a stale hypothesis and a stale platform-pressure row, oldest first
+    ok 4 - flags a stale hypothesis and a stale platform-pressure row, oldest first
+      ---
+      duration_ms: 0.156125
+      type: 'test'
+      ...
+    # Subtest: flags a scorecard print whose period ended more than 150 days before the as-of date
+    ok 5 - flags a scorecard print whose period ended more than 150 days before the as-of date
+      ---
+      duration_ms: 0.133125
+      type: 'test'
+      ...
+    # Subtest: does not flag a recent scorecard print
+    ok 6 - does not flag a recent scorecard print
+      ---
+      duration_ms: 0.077708
+      type: 'test'
+      ...
+    # Subtest: lists an unparseable period separately, never dropping it
+    ok 7 - lists an unparseable period separately, never dropping it
+      ---
+      duration_ms: 0.158375
+      type: 'test'
+      ...
+    1..7
+ok 26 - buildStaleReport
+  ---
+  duration_ms: 1.467959
+  type: 'suite'
+  ...
+1..26
+# tests 124
+# suites 26
+# pass 124
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 187.350497
+
+> web@0.0.0 build
+> npm run verify:edition && npm run verify:panel && npm run verify:integrity && npm run verify:issue && npm run verify:prints && tsc -b && npm run build:client && npm run build:server && npm run prerender && npm run seo && npm run build:feed && npm run verify:dist
+
+
+> web@0.0.0 verify:edition
+> tsx scripts/verify-edition.ts
+
+Edition integrity check passed (SHA-256: c3f8646e46d34588be5eb27d090873e81cfca29172b5cdf95d1f0dd7db1d3d1e )
+
+> web@0.0.0 verify:panel
+> tsx scripts/verify-panel.ts
+
+Panel integrity check passed (SHA-256: cd7070458d4511b95f6ca433ad34cdb8488d44c67b6c8eb61a982fb760e0d1f2 )
+
+> web@0.0.0 verify:integrity
+> tsx --tsconfig tsconfig.app.json scripts/verify-integrity.ts
+
+Unreferenced evidence records (5):
+  A4 - Dell Q1 FY27 Financial Results
+  A5 - Vertiv Q4 2025 and Q2 2026 Results
+  A6 - Broadcom Q1–Q2 FY26 Financial Results
+  B4 - Meta Q2 2026 Results
+  B5 - Oracle FY2026 Results
+Integrity check passed
+
+> web@0.0.0 verify:issue
+> tsx --tsconfig tsconfig.app.json scripts/verify-issue.ts
+
+verify:issue check 8: git-parent anchor: 1 parent manifest(s) read (1fcfff6b).
+verify:issue check 8: network anchor: HTTP 200, 1 entries from https://securitymarketpulse.com/issues/lock.json.
+PASS  1 ordering-id-format-sunday-unique
+PASS  2 windows-no-overlap
+PASS  3 four-sections-lane-order
+PASS  4 item-evidence-and-window
+PASS  5 publish-signature-consistency
+PASS  6 at-most-one-draft-newest
+PASS  7 production-guard-main-published
+PASS  8 issues-lock-manifest — anchors: git: 1 parents read; network: 200 + 1 entries
+PASS  9 posture-deltas-agree
+PASS  12 numeric-tokens-cited
+PASS  13 strict-dates
+PASS  14 bounds
+PASS  15 evidence-receipts
+PASS  16 fiscal-period-mismatch
+PASS  10 render-check
+verify:issue passed
+
+> web@0.0.0 verify:prints
+> tsx --tsconfig tsconfig.app.json scripts/verify-prints.ts
+
+WARN  print-crwd-cloud — on the unverified list; fails period (card period "FY26" labels a full year, but its only period evidence ("C13": economicPeriod "Quarter ended 2026-01-31") is a single quarter)
+
+verify:prints — 44 pass, 1 on the unverified list, 0 fail (45 prints total)
+not-checkable by dimension: metric=45, period=6, value=6, units=6
+verify:prints passed
+
+> web@0.0.0 build:client
+> vite build
+
+vite v8.2.1 building client environment for production...
+[2Ktransforming...✓ 2435 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                        3.36 kB │ gzip:   1.08 kB
+dist/assets/index-C-GHaShJ.css        48.08 kB │ gzip:   8.47 kB
+dist/assets/ChartsPanel-CqTgUsj0.js  389.81 kB │ gzip: 111.15 kB
+dist/assets/index-DXtTXe_U.js        409.04 kB │ gzip: 118.13 kB
+
+✓ built in 189ms
+
+> web@0.0.0 build:server
+> vite build --ssr src/entry-server.tsx --outDir dist-ssr
+
+vite v8.2.1 building ssr environment for production...
+[2Ktransforming...✓ 68 modules transformed.
+rendering chunks...
+computing gzip size...
+dist-ssr/assets/ChartsPanel-CmazssrC.js    5.09 kB │ gzip:  1.73 kB
+dist-ssr/entry-server.js                 301.20 kB │ gzip: 74.82 kB
+
+✓ built in 21ms
+
+> web@0.0.0 prerender
+> tsx scripts/prerender.ts
+
+Prerender OK: route "/" — 13 sections verified un-nested; wrote dist/index.html (233293 bytes).
+Prerender OK: route "/issues/" — 1 sections verified un-nested; wrote dist/issues/index.html (5276 bytes).
+Prerender OK: route "/corrections/" — 1 sections verified un-nested; wrote dist/corrections/index.html (6455 bytes).
+Prerender OK: route "/thesis/" — 2 sections verified un-nested; wrote dist/thesis/index.html (10817 bytes).
+Prerender OK: route "/issues/2026-w36/" — 6 sections verified un-nested; wrote dist/issues/2026-w36/index.html (32064 bytes).
+Prerender OK: 5 route(s) written.
+
+> web@0.0.0 seo
+> tsx scripts/generate-seo.ts
+
+SEO OK: injected 1185 chars of JSON-LD into route "/".
+SEO OK: injected 604 chars of JSON-LD into route "/issues/".
+SEO OK: injected 649 chars of JSON-LD into route "/corrections/".
+SEO OK: injected 1146 chars of JSON-LD into route "/thesis/".
+SEO OK: injected 1123 chars of JSON-LD into route "/issues/2026-w36/".
+SEO OK: wrote dist/sitemap.xml with 5 route(s) and 4 JSON machine-surface entries.
+
+> web@0.0.0 build:feed
+> tsx --tsconfig tsconfig.app.json scripts/generate-feed.ts
+
+generate-feed OK: dist/feed.xml written with 2 item(s).
+generate-feed OK: wrote 1 dist/issues/<id>.json file(s).
+generate-feed OK: wrote dist/corrections.json with 1 entry.
+generate-feed OK: wrote dist/issues/index.json with 1 entry.
+generate-feed OK: wrote dist/issues/lock.json with 1 entry.
+generate-feed OK: added feed + 4 JSON alternate link(s) to 5 route(s).
+
+> web@0.0.0 verify:dist
+> tsx --tsconfig tsconfig.app.json scripts/verify-dist.ts
+
+PASS  11a every-route-html-exists — 5 route HTML file(s) present
+PASS  11b every-issue-json-exists — 1 issue JSON file(s) present, well-formed, and identity-checked (issue + full evidence bodies)
+PASS  11c issues-index-json-exists — 1 entries in the expected newest-first order, full row identity checked
+PASS  11d feed-xml-exists-and-parses — 1 issue <item>(s) + 1 correction <item>(s), guid sets and per-item pubDate verified
+PASS  11e sitemap-xml-lists-every-route — 5 route(s) present in sitemap.xml
+PASS  11f issues-lock-json-matches-source — dist/issues/lock.json matches the source manifest exactly, 1 entry
+PASS  11g route-description-meta-identity — front page description confirmed distinct; 2 non-front route(s) verified (description, og:description, twitter:description)
+PASS  11h alternate-link-targets-exist — 25 alternate link target(s) verified across 5 route(s), corrections.json link confirmed on every route
+PASS  11i corrections-json-exists — 1 correction(s) present, well-formed, and identity-checked
+verify:dist passed
+
+> web@0.0.0 test:e2e
+> playwright test
+
+
+Running 38 tests using 8 workers
+
+[1/38] [desktop] › tests/e2e/lens.spec.ts:96:3 › vendor lens › ?vendors= filters both the issue items and the scorecard, showing the exact matching items/cards and Showing N of M on each
+[2/38] [desktop] › tests/e2e/corrections.spec.ts:8:3 › corrections (SEC-MARKET-FABLE-001 T6-13) › front page shows the corrected note beside both items, originals still present
+[3/38] [desktop] › tests/e2e/issue.spec.ts:9:3 › weekly issue — front page › h1 is the site headline, the issue strip carries the read; issue sections and standing reference are visible
+[4/38] [phone] › tests/e2e/lens.spec.ts:96:3 › vendor lens › ?vendors= filters both the issue items and the scorecard, showing the exact matching items/cards and Showing N of M on each
+[5/38] [chromium] › tests/e2e/thesis.spec.ts:17:3 › /thesis/ — the standing thesis › renders the headline, running score, change triggers, no-call boundaries and Do/Avoid
+[6/38] [phone] › tests/e2e/corrections.spec.ts:8:3 › corrections (SEC-MARKET-FABLE-001 T6-13) › front page shows the corrected note beside both items, originals still present
+[7/38] [phone] › tests/e2e/issue.spec.ts:9:3 › weekly issue — front page › h1 is the site headline, the issue strip carries the read; issue sections and standing reference are visible
+[8/38] [chromium] › tests/e2e/smoke.spec.ts:6:1 › renders the market briefing without runtime errors
+[9/38] [desktop] › tests/e2e/lens.spec.ts:128:3 › vendor lens › an unknown slug yields Showing 0 of M and a clear link, not an error
+[10/38] [chromium] › tests/e2e/thesis.spec.ts:63:3 › /thesis/ — the standing thesis › an evidence chip opens the drawer
+[11/38] [desktop] › tests/e2e/corrections.spec.ts:32:3 › corrections (SEC-MARKET-FABLE-001 T6-13) › issue permalink shows the corrected note beside both items
+[12/38] [phone] › tests/e2e/issue.spec.ts:66:3 › weekly issue — front page › /issues/ lists every issue
+[13/38] [phone] › tests/e2e/lens.spec.ts:128:3 › vendor lens › an unknown slug yields Showing 0 of M and a clear link, not an error
+[14/38] [phone] › tests/e2e/corrections.spec.ts:32:3 › corrections (SEC-MARKET-FABLE-001 T6-13) › issue permalink shows the corrected note beside both items
+[15/38] [desktop] › tests/e2e/issue.spec.ts:66:3 › weekly issue — front page › /issues/ lists every issue
+[16/38] [chromium] › tests/e2e/smoke.spec.ts:104:1 › every judged stamp with a date also names who judged it
+[17/38] [desktop] › tests/e2e/corrections.spec.ts:43:3 › corrections (SEC-MARKET-FABLE-001 T6-13) › /corrections/ renders the entry and the anchor resolves
+[18/38] [chromium] › tests/e2e/thesis.spec.ts:75:3 › /thesis/ — the standing thesis › front page: the #read pointer links to /thesis/, and the full argument is gone
+[19/38] [desktop] › tests/e2e/lens.spec.ts:145:3 › vendor lens › an empty vendors parameter is treated as no lens — identical to no parameter at all
+[20/38] [phone] › tests/e2e/issue.spec.ts:74:3 › weekly issue — front page › /issues/<newest>/ renders with the same h1
+[21/38] [phone] › tests/e2e/corrections.spec.ts:43:3 › corrections (SEC-MARKET-FABLE-001 T6-13) › /corrections/ renders the entry and the anchor resolves
+[22/38] [desktop] › tests/e2e/issue.spec.ts:74:3 › weekly issue — front page › /issues/<newest>/ renders with the same h1
+[23/38] [phone] › tests/e2e/lens.spec.ts:145:3 › vendor lens › an empty vendors parameter is treated as no lens — identical to no parameter at all
+[24/38] [chromium] › tests/e2e/smoke.spec.ts:126:1 › opens attributed evidence without a private GitHub artifact link
+[25/38] [desktop] › tests/e2e/corrections.spec.ts:57:3 › corrections (SEC-MARKET-FABLE-001 T6-13) › /corrections.json is served and matches the source data
+[26/38] [desktop] › tests/e2e/lens.spec.ts:159:3 › vendor lens › the clear link restores the unfiltered URL
+[27/38] [phone] › tests/e2e/issue.spec.ts:82:3 › weekly issue — front page › /feed.xml returns 200 with an XML content type
+[28/38] [phone] › tests/e2e/corrections.spec.ts:57:3 › corrections (SEC-MARKET-FABLE-001 T6-13) › /corrections.json is served and matches the source data
+[29/38] [phone] › tests/e2e/issue.spec.ts:89:3 › weekly issue — front page › /issues/<newest>.json parses with a non-empty evidence array
+[30/38] [phone] › tests/e2e/issue.spec.ts:106:3 › weekly issue — front page › permalink page: clicking "Landscape" navigates to the front page at #landscape
+[31/38] [desktop] › tests/e2e/issue.spec.ts:82:3 › weekly issue — front page › /feed.xml returns 200 with an XML content type
+[32/38] [desktop] › tests/e2e/issue.spec.ts:89:3 › weekly issue — front page › /issues/<newest>.json parses with a non-empty evidence array
+[33/38] [desktop] › tests/e2e/issue.spec.ts:106:3 › weekly issue — front page › permalink page: clicking "Landscape" navigates to the front page at #landscape
+[34/38] [phone] › tests/e2e/lens.spec.ts:159:3 › vendor lens › the clear link restores the unfiltered URL
+[35/38] [desktop] › tests/e2e/lens.spec.ts:171:3 › vendor lens › the URL round-trips through the control: toggling a chip off updates it and re-filters
+[36/38] [phone] › tests/e2e/lens.spec.ts:171:3 › vendor lens › the URL round-trips through the control: toggling a chip off updates it and re-filters
+[37/38] [desktop] › tests/e2e/lens.spec.ts:188:3 › vendor lens › at 390 the chip row is reachable and scrollable
+[38/38] [phone] › tests/e2e/lens.spec.ts:188:3 › vendor lens › at 390 the chip row is reachable and scrollable
+  1 skipped
+  37 passed (14.6s)

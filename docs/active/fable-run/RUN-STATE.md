@@ -98,7 +98,7 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
 | T6-16 | Move the founding thesis off the front page to its own `/thesis/` page as one standing analysis: the whole judgment board (running score, thesis headline, stat band, the read, Do and Avoid) renders there; the front page keeps a three-line pointer at the same anchor; "Thesis" leaves the top navigation; the front-page signed block shows the thesis verdict as one quiet linked line. Issue permalinks, issue data and the lock are untouched. Nothing deleted. To `preview` only after coordinator review | claude-sonnet-5 | done: head 27fcf10, rebased on the other session's D-71 front page, `npm test` green (80 data tests, 37 e2e), permalink HTML differs only by the removed nav link, zero axe violations on `/thesis/`; coordinator caught and had fixed a stamp that gave the site-updated date as a judged date | /Users/jessepike/code/projects/sec-market-wt/thesis | mon/thesis | https://security-market-pulse-git-mon-thesis-pikeholdings.vercel.app | branch `mon/thesis` plus `docs/active/fable-run/evidence/thesis/` | 2026-09-21T03:30Z |
 | T7-1 | Extract the facts the publish-path spec needs: issue and proposal types, how an issue becomes published and how the lock manifest is written, the production guard in `verify-issue`, what CI runs today, how `gather-pr.yml` and `gather.sh` hand off, where `weThink.thesis` is required | claude-haiku-4-5 | done | none | preview | n/a | returned summary, folded into `docs/active/publish-path-spec.md` | 2026-09-21T06:10Z |
 | T7-2 | Build 1 and build 3 per `docs/active/publish-path-spec.md` sections 2 and 3: `web/scripts/sign-issue.ts`, `scripts/publish-issue.sh`, `.github/workflows/publish-issue.yml`, the AGENTS.md paragraph, thesis verdict out of the brief and optional in the model. Dry run against `issue/2026-w37` with pushes off | claude-sonnet-5 | running | T7-1 | mon/publish (worktree `../sec-market-wt-publish`) | coordinator pushes via macbook2014 deploy key (workflow file) | `docs/active/fable-run/evidence/publish/report.md` | 2026-09-21T06:40Z |
-| T7-3 | Build 2 first step per spec section 4.1 and 4.2: the figure-meaning check on `prints.ts`, the shrink-only unverified list, `web/scripts/stale-report.ts`, the brief's scorecard and "Going stale" steps | claude-sonnet-5 | running | T7-1 | mon/upkeep (worktree `../sec-market-wt-upkeep`) | yes | `docs/active/fable-run/evidence/upkeep/report.md` | 2026-09-21T06:40Z |
+| T7-3 | Build 2 first step per spec section 4.1 and 4.2: the figure-meaning check on `prints.ts`, the shrink-only unverified list, `web/scripts/stale-report.ts`, the brief's scorecard and "Going stale" steps | claude-sonnet-5 | done, merged 146a40b | T7-1 | mon/upkeep (worktree `../sec-market-wt-upkeep`) | yes | `docs/active/fable-run/evidence/upkeep/report.md` | 2026-09-21T06:40Z |
 | T7-4 | Build 2 second step per spec section 4.3: per-claim judged dates and the `reconfirm` word | claude-sonnet-5 | pending | T7-2, T7-3 merged | mon/reconfirm | yes | `docs/active/fable-run/evidence/reconfirm/report.md` | |
 
 ## Owner gates
@@ -525,3 +525,25 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
   key for GitHub; the workflow branch goes out through the deploy key on macbook2014. The parallel
   session (idle for a day) owns `gather-brief.md`; this phase edits it on the owner's approval, so
   any other session must re-read it. T7-2 and T7-3 rows written, then dispatched together.
+- 2026-09-21T07:30Z — T7-3 returned and was merged to `preview` as 146a40b after one correction.
+  The builder listed `print-crwd-cloud` (FY26 label, Q4 source) as a real defect; the coordinator
+  overruled that: the metric is ending ARR, a balance, and the year-end and quarter-end balance are
+  the same figure. The check cannot tell a balance from a flow because evidence has no structured
+  metric field. The entry stays on the unverified list, worded as a question for the owner. Results:
+  44 of 45 scorecard entries pass, 124 data tests, 37 end-to-end tests with the one standing skip,
+  built pages byte-identical to `preview` apart from hashed asset names. Stale report: no judged
+  claim is older than 45 days; 19 of 45 scorecard periods ended more than 150 days ago. After the
+  merge `git diff --stat HEAD origin/mon/upkeep -- web` was empty and the Vercel preview deploy
+  succeeded. T7-2 is still running and must merge `origin/preview` before it is merged.
+- 2026-09-21T08:10Z — T7-2 returned (four commits on `mon/publish`, unpushed; 104 data tests, 37
+  end-to-end, dry run against `issue/2026-w37` signed and locked the issue with w36's hash
+  unchanged). Coordinator read the workflow and the script and sent it back with five fixes before
+  merge: a variable set in a piped subshell meant the not-promoted path would poll the live site
+  and raise a false alarm; `gh pr view` ran without repository context on the comment path; nothing
+  tied the signature to the commit he approved; no guard on which files an issue branch may change
+  (the branch is written by a headless model that reads the public web, and his approval runs the
+  pipeline with a write token), plus running the script from a trusted copy of `preview`; and the
+  proposal's stance notes were dropped silently. Known residual, to record and not solve: for a
+  review event GitHub takes the workflow file from the pull request itself; the `publish` comment
+  path runs the default branch's copy. Next after the fixes: one adversarial pass on the workflow
+  and script (Opus), then push via macbook2014, merge, then T7-4.
