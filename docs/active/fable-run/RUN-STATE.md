@@ -103,7 +103,7 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
 | T7-4 | Build 2 second step per spec section 4.3: per-claim judged dates and the `reconfirm` word | claude-sonnet-5 | running | T7-2, T7-3 merged | mon/reconfirm | yes | `docs/active/fable-run/evidence/reconfirm/report.md` | 2026-09-21T10:20Z |
 | T7-6 | `scripts/gather.sh` loads `~/.env.local` when present before its login probe, so the job authenticates the same way under launchd and over ssh; README note | claude-sonnet-5 | done, merged e71b0f7 | none | mon/gather-env (worktree `../sec-market-wt-gather-env`) | yes | returned summary | 2026-09-21T20:10Z |
 | T7-7 | Fresh blind score of production (`main` 51dbffd) under rubric v2.1: rerun the measurement scripts against the live host first, then score every dimension and all four blockers, checking every lane headline | claude-sonnet-5 | done: 59.6, not fit for purpose on blockers 1 and 2 | none | preview, writes only `docs/active/fable-run/score-2026-09-21.md` and `evidence/score-0921/` | n/a | `docs/active/fable-run/score-2026-09-21.md` | 2026-09-21T20:15Z |
-| T7-8 | `scripts/gather.sh` pre-approves the narrow set of shell commands the brief needs (`--allowedTools`), because a headless run cannot answer permission prompts and the hand-started run of 2026-09-21 stopped at its first `curl` | claude-sonnet-5 | running | T7-6 | mon/gather-perms (worktree `../sec-market-wt-gather-perms`) | yes | returned summary | 2026-09-21T20:50Z |
+| T7-8 | `scripts/gather.sh` pre-approves the narrow set of shell commands the brief needs (`--allowedTools`), because a headless run cannot answer permission prompts and the hand-started run of 2026-09-21 stopped at its first `curl` | claude-sonnet-5 | done, merged 2202030 | T7-6 | mon/gather-perms (worktree `../sec-market-wt-gather-perms`) | yes | returned summary | 2026-09-21T20:50Z |
 
 ## Owner gates
 
@@ -614,3 +614,11 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
   runs `claude -p --permission-mode acceptEdits` with no pre-approved shell commands, and that host
   has an empty settings file. D-70's job has therefore never been able to fetch anything headless.
   T7-8 row written, then dispatched.
+- 2026-09-21T21:10Z — T7-8 merged (2202030): the job passes `--allowedTools` with curl, hashing, jq,
+  PDF text tools, date, wc, named git subcommands, `npm run` and `npm ci`, and denies pushes to
+  `main`, `preview` and forced pushes. Bare `npm install` is deliberately not allowed. The script
+  parses under macbook2014's bash 3.2. The push guard for `main` was installed on that clone
+  (`.githooks/install`); it had not been. The weekly job was started again by hand for 2026-w38 at
+  21:08Z (`~/gather-logs/manual-2026-09-21b.out`); a background poll is waiting for its receipt.
+  Waiting on the owner: wording for the Platform pressure fallback sentence (three variants
+  proposed in the terminal). T7-4 still running.
