@@ -53,6 +53,20 @@ finish() { receipt; exit "${1:-0}"; }
 
 log "gather run $STAMP on $(hostname)"
 
+# ---- 0. load the subscription token, if this host keeps one locally -------
+# launchd and a non-interactive ssh shell load neither the shell profile nor
+# any login environment, so a CLAUDE_CODE_OAUTH_TOKEN left in ~/.env.local by
+# a prior `claude setup-token` (plain KEY=value lines, mode 600, never
+# committed) is otherwise invisible here, and the probe in section 3 below
+# would see a valid login as a 401. Never echo or log a value from this file.
+ENV_FILE="$HOME/.env.local"
+if [ -r "$ENV_FILE" ]; then
+  set -a; . "$ENV_FILE"; set +a
+  log "loaded $ENV_FILE"
+else
+  log "no $ENV_FILE to load"
+fi
+
 # ---- 1. the repository, on a clean trunk -----------------------------------
 cd "$REPO" || { STATE="failed"; DETAIL="repo not found at $REPO"; finish 1; }
 git fetch -q "$REMOTE" || { STATE="failed"; DETAIL="git fetch failed"; finish 1; }
@@ -93,7 +107,7 @@ AUTH_OUT="$(claude -p "ok" --model "$MODEL" < /dev/null 2>&1)"
 case "$AUTH_OUT" in
   *401*|*uthenticat*|*"access token"*)
     STATE="blocked-auth"
-    DETAIL="the Claude login on this host is not valid: $AUTH_OUT. Run 'claude setup-token' here, then the job resumes on its own next Tuesday."
+    DETAIL="the Claude login on this host is not valid: $AUTH_OUT. Run 'claude setup-token' on this host and put the token it prints into ~/.env.local as CLAUDE_CODE_OAUTH_TOKEN=..., then the job resumes on its own next Tuesday."
     log "$DETAIL"; finish 1
     ;;
 esac
@@ -125,9 +139,93 @@ curl so you hold the bytes, hash everything you quote, take each item's date
 from a primary document rather than from a weekly roundup, and drop any item
 you cannot date. Record "none found" rather than inventing. Run the gates and
 record their exit codes before you push.
+
+This host pre-approves a fixed set of shell commands; if one you need is
+refused, say exactly which command in your final output and stop there, so
+the receipt shows why the run ended without a branch.
 EOM
 
 PROMPT=$(cat "$PROMPT_FILE")
+
+# ---- allowed and disallowed shell/file tools -------------------------------
+# A headless run cannot answer a permission prompt, so every command the brief
+# in docs/active/gather-brief.md actually asks for has to be pre-approved here,
+# and nothing wider than that. Each entry is a prefix match: "Bash(git
+# status:*)" allows any "git status ..." invocation and nothing that merely
+# starts with "git". One rule per line, with why it is here.
+#
+# What this does NOT do: this is a guard against mistakes, not a sandbox.
+# curl is allowed, and the subscription token this script loaded from
+# ~/.env.local is present in this process's environment, so a fetched page
+# that talked the model into echoing environment variables or piping them
+# somewhere could still get bytes out over one of these allowed commands.
+# Locking the token out of reach, or the host out of reach of a hostile page,
+# is tracked separately (BACKLOG SEC-051, which covers the related gap that
+# this same host's deploy key can currently push to any branch, not only the
+# five files this brief authorizes).
+ALLOWED_TOOLS=(
+  # the five files the brief writes, and the existing files it reads as
+  # worked examples (types.ts, the newest issue, evidence.ts's own format)
+  "Read"
+  "Edit"
+  "Write"
+  "Glob"
+  "Grep"
+  # every source in the brief's manifest is fetched with curl, verbatim
+  "Bash(curl:*)"
+  # hashing every document quoted from; macOS ships shasum, not sha256sum,
+  # but the brief's own prose says "sha256sum", so both prefixes are
+  # pre-approved in case the model tries that literal word first
+  "Bash(shasum:*)"
+  "Bash(sha256sum:*)"
+  # EDGAR full-text search and other fetched endpoints answer in JSON
+  "Bash(jq:*)"
+  # PDF text extraction, and its fallback, per brief section 0
+  "Bash(pdftotext:*)"
+  "Bash(strings:*)"
+  # ISO week / window arithmetic and comparing an item's date to the window
+  "Bash(date:*)"
+  # checking the "at most sixty words" excerpt limit
+  "Bash(wc:*)"
+  # trunk state and the orient reads in brief section 1
+  "Bash(git status:*)"
+  "Bash(git diff:*)"
+  "Bash(git log:*)"
+  "Bash(git show:*)"
+  "Bash(git branch:*)"
+  "Bash(git rev-parse:*)"
+  "Bash(git ls-remote:*)"
+  # start on trunk (step 1.1) and cut the issue branch (step 4.1)
+  "Bash(git checkout:*)"
+  "Bash(git switch:*)"
+  "Bash(git fetch:*)"
+  "Bash(git pull:*)"
+  # stage and commit exactly the files the brief authorizes (step 4.1)
+  "Bash(git add:*)"
+  "Bash(git commit:*)"
+  # push only with -u, matching the exact push this script's own prompt
+  # specifies above; pushing anywhere but the issue branch is separately
+  # denied below
+  "Bash(git push -u:*)"
+  # the verify/report gates and test:data in brief step 3.4-3.6, run only
+  # through npm run; npm ci covers a missing node_modules reproducibly
+  # without handing out a bare, unpinned npm install
+  "Bash(npm run:*)"
+  "Bash(npm ci:*)"
+)
+
+DISALLOWED_TOOLS=(
+  # these four exist so a mistaken or misdirected push cannot reach the two
+  # branches this job must never touch, even though the script's own prompt
+  # only ever asks for "git push -u origin issue/<id>". Backstopped by the
+  # branch-must-match-$BRANCH check in section 5 below, and by
+  # publish-issue.sh's own allowlist, which is the real gate on anything
+  # reaching production.
+  "Bash(git push origin main:*)"
+  "Bash(git push origin preview:*)"
+  "Bash(git push --force:*)"
+  "Bash(git push -f:*)"
+)
 
 log "invoking claude -p --model $MODEL"
 CLAUDE_OUT="$LOG_DIR/runs/$STAMP.claude.txt"
@@ -137,6 +235,8 @@ CLAUDE_OUT="$LOG_DIR/runs/$STAMP.claude.txt"
   claude -p "$PROMPT" \
     --model "$MODEL" \
     --permission-mode acceptEdits \
+    --allowedTools "${ALLOWED_TOOLS[@]}" \
+    --disallowedTools "${DISALLOWED_TOOLS[@]}" \
     > "$CLAUDE_OUT" 2>&1
 ) &
 CLAUDE_PID=$!
@@ -181,7 +281,13 @@ STATE="failed"
 if [ "$CLAUDE_RC" -ne 0 ]; then
   DETAIL="claude exited $CLAUDE_RC and no branch reached the remote; see $CLAUDE_OUT"
 else
-  DETAIL="claude exited cleanly but $BRANCH is not on the remote; see $CLAUDE_OUT"
+  # claude said it finished, but nothing reached GitHub — the receipt's own
+  # `detail` field carries the model's last words so the reason is visible
+  # without opening $CLAUDE_OUT as a second file. receipt() already escapes
+  # this string for JSON (backslash, quote, and flattening newlines to
+  # spaces), same as every other DETAIL value in this script.
+  TAIL_OUT="$(tail -n 15 "$CLAUDE_OUT" 2>/dev/null)"
+  DETAIL="claude exited cleanly but $BRANCH is not on the remote; see $CLAUDE_OUT; last 15 lines: $TAIL_OUT"
 fi
 log "$DETAIL"
 finish 1

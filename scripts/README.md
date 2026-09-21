@@ -16,6 +16,23 @@ Platform-pressure row) that is stale as of the signing date and that the gather 
 The success comment says how many stances were re-dated and names any challenged ones left stale on
 purpose — those need a session, not a rubber stamp.
 
+`gather.sh` runs the model with `claude -p --permission-mode acceptEdits`, and a headless run cannot
+answer a permission prompt, so the script also passes `--allowedTools` with the narrow, commented
+list of shell and file commands the gather brief actually needs (curl, hashing, EDGAR's JSON, PDF
+extraction, date arithmetic, the specific git subcommands, and `npm run`/`npm ci`), plus
+`--disallowedTools` for the handful of push forms that could reach `main` or `preview`. It is a
+guard against a mistaken command, not a sandbox — curl is still allowed and the subscription token
+is still in this process's environment, tracked as BACKLOG SEC-051. To add or narrow a pre-approved
+command, edit the `ALLOWED_TOOLS`/`DISALLOWED_TOOLS` arrays inside `gather.sh` itself, just above
+where it invokes `claude -p`.
+
+Before it starts the hour-long draft, `gather.sh` checks that the Claude login on the host running
+it (macbook2014, under launchd) is still good, since launchd and a non-interactive ssh shell never
+load a shell profile. It loads the subscription token from `~/.env.local` on that host, a
+plain-text `KEY=value` file, mode 600, never committed, holding `CLAUDE_CODE_OAUTH_TOKEN=...`. If
+that login has gone stale, the receipt says so and names the fix: run `claude setup-token` on that
+host and put the printed token into `~/.env.local`.
+
 The workflow runs in three phases, so a token is only ever in the hands of code that actually needs
 to push (`.github/workflows/publish-issue.yml`, `publish-issue.sh --phase guard|build|release`).
 Guard and build hold no token at all — the issue branch's own checkout has no stored git

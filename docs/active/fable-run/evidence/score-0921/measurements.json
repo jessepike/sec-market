@@ -1,0 +1,30 @@
+{
+  "live-1440": {
+    "scrollHeight": 15724,
+    "overview": 338,
+    "market": 505,
+    "we-think": 1770,
+    "follow": 6710,
+    "landscape": 6820,
+    "platforms": 7597,
+    "prints": 9292,
+    "read": 14186,
+    "hypotheses": 13677,
+    "method": 14737,
+    "next": 15047
+  },
+  "live-390": {
+    "scrollHeight": 18669,
+    "overview": 493,
+    "market": 804,
+    "we-think": 3348,
+    "follow": 10126,
+    "landscape": 10288,
+    "platforms": 11978,
+    "prints": 15103,
+    "read": 16796,
+    "hypotheses": 15777,
+    "method": 17395,
+    "next": 17767
+  }
+}

@@ -1,0 +1,326 @@
+{
+  "mobile": {
+    "performance": 0.74,
+    "accessibility": 1,
+    "best-practices": 1,
+    "seo": 1,
+    "lcp": 4297.237,
+    "cls": 0,
+    "tbt": 42.500000000000455,
+    "fcp": 3870.12,
+    "speed-index": 5090.8479887938975,
+    "total-bytes": 377084,
+    "num-requests": 13,
+    "html-bytes": 25836,
+    "main-doc-bytes": 25836,
+    "js-bytes": 232652,
+    "css-bytes": 11284,
+    "lcp-element": "div.app-shell > main#main > section.site-masthead > p.site-masthead__description \u2014 \"A practitioner's read on the business of the security market: who is growing, w\u2026\"",
+    "third-party": [
+      {
+        "origin": "fonts.googleapis.com",
+        "requestCount": 1,
+        "renderBlocking": false,
+        "urls": [
+          "https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+        ]
+      },
+      {
+        "origin": "fonts.gstatic.com",
+        "requestCount": 5,
+        "renderBlocking": false,
+        "urls": [
+          "https://fonts.gstatic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxeKYbSB4Zh.woff2",
+          "https://fonts.gstatic.com/s/ibmplexmono/v20/-F63fjptAgt5VM-kVkqdyU8n1i8q131nj-o.woff2",
+          "https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3twJwlBFgsAXHNk.woff2",
+          "https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3vAOwlBFgsAXHNk.woff2",
+          "https://fonts.gstatic.com/s/archivo/v25/k3kPo8UDI-1M0wlSV9XAw6lQkqWY8Q82sLydOxKsv4Rn.woff2"
+        ]
+      }
+    ],
+    "_raw_runs": [
+      {
+        "performance": 0.7,
+        "accessibility": 1,
+        "best-practices": 1,
+        "seo": 1,
+        "lcp": 4531.343,
+        "cls": 0.08354812903588592,
+        "tbt": 57,
+        "fcp": 4258.6925,
+        "speed-index": 5221.323496460582,
+        "total-bytes": 377085,
+        "num-requests": 13,
+        "html-bytes": 25837,
+        "main-doc-bytes": 25837,
+        "js-bytes": 232652,
+        "css-bytes": 11285,
+        "lcp-element": "div.app-shell > main#main > section.site-masthead > p.site-masthead__description \u2014 \"A practitioner's read on the business of the security market: who is growing, w\u2026\"",
+        "third-party": [
+          {
+            "origin": "fonts.googleapis.com",
+            "requestCount": 1,
+            "renderBlocking": false,
+            "urls": [
+              "https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+            ]
+          },
+          {
+            "origin": "fonts.gstatic.com",
+            "requestCount": 5,
+            "renderBlocking": false,
+            "urls": [
+              "https://fonts.gstatic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxeKYbSB4Zh.woff2",
+              "https://fonts.gstatic.com/s/ibmplexmono/v20/-F63fjptAgt5VM-kVkqdyU8n1i8q131nj-o.woff2",
+              "https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3twJwlBFgsAXHNk.woff2",
+              "https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3vAOwlBFgsAXHNk.woff2",
+              "https://fonts.gstatic.com/s/archivo/v25/k3kPo8UDI-1M0wlSV9XAw6lQkqWY8Q82sLydOxKsv4Rn.woff2"
+            ]
+          }
+        ]
+      },
+      {
+        "performance": 0.74,
+        "accessibility": 1,
+        "best-practices": 1,
+        "seo": 1,
+        "lcp": 4277.4349999999995,
+        "cls": 0,
+        "tbt": 42.500000000000455,
+        "fcp": 3842.5175,
+        "speed-index": 5042.25734087783,
+        "total-bytes": 377084,
+        "num-requests": 13,
+        "html-bytes": 25835,
+        "main-doc-bytes": 25835,
+        "js-bytes": 232653,
+        "css-bytes": 11284,
+        "lcp-element": "div.app-shell > main#main > section.site-masthead > p.site-masthead__description \u2014 \"A practitioner's read on the business of the security market: who is growing, w\u2026\"",
+        "third-party": [
+          {
+            "origin": "fonts.googleapis.com",
+            "requestCount": 1,
+            "renderBlocking": false,
+            "urls": [
+              "https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+            ]
+          },
+          {
+            "origin": "fonts.gstatic.com",
+            "requestCount": 5,
+            "renderBlocking": false,
+            "urls": [
+              "https://fonts.gstatic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxeKYbSB4Zh.woff2",
+              "https://fonts.gstatic.com/s/ibmplexmono/v20/-F63fjptAgt5VM-kVkqdyU8n1i8q131nj-o.woff2",
+              "https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3twJwlBFgsAXHNk.woff2",
+              "https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3vAOwlBFgsAXHNk.woff2",
+              "https://fonts.gstatic.com/s/archivo/v25/k3kPo8UDI-1M0wlSV9XAw6lQkqWY8Q82sLydOxKsv4Rn.woff2"
+            ]
+          }
+        ]
+      },
+      {
+        "performance": 0.74,
+        "accessibility": 1,
+        "best-practices": 1,
+        "seo": 1,
+        "lcp": 4297.237,
+        "cls": 0,
+        "tbt": 34,
+        "fcp": 3870.12,
+        "speed-index": 5090.8479887938975,
+        "total-bytes": 377083,
+        "num-requests": 13,
+        "html-bytes": 25836,
+        "main-doc-bytes": 25836,
+        "js-bytes": 232652,
+        "css-bytes": 11284,
+        "lcp-element": "div.app-shell > main#main > section.site-masthead > p.site-masthead__description \u2014 \"A practitioner's read on the business of the security market: who is growing, w\u2026\"",
+        "third-party": [
+          {
+            "origin": "fonts.googleapis.com",
+            "requestCount": 1,
+            "renderBlocking": false,
+            "urls": [
+              "https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+            ]
+          },
+          {
+            "origin": "fonts.gstatic.com",
+            "requestCount": 5,
+            "renderBlocking": false,
+            "urls": [
+              "https://fonts.gstatic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxeKYbSB4Zh.woff2",
+              "https://fonts.gstatic.com/s/ibmplexmono/v20/-F63fjptAgt5VM-kVkqdyU8n1i8q131nj-o.woff2",
+              "https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3twJwlBFgsAXHNk.woff2",
+              "https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3vAOwlBFgsAXHNk.woff2",
+              "https://fonts.gstatic.com/s/archivo/v25/k3kPo8UDI-1M0wlSV9XAw6lQkqWY8Q82sLydOxKsv4Rn.woff2"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "desktop": {
+    "performance": 0.98,
+    "accessibility": 1,
+    "best-practices": 1,
+    "seo": 1,
+    "lcp": 944.636,
+    "cls": 0.021929900594911393,
+    "tbt": 0,
+    "fcp": 944.636,
+    "speed-index": 1017.7087571847273,
+    "total-bytes": 377084,
+    "num-requests": 13,
+    "html-bytes": 25836,
+    "main-doc-bytes": 25836,
+    "js-bytes": 232653,
+    "css-bytes": 11285,
+    "lcp-element": "main#main > section#market > div.section-heading > p.market-picture__caption \u2014 \"These are figures the companies themselves reported, listed alphabetically. The\u2026\"",
+    "third-party": [
+      {
+        "origin": "fonts.googleapis.com",
+        "requestCount": 1,
+        "renderBlocking": false,
+        "urls": [
+          "https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+        ]
+      },
+      {
+        "origin": "fonts.gstatic.com",
+        "requestCount": 5,
+        "renderBlocking": false,
+        "urls": [
+          "https://fonts.gstatic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxeKYbSB4Zh.woff2",
+          "https://fonts.gstatic.com/s/ibmplexmono/v20/-F63fjptAgt5VM-kVkqdyU8n1i8q131nj-o.woff2",
+          "https://fonts.gstatic.com/s/archivo/v25/k3kPo8UDI-1M0wlSV9XAw6lQkqWY8Q82sLydOxKsv4Rn.woff2",
+          "https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3twJwlBFgsAXHNk.woff2",
+          "https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3vAOwlBFgsAXHNk.woff2"
+        ]
+      }
+    ],
+    "_raw_runs": [
+      {
+        "performance": 0.97,
+        "accessibility": 1,
+        "best-practices": 1,
+        "seo": 1,
+        "lcp": 1019.83,
+        "cls": 0.021929900594911393,
+        "tbt": 0,
+        "fcp": 1019.83,
+        "speed-index": 1019.83,
+        "total-bytes": 377082,
+        "num-requests": 13,
+        "html-bytes": 25836,
+        "main-doc-bytes": 25836,
+        "js-bytes": 232572,
+        "css-bytes": 11362,
+        "lcp-element": "main#main > section#market > div.section-heading > p.market-picture__caption \u2014 \"These are figures the companies themselves reported, listed alphabetically. The\u2026\"",
+        "third-party": [
+          {
+            "origin": "fonts.googleapis.com",
+            "requestCount": 1,
+            "renderBlocking": false,
+            "urls": [
+              "https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+            ]
+          },
+          {
+            "origin": "fonts.gstatic.com",
+            "requestCount": 5,
+            "renderBlocking": false,
+            "urls": [
+              "https://fonts.gstatic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxeKYbSB4Zh.woff2",
+              "https://fonts.gstatic.com/s/ibmplexmono/v20/-F63fjptAgt5VM-kVkqdyU8n1i8q131nj-o.woff2",
+              "https://fonts.gstatic.com/s/archivo/v25/k3kPo8UDI-1M0wlSV9XAw6lQkqWY8Q82sLydOxKsv4Rn.woff2",
+              "https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3twJwlBFgsAXHNk.woff2",
+              "https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3vAOwlBFgsAXHNk.woff2"
+            ]
+          }
+        ]
+      },
+      {
+        "performance": 0.98,
+        "accessibility": 1,
+        "best-practices": 1,
+        "seo": 1,
+        "lcp": 944.636,
+        "cls": 0.02179238754867436,
+        "tbt": 0,
+        "fcp": 944.636,
+        "speed-index": 1017.7087571847273,
+        "total-bytes": 377084,
+        "num-requests": 13,
+        "html-bytes": 25836,
+        "main-doc-bytes": 25836,
+        "js-bytes": 232653,
+        "css-bytes": 11284,
+        "lcp-element": "main#main > section#market > div.section-heading > p.market-picture__caption \u2014 \"These are figures the companies themselves reported, listed alphabetically. The\u2026\"",
+        "third-party": [
+          {
+            "origin": "fonts.googleapis.com",
+            "requestCount": 1,
+            "renderBlocking": false,
+            "urls": [
+              "https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+            ]
+          },
+          {
+            "origin": "fonts.gstatic.com",
+            "requestCount": 5,
+            "renderBlocking": false,
+            "urls": [
+              "https://fonts.gstatic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxeKYbSB4Zh.woff2",
+              "https://fonts.gstatic.com/s/ibmplexmono/v20/-F63fjptAgt5VM-kVkqdyU8n1i8q131nj-o.woff2",
+              "https://fonts.gstatic.com/s/archivo/v25/k3kPo8UDI-1M0wlSV9XAw6lQkqWY8Q82sLydOxKsv4Rn.woff2",
+              "https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3twJwlBFgsAXHNk.woff2",
+              "https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3vAOwlBFgsAXHNk.woff2"
+            ]
+          }
+        ]
+      },
+      {
+        "performance": 0.99,
+        "accessibility": 1,
+        "best-practices": 1,
+        "seo": 1,
+        "lcp": 815.7779999999999,
+        "cls": 0.021929900594911393,
+        "tbt": 0,
+        "fcp": 815.7779999999999,
+        "speed-index": 899.8111498567662,
+        "total-bytes": 377088,
+        "num-requests": 13,
+        "html-bytes": 25837,
+        "main-doc-bytes": 25837,
+        "js-bytes": 232654,
+        "css-bytes": 11285,
+        "lcp-element": "main#main > section#market > div.section-heading > p.market-picture__caption \u2014 \"These are figures the companies themselves reported, listed alphabetically. The\u2026\"",
+        "third-party": [
+          {
+            "origin": "fonts.googleapis.com",
+            "requestCount": 1,
+            "renderBlocking": false,
+            "urls": [
+              "https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+            ]
+          },
+          {
+            "origin": "fonts.gstatic.com",
+            "requestCount": 5,
+            "renderBlocking": false,
+            "urls": [
+              "https://fonts.gstatic.com/s/ibmplexsans/v23/zYXzKVElMYYaJe8bpLHnCwDKr932-G7dytD-Dmu1syxeKYbSB4Zh.woff2",
+              "https://fonts.gstatic.com/s/ibmplexmono/v20/-F63fjptAgt5VM-kVkqdyU8n1i8q131nj-o.woff2",
+              "https://fonts.gstatic.com/s/archivo/v25/k3kPo8UDI-1M0wlSV9XAw6lQkqWY8Q82sLydOxKsv4Rn.woff2",
+              "https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3twJwlBFgsAXHNk.woff2",
+              "https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3vAOwlBFgsAXHNk.woff2"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

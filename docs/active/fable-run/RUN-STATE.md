@@ -101,6 +101,9 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
 | T7-3 | Build 2 first step per spec section 4.1 and 4.2: the figure-meaning check on `prints.ts`, the shrink-only unverified list, `web/scripts/stale-report.ts`, the brief's scorecard and "Going stale" steps | claude-sonnet-5 | done, merged 146a40b | T7-1 | mon/upkeep (worktree `../sec-market-wt-upkeep`) | yes | `docs/active/fable-run/evidence/upkeep/report.md` | 2026-09-21T06:40Z |
 | T7-5 | Adversarial read-only pass on `publish-issue.yml`, `scripts/publish-issue.sh`, the sign scripts and the brief's handoff: ways a wrong or hostile draft, a race, or a GitHub behaviour could publish something the owner did not approve, move `main` wrongly, or fail silently | claude-opus-5 | done | T7-2 fixes (b24fb2b) | mon/publish, read only | n/a | returned findings, logged here | 2026-09-21T08:40Z |
 | T7-4 | Build 2 second step per spec section 4.3: per-claim judged dates and the `reconfirm` word | claude-sonnet-5 | running | T7-2, T7-3 merged | mon/reconfirm | yes | `docs/active/fable-run/evidence/reconfirm/report.md` | 2026-09-21T10:20Z |
+| T7-6 | `scripts/gather.sh` loads `~/.env.local` when present before its login probe, so the job authenticates the same way under launchd and over ssh; README note | claude-sonnet-5 | done, merged e71b0f7 | none | mon/gather-env (worktree `../sec-market-wt-gather-env`) | yes | returned summary | 2026-09-21T20:10Z |
+| T7-7 | Fresh blind score of production (`main` 51dbffd) under rubric v2.1: rerun the measurement scripts against the live host first, then score every dimension and all four blockers, checking every lane headline | claude-sonnet-5 | done: 59.6, not fit for purpose on blockers 1 and 2 | none | preview, writes only `docs/active/fable-run/score-2026-09-21.md` and `evidence/score-0921/` | n/a | `docs/active/fable-run/score-2026-09-21.md` | 2026-09-21T20:15Z |
+| T7-8 | `scripts/gather.sh` pre-approves the narrow set of shell commands the brief needs (`--allowedTools`), because a headless run cannot answer permission prompts and the hand-started run of 2026-09-21 stopped at its first `curl` | claude-sonnet-5 | done, merged 2202030 | T7-6 | mon/gather-perms (worktree `../sec-market-wt-gather-perms`) | yes | returned summary | 2026-09-21T20:50Z |
 
 ## Owner gates
 
@@ -580,3 +583,42 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
   `docs/active/gather-job-spec.md`; added SEC-051 (lock `main`), SEC-052 and SEC-053 to BACKLOG.
   The phone path cannot move production until `main` carries these workflow and script changes,
   which needs one ordinary promotion on the owner's word. T7-4 row set to running, then dispatched.
+- 2026-09-21T20:10Z — OWNER WORD "promote" in the terminal. `preview` 51dbffd was a fast-forward of
+  `main` 35a888f; the four pages compared (`/`, `/thesis/`, `/issues/2026-w36/`, `/corrections/`)
+  were identical between production and the preview host after normalising hashed asset names and
+  hosts, so this promotion changes nothing a reader sees. Pushed from macbook2014 with `PROMOTE=1`
+  because the push carries workflow files; `main` is now 51dbffd, local `main` fetched to match.
+  Vercel production deploy succeeded; seven live routes and files return 200, the masthead heading
+  and the CORRECTED note are present. The publish workflow is now on the default branch, so both
+  the approval and the `publish` comment can work. T7-4 is still building and will need its own
+  promotion word.
+- 2026-09-21T20:10Z — Owner reported he authenticated Claude on macbook2014. Checked: a bare
+  `claude -p` over ssh still returns 401 (the stored credentials file is from May and the keychain
+  is not readable over ssh), but with `~/.env.local` loaded it answers. `scripts/gather.sh` never
+  loads that file. T7-6 row written, then dispatched: load it when present.
+- 2026-09-21T20:15Z — T7-6 merged (e71b0f7). The clone on macbook2014 was fast-forwarded and the
+  weekly job was started there by hand for the week ending 2026-09-20 (`~/gather-logs/manual-2026-09-21.out`);
+  it loaded `~/.env.local`, passed the login probe, found issue 2026-w38 due and invoked the model.
+  The owner asked for the site's current score. The last blind score (57.2) predates the thesis
+  move and D-71, so T7-7 row written, then dispatched: measure, then score production blind.
+- 2026-09-21T20:50Z — T7-7 returned: production scores 59.6 under rubric v2.1 (57.2 at the last
+  blind score, 32.8 before the run), reported as not fit for purpose. New finding, verified by the
+  coordinator against the live page and `web/src/data/platformPressure.ts` line 99: every absorbed
+  supplier outside Identity gets the fallback sentence "Cloud security absorbed into a
+  hyperscaler", so Protect AI under Palo Alto Networks and the F5 row are described as absorbed
+  into a hyperscaler under a signed JUDGED stamp. Neither acquirer is a hyperscaler and those
+  targets are AI security. It is a judged sentence, so new wording is an owner gate. The
+  withdrawn "fastest" sentence still shows in the locked issue beside its correction, as before.
+- 2026-09-21T20:50Z — The hand-started weekly job failed after three minutes: state `failed`, the
+  model reported that every `curl` and `git pull` needed an approval it could not get. The script
+  runs `claude -p --permission-mode acceptEdits` with no pre-approved shell commands, and that host
+  has an empty settings file. D-70's job has therefore never been able to fetch anything headless.
+  T7-8 row written, then dispatched.
+- 2026-09-21T21:10Z — T7-8 merged (2202030): the job passes `--allowedTools` with curl, hashing, jq,
+  PDF text tools, date, wc, named git subcommands, `npm run` and `npm ci`, and denies pushes to
+  `main`, `preview` and forced pushes. Bare `npm install` is deliberately not allowed. The script
+  parses under macbook2014's bash 3.2. The push guard for `main` was installed on that clone
+  (`.githooks/install`); it had not been. The weekly job was started again by hand for 2026-w38 at
+  21:08Z (`~/gather-logs/manual-2026-09-21b.out`); a background poll is waiting for its receipt.
+  Waiting on the owner: wording for the Platform pressure fallback sentence (three variants
+  proposed in the terminal). T7-4 still running.

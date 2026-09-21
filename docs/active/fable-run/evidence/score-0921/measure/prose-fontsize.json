@@ -1,0 +1,81 @@
+{
+  "totalProseNodes": 199,
+  "under14Count": 68,
+  "under14Sample": [
+    {
+      "selector": ".issue-lane__item p",
+      "fontSize": 13.6,
+      "width": 1179,
+      "text": "The original \"why it matters\" comparison, that this growth w"
+    },
+    {
+      "selector": "p",
+      "fontSize": 12,
+      "width": 476,
+      "text": "Not a news site and not investment advice. · Site updated Se"
+    },
+    {
+      "selector": "p",
+      "fontSize": 11,
+      "width": 1204,
+      "text": "This week · week ending 6 Sep 2026 · published 19 Sep 2026 ·"
+    },
+    {
+      "selector": "p",
+      "fontSize": 13.6,
+      "width": 1204,
+      "text": "Site note The lag call is this site's refusal to claim that "
+    },
+    {
+      "selector": "p",
+      "fontSize": 10,
+      "width": 369,
+      "text": "Tracked suppliers and what they last reported"
+    },
+    {
+      "selector": "p",
+      "fontSize": 10,
+      "width": 369,
+      "text": "Tracked suppliers and what they last reported"
+    },
+    {
+      "selector": "p",
+      "fontSize": 10,
+      "width": 369,
+      "text": "Tracked suppliers and what they last reported"
+    },
+    {
+      "selector": "p",
+      "fontSize": 12.8,
+      "width": 369,
+      "text": "cloud ending ARR · FY26 · older figure · product line, not t"
+    },
+    {
+      "selector": "p",
+      "fontSize": 10,
+      "width": 369,
+      "text": "Tracked suppliers and what they last reported"
+    },
+    {
+      "selector": "p",
+      "fontSize": 10,
+      "width": 369,
+      "text": "Tracked suppliers and what they last reported"
+    }
+  ],
+  "fontSizeDistribution": [
+    10,
+    11,
+    12,
+    12.8,
+    13,
+    13.6,
+    14,
+    14.4,
+    15,
+    15.2,
+    16,
+    17,
+    18
+  ]
+}
