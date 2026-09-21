@@ -1,9 +1,11 @@
 import { formatShortDate } from '../data/dates'
 import { landscapeDomains, securityDomains, trackedPrintEvidenceIds } from '../data/domains'
 import { currentEdition, editionDomainRows } from '../data/edition'
-import { AUTHOR_NAME } from '../data/meta'
+import { claimId, effectiveJudgment } from '../data/reconfirmationHelpers'
+import { reconfirmations } from '../data/reconfirmations'
 import type { Momentum, TempoTag } from '../data/types'
 import { EvidenceLink } from './EvidenceLink'
+import { JudgedStampSpaced } from './JudgedStamp'
 
 function kindLabel(kind: string): string {
   if (kind === 'revised') return 'Moved'
@@ -107,10 +109,10 @@ function LandscapeSection() {
               <EvidenceLink ids={trackedPrintEvidenceIds(domain)} />
             </div>
             <div className="domain-card__layer domain-card__layer--judged">
-              <p className="stamp-label">
-                JUDGED <time dateTime={domain.asOf}>{formatShortDate(domain.asOf)}</time> &middot;{' '}
-                {AUTHOR_NAME}
-              </p>
+              <JudgedStampSpaced
+                judgedOn={domain.asOf}
+                reconfirmedOn={effectiveJudgment(claimId('domain', domain.id), domain.asOf, reconfirmations).reconfirmedOn}
+              />
               <p className="domain-card__judged">
                 <span className="domain-card__judged-part">HORIZON · {domain.horizon}</span>
                 {showConfidenceChip ? (

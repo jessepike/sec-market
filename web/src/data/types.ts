@@ -273,6 +273,15 @@ export interface MachineProposal {
   noCalls: string[]
   postureDeltas: string // prose only; the signer converts what they accept into PostureDelta records
   summary: string
+  /**
+   * Judged-claim ids (see ClaimKind/claimId in reconfirmationHelpers.ts) that
+   * this week's evidence cuts against (SEC-MARKET-PUBLISH-001 §4.3, gather-
+   * brief.md "Going stale"). The gather may name a stance as challenged; it
+   * never reconfirms one and never writes to reconfirmations.ts. A claim
+   * listed here is excluded from automatic re-dating even if it is stale and
+   * `reconfirm` is signed — it needs a human look, not a rubber stamp.
+   */
+  challengedClaimIds?: string[]
 }
 
 // --- Corrections (SEC-MARKET-FABLE-001 T6-13) ---
@@ -300,6 +309,25 @@ export interface Correction {
   text: string // the full owner-approved correction text, verbatim
   approvedBy: string // must equal AUTHOR_NAME in meta.ts
   correctedReadings: CorrectedReading[]
+}
+
+// --- Reconfirmations (SEC-MARKET-PUBLISH-001 §4.3) ---
+
+/**
+ * An owner-approved, append-only re-dating of a judged claim (a domain
+ * stance, a Platform-pressure row, or a tracked hypothesis — see ClaimKind
+ * in reconfirmationHelpers.ts). Never edits the claim's own `judgedOn` date;
+ * the effective date a reader sees is computed from the original judgment
+ * plus the newest reconfirmation, if any (`effectiveJudgment`). Written only
+ * by the sign step, and only when the owner's approval carried the word
+ * `reconfirm` (docs/active/publish-path-spec.md §4.3).
+ */
+export interface Reconfirmation {
+  /** `${ClaimKind}:${id}` — see claimId() in reconfirmationHelpers.ts. */
+  claimId: string
+  reconfirmedOn: string // ISO date
+  by: string // must equal AUTHOR_NAME in meta.ts
+  via: Issue['id'] // the published issue whose approval carried the reconfirmation
 }
 
 export interface Issue {

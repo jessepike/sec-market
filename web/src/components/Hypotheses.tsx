@@ -1,7 +1,8 @@
-import { formatShortDate } from '../data/dates'
 import { hypotheses } from '../data/hypotheses'
-import { AUTHOR_NAME } from '../data/meta'
+import { claimId, effectiveJudgment } from '../data/reconfirmationHelpers'
+import { reconfirmations } from '../data/reconfirmations'
 import { EvidenceLink } from './EvidenceLink'
+import { JudgedStampStacked } from './JudgedStamp'
 
 export function Hypotheses() {
   return (
@@ -20,13 +21,13 @@ export function Hypotheses() {
             <p className="hypotheses__note">{item.note}</p>
             <div className="hypotheses__meta">
               {item.provenance.layer === 'judged' ? (
-                <p className="stamp-label">
-                  JUDGED{' '}
-                  <time dateTime={item.provenance.judgedOn}>
-                    {formatShortDate(item.provenance.judgedOn)}
-                  </time>{' '}
-                  &middot; {AUTHOR_NAME}
-                </p>
+                <JudgedStampStacked
+                  judgedOn={item.provenance.judgedOn}
+                  reconfirmedOn={
+                    effectiveJudgment(claimId('hypothesis', item.id), item.provenance.judgedOn, reconfirmations)
+                      .reconfirmedOn
+                  }
+                />
               ) : null}
               {item.evidenceIds.length > 0 ? <EvidenceLink ids={item.evidenceIds} /> : null}
             </div>

@@ -1,8 +1,9 @@
-import { formatShortDate } from '../data/dates'
-import { AUTHOR_NAME } from '../data/meta'
 import { platformPressure } from '../data/platformPressure'
+import { claimId, effectiveJudgment } from '../data/reconfirmationHelpers'
+import { reconfirmations } from '../data/reconfirmations'
 import type { PressureGroup, VendorPosition } from '../data/types'
 import { EvidenceLink } from './EvidenceLink'
+import { JudgedStampStacked } from './JudgedStamp'
 
 const groupCopy: Record<PressureGroup, string> = {
   holding: 'Holding position',
@@ -60,13 +61,16 @@ export function PlatformPressure() {
                   <td>
                     <p>{row.read}</p>
                     {row.provenance.read.layer === 'judged' ? (
-                      <p className="stamp-label">
-                        JUDGED{' '}
-                        <time dateTime={row.provenance.read.judgedOn}>
-                          {formatShortDate(row.provenance.read.judgedOn)}
-                        </time>{' '}
-                        &middot; {AUTHOR_NAME}
-                      </p>
+                      <JudgedStampStacked
+                        judgedOn={row.provenance.read.judgedOn}
+                        reconfirmedOn={
+                          effectiveJudgment(
+                            claimId('platform-pressure', row.id),
+                            row.provenance.read.judgedOn,
+                            reconfirmations,
+                          ).reconfirmedOn
+                        }
+                      />
                     ) : null}
                   </td>
                 </tr>
@@ -91,13 +95,16 @@ export function PlatformPressure() {
                 ) : null}
                 <p>{row.read}</p>
                 {row.provenance.read.layer === 'judged' ? (
-                  <p className="stamp-label">
-                    JUDGED{' '}
-                    <time dateTime={row.provenance.read.judgedOn}>
-                      {formatShortDate(row.provenance.read.judgedOn)}
-                    </time>{' '}
-                    &middot; {AUTHOR_NAME}
-                  </p>
+                  <JudgedStampStacked
+                    judgedOn={row.provenance.read.judgedOn}
+                    reconfirmedOn={
+                      effectiveJudgment(
+                        claimId('platform-pressure', row.id),
+                        row.provenance.read.judgedOn,
+                        reconfirmations,
+                      ).reconfirmedOn
+                    }
+                  />
                 ) : null}
               </article>
             ))}

@@ -9,6 +9,13 @@ directory sign the issue, run the full test suite, and promote to production, un
 already carries other site work nobody has promoted yet, in which case the issue is signed and left
 on `preview` for a separate, deliberate promotion.
 
+Adding the word `reconfirm` — an approving review whose body contains it, or a comment that is
+exactly `publish reconfirm` — re-dates every judged claim (a domain stance, a hypothesis, a
+Platform-pressure row) that is stale as of the signing date and that the gather did not flag in
+`proposed.challengedClaimIds` (SEC-MARKET-PUBLISH-001 §4.3). Ordinary `publish` re-dates nothing.
+The success comment says how many stances were re-dated and names any challenged ones left stale on
+purpose — those need a session, not a rubber stamp.
+
 `gather.sh` runs the model with `claude -p --permission-mode acceptEdits`, and a headless run cannot
 answer a permission prompt, so the script also passes `--allowedTools` with the narrow, commented
 list of shell and file commands the gather brief actually needs (curl, hashing, EDGAR's JSON, PDF

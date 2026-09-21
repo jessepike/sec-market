@@ -296,6 +296,7 @@ jobs:
           HEAD_BRANCH: ${{ steps.gate.outputs.head_branch }}
           SIGNED_ON: ${{ steps.signed.outputs.signed_on }}
           PR_NUMBER: ${{ steps.gate.outputs.pr_number }}
+          RECONFIRM: ${{ steps.gate.outputs.reconfirm }}
         run: ./trusted/scripts/publish-issue.sh --phase build
 
       - name: Post the result of a failed guard or build phase
@@ -345,6 +346,7 @@ jobs:
           HEAD_BRANCH: ${{ steps.gate.outputs.head_branch }}
           SIGNED_ON: ${{ steps.signed.outputs.signed_on }}
           PR_NUMBER: ${{ steps.gate.outputs.pr_number }}
+          RECONFIRM: ${{ steps.gate.outputs.reconfirm }}
           TRUSTED_SHA_EXPECTED: ${{ steps.trusted_sha.outputs.sha }}
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
