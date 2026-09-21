@@ -913,3 +913,16 @@ promotion each still need an agent session at a terminal. Three builds were prop
 `intent.md` and `.claude/rules/constraints.md` are his to amend and are not edited by this run. The
 wording changes they need are proposed separately in `docs/active/publish-path-spec.md`.
 
+**D-74 · 2026-09-21 — `preview` was promoted on the owner's word; `main` moved `35a888f` → `51dbffd`. The publish-on-approval workflow, the scorecard check and the stale report are on the default branch.**
+
+The owner said "promote". The promotion carried builds 1 and 3 and the first step of build 2 from
+D-73 (`docs/active/publish-path-spec.md`): `.github/workflows/publish-issue.yml`,
+`scripts/publish-issue.sh`, the sign scripts, `verify:prints`, `report:stale`, and the thesis
+verdict leaving the weekly brief. Nothing a reader can see changed: four pages compared between
+production and the preview host were identical once hashed asset names and hosts were normalised.
+The push went out from macbook2014 over its deploy key because it carries workflow files, which
+this laptop's token cannot push. Vercel's production deploy succeeded and the live host was checked
+for content. From this commit on, the owner's approval of an `issue/*` pull request into `preview`,
+or his comment `publish`, signs and publishes that issue under the conditions in the spec. Known
+residual risks are recorded as SEC-051 in `BACKLOG.md`.
+
