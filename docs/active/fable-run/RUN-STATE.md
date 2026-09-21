@@ -535,3 +535,15 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
   claim is older than 45 days; 19 of 45 scorecard periods ended more than 150 days ago. After the
   merge `git diff --stat HEAD origin/mon/upkeep -- web` was empty and the Vercel preview deploy
   succeeded. T7-2 is still running and must merge `origin/preview` before it is merged.
+- 2026-09-21T08:10Z — T7-2 returned (four commits on `mon/publish`, unpushed; 104 data tests, 37
+  end-to-end, dry run against `issue/2026-w37` signed and locked the issue with w36's hash
+  unchanged). Coordinator read the workflow and the script and sent it back with five fixes before
+  merge: a variable set in a piped subshell meant the not-promoted path would poll the live site
+  and raise a false alarm; `gh pr view` ran without repository context on the comment path; nothing
+  tied the signature to the commit he approved; no guard on which files an issue branch may change
+  (the branch is written by a headless model that reads the public web, and his approval runs the
+  pipeline with a write token), plus running the script from a trusted copy of `preview`; and the
+  proposal's stance notes were dropped silently. Known residual, to record and not solve: for a
+  review event GitHub takes the workflow file from the pull request itself; the `publish` comment
+  path runs the default branch's copy. Next after the fixes: one adversarial pass on the workflow
+  and script (Opus), then push via macbook2014, merge, then T7-4.
