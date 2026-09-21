@@ -89,7 +89,7 @@ Each of these is a lesson this project has already paid for.
   paraphrased. A figure that cannot be quoted does not enter the draft.
 - **Record none found and move on.** A source with nothing new yields a one-line note in the PR body
   and no item. An empty lane is an empty lane.
-- **Proposes, never signs or applies.** The job's read, thesis verdict, no-calls and posture
+- **Proposes, never signs or applies.** The job's read, no-calls and posture
   suggestions go in `proposed` on the draft and in the PR body, labelled as a machine proposal. It
   never writes `weThink.thesis`, `weThink.postureDeltas`, a signature, `domains.ts`,
   `hypotheses.ts`, `market.ts`, `meta.ts`, `intent.md`, `decisions.md`, or any prior issue.
@@ -109,10 +109,12 @@ Tuesday or Wednesday, twenty to thirty minutes, owner:
 1. Open the PR. Read the body top to bottom.
 2. Open the preview deploy of the branch. Read the draft issue as a reader would.
 3. Cut anything thin. Edit headlines and "why it matters" freely.
-4. Form your own view. Write `weThink` yourself, converting only what you accept from `proposed`
-   into `thesis`, `postureDeltas` and `noCalls`, each with a confidence. Set `proposed: null`,
-   `signedBy`, `signedOn`, `published`, `status: 'published'`, and run
-   `npm run verify:issue -- --write` to add the issue to the lock manifest.
+4. Form your own view. Change anything in `proposed` you do not accept, then approve the pull
+   request or comment `publish` (D-73, `docs/active/publish-path-spec.md`). The publish workflow
+   signs `proposed` under your name with that day's date, locks the issue, runs every check and
+   publishes. The thesis is no longer a weekly verdict; it lives at `/thesis/`. Signing by hand in a
+   session still works: set `weThink`, `proposed: null`, `signedBy`, `signedOn`, `published`,
+   `status: 'published'`, and run `npm run verify:issue -- --write`.
 5. If the branch's Vercel build failed, do not merge on the strength of the PR body; fix or reject.
 6. Merge to `preview`. Promote with `PROMOTE=1` after the render check.
 

@@ -97,10 +97,10 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
 | T6-15 | Recapture the final deployed `preview` (home, `/corrections/`, issue page) at 1440 and 390 and re-measure section offsets, for the owner packet | claude-haiku-4-5 | done; coordinator looked at the final 1440 first screen | none | preview | https://security-market-pulse-git-preview-pikeholdings.vercel.app | docs/active/fable-run/evidence/final/ | 2026-09-21T01:50Z |
 | T6-16 | Move the founding thesis off the front page to its own `/thesis/` page as one standing analysis: the whole judgment board (running score, thesis headline, stat band, the read, Do and Avoid) renders there; the front page keeps a three-line pointer at the same anchor; "Thesis" leaves the top navigation; the front-page signed block shows the thesis verdict as one quiet linked line. Issue permalinks, issue data and the lock are untouched. Nothing deleted. To `preview` only after coordinator review | claude-sonnet-5 | done: head 27fcf10, rebased on the other session's D-71 front page, `npm test` green (80 data tests, 37 e2e), permalink HTML differs only by the removed nav link, zero axe violations on `/thesis/`; coordinator caught and had fixed a stamp that gave the site-updated date as a judged date | /Users/jessepike/code/projects/sec-market-wt/thesis | mon/thesis | https://security-market-pulse-git-mon-thesis-pikeholdings.vercel.app | branch `mon/thesis` plus `docs/active/fable-run/evidence/thesis/` | 2026-09-21T03:30Z |
 | T7-1 | Extract the facts the publish-path spec needs: issue and proposal types, how an issue becomes published and how the lock manifest is written, the production guard in `verify-issue`, what CI runs today, how `gather-pr.yml` and `gather.sh` hand off, where `weThink.thesis` is required | claude-haiku-4-5 | done | none | preview | n/a | returned summary, folded into `docs/active/publish-path-spec.md` | 2026-09-21T06:10Z |
-| T7-2 | Build 1 and build 3 per `docs/active/publish-path-spec.md` sections 2 and 3: `web/scripts/sign-issue.ts`, `scripts/publish-issue.sh`, `.github/workflows/publish-issue.yml`, the AGENTS.md paragraph, thesis verdict out of the brief and optional in the model. Dry run against `issue/2026-w37` with pushes off | claude-sonnet-5 | running | T7-1 | mon/publish (worktree `../sec-market-wt-publish`) | coordinator pushes via macbook2014 deploy key (workflow file) | `docs/active/fable-run/evidence/publish/report.md` | 2026-09-21T06:40Z |
+| T7-2 | Build 1 and build 3 per `docs/active/publish-path-spec.md` sections 2 and 3: `web/scripts/sign-issue.ts`, `scripts/publish-issue.sh`, `.github/workflows/publish-issue.yml`, the AGENTS.md paragraph, thesis verdict out of the brief and optional in the model. Dry run against `issue/2026-w37` with pushes off | claude-sonnet-5 | done, merged e456d2d | T7-1 | mon/publish (worktree `../sec-market-wt-publish`) | coordinator pushes via macbook2014 deploy key (workflow file) | `docs/active/fable-run/evidence/publish/report.md` | 2026-09-21T06:40Z |
 | T7-3 | Build 2 first step per spec section 4.1 and 4.2: the figure-meaning check on `prints.ts`, the shrink-only unverified list, `web/scripts/stale-report.ts`, the brief's scorecard and "Going stale" steps | claude-sonnet-5 | done, merged 146a40b | T7-1 | mon/upkeep (worktree `../sec-market-wt-upkeep`) | yes | `docs/active/fable-run/evidence/upkeep/report.md` | 2026-09-21T06:40Z |
 | T7-5 | Adversarial read-only pass on `publish-issue.yml`, `scripts/publish-issue.sh`, the sign scripts and the brief's handoff: ways a wrong or hostile draft, a race, or a GitHub behaviour could publish something the owner did not approve, move `main` wrongly, or fail silently | claude-opus-5 | done | T7-2 fixes (b24fb2b) | mon/publish, read only | n/a | returned findings, logged here | 2026-09-21T08:40Z |
-| T7-4 | Build 2 second step per spec section 4.3: per-claim judged dates and the `reconfirm` word | claude-sonnet-5 | pending | T7-2, T7-3 merged | mon/reconfirm | yes | `docs/active/fable-run/evidence/reconfirm/report.md` | |
+| T7-4 | Build 2 second step per spec section 4.3: per-claim judged dates and the `reconfirm` word | claude-sonnet-5 | running | T7-2, T7-3 merged | mon/reconfirm | yes | `docs/active/fable-run/evidence/reconfirm/report.md` | 2026-09-21T10:20Z |
 
 ## Owner gates
 
@@ -567,3 +567,16 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
   to be written into the report and BACKLOG: the review event uses the pull request's own workflow
   file; the weekly job's deploy key can push to `main` on a repository with no branch protection.
   Sent back to the T7-2 builder.
+- 2026-09-21T10:20Z — T7-2 returned with the twelve findings closed (b6a8a8f, a626d00): guard, build
+  and release phases with only release holding a token; 154 data tests, 37 end-to-end, 33 script
+  tests, three-phase dry run against `issue/2026-w37` clean, w36 hash unchanged. One deviation
+  accepted: a run that signs but does not promote now ends as a failed run, which is the loud
+  version of the notice. `mon/publish` and then the merged `preview` (e456d2d) were pushed through
+  the deploy key on macbook2014 as git bundles, because this laptop's token cannot push workflow
+  files; the gather clone's working tree and branch were left as found. After the merge,
+  `git diff --stat HEAD origin/mon/publish -- web scripts .github` was empty, the Vercel preview
+  deploy succeeded, and `/`, `/thesis/` and `/issues/2026-w36/` on the preview host are identical
+  to before apart from Vercel's deployment id. Corrected the stale thesis and hand-signing lines in
+  `docs/active/gather-job-spec.md`; added SEC-051 (lock `main`), SEC-052 and SEC-053 to BACKLOG.
+  The phone path cannot move production until `main` carries these workflow and script changes,
+  which needs one ordinary promotion on the owner's word. T7-4 row set to running, then dispatched.

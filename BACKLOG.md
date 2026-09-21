@@ -642,6 +642,32 @@ figures back to the scorecard (SEC-045) behind the figure-meaning gate (SEC-044)
 - Parked by the owner on 2026-09-20: monetization
   (`docs/active/fable-run/monetization-plan.md`) and the employer outside-activity question
 
+### SEC-051 — Lock `main` so only the owner and the publish workflow can move it
+
+Found by the adversarial review of the publish path (2026-09-21). The weekly job on macbook2014
+pushes over a read-write deploy key, which can write to any branch including `main`, and a free
+private repository cannot protect a branch. The pre-push hook is per clone and stops mistakes, not a
+confused or hijacked job. Every guard in `scripts/publish-issue.sh` sits beside that open door.
+Options: GitHub Pro (about $4 a month) for branch protection on `main`; or make the repository
+public, which also unlocks it and suits a site built on public sources, but exposes the run's
+working documents. Paid service or a visibility change, so an owner gate. Recommendation: GitHub
+Pro. Related residual: on an approving review GitHub runs the pull request's own copy of
+`publish-issue.yml`; the `publish` comment always runs the default branch's copy.
+
+### SEC-052 — Promote everything on `preview` from the phone
+
+Out of scope for D-73 on purpose (`docs/active/publish-path-spec.md` section 5). A `promote`
+comment would move site work the owner has not looked at. Revisit only together with a way to show
+him the preview render in the same notification.
+
+### SEC-053 — A structured event date on point-in-time evidence
+
+Found by the scorecard check build (2026-09-21). A few point-in-time figures carry their date only
+in free text, so `verify:prints` falls back to a text search, and it cannot tell a balance (ending
+ARR) from a flow (revenue) because evidence has no structured metric field. Needs fields added to
+`web/src/data/evidence.ts`. One entry, `print-crwd-cloud`, waits on this or on the owner's word in
+`web/src/data/printsUnverified.ts`.
+
 ## Not authorized
 
 - Partner-risk-first sequencing
