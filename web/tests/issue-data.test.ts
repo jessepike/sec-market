@@ -1,11 +1,14 @@
 import assert from 'node:assert/strict'
 import { describe, it } from 'node:test'
+import { createElement } from 'react'
+import { renderToStaticMarkup } from 'react-dom/server'
 import { issues } from '../src/data/issues/index.ts'
 import {
   extractNumericTokens,
   isoWeekId,
   isoWeekSunday,
   issueEvidenceIds,
+  newestThesisJudgment,
   parseVendorsParam,
   serializeVendorsParam,
   thesisRunningScore,
@@ -13,6 +16,8 @@ import {
   windowOf,
 } from '../src/data/issueHelpers.ts'
 import type { Issue } from '../src/data/types.ts'
+import { WeThink } from '../src/components/WeThink.tsx'
+import { EvidenceProvider } from '../src/context/EvidenceProvider.tsx'
 
 function makeIssue(overrides: Partial<Issue> & Pick<Issue, 'id'>): Issue {
   return {
@@ -163,6 +168,111 @@ describe('thesisRunningScore', () => {
       },
     })
     assert.deepEqual(thesisRunningScore([weakens]), { holds: 0, total: 1, since: '2026-09-06' })
+  })
+})
+
+describe('newestThesisJudgment', () => {
+  it('returns null when no published issue has signed a thesis verdict', () => {
+    assert.equal(newestThesisJudgment([]), null)
+    assert.equal(newestThesisJudgment([makeIssue({ id: '2026-w36', status: 'published', published: '2026-09-06' })]), null)
+  })
+
+  it(
+    'keeps the date of the last verdict actually signed when the newest published issue has none ' +
+      '(SEC-MARKET-PUBLISH-001 §3: the thesis verdict left the weekly issue)',
+    () => {
+      const signed = makeIssue({
+        id: '2026-w36',
+        status: 'published',
+        published: '2026-09-06',
+        weThink: {
+          summary: 'Signed summary.',
+          postureDeltas: [],
+          thesis: { thesis: 'episode-002', verdict: 'holds', basis: 'Basis.', confidence: 'high', evidenceIds: ['E1'] },
+          noCalls: [],
+          signedBy: 'Jesse Pike',
+          signedOn: '2026-09-06',
+        },
+      })
+      const noVerdict = makeIssue({
+        id: '2026-w37',
+        status: 'published',
+        published: '2026-09-13',
+        weThink: {
+          summary: 'Signed summary, no verdict.',
+          postureDeltas: [],
+          thesis: null,
+          noCalls: [],
+          signedBy: 'Jesse Pike',
+          signedOn: '2026-09-13',
+        },
+      })
+
+      const judgment = newestThesisJudgment([signed, noVerdict])
+      assert.deepEqual(judgment, { signedOn: '2026-09-06', signedBy: 'Jesse Pike' })
+    },
+  )
+})
+
+describe('WeThink rendering a newest issue with no thesis verdict', () => {
+  it('renders neither "null" nor an empty thesis block, on the published path', () => {
+    const issue = makeIssue({
+      id: '2026-w37',
+      status: 'published',
+      published: '2026-09-13',
+      weThink: {
+        summary: 'This week had no thesis verdict.',
+        postureDeltas: [],
+        thesis: null,
+        noCalls: [],
+        signedBy: 'Jesse Pike',
+        signedOn: '2026-09-13',
+      },
+    })
+
+    const markup = renderToStaticMarkup(
+      createElement(EvidenceProvider, null, createElement(WeThink, { issue })),
+    )
+
+    assert.ok(!markup.includes('null'), 'rendered markup must not contain the literal text "null"')
+    assert.ok(!markup.includes('we-think__thesis'), 'no thesis block should render when there is no verdict')
+    assert.ok(markup.includes('Signed by Jesse Pike'), 'the signature line must still render')
+  })
+
+  it('renders neither "null" nor an empty thesis block, on the unsigned-draft path', () => {
+    const issue = makeIssue({
+      id: '2026-w38',
+      status: 'draft',
+      proposed: {
+        read: 'Draft read.',
+        noCalls: [],
+        postureDeltas: 'none proposed',
+        summary: 'Draft summary.',
+      },
+    })
+
+    const markup = renderToStaticMarkup(
+      createElement(EvidenceProvider, null, createElement(WeThink, { issue })),
+    )
+
+    assert.ok(!markup.includes('null'), 'rendered markup must not contain the literal text "null"')
+    assert.ok(!markup.includes('we-think__thesis'), 'no thesis block should render when the proposal has none')
+    assert.ok(markup.includes('Unsigned draft'), 'the draft banner must still render')
+  })
+})
+
+describe('issueEvidenceIds with no proposed thesis', () => {
+  it('does not throw and cites no thesis evidence when proposed.thesis is absent', () => {
+    const issue = makeIssue({
+      id: '2026-w38',
+      proposed: {
+        read: 'Draft read.',
+        noCalls: [],
+        postureDeltas: 'none proposed',
+        summary: 'Draft summary.',
+      },
+    })
+    assert.deepEqual(issueEvidenceIds(issue), [])
   })
 })
 

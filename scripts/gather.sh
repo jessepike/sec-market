@@ -151,6 +151,26 @@ log "claude exited rc=$CLAUDE_RC, ${CLAUDE_LINES} lines of output"
 # ---- 5. did a branch actually reach GitHub? --------------------------------
 if git ls-remote --exit-code --heads "$REMOTE" "$BRANCH" >/dev/null 2>&1; then
   PUSHED="true"
+
+  # Best-effort, fail-fast check (coordinator review of SEC-MARKET-PUBLISH-001,
+  # point F, 2026-09-21): the real gate is publish-issue.sh's own allowlist
+  # guard, run from a trusted checkout before anything from the branch ever
+  # runs with a token. This can only run AFTER the push above, because the
+  # `claude -p` subprocess above does its own push — it cannot run strictly
+  # "before" that push. Kept deliberately minimal and duplicated rather than
+  # shared with publish-issue.sh's is_allowed_issue_branch_path: that file
+  # belongs to another session, and this is intentionally the same five
+  # paths, checked independently.
+  BLOCKED_PATHS="$(git diff --name-only "$REMOTE/preview...$REMOTE/$BRANCH" 2>/dev/null | grep -vE \
+    "^web/src/data/issues/${ISSUE_ID}\.ts\$|^web/src/data/issues/index\.ts\$|^web/src/data/evidence\.ts\$|^web/src/data/prints\.ts\$|^\.gather/pr-body\.md\$" \
+    || true)"
+  if [ -n "$BLOCKED_PATHS" ]; then
+    STATE="blocked-paths"
+    DETAIL="$BRANCH pushed but touches file(s) outside the allowed five (see gather-brief.md): $(printf '%s' "$BLOCKED_PATHS" | tr '\n' ' ')"
+    log "$DETAIL"
+    finish 1
+  fi
+
   STATE="drafted"
   DETAIL="$BRANCH pushed; the pull-request Action takes it from here"
   log "$DETAIL"

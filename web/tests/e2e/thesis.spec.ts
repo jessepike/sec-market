@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test'
-import { issues } from '../../src/data/issues/index.ts'
+import { issues, latestIssue } from '../../src/data/issues/index.ts'
 import { newestThesisJudgment } from '../../src/data/issueHelpers.ts'
 import { marketCall } from '../../src/data/market.ts'
 
@@ -98,12 +98,23 @@ test.describe('/thesis/ — the standing thesis', () => {
     await expect(page.locator('.site-header').getByRole('link', { name: 'Thesis' })).toHaveCount(0)
     await expect(page.getByRole('link', { name: 'Standing analysis' })).toHaveAttribute('href', '/thesis/')
 
-    // #we-think's own thesis line is condensed to a pointer here too.
-    await expect(page.locator('#we-think')).toContainText('Standing analysis:')
-    await expect(page.locator('#we-think').getByRole('link', { name: 'See the record.' })).toHaveAttribute(
-      'href',
-      '/thesis/',
-    )
+    // #we-think's own thesis line is condensed to a pointer here too — but
+    // only when the newest issue actually carries a verdict. Since build 3
+    // (SEC-MARKET-PUBLISH-001 §3) the thesis left the weekly issue, so the
+    // newest issue very often has none, and #we-think must then render
+    // neither the pointer nor an empty/"null" block (see WeThink.tsx).
+    const latestThesis =
+      latestIssue.status === 'published' ? latestIssue.weThink.thesis : (latestIssue.proposed?.thesis ?? null)
+    if (latestThesis) {
+      await expect(page.locator('#we-think')).toContainText('Standing analysis:')
+      await expect(page.locator('#we-think').getByRole('link', { name: 'See the record.' })).toHaveAttribute(
+        'href',
+        '/thesis/',
+      )
+    } else {
+      await expect(page.locator('#we-think')).not.toContainText('Standing analysis:')
+      await expect(page.locator('#we-think')).not.toContainText('null')
+    }
 
     // The pointer's JUDGED stamp is the newest published issue's actual
     // signed thesis date (SEC-MARKET-FABLE-001 T6-16 fix), not the site's

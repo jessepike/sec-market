@@ -258,10 +258,18 @@ export interface ThesisScore {
   evidenceIds: string[]
 }
 
-/** What the gather proposes. Visible on a draft, labelled as a machine proposal; must be null once published. */
+/**
+ * What the gather proposes. Visible on a draft, labelled as a machine
+ * proposal; must be null once published.
+ *
+ * `thesis` is optional (SEC-MARKET-PUBLISH-001 §3, D-72/D-73): the founding
+ * thesis is a standing analysis at `/thesis/`, not a weekly verdict, so the
+ * gather no longer proposes one and the sign step ignores it if present. An
+ * older draft that still carries a `thesis` continues to type-check.
+ */
 export interface MachineProposal {
   read: string
-  thesis: ThesisScore
+  thesis?: ThesisScore
   noCalls: string[]
   postureDeltas: string // prose only; the signer converts what they accept into PostureDelta records
   summary: string

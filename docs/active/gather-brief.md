@@ -26,9 +26,11 @@ apply a judgment, never publish.
 - Record "none found" and move on. An empty lane is an empty lane. Never invent.
 - At most eight items per lane. What you left out goes in the pull request body.
 - If a source fails three attempts, mark it unreadable and move on.
-- You write to exactly four files: `web/src/data/issues/<id>.ts` (new),
-  `web/src/data/issues/index.ts`, `web/src/data/evidence.ts` (append only), and
-  `web/src/data/prints.ts` (scorecard figures only — see §3 step 5). You never edit
+- You write to exactly five files: `web/src/data/issues/<id>.ts` (new),
+  `web/src/data/issues/index.ts`, `web/src/data/evidence.ts` (append only),
+  `web/src/data/prints.ts` (scorecard figures only — see §3 step 5), and `.gather/pr-body.md` (the
+  pull request body you compose in §4, when you cannot open the pull request yourself). You never
+  edit
   `intent.md`, `decisions.md`, `status.md`, `BACKLOG.md`, `web/src/data/domains.ts`,
   `web/src/data/hypotheses.ts`, `web/src/data/market.ts`, `web/src/data/meta.ts`,
   `web/src/data/printsUnverified.ts`, `web/scripts/prints-unverified-baseline.json`, or any existing
@@ -100,9 +102,10 @@ acquisition.
    week's most consequential fact. Four sections in order: formation, absorption, prints, capital;
    `why` in one sentence per item; `vendors` slugs and `domainId` where clear. `weThink`: `summary`
    empty string, `postureDeltas` empty, `thesis` null, `noCalls` empty, `signedBy` null, `signedOn`
-   null. `proposed`: your proposal, all of it: `read`, `thesis` with verdict, basis, confidence and
-   evidence ids, `noCalls`, `postureDeltas` as prose, `summary` in two sentences. `sources` from your
-   read log. If nothing happened, set `quiet: true` and say so in `read`.
+   null. `proposed`: your proposal, all of it: `read`, `noCalls`, `postureDeltas` as prose, `summary`
+   in two sentences. The founding thesis is a standing analysis at `/thesis/`, not a weekly verdict
+   (D-72, D-73) — do not set `proposed.thesis`. `sources` from your read log. If nothing happened,
+   set `quiet: true` and say so in `read`.
 3. Append the new issue to the array in `web/src/data/issues/index.ts`, last.
 4. From `web/`, run `npm install` if `node_modules` is absent, then `npm run verify:edition`,
    `npm run verify:panel`, `npm run verify:integrity`, `npm run verify:issue`, `npm run test:data`.
@@ -125,15 +128,15 @@ acquisition.
 1. `git checkout -b issue/<id>`; stage the three issue/evidence files plus `web/src/data/prints.ts`
    when step 5 changed it; commit as `draft(issue): <id> gathered <today>`.
 2. Push the branch and open a pull request against `preview` titled `Issue <id> draft`. If a pull
-   request cannot be opened from this environment, push the branch and put the full body below in
-   your final message.
+   request cannot be opened from this environment, write the body below to `.gather/pr-body.md`,
+   commit it alongside your other files, and push the branch — a GitHub Action opens the pull
+   request from the pushed branch and uses that file as the body.
 3. Pull request body, in this order:
    - gate exit codes, failures first;
    - the one-line read you propose;
    - per lane, the item count and a one-line list;
    - scorecard changes, each as old value, new value, and the source link, or "none this week";
    - proposed posture deltas as prose, or "none proposed";
-   - proposed thesis verdict, basis and confidence;
    - sources you could not read and why;
    - what you left out and why;
    - "Going stale", the verbatim output of `npm run report:stale`;
