@@ -649,3 +649,11 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
   place. Merged to `preview` as 48fd77f; visible change, waiting on the owner's word to promote.
   macbook2014 stopped answering ssh at about 21:40Z with the 2026-w38 job running; no receipt and
   no pull request yet.
+- 2026-09-22T01:10Z — macbook2014 has been off the network since about 21:40Z on 21 Sep ("Host is
+  down" on ping and ssh, one brief "Connection refused" in between). The 2026-w38 job that was
+  running there has no receipt and no pull request. Two 30-minute watches expired with no event.
+  Nothing else waits on that host. When it returns: read
+  `~/gather-logs/receipts/` for a receipt after 21:08Z; if none, run
+  `SMP_WEEK_ENDING=2026-09-20 ./scripts/gather.sh` there again. The launchd job also fires on its own
+  on Tuesday 2026-09-22 at 07:00 local if the machine is awake.
+
