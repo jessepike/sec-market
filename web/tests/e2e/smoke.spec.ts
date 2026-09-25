@@ -1,14 +1,18 @@
 import { expect, test } from '@playwright/test'
+import { formatLongDate, formatShortDate } from '../../src/data/dates.ts'
+import { LAST_UPDATED_DISPLAY, LAST_UPDATED_ISO, SITE_HEADLINE } from '../../src/data/meta.ts'
 import { runStatus } from '../../src/data/runStatus.ts'
-import { SITE_HEADLINE } from '../../src/data/meta.ts'
 
 /**
  * D-76/autonomy-coverage-plan.md §3, step 1: the front page now publishes
  * sourced facts only, no judgments. This test used to also check the
  * weekly-issue strip, "Tracked hypotheses", the standing-thesis pointer, the
  * domain-tempo table and its judged delta — all removed from this route; see
- * DomainBoard.tsx, MarketPicture.tsx, PlatformPressure.tsx, WhatMoved.tsx,
- * ActivityBoard.tsx and App.tsx for where each piece went.
+ * DomainBoard.tsx, MarketPicture.tsx, WhatMoved.tsx, ActivityBoard.tsx and
+ * App.tsx for where each piece went. Step 1 fix pass, item 3: PlatformPressure
+ * is now gone from this route in full — not just its judged "read" column —
+ * because every row it drew from carried a hand-assigned vendor-position
+ * label (see the `#platforms` and position-label assertions below).
  */
 test('renders the market briefing without runtime errors', async ({ page }) => {
   const pageErrors: string[] = []
@@ -42,6 +46,17 @@ test('renders the market briefing without runtime errors', async ({ page }) => {
   await expect(page.locator('#we-think')).toHaveCount(0)
   await expect(page.locator('#read')).toHaveCount(0)
   await expect(page.locator('#watch')).toHaveCount(0)
+
+  // Step 1 fix pass, item 3: Platform pressure is gone from the front page
+  // entirely, and no hand-assigned vendor-position label survives anywhere
+  // on the page — those describe competitive footing, which the site no
+  // longer states. The factual 'absorbed'/acquisition wording (acquirer,
+  // target, price, close date) is unaffected and checked separately below.
+  await expect(page.locator('#platforms')).toHaveCount(0)
+  await expect(page.locator('.pressure')).toHaveCount(0)
+  for (const label of ['Holding', 'Buying in', 'Outrun', 'Challengers', 'Incumbent', 'Challenger']) {
+    await expect(page.getByText(label, { exact: true })).toHaveCount(0)
+  }
 
   // Landscape cards show the domain name and its tracked print only — no
   // stance chip, no JUDGED stamp, no horizon.
@@ -127,4 +142,36 @@ test('opens attributed evidence without a private GitHub artifact link', async (
 
   await page.keyboard.press('Escape')
   await expect(dialog).toBeHidden()
+})
+
+/**
+ * Step 1 fix pass, item 2: the rail's "AS OF", the header's masthead date,
+ * the front-page masthead's "Site updated", and the run-status line used to
+ * each read from a different constant and could disagree (rail/header said
+ * 21 Sep, run-status said 25 Sep). `LAST_UPDATED_ISO`/`LAST_UPDATED_DISPLAY`
+ * (meta.ts) are now derived from `runStatus.lastChecked`, so this test reads
+ * every one of those four rendered dates back off the page and fails if any
+ * of them differs from `runStatus.lastChecked` — the single source.
+ */
+test('every as-of / site-updated / masthead date on the front page matches runStatus.lastChecked', async ({
+  page,
+}) => {
+  await page.goto('/')
+
+  expect(LAST_UPDATED_ISO).toBe(runStatus.lastChecked)
+  expect(LAST_UPDATED_DISPLAY).toBe(formatLongDate(runStatus.lastChecked))
+
+  await expect(page.locator('.rail__asof time')).toHaveAttribute('datetime', runStatus.lastChecked)
+  await expect(page.locator('.rail__asof time')).toHaveText(formatShortDate(runStatus.lastChecked))
+
+  await expect(page.locator('.site-header__updated time')).toHaveAttribute('datetime', runStatus.lastChecked)
+  await expect(page.locator('.site-header__updated time')).toHaveText(formatLongDate(runStatus.lastChecked))
+
+  await expect(page.locator('.site-masthead__stamps')).toContainText(
+    `Site updated ${formatLongDate(runStatus.lastChecked)}`,
+  )
+
+  await expect(page.locator('#overview .run-status__line')).toContainText(
+    `Figures checked ${formatShortDate(runStatus.lastChecked)}`,
+  )
 })

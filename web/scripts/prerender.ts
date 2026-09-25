@@ -63,6 +63,11 @@ if (typeof mod.render !== 'function') {
 // header's nav link and this gate both still resolve. The issue permalink
 // and /thesis/ routes are unaffected: both are kept as dated archive pages
 // and still carry their original judged content in full.
+//
+// Step 1 fix pass, item 3: 'platforms' (Platform pressure) also dropped from
+// this list — the whole section stopped rendering on the front page, not
+// just its judged "read" column, because every row named a hand-assigned
+// vendor-position label (footing the site no longer states).
 const MUST_SEE_SECTION_IDS: Record<RouteEntry['kind'], string[]> = {
   front: [
     'overview',
@@ -73,7 +78,6 @@ const MUST_SEE_SECTION_IDS: Record<RouteEntry['kind'], string[]> = {
     'capital',
     'follow',
     'landscape',
-    'platforms',
     'prints',
   ],
   archive: ['issues'],

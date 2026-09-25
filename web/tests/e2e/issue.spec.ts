@@ -8,7 +8,10 @@ import { SITE_HEADLINE } from '../../src/data/meta.ts'
 // page's four lane ids stay, but 'overview' now names RunStatus rather than
 // the old issue strip, and 'we-think' ("What we now think") is gone from the
 // front page entirely — both survive, unchanged, on the issue permalink.
-const STANDING_REFERENCE_IDS = ['market', 'follow', 'landscape', 'platforms', 'prints']
+// Step 1 fix pass, item 3: 'platforms' (Platform pressure) also dropped —
+// the whole section, not just its judged column, stopped rendering on the
+// front page because every row carried a hand-assigned vendor-position label.
+const STANDING_REFERENCE_IDS = ['market', 'follow', 'landscape', 'prints']
 const FRONT_LANE_IDS = ['overview', 'formation', 'absorption', 'prints-this-week', 'capital']
 const ISSUE_SECTION_IDS = ['overview', 'formation', 'absorption', 'prints-this-week', 'capital', 'we-think']
 

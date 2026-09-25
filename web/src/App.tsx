@@ -17,7 +17,6 @@ import { MarketLayersChart } from './components/MarketLayersChart'
 import { MarketPicture } from './components/MarketPicture'
 import { MethodologyNote } from './components/MethodologyNote'
 import { NextEdition } from './components/NextEdition'
-import { PlatformPressure } from './components/PlatformPressure'
 import { PrintGrid } from './components/PrintGrid'
 import { ProvenanceRail } from './components/ProvenanceRail'
 import { RunStatus } from './components/RunStatus'
@@ -52,14 +51,22 @@ function ArchiveNotice({ text }: { text: string }) {
  * D-76/autonomy-coverage-plan.md §3, step 1 ("Judged text leaves the live
  * pages"): every judged element that used to sit on this page — the
  * weekly-issue headline strip, "What we now think", the domain stance chips
- * and JUDGED stamps, the Platform-pressure "read" column, tracked
- * hypotheses, the standing-thesis pointer at `#read`, and "Watch next" — is
- * gone from this route. `RunStatus` (`#overview`, replacing the old
- * `IssueStrip`) is the new first-screen element: an honest statement of
- * whether collection ran and whether it was complete, never a judgment.
- * `IssueLanes` stays (`showWhy={false}`): headlines, dates and evidence are
- * facts; the "why it matters" line per item was the one piece of
- * interpretation, so it is dropped here and kept on the archived permalink.
+ * and JUDGED stamps, tracked hypotheses, the standing-thesis pointer at
+ * `#read`, and "Watch next" — is gone from this route. `RunStatus`
+ * (`#overview`, replacing the old `IssueStrip`) is the new first-screen
+ * element: an honest statement of whether collection ran and whether it was
+ * complete, never a judgment. `IssueLanes` stays (`showWhy={false}`):
+ * headlines, dates and evidence are facts; the "why it matters" line per
+ * item was the one piece of interpretation, so it is dropped here and kept
+ * on the archived permalink.
+ *
+ * Step 1 fix pass, item 3: the entire Platform-pressure section is gone from
+ * this route too, not just its judged "read" column — every row in that
+ * table carried a hand-assigned vendor-position label (Holding / Buying in /
+ * Outrun / Challengers, i.e. incumbent / challenger / early / platform /
+ * absorbed), which describes competitive footing the site no longer states.
+ * `PlatformPressure.tsx` itself is untouched and still exported; it simply
+ * has no route rendering it now, the same as `DomainBoard`'s `TempoSection`.
  *
  * Wrapped in VendorLensProvider (SEC-031): IssueLanes and PrintGrid, both
  * inside, read the lens state to filter; VendorLens is the control. Scoped
@@ -76,7 +83,6 @@ function FrontPage() {
       <IssueLanes issue={latestIssue} showWhy={false} />
       <FollowLine />
       <DomainBoard />
-      <PlatformPressure />
       <VendorLens />
       <PrintGrid />
 

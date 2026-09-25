@@ -3,6 +3,8 @@ import { createElement } from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { describe, it } from 'node:test'
 import { RunStatus } from '../src/components/RunStatus.tsx'
+import { formatLongDate } from '../src/data/dates.ts'
+import { LAST_UPDATED_DISPLAY, LAST_UPDATED_ISO } from '../src/data/meta.ts'
 import { runStatus } from '../src/data/runStatus.ts'
 import type { RunStatus as RunStatusData } from '../src/data/runStatus.ts'
 
@@ -63,5 +65,25 @@ describe('RunStatus', () => {
   it('the shipped default is a genuinely updated, complete run', () => {
     assert.equal(runStatus.state, 'updated')
     assert.deepEqual(runStatus.failedSources, [])
+  })
+})
+
+/**
+ * Step 1 fix pass, item 2: meta.ts's LAST_UPDATED_ISO/LAST_UPDATED_DISPLAY
+ * are derived from runStatus.lastChecked, not hand-set — this is the
+ * data-level half of that guarantee (the e2e half, checking the four
+ * rendered dates on the page itself, lives in tests/e2e/smoke.spec.ts).
+ * `withRunStatus()` above mutates the shared `runStatus` object at test
+ * time, after meta.ts has already captured `runStatus.lastChecked` into a
+ * module-level const, so this checks the derivation against the shipped
+ * default rather than inside one of those mutated blocks.
+ */
+describe('meta.ts date derivation (single source)', () => {
+  it('LAST_UPDATED_ISO is exactly runStatus.lastChecked', () => {
+    assert.equal(LAST_UPDATED_ISO, runStatus.lastChecked)
+  })
+
+  it('LAST_UPDATED_DISPLAY is the long-form rendering of runStatus.lastChecked', () => {
+    assert.equal(LAST_UPDATED_DISPLAY, formatLongDate(runStatus.lastChecked))
   })
 })
