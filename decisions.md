@@ -968,3 +968,16 @@ retired or kept is part of the plan in `docs/active/autonomy-coverage-plan.md`. 
 production-deploy contract (every `web/` change reaches `main` only on an owner yes) still governs
 changes to the site's code and layout; only the automated publication of validated facts is
 exempted, and AGENTS.md is updated when that path is built.
+
+**D-77 · 2026-09-25 — The owner said "go" on `docs/active/autonomy-coverage-plan.md` (SEC-MARKET-AUTO-001), approved the four intent amendments (`intent.md` v1.4), and chose Claude Opus 5.5 and GPT-6 Sol as the site's scorers.**
+
+His words: "go, and apply the four intent amendments. I'm thinking we should use opus 5.5 for
+scoring along with sol 6." `intent.md` v1.4 restates purpose (a credibility asset and a working
+instrument for supplier and domain decisions), readers (security leaders first, investors out),
+scope (distress and consolidation in, news out, the thesis as a dated record, revenue not a current
+goal) and success (freshness first). The standing supplier tracker replaces the signed weekly issue
+as the unit of product. "Go" is taken as the word to run the plan end to end, including step 0's
+promotion of `preview` to `main`, which also carries the SEC-054 Platform pressure correction whose
+wording he approved on 2026-09-21. Layout changes in later steps are still shown to him before they
+reach production. Scoring: every future score is two blind scorers, `claude-opus-5-5` and
+`gpt-6-sol` via `codex exec -m gpt-6-sol`; recorded in `docs/active/fable-run/site-rubric.md` v2.2.

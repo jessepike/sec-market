@@ -467,8 +467,11 @@ the deployment URL, the commit it serves, the date, and the scorer. Record caps 
 ## 6. Agreement check
 
 The brief requires that a different agent could score the site and land within one point on every
-dimension. The baseline is therefore scored twice, by the coordinator and by an independent
-`claude-sonnet-5` scorer working from the same evidence without seeing the coordinator's scores.
+dimension. From v2.2 every score is produced by two independent blind scorers working from the
+same evidence, neither seeing the other's scores or any earlier score file: Claude Opus 5.5
+(`claude-opus-5-5`) and GPT-6 Sol (`codex exec -m gpt-6-sol`). The owner chose this pair on
+2026-09-25 (D-77). The coordinator reconciles but does not score. Earlier scores were produced by
+the coordinator and an independent `claude-sonnet-5` scorer.
 Any dimension where the two differ by more than one point is a defect in the rubric's wording,
 not in a scorer: the test that was read two ways is rewritten, the rubric version is bumped, and
 the change is recorded here.
@@ -482,3 +485,4 @@ the change is recorded here.
 | 1.2 | 2026-09-20 | After the adversarial pass on the Phase 3 specs (`consults/adversarial-pass.md`, finding 8). D4 level-5 test 1 read "within the first 40 percent of page height or within 5,000 pixels, whichever is smaller", which no short page can pass and which pulled against D6 level-5 test 1 (a page under 6,000 pixels). It is now a flat 5,000 pixels. The baseline is unaffected: D4 fails at level 3, so no level-5 test changes its score. |
 | 2.0 | 2026-09-20 | Re-aimed at `docs/active/product-core.md` after the owner restated the purpose: a practitioner's market pulse for security leaders, with the founding thesis as one standing analysis. D1 to D4 and D11 rewritten, weights changed (section 3), D8 level-5 test 1 reworded. D5 to D7, D9, D10, D12 and D13 tests unchanged. The v1.2 baseline of 33.0 is not comparable with v2.0 scores; the baseline is re-scored under v2.0 from the same evidence in `score-baseline-v2.md`. |
 | 2.1 | 2026-09-20 | After the external review by Codex on `gpt-6-astra`. Weights changed toward decision value (20), freshness (15), evidence (12) and trust (10). Fit-for-purpose blockers added, so a high composite cannot hide a mislabelled figure, an unsupported comparison, machine content posing as judgment, or an accessibility failure. D1 level-5 test 1 and D4 level-5 test 1 no longer reward a ranked vendor table. D3 level-3 test 5 asks for separate dates in place of a 45-day threshold. D12 gains a disclosure test at level 3 and an inclusion-rules test at level 5. A statement of what the instrument cannot show was added. Not yet addressed from the review: double counting between D1 and D4 and between D3 and D11, and replacing D6's item counts with a scanning task. |
+| 2.2 | 2026-09-25 | Scorers changed to Claude Opus 5.5 and GPT-6 Sol, both blind (D-77). No test changed. The rubric still scores a signed-judgment product; under `intent.md` v1.4 and D-76 (facts only, published automatically) it needs re-aiming before the next score, which is step 7 of `docs/active/autonomy-coverage-plan.md`. |

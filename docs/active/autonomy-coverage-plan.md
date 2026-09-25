@@ -4,7 +4,7 @@
 **Date:** 2026-09-25
 **Governs from:** D-76 and `intent.md` v1.3 — sourced, machine-validated facts publish on their own
 with automated checks as the only gate; the machine publishes no judgments.
-**Status:** proposed, waiting on the owner's word to start.
+**Status:** approved by the owner on 2026-09-25 ("go", D-77); in progress.
 **Evidence behind it:** three read-only audits run on 2026-09-25 (the update job end to end, every
 scorecard figure checked against what companies have published since, and coverage against
 `docs/active/product-core.md`). Their full reports were working files; the findings that matter are
@@ -193,13 +193,14 @@ not weeks. Nothing here depends on outside parties except the owner's one login 
 
 | Step | What | Visible to readers | Needs the owner |
 |---|---|---|---|
-| 0 | Refresh the eleven out-of-date figures, mark the six acquired suppliers as acquired with the date, and publish | Yes: figures change | No, under D-76 |
+| 0 | Refresh the eleven out-of-date figures, mark the six acquired suppliers as acquired with the date, and publish | Yes: figures change | No, under D-76. The promotion also carries the SEC-054 correction already on `preview`, which he approved the wording for |
 | 1 | Take the judged text off the live pages; add the run-status line | Yes | His word to promote the layout change |
 | 2 | EDGAR daily runner on GitHub Actions; backfill every public supplier to its latest quarter | Figures stay current | No |
 | 3 | Model runner on GitHub Actions for unstructured sources, including distress | New weekly log entries | One step: run `claude setup-token` on his own account, because the token is tied to his login |
 | 4 | Auto-publish path (data-only merge to `main` on passing checks); retire the approval workflow | No | No |
 | 5 | Expand to twelve domains and about sixty suppliers; comparable per-domain view with same-metric figures, prior quarter and domain median | Yes: the main new value | His word to promote the layout change |
-| 6 | Apply the four intent amendments as v1.4 | No | His approval of the text |
+| 6 | Apply the four intent amendments as v1.4 | No | Done 2026-09-25 (D-77) |
+| 7 | Re-aim the site rubric at a facts-only tracker, then score production with two blind scorers, Claude Opus 5.5 and GPT-6 Sol (the owner's choice, D-77) | No | No |
 
 Step 0 can start the moment he says go. Steps 2 and 4 together are what makes the site stay fresh
 without him.
