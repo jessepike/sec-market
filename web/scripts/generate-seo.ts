@@ -35,6 +35,8 @@ import {
   EPISODE_VERSION,
   LAST_UPDATED_ISO,
   PRODUCT_TITLE,
+  SITE_DESCRIPTION,
+  SITE_HEADLINE,
   SITE_URL,
 } from '../src/data/meta.ts'
 
@@ -116,19 +118,26 @@ function readMetaContent(attr: 'property' | 'name', key: string): string | null 
   return match ? match[1] : null
 }
 
+// GATE RELAXED (D-76/autonomy-coverage-plan.md §3, step 1, task item 6): this
+// used to also fail unless og:image:alt/twitter:image:alt contained
+// marketCall.headline — i.e. it forced the front page's social alt text to
+// keep restating the judged market call. The front page no longer asserts
+// that call, so the alt text was deliberately changed to a factual
+// description of the image instead (index.html); requiring it to contain
+// the retired headline would be requiring judged text on a live page, which
+// is exactly what this pass removes. public/og.png itself is untouched (it
+// still shows the old headline as pixels — see the report), so this keeps
+// only the sanity check that the tags exist at all, not that their words
+// match a judgment the page no longer makes.
 const ogImageAlt = readMetaContent('property', 'og:image:alt')
 const twitterImageAlt = readMetaContent('name', 'twitter:image:alt')
 
 if (ogImageAlt === null) {
-  ogDrift.push('index.html has no og:image:alt meta tag to check against the current headline')
-} else if (!ogImageAlt.includes(marketCall.headline)) {
-  ogDrift.push(`index.html's og:image:alt does not contain the current headline: "${marketCall.headline}"`)
+  ogDrift.push('index.html has no og:image:alt meta tag')
 }
 
 if (twitterImageAlt === null) {
-  ogDrift.push('index.html has no twitter:image:alt meta tag to check against the current headline')
-} else if (!twitterImageAlt.includes(marketCall.headline)) {
-  ogDrift.push(`index.html's twitter:image:alt does not contain the current headline: "${marketCall.headline}"`)
+  ogDrift.push('index.html has no twitter:image:alt meta tag')
 }
 
 if (ogDrift.length > 0) {
@@ -234,6 +243,12 @@ function structuredDataFor(routeEntry: RouteEntry, html: string) {
     }
   }
 
+  // D-76/autonomy-coverage-plan.md §3, step 1: the front page's JSON-LD used
+  // to carry the judged market-call headline/subhead (marketCall.headline /
+  // marketCall.subhead) as its own headline/abstract. The front page no
+  // longer asserts that call — it moved to the dated /thesis/ record, which
+  // still uses marketCall.headline below, correctly, since that page is
+  // about the thesis. This route now describes what the page actually is.
   return {
     '@context': 'https://schema.org',
     '@type': 'Report',
@@ -241,9 +256,9 @@ function structuredDataFor(routeEntry: RouteEntry, html: string) {
     url: CANONICAL_URL,
     mainEntityOfPage: { '@type': 'WebPage', '@id': CANONICAL_URL },
     name: readTitle(html),
-    headline: marketCall.headline,
+    headline: SITE_HEADLINE,
     description: readDescription(html),
-    abstract: marketCall.subhead,
+    abstract: SITE_DESCRIPTION,
     reportNumber: `${EPISODE_ID} v${EPISODE_VERSION}`,
     inLanguage: 'en',
     isAccessibleForFree: true,

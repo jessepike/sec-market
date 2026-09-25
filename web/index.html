@@ -23,13 +23,18 @@
       property="og:description"
       content="An evidence-linked read on the cybersecurity market for security leaders. Every number links to a public source, and the page makes no call where the evidence is thin."
     />
+    <!-- public/og.png still shows the retired "Infrastructure is running ahead. Security is
+         splitting, not booming." headline as pixels (D-76 facts-only pass, step 1). It is a
+         manually rasterized asset (assets-src/render-og.mjs) outside `npm run build`; this pass
+         does not regenerate it — flagged in docs/active/auto/step1/report.md for a separate
+         owner-approved regeneration. -->
     <meta property="og:image" content="https://securitymarketpulse.com/og.png" />
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta
       property="og:image:alt"
-      content="Security Market Pulse, August 2026. Infrastructure is running ahead. Security is splitting, not booming."
+      content="Security Market Pulse — a sourced, evidence-linked picture of the security market, updated as facts change."
     />
     <meta property="og:locale" content="en_US" />
 
@@ -43,7 +48,7 @@
     <meta name="twitter:image" content="https://securitymarketpulse.com/og.png" />
     <meta
       name="twitter:image:alt"
-      content="Security Market Pulse, August 2026. Infrastructure is running ahead. Security is splitting, not booming."
+      content="Security Market Pulse — a sourced, evidence-linked picture of the security market, updated as facts change."
     />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />

@@ -54,6 +54,20 @@ if (typeof mod.render !== 'function') {
  * precondition (no <details> ancestor), the part a build can know.
  * `checkVisibility()` in the e2e suite is what actually settles visibility.
  */
+// D-76/autonomy-coverage-plan.md §3, step 1: 'we-think', 'read' (the
+// standing-thesis pointer) and 'hypotheses' are removed from the front
+// page's must-see list because the sections themselves no longer render
+// there — the site publishes sourced facts only, no judgments, on live
+// pages. 'overview' now names RunStatus (an honest collection-status line)
+// rather than the old weekly-issue strip; the id is unchanged so the
+// header's nav link and this gate both still resolve. The issue permalink
+// and /thesis/ routes are unaffected: both are kept as dated archive pages
+// and still carry their original judged content in full.
+//
+// Step 1 fix pass, item 3: 'platforms' (Platform pressure) also dropped from
+// this list — the whole section stopped rendering on the front page, not
+// just its judged "read" column, because every row named a hand-assigned
+// vendor-position label (footing the site no longer states).
 const MUST_SEE_SECTION_IDS: Record<RouteEntry['kind'], string[]> = {
   front: [
     'overview',
@@ -63,11 +77,7 @@ const MUST_SEE_SECTION_IDS: Record<RouteEntry['kind'], string[]> = {
     'prints-this-week',
     'capital',
     'follow',
-    'we-think',
-    'read',
     'landscape',
-    'platforms',
-    'hypotheses',
     'prints',
   ],
   archive: ['issues'],

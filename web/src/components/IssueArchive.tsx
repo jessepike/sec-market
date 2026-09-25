@@ -7,6 +7,10 @@ export function IssueArchive() {
   return (
     <section id="issues" className="issue-archive" aria-labelledby="issue-archive-heading">
       <h1 id="issue-archive-heading">Issues</h1>
+      <p className="archive-notice">
+        Signed weekly issues were discontinued on 25 September 2026. This page is kept unchanged as
+        a dated record.
+      </p>
       <ul className="issue-archive__list">
         {newestFirst.map((issue) => (
           <li key={issue.id} className="issue-archive__row">

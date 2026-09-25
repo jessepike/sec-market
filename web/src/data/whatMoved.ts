@@ -26,32 +26,32 @@ function uniq(ids: string[]): string[] {
   return out
 }
 
-const fasterRead = 'printing faster'
 const breadthRule = reasoningSteps.find((step) => step.step === 'Need breadth before a domain call')
 
 const earlyNames = new Set(
   vendorPrints.filter((print) => print.position === 'early').map((print) => print.name),
 )
 
-const printMove = platformPressure.outrun.find((row) => row.read.includes(fasterRead))
 const capitalItems = activityItems.filter(
   (item) => item.kind === 'funding' && earlyNames.has(item.target),
 )
 const closedLeadMa = activityItems.filter(
   (item) => item.kind === 'ma' && item.surface === 'lead' && item.headline.toLowerCase().includes('closed'),
 )
+// `platformPressure['buying-in']` selects rows by the factual 'absorbed'
+// position — acquisitions, not a competitive-footing judgment — so it stays
+// in scope for the AUTO-001 step 1 fix pass's item 3 the same way an
+// acquirer/target/price/close-date fact stays visible everywhere else.
 const absorbed = platformPressure['buying-in']
 
-function trackedPrint(): WeekMove | null {
-  if (!printMove) return null
-  return {
-    kind: 'PRINT',
-    text: printMove.read,
-    evidenceIds: uniq(
-      printMove.provenance.print.layer === 'tracked' ? printMove.provenance.print.evidenceIds : [],
-    ),
-  }
-}
+// Step 1 fix pass, item 3: this used to also carry a 'PRINT' tracked item
+// sourced from `platformPressure.outrun` — a row picked specifically because
+// its `.read` sentence said "printing faster [than X]", a judged
+// competitive-position comparison (see platformPressure.ts's outrunRows()),
+// mislabelled TRACKED because the print value underneath it was tracked even
+// though the sentence itself was not. Removed rather than reworded: there is
+// no factual substitute for "who is outrunning whom" without inventing one,
+// and a quiet week is reported as a quiet week (see `quietNote` below).
 
 function trackedCapital(): WeekMove | null {
   if (capitalItems.length === 0) return null
@@ -95,7 +95,7 @@ const allHeld = heldCount === landscapeRows.length && landscapeRows.length > 0
 export const weekMoves = {
   label: formatWeekRange(WEEK_MOVES_ENDING_ISO),
   asOf: WEEK_MOVES_ENDING_ISO,
-  tracked: [trackedPrint(), trackedCapital(), trackedMa()].filter((item): item is WeekMove => item !== null),
+  tracked: [trackedCapital(), trackedMa()].filter((item): item is WeekMove => item !== null),
   judged: [
     {
       kind: allHeld ? 'HELD' : 'MOVED',

@@ -9,25 +9,21 @@ import { FollowLine } from './components/FollowLine'
 import { Header } from './components/Header'
 import { HeroContent } from './components/Hero'
 import { HowThisWorks } from './components/HowThisWorks'
-import { Hypotheses } from './components/Hypotheses'
 import { IssueArchive } from './components/IssueArchive'
 import { IssueHero } from './components/IssueHero'
 import { IssueLanes } from './components/IssueLanes'
-import { IssueStrip } from './components/IssueStrip'
 import { JudgmentBoard } from './components/JudgmentBoard'
 import { MarketLayersChart } from './components/MarketLayersChart'
 import { MarketPicture } from './components/MarketPicture'
 import { MethodologyNote } from './components/MethodologyNote'
 import { NextEdition } from './components/NextEdition'
-import { PlatformPressure } from './components/PlatformPressure'
 import { PrintGrid } from './components/PrintGrid'
 import { ProvenanceRail } from './components/ProvenanceRail'
+import { RunStatus } from './components/RunStatus'
 import { SiteMasthead } from './components/SiteMasthead'
 import { SkipLink } from './components/SkipLink'
-import { ThesisPointer } from './components/ThesisPointer'
 import { ThesisRunningScore } from './components/ThesisRunningScore'
 import { VendorLens } from './components/VendorLens'
-import { WatchList } from './components/WatchList'
 import { WeThink } from './components/WeThink'
 import { WhatMoved } from './components/WhatMoved'
 import { EvidenceProvider } from './context/EvidenceProvider'
@@ -38,29 +34,39 @@ import { matchRoute } from './data/routes'
 import type { Issue } from './data/types'
 
 /**
- * `/` — what the site is, this week's read in one strip, then the market
- * picture, then the issue in full, then the standing reference and depth.
+ * The one-line archive/record notice added by D-76/autonomy-coverage-plan.md
+ * §3, step 1 to every page kept as a dated record rather than updated: the
+ * issue archive index, each issue permalink, and the standing thesis. It is
+ * new wrapper content around a page, never a change to the locked issue data
+ * or the thesis argument itself.
+ */
+function ArchiveNotice({ text }: { text: string }) {
+  return <p className="archive-notice">{text}</p>
+}
+
+/**
+ * `/` — what the site is, the run status, then the market picture, the
+ * tracked items, and the standing reference and depth sections.
  *
- * Order per design-spec v0.3 §3.1, amended by SEC-MARKET-CORE-001 §5: the
- * first screen belongs to the market picture, so the masthead and the issue
- * strip above it are deliberately short. The strip replaced IssueHero here
- * and carries `#overview` forward, so the header's "Issue" link and
- * prerender's front-page section list are unchanged. IssueHero itself is
- * untouched and still renders the issue permalink below.
+ * D-76/autonomy-coverage-plan.md §3, step 1 ("Judged text leaves the live
+ * pages"): every judged element that used to sit on this page — the
+ * weekly-issue headline strip, "What we now think", the domain stance chips
+ * and JUDGED stamps, tracked hypotheses, the standing-thesis pointer at
+ * `#read`, and "Watch next" — is gone from this route. `RunStatus`
+ * (`#overview`, replacing the old `IssueStrip`) is the new first-screen
+ * element: an honest statement of whether collection ran and whether it was
+ * complete, never a judgment. `IssueLanes` stays (`showWhy={false}`):
+ * headlines, dates and evidence are facts; the "why it matters" line per
+ * item was the one piece of interpretation, so it is dropped here and kept
+ * on the archived permalink.
  *
- * Then: market, we-think, the four lanes, follow, landscape,
- * platforms/vendor-lens-slot/prints (kept together), hypotheses, the thesis
- * pointer (`#read`), then depth sections unchanged.
- *
- * SEC-MARKET-FABLE-001 T6-16 (product-core.md §5): the founding thesis is
- * "one standing analysis on the site, not the site's identity" and moved to
- * its own page, `/thesis/` (see ThesisPage below). `#read` here is now
- * ThesisPointer, a compact pointer to that page, moved to sit after
- * `#hypotheses` — no gate or test asserts front-page section order (the
- * adversarial pass in docs/active/fable-run/consults/adversarial-pass.md
- * confirmed this), so this is a deliberate placement choice, not a
- * constraint. `WeThink` gets `condenseThesis` here so its thesis verdict is
- * also a quiet pointer rather than the full paragraph — see WeThink.tsx.
+ * Step 1 fix pass, item 3: the entire Platform-pressure section is gone from
+ * this route too, not just its judged "read" column — every row in that
+ * table carried a hand-assigned vendor-position label (Holding / Buying in /
+ * Outrun / Challengers, i.e. incumbent / challenger / early / platform /
+ * absorbed), which describes competitive footing the site no longer states.
+ * `PlatformPressure.tsx` itself is untouched and still exported; it simply
+ * has no route rendering it now, the same as `DomainBoard`'s `TempoSection`.
  *
  * Wrapped in VendorLensProvider (SEC-031): IssueLanes and PrintGrid, both
  * inside, read the lens state to filter; VendorLens is the control. Scoped
@@ -72,25 +78,20 @@ function FrontPage() {
   return (
     <VendorLensProvider>
       <SiteMasthead />
-      <IssueStrip issue={latestIssue} />
+      <RunStatus />
       <MarketPicture />
-      <WeThink issue={latestIssue} condenseThesis />
-      <IssueLanes issue={latestIssue} />
+      <IssueLanes issue={latestIssue} showWhy={false} />
       <FollowLine />
       <DomainBoard />
-      <PlatformPressure />
       <VendorLens />
       <PrintGrid />
-      <Hypotheses />
-      <ThesisPointer />
 
       <details className="depth" id="moved-depth">
-        <summary>What moved: edition delta</summary>
+        <summary>What moved: tracked prints and capital</summary>
         <WhatMoved />
       </details>
       <details className="depth" id="research-depth">
-        <summary>Domain tempo and M&amp;A activity</summary>
-        <DomainBoard surface="tempo" />
+        <summary>M&amp;A and funding activity</summary>
         <p className="research-depth__note">
           Activity below is the pre-issue window (RoS) — going forward each issue's "New companies
           and funding" and "Acquisitions and consolidation" lanes carry this account.
@@ -100,10 +101,6 @@ function FrontPage() {
       <details className="depth" id="layers">
         <summary>Market layers</summary>
         <MarketLayersChart />
-      </details>
-      <details className="depth" id="watch">
-        <summary>Watch next</summary>
-        <WatchList />
       </details>
       <details className="depth" id="method">
         <summary>How this is built</summary>
@@ -119,10 +116,16 @@ function FrontPage() {
   )
 }
 
-/** `/issues/<id>/` — that issue alone, with a link to the standing reference. */
+/**
+ * `/issues/<id>/` — that issue alone, with a link to the standing reference.
+ * D-76/autonomy-coverage-plan.md §3, step 1: carries the archive notice
+ * above the (unaltered) issue content — signed weekly issues are
+ * discontinued, and this page is kept as a dated record.
+ */
 function IssuePage({ issue }: { issue: Issue }) {
   return (
     <>
+      <ArchiveNotice text="Signed weekly issues were discontinued on 25 September 2026. This page is kept unchanged as a dated record." />
       <IssueHero issue={issue} />
       <IssueLanes issue={issue} />
       <WeThink issue={issue} />
@@ -143,6 +146,10 @@ function IssuePage({ issue }: { issue: Issue }) {
  * (JudgmentBoard, ThesisRunningScore, HeroContent, EvidenceLink) reads the
  * vendor lens; EvidenceLink's drawer comes from EvidenceProvider, which
  * already wraps every route in App() below.
+ *
+ * D-76/autonomy-coverage-plan.md §3, step 1: carries the archive notice
+ * above the (unaltered) thesis argument — this is a dated record, not a
+ * standing judgment the site keeps updating.
  */
 function ThesisPage() {
   return (
@@ -155,6 +162,7 @@ function ThesisPage() {
           record. It is one analysis among the site&rsquo;s outputs. If you run a security program
           you can skip it; if you plan where security spending goes next, it is for you.
         </p>
+        <ArchiveNotice text="This analysis is kept as a dated record and is no longer updated." />
       </section>
       <JudgmentBoard
         leadContent={

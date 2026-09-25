@@ -1,4 +1,4 @@
-import { activityItems, activityRead } from '../data/activity'
+import { activityItems } from '../data/activity'
 import type { ActivityItem } from '../data/types'
 import { formatIsoDate } from '../utils/formatDate'
 import { EvidenceLink } from './EvidenceLink'
@@ -41,7 +41,6 @@ export function ActivityBoard() {
     <section id="activity" className="activity-board" aria-labelledby="activity-heading">
       <div className="section-heading">
         <h2 id="activity-heading">M&A and startups</h2>
-        <p>{activityRead}</p>
       </div>
       <ActivityRows items={lead} />
       {more.length > 0 ? (

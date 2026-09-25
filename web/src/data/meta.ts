@@ -1,19 +1,30 @@
+import { formatLongDate } from './dates'
+import { runStatus } from './runStatus'
+
 export const EPISODE_ID = 'SEC-MARKET-SIG-002'
 export const EPISODE_VERSION = '0.2'
 export const RESEARCH_FREEZE = '2026-08-15T19:03:08-07:00'
 /**
- * When the SITE was last updated. This is the as-of stamp on the rail and in
- * the header, and the sitemap's lastmod. It is not a judgment date.
+ * When the SITE was last updated. This is the as-of stamp on the rail, the
+ * header, the front-page masthead, and the sitemap's lastmod. It is not a
+ * judgment date.
  *
- * This constant used to carry four different facts at once — the site stamp,
- * the date on the tracked hypotheses, the date on the platform-pressure reads,
- * and the window `weekMoves` describes — so publishing an edition moved all
- * four together and re-dated judgments nobody had revisited. The other three
- * are now their own constants below. Move this one whenever the site ships.
+ * AUTO-001 step 1 fix pass, item 2: this used to be a hand-set constant that
+ * could drift out of step with the run-status box (the rail said one date,
+ * the masthead said another, the run-status line said a third). It is now
+ * derived from `runStatus.lastChecked` — the single source every rendered
+ * "as of" / "site updated" / masthead date reads from, so they cannot
+ * disagree. Move the site's as-of date by moving `runStatus.lastChecked`,
+ * not by editing this constant directly.
+ *
+ * This constant used to also carry three other facts at once — the date on
+ * the tracked hypotheses, the date on the platform-pressure reads, and the
+ * window `weekMoves` describes — those are their own constants below and are
+ * untouched by this derivation.
  */
-export const LAST_UPDATED_DISPLAY = 'September 21, 2026'
-/** Machine-readable form of LAST_UPDATED_DISPLAY. Same date, ISO 8601. */
-export const LAST_UPDATED_ISO = '2026-09-21'
+export const LAST_UPDATED_ISO = runStatus.lastChecked
+/** Long-form display of LAST_UPDATED_ISO, e.g. `September 25, 2026`. */
+export const LAST_UPDATED_DISPLAY = formatLongDate(LAST_UPDATED_ISO)
 
 /**
  * When a person last signed the tracked hypotheses and the platform-pressure
@@ -51,9 +62,9 @@ export const CONTACT_EMAIL = 'jesse@keatingpike.com'
 export const SITE_HEADLINE = 'The security market, from public numbers'
 
 export const SITE_DESCRIPTION =
-  "A practitioner's read on the business of the security market: who is growing, who is " +
-  'consolidating, who is being bought, and what it means if you run a security program. Public ' +
-  'sources only. Written by Jesse Pike.'
+  'Public, sourced facts about the business of the security market: who is growing, stalling, ' +
+  'consolidating, being bought, or in financial trouble. Collected, checked and published ' +
+  'automatically, with no stances, rankings or forecasts. Public sources only. Run by Jesse Pike.'
 
 /** One-line disclaimer shown directly under SITE_DESCRIPTION, first screen, both widths. */
 export const SITE_DISCLAIMER = 'Not a news site and not investment advice.'

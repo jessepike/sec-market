@@ -1,6 +1,4 @@
 import { expect, test } from '@playwright/test'
-import { issues, latestIssue } from '../../src/data/issues/index.ts'
-import { newestThesisJudgment } from '../../src/data/issueHelpers.ts'
 import { marketCall } from '../../src/data/market.ts'
 
 /**
@@ -57,6 +55,11 @@ test.describe('/thesis/ — the standing thesis', () => {
 
     await expect(page.getByRole('link', { name: 'Back to the front page' })).toHaveAttribute('href', '/')
 
+    // D-76/autonomy-coverage-plan.md §3, step 1: /thesis/ is kept as a dated
+    // record and carries a plain notice saying so, above the unaltered
+    // argument checked above.
+    await expect(page.getByText('This analysis is kept as a dated record and is no longer updated.')).toBeVisible()
+
     expect(pageErrors).toEqual([])
   })
 
@@ -72,20 +75,22 @@ test.describe('/thesis/ — the standing thesis', () => {
     await expect(dialog).toBeHidden()
   })
 
-  test('front page: the #read pointer links to /thesis/, and the full argument is gone', async ({ page }) => {
+  /**
+   * D-76/autonomy-coverage-plan.md §3, step 1: the front page no longer
+   * carries any judgment, including the compact #read pointer this test used
+   * to check. The full standing argument stays only at /thesis/, reached
+   * from a plain link (NextEdition's "Standing analysis"), never quoted or
+   * pointed to inline on a live page.
+   */
+  test('front page: no #read pointer, no #we-think, and the full argument is gone', async ({ page }) => {
     await page.goto('/')
 
-    const pointer = page.locator('#read')
-    await expect(pointer).toBeVisible()
-    await expect(pointer).toContainText('Does security spending lag infrastructure spending?')
-    await expect(pointer).toContainText(marketCall.headline)
-    await expect(pointer.getByRole('link', { name: 'Read the analysis and its record' })).toHaveAttribute(
-      'href',
-      '/thesis/',
-    )
+    await expect(page.locator('#read')).toHaveCount(0)
+    await expect(page.locator('#we-think')).toHaveCount(0)
+    await expect(page.locator('#hypotheses')).toHaveCount(0)
 
     // The full standing argument — the change-trigger list, the Do/Avoid
-    // panels, the market-call heading itself — left the front page entirely.
+    // panels, the market-call heading itself — is not on the front page.
     await expect(page.locator('#market-call-heading')).toHaveCount(0)
     await expect(page.getByRole('heading', { name: 'Do', exact: true })).toHaveCount(0)
     await expect(page.getByRole('heading', { name: 'Avoid', exact: true })).toHaveCount(0)
@@ -93,36 +98,10 @@ test.describe('/thesis/ — the standing thesis', () => {
       await expect(page.getByText(trigger, { exact: true })).toHaveCount(0)
     }
 
-    // "Thesis" left the top nav; "Standing analysis" is the secondary link
-    // that replaces it (see src/components/NextEdition.tsx).
+    // "Thesis" left the top nav; "Standing analysis" is the plain link to the
+    // archived record (see src/components/NextEdition.tsx) — unchanged by
+    // this pass.
     await expect(page.locator('.site-header').getByRole('link', { name: 'Thesis' })).toHaveCount(0)
     await expect(page.getByRole('link', { name: 'Standing analysis' })).toHaveAttribute('href', '/thesis/')
-
-    // #we-think's own thesis line is condensed to a pointer here too — but
-    // only when the newest issue actually carries a verdict. Since build 3
-    // (SEC-MARKET-PUBLISH-001 §3) the thesis left the weekly issue, so the
-    // newest issue very often has none, and #we-think must then render
-    // neither the pointer nor an empty/"null" block (see WeThink.tsx).
-    const latestThesis =
-      latestIssue.status === 'published' ? latestIssue.weThink.thesis : (latestIssue.proposed?.thesis ?? null)
-    if (latestThesis) {
-      await expect(page.locator('#we-think')).toContainText('Standing analysis:')
-      await expect(page.locator('#we-think').getByRole('link', { name: 'See the record.' })).toHaveAttribute(
-        'href',
-        '/thesis/',
-      )
-    } else {
-      await expect(page.locator('#we-think')).not.toContainText('Standing analysis:')
-      await expect(page.locator('#we-think')).not.toContainText('null')
-    }
-
-    // The pointer's JUDGED stamp is the newest published issue's actual
-    // signed thesis date (SEC-MARKET-FABLE-001 T6-16 fix), not the site's
-    // LAST_UPDATED stamp — read here from the data the way the page itself
-    // computes it (newestThesisJudgment), not hard-coded.
-    const judgment = newestThesisJudgment(issues)
-    expect(judgment).not.toBeNull()
-    await expect(pointer.locator('.stamp-label time')).toHaveAttribute('datetime', judgment!.signedOn)
-    await expect(pointer.locator('.stamp-label')).toContainText(judgment!.signedBy)
   })
 })

@@ -1,11 +1,7 @@
 import { formatShortDate } from '../data/dates'
 import { landscapeDomains, securityDomains, trackedPrintEvidenceIds } from '../data/domains'
 import { currentEdition, editionDomainRows } from '../data/edition'
-import { claimId, effectiveJudgment } from '../data/reconfirmationHelpers'
-import { reconfirmations } from '../data/reconfirmations'
-import type { Momentum, TempoTag } from '../data/types'
 import { EvidenceLink } from './EvidenceLink'
-import { JudgedStampSpaced } from './JudgedStamp'
 
 function kindLabel(kind: string): string {
   if (kind === 'revised') return 'Moved'
@@ -32,49 +28,22 @@ function countWord(n: number): string {
   return String(n)
 }
 
-function DirectionGlyph({ tag, momentum }: { tag: TempoTag; momentum: Momentum }) {
-  if (tag === 'PREPARE') {
-    return (
-      <svg className="domain-card__glyph" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-        <path d="M4 14 L16 5 M11 5 h5 v5" stroke="currentColor" strokeWidth="1.8" />
-      </svg>
-    )
-  }
-  if (momentum === 'stable-to-decelerating') {
-    return (
-      <svg className="domain-card__glyph" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-        <path d="M4 10 h12" stroke="currentColor" strokeWidth="1.8" />
-      </svg>
-    )
-  }
-  return (
-    <svg className="domain-card__glyph" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-      <path d="M4 12 L9 8 L13 11 L16 7" stroke="currentColor" strokeWidth="1.8" fill="none" />
-    </svg>
-  )
-}
-
-/**
- * Whether the landscape cards' confidence chip is worth showing at all. Per
- * spec §4, the chip is shown per-card only when confidence actually differs
- * across the four landscape cards; when every card carries the same value the
- * chip is dropped from the cards and the shared value is stated once, in the
- * Tempo table instead (see TempoSection's confidence note below).
- */
-function landscapeConfidenceVaries(): boolean {
-  return new Set(landscapeDomains.map((domain) => domain.evidenceStrength)).size > 1
-}
-
 /** The one confidence value every landscape card shares, when they agree. */
 function uniformLandscapeConfidence(): string | null {
   const values = new Set(landscapeDomains.map((domain) => domain.evidenceStrength))
   return values.size === 1 ? [...values][0] : null
 }
 
+/**
+ * D-76/autonomy-coverage-plan.md §3, step 1: this card used to carry a
+ * direction glyph, a PREPARE/WATCH chip, the domain's judged "why"/"summary"
+ * prose, a JUDGED stamp, and a HORIZON/CONFIDENCE line — all judgment. The
+ * site publishes sourced facts only now, so a card is the domain name and
+ * its tracked print, nothing else.
+ */
 function LandscapeSection() {
   const domainCount = landscapeDomains.length
   const domainLabel = domainCount === 1 ? 'domain' : 'domains'
-  const showConfidenceChip = landscapeConfidenceVaries()
 
   return (
     <section id="landscape" className="landscape" aria-labelledby="landscape-heading">
@@ -82,45 +51,21 @@ function LandscapeSection() {
         <p className="eyebrow">
           The landscape · {countWord(domainCount)} {domainLabel}
         </p>
-        <h2 id="landscape-heading">Where the security market is going, not where it has been.</h2>
-        <p className="landscape__lede">
-          Dated postures, the evidence under each one, and an honest mark on how sure anyone is.
-          A posture moves only when a person signs it.
-        </p>
+        <h2 id="landscape-heading">The security market, by domain.</h2>
+        <p className="landscape__lede">Tracked suppliers and the latest sourced figure for each.</p>
       </div>
       <div className="landscape__cards">
         {landscapeDomains.map((domain) => (
-          <article
-            key={domain.id}
-            className={'domain-card domain-card--' + domain.tag.toLowerCase()}
-          >
+          <article key={domain.id} className="domain-card">
             <div className="domain-card__top">
               <h2>
                 <span className="domain-card__label">{domain.name}</span>
-                {domain.why}
               </h2>
-              <DirectionGlyph tag={domain.tag} momentum={domain.momentum} />
-              <span className={'chip chip--' + domain.tag.toLowerCase()}>{domain.tag}</span>
             </div>
-            <p className="domain-card__read">{domain.summary}</p>
             <div className="domain-card__layer domain-card__layer--tracked">
               <p className="stamp-label">TRACKED</p>
               <p className="domain-card__print">{domain.print}</p>
               <EvidenceLink ids={trackedPrintEvidenceIds(domain)} />
-            </div>
-            <div className="domain-card__layer domain-card__layer--judged">
-              <JudgedStampSpaced
-                judgedOn={domain.asOf}
-                reconfirmedOn={effectiveJudgment(claimId('domain', domain.id), domain.asOf, reconfirmations).reconfirmedOn}
-              />
-              <p className="domain-card__judged">
-                <span className="domain-card__judged-part">HORIZON · {domain.horizon}</span>
-                {showConfidenceChip ? (
-                  <span className="domain-card__judged-part">
-                    CONFIDENCE · {domain.evidenceStrength.toUpperCase()}
-                  </span>
-                ) : null}
-              </p>
             </div>
           </article>
         ))}

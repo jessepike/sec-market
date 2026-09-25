@@ -7,8 +7,8 @@ export function FollowLine() {
   return (
     <section id="follow" className="follow-line" aria-label="Follow">
       <p>
-        Tracked figures arrive through the week as companies report them, and a signed read
-        publishes most weeks — <a href="/feed.xml">follow by RSS</a>.
+        Tracked figures arrive through the week as companies report them —{' '}
+        <a href="/feed.xml">follow by RSS</a>.
       </p>
     </section>
   )
