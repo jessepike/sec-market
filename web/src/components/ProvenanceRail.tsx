@@ -1,6 +1,13 @@
 import { formatShortDate } from '../data/dates'
 import { LAST_UPDATED_ISO, PRODUCT_TITLE } from '../data/meta'
 
+/**
+ * D-76/autonomy-coverage-plan.md §3, step 1: this rail used to carry a
+ * TRACKED/JUDGED legend, because live pages carried both kinds of claim. The
+ * site now publishes sourced facts only and no judgments, so the legend is
+ * replaced with one plain statement rather than a two-state key with nothing
+ * for one of its states to point at on a live page.
+ */
 export function ProvenanceRail() {
   return (
     <div className="rail" role="region" aria-label="Provenance">
@@ -10,16 +17,7 @@ export function ProvenanceRail() {
         <p className="rail__asof">
           AS OF <time dateTime={LAST_UPDATED_ISO}>{formatShortDate(LAST_UPDATED_ISO)}</time>
         </p>
-        <ul className="rail__legend">
-          <li className="rail__state rail__state--tracked">
-            <span className="rail__swatch" aria-hidden="true" />
-            <span>TRACKED · public prints, no judgment</span>
-          </li>
-          <li className="rail__state rail__state--judged">
-            <span className="rail__swatch" aria-hidden="true" />
-            <span>JUDGED · signed and dated by a person</span>
-          </li>
-        </ul>
+        <p className="rail__statement">Sourced facts, checked and published automatically. No stances, rankings or forecasts.</p>
       </div>
     </div>
   )

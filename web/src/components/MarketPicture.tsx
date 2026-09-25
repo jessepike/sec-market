@@ -6,18 +6,8 @@ import {
 } from '../data/marketPicture'
 import { LAST_UPDATED_ISO } from '../data/meta'
 import { vendorPrints } from '../data/prints'
-import { claimId, effectiveJudgment } from '../data/reconfirmationHelpers'
-import { reconfirmations } from '../data/reconfirmations'
 import type { SecurityDomain } from '../data/types'
 import { EvidenceLink } from './EvidenceLink'
-import { JudgedStamp } from './JudgedStamp'
-
-/** One-line plain-word meaning shown beside a posture's first use on the page (design-spec v0.3 §3.5). */
-const POSTURE_MEANING: Record<string, string> = {
-  PREPARE: 'Act now',
-  INVESTIGATE: 'Watch closely',
-  'NO-CALL': 'Not enough evidence to say',
-}
 
 // Exact wording from the coordinator's spec change for T6-2 (2026-09-20,
 // after external review) — replaces design-spec v0.3 §3.3's original
@@ -40,15 +30,6 @@ function DomainRow({ domain }: { domain: SecurityDomain }) {
     <article id={`domain-${domain.id}`} className="market-picture__domain">
       <div className="market-picture__stance">
         <h3 className="market-picture__domain-name">{domain.name}</h3>
-        <JudgedStamp
-          judgedOn={domain.asOf}
-          reconfirmedOn={effectiveJudgment(claimId('domain', domain.id), domain.asOf, reconfirmations).reconfirmedOn}
-        />
-        <p className="market-picture__posture">
-          <span className={`chip chip--${domain.posture.toLowerCase()}`}>{domain.posture}</span>
-          <span className="market-picture__posture-meaning">{POSTURE_MEANING[domain.posture] ?? ''}</span>
-        </p>
-        <p className="market-picture__horizon">Horizon &middot; {domain.horizon}</p>
       </div>
 
       <div className="market-picture__vendors">

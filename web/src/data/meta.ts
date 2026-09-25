@@ -51,9 +51,9 @@ export const CONTACT_EMAIL = 'jesse@keatingpike.com'
 export const SITE_HEADLINE = 'The security market, from public numbers'
 
 export const SITE_DESCRIPTION =
-  "A practitioner's read on the business of the security market: who is growing, who is " +
-  'consolidating, who is being bought, and what it means if you run a security program. Public ' +
-  'sources only. Written by Jesse Pike.'
+  'Public, sourced facts about the business of the security market: who is growing, stalling, ' +
+  'consolidating, being bought, or in financial trouble. Collected, checked and published ' +
+  'automatically, with no stances, rankings or forecasts. Public sources only. Run by Jesse Pike.'
 
 /** One-line disclaimer shown directly under SITE_DESCRIPTION, first screen, both widths. */
 export const SITE_DISCLAIMER = 'Not a news site and not investment advice.'

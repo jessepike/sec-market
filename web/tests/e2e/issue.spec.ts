@@ -2,11 +2,18 @@ import { expect, test } from '@playwright/test'
 import { issues, latestIssue } from '../../src/data/issues/index.ts'
 import { SITE_HEADLINE } from '../../src/data/meta.ts'
 
-const STANDING_REFERENCE_IDS = ['market', 'follow', 'read', 'landscape', 'platforms', 'hypotheses', 'prints']
+// D-76/autonomy-coverage-plan.md §3, step 1: 'read' (the standing-thesis
+// pointer) and 'hypotheses' left the front page's always-visible sections —
+// the site publishes sourced facts only, no judgments, there. The front
+// page's four lane ids stay, but 'overview' now names RunStatus rather than
+// the old issue strip, and 'we-think' ("What we now think") is gone from the
+// front page entirely — both survive, unchanged, on the issue permalink.
+const STANDING_REFERENCE_IDS = ['market', 'follow', 'landscape', 'platforms', 'prints']
+const FRONT_LANE_IDS = ['overview', 'formation', 'absorption', 'prints-this-week', 'capital']
 const ISSUE_SECTION_IDS = ['overview', 'formation', 'absorption', 'prints-this-week', 'capital', 'we-think']
 
 test.describe('weekly issue — front page', () => {
-  test('h1 is the site headline, the issue strip carries the read; issue sections and standing reference are visible', async ({
+  test('h1 is the site headline, run status is visible; issue lanes and standing reference are visible', async ({
     page,
   }) => {
     const pageErrors: string[] = []
@@ -39,40 +46,46 @@ test.describe('weekly issue — front page', () => {
     await page.goto('/')
 
     // SEC-MARKET-CORE-001 §5: the front page's h1 is the site's own subject
-    // and does not change week to week. The newest read moved into the issue
-    // strip directly below it, where it is still the first thing a returning
-    // reader sees. The issue permalink below still has the read as its h1.
+    // and does not change week to week. RunStatus, not a weekly-issue read,
+    // is the first thing below it now (D-76/autonomy-coverage-plan.md §3,
+    // step 1) — the issue permalink below still has the read as its h1.
     await expect(page.getByRole('heading', { level: 1 })).toHaveText(SITE_HEADLINE)
-    await expect(page.locator('#overview .issue-strip__read')).toHaveText(latestIssue.read)
+    await expect(page.locator('#overview .run-status__line')).toContainText('Figures checked')
 
-    for (const id of ISSUE_SECTION_IDS) {
+    for (const id of FRONT_LANE_IDS) {
       await expect(page.locator(`#${id}`)).toBeVisible()
     }
     for (const id of STANDING_REFERENCE_IDS) {
       await expect(page.locator(`#${id}`)).toBeVisible()
     }
 
-    const draftBanner = page.locator('.issue-strip .issue-draft-banner')
-    if (latestIssue.status === 'draft') {
-      await expect(draftBanner).toBeVisible()
-    } else {
-      await expect(draftBanner).toHaveCount(0)
-    }
+    // The old "Draft. Not yet signed." banner lived in the issue strip this
+    // pass removed from the front page — that status now surfaces only on
+    // the issue permalink (checked in "renders with the same h1" below).
+    await expect(page.locator('.run-status .issue-draft-banner')).toHaveCount(0)
 
     expect(pageErrors).toEqual([])
     expect(consoleErrors).toEqual([])
   })
 
-  test('/issues/ lists every issue', async ({ page }) => {
+  test('/issues/ lists every issue and carries the discontinuation notice', async ({ page }) => {
     await page.goto('/issues/')
     await expect(page.getByRole('heading', { level: 1 })).toHaveText('Issues')
+    await expect(page.locator('.archive-notice')).toContainText(
+      'Signed weekly issues were discontinued on 25 September 2026',
+    )
     for (const issue of issues) {
       await expect(page.locator('.issue-archive__list').getByText(issue.id, { exact: true })).toBeVisible()
     }
   })
 
-  test('/issues/<newest>/ renders with the same h1', async ({ page }) => {
+  test('/issues/<newest>/ renders with the same h1 and the discontinuation notice, content unaltered', async ({
+    page,
+  }) => {
     await page.goto(`/issues/${latestIssue.id}/`)
+    await expect(page.locator('.archive-notice')).toContainText(
+      'Signed weekly issues were discontinued on 25 September 2026',
+    )
     await expect(page.getByRole('heading', { level: 1 })).toHaveText(latestIssue.read)
     for (const id of ISSUE_SECTION_IDS) {
       await expect(page.locator(`#${id}`)).toBeVisible()

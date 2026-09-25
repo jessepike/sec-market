@@ -7,21 +7,22 @@ export function HowThisWorks() {
       <div className="section-heading">
         <h2 id="method-heading">How this is built</h2>
         <p>
-          Public sources only. This edition is the Episode 002 packet ({EPISODE_ID} v{EPISODE_VERSION})
-          plus an August 2026 surface refresh — SentinelOne, SailPoint, identity coverage names, and
-          2026 capital events — updated {LAST_UPDATED_DISPLAY}. Each domain posture is dated, with a
-          horizon and the evidence that produced it. This edition shows what held or moved versus the
-          one before. Not a live feed. Every number links to a source excerpt and its limits.
+          Public sources only. Facts are collected, checked, and published automatically — no human
+          approval step, and no machine judgment. That means no stances, rankings, forecasts, or
+          sentences interpreting what a fact means; a fact reaches the page only after it passes the
+          automated checks below. This edition is the Episode 002 packet ({EPISODE_ID} v
+          {EPISODE_VERSION}) plus a facts-only pass, updated {LAST_UPDATED_DISPLAY}. Every number
+          links to a source excerpt and its limits.
         </p>
       </div>
 
-      <h3 className="method__subhead">How editions age</h3>
+      <h3 className="method__subhead">How the tracker ages</h3>
       <p className="method-copy">
         Current prints stay on the scorecard. Older still-true context collapses to Background.
         Superseded prints leave the card and stay in evidence. Acquired vendors keep their last
-        independent print — we do not rewrite them into the buyer. Domain postures keep the date
-        they were set; the next edition shows what held or moved. Tracked figures are updated as
-        companies report. A signed read is published most weeks.
+        independent print — we do not rewrite them into the buyer. Tracked figures are updated as
+        companies report; the run status near the top of the page says whether the latest run was
+        complete.
       </p>
 
       <h3 className="method__subhead">Signals we use</h3>

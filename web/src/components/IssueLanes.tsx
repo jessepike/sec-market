@@ -28,8 +28,15 @@ function itemMatchesLens(item: IssueItem, activeSlugs: string[]): boolean {
  * the issue permalink page, and scripts/verify-issue.ts's check 10 — so this
  * component's unfiltered render is byte-identical to before the lens existed
  * in both of those places.
+ *
+ * `showWhy` defaults to true — the issue permalink page keeps every "why it
+ * matters" line exactly as published; it is a dated, locked record and this
+ * pass does not alter it (D-76/autonomy-coverage-plan.md §3, step 1). The
+ * front page passes `showWhy={false}`: the "why" line is the one piece of
+ * interpretation in an otherwise factual item, and the site no longer
+ * publishes that interpretation on a live page.
  */
-export function IssueLanes({ issue }: { issue: Issue }) {
+export function IssueLanes({ issue, showWhy = true }: { issue: Issue; showWhy?: boolean }) {
   const { activeSlugs, clear } = useVendorLens()
   const isFiltered = activeSlugs !== null
 
@@ -90,7 +97,7 @@ export function IssueLanes({ issue }: { issue: Issue }) {
                       <p className="issue-lane__meta">
                         <time dateTime={item.date}>{formatShortDate(item.date)}</time>
                       </p>
-                      {item.why ? <p className="issue-lane__why">{item.why}</p> : null}
+                      {showWhy && item.why ? <p className="issue-lane__why">{item.why}</p> : null}
                       {correctionMatch ? (
                         <div className="issue-lane__correction" aria-label="Correction to this item">
                           <p className="issue-lane__correction-stamp">

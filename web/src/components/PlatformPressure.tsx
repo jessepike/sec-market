@@ -1,15 +1,12 @@
 import { platformPressure } from '../data/platformPressure'
-import { claimId, effectiveJudgment } from '../data/reconfirmationHelpers'
-import { reconfirmations } from '../data/reconfirmations'
 import type { PressureGroup, VendorPosition } from '../data/types'
 import { EvidenceLink } from './EvidenceLink'
-import { JudgedStampStacked } from './JudgedStamp'
 
 const groupCopy: Record<PressureGroup, string> = {
-  holding: 'Holding position',
-  'buying-in': 'Buying in rather than building',
-  outrun: 'Being outrun in their own motion',
-  challengers: 'Challengers worth a look',
+  holding: 'Holding',
+  'buying-in': 'Buying in',
+  outrun: 'Outrun',
+  challengers: 'Challengers',
 }
 
 const groupOrder: PressureGroup[] = ['holding', 'buying-in', 'outrun', 'challengers']
@@ -24,12 +21,9 @@ export function PlatformPressure() {
       <div className="section-heading">
         <p className="eyebrow">Platform pressure</p>
         <h2 id="platforms-heading">Who is holding, who is buying in, who is being outrun</h2>
-        <p>
-          The partner question. Where an incumbent is still the safe pick, where it is acquiring its
-          way into a category, and where a challenger is printing faster inside the same motion.
-        </p>
+        <p>Which vendors hold, buy in, or are outrun on their own tracked prints, grouped only. No read.</p>
       </div>
-      <p className="stamp-label">TRACKED PRINTS · JUDGED READ</p>
+      <p className="stamp-label">TRACKED PRINTS</p>
       <div className="table-scroll pressure__desktop">
         <table className="pressure-table">
           <caption className="visually-hidden">Platform pressure by vendor position</caption>
@@ -38,13 +32,12 @@ export function PlatformPressure() {
               <th scope="col">Vendor</th>
               <th scope="col">Position</th>
               <th scope="col">Latest tracked print</th>
-              <th scope="col">Judged read</th>
             </tr>
           </thead>
           {groupOrder.map((group) => (
             <tbody key={group} className={'pressure-table__group pressure-table__group--' + group}>
               <tr>
-                <th scope="colgroup" colSpan={4}>
+                <th scope="colgroup" colSpan={3}>
                   {groupCopy[group]}
                 </th>
               </tr>
@@ -56,21 +49,6 @@ export function PlatformPressure() {
                     <p className="mono">{row.print}</p>
                     {row.provenance.print.layer === 'tracked' ? (
                       <EvidenceLink ids={row.provenance.print.evidenceIds} />
-                    ) : null}
-                  </td>
-                  <td>
-                    <p>{row.read}</p>
-                    {row.provenance.read.layer === 'judged' ? (
-                      <JudgedStampStacked
-                        judgedOn={row.provenance.read.judgedOn}
-                        reconfirmedOn={
-                          effectiveJudgment(
-                            claimId('platform-pressure', row.id),
-                            row.provenance.read.judgedOn,
-                            reconfirmations,
-                          ).reconfirmedOn
-                        }
-                      />
                     ) : null}
                   </td>
                 </tr>
@@ -92,19 +70,6 @@ export function PlatformPressure() {
                 <p className="mono">{row.print}</p>
                 {row.provenance.print.layer === 'tracked' ? (
                   <EvidenceLink ids={row.provenance.print.evidenceIds} />
-                ) : null}
-                <p>{row.read}</p>
-                {row.provenance.read.layer === 'judged' ? (
-                  <JudgedStampStacked
-                    judgedOn={row.provenance.read.judgedOn}
-                    reconfirmedOn={
-                      effectiveJudgment(
-                        claimId('platform-pressure', row.id),
-                        row.provenance.read.judgedOn,
-                        reconfirmations,
-                      ).reconfirmedOn
-                    }
-                  />
                 ) : null}
               </article>
             ))}

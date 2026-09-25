@@ -17,7 +17,7 @@ interface NavItem {
 // nav. #read still exists on the front page; it just carries a different,
 // quieter block now — see ThesisPointer.tsx.
 const navItems: NavItem[] = [
-  { href: '#overview', label: 'Issue' },
+  { href: '#overview', label: 'Status' },
   { href: '/issues/', label: 'Archive', crossPage: true },
   { href: '#landscape', label: 'Landscape' },
   { href: '#prints', label: 'Scorecard' },

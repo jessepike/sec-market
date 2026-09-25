@@ -1,9 +1,12 @@
-import { formatShortDate } from '../data/dates'
-import { AUTHOR_NAME } from '../data/meta'
 import { weekMoves } from '../data/whatMoved'
 import { EvidenceLink } from './EvidenceLink'
-import { FileSearch } from 'lucide-react'
 
+/**
+ * D-76/autonomy-coverage-plan.md §3, step 1: this used to carry a second,
+ * JUDGED column (posture HELD/MOVED and a method-rule "WHY" line, signed and
+ * dated by a person). The site publishes sourced facts only now, so only the
+ * TRACKED column — public prints, no judgment applied — survives here.
+ */
 export function WhatMoved() {
   return (
     <section id="moved" className="week-moved" aria-labelledby="moved-heading">
@@ -26,34 +29,6 @@ export function WhatMoved() {
                 </li>
               ))}
             </ul>
-          </div>
-          <div className="week-moved__col week-moved__col--judged">
-            <p className="stamp-label stamp-label--judged">
-              JUDGED · a person signed this ·{' '}
-              <time dateTime={weekMoves.asOf}>{formatShortDate(weekMoves.asOf)}</time> &middot;{' '}
-              {AUTHOR_NAME}
-            </p>
-            <ul className="week-moved__list">
-              {weekMoves.judged.map((item) => (
-                <li key={item.kind}>
-                  <span className={'week-moved__kind week-moved__kind--' + item.kind.toLowerCase()}>
-                    {item.kind}
-                  </span>
-                  <div>
-                    <p>{item.text}</p>
-                    {item.evidenceIds.length > 0 ? (
-                      <EvidenceLink ids={item.evidenceIds} />
-                    ) : item.basisHref && item.basisLabel ? (
-                      <a href={item.basisHref} className="evidence-link">
-                        <FileSearch size={14} aria-hidden="true" />
-                        <span>{item.basisLabel}</span>
-                      </a>
-                    ) : null}
-                  </div>
-                </li>
-              ))}
-            </ul>
-            <p className="week-moved__quiet">{weekMoves.quietNote}</p>
           </div>
         </div>
       </div>

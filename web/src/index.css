@@ -1956,6 +1956,20 @@ summary:focus-visible,
   color: #8b97a6;
 }
 
+/* Facts-only replacement for the old TRACKED/JUDGED .rail__legend (kept below,
+   unused, per the no-deletion rule for this pass). Same slot: margin-left auto
+   pushes it to the end of the rail, same size/case as its neighbours. */
+.rail__statement {
+  margin: 0 0 0 auto;
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: #8b97a6;
+  text-align: right;
+}
+
 .rail__legend {
   margin-left: auto;
   display: flex;
@@ -2536,7 +2550,8 @@ summary:focus-visible,
      legend lines, just less line-box padding around each. */
   .rail__brand,
   .rail__asof,
-  .rail__legend {
+  .rail__legend,
+  .rail__statement {
     line-height: 1.2;
   }
 
@@ -2549,6 +2564,12 @@ summary:focus-visible,
     margin-left: 0;
     gap: 0.5rem;
     flex-wrap: wrap;
+  }
+
+  .rail__statement {
+    flex-basis: 100%;
+    margin-left: 0;
+    text-align: left;
   }
 
   .landscape__intro {
@@ -2703,6 +2724,19 @@ summary:focus-visible,
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+}
+
+/* D-76/autonomy-coverage-plan.md §3, step 1: the plain notice added to the
+   top of a page kept as a dated, no-longer-updated record (the issue
+   archive, an issue permalink, /thesis/). Quiet by design — a fact about the
+   page's status, not an alert. */
+.archive-notice {
+  margin: 0 0 1.25rem;
+  padding: 0.6rem 0.9rem;
+  background: var(--color-surface-muted, #f4f5f7);
+  border-left: 3px solid var(--color-border);
+  font-size: 0.9rem;
+  color: var(--color-text-muted, var(--color-text));
 }
 
 .issue-lane {
@@ -3483,4 +3517,37 @@ summary:focus-visible,
   .issue-strip__read {
     font-size: 1.05rem;
   }
+}
+
+/* D-76/autonomy-coverage-plan.md §3, step 1: the run-status line that
+   replaces .issue-strip in the same #overview slot. Same box shape as the
+   strip it replaces; colour signals whether collection was complete. */
+.run-status {
+  margin: 0 0 1.5rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--color-border-strong);
+  border-left-width: 3px;
+  background: var(--color-surface);
+}
+
+.run-status__line {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.run-status__line--updated,
+.run-status__line--no-change {
+  color: var(--color-heading);
+}
+
+.run-status__line--incomplete {
+  color: var(--color-alert);
+}
+
+.run-status__failed {
+  margin: 0.35rem 0 0;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
 }
