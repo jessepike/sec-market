@@ -3,12 +3,12 @@
 ## Control
 
 - **Intent ID:** `SEC-MARKET-001`
-- **Version:** `1.2`
+- **Version:** `1.3`
 - **Lifecycle state:** `accepted`
 - **Gate 1:** `passed`
-- **Supersedes:** `SEC-MARKET-001` v1.1
+- **Supersedes:** `SEC-MARKET-001` v1.2
 - **Created:** 2026-08-15
-- **Last reconciled:** 2026-09-03 — weekly issue as the unit of product; a machine drafts, a named person signs
+- **Last reconciled:** 2026-09-25 — the pipeline publishes sourced, machine-validated facts on its own with no human approval step; the machine publishes no judgments
 
 ## Compressed governing intent
 
@@ -58,10 +58,10 @@ Completing agents, a website, reports, or other deliverables alone does not cons
 - Initial outputs use public, publishable information.
 - Market observation may be national or global.
 - Claims preserve provenance, uncertainty, conflicting evidence, and credible alternatives.
-- The intelligence may make provisional forward-looking judgments, but must label their confidence and basis.
+- Forward-looking judgments appear only when the owner writes them himself, and must label their confidence and basis.
 - Public intelligence augments rather than replaces client conversations, pipeline evidence, partner information, and local judgment.
 - Scope remains practical enough to learn and deliver value incrementally.
-- A machine may retrieve, extract, compare and propose. Only a named person signs a judgment or publishes an issue.
+- A machine may retrieve, extract, validate and publish sourced facts on its own schedule, with automated checks as the only publishing gate and no human approval step. A machine does not publish judgments: no stances, rankings, forecasts, or interpretation of what a fact means.
 
 ### Explicitly out of scope
 
@@ -104,7 +104,7 @@ Completing agents, a website, reports, or other deliverables alone does not cons
 | National and global market observation | Decided | Source and analysis scope | New accepted intent version |
 | Transparent, calibrated judgments | Decided | Reasoning and output behavior | New accepted intent version |
 | Weekly issue as the unit of product | Decided | Product shape, cadence, presentation | New accepted intent version |
-| Autonomous worker agents and reasoning layer | Decided for gather and draft only; publication and every judgment remain a named person's act | Implementation | New accepted intent version |
+| Autonomous worker agents and reasoning layer | Decided: gather, validate and publish sourced facts with no human approval step; judgments are published only when the owner writes them | Implementation | New accepted intent version |
 | Responsive public-data website | Decided | MVP presentation and distribution | New accepted intent version |
 | Audience- or region-specific views and newsletters | Decided for a named pilot list; public distribution follows four held issues | Presentation and distribution | Owner decision at the 2026-10-08 review |
 | Partner-risk monitor | Exploring | Potential backlog | Separate prioritization and scope decision |
@@ -126,6 +126,7 @@ Completing agents, a website, reports, or other deliverables alone does not cons
 - **Requirement:** maintain attribution and access to supporting research and evidence
 - **Date:** 2026-08-16
 - **v1.2 Human Acceptance:** accepted — "approve the intent v1.2 text as written" — project owner, 2026-09-03
+- **v1.3 Human Acceptance:** accepted — "Source check facts can publish. I don't want to be the bottleneck for this. So it needs to be automated. There doesn't need to be any gates." Asked what the machine may say beyond facts, the owner chose "facts only, no judgments", and approved rewriting this file and the project rules to match — project owner, 2026-09-25
 
 ### AI Readiness
 
@@ -156,6 +157,7 @@ Completing agents, a website, reports, or other deliverables alone does not cons
 | 1.0 | accepted | Establish governing authority for the new project | accepted, 2026-08-15 | ready, 2026-08-15 | Existing working and build specifications require downstream review |
 | 1.1 | accepted | Promote the responsive evidence-linked website from Exploring to Decided for MVP delivery | accepted, 2026-08-16 | ready, 2026-08-16 | Website becomes the primary MVP consumption surface; purpose and evidence boundaries unchanged |
 | 1.2 | accepted | Weekly issue as the unit of product; agent-drafted gather with a named person signing; newsletter to a named pilot list; ePlus overlay bounded downstream | accepted, 2026-09-03 | ready, 2026-09-03 | Episode 002 call becomes a standing thesis; purpose, beneficiaries and evidence boundaries unchanged |
+| 1.3 | accepted | Remove the human approval step: sourced, machine-validated facts publish automatically; the machine publishes no judgments; judgments appear only when the owner writes them (D-76) | accepted, 2026-09-25 | ready, 2026-09-25 | The publish-on-approval path, signing and dated machine-proposed stances are superseded; purpose, beneficiaries and the public-evidence boundary unchanged |
 
 ## Gate result
 

@@ -16,8 +16,9 @@ These are non-negotiable rules. Agents must not creatively reinterpret or work a
 
 ## Authorization
 
-- Production collectors, database, scheduler, website, digest, and autonomous pipeline are not authorized
-- Posture judgment and authorization remain human-steered
+- Authorized (D-76, 2026-09-25): the public website, scheduled collectors, and an autonomous pipeline that publishes sourced, machine-validated facts with automated checks as the only gate and no human approval step
+- Not authorized: a machine publishing judgments — stances, rankings, forecasts, or interpretation of what a fact means. Judgments are published only when the owner writes them
+- A database and an email digest are not yet authorized
 - Confirm before destructive operations (delete, drop, overwrite)
 
 ## Session Discipline

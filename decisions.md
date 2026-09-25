@@ -945,3 +945,26 @@ buying cloud security reads the same with "Cloud security". It is built to `prev
 the changed rows dated to this approval and the error listed at `/corrections/`, and it reaches
 production only on a further word from him.
 
+
+**D-76 · 2026-09-25 — No human approval step. Sourced, machine-validated facts publish on their own; the machine publishes no judgments. `intent.md` moves to v1.3 and `.claude/rules/constraints.md` is rewritten to match, on the owner's approval.**
+
+The owner's words: "Source check facts can publish. I don't want to be the bottleneck for this. So
+it needs to be automated. There doesn't need to be any gates." Asked what happens to the judgment
+parts of the site (domain stances, the weekly headline, "why it matters" lines) once nobody approves
+them, he chose "facts only, no judgments" over publishing machine-written judgments under his name
+or labelled as automated analysis. He then approved rewriting `intent.md` and the project rules to
+say so.
+
+What this settles: product-core open question 8 is answered. Automated checks (the `verify:*` gates)
+remain and become the only gate; a human approval, a signature and a promotion word are no longer
+required for facts to reach production. A machine may not publish a stance, a ranking, a forecast,
+or a sentence interpreting what a fact means. The owner may still write a judgment himself; it
+then publishes under his name as today.
+
+What it supersedes: the approve-to-publish path of D-73 to D-75 for facts, the `reconfirm` word, and
+the D-66 signing of weekly issues as a precondition of publication. The existing dated stances of
+16 Aug 2026 and other judged text on the site are not removed by this decision; how they are
+retired or kept is part of the plan in `docs/active/autonomy-coverage-plan.md`. The AGENTS.md
+production-deploy contract (every `web/` change reaches `main` only on an owner yes) still governs
+changes to the site's code and layout; only the automated publication of validated facts is
+exempted, and AGENTS.md is updated when that path is built.
