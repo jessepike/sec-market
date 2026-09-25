@@ -21,10 +21,10 @@ push workflow files) and `claude setup-token` for the model runner's repository 
 | ID | Task | Model | Status | Worktree / branch | Output |
 |---|---|---|---|---|---|
 | A0 | Refresh 11 stale figures, mark 6 acquired | claude-sonnet-5 | done, merged, promoted to main 28c7ffd (D-78); PANW segments and Upwind left, no readable primary source | sec-market-wt/refresh, mon/refresh | docs/active/auto/step0/report.md |
-| A1 | Take judged text off live pages, add run-status line | claude-sonnet-5 | running | sec-market-wt/facts-only, mon/facts-only | docs/active/auto/step1/report.md |
+| A1 | Take judged text off live pages, add run-status line | claude-sonnet-5 | done after one fix pass (dates from one source, Platform pressure and position labels off); merged to preview f2f1b24; visible, waiting on the owner's word to promote | sec-market-wt/facts-only, mon/facts-only | docs/active/auto/step1/report.md |
 | A2 | EDGAR daily runner, no model | claude-sonnet-5 | done, merged to preview (ea3c0e5); 14 suppliers, 0 failures; workflow drafted as .txt pending the workflow scope | sec-market-wt/edgar, mon/edgar | docs/active/auto/step2/report.md |
-| A5a | Coverage research: endpoint, SecOps, MDR and services, exposure | claude-sonnet-5 | running | none | scratchpad coverage-g1.md |
-| A5b | Coverage research: network, cloud, identity, email | claude-sonnet-5 | running | none | scratchpad coverage-g2.md |
+| A5a | Coverage research: endpoint, SecOps, MDR and services, exposure | claude-sonnet-5 | done, 25 suppliers | none | scratchpad coverage-g1.md |
+| A5b | Coverage research: network, cloud, identity, email | claude-sonnet-5 | done, 27 suppliers | none | scratchpad coverage-g2.md |
 | A5c | Coverage research: data, appsec, OT, AI security | claude-sonnet-5 | running | none | scratchpad coverage-g3.md |
 
 Last updated: 2026-09-25
