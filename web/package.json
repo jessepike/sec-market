@@ -16,6 +16,7 @@
     "verify:prints": "tsx --tsconfig tsconfig.app.json scripts/verify-prints.ts",
     "verify:dist": "tsx --tsconfig tsconfig.app.json scripts/verify-dist.ts",
     "report:stale": "tsx --tsconfig tsconfig.app.json scripts/stale-report.ts",
+    "refresh:edgar": "tsx --tsconfig tsconfig.app.json scripts/edgar-refresh.ts",
     "build:client": "vite build",
     "build:server": "vite build --ssr src/entry-server.tsx --outDir dist-ssr",
     "prerender": "tsx scripts/prerender.ts",
@@ -25,7 +26,7 @@
     "lint": "oxlint",
     "preview": "vite preview",
     "test:e2e": "playwright test",
-    "test:data": "tsx --tsconfig tsconfig.app.json --test tests/landscape-data.test.ts tests/issue-data.test.ts tests/dist-fixtures.test.ts tests/html-escape.test.ts tests/market-picture.test.ts tests/corrections-data.test.ts tests/sign-issue.test.ts tests/print-checks.test.ts tests/stale-report.test.ts tests/reconfirmations.test.ts tests/platform-pressure.test.ts tests/run-status.test.ts",
+    "test:data": "tsx --tsconfig tsconfig.app.json --test tests/landscape-data.test.ts tests/issue-data.test.ts tests/dist-fixtures.test.ts tests/html-escape.test.ts tests/market-picture.test.ts tests/corrections-data.test.ts tests/sign-issue.test.ts tests/print-checks.test.ts tests/stale-report.test.ts tests/reconfirmations.test.ts tests/platform-pressure.test.ts tests/run-status.test.ts tests/edgar-logic.test.ts",
     "test": "npm run lint && npm run test:data && npm run build && npm run test:e2e"
   },
   "dependencies": {
