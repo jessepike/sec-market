@@ -981,3 +981,13 @@ promotion of `preview` to `main`, which also carries the SEC-054 Platform pressu
 wording he approved on 2026-09-21. Layout changes in later steps are still shown to him before they
 reach production. Scoring: every future score is two blind scorers, `claude-opus-5-5` and
 `gpt-6-sol` via `codex exec -m gpt-6-sol`; recorded in `docs/active/fable-run/site-rubric.md` v2.2.
+
+**D-78 · 2026-09-25 — Step 0 of AUTO-001 promoted to production under D-77's "go"; `main` moved `9b98353` → `28c7ffd`.**
+
+Eight scorecard figures now show the latest reported quarter, each checked against the company's
+own SEC exhibit or release (Zscaler, Okta, CrowdStrike, SentinelOne, Rubrik, Netskope, SailPoint,
+Cato Networks); Lakera reads as closed inside Check Point on 2025-10-22; acquired suppliers share
+one label. Palo Alto's segment figures and Upwind's new round were left unchanged because no
+primary source could be read. The promotion also carried the SEC-054 Platform pressure correction
+and the EDGAR runner (not yet on any page). The live host was checked: new figures and the
+corrected wording served, five routes return 200. Report: `docs/active/auto/step0/report.md`.
