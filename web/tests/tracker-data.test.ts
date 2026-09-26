@@ -3,11 +3,19 @@ import { describe, it } from 'node:test'
 import { evidenceById } from '../src/data/evidence.ts'
 import { notCoveredByTracker, trackerDomainIds, trackerDomains } from '../src/data/tracker/domains.ts'
 import {
+  abbreviateDollar,
   edgarFilingsInLast30Days,
   eventSummaryForSupplier,
   eventsInLast30Days,
+  formatHeadlineCompact,
+  formatMonthYear,
+  formatOwnershipCompact,
+  formatShortDate,
+  formatShortQuarter,
+  formatYear,
   medianRevenueGrowthForDomain,
   parseGrowthPercent,
+  shortSupplierName,
   suppliersForDomain,
 } from '../src/data/tracker/derive.ts'
 import { trackerEvents } from '../src/data/tracker/events.ts'
@@ -179,5 +187,140 @@ describe('tracker derive helpers (fixtures)', () => {
     const filings = edgarFilingsInLast30Days('2026-09-25', facts)
     assert.equal(filings.length, 1)
     assert.equal(filings[0].filedDate, '2026-09-01')
+  })
+})
+
+describe('density-pass display helpers (fixtures)', () => {
+  it('strips a legal-entity suffix but leaves a genuine brand word alone', () => {
+    assert.equal(shortSupplierName('CrowdStrike Holdings, Inc.'), 'CrowdStrike')
+    assert.equal(shortSupplierName('Tenable Holdings, Inc.'), 'Tenable')
+    assert.equal(shortSupplierName('Forescout Technologies, Inc.'), 'Forescout')
+    assert.equal(shortSupplierName('Veeam Software'), 'Veeam')
+    assert.equal(shortSupplierName('Trend Micro Incorporated'), 'Trend Micro')
+    assert.equal(shortSupplierName('Sophos Group (Sophos Ltd)'), 'Sophos')
+    assert.equal(shortSupplierName('Rapid7, Inc.'), 'Rapid7')
+    // brand words that are not legal-entity suffixes survive untouched
+    assert.equal(shortSupplierName('Zscaler'), 'Zscaler')
+    assert.equal(shortSupplierName('Microsoft Defender for Endpoint'), 'Microsoft Defender for Endpoint')
+    assert.equal(shortSupplierName('Palo Alto Networks, Inc.'), 'Palo Alto Networks')
+    assert.equal(shortSupplierName('Cato Networks'), 'Cato Networks')
+  })
+
+  it('formats compact quarter, event, month-year, and year labels', () => {
+    assert.equal(formatShortQuarter('2026-07-31'), 'Q Jul 26')
+    assert.equal(formatShortDate('2026-08-12'), '12 Aug 26')
+    assert.equal(formatMonthYear('2026-04-20'), 'Apr 2026')
+    assert.equal(formatMonthYear('2024-01'), 'Jan 2024')
+    assert.equal(formatYear('2020-03-01'), '2020')
+    assert.equal(formatShortQuarter(undefined), '')
+  })
+
+  it('abbreviates a dollar figure to one letter, keeping any leading qualifier', () => {
+    assert.equal(abbreviateDollar('$5.84 billion'), '$5.84B')
+    assert.equal(abbreviateDollar('$651.4 million'), '$651.4M')
+    assert.equal(abbreviateDollar('>$1.7 billion'), '>$1.7B')
+    assert.equal(abbreviateDollar('$250 million'), '$250M')
+    assert.equal(abbreviateDollar('over $200 million'), 'over $200M')
+    assert.equal(abbreviateDollar(undefined), '')
+  })
+
+  it('formats the own-metric cell as "label value · Q mon yy"', () => {
+    const withEndedDate = formatHeadlineCompact({
+      id: 'x',
+      name: 'X',
+      domainIds: [],
+      kind: 'public',
+      headlineMetric: {
+        label: 'ARR',
+        value: '$5.84 billion',
+        period: 'Q2 FY2027, ended 2026-07-31',
+        evidenceIds: ['e1'],
+      },
+    })
+    assert.equal(withEndedDate, 'ARR $5.84B · Q Jul 26')
+
+    const withoutMetric = formatHeadlineCompact({ id: 'y', name: 'Y', domainIds: [], kind: 'private' })
+    assert.equal(withoutMetric, '')
+  })
+
+  it('formats the ownership-or-last-round cell for every supplier kind', () => {
+    assert.equal(
+      formatOwnershipCompact({
+        id: 'crwd',
+        name: 'CrowdStrike Holdings, Inc.',
+        domainIds: [],
+        kind: 'public',
+        ticker: 'CRWD',
+        ownership: { status: 'Independent, publicly traded (Nasdaq: CRWD).', evidenceIds: ['e1'] },
+      }),
+      'Public · CRWD',
+    )
+
+    assert.equal(
+      formatOwnershipCompact({
+        id: 'msft-defender',
+        name: 'Microsoft Defender for Office 365',
+        domainIds: [],
+        kind: 'segment',
+        ownership: {
+          status: 'Segment of Microsoft Corporation (publicly traded, Nasdaq: MSFT). No separate revenue disclosed.',
+          evidenceIds: ['e1'],
+        },
+      }),
+      'Segment of Microsoft',
+    )
+
+    assert.equal(
+      formatOwnershipCompact({
+        id: 'sophos',
+        name: 'Sophos Group (Sophos Ltd)',
+        domainIds: [],
+        kind: 'pe-owned',
+        ownership: {
+          status: 'Owned by Thoma Bravo since March 2020.',
+          acquirer: 'Thoma Bravo',
+          announced: '2020-03-01',
+          evidenceIds: ['e1'],
+        },
+      }),
+      'PE-owned · Thoma Bravo (2020)',
+    )
+
+    assert.equal(
+      formatOwnershipCompact({
+        id: 'armis',
+        name: 'Armis Security Ltd.',
+        domainIds: [],
+        kind: 'acquired',
+        ownership: {
+          status: "Acquired; ServiceNow closed its acquisition of Armis on April 20, 2026.",
+          acquirer: 'ServiceNow, Inc. (NYSE: NOW)',
+          closed: '2026-04-20',
+          evidenceIds: ['e1'],
+        },
+      }),
+      'Acquired by ServiceNow · Apr 2026',
+    )
+
+    assert.equal(
+      formatOwnershipCompact({
+        id: 'abnormal-security',
+        name: 'Abnormal Security',
+        domainIds: [],
+        kind: 'private',
+        lastRound: {
+          date: '2024-08-06',
+          stage: 'Series D',
+          amount: '$250 million',
+          evidenceIds: ['e1'],
+        },
+      }),
+      'Series D $250M · Aug 2024',
+    )
+
+    assert.equal(
+      formatOwnershipCompact({ id: 'nothing', name: 'Nothing Co', domainIds: [], kind: 'private' }),
+      '–',
+    )
   })
 })

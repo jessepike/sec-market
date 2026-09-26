@@ -148,7 +148,10 @@ test('no judged stamps on the front page', async ({ page }) => {
 test('opens attributed evidence without a private GitHub artifact link', async ({ page }) => {
   await page.goto('/')
 
-  await page.getByRole('button', { name: /Fortinet/ }).first().click()
+  // Scoped to #landscape: the density pass gave the tracker's own supplier
+  // rows a "Fortinet" row-toggle button too, and an unscoped match would hit
+  // that expand/collapse control instead of the evidence link this test means.
+  await page.locator('#landscape').getByRole('button', { name: /Fortinet/ }).first().click()
 
   const dialog = page.getByRole('dialog', { name: 'Evidence' })
   await expect(dialog).toBeVisible()

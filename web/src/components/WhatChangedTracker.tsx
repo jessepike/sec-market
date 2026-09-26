@@ -1,8 +1,7 @@
 import edgarFacts from '../data/generated/edgarFacts.json'
 import { LAST_UPDATED_ISO } from '../data/meta'
-import { edgarFilingsInLast30Days, eventsInLast30Days } from '../data/tracker/derive'
+import { edgarFilingsInLast30Days, eventsInLast30Days, formatShortDate, shortSupplierName } from '../data/tracker/derive'
 import { trackerSuppliers } from '../data/tracker/suppliers'
-import { formatIsoDate } from '../utils/formatDate'
 import { EvidenceLink } from './EvidenceLink'
 
 type ChangeRow =
@@ -10,7 +9,8 @@ type ChangeRow =
   | { kind: 'filing'; date: string; text: string; sourceUrl: string; sortKey: string }
 
 function supplierName(supplierId: string): string {
-  return trackerSuppliers.find((supplier) => supplier.id === supplierId)?.name ?? supplierId
+  const name = trackerSuppliers.find((supplier) => supplier.id === supplierId)?.name ?? supplierId
+  return shortSupplierName(name)
 }
 
 function buildRows(): ChangeRow[] {
@@ -24,7 +24,7 @@ function buildRows(): ChangeRow[] {
   const filings = edgarFilingsInLast30Days(LAST_UPDATED_ISO, edgarFacts).map((filing) => ({
     kind: 'filing' as const,
     date: filing.filedDate,
-    text: `${supplierName(filing.supplierId)} filed its ${filing.form} for the quarter ended ${filing.periodEnd} on ${formatIsoDate(filing.filedDate)}.`,
+    text: `${supplierName(filing.supplierId)} filed its ${filing.form} for the quarter ended ${filing.periodEnd}.`,
     sourceUrl: filing.sourceUrl,
     sortKey: `${filing.filedDate}-${filing.supplierId}-${filing.periodEnd}`,
   }))
@@ -36,6 +36,11 @@ function buildRows(): ChangeRow[] {
  * data/tracker/events.ts with any EDGAR quarter filed in the trailing 30
  * days (generated/edgarFacts.json), newest first. One factual line each,
  * every line linked to its source.
+ *
+ * Density pass (coordinator instruction, after the initial step 5 build):
+ * a short supplier name, a mono date, and a compact "src" evidence link
+ * instead of a name-carrying button — the full legal name stays in
+ * evidence.ts and in each supplier's own row on "The market by domain".
  */
 export function WhatChangedTracker() {
   const rows = buildRows()
@@ -51,13 +56,21 @@ export function WhatChangedTracker() {
         <ul className="tracker-changed__list">
           {rows.map((row) => (
             <li key={row.sortKey} className="tracker-changed__row">
-              <time dateTime={row.date}>{formatIsoDate(row.date)}</time>
-              <span>{row.text}</span>
+              <time dateTime={row.date} className="tracker-changed__date">
+                {formatShortDate(row.date)}
+              </time>
+              <span className="tracker-changed__text">{row.text}</span>
               {row.kind === 'event' ? (
-                <EvidenceLink ids={row.evidenceIds} />
+                <EvidenceLink ids={row.evidenceIds} variant="compact" context={row.text} />
               ) : (
-                <a className="evidence-link" href={row.sourceUrl} target="_blank" rel="noreferrer">
-                  Source
+                <a
+                  className="evidence-link evidence-link--compact"
+                  href={row.sourceUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`Source: ${row.text}`}
+                >
+                  src
                 </a>
               )}
             </li>

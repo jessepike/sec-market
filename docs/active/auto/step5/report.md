@@ -226,3 +226,100 @@ first-viewport (-fold), each at 1440px and 390px.
   their source evidence. Handled by making the date field accept a
   "YYYY-MM" month rather than inventing a day — flagging the choice in case
   a different convention is preferred.
+
+## Density pass (coordinator instruction, after this build)
+
+The coordinator looked at `after-fold-1440.png` and the 390px page and called
+the presentation too loose for a page meant to be scanned, and the 45,462px
+phone page unacceptable. Six changes, all display-layer — no change to the
+underlying supplier or event data.
+
+1. **Compact evidence links.** Every cell that used to carry a full-legal-
+   name-carrying evidence button now has a small mono "src" mark after the
+   figure instead, on the same line. It opens the same evidence drawer; its
+   accessible label names the source organization and a retrieval date,
+   since the visible mark carries neither.
+2. **Short display names.** A new `shortSupplierName()` helper
+   (`src/data/tracker/derive.ts`) strips the trailing legal-entity suffix
+   ("CrowdStrike Holdings, Inc." to "CrowdStrike") while leaving genuine
+   brand words alone ("Palo Alto Networks", "Microsoft Defender for
+   Endpoint"). It is a pure display function — `suppliers.ts` and
+   `evidence.ts` still carry the full legal name, and the short name's
+   `title` attribute exposes the full name on hover.
+3. **One-line cells.** Growth reads "+26%" with a muted mono "Q Jul 26"
+   period; the own-metric cell reads "ARR $5.84B · Q Jul 26"; ownership
+   reads by kind — "Public · CRWD", "Segment of Microsoft", "PE-owned ·
+   Thoma Bravo (2022)", "Acquired by ServiceNow · Apr 2026", or "Series D
+   $300M · Sep 2026" for a private company's last round. A missing figure is
+   an en dash, never a sentence. Column headers shortened to Supplier | Rev.
+   growth | Prior q | Own metric | Ownership or last round | Events, 12 mo.
+   Growth and prior-quarter figures are right-aligned in tabular numerals;
+   row padding is tighter throughout.
+4. **A domain index.** Twelve links with supplier counts sit at the top of
+   "The market by domain," so a reader jumps straight to a domain instead of
+   scrolling past eleven tables to reach the twelfth.
+5. **Phone collapse/expand.** Below 640px, each supplier is one tappable row
+   — short name plus its latest revenue growth, or its ownership state when
+   there is no growth figure. Tapping reveals the rest of that supplier's
+   cells in place. This is a real `<button aria-expanded>` with genuine
+   React state (`DomainTable`'s `expanded` set in `MarketByDomain.tsx`), not
+   a CSS-only trick, so it works by keyboard and is announced correctly to a
+   screen reader — the button's accessible name includes both the supplier
+   name and the summary figure, not just the name.
+6. **"What changed" rows.** Each line is now a mono date, the short supplier
+   name, the factual text, and a compact source link — the same treatment as
+   the domain tables.
+
+### Verification
+
+- `npm run lint` — 0 warnings, 0 errors (fixed one unused-variable warning
+  in a new date helper along the way).
+- `npm run test:data` — 240/240 pass, including 5 new tests for the
+  density-pass display helpers (`shortSupplierName`, the compact date/
+  quarter formatters, `formatHeadlineCompact`, `formatOwnershipCompact`
+  across all five ownership kinds).
+- `npm run build` — full chain green, including `tsc -b` with no type
+  errors.
+- `npm run test:e2e` — 1 pre-existing test broke and was fixed, not
+  skipped: `smoke.spec.ts`'s "opens attributed evidence" test matched
+  `getByRole('button', { name: /Fortinet/ })` unscoped, which used to find
+  only the Landscape section's evidence button. The tracker's own new
+  per-row toggle button is also named "Fortinet ..." (its short name has no
+  legal suffix to strip) and now sits earlier in the DOM, so the unscoped
+  `.first()` started hitting the wrong button. Scoped the locator to
+  `#landscape`, matching how the same file already scoped its assertions a
+  few lines above. 29/29 pass after the fix.
+- A second CSS pass was needed to hit the phone target: the collapsed-row
+  pattern's `data-label` styling was printing a "SUPPLIER" label above every
+  one of the 74 row-toggle buttons, which is redundant (the button is the
+  row) and cost real height. Suppressing that one label brought the phone
+  page from 15,262px to 13,837px.
+
+### Page height
+
+| | Before density pass | After density pass |
+|---|---|---|
+| 1440px, full page | 15,830px | 10,131px |
+| 390px, full page | ~45,462px | 13,837px |
+
+Both are well under the coordinator's phone target of 15,000px, and the
+desktop page is also markedly shorter — the compact cells and tighter
+padding do the same work at both widths.
+
+### Screenshots
+
+In this directory: `after2-1440.png`, `after2-390.png`, `after2-fold-
+1440.png`, `after2-fold-390.png` — captured from a local production preview
+of this branch's build (`vite preview`), same capture pattern as the
+original `before-`/`after-` set.
+
+### Data-quality note (not fixed, flagged instead)
+
+One supplier's (Cyera) `lastRound.stage` field holds a full descriptive
+sentence ("Growth-equity investment (reported as a Series G extension)")
+rather than a short stage label like "Series D," so its ownership cell reads
+as a full sentence rather than the compact form the other private
+companies get. This is a pre-existing shape in the source data, not a
+formatting bug — `formatOwnershipCompact()` renders whatever `stage` holds.
+Fixing it means editing supplier data, which is outside this pass's
+display-only scope; noting it here rather than touching the data.
