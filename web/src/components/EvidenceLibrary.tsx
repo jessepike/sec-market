@@ -4,8 +4,23 @@ import { evidenceRecords } from '../data/evidence'
 import type { SourceClass } from '../data/types'
 import { useEvidence } from '../context/useEvidence'
 
+/**
+ * AUTO-001 fix pass (2026-09-26), item 4: `evidence.ts` holds both the
+ * tracker's own facts-only evidence (`TR-` ids, empty `interpretation` by
+ * construction) and the older, judged thesis-era evidence this facts-only
+ * front page no longer states a stance from (ids like `C3`, whose
+ * `interpretation` reads "strongest realized network-security acceleration
+ * in the panel"). This library is reachable from the live front page only
+ * (`App.tsx`'s FrontPage, inside `#research`) — `/thesis/` and
+ * `/issues/<id>/` do not render it — so it now searches the tracker's own
+ * evidence exclusively. The full library (including the judged records) is
+ * still reachable per source, unfiltered, from the archived pages that cite
+ * them directly.
+ */
+const trackerEvidenceRecords = evidenceRecords.filter((record) => record.id.startsWith('TR-'))
+
 const PRESENT_CLASSES: SourceClass[] = [
-  ...new Set(evidenceRecords.map((record) => record.sourceClass)),
+  ...new Set(trackerEvidenceRecords.map((record) => record.sourceClass)),
 ].sort()
 
 export function EvidenceLibrary() {
@@ -15,17 +30,10 @@ export function EvidenceLibrary() {
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase()
-    return evidenceRecords.filter((record) => {
+    return trackerEvidenceRecords.filter((record) => {
       if (classFilter !== 'ALL' && record.sourceClass !== classFilter) return false
       if (!q) return true
-      const haystack = [
-        record.id,
-        record.title,
-        record.organization,
-        record.excerpt,
-        record.interpretation,
-        ...record.tags,
-      ]
+      const haystack = [record.id, record.title, record.organization, record.excerpt, ...record.tags]
         .join(' ')
         .toLowerCase()
       return haystack.includes(q)
@@ -36,10 +44,7 @@ export function EvidenceLibrary() {
     <section className="evidence-library" aria-labelledby="research-heading">
       <div className="section-heading">
         <h2 id="research-heading">Research &amp; evidence library</h2>
-        <p>
-          Search the Episode 002 packet and the August 2026 surface refresh. Click any row to
-          inspect full attribution.
-        </p>
+        <p>Search the tracker&rsquo;s sourced evidence. Click any row to inspect full attribution.</p>
       </div>
       <div className="evidence-library__controls">
         <label className="search-field">

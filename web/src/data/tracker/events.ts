@@ -377,9 +377,9 @@ export const trackerEvents: TrackerEvent[] = [
   {
     "id": "EV-okta-1",
     "supplierId": "okta",
-    "date": "2026-08-24",
+    "date": "2026-08-26",
     "type": "results",
-    "text": "Q4 FY2027 revenue $805 million, +11% YoY.",
+    "text": "Q2 FY2027 revenue $805 million, +11% YoY.",
     "evidenceIds": [
       "TR-okta-1"
     ],
@@ -522,7 +522,7 @@ export const trackerEvents: TrackerEvent[] = [
     "supplierId": "sailpoint",
     "date": "2026-09-10",
     "type": "results",
-    "text": "Q4 FY2027 revenue $308.8 million, +16.8% YoY; ARR $1,230.7 million, +25.3% YoY.",
+    "text": "Q2 FY2027 revenue $308.8 million, +16.8% YoY; ARR $1,230.7 million, +25.3% YoY.",
     "evidenceIds": [
       "TR-sailpoint-1"
     ],

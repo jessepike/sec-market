@@ -188,6 +188,45 @@ describe('tracker derive helpers (fixtures)', () => {
     assert.equal(filings.length, 1)
     assert.equal(filings[0].filedDate, '2026-09-01')
   })
+
+  it('never reports a restated prior-year comparative as a new filing (AUTO-001 fix pass, item 1)', () => {
+    // Mirrors the real edgarFacts.json shape: dedupeByPeriodEnd keeps
+    // whichever fact for a given periodEnd was filed most recently, so a
+    // 10-Q that reports 2026-07-31 also restates the 2025-07-31
+    // comparative under the SAME filedDate. Only the true latest quarter
+    // (max periodEnd) may appear in the 30-day window, never the
+    // comparative — see the regression this fixed:
+    // "SailPoint filed its 10-Q for the quarter ended 2025-07-31".
+    const facts = {
+      generatedAt: '2026-09-26T00:00:00Z',
+      suppliers: [
+        {
+          id: 'fixture',
+          name: 'Fixture Co',
+          cik: '0000000000',
+          quarters: [
+            {
+              periodEnd: '2026-07-31',
+              filedDate: '2026-09-10',
+              form: '10-Q',
+              value: 100,
+              sourceUrl: 'https://example.test/fixture-current',
+            },
+            {
+              periodEnd: '2025-07-31',
+              filedDate: '2026-09-10',
+              form: '10-Q',
+              value: 85,
+              sourceUrl: 'https://example.test/fixture-comparative',
+            },
+          ],
+        },
+      ],
+    }
+    const filings = edgarFilingsInLast30Days('2026-09-26', facts)
+    assert.equal(filings.length, 1)
+    assert.equal(filings[0].periodEnd, '2026-07-31')
+  })
 })
 
 describe('density-pass display helpers (fixtures)', () => {

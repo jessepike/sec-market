@@ -3,6 +3,17 @@ import { ArrowLeft, ExternalLink, X } from 'lucide-react'
 import { evidenceById } from '../data/evidence'
 import { useEvidence } from '../context/useEvidence'
 
+/**
+ * AUTO-001 fix pass (2026-09-26), item 4: "Interpretation" and
+ * "Limitations / confounds" now render only when the record actually says
+ * something there. Every tracker (`TR-`) evidence record has an empty
+ * `interpretation` by construction — the facts-only tracker states no
+ * stance — so a live-page evidence link (the tracker tables,
+ * WhatChangedTracker) never surfaces a heading over nothing. This is a
+ * global drawer, shared with `/thesis/` and `/issues/<id>/`, where the
+ * archived, judged evidence records this same drawer opens DO carry a real
+ * interpretation, which still renders unchanged there.
+ */
 export function EvidenceDrawer() {
   const { isOpen, selectedIds, canGoBack, closeEvidence, openConflictingEvidence, goBack } =
     useEvidence()
@@ -163,14 +174,18 @@ export function EvidenceDrawer() {
                   <h4>Excerpt / locator</h4>
                   <blockquote>{record.excerpt}</blockquote>
                 </div>
-                <div className="evidence-record__section">
-                  <h4>Interpretation</h4>
-                  <p>{record.interpretation}</p>
-                </div>
-                <div className="evidence-record__section">
-                  <h4>Limitations / confounds</h4>
-                  <p>{record.limitations}</p>
-                </div>
+                {record.interpretation ? (
+                  <div className="evidence-record__section">
+                    <h4>Interpretation</h4>
+                    <p>{record.interpretation}</p>
+                  </div>
+                ) : null}
+                {record.limitations ? (
+                  <div className="evidence-record__section">
+                    <h4>Limitations / confounds</h4>
+                    <p>{record.limitations}</p>
+                  </div>
+                ) : null}
                 {conflicting.length > 0 && (
                   <div className="evidence-record__section evidence-record__section--conflict">
                     <h4>Conflicting evidence</h4>

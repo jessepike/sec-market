@@ -79,8 +79,13 @@ test.describe('/thesis/ — the standing thesis', () => {
    * D-76/autonomy-coverage-plan.md §3, step 1: the front page no longer
    * carries any judgment, including the compact #read pointer this test used
    * to check. The full standing argument stays only at /thesis/, reached
-   * from a plain link (NextEdition's "Standing analysis"), never quoted or
+   * from a plain link (ArchiveLinks' "Standing thesis"), never quoted or
    * pointed to inline on a live page.
+   *
+   * AUTO-001 fix pass (2026-09-26), item 4: this link used to be
+   * NextEdition's "Standing analysis" (inside the now-removed "How a
+   * posture is set" band); ArchiveLinks already carried the same /thesis/
+   * link under "Standing thesis", so that one link row was not rebuilt.
    */
   test('front page: no #read pointer, no #we-think, and the full argument is gone', async ({ page }) => {
     await page.goto('/')
@@ -98,10 +103,9 @@ test.describe('/thesis/ — the standing thesis', () => {
       await expect(page.getByText(trigger, { exact: true })).toHaveCount(0)
     }
 
-    // "Thesis" left the top nav; "Standing analysis" is the plain link to the
-    // archived record (see src/components/NextEdition.tsx) — unchanged by
-    // this pass.
+    // "Thesis" left the top nav; "Standing thesis" is the plain link to the
+    // archived record (see src/components/ArchiveLinks.tsx).
     await expect(page.locator('.site-header').getByRole('link', { name: 'Thesis' })).toHaveCount(0)
-    await expect(page.getByRole('link', { name: 'Standing analysis' })).toHaveAttribute('href', '/thesis/')
+    await expect(page.getByRole('link', { name: 'Standing thesis' })).toHaveAttribute('href', '/thesis/')
   })
 })

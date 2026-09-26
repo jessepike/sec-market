@@ -233,10 +233,10 @@ export const trackerSuppliers: TrackerSupplier[] = [
     },
     "headlineMetric": {
       "label": "ARR",
-      "value": "$350+ million",
-      "period": "Full year 2025",
+      "value": "$415 million, +42% YoY",
+      "period": "As of Jul 2026 (company-stated milestone)",
       "evidenceIds": [
-        "TR-cato-2"
+        "TR-cato-3"
       ]
     },
     "ownership": {
@@ -854,20 +854,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "kind": "segment",
     "ticker": "MSFT",
     "cik": "0000789019",
-    "revenue": {
-      "latest": {
-        "value": "$331.839 billion",
-        "yoyGrowth": "18%",
-        "period": "FY2026",
-        "periodEnd": "2026-06-30",
-        "releaseDate": "2026-07-29",
-        "evidenceIds": [
-          "TR-msft-defender-1"
-        ]
-      }
-    },
     "ownership": {
-      "status": "Segment inside Microsoft Corporation. No separate revenue disclosure for Defender for Office 365.",
+      "status": "Segment of Microsoft Corporation (publicly traded, Nasdaq: MSFT). No separate revenue disclosed.",
       "evidenceIds": [
         "TR-msft-defender-1"
       ]
@@ -882,20 +870,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "kind": "segment",
     "ticker": "MSFT",
     "cik": "0000789019",
-    "revenue": {
-      "latest": {
-        "value": "$331.839 billion",
-        "yoyGrowth": "18%",
-        "period": "FY2026",
-        "periodEnd": "2026-06-30",
-        "releaseDate": "2026-07-29",
-        "evidenceIds": [
-          "TR-msft-entra-1"
-        ]
-      }
-    },
     "ownership": {
-      "status": "Segment inside Microsoft Corporation. Entra ID is a product line, not a separately reported segment.",
+      "status": "Segment of Microsoft Corporation (publicly traded, Nasdaq: MSFT). No separate revenue disclosed.",
       "evidenceIds": [
         "TR-msft-entra-1"
       ]
@@ -976,9 +952,9 @@ export const trackerSuppliers: TrackerSupplier[] = [
       "latest": {
         "value": "$805 million",
         "yoyGrowth": "11%",
-        "period": "Q4 FY2027",
+        "period": "Q2 FY2027",
         "periodEnd": "2026-07-31",
-        "releaseDate": "2026-08-24",
+        "releaseDate": "2026-08-26",
         "evidenceIds": [
           "TR-okta-1"
         ]
@@ -986,7 +962,7 @@ export const trackerSuppliers: TrackerSupplier[] = [
       "prior": {
         "value": "$765 million",
         "yoyGrowth": "11.2%",
-        "period": "Q3 FY2027",
+        "period": "Q1 FY2027",
         "periodEnd": "2026-04-30",
         "evidenceIds": [
           "TR-okta-2"
@@ -1384,7 +1360,7 @@ export const trackerSuppliers: TrackerSupplier[] = [
       "latest": {
         "value": "$308.8 million",
         "yoyGrowth": "16.8%",
-        "period": "Q4 FY2027",
+        "period": "Q2 FY2027",
         "periodEnd": "2026-07-31",
         "releaseDate": "2026-09-10",
         "evidenceIds": [
@@ -1394,7 +1370,7 @@ export const trackerSuppliers: TrackerSupplier[] = [
       "prior": {
         "value": "$280.142 million",
         "yoyGrowth": "21.5%",
-        "period": "Q3 FY2027",
+        "period": "Q1 FY2027",
         "periodEnd": "2026-04-30",
         "evidenceIds": [
           "TR-sailpoint-2"
@@ -1416,13 +1392,14 @@ export const trackerSuppliers: TrackerSupplier[] = [
     ],
     "kind": "private",
     "lastRound": {
-      "date": "2021-09-09",
-      "stage": "Series F",
-      "amount": "$530 million",
+      "date": "2021-09-30",
+      "stage": "Series F (plus extension)",
+      "amount": "$605 million (initial close $530M plus extension $75M)",
       "lead": "not disclosed in available sourcing",
-      "valuation": "$8.5 billion",
+      "valuation": "$8.6 billion",
       "evidenceIds": [
-        "TR-snyk-1"
+        "TR-snyk-1",
+        "TR-snyk-2"
       ]
     }
   },

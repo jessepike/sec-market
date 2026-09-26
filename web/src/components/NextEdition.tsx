@@ -1,35 +1,20 @@
 import { MessageSquare } from 'lucide-react'
 import { AUTHOR_NAME, CONTACT_EMAIL } from '../data/meta'
-import { reasoningSteps } from '../data/method'
 
 function mailto(subject: string): string {
   return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}`
 }
 
-const postureRule = reasoningSteps.find((step) => step.step === 'Need breadth before a domain call')
-
+/**
+ * AUTO-001 fix pass (2026-09-26), item 4: the "How a posture is set" band
+ * (a rule for judging a domain posture) is removed — the facts-only tracker
+ * states no posture to set a rule for. `ArchiveLinks` already carries the
+ * front page's pointers to the standing thesis, the method, and the
+ * evidence library, so that link row is not rebuilt here.
+ */
 export function NextEdition() {
   return (
     <section id="next" className="next-edition" aria-labelledby="next-edition-heading">
-      <div className="method-band">
-        <div className="method-band__copy">
-          <p className="eyebrow">How a posture is set</p>
-          <p>
-            {postureRule
-              ? postureRule.rule
-              : 'A posture needs more than one company and a reason the motion is not just share shift.'}
-          </p>
-        </div>
-        <div className="method-band__links">
-          {/* SEC-MARKET-FABLE-001 T6-16: "Thesis" left the top nav (product-core.md
-              §5), so this secondary-links block is where the front page still
-              points a reader at the standing analysis and its record. */}
-          <a href="/thesis/">Standing analysis</a>
-          <a href="#method">Read the method</a>
-          <a href="#research">Open the evidence library</a>
-          <a href={mailto('Security Market Pulse — correction or question')}>Send a correction</a>
-        </div>
-      </div>
       <p className="eyebrow">Corrections</p>
       <h2 id="next-edition-heading">If a figure is wrong, send it</h2>
       <p>

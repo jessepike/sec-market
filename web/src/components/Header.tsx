@@ -20,11 +20,14 @@ interface NavItem {
 // (PrintGrid), which no longer renders on any route — the twelve-domain
 // tracker at `#market` (MarketByDomain) replaces it, so the nav item now
 // points there instead of at a dead anchor.
+// AUTO-001 fix pass (2026-09-26), item 4: "Landscape" (`#landscape`) is
+// dropped — DomainBoard's LandscapeSection no longer renders on any route,
+// so the link had no target left to resolve to (see App.tsx's FrontPage
+// comment).
 const navItems: NavItem[] = [
   { href: '#overview', label: 'Status' },
   { href: '/issues/', label: 'Archive', crossPage: true },
   { href: '#market', label: 'Market' },
-  { href: '#landscape', label: 'Landscape' },
   { href: '#research', label: 'Evidence' },
   { href: '#method', label: 'Method' },
   { href: '/feed.xml', label: 'Feed', crossPage: true },

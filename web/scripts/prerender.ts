@@ -79,8 +79,13 @@ if (typeof mod.render !== 'function') {
 // sections (WhatChangedTracker, CoverageStatement); ArchiveLinks
 // ('tracker-links') is a one-line links row, not required reading, so it is
 // not added here.
+//
+// AUTO-001 fix pass (2026-09-26), item 4: 'landscape' is dropped from the
+// front list — DomainBoard's LandscapeSection (the old "security market, by
+// domain" cards) no longer renders on this route; see the comment above
+// FrontPage() in src/App.tsx.
 const MUST_SEE_SECTION_IDS: Record<RouteEntry['kind'], string[]> = {
-  front: ['overview', 'market', 'tracker-changed', 'tracker-coverage', 'follow', 'landscape'],
+  front: ['overview', 'market', 'tracker-changed', 'tracker-coverage', 'follow'],
   archive: ['issues'],
   corrections: ['corrections'],
   issue: ['overview', 'formation', 'absorption', 'prints-this-week', 'capital', 'we-think'],
@@ -157,10 +162,17 @@ function headFor(routeEntry: RouteEntry): RouteHead {
     }
   }
   // Front page keeps the template's existing head as-is (see rewriteHead).
+  // AUTO-001 fix pass (2026-09-26), item 4: the prior title/description
+  // ("where the security market is going" / "makes no call where the
+  // evidence is thin") read as a forecast and a stance, not a fact — banned
+  // on a live page under fit-for-purpose blocker 3. Replaced with a plain
+  // description of what the page is.
   return {
-    title: 'Security Market Pulse — where the security market is going',
+    title: 'Security Market Pulse — a facts-only supplier tracker',
     description:
-      'An evidence-linked read on the cybersecurity market for security leaders. Every number links to a public source, and the page makes no call where the evidence is thin.',
+      'Sourced facts about the business of the security market: who is growing, stalling, ' +
+      'consolidating, being bought, or in financial trouble. Collected, checked and published ' +
+      'automatically, with no stances, rankings or forecasts.',
     ogUrl: url,
   }
 }
