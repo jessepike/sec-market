@@ -230,3 +230,75 @@ this pass ran it as an uninstalled (`--no-save`) check to close the accessibilit
 pass's report flagged, without expanding the project's dependency surface beyond what the brief asked
 for; a permanent accessibility CI check is a reasonable follow-up but is net-new scope, not part of
 this fix pass.
+
+## Third pass
+
+The derived run-status line used to render `collectorRun.failedSources` as 25 raw collector
+strings, with URLs, HTTP status codes, and a pointer to `.collect/failed-sources.json` — a file the
+site never publishes. Rebuilt it to read like a status line for a security leader while staying
+fully derived from the two generated data files.
+
+**Data shape.** `collectState.json`'s `collectorRun.failedSources` changed from a flat string array
+to `{ supplierId, reason, detail }` objects — `reason` a small fixed vocabulary (`blocked`,
+`not-found`, `no-readable-releases`, `no-primary-source`), `detail` the full technical string kept
+for debugging but never rendered. `scripts/collect.sh` and `docs/active/auto/collect-brief.md`
+updated so future runs record failures in this shape, one object per affected supplier rather than
+one string per bundled failure. `scripts/auto-publish.sh`'s `push_incomplete_status` (a gate/runner
+failure, not a per-supplier one) now writes its reason into `collectorRun.detail` instead of forcing
+a fake entry into `failedSources`.
+
+**Derivation.** `web/src/data/runStatus.ts` now exports `failedNewsSuppliers: FailedSupplier[]`
+(`supplierId`, short display name, plain-language reason) in place of the old raw list, deduplicated
+one row per distinct supplier and sorted by display name. `filingsClause()` computes the public-filer
+side dynamically from `edgarFacts.suppliers.length` (14) against `edgarFacts.failures`; the
+company-news side counts distinct failed suppliers against `trackerSuppliers.length` (74). A new
+`names.ts` module holds `shortSupplierName` (extracted out of `derive.ts`, which re-exports it) so
+`runStatus.ts` can use it without a circular import.
+
+**Rendered text.** `web/src/components/RunStatus.tsx` now reads "Figures checked \<date\>." plus one
+plain clause. Today, against the real data:
+
+> Figures checked 26 Sep 2026. Filings complete for all 14 public suppliers; company news pages
+> could not be read for 28 of 74 suppliers.
+
+Affected suppliers sit behind a closed, native `<details>`/`<summary>` disclosure ("Which sources
+failed") — one row per supplier, short display name and one plain reason ("newsroom blocked
+automated reading", "page not found", "newsroom listed no readable releases", "no primary source
+found"), no URLs, HTTP codes, or file paths anywhere in the visible text or the disclosure. The
+`updated` and `no-change` states are unchanged ("Every source collected." / "No material change
+within our coverage.").
+
+**Tests.** `web/tests/run-status.test.ts` rewritten for the new `RunStatus` interface: the existing
+`updated`/`no-change` cases, a new case asserting the exact incomplete wording and the supplier
+count (and the absence of URLs/HTTP codes/file paths in the rendered markup), a case for an
+incomplete run with no per-supplier failures (no disclosure rendered), and two checks against the
+real shipped data (well-formed status, and every `failedNewsSuppliers` row plain-text-only with no
+duplicate supplier ids). `web/tests/e2e/smoke.spec.ts`'s incomplete-state branch updated to assert
+`runStatus.detail` directly and to check the rendered `#overview` text never contains a URL, an
+`HTTP nnn` string, a `.collect/` path, or a `.json` reference — the exact defect this pass fixed.
+`web/tests/tracker-data.test.ts` needed no change; its `shortSupplierName` import still resolves
+through `derive.ts`'s re-export.
+
+**Data refresh.** Ran `npm run refresh:edgar` in the VM — 14 of 14 public suppliers refreshed clean,
+0 failed, 3 unsupported by design (unchanged) — so `edgarFacts.json`'s `generatedAt` is dated today
+(2026-09-26T18:08:40.468Z) and the filings side of the status line reflects a same-day check.
+
+**Screenshots** (`docs/active/auto/fitfix/`, `after4-` prefix): `after4-front-fold-1440.png`,
+`after4-front-fold-390.png` — first screen only, per this pass's narrower scope. Looked at both: the
+status banner reads the sentence above in red-on-cream, the closed "Which sources failed" toggle
+sits directly beneath it, and nothing overflows or clips at either width.
+
+**Build and test evidence, third pass.**
+
+- Killed any stale process on port 4173 in the VM before testing (none was running).
+- `npm run refresh:edgar` — 14 ok, 0 failed, 3 unsupported by design.
+- `npm test` (lint, `test:data`, build, `test:e2e`) — exit 0. `test:data`: 248 tests, 60 suites, 0
+  failures. `build`: all `verify:*` gates, `tsc -b`, client + SSR build, prerender (5 routes), SEO,
+  feed, `verify:dist` all pass. `test:e2e`: 30 tests across 3 Playwright projects, 0 failures.
+
+**Not built this pass.** No new gate was added to `verify-tracker.ts` for the new
+`{supplierId, reason, detail}` shape — the TypeScript interface in `runStatus.ts` already gives
+compile-time enforcement of `CollectFailureReason`'s fixed vocabulary and `collectState.json` is a
+script-owned generated file, not hand-authored data, so a runtime data gate would duplicate what the
+type system already guarantees. Worth a second look only if a future writer of that file stops
+running through TypeScript.

@@ -31,7 +31,8 @@ fact means. State what the source says, in the source's own terms, and stop.
   - Scratch files under `.collect/` (gitignored, never committed) — see §5.
 - Fetch every document with `curl` from Bash so you hold the actual bytes. Do not use a
   summarizing fetch tool. For PDFs use `pdftotext` if present, otherwise `strings`; if neither
-  yields readable text, record the source as unreadable in `.collect/failed-sources.json`.
+  yields readable text, record the source as unreadable in `.collect/failed-sources.json` (shape in
+  §5).
 - Fetch SEC.gov with a descriptive User-Agent:
   `curl -sL -A "SecurityMarketPulse research jesse@keatingpike.com"`. A host that blocks you is
   recorded as unreadable. Never bypass a block, never use a proxy, never retry more than three
@@ -51,8 +52,8 @@ fact means. State what the source says, in the source's own terms, and stop.
   and let the reader judge.
 - Record "none found" and move on. An empty supplier is an empty supplier. Never invent a fact to
   fill a category, never round a number, never guess a date.
-- If a source fails three attempts, mark it unreadable in `.collect/failed-sources.json` and move
-  on to the next.
+- If a source fails three attempts, mark it unreadable in `.collect/failed-sources.json` (shape in
+  §5) and move on to the next.
 
 ## 1. The sourcing ladder — read before you write a single event
 
@@ -165,9 +166,36 @@ asks of you.
 
 Create the directory if it doesn't exist. Write these, even when empty:
 
-- `.collect/failed-sources.json` — a JSON array of short strings naming every source that failed to
-  load after three attempts (e.g. `"Moody's press release for Sophos"`, `"California EDD WARN
-  portal"`). Empty array if nothing failed.
+- `.collect/failed-sources.json` — a JSON array of **objects**, one per source that failed to load
+  after three attempts:
+
+  ```json
+  [
+    { "supplierId": "armis", "reason": "blocked", "detail": "Armis newsroom (armis.com/newsroom) - HTTP 403" },
+    { "supplierId": "ivanti", "reason": "no-primary-source", "detail": "S&P downgrade to CCC reported only by trade press; no agency release or company/wire copy found" }
+  ]
+  ```
+
+  `supplierId` is the id from `web/src/data/tracker/suppliers.ts` (the same id you already read in
+  §2) — the supplier the failed source was *for*, not the site that blocked you. If one failed fetch
+  covered several suppliers (e.g. a single newsroom-index check for a batch of companies), write one
+  object per supplier, same `reason`, same `detail` — do not merge them into one entry.
+
+  `reason` is exactly one of these four words — pick the one that actually matches, do not invent a
+  fifth:
+  - `"blocked"` — the site refused the request outright (a 403, a 429, a bot/CAPTCHA challenge).
+  - `"not-found"` — the page returned a 404, or a clearly wrong page.
+  - `"no-readable-releases"` — the page loaded, but contained no dated item your fetch could read
+    (an empty or script-rendered newsroom, nothing published since the since-date).
+  - `"no-primary-source"` — you found a claim (in trade press, an aggregator, a rumor) but no rung
+    1–4 source for it, so you are not publishing it (§1).
+
+  `detail` is a free-text sentence for whoever reads this file directly while debugging a run —
+  it may name the URL and the HTTP status, because **this file is never published or rendered**;
+  `scripts/collect.sh` copies it into `web/src/data/generated/collectState.json` (itself a
+  generated file the site never links to), and `web/src/data/runStatus.ts` derives the reader-facing
+  "Which sources failed" disclosure from `reason` and the supplier's own name, never from `detail`.
+  Empty array if nothing failed.
 - `.collect/candidates.json` — a JSON array of objects for suppliers you noticed but did not add
   (§3). Empty array if none.
 - `.collect/summary.txt` — a short plain-text summary for the run receipt: how many suppliers you
