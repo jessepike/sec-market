@@ -1,0 +1,98 @@
+[
+ [
+  "rgb(180, 83, 9) on rgb(255,255,255) 16px",
+  {
+   "ratio": 5.02,
+   "sample": "Avg. security-budget growth",
+   "n": 1
+  }
+ ],
+ [
+  "rgb(139, 151, 166) on rgb(27,36,48) 10px",
+  {
+   "ratio": 5.27,
+   "sample": "WINDOW ·",
+   "n": 3
+  }
+ ],
+ [
+  "rgb(139, 151, 166) on rgb(27,36,48) 11px",
+  {
+   "ratio": 5.27,
+   "sample": "CAPITAL",
+   "n": 2
+  }
+ ],
+ [
+  "rgb(87, 96, 110) on rgb(233,236,240) 12px",
+  {
+   "ratio": 5.36,
+   "sample": "Not a news site and not investment advic",
+   "n": 101
+  }
+ ],
+ [
+  "rgb(87, 96, 110) on rgb(233,236,240) 16px",
+  {
+   "ratio": 5.36,
+   "sample": "“Revenue growth” is the year-over-year c",
+   "n": 5
+  }
+ ],
+ [
+  "rgb(87, 96, 110) on rgb(233,236,240) 11px",
+  {
+   "ratio": 5.36,
+   "sample": "src",
+   "n": 33
+  }
+ ],
+ [
+  "rgb(87, 96, 110) on rgb(233,236,240) 13px",
+  {
+   "ratio": 5.36,
+   "sample": "Frozen from",
+   "n": 7
+  }
+ ],
+ [
+  "rgb(11, 107, 94) on rgb(233,236,240) 16px",
+  {
+   "ratio": 5.4,
+   "sample": "Endpoint and XDR",
+   "n": 12
+  }
+ ],
+ [
+  "rgb(11, 107, 94) on rgb(233,236,240) 14.4px",
+  {
+   "ratio": 5.4,
+   "sample": "Issue archive",
+   "n": 4
+  }
+ ],
+ [
+  "rgb(11, 107, 94) on rgb(233,236,240) 13px",
+  {
+   "ratio": 5.4,
+   "sample": "Fortinet, Cato Networks, Netskope",
+   "n": 30
+  }
+ ],
+ [
+  "rgb(11, 107, 94) on rgb(233,236,240) 12px",
+  {
+   "ratio": 5.4,
+   "sample": "issue index",
+   "n": 3
+  }
+ ],
+ [
+  "rgb(15, 118, 110) on rgb(255,255,255) 16px",
+  {
+   "ratio": 5.47,
+   "sample": "Security share of IT",
+   "n": 1
+  }
+ ]
+]

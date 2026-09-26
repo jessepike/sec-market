@@ -1,0 +1,1483 @@
+{
+ "390": {
+  "over": [
+   {
+    "tag": "TH",
+    "cls": "",
+    "id": "",
+    "right": 510,
+    "top": 1194,
+    "txt": "Ownership or last round"
+   },
+   {
+    "tag": "TH",
+    "cls": "",
+    "id": "",
+    "right": 621,
+    "top": 1194,
+    "txt": "Events, 12 mo."
+   },
+   {
+    "tag": "TH",
+    "cls": "",
+    "id": "",
+    "right": 510,
+    "top": 1714,
+    "txt": "Ownership or last round"
+   },
+   {
+    "tag": "TH",
+    "cls": "",
+    "id": "",
+    "right": 621,
+    "top": 1714,
+    "txt": "Events, 12 mo."
+   },
+   {
+    "tag": "SPAN",
+    "cls": "tracker-row__summary",
+    "id": "",
+    "right": 507,
+    "top": 1723,
+    "txt": "Merged with LogRhythm (Thoma Bravo-owned). Closed 2024-07-17"
+   },
+   {
+    "tag": "SPAN",
+    "cls": "tracker-row__chevron",
+    "id": "",
+    "right": 531,
+    "top": 1723,
+    "txt": "+"
+   },
+   {
+    "tag": "TH",
+    "cls": "",
+    "id": "",
+    "right": 510,
+    "top": 2196,
+    "txt": "Ownership or last round"
+   },
+   {
+    "tag": "TH",
+    "cls": "",
+    "id": "",
+    "right": 621,
+    "top": 2196,
+    "txt": "Events, 12 mo."
+   },
+   {
+    "tag": "TH",
+    "cls": "",
+    "id": "",
+    "right": 510,
+    "top": 2677,
+    "txt": "Ownership or last round"
+   },
+   {
+    "tag": "TH",
+    "cls": "",
+    "id": "",
+    "right": 621,
+    "top": 2677,
+    "txt": "Events, 12 mo."
+   },
+   {
+    "tag": "SPAN",
+    "cls": "tracker-row__summary",
+    "id": "",
+    "right": 550,
+    "top": 2686,
+    "txt": "Series G $409M (initial close $359M plus extension $50M) · J"
+   },
+   {
+    "tag": "SPAN",
+    "cls": "tracker-row__chevron",
+    "id": "",
+    "right": 574,
+    "top": 2686,
+    "txt": "+"
+   },
+   {
+    "tag": "TH",
+    "cls": "",
+    "id": "",
+    "right": 510,
+    "top": 3242,
+    "txt": "Ownership or last round"
+   },
+   {
+    "tag": "TH",
+    "cls": "",
+    "id": "",
+    "right": 621,
+    "top": 3242,
+    "txt": "Events, 12 mo."
+   },
+   {
+    "tag": "SPAN",
+    "cls": "tracker-row__chevron",
+    "id": "",
+    "right": 407,
+    "top": 3388,
+    "txt": "+"
+   },
+   {
+    "tag": "SPAN",
+    "cls": "tracker-row__summary",
+    "id": "",
+    "right": 526,
+    "top": 3526,
+    "txt": "Independent, venture-backed private company. Confirmed not p"
+   },
+   {
+    "tag": "SPAN",
+    "cls": "tracker-row__chevron",
+    "id": "",
+    "right": 550,
+    "top": 3526,
+    "txt": "+"
+   },
+   {
+    "tag": "TH",
+    "cls": "",
+    "id": "",
+    "right": 510,
+    "top": 3823,
+    "txt": "Ownership or last round"
+   },
+   {
+    "tag": "TH",
+    "cls": "",
+    "id": "",
+    "right": 621,
+    "top": 3823,
+    "txt": "Events, 12 mo."
+   },
+   {
+    "tag": "SPAN",
+    "cls": "tracker-row__chevron",
+    "id": "",
+    "right": 392,
+    "top": 3893,
+    "txt": "+"
+   }
+  ],
+  "secs": [
+   {
+    "tag": "SECTION",
+    "id": "",
+    "cls": "site-masthead",
+    "top": 174,
+    "h": 284,
+    "head": ""
+   },
+   {
+    "tag": "SECTION",
+    "id": "overview",
+    "cls": "run-status",
+    "top": 490,
+    "h": 77,
+    "head": "Run status"
+   },
+   {
+    "tag": "SECTION",
+    "id": "market",
+    "cls": "tracker-market",
+    "top": 622,
+    "h": 6677,
+    "head": "The market by domain"
+   },
+   {
+    "tag": "SECTION",
+    "id": "tracker-changed",
+    "cls": "tracker-changed",
+    "top": 7331,
+    "h": 2315,
+    "head": "What changed in the last 30 days"
+   },
+   {
+    "tag": "SECTION",
+    "id": "tracker-coverage",
+    "cls": "tracker-coverage",
+    "top": 9679,
+    "h": 1442,
+    "head": "What this site covers"
+   },
+   {
+    "tag": "SECTION",
+    "id": "tracker-links",
+    "cls": "tracker-links",
+    "top": 11176,
+    "h": 35,
+    "head": ""
+   },
+   {
+    "tag": "SECTION",
+    "id": "follow",
+    "cls": "follow-line",
+    "top": 11291,
+    "h": 80,
+    "head": ""
+   },
+   {
+    "tag": "SECTION",
+    "id": "landscape",
+    "cls": "landscape",
+    "top": 11428,
+    "h": 740,
+    "head": "The security market, by domain."
+   },
+   {
+    "tag": "DETAILS",
+    "id": "moved-depth",
+    "cls": "depth",
+    "top": 12200,
+    "h": 55,
+    "head": "What moved"
+   },
+   {
+    "tag": "SECTION",
+    "id": "moved",
+    "cls": "week-moved",
+    "top": 12264,
+    "h": 620,
+    "head": "What moved"
+   },
+   {
+    "tag": "DETAILS",
+    "id": "research-depth",
+    "cls": "depth",
+    "top": 12286,
+    "h": 55,
+    "head": "M&A and startups"
+   },
+   {
+    "tag": "SECTION",
+    "id": "activity",
+    "cls": "activity-board",
+    "top": 12438,
+    "h": 652,
+    "head": "M&A and startups"
+   },
+   {
+    "tag": "DETAILS",
+    "id": "layers",
+    "cls": "depth",
+    "top": 12373,
+    "h": 55,
+    "head": "Market layers"
+   },
+   {
+    "tag": "SECTION",
+    "id": "",
+    "cls": "chart-section",
+    "top": 12413,
+    "h": 1988,
+    "head": "Market layers"
+   },
+   {
+    "tag": "DETAILS",
+    "id": "method",
+    "cls": "depth",
+    "top": 12460,
+    "h": 55,
+    "head": "How this is built"
+   },
+   {
+    "tag": "SECTION",
+    "id": "",
+    "cls": "method",
+    "top": 12500,
+    "h": 4873,
+    "head": "How this is built"
+   },
+   {
+    "tag": "DETAILS",
+    "id": "research",
+    "cls": "depth",
+    "top": 12547,
+    "h": 55,
+    "head": "Research & evidence library"
+   },
+   {
+    "tag": "SECTION",
+    "id": "",
+    "cls": "evidence-library",
+    "top": 12587,
+    "h": 34757,
+    "head": "Research & evidence library"
+   },
+   {
+    "tag": "FOOTER",
+    "id": "",
+    "cls": "methodology-note",
+    "top": 12634,
+    "h": 166,
+    "head": ""
+   },
+   {
+    "tag": "SECTION",
+    "id": "next",
+    "cls": "next-edition",
+    "top": 12831,
+    "h": 855,
+    "head": "If a figure is wrong, send it"
+   }
+  ],
+  "tables": [
+   {
+    "top": 1185,
+    "h": 466,
+    "w": 356,
+    "rows": 6,
+    "first": "CrowdStrike+26%++26% Q Jul 26src+26% Q A",
+    "wrapScroll": false,
+    "wrapOverflow": "visible",
+    "fvn": "normal",
+    "tdFont": "\"IBM Plex Sans\", system-ui, sans-serif",
+    "tdSize": "13px"
+   },
+   {
+    "top": 1705,
+    "h": 428,
+    "w": 356,
+    "rows": 7,
+    "first": "ExabeamMerged with LogRhythm (Thoma Brav",
+    "wrapScroll": true,
+    "wrapOverflow": "visible",
+    "fvn": "normal",
+    "tdFont": "\"IBM Plex Sans\", system-ui, sans-serif",
+    "tdSize": "13px"
+   },
+   {
+    "top": 2187,
+    "h": 428,
+    "w": 356,
+    "rows": 7,
+    "first": "Arctic Wolf Networks–+––––0",
+    "wrapScroll": false,
+    "wrapOverflow": "visible",
+    "fvn": "normal",
+    "tdFont": "\"IBM Plex Sans\", system-ui, sans-serif",
+    "tdSize": "13px"
+   },
+   {
+    "top": 2668,
+    "h": 512,
+    "w": 356,
+    "rows": 7,
+    "first": "Cato NetworksSeries G $409M (initial clo",
+    "wrapScroll": true,
+    "wrapOverflow": "visible",
+    "fvn": "normal",
+    "tdFont": "\"IBM Plex Sans\", system-ui, sans-serif",
+    "tdSize": "13px"
+   },
+   {
+    "top": 3233,
+    "h": 527,
+    "w": 356,
+    "rows": 7,
+    "first": "Aqua SecuritySeries E extension $60M · J",
+    "wrapScroll": true,
+    "wrapOverflow": "visible",
+    "fvn": "normal",
+    "tdFont": "\"IBM Plex Sans\", system-ui, sans-serif",
+    "tdSize": "13px"
+   },
+   {
+    "top": 3814,
+    "h": 496,
+    "w": 356,
+    "rows": 7,
+    "first": "BeyondTrustPE-owned+–––PE-ownedsrc0",
+    "wrapScroll": true,
+    "wrapOverflow": "visible",
+    "fvn": "normal",
+    "tdFont": "\"IBM Plex Sans\", system-ui, sans-serif",
+    "tdSize": "13px"
+   },
+   {
+    "top": 4364,
+    "h": 496,
+    "w": 356,
+    "rows": 7,
+    "first": "BigIDGrowth round $60M · Mar 2024+–––Gro",
+    "wrapScroll": true,
+    "wrapOverflow": "visible",
+    "fvn": "normal",
+    "tdFont": "\"IBM Plex Sans\", system-ui, sans-serif",
+    "tdSize": "13px"
+   },
+   {
+    "top": 4914,
+    "h": 496,
+    "w": 356,
+    "rows": 7,
+    "first": "Axonius–+––ARR >$200M · Q May 26src–1 · ",
+    "wrapScroll": false,
+    "wrapOverflow": "visible",
+    "fvn": "normal",
+    "tdFont": "\"IBM Plex Sans\", system-ui, sans-serif",
+    "tdSize": "13px"
+   },
+   {
+    "top": 5464,
+    "h": 367,
+    "w": 356,
+    "rows": 6,
+    "first": "ChainguardGrowth financing (no series le",
+    "wrapScroll": true,
+    "wrapOverflow": "visible",
+    "fvn": "normal",
+    "tdFont": "\"IBM Plex Sans\", system-ui, sans-serif",
+    "tdSize": "13px"
+   },
+   {
+    "top": 5884,
+    "h": 496,
+    "w": 356,
+    "rows": 7,
+    "first": "Abnormal SecuritySeries D $250M · Aug 20",
+    "wrapScroll": false,
+    "wrapOverflow": "visible",
+    "fvn": "normal",
+    "tdFont": "\"IBM Plex Sans\", system-ui, sans-serif",
+    "tdSize": "13px"
+   },
+   {
+    "top": 6434,
+    "h": 367,
+    "w": 356,
+    "rows": 6,
+    "first": "Armis SecurityAcquired by ServiceNow · A",
+    "wrapScroll": true,
+    "wrapOverflow": "visible",
+    "fvn": "normal",
+    "tdFont": "\"IBM Plex Sans\", system-ui, sans-serif",
+    "tdSize": "13px"
+   },
+   {
+    "top": 6855,
+    "h": 443,
+    "w": 356,
+    "rows": 7,
+    "first": "HiddenLayerSeries B $100M · Sep 2026+––A",
+    "wrapScroll": true,
+    "wrapOverflow": "visible",
+    "fvn": "normal",
+    "tdFont": "\"IBM Plex Sans\", system-ui, sans-serif",
+    "tdSize": "13px"
+   },
+   {
+    "top": 14085,
+    "h": 497,
+    "w": 769,
+    "rows": 13,
+    "first": "2023-Q1100.0100.0100.0100.0100.0100.0100",
+    "wrapScroll": true,
+    "wrapOverflow": "auto",
+    "fvn": "normal",
+    "tdFont": "\"IBM Plex Sans\", system-ui, sans-serif",
+    "tdSize": "12px"
+   },
+   {
+    "top": 13227,
+    "h": 870,
+    "w": 322,
+    "rows": 5,
+    "first": "1. Company's own SEC filingAn 8-K, 10-Q ",
+    "wrapScroll": false,
+    "wrapOverflow": "auto",
+    "fvn": "normal",
+    "tdFont": "\"IBM Plex Sans\", system-ui, sans-serif",
+    "tdSize": "13.6px"
+   },
+   {
+    "top": 14621,
+    "h": 1480,
+    "w": 329,
+    "rows": 2,
+    "first": "Infrastructure printsNVIDIA Data Center,",
+    "wrapScroll": true,
+    "wrapOverflow": "auto",
+    "fvn": "normal",
+    "tdFont": "\"IBM Plex Sans\", system-ui, sans-serif",
+    "tdSize": "13.6px"
+   }
+  ],
+  "sortBtns": [
+   "Supplier↑",
+   "Supplier↑",
+   "Rev. growth",
+   "Rev. growth",
+   "Prior q",
+   "Prior q",
+   "Own metric",
+   "Own metric",
+   "Ownership or last round",
+   "Ownership or last round",
+   "Events, 12 mo.",
+   "Events, 12 mo."
+  ],
+  "ariaSort": 72,
+  "nav": [
+   [
+    "Security Market Pulse",
+    "#overview"
+   ],
+   [
+    "Status",
+    "#overview"
+   ],
+   [
+    "Archive",
+    "/issues/"
+   ],
+   [
+    "Market",
+    "#market"
+   ],
+   [
+    "Landscape",
+    "#landscape"
+   ],
+   [
+    "Evidence",
+    "#research"
+   ],
+   [
+    "Method",
+    "#method"
+   ],
+   [
+    "Feed",
+    "/feed.xml"
+   ],
+   [
+    "Endpoint and XDR (6)",
+    "#domain-endpoint-xdr"
+   ],
+   [
+    "Security operations (SIEM/SOAR) (7)",
+    "#domain-secops"
+   ],
+   [
+    "Managed security and MDR (7)",
+    "#domain-managed-security"
+   ],
+   [
+    "Network and SASE (7)",
+    "#domain-network-sase"
+   ],
+   [
+    "Cloud security (7)",
+    "#domain-cloud"
+   ],
+   [
+    "Identity (7)",
+    "#domain-identity"
+   ],
+   [
+    "Data security (7)",
+    "#domain-data"
+   ],
+   [
+    "Vulnerability and exposure management (7)",
+    "#domain-exposure"
+   ],
+   [
+    "Application security (6)",
+    "#domain-appsec"
+   ],
+   [
+    "Email security (7)",
+    "#domain-email"
+   ],
+   [
+    "OT and IoT security (6)",
+    "#domain-ot-iot"
+   ],
+   [
+    "AI security (7)",
+    "#domain-ai-security"
+   ]
+  ],
+  "domainLinks": [
+   [
+    "Skip to main content",
+    "#main"
+   ],
+   [
+    "Security Market Pulse",
+    "#overview"
+   ],
+   [
+    "Status",
+    "#overview"
+   ],
+   [
+    "Market",
+    "#market"
+   ],
+   [
+    "Landscape",
+    "#landscape"
+   ],
+   [
+    "Evidence",
+    "#research"
+   ],
+   [
+    "Method",
+    "#method"
+   ],
+   [
+    "Endpoint and XDR (6)",
+    "#domain-endpoint-xdr"
+   ],
+   [
+    "Security operations (SIEM/SOAR) (7)",
+    "#domain-secops"
+   ],
+   [
+    "Managed security and MDR (7)",
+    "#domain-managed-security"
+   ],
+   [
+    "Network and SASE (7)",
+    "#domain-network-sase"
+   ],
+   [
+    "Cloud security (7)",
+    "#domain-cloud"
+   ],
+   [
+    "Identity (7)",
+    "#domain-identity"
+   ],
+   [
+    "Data security (7)",
+    "#domain-data"
+   ],
+   [
+    "Vulnerability and exposure management (7",
+    "#domain-exposure"
+   ],
+   [
+    "Application security (6)",
+    "#domain-appsec"
+   ],
+   [
+    "Email security (7)",
+    "#domain-email"
+   ],
+   [
+    "OT and IoT security (6)",
+    "#domain-ot-iot"
+   ],
+   [
+    "AI security (7)",
+    "#domain-ai-security"
+   ],
+   [
+    "Endpoint and XDR",
+    "#domain-endpoint-xdr"
+   ],
+   [
+    "Security operations (SIEM/SOAR)",
+    "#domain-secops"
+   ],
+   [
+    "Managed security and MDR",
+    "#domain-managed-security"
+   ],
+   [
+    "Network and SASE",
+    "#domain-network-sase"
+   ],
+   [
+    "Cloud security",
+    "#domain-cloud"
+   ],
+   [
+    "Identity",
+    "#domain-identity"
+   ],
+   [
+    "Data security",
+    "#domain-data"
+   ],
+   [
+    "Vulnerability and exposure management",
+    "#domain-exposure"
+   ],
+   [
+    "Application security",
+    "#domain-appsec"
+   ],
+   [
+    "Email security",
+    "#domain-email"
+   ],
+   [
+    "OT and IoT security",
+    "#domain-ot-iot"
+   ],
+   [
+    "AI security",
+    "#domain-ai-security"
+   ],
+   [
+    "Evidence",
+    "#research"
+   ],
+   [
+    "Method",
+    "#method"
+   ],
+   [
+    "Read the method",
+    "#method"
+   ],
+   [
+    "Open the evidence library",
+    "#research"
+   ]
+  ],
+  "paraLens": [
+   {
+    "w": 358,
+    "fs": "16px",
+    "chars": 45,
+    "t": "Public, sourced facts about the business"
+   },
+   {
+    "w": 358,
+    "fs": "12px",
+    "chars": 60,
+    "t": "Not a news site and not investment advic"
+   },
+   {
+    "w": 322,
+    "fs": "14.4px",
+    "chars": 45,
+    "t": "Figures checked 26 Sep 2026 · every sour"
+   },
+   {
+    "w": 358,
+    "fs": "16px",
+    "chars": 45,
+    "t": "“Revenue growth” is the year-over-year c"
+   },
+   {
+    "w": 358,
+    "fs": "16px",
+    "chars": 45,
+    "t": "12 domains, 74 tracked suppliers. Adding"
+   },
+   {
+    "w": 358,
+    "fs": "14.4px",
+    "chars": 50,
+    "t": "Issue archive · Standing thesis · Eviden"
+   },
+   {
+    "w": 324,
+    "fs": "16px",
+    "chars": 41,
+    "t": "Tracked figures arrive through the week "
+   },
+   {
+    "w": 0,
+    "fs": "11px",
+    "chars": 0,
+    "t": "The landscape · four domains"
+   },
+   {
+    "w": 358,
+    "fs": "15px",
+    "chars": 48,
+    "t": "Tracked suppliers and the latest sourced"
+   },
+   {
+    "w": 311,
+    "fs": "10px",
+    "chars": 62,
+    "t": "TRACKED"
+   },
+   {
+    "w": 311,
+    "fs": "12px",
+    "chars": 52,
+    "t": "Fortinet +52% · Cato +43% · Netskope +31"
+   },
+   {
+    "w": 311,
+    "fs": "10px",
+    "chars": 62,
+    "t": "TRACKED"
+   }
+  ]
+ },
+ "1440": {
+  "over": [],
+  "secs": [
+   {
+    "tag": "SECTION",
+    "id": "",
+    "cls": "site-masthead",
+    "top": 113,
+    "h": 193,
+    "head": ""
+   },
+   {
+    "tag": "SECTION",
+    "id": "overview",
+    "cls": "run-status",
+    "top": 338,
+    "h": 54,
+    "head": "Run status"
+   },
+   {
+    "tag": "SECTION",
+    "id": "market",
+    "cls": "tracker-market",
+    "top": 448,
+    "h": 5521,
+    "head": "The market by domain"
+   },
+   {
+    "tag": "SECTION",
+    "id": "tracker-changed",
+    "cls": "tracker-changed",
+    "top": 6000,
+    "h": 1317,
+    "head": "What changed in the last 30 days"
+   },
+   {
+    "tag": "SECTION",
+    "id": "tracker-coverage",
+    "cls": "tracker-coverage",
+    "top": 7350,
+    "h": 756,
+    "head": "What this site covers"
+   },
+   {
+    "tag": "SECTION",
+    "id": "tracker-links",
+    "cls": "tracker-links",
+    "top": 8162,
+    "h": 35,
+    "head": ""
+   },
+   {
+    "tag": "SECTION",
+    "id": "follow",
+    "cls": "follow-line",
+    "top": 8277,
+    "h": 55,
+    "head": ""
+   },
+   {
+    "tag": "SECTION",
+    "id": "landscape",
+    "cls": "landscape",
+    "top": 8387,
+    "h": 423,
+    "head": "The security market, by domain."
+   },
+   {
+    "tag": "DETAILS",
+    "id": "moved-depth",
+    "cls": "depth",
+    "top": 8842,
+    "h": 55,
+    "head": "What moved"
+   },
+   {
+    "tag": "SECTION",
+    "id": "moved",
+    "cls": "week-moved",
+    "top": 8906,
+    "h": 437,
+    "head": "What moved"
+   },
+   {
+    "tag": "DETAILS",
+    "id": "research-depth",
+    "cls": "depth",
+    "top": 8929,
+    "h": 55,
+    "head": "M&A and startups"
+   },
+   {
+    "tag": "SECTION",
+    "id": "activity",
+    "cls": "activity-board",
+    "top": 9015,
+    "h": 433,
+    "head": "M&A and startups"
+   },
+   {
+    "tag": "DETAILS",
+    "id": "layers",
+    "cls": "depth",
+    "top": 9016,
+    "h": 55,
+    "head": "Market layers"
+   },
+   {
+    "tag": "SECTION",
+    "id": "",
+    "cls": "chart-section",
+    "top": 9056,
+    "h": 1045,
+    "head": "Market layers"
+   },
+   {
+    "tag": "DETAILS",
+    "id": "method",
+    "cls": "depth",
+    "top": 9103,
+    "h": 55,
+    "head": "How this is built"
+   },
+   {
+    "tag": "SECTION",
+    "id": "",
+    "cls": "method",
+    "top": 9143,
+    "h": 2315,
+    "head": "How this is built"
+   },
+   {
+    "tag": "DETAILS",
+    "id": "research",
+    "cls": "depth",
+    "top": 9189,
+    "h": 55,
+    "head": "Research & evidence library"
+   },
+   {
+    "tag": "SECTION",
+    "id": "",
+    "cls": "evidence-library",
+    "top": 9230,
+    "h": 21164,
+    "head": "Research & evidence library"
+   },
+   {
+    "tag": "FOOTER",
+    "id": "",
+    "cls": "methodology-note",
+    "top": 9276,
+    "h": 105,
+    "head": ""
+   },
+   {
+    "tag": "SECTION",
+    "id": "next",
+    "cls": "next-edition",
+    "top": 9413,
+    "h": 629,
+    "head": "If a figure is wrong, send it"
+   }
+  ],
+  "tables": [
+   {
+    "top": 706,
+    "h": 279,
+    "w": 1238,
+    "rows": 6,
+    "first": "CrowdStrike+26%++26% Q Jul 26src+26% Q A",
+    "wrapScroll": false,
+    "wrapOverflow": "auto",
+    "fvn": "normal",
+    "tdFont": "\"IBM Plex Sans\", system-ui, sans-serif",
+    "tdSize": "13px"
+   },
+   {
+    "top": 1039,
+    "h": 391,
+    "w": 1238,
+    "rows": 7,
+    "first": "ExabeamMerged with LogRhythm (Thoma Brav",
+    "wrapScroll": false,
+    "wrapOverflow": "auto",
+    "fvn": "normal",
+    "tdFont": "\"IBM Plex Sans\", system-ui, sans-serif",
+    "tdSize": "13px"
+   },
+   {
+    "top": 1484,
+    "h": 280,
+    "w": 1238,
+    "rows": 7,
+    "first": "Arctic Wolf Networks–+––––0",
+    "wrapScroll": false,
+    "wrapOverflow": "auto",
+    "fvn": "normal",
+    "tdFont": "\"IBM Plex Sans\", system-ui, sans-serif",
+    "tdSize": "13px"
+   },
+   {
+    "top": 1818,
+    "h": 494,
+    "w": 1238,
+    "rows": 7,
+    "first": "Cato NetworksSeries G $409M (initial clo",
+    "wrapScroll": false,
+    "wrapOverflow": "auto",
+    "fvn": "normal",
+    "tdFont": "\"IBM Plex Sans\", system-ui, sans-serif",
+    "tdSize": "13px"
+   },
+   {
+    "top": 2365,
+    "h": 448,
+    "w": 1238,
+    "rows": 7,
+    "first": "Aqua SecuritySeries E extension $60M · J",
+    "wrapScroll": false,
+    "wrapOverflow": "auto",
+    "fvn": "normal",
+    "tdFont": "\"IBM Plex Sans\", system-ui, sans-serif",
+    "tdSize": "13px"
+   },
+   {
+    "top": 2867,
+    "h": 313,
+    "w": 1238,
+    "rows": 7,
+    "first": "BeyondTrustPE-owned+–––PE-ownedsrc0",
+    "wrapScroll": false,
+    "wrapOverflow": "auto",
+    "fvn": "normal",
+    "tdFont": "\"IBM Plex Sans\", system-ui, sans-serif",
+    "tdSize": "13px"
+   },
+   {
+    "top": 3234,
+    "h": 489,
+    "w": 1238,
+    "rows": 7,
+    "first": "BigIDGrowth round $60M · Mar 2024+–––Gro",
+    "wrapScroll": false,
+    "wrapOverflow": "auto",
+    "fvn": "normal",
+    "tdFont": "\"IBM Plex Sans\", system-ui, sans-serif",
+    "tdSize": "13px"
+   },
+   {
+    "top": 3777,
+    "h": 313,
+    "w": 1238,
+    "rows": 7,
+    "first": "Axonius–+––ARR >$200M · Q May 26src–1 · ",
+    "wrapScroll": false,
+    "wrapOverflow": "auto",
+    "fvn": "normal",
+    "tdFont": "\"IBM Plex Sans\", system-ui, sans-serif",
+    "tdSize": "13px"
+   },
+   {
+    "top": 4144,
+    "h": 360,
+    "w": 1238,
+    "rows": 6,
+    "first": "ChainguardGrowth financing (no series le",
+    "wrapScroll": false,
+    "wrapOverflow": "auto",
+    "fvn": "normal",
+    "tdFont": "\"IBM Plex Sans\", system-ui, sans-serif",
+    "tdSize": "13px"
+   },
+   {
+    "top": 4558,
+    "h": 313,
+    "w": 1238,
+    "rows": 7,
+    "first": "Abnormal SecuritySeries D $250M · Aug 20",
+    "wrapScroll": false,
+    "wrapOverflow": "auto",
+    "fvn": "normal",
+    "tdFont": "\"IBM Plex Sans\", system-ui, sans-serif",
+    "tdSize": "13px"
+   },
+   {
+    "top": 4925,
+    "h": 442,
+    "w": 1238,
+    "rows": 6,
+    "first": "Armis SecurityAcquired by ServiceNow · A",
+    "wrapScroll": false,
+    "wrapOverflow": "auto",
+    "fvn": "normal",
+    "tdFont": "\"IBM Plex Sans\", system-ui, sans-serif",
+    "tdSize": "13px"
+   },
+   {
+    "top": 5421,
+    "h": 547,
+    "w": 1238,
+    "rows": 7,
+    "first": "HiddenLayerSeries B $100M · Sep 2026+––A",
+    "wrapScroll": false,
+    "wrapOverflow": "auto",
+    "fvn": "normal",
+    "tdFont": "\"IBM Plex Sans\", system-ui, sans-serif",
+    "tdSize": "13px"
+   },
+   {
+    "top": 9972,
+    "h": 497,
+    "w": 1204,
+    "rows": 13,
+    "first": "2023-Q1100.0100.0100.0100.0100.0100.0100",
+    "wrapScroll": false,
+    "wrapOverflow": "auto",
+    "fvn": "normal",
+    "tdFont": "\"IBM Plex Sans\", system-ui, sans-serif",
+    "tdSize": "12px"
+   },
+   {
+    "top": 9546,
+    "h": 272,
+    "w": 1204,
+    "rows": 5,
+    "first": "1. Company's own SEC filingAn 8-K, 10-Q ",
+    "wrapScroll": false,
+    "wrapOverflow": "auto",
+    "fvn": "normal",
+    "tdFont": "\"IBM Plex Sans\", system-ui, sans-serif",
+    "tdSize": "13.6px"
+   },
+   {
+    "top": 10152,
+    "h": 603,
+    "w": 1204,
+    "rows": 2,
+    "first": "Infrastructure printsNVIDIA Data Center,",
+    "wrapScroll": false,
+    "wrapOverflow": "auto",
+    "fvn": "normal",
+    "tdFont": "\"IBM Plex Sans\", system-ui, sans-serif",
+    "tdSize": "13.6px"
+   }
+  ],
+  "sortBtns": [
+   "Supplier↑",
+   "Supplier↑",
+   "Rev. growth",
+   "Rev. growth",
+   "Prior q",
+   "Prior q",
+   "Own metric",
+   "Own metric",
+   "Ownership or last round",
+   "Ownership or last round",
+   "Events, 12 mo.",
+   "Events, 12 mo."
+  ],
+  "ariaSort": 72,
+  "nav": [
+   [
+    "Security Market Pulse",
+    "#overview"
+   ],
+   [
+    "Status",
+    "#overview"
+   ],
+   [
+    "Archive",
+    "/issues/"
+   ],
+   [
+    "Market",
+    "#market"
+   ],
+   [
+    "Landscape",
+    "#landscape"
+   ],
+   [
+    "Evidence",
+    "#research"
+   ],
+   [
+    "Method",
+    "#method"
+   ],
+   [
+    "Feed",
+    "/feed.xml"
+   ],
+   [
+    "Endpoint and XDR (6)",
+    "#domain-endpoint-xdr"
+   ],
+   [
+    "Security operations (SIEM/SOAR) (7)",
+    "#domain-secops"
+   ],
+   [
+    "Managed security and MDR (7)",
+    "#domain-managed-security"
+   ],
+   [
+    "Network and SASE (7)",
+    "#domain-network-sase"
+   ],
+   [
+    "Cloud security (7)",
+    "#domain-cloud"
+   ],
+   [
+    "Identity (7)",
+    "#domain-identity"
+   ],
+   [
+    "Data security (7)",
+    "#domain-data"
+   ],
+   [
+    "Vulnerability and exposure management (7)",
+    "#domain-exposure"
+   ],
+   [
+    "Application security (6)",
+    "#domain-appsec"
+   ],
+   [
+    "Email security (7)",
+    "#domain-email"
+   ],
+   [
+    "OT and IoT security (6)",
+    "#domain-ot-iot"
+   ],
+   [
+    "AI security (7)",
+    "#domain-ai-security"
+   ]
+  ],
+  "domainLinks": [
+   [
+    "Skip to main content",
+    "#main"
+   ],
+   [
+    "Security Market Pulse",
+    "#overview"
+   ],
+   [
+    "Status",
+    "#overview"
+   ],
+   [
+    "Market",
+    "#market"
+   ],
+   [
+    "Landscape",
+    "#landscape"
+   ],
+   [
+    "Evidence",
+    "#research"
+   ],
+   [
+    "Method",
+    "#method"
+   ],
+   [
+    "Endpoint and XDR (6)",
+    "#domain-endpoint-xdr"
+   ],
+   [
+    "Security operations (SIEM/SOAR) (7)",
+    "#domain-secops"
+   ],
+   [
+    "Managed security and MDR (7)",
+    "#domain-managed-security"
+   ],
+   [
+    "Network and SASE (7)",
+    "#domain-network-sase"
+   ],
+   [
+    "Cloud security (7)",
+    "#domain-cloud"
+   ],
+   [
+    "Identity (7)",
+    "#domain-identity"
+   ],
+   [
+    "Data security (7)",
+    "#domain-data"
+   ],
+   [
+    "Vulnerability and exposure management (7",
+    "#domain-exposure"
+   ],
+   [
+    "Application security (6)",
+    "#domain-appsec"
+   ],
+   [
+    "Email security (7)",
+    "#domain-email"
+   ],
+   [
+    "OT and IoT security (6)",
+    "#domain-ot-iot"
+   ],
+   [
+    "AI security (7)",
+    "#domain-ai-security"
+   ],
+   [
+    "Endpoint and XDR",
+    "#domain-endpoint-xdr"
+   ],
+   [
+    "Security operations (SIEM/SOAR)",
+    "#domain-secops"
+   ],
+   [
+    "Managed security and MDR",
+    "#domain-managed-security"
+   ],
+   [
+    "Network and SASE",
+    "#domain-network-sase"
+   ],
+   [
+    "Cloud security",
+    "#domain-cloud"
+   ],
+   [
+    "Identity",
+    "#domain-identity"
+   ],
+   [
+    "Data security",
+    "#domain-data"
+   ],
+   [
+    "Vulnerability and exposure management",
+    "#domain-exposure"
+   ],
+   [
+    "Application security",
+    "#domain-appsec"
+   ],
+   [
+    "Email security",
+    "#domain-email"
+   ],
+   [
+    "OT and IoT security",
+    "#domain-ot-iot"
+   ],
+   [
+    "AI security",
+    "#domain-ai-security"
+   ],
+   [
+    "Evidence",
+    "#research"
+   ],
+   [
+    "Method",
+    "#method"
+   ],
+   [
+    "Read the method",
+    "#method"
+   ],
+   [
+    "Open the evidence library",
+    "#research"
+   ]
+  ],
+  "paraLens": [
+   {
+    "w": 680,
+    "fs": "16px",
+    "chars": 85,
+    "t": "Public, sourced facts about the business"
+   },
+   {
+    "w": 476,
+    "fs": "12px",
+    "chars": 79,
+    "t": "Not a news site and not investment advic"
+   },
+   {
+    "w": 1204,
+    "fs": "14.4px",
+    "chars": 167,
+    "t": "Figures checked 26 Sep 2026 · every sour"
+   },
+   {
+    "w": 680,
+    "fs": "16px",
+    "chars": 85,
+    "t": "“Revenue growth” is the year-over-year c"
+   },
+   {
+    "w": 680,
+    "fs": "16px",
+    "chars": 85,
+    "t": "12 domains, 74 tracked suppliers. Adding"
+   },
+   {
+    "w": 1240,
+    "fs": "14.4px",
+    "chars": 172,
+    "t": "Issue archive · Standing thesis · Eviden"
+   },
+   {
+    "w": 1206,
+    "fs": "16px",
+    "chars": 151,
+    "t": "Tracked figures arrive through the week "
+   },
+   {
+    "w": 1240,
+    "fs": "11px",
+    "chars": 225,
+    "t": "The landscape · four domains"
+   },
+   {
+    "w": 726,
+    "fs": "18px",
+    "chars": 81,
+    "t": "Tracked suppliers and the latest sourced"
+   },
+   {
+    "w": 239,
+    "fs": "10px",
+    "chars": 48,
+    "t": "TRACKED"
+   },
+   {
+    "w": 239,
+    "fs": "12px",
+    "chars": 40,
+    "t": "Fortinet +52% · Cato +43% · Netskope +31"
+   },
+   {
+    "w": 239,
+    "fs": "10px",
+    "chars": 48,
+    "t": "TRACKED"
+   }
+  ]
+ }
+}

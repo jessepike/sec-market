@@ -1,0 +1,3472 @@
+{
+ "home-1440": {
+  "metrics": {
+   "scrollWidth": 1440,
+   "clientWidth": 1440,
+   "pageHeight": 10090,
+   "chromeTop": 113,
+   "mainTop": 89,
+   "headerH": 53,
+   "foldText": "Skip to main content | Security Market Pulse | AS OF | 26 Sep 2026 | Sourced facts, checked and published automatically. No stances, rankings or forecasts. | Security Market Pulse | Status | Archive | Market | Landscape | Evidence | Method | Feed | September 26, 2026 | The security market, from public numbers | Public, sourced facts about the business of the security market: who is growing, stalling, consolidating, being bought, or in financial trouble. Collected, checked and published automatically, with no stances, rankings or forecasts. Public sources only. Run by Jesse Pike. | Not a news site and not investment advice. | · Site updated | September 26, 2026 | . | Run status | Figures checked 26 Sep 2026 · every source collected. | The market by domain | “Revenue growth” is the year-over-year change in a company’s own reported GAAP revenue for the quarter named, taken from its SEC filings or its own press release. Figures are listed, not ranked; being listed is not a recommendation and being absent is not a criticism. | Endpoint and XDR | ( | 6 | ) | Security operations (SIEM/SOAR) | ( | 7 | ) | Managed security and MDR | ( | 7 | ) | Network and SASE | ( | 7 | ) | Cloud security | ( | 7 | ) | Identity | ( | 7 | ) | Data security | ( | 7 | ) | Vulnerability and exposure management | ( | 7 | ) | Application security | ( | 6 | ) | Email security | ( | 7 | ) | OT and IoT security | ( | 6 | ) | AI security | ( | 7 | ) | Endpoint and XDR | Tracked suppliers in | Endpoint and XDR | Supplier | ↑ | Rev. growth | Prior q | Own metric | Ownership or last round | Events, 12 mo. | CrowdStrike | +26% | Q Jul 26 | src | +26% | Q Apr 26 | src | ARR $5.84B · Q Jul 26 | src | Public · CRWD | src | 1 | · | latest | results | , | 26 Aug 26 | src | Microsoft Defender for Endpoint | – | – | – | Segment of Microsoft | src | 0 | Palo Alto Networks | +34% | Q Jul 26 | src | +31% | Q Apr 26 | src | NGS ARR $9.10B · Q Jul 26 | src | Public · PANW | src | 2 | · | latest | results | , | 1 Sep 26 | src | SentinelOne | +21% | Q Jul 26 | src | +21% | Q Apr 26 | src | ARR $1.218B · Q Jul 26 | src | Public · S | src | 2 | · | latest | results | , | 27 Aug 26 | src | Sophos | – | – | – | PE-owned · Thoma Bravo (2020) | src | 2 | · | latest | rating | , | 1 Mar 26 | src | 0",
+   "fontSizes": [
+    9.75,
+    10,
+    10.4,
+    11,
+    12,
+    13,
+    13.6,
+    14,
+    14.4,
+    15,
+    15.2,
+    16,
+    17,
+    18,
+    24,
+    30,
+    42.4,
+    52
+   ],
+   "smallTexts": [
+    {
+     "fs": 10,
+     "t": "Sourced facts, checked and published automatically. No stanc"
+    },
+    {
+     "fs": 12,
+     "t": "Not a news site and not investment advice."
+    },
+    {
+     "fs": 12,
+     "t": "Median revenue growth of tracked public suppliers:"
+    },
+    {
+     "fs": 13,
+     "t": "Merged with LogRhythm (Thoma Bravo-owned). Closed 2024-07-17"
+    },
+    {
+     "fs": 13,
+     "t": "Series G $409M (initial close $359M plus extension $50M) · J"
+    },
+    {
+     "fs": 12,
+     "t": "Median revenue growth of tracked public suppliers:"
+    },
+    {
+     "fs": 13,
+     "t": "Independent, venture-backed private company."
+    },
+    {
+     "fs": 13,
+     "t": "Independent, venture-backed private company. Confirmed not p"
+    },
+    {
+     "fs": 12,
+     "t": "Median revenue growth of tracked public suppliers:"
+    },
+    {
+     "fs": 13,
+     "t": "Acquired by Palo Alto Networks · Feb 2026"
+    },
+    {
+     "fs": 12,
+     "t": "Median revenue growth of tracked public suppliers:"
+    },
+    {
+     "fs": 13,
+     "t": "Growth-equity investment (reported as a Series G extension) "
+    },
+    {
+     "fs": 12,
+     "t": "Median revenue growth of tracked public suppliers:"
+    },
+    {
+     "fs": 12,
+     "t": "Median revenue growth of tracked public suppliers:"
+    },
+    {
+     "fs": 13,
+     "t": "Growth financing (no series letter disclosed) $280M · Oct 20"
+    }
+   ],
+   "smallTargets": [
+    {
+     "tag": "BUTTON",
+     "t": "CrowdStrike+26%+",
+     "w": 192,
+     "h": 21
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "BUTTON",
+     "t": "Microsoft Defender for Endpoin",
+     "w": 192,
+     "h": 21
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "BUTTON",
+     "t": "Palo Alto Networks+34%+",
+     "w": 192,
+     "h": 21
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "BUTTON",
+     "t": "SentinelOne+21%+",
+     "w": 192,
+     "h": 21
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "BUTTON",
+     "t": "SophosPE-owned · Thoma Bravo (",
+     "w": 192,
+     "h": 21
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "BUTTON",
+     "t": "Trend MicroPublic · 4704 (Toky",
+     "w": 192,
+     "h": 21
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "BUTTON",
+     "t": "ExabeamMerged with LogRhythm (",
+     "w": 170,
+     "h": 21
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "BUTTON",
+     "t": "Google SecOpsSegment of Alphab",
+     "w": 170,
+     "h": 21
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "BUTTON",
+     "t": "Palo Alto Networks+34%+",
+     "w": 170,
+     "h": 21
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "BUTTON",
+     "t": "SplunkSegment of Cisco Systems",
+     "w": 170,
+     "h": 21
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    }
+   ],
+   "smallTargetCount": 332,
+   "headings": [
+    {
+     "tag": "H1",
+     "t": "The security market, from public numbers",
+     "top": 113,
+     "visible": true
+    },
+    {
+     "tag": "H2",
+     "t": "Run status",
+     "top": 352,
+     "visible": true
+    },
+    {
+     "tag": "H2",
+     "t": "The market by domain",
+     "top": 448,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "Endpoint and XDR",
+     "top": 678,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "Security operations (SIEM/SOAR)",
+     "top": 1011,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "Managed security and MDR",
+     "top": 1455,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "Network and SASE",
+     "top": 1789,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "Cloud security",
+     "top": 2337,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "Identity",
+     "top": 2839,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "Data security",
+     "top": 3206,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "Vulnerability and exposure management",
+     "top": 3748,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "Application security",
+     "top": 4115,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "Email security",
+     "top": 4529,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "OT and IoT security",
+     "top": 4896,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "AI security",
+     "top": 5392,
+     "visible": true
+    },
+    {
+     "tag": "H2",
+     "t": "What changed in the last 30 days",
+     "top": 6000,
+     "visible": true
+    },
+    {
+     "tag": "H2",
+     "t": "What this site covers",
+     "top": 7350,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "Not covered",
+     "top": 7848,
+     "visible": true
+    },
+    {
+     "tag": "H2",
+     "t": "The security market, by domain.",
+     "top": 8419,
+     "visible": true
+    },
+    {
+     "tag": "H2",
+     "t": "Network / SASE",
+     "top": 8650,
+     "visible": true
+    },
+    {
+     "tag": "H2",
+     "t": "Data / AI Security",
+     "top": 8650,
+     "visible": true
+    },
+    {
+     "tag": "H2",
+     "t": "Cloud Security",
+     "top": 8650,
+     "visible": true
+    },
+    {
+     "tag": "H2",
+     "t": "Identity",
+     "top": 8650,
+     "visible": true
+    },
+    {
+     "tag": "H2",
+     "t": "What moved",
+     "top": 8950,
+     "visible": true
+    },
+    {
+     "tag": "H2",
+     "t": "M&A and startups",
+     "top": 9015,
+     "visible": true
+    },
+    {
+     "tag": "H2",
+     "t": "Market layers",
+     "top": 9056,
+     "visible": true
+    },
+    {
+     "tag": "H2",
+     "t": "How this is built",
+     "top": 9143,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "The sourcing ladder",
+     "top": 9405,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "How the tracker ages",
+     "top": 9839,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "Signals behind the standing thesis (archived analysis)",
+     "top": 10011,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "How that archived call was reasoned (thesis only)",
+     "top": 10775,
+     "visible": true
+    },
+    {
+     "tag": "H2",
+     "t": "Research & evidence library",
+     "top": 9230,
+     "visible": true
+    },
+    {
+     "tag": "H2",
+     "t": "If a figure is wrong, send it",
+     "top": 9772,
+     "visible": true
+    }
+   ],
+   "details": [
+    {
+     "open": false,
+     "summary": "What moved: tracked prints and capital",
+     "top": 8842
+    },
+    {
+     "open": false,
+     "summary": "M&A and funding activity",
+     "top": 8929
+    },
+    {
+     "open": false,
+     "summary": "Zenity raised $115M Series C (+ $10M secondary)$115M + $10MA",
+     "top": 9066
+    },
+    {
+     "open": false,
+     "summary": "Oak raised $60M seed$60MJul 15, 2026",
+     "top": 9115
+    },
+    {
+     "open": false,
+     "summary": "Hush raised $30M with Akamai strategic$30MJul 28, 2026",
+     "top": 9164
+    },
+    {
+     "open": false,
+     "summary": "Cyera to acquire Oasis Security~$1BJul 28, 2026",
+     "top": 9213
+    },
+    {
+     "open": false,
+     "summary": "Onyx raised $113M$113MJul 29, 2026",
+     "top": 9262
+    },
+    {
+     "open": false,
+     "summary": "More in this window (13)",
+     "top": 9324
+    },
+    {
+     "open": false,
+     "summary": "Horizon3.ai raised $250M Series E$250MAug 3, 2026",
+     "top": 9366
+    },
+    {
+     "open": false,
+     "summary": "CrowdStrike fund backed Above SecurityUndisclosedAug 3, 2026",
+     "top": 9415
+    },
+    {
+     "open": false,
+     "summary": "Glow emerged with $180M$180MJul 22, 2026",
+     "top": 9463
+    },
+    {
+     "open": false,
+     "summary": "Cathedral raised $160M$160MJul 20, 2026",
+     "top": 9512
+    },
+    {
+     "open": false,
+     "summary": "Neo launched with $100M$100MJul 20, 2026",
+     "top": 9561
+    },
+    {
+     "open": false,
+     "summary": "Cisco invested in ZafranUndisclosedJul 20, 2026",
+     "top": 9610
+    },
+    {
+     "open": false,
+     "summary": "Arcade just appeared (Series A 2026)UndisclosedJul 1, 2026",
+     "top": 9659
+    },
+    {
+     "open": false,
+     "summary": "CodeIntegrity just appeared (Seed 2026)UndisclosedJul 1, 202",
+     "top": 9708
+    },
+    {
+     "open": false,
+     "summary": "Cisco completed AstrixUndisclosedJun 29, 2026",
+     "top": 9757
+    },
+    {
+     "open": false,
+     "summary": "F5 closed SurePath AI$50.1MJun 15, 2026",
+     "top": 9806
+    },
+    {
+     "open": false,
+     "summary": "Cyera raised $600M at $12B$600M / $12BJun 10, 2026",
+     "top": 9855
+    },
+    {
+     "open": false,
+     "summary": "Palo Alto closed PortkeyUndisclosedMay 29, 2026",
+     "top": 9904
+    },
+    {
+     "open": false,
+     "summary": "Zscaler intends Symmetry SystemsIntentMay 21, 2026",
+     "top": 9953
+    },
+    {
+     "open": false,
+     "summary": "Background — last disclosed raises (6)",
+     "top": 9393
+    },
+    {
+     "open": false,
+     "summary": "Google closed Wiz$32BMar 11, 2026",
+     "top": 9434
+    },
+    {
+     "open": false,
+     "summary": "Palo Alto closed CyberArk$25BFeb 11, 2026",
+     "top": 9483
+    },
+    {
+     "open": false,
+     "summary": "F5 closed CalypsoAI$145.2MSep 26, 2025",
+     "top": 9532
+    },
+    {
+     "open": false,
+     "summary": "Palo Alto closed Protect AI$634.5MJul 22, 2025",
+     "top": 9581
+    },
+    {
+     "open": false,
+     "summary": "Lumos last disclosed $35M Series B$35MMay 23, 2024",
+     "top": 9630
+    },
+    {
+     "open": false,
+     "summary": "Secuvy last disclosed seedSeedMar 10, 2023",
+     "top": 9679
+    },
+    {
+     "open": false,
+     "summary": "Market layers",
+     "top": 9016
+    },
+    {
+     "open": false,
+     "summary": "View data table (accessible alternative)",
+     "top": 9937
+    },
+    {
+     "open": false,
+     "summary": "How this is built",
+     "top": 9103
+    },
+    {
+     "open": false,
+     "summary": "Research & evidence",
+     "top": 9189
+    }
+   ],
+   "tables": [
+    {
+     "cap": "Tracked suppliers in Endpoint and XDR",
+     "rows": 6,
+     "top": 706,
+     "h": 279,
+     "w": 1238,
+     "fontVariant": "normal"
+    },
+    {
+     "cap": "Tracked suppliers in Security operations (SIEM/SOAR)",
+     "rows": 7,
+     "top": 1039,
+     "h": 391,
+     "w": 1238,
+     "fontVariant": "normal"
+    },
+    {
+     "cap": "Tracked suppliers in Managed security and MDR",
+     "rows": 7,
+     "top": 1484,
+     "h": 280,
+     "w": 1238,
+     "fontVariant": "normal"
+    },
+    {
+     "cap": "Tracked suppliers in Network and SASE",
+     "rows": 7,
+     "top": 1818,
+     "h": 494,
+     "w": 1238,
+     "fontVariant": "normal"
+    },
+    {
+     "cap": "Tracked suppliers in Cloud security",
+     "rows": 7,
+     "top": 2365,
+     "h": 448,
+     "w": 1238,
+     "fontVariant": "normal"
+    },
+    {
+     "cap": "Tracked suppliers in Identity",
+     "rows": 7,
+     "top": 2867,
+     "h": 313,
+     "w": 1238,
+     "fontVariant": "normal"
+    },
+    {
+     "cap": "Tracked suppliers in Data security",
+     "rows": 7,
+     "top": 3234,
+     "h": 489,
+     "w": 1238,
+     "fontVariant": "normal"
+    },
+    {
+     "cap": "Tracked suppliers in Vulnerability and exposure management",
+     "rows": 7,
+     "top": 3777,
+     "h": 313,
+     "w": 1238,
+     "fontVariant": "normal"
+    },
+    {
+     "cap": "Tracked suppliers in Application security",
+     "rows": 6,
+     "top": 4144,
+     "h": 360,
+     "w": 1238,
+     "fontVariant": "normal"
+    },
+    {
+     "cap": "Tracked suppliers in Email security",
+     "rows": 7,
+     "top": 4558,
+     "h": 313,
+     "w": 1238,
+     "fontVariant": "normal"
+    },
+    {
+     "cap": "Tracked suppliers in OT and IoT security",
+     "rows": 6,
+     "top": 4925,
+     "h": 442,
+     "w": 1238,
+     "fontVariant": "normal"
+    },
+    {
+     "cap": "Tracked suppliers in AI security",
+     "rows": 7,
+     "top": 5421,
+     "h": 547,
+     "w": 1238,
+     "fontVariant": "normal"
+    },
+    {
+     "cap": "Derived panel indices by quarter (2023-Q1 = 100)",
+     "rows": 13,
+     "top": 9972,
+     "h": 497,
+     "w": 1204,
+     "fontVariant": "normal"
+    },
+    {
+     "cap": "The five-rung sourcing ladder, strongest first",
+     "rows": 5,
+     "top": 9546,
+     "h": 272,
+     "w": 1204,
+     "fontVariant": "normal"
+    },
+    {
+     "cap": "Signal families used in this analysis, with examples and how",
+     "rows": 2,
+     "top": 10152,
+     "h": 603,
+     "w": 1204,
+     "fontVariant": "normal"
+    }
+   ],
+   "bodyFont": "\"IBM Plex Sans\", system-ui, sans-serif",
+   "bodySize": "16px"
+  },
+  "axe": [],
+  "tabStops": [
+   {
+    "tag": "A",
+    "t": "Skip to main content",
+    "href": "#main",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Security Market Pulse",
+    "href": "#overview",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Status",
+    "href": "#overview",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Archive",
+    "href": "/issues/",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Market",
+    "href": "#market",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Landscape",
+    "href": "#landscape",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Evidence",
+    "href": "#research",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Method",
+    "href": "#method",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Feed",
+    "href": "/feed.xml",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Endpoint and XDR (6)",
+    "href": "#domain-endpoint-xdr",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Security operations (SIEM/SOAR) (7)",
+    "href": "#domain-secops",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Managed security and MDR (7)",
+    "href": "#domain-managed-security",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Network and SASE (7)",
+    "href": "#domain-network-sase",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Cloud security (7)",
+    "href": "#domain-cloud",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Identity (7)",
+    "href": "#domain-identity",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Data security (7)",
+    "href": "#domain-data",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Vulnerability and exposure management (7",
+    "href": "#domain-exposure",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Application security (6)",
+    "href": "#domain-appsec",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Email security (7)",
+    "href": "#domain-email",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "OT and IoT security (6)",
+    "href": "#domain-ot-iot",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "AI security (7)",
+    "href": "#domain-ai-security",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "BUTTON",
+    "t": "Supplier↑",
+    "href": null,
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "BUTTON",
+    "t": "Rev. growth",
+    "href": null,
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "BUTTON",
+    "t": "Prior q",
+    "href": null,
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "BUTTON",
+    "t": "Own metric",
+    "href": null,
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   }
+  ]
+ },
+ "home-390": {
+  "metrics": {
+   "scrollWidth": 615,
+   "clientWidth": 390,
+   "pageHeight": 13734,
+   "chromeTop": 174,
+   "mainTop": 150,
+   "headerH": 97,
+   "foldText": "Skip to main content | Security Market Pulse | AS OF | 26 Sep 2026 | Sourced facts, checked and published automatically. No stances, rankings or forecasts. | Security Market Pulse | Menu | September 26, 2026 | The security market, from public numbers | Public, sourced facts about the business of the security market: who is growing, stalling, consolidating, being bought, or in financial trouble. Collected, checked and published automatically, with no stances, rankings or forecasts. Public sources only. Run by Jesse Pike. | Not a news site and not investment advice. | · Site updated | September 26, 2026 | . | Run status | Figures checked 26 Sep 2026 · every source collected. | The market by domain | “Revenue growth” is the year-over-year change in a company’s own reported GAAP revenue for the quarter named, taken from its SEC filings or its own press release. Figures are listed, not ranked; being listed is not a recommendation and being absent is not a criticism. | Endpoint and XDR | ( | 6 | ) | 0",
+   "fontSizes": [
+    9.75,
+    10,
+    10.4,
+    11,
+    12,
+    13,
+    13.6,
+    14,
+    14.4,
+    15,
+    15.2,
+    16,
+    17,
+    20,
+    24,
+    28
+   ],
+   "smallTexts": [
+    {
+     "fs": 10,
+     "t": "Sourced facts, checked and published automatically. No stanc"
+    },
+    {
+     "fs": 12,
+     "t": "Not a news site and not investment advice."
+    },
+    {
+     "fs": 12,
+     "t": "Median revenue growth of tracked public suppliers:"
+    },
+    {
+     "fs": 12,
+     "t": "Merged with LogRhythm (Thoma Bravo-owned). Closed 2024-07-17"
+    },
+    {
+     "fs": 12,
+     "t": "Series G $409M (initial close $359M plus extension $50M) · J"
+    },
+    {
+     "fs": 12,
+     "t": "Median revenue growth of tracked public suppliers:"
+    },
+    {
+     "fs": 12,
+     "t": "Independent, venture-backed private company."
+    },
+    {
+     "fs": 12,
+     "t": "Independent, venture-backed private company. Confirmed not p"
+    },
+    {
+     "fs": 12,
+     "t": "Median revenue growth of tracked public suppliers:"
+    },
+    {
+     "fs": 12,
+     "t": "Acquired by Palo Alto Networks · Feb 2026"
+    },
+    {
+     "fs": 12,
+     "t": "Median revenue growth of tracked public suppliers:"
+    },
+    {
+     "fs": 12,
+     "t": "Growth-equity investment (reported as a Series G extension) "
+    },
+    {
+     "fs": 12,
+     "t": "Median revenue growth of tracked public suppliers:"
+    },
+    {
+     "fs": 12,
+     "t": "Median revenue growth of tracked public suppliers:"
+    },
+    {
+     "fs": 12,
+     "t": "Growth financing (no series letter disclosed) $280M · Oct 20"
+    }
+   ],
+   "smallTargets": [
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "A",
+     "t": "src",
+     "w": 27,
+     "h": 18
+    },
+    {
+     "tag": "A",
+     "t": "src",
+     "w": 27,
+     "h": 18
+    },
+    {
+     "tag": "A",
+     "t": "src",
+     "w": 27,
+     "h": 18
+    },
+    {
+     "tag": "A",
+     "t": "src",
+     "w": 27,
+     "h": 18
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "A",
+     "t": "src",
+     "w": 27,
+     "h": 18
+    },
+    {
+     "tag": "A",
+     "t": "src",
+     "w": 27,
+     "h": 18
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "A",
+     "t": "src",
+     "w": 27,
+     "h": 18
+    },
+    {
+     "tag": "A",
+     "t": "src",
+     "w": 27,
+     "h": 18
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "A",
+     "t": "src",
+     "w": 27,
+     "h": 18
+    },
+    {
+     "tag": "A",
+     "t": "src",
+     "w": 27,
+     "h": 18
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "A",
+     "t": "src",
+     "w": 27,
+     "h": 18
+    },
+    {
+     "tag": "A",
+     "t": "src",
+     "w": 27,
+     "h": 18
+    },
+    {
+     "tag": "A",
+     "t": "src",
+     "w": 27,
+     "h": 18
+    },
+    {
+     "tag": "A",
+     "t": "src",
+     "w": 27,
+     "h": 18
+    },
+    {
+     "tag": "A",
+     "t": "src",
+     "w": 27,
+     "h": 18
+    },
+    {
+     "tag": "A",
+     "t": "src",
+     "w": 27,
+     "h": 18
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "A",
+     "t": "Endpoint and XDR",
+     "w": 130,
+     "h": 20
+    },
+    {
+     "tag": "A",
+     "t": "Security operations (SIEM/SOAR",
+     "w": 238,
+     "h": 20
+    },
+    {
+     "tag": "A",
+     "t": "Managed security and MDR",
+     "w": 197,
+     "h": 20
+    },
+    {
+     "tag": "A",
+     "t": "Network and SASE",
+     "w": 133,
+     "h": 20
+    },
+    {
+     "tag": "A",
+     "t": "Cloud security",
+     "w": 103,
+     "h": 20
+    },
+    {
+     "tag": "A",
+     "t": "Identity",
+     "w": 57,
+     "h": 20
+    },
+    {
+     "tag": "A",
+     "t": "Data security",
+     "w": 97,
+     "h": 20
+    },
+    {
+     "tag": "A",
+     "t": "Vulnerability and exposure man",
+     "w": 293,
+     "h": 20
+    },
+    {
+     "tag": "A",
+     "t": "Application security",
+     "w": 143,
+     "h": 20
+    },
+    {
+     "tag": "A",
+     "t": "Email security",
+     "w": 102,
+     "h": 20
+    }
+   ],
+   "smallTargetCount": 53,
+   "headings": [
+    {
+     "tag": "H1",
+     "t": "The security market, from public numbers",
+     "top": 174,
+     "visible": true
+    },
+    {
+     "tag": "H2",
+     "t": "Run status",
+     "top": 504,
+     "visible": true
+    },
+    {
+     "tag": "H2",
+     "t": "The market by domain",
+     "top": 622,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "Endpoint and XDR",
+     "top": 1157,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "Security operations (SIEM/SOAR)",
+     "top": 1676,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "Managed security and MDR",
+     "top": 2158,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "Network and SASE",
+     "top": 2640,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "Cloud security",
+     "top": 3205,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "Identity",
+     "top": 3785,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "Data security",
+     "top": 4335,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "Vulnerability and exposure management",
+     "top": 4885,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "Application security",
+     "top": 5435,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "Email security",
+     "top": 5856,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "OT and IoT security",
+     "top": 6406,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "AI security",
+     "top": 6826,
+     "visible": true
+    },
+    {
+     "tag": "H2",
+     "t": "What changed in the last 30 days",
+     "top": 7331,
+     "visible": true
+    },
+    {
+     "tag": "H2",
+     "t": "What this site covers",
+     "top": 9679,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "Not covered",
+     "top": 10734,
+     "visible": true
+    },
+    {
+     "tag": "H2",
+     "t": "The security market, by domain.",
+     "top": 11448,
+     "visible": true
+    },
+    {
+     "tag": "H2",
+     "t": "Network / SASE",
+     "top": 11560,
+     "visible": true
+    },
+    {
+     "tag": "H2",
+     "t": "Data / AI Security",
+     "top": 11714,
+     "visible": true
+    },
+    {
+     "tag": "H2",
+     "t": "Cloud Security",
+     "top": 11885,
+     "visible": true
+    },
+    {
+     "tag": "H2",
+     "t": "Identity",
+     "top": 12039,
+     "visible": true
+    },
+    {
+     "tag": "H2",
+     "t": "What moved",
+     "top": 12308,
+     "visible": true
+    },
+    {
+     "tag": "H2",
+     "t": "M&A and startups",
+     "top": 12438,
+     "visible": true
+    },
+    {
+     "tag": "H2",
+     "t": "Market layers",
+     "top": 12413,
+     "visible": true
+    },
+    {
+     "tag": "H2",
+     "t": "How this is built",
+     "top": 12500,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "The sourcing ladder",
+     "top": 13014,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "How the tracker ages",
+     "top": 14118,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "Signals behind the standing thesis (archived analysis)",
+     "top": 14387,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "How that archived call was reasoned (thesis only)",
+     "top": 16122,
+     "visible": true
+    },
+    {
+     "tag": "H2",
+     "t": "Research & evidence library",
+     "top": 12587,
+     "visible": true
+    },
+    {
+     "tag": "H2",
+     "t": "If a figure is wrong, send it",
+     "top": 13348,
+     "visible": true
+    }
+   ],
+   "details": [
+    {
+     "open": false,
+     "summary": "What moved: tracked prints and capital",
+     "top": 12200
+    },
+    {
+     "open": false,
+     "summary": "M&A and funding activity",
+     "top": 12286
+    },
+    {
+     "open": false,
+     "summary": "Zenity raised $115M Series C (+ $10M secondary)$115M + $10MA",
+     "top": 12484
+    },
+    {
+     "open": false,
+     "summary": "Oak raised $60M seed$60MJul 15, 2026",
+     "top": 12588
+    },
+    {
+     "open": false,
+     "summary": "Hush raised $30M with Akamai strategic$30MJul 28, 2026",
+     "top": 12666
+    },
+    {
+     "open": false,
+     "summary": "Cyera to acquire Oasis Security~$1BJul 28, 2026",
+     "top": 12770
+    },
+    {
+     "open": false,
+     "summary": "Onyx raised $113M$113MJul 29, 2026",
+     "top": 12849
+    },
+    {
+     "open": false,
+     "summary": "More in this window (13)",
+     "top": 12941
+    },
+    {
+     "open": false,
+     "summary": "Horizon3.ai raised $250M Series E$250MAug 3, 2026",
+     "top": 12982
+    },
+    {
+     "open": false,
+     "summary": "CrowdStrike fund backed Above SecurityUndisclosedAug 3, 2026",
+     "top": 13087
+    },
+    {
+     "open": false,
+     "summary": "Glow emerged with $180M$180MJul 22, 2026",
+     "top": 13191
+    },
+    {
+     "open": false,
+     "summary": "Cathedral raised $160M$160MJul 20, 2026",
+     "top": 13269
+    },
+    {
+     "open": false,
+     "summary": "Neo launched with $100M$100MJul 20, 2026",
+     "top": 13348
+    },
+    {
+     "open": false,
+     "summary": "Cisco invested in ZafranUndisclosedJul 20, 2026",
+     "top": 13426
+    },
+    {
+     "open": false,
+     "summary": "Arcade just appeared (Series A 2026)UndisclosedJul 1, 2026",
+     "top": 13505
+    },
+    {
+     "open": false,
+     "summary": "CodeIntegrity just appeared (Seed 2026)UndisclosedJul 1, 202",
+     "top": 13609
+    },
+    {
+     "open": false,
+     "summary": "Cisco completed AstrixUndisclosedJun 29, 2026",
+     "top": 13713
+    },
+    {
+     "open": false,
+     "summary": "F5 closed SurePath AI$50.1MJun 15, 2026",
+     "top": 13792
+    },
+    {
+     "open": false,
+     "summary": "Cyera raised $600M at $12B$600M / $12BJun 10, 2026",
+     "top": 13870
+    },
+    {
+     "open": false,
+     "summary": "Palo Alto closed PortkeyUndisclosedMay 29, 2026",
+     "top": 13975
+    },
+    {
+     "open": false,
+     "summary": "Zscaler intends Symmetry SystemsIntentMay 21, 2026",
+     "top": 14053
+    },
+    {
+     "open": false,
+     "summary": "Background — last disclosed raises (6)",
+     "top": 13010
+    },
+    {
+     "open": false,
+     "summary": "Google closed Wiz$32BMar 11, 2026",
+     "top": 13076
+    },
+    {
+     "open": false,
+     "summary": "Palo Alto closed CyberArk$25BFeb 11, 2026",
+     "top": 13155
+    },
+    {
+     "open": false,
+     "summary": "F5 closed CalypsoAI$145.2MSep 26, 2025",
+     "top": 13233
+    },
+    {
+     "open": false,
+     "summary": "Palo Alto closed Protect AI$634.5MJul 22, 2025",
+     "top": 13312
+    },
+    {
+     "open": false,
+     "summary": "Lumos last disclosed $35M Series B$35MMay 23, 2024",
+     "top": 13391
+    },
+    {
+     "open": false,
+     "summary": "Secuvy last disclosed seedSeedMar 10, 2023",
+     "top": 13495
+    },
+    {
+     "open": false,
+     "summary": "Market layers",
+     "top": 12373
+    },
+    {
+     "open": false,
+     "summary": "View data table (accessible alternative)",
+     "top": 14050
+    },
+    {
+     "open": false,
+     "summary": "How this is built",
+     "top": 12460
+    },
+    {
+     "open": false,
+     "summary": "Research & evidence",
+     "top": 12547
+    }
+   ],
+   "tables": [
+    {
+     "cap": "Tracked suppliers in Endpoint and XDR",
+     "rows": 6,
+     "top": 1185,
+     "h": 466,
+     "w": 356,
+     "fontVariant": "normal"
+    },
+    {
+     "cap": "Tracked suppliers in Security operations (SIEM/SOAR)",
+     "rows": 7,
+     "top": 1705,
+     "h": 428,
+     "w": 356,
+     "fontVariant": "normal"
+    },
+    {
+     "cap": "Tracked suppliers in Managed security and MDR",
+     "rows": 7,
+     "top": 2187,
+     "h": 428,
+     "w": 356,
+     "fontVariant": "normal"
+    },
+    {
+     "cap": "Tracked suppliers in Network and SASE",
+     "rows": 7,
+     "top": 2668,
+     "h": 512,
+     "w": 356,
+     "fontVariant": "normal"
+    },
+    {
+     "cap": "Tracked suppliers in Cloud security",
+     "rows": 7,
+     "top": 3233,
+     "h": 527,
+     "w": 356,
+     "fontVariant": "normal"
+    },
+    {
+     "cap": "Tracked suppliers in Identity",
+     "rows": 7,
+     "top": 3814,
+     "h": 496,
+     "w": 356,
+     "fontVariant": "normal"
+    },
+    {
+     "cap": "Tracked suppliers in Data security",
+     "rows": 7,
+     "top": 4364,
+     "h": 496,
+     "w": 356,
+     "fontVariant": "normal"
+    },
+    {
+     "cap": "Tracked suppliers in Vulnerability and exposure management",
+     "rows": 7,
+     "top": 4914,
+     "h": 496,
+     "w": 356,
+     "fontVariant": "normal"
+    },
+    {
+     "cap": "Tracked suppliers in Application security",
+     "rows": 6,
+     "top": 5464,
+     "h": 367,
+     "w": 356,
+     "fontVariant": "normal"
+    },
+    {
+     "cap": "Tracked suppliers in Email security",
+     "rows": 7,
+     "top": 5884,
+     "h": 496,
+     "w": 356,
+     "fontVariant": "normal"
+    },
+    {
+     "cap": "Tracked suppliers in OT and IoT security",
+     "rows": 6,
+     "top": 6434,
+     "h": 367,
+     "w": 356,
+     "fontVariant": "normal"
+    },
+    {
+     "cap": "Tracked suppliers in AI security",
+     "rows": 7,
+     "top": 6855,
+     "h": 443,
+     "w": 356,
+     "fontVariant": "normal"
+    },
+    {
+     "cap": "Derived panel indices by quarter (2023-Q1 = 100)",
+     "rows": 13,
+     "top": 14085,
+     "h": 497,
+     "w": 769,
+     "fontVariant": "normal"
+    },
+    {
+     "cap": "The five-rung sourcing ladder, strongest first",
+     "rows": 5,
+     "top": 13227,
+     "h": 870,
+     "w": 322,
+     "fontVariant": "normal"
+    },
+    {
+     "cap": "Signal families used in this analysis, with examples and how",
+     "rows": 2,
+     "top": 14621,
+     "h": 1480,
+     "w": 329,
+     "fontVariant": "normal"
+    }
+   ],
+   "bodyFont": "\"IBM Plex Sans\", system-ui, sans-serif",
+   "bodySize": "16px"
+  },
+  "axe": [],
+  "tabStops": [
+   {
+    "tag": "A",
+    "t": "Skip to main content",
+    "href": "#main",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Security Market Pulse",
+    "href": "#overview",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "BUTTON",
+    "t": "Menu",
+    "href": null,
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Endpoint and XDR (6)",
+    "href": "#domain-endpoint-xdr",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Security operations (SIEM/SOAR) (7)",
+    "href": "#domain-secops",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Managed security and MDR (7)",
+    "href": "#domain-managed-security",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Network and SASE (7)",
+    "href": "#domain-network-sase",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Cloud security (7)",
+    "href": "#domain-cloud",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Identity (7)",
+    "href": "#domain-identity",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Data security (7)",
+    "href": "#domain-data",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Vulnerability and exposure management (7",
+    "href": "#domain-exposure",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Application security (6)",
+    "href": "#domain-appsec",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Email security (7)",
+    "href": "#domain-email",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "OT and IoT security (6)",
+    "href": "#domain-ot-iot",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "AI security (7)",
+    "href": "#domain-ai-security",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "BUTTON",
+    "t": "Supplier↑",
+    "href": null,
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "BUTTON",
+    "t": "Rev. growth",
+    "href": null,
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "BUTTON",
+    "t": "Prior q",
+    "href": null,
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "BUTTON",
+    "t": "Own metric",
+    "href": null,
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "BUTTON",
+    "t": "Ownership or last round",
+    "href": null,
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "BUTTON",
+    "t": "Events, 12 mo.",
+    "href": null,
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "BUTTON",
+    "t": "CrowdStrike+26%+",
+    "href": null,
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "BUTTON",
+    "t": "Microsoft Defender for EndpointSegment o",
+    "href": null,
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "BUTTON",
+    "t": "Palo Alto Networks+34%+",
+    "href": null,
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "BUTTON",
+    "t": "SentinelOne+21%+",
+    "href": null,
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   }
+  ]
+ },
+ "home-320": {
+  "metrics": {
+   "scrollWidth": 615,
+   "clientWidth": 320,
+   "pageHeight": 15295,
+   "chromeTop": 215,
+   "mainTop": 191,
+   "headerH": 126,
+   "foldText": "Skip to main content | Security Market Pulse | AS OF | 26 Sep 2026 | Sourced facts, checked and published automatically. No stances, rankings or forecasts. | Security Market Pulse | Menu | September 26, 2026 | The security market, from public numbers | Public, sourced facts about the business of the security market: who is growing, stalling, consolidating, being bought, or in financial trouble. Collected, checked and published automatically, with no stances, rankings or forecasts. Public sources only. Run by Jesse Pike. | Not a news site and not investment advice. | · Site updated | September 26, 2026 | . | Run status | Figures checked 26 Sep 2026 · every source collected. | The market by domain | “Revenue growth” is the year-over-year change in a company’s own reported GAAP revenue for the quarter named, taken from its SEC filings or its own press release. Figures are listed, not ranked; being listed is not a recommendation and being absent is not a criticism. | 0",
+   "fontSizes": [
+    9.75,
+    10,
+    10.4,
+    11,
+    12,
+    13,
+    13.6,
+    14,
+    14.4,
+    15,
+    15.2,
+    16,
+    17,
+    20,
+    24,
+    28
+   ],
+   "smallTexts": [
+    {
+     "fs": 10,
+     "t": "Sourced facts, checked and published automatically. No stanc"
+    },
+    {
+     "fs": 12,
+     "t": "Not a news site and not investment advice."
+    },
+    {
+     "fs": 12,
+     "t": "Median revenue growth of tracked public suppliers:"
+    },
+    {
+     "fs": 12,
+     "t": "Merged with LogRhythm (Thoma Bravo-owned). Closed 2024-07-17"
+    },
+    {
+     "fs": 12,
+     "t": "Series G $409M (initial close $359M plus extension $50M) · J"
+    },
+    {
+     "fs": 12,
+     "t": "Median revenue growth of tracked public suppliers:"
+    },
+    {
+     "fs": 12,
+     "t": "Independent, venture-backed private company."
+    },
+    {
+     "fs": 12,
+     "t": "Independent, venture-backed private company. Confirmed not p"
+    },
+    {
+     "fs": 12,
+     "t": "Median revenue growth of tracked public suppliers:"
+    },
+    {
+     "fs": 12,
+     "t": "Acquired by Palo Alto Networks · Feb 2026"
+    },
+    {
+     "fs": 12,
+     "t": "Median revenue growth of tracked public suppliers:"
+    },
+    {
+     "fs": 12,
+     "t": "Growth-equity investment (reported as a Series G extension) "
+    },
+    {
+     "fs": 12,
+     "t": "Median revenue growth of tracked public suppliers:"
+    },
+    {
+     "fs": 12,
+     "t": "Median revenue growth of tracked public suppliers:"
+    },
+    {
+     "fs": 12,
+     "t": "Growth financing (no series letter disclosed) $280M · Oct 20"
+    }
+   ],
+   "smallTargets": [
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "A",
+     "t": "src",
+     "w": 27,
+     "h": 18
+    },
+    {
+     "tag": "A",
+     "t": "src",
+     "w": 27,
+     "h": 18
+    },
+    {
+     "tag": "A",
+     "t": "src",
+     "w": 27,
+     "h": 18
+    },
+    {
+     "tag": "A",
+     "t": "src",
+     "w": 27,
+     "h": 18
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "A",
+     "t": "src",
+     "w": 27,
+     "h": 18
+    },
+    {
+     "tag": "A",
+     "t": "src",
+     "w": 27,
+     "h": 18
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "A",
+     "t": "src",
+     "w": 27,
+     "h": 18
+    },
+    {
+     "tag": "A",
+     "t": "src",
+     "w": 27,
+     "h": 18
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "A",
+     "t": "src",
+     "w": 27,
+     "h": 18
+    },
+    {
+     "tag": "A",
+     "t": "src",
+     "w": 27,
+     "h": 18
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "A",
+     "t": "src",
+     "w": 27,
+     "h": 18
+    },
+    {
+     "tag": "A",
+     "t": "src",
+     "w": 27,
+     "h": 18
+    },
+    {
+     "tag": "A",
+     "t": "src",
+     "w": 27,
+     "h": 18
+    },
+    {
+     "tag": "A",
+     "t": "src",
+     "w": 27,
+     "h": 18
+    },
+    {
+     "tag": "A",
+     "t": "src",
+     "w": 27,
+     "h": 18
+    },
+    {
+     "tag": "A",
+     "t": "src",
+     "w": 27,
+     "h": 18
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "BUTTON",
+     "t": "src",
+     "w": 27,
+     "h": 19
+    },
+    {
+     "tag": "A",
+     "t": "Endpoint and XDR",
+     "w": 130,
+     "h": 20
+    },
+    {
+     "tag": "A",
+     "t": "Security operations (SIEM/SOAR",
+     "w": 238,
+     "h": 20
+    },
+    {
+     "tag": "A",
+     "t": "Managed security and MDR",
+     "w": 197,
+     "h": 20
+    },
+    {
+     "tag": "A",
+     "t": "Network and SASE",
+     "w": 133,
+     "h": 20
+    },
+    {
+     "tag": "A",
+     "t": "Cloud security",
+     "w": 103,
+     "h": 20
+    },
+    {
+     "tag": "A",
+     "t": "Identity",
+     "w": 57,
+     "h": 20
+    },
+    {
+     "tag": "A",
+     "t": "Data security",
+     "w": 97,
+     "h": 20
+    },
+    {
+     "tag": "A",
+     "t": "Application security",
+     "w": 143,
+     "h": 20
+    },
+    {
+     "tag": "A",
+     "t": "Email security",
+     "w": 102,
+     "h": 20
+    },
+    {
+     "tag": "A",
+     "t": "OT and IoT security",
+     "w": 140,
+     "h": 20
+    }
+   ],
+   "smallTargetCount": 52,
+   "headings": [
+    {
+     "tag": "H1",
+     "t": "The security market, from public numbers",
+     "top": 215,
+     "visible": true
+    },
+    {
+     "tag": "H2",
+     "t": "Run status",
+     "top": 615,
+     "visible": true
+    },
+    {
+     "tag": "H2",
+     "t": "The market by domain",
+     "top": 734,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "Endpoint and XDR",
+     "top": 1397,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "Security operations (SIEM/SOAR)",
+     "top": 1937,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "Managed security and MDR",
+     "top": 2419,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "Network and SASE",
+     "top": 2915,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "Cloud security",
+     "top": 3481,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "Identity",
+     "top": 4061,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "Data security",
+     "top": 4611,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "Vulnerability and exposure management",
+     "top": 5161,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "Application security",
+     "top": 5748,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "Email security",
+     "top": 6168,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "OT and IoT security",
+     "top": 6733,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "AI security",
+     "top": 7184,
+     "visible": true
+    },
+    {
+     "tag": "H2",
+     "t": "What changed in the last 30 days",
+     "top": 7704,
+     "visible": true
+    },
+    {
+     "tag": "H2",
+     "t": "What this site covers",
+     "top": 10576,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "Not covered",
+     "top": 11913,
+     "visible": true
+    },
+    {
+     "tag": "H2",
+     "t": "The security market, by domain.",
+     "top": 12752,
+     "visible": true
+    },
+    {
+     "tag": "H2",
+     "t": "Network / SASE",
+     "top": 12864,
+     "visible": true
+    },
+    {
+     "tag": "H2",
+     "t": "Data / AI Security",
+     "top": 13035,
+     "visible": true
+    },
+    {
+     "tag": "H2",
+     "t": "Cloud Security",
+     "top": 13206,
+     "visible": true
+    },
+    {
+     "tag": "H2",
+     "t": "Identity",
+     "top": 13378,
+     "visible": true
+    },
+    {
+     "tag": "H2",
+     "t": "What moved",
+     "top": 13690,
+     "visible": true
+    },
+    {
+     "tag": "H2",
+     "t": "M&A and startups",
+     "top": 13841,
+     "visible": true
+    },
+    {
+     "tag": "H2",
+     "t": "Market layers",
+     "top": 13795,
+     "visible": true
+    },
+    {
+     "tag": "H2",
+     "t": "How this is built",
+     "top": 13882,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "The sourcing ladder",
+     "top": 14549,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "How the tracker ages",
+     "top": 15985,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "Signals behind the standing thesis (archived analysis)",
+     "top": 16303,
+     "visible": true
+    },
+    {
+     "tag": "H3",
+     "t": "How that archived call was reasoned (thesis only)",
+     "top": 18062,
+     "visible": true
+    },
+    {
+     "tag": "H2",
+     "t": "Research & evidence library",
+     "top": 13969,
+     "visible": true
+    },
+    {
+     "tag": "H2",
+     "t": "If a figure is wrong, send it",
+     "top": 14801,
+     "visible": true
+    }
+   ],
+   "details": [
+    {
+     "open": false,
+     "summary": "What moved: tracked prints and capital",
+     "top": 13556
+    },
+    {
+     "open": false,
+     "summary": "M&A and funding activity",
+     "top": 13668
+    },
+    {
+     "open": false,
+     "summary": "Zenity raised $115M Series C (+ $10M secondary)$115M + $10MA",
+     "top": 13887
+    },
+    {
+     "open": false,
+     "summary": "Oak raised $60M seed$60MJul 15, 2026",
+     "top": 14017
+    },
+    {
+     "open": false,
+     "summary": "Hush raised $30M with Akamai strategic$30MJul 28, 2026",
+     "top": 14096
+    },
+    {
+     "open": false,
+     "summary": "Cyera to acquire Oasis Security~$1BJul 28, 2026",
+     "top": 14200
+    },
+    {
+     "open": false,
+     "summary": "Onyx raised $113M$113MJul 29, 2026",
+     "top": 14304
+    },
+    {
+     "open": false,
+     "summary": "More in this window (13)",
+     "top": 14396
+    },
+    {
+     "open": false,
+     "summary": "Horizon3.ai raised $250M Series E$250MAug 3, 2026",
+     "top": 14437
+    },
+    {
+     "open": false,
+     "summary": "CrowdStrike fund backed Above SecurityUndisclosedAug 3, 2026",
+     "top": 14541
+    },
+    {
+     "open": false,
+     "summary": "Glow emerged with $180M$180MJul 22, 2026",
+     "top": 14671
+    },
+    {
+     "open": false,
+     "summary": "Cathedral raised $160M$160MJul 20, 2026",
+     "top": 14775
+    },
+    {
+     "open": false,
+     "summary": "Neo launched with $100M$100MJul 20, 2026",
+     "top": 14879
+    },
+    {
+     "open": false,
+     "summary": "Cisco invested in ZafranUndisclosedJul 20, 2026",
+     "top": 14984
+    },
+    {
+     "open": false,
+     "summary": "Arcade just appeared (Series A 2026)UndisclosedJul 1, 2026",
+     "top": 15088
+    },
+    {
+     "open": false,
+     "summary": "CodeIntegrity just appeared (Seed 2026)UndisclosedJul 1, 202",
+     "top": 15243
+    },
+    {
+     "open": false,
+     "summary": "Cisco completed AstrixUndisclosedJun 29, 2026",
+     "top": 15373
+    },
+    {
+     "open": false,
+     "summary": "F5 closed SurePath AI$50.1MJun 15, 2026",
+     "top": 15503
+    },
+    {
+     "open": false,
+     "summary": "Cyera raised $600M at $12B$600M / $12BJun 10, 2026",
+     "top": 15607
+    },
+    {
+     "open": false,
+     "summary": "Palo Alto closed PortkeyUndisclosedMay 29, 2026",
+     "top": 15737
+    },
+    {
+     "open": false,
+     "summary": "Zscaler intends Symmetry SystemsIntentMay 21, 2026",
+     "top": 15841
+    },
+    {
+     "open": false,
+     "summary": "Background — last disclosed raises (6)",
+     "top": 14464
+    },
+    {
+     "open": false,
+     "summary": "Google closed Wiz$32BMar 11, 2026",
+     "top": 14531
+    },
+    {
+     "open": false,
+     "summary": "Palo Alto closed CyberArk$25BFeb 11, 2026",
+     "top": 14610
+    },
+    {
+     "open": false,
+     "summary": "F5 closed CalypsoAI$145.2MSep 26, 2025",
+     "top": 14714
+    },
+    {
+     "open": false,
+     "summary": "Palo Alto closed Protect AI$634.5MJul 22, 2025",
+     "top": 14818
+    },
+    {
+     "open": false,
+     "summary": "Lumos last disclosed $35M Series B$35MMay 23, 2024",
+     "top": 14922
+    },
+    {
+     "open": false,
+     "summary": "Secuvy last disclosed seedSeedMar 10, 2023",
+     "top": 15026
+    },
+    {
+     "open": false,
+     "summary": "Market layers",
+     "top": 13755
+    },
+    {
+     "open": false,
+     "summary": "View data table (accessible alternative)",
+     "top": 15522
+    },
+    {
+     "open": false,
+     "summary": "How this is built",
+     "top": 13842
+    },
+    {
+     "open": false,
+     "summary": "Research & evidence",
+     "top": 13929
+    }
+   ],
+   "tables": [
+    {
+     "cap": "Tracked suppliers in Endpoint and XDR",
+     "rows": 6,
+     "top": 1425,
+     "h": 487,
+     "w": 286,
+     "fontVariant": "normal"
+    },
+    {
+     "cap": "Tracked suppliers in Security operations (SIEM/SOAR)",
+     "rows": 7,
+     "top": 1966,
+     "h": 428,
+     "w": 286,
+     "fontVariant": "normal"
+    },
+    {
+     "cap": "Tracked suppliers in Managed security and MDR",
+     "rows": 7,
+     "top": 2447,
+     "h": 443,
+     "w": 286,
+     "fontVariant": "normal"
+    },
+    {
+     "cap": "Tracked suppliers in Network and SASE",
+     "rows": 7,
+     "top": 2944,
+     "h": 512,
+     "w": 286,
+     "fontVariant": "normal"
+    },
+    {
+     "cap": "Tracked suppliers in Cloud security",
+     "rows": 7,
+     "top": 3509,
+     "h": 527,
+     "w": 286,
+     "fontVariant": "normal"
+    },
+    {
+     "cap": "Tracked suppliers in Identity",
+     "rows": 7,
+     "top": 4090,
+     "h": 496,
+     "w": 286,
+     "fontVariant": "normal"
+    },
+    {
+     "cap": "Tracked suppliers in Data security",
+     "rows": 7,
+     "top": 4640,
+     "h": 496,
+     "w": 286,
+     "fontVariant": "normal"
+    },
+    {
+     "cap": "Tracked suppliers in Vulnerability and exposure management",
+     "rows": 7,
+     "top": 5211,
+     "h": 512,
+     "w": 286,
+     "fontVariant": "normal"
+    },
+    {
+     "cap": "Tracked suppliers in Application security",
+     "rows": 6,
+     "top": 5776,
+     "h": 367,
+     "w": 286,
+     "fontVariant": "normal"
+    },
+    {
+     "cap": "Tracked suppliers in Email security",
+     "rows": 7,
+     "top": 6197,
+     "h": 512,
+     "w": 286,
+     "fontVariant": "normal"
+    },
+    {
+     "cap": "Tracked suppliers in OT and IoT security",
+     "rows": 6,
+     "top": 6762,
+     "h": 397,
+     "w": 286,
+     "fontVariant": "normal"
+    },
+    {
+     "cap": "Tracked suppliers in AI security",
+     "rows": 7,
+     "top": 7213,
+     "h": 458,
+     "w": 286,
+     "fontVariant": "normal"
+    },
+    {
+     "cap": "Derived panel indices by quarter (2023-Q1 = 100)",
+     "rows": 13,
+     "top": 15582,
+     "h": 497,
+     "w": 769,
+     "fontVariant": "normal"
+    },
+    {
+     "cap": "The five-rung sourcing ladder, strongest first",
+     "rows": 5,
+     "top": 14812,
+     "h": 1152,
+     "w": 283,
+     "fontVariant": "normal"
+    },
+    {
+     "cap": "Signal families used in this analysis, with examples and how",
+     "rows": 2,
+     "top": 16561,
+     "h": 1480,
+     "w": 329,
+     "fontVariant": "normal"
+    }
+   ],
+   "bodyFont": "\"IBM Plex Sans\", system-ui, sans-serif",
+   "bodySize": "16px"
+  },
+  "axe": [],
+  "tabStops": [
+   {
+    "tag": "A",
+    "t": "Skip to main content",
+    "href": "#main",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Security Market Pulse",
+    "href": "#overview",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "BUTTON",
+    "t": "Menu",
+    "href": null,
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Endpoint and XDR (6)",
+    "href": "#domain-endpoint-xdr",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Security operations (SIEM/SOAR) (7)",
+    "href": "#domain-secops",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Managed security and MDR (7)",
+    "href": "#domain-managed-security",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Network and SASE (7)",
+    "href": "#domain-network-sase",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Cloud security (7)",
+    "href": "#domain-cloud",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Identity (7)",
+    "href": "#domain-identity",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Data security (7)",
+    "href": "#domain-data",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Vulnerability and exposure management (7",
+    "href": "#domain-exposure",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Application security (6)",
+    "href": "#domain-appsec",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Email security (7)",
+    "href": "#domain-email",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "OT and IoT security (6)",
+    "href": "#domain-ot-iot",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "AI security (7)",
+    "href": "#domain-ai-security",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "BUTTON",
+    "t": "Supplier↑",
+    "href": null,
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "BUTTON",
+    "t": "Rev. growth",
+    "href": null,
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "BUTTON",
+    "t": "Prior q",
+    "href": null,
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "BUTTON",
+    "t": "Own metric",
+    "href": null,
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "BUTTON",
+    "t": "Ownership or last round",
+    "href": null,
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "BUTTON",
+    "t": "Events, 12 mo.",
+    "href": null,
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "BUTTON",
+    "t": "CrowdStrike+26%+",
+    "href": null,
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "BUTTON",
+    "t": "Microsoft Defender for EndpointSegment o",
+    "href": null,
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "BUTTON",
+    "t": "Palo Alto Networks+34%+",
+    "href": null,
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "BUTTON",
+    "t": "SentinelOne+21%+",
+    "href": null,
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   }
+  ]
+ },
+ "corr-1440": {
+  "metrics": {
+   "scrollWidth": 1440,
+   "clientWidth": 1440,
+   "pageHeight": 1033,
+   "chromeTop": 113,
+   "mainTop": 89,
+   "headerH": 53,
+   "foldText": "Skip to main content | Security Market Pulse | AS OF | 26 Sep 2026 | Sourced facts, checked and published automatically. No stances, rankings or forecasts. | Security Market Pulse | Status | Archive | Market | Landscape | Evidence | Method | Feed | September 26, 2026 | Corrections | A published issue is never edited after the fact. When something in one is wrong, the fix is a dated note placed beside the item on the page, and the correction is listed here too, with the original left in the record exactly as it was published. The standing tables are different: a wrong entry there is fixed in place, given the date of the fix, and listed here. To report an error, write to | jesse@keatingpike.com | . | 21 Sep 2026 | Correction, 21 September 2026. The Platform pressure table described three closed acquisitions as cloud security absorbed into a hyperscaler: Palo Alto Networks acquiring Protect AI, and F5 acquiring CalypsoAI and SurePath AI. Neither Palo Alto Networks nor F5 is a hyperscaler, and all three targets are AI security companies, not cloud security companies. Each of those three rows now reads \"AI security absorbed into a platform vendor. Watch whether it survives as a product or becomes a feature.\" and is dated to this approval. The row for Wiz, bought by Google, was correct as printed and is unchanged. Jesse Pike. | Approved by | Jesse Pike | 20 Sep 2026 | · | Issue | 2026-w36 | Correction, 20 September 2026. In the issue for the week ending 6 September 2026, two headlines gave a quarterly revenue figure as a full-year figure. Zscaler's revenue of $898.2 million and Palo Alto Networks' revenue of $3.41 billion are each for the fiscal fourth quarter ended 31 July 2026, not for fiscal year 2026. The growth rates and the recurring-revenue figures were stated correctly. The same issue described Palo Alto's 63 percent growth in Next-Generation Security recurring revenue as the fastest of the week's results; that figure is a company-defined segment and is not comparable with other companies' total revenue growth, so the comparison is withdrawn. The original text is unchanged in the record. Jesse Pike. | Approved by | Jesse Pike",
+   "fontSizes": [
+    10,
+    12,
+    13,
+    14,
+    15.2,
+    16,
+    42.4
+   ],
+   "smallTexts": [
+    {
+     "fs": 10,
+     "t": "Sourced facts, checked and published automatically. No stanc"
+    }
+   ],
+   "smallTargets": [
+    {
+     "tag": "A",
+     "t": "jesse@keatingpike.com",
+     "w": 170,
+     "h": 20
+    },
+    {
+     "tag": "A",
+     "t": "Issue 2026-w36",
+     "w": 98,
+     "h": 15
+    },
+    {
+     "tag": "A",
+     "t": "Back to the standing reference",
+     "w": 222,
+     "h": 20
+    }
+   ],
+   "smallTargetCount": 3,
+   "headings": [
+    {
+     "tag": "H1",
+     "t": "Corrections",
+     "top": 129,
+     "visible": true
+    }
+   ],
+   "details": [],
+   "tables": [],
+   "bodyFont": "\"IBM Plex Sans\", system-ui, sans-serif",
+   "bodySize": "16px"
+  },
+  "axe": [],
+  "tabStops": [
+   {
+    "tag": "A",
+    "t": "Skip to main content",
+    "href": "#main",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Security Market Pulse",
+    "href": "/#overview",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Status",
+    "href": "/#overview",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Archive",
+    "href": "/issues/",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Market",
+    "href": "/#market",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Landscape",
+    "href": "/#landscape",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Evidence",
+    "href": "/#research",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Method",
+    "href": "/#method",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Feed",
+    "href": "/feed.xml",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "jesse@keatingpike.com",
+    "href": "mailto:jesse@keatingpike.com?subject=Security%20Market%20Pulse%20%E2%80%94%20correction%20or%20question",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Issue 2026-w36",
+    "href": "/issues/2026-w36/",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Back to the standing reference",
+    "href": "/",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "BODY",
+    "t": "Skip to main contentSecurity Market Puls",
+    "href": null,
+    "outline": "none 3px rgb(58, 66, 78)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Skip to main content",
+    "href": "#main",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Security Market Pulse",
+    "href": "/#overview",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Status",
+    "href": "/#overview",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Archive",
+    "href": "/issues/",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Market",
+    "href": "/#market",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Landscape",
+    "href": "/#landscape",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Evidence",
+    "href": "/#research",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Method",
+    "href": "/#method",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Feed",
+    "href": "/feed.xml",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "jesse@keatingpike.com",
+    "href": "mailto:jesse@keatingpike.com?subject=Security%20Market%20Pulse%20%E2%80%94%20correction%20or%20question",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Issue 2026-w36",
+    "href": "/issues/2026-w36/",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Back to the standing reference",
+    "href": "/",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   }
+  ]
+ },
+ "corr-390": {
+  "metrics": {
+   "scrollWidth": 390,
+   "clientWidth": 390,
+   "pageHeight": 1642,
+   "chromeTop": 174,
+   "mainTop": 150,
+   "headerH": 97,
+   "foldText": "Skip to main content | Security Market Pulse | AS OF | 26 Sep 2026 | Sourced facts, checked and published automatically. No stances, rankings or forecasts. | Security Market Pulse | Menu | September 26, 2026 | Corrections | A published issue is never edited after the fact. When something in one is wrong, the fix is a dated note placed beside the item on the page, and the correction is listed here too, with the original left in the record exactly as it was published. The standing tables are different: a wrong entry there is fixed in place, given the date of the fix, and listed here. To report an error, write to | jesse@keatingpike.com | . | 21 Sep 2026 | Correction, 21 September 2026. The Platform pressure table described three closed acquisitions as cloud security absorbed into a hyperscaler: Palo Alto Networks acquiring Protect AI, and F5 acquiring CalypsoAI and SurePath AI. Neither Palo Alto Networks nor F5 is a hyperscaler, and all three targets are AI security companies, not cloud security companies. Each of those three rows now reads \"AI security absorbed into a platform vendor. Watch whether it survives as a product or becomes a feature.\" and is dated to this approval. The row for Wiz, bought by Google, was correct as printed and is unchanged. Jesse Pike.",
+   "fontSizes": [
+    10,
+    12,
+    13,
+    14,
+    15.2,
+    16,
+    28
+   ],
+   "smallTexts": [
+    {
+     "fs": 10,
+     "t": "Sourced facts, checked and published automatically. No stanc"
+    }
+   ],
+   "smallTargets": [
+    {
+     "tag": "A",
+     "t": "jesse@keatingpike.com",
+     "w": 170,
+     "h": 20
+    },
+    {
+     "tag": "A",
+     "t": "Issue 2026-w36",
+     "w": 98,
+     "h": 15
+    },
+    {
+     "tag": "A",
+     "t": "Back to the standing reference",
+     "w": 222,
+     "h": 20
+    }
+   ],
+   "smallTargetCount": 3,
+   "headings": [
+    {
+     "tag": "H1",
+     "t": "Corrections",
+     "top": 190,
+     "visible": true
+    }
+   ],
+   "details": [],
+   "tables": [],
+   "bodyFont": "\"IBM Plex Sans\", system-ui, sans-serif",
+   "bodySize": "16px"
+  },
+  "axe": [],
+  "tabStops": [
+   {
+    "tag": "A",
+    "t": "Skip to main content",
+    "href": "#main",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Security Market Pulse",
+    "href": "/#overview",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "BUTTON",
+    "t": "Menu",
+    "href": null,
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "jesse@keatingpike.com",
+    "href": "mailto:jesse@keatingpike.com?subject=Security%20Market%20Pulse%20%E2%80%94%20correction%20or%20question",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Issue 2026-w36",
+    "href": "/issues/2026-w36/",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Back to the standing reference",
+    "href": "/",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "BODY",
+    "t": "Skip to main contentSecurity Market Puls",
+    "href": null,
+    "outline": "none 3px rgb(58, 66, 78)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Skip to main content",
+    "href": "#main",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Security Market Pulse",
+    "href": "/#overview",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "BUTTON",
+    "t": "Menu",
+    "href": null,
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "jesse@keatingpike.com",
+    "href": "mailto:jesse@keatingpike.com?subject=Security%20Market%20Pulse%20%E2%80%94%20correction%20or%20question",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Issue 2026-w36",
+    "href": "/issues/2026-w36/",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Back to the standing reference",
+    "href": "/",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "BODY",
+    "t": "Skip to main contentSecurity Market Puls",
+    "href": null,
+    "outline": "none 3px rgb(58, 66, 78)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Skip to main content",
+    "href": "#main",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Security Market Pulse",
+    "href": "/#overview",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "BUTTON",
+    "t": "Menu",
+    "href": null,
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "jesse@keatingpike.com",
+    "href": "mailto:jesse@keatingpike.com?subject=Security%20Market%20Pulse%20%E2%80%94%20correction%20or%20question",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Issue 2026-w36",
+    "href": "/issues/2026-w36/",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Back to the standing reference",
+    "href": "/",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "BODY",
+    "t": "Skip to main contentSecurity Market Puls",
+    "href": null,
+    "outline": "none 3px rgb(58, 66, 78)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Skip to main content",
+    "href": "#main",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "Security Market Pulse",
+    "href": "/#overview",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "BUTTON",
+    "t": "Menu",
+    "href": null,
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   },
+   {
+    "tag": "A",
+    "t": "jesse@keatingpike.com",
+    "href": "mailto:jesse@keatingpike.com?subject=Security%20Market%20Pulse%20%E2%80%94%20correction%20or%20question",
+    "outline": "solid 2px rgb(11, 107, 94)",
+    "boxShadow": "none"
+   }
+  ]
+ }
+}

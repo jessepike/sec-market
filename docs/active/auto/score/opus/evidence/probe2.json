@@ -1,0 +1,43 @@
+{
+ "axeCheck": {
+  "v": [],
+  "passes": 44,
+  "incomplete": [
+   [
+    "color-contrast",
+    12
+   ]
+  ]
+ },
+ "srcPopover1440": {
+  "cls": "evidence-drawer",
+  "txt": "EvidenceCrowdStrike Q2 FY2027 Financial ResultsCrowdStrike Holdings, Inc.Publication date2026-08-26Economic periodQuarter ended 2026-07-31Source classFILINGPacket labelSEC-MARKET-AUTO-001-STEP5 / TR-crwd-1Canonical sourceExcerpt / locatorRevenue of $1.47 billion, up 26% year over year. Subscription revenue of $1.40 billion, up 27%. ARR of $5.84 billion, up 25% year over year.InterpretationLimitations / confounds",
+  "hrefs": [
+   "https://www.sec.gov/Archives/edgar/data/0001535527/000153552726000029/crwd-20260826xex991.htm"
+  ]
+ },
+ "scrollAfterClick": [
+  0,
+  0
+ ],
+ "expanded1440": "Network and SASE\nTracked suppliers in Network and SASE\nSupplier\n↑\n\tRev. growth\n\tPrior q\n\tOwn metric\n\tOwnership or last round\n\tEvents, 12 mo.\n\n\nCato Networks\n\t–\t–\t\nARR $350+ million\nsrc\n\t\nSeries G $409M (initial close $359M plus extension $50M) · Jun 2025\nsrc\n\t\n1 · latest results, 24 Feb 26\nsrc\n\n\nCheck Point\n\t\n1%\nQ Jun 26\nsrc\n\t\n5%\nQ Mar 26\nsrc\n\t\nTotal Revenue $674M · Q Jun 26\nsrc\n\t\nPublic · CHKP\nsrc\n\t\n3 · latest debt, 30 Jul 26\nsrc\n\n\nCloudflare\n\t\n36%\nQ Jun 26\nsrc\n\t\n34%\nQ Mar 26\nsrc\n\t\nRevenue $696.1M · Q Jun 26\nsrc\n\t\nPublic · NET\nsrc\n\t\n3 · latest debt, 13 Aug 26\nsrc\n\n\nFortinet\n\t\n26%\nQ Jun 26\nsrc\n\t\n20%\nQ Mar 26\nsrc\n\t\nBillings $2.37B · Q Jun 26\nsrc\n\t\nPublic · FTNT\nsrc\n\t0\n\nNetskope\n\t\n29%\nQ Jul 26\nsrc\n\t\n28%\nQ Apr 26\nsrc\n\t\nARR $899M · Q Jul 26\nsrc\n\t\nPublic · NTSK\nsrc\n\t\n3 · latest restructuring, 2 Sep 26\nsrc\n\n\nPalo Alto Networks\n\t\n+34%\nQ Jul 26\nsrc\n\t\n+31%\nQ Apr 26\nsrc\n\t\nNGS ARR $9.10B · Q Jul 26\nsrc\n\t\nPublic · PANW\nsrc\n\t\n2 · latest results, 1 Sep 26\nsrc\n\n\nZscaler\n\t\n25%\nQ Jul 26\nsrc\n\t\n25%\nQ Apr 26\nsrc\n\t\nARR $3,771M · Q Jul 26\nsrc\n\t\nPublic · ZS\nsrc\n\t\n3 · latest exec-change, 24 Sep 26\nsrc\n\nMedian revenue growth of tracked public suppliers: +27.5%",
+ "landscapePopover": "Evidence\nFortinet Q2 2026 Results\n\nFortinet\n\nPublication date\n2026-07-29\nEconomic period\nQuarter ended 2026-06-30\nSource class\nIR\nPacket label\nSEC-MARKET-SIG-SRC-002 / C3\n\nCanonical source\n\nEXCERPT / LOCATOR\nRevenue grew 26%… Product revenue grew 52%… Billings grew 33%.\nINTERPRETATION\n\nCurrent network/firewall demand is real; strongest realized network-security acceleration in the panel.\n\nLIMITATIONS / CONFOUNDS\n\nRefresh, pricing, and share shift may explain part of the result independently of AI infrastructure.\n\nCONFLICTING EVIDENCE\nCheck Point — Check Point Q2 2026 Results\n\nNear-flat total revenue. Blocks a uniform network-security acceleration call.\n\nCisco — Cisco Security Q4 and FY2026 Results\n\nQuarterly momentum improved; full-year security breadth remained weak.\n\nIANS Research — IANS Security Budget Benchmark (2023–2025)\n\nNo simultaneous broad security-budget acceleration; security lost share of IT as AI and cloud IT spending rebounded.\n\nSEC-MARKET-SIG-BL-002 — Lag Hypothesis Disposition — Episode 002 Baseline\n\nThe evidence supports a descriptive sequence, not a constant infrastructure-to-security lag.\n\nCato Networks ARR milestone update\n\nCato Networks\n\nPublication date\n2026-08-20\nEconomic period\nARR milestone referenced in company blog, August 2026 (originally announced 2026-07-27)\nSource class\nIR\nPacket label\nScorecard refresh 2026-09-25 / C27\n\nCanonical source\n\nEXCERPT / LOCATOR\nCato’s momentum continues to accelerate. We recently surpassed $415 million in annual recurring revenue, growing 42% year over year, and now serve more than 4,800 customers worldwide.\nINTERPRETATION\n\nSupersedes the prior $350M/2025 ARR print with a materially larger, more recent company-stated milestone.\n\nLIMITATIONS / CONFOUNDS\n\nCompany-stated, not an audited filing. The originating 2026-07-27 press release (catonetworks.com/news/) returned an Incapsula bot challenge on every fetch attempt this session; this record instead cites the same figure as restated in Cato’s own blog, retri || https://investor.fortinet.com/news-releases/news-release-details/fortinet-reports-strong-second-quarter-2026-financial-results https://www.catonetworks.com/blog/three-years-as-a-leader-built-for-where-the-market-is-going/ https://www.sec.gov/Archives/edgar/data/2063196/000119312526380188/ntsk-ex99_1.htm",
+ "sorted": "Cato Networks, Check Point, Zscaler, Fortinet, Netskope, Palo Alto Networks, Cloudflare",
+ "hscroll390": {
+  "x": 0,
+  "htmlOx": "clip",
+  "bodyOx": "visible",
+  "sw": 615
+ },
+ "rowBtn390": {
+  "x": 17,
+  "y": 433.34375,
+  "width": 356,
+  "height": 44
+ },
+ "expanded390": "Network and SASE\nTracked suppliers in Network and SASE\nSupplier\n↑\n\tRev. growth\n\tPrior q\n\tOwn metric\n\tOwnership or last round\n\tEvents, 12 mo.\nCato Networks\nSeries G $409M (initial close $359M plus extension $50M) · Jun 2025\n+\nCheck Point\n1%\n+\nCloudflare\n36%\n+\nFortinet\n−\n26%\nQ Jun 26\nsrc\n20%\nQ Mar 26\nsrc\nBillings $2.37B · Q Jun 26\nsrc\nPublic · FTNT\nsrc\n0\nNetskope\n29%\n+\nPalo Alto Networks\n+34%\n+\nZscaler\n25%\n+\nMedian revenue growth of tracked public suppliers: +27.5%",
+ "hscroll320": {
+  "x": 0,
+  "sw": 615
+ }
+}
