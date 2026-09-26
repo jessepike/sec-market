@@ -191,7 +191,7 @@ export const trackerEvents: TrackerEvent[] = [
     "id": "EV-cyberark-1",
     "supplierId": "cyberark",
     "date": "2026-02-11",
-    "type": "shutdown",
+    "type": "acquisition",
     "text": "CyberArk ceased to exist as an independent SEC filer and public entity, absorbed into Palo Alto Networks.",
     "evidenceIds": [
       "TR-cyberark-2"
@@ -318,28 +318,6 @@ export const trackerEvents: TrackerEvent[] = [
       "TR-mimecast-2"
     ],
     "rung": 2
-  },
-  {
-    "id": "EV-msft-defender-1",
-    "supplierId": "msft-defender-o365",
-    "date": "2026-07-29",
-    "type": "results",
-    "text": "FY2026 revenue $331.839 billion, +18% YoY.",
-    "evidenceIds": [
-      "TR-msft-defender-1"
-    ],
-    "rung": 1
-  },
-  {
-    "id": "EV-msft-entra-1",
-    "supplierId": "msft-entra",
-    "date": "2026-07-29",
-    "type": "results",
-    "text": "FY2026 revenue $331.839 billion, +18% YoY.",
-    "evidenceIds": [
-      "TR-msft-entra-1"
-    ],
-    "rung": 1
   },
   {
     "id": "EV-netskope-2",
@@ -631,7 +609,7 @@ export const trackerEvents: TrackerEvent[] = [
     "id": "EV-varonis-3",
     "supplierId": "varonis",
     "date": "2025-10-29",
-    "type": "divestiture",
+    "type": "restructuring",
     "text": "Varonis disclosed plans to end-of-life its self-hosted, on-premises product effective December 31, 2026, as part of its Q3 2025 results commentary.",
     "evidenceIds": [
       "TR-varonis-2"
@@ -723,6 +701,83 @@ export const trackerEvents: TrackerEvent[] = [
     "text": "CRO Mike Rich stepped down effective October 1, 2026, succeeded by Ross Tackett. EVP Raj Judge resigned board seat effective April 16, 2026.",
     "evidenceIds": [
       "TR-zscaler-4"
+    ],
+    "rung": 1
+  },
+  {
+    "id": "EV-torq-1",
+    "supplierId": "torq",
+    "date": "2026-01-09",
+    "type": "funding",
+    "text": "Torq raised a $140 million Series D round led by Merlin Ventures at a $1.2 billion valuation.",
+    "evidenceIds": [
+      "TR-torq-1"
+    ],
+    "rung": 4
+  },
+  {
+    "id": "EV-upwind-1",
+    "supplierId": "upwind",
+    "date": "2026-01-26",
+    "type": "funding",
+    "text": "Upwind raised a $250 million Series B round led by Bessemer Venture Partners, achieving unicorn status.",
+    "evidenceIds": [
+      "TR-upwind-1"
+    ],
+    "rung": 4
+  },
+  {
+    "id": "EV-chainguard-1",
+    "supplierId": "chainguard",
+    "date": "2025-10-23",
+    "type": "funding",
+    "text": "Chainguard raised $280 million in growth financing led by General Catalyst's Customer Value Fund.",
+    "evidenceIds": [
+      "TR-chainguard-1"
+    ],
+    "rung": 4
+  },
+  {
+    "id": "EV-claroty-1",
+    "supplierId": "claroty",
+    "date": "2026-01-22",
+    "type": "funding",
+    "text": "Claroty raised $150 million in growth equity led by Golub Growth at a $3 billion valuation.",
+    "evidenceIds": [
+      "TR-claroty-1"
+    ],
+    "rung": 4
+  },
+  {
+    "id": "EV-xage-1",
+    "supplierId": "xage",
+    "date": "2026-03-18",
+    "type": "funding",
+    "text": "Xage closed a $15 million equity round led by Piva Capital in December 2025, reported 18 March 2026.",
+    "evidenceIds": [
+      "TR-xage-1"
+    ],
+    "rung": 4
+  },
+  {
+    "id": "EV-nozomi-1",
+    "supplierId": "nozomi",
+    "date": "2026-01-29",
+    "type": "acquisition",
+    "text": "Mitsubishi Electric Corporation completed its acquisition of Nozomi Networks, which now operates as a wholly owned subsidiary while maintaining independent, vendor-neutral operations.",
+    "evidenceIds": [
+      "TR-nozomi-2"
+    ],
+    "rung": 2
+  },
+  {
+    "id": "EV-rapid7-5",
+    "supplierId": "rapid7",
+    "date": "2026-08-31",
+    "type": "exec-change",
+    "text": "Four board members — Michael Burns, Benjamin Holzman, Thomas Schodorf, and Reeny Sondhi — resigned from the board, effective August 27, 2026, disclosed in an 8-K (Item 5.02). The filing states the resignations were not due to any disagreement with the company.",
+    "evidenceIds": [
+      "TR-rapid7-5"
     ],
     "rung": 1
   }

@@ -101,10 +101,13 @@ jobs:
 
           You may only write within this allowlist: web/src/data/generated/**,
           web/src/data/tracker/events.ts, web/src/data/tracker/suppliers.ts,
-          web/src/data/evidence.ts, web/src/data/runStatus.ts. Anything else
-          you touch will cause the whole run to be refused and nothing will
-          publish, so if the brief seems to need a change outside that list,
-          stop and say so in your final output instead of making it.
+          web/src/data/evidence.ts. Anything else you touch will cause the
+          whole run to be refused and nothing will publish, so if the brief
+          seems to need a change outside that list, stop and say so in your
+          final output instead of making it. (AUTO-001 fix pass 2, item 4:
+          web/src/data/runStatus.ts dropped out of this list — it is a
+          derived module now, computed from files already in
+          web/src/data/generated/**, and nothing writes it by hand.)
           EOF
 
           claude -p "$(cat /tmp/collect-prompt.txt)" \

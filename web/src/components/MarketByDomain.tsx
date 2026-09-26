@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import {
   eventSummaryForSupplier,
+  formatFiledDate,
   formatHeadlineCompact,
   formatOwnershipCompact,
   formatShortDate,
@@ -11,7 +12,7 @@ import {
   suppliersForDomain,
 } from '../data/tracker/derive'
 import { trackerDomains } from '../data/tracker/domains'
-import type { RevenuePeriod, TrackerSupplier } from '../data/tracker/suppliers'
+import type { RevenuePeriod, RevenuePeriodLatest, TrackerSupplier } from '../data/tracker/suppliers'
 import { EvidenceLink } from './EvidenceLink'
 
 type SortKey = 'name' | 'growthLatest' | 'growthPrior' | 'headline' | 'capital' | 'events'
@@ -65,13 +66,29 @@ function sortSuppliers(suppliers: TrackerSupplier[], sort: SortState): TrackerSu
   return sorted
 }
 
-/** One growth figure ("+26%") with its muted mono period ("Q Jul 26") and a compact source link — used for both the latest and the prior quarter column. */
+/**
+ * One growth figure ("+26%") with its muted mono period ("Q Jul 26") and a
+ * compact source link — used for both the latest and the prior quarter
+ * column. AUTO-001 fix pass 2, item 7: the latest-quarter figure also
+ * carries the report's filing date ("Q Jul 26 · filed 26 Aug") — a blind
+ * scorer cannot tell how stale a figure is without knowing when it was
+ * actually filed, not just which quarter it describes. `prior` periods have
+ * no `releaseDate` in the data (research only recorded the filing date for
+ * the quarter actually reported on), so they show the period alone.
+ */
 function GrowthCell({ period, context }: { period: RevenuePeriod | undefined; context: string }) {
   if (!period) return <span className="tracker-figure--empty">{'–'}</span>
+  // `prior` periods are plain `RevenuePeriod`, with no `releaseDate` field;
+  // only `RevenuePeriodLatest` carries one. The cast is read-only — it never
+  // fabricates a date, it just lets a `latest` period's real field through.
+  const releaseDate = (period as Partial<RevenuePeriodLatest>).releaseDate
   return (
     <span className="tracker-figure">
       <span className="tracker-figure__value">{period.yoyGrowth}</span>{' '}
-      <span className="tracker-figure__period">{formatShortQuarter(period.periodEnd)}</span>
+      <span className="tracker-figure__period">
+        {formatShortQuarter(period.periodEnd)}
+        {releaseDate ? <> {'·'} filed {formatFiledDate(releaseDate)}</> : null}
+      </span>
       <EvidenceLink ids={period.evidenceIds} variant="compact" context={context} />
     </span>
   )
@@ -90,7 +107,26 @@ function CapitalCell({ supplier }: { supplier: TrackerSupplier }) {
   )
 }
 
-function DomainTable({ domainId, domainName }: { domainId: string; domainName: string }) {
+function DomainTable({
+  domainId,
+  domainName,
+  anchoredSupplierIds,
+}: {
+  domainId: string
+  domainName: string
+  /**
+   * A handful of suppliers (Palo Alto Networks, CrowdStrike, Check Point's
+   * SASE segment) carry more than one `domainId` and so render a row in more
+   * than one domain's table. `id="s-<supplierId>"` (item 8) must stay a
+   * document-unique id — two elements sharing one id is invalid HTML and
+   * makes the *second* occurrence unreachable by anchor anyway, since the
+   * browser jumps to the first match. This set is created once per page
+   * render in `MarketByDomain` and threaded through every `DomainTable` in
+   * `trackerDomains` order, so only the first table a given supplier appears
+   * in claims the anchor; later occurrences render the row without one.
+   */
+  anchoredSupplierIds: Set<string>
+}) {
   const [sort, setSort] = useState<SortState>({ key: 'name', direction: 'asc' })
   // Phone only (see the @media (max-width: 640px) block in index.css) — a
   // supplier row is collapsed to its name and one summary figure until this
@@ -147,8 +183,14 @@ function DomainTable({ domainId, domainName }: { domainId: string; domainName: s
               // Phone's collapsed-row summary: latest revenue growth if the
               // company reports one, otherwise its ownership state.
               const rowSummary = supplier.revenue?.latest.yoyGrowth ?? formatOwnershipCompact(supplier)
+              const claimsAnchor = !anchoredSupplierIds.has(supplier.id)
+              if (claimsAnchor) anchoredSupplierIds.add(supplier.id)
               return (
-                <tr key={supplier.id} className={isExpanded ? 'tracker-row--expanded' : undefined}>
+                <tr
+                  key={supplier.id}
+                  id={claimsAnchor ? `s-${supplier.id}` : undefined}
+                  className={isExpanded ? 'tracker-row--expanded' : undefined}
+                >
                   <td data-label="Supplier">
                     <button
                       type="button"
@@ -248,8 +290,20 @@ function DomainIndex() {
  * at the top, and a phone-width collapsed-row pattern — see index.css's
  * `@media (max-width: 640px)` block and DomainTable's `expanded` state
  * above.
+ *
+ * AUTO-001 fix pass 2, item 8: every supplier row carries a stable anchor,
+ * `id="s-<supplierId>"`, so a single figure can be linked directly rather
+ * than only "somewhere in this domain's table" — see index.css's
+ * `tr[id] { scroll-margin-top: ... }` rule, which keeps the sticky header
+ * from covering the row a link lands on. A few suppliers (Palo Alto
+ * Networks, CrowdStrike, Check Point's SASE segment) sit in more than one
+ * domain and so render more than one row; `anchoredSupplierIds` (created
+ * fresh on every render, threaded through each `DomainTable` in
+ * `trackerDomains` order) makes sure only the first such row claims the id,
+ * keeping it a valid, document-unique anchor.
  */
 export function MarketByDomain() {
+  const anchoredSupplierIds = new Set<string>()
   return (
     <section id="market" className="tracker-market" aria-labelledby="market-heading">
       <div className="section-heading">
@@ -264,7 +318,12 @@ export function MarketByDomain() {
       <DomainIndex />
       <div className="tracker-domains">
         {trackerDomains.map((domain) => (
-          <DomainTable key={domain.id} domainId={domain.id} domainName={domain.name} />
+          <DomainTable
+            key={domain.id}
+            domainId={domain.id}
+            domainName={domain.name}
+            anchoredSupplierIds={anchoredSupplierIds}
+          />
         ))}
       </div>
     </section>

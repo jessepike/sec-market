@@ -55,21 +55,26 @@ check_not_contains() {
 echo "--- is_allowed_data_path (file allowlist guard) ---"
 for allowed in \
   "web/src/data/generated/edgarFacts.json" \
+  "web/src/data/generated/collectState.json" \
   "web/src/data/generated/nested/deeper.json" \
   "web/src/data/tracker/events.ts" \
   "web/src/data/tracker/suppliers.ts" \
-  "web/src/data/evidence.ts" \
-  "web/src/data/runStatus.ts"; do
+  "web/src/data/evidence.ts"; do
   if is_allowed_data_path "$allowed" "web"; then
     echo "PASS: $allowed is allowed"
   else
     echo "FAIL: $allowed should be allowed"; FAILURES=$((FAILURES + 1))
   fi
 done
+# AUTO-001 fix pass 2, item 4: web/src/data/runStatus.ts is a derived module
+# now (computed from the two generated/* files above), not a hand-set data
+# file, so it dropped out of the allowlist — a change to it is a code
+# change again and must NOT qualify for the autonomous data-only path.
 for disallowed in \
   "web/src/data/prints.ts" \
   "web/src/data/domains.ts" \
   "web/src/data/tracker/index.ts" \
+  "web/src/data/runStatus.ts" \
   "web/scripts/edgar-refresh.ts" \
   "web/package.json" \
   ".github/workflows/edgar-refresh.yml" \
@@ -139,11 +144,13 @@ rm -rf "$MMP_REPO"
 # `npm` and `node` are stubbed as shell functions for the whole of this
 # section: `npm` records what it was called with and exits 0 or 1 depending
 # on $E2E_NPM_FAIL_ON; `node` — the one real dependency of
-# push_incomplete_status — is stubbed to perform the same three-field edit
-# in plain bash/sed, reading the exact env vars (RUNSTATUS_PATH,
-# RUNSTATUS_TODAY, RUNSTATUS_FAILED_SOURCE) auto-publish.sh sets before
-# calling it, so the git plumbing around it is exercised for real without a
-# Node toolchain.
+# push_incomplete_status — is stubbed to perform the same collectState.json
+# receipt write in plain bash (AUTO-001 fix pass 2, item 4: this used to
+# patch web/src/data/runStatus.ts directly; runStatus.ts is a derived module
+# now, so the real script writes generated/collectState.json's collectorRun
+# block instead, reading the exact env vars — COLLECTSTATE_PATH, CR_AT,
+# CR_REASON, CR_FAILED_SOURCE — auto-publish.sh sets before calling it, so
+# the git plumbing around it is exercised for real without a Node toolchain.
 npm() {
   echo "$*" >> "$E2E_NPM_CALLS"
   case "$1 ${2:-}" in
@@ -157,14 +164,30 @@ export -f npm
 
 node() {
   # Only ever called here as: node -e '<script>' — ignores the script text
-  # entirely and performs the same edit push_incomplete_status's real node
-  # call performs, reading the same env vars.
-  sed -i.bak \
-    -e "s/lastChecked: '.*',/lastChecked: '${RUNSTATUS_TODAY}',/" \
-    -e "s/state: '.*',/state: 'incomplete',/" \
-    -e "s/failedSources: \[.*\],/failedSources: ['${RUNSTATUS_FAILED_SOURCE}'],/" \
-    "$RUNSTATUS_PATH"
-  rm -f "$RUNSTATUS_PATH.bak"
+  # entirely and performs the same collectState.json receipt write
+  # push_incomplete_status's real node call performs, preserving the
+  # model-owned lastSuccessfulCollectDate/lastRunAt fields with grep/sed
+  # instead of real JSON.parse/stringify.
+  local last_successful="null" last_run="null" v
+  if [ -f "$COLLECTSTATE_PATH" ]; then
+    v="$(grep -o '"lastSuccessfulCollectDate": *[^,]*' "$COLLECTSTATE_PATH" | sed 's/.*: *//')"
+    [ -n "$v" ] && last_successful="$v"
+    v="$(grep -o '"lastRunAt": *[^,]*' "$COLLECTSTATE_PATH" | sed 's/.*: *//')"
+    [ -n "$v" ] && last_run="$v"
+  fi
+  cat > "$COLLECTSTATE_PATH" <<EOF
+{
+  "lastSuccessfulCollectDate": ${last_successful},
+  "lastRunAt": ${last_run},
+  "collectorRun": {
+    "at": "${CR_AT}",
+    "state": "incomplete",
+    "detail": "${CR_REASON}",
+    "restrictedTo": null,
+    "failedSources": ["${CR_FAILED_SOURCE}"]
+  }
+}
+EOF
 }
 export -f node
 
@@ -180,6 +203,10 @@ make_e2e_remote() {
     git config user.name "Test"
     mkdir -p web/src/data/generated web/src/data/tracker
     echo '{}' > web/package.json
+    # AUTO-001 fix pass 2, item 4: runStatus.ts is a derived module (computed
+    # from generated/edgarFacts.json + generated/collectState.json — see its
+    # header comment); this fixture seeds it as a plausible checked-in file,
+    # not something this bash-only harness ever executes.
     cat > web/src/data/runStatus.ts <<'EOF'
 export type RunState = 'updated' | 'no-change' | 'incomplete'
 
@@ -187,12 +214,24 @@ export interface RunStatus {
   lastChecked: string
   state: RunState
   failedSources: string[]
+  detail?: string
 }
 
-export const runStatus: RunStatus = {
-  lastChecked: '2026-09-01',
-  state: 'updated',
-  failedSources: [],
+// Derived at import time from generated/edgarFacts.json and
+// generated/collectState.json — see this file's real counterpart in
+// web/src/data/runStatus.ts for the actual derivation logic.
+EOF
+    cat > web/src/data/generated/collectState.json <<'EOF'
+{
+  "lastSuccessfulCollectDate": "2026-09-01",
+  "lastRunAt": "2026-09-01T00:00:00Z",
+  "collectorRun": {
+    "at": "2026-09-01T00:00:00Z",
+    "state": "updated",
+    "detail": "run completed; 0 data file(s) changed",
+    "restrictedTo": null,
+    "failedSources": []
+  }
 }
 EOF
     echo '{"suppliers":[]}' > web/src/data/generated/edgarFacts.json
@@ -302,11 +341,11 @@ check_contains "drift: receipt says published false" "$E2E3_OUT" '"published": f
 check_contains "drift: reason names unreviewed site changes" "$E2E3_OUT" "site changes waiting for review"
 E2E3_MAIN_HAS_DATA="$(cd "$E2E3_REMOTE" && git show main:web/src/data/generated/edgarFacts.json | grep -c '"y"' || true)"
 E2E3_PREVIEW_HAS_DATA="$(cd "$E2E3_REMOTE" && git show preview:web/src/data/generated/edgarFacts.json | grep -c '"y"' || true)"
-E2E3_PREVIEW_STATUS="$(cd "$E2E3_REMOTE" && git show preview:web/src/data/runStatus.ts)"
+E2E3_PREVIEW_STATUS="$(cd "$E2E3_REMOTE" && git show preview:web/src/data/generated/collectState.json)"
 check "drift: main did NOT get the new data" "$E2E3_MAIN_HAS_DATA" "0"
 check "drift: preview DID get the new data" "$E2E3_PREVIEW_HAS_DATA" "1"
-check_contains "drift: preview's runStatus reads incomplete" "$E2E3_PREVIEW_STATUS" "state: 'incomplete'"
-check_contains "drift: preview's runStatus names the reason" "$E2E3_PREVIEW_STATUS" "site changes waiting for review"
+check_contains "drift: preview's collectState reads incomplete" "$E2E3_PREVIEW_STATUS" '"state": "incomplete"'
+check_contains "drift: preview's collectState names the reason" "$E2E3_PREVIEW_STATUS" "site changes waiting for review"
 rm -rf "$E2E3_REMOTE" "$E2E3_CLONE"
 
 echo ""
@@ -336,12 +375,12 @@ check "gate failure: exit 0 (an ordinary, non-broken outcome)" "$E2E4_RC" "0"
 check_contains "gate failure: receipt names the failed gate" "$E2E4_OUT" "npm run build"
 E2E4_MAIN_HAS_DATA="$(cd "$E2E4_REMOTE" && git show main:web/src/data/generated/edgarFacts.json | grep -c '"z"' || true)"
 E2E4_PREVIEW_HAS_DATA="$(cd "$E2E4_REMOTE" && git show preview:web/src/data/generated/edgarFacts.json | grep -c '"z"' || true)"
-E2E4_MAIN_STATUS="$(cd "$E2E4_REMOTE" && git show main:web/src/data/runStatus.ts)"
-E2E4_PREVIEW_STATUS="$(cd "$E2E4_REMOTE" && git show preview:web/src/data/runStatus.ts)"
+E2E4_MAIN_STATUS="$(cd "$E2E4_REMOTE" && git show main:web/src/data/generated/collectState.json)"
+E2E4_PREVIEW_STATUS="$(cd "$E2E4_REMOTE" && git show preview:web/src/data/generated/collectState.json)"
 check "gate failure: main did NOT get the failed data" "$E2E4_MAIN_HAS_DATA" "0"
 check "gate failure: preview did NOT get the failed data either" "$E2E4_PREVIEW_HAS_DATA" "0"
-check_contains "gate failure: main's runStatus reads incomplete (main matched preview beforehand)" "$E2E4_MAIN_STATUS" "state: 'incomplete'"
-check_contains "gate failure: preview's runStatus reads incomplete" "$E2E4_PREVIEW_STATUS" "state: 'incomplete'"
+check_contains "gate failure: main's collectState reads incomplete (main matched preview beforehand)" "$E2E4_MAIN_STATUS" '"state": "incomplete"'
+check_contains "gate failure: preview's collectState reads incomplete" "$E2E4_PREVIEW_STATUS" '"state": "incomplete"'
 check_contains "gate failure: failedSources names the runner" "$E2E4_PREVIEW_STATUS" "edgar"
 rm -rf "$E2E4_REMOTE" "$E2E4_CLONE"
 

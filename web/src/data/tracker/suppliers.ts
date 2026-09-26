@@ -110,22 +110,7 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "domainIds": [
       "cloud"
     ],
-    "kind": "private",
-    "lastRound": {
-      "date": "2024-01",
-      "stage": "Series E extension",
-      "amount": "$60 million",
-      "valuation": "$1 billion+",
-      "evidenceIds": [
-        "TR-aqua-1"
-      ]
-    },
-    "ownership": {
-      "status": "Independent, venture-backed. Series E extension closed January 2024 at $1B+ valuation.",
-      "evidenceIds": [
-        "TR-aqua-1"
-      ]
-    }
+    "kind": "private"
   },
   {
     "id": "arctic-wolf",
@@ -188,13 +173,7 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "domainIds": [
       "identity"
     ],
-    "kind": "pe-owned",
-    "ownership": {
-      "status": "PE-owned by Clearlake Capital. Strategic investment announced June 1, 2021.",
-      "evidenceIds": [
-        "TR-beyondtrust-1"
-      ]
-    }
+    "kind": "pe-owned"
   },
   {
     "id": "bigid",
@@ -265,7 +244,7 @@ export const trackerSuppliers: TrackerSupplier[] = [
   },
   {
     "id": "checkpoint-email",
-    "name": "Check Point",
+    "name": "Check Point Email Security",
     "domainIds": [
       "email"
     ],
@@ -273,9 +252,10 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "ticker": "CHKP",
     "cik": "0001015922",
     "ownership": {
-      "status": "Segment inside Check Point Software Technologies. Harmony Email originated from Avanan acquisition (~August 30, 2021 at $250-300M).",
+      "status": "Segment of Check Point Software Technologies, renamed from Harmony Email & Collaboration in March 2026. Originated from the Avanan acquisition (~August 30, 2021 at $250-300M). No separate revenue disclosed.",
       "evidenceIds": [
-        "TR-checkpoint-email-1"
+        "TR-checkpoint-email-1",
+        "TR-checkpoint-email-2"
       ]
     }
   },
@@ -558,21 +538,7 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "domainIds": [
       "identity"
     ],
-    "kind": "pe-owned",
-    "headlineMetric": {
-      "label": "ARR",
-      "value": "$400 million (nearing)",
-      "period": "March 2025",
-      "evidenceIds": [
-        "TR-delinea-1"
-      ]
-    },
-    "ownership": {
-      "status": "PE-owned by TPG Capital. Formed from Thycotic and Centrify merger, rebranded February 2022.",
-      "evidenceIds": [
-        "TR-delinea-2"
-      ]
-    }
+    "kind": "pe-owned"
   },
   {
     "id": "dragos",
@@ -928,7 +894,17 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "domainIds": [
       "ot-iot"
     ],
-    "kind": "private"
+    "kind": "acquired",
+    "ownership": {
+      "status": "Wholly owned subsidiary of Mitsubishi Electric Corporation (TOKYO: 6503), following an acquisition announced September 9, 2025 and completed January 29, 2026. Operates independently, vendor-neutral.",
+      "acquirer": "Mitsubishi Electric Corporation",
+      "announced": "2025-09-09",
+      "closed": "2026-01-29",
+      "evidenceIds": [
+        "TR-nozomi-1",
+        "TR-nozomi-2"
+      ]
+    }
   },
   {
     "id": "okta",

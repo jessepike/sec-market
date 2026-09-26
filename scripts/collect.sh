@@ -13,10 +13,13 @@
 # instructions): it never runs `git add`, `git commit`, or `git push`, and it
 # never runs the build gates (npm run test:data / npm run build). It writes
 # files only — the data files the model produces, plus this script's own
-# deterministic edit to web/src/data/runStatus.ts and a JSON receipt at
-# .collect/receipt.json. The calling workflow (or, for a local test run, a
-# person) stages, reviews, commits, and runs the gates; only then does
-# scripts/auto-publish.sh decide whether any of it reaches production.
+# deterministic write of the `collectorRun` receipt block in
+# web/src/data/generated/collectState.json (web/src/data/runStatus.ts is a
+# derived module now — see its header comment — and nothing writes it by
+# hand) and a JSON receipt at .collect/receipt.json. The calling workflow
+# (or, for a local test run, a person) stages, reviews, commits, and runs
+# the gates; only then does scripts/auto-publish.sh decide whether any of
+# it reaches production.
 #
 # Exit codes: 0 the run reached a decision (including "blocked-auth" or
 # "incomplete" — those are honest outcomes, not script bugs); 1 something
@@ -48,7 +51,6 @@ mkdir -p "$SCRATCH_DIR"
 RUN_LOG="$SCRATCH_DIR/run-$STAMP.log"
 RECEIPT="$SCRATCH_DIR/receipt.json"
 COLLECT_STATE_PATH="$WEB_DIR/src/data/generated/collectState.json"
-RUNSTATUS_PATH="$WEB_DIR/src/data/runStatus.ts"
 
 log() { printf '%s  %s\n' "$(date -u +%H:%M:%SZ)" "$*" | tee -a "$RUN_LOG"; }
 
@@ -166,6 +168,7 @@ else
 fi
 
 TODAY="$(date -u +%Y-%m-%d)"
+NOW_ISO="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
 
 # ---- 3. prompt file ---------------------------------------------------------
 # Written to a file first, not built inline in a command substitution — the
@@ -299,41 +302,65 @@ else
 fi
 log "outcome: state=$STATE  $DETAIL"
 
-# ---- 6. write runStatus.ts deterministically -------------------------------
-# Same surgical block-replace scripts/auto-publish.sh's push_incomplete_status
-# and the edgar-refresh workflow both use, so every writer of this file
-# touches it the same way. This script writes it, not the model (brief §0) —
-# runStatus is the site's one honest freshness signal and stays outside
-# model judgment.
-RUNSTATUS_PATH="$RUNSTATUS_PATH" \
-RUNSTATUS_TODAY="$TODAY" \
-RUNSTATUS_STATE="$STATE" \
-RUNSTATUS_FAILED_JSON="$FAILED_JSON" \
+# ---- 6. write collectState.json's collectorRun block deterministically ----
+# AUTO-001 fix pass 2, item 4: web/src/data/runStatus.ts is now a derived
+# module (computed at import time from generated/edgarFacts.json and
+# generated/collectState.json — see that file's own header comment) and is
+# never hand-edited by anything again. This script's one deterministic write
+# is this receipt block instead — same shape scripts/auto-publish.sh's
+# push_incomplete_status writes for a held/blocked publish, so every writer
+# of collectState.json touches it the same way. The model-owned
+# `lastSuccessfulCollectDate`/`lastRunAt` fields (brief §4) are read and
+# preserved exactly as the model left them, restricted run or not.
+COLLECTSTATE_PATH="$COLLECT_STATE_PATH" \
+CR_AT="$NOW_ISO" \
+CR_STATE="$STATE" \
+CR_DETAIL="$DETAIL" \
+CR_ONLY="$COLLECT_ONLY" \
+CR_FAILED_JSON="$FAILED_JSON" \
 node -e '
   const fs = require("fs");
-  const path = process.env.RUNSTATUS_PATH;
-  const today = process.env.RUNSTATUS_TODAY;
-  const state = process.env.RUNSTATUS_STATE;
+  const path = process.env.COLLECTSTATE_PATH;
+  const at = process.env.CR_AT;
+  const state = process.env.CR_STATE;
+  const detail = process.env.CR_DETAIL;
+  const only = process.env.CR_ONLY;
   let failed;
-  try { failed = JSON.parse(process.env.RUNSTATUS_FAILED_JSON || "[]"); }
+  try { failed = JSON.parse(process.env.CR_FAILED_JSON || "[]"); }
   catch (e) { failed = []; }
   if (!Array.isArray(failed)) failed = [];
-  let src = fs.readFileSync(path, "utf8");
-  const blockRe = /(export const runStatus: RunStatus = \{)([\s\S]*?)(\n\})/;
-  const m = src.match(blockRe);
-  if (!m) { console.error("collect.sh: runStatus.ts block shape not recognized"); process.exit(1); }
-  let block = m[2];
-  if (!/lastChecked: /.test(block) || !/state: /.test(block) || !/failedSources: /.test(block)) {
-    console.error("collect.sh: runStatus.ts field shape not recognized");
-    process.exit(1);
+
+  let existing = { lastSuccessfulCollectDate: null, lastRunAt: null };
+  if (fs.existsSync(path)) {
+    try {
+      const parsed = JSON.parse(fs.readFileSync(path, "utf8"));
+      if (parsed && typeof parsed === "object") {
+        existing.lastSuccessfulCollectDate = parsed.lastSuccessfulCollectDate ?? null;
+        existing.lastRunAt = parsed.lastRunAt ?? null;
+      }
+    } catch (e) {
+      console.error("collect.sh: existing collectState.json unreadable, starting fresh:", e.message);
+    }
   }
-  block = block.replace(/lastChecked: .*?,/, `lastChecked: ${JSON.stringify(today)},`);
-  block = block.replace(/state: .*?,/, `state: ${JSON.stringify(state)},`);
-  block = block.replace(/failedSources: \[[\s\S]*?\],/, `failedSources: ${JSON.stringify(failed)},`);
-  src = src.slice(0, m.index) + m[1] + block + m[3] + src.slice(m.index + m[0].length);
-  fs.writeFileSync(path, src);
-' || { log "failed to write $RUNSTATUS_PATH"; write_receipt "$STATE" "$SINCE_DATE" "$COLLECT_ONLY" "$CHANGED_JSON" "$FAILED_JSON" "$DETAIL (and runStatus.ts write failed)"; exit 1; }
-log "wrote $RUNSTATUS_PATH: lastChecked=$TODAY state=$STATE failedSources=$FAILED_JSON"
+
+  const restrictedTo = only && only.trim() !== ""
+    ? only.split(",").map((s) => s.trim()).filter(Boolean)
+    : null;
+
+  const next = {
+    lastSuccessfulCollectDate: existing.lastSuccessfulCollectDate,
+    lastRunAt: existing.lastRunAt,
+    collectorRun: {
+      at,
+      state,
+      detail,
+      restrictedTo,
+      failedSources: failed,
+    },
+  };
+  fs.writeFileSync(path, JSON.stringify(next, null, 2) + "\n");
+' || { log "failed to write $COLLECT_STATE_PATH"; write_receipt "$STATE" "$SINCE_DATE" "$COLLECT_ONLY" "$CHANGED_JSON" "$FAILED_JSON" "$DETAIL (and collectState.json receipt write failed)"; exit 1; }
+log "wrote $COLLECT_STATE_PATH collectorRun: state=$STATE only=${COLLECT_ONLY:-none} failedSources=$FAILED_JSON"
 
 # ---- 7. receipt -------------------------------------------------------------
 write_receipt "$STATE" "$SINCE_DATE" "$COLLECT_ONLY" "$CHANGED_JSON" "$FAILED_JSON" "$DETAIL"

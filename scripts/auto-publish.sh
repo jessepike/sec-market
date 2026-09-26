@@ -59,7 +59,8 @@
 # Required environment:
 #   RUNNER   short identifier for the collector that produced this branch,
 #            e.g. "edgar" or "collect" — used in commit messages, the
-#            runStatus failedSources entry, and the receipt.
+#            collectState.json collectorRun.failedSources entry (which
+#            runStatus.ts derives its failedSources from), and the receipt.
 #   BRANCH   the short-lived branch this was invoked from, e.g.
 #            data/edgar-2026-09-26T13-00-11Z. Must match data/*. The script
 #            assumes it is already checked out (HEAD) with full history, one
@@ -116,6 +117,13 @@ FORCE_MAIN_MATCHES_PREVIEW="${FORCE_MAIN_MATCHES_PREVIEW:-}"
 # The one place the five allowed paths are named (autonomy-coverage-plan.md
 # §5 step 4a). Widening this needs the owner's word, same as
 # is_allowed_issue_branch_path in publish-issue.sh.
+#
+# AUTO-001 fix pass 2, item 4: web/src/data/runStatus.ts dropped out of this
+# list. It used to be a hand-set data file each writer patched directly; it
+# is now a derived module computed from generated/edgarFacts.json and
+# generated/collectState.json (both still covered by the generated/* line
+# below), so a change to runStatus.ts itself is a code change again and goes
+# through ordinary review rather than the autonomous data-only publish path.
 is_allowed_data_path() {
   local path="$1" web_dir="$2"
   case "$path" in
@@ -123,7 +131,6 @@ is_allowed_data_path() {
     "$web_dir/src/data/tracker/events.ts") return 0 ;;
     "$web_dir/src/data/tracker/suppliers.ts") return 0 ;;
     "$web_dir/src/data/evidence.ts") return 0 ;;
-    "$web_dir/src/data/runStatus.ts") return 0 ;;
     *) return 1 ;;
   esac
 }
@@ -140,8 +147,7 @@ data_allowlist_exclude() {
     ":(exclude)$web_dir/src/data/generated/**" \
     ":(exclude)$web_dir/src/data/tracker/events.ts" \
     ":(exclude)$web_dir/src/data/tracker/suppliers.ts" \
-    ":(exclude)$web_dir/src/data/evidence.ts" \
-    ":(exclude)$web_dir/src/data/runStatus.ts"
+    ":(exclude)$web_dir/src/data/evidence.ts"
 }
 
 # True when `$remote/main` and `$remote/preview` are identical outside the
@@ -308,48 +314,75 @@ push_preview_to_main() {
   authed_push_main "HEAD:refs/heads/main"
 }
 
-# Builds and pushes a commit that touches nothing but runStatus.ts, on top
-# of $base_ref (a real ref, already fetched), marking the run incomplete.
+# Builds and pushes a commit that touches nothing but
+# generated/collectState.json's collectorRun receipt block, on top of
+# $base_ref (a real ref, already fetched), marking the run incomplete.
 # $promote_to_main: "true" pushes the same commit to main afterward (only
 # ever called with "true" when main already matched preview before this
 # run); "false" leaves main alone. Detaches HEAD to build it, since by the
 # time this runs the script has already decided the data branch itself is
 # not what's landing — the pushed data/<runner>-<ts> branch on GitHub is the
 # durable record of what this run collected, untouched by this commit.
+#
+# AUTO-001 fix pass 2, item 4: this used to patch web/src/data/runStatus.ts
+# directly (the same hand-set-file pattern the two blind rescores caught).
+# runStatus.ts is now a derived module — see its header comment — so this
+# writes the same collectorRun receipt scripts/collect.sh's step 6 writes,
+# with restrictedTo left null (this path marks a gate failure or a held
+# publish, not a scope-restricted collect run) and the model-owned
+# lastSuccessfulCollectDate/lastRunAt fields preserved untouched.
 push_incomplete_status() {
   local base_ref="$1" reason="$2" failed_source="$3" promote_to_main="$4"
 
   git checkout -q --detach "$base_ref" || return 1
 
-  local today
-  today="$(date -u +%Y-%m-%d)"
-  RUNSTATUS_PATH="$WEB_DIR/src/data/runStatus.ts" \
-  RUNSTATUS_TODAY="$today" \
-  RUNSTATUS_FAILED_SOURCE="$failed_source" \
+  # Date-only precision (not full time-of-day), matching the previous
+  # runStatus.ts patch's granularity: a same-day rerun with the same reason
+  # and failed source produces the same bytes, so the diff-empty check
+  # below still dedupes a same-day retry into one commit instead of many.
+  local today_iso
+  today_iso="$(date -u +%Y-%m-%d)T00:00:00Z"
+  COLLECTSTATE_PATH="$WEB_DIR/src/data/generated/collectState.json" \
+  CR_AT="$today_iso" \
+  CR_REASON="$reason" \
+  CR_FAILED_SOURCE="$failed_source" \
   node -e '
     const fs = require("fs");
-    const path = process.env.RUNSTATUS_PATH;
-    const today = process.env.RUNSTATUS_TODAY;
-    const failedSource = process.env.RUNSTATUS_FAILED_SOURCE;
-    let src = fs.readFileSync(path, "utf8");
-    const blockRe = /(export const runStatus: RunStatus = \{)([\s\S]*?)(\n\})/;
-    const m = src.match(blockRe);
-    if (!m) { console.error("auto-publish.sh: runStatus.ts block shape not recognized"); process.exit(1); }
-    let block = m[2];
-    if (!/lastChecked: /.test(block) || !/state: /.test(block) || !/failedSources: /.test(block)) {
-      console.error("auto-publish.sh: runStatus.ts field shape not recognized");
-      process.exit(1);
+    const path = process.env.COLLECTSTATE_PATH;
+    const at = process.env.CR_AT;
+    const reason = process.env.CR_REASON;
+    const failedSource = process.env.CR_FAILED_SOURCE;
+
+    let existing = { lastSuccessfulCollectDate: null, lastRunAt: null };
+    if (fs.existsSync(path)) {
+      try {
+        const parsed = JSON.parse(fs.readFileSync(path, "utf8"));
+        if (parsed && typeof parsed === "object") {
+          existing.lastSuccessfulCollectDate = parsed.lastSuccessfulCollectDate ?? null;
+          existing.lastRunAt = parsed.lastRunAt ?? null;
+        }
+      } catch (e) {
+        console.error("auto-publish.sh: existing collectState.json unreadable, starting fresh:", e.message);
+      }
     }
-    block = block.replace(/lastChecked: .*?,/, `lastChecked: ${JSON.stringify(today)},`);
-    block = block.replace(/state: .*?,/, `state: "incomplete",`);
-    block = block.replace(/failedSources: \[[\s\S]*?\],/, `failedSources: ${JSON.stringify([failedSource])},`);
-    src = src.slice(0, m.index) + m[1] + block + m[3] + src.slice(m.index + m[0].length);
-    fs.writeFileSync(path, src);
+
+    const next = {
+      lastSuccessfulCollectDate: existing.lastSuccessfulCollectDate,
+      lastRunAt: existing.lastRunAt,
+      collectorRun: {
+        at,
+        state: "incomplete",
+        detail: reason,
+        restrictedTo: null,
+        failedSources: [failedSource],
+      },
+    };
+    fs.writeFileSync(path, JSON.stringify(next, null, 2) + "\n");
   ' || return 1
 
-  git add "$WEB_DIR/src/data/runStatus.ts"
+  git add "$WEB_DIR/src/data/generated/collectState.json"
   if git diff --cached --quiet; then
-    log "runStatus.ts already reads incomplete; nothing to commit"
+    log "collectState.json already reflects this incomplete run; nothing to commit"
     return 0
   fi
   git commit -m "data(runstatus): mark incomplete — $reason" -m "runner: $RUNNER, branch: $BRANCH" || return 1

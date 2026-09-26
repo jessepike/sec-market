@@ -79,3 +79,154 @@ Added `verify-tracker.ts` gates 11 and 12 (above): the build now fails if any tr
 - `npm run build` — all `verify:*` gates, `tsc -b`, client + SSR build, prerender (5 routes), SEO, feed, `verify:dist` all pass.
 - `npm run test:e2e` — 30 tests across 3 Playwright projects (chromium/desktop/phone), 0 failures.
 - `npm test` — the full chain above, run once end to end, clean.
+
+## Second pass
+
+Scope: the eight numbered items in the coordinator's second fix-pass brief, following two more blind
+rescores of `preview` under rubric v3.0 (Opus 5.5: 56.0/100, `docs/active/auto/score2/opus/score.md`;
+GPT-6 Sol: 42.0/100, `docs/active/auto/score2/sol/score.md`), both still "not fit for purpose."
+
+**1. Event counts.** Added the five missing 12-month funding events (Torq, Upwind, Chainguard, Claroty,
+Xage) to `web/src/data/tracker/events.ts`, each sourced with the same evidence already backing the
+supplier's `lastRound`. Added gate 14 to `web/scripts/verify-tracker.ts`: for every supplier whose
+`lastRound.date` or `ownership.announced`/`.closed` falls inside the same trailing-365-day window
+`eventSummaryForSupplier` uses for the "Events, 12 mo." column, the build now fails unless a
+same-type event exists in that window. This is a general audit, not five spot fixes — it will catch
+the same defect on any future supplier.
+
+**2. Labels.** CyberArk's Palo Alto Networks acquisition was typed `"shutdown"`; it is now
+`"acquisition"` (`web/src/data/tracker/events.ts`, `EV-cyberark-1`). Audited every event's `type`
+against its `text` across all 68 events; no other mismatches found. Check Point's email-segment row
+(`checkpoint-email`) is renamed to "Check Point Email Security" — the vendor's own current product
+name, confirmed via Check Point's own blog announcing the rename from "Harmony Email &
+Collaboration" on 2026-03-25 — with its `ownership.status` now reading "Segment of Check Point
+Software Technologies..." so it can no longer be confused with the public-company `checkpoint-sase`
+row. Added gate 13: the build now fails if two suppliers in the same domain share a display `name`.
+
+**3. Missing facts.** Verified and added, from primary sources: Mitsubishi Electric Corporation's
+acquisition of Nozomi Networks (announced 2025-09-09, completed 2026-01-29 — two PRNewswire releases,
+`TR-nozomi-1`/`TR-nozomi-2`), updating `nozomi`'s `kind` to `"acquired"` and adding a full `ownership`
+block plus `EV-nozomi-1`. Verified and added Rapid7's four board resignations (Burns, Holzman,
+Schodorf, Sondhi; effective 2026-08-27), sourced to the company's own SEC EDGAR 8-K (Item 5.02,
+`TR-rapid7-5`), as a new `exec-change` event (`EV-rapid7-5`) — no new event type was needed. Did not
+attempt a full re-collection, per the brief's explicit constraint.
+
+**4. Run status, made machine-derived.** `web/src/data/runStatus.ts` is no longer a hand-set value —
+it is now a pure derivation (`deriveRunStatus()`) computed at import time from
+`web/src/data/generated/edgarFacts.json` (`generatedAt`, `failures`) and a new
+`web/src/data/generated/collectState.json`, which gained a script-owned `collectorRun` block
+(`at`, `state`, `detail`, `restrictedTo`, `failedSources`). `lastChecked` is the older of the two
+sources' dates. The state is `'incomplete'` with a plain-language `detail` whenever the last collect
+run covered only a slice of suppliers or any source failed; `collectState.json` was seeded with the
+real historical restricted run (`SMP_COLLECT_ONLY=optiv,snyk,cyera,rapid7`, 2026-09-26), which is why
+the shipped status line now reads "Press, funding and distress sources last checked for 4 of 74
+suppliers on 26 Sep 2026 (restricted run: optiv, snyk, cyera, rapid7)" — an honest statement, not a
+coincidence matching the brief's example wording. `scripts/collect.sh` and `scripts/auto-publish.sh`
+now write `collectState.json`'s `collectorRun` block instead of patching `runStatus.ts` directly (both
+verified via `bash scripts/test-auto-publish.sh` on the host, all checks passing); three draft
+GitHub Actions workflow files under `docs/active/auto/` that still referenced writing `runStatus.ts`
+were updated to match. The rendered-date test (`smoke.spec.ts`, "every as-of / site-updated / masthead
+date... matches runStatus.lastChecked") needed no changes since it was already fully derived.
+
+**5. Judgment text on live routes.** `FollowLine.tsx`'s cadence sentence now states the real schedule
+("SEC filings refresh daily; press, funding and distress facts refresh twice a week") instead of the
+vague "arrive through the week." `HowThisWorks.tsx` no longer imports or renders `signalFamilies` or
+`reasoningSteps` from `data/method.ts` — the two tables that carried the exact phrases both blind
+scores quoted ("PREPARE only where...", "That is a no-call", "The best check on whether customers
+actually spent") are gone from `/`; `data/method.ts` itself is untouched, since that data still backs
+the archived `/thesis/` page. A "What is not covered" section replaces them, pointing to the existing
+coverage statement rather than duplicating it. On `/corrections/`, the `C-2026-09-21-01` entry
+(`web/src/data/corrections.ts`) is edited directly — the one exception to that file's own "append, never
+edit" rule, taken because the coordinator's brief named this exact text as something to change and
+because the alternative (appending a new entry while the old one keeps rendering) cannot make a live
+banned phrase stop being served. The correction now describes the retracted sentence as "a sentence
+that described Palo Alto Networks and F5 as hyperscalers" (matching the brief's given wording) and
+describes the rows' replacement text — previously quoted verbatim as *"AI security absorbed into a
+platform vendor. Watch whether it survives as a product or becomes a feature."*, the exact phrase both
+scorers flagged as live forecast language — as "states only that the target was acquired by a platform
+vendor, with no claim about what happens to the product next," with no quotation at all. Grepped the
+built HTML of `/` and `/corrections/` (the two live, non-archive routes — `/issues/`, each issue
+permalink, and `/thesis/` all carry their own "archive/record" notice by design, per D-76, and are
+exempt) for the rubric's banned words plus watch, prepare, no-call, best, accelerat, boom, story.
+Remaining hits are the pre-existing sourcing-ladder copy ("stays a lead until a stronger source", "the
+weakest rung", "strongest first") describing the site's own editorial rules rather than a supplier's
+prospects, and one instance of "boom" inside an HTML comment (invisible dev note about a static
+`og.png` asset, already flagged in `docs/active/auto/step1/report.md` for a separate owner-approved
+regeneration) — no visible, live judgment language found.
+
+**6. Source links.** Replaced ten evidence records' `canonicalUrl` with the specific document rather
+than a newsroom index or homepage (Check Point's rename post, Tines's Bloomberg valuation piece,
+Sysdig's CEO-announcement press release, Palo Alto Networks' FY2026 10-K filing index, two Cyera
+acquisition releases, HiddenLayer's funding release, Veracode's TA Associates release, Delinea's CFO
+appointment release, plus the two new Nozomi releases and the Rapid7 8-K), each verified live via
+WebFetch. Four facts could not be re-sourced to a specific document after extensive search (Aqua
+Security's January 2024 funding, BeyondTrust's 2021 Clearlake investment, Delinea's March 2025 ARR
+figure, and its February 2022 TPG rebrand) — per the brief's own instruction, these were dropped
+rather than left pointing at a bad URL: the `lastRound`/`ownership`/`headlineMetric` fields citing them
+were removed from `suppliers.ts`, and the four now-orphaned evidence records were deleted outright
+(`verify:integrity`'s unreferenced-record gate went from 9 back down to its normal 5). Added gate 15:
+the build now fails if any evidence record actually used by the tracker has a `canonicalUrl` whose
+path is empty or is a single newsroom/index-style segment (news, press, investors, blog, and
+similar).
+
+**7. Publication date.** The latest-quarter growth figure now shows its filing date next to its period
+in muted mono — "+26% Q Jul 26 · filed 26 Aug" — via a new `formatFiledDate` helper
+(`web/src/data/tracker/derive.ts`) and `GrowthCell` in `MarketByDomain.tsx`. Only the `latest` column
+carries a `releaseDate` in the data (`prior` periods only record the period they cover, not a separate
+filing date), so the prior-quarter column is unchanged. On phone this renders inside the same
+already-existing expanded-row markup, so no separate phone-only code path was needed. Keeping the row
+one line at 1440 needed a real CSS fix, not just the added text: forcing `flex-wrap: nowrap` on every
+`.tracker-figure` first fixed the growth cells but pushed some tables (e.g. Security operations)
+142px wider than their container, clipping the Events column out of view — measured directly via a
+Playwright script against `.tracker-table-scroll`'s `scrollWidth`. The fix scopes `nowrap` to just the
+Rev. growth and Prior q columns (`td:nth-child(2)`/`(3)`), leaving the Own metric and Ownership
+columns free to wrap as they always could, since those hold real prose (a PE-ownership or acquisition
+description), not a single figure. Re-measured all 12 domain tables at 1440 after the fix: zero
+horizontal overflow on every one.
+
+**8. Stable anchors.** Every supplier row now carries `id="s-<supplierId>"`
+(`web/src/index.css` also gained `tr[id] { scroll-margin-top: ... }` so the sticky header doesn't
+cover a row a link lands on). Palo Alto Networks, CrowdStrike, and Check Point's SASE segment each
+belong to more than one domain and so render more than one row; a naive per-row id would have produced
+duplicate ids (confirmed: `panw` appeared 5 times, `crwd` 3 times, `checkpoint-sase` 2 times) — invalid
+HTML, and the second occurrence would have been unreachable by anchor regardless, since a browser
+jumps to the first match. `MarketByDomain` now threads a single `anchoredSupplierIds` set (created
+fresh each render) through every `DomainTable` in `trackerDomains` order, so only the first table a
+given supplier appears in claims the anchor. Verified against the built HTML: every `id="s-..."`
+appears exactly once.
+
+**Accessibility and keyboard.** `@axe-core/playwright` was installed with `npm install --no-save`
+(nothing added to `package.json`/`package-lock.json`) and run against the local preview build at 1440
+and 390 on both `/` and `/corrections/`: zero violations at every combination, including after the
+anchor fix above (duplicate ids are exactly the kind of thing axe's `duplicate-id` rule would have
+caught). A scripted keyboard pass tabbed through both routes at both widths with no errors: `/` reaches
+well over 200 focusable stops (hit the script's loop cap), `/corrections/` reaches 11 stops at 1440 and
+6 at 390.
+
+**Screenshots** (`docs/active/auto/fitfix/`, `after3-` prefix): `after3-front-1440.png`,
+`after3-front-390.png` (full page); `after3-front-fold-1440.png`, `after3-front-fold-390.png` (first
+screen); `after3-corrections-1440.png`, `after3-corrections-390.png` (full page);
+`after3-corrections-fold-1440.png`, `after3-corrections-fold-390.png` (first screen). Looked at all
+eight: the run-status banner reads the real restricted-run detail sentence; every growth cell across
+every domain (Endpoint and XDR, Security operations, Network and SASE, Identity, Data security,
+Vulnerability and exposure management, all spot-checked) stays one line with its filed date at 1440,
+with no column clipped off the right edge; `/corrections/` shows the rewritten `C-2026-09-21-01` entry
+with no quoted judgment phrase.
+
+**Build and test evidence, second pass.**
+
+- `npm run verify:tracker` — 12 domains, 74 suppliers, 68 events, all 15 gates pass.
+- `npm run test:data` — 247 tests, 60 suites, 0 failures.
+- `npm run lint` — 0 warnings, 0 errors (130 files).
+- `npm run build` — all `verify:*` gates (including new gates 13–15), `tsc -b`, client + SSR build,
+  prerender (5 routes), SEO, feed, `verify:dist` all pass.
+- `npm run test:e2e` — 30 tests across 3 Playwright projects, 0 failures.
+- `bash scripts/test-auto-publish.sh` — host-only bash suite for `auto-publish.sh`, all checks pass.
+- axe (`@axe-core/playwright`, dev-only, not committed) and a scripted keyboard pass — 0 violations,
+  0 errors, both routes, both widths.
+
+**Not built this pass.** A permanent `@axe-core/playwright` devDependency was deliberately not added —
+this pass ran it as an uninstalled (`--no-save`) check to close the accessibility-tooling gap the first
+pass's report flagged, without expanding the project's dependency surface beyond what the brief asked
+for; a permanent accessibility CI check is a reasonable follow-up but is net-new scope, not part of
+this fix pass.

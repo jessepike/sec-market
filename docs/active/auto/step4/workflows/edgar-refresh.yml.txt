@@ -35,10 +35,17 @@ name: edgar refresh
 # model is involved in the collection itself: the script reads structured
 # XBRL facts from data.sec.gov and computes quarters/YoY with plain
 # arithmetic, so it cannot invent a number. Writes
-# web/src/data/generated/edgarFacts.json and web/src/data/runStatus.ts only,
-# on a short-lived branch, then hands the decision of whether any of that
-# reaches `preview` or `main` to scripts/auto-publish.sh — nobody is asked
-# (D-76).
+# web/src/data/generated/edgarFacts.json only, on a short-lived branch, then
+# hands the decision of whether any of that reaches `preview` or `main` to
+# scripts/auto-publish.sh — nobody is asked (D-76).
+#
+# AUTO-001 fix pass 2 (2026-09-26), item 4: web/src/data/runStatus.ts is a
+# derived module now, computed at import time from
+# web/src/data/generated/edgarFacts.json (this workflow's own output —
+# `generatedAt`, `failures`) and web/src/data/generated/collectState.json
+# (see runStatus.ts's header comment). This workflow no longer writes
+# runStatus.ts at all; the derivation reads this workflow's edgarFacts.json
+# commit directly, so there is nothing left for this workflow to do there.
 
 on:
   schedule:
@@ -86,32 +93,6 @@ jobs:
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
 
-      # Written directly here, not in web/scripts/, because no script under
-      # web/ owns "the EDGAR run's own honest status" today — the type only
-      # (web/src/data/runStatus.ts) exists yet. A plain, self-contained edit,
-      # same block-scoped approach scripts/auto-publish.sh's
-      # push_incomplete_status uses for the failure path, so both paths
-      # touch the file the same way.
-      - name: Mark this run's status as updated
-        if: steps.diff.outputs.changed == 'true'
-        run: |
-          set -euo pipefail
-          node -e '
-            const fs = require("fs");
-            const path = "web/src/data/runStatus.ts";
-            const today = new Date().toISOString().slice(0, 10);
-            let src = fs.readFileSync(path, "utf8");
-            const blockRe = /(export const runStatus: RunStatus = \{)([\s\S]*?)(\n\})/;
-            const m = src.match(blockRe);
-            if (!m) { console.error("edgar-refresh: runStatus.ts block shape not recognized"); process.exit(1); }
-            let block = m[2];
-            block = block.replace(/lastChecked: .*?,/, `lastChecked: ${JSON.stringify(today)},`);
-            block = block.replace(/state: .*?,/, `state: "updated",`);
-            block = block.replace(/failedSources: \[[\s\S]*?\],/, `failedSources: [],`);
-            src = src.slice(0, m.index) + m[1] + block + m[3] + src.slice(m.index + m[0].length);
-            fs.writeFileSync(path, src);
-          '
-
       - name: Commit to a short-lived data branch and push it
         if: steps.diff.outputs.changed == 'true'
         id: branch
@@ -124,7 +105,7 @@ jobs:
           set -euo pipefail
           branch="data/edgar-$(date -u +%Y%m%dT%H%M%SZ)"
           git checkout -B "$branch"
-          git add web/src/data/generated/edgarFacts.json web/src/data/runStatus.ts
+          git add web/src/data/generated/edgarFacts.json
           failures=$(node -p "require('./web/src/data/generated/edgarFacts.json').failures.length")
           total=$(node -p "require('./web/src/data/generated/edgarFacts.json').suppliers.length + require('./web/src/data/generated/edgarFacts.json').failures.length")
           git commit -m "data(edgar): refresh SEC EDGAR revenue facts ($failures/$total suppliers failed)"

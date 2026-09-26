@@ -2214,25 +2214,6 @@ export const evidenceRecords: EvidenceRecord[] = [
   "retrievedAt": "2026-09-25"
 },
 {
-  "id": "TR-aqua-1",
-  "title": "Aqua Security Series E Extension Funding",
-  "organization": "Aqua Security",
-  "publicationDate": "2024-01",
-  "economicPeriod": "January 2024",
-  "canonicalUrl": "https://www.aquasec.com/news/",
-  "excerpt": "Series E extension in January 2024: $60M at $1B+ valuation.",
-  "sourceClass": "VENDOR-RESEARCH",
-  "interpretation": "",
-  "limitations": "No newer funding round found.",
-  "conflictingEvidenceIds": [],
-  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-aqua-1",
-  "tags": [
-    "tracker",
-    "cloud"
-  ],
-  "retrievedAt": "2026-09-25"
-},
-{
   "id": "TR-aqua-2",
   "title": "Aqua Security Leadership Transition",
   "organization": "Aqua Security",
@@ -2324,25 +2305,6 @@ export const evidenceRecords: EvidenceRecord[] = [
   "tags": [
     "tracker",
     "email"
-  ],
-  "retrievedAt": "2026-09-25"
-},
-{
-  "id": "TR-beyondtrust-1",
-  "title": "BeyondTrust Clearlake Capital Investment",
-  "organization": "BeyondTrust",
-  "publicationDate": "2021-06-01",
-  "economicPeriod": "June 2021",
-  "canonicalUrl": "https://www.beyondtrust.com",
-  "excerpt": "Clearlake Capital made strategic investment, announced June 1, 2021.",
-  "sourceClass": "VENDOR-RESEARCH",
-  "interpretation": "",
-  "limitations": "Majority vs. minority stake not confirmed.",
-  "conflictingEvidenceIds": [],
-  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-beyondtrust-1",
-  "tags": [
-    "tracker",
-    "identity"
   ],
   "retrievedAt": "2026-09-25"
 },
@@ -2520,7 +2482,7 @@ export const evidenceRecords: EvidenceRecord[] = [
 },
 {
   "id": "TR-checkpoint-email-1",
-  "title": "Check Point Harmony Email & Collaboration",
+  "title": "Check Point Email Security (formerly Harmony Email & Collaboration)",
   "organization": "Check Point Software Technologies Ltd.",
   "publicationDate": "2026-07-30",
   "economicPeriod": "Q2 2026",
@@ -2528,7 +2490,7 @@ export const evidenceRecords: EvidenceRecord[] = [
   "excerpt": "Harmony Email originated from Avanan acquisition (~August 30, 2021 at $250-300M). Security Subscriptions revenue $333M, +12% YoY.",
   "sourceClass": "IR",
   "interpretation": "",
-  "limitations": "Harmony Email growth not separately disclosed.",
+  "limitations": "Check Point Email Security growth not separately disclosed.",
   "conflictingEvidenceIds": [],
   "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-checkpoint-email-1",
   "tags": [
@@ -2536,6 +2498,25 @@ export const evidenceRecords: EvidenceRecord[] = [
     "email"
   ],
   "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-checkpoint-email-2",
+  "title": "Introducing Check Point Email Security: A New Name Aligned with Our AI-Driven Strategy",
+  "organization": "Check Point Software Technologies Ltd.",
+  "publicationDate": "2026-03-25",
+  "economicPeriod": "March 2026",
+  "canonicalUrl": "https://blog.checkpoint.com/product-updates/introducing-check-point-email-security-a-new-name-aligned-with-our-ai-driven-strategy/",
+  "excerpt": "Check Point Email Security is the new name for Harmony Email & Collaboration, reflecting a broader strategic evolution and tighter alignment with Check Point's AI-focused security vision.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "Product-naming announcement only; no financial figures.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-FITFIX2 / TR-checkpoint-email-2",
+  "tags": [
+    "tracker",
+    "email"
+  ],
+  "retrievedAt": "2026-09-26"
 },
 {
   "id": "TR-claroty-1",
@@ -2768,17 +2749,17 @@ export const evidenceRecords: EvidenceRecord[] = [
 },
 {
   "id": "TR-cyera-2",
-  "title": "Cyera press releases (Oasis Security acquisition)",
+  "title": "Cyera Completes Acquisition of Oasis Security",
   "organization": "Cyera",
   "publicationDate": "2026-09-03",
   "economicPeriod": "N/A (acquisition announcement)",
-  "canonicalUrl": "https://www.cyera.com/press-releases/",
+  "canonicalUrl": "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
   "excerpt": "Cyera completed its acquisition of Oasis Security.",
   "sourceClass": "OFFICIAL",
   "interpretation": "",
-  "limitations": "Company newsroom listing page; the underlying research did not capture a dedicated per-release URL for this item.",
+  "limitations": "",
   "conflictingEvidenceIds": [],
-  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-cyera-2",
+  "artifactLabel": "SEC-MARKET-AUTO-001-FITFIX2 / TR-cyera-2",
   "tags": [
     "tracker",
     "data"
@@ -2787,17 +2768,17 @@ export const evidenceRecords: EvidenceRecord[] = [
 },
 {
   "id": "TR-cyera-3",
-  "title": "Cyera press releases (Ryft acquisition)",
+  "title": "Cyera Acquires Ryft to Extend its Agentic AI Security Platform",
   "organization": "Cyera",
   "publicationDate": "2026-04-23",
   "economicPeriod": "N/A (acquisition announcement)",
-  "canonicalUrl": "https://www.cyera.com/press-releases/",
+  "canonicalUrl": "https://www.cyera.com/press-releases/cyera-acquires-ryft-to-extend-its-agentic-ai-security-platform",
   "excerpt": "Cyera completed its acquisition of Ryft.",
   "sourceClass": "OFFICIAL",
   "interpretation": "",
-  "limitations": "Company newsroom listing page; the underlying research did not capture a dedicated per-release URL for this item.",
+  "limitations": "",
   "conflictingEvidenceIds": [],
-  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-cyera-3",
+  "artifactLabel": "SEC-MARKET-AUTO-001-FITFIX2 / TR-cyera-3",
   "tags": [
     "tracker",
     "data"
@@ -2824,56 +2805,18 @@ export const evidenceRecords: EvidenceRecord[] = [
   "retrievedAt": "2026-09-25"
 },
 {
-  "id": "TR-delinea-1",
-  "title": "Delinea ARR Announcement",
-  "organization": "Delinea",
-  "publicationDate": "2025-03-18",
-  "economicPeriod": "March 2025",
-  "canonicalUrl": "https://www.delinea.com",
-  "excerpt": "Nearing $400 million ARR.",
-  "sourceClass": "IR",
-  "interpretation": "",
-  "limitations": "No newer figure found; $500M+ figure in secondary sources unverified.",
-  "conflictingEvidenceIds": [],
-  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-delinea-1",
-  "tags": [
-    "tracker",
-    "identity"
-  ],
-  "retrievedAt": "2026-09-25"
-},
-{
-  "id": "TR-delinea-2",
-  "title": "Delinea TPG Capital Ownership",
-  "organization": "Delinea",
-  "publicationDate": "2022-02-01",
-  "economicPeriod": "February 2022",
-  "canonicalUrl": "https://www.delinea.com",
-  "excerpt": "ThycoticCentrify rebranded to Delinea under TPG Capital.",
-  "sourceClass": "VENDOR-RESEARCH",
-  "interpretation": "",
-  "limitations": "",
-  "conflictingEvidenceIds": [],
-  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-delinea-2",
-  "tags": [
-    "tracker",
-    "identity"
-  ],
-  "retrievedAt": "2026-09-25"
-},
-{
   "id": "TR-delinea-3",
-  "title": "Delinea Chief Financial Officer Appointment",
+  "title": "Delinea Appoints Timothy Regan as Chief Financial Officer",
   "organization": "Delinea",
   "publicationDate": "2026-09-23",
   "economicPeriod": "September 2026",
-  "canonicalUrl": "https://www.globenewswire.com",
-  "excerpt": "Timothy Regan appointed Chief Financial Officer of Delinea.",
+  "canonicalUrl": "https://www.globenewswire.com/news-release/2026/09/23/3367539/0/en/delinea-appoints-timothy-regan-as-chief-financial-officer.html",
+  "excerpt": "Timothy Regan appointed Chief Financial Officer of Delinea. He previously served as CFO at Dropbox from 2020 to 2025.",
   "sourceClass": "IR",
   "interpretation": "",
   "limitations": "Whether this followed a predecessor departure was not confirmed.",
   "conflictingEvidenceIds": [],
-  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-delinea-3",
+  "artifactLabel": "SEC-MARKET-AUTO-001-FITFIX2 / TR-delinea-3",
   "tags": [
     "tracker",
     "identity"
@@ -3034,17 +2977,17 @@ export const evidenceRecords: EvidenceRecord[] = [
 },
 {
   "id": "TR-hiddenlayer-1",
-  "title": "HiddenLayer newsroom (Series B announcement)",
+  "title": "HiddenLayer Raises $100M in Series B Funding to Advance AI Security",
   "organization": "HiddenLayer, Inc.",
   "publicationDate": "2026-09-02",
   "economicPeriod": "N/A (funding announcement)",
-  "canonicalUrl": "https://hiddenlayer.com/newsroom/",
+  "canonicalUrl": "https://www.hiddenlayer.com/news/hiddenlayer-100m-series-b-ai-security",
   "excerpt": "HiddenLayer raised a $100 million Series B round led by Delta-v Capital, with Ten Eleven Ventures, Morgan Stanley, M12, and Booz Allen Ventures participating. The company states ARR 'grew more than 10x year-over-year' with 50+ new platform customers signed (unaudited).",
   "sourceClass": "OFFICIAL",
   "interpretation": "",
-  "limitations": "Company newsroom listing page.",
+  "limitations": "",
   "conflictingEvidenceIds": [],
-  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-hiddenlayer-1",
+  "artifactLabel": "SEC-MARKET-AUTO-001-FITFIX2 / TR-hiddenlayer-1",
   "tags": [
     "tracker",
     "ai-security"
@@ -3318,6 +3261,44 @@ export const evidenceRecords: EvidenceRecord[] = [
   "retrievedAt": "2026-09-25"
 },
 {
+  "id": "TR-nozomi-1",
+  "title": "Mitsubishi Electric to Acquire Nozomi Networks to Improve Industrial Cyber Defenses and Power Operational Transformation",
+  "organization": "Mitsubishi Electric Corporation / Nozomi Networks, Inc.",
+  "publicationDate": "2025-09-09",
+  "economicPeriod": "N/A (acquisition announcement)",
+  "canonicalUrl": "https://www.prnewswire.com/news-releases/mitsubishi-electric-to-acquire-nozomi-networks-to-improve-industrial-cyber-defenses-and-power-operational-transformation-302550314.html",
+  "excerpt": "Mitsubishi Electric Corporation (TOKYO: 6503) signed a definitive agreement to acquire Nozomi Networks.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "Announcement of signed agreement, not completion.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-FITFIX2 / TR-nozomi-1",
+  "tags": [
+    "tracker",
+    "ot-iot"
+  ],
+  "retrievedAt": "2026-09-26"
+},
+{
+  "id": "TR-nozomi-2",
+  "title": "Nozomi Networks Enters Next Phase of Growth as Mitsubishi Electric Completes Acquisition",
+  "organization": "Mitsubishi Electric Corporation / Nozomi Networks, Inc.",
+  "publicationDate": "2026-01-29",
+  "economicPeriod": "N/A (acquisition completion)",
+  "canonicalUrl": "https://www.prnewswire.com/news-releases/nozomi-networks-enters-next-phase-of-growth-as-mitsubishi-electric-completes-acquisition-302673652.html",
+  "excerpt": "Mitsubishi Electric Corporation (TOKYO: 6503) has completed its acquisition of Nozomi Networks. Following completion, Nozomi Networks operates as a wholly owned subsidiary while maintaining independent operations and a vendor-neutral approach.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-FITFIX2 / TR-nozomi-2",
+  "tags": [
+    "tracker",
+    "ot-iot"
+  ],
+  "retrievedAt": "2026-09-26"
+},
+{
   "id": "TR-okta-1",
   "title": "Okta Q2 FY2027 Earnings Release",
   "organization": "Okta, Inc.",
@@ -3499,17 +3480,17 @@ export const evidenceRecords: EvidenceRecord[] = [
 },
 {
   "id": "TR-panw-xsiam-1",
-  "title": "Palo Alto Networks - Cortex XSIAM Product",
+  "title": "Palo Alto Networks, Inc. — Form 10-K, fiscal year ended July 31, 2026",
   "organization": "Palo Alto Networks, Inc.",
-  "publicationDate": "2026-07-31",
-  "economicPeriod": "General disclosure",
-  "canonicalUrl": "https://investors.paloaltonetworks.com",
-  "excerpt": "Cortex XSIAM is a product line within Palo Alto Networks. No separately stated revenue or metrics are disclosed by the company.",
-  "sourceClass": "OFFICIAL",
+  "publicationDate": "2026-09-10",
+  "economicPeriod": "FY2026",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1327567/000132756726000023/0001327567-26-000023-index.htm",
+  "excerpt": "Cortex XSIAM is a product line within Palo Alto Networks; the filing discloses only combined Next-Gen Security ARR, with no XSIAM-specific revenue or metrics stated separately.",
+  "sourceClass": "FILING",
   "interpretation": "",
   "limitations": "Product line, not a standalone entity. No separate revenue disclosed.",
   "conflictingEvidenceIds": [],
-  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-panw-xsiam-1",
+  "artifactLabel": "SEC-MARKET-AUTO-001-FITFIX2 / TR-panw-xsiam-1",
   "tags": [
     "tracker",
     "secops"
@@ -3686,6 +3667,25 @@ export const evidenceRecords: EvidenceRecord[] = [
     "exposure"
   ],
   "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-rapid7-5",
+  "title": "Rapid7, Inc. — Form 8-K, Item 5.02 (director resignations)",
+  "organization": "Rapid7, Inc.",
+  "publicationDate": "2026-08-31",
+  "economicPeriod": "August 2026",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1560327/000156032726000046/rp-20260827.htm",
+  "excerpt": "Four directors — Michael Burns, Benjamin Holzman, Thomas Schodorf, and Reeny Sondhi — notified the board of their resignation from the board and every committee they served on, effective August 27, 2026. The filing states the resignations were not due to any disagreement with the company; the board approved severance arrangements including cash payments through June 2027 and accelerated equity vesting for each departing director.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "Filed August 31, 2026; the resignations themselves were effective August 27, 2026.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-FITFIX2 / TR-rapid7-5",
+  "tags": [
+    "tracker",
+    "exposure"
+  ],
+  "retrievedAt": "2026-09-26"
 },
 {
   "id": "TR-red-canary-1",
@@ -4069,17 +4069,17 @@ export const evidenceRecords: EvidenceRecord[] = [
 },
 {
   "id": "TR-sysdig-1",
-  "title": "Sysdig Founder and Board Information",
+  "title": "Sysdig Names Hatem Naguib as CEO to Lead Next Generation of AI-Driven Cloud Security",
   "organization": "Sysdig",
-  "publicationDate": "2026-09-25",
-  "economicPeriod": "September 2026",
-  "canonicalUrl": "https://sysdig.com/newsroom/",
-  "excerpt": "Founded 2013 by Loris Degioanni. Board includes Bain Capital Ventures, Accel, Premji Invest, Third Point Ventures, Permira. Confirmed private.",
-  "sourceClass": "VENDOR-RESEARCH",
+  "publicationDate": "2026-06-16",
+  "economicPeriod": "June 2026",
+  "canonicalUrl": "https://sysdig.com/press-releases/sysdig-names-hatem-naguib-as-ceo-to-lead-next-generation-of-ai-driven-cloud-security",
+  "excerpt": "Founder Loris Degioanni (CTO) confirms Hatem Naguib as CEO. Board member Enrique Salem, a partner at Bain Capital Ventures and former Symantec CEO, is quoted. Confirmed privately held.",
+  "sourceClass": "OFFICIAL",
   "interpretation": "",
-  "limitations": "No funding round or revenue data found.",
+  "limitations": "This release names one board member (Enrique Salem, Bain Capital Ventures); it does not confirm the previously listed full board (Accel, Premji Invest, Third Point Ventures, Permira), which is dropped for lack of a specific source.",
   "conflictingEvidenceIds": [],
-  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-sysdig-1",
+  "artifactLabel": "SEC-MARKET-AUTO-001-FITFIX2 / TR-sysdig-1",
   "tags": [
     "tracker",
     "cloud"
@@ -4126,17 +4126,17 @@ export const evidenceRecords: EvidenceRecord[] = [
 },
 {
   "id": "TR-tines-1",
-  "title": "Tines Series C Funding",
-  "organization": "Tines",
+  "title": "Goldman, SoftBank Back AI Startup Tines Valued at $1.13 Billion",
+  "organization": "Bloomberg",
   "publicationDate": "2025-02-11",
   "economicPeriod": "February 2025",
-  "canonicalUrl": "https://www.tines.com/newsroom/",
+  "canonicalUrl": "https://www.bloomberg.com/news/articles/2025-02-11/goldman-softbank-back-ai-startup-tines-valued-at-1-13-billion",
   "excerpt": "Tines raised $125 million in Series C funding at a $1.13 billion valuation, led by Goldman Sachs and SoftBank.",
-  "sourceClass": "OFFICIAL",
+  "sourceClass": "INDEPENDENT",
   "interpretation": "",
-  "limitations": "Valuation independently corroborated by the Irish Times, 2026-07-28.",
+  "limitations": "Company did not publish a dedicated press-release URL for this round; Bloomberg's report is corroborated by the Irish Times, 2026-07-28, and listed on Tines' own newsroom page.",
   "conflictingEvidenceIds": [],
-  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-tines-1",
+  "artifactLabel": "SEC-MARKET-AUTO-001-FITFIX2 / TR-tines-1",
   "tags": [
     "tracker",
     "secops"
@@ -4297,17 +4297,17 @@ export const evidenceRecords: EvidenceRecord[] = [
 },
 {
   "id": "TR-veracode-1",
-  "title": "Veracode newsroom (TA Associates majority investment)",
+  "title": "Veracode Receives Major Growth Investment from TA Associates",
   "organization": "Veracode, Inc.",
   "publicationDate": "2022-03-15",
   "economicPeriod": "N/A (ownership announcement)",
-  "canonicalUrl": "https://www.veracode.com/newsroom/",
-  "excerpt": "TA Associates took a majority growth-investment stake in Veracode at a $2.5 billion valuation.",
+  "canonicalUrl": "https://www.veracode.com/press-release/veracode-receives-major-growth-investment-from-ta-associates/",
+  "excerpt": "TA Associates signed a definitive agreement for a majority growth-investment stake in Veracode at a $2.5 billion valuation, with Thoma Bravo retaining a minority position; the transaction was expected to close in Q2 2022.",
   "sourceClass": "OFFICIAL",
   "interpretation": "",
-  "limitations": "Company newsroom listing page; the underlying research did not capture a dedicated per-release URL for this item, and notes the deal's completion date is reported elsewhere as around May 2022 without independently confirming which date is operative.",
+  "limitations": "The announcement gives an expected close of Q2 2022; a precise closing date was not independently confirmed.",
   "conflictingEvidenceIds": [],
-  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-veracode-1",
+  "artifactLabel": "SEC-MARKET-AUTO-001-FITFIX2 / TR-veracode-1",
   "tags": [
     "tracker",
     "appsec"

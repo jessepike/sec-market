@@ -16,6 +16,12 @@ function statusLine(): string {
   if (runStatus.state === 'no-change') {
     return `Figures checked ${checked} · no material change within our coverage.`
   }
+  // 'incomplete': a scope-restricted collect run can leave failedSources
+  // empty (nothing failed — not everything was checked either), so prefer
+  // the plain-language detail when one is set (AUTO-001 fix pass 2, item 4).
+  if (runStatus.detail) {
+    return `Figures checked ${checked} · ${runStatus.detail}`
+  }
   const n = runStatus.failedSources.length
   const noun = n === 1 ? 'source' : 'sources'
   return `Figures checked ${checked} · collection incomplete: ${n} ${noun} failed.`
