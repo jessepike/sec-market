@@ -548,11 +548,13 @@ export const trackerSuppliers: TrackerSupplier[] = [
     ],
     "kind": "acquired",
     "ownership": {
-      "status": "Accenture plc agreed to acquire a majority stake in Dragos; the agreement is disclosed in Accenture's own SEC 8-K exhibit accompanying its Q3 FY2026 earnings. Reported closing timing (around August/September 2026) was not independently confirmed against a primary source.",
+      "status": "Accenture plc agreed to acquire a majority stake in Dragos, announced June 18, 2026. Accenture's own release carries a note that the majority investment in Dragos closed on September 16, 2026.",
       "acquirer": "Accenture plc (NYSE: ACN)",
       "announced": "2026-06-18",
+      "closed": "2026-09-16",
       "evidenceIds": [
-        "TR-dragos-1"
+        "TR-dragos-1",
+        "TR-dragos-2"
       ]
     }
   },
@@ -917,11 +919,11 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "cik": "0001660134",
     "edgarId": "okta",
     "headlineMetric": {
-      "label": "Revenue",
-      "value": "$805 million",
-      "period": "Quarter ended July 31, 2026",
+      "label": "cRPO",
+      "value": "$2.585 billion",
+      "period": "Q2 FY2027, ended 2026-07-31",
       "evidenceIds": [
-        "TR-okta-1"
+        "TR-okta-3"
       ]
     },
     "revenue": {

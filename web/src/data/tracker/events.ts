@@ -780,5 +780,280 @@ export const trackerEvents: TrackerEvent[] = [
       "TR-rapid7-5"
     ],
     "rung": 1
+  },
+  {
+    "id": "EV-arctic-wolf-1",
+    "supplierId": "arctic-wolf",
+    "date": "2026-02-23",
+    "type": "acquisition",
+    "text": "Arctic Wolf announced it acquired Sevco Security, an exposure assessment platform provider. Sevco's technology will operate on the Arctic Wolf Aurora Platform.",
+    "evidenceIds": [
+      "TR-arctic-wolf-1"
+    ],
+    "rung": 4
+  },
+  {
+    "id": "EV-armis-2",
+    "supplierId": "armis",
+    "date": "2026-01-28",
+    "type": "acquisition",
+    "text": "ServiceNow's fourth-quarter 2025 results release states that ServiceNow announced its intent to acquire Armis, and that the transaction was expected to close in the second half of 2026.",
+    "evidenceIds": [
+      "TR-armis-2"
+    ],
+    "rung": 1
+  },
+  {
+    "id": "EV-checkpoint-4",
+    "supplierId": "checkpoint-sase",
+    "date": "2025-12-08",
+    "type": "debt",
+    "text": "Check Point closed its offering of $2.0 billion aggregate principal amount of 0.00% convertible senior notes due 2030, including $250 million of additional notes. The Form 6-K states net proceeds were approximately $1.97 billion.",
+    "evidenceIds": [
+      "TR-checkpoint-5"
+    ],
+    "rung": 1
+  },
+  {
+    "id": "EV-cyera-5",
+    "supplierId": "cyera",
+    "date": "2026-01-08",
+    "type": "funding",
+    "text": "Cyera announced a $400 million Series F funding round led by funds managed by Blackstone, bringing its total funding to over $1.7 billion and its valuation to $9 billion.",
+    "evidenceIds": [
+      "TR-cyera-5"
+    ],
+    "rung": 4
+  },
+  {
+    "id": "EV-delinea-2",
+    "supplierId": "delinea",
+    "date": "2026-01-15",
+    "type": "acquisition",
+    "text": "Delinea announced it signed a definitive agreement to acquire StrongDM.",
+    "evidenceIds": [
+      "TR-delinea-4"
+    ],
+    "rung": 4
+  },
+  {
+    "id": "EV-delinea-3",
+    "supplierId": "delinea",
+    "date": "2026-03-05",
+    "type": "acquisition",
+    "text": "Delinea announced it completed its acquisition of StrongDM.",
+    "evidenceIds": [
+      "TR-delinea-5"
+    ],
+    "rung": 4
+  },
+  {
+    "id": "EV-dragos-2",
+    "supplierId": "dragos",
+    "date": "2026-09-16",
+    "type": "acquisition",
+    "text": "Accenture's release carries a note stating that the majority investment in Dragos closed on September 16, 2026, and that NetRise and runZero, which closed on July 31, 2026 and September 17, 2026, were acquired by Dragos as part of the closing terms.",
+    "evidenceIds": [
+      "TR-dragos-2"
+    ],
+    "rung": 4
+  },
+  {
+    "id": "EV-exabeam-1",
+    "supplierId": "exabeam",
+    "date": "2025-10-08",
+    "type": "exec-change",
+    "text": "Exabeam announced Pete Harteveld as Chief Executive Officer, following Chris O'Malley's decision to retire. Harteveld most recently served as Exabeam's Chief Revenue Officer.",
+    "evidenceIds": [
+      "TR-exabeam-2"
+    ],
+    "rung": 4
+  },
+  {
+    "id": "EV-commvault-4",
+    "supplierId": "commvault",
+    "date": "2025-12-04",
+    "type": "exec-change",
+    "text": "Commvault disclosed in an 8-K that Chief Financial Officer Jennifer DiRico notified the company on November 30, 2025 that she will resign at the end of the calendar year.",
+    "evidenceIds": [
+      "TR-commvault-3"
+    ],
+    "rung": 1
+  },
+  {
+    "id": "EV-commvault-5",
+    "supplierId": "commvault",
+    "date": "2026-04-13",
+    "type": "exec-change",
+    "text": "Commvault announced the appointment of Gary Merrill as Chief Financial Officer and principal financial officer, effective April 13, 2026; he ceased to serve as Chief Commercial Officer as of that date.",
+    "evidenceIds": [
+      "TR-commvault-4"
+    ],
+    "rung": 1
+  },
+  {
+    "id": "EV-okta-2",
+    "supplierId": "okta",
+    "date": "2026-08-26",
+    "type": "results",
+    "text": "Okta reported cRPO (current remaining performance obligations) of $2.585 billion at July 31, 2026, up 14% compared to the second quarter of fiscal 2026; RPO was $4.858 billion, up 17%.",
+    "evidenceIds": [
+      "TR-okta-3"
+    ],
+    "rung": 1
+  },
+  {
+    "id": "EV-panw-3",
+    "supplierId": "panw",
+    "date": "2025-11-19",
+    "type": "acquisition",
+    "text": "Palo Alto Networks announced a definitive agreement to acquire Chronosphere for a total consideration of $3.35 billion, to be paid in cash and replacement equity awards, subject to adjustments.",
+    "evidenceIds": [
+      "TR-panw-4"
+    ],
+    "rung": 1
+  },
+  {
+    "id": "EV-panw-4",
+    "supplierId": "panw",
+    "date": "2026-01-29",
+    "type": "acquisition",
+    "text": "Palo Alto Networks completed its acquisition of Chronosphere; Chronosphere continues as a wholly owned subsidiary of the company.",
+    "evidenceIds": [
+      "TR-panw-5"
+    ],
+    "rung": 1
+  },
+  {
+    "id": "EV-proofpoint-1",
+    "supplierId": "proofpoint",
+    "date": "2026-02-12",
+    "type": "acquisition",
+    "text": "Proofpoint announced it had acquired Acuvity, an AI enterprise security and governance company.",
+    "evidenceIds": [
+      "TR-proofpoint-2"
+    ],
+    "rung": 4
+  },
+  {
+    "id": "EV-rapid7-6",
+    "supplierId": "rapid7",
+    "date": "2025-11-04",
+    "type": "exec-change",
+    "text": "Rapid7 disclosed in an 8-K that its board appointed Rafe Brown as Chief Financial Officer and principal financial officer, expected to be effective on or about December 1, 2025.",
+    "evidenceIds": [
+      "TR-rapid7-6"
+    ],
+    "rung": 1
+  },
+  {
+    "id": "EV-s1-3",
+    "supplierId": "s1",
+    "date": "2025-12-04",
+    "type": "exec-change",
+    "text": "SentinelOne disclosed in an 8-K that Chief Financial Officer Barbara Larson notified the company on December 1, 2025 of her intention to resign, expected in mid-January 2026, and that Chief Growth Officer Barry Padgett would serve as interim Chief Financial Officer from her departure date.",
+    "evidenceIds": [
+      "TR-s1-4"
+    ],
+    "rung": 1
+  },
+  {
+    "id": "EV-s1-4",
+    "supplierId": "s1",
+    "date": "2026-03-05",
+    "type": "exec-change",
+    "text": "SentinelOne disclosed in an 8-K that its board appointed Sonalee Parekh as Chief Financial Officer and principal financial officer on February 28, 2026, effective on a start date then set for March 24, 2026.",
+    "evidenceIds": [
+      "TR-s1-5"
+    ],
+    "rung": 1
+  },
+  {
+    "id": "EV-sailpoint-2",
+    "supplierId": "sailpoint",
+    "date": "2026-06-29",
+    "type": "acquisition",
+    "text": "SailPoint completed its acquisition of Entro Security Ltd. and Entro Security Inc. on June 29, 2026 for total cash consideration of approximately $122.6 million, per its 10-Q for the quarter ended July 31, 2026.",
+    "evidenceIds": [
+      "TR-sailpoint-3"
+    ],
+    "rung": 1
+  },
+  {
+    "id": "EV-veeam-2",
+    "supplierId": "veeam",
+    "date": "2025-10-21",
+    "type": "acquisition",
+    "text": "Veeam announced it signed a definitive agreement to acquire Securiti AI for $1.725 billion, with the transaction expected to close in the fourth quarter, subject to customary closing conditions and regulatory approvals.",
+    "evidenceIds": [
+      "TR-veeam-3"
+    ],
+    "rung": 4
+  },
+  {
+    "id": "EV-torq-2",
+    "supplierId": "torq",
+    "date": "2026-05-19",
+    "type": "acquisition",
+    "text": "Torq announced the acquisition of Jit, a Boston-based company it describes as an AI context graph cybersecurity company.",
+    "evidenceIds": [
+      "TR-torq-2"
+    ],
+    "rung": 4
+  },
+  {
+    "id": "EV-upwind-2",
+    "supplierId": "upwind",
+    "date": "2026-09-23",
+    "type": "acquisition",
+    "text": "Upwind stated it is acquiring Aegis and launching the Upwind AI Lab.",
+    "evidenceIds": [
+      "TR-upwind-2"
+    ],
+    "rung": 4
+  },
+  {
+    "id": "EV-zscaler-4",
+    "supplierId": "zscaler",
+    "date": "2025-10-31",
+    "type": "acquisition",
+    "text": "Zscaler acquired all outstanding equity of SPLXAI Inc., an early-stage AI technology company, for cash consideration of $40.6 million, and issued $16.6 million in restricted stock subject to post-combination service vesting conditions.",
+    "evidenceIds": [
+      "TR-zscaler-5"
+    ],
+    "rung": 1
+  },
+  {
+    "id": "EV-zscaler-5",
+    "supplierId": "zscaler",
+    "date": "2026-02-05",
+    "type": "acquisition",
+    "text": "Zscaler acquired all outstanding equity of SquareX Holdings, Inc., a browser security company, for cash consideration of $112.8 million, and issued $37.4 million in restricted stock subject to post-combination service vesting conditions.",
+    "evidenceIds": [
+      "TR-zscaler-5"
+    ],
+    "rung": 1
+  },
+  {
+    "id": "EV-zscaler-6",
+    "supplierId": "zscaler",
+    "date": "2026-05-27",
+    "type": "acquisition",
+    "text": "Zscaler acquired all outstanding equity of Symmetry Systems, Inc. for cash consideration of $152.9 million, and issued $16.9 million in restricted stock subject to post-combination service vesting conditions.",
+    "evidenceIds": [
+      "TR-zscaler-5"
+    ],
+    "rung": 1
+  },
+  {
+    "id": "EV-zscaler-7",
+    "supplierId": "zscaler",
+    "date": "2026-04-15",
+    "type": "exec-change",
+    "text": "Raj Judge, EVP of Corporate Strategy, informed Zscaler of his resignation on April 15, 2026, with departure effective July 31, 2026. He resigned as an officer and as a member of the Board of Directors effective April 15, 2026.",
+    "evidenceIds": [
+      "TR-zscaler-6"
+    ],
+    "rung": 1
   }
 ]

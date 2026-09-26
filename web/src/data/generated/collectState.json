@@ -1,11 +1,37 @@
 {
-  "lastSuccessfulCollectDate": null,
-  "lastRunAt": null,
+  "lastSuccessfulCollectDate": "2026-09-26",
+  "lastRunAt": "2026-09-26T17:30:45Z",
   "collectorRun": {
-    "at": "2026-09-26T14:53:50Z",
+    "at": "2026-09-26T17:30:45Z",
     "state": "incomplete",
-    "detail": "restricted run: optiv, snyk, cyera, rapid7",
-    "restrictedTo": ["optiv", "snyk", "cyera", "rapid7"],
-    "failedSources": []
+    "detail": "25 source(s) failed to load; see .collect/failed-sources.json",
+    "restrictedTo": null,
+    "failedSources": [
+      "Armis newsroom (armis.com/newsroom) - HTTP 403",
+      "BeyondTrust press page (beyondtrust.com/press) - HTTP 403",
+      "Cato Networks press releases page - blocked by a bot challenge, not bypassed",
+      "Axonius press page (axonius.com/company/press) - HTTP 429 on three attempts",
+      "Dragos press-release page (dragos.com/press-releases) - HTTP 404",
+      "eSentire press-release pages (esentire.com/news-and-events/press-releases, /news-releases) - HTTP 404",
+      "Cohesity newsroom (cohesity.com/newsroom/press) - page loaded but lists no readable releases; no dated items found",
+      "Expel press-release page (expel.com/press-releases) - HTTP 404; no dated 2025-2026 release found in search",
+      "Mimecast news page (mimecast.com/company/mimecast-news/) - HTTP 404",
+      "HiddenLayer news page (hiddenlayer.com/news) - HTTP 404",
+      "Forescout press-releases page - loaded but lists no readable dated items in the fetched HTML",
+      "Ivanti S&P downgrade to CCC (trade-press lead only, no agency release or company/wire copy found; the Yahoo copy of a Moody's release that was fetched is dated 2021) - not published",
+      "Proofpoint layoffs 2026 (trade press and layoff-tracker aggregators only; no company statement, 8-K or state WARN notice found) - not published",
+      "Optiv layoffs 2026 (trade press and employee-review sites only; Colorado CDLE WARN page loaded but lists no readable Optiv entry) - not published",
+      "Proofpoint term-loan amend-and-extend, July 2026 (restructuring-newsletter lead only; no company or wire copy found) - not published",
+      "Optiv, Orca, Nozomi, Proofpoint, Ping Identity company newsroom pages - no dated corporate-action items readable in fetched HTML beyond those already recorded",
+      "Sysdig press page (sysdig.com/press, /press-releases/) - HTTP 404 on three attempts; no company funding/acquisition statement found",
+      "Red Canary press page (redcanary.com/press-releases/, /company/press/) - HTTP 404; no post-acquisition items found",
+      "SurePath AI news page (surepath.ai/news) - HTTP 404; homepage showed no dated corporate-action items",
+      "ReliaQuest newsroom (reliaquest.com/newsroom/) - page loaded but no dated corporate-action items readable in fetched HTML",
+      "Sophos press pages (sophos.com/en-us/press, news.sophos.com press-releases) - loaded but no dated corporate-action items readable beyond those already recorded",
+      "Snyk news page (snyk.io/news/) - only the Invariant Labs acquisition (dated before the since-date) found; nothing newer",
+      "Upwind Series C ($300M, $3.8B valuation, reported 2026-09-04) - only trade-press results found (finsmes returned HTTP 403); no company release or Business Wire item located, so no event written",
+      "Upwind, WitnessAI, Xage, Veracode newsroom pages (upwind.io/newsroom, witness.ai/news-and-events, xage.com/press, veracode.com/newsroom) - loaded but JavaScript-rendered with no readable dated corporate-action items",
+      "Wiz newsroom (wiz.io/newsroom) and Google's Wiz-close blog URL - no readable dated items / HTTP 404"
+    ]
   }
 }

@@ -4467,6 +4467,562 @@ export const evidenceRecords: EvidenceRecord[] = [
   ],
   "retrievedAt": "2026-09-25"
 },
+{
+  "id": "TR-arctic-wolf-1",
+  "title": "Arctic Wolf Acquires Exposure Assessment Platform Visionary Sevco Security",
+  "organization": "Arctic Wolf Networks, Inc.",
+  "publicationDate": "2026-02-23",
+  "economicPeriod": "February 2026",
+  "canonicalUrl": "https://arcticwolf.com/resources/press-releases/arctic-wolf-acquires-exposure-assessment-platform-visionary-sevco-security/",
+  "excerpt": "Arctic Wolf today announced it has acquired Sevco Security, an innovator in exposure assessment platforms. Sevco's cloud-native technology will operate on the Arctic Wolf Aurora Platform.",
+  "sourceClass": "IR",
+  "interpretation": "",
+  "limitations": "The press release does not state a price or closing date.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-arctic-wolf-1",
+  "tags": [
+    "tracker",
+    "managed-security"
+  ],
+  "retrievedAt": "2026-09-26",
+  "retrieval": {
+    "finalUrl": "https://arcticwolf.com/resources/press-releases/arctic-wolf-acquires-exposure-assessment-platform-visionary-sevco-security/",
+    "sha256": "4c60f7707a035a7da3d677018fc02db189397f59f62d2d06247043bfc9b738b9",
+    "fetchedAt": "2026-09-26T17:10:00Z",
+    "locator": "Press release, first paragraph"
+  }
+},
+{
+  "id": "TR-armis-2",
+  "title": "ServiceNow Fourth Quarter and Full Year 2025 Financial Results (Form 8-K EX-99.1)",
+  "organization": "ServiceNow, Inc.",
+  "publicationDate": "2026-01-28",
+  "economicPeriod": "Q4 FY2025",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1373715/000137371526000005/erq4fy25.htm",
+  "excerpt": "ServiceNow announced its intent to acquire Armis to create a unified, end-to-end security exposure and operations stack... The transaction is expected to close in the second half of 2026.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "The document does not state a price. It does not give the date the deal was announced; the date used is the filing date.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-armis-2",
+  "tags": [
+    "tracker",
+    "ot-iot"
+  ],
+  "retrievedAt": "2026-09-26",
+  "retrieval": {
+    "finalUrl": "https://www.sec.gov/Archives/edgar/data/1373715/000137371526000005/erq4fy25.htm",
+    "sha256": "bd192340730b12aa6a863b22797214d3c01727733de69a6b436684052f0acd97",
+    "fetchedAt": "2026-09-26T17:08:00Z",
+    "locator": "EX-99.1, Acquisitions section"
+  }
+},
+{
+  "id": "TR-checkpoint-5",
+  "title": "Check Point Form 6-K: closing of $2.0 billion convertible senior notes offering",
+  "organization": "Check Point Software Technologies Ltd.",
+  "publicationDate": "2025-12-08",
+  "economicPeriod": "December 2025",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1015922/000117891325004030/zk2534094.htm",
+  "excerpt": "On December 8, 2025, Check Point closed the previously announced offering of $1.75 billion principal amount of 0.00% convertible senior notes due 2030... including $250 million of Additional Convertible Notes... resulting in a total principal amount of $2.0 billion. The net proceeds from the sale of the Convertible Notes were approximately $1.97 billion.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-checkpoint-5",
+  "tags": [
+    "tracker",
+    "network-sase"
+  ],
+  "retrievedAt": "2026-09-26",
+  "retrieval": {
+    "finalUrl": "https://www.sec.gov/Archives/edgar/data/1015922/000117891325004030/zk2534094.htm",
+    "sha256": "673de770671cfa08ba8e9bb2e2ae5f9e443e715be850daa6be5de9b9a6fbeb80",
+    "fetchedAt": "2026-09-26T17:07:00Z",
+    "locator": "Explanatory note and Purchase Agreement sections"
+  }
+},
+{
+  "id": "TR-cyera-5",
+  "title": "Cyera Raises $400M to Meet Rapidly Growing Demand for AI Security Among Enterprises",
+  "organization": "Cyera",
+  "publicationDate": "2026-01-08",
+  "economicPeriod": "January 2026",
+  "canonicalUrl": "https://www.cyera.com/press-releases/cyera-raises-400m-to-meet-rapidly-growing-demand-for-ai-security-among-enterprises",
+  "excerpt": "Cyera announced a $400 million Series F funding round, bringing its total funding to over $1.7 billion... triples the company's valuation from a year ago to $9 billion. The round was led by funds managed by Blackstone.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-cyera-5",
+  "tags": ["tracker"],
+  "retrievedAt": "2026-09-26",
+  "retrieval": {
+    "finalUrl": "https://www.cyera.com/press-releases/cyera-raises-400m-to-meet-rapidly-growing-demand-for-ai-security-among-enterprises",
+    "sha256": "9576a4e2104bdd5ba074b6e48a6dd50f0c9e7fc0ab0cecfc386bd344cb95f4cb",
+    "fetchedAt": "2026-09-26T17:30:00Z",
+    "locator": "Opening paragraphs of the press release"
+  }
+},
+{
+  "id": "TR-delinea-4",
+  "title": "Delinea and StrongDM to Unite to Redefine Identity Security for the Agentic AI Era",
+  "organization": "Delinea",
+  "publicationDate": "2026-01-15",
+  "economicPeriod": "January 2026",
+  "canonicalUrl": "https://delinea.com/news/delinea-strongdm-to-unite-redefine-identity-security-for-the-ai-era",
+  "excerpt": "Delinea... today announced it has signed a definitive agreement to acquire StrongDM, the universal access management company purpose-built for modern engineering, DevOps, and AI-driven environments.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-delinea-4",
+  "tags": ["tracker"],
+  "retrievedAt": "2026-09-26",
+  "retrieval": {
+    "finalUrl": "https://delinea.com/news/delinea-strongdm-to-unite-redefine-identity-security-for-the-ai-era",
+    "sha256": "1a75e7f25cee91769438182502d006eebf5cd153029c80c9c05a9885ba67e6e7",
+    "fetchedAt": "2026-09-26T17:30:00Z",
+    "locator": "Dateline and first paragraph"
+  }
+},
+{
+  "id": "TR-delinea-5",
+  "title": "Delinea Completes StrongDM Acquisition to Secure AI Agents with Continuous Identity Authorization",
+  "organization": "Delinea",
+  "publicationDate": "2026-03-05",
+  "economicPeriod": "March 2026",
+  "canonicalUrl": "https://www.globenewswire.com/news-release/2026/03/05/3250113/0/en/delinea-completes-strongdm-acquisition-to-secure-ai-agents-with-continuous-identity-authorization.html",
+  "excerpt": "Delinea... has completed its acquisition of StrongDM, the universal access management company purpose-built for modern engineering, DevOps, and AI-driven environments.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-delinea-5",
+  "tags": ["tracker"],
+  "retrievedAt": "2026-09-26",
+  "retrieval": {
+    "finalUrl": "https://www.globenewswire.com/news-release/2026/03/05/3250113/0/en/delinea-completes-strongdm-acquisition-to-secure-ai-agents-with-continuous-identity-authorization.html",
+    "sha256": "d18b79e5bfb9b2a1c3a1dbf1bf0e7d2001a7487989a68f6dc18067086a5329cc",
+    "fetchedAt": "2026-09-26T17:30:00Z",
+    "locator": "First paragraph"
+  }
+},
+{
+  "id": "TR-dragos-2",
+  "title": "Accenture to Strengthen Critical Infrastructure Defense with End-to-End Cybersecurity Platform (release with closing note)",
+  "organization": "Accenture plc",
+  "publicationDate": "2026-09-16",
+  "economicPeriod": "June 2026 announcement; closing note September 2026",
+  "canonicalUrl": "https://newsroom.accenture.com/news/2026/accenture-to-strengthen-critical-infrastructure-defense-with-end-to-end-cybersecurity-platform-in-age-of-ai-driven-cyber-threats-and-geopolitical-risk",
+  "excerpt": "NOTE: The acquisition of NetRise closed on July 31, 2026, the majority investment in Dragos closed on September 16, 2026 and the acquisition of runZero closed on September 17, 2026. As part of the closing terms, NetRise and runZero have been acquired by Dragos.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-dragos-2",
+  "tags": ["tracker"],
+  "retrievedAt": "2026-09-26",
+  "retrieval": {
+    "finalUrl": "https://newsroom.accenture.com/news/2026/accenture-to-strengthen-critical-infrastructure-defense-with-end-to-end-cybersecurity-platform-in-age-of-ai-driven-cyber-threats-and-geopolitical-risk",
+    "sha256": "91aad377f4cc2f569acb94449e8bd4255e51616a7ddc90966f1bac0d62c740b3",
+    "fetchedAt": "2026-09-26T17:30:00Z",
+    "locator": "Note at the top of the release"
+  }
+},
+{
+  "id": "TR-exabeam-2",
+  "title": "Exabeam Appoints Pete Harteveld as CEO",
+  "organization": "Exabeam (published by Thoma Bravo)",
+  "publicationDate": "2025-10-08",
+  "economicPeriod": "October 2025",
+  "canonicalUrl": "https://www.thomabravo.com/press-releases/exabeam-appoints-pete-harteveld-as-ceo",
+  "excerpt": "Exabeam... today announced Pete Harteveld as Chief Executive Officer. The leadership transition follows the decision by Chris O'Malley to step into retirement after three years of dedicated service.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-exabeam-2",
+  "tags": ["tracker"],
+  "retrievedAt": "2026-09-26",
+  "retrieval": {
+    "finalUrl": "https://www.thomabravo.com/press-releases/exabeam-appoints-pete-harteveld-as-ceo",
+    "sha256": "0581fe913bca27e4edfca54c8f8e399ee412bbc4df02ff3ed20041c9f4999cbd",
+    "fetchedAt": "2026-09-26T17:30:00Z",
+    "locator": "First two paragraphs"
+  }
+},
+{
+  "id": "TR-commvault-3",
+  "title": "Commvault Systems Form 8-K, Item 5.02 (CFO resignation)",
+  "organization": "Commvault Systems, Inc.",
+  "publicationDate": "2025-12-04",
+  "economicPeriod": "December 2025",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1169561/000116956125000094/cvlt-20251130.htm",
+  "excerpt": "On November 30, 2025, Jennifer DiRico notified Commvault Systems, Inc. that she will be resigning from her position as Chief Financial Officer of the Company at the end of the calendar year.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-commvault-3",
+  "tags": ["tracker"],
+  "retrievedAt": "2026-09-26",
+  "retrieval": {
+    "finalUrl": "https://www.sec.gov/Archives/edgar/data/1169561/000116956125000094/cvlt-20251130.htm",
+    "sha256": "e486c064a7184b058382ed0dc66297aa50f3b0509f5a3c899e60b595811a9828",
+    "fetchedAt": "2026-09-26T17:30:00Z",
+    "locator": "Item 5.02"
+  }
+},
+{
+  "id": "TR-commvault-4",
+  "title": "Commvault Systems Form 8-K, Item 5.02 (CFO appointment)",
+  "organization": "Commvault Systems, Inc.",
+  "publicationDate": "2026-04-13",
+  "economicPeriod": "April 2026",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1169561/000116956126000008/cvlt-20260408.htm",
+  "excerpt": "On April 13, 2026, Commvault Systems, Inc. announced the appointment of Mr. Gary Merrill as Chief Financial Officer and principal financial officer. As of the Effective Date, Mr. Merrill will cease to serve as the Company's Chief Commercial Officer.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-commvault-4",
+  "tags": ["tracker"],
+  "retrievedAt": "2026-09-26",
+  "retrieval": {
+    "finalUrl": "https://www.sec.gov/Archives/edgar/data/1169561/000116956126000008/cvlt-20260408.htm",
+    "sha256": "71430172f7360cda62b937526cb70b041c512e5f19aa03adb20df45cbd5097c2",
+    "fetchedAt": "2026-09-26T17:30:00Z",
+    "locator": "Item 5.02"
+  }
+},
+{
+  "id": "TR-okta-3",
+  "title": "Okta Announces Second Quarter Fiscal Year 2027 Financial Results (Exhibit 99.1)",
+  "organization": "Okta, Inc.",
+  "publicationDate": "2026-08-26",
+  "economicPeriod": "Quarter ended July 31, 2026",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1660134/000166013426000068/okta-7312026_ex991.htm",
+  "excerpt": "cRPO, which represents subscription backlog expected to be recognized over the next 12 months, was $2.585 billion, up 14% compared to the second quarter of fiscal 2026.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-okta-3",
+  "tags": [
+    "tracker",
+    "identity"
+  ],
+  "retrievedAt": "2026-09-26",
+  "retrieval": {
+    "finalUrl": "https://www.sec.gov/Archives/edgar/data/1660134/000166013426000068/okta-7312026_ex991.htm",
+    "sha256": "f1280f38f9a28f3461acdb1bbd4955575be2ea13041863d3913d6103d1198c6e",
+    "fetchedAt": "2026-09-26T17:40:00Z",
+    "locator": "Second Quarter Fiscal 2027 Financial Highlights, RPO bullet"
+  }
+},
+{
+  "id": "TR-panw-4",
+  "title": "Palo Alto Networks to Acquire Chronosphere (Form 8-K, Exhibit 99.2)",
+  "organization": "Palo Alto Networks, Inc.",
+  "publicationDate": "2025-11-19",
+  "economicPeriod": "November 2025",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1327567/000132756725000032/ex992pressrelease.htm",
+  "excerpt": "Under the terms of the agreement, Palo Alto Networks will acquire Chronosphere for a total consideration of $3.35 billion, to be paid in cash and replacement equity awards, subject to adjustments.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-panw-4",
+  "tags": [
+    "tracker",
+    "secops"
+  ],
+  "retrievedAt": "2026-09-26",
+  "retrieval": {
+    "finalUrl": "https://www.sec.gov/Archives/edgar/data/1327567/000132756725000032/ex992pressrelease.htm",
+    "sha256": "e6bd890c0e575a32ecb76c56fe030a26c4fdcf791d3dcc4be8e5c4bd10e1e564",
+    "fetchedAt": "2026-09-26T17:40:00Z",
+    "locator": "Paragraph 6, terms of the agreement"
+  }
+},
+{
+  "id": "TR-panw-5",
+  "title": "Palo Alto Networks Completes Chronosphere Acquisition (Form 8-K, Item 7.01, Exhibit 99.1)",
+  "organization": "Palo Alto Networks, Inc.",
+  "publicationDate": "2026-01-29",
+  "economicPeriod": "January 2026",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1327567/000119312526029489/d884183dex991.htm",
+  "excerpt": "Palo Alto Networks (NASDAQ: PANW), the global cybersecurity leader, today announced it has completed its acquisition of Chronosphere.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-panw-5",
+  "tags": [
+    "tracker",
+    "secops"
+  ],
+  "retrievedAt": "2026-09-26",
+  "retrieval": {
+    "finalUrl": "https://www.sec.gov/Archives/edgar/data/1327567/000119312526029489/d884183dex991.htm",
+    "sha256": "0a91f9c95ec918e067392b6c2644ea61b5bfdc1372497e568428140ac534dcda",
+    "fetchedAt": "2026-09-26T17:40:00Z",
+    "locator": "Opening paragraph; Item 7.01 of the 8-K"
+  }
+},
+{
+  "id": "TR-proofpoint-2",
+  "title": "Proofpoint Acquires Acuvity to Deliver AI Security and Governance Across the Agentic Workspace",
+  "organization": "Proofpoint, Inc.",
+  "publicationDate": "2026-02-12",
+  "economicPeriod": "February 2026",
+  "canonicalUrl": "https://www.proofpoint.com/us/newsroom/press-releases/proofpoint-acquires-acuvity-deliver-ai-security-and-governance-across",
+  "excerpt": "Proofpoint, Inc. today announced it has acquired Acuvity, a pioneer in AI enterprise security and governance.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-proofpoint-2",
+  "tags": [
+    "tracker",
+    "email"
+  ],
+  "retrievedAt": "2026-09-26",
+  "retrieval": {
+    "finalUrl": "https://www.proofpoint.com/us/newsroom/press-releases/proofpoint-acquires-acuvity-deliver-ai-security-and-governance-across",
+    "sha256": "a721271180cee3681ce94fe3b91b5b0ef198c0351b3cbf95bea484fbf90b77a7",
+    "fetchedAt": "2026-09-26T17:40:00Z",
+    "locator": "Opening paragraph"
+  }
+},
+{
+  "id": "TR-rapid7-6",
+  "title": "Rapid7, Inc. — Form 8-K, Items 2.02 and 5.02 (Chief Financial Officer appointment)",
+  "organization": "Rapid7, Inc.",
+  "publicationDate": "2025-11-04",
+  "economicPeriod": "November 2025",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1560327/000156032725000059/rp-20251104.htm",
+  "excerpt": "On November 1, 2025, the Board of Directors of the Company appointed Rafe Brown as the Chief Financial Officer of the Company, effective upon the commencement of Mr. Brown's employment with the Company, which is expected to be on or about December 1, 2025.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-COLLECT / TR-rapid7-6",
+  "tags": [
+    "tracker",
+    "exposure"
+  ],
+  "retrievedAt": "2026-09-26",
+  "retrieval": {
+    "finalUrl": "https://www.sec.gov/Archives/edgar/data/1560327/000156032725000059/rp-20251104.htm",
+    "sha256": "b7a6e4c62b750d05e6ef0c0b1df165ff90d9a91b31c2eeeb428b5b0d279bebf0",
+    "fetchedAt": "2026-09-26T17:50:00Z",
+    "locator": "Item 5.02, Appointment of Chief Financial Officer"
+  }
+},
+{
+  "id": "TR-s1-4",
+  "title": "SentinelOne, Inc. — Form 8-K, Items 2.02, 5.02, 7.01 (Chief Financial Officer resignation and interim appointment)",
+  "organization": "SentinelOne, Inc.",
+  "publicationDate": "2025-12-04",
+  "economicPeriod": "December 2025",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1583708/000158370825000157/s-20251204.htm",
+  "excerpt": "On December 1, 2025, Barbara Larson notified the Company of her intention to resign from her position as the Chief Financial Officer and principal financial officer of the Company at a future date that is mutually agreeable to the Company and Ms. Larson (currently expected in mid-January 2026). Effective as of the Larson Resignation Date, Barry Padgett, the Company's current Chief Growth Officer, will serve as the interim Chief Financial Officer and principal financial officer of the Company.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-COLLECT / TR-s1-4",
+  "tags": [
+    "tracker",
+    "endpoint-xdr"
+  ],
+  "retrievedAt": "2026-09-26",
+  "retrieval": {
+    "finalUrl": "https://www.sec.gov/Archives/edgar/data/1583708/000158370825000157/s-20251204.htm",
+    "sha256": "5488bac66b32ee9ad059a83df56b1437628498d38b0e5a6e79e2703723d9db1d",
+    "fetchedAt": "2026-09-26T17:50:00Z",
+    "locator": "Item 5.02(b) and (c), Appointment of Barry Padgett as Interim Chief Financial Officer"
+  }
+},
+{
+  "id": "TR-s1-5",
+  "title": "SentinelOne, Inc. — Form 8-K, Item 5.02 (Chief Financial Officer appointment)",
+  "organization": "SentinelOne, Inc.",
+  "publicationDate": "2026-03-05",
+  "economicPeriod": "March 2026",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1583708/000158370826000009/s-20260228.htm",
+  "excerpt": "On February 28, 2026, the Board of Directors of SentinelOne, Inc. appointed Sonalee Parekh as the Company's Chief Financial Officer and principal financial officer, effective as of the start date, currently set for March 24, 2026.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "Filed March 5, 2026; the board action is dated February 28, 2026.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-COLLECT / TR-s1-5",
+  "tags": [
+    "tracker",
+    "endpoint-xdr"
+  ],
+  "retrievedAt": "2026-09-26",
+  "retrieval": {
+    "finalUrl": "https://www.sec.gov/Archives/edgar/data/1583708/000158370826000009/s-20260228.htm",
+    "sha256": "369452916c99643e42339947646454241b0d22831bea79b48d6f7dfb1dabfcc7",
+    "fetchedAt": "2026-09-26T17:50:00Z",
+    "locator": "Item 5.02(b) and (c)"
+  }
+},
+{
+  "id": "TR-sailpoint-3",
+  "title": "SailPoint, Inc. — Form 10-Q for the quarter ended July 31, 2026 (Entro acquisition)",
+  "organization": "SailPoint, Inc.",
+  "publicationDate": "2026-09-10",
+  "economicPeriod": "Quarter ended 2026-07-31",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/2030781/000203078126000021/sail-20260731.htm",
+  "excerpt": "On June 29, 2026, the Company completed the acquisition of 100% of the outstanding equity interests of Entro Security Ltd. and its wholly owned subsidiary, Entro Security Inc. (collectively, \"Entro\"), for total purchase consideration of approximately $122.6 million in cash.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "The 10-Q also states the Company committed to issue up to $7.3 million in restricted stock to certain key employees and former shareholders of Entro who became employees.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-COLLECT / TR-sailpoint-3",
+  "tags": [
+    "tracker",
+    "identity"
+  ],
+  "retrievedAt": "2026-09-26",
+  "retrieval": {
+    "finalUrl": "https://www.sec.gov/Archives/edgar/data/2030781/000203078126000021/sail-20260731.htm",
+    "sha256": "f0f7736fe98833a8577a06884431283e4faf7594fd1867d0c330d1cb1cdcadbe",
+    "fetchedAt": "2026-09-26T17:50:00Z",
+    "locator": "Note, Business Combinations, Entro"
+  }
+},
+{
+  "id": "TR-veeam-3",
+  "title": "Veeam to Acquire Securiti AI",
+  "organization": "Veeam Software",
+  "publicationDate": "2025-10-21",
+  "economicPeriod": "N/A (acquisition announcement)",
+  "canonicalUrl": "https://www.veeam.com/news/veeam-to-acquire-securiti-ai.html",
+  "excerpt": "Veeam \"today announced it has signed a definitive agreement to acquire\" Securiti AI \"for $1.725 billion.\" \"The transaction is expected to close in the fourth quarter and is subject to customary closing conditions and regulatory approvals.\"",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "Company press release announcing the agreement; the completion is recorded separately under TR-veeam-2.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-COLLECT / TR-veeam-3",
+  "tags": [
+    "tracker",
+    "data"
+  ],
+  "retrievedAt": "2026-09-26",
+  "retrieval": {
+    "finalUrl": "https://www.veeam.com/news/veeam-to-acquire-securiti-ai.html",
+    "sha256": "f6f33bb13a7e5c0860b3437552a785f77d73bf3e444d3b462df220e94721498b",
+    "fetchedAt": "2026-09-26T18:10:00Z",
+    "locator": "Press release, dateline and first two paragraphs"
+  }
+},
+{
+  "id": "TR-torq-2",
+  "title": "Torq Acquires Jit to Unleash the First Enterprise AI SOC Context Graph",
+  "organization": "Torq",
+  "publicationDate": "2026-05-19",
+  "economicPeriod": "May 2026",
+  "canonicalUrl": "https://torq.io/news/torq-acquires-jit/",
+  "excerpt": "\"Torq, the established agentic security operations leader, today announced the acquisition of Jit, the Boston-based AI Context Graph cybersecurity pioneer.\"",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "The page shows a display date of May 18, 2026 and a dateline of May 19, 2026; the dateline date is used. The release states no price or closing date.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-COLLECT / TR-torq-2",
+  "tags": [
+    "tracker",
+    "secops"
+  ],
+  "retrievedAt": "2026-09-26",
+  "retrieval": {
+    "finalUrl": "https://torq.io/news/torq-acquires-jit/",
+    "sha256": "63301efedcccfb33c0082d016689000b35b48124bb50b9524d33d186bc18795b",
+    "fetchedAt": "2026-09-26T18:12:00Z",
+    "locator": "Press release, dateline paragraph"
+  }
+},
+{
+  "id": "TR-upwind-2",
+  "title": "Building the Future: Introducing the Upwind AI Security Lab",
+  "organization": "Upwind Security",
+  "publicationDate": "2026-09-23",
+  "economicPeriod": "September 2026",
+  "canonicalUrl": "https://www.upwind.io/feed/building-the-future-introducing-the-upwind-ai-security-lab",
+  "excerpt": "\"Upwind is acquiring Aegis, and we are launching the Upwind AI Lab.\"",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "Company blog post; publication date taken from the page's datePublished metadata (2026-09-23). The post states no price or closing date.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-COLLECT / TR-upwind-2",
+  "tags": [
+    "tracker",
+    "cloud"
+  ],
+  "retrievedAt": "2026-09-26",
+  "retrieval": {
+    "finalUrl": "https://www.upwind.io/feed/building-the-future-introducing-the-upwind-ai-security-lab",
+    "sha256": "c1f435a0736b0a8b76a7dcae584cd5ca6fa2da2b8d092f5091f2fd13cc6270f0",
+    "fetchedAt": "2026-09-26T18:14:00Z",
+    "locator": "Blog post, first sentence"
+  }
+},
+{
+  "id": "TR-zscaler-5",
+  "title": "Zscaler Annual Report on Form 10-K for fiscal year ended July 31, 2026 (Note 6, Business Combinations)",
+  "organization": "Zscaler, Inc.",
+  "publicationDate": "2026-09-03",
+  "economicPeriod": "Fiscal year ended 2026-07-31",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1713683/000171368326000157/zs-20260731.htm",
+  "excerpt": "On October 31, 2025, we acquired all outstanding equity of SPLXAI Inc. (\"SPLX\"), an early-stage AI technology company, for cash consideration of $40.6 million. In connection with the acquisition, we also issued $16.6 million in restricted stock subject to post-combination service vesting conditions. On February 5, 2026, we acquired all outstanding equity of SquareX Holdings, Inc. (\"SquareX\"), a browser security company, for cash consideration of $112.8 million. In connection with the acquisition, we issued $37.4 million in restricted stock subject to post-combination service vesting conditions. On May 27, 2026, we acquired all outstanding equity of Symmetry Systems, Inc. (\"Symmetry\"), a technology company, for cash consideration of $152.9 million. In connection with the acquisition, we issued $16.9 million in restricted stock subject to post-combination service vesting conditions.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "Purchase price allocations are described in the filing as preliminary and subject to adjustment during the measurement period.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-COLLECT / TR-zscaler-5",
+  "tags": [
+    "tracker",
+    "network-sase",
+    "public-company"
+  ],
+  "retrievedAt": "2026-09-26",
+  "retrieval": {
+    "finalUrl": "https://www.sec.gov/Archives/edgar/data/1713683/000171368326000157/zs-20260731.htm",
+    "sha256": "fa8596d6062015c4d3d617ffbd932237cc96146ff72364f92cbbc4a6f8e781ba",
+    "fetchedAt": "2026-09-26T17:31:00Z",
+    "locator": "Note 6. Business Combinations"
+  }
+},
+{
+  "id": "TR-zscaler-6",
+  "title": "Zscaler Form 8-K, Item 5.02, filed 2026-04-16",
+  "organization": "Zscaler, Inc.",
+  "publicationDate": "2026-04-16",
+  "economicPeriod": "Event dated 2026-04-15",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1713683/000171368326000082/zs-20260415.htm",
+  "excerpt": "On April 15, 2026, Raj Judge, the EVP of Corporate Strategy of Zscaler, Inc. (the \"Company\") informed the Company of his resignation. Mr. Judge's departure will be effective on July 31, 2026. Mr. Judge resigned as an officer of the Company, effective April 15, 2026. In addition, Mr. Judge resigned as a member of the Board of Directors of the Company, effective April 15, 2026.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "The 8-K states the Board resignation is not the result of any disagreements with the Company on any matter.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-COLLECT / TR-zscaler-6",
+  "tags": [
+    "tracker",
+    "network-sase",
+    "public-company"
+  ],
+  "retrievedAt": "2026-09-26",
+  "retrieval": {
+    "finalUrl": "https://www.sec.gov/Archives/edgar/data/1713683/000171368326000082/zs-20260415.htm",
+    "sha256": "c0ef7cb530e8b8e13a116dc078b3cea8019b47849cda4cb63e71b26ec401137d",
+    "fetchedAt": "2026-09-26T17:31:00Z",
+    "locator": "Item 5.02"
+  }
+},
 ]
 
 export const evidenceById = Object.fromEntries(
