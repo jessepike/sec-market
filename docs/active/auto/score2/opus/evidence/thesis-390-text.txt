@@ -1,0 +1,77 @@
+Skip to main content
+
+SECURITY MARKET PULSE
+
+AS OF 26 SEP 2026
+
+Sourced facts, checked and published automatically. No stances, rankings or forecasts.
+
+Security Market Pulse
+Menu
+
+September 26, 2026
+
+Standing analysis: does security spending lag infrastructure spending?
+
+This site began from one question: when spending on computing infrastructure rises, does security spending follow, and how long after. This page keeps that analysis and its record. It is one analysis among the site’s outputs. If you run a security program you can skip it; if you plan where security spending goes next, it is for you.
+
+This analysis is kept as a dated record and is no longer updated.
+
+Holds in 1 of 1 issues since 19 Sep 2026
+
+SECURITY MARKET PULSE · AUGUST 2026
+
+Infrastructure is running ahead.
+Security is splitting, not booming.
+EDITION 2026-08-28
+UPDATED September 26, 2026
+LAG NO-CALL
+
+MARKET CONDITION · NOT VENDOR PERFORMANCE
+
++92%
+
+NVIDIA DATA CENTER
+
++4%
+
+2025 SECURITY BUDGETS
+
+NO-CALL
+
+INFRA → SECURITY LAG
+
+Use infrastructure activation as an account qualification trigger — not as proof of a broad cybersecurity boom. A stable lag is still not measurable.
+
+Sources
+The read
+
+High on infrastructure acceleration. High that 2025 security budgets did not follow. Medium on the 2026 domain split. No-call on a stable lag. High that platforms are acquiring AI security ahead of any disclosed revenue.
+
+WHAT CHANGED
+Cisco Q4 networking orders +40% and NVIDIA Data Center at $75.25B. The build is still on.
+Fortinet product +52% while Zscaler organic ARR is +21% and Cisco FY security is +2%. Network iron is hot; the category is not.
+Rubrik and Varonis are accelerating. Okta decelerated. CrowdStrike recovered. That is a split, not a wave.
+Palo Alto paid $634.5M for Protect AI and F5 paid $145.2M for CalypsoAI, and both filings call the acquired revenue immaterial. Platforms are buying AI security ahead of any visible buyer spend.
+DO
+Prepare the observed network refresh motion where it is already in flight. Do not rebrand it as infrastructure-lag capture.
+Ask when cloud/AI capacity, sensitive data, and machine identities go live.
+Prepare data/AI only for accounts putting sensitive data into new workloads.
+AVOID
+Claiming a market-wide cybersecurity boom or a stable 0–8 quarter lag.
+Reading headline security growth without stripping acquisitions.
+Treating the 2025 Wiz or CyberArk announcements as this month’s demand signal.
+Reading AI-security acquisition prices as evidence of AI-security demand. The filings say the acquired revenue was not material.
+WE WILL NOT CALL
+Stable 0–8-quarter infrastructure-to-security lag
+Domain-specific infrastructure lag
+AI compression of the lag
+Broad cybersecurity-boom motion
+WHAT WOULD CHANGE THE CALL
+Realized security-budget growth and rebound in security share of IT
+Organic acceleration across a majority of comparable security vendors
+Expansion from AI pilots into consequential production workloads
+A registered infrastructure impulse followed by a registered security response under fixed cohort rules
+Sources
+
+Back to the front page

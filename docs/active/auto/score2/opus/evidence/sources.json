@@ -1,0 +1,2827 @@
+[
+  {
+    "i": 0,
+    "label": "Revenue growth, latest quarter — source: CrowdStrike Holdings, Inc., 2026-09-25",
+    "supplier": "CrowdStrike",
+    "cell": "+26% Q Jul 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence CrowdStrike Q2 FY2027 Financial Results CrowdStrike Holdings, Inc. Publication date 2026-08-26 Economic period Quarter ended 2026-07-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-crwd-1 Canonical source EXCERPT / LOCATOR Revenue of $1.47 billion, up 26% year over year. Subscription revenue of $1.40 billion, up 27%. ARR of $5.84 billion, up 25% year over year.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001535527/000153552726000029/crwd-20260826xex991.htm"
+      ]
+    }
+  },
+  {
+    "i": 1,
+    "label": "Revenue growth, prior quarter — source: CrowdStrike Holdings, Inc., 2026-09-25",
+    "supplier": "CrowdStrike",
+    "cell": "+26% Q Apr 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence CrowdStrike Q1 FY2027 Financial Results CrowdStrike Holdings, Inc. Publication date 2026-06-03 Economic period Quarter ended 2026-04-30 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-crwd-2 Canonical source EXCERPT / LOCATOR Revenue of $1.39 billion, up 26% year over year. Net new ARR of $256 million, up 32% year over year.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001535527/000153552726000022/crwd-20260603xex991.htm"
+      ]
+    }
+  },
+  {
+    "i": 2,
+    "label": "Own headline metric — source: CrowdStrike Holdings, Inc., 2026-09-25",
+    "supplier": "CrowdStrike",
+    "cell": "ARR $5.84B · Q Jul 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence CrowdStrike Q2 FY2027 Financial Results CrowdStrike Holdings, Inc. Publication date 2026-08-26 Economic period Quarter ended 2026-07-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-crwd-1 Canonical source EXCERPT / LOCATOR Revenue of $1.47 billion, up 26% year over year. Subscription revenue of $1.40 billion, up 27%. ARR of $5.84 billion, up 25% year over year. CrowdStr",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001535527/000153552726000029/crwd-20260826xex991.htm",
+        "https://www.sec.gov/Archives/edgar/data/0001535527/000153552726000022/crwd-20260603xex991.htm"
+      ]
+    }
+  },
+  {
+    "i": 3,
+    "label": "Ownership — source: CrowdStrike Holdings, Inc., 2026-09-25",
+    "supplier": "CrowdStrike",
+    "cell": "Public · CRWD src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence CrowdStrike Q2 FY2027 Financial Results CrowdStrike Holdings, Inc. Publication date 2026-08-26 Economic period Quarter ended 2026-07-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-crwd-1 Canonical source EXCERPT / LOCATOR Revenue of $1.47 billion, up 26% year over year. Subscription revenue of $1.40 billion, up 27%. ARR of $5.84 billion, up 25% year over year.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001535527/000153552726000029/crwd-20260826xex991.htm"
+      ]
+    }
+  },
+  {
+    "i": 4,
+    "label": "Latest event — source: CrowdStrike Holdings, Inc., 2026-09-25",
+    "supplier": "CrowdStrike",
+    "cell": "1 · latest results, 26 Aug 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence CrowdStrike Q2 FY2027 Financial Results CrowdStrike Holdings, Inc. Publication date 2026-08-26 Economic period Quarter ended 2026-07-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-crwd-1 Canonical source EXCERPT / LOCATOR Revenue of $1.47 billion, up 26% year over year. Subscription revenue of $1.40 billion, up 27%. ARR of $5.84 billion, up 25% year over year.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001535527/000153552726000029/crwd-20260826xex991.htm"
+      ]
+    }
+  },
+  {
+    "i": 5,
+    "label": "Ownership — source: Microsoft Corporation, 2026-09-25",
+    "supplier": "Microsoft Defender for Endpoint",
+    "cell": "Segment of Microsoft src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Microsoft Corporation - Security Products Microsoft Corporation Publication date 2026-07-01 Economic period General disclosure Source class OFFICIAL Packet label SEC-MARKET-AUTO-001-STEP5 / TR-msft-1 Canonical source EXCERPT / LOCATOR Defender for Endpoint is a product within Microsoft's security portfolio. No separately stated revenue or metrics are disclosed by the company. LIMITATIONS ",
+      "hrefs": [
+        "https://www.microsoft.com/en-us/investor"
+      ]
+    }
+  },
+  {
+    "i": 6,
+    "label": "Revenue growth, latest quarter — source: Palo Alto Networks, Inc., 2026-09-25",
+    "supplier": "Palo Alto Networks",
+    "cell": "+34% Q Jul 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Palo Alto Networks Q4 FY2026 Financial Results Palo Alto Networks, Inc. Publication date 2026-09-01 Economic period Quarter ended 2026-07-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-panw-1 Canonical source EXCERPT / LOCATOR Revenue of $3.41 billion, up 34% year over year. NGS ARR of $9.10 billion, up 63% year over year. RPO of $21.2 billion, up 34% year over year. L",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001327567/000132756726000019/ex991q426earningsrelease.htm"
+      ]
+    }
+  },
+  {
+    "i": 7,
+    "label": "Revenue growth, prior quarter — source: Palo Alto Networks, Inc., 2026-09-25",
+    "supplier": "Palo Alto Networks",
+    "cell": "+31% Q Apr 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Palo Alto Networks Q3 FY2026 Financial Results Palo Alto Networks, Inc. Publication date 2026-06-02 Economic period Quarter ended 2026-04-30 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-panw-2 Canonical source EXCERPT / LOCATOR Revenue of $3.0 billion, up 31% year over year, including $388 million from CyberArk and Chronosphere acquisitions.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001327567/000132756726000012/ex991q326earningsrelease.htm"
+      ]
+    }
+  },
+  {
+    "i": 8,
+    "label": "Own headline metric — source: Palo Alto Networks, Inc., 2026-09-25",
+    "supplier": "Palo Alto Networks",
+    "cell": "NGS ARR $9.10B · Q Jul 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Palo Alto Networks Q4 FY2026 Financial Results Palo Alto Networks, Inc. Publication date 2026-09-01 Economic period Quarter ended 2026-07-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-panw-1 Canonical source EXCERPT / LOCATOR Revenue of $3.41 billion, up 34% year over year. NGS ARR of $9.10 billion, up 63% year over year. RPO of $21.2 billion, up 34% year over year. L",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001327567/000132756726000019/ex991q426earningsrelease.htm"
+      ]
+    }
+  },
+  {
+    "i": 9,
+    "label": "Ownership — source: Palo Alto Networks, Inc., 2026-09-25",
+    "supplier": "Palo Alto Networks",
+    "cell": "Public · PANW src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Palo Alto Networks Q4 FY2026 Financial Results Palo Alto Networks, Inc. Publication date 2026-09-01 Economic period Quarter ended 2026-07-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-panw-1 Canonical source EXCERPT / LOCATOR Revenue of $3.41 billion, up 34% year over year. NGS ARR of $9.10 billion, up 63% year over year. RPO of $21.2 billion, up 34% year over year. L",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001327567/000132756726000019/ex991q426earningsrelease.htm"
+      ]
+    }
+  },
+  {
+    "i": 10,
+    "label": "Latest event — source: Palo Alto Networks, Inc., 2026-09-25",
+    "supplier": "Palo Alto Networks",
+    "cell": "2 · latest results, 1 Sep 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Palo Alto Networks Q4 FY2026 Financial Results Palo Alto Networks, Inc. Publication date 2026-09-01 Economic period Quarter ended 2026-07-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-panw-1 Canonical source EXCERPT / LOCATOR Revenue of $3.41 billion, up 34% year over year. NGS ARR of $9.10 billion, up 63% year over year. RPO of $21.2 billion, up 34% year over year. L",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001327567/000132756726000019/ex991q426earningsrelease.htm"
+      ]
+    }
+  },
+  {
+    "i": 11,
+    "label": "Revenue growth, latest quarter — source: SentinelOne, Inc., 2026-09-25",
+    "supplier": "SentinelOne",
+    "cell": "+21% Q Jul 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence SentinelOne Q2 FY2027 Financial Results SentinelOne, Inc. Publication date 2026-08-27 Economic period Quarter ended 2026-07-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-s1-1 Canonical source EXCERPT / LOCATOR Revenue of $292 million, up 21% year over year. ARR of $1.218 billion, up 22% year over year. Net new ARR of $56 million, record for a Q2.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001583708/000158370826000052/sentineloneq227exhibit991.htm"
+      ]
+    }
+  },
+  {
+    "i": 12,
+    "label": "Revenue growth, prior quarter — source: SentinelOne, Inc., 2026-09-25",
+    "supplier": "SentinelOne",
+    "cell": "+21% Q Apr 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence SentinelOne Q1 FY2027 Financial Results SentinelOne, Inc. Publication date 2026-05-28 Economic period Quarter ended 2026-04-30 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-s1-2 Canonical source EXCERPT / LOCATOR Revenue of $277 million, up 21% year over year. ARR of $1,163 million, up 23% year over year.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001583708/000158370826000039/sentineloneq127exhibit991.htm"
+      ]
+    }
+  },
+  {
+    "i": 13,
+    "label": "Own headline metric — source: SentinelOne, Inc., 2026-09-25",
+    "supplier": "SentinelOne",
+    "cell": "ARR $1.218B · Q Jul 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence SentinelOne Q2 FY2027 Financial Results SentinelOne, Inc. Publication date 2026-08-27 Economic period Quarter ended 2026-07-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-s1-1 Canonical source EXCERPT / LOCATOR Revenue of $292 million, up 21% year over year. ARR of $1.218 billion, up 22% year over year. Net new ARR of $56 million, record for a Q2.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001583708/000158370826000052/sentineloneq227exhibit991.htm"
+      ]
+    }
+  },
+  {
+    "i": 14,
+    "label": "Ownership — source: SentinelOne, Inc., 2026-09-25",
+    "supplier": "SentinelOne",
+    "cell": "Public · S src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence SentinelOne Q2 FY2027 Financial Results SentinelOne, Inc. Publication date 2026-08-27 Economic period Quarter ended 2026-07-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-s1-1 Canonical source EXCERPT / LOCATOR Revenue of $292 million, up 21% year over year. ARR of $1.218 billion, up 22% year over year. Net new ARR of $56 million, record for a Q2.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001583708/000158370826000052/sentineloneq227exhibit991.htm"
+      ]
+    }
+  },
+  {
+    "i": 15,
+    "label": "Latest event — source: SentinelOne, Inc., 2026-09-25",
+    "supplier": "SentinelOne",
+    "cell": "2 · latest results, 27 Aug 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence SentinelOne Q2 FY2027 Financial Results SentinelOne, Inc. Publication date 2026-08-27 Economic period Quarter ended 2026-07-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-s1-1 Canonical source EXCERPT / LOCATOR Revenue of $292 million, up 21% year over year. ARR of $1.218 billion, up 22% year over year. Net new ARR of $56 million, record for a Q2.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001583708/000158370826000052/sentineloneq227exhibit991.htm"
+      ]
+    }
+  },
+  {
+    "i": 16,
+    "label": "Ownership — source: Sophos Group (Sophos Ltd), 2026-09-25",
+    "supplier": "Sophos",
+    "cell": "PE-owned · Thoma Bravo (2020) src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Sophos Group - Thoma Bravo Ownership Sophos Group (Sophos Ltd) Publication date 2020-03-01 Economic period March 2020 Source class OFFICIAL Packet label SEC-MARKET-AUTO-001-STEP5 / TR-sophos-1 Canonical source EXCERPT / LOCATOR Thoma Bravo acquired Sophos Group through a take-private transaction, completed in March 2020.",
+      "hrefs": [
+        "https://www.thomabravo.com/press-releases/sophos"
+      ]
+    }
+  },
+  {
+    "i": 17,
+    "label": "Latest event — source: Moody's Investors Service, 2026-09-25",
+    "supplier": "Sophos",
+    "cell": "2 · latest rating, 1 Mar 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Moody's Rating Action - Sophos Group Moody's Investors Service Publication date 2026-03-01 Economic period March 2026 Source class INDEPENDENT Packet label SEC-MARKET-AUTO-001-STEP5 / TR-sophos-3 Canonical source EXCERPT / LOCATOR Moody's downgraded Sophos to B3 from B2, with outlook revised to stable. LIMITATIONS / CONFOUNDS Agency rating actions republished through third-party aggregato",
+      "hrefs": [
+        "https://app.researchpool.com/index.php/provider/moodys-investors-service"
+      ]
+    }
+  },
+  {
+    "i": 18,
+    "label": "Own headline metric — source: Trend Micro Incorporated, 2026-09-25",
+    "supplier": "Trend Micro",
+    "cell": "ARR >$1.7B · Q Jun 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Trend Micro Q2 2026 Earnings Results Trend Micro Incorporated Publication date 2026-08-13 Economic period Quarter ended 2026-06-30 Source class IR Packet label SEC-MARKET-AUTO-001-STEP5 / TR-trend-1 Canonical source EXCERPT / LOCATOR ARR exceeded $1.7 billion, up 5% year over year. FY2026 operating-income guidance cut from ¥56.4 billion to ¥44.4 billion due to rising artificial-intelligen",
+      "hrefs": [
+        "https://newsroom.trendmicro.com/2026-08-13-Trend-Micro-Reports-Earnings-Results-for-Q2-2026"
+      ]
+    }
+  },
+  {
+    "i": 19,
+    "label": "Ownership — source: Trend Micro Incorporated, 2026-09-25",
+    "supplier": "Trend Micro",
+    "cell": "Public · 4704 (Tokyo Stock Exchange) src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Trend Micro Q2 2026 Earnings Results Trend Micro Incorporated Publication date 2026-08-13 Economic period Quarter ended 2026-06-30 Source class IR Packet label SEC-MARKET-AUTO-001-STEP5 / TR-trend-1 Canonical source EXCERPT / LOCATOR ARR exceeded $1.7 billion, up 5% year over year. FY2026 operating-income guidance cut from ¥56.4 billion to ¥44.4 billion due to rising artificial-intelligen",
+      "hrefs": [
+        "https://newsroom.trendmicro.com/2026-08-13-Trend-Micro-Reports-Earnings-Results-for-Q2-2026"
+      ]
+    }
+  },
+  {
+    "i": 20,
+    "label": "Latest event — source: Trend Micro Incorporated, 2026-09-25",
+    "supplier": "Trend Micro",
+    "cell": "1 · latest restructuring, 13 Aug 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Trend Micro Q2 2026 Earnings Results Trend Micro Incorporated Publication date 2026-08-13 Economic period Quarter ended 2026-06-30 Source class IR Packet label SEC-MARKET-AUTO-001-STEP5 / TR-trend-1 Canonical source EXCERPT / LOCATOR ARR exceeded $1.7 billion, up 5% year over year. FY2026 operating-income guidance cut from ¥56.4 billion to ¥44.4 billion due to rising artificial-intelligen",
+      "hrefs": [
+        "https://newsroom.trendmicro.com/2026-08-13-Trend-Micro-Reports-Earnings-Results-for-Q2-2026"
+      ]
+    }
+  },
+  {
+    "i": 21,
+    "label": "Ownership — source: Thoma Bravo, 2026-09-25",
+    "supplier": "Exabeam",
+    "cell": "Merged with LogRhythm (Thoma Bravo-owned). Closed 2024-07-17. src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Exabeam and LogRhythm Merger Completion Thoma Bravo Publication date 2024-07-17 Economic period July 2024 Source class OFFICIAL Packet label SEC-MARKET-AUTO-001-STEP5 / TR-exabeam-1 Canonical source EXCERPT / LOCATOR Exabeam and LogRhythm completed their merger on July 17, 2024. Thoma Bravo is a named stakeholder in the combined company. LIMITATIONS / CONFOUNDS Merger date corrects prior ",
+      "hrefs": [
+        "https://www.thomabravo.com/press-releases/exabeam-and-logrhythm-complete-merger-and-announce-new-company-details"
+      ]
+    }
+  },
+  {
+    "i": 22,
+    "label": "Ownership — source: Alphabet Inc., 2026-09-25",
+    "supplier": "Google SecOps",
+    "cell": "Segment of Alphabet src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Alphabet Inc. - Google Cloud Security Products Alphabet Inc. Publication date 2026-07-22 Economic period Quarter ended 2026-06-30 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-google-secops-1 Canonical source EXCERPT / LOCATOR Google Cloud revenue of $24.8 billion, up 82% year over year. Google SecOps (Chronicle and Mandiant products) are components within Google Cloud; ",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000066/googexhibit991q22026.htm"
+      ]
+    }
+  },
+  {
+    "i": 23,
+    "label": "Ownership — source: Palo Alto Networks, Inc., 2026-09-25",
+    "supplier": "Palo Alto Networks Cortex XSIAM",
+    "cell": "Segment src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Palo Alto Networks - Cortex XSIAM Product Palo Alto Networks, Inc. Publication date 2026-07-31 Economic period General disclosure Source class OFFICIAL Packet label SEC-MARKET-AUTO-001-STEP5 / TR-panw-xsiam-1 Canonical source EXCERPT / LOCATOR Cortex XSIAM is a product line within Palo Alto Networks. No separately stated revenue or metrics are disclosed by the company. LIMITATIONS / CONFO",
+      "hrefs": [
+        "https://investors.paloaltonetworks.com/"
+      ]
+    }
+  },
+  {
+    "i": 24,
+    "label": "Revenue growth, latest quarter — source: Palo Alto Networks, Inc., 2026-09-25",
+    "supplier": "Palo Alto Networks",
+    "cell": "+34% Q Jul 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Palo Alto Networks Q4 FY2026 Financial Results Palo Alto Networks, Inc. Publication date 2026-09-01 Economic period Quarter ended 2026-07-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-panw-1 Canonical source EXCERPT / LOCATOR Revenue of $3.41 billion, up 34% year over year. NGS ARR of $9.10 billion, up 63% year over year. RPO of $21.2 billion, up 34% year over year. L",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001327567/000132756726000019/ex991q426earningsrelease.htm"
+      ]
+    }
+  },
+  {
+    "i": 25,
+    "label": "Revenue growth, prior quarter — source: Palo Alto Networks, Inc., 2026-09-25",
+    "supplier": "Palo Alto Networks",
+    "cell": "+31% Q Apr 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Palo Alto Networks Q3 FY2026 Financial Results Palo Alto Networks, Inc. Publication date 2026-06-02 Economic period Quarter ended 2026-04-30 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-panw-2 Canonical source EXCERPT / LOCATOR Revenue of $3.0 billion, up 31% year over year, including $388 million from CyberArk and Chronosphere acquisitions.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001327567/000132756726000012/ex991q326earningsrelease.htm"
+      ]
+    }
+  },
+  {
+    "i": 26,
+    "label": "Own headline metric — source: Palo Alto Networks, Inc., 2026-09-25",
+    "supplier": "Palo Alto Networks",
+    "cell": "NGS ARR $9.10B · Q Jul 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Palo Alto Networks Q4 FY2026 Financial Results Palo Alto Networks, Inc. Publication date 2026-09-01 Economic period Quarter ended 2026-07-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-panw-1 Canonical source EXCERPT / LOCATOR Revenue of $3.41 billion, up 34% year over year. NGS ARR of $9.10 billion, up 63% year over year. RPO of $21.2 billion, up 34% year over year. L",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001327567/000132756726000019/ex991q426earningsrelease.htm"
+      ]
+    }
+  },
+  {
+    "i": 27,
+    "label": "Ownership — source: Palo Alto Networks, Inc., 2026-09-25",
+    "supplier": "Palo Alto Networks",
+    "cell": "Public · PANW src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Palo Alto Networks Q4 FY2026 Financial Results Palo Alto Networks, Inc. Publication date 2026-09-01 Economic period Quarter ended 2026-07-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-panw-1 Canonical source EXCERPT / LOCATOR Revenue of $3.41 billion, up 34% year over year. NGS ARR of $9.10 billion, up 63% year over year. RPO of $21.2 billion, up 34% year over year. L",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001327567/000132756726000019/ex991q426earningsrelease.htm"
+      ]
+    }
+  },
+  {
+    "i": 28,
+    "label": "Latest event — source: Palo Alto Networks, Inc., 2026-09-25",
+    "supplier": "Palo Alto Networks",
+    "cell": "2 · latest results, 1 Sep 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Palo Alto Networks Q4 FY2026 Financial Results Palo Alto Networks, Inc. Publication date 2026-09-01 Economic period Quarter ended 2026-07-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-panw-1 Canonical source EXCERPT / LOCATOR Revenue of $3.41 billion, up 34% year over year. NGS ARR of $9.10 billion, up 63% year over year. RPO of $21.2 billion, up 34% year over year. L",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001327567/000132756726000019/ex991q426earningsrelease.htm"
+      ]
+    }
+  },
+  {
+    "i": 29,
+    "label": "Ownership — source: Cisco Systems, Inc., 2026-09-25",
+    "supplier": "Splunk",
+    "cell": "Segment of Cisco Systems src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Splunk - Cisco Acquisition Cisco Systems, Inc. Publication date 2024-03-18 Economic period March 2024 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-splunk-1 Canonical source EXCERPT / LOCATOR Cisco completed its acquisition of Splunk for $157 per share cash, approximately $28 billion in equity value as announced, $27 billion as closed.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/858877/000119312524070175/d783088dex991.htm"
+      ]
+    }
+  },
+  {
+    "i": 30,
+    "label": "Latest event — source: Cisco Systems, Inc., 2026-09-25",
+    "supplier": "Splunk",
+    "cell": "1 · latest restructuring, 13 May 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Cisco Restructuring Charges - 8-K Item 2.05 Cisco Systems, Inc. Publication date 2026-05-13 Economic period May 2026 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-splunk-2 Canonical source EXCERPT / LOCATOR Cisco disclosed up to $1 billion pre-tax restructuring charges to invest in silicon, optics, security, and artificial intelligence, including $450 million in Q4 FY202",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/858877/000085887726000075/csco-20260513.htm"
+      ]
+    }
+  },
+  {
+    "i": 31,
+    "label": "Ownership — source: Tines, 2026-09-25",
+    "supplier": "Tines",
+    "cell": "Series C $125M · Feb 2025 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Tines Series C Funding Tines Publication date 2025-02-11 Economic period February 2025 Source class OFFICIAL Packet label SEC-MARKET-AUTO-001-STEP5 / TR-tines-1 Canonical source EXCERPT / LOCATOR Tines raised $125 million in Series C funding at a $1.13 billion valuation, led by Goldman Sachs and SoftBank. LIMITATIONS / CONFOUNDS Valuation independently corroborated by the Irish Times, 202",
+      "hrefs": [
+        "https://www.tines.com/newsroom/"
+      ]
+    }
+  },
+  {
+    "i": 32,
+    "label": "Ownership — source: Torq, 2026-09-25",
+    "supplier": "Torq",
+    "cell": "Series D $140M · Jan 2026 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Torq Series D Funding Torq Publication date 2026-01-09 Economic period January 2026 Source class OFFICIAL Packet label SEC-MARKET-AUTO-001-STEP5 / TR-torq-1 Canonical source EXCERPT / LOCATOR Torq raised $140 million in Series D funding at a $1.2 billion valuation, led by Merlin Ventures, with participation from Evolution Equity Partners, Notable Capital, Bessemer Venture Partners, Insigh",
+      "hrefs": [
+        "https://torq.io/news/torq-seriesd/"
+      ]
+    }
+  },
+  {
+    "i": 33,
+    "label": "Ownership — source: eSentire, Inc., 2026-09-25",
+    "supplier": "eSentire",
+    "cell": "PE-owned src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence eSentire Growth Equity Funding eSentire, Inc. Publication date 2022-02-22 Economic period February 2022 Source class OFFICIAL Packet label SEC-MARKET-AUTO-001-STEP5 / TR-esentire-1 Canonical source EXCERPT / LOCATOR eSentire raised $325 million in growth-equity funding at $1.1 billion valuation, led by Warburg Pincus, with Georgian and CDPQ participating. LIMITATIONS / CONFOUNDS Warburg P",
+      "hrefs": [
+        "https://www.esentire.com/news-releases/global-cybersecurity-leader-esentire-raises-us-325m-and-achieves-unicorn-status"
+      ]
+    }
+  },
+  {
+    "i": 34,
+    "label": "Ownership — source: Optiv Security Inc., 2026-09-25",
+    "supplier": "Optiv Security",
+    "cell": "PE-owned · KKR (2016) src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Optiv Security - KKR Ownership Optiv Security Inc. Publication date 2016-12-06 Economic period December 2016 Source class OFFICIAL Packet label SEC-MARKET-AUTO-001-STEP5 / TR-optiv-1 Canonical source EXCERPT / LOCATOR KKR announced the acquisition of Optiv Security with Blackstone and management retaining minority stakes. Deal announced 2016-12-06.",
+      "hrefs": [
+        "https://www.optiv.com/company/press-releases/optiv-security-be-acquired-kkr"
+      ]
+    }
+  },
+  {
+    "i": 35,
+    "label": "Latest event — source: Optiv Security Inc., 2026-09-26",
+    "supplier": "Optiv Security",
+    "cell": "2 · latest divestiture, 2 Jun 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Optiv Sells ACT Business to Vobis Ventures Optiv Security Inc. Publication date 2026-06-02 Economic period June 2026 Source class OFFICIAL Packet label SEC-MARKET-AUTO-001-STEP5 / TR-optiv-4 Canonical source EXCERPT / LOCATOR Optiv announced the sale of its advisory, consulting and transformation (ACT) project-based services business to Vobis Ventures. The deal officially closed June 1, 2",
+      "hrefs": [
+        "https://www.optiv.com/company/press-releases/optiv-sells-advisory-consulting-and-transformation-act-business-vobis"
+      ]
+    }
+  },
+  {
+    "i": 36,
+    "label": "Ownership — source: Zscaler, Inc., 2026-09-25",
+    "supplier": "Red Canary",
+    "cell": "Acquired by Zscaler · Aug 2025 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Zscaler Closes Red Canary Acquisition Zscaler, Inc. Publication date 2025-08-01 Economic period August 2025 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-red-canary-1 Canonical source EXCERPT / LOCATOR Zscaler closed its acquisition of Red Canary for $651.4 million in cash plus $20.2 million in restricted stock. Announced 2025-05-27; closed 2025-08-01.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/1713683/000171368325000205/zs-20251031.htm"
+      ]
+    }
+  },
+  {
+    "i": 37,
+    "label": "Ownership — source: ReliaQuest, LLC, 2026-09-25",
+    "supplier": "ReliaQuest",
+    "cell": "Growth equity $500M+ · Mar 2025 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence ReliaQuest Growth Equity Funding ReliaQuest, LLC Publication date 2025-03-31 Economic period March 2025 Source class OFFICIAL Packet label SEC-MARKET-AUTO-001-STEP5 / TR-reliaquest-1 Canonical source EXCERPT / LOCATOR ReliaQuest raised more than $500 million in funding at a $3.4 billion valuation, led by EQT, KKR, and FTV Capital, with Ten Eleven Ventures and Finback Investment Partners p",
+      "hrefs": [
+        "https://reliaquest.com/news-and-press/reliaquest-raises-more-than-500-million-in-funding-at-a-valuation-of-3-4-billion/"
+      ]
+    }
+  },
+  {
+    "i": 38,
+    "label": "Ownership — source: LevelBlue, 2026-09-25",
+    "supplier": "Trustwave",
+    "cell": "Acquired by LevelBlue · Aug 2025 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence LevelBlue Completes Trustwave Acquisition LevelBlue Publication date 2025-08-19 Economic period August 2025 Source class OFFICIAL Packet label SEC-MARKET-AUTO-001-STEP5 / TR-trustwave-1 Canonical source EXCERPT / LOCATOR LevelBlue completed its acquisition of Trustwave Holdings, which states combined operations serve over 30,000 customers with annual revenues exceeding $1 billion. LIMITAT",
+      "hrefs": [
+        "https://www.levelblue.com/newsroom/press-releases/levelblue-completes-acquisition-of-trustwave-to-form-the-worlds-largest-managed-security-services-provider"
+      ]
+    }
+  },
+  {
+    "i": 39,
+    "label": "Own headline metric — source: Cato Networks, 2026-09-26",
+    "supplier": "Cato Networks",
+    "cell": "ARR $415M, +42% YoY src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Cato Networks ARR Milestone Update Cato Networks Publication date 2026-08-20 Economic period ARR milestone referenced in company blog, August 2026 (originally announced 2026-07-27) Source class IR Packet label SEC-MARKET-AUTO-001-STEP5 / TR-cato-3 Canonical source EXCERPT / LOCATOR We recently surpassed $415 million in annual recurring revenue, growing 42% year over year, and now serve mo",
+      "hrefs": [
+        "https://www.catonetworks.com/blog/three-years-as-a-leader-built-for-where-the-market-is-going/"
+      ]
+    }
+  },
+  {
+    "i": 40,
+    "label": "Ownership — source: Cato Networks, 2026-09-25",
+    "supplier": "Cato Networks",
+    "cell": "Series G $409M (initial close $359M plus extension $50M) · Jun 2025 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Cato Networks Series G Funding Announcement Cato Networks Publication date 2025-06-30 Economic period June 2025 Source class IR Packet label SEC-MARKET-AUTO-001-STEP5 / TR-cato-1 Canonical source EXCERPT / LOCATOR Series G: $359 million initial close led by Vitruvian Partners and ION Crossover Partners, with ~$50 million extension, at valuation over $4.8 billion.",
+      "hrefs": [
+        "https://www.prnewswire.com/news-releases/cato-networks-raises-359-million-at-a-valuation-of-more-than-4-8-billion-302494283.html"
+      ]
+    }
+  },
+  {
+    "i": 41,
+    "label": "Latest event — source: Cato Networks, 2026-09-25",
+    "supplier": "Cato Networks",
+    "cell": "1 · latest results, 24 Feb 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Cato Networks FY2025 ARR Milestone Cato Networks Publication date 2026-02-24 Economic period Full year 2025 Source class IR Packet label SEC-MARKET-AUTO-001-STEP5 / TR-cato-2 Canonical source EXCERPT / LOCATOR ARR surpassed $350 million, +43% YoY, for full year 2025.",
+      "hrefs": [
+        "https://www.prnewswire.com/il/news-releases/cato-networks-surpasses-350-million-arr-with-43-yoy-growth-in-2025-302694952.html"
+      ]
+    }
+  },
+  {
+    "i": 42,
+    "label": "Revenue growth, latest quarter — source: Check Point Software Technologies Ltd., 2026-09-25",
+    "supplier": "Check Point",
+    "cell": "1% Q Jun 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Check Point Q2 2026 Earnings Release Check Point Software Technologies Ltd. Publication date 2026-07-30 Economic period Q2 2026, ended 2026-06-30 Source class IR Packet label SEC-MARKET-AUTO-001-STEP5 / TR-checkpoint-1 Canonical source EXCERPT / LOCATOR Total revenue $674 million, +1% YoY; Security Subscriptions revenue $333 million, +12% YoY. LIMITATIONS / CONFOUNDS Harmony SASE growth n",
+      "hrefs": [
+        "https://www.checkpoint.com/press-releases/check-point-software-reports-2026-second-quarter-financial-results/"
+      ]
+    }
+  },
+  {
+    "i": 43,
+    "label": "Revenue growth, prior quarter — source: Check Point Software Technologies Ltd., 2026-09-25",
+    "supplier": "Check Point",
+    "cell": "5% Q Mar 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Check Point Q1 2026 Earnings Release Check Point Software Technologies Ltd. Publication date 2026-04-30 Economic period Q1 2026, ended 2026-03-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-checkpoint-2 Canonical source EXCERPT / LOCATOR Total revenue $668 million, +5% YoY; Security Subscriptions revenue $323 million, +11% YoY.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001015922/000117891326002310/a2635159.htm"
+      ]
+    }
+  },
+  {
+    "i": 44,
+    "label": "Own headline metric — source: Check Point Software Technologies Ltd., 2026-09-25",
+    "supplier": "Check Point",
+    "cell": "Total Revenue $674M · Q Jun 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Check Point Q2 2026 Earnings Release Check Point Software Technologies Ltd. Publication date 2026-07-30 Economic period Q2 2026, ended 2026-06-30 Source class IR Packet label SEC-MARKET-AUTO-001-STEP5 / TR-checkpoint-1 Canonical source EXCERPT / LOCATOR Total revenue $674 million, +1% YoY; Security Subscriptions revenue $333 million, +12% YoY. LIMITATIONS / CONFOUNDS Harmony SASE growth n",
+      "hrefs": [
+        "https://www.checkpoint.com/press-releases/check-point-software-reports-2026-second-quarter-financial-results/"
+      ]
+    }
+  },
+  {
+    "i": 45,
+    "label": "Ownership — source: Check Point Software Technologies Ltd., 2026-09-25",
+    "supplier": "Check Point",
+    "cell": "Public · CHKP src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Check Point Q2 2026 Earnings Release Check Point Software Technologies Ltd. Publication date 2026-07-30 Economic period Q2 2026, ended 2026-06-30 Source class IR Packet label SEC-MARKET-AUTO-001-STEP5 / TR-checkpoint-1 Canonical source EXCERPT / LOCATOR Total revenue $674 million, +1% YoY; Security Subscriptions revenue $333 million, +12% YoY. LIMITATIONS / CONFOUNDS Harmony SASE growth n",
+      "hrefs": [
+        "https://www.checkpoint.com/press-releases/check-point-software-reports-2026-second-quarter-financial-results/"
+      ]
+    }
+  },
+  {
+    "i": 46,
+    "label": "Latest event — source: Check Point Software Technologies Ltd., 2026-09-25",
+    "supplier": "Check Point",
+    "cell": "3 · latest debt, 30 Jul 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Check Point Convertible Notes Issuance Check Point Software Technologies Ltd. Publication date 2026-07-30 Economic period Q2 2026 Source class IR Packet label SEC-MARKET-AUTO-001-STEP5 / TR-checkpoint-4 Canonical source EXCERPT / LOCATOR $2 billion in convertible senior notes issued during Q2 2026, ~$1.8 billion net proceeds.",
+      "hrefs": [
+        "https://www.checkpoint.com/press-releases/check-point-software-reports-2026-second-quarter-financial-results/"
+      ]
+    }
+  },
+  {
+    "i": 47,
+    "label": "Revenue growth, latest quarter — source: Cloudflare, Inc., 2026-09-25",
+    "supplier": "Cloudflare",
+    "cell": "36% Q Jun 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Cloudflare Q2 2026 Earnings Release Cloudflare, Inc. Publication date 2026-08-06 Economic period Q2 2026, ended 2026-06-30 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-cloudflare-1 Canonical source EXCERPT / LOCATOR Revenue $696.1 million, +36% YoY; Current RPO growth 35% YoY.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/1477333/000147733326000053/q226exhibit991.htm"
+      ]
+    }
+  },
+  {
+    "i": 48,
+    "label": "Revenue growth, prior quarter — source: Cloudflare, Inc., 2026-09-25",
+    "supplier": "Cloudflare",
+    "cell": "34% Q Mar 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Cloudflare Q1 2026 Earnings Release Cloudflare, Inc. Publication date 2026-05-07 Economic period Q1 2026, ended 2026-03-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-cloudflare-2 Canonical source EXCERPT / LOCATOR Revenue $639.8 million, +34% YoY.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/1477333/000147733326000035/q126exhibit991.htm"
+      ]
+    }
+  },
+  {
+    "i": 49,
+    "label": "Own headline metric — source: Cloudflare, Inc., 2026-09-25",
+    "supplier": "Cloudflare",
+    "cell": "Revenue $696.1M · Q Jun 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Cloudflare Q2 2026 Earnings Release Cloudflare, Inc. Publication date 2026-08-06 Economic period Q2 2026, ended 2026-06-30 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-cloudflare-1 Canonical source EXCERPT / LOCATOR Revenue $696.1 million, +36% YoY; Current RPO growth 35% YoY.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/1477333/000147733326000053/q226exhibit991.htm"
+      ]
+    }
+  },
+  {
+    "i": 50,
+    "label": "Ownership — source: Cloudflare, Inc., 2026-09-25",
+    "supplier": "Cloudflare",
+    "cell": "Public · NET src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Cloudflare Q2 2026 Earnings Release Cloudflare, Inc. Publication date 2026-08-06 Economic period Q2 2026, ended 2026-06-30 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-cloudflare-1 Canonical source EXCERPT / LOCATOR Revenue $696.1 million, +36% YoY; Current RPO growth 35% YoY.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/1477333/000147733326000053/q226exhibit991.htm"
+      ]
+    }
+  },
+  {
+    "i": 51,
+    "label": "Latest event — source: Cloudflare, Inc., 2026-09-25",
+    "supplier": "Cloudflare",
+    "cell": "3 · latest debt, 13 Aug 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Cloudflare Convertible Notes Issuance Cloudflare, Inc. Publication date 2026-08-13 Economic period August 2026 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-cloudflare-4 Canonical source EXCERPT / LOCATOR $2.5 billion aggregate principal of 0% Convertible Senior Notes due 2031 issued; ~$2,462.3 million net proceeds.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/1477333/000095010326012340/dp251721_8k.htm"
+      ]
+    }
+  },
+  {
+    "i": 52,
+    "label": "Revenue growth, latest quarter — source: Fortinet, Inc., 2026-09-25",
+    "supplier": "Fortinet",
+    "cell": "26% Q Jun 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Fortinet Q2 2026 Earnings Release Fortinet, Inc. Publication date 2026-07-29 Economic period Q2 2026, ended 2026-06-30 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-fortinet-1 Canonical source EXCERPT / LOCATOR Revenue $2.05 billion, +26% YoY; Billings $2.37 billion, +33% YoY. LIMITATIONS / CONFOUNDS SASE platform-specific ARR not disclosed separately.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001262039/000126203926000018/ftntq2-2026ex991.htm"
+      ]
+    }
+  },
+  {
+    "i": 53,
+    "label": "Revenue growth, prior quarter — source: Fortinet, Inc., 2026-09-25",
+    "supplier": "Fortinet",
+    "cell": "20% Q Mar 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Fortinet Q1 2026 Earnings Release Fortinet, Inc. Publication date 2026-05-06 Economic period Q1 2026, ended 2026-03-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-fortinet-2 Canonical source EXCERPT / LOCATOR Revenue $1.85 billion, +20% YoY; Billings $2.09 billion, +31% YoY.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001262039/000126203926000010/ftntq1-2026ex991.htm"
+      ]
+    }
+  },
+  {
+    "i": 54,
+    "label": "Own headline metric — source: Fortinet, Inc., 2026-09-25",
+    "supplier": "Fortinet",
+    "cell": "Billings $2.37B · Q Jun 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Fortinet Q2 2026 Earnings Release Fortinet, Inc. Publication date 2026-07-29 Economic period Q2 2026, ended 2026-06-30 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-fortinet-1 Canonical source EXCERPT / LOCATOR Revenue $2.05 billion, +26% YoY; Billings $2.37 billion, +33% YoY. LIMITATIONS / CONFOUNDS SASE platform-specific ARR not disclosed separately.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001262039/000126203926000018/ftntq2-2026ex991.htm"
+      ]
+    }
+  },
+  {
+    "i": 55,
+    "label": "Ownership — source: Fortinet, Inc., 2026-09-25",
+    "supplier": "Fortinet",
+    "cell": "Public · FTNT src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Fortinet Q2 2026 Earnings Release Fortinet, Inc. Publication date 2026-07-29 Economic period Q2 2026, ended 2026-06-30 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-fortinet-1 Canonical source EXCERPT / LOCATOR Revenue $2.05 billion, +26% YoY; Billings $2.37 billion, +33% YoY. LIMITATIONS / CONFOUNDS SASE platform-specific ARR not disclosed separately.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001262039/000126203926000018/ftntq2-2026ex991.htm"
+      ]
+    }
+  },
+  {
+    "i": 56,
+    "label": "Revenue growth, latest quarter — source: Netskope, Inc., 2026-09-25",
+    "supplier": "Netskope",
+    "cell": "29% Q Jul 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Netskope Q2 FY2027 Earnings Release Netskope, Inc. Publication date 2026-09-02 Economic period Q2 FY2027, ended 2026-07-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-netskope-1 Canonical source EXCERPT / LOCATOR Revenue $220.5 million, +29% YoY; ARR $899 million, +27% YoY.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/2063196/000119312526380188/ntsk-ex99_1.htm"
+      ]
+    }
+  },
+  {
+    "i": 57,
+    "label": "Revenue growth, prior quarter — source: Netskope, Inc., 2026-09-25",
+    "supplier": "Netskope",
+    "cell": "28% Q Apr 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Netskope Q1 FY2027 Earnings Release Netskope, Inc. Publication date 2026-06-03 Economic period Q1 FY2027, ended 2026-04-30 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-netskope-2 Canonical source EXCERPT / LOCATOR Revenue $201.6 million, +28% YoY; ARR $845 million, +29% YoY.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/2063196/000119312526255439/ck0002063196-ex99_1.htm"
+      ]
+    }
+  },
+  {
+    "i": 58,
+    "label": "Own headline metric — source: Netskope, Inc., 2026-09-25",
+    "supplier": "Netskope",
+    "cell": "ARR $899M · Q Jul 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Netskope Q2 FY2027 Earnings Release Netskope, Inc. Publication date 2026-09-02 Economic period Q2 FY2027, ended 2026-07-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-netskope-1 Canonical source EXCERPT / LOCATOR Revenue $220.5 million, +29% YoY; ARR $899 million, +27% YoY.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/2063196/000119312526380188/ntsk-ex99_1.htm"
+      ]
+    }
+  },
+  {
+    "i": 59,
+    "label": "Ownership — source: Netskope, Inc., 2026-09-25",
+    "supplier": "Netskope",
+    "cell": "Public · NTSK src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Netskope IPO Prospectus Netskope, Inc. Publication date 2025-09-18 Economic period September 2025 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-netskope-3 Canonical source EXCERPT / LOCATOR IPO'd on Nasdaq on September 18, 2025: 47.8 million Class A shares at $19.00, implying $7.3B valuation; closed with full over-allotment exercise, net proceeds ~$992.2 million.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/2063196/000119312525211027/d636835ds1a.htm"
+      ]
+    }
+  },
+  {
+    "i": 60,
+    "label": "Latest event — source: Netskope, Inc., 2026-09-25",
+    "supplier": "Netskope",
+    "cell": "3 · latest restructuring, 2 Sep 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Netskope Q2 FY2027 Restructuring Costs Netskope, Inc. Publication date 2026-09-02 Economic period Q2 FY2027, ended 2026-07-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-netskope-4 Canonical source EXCERPT / LOCATOR $3.5 million in restructuring costs recognized in the quarter ended July 31, 2026.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/2063196/000119312526380188/ntsk-ex99_1.htm"
+      ]
+    }
+  },
+  {
+    "i": 61,
+    "label": "Revenue growth, latest quarter — source: Palo Alto Networks, Inc., 2026-09-25",
+    "supplier": "Palo Alto Networks",
+    "cell": "+34% Q Jul 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Palo Alto Networks Q4 FY2026 Financial Results Palo Alto Networks, Inc. Publication date 2026-09-01 Economic period Quarter ended 2026-07-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-panw-1 Canonical source EXCERPT / LOCATOR Revenue of $3.41 billion, up 34% year over year. NGS ARR of $9.10 billion, up 63% year over year. RPO of $21.2 billion, up 34% year over year. L",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001327567/000132756726000019/ex991q426earningsrelease.htm"
+      ]
+    }
+  },
+  {
+    "i": 62,
+    "label": "Revenue growth, prior quarter — source: Palo Alto Networks, Inc., 2026-09-25",
+    "supplier": "Palo Alto Networks",
+    "cell": "+31% Q Apr 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Palo Alto Networks Q3 FY2026 Financial Results Palo Alto Networks, Inc. Publication date 2026-06-02 Economic period Quarter ended 2026-04-30 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-panw-2 Canonical source EXCERPT / LOCATOR Revenue of $3.0 billion, up 31% year over year, including $388 million from CyberArk and Chronosphere acquisitions.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001327567/000132756726000012/ex991q326earningsrelease.htm"
+      ]
+    }
+  },
+  {
+    "i": 63,
+    "label": "Own headline metric — source: Palo Alto Networks, Inc., 2026-09-25",
+    "supplier": "Palo Alto Networks",
+    "cell": "NGS ARR $9.10B · Q Jul 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Palo Alto Networks Q4 FY2026 Financial Results Palo Alto Networks, Inc. Publication date 2026-09-01 Economic period Quarter ended 2026-07-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-panw-1 Canonical source EXCERPT / LOCATOR Revenue of $3.41 billion, up 34% year over year. NGS ARR of $9.10 billion, up 63% year over year. RPO of $21.2 billion, up 34% year over year. L",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001327567/000132756726000019/ex991q426earningsrelease.htm"
+      ]
+    }
+  },
+  {
+    "i": 64,
+    "label": "Ownership — source: Palo Alto Networks, Inc., 2026-09-25",
+    "supplier": "Palo Alto Networks",
+    "cell": "Public · PANW src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Palo Alto Networks Q4 FY2026 Financial Results Palo Alto Networks, Inc. Publication date 2026-09-01 Economic period Quarter ended 2026-07-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-panw-1 Canonical source EXCERPT / LOCATOR Revenue of $3.41 billion, up 34% year over year. NGS ARR of $9.10 billion, up 63% year over year. RPO of $21.2 billion, up 34% year over year. L",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001327567/000132756726000019/ex991q426earningsrelease.htm"
+      ]
+    }
+  },
+  {
+    "i": 65,
+    "label": "Latest event — source: Palo Alto Networks, Inc., 2026-09-25",
+    "supplier": "Palo Alto Networks",
+    "cell": "2 · latest results, 1 Sep 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Palo Alto Networks Q4 FY2026 Financial Results Palo Alto Networks, Inc. Publication date 2026-09-01 Economic period Quarter ended 2026-07-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-panw-1 Canonical source EXCERPT / LOCATOR Revenue of $3.41 billion, up 34% year over year. NGS ARR of $9.10 billion, up 63% year over year. RPO of $21.2 billion, up 34% year over year. L",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001327567/000132756726000019/ex991q426earningsrelease.htm"
+      ]
+    }
+  },
+  {
+    "i": 66,
+    "label": "Revenue growth, latest quarter — source: Zscaler, Inc., 2026-09-25",
+    "supplier": "Zscaler",
+    "cell": "25% Q Jul 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Zscaler Q4 FY2026 Earnings Release Zscaler, Inc. Publication date 2026-09-03 Economic period Q4 FY2026, ended 2026-07-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-zscaler-1 Canonical source EXCERPT / LOCATOR Revenue $898.2 million, +25% YoY; ARR $3,771 million, +25% YoY (20% excluding Red Canary acquisition). LIMITATIONS / CONFOUNDS Red Canary acquisition contributed",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/1713683/000171368326000156/zs-07312026_991.htm"
+      ]
+    }
+  },
+  {
+    "i": 67,
+    "label": "Revenue growth, prior quarter — source: Zscaler, Inc., 2026-09-25",
+    "supplier": "Zscaler",
+    "cell": "25% Q Apr 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Zscaler Q3 FY2026 Earnings Release Zscaler, Inc. Publication date 2026-05-26 Economic period Q3 FY2026, ended 2026-04-30 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-zscaler-2 Canonical source EXCERPT / LOCATOR Revenue $850.5 million, +25% YoY; ARR $3,525 million, +25% YoY (21% excluding Red Canary).",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/1713683/000171368326000095/zs-04302026_991.htm"
+      ]
+    }
+  },
+  {
+    "i": 68,
+    "label": "Own headline metric — source: Zscaler, Inc., 2026-09-25",
+    "supplier": "Zscaler",
+    "cell": "ARR $3,771M · Q Jul 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Zscaler Q4 FY2026 Earnings Release Zscaler, Inc. Publication date 2026-09-03 Economic period Q4 FY2026, ended 2026-07-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-zscaler-1 Canonical source EXCERPT / LOCATOR Revenue $898.2 million, +25% YoY; ARR $3,771 million, +25% YoY (20% excluding Red Canary acquisition). LIMITATIONS / CONFOUNDS Red Canary acquisition contributed",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/1713683/000171368326000156/zs-07312026_991.htm"
+      ]
+    }
+  },
+  {
+    "i": 69,
+    "label": "Ownership — source: Zscaler, Inc., 2026-09-25",
+    "supplier": "Zscaler",
+    "cell": "Public · ZS src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Zscaler Q4 FY2026 Earnings Release Zscaler, Inc. Publication date 2026-09-03 Economic period Q4 FY2026, ended 2026-07-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-zscaler-1 Canonical source EXCERPT / LOCATOR Revenue $898.2 million, +25% YoY; ARR $3,771 million, +25% YoY (20% excluding Red Canary acquisition). LIMITATIONS / CONFOUNDS Red Canary acquisition contributed",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/1713683/000171368326000156/zs-07312026_991.htm"
+      ]
+    }
+  },
+  {
+    "i": 70,
+    "label": "Latest event — source: Zscaler, Inc., 2026-09-25",
+    "supplier": "Zscaler",
+    "cell": "3 · latest exec-change, 24 Sep 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Zscaler Executive Leadership Changes Zscaler, Inc. Publication date 2026-09-24 Economic period Quarter ended July 31, 2026 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-zscaler-4 Canonical source EXCERPT / LOCATOR CRO Mike Rich stepping down effective October 1, 2026, succeeded by Ross Tackett. EVP Raj Judge resigned board seat effective April 16, 2026, with employment e",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/1713683/000171368326000193/zs-20260924.htm"
+      ]
+    }
+  },
+  {
+    "i": 71,
+    "label": "Ownership — source: Aqua Security, 2026-09-25",
+    "supplier": "Aqua Security",
+    "cell": "Series E extension $60M · Jan 2024 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Aqua Security Series E Extension Funding Aqua Security Publication date 2024-01 Economic period January 2024 Source class VENDOR-RESEARCH Packet label SEC-MARKET-AUTO-001-STEP5 / TR-aqua-1 Canonical source EXCERPT / LOCATOR Series E extension in January 2024: $60M at $1B+ valuation. LIMITATIONS / CONFOUNDS No newer funding round found.",
+      "hrefs": [
+        "https://www.aquasec.com/news/"
+      ]
+    }
+  },
+  {
+    "i": 72,
+    "label": "Latest event — source: Aqua Security, 2026-09-25",
+    "supplier": "Aqua Security",
+    "cell": "1 · latest exec-change, 5 Nov 25 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Aqua Security Leadership Transition Aqua Security Publication date 2025-11-05 Economic period November 2025 Source class IR Packet label SEC-MARKET-AUTO-001-STEP5 / TR-aqua-2 Canonical source EXCERPT / LOCATOR Co-founder/CEO Dror Davidoff and co-founder/CTO Amir Jerbi stepped back to strategic advisors. Mike Dube became CEO; Nir Makowski became Chief Product & Technology Officer.",
+      "hrefs": [
+        "https://www.aquasec.com/news/aqua-security-announces-leadership-transition-as-company-enters-its-next-phase-of-growth/"
+      ]
+    }
+  },
+  {
+    "i": 73,
+    "label": "Revenue growth, latest quarter — source: CrowdStrike Holdings, Inc., 2026-09-25",
+    "supplier": "CrowdStrike",
+    "cell": "+26% Q Jul 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence CrowdStrike Q2 FY2027 Financial Results CrowdStrike Holdings, Inc. Publication date 2026-08-26 Economic period Quarter ended 2026-07-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-crwd-1 Canonical source EXCERPT / LOCATOR Revenue of $1.47 billion, up 26% year over year. Subscription revenue of $1.40 billion, up 27%. ARR of $5.84 billion, up 25% year over year.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001535527/000153552726000029/crwd-20260826xex991.htm"
+      ]
+    }
+  },
+  {
+    "i": 74,
+    "label": "Revenue growth, prior quarter — source: CrowdStrike Holdings, Inc., 2026-09-25",
+    "supplier": "CrowdStrike",
+    "cell": "+26% Q Apr 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence CrowdStrike Q1 FY2027 Financial Results CrowdStrike Holdings, Inc. Publication date 2026-06-03 Economic period Quarter ended 2026-04-30 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-crwd-2 Canonical source EXCERPT / LOCATOR Revenue of $1.39 billion, up 26% year over year. Net new ARR of $256 million, up 32% year over year.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001535527/000153552726000022/crwd-20260603xex991.htm"
+      ]
+    }
+  },
+  {
+    "i": 75,
+    "label": "Own headline metric — source: CrowdStrike Holdings, Inc., 2026-09-25",
+    "supplier": "CrowdStrike",
+    "cell": "ARR $5.84B · Q Jul 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence CrowdStrike Q2 FY2027 Financial Results CrowdStrike Holdings, Inc. Publication date 2026-08-26 Economic period Quarter ended 2026-07-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-crwd-1 Canonical source EXCERPT / LOCATOR Revenue of $1.47 billion, up 26% year over year. Subscription revenue of $1.40 billion, up 27%. ARR of $5.84 billion, up 25% year over year. CrowdStr",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001535527/000153552726000029/crwd-20260826xex991.htm",
+        "https://www.sec.gov/Archives/edgar/data/0001535527/000153552726000022/crwd-20260603xex991.htm"
+      ]
+    }
+  },
+  {
+    "i": 76,
+    "label": "Ownership — source: CrowdStrike Holdings, Inc., 2026-09-25",
+    "supplier": "CrowdStrike",
+    "cell": "Public · CRWD src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence CrowdStrike Q2 FY2027 Financial Results CrowdStrike Holdings, Inc. Publication date 2026-08-26 Economic period Quarter ended 2026-07-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-crwd-1 Canonical source EXCERPT / LOCATOR Revenue of $1.47 billion, up 26% year over year. Subscription revenue of $1.40 billion, up 27%. ARR of $5.84 billion, up 25% year over year.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001535527/000153552726000029/crwd-20260826xex991.htm"
+      ]
+    }
+  },
+  {
+    "i": 77,
+    "label": "Latest event — source: CrowdStrike Holdings, Inc., 2026-09-25",
+    "supplier": "CrowdStrike",
+    "cell": "1 · latest results, 26 Aug 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence CrowdStrike Q2 FY2027 Financial Results CrowdStrike Holdings, Inc. Publication date 2026-08-26 Economic period Quarter ended 2026-07-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-crwd-1 Canonical source EXCERPT / LOCATOR Revenue of $1.47 billion, up 26% year over year. Subscription revenue of $1.40 billion, up 27%. ARR of $5.84 billion, up 25% year over year.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001535527/000153552726000029/crwd-20260826xex991.htm"
+      ]
+    }
+  },
+  {
+    "i": 78,
+    "label": "Ownership — source: Orca Security, 2026-09-25",
+    "supplier": "Orca Security",
+    "cell": "Independent, venture-backed private company. src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Orca Security Company Information Orca Security Publication date 2026-09-25 Economic period September 2026 Source class VENDOR-RESEARCH Packet label SEC-MARKET-AUTO-001-STEP5 / TR-orca-1 Canonical source EXCERPT / LOCATOR VC-backed company with investors including YL Ventures, Willoughby Capital, Temasek, Splunk, SAIC. LIMITATIONS / CONFOUNDS Revenue/ARR not found in newsroom searched.",
+      "hrefs": [
+        "https://orca.security/resources/press-releases/"
+      ]
+    }
+  },
+  {
+    "i": 79,
+    "label": "Revenue growth, latest quarter — source: Palo Alto Networks, Inc., 2026-09-25",
+    "supplier": "Palo Alto Networks",
+    "cell": "+34% Q Jul 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Palo Alto Networks Q4 FY2026 Financial Results Palo Alto Networks, Inc. Publication date 2026-09-01 Economic period Quarter ended 2026-07-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-panw-1 Canonical source EXCERPT / LOCATOR Revenue of $3.41 billion, up 34% year over year. NGS ARR of $9.10 billion, up 63% year over year. RPO of $21.2 billion, up 34% year over year. L",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001327567/000132756726000019/ex991q426earningsrelease.htm"
+      ]
+    }
+  },
+  {
+    "i": 80,
+    "label": "Revenue growth, prior quarter — source: Palo Alto Networks, Inc., 2026-09-25",
+    "supplier": "Palo Alto Networks",
+    "cell": "+31% Q Apr 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Palo Alto Networks Q3 FY2026 Financial Results Palo Alto Networks, Inc. Publication date 2026-06-02 Economic period Quarter ended 2026-04-30 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-panw-2 Canonical source EXCERPT / LOCATOR Revenue of $3.0 billion, up 31% year over year, including $388 million from CyberArk and Chronosphere acquisitions.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001327567/000132756726000012/ex991q326earningsrelease.htm"
+      ]
+    }
+  },
+  {
+    "i": 81,
+    "label": "Own headline metric — source: Palo Alto Networks, Inc., 2026-09-25",
+    "supplier": "Palo Alto Networks",
+    "cell": "NGS ARR $9.10B · Q Jul 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Palo Alto Networks Q4 FY2026 Financial Results Palo Alto Networks, Inc. Publication date 2026-09-01 Economic period Quarter ended 2026-07-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-panw-1 Canonical source EXCERPT / LOCATOR Revenue of $3.41 billion, up 34% year over year. NGS ARR of $9.10 billion, up 63% year over year. RPO of $21.2 billion, up 34% year over year. L",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001327567/000132756726000019/ex991q426earningsrelease.htm"
+      ]
+    }
+  },
+  {
+    "i": 82,
+    "label": "Ownership — source: Palo Alto Networks, Inc., 2026-09-25",
+    "supplier": "Palo Alto Networks",
+    "cell": "Public · PANW src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Palo Alto Networks Q4 FY2026 Financial Results Palo Alto Networks, Inc. Publication date 2026-09-01 Economic period Quarter ended 2026-07-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-panw-1 Canonical source EXCERPT / LOCATOR Revenue of $3.41 billion, up 34% year over year. NGS ARR of $9.10 billion, up 63% year over year. RPO of $21.2 billion, up 34% year over year. L",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001327567/000132756726000019/ex991q426earningsrelease.htm"
+      ]
+    }
+  },
+  {
+    "i": 83,
+    "label": "Latest event — source: Palo Alto Networks, Inc., 2026-09-25",
+    "supplier": "Palo Alto Networks",
+    "cell": "2 · latest results, 1 Sep 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Palo Alto Networks Q4 FY2026 Financial Results Palo Alto Networks, Inc. Publication date 2026-09-01 Economic period Quarter ended 2026-07-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-panw-1 Canonical source EXCERPT / LOCATOR Revenue of $3.41 billion, up 34% year over year. NGS ARR of $9.10 billion, up 63% year over year. RPO of $21.2 billion, up 34% year over year. L",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001327567/000132756726000019/ex991q426earningsrelease.htm"
+      ]
+    }
+  },
+  {
+    "i": 84,
+    "label": "Ownership — source: Sysdig, 2026-09-25",
+    "supplier": "Sysdig",
+    "cell": "Independent, venture-backed private company. Confirmed not public. src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Sysdig Founder and Board Information Sysdig Publication date 2026-09-25 Economic period September 2026 Source class VENDOR-RESEARCH Packet label SEC-MARKET-AUTO-001-STEP5 / TR-sysdig-1 Canonical source EXCERPT / LOCATOR Founded 2013 by Loris Degioanni. Board includes Bain Capital Ventures, Accel, Premji Invest, Third Point Ventures, Permira. Confirmed private. LIMITATIONS / CONFOUNDS No f",
+      "hrefs": [
+        "https://sysdig.com/newsroom/"
+      ]
+    }
+  },
+  {
+    "i": 85,
+    "label": "Ownership — source: Upwind Security, 2026-09-25",
+    "supplier": "Upwind",
+    "cell": "Series B $250M · Jan 2026 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Upwind Series B Funding Announcement Upwind Security Publication date 2026-01-26 Economic period January 2026 Source class IR Packet label SEC-MARKET-AUTO-001-STEP5 / TR-upwind-1 Canonical source EXCERPT / LOCATOR Series B funding: $250M led by Bessemer Venture Partners, achieving unicorn status (>$1B valuation).",
+      "hrefs": [
+        "https://www.upwind.io/feed/building-next-wave-cloud-security-upwind"
+      ]
+    }
+  },
+  {
+    "i": 86,
+    "label": "Ownership — source: Alphabet Inc., 2026-09-25",
+    "supplier": "Wiz",
+    "cell": "Acquired by Google · Mar 2026 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Wiz Acquisition by Google/Alphabet Closing Alphabet Inc. Publication date 2026-04-30 Economic period Q1 2026 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-wiz-1 Canonical source EXCERPT / LOCATOR Wiz acquisition closed March 11, 2026 for $29.5 billion after purchase price adjustments.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000048/goog-20260331.htm"
+      ]
+    }
+  },
+  {
+    "i": 87,
+    "label": "Latest event — source: Alphabet Inc., 2026-09-25",
+    "supplier": "Wiz",
+    "cell": "1 · latest acquisition, 11 Mar 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Wiz Acquisition by Google/Alphabet Closing Alphabet Inc. Publication date 2026-04-30 Economic period Q1 2026 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-wiz-1 Canonical source EXCERPT / LOCATOR Wiz acquisition closed March 11, 2026 for $29.5 billion after purchase price adjustments.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000048/goog-20260331.htm"
+      ]
+    }
+  },
+  {
+    "i": 88,
+    "label": "Ownership — source: BeyondTrust, 2026-09-25",
+    "supplier": "BeyondTrust",
+    "cell": "PE-owned src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence BeyondTrust Clearlake Capital Investment BeyondTrust Publication date 2021-06-01 Economic period June 2021 Source class VENDOR-RESEARCH Packet label SEC-MARKET-AUTO-001-STEP5 / TR-beyondtrust-1 Canonical source EXCERPT / LOCATOR Clearlake Capital made strategic investment, announced June 1, 2021. LIMITATIONS / CONFOUNDS Majority vs. minority stake not confirmed.",
+      "hrefs": [
+        "https://www.beyondtrust.com/"
+      ]
+    }
+  },
+  {
+    "i": 89,
+    "label": "Ownership — source: Palo Alto Networks, Inc., 2026-09-25",
+    "supplier": "CyberArk",
+    "cell": "Acquired by Palo Alto Networks · Feb 2026 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence CyberArk Acquisition Agreement Palo Alto Networks, Inc. Publication date 2025-07-31 Economic period July 2025 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-cyberark-1 Canonical source EXCERPT / LOCATOR Merger agreement with CyberArk announced; consideration 2.2005 PANW shares plus $45.00 cash per share. LIMITATIONS / CONFOUNDS Deal value approximately $25B per trade pres",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/1327567/000119312526040606/d128872d8k.htm"
+      ]
+    }
+  },
+  {
+    "i": 90,
+    "label": "Latest event — source: CyberArk Software Ltd., 2026-09-25",
+    "supplier": "CyberArk",
+    "cell": "1 · latest shutdown, 11 Feb 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence CyberArk SEC Deregistration CyberArk Software Ltd. Publication date 2026-02-23 Economic period February 2026 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-cyberark-2 Canonical source EXCERPT / LOCATOR CyberArk filed Form 15-12G deregistering from SEC, effective February 23, 2026, following acquisition close on February 11, 2026.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/1598110/000159811026000007/form15-12g.htm"
+      ]
+    }
+  },
+  {
+    "i": 91,
+    "label": "Own headline metric — source: Delinea, 2026-09-25",
+    "supplier": "Delinea",
+    "cell": "ARR $400M (nearing) src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Delinea ARR Announcement Delinea Publication date 2025-03-18 Economic period March 2025 Source class IR Packet label SEC-MARKET-AUTO-001-STEP5 / TR-delinea-1 Canonical source EXCERPT / LOCATOR Nearing $400 million ARR. LIMITATIONS / CONFOUNDS No newer figure found; $500M+ figure in secondary sources unverified.",
+      "hrefs": [
+        "https://www.delinea.com/"
+      ]
+    }
+  },
+  {
+    "i": 92,
+    "label": "Ownership — source: Delinea, 2026-09-25",
+    "supplier": "Delinea",
+    "cell": "PE-owned src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Delinea TPG Capital Ownership Delinea Publication date 2022-02-01 Economic period February 2022 Source class VENDOR-RESEARCH Packet label SEC-MARKET-AUTO-001-STEP5 / TR-delinea-2 Canonical source EXCERPT / LOCATOR ThycoticCentrify rebranded to Delinea under TPG Capital.",
+      "hrefs": [
+        "https://www.delinea.com/"
+      ]
+    }
+  },
+  {
+    "i": 93,
+    "label": "Latest event — source: Delinea, 2026-09-25",
+    "supplier": "Delinea",
+    "cell": "1 · latest exec-change, 23 Sep 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Delinea Chief Financial Officer Appointment Delinea Publication date 2026-09-23 Economic period September 2026 Source class IR Packet label SEC-MARKET-AUTO-001-STEP5 / TR-delinea-3 Canonical source EXCERPT / LOCATOR Timothy Regan appointed Chief Financial Officer of Delinea. LIMITATIONS / CONFOUNDS Whether this followed a predecessor departure was not confirmed.",
+      "hrefs": [
+        "https://www.globenewswire.com/"
+      ]
+    }
+  },
+  {
+    "i": 94,
+    "label": "Ownership — source: Microsoft Corporation, 2026-09-25",
+    "supplier": "Microsoft Entra ID",
+    "cell": "Segment of Microsoft src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Microsoft FY2026 10-K Filing Microsoft Corporation Publication date 2026-07-29 Economic period FY2026, ended 2026-06-30 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-msft-entra-1 Canonical source EXCERPT / LOCATOR FY2026 revenue $331.839 billion, +18% YoY. No discrete Entra ID revenue figure disclosed. LIMITATIONS / CONFOUNDS Security business revenue not broken out sepa",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm"
+      ]
+    }
+  },
+  {
+    "i": 95,
+    "label": "Latest event — source: Microsoft Corporation, 2026-09-25",
+    "supplier": "Microsoft Entra ID",
+    "cell": "1 · latest results, 29 Jul 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Microsoft FY2026 10-K Filing Microsoft Corporation Publication date 2026-07-29 Economic period FY2026, ended 2026-06-30 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-msft-entra-1 Canonical source EXCERPT / LOCATOR FY2026 revenue $331.839 billion, +18% YoY. No discrete Entra ID revenue figure disclosed. LIMITATIONS / CONFOUNDS Security business revenue not broken out sepa",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm"
+      ]
+    }
+  },
+  {
+    "i": 96,
+    "label": "Revenue growth, latest quarter — source: Okta, Inc., 2026-09-25",
+    "supplier": "Okta",
+    "cell": "11% Q Jul 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Okta Q2 FY2027 Earnings Release Okta, Inc. Publication date 2026-08-26 Economic period Quarter ended July 31, 2026 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-okta-1 Canonical source EXCERPT / LOCATOR Revenue $805 million, +11% YoY; Subscription Revenue $793 million, +12% YoY.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/1660134/000166013426000069/okta-20260731.htm"
+      ]
+    }
+  },
+  {
+    "i": 97,
+    "label": "Revenue growth, prior quarter — source: Okta, Inc., 2026-09-25",
+    "supplier": "Okta",
+    "cell": "11.2% Q Apr 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Okta Q1 FY2027 Earnings Release Okta, Inc. Publication date 2026-05-27 Economic period Quarter ended April 30, 2026 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-okta-2 Canonical source EXCERPT / LOCATOR Revenue $765 million, +11.2% YoY.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/1660134/000166013426000051/okta-20260430.htm"
+      ]
+    }
+  },
+  {
+    "i": 98,
+    "label": "Own headline metric — source: Okta, Inc., 2026-09-25",
+    "supplier": "Okta",
+    "cell": "Revenue $805M src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Okta Q2 FY2027 Earnings Release Okta, Inc. Publication date 2026-08-26 Economic period Quarter ended July 31, 2026 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-okta-1 Canonical source EXCERPT / LOCATOR Revenue $805 million, +11% YoY; Subscription Revenue $793 million, +12% YoY.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/1660134/000166013426000069/okta-20260731.htm"
+      ]
+    }
+  },
+  {
+    "i": 99,
+    "label": "Ownership — source: Okta, Inc., 2026-09-25",
+    "supplier": "Okta",
+    "cell": "Public · OKTA src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Okta Q2 FY2027 Earnings Release Okta, Inc. Publication date 2026-08-26 Economic period Quarter ended July 31, 2026 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-okta-1 Canonical source EXCERPT / LOCATOR Revenue $805 million, +11% YoY; Subscription Revenue $793 million, +12% YoY.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/1660134/000166013426000069/okta-20260731.htm"
+      ]
+    }
+  },
+  {
+    "i": 100,
+    "label": "Latest event — source: Okta, Inc., 2026-09-25",
+    "supplier": "Okta",
+    "cell": "1 · latest results, 26 Aug 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Okta Q2 FY2027 Earnings Release Okta, Inc. Publication date 2026-08-26 Economic period Quarter ended July 31, 2026 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-okta-1 Canonical source EXCERPT / LOCATOR Revenue $805 million, +11% YoY; Subscription Revenue $793 million, +12% YoY.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/1660134/000166013426000069/okta-20260731.htm"
+      ]
+    }
+  },
+  {
+    "i": 101,
+    "label": "Own headline metric — source: Ping Identity, 2026-09-25",
+    "supplier": "Ping Identity",
+    "cell": "ARR $800M (approaching) src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Ping Identity ARR Milestone Announcement Ping Identity Publication date 2024-11-14 Economic period November 2024 Source class IR Packet label SEC-MARKET-AUTO-001-STEP5 / TR-ping-1 Canonical source EXCERPT / LOCATOR Approaching $800 million ARR with 30%+ SaaS revenue growth. LIMITATIONS / CONFOUNDS No newer figure found; treat as stale relative to September 2026.",
+      "hrefs": [
+        "https://www.pingidentity.com/en/company/newsroom.html"
+      ]
+    }
+  },
+  {
+    "i": 102,
+    "label": "Ownership — source: Ping Identity, 2026-09-25",
+    "supplier": "Ping Identity",
+    "cell": "PE-owned src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Ping Identity Thoma Bravo Acquisition Completion Ping Identity Publication date 2022-10-18 Economic period October 2022 Source class IR Packet label SEC-MARKET-AUTO-001-STEP5 / TR-ping-2 Canonical source EXCERPT / LOCATOR Thoma Bravo acquisition closed October 18, 2022 at $2.8 billion deal value.",
+      "hrefs": [
+        "https://www.pingidentity.com/en/company/newsroom.html"
+      ]
+    }
+  },
+  {
+    "i": 103,
+    "label": "Revenue growth, latest quarter — source: SailPoint, Inc., 2026-09-25",
+    "supplier": "SailPoint",
+    "cell": "16.8% Q Jul 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence SailPoint Q2 FY2027 Earnings Release SailPoint, Inc. Publication date 2026-09-10 Economic period Quarter ended July 31, 2026 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-sailpoint-1 Canonical source EXCERPT / LOCATOR Revenue $308.8 million, +16.8% YoY; ARR $1,230.7 million, +25.3% YoY; SaaS ARR $846.9 million, +36.0% YoY.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/2030781/000203078126000021/sail-20260731.htm"
+      ]
+    }
+  },
+  {
+    "i": 104,
+    "label": "Revenue growth, prior quarter — source: SailPoint, Inc., 2026-09-25",
+    "supplier": "SailPoint",
+    "cell": "21.5% Q Apr 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence SailPoint Q1 FY2027 Earnings Release SailPoint, Inc. Publication date 2026-06-12 Economic period Quarter ended April 30, 2026 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-sailpoint-2 Canonical source EXCERPT / LOCATOR Revenue $280.142 million, +21.5% YoY; ARR $1,162.7 million, +25.8% YoY.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/2030781/000203078126000011/sail-20260430.htm"
+      ]
+    }
+  },
+  {
+    "i": 105,
+    "label": "Own headline metric — source: SailPoint, Inc., 2026-09-25",
+    "supplier": "SailPoint",
+    "cell": "ARR $1,230.7M src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence SailPoint Q2 FY2027 Earnings Release SailPoint, Inc. Publication date 2026-09-10 Economic period Quarter ended July 31, 2026 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-sailpoint-1 Canonical source EXCERPT / LOCATOR Revenue $308.8 million, +16.8% YoY; ARR $1,230.7 million, +25.3% YoY; SaaS ARR $846.9 million, +36.0% YoY.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/2030781/000203078126000021/sail-20260731.htm"
+      ]
+    }
+  },
+  {
+    "i": 106,
+    "label": "Ownership — source: SailPoint, Inc., 2026-09-25",
+    "supplier": "SailPoint",
+    "cell": "Public · SAIL src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence SailPoint Q2 FY2027 Earnings Release SailPoint, Inc. Publication date 2026-09-10 Economic period Quarter ended July 31, 2026 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-sailpoint-1 Canonical source EXCERPT / LOCATOR Revenue $308.8 million, +16.8% YoY; ARR $1,230.7 million, +25.3% YoY; SaaS ARR $846.9 million, +36.0% YoY.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/2030781/000203078126000021/sail-20260731.htm"
+      ]
+    }
+  },
+  {
+    "i": 107,
+    "label": "Latest event — source: SailPoint, Inc., 2026-09-25",
+    "supplier": "SailPoint",
+    "cell": "1 · latest results, 10 Sep 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence SailPoint Q2 FY2027 Earnings Release SailPoint, Inc. Publication date 2026-09-10 Economic period Quarter ended July 31, 2026 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-sailpoint-1 Canonical source EXCERPT / LOCATOR Revenue $308.8 million, +16.8% YoY; ARR $1,230.7 million, +25.3% YoY; SaaS ARR $846.9 million, +36.0% YoY.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/2030781/000203078126000021/sail-20260731.htm"
+      ]
+    }
+  },
+  {
+    "i": 108,
+    "label": "Ownership — source: Tracxn, 2026-09-25",
+    "supplier": "BigID",
+    "cell": "Growth round $60M · Mar 2024 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence BigID funding and investors summary Tracxn Publication date 2024-03-01 Economic period N/A (funding history aggregator) Source class INDEPENDENT Packet label SEC-MARKET-AUTO-001-STEP5 / TR-bigid-1 Canonical source EXCERPT / LOCATOR $60 million growth round led by Riverwood Capital, with Silver Lake Waterman and Advent International participating, at a $1 billion valuation, March 2024. LIM",
+      "hrefs": [
+        "https://tracxn.com/d/companies/bigid/__pHSLjAzI2aqF63ud9QosF69usdaBPTT49_kou_rHtgw/funding-and-investors"
+      ]
+    }
+  },
+  {
+    "i": 109,
+    "label": "Revenue growth, latest quarter — source: Commvault Systems, Inc., 2026-09-25",
+    "supplier": "Commvault Systems",
+    "cell": "+11% Q Jun 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Commvault Announces First Quarter Fiscal 2027 Financial Results Commvault Systems, Inc. Publication date 2026-07-28 Economic period Q1 FY2027 (quarter ended 2026-06-30) Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-commvault-1 Canonical source EXCERPT / LOCATOR Revenue of $314.1 million, up 11% year-over-year; Subscription ARR of $1,054 million, up 22% year-over-year; ad",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/1169561/000116956126000020/q1fy27pressrelease.htm"
+      ]
+    }
+  },
+  {
+    "i": 110,
+    "label": "Revenue growth, prior quarter — source: Commvault Systems, Inc., 2026-09-25",
+    "supplier": "Commvault Systems",
+    "cell": "+13% Q Mar 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Commvault Announces Fourth Quarter and Fiscal Year 2026 Financial Results Commvault Systems, Inc. Publication date 2026-04-28 Economic period Q4 FY2026 (quarter ended 2026-03-31); FY2026 full year Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-commvault-2 Canonical source EXCERPT / LOCATOR Revenue of $311.7 million for the quarter (+13% YoY); FY2026 full-year revenue of $",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/1169561/000116956126000013/q4fy26pressrelease.htm"
+      ]
+    }
+  },
+  {
+    "i": 111,
+    "label": "Own headline metric — source: Commvault Systems, Inc., 2026-09-25",
+    "supplier": "Commvault Systems",
+    "cell": "Subscription ARR $1,054M · Q Jun 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Commvault Announces First Quarter Fiscal 2027 Financial Results Commvault Systems, Inc. Publication date 2026-07-28 Economic period Q1 FY2027 (quarter ended 2026-06-30) Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-commvault-1 Canonical source EXCERPT / LOCATOR Revenue of $314.1 million, up 11% year-over-year; Subscription ARR of $1,054 million, up 22% year-over-year; ad",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/1169561/000116956126000020/q1fy27pressrelease.htm"
+      ]
+    }
+  },
+  {
+    "i": 112,
+    "label": "Ownership — source: Commvault Systems, Inc., 2026-09-25",
+    "supplier": "Commvault Systems",
+    "cell": "Public · CVLT src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Commvault Announces First Quarter Fiscal 2027 Financial Results Commvault Systems, Inc. Publication date 2026-07-28 Economic period Q1 FY2027 (quarter ended 2026-06-30) Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-commvault-1 Canonical source EXCERPT / LOCATOR Revenue of $314.1 million, up 11% year-over-year; Subscription ARR of $1,054 million, up 22% year-over-year; ad",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/1169561/000116956126000020/q1fy27pressrelease.htm"
+      ]
+    }
+  },
+  {
+    "i": 113,
+    "label": "Latest event — source: Commvault Systems, Inc., 2026-09-25",
+    "supplier": "Commvault Systems",
+    "cell": "3 · latest results, 28 Jul 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Commvault Announces First Quarter Fiscal 2027 Financial Results Commvault Systems, Inc. Publication date 2026-07-28 Economic period Q1 FY2027 (quarter ended 2026-06-30) Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-commvault-1 Canonical source EXCERPT / LOCATOR Revenue of $314.1 million, up 11% year-over-year; Subscription ARR of $1,054 million, up 22% year-over-year; ad",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/1169561/000116956126000020/q1fy27pressrelease.htm"
+      ]
+    }
+  },
+  {
+    "i": 114,
+    "label": "Ownership — source: Cyera, 2026-09-25",
+    "supplier": "Cyera",
+    "cell": "Growth-equity investment (reported as a Series G extension) $400M · Sep 2026 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Cyera Announces $400 Million Investment from Goldman Sachs to Build the Trust Layer for the Agentic Enterprise Cyera Publication date 2026-09-22 Economic period N/A (funding announcement) Source class OFFICIAL Packet label SEC-MARKET-AUTO-001-STEP5 / TR-cyera-1 Canonical source EXCERPT / LOCATOR Cyera announced a $400 million growth-equity investment from Growth Equity at Goldman Sachs Al",
+      "hrefs": [
+        "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise"
+      ]
+    }
+  },
+  {
+    "i": 115,
+    "label": "Latest event — source: Cyera, 2026-09-25",
+    "supplier": "Cyera",
+    "cell": "4 · latest funding, 22 Sep 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Cyera Announces $400 Million Investment from Goldman Sachs to Build the Trust Layer for the Agentic Enterprise Cyera Publication date 2026-09-22 Economic period N/A (funding announcement) Source class OFFICIAL Packet label SEC-MARKET-AUTO-001-STEP5 / TR-cyera-1 Canonical source EXCERPT / LOCATOR Cyera announced a $400 million growth-equity investment from Growth Equity at Goldman Sachs Al",
+      "hrefs": [
+        "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise"
+      ]
+    }
+  },
+  {
+    "i": 116,
+    "label": "Revenue growth, latest quarter — source: Rubrik, Inc., 2026-09-25",
+    "supplier": "Rubrik",
+    "cell": "+38% Q Jul 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Rubrik Announces Second Quarter Fiscal 2027 Financial Results Rubrik, Inc. Publication date 2026-08-27 Economic period Q2 FY2027 (quarter ended 2026-07-31) Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-rubrik-1 Canonical source EXCERPT / LOCATOR Revenue of $427.3 million, up 38% year-over-year; Subscription ARR of $1.66 billion, up 33% year-over-year. LIMITATIONS / CONFO",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001943896/000194389626000055/rubrikinc-991pressrelease7.htm"
+      ]
+    }
+  },
+  {
+    "i": 117,
+    "label": "Revenue growth, prior quarter — source: Rubrik, Inc., 2026-09-25",
+    "supplier": "Rubrik",
+    "cell": "+39% Q Apr 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Rubrik Announces First Quarter Fiscal 2027 Financial Results Rubrik, Inc. Publication date 2026-04-30 Economic period Q1 FY2027 (quarter ended 2026-04-30) Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-rubrik-2 Canonical source EXCERPT / LOCATOR Revenue of $387.1 million, up 39% year-over-year; Subscription ARR of $1.565 billion, up 32% year-over-year. LIMITATIONS / CONFO",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001943896/000194389626000047/rbrk-20260430.htm"
+      ]
+    }
+  },
+  {
+    "i": 118,
+    "label": "Own headline metric — source: Rubrik, Inc., 2026-09-25",
+    "supplier": "Rubrik",
+    "cell": "Subscription ARR $1.66B · Q Jul 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Rubrik Announces Second Quarter Fiscal 2027 Financial Results Rubrik, Inc. Publication date 2026-08-27 Economic period Q2 FY2027 (quarter ended 2026-07-31) Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-rubrik-1 Canonical source EXCERPT / LOCATOR Revenue of $427.3 million, up 38% year-over-year; Subscription ARR of $1.66 billion, up 33% year-over-year. LIMITATIONS / CONFO",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001943896/000194389626000055/rubrikinc-991pressrelease7.htm"
+      ]
+    }
+  },
+  {
+    "i": 119,
+    "label": "Ownership — source: Rubrik, Inc., 2026-09-25",
+    "supplier": "Rubrik",
+    "cell": "Public · RBRK src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Rubrik Announces Second Quarter Fiscal 2027 Financial Results Rubrik, Inc. Publication date 2026-08-27 Economic period Q2 FY2027 (quarter ended 2026-07-31) Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-rubrik-1 Canonical source EXCERPT / LOCATOR Revenue of $427.3 million, up 38% year-over-year; Subscription ARR of $1.66 billion, up 33% year-over-year. LIMITATIONS / CONFO",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001943896/000194389626000055/rubrikinc-991pressrelease7.htm"
+      ]
+    }
+  },
+  {
+    "i": 120,
+    "label": "Latest event — source: Rubrik, Inc., 2026-09-25",
+    "supplier": "Rubrik",
+    "cell": "2 · latest results, 27 Aug 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Rubrik Announces Second Quarter Fiscal 2027 Financial Results Rubrik, Inc. Publication date 2026-08-27 Economic period Q2 FY2027 (quarter ended 2026-07-31) Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-rubrik-1 Canonical source EXCERPT / LOCATOR Revenue of $427.3 million, up 38% year-over-year; Subscription ARR of $1.66 billion, up 33% year-over-year. LIMITATIONS / CONFO",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001943896/000194389626000055/rubrikinc-991pressrelease7.htm"
+      ]
+    }
+  },
+  {
+    "i": 121,
+    "label": "Revenue growth, latest quarter — source: Varonis Systems, Inc., 2026-09-25",
+    "supplier": "Varonis Systems",
+    "cell": "+18.3% Q Jun 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Varonis Reports Second Quarter 2026 Financial Results Varonis Systems, Inc. Publication date 2026-07-28 Economic period Q2 2026 (quarter ended 2026-06-30) Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-varonis-1 Canonical source EXCERPT / LOCATOR Revenue of $180.0 million, up 18.3% year-over-year; Total SaaS ARR of $726.0 million, up 52% year-over-year (25% excluding conv",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001361113/000117184326004948/exh_991.htm"
+      ]
+    }
+  },
+  {
+    "i": 122,
+    "label": "Revenue growth, prior quarter — source: Varonis Systems, Inc., 2026-09-25",
+    "supplier": "Varonis Systems",
+    "cell": "+27% Q Mar 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Varonis Reports Second Quarter 2026 Financial Results Varonis Systems, Inc. Publication date 2026-07-28 Economic period Q2 2026 (quarter ended 2026-06-30) Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-varonis-1 Canonical source EXCERPT / LOCATOR Revenue of $180.0 million, up 18.3% year-over-year; Total SaaS ARR of $726.0 million, up 52% year-over-year (25% excluding conv",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001361113/000117184326004948/exh_991.htm"
+      ]
+    }
+  },
+  {
+    "i": 123,
+    "label": "Own headline metric — source: Varonis Systems, Inc., 2026-09-25",
+    "supplier": "Varonis Systems",
+    "cell": "Total SaaS ARR $726.0M · Q Jun 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Varonis Reports Second Quarter 2026 Financial Results Varonis Systems, Inc. Publication date 2026-07-28 Economic period Q2 2026 (quarter ended 2026-06-30) Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-varonis-1 Canonical source EXCERPT / LOCATOR Revenue of $180.0 million, up 18.3% year-over-year; Total SaaS ARR of $726.0 million, up 52% year-over-year (25% excluding conv",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001361113/000117184326004948/exh_991.htm"
+      ]
+    }
+  },
+  {
+    "i": 124,
+    "label": "Ownership — source: Varonis Systems, Inc., 2026-09-25",
+    "supplier": "Varonis Systems",
+    "cell": "Public · VRNS src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Varonis Reports Second Quarter 2026 Financial Results Varonis Systems, Inc. Publication date 2026-07-28 Economic period Q2 2026 (quarter ended 2026-06-30) Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-varonis-1 Canonical source EXCERPT / LOCATOR Revenue of $180.0 million, up 18.3% year-over-year; Total SaaS ARR of $726.0 million, up 52% year-over-year (25% excluding conv",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001361113/000117184326004948/exh_991.htm"
+      ]
+    }
+  },
+  {
+    "i": 125,
+    "label": "Latest event — source: Varonis Systems, Inc., 2026-09-25",
+    "supplier": "Varonis Systems",
+    "cell": "3 · latest results, 28 Jul 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Varonis Reports Second Quarter 2026 Financial Results Varonis Systems, Inc. Publication date 2026-07-28 Economic period Q2 2026 (quarter ended 2026-06-30) Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-varonis-1 Canonical source EXCERPT / LOCATOR Revenue of $180.0 million, up 18.3% year-over-year; Total SaaS ARR of $726.0 million, up 52% year-over-year (25% excluding conv",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001361113/000117184326004948/exh_991.htm"
+      ]
+    }
+  },
+  {
+    "i": 126,
+    "label": "Ownership — source: Wikipedia, 2026-09-25",
+    "supplier": "Veeam",
+    "cell": "PE-owned · Insight Partners src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Veeam (Wikipedia) Wikipedia Publication date 2026-09-25 Economic period N/A (company background) Source class INDEPENDENT Packet label SEC-MARKET-AUTO-001-STEP5 / TR-veeam-1 Canonical source EXCERPT / LOCATOR Insight Partners holds a majority stake in Veeam Software, in a deal reported closed on or about January 9, 2020, for approximately $5 billion. LIMITATIONS / CONFOUNDS Secondary sour",
+      "hrefs": [
+        "https://en.wikipedia.org/wiki/Veeam"
+      ]
+    }
+  },
+  {
+    "i": 127,
+    "label": "Latest event — source: Veeam Software, 2026-09-25",
+    "supplier": "Veeam",
+    "cell": "1 · latest acquisition, 11 Dec 25 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Veeam Acquires Securiti AI Veeam Software Publication date 2025-12-11 Economic period N/A (acquisition announcement) Source class OFFICIAL Packet label SEC-MARKET-AUTO-001-STEP5 / TR-veeam-2 Canonical source EXCERPT / LOCATOR Veeam completed its acquisition of Securiti AI, a data security posture management and AI-governance company, for $1.725 billion; Securiti founder and CEO Rehan Jali",
+      "hrefs": [
+        "https://www.veeam.com/news/veeam-acquires-securiti-ai.html"
+      ]
+    }
+  },
+  {
+    "i": 128,
+    "label": "Own headline metric — source: Axonius, Inc., 2026-09-25",
+    "supplier": "Axonius",
+    "cell": "ARR >$200M · Q May 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Axonius ARR Milestone Axonius, Inc. Publication date 2026-05-19 Economic period May 2026 Source class OFFICIAL Packet label SEC-MARKET-AUTO-001-STEP5 / TR-axonius-1 Canonical source EXCERPT / LOCATOR Axonius reported ARR exceeding $200 million in Q1 of fiscal 2027, with company stating 100% growth in the preceding two years. LIMITATIONS / CONFOUNDS Single-year growth rate not provided by ",
+      "hrefs": [
+        "https://www.axonius.com/newsroom/press-release/axonius-surpasses-200m-arr-appoints-joe-diamond-ceo"
+      ]
+    }
+  },
+  {
+    "i": 129,
+    "label": "Latest event — source: Axonius, Inc., 2026-09-25",
+    "supplier": "Axonius",
+    "cell": "1 · latest exec-change, 19 May 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Axonius Names Joe Diamond CEO Axonius, Inc. Publication date 2026-05-19 Economic period May 2026 Source class OFFICIAL Packet label SEC-MARKET-AUTO-001-STEP5 / TR-axonius-2 Canonical source EXCERPT / LOCATOR Axonius appointed Joe Diamond as permanent CEO following his interim role since February 2026. Co-founder Dean Sysman moved to executive chairman.",
+      "hrefs": [
+        "https://www.axonius.com/newsroom/press-release/axonius-surpasses-200m-arr-appoints-joe-diamond-ceo"
+      ]
+    }
+  },
+  {
+    "i": 130,
+    "label": "Ownership — source: CrowdStrike Holdings, Inc., 2026-09-25",
+    "supplier": "CrowdStrike Falcon Exposure Management",
+    "cell": "Segment src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence CrowdStrike Q2 FY2027 Financial Results CrowdStrike Holdings, Inc. Publication date 2026-08-26 Economic period Quarter ended 2026-07-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-crwd-1 Canonical source EXCERPT / LOCATOR Revenue of $1.47 billion, up 26% year over year. Subscription revenue of $1.40 billion, up 27%. ARR of $5.84 billion, up 25% year over year.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001535527/000153552726000029/crwd-20260826xex991.htm"
+      ]
+    }
+  },
+  {
+    "i": 131,
+    "label": "Revenue growth, latest quarter — source: CrowdStrike Holdings, Inc., 2026-09-25",
+    "supplier": "CrowdStrike",
+    "cell": "+26% Q Jul 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence CrowdStrike Q2 FY2027 Financial Results CrowdStrike Holdings, Inc. Publication date 2026-08-26 Economic period Quarter ended 2026-07-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-crwd-1 Canonical source EXCERPT / LOCATOR Revenue of $1.47 billion, up 26% year over year. Subscription revenue of $1.40 billion, up 27%. ARR of $5.84 billion, up 25% year over year.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001535527/000153552726000029/crwd-20260826xex991.htm"
+      ]
+    }
+  },
+  {
+    "i": 132,
+    "label": "Revenue growth, prior quarter — source: CrowdStrike Holdings, Inc., 2026-09-25",
+    "supplier": "CrowdStrike",
+    "cell": "+26% Q Apr 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence CrowdStrike Q1 FY2027 Financial Results CrowdStrike Holdings, Inc. Publication date 2026-06-03 Economic period Quarter ended 2026-04-30 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-crwd-2 Canonical source EXCERPT / LOCATOR Revenue of $1.39 billion, up 26% year over year. Net new ARR of $256 million, up 32% year over year.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001535527/000153552726000022/crwd-20260603xex991.htm"
+      ]
+    }
+  },
+  {
+    "i": 133,
+    "label": "Own headline metric — source: CrowdStrike Holdings, Inc., 2026-09-25",
+    "supplier": "CrowdStrike",
+    "cell": "ARR $5.84B · Q Jul 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence CrowdStrike Q2 FY2027 Financial Results CrowdStrike Holdings, Inc. Publication date 2026-08-26 Economic period Quarter ended 2026-07-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-crwd-1 Canonical source EXCERPT / LOCATOR Revenue of $1.47 billion, up 26% year over year. Subscription revenue of $1.40 billion, up 27%. ARR of $5.84 billion, up 25% year over year. CrowdStr",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001535527/000153552726000029/crwd-20260826xex991.htm",
+        "https://www.sec.gov/Archives/edgar/data/0001535527/000153552726000022/crwd-20260603xex991.htm"
+      ]
+    }
+  },
+  {
+    "i": 134,
+    "label": "Ownership — source: CrowdStrike Holdings, Inc., 2026-09-25",
+    "supplier": "CrowdStrike",
+    "cell": "Public · CRWD src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence CrowdStrike Q2 FY2027 Financial Results CrowdStrike Holdings, Inc. Publication date 2026-08-26 Economic period Quarter ended 2026-07-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-crwd-1 Canonical source EXCERPT / LOCATOR Revenue of $1.47 billion, up 26% year over year. Subscription revenue of $1.40 billion, up 27%. ARR of $5.84 billion, up 25% year over year.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001535527/000153552726000029/crwd-20260826xex991.htm"
+      ]
+    }
+  },
+  {
+    "i": 135,
+    "label": "Latest event — source: CrowdStrike Holdings, Inc., 2026-09-25",
+    "supplier": "CrowdStrike",
+    "cell": "1 · latest results, 26 Aug 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence CrowdStrike Q2 FY2027 Financial Results CrowdStrike Holdings, Inc. Publication date 2026-08-26 Economic period Quarter ended 2026-07-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-crwd-1 Canonical source EXCERPT / LOCATOR Revenue of $1.47 billion, up 26% year over year. Subscription revenue of $1.40 billion, up 27%. ARR of $5.84 billion, up 25% year over year.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001535527/000153552726000029/crwd-20260826xex991.htm"
+      ]
+    }
+  },
+  {
+    "i": 136,
+    "label": "Ownership — source: Ivanti, Inc., 2026-09-25",
+    "supplier": "Ivanti",
+    "cell": "PE-owned src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Ivanti Capital Refinancing Ivanti, Inc. Publication date 2025-05-02 Economic period May 2025 Source class OFFICIAL Packet label SEC-MARKET-AUTO-001-STEP5 / TR-ivanti-1 Canonical source EXCERPT / LOCATOR Ivanti announced successful refinancing with $350 million in new capital from existing first- and second-lien lenders. Maturities extended to 2029. LIMITATIONS / CONFOUNDS Date falls just ",
+      "hrefs": [
+        "https://www.ivanti.com/company/press-releases/2025/ivanti-announces-successful-refinancing-and-new-capital-infusion-to-support-key-strategic-initiatives"
+      ]
+    }
+  },
+  {
+    "i": 137,
+    "label": "Revenue growth, latest quarter — source: Qualys, Inc., 2026-09-25",
+    "supplier": "Qualys",
+    "cell": "+11% Q Jun 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Qualys Inc. Q2 2026 Financial Results Qualys, Inc. Publication date 2026-08-04 Economic period Quarter ended 2026-06-30 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-qualys-1 Canonical source EXCERPT / LOCATOR Revenue of $182.2 million, up 11% year over year. GAAP net income of $52.4 million. Q3 2026 guidance: $185.5 million to $187.5 million (+9% to +10%). FY2026 guidan",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001107843/000110784326000034/qlys-20260804xex991.htm"
+      ]
+    }
+  },
+  {
+    "i": 138,
+    "label": "Own headline metric — source: Qualys, Inc., 2026-09-25",
+    "supplier": "Qualys",
+    "cell": "Revenue $182.2M · Q Jun 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Qualys Inc. Q2 2026 Financial Results Qualys, Inc. Publication date 2026-08-04 Economic period Quarter ended 2026-06-30 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-qualys-1 Canonical source EXCERPT / LOCATOR Revenue of $182.2 million, up 11% year over year. GAAP net income of $52.4 million. Q3 2026 guidance: $185.5 million to $187.5 million (+9% to +10%). FY2026 guidan",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001107843/000110784326000034/qlys-20260804xex991.htm"
+      ]
+    }
+  },
+  {
+    "i": 139,
+    "label": "Ownership — source: Qualys, Inc., 2026-09-25",
+    "supplier": "Qualys",
+    "cell": "Public · QLYS src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Qualys Inc. Q2 2026 Financial Results Qualys, Inc. Publication date 2026-08-04 Economic period Quarter ended 2026-06-30 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-qualys-1 Canonical source EXCERPT / LOCATOR Revenue of $182.2 million, up 11% year over year. GAAP net income of $52.4 million. Q3 2026 guidance: $185.5 million to $187.5 million (+9% to +10%). FY2026 guidan",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001107843/000110784326000034/qlys-20260804xex991.htm"
+      ]
+    }
+  },
+  {
+    "i": 140,
+    "label": "Latest event — source: Qualys, Inc., 2026-09-25",
+    "supplier": "Qualys",
+    "cell": "1 · latest results, 4 Aug 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Qualys Inc. Q2 2026 Financial Results Qualys, Inc. Publication date 2026-08-04 Economic period Quarter ended 2026-06-30 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-qualys-1 Canonical source EXCERPT / LOCATOR Revenue of $182.2 million, up 11% year over year. GAAP net income of $52.4 million. Q3 2026 guidance: $185.5 million to $187.5 million (+9% to +10%). FY2026 guidan",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001107843/000110784326000034/qlys-20260804xex991.htm"
+      ]
+    }
+  },
+  {
+    "i": 141,
+    "label": "Revenue growth, latest quarter — source: Rapid7, Inc., 2026-09-25",
+    "supplier": "Rapid7",
+    "cell": "-1.5% Q Jun 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Rapid7 Inc. Q2 2026 Financial Results Rapid7, Inc. Publication date 2026-08-10 Economic period Quarter ended 2026-06-30 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-rapid7-1 Canonical source EXCERPT / LOCATOR Revenue of $210.9 million, down 1.5% year over year. ARR of $824.0 million, down 2.0% year over year. Q3 2026 guidance: revenue $208 million to $210 million (-5% t",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001560327/000156032726000043/q22026rapid78-kex991.htm"
+      ]
+    }
+  },
+  {
+    "i": 142,
+    "label": "Revenue growth, prior quarter — source: Rapid7, Inc., 2026-09-25",
+    "supplier": "Rapid7",
+    "cell": "-0.3% Q Mar 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Rapid7 Inc. Q1 2026 Financial Results Rapid7, Inc. Publication date 2026-05-22 Economic period Quarter ended 2026-03-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-rapid7-2 Canonical source EXCERPT / LOCATOR Revenue of $210 million, down 0.3% year over year. ARR of $832 million, down 0.6% year over year.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001560327/000156032726000032/q12026rapid78-kex991.htm"
+      ]
+    }
+  },
+  {
+    "i": 143,
+    "label": "Own headline metric — source: Rapid7, Inc., 2026-09-25",
+    "supplier": "Rapid7",
+    "cell": "ARR $824.0M · Q Jun 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Rapid7 Inc. Q2 2026 Financial Results Rapid7, Inc. Publication date 2026-08-10 Economic period Quarter ended 2026-06-30 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-rapid7-1 Canonical source EXCERPT / LOCATOR Revenue of $210.9 million, down 1.5% year over year. ARR of $824.0 million, down 2.0% year over year. Q3 2026 guidance: revenue $208 million to $210 million (-5% t",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001560327/000156032726000043/q22026rapid78-kex991.htm"
+      ]
+    }
+  },
+  {
+    "i": 144,
+    "label": "Ownership — source: Rapid7, Inc., 2026-09-25",
+    "supplier": "Rapid7",
+    "cell": "Public · RPD src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Rapid7 Inc. Q2 2026 Financial Results Rapid7, Inc. Publication date 2026-08-10 Economic period Quarter ended 2026-06-30 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-rapid7-1 Canonical source EXCERPT / LOCATOR Revenue of $210.9 million, down 1.5% year over year. ARR of $824.0 million, down 2.0% year over year. Q3 2026 guidance: revenue $208 million to $210 million (-5% t",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001560327/000156032726000043/q22026rapid78-kex991.htm"
+      ]
+    }
+  },
+  {
+    "i": 145,
+    "label": "Latest event — source: Rapid7, Inc., 2026-09-25",
+    "supplier": "Rapid7",
+    "cell": "3 · latest results, 10 Aug 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Rapid7 Inc. Q2 2026 Financial Results Rapid7, Inc. Publication date 2026-08-10 Economic period Quarter ended 2026-06-30 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-rapid7-1 Canonical source EXCERPT / LOCATOR Revenue of $210.9 million, down 1.5% year over year. ARR of $824.0 million, down 2.0% year over year. Q3 2026 guidance: revenue $208 million to $210 million (-5% t",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001560327/000156032726000043/q22026rapid78-kex991.htm"
+      ]
+    }
+  },
+  {
+    "i": 146,
+    "label": "Revenue growth, latest quarter — source: Tenable Holdings, Inc., 2026-09-25",
+    "supplier": "Tenable",
+    "cell": "+8.6% Q Jun 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Tenable Holdings Q2 2026 Financial Results Tenable Holdings, Inc. Publication date 2026-07-29 Economic period Quarter ended 2026-06-30 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-tenable-1 Canonical source EXCERPT / LOCATOR Revenue of $268.5 million, up 8.6% year over year. Subscription revenue of $248.3 million. Guidance for Q3 2026: $270.0 million to $273.0 million. ",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001660280/000166028026000032/q22026financialresults-ear.htm"
+      ]
+    }
+  },
+  {
+    "i": 147,
+    "label": "Own headline metric — source: Tenable Holdings, Inc., 2026-09-25",
+    "supplier": "Tenable",
+    "cell": "Revenue $268.5M · Q Jun 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Tenable Holdings Q2 2026 Financial Results Tenable Holdings, Inc. Publication date 2026-07-29 Economic period Quarter ended 2026-06-30 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-tenable-1 Canonical source EXCERPT / LOCATOR Revenue of $268.5 million, up 8.6% year over year. Subscription revenue of $248.3 million. Guidance for Q3 2026: $270.0 million to $273.0 million. ",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001660280/000166028026000032/q22026financialresults-ear.htm"
+      ]
+    }
+  },
+  {
+    "i": 148,
+    "label": "Ownership — source: Tenable Holdings, Inc., 2026-09-25",
+    "supplier": "Tenable",
+    "cell": "Public · TENB src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Tenable Holdings Q2 2026 Financial Results Tenable Holdings, Inc. Publication date 2026-07-29 Economic period Quarter ended 2026-06-30 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-tenable-1 Canonical source EXCERPT / LOCATOR Revenue of $268.5 million, up 8.6% year over year. Subscription revenue of $248.3 million. Guidance for Q3 2026: $270.0 million to $273.0 million. ",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001660280/000166028026000032/q22026financialresults-ear.htm"
+      ]
+    }
+  },
+  {
+    "i": 149,
+    "label": "Latest event — source: Tenable Holdings, Inc., 2026-09-25",
+    "supplier": "Tenable",
+    "cell": "2 · latest debt, 15 Sep 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Tenable Convertible Notes Issuance Tenable Holdings, Inc. Publication date 2026-09-15 Economic period September 2026 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-tenable-2 Canonical source EXCERPT / LOCATOR Tenable completed the issuance of $800 million of 0.25% convertible senior notes due 2031, upsized from the originally planned $725 million. LIMITATIONS / CONFOUNDS ",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/1660280/000166028026000039/tenb-20260910.htm"
+      ]
+    }
+  },
+  {
+    "i": 150,
+    "label": "Ownership — source: SiliconANGLE, 2026-09-25",
+    "supplier": "Chainguard",
+    "cell": "Growth financing (no series letter disclosed) $280M · Oct 2025 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Chainguard secures $280M to expand trusted open source software platform SiliconANGLE Publication date 2025-10-23 Economic period N/A (funding announcement) Source class INDEPENDENT Packet label SEC-MARKET-AUTO-001-STEP5 / TR-chainguard-1 Canonical source EXCERPT / LOCATOR Chainguard closed $280 million in growth financing led by General Catalyst's Customer Value Fund, bringing total rais",
+      "hrefs": [
+        "https://siliconangle.com/2025/10/23/chainguard-secures-280m-expand-trusted-open-source-software-platform/"
+      ]
+    }
+  },
+  {
+    "i": 151,
+    "label": "Latest event — source: GitHub, Inc. (subsidiary of Microsoft Corporation), 2026-09-25",
+    "supplier": "GitHub Advanced Security",
+    "cell": "1 · latest exec-change, 31 Dec 25 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Goodbye, GitHub GitHub, Inc. (subsidiary of Microsoft Corporation) Publication date 2025-08-11 Economic period N/A (leadership announcement) Source class OFFICIAL Packet label SEC-MARKET-AUTO-001-STEP5 / TR-ghas-1 Canonical source EXCERPT / LOCATOR GitHub CEO Thomas Dohmke announced he was stepping down to become a founder again; no successor CEO was named, and GitHub's leadership folded ",
+      "hrefs": [
+        "https://github.blog/news-insights/company-news/goodbye-github/"
+      ]
+    }
+  },
+  {
+    "i": 152,
+    "label": "Revenue growth, latest quarter — source: JFrog Ltd., 2026-09-25",
+    "supplier": "JFrog",
+    "cell": "+29% Q Jun 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence JFrog Announces Second Quarter 2026 Results JFrog Ltd. Publication date 2026-08-06 Economic period Q2 2026 (quarter ended 2026-06-30) Source class IR Packet label SEC-MARKET-AUTO-001-STEP5 / TR-jfrog-1 Canonical source EXCERPT / LOCATOR Revenue of $163.8 million, up 29% year-over-year; cloud revenue of $87.5 million, up 53% year-over-year and equal to 53% of total revenue, up from 45% a y",
+      "hrefs": [
+        "https://investors.jfrog.com/news/news-details/2026/JFrog-Announces-Second-Quarter-2026-Results/default.aspx"
+      ]
+    }
+  },
+  {
+    "i": 153,
+    "label": "Revenue growth, prior quarter — source: JFrog Ltd., 2026-09-25",
+    "supplier": "JFrog",
+    "cell": "+26% Q Mar 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence JFrog Announces First Quarter 2026 Results JFrog Ltd. Publication date 2026-05-07 Economic period Q1 2026 (quarter ended 2026-03-31) Source class IR Packet label SEC-MARKET-AUTO-001-STEP5 / TR-jfrog-2 Canonical source EXCERPT / LOCATOR Revenue of $154.0 million, up 26% year-over-year; cloud revenue of $78.9 million, up 50% year-over-year. LIMITATIONS / CONFOUNDS Company investor-relations",
+      "hrefs": [
+        "https://investors.jfrog.com/news/news-details/2026/JFrog-Announces-First-Quarter-2026-Results/default.aspx"
+      ]
+    }
+  },
+  {
+    "i": 154,
+    "label": "Own headline metric — source: JFrog Ltd., 2026-09-25",
+    "supplier": "JFrog",
+    "cell": "Cloud revenue $87.5M · Q Jun 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence JFrog Announces Second Quarter 2026 Results JFrog Ltd. Publication date 2026-08-06 Economic period Q2 2026 (quarter ended 2026-06-30) Source class IR Packet label SEC-MARKET-AUTO-001-STEP5 / TR-jfrog-1 Canonical source EXCERPT / LOCATOR Revenue of $163.8 million, up 29% year-over-year; cloud revenue of $87.5 million, up 53% year-over-year and equal to 53% of total revenue, up from 45% a y",
+      "hrefs": [
+        "https://investors.jfrog.com/news/news-details/2026/JFrog-Announces-Second-Quarter-2026-Results/default.aspx"
+      ]
+    }
+  },
+  {
+    "i": 155,
+    "label": "Ownership — source: JFrog Ltd., 2026-09-25",
+    "supplier": "JFrog",
+    "cell": "Public · FROG src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence JFrog Announces Second Quarter 2026 Results JFrog Ltd. Publication date 2026-08-06 Economic period Q2 2026 (quarter ended 2026-06-30) Source class IR Packet label SEC-MARKET-AUTO-001-STEP5 / TR-jfrog-1 Canonical source EXCERPT / LOCATOR Revenue of $163.8 million, up 29% year-over-year; cloud revenue of $87.5 million, up 53% year-over-year and equal to 53% of total revenue, up from 45% a y",
+      "hrefs": [
+        "https://investors.jfrog.com/news/news-details/2026/JFrog-Announces-Second-Quarter-2026-Results/default.aspx"
+      ]
+    }
+  },
+  {
+    "i": 156,
+    "label": "Latest event — source: JFrog Ltd., 2026-09-25",
+    "supplier": "JFrog",
+    "cell": "1 · latest results, 6 Aug 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence JFrog Announces Second Quarter 2026 Results JFrog Ltd. Publication date 2026-08-06 Economic period Q2 2026 (quarter ended 2026-06-30) Source class IR Packet label SEC-MARKET-AUTO-001-STEP5 / TR-jfrog-1 Canonical source EXCERPT / LOCATOR Revenue of $163.8 million, up 29% year-over-year; cloud revenue of $87.5 million, up 53% year-over-year and equal to 53% of total revenue, up from 45% a y",
+      "hrefs": [
+        "https://investors.jfrog.com/news/news-details/2026/JFrog-Announces-Second-Quarter-2026-Results/default.aspx"
+      ]
+    }
+  },
+  {
+    "i": 157,
+    "label": "Ownership — source: CRN & Snyk Ltd., 2026-09-25 & 1 more",
+    "supplier": "Snyk",
+    "cell": "Series F (plus extension) $605M (initial close $530M plus extension $75M) · Sep 2021 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Snyk raises $530M on $8.5B valuation to protect applications CRN Publication date 2021-09-09 Economic period N/A (funding announcement) Source class INDEPENDENT Packet label SEC-MARKET-AUTO-001-STEP5 / TR-snyk-1 Canonical source EXCERPT / LOCATOR Snyk raised a $530 million Series F round at an $8.5 billion valuation. LIMITATIONS / CONFOUNDS Trade press report; not confirmed against a dire",
+      "hrefs": [
+        "https://www.crn.com/news/security/snyk-raises-530m-on-8-5b-valuation-to-protect-applications",
+        "https://www.prnewswire.com/news-releases/snyk-secures-75-million-in-additional-funding-301388357.html"
+      ]
+    }
+  },
+  {
+    "i": 158,
+    "label": "Ownership — source: Sonatype Inc., 2026-09-25",
+    "supplier": "Sonatype",
+    "cell": "PE-owned · Vista Equity Partners (2019) src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Vista Acquires Majority Interest in Sonatype Sonatype Inc. Publication date 2019-11-18 Economic period N/A (ownership announcement) Source class OFFICIAL Packet label SEC-MARKET-AUTO-001-STEP5 / TR-sonatype-1 Canonical source EXCERPT / LOCATOR Vista Equity Partners acquired a majority stake in Sonatype; price not disclosed. LIMITATIONS / CONFOUNDS Company press release.",
+      "hrefs": [
+        "https://www.sonatype.com/press-releases/vista-acquires-majority-interest-in-sonatype"
+      ]
+    }
+  },
+  {
+    "i": 159,
+    "label": "Latest event — source: Sonatype Inc., 2026-09-25",
+    "supplier": "Sonatype",
+    "cell": "1 · latest exec-change, 9 Jun 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Sonatype Strengthens Leadership Team for AI-Driven Growth Sonatype Inc. Publication date 2026-06-09 Economic period N/A (leadership announcement) Source class OFFICIAL Packet label SEC-MARKET-AUTO-001-STEP5 / TR-sonatype-2 Canonical source EXCERPT / LOCATOR Sonatype named Casey Watson as Chief Revenue Officer, Jason McClelland as Chief Marketing Officer, and Sherri Manning as Chief Human ",
+      "hrefs": [
+        "https://www.sonatype.com/press-releases/sonatype-strengthens-leadership-team-for-ai-driven-growth"
+      ]
+    }
+  },
+  {
+    "i": 160,
+    "label": "Ownership — source: Veracode, Inc., 2026-09-25",
+    "supplier": "Veracode",
+    "cell": "PE-owned · TA Associates (2022) src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Veracode newsroom (TA Associates majority investment) Veracode, Inc. Publication date 2022-03-15 Economic period N/A (ownership announcement) Source class OFFICIAL Packet label SEC-MARKET-AUTO-001-STEP5 / TR-veracode-1 Canonical source EXCERPT / LOCATOR TA Associates took a majority growth-investment stake in Veracode at a $2.5 billion valuation. LIMITATIONS / CONFOUNDS Company newsroom l",
+      "hrefs": [
+        "https://www.veracode.com/newsroom/"
+      ]
+    }
+  },
+  {
+    "i": 161,
+    "label": "Own headline metric — source: Abnormal Security, 2026-09-25",
+    "supplier": "Abnormal Security",
+    "cell": "ARR over $200M src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Abnormal Security ARR and Growth Abnormal Security Publication date 2024-08-06 Economic period August 2024 Source class IR Packet label SEC-MARKET-AUTO-001-STEP5 / TR-abnormal-2 Canonical source EXCERPT / LOCATOR Over $200 million ARR with 100%+ YoY growth. LIMITATIONS / CONFOUNDS No later ARR figure found through September 2026.",
+      "hrefs": [
+        "https://abnormal.ai/newsroom/press-releases/series-d-5b-valuation"
+      ]
+    }
+  },
+  {
+    "i": 162,
+    "label": "Ownership — source: Abnormal Security, 2026-09-25",
+    "supplier": "Abnormal Security",
+    "cell": "Series D $250M · Aug 2024 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Abnormal Security Series D Funding Abnormal Security Publication date 2024-08-06 Economic period August 2024 Source class IR Packet label SEC-MARKET-AUTO-001-STEP5 / TR-abnormal-1 Canonical source EXCERPT / LOCATOR Series D: $250 million at $5.1 billion post-money valuation, led by Wellington Management.",
+      "hrefs": [
+        "https://abnormal.ai/newsroom/press-releases/series-d-5b-valuation"
+      ]
+    }
+  },
+  {
+    "i": 163,
+    "label": "Ownership — source: Barracuda Networks, Inc., 2026-09-25",
+    "supplier": "Barracuda Networks",
+    "cell": "PE-owned src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Barracuda KKR Acquisition Completion Barracuda Networks, Inc. Publication date 2022-08 Economic period August 2022 Source class IR Packet label SEC-MARKET-AUTO-001-STEP5 / TR-barracuda-1 Canonical source EXCERPT / LOCATOR KKR acquired from Thoma Bravo, closed August 2022 at approximately $4 billion.",
+      "hrefs": [
+        "https://www.barracuda.com/company/news"
+      ]
+    }
+  },
+  {
+    "i": 164,
+    "label": "Ownership — source: Check Point Software Technologies Ltd., 2026-09-25",
+    "supplier": "Check Point",
+    "cell": "Segment src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Check Point Harmony Email & Collaboration Check Point Software Technologies Ltd. Publication date 2026-07-30 Economic period Q2 2026 Source class IR Packet label SEC-MARKET-AUTO-001-STEP5 / TR-checkpoint-email-1 Canonical source EXCERPT / LOCATOR Harmony Email originated from Avanan acquisition (~August 30, 2021 at $250-300M). Security Subscriptions revenue $333M, +12% YoY. LIMITATIONS / ",
+      "hrefs": [
+        "https://www.checkpoint.com/press-releases/check-point-software-reports-2026-second-quarter-financial-results/"
+      ]
+    }
+  },
+  {
+    "i": 165,
+    "label": "Revenue growth, latest quarter — source: Check Point Software Technologies Ltd., 2026-09-25",
+    "supplier": "Check Point",
+    "cell": "1% Q Jun 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Check Point Q2 2026 Earnings Release Check Point Software Technologies Ltd. Publication date 2026-07-30 Economic period Q2 2026, ended 2026-06-30 Source class IR Packet label SEC-MARKET-AUTO-001-STEP5 / TR-checkpoint-1 Canonical source EXCERPT / LOCATOR Total revenue $674 million, +1% YoY; Security Subscriptions revenue $333 million, +12% YoY. LIMITATIONS / CONFOUNDS Harmony SASE growth n",
+      "hrefs": [
+        "https://www.checkpoint.com/press-releases/check-point-software-reports-2026-second-quarter-financial-results/"
+      ]
+    }
+  },
+  {
+    "i": 166,
+    "label": "Revenue growth, prior quarter — source: Check Point Software Technologies Ltd., 2026-09-25",
+    "supplier": "Check Point",
+    "cell": "5% Q Mar 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Check Point Q1 2026 Earnings Release Check Point Software Technologies Ltd. Publication date 2026-04-30 Economic period Q1 2026, ended 2026-03-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-checkpoint-2 Canonical source EXCERPT / LOCATOR Total revenue $668 million, +5% YoY; Security Subscriptions revenue $323 million, +11% YoY.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001015922/000117891326002310/a2635159.htm"
+      ]
+    }
+  },
+  {
+    "i": 167,
+    "label": "Own headline metric — source: Check Point Software Technologies Ltd., 2026-09-25",
+    "supplier": "Check Point",
+    "cell": "Total Revenue $674M · Q Jun 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Check Point Q2 2026 Earnings Release Check Point Software Technologies Ltd. Publication date 2026-07-30 Economic period Q2 2026, ended 2026-06-30 Source class IR Packet label SEC-MARKET-AUTO-001-STEP5 / TR-checkpoint-1 Canonical source EXCERPT / LOCATOR Total revenue $674 million, +1% YoY; Security Subscriptions revenue $333 million, +12% YoY. LIMITATIONS / CONFOUNDS Harmony SASE growth n",
+      "hrefs": [
+        "https://www.checkpoint.com/press-releases/check-point-software-reports-2026-second-quarter-financial-results/"
+      ]
+    }
+  },
+  {
+    "i": 168,
+    "label": "Ownership — source: Check Point Software Technologies Ltd., 2026-09-25",
+    "supplier": "Check Point",
+    "cell": "Public · CHKP src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Check Point Q2 2026 Earnings Release Check Point Software Technologies Ltd. Publication date 2026-07-30 Economic period Q2 2026, ended 2026-06-30 Source class IR Packet label SEC-MARKET-AUTO-001-STEP5 / TR-checkpoint-1 Canonical source EXCERPT / LOCATOR Total revenue $674 million, +1% YoY; Security Subscriptions revenue $333 million, +12% YoY. LIMITATIONS / CONFOUNDS Harmony SASE growth n",
+      "hrefs": [
+        "https://www.checkpoint.com/press-releases/check-point-software-reports-2026-second-quarter-financial-results/"
+      ]
+    }
+  },
+  {
+    "i": 169,
+    "label": "Latest event — source: Check Point Software Technologies Ltd., 2026-09-25",
+    "supplier": "Check Point",
+    "cell": "3 · latest debt, 30 Jul 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Check Point Convertible Notes Issuance Check Point Software Technologies Ltd. Publication date 2026-07-30 Economic period Q2 2026 Source class IR Packet label SEC-MARKET-AUTO-001-STEP5 / TR-checkpoint-4 Canonical source EXCERPT / LOCATOR $2 billion in convertible senior notes issued during Q2 2026, ~$1.8 billion net proceeds.",
+      "hrefs": [
+        "https://www.checkpoint.com/press-releases/check-point-software-reports-2026-second-quarter-financial-results/"
+      ]
+    }
+  },
+  {
+    "i": 170,
+    "label": "Ownership — source: Microsoft Corporation, 2026-09-25",
+    "supplier": "Microsoft Defender for Office 365",
+    "cell": "Segment of Microsoft src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Microsoft FY2026 10-K Filing Microsoft Corporation Publication date 2026-07-29 Economic period FY2026, ended 2026-06-30 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-msft-defender-1 Canonical source EXCERPT / LOCATOR FY2026 revenue $331.839 billion, +18% YoY. Defender for Office 365 is a product within Microsoft, not separately reported.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm"
+      ]
+    }
+  },
+  {
+    "i": 171,
+    "label": "Latest event — source: Microsoft Corporation, 2026-09-25",
+    "supplier": "Microsoft Defender for Office 365",
+    "cell": "1 · latest results, 29 Jul 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Microsoft FY2026 10-K Filing Microsoft Corporation Publication date 2026-07-29 Economic period FY2026, ended 2026-06-30 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-msft-defender-1 Canonical source EXCERPT / LOCATOR FY2026 revenue $331.839 billion, +18% YoY. Defender for Office 365 is a product within Microsoft, not separately reported.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm"
+      ]
+    }
+  },
+  {
+    "i": 172,
+    "label": "Ownership — source: Mimecast Limited, 2026-09-25",
+    "supplier": "Mimecast",
+    "cell": "PE-owned src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Mimecast Permira Take-Private Completion Mimecast Limited Publication date 2022-05 Economic period May 2022 Source class IR Packet label SEC-MARKET-AUTO-001-STEP5 / TR-mimecast-1 Canonical source EXCERPT / LOCATOR Permira take-private via Magnesium Bidco closed May 2022 at $5.8 billion.",
+      "hrefs": [
+        "https://www.mimecast.com/resources/press-releases/"
+      ]
+    }
+  },
+  {
+    "i": 173,
+    "label": "Latest event — source: Mimecast, 2026-09-25",
+    "supplier": "Mimecast",
+    "cell": "1 · latest exec-change, 25 Jun 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Mimecast CEO Appointment Mimecast Publication date 2026-06-25 Economic period June 2026 Source class IR Packet label SEC-MARKET-AUTO-001-STEP5 / TR-mimecast-2 Canonical source EXCERPT / LOCATOR Ranjan Singh appointed CEO effective June 25, 2026, succeeding Marc van Zadelhoff.",
+      "hrefs": [
+        "https://www.mimecast.com/resources/press-releases/"
+      ]
+    }
+  },
+  {
+    "i": 174,
+    "label": "Ownership — source: Proofpoint, Inc., 2026-09-25",
+    "supplier": "Proofpoint",
+    "cell": "PE-owned src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Proofpoint Thoma Bravo Take-Private Completion Proofpoint, Inc. Publication date 2021-08-31 Economic period August 2021 Source class IR Packet label SEC-MARKET-AUTO-001-STEP5 / TR-proofpoint-1 Canonical source EXCERPT / LOCATOR Thoma Bravo take-private closed August 31, 2021 at $12.3 billion deal value.",
+      "hrefs": [
+        "https://www.proofpoint.com/us/newsroom"
+      ]
+    }
+  },
+  {
+    "i": 175,
+    "label": "Ownership — source: ServiceNow, Inc., 2026-09-25",
+    "supplier": "Armis Security",
+    "cell": "Acquired by ServiceNow · Apr 2026 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence ServiceNow Announces First Quarter Fiscal 2026 Financial Results ServiceNow, Inc. Publication date 2026-04-22 Economic period Q1 FY2026 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-armis-1 Canonical source EXCERPT / LOCATOR 'ServiceNow closed its acquisition of Armis on April 20, 2026.' Armis is expected to contribute approximately 125 basis points to Q2/FY2026 subscrip",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/1373715/000137371526000054/erq1fy26.htm"
+      ]
+    }
+  },
+  {
+    "i": 176,
+    "label": "Latest event — source: ServiceNow, Inc., 2026-09-25",
+    "supplier": "Armis Security",
+    "cell": "1 · latest acquisition, 20 Apr 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence ServiceNow Announces First Quarter Fiscal 2026 Financial Results ServiceNow, Inc. Publication date 2026-04-22 Economic period Q1 FY2026 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-armis-1 Canonical source EXCERPT / LOCATOR 'ServiceNow closed its acquisition of Armis on April 20, 2026.' Armis is expected to contribute approximately 125 basis points to Q2/FY2026 subscrip",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/1373715/000137371526000054/erq1fy26.htm"
+      ]
+    }
+  },
+  {
+    "i": 177,
+    "label": "Own headline metric — source: SiliconANGLE, 2026-09-25",
+    "supplier": "Claroty",
+    "cell": "Annual revenue (company-stated, exact figure undisclosed) hundreds of millions of dollars · Q Jan 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Industrial cybersecurity startup Claroty nabs $150M funding round SiliconANGLE Publication date 2026-01-22 Economic period N/A (funding announcement) Source class INDEPENDENT Packet label SEC-MARKET-AUTO-001-STEP5 / TR-claroty-1 Canonical source EXCERPT / LOCATOR Claroty raised $150 million in growth equity led by Golub Growth (Golub Capital's growth-equity arm) at a $3 billion post-money",
+      "hrefs": [
+        "https://siliconangle.com/2026/01/22/industrial-cybersecurity-startup-claroty-nabs-150m-funding-round/"
+      ]
+    }
+  },
+  {
+    "i": 178,
+    "label": "Ownership — source: SiliconANGLE, 2026-09-25",
+    "supplier": "Claroty",
+    "cell": "Growth equity $150M · Jan 2026 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Industrial cybersecurity startup Claroty nabs $150M funding round SiliconANGLE Publication date 2026-01-22 Economic period N/A (funding announcement) Source class INDEPENDENT Packet label SEC-MARKET-AUTO-001-STEP5 / TR-claroty-1 Canonical source EXCERPT / LOCATOR Claroty raised $150 million in growth equity led by Golub Growth (Golub Capital's growth-equity arm) at a $3 billion post-money",
+      "hrefs": [
+        "https://siliconangle.com/2026/01/22/industrial-cybersecurity-startup-claroty-nabs-150m-funding-round/"
+      ]
+    }
+  },
+  {
+    "i": 179,
+    "label": "Ownership — source: Help Net Security, 2026-09-25",
+    "supplier": "Dragos",
+    "cell": "Acquired by Accenture plc · Jun 2026 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Accenture to acquire Dragos, runZero, NetRise Help Net Security Publication date 2026-06-19 Economic period N/A (acquisition announcement) Source class INDEPENDENT Packet label SEC-MARKET-AUTO-001-STEP5 / TR-dragos-1 Canonical source EXCERPT / LOCATOR Accenture agreed to acquire a majority stake in Dragos and all of runZero and NetRise; combined enterprise value reported at approximately ",
+      "hrefs": [
+        "https://www.helpnetsecurity.com/2026/06/19/accenture-dragos-runzero-netrise-acquisition/"
+      ]
+    }
+  },
+  {
+    "i": 180,
+    "label": "Latest event — source: Help Net Security, 2026-09-25",
+    "supplier": "Dragos",
+    "cell": "1 · latest acquisition, 18 Jun 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Accenture to acquire Dragos, runZero, NetRise Help Net Security Publication date 2026-06-19 Economic period N/A (acquisition announcement) Source class INDEPENDENT Packet label SEC-MARKET-AUTO-001-STEP5 / TR-dragos-1 Canonical source EXCERPT / LOCATOR Accenture agreed to acquire a majority stake in Dragos and all of runZero and NetRise; combined enterprise value reported at approximately ",
+      "hrefs": [
+        "https://www.helpnetsecurity.com/2026/06/19/accenture-dragos-runzero-netrise-acquisition/"
+      ]
+    }
+  },
+  {
+    "i": 181,
+    "label": "Ownership — source: Forescout Technologies, Inc., 2026-09-25",
+    "supplier": "Forescout",
+    "cell": "PE-owned · Advent International / Crosspoint Capital Partners src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Forescout leadership page Forescout Technologies, Inc. Publication date 2026-09-25 Economic period N/A (company background) Source class OFFICIAL Packet label SEC-MARKET-AUTO-001-STEP5 / TR-forescout-1 Canonical source EXCERPT / LOCATOR Forescout is co-owned by Advent International and Crosspoint Capital Partners; CEO Barry Mainz also holds the title of Operating Partner at Crosspoint Cap",
+      "hrefs": [
+        "https://www.forescout.com/company/leadership/"
+      ]
+    }
+  },
+  {
+    "i": 182,
+    "label": "Own headline metric — source: Yahoo Finance, 2026-09-25",
+    "supplier": "Xage Security",
+    "cell": "Year-over-year revenue growth (company-stated) 81% · Q Mar 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Xage Security hits record growth Yahoo Finance Publication date 2026-03-18 Economic period N/A (company update) Source class INDEPENDENT Packet label SEC-MARKET-AUTO-001-STEP5 / TR-xage-1 Canonical source EXCERPT / LOCATOR Xage Security reported 81% year-over-year revenue growth and 102% year-over-year customer growth, a 50% rise in net-new revenue between Q3 and Q4 2025, and over 100% gr",
+      "hrefs": [
+        "https://finance.yahoo.com/news/xage-security-hits-record-growth-120000615.html"
+      ]
+    }
+  },
+  {
+    "i": 183,
+    "label": "Ownership — source: Yahoo Finance, 2026-09-25",
+    "supplier": "Xage Security",
+    "cell": "Equity financing $15M · Dec 2025 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Xage Security hits record growth Yahoo Finance Publication date 2026-03-18 Economic period N/A (company update) Source class INDEPENDENT Packet label SEC-MARKET-AUTO-001-STEP5 / TR-xage-1 Canonical source EXCERPT / LOCATOR Xage Security reported 81% year-over-year revenue growth and 102% year-over-year customer growth, a 50% rise in net-new revenue between Q3 and Q4 2025, and over 100% gr",
+      "hrefs": [
+        "https://finance.yahoo.com/news/xage-security-hits-record-growth-120000615.html"
+      ]
+    }
+  },
+  {
+    "i": 184,
+    "label": "Own headline metric — source: HiddenLayer, Inc., 2026-09-25",
+    "supplier": "HiddenLayer",
+    "cell": "ARR growth (company-stated) more than 10x year-over-year · Q Sep 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence HiddenLayer newsroom (Series B announcement) HiddenLayer, Inc. Publication date 2026-09-02 Economic period N/A (funding announcement) Source class OFFICIAL Packet label SEC-MARKET-AUTO-001-STEP5 / TR-hiddenlayer-1 Canonical source EXCERPT / LOCATOR HiddenLayer raised a $100 million Series B round led by Delta-v Capital, with Ten Eleven Ventures, Morgan Stanley, M12, and Booz Allen Venture",
+      "hrefs": [
+        "https://hiddenlayer.com/newsroom/"
+      ]
+    }
+  },
+  {
+    "i": 185,
+    "label": "Ownership — source: HiddenLayer, Inc., 2026-09-25",
+    "supplier": "HiddenLayer",
+    "cell": "Series B $100M · Sep 2026 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence HiddenLayer newsroom (Series B announcement) HiddenLayer, Inc. Publication date 2026-09-02 Economic period N/A (funding announcement) Source class OFFICIAL Packet label SEC-MARKET-AUTO-001-STEP5 / TR-hiddenlayer-1 Canonical source EXCERPT / LOCATOR HiddenLayer raised a $100 million Series B round led by Delta-v Capital, with Ten Eleven Ventures, Morgan Stanley, M12, and Booz Allen Venture",
+      "hrefs": [
+        "https://hiddenlayer.com/newsroom/"
+      ]
+    }
+  },
+  {
+    "i": 186,
+    "label": "Latest event — source: HiddenLayer, Inc., 2026-09-25",
+    "supplier": "HiddenLayer",
+    "cell": "1 · latest funding, 2 Sep 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence HiddenLayer newsroom (Series B announcement) HiddenLayer, Inc. Publication date 2026-09-02 Economic period N/A (funding announcement) Source class OFFICIAL Packet label SEC-MARKET-AUTO-001-STEP5 / TR-hiddenlayer-1 Canonical source EXCERPT / LOCATOR HiddenLayer raised a $100 million Series B round led by Delta-v Capital, with Ten Eleven Ventures, Morgan Stanley, M12, and Booz Allen Venture",
+      "hrefs": [
+        "https://hiddenlayer.com/newsroom/"
+      ]
+    }
+  },
+  {
+    "i": 187,
+    "label": "Ownership — source: Check Point Software Technologies Ltd, 2026-09-25",
+    "supplier": "Lakera AI",
+    "cell": "Acquired by Check Point · Sep 2025 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Check Point Software Technologies FY2025 earnings release (Form 6-K) Check Point Software Technologies Ltd Publication date 2026-01-01 Economic period FY2025 full year Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-lakera-1 Canonical source EXCERPT / LOCATOR 'During the fourth quarter of 2025 we completed the acquisition of Lakera AI for approximately $190 million net cas",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/1015922/000117891326000437/zk2634351.htm"
+      ]
+    }
+  },
+  {
+    "i": 188,
+    "label": "Latest event — source: Check Point Software Technologies Ltd, 2026-09-25",
+    "supplier": "Lakera AI",
+    "cell": "1 · latest acquisition, 31 Dec 25 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Check Point Software Technologies FY2025 earnings release (Form 6-K) Check Point Software Technologies Ltd Publication date 2026-01-01 Economic period FY2025 full year Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-lakera-1 Canonical source EXCERPT / LOCATOR 'During the fourth quarter of 2025 we completed the acquisition of Lakera AI for approximately $190 million net cas",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/1015922/000117891326000437/zk2634351.htm"
+      ]
+    }
+  },
+  {
+    "i": 189,
+    "label": "Revenue growth, latest quarter — source: Palo Alto Networks, Inc., 2026-09-25",
+    "supplier": "Palo Alto Networks",
+    "cell": "+34% Q Jul 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Palo Alto Networks Q4 FY2026 Financial Results Palo Alto Networks, Inc. Publication date 2026-09-01 Economic period Quarter ended 2026-07-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-panw-1 Canonical source EXCERPT / LOCATOR Revenue of $3.41 billion, up 34% year over year. NGS ARR of $9.10 billion, up 63% year over year. RPO of $21.2 billion, up 34% year over year. L",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001327567/000132756726000019/ex991q426earningsrelease.htm"
+      ]
+    }
+  },
+  {
+    "i": 190,
+    "label": "Revenue growth, prior quarter — source: Palo Alto Networks, Inc., 2026-09-25",
+    "supplier": "Palo Alto Networks",
+    "cell": "+31% Q Apr 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Palo Alto Networks Q3 FY2026 Financial Results Palo Alto Networks, Inc. Publication date 2026-06-02 Economic period Quarter ended 2026-04-30 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-panw-2 Canonical source EXCERPT / LOCATOR Revenue of $3.0 billion, up 31% year over year, including $388 million from CyberArk and Chronosphere acquisitions.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001327567/000132756726000012/ex991q326earningsrelease.htm"
+      ]
+    }
+  },
+  {
+    "i": 191,
+    "label": "Own headline metric — source: Palo Alto Networks, Inc., 2026-09-25",
+    "supplier": "Palo Alto Networks",
+    "cell": "NGS ARR $9.10B · Q Jul 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Palo Alto Networks Q4 FY2026 Financial Results Palo Alto Networks, Inc. Publication date 2026-09-01 Economic period Quarter ended 2026-07-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-panw-1 Canonical source EXCERPT / LOCATOR Revenue of $3.41 billion, up 34% year over year. NGS ARR of $9.10 billion, up 63% year over year. RPO of $21.2 billion, up 34% year over year. L",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001327567/000132756726000019/ex991q426earningsrelease.htm"
+      ]
+    }
+  },
+  {
+    "i": 192,
+    "label": "Ownership — source: Palo Alto Networks, Inc., 2026-09-25",
+    "supplier": "Palo Alto Networks",
+    "cell": "Public · PANW src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Palo Alto Networks Q4 FY2026 Financial Results Palo Alto Networks, Inc. Publication date 2026-09-01 Economic period Quarter ended 2026-07-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-panw-1 Canonical source EXCERPT / LOCATOR Revenue of $3.41 billion, up 34% year over year. NGS ARR of $9.10 billion, up 63% year over year. RPO of $21.2 billion, up 34% year over year. L",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001327567/000132756726000019/ex991q426earningsrelease.htm"
+      ]
+    }
+  },
+  {
+    "i": 193,
+    "label": "Latest event — source: Palo Alto Networks, Inc., 2026-09-25",
+    "supplier": "Palo Alto Networks",
+    "cell": "2 · latest results, 1 Sep 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Palo Alto Networks Q4 FY2026 Financial Results Palo Alto Networks, Inc. Publication date 2026-09-01 Economic period Quarter ended 2026-07-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-panw-1 Canonical source EXCERPT / LOCATOR Revenue of $3.41 billion, up 34% year over year. NGS ARR of $9.10 billion, up 63% year over year. RPO of $21.2 billion, up 34% year over year. L",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001327567/000132756726000019/ex991q426earningsrelease.htm"
+      ]
+    }
+  },
+  {
+    "i": 194,
+    "label": "Ownership — source: Palo Alto Networks, Inc., 2026-09-25",
+    "supplier": "Protect AI",
+    "cell": "Acquired by Palo Alto Networks · Jul 2025 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Palo Alto Networks Form 10-K (FY2025) Palo Alto Networks, Inc. Publication date 2025-09-01 Economic period FY2025 (fiscal year ended 2025-07-31) Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-protectai-1 Canonical source EXCERPT / LOCATOR Palo Alto Networks completed its acquisition of Protect AI, Inc. in July 2025 (specifically on or about July 22, 2025 per XBRL tagging)",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/1327567/000132756725000027/panw-20250731.htm"
+      ]
+    }
+  },
+  {
+    "i": 195,
+    "label": "Ownership — source: F5, Inc., 2026-09-25",
+    "supplier": "SurePath AI",
+    "cell": "Acquired by F5 · Jun 2026 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence F5 Form 10-Q (quarter ended June 30, 2026) F5, Inc. Publication date 2026-06-15 Economic period N/A (acquisition disclosure) Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-surepath-1 Canonical source EXCERPT / LOCATOR F5 completed its acquisition of SurePath AI, Inc. on June 15, 2026, for $50.1 million, recording $39.1 million of goodwill; F5 states the acquisition's impa",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/1048695/000104869526000067/ffiv-20260630.htm"
+      ]
+    }
+  },
+  {
+    "i": 196,
+    "label": "Latest event — source: F5, Inc., 2026-09-25",
+    "supplier": "SurePath AI",
+    "cell": "1 · latest acquisition, 15 Jun 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence F5 Form 10-Q (quarter ended June 30, 2026) F5, Inc. Publication date 2026-06-15 Economic period N/A (acquisition disclosure) Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-surepath-1 Canonical source EXCERPT / LOCATOR F5 completed its acquisition of SurePath AI, Inc. on June 15, 2026, for $50.1 million, recording $39.1 million of goodwill; F5 states the acquisition's impa",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/1048695/000104869526000067/ffiv-20260630.htm"
+      ]
+    }
+  },
+  {
+    "i": 197,
+    "label": "Own headline metric — source: WitnessAI, 2026-09-25",
+    "supplier": "WitnessAI",
+    "cell": "ARR growth (company-stated) 500% year-over-year · Q Jan 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence WitnessAI Raises $58M to Help Enterprises Move Faster with AI Safely WitnessAI Publication date 2026-01-13 Economic period N/A (funding announcement) Source class OFFICIAL Packet label SEC-MARKET-AUTO-001-STEP5 / TR-witnessai-1 Canonical source EXCERPT / LOCATOR WitnessAI raised a $58 million strategic funding round led by Sound Ventures, with Fin Capital, Samsung Ventures, Qualcomm Ventu",
+      "hrefs": [
+        "https://witness.ai/blog/witnessai-raises-58m-to-help-enterprises-move-faster-with-ai-safely/"
+      ]
+    }
+  },
+  {
+    "i": 198,
+    "label": "Ownership — source: WitnessAI, 2026-09-25",
+    "supplier": "WitnessAI",
+    "cell": "Strategic funding round $58M · Jan 2026 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence WitnessAI Raises $58M to Help Enterprises Move Faster with AI Safely WitnessAI Publication date 2026-01-13 Economic period N/A (funding announcement) Source class OFFICIAL Packet label SEC-MARKET-AUTO-001-STEP5 / TR-witnessai-1 Canonical source EXCERPT / LOCATOR WitnessAI raised a $58 million strategic funding round led by Sound Ventures, with Fin Capital, Samsung Ventures, Qualcomm Ventu",
+      "hrefs": [
+        "https://witness.ai/blog/witnessai-raises-58m-to-help-enterprises-move-faster-with-ai-safely/"
+      ]
+    }
+  },
+  {
+    "i": 199,
+    "label": "Latest event — source: WitnessAI, 2026-09-25",
+    "supplier": "WitnessAI",
+    "cell": "1 · latest funding, 13 Jan 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence WitnessAI Raises $58M to Help Enterprises Move Faster with AI Safely WitnessAI Publication date 2026-01-13 Economic period N/A (funding announcement) Source class OFFICIAL Packet label SEC-MARKET-AUTO-001-STEP5 / TR-witnessai-1 Canonical source EXCERPT / LOCATOR WitnessAI raised a $58 million strategic funding round led by Sound Ventures, with Fin Capital, Samsung Ventures, Qualcomm Ventu",
+      "hrefs": [
+        "https://witness.ai/blog/witnessai-raises-58m-to-help-enterprises-move-faster-with-ai-safely/"
+      ]
+    }
+  },
+  {
+    "i": 200,
+    "label": "Own headline metric — source: Zenity, 2026-09-25",
+    "supplier": "Zenity",
+    "cell": "Revenue growth (company-stated) tripled year-over-year in each of the past two years; on track to triple again in 2026 · Q Aug 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Zenity Raises $125 Million to Secure the Era of 1 Billion AI Agents Zenity Publication date 2026-08-03 Economic period N/A (funding announcement) Source class OFFICIAL Packet label SEC-MARKET-AUTO-001-STEP5 / TR-zenity-1 Canonical source EXCERPT / LOCATOR Zenity raised a $125 million Series C round led by Norwest, with Qumra Capital, SoftBank Vision Fund 2, Hitachi Ventures, LG Technology",
+      "hrefs": [
+        "https://zenity.io/company-overview/newsroom/company-news/zenity-raises-125-million-to-secure-the-era-of-1-billion-ai-agents"
+      ]
+    }
+  },
+  {
+    "i": 201,
+    "label": "Ownership — source: Zenity, 2026-09-25",
+    "supplier": "Zenity",
+    "cell": "Series C $125M · Aug 2026 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Zenity Raises $125 Million to Secure the Era of 1 Billion AI Agents Zenity Publication date 2026-08-03 Economic period N/A (funding announcement) Source class OFFICIAL Packet label SEC-MARKET-AUTO-001-STEP5 / TR-zenity-1 Canonical source EXCERPT / LOCATOR Zenity raised a $125 million Series C round led by Norwest, with Qumra Capital, SoftBank Vision Fund 2, Hitachi Ventures, LG Technology",
+      "hrefs": [
+        "https://zenity.io/company-overview/newsroom/company-news/zenity-raises-125-million-to-secure-the-era-of-1-billion-ai-agents"
+      ]
+    }
+  },
+  {
+    "i": 202,
+    "label": "Latest event — source: Zenity, 2026-09-25",
+    "supplier": "Zenity",
+    "cell": "1 · latest funding, 3 Aug 26 src",
+    "section": "The market by domain",
+    "pop": {
+      "text": "Evidence Zenity Raises $125 Million to Secure the Era of 1 Billion AI Agents Zenity Publication date 2026-08-03 Economic period N/A (funding announcement) Source class OFFICIAL Packet label SEC-MARKET-AUTO-001-STEP5 / TR-zenity-1 Canonical source EXCERPT / LOCATOR Zenity raised a $125 million Series C round led by Norwest, with Qumra Capital, SoftBank Vision Fund 2, Hitachi Ventures, LG Technology",
+      "hrefs": [
+        "https://zenity.io/company-overview/newsroom/company-news/zenity-raises-125-million-to-secure-the-era-of-1-billion-ai-agents"
+      ]
+    }
+  },
+  {
+    "i": 203,
+    "label": "Zscaler — CRO Mike Rich stepped down effective October 1, 2026, succeeded by Ross Tackett. EVP Raj Judge resigned board seat effective April 16, 2026. — source: Zscaler, Inc., 2026-09-25",
+    "supplier": "",
+    "cell": "24 Sep 26 Zscaler — CRO Mike Rich stepped down effective October 1, 2026, succeeded by Ross Tackett. EVP Raj Judge resigned board seat effective April 16, 2026. src",
+    "section": "What changed in the last 30 days",
+    "pop": {
+      "text": "Evidence Zscaler Executive Leadership Changes Zscaler, Inc. Publication date 2026-09-24 Economic period Quarter ended July 31, 2026 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-zscaler-4 Canonical source EXCERPT / LOCATOR CRO Mike Rich stepping down effective October 1, 2026, succeeded by Ross Tackett. EVP Raj Judge resigned board seat effective April 16, 2026, with employment e",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/1713683/000171368326000193/zs-20260924.htm"
+      ]
+    }
+  },
+  {
+    "i": 204,
+    "label": "Delinea — Timothy Regan appointed Chief Financial Officer of Delinea. — source: Delinea, 2026-09-25",
+    "supplier": "",
+    "cell": "23 Sep 26 Delinea — Timothy Regan appointed Chief Financial Officer of Delinea. src",
+    "section": "What changed in the last 30 days",
+    "pop": {
+      "text": "Evidence Delinea Chief Financial Officer Appointment Delinea Publication date 2026-09-23 Economic period September 2026 Source class IR Packet label SEC-MARKET-AUTO-001-STEP5 / TR-delinea-3 Canonical source EXCERPT / LOCATOR Timothy Regan appointed Chief Financial Officer of Delinea. LIMITATIONS / CONFOUNDS Whether this followed a predecessor departure was not confirmed.",
+      "hrefs": [
+        "https://www.globenewswire.com/"
+      ]
+    }
+  },
+  {
+    "i": 205,
+    "label": "Cyera — Cyera announced a $400 million growth-equity investment from Goldman Sachs Alternatives at a valuation of over $12 billion. — source: Cyera, 2026-09-25",
+    "supplier": "",
+    "cell": "22 Sep 26 Cyera — Cyera announced a $400 million growth-equity investment from Goldman Sachs Alternatives at a valuation of over $12 billion. src",
+    "section": "What changed in the last 30 days",
+    "pop": {
+      "text": "Evidence Cyera Announces $400 Million Investment from Goldman Sachs to Build the Trust Layer for the Agentic Enterprise Cyera Publication date 2026-09-22 Economic period N/A (funding announcement) Source class OFFICIAL Packet label SEC-MARKET-AUTO-001-STEP5 / TR-cyera-1 Canonical source EXCERPT / LOCATOR Cyera announced a $400 million growth-equity investment from Growth Equity at Goldman Sachs Al",
+      "hrefs": [
+        "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise"
+      ]
+    }
+  },
+  {
+    "i": 206,
+    "label": "Tenable — Tenable completed the issuance of $800 million of 0.25% convertible senior notes due 2031. — source: Tenable Holdings, Inc., 2026-09-25",
+    "supplier": "",
+    "cell": "15 Sep 26 Tenable — Tenable completed the issuance of $800 million of 0.25% convertible senior notes due 2031. src",
+    "section": "What changed in the last 30 days",
+    "pop": {
+      "text": "Evidence Tenable Convertible Notes Issuance Tenable Holdings, Inc. Publication date 2026-09-15 Economic period September 2026 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-tenable-2 Canonical source EXCERPT / LOCATOR Tenable completed the issuance of $800 million of 0.25% convertible senior notes due 2031, upsized from the originally planned $725 million. LIMITATIONS / CONFOUNDS ",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/1660280/000166028026000039/tenb-20260910.htm"
+      ]
+    }
+  },
+  {
+    "i": 207,
+    "label": "SailPoint — Q2 FY2027 revenue $308.8 million, +16.8% YoY; ARR $1,230.7 million, +25.3% YoY. — source: SailPoint, Inc., 2026-09-25",
+    "supplier": "",
+    "cell": "10 Sep 26 SailPoint — Q2 FY2027 revenue $308.8 million, +16.8% YoY; ARR $1,230.7 million, +25.3% YoY. src",
+    "section": "What changed in the last 30 days",
+    "pop": {
+      "text": "Evidence SailPoint Q2 FY2027 Earnings Release SailPoint, Inc. Publication date 2026-09-10 Economic period Quarter ended July 31, 2026 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-sailpoint-1 Canonical source EXCERPT / LOCATOR Revenue $308.8 million, +16.8% YoY; ARR $1,230.7 million, +25.3% YoY; SaaS ARR $846.9 million, +36.0% YoY.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/2030781/000203078126000021/sail-20260731.htm"
+      ]
+    }
+  },
+  {
+    "i": 208,
+    "label": "Zscaler — Q4 FY2026 revenue $898.2 million, +25% YoY; ARR $3,771 million, +25% YoY. — source: Zscaler, Inc., 2026-09-25",
+    "supplier": "",
+    "cell": "3 Sep 26 Zscaler — Q4 FY2026 revenue $898.2 million, +25% YoY; ARR $3,771 million, +25% YoY. src",
+    "section": "What changed in the last 30 days",
+    "pop": {
+      "text": "Evidence Zscaler Q4 FY2026 Earnings Release Zscaler, Inc. Publication date 2026-09-03 Economic period Q4 FY2026, ended 2026-07-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-zscaler-1 Canonical source EXCERPT / LOCATOR Revenue $898.2 million, +25% YoY; ARR $3,771 million, +25% YoY (20% excluding Red Canary acquisition). LIMITATIONS / CONFOUNDS Red Canary acquisition contributed",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/1713683/000171368326000156/zs-07312026_991.htm"
+      ]
+    }
+  },
+  {
+    "i": 209,
+    "label": "Zscaler — Restructuring and other charges of $5.5 million in Q4 FY2026 and $10.3 million for full FY2026, described as severance and termination benefits. — source: Zscaler, Inc., 2026-09-25",
+    "supplier": "",
+    "cell": "3 Sep 26 Zscaler — Restructuring and other charges of $5.5 million in Q4 FY2026 and $10.3 million for full FY2026, described as severance and termination benefits. src",
+    "section": "What changed in the last 30 days",
+    "pop": {
+      "text": "Evidence Zscaler Q4 FY2026 Non-GAAP Reconciliation Zscaler, Inc. Publication date 2026-09-03 Economic period Q4 FY2026, ended 2026-07-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-zscaler-3 Canonical source EXCERPT / LOCATOR Restructuring and other charges of $5.5 million in Q4 FY2026 and $10.3 million for full FY2026, described as severance and termination benefits.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/1713683/000171368326000156/zs-07312026_991.htm"
+      ]
+    }
+  },
+  {
+    "i": 210,
+    "label": "Cyera — Cyera completed its acquisition of Oasis Security. — source: Cyera, 2026-09-25",
+    "supplier": "",
+    "cell": "3 Sep 26 Cyera — Cyera completed its acquisition of Oasis Security. src",
+    "section": "What changed in the last 30 days",
+    "pop": {
+      "text": "Evidence Cyera press releases (Oasis Security acquisition) Cyera Publication date 2026-09-03 Economic period N/A (acquisition announcement) Source class OFFICIAL Packet label SEC-MARKET-AUTO-001-STEP5 / TR-cyera-2 Canonical source EXCERPT / LOCATOR Cyera completed its acquisition of Oasis Security. LIMITATIONS / CONFOUNDS Company newsroom listing page; the underlying research did not capture a ded",
+      "hrefs": [
+        "https://www.cyera.com/press-releases/"
+      ]
+    }
+  },
+  {
+    "i": 211,
+    "label": "Netskope — Q2 FY2027 revenue $220.5 million, +29% YoY; ARR $899 million, +27% YoY. — source: Netskope, Inc., 2026-09-25",
+    "supplier": "",
+    "cell": "2 Sep 26 Netskope — Q2 FY2027 revenue $220.5 million, +29% YoY; ARR $899 million, +27% YoY. src",
+    "section": "What changed in the last 30 days",
+    "pop": {
+      "text": "Evidence Netskope Q2 FY2027 Earnings Release Netskope, Inc. Publication date 2026-09-02 Economic period Q2 FY2027, ended 2026-07-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-netskope-1 Canonical source EXCERPT / LOCATOR Revenue $220.5 million, +29% YoY; ARR $899 million, +27% YoY.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/2063196/000119312526380188/ntsk-ex99_1.htm"
+      ]
+    }
+  },
+  {
+    "i": 212,
+    "label": "Netskope — $3.5 million in restructuring costs recognized in Q2 FY2027 ended July 31, 2026. — source: Netskope, Inc., 2026-09-25",
+    "supplier": "",
+    "cell": "2 Sep 26 Netskope — $3.5 million in restructuring costs recognized in Q2 FY2027 ended July 31, 2026. src",
+    "section": "What changed in the last 30 days",
+    "pop": {
+      "text": "Evidence Netskope Q2 FY2027 Restructuring Costs Netskope, Inc. Publication date 2026-09-02 Economic period Q2 FY2027, ended 2026-07-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-netskope-4 Canonical source EXCERPT / LOCATOR $3.5 million in restructuring costs recognized in the quarter ended July 31, 2026.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/2063196/000119312526380188/ntsk-ex99_1.htm"
+      ]
+    }
+  },
+  {
+    "i": 213,
+    "label": "HiddenLayer — HiddenLayer raised a $100 million Series B round led by Delta-v Capital, with participation from Ten Eleven Ventures, Morgan Stanley, M12, and Booz Allen Ventures, and reported signing more than 50 new platform customers. — source: HiddenLayer, Inc., 2026-09-25",
+    "supplier": "",
+    "cell": "2 Sep 26 HiddenLayer — HiddenLayer raised a $100 million Series B round led by Delta-v Capital, with participation from Ten Eleven Ventures, Morgan Stanley, M12, and Booz Allen Ventures, and reported ",
+    "section": "What changed in the last 30 days",
+    "pop": {
+      "text": "Evidence HiddenLayer newsroom (Series B announcement) HiddenLayer, Inc. Publication date 2026-09-02 Economic period N/A (funding announcement) Source class OFFICIAL Packet label SEC-MARKET-AUTO-001-STEP5 / TR-hiddenlayer-1 Canonical source EXCERPT / LOCATOR HiddenLayer raised a $100 million Series B round led by Delta-v Capital, with Ten Eleven Ventures, Morgan Stanley, M12, and Booz Allen Venture",
+      "hrefs": [
+        "https://hiddenlayer.com/newsroom/"
+      ]
+    }
+  },
+  {
+    "i": 214,
+    "label": "Palo Alto Networks — Palo Alto Networks reported Q4 FY2026 revenue of $3.41 billion, up 34% year over year, for the quarter ended 2026-07-31. — source: Palo Alto Networks, Inc., 2026-09-25",
+    "supplier": "",
+    "cell": "1 Sep 26 Palo Alto Networks — Palo Alto Networks reported Q4 FY2026 revenue of $3.41 billion, up 34% year over year, for the quarter ended 2026-07-31. src",
+    "section": "What changed in the last 30 days",
+    "pop": {
+      "text": "Evidence Palo Alto Networks Q4 FY2026 Financial Results Palo Alto Networks, Inc. Publication date 2026-09-01 Economic period Quarter ended 2026-07-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-panw-1 Canonical source EXCERPT / LOCATOR Revenue of $3.41 billion, up 34% year over year. NGS ARR of $9.10 billion, up 63% year over year. RPO of $21.2 billion, up 34% year over year. L",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001327567/000132756726000019/ex991q426earningsrelease.htm"
+      ]
+    }
+  },
+  {
+    "i": 215,
+    "label": "SentinelOne — SentinelOne reported Q2 FY2027 revenue of $292 million, up 21% year over year, for the quarter ended 2026-07-31. — source: SentinelOne, Inc., 2026-09-25",
+    "supplier": "",
+    "cell": "27 Aug 26 SentinelOne — SentinelOne reported Q2 FY2027 revenue of $292 million, up 21% year over year, for the quarter ended 2026-07-31. src",
+    "section": "What changed in the last 30 days",
+    "pop": {
+      "text": "Evidence SentinelOne Q2 FY2027 Financial Results SentinelOne, Inc. Publication date 2026-08-27 Economic period Quarter ended 2026-07-31 Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-s1-1 Canonical source EXCERPT / LOCATOR Revenue of $292 million, up 21% year over year. ARR of $1.218 billion, up 22% year over year. Net new ARR of $56 million, record for a Q2.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001583708/000158370826000052/sentineloneq227exhibit991.htm"
+      ]
+    }
+  },
+  {
+    "i": 216,
+    "label": "Rubrik — Rubrik reported Q2 FY2027 revenue of $427.3 million, up 38% year over year, and subscription ARR of $1.66 billion, up 33% year over year, for the quarter ended July 31, 2026. — source: Rubrik, Inc., 2026-09-25",
+    "supplier": "",
+    "cell": "27 Aug 26 Rubrik — Rubrik reported Q2 FY2027 revenue of $427.3 million, up 38% year over year, and subscription ARR of $1.66 billion, up 33% year over year, for the quarter ended July 31, 2026. src",
+    "section": "What changed in the last 30 days",
+    "pop": {
+      "text": "Evidence Rubrik Announces Second Quarter Fiscal 2027 Financial Results Rubrik, Inc. Publication date 2026-08-27 Economic period Q2 FY2027 (quarter ended 2026-07-31) Source class FILING Packet label SEC-MARKET-AUTO-001-STEP5 / TR-rubrik-1 Canonical source EXCERPT / LOCATOR Revenue of $427.3 million, up 38% year-over-year; Subscription ARR of $1.66 billion, up 33% year-over-year. LIMITATIONS / CONFO",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001943896/000194389626000055/rubrikinc-991pressrelease7.htm"
+      ]
+    }
+  }
+]

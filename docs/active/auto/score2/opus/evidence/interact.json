@@ -1,0 +1,188 @@
+{
+  "390": {
+    "before": [
+      "BeyondTrust",
+      "CyberArk",
+      "Delinea",
+      "Microsoft Entra ID",
+      "Okta",
+      "Ping Identity",
+      "SailPoint"
+    ],
+    "after": [
+      "BeyondTrust",
+      "CyberArk",
+      "Delinea",
+      "Microsoft Entra ID",
+      "Ping Identity",
+      "Okta",
+      "SailPoint"
+    ],
+    "after2": [
+      "SailPoint",
+      "Okta",
+      "Ping Identity",
+      "Microsoft Entra ID",
+      "Delinea",
+      "CyberArk",
+      "BeyondTrust"
+    ],
+    "visBefore": [
+      {
+        "label": "Supplier",
+        "visible": true,
+        "text": "Okta 11% +"
+      },
+      {
+        "label": "Rev. growth",
+        "visible": false,
+        "text": "11% Q Jul 26src"
+      },
+      {
+        "label": "Prior q",
+        "visible": false,
+        "text": "11.2% Q Apr 26src"
+      },
+      {
+        "label": "Own metric",
+        "visible": false,
+        "text": "Revenue $805Msrc"
+      },
+      {
+        "label": "Ownership or last round",
+        "visible": false,
+        "text": "Public · OKTAsrc"
+      },
+      {
+        "label": "Events, 12 mo.",
+        "visible": false,
+        "text": "1 · latest results, 26 Aug 26src"
+      }
+    ],
+    "visAfter": {
+      "expanded": "true",
+      "cells": [
+        {
+          "label": "Supplier",
+          "visible": true
+        },
+        {
+          "label": "Rev. growth",
+          "visible": true
+        },
+        {
+          "label": "Prior q",
+          "visible": true
+        },
+        {
+          "label": "Own metric",
+          "visible": true
+        },
+        {
+          "label": "Ownership or last round",
+          "visible": true
+        },
+        {
+          "label": "Events, 12 mo.",
+          "visible": true
+        }
+      ]
+    },
+    "pop": "Evidence\nOkta Q2 FY2027 Earnings Release\n\nOkta, Inc.\n\nPublication date\n2026-08-26\nEconomic period\nQuarter ended July 31, 2026\nSource class\nFILING\nPacket label\nSEC-MARKET-AUTO-001-STEP5 / TR-okta-1\n\nCanonical source\n\nEXCERPT / LOCATOR\nRevenue $805 million, +11% YoY; Subscription Revenue $793 million, +12% YoY.",
+    "scrollY": 3927
+  },
+  "1440": {
+    "before": [
+      "BeyondTrust",
+      "CyberArk",
+      "Delinea",
+      "Microsoft Entra ID",
+      "Okta",
+      "Ping Identity",
+      "SailPoint"
+    ],
+    "after": [
+      "BeyondTrust",
+      "CyberArk",
+      "Delinea",
+      "Microsoft Entra ID",
+      "Ping Identity",
+      "Okta",
+      "SailPoint"
+    ],
+    "after2": [
+      "SailPoint",
+      "Okta",
+      "Ping Identity",
+      "Microsoft Entra ID",
+      "Delinea",
+      "CyberArk",
+      "BeyondTrust"
+    ],
+    "visBefore": [
+      {
+        "label": "Supplier",
+        "visible": true,
+        "text": "Okta"
+      },
+      {
+        "label": "Rev. growth",
+        "visible": true,
+        "text": "11% Q Jul 26 src"
+      },
+      {
+        "label": "Prior q",
+        "visible": true,
+        "text": "11.2% Q Apr 26 src"
+      },
+      {
+        "label": "Own metric",
+        "visible": true,
+        "text": "Revenue $805M src"
+      },
+      {
+        "label": "Ownership or last round",
+        "visible": true,
+        "text": "Public · OKTA src"
+      },
+      {
+        "label": "Events, 12 mo.",
+        "visible": true,
+        "text": "1 · latest results, 26 Aug 26 src"
+      }
+    ],
+    "visAfter": {
+      "expanded": "true",
+      "cells": [
+        {
+          "label": "Supplier",
+          "visible": true
+        },
+        {
+          "label": "Rev. growth",
+          "visible": true
+        },
+        {
+          "label": "Prior q",
+          "visible": true
+        },
+        {
+          "label": "Own metric",
+          "visible": true
+        },
+        {
+          "label": "Ownership or last round",
+          "visible": true
+        },
+        {
+          "label": "Events, 12 mo.",
+          "visible": true
+        }
+      ]
+    },
+    "pop": "Evidence\nOkta Q2 FY2027 Earnings Release\n\nOkta, Inc.\n\nPublication date\n2026-08-26\nEconomic period\nQuarter ended July 31, 2026\nSource class\nFILING\nPacket label\nSEC-MARKET-AUTO-001-STEP5 / TR-okta-1\n\nCanonical source\n\nEXCERPT / LOCATOR\nRevenue $805 million, +11% YoY; Subscription Revenue $793 million, +12% YoY.",
+    "scrollY": 2771
+  },
+  "sortVisible1440": true,
+  "sortVisible390": true
+}

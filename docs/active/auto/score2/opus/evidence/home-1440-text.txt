@@ -1,0 +1,1203 @@
+Skip to main content
+
+SECURITY MARKET PULSE
+
+AS OF 26 SEP 2026
+
+Sourced facts, checked and published automatically. No stances, rankings or forecasts.
+
+Security Market Pulse
+Status
+Archive
+Market
+Evidence
+Method
+Feed
+
+September 26, 2026
+
+The security market, from public numbers
+
+Public, sourced facts about the business of the security market: who is growing, stalling, consolidating, being bought, or in financial trouble. Collected, checked and published automatically, with no stances, rankings or forecasts. Public sources only. Run by Jesse Pike.
+
+Not a news site and not investment advice. · Site updated September 26, 2026.
+
+Run status
+
+Figures checked 26 Sep 2026 · every source collected.
+
+The market by domain
+
+“Revenue growth” is the year-over-year change in a company’s own reported GAAP revenue for the quarter named, taken from its SEC filings or its own press release. Figures are listed, not ranked; being listed is not a recommendation and being absent is not a criticism.
+
+Endpoint and XDR
+(6)
+Security operations (SIEM/SOAR)
+(7)
+Managed security and MDR
+(7)
+Network and SASE
+(7)
+Cloud security
+(7)
+Identity
+(7)
+Data security
+(7)
+Vulnerability and exposure management
+(7)
+Application security
+(6)
+Email security
+(7)
+OT and IoT security
+(6)
+AI security
+(7)
+Endpoint and XDR
+Tracked suppliers in Endpoint and XDR
+Supplier
+↑
+	Rev. growth
+	Prior q
+	Own metric
+	Ownership or last round
+	Events, 12 mo.
+
+
+CrowdStrike
+	
++26%
+Q Jul 26
+src
+	
++26%
+Q Apr 26
+src
+	
+ARR $5.84B · Q Jul 26
+src
+	
+Public · CRWD
+src
+	
+1 · latest results, 26 Aug 26
+src
+
+
+Microsoft Defender for Endpoint
+	–	–	–	
+Segment of Microsoft
+src
+	0
+
+Palo Alto Networks
+	
++34%
+Q Jul 26
+src
+	
++31%
+Q Apr 26
+src
+	
+NGS ARR $9.10B · Q Jul 26
+src
+	
+Public · PANW
+src
+	
+2 · latest results, 1 Sep 26
+src
+
+
+SentinelOne
+	
++21%
+Q Jul 26
+src
+	
++21%
+Q Apr 26
+src
+	
+ARR $1.218B · Q Jul 26
+src
+	
+Public · S
+src
+	
+2 · latest results, 27 Aug 26
+src
+
+
+Sophos
+	–	–	–	
+PE-owned · Thoma Bravo (2020)
+src
+	
+2 · latest rating, 1 Mar 26
+src
+
+
+Trend Micro
+	–	–	
+ARR >$1.7B · Q Jun 26
+src
+	
+Public · 4704 (Tokyo Stock Exchange)
+src
+	
+1 · latest restructuring, 13 Aug 26
+src
+
+Median revenue growth of tracked public suppliers: +26%
+Security operations (SIEM/SOAR)
+Tracked suppliers in Security operations (SIEM/SOAR)
+Supplier
+↑
+	Rev. growth
+	Prior q
+	Own metric
+	Ownership or last round
+	Events, 12 mo.
+
+
+Exabeam
+	–	–	–	
+Merged with LogRhythm (Thoma Bravo-owned). Closed 2024-07-17.
+src
+	0
+
+Google SecOps
+	–	–	–	
+Segment of Alphabet
+src
+	0
+
+Palo Alto Networks Cortex XSIAM
+	–	–	–	
+Segment
+src
+	0
+
+Palo Alto Networks
+	
++34%
+Q Jul 26
+src
+	
++31%
+Q Apr 26
+src
+	
+NGS ARR $9.10B · Q Jul 26
+src
+	
+Public · PANW
+src
+	
+2 · latest results, 1 Sep 26
+src
+
+
+Splunk
+	–	–	–	
+Segment of Cisco Systems
+src
+	
+1 · latest restructuring, 13 May 26
+src
+
+
+Tines
+	–	–	–	
+Series C $125M · Feb 2025
+src
+	0
+
+Torq
+	–	–	–	
+Series D $140M · Jan 2026
+src
+	0
+Managed security and MDR
+Tracked suppliers in Managed security and MDR
+Supplier
+↑
+	Rev. growth
+	Prior q
+	Own metric
+	Ownership or last round
+	Events, 12 mo.
+
+
+Arctic Wolf Networks
+	–	–	–	
+–
+	0
+
+eSentire
+	–	–	–	
+PE-owned
+src
+	0
+
+Expel
+	–	–	–	
+–
+	0
+
+Optiv Security
+	–	–	–	
+PE-owned · KKR (2016)
+src
+	
+2 · latest divestiture, 2 Jun 26
+src
+
+
+Red Canary
+	–	–	–	
+Acquired by Zscaler · Aug 2025
+src
+	0
+
+ReliaQuest
+	–	–	–	
+Growth equity $500M+ · Mar 2025
+src
+	0
+
+Trustwave
+	–	–	–	
+Acquired by LevelBlue · Aug 2025
+src
+	0
+Network and SASE
+Tracked suppliers in Network and SASE
+Supplier
+↑
+	Rev. growth
+	Prior q
+	Own metric
+	Ownership or last round
+	Events, 12 mo.
+
+
+Cato Networks
+	–	–	
+ARR $415M, +42% YoY
+src
+	
+Series G $409M (initial close $359M plus extension $50M) · Jun 2025
+src
+	
+1 · latest results, 24 Feb 26
+src
+
+
+Check Point
+	
+1%
+Q Jun 26
+src
+	
+5%
+Q Mar 26
+src
+	
+Total Revenue $674M · Q Jun 26
+src
+	
+Public · CHKP
+src
+	
+3 · latest debt, 30 Jul 26
+src
+
+
+Cloudflare
+	
+36%
+Q Jun 26
+src
+	
+34%
+Q Mar 26
+src
+	
+Revenue $696.1M · Q Jun 26
+src
+	
+Public · NET
+src
+	
+3 · latest debt, 13 Aug 26
+src
+
+
+Fortinet
+	
+26%
+Q Jun 26
+src
+	
+20%
+Q Mar 26
+src
+	
+Billings $2.37B · Q Jun 26
+src
+	
+Public · FTNT
+src
+	0
+
+Netskope
+	
+29%
+Q Jul 26
+src
+	
+28%
+Q Apr 26
+src
+	
+ARR $899M · Q Jul 26
+src
+	
+Public · NTSK
+src
+	
+3 · latest restructuring, 2 Sep 26
+src
+
+
+Palo Alto Networks
+	
++34%
+Q Jul 26
+src
+	
++31%
+Q Apr 26
+src
+	
+NGS ARR $9.10B · Q Jul 26
+src
+	
+Public · PANW
+src
+	
+2 · latest results, 1 Sep 26
+src
+
+
+Zscaler
+	
+25%
+Q Jul 26
+src
+	
+25%
+Q Apr 26
+src
+	
+ARR $3,771M · Q Jul 26
+src
+	
+Public · ZS
+src
+	
+3 · latest exec-change, 24 Sep 26
+src
+
+Median revenue growth of tracked public suppliers: +27.5%
+Cloud security
+Tracked suppliers in Cloud security
+Supplier
+↑
+	Rev. growth
+	Prior q
+	Own metric
+	Ownership or last round
+	Events, 12 mo.
+
+
+Aqua Security
+	–	–	–	
+Series E extension $60M · Jan 2024
+src
+	
+1 · latest exec-change, 5 Nov 25
+src
+
+
+CrowdStrike
+	
++26%
+Q Jul 26
+src
+	
++26%
+Q Apr 26
+src
+	
+ARR $5.84B · Q Jul 26
+src
+	
+Public · CRWD
+src
+	
+1 · latest results, 26 Aug 26
+src
+
+
+Orca Security
+	–	–	–	
+Independent, venture-backed private company.
+src
+	0
+
+Palo Alto Networks
+	
++34%
+Q Jul 26
+src
+	
++31%
+Q Apr 26
+src
+	
+NGS ARR $9.10B · Q Jul 26
+src
+	
+Public · PANW
+src
+	
+2 · latest results, 1 Sep 26
+src
+
+
+Sysdig
+	–	–	–	
+Independent, venture-backed private company. Confirmed not public.
+src
+	0
+
+Upwind
+	–	–	–	
+Series B $250M · Jan 2026
+src
+	0
+
+Wiz
+	–	–	–	
+Acquired by Google · Mar 2026
+src
+	
+1 · latest acquisition, 11 Mar 26
+src
+
+Median revenue growth of tracked public suppliers: +30%
+Identity
+Tracked suppliers in Identity
+Supplier
+↑
+	Rev. growth
+	Prior q
+	Own metric
+	Ownership or last round
+	Events, 12 mo.
+
+
+BeyondTrust
+	–	–	–	
+PE-owned
+src
+	0
+
+CyberArk
+	–	–	–	
+Acquired by Palo Alto Networks · Feb 2026
+src
+	
+1 · latest shutdown, 11 Feb 26
+src
+
+
+Delinea
+	–	–	
+ARR $400M (nearing)
+src
+	
+PE-owned
+src
+	
+1 · latest exec-change, 23 Sep 26
+src
+
+
+Microsoft Entra ID
+	–	–	–	
+Segment of Microsoft
+src
+	
+1 · latest results, 29 Jul 26
+src
+
+
+Okta
+	
+11%
+Q Jul 26
+src
+	
+11.2%
+Q Apr 26
+src
+	
+Revenue $805M
+src
+	
+Public · OKTA
+src
+	
+1 · latest results, 26 Aug 26
+src
+
+
+Ping Identity
+	–	–	
+ARR $800M (approaching)
+src
+	
+PE-owned
+src
+	0
+
+SailPoint
+	
+16.8%
+Q Jul 26
+src
+	
+21.5%
+Q Apr 26
+src
+	
+ARR $1,230.7M
+src
+	
+Public · SAIL
+src
+	
+1 · latest results, 10 Sep 26
+src
+
+Median revenue growth of tracked public suppliers: +13.9%
+Data security
+Tracked suppliers in Data security
+Supplier
+↑
+	Rev. growth
+	Prior q
+	Own metric
+	Ownership or last round
+	Events, 12 mo.
+
+
+BigID
+	–	–	–	
+Growth round $60M · Mar 2024
+src
+	0
+
+Cohesity
+	–	–	–	
+–
+	0
+
+Commvault Systems
+	
++11%
+Q Jun 26
+src
+	
++13%
+Q Mar 26
+src
+	
+Subscription ARR $1,054M · Q Jun 26
+src
+	
+Public · CVLT
+src
+	
+3 · latest results, 28 Jul 26
+src
+
+
+Cyera
+	–	–	–	
+Growth-equity investment (reported as a Series G extension) $400M · Sep 2026
+src
+	
+4 · latest funding, 22 Sep 26
+src
+
+
+Rubrik
+	
++38%
+Q Jul 26
+src
+	
++39%
+Q Apr 26
+src
+	
+Subscription ARR $1.66B · Q Jul 26
+src
+	
+Public · RBRK
+src
+	
+2 · latest results, 27 Aug 26
+src
+
+
+Varonis Systems
+	
++18.3%
+Q Jun 26
+src
+	
++27%
+Q Mar 26
+src
+	
+Total SaaS ARR $726.0M · Q Jun 26
+src
+	
+Public · VRNS
+src
+	
+3 · latest results, 28 Jul 26
+src
+
+
+Veeam
+	–	–	–	
+PE-owned · Insight Partners
+src
+	
+1 · latest acquisition, 11 Dec 25
+src
+
+Median revenue growth of tracked public suppliers: +18.3%
+Vulnerability and exposure management
+Tracked suppliers in Vulnerability and exposure management
+Supplier
+↑
+	Rev. growth
+	Prior q
+	Own metric
+	Ownership or last round
+	Events, 12 mo.
+
+
+Axonius
+	–	–	
+ARR >$200M · Q May 26
+src
+	
+–
+	
+1 · latest exec-change, 19 May 26
+src
+
+
+CrowdStrike Falcon Exposure Management
+	–	–	–	
+Segment
+src
+	0
+
+CrowdStrike
+	
++26%
+Q Jul 26
+src
+	
++26%
+Q Apr 26
+src
+	
+ARR $5.84B · Q Jul 26
+src
+	
+Public · CRWD
+src
+	
+1 · latest results, 26 Aug 26
+src
+
+
+Ivanti
+	–	–	–	
+PE-owned
+src
+	0
+
+Qualys
+	
++11%
+Q Jun 26
+src
+	–	
+Revenue $182.2M · Q Jun 26
+src
+	
+Public · QLYS
+src
+	
+1 · latest results, 4 Aug 26
+src
+
+
+Rapid7
+	
+-1.5%
+Q Jun 26
+src
+	
+-0.3%
+Q Mar 26
+src
+	
+ARR $824.0M · Q Jun 26
+src
+	
+Public · RPD
+src
+	
+3 · latest results, 10 Aug 26
+src
+
+
+Tenable
+	
++8.6%
+Q Jun 26
+src
+	–	
+Revenue $268.5M · Q Jun 26
+src
+	
+Public · TENB
+src
+	
+2 · latest debt, 15 Sep 26
+src
+
+Median revenue growth of tracked public suppliers: +9.8%
+Application security
+Tracked suppliers in Application security
+Supplier
+↑
+	Rev. growth
+	Prior q
+	Own metric
+	Ownership or last round
+	Events, 12 mo.
+
+
+Chainguard
+	–	–	–	
+Growth financing (no series letter disclosed) $280M · Oct 2025
+src
+	0
+
+GitHub Advanced Security
+	–	–	–	
+–
+	
+1 · latest exec-change, 31 Dec 25
+src
+
+
+JFrog
+	
++29%
+Q Jun 26
+src
+	
++26%
+Q Mar 26
+src
+	
+Cloud revenue $87.5M · Q Jun 26
+src
+	
+Public · FROG
+src
+	
+1 · latest results, 6 Aug 26
+src
+
+
+Snyk
+	–	–	–	
+Series F (plus extension) $605M (initial close $530M plus extension $75M) · Sep 2021
+src
+	0
+
+Sonatype
+	–	–	–	
+PE-owned · Vista Equity Partners (2019)
+src
+	
+1 · latest exec-change, 9 Jun 26
+src
+
+
+Veracode
+	–	–	–	
+PE-owned · TA Associates (2022)
+src
+	0
+Email security
+Tracked suppliers in Email security
+Supplier
+↑
+	Rev. growth
+	Prior q
+	Own metric
+	Ownership or last round
+	Events, 12 mo.
+
+
+Abnormal Security
+	–	–	
+ARR over $200M
+src
+	
+Series D $250M · Aug 2024
+src
+	0
+
+Barracuda Networks
+	–	–	–	
+PE-owned
+src
+	0
+
+Check Point
+	–	–	–	
+Segment
+src
+	0
+
+Check Point
+	
+1%
+Q Jun 26
+src
+	
+5%
+Q Mar 26
+src
+	
+Total Revenue $674M · Q Jun 26
+src
+	
+Public · CHKP
+src
+	
+3 · latest debt, 30 Jul 26
+src
+
+
+Microsoft Defender for Office 365
+	–	–	–	
+Segment of Microsoft
+src
+	
+1 · latest results, 29 Jul 26
+src
+
+
+Mimecast
+	–	–	–	
+PE-owned
+src
+	
+1 · latest exec-change, 25 Jun 26
+src
+
+
+Proofpoint
+	–	–	–	
+PE-owned
+src
+	0
+OT and IoT security
+Tracked suppliers in OT and IoT security
+Supplier
+↑
+	Rev. growth
+	Prior q
+	Own metric
+	Ownership or last round
+	Events, 12 mo.
+
+
+Armis Security
+	–	–	–	
+Acquired by ServiceNow · Apr 2026
+src
+	
+1 · latest acquisition, 20 Apr 26
+src
+
+
+Claroty
+	–	–	
+Annual revenue (company-stated, exact figure undisclosed) hundreds of millions of dollars · Q Jan 26
+src
+	
+Growth equity $150M · Jan 2026
+src
+	0
+
+Dragos
+	–	–	–	
+Acquired by Accenture plc · Jun 2026
+src
+	
+1 · latest acquisition, 18 Jun 26
+src
+
+
+Forescout
+	–	–	–	
+PE-owned · Advent International / Crosspoint Capital Partners
+src
+	0
+
+Nozomi Networks
+	–	–	–	
+–
+	0
+
+Xage Security
+	–	–	
+Year-over-year revenue growth (company-stated) 81% · Q Mar 26
+src
+	
+Equity financing $15M · Dec 2025
+src
+	0
+AI security
+Tracked suppliers in AI security
+Supplier
+↑
+	Rev. growth
+	Prior q
+	Own metric
+	Ownership or last round
+	Events, 12 mo.
+
+
+HiddenLayer
+	–	–	
+ARR growth (company-stated) more than 10x year-over-year · Q Sep 26
+src
+	
+Series B $100M · Sep 2026
+src
+	
+1 · latest funding, 2 Sep 26
+src
+
+
+Lakera AI
+	–	–	–	
+Acquired by Check Point · Sep 2025
+src
+	
+1 · latest acquisition, 31 Dec 25
+src
+
+
+Palo Alto Networks
+	
++34%
+Q Jul 26
+src
+	
++31%
+Q Apr 26
+src
+	
+NGS ARR $9.10B · Q Jul 26
+src
+	
+Public · PANW
+src
+	
+2 · latest results, 1 Sep 26
+src
+
+
+Protect AI
+	–	–	–	
+Acquired by Palo Alto Networks · Jul 2025
+src
+	0
+
+SurePath AI
+	–	–	–	
+Acquired by F5 · Jun 2026
+src
+	
+1 · latest acquisition, 15 Jun 26
+src
+
+
+WitnessAI
+	–	–	
+ARR growth (company-stated) 500% year-over-year · Q Jan 26
+src
+	
+Strategic funding round $58M · Jan 2026
+src
+	
+1 · latest funding, 13 Jan 26
+src
+
+
+Zenity
+	–	–	
+Revenue growth (company-stated) tripled year-over-year in each of the past two years; on track to triple again in 2026 · Q Aug 26
+src
+	
+Series C $125M · Aug 2026
+src
+	
+1 · latest funding, 3 Aug 26
+src
+What changed in the last 30 days
+24 Sep 26
+Zscaler — CRO Mike Rich stepped down effective October 1, 2026, succeeded by Ross Tackett. EVP Raj Judge resigned board seat effective April 16, 2026.
+src
+23 Sep 26
+Delinea — Timothy Regan appointed Chief Financial Officer of Delinea.
+src
+22 Sep 26
+Cyera — Cyera announced a $400 million growth-equity investment from Goldman Sachs Alternatives at a valuation of over $12 billion.
+src
+15 Sep 26
+Tenable — Tenable completed the issuance of $800 million of 0.25% convertible senior notes due 2031.
+src
+10 Sep 26
+SailPoint filed its 10-Q for the quarter ended 2026-07-31.
+src
+10 Sep 26
+Palo Alto Networks filed its 10-K (derived) for the quarter ended 2026-07-31.
+src
+10 Sep 26
+SailPoint — Q2 FY2027 revenue $308.8 million, +16.8% YoY; ARR $1,230.7 million, +25.3% YoY.
+src
+3 Sep 26
+Zscaler filed its 10-K (derived) for the quarter ended 2026-07-31.
+src
+3 Sep 26
+Zscaler — Q4 FY2026 revenue $898.2 million, +25% YoY; ARR $3,771 million, +25% YoY.
+src
+3 Sep 26
+Zscaler — Restructuring and other charges of $5.5 million in Q4 FY2026 and $10.3 million for full FY2026, described as severance and termination benefits.
+src
+3 Sep 26
+Cyera — Cyera completed its acquisition of Oasis Security.
+src
+2 Sep 26
+Netskope filed its 10-Q for the quarter ended 2026-07-31.
+src
+2 Sep 26
+Netskope — Q2 FY2027 revenue $220.5 million, +29% YoY; ARR $899 million, +27% YoY.
+src
+2 Sep 26
+Netskope — $3.5 million in restructuring costs recognized in Q2 FY2027 ended July 31, 2026.
+src
+2 Sep 26
+HiddenLayer — HiddenLayer raised a $100 million Series B round led by Delta-v Capital, with participation from Ten Eleven Ventures, Morgan Stanley, M12, and Booz Allen Ventures, and reported signing more than 50 new platform customers.
+src
+1 Sep 26
+Rubrik filed its 10-Q for the quarter ended 2026-07-31.
+src
+1 Sep 26
+Palo Alto Networks — Palo Alto Networks reported Q4 FY2026 revenue of $3.41 billion, up 34% year over year, for the quarter ended 2026-07-31.
+src
+28 Aug 26
+SentinelOne filed its 10-Q for the quarter ended 2026-07-31.
+src
+27 Aug 26
+Okta filed its 10-Q for the quarter ended 2026-07-31.
+src
+27 Aug 26
+CrowdStrike filed its 10-Q for the quarter ended 2026-07-31.
+src
+27 Aug 26
+SentinelOne — SentinelOne reported Q2 FY2027 revenue of $292 million, up 21% year over year, for the quarter ended 2026-07-31.
+src
+27 Aug 26
+Rubrik — Rubrik reported Q2 FY2027 revenue of $427.3 million, up 38% year over year, and subscription ARR of $1.66 billion, up 33% year over year, for the quarter ended July 31, 2026.
+src
+What this site covers
+
+12 domains, 74 tracked suppliers. Adding or dropping a domain or a supplier is a data change, not a promise about who belongs in the market.
+
+Endpoint and XDR — Endpoint detection and response and extended detection and response platforms.
+Security operations (SIEM/SOAR) — Security information and event management, and security orchestration, automation and response.
+Managed security and MDR — Managed detection and response and outsourced security operations.
+Network and SASE — Network security, secure access service edge, and secure service edge.
+Cloud security — Cloud-native application protection platforms and cloud security posture management.
+Identity — Identity and access management, privileged access management, and identity governance.
+Data security — Data security posture management, data loss prevention, and backup and resilience treated as security.
+Vulnerability and exposure management — Vulnerability scanning, exposure management, and attack-surface management.
+Application security — Application security testing and software-supply-chain security.
+Email security — Email security and business email compromise protection.
+OT and IoT security — Operational-technology and industrial IoT security.
+AI security — Security products for AI systems, covered as a market — who is buying whom and what is reported as revenue, not as news.
+Not covered
+Daily security news, vulnerabilities, and breaches as events
+Product reviews and technical evaluations
+Investment advice
+Physical security, guarding and access-control hardware as a market
+Governance, risk and compliance platforms that are not themselves a security-domain product
+Insurance and cyber-insurance underwriting
+Security domains outside the twelve listed above
+
+Issue archive · Standing thesis · Evidence · Method
+
+Tracked figures arrive through the week as companies report them — follow by RSS.
+
+How this is built
+Research & evidence
+
+Public sources only. Not investment advice. See How this is built.
+
+Data: issue index · newest issue · publication ledger
+
+CORRECTIONS
+
+If a figure is wrong, send it
+
+Corrections and counter-evidence are more useful than agreement. If a print is wrong, a source has been superseded, or a read goes further than the evidence does, that is worth an email. There is no form, and every correction that gets published is listed at /corrections/.
+
+Send a correction or a question
+
+Jesse Pike · jesse@keatingpike.com

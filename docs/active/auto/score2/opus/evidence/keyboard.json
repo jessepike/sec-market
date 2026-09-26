@@ -1,0 +1,566 @@
+{
+  "390": [
+    {
+      "tag": "A",
+      "text": "Skip to main content",
+      "href": "#main",
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "A",
+      "text": "Security Market Pulse",
+      "href": "#overview",
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Menu",
+      "href": null,
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "A",
+      "text": "Endpoint and XDR (6)",
+      "href": "#domain-endpoint-xdr",
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "A",
+      "text": "Security operations (SIEM/SOAR) (7)",
+      "href": "#domain-secops",
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "A",
+      "text": "Managed security and MDR (7)",
+      "href": "#domain-managed-security",
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "A",
+      "text": "Network and SASE (7)",
+      "href": "#domain-network-sase",
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "A",
+      "text": "Cloud security (7)",
+      "href": "#domain-cloud",
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "A",
+      "text": "Identity (7)",
+      "href": "#domain-identity",
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "A",
+      "text": "Data security (7)",
+      "href": "#domain-data",
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "A",
+      "text": "Vulnerability and exposure management (7)",
+      "href": "#domain-exposure",
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "A",
+      "text": "Application security (6)",
+      "href": "#domain-appsec",
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "A",
+      "text": "Email security (7)",
+      "href": "#domain-email",
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "A",
+      "text": "OT and IoT security (6)",
+      "href": "#domain-ot-iot",
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "A",
+      "text": "AI security (7)",
+      "href": "#domain-ai-security",
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Supplier↑",
+      "href": null,
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Rev. growth",
+      "href": null,
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Prior q",
+      "href": null,
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Own metric",
+      "href": null,
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Ownership or last round",
+      "href": null,
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Events, 12 mo.",
+      "href": null,
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "CrowdStrike+26%+",
+      "href": null,
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Microsoft Defender for EndpointSegment of Microsof",
+      "href": null,
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Palo Alto Networks+34%+",
+      "href": null,
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "SentinelOne+21%+",
+      "href": null,
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "SophosPE-owned · Thoma Bravo (2020)+",
+      "href": null,
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Trend MicroPublic · 4704 (Tokyo Stock Exchange)+",
+      "href": null,
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Supplier↑",
+      "href": null,
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Rev. growth",
+      "href": null,
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Prior q",
+      "href": null,
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Own metric",
+      "href": null,
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Ownership or last round",
+      "href": null,
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Events, 12 mo.",
+      "href": null,
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "ExabeamMerged with LogRhythm (Thoma Bravo-owned). ",
+      "href": null,
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Google SecOpsSegment of Alphabet+",
+      "href": null,
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Palo Alto Networks Cortex XSIAMSegment+",
+      "href": null,
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Palo Alto Networks+34%+",
+      "href": null,
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "SplunkSegment of Cisco Systems+",
+      "href": null,
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "TinesSeries C $125M · Feb 2025+",
+      "href": null,
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "TorqSeries D $140M · Jan 2026+",
+      "href": null,
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    }
+  ],
+  "1440": [
+    {
+      "tag": "A",
+      "text": "Skip to main content",
+      "href": "#main",
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "A",
+      "text": "Security Market Pulse",
+      "href": "#overview",
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "A",
+      "text": "Status",
+      "href": "#overview",
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "A",
+      "text": "Archive",
+      "href": "/issues/",
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "A",
+      "text": "Market",
+      "href": "#market",
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "A",
+      "text": "Evidence",
+      "href": "#research",
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "A",
+      "text": "Method",
+      "href": "#method",
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "A",
+      "text": "Feed",
+      "href": "/feed.xml",
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "A",
+      "text": "Endpoint and XDR (6)",
+      "href": "#domain-endpoint-xdr",
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "A",
+      "text": "Security operations (SIEM/SOAR) (7)",
+      "href": "#domain-secops",
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "A",
+      "text": "Managed security and MDR (7)",
+      "href": "#domain-managed-security",
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "A",
+      "text": "Network and SASE (7)",
+      "href": "#domain-network-sase",
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "A",
+      "text": "Cloud security (7)",
+      "href": "#domain-cloud",
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "A",
+      "text": "Identity (7)",
+      "href": "#domain-identity",
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "A",
+      "text": "Data security (7)",
+      "href": "#domain-data",
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "A",
+      "text": "Vulnerability and exposure management (7)",
+      "href": "#domain-exposure",
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "A",
+      "text": "Application security (6)",
+      "href": "#domain-appsec",
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "A",
+      "text": "Email security (7)",
+      "href": "#domain-email",
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "A",
+      "text": "OT and IoT security (6)",
+      "href": "#domain-ot-iot",
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "A",
+      "text": "AI security (7)",
+      "href": "#domain-ai-security",
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Supplier↑",
+      "href": null,
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Rev. growth",
+      "href": null,
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Prior q",
+      "href": null,
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Own metric",
+      "href": null,
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Ownership or last round",
+      "href": null,
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Events, 12 mo.",
+      "href": null,
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "CrowdStrike+26%+",
+      "href": null,
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "src",
+      "href": null,
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "src",
+      "href": null,
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "src",
+      "href": null,
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "src",
+      "href": null,
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "src",
+      "href": null,
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Microsoft Defender for EndpointSegment of Microsof",
+      "href": null,
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "src",
+      "href": null,
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "Palo Alto Networks+34%+",
+      "href": null,
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "src",
+      "href": null,
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "src",
+      "href": null,
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "src",
+      "href": null,
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "src",
+      "href": null,
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    },
+    {
+      "tag": "BUTTON",
+      "text": "src",
+      "href": null,
+      "outline": "solid 2px rgb(11, 107, 94)",
+      "boxShadow": "none"
+    }
+  ]
+}

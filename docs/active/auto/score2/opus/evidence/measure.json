@@ -1,0 +1,3805 @@
+{
+  "home-1440": {
+    "title": "Security Market Pulse — a facts-only supplier tracker",
+    "height": 8755,
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "firstContent": {
+      "tag": "H1",
+      "text": "The security market, from public numbers",
+      "top": 113
+    },
+    "smallTargets": [
+      {
+        "tag": "BUTTON",
+        "text": "CrowdStrike+26%+",
+        "w": 192,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Microsoft Defender for EndpointSegment o",
+        "w": 192,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Palo Alto Networks+34%+",
+        "w": 192,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "SentinelOne+21%+",
+        "w": 192,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "SophosPE-owned · Thoma Bravo (2020)+",
+        "w": 192,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Trend MicroPublic · 4704 (Tokyo Stock Ex",
+        "w": 192,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "ExabeamMerged with LogRhythm (Thoma Brav",
+        "w": 170,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Google SecOpsSegment of Alphabet+",
+        "w": 170,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Palo Alto Networks+34%+",
+        "w": 170,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "SplunkSegment of Cisco Systems+",
+        "w": 170,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "TinesSeries C $125M · Feb 2025+",
+        "w": 170,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "TorqSeries D $140M · Jan 2026+",
+        "w": 170,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Arctic Wolf Networks–+",
+        "w": 186,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "eSentirePE-owned+",
+        "w": 186,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Expel–+",
+        "w": 186,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Optiv SecurityPE-owned · KKR (2016)+",
+        "w": 186,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Red CanaryAcquired by Zscaler · Aug 2025",
+        "w": 186,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "ReliaQuestGrowth equity $500M+ · Mar 202",
+        "w": 186,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "TrustwaveAcquired by LevelBlue · Aug 202",
+        "w": 186,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Cato NetworksSeries G $409M (initial clo",
+        "w": 105,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Check Point1%+",
+        "w": 105,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Cloudflare36%+",
+        "w": 105,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Fortinet26%+",
+        "w": 105,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Netskope29%+",
+        "w": 105,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Zscaler25%+",
+        "w": 105,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Aqua SecuritySeries E extension $60M · J",
+        "w": 108,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "CrowdStrike+26%+",
+        "w": 108,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Orca SecurityIndependent, venture-backed",
+        "w": 108,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "SysdigIndependent, venture-backed privat",
+        "w": 108,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "UpwindSeries B $250M · Jan 2026+",
+        "w": 108,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "WizAcquired by Google · Mar 2026+",
+        "w": 108,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "BeyondTrustPE-owned+",
+        "w": 114,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "CyberArkAcquired by Palo Alto Networks ·",
+        "w": 114,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "DelineaPE-owned+",
+        "w": 114,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Microsoft Entra IDSegment of Microsoft+",
+        "w": 114,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Okta11%+",
+        "w": 114,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Ping IdentityPE-owned+",
+        "w": 114,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "SailPoint16.8%+",
+        "w": 114,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "BigIDGrowth round $60M · Mar 2024+",
+        "w": 107,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Cohesity–+",
+        "w": 107,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "CyeraGrowth-equity investment (reported ",
+        "w": 107,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Rubrik+38%+",
+        "w": 107,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Varonis Systems+18.3%+",
+        "w": 107,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "VeeamPE-owned · Insight Partners+",
+        "w": 107,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Axonius–+",
+        "w": 263,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "CrowdStrike Falcon Exposure ManagementSe",
+        "w": 263,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "CrowdStrike+26%+",
+        "w": 263,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "IvantiPE-owned+",
+        "w": 263,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Qualys+11%+",
+        "w": 263,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Rapid7-1.5%+",
+        "w": 263,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Tenable+8.6%+",
+        "w": 263,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "ChainguardGrowth financing (no series le",
+        "w": 132,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "JFrog+29%+",
+        "w": 132,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "SnykSeries F (plus extension) $605M (ini",
+        "w": 132,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "SonatypePE-owned · Vista Equity Partners",
+        "w": 132,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "VeracodePE-owned · TA Associates (2022)+",
+        "w": 132,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Abnormal SecuritySeries D $250M · Aug 20",
+        "w": 209,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Barracuda NetworksPE-owned+",
+        "w": 209,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Check PointSegment+",
+        "w": 209,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Check Point1%+",
+        "w": 209,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Microsoft Defender for Office 365Segment",
+        "w": 209,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "MimecastPE-owned+",
+        "w": 209,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "ProofpointPE-owned+",
+        "w": 209,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Armis SecurityAcquired by ServiceNow · A",
+        "w": 90,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "ClarotyGrowth equity $150M · Jan 2026+",
+        "w": 90,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "DragosAcquired by Accenture plc · Jun 20",
+        "w": 90,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "ForescoutPE-owned · Advent International",
+        "w": 90,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Xage SecurityEquity financing $15M · Dec",
+        "w": 90,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "HiddenLayerSeries B $100M · Sep 2026+",
+        "w": 96,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Lakera AIAcquired by Check Point · Sep 2",
+        "w": 96,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Protect AIAcquired by Palo Alto Networks",
+        "w": 96,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "SurePath AIAcquired by F5 · Jun 2026+",
+        "w": 96,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "WitnessAIStrategic funding round $58M · ",
+        "w": 96,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "ZenitySeries C $125M · Aug 2026+",
+        "w": 96,
+        "h": 21,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "A",
+        "text": "src",
+        "w": 27,
+        "h": 18,
+        "inline": false
+      },
+      {
+        "tag": "A",
+        "text": "src",
+        "w": 27,
+        "h": 18,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "A",
+        "text": "src",
+        "w": 27,
+        "h": 18,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "A",
+        "text": "src",
+        "w": 27,
+        "h": 18,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "A",
+        "text": "src",
+        "w": 27,
+        "h": 18,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "A",
+        "text": "src",
+        "w": 27,
+        "h": 18,
+        "inline": false
+      },
+      {
+        "tag": "A",
+        "text": "src",
+        "w": 27,
+        "h": 18,
+        "inline": false
+      },
+      {
+        "tag": "A",
+        "text": "src",
+        "w": 27,
+        "h": 18,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "BUTTON",
+        "text": "src",
+        "w": 27,
+        "h": 19,
+        "inline": false
+      },
+      {
+        "tag": "A",
+        "text": "Endpoint and XDR",
+        "w": 130,
+        "h": 20,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "Security operations (SIEM/SOAR)",
+        "w": 238,
+        "h": 20,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "Managed security and MDR",
+        "w": 197,
+        "h": 20,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "Network and SASE",
+        "w": 133,
+        "h": 20,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "Cloud security",
+        "w": 103,
+        "h": 20,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "Identity",
+        "w": 57,
+        "h": 20,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "Data security",
+        "w": 97,
+        "h": 20,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "Vulnerability and exposure management",
+        "w": 293,
+        "h": 20,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "Application security",
+        "w": 143,
+        "h": 20,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "Email security",
+        "w": 102,
+        "h": 20,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "OT and IoT security",
+        "w": 140,
+        "h": 20,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "AI security",
+        "w": 78,
+        "h": 20,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "Issue archive",
+        "w": 85,
+        "h": 19,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "Standing thesis",
+        "w": 97,
+        "h": 19,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "Evidence",
+        "w": 58,
+        "h": 19,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "Method",
+        "w": 48,
+        "h": 19,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "follow by RSS",
+        "w": 96,
+        "h": 20,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "/thesis/",
+        "w": 52,
+        "h": 20,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "issue index",
+        "w": 77,
+        "h": 15,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "newest issue",
+        "w": 84,
+        "h": 15,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "publication ledger",
+        "w": 126,
+        "h": 15,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "/corrections/",
+        "w": 89,
+        "h": 20,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "jesse@keatingpike.com",
+        "w": 189,
+        "h": 20,
+        "inline": true
+      }
+    ],
+    "fontSizes": {
+      "16px": 168,
+      "10px": 4,
+      "15.2px": 17,
+      "14px": 43,
+      "13px": 946,
+      "42.4px": 1,
+      "12px": 91,
+      "24px": 7,
+      "14.4px": 18,
+      "17px": 13,
+      "9.75px": 12,
+      "11px": 225,
+      "10.4px": 6,
+      "13.6px": 38
+    },
+    "smallText": [
+      {
+        "fs": "10px",
+        "tag": "P",
+        "text": "Sourced facts, checked and published automatically. No stances, rankings or fore"
+      },
+      {
+        "fs": "12px",
+        "tag": "P",
+        "text": "Not a news site and not investment advice. · Site updated September 26, 2026 ."
+      },
+      {
+        "fs": "12px",
+        "tag": "TD",
+        "text": "Median revenue growth of tracked public suppliers: + 26 %"
+      },
+      {
+        "fs": "12px",
+        "tag": "TD",
+        "text": "Median revenue growth of tracked public suppliers: + 27.5 %"
+      },
+      {
+        "fs": "12px",
+        "tag": "TD",
+        "text": "Median revenue growth of tracked public suppliers: + 30 %"
+      },
+      {
+        "fs": "12px",
+        "tag": "TD",
+        "text": "Median revenue growth of tracked public suppliers: + 13.9 %"
+      },
+      {
+        "fs": "12px",
+        "tag": "TD",
+        "text": "Median revenue growth of tracked public suppliers: + 18.3 %"
+      },
+      {
+        "fs": "12px",
+        "tag": "TD",
+        "text": "Median revenue growth of tracked public suppliers: + 9.8 %"
+      }
+    ],
+    "fontFamilies": [
+      "\"IBM Plex Sans\", system-ui, sans-serif",
+      "\"IBM Plex Mono\", ui-monospace, monospace",
+      "Archivo, system-ui, sans-serif"
+    ],
+    "details": [
+      {
+        "open": false,
+        "summary": "How this is built"
+      },
+      {
+        "open": false,
+        "summary": "Research & evidence"
+      }
+    ],
+    "timeEls": 24,
+    "timeWithDt": 24,
+    "landmarks": [
+      "DIV[region]",
+      "HEADER",
+      "NAV",
+      "MAIN",
+      "NAV",
+      "FOOTER"
+    ],
+    "emptyHeadings": 0,
+    "dupIds": [],
+    "axe": []
+  },
+  "home-390": {
+    "title": "Security Market Pulse — a facts-only supplier tracker",
+    "height": 12327,
+    "scrollWidth": 390,
+    "clientWidth": 390,
+    "firstContent": {
+      "tag": "H1",
+      "text": "The security market, from public numbers",
+      "top": 174
+    },
+    "smallTargets": [
+      {
+        "tag": "A",
+        "text": "Endpoint and XDR",
+        "w": 130,
+        "h": 20,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "Security operations (SIEM/SOAR)",
+        "w": 238,
+        "h": 20,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "Managed security and MDR",
+        "w": 197,
+        "h": 20,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "Network and SASE",
+        "w": 133,
+        "h": 20,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "Cloud security",
+        "w": 103,
+        "h": 20,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "Identity",
+        "w": 57,
+        "h": 20,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "Data security",
+        "w": 97,
+        "h": 20,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "Vulnerability and exposure management",
+        "w": 293,
+        "h": 20,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "Application security",
+        "w": 143,
+        "h": 20,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "Email security",
+        "w": 102,
+        "h": 20,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "OT and IoT security",
+        "w": 140,
+        "h": 20,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "AI security",
+        "w": 78,
+        "h": 20,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "Issue archive",
+        "w": 85,
+        "h": 19,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "Standing thesis",
+        "w": 97,
+        "h": 19,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "Evidence",
+        "w": 58,
+        "h": 19,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "Method",
+        "w": 48,
+        "h": 19,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "follow by RSS",
+        "w": 96,
+        "h": 20,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "/thesis/",
+        "w": 52,
+        "h": 20,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "issue index",
+        "w": 77,
+        "h": 15,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "newest issue",
+        "w": 84,
+        "h": 15,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "publication ledger",
+        "w": 126,
+        "h": 15,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "/corrections/",
+        "w": 89,
+        "h": 20,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "jesse@keatingpike.com",
+        "w": 189,
+        "h": 20,
+        "inline": true
+      }
+    ],
+    "fontSizes": {
+      "16px": 168,
+      "10px": 4,
+      "15.2px": 17,
+      "14px": 16,
+      "13px": 644,
+      "28px": 1,
+      "12px": 126,
+      "20px": 7,
+      "14.4px": 18,
+      "17px": 13,
+      "9.75px": 12,
+      "11px": 22,
+      "10.4px": 6,
+      "13.6px": 38
+    },
+    "smallText": [
+      {
+        "fs": "10px",
+        "tag": "P",
+        "text": "Sourced facts, checked and published automatically. No stances, rankings or fore"
+      },
+      {
+        "fs": "12px",
+        "tag": "P",
+        "text": "Not a news site and not investment advice. · Site updated September 26, 2026 ."
+      },
+      {
+        "fs": "12px",
+        "tag": "TD",
+        "text": "Median revenue growth of tracked public suppliers: + 26 %"
+      },
+      {
+        "fs": "12px",
+        "tag": "SPAN",
+        "text": "Merged with LogRhythm (Thoma Bravo-owned). Closed 2024-07-17."
+      },
+      {
+        "fs": "12px",
+        "tag": "SPAN",
+        "text": "Series G $409M (initial close $359M plus extension $50M) · Jun 2025"
+      },
+      {
+        "fs": "12px",
+        "tag": "TD",
+        "text": "Median revenue growth of tracked public suppliers: + 27.5 %"
+      },
+      {
+        "fs": "12px",
+        "tag": "SPAN",
+        "text": "Independent, venture-backed private company."
+      },
+      {
+        "fs": "12px",
+        "tag": "SPAN",
+        "text": "Independent, venture-backed private company. Confirmed not public."
+      },
+      {
+        "fs": "12px",
+        "tag": "TD",
+        "text": "Median revenue growth of tracked public suppliers: + 30 %"
+      },
+      {
+        "fs": "12px",
+        "tag": "SPAN",
+        "text": "Acquired by Palo Alto Networks · Feb 2026"
+      },
+      {
+        "fs": "12px",
+        "tag": "TD",
+        "text": "Median revenue growth of tracked public suppliers: + 13.9 %"
+      },
+      {
+        "fs": "12px",
+        "tag": "SPAN",
+        "text": "Growth-equity investment (reported as a Series G extension) $400M · Sep 2026"
+      },
+      {
+        "fs": "12px",
+        "tag": "TD",
+        "text": "Median revenue growth of tracked public suppliers: + 18.3 %"
+      },
+      {
+        "fs": "12px",
+        "tag": "TD",
+        "text": "Median revenue growth of tracked public suppliers: + 9.8 %"
+      },
+      {
+        "fs": "12px",
+        "tag": "SPAN",
+        "text": "Growth financing (no series letter disclosed) $280M · Oct 2025"
+      },
+      {
+        "fs": "12px",
+        "tag": "SPAN",
+        "text": "Series F (plus extension) $605M (initial close $530M plus extension $75M) · Sep "
+      },
+      {
+        "fs": "12px",
+        "tag": "SPAN",
+        "text": "PE-owned · Advent International / Crosspoint Capital Partners"
+      },
+      {
+        "fs": "12px",
+        "tag": "SPAN",
+        "text": "Acquired by Palo Alto Networks · Jul 2025"
+      }
+    ],
+    "fontFamilies": [
+      "\"IBM Plex Sans\", system-ui, sans-serif",
+      "\"IBM Plex Mono\", ui-monospace, monospace",
+      "Archivo, system-ui, sans-serif"
+    ],
+    "details": [
+      {
+        "open": false,
+        "summary": "How this is built"
+      },
+      {
+        "open": false,
+        "summary": "Research & evidence"
+      }
+    ],
+    "timeEls": 24,
+    "timeWithDt": 24,
+    "landmarks": [
+      "DIV[region]",
+      "HEADER",
+      "NAV",
+      "MAIN",
+      "NAV",
+      "FOOTER"
+    ],
+    "emptyHeadings": 0,
+    "dupIds": [],
+    "axe": []
+  },
+  "home-320": {
+    "title": "Security Market Pulse — a facts-only supplier tracker",
+    "height": 14006,
+    "scrollWidth": 320,
+    "clientWidth": 320,
+    "firstContent": {
+      "tag": "H1",
+      "text": "The security market, from public numbers",
+      "top": 215
+    },
+    "smallTargets": [
+      {
+        "tag": "A",
+        "text": "Endpoint and XDR",
+        "w": 130,
+        "h": 20,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "Security operations (SIEM/SOAR)",
+        "w": 238,
+        "h": 20,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "Managed security and MDR",
+        "w": 197,
+        "h": 20,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "Network and SASE",
+        "w": 133,
+        "h": 20,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "Cloud security",
+        "w": 103,
+        "h": 20,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "Identity",
+        "w": 57,
+        "h": 20,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "Data security",
+        "w": 97,
+        "h": 20,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "Application security",
+        "w": 143,
+        "h": 20,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "Email security",
+        "w": 102,
+        "h": 20,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "OT and IoT security",
+        "w": 140,
+        "h": 20,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "AI security",
+        "w": 78,
+        "h": 20,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "Issue archive",
+        "w": 85,
+        "h": 19,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "Standing thesis",
+        "w": 97,
+        "h": 19,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "Evidence",
+        "w": 58,
+        "h": 19,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "Method",
+        "w": 48,
+        "h": 19,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "follow by RSS",
+        "w": 96,
+        "h": 20,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "/thesis/",
+        "w": 52,
+        "h": 20,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "issue index",
+        "w": 77,
+        "h": 15,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "newest issue",
+        "w": 84,
+        "h": 15,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "publication ledger",
+        "w": 126,
+        "h": 15,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "/corrections/",
+        "w": 89,
+        "h": 20,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "jesse@keatingpike.com",
+        "w": 189,
+        "h": 20,
+        "inline": true
+      }
+    ],
+    "fontSizes": {
+      "16px": 168,
+      "10px": 4,
+      "15.2px": 17,
+      "14px": 16,
+      "13px": 644,
+      "28px": 1,
+      "12px": 126,
+      "20px": 7,
+      "14.4px": 18,
+      "17px": 13,
+      "9.75px": 12,
+      "11px": 22,
+      "10.4px": 6,
+      "13.6px": 38
+    },
+    "smallText": [
+      {
+        "fs": "10px",
+        "tag": "P",
+        "text": "Sourced facts, checked and published automatically. No stances, rankings or fore"
+      },
+      {
+        "fs": "12px",
+        "tag": "P",
+        "text": "Not a news site and not investment advice. · Site updated September 26, 2026 ."
+      },
+      {
+        "fs": "12px",
+        "tag": "TD",
+        "text": "Median revenue growth of tracked public suppliers: + 26 %"
+      },
+      {
+        "fs": "12px",
+        "tag": "SPAN",
+        "text": "Merged with LogRhythm (Thoma Bravo-owned). Closed 2024-07-17."
+      },
+      {
+        "fs": "12px",
+        "tag": "SPAN",
+        "text": "Series G $409M (initial close $359M plus extension $50M) · Jun 2025"
+      },
+      {
+        "fs": "12px",
+        "tag": "TD",
+        "text": "Median revenue growth of tracked public suppliers: + 27.5 %"
+      },
+      {
+        "fs": "12px",
+        "tag": "SPAN",
+        "text": "Independent, venture-backed private company."
+      },
+      {
+        "fs": "12px",
+        "tag": "SPAN",
+        "text": "Independent, venture-backed private company. Confirmed not public."
+      },
+      {
+        "fs": "12px",
+        "tag": "TD",
+        "text": "Median revenue growth of tracked public suppliers: + 30 %"
+      },
+      {
+        "fs": "12px",
+        "tag": "SPAN",
+        "text": "Acquired by Palo Alto Networks · Feb 2026"
+      },
+      {
+        "fs": "12px",
+        "tag": "TD",
+        "text": "Median revenue growth of tracked public suppliers: + 13.9 %"
+      },
+      {
+        "fs": "12px",
+        "tag": "SPAN",
+        "text": "Growth-equity investment (reported as a Series G extension) $400M · Sep 2026"
+      },
+      {
+        "fs": "12px",
+        "tag": "TD",
+        "text": "Median revenue growth of tracked public suppliers: + 18.3 %"
+      },
+      {
+        "fs": "12px",
+        "tag": "TD",
+        "text": "Median revenue growth of tracked public suppliers: + 9.8 %"
+      },
+      {
+        "fs": "12px",
+        "tag": "SPAN",
+        "text": "Growth financing (no series letter disclosed) $280M · Oct 2025"
+      },
+      {
+        "fs": "12px",
+        "tag": "SPAN",
+        "text": "Series F (plus extension) $605M (initial close $530M plus extension $75M) · Sep "
+      },
+      {
+        "fs": "12px",
+        "tag": "SPAN",
+        "text": "PE-owned · Advent International / Crosspoint Capital Partners"
+      },
+      {
+        "fs": "12px",
+        "tag": "SPAN",
+        "text": "Acquired by Palo Alto Networks · Jul 2025"
+      }
+    ],
+    "fontFamilies": [
+      "\"IBM Plex Sans\", system-ui, sans-serif",
+      "\"IBM Plex Mono\", ui-monospace, monospace",
+      "Archivo, system-ui, sans-serif"
+    ],
+    "details": [
+      {
+        "open": false,
+        "summary": "How this is built"
+      },
+      {
+        "open": false,
+        "summary": "Research & evidence"
+      }
+    ],
+    "timeEls": 24,
+    "timeWithDt": 24,
+    "landmarks": [
+      "DIV[region]",
+      "HEADER",
+      "NAV",
+      "MAIN",
+      "NAV",
+      "FOOTER"
+    ],
+    "emptyHeadings": 0,
+    "dupIds": [],
+    "axe": null
+  },
+  "corrections-1440": {
+    "title": "Corrections · Security Market Pulse",
+    "height": 1033,
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "firstContent": {
+      "tag": "H1",
+      "text": "Corrections",
+      "top": 129
+    },
+    "smallTargets": [
+      {
+        "tag": "A",
+        "text": "jesse@keatingpike.com",
+        "w": 170,
+        "h": 20,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "Issue 2026-w36",
+        "w": 98,
+        "h": 15,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "Back to the standing reference",
+        "w": 222,
+        "h": 20,
+        "inline": true
+      }
+    ],
+    "fontSizes": {
+      "16px": 6,
+      "10px": 4,
+      "15.2px": 1,
+      "14px": 6,
+      "13px": 1,
+      "42.4px": 1,
+      "12px": 6
+    },
+    "smallText": [
+      {
+        "fs": "10px",
+        "tag": "P",
+        "text": "Sourced facts, checked and published automatically. No stances, rankings or fore"
+      }
+    ],
+    "fontFamilies": [
+      "\"IBM Plex Sans\", system-ui, sans-serif",
+      "\"IBM Plex Mono\", ui-monospace, monospace",
+      "Archivo, system-ui, sans-serif"
+    ],
+    "details": [],
+    "timeEls": 4,
+    "timeWithDt": 4,
+    "landmarks": [
+      "DIV[region]",
+      "HEADER",
+      "NAV",
+      "MAIN"
+    ],
+    "emptyHeadings": 0,
+    "dupIds": [],
+    "axe": []
+  },
+  "corrections-390": {
+    "title": "Corrections · Security Market Pulse",
+    "height": 1642,
+    "scrollWidth": 390,
+    "clientWidth": 390,
+    "firstContent": {
+      "tag": "H1",
+      "text": "Corrections",
+      "top": 190
+    },
+    "smallTargets": [
+      {
+        "tag": "A",
+        "text": "jesse@keatingpike.com",
+        "w": 170,
+        "h": 20,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "Issue 2026-w36",
+        "w": 98,
+        "h": 15,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "Back to the standing reference",
+        "w": 222,
+        "h": 20,
+        "inline": true
+      }
+    ],
+    "fontSizes": {
+      "16px": 6,
+      "10px": 4,
+      "15.2px": 1,
+      "14px": 1,
+      "13px": 1,
+      "28px": 1,
+      "12px": 6
+    },
+    "smallText": [
+      {
+        "fs": "10px",
+        "tag": "P",
+        "text": "Sourced facts, checked and published automatically. No stances, rankings or fore"
+      }
+    ],
+    "fontFamilies": [
+      "\"IBM Plex Sans\", system-ui, sans-serif",
+      "\"IBM Plex Mono\", ui-monospace, monospace",
+      "Archivo, system-ui, sans-serif"
+    ],
+    "details": [],
+    "timeEls": 4,
+    "timeWithDt": 4,
+    "landmarks": [
+      "DIV[region]",
+      "HEADER",
+      "NAV",
+      "MAIN"
+    ],
+    "emptyHeadings": 0,
+    "dupIds": [],
+    "axe": []
+  },
+  "corrections-320": {
+    "title": "Corrections · Security Market Pulse",
+    "height": 1964,
+    "scrollWidth": 320,
+    "clientWidth": 320,
+    "firstContent": {
+      "tag": "H1",
+      "text": "Corrections",
+      "top": 231
+    },
+    "smallTargets": [
+      {
+        "tag": "A",
+        "text": "jesse@keatingpike.com",
+        "w": 170,
+        "h": 20,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "Issue 2026-w36",
+        "w": 98,
+        "h": 15,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "Back to the standing reference",
+        "w": 222,
+        "h": 20,
+        "inline": true
+      }
+    ],
+    "fontSizes": {
+      "16px": 6,
+      "10px": 4,
+      "15.2px": 1,
+      "14px": 1,
+      "13px": 1,
+      "28px": 1,
+      "12px": 6
+    },
+    "smallText": [
+      {
+        "fs": "10px",
+        "tag": "P",
+        "text": "Sourced facts, checked and published automatically. No stances, rankings or fore"
+      }
+    ],
+    "fontFamilies": [
+      "\"IBM Plex Sans\", system-ui, sans-serif",
+      "\"IBM Plex Mono\", ui-monospace, monospace",
+      "Archivo, system-ui, sans-serif"
+    ],
+    "details": [],
+    "timeEls": 4,
+    "timeWithDt": 4,
+    "landmarks": [
+      "DIV[region]",
+      "HEADER",
+      "NAV",
+      "MAIN"
+    ],
+    "emptyHeadings": 0,
+    "dupIds": [],
+    "axe": null
+  },
+  "issues-1440": {
+    "title": "Issues · Security Market Pulse",
+    "height": 900,
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "firstContent": {
+      "tag": "H1",
+      "text": "Issues",
+      "top": 129
+    },
+    "smallTargets": [
+      {
+        "tag": "A",
+        "text": "Back to the standing reference",
+        "w": 222,
+        "h": 20,
+        "inline": true
+      }
+    ],
+    "fontSizes": {
+      "16px": 4,
+      "10px": 4,
+      "15.2px": 1,
+      "14px": 6,
+      "13px": 1,
+      "42.4px": 1,
+      "14.4px": 2,
+      "12px": 2
+    },
+    "smallText": [
+      {
+        "fs": "10px",
+        "tag": "P",
+        "text": "Sourced facts, checked and published automatically. No stances, rankings or fore"
+      }
+    ],
+    "fontFamilies": [
+      "\"IBM Plex Sans\", system-ui, sans-serif",
+      "\"IBM Plex Mono\", ui-monospace, monospace",
+      "Archivo, system-ui, sans-serif"
+    ],
+    "details": [],
+    "timeEls": 2,
+    "timeWithDt": 2,
+    "landmarks": [
+      "DIV[region]",
+      "HEADER",
+      "NAV",
+      "MAIN"
+    ],
+    "emptyHeadings": 0,
+    "dupIds": [],
+    "axe": null
+  },
+  "issues-390": {
+    "title": "Issues · Security Market Pulse",
+    "height": 844,
+    "scrollWidth": 390,
+    "clientWidth": 390,
+    "firstContent": {
+      "tag": "H1",
+      "text": "Issues",
+      "top": 190
+    },
+    "smallTargets": [
+      {
+        "tag": "A",
+        "text": "Back to the standing reference",
+        "w": 222,
+        "h": 20,
+        "inline": true
+      }
+    ],
+    "fontSizes": {
+      "16px": 4,
+      "10px": 4,
+      "15.2px": 1,
+      "14px": 1,
+      "13px": 1,
+      "28px": 1,
+      "14.4px": 2,
+      "12px": 2
+    },
+    "smallText": [
+      {
+        "fs": "10px",
+        "tag": "P",
+        "text": "Sourced facts, checked and published automatically. No stances, rankings or fore"
+      }
+    ],
+    "fontFamilies": [
+      "\"IBM Plex Sans\", system-ui, sans-serif",
+      "\"IBM Plex Mono\", ui-monospace, monospace",
+      "Archivo, system-ui, sans-serif"
+    ],
+    "details": [],
+    "timeEls": 2,
+    "timeWithDt": 2,
+    "landmarks": [
+      "DIV[region]",
+      "HEADER",
+      "NAV",
+      "MAIN"
+    ],
+    "emptyHeadings": 0,
+    "dupIds": [],
+    "axe": null
+  },
+  "issues-320": {
+    "title": "Issues · Security Market Pulse",
+    "height": 800,
+    "scrollWidth": 320,
+    "clientWidth": 320,
+    "firstContent": {
+      "tag": "H1",
+      "text": "Issues",
+      "top": 231
+    },
+    "smallTargets": [
+      {
+        "tag": "A",
+        "text": "Back to the standing reference",
+        "w": 222,
+        "h": 20,
+        "inline": true
+      }
+    ],
+    "fontSizes": {
+      "16px": 4,
+      "10px": 4,
+      "15.2px": 1,
+      "14px": 1,
+      "13px": 1,
+      "28px": 1,
+      "14.4px": 2,
+      "12px": 2
+    },
+    "smallText": [
+      {
+        "fs": "10px",
+        "tag": "P",
+        "text": "Sourced facts, checked and published automatically. No stances, rankings or fore"
+      }
+    ],
+    "fontFamilies": [
+      "\"IBM Plex Sans\", system-ui, sans-serif",
+      "\"IBM Plex Mono\", ui-monospace, monospace",
+      "Archivo, system-ui, sans-serif"
+    ],
+    "details": [],
+    "timeEls": 2,
+    "timeWithDt": 2,
+    "landmarks": [
+      "DIV[region]",
+      "HEADER",
+      "NAV",
+      "MAIN"
+    ],
+    "emptyHeadings": 0,
+    "dupIds": [],
+    "axe": null
+  },
+  "thesis-1440": {
+    "title": "Standing analysis: does security spending lag infrastructure spending? · Security Market Pulse",
+    "height": 1779,
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "firstContent": {
+      "tag": "H1",
+      "text": "Standing analysis: does security spending lag infrastructure spending?",
+      "top": 129
+    },
+    "smallTargets": [
+      {
+        "tag": "A",
+        "text": "Back to the front page",
+        "w": 160,
+        "h": 20,
+        "inline": true
+      }
+    ],
+    "fontSizes": {
+      "16px": 4,
+      "10px": 4,
+      "15.2px": 1,
+      "14px": 7,
+      "13px": 4,
+      "42.4px": 1,
+      "14.4px": 20,
+      "11px": 5,
+      "24px": 2,
+      "11.52px": 6,
+      "34.4px": 3,
+      "10.4px": 5
+    },
+    "smallText": [
+      {
+        "fs": "10px",
+        "tag": "P",
+        "text": "Sourced facts, checked and published automatically. No stances, rankings or fore"
+      },
+      {
+        "fs": "11px",
+        "tag": "P",
+        "text": "Market condition · not vendor performance"
+      }
+    ],
+    "fontFamilies": [
+      "\"IBM Plex Sans\", system-ui, sans-serif",
+      "\"IBM Plex Mono\", ui-monospace, monospace",
+      "Archivo, system-ui, sans-serif",
+      "Arial"
+    ],
+    "details": [],
+    "timeEls": 2,
+    "timeWithDt": 2,
+    "landmarks": [
+      "DIV[region]",
+      "HEADER",
+      "NAV",
+      "MAIN"
+    ],
+    "emptyHeadings": 0,
+    "dupIds": [],
+    "axe": null
+  },
+  "thesis-390": {
+    "title": "Standing analysis: does security spending lag infrastructure spending? · Security Market Pulse",
+    "height": 3061,
+    "scrollWidth": 390,
+    "clientWidth": 390,
+    "firstContent": {
+      "tag": "H1",
+      "text": "Standing analysis: does security spending lag infrastructure spending?",
+      "top": 190
+    },
+    "smallTargets": [
+      {
+        "tag": "A",
+        "text": "Back to the front page",
+        "w": 160,
+        "h": 20,
+        "inline": true
+      }
+    ],
+    "fontSizes": {
+      "16px": 4,
+      "10px": 4,
+      "15.2px": 1,
+      "14px": 2,
+      "13px": 4,
+      "28px": 4,
+      "14.4px": 20,
+      "11px": 5,
+      "20px": 2,
+      "11.52px": 6,
+      "10.4px": 5
+    },
+    "smallText": [
+      {
+        "fs": "10px",
+        "tag": "P",
+        "text": "Sourced facts, checked and published automatically. No stances, rankings or fore"
+      },
+      {
+        "fs": "11px",
+        "tag": "P",
+        "text": "Market condition · not vendor performance"
+      }
+    ],
+    "fontFamilies": [
+      "\"IBM Plex Sans\", system-ui, sans-serif",
+      "\"IBM Plex Mono\", ui-monospace, monospace",
+      "Archivo, system-ui, sans-serif",
+      "Arial"
+    ],
+    "details": [],
+    "timeEls": 2,
+    "timeWithDt": 2,
+    "landmarks": [
+      "DIV[region]",
+      "HEADER",
+      "NAV",
+      "MAIN"
+    ],
+    "emptyHeadings": 0,
+    "dupIds": [],
+    "axe": null
+  },
+  "thesis-320": {
+    "title": "Standing analysis: does security spending lag infrastructure spending? · Security Market Pulse",
+    "height": 3605,
+    "scrollWidth": 320,
+    "clientWidth": 320,
+    "firstContent": {
+      "tag": "H1",
+      "text": "Standing analysis: does security spending lag infrastructure spending?",
+      "top": 231
+    },
+    "smallTargets": [
+      {
+        "tag": "A",
+        "text": "Back to the front page",
+        "w": 160,
+        "h": 20,
+        "inline": true
+      }
+    ],
+    "fontSizes": {
+      "16px": 4,
+      "10px": 4,
+      "15.2px": 1,
+      "14px": 2,
+      "13px": 4,
+      "28px": 4,
+      "14.4px": 20,
+      "11px": 5,
+      "20px": 2,
+      "11.52px": 6,
+      "10.4px": 5
+    },
+    "smallText": [
+      {
+        "fs": "10px",
+        "tag": "P",
+        "text": "Sourced facts, checked and published automatically. No stances, rankings or fore"
+      },
+      {
+        "fs": "11px",
+        "tag": "P",
+        "text": "Market condition · not vendor performance"
+      }
+    ],
+    "fontFamilies": [
+      "\"IBM Plex Sans\", system-ui, sans-serif",
+      "\"IBM Plex Mono\", ui-monospace, monospace",
+      "Archivo, system-ui, sans-serif",
+      "Arial"
+    ],
+    "details": [],
+    "timeEls": 2,
+    "timeWithDt": 2,
+    "landmarks": [
+      "DIV[region]",
+      "HEADER",
+      "NAV",
+      "MAIN"
+    ],
+    "emptyHeadings": 0,
+    "dupIds": [],
+    "axe": null
+  },
+  "issues_2026-w36-1440": {
+    "title": "Issue 2026-w36 · Security Market Pulse",
+    "height": 5807,
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "firstContent": {
+      "tag": "P",
+      "text": "Signed weekly issues were discontinued on 25 September 2026. This page is kept u",
+      "top": 113
+    },
+    "smallTargets": [
+      {
+        "tag": "A",
+        "text": "Feed",
+        "w": 34,
+        "h": 14,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "See correction",
+        "w": 85,
+        "h": 17,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "See correction",
+        "w": 85,
+        "h": 17,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "Back to the archive",
+        "w": 139,
+        "h": 20,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "Standing reference",
+        "w": 137,
+        "h": 20,
+        "inline": true
+      }
+    ],
+    "fontSizes": {
+      "16px": 31,
+      "10px": 10,
+      "15.2px": 1,
+      "14px": 6,
+      "13px": 27,
+      "14.4px": 27,
+      "12px": 24,
+      "11px": 2,
+      "42.4px": 1,
+      "24px": 5,
+      "13.6px": 1,
+      "12.8px": 1
+    },
+    "smallText": [
+      {
+        "fs": "10px",
+        "tag": "P",
+        "text": "Sourced facts, checked and published automatically. No stances, rankings or fore"
+      },
+      {
+        "fs": "12px",
+        "tag": "P",
+        "text": "Not a news site and not investment advice."
+      },
+      {
+        "fs": "11px",
+        "tag": "P",
+        "text": "Issue 2026-w36 · week ending 6 Sep 2026 · published 19 Sep 2026 ·"
+      }
+    ],
+    "fontFamilies": [
+      "\"IBM Plex Sans\", system-ui, sans-serif",
+      "\"IBM Plex Mono\", ui-monospace, monospace",
+      "Archivo, system-ui, sans-serif",
+      "Arial"
+    ],
+    "details": [],
+    "timeEls": 27,
+    "timeWithDt": 27,
+    "landmarks": [
+      "DIV[region]",
+      "HEADER",
+      "NAV",
+      "MAIN"
+    ],
+    "emptyHeadings": 0,
+    "dupIds": [],
+    "axe": null
+  },
+  "issues_2026-w36-390": {
+    "title": "Issue 2026-w36 · Security Market Pulse",
+    "height": 8293,
+    "scrollWidth": 390,
+    "clientWidth": 390,
+    "firstContent": {
+      "tag": "P",
+      "text": "Signed weekly issues were discontinued on 25 September 2026. This page is kept u",
+      "top": 174
+    },
+    "smallTargets": [
+      {
+        "tag": "A",
+        "text": "Feed",
+        "w": 34,
+        "h": 14,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "See correction",
+        "w": 85,
+        "h": 17,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "See correction",
+        "w": 85,
+        "h": 17,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "Back to the archive",
+        "w": 139,
+        "h": 20,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "Standing reference",
+        "w": 137,
+        "h": 20,
+        "inline": true
+      }
+    ],
+    "fontSizes": {
+      "16px": 31,
+      "10px": 10,
+      "15.2px": 1,
+      "14px": 1,
+      "13px": 27,
+      "14.4px": 27,
+      "12px": 24,
+      "11px": 2,
+      "28px": 1,
+      "20px": 5,
+      "13.6px": 1,
+      "12.8px": 1
+    },
+    "smallText": [
+      {
+        "fs": "10px",
+        "tag": "P",
+        "text": "Sourced facts, checked and published automatically. No stances, rankings or fore"
+      },
+      {
+        "fs": "12px",
+        "tag": "P",
+        "text": "Not a news site and not investment advice."
+      },
+      {
+        "fs": "11px",
+        "tag": "P",
+        "text": "Issue 2026-w36 · week ending 6 Sep 2026 · published 19 Sep 2026 ·"
+      }
+    ],
+    "fontFamilies": [
+      "\"IBM Plex Sans\", system-ui, sans-serif",
+      "\"IBM Plex Mono\", ui-monospace, monospace",
+      "Archivo, system-ui, sans-serif",
+      "Arial"
+    ],
+    "details": [],
+    "timeEls": 27,
+    "timeWithDt": 27,
+    "landmarks": [
+      "DIV[region]",
+      "HEADER",
+      "NAV",
+      "MAIN"
+    ],
+    "emptyHeadings": 0,
+    "dupIds": [],
+    "axe": null
+  },
+  "issues_2026-w36-320": {
+    "title": "Issue 2026-w36 · Security Market Pulse",
+    "height": 9507,
+    "scrollWidth": 320,
+    "clientWidth": 320,
+    "firstContent": {
+      "tag": "P",
+      "text": "Signed weekly issues were discontinued on 25 September 2026. This page is kept u",
+      "top": 215
+    },
+    "smallTargets": [
+      {
+        "tag": "A",
+        "text": "Feed",
+        "w": 34,
+        "h": 14,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "See correction",
+        "w": 85,
+        "h": 17,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "See correction",
+        "w": 85,
+        "h": 17,
+        "inline": true
+      },
+      {
+        "tag": "A",
+        "text": "Back to the archive",
+        "w": 139,
+        "h": 20,
+        "inline": true
+      }
+    ],
+    "fontSizes": {
+      "16px": 31,
+      "10px": 10,
+      "15.2px": 1,
+      "14px": 1,
+      "13px": 27,
+      "14.4px": 27,
+      "12px": 24,
+      "11px": 2,
+      "28px": 1,
+      "20px": 5,
+      "13.6px": 1,
+      "12.8px": 1
+    },
+    "smallText": [
+      {
+        "fs": "10px",
+        "tag": "P",
+        "text": "Sourced facts, checked and published automatically. No stances, rankings or fore"
+      },
+      {
+        "fs": "12px",
+        "tag": "P",
+        "text": "Not a news site and not investment advice."
+      },
+      {
+        "fs": "11px",
+        "tag": "P",
+        "text": "Issue 2026-w36 · week ending 6 Sep 2026 · published 19 Sep 2026 ·"
+      }
+    ],
+    "fontFamilies": [
+      "\"IBM Plex Sans\", system-ui, sans-serif",
+      "\"IBM Plex Mono\", ui-monospace, monospace",
+      "Archivo, system-ui, sans-serif",
+      "Arial"
+    ],
+    "details": [],
+    "timeEls": 27,
+    "timeWithDt": 27,
+    "landmarks": [
+      "DIV[region]",
+      "HEADER",
+      "NAV",
+      "MAIN"
+    ],
+    "emptyHeadings": 0,
+    "dupIds": [],
+    "axe": null
+  }
+}
