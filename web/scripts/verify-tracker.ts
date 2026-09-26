@@ -78,6 +78,32 @@ function checkDateField(label: string, value: string | undefined): void {
   }
 }
 
+function isIsoMonth(value: string): boolean {
+  if (!/^\d{4}-\d{2}$/.test(value)) return false
+  const [y, m] = value.split('-').map(Number)
+  return m >= 1 && m <= 12 && y > 1900
+}
+
+/**
+ * A funding round's date sometimes only has month precision in the sourced
+ * evidence (the press release says "January 2024" and no closing-day figure
+ * exists anywhere). Rather than invent a day, this accepts "YYYY-MM" in
+ * addition to a full ISO date — still checked against TODAY at month
+ * granularity so a future-dated round still fails.
+ */
+function checkFundingDateField(label: string, value: string | undefined): void {
+  if (!value) return
+  if (isIsoDate(value)) {
+    if (value > TODAY) fail(`${label}: "${value}" is after today (${TODAY})`)
+    return
+  }
+  if (isIsoMonth(value)) {
+    if (value > TODAY.slice(0, 7)) fail(`${label}: "${value}" is after today (${TODAY})`)
+    return
+  }
+  fail(`${label}: "${value}" is neither a valid ISO calendar date nor a "YYYY-MM" month`)
+}
+
 function checkEvidenceIds(label: string, ids: string[] | undefined): void {
   if (!ids || ids.length === 0) {
     fail(`${label}: cites no evidence`)
@@ -158,13 +184,18 @@ for (const supplier of trackerSuppliers) {
   }
   if (supplier.revenue) {
     checkEvidenceIds(`${who} revenue.latest`, supplier.revenue.latest.evidenceIds)
-    checkEvidenceIds(`${who} revenue.prior`, supplier.revenue.prior.evidenceIds)
+    // `prior` is optional — some segments (e.g. an unbroken-out Microsoft
+    // product line) only have one comparable quarter in the research.
+    if (supplier.revenue.prior) {
+      checkEvidenceIds(`${who} revenue.prior`, supplier.revenue.prior.evidenceIds)
+      checkDateField(`${who} revenue.prior.periodEnd`, supplier.revenue.prior.periodEnd)
+    }
     checkDateField(`${who} revenue.latest.periodEnd`, supplier.revenue.latest.periodEnd)
     checkDateField(`${who} revenue.latest.releaseDate`, supplier.revenue.latest.releaseDate)
   }
   if (supplier.lastRound) {
     checkEvidenceIds(`${who} lastRound`, supplier.lastRound.evidenceIds)
-    checkDateField(`${who} lastRound.date`, supplier.lastRound.date)
+    checkFundingDateField(`${who} lastRound.date`, supplier.lastRound.date)
     checkBanned(`${who} lastRound.stage`, supplier.lastRound.stage)
   }
   if (supplier.ownership) {

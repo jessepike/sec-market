@@ -7,7 +7,7 @@ import {
 } from '../data/tracker/derive'
 import { trackerDomains } from '../data/tracker/domains'
 import type { TrackerSupplier } from '../data/tracker/suppliers'
-import { formatIsoDate } from '../utils/formatDate'
+import { formatIsoDate, formatIsoDateOrMonth } from '../utils/formatDate'
 import { EvidenceLink } from './EvidenceLink'
 
 type SortKey = 'name' | 'growthLatest' | 'growthPrior' | 'headline' | 'capital' | 'events'
@@ -38,7 +38,7 @@ function sortValue(supplier: TrackerSupplier, key: SortKey): string | number {
     case 'growthLatest':
       return parseGrowthPercent(supplier.revenue?.latest.yoyGrowth) ?? Number.NEGATIVE_INFINITY
     case 'growthPrior':
-      return parseGrowthPercent(supplier.revenue?.prior.yoyGrowth) ?? Number.NEGATIVE_INFINITY
+      return parseGrowthPercent(supplier.revenue?.prior?.yoyGrowth) ?? Number.NEGATIVE_INFINITY
     case 'headline':
       return supplier.headlineMetric?.value ?? ''
     case 'capital':
@@ -64,7 +64,7 @@ function CapitalCell({ supplier }: { supplier: TrackerSupplier }) {
     const round = supplier.lastRound
     return (
       <span data-label="Last funding round or ownership">
-        {round.stage} {round.amount} · {formatIsoDate(round.date)}
+        {round.stage} {round.amount} · {formatIsoDateOrMonth(round.date)}
         {round.lead ? ` · ${round.lead}` : ''}
         <EvidenceLink ids={round.evidenceIds} />
       </span>
@@ -134,7 +134,7 @@ function DomainTable({ domainId, domainName }: { domainId: string; domainName: s
                     )}
                   </td>
                   <td data-label="Revenue growth, prior quarter">
-                    {supplier.revenue ? (
+                    {supplier.revenue?.prior ? (
                       <>
                         {supplier.revenue.prior.yoyGrowth} ({supplier.revenue.prior.periodEnd})
                         <EvidenceLink ids={supplier.revenue.prior.evidenceIds} />

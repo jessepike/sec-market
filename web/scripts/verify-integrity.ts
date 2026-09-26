@@ -9,6 +9,8 @@ import { issues } from '../src/data/issues/index.ts'
 import { contextStats, chartEvidenceIds, marketCall } from '../src/data/market.ts'
 import { allPressureRows } from '../src/data/platformPressure.ts'
 import { printGroups, vendorPrints } from '../src/data/prints.ts'
+import { trackerEvents } from '../src/data/tracker/events.ts'
+import { trackerSuppliers } from '../src/data/tracker/suppliers.ts'
 import type { Provenance } from '../src/data/types.ts'
 import { weekMoves } from '../src/data/whatMoved.ts'
 import { PrintGrid } from '../src/components/PrintGrid.tsx'
@@ -94,6 +96,18 @@ function collectAllReferencedIds(): Set<string> {
   for (const stat of contextStats) add(stat.evidenceIds)
   for (const record of evidenceRecords) add(record.conflictingEvidenceIds)
   for (const issue of issues) add(issueEvidenceIds(issue))
+
+  // Tracker data (step 5, docs/active/autonomy-coverage-plan.md §4) — the
+  // supplier tracker cites evidence.ts records the same way the rest of the
+  // site does, so those citations count here too.
+  for (const supplier of trackerSuppliers) {
+    add(supplier.headlineMetric?.evidenceIds)
+    add(supplier.revenue?.latest.evidenceIds)
+    add(supplier.revenue?.prior?.evidenceIds)
+    add(supplier.lastRound?.evidenceIds)
+    add(supplier.ownership?.evidenceIds)
+  }
+  for (const event of trackerEvents) add(event.evidenceIds)
 
   return ids
 }

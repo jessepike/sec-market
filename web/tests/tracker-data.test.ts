@@ -64,7 +64,7 @@ describe('tracker domains and suppliers', () => {
     for (const supplier of trackerSuppliers) {
       for (const id of supplier.headlineMetric?.evidenceIds ?? []) ids.add(id)
       for (const id of supplier.revenue?.latest.evidenceIds ?? []) ids.add(id)
-      for (const id of supplier.revenue?.prior.evidenceIds ?? []) ids.add(id)
+      for (const id of supplier.revenue?.prior?.evidenceIds ?? []) ids.add(id)
       for (const id of supplier.lastRound?.evidenceIds ?? []) ids.add(id)
       for (const id of supplier.ownership?.evidenceIds ?? []) ids.add(id)
     }
