@@ -83,7 +83,7 @@ for disallowed in \
 done
 
 echo ""
-echo "--- main_matches_preview (drift guard, stricter than publish-issue.sh's) ---"
+echo "--- main_matches_preview (drift guard over site, workflows and scripts) ---"
 MMP_REPO="$(mktemp -d)"
 (
   cd "$MMP_REPO" || exit 1
@@ -119,10 +119,10 @@ fi
 
 ( cd "$MMP_REPO" && echo "two" > docs/notes.md && git add -A && git commit -qm "docs only" )
 if mmp_matches; then
-  echo "FAIL: a docs/-only difference should NOT be excluded here — this script's guard is stricter than publish-issue.sh's on purpose"
-  FAILURES=$((FAILURES + 1))
+  echo "PASS: a docs/-only difference does not block publishing (D-79)"
 else
-  echo "PASS: a docs/-only difference is caught (unlike publish-issue.sh's record-keeping exclusion)"
+  echo "FAIL: a docs/-only difference should not block publishing (D-79)"
+  FAILURES=$((FAILURES + 1))
 fi
 
 ( cd "$MMP_REPO" && git checkout -q "origin/main" && echo "two" > web/src/app.ts && git add -A && git commit -qm "site code" )
@@ -279,9 +279,10 @@ git clone -q "$E2E3_REMOTE" "$E2E3_CLONE/repo"
   git config user.name "Test"
   # An un-promoted site change on preview: outside the data allowlist.
   git checkout -q preview
-  echo "unreviewed" > README.md
+  mkdir -p web/src
+  echo "unreviewed" > web/src/unreviewed.ts
   git add -A
-  git commit -qm "docs: unreviewed site note"
+  git commit -qm "feat(web): unreviewed site change"
   git push -q origin preview
   git checkout -q -b data/edgar-2
   echo '{"suppliers":["y"]}' > web/src/data/generated/edgarFacts.json

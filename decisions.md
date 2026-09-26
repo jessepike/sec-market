@@ -991,3 +991,13 @@ one label. Palo Alto's segment figures and Upwind's new round were left unchange
 primary source could be read. The promotion also carried the SEC-054 Platform pressure correction
 and the EDGAR runner (not yet on any page). The live host was checked: new figures and the
 corrected wording served, five routes return 200. Report: `docs/active/auto/step0/report.md`.
+
+**D-79 · 2026-09-25 — The automatic publish path compares only the site, the workflows and the scripts when deciding whether production may move; record-keeping commits no longer block facts from publishing.**
+
+As built in step 4, `scripts/auto-publish.sh` refused to move `main` whenever `preview` differed from
+it anywhere outside the data files, including `docs/`. Every run-state or decision commit would
+then have held back published facts until someone promoted by hand, which is the bottleneck D-76
+removed. The comparison now covers `web/`, `.github/` and `scripts/` (minus the data allowlist).
+An unreviewed change to the site, its workflows or its publishing scripts still stops production
+from moving; the data then lands on `preview` only and the page reads "collection incomplete".
+The coordinator took this on its own recommendation under D-77.

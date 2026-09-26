@@ -128,16 +128,12 @@ is_allowed_data_path() {
   esac
 }
 
-# Pathspecs for the main/preview drift snapshot — everything EXCEPT the data
-# allowlist must match. Deliberately not the same exclusion list as
-# publish-issue.sh's PRODUCTION_GUARD_EXCLUDE (docs/, status.md, etc.): the
-# spec for this script says "identical ... outside that allowlist", full
-# stop, so an ordinary un-promoted record-keeping commit on preview also
-# blocks main here. That is stricter than the weekly path on purpose — this
-# script runs unattended and far more often, so it errs toward "data-only,
-# nothing else moved" over "usually fine to promote". If that turns out to
-# starve real publishes in practice, loosening it is a owner decision, not
-# one this script makes for itself; noted in docs/active/auto/step4/report.md.
+# Pathspecs for the main/preview drift snapshot. Only paths that change what
+# production serves or how it is published are compared: the site ($web_dir),
+# the workflows (.github/) and these scripts (scripts/), each minus the data
+# allowlist. Record-keeping under docs/ and the root markdown files is not
+# compared, so an ordinary docs commit on preview does not stop facts from
+# publishing; it simply rides along on the next fast-forward (AUTO-001, D-79).
 data_allowlist_exclude() {
   local web_dir="$1"
   printf '%s\n' \
@@ -154,7 +150,7 @@ main_matches_preview() {
   local remote="$1" web_dir="$2"
   local exclude=()
   while IFS= read -r line; do exclude+=("$line"); done < <(data_allowlist_exclude "$web_dir")
-  git diff --quiet "$remote/main" "$remote/preview" -- . "${exclude[@]}"
+  git diff --quiet "$remote/main" "$remote/preview" -- "$web_dir" .github scripts "${exclude[@]}"
 }
 
 # Pushes with an explicit, per-invocation auth header rather than a stored
