@@ -22,7 +22,7 @@ export interface RunStatus {
 }
 
 export const runStatus: RunStatus = {
-  lastChecked: '2026-09-25',
-  state: 'updated',
+  lastChecked: "2026-09-26",
+  state: "updated",
   failedSources: [],
 }

@@ -3375,6 +3375,31 @@ export const evidenceRecords: EvidenceRecord[] = [
   "retrievedAt": "2026-09-25"
 },
 {
+  "id": "TR-optiv-4",
+  "title": "Optiv Sells ACT Business to Vobis Ventures",
+  "organization": "Optiv Security Inc.",
+  "publicationDate": "2026-06-02",
+  "economicPeriod": "June 2026",
+  "canonicalUrl": "https://www.optiv.com/company/press-releases/optiv-sells-advisory-consulting-and-transformation-act-business-vobis",
+  "excerpt": "Optiv announced the sale of its advisory, consulting and transformation (ACT) project-based services business to Vobis Ventures. The deal officially closed June 1, 2026. Optiv's managed services and staff augmentation will remain in-house.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-optiv-4",
+  "tags": [
+    "tracker",
+    "managed-security"
+  ],
+  "retrievedAt": "2026-09-26",
+  "retrieval": {
+    "finalUrl": "https://www.optiv.com/company/press-releases/optiv-sells-advisory-consulting-and-transformation-act-business-vobis",
+    "sha256": "b3ce593e2c26fdc3f1ace774018e51e7a13a3c309f960706ab3e0e43321ecb43",
+    "fetchedAt": "2026-09-26T14:50:00Z",
+    "locator": "Press release dated June 02, 2026"
+  }
+},
+{
   "id": "TR-orca-1",
   "title": "Orca Security Company Information",
   "organization": "Orca Security",

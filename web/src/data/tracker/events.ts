@@ -397,6 +397,17 @@ export const trackerEvents: TrackerEvent[] = [
     "rung": 1
   },
   {
+    "id": "EV-optiv-3",
+    "supplierId": "optiv",
+    "date": "2026-06-02",
+    "type": "divestiture",
+    "text": "Optiv announced the sale of its advisory, consulting and transformation (ACT) project-based services business to Vobis Ventures; the deal closed June 1, 2026. Optiv said its managed services and staff augmentation remain in-house.",
+    "evidenceIds": [
+      "TR-optiv-4"
+    ],
+    "rung": 4
+  },
+  {
     "id": "EV-panw-1",
     "supplierId": "panw",
     "date": "2026-02-11",
