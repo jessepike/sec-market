@@ -3547,10 +3547,30 @@ summary:focus-visible,
   color: var(--color-alert);
 }
 
+/* Third fix pass, items 1–2: a closed, opt-in disclosure instead of an
+   always-visible line of raw collector strings — a reader who wants the
+   detail can open it; one who doesn't isn't shown 25+ source names by
+   default. Native <details>, so it needs no script and is keyboard-
+   operable (Enter/Space on the <summary>) for free. */
 .run-status__failed {
-  margin: 0.35rem 0 0;
+  margin: 0.5rem 0 0;
   font-size: 0.85rem;
+}
+
+.run-status__failed summary {
+  cursor: pointer;
+  font-weight: 600;
   color: var(--color-text-muted);
+}
+
+.run-status__failed ul {
+  margin: 0.5rem 0 0;
+  padding-left: 1.25rem;
+  color: var(--color-text-muted);
+}
+
+.run-status__failed li {
+  margin: 0.15rem 0;
 }
 
 /* ==========================================================================

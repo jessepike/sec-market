@@ -266,19 +266,6 @@ for p in "${DATA_PATHS[@]}"; do
 done
 CHANGED_JSON="$(printf '%s' "$CHANGED_LIST" | json_string_array)"
 
-# Append one string to a JSON array of strings, without depending on jq.
-# Usage: json_array_append '["a"]' "new item"
-json_array_append() {
-  local arr_json="$1" item="$2"
-  ARR_JSON="$arr_json" ITEM="$item" node -e '
-    let arr;
-    try { arr = JSON.parse(process.env.ARR_JSON); } catch (e) { arr = []; }
-    if (!Array.isArray(arr)) arr = [];
-    arr.push(process.env.ITEM);
-    process.stdout.write(JSON.stringify(arr));
-  '
-}
-
 # Failed-sources count, without depending on jq being present.
 FAILED_COUNT="$(node -e "
   try { const a = $FAILED_JSON; process.stdout.write(String(Array.isArray(a) ? a.length : 0)); }
@@ -288,11 +275,14 @@ FAILED_COUNT="${FAILED_COUNT:-0}"
 
 if [ "$CLAUDE_RC" -ne 0 ]; then
   STATE="incomplete"
-  DETAIL="claude exited $CLAUDE_RC; see $CLAUDE_OUT"
-  FAILED_JSON="$(json_array_append "$FAILED_JSON" "collect run exited $CLAUDE_RC")"
+  # Third fix pass, items 1-2: no file path in `detail` — collectState.json
+  # is a generated file nothing published points a reader at, and
+  # runStatus.ts's own catch-all branch (collectorRun.state === 'incomplete'
+  # with no per-supplier failures) renders this string close to verbatim.
+  DETAIL="the collect run did not finish (claude exited $CLAUDE_RC)"
 elif [ "$FAILED_COUNT" -gt 0 ]; then
   STATE="incomplete"
-  DETAIL="$FAILED_COUNT source(s) failed to load; see .collect/failed-sources.json"
+  DETAIL="$FAILED_COUNT source(s) failed to load"
 elif [ -z "$CHANGED_LIST" ]; then
   STATE="no-change"
   DETAIL="run completed; nothing in coverage moved"

@@ -7,24 +7,29 @@ import { runStatus } from '../data/runStatus'
  * Replaces the weekly issue strip that used to sit here — this keeps the
  * section id `overview` so the header's nav link and the prerender's
  * front-page must-see gate keep resolving to this spot.
+ *
+ * Third fix pass (2026-09-26), items 1–2: the first line reads like a
+ * status line for a security leader — "Figures checked <date>." plus one
+ * plain clause for the state — and never a raw failure count with no
+ * context. When company-news sources could not be read, the affected
+ * suppliers move into a closed, opt-in disclosure (`<details>`, native and
+ * keyboard-operable) named by short display name with one plain reason
+ * each — no URLs, HTTP status codes, or file paths anywhere in the visible
+ * text.
  */
 function statusLine(): string {
   const checked = formatShortDate(runStatus.lastChecked)
   if (runStatus.state === 'updated') {
-    return `Figures checked ${checked} · every source collected.`
+    return `Figures checked ${checked}. Every source collected.`
   }
   if (runStatus.state === 'no-change') {
-    return `Figures checked ${checked} · no material change within our coverage.`
+    return `Figures checked ${checked}. No material change within our coverage.`
   }
-  // 'incomplete': a scope-restricted collect run can leave failedSources
-  // empty (nothing failed — not everything was checked either), so prefer
-  // the plain-language detail when one is set (AUTO-001 fix pass 2, item 4).
-  if (runStatus.detail) {
-    return `Figures checked ${checked} · ${runStatus.detail}`
-  }
-  const n = runStatus.failedSources.length
-  const noun = n === 1 ? 'source' : 'sources'
-  return `Figures checked ${checked} · collection incomplete: ${n} ${noun} failed.`
+  // 'incomplete': runStatus.ts always sets a plain-language detail for this
+  // state (see filingsClause()/deriveRunStatus() there) — there is no
+  // generic fallback line here, so the wording is never a bare number with
+  // no context.
+  return `Figures checked ${checked}. ${runStatus.detail}`
 }
 
 export function RunStatus() {
@@ -34,8 +39,17 @@ export function RunStatus() {
         Run status
       </h2>
       <p className={`run-status__line run-status__line--${runStatus.state}`}>{statusLine()}</p>
-      {runStatus.state === 'incomplete' && runStatus.failedSources.length > 0 ? (
-        <p className="run-status__failed">Failed: {runStatus.failedSources.join(', ')}</p>
+      {runStatus.state === 'incomplete' && runStatus.failedNewsSuppliers.length > 0 ? (
+        <details className="run-status__failed">
+          <summary>Which sources failed</summary>
+          <ul>
+            {runStatus.failedNewsSuppliers.map((supplier) => (
+              <li key={supplier.supplierId}>
+                {supplier.displayName} — {supplier.reason}
+              </li>
+            ))}
+          </ul>
+        </details>
       ) : null}
     </section>
   )

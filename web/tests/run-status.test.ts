@@ -34,60 +34,83 @@ function withRunStatus(next: RunStatusData, run: () => void): void {
 }
 
 describe('RunStatus', () => {
-  it('renders "every source collected" when the run is updated', () => {
+  it('renders "Every source collected" when the run is updated', () => {
     withRunStatus(
-      { lastChecked: '2026-09-25', state: 'updated', failedSources: [] },
+      { lastChecked: '2026-09-25', state: 'updated', failedNewsSuppliers: [] },
       () => {
         const markup = renderToStaticMarkup(createElement(RunStatus))
         assert.match(markup, /Figures checked 25 Sep 2026/)
-        assert.match(markup, /every source collected/)
-        assert.doesNotMatch(markup, /collection incomplete/)
+        assert.match(markup, /Every source collected/)
+        assert.doesNotMatch(markup, /could not be read/)
       },
     )
   })
 
-  it('renders "no material change" when the run found nothing new', () => {
+  it('renders "No material change" when the run found nothing new', () => {
     withRunStatus(
-      { lastChecked: '2026-09-25', state: 'no-change', failedSources: [] },
+      { lastChecked: '2026-09-25', state: 'no-change', failedNewsSuppliers: [] },
       () => {
         const markup = renderToStaticMarkup(createElement(RunStatus))
-        assert.match(markup, /no material change within our coverage/)
-        assert.doesNotMatch(markup, /every source collected/)
-      },
-    )
-  })
-
-  it('renders the failure count and names the failed sources when incomplete', () => {
-    withRunStatus(
-      { lastChecked: '2026-09-24', state: 'incomplete', failedSources: ['SEC EDGAR', 'WARN notices'] },
-      () => {
-        const markup = renderToStaticMarkup(createElement(RunStatus))
-        assert.match(markup, /Figures checked 24 Sep 2026/)
-        assert.match(markup, /collection incomplete: 2 sources failed/)
-        assert.match(markup, /SEC EDGAR, WARN notices/)
+        assert.match(markup, /No material change within our coverage/)
+        assert.doesNotMatch(markup, /Every source collected/)
       },
     )
   })
 
   /**
-   * AUTO-001 fix pass 2, item 4: a scope-restricted collect run can leave
-   * failedSources empty — nothing failed, but not everything was checked
-   * either — so runStatus.ts sets `detail` instead, and RunStatus.tsx must
-   * prefer it over the generic "N sources failed" line.
+   * Third fix pass (2026-09-26), items 1-3: the previous version of this
+   * derivation rendered `failedSources` as a flat list of raw collector
+   * strings — 25 of them, with URLs, HTTP status codes, and a reference to
+   * `.collect/failed-sources.json`, a file the site never publishes. The
+   * first line now reads like a status line for a security leader: the
+   * filings side and the company-news side, each stated plainly, and the
+   * affected suppliers move into a closed disclosure named by short display
+   * name with one plain reason each.
    */
-  it('renders the plain-language detail when incomplete with no failed sources', () => {
+  it('renders the incomplete wording and the supplier count', () => {
+    withRunStatus(
+      {
+        lastChecked: '2026-09-26',
+        state: 'incomplete',
+        detail: 'Filings complete for all 14 public suppliers; company news pages could not be read for 2 of 74 suppliers.',
+        failedNewsSuppliers: [
+          { supplierId: 'armis', displayName: 'Armis', reason: 'newsroom blocked automated reading' },
+          { supplierId: 'ivanti', displayName: 'Ivanti', reason: 'no primary source found' },
+        ],
+      },
+      () => {
+        const markup = renderToStaticMarkup(createElement(RunStatus))
+        assert.match(markup, /Figures checked 26 Sep 2026/)
+        assert.match(markup, /Filings complete for all 14 public suppliers/)
+        assert.match(markup, /company news pages could not be read for 2 of 74 suppliers/)
+        assert.match(markup, /Which sources failed/)
+        assert.match(markup, /Armis/)
+        assert.match(markup, /newsroom blocked automated reading/)
+        assert.match(markup, /Ivanti/)
+        assert.match(markup, /no primary source found/)
+        // Never a URL, a file path, or an HTTP status code anywhere in the
+        // rendered markup — the exact defect this pass fixed.
+        assert.doesNotMatch(markup, /https?:\/\//)
+        assert.doesNotMatch(markup, /HTTP \d{3}/)
+        assert.doesNotMatch(markup, /\.collect\//)
+        assert.doesNotMatch(markup, /failed-sources\.json/)
+      },
+    )
+  })
+
+  it('renders no disclosure when incomplete for a reason with no per-supplier failures', () => {
     withRunStatus(
       {
         lastChecked: '2026-09-25',
         state: 'incomplete',
-        failedSources: [],
-        detail: 'Press, funding and distress sources last checked for 4 of 74 suppliers on 26 Sep 2026 (restricted run: optiv, snyk, cyera, rapid7).',
+        failedNewsSuppliers: [],
+        detail: 'Filings complete for all 14 public suppliers; press, funding and distress sources last checked for 4 of 74 suppliers on 26 Sep 2026 (restricted run: optiv, snyk, cyera, rapid7).',
       },
       () => {
         const markup = renderToStaticMarkup(createElement(RunStatus))
         assert.match(markup, /Figures checked 25 Sep 2026/)
-        assert.match(markup, /Press, funding and distress sources last checked for 4 of 74 suppliers/)
-        assert.doesNotMatch(markup, /collection incomplete: 0 sources failed/)
+        assert.match(markup, /press, funding and distress sources last checked for 4 of 74 suppliers/)
+        assert.doesNotMatch(markup, /Which sources failed/)
       },
     )
   })
@@ -96,12 +119,28 @@ describe('RunStatus', () => {
     assert.match(runStatus.lastChecked, /^\d{4}-\d{2}-\d{2}$/)
     assert.ok(['updated', 'no-change', 'incomplete'].includes(runStatus.state))
     if (runStatus.state !== 'incomplete') {
-      assert.deepEqual(runStatus.failedSources, [])
+      assert.deepEqual(runStatus.failedNewsSuppliers, [])
     } else {
-      // A scope-restricted run can leave failedSources empty; `detail` is
-      // the plain-language reason in that case, so at least one must be set.
-      assert.ok(runStatus.failedSources.length > 0 || Boolean(runStatus.detail))
+      assert.ok(Boolean(runStatus.detail), 'expected a plain-language detail for an incomplete run')
     }
+  })
+
+  /**
+   * Third fix pass, item 2: the closed disclosure lists each affected
+   * supplier once, by short display name, with one plain reason — never a
+   * URL, an HTTP status code, or a file path, whatever the shipped data
+   * actually says failed.
+   */
+  it('the shipped failedNewsSuppliers, if any, are plain text only', () => {
+    for (const supplier of runStatus.failedNewsSuppliers) {
+      assert.doesNotMatch(supplier.reason, /https?:\/\//)
+      assert.doesNotMatch(supplier.reason, /HTTP \d{3}/)
+      assert.doesNotMatch(supplier.reason, /\.(json|collect)\b/)
+      assert.ok(supplier.supplierId.length > 0)
+      assert.ok(supplier.displayName.length > 0)
+    }
+    const ids = runStatus.failedNewsSuppliers.map((s) => s.supplierId)
+    assert.deepEqual(ids, Array.from(new Set(ids)), 'expected one row per distinct supplier, no duplicates')
   })
 })
 

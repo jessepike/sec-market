@@ -366,15 +366,23 @@ push_incomplete_status() {
       }
     }
 
+    // Third fix pass, items 1-2: failedSources is now an array of
+    // { supplierId, reason, detail } objects (web/src/data/runStatus.ts CollectFailure)
+    // for a per-supplier news-read failure. A held or failed publish is not
+    // about one particular supplier source, it is the gate or runner
+    // (failedSource) that failed, so it stays out of failedSources
+    // entirely and rides in the detail field instead. runStatus.ts catch-all
+    // branch for collectorRun.state === "incomplete" with no per-supplier
+    // failures renders that string directly.
     const next = {
       lastSuccessfulCollectDate: existing.lastSuccessfulCollectDate,
       lastRunAt: existing.lastRunAt,
       collectorRun: {
         at,
         state: "incomplete",
-        detail: reason,
+        detail: `${reason} (${failedSource})`,
         restrictedTo: null,
-        failedSources: [failedSource],
+        failedSources: [],
       },
     };
     fs.writeFileSync(path, JSON.stringify(next, null, 2) + "\n");

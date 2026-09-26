@@ -175,6 +175,11 @@ node() {
     v="$(grep -o '"lastRunAt": *[^,]*' "$COLLECTSTATE_PATH" | sed 's/.*: *//')"
     [ -n "$v" ] && last_run="$v"
   fi
+  # Third fix pass, items 1-2: failedSources is now an array of
+  # { supplierId, reason, detail } objects, and a held/failed publish isn't
+  # a per-supplier failure — the real node call folds CR_FAILED_SOURCE (the
+  # runner name) into `detail` instead and leaves failedSources empty; this
+  # mock matches that.
   cat > "$COLLECTSTATE_PATH" <<EOF
 {
   "lastSuccessfulCollectDate": ${last_successful},
@@ -182,9 +187,9 @@ node() {
   "collectorRun": {
     "at": "${CR_AT}",
     "state": "incomplete",
-    "detail": "${CR_REASON}",
+    "detail": "${CR_REASON} (${CR_FAILED_SOURCE})",
     "restrictedTo": null,
-    "failedSources": ["${CR_FAILED_SOURCE}"]
+    "failedSources": []
   }
 }
 EOF
@@ -381,7 +386,7 @@ check "gate failure: main did NOT get the failed data" "$E2E4_MAIN_HAS_DATA" "0"
 check "gate failure: preview did NOT get the failed data either" "$E2E4_PREVIEW_HAS_DATA" "0"
 check_contains "gate failure: main's collectState reads incomplete (main matched preview beforehand)" "$E2E4_MAIN_STATUS" '"state": "incomplete"'
 check_contains "gate failure: preview's collectState reads incomplete" "$E2E4_PREVIEW_STATUS" '"state": "incomplete"'
-check_contains "gate failure: failedSources names the runner" "$E2E4_PREVIEW_STATUS" "edgar"
+check_contains "gate failure: detail names the runner" "$E2E4_PREVIEW_STATUS" "edgar"
 rm -rf "$E2E4_REMOTE" "$E2E4_CLONE"
 
 echo ""

@@ -5,9 +5,19 @@
  */
 import { runStatus } from '../runStatus'
 import { trackerEvents } from './events'
+import { shortSupplierName } from './names'
 import { trackerSuppliers } from './suppliers'
 import type { TrackerEvent } from './events'
 import type { TrackerSupplier } from './suppliers'
+
+/**
+ * Re-exported from `./names` (third fix pass, item 1/2) — that module has
+ * zero dependencies, so `runStatus.ts` can use `shortSupplierName` too
+ * without a circular import back through this file (which itself imports
+ * `runStatus`). Every existing `import { shortSupplierName } from
+ * '../data/tracker/derive'` keeps working unchanged.
+ */
+export { shortSupplierName }
 
 /** Suppliers assigned to a domain, alphabetical by name — the front page's default order. */
 export function suppliersForDomain(domainId: string): TrackerSupplier[] {
@@ -26,27 +36,6 @@ export function parseGrowthPercent(value: string | undefined): number | null {
   return Number.isFinite(num) ? num : null
 }
 
-/**
- * Density pass (coordinator instruction, following the step 5 build) — a
- * reader-facing short name, stripping the legal-entity suffix a filing or
- * press release carries ("CrowdStrike Holdings, Inc." -> "CrowdStrike") but
- * leaving genuine brand words alone ("Palo Alto Networks", "Cato Networks",
- * "Microsoft Defender for Endpoint" are untouched). The full legal name
- * stays wherever a name is sourced as a fact — evidence.ts, and the `title`
- * attribute anywhere this is used. A trailing parenthetical alternate name
- * ("Sophos Group (Sophos Ltd)") is dropped in favor of the leading name.
- */
-const LEGAL_SUFFIX = /,?\s+(Incorporated|Corporation|Corp\.?|Holdings|Technologies|Software|Group|Inc\.?|LLC|Ltd\.?|Limited)$/i
-
-export function shortSupplierName(name: string): string {
-  let short = name.trim().replace(/\s*\([^)]*\)\s*$/, '')
-  let previous: string
-  do {
-    previous = short
-    short = short.replace(LEGAL_SUFFIX, '').trim()
-  } while (short !== previous && short.length > 0)
-  return short || name
-}
 
 const MONTHS_SHORT = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 

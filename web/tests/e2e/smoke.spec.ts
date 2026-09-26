@@ -53,13 +53,21 @@ test('renders the market briefing without runtime errors', async ({ page }) => {
   await expect(page.locator('#overview .run-status__line')).toContainText('Figures checked')
   expect(['updated', 'no-change', 'incomplete']).toContain(runStatus.state)
   if (runStatus.state === 'updated') {
-    await expect(page.locator('#overview .run-status__line')).toContainText('every source collected')
+    await expect(page.locator('#overview .run-status__line')).toContainText('Every source collected')
   } else if (runStatus.state === 'no-change') {
-    await expect(page.locator('#overview .run-status__line')).toContainText('no material change')
+    await expect(page.locator('#overview .run-status__line')).toContainText('No material change')
   } else {
-    await expect(page.locator('#overview .run-status__line')).toContainText(
-      runStatus.detail ?? 'collection incomplete',
-    )
+    // Third fix pass, items 1-3: runStatus.ts always sets `detail` for
+    // 'incomplete' — no generic fallback text to assert here.
+    await expect(page.locator('#overview .run-status__line')).toContainText(runStatus.detail!)
+    // Never a URL, an HTTP status code, or a reference to an unpublished
+    // file anywhere in the visible status line or the failed-sources
+    // disclosure — the exact defect this pass fixed.
+    const overviewText = await page.locator('#overview').innerText()
+    expect(overviewText).not.toMatch(/https?:\/\//)
+    expect(overviewText).not.toMatch(/HTTP \d{3}/)
+    expect(overviewText).not.toMatch(/\.collect\//)
+    expect(overviewText).not.toMatch(/\.json/)
   }
 
   await expect(page.getByText('refreshed weekly')).toHaveCount(0)
