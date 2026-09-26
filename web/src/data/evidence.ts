@@ -2404,6 +2404,25 @@ export const evidenceRecords: EvidenceRecord[] = [
   "retrievedAt": "2026-09-25"
 },
 {
+  "id": "TR-cato-3",
+  "title": "Cato Networks ARR Milestone Update",
+  "organization": "Cato Networks",
+  "publicationDate": "2026-08-20",
+  "economicPeriod": "ARR milestone referenced in company blog, August 2026 (originally announced 2026-07-27)",
+  "canonicalUrl": "https://www.catonetworks.com/blog/three-years-as-a-leader-built-for-where-the-market-is-going/",
+  "excerpt": "We recently surpassed $415 million in annual recurring revenue, growing 42% year over year, and now serve more than 4,800 customers worldwide.",
+  "sourceClass": "IR",
+  "interpretation": "",
+  "limitations": "Company-stated, not an audited filing. The originating 2026-07-27 press release (catonetworks.com/news/) returned a bot challenge on every fetch attempt this session; this record instead cites the same figure as restated in Cato's own blog, retrieved via its public RSS feed. No exact \"as of\" date is stated beyond \"recently.\" Supersedes TR-cato-2's $350M/2025 figure with this more recent company-stated figure.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-cato-3",
+  "tags": [
+    "tracker",
+    "network-sase"
+  ],
+  "retrievedAt": "2026-09-26"
+},
+{
   "id": "TR-chainguard-1",
   "title": "Chainguard secures $280M to expand trusted open source software platform",
   "organization": "SiliconANGLE",
@@ -3171,7 +3190,7 @@ export const evidenceRecords: EvidenceRecord[] = [
   "organization": "Microsoft Corporation",
   "publicationDate": "2026-07-29",
   "economicPeriod": "FY2026, ended 2026-06-30",
-  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/0000789019/000095010326015010/0000950103-26-015010-index.htm",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm",
   "excerpt": "FY2026 revenue $331.839 billion, +18% YoY. Defender for Office 365 is a product within Microsoft, not separately reported.",
   "sourceClass": "FILING",
   "interpretation": "",
@@ -3190,7 +3209,7 @@ export const evidenceRecords: EvidenceRecord[] = [
   "organization": "Microsoft Corporation",
   "publicationDate": "2026-07-29",
   "economicPeriod": "FY2026, ended 2026-06-30",
-  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/0000789019/000095010326015010/0000950103-26-015010-index.htm",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm",
   "excerpt": "FY2026 revenue $331.839 billion, +18% YoY. No discrete Entra ID revenue figure disclosed.",
   "sourceClass": "FILING",
   "interpretation": "",
@@ -3300,9 +3319,9 @@ export const evidenceRecords: EvidenceRecord[] = [
 },
 {
   "id": "TR-okta-1",
-  "title": "Okta Q4 FY2027 Earnings Release",
+  "title": "Okta Q2 FY2027 Earnings Release",
   "organization": "Okta, Inc.",
-  "publicationDate": "2026-08-24",
+  "publicationDate": "2026-08-26",
   "economicPeriod": "Quarter ended July 31, 2026",
   "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1660134/000166013426000069/okta-20260731.htm",
   "excerpt": "Revenue $805 million, +11% YoY; Subscription Revenue $793 million, +12% YoY.",
@@ -3319,7 +3338,7 @@ export const evidenceRecords: EvidenceRecord[] = [
 },
 {
   "id": "TR-okta-2",
-  "title": "Okta Q3 FY2027 Earnings Release",
+  "title": "Okta Q1 FY2027 Earnings Release",
   "organization": "Okta, Inc.",
   "publicationDate": "2026-05-27",
   "economicPeriod": "Quarter ended April 30, 2026",
@@ -3822,7 +3841,7 @@ export const evidenceRecords: EvidenceRecord[] = [
 },
 {
   "id": "TR-sailpoint-1",
-  "title": "SailPoint Q4 FY2027 Earnings Release",
+  "title": "SailPoint Q2 FY2027 Earnings Release",
   "organization": "SailPoint, Inc.",
   "publicationDate": "2026-09-10",
   "economicPeriod": "Quarter ended July 31, 2026",
@@ -3841,7 +3860,7 @@ export const evidenceRecords: EvidenceRecord[] = [
 },
 {
   "id": "TR-sailpoint-2",
-  "title": "SailPoint Q3 FY2027 Earnings Release",
+  "title": "SailPoint Q1 FY2027 Earnings Release",
   "organization": "SailPoint, Inc.",
   "publicationDate": "2026-06-12",
   "economicPeriod": "Quarter ended April 30, 2026",
@@ -3868,7 +3887,7 @@ export const evidenceRecords: EvidenceRecord[] = [
   "excerpt": "Snyk raised a $530 million Series F round at an $8.5 billion valuation.",
   "sourceClass": "INDEPENDENT",
   "interpretation": "",
-  "limitations": "Trade press report; not confirmed against a direct Snyk primary-source release. No later funding round was found in the 2022-2026 window checked.",
+  "limitations": "Trade press report; not confirmed against a direct Snyk primary-source release. Superseded in part by TR-snyk-2, Snyk's own primary-source announcement of a $75M extension to this same Series F round on 2021-09-30; no funding round after 2021 was found in Snyk's newsroom.",
   "conflictingEvidenceIds": [],
   "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-snyk-1",
   "tags": [
@@ -3876,6 +3895,25 @@ export const evidenceRecords: EvidenceRecord[] = [
     "appsec"
   ],
   "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-snyk-2",
+  "title": "Snyk Secures $75 Million in Additional Funding",
+  "organization": "Snyk Ltd.",
+  "publicationDate": "2021-09-30",
+  "economicPeriod": "N/A (funding announcement, extension of the 2021-09-09 Series F round)",
+  "canonicalUrl": "https://www.prnewswire.com/news-releases/snyk-secures-75-million-in-additional-funding-301388357.html",
+  "excerpt": "Snyk, the leader in developer security, today announced $75 million of funding from Atlassian Ventures and Salesforce Ventures as part of its recent Series F financing. Total capital raised to date: $850 million.",
+  "sourceClass": "IR",
+  "interpretation": "",
+  "limitations": "Company-stated, primary source. Extends the Series F round announced 2021-09-09 at an updated $8.6 billion valuation; not a new priced round. Checked against Snyk's own newsroom listing on PR Newswire; no funding round after this date was found there.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-snyk-2",
+  "tags": [
+    "tracker",
+    "appsec"
+  ],
+  "retrievedAt": "2026-09-26"
 },
 {
   "id": "TR-sonatype-1",

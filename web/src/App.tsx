@@ -1,10 +1,8 @@
 import { Analytics } from '@vercel/analytics/react'
 import type { ReactNode } from 'react'
-import { ActivityBoard } from './components/ActivityBoard'
 import { ArchiveLinks } from './components/ArchiveLinks'
 import { Corrections } from './components/Corrections'
 import { CoverageStatement } from './components/CoverageStatement'
-import { DomainBoard } from './components/DomainBoard'
 import { EvidenceDrawer } from './components/EvidenceDrawer'
 import { EvidenceLibrary } from './components/EvidenceLibrary'
 import { FollowLine } from './components/FollowLine'
@@ -16,7 +14,6 @@ import { IssueHero } from './components/IssueHero'
 import { IssueLanes } from './components/IssueLanes'
 import { JudgmentBoard } from './components/JudgmentBoard'
 import { MarketByDomain } from './components/MarketByDomain'
-import { MarketLayersChart } from './components/MarketLayersChart'
 import { MethodologyNote } from './components/MethodologyNote'
 import { NextEdition } from './components/NextEdition'
 import { ProvenanceRail } from './components/ProvenanceRail'
@@ -26,7 +23,6 @@ import { SkipLink } from './components/SkipLink'
 import { ThesisRunningScore } from './components/ThesisRunningScore'
 import { WeThink } from './components/WeThink'
 import { WhatChangedTracker } from './components/WhatChangedTracker'
-import { WhatMoved } from './components/WhatMoved'
 import { EvidenceProvider } from './context/EvidenceProvider'
 import { useEvidence } from './context/useEvidence'
 import { issueById } from './data/issues/index'
@@ -77,6 +73,19 @@ function ArchiveNotice({ text }: { text: string }) {
  * absorbed), which describes competitive footing the site no longer states.
  * `PlatformPressure.tsx` itself is untouched and still exported; it simply
  * has no route rendering it now, the same as `DomainBoard`'s `TempoSection`.
+ *
+ * AUTO-001 fix pass (2026-09-26), item 4 ("pre-tracker material off the
+ * front page"): `DomainBoard`'s `LandscapeSection` (the "security market, by
+ * domain" cards — "Fortinet +52%" with no metric label, etc.), the "What
+ * moved" details (`WhatMoved`), the "M&A and funding activity" details
+ * (`ActivityBoard`, whose notes carried judgment text like "Not a lead —
+ * mature-category check"), and "Market layers" (`MarketLayersChart`, whose
+ * "Chart sources" evidence link opened judged thesis-era evidence records
+ * such as C3's "strongest realized network-security acceleration in the
+ * panel") are all removed from this route for the same reason as
+ * `PlatformPressure` above: none of the four files is deleted, and none is
+ * rendered on any route any longer, the same as `DomainBoard`'s
+ * `TempoSection`.
  */
 function FrontPage() {
   return (
@@ -88,24 +97,7 @@ function FrontPage() {
       <CoverageStatement />
       <ArchiveLinks />
       <FollowLine />
-      <DomainBoard />
 
-      <details className="depth" id="moved-depth">
-        <summary>What moved: tracked prints and capital</summary>
-        <WhatMoved />
-      </details>
-      <details className="depth" id="research-depth">
-        <summary>M&amp;A and funding activity</summary>
-        <p className="research-depth__note">
-          Activity below is the pre-issue window (RoS) — going forward each issue's "New companies
-          and funding" and "Acquisitions and consolidation" lanes carry this account.
-        </p>
-        <ActivityBoard />
-      </details>
-      <details className="depth" id="layers">
-        <summary>Market layers</summary>
-        <MarketLayersChart />
-      </details>
       <details className="depth" id="method">
         <summary>How this is built</summary>
         <HowThisWorks />

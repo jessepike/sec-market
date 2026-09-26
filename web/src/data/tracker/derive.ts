@@ -237,22 +237,39 @@ interface EdgarFactsFile {
   }>
 }
 
-/** EDGAR-filed quarters (from generated/edgarFacts.json) with a filing date within 30 days of `today`. */
+/**
+ * EDGAR-filed quarters (from generated/edgarFacts.json) with a filing date
+ * within 30 days of `today` — restricted to each supplier's single latest
+ * (most recent `periodEnd`) quarter.
+ *
+ * A 10-Q/10-K also carries the same-quarter-prior-year figure as a
+ * comparative, and `edgarLogic.ts`'s `dedupeByPeriodEnd` keeps whichever
+ * fact for a given `periodEnd` was filed most recently — so a prior-year
+ * quarter's stored `filedDate` is the date of the NEWEST filing that
+ * restated it, not the date it was first reported. Scanning every quarter
+ * in `supplier.quarters` (as this function used to) treated that restated
+ * comparative as a fresh filing and produced entries like "filed its 10-Q
+ * for the quarter ended 2025-07-31" alongside the real, current filing for
+ * 2026-07-31 filed on the same day. Only a supplier's chronologically
+ * latest quarter (its true newest filing) is eligible to appear here.
+ */
 export function edgarFilingsInLast30Days(today: string, facts: EdgarFactsFile): EdgarFiling[] {
   const out: EdgarFiling[] = []
   for (const supplier of facts.suppliers) {
-    for (const quarter of supplier.quarters) {
-      const age = daysBetween(quarter.filedDate, today)
-      if (age >= 0 && age <= 30) {
-        out.push({
-          supplierId: supplier.id,
-          periodEnd: quarter.periodEnd,
-          filedDate: quarter.filedDate,
-          form: quarter.form,
-          value: quarter.value,
-          sourceUrl: quarter.sourceUrl,
-        })
-      }
+    if (supplier.quarters.length === 0) continue
+    const latest = supplier.quarters.reduce((newest, quarter) =>
+      quarter.periodEnd > newest.periodEnd ? quarter : newest,
+    )
+    const age = daysBetween(latest.filedDate, today)
+    if (age >= 0 && age <= 30) {
+      out.push({
+        supplierId: supplier.id,
+        periodEnd: latest.periodEnd,
+        filedDate: latest.filedDate,
+        form: latest.form,
+        value: latest.value,
+        sourceUrl: latest.sourceUrl,
+      })
     }
   }
   return out.sort((a, b) => (a.filedDate < b.filedDate ? 1 : a.filedDate > b.filedDate ? -1 : 0))

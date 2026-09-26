@@ -21,9 +21,10 @@ import { SITE_HEADLINE } from '../../src/data/meta.ts'
 // there. 'prints' (PrintGrid's heading id) is also gone from the front page
 // — smoke.spec.ts asserts `#prints-heading` has count 0 there. The front
 // page's own standing-reference ids are TRACKER_FRONT_IDS: the twelve-domain
-// tracker (`market`), its two supporting sections, and the always-visible
-// `follow`/`landscape` sections that step 5 did not touch.
-const TRACKER_FRONT_IDS = ['market', 'tracker-changed', 'tracker-coverage', 'follow', 'landscape']
+// tracker (`market`) and its two supporting sections, plus `follow`.
+// AUTO-001 fix pass (2026-09-26), item 4: 'landscape' is dropped —
+// DomainBoard's LandscapeSection no longer renders on any route.
+const TRACKER_FRONT_IDS = ['market', 'tracker-changed', 'tracker-coverage', 'follow']
 const ISSUE_SECTION_IDS = ['overview', 'formation', 'absorption', 'prints-this-week', 'capital', 'we-think']
 
 test.describe('weekly issue — front page', () => {
@@ -125,9 +126,12 @@ test.describe('weekly issue — front page', () => {
   // "Thesis" (#read); under SEC-MARKET-FABLE-001 T6-16 "Thesis" left the top
   // nav entirely (product-core.md §5 — the founding thesis moved to its own
   // page, /thesis/, and #read on the front page is now a compact pointer, not
-  // a nav target — see tests/e2e/thesis.spec.ts). "Landscape" (#landscape) is
-  // still a front-page-only hash item and exercises the same regression.
-  test('permalink page: clicking "Landscape" navigates to the front page at #landscape', async ({
+  // a nav target — see tests/e2e/thesis.spec.ts). AUTO-001 fix pass
+  // (2026-09-26): "Landscape" (#landscape) was this regression's exercise
+  // target until DomainBoard's LandscapeSection stopped rendering on any
+  // route (item 4); "Market" (#market) is still a front-page-only hash item,
+  // absent from the issue permalink, and exercises the same regression.
+  test('permalink page: clicking "Market" navigates to the front page at #market', async ({
     page,
   }) => {
     await page.goto(`/issues/${latestIssue.id}/`)
@@ -137,10 +141,13 @@ test.describe('weekly issue — front page', () => {
       await navToggle.click()
     }
 
-    await page.getByRole('link', { name: 'Landscape' }).click()
-    await page.waitForURL(/\/#landscape$/)
+    // exact: true — the brand link's own accessible name ("Security Market
+    // Pulse") also contains the substring "Market", which a non-exact match
+    // resolves ambiguously against the nav's "Market" link.
+    await page.getByRole('link', { name: 'Market', exact: true }).click()
+    await page.waitForURL(/\/#market$/)
 
-    expect(new URL(page.url()).hash).toBe('#landscape')
-    await expect(page.locator('#landscape')).toBeVisible()
+    expect(new URL(page.url()).hash).toBe('#market')
+    await expect(page.locator('#market')).toBeVisible()
   })
 })

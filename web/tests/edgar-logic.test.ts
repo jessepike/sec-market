@@ -9,6 +9,7 @@ import {
   buildSupplierRecord,
   computeYoy,
   daysBetween,
+  expectedFiscalQuarter,
   findPriorYearQuarter,
   isAnnualDuration,
   isQuarterlyDuration,
@@ -213,5 +214,31 @@ describe('buildSupplierRecord', () => {
       () => buildSupplierRecord('fixture', 'FixtureCorp', '0009999999', fixtureCompanyFacts, ['Revenues']),
       /no usable revenue concept found/,
     )
+  })
+})
+
+describe('expectedFiscalQuarter', () => {
+  // AUTO-001 fix pass (2026-09-26), item 2: regression cases from the two
+  // blind scores — SailPoint and Okta (both FYE 0131) had their Q2 FY2027
+  // periodEnd (2026-07-31) hand-labelled "Q4 FY2027", and their Q1 FY2027
+  // periodEnd (2026-04-30) hand-labelled "Q3 FY2027".
+  it('places a 0131-FYE filer\'s 2026-07-31 period in Q2 FY2027, not Q4', () => {
+    assert.deepEqual(expectedFiscalQuarter('2026-07-31', '0131'), { quarter: 2, fiscalYear: 2027 })
+  })
+
+  it('places a 0131-FYE filer\'s 2026-04-30 period in Q1 FY2027, not Q3', () => {
+    assert.deepEqual(expectedFiscalQuarter('2026-04-30', '0131'), { quarter: 1, fiscalYear: 2027 })
+  })
+
+  it('places a 0731-FYE filer\'s 2026-07-31 period in Q4 FY2026 (fiscal year end itself)', () => {
+    assert.deepEqual(expectedFiscalQuarter('2026-07-31', '0731'), { quarter: 4, fiscalYear: 2026 })
+  })
+
+  it('places a 1231-FYE (calendar-year) filer\'s 2026-06-30 period in Q2 FY2026', () => {
+    assert.deepEqual(expectedFiscalQuarter('2026-06-30', '1231'), { quarter: 2, fiscalYear: 2026 })
+  })
+
+  it('places a 0131-FYE filer\'s own fiscal year end (2026-01-31) in Q4 FY2026', () => {
+    assert.deepEqual(expectedFiscalQuarter('2026-01-31', '0131'), { quarter: 4, fiscalYear: 2026 })
   })
 })

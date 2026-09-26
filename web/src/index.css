@@ -3896,21 +3896,33 @@ summary:focus-visible,
     cursor: pointer;
     align-items: flex-start;
     justify-content: space-between;
+    flex-wrap: wrap;
     padding: 0.55rem 0.1rem;
     min-height: 44px;
   }
 
   .tracker-row__name {
     flex: 1 1 auto;
+    min-width: 0;
+    overflow-wrap: break-word;
   }
 
+  /* AUTO-001 fix pass (2026-09-26), item 6: a long supplier name plus its
+     summary figure ("Segment of Microsoft Corporation...", "+42% YoY") in
+     one nowrap flex row overflowed the row's width at 390/320px instead of
+     wrapping (the Exabeam/Cato/Sysdig rows both blind scores found clipped
+     on phone). `flex-wrap: wrap` above lets the summary drop to its own
+     line when the name alone fills the row; this lets the summary text
+     itself wrap rather than forcing one unbroken nowrap line. */
   .tracker-row__summary {
     display: block;
-    flex: 0 0 auto;
+    flex: 0 1 auto;
     font-family: var(--font-mono);
     font-size: 0.75rem;
     color: var(--color-text-muted);
-    white-space: nowrap;
+    white-space: normal;
+    text-align: right;
+    min-width: 0;
   }
 
   .tracker-row--expanded .tracker-row__summary {
@@ -3944,5 +3956,19 @@ summary:focus-visible,
     grid-template-columns: auto 1fr auto;
     gap: 0.4rem;
     font-size: 0.8125rem;
+  }
+
+  /* AUTO-001 fix pass (2026-09-26), item 6: the compact "src" evidence
+     link's desktop box (padding 0 0.2rem, min-height 0) is far under the
+     24x24 CSS px tap target WCAG 2.2 AA (target size, minimum) asks for at
+     phone width. Widened here only — the desktop inline-with-figure layout
+     is intentional and stays as-is. */
+  .evidence-link--compact {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 24px;
+    min-width: 24px;
+    padding: 0.25rem 0.4rem;
   }
 }

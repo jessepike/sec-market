@@ -319,6 +319,53 @@ export function computeYoy(quarter: QuarterFact, quarters: QuarterFact[]): YoyFi
 }
 
 /**
+ * The fiscal quarter and fiscal year a `periodEnd` falls in, given a
+ * filer's fiscal year end (`edgarRegistry.ts`'s `fiscalYearEnd`, "MMDD").
+ * AUTO-001 fix pass (2026-09-26), item 2: written for `verify-tracker.ts`'s
+ * period-label gate, after two blind scorers caught SailPoint's and Okta's
+ * `revenue.latest.period`/`revenue.prior.period` hand-typed as "Q4 FY2027"/
+ * "Q3 FY2027" for a periodEnd (2026-07-31 / 2026-04-30) that is actually
+ * each filer's Q2/Q1 FY2027 under its own 0131 fiscal year end.
+ *
+ * A filer's fiscal year end recurs on the same MM-DD every year; the
+ * quarter a `periodEnd` sits in is the nearest fiscal-year-end date at or
+ * after it, minus how many ~91-day quarters separate them. Throws if no
+ * candidate fiscal year end (the prior, current, or next calendar year's)
+ * lands within 366 days at or after `periodEnd` — a sign the input dates
+ * are not actually a quarter-end for this filer.
+ */
+export function expectedFiscalQuarter(
+  periodEnd: string,
+  fiscalYearEndMMDD: string,
+): { quarter: 1 | 2 | 3 | 4; fiscalYear: number } {
+  const mm = fiscalYearEndMMDD.slice(0, 2)
+  const dd = fiscalYearEndMMDD.slice(2, 4)
+  const periodYear = Number(periodEnd.slice(0, 4))
+
+  let best: { fyEnd: string; days: number } | null = null
+  for (const year of [periodYear - 1, periodYear, periodYear + 1]) {
+    const fyEnd = `${year}-${mm}-${dd}`
+    const days = daysBetween(periodEnd, fyEnd)
+    if (days < 0 || days > 366) continue
+    if (!best || days < best.days) best = { fyEnd, days }
+  }
+  if (!best) {
+    throw new Error(
+      `expectedFiscalQuarter: no fiscal year end within 366 days at or after ${periodEnd} for FYE ${fiscalYearEndMMDD}`,
+    )
+  }
+
+  const quartersBeforeEnd = Math.round(best.days / 91)
+  const quarter = 4 - quartersBeforeEnd
+  if (quarter < 1 || quarter > 4) {
+    throw new Error(
+      `expectedFiscalQuarter: computed out-of-range quarter ${quarter} for ${periodEnd}, FYE ${fiscalYearEndMMDD}`,
+    )
+  }
+  return { quarter: quarter as 1 | 2 | 3 | 4, fiscalYear: Number(best.fyEnd.slice(0, 4)) }
+}
+
+/**
  * Builds one supplier's full record: the deduped/derived quarterly series
  * (most recent 8 quarters), plus YoY for the latest quarter and the one
  * before it. Throws only for a genuinely unusable input (no concept found,

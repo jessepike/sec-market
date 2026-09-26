@@ -23,6 +23,15 @@ import { runStatus } from '../../src/data/runStatus.ts'
  * CoverageStatement at `#tracker-coverage`); the vendor lens has nothing
  * left on this route to filter now that PrintGrid and the front page's
  * IssueLanes are both gone. See the assertions below for the new sections.
+ *
+ * AUTO-001 fix pass (2026-09-26), item 4: DomainBoard's LandscapeSection
+ * (`#landscape`, "the security market, by domain" cards), "What moved"
+ * (`#moved-depth`/`WhatMoved`), "M&A and funding activity"
+ * (`#research-depth`/`ActivityBoard`), and "Market layers"
+ * (`#layers`/`MarketLayersChart`) are all gone from the front page too — see
+ * App.tsx's FrontPage doc-comment. None of the four is deleted; none renders
+ * on any route any longer. This test now asserts they are absent rather than
+ * asserting their (now-retired) collapsed-by-default behaviour.
  */
 test('renders the market briefing without runtime errors', async ({ page }) => {
   const pageErrors: string[] = []
@@ -40,15 +49,14 @@ test('renders the market briefing without runtime errors', async ({ page }) => {
 
   await expect(page.getByText('refreshed weekly')).toHaveCount(0)
   await expect(page.getByText('Tell me when the next edition publishes')).toHaveCount(0)
-  await expect(page.getByText('TRACKED', { exact: false }).first()).toBeVisible()
 
-  // "What moved" now sits inside a closed depth disclosure (#moved-depth) —
-  // the issue's four lanes are the always-visible account of what moved, per
-  // §4 of docs/active/weekly-issue-spec.md. Present for evidence/crawlers,
-  // closed until opened, exactly like #research-depth below.
-  await expect(page.locator('#moved-depth > summary')).toHaveText('What moved: tracked prints and capital')
-  await expect(page.locator('#moved-depth #moved')).toBeAttached()
-  await expect(page.locator('#moved-depth #moved')).toBeHidden()
+  // Pre-tracker material (item 4) is gone from the front page in full.
+  await expect(page.locator('#landscape')).toHaveCount(0)
+  await expect(page.locator('#moved-depth')).toHaveCount(0)
+  await expect(page.locator('#research-depth')).toHaveCount(0)
+  await expect(page.locator('#layers')).toHaveCount(0)
+  await expect(page.locator('.domain-card')).toHaveCount(0)
+  await expect(page.getByText('Tracked suppliers and the latest sourced figure for each')).toHaveCount(0)
 
   // No judgment sections at all on the front page.
   await expect(page.getByRole('heading', { name: 'Tracked hypotheses' })).toHaveCount(0)
@@ -68,18 +76,8 @@ test('renders the market briefing without runtime errors', async ({ page }) => {
     await expect(page.getByText(label, { exact: true })).toHaveCount(0)
   }
 
-  // Landscape cards show the domain name and its tracked print only — no
-  // stance chip, no JUDGED stamp, no horizon.
-  await expect(page.locator('#landscape').getByText('Network / SASE', { exact: true })).toBeVisible()
-  await expect(page.locator('.domain-card .chip')).toHaveCount(0)
-  await expect(page.locator('.domain-card').getByText('HORIZON', { exact: false })).toHaveCount(0)
-  await expect(page.getByText('PREPARE', { exact: true })).toHaveCount(0)
-
-  await expect(page.getByRole('button', { name: /Fortinet/ }).first()).toBeVisible()
-  await expect(page.locator('.landscape .evidence-link').nth(2)).toContainText(/CrowdStrike|Upwind|Orca|Aqua/)
-  await expect(page.locator('.landscape .evidence-link').nth(2)).not.toContainText('Alphabet')
   await expect(page.locator('#method summary')).toHaveText('How this is built')
-  await expect(page.locator('#research-depth > summary')).toHaveText('M&A and funding activity')
+  await expect(page.locator('#research summary')).toHaveText('Research & evidence')
 
   // Step 5: PrintGrid ("This period", #prints-heading) and its print-card
   // headings are gone from the front page — no route renders PrintGrid any
@@ -97,26 +95,11 @@ test('renders the market briefing without runtime errors', async ({ page }) => {
   await expect(page.locator('#tracker-coverage-heading')).toHaveText('What this site covers')
   await expect(page.locator('.tracker-coverage__domains li').first()).toBeVisible()
 
-  // M&A and funding activity is gated behind #research-depth: present in the
-  // markup for evidence and crawlers, closed until opened. Closed <details>
-  // content is not in the accessibility tree, so query the DOM.
-  const activity = page.locator('#research-depth')
-  await expect(activity.locator('#activity-heading')).toBeAttached()
-  await expect(activity.locator('#activity-heading')).toBeHidden()
-  await expect(page.getByText('Google closed Wiz')).toBeAttached()
-  await expect(page.getByText('Alphabet announced ~$32B Wiz acquisition')).toHaveCount(0)
-  await expect(page.getByText('Secuvy last disclosed seed')).toBeHidden()
-  await expect(page.getByText('Platforms that bought identity are now seeding', { exact: false })).toHaveCount(0)
-
-  await page.locator('#research-depth > summary').click()
-  await expect(page.locator('#activity-heading')).toBeVisible()
-  // Only becomes visible once the disclosure opens — the lead M&A/funding row.
-  await expect(page.getByText('Zenity raised $115M Series C')).toBeVisible()
-
-  // Opening #moved-depth reveals the tracked account "What moved" gives.
-  await page.locator('#moved-depth > summary').click()
-  await expect(page.locator('#moved-heading')).toBeVisible()
-  await expect(page.locator('#moved .week-moved__col--judged')).toHaveCount(0)
+  // A Microsoft segment row (item 1) shows "–" for revenue growth, not the
+  // parent company's whole-company figure, and says plainly why.
+  const entraRow = page.locator('#market .tracker-table tr', { has: page.getByTitle('Microsoft Entra ID') })
+  await expect(entraRow.locator('td[data-label="Rev. growth"]')).toContainText('–')
+  await expect(entraRow.locator('td[data-label="Ownership or last round"]')).toContainText('Segment of Microsoft')
 
   expect(pageErrors).toEqual([])
 })
@@ -148,10 +131,20 @@ test('no judged stamps on the front page', async ({ page }) => {
 test('opens attributed evidence without a private GitHub artifact link', async ({ page }) => {
   await page.goto('/')
 
-  // Scoped to #landscape: the density pass gave the tracker's own supplier
-  // rows a "Fortinet" row-toggle button too, and an unscoped match would hit
-  // that expand/collapse control instead of the evidence link this test means.
-  await page.locator('#landscape').getByRole('button', { name: /Fortinet/ }).first().click()
+  // The Microsoft Entra ID row (item 1: a segment may not borrow its
+  // parent's figure) has no revenue or headline-metric evidence link, so its
+  // Ownership cell's "src" control is what this test opens. Its evidence
+  // record (TR-msft-entra-1) carries a non-empty limitations note, which
+  // this test also uses to check the drawer's "Limitations / confounds"
+  // section still renders when there is something to say.
+  // The compact evidence button's visible text is "src", but its
+  // accessible name is overridden by an aria-label naming the source and
+  // date (EvidenceLink.tsx, evidenceCompactAriaLabel: "<context> — source:
+  // ..."). The row also carries a second compact link for its "Latest
+  // event" cell, so the Ownership one is picked out by that aria-label
+  // prefix rather than by class alone.
+  const entraRow = page.locator('#market .tracker-table tr', { has: page.getByTitle('Microsoft Entra ID') })
+  await entraRow.getByLabel(/^Ownership — source:/).click()
 
   const dialog = page.getByRole('dialog', { name: 'Evidence' })
   await expect(dialog).toBeVisible()
@@ -161,6 +154,27 @@ test('opens attributed evidence without a private GitHub artifact link', async (
 
   await page.keyboard.press('Escape')
   await expect(dialog).toBeHidden()
+})
+
+/**
+ * AUTO-001 fix pass (2026-09-26), item 4: the front page's evidence drawer
+ * and evidence library must never surface a judged, thesis-era evidence
+ * record — those carry an "Interpretation" the facts-only tracker does not
+ * state. EvidenceDrawer hides an empty Interpretation/Limitations section
+ * (every TR- tracker record's is empty by construction), and the front
+ * page's evidence library (#research) now lists tracker (TR-) records only.
+ */
+test('the front page never opens a judged evidence record', async ({ page }) => {
+  await page.goto('/')
+
+  await page.locator('#research > summary').click()
+  const libraryText = await page.locator('#research .evidence-library__list').innerText()
+  expect(libraryText).not.toContain('strongest realized network-security acceleration')
+
+  const entraRow = page.locator('#market .tracker-table tr', { has: page.getByTitle('Microsoft Entra ID') })
+  await entraRow.getByLabel(/^Ownership — source:/).click()
+  const dialog = page.getByRole('dialog', { name: 'Evidence' })
+  await expect(dialog.getByRole('heading', { name: 'Interpretation' })).toHaveCount(0)
 })
 
 /**
