@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { expectedFiscalQuarter } from '../src/data/edgarLogic.ts'
+import { daysBetween, expectedFiscalQuarter } from '../src/data/edgarLogic.ts'
 import { edgarRegistry } from '../src/data/edgarRegistry.ts'
 import { evidenceById } from '../src/data/evidence.ts'
 import { runStatus } from '../src/data/runStatus.ts'
@@ -69,6 +69,24 @@ import { trackerSuppliers } from '../src/data/tracker/suppliers.ts'
  *      of staleness the run-status line claims does not happen.
  *  12. `runStatus.state` may not read "updated" (every source collected)
  *      while gate 11 above found a stale figure.
+ *
+ * AUTO-001 fix pass 2 (2026-09-26), three more gates from the two blind
+ * rescores (score2/opus, score2/sol):
+ *  13. Two supplier rows inside the same domain table may not share a
+ *      display `name` — the Check Point public row and the Check Point
+ *      email-segment row both reading bare "Check Point" in the email
+ *      domain table both scorers flagged as indistinguishable.
+ *  14. A supplier's `lastRound.date` or `ownership.announced`/`.closed`
+ *      falling inside the trailing twelve months (the same window
+ *      `eventSummaryForSupplier` in derive.ts counts) must have a matching
+ *      event in events.ts — a funding round or an ownership change that is
+ *      a fact on the supplier record but not an event is exactly why the
+ *      "Events, 12 mo." column read "0" for suppliers with a round inside
+ *      the year.
+ *  15. Every evidence record's `canonicalUrl` that the tracker actually
+ *      cites must point at a specific document, not a bare domain or a
+ *      newsroom/IR index page with no slug — a source a reader cannot use
+ *      to check the fact.
  */
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
@@ -110,6 +128,8 @@ let failCount = 0
 const failures: string[] = []
 /** Set by gate 11 whenever a tracked figure lags EDGAR's own latest quarter; read by gate 12. */
 let staleFigureFound = false
+/** Every evidence id actually cited by a supplier field or an event; read by gate 15. */
+const usedEvidenceIds = new Set<string>()
 
 function fail(message: string): void {
   failCount++
@@ -166,6 +186,7 @@ function checkEvidenceIds(label: string, ids: string[] | undefined): void {
     return
   }
   for (const id of ids) {
+    usedEvidenceIds.add(id)
     const record = evidenceById[id]
     if (!record) {
       fail(`${label}: evidence id "${id}" does not exist in evidence.ts`)
@@ -411,6 +432,125 @@ if (staleFigureFound && runStatus.state === 'updated') {
       'whose tracked revenue figure is older than what generated/edgarFacts.json already holds for ' +
       'that same filer — the run-status line would misstate what happened (src/data/runStatus.ts)',
   )
+}
+
+// --- 13. AUTO-001 fix pass 2, item 2: two rows in one domain may not share a display name ---
+
+const namesByDomain = new Map<string, Map<string, string[]>>()
+for (const supplier of trackerSuppliers) {
+  for (const domainId of supplier.domainIds) {
+    if (!namesByDomain.has(domainId)) namesByDomain.set(domainId, new Map())
+    const byName = namesByDomain.get(domainId)!
+    const ids = byName.get(supplier.name) ?? []
+    ids.push(supplier.id)
+    byName.set(supplier.name, ids)
+  }
+}
+for (const [domainId, byName] of namesByDomain) {
+  for (const [name, ids] of byName) {
+    if (ids.length > 1) {
+      fail(
+        `domain "${domainId}": suppliers [${ids.join(', ')}] share the display name "${name}" — two rows ` +
+          'in one domain table must be distinguishable',
+      )
+    }
+  }
+}
+
+// --- 14. AUTO-001 fix pass 2, item 1: a dated fact inside the trailing 12 months on a supplier
+// record (lastRound, ownership.announced/closed) must also exist as an event in events.ts ---
+
+/** `dateIso` may be "YYYY-MM" (funding month precision) or a full "YYYY-MM-DD". */
+function toComparableDate(dateIso: string): string {
+  return dateIso.length === 7 ? `${dateIso}-01` : dateIso
+}
+
+/**
+ * True when this supplier already has an event of one of `types` inside the
+ * same trailing-12-month window `eventSummaryForSupplier` (derive.ts) counts
+ * for "Events, 12 mo.". Matched on type and window, not on an exact date
+ * string — a funding round's supplier-record date is sometimes month-only
+ * precision while the event carries the report's day-precision date, and
+ * both are sourced from the same underlying fact.
+ */
+function hasMatchingEvent(supplierId: string, types: string[]): boolean {
+  return trackerEvents.some((event) => {
+    if (event.supplierId !== supplierId || !types.includes(event.type)) return false
+    const eventAge = daysBetween(event.date, runStatus.lastChecked)
+    return eventAge >= 0 && eventAge <= 365
+  })
+}
+
+for (const supplier of trackerSuppliers) {
+  const who = `supplier "${supplier.id}" (${supplier.name})`
+
+  if (supplier.lastRound?.date) {
+    const age = daysBetween(toComparableDate(supplier.lastRound.date), runStatus.lastChecked)
+    if (age >= 0 && age <= 365 && !hasMatchingEvent(supplier.id, ['funding'])) {
+      fail(
+        `${who}: lastRound.date "${supplier.lastRound.date}" is inside the trailing 12 months but no ` +
+          'matching "funding" event exists in events.ts',
+      )
+    }
+  }
+
+  if (supplier.ownership) {
+    for (const field of ['announced', 'closed'] as const) {
+      const dateVal = supplier.ownership[field]
+      if (!dateVal) continue
+      const age = daysBetween(dateVal, runStatus.lastChecked)
+      if (age >= 0 && age <= 365 && !hasMatchingEvent(supplier.id, ['acquisition', 'divestiture'])) {
+        fail(
+          `${who}: ownership.${field} "${dateVal}" is inside the trailing 12 months but no matching ` +
+            '"acquisition"/"divestiture" event exists in events.ts',
+        )
+      }
+    }
+  }
+}
+
+// --- 15. AUTO-001 fix pass 2, item 6: an evidence URL the tracker cites may not be a bare
+// domain or a newsroom/IR index page with no specific document slug ---
+
+const INDEX_PATH_WORDS = new Set([
+  'news',
+  'newsroom',
+  'press',
+  'press-releases',
+  'pressroom',
+  'media',
+  'media-center',
+  'investors',
+  'investor-relations',
+  'ir',
+  'blog',
+  'announcements',
+])
+
+function bareDomainOrIndexReason(url: string): string | null {
+  let parsed: URL
+  try {
+    parsed = new URL(url)
+  } catch {
+    return 'is not a valid URL'
+  }
+  const path = parsed.pathname.replace(/\/+$/, '')
+  if (path === '') return 'is a bare domain with no path'
+  const segments = path.split('/').filter(Boolean)
+  const last = segments[segments.length - 1]?.toLowerCase() ?? ''
+  if (segments.length === 1 && INDEX_PATH_WORDS.has(last)) {
+    return `is a newsroom/IR index page ("${path}") with no specific document`
+  }
+  return null
+}
+
+for (const id of usedEvidenceIds) {
+  const record = evidenceById[id]
+  if (!record || !record.canonicalUrl) continue // already failed by check 2 above
+  const reason = bareDomainOrIndexReason(record.canonicalUrl)
+  if (reason) {
+    fail(`evidence "${id}" (${record.canonicalUrl}): ${reason} — link the specific document instead`)
+  }
 }
 
 // --- Report ---

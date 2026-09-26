@@ -121,10 +121,15 @@ describe('corrections data', () => {
     for (const text of ['Palo Alto Networks', 'Protect AI', 'F5', 'CalypsoAI', 'SurePath AI', 'hyperscaler']) {
       assert.match(correction!.text, new RegExp(text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')))
     }
-    assert.match(
-      correction!.text,
-      /AI security absorbed into a platform vendor\. Watch whether it survives as a product or becomes a feature\./,
-    )
+    // AUTO-001 fix pass 2, item 5: the correction used to quote the retracted
+    // row's replacement wording verbatim ("...Watch whether it survives as a
+    // product or becomes a feature."), which put forecast-sounding language
+    // back on the live /corrections/ route — exactly what both blind
+    // rescores flagged. The correction now describes the retracted sentence
+    // and the row's plain factual replacement without quoting either.
+    assert.doesNotMatch(correction!.text, /Watch whether it survives/)
+    assert.match(correction!.text, /a sentence that described Palo Alto Networks and F5 as hyperscalers/)
+    assert.match(correction!.text, /acquired by a platform vendor, with no claim about what happens to the product next/)
   })
 })
 

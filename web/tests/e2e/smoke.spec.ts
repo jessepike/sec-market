@@ -43,9 +43,24 @@ test('renders the market briefing without runtime errors', async ({ page }) => {
 
   // RunStatus replaces the old issue strip in the same #overview slot — an
   // honest statement of whether collection ran, never a judgment.
+  //
+  // AUTO-001 fix pass 2, item 4: runStatus is now derived from
+  // generated/edgarFacts.json and generated/collectState.json (see
+  // runStatus.ts's header comment) instead of hand-set, so this test reads
+  // whatever that derivation actually produces rather than asserting a
+  // fixed "updated" state — the two rescores' whole complaint was that the
+  // page claimed "every source collected" with no run behind the claim.
   await expect(page.locator('#overview .run-status__line')).toContainText('Figures checked')
-  await expect(page.locator('#overview .run-status__line')).toContainText('every source collected')
-  expect(runStatus.state).toBe('updated')
+  expect(['updated', 'no-change', 'incomplete']).toContain(runStatus.state)
+  if (runStatus.state === 'updated') {
+    await expect(page.locator('#overview .run-status__line')).toContainText('every source collected')
+  } else if (runStatus.state === 'no-change') {
+    await expect(page.locator('#overview .run-status__line')).toContainText('no material change')
+  } else {
+    await expect(page.locator('#overview .run-status__line')).toContainText(
+      runStatus.detail ?? 'collection incomplete',
+    )
+  }
 
   await expect(page.getByText('refreshed weekly')).toHaveCount(0)
   await expect(page.getByText('Tell me when the next edition publishes')).toHaveCount(0)

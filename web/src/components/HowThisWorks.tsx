@@ -1,6 +1,22 @@
 import { EPISODE_ID, EPISODE_VERSION, LAST_UPDATED_DISPLAY } from '../data/meta'
-import { reasoningSteps, signalFamilies, sourcingLadder } from '../data/method'
+import { sourcingLadder } from '../data/method'
+import { notCoveredByTracker, trackerDomains } from '../data/tracker/domains'
+import { trackerSuppliers } from '../data/tracker/suppliers'
 
+/**
+ * AUTO-001 fix pass 2 (2026-09-26), item 5: both blind rescores caught
+ * live-page judgment text here — this section used to also render two
+ * tables from data/method.ts (`signalFamilies`, `reasoningSteps`), framed
+ * as "archived analysis" but still served on `/`, not an archive-only
+ * route. Those tables carried the exact banned phrases both scorers quoted
+ * verbatim ("PREPARE only where the account has a matching live motion",
+ * "That is a no-call", "The best check on whether customers actually
+ * spent"). They are gone from this component; `data/method.ts` itself is
+ * untouched (`signalFamilies`/`reasoningSteps` stay there as the historical
+ * record of how the archived `/thesis/` call was reasoned — it is simply
+ * not imported here anymore). The sourcing ladder stays: it describes a
+ * publishing standard for the live tracker, not a judgment.
+ */
 export function HowThisWorks() {
   return (
     <section className="method" aria-labelledby="method-heading">
@@ -54,59 +70,19 @@ export function HowThisWorks() {
       <p className="method-copy">
         Current prints stay on the scorecard. Older still-true context collapses to Background.
         Superseded prints leave the card and stay in evidence. Acquired vendors keep their last
-        independent print — we do not rewrite them into the buyer. Tracked figures are updated as
-        companies report; the run status near the top of the page says whether the latest run was
-        complete.
+        independent print — we do not rewrite them into the buyer. SEC filings refresh daily; press,
+        funding and distress facts refresh twice a week. The run status near the top of the page
+        says whether the latest run was complete.
       </p>
 
-      <h3 className="method__subhead">Signals behind the standing thesis (archived analysis)</h3>
+      <h3 className="method__subhead">What is not covered</h3>
       <p className="method-copy">
-        The table below documents how the site&rsquo;s one standing analysis (&ldquo;does security
-        spending lag infrastructure spending&rdquo;, kept at <a href="/thesis/">/thesis/</a>) was
-        reasoned about while it was an active judgment. It describes that archived record, not the
-        live tracker above, which publishes no calls.
+        {trackerDomains.length} domains, {trackerSuppliers.length} tracked suppliers — the full list,
+        and what falls outside it, is in{' '}
+        <a href="#tracker-coverage">What this site covers</a> earlier on this page. In short:{' '}
+        {notCoveredByTracker.length} categories of company and claim this tracker does not follow,
+        stated there rather than here so it stays in one place.
       </p>
-      <div className="table-scroll">
-        <table className="tempo-table method-table">
-          <caption className="visually-hidden">
-            Signal families used in this analysis, with examples and how each is treated
-          </caption>
-          <thead>
-            <tr>
-              <th scope="col">Signal</th>
-              <th scope="col">Examples</th>
-              <th scope="col">We treat it as</th>
-            </tr>
-          </thead>
-          {signalFamilies.map((family) => (
-            <tbody key={family.name}>
-              <tr>
-                <th scope="row">{family.name}</th>
-                <td>{family.examples}</td>
-                <td>{family.weTreatAs}</td>
-              </tr>
-              <tr className="method-table__guard">
-                <td colSpan={3}>
-                  <strong>We do not.</strong> {family.weDoNot}
-                </td>
-              </tr>
-            </tbody>
-          ))}
-        </table>
-      </div>
-
-      <h3 className="method__subhead">How that archived call was reasoned (thesis only)</h3>
-      <ol className="method-steps">
-        {reasoningSteps.map((item, index) => (
-          <li key={item.step} className="method-step">
-            <p className="method-step__n">{index + 1}</p>
-            <div>
-              <h4>{item.step}</h4>
-              <p>{item.rule}</p>
-            </div>
-          </li>
-        ))}
-      </ol>
     </section>
   )
 }

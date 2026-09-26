@@ -154,6 +154,13 @@ suppliers nobody actually checked. If this run is unrestricted and completes, se
 `lastSuccessfulCollectDate` to today's date (the since-date for the *next* run) and `lastRunAt` to
 the current UTC timestamp.
 
+**You will also see a `collectorRun` field in this file.** That block is script-owned —
+`scripts/collect.sh` step 6 writes it after you exit, and `scripts/auto-publish.sh` writes it too on
+a held or failed publish. It is `web/src/data/runStatus.ts`'s one input alongside
+`generated/edgarFacts.json` (AUTO-001 fix pass 2, item 4 — see that file's header comment for the
+derivation). You never write it yourself; the two fields above are still the only ones this brief
+asks of you.
+
 ## 5. What to leave in `.collect/` for `scripts/collect.sh`
 
 Create the directory if it doesn't exist. Write these, even when empty:

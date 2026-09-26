@@ -9,19 +9,26 @@ import { runStatus } from '../src/data/runStatus.ts'
 import type { RunStatus as RunStatusData } from '../src/data/runStatus.ts'
 
 /**
- * The run-status data file exports one fixed value; these tests render the
- * component against a local override object built from it, one per state,
- * rather than mutating the shared export — the component reads the module's
- * `runStatus` binding directly, so each case temporarily monkey-patches the
- * exported object's own fields (safe here: it's a plain object, and each
- * test restores it before the next runs).
+ * The run-status data file exports one derived value; these tests render
+ * the component against a local override object built from it, one per
+ * state, rather than mutating the shared export — the component reads the
+ * module's `runStatus` binding directly, so each case temporarily
+ * monkey-patches the exported object's own fields (safe here: it's a plain
+ * object, and each test restores it before the next runs).
+ *
+ * Clears every existing key before assigning `next`, not just merges over
+ * it — `runStatus` can carry an optional `detail` (AUTO-001 fix pass 2,
+ * item 4), and a plain `Object.assign` would leave the shipped `runStatus`'s
+ * real `detail` string leaking into a test case that doesn't set one.
  */
 function withRunStatus(next: RunStatusData, run: () => void): void {
   const original = { ...runStatus }
+  for (const key of Object.keys(runStatus)) delete (runStatus as Record<string, unknown>)[key]
   Object.assign(runStatus, next)
   try {
     run()
   } finally {
+    for (const key of Object.keys(runStatus)) delete (runStatus as Record<string, unknown>)[key]
     Object.assign(runStatus, original)
   }
 }
@@ -62,11 +69,39 @@ describe('RunStatus', () => {
     )
   })
 
-  it('the shipped status is well formed: a real date, a known state, and failures only when incomplete', () => {
+  /**
+   * AUTO-001 fix pass 2, item 4: a scope-restricted collect run can leave
+   * failedSources empty — nothing failed, but not everything was checked
+   * either — so runStatus.ts sets `detail` instead, and RunStatus.tsx must
+   * prefer it over the generic "N sources failed" line.
+   */
+  it('renders the plain-language detail when incomplete with no failed sources', () => {
+    withRunStatus(
+      {
+        lastChecked: '2026-09-25',
+        state: 'incomplete',
+        failedSources: [],
+        detail: 'Press, funding and distress sources last checked for 4 of 74 suppliers on 26 Sep 2026 (restricted run: optiv, snyk, cyera, rapid7).',
+      },
+      () => {
+        const markup = renderToStaticMarkup(createElement(RunStatus))
+        assert.match(markup, /Figures checked 25 Sep 2026/)
+        assert.match(markup, /Press, funding and distress sources last checked for 4 of 74 suppliers/)
+        assert.doesNotMatch(markup, /collection incomplete: 0 sources failed/)
+      },
+    )
+  })
+
+  it('the shipped status is well formed: a real date, a known state, and a reason whenever incomplete', () => {
     assert.match(runStatus.lastChecked, /^\d{4}-\d{2}-\d{2}$/)
     assert.ok(['updated', 'no-change', 'incomplete'].includes(runStatus.state))
-    if (runStatus.state !== 'incomplete') assert.deepEqual(runStatus.failedSources, [])
-    else assert.ok(runStatus.failedSources.length > 0)
+    if (runStatus.state !== 'incomplete') {
+      assert.deepEqual(runStatus.failedSources, [])
+    } else {
+      // A scope-restricted run can leave failedSources empty; `detail` is
+      // the plain-language reason in that case, so at least one must be set.
+      assert.ok(runStatus.failedSources.length > 0 || Boolean(runStatus.detail))
+    }
   })
 })
 

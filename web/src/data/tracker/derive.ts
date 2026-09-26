@@ -89,6 +89,21 @@ export function formatYear(dateStr: string | undefined): string {
 }
 
 /**
+ * "2026-08-26" -> "26 Aug" — the muted mono "filed" date next to a revenue
+ * figure's period (AUTO-001 fix pass 2, item 7). No year: the period label
+ * right next to it ("Q Jul 26") already carries the year, and the filing
+ * date is always within a few weeks of the period it reports on.
+ */
+export function formatFiledDate(dateStr: string | undefined): string {
+  if (!dateStr) return ''
+  const [, , d] = dateStr.split('-')
+  const parts = monthPart(dateStr)
+  if (!parts) return dateStr
+  const day = Number(d)
+  return Number.isFinite(day) ? `${day} ${parts.month}` : parts.month
+}
+
+/**
  * "$5.84 billion" -> "$5.84B", "$651.4 million" -> "$651.4M", preserving any
  * leading qualifier (">$1.7 billion" -> ">$1.7B"). Text with no
  * billion/million unit passes through unchanged.

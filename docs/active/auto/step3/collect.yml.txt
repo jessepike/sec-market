@@ -10,12 +10,16 @@ file supersedes.
 Reconciled with the step 4 draft: that version ran `claude -p` inline in the
 workflow step, with the prompt built by a here-document in the step's own
 `run:` block. This version moves that whole run — the login probe, the
-since-date computation, the `claude -p` invocation, and the runStatus.ts
-write — into scripts/collect.sh, so the same script that a person runs
-locally to test or backfill is exactly what the scheduled job runs; nothing
-about the collection step lives only in YAML. What stays in the workflow,
-unchanged from the step 4 draft's shape: checkout, install, create the
-short-lived branch, commit and push what scripts/collect.sh produced, and
+since-date computation, and the `claude -p` invocation — into
+scripts/collect.sh, so the same script that a person runs locally to test or
+backfill is exactly what the scheduled job runs; nothing about the
+collection step lives only in YAML. (AUTO-001 fix pass 2, item 4:
+scripts/collect.sh's own write moved too — it now writes the
+`collectorRun` receipt block in generated/collectState.json instead of
+patching web/src/data/runStatus.ts, which is a derived module today; see
+that file's header comment.) What stays in the workflow, unchanged from the
+step 4 draft's shape: checkout, install, create the short-lived branch,
+commit and push what scripts/collect.sh produced, and
 hand the publish decision to scripts/auto-publish.sh (RUNNER=collect) —
 nobody is asked (D-76).
 
@@ -141,8 +145,7 @@ jobs:
             web/src/data/tracker/events.ts \
             web/src/data/tracker/suppliers.ts \
             web/src/data/evidence.ts \
-            web/src/data/generated/collectState.json \
-            web/src/data/runStatus.ts
+            web/src/data/generated/collectState.json
           if git diff --cached --quiet; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
             echo "collect: nothing to commit this run (state: ${{ steps.receipt.outputs.state }})"

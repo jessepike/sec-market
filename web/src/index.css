@@ -39,7 +39,8 @@ html {
 }
 
 section[id],
-details[id] {
+details[id],
+tr[id] {
   scroll-margin-top: calc(var(--header-height) + 0.75rem);
 }
 
@@ -3684,12 +3685,31 @@ summary:focus-visible,
 }
 
 /* One line per cell: the figure, its muted mono period (growth cells
-   only), and a compact source link, all inline. */
+   only), and a compact source link, all inline. `flex-wrap: wrap` stays the
+   default for every cell — the Own metric and Ownership columns carry real
+   prose (a long PE-ownership or acquisition description) that still needs
+   to be free to wrap. */
 .tracker-figure {
   display: inline-flex;
   align-items: baseline;
   gap: 0.3rem;
   flex-wrap: wrap;
+}
+
+/* Rev. growth / Prior q only (item 7, AUTO-001 fix pass 2): these two
+   columns hold one short figure plus its period, never prose, so above the
+   640px breakpoint they stay on one line even with the "· filed ..." date
+   added — a desktop reader never sees just these two columns grow taller
+   than their neighbours. Scoped to these columns rather than every
+   `.tracker-figure`, so the Own metric and Ownership columns keep their
+   wrap-when-needed behaviour and the table does not widen past its
+   container on a domain with a long ownership description. */
+@media (min-width: 641px) {
+  .tracker-table td:nth-child(2) .tracker-figure,
+  .tracker-table td:nth-child(3) .tracker-figure {
+    flex-wrap: nowrap;
+    white-space: nowrap;
+  }
 }
 
 .tracker-figure__period {
