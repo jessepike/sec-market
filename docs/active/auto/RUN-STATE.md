@@ -26,9 +26,11 @@ push workflow files) and `claude setup-token` for the model runner's repository 
 | A5a | Coverage research: endpoint, SecOps, MDR and services, exposure | claude-sonnet-5 | done, 25 suppliers | none | scratchpad coverage-g1.md |
 | A5b | Coverage research: network, cloud, identity, email | claude-sonnet-5 | done, 27 suppliers | none | scratchpad coverage-g2.md |
 | A5c | Coverage research: data, appsec, OT, AI security | claude-sonnet-5 | done, 29 suppliers | none | scratchpad coverage-g3.md |
-| A5 | Twelve-domain tracker: data model, verify:tracker, front page tables, what changed, coverage | claude-sonnet-5 | running | sec-market-wt/tracker, mon/tracker | docs/active/auto/step5/report.md |
-| A4 | Automatic publish path: allowlist, drift rule, gates, workflow drafts | claude-sonnet-5 | running | sec-market-wt/autopublish, mon/autopublish | docs/active/auto/step4/report.md |
+| A5 | Twelve-domain tracker: data model, verify:tracker, front page tables, what changed, coverage | claude-sonnet-5 | built (74 suppliers, 62 events, c65e791); density pass running because the tables were loose and the phone page was 45,000px | sec-market-wt/tracker, mon/tracker | docs/active/auto/step5/report.md |
+| A4 | Automatic publish path: allowlist, drift rule, gates, workflow drafts | claude-sonnet-5 | done, merged to preview; drift rule narrowed to web/.github/scripts (D-79) | sec-market-wt/autopublish, mon/autopublish | docs/active/auto/step4/report.md |
 
-Research files are committed at docs/active/auto/step5/research/. Step 3 (model runner brief and script) starts after A5 fixes the tracker schema.
+| A3 | Claude collector: brief, collect.sh, workflow, one real run on a five-supplier slice | claude-sonnet-5 | running | sec-market-wt/collect, mon/collect (from mon/tracker) | docs/active/auto/step3/report.md |
 
-Last updated: 2026-09-25
+Research files are committed at docs/active/auto/step5/research/.
+
+Last updated: 2026-09-26
