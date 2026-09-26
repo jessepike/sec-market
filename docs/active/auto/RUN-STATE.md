@@ -18,6 +18,8 @@ and step 5 are layout changes: render, show the owner, promote on his word.
 Owner-only steps still ahead: `gh auth refresh -h github.com -s workflow` (the laptop token cannot
 push workflow files) and `claude setup-token` for the model runner's repository secret.
 
+2026-09-26 10:05: two fix passes from the blind scores merged to preview (bb7bdf7). Full-year collector backfill running in seven batches of about twelve suppliers in worktree sec-market-wt/backfill, branch data/collect-backfill; logs in the session scratchpad. After it: review new facts, gates, merge, mark collectState as full coverage only if every batch completed, then rescore with both models.
+
 ## Task ledger
 
 | ID | Task | Model | Status | Worktree / branch | Output |
