@@ -2175,6 +2175,2235 @@ export const evidenceRecords: EvidenceRecord[] = [
     retrievedAt: '2026-09-03',
     retrieval: { finalUrl: 'https://www.sec.gov/Archives/edgar/data/789019/000119312526380280/d291965dex991.htm', sha256: '557161af7ac2f2eed02c2ad77b8d5e1e21acd35173e46519981ad85d28a15be5', fetchedAt: '2026-09-04T16:31:56Z', locator: 'EX-99.1, capital expenditures guidance line' },
   },
+{
+  "id": "TR-abnormal-1",
+  "title": "Abnormal Security Series D Funding",
+  "organization": "Abnormal Security",
+  "publicationDate": "2024-08-06",
+  "economicPeriod": "August 2024",
+  "canonicalUrl": "https://abnormal.ai/newsroom/press-releases/series-d-5b-valuation",
+  "excerpt": "Series D: $250 million at $5.1 billion post-money valuation, led by Wellington Management.",
+  "sourceClass": "IR",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-abnormal-1",
+  "tags": [
+    "tracker",
+    "email"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-abnormal-2",
+  "title": "Abnormal Security ARR and Growth",
+  "organization": "Abnormal Security",
+  "publicationDate": "2024-08-06",
+  "economicPeriod": "August 2024",
+  "canonicalUrl": "https://abnormal.ai/newsroom/press-releases/series-d-5b-valuation",
+  "excerpt": "Over $200 million ARR with 100%+ YoY growth.",
+  "sourceClass": "IR",
+  "interpretation": "",
+  "limitations": "No later ARR figure found through September 2026.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-abnormal-2",
+  "tags": [
+    "tracker",
+    "email"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-aqua-1",
+  "title": "Aqua Security Series E Extension Funding",
+  "organization": "Aqua Security",
+  "publicationDate": "2024-01",
+  "economicPeriod": "January 2024",
+  "canonicalUrl": "https://www.aquasec.com/news/",
+  "excerpt": "Series E extension in January 2024: $60M at $1B+ valuation.",
+  "sourceClass": "VENDOR-RESEARCH",
+  "interpretation": "",
+  "limitations": "No newer funding round found.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-aqua-1",
+  "tags": [
+    "tracker",
+    "cloud"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-aqua-2",
+  "title": "Aqua Security Leadership Transition",
+  "organization": "Aqua Security",
+  "publicationDate": "2025-11-05",
+  "economicPeriod": "November 2025",
+  "canonicalUrl": "https://www.aquasec.com/news/aqua-security-announces-leadership-transition-as-company-enters-its-next-phase-of-growth/",
+  "excerpt": "Co-founder/CEO Dror Davidoff and co-founder/CTO Amir Jerbi stepped back to strategic advisors. Mike Dube became CEO; Nir Makowski became Chief Product & Technology Officer.",
+  "sourceClass": "IR",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-aqua-2",
+  "tags": [
+    "tracker",
+    "cloud"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-armis-1",
+  "title": "ServiceNow Announces First Quarter Fiscal 2026 Financial Results",
+  "organization": "ServiceNow, Inc.",
+  "publicationDate": "2026-04-22",
+  "economicPeriod": "Q1 FY2026",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1373715/000137371526000054/erq1fy26.htm",
+  "excerpt": "'ServiceNow closed its acquisition of Armis on April 20, 2026.' Armis is expected to contribute approximately 125 basis points to Q2/FY2026 subscription revenue growth, with integration headwinds of approximately 25 basis points to subscription gross margin, 75 basis points to operating margin, and 200 basis points to free cash flow margin.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "Company-reported disclosure, filed as an exhibit to an SEC Form 8-K. No standalone Armis dollar revenue figure is disclosed.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-armis-1",
+  "tags": [
+    "tracker",
+    "ot-iot"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-axonius-1",
+  "title": "Axonius ARR Milestone",
+  "organization": "Axonius, Inc.",
+  "publicationDate": "2026-05-19",
+  "economicPeriod": "May 2026",
+  "canonicalUrl": "https://www.axonius.com/newsroom/press-release/axonius-surpasses-200m-arr-appoints-joe-diamond-ceo",
+  "excerpt": "Axonius reported ARR exceeding $200 million in Q1 of fiscal 2027, with company stating 100% growth in the preceding two years.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "Single-year growth rate not provided by the company; stated as 100% over two years.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-axonius-1",
+  "tags": [
+    "tracker",
+    "exposure"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-axonius-2",
+  "title": "Axonius Names Joe Diamond CEO",
+  "organization": "Axonius, Inc.",
+  "publicationDate": "2026-05-19",
+  "economicPeriod": "May 2026",
+  "canonicalUrl": "https://www.axonius.com/newsroom/press-release/axonius-surpasses-200m-arr-appoints-joe-diamond-ceo",
+  "excerpt": "Axonius appointed Joe Diamond as permanent CEO following his interim role since February 2026. Co-founder Dean Sysman moved to executive chairman.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-axonius-2",
+  "tags": [
+    "tracker",
+    "exposure"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-barracuda-1",
+  "title": "Barracuda KKR Acquisition Completion",
+  "organization": "Barracuda Networks, Inc.",
+  "publicationDate": "2022-08",
+  "economicPeriod": "August 2022",
+  "canonicalUrl": "https://www.barracuda.com/company/news",
+  "excerpt": "KKR acquired from Thoma Bravo, closed August 2022 at approximately $4 billion.",
+  "sourceClass": "IR",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-barracuda-1",
+  "tags": [
+    "tracker",
+    "email"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-beyondtrust-1",
+  "title": "BeyondTrust Clearlake Capital Investment",
+  "organization": "BeyondTrust",
+  "publicationDate": "2021-06-01",
+  "economicPeriod": "June 2021",
+  "canonicalUrl": "https://www.beyondtrust.com",
+  "excerpt": "Clearlake Capital made strategic investment, announced June 1, 2021.",
+  "sourceClass": "VENDOR-RESEARCH",
+  "interpretation": "",
+  "limitations": "Majority vs. minority stake not confirmed.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-beyondtrust-1",
+  "tags": [
+    "tracker",
+    "identity"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-bigid-1",
+  "title": "BigID funding and investors summary",
+  "organization": "Tracxn",
+  "publicationDate": "2024-03-01",
+  "economicPeriod": "N/A (funding history aggregator)",
+  "canonicalUrl": "https://tracxn.com/d/companies/bigid/__pHSLjAzI2aqF63ud9QosF69usdaBPTT49_kou_rHtgw/funding-and-investors",
+  "excerpt": "$60 million growth round led by Riverwood Capital, with Silver Lake Waterman and Advent International participating, at a $1 billion valuation, March 2024.",
+  "sourceClass": "INDEPENDENT",
+  "interpretation": "",
+  "limitations": "Third-party funding aggregator, not a BigID or Riverwood Capital press release directly reached this pass.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-bigid-1",
+  "tags": [
+    "tracker",
+    "data"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-cato-1",
+  "title": "Cato Networks Series G Funding Announcement",
+  "organization": "Cato Networks",
+  "publicationDate": "2025-06-30",
+  "economicPeriod": "June 2025",
+  "canonicalUrl": "https://www.prnewswire.com/news-releases/cato-networks-raises-359-million-at-a-valuation-of-more-than-4-8-billion-302494283.html",
+  "excerpt": "Series G: $359 million initial close led by Vitruvian Partners and ION Crossover Partners, with ~$50 million extension, at valuation over $4.8 billion.",
+  "sourceClass": "IR",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-cato-1",
+  "tags": [
+    "tracker",
+    "network-sase"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-cato-2",
+  "title": "Cato Networks FY2025 ARR Milestone",
+  "organization": "Cato Networks",
+  "publicationDate": "2026-02-24",
+  "economicPeriod": "Full year 2025",
+  "canonicalUrl": "https://www.prnewswire.com/il/news-releases/cato-networks-surpasses-350-million-arr-with-43-yoy-growth-in-2025-302694952.html",
+  "excerpt": "ARR surpassed $350 million, +43% YoY, for full year 2025.",
+  "sourceClass": "IR",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-cato-2",
+  "tags": [
+    "tracker",
+    "network-sase"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-chainguard-1",
+  "title": "Chainguard secures $280M to expand trusted open source software platform",
+  "organization": "SiliconANGLE",
+  "publicationDate": "2025-10-23",
+  "economicPeriod": "N/A (funding announcement)",
+  "canonicalUrl": "https://siliconangle.com/2025/10/23/chainguard-secures-280m-expand-trusted-open-source-software-platform/",
+  "excerpt": "Chainguard closed $280 million in growth financing led by General Catalyst's Customer Value Fund, bringing total raised to approximately $892 million.",
+  "sourceClass": "INDEPENDENT",
+  "interpretation": "",
+  "limitations": "Trade press report; not confirmed against a direct Chainguard primary-source release.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-chainguard-1",
+  "tags": [
+    "tracker",
+    "appsec"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-checkpoint-1",
+  "title": "Check Point Q2 2026 Earnings Release",
+  "organization": "Check Point Software Technologies Ltd.",
+  "publicationDate": "2026-07-30",
+  "economicPeriod": "Q2 2026, ended 2026-06-30",
+  "canonicalUrl": "https://www.checkpoint.com/press-releases/check-point-software-reports-2026-second-quarter-financial-results/",
+  "excerpt": "Total revenue $674 million, +1% YoY; Security Subscriptions revenue $333 million, +12% YoY.",
+  "sourceClass": "IR",
+  "interpretation": "",
+  "limitations": "Harmony SASE growth not disclosed separately.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-checkpoint-1",
+  "tags": [
+    "tracker",
+    "network-sase",
+    "email"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-checkpoint-2",
+  "title": "Check Point Q1 2026 Earnings Release",
+  "organization": "Check Point Software Technologies Ltd.",
+  "publicationDate": "2026-04-30",
+  "economicPeriod": "Q1 2026, ended 2026-03-31",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/0001015922/000117891326002310/a2635159.htm",
+  "excerpt": "Total revenue $668 million, +5% YoY; Security Subscriptions revenue $323 million, +11% YoY.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-checkpoint-2",
+  "tags": [
+    "tracker",
+    "network-sase"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-checkpoint-3",
+  "title": "Check Point Chief Revenue Officer Appointment",
+  "organization": "Check Point Software Technologies Ltd.",
+  "publicationDate": "2026-05-01",
+  "economicPeriod": "May 2026",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/0001015922/000117891326002310/a2635159.htm",
+  "excerpt": "Sherif Seddik appointed Chief Revenue Officer effective May 1, 2026, succeeding Itai Greenberg.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-checkpoint-3",
+  "tags": [
+    "tracker",
+    "network-sase"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-checkpoint-4",
+  "title": "Check Point Convertible Notes Issuance",
+  "organization": "Check Point Software Technologies Ltd.",
+  "publicationDate": "2026-07-30",
+  "economicPeriod": "Q2 2026",
+  "canonicalUrl": "https://www.checkpoint.com/press-releases/check-point-software-reports-2026-second-quarter-financial-results/",
+  "excerpt": "$2 billion in convertible senior notes issued during Q2 2026, ~$1.8 billion net proceeds.",
+  "sourceClass": "IR",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-checkpoint-4",
+  "tags": [
+    "tracker",
+    "network-sase"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-checkpoint-email-1",
+  "title": "Check Point Harmony Email & Collaboration",
+  "organization": "Check Point Software Technologies Ltd.",
+  "publicationDate": "2026-07-30",
+  "economicPeriod": "Q2 2026",
+  "canonicalUrl": "https://www.checkpoint.com/press-releases/check-point-software-reports-2026-second-quarter-financial-results/",
+  "excerpt": "Harmony Email originated from Avanan acquisition (~August 30, 2021 at $250-300M). Security Subscriptions revenue $333M, +12% YoY.",
+  "sourceClass": "IR",
+  "interpretation": "",
+  "limitations": "Harmony Email growth not separately disclosed.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-checkpoint-email-1",
+  "tags": [
+    "tracker",
+    "email"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-claroty-1",
+  "title": "Industrial cybersecurity startup Claroty nabs $150M funding round",
+  "organization": "SiliconANGLE",
+  "publicationDate": "2026-01-22",
+  "economicPeriod": "N/A (funding announcement)",
+  "canonicalUrl": "https://siliconangle.com/2026/01/22/industrial-cybersecurity-startup-claroty-nabs-150m-funding-round/",
+  "excerpt": "Claroty raised $150 million in growth equity led by Golub Growth (Golub Capital's growth-equity arm) at a $3 billion post-money valuation, an approximately 80% increase from its prior valuation; the article states Claroty 'expects to become profitable in the near future' and describes revenue only as 'hundreds of millions of dollars,' with no exact figure given.",
+  "sourceClass": "INDEPENDENT",
+  "interpretation": "",
+  "limitations": "Trade press (SiliconANGLE, citing Calcalist); not confirmed against a direct Claroty or Golub press release.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-claroty-1",
+  "tags": [
+    "tracker",
+    "ot-iot"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-cloudflare-1",
+  "title": "Cloudflare Q2 2026 Earnings Release",
+  "organization": "Cloudflare, Inc.",
+  "publicationDate": "2026-08-06",
+  "economicPeriod": "Q2 2026, ended 2026-06-30",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1477333/000147733326000053/q226exhibit991.htm",
+  "excerpt": "Revenue $696.1 million, +36% YoY; Current RPO growth 35% YoY.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-cloudflare-1",
+  "tags": [
+    "tracker",
+    "network-sase"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-cloudflare-2",
+  "title": "Cloudflare Q1 2026 Earnings Release",
+  "organization": "Cloudflare, Inc.",
+  "publicationDate": "2026-05-07",
+  "economicPeriod": "Q1 2026, ended 2026-03-31",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1477333/000147733326000035/q126exhibit991.htm",
+  "excerpt": "Revenue $639.8 million, +34% YoY.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-cloudflare-2",
+  "tags": [
+    "tracker",
+    "network-sase"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-cloudflare-3",
+  "title": "Cloudflare Q1 2026 Restructuring Announcement",
+  "organization": "Cloudflare, Inc.",
+  "publicationDate": "2026-05-07",
+  "economicPeriod": "Q1 2026, ended 2026-03-31",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1477333/000147733326000035/q126exhibit991.htm",
+  "excerpt": "Restructuring charge guided at $140-150 million; approximately 1,100 employees affected as part of agentic AI-first operating-model shift.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "Majority of charge ($105-110M) is cash.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-cloudflare-3",
+  "tags": [
+    "tracker",
+    "network-sase"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-cloudflare-4",
+  "title": "Cloudflare Convertible Notes Issuance",
+  "organization": "Cloudflare, Inc.",
+  "publicationDate": "2026-08-13",
+  "economicPeriod": "August 2026",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1477333/000095010326012340/dp251721_8k.htm",
+  "excerpt": "$2.5 billion aggregate principal of 0% Convertible Senior Notes due 2031 issued; ~$2,462.3 million net proceeds.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-cloudflare-4",
+  "tags": [
+    "tracker",
+    "network-sase"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-commvault-1",
+  "title": "Commvault Announces First Quarter Fiscal 2027 Financial Results",
+  "organization": "Commvault Systems, Inc.",
+  "publicationDate": "2026-07-28",
+  "economicPeriod": "Q1 FY2027 (quarter ended 2026-06-30)",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1169561/000116956126000020/q1fy27pressrelease.htm",
+  "excerpt": "Revenue of $314.1 million, up 11% year-over-year; Subscription ARR of $1,054 million, up 22% year-over-year; additional restructuring charges of $2.4 million recorded in the quarter.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "Company-reported unaudited quarterly results, filed as an exhibit to an SEC Form 8-K.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-commvault-1",
+  "tags": [
+    "tracker",
+    "data"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-commvault-2",
+  "title": "Commvault Announces Fourth Quarter and Fiscal Year 2026 Financial Results",
+  "organization": "Commvault Systems, Inc.",
+  "publicationDate": "2026-04-28",
+  "economicPeriod": "Q4 FY2026 (quarter ended 2026-03-31); FY2026 full year",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1169561/000116956126000013/q4fy26pressrelease.htm",
+  "excerpt": "Revenue of $311.7 million for the quarter (+13% YoY); FY2026 full-year revenue of $1,183.7 million (+19% YoY); Subscription ARR of $989.3 million (+27% YoY); two restructuring plans initiated in fiscal 2026 with total charges of $32.2 million; $900 million in convertible notes issued during fiscal 2026 plus $99.6 million spent on related capped-call purchases.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "Company-reported unaudited quarterly and full-year results, filed as an exhibit to an SEC Form 8-K.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-commvault-2",
+  "tags": [
+    "tracker",
+    "data"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-crwd-1",
+  "title": "CrowdStrike Q2 FY2027 Financial Results",
+  "organization": "CrowdStrike Holdings, Inc.",
+  "publicationDate": "2026-08-26",
+  "economicPeriod": "Quarter ended 2026-07-31",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/0001535527/000153552726000029/crwd-20260826xex991.htm",
+  "excerpt": "Revenue of $1.47 billion, up 26% year over year. Subscription revenue of $1.40 billion, up 27%. ARR of $5.84 billion, up 25% year over year.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-crwd-1",
+  "tags": [
+    "tracker",
+    "endpoint-xdr",
+    "exposure"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-crwd-2",
+  "title": "CrowdStrike Q1 FY2027 Financial Results",
+  "organization": "CrowdStrike Holdings, Inc.",
+  "publicationDate": "2026-06-03",
+  "economicPeriod": "Quarter ended 2026-04-30",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/0001535527/000153552726000022/crwd-20260603xex991.htm",
+  "excerpt": "Revenue of $1.39 billion, up 26% year over year. Net new ARR of $256 million, up 32% year over year.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-crwd-2",
+  "tags": [
+    "tracker",
+    "endpoint-xdr"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-cyberark-1",
+  "title": "CyberArk Acquisition Agreement",
+  "organization": "Palo Alto Networks, Inc.",
+  "publicationDate": "2025-07-31",
+  "economicPeriod": "July 2025",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1327567/000119312526040606/d128872d8k.htm",
+  "excerpt": "Merger agreement with CyberArk announced; consideration 2.2005 PANW shares plus $45.00 cash per share.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "Deal value approximately $25B per trade press, not explicitly in 8-K text.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-cyberark-1",
+  "tags": [
+    "tracker",
+    "identity"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-cyberark-2",
+  "title": "CyberArk SEC Deregistration",
+  "organization": "CyberArk Software Ltd.",
+  "publicationDate": "2026-02-23",
+  "economicPeriod": "February 2026",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1598110/000159811026000007/form15-12g.htm",
+  "excerpt": "CyberArk filed Form 15-12G deregistering from SEC, effective February 23, 2026, following acquisition close on February 11, 2026.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-cyberark-2",
+  "tags": [
+    "tracker",
+    "identity"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-cyera-1",
+  "title": "Cyera Announces $400 Million Investment from Goldman Sachs to Build the Trust Layer for the Agentic Enterprise",
+  "organization": "Cyera",
+  "publicationDate": "2026-09-22",
+  "economicPeriod": "N/A (funding announcement)",
+  "canonicalUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+  "excerpt": "Cyera announced a $400 million growth-equity investment from Growth Equity at Goldman Sachs Alternatives at a valuation of 'over $12 billion.'",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "Company press release.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-cyera-1",
+  "tags": [
+    "tracker",
+    "data"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-cyera-2",
+  "title": "Cyera press releases (Oasis Security acquisition)",
+  "organization": "Cyera",
+  "publicationDate": "2026-09-03",
+  "economicPeriod": "N/A (acquisition announcement)",
+  "canonicalUrl": "https://www.cyera.com/press-releases/",
+  "excerpt": "Cyera completed its acquisition of Oasis Security.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "Company newsroom listing page; the underlying research did not capture a dedicated per-release URL for this item.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-cyera-2",
+  "tags": [
+    "tracker",
+    "data"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-cyera-3",
+  "title": "Cyera press releases (Ryft acquisition)",
+  "organization": "Cyera",
+  "publicationDate": "2026-04-23",
+  "economicPeriod": "N/A (acquisition announcement)",
+  "canonicalUrl": "https://www.cyera.com/press-releases/",
+  "excerpt": "Cyera completed its acquisition of Ryft.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "Company newsroom listing page; the underlying research did not capture a dedicated per-release URL for this item.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-cyera-3",
+  "tags": [
+    "tracker",
+    "data"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-cyera-4",
+  "title": "Cyera Raises $600 Million at $12 Billion Valuation to Continue Building the Trust Layer for the AI Era",
+  "organization": "Cyera",
+  "publicationDate": "2026-06-10",
+  "economicPeriod": "N/A (funding announcement)",
+  "canonicalUrl": "https://www.cyera.com/press-releases/cyera-raises-600-million-at-12-billion-valuation-to-continue-building-the-trust-layer-for-the-ai-era",
+  "excerpt": "Cyera raised $600 million led by Evolution Equity Partners at a $12 billion valuation.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "Company press release.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-cyera-4",
+  "tags": [
+    "tracker",
+    "data"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-delinea-1",
+  "title": "Delinea ARR Announcement",
+  "organization": "Delinea",
+  "publicationDate": "2025-03-18",
+  "economicPeriod": "March 2025",
+  "canonicalUrl": "https://www.delinea.com",
+  "excerpt": "Nearing $400 million ARR.",
+  "sourceClass": "IR",
+  "interpretation": "",
+  "limitations": "No newer figure found; $500M+ figure in secondary sources unverified.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-delinea-1",
+  "tags": [
+    "tracker",
+    "identity"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-delinea-2",
+  "title": "Delinea TPG Capital Ownership",
+  "organization": "Delinea",
+  "publicationDate": "2022-02-01",
+  "economicPeriod": "February 2022",
+  "canonicalUrl": "https://www.delinea.com",
+  "excerpt": "ThycoticCentrify rebranded to Delinea under TPG Capital.",
+  "sourceClass": "VENDOR-RESEARCH",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-delinea-2",
+  "tags": [
+    "tracker",
+    "identity"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-delinea-3",
+  "title": "Delinea Chief Financial Officer Appointment",
+  "organization": "Delinea",
+  "publicationDate": "2026-09-23",
+  "economicPeriod": "September 2026",
+  "canonicalUrl": "https://www.globenewswire.com",
+  "excerpt": "Timothy Regan appointed Chief Financial Officer of Delinea.",
+  "sourceClass": "IR",
+  "interpretation": "",
+  "limitations": "Whether this followed a predecessor departure was not confirmed.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-delinea-3",
+  "tags": [
+    "tracker",
+    "identity"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-dragos-1",
+  "title": "Accenture to acquire Dragos, runZero, NetRise",
+  "organization": "Help Net Security",
+  "publicationDate": "2026-06-19",
+  "economicPeriod": "N/A (acquisition announcement)",
+  "canonicalUrl": "https://www.helpnetsecurity.com/2026/06/19/accenture-dragos-runzero-netrise-acquisition/",
+  "excerpt": "Accenture agreed to acquire a majority stake in Dragos and all of runZero and NetRise; combined enterprise value reported at approximately $4.1-4.2 billion. The underlying research separately confirms the existence of this agreement in Accenture's own Q3 FY2026 earnings 8-K exhibit (accession 0001467373-26-000031), which states: 'Our agreement to acquire a majority stake in Dragos and all of runZero and NetRise...' — that filing does not disclose the dollar price.",
+  "sourceClass": "INDEPENDENT",
+  "interpretation": "",
+  "limitations": "Trade press report; the deal's existence and June 18, 2026 announcement date are independently corroborated in Accenture's own SEC 8-K exhibit per the underlying research, though a direct filing URL was not captured for citation here. Price and closing-date specifics remain trade-press-sourced only.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-dragos-1",
+  "tags": [
+    "tracker",
+    "ot-iot"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-esentire-1",
+  "title": "eSentire Growth Equity Funding",
+  "organization": "eSentire, Inc.",
+  "publicationDate": "2022-02-22",
+  "economicPeriod": "February 2022",
+  "canonicalUrl": "https://www.esentire.com/news-releases/global-cybersecurity-leader-esentire-raises-us-325m-and-achieves-unicorn-status",
+  "excerpt": "eSentire raised $325 million in growth-equity funding at $1.1 billion valuation, led by Warburg Pincus, with Georgian and CDPQ participating.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "Warburg Pincus has held a majority stake since an initial 2017 investment.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-esentire-1",
+  "tags": [
+    "tracker",
+    "managed-security"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-exabeam-1",
+  "title": "Exabeam and LogRhythm Merger Completion",
+  "organization": "Thoma Bravo",
+  "publicationDate": "2024-07-17",
+  "economicPeriod": "July 2024",
+  "canonicalUrl": "https://www.thomabravo.com/press-releases/exabeam-and-logrhythm-complete-merger-and-announce-new-company-details",
+  "excerpt": "Exabeam and LogRhythm completed their merger on July 17, 2024. Thoma Bravo is a named stakeholder in the combined company.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "Merger date corrects prior assumption of 2025 closing.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-exabeam-1",
+  "tags": [
+    "tracker",
+    "secops"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-forescout-1",
+  "title": "Forescout leadership page",
+  "organization": "Forescout Technologies, Inc.",
+  "publicationDate": "2026-09-25",
+  "economicPeriod": "N/A (company background)",
+  "canonicalUrl": "https://www.forescout.com/company/leadership/",
+  "excerpt": "Forescout is co-owned by Advent International and Crosspoint Capital Partners; CEO Barry Mainz also holds the title of Operating Partner at Crosspoint Capital Partners.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "Company leadership page. Advent International's original take-private acquisition closed via tender offer in 2020 per SEC EDGAR SC TO-T/A filings; the exact date Crosspoint joined as co-owner was not independently dated this pass.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-forescout-1",
+  "tags": [
+    "tracker",
+    "ot-iot"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-fortinet-1",
+  "title": "Fortinet Q2 2026 Earnings Release",
+  "organization": "Fortinet, Inc.",
+  "publicationDate": "2026-07-29",
+  "economicPeriod": "Q2 2026, ended 2026-06-30",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/0001262039/000126203926000018/ftntq2-2026ex991.htm",
+  "excerpt": "Revenue $2.05 billion, +26% YoY; Billings $2.37 billion, +33% YoY.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "SASE platform-specific ARR not disclosed separately.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-fortinet-1",
+  "tags": [
+    "tracker",
+    "network-sase"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-fortinet-2",
+  "title": "Fortinet Q1 2026 Earnings Release",
+  "organization": "Fortinet, Inc.",
+  "publicationDate": "2026-05-06",
+  "economicPeriod": "Q1 2026, ended 2026-03-31",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/0001262039/000126203926000010/ftntq1-2026ex991.htm",
+  "excerpt": "Revenue $1.85 billion, +20% YoY; Billings $2.09 billion, +31% YoY.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-fortinet-2",
+  "tags": [
+    "tracker",
+    "network-sase"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-ghas-1",
+  "title": "Goodbye, GitHub",
+  "organization": "GitHub, Inc. (subsidiary of Microsoft Corporation)",
+  "publicationDate": "2025-08-11",
+  "economicPeriod": "N/A (leadership announcement)",
+  "canonicalUrl": "https://github.blog/news-insights/company-news/goodbye-github/",
+  "excerpt": "GitHub CEO Thomas Dohmke announced he was stepping down to become a founder again; no successor CEO was named, and GitHub's leadership folded further into Microsoft's CoreAI organization.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "Company (GitHub) blog post.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-ghas-1",
+  "tags": [
+    "tracker",
+    "appsec"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-google-secops-1",
+  "title": "Alphabet Inc. - Google Cloud Security Products",
+  "organization": "Alphabet Inc.",
+  "publicationDate": "2026-07-22",
+  "economicPeriod": "Quarter ended 2026-06-30",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000066/googexhibit991q22026.htm",
+  "excerpt": "Google Cloud revenue of $24.8 billion, up 82% year over year. Google SecOps (Chronicle and Mandiant products) are components within Google Cloud; no separate revenue disclosed.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "Segment figure. No separate revenue or metrics disclosed for SecOps specifically.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-google-secops-1",
+  "tags": [
+    "tracker",
+    "secops"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-hiddenlayer-1",
+  "title": "HiddenLayer newsroom (Series B announcement)",
+  "organization": "HiddenLayer, Inc.",
+  "publicationDate": "2026-09-02",
+  "economicPeriod": "N/A (funding announcement)",
+  "canonicalUrl": "https://hiddenlayer.com/newsroom/",
+  "excerpt": "HiddenLayer raised a $100 million Series B round led by Delta-v Capital, with Ten Eleven Ventures, Morgan Stanley, M12, and Booz Allen Ventures participating. The company states ARR 'grew more than 10x year-over-year' with 50+ new platform customers signed (unaudited).",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "Company newsroom listing page.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-hiddenlayer-1",
+  "tags": [
+    "tracker",
+    "ai-security"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-ivanti-1",
+  "title": "Ivanti Capital Refinancing",
+  "organization": "Ivanti, Inc.",
+  "publicationDate": "2025-05-02",
+  "economicPeriod": "May 2025",
+  "canonicalUrl": "https://www.ivanti.com/company/press-releases/2025/ivanti-announces-successful-refinancing-and-new-capital-infusion-to-support-key-strategic-initiatives",
+  "excerpt": "Ivanti announced successful refinancing with $350 million in new capital from existing first- and second-lien lenders. Maturities extended to 2029.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "Date falls just outside the 12-month event window but is provided for context.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-ivanti-1",
+  "tags": [
+    "tracker",
+    "exposure"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-jfrog-1",
+  "title": "JFrog Announces Second Quarter 2026 Results",
+  "organization": "JFrog Ltd.",
+  "publicationDate": "2026-08-06",
+  "economicPeriod": "Q2 2026 (quarter ended 2026-06-30)",
+  "canonicalUrl": "https://investors.jfrog.com/news/news-details/2026/JFrog-Announces-Second-Quarter-2026-Results/default.aspx",
+  "excerpt": "Revenue of $163.8 million, up 29% year-over-year; cloud revenue of $87.5 million, up 53% year-over-year and equal to 53% of total revenue, up from 45% a year earlier.",
+  "sourceClass": "IR",
+  "interpretation": "",
+  "limitations": "Company investor-relations press release.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-jfrog-1",
+  "tags": [
+    "tracker",
+    "appsec"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-jfrog-2",
+  "title": "JFrog Announces First Quarter 2026 Results",
+  "organization": "JFrog Ltd.",
+  "publicationDate": "2026-05-07",
+  "economicPeriod": "Q1 2026 (quarter ended 2026-03-31)",
+  "canonicalUrl": "https://investors.jfrog.com/news/news-details/2026/JFrog-Announces-First-Quarter-2026-Results/default.aspx",
+  "excerpt": "Revenue of $154.0 million, up 26% year-over-year; cloud revenue of $78.9 million, up 50% year-over-year.",
+  "sourceClass": "IR",
+  "interpretation": "",
+  "limitations": "Company investor-relations press release.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-jfrog-2",
+  "tags": [
+    "tracker",
+    "appsec"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-lakera-1",
+  "title": "Check Point Software Technologies FY2025 earnings release (Form 6-K)",
+  "organization": "Check Point Software Technologies Ltd",
+  "publicationDate": "2026-01-01",
+  "economicPeriod": "FY2025 full year",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1015922/000117891326000437/zk2634351.htm",
+  "excerpt": "'During the fourth quarter of 2025 we completed the acquisition of Lakera AI for approximately $190 million net cash consideration.'",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "Company SEC Form 6-K exhibit. Check Point separately announced the deal on September 16, 2025; no more precise closing day within Q4 2025 was disclosed in the exhibit reviewed.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-lakera-1",
+  "tags": [
+    "tracker",
+    "ai-security"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-mimecast-1",
+  "title": "Mimecast Permira Take-Private Completion",
+  "organization": "Mimecast Limited",
+  "publicationDate": "2022-05",
+  "economicPeriod": "May 2022",
+  "canonicalUrl": "https://www.mimecast.com/resources/press-releases/",
+  "excerpt": "Permira take-private via Magnesium Bidco closed May 2022 at $5.8 billion.",
+  "sourceClass": "IR",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-mimecast-1",
+  "tags": [
+    "tracker",
+    "email"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-mimecast-2",
+  "title": "Mimecast CEO Appointment",
+  "organization": "Mimecast",
+  "publicationDate": "2026-06-25",
+  "economicPeriod": "June 2026",
+  "canonicalUrl": "https://www.mimecast.com/resources/press-releases/",
+  "excerpt": "Ranjan Singh appointed CEO effective June 25, 2026, succeeding Marc van Zadelhoff.",
+  "sourceClass": "IR",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-mimecast-2",
+  "tags": [
+    "tracker",
+    "email"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-msft-1",
+  "title": "Microsoft Corporation - Security Products",
+  "organization": "Microsoft Corporation",
+  "publicationDate": "2026-07-01",
+  "economicPeriod": "General disclosure",
+  "canonicalUrl": "https://www.microsoft.com/en-us/investor",
+  "excerpt": "Defender for Endpoint is a product within Microsoft's security portfolio. No separately stated revenue or metrics are disclosed by the company.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "Segment figure, not a standalone filer. No separate revenue disclosed by the company.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-msft-1",
+  "tags": [
+    "tracker",
+    "endpoint-xdr"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-msft-defender-1",
+  "title": "Microsoft FY2026 10-K Filing",
+  "organization": "Microsoft Corporation",
+  "publicationDate": "2026-07-29",
+  "economicPeriod": "FY2026, ended 2026-06-30",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/0000789019/000095010326015010/0000950103-26-015010-index.htm",
+  "excerpt": "FY2026 revenue $331.839 billion, +18% YoY. Defender for Office 365 is a product within Microsoft, not separately reported.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-msft-defender-1",
+  "tags": [
+    "tracker",
+    "email"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-msft-entra-1",
+  "title": "Microsoft FY2026 10-K Filing",
+  "organization": "Microsoft Corporation",
+  "publicationDate": "2026-07-29",
+  "economicPeriod": "FY2026, ended 2026-06-30",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/0000789019/000095010326015010/0000950103-26-015010-index.htm",
+  "excerpt": "FY2026 revenue $331.839 billion, +18% YoY. No discrete Entra ID revenue figure disclosed.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "Security business revenue not broken out separately since January 2023 disclosure of $20B.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-msft-entra-1",
+  "tags": [
+    "tracker",
+    "identity"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-netskope-1",
+  "title": "Netskope Q2 FY2027 Earnings Release",
+  "organization": "Netskope, Inc.",
+  "publicationDate": "2026-09-02",
+  "economicPeriod": "Q2 FY2027, ended 2026-07-31",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/2063196/000119312526380188/ntsk-ex99_1.htm",
+  "excerpt": "Revenue $220.5 million, +29% YoY; ARR $899 million, +27% YoY.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-netskope-1",
+  "tags": [
+    "tracker",
+    "network-sase"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-netskope-2",
+  "title": "Netskope Q1 FY2027 Earnings Release",
+  "organization": "Netskope, Inc.",
+  "publicationDate": "2026-06-03",
+  "economicPeriod": "Q1 FY2027, ended 2026-04-30",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/2063196/000119312526255439/ck0002063196-ex99_1.htm",
+  "excerpt": "Revenue $201.6 million, +28% YoY; ARR $845 million, +29% YoY.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-netskope-2",
+  "tags": [
+    "tracker",
+    "network-sase"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-netskope-3",
+  "title": "Netskope IPO Prospectus",
+  "organization": "Netskope, Inc.",
+  "publicationDate": "2025-09-18",
+  "economicPeriod": "September 2025",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/2063196/000119312525211027/d636835ds1a.htm",
+  "excerpt": "IPO'd on Nasdaq on September 18, 2025: 47.8 million Class A shares at $19.00, implying $7.3B valuation; closed with full over-allotment exercise, net proceeds ~$992.2 million.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-netskope-3",
+  "tags": [
+    "tracker",
+    "network-sase"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-netskope-4",
+  "title": "Netskope Q2 FY2027 Restructuring Costs",
+  "organization": "Netskope, Inc.",
+  "publicationDate": "2026-09-02",
+  "economicPeriod": "Q2 FY2027, ended 2026-07-31",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/2063196/000119312526380188/ntsk-ex99_1.htm",
+  "excerpt": "$3.5 million in restructuring costs recognized in the quarter ended July 31, 2026.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-netskope-4",
+  "tags": [
+    "tracker",
+    "network-sase"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-netskope-5",
+  "title": "Netskope CFO Retirement Disclosure",
+  "organization": "Netskope, Inc.",
+  "publicationDate": "2026-06-03",
+  "economicPeriod": "Q1 FY2027",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/2063196/000119312526255439/ck0002063196-20260603.htm",
+  "excerpt": "CFO Drew Del Matto disclosed intention to retire after 40 years; remains CFO while successor is sought.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "Successor not yet named.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-netskope-5",
+  "tags": [
+    "tracker",
+    "network-sase"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-okta-1",
+  "title": "Okta Q4 FY2027 Earnings Release",
+  "organization": "Okta, Inc.",
+  "publicationDate": "2026-08-24",
+  "economicPeriod": "Quarter ended July 31, 2026",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1660134/000166013426000069/okta-20260731.htm",
+  "excerpt": "Revenue $805 million, +11% YoY; Subscription Revenue $793 million, +12% YoY.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-okta-1",
+  "tags": [
+    "tracker",
+    "identity"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-okta-2",
+  "title": "Okta Q3 FY2027 Earnings Release",
+  "organization": "Okta, Inc.",
+  "publicationDate": "2026-05-27",
+  "economicPeriod": "Quarter ended April 30, 2026",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1660134/000166013426000051/okta-20260430.htm",
+  "excerpt": "Revenue $765 million, +11.2% YoY.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-okta-2",
+  "tags": [
+    "tracker",
+    "identity"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-optiv-1",
+  "title": "Optiv Security - KKR Ownership",
+  "organization": "Optiv Security Inc.",
+  "publicationDate": "2016-12-06",
+  "economicPeriod": "December 2016",
+  "canonicalUrl": "https://www.optiv.com/company/press-releases/optiv-security-be-acquired-kkr",
+  "excerpt": "KKR announced the acquisition of Optiv Security with Blackstone and management retaining minority stakes. Deal announced 2016-12-06.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-optiv-1",
+  "tags": [
+    "tracker",
+    "managed-security"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-optiv-3",
+  "title": "Optiv Lender Agreement Amendment",
+  "organization": "Optiv Inc.",
+  "publicationDate": "2026-05-08",
+  "economicPeriod": "May 2026",
+  "canonicalUrl": "https://www.optiv.com/company/press-releases/optiv-strengthens-financial-position-lender-agreement-comprehensive",
+  "excerpt": "Optiv's lenders agreed to amend and extend the First Lien Credit Agreement to August 2028 and the Second Lien to August 2029, with more than 99% of First Lien and 100% of Second Lien holders participating.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-optiv-3",
+  "tags": [
+    "tracker",
+    "managed-security"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-orca-1",
+  "title": "Orca Security Company Information",
+  "organization": "Orca Security",
+  "publicationDate": "2026-09-25",
+  "economicPeriod": "September 2026",
+  "canonicalUrl": "https://orca.security/resources/press-releases/",
+  "excerpt": "VC-backed company with investors including YL Ventures, Willoughby Capital, Temasek, Splunk, SAIC.",
+  "sourceClass": "VENDOR-RESEARCH",
+  "interpretation": "",
+  "limitations": "Revenue/ARR not found in newsroom searched.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-orca-1",
+  "tags": [
+    "tracker",
+    "cloud"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-panw-1",
+  "title": "Palo Alto Networks Q4 FY2026 Financial Results",
+  "organization": "Palo Alto Networks, Inc.",
+  "publicationDate": "2026-09-01",
+  "economicPeriod": "Quarter ended 2026-07-31",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/0001327567/000132756726000019/ex991q426earningsrelease.htm",
+  "excerpt": "Revenue of $3.41 billion, up 34% year over year. NGS ARR of $9.10 billion, up 63% year over year. RPO of $21.2 billion, up 34% year over year.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "Growth includes contributions from CyberArk and Chronosphere acquisitions closed during the fiscal year.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-panw-1",
+  "tags": [
+    "tracker",
+    "endpoint-xdr",
+    "secops"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-panw-2",
+  "title": "Palo Alto Networks Q3 FY2026 Financial Results",
+  "organization": "Palo Alto Networks, Inc.",
+  "publicationDate": "2026-06-02",
+  "economicPeriod": "Quarter ended 2026-04-30",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/0001327567/000132756726000012/ex991q326earningsrelease.htm",
+  "excerpt": "Revenue of $3.0 billion, up 31% year over year, including $388 million from CyberArk and Chronosphere acquisitions.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-panw-2",
+  "tags": [
+    "tracker",
+    "endpoint-xdr",
+    "secops"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-panw-3",
+  "title": "Palo Alto Networks Closes CyberArk Acquisition",
+  "organization": "Palo Alto Networks, Inc.",
+  "publicationDate": "2026-02-11",
+  "economicPeriod": "February 2026",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/0001327567/000132756726000005/crwd-cyberark-8k.htm",
+  "excerpt": "Palo Alto Networks closed its acquisition of CyberArk Software Ltd. for approximately $25 billion in equity value, including $2.3 billion in cash and 112 million shares.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-panw-3",
+  "tags": [
+    "tracker",
+    "endpoint-xdr",
+    "secops"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-panw-xsiam-1",
+  "title": "Palo Alto Networks - Cortex XSIAM Product",
+  "organization": "Palo Alto Networks, Inc.",
+  "publicationDate": "2026-07-31",
+  "economicPeriod": "General disclosure",
+  "canonicalUrl": "https://investors.paloaltonetworks.com",
+  "excerpt": "Cortex XSIAM is a product line within Palo Alto Networks. No separately stated revenue or metrics are disclosed by the company.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "Product line, not a standalone entity. No separate revenue disclosed.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-panw-xsiam-1",
+  "tags": [
+    "tracker",
+    "secops"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-ping-1",
+  "title": "Ping Identity ARR Milestone Announcement",
+  "organization": "Ping Identity",
+  "publicationDate": "2024-11-14",
+  "economicPeriod": "November 2024",
+  "canonicalUrl": "https://www.pingidentity.com/en/company/newsroom.html",
+  "excerpt": "Approaching $800 million ARR with 30%+ SaaS revenue growth.",
+  "sourceClass": "IR",
+  "interpretation": "",
+  "limitations": "No newer figure found; treat as stale relative to September 2026.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-ping-1",
+  "tags": [
+    "tracker",
+    "identity"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-ping-2",
+  "title": "Ping Identity Thoma Bravo Acquisition Completion",
+  "organization": "Ping Identity",
+  "publicationDate": "2022-10-18",
+  "economicPeriod": "October 2022",
+  "canonicalUrl": "https://www.pingidentity.com/en/company/newsroom.html",
+  "excerpt": "Thoma Bravo acquisition closed October 18, 2022 at $2.8 billion deal value.",
+  "sourceClass": "IR",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-ping-2",
+  "tags": [
+    "tracker",
+    "identity"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-proofpoint-1",
+  "title": "Proofpoint Thoma Bravo Take-Private Completion",
+  "organization": "Proofpoint, Inc.",
+  "publicationDate": "2021-08-31",
+  "economicPeriod": "August 2021",
+  "canonicalUrl": "https://www.proofpoint.com/us/newsroom",
+  "excerpt": "Thoma Bravo take-private closed August 31, 2021 at $12.3 billion deal value.",
+  "sourceClass": "IR",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-proofpoint-1",
+  "tags": [
+    "tracker",
+    "email"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-protectai-1",
+  "title": "Palo Alto Networks Form 10-K (FY2025)",
+  "organization": "Palo Alto Networks, Inc.",
+  "publicationDate": "2025-09-01",
+  "economicPeriod": "FY2025 (fiscal year ended 2025-07-31)",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1327567/000132756725000027/panw-20250731.htm",
+  "excerpt": "Palo Alto Networks completed its acquisition of Protect AI, Inc. in July 2025 (specifically on or about July 22, 2025 per XBRL tagging), for $700.0 million in cash and replacement awards, subject to adjustment.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "Company SEC Form 10-K.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-protectai-1",
+  "tags": [
+    "tracker",
+    "ai-security"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-qualys-1",
+  "title": "Qualys Inc. Q2 2026 Financial Results",
+  "organization": "Qualys, Inc.",
+  "publicationDate": "2026-08-04",
+  "economicPeriod": "Quarter ended 2026-06-30",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/0001107843/000110784326000034/qlys-20260804xex991.htm",
+  "excerpt": "Revenue of $182.2 million, up 11% year over year. GAAP net income of $52.4 million. Q3 2026 guidance: $185.5 million to $187.5 million (+9% to +10%). FY2026 guidance raised to $732.0 million to $738.0 million.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-qualys-1",
+  "tags": [
+    "tracker",
+    "exposure"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-rapid7-1",
+  "title": "Rapid7 Inc. Q2 2026 Financial Results",
+  "organization": "Rapid7, Inc.",
+  "publicationDate": "2026-08-10",
+  "economicPeriod": "Quarter ended 2026-06-30",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/0001560327/000156032726000043/q22026rapid78-kex991.htm",
+  "excerpt": "Revenue of $210.9 million, down 1.5% year over year. ARR of $824.0 million, down 2.0% year over year. Q3 2026 guidance: revenue $208 million to $210 million (-5% to -4% YoY). FY2026 guidance: revenue $837 million to $841 million (-3% to -2% YoY).",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-rapid7-1",
+  "tags": [
+    "tracker",
+    "exposure"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-rapid7-2",
+  "title": "Rapid7 Inc. Q1 2026 Financial Results",
+  "organization": "Rapid7, Inc.",
+  "publicationDate": "2026-05-22",
+  "economicPeriod": "Quarter ended 2026-03-31",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/0001560327/000156032726000032/q12026rapid78-kex991.htm",
+  "excerpt": "Revenue of $210 million, down 0.3% year over year. ARR of $832 million, down 0.6% year over year.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-rapid7-2",
+  "tags": [
+    "tracker",
+    "exposure"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-rapid7-3",
+  "title": "Rapid7 Appoints Wael Mohamed CEO",
+  "organization": "Rapid7, Inc.",
+  "publicationDate": "2026-06-01",
+  "economicPeriod": "June 2026",
+  "canonicalUrl": "https://investors.rapid7.com/news/news-details/2026/Rapid7-Appoints-Wael-Mohamed-Chief-Executive-Officer-Corey-Thomas-to-Become-Executive-Chairman/default.aspx",
+  "excerpt": "Rapid7 appointed Wael Mohamed, a board member since April 2025 and former Forescout CEO, as Chief Executive Officer. Corey Thomas, CEO for 13+ years, became executive chairman.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-rapid7-3",
+  "tags": [
+    "tracker",
+    "exposure"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-rapid7-4",
+  "title": "Rapid7 Workforce Reduction - 8-K Item 2.05",
+  "organization": "Rapid7, Inc.",
+  "publicationDate": "2026-08-07",
+  "economicPeriod": "August 2026",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/0001560327/000156032726000043/rp-20260807.htm",
+  "excerpt": "Rapid7 approved a workforce reduction of approximately 12% with estimated charges of $10 million to $11 million, mainly for severance, notice-period pay, and benefits. Most charges expected in Q3 and Q4 2026.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-rapid7-4",
+  "tags": [
+    "tracker",
+    "exposure"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-red-canary-1",
+  "title": "Zscaler Closes Red Canary Acquisition",
+  "organization": "Zscaler, Inc.",
+  "publicationDate": "2025-08-01",
+  "economicPeriod": "August 2025",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1713683/000171368325000205/zs-20251031.htm",
+  "excerpt": "Zscaler closed its acquisition of Red Canary for $651.4 million in cash plus $20.2 million in restricted stock. Announced 2025-05-27; closed 2025-08-01.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-red-canary-1",
+  "tags": [
+    "tracker",
+    "managed-security"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-reliaquest-1",
+  "title": "ReliaQuest Growth Equity Funding",
+  "organization": "ReliaQuest, LLC",
+  "publicationDate": "2025-03-31",
+  "economicPeriod": "March 2025",
+  "canonicalUrl": "https://reliaquest.com/news-and-press/reliaquest-raises-more-than-500-million-in-funding-at-a-valuation-of-3-4-billion/",
+  "excerpt": "ReliaQuest raised more than $500 million in funding at a $3.4 billion valuation, led by EQT, KKR, and FTV Capital, with Ten Eleven Ventures and Finback Investment Partners participating. Company states ARR surpassed $300 million, growing more than 30% year over year, and operating profitably.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-reliaquest-1",
+  "tags": [
+    "tracker",
+    "managed-security"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-rubrik-1",
+  "title": "Rubrik Announces Second Quarter Fiscal 2027 Financial Results",
+  "organization": "Rubrik, Inc.",
+  "publicationDate": "2026-08-27",
+  "economicPeriod": "Q2 FY2027 (quarter ended 2026-07-31)",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/0001943896/000194389626000055/rubrikinc-991pressrelease7.htm",
+  "excerpt": "Revenue of $427.3 million, up 38% year-over-year; Subscription ARR of $1.66 billion, up 33% year-over-year.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "Company-reported unaudited quarterly results, filed as an exhibit to an SEC Form 8-K.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-rubrik-1",
+  "tags": [
+    "tracker",
+    "data"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-rubrik-2",
+  "title": "Rubrik Announces First Quarter Fiscal 2027 Financial Results",
+  "organization": "Rubrik, Inc.",
+  "publicationDate": "2026-04-30",
+  "economicPeriod": "Q1 FY2027 (quarter ended 2026-04-30)",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/0001943896/000194389626000047/rbrk-20260430.htm",
+  "excerpt": "Revenue of $387.1 million, up 39% year-over-year; Subscription ARR of $1.565 billion, up 32% year-over-year.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "Company-reported unaudited quarterly results filed as an SEC exhibit; the underlying research did not separately record a release date distinct from the period-end date.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-rubrik-2",
+  "tags": [
+    "tracker",
+    "data"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-rubrik-3",
+  "title": "Rubrik Promotes Jesse Green to Chief Revenue Officer",
+  "organization": "Rubrik, Inc.",
+  "publicationDate": "2026-02-06",
+  "economicPeriod": "N/A (leadership announcement)",
+  "canonicalUrl": "https://ir.rubrik.com/news-events/press-releases/news-details/2026/Rubrik-Promotes-Jesse-Green-to-Chief-Revenue-Officer/default.aspx",
+  "excerpt": "Brian McCarthy, President of Global Sales & Field Operations, resigned effective February 6, 2026; Jesse Green, previously President of Rubrik Americas, was promoted to Chief Revenue Officer.",
+  "sourceClass": "IR",
+  "interpretation": "",
+  "limitations": "Company investor-relations press release, corroborated by a related SEC Form 8-K per the underlying research.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-rubrik-3",
+  "tags": [
+    "tracker",
+    "data"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-s1-1",
+  "title": "SentinelOne Q2 FY2027 Financial Results",
+  "organization": "SentinelOne, Inc.",
+  "publicationDate": "2026-08-27",
+  "economicPeriod": "Quarter ended 2026-07-31",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/0001583708/000158370826000052/sentineloneq227exhibit991.htm",
+  "excerpt": "Revenue of $292 million, up 21% year over year. ARR of $1.218 billion, up 22% year over year. Net new ARR of $56 million, record for a Q2.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-s1-1",
+  "tags": [
+    "tracker",
+    "endpoint-xdr"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-s1-2",
+  "title": "SentinelOne Q1 FY2027 Financial Results",
+  "organization": "SentinelOne, Inc.",
+  "publicationDate": "2026-05-28",
+  "economicPeriod": "Quarter ended 2026-04-30",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/0001583708/000158370826000039/sentineloneq127exhibit991.htm",
+  "excerpt": "Revenue of $277 million, up 21% year over year. ARR of $1,163 million, up 23% year over year.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-s1-2",
+  "tags": [
+    "tracker",
+    "endpoint-xdr"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-s1-3",
+  "title": "SentinelOne Restructuring Charges - 8-K Item 2.05",
+  "organization": "SentinelOne, Inc.",
+  "publicationDate": "2026-05-28",
+  "economicPeriod": "May 2026",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/0001583708/000158370826000039/s-20260528.htm",
+  "excerpt": "Workforce reduction of 8% with approximately $25 million in charges, including severance, benefits, and related costs.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-s1-3",
+  "tags": [
+    "tracker",
+    "endpoint-xdr"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-sailpoint-1",
+  "title": "SailPoint Q4 FY2027 Earnings Release",
+  "organization": "SailPoint, Inc.",
+  "publicationDate": "2026-09-10",
+  "economicPeriod": "Quarter ended July 31, 2026",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/2030781/000203078126000021/sail-20260731.htm",
+  "excerpt": "Revenue $308.8 million, +16.8% YoY; ARR $1,230.7 million, +25.3% YoY; SaaS ARR $846.9 million, +36.0% YoY.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-sailpoint-1",
+  "tags": [
+    "tracker",
+    "identity"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-sailpoint-2",
+  "title": "SailPoint Q3 FY2027 Earnings Release",
+  "organization": "SailPoint, Inc.",
+  "publicationDate": "2026-06-12",
+  "economicPeriod": "Quarter ended April 30, 2026",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/2030781/000203078126000011/sail-20260430.htm",
+  "excerpt": "Revenue $280.142 million, +21.5% YoY; ARR $1,162.7 million, +25.8% YoY.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-sailpoint-2",
+  "tags": [
+    "tracker",
+    "identity"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-snyk-1",
+  "title": "Snyk raises $530M on $8.5B valuation to protect applications",
+  "organization": "CRN",
+  "publicationDate": "2021-09-09",
+  "economicPeriod": "N/A (funding announcement)",
+  "canonicalUrl": "https://www.crn.com/news/security/snyk-raises-530m-on-8-5b-valuation-to-protect-applications",
+  "excerpt": "Snyk raised a $530 million Series F round at an $8.5 billion valuation.",
+  "sourceClass": "INDEPENDENT",
+  "interpretation": "",
+  "limitations": "Trade press report; not confirmed against a direct Snyk primary-source release. No later funding round was found in the 2022-2026 window checked.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-snyk-1",
+  "tags": [
+    "tracker",
+    "appsec"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-sonatype-1",
+  "title": "Vista Acquires Majority Interest in Sonatype",
+  "organization": "Sonatype Inc.",
+  "publicationDate": "2019-11-18",
+  "economicPeriod": "N/A (ownership announcement)",
+  "canonicalUrl": "https://www.sonatype.com/press-releases/vista-acquires-majority-interest-in-sonatype",
+  "excerpt": "Vista Equity Partners acquired a majority stake in Sonatype; price not disclosed.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "Company press release.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-sonatype-1",
+  "tags": [
+    "tracker",
+    "appsec"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-sonatype-2",
+  "title": "Sonatype Strengthens Leadership Team for AI-Driven Growth",
+  "organization": "Sonatype Inc.",
+  "publicationDate": "2026-06-09",
+  "economicPeriod": "N/A (leadership announcement)",
+  "canonicalUrl": "https://www.sonatype.com/press-releases/sonatype-strengthens-leadership-team-for-ai-driven-growth",
+  "excerpt": "Sonatype named Casey Watson as Chief Revenue Officer, Jason McClelland as Chief Marketing Officer, and Sherri Manning as Chief Human Resources Officer.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "Company press release.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-sonatype-2",
+  "tags": [
+    "tracker",
+    "appsec"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-sophos-1",
+  "title": "Sophos Group - Thoma Bravo Ownership",
+  "organization": "Sophos Group (Sophos Ltd)",
+  "publicationDate": "2020-03-01",
+  "economicPeriod": "March 2020",
+  "canonicalUrl": "https://www.thomabravo.com/press-releases/sophos",
+  "excerpt": "Thoma Bravo acquired Sophos Group through a take-private transaction, completed in March 2020.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-sophos-1",
+  "tags": [
+    "tracker",
+    "endpoint-xdr"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-sophos-2",
+  "title": "S&P Rating Action - Sophos Group",
+  "organization": "S&P Global Ratings",
+  "publicationDate": "2025-12-01",
+  "economicPeriod": "December 2025",
+  "canonicalUrl": "https://app.researchpool.com/index.php/provider/s-p-global",
+  "excerpt": "S&P affirmed Sophos' B- rating and noted expected need to refinance 2027 maturities.",
+  "sourceClass": "INDEPENDENT",
+  "interpretation": "",
+  "limitations": "Agency rating actions republished through third-party aggregator; original agency pages not directly verified this session.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-sophos-2",
+  "tags": [
+    "tracker",
+    "endpoint-xdr"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-sophos-3",
+  "title": "Moody's Rating Action - Sophos Group",
+  "organization": "Moody's Investors Service",
+  "publicationDate": "2026-03-01",
+  "economicPeriod": "March 2026",
+  "canonicalUrl": "https://app.researchpool.com/index.php/provider/moodys-investors-service",
+  "excerpt": "Moody's downgraded Sophos to B3 from B2, with outlook revised to stable.",
+  "sourceClass": "INDEPENDENT",
+  "interpretation": "",
+  "limitations": "Agency rating actions republished through third-party aggregator; original agency pages not directly verified this session.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-sophos-3",
+  "tags": [
+    "tracker",
+    "endpoint-xdr"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-splunk-1",
+  "title": "Splunk - Cisco Acquisition",
+  "organization": "Cisco Systems, Inc.",
+  "publicationDate": "2024-03-18",
+  "economicPeriod": "March 2024",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/858877/000119312524070175/d783088dex991.htm",
+  "excerpt": "Cisco completed its acquisition of Splunk for $157 per share cash, approximately $28 billion in equity value as announced, $27 billion as closed.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-splunk-1",
+  "tags": [
+    "tracker",
+    "secops"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-splunk-2",
+  "title": "Cisco Restructuring Charges - 8-K Item 2.05",
+  "organization": "Cisco Systems, Inc.",
+  "publicationDate": "2026-05-13",
+  "economicPeriod": "May 2026",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/858877/000085887726000075/csco-20260513.htm",
+  "excerpt": "Cisco disclosed up to $1 billion pre-tax restructuring charges to invest in silicon, optics, security, and artificial intelligence, including $450 million in Q4 FY2026.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "Cisco company-wide restructuring; not Splunk-specific by name.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-splunk-2",
+  "tags": [
+    "tracker",
+    "secops"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-surepath-1",
+  "title": "F5 Form 10-Q (quarter ended June 30, 2026)",
+  "organization": "F5, Inc.",
+  "publicationDate": "2026-06-15",
+  "economicPeriod": "N/A (acquisition disclosure)",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1048695/000104869526000067/ffiv-20260630.htm",
+  "excerpt": "F5 completed its acquisition of SurePath AI, Inc. on June 15, 2026, for $50.1 million, recording $39.1 million of goodwill; F5 states the acquisition's impact on operating results was immaterial.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "Company SEC Form 10-Q.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-surepath-1",
+  "tags": [
+    "tracker",
+    "ai-security"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-sysdig-1",
+  "title": "Sysdig Founder and Board Information",
+  "organization": "Sysdig",
+  "publicationDate": "2026-09-25",
+  "economicPeriod": "September 2026",
+  "canonicalUrl": "https://sysdig.com/newsroom/",
+  "excerpt": "Founded 2013 by Loris Degioanni. Board includes Bain Capital Ventures, Accel, Premji Invest, Third Point Ventures, Permira. Confirmed private.",
+  "sourceClass": "VENDOR-RESEARCH",
+  "interpretation": "",
+  "limitations": "No funding round or revenue data found.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-sysdig-1",
+  "tags": [
+    "tracker",
+    "cloud"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-tenable-1",
+  "title": "Tenable Holdings Q2 2026 Financial Results",
+  "organization": "Tenable Holdings, Inc.",
+  "publicationDate": "2026-07-29",
+  "economicPeriod": "Quarter ended 2026-06-30",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/0001660280/000166028026000032/q22026financialresults-ear.htm",
+  "excerpt": "Revenue of $268.5 million, up 8.6% year over year. Subscription revenue of $248.3 million. Guidance for Q3 2026: $270.0 million to $273.0 million. FY2026 guidance: $1.075 billion to $1.081 billion.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-tenable-1",
+  "tags": [
+    "tracker",
+    "exposure"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-tenable-2",
+  "title": "Tenable Convertible Notes Issuance",
+  "organization": "Tenable Holdings, Inc.",
+  "publicationDate": "2026-09-15",
+  "economicPeriod": "September 2026",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1660280/000166028026000039/tenb-20260910.htm",
+  "excerpt": "Tenable completed the issuance of $800 million of 0.25% convertible senior notes due 2031, upsized from the originally planned $725 million.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "Capital-markets transaction; not a distress signal.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-tenable-2",
+  "tags": [
+    "tracker",
+    "exposure"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-tines-1",
+  "title": "Tines Series C Funding",
+  "organization": "Tines",
+  "publicationDate": "2025-02-11",
+  "economicPeriod": "February 2025",
+  "canonicalUrl": "https://www.tines.com/newsroom/",
+  "excerpt": "Tines raised $125 million in Series C funding at a $1.13 billion valuation, led by Goldman Sachs and SoftBank.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "Valuation independently corroborated by the Irish Times, 2026-07-28.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-tines-1",
+  "tags": [
+    "tracker",
+    "secops"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-torq-1",
+  "title": "Torq Series D Funding",
+  "organization": "Torq",
+  "publicationDate": "2026-01-09",
+  "economicPeriod": "January 2026",
+  "canonicalUrl": "https://torq.io/news/torq-seriesd/",
+  "excerpt": "Torq raised $140 million in Series D funding at a $1.2 billion valuation, led by Merlin Ventures, with participation from Evolution Equity Partners, Notable Capital, Bessemer Venture Partners, Insight Partners, and Greenfield Partners.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-torq-1",
+  "tags": [
+    "tracker",
+    "secops"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-trend-1",
+  "title": "Trend Micro Q2 2026 Earnings Results",
+  "organization": "Trend Micro Incorporated",
+  "publicationDate": "2026-08-13",
+  "economicPeriod": "Quarter ended 2026-06-30",
+  "canonicalUrl": "https://newsroom.trendmicro.com/2026-08-13-Trend-Micro-Reports-Earnings-Results-for-Q2-2026",
+  "excerpt": "ARR exceeded $1.7 billion, up 5% year over year. FY2026 operating-income guidance cut from ¥56.4 billion to ¥44.4 billion due to rising artificial-intelligence and cloud-computing token costs.",
+  "sourceClass": "IR",
+  "interpretation": "",
+  "limitations": "Company is Tokyo-listed; not an active SEC filer.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-trend-1",
+  "tags": [
+    "tracker",
+    "endpoint-xdr"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-trustwave-1",
+  "title": "LevelBlue Completes Trustwave Acquisition",
+  "organization": "LevelBlue",
+  "publicationDate": "2025-08-19",
+  "economicPeriod": "August 2025",
+  "canonicalUrl": "https://www.levelblue.com/newsroom/press-releases/levelblue-completes-acquisition-of-trustwave-to-form-the-worlds-largest-managed-security-services-provider",
+  "excerpt": "LevelBlue completed its acquisition of Trustwave Holdings, which states combined operations serve over 30,000 customers with annual revenues exceeding $1 billion.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "Revenue figure is combined LevelBlue + Trustwave; not broken out for Trustwave alone.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-trustwave-1",
+  "tags": [
+    "tracker",
+    "managed-security"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-upwind-1",
+  "title": "Upwind Series B Funding Announcement",
+  "organization": "Upwind Security",
+  "publicationDate": "2026-01-26",
+  "economicPeriod": "January 2026",
+  "canonicalUrl": "https://www.upwind.io/feed/building-next-wave-cloud-security-upwind",
+  "excerpt": "Series B funding: $250M led by Bessemer Venture Partners, achieving unicorn status (>$1B valuation).",
+  "sourceClass": "IR",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-upwind-1",
+  "tags": [
+    "tracker",
+    "cloud"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-varonis-1",
+  "title": "Varonis Reports Second Quarter 2026 Financial Results",
+  "organization": "Varonis Systems, Inc.",
+  "publicationDate": "2026-07-28",
+  "economicPeriod": "Q2 2026 (quarter ended 2026-06-30)",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/0001361113/000117184326004948/exh_991.htm",
+  "excerpt": "Revenue of $180.0 million, up 18.3% year-over-year; Total SaaS ARR of $726.0 million, up 52% year-over-year (25% excluding conversions).",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "Company-reported unaudited quarterly results, filed as an exhibit to an SEC Form 8-K.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-varonis-1",
+  "tags": [
+    "tracker",
+    "data"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-varonis-2",
+  "title": "Varonis Reports Third Quarter 2025 Financial Results",
+  "organization": "Varonis Systems, Inc.",
+  "publicationDate": "2025-10-29",
+  "economicPeriod": "Q3 2025 (quarter ended 2025-09-30)",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1361113/000117184325006721/exh_991.htm",
+  "excerpt": "Announced a 5% headcount reduction (approximately 120 employees) and disclosed plans to end-of-life the company's self-hosted, on-premises product effective December 31, 2026.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "Company-reported disclosure filed as an SEC exhibit; the underlying research also cites an earnings-call transcript quoting CEO Yakov Faitelson on the same layoff.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-varonis-2",
+  "tags": [
+    "tracker",
+    "data"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-veeam-1",
+  "title": "Veeam (Wikipedia)",
+  "organization": "Wikipedia",
+  "publicationDate": "2026-09-25",
+  "economicPeriod": "N/A (company background)",
+  "canonicalUrl": "https://en.wikipedia.org/wiki/Veeam",
+  "excerpt": "Insight Partners holds a majority stake in Veeam Software, in a deal reported closed on or about January 9, 2020, for approximately $5 billion.",
+  "sourceClass": "INDEPENDENT",
+  "interpretation": "",
+  "limitations": "Secondary source only; the research notes Veeam's own press release on the Insight Partners deal was not reachable this pass, so deal date and value should be treated as reported rather than confirmed.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-veeam-1",
+  "tags": [
+    "tracker",
+    "data"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-veeam-2",
+  "title": "Veeam Acquires Securiti AI",
+  "organization": "Veeam Software",
+  "publicationDate": "2025-12-11",
+  "economicPeriod": "N/A (acquisition announcement)",
+  "canonicalUrl": "https://www.veeam.com/news/veeam-acquires-securiti-ai.html",
+  "excerpt": "Veeam completed its acquisition of Securiti AI, a data security posture management and AI-governance company, for $1.725 billion; Securiti founder and CEO Rehan Jalil joined Veeam as President of Security and AI, with approximately 600 Securiti employees integrated.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "Company press release.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-veeam-2",
+  "tags": [
+    "tracker",
+    "data"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-veracode-1",
+  "title": "Veracode newsroom (TA Associates majority investment)",
+  "organization": "Veracode, Inc.",
+  "publicationDate": "2022-03-15",
+  "economicPeriod": "N/A (ownership announcement)",
+  "canonicalUrl": "https://www.veracode.com/newsroom/",
+  "excerpt": "TA Associates took a majority growth-investment stake in Veracode at a $2.5 billion valuation.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "Company newsroom listing page; the underlying research did not capture a dedicated per-release URL for this item, and notes the deal's completion date is reported elsewhere as around May 2022 without independently confirming which date is operative.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-veracode-1",
+  "tags": [
+    "tracker",
+    "appsec"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-witnessai-1",
+  "title": "WitnessAI Raises $58M to Help Enterprises Move Faster with AI Safely",
+  "organization": "WitnessAI",
+  "publicationDate": "2026-01-13",
+  "economicPeriod": "N/A (funding announcement)",
+  "canonicalUrl": "https://witness.ai/blog/witnessai-raises-58m-to-help-enterprises-move-faster-with-ai-safely/",
+  "excerpt": "WitnessAI raised a $58 million strategic funding round led by Sound Ventures, with Fin Capital, Samsung Ventures, Qualcomm Ventures, Forgepoint Capital Partners, Silver Buckshot Ventures, and existing investors Google Ventures and Ballistic Ventures participating. The release states '500% ARR growth — just in the past 12 months' and headcount up 5x (unaudited).",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "Company blog/press release.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-witnessai-1",
+  "tags": [
+    "tracker",
+    "ai-security"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-wiz-1",
+  "title": "Wiz Acquisition by Google/Alphabet Closing",
+  "organization": "Alphabet Inc.",
+  "publicationDate": "2026-04-30",
+  "economicPeriod": "Q1 2026",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000048/goog-20260331.htm",
+  "excerpt": "Wiz acquisition closed March 11, 2026 for $29.5 billion after purchase price adjustments.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-wiz-1",
+  "tags": [
+    "tracker",
+    "cloud"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-xage-1",
+  "title": "Xage Security hits record growth",
+  "organization": "Yahoo Finance",
+  "publicationDate": "2026-03-18",
+  "economicPeriod": "N/A (company update)",
+  "canonicalUrl": "https://finance.yahoo.com/news/xage-security-hits-record-growth-120000615.html",
+  "excerpt": "Xage Security reported 81% year-over-year revenue growth and 102% year-over-year customer growth, a 50% rise in net-new revenue between Q3 and Q4 2025, and over 100% growth in net-new revenue from Q4 2025 into Q1 2026 (unaudited, no absolute dollar revenue figure disclosed). The company also closed a $15 million equity round led by Piva Capital in December 2025.",
+  "sourceClass": "INDEPENDENT",
+  "interpretation": "",
+  "limitations": "Trade-press relay of company-stated figures; not independently confirmed against a direct Xage or Piva Capital primary release, though an SEC Form D filed the same date (2026-03-18) is consistent with a Reg D raise around this period.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-xage-1",
+  "tags": [
+    "tracker",
+    "ot-iot"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-zenity-1",
+  "title": "Zenity Raises $125 Million to Secure the Era of 1 Billion AI Agents",
+  "organization": "Zenity",
+  "publicationDate": "2026-08-03",
+  "economicPeriod": "N/A (funding announcement)",
+  "canonicalUrl": "https://zenity.io/company-overview/newsroom/company-news/zenity-raises-125-million-to-secure-the-era-of-1-billion-ai-agents",
+  "excerpt": "Zenity raised a $125 million Series C round led by Norwest, with Qumra Capital, SoftBank Vision Fund 2, Hitachi Ventures, LG Technology Ventures, Vertex Ventures, Third Point Ventures, DTCP, and Intel Capital participating. The release states Zenity 'has tripled revenue in each of the past two years and is on track to triple revenue again this year' (unaudited).",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "Company press release.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-zenity-1",
+  "tags": [
+    "tracker",
+    "ai-security"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-zscaler-1",
+  "title": "Zscaler Q4 FY2026 Earnings Release",
+  "organization": "Zscaler, Inc.",
+  "publicationDate": "2026-09-03",
+  "economicPeriod": "Q4 FY2026, ended 2026-07-31",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1713683/000171368326000156/zs-07312026_991.htm",
+  "excerpt": "Revenue $898.2 million, +25% YoY; ARR $3,771 million, +25% YoY (20% excluding Red Canary acquisition).",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "Red Canary acquisition contributed $141M ARR; organic growth rate was 20%.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-zscaler-1",
+  "tags": [
+    "tracker",
+    "network-sase",
+    "public-company"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-zscaler-2",
+  "title": "Zscaler Q3 FY2026 Earnings Release",
+  "organization": "Zscaler, Inc.",
+  "publicationDate": "2026-05-26",
+  "economicPeriod": "Q3 FY2026, ended 2026-04-30",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1713683/000171368326000095/zs-04302026_991.htm",
+  "excerpt": "Revenue $850.5 million, +25% YoY; ARR $3,525 million, +25% YoY (21% excluding Red Canary).",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-zscaler-2",
+  "tags": [
+    "tracker",
+    "network-sase"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-zscaler-3",
+  "title": "Zscaler Q4 FY2026 Non-GAAP Reconciliation",
+  "organization": "Zscaler, Inc.",
+  "publicationDate": "2026-09-03",
+  "economicPeriod": "Q4 FY2026, ended 2026-07-31",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1713683/000171368326000156/zs-07312026_991.htm",
+  "excerpt": "Restructuring and other charges of $5.5 million in Q4 FY2026 and $10.3 million for full FY2026, described as severance and termination benefits.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-zscaler-3",
+  "tags": [
+    "tracker",
+    "network-sase"
+  ],
+  "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-zscaler-4",
+  "title": "Zscaler Executive Leadership Changes",
+  "organization": "Zscaler, Inc.",
+  "publicationDate": "2026-09-24",
+  "economicPeriod": "Quarter ended July 31, 2026",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1713683/000171368326000193/zs-20260924.htm",
+  "excerpt": "CRO Mike Rich stepping down effective October 1, 2026, succeeded by Ross Tackett. EVP Raj Judge resigned board seat effective April 16, 2026, with employment ending July 31, 2026.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "Changes do not affect CEO or CFO positions.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-zscaler-4",
+  "tags": [
+    "tracker",
+    "network-sase"
+  ],
+  "retrievedAt": "2026-09-25"
+},
 ]
 
 export const evidenceById = Object.fromEntries(

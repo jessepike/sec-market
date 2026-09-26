@@ -1,7 +1,9 @@
 import { Analytics } from '@vercel/analytics/react'
 import type { ReactNode } from 'react'
 import { ActivityBoard } from './components/ActivityBoard'
+import { ArchiveLinks } from './components/ArchiveLinks'
 import { Corrections } from './components/Corrections'
+import { CoverageStatement } from './components/CoverageStatement'
 import { DomainBoard } from './components/DomainBoard'
 import { EvidenceDrawer } from './components/EvidenceDrawer'
 import { EvidenceLibrary } from './components/EvidenceLibrary'
@@ -13,23 +15,21 @@ import { IssueArchive } from './components/IssueArchive'
 import { IssueHero } from './components/IssueHero'
 import { IssueLanes } from './components/IssueLanes'
 import { JudgmentBoard } from './components/JudgmentBoard'
+import { MarketByDomain } from './components/MarketByDomain'
 import { MarketLayersChart } from './components/MarketLayersChart'
-import { MarketPicture } from './components/MarketPicture'
 import { MethodologyNote } from './components/MethodologyNote'
 import { NextEdition } from './components/NextEdition'
-import { PrintGrid } from './components/PrintGrid'
 import { ProvenanceRail } from './components/ProvenanceRail'
 import { RunStatus } from './components/RunStatus'
 import { SiteMasthead } from './components/SiteMasthead'
 import { SkipLink } from './components/SkipLink'
 import { ThesisRunningScore } from './components/ThesisRunningScore'
-import { VendorLens } from './components/VendorLens'
 import { WeThink } from './components/WeThink'
+import { WhatChangedTracker } from './components/WhatChangedTracker'
 import { WhatMoved } from './components/WhatMoved'
 import { EvidenceProvider } from './context/EvidenceProvider'
 import { useEvidence } from './context/useEvidence'
-import { VendorLensProvider } from './context/VendorLensProvider'
-import { issueById, latestIssue } from './data/issues/index'
+import { issueById } from './data/issues/index'
 import { matchRoute } from './data/routes'
 import type { Issue } from './data/types'
 
@@ -45,20 +45,30 @@ function ArchiveNotice({ text }: { text: string }) {
 }
 
 /**
- * `/` — what the site is, the run status, then the market picture, the
- * tracked items, and the standing reference and depth sections.
+ * `/` — what the site is, the run status, the twelve-domain supplier
+ * tracker, and the standing reference and depth sections.
  *
  * D-76/autonomy-coverage-plan.md §3, step 1 ("Judged text leaves the live
  * pages"): every judged element that used to sit on this page — the
  * weekly-issue headline strip, "What we now think", the domain stance chips
  * and JUDGED stamps, tracked hypotheses, the standing-thesis pointer at
  * `#read`, and "Watch next" — is gone from this route. `RunStatus`
- * (`#overview`, replacing the old `IssueStrip`) is the new first-screen
- * element: an honest statement of whether collection ran and whether it was
- * complete, never a judgment. `IssueLanes` stays (`showWhy={false}`):
- * headlines, dates and evidence are facts; the "why it matters" line per
- * item was the one piece of interpretation, so it is dropped here and kept
- * on the archived permalink.
+ * (`#overview`, replacing the old `IssueStrip`) is the first-screen element:
+ * an honest statement of whether collection ran and whether it was
+ * complete, never a judgment.
+ *
+ * Step 5 (autonomy-coverage-plan.md §3): the old `MarketPicture` ("the
+ * market by domain" section), `PrintGrid` (the scorecard), and the week-36
+ * `IssueLanes` that used to sit here are replaced by the twelve-domain
+ * tracker — `MarketByDomain`, `WhatChangedTracker`, `CoverageStatement`, and
+ * `ArchiveLinks`, built from `data/tracker/{domains,suppliers,events}.ts`.
+ * None of the three old components is deleted; they simply have no route
+ * rendering them on the front page now, the same as `DomainBoard`'s
+ * `TempoSection`. `VendorLensProvider`/`VendorLens` also stop rendering here
+ * — both existed only to filter `PrintGrid` and this page's `IssueLanes`,
+ * and with both gone the lens has nothing left on this route to filter;
+ * their files and the `useVendorLens` hook are untouched, and the issue
+ * permalink page (which never mounted the provider) is unaffected.
  *
  * Step 1 fix pass, item 3: the entire Platform-pressure section is gone from
  * this route too, not just its judged "read" column — every row in that
@@ -67,24 +77,18 @@ function ArchiveNotice({ text }: { text: string }) {
  * absorbed), which describes competitive footing the site no longer states.
  * `PlatformPressure.tsx` itself is untouched and still exported; it simply
  * has no route rendering it now, the same as `DomainBoard`'s `TempoSection`.
- *
- * Wrapped in VendorLensProvider (SEC-031): IssueLanes and PrintGrid, both
- * inside, read the lens state to filter; VendorLens is the control. Scoped
- * to this page on purpose — the issue permalink page has no lens control, so
- * it never mounts the provider, and its IssueLanes renders unfiltered via
- * useVendorLens()'s inactive fallback.
  */
 function FrontPage() {
   return (
-    <VendorLensProvider>
+    <>
       <SiteMasthead />
       <RunStatus />
-      <MarketPicture />
-      <IssueLanes issue={latestIssue} showWhy={false} />
+      <MarketByDomain />
+      <WhatChangedTracker />
+      <CoverageStatement />
+      <ArchiveLinks />
       <FollowLine />
       <DomainBoard />
-      <VendorLens />
-      <PrintGrid />
 
       <details className="depth" id="moved-depth">
         <summary>What moved: tracked prints and capital</summary>
@@ -112,7 +116,7 @@ function FrontPage() {
       </details>
       <MethodologyNote />
       <NextEdition />
-    </VendorLensProvider>
+    </>
   )
 }
 

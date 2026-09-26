@@ -3551,3 +3551,398 @@ summary:focus-visible,
   font-size: 0.85rem;
   color: var(--color-text-muted);
 }
+
+/* ==========================================================================
+   Supplier tracker — autonomy-coverage-plan.md §5, step 5. The twelve-domain
+   "market by domain" tables, the 30-day change log, the coverage statement,
+   and the archive-links line. Desktop keeps an ordinary table; at phone
+   width (see the 640px query at the end of this block) each table becomes a
+   stack of labelled rows instead of scrolling sideways, using the
+   `data-label` attribute each <td> in MarketByDomain.tsx carries.
+   ========================================================================== */
+
+.tracker-domains {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.tracker-domain__name {
+  margin: 0 0 0.4rem;
+  font-family: var(--font-display);
+}
+
+/* Density pass — a compact "jump to a domain" index at the top of the
+   section, so a reader does not have to scroll past every table to reach
+   the one they want. */
+.tracker-domain-index {
+  margin: 1rem 0 1.5rem;
+}
+
+.tracker-domain-index ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tracker-domain-index a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.3rem 0.6rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 0.8125rem;
+  color: var(--color-text);
+  text-decoration: none;
+  min-height: 32px;
+}
+
+.tracker-domain-index a:hover,
+.tracker-domain-index a:focus-visible {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.tracker-domain-index__count {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.tracker-table-scroll {
+  overflow-x: auto;
+}
+
+.tracker-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8125rem;
+  background: var(--color-surface);
+}
+
+.tracker-table th,
+.tracker-table td {
+  padding: 0.35rem 0.5rem;
+  border-bottom: 1px solid var(--color-border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.tracker-table thead th {
+  background: var(--color-bg);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* The columns that hold one number and nothing else — a column of
+   percentages scans faster right-aligned with tabular figures than left-
+   aligned prose does. "Own metric", "Ownership or last round", and
+   "Events" are short compound sentences, not bare numbers, so they stay
+   left-aligned. */
+.tracker-table th:nth-child(2),
+.tracker-table th:nth-child(3),
+.tracker-cell--numeric {
+  text-align: right;
+}
+
+.tracker-cell--numeric,
+.tracker-figure__value {
+  font-variant-numeric: tabular-nums;
+}
+
+.tracker-table__sort {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  font-weight: 600;
+  color: inherit;
+  cursor: pointer;
+  min-height: 32px;
+}
+
+.tracker-table th:nth-child(2) .tracker-table__sort,
+.tracker-table th:nth-child(3) .tracker-table__sort {
+  flex-direction: row-reverse;
+}
+
+.tracker-table__sort:hover,
+.tracker-table__sort:focus-visible {
+  color: var(--color-accent);
+}
+
+.tracker-table__sort-glyph {
+  font-size: 0.75em;
+}
+
+/* One line per cell: the figure, its muted mono period (growth cells
+   only), and a compact source link, all inline. */
+.tracker-figure {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+}
+
+.tracker-figure__period {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.tracker-figure--empty {
+  color: var(--color-text-muted);
+}
+
+.tracker-table .evidence-link,
+.tracker-changed__row .evidence-link {
+  margin-left: 0.1rem;
+}
+
+/* A small mono "src" mark instead of a name-carrying chip — one per cell,
+   same line as the figure. Opens the same evidence drawer. */
+.evidence-link--compact {
+  display: inline;
+  min-height: 0;
+  padding: 0 0.2rem;
+  border: none;
+  background: none;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 2px;
+}
+
+.evidence-link--compact:hover,
+.evidence-link--compact:focus-visible {
+  color: var(--color-accent);
+}
+
+.tracker-table__median td {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  background: var(--color-bg);
+}
+
+/* The Supplier cell's button — plain text at desktop width (no border,
+   no background, no cursor affordance) since nothing there is
+   interactive until the phone breakpoint below makes it the row's
+   expand/collapse control. */
+.tracker-row__toggle {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  width: 100%;
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: default;
+}
+
+.tracker-row__name {
+  font-weight: 500;
+}
+
+.tracker-row__summary,
+.tracker-row__chevron {
+  display: none;
+}
+
+.tracker-changed__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.tracker-changed__row {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr auto;
+  gap: 0.5rem;
+  align-items: baseline;
+  padding: 0.35rem 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 0.875rem;
+}
+
+.tracker-changed__date {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.tracker-coverage__domains,
+.tracker-coverage__not-covered {
+  margin: 0.75rem 0;
+  padding-left: 1.25rem;
+}
+
+.tracker-coverage__domains li,
+.tracker-coverage__not-covered li {
+  margin-bottom: 0.35rem;
+}
+
+.tracker-coverage__subhead {
+  margin-top: 1.25rem;
+}
+
+.tracker-links {
+  margin: 1.5rem 0;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 640px) {
+  /* Collapsed-row table: the header row and every column but Supplier are
+     hidden by default. The Supplier cell's button becomes the whole row's
+     tap target — it shows the short name plus one summary figure (latest
+     revenue growth, or ownership state when there is no growth figure)
+     and toggles `aria-expanded`; a real <button>, reachable and operable
+     by keyboard, with the state announced to a screen reader without
+     relying on the chevron glyph, which is aria-hidden. Expanding a row
+     (`.tracker-row--expanded`) reveals its remaining cells in place using
+     the same data-label stacking pattern the table already carried. */
+  .tracker-table-scroll {
+    overflow-x: visible;
+  }
+
+  .tracker-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .tracker-table,
+  .tracker-table tbody,
+  .tracker-table tr,
+  .tracker-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .tracker-table tr {
+    border-bottom: 1px solid var(--color-border);
+    padding: 0.5rem 0;
+  }
+
+  .tracker-table tr:first-child {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .tracker-table td {
+    border-bottom: none;
+    padding: 0.15rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+
+  .tracker-table td::before {
+    content: attr(data-label);
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+
+  .tracker-cell--numeric {
+    text-align: left;
+  }
+
+  /* Every cell but the Supplier row-toggle is hidden until that row is
+     expanded. */
+  .tracker-table tr:not(.tracker-table__median) td:not(:first-child) {
+    display: none;
+  }
+
+  .tracker-table tr.tracker-row--expanded td:not(:first-child) {
+    display: flex;
+  }
+
+  .tracker-table td:first-child {
+    padding: 0;
+  }
+
+  .tracker-table td:first-child::before {
+    /* No "SUPPLIER" label above the row-toggle button — it is the row, not
+       a labeled field, and repeating it 74 times cost real page height. */
+    content: none;
+  }
+
+  .tracker-row__toggle {
+    cursor: pointer;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 0.55rem 0.1rem;
+    min-height: 44px;
+  }
+
+  .tracker-row__name {
+    flex: 1 1 auto;
+  }
+
+  .tracker-row__summary {
+    display: block;
+    flex: 0 0 auto;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+  }
+
+  .tracker-row--expanded .tracker-row__summary {
+    display: none;
+  }
+
+  .tracker-row__chevron {
+    display: block;
+    flex: 0 0 auto;
+    width: 1.1rem;
+    text-align: center;
+    color: var(--color-text-muted);
+    font-weight: 600;
+  }
+
+  .tracker-table__median {
+    display: block;
+    border: 1px solid var(--color-border);
+    margin-bottom: 0.75rem;
+  }
+
+  .tracker-table__median td {
+    display: block;
+  }
+
+  .tracker-table__median td::before {
+    content: none;
+  }
+
+  .tracker-changed__row {
+    grid-template-columns: auto 1fr auto;
+    gap: 0.4rem;
+    font-size: 0.8125rem;
+  }
+}

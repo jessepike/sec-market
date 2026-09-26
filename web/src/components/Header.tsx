@@ -16,11 +16,15 @@ interface NavItem {
 // from the front page's #read pointer and the footer instead of the primary
 // nav. #read still exists on the front page; it just carries a different,
 // quieter block now — see ThesisPointer.tsx.
+// Step 5 (autonomy-coverage-plan.md §3): "Scorecard" pointed at `#prints`
+// (PrintGrid), which no longer renders on any route — the twelve-domain
+// tracker at `#market` (MarketByDomain) replaces it, so the nav item now
+// points there instead of at a dead anchor.
 const navItems: NavItem[] = [
   { href: '#overview', label: 'Status' },
   { href: '/issues/', label: 'Archive', crossPage: true },
+  { href: '#market', label: 'Market' },
   { href: '#landscape', label: 'Landscape' },
-  { href: '#prints', label: 'Scorecard' },
   { href: '#research', label: 'Evidence' },
   { href: '#method', label: 'Method' },
   { href: '/feed.xml', label: 'Feed', crossPage: true },
@@ -46,7 +50,7 @@ function scrollToHash(hash: string) {
  * in navItems exists in the document, so the in-page scroll behaviour below
  * is unconditional there and unchanged from before this route-awareness was
  * added. On any other route (the archive, an issue permalink) some targets
- * — "read", "landscape", "prints", "research", "method" — live only on the
+ * — "market", "landscape", "research", "method" — live only on the
  * front page, so the href must point there (`/#<id>`) and a click must be
  * allowed to navigate normally rather than preventDefault into a no-op.
  */

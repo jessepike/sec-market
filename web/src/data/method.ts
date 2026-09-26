@@ -10,6 +10,57 @@ export interface ReasoningStep {
   rule: string
 }
 
+export interface SourcingRung {
+  rung: number
+  label: string
+  description: string
+  /** Whether a fact resting on this rung alone may publish. */
+  publishesAlone: boolean
+}
+
+/**
+ * The five-rung sourcing ladder the supplier tracker follows (step 5,
+ * autonomy-coverage-plan.md §5; docs/active/fable-run/research/
+ * 11-distress-signal-sources.md §5). Strongest evidence first. A fact
+ * resting only on rung 5 — a single trade-press report with no primary
+ * document behind it — does not publish on this site; it stays a lead until
+ * a rung 1-4 source confirms it. web/scripts/verify-tracker.ts enforces this
+ * on every tracker event at build time.
+ */
+export const sourcingLadder: SourcingRung[] = [
+  {
+    rung: 1,
+    label: "Company's own SEC filing",
+    description: 'An 8-K, 10-Q or 10-K filed with the SEC and readable on EDGAR.',
+    publishesAlone: true,
+  },
+  {
+    rung: 2,
+    label: 'Rating agency action, republished',
+    description:
+      "A Moody's, S&P or Fitch rating action, most reliably read on the rated company's own newsroom.",
+    publishesAlone: true,
+  },
+  {
+    rung: 3,
+    label: 'State WARN Act notice',
+    description: 'A mass-layoff or closure notice filed with a state workforce agency.',
+    publishesAlone: true,
+  },
+  {
+    rung: 4,
+    label: 'Confirmed primary corporate action',
+    description: "An acquirer's own press release, or a company or parent's own wind-down statement.",
+    publishesAlone: true,
+  },
+  {
+    rung: 5,
+    label: 'Trade press report',
+    description: 'A news report, including one citing unnamed sources, with no primary document behind it.',
+    publishesAlone: false,
+  },
+]
+
 export const signalFamilies: SignalFamily[] = [
   {
     name: 'Infrastructure prints',

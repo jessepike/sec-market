@@ -68,18 +68,19 @@ if (typeof mod.render !== 'function') {
 // this list — the whole section stopped rendering on the front page, not
 // just its judged "read" column, because every row named a hand-assigned
 // vendor-position label (footing the site no longer states).
+//
+// Step 5 (autonomy-coverage-plan.md §3): 'formation', 'absorption',
+// 'prints-this-week' and 'capital' (the week-36 IssueLanes) and 'prints'
+// (PrintGrid, the old scorecard) are dropped from the front list — neither
+// renders on this route any more. 'market' stays: MarketByDomain (the new
+// twelve-domain tracker) keeps the same section id MarketPicture used, so
+// both this gate and the header's nav link keep resolving without a rename.
+// 'tracker-changed' and 'tracker-coverage' are the two new must-see
+// sections (WhatChangedTracker, CoverageStatement); ArchiveLinks
+// ('tracker-links') is a one-line links row, not required reading, so it is
+// not added here.
 const MUST_SEE_SECTION_IDS: Record<RouteEntry['kind'], string[]> = {
-  front: [
-    'overview',
-    'market',
-    'formation',
-    'absorption',
-    'prints-this-week',
-    'capital',
-    'follow',
-    'landscape',
-    'prints',
-  ],
+  front: ['overview', 'market', 'tracker-changed', 'tracker-coverage', 'follow', 'landscape'],
   archive: ['issues'],
   corrections: ['corrections'],
   issue: ['overview', 'formation', 'absorption', 'prints-this-week', 'capital', 'we-think'],

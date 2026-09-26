@@ -13,6 +13,16 @@ import { runStatus } from '../../src/data/runStatus.ts'
  * is now gone from this route in full — not just its judged "read" column —
  * because every row it drew from carried a hand-assigned vendor-position
  * label (see the `#platforms` and position-label assertions below).
+ *
+ * Step 5 (autonomy-coverage-plan.md §3): this test used to also check
+ * PrintGrid's scorecard ("This period", `#prints-heading`, print-card
+ * headings for Fortinet/SentinelOne/"Entra / Ping / PE PAM") and the
+ * vendor-lens control (`#vendor-lens-slot`) — both gone from this route.
+ * MarketPicture and PrintGrid are replaced by the twelve-domain tracker
+ * (MarketByDomain at `#market`, WhatChangedTracker at `#tracker-changed`,
+ * CoverageStatement at `#tracker-coverage`); the vendor lens has nothing
+ * left on this route to filter now that PrintGrid and the front page's
+ * IssueLanes are both gone. See the assertions below for the new sections.
  */
 test('renders the market briefing without runtime errors', async ({ page }) => {
   const pageErrors: string[] = []
@@ -71,15 +81,21 @@ test('renders the market briefing without runtime errors', async ({ page }) => {
   await expect(page.locator('#method summary')).toHaveText('How this is built')
   await expect(page.locator('#research-depth > summary')).toHaveText('M&A and funding activity')
 
-  // The full scorecard's prints stay visible on first paint — no click
-  // required to reach them.
-  await expect(page.locator('#prints-heading')).toBeVisible()
-  await expect(page.getByRole('heading', { name: 'Fortinet' })).toBeVisible()
-  await expect(page.getByRole('heading', { name: 'SentinelOne' })).toBeVisible()
-  await expect(page.getByRole('heading', { name: 'Entra / Ping / PE PAM' })).toBeVisible()
-  // SecOps surfaces pre-click too: a promoted print-group title, not gated
-  // behind any remaining disclosure.
-  await expect(page.getByText('SecOps', { exact: true }).first()).toBeVisible()
+  // Step 5: PrintGrid ("This period", #prints-heading) and its print-card
+  // headings are gone from the front page — no route renders PrintGrid any
+  // more. The vendor lens had nothing left to filter once PrintGrid and the
+  // front page's IssueLanes both left, so it is gone too.
+  await expect(page.locator('#prints-heading')).toHaveCount(0)
+  await expect(page.locator('#vendor-lens-slot')).toHaveCount(0)
+
+  // The twelve-domain tracker stays visible on first paint — no click
+  // required to reach the market-by-domain tables, the 30-day change log,
+  // or the coverage statement.
+  await expect(page.locator('#market-heading')).toHaveText('The market by domain')
+  await expect(page.locator('#market .tracker-domain')).toHaveCount(12)
+  await expect(page.locator('#tracker-changed-heading')).toHaveText('What changed in the last 30 days')
+  await expect(page.locator('#tracker-coverage-heading')).toHaveText('What this site covers')
+  await expect(page.locator('.tracker-coverage__domains li').first()).toBeVisible()
 
   // M&A and funding activity is gated behind #research-depth: present in the
   // markup for evidence and crawlers, closed until opened. Closed <details>
@@ -132,7 +148,10 @@ test('no judged stamps on the front page', async ({ page }) => {
 test('opens attributed evidence without a private GitHub artifact link', async ({ page }) => {
   await page.goto('/')
 
-  await page.getByRole('button', { name: /Fortinet/ }).first().click()
+  // Scoped to #landscape: the density pass gave the tracker's own supplier
+  // rows a "Fortinet" row-toggle button too, and an unscoped match would hit
+  // that expand/collapse control instead of the evidence link this test means.
+  await page.locator('#landscape').getByRole('button', { name: /Fortinet/ }).first().click()
 
   const dialog = page.getByRole('dialog', { name: 'Evidence' })
   await expect(dialog).toBeVisible()

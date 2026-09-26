@@ -4,19 +4,30 @@ import { SITE_HEADLINE } from '../../src/data/meta.ts'
 
 // D-76/autonomy-coverage-plan.md §3, step 1: 'read' (the standing-thesis
 // pointer) and 'hypotheses' left the front page's always-visible sections —
-// the site publishes sourced facts only, no judgments, there. The front
-// page's four lane ids stay, but 'overview' now names RunStatus rather than
-// the old issue strip, and 'we-think' ("What we now think") is gone from the
-// front page entirely — both survive, unchanged, on the issue permalink.
+// the site publishes sourced facts only, no judgments, there. 'overview' now
+// names RunStatus rather than the old issue strip, and 'we-think' ("What we
+// now think") is gone from the front page entirely — it survives, unchanged,
+// on the issue permalink, where ISSUE_SECTION_IDS below still applies.
 // Step 1 fix pass, item 3: 'platforms' (Platform pressure) also dropped —
 // the whole section, not just its judged column, stopped rendering on the
 // front page because every row carried a hand-assigned vendor-position label.
-const STANDING_REFERENCE_IDS = ['market', 'follow', 'landscape', 'prints']
-const FRONT_LANE_IDS = ['overview', 'formation', 'absorption', 'prints-this-week', 'capital']
+//
+// Step 5 (autonomy-coverage-plan.md §3): the front page's own lane ids
+// changed again. 'formation', 'absorption', 'prints-this-week', and
+// 'capital' were IssueLanes ids that used to render on both the front page
+// and the issue permalink; IssueLanes no longer mounts on the front page at
+// all (App.tsx's FrontPage doc-comment), so those four now only exist on
+// `/issues/<id>/` — ISSUE_SECTION_IDS below (unchanged) still checks them
+// there. 'prints' (PrintGrid's heading id) is also gone from the front page
+// — smoke.spec.ts asserts `#prints-heading` has count 0 there. The front
+// page's own standing-reference ids are TRACKER_FRONT_IDS: the twelve-domain
+// tracker (`market`), its two supporting sections, and the always-visible
+// `follow`/`landscape` sections that step 5 did not touch.
+const TRACKER_FRONT_IDS = ['market', 'tracker-changed', 'tracker-coverage', 'follow', 'landscape']
 const ISSUE_SECTION_IDS = ['overview', 'formation', 'absorption', 'prints-this-week', 'capital', 'we-think']
 
 test.describe('weekly issue — front page', () => {
-  test('h1 is the site headline, run status is visible; issue lanes and standing reference are visible', async ({
+  test('h1 is the site headline, run status is visible; the tracker and standing reference are visible', async ({
     page,
   }) => {
     const pageErrors: string[] = []
@@ -55,10 +66,7 @@ test.describe('weekly issue — front page', () => {
     await expect(page.getByRole('heading', { level: 1 })).toHaveText(SITE_HEADLINE)
     await expect(page.locator('#overview .run-status__line')).toContainText('Figures checked')
 
-    for (const id of FRONT_LANE_IDS) {
-      await expect(page.locator(`#${id}`)).toBeVisible()
-    }
-    for (const id of STANDING_REFERENCE_IDS) {
+    for (const id of TRACKER_FRONT_IDS) {
       await expect(page.locator(`#${id}`)).toBeVisible()
     }
 
