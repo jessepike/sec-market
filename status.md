@@ -1,7 +1,7 @@
 ---
 project: Security Market Signal Pipeline
 stage: Operate
-updated: 2026-09-21
+updated: 2026-09-25
 ---
 
 # Status
@@ -16,17 +16,32 @@ checked.** The working statement of purpose is
 instrument for supplier decisions, written for security leaders first, not for investors, with the
 founding thesis as one standing analysis. Read it before any design, rubric or review work.
 
-**2026-09-21, in progress (D-73): the owner approved three builds so the site can be kept up from his
-phone.** His approval of the weekly draft pull request becomes the signature and publishes the issue
-after every check passes; the weekly job proposes scorecard updates behind a check on what each
-figure means and lists what is going stale; the thesis verdict leaves the weekly issue. The spec is
-`docs/active/publish-path-spec.md` (SEC-MARKET-PUBLISH-001). Builders are on branches `mon/publish`
-and `mon/upkeep`, both merged to `preview` and promoted the same day (D-74, `main` at `51dbffd`); the
-last piece, re-dating stale stances on the word `reconfirm`, merged and was promoted with the weekly
-job's two fixes (D-75, `main` at `9b98353`). In progress: SEC-054, new owner-approved wording for the
-Platform pressure sentence that called platform vendors hyperscalers, on `mon/pressure-wording`. This phase edits
-`docs/active/gather-brief.md`, so any other session holding a copy of it should re-read it. The task
-ledger is in `docs/active/fable-run/RUN-STATE.md`, phase T7.
+**2026-09-21 (D-73 to D-75): the owner approved three builds so the site can be kept up from his
+phone, all three are done, and two promotions landed the same day.** His approval of a weekly draft
+pull request, or his comment `publish`, now signs and publishes the issue after every check passes;
+the weekly job proposes scorecard updates behind a check on what each figure means and lists what is
+going stale; the word `reconfirm` in his approval re-dates stale, unchallenged domain stances under
+his name; the thesis verdict left the weekly issue. The spec, with an "as built" section covering two
+review passes' worth of hardening, is `docs/active/publish-path-spec.md`
+(SEC-MARKET-PUBLISH-001 v0.2). `main` is `9b98353` (D-75). The task ledger is
+`docs/active/fable-run/RUN-STATE.md`, phase T7, done through T7-9 except one promotion (below).
+
+**2026-09-21, SEC-054 (D-75 wording): the Platform pressure table wrongly called Palo Alto Networks
+and F5 "a hyperscaler" when absorbing AI security companies.** Owner-approved replacement wording is
+built, tested, dated to the approval and listed at `/corrections/`; merged to `preview` (`48fd77f`)
+but **not yet promoted** — this is a visible change and needs the owner's word to reach production.
+
+**2026-09-21 through at least 2026-09-25: macbook2014 has been unreachable.** It dropped off the
+network partway through a hand-started run of the week-38 gather (issue due `2026-w38`, window
+2026-09-14 to 2026-09-20) and has not answered ssh or ping since, apart from one "connection
+refused" blip. No receipt and no pull request exist for that week. Its own Tuesday 07:00 schedule
+(2026-09-22) would also have needed the machine awake, so that firing is unconfirmed too. Nothing
+else in this run waits on that host; when it is back, check `~/gather-logs/receipts/` for anything
+after 2026-09-21T21:08Z, and re-run `SMP_WEEK_ENDING=2026-09-20 ./scripts/gather.sh` there if there
+is no receipt for it. Two fixes already landed and are live: the job loads `~/.env.local` for its
+subscription token (it does not inherit a login shell), and it pre-approves the narrow set of shell
+commands its brief needs (`--allowedTools`), because a headless run cannot answer a permission
+prompt — the first hand-started attempt failed for exactly that reason before this fix shipped.
 
 What that promotion put on production (merges f557b4c, 0ece0ce, 7535fc4): a one-sentence description, "Not a news
 site and not investment advice.", a line giving the update date and the date the domain stances
@@ -48,16 +63,20 @@ with a test behind it, compacted supplier rows so the signed read starts within 
 1440, phone chrome cut from 221 to 184 px, and "Weekly issue" in place of the issue id on the
 front-page eyebrow.
 
-Waiting on the owner, in order of value: run `claude setup-token` on macbook2014 so the
-weekly gather can log in (D-70; the webhook notification action from this run is superseded and
-needs nothing from him); decide the split between what
-publishes automatically and what needs his tap (`product-core.md` section 6), which also means
-amending `intent.md` and `.claude/rules/constraints.md`; edit or reject the first machine-drafted
-buyer brief (`docs/active/fable-run/drafts/buyer-brief-network-sase.md`).
+Waiting on the owner, in order of value: say "promote" to put the SEC-054 wording fix live (it is
+correct on `preview` now, wrong on production); amend `.claude/rules/constraints.md` and `intent.md`
+with the wording proposed in `docs/active/publish-path-spec.md` section 2.3, now that the phone-tap
+publish path is real rather than proposed (not urgent — nothing is blocked on it); decide whether
+GitHub Pro is worth ~$4/month to lock `main` (SEC-051 — the weekly job's deploy key can currently push
+anywhere, including `main`, and a free private repo has no branch protection); sign or close pull
+request #2, the `2026-w37` draft, which predates the thesis-off-the-issue and sign-on-approval changes
+and should be re-checked against the current schema before signing; edit or reject the first
+machine-drafted buyer brief (`docs/active/fable-run/drafts/buyer-brief-network-sase.md`).
 
-The run's state, ledger and log are in `docs/active/fable-run/RUN-STATE.md`. Its lessons are held in
-`docs/active/fable-run/lessons-pending.md` because `lessons.md` carried another session's
-uncommitted change. New backlog items: SEC-043 to SEC-050.
+The run's state, ledger and log are in `docs/active/fable-run/RUN-STATE.md`. Its lessons have been
+promoted into `lessons.md` (the KB-worthy ones) and this file (the project-specific ones); the
+`docs/active/fable-run/lessons-pending.md` scratch file is now empty and can be deleted next time
+someone is in that directory. New backlog items: SEC-043 to SEC-055.
 
 **The weekly issue is published.** `2026-w36` was signed by the owner on 2026-09-19, who adopted the
 gather's proposal as written, and `main` was promoted `b423b70` → `aa04875` the same day (D-66). That
@@ -406,26 +425,35 @@ together.
 
 Twenty commits now sit on `preview` ahead of production.
 
-## Next session — start here (written 2026-09-21, superseding the 2026-09-20 block below it)
+## Next session — start here (written 2026-09-25, superseding the 2026-09-21 block below it)
 
-**Both items the previous block left open are done. Read the "Current State" section at the top of
-this file first — it carries D-70 through D-74, all landed.** The design fix (D-71) is live on
-production, not just on preview. The gather's login (D-70's one open step) has a fix in flight: the
-owner authenticated on macbook2014, but a bare `claude -p` over ssh still returned 401 because the
-stored credentials are stale and the keychain isn't readable over ssh; `scripts/gather.sh` did not
-load `~/.env.local`, where the working token actually lives. That load was added
-(`1de8afa`/`e71b0f7`, T7-6) and is on `preview`; whether it has reached a real Tuesday run and
-produced a `state: drafted` receipt (rather than `blocked-auth`) is not yet confirmed as of this
-writing — check `~/gather-logs/receipts/` on macbook2014 for the newest entry.
+**The Fable run (SEC-MARKET-FABLE-001, phase T7) that the previous block described as "active in
+parallel" is this session, and it is done. Read the "Current State" section at the top of this file
+first — it carries D-70 through D-75, all landed.** The phone-tap publish path is real and live on
+production (`main` at `9b98353`): approving a weekly draft, or commenting `publish`, signs and
+publishes it; `publish reconfirm` also re-dates stale stances; the weekly job proposes scorecard
+updates and flags what is going stale. `docs/active/publish-path-spec.md` v0.2 is the as-built record
+and `docs/active/fable-run/RUN-STATE.md` is the full ledger.
 
-**A second coordinator run (Fable, phase T7) is active in parallel on this repo**, building the
-publish-on-approval path from `docs/active/publish-path-spec.md`
-(`SEC-MARKET-PUBLISH-001`). Its ledger and log are `docs/active/fable-run/RUN-STATE.md` — read that
-before touching `scripts/gather.sh`, `scripts/publish-issue.sh`, or `.github/workflows/*.yml`, since
-a session unaware of it will look like it is stepping on uncommitted work. As of this writing it has
-landed the approve-to-publish workflow, a scorecard staleness check, and two more promotions (D-73,
-D-74); `main` is `51dbffd`.
+**Two things need attention, in order:**
+
+1. **macbook2014 has been down since partway through 2026-09-21 and, as of 2026-09-25, still is.**
+   Check it first: `ssh macbook2014 uptime`. If it answers, read `~/gather-logs/receipts/` for
+   anything since 2026-09-21T21:08Z. If there is nothing for `2026-w38` (window 2026-09-14 to
+   2026-09-20), run `SMP_WEEK_ENDING=2026-09-20 ./scripts/gather.sh` there by hand and watch the
+   output — the two fixes that shipped this run (loading `~/.env.local`, pre-approving the shell
+   commands the brief needs) are untested against a real unattended pass, only against a hand-started
+   one that got partway through before the host dropped off the network.
+2. **SEC-054 (the Platform pressure wording fix) is correct on `preview` and wrong on production.**
+   It is a one-word promotion once the owner says so; nothing else is blocking it.
 
 **Pull request #2, the unsigned `2026-w37` draft, is still open**
-(https://github.com/jessepike/sec-market/pull/2) and predates the thesis moving off the weekly issue
-(D-72). Whether it still matches the current issue schema is unverified — check before signing it.
+(https://github.com/jessepike/sec-market/pull/2) and predates several schema changes from this run
+(the thesis field going optional, the sign-on-approval pipeline, the file allowlist a draft branch
+must satisfy). Check it against the current `docs/active/gather-brief.md` and `types.ts` before
+approving it — it may not pass the new guards as committed.
+
+**Known residual risk, not fixed by this run and not urgent:** the weekly gather's deploy key can
+push to any branch, including `main`, and this private repository has no branch protection to stop
+it (SEC-051). The various guards in `scripts/publish-issue.sh` sit beside that open door rather than
+closing it. GitHub Pro (~$4/month) would close it; that is the owner's call, not a blocker.

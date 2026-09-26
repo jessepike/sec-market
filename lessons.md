@@ -3,6 +3,11 @@
 Hot buffer. One line per insight, newest date first. Keep the last ~15; promote
 cross-project patterns to the knowledge base and drop them from here.
 
+## 2026-09-21
+
+- [withheld:2026-09-21] `web/scripts/shot.mjs` needs Google Chrome and fails in the OrbStack VM. `docs/active/fable-run/evidence/baseline/capture.mjs` uses plain chromium and works there; copy it rather than modifying `shot.mjs`.
+- [withheld:2026-09-21] A build-time meaning gate (fiscal period vs. source, `verify-issue.ts`/`verify-prints.ts`) can't be satisfied by editing a locked, hashed issue or a corrected-in-place standing table. The escape hatch is an explicit, dated exemption list read by the check (`corrections.ts`, `printsUnverified.ts`), not an edit to the checked data.
+
 ## 2026-09-20
 
 - [promoted:kb:ea7ad6ea:2026-09-20] A syntax check on the machine that writes the script is not a syntax check on the machine that runs it. `scripts/gather.sh` passed `bash -n` on the laptop (bash 5) and failed to parse at all on macbook2014 (bash 3.2), because bash 3.2 cannot read a here-document nested inside command substitution and took the apostrophes in the prompt prose as opening quotes. The launchd job could never have run past its own first line. Check syntax on the target host, and keep here-documents at the top level.

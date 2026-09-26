@@ -606,20 +606,25 @@ evidence standard, and the author's professional role. Both are the owner's word
 
 ### SEC-049 — Automation: runtime, channel, cadence
 
-**Status 2026-09-20: mostly answered by D-70, built by a parallel session.** The weekly gather runs
-under launchd on macbook2014 every Tuesday at 07:00, `.github/workflows/gather-pr.yml` opens the pull
-request, GitHub's own mobile notification is the owner's one tap, and
-`.github/workflows/freshness.yml` watches the live site daily. One owner step remains there: an
-interactive `claude setup-token` on macbook2014.
+**Status 2026-09-21: answered by D-70 and D-73 to D-75.** The weekly gather runs under launchd on
+macbook2014 every Tuesday at 07:00, `.github/workflows/gather-pr.yml` opens the pull request, and the
+owner's approval of that pull request (or a `publish` comment) IS the one tap: it signs, publishes,
+runs every check and promotes to `main`, per `docs/active/publish-path-spec.md`. Adding `reconfirm`
+to that word also re-dates stale, unchallenged domain stances. `.github/workflows/freshness.yml`
+watches the live site daily. This supersedes the cloud-routine plan described in SEC-028's own status
+note, which never got past the egress block — nothing further is needed there.
 
 The Fable run's webhook notification action (`notify-decision.yml`) is superseded by that design and
 was never pushed. Its branch and worktree are removed; the file is kept for reference at
 `docs/active/fable-run/evidence/notify/notify-decision.yml.txt`. The owner does not need the
 `workflow` token scope or a Slack webhook.
 
-Still open from `docs/active/fable-run/automation-plan.md`: what may publish without the owner
-(`docs/active/product-core.md` section 6), the duplicate and link-liveness gates, and writing issue
-figures back to the scorecard (SEC-045) behind the figure-meaning gate (SEC-044).
+Writing issue figures back to the scorecard (SEC-045) behind the figure-meaning gate (SEC-044) is
+built (the weekly job proposes `prints.ts` changes; `verify:prints` checks them). Still open: what
+else may publish without the owner beyond a weekly issue (`docs/active/product-core.md` section 6),
+the duplicate and link-liveness gates, promoting all of `preview` from the phone (SEC-052, out of
+scope on purpose), and closing the branch-protection gap the weekly job's deploy key leaves open
+(SEC-051).
 
 ### SEC-050 — Smaller items deferred by the Fable run
 

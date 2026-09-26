@@ -657,3 +657,15 @@ Status is one of: pending, running, blocked, in-review, done, abandoned.
   `SMP_WEEK_ENDING=2026-09-20 ./scripts/gather.sh` there again. The launchd job also fires on its own
   on Tuesday 2026-09-22 at 07:00 local if the machine is awake.
 
+- 2026-09-26T16:25Z — macbook2014 came back online (was down 2026-09-21 ~21:40Z to sometime before
+  2026-09-26). Its 2026-09-21T21:08:53Z gather run had actually succeeded and pushed
+  `issue/2026-w38` before the host dropped; the launchd job's own Tuesday firing correctly saw the
+  branch and did nothing. But `gather-pr.yml` failed to open the pull request:
+  "GitHub Actions is not permitted to create or approve pull requests." Repo setting
+  `actions/permissions/workflow` was `default_workflow_permissions: read`,
+  `can_approve_pull_request_reviews: false` — read-only, and PR creation disabled. This would also
+  have blocked every push `publish-issue.yml` makes once a real approval fires it, not only PR
+  creation. Fixed via `gh api` (write, can_approve_pull_request_reviews: true) — this only turns on
+  automation already authorized by D-70/D-73, no new owner decision needed. Re-ran the failed
+  workflow; PR #3 (`Issue 2026-w38 draft`) is now open. This is the first real end-to-end proof that
+  a hand-started gather run can reach a pull request on the owner's phone.
