@@ -30,8 +30,9 @@ import { trackerSuppliers } from '../src/data/tracker/suppliers.ts'
  */
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
-const TODAY = '2026-09-25' // runStatus.lastChecked — see src/data/runStatus.ts
-const WINDOW_START = '2025-09-25' // TODAY minus 12 months; events are append-only within this window
+// The real date at build time (UTC), so a fact dated after the day this file
+// was written never fails the gate just because the calendar moved on.
+const TODAY = new Date().toISOString().slice(0, 10)
 
 const BANNED_WORDS = [
   'leading',
@@ -228,10 +229,9 @@ for (const event of trackerEvents) {
     fail(`${who}: names unknown supplier "${event.supplierId}"`)
   }
 
+  // Events are an append-only history, so an event older than twelve months
+  // stays in the data; the page counts only the trailing twelve months.
   checkDateField(`${who} date`, event.date)
-  if (isIsoDate(event.date) && event.date < WINDOW_START) {
-    fail(`${who}: date "${event.date}" is older than the 12-month window (before ${WINDOW_START})`)
-  }
 
   checkEvidenceIds(who, event.evidenceIds)
   checkBanned(`${who} text`, event.text)

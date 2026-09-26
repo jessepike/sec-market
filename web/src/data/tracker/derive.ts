@@ -3,6 +3,7 @@
  * Kept separate from the components so the logic can be unit-tested without
  * rendering React — see tests/tracker-data.test.ts.
  */
+import { runStatus } from '../runStatus'
 import { trackerEvents } from './events'
 import { trackerSuppliers } from './suppliers'
 import type { TrackerEvent } from './events'
@@ -183,9 +184,12 @@ export function eventsForSupplier(supplierId: string): TrackerEvent[] {
     .sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0))
 }
 
-/** Count of events in the trailing 12 months for one supplier, and the newest one if any. */
+/** Count of events in the 12 months ending on the last checked date for one supplier, and the newest one if any. */
 export function eventSummaryForSupplier(supplierId: string): { count: number; latest: TrackerEvent | null } {
-  const events = eventsForSupplier(supplierId)
+  const events = eventsForSupplier(supplierId).filter((event) => {
+    const age = daysBetween(event.date, runStatus.lastChecked)
+    return age >= 0 && age <= 365
+  })
   return { count: events.length, latest: events[0] ?? null }
 }
 

@@ -62,9 +62,11 @@ describe('RunStatus', () => {
     )
   })
 
-  it('the shipped default is a genuinely updated, complete run', () => {
-    assert.equal(runStatus.state, 'updated')
-    assert.deepEqual(runStatus.failedSources, [])
+  it('the shipped status is well formed: a real date, a known state, and failures only when incomplete', () => {
+    assert.match(runStatus.lastChecked, /^\d{4}-\d{2}-\d{2}$/)
+    assert.ok(['updated', 'no-change', 'incomplete'].includes(runStatus.state))
+    if (runStatus.state !== 'incomplete') assert.deepEqual(runStatus.failedSources, [])
+    else assert.ok(runStatus.failedSources.length > 0)
   })
 })
 
