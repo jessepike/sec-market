@@ -7,3 +7,8 @@ docs/inbox/sec-market-opus/
 
 .il-receipts
 .design/
+
+# scripts/collect.sh scratch: prompts, claude output, receipt.json, and the
+# failed-sources/candidates/summary files the model leaves for it. Never
+# committed — see docs/active/auto/collect-brief.md §5.
+.collect/
