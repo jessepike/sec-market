@@ -1,0 +1,383 @@
+{
+  "crwd-src-visible-1440": true,
+  "crwd-cells-visible-1440": [
+    "Supplier:true",
+    "Rev. growth:true",
+    "Prior q:true",
+    "Own metric:true",
+    "Ownership or last round:true",
+    "Events, 12 mo.:true"
+  ],
+  "crwd-expanded-1440": {
+    "cls": "tracker-row--expanded",
+    "text": "CrowdStrike\n\t\n+26%\nQ Jul 26 · filed 26 Aug\nsrc\n\t\n+26%\nQ Apr 26\nsrc\n\t\nARR $5.84B · Q Jul 26\nsrc\n\t\nPublic · CRWD\nsrc\n\t\n1 · latest results, 26 Aug 26\nsrc",
+    "cells": [
+      "Supplier:true",
+      "Rev. growth:true",
+      "Prior q:true",
+      "Own metric:true",
+      "Ownership or last round:true",
+      "Events, 12 mo.:true"
+    ]
+  },
+  "sort-1440": {
+    "before": [
+      "Cato Networks",
+      "Check Point",
+      "Cloudflare",
+      "Fortinet",
+      "Netskope",
+      "Palo Alto Networks",
+      "Zscaler"
+    ],
+    "after1": [
+      "Cato Networks:–",
+      "Check Point:1%",
+      "Zscaler:25%",
+      "Fortinet:26%",
+      "Netskope:29%",
+      "Palo Alto Networks:+34%",
+      "Cloudflare:36%"
+    ],
+    "aria": [
+      "none",
+      "ascending",
+      "none",
+      "none",
+      "none",
+      "none"
+    ],
+    "after2": [
+      "Cloudflare",
+      "Palo Alto Networks",
+      "Netskope",
+      "Fortinet",
+      "Zscaler",
+      "Check Point",
+      "Cato Networks"
+    ]
+  },
+  "crwd-src-visible-390": false,
+  "crwd-cells-visible-390": [
+    "Supplier:true",
+    "Rev. growth:false",
+    "Prior q:false",
+    "Own metric:false",
+    "Ownership or last round:false",
+    "Events, 12 mo.:false"
+  ],
+  "crwd-expanded-390": {
+    "cls": "tracker-row--expanded",
+    "text": "CrowdStrike\n−\n+26%\nQ Jul 26 · filed 26 Aug\nsrc\n+26%\nQ Apr 26\nsrc\nARR $5.84B · Q Jul 26\nsrc\nPublic · CRWD\nsrc\n1 · latest results, 26 Aug 26\nsrc",
+    "cells": [
+      "Supplier:true",
+      "Rev. growth:true",
+      "Prior q:true",
+      "Own metric:true",
+      "Ownership or last round:true",
+      "Events, 12 mo.:true"
+    ]
+  },
+  "sort-390": {
+    "before": [
+      "Cato Networks",
+      "Check Point",
+      "Cloudflare",
+      "Fortinet",
+      "Netskope",
+      "Palo Alto Networks",
+      "Zscaler"
+    ],
+    "after1": [
+      "Cato Networks:–",
+      "Check Point:1%",
+      "Zscaler:25%",
+      "Fortinet:26%",
+      "Netskope:29%",
+      "Palo Alto Networks:+34%",
+      "Cloudflare:36%"
+    ],
+    "aria": [
+      "none",
+      "ascending",
+      "none",
+      "none",
+      "none",
+      "none"
+    ],
+    "after2": [
+      "Cloudflare",
+      "Palo Alto Networks",
+      "Netskope",
+      "Fortinet",
+      "Zscaler",
+      "Check Point",
+      "Cato Networks"
+    ]
+  },
+  "deeplink#s-snyk": {
+    "existsAfterHydration": true,
+    "top": -26,
+    "scrollY": 5081
+  },
+  "deeplink#s-zscaler": {
+    "existsAfterHydration": true,
+    "top": 34,
+    "scrollY": 2435
+  },
+  "deeplink#domain-identity": {
+    "existsAfterHydration": true,
+    "top": -30,
+    "scrollY": 3241
+  },
+  "pops": {
+    "Fortinet | Rev. growth": {
+      "text": "Evidence\nFortinet Q2 2026 Earnings Release\n\nFortinet, Inc.\n\nPublication date\n2026-07-29\nEconomic period\nQ2 2026, ended 2026-06-30\nSource class\nFILING\nPacket label\nSEC-MARKET-AUTO-001-STEP5 / TR-fortinet-1\n\nCanonical source\n\nEXCERPT / LOCATOR\nRevenue $2.05 billion, +26% YoY; Billings $2.37 billion, +33% YoY.\nLIMITATIONS / CONFOUNDS\n\nSASE platform-specific ARR not disclosed separately.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001262039/000126203926000018/ftntq2-2026ex991.htm"
+      ]
+    },
+    "Fortinet | Own metric": {
+      "text": "Evidence\nFortinet Q2 2026 Earnings Release\n\nFortinet, Inc.\n\nPublication date\n2026-07-29\nEconomic period\nQ2 2026, ended 2026-06-30\nSource class\nFILING\nPacket label\nSEC-MARKET-AUTO-001-STEP5 / TR-fortinet-1\n\nCanonical source\n\nEXCERPT / LOCATOR\nRevenue $2.05 billion, +26% YoY; Billings $2.37 billion, +33% YoY.\nLIMITATIONS / CONFOUNDS\n\nSASE platform-specific ARR not disclosed separately.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001262039/000126203926000018/ftntq2-2026ex991.htm"
+      ]
+    },
+    "Snyk | Ownership or last round": {
+      "text": "Evidence\nSnyk raises $530M on $8.5B valuation to protect applications\n\nCRN\n\nPublication date\n2021-09-09\nEconomic period\nN/A (funding announcement)\nSource class\nINDEPENDENT\nPacket label\nSEC-MARKET-AUTO-001-STEP5 / TR-snyk-1\n\nCanonical source\n\nEXCERPT / LOCATOR\nSnyk raised a $530 million Series F round at an $8.5 billion valuation.\nLIMITATIONS / CONFOUNDS\n\nTrade press report; not confirmed against a direct Snyk primary-source release. Superseded in part by TR-snyk-2, Snyk's own primary-source announcement of a $75M extension to this same Series F round on 2021-09-30; no funding round after 2021 was found in Snyk's newsroom.\n\nSnyk Secures $75 Million in Additional Funding\n\nSnyk Ltd.\n\nPublication date\n2021-09-30\nEconomic period\nN/A (funding announcement, extension of the 2021-09-09 Series F round)\nSource class\nIR\nPacket label\nSEC-MARKET-AUTO-001-STEP5 / TR-snyk-2\n\nCanonical source\n\nEXCERPT / LOCATOR\nSnyk, the leader in developer security, today announced $75 million of funding from Atlassian Ventures and Salesforce Ventures as part of its recent Series F financing. Total capital raised to date: $850 million.\nLIMITATIONS / CONFOUNDS\n\nCompany-stated, primary source. Extends the Series F round announced 2021-09-09 at an updated $8.6 billion valuation; not a new priced round. Checked against Snyk's own newsroom listing on PR Newswire; no funding round after this date was found there.",
+      "hrefs": [
+        "https://www.crn.com/news/security/snyk-raises-530m-on-8-5b-valuation-to-protect-applications",
+        "https://www.prnewswire.com/news-releases/snyk-secures-75-million-in-additional-funding-301388357.html"
+      ]
+    },
+    "Cato Networks | Own metric": {
+      "text": "Evidence\nCato Networks ARR Milestone Update\n\nCato Networks\n\nPublication date\n2026-08-20\nEconomic period\nARR milestone referenced in company blog, August 2026 (originally announced 2026-07-27)\nSource class\nIR\nPacket label\nSEC-MARKET-AUTO-001-STEP5 / TR-cato-3\n\nCanonical source\n\nEXCERPT / LOCATOR\nWe recently surpassed $415 million in annual recurring revenue, growing 42% year over year, and now serve more than 4,800 customers worldwide.\nLIMITATIONS / CONFOUNDS\n\nCompany-stated, not an audited filing. The originating 2026-07-27 press release (catonetworks.com/news/) returned a bot challenge on every fetch attempt this session; this record instead cites the same figure as restated in Cato's own blog, retrieved via its public RSS feed. No exact \"as of\" date is stated beyond \"recently.\" Supersedes TR-cato-2's $350M/2025 figure with this more recent company-stated figure.",
+      "hrefs": [
+        "https://www.catonetworks.com/blog/three-years-as-a-leader-built-for-where-the-market-is-going/"
+      ]
+    },
+    "Cato Networks | Events, 12 mo.": {
+      "text": "Evidence\nCato Networks FY2025 ARR Milestone\n\nCato Networks\n\nPublication date\n2026-02-24\nEconomic period\nFull year 2025\nSource class\nIR\nPacket label\nSEC-MARKET-AUTO-001-STEP5 / TR-cato-2\n\nCanonical source\n\nEXCERPT / LOCATOR\nARR surpassed $350 million, +43% YoY, for full year 2025.",
+      "hrefs": [
+        "https://www.prnewswire.com/il/news-releases/cato-networks-surpasses-350-million-arr-with-43-yoy-growth-in-2025-302694952.html"
+      ]
+    },
+    "Trend Micro | Own metric": {
+      "text": "Evidence\nTrend Micro Q2 2026 Earnings Results\n\nTrend Micro Incorporated\n\nPublication date\n2026-08-13\nEconomic period\nQuarter ended 2026-06-30\nSource class\nIR\nPacket label\nSEC-MARKET-AUTO-001-STEP5 / TR-trend-1\n\nCanonical source\n\nEXCERPT / LOCATOR\nARR exceeded $1.7 billion, up 5% year over year. FY2026 operating-income guidance cut from ¥56.4 billion to ¥44.4 billion due to rising artificial-intelligence and cloud-computing token costs.\nLIMITATIONS / CONFOUNDS\n\nCompany is Tokyo-listed; not an active SEC filer.",
+      "hrefs": [
+        "https://newsroom.trendmicro.com/2026-08-13-Trend-Micro-Reports-Earnings-Results-for-Q2-2026"
+      ]
+    },
+    "Palo Alto Networks | Rev. growth": {
+      "text": "Evidence\nPalo Alto Networks Q4 FY2026 Financial Results\n\nPalo Alto Networks, Inc.\n\nPublication date\n2026-09-01\nEconomic period\nQuarter ended 2026-07-31\nSource class\nFILING\nPacket label\nSEC-MARKET-AUTO-001-STEP5 / TR-panw-1\n\nCanonical source\n\nEXCERPT / LOCATOR\nRevenue of $3.41 billion, up 34% year over year. NGS ARR of $9.10 billion, up 63% year over year. RPO of $21.2 billion, up 34% year over year.\nLIMITATIONS / CONFOUNDS\n\nGrowth includes contributions from CyberArk and Chronosphere acquisitions closed during the fiscal year.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001327567/000132756726000019/ex991q426earningsrelease.htm"
+      ]
+    },
+    "JFrog | Rev. growth": {
+      "text": "Evidence\nJFrog Announces Second Quarter 2026 Results\n\nJFrog Ltd.\n\nPublication date\n2026-08-06\nEconomic period\nQ2 2026 (quarter ended 2026-06-30)\nSource class\nIR\nPacket label\nSEC-MARKET-AUTO-001-STEP5 / TR-jfrog-1\n\nCanonical source\n\nEXCERPT / LOCATOR\nRevenue of $163.8 million, up 29% year-over-year; cloud revenue of $87.5 million, up 53% year-over-year and equal to 53% of total revenue, up from 45% a year earlier.\nLIMITATIONS / CONFOUNDS\n\nCompany investor-relations press release.",
+      "hrefs": [
+        "https://investors.jfrog.com/news/news-details/2026/JFrog-Announces-Second-Quarter-2026-Results/default.aspx"
+      ]
+    },
+    "Varonis Systems | Prior q": {
+      "text": "Evidence\nVaronis Reports Second Quarter 2026 Financial Results\n\nVaronis Systems, Inc.\n\nPublication date\n2026-07-28\nEconomic period\nQ2 2026 (quarter ended 2026-06-30)\nSource class\nFILING\nPacket label\nSEC-MARKET-AUTO-001-STEP5 / TR-varonis-1\n\nCanonical source\n\nEXCERPT / LOCATOR\nRevenue of $180.0 million, up 18.3% year-over-year; Total SaaS ARR of $726.0 million, up 52% year-over-year (25% excluding conversions).\nLIMITATIONS / CONFOUNDS\n\nCompany-reported unaudited quarterly results, filed as an exhibit to an SEC Form 8-K.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001361113/000117184326004948/exh_991.htm"
+      ]
+    },
+    "Varonis Systems | Rev. growth": {
+      "text": "Evidence\nVaronis Reports Second Quarter 2026 Financial Results\n\nVaronis Systems, Inc.\n\nPublication date\n2026-07-28\nEconomic period\nQ2 2026 (quarter ended 2026-06-30)\nSource class\nFILING\nPacket label\nSEC-MARKET-AUTO-001-STEP5 / TR-varonis-1\n\nCanonical source\n\nEXCERPT / LOCATOR\nRevenue of $180.0 million, up 18.3% year-over-year; Total SaaS ARR of $726.0 million, up 52% year-over-year (25% excluding conversions).\nLIMITATIONS / CONFOUNDS\n\nCompany-reported unaudited quarterly results, filed as an exhibit to an SEC Form 8-K.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001361113/000117184326004948/exh_991.htm"
+      ]
+    },
+    "Okta | Rev. growth": {
+      "text": "Evidence\nOkta Q2 FY2027 Earnings Release\n\nOkta, Inc.\n\nPublication date\n2026-08-26\nEconomic period\nQuarter ended July 31, 2026\nSource class\nFILING\nPacket label\nSEC-MARKET-AUTO-001-STEP5 / TR-okta-1\n\nCanonical source\n\nEXCERPT / LOCATOR\nRevenue $805 million, +11% YoY; Subscription Revenue $793 million, +12% YoY.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/1660134/000166013426000069/okta-20260731.htm"
+      ]
+    },
+    "SailPoint | Own metric": {
+      "text": "Evidence\nSailPoint Q2 FY2027 Earnings Release\n\nSailPoint, Inc.\n\nPublication date\n2026-09-10\nEconomic period\nQuarter ended July 31, 2026\nSource class\nFILING\nPacket label\nSEC-MARKET-AUTO-001-STEP5 / TR-sailpoint-1\n\nCanonical source\n\nEXCERPT / LOCATOR\nRevenue $308.8 million, +16.8% YoY; ARR $1,230.7 million, +25.3% YoY; SaaS ARR $846.9 million, +36.0% YoY.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/2030781/000203078126000021/sail-20260731.htm"
+      ]
+    },
+    "Abnormal Security | Own metric": {
+      "text": "Evidence\nAbnormal Security ARR and Growth\n\nAbnormal Security\n\nPublication date\n2024-08-06\nEconomic period\nAugust 2024\nSource class\nIR\nPacket label\nSEC-MARKET-AUTO-001-STEP5 / TR-abnormal-2\n\nCanonical source\n\nEXCERPT / LOCATOR\nOver $200 million ARR with 100%+ YoY growth.\nLIMITATIONS / CONFOUNDS\n\nNo later ARR figure found through September 2026.",
+      "hrefs": [
+        "https://abnormal.ai/newsroom/press-releases/series-d-5b-valuation"
+      ]
+    },
+    "Ping Identity | Own metric": {
+      "text": "Evidence\nPing Identity ARR Milestone Announcement\n\nPing Identity\n\nPublication date\n2024-11-14\nEconomic period\nNovember 2024\nSource class\nIR\nPacket label\nSEC-MARKET-AUTO-001-STEP5 / TR-ping-1\n\nCanonical source\n\nEXCERPT / LOCATOR\nApproaching $800 million ARR with 30%+ SaaS revenue growth.\nLIMITATIONS / CONFOUNDS\n\nNo newer figure found; treat as stale relative to September 2026.",
+      "hrefs": [
+        "https://www.pingidentity.com/en/company/newsroom.html"
+      ]
+    },
+    "Axonius | Own metric": {
+      "text": "Evidence\nAxonius ARR Milestone\n\nAxonius, Inc.\n\nPublication date\n2026-05-19\nEconomic period\nMay 2026\nSource class\nOFFICIAL\nPacket label\nSEC-MARKET-AUTO-001-STEP5 / TR-axonius-1\n\nCanonical source\n\nEXCERPT / LOCATOR\nAxonius reported ARR exceeding $200 million in Q1 of fiscal 2027, with company stating 100% growth in the preceding two years.\nLIMITATIONS / CONFOUNDS\n\nSingle-year growth rate not provided by the company; stated as 100% over two years.",
+      "hrefs": [
+        "https://www.axonius.com/newsroom/press-release/axonius-surpasses-200m-arr-appoints-joe-diamond-ceo"
+      ]
+    },
+    "Check Point | Rev. growth": {
+      "text": "Evidence\nCheck Point Q2 2026 Earnings Release\n\nCheck Point Software Technologies Ltd.\n\nPublication date\n2026-07-30\nEconomic period\nQ2 2026, ended 2026-06-30\nSource class\nIR\nPacket label\nSEC-MARKET-AUTO-001-STEP5 / TR-checkpoint-1\n\nCanonical source\n\nEXCERPT / LOCATOR\nTotal revenue $674 million, +1% YoY; Security Subscriptions revenue $333 million, +12% YoY.\nLIMITATIONS / CONFOUNDS\n\nHarmony SASE growth not disclosed separately.",
+      "hrefs": [
+        "https://www.checkpoint.com/press-releases/check-point-software-reports-2026-second-quarter-financial-results/"
+      ]
+    },
+    "Cloudflare | Rev. growth": {
+      "text": "Evidence\nCloudflare Q2 2026 Earnings Release\n\nCloudflare, Inc.\n\nPublication date\n2026-08-06\nEconomic period\nQ2 2026, ended 2026-06-30\nSource class\nFILING\nPacket label\nSEC-MARKET-AUTO-001-STEP5 / TR-cloudflare-1\n\nCanonical source\n\nEXCERPT / LOCATOR\nRevenue $696.1 million, +36% YoY; Current RPO growth 35% YoY.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/1477333/000147733326000053/q226exhibit991.htm"
+      ]
+    },
+    "Netskope | Rev. growth": {
+      "text": "Evidence\nNetskope Q2 FY2027 Earnings Release\n\nNetskope, Inc.\n\nPublication date\n2026-09-02\nEconomic period\nQ2 FY2027, ended 2026-07-31\nSource class\nFILING\nPacket label\nSEC-MARKET-AUTO-001-STEP5 / TR-netskope-1\n\nCanonical source\n\nEXCERPT / LOCATOR\nRevenue $220.5 million, +29% YoY; ARR $899 million, +27% YoY.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/2063196/000119312526380188/ntsk-ex99_1.htm"
+      ]
+    },
+    "Zscaler | Rev. growth": {
+      "text": "Evidence\nZscaler Q4 FY2026 Earnings Release\n\nZscaler, Inc.\n\nPublication date\n2026-09-03\nEconomic period\nQ4 FY2026, ended 2026-07-31\nSource class\nFILING\nPacket label\nSEC-MARKET-AUTO-001-STEP5 / TR-zscaler-1\n\nCanonical source\n\nEXCERPT / LOCATOR\nRevenue $898.2 million, +25% YoY; ARR $3,771 million, +25% YoY (20% excluding Red Canary acquisition).\nLIMITATIONS / CONFOUNDS\n\nRed Canary acquisition contributed $141M ARR; organic growth rate was 20%.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/1713683/000171368326000156/zs-07312026_991.htm"
+      ]
+    },
+    "SentinelOne | Rev. growth": {
+      "text": "Evidence\nSentinelOne Q2 FY2027 Financial Results\n\nSentinelOne, Inc.\n\nPublication date\n2026-08-27\nEconomic period\nQuarter ended 2026-07-31\nSource class\nFILING\nPacket label\nSEC-MARKET-AUTO-001-STEP5 / TR-s1-1\n\nCanonical source\n\nEXCERPT / LOCATOR\nRevenue of $292 million, up 21% year over year. ARR of $1.218 billion, up 22% year over year. Net new ARR of $56 million, record for a Q2.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001583708/000158370826000052/sentineloneq227exhibit991.htm"
+      ]
+    },
+    "Rubrik | Rev. growth": {
+      "text": "Evidence\nRubrik Announces Second Quarter Fiscal 2027 Financial Results\n\nRubrik, Inc.\n\nPublication date\n2026-08-27\nEconomic period\nQ2 FY2027 (quarter ended 2026-07-31)\nSource class\nFILING\nPacket label\nSEC-MARKET-AUTO-001-STEP5 / TR-rubrik-1\n\nCanonical source\n\nEXCERPT / LOCATOR\nRevenue of $427.3 million, up 38% year-over-year; Subscription ARR of $1.66 billion, up 33% year-over-year.\nLIMITATIONS / CONFOUNDS\n\nCompany-reported unaudited quarterly results, filed as an exhibit to an SEC Form 8-K.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001943896/000194389626000055/rubrikinc-991pressrelease7.htm"
+      ]
+    },
+    "Commvault Systems | Rev. growth": {
+      "text": "Evidence\nCommvault Announces First Quarter Fiscal 2027 Financial Results\n\nCommvault Systems, Inc.\n\nPublication date\n2026-07-28\nEconomic period\nQ1 FY2027 (quarter ended 2026-06-30)\nSource class\nFILING\nPacket label\nSEC-MARKET-AUTO-001-STEP5 / TR-commvault-1\n\nCanonical source\n\nEXCERPT / LOCATOR\nRevenue of $314.1 million, up 11% year-over-year; Subscription ARR of $1,054 million, up 22% year-over-year; additional restructuring charges of $2.4 million recorded in the quarter.\nLIMITATIONS / CONFOUNDS\n\nCompany-reported unaudited quarterly results, filed as an exhibit to an SEC Form 8-K.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/1169561/000116956126000020/q1fy27pressrelease.htm"
+      ]
+    },
+    "Rapid7 | Rev. growth": {
+      "text": "Evidence\nRapid7 Inc. Q2 2026 Financial Results\n\nRapid7, Inc.\n\nPublication date\n2026-08-10\nEconomic period\nQuarter ended 2026-06-30\nSource class\nFILING\nPacket label\nSEC-MARKET-AUTO-001-STEP5 / TR-rapid7-1\n\nCanonical source\n\nEXCERPT / LOCATOR\nRevenue of $210.9 million, down 1.5% year over year. ARR of $824.0 million, down 2.0% year over year. Q3 2026 guidance: revenue $208 million to $210 million (-5% to -4% YoY). FY2026 guidance: revenue $837 million to $841 million (-3% to -2% YoY).",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001560327/000156032726000043/q22026rapid78-kex991.htm"
+      ]
+    },
+    "Tenable | Rev. growth": {
+      "text": "Evidence\nTenable Holdings Q2 2026 Financial Results\n\nTenable Holdings, Inc.\n\nPublication date\n2026-07-29\nEconomic period\nQuarter ended 2026-06-30\nSource class\nFILING\nPacket label\nSEC-MARKET-AUTO-001-STEP5 / TR-tenable-1\n\nCanonical source\n\nEXCERPT / LOCATOR\nRevenue of $268.5 million, up 8.6% year over year. Subscription revenue of $248.3 million. Guidance for Q3 2026: $270.0 million to $273.0 million. FY2026 guidance: $1.075 billion to $1.081 billion.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001660280/000166028026000032/q22026financialresults-ear.htm"
+      ]
+    },
+    "Qualys | Rev. growth": {
+      "text": "Evidence\nQualys Inc. Q2 2026 Financial Results\n\nQualys, Inc.\n\nPublication date\n2026-08-04\nEconomic period\nQuarter ended 2026-06-30\nSource class\nFILING\nPacket label\nSEC-MARKET-AUTO-001-STEP5 / TR-qualys-1\n\nCanonical source\n\nEXCERPT / LOCATOR\nRevenue of $182.2 million, up 11% year over year. GAAP net income of $52.4 million. Q3 2026 guidance: $185.5 million to $187.5 million (+9% to +10%). FY2026 guidance raised to $732.0 million to $738.0 million.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/0001107843/000110784326000034/qlys-20260804xex991.htm"
+      ]
+    },
+    "SailPoint | Rev. growth": {
+      "text": "Evidence\nSailPoint Q2 FY2027 Earnings Release\n\nSailPoint, Inc.\n\nPublication date\n2026-09-10\nEconomic period\nQuarter ended July 31, 2026\nSource class\nFILING\nPacket label\nSEC-MARKET-AUTO-001-STEP5 / TR-sailpoint-1\n\nCanonical source\n\nEXCERPT / LOCATOR\nRevenue $308.8 million, +16.8% YoY; ARR $1,230.7 million, +25.3% YoY; SaaS ARR $846.9 million, +36.0% YoY.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/2030781/000203078126000021/sail-20260731.htm"
+      ]
+    },
+    "SailPoint | Prior q": {
+      "text": "Evidence\nSailPoint Q1 FY2027 Earnings Release\n\nSailPoint, Inc.\n\nPublication date\n2026-06-12\nEconomic period\nQuarter ended April 30, 2026\nSource class\nFILING\nPacket label\nSEC-MARKET-AUTO-001-STEP5 / TR-sailpoint-2\n\nCanonical source\n\nEXCERPT / LOCATOR\nRevenue $280.142 million, +21.5% YoY; ARR $1,162.7 million, +25.8% YoY.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/2030781/000203078126000011/sail-20260430.htm"
+      ]
+    },
+    "Torq | Events, 12 mo.": {
+      "text": "Evidence\nTorq Acquires Jit to Unleash the First Enterprise AI SOC Context Graph\n\nTorq\n\nPublication date\n2026-05-19\nEconomic period\nMay 2026\nSource class\nOFFICIAL\nPacket label\nSEC-MARKET-AUTO-001-COLLECT / TR-torq-2\n\nCanonical source\n\nEXCERPT / LOCATOR\n\"Torq, the established agentic security operations leader, today announced the acquisition of Jit, the Boston-based AI Context Graph cybersecurity pioneer.\"\nLIMITATIONS / CONFOUNDS\n\nThe page shows a display date of May 18, 2026 and a dateline of May 19, 2026; the dateline date is used. The release states no price or closing date.",
+      "hrefs": [
+        "https://torq.io/news/torq-acquires-jit/"
+      ]
+    },
+    "Cyera | Events, 12 mo.": {
+      "text": "Evidence\nCyera Announces $400 Million Investment from Goldman Sachs to Build the Trust Layer for the Agentic Enterprise\n\nCyera\n\nPublication date\n2026-09-22\nEconomic period\nN/A (funding announcement)\nSource class\nOFFICIAL\nPacket label\nSEC-MARKET-AUTO-001-STEP5 / TR-cyera-1\n\nCanonical source\n\nEXCERPT / LOCATOR\nCyera announced a $400 million growth-equity investment from Growth Equity at Goldman Sachs Alternatives at a valuation of 'over $12 billion.'\nLIMITATIONS / CONFOUNDS\n\nCompany press release.",
+      "hrefs": [
+        "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise"
+      ]
+    },
+    "Delinea | Events, 12 mo.": {
+      "text": "Evidence\nDelinea Appoints Timothy Regan as Chief Financial Officer\n\nDelinea\n\nPublication date\n2026-09-23\nEconomic period\nSeptember 2026\nSource class\nIR\nPacket label\nSEC-MARKET-AUTO-001-FITFIX2 / TR-delinea-3\n\nCanonical source\n\nEXCERPT / LOCATOR\nTimothy Regan appointed Chief Financial Officer of Delinea. He previously served as CFO at Dropbox from 2020 to 2025.\nLIMITATIONS / CONFOUNDS\n\nWhether this followed a predecessor departure was not confirmed.",
+      "hrefs": [
+        "https://www.globenewswire.com/news-release/2026/09/23/3367539/0/en/delinea-appoints-timothy-regan-as-chief-financial-officer.html"
+      ]
+    },
+    "Veeam | Events, 12 mo.": {
+      "text": "Evidence\nVeeam Acquires Securiti AI\n\nVeeam Software\n\nPublication date\n2025-12-11\nEconomic period\nN/A (acquisition announcement)\nSource class\nOFFICIAL\nPacket label\nSEC-MARKET-AUTO-001-STEP5 / TR-veeam-2\n\nCanonical source\n\nEXCERPT / LOCATOR\nVeeam completed its acquisition of Securiti AI, a data security posture management and AI-governance company, for $1.725 billion; Securiti founder and CEO Rehan Jalil joined Veeam as President of Security and AI, with approximately 600 Securiti employees integrated.\nLIMITATIONS / CONFOUNDS\n\nCompany press release.",
+      "hrefs": [
+        "https://www.veeam.com/news/veeam-acquires-securiti-ai.html"
+      ]
+    },
+    "Optiv Security | Events, 12 mo.": {
+      "text": "Evidence\nOptiv Sells ACT Business to Vobis Ventures\n\nOptiv Security Inc.\n\nPublication date\n2026-06-02\nEconomic period\nJune 2026\nSource class\nOFFICIAL\nPacket label\nSEC-MARKET-AUTO-001-STEP5 / TR-optiv-4\n\nCanonical source\n\nEXCERPT / LOCATOR\nOptiv announced the sale of its advisory, consulting and transformation (ACT) project-based services business to Vobis Ventures. The deal officially closed June 1, 2026. Optiv's managed services and staff augmentation will remain in-house.",
+      "hrefs": [
+        "https://www.optiv.com/company/press-releases/optiv-sells-advisory-consulting-and-transformation-act-business-vobis"
+      ]
+    },
+    "Sophos | Events, 12 mo.": {
+      "text": "Evidence\nMoody's Rating Action - Sophos Group\n\nMoody's Investors Service\n\nPublication date\n2026-03-01\nEconomic period\nMarch 2026\nSource class\nINDEPENDENT\nPacket label\nSEC-MARKET-AUTO-001-STEP5 / TR-sophos-3\n\nCanonical source\n\nEXCERPT / LOCATOR\nMoody's downgraded Sophos to B3 from B2, with outlook revised to stable.\nLIMITATIONS / CONFOUNDS\n\nAgency rating actions republished through third-party aggregator; original agency pages not directly verified this session.",
+      "hrefs": [
+        "https://app.researchpool.com/index.php/provider/moodys-investors-service"
+      ]
+    },
+    "Upwind | Events, 12 mo.": {
+      "text": "Evidence\nBuilding the Future: Introducing the Upwind AI Security Lab\n\nUpwind Security\n\nPublication date\n2026-09-23\nEconomic period\nSeptember 2026\nSource class\nOFFICIAL\nPacket label\nSEC-MARKET-AUTO-001-COLLECT / TR-upwind-2\n\nCanonical source\n\nEXCERPT / LOCATOR\n\"Upwind is acquiring Aegis, and we are launching the Upwind AI Lab.\"\nLIMITATIONS / CONFOUNDS\n\nCompany blog post; publication date taken from the page's datePublished metadata (2026-09-23). The post states no price or closing date.",
+      "hrefs": [
+        "https://www.upwind.io/feed/building-the-future-introducing-the-upwind-ai-security-lab"
+      ]
+    },
+    "Zscaler | Events, 12 mo.": {
+      "text": "Evidence\nZscaler Executive Leadership Changes\n\nZscaler, Inc.\n\nPublication date\n2026-09-24\nEconomic period\nQuarter ended July 31, 2026\nSource class\nFILING\nPacket label\nSEC-MARKET-AUTO-001-STEP5 / TR-zscaler-4\n\nCanonical source\n\nEXCERPT / LOCATOR\nCRO Mike Rich stepping down effective October 1, 2026, succeeded by Ross Tackett. EVP Raj Judge resigned board seat effective April 16, 2026, with employment ending July 31, 2026.\nLIMITATIONS / CONFOUNDS\n\nChanges do not affect CEO or CFO positions.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/1713683/000171368326000193/zs-20260924.htm"
+      ]
+    },
+    "Arctic Wolf Networks | Events, 12 mo.": {
+      "text": "Evidence\nArctic Wolf Acquires Exposure Assessment Platform Visionary Sevco Security\n\nArctic Wolf Networks, Inc.\n\nPublication date\n2026-02-23\nEconomic period\nFebruary 2026\nSource class\nIR\nPacket label\nSEC-MARKET-AUTO-001-STEP5 / TR-arctic-wolf-1\n\nCanonical source\n\nEXCERPT / LOCATOR\nArctic Wolf today announced it has acquired Sevco Security, an innovator in exposure assessment platforms. Sevco's cloud-native technology will operate on the Arctic Wolf Aurora Platform.\nLIMITATIONS / CONFOUNDS\n\nThe press release does not state a price or closing date.",
+      "hrefs": [
+        "https://arcticwolf.com/resources/press-releases/arctic-wolf-acquires-exposure-assessment-platform-visionary-sevco-security/"
+      ]
+    },
+    "Sophos | Ownership or last round": {
+      "text": "Evidence\nSophos Group - Thoma Bravo Ownership\n\nSophos Group (Sophos Ltd)\n\nPublication date\n2020-03-01\nEconomic period\nMarch 2020\nSource class\nOFFICIAL\nPacket label\nSEC-MARKET-AUTO-001-STEP5 / TR-sophos-1\n\nCanonical source\n\nEXCERPT / LOCATOR\nThoma Bravo acquired Sophos Group through a take-private transaction, completed in March 2020.",
+      "hrefs": [
+        "https://www.thomabravo.com/press-releases/sophos"
+      ]
+    },
+    "Dragos | Ownership or last round": {
+      "text": "Evidence\nAccenture to acquire Dragos, runZero, NetRise\n\nHelp Net Security\n\nPublication date\n2026-06-19\nEconomic period\nN/A (acquisition announcement)\nSource class\nINDEPENDENT\nPacket label\nSEC-MARKET-AUTO-001-STEP5 / TR-dragos-1\n\nCanonical source\n\nEXCERPT / LOCATOR\nAccenture agreed to acquire a majority stake in Dragos and all of runZero and NetRise; combined enterprise value reported at approximately $4.1-4.2 billion. The underlying research separately confirms the existence of this agreement in Accenture's own Q3 FY2026 earnings 8-K exhibit (accession 0001467373-26-000031), which states: 'Our agreement to acquire a majority stake in Dragos and all of runZero and NetRise...' — that filing does not disclose the dollar price.\nLIMITATIONS / CONFOUNDS\n\nTrade press report; the deal's existence and June 18, 2026 announcement date are independently corroborated in Accenture's own SEC 8-K exhibit per the underlying research, though a direct filing URL was not captured for citation here. Price and closing-date specifics remain trade-press-sourced only.\n\nAccenture to Strengthen Critical Infrastructure Defense with End-to-End Cybersecurity Platform (release with closing note)\n\nAccenture plc\n\nPublication date\n2026-09-16\nEconomic period\nJune 2026 announcement; closing note September 2026\nSource class\nOFFICIAL\nPacket label\nSEC-MARKET-AUTO-001-STEP5 / TR-dragos-2\n\nCanonical source\n\nEXCERPT / LOCATOR\nNOTE: The acquisition of NetRise closed on July 31, 2026, the majority investment in Dragos ",
+      "hrefs": [
+        "https://www.helpnetsecurity.com/2026/06/19/accenture-dragos-runzero-netrise-acquisition/",
+        "https://newsroom.accenture.com/news/2026/accenture-to-strengthen-critical-infrastructure-defense-with-end-to-end-cybersecurity-platform-in-age-of-ai-driven-cyber-threats-and-geopolitical-risk"
+      ]
+    },
+    "Wiz | Ownership or last round": {
+      "text": "Evidence\nWiz Acquisition by Google/Alphabet Closing\n\nAlphabet Inc.\n\nPublication date\n2026-04-30\nEconomic period\nQ1 2026\nSource class\nFILING\nPacket label\nSEC-MARKET-AUTO-001-STEP5 / TR-wiz-1\n\nCanonical source\n\nEXCERPT / LOCATOR\nWiz acquisition closed March 11, 2026 for $29.5 billion after purchase price adjustments.",
+      "hrefs": [
+        "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000048/goog-20260331.htm"
+      ]
+    },
+    "Zenity | Own metric": {
+      "text": "Evidence\nZenity Raises $125 Million to Secure the Era of 1 Billion AI Agents\n\nZenity\n\nPublication date\n2026-08-03\nEconomic period\nN/A (funding announcement)\nSource class\nOFFICIAL\nPacket label\nSEC-MARKET-AUTO-001-STEP5 / TR-zenity-1\n\nCanonical source\n\nEXCERPT / LOCATOR\nZenity raised a $125 million Series C round led by Norwest, with Qumra Capital, SoftBank Vision Fund 2, Hitachi Ventures, LG Technology Ventures, Vertex Ventures, Third Point Ventures, DTCP, and Intel Capital participating. The release states Zenity 'has tripled revenue in each of the past two years and is on track to triple revenue again this year' (unaudited).\nLIMITATIONS / CONFOUNDS\n\nCompany press release.",
+      "hrefs": [
+        "https://zenity.io/company-overview/newsroom/company-news/zenity-raises-125-million-to-secure-the-era-of-1-billion-ai-agents"
+      ]
+    },
+    "Cato Networks | Ownership or last round": {
+      "text": "Evidence\nCato Networks Series G Funding Announcement\n\nCato Networks\n\nPublication date\n2025-06-30\nEconomic period\nJune 2025\nSource class\nIR\nPacket label\nSEC-MARKET-AUTO-001-STEP5 / TR-cato-1\n\nCanonical source\n\nEXCERPT / LOCATOR\nSeries G: $359 million initial close led by Vitruvian Partners and ION Crossover Partners, with ~$50 million extension, at valuation over $4.8 billion.",
+      "hrefs": [
+        "https://www.prnewswire.com/news-releases/cato-networks-raises-359-million-at-a-valuation-of-more-than-4-8-billion-302494283.html"
+      ]
+    }
+  }
+}

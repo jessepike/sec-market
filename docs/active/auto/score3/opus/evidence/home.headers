@@ -1,0 +1,19 @@
+HTTP/2 200 
+access-control-allow-origin: *
+age: 21
+cache-control: public, max-age=0, must-revalidate
+content-disposition: inline
+content-type: text/html; charset=utf-8
+date: Sat, 26 Sep 2026 18:12:55 GMT
+etag: W/"063837400f3b5bdb991b8fa5516d878e"
+last-modified: Sat, 26 Sep 2026 18:12:33 GMT
+permissions-policy: geolocation=(), microphone=(), camera=()
+referrer-policy: strict-origin-when-cross-origin
+server: Vercel
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+x-content-type-options: nosniff
+x-frame-options: SAMEORIGIN
+x-robots-tag: noindex
+x-vercel-cache: HIT
+x-vercel-id: sfo1:sfo1:sfo1::ggmtv-1790446375634-f28e1097533f
+
