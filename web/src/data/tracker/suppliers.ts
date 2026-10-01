@@ -52,6 +52,15 @@ export interface Ownership {
   announced?: string
   closed?: string
   price?: string
+  /**
+   * Overrides the kind-derived compact label ("Acquired by X", "PE-owned ·
+   * X") with the primary source's own wording, for a relationship the
+   * generic template would misstate — e.g. a majority investment that is
+   * not a full acquisition (Dragos/Accenture, AUTO-001 fix pass 4, item 3).
+   * Plain text, no judgment words; `formatOwnershipCompact` (derive.ts)
+   * appends the date the same way it would for the generic template.
+   */
+  relationship?: string
   evidenceIds: string[]
 }
 
@@ -110,7 +119,13 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "domainIds": [
       "cloud"
     ],
-    "kind": "private"
+    "kind": "private",
+    "ownership": {
+      "status": "Independent, venture-backed. Investors named on its own site include Shlomo Kramer, TLV Partners, Lightspeed Venture Partners, Insight Partners, StepStone Group, and ION Crossover Partners.",
+      "evidenceIds": [
+        "TR-aqua-3"
+      ]
+    }
   },
   {
     "id": "arctic-wolf",
@@ -340,6 +355,7 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "kind": "public",
     "ticker": "NET",
     "cik": "0001477333",
+    "edgarId": "cloudflare",
     "headlineMetric": {
       "label": "Revenue",
       "value": "$696.1 million",
@@ -393,6 +409,7 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "kind": "public",
     "ticker": "CVLT",
     "cik": "0001169561",
+    "edgarId": "commvault",
     "headlineMetric": {
       "label": "Subscription ARR",
       "value": "$1,054 million",
@@ -488,7 +505,7 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "ticker": "CRWD",
     "cik": "0001535527",
     "ownership": {
-      "status": "Product line within CrowdStrike Holdings, Inc. No separate revenue disclosed.",
+      "status": "Segment of CrowdStrike Holdings, Inc. (publicly traded, Nasdaq: CRWD). No separate revenue disclosed.",
       "evidenceIds": [
         "TR-crwd-1"
       ]
@@ -538,7 +555,16 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "domainIds": [
       "identity"
     ],
-    "kind": "pe-owned"
+    "kind": "pe-owned",
+    "ownership": {
+      "status": "Privately held. Completed acquisition of StrongDM, the universal access management company, announced January 15, 2026 and closed March 5, 2026.",
+      "announced": "2026-01-15",
+      "closed": "2026-03-05",
+      "evidenceIds": [
+        "TR-delinea-4",
+        "TR-delinea-5"
+      ]
+    }
   },
   {
     "id": "dragos",
@@ -552,6 +578,7 @@ export const trackerSuppliers: TrackerSupplier[] = [
       "acquirer": "Accenture plc (NYSE: ACN)",
       "announced": "2026-06-18",
       "closed": "2026-09-16",
+      "relationship": "Majority investment by Accenture plc",
       "evidenceIds": [
         "TR-dragos-1",
         "TR-dragos-2"
@@ -663,7 +690,13 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "domainIds": [
       "appsec"
     ],
-    "kind": "segment"
+    "kind": "segment",
+    "ownership": {
+      "status": "Segment of Microsoft Corporation (publicly traded, Nasdaq: MSFT). GitHub, Inc. is a wholly owned Microsoft subsidiary. No separate revenue disclosed.",
+      "evidenceIds": [
+        "TR-ghas-1"
+      ]
+    }
   },
   {
     "id": "google-secops",
@@ -729,6 +762,7 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "kind": "public",
     "ticker": "FROG",
     "cik": "0001800667",
+    "edgarId": "jfrog",
     "headlineMetric": {
       "label": "Cloud revenue",
       "value": "$87.5 million",
@@ -854,6 +888,7 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "kind": "public",
     "ticker": "NTSK",
     "cik": "0002063196",
+    "edgarId": "netskope",
     "headlineMetric": {
       "label": "ARR",
       "value": "$899 million",
@@ -1044,7 +1079,7 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "ticker": "PANW",
     "cik": "0001327567",
     "ownership": {
-      "status": "Product line within Palo Alto Networks, Inc. (publicly traded, Nasdaq: PANW). No separate revenue disclosed.",
+      "status": "Segment of Palo Alto Networks, Inc. (publicly traded, Nasdaq: PANW). No separate revenue disclosed.",
       "evidenceIds": [
         "TR-panw-xsiam-1"
       ]
@@ -1370,14 +1405,20 @@ export const trackerSuppliers: TrackerSupplier[] = [
     ],
     "kind": "private",
     "lastRound": {
-      "date": "2021-09-30",
-      "stage": "Series F (plus extension)",
-      "amount": "$605 million (initial close $530M plus extension $75M)",
-      "lead": "not disclosed in available sourcing",
-      "valuation": "$8.6 billion",
+      "date": "2022-12-13",
+      "stage": "Series G",
+      "amount": "$196.5 million",
+      "lead": "Qatar Investment Authority",
+      "valuation": "$7.4 billion",
       "evidenceIds": [
-        "TR-snyk-1",
-        "TR-snyk-2"
+        "TR-snyk-3"
+      ]
+    },
+    "ownership": {
+      "status": "Independent, venture-backed. Series G closed December 13, 2022 at $7.4B valuation. ServiceNow made a strategic investment announced January 24, 2023; no funding round after that date was found in Snyk's newsroom.",
+      "evidenceIds": [
+        "TR-snyk-3",
+        "TR-snyk-4"
       ]
     }
   },
@@ -1655,10 +1696,11 @@ export const trackerSuppliers: TrackerSupplier[] = [
     ],
     "kind": "pe-owned",
     "ownership": {
-      "status": "PE-owned; Insight Partners holds a majority stake, in a deal reported closed on or about January 9, 2020 for approximately $5 billion.",
+      "status": "PE-owned; Insight Partners remains the largest shareholder after a $2 billion secondary equity offering led by TPG, with Temasek and Neuberger Berman Capital Solutions participating, valuing Veeam at $15 billion, announced December 4, 2024.",
       "acquirer": "Insight Partners",
+      "announced": "2024-12-04",
       "evidenceIds": [
-        "TR-veeam-1"
+        "TR-veeam-4"
       ]
     }
   },

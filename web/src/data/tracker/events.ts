@@ -77,6 +77,17 @@ export const trackerEvents: TrackerEvent[] = [
     "rung": 2
   },
   {
+    "id": "EV-cato-2",
+    "supplierId": "cato",
+    "date": "2026-07-27",
+    "type": "results",
+    "text": "ARR surpassed $415 million, with 42% year-over-year growth.",
+    "evidenceIds": [
+      "TR-cato-3"
+    ],
+    "rung": 2
+  },
+  {
     "id": "EV-checkpoint-1",
     "supplierId": "checkpoint-sase",
     "date": "2026-05-01",
@@ -267,9 +278,9 @@ export const trackerEvents: TrackerEvent[] = [
   {
     "id": "EV-ghas-1",
     "supplierId": "github-advanced-security",
-    "date": "2025-12-31",
+    "date": "2025-08-11",
     "type": "exec-change",
-    "text": "GitHub CEO Thomas Dohmke, who announced in August 2025 that he would step down to become a founder again, completed his transition out of the role by the end of 2025, with no successor CEO named.",
+    "text": "GitHub CEO Thomas Dohmke announced he was stepping down to become a founder again; no successor CEO was named, and GitHub's leadership folded further into Microsoft's CoreAI organization.",
     "evidenceIds": [
       "TR-ghas-1"
     ],
@@ -406,6 +417,17 @@ export const trackerEvents: TrackerEvent[] = [
       "TR-panw-1"
     ],
     "rung": 1
+  },
+  {
+    "id": "EV-ping-identity-1",
+    "supplierId": "ping-identity",
+    "date": "2026-01-07",
+    "type": "acquisition",
+    "text": "With the acquisition of Keyless now complete, Ping adds Zero-Knowledge Biometrics to its portfolio. Financial terms of the transaction were not disclosed.",
+    "evidenceIds": [
+      "TR-ping-3"
+    ],
+    "rung": 4
   },
   {
     "id": "EV-qualys-1",

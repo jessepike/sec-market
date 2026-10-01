@@ -2233,6 +2233,25 @@ export const evidenceRecords: EvidenceRecord[] = [
   "retrievedAt": "2026-09-25"
 },
 {
+  "id": "TR-aqua-3",
+  "title": "About Us — Aqua Security",
+  "organization": "Aqua Security",
+  "publicationDate": "2026-09-30",
+  "economicPeriod": "N/A (company background)",
+  "canonicalUrl": "https://www.aquasec.com/about-us/",
+  "excerpt": "Founded in 2015, Aqua is headquartered in Boston and Ramat Gan, Israel, and protects more than 500 of the world's largest enterprises. Investors include Shlomo Kramer (co-founder of Check Point and Imperva), TLV Partners, Lightspeed Venture Partners, Insight Partners, StepStone Group, and ION Crossover Partners.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "The page names investors but does not disclose a funding round amount, date, or valuation, so no lastRound field is written — only the independent/venture-backed ownership status.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-aqua-3",
+  "tags": [
+    "tracker",
+    "cloud"
+  ],
+  "retrievedAt": "2026-09-30"
+},
+{
   "id": "TR-armis-1",
   "title": "ServiceNow Announces First Quarter Fiscal 2026 Financial Results",
   "organization": "ServiceNow, Inc.",
@@ -2367,22 +2386,22 @@ export const evidenceRecords: EvidenceRecord[] = [
 },
 {
   "id": "TR-cato-3",
-  "title": "Cato Networks ARR Milestone Update",
+  "title": "Cato Networks Exceeds $415M in ARR Fueled by 42% YoY Growth and Enterprise Demand",
   "organization": "Cato Networks",
-  "publicationDate": "2026-08-20",
-  "economicPeriod": "ARR milestone referenced in company blog, August 2026 (originally announced 2026-07-27)",
-  "canonicalUrl": "https://www.catonetworks.com/blog/three-years-as-a-leader-built-for-where-the-market-is-going/",
-  "excerpt": "We recently surpassed $415 million in annual recurring revenue, growing 42% year over year, and now serve more than 4,800 customers worldwide.",
+  "publicationDate": "2026-07-27",
+  "economicPeriod": "ARR milestone as of July 27, 2026",
+  "canonicalUrl": "https://www.prnewswire.com/il/news-releases/cato-networks-exceeds-415m-in-arr-fueled-by-42-yoy-growth-and-enterprise-demand-302833667.html",
+  "excerpt": "Cato Networks...announced that it has surpassed $415 million in ARR, with 42% year-over-year (YoY) growth.",
   "sourceClass": "IR",
   "interpretation": "",
-  "limitations": "Company-stated, not an audited filing. The originating 2026-07-27 press release (catonetworks.com/news/) returned a bot challenge on every fetch attempt this session; this record instead cites the same figure as restated in Cato's own blog, retrieved via its public RSS feed. No exact \"as of\" date is stated beyond \"recently.\" Supersedes TR-cato-2's $350M/2025 figure with this more recent company-stated figure.",
+  "limitations": "Company-stated, not an audited filing. AUTO-001 fix pass 4, item 1: this record previously cited a later company blog restating the same figure because the originating PR Newswire release could not be fetched that session; it is now cited directly, carrying its own July 27, 2026 publication date instead of the blog's August 2026 repost date. Supersedes TR-cato-2's $350M/2025 figure with this more recent company-stated figure.",
   "conflictingEvidenceIds": [],
   "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-cato-3",
   "tags": [
     "tracker",
     "network-sase"
   ],
-  "retrievedAt": "2026-09-26"
+  "retrievedAt": "2026-09-30"
 },
 {
   "id": "TR-chainguard-1",
@@ -3536,6 +3555,25 @@ export const evidenceRecords: EvidenceRecord[] = [
   "retrievedAt": "2026-09-25"
 },
 {
+  "id": "TR-ping-3",
+  "title": "Ping Identity Marks Digital Trust Milestone with Zero-Knowledge Biometrics in the Age of AI",
+  "organization": "Ping Identity",
+  "publicationDate": "2026-01-07",
+  "economicPeriod": "N/A (acquisition completion announcement)",
+  "canonicalUrl": "https://www.prnewswire.com/news-releases/ping-identity-marks-digital-trust-milestone-with-zero-knowledge-biometrics-in-the-age-of-ai-302654492.html",
+  "excerpt": "With the acquisition of Keyless now complete, Ping adds Zero-Knowledge Biometrics to its portfolio. Financial terms of the transaction were not disclosed.",
+  "sourceClass": "IR",
+  "interpretation": "",
+  "limitations": "AUTO-001 fix pass 4, item 3: the tracker previously showed 0 events in the trailing 12 months for Ping Identity; both blind scorers (score3/opus, score3/sol) found this acquisition completion missing.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-ping-3",
+  "tags": [
+    "tracker",
+    "identity"
+  ],
+  "retrievedAt": "2026-09-30"
+},
+{
   "id": "TR-proofpoint-1",
   "title": "Proofpoint Thoma Bravo Take-Private Completion",
   "organization": "Proofpoint, Inc.",
@@ -3916,6 +3954,44 @@ export const evidenceRecords: EvidenceRecord[] = [
   "retrievedAt": "2026-09-26"
 },
 {
+  "id": "TR-snyk-3",
+  "title": "Snyk Closes $196.5 Million Series G Funding at $7.4 Billion Valuation",
+  "organization": "Snyk Ltd.",
+  "publicationDate": "2022-12-13",
+  "economicPeriod": "N/A (funding announcement)",
+  "canonicalUrl": "https://snyk.io/news/snyk-closes-196-5-million-series-g-funding-at-7-4-billion-valuation/",
+  "excerpt": "Snyk today announced it has closed $196.5 million in Series G funding at a $7.4 billion valuation, led by Qatar Investment Authority (QIA), with participation from Evolution Equity Partners, G Squared, Irving Investors, boldstart ventures, Sands Capital, and Tiger Global.",
+  "sourceClass": "IR",
+  "interpretation": "",
+  "limitations": "AUTO-001 fix pass 4, item 1: supersedes TR-snyk-1/TR-snyk-2's 2021 Series F figures — this Series G round is Snyk's actual most recent priced round. Two blind scorers (score3/opus, score3/sol) caught the tracker still showing the 2021 Series F as Snyk's last round while Snyk's own newsroom lists this later round.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-snyk-3",
+  "tags": [
+    "tracker",
+    "appsec"
+  ],
+  "retrievedAt": "2026-09-30"
+},
+{
+  "id": "TR-snyk-4",
+  "title": "Snyk Secures Strategic Investment from ServiceNow to Accelerate Enterprise DevSecOps Transformation",
+  "organization": "Snyk Ltd.",
+  "publicationDate": "2023-01-24",
+  "economicPeriod": "N/A (strategic investment announcement)",
+  "canonicalUrl": "https://snyk.io/news/snyk-secures-strategic-investment-from-servicenow-to-accelerate-enterprise-devsecops-transformation/",
+  "excerpt": "This latest development comes on the heels of Snyk's announcement of $196.5 million in Series G investment in late 2022.",
+  "sourceClass": "IR",
+  "interpretation": "",
+  "limitations": "ServiceNow's investment amount was not disclosed in this release. Checked against Snyk's own newsroom archive (pages 1-3 of snyk.io/news/); no funding round or strategic investment after this date was found there as of 2026-09-30.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-snyk-4",
+  "tags": [
+    "tracker",
+    "appsec"
+  ],
+  "retrievedAt": "2026-09-30"
+},
+{
   "id": "TR-sonatype-1",
   "title": "Vista Acquires Majority Interest in Sonatype",
   "organization": "Sonatype Inc.",
@@ -4294,6 +4370,25 @@ export const evidenceRecords: EvidenceRecord[] = [
     "data"
   ],
   "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-veeam-4",
+  "title": "Veeam, the World's #1 Leader in Data Resilience, Welcomes New Investors with a $15 Billion Valuation",
+  "organization": "Veeam Software",
+  "publicationDate": "2024-12-04",
+  "economicPeriod": "N/A (secondary equity offering announcement)",
+  "canonicalUrl": "https://www.veeam.com/company/press-release/veeam-the-worlds-1-leader-in-data-resilience-welcomes-new-investors-with-a-dollar15-billion-valuation.html",
+  "excerpt": "Insight Partners owned Veeam expands investor base in a $2 billion secondary equity offering led by TPG with participation from Temasek, Neuberger Berman Capital Solutions, and others...Insight Partners remains the largest shareholder.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "AUTO-001 fix pass 4, item 1: supersedes TR-veeam-1 (a Wikipedia secondary source for a reported 2020 deal) with Veeam's own primary release.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-veeam-4",
+  "tags": [
+    "tracker",
+    "data"
+  ],
+  "retrievedAt": "2026-09-30"
 },
 {
   "id": "TR-veracode-1",

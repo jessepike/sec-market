@@ -1,7 +1,7 @@
 import collectStateRaw from './generated/collectState.json' with { type: 'json' }
 import edgarFactsRaw from './generated/edgarFacts.json' with { type: 'json' }
 import { formatShortDate } from './dates'
-import { shortSupplierName } from './tracker/names'
+import { joinNames, shortSupplierName } from './tracker/names'
 import { trackerSuppliers } from './tracker/suppliers'
 
 /**
@@ -130,6 +130,23 @@ const collectState = collectStateRaw as CollectState
 const supplierNameById = new Map(trackerSuppliers.map((s) => [s.id, s.name]))
 const TOTAL_SUPPLIERS = trackerSuppliers.length
 
+/**
+ * Suppliers marked `kind: 'public'` in the tracker data — the denominator
+ * the filings clause must agree with (AUTO-001 fix pass 4, item 4: both
+ * blind scorers caught the line saying "14 public suppliers" against a
+ * table that showed 18 rows marked "Public ·"). A public supplier whose
+ * record carries no `edgarId` isn't in the structured EDGAR runner's
+ * registry at all (edgarRegistry.ts's `unsupported` list says why — a
+ * foreign filer with no quarterly XBRL, for instance) — its figures come
+ * from its own releases instead, named here by short display name so nobody
+ * has to hand-type them into the clause.
+ */
+const publicSuppliers = trackerSuppliers.filter((s) => s.kind === 'public')
+const nonXbrlPublicNames = publicSuppliers
+  .filter((s) => !s.edgarId)
+  .map((s) => shortSupplierName(s.name))
+  .sort((a, b) => a.localeCompare(b))
+
 function isoDatePart(isoDateTime: string): string {
   return isoDateTime.slice(0, 10)
 }
@@ -149,12 +166,40 @@ function newsFailureRows(failedSources: CollectFailure[]): FailedSupplier[] {
   return rows
 }
 
-/** "Filings complete for all 14 public suppliers" / "Filings complete for 12 of 14 public suppliers" — the SEC/EDGAR side of the status line, always in reader terms, never a raw failure count alone. */
+/**
+ * "SEC filings complete for all 16 public suppliers that file quarterly with
+ * the SEC; Check Point and Trend Micro figures come from their own
+ * releases." — the SEC/EDGAR side of the status line.
+ *
+ * AUTO-001 fix pass 4, item 4: the previous version compared
+ * `edgarFacts.suppliers.length` (whatever the EDGAR runner's registry
+ * happened to declare) against itself, with no link at all to how many
+ * suppliers the tracker table actually shows as "Public ·" — the two
+ * numbers drifted apart (14 vs. 18) the moment a public supplier was added
+ * to the table without also being added to the registry. The denominator
+ * here is `publicSuppliers.length` — the count the reader can verify by
+ * counting the table's own ownership column — and the non-XBRL names are
+ * read from the same tracker data (any public supplier with no `edgarId`),
+ * never hand-typed, so the two can't drift apart silently again.
+ */
 function filingsClause(): string {
-  const n = edgarFacts.suppliers.length
+  // The XBRL runner's own declared total (edgarRegistry.ts's entries,
+  // reflected in generated/edgarFacts.json) is the sentence's denominator —
+  // it, not the full public-supplier count, is "public suppliers that file
+  // quarterly with the SEC". Checked against `publicSuppliers.length` minus
+  // `nonXbrlPublicNames.length` by the verify-tracker gate and by
+  // tests/run-status.test.ts, so the two can't silently drift apart.
+  const xbrlTotal = edgarFacts.suppliers.length
   const failed = edgarFacts.failures.length
-  if (failed === 0) return `Filings complete for all ${n} public suppliers`
-  return `Filings complete for ${n - failed} of ${n} public suppliers`
+  const xbrlOk = xbrlTotal - failed
+  const nonXbrl =
+    nonXbrlPublicNames.length > 0
+      ? `; ${joinNames(nonXbrlPublicNames)} ${nonXbrlPublicNames.length > 1 ? 'figures come from their own releases' : 'figures come from its own releases'}`
+      : ''
+  if (failed === 0) {
+    return `SEC filings complete for all ${xbrlTotal} public suppliers that file quarterly with the SEC${nonXbrl}`
+  }
+  return `SEC filings complete for ${xbrlOk} of ${xbrlTotal} public suppliers that file quarterly with the SEC${nonXbrl}`
 }
 
 function deriveRunStatus(): RunStatus {

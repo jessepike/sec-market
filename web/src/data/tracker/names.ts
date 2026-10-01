@@ -29,3 +29,17 @@ export function shortSupplierName(name: string): string {
   } while (short !== previous && short.length > 0)
   return short || name
 }
+
+/**
+ * Plain-English join of a name list: "A", "A and B", "A, B and C" — no
+ * Oxford comma, matching this site's prose style elsewhere. Used by
+ * `runStatus.ts`'s `filingsClause()` so a derived list of names (e.g. public
+ * suppliers whose filings don't come from SEC XBRL) reads like a sentence
+ * rather than a bare array.
+ */
+export function joinNames(names: string[]): string {
+  if (names.length === 0) return ''
+  if (names.length === 1) return names[0]
+  if (names.length === 2) return `${names[0]} and ${names[1]}`
+  return `${names.slice(0, -1).join(', ')} and ${names[names.length - 1]}`
+}

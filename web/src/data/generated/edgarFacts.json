@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-26T18:08:40.468Z",
+  "generatedAt": "2026-10-01T23:50:54.724Z",
   "suppliers": [
     {
       "id": "crwd",
@@ -2274,6 +2274,333 @@
         "2016-12-31: annual fact present but could not find all three preceding quarters to derive Q4 (fy 2018).",
         "2017-12-31: annual fact present but could not find all three preceding quarters to derive Q4 (fy 2019)."
       ]
+    },
+    {
+      "id": "commvault",
+      "name": "Commvault Systems",
+      "cik": "0001169561",
+      "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+      "quarters": [
+        {
+          "periodStart": "2026-04-01",
+          "periodEnd": "2026-06-30",
+          "value": 314131000,
+          "form": "10-Q",
+          "accessionNumber": "0001169561-26-000024",
+          "filedDate": "2026-07-29",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1169561/000116956126000024/0001169561-26-000024-index.htm",
+          "derived": false,
+          "fiscalYear": 2027,
+          "fiscalQuarter": "Q1"
+        },
+        {
+          "periodStart": "2026-01-01",
+          "periodEnd": "2026-03-31",
+          "value": 311692000,
+          "form": "10-K (derived)",
+          "accessionNumber": "0001169561-26-000017",
+          "filedDate": "2026-05-11",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1169561/000116956126000017/0001169561-26-000017-index.htm",
+          "derived": true,
+          "fiscalYear": 2026,
+          "fiscalQuarter": "Q4"
+        },
+        {
+          "periodStart": "2025-10-01",
+          "periodEnd": "2025-12-31",
+          "value": 313832000,
+          "form": "10-Q",
+          "accessionNumber": "0001169561-26-000006",
+          "filedDate": "2026-01-28",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1169561/000116956126000006/0001169561-26-000006-index.htm",
+          "derived": false,
+          "fiscalYear": 2026,
+          "fiscalQuarter": "Q3"
+        },
+        {
+          "periodStart": "2025-07-01",
+          "periodEnd": "2025-09-30",
+          "value": 276188000,
+          "form": "10-Q",
+          "accessionNumber": "0001169561-25-000089",
+          "filedDate": "2025-10-29",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1169561/000116956125000089/0001169561-25-000089-index.htm",
+          "derived": false,
+          "fiscalYear": 2026,
+          "fiscalQuarter": "Q2"
+        },
+        {
+          "periodStart": "2025-04-01",
+          "periodEnd": "2025-06-30",
+          "value": 281978000,
+          "form": "10-Q",
+          "accessionNumber": "0001169561-26-000024",
+          "filedDate": "2026-07-29",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1169561/000116956126000024/0001169561-26-000024-index.htm",
+          "derived": false,
+          "fiscalYear": 2027,
+          "fiscalQuarter": "Q1"
+        },
+        {
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-03-31",
+          "value": 275039000,
+          "form": "10-K (derived)",
+          "accessionNumber": "0001169561-26-000017",
+          "filedDate": "2026-05-11",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1169561/000116956126000017/0001169561-26-000017-index.htm",
+          "derived": true,
+          "fiscalYear": 2026,
+          "fiscalQuarter": "Q4"
+        },
+        {
+          "periodStart": "2024-10-01",
+          "periodEnd": "2024-12-31",
+          "value": 262630000,
+          "form": "10-Q",
+          "accessionNumber": "0001169561-26-000006",
+          "filedDate": "2026-01-28",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1169561/000116956126000006/0001169561-26-000006-index.htm",
+          "derived": false,
+          "fiscalYear": 2026,
+          "fiscalQuarter": "Q3"
+        },
+        {
+          "periodStart": "2024-07-01",
+          "periodEnd": "2024-09-30",
+          "value": 233278000,
+          "form": "10-Q",
+          "accessionNumber": "0001169561-25-000089",
+          "filedDate": "2025-10-29",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1169561/000116956125000089/0001169561-25-000089-index.htm",
+          "derived": false,
+          "fiscalYear": 2026,
+          "fiscalQuarter": "Q2"
+        }
+      ],
+      "latest": {
+        "quarter": {
+          "periodStart": "2026-04-01",
+          "periodEnd": "2026-06-30",
+          "value": 314131000,
+          "form": "10-Q",
+          "accessionNumber": "0001169561-26-000024",
+          "filedDate": "2026-07-29",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1169561/000116956126000024/0001169561-26-000024-index.htm",
+          "derived": false,
+          "fiscalYear": 2027,
+          "fiscalQuarter": "Q1"
+        },
+        "priorYearQuarter": {
+          "periodStart": "2025-04-01",
+          "periodEnd": "2025-06-30",
+          "value": 281978000,
+          "form": "10-Q",
+          "accessionNumber": "0001169561-26-000024",
+          "filedDate": "2026-07-29",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1169561/000116956126000024/0001169561-26-000024-index.htm",
+          "derived": false,
+          "fiscalYear": 2027,
+          "fiscalQuarter": "Q1"
+        },
+        "growth": 0.11402662619069573,
+        "flags": []
+      },
+      "prior": {
+        "quarter": {
+          "periodStart": "2026-01-01",
+          "periodEnd": "2026-03-31",
+          "value": 311692000,
+          "form": "10-K (derived)",
+          "accessionNumber": "0001169561-26-000017",
+          "filedDate": "2026-05-11",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1169561/000116956126000017/0001169561-26-000017-index.htm",
+          "derived": true,
+          "fiscalYear": 2026,
+          "fiscalQuarter": "Q4"
+        },
+        "priorYearQuarter": {
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-03-31",
+          "value": 275039000,
+          "form": "10-K (derived)",
+          "accessionNumber": "0001169561-26-000017",
+          "filedDate": "2026-05-11",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1169561/000116956126000017/0001169561-26-000017-index.htm",
+          "derived": true,
+          "fiscalYear": 2026,
+          "fiscalQuarter": "Q4"
+        },
+        "growth": 0.1332647370009344,
+        "flags": []
+      },
+      "notes": [
+        "2016-03-31: annual fact present but could not find all three preceding quarters to derive Q4 (fy 2018)."
+      ]
+    },
+    {
+      "id": "jfrog",
+      "name": "JFrog",
+      "cik": "0001800667",
+      "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
+      "quarters": [
+        {
+          "periodStart": "2026-04-01",
+          "periodEnd": "2026-06-30",
+          "value": 163772000,
+          "form": "10-Q",
+          "accessionNumber": "0001193125-26-340294",
+          "filedDate": "2026-08-07",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1800667/000119312526340294/0001193125-26-340294-index.htm",
+          "derived": false,
+          "fiscalYear": 2026,
+          "fiscalQuarter": "Q2"
+        },
+        {
+          "periodStart": "2026-01-01",
+          "periodEnd": "2026-03-31",
+          "value": 153977000,
+          "form": "10-Q",
+          "accessionNumber": "0001193125-26-214647",
+          "filedDate": "2026-05-08",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1800667/000119312526214647/0001193125-26-214647-index.htm",
+          "derived": false,
+          "fiscalYear": 2026,
+          "fiscalQuarter": "Q1"
+        },
+        {
+          "periodStart": "2025-10-01",
+          "periodEnd": "2025-12-31",
+          "value": 145306000,
+          "form": "10-K (derived)",
+          "accessionNumber": "0001193125-26-051382",
+          "filedDate": "2026-02-13",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1800667/000119312526051382/0001193125-26-051382-index.htm",
+          "derived": true,
+          "fiscalYear": 2025,
+          "fiscalQuarter": "Q4"
+        },
+        {
+          "periodStart": "2025-07-01",
+          "periodEnd": "2025-09-30",
+          "value": 136907000,
+          "form": "10-Q",
+          "accessionNumber": "0001193125-25-272362",
+          "filedDate": "2025-11-07",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1800667/000119312525272362/0001193125-25-272362-index.htm",
+          "derived": false,
+          "fiscalYear": 2025,
+          "fiscalQuarter": "Q3"
+        },
+        {
+          "periodStart": "2025-04-01",
+          "periodEnd": "2025-06-30",
+          "value": 127220000,
+          "form": "10-Q",
+          "accessionNumber": "0001193125-26-340294",
+          "filedDate": "2026-08-07",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1800667/000119312526340294/0001193125-26-340294-index.htm",
+          "derived": false,
+          "fiscalYear": 2026,
+          "fiscalQuarter": "Q2"
+        },
+        {
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-03-31",
+          "value": 122407000,
+          "form": "10-Q",
+          "accessionNumber": "0001193125-26-214647",
+          "filedDate": "2026-05-08",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1800667/000119312526214647/0001193125-26-214647-index.htm",
+          "derived": false,
+          "fiscalYear": 2026,
+          "fiscalQuarter": "Q1"
+        },
+        {
+          "periodStart": "2024-10-01",
+          "periodEnd": "2024-12-31",
+          "value": 116078000,
+          "form": "10-K (derived)",
+          "accessionNumber": "0001193125-26-051382",
+          "filedDate": "2026-02-13",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1800667/000119312526051382/0001193125-26-051382-index.htm",
+          "derived": true,
+          "fiscalYear": 2025,
+          "fiscalQuarter": "Q4"
+        },
+        {
+          "periodStart": "2024-07-01",
+          "periodEnd": "2024-09-30",
+          "value": 109056000,
+          "form": "10-Q",
+          "accessionNumber": "0001193125-25-272362",
+          "filedDate": "2025-11-07",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1800667/000119312525272362/0001193125-25-272362-index.htm",
+          "derived": false,
+          "fiscalYear": 2025,
+          "fiscalQuarter": "Q3"
+        }
+      ],
+      "latest": {
+        "quarter": {
+          "periodStart": "2026-04-01",
+          "periodEnd": "2026-06-30",
+          "value": 163772000,
+          "form": "10-Q",
+          "accessionNumber": "0001193125-26-340294",
+          "filedDate": "2026-08-07",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1800667/000119312526340294/0001193125-26-340294-index.htm",
+          "derived": false,
+          "fiscalYear": 2026,
+          "fiscalQuarter": "Q2"
+        },
+        "priorYearQuarter": {
+          "periodStart": "2025-04-01",
+          "periodEnd": "2025-06-30",
+          "value": 127220000,
+          "form": "10-Q",
+          "accessionNumber": "0001193125-26-340294",
+          "filedDate": "2026-08-07",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1800667/000119312526340294/0001193125-26-340294-index.htm",
+          "derived": false,
+          "fiscalYear": 2026,
+          "fiscalQuarter": "Q2"
+        },
+        "growth": 0.28731331551642825,
+        "flags": []
+      },
+      "prior": {
+        "quarter": {
+          "periodStart": "2026-01-01",
+          "periodEnd": "2026-03-31",
+          "value": 153977000,
+          "form": "10-Q",
+          "accessionNumber": "0001193125-26-214647",
+          "filedDate": "2026-05-08",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1800667/000119312526214647/0001193125-26-214647-index.htm",
+          "derived": false,
+          "fiscalYear": 2026,
+          "fiscalQuarter": "Q1"
+        },
+        "priorYearQuarter": {
+          "periodStart": "2025-01-01",
+          "periodEnd": "2025-03-31",
+          "value": 122407000,
+          "form": "10-Q",
+          "accessionNumber": "0001193125-26-214647",
+          "filedDate": "2026-05-08",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1800667/000119312526214647/0001193125-26-214647-index.htm",
+          "derived": false,
+          "fiscalYear": 2026,
+          "fiscalQuarter": "Q1"
+        },
+        "growth": 0.2579100868414388,
+        "flags": []
+      },
+      "notes": [
+        "2018-12-31: annual fact present but could not find all three preceding quarters to derive Q4 (fy 2020).",
+        "2019-12-31: annual fact present but could not find all three preceding quarters to derive Q4 (fy 2021)."
+      ]
     }
   ],
   "unsupported": [
@@ -2283,6 +2610,13 @@
       "ticker": "CHKP",
       "cik": "0001015922",
       "reason": "Foreign private issuer — files an annual 20-F (most recent 2026-03-31) and furnishes 6-Ks, never a 10-Q or 10-K. Its 20-F XBRL only carries annual-duration facts, so no discrete quarterly revenue exists in EDGAR structured data for it. Confirmed against its submissions record: no 10-Q or 10-K in its filing history."
+    },
+    {
+      "id": "trend-micro",
+      "name": "Trend Micro Incorporated",
+      "ticker": "4704 (Tokyo Stock Exchange)",
+      "cik": "0001089463",
+      "reason": "Listed on the Tokyo Stock Exchange (4704). It was once an SEC foreign private issuer under this CIK, but its own Form 15F-12G terminated that registration, and its EDGAR record has no 10-Q, 10-K, 6-K, or 20-F since 2009 (confirmed against its submissions record on 2026-09-30: the only filings are legacy 6-K/20-F/S-8/SC 13G items from 2000-2009, ending with the deregistration). It now reports quarterly and annual results under Japanese disclosure rules (kessan tanshin / yukashoken hokokusho) via the Tokyo Stock Exchange and its own newsroom, not SEC XBRL, so no discrete quarterly revenue exists in EDGAR structured data for it."
     },
     {
       "id": "cisco-secops",
