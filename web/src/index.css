@@ -3849,8 +3849,8 @@ summary:focus-visible,
    size already in use elsewhere on the page, not a new one. */
 @media (max-width: 640px) {
   .main-content {
-    gap: 0.65rem;
-    padding-top: 0.5rem;
+    gap: 0.5rem;
+    padding-top: 0.4rem;
   }
 
   .run-status__line {
@@ -3907,41 +3907,54 @@ summary:focus-visible,
    "Events" are short compound sentences, not bare numbers, so they stay
    left-aligned.
 
-   Coordinator follow-up: this never actually won. `.tracker-table th,
-   .tracker-table td { text-align: left; ... }` above combines a class with
-   a type selector (specificity 0,1,1); `.tracker-cell--numeric` alone is
-   0,1,0 — lower specificity loses regardless of which rule comes later in
-   the file, so every numeric cell was silently rendering left-aligned
-   under a right-aligned header. Qualifying both selectors with
-   `.tracker-table td` matches the base rule's specificity and wins on
-   source order, the way the comment above always assumed it did. */
-.tracker-table th:nth-child(2),
-.tracker-table th:nth-child(3),
-.tracker-table td.tracker-cell--numeric {
-  text-align: right;
+   Coordinator follow-up: this never actually won at desktop.
+   `.tracker-table th, .tracker-table td { text-align: left; ... }` above
+   combines a class with a type selector (specificity 0,1,1);
+   `.tracker-cell--numeric` alone is 0,1,0 — lower specificity loses
+   regardless of which rule comes later in the file, so every numeric cell
+   was silently rendering left-aligned under a right-aligned header.
+   Qualifying both selectors with `.tracker-table td` matches the base
+   rule's specificity and wins on source order, the way the comment above
+   always assumed it did.
+
+   A second coordinator follow-up scoped this (and the value's fixed-width
+   slot just below) to `min-width: 641px`: the first version had no media
+   guard, so this higher-specificity rule also beat the phone-width
+   `.tracker-cell--numeric { text-align: left; }` lower in this file,
+   right-aligning a label whose neighbours were all left-aligned and
+   clipping "Prior q" against the narrow mobile column it was never meant
+   to apply to. Desktop and phone now each carry exactly the alignment
+   rule meant for that width, with nothing able to leak across the
+   breakpoint by winning on specificity instead of losing to the media
+   query that should have been scoping it the whole time. */
+@media (min-width: 641px) {
+  .tracker-table th:nth-child(2),
+  .tracker-table th:nth-child(3),
+  .tracker-table td.tracker-cell--numeric {
+    text-align: right;
+  }
+
+  /* Right-aligning the cell pins every row's trailing "src" link to the
+     same x position, but the sign and the percentage itself still started
+     wherever that row's "Q Jul 26 · filed 26 Aug" text happened to end —
+     different suppliers' period/filed text run different lengths, so the
+     one thing a reader actually scans down the column, the growth figure,
+     still didn't stack. Giving the value its own fixed, right-aligned slot
+     means the sign and the decimal land in the same place every row,
+     independent of how long the text after it runs. 3.5rem comfortably
+     fits the widest figure the data carries ("+123.4%"; nothing in this
+     dataset runs to four digits) without taking noticeably more room from
+     the period text next to it. */
+  .tracker-cell--numeric .tracker-figure__value {
+    display: inline-block;
+    min-width: 3.5rem;
+    text-align: right;
+  }
 }
 
 .tracker-cell--numeric,
 .tracker-figure__value {
   font-variant-numeric: tabular-nums;
-}
-
-/* Coordinator follow-up, second half: right-aligning the cell (the fix
-   above) pins every row's trailing "src" link to the same x position, but
-   the sign and the percentage itself still started wherever that row's
-   "Q Jul 26 · filed 26 Aug" text happened to end — different suppliers'
-   period/filed text run different lengths, so the one thing a reader
-   actually scans down the column, the growth figure, still didn't stack.
-   Giving the value its own fixed, right-aligned slot inside the row's flex
-   layout means the sign and the decimal land in the same place every row,
-   independent of how long the text after it runs. 3.5rem comfortably
-   fits the widest figure the data carries ("+123.4%"; nothing in this
-   dataset runs to four digits) without taking noticeably more room from
-   the period text next to it. */
-.tracker-cell--numeric .tracker-figure__value {
-  display: inline-block;
-  min-width: 3.5rem;
-  text-align: right;
 }
 
 .tracker-table__sort {
@@ -4142,20 +4155,33 @@ summary:focus-visible,
 }
 
 @media (max-width: 640px) {
-  /* Fix pass 4, items 1 and 3. Both blind scores failed the old pattern
-     here: a row collapsed to one figure and needed a tap to see the rest
-     (D3, D7), and the visually-hidden header kept 72 sort buttons in the
-     tab order with focus landing off-screen (D8). The fix drops the
-     tap-to-expand interaction rather than patching it: every row now shows
-     all six fields without a tap, as a two-column, three-line card —
-     name with ownership, growth with the prior quarter, the company's own
-     metric with its latest event — using CSS Grid to place each `<td>`
-     (DOM order is unchanged; only its drawn position moves) without
-     resorting to `display: none` on any cell. The header itself is
-     `display: none` here instead of the old clip-to-one-pixel trick, which
-     is what actually takes its sort buttons out of the tab order — a
-     visually-hidden-but-focusable header was the defect, and this is the
-     "or take them out of the tab order" half of that fix. */
+  /* Fix pass 4, items 1 and 3, reworked after a coordinator follow-up.
+     Both blind scores failed the old pattern here: a row collapsed to one
+     figure and needed a tap to see the rest (D3, D7), and the
+     visually-hidden header kept 72 sort buttons in the tab order with
+     focus landing off-screen (D8). The first fix dropped the
+     tap-to-expand interaction and paired the name with ownership in a
+     two-column grid — but pairing the name cell with a numeric-ish
+     neighbour, plus an unscoped desktop alignment rule leaking into this
+     width, produced a clipped "Prior q" column, labels that didn't match
+     each other's alignment, and growth values wrapping onto three uneven
+     lines.
+
+     This is a plain label/value list instead: the supplier name is its
+     own full-width line (`grid-column: 1 / -1`), then the five remaining
+     fields — Growth, Prior q, Own metric, Ownership, Events, the same
+     order the desktop header and the sort keys use — auto-place into a
+     two-column grid two at a time, in DOM order, with no per-field
+     `grid-area` needed. Every label (the `::before` with `data-label`)
+     stays left-aligned at the same 12px size regardless of column; no
+     rule anywhere right-aligns a mobile label or forces a value to a
+     fixed width, so the growth figure, its period and its "src" link flow
+     as one line and only wrap if the column is genuinely too narrow for
+     them. The header itself is `display: none` here instead of the old
+     clip-to-one-pixel trick, which is what actually takes its sort
+     buttons out of the tab order — a visually-hidden-but-focusable header
+     was the defect, and this is the "or take them out of the tab order"
+     half of that fix. */
   .tracker-table-scroll {
     overflow-x: visible;
   }
@@ -4173,14 +4199,10 @@ summary:focus-visible,
   .tracker-table tr {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-areas:
-      'name owner'
-      'growth prior'
-      'own events';
     column-gap: 0.75rem;
-    row-gap: 0.4rem;
+    row-gap: 0.3rem;
     border-bottom: 1px solid var(--color-border);
-    padding: 0.65rem 0;
+    padding: 0.55rem 0;
   }
 
   .tracker-table tr:first-child {
@@ -4211,34 +4233,17 @@ summary:focus-visible,
     text-align: left;
   }
 
-  /* Column order in the markup is Supplier, Growth, Prior q, Own metric,
-     Ownership, Events (matching the desktop header and the sort keys) —
-     unchanged here. Only the drawn position differs: Ownership is placed
-     beside Supplier, and Events beside Own metric, so the three lines read
-     "name + ownership", "growth + prior quarter", "own metric + latest
-     event", per item 3. */
+  /* DOM order is Supplier, Growth, Prior q, Own metric, Ownership, Events
+     (matching the desktop header and the sort keys), unchanged here. The
+     name cell is the only one placed explicitly — it spans both columns
+     as its own full-width line. The other five auto-place into the
+     two-column grid in that same order, two per row: Growth/Prior q,
+     Own metric/Ownership, then Events alone in a row with an empty cell
+     beside it. No `grid-area` needed for them, so there's nothing here
+     that can silently pair the wrong two fields or squeeze one into a
+     column too narrow for it. */
   .tracker-table td:nth-child(1) {
-    grid-area: name;
-  }
-
-  .tracker-table td:nth-child(2) {
-    grid-area: growth;
-  }
-
-  .tracker-table td:nth-child(3) {
-    grid-area: prior;
-  }
-
-  .tracker-table td:nth-child(4) {
-    grid-area: own;
-  }
-
-  .tracker-table td:nth-child(5) {
-    grid-area: owner;
-  }
-
-  .tracker-table td:nth-child(6) {
-    grid-area: events;
+    grid-column: 1 / -1;
   }
 
   .tracker-table td:first-child::before {
