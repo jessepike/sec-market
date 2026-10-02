@@ -249,3 +249,77 @@ size change moved a count between existing buckets, it didn't add a seventh. Fre
 before this follow-up were removed so the evidence folder only holds the current state.
 
 `git status --short` is empty again after these two commits.
+
+## Second coordinator follow-up: the phone row itself
+
+Looking at `check5-home-390-fold.png`, the coordinator caught three things wrong with the reworked
+phone row that the measurements alone hadn't surfaced:
+
+- "Prior q" was clipped at the row's right edge.
+- "Rev. growth" and "Prior q" were right-aligned while every other label (Own metric, Ownership,
+  Events) was left-aligned.
+- The growth value, its period, and its "src" link wrapped onto three uneven lines.
+
+**What actually caused it.** The desktop numeric-alignment fix from the previous follow-up — the one
+that right-aligned the growth and prior-quarter columns at 1440px — had no media guard. Its two
+selectors (`.tracker-table td.tracker-cell--numeric` and `.tracker-cell--numeric
+.tracker-figure__value`) are more specific than the phone-width rule that sets those same cells back
+to `text-align: left`, so on specificity alone the desktop rule was winning at 390px too: right-
+aligning the two labels, and forcing the growth value into a fixed 3.5rem slot that didn't fit the
+narrow mobile column, which is what clipped "Prior q" and forced the three-line wrap. Both rules now
+live inside `@media (min-width: 641px)`, so they can't apply at phone width at all.
+
+**The rework.** Fixing the scoping bug alone would have restored the old two-column, name-plus-
+ownership pairing, which is what produced an uneven row in the first place. Instead the row is now a
+plain label/value list, per the coordinator's spec: the supplier name is its own full-width line,
+then Growth, Prior q, Own metric, Ownership and Events auto-place into a two-column grid two at a
+time, in the same order the desktop header and sort keys use (Growth/Prior q, then Own metric/
+Ownership, then Events alone). No field gets an explicit `grid-area` any more, so there's no longer a
+place in the CSS where two unrelated fields can be silently paired or one squeezed into a column too
+narrow for it. Every label — Growth and Prior q included — is left-aligned at the same 12px size.
+Values sit under their label; the growth figure's value, period and "src" link flow as one run and
+only break onto a second or third line when the column genuinely isn't wide enough for them, which is
+true for growth rows that carry both a quarter and a "filed" date (SentinelOne, CrowdStrike, Palo
+Alto Networks in the first domain) and not true for the shorter prior-quarter values, which stay on
+one line. Screenshot: `ui-evidence/followup/row-390-relabeled-list.png`.
+
+**Clipping check.** Added `ui-evidence/clip-check.mjs`, which loads the page at 390 and 320 CSS px and
+checks every `.tracker-table` cell's `scrollWidth` against its `clientWidth` — not just the first row,
+every row in every domain table on the page. Zero cells clip at either width:
+
+```
+width 390: 0 clipped cell(s) across every domain table on the page
+width 320: 0 clipped cell(s) across every domain table on the page
+PASS: no cell clips at any checked width, across every domain table on the page
+```
+
+**The 820px target.** The full row's bottom is at 843.3px at 390×844 — on screen at this viewport, but
+13px over the stricter 820px target, after tightening `.main-content`'s gap and top padding again and
+the row's own internal gaps as far as I could without reintroducing clipping or fighting the layout
+the coordinator asked for. The name and the growth line are comfortably on the first screen either
+way: name ends at 564.8px, and the growth label/value pair (Rev. growth, +26%) sits at 569.6–670.4px,
+both more than 170px above the fold. The remaining height is the growth cell's own three-line wrap
+for rows that carry a filed-date clause, which is content width, not spacing — the paired grid row
+(Growth next to Prior q) has to be tall enough for whichever of the two needs more lines, and that's
+an accepted consequence of asking for Growth and Prior q as a pair rather than two independently-
+sized columns. I didn't find a safe way to claw back the last 13px without either shrinking type below
+the page's established six-size scale or giving the growth column asymmetric width at the cost of the
+grid pairing itself, so per the coordinator's own fallback I'm reporting the measured numbers rather
+than pushing further:
+
+| | y position |
+|---|---|
+| Run-status bottom | ~267px (unchanged by this pass) |
+| Supplier name bottom | 564.8px |
+| Growth label/value bottom | 670.4px |
+| Full row bottom | 843.3px (390×844 viewport) |
+
+Re-ran the full gate chain: lint clean, 248/248 data tests, build and verify:dist clean, 30/30 e2e
+tests, no test file changed. Axe still clean on both pages at both widths; the 40-stop keyboard sweep
+still shows zero off-screen stops; tap targets at 390px still all ≥24px; the font-size audit still
+shows exactly six sizes at both widths. Confirmed the desktop numeric columns are unaffected by the
+media-query scoping fix — `ui-evidence/followup/numeric-columns-after-fix-1440.png` still shows the
+signs and decimals stacked under their right-aligned headers. Fresh 1440/390/320 renders are in
+`ui-evidence/after-local/` as `check7-*`; the `check5`/`check6` captures from mid-fix were removed.
+
+`git status --short` is empty again after these three commits.

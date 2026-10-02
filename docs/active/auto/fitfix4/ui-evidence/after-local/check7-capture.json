@@ -1,5 +1,5 @@
 {
-  "check5-home-1440": {
+  "check7-home-1440": {
     "scrollW": 1440,
     "clientW": 1440,
     "height": 11212,
@@ -1655,8 +1655,8 @@
     "tableDates": 46,
     "tableDatesAsTime": 149
   },
-  "axe-check5-home-1440": [],
-  "kbd-check5-home-1440": [
+  "axe-check7-home-1440": [],
+  "kbd-check7-home-1440": [
     {
       "tag": "A",
       "text": "Skip to main content",
@@ -2018,17 +2018,17 @@
       "i": 40
     }
   ],
-  "check5-home-390": {
+  "check7-home-390": {
     "scrollW": 390,
     "clientW": 390,
-    "height": 29268,
+    "height": 30804,
     "firstContent": {
       "tag": "H1",
       "text": "The security market, from public numbers",
-      "top": 164.96875
+      "top": 163.359375
     },
-    "firstRowTop": 535.8125,
-    "runStatusBottom": 328.5,
+    "firstRowTop": 529.421875,
+    "runStatusBottom": 324.5,
     "smallTargets": [],
     "fontSizes": {
       "16px": 282,
@@ -2049,8 +2049,8 @@
     "tableDates": 46,
     "tableDatesAsTime": 149
   },
-  "axe-check5-home-390": [],
-  "kbd-check5-home-390": [
+  "axe-check7-home-390": [],
+  "kbd-check7-home-390": [
     {
       "tag": "A",
       "text": "Skip to main content",
@@ -2082,7 +2082,7 @@
       "tag": "SUMMARY",
       "text": "What this site is",
       "x": 16,
-      "y": 231,
+      "y": 229,
       "visible": true,
       "inHiddenThead": false,
       "i": 4
@@ -2091,7 +2091,7 @@
       "tag": "SUMMARY",
       "text": "Which sources failed",
       "x": 30,
-      "y": 337,
+      "y": 333,
       "visible": true,
       "inHiddenThead": false,
       "i": 5
@@ -2100,7 +2100,7 @@
       "tag": "SUMMARY",
       "text": "What “revenue growth” means here",
       "x": 16,
-      "y": 423,
+      "y": 417,
       "visible": true,
       "inHiddenThead": false,
       "i": 6
@@ -2109,7 +2109,7 @@
       "tag": "A",
       "text": "Endpoint and XDR (6)",
       "x": 16,
-      "y": 454,
+      "y": 448,
       "visible": true,
       "inHiddenThead": false,
       "i": 7
@@ -2118,7 +2118,7 @@
       "tag": "A",
       "text": "Security operations (SIEM/SOAR) (7)",
       "x": 186,
-      "y": 454,
+      "y": 448,
       "visible": true,
       "inHiddenThead": false,
       "i": 8
@@ -2127,7 +2127,7 @@
       "tag": "A",
       "text": "Managed security and MDR (7)",
       "x": 87,
-      "y": 454,
+      "y": 448,
       "visible": true,
       "inHiddenThead": false,
       "i": 9
@@ -2136,7 +2136,7 @@
       "tag": "A",
       "text": "Network and SASE (7)",
       "x": 312,
-      "y": 454,
+      "y": 448,
       "visible": true,
       "inHiddenThead": false,
       "i": 10
@@ -2145,7 +2145,7 @@
       "tag": "A",
       "text": "Cloud security (7)",
       "x": 126,
-      "y": 454,
+      "y": 448,
       "visible": true,
       "inHiddenThead": false,
       "i": 11
@@ -2154,7 +2154,7 @@
       "tag": "A",
       "text": "Identity (7)",
       "x": 274,
-      "y": 454,
+      "y": 448,
       "visible": true,
       "inHiddenThead": false,
       "i": 12
@@ -2163,7 +2163,7 @@
       "tag": "A",
       "text": "Data security (7)",
       "x": 130,
-      "y": 454,
+      "y": 448,
       "visible": true,
       "inHiddenThead": false,
       "i": 13
@@ -2172,7 +2172,7 @@
       "tag": "A",
       "text": "Vulnerability and exposure management (7)",
       "x": 269,
-      "y": 454,
+      "y": 448,
       "visible": true,
       "inHiddenThead": false,
       "i": 14
@@ -2181,7 +2181,7 @@
       "tag": "A",
       "text": "Application security (6)",
       "x": 109,
-      "y": 454,
+      "y": 448,
       "visible": true,
       "inHiddenThead": false,
       "i": 15
@@ -2190,7 +2190,7 @@
       "tag": "A",
       "text": "Email security (7)",
       "x": 291,
-      "y": 454,
+      "y": 448,
       "visible": true,
       "inHiddenThead": false,
       "i": 16
@@ -2199,7 +2199,7 @@
       "tag": "A",
       "text": "OT and IoT security (6)",
       "x": 111,
-      "y": 454,
+      "y": 448,
       "visible": true,
       "inHiddenThead": false,
       "i": 17
@@ -2208,7 +2208,7 @@
       "tag": "A",
       "text": "AI security (7)",
       "x": 289,
-      "y": 454,
+      "y": 448,
       "visible": true,
       "inHiddenThead": false,
       "i": 18
@@ -2217,7 +2217,7 @@
       "tag": "BUTTON",
       "text": "src",
       "x": 19,
-      "y": 695,
+      "y": 642,
       "visible": true,
       "inHiddenThead": false,
       "i": 19
@@ -2225,8 +2225,8 @@
     {
       "tag": "BUTTON",
       "text": "src",
-      "x": 324,
-      "y": 644,
+      "x": 305,
+      "y": 591,
       "visible": true,
       "inHiddenThead": false,
       "i": 20
@@ -2235,7 +2235,7 @@
       "tag": "BUTTON",
       "text": "src",
       "x": 19,
-      "y": 778,
+      "y": 724,
       "visible": true,
       "inHiddenThead": false,
       "i": 21
@@ -2244,7 +2244,7 @@
       "tag": "BUTTON",
       "text": "src",
       "x": 296,
-      "y": 588,
+      "y": 716,
       "visible": true,
       "inHiddenThead": false,
       "i": 22
@@ -2252,8 +2252,8 @@
     {
       "tag": "BUTTON",
       "text": "src",
-      "x": 203,
-      "y": 778,
+      "x": 19,
+      "y": 805,
       "visible": true,
       "inHiddenThead": false,
       "i": 23
@@ -2262,7 +2262,7 @@
       "tag": "BUTTON",
       "text": "src",
       "x": 203,
-      "y": 896,
+      "y": 999,
       "visible": true,
       "inHiddenThead": false,
       "i": 24
@@ -2271,7 +2271,7 @@
       "tag": "BUTTON",
       "text": "src",
       "x": 19,
-      "y": 1194,
+      "y": 1198,
       "visible": true,
       "inHiddenThead": false,
       "i": 25
@@ -2279,8 +2279,8 @@
     {
       "tag": "BUTTON",
       "text": "src",
-      "x": 324,
-      "y": 1143,
+      "x": 305,
+      "y": 1147,
       "visible": true,
       "inHiddenThead": false,
       "i": 26
@@ -2289,7 +2289,7 @@
       "tag": "BUTTON",
       "text": "src",
       "x": 19,
-      "y": 1278,
+      "y": 1279,
       "visible": true,
       "inHiddenThead": false,
       "i": 27
@@ -2298,7 +2298,7 @@
       "tag": "BUTTON",
       "text": "src",
       "x": 295,
-      "y": 1087,
+      "y": 1271,
       "visible": true,
       "inHiddenThead": false,
       "i": 28
@@ -2306,8 +2306,8 @@
     {
       "tag": "BUTTON",
       "text": "src",
-      "x": 203,
-      "y": 1278,
+      "x": 19,
+      "y": 1361,
       "visible": true,
       "inHiddenThead": false,
       "i": 29
@@ -2316,7 +2316,7 @@
       "tag": "BUTTON",
       "text": "src",
       "x": 19,
-      "y": 1475,
+      "y": 1511,
       "visible": true,
       "inHiddenThead": false,
       "i": 30
@@ -2324,8 +2324,8 @@
     {
       "tag": "BUTTON",
       "text": "src",
-      "x": 324,
-      "y": 1424,
+      "x": 305,
+      "y": 1459,
       "visible": true,
       "inHiddenThead": false,
       "i": 31
@@ -2334,7 +2334,7 @@
       "tag": "BUTTON",
       "text": "src",
       "x": 19,
-      "y": 1558,
+      "y": 1592,
       "visible": true,
       "inHiddenThead": false,
       "i": 32
@@ -2343,7 +2343,7 @@
       "tag": "BUTTON",
       "text": "src",
       "x": 265,
-      "y": 1368,
+      "y": 1584,
       "visible": true,
       "inHiddenThead": false,
       "i": 33
@@ -2351,8 +2351,8 @@
     {
       "tag": "BUTTON",
       "text": "src",
-      "x": 203,
-      "y": 1558,
+      "x": 19,
+      "y": 1674,
       "visible": true,
       "inHiddenThead": false,
       "i": 34
@@ -2361,7 +2361,7 @@
       "tag": "BUTTON",
       "text": "src",
       "x": 203,
-      "y": 1699,
+      "y": 1890,
       "visible": true,
       "inHiddenThead": false,
       "i": 35
@@ -2369,8 +2369,8 @@
     {
       "tag": "BUTTON",
       "text": "src",
-      "x": 203,
-      "y": 1832,
+      "x": 19,
+      "y": 1971,
       "visible": true,
       "inHiddenThead": false,
       "i": 36
@@ -2379,7 +2379,7 @@
       "tag": "BUTTON",
       "text": "src",
       "x": 19,
-      "y": 2106,
+      "y": 2146,
       "visible": true,
       "inHiddenThead": false,
       "i": 37
@@ -2388,7 +2388,7 @@
       "tag": "BUTTON",
       "text": "src",
       "x": 203,
-      "y": 1972,
+      "y": 2187,
       "visible": true,
       "inHiddenThead": false,
       "i": 38
@@ -2396,8 +2396,8 @@
     {
       "tag": "BUTTON",
       "text": "src",
-      "x": 203,
-      "y": 2128,
+      "x": 19,
+      "y": 2291,
       "visible": true,
       "inHiddenThead": false,
       "i": 39
@@ -2406,23 +2406,23 @@
       "tag": "BUTTON",
       "text": "src",
       "x": 203,
-      "y": 2448,
+      "y": 2653,
       "visible": true,
       "inHiddenThead": false,
       "i": 40
     }
   ],
-  "check5-home-320": {
+  "check7-home-320": {
     "scrollW": 320,
     "clientW": 320,
-    "height": 32307,
+    "height": 34122,
     "firstContent": {
       "tag": "H1",
       "text": "The security market, from public numbers",
-      "top": 228.9375
+      "top": 227.328125
     },
-    "firstRowTop": 615.96875,
-    "runStatusBottom": 408.65625,
+    "firstRowTop": 609.578125,
+    "runStatusBottom": 404.65625,
     "smallTargets": [],
     "fontSizes": {
       "16px": 282,
@@ -2443,6 +2443,6 @@
     "tableDates": 46,
     "tableDatesAsTime": 149
   },
-  "axe-check5-corrections-1440": [],
-  "axe-check5-corrections-390": []
+  "axe-check7-corrections-1440": [],
+  "axe-check7-corrections-390": []
 }
