@@ -1,0 +1,27 @@
+[
+  {
+    "supplierId": "armis",
+    "reason": "blocked",
+    "detail": "armis.com/newsroom returns a Cloudflare JS challenge page (no readable content) on curl; /feed, /rss.xml, and /sitemap.xml on the same host all return the same Cloudflare challenge; no IR subdomain found (Armis has no public IR site); servicenow.com/company/media/press-room.html (parent company, acquisition closed 2026-04-20) returns an Akamai Access Denied page; GlobeNewswire organization search for Armis returns only stale items from 2021; EDGAR full-text search for \"Armis\" with file_date 2026-09-26 to 2026-10-02 returns zero hits."
+  },
+  {
+    "supplierId": "axonius",
+    "reason": "blocked",
+    "detail": "axonius.com/newsroom returns a Vercel Security Checkpoint bot-challenge page (HTTP 429) on all three attempts, with the same 429 on /feed and /sitemap.xml; no IR subdomain found (private company); GlobeNewswire organization search for Axonius returns only stale items from 2022; EDGAR full-text search for \"Axonius\" with file_date 2026-09-26 to 2026-10-02 returns zero hits."
+  },
+  {
+    "supplierId": "cato",
+    "reason": "blocked",
+    "detail": "catonetworks.com/newsroom and /feed both return an Incapsula bot-challenge shell (no readable content); /sitemap.xml redirects into the same blocked path; no IR subdomain found (private company); GlobeNewswire organization search for \"Cato Networks\" returns only stale items from 2016; EDGAR full-text search for \"Cato Networks\" with file_date 2026-09-26 to 2026-10-02 returns zero hits."
+  },
+  {
+    "supplierId": "checkpoint-email",
+    "reason": "blocked",
+    "detail": "Check Point Email Security is a segment of Check Point Software Technologies (CIK 0001015922, ticker CHKP) with no separate newsroom. checkpoint.com/newsroom, /sitemap.xml, and /feed all return an AWS WAF challenge (HTTP 202, zero bytes) on curl; investors.checkpoint.com and ir.checkpoint.com do not resolve; www.checkpoint.com/investor-relations returns the same WAF challenge; GlobeNewswire organization search and a PR Newswire organization page both returned no matching articles. The company's own SEC filing history (data.sec.gov/submissions/CIK0001015922.json) was checked directly and shows no filing dated after 2026-09-25, so the EDGAR rung-1 route is confirmed clean even though the newsroom route is blocked."
+  },
+  {
+    "supplierId": "checkpoint-sase",
+    "reason": "blocked",
+    "detail": "Check Point (CIK 0001015922, ticker CHKP). checkpoint.com/newsroom, /sitemap.xml, and /feed all return an AWS WAF challenge (HTTP 202, zero bytes) on curl; investors.checkpoint.com and ir.checkpoint.com do not resolve; www.checkpoint.com/investor-relations returns the same WAF challenge; GlobeNewswire organization search and a PR Newswire organization page both returned no matching articles. The company's own SEC filing history (data.sec.gov/submissions/CIK0001015922.json) was checked directly and shows no filing dated after 2026-09-25, so the EDGAR rung-1 route is confirmed clean even though the newsroom route is blocked."
+  }
+]

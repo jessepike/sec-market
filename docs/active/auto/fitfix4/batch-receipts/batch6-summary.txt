@@ -1,0 +1,25 @@
+Collect run — restricted batch
+Since-date: 2026-09-26 (exclusive) through 2026-10-02
+Suppliers in scope (12): tenable, tines, torq, trend-micro, trustwave, upwind, varonis, veeam, veracode, witnessai, wiz, xage
+
+Suppliers checked: 12 / 12
+New events written: 0
+New evidence records written: 0
+Supplier record fields updated (headlineMetric/lastRound/ownership): 0
+
+Per-supplier result, all "none found":
+- tenable (public, CIK 0001660280): no 8-K or other filing since 2026-09-26 (EDGAR submissions checked directly); own newsroom (www.tenable.com/press-releases, /news) shows only AI-product announcements, nothing dated after 2026-09-26; investors.tenable.com blocked after 3 attempts (supplementary check only, see failed-sources.json).
+- tines (private): no EDGAR full-text hits; tines.com/newsroom/ and /blog/news/ show only media coverage, most recent dated items from the Feb 2025 Series C (already in suppliers.ts); no feed at tines.com/feed (404).
+- torq (private): EDGAR full-text's one hit (IperionX) is unrelated; torq.io/news/ (press-release-tagged items) shows nothing newer than a 2026-07-27 product launch; no new funding, acquisition, or other tracked event.
+- trend-micro (public, Tokyo Stock Exchange, not an SEC filer): newsroom.trendmicro.com lists two items in window (2026-09-28, 2026-09-29) but both are AI-product announcements (NVIDIA Agent Safety Platform extension, Claude Compliance API integration), not a tracked event type; no new results release (last one 2026-08-13, already in suppliers.ts).
+- trustwave (acquired by LevelBlue, closed 2025-08-19): no EDGAR full-text hits; LevelBlue's own sitemap shows two items in window, both Gartner market-guide mentions, not a tracked event type.
+- upwind (private): no EDGAR full-text hits; post-sitemap shows product/blog posts through 2026-10-01, nothing in a tracked category; newsroom page is a static brand-assets page with no individually dated press releases; GlobeNewswire/PR Newswire org search returned the generic site, no result.
+- varonis (public, CIK 0001361113): no 8-K or other filing since 2026-09-26 (EDGAR submissions checked directly); own newsroom (www.varonis.com/press-releases) shows nothing dated after 2026-09-26; ir.varonis.com blocked after 3 attempts (supplementary check only, see failed-sources.json).
+- veeam (PE-owned, Insight Partners): www.veeam.com/newsroom.html's most recent press release is dated 2026-09-09 (a research report), before the since-date; nothing newer.
+- veracode (PE-owned, TA Associates): www.veracode.com/newsroom/ most recent item dated around 2026-07-23, well before the since-date; nothing newer.
+- witnessai (private): no EDGAR full-text hits; witness.ai sitemap and /news-and-events/ show only blog posts and upcoming conference listings through October 2026, nothing in a tracked category.
+- wiz (acquired by Google/Alphabet, closed 2026-03-11): no EDGAR full-text hits; wiz.io/newsroom shows only third-party media mentions (CRN, Kan.org.il) dated 2026-09-27/28, no Wiz- or Google-issued press release in window.
+- xage (private): no EDGAR full-text hits; xage.com/press/ ("Xage in the Press") most recent item dated 2026-09-22, before the since-date; blog feed's most recent item (2026-10-01) is a product post, not a tracked event type.
+
+Candidates flagged: none.
+Failed sources: 2 (both supplementary IR-site checks only; primary EDGAR + newsroom checks succeeded for both suppliers — see failed-sources.json for detail).

@@ -1,0 +1,7 @@
+[
+  {
+    "supplierId": "zscaler",
+    "reason": "blocked",
+    "detail": "EDGAR submissions for CIK 0001713683 checked first and are definitive for all 8-K-triggering event types (nothing filed since 2026-09-26 except a Form 4, which is not a tracked event type). www.zscaler.com/press (= /company/news-press) loaded and its sitemap-derived /press/ URL list is the complete, dated press-release index through 2026-10-02 (used in place of the page's own 5-item featured panel, which does not expose the full history) — no tracked event type found in it since the since-date. This entry is only about the supplementary IR-site check: ir.zscaler.com/sitemap.xml and ir.zscaler.com/news-events/press-releases did not return a clean response after three attempts (HTTP/2 stream INTERNAL_ERROR on the default transport, then no response within the retry window on forced HTTP/1.1) — no IR-specific press release list could be read. No rating action or other IR-only item could be ruled in or out beyond what the main newsroom already showed. Business Wire's own search page also returned HTTP 403 on a supplementary check; not needed since the company's own newsroom was already read in full."
+  }
+]

@@ -5321,6 +5321,31 @@ const handWrittenEvidenceRecords: EvidenceRecord[] = [
   ],
   "retrievedAt": "2026-10-01"
 },
+{
+  "id": "TR-reliaquest-2",
+  "title": "ReliaQuest Names Krish Venkataraman Chief Financial Officer",
+  "organization": "ReliaQuest, LLC",
+  "publicationDate": "2026-10-01",
+  "economicPeriod": "N/A (leadership announcement)",
+  "canonicalUrl": "https://reliaquest.com/news-and-press/reliaquest-names-krish-venkataraman-chief-financial-officer/",
+  "excerpt": "ReliaQuest... today announced that Krish Venkataraman will join the company as Chief Financial Officer on October 5. Venkataraman will lead ReliaQuest's global finance and accounting organization... Venkataraman joins ReliaQuest from Solink, an AI technology company, where he serves as CFO. Previously he was President of Dataiku and CFO of Socure.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "Company press release; ReliaQuest is privately held with no SEC filer CIK.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-COLLECT / TR-reliaquest-2",
+  "tags": [
+    "tracker",
+    "managed-security"
+  ],
+  "retrievedAt": "2026-10-02",
+  "retrieval": {
+    "finalUrl": "https://reliaquest.com/news-and-press/reliaquest-names-krish-venkataraman-chief-financial-officer/",
+    "sha256": "f160bda9c0f1d3ccd47db4afc9b3b1fa047532b729ec3d54211d7e56e07f173e",
+    "fetchedAt": "2026-10-02T15:10:00Z",
+    "locator": "Opening paragraph"
+  }
+},
 ]
 
 export const evidenceRecords: EvidenceRecord[] = [

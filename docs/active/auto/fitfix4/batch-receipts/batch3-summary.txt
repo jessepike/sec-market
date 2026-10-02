@@ -1,0 +1,45 @@
+Collect run — since-date 2026-09-26, through 2026-10-02
+Restricted to 12 suppliers: expel, forescout, fortinet, github-advanced-security,
+google-secops, hiddenlayer, ivanti, jfrog, lakera, mimecast, msft-defender,
+msft-defender-o365
+
+Suppliers checked: 12
+New events written: 0
+New evidence records written: 0
+Candidates flagged: 0
+Failed sources: 1
+
+Per-supplier result (all "none found" — no qualifying fact dated after 2026-09-26):
+- expel: about/newsroom media-mentions page checked (most recent dated item 2026-09-25,
+  not in window); resource-sitemap.xml checked — two entries carried a 2026-10-01 lastmod
+  but each page's own JSON-LD datePublished showed 2025-10-08 and 2025-10-28 respectively
+  (a site-wide re-save, not new content); nothing published since the since-date.
+- forescout: press-release-sitemap.xml checked with real per-item lastmod dates; most
+  recent release 2026-09-09, not in window.
+- fortinet: EDGAR submissions clean (Form 4/144 only, no 8-K) through 2026-10-01; no new
+  filing, no results release in window (next earnings not yet due).
+- github-advanced-security: Microsoft (CIK 0000789019) EDGAR submissions show no filing
+  since 2026-09-17, no 8-K in window; github.blog/feed/ checked, most recent post
+  2026-10-01, none a tracked event type (no funding/acquisition/exec-change/etc.).
+- google-secops: Alphabet (CIK 0001652044) EDGAR submissions show no filing since
+  2026-09-30, no 8-K in window.
+- hiddenlayer: sitemap.xml checked with real per-page lastmod timestamps; most recent
+  /news/ item is the 2026-09-02 Series B round already on record (TR-hiddenlayer-1);
+  nothing newer.
+- ivanti: company RSS feed (company/press-releases/feed) checked with real per-item
+  pubDates; most recent release 2026-08-12, not in window. EDGAR full-text search for
+  "Ivanti" 2026-09-26 to 2026-10-02 returned only mutual-fund holdings disclosures
+  (Neuberger Berman, Palmer Square), not primary company news.
+- jfrog: EDGAR submissions clean, no filing since 2026-09-16, no 8-K in window.
+- lakera: lakera.ai sitemap has no dedicated news/press section; Check Point's own
+  press-releases page (checkpoint.com/press-releases/) checked, no Lakera-specific
+  item found, only a 2026-10-01 Q3 earnings-date announcement unrelated to Lakera.
+- mimecast: no qualifying item found dated after 2026-09-26; see failed-sources.json —
+  marked no-readable-releases after the newsroom page, sitemap, RSS/Atom guesses, wire
+  searches, and EDGAR full-text search all failed to surface a dated primary item in
+  the window.
+- msft-defender / msft-defender-o365: Microsoft EDGAR submissions show no filing since
+  2026-09-17, no 8-K in window; no separate newsroom for these segments.
+
+No kind-field staleness flags. No candidate suppliers noticed outside the declared list.
+collectState.json left untouched per brief Section 4 (restricted run).

@@ -1077,6 +1077,17 @@ export const handCollectedEvents: TrackerEvent[] = [
       "TR-zscaler-6"
     ],
     "rung": 1
+  },
+  {
+    "id": "EV-reliaquest-1",
+    "supplierId": "reliaquest",
+    "date": "2026-10-01",
+    "type": "exec-change",
+    "text": "ReliaQuest announced that Krish Venkataraman will join the company as Chief Financial Officer on October 5, 2026. The company's release states he most recently served as Chief Financial Officer of Solink, and previously was President of Dataiku and Chief Financial Officer of Socure.",
+    "evidenceIds": [
+      "TR-reliaquest-2"
+    ],
+    "rung": 4
   }
 ]
 
