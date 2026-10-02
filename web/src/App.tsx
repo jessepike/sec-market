@@ -191,11 +191,18 @@ function RouteContent({ path }: { path: string }) {
 
 function AppShell({ path }: { path: string }) {
   const { isOpen } = useEvidence()
+  // Fix pass 4, item 11: the issue archive, an issue permalink, and
+  // /thesis/ are the three routes kept as dated records (see each page's
+  // own ArchiveNotice below) — the rail's "published automatically, with
+  // no stances..." statement is a live-page claim and does not belong
+  // above old signed judgments there. /corrections/ is not in this list:
+  // it is a live, still-maintained page, not an old-judgment archive.
+  const archiveRoute = ['archive', 'issue', 'thesis'].includes(matchRoute(path).kind)
 
   return (
     <>
       <SkipLink />
-      <ProvenanceRail />
+      <ProvenanceRail archive={archiveRoute} />
       <div className="app-shell" inert={isOpen ? true : undefined}>
         <Header path={path} />
         <main id="main" className="main-content" tabIndex={-1}>
