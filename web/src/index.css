@@ -3894,43 +3894,49 @@ summary:focus-visible,
 
 .tracker-links {
   margin: 1.5rem 0;
-  font-size: 0.9rem;
+  font-size: 0.875rem;
 }
 
 @media (max-width: 640px) {
-  /* Collapsed-row table: the header row and every column but Supplier are
-     hidden by default. The Supplier cell's button becomes the whole row's
-     tap target — it shows the short name plus one summary figure (latest
-     revenue growth, or ownership state when there is no growth figure)
-     and toggles `aria-expanded`; a real <button>, reachable and operable
-     by keyboard, with the state announced to a screen reader without
-     relying on the chevron glyph, which is aria-hidden. Expanding a row
-     (`.tracker-row--expanded`) reveals its remaining cells in place using
-     the same data-label stacking pattern the table already carried. */
+  /* Fix pass 4, items 1 and 3. Both blind scores failed the old pattern
+     here: a row collapsed to one figure and needed a tap to see the rest
+     (D3, D7), and the visually-hidden header kept 72 sort buttons in the
+     tab order with focus landing off-screen (D8). The fix drops the
+     tap-to-expand interaction rather than patching it: every row now shows
+     all six fields without a tap, as a two-column, three-line card —
+     name with ownership, growth with the prior quarter, the company's own
+     metric with its latest event — using CSS Grid to place each `<td>`
+     (DOM order is unchanged; only its drawn position moves) without
+     resorting to `display: none` on any cell. The header itself is
+     `display: none` here instead of the old clip-to-one-pixel trick, which
+     is what actually takes its sort buttons out of the tab order — a
+     visually-hidden-but-focusable header was the defect, and this is the
+     "or take them out of the tab order" half of that fix. */
   .tracker-table-scroll {
     overflow-x: visible;
   }
 
   .tracker-table thead {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-    white-space: nowrap;
+    display: none;
   }
 
   .tracker-table,
-  .tracker-table tbody,
-  .tracker-table tr,
-  .tracker-table td {
+  .tracker-table tbody {
     display: block;
     width: 100%;
   }
 
   .tracker-table tr {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      'name owner'
+      'growth prior'
+      'own events';
+    column-gap: 0.75rem;
+    row-gap: 0.4rem;
     border-bottom: 1px solid var(--color-border);
-    padding: 0.5rem 0;
+    padding: 0.65rem 0;
   }
 
   .tracker-table tr:first-child {
@@ -3939,16 +3945,18 @@ summary:focus-visible,
 
   .tracker-table td {
     border-bottom: none;
-    padding: 0.15rem 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.1rem;
+    gap: 0.15rem;
+    min-width: 0;
+    overflow-wrap: break-word;
   }
 
   .tracker-table td::before {
     content: attr(data-label);
     font-family: var(--font-mono);
-    font-size: 0.625rem;
+    font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.06em;
     text-transform: uppercase;
@@ -3959,70 +3967,45 @@ summary:focus-visible,
     text-align: left;
   }
 
-  /* Every cell but the Supplier row-toggle is hidden until that row is
-     expanded. */
-  .tracker-table tr:not(.tracker-table__median) td:not(:first-child) {
-    display: none;
+  /* Column order in the markup is Supplier, Growth, Prior q, Own metric,
+     Ownership, Events (matching the desktop header and the sort keys) —
+     unchanged here. Only the drawn position differs: Ownership is placed
+     beside Supplier, and Events beside Own metric, so the three lines read
+     "name + ownership", "growth + prior quarter", "own metric + latest
+     event", per item 3. */
+  .tracker-table td:nth-child(1) {
+    grid-area: name;
   }
 
-  .tracker-table tr.tracker-row--expanded td:not(:first-child) {
-    display: flex;
+  .tracker-table td:nth-child(2) {
+    grid-area: growth;
   }
 
-  .tracker-table td:first-child {
-    padding: 0;
+  .tracker-table td:nth-child(3) {
+    grid-area: prior;
+  }
+
+  .tracker-table td:nth-child(4) {
+    grid-area: own;
+  }
+
+  .tracker-table td:nth-child(5) {
+    grid-area: owner;
+  }
+
+  .tracker-table td:nth-child(6) {
+    grid-area: events;
   }
 
   .tracker-table td:first-child::before {
-    /* No "SUPPLIER" label above the row-toggle button — it is the row, not
-       a labeled field, and repeating it 74 times cost real page height. */
+    /* No "SUPPLIER" label above the name — it is the row's own heading,
+       not a labelled field, and repeating it 74 times cost real page
+       height. */
     content: none;
   }
 
-  .tracker-row__toggle {
-    cursor: pointer;
-    align-items: flex-start;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    padding: 0.55rem 0.1rem;
-    min-height: 44px;
-  }
-
   .tracker-row__name {
-    flex: 1 1 auto;
-    min-width: 0;
-    overflow-wrap: break-word;
-  }
-
-  /* AUTO-001 fix pass (2026-09-26), item 6: a long supplier name plus its
-     summary figure ("Segment of Microsoft Corporation...", "+42% YoY") in
-     one nowrap flex row overflowed the row's width at 390/320px instead of
-     wrapping (the Exabeam/Cato/Sysdig rows both blind scores found clipped
-     on phone). `flex-wrap: wrap` above lets the summary drop to its own
-     line when the name alone fills the row; this lets the summary text
-     itself wrap rather than forcing one unbroken nowrap line. */
-  .tracker-row__summary {
-    display: block;
-    flex: 0 1 auto;
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    color: var(--color-text-muted);
-    white-space: normal;
-    text-align: right;
-    min-width: 0;
-  }
-
-  .tracker-row--expanded .tracker-row__summary {
-    display: none;
-  }
-
-  .tracker-row__chevron {
-    display: block;
-    flex: 0 0 auto;
-    width: 1.1rem;
-    text-align: center;
-    color: var(--color-text-muted);
-    font-weight: 600;
+    font-size: 1rem;
   }
 
   .tracker-table__median {
@@ -4042,14 +4025,14 @@ summary:focus-visible,
   .tracker-changed__row {
     grid-template-columns: auto 1fr auto;
     gap: 0.4rem;
-    font-size: 0.8125rem;
+    font-size: 0.875rem;
   }
 
-  /* AUTO-001 fix pass (2026-09-26), item 6: the compact "src" evidence
-     link's desktop box (padding 0 0.2rem, min-height 0) is far under the
-     24x24 CSS px tap target WCAG 2.2 AA (target size, minimum) asks for at
-     phone width. Widened here only — the desktop inline-with-figure layout
-     is intentional and stays as-is. */
+  /* Fix pass 4, item 2: the compact "src" evidence link's desktop box
+     (padding 0 0.2rem, min-height 0) is far under the 24x24 CSS px tap
+     target WCAG 2.2 AA (target size, minimum) asks for at phone width.
+     Widened here only — the desktop inline-with-figure layout is
+     intentional and stays as-is. */
   .evidence-link--compact {
     display: inline-flex;
     align-items: center;

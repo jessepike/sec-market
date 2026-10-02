@@ -3,6 +3,7 @@ import {
   eventSummaryForSupplier,
   formatFiledDate,
   formatHeadlineCompact,
+  formatMonthYear,
   formatOwnershipCompact,
   formatShortDate,
   formatShortQuarter,
@@ -36,6 +37,45 @@ const COLUMNS: { key: SortKey; label: string }[] = [
 
 function capitalDateFor(supplier: TrackerSupplier): string {
   return supplier.lastRound?.date ?? supplier.ownership?.closed ?? supplier.ownership?.announced ?? ''
+}
+
+/**
+ * Fix pass 4, item 5: every growth figure signed, one rendering path for
+ * "+34%", "36%", "1%", "-1.5%" and "11.2%" alike — the data carries whatever
+ * precision each company's own report gives (do not invent a decimal here;
+ * only the sign and the glyph are normalised). A true minus sign (U+2212)
+ * reads more deliberately than a hyphen in a column of numbers; the
+ * underlying number is unchanged, so `parseGrowthPercent` (sorting) and the
+ * raw data are untouched.
+ */
+function signedGrowth(raw: string | undefined): string {
+  if (!raw) return ''
+  const match = raw.match(/^(-)?\+?(\d+(?:\.\d+)?)%$/)
+  if (!match) return raw
+  const [, negative, digits] = match
+  if (negative) return `−${digits}%`
+  if (Number(digits) === 0) return `${digits}%`
+  return `+${digits}%`
+}
+
+/**
+ * Fix pass 4, item 9: the ownership/last-round cell's trailing date ("Series
+ * D $300M · Sep 2026", "Acquired by ServiceNow · Apr 2026") as a real
+ * `<time datetime>` element instead of plain text, mirroring
+ * `formatOwnershipCompact`'s own branches (derive.ts) rather than parsing its
+ * output — this file does not own data/**, so the one small duplication
+ * stays here instead of changing that shared formatter's return shape.
+ */
+function capitalParts(supplier: TrackerSupplier): { prefix: string; date: string; dateText: string } {
+  const isoDate = capitalDateFor(supplier)
+  const full = formatOwnershipCompact(supplier)
+  if (!isoDate) return { prefix: full, date: '', dateText: '' }
+  const dateText =
+    supplier.lastRound
+      ? formatMonthYear(supplier.lastRound.date)
+      : formatMonthYear(supplier.ownership?.closed ?? supplier.ownership?.announced)
+  if (!dateText || !full.endsWith(dateText)) return { prefix: full, date: '', dateText: '' }
+  return { prefix: full.slice(0, full.length - dateText.length).replace(/\s*·\s*$/, '').trimEnd(), date: isoDate, dateText }
 }
 
 function sortValue(supplier: TrackerSupplier, key: SortKey): string | number {
@@ -84,10 +124,15 @@ function GrowthCell({ period, context }: { period: RevenuePeriod | undefined; co
   const releaseDate = (period as Partial<RevenuePeriodLatest>).releaseDate
   return (
     <span className="tracker-figure">
-      <span className="tracker-figure__value">{period.yoyGrowth}</span>{' '}
+      <span className="tracker-figure__value">{signedGrowth(period.yoyGrowth)}</span>{' '}
       <span className="tracker-figure__period">
-        {formatShortQuarter(period.periodEnd)}
-        {releaseDate ? <> {'·'} filed {formatFiledDate(releaseDate)}</> : null}
+        <time dateTime={period.periodEnd}>{formatShortQuarter(period.periodEnd)}</time>
+        {releaseDate ? (
+          <>
+            {' '}
+            {'·'} filed <time dateTime={releaseDate}>{formatFiledDate(releaseDate)}</time>
+          </>
+        ) : null}
       </span>
       <EvidenceLink ids={period.evidenceIds} variant="compact" context={context} />
     </span>
@@ -95,11 +140,19 @@ function GrowthCell({ period, context }: { period: RevenuePeriod | undefined; co
 }
 
 function CapitalCell({ supplier }: { supplier: TrackerSupplier }) {
-  const text = formatOwnershipCompact(supplier)
+  const { prefix, date, dateText } = capitalParts(supplier)
   const evidenceIds = supplier.lastRound?.evidenceIds ?? supplier.ownership?.evidenceIds
   return (
     <span className="tracker-figure">
-      <span className="tracker-figure__value">{text}</span>
+      <span className="tracker-figure__value">
+        {prefix}
+        {date ? (
+          <>
+            {' '}
+            {'·'} <time dateTime={date}>{dateText}</time>
+          </>
+        ) : null}
+      </span>
       {evidenceIds && evidenceIds.length > 0 ? (
         <EvidenceLink ids={evidenceIds} variant="compact" context="Ownership" />
       ) : null}
@@ -128,15 +181,18 @@ function DomainTable({
   anchoredSupplierIds: Set<string>
 }) {
   const [sort, setSort] = useState<SortState>({ key: 'name', direction: 'asc' })
-  // Phone only (see the @media (max-width: 640px) block in index.css) — a
-  // supplier row is collapsed to its name and one summary figure until this
-  // set says otherwise. Empty by default so the server render and the
-  // client's first render match. Harmless on desktop: the media query is
-  // the only thing that ever hides a cell.
-  const [expanded, setExpanded] = useState<ReadonlySet<string>>(() => new Set<string>())
   const suppliers = suppliersForDomain(domainId)
   const sorted = sortSuppliers(suppliers, sort)
   const median = medianRevenueGrowthForDomain(domainId)
+  // Fix pass 4, item 6: every domain needs a reference point, not just the
+  // six that happened to have two or more public suppliers already.
+  // `medianRevenueGrowthForDomain` returns null below that count; this
+  // counts how many public (or publicly-reporting segment) suppliers the
+  // domain actually has, so the footer line can say which case it is
+  // rather than showing nothing.
+  const publicSupplierCount = suppliers.filter(
+    (supplier) => supplier.kind === 'public' || supplier.kind === 'segment',
+  ).length
 
   function toggleSort(key: SortKey) {
     setSort((current) =>
@@ -144,15 +200,6 @@ function DomainTable({
         ? { key, direction: current.direction === 'asc' ? 'desc' : 'asc' }
         : { key, direction: 'asc' },
     )
-  }
-
-  function toggleExpanded(supplierId: string) {
-    setExpanded((current) => {
-      const next = new Set(current)
-      if (next.has(supplierId)) next.delete(supplierId)
-      else next.add(supplierId)
-      return next
-    })
   }
 
   return (
@@ -178,34 +225,20 @@ function DomainTable({
           <tbody>
             {sorted.map((supplier) => {
               const { count, latest } = eventSummaryForSupplier(supplier.id)
-              const isExpanded = expanded.has(supplier.id)
               const shortName = shortSupplierName(supplier.name)
-              // Phone's collapsed-row summary: latest revenue growth if the
-              // company reports one, otherwise its ownership state.
-              const rowSummary = supplier.revenue?.latest.yoyGrowth ?? formatOwnershipCompact(supplier)
               const claimsAnchor = !anchoredSupplierIds.has(supplier.id)
               if (claimsAnchor) anchoredSupplierIds.add(supplier.id)
               return (
-                <tr
-                  key={supplier.id}
-                  id={claimsAnchor ? `s-${supplier.id}` : undefined}
-                  className={isExpanded ? 'tracker-row--expanded' : undefined}
-                >
+                <tr key={supplier.id} id={claimsAnchor ? `s-${supplier.id}` : undefined}>
+                  {/* Fix pass 4, item 3: this used to be a tap-to-expand
+                      button hiding every other cell until pressed (see
+                      index.css's @media (max-width: 640px) block for the
+                      replacement) — every cell now renders unconditionally,
+                      so the supplier cell is plain text, not a control. */}
                   <td data-label="Supplier">
-                    <button
-                      type="button"
-                      className="tracker-row__toggle"
-                      aria-expanded={isExpanded}
-                      onClick={() => toggleExpanded(supplier.id)}
-                    >
-                      <span className="tracker-row__name" title={supplier.name}>
-                        {shortName}
-                      </span>
-                      <span className="tracker-row__summary">{rowSummary}</span>
-                      <span className="tracker-row__chevron" aria-hidden="true">
-                        {isExpanded ? '−' : '+'}
-                      </span>
-                    </button>
+                    <span className="tracker-row__name" title={supplier.name}>
+                      {shortName}
+                    </span>
                   </td>
                   <td data-label="Rev. growth" className="tracker-cell--numeric">
                     <GrowthCell period={supplier.revenue?.latest} context="Revenue growth, latest quarter" />
@@ -232,7 +265,8 @@ function DomainTable({
                     ) : (
                       <span className="tracker-figure">
                         <span className="tracker-figure__value">
-                          {count} {'·'} latest {latest!.type}, {formatShortDate(latest!.date)}
+                          {count} {'·'} latest {latest!.type},{' '}
+                          <time dateTime={latest!.date}>{formatShortDate(latest!.date)}</time>
                         </span>
                         <EvidenceLink ids={latest!.evidenceIds} variant="compact" context="Latest event" />
                       </span>
@@ -242,16 +276,23 @@ function DomainTable({
               )
             })}
           </tbody>
-          {median !== null ? (
-            <tfoot>
-              <tr className="tracker-table__median">
-                <td colSpan={COLUMNS.length}>
-                  Median revenue growth of tracked public suppliers: {median >= 0 ? '+' : ''}
-                  {median}%
-                </td>
-              </tr>
-            </tfoot>
-          ) : null}
+          {/* Fix pass 4, item 6: every domain gets a reference-point row —
+              the median where there are two or more public suppliers to
+              take a median of, and a plain count otherwise, rather than
+              nothing. Six domains (security operations, email,
+              application security and AI security among them) used to show
+              neither. */}
+          <tfoot>
+            <tr className="tracker-table__median">
+              <td colSpan={COLUMNS.length}>
+                {median !== null
+                  ? `Median revenue growth of tracked public suppliers: ${signedGrowth(`${median}%`)}`
+                  : publicSupplierCount === 1
+                    ? 'One public supplier in this domain; no median shown.'
+                    : 'No public suppliers in this domain; no median shown.'}
+              </td>
+            </tr>
+          </tfoot>
         </table>
       </div>
     </article>
@@ -286,10 +327,11 @@ function DomainIndex() {
  * Density pass (coordinator instruction, after the initial step 5 build):
  * short supplier names with the legal name kept in the `title` attribute
  * and in evidence.ts, one-line compact cells with a "src" evidence link
- * instead of a name-carrying button, tighter column headers, a domain index
- * at the top, and a phone-width collapsed-row pattern — see index.css's
- * `@media (max-width: 640px)` block and DomainTable's `expanded` state
- * above.
+ * instead of a name-carrying button, tighter column headers, and a domain
+ * index at the top. Fix pass 4, item 3: a phone-width row used to collapse
+ * to one figure behind a tap; every cell now renders unconditionally, and
+ * index.css's `@media (max-width: 640px)` block only changes where each
+ * cell is drawn (a two-column, three-line card), not whether it renders.
  *
  * AUTO-001 fix pass 2, item 8: every supplier row carries a stable anchor,
  * `id="s-<supplierId>"`, so a single figure can be linked directly rather
