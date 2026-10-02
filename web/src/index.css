@@ -3905,16 +3905,43 @@ summary:focus-visible,
    percentages scans faster right-aligned with tabular figures than left-
    aligned prose does. "Own metric", "Ownership or last round", and
    "Events" are short compound sentences, not bare numbers, so they stay
-   left-aligned. */
+   left-aligned.
+
+   Coordinator follow-up: this never actually won. `.tracker-table th,
+   .tracker-table td { text-align: left; ... }` above combines a class with
+   a type selector (specificity 0,1,1); `.tracker-cell--numeric` alone is
+   0,1,0 — lower specificity loses regardless of which rule comes later in
+   the file, so every numeric cell was silently rendering left-aligned
+   under a right-aligned header. Qualifying both selectors with
+   `.tracker-table td` matches the base rule's specificity and wins on
+   source order, the way the comment above always assumed it did. */
 .tracker-table th:nth-child(2),
 .tracker-table th:nth-child(3),
-.tracker-cell--numeric {
+.tracker-table td.tracker-cell--numeric {
   text-align: right;
 }
 
 .tracker-cell--numeric,
 .tracker-figure__value {
   font-variant-numeric: tabular-nums;
+}
+
+/* Coordinator follow-up, second half: right-aligning the cell (the fix
+   above) pins every row's trailing "src" link to the same x position, but
+   the sign and the percentage itself still started wherever that row's
+   "Q Jul 26 · filed 26 Aug" text happened to end — different suppliers'
+   period/filed text run different lengths, so the one thing a reader
+   actually scans down the column, the growth figure, still didn't stack.
+   Giving the value its own fixed, right-aligned slot inside the row's flex
+   layout means the sign and the decimal land in the same place every row,
+   independent of how long the text after it runs. 3.5rem comfortably
+   fits the widest figure the data carries ("+123.4%"; nothing in this
+   dataset runs to four digits) without taking noticeably more room from
+   the period text next to it. */
+.tracker-cell--numeric .tracker-figure__value {
+  display: inline-block;
+  min-width: 3.5rem;
+  text-align: right;
 }
 
 .tracker-table__sort {
