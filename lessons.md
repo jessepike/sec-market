@@ -3,6 +3,13 @@
 Hot buffer. One line per insight, newest date first. Keep the last ~15; promote
 cross-project patterns to the knowledge base and drop them from here.
 
+## 2026-10-02
+
+- [withheld:2026-10-02] A backgrounded tool call wrapping a command that ALSO backgrounds itself with a trailing `&` produces an orphaned, unreliable process — the wrapper returns immediately while the real work's survival across turns (especially across a session interruption) is uncertain. Pass the long-running command directly to the backgrounding mechanism without an internal `&`; that is the form that gives a trustworthy completion notification.
+- [withheld:2026-10-02] After any session-rate-limit or similar interruption, a "completed exit code 0" notification for a background task is not proof it ran — check ground truth (a result file's timestamp/content, `ps aux`) before trusting it. One batch of this session's 74-supplier collector run silently never executed despite reporting success; only a timestamp check caught it.
+- [withheld:2026-10-02] A script whose receipt file is overwritten by each invocation (by design, to reflect only that invocation's own findings) cannot be trusted as-is after running it multiple times in sequence for one combined result — `scripts/collect.sh`'s `collectorRun` block in `collectState.json` needed hand-merging across 7 batched runs so the site's reported failed-supplier count reflected the whole 74-supplier run instead of just the last batch.
+- [withheld:2026-10-02] A supplier's own news counting as "unreadable" is only honest after a real fallback chain, not after one fetch failing — RSS/Atom, sitemap, an IR subdomain, a wire-service copy (GlobeNewswire/PR Newswire/Business Wire), and an EDGAR full-text search, in that order, with the failure detail naming which routes were tried.
+
 ## 2026-09-21
 
 - [withheld:2026-09-21] `web/scripts/shot.mjs` needs Google Chrome and fails in the OrbStack VM. `docs/active/fable-run/evidence/baseline/capture.mjs` uses plain chromium and works there; copy it rather than modifying `shot.mjs`.

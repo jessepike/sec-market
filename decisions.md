@@ -1001,3 +1001,19 @@ removed. The comparison now covers `web/`, `.github/` and `scripts/` (minus the 
 An unreviewed change to the site, its workflows or its publishing scripts still stops production
 from moving; the data then lands on `preview` only and the page reads "collection incomplete".
 The coordinator took this on its own recommendation under D-77.
+
+**D-81 · 2026-10-02 — Fix pass 4's collector run's failed-newsroom count is taken from a hand-merged `collectState.json`, not from `collect.sh`'s own last write.**
+
+Two blind scorers failed the preview build on rubric v3.0 (Opus 59.8/100, Sol 39.0/100); a 12-item
+data/pipeline fix list followed, worked in worktree `sec-market-wt/fitfix` on branch `mon/fitfix`.
+Item 11 reran the incremental collector against all 74 declared suppliers, split into 7 batches
+(`SMP_COLLECT_SINCE=2026-09-26`) because a single run exceeds a practical turn length. Each batch
+invocation of `scripts/collect.sh` overwrites `collectState.json`'s `collectorRun` block with only
+that invocation's own findings, by design. Trusting the last batch's own write would have reported
+the site's failed-newsroom count as whatever the final batch alone found, not the true count across
+all 74 suppliers. The coordinator's explicit instruction was that the count must reflect the whole
+run. The block was instead hand-built from the 7 batches' saved `failed-sources.json` receipts
+(archived at `docs/active/auto/fitfix4/batch-receipts/`), merged to 11 of 74 suppliers whose
+newsroom could not be read after exhausting a five-route fallback chain (RSS/Atom, sitemap, an IR
+subdomain, a wire-service copy, EDGAR full-text search) — down from 28 before this pass. Full detail
+and every fact changed: `docs/active/auto/fitfix4/data-report.md`.
