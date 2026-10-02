@@ -3777,6 +3777,25 @@ const handWrittenEvidenceRecords: EvidenceRecord[] = [
   "retrievedAt": "2026-09-25"
 },
 {
+  "id": "TR-qualys-2",
+  "title": "Qualys Inc. Q1 2026 Financial Results",
+  "organization": "Qualys, Inc.",
+  "publicationDate": "2026-05-05",
+  "economicPeriod": "Quarter ended 2026-03-31",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1107843/000110784326000013/qlys-20260505xex991.htm",
+  "excerpt": "Revenues for the first quarter of 2026 increased by 10% to $175.6 million compared to $159.9 million for the same quarter in 2025.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "AUTO-001 fix pass 4, item 7: added so the tracker's prior-quarter cell is no longer bare — the tracker previously had no citation for Qualys's Q1 2026 figures at all. Precise YoY growth from these two figures is 9.8%, consistent with the release's own rounded \"10%\" headline; confirmed against the comparative income statement in Qualys's own Q2 2026 10-Q (same $175,638K / $159,899K figures, in thousands).",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-qualys-2",
+  "tags": [
+    "tracker",
+    "exposure"
+  ],
+  "retrievedAt": "2026-10-01"
+},
+{
   "id": "TR-rapid7-1",
   "title": "Rapid7 Inc. Q2 2026 Financial Results",
   "organization": "Rapid7, Inc.",
@@ -4049,10 +4068,10 @@ const handWrittenEvidenceRecords: EvidenceRecord[] = [
   "publicationDate": "2026-06-12",
   "economicPeriod": "Quarter ended April 30, 2026",
   "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/2030781/000203078126000011/sail-20260430.htm",
-  "excerpt": "Revenue $280.142 million, +21.5% YoY; ARR $1,162.7 million, +25.8% YoY.",
+  "excerpt": "Total revenue $280,142 thousand (Q1 FY2027) vs $230,468 thousand (Q1 FY2026), a $49,674 thousand / 22% increase per the filing's own MD&A table.",
   "sourceClass": "FILING",
   "interpretation": "",
-  "limitations": "",
+  "limitations": "AUTO-001 fix pass 4, item 6: the tracker previously rounded this to 21.5%; the precise figure from these same two reported dollar values is 21.6% (49,674 / 230,468), which still rounds to the 22% change SailPoint's own MD&A table states.",
   "conflictingEvidenceIds": [],
   "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-sailpoint-2",
   "tags": [
@@ -4347,6 +4366,25 @@ const handWrittenEvidenceRecords: EvidenceRecord[] = [
   "retrievedAt": "2026-09-25"
 },
 {
+  "id": "TR-tenable-3",
+  "title": "Tenable Holdings Q1 2026 Financial Results",
+  "organization": "Tenable Holdings, Inc.",
+  "publicationDate": "2026-04-29",
+  "economicPeriod": "Quarter ended 2026-03-31",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1660280/000166028026000020/q12026financialresults-ear.htm",
+  "excerpt": "Revenue of $262.1 million, year-over-year growth of 9.6%.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "AUTO-001 fix pass 4, item 7: added so the tracker's prior-quarter cell is no longer bare — the tracker previously had no citation for Tenable's Q1 2026 figures at all. The company's own stated 9.6% YoY figure matches the precise computation from its own reported dollar values ($262,058K vs $239,137K, confirmed against the comparative income statement in Tenable's own Q2 2026 10-Q).",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-tenable-3",
+  "tags": [
+    "tracker",
+    "exposure"
+  ],
+  "retrievedAt": "2026-10-01"
+},
+{
   "id": "TR-tines-1",
   "title": "Goldman, SoftBank Back AI Startup Tines Valued at $1.13 Billion",
   "organization": "Bloomberg",
@@ -4391,10 +4429,10 @@ const handWrittenEvidenceRecords: EvidenceRecord[] = [
   "publicationDate": "2026-08-13",
   "economicPeriod": "Quarter ended 2026-06-30",
   "canonicalUrl": "https://newsroom.trendmicro.com/2026-08-13-Trend-Micro-Reports-Earnings-Results-for-Q2-2026",
-  "excerpt": "ARR exceeded $1.7 billion, up 5% year over year. FY2026 operating-income guidance cut from ¥56.4 billion to ¥44.4 billion due to rising artificial-intelligence and cloud-computing token costs.",
+  "excerpt": "ARR exceeded $1.7 billion, up 5% year over year. Total company net sales up 13% YoY; consolidated net sales of 74,739 million yen (US $468 million at 159.47 JPY = 1 USD) for the quarter. FY2026 operating-income guidance cut from ¥56.4 billion to ¥44.4 billion due to rising artificial-intelligence and cloud-computing token costs.",
   "sourceClass": "IR",
   "interpretation": "",
-  "limitations": "Company is Tokyo-listed; not an active SEC filer.",
+  "limitations": "AUTO-001 fix pass 4, item 7: added the revenue-growth figure (previously bare in the tracker). The release states the 13% YoY net-sales growth as a whole percent and does not give the prior-year yen figure in its own text (only in a financial-supplement table this evidence record does not reach), so the tracker stores the company's own whole-percent figure rather than a fabricated one-decimal value. Company is Tokyo-listed; not an active SEC filer.",
   "conflictingEvidenceIds": [],
   "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-trend-1",
   "tags": [

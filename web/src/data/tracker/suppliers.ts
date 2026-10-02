@@ -19,6 +19,8 @@ export interface HeadlineMetric {
 
 export interface RevenuePeriod {
   value: string
+  /** Same quarter, one year earlier — the figure `yoyGrowth` is computed from. AUTO-001 fix pass 4, item 6. */
+  priorYearValue?: string
   yoyGrowth: string
   period: string
   periodEnd: string
@@ -409,7 +411,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "revenue": {
       "latest": {
         "value": "$696.1 million",
-        "yoyGrowth": "36%",
+        "priorYearValue": "$512.3 million",
+        "yoyGrowth": "+35.9%",
         "period": "Q2 2026",
         "periodEnd": "2026-06-30",
         "releaseDate": "2026-08-06",
@@ -419,7 +422,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
       },
       "prior": {
         "value": "$639.8 million",
-        "yoyGrowth": "34%",
+        "priorYearValue": "$479.1 million",
+        "yoyGrowth": "+33.5%",
         "period": "Q1 2026",
         "periodEnd": "2026-03-31",
         "evidenceIds": [
@@ -463,7 +467,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "revenue": {
       "latest": {
         "value": "$314.1 million",
-        "yoyGrowth": "+11%",
+        "priorYearValue": "$282.0 million",
+        "yoyGrowth": "+11.4%",
         "period": "Q1 FY2027",
         "periodEnd": "2026-06-30",
         "releaseDate": "2026-07-28",
@@ -473,7 +478,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
       },
       "prior": {
         "value": "$311.7 million",
-        "yoyGrowth": "+13%",
+        "priorYearValue": "$275.0 million",
+        "yoyGrowth": "+13.3%",
         "period": "Q4 FY2026",
         "periodEnd": "2026-03-31",
         "evidenceIds": [
@@ -512,7 +518,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "revenue": {
       "latest": {
         "value": "$1.47 billion",
-        "yoyGrowth": "+26%",
+        "priorYearValue": "$1.17 billion",
+        "yoyGrowth": "+25.8%",
         "period": "Q2 FY2027",
         "periodEnd": "2026-07-31",
         "releaseDate": "2026-08-26",
@@ -522,7 +529,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
       },
       "prior": {
         "value": "$1.39 billion",
-        "yoyGrowth": "+26%",
+        "priorYearValue": "$1.10 billion",
+        "yoyGrowth": "+25.6%",
         "period": "Q1 FY2027",
         "periodEnd": "2026-04-30",
         "evidenceIds": [
@@ -719,7 +727,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "revenue": {
       "latest": {
         "value": "$2.05 billion",
-        "yoyGrowth": "26%",
+        "priorYearValue": "$1.63 billion",
+        "yoyGrowth": "+25.6%",
         "period": "Q2 2026",
         "periodEnd": "2026-06-30",
         "releaseDate": "2026-07-29",
@@ -729,7 +738,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
       },
       "prior": {
         "value": "$1.85 billion",
-        "yoyGrowth": "20%",
+        "priorYearValue": "$1.54 billion",
+        "yoyGrowth": "+20.1%",
         "period": "Q1 2026",
         "periodEnd": "2026-03-31",
         "evidenceIds": [
@@ -837,7 +847,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "revenue": {
       "latest": {
         "value": "$163.8 million",
-        "yoyGrowth": "+29%",
+        "priorYearValue": "$127.2 million",
+        "yoyGrowth": "+28.7%",
         "period": "Q2 2026",
         "periodEnd": "2026-06-30",
         "releaseDate": "2026-08-06",
@@ -847,7 +858,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
       },
       "prior": {
         "value": "$154.0 million",
-        "yoyGrowth": "+26%",
+        "priorYearValue": "$122.4 million",
+        "yoyGrowth": "+25.8%",
         "period": "Q1 2026",
         "periodEnd": "2026-03-31",
         "evidenceIds": [
@@ -963,7 +975,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "revenue": {
       "latest": {
         "value": "$220.5 million",
-        "yoyGrowth": "29%",
+        "priorYearValue": "$170.8 million",
+        "yoyGrowth": "+29.2%",
         "period": "Q2 FY2027",
         "periodEnd": "2026-07-31",
         "releaseDate": "2026-09-02",
@@ -973,7 +986,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
       },
       "prior": {
         "value": "$201.6 million",
-        "yoyGrowth": "28%",
+        "priorYearValue": "$157.7 million",
+        "yoyGrowth": "+27.8%",
         "period": "Q1 FY2027",
         "periodEnd": "2026-04-30",
         "evidenceIds": [
@@ -1027,7 +1041,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "revenue": {
       "latest": {
         "value": "$805 million",
-        "yoyGrowth": "11%",
+        "priorYearValue": "$728 million",
+        "yoyGrowth": "+10.6%",
         "period": "Q2 FY2027",
         "periodEnd": "2026-07-31",
         "releaseDate": "2026-08-26",
@@ -1037,7 +1052,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
       },
       "prior": {
         "value": "$765 million",
-        "yoyGrowth": "11.2%",
+        "priorYearValue": "$688 million",
+        "yoyGrowth": "+11.2%",
         "period": "Q1 FY2027",
         "periodEnd": "2026-04-30",
         "evidenceIds": [
@@ -1118,7 +1134,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "revenue": {
       "latest": {
         "value": "$3.41 billion",
-        "yoyGrowth": "+34%",
+        "priorYearValue": "$2.54 billion",
+        "yoyGrowth": "+34.5%",
         "period": "Q4 FY2026",
         "periodEnd": "2026-07-31",
         "releaseDate": "2026-09-01",
@@ -1128,7 +1145,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
       },
       "prior": {
         "value": "$3.0 billion",
-        "yoyGrowth": "+31%",
+        "priorYearValue": "$2.29 billion",
+        "yoyGrowth": "+31.1%",
         "period": "Q3 FY2026",
         "periodEnd": "2026-04-30",
         "evidenceIds": [
@@ -1235,12 +1253,23 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "revenue": {
       "latest": {
         "value": "$182.2 million",
-        "yoyGrowth": "+11%",
+        "priorYearValue": "$164.1 million",
+        "yoyGrowth": "+11.0%",
         "period": "Q2 2026",
         "periodEnd": "2026-06-30",
         "releaseDate": "2026-08-04",
         "evidenceIds": [
           "TR-qualys-1"
+        ]
+      },
+      "prior": {
+        "value": "$175.6 million",
+        "priorYearValue": "$159.9 million",
+        "yoyGrowth": "+9.8%",
+        "period": "Q1 2026",
+        "periodEnd": "2026-03-31",
+        "evidenceIds": [
+          "TR-qualys-2"
         ]
       }
     },
@@ -1272,6 +1301,7 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "revenue": {
       "latest": {
         "value": "$210.9 million",
+        "priorYearValue": "$214.2 million",
         "yoyGrowth": "-1.5%",
         "period": "Q2 2026",
         "periodEnd": "2026-06-30",
@@ -1282,6 +1312,7 @@ export const trackerSuppliers: TrackerSupplier[] = [
       },
       "prior": {
         "value": "$210 million",
+        "priorYearValue": "$210.3 million",
         "yoyGrowth": "-0.3%",
         "period": "Q1 2026",
         "periodEnd": "2026-03-31",
@@ -1354,7 +1385,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "revenue": {
       "latest": {
         "value": "$427.3 million",
-        "yoyGrowth": "+38%",
+        "priorYearValue": "$309.9 million",
+        "yoyGrowth": "+37.9%",
         "period": "Q2 FY2027",
         "periodEnd": "2026-07-31",
         "releaseDate": "2026-08-27",
@@ -1364,7 +1396,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
       },
       "prior": {
         "value": "$387.1 million",
-        "yoyGrowth": "+39%",
+        "priorYearValue": "$278.5 million",
+        "yoyGrowth": "+39.0%",
         "period": "Q1 FY2027",
         "periodEnd": "2026-04-30",
         "evidenceIds": [
@@ -1400,7 +1433,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "revenue": {
       "latest": {
         "value": "$292 million",
-        "yoyGrowth": "+21%",
+        "priorYearValue": "$242 million",
+        "yoyGrowth": "+20.6%",
         "period": "Q2 FY2027",
         "periodEnd": "2026-07-31",
         "releaseDate": "2026-08-27",
@@ -1410,7 +1444,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
       },
       "prior": {
         "value": "$277 million",
-        "yoyGrowth": "+21%",
+        "priorYearValue": "$229 million",
+        "yoyGrowth": "+20.8%",
         "period": "Q1 FY2027",
         "periodEnd": "2026-04-30",
         "evidenceIds": [
@@ -1446,7 +1481,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "revenue": {
       "latest": {
         "value": "$308.8 million",
-        "yoyGrowth": "16.8%",
+        "priorYearValue": "$264.4 million",
+        "yoyGrowth": "+16.8%",
         "period": "Q2 FY2027",
         "periodEnd": "2026-07-31",
         "releaseDate": "2026-09-10",
@@ -1456,7 +1492,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
       },
       "prior": {
         "value": "$280.142 million",
-        "yoyGrowth": "21.5%",
+        "priorYearValue": "$230.468 million",
+        "yoyGrowth": "+21.6%",
         "period": "Q1 FY2027",
         "periodEnd": "2026-04-30",
         "evidenceIds": [
@@ -1600,12 +1637,23 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "revenue": {
       "latest": {
         "value": "$268.5 million",
+        "priorYearValue": "$247.3 million",
         "yoyGrowth": "+8.6%",
         "period": "Q2 2026",
         "periodEnd": "2026-06-30",
         "releaseDate": "2026-07-29",
         "evidenceIds": [
           "TR-tenable-1"
+        ]
+      },
+      "prior": {
+        "value": "$262.1 million",
+        "priorYearValue": "$239.1 million",
+        "yoyGrowth": "+9.6%",
+        "period": "Q1 2026",
+        "periodEnd": "2026-03-31",
+        "evidenceIds": [
+          "TR-tenable-3"
         ]
       }
     },
@@ -1668,6 +1716,18 @@ export const trackerSuppliers: TrackerSupplier[] = [
       "evidenceIds": [
         "TR-trend-1"
       ]
+    },
+    "revenue": {
+      "latest": {
+        "value": "$468 million",
+        "yoyGrowth": "+13%",
+        "period": "Q2 2026",
+        "periodEnd": "2026-06-30",
+        "releaseDate": "2026-08-13",
+        "evidenceIds": [
+          "TR-trend-1"
+        ]
+      }
     },
     "ownership": {
       "status": "Independent, publicly traded on Tokyo Stock Exchange. Not an active SEC filer.",
@@ -1737,6 +1797,7 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "revenue": {
       "latest": {
         "value": "$180.0 million",
+        "priorYearValue": "$152.2 million",
         "yoyGrowth": "+18.3%",
         "period": "Q2 2026",
         "periodEnd": "2026-06-30",
@@ -1747,7 +1808,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
       },
       "prior": {
         "value": "$173.1 million",
-        "yoyGrowth": "+27%",
+        "priorYearValue": "$136.4 million",
+        "yoyGrowth": "+26.9%",
         "period": "Q1 2026",
         "periodEnd": "2026-03-31",
         "evidenceIds": [
@@ -1908,7 +1970,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "revenue": {
       "latest": {
         "value": "$898.2 million",
-        "yoyGrowth": "25%",
+        "priorYearValue": "$719.2 million",
+        "yoyGrowth": "+24.9%",
         "period": "Q4 FY2026",
         "periodEnd": "2026-07-31",
         "releaseDate": "2026-09-03",
@@ -1918,7 +1981,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
       },
       "prior": {
         "value": "$850.5 million",
-        "yoyGrowth": "25%",
+        "priorYearValue": "$678.0 million",
+        "yoyGrowth": "+25.4%",
         "period": "Q3 FY2026",
         "periodEnd": "2026-04-30",
         "evidenceIds": [
