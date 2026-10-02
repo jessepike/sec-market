@@ -3986,6 +3986,16 @@ summary:focus-visible,
   white-space: nowrap;
 }
 
+/* Fix pass 4, item 7: this span sits in the row's 1fr column, which on a
+   wide screen stretches to the full remaining row width — both blind
+   scores measured prose running to roughly 190 characters per line here.
+   Capping the span itself (not the grid track) keeps the two- and
+   three-column row layout intact and wraps the sentence at the same
+   ~75-character measure used everywhere else on the page. */
+.tracker-changed__text {
+  max-width: var(--prose-max);
+}
+
 .tracker-coverage__domains,
 .tracker-coverage__not-covered {
   margin: 0.75rem 0;
@@ -3995,6 +4005,7 @@ summary:focus-visible,
 .tracker-coverage__domains li,
 .tracker-coverage__not-covered li {
   margin-bottom: 0.35rem;
+  max-width: var(--prose-max);
 }
 
 /* Fix pass 4, item 2: these domain-jump links measured 20px tall — an
