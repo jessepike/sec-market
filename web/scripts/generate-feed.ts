@@ -19,6 +19,11 @@
  *     requires it to exist and equal the source file exactly.
  *   - dist/corrections.json — every correction, newest first, in the shape
  *     src/data/correctionHelpers.ts's correctionsJsonPayload builds.
+ *   - dist/tracker.json — run status, domains, suppliers, and every tracker
+ *     figure (headline metric, revenue reading, last funding round,
+ *     ownership fact) with a stable id/value/period/source URL, in the
+ *     shape src/data/tracker/jsonExport.ts's trackerJsonPayload builds
+ *     (AUTO-001 fix pass 4, item 10).
  *
  * Also adds a feed-autodiscovery <link rel="alternate" type="application/
  * rss+xml"> to every emitted route's <head>.
@@ -48,7 +53,14 @@ import {
 import { issues } from '../src/data/issues/index.ts'
 import { PRODUCT_TITLE, SITE_URL } from '../src/data/meta.ts'
 import { routes, type RouteEntry } from '../src/data/routes.ts'
+import { runStatus } from '../src/data/runStatus.ts'
+import { trackerDomains } from '../src/data/tracker/domains.ts'
+import { trackerJsonPayload } from '../src/data/tracker/jsonExport.ts'
+import { trackerSuppliers } from '../src/data/tracker/suppliers.ts'
 import type { Correction, EvidenceRecord, Issue } from '../src/data/types.ts'
+import type { RunStatus } from '../src/data/runStatus.ts'
+import type { TrackerDomain } from '../src/data/tracker/domains.ts'
+import type { TrackerSupplier } from '../src/data/tracker/suppliers.ts'
 
 const webRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const SOURCE_LOCK_PATH = resolve(webRoot, 'src/data/issues/issues.lock.json')
@@ -173,6 +185,26 @@ export function writeIssueJsonCopies(
   return written
 }
 
+/**
+ * Writes `dist/tracker.json` — run status, domains, suppliers, and every
+ * tracker figure, in the stable shape `trackerJsonPayload` builds. Mirrors
+ * `writeCorrectionsJson` above: a pure payload builder in
+ * src/data/tracker/jsonExport.ts, a thin writer here, and a matching checker
+ * in verify-dist.ts.
+ */
+export function writeTrackerJson(
+  suppliers: TrackerSupplier[],
+  domains: TrackerDomain[],
+  evidenceByIdMap: Record<string, EvidenceRecord>,
+  status: RunStatus,
+  distDir: string,
+): { path: string; figureCount: number } {
+  const payload = trackerJsonPayload(suppliers, domains, evidenceByIdMap, status)
+  const path = resolve(distDir, 'tracker.json')
+  writeFileSync(path, JSON.stringify(payload, null, 2))
+  return { path, figureCount: payload.figures.length }
+}
+
 export function writeIssuesIndexJson(issuesList: Issue[], distDir: string): { path: string; count: number } {
   const indexPayload = archiveEntriesNewestFirst(issuesList).map((entry) => ({
     ...entry,
@@ -238,6 +270,11 @@ if (isMainModule()) {
     `generate-feed OK: wrote dist/issues/lock.json with ${lockResult.entryCount} entr${lockResult.entryCount === 1 ? 'y' : 'ies'}.`,
   )
 
+  const trackerResult = writeTrackerJson(trackerSuppliers, trackerDomains, evidenceById, runStatus, distDir)
+  console.log(
+    `generate-feed OK: wrote dist/tracker.json with ${trackerResult.figureCount} figure(s).`,
+  )
+
   // --- feed + JSON machine-surface autodiscovery links, every route -------
   //
   // Wave 1 of agent-surface-spec.md §3.6/§6: the three JSON files above were
@@ -256,6 +293,7 @@ if (isMainModule()) {
       : []),
     { href: `${SITE_URL}/issues/lock.json`, title: 'Publication ledger (JSON)' },
     { href: `${SITE_URL}/corrections.json`, title: 'Corrections (JSON)' },
+    { href: `${SITE_URL}/tracker.json`, title: 'Tracker (JSON)' },
   ]
 
   for (const routeEntry of routes) {

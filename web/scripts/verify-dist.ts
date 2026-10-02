@@ -28,7 +28,14 @@ import {
 import { issues } from '../src/data/issues/index.ts'
 import { SITE_URL } from '../src/data/meta.ts'
 import { routesFor } from '../src/data/routes.ts'
+import { runStatus } from '../src/data/runStatus.ts'
+import { trackerDomains } from '../src/data/tracker/domains.ts'
+import { trackerJsonPayload } from '../src/data/tracker/jsonExport.ts'
+import { trackerSuppliers } from '../src/data/tracker/suppliers.ts'
 import type { Correction, EvidenceRecord, Issue } from '../src/data/types.ts'
+import type { RunStatus } from '../src/data/runStatus.ts'
+import type { TrackerDomain } from '../src/data/tracker/domains.ts'
+import type { TrackerSupplier } from '../src/data/tracker/suppliers.ts'
 
 const webRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const SOURCE_LOCK_PATH = resolve(webRoot, 'src/data/issues/issues.lock.json')
@@ -749,12 +756,14 @@ function alternateLinkFilePath(distDir: string, href: string): string {
  * for SEC-MARKET-FABLE-001 T6-13: every route must also specifically
  * advertise `/corrections.json`, not merely have *some* alternate links that
  * happen to resolve — a build that silently dropped that one link target
- * would otherwise still pass.
+ * would otherwise still pass. Extended again for AUTO-001 fix pass 4, item
+ * 10: the same specific-advertisement requirement for `/tracker.json`.
  */
 export function checkAlternateLinksResolve(distDir: string, issuesList: Issue[]): CheckResult {
   return runCheck('11h alternate-link-targets-exist', () => {
     const routesList = routesFor(issuesList)
     const correctionsJsonHref = `${SITE_URL}/corrections.json`
+    const trackerJsonHref = `${SITE_URL}/tracker.json`
     let checkedCount = 0
     for (const routeEntry of routesList) {
       const path = routeHtmlPath(distDir, routeEntry.path)
@@ -787,8 +796,13 @@ export function checkAlternateLinksResolve(distDir: string, issuesList: Issue[])
           `route "${routeEntry.path}": no <link rel="alternate"> advertises "${correctionsJsonHref}"`,
         )
       }
+      if (!hrefsSeen.includes(trackerJsonHref)) {
+        throw new Error(
+          `route "${routeEntry.path}": no <link rel="alternate"> advertises "${trackerJsonHref}"`,
+        )
+      }
     }
-    return `${checkedCount} alternate link target(s) verified across ${routesList.length} route(s), corrections.json link confirmed on every route`
+    return `${checkedCount} alternate link target(s) verified across ${routesList.length} route(s), corrections.json and tracker.json links confirmed on every route`
   })
 }
 
@@ -823,13 +837,50 @@ export function checkCorrectionsJsonExists(distDir: string, correctionsList: Cor
   })
 }
 
+// --- 11j: dist/tracker.json exists and identity-matches the source data ----
+
+/**
+ * `dist/tracker.json` must exist, parse, and deep-equal the payload
+ * `trackerJsonPayload` builds from the source tracker data — the same
+ * identity discipline check 11i applies to corrections.json (AUTO-001 fix
+ * pass 4, item 10).
+ */
+export function checkTrackerJsonExists(
+  distDir: string,
+  suppliers: TrackerSupplier[],
+  domains: TrackerDomain[],
+  evidenceByIdMap: Record<string, EvidenceRecord>,
+  status: RunStatus,
+): CheckResult {
+  return runCheck('11j tracker-json-exists', () => {
+    const path = resolve(distDir, 'tracker.json')
+    if (!existsSync(path)) {
+      throw new Error('dist/tracker.json is missing')
+    }
+    const parsed = JSON.parse(readFileSync(path, 'utf8'))
+    const expected = JSON.parse(
+      JSON.stringify(trackerJsonPayload(suppliers, domains, evidenceByIdMap, status)),
+    )
+    try {
+      assert.deepStrictEqual(parsed, expected)
+    } catch (error) {
+      throw new Error(
+        `dist/tracker.json does not deep-equal the expected payload: ${
+          error instanceof Error ? error.message : String(error)
+        }`,
+      )
+    }
+    return `${parsed.figures.length} figure(s) across ${parsed.suppliers.length} supplier(s), well-formed, and identity-checked`
+  })
+}
+
 // --- Script entry point: only runs when this file is executed directly -----
 
 function isMainModule(): boolean {
   return process.argv[1] !== undefined && pathToFileURL(process.argv[1]).href === import.meta.url
 }
 
-const EXPECTED_CHECK_COUNT = 9
+const EXPECTED_CHECK_COUNT = 10
 
 export function report(results: CheckResult[]): boolean {
   if (results.length !== EXPECTED_CHECK_COUNT) {
@@ -863,6 +914,7 @@ if (isMainModule()) {
       checkRouteDescriptionMeta(distDir, issues),
       checkAlternateLinksResolve(distDir, issues),
       checkCorrectionsJsonExists(distDir, corrections),
+      checkTrackerJsonExists(distDir, trackerSuppliers, trackerDomains, evidenceById, runStatus),
     ]
     const anyFail = report(results)
     if (anyFail) {

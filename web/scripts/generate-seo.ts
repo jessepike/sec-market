@@ -337,6 +337,7 @@ const jsonUrls = [
   ...(newestPublishedForSitemap ? [`${SITE_URL}/issues/${newestPublishedForSitemap.id}.json`] : []),
   `${SITE_URL}/issues/lock.json`,
   `${SITE_URL}/corrections.json`,
+  `${SITE_URL}/tracker.json`,
 ]
 const jsonEntries = jsonUrls
   .map(
