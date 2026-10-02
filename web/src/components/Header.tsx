@@ -24,10 +24,17 @@ interface NavItem {
 // dropped — DomainBoard's LandscapeSection no longer renders on any route,
 // so the link had no target left to resolve to (see App.tsx's FrontPage
 // comment).
+// Fix pass 4, item 12: "What this site covers" (tracker-coverage) sat about
+// 7,000px down a 9,924px page with nothing pointing at it from the top. A
+// nav link is the smaller, reversible fix — it reaches the section in one
+// click from every route without reordering the page the last few fix
+// passes already arranged (run status -> tracker -> what changed ->
+// coverage).
 const navItems: NavItem[] = [
   { href: '#overview', label: 'Status' },
   { href: '/issues/', label: 'Archive', crossPage: true },
   { href: '#market', label: 'Market' },
+  { href: '#tracker-coverage', label: 'Coverage' },
   { href: '#research', label: 'Evidence' },
   { href: '#method', label: 'Method' },
   { href: '/feed.xml', label: 'Feed', crossPage: true },
