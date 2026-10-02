@@ -1,0 +1,233 @@
+[
+  {
+    "id": "EV-filing-crwd-0001535527-26-000018",
+    "supplierId": "crwd",
+    "date": "2026-04-21",
+    "type": "exec-change",
+    "text": "Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2026-04-21.",
+    "evidenceIds": [
+      "TR-filing-crwd-0001535527-26-000018"
+    ],
+    "rung": 1
+  },
+  {
+    "id": "EV-filing-crwd-0001104659-25-124912",
+    "supplierId": "crwd",
+    "date": "2025-12-29",
+    "type": "exec-change",
+    "text": "Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2025-12-29.",
+    "evidenceIds": [
+      "TR-filing-crwd-0001104659-25-124912"
+    ],
+    "rung": 1
+  },
+  {
+    "id": "EV-filing-zscaler-0001713683-26-000082",
+    "supplierId": "zscaler",
+    "date": "2026-04-16",
+    "type": "exec-change",
+    "text": "Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2026-04-16.",
+    "evidenceIds": [
+      "TR-filing-zscaler-0001713683-26-000082"
+    ],
+    "rung": 1
+  },
+  {
+    "id": "EV-filing-panw-0001193125-26-361122",
+    "supplierId": "panw",
+    "date": "2026-08-21",
+    "type": "exec-change",
+    "text": "Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2026-08-21.",
+    "evidenceIds": [
+      "TR-filing-panw-0001193125-26-361122"
+    ],
+    "rung": 1
+  },
+  {
+    "id": "EV-filing-panw-0001193125-25-315915",
+    "supplierId": "panw",
+    "date": "2025-12-11",
+    "type": "exec-change",
+    "text": "Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2025-12-11.",
+    "evidenceIds": [
+      "TR-filing-panw-0001193125-25-315915"
+    ],
+    "rung": 1
+  },
+  {
+    "id": "EV-filing-cloudflare-0001477333-26-000042",
+    "supplierId": "cloudflare",
+    "date": "2026-06-30",
+    "type": "exec-change",
+    "text": "Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2026-06-30.",
+    "evidenceIds": [
+      "TR-filing-cloudflare-0001477333-26-000042"
+    ],
+    "rung": 1
+  },
+  {
+    "id": "EV-filing-cloudflare-0001477333-26-000009",
+    "supplierId": "cloudflare",
+    "date": "2026-02-10",
+    "type": "exec-change",
+    "text": "Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2026-02-10.",
+    "evidenceIds": [
+      "TR-filing-cloudflare-0001477333-26-000009"
+    ],
+    "rung": 1
+  },
+  {
+    "id": "EV-filing-okta-0001660134-26-000072",
+    "supplierId": "okta",
+    "date": "2026-09-18",
+    "type": "exec-change",
+    "text": "Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2026-09-18.",
+    "evidenceIds": [
+      "TR-filing-okta-0001660134-26-000072"
+    ],
+    "rung": 1
+  },
+  {
+    "id": "EV-filing-okta-0001660134-26-000054",
+    "supplierId": "okta",
+    "date": "2026-06-23",
+    "type": "exec-change",
+    "text": "Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2026-06-23.",
+    "evidenceIds": [
+      "TR-filing-okta-0001660134-26-000054"
+    ],
+    "rung": 1
+  },
+  {
+    "id": "EV-filing-okta-0001193125-26-170498",
+    "supplierId": "okta",
+    "date": "2026-04-22",
+    "type": "exec-change",
+    "text": "Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2026-04-22.",
+    "evidenceIds": [
+      "TR-filing-okta-0001193125-26-170498"
+    ],
+    "rung": 1
+  },
+  {
+    "id": "EV-filing-okta-0001660134-26-000029",
+    "supplierId": "okta",
+    "date": "2026-03-23",
+    "type": "exec-change",
+    "text": "Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2026-03-23.",
+    "evidenceIds": [
+      "TR-filing-okta-0001660134-26-000029"
+    ],
+    "rung": 1
+  },
+  {
+    "id": "EV-filing-okta-0001660134-26-000024",
+    "supplierId": "okta",
+    "date": "2026-03-11",
+    "type": "exec-change",
+    "text": "Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2026-03-11.",
+    "evidenceIds": [
+      "TR-filing-okta-0001660134-26-000024"
+    ],
+    "rung": 1
+  },
+  {
+    "id": "EV-filing-okta-0001660134-25-000173",
+    "supplierId": "okta",
+    "date": "2025-12-19",
+    "type": "exec-change",
+    "text": "Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2025-12-19.",
+    "evidenceIds": [
+      "TR-filing-okta-0001660134-25-000173"
+    ],
+    "rung": 1
+  },
+  {
+    "id": "EV-filing-sailpoint-0002030781-26-000015",
+    "supplierId": "sailpoint",
+    "date": "2026-06-12",
+    "type": "exec-change",
+    "text": "Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2026-06-12.",
+    "evidenceIds": [
+      "TR-filing-sailpoint-0002030781-26-000015"
+    ],
+    "rung": 1
+  },
+  {
+    "id": "EV-filing-s1-0001583708-26-000025",
+    "supplierId": "s1",
+    "date": "2026-03-25",
+    "type": "exec-change",
+    "text": "Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2026-03-25.",
+    "evidenceIds": [
+      "TR-filing-s1-0001583708-26-000025"
+    ],
+    "rung": 1
+  },
+  {
+    "id": "EV-filing-rubrik-0001193125-26-037791",
+    "supplierId": "rubrik",
+    "date": "2026-02-04",
+    "type": "exec-change",
+    "text": "Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2026-02-04.",
+    "evidenceIds": [
+      "TR-filing-rubrik-0001193125-26-037791"
+    ],
+    "rung": 1
+  },
+  {
+    "id": "EV-filing-varonis-0001171843-26-003887",
+    "supplierId": "varonis",
+    "date": "2026-06-02",
+    "type": "exec-change",
+    "text": "Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2026-06-02.",
+    "evidenceIds": [
+      "TR-filing-varonis-0001171843-26-003887"
+    ],
+    "rung": 1
+  },
+  {
+    "id": "EV-filing-qualys-0001107843-26-000024",
+    "supplierId": "qualys",
+    "date": "2026-06-11",
+    "type": "exec-change",
+    "text": "Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2026-06-11.",
+    "evidenceIds": [
+      "TR-filing-qualys-0001107843-26-000024"
+    ],
+    "rung": 1
+  },
+  {
+    "id": "EV-filing-rapid7-0001560327-26-000004",
+    "supplierId": "rapid7",
+    "date": "2026-02-10",
+    "type": "exec-change",
+    "text": "Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2026-02-10.",
+    "evidenceIds": [
+      "TR-filing-rapid7-0001560327-26-000004"
+    ],
+    "rung": 1
+  },
+  {
+    "id": "EV-filing-commvault-0001169561-26-000030",
+    "supplierId": "commvault",
+    "date": "2026-09-24",
+    "type": "exec-change",
+    "text": "Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2026-09-24.",
+    "evidenceIds": [
+      "TR-filing-commvault-0001169561-26-000030"
+    ],
+    "rung": 1
+  },
+  {
+    "id": "EV-filing-commvault-0001169561-25-000080",
+    "supplierId": "commvault",
+    "date": "2025-10-20",
+    "type": "exec-change",
+    "text": "Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2025-10-20.",
+    "evidenceIds": [
+      "TR-filing-commvault-0001169561-25-000080"
+    ],
+    "rung": 1
+  }
+]

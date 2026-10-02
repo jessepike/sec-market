@@ -8,6 +8,8 @@
  * 5) is excluded, per web/scripts/verify-tracker.ts.
  */
 
+import generatedFilingEvents from '../generated/filingEvents.json' with { type: 'json' }
+
 export type TrackerEventType =
   | 'funding'
   | 'acquisition'
@@ -31,7 +33,16 @@ export interface TrackerEvent {
   rung: 1 | 2 | 3 | 4 | 5
 }
 
-export const trackerEvents: TrackerEvent[] = [
+/**
+ * Hand-collected events only. AUTO-001 fix pass 4, item 5 adds a second,
+ * generated source — `generated/filingEvents.json`, built by
+ * `scripts/filing-events.ts` straight from each SEC filer's own 8-K item
+ * codes with no model in the loop — merged in below as `trackerEvents`, the
+ * name every consumer in this codebase already imports. The generator
+ * de-duplicates against this hand-collected array by supplier + date at
+ * build time, so the merge below never needs to de-duplicate again.
+ */
+export const handCollectedEvents: TrackerEvent[] = [
   {
     "id": "EV-aqua-1",
     "supplierId": "aqua",
@@ -1067,4 +1078,9 @@ export const trackerEvents: TrackerEvent[] = [
     ],
     "rung": 1
   }
+]
+
+export const trackerEvents: TrackerEvent[] = [
+  ...handCollectedEvents,
+  ...(generatedFilingEvents as TrackerEvent[]),
 ]

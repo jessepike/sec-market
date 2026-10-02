@@ -1,6 +1,7 @@
 import type { EvidenceRecord } from './types'
+import generatedFilingEvidence from './generated/filingEvidence.json' with { type: 'json' }
 
-export const evidenceRecords: EvidenceRecord[] = [
+const handWrittenEvidenceRecords: EvidenceRecord[] = [
   {
     id: 'A1a',
     title: 'NVIDIA Q1 FY24 Financial Results',
@@ -4109,7 +4110,7 @@ export const evidenceRecords: EvidenceRecord[] = [
   "sourceClass": "IR",
   "interpretation": "",
   "limitations": "AUTO-001 fix pass 4, item 1: supersedes TR-snyk-1/TR-snyk-2's 2021 Series F figures — this Series G round is Snyk's actual most recent priced round. Two blind scorers (score3/opus, score3/sol) caught the tracker still showing the 2021 Series F as Snyk's last round while Snyk's own newsroom lists this later round.",
-  "conflictingEvidenceIds": [],
+  "conflictingEvidenceIds": ["TR-snyk-1", "TR-snyk-2"],
   "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-snyk-3",
   "tags": [
     "tracker",
@@ -5282,6 +5283,11 @@ export const evidenceRecords: EvidenceRecord[] = [
   ],
   "retrievedAt": "2026-10-01"
 },
+]
+
+export const evidenceRecords: EvidenceRecord[] = [
+  ...handWrittenEvidenceRecords,
+  ...(generatedFilingEvidence as EvidenceRecord[]),
 ]
 
 export const evidenceById = Object.fromEntries(
