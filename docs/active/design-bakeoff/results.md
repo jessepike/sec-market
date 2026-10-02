@@ -43,6 +43,17 @@ Runners-up: Opus and Fable chose B, Sol chose C, Astra chose B.
 5. Apply the fix pass 4 data rules (brief section 6a): one-decimal growth, dated facts in one format,
    named segment parents, 24-pixel targets throughout.
 
+Note on fix 1 (raised by the run coordinator): rubric v3.0 D3 level 5 test 1 asks every domain for a
+reference point, or a stated "only one public supplier". Do not drop the reference point; make it
+honest. Each domain gets one line that names its inputs and their periods, for example "Median of 4
+public suppliers' latest reported quarter (quarters ended 30 Jun to 31 Jul 2026): +26.0%", with each
+input linked to its filing, or "Only one public supplier reports quarterly revenue" where that is true.
+A two-input "median" is stated as the two figures, not as a median.
+
+Note on data (coordinator, 2026-10-02): build on `preview` at `32a771c` or later. The SEC filer count
+is now 16 and correct in the data, so derive it rather than type it. Every own metric and ownership
+fact carries an as-of date, and the new design must show it.
+
 ## What to borrow into A
 
 - From B (Fable): the reported-growth dot plot (latest quarter and the quarter before, alphabetical by
