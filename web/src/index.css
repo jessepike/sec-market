@@ -3294,6 +3294,19 @@ summary:focus-visible,
   color: var(--color-text);
 }
 
+/* Fix pass 4, item 2 (second sweep): the check1 capture still showed three
+   more inline text links under 24px tall — ArchiveLinks' "Issue archive /
+   Standing thesis / Evidence / Method" row, the RSS link here, and the
+   "/corrections/" link inside NextEdition's prose paragraph. Same fix as
+   .tracker-coverage__domains a above, for the same reason. */
+.follow-line p a,
+.tracker-links a,
+.next-edition p a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+}
+
 .methodology-note__data {
   margin-top: 0.5rem;
   font-family: var(--font-mono);
@@ -3699,6 +3712,83 @@ summary:focus-visible,
   font-family: var(--font-mono);
   font-size: 0.75rem;
   color: var(--color-text-muted);
+}
+
+/* Fix pass 4, item 4: at 390px the twelve wrapped pills above stacked into
+   five or six rows before any supplier table started, which (combined with
+   the masthead and run-status) pushed the first domain's first row to
+   about 1,285px down the page — well past an 844px first screen. The jump
+   index is a secondary "find it faster" aid, not primary reading content,
+   so it becomes one horizontally scrollable row at phone width instead of
+   wrapping. `-webkit-overflow-scrolling: touch` keeps the scroll fluid on
+   iOS; the row-level fade-free plain scrollbar is intentional — adding a
+   custom scroll affordance here would be new decoration, not a fact. */
+/* Fix pass 4, item 4 (second sweep): the domain-index scroll fix above cut
+   roughly 280px, but the first domain's first row still landed at
+   1,007px — the masthead, the run-status box, and the "market by domain"
+   intro paragraph between them still ran to about 940px of stacked prose
+   and padding before any table started. None of that text is mine to
+   shorten (SITE_DESCRIPTION is a data/meta.ts value; the intro paragraph
+   is a fact, not copy to trim), so this tightens spacing and, for the two
+   longest blocks, drops to the 14px secondary size already used elsewhere
+   on the page — a type-scale change, not a content cut. Phone width only;
+   desktop keeps the current hero size and spacing untouched. */
+@media (max-width: 640px) {
+  .site-masthead {
+    padding-bottom: 0.25rem;
+  }
+
+  .site-masthead h1 {
+    margin: 0 0 0.35rem;
+  }
+
+  .site-masthead__description {
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  .site-masthead__stamps {
+    margin-top: 0.35rem;
+  }
+
+  .run-status {
+    padding: 0.5rem 0.7rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .section-heading {
+    margin-bottom: 0.35rem;
+  }
+
+  .tracker-market .section-heading p {
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  .tracker-domain-index {
+    margin: 0.35rem 0 0.5rem;
+  }
+
+  .tracker-domain__name {
+    margin: 0 0 0.2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .tracker-domain-index ul {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.3rem;
+  }
+
+  .tracker-domain-index li {
+    flex: 0 0 auto;
+  }
+
+  .tracker-domain-index a {
+    white-space: nowrap;
+  }
 }
 
 .tracker-table-scroll {
