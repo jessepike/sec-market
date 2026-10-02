@@ -75,6 +75,25 @@ export function HowThisWorks() {
         says whether the latest run was complete.
       </p>
 
+      {/* Fix pass 4, item 10. Written only from the project's own coverage
+          model (docs/active/autonomy-coverage-plan.md §4): the twelve
+          domains are declared to match how a security budget is actually
+          spent, and each domain's supplier list is a declared, fixed set,
+          not a ranking or a scan of the whole market. Says nothing about
+          the operator's own relationship to any tracked supplier — that
+          line is the owner's to write, not this pass's. */}
+      <h3 className="method__subhead">How suppliers are chosen</h3>
+      <p className="method-copy">
+        The twelve domains are declared to match how a security budget is actually spent, not
+        generated from a ranking. Each domain&rsquo;s suppliers are a fixed, declared list, published
+        in full in &ldquo;What this site covers&rdquo; above; adding or dropping one is a data edit, not
+        a code change, and not a promise about who belongs in the market. A small funding round
+        &mdash; below Series B, or under $25 million &mdash; is counted in &ldquo;What changed in the
+        last 30 days&rdquo; but does not get its own row in the tracker unless the company is already
+        on the declared list, which is why most early-stage startups appear in the change log, if at
+        all, and not as a tracked row.
+      </p>
+
       <h3 className="method__subhead">What is not covered</h3>
       <p className="method-copy">
         {trackerDomains.length} domains, {trackerSuppliers.length} tracked suppliers — the full list,
