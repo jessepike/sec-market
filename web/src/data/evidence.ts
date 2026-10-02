@@ -2242,7 +2242,7 @@ export const evidenceRecords: EvidenceRecord[] = [
   "excerpt": "Founded in 2015, Aqua is headquartered in Boston and Ramat Gan, Israel, and protects more than 500 of the world's largest enterprises. Investors include Shlomo Kramer (co-founder of Check Point and Imperva), TLV Partners, Lightspeed Venture Partners, Insight Partners, StepStone Group, and ION Crossover Partners.",
   "sourceClass": "OFFICIAL",
   "interpretation": "",
-  "limitations": "The page names investors but does not disclose a funding round amount, date, or valuation, so no lastRound field is written — only the independent/venture-backed ownership status.",
+  "limitations": "The page names investors but does not disclose a funding round amount, date, or valuation; see TR-aqua-4 for the dated Series E figure found on PR Newswire.",
   "conflictingEvidenceIds": [],
   "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-aqua-3",
   "tags": [
@@ -2250,6 +2250,31 @@ export const evidenceRecords: EvidenceRecord[] = [
     "cloud"
   ],
   "retrievedAt": "2026-09-30"
+},
+{
+  "id": "TR-aqua-4",
+  "title": "Aqua Security Announces $135 Million in Series E Funding at a $1 Billion Valuation",
+  "organization": "Aqua Security",
+  "publicationDate": "2021-03-10",
+  "economicPeriod": "N/A (funding announcement)",
+  "canonicalUrl": "https://www.prnewswire.com/news-releases/aqua-security-announces-135-million-in-series-e-funding-at-a-1-billion-valuation-301243855.html",
+  "excerpt": "Aqua Security...announced today the completion of $135 Million in Series E funding led by ION Crossover Partners, putting Aqua's valuation in excess of $1 Billion.",
+  "sourceClass": "IR",
+  "interpretation": "",
+  "limitations": "AUTO-001 fix pass 4, item 1/8: the tracker previously had no lastRound field for Aqua at all. Checked Aqua's own newsroom (aquasec.com/news/) and its PR Newswire release list; no funding round or ownership change newer than this one was found as of 2026-09-30.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-aqua-4",
+  "tags": [
+    "tracker",
+    "cloud"
+  ],
+  "retrievedAt": "2026-09-30",
+  "retrieval": {
+    "finalUrl": "https://www.prnewswire.com/news-releases/aqua-security-announces-135-million-in-series-e-funding-at-a-1-billion-valuation-301243855.html",
+    "sha256": "a778adbb87264a3e1a5850a2cea3cd9d66b54d655a64c3a94b2cbc4b5f890231",
+    "fetchedAt": "2026-09-30T00:00:00Z",
+    "locator": "First paragraph"
+  }
 },
 {
   "id": "TR-armis-1",
@@ -3107,6 +3132,31 @@ export const evidenceRecords: EvidenceRecord[] = [
     "exposure"
   ],
   "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-ivanti-2",
+  "title": "Charlesbank Capital Partners Closes Strategic Investment in Ivanti",
+  "organization": "Ivanti, Inc.",
+  "publicationDate": "2021-05-11",
+  "economicPeriod": "May 2021",
+  "canonicalUrl": "https://www.ivanti.com/company/press-releases/2021/charlesbank-capital-partners-closes-strategic-investment-in-ivanti",
+  "excerpt": "Ivanti...today announced the close of the strategic investment from Charlesbank Capital Partners, LLC...Charlesbank...has joined existing investors Clearlake Capital Group, L.P....and TA Associates...as an institutional shareholder in Ivanti. Terms of the transaction were not disclosed.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "AUTO-001 fix pass 4, item 2: the prior ownership citation (TR-ivanti-1) was actually a 2025 refinancing release and named no date for the ownership structure itself; this is Ivanti's own dated release for when Charlesbank joined as the third PE investor.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-ivanti-2",
+  "tags": [
+    "tracker",
+    "exposure"
+  ],
+  "retrievedAt": "2026-10-01",
+  "retrieval": {
+    "finalUrl": "https://www.ivanti.com/company/press-releases/2021/charlesbank-capital-partners-closes-strategic-investment-in-ivanti",
+    "sha256": "2a6e79069dbf5f7206a5d878d633fd2436b4544e4e184a635de295cfcf8598cb",
+    "fetchedAt": "2026-10-01T00:00:00Z",
+    "locator": "First paragraph"
+  }
 },
 {
   "id": "TR-jfrog-1",

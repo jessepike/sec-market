@@ -120,10 +120,21 @@ export const trackerSuppliers: TrackerSupplier[] = [
       "cloud"
     ],
     "kind": "private",
-    "ownership": {
-      "status": "Independent, venture-backed. Investors named on its own site include Shlomo Kramer, TLV Partners, Lightspeed Venture Partners, Insight Partners, StepStone Group, and ION Crossover Partners.",
+    "lastRound": {
+      "date": "2021-03-10",
+      "stage": "Series E",
+      "amount": "$135 million",
+      "lead": "ION Crossover Partners",
+      "valuation": "in excess of $1 billion",
       "evidenceIds": [
-        "TR-aqua-3"
+        "TR-aqua-4"
+      ]
+    },
+    "ownership": {
+      "status": "Independent, venture-backed. Series E raised $135M on March 10, 2021, valuation in excess of $1 billion. Investors named on its own site include Shlomo Kramer, TLV Partners, Lightspeed Venture Partners, Insight Partners, StepStone Group, and ION Crossover Partners.",
+      "evidenceIds": [
+        "TR-aqua-3",
+        "TR-aqua-4"
       ]
     }
   },
@@ -796,9 +807,12 @@ export const trackerSuppliers: TrackerSupplier[] = [
     ],
     "kind": "pe-owned",
     "ownership": {
-      "status": "Owned by Clearlake Capital Group, Charlesbank Capital Partners, and TA Associates.",
+      "status": "Owned by Clearlake Capital Group and TA Associates since 2020, joined by Charlesbank Capital Partners as a third institutional shareholder on May 11, 2021.",
+      "acquirer": "Clearlake Capital Group, TA Associates, and Charlesbank Capital Partners",
+      "closed": "2021-05-11",
       "evidenceIds": [
-        "TR-ivanti-1"
+        "TR-ivanti-1",
+        "TR-ivanti-2"
       ]
     }
   },
