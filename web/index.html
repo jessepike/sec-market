@@ -51,11 +51,20 @@
       content="Security Market Pulse — a sourced, evidence-linked picture of the security market, updated as facts change."
     />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Fix pass 4, item 8: fonts are self-hosted (web/public/fonts/) instead
+         of loaded from fonts.googleapis.com — that stylesheet was
+         render-blocking for about 1s on mobile (measured: 780ms). Archivo is
+         dropped entirely (item 7: one sans family, IBM Plex Sans plus IBM
+         Plex Mono for data). The @font-face rules live in src/index.css with
+         font-display: swap on each; this preloads only the one family used
+         above the fold on every route, the variable Sans file that covers
+         weights 400-700. -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="/fonts/ibm-plex-sans-variable.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
     />
 
     <!-- schema.org JSON-LD is injected at the end of the head at build time by
