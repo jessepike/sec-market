@@ -35,9 +35,11 @@ push workflow files) and `claude setup-token` for the model runner's repository 
 
 | A3 | Claude collector: brief, collect.sh, workflow, one real run on a five-supplier slice | claude-sonnet-5 | done; proof run on four suppliers added the Optiv ACT divestiture; merged to preview 3bcd6a1 | sec-market-wt/collect, mon/collect (from mon/tracker) | docs/active/auto/step3/report.md |
 | A7 | Rubric v3.0 for the facts-only tracker, then blind scores by claude-opus-5-5 and gpt-6-sol | claude-sonnet-5 (rubric) | round 3 scored on a8d3976: Opus 59.8, Sol 39.0, both not fit (Snyk last round wrong and stale; status line counts 14 public suppliers against 18 on the page) | none | docs/active/auto/score3/ |
-| A8 | Fix pass 4, data: Snyk and private-round sweep, dated facts, status-line denominator, 8-K events, one-decimal growth, document sources, tracker.json, collector fallbacks | claude-sonnet-5 | running | sec-market-wt/fitfix, mon/fitfix | docs/active/auto/fitfix4/data-report.md |
-| A9 | Fix pass 4, UI: 390 keyboard and tap targets, phone rows, type and colour, self-hosted fonts, CLS, reference rows, selection statement | claude-sonnet-5 | running | sec-market-wt/uifix, mon/uifix | docs/active/auto/fitfix4/ui-report.md |
+| A8 | Fix pass 4, data: Snyk and private-round sweep, dated facts, status-line denominator, 8-K events, one-decimal growth, document sources, tracker.json, collector fallbacks | claude-sonnet-5 | done, merged to preview 32a771c; failed newsrooms 28 to 11; integrity regression and two ownership cells fixed on review | sec-market-wt/fitfix, mon/fitfix | docs/active/auto/fitfix4/data-report.md |
+| A9 | Fix pass 4, UI: 390 keyboard and tap targets, phone rows, type and colour, self-hosted fonts, CLS, reference rows, selection statement | claude-sonnet-5 | done, HELD off preview: owner judged the design poor and opened a four-model redesign bake-off (docs/active/design-bakeoff/); its accessibility and speed fixes are carried forward in the brief | sec-market-wt/uifix, mon/uifix | docs/active/auto/fitfix4/ui-report.md |
 
 Research files are committed at docs/active/auto/step5/research/.
 
-Last updated: 2026-10-01
+Last updated: 2026-10-02
+
+Next: the bake-off winner is rebuilt on preview, then both blind scorers rescore. D-80 (independence line, owner name off live pages) is on preview.
