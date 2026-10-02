@@ -1779,7 +1779,13 @@ summary:focus-visible,
   color: var(--color-text-muted);
 }
 
+/* Fix pass 4, item 2: footer links measured 15 to 19px tall — same fix as
+   the domain-jump links above, an explicit minimum rather than relying on
+   line-height. */
 .next-edition__meta a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
   color: var(--color-text-muted);
 }
 
@@ -3295,6 +3301,13 @@ summary:focus-visible,
   color: var(--color-text-muted);
 }
 
+/* Fix pass 4, item 2: same footer-link fix as .next-edition__meta a. */
+.methodology-note__data a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+}
+
 .market-picture__caption {
   max-width: var(--prose-max);
 }
@@ -3604,7 +3617,13 @@ summary:focus-visible,
   font-size: 0.875rem;
 }
 
+/* Fix pass 4, item 2: this summary measured 22px tall — 2px under the
+   24px CSS px floor. inline-flex with an explicit minimum, same fix as
+   the other small tap targets in this pass. */
 .run-status__failed summary {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
   cursor: pointer;
   font-weight: 600;
   color: var(--color-text-muted);
@@ -3886,6 +3905,18 @@ summary:focus-visible,
 .tracker-coverage__domains li,
 .tracker-coverage__not-covered li {
   margin-bottom: 0.35rem;
+}
+
+/* Fix pass 4, item 2: these domain-jump links measured 20px tall — an
+   inline text link's hit area is its own glyph box, not the line-height
+   around it. inline-flex with an explicit min-height is deterministic
+   here (padding alone depends on font metrics this file does not
+   control), and gets each one to the 24px CSS px floor without changing
+   the list's reading layout. */
+.tracker-coverage__domains a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
 }
 
 .tracker-coverage__subhead {
