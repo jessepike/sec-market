@@ -350,12 +350,20 @@ export function MarketByDomain() {
     <section id="market" className="tracker-market" aria-labelledby="market-heading">
       <div className="section-heading">
         <h2 id="market-heading">The market by domain</h2>
-        <p>
-          &ldquo;Revenue growth&rdquo; is the year-over-year change in a company&rsquo;s own reported
-          GAAP revenue for the quarter named, taken from its SEC filings or its own press release.
-          Figures are listed, not ranked; being listed is not a recommendation and being absent is not
-          a criticism.
-        </p>
+        {/* Coordinator follow-up, same first-screen fix as SiteMasthead.tsx:
+            this paragraph was another ~105px sitting above the first table
+            at 390px. Same <details> pattern — forced open with no visible
+            summary above 640px, so desktop is unchanged and the words never
+            leave the page, just the initial phone view. */}
+        <details className="market-definition">
+          <summary>What &ldquo;revenue growth&rdquo; means here</summary>
+          <p>
+            &ldquo;Revenue growth&rdquo; is the year-over-year change in a company&rsquo;s own reported
+            GAAP revenue for the quarter named, taken from its SEC filings or its own press release.
+            Figures are listed, not ranked; being listed is not a recommendation and being absent is not
+            a criticism.
+          </p>
+        </details>
       </div>
       <DomainIndex />
       <div className="tracker-domains">

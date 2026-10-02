@@ -3538,6 +3538,66 @@ summary:focus-visible,
   color: var(--color-text-muted);
 }
 
+/* Coordinator follow-up: the masthead description + stamps, and the market
+   section's "what revenue growth means" paragraph (below, near
+   .tracker-domain-index), both sit in a <details> now so the first screen
+   at 390px doesn't have to carry their full text. Forced open with the
+   summary hidden above 640px — desktop sees exactly what it saw before. */
+.masthead-more,
+.market-definition {
+  margin: 0;
+}
+
+.masthead-more summary,
+.market-definition summary {
+  cursor: pointer;
+  list-style: none;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.masthead-more summary::-webkit-details-marker,
+.market-definition summary::-webkit-details-marker {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .masthead-more summary,
+  .market-definition summary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    min-height: 24px;
+  }
+
+  .masthead-more summary::before,
+  .market-definition summary::before {
+    content: '▸';
+    font-size: 0.7rem;
+  }
+
+  .masthead-more[open] summary::before,
+  .market-definition[open] summary::before {
+    content: '▾';
+  }
+
+  .masthead-more .site-masthead__description {
+    margin-top: 0.4rem;
+  }
+}
+
+@media (min-width: 641px) {
+  .masthead-more summary,
+  .market-definition summary {
+    display: none;
+  }
+
+  .masthead-more:not([open]) > :not(summary),
+  .market-definition:not([open]) > :not(summary) {
+    display: block;
+  }
+}
+
 .issue-strip {
   margin: 0 0 1.5rem;
   padding: 0.9rem 1rem;
@@ -3771,6 +3831,31 @@ summary:focus-visible,
 
   .tracker-domain__name {
     margin: 0 0 0.2rem;
+  }
+}
+
+/* Coordinator follow-up: collapsing the two prose blocks into <details>
+   above got the first row's top from 840.9px to 636px, but a full row is
+   281.84px tall, so the row's BOTTOM — what actually has to be on
+   screen — was still at 917.9px against an 820px target. The two
+   `.main-content` gaps above the first table (masthead-to-run-status,
+   run-status-to-market-section) were each a flat 2rem regardless of
+   viewport; at phone width, where every pixel before the fold counts,
+   that's spacing budget the desktop layout doesn't need. Tightened here
+   rather than in the unscoped base rule, so every other breakpoint is
+   unaffected. The run-status sentence itself drops one step on the same
+   six-size scale fix pass 4 already established (14px to 12px, the
+   scale's own "metadata" floor) with a tighter line-height — still a
+   size already in use elsewhere on the page, not a new one. */
+@media (max-width: 640px) {
+  .main-content {
+    gap: 0.65rem;
+    padding-top: 0.5rem;
+  }
+
+  .run-status__line {
+    font-size: 0.75rem;
+    line-height: 1.35;
   }
 }
 
