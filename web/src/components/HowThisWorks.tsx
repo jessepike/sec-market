@@ -1,4 +1,4 @@
-import { EPISODE_ID, EPISODE_VERSION, INDEPENDENCE_STATEMENT, LAST_UPDATED_DISPLAY } from '../data/meta'
+import { INDEPENDENCE_STATEMENT, LAST_UPDATED_DISPLAY } from '../data/meta'
 import { sourcingLadder } from '../data/method'
 import { notCoveredByTracker, trackerDomains } from '../data/tracker/domains'
 import { trackerSuppliers } from '../data/tracker/suppliers'
@@ -30,9 +30,8 @@ export function HowThisWorks() {
           SEC filings or its own press release; where a company reports no comparable revenue figure,
           the table says so rather than estimating one. Facts are collected, checked against the
           sourcing ladder below, and published automatically — no human approval step, and no machine
-          judgment. This edition is the Episode 002 packet ({EPISODE_ID} v{EPISODE_VERSION}) plus a
-          facts-only pass, updated {LAST_UPDATED_DISPLAY}. Every number links to a source excerpt and
-          its limits.
+          judgment. This page was last updated {LAST_UPDATED_DISPLAY}. Every number links to a source
+          excerpt and its limits.
         </p>
       </div>
 

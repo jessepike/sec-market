@@ -87,6 +87,15 @@ import { trackerSuppliers } from '../src/data/tracker/suppliers.ts'
  *      cites must point at a specific document, not a bare domain or a
  *      newsroom/IR index page with no slug — a source a reader cannot use
  *      to check the fact.
+ *
+ * AUTO-001 fix pass 4, item 2 — one more gate, after Ping's "ARR approaching
+ * $800M" (actually November 2024) and Cato's $415M ARR (July 2026) both
+ * shipped at one point with no visible date, making a stale fact impossible
+ * to tell from a current one:
+ *  16. A shown own-metric (`headlineMetric.period`) must be non-blank and
+ *      name a year. A shown ownership fact — on a `'pe-owned'` or
+ *      `'acquired'` supplier with no `lastRound` on file — must carry an
+ *      `announced`/`closed` date or name a year in its status sentence.
  */
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
@@ -356,6 +365,46 @@ for (const supplier of trackerSuppliers) {
             `("${edgarLatest}") — the tracker is showing a stale figure`,
         )
       }
+    }
+  }
+}
+
+// --- 16. AUTO-001 fix pass 4, item 2: a shown own-metric or ownership fact
+// must carry a date — Ping's "ARR approaching $800M" with no visible date
+// read as current when it was actually November 2024, and Cato's $415M
+// figure needs its own date so a reader can't mistake it for the February
+// 2026 figure. A headlineMetric.period must be non-blank and name a year.
+// An ownership fact whose `kind` is itself a dated transaction ('pe-owned'
+// or 'acquired' — a 'public' row's "Public · TICKER" and a 'segment' row's
+// "Segment of Parent" are structural facts, not dated claims, and a plain
+// 'private' company with no lastRound on file is already as dated as the
+// evidence allows) must carry an announced/closed date or name a year in
+// its status sentence, whenever there's no lastRound to show instead
+// (lastRound takes display priority — formatOwnershipCompact,
+// tracker/derive.ts). ---
+
+const YEAR_RE = /\b(19|20)\d{2}\b/
+
+for (const supplier of trackerSuppliers) {
+  const who = `supplier "${supplier.id}" (${supplier.name})`
+
+  if (supplier.headlineMetric) {
+    const period = supplier.headlineMetric.period
+    if (!period || !period.trim()) {
+      fail(`${who} headlineMetric: has no period/as-of date — a shown own-metric fact must carry one`)
+    } else if (!YEAR_RE.test(period)) {
+      fail(`${who} headlineMetric.period "${period}" names no year — a shown own-metric fact must carry a dated period`)
+    }
+  }
+
+  if (supplier.ownership && !supplier.lastRound && (supplier.kind === 'pe-owned' || supplier.kind === 'acquired')) {
+    const ownership = supplier.ownership
+    const hasDate = Boolean(ownership.announced || ownership.closed || YEAR_RE.test(ownership.status))
+    if (!hasDate) {
+      fail(
+        `${who} ownership: status "${ownership.status}" names no year and has no announced/closed date — ` +
+          'a shown ownership fact must carry a date',
+      )
     }
   }
 }

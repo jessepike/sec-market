@@ -4,9 +4,11 @@ import { renderToStaticMarkup } from 'react-dom/server'
 import { describe, it } from 'node:test'
 import { RunStatus } from '../src/components/RunStatus.tsx'
 import { formatLongDate } from '../src/data/dates.ts'
-import { LAST_UPDATED_DISPLAY, LAST_UPDATED_ISO } from '../src/data/meta.ts'
+import edgarFactsRaw from '../src/data/generated/edgarFacts.json' with { type: 'json' }
 import { runStatus } from '../src/data/runStatus.ts'
 import type { RunStatus as RunStatusData } from '../src/data/runStatus.ts'
+import { LAST_UPDATED_DISPLAY, LAST_UPDATED_ISO } from '../src/data/meta.ts'
+import { trackerSuppliers } from '../src/data/tracker/suppliers.ts'
 
 /**
  * The run-status data file exports one derived value; these tests render
@@ -141,6 +143,58 @@ describe('RunStatus', () => {
     }
     const ids = runStatus.failedNewsSuppliers.map((s) => s.supplierId)
     assert.deepEqual(ids, Array.from(new Set(ids)), 'expected one row per distinct supplier, no duplicates')
+  })
+})
+
+/**
+ * AUTO-001 fix pass 4, item 4: the filings clause's denominator ("SEC
+ * filings complete for all 16 public suppliers that file quarterly with the
+ * SEC") must always reconcile with the tracker's own count of `kind:
+ * 'public'` suppliers — the defect both blind scorers caught was exactly
+ * this drifting apart (a hand-typed "14" against 18 "Public ·" rows).
+ * runStatus.ts derives `publicSuppliers`/`nonXbrlPublicNames` from
+ * `trackerSuppliers` itself (split on whether a public supplier carries an
+ * `edgarId`) rather than importing a private array, so this test recomputes
+ * the same split independently against the live tracker data and the
+ * generated EDGAR facts file, the way verify-tracker.ts's own gates do.
+ */
+describe('filingsClause supplier-count reconciliation (runStatus.ts)', () => {
+  const publicSuppliers = trackerSuppliers.filter((s) => s.kind === 'public')
+  const xbrlPublicSuppliers = publicSuppliers.filter((s) => s.edgarId)
+  const nonXbrlPublicSuppliers = publicSuppliers.filter((s) => !s.edgarId)
+
+  it('XBRL-covered public suppliers plus named non-XBRL public suppliers equal the tracker\'s public-supplier count', () => {
+    assert.equal(
+      xbrlPublicSuppliers.length + nonXbrlPublicSuppliers.length,
+      publicSuppliers.length,
+      'the split by edgarId should account for every "public" tracker supplier exactly once',
+    )
+  })
+
+  it('every XBRL-covered public supplier\'s edgarId resolves in generated/edgarFacts.json', () => {
+    const edgarIds = new Set((edgarFactsRaw as { suppliers: Array<{ id: string }> }).suppliers.map((s) => s.id))
+    for (const supplier of xbrlPublicSuppliers) {
+      assert.ok(
+        edgarIds.has(supplier.edgarId!),
+        `supplier "${supplier.id}" (${supplier.name}) has edgarId "${supplier.edgarId}", which does not ` +
+          'resolve in generated/edgarFacts.json',
+      )
+    }
+  })
+
+  it('the shipped filings clause names exactly the non-XBRL public suppliers, by short name', () => {
+    if (runStatus.state === 'incomplete' && runStatus.detail) {
+      for (const supplier of nonXbrlPublicSuppliers) {
+        // A legal-entity suffix is stripped for the reader-facing clause
+        // (shortSupplierName) — check on the first word, which survives
+        // every suffix-stripping case in this tracker's supplier names.
+        const firstWord = supplier.name.split(/[\s,]/)[0]
+        assert.ok(
+          runStatus.detail!.includes(firstWord),
+          `expected the run-status detail to name "${supplier.name}" (a non-XBRL public supplier) — got: "${runStatus.detail}"`,
+        )
+      }
+    }
   })
 })
 

@@ -19,6 +19,8 @@ export interface HeadlineMetric {
 
 export interface RevenuePeriod {
   value: string
+  /** Same quarter, one year earlier — the figure `yoyGrowth` is computed from. AUTO-001 fix pass 4, item 6. */
+  priorYearValue?: string
   yoyGrowth: string
   period: string
   periodEnd: string
@@ -52,6 +54,15 @@ export interface Ownership {
   announced?: string
   closed?: string
   price?: string
+  /**
+   * Overrides the kind-derived compact label ("Acquired by X", "PE-owned ·
+   * X") with the primary source's own wording, for a relationship the
+   * generic template would misstate — e.g. a majority investment that is
+   * not a full acquisition (Dragos/Accenture, AUTO-001 fix pass 4, item 3).
+   * Plain text, no judgment words; `formatOwnershipCompact` (derive.ts)
+   * appends the date the same way it would for the generic template.
+   */
+  relationship?: string
   evidenceIds: string[]
 }
 
@@ -110,7 +121,24 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "domainIds": [
       "cloud"
     ],
-    "kind": "private"
+    "kind": "private",
+    "lastRound": {
+      "date": "2021-03-10",
+      "stage": "Series E",
+      "amount": "$135 million",
+      "lead": "ION Crossover Partners",
+      "valuation": "in excess of $1 billion",
+      "evidenceIds": [
+        "TR-aqua-4"
+      ]
+    },
+    "ownership": {
+      "status": "Independent, venture-backed. Series E raised $135M on March 10, 2021, valuation in excess of $1 billion. Investors named on its own site include Shlomo Kramer, TLV Partners, Lightspeed Venture Partners, Insight Partners, StepStone Group, and ION Crossover Partners.",
+      "evidenceIds": [
+        "TR-aqua-3",
+        "TR-aqua-4"
+      ]
+    }
   },
   {
     "id": "arctic-wolf",
@@ -118,7 +146,23 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "domainIds": [
       "managed-security"
     ],
-    "kind": "private"
+    "kind": "private",
+    "lastRound": {
+      "date": "2021-07-13",
+      "stage": "Series F",
+      "amount": "$150 million",
+      "lead": "Viking Global Investors and Owl Rock (a division of Blue Owl Capital)",
+      "valuation": "$4.3 billion",
+      "evidenceIds": [
+        "TR-arctic-wolf-2"
+      ]
+    },
+    "ownership": {
+      "status": "Independent, venture-backed. Series F closed July 13, 2021, bringing the company to a $4.3 billion valuation.",
+      "evidenceIds": [
+        "TR-arctic-wolf-2"
+      ]
+    }
   },
   {
     "id": "armis",
@@ -143,12 +187,28 @@ export const trackerSuppliers: TrackerSupplier[] = [
       "exposure"
     ],
     "kind": "private",
+    "lastRound": {
+      "date": "2022-03-08",
+      "stage": "Series E",
+      "amount": "$200 million",
+      "lead": "Accel",
+      "valuation": "$2.6 billion",
+      "evidenceIds": [
+        "TR-axonius-3"
+      ]
+    },
     "headlineMetric": {
       "label": "ARR",
       "value": ">$200 million",
       "period": "Q1 fiscal 2027 (as of 2026-05-19)",
       "evidenceIds": [
         "TR-axonius-1"
+      ]
+    },
+    "ownership": {
+      "status": "Independent, venture-backed. Series E raised $200M on March 8, 2022, valuation $2.6 billion.",
+      "evidenceIds": [
+        "TR-axonius-3"
       ]
     }
   },
@@ -173,7 +233,15 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "domainIds": [
       "identity"
     ],
-    "kind": "pe-owned"
+    "kind": "pe-owned",
+    "ownership": {
+      "status": "PE-owned. Clearlake Capital Group completed its investment on August 17, 2021, joining existing investor Francisco Partners, which acquired BeyondTrust in 2018.",
+      "acquirer": "Clearlake Capital Group and Francisco Partners",
+      "closed": "2021-08-17",
+      "evidenceIds": [
+        "TR-beyondtrust-1"
+      ]
+    }
   },
   {
     "id": "bigid",
@@ -238,7 +306,14 @@ export const trackerSuppliers: TrackerSupplier[] = [
       "amount": "$280 million",
       "lead": "General Catalyst's Customer Value Fund",
       "evidenceIds": [
-        "TR-chainguard-1"
+        "TR-chainguard-1",
+        "TR-chainguard-2"
+      ]
+    },
+    "ownership": {
+      "status": "Independent, venture-backed. Growth financing of $280M from General Catalyst's Customer Value Fund, announced October 23, 2025.",
+      "evidenceIds": [
+        "TR-chainguard-2"
       ]
     }
   },
@@ -340,6 +415,7 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "kind": "public",
     "ticker": "NET",
     "cik": "0001477333",
+    "edgarId": "cloudflare",
     "headlineMetric": {
       "label": "Revenue",
       "value": "$696.1 million",
@@ -351,7 +427,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "revenue": {
       "latest": {
         "value": "$696.1 million",
-        "yoyGrowth": "36%",
+        "priorYearValue": "$512.3 million",
+        "yoyGrowth": "+35.9%",
         "period": "Q2 2026",
         "periodEnd": "2026-06-30",
         "releaseDate": "2026-08-06",
@@ -361,7 +438,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
       },
       "prior": {
         "value": "$639.8 million",
-        "yoyGrowth": "34%",
+        "priorYearValue": "$479.1 million",
+        "yoyGrowth": "+33.5%",
         "period": "Q1 2026",
         "periodEnd": "2026-03-31",
         "evidenceIds": [
@@ -382,7 +460,25 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "domainIds": [
       "data"
     ],
-    "kind": "private"
+    "kind": "private",
+    "lastRound": {
+      "date": "2024-12-10",
+      "stage": "Series H",
+      "amount": "majority of equity in the Veritas combination transaction",
+      "lead": "Haveli Investments",
+      "valuation": "over $7 billion (combined company)",
+      "evidenceIds": [
+        "TR-cohesity-1"
+      ]
+    },
+    "ownership": {
+      "status": "Independent, venture-backed. Completed its combination with Veritas's Enterprise Data Protection Business on December 10, 2024, valuing the combined company at over $7 billion. The transaction was funded by a Series H round led by Haveli Investments; The Carlyle Group became one of the largest shareholders in the combined company.",
+      "announced": "2024-12-10",
+      "closed": "2024-12-10",
+      "evidenceIds": [
+        "TR-cohesity-1"
+      ]
+    }
   },
   {
     "id": "commvault",
@@ -393,6 +489,7 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "kind": "public",
     "ticker": "CVLT",
     "cik": "0001169561",
+    "edgarId": "commvault",
     "headlineMetric": {
       "label": "Subscription ARR",
       "value": "$1,054 million",
@@ -404,7 +501,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "revenue": {
       "latest": {
         "value": "$314.1 million",
-        "yoyGrowth": "+11%",
+        "priorYearValue": "$282.0 million",
+        "yoyGrowth": "+11.4%",
         "period": "Q1 FY2027",
         "periodEnd": "2026-06-30",
         "releaseDate": "2026-07-28",
@@ -414,7 +512,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
       },
       "prior": {
         "value": "$311.7 million",
-        "yoyGrowth": "+13%",
+        "priorYearValue": "$275.0 million",
+        "yoyGrowth": "+13.3%",
         "period": "Q4 FY2026",
         "periodEnd": "2026-03-31",
         "evidenceIds": [
@@ -453,7 +552,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "revenue": {
       "latest": {
         "value": "$1.47 billion",
-        "yoyGrowth": "+26%",
+        "priorYearValue": "$1.17 billion",
+        "yoyGrowth": "+25.8%",
         "period": "Q2 FY2027",
         "periodEnd": "2026-07-31",
         "releaseDate": "2026-08-26",
@@ -463,7 +563,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
       },
       "prior": {
         "value": "$1.39 billion",
-        "yoyGrowth": "+26%",
+        "priorYearValue": "$1.10 billion",
+        "yoyGrowth": "+25.6%",
         "period": "Q1 FY2027",
         "periodEnd": "2026-04-30",
         "evidenceIds": [
@@ -488,7 +589,7 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "ticker": "CRWD",
     "cik": "0001535527",
     "ownership": {
-      "status": "Product line within CrowdStrike Holdings, Inc. No separate revenue disclosed.",
+      "status": "Segment of CrowdStrike Holdings, Inc. (publicly traded, Nasdaq: CRWD). No separate revenue disclosed.",
       "evidenceIds": [
         "TR-crwd-1"
       ]
@@ -538,7 +639,15 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "domainIds": [
       "identity"
     ],
-    "kind": "pe-owned"
+    "kind": "pe-owned",
+    "ownership": {
+      "status": "PE-owned. Formed by TPG Capital's 2021 combination of Thycotic and Centrify, which closed April 13, 2021 with Insight Partners, Thoma Bravo, and Public Sector Pension Investment Board as minority investors; the combined company rebranded as Delinea in February 2022.",
+      "acquirer": "TPG Capital",
+      "closed": "2021-04-13",
+      "evidenceIds": [
+        "TR-delinea-6"
+      ]
+    }
   },
   {
     "id": "dragos",
@@ -552,6 +661,7 @@ export const trackerSuppliers: TrackerSupplier[] = [
       "acquirer": "Accenture plc (NYSE: ACN)",
       "announced": "2026-06-18",
       "closed": "2026-09-16",
+      "relationship": "Majority investment by Accenture plc",
       "evidenceIds": [
         "TR-dragos-1",
         "TR-dragos-2"
@@ -594,7 +704,25 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "domainIds": [
       "managed-security"
     ],
-    "kind": "private"
+    "kind": "private",
+    "lastRound": {
+      "date": "2022-10-03",
+      "stage": "Series E (extension)",
+      "amount": "$171.3 million (extension; initial Series E $140.3M on 2021-11-18, total funding $288.8 million)",
+      "lead": "CapitalG and Paladin Capital Group",
+      "valuation": "over $1 billion (as of the 2021-11-18 initial close)",
+      "evidenceIds": [
+        "TR-expel-1",
+        "TR-expel-2"
+      ]
+    },
+    "ownership": {
+      "status": "Independent, venture-backed. Series E extension raised an additional $171.3M on October 3, 2022, bringing total funding to $288.8M. Initial Series E of $140.3M closed November 18, 2021 at a valuation over $1 billion.",
+      "evidenceIds": [
+        "TR-expel-1",
+        "TR-expel-2"
+      ]
+    }
   },
   {
     "id": "forescout",
@@ -632,7 +760,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "revenue": {
       "latest": {
         "value": "$2.05 billion",
-        "yoyGrowth": "26%",
+        "priorYearValue": "$1.63 billion",
+        "yoyGrowth": "+25.6%",
         "period": "Q2 2026",
         "periodEnd": "2026-06-30",
         "releaseDate": "2026-07-29",
@@ -642,7 +771,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
       },
       "prior": {
         "value": "$1.85 billion",
-        "yoyGrowth": "20%",
+        "priorYearValue": "$1.54 billion",
+        "yoyGrowth": "+20.1%",
         "period": "Q1 2026",
         "periodEnd": "2026-03-31",
         "evidenceIds": [
@@ -663,7 +793,13 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "domainIds": [
       "appsec"
     ],
-    "kind": "segment"
+    "kind": "segment",
+    "ownership": {
+      "status": "Segment of Microsoft Corporation (publicly traded, Nasdaq: MSFT). GitHub, Inc. is a wholly owned Microsoft subsidiary. No separate revenue disclosed.",
+      "evidenceIds": [
+        "TR-ghas-1"
+      ]
+    }
   },
   {
     "id": "google-secops",
@@ -714,8 +850,10 @@ export const trackerSuppliers: TrackerSupplier[] = [
     ],
     "kind": "pe-owned",
     "ownership": {
-      "status": "Owned by Clearlake Capital Group, Charlesbank Capital Partners, and TA Associates.",
+      "status": "PE-owned by Clearlake Capital Group and TA Associates since 2020, joined by Charlesbank Capital Partners as a third institutional shareholder on May 11, 2021. Ivanti's own release on its May 2, 2025 debt refinancing confirms the same three sponsors still back the company.",
+      "acquirer": "Clearlake Capital Group, TA Associates, and Charlesbank Capital Partners",
       "evidenceIds": [
+        "TR-ivanti-2",
         "TR-ivanti-1"
       ]
     }
@@ -729,6 +867,7 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "kind": "public",
     "ticker": "FROG",
     "cik": "0001800667",
+    "edgarId": "jfrog",
     "headlineMetric": {
       "label": "Cloud revenue",
       "value": "$87.5 million",
@@ -740,7 +879,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "revenue": {
       "latest": {
         "value": "$163.8 million",
-        "yoyGrowth": "+29%",
+        "priorYearValue": "$127.2 million",
+        "yoyGrowth": "+28.7%",
         "period": "Q2 2026",
         "periodEnd": "2026-06-30",
         "releaseDate": "2026-08-06",
@@ -750,7 +890,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
       },
       "prior": {
         "value": "$154.0 million",
-        "yoyGrowth": "+26%",
+        "priorYearValue": "$122.4 million",
+        "yoyGrowth": "+25.8%",
         "period": "Q1 2026",
         "periodEnd": "2026-03-31",
         "evidenceIds": [
@@ -854,6 +995,7 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "kind": "public",
     "ticker": "NTSK",
     "cik": "0002063196",
+    "edgarId": "netskope",
     "headlineMetric": {
       "label": "ARR",
       "value": "$899 million",
@@ -865,7 +1007,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "revenue": {
       "latest": {
         "value": "$220.5 million",
-        "yoyGrowth": "29%",
+        "priorYearValue": "$170.8 million",
+        "yoyGrowth": "+29.2%",
         "period": "Q2 FY2027",
         "periodEnd": "2026-07-31",
         "releaseDate": "2026-09-02",
@@ -875,7 +1018,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
       },
       "prior": {
         "value": "$201.6 million",
-        "yoyGrowth": "28%",
+        "priorYearValue": "$157.7 million",
+        "yoyGrowth": "+27.8%",
         "period": "Q1 FY2027",
         "periodEnd": "2026-04-30",
         "evidenceIds": [
@@ -929,7 +1073,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "revenue": {
       "latest": {
         "value": "$805 million",
-        "yoyGrowth": "11%",
+        "priorYearValue": "$728 million",
+        "yoyGrowth": "+10.6%",
         "period": "Q2 FY2027",
         "periodEnd": "2026-07-31",
         "releaseDate": "2026-08-26",
@@ -939,7 +1084,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
       },
       "prior": {
         "value": "$765 million",
-        "yoyGrowth": "11.2%",
+        "priorYearValue": "$688 million",
+        "yoyGrowth": "+11.2%",
         "period": "Q1 FY2027",
         "periodEnd": "2026-04-30",
         "evidenceIds": [
@@ -977,10 +1123,21 @@ export const trackerSuppliers: TrackerSupplier[] = [
       "cloud"
     ],
     "kind": "private",
-    "ownership": {
-      "status": "Independent, venture-backed private company.",
+    "lastRound": {
+      "date": "2021-10-05",
+      "stage": "Series C (extended)",
+      "amount": "$550 million",
+      "lead": "Temasek",
+      "valuation": "$1.8 billion",
       "evidenceIds": [
-        "TR-orca-1"
+        "TR-orca-2"
+      ]
+    },
+    "ownership": {
+      "status": "Independent, venture-backed. Extended Series C raised $550M on October 5, 2021, valuation $1.8 billion.",
+      "evidenceIds": [
+        "TR-orca-1",
+        "TR-orca-2"
       ]
     }
   },
@@ -1009,7 +1166,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "revenue": {
       "latest": {
         "value": "$3.41 billion",
-        "yoyGrowth": "+34%",
+        "priorYearValue": "$2.54 billion",
+        "yoyGrowth": "+34.5%",
         "period": "Q4 FY2026",
         "periodEnd": "2026-07-31",
         "releaseDate": "2026-09-01",
@@ -1019,7 +1177,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
       },
       "prior": {
         "value": "$3.0 billion",
-        "yoyGrowth": "+31%",
+        "priorYearValue": "$2.29 billion",
+        "yoyGrowth": "+31.1%",
         "period": "Q3 FY2026",
         "periodEnd": "2026-04-30",
         "evidenceIds": [
@@ -1044,7 +1203,7 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "ticker": "PANW",
     "cik": "0001327567",
     "ownership": {
-      "status": "Product line within Palo Alto Networks, Inc. (publicly traded, Nasdaq: PANW). No separate revenue disclosed.",
+      "status": "Segment of Palo Alto Networks, Inc. (publicly traded, Nasdaq: PANW). No separate revenue disclosed.",
       "evidenceIds": [
         "TR-panw-xsiam-1"
       ]
@@ -1126,12 +1285,23 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "revenue": {
       "latest": {
         "value": "$182.2 million",
-        "yoyGrowth": "+11%",
+        "priorYearValue": "$164.1 million",
+        "yoyGrowth": "+11.0%",
         "period": "Q2 2026",
         "periodEnd": "2026-06-30",
         "releaseDate": "2026-08-04",
         "evidenceIds": [
           "TR-qualys-1"
+        ]
+      },
+      "prior": {
+        "value": "$175.6 million",
+        "priorYearValue": "$159.9 million",
+        "yoyGrowth": "+9.8%",
+        "period": "Q1 2026",
+        "periodEnd": "2026-03-31",
+        "evidenceIds": [
+          "TR-qualys-2"
         ]
       }
     },
@@ -1163,6 +1333,7 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "revenue": {
       "latest": {
         "value": "$210.9 million",
+        "priorYearValue": "$214.2 million",
         "yoyGrowth": "-1.5%",
         "period": "Q2 2026",
         "periodEnd": "2026-06-30",
@@ -1173,6 +1344,7 @@ export const trackerSuppliers: TrackerSupplier[] = [
       },
       "prior": {
         "value": "$210 million",
+        "priorYearValue": "$210.3 million",
         "yoyGrowth": "-0.3%",
         "period": "Q1 2026",
         "periodEnd": "2026-03-31",
@@ -1245,7 +1417,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "revenue": {
       "latest": {
         "value": "$427.3 million",
-        "yoyGrowth": "+38%",
+        "priorYearValue": "$309.9 million",
+        "yoyGrowth": "+37.9%",
         "period": "Q2 FY2027",
         "periodEnd": "2026-07-31",
         "releaseDate": "2026-08-27",
@@ -1255,7 +1428,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
       },
       "prior": {
         "value": "$387.1 million",
-        "yoyGrowth": "+39%",
+        "priorYearValue": "$278.5 million",
+        "yoyGrowth": "+39.0%",
         "period": "Q1 FY2027",
         "periodEnd": "2026-04-30",
         "evidenceIds": [
@@ -1291,7 +1465,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "revenue": {
       "latest": {
         "value": "$292 million",
-        "yoyGrowth": "+21%",
+        "priorYearValue": "$242 million",
+        "yoyGrowth": "+20.6%",
         "period": "Q2 FY2027",
         "periodEnd": "2026-07-31",
         "releaseDate": "2026-08-27",
@@ -1301,7 +1476,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
       },
       "prior": {
         "value": "$277 million",
-        "yoyGrowth": "+21%",
+        "priorYearValue": "$229 million",
+        "yoyGrowth": "+20.8%",
         "period": "Q1 FY2027",
         "periodEnd": "2026-04-30",
         "evidenceIds": [
@@ -1337,7 +1513,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "revenue": {
       "latest": {
         "value": "$308.8 million",
-        "yoyGrowth": "16.8%",
+        "priorYearValue": "$264.4 million",
+        "yoyGrowth": "+16.8%",
         "period": "Q2 FY2027",
         "periodEnd": "2026-07-31",
         "releaseDate": "2026-09-10",
@@ -1347,7 +1524,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
       },
       "prior": {
         "value": "$280.142 million",
-        "yoyGrowth": "21.5%",
+        "priorYearValue": "$230.468 million",
+        "yoyGrowth": "+21.6%",
         "period": "Q1 FY2027",
         "periodEnd": "2026-04-30",
         "evidenceIds": [
@@ -1370,14 +1548,20 @@ export const trackerSuppliers: TrackerSupplier[] = [
     ],
     "kind": "private",
     "lastRound": {
-      "date": "2021-09-30",
-      "stage": "Series F (plus extension)",
-      "amount": "$605 million (initial close $530M plus extension $75M)",
-      "lead": "not disclosed in available sourcing",
-      "valuation": "$8.6 billion",
+      "date": "2022-12-13",
+      "stage": "Series G",
+      "amount": "$196.5 million",
+      "lead": "Qatar Investment Authority",
+      "valuation": "$7.4 billion",
       "evidenceIds": [
-        "TR-snyk-1",
-        "TR-snyk-2"
+        "TR-snyk-3"
+      ]
+    },
+    "ownership": {
+      "status": "Independent, venture-backed. Series G closed December 13, 2022 at $7.4B valuation. ServiceNow made a strategic investment announced January 24, 2023; no funding round after that date was found in Snyk's newsroom.",
+      "evidenceIds": [
+        "TR-snyk-3",
+        "TR-snyk-4"
       ]
     }
   },
@@ -1485,12 +1669,23 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "revenue": {
       "latest": {
         "value": "$268.5 million",
+        "priorYearValue": "$247.3 million",
         "yoyGrowth": "+8.6%",
         "period": "Q2 2026",
         "periodEnd": "2026-06-30",
         "releaseDate": "2026-07-29",
         "evidenceIds": [
           "TR-tenable-1"
+        ]
+      },
+      "prior": {
+        "value": "$262.1 million",
+        "priorYearValue": "$239.1 million",
+        "yoyGrowth": "+9.6%",
+        "period": "Q1 2026",
+        "periodEnd": "2026-03-31",
+        "evidenceIds": [
+          "TR-tenable-3"
         ]
       }
     },
@@ -1553,6 +1748,18 @@ export const trackerSuppliers: TrackerSupplier[] = [
       "evidenceIds": [
         "TR-trend-1"
       ]
+    },
+    "revenue": {
+      "latest": {
+        "value": "$468 million",
+        "yoyGrowth": "+13%",
+        "period": "Q2 2026",
+        "periodEnd": "2026-06-30",
+        "releaseDate": "2026-08-13",
+        "evidenceIds": [
+          "TR-trend-1"
+        ]
+      }
     },
     "ownership": {
       "status": "Independent, publicly traded on Tokyo Stock Exchange. Not an active SEC filer.",
@@ -1622,6 +1829,7 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "revenue": {
       "latest": {
         "value": "$180.0 million",
+        "priorYearValue": "$152.2 million",
         "yoyGrowth": "+18.3%",
         "period": "Q2 2026",
         "periodEnd": "2026-06-30",
@@ -1632,7 +1840,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
       },
       "prior": {
         "value": "$173.1 million",
-        "yoyGrowth": "+27%",
+        "priorYearValue": "$136.4 million",
+        "yoyGrowth": "+26.9%",
         "period": "Q1 2026",
         "periodEnd": "2026-03-31",
         "evidenceIds": [
@@ -1655,10 +1864,11 @@ export const trackerSuppliers: TrackerSupplier[] = [
     ],
     "kind": "pe-owned",
     "ownership": {
-      "status": "PE-owned; Insight Partners holds a majority stake, in a deal reported closed on or about January 9, 2020 for approximately $5 billion.",
+      "status": "PE-owned; Insight Partners remains the largest shareholder after a $2 billion secondary equity offering led by TPG, with Temasek and Neuberger Berman Capital Solutions participating, valuing Veeam at $15 billion, announced December 4, 2024.",
       "acquirer": "Insight Partners",
+      "announced": "2024-12-04",
       "evidenceIds": [
-        "TR-veeam-1"
+        "TR-veeam-4"
       ]
     }
   },
@@ -1792,7 +2002,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "revenue": {
       "latest": {
         "value": "$898.2 million",
-        "yoyGrowth": "25%",
+        "priorYearValue": "$719.2 million",
+        "yoyGrowth": "+24.9%",
         "period": "Q4 FY2026",
         "periodEnd": "2026-07-31",
         "releaseDate": "2026-09-03",
@@ -1802,7 +2013,8 @@ export const trackerSuppliers: TrackerSupplier[] = [
       },
       "prior": {
         "value": "$850.5 million",
-        "yoyGrowth": "25%",
+        "priorYearValue": "$678.0 million",
+        "yoyGrowth": "+25.4%",
         "period": "Q3 FY2026",
         "periodEnd": "2026-04-30",
         "evidenceIds": [

@@ -8,6 +8,8 @@
  * 5) is excluded, per web/scripts/verify-tracker.ts.
  */
 
+import generatedFilingEvents from '../generated/filingEvents.json' with { type: 'json' }
+
 export type TrackerEventType =
   | 'funding'
   | 'acquisition'
@@ -31,7 +33,16 @@ export interface TrackerEvent {
   rung: 1 | 2 | 3 | 4 | 5
 }
 
-export const trackerEvents: TrackerEvent[] = [
+/**
+ * Hand-collected events only. AUTO-001 fix pass 4, item 5 adds a second,
+ * generated source — `generated/filingEvents.json`, built by
+ * `scripts/filing-events.ts` straight from each SEC filer's own 8-K item
+ * codes with no model in the loop — merged in below as `trackerEvents`, the
+ * name every consumer in this codebase already imports. The generator
+ * de-duplicates against this hand-collected array by supplier + date at
+ * build time, so the merge below never needs to de-duplicate again.
+ */
+export const handCollectedEvents: TrackerEvent[] = [
   {
     "id": "EV-aqua-1",
     "supplierId": "aqua",
@@ -73,6 +84,17 @@ export const trackerEvents: TrackerEvent[] = [
     "text": "ARR surpassed $350 million, +43% YoY, for full year 2025.",
     "evidenceIds": [
       "TR-cato-2"
+    ],
+    "rung": 2
+  },
+  {
+    "id": "EV-cato-2",
+    "supplierId": "cato",
+    "date": "2026-07-27",
+    "type": "results",
+    "text": "ARR surpassed $415 million, with 42% year-over-year growth.",
+    "evidenceIds": [
+      "TR-cato-3"
     ],
     "rung": 2
   },
@@ -265,17 +287,6 @@ export const trackerEvents: TrackerEvent[] = [
     "rung": 4
   },
   {
-    "id": "EV-ghas-1",
-    "supplierId": "github-advanced-security",
-    "date": "2025-12-31",
-    "type": "exec-change",
-    "text": "GitHub CEO Thomas Dohmke, who announced in August 2025 that he would step down to become a founder again, completed his transition out of the role by the end of 2025, with no successor CEO named.",
-    "evidenceIds": [
-      "TR-ghas-1"
-    ],
-    "rung": 1
-  },
-  {
     "id": "EV-hiddenlayer-1",
     "supplierId": "hiddenlayer",
     "date": "2026-09-02",
@@ -406,6 +417,17 @@ export const trackerEvents: TrackerEvent[] = [
       "TR-panw-1"
     ],
     "rung": 1
+  },
+  {
+    "id": "EV-ping-identity-1",
+    "supplierId": "ping-identity",
+    "date": "2026-01-07",
+    "type": "acquisition",
+    "text": "With the acquisition of Keyless now complete, Ping adds Zero-Knowledge Biometrics to its portfolio. Financial terms of the transaction were not disclosed.",
+    "evidenceIds": [
+      "TR-ping-3"
+    ],
+    "rung": 4
   },
   {
     "id": "EV-qualys-1",
@@ -1055,5 +1077,21 @@ export const trackerEvents: TrackerEvent[] = [
       "TR-zscaler-6"
     ],
     "rung": 1
+  },
+  {
+    "id": "EV-reliaquest-1",
+    "supplierId": "reliaquest",
+    "date": "2026-10-01",
+    "type": "exec-change",
+    "text": "ReliaQuest announced that Krish Venkataraman will join the company as Chief Financial Officer on October 5, 2026. The company's release states he most recently served as Chief Financial Officer of Solink, and previously was President of Dataiku and Chief Financial Officer of Socure.",
+    "evidenceIds": [
+      "TR-reliaquest-2"
+    ],
+    "rung": 4
   }
+]
+
+export const trackerEvents: TrackerEvent[] = [
+  ...handCollectedEvents,
+  ...(generatedFilingEvents as TrackerEvent[]),
 ]

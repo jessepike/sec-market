@@ -1,0 +1,12 @@
+[
+  {
+    "supplierId": "tenable",
+    "reason": "blocked",
+    "detail": "EDGAR submissions for CIK 0001660280 checked first and are definitive for all 8-K-triggering event types (nothing filed since 2026-09-26). www.tenable.com/press-releases and /news both loaded and list only AI-product announcements, none dated after 2026-09-26. This entry is only about the supplementary own-news check: investors.tenable.com/news-releases and investors.tenable.com/ both failed three attempts (HTTP/2 stream INTERNAL_ERROR, then HTTP/1.1 timeout twice) — no IR-specific press release list could be read. No rating action or other IR-only item could be ruled in or out beyond what the main newsroom already showed."
+  },
+  {
+    "supplierId": "varonis",
+    "reason": "blocked",
+    "detail": "EDGAR submissions for CIK 0001361113 checked first and are definitive for all 8-K-triggering event types (nothing filed since 2026-09-26). www.varonis.com/press-releases loaded but no dated items after 2026-09-26 were present. This entry is only about the supplementary own-news check: ir.varonis.com/news-and-events/press-releases/default.aspx and ir.varonis.com/ both returned a Cloudflare 'Just a moment...' challenge (HTTP 403) on three attempts (default HTTP/2, forced HTTP/1.1, default again) — no IR-specific press release list could be read. No rating action or other IR-only item could be ruled in or out beyond what the main newsroom already showed."
+  }
+]

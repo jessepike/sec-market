@@ -1,0 +1,15 @@
+Collect run — restricted batch
+Since-date: 2026-09-26 (exclusive) through 2026-10-02
+Suppliers in scope (2): zenity, zscaler
+
+Suppliers checked: 2 / 2
+New events written: 0
+New evidence records written: 0
+Supplier record fields updated (headlineMetric/lastRound/ownership): 0
+
+Per-supplier result, both "none found":
+- zenity (private, ai-security): no EDGAR full-text hits for "Zenity" filed since 2026-09-26. Own newsroom (zenity.io/company/newsroom/company-news) rendered server-side with full dated listing; most recent company-news item is "Zenity Named a Market Shaper in Gartner's Inaugural Emerging Market Quadrant for AI Application Security," dated 2026-09-23, before the since-date. Items from zenity.io/blog and /resources dated 2026-09-29 through 2026-10-02 (a research post, a product blog post, an EMEA ebook) are not newsroom company-news and are not a tracked event type (no funding/acquisition/layoff/restructuring/debt/rating/going-concern/exec-change/divestiture/shutdown). GlobeNewswire organization search for "Zenity" returned no dated results. No new funding round newer than the 2026-08-03 Series C already in suppliers.ts.
+- zscaler (public, CIK 0001713683): EDGAR submissions checked directly — one filing since 2026-09-26 (a Form 4 insider-trading report filed 2026-09-28), not a tracked event type; no 8-K/10-Q/10-K. Own press index (www.zscaler.com/press) read via its full sitemap-derived URL list (more complete than the page's own 5-item featured panel): five items dated 2026-09-28 through 2026-09-30 (an asset-exposure-management product launch, an agentic-AI product launch, an "AI Guardian" multi-partner ecosystem announcement, and two threat-research reports) — all product or research announcements, none a tracked event type. The 2026-09-24 CRO-change press release (Ross Tackett) predates the since-date and is already in events.ts as EV-zscaler-2. No new 8-K, results release (next is Q1 FY2027, fiscal quarter ending 2026-10-31, not yet released), rating action, layoff, or restructuring found.
+
+Candidates flagged: none.
+Failed sources: 1 (a supplementary IR-subdomain check for zscaler only; the primary EDGAR and own-newsroom checks succeeded — see failed-sources.json for detail).

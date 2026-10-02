@@ -20,6 +20,7 @@ import {
 } from '../src/data/tracker/derive.ts'
 import { trackerEvents } from '../src/data/tracker/events.ts'
 import { trackerSuppliers } from '../src/data/tracker/suppliers.ts'
+import { runStatus } from '../src/data/runStatus.ts'
 
 const BANNED_WORDS = [
   'leading',
@@ -95,9 +96,24 @@ describe('tracker domains and suppliers', () => {
     }
   })
 
+  /**
+   * AUTO-001 fix pass 4: this used to be two hardcoded dates, which drift
+   * out of date as "today" advances — exactly what broke when a correctly
+   * dated event (a real 8-K filing) fell one day outside a window that was
+   * frozen on an earlier run's date. The window the app actually shows is
+   * the trailing 365 days ending on `runStatus.lastChecked` (see
+   * `eventSummaryForSupplier` in tracker/derive.ts); this test now derives
+   * the same bounds from that same live value instead of a fixed string.
+   */
   it('keeps every event within the trailing 12-month window', () => {
+    const [ly, lm, ld] = runStatus.lastChecked.split('-').map(Number)
+    const windowEndMs = Date.UTC(ly, lm - 1, ld)
+    const windowStart = new Date(windowEndMs - 365 * 86_400_000).toISOString().slice(0, 10)
     for (const event of trackerEvents) {
-      assert.ok(event.date >= '2025-09-25' && event.date <= '2026-09-25', `event "${event.id}" dated ${event.date} is outside the window`)
+      assert.ok(
+        event.date >= windowStart && event.date <= runStatus.lastChecked,
+        `event "${event.id}" dated ${event.date} is outside the trailing 12-month window ending ${runStatus.lastChecked}`,
+      )
     }
   })
 

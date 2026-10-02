@@ -1,6 +1,7 @@
 import type { EvidenceRecord } from './types'
+import generatedFilingEvidence from './generated/filingEvidence.json' with { type: 'json' }
 
-export const evidenceRecords: EvidenceRecord[] = [
+const handWrittenEvidenceRecords: EvidenceRecord[] = [
   {
     id: 'A1a',
     title: 'NVIDIA Q1 FY24 Financial Results',
@@ -2233,6 +2234,50 @@ export const evidenceRecords: EvidenceRecord[] = [
   "retrievedAt": "2026-09-25"
 },
 {
+  "id": "TR-aqua-3",
+  "title": "About Us — Aqua Security",
+  "organization": "Aqua Security",
+  "publicationDate": "2026-09-30",
+  "economicPeriod": "N/A (company background)",
+  "canonicalUrl": "https://www.aquasec.com/about-us/",
+  "excerpt": "Founded in 2015, Aqua is headquartered in Boston and Ramat Gan, Israel, and protects more than 500 of the world's largest enterprises. Investors include Shlomo Kramer (co-founder of Check Point and Imperva), TLV Partners, Lightspeed Venture Partners, Insight Partners, StepStone Group, and ION Crossover Partners.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "The page names investors but does not disclose a funding round amount, date, or valuation; see TR-aqua-4 for the dated Series E figure found on PR Newswire.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-aqua-3",
+  "tags": [
+    "tracker",
+    "cloud"
+  ],
+  "retrievedAt": "2026-09-30"
+},
+{
+  "id": "TR-aqua-4",
+  "title": "Aqua Security Announces $135 Million in Series E Funding at a $1 Billion Valuation",
+  "organization": "Aqua Security",
+  "publicationDate": "2021-03-10",
+  "economicPeriod": "N/A (funding announcement)",
+  "canonicalUrl": "https://www.prnewswire.com/news-releases/aqua-security-announces-135-million-in-series-e-funding-at-a-1-billion-valuation-301243855.html",
+  "excerpt": "Aqua Security...announced today the completion of $135 Million in Series E funding led by ION Crossover Partners, putting Aqua's valuation in excess of $1 Billion.",
+  "sourceClass": "IR",
+  "interpretation": "",
+  "limitations": "AUTO-001 fix pass 4, item 1/8: the tracker previously had no lastRound field for Aqua at all. Checked Aqua's own newsroom (aquasec.com/news/) and its PR Newswire release list; no funding round or ownership change newer than this one was found as of 2026-09-30.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-aqua-4",
+  "tags": [
+    "tracker",
+    "cloud"
+  ],
+  "retrievedAt": "2026-09-30",
+  "retrieval": {
+    "finalUrl": "https://www.prnewswire.com/news-releases/aqua-security-announces-135-million-in-series-e-funding-at-a-1-billion-valuation-301243855.html",
+    "sha256": "a778adbb87264a3e1a5850a2cea3cd9d66b54d655a64c3a94b2cbc4b5f890231",
+    "fetchedAt": "2026-09-30T00:00:00Z",
+    "locator": "First paragraph"
+  }
+},
+{
   "id": "TR-armis-1",
   "title": "ServiceNow Announces First Quarter Fiscal 2026 Financial Results",
   "organization": "ServiceNow, Inc.",
@@ -2290,6 +2335,25 @@ export const evidenceRecords: EvidenceRecord[] = [
   "retrievedAt": "2026-09-25"
 },
 {
+  "id": "TR-axonius-3",
+  "title": "Axonius Closes $200M Series E Funding Round",
+  "organization": "Axonius, Inc.",
+  "publicationDate": "2022-03-08",
+  "economicPeriod": "N/A (funding announcement)",
+  "canonicalUrl": "https://www.axonius.com/newsroom/press-release/axonius-closes-200m-series-e-funding-round",
+  "excerpt": "Axonius today announced it has closed $200 million in Series E funding, led by Accel, at a valuation of $2.6 billion.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "AUTO-001 fix pass 4, item 1: the tracker previously had no lastRound field for Axonius at all.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-axonius-3",
+  "tags": [
+    "tracker",
+    "exposure"
+  ],
+  "retrievedAt": "2026-09-30"
+},
+{
   "id": "TR-barracuda-1",
   "title": "Barracuda KKR Acquisition Completion",
   "organization": "Barracuda Networks, Inc.",
@@ -2307,6 +2371,25 @@ export const evidenceRecords: EvidenceRecord[] = [
     "email"
   ],
   "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-beyondtrust-1",
+  "title": "BeyondTrust Completes Transaction with Clearlake Capital and Francisco Partners",
+  "organization": "BeyondTrust",
+  "publicationDate": "2021-08-17",
+  "economicPeriod": "N/A (ownership announcement)",
+  "canonicalUrl": "https://www.globenewswire.com/news-release/2021/08/17/2282045/0/en/BeyondTrust-Completes-Transaction-with-Clearlake-Capital-and-Francisco-Partners.html",
+  "excerpt": "Clearlake joins existing investor Francisco Partners, a leading global investment firm that specializes in partnering with technology businesses, which acquired BeyondTrust in 2018.",
+  "sourceClass": "IR",
+  "interpretation": "",
+  "limitations": "AUTO-001 fix pass 4, item 8: the tracker previously had no ownership field for BeyondTrust at all.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-beyondtrust-1",
+  "tags": [
+    "tracker",
+    "identity"
+  ],
+  "retrievedAt": "2026-09-30"
 },
 {
   "id": "TR-bigid-1",
@@ -2367,22 +2450,22 @@ export const evidenceRecords: EvidenceRecord[] = [
 },
 {
   "id": "TR-cato-3",
-  "title": "Cato Networks ARR Milestone Update",
+  "title": "Cato Networks Exceeds $415M in ARR Fueled by 42% YoY Growth and Enterprise Demand",
   "organization": "Cato Networks",
-  "publicationDate": "2026-08-20",
-  "economicPeriod": "ARR milestone referenced in company blog, August 2026 (originally announced 2026-07-27)",
-  "canonicalUrl": "https://www.catonetworks.com/blog/three-years-as-a-leader-built-for-where-the-market-is-going/",
-  "excerpt": "We recently surpassed $415 million in annual recurring revenue, growing 42% year over year, and now serve more than 4,800 customers worldwide.",
+  "publicationDate": "2026-07-27",
+  "economicPeriod": "ARR milestone as of July 27, 2026",
+  "canonicalUrl": "https://www.prnewswire.com/il/news-releases/cato-networks-exceeds-415m-in-arr-fueled-by-42-yoy-growth-and-enterprise-demand-302833667.html",
+  "excerpt": "Cato Networks...announced that it has surpassed $415 million in ARR, with 42% year-over-year (YoY) growth.",
   "sourceClass": "IR",
   "interpretation": "",
-  "limitations": "Company-stated, not an audited filing. The originating 2026-07-27 press release (catonetworks.com/news/) returned a bot challenge on every fetch attempt this session; this record instead cites the same figure as restated in Cato's own blog, retrieved via its public RSS feed. No exact \"as of\" date is stated beyond \"recently.\" Supersedes TR-cato-2's $350M/2025 figure with this more recent company-stated figure.",
+  "limitations": "Company-stated, not an audited filing. AUTO-001 fix pass 4, item 1: this record previously cited a later company blog restating the same figure because the originating PR Newswire release could not be fetched that session; it is now cited directly, carrying its own July 27, 2026 publication date instead of the blog's August 2026 repost date. Supersedes TR-cato-2's $350M/2025 figure with this more recent company-stated figure.",
   "conflictingEvidenceIds": [],
   "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-cato-3",
   "tags": [
     "tracker",
     "network-sase"
   ],
-  "retrievedAt": "2026-09-26"
+  "retrievedAt": "2026-09-30"
 },
 {
   "id": "TR-chainguard-1",
@@ -2402,6 +2485,25 @@ export const evidenceRecords: EvidenceRecord[] = [
     "appsec"
   ],
   "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-chainguard-2",
+  "title": "Chainguard Announces $280 Million Growth Financing from General Catalyst to Usher in Next Era of Trusted Open Source Software",
+  "organization": "Chainguard, Inc.",
+  "publicationDate": "2025-10-23",
+  "economicPeriod": "N/A (funding announcement)",
+  "canonicalUrl": "https://www.prnewswire.com/news-releases/chainguard-announces-280-million-growth-financing-from-general-catalyst-to-usher-in-next-era-of-trusted-open-source-software-302592279.html",
+  "excerpt": "Chainguard...today announced it has raised $280 million in growth financing from General Catalyst's Customer Value Fund (CVF).",
+  "sourceClass": "IR",
+  "interpretation": "",
+  "limitations": "AUTO-001 fix pass 4, item 1: supersedes TR-chainguard-1 (SiliconANGLE, trade press) as the cited source — amount and date unchanged, same round.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-chainguard-2",
+  "tags": [
+    "tracker",
+    "appsec"
+  ],
+  "retrievedAt": "2026-09-30"
 },
 {
   "id": "TR-checkpoint-1",
@@ -2696,11 +2798,11 @@ export const evidenceRecords: EvidenceRecord[] = [
   "organization": "Palo Alto Networks, Inc.",
   "publicationDate": "2025-07-31",
   "economicPeriod": "July 2025",
-  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1327567/000119312526040606/d128872d8k.htm",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1327567/000119312525169870/d804159d8k.htm",
   "excerpt": "Merger agreement with CyberArk announced; consideration 2.2005 PANW shares plus $45.00 cash per share.",
   "sourceClass": "FILING",
   "interpretation": "",
-  "limitations": "Deal value approximately $25B per trade press, not explicitly in 8-K text.",
+  "limitations": "AUTO-001 fix pass 4, item 9: the prior URL 404'd (wrong accession number). Corrected to PANW's actual 2025-07-31 8-K, verified against EDGAR's own submissions index for CIK 0001327567. Deal value approximately $25B per trade press, not explicitly in 8-K text.",
   "conflictingEvidenceIds": [],
   "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-cyberark-1",
   "tags": [
@@ -2715,11 +2817,11 @@ export const evidenceRecords: EvidenceRecord[] = [
   "organization": "CyberArk Software Ltd.",
   "publicationDate": "2026-02-23",
   "economicPeriod": "February 2026",
-  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1598110/000159811026000007/form15-12g.htm",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1598110/000110465926018360/tm266096d1_1512g.htm",
   "excerpt": "CyberArk filed Form 15-12G deregistering from SEC, effective February 23, 2026, following acquisition close on February 11, 2026.",
   "sourceClass": "FILING",
   "interpretation": "",
-  "limitations": "",
+  "limitations": "AUTO-001 fix pass 4, item 9: the prior URL 404'd (wrong accession number). Corrected to CyberArk's actual Form 15-12G, verified against EDGAR's own submissions index for CIK 0001598110.",
   "conflictingEvidenceIds": [],
   "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-cyberark-2",
   "tags": [
@@ -2881,6 +2983,25 @@ export const evidenceRecords: EvidenceRecord[] = [
   "retrievedAt": "2026-09-25"
 },
 {
+  "id": "TR-expel-2",
+  "title": "Expel Investors Fuel Rapid Growth With Additional Series E Investment, Bringing Total Funding to $288 Million",
+  "organization": "Expel, Inc.",
+  "publicationDate": "2022-10-03",
+  "economicPeriod": "N/A (funding announcement)",
+  "canonicalUrl": "https://expel.com/resource/expel-investors-fuel-rapid-growth-with-additional-series-e-investment-bringing-total-funding-to-288-million/",
+  "excerpt": "Expel...announced an additional $171.3 million in Series E funding, led by CapitalG and Paladin Capital Group, with participation from existing investors Scale Venture Partners, March Capital, Index Ventures, and Battery Ventures, bringing total funding raised to $288.8 million.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "AUTO-001 fix pass 4, item 8: the tracker previously had no ownership field for Expel at all.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-expel-2",
+  "tags": [
+    "tracker",
+    "managed-security"
+  ],
+  "retrievedAt": "2026-09-30"
+},
+{
   "id": "TR-forescout-1",
   "title": "Forescout leadership page",
   "organization": "Forescout Technologies, Inc.",
@@ -3001,17 +3122,48 @@ export const evidenceRecords: EvidenceRecord[] = [
   "publicationDate": "2025-05-02",
   "economicPeriod": "May 2025",
   "canonicalUrl": "https://www.ivanti.com/company/press-releases/2025/ivanti-announces-successful-refinancing-and-new-capital-infusion-to-support-key-strategic-initiatives",
-  "excerpt": "Ivanti announced successful refinancing with $350 million in new capital from existing first- and second-lien lenders. Maturities extended to 2029.",
+  "excerpt": "Ivanti announced successful refinancing with $350 million in new capital from existing first- and second-lien lenders. Maturities extended to 2029. \"Ivanti is backed by Clearlake Capital Group, L.P., Charlesbank Capital Partners, LLC, and TA Associates.\"",
   "sourceClass": "OFFICIAL",
   "interpretation": "",
-  "limitations": "Date falls just outside the 12-month event window but is provided for context.",
+  "limitations": "AUTO-001 fix pass 4, item 2: this is the newest company-issued source naming Ivanti's PE sponsors — it names all three (Clearlake, Charlesbank, TA Associates), confirming the ownership group formed by TR-ivanti-2's 2021 close is still current as of this May 2025 release. The refinancing itself falls just outside the trailing-12-month event window; it is cited for the ownership confirmation, not as a tracked event.",
   "conflictingEvidenceIds": [],
   "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-ivanti-1",
   "tags": [
     "tracker",
     "exposure"
   ],
-  "retrievedAt": "2026-09-25"
+  "retrievedAt": "2026-10-02",
+  "retrieval": {
+    "finalUrl": "https://www.ivanti.com/company/press-releases/2025/ivanti-announces-successful-refinancing-and-new-capital-infusion-to-support-key-strategic-initiatives",
+    "sha256": "7b513e3e454b66431d08f120ff2bc64055b3438b4197bf6b3814613b4beb8a55",
+    "fetchedAt": "2026-10-02T00:00:00Z",
+    "locator": "Sponsor-naming sentence, second paragraph"
+  }
+},
+{
+  "id": "TR-ivanti-2",
+  "title": "Charlesbank Capital Partners Closes Strategic Investment in Ivanti",
+  "organization": "Ivanti, Inc.",
+  "publicationDate": "2021-05-11",
+  "economicPeriod": "May 2021",
+  "canonicalUrl": "https://www.ivanti.com/company/press-releases/2021/charlesbank-capital-partners-closes-strategic-investment-in-ivanti",
+  "excerpt": "Ivanti...today announced the close of the strategic investment from Charlesbank Capital Partners, LLC...Charlesbank...has joined existing investors Clearlake Capital Group, L.P....and TA Associates...as an institutional shareholder in Ivanti. Terms of the transaction were not disclosed.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "AUTO-001 fix pass 4, item 2: this is Ivanti's own dated release for when Charlesbank joined as the third PE investor, forming the ownership group that TR-ivanti-1's 2025 refinancing release confirms is still current.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-ivanti-2",
+  "tags": [
+    "tracker",
+    "exposure"
+  ],
+  "retrievedAt": "2026-10-01",
+  "retrieval": {
+    "finalUrl": "https://www.ivanti.com/company/press-releases/2021/charlesbank-capital-partners-closes-strategic-investment-in-ivanti",
+    "sha256": "2a6e79069dbf5f7206a5d878d633fd2436b4544e4e184a635de295cfcf8598cb",
+    "fetchedAt": "2026-10-01T00:00:00Z",
+    "locator": "First paragraph"
+  }
 },
 {
   "id": "TR-jfrog-1",
@@ -3110,15 +3262,15 @@ export const evidenceRecords: EvidenceRecord[] = [
 },
 {
   "id": "TR-msft-1",
-  "title": "Microsoft Corporation - Security Products",
+  "title": "Microsoft FY2026 10-K Filing",
   "organization": "Microsoft Corporation",
-  "publicationDate": "2026-07-01",
-  "economicPeriod": "General disclosure",
-  "canonicalUrl": "https://www.microsoft.com/en-us/investor",
-  "excerpt": "Defender for Endpoint is a product within Microsoft's security portfolio. No separately stated revenue or metrics are disclosed by the company.",
-  "sourceClass": "OFFICIAL",
+  "publicationDate": "2026-07-29",
+  "economicPeriod": "FY2026, ended 2026-06-30",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm",
+  "excerpt": "FY2026 revenue $331.839 billion, +18% YoY. Defender for Endpoint is a product within Microsoft's Security segment and is not separately reported in the filing.",
+  "sourceClass": "FILING",
   "interpretation": "",
-  "limitations": "Segment figure, not a standalone filer. No separate revenue disclosed by the company.",
+  "limitations": "AUTO-001 fix pass 4, item 9: this record previously cited a generic investor landing page (microsoft.com/en-us/investor) rather than a document. Points to Microsoft's own 10-K now, the same filing already cited by TR-msft-defender-1 and TR-msft-entra-1. No separate revenue disclosed by the company for Defender for Endpoint.",
   "conflictingEvidenceIds": [],
   "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-msft-1",
   "tags": [
@@ -3209,11 +3361,11 @@ export const evidenceRecords: EvidenceRecord[] = [
   "organization": "Netskope, Inc.",
   "publicationDate": "2025-09-18",
   "economicPeriod": "September 2025",
-  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/2063196/000119312525211027/d636835ds1a.htm",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/2063196/000119312525204285/ck0002063196-20250916.htm",
   "excerpt": "IPO'd on Nasdaq on September 18, 2025: 47.8 million Class A shares at $19.00, implying $7.3B valuation; closed with full over-allotment exercise, net proceeds ~$992.2 million.",
   "sourceClass": "FILING",
   "interpretation": "",
-  "limitations": "",
+  "limitations": "AUTO-001 fix pass 4, item 9: the prior URL 404'd (wrong accession number). Corrected to Netskope's final S-1/A, filed 2025-09-16, two days before the IPO date this record cites, verified against EDGAR's own submissions index for CIK 0002063196.",
   "conflictingEvidenceIds": [],
   "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-netskope-3",
   "tags": [
@@ -3419,6 +3571,25 @@ export const evidenceRecords: EvidenceRecord[] = [
   "retrievedAt": "2026-09-25"
 },
 {
+  "id": "TR-orca-2",
+  "title": "Orca Security Raises $550M in Extended Series C Round",
+  "organization": "Orca Security",
+  "publicationDate": "2021-10-05",
+  "economicPeriod": "N/A (funding announcement)",
+  "canonicalUrl": "https://orca.security/resources/press-releases/orca-security-series-c-550-million-announcement/",
+  "excerpt": "Orca Security...announced it closed $550 million in its extended Series C fundraising round, led by Temasek...boosting its valuation to $1.8 billion.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "AUTO-001 fix pass 4, item 1: the tracker previously had no lastRound field and an un-cited generic ownership line for Orca; no funding or ownership event newer than this October 2021 round was found in Orca's own press-release archive as of 2026-09-30.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-orca-2",
+  "tags": [
+    "tracker",
+    "cloud"
+  ],
+  "retrievedAt": "2026-09-30"
+},
+{
   "id": "TR-panw-1",
   "title": "Palo Alto Networks Q4 FY2026 Financial Results",
   "organization": "Palo Alto Networks, Inc.",
@@ -3464,11 +3635,11 @@ export const evidenceRecords: EvidenceRecord[] = [
   "organization": "Palo Alto Networks, Inc.",
   "publicationDate": "2026-02-11",
   "economicPeriod": "February 2026",
-  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/0001327567/000132756726000005/crwd-cyberark-8k.htm",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1327567/000119312526045600/d40626d8k.htm",
   "excerpt": "Palo Alto Networks closed its acquisition of CyberArk Software Ltd. for approximately $25 billion in equity value, including $2.3 billion in cash and 112 million shares.",
   "sourceClass": "FILING",
   "interpretation": "",
-  "limitations": "",
+  "limitations": "AUTO-001 fix pass 4, item 9: the prior URL 404'd (wrong filename). Corrected to PANW's actual 2026-02-11 8-K, verified against EDGAR's own submissions index for CIK 0001327567.",
   "conflictingEvidenceIds": [],
   "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-panw-3",
   "tags": [
@@ -3484,11 +3655,11 @@ export const evidenceRecords: EvidenceRecord[] = [
   "organization": "Palo Alto Networks, Inc.",
   "publicationDate": "2026-09-10",
   "economicPeriod": "FY2026",
-  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1327567/000132756726000023/0001327567-26-000023-index.htm",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1327567/000132756726000023/panw-20260731.htm",
   "excerpt": "Cortex XSIAM is a product line within Palo Alto Networks; the filing discloses only combined Next-Gen Security ARR, with no XSIAM-specific revenue or metrics stated separately.",
   "sourceClass": "FILING",
   "interpretation": "",
-  "limitations": "Product line, not a standalone entity. No separate revenue disclosed.",
+  "limitations": "AUTO-001 fix pass 4, item 9: this record previously cited the filing's index page rather than the document itself. Points to the primary 10-K document (panw-20260731.htm) now. Product line, not a standalone entity — no separate revenue disclosed.",
   "conflictingEvidenceIds": [],
   "artifactLabel": "SEC-MARKET-AUTO-001-FITFIX2 / TR-panw-xsiam-1",
   "tags": [
@@ -3499,41 +3670,60 @@ export const evidenceRecords: EvidenceRecord[] = [
 },
 {
   "id": "TR-ping-1",
-  "title": "Ping Identity ARR Milestone Announcement",
+  "title": "Ping Identity Surpasses 30% Annual Growth in SaaS Revenue and Approaches $800M ARR as an Enterprise Identity Market Leader",
   "organization": "Ping Identity",
   "publicationDate": "2024-11-14",
-  "economicPeriod": "November 2024",
-  "canonicalUrl": "https://www.pingidentity.com/en/company/newsroom.html",
-  "excerpt": "Approaching $800 million ARR with 30%+ SaaS revenue growth.",
+  "economicPeriod": "Period ended September 30, 2024",
+  "canonicalUrl": "https://press.pingidentity.com/2024-11-14-Ping-Identity-Surpasses-30-Annual-Growth-in-SaaS-Revenue-and-Approaches-800M-ARR-as-an-Enterprise-Identity-Market-Leader",
+  "excerpt": "Ping Identity has surpassed key growth milestones as of September 30, 2024, achieving 31% year-over-year Annual Recurring Revenue (ARR) growth of SaaS offerings, 33% year-to-date new bookings growth, while approaching $800M ARR.",
   "sourceClass": "IR",
   "interpretation": "",
-  "limitations": "No newer figure found; treat as stale relative to September 2026.",
+  "limitations": "AUTO-001 fix pass 4, item 9: previously cited the bare newsroom index page, which the build's source-legibility gate treats as unusable; replaced with the specific release. No newer figure found; treat as stale relative to September 2026.",
   "conflictingEvidenceIds": [],
   "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-ping-1",
   "tags": [
     "tracker",
     "identity"
   ],
-  "retrievedAt": "2026-09-25"
+  "retrievedAt": "2026-10-01"
 },
 {
   "id": "TR-ping-2",
-  "title": "Ping Identity Thoma Bravo Acquisition Completion",
+  "title": "Thoma Bravo Completes Acquisition of Ping Identity",
   "organization": "Ping Identity",
   "publicationDate": "2022-10-18",
   "economicPeriod": "October 2022",
-  "canonicalUrl": "https://www.pingidentity.com/en/company/newsroom.html",
-  "excerpt": "Thoma Bravo acquisition closed October 18, 2022 at $2.8 billion deal value.",
+  "canonicalUrl": "https://press.pingidentity.com/2022-10-18-Thoma-Bravo-Completes-Acquisition-of-Ping-Identity",
+  "excerpt": "Ping Identity announced the completion of its acquisition by Thoma Bravo in an all-cash transaction valued at approximately $2.8 billion. Ping Identity stockholders are entitled to receive $28.50 in cash for each share of common stock they owned.",
   "sourceClass": "IR",
   "interpretation": "",
-  "limitations": "",
+  "limitations": "AUTO-001 fix pass 4, item 9: previously cited the bare newsroom index page; replaced with the specific release.",
   "conflictingEvidenceIds": [],
   "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-ping-2",
   "tags": [
     "tracker",
     "identity"
   ],
-  "retrievedAt": "2026-09-25"
+  "retrievedAt": "2026-10-01"
+},
+{
+  "id": "TR-ping-3",
+  "title": "Ping Identity Marks Digital Trust Milestone with Zero-Knowledge Biometrics in the Age of AI",
+  "organization": "Ping Identity",
+  "publicationDate": "2026-01-07",
+  "economicPeriod": "N/A (acquisition completion announcement)",
+  "canonicalUrl": "https://www.prnewswire.com/news-releases/ping-identity-marks-digital-trust-milestone-with-zero-knowledge-biometrics-in-the-age-of-ai-302654492.html",
+  "excerpt": "With the acquisition of Keyless now complete, Ping adds Zero-Knowledge Biometrics to its portfolio. Financial terms of the transaction were not disclosed.",
+  "sourceClass": "IR",
+  "interpretation": "",
+  "limitations": "AUTO-001 fix pass 4, item 3: the tracker previously showed 0 events in the trailing 12 months for Ping Identity; both blind scorers (score3/opus, score3/sol) found this acquisition completion missing.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-ping-3",
+  "tags": [
+    "tracker",
+    "identity"
+  ],
+  "retrievedAt": "2026-09-30"
 },
 {
   "id": "TR-proofpoint-1",
@@ -3591,6 +3781,25 @@ export const evidenceRecords: EvidenceRecord[] = [
     "exposure"
   ],
   "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-qualys-2",
+  "title": "Qualys Inc. Q1 2026 Financial Results",
+  "organization": "Qualys, Inc.",
+  "publicationDate": "2026-05-05",
+  "economicPeriod": "Quarter ended 2026-03-31",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1107843/000110784326000013/qlys-20260505xex991.htm",
+  "excerpt": "Revenues for the first quarter of 2026 increased by 10% to $175.6 million compared to $159.9 million for the same quarter in 2025.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "AUTO-001 fix pass 4, item 7: added so the tracker's prior-quarter cell is no longer bare — the tracker previously had no citation for Qualys's Q1 2026 figures at all. Precise YoY growth from these two figures is 9.8%, consistent with the release's own rounded \"10%\" headline; confirmed against the comparative income statement in Qualys's own Q2 2026 10-Q (same $175,638K / $159,899K figures, in thousands).",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-qualys-2",
+  "tags": [
+    "tracker",
+    "exposure"
+  ],
+  "retrievedAt": "2026-10-01"
 },
 {
   "id": "TR-rapid7-1",
@@ -3865,10 +4074,10 @@ export const evidenceRecords: EvidenceRecord[] = [
   "publicationDate": "2026-06-12",
   "economicPeriod": "Quarter ended April 30, 2026",
   "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/2030781/000203078126000011/sail-20260430.htm",
-  "excerpt": "Revenue $280.142 million, +21.5% YoY; ARR $1,162.7 million, +25.8% YoY.",
+  "excerpt": "Total revenue $280,142 thousand (Q1 FY2027) vs $230,468 thousand (Q1 FY2026), a $49,674 thousand / 22% increase per the filing's own MD&A table.",
   "sourceClass": "FILING",
   "interpretation": "",
-  "limitations": "",
+  "limitations": "AUTO-001 fix pass 4, item 6: the tracker previously rounded this to 21.5%; the precise figure from these same two reported dollar values is 21.6% (49,674 / 230,468), which still rounds to the 22% change SailPoint's own MD&A table states.",
   "conflictingEvidenceIds": [],
   "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-sailpoint-2",
   "tags": [
@@ -3916,6 +4125,44 @@ export const evidenceRecords: EvidenceRecord[] = [
   "retrievedAt": "2026-09-26"
 },
 {
+  "id": "TR-snyk-3",
+  "title": "Snyk Closes $196.5 Million Series G Funding at $7.4 Billion Valuation",
+  "organization": "Snyk Ltd.",
+  "publicationDate": "2022-12-13",
+  "economicPeriod": "N/A (funding announcement)",
+  "canonicalUrl": "https://snyk.io/news/snyk-closes-196-5-million-series-g-funding-at-7-4-billion-valuation/",
+  "excerpt": "Snyk today announced it has closed $196.5 million in Series G funding at a $7.4 billion valuation, led by Qatar Investment Authority (QIA), with participation from Evolution Equity Partners, G Squared, Irving Investors, boldstart ventures, Sands Capital, and Tiger Global.",
+  "sourceClass": "IR",
+  "interpretation": "",
+  "limitations": "AUTO-001 fix pass 4, item 1: supersedes TR-snyk-1/TR-snyk-2's 2021 Series F figures — this Series G round is Snyk's actual most recent priced round. Two blind scorers (score3/opus, score3/sol) caught the tracker still showing the 2021 Series F as Snyk's last round while Snyk's own newsroom lists this later round.",
+  "conflictingEvidenceIds": ["TR-snyk-1", "TR-snyk-2"],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-snyk-3",
+  "tags": [
+    "tracker",
+    "appsec"
+  ],
+  "retrievedAt": "2026-09-30"
+},
+{
+  "id": "TR-snyk-4",
+  "title": "Snyk Secures Strategic Investment from ServiceNow to Accelerate Enterprise DevSecOps Transformation",
+  "organization": "Snyk Ltd.",
+  "publicationDate": "2023-01-24",
+  "economicPeriod": "N/A (strategic investment announcement)",
+  "canonicalUrl": "https://snyk.io/news/snyk-secures-strategic-investment-from-servicenow-to-accelerate-enterprise-devsecops-transformation/",
+  "excerpt": "This latest development comes on the heels of Snyk's announcement of $196.5 million in Series G investment in late 2022.",
+  "sourceClass": "IR",
+  "interpretation": "",
+  "limitations": "ServiceNow's investment amount was not disclosed in this release. Checked against Snyk's own newsroom archive (pages 1-3 of snyk.io/news/); no funding round or strategic investment after this date was found there as of 2026-09-30.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-snyk-4",
+  "tags": [
+    "tracker",
+    "appsec"
+  ],
+  "retrievedAt": "2026-09-30"
+},
+{
   "id": "TR-sonatype-1",
   "title": "Vista Acquires Majority Interest in Sonatype",
   "organization": "Sonatype Inc.",
@@ -3955,22 +4202,28 @@ export const evidenceRecords: EvidenceRecord[] = [
 },
 {
   "id": "TR-sophos-1",
-  "title": "Sophos Group - Thoma Bravo Ownership",
-  "organization": "Sophos Group (Sophos Ltd)",
-  "publicationDate": "2020-03-01",
+  "title": "Sophos Announces Completion of Take-Private Acquisition by Thoma Bravo",
+  "organization": "Thoma Bravo",
+  "publicationDate": "2020-03-02",
   "economicPeriod": "March 2020",
-  "canonicalUrl": "https://www.thomabravo.com/press-releases/sophos",
-  "excerpt": "Thoma Bravo acquired Sophos Group through a take-private transaction, completed in March 2020.",
+  "canonicalUrl": "https://www.thomabravo.com/press-releases/sophos-announces-completion-of-take-private-acquisition-by-thoma-bravo",
+  "excerpt": "Sophos Announces Completion of Take-Private Acquisition by Thoma Bravo. Transaction · March 2, 2020.",
   "sourceClass": "OFFICIAL",
   "interpretation": "",
-  "limitations": "",
+  "limitations": "AUTO-001 fix pass 4, item 9: the prior canonicalUrl (thomabravo.com/press-releases/sophos) 404s; replaced with the actual release, found via Thoma Bravo's own sitemap.xml. The page is a client-streamed Next.js document whose body text is not reachable in plain HTML, so the excerpt here is limited to the headline and the dateline, both directly confirmed in the page's own data payload.",
   "conflictingEvidenceIds": [],
-  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-sophos-1",
+  "artifactLabel": "SEC-MARKET-AUTO-001-COLLECT / TR-sophos-1",
   "tags": [
     "tracker",
     "endpoint-xdr"
   ],
-  "retrievedAt": "2026-09-25"
+  "retrievedAt": "2026-10-02",
+  "retrieval": {
+    "finalUrl": "https://www.thomabravo.com/press-releases/sophos-announces-completion-of-take-private-acquisition-by-thoma-bravo",
+    "sha256": "97d7411a96e6ad170706b4e3059f5ae2027ae4ebe8c5d5d85aa04db914c6f63f",
+    "fetchedAt": "2026-10-02T16:05:00Z",
+    "locator": "Page headline and dateline"
+  }
 },
 {
   "id": "TR-sophos-2",
@@ -4125,6 +4378,25 @@ export const evidenceRecords: EvidenceRecord[] = [
   "retrievedAt": "2026-09-25"
 },
 {
+  "id": "TR-tenable-3",
+  "title": "Tenable Holdings Q1 2026 Financial Results",
+  "organization": "Tenable Holdings, Inc.",
+  "publicationDate": "2026-04-29",
+  "economicPeriod": "Quarter ended 2026-03-31",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1660280/000166028026000020/q12026financialresults-ear.htm",
+  "excerpt": "Revenue of $262.1 million, year-over-year growth of 9.6%.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "AUTO-001 fix pass 4, item 7: added so the tracker's prior-quarter cell is no longer bare — the tracker previously had no citation for Tenable's Q1 2026 figures at all. The company's own stated 9.6% YoY figure matches the precise computation from its own reported dollar values ($262,058K vs $239,137K, confirmed against the comparative income statement in Tenable's own Q2 2026 10-Q).",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-tenable-3",
+  "tags": [
+    "tracker",
+    "exposure"
+  ],
+  "retrievedAt": "2026-10-01"
+},
+{
   "id": "TR-tines-1",
   "title": "Goldman, SoftBank Back AI Startup Tines Valued at $1.13 Billion",
   "organization": "Bloomberg",
@@ -4169,10 +4441,10 @@ export const evidenceRecords: EvidenceRecord[] = [
   "publicationDate": "2026-08-13",
   "economicPeriod": "Quarter ended 2026-06-30",
   "canonicalUrl": "https://newsroom.trendmicro.com/2026-08-13-Trend-Micro-Reports-Earnings-Results-for-Q2-2026",
-  "excerpt": "ARR exceeded $1.7 billion, up 5% year over year. FY2026 operating-income guidance cut from ¥56.4 billion to ¥44.4 billion due to rising artificial-intelligence and cloud-computing token costs.",
+  "excerpt": "ARR exceeded $1.7 billion, up 5% year over year. Total company net sales up 13% YoY; consolidated net sales of 74,739 million yen (US $468 million at 159.47 JPY = 1 USD) for the quarter. FY2026 operating-income guidance cut from ¥56.4 billion to ¥44.4 billion due to rising artificial-intelligence and cloud-computing token costs.",
   "sourceClass": "IR",
   "interpretation": "",
-  "limitations": "Company is Tokyo-listed; not an active SEC filer.",
+  "limitations": "AUTO-001 fix pass 4, item 7: added the revenue-growth figure (previously bare in the tracker). The release states the 13% YoY net-sales growth as a whole percent and does not give the prior-year yen figure in its own text (only in a financial-supplement table this evidence record does not reach), so the tracker stores the company's own whole-percent figure rather than a fabricated one-decimal value. Company is Tokyo-listed; not an active SEC filer.",
   "conflictingEvidenceIds": [],
   "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-trend-1",
   "tags": [
@@ -4294,6 +4566,25 @@ export const evidenceRecords: EvidenceRecord[] = [
     "data"
   ],
   "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-veeam-4",
+  "title": "Veeam, the World's #1 Leader in Data Resilience, Welcomes New Investors with a $15 Billion Valuation",
+  "organization": "Veeam Software",
+  "publicationDate": "2024-12-04",
+  "economicPeriod": "N/A (secondary equity offering announcement)",
+  "canonicalUrl": "https://www.veeam.com/company/press-release/veeam-the-worlds-1-leader-in-data-resilience-welcomes-new-investors-with-a-dollar15-billion-valuation.html",
+  "excerpt": "Insight Partners owned Veeam expands investor base in a $2 billion secondary equity offering led by TPG with participation from Temasek, Neuberger Berman Capital Solutions, and others...Insight Partners remains the largest shareholder.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "AUTO-001 fix pass 4, item 1: supersedes TR-veeam-1 (a Wikipedia secondary source for a reported 2020 deal) with Veeam's own primary release.",
+  "conflictingEvidenceIds": ["TR-veeam-1"],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-veeam-4",
+  "tags": [
+    "tracker",
+    "data"
+  ],
+  "retrievedAt": "2026-09-30"
 },
 {
   "id": "TR-veracode-1",
@@ -4606,6 +4897,28 @@ export const evidenceRecords: EvidenceRecord[] = [
     "sha256": "d18b79e5bfb9b2a1c3a1dbf1bf0e7d2001a7487989a68f6dc18067086a5329cc",
     "fetchedAt": "2026-09-26T17:30:00Z",
     "locator": "First paragraph"
+  }
+},
+{
+  "id": "TR-delinea-6",
+  "title": "Thycotic and Centrify Merge to Become a Leading Cloud Privileged Identity Security Vendor",
+  "organization": "Delinea (published as ThycoticCentrify)",
+  "publicationDate": "2021-04-13",
+  "economicPeriod": "April 2021",
+  "canonicalUrl": "https://delinea.com/news/thycotic-and-centrify-merge-to-become-a-leading-cloud-privileged-identity-security-vendor",
+  "excerpt": "The companies have completed their previously-announced merger to form a leading cloud identity security vendor... Backed by the financial strength of TPG Capital... Insight Partners, Thoma Bravo, and Public Sector Pension Investment Board (PSP Investments) have taken minority investments in the business.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "AUTO-001 fix pass 4, item 2: this is the company's own closing announcement for the merger that formed Delinea (rebranded from the temporary name ThycoticCentrify in February 2022); it names TPG Capital as the controlling backer and Insight Partners, Thoma Bravo, and PSP Investments as minority investors. The company's full news sitemap, checked this pass, shows no later ownership-change release, so this is treated as Delinea's current ownership structure.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-FITFIX4 / TR-delinea-6",
+  "tags": ["tracker", "identity"],
+  "retrievedAt": "2026-10-02",
+  "retrieval": {
+    "finalUrl": "https://delinea.com/news/thycotic-and-centrify-merge-to-become-a-leading-cloud-privileged-identity-security-vendor",
+    "sha256": "89e65f2c968830ad45f5c946e82a005a425f449984a0d25bc0b15ebc496da139",
+    "fetchedAt": "2026-10-02T00:00:00Z",
+    "locator": "Second and fourth paragraphs"
   }
 },
 {
@@ -5023,6 +5336,105 @@ export const evidenceRecords: EvidenceRecord[] = [
     "locator": "Item 5.02"
   }
 },
+{
+  "id": "TR-expel-1",
+  "title": "Expel Raises $140 Million in Series E Funding",
+  "organization": "Expel, Inc.",
+  "publicationDate": "2021-11-18",
+  "economicPeriod": "N/A (funding announcement)",
+  "canonicalUrl": "https://expel.com/resource/expel-raises-140-million-in-series-e-funding/",
+  "excerpt": "Expel... announced $140.3 million in Series E funding, co-led by CapitalG, Alphabet's independent growth fund, and Paladin Capital Group... a valuation over $1 billion.",
+  "sourceClass": "IR",
+  "interpretation": "",
+  "limitations": "AUTO-001 fix pass 4, item 1/8: the tracker previously had no lastRound/ownership field for Expel at all. Checked Expel's own newsroom through its most recent 2026 releases; no later funding round or ownership change was found there.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-expel-1",
+  "tags": [
+    "tracker",
+    "managed-security"
+  ],
+  "retrievedAt": "2026-10-01"
+},
+{
+  "id": "TR-reliaquest-2",
+  "title": "ReliaQuest Names Krish Venkataraman Chief Financial Officer",
+  "organization": "ReliaQuest, LLC",
+  "publicationDate": "2026-10-01",
+  "economicPeriod": "N/A (leadership announcement)",
+  "canonicalUrl": "https://reliaquest.com/news-and-press/reliaquest-names-krish-venkataraman-chief-financial-officer/",
+  "excerpt": "ReliaQuest... today announced that Krish Venkataraman will join the company as Chief Financial Officer on October 5. Venkataraman will lead ReliaQuest's global finance and accounting organization... Venkataraman joins ReliaQuest from Solink, an AI technology company, where he serves as CFO. Previously he was President of Dataiku and CFO of Socure.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "Company press release; ReliaQuest is privately held with no SEC filer CIK.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-COLLECT / TR-reliaquest-2",
+  "tags": [
+    "tracker",
+    "managed-security"
+  ],
+  "retrievedAt": "2026-10-02",
+  "retrieval": {
+    "finalUrl": "https://reliaquest.com/news-and-press/reliaquest-names-krish-venkataraman-chief-financial-officer/",
+    "sha256": "f160bda9c0f1d3ccd47db4afc9b3b1fa047532b729ec3d54211d7e56e07f173e",
+    "fetchedAt": "2026-10-02T15:10:00Z",
+    "locator": "Opening paragraph"
+  }
+},
+{
+  "id": "TR-arctic-wolf-2",
+  "title": "Arctic Wolf Closes Record-breaking Series F with New and Existing Investors",
+  "organization": "Arctic Wolf Networks, Inc.",
+  "publicationDate": "2021-07-13",
+  "economicPeriod": "N/A (funding announcement)",
+  "canonicalUrl": "https://arcticwolf.com/resources/blog/arctic-wolf-closes-record-breaking-series-f-funding/",
+  "excerpt": "...backed by top tier investors, including Viking Global Investors, Owl Rock, a division of Blue Owl Capital and others in our Series F funding round of $150 million. Following this round, the company has achieved a valuation of $4.3 billion.",
+  "sourceClass": "IR",
+  "interpretation": "",
+  "limitations": "AUTO-001 fix pass 4, item 8: this is the most recent funding round found on Arctic Wolf's own site after checking its press-releases index, its full post-sitemap for every 'series'/'funding'/'raises'/'valuation' slug, and a GlobeNewswire organization search; no company-issued source for a later round was found. Company is privately held with no SEC filer CIK.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-COLLECT / TR-arctic-wolf-2",
+  "tags": [
+    "tracker",
+    "managed-security"
+  ],
+  "retrievedAt": "2026-10-02",
+  "retrieval": {
+    "finalUrl": "https://arcticwolf.com/resources/blog/arctic-wolf-closes-record-breaking-series-f-funding/",
+    "sha256": "9e957f78e50ee3a72266382ca364e7cbe8de6fdce135da4a2b43d1ede7c54a5a",
+    "fetchedAt": "2026-10-02T15:30:00Z",
+    "locator": "Body paragraph naming investors, round amount, and resulting valuation"
+  }
+},
+{
+  "id": "TR-cohesity-1",
+  "title": "Cohesity Becomes World's Largest Data Protection Software Provider After Completing Combination with Veritas' Enterprise Data Protection Business",
+  "organization": "Cohesity, Inc.",
+  "publicationDate": "2024-12-10",
+  "economicPeriod": "N/A (transaction close announcement)",
+  "canonicalUrl": "https://www.cohesity.com/newsroom/press/cohesity-becomes-worlds-largest-data-protection-provider-after-completing-combination-with-veritas-enterprise-data-protection-business/",
+  "excerpt": "The transaction values the combined company at over $7 billion. The combined company received support from current marquee investors, including Sequoia Capital, Softbank Vision Fund I, Wing Venture Capital, Premji Invest, and Madrona. The Carlyle Group is now one of the largest shareholders in the combined company. The transaction was funded by a Series H investment round led by Haveli Investments, which provided the majority of equity in the transaction and is now one of Cohesity's largest shareholders. Coatue, Sapphire Ventures, and Dragon Fund were also key investors in the Series H investment round.",
+  "sourceClass": "IR",
+  "interpretation": "",
+  "limitations": "Company's own press release. Company is privately held with no SEC filer CIK.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-COLLECT / TR-cohesity-1",
+  "tags": [
+    "tracker",
+    "data"
+  ],
+  "retrievedAt": "2026-10-02",
+  "retrieval": {
+    "finalUrl": "https://www.cohesity.com/newsroom/press/cohesity-becomes-worlds-largest-data-protection-provider-after-completing-combination-with-veritas-enterprise-data-protection-business/",
+    "sha256": "c4af532ff76676eb0416c732b3494f57eebb8fe975b7f17011ae7aaa71e1763e",
+    "fetchedAt": "2026-10-02T15:35:00Z",
+    "locator": "Transaction Details and Advisors section"
+  }
+},
+]
+
+export const evidenceRecords: EvidenceRecord[] = [
+  ...handWrittenEvidenceRecords,
+  ...(generatedFilingEvidence as EvidenceRecord[]),
 ]
 
 export const evidenceById = Object.fromEntries(

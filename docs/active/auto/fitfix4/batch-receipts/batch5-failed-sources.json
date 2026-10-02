@@ -1,0 +1,12 @@
+[
+  {
+    "supplierId": "rubrik",
+    "reason": "blocked",
+    "detail": "EDGAR submissions for CIK 0001943896 checked first and are definitive for all 8-K-triggering event types (nothing filed since 2026-09-26 but a routine Form 4/144 on 2026-09-25) — this failure is only about the supplementary own-news check (e.g. a third-party rating action), which could not be completed. www.rubrik.com/sitemap.xml returned HTTP 403 (Access Denied, Akamai edge); www.rubrik.com/company/newsroom, /company/newsroom/feed, /company/newsroom/rss.xml, and /feed all returned HTTP 403 the same way; ir.rubrik.com returned a Cloudflare 'Just a moment...' challenge page; businesswire.com's own search was blocked with HTTP 403; prnewswire.com/news/rubrik/ loaded but returned 'No results'; globenewswire.com's search path for Rubrik returned a 404. No related 8-K or other filer mention found in EDGAR full-text search since 2026-09-26."
+  },
+  {
+    "supplierId": "sysdig",
+    "reason": "no-readable-releases",
+    "detail": "EDGAR full-text search for \"Sysdig\" since 2026-09-26 returned zero hits (private company, no filer CIK). sysdig.com/newsroom/ returned HTTP 200 but is client-rendered with no dated press-release items in the raw HTML; sysdig.com/press-releases/ and /blog/feed/ returned 404; sysdig.com/feed/ (the company blog RSS, real per-item pubDates) was readable and its most recent item (Oct 1, 2026, 'With AI agents, runtime is the only place truth lives') is a blog/thought-leadership post, not a tracked event type, and no company-news item fell in the window. sitemap.xml's /newsroom URL lastmod (2026-08-13) predates the since-date with no individual press-release URLs listed. prnewswire.com/news/sysdig/ loaded and returned 'No results'; businesswire.com's search was blocked with HTTP 403; globenewswire.com's organization search path returned the generic homepage, not organization-specific results."
+  }
+]

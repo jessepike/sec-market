@@ -31,8 +31,6 @@ import { routes, type RouteEntry } from '../src/data/routes.ts'
 import { contextStats, marketCall } from '../src/data/market.ts'
 import {
   AUTHOR_NAME,
-  EPISODE_ID,
-  EPISODE_VERSION,
   LAST_UPDATED_ISO,
   PRODUCT_TITLE,
   SITE_DESCRIPTION,
@@ -46,6 +44,10 @@ const sitemapPath = resolve(webRoot, 'dist/sitemap.xml')
 
 const CANONICAL_URL = `${SITE_URL}/`
 const OG_IMAGE_URL = `${SITE_URL}/og.png`
+// AUTO-001 fix pass 4, item 10: a stable @id so every JSON-LD block's
+// `publisher` resolves to the same entity, instead of three separate
+// anonymous Organization objects that happen to share a name.
+const PUBLISHER_ID = `${SITE_URL}/#organization`
 
 function fail(message: string): never {
   console.error(`SEO step FAILED: ${message}`)
@@ -217,7 +219,7 @@ function structuredDataFor(routeEntry: RouteEntry, html: string) {
       datePublished: LAST_UPDATED_ISO,
       dateModified: LAST_UPDATED_ISO,
       author: { '@type': 'Person', name: AUTHOR_NAME },
-      publisher: { '@type': 'Organization', name: PRODUCT_TITLE, url: `${SITE_URL}/` },
+      publisher: { '@type': 'Organization', '@id': PUBLISHER_ID, name: PRODUCT_TITLE, url: `${SITE_URL}/` },
       isPartOf: { '@type': 'WebSite', name: PRODUCT_TITLE, url: `${SITE_URL}/` },
     }
   }
@@ -237,7 +239,7 @@ function structuredDataFor(routeEntry: RouteEntry, html: string) {
       isAccessibleForFree: true,
       ...(issue.published ? { datePublished: issue.published, dateModified: issue.published } : {}),
       author: { '@type': 'Person', name: AUTHOR_NAME },
-      publisher: { '@type': 'Organization', name: PRODUCT_TITLE, url: `${SITE_URL}/` },
+      publisher: { '@type': 'Organization', '@id': PUBLISHER_ID, name: PRODUCT_TITLE, url: `${SITE_URL}/` },
       isPartOf: { '@type': 'WebSite', name: PRODUCT_TITLE, url: `${SITE_URL}/` },
     }
   }
@@ -258,13 +260,12 @@ function structuredDataFor(routeEntry: RouteEntry, html: string) {
     headline: SITE_HEADLINE,
     description: readDescription(html),
     abstract: SITE_DESCRIPTION,
-    reportNumber: `${EPISODE_ID} v${EPISODE_VERSION}`,
     inLanguage: 'en',
     isAccessibleForFree: true,
     datePublished: LAST_UPDATED_ISO,
     dateModified: LAST_UPDATED_ISO,
     image: OG_IMAGE_URL,
-    publisher: { '@type': 'Organization', name: PRODUCT_TITLE, url: CANONICAL_URL },
+    publisher: { '@type': 'Organization', '@id': PUBLISHER_ID, name: PRODUCT_TITLE, url: CANONICAL_URL },
   }
 }
 
@@ -334,6 +335,7 @@ const jsonUrls = [
   ...(newestPublishedForSitemap ? [`${SITE_URL}/issues/${newestPublishedForSitemap.id}.json`] : []),
   `${SITE_URL}/issues/lock.json`,
   `${SITE_URL}/corrections.json`,
+  `${SITE_URL}/tracker.json`,
 ]
 const jsonEntries = jsonUrls
   .map(

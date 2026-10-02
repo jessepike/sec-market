@@ -170,6 +170,22 @@ export const edgarRegistry: EdgarSupplier[] = [
     fiscalYearEnd: '1231',
     revenueConcepts: STANDARD_REVENUE_CONCEPTS,
   },
+  {
+    id: 'commvault',
+    name: 'Commvault Systems',
+    ticker: 'CVLT',
+    cik: '0001169561',
+    fiscalYearEnd: '0331',
+    revenueConcepts: STANDARD_REVENUE_CONCEPTS,
+  },
+  {
+    id: 'jfrog',
+    name: 'JFrog',
+    ticker: 'FROG',
+    cik: '0001800667',
+    fiscalYearEnd: '1231',
+    revenueConcepts: STANDARD_REVENUE_CONCEPTS,
+  },
 ]
 
 /**
@@ -188,6 +204,21 @@ export const unsupported: UnsupportedSupplier[] = [
       '6-Ks, never a 10-Q or 10-K. Its 20-F XBRL only carries annual-duration facts, so no ' +
       'discrete quarterly revenue exists in EDGAR structured data for it. Confirmed against its ' +
       'submissions record: no 10-Q or 10-K in its filing history.',
+  },
+  {
+    id: 'trend-micro',
+    name: 'Trend Micro Incorporated',
+    ticker: '4704 (Tokyo Stock Exchange)',
+    cik: '0001089463',
+    reason:
+      'Listed on the Tokyo Stock Exchange (4704). It was once an SEC foreign private issuer under ' +
+      'this CIK, but its own Form 15F-12G terminated that registration, and its EDGAR record has ' +
+      'no 10-Q, 10-K, 6-K, or 20-F since 2009 (confirmed against its submissions record on ' +
+      '2026-09-30: the only filings are legacy 6-K/20-F/S-8/SC 13G items from 2000-2009, ending ' +
+      'with the deregistration). It now reports quarterly and annual results under Japanese ' +
+      'disclosure rules (kessan tanshin / yukashoken hokokusho) via the Tokyo Stock Exchange and ' +
+      'its own newsroom, not SEC XBRL, so no discrete quarterly revenue exists in EDGAR structured ' +
+      'data for it.',
   },
   {
     id: 'cisco-secops',

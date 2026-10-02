@@ -1,0 +1,40 @@
+Collect run — since-date 2026-09-26, through 2026-10-02
+Restricted to 12 suppliers: claroty, cloudflare, cohesity, commvault, crwd, crwd-exposure,
+cyberark, cyera, delinea, dragos, esentire, exabeam
+
+Suppliers checked: 12
+New events written: 0
+New evidence records written: 0
+Candidates flagged: 0
+Failed sources: 0
+
+Per-supplier result (all "none found" — no qualifying fact dated after 2026-09-26):
+- claroty: newsroom sitemap checked (lastmod dates), most recent press release 2026-09-10.
+- cloudflare: EDGAR submissions clean (Form 3/4/144 only, no 8-K); newsroom checked, two
+  2026-09-29 releases (Basin data platform launch, Deutsche Telekom partnership), neither a
+  tracked event type.
+- cohesity: press-release RSS feed (/bin/cohesity/pressrss/) checked, most recent item
+  2026-09-16, not in window.
+- commvault: EDGAR submissions clean (Form 3 only, no 8-K); WordPress press-release sitemap
+  checked, two 2026-09-30 releases (AWS competency, agent/AI data protection feature), neither
+  a tracked event type.
+- crwd / crwd-exposure: EDGAR submissions clean (Form 4/144 only, no 8-K); newsroom press-release
+  index checked, most recent dated release 2026-09-24, not in window. crwd-exposure is a segment
+  of the same CIK with no separate news.
+- cyberark: EDGAR submissions for the pre-acquisition CIK show Form 15-12G deregistration
+  (2026-02-23) and nothing since; no new filings in window. Already correctly marked acquired.
+- cyera: newsroom sitemap and press-release index checked; the $400M Goldman Sachs round
+  (dated 2026-09-22) is already on record (TR-cyera-1) and is the most recent item — nothing
+  newer.
+- delinea: /news/rss.xml checked. Most recent item in window is a research report
+  (2026-09-29, not a tracked event type); a CFO appointment (Timothy Regan) is dated
+  2026-09-23, before the since-date, so excluded.
+- dragos: monthly sitemaps for 2026-09 and 2026-10 checked. The NetRise/runZero acquisition
+  press release is dated 2026-09-21 (before since-date) and is already captured as EV-dragos-2;
+  October sitemap has no press items.
+- esentire: newsReleases sitemap checked, most recent item 2026-09-15 (an AI-security
+  acquisition, out of window), nothing since.
+- exabeam: /press-releases/ listing checked, most recent item dated 2026-09-23, not in window.
+
+No kind-field staleness flags. No candidate suppliers noticed outside the declared list.
+collectState.json left untouched per brief Section 4 (restricted run).

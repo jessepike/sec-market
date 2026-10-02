@@ -1,0 +1,28 @@
+Collect run — restricted, since-date 2026-09-26, through 2026-10-02
+Suppliers covered (12): abnormal-security, aqua, arctic-wolf, armis, axonius, barracuda,
+beyondtrust, bigid, cato, chainguard, checkpoint-email, checkpoint-sase
+
+New events written: 0
+New evidence records written: 0
+
+Per-supplier result:
+- abnormal-security: newsroom read directly (server-rendered); latest dated item Sept 24, 2026. None found in window.
+- aqua: newsroom shell is script-rendered; news-sitemap.xml read instead, latest lastmod April 22, 2026. None found in window.
+- arctic-wolf: press-releases page read directly; latest dated release Sept 15, 2026. EDGAR full-text search returned only unrelated fund NPORT-P filings. None found in window.
+- armis: all own-news routes blocked (see failed-sources.json). EDGAR full-text search for "Armis" returned zero hits in window.
+- axonius: all own-news routes blocked after 3 attempts each (see failed-sources.json). EDGAR full-text search returned zero hits in window.
+- barracuda: newsroom page is script-rendered with no article links; sitemap.xml read instead (a third-party press-mention archive), no entries dated in window. Deregistered with SEC in 2018, no filings since.
+- beyondtrust: newsroom blocked by Cloudflare; GlobeNewswire keyword search read instead and shows dated BeyondTrust-sourced releases, latest Aug 11, 2026. None found in window.
+- bigid: newsroom read via WordPress news-sitemap.xml/news-sitemap2.xml; one item in window (Sept 28-29, 2026, "BigID Launches AgentIQ") but it is a product-launch announcement, not one of the tracked fact types. None found in window.
+- cato: all own-news routes blocked (see failed-sources.json). EDGAR full-text search returned zero hits in window.
+- chainguard: newsroom read directly (dated JSON data in the page); latest item Sept 3, 2026. EDGAR full-text search returned zero hits in window.
+- checkpoint-email / checkpoint-sase: Check Point's own newsroom, sitemap, and feed are all blocked by an AWS WAF challenge; no IR subdomain resolves. Checked the company's SEC filing history directly via data.sec.gov/submissions/CIK0001015922.json: no filing dated after 2026-09-25. None found in window.
+
+Candidates flagged (not on the declared supplier list): none.
+
+Failed/blocked sources: 5 entries in .collect/failed-sources.json (armis, axonius, cato,
+checkpoint-email, checkpoint-sase), all reason "blocked" — each is a bot/WAF challenge on the
+company's own newsroom and its feed/sitemap variants, with GlobeNewswire/PR Newswire org search and
+EDGAR full-text search checked as further fallback and turning up nothing in window.
+
+collectState.json: left untouched (restricted run, not all suppliers covered).

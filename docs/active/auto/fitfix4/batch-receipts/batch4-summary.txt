@@ -1,0 +1,75 @@
+Collect run — since-date 2026-09-26, through 2026-10-02
+Restricted to 12 suppliers: msft-entra, netskope, nozomi, okta, optiv, orca, panw,
+panw-xsiam, ping-identity, proofpoint, protect-ai, qualys
+
+Suppliers checked: 12
+New events written: 0
+New evidence records written: 0
+Candidates flagged: 0
+Failed sources: 0
+
+Per-supplier result (all "none found" — no qualifying fact dated after 2026-09-26):
+- msft-entra: Microsoft (CIK 0000789019) EDGAR submissions show no 8-K since 2026-09-26
+  (only unrelated Form 4/144 activity elsewhere in the filer list, none for identity).
+  Microsoft Entra blog RSS (microsoft.com/en-us/security/blog/products/microsoft-entra/feed/)
+  checked; most recent post 2026-09-24, not in window. No separate Entra newsroom exists
+  apart from this blog; segment has no independent earnings release.
+- netskope: Netskope (CIK 0002063196) EDGAR submissions show no filing since 2026-09-26.
+  press-releases-sitemap.xml (real per-item lastmod) checked; most recent release
+  2026-09-16, not in window. Main site /feed (blog) checked too; most recent 2026-10-01
+  but all items are threat-research/product blog posts, not a tracked event type.
+- nozomi: EDGAR CIK 0001689366 (Form D filer only) shows no filing since 2021. EDGAR
+  full-text search for "Nozomi Networks" 2026-09-26 to 2026-10-02 returned zero hits.
+  No dated item found via nozominetworks.com in window (feed attempt 404'd; no further
+  qualifying lead found).
+- okta: Okta (CIK 0001660134) EDGAR submissions show only one Form 144 (2026-10-01,
+  an insider-sale notice, not a reportable event type) since 2026-09-26, no 8-K.
+  okta.com/newsroom/ front page checked (server-rendered, real per-article dates);
+  most recent items dated 2026-09-18 and 2026-09-22, not in window. investor.okta.com
+  returned HTTP 403 (blocked); not needed since the newsroom front page already gave
+  a readable, dated answer per the fallback chain.
+- optiv: EDGAR full-text search for "Optiv" 2026-09-26 to 2026-10-02 returned zero hits;
+  Optiv has no SEC filer CIK (private, PE-owned, no public debt filer found). optiv.com
+  sitemap (two-page, real per-item lastmod via <lastmod>) checked; most recent
+  press-releases entry carries a 2026-09-28 lastmod, but the article's own on-page
+  dateline reads September 22, 2026 (a templated re-save, not new content, matching the
+  same pattern flagged in the 2026-10-02 14:37 run for other suppliers) — a research/
+  survey item about SOC capacity, not a tracked event type in any case, and not in window
+  either way.
+- orca: EDGAR full-text search for "Orca Security" 2026-09-26 to 2026-10-02 returned one
+  hit, an unrelated bank's DEF 14A, not primary company news. orca.security/sitemap.xml
+  loops redirects (unusable); orca.security/news and /resources/news/ and
+  /resources/press-releases/ checked directly (200, server-rendered links) — most recent
+  press release dated 2026-09-16, not in window. /resources/blog/feed/ (RSS) checked too;
+  most recent 2026-10-01, but blog/technical content only, no funding/ownership update.
+- panw: Palo Alto Networks (CIK 0001327567) EDGAR submissions show only Form 4 filings
+  (2026-09-28, 2026-10-01 — insider transactions, not reportable) since 2026-09-26, no
+  8-K. paloaltonetworks.com/company/press checked (server-rendered, real per-article
+  dates); most recent item 2026-09-22, not in window.
+- panw-xsiam: covered by the panw newsroom check above — the only "XSIAM" references on
+  that page are product-category facets, not dated news items. No separate XSIAM-specific
+  announcement found in window.
+- ping-identity: no SEC filer found (PE-owned by Thoma Bravo, no public debt filer).
+  EDGAR full-text search for "Ping Identity" 2026-09-26 to 2026-10-02 returned only
+  mutual-fund NPORT-P holdings disclosures, not primary company news. pingidentity.com
+  newsroom page checked (server-rendered, real per-card dates); most recent card dated
+  2026-09-29 ("Ping Identity Launches Identity Agents on Google Cloud Marketplace") — a
+  product launch, not a tracked event type (funding/acquisition/layoff/restructuring/
+  debt/rating/going-concern/exec-change/divestiture/shutdown/results); nothing newer.
+- proofpoint: Proofpoint (CIK 0001212458) EDGAR submissions show no filing since
+  2026-09-26. proofpoint.com/us/rss.xml (RSS feed, real per-item pubDates) checked; most
+  recent item 2026-09-22, not in window.
+- protect-ai: protectai.com now redirects entirely to Palo Alto Networks'
+  paloaltonetworks.com/ai-security/prisma-airs (confirming continued full integration
+  into PANW, consistent with the existing "acquired" record); no independent newsroom or
+  blog remains to check. Covered by the panw EDGAR/newsroom check above; nothing
+  Protect-AI-specific found in window.
+- qualys: Qualys (CIK 0001107843) EDGAR submissions show no filing since 2026-09-26.
+  qualys.com/company/newsroom/ checked (server-rendered, real per-item dates); the
+  dedicated news-releases path's most recent item is 2026-08-04 (Q2 2026 earnings,
+  already on record as TR-qualys-1); two items dated 2026-09-28 and 2026-09-29 are
+  blog.qualys.com posts (threat-research and product commentary), not tracked event
+  types.
+
+No kind-field staleness flags. No candidate suppliers noticed outside the declared list.
+collectState.json left untouched per brief Section 4 (restricted run).

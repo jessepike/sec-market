@@ -1,0 +1,79 @@
+Collect run — since-date 2026-09-26, through 2026-10-02
+Restricted to 12 suppliers: rapid7, red-canary, reliaquest, rubrik, s1, sailpoint,
+snyk, sonatype, sophos, splunk, surepath, sysdig
+
+Suppliers checked: 12
+New events written: 1
+New evidence records written: 1
+Candidates flagged: 0
+Failed sources: 2
+
+New events:
+- reliaquest, exec-change, 2026-10-01 (EV-reliaquest-1 / TR-reliaquest-2):
+  ReliaQuest's own newsroom announced Krish Venkataraman will join as Chief
+  Financial Officer on October 5, 2026. Found via reliaquest.com's sitemap.xml
+  (per-item lastmod led to the article; the article's own on-page dateline
+  "Oct 1, 2026" was used as the event date, not the unreliable lastmod).
+
+Per-supplier result:
+- rapid7: EDGAR CIK 0001560327 shows no filing since 2026-09-04 (nothing since
+  the since-date). rapid7.com/about/press-releases/ checked (server-rendered,
+  real per-item publish timestamps); items dated 2026-09-29 and 2026-10-02 are
+  both threat-research report releases, not a tracked event type. None found.
+- red-canary: redcanary.com now redirects (301) entirely to
+  zscaler.com/products-and-solutions/managed-detection-and-response, confirming
+  continued integration into Zscaler (consistent with the existing "acquired"
+  record). Zscaler (CIK 0001713683) EDGAR submissions show only a Form 4
+  (2026-09-28, insider transaction, not reportable) since 2026-09-26. No
+  Red Canary-specific item found. None found.
+- reliaquest: see new event above. EDGAR full-text search for "ReliaQuest"
+  since 2026-09-26 returned zero hits (private, no filer CIK).
+- rubrik: EDGAR CIK 0001943896 shows only a Form 4 and a Form 144 dated
+  2026-09-25 (before the since-date, and both insider transactions, not
+  reportable) — nothing filed since 2026-09-26. Rubrik's own newsroom was
+  unreachable after exhausting the fallback chain; recorded in
+  failed-sources.json. The EDGAR check is the strongest rung on the ladder and
+  is definitive for every 8-K-triggering event type (funding N/A, acquisition,
+  layoff, restructuring, debt, exec-change, divestiture, results); only a
+  third-party rating action could have been missed by the newsroom block.
+- s1 (SentinelOne): EDGAR CIK 0001583708 shows no filing since 2026-09-15
+  (nothing since the since-date). sentinelone.com/press/feed/ (RSS, real
+  per-item pubDates) checked; most recent item (Oct 1, 2026) is an analyst
+  "Leader" recognition, not a tracked event type. None found.
+- sailpoint: EDGAR CIK 0002030781 shows no filing since 2026-09-10 (10-Q,
+  before the since-date) — nothing since 2026-09-26. sailpoint.com/news-room
+  checked (server-rendered press-release list with real per-item
+  publishedAt fields); most recent English-language press release is dated
+  2026-09-22 ("SailPoint to Host Analyst and Investor Webcast..."), not in
+  window and not a tracked event type regardless. None found.
+- snyk: EDGAR full-text search for "Snyk" since 2026-09-26 returned zero hits
+  (private, no filer CIK). snyk.io/news/ checked; every press-release entry's
+  underlying CMS creation date is 2026-08-04 or earlier (including "Snyk
+  Acquires Invariant Labs," whose entry was created 2025-06-24 — an old
+  acquisition, not new); the 2026-09-28 timestamps on the listing page are a
+  batch CMS re-save across many old entries, not new content. None found.
+- sonatype: EDGAR full-text search for "Sonatype" since 2026-09-26 returned
+  zero hits (private, Vista Equity-owned, no filer CIK). sonatype.com's
+  sitemap.xml press-releases path (real per-item lastmod) checked; most
+  recent is 2026-08-18, not in window. None found.
+- sophos: no SEC filer CIK found (PE-owned by Thoma Bravo, no public debt
+  filer located). sophos.com/en-us/press (server-rendered press-release list
+  with real per-item published_date fields, found via a homepage link after
+  /en-us/press-office/press-releases 404'd) checked; three items in range
+  (2026-09-03, 2026-09-15, 2026-10-01), all product-launch or research-survey
+  announcements, not a tracked event type. None found.
+- splunk: Cisco (CIK 0000858877, Splunk's parent since the 2024 acquisition)
+  EDGAR submissions show no filing since 2026-09-26. None found.
+- surepath: surepath.ai redirects (301) entirely to
+  f5.com/products/workforce-ai-security, confirming continued integration into
+  F5 (consistent with the existing "acquired" record). F5 (CIK 0001048695)
+  EDGAR submissions show no filing since 2026-09-26; f5.com/company/news has
+  no "surepath" mention. None found.
+- sysdig: newsroom listing page was unreadable after exhausting the fallback
+  chain; recorded in failed-sources.json. EDGAR full-text search for "Sysdig"
+  returned zero hits (private, no filer CIK), and the company's own blog RSS
+  feed (a readable fallback) had nothing qualifying in the window.
+
+No kind-field staleness flags. No candidate suppliers noticed outside the
+declared list. collectState.json left untouched per brief Section 4
+(restricted run).

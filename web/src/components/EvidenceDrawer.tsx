@@ -123,10 +123,6 @@ export function EvidenceDrawer() {
                     <dt>Source class</dt>
                     <dd>{record.sourceClass}</dd>
                   </div>
-                  <div>
-                    <dt>Packet label</dt>
-                    <dd>{record.artifactLabel}</dd>
-                  </div>
                   {record.sourceAttributions && (
                     <div className="evidence-record__sources">
                       <dt>Source dates</dt>

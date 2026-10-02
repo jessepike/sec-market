@@ -18,6 +18,8 @@
     "verify:dist": "tsx --tsconfig tsconfig.app.json scripts/verify-dist.ts",
     "report:stale": "tsx --tsconfig tsconfig.app.json scripts/stale-report.ts",
     "refresh:edgar": "tsx --tsconfig tsconfig.app.json scripts/edgar-refresh.ts",
+    "refresh:filing-events": "tsx --tsconfig tsconfig.app.json scripts/filing-events.ts",
+    "check:links": "tsx --tsconfig tsconfig.app.json scripts/check-links.ts",
     "build:client": "vite build",
     "build:server": "vite build --ssr src/entry-server.tsx --outDir dist-ssr",
     "prerender": "tsx scripts/prerender.ts",

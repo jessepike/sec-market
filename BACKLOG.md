@@ -719,6 +719,24 @@ see `docs/active/fable-run/evidence/pressure/report.md`.
   integrator, which the scorer puts at trust 2 to 4. The employer is not to be named in this
   repository; the wording is the owner's.
 
+### SEC-058 — Unreferenced-evidence gate sits exactly at its threshold (`verify:integrity`)
+
+`npm run build`'s `verify:integrity` step allows up to 5 unreferenced evidence records before
+failing. Preview sits at exactly 5 (`A4` Dell, `A5` Vertiv, `A6` Broadcom, `B4` Meta, `B5` Oracle),
+traced with `git log -S` to commit `c65e791`, the original tracker build — dead weight since the
+feature shipped, not a new regression, and currently passing only because the count has never gone
+to 6. Fix pass 4 (data side) added two more evidence records that needed the same treatment: two
+superseded Snyk records (`TR-snyk-1`, `TR-snyk-2`) and one superseded Veeam record (`TR-veeam-1`)
+were each fixed in place by linking them into the record that supersedes them (`TR-snyk-3`'s and
+`TR-veeam-4`'s `conflictingEvidenceIds`), which `verify-integrity.ts` counts as a reference — so the
+count stays at 5, not 7. The pre-existing 5 need an owner decision: find each one a real reference,
+raise `MAX_UNREFERENCED` deliberately, or delete the ones nothing will ever cite. Left unfixed here
+because none of the five are in scope for any of fix pass 4's twelve items, and deleting data records
+without the sourcing context for why they were added is the kind of silent subtraction the project's
+own rules warn against. Worth noting for whoever picks this up: the gate has no margin left, so the
+next data change that supersedes or retires any record must use the same link-back pattern or it
+will break the build.
+
 ## Not authorized
 
 - Partner-risk-first sequencing

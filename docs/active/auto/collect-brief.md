@@ -1,7 +1,8 @@
 # Collect brief — the twice-weekly unstructured-facts run
 
-Version 0.1, 2026-09-26. Step 3 of `docs/active/autonomy-coverage-plan.md` (`SEC-MARKET-AUTO-001`,
-D-76/D-77). This is the complete instruction for the scheduled collector that reads everything SEC
+Version 0.2, 2026-10-01 (AUTO-001 fix pass 4, item 11: added §1a, the newsroom fallback chain).
+Step 3 of `docs/active/autonomy-coverage-plan.md` (`SEC-MARKET-AUTO-001`, D-76/D-77). This is the
+complete instruction for the scheduled collector that reads everything SEC
 EDGAR's structured data cannot reach: funding rounds, acquisitions, layoffs, restructuring, debt,
 ratings actions, going-concern language, executive changes, divestitures, shutdowns, and each public
 supplier's own headline metric from its latest results release. `scripts/collect.sh` reads this file
@@ -79,6 +80,45 @@ writing one is never a shortcut, only a wasted event.
 Every claim carries its source's own date, not the date you read about it in a roundup. If a
 secondary source pointed you to a primary document with no clear date, drop the item rather than
 inventing or estimating one.
+
+## 1a. Reading a company's own news — the fallback chain
+
+AUTO-001 fix pass 4, item 11: a prior run could not read 28 of 74 newsrooms and marked every one of
+them `blocked` or `no-readable-releases` after a single fetch of the newsroom's front page. Many of
+those pages are script-rendered and return no readable text to a plain `curl`, even though the same
+company's news is reachable by another route. A supplier's own news is "unreadable" only after every
+route below has been tried and failed — never after the first one.
+
+For each supplier's own news (not SEC filings, which always go straight through EDGAR per §1), try
+these in order and stop at the first one that yields readable, dated content:
+
+1. **RSS or Atom feed.** Try `<newsroom-url>/feed`, `<newsroom-url>/rss`, `/feed.xml`, `/rss.xml`,
+   and an `<link rel="alternate" type="application/rss+xml">` or `type="application/atom+xml"` tag
+   on the newsroom page's raw HTML (a `curl` of the page still returns that tag even when the content
+   below it is script-rendered). A feed is machine-readable by construction — prefer it over anything
+   that needs parsing out of rendered HTML.
+2. **Sitemap.** `/sitemap.xml` at the site root, or a sitemap index it points to, filtered to URLs
+   under the newsroom or press path. Gives you a list of article URLs to fetch directly even when the
+   newsroom's own index page is script-rendered.
+3. **Investor-relations site.** Public companies frequently run IR on a separate host (e.g.
+   `ir.<company>.com` or an IR platform like `investors.<company>.com`) with its own, often
+   server-rendered, press-release index. Check the company's own site footer or header for an
+   "Investors" link, or try the obvious subdomain patterns above.
+4. **GlobeNewswire, PR Newswire, or Business Wire.** Search each wire's own site for the company
+   name. A release the company issued through a wire service is itself a rung-4 primary source
+   (§1) — cite the wire's copy directly, same as you would the company's own newsroom.
+5. **SEC filings.** A public company's material news is very often also an 8-K (or, for funding/
+   ownership news about a private company's corporate parent, in the parent's own filings). Check
+   EDGAR full-text search (`https://efts.sec.gov/LATEST/search-index?q=%22<company+name>%22`) for
+   anything filed since the since-date before giving up.
+
+Only once all five have been tried and none yielded a readable, dated item does the supplier's news
+count as unreadable this run — record it in `.collect/failed-sources.json` (§5) with whichever
+`reason` best fits the way it actually failed, and `detail` naming which of the five routes you tried
+and how each one failed (e.g. "newsroom front page returns no server-rendered content; no RSS feed at
+/feed or /rss; no sitemap.xml; no IR subdomain found; no wire copy found via GlobeNewswire/PR
+Newswire/Business Wire search; no related 8-K in EDGAR full-text search since 2026-09-26"). A
+supplier fails only when every route failed, not when the first one did.
 
 ## 2. What to look for, per supplier
 
