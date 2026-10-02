@@ -4572,7 +4572,7 @@ const handWrittenEvidenceRecords: EvidenceRecord[] = [
   "sourceClass": "OFFICIAL",
   "interpretation": "",
   "limitations": "AUTO-001 fix pass 4, item 1: supersedes TR-veeam-1 (a Wikipedia secondary source for a reported 2020 deal) with Veeam's own primary release.",
-  "conflictingEvidenceIds": [],
+  "conflictingEvidenceIds": ["TR-veeam-1"],
   "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-veeam-4",
   "tags": [
     "tracker",
