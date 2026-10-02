@@ -3122,17 +3122,23 @@ const handWrittenEvidenceRecords: EvidenceRecord[] = [
   "publicationDate": "2025-05-02",
   "economicPeriod": "May 2025",
   "canonicalUrl": "https://www.ivanti.com/company/press-releases/2025/ivanti-announces-successful-refinancing-and-new-capital-infusion-to-support-key-strategic-initiatives",
-  "excerpt": "Ivanti announced successful refinancing with $350 million in new capital from existing first- and second-lien lenders. Maturities extended to 2029.",
+  "excerpt": "Ivanti announced successful refinancing with $350 million in new capital from existing first- and second-lien lenders. Maturities extended to 2029. \"Ivanti is backed by Clearlake Capital Group, L.P., Charlesbank Capital Partners, LLC, and TA Associates.\"",
   "sourceClass": "OFFICIAL",
   "interpretation": "",
-  "limitations": "Date falls just outside the 12-month event window but is provided for context.",
+  "limitations": "AUTO-001 fix pass 4, item 2: this is the newest company-issued source naming Ivanti's PE sponsors — it names all three (Clearlake, Charlesbank, TA Associates), confirming the ownership group formed by TR-ivanti-2's 2021 close is still current as of this May 2025 release. The refinancing itself falls just outside the trailing-12-month event window; it is cited for the ownership confirmation, not as a tracked event.",
   "conflictingEvidenceIds": [],
   "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-ivanti-1",
   "tags": [
     "tracker",
     "exposure"
   ],
-  "retrievedAt": "2026-09-25"
+  "retrievedAt": "2026-10-02",
+  "retrieval": {
+    "finalUrl": "https://www.ivanti.com/company/press-releases/2025/ivanti-announces-successful-refinancing-and-new-capital-infusion-to-support-key-strategic-initiatives",
+    "sha256": "7b513e3e454b66431d08f120ff2bc64055b3438b4197bf6b3814613b4beb8a55",
+    "fetchedAt": "2026-10-02T00:00:00Z",
+    "locator": "Sponsor-naming sentence, second paragraph"
+  }
 },
 {
   "id": "TR-ivanti-2",
@@ -3144,7 +3150,7 @@ const handWrittenEvidenceRecords: EvidenceRecord[] = [
   "excerpt": "Ivanti...today announced the close of the strategic investment from Charlesbank Capital Partners, LLC...Charlesbank...has joined existing investors Clearlake Capital Group, L.P....and TA Associates...as an institutional shareholder in Ivanti. Terms of the transaction were not disclosed.",
   "sourceClass": "OFFICIAL",
   "interpretation": "",
-  "limitations": "AUTO-001 fix pass 4, item 2: the prior ownership citation (TR-ivanti-1) was actually a 2025 refinancing release and named no date for the ownership structure itself; this is Ivanti's own dated release for when Charlesbank joined as the third PE investor.",
+  "limitations": "AUTO-001 fix pass 4, item 2: this is Ivanti's own dated release for when Charlesbank joined as the third PE investor, forming the ownership group that TR-ivanti-1's 2025 refinancing release confirms is still current.",
   "conflictingEvidenceIds": [],
   "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-ivanti-2",
   "tags": [
@@ -4891,6 +4897,28 @@ const handWrittenEvidenceRecords: EvidenceRecord[] = [
     "sha256": "d18b79e5bfb9b2a1c3a1dbf1bf0e7d2001a7487989a68f6dc18067086a5329cc",
     "fetchedAt": "2026-09-26T17:30:00Z",
     "locator": "First paragraph"
+  }
+},
+{
+  "id": "TR-delinea-6",
+  "title": "Thycotic and Centrify Merge to Become a Leading Cloud Privileged Identity Security Vendor",
+  "organization": "Delinea (published as ThycoticCentrify)",
+  "publicationDate": "2021-04-13",
+  "economicPeriod": "April 2021",
+  "canonicalUrl": "https://delinea.com/news/thycotic-and-centrify-merge-to-become-a-leading-cloud-privileged-identity-security-vendor",
+  "excerpt": "The companies have completed their previously-announced merger to form a leading cloud identity security vendor... Backed by the financial strength of TPG Capital... Insight Partners, Thoma Bravo, and Public Sector Pension Investment Board (PSP Investments) have taken minority investments in the business.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "AUTO-001 fix pass 4, item 2: this is the company's own closing announcement for the merger that formed Delinea (rebranded from the temporary name ThycoticCentrify in February 2022); it names TPG Capital as the controlling backer and Insight Partners, Thoma Bravo, and PSP Investments as minority investors. The company's full news sitemap, checked this pass, shows no later ownership-change release, so this is treated as Delinea's current ownership structure.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-FITFIX4 / TR-delinea-6",
+  "tags": ["tracker", "identity"],
+  "retrievedAt": "2026-10-02",
+  "retrieval": {
+    "finalUrl": "https://delinea.com/news/thycotic-and-centrify-merge-to-become-a-leading-cloud-privileged-identity-security-vendor",
+    "sha256": "89e65f2c968830ad45f5c946e82a005a425f449984a0d25bc0b15ebc496da139",
+    "fetchedAt": "2026-10-02T00:00:00Z",
+    "locator": "Second and fourth paragraphs"
   }
 },
 {

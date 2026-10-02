@@ -641,12 +641,11 @@ export const trackerSuppliers: TrackerSupplier[] = [
     ],
     "kind": "pe-owned",
     "ownership": {
-      "status": "Privately held. Completed acquisition of StrongDM, the universal access management company, announced January 15, 2026 and closed March 5, 2026.",
-      "announced": "2026-01-15",
-      "closed": "2026-03-05",
+      "status": "PE-owned. Formed by TPG Capital's 2021 combination of Thycotic and Centrify, which closed April 13, 2021 with Insight Partners, Thoma Bravo, and Public Sector Pension Investment Board as minority investors; the combined company rebranded as Delinea in February 2022.",
+      "acquirer": "TPG Capital",
+      "closed": "2021-04-13",
       "evidenceIds": [
-        "TR-delinea-4",
-        "TR-delinea-5"
+        "TR-delinea-6"
       ]
     }
   },
@@ -851,12 +850,11 @@ export const trackerSuppliers: TrackerSupplier[] = [
     ],
     "kind": "pe-owned",
     "ownership": {
-      "status": "Owned by Clearlake Capital Group and TA Associates since 2020, joined by Charlesbank Capital Partners as a third institutional shareholder on May 11, 2021.",
+      "status": "PE-owned by Clearlake Capital Group and TA Associates since 2020, joined by Charlesbank Capital Partners as a third institutional shareholder on May 11, 2021. Ivanti's own release on its May 2, 2025 debt refinancing confirms the same three sponsors still back the company.",
       "acquirer": "Clearlake Capital Group, TA Associates, and Charlesbank Capital Partners",
-      "closed": "2021-05-11",
       "evidenceIds": [
-        "TR-ivanti-1",
-        "TR-ivanti-2"
+        "TR-ivanti-2",
+        "TR-ivanti-1"
       ]
     }
   },
