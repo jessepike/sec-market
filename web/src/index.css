@@ -129,18 +129,18 @@ h2 {
 }
 
 h1 {
-  font-size: clamp(1.75rem, 5vw, 2.65rem);
-  font-weight: 800;
+  font-size: 1.75rem;
+  font-weight: 700;
   letter-spacing: -0.028em;
   line-height: 1.04;
 }
 
 h2 {
-  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  font-size: 1.375rem;
 }
 
 h3 {
-  font-size: 1.0625rem;
+  font-size: 1.125rem;
 }
 
 p {
@@ -231,14 +231,17 @@ summary:focus-visible,
 
 .site-header__brand strong {
   color: var(--color-heading);
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 
+/* Fix pass 4, item 7: flat, not a gradient — a gradient brand mark plus the
+   teal accent plus the run-status alert colour read as more than one accent
+   (D11). One flat fill in the single accent colour. */
 .site-header__mark {
   width: 28px;
   height: 28px;
   border-radius: 7px;
-  background: linear-gradient(135deg, #1d4ed8, #0f766e);
+  background: var(--color-accent);
   flex-shrink: 0;
 }
 
@@ -289,13 +292,13 @@ summary:focus-visible,
 .site-header__updated {
   margin: 0 0 0 auto;
   text-align: right;
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
 }
 
 .site-header__updated .label {
   display: block;
   color: var(--color-text-muted);
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
@@ -318,7 +321,7 @@ summary:focus-visible,
 .eyebrow {
   margin: 0;
   font-family: var(--font-mono);
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -346,8 +349,8 @@ summary:focus-visible,
 }
 
 .masthead h1 {
-  font-size: clamp(1.75rem, 5vw, 2.65rem);
-  font-weight: 800;
+  font-size: 1.75rem;
+  font-weight: 700;
   letter-spacing: -0.028em;
   line-height: 1.04;
 }
@@ -358,7 +361,7 @@ summary:focus-visible,
   gap: 0.4rem 1.1rem;
   margin: 0 0 1.25rem;
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   color: var(--color-text-muted);
 }
 
@@ -388,7 +391,7 @@ summary:focus-visible,
 .context-stat__value {
   margin: 0;
   font-family: var(--font-mono);
-  font-size: clamp(1.75rem, 4vw, 2.15rem);
+  font-size: 1.75rem;
   font-weight: 600;
   letter-spacing: -0.03em;
   line-height: 1;
@@ -409,7 +412,7 @@ summary:focus-visible,
 .context-stat__label {
   margin: 0.4rem 0 0;
   font-family: var(--font-mono);
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #8b97a6;
@@ -427,7 +430,7 @@ summary:focus-visible,
   max-width: var(--prose-max);
   margin: -0.5rem 0 1.1rem;
   font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   color: var(--color-text-muted);
 }
 
@@ -441,7 +444,7 @@ summary:focus-visible,
 .judgment h3 {
   margin: 0 0 0.45rem;
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -464,7 +467,7 @@ summary:focus-visible,
   padding-left: 1.1rem;
   display: grid;
   gap: 0.4rem;
-  font-size: 0.9rem;
+  font-size: 0.875rem;
 }
 
 .judgment__list--avoid {
@@ -511,12 +514,12 @@ summary:focus-visible,
   margin: 0;
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.875rem;
 }
 
 .print-card__top span {
   font-family: var(--font-mono);
-  font-size: 0.625rem;
+  font-size: 0.75rem;
   color: var(--color-text-muted);
   white-space: nowrap;
 }
@@ -524,7 +527,7 @@ summary:focus-visible,
 .print-card__value {
   margin: 0.65rem 0 0;
   font-family: var(--font-mono);
-  font-size: 1.65rem;
+  font-size: 1.75rem;
   font-weight: 600;
   letter-spacing: -0.025em;
   line-height: 1;
@@ -542,7 +545,7 @@ summary:focus-visible,
 .print-card__metric {
   margin: 0.3rem 0 0;
   font-family: var(--font-mono);
-  font-size: 0.625rem;
+  font-size: 0.75rem;
   letter-spacing: 0.07em;
   text-transform: uppercase;
   color: var(--color-text-muted);
@@ -559,7 +562,7 @@ summary:focus-visible,
   min-height: 2.35rem;
   border-top: 1px dashed var(--color-border);
   font-family: var(--font-mono);
-  font-size: 0.625rem;
+  font-size: 0.75rem;
   letter-spacing: 0.04em;
   color: #a8b0ba;
 }
@@ -570,7 +573,7 @@ summary:focus-visible,
 .print-card__borrowed {
   margin: 0.35rem 0 0;
   font-family: var(--font-mono);
-  font-size: 0.625rem;
+  font-size: 0.75rem;
   letter-spacing: 0.03em;
   font-style: italic;
   color: var(--color-text-muted);
@@ -581,7 +584,7 @@ summary:focus-visible,
   padding-top: 0.5rem;
   border-top: 1px solid #edf0f4;
   font-family: var(--font-mono);
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   color: var(--color-text);
 }
 
@@ -600,12 +603,12 @@ summary:focus-visible,
 .grouphdr__title {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.875rem;
 }
 
 .grouphdr__count {
   font-family: var(--font-mono);
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   color: var(--color-text-muted);
 }
 
@@ -659,7 +662,7 @@ summary:focus-visible,
   margin: -0.35rem 0 0.85rem;
   max-width: var(--prose-max);
   color: var(--color-text-muted);
-  font-size: 0.9rem;
+  font-size: 0.875rem;
 }
 
 .activity-list {
@@ -688,14 +691,14 @@ summary:focus-visible,
 
 .activity-row__value {
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: 0.875rem;
   font-weight: 600;
   white-space: nowrap;
 }
 
 .activity-row time {
   font-family: var(--font-mono);
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   color: var(--color-text-muted);
   white-space: nowrap;
 }
@@ -707,12 +710,12 @@ summary:focus-visible,
 .activity-row__body p {
   margin: 0 0 0.4rem;
   color: var(--color-text-muted);
-  font-size: 0.9rem;
+  font-size: 0.875rem;
 }
 
 .activity-row__meta {
   font-family: var(--font-mono);
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
@@ -730,7 +733,7 @@ summary:focus-visible,
   min-width: 42rem;
   border-collapse: collapse;
   background: var(--color-surface);
-  font-size: 0.85rem;
+  font-size: 0.875rem;
 }
 
 .print-table th,
@@ -743,7 +746,7 @@ summary:focus-visible,
 
 .print-table thead th {
   font-family: var(--font-mono);
-  font-size: 0.625rem;
+  font-size: 0.75rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-text-muted);
@@ -755,13 +758,13 @@ summary:focus-visible,
 .print-table tbody th[scope='row'] {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 0.875rem;
   white-space: nowrap;
 }
 
 .print-table__group th[colspan] {
   font-family: var(--font-display);
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   letter-spacing: 0;
   text-transform: none;
   color: var(--color-heading);
@@ -778,7 +781,7 @@ summary:focus-visible,
 
 .print-table__metric {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   letter-spacing: 0.03em;
   color: var(--color-text-muted);
   white-space: nowrap;
@@ -786,7 +789,7 @@ summary:focus-visible,
 
 .print-table__value {
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   color: var(--color-heading);
 }
 
@@ -799,7 +802,7 @@ summary:focus-visible,
 }
 
 .print-table__note {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: var(--color-text-muted);
   min-width: 10rem;
 }
@@ -842,7 +845,7 @@ summary:focus-visible,
 
 .tempo-table thead th {
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--color-text-muted);
@@ -851,13 +854,13 @@ summary:focus-visible,
 }
 
 .tempo-table tbody th {
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   font-weight: 600;
 }
 
 .tempo-table__win {
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   white-space: nowrap;
 }
 
@@ -868,14 +871,14 @@ summary:focus-visible,
 .edition-delta__head h3 {
   margin: 0 0 0.35rem;
   font-family: var(--font-display);
-  font-size: 1.05rem;
+  font-size: 1rem;
 }
 
 .edition-delta__head p {
   margin: 0 0 0.75rem;
   max-width: var(--prose-max);
   color: var(--color-text-muted);
-  font-size: 0.9rem;
+  font-size: 0.875rem;
 }
 
 .edition-table {
@@ -885,7 +888,7 @@ summary:focus-visible,
 .edition-kind {
   display: inline-block;
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -901,7 +904,7 @@ summary:focus-visible,
 }
 
 .tempo-table__delta {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
 }
 
 .tempo-table__evidence {
@@ -914,7 +917,7 @@ summary:focus-visible,
 .tempo-table__produced {
   margin: 0;
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-text-muted);
@@ -922,13 +925,13 @@ summary:focus-visible,
 
 .tempo-table p {
   margin: 0 0 0.4rem;
-  font-size: 0.85rem;
+  font-size: 0.875rem;
 }
 
 .tag {
   display: inline-block;
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   padding: 0.2rem 0.5rem;
@@ -951,7 +954,7 @@ summary:focus-visible,
 .method-table__guard td {
   padding-top: 0;
   color: var(--color-text-muted);
-  font-size: 0.85rem;
+  font-size: 0.875rem;
 }
 
 .tempo-table__detail p,
@@ -984,11 +987,11 @@ summary:focus-visible,
 .method-copy {
   max-width: var(--prose-max);
   color: var(--color-text-muted);
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 
 .method-table td {
-  font-size: 0.85rem;
+  font-size: 0.875rem;
   color: var(--color-text);
 }
 
@@ -1011,14 +1014,14 @@ summary:focus-visible,
 .method-step__n {
   margin: 0;
   font-family: var(--font-mono);
-  font-size: 1.1rem;
+  font-size: 1.125rem;
   font-weight: 600;
   color: var(--color-heading);
 }
 
 .method-step h4 {
   margin: 0 0 0.25rem;
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 
 .method-step p {
@@ -1064,7 +1067,7 @@ summary:focus-visible,
 
 .hero__details {
   margin: 1rem 0;
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
 }
 
 .hero__details summary {
@@ -1075,7 +1078,7 @@ summary:focus-visible,
 }
 
 .hero__details h3 {
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--color-text-muted);
@@ -1101,7 +1104,7 @@ summary:focus-visible,
 }
 
 .hero__block h2 {
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--color-text-muted);
@@ -1139,13 +1142,13 @@ summary:focus-visible,
   flex-direction: column;
   gap: 0.15rem;
   margin-bottom: 0.5rem;
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   color: var(--color-text-muted);
 }
 
 .chart-multiple figcaption strong {
   color: var(--color-heading);
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
 }
 
 .buyer-chart {
@@ -1162,7 +1165,7 @@ summary:focus-visible,
   flex-direction: column;
   gap: 0.15rem;
   margin-bottom: 0.5rem;
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   color: var(--color-text-muted);
 }
 
@@ -1230,7 +1233,7 @@ summary:focus-visible,
 }
 
 .chart-note {
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   color: var(--color-text-muted);
   margin-top: 0.75rem;
 }
@@ -1319,7 +1322,7 @@ summary:focus-visible,
 }
 
 .domain-card__note {
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   color: var(--color-text-muted);
   margin: 0;
   font-style: italic;
@@ -1327,7 +1330,7 @@ summary:focus-visible,
 
 .domain-card__print {
   margin: 0;
-  font-size: 1.0625rem;
+  font-size: 1.125rem;
   font-weight: 700;
   color: var(--color-heading);
   line-height: 1.35;
@@ -1335,7 +1338,7 @@ summary:focus-visible,
 
 .domain-card__tempo {
   margin: 0;
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -1363,7 +1366,7 @@ summary:focus-visible,
 }
 
 .domain-card__watch h4 {
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   color: var(--color-text-muted);
@@ -1414,7 +1417,7 @@ summary:focus-visible,
 .watch-item p:last-child {
   margin: 0;
   color: var(--color-text-muted);
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
 }
 
 /* Evidence link */
@@ -1428,7 +1431,7 @@ summary:focus-visible,
   border-radius: var(--radius-sm);
   background: var(--color-bg);
   color: var(--color-accent);
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   font-weight: 500;
   cursor: pointer;
   text-decoration: none;
@@ -1446,7 +1449,7 @@ summary:focus-visible,
 .evidence-link-ids {
   color: var(--color-text-muted);
   font-family: var(--font-mono);
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
 }
 
 /* Evidence library */
@@ -1488,7 +1491,7 @@ summary:focus-visible,
 }
 
 .filter-field__label {
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   color: var(--color-text-muted);
 }
 
@@ -1501,7 +1504,7 @@ summary:focus-visible,
 }
 
 .evidence-library__count {
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   color: var(--color-text-muted);
 }
 
@@ -1548,7 +1551,7 @@ summary:focus-visible,
 .evidence-library__org,
 .evidence-library__class,
 .evidence-library__date {
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   color: var(--color-text-muted);
 }
 
@@ -1678,7 +1681,7 @@ summary:focus-visible,
   background: var(--color-bg);
   border-left: 3px solid var(--color-accent);
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
 }
 
 .evidence-record__section--conflict {
@@ -1729,7 +1732,7 @@ summary:focus-visible,
 
 .next-edition p {
   max-width: var(--prose-max);
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 
 .next-edition__actions {
@@ -1772,7 +1775,7 @@ summary:focus-visible,
 .next-edition__meta {
   margin: 0;
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   color: var(--color-text-muted);
 }
 
@@ -1786,7 +1789,7 @@ summary:focus-visible,
   margin: 0 auto;
   padding: 1.25rem;
   border-top: 1px solid var(--color-border);
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   color: var(--color-text-muted);
 }
 
@@ -1925,7 +1928,7 @@ summary:focus-visible,
 .chip {
   display: inline-block;
   font-family: var(--font-mono);
-  font-size: 0.625rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   padding: 3px 8px;
@@ -1943,7 +1946,7 @@ summary:focus-visible,
 .stamp-label {
   margin: 0;
   font-family: var(--font-mono);
-  font-size: 0.625rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -1978,7 +1981,7 @@ summary:focus-visible,
 .rail__legend {
   margin: 0;
   font-family: var(--font-mono);
-  font-size: 0.625rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -2005,7 +2008,7 @@ summary:focus-visible,
 .rail__statement {
   margin: 0 0 0 auto;
   font-family: var(--font-mono);
-  font-size: 0.625rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.02em;
   text-transform: none;
@@ -2066,7 +2069,7 @@ summary:focus-visible,
 .landscape__intro h2 {
   margin: 0.875rem 0 0;
   max-width: 22ch;
-  font-size: clamp(1.75rem, 5vw, 3.25rem);
+  font-size: 1.75rem;
   letter-spacing: -0.032em;
 }
 
@@ -2132,7 +2135,7 @@ summary:focus-visible,
   grid-area: title;
   margin: 0;
   font-family: var(--font-display);
-  font-size: 1.1875rem;
+  font-size: 1.125rem;
   font-weight: 600;
   letter-spacing: -0.02em;
 }
@@ -2217,8 +2220,8 @@ summary:focus-visible,
 .week-moved h2 {
   margin: 0;
   color: #e7ebf0;
-  font-size: clamp(1.5rem, 3vw, 1.875rem);
-  font-weight: 800;
+  font-size: 1.375rem;
+  font-weight: 700;
   letter-spacing: -0.03em;
 }
 
@@ -2274,7 +2277,7 @@ summary:focus-visible,
   width: 76px;
   flex-shrink: 0;
   font-family: var(--font-mono);
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: #8b97a6;
@@ -2293,7 +2296,7 @@ summary:focus-visible,
 
 .week-moved__list p {
   margin: 0;
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   color: #e7ebf0;
 }
 
@@ -2338,7 +2341,7 @@ summary:focus-visible,
   background: var(--color-heading);
   color: #e7ebf0;
   font-family: var(--font-mono);
-  font-size: 0.625rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.11em;
   text-transform: uppercase;
@@ -2348,7 +2351,7 @@ summary:focus-visible,
 .pressure-table__group th[scope='colgroup'] {
   background: var(--color-bg);
   font-family: var(--font-mono);
-  font-size: 0.625rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -2427,7 +2430,7 @@ summary:focus-visible,
 
 .pressure-stack__top h3 {
   margin: 0;
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
 }
 
 .pressure-stack__row .mono {
@@ -2437,7 +2440,7 @@ summary:focus-visible,
 
 .pressure-stack__row p {
   margin: 0.3rem 0 0;
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   line-height: 1.45;
   color: var(--color-text-muted);
 }
@@ -2487,7 +2490,7 @@ summary:focus-visible,
 .hypotheses__claim {
   margin: 0;
   flex: 1 1 auto;
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   color: var(--color-heading);
 }
 
@@ -2528,7 +2531,7 @@ summary:focus-visible,
 
 .method-band__copy p:last-child {
   margin: 0.625rem 0 0;
-  font-size: 1.0625rem;
+  font-size: 1.125rem;
   line-height: 1.55;
   color: #e7ebf0;
   max-width: 56ch;
@@ -2625,7 +2628,7 @@ summary:focus-visible,
 
   .landscape__lede {
     margin-top: 0.5rem;
-    font-size: 0.9375rem;
+    font-size: 0.875rem;
     line-height: 1.5;
   }
 
@@ -2637,7 +2640,7 @@ summary:focus-visible,
 
   .landscape__intro h2 {
     font-family: var(--font-sans);
-    font-size: 1.0625rem;
+    font-size: 1.125rem;
     font-weight: 500;
     letter-spacing: 0;
     line-height: 1.4;
@@ -2737,7 +2740,7 @@ summary:focus-visible,
   display: block;
   margin: 0 0 0.375rem;
   font-family: var(--font-mono);
-  font-size: 0.625rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -2778,7 +2781,7 @@ summary:focus-visible,
   padding: 0.6rem 0.9rem;
   background: var(--color-surface-muted, #f4f5f7);
   border-left: 3px solid var(--color-border);
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   color: var(--color-text-muted, var(--color-text));
 }
 
@@ -2832,7 +2835,7 @@ summary:focus-visible,
 
 .issue-lane__why {
   margin: 0 0 0.6rem;
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   color: var(--color-text);
 }
 
@@ -2843,7 +2846,7 @@ summary:focus-visible,
 .print-grid__filter-status {
   margin: 0 0 0.85rem;
   font-family: var(--font-mono);
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   color: var(--color-text-muted);
 }
 
@@ -2902,7 +2905,7 @@ summary:focus-visible,
 }
 
 .vendor-lens__empty-note {
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   color: var(--color-text-muted);
 }
 
@@ -2938,7 +2941,7 @@ summary:focus-visible,
 }
 
 .we-think__delta-move {
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 
 .we-think__thesis {
@@ -2963,25 +2966,25 @@ summary:focus-visible,
 .we-think__signature {
   margin-top: 1rem;
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: var(--color-text-muted);
 }
 
 .we-think__proposed-read {
   font-weight: 600;
-  font-size: 1.05rem;
+  font-size: 1rem;
   color: var(--color-heading);
 }
 
 .we-think__posture-deltas-prose {
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   color: var(--color-text-muted);
 }
 
 .thesis-running-score {
   margin: 0 0 0.5rem;
   font-family: var(--font-mono);
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   font-weight: 600;
   color: var(--color-text-muted);
 }
@@ -3099,7 +3102,7 @@ summary:focus-visible,
 
 .thesis-pointer h2 {
   margin: 0.35rem 0 0.5rem;
-  font-size: 1.15rem;
+  font-size: 1.125rem;
 }
 
 .thesis-pointer__position {
@@ -3148,7 +3151,7 @@ summary:focus-visible,
 .issue-lane__correction-stamp {
   margin: 0 0 0.3rem;
   font-family: var(--font-mono);
-  font-size: 0.625rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -3157,20 +3160,20 @@ summary:focus-visible,
 
 .issue-lane__correction-text {
   margin: 0 0 0.35rem;
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   color: var(--color-text);
 }
 
 .issue-lane__correction-note {
   margin: 0 0 0.35rem;
-  font-size: 0.85rem;
+  font-size: 0.875rem;
   font-style: italic;
   color: var(--color-text-muted);
 }
 
 .issue-lane__correction-link {
   margin: 0;
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
 }
 
 .issue-lane__correction-link a {
@@ -3179,7 +3182,7 @@ summary:focus-visible,
 
 .research-depth__note {
   margin: 0.75rem 0;
-  font-size: 0.85rem;
+  font-size: 0.875rem;
   font-style: italic;
   color: var(--color-text-muted);
 }
@@ -3256,7 +3259,7 @@ summary:focus-visible,
 
 .issue-hero__note {
   margin-top: 0.5rem;
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   color: var(--color-text-muted);
 }
 
@@ -3265,7 +3268,7 @@ summary:focus-visible,
   margin-right: 0.4em;
   padding: 1px 6px;
   font-family: var(--font-mono);
-  font-size: 0.625rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -3331,7 +3334,7 @@ summary:focus-visible,
 .market-picture__domain-name {
   margin: 0;
   font-family: var(--font-display);
-  font-size: 1.05rem;
+  font-size: 1rem;
 }
 
 .market-picture__stance {
@@ -3350,13 +3353,13 @@ summary:focus-visible,
 }
 
 .market-picture__posture-meaning {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: var(--color-text-muted);
 }
 
 .market-picture__horizon {
   margin: 0;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: var(--color-text-muted);
 }
 
@@ -3433,7 +3436,7 @@ summary:focus-visible,
   margin: 0;
   flex: 1 1 auto;
   min-width: 0;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: var(--color-text-muted);
 }
 
@@ -3466,7 +3469,7 @@ summary:focus-visible,
 
 .market-picture__show-all {
   margin: 0.5rem 0 0;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
 }
 
 .chip--investigate {
@@ -3531,7 +3534,7 @@ summary:focus-visible,
    type this change exists to remove. */
 .issue-strip__read {
   margin: 0;
-  font-size: 1.15rem;
+  font-size: 1.125rem;
   line-height: 1.4;
   font-weight: 600;
 }
@@ -3548,7 +3551,7 @@ summary:focus-visible,
 
 .issue-strip__note {
   margin: 0.5rem 0 0;
-  font-size: 0.85rem;
+  font-size: 0.875rem;
   color: var(--color-text-muted);
 }
 
@@ -3558,7 +3561,7 @@ summary:focus-visible,
   }
 
   .issue-strip__read {
-    font-size: 1.05rem;
+    font-size: 1rem;
   }
 }
 
@@ -3576,17 +3579,19 @@ summary:focus-visible,
 .run-status__line {
   margin: 0;
   font-family: var(--font-mono);
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   font-weight: 600;
 }
 
+/* Fix pass 4, item 7: one accent colour sitewide. The crimson alert colour
+   used to mark "incomplete" was a second accent alongside the teal links and
+   focus ring (D11). The line already reads correctly without colour — the
+   words say "incomplete" and name what failed — so every state now shares
+   the same neutral heading colour. */
 .run-status__line--updated,
-.run-status__line--no-change {
-  color: var(--color-heading);
-}
-
+.run-status__line--no-change,
 .run-status__line--incomplete {
-  color: var(--color-alert);
+  color: var(--color-heading);
 }
 
 /* Third fix pass, items 1–2: a closed, opt-in disclosure instead of an
@@ -3596,7 +3601,7 @@ summary:focus-visible,
    operable (Enter/Space on the <summary>) for free. */
 .run-status__failed {
   margin: 0.5rem 0 0;
-  font-size: 0.85rem;
+  font-size: 0.875rem;
 }
 
 .run-status__failed summary {
@@ -3659,7 +3664,7 @@ summary:focus-visible,
   padding: 0.3rem 0.6rem;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   color: var(--color-text);
   text-decoration: none;
   min-height: 32px;
@@ -3684,7 +3689,7 @@ summary:focus-visible,
 .tracker-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   background: var(--color-surface);
 }
 
@@ -3743,7 +3748,7 @@ summary:focus-visible,
 }
 
 .tracker-table__sort-glyph {
-  font-size: 0.75em;
+  font-size: 1em;
 }
 
 /* One line per cell: the figure, its muted mono period (growth cells
@@ -3798,7 +3803,7 @@ summary:focus-visible,
   border: none;
   background: none;
   font-family: var(--font-mono);
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   font-weight: 600;
   color: var(--color-text-muted);
   text-decoration: underline;
