@@ -190,7 +190,6 @@ function structuredDataFor(routeEntry: RouteEntry, html: string) {
       description: readDescription(html),
       isPartOf: { '@type': 'WebSite', name: PRODUCT_TITLE, url: `${SITE_URL}/` },
       inLanguage: 'en',
-      author: { '@type': 'Person', name: AUTHOR_NAME },
       datePublished,
       dateModified,
     }
@@ -265,7 +264,6 @@ function structuredDataFor(routeEntry: RouteEntry, html: string) {
     datePublished: LAST_UPDATED_ISO,
     dateModified: LAST_UPDATED_ISO,
     image: OG_IMAGE_URL,
-    author: { '@type': 'Person', name: AUTHOR_NAME },
     publisher: { '@type': 'Organization', name: PRODUCT_TITLE, url: CANONICAL_URL },
   }
 }

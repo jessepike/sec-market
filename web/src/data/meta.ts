@@ -64,7 +64,15 @@ export const SITE_HEADLINE = 'The security market, from public numbers'
 export const SITE_DESCRIPTION =
   'Public, sourced facts about the business of the security market: who is growing, stalling, ' +
   'consolidating, being bought, or in financial trouble. Collected, checked and published ' +
-  'automatically, with no stances, rankings or forecasts. Public sources only. Run by Jesse Pike.'
+  'automatically, with no stances, rankings or forecasts. Public sources only.'
 
 /** One-line disclaimer shown directly under SITE_DESCRIPTION, first screen, both widths. */
 export const SITE_DISCLAIMER = 'Not a news site and not investment advice.'
+
+/**
+ * D-80 (2026-10-02): the site's one neutral independence line, shown as its
+ * own paragraph near the top of the Method section (HowThisWorks.tsx). Names
+ * no employer and makes no other claim — use the exact words.
+ */
+export const INDEPENDENCE_STATEMENT =
+  'Security Market Pulse is independent and is not sponsored or paid for by any company it tracks.'

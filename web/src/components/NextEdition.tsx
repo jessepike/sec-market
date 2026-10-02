@@ -1,5 +1,5 @@
 import { MessageSquare } from 'lucide-react'
-import { AUTHOR_NAME, CONTACT_EMAIL } from '../data/meta'
+import { CONTACT_EMAIL } from '../data/meta'
 
 function mailto(subject: string): string {
   return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}`
@@ -33,7 +33,7 @@ export function NextEdition() {
         </a>
       </div>
       <p className="next-edition__meta">
-        {AUTHOR_NAME} · <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+        <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
       </p>
     </section>
   )
