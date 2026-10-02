@@ -1002,6 +1002,16 @@ An unreviewed change to the site, its workflows or its publishing scripts still 
 from moving; the data then lands on `preview` only and the page reads "collection incomplete".
 The coordinator took this on its own recommendation under D-77.
 
+**D-80 · 2026-10-02 — The site carries one neutral independence line on the Method page, names no employer, and puts the owner's name on no live page; his signed historical records keep it.**
+
+Both round-3 blind scorers marked trust down because the site said nothing about the operator's
+relationship to the suppliers it tracks. The owner chose, relayed the same day through the
+parallel design session: one line on the Method page, "Security Market Pulse is independent and is
+not sponsored or paid for by any company it tracks." No mention of ePlus anywhere on the site, and
+his name off the live pages (the hero byline was removed on `mon/uifix` the same day). The signed
+corrections entries and the archived w36 issue keep his name unless he says otherwise. Publishing
+under Pike Holdings is a likely later change, logged as SEC-056, not made now.
+
 **D-81 · 2026-10-02 — Fix pass 4's collector run's failed-newsroom count is taken from a hand-merged `collectState.json`, not from `collect.sh`'s own last write.**
 
 Two blind scorers failed the preview build on rubric v3.0 (Opus 59.8/100, Sol 39.0/100); a 12-item

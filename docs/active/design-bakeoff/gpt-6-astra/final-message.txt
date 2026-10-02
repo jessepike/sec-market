@@ -1,0 +1,2 @@
+The [prototype](/Users/jessepike/code/projects/sec-market/docs/active/design-bakeoff/gpt-6-astra/index.html) puts dated market changes first, then offers a searchable workspace covering all 74 suppliers. Calm typography, direct source links and compact domain navigation keep it readable on desktop and phone; both widths were rendered and inspected.
+

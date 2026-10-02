@@ -747,6 +747,23 @@ will break the build.
 - Production infrastructure or broad automation
 - Reproducing or modifying CISO Advisory ontology or vendor catalog
 
+### SEC-056 — Publish the site under Pike Holdings
+
+The owner expects to publish Security Market Pulse under Pike Holdings eventually (D-80, 2026-10-02).
+That means the publisher identity in the JSON-LD, the footer contact, and the feed. Not a change for
+now. Open question for him: whether his signed historical records (the two corrections entries and
+the archived w36 issue) keep his name after the switch.
+
+**Authorization state:** idea, owner-raised; not authorized.
+
+### SEC-057 — A permanent accessibility check in the build
+
+The round-3 Opus scorer ran axe and a keyboard pass by hand and found the phone table's hidden sort
+buttons in the tab order. Fix pass 4 fixed it, but nothing stops it coming back. Add axe (WCAG 2.2 AA)
+and a tab-order check at 1440 and 390 to the Playwright suite so a regression fails the build.
+
+**Authorization state:** proposed by the coordinator; within the automated-checks gate D-76 relies on.
+
 ### SEC-042 — Weekly destination and monetization run
 
 Turn the site into a place CISOs, investors, and security leaders return to weekly, and give it a

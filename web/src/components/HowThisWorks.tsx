@@ -1,4 +1,4 @@
-import { LAST_UPDATED_DISPLAY } from '../data/meta'
+import { INDEPENDENCE_STATEMENT, LAST_UPDATED_DISPLAY } from '../data/meta'
 import { sourcingLadder } from '../data/method'
 import { notCoveredByTracker, trackerDomains } from '../data/tracker/domains'
 import { trackerSuppliers } from '../data/tracker/suppliers'
@@ -22,6 +22,7 @@ export function HowThisWorks() {
     <section className="method" aria-labelledby="method-heading">
       <div className="section-heading">
         <h2 id="method-heading">How this is built</h2>
+        <p>{INDEPENDENCE_STATEMENT}</p>
         <p>
           The market-by-domain tracker publishes facts only: no stances, rankings, forecasts, or
           sentences interpreting what a fact means. &ldquo;Revenue growth&rdquo; is the year-over-year

@@ -34,8 +34,10 @@ push workflow files) and `claude setup-token` for the model runner's repository 
 | A4 | Automatic publish path: allowlist, drift rule, gates, workflow drafts | claude-sonnet-5 | done, merged to preview; drift rule narrowed to web/.github/scripts (D-79) | sec-market-wt/autopublish, mon/autopublish | docs/active/auto/step4/report.md |
 
 | A3 | Claude collector: brief, collect.sh, workflow, one real run on a five-supplier slice | claude-sonnet-5 | done; proof run on four suppliers added the Optiv ACT divestiture; merged to preview 3bcd6a1 | sec-market-wt/collect, mon/collect (from mon/tracker) | docs/active/auto/step3/report.md |
-| A7 | Rubric v3.0 for the facts-only tracker, then blind scores by claude-opus-5-5 and gpt-6-sol | claude-sonnet-5 (rubric) | running | none | docs/active/fable-run/site-rubric.md |
+| A7 | Rubric v3.0 for the facts-only tracker, then blind scores by claude-opus-5-5 and gpt-6-sol | claude-sonnet-5 (rubric) | round 3 scored on a8d3976: Opus 59.8, Sol 39.0, both not fit (Snyk last round wrong and stale; status line counts 14 public suppliers against 18 on the page) | none | docs/active/auto/score3/ |
+| A8 | Fix pass 4, data: Snyk and private-round sweep, dated facts, status-line denominator, 8-K events, one-decimal growth, document sources, tracker.json, collector fallbacks | claude-sonnet-5 | running | sec-market-wt/fitfix, mon/fitfix | docs/active/auto/fitfix4/data-report.md |
+| A9 | Fix pass 4, UI: 390 keyboard and tap targets, phone rows, type and colour, self-hosted fonts, CLS, reference rows, selection statement | claude-sonnet-5 | running | sec-market-wt/uifix, mon/uifix | docs/active/auto/fitfix4/ui-report.md |
 
 Research files are committed at docs/active/auto/step5/research/.
 
-Last updated: 2026-09-26
+Last updated: 2026-10-01
