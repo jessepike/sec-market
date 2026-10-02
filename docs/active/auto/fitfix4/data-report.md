@@ -286,6 +286,34 @@ the coordinator was right to reject the earlier draft's claim that it was pre-ex
 `"TR-veeam-1"` to `TR-veeam-4`'s `conflictingEvidenceIds`, the same pattern used for Snyk. Confirmed in
 the VM: `verify:integrity` now reports exactly 5 unreferenced records, matching preview.
 
+## Merge with preview
+
+Fetched `origin/preview` and ran `git merge origin/preview` into `mon/fitfix`. Three files had real
+conflicts:
+
+- **decisions.md** — kept preview's D-80 (the independence line / no-employer-name decision) ahead of
+  this branch's D-81, in commit order.
+- **web/scripts/generate-seo.ts** — preview's D-80 work dropped the `author` line from the front
+  page's Report JSON-LD (the one live-page spot that still named the owner); this branch's item-10
+  work added a stable `@id` to the same `publisher` object. Resolved to keep both: no author, publisher
+  with `@id`. The two other JSON-LD blocks that still carry `author` (the thesis and signed issue
+  pages — D-80's "signed historical records keep it") were untouched by either branch and needed no
+  resolution.
+- **web/src/components/HowThisWorks.tsx** — preview added an `INDEPENDENCE_STATEMENT` import; this
+  branch had already dropped `EPISODE_ID`/`EPISODE_VERSION` from the same import line as part of item
+  10. Resolved to import only what the file actually uses: `INDEPENDENCE_STATEMENT` and
+  `LAST_UPDATED_DISPLAY`.
+
+`BACKLOG.md`, `status.md`, and `web/src/data/meta.ts` auto-merged cleanly; checked by hand afterward
+that `SITE_DESCRIPTION` has no "Run by Jesse Pike." and `INDEPENDENCE_STATEMENT` is present (both
+D-80's changes), and that SEC-056 (preview's "Publish under Pike Holdings"), SEC-057 (preview's axe
+check), and SEC-058 (this branch's renumbered integrity item) are all present and distinct.
+
+Full `npm test` (lint, test:data, the complete build/verify pipeline, test:e2e) run in the OrbStack VM
+on the merged tree: lint 0/0, test:data all passing, `verify:integrity` passed with exactly 5
+unreferenced records, `verify:tracker` 12 domains / 74 suppliers / 116 events, the full build and
+`verify:dist` 10/10 checks, `test:e2e` 30/30. The merge commit is `798de88`.
+
 ## Facts changed, old value → new value, with source
 
 | Record | Old | New | Source |
