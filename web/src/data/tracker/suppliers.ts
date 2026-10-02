@@ -146,7 +146,23 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "domainIds": [
       "managed-security"
     ],
-    "kind": "private"
+    "kind": "private",
+    "lastRound": {
+      "date": "2021-07-13",
+      "stage": "Series F",
+      "amount": "$150 million",
+      "lead": "Viking Global Investors and Owl Rock (a division of Blue Owl Capital)",
+      "valuation": "$4.3 billion",
+      "evidenceIds": [
+        "TR-arctic-wolf-2"
+      ]
+    },
+    "ownership": {
+      "status": "Independent, venture-backed. Series F closed July 13, 2021, bringing the company to a $4.3 billion valuation.",
+      "evidenceIds": [
+        "TR-arctic-wolf-2"
+      ]
+    }
   },
   {
     "id": "armis",
@@ -444,7 +460,25 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "domainIds": [
       "data"
     ],
-    "kind": "private"
+    "kind": "private",
+    "lastRound": {
+      "date": "2024-12-10",
+      "stage": "Series H",
+      "amount": "majority of equity in the Veritas combination transaction",
+      "lead": "Haveli Investments",
+      "valuation": "over $7 billion (combined company)",
+      "evidenceIds": [
+        "TR-cohesity-1"
+      ]
+    },
+    "ownership": {
+      "status": "Independent, venture-backed. Completed its combination with Veritas's Enterprise Data Protection Business on December 10, 2024, valuing the combined company at over $7 billion. The transaction was funded by a Series H round led by Haveli Investments; The Carlyle Group became one of the largest shareholders in the combined company.",
+      "announced": "2024-12-10",
+      "closed": "2024-12-10",
+      "evidenceIds": [
+        "TR-cohesity-1"
+      ]
+    }
   },
   {
     "id": "commvault",

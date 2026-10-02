@@ -5346,6 +5346,56 @@ const handWrittenEvidenceRecords: EvidenceRecord[] = [
     "locator": "Opening paragraph"
   }
 },
+{
+  "id": "TR-arctic-wolf-2",
+  "title": "Arctic Wolf Closes Record-breaking Series F with New and Existing Investors",
+  "organization": "Arctic Wolf Networks, Inc.",
+  "publicationDate": "2021-07-13",
+  "economicPeriod": "N/A (funding announcement)",
+  "canonicalUrl": "https://arcticwolf.com/resources/blog/arctic-wolf-closes-record-breaking-series-f-funding/",
+  "excerpt": "...backed by top tier investors, including Viking Global Investors, Owl Rock, a division of Blue Owl Capital and others in our Series F funding round of $150 million. Following this round, the company has achieved a valuation of $4.3 billion.",
+  "sourceClass": "IR",
+  "interpretation": "",
+  "limitations": "AUTO-001 fix pass 4, item 8: this is the most recent funding round found on Arctic Wolf's own site after checking its press-releases index, its full post-sitemap for every 'series'/'funding'/'raises'/'valuation' slug, and a GlobeNewswire organization search; no company-issued source for a later round was found. Company is privately held with no SEC filer CIK.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-COLLECT / TR-arctic-wolf-2",
+  "tags": [
+    "tracker",
+    "managed-security"
+  ],
+  "retrievedAt": "2026-10-02",
+  "retrieval": {
+    "finalUrl": "https://arcticwolf.com/resources/blog/arctic-wolf-closes-record-breaking-series-f-funding/",
+    "sha256": "9e957f78e50ee3a72266382ca364e7cbe8de6fdce135da4a2b43d1ede7c54a5a",
+    "fetchedAt": "2026-10-02T15:30:00Z",
+    "locator": "Body paragraph naming investors, round amount, and resulting valuation"
+  }
+},
+{
+  "id": "TR-cohesity-1",
+  "title": "Cohesity Becomes World's Largest Data Protection Software Provider After Completing Combination with Veritas' Enterprise Data Protection Business",
+  "organization": "Cohesity, Inc.",
+  "publicationDate": "2024-12-10",
+  "economicPeriod": "N/A (transaction close announcement)",
+  "canonicalUrl": "https://www.cohesity.com/newsroom/press/cohesity-becomes-worlds-largest-data-protection-provider-after-completing-combination-with-veritas-enterprise-data-protection-business/",
+  "excerpt": "The transaction values the combined company at over $7 billion. The combined company received support from current marquee investors, including Sequoia Capital, Softbank Vision Fund I, Wing Venture Capital, Premji Invest, and Madrona. The Carlyle Group is now one of the largest shareholders in the combined company. The transaction was funded by a Series H investment round led by Haveli Investments, which provided the majority of equity in the transaction and is now one of Cohesity's largest shareholders. Coatue, Sapphire Ventures, and Dragon Fund were also key investors in the Series H investment round.",
+  "sourceClass": "IR",
+  "interpretation": "",
+  "limitations": "Company's own press release. Company is privately held with no SEC filer CIK.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-COLLECT / TR-cohesity-1",
+  "tags": [
+    "tracker",
+    "data"
+  ],
+  "retrievedAt": "2026-10-02",
+  "retrieval": {
+    "finalUrl": "https://www.cohesity.com/newsroom/press/cohesity-becomes-worlds-largest-data-protection-provider-after-completing-combination-with-veritas-enterprise-data-protection-business/",
+    "sha256": "c4af532ff76676eb0416c732b3494f57eebb8fe975b7f17011ae7aaa71e1763e",
+    "fetchedAt": "2026-10-02T15:35:00Z",
+    "locator": "Transaction Details and Advisors section"
+  }
+},
 ]
 
 export const evidenceRecords: EvidenceRecord[] = [
