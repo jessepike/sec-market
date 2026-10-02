@@ -158,12 +158,28 @@ export const trackerSuppliers: TrackerSupplier[] = [
       "exposure"
     ],
     "kind": "private",
+    "lastRound": {
+      "date": "2022-03-08",
+      "stage": "Series E",
+      "amount": "$200 million",
+      "lead": "Accel",
+      "valuation": "$2.6 billion",
+      "evidenceIds": [
+        "TR-axonius-3"
+      ]
+    },
     "headlineMetric": {
       "label": "ARR",
       "value": ">$200 million",
       "period": "Q1 fiscal 2027 (as of 2026-05-19)",
       "evidenceIds": [
         "TR-axonius-1"
+      ]
+    },
+    "ownership": {
+      "status": "Independent, venture-backed. Series E raised $200M on March 8, 2022, valuation $2.6 billion.",
+      "evidenceIds": [
+        "TR-axonius-3"
       ]
     }
   },
@@ -188,7 +204,15 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "domainIds": [
       "identity"
     ],
-    "kind": "pe-owned"
+    "kind": "pe-owned",
+    "ownership": {
+      "status": "PE-owned. Clearlake Capital Group completed its investment on August 17, 2021, joining existing investor Francisco Partners, which acquired BeyondTrust in 2018.",
+      "acquirer": "Clearlake Capital Group and Francisco Partners",
+      "closed": "2021-08-17",
+      "evidenceIds": [
+        "TR-beyondtrust-1"
+      ]
+    }
   },
   {
     "id": "bigid",
@@ -253,7 +277,14 @@ export const trackerSuppliers: TrackerSupplier[] = [
       "amount": "$280 million",
       "lead": "General Catalyst's Customer Value Fund",
       "evidenceIds": [
-        "TR-chainguard-1"
+        "TR-chainguard-1",
+        "TR-chainguard-2"
+      ]
+    },
+    "ownership": {
+      "status": "Independent, venture-backed. Growth financing of $280M from General Catalyst's Customer Value Fund, announced October 23, 2025.",
+      "evidenceIds": [
+        "TR-chainguard-2"
       ]
     }
   },
@@ -621,7 +652,25 @@ export const trackerSuppliers: TrackerSupplier[] = [
     "domainIds": [
       "managed-security"
     ],
-    "kind": "private"
+    "kind": "private",
+    "lastRound": {
+      "date": "2022-10-03",
+      "stage": "Series E (extension)",
+      "amount": "$171.3 million (extension; initial Series E $140.3M on 2021-11-18, total funding $288.8 million)",
+      "lead": "CapitalG and Paladin Capital Group",
+      "valuation": "over $1 billion (as of the 2021-11-18 initial close)",
+      "evidenceIds": [
+        "TR-expel-1",
+        "TR-expel-2"
+      ]
+    },
+    "ownership": {
+      "status": "Independent, venture-backed. Series E extension raised an additional $171.3M on October 3, 2022, bringing total funding to $288.8M. Initial Series E of $140.3M closed November 18, 2021 at a valuation over $1 billion.",
+      "evidenceIds": [
+        "TR-expel-1",
+        "TR-expel-2"
+      ]
+    }
   },
   {
     "id": "forescout",
@@ -1012,10 +1061,21 @@ export const trackerSuppliers: TrackerSupplier[] = [
       "cloud"
     ],
     "kind": "private",
-    "ownership": {
-      "status": "Independent, venture-backed private company.",
+    "lastRound": {
+      "date": "2021-10-05",
+      "stage": "Series C (extended)",
+      "amount": "$550 million",
+      "lead": "Temasek",
+      "valuation": "$1.8 billion",
       "evidenceIds": [
-        "TR-orca-1"
+        "TR-orca-2"
+      ]
+    },
+    "ownership": {
+      "status": "Independent, venture-backed. Extended Series C raised $550M on October 5, 2021, valuation $1.8 billion.",
+      "evidenceIds": [
+        "TR-orca-1",
+        "TR-orca-2"
       ]
     }
   },

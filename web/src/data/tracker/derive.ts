@@ -158,8 +158,16 @@ export function formatOwnershipCompact(supplier: TrackerSupplier): string {
       return detail ? `PE-owned · ${detail}` : 'PE-owned'
     }
     case 'acquired': {
-      const who = ownership.acquirer ? shortSupplierName(ownership.acquirer) : ''
       const when = formatMonthYear(ownership.closed ?? ownership.announced)
+      // AUTO-001 fix pass 4, item 3: the generic "Acquired by X" template
+      // misstates a relationship that isn't a full acquisition (Accenture's
+      // own release describes its Dragos deal as a majority investment, not
+      // an acquisition). `relationship` carries the primary source's own
+      // wording instead; the date is still appended the same way.
+      if (ownership.relationship) {
+        return when ? `${ownership.relationship} · ${when}` : ownership.relationship
+      }
+      const who = ownership.acquirer ? shortSupplierName(ownership.acquirer) : ''
       if (!who) return 'Acquired'
       return when ? `Acquired by ${who} · ${when}` : `Acquired by ${who}`
     }

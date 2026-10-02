@@ -2309,6 +2309,25 @@ export const evidenceRecords: EvidenceRecord[] = [
   "retrievedAt": "2026-09-25"
 },
 {
+  "id": "TR-axonius-3",
+  "title": "Axonius Closes $200M Series E Funding Round",
+  "organization": "Axonius, Inc.",
+  "publicationDate": "2022-03-08",
+  "economicPeriod": "N/A (funding announcement)",
+  "canonicalUrl": "https://www.axonius.com/newsroom/press-release/axonius-closes-200m-series-e-funding-round",
+  "excerpt": "Axonius today announced it has closed $200 million in Series E funding, led by Accel, at a valuation of $2.6 billion.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "AUTO-001 fix pass 4, item 1: the tracker previously had no lastRound field for Axonius at all.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-axonius-3",
+  "tags": [
+    "tracker",
+    "exposure"
+  ],
+  "retrievedAt": "2026-09-30"
+},
+{
   "id": "TR-barracuda-1",
   "title": "Barracuda KKR Acquisition Completion",
   "organization": "Barracuda Networks, Inc.",
@@ -2326,6 +2345,25 @@ export const evidenceRecords: EvidenceRecord[] = [
     "email"
   ],
   "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-beyondtrust-1",
+  "title": "BeyondTrust Completes Transaction with Clearlake Capital and Francisco Partners",
+  "organization": "BeyondTrust",
+  "publicationDate": "2021-08-17",
+  "economicPeriod": "N/A (ownership announcement)",
+  "canonicalUrl": "https://www.globenewswire.com/news-release/2021/08/17/2282045/0/en/BeyondTrust-Completes-Transaction-with-Clearlake-Capital-and-Francisco-Partners.html",
+  "excerpt": "Clearlake joins existing investor Francisco Partners, a leading global investment firm that specializes in partnering with technology businesses, which acquired BeyondTrust in 2018.",
+  "sourceClass": "IR",
+  "interpretation": "",
+  "limitations": "AUTO-001 fix pass 4, item 8: the tracker previously had no ownership field for BeyondTrust at all.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-beyondtrust-1",
+  "tags": [
+    "tracker",
+    "identity"
+  ],
+  "retrievedAt": "2026-09-30"
 },
 {
   "id": "TR-bigid-1",
@@ -2421,6 +2459,25 @@ export const evidenceRecords: EvidenceRecord[] = [
     "appsec"
   ],
   "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-chainguard-2",
+  "title": "Chainguard Announces $280 Million Growth Financing from General Catalyst to Usher in Next Era of Trusted Open Source Software",
+  "organization": "Chainguard, Inc.",
+  "publicationDate": "2025-10-23",
+  "economicPeriod": "N/A (funding announcement)",
+  "canonicalUrl": "https://www.prnewswire.com/news-releases/chainguard-announces-280-million-growth-financing-from-general-catalyst-to-usher-in-next-era-of-trusted-open-source-software-302592279.html",
+  "excerpt": "Chainguard...today announced it has raised $280 million in growth financing from General Catalyst's Customer Value Fund (CVF).",
+  "sourceClass": "IR",
+  "interpretation": "",
+  "limitations": "AUTO-001 fix pass 4, item 1: supersedes TR-chainguard-1 (SiliconANGLE, trade press) as the cited source — amount and date unchanged, same round.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-chainguard-2",
+  "tags": [
+    "tracker",
+    "appsec"
+  ],
+  "retrievedAt": "2026-09-30"
 },
 {
   "id": "TR-checkpoint-1",
@@ -2898,6 +2955,25 @@ export const evidenceRecords: EvidenceRecord[] = [
     "secops"
   ],
   "retrievedAt": "2026-09-25"
+},
+{
+  "id": "TR-expel-2",
+  "title": "Expel Investors Fuel Rapid Growth With Additional Series E Investment, Bringing Total Funding to $288 Million",
+  "organization": "Expel, Inc.",
+  "publicationDate": "2022-10-03",
+  "economicPeriod": "N/A (funding announcement)",
+  "canonicalUrl": "https://expel.com/resource/expel-investors-fuel-rapid-growth-with-additional-series-e-investment-bringing-total-funding-to-288-million/",
+  "excerpt": "Expel...announced an additional $171.3 million in Series E funding, led by CapitalG and Paladin Capital Group, with participation from existing investors Scale Venture Partners, March Capital, Index Ventures, and Battery Ventures, bringing total funding raised to $288.8 million.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "AUTO-001 fix pass 4, item 8: the tracker previously had no ownership field for Expel at all.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-expel-2",
+  "tags": [
+    "tracker",
+    "managed-security"
+  ],
+  "retrievedAt": "2026-09-30"
 },
 {
   "id": "TR-forescout-1",
@@ -3438,6 +3514,25 @@ export const evidenceRecords: EvidenceRecord[] = [
   "retrievedAt": "2026-09-25"
 },
 {
+  "id": "TR-orca-2",
+  "title": "Orca Security Raises $550M in Extended Series C Round",
+  "organization": "Orca Security",
+  "publicationDate": "2021-10-05",
+  "economicPeriod": "N/A (funding announcement)",
+  "canonicalUrl": "https://orca.security/resources/press-releases/orca-security-series-c-550-million-announcement/",
+  "excerpt": "Orca Security...announced it closed $550 million in its extended Series C fundraising round, led by Temasek...boosting its valuation to $1.8 billion.",
+  "sourceClass": "OFFICIAL",
+  "interpretation": "",
+  "limitations": "AUTO-001 fix pass 4, item 1: the tracker previously had no lastRound field and an un-cited generic ownership line for Orca; no funding or ownership event newer than this October 2021 round was found in Orca's own press-release archive as of 2026-09-30.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-orca-2",
+  "tags": [
+    "tracker",
+    "cloud"
+  ],
+  "retrievedAt": "2026-09-30"
+},
+{
   "id": "TR-panw-1",
   "title": "Palo Alto Networks Q4 FY2026 Financial Results",
   "organization": "Palo Alto Networks, Inc.",
@@ -3518,41 +3613,41 @@ export const evidenceRecords: EvidenceRecord[] = [
 },
 {
   "id": "TR-ping-1",
-  "title": "Ping Identity ARR Milestone Announcement",
+  "title": "Ping Identity Surpasses 30% Annual Growth in SaaS Revenue and Approaches $800M ARR as an Enterprise Identity Market Leader",
   "organization": "Ping Identity",
   "publicationDate": "2024-11-14",
-  "economicPeriod": "November 2024",
-  "canonicalUrl": "https://www.pingidentity.com/en/company/newsroom.html",
-  "excerpt": "Approaching $800 million ARR with 30%+ SaaS revenue growth.",
+  "economicPeriod": "Period ended September 30, 2024",
+  "canonicalUrl": "https://press.pingidentity.com/2024-11-14-Ping-Identity-Surpasses-30-Annual-Growth-in-SaaS-Revenue-and-Approaches-800M-ARR-as-an-Enterprise-Identity-Market-Leader",
+  "excerpt": "Ping Identity has surpassed key growth milestones as of September 30, 2024, achieving 31% year-over-year Annual Recurring Revenue (ARR) growth of SaaS offerings, 33% year-to-date new bookings growth, while approaching $800M ARR.",
   "sourceClass": "IR",
   "interpretation": "",
-  "limitations": "No newer figure found; treat as stale relative to September 2026.",
+  "limitations": "AUTO-001 fix pass 4, item 9: previously cited the bare newsroom index page, which the build's source-legibility gate treats as unusable; replaced with the specific release. No newer figure found; treat as stale relative to September 2026.",
   "conflictingEvidenceIds": [],
   "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-ping-1",
   "tags": [
     "tracker",
     "identity"
   ],
-  "retrievedAt": "2026-09-25"
+  "retrievedAt": "2026-10-01"
 },
 {
   "id": "TR-ping-2",
-  "title": "Ping Identity Thoma Bravo Acquisition Completion",
+  "title": "Thoma Bravo Completes Acquisition of Ping Identity",
   "organization": "Ping Identity",
   "publicationDate": "2022-10-18",
   "economicPeriod": "October 2022",
-  "canonicalUrl": "https://www.pingidentity.com/en/company/newsroom.html",
-  "excerpt": "Thoma Bravo acquisition closed October 18, 2022 at $2.8 billion deal value.",
+  "canonicalUrl": "https://press.pingidentity.com/2022-10-18-Thoma-Bravo-Completes-Acquisition-of-Ping-Identity",
+  "excerpt": "Ping Identity announced the completion of its acquisition by Thoma Bravo in an all-cash transaction valued at approximately $2.8 billion. Ping Identity stockholders are entitled to receive $28.50 in cash for each share of common stock they owned.",
   "sourceClass": "IR",
   "interpretation": "",
-  "limitations": "",
+  "limitations": "AUTO-001 fix pass 4, item 9: previously cited the bare newsroom index page; replaced with the specific release.",
   "conflictingEvidenceIds": [],
   "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-ping-2",
   "tags": [
     "tracker",
     "identity"
   ],
-  "retrievedAt": "2026-09-25"
+  "retrievedAt": "2026-10-01"
 },
 {
   "id": "TR-ping-3",
@@ -5117,6 +5212,25 @@ export const evidenceRecords: EvidenceRecord[] = [
     "fetchedAt": "2026-09-26T17:31:00Z",
     "locator": "Item 5.02"
   }
+},
+{
+  "id": "TR-expel-1",
+  "title": "Expel Raises $140 Million in Series E Funding",
+  "organization": "Expel, Inc.",
+  "publicationDate": "2021-11-18",
+  "economicPeriod": "N/A (funding announcement)",
+  "canonicalUrl": "https://expel.com/resource/expel-raises-140-million-in-series-e-funding/",
+  "excerpt": "Expel... announced $140.3 million in Series E funding, co-led by CapitalG, Alphabet's independent growth fund, and Paladin Capital Group... a valuation over $1 billion.",
+  "sourceClass": "IR",
+  "interpretation": "",
+  "limitations": "AUTO-001 fix pass 4, item 1/8: the tracker previously had no lastRound/ownership field for Expel at all. Checked Expel's own newsroom through its most recent 2026 releases; no later funding round or ownership change was found there.",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-expel-1",
+  "tags": [
+    "tracker",
+    "managed-security"
+  ],
+  "retrievedAt": "2026-10-01"
 },
 ]
 

@@ -276,17 +276,6 @@ export const trackerEvents: TrackerEvent[] = [
     "rung": 4
   },
   {
-    "id": "EV-ghas-1",
-    "supplierId": "github-advanced-security",
-    "date": "2025-08-11",
-    "type": "exec-change",
-    "text": "GitHub CEO Thomas Dohmke announced he was stepping down to become a founder again; no successor CEO was named, and GitHub's leadership folded further into Microsoft's CoreAI organization.",
-    "evidenceIds": [
-      "TR-ghas-1"
-    ],
-    "rung": 1
-  },
-  {
     "id": "EV-hiddenlayer-1",
     "supplierId": "hiddenlayer",
     "date": "2026-09-02",
