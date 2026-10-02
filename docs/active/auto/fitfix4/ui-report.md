@@ -193,3 +193,59 @@ No e2e assertions were stale or needed updating.
 
 lint, test:data, build, test:e2e all green on the final state. `git status --short` is empty except
 for this evidence folder and report, which are being committed with this report.
+
+## Coordinator follow-up (after this report's first version)
+
+Two things the coordinator caught in the after-renders that the checks above didn't:
+
+**The first supplier row still wasn't on screen.** The row's top was at 840.9px, but the row itself
+is 281.84px tall, so its bottom sat at 1,122.7px — well past any screen. I'd confirmed the *top* was
+on screen and treated that as the win; the actual requirement, reasonably, was a complete row
+(name and growth included) visible without scrolling, bottom at or under 820px.
+
+Fix: the masthead's description and stamps, and the "what revenue growth means" paragraph in the
+market section, now sit in a `<details>` (same pattern already used for "Which sources failed" and
+the page's "How this is built" sections). `index.css` forces both open with the `<summary>` hidden
+above 640px, so desktop renders exactly as before — same text, same position, nothing lost. Below
+640px they default to collapsed, each one tap away, with every word still on the page. That alone
+took the row's top from 840.9px to 636px. The remaining gap came from `.main-content`'s flex `gap`
+and top `padding`, which were a flat 2rem/1.5rem at every width — tightened to 0.65rem/0.5rem at
+phone width only, so no other breakpoint is affected. The run-status sentence also drops from 14px to
+12px at phone width with a tighter line-height; 12px is already one of the page's six approved sizes
+(the "metadata" floor from item 7), not a new one.
+
+Result: the first row now runs 535.8px to 817.7px at 390×844 — fully on screen, with its name and
+growth both visible, and under the 820px target with room to spare. The run-status line and "Figures
+checked" date stay well above it, at 375px. Fresh screenshot:
+`ui-evidence/after-local/check5-home-390-fold.png`.
+
+**The desktop numeric columns didn't line up with their headers.** This was a real bug, not a
+rendering nuance: `.tracker-table th, .tracker-table td { text-align: left; ... }` combines a class
+with a type selector, specificity 0,1,1. The rule meant to right-align the numeric cells,
+`.tracker-cell--numeric { text-align: right; }`, is a bare class selector, specificity 0,1,0 — lower,
+so it lost regardless of appearing later in the file. Every growth and prior-quarter cell had been
+rendering `text-align: left` since whichever fix pass first wrote that comment, which assumed the
+later rule was winning. Requalified the selector as `.tracker-table td.tracker-cell--numeric` to match
+the base rule's specificity and win on source order, the way it was always meant to.
+
+That alone right-aligns the cell, but the value, the period text, and the evidence link are one
+inline run, and the period text's length varies row to row ("Q Jul 26 · filed 26 Aug" versus a prior
+quarter's plain "Q Apr 26"), so right-aligning the whole string still left the percentage sign
+starting at a different x position in every row — the actual thing a reader scans down the column.
+`.tracker-cell--numeric .tracker-figure__value` now gets a fixed 3.5rem right-aligned slot, so the
+sign and the decimal land in the same place on every row regardless of what follows them. Confirmed
+by rendering the same six-row table before and after:
+`ui-evidence/followup/numeric-columns-before-alignment-fix-1440.png` and
+`ui-evidence/followup/numeric-columns-after-alignment-fix-1440.png`. Checked at 390px too
+(`ui-evidence/followup/first-row-390-after-fix.png`) — the mobile card layout was unaffected, since
+it doesn't put Rev. growth and Prior q in a shared text-aligned column.
+
+Re-ran the full gate chain after both fixes: lint clean, 248/248 data tests, build and verify:dist
+clean, 30/30 e2e tests, no test file changed. Re-ran axe (zero violations, both pages, both widths)
+and the 40-stop keyboard sweep (zero off-screen stops) — both still clean. Tap targets at 390px still
+all ≥24px, and the font-size audit still shows exactly six sizes at both widths — the run-status
+size change moved a count between existing buckets, it didn't add a seventh. Fresh renders at 1440,
+390 and 320 are in `ui-evidence/after-local/` as `check5-*`; the stale `check3`/`check4` captures from
+before this follow-up were removed so the evidence folder only holds the current state.
+
+`git status --short` is empty again after these two commits.
