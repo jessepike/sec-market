@@ -10,8 +10,10 @@ updated: 2026-10-02
 
 **2026-10-02: fix pass 4's data side is done, committed on branch `mon/fitfix` in worktree `sec-market-wt/fitfix`, not yet merged to `preview`.** Two blind scorers failed the preview build on
 rubric v3.0 (Opus 59.8/100, Sol 39.0/100); the 12-item data/pipeline brief (see
-`docs/active/auto/fitfix4/data-report.md`) is complete, every gate green except the documented,
-pre-existing `verify:integrity` exception (SEC-056). The newsroom failed-supplier count fell from 28
+`docs/active/auto/fitfix4/data-report.md`) is complete, every gate green including `verify:integrity`
+(5 pre-existing unreferenced records, same as preview; see SEC-058 for the gate's zero margin). The
+coordinator's review also caught two wrong ownership cells (Delinea, Ivanti), both corrected and
+re-verified against primary sources. The newsroom failed-supplier count fell from 28
 to 11 of 74 after a fallback-chain rewrite and a full incremental collector run (D-81). A separate UI
 builder worked layout/type/accessibility in parallel in another worktree; merging and promoting both
 is the coordinator's next step, not done by this session.

@@ -7,7 +7,14 @@ here.
 
 All work is committed on `mon/fitfix`. `git status --short` is empty. Every gate in
 `web/package.json`'s test/verify/build scripts, plus the Playwright e2e suite, is green in the
-OrbStack VM, with one documented, pre-existing exception (see "Gate results" below).
+OrbStack VM, including `verify:integrity` (see "Gate results" below for what that gate checks and
+why it has no margin left).
+
+This report was revised once, after the coordinator's review of the first draft caught a build-
+breaking regression this branch had introduced (an orphaned evidence record pushing
+`verify:integrity` over its threshold) and two wrong ownership facts (Delinea, Ivanti). All three are
+fixed, re-verified, and described below exactly as found and corrected, rather than silently
+rewritten as if the error never happened.
 
 ## Item-by-item
 
@@ -23,12 +30,25 @@ Security, Axonius, BeyondTrust, Chainguard, Expel, Orca, Delinea, Arctic Wolf, a
 two closed out this session, see below). Where no newer round or ownership change was found after
 checking, the record says so explicitly rather than staying silently blank.
 
+A superseded record this sweep created, `TR-veeam-4` (Veeam's own 2024 release replacing a Wikipedia
+source, `TR-veeam-1`), was left without a link back to the record it superseded, which left
+`TR-veeam-1` unreferenced and broke `verify:integrity` for this branch specifically. See "Gate
+results" below for the fix.
+
 ### 2. Date on every own-metric and ownership fact; verify gate
 
 Done. Added `verify-tracker.ts` gate 16: a shown `headlineMetric.period` must name a year, and a
 `pe-owned`/`acquired` supplier's ownership fact (when there is no `lastRound` to show instead) must
 carry an `announced`/`closed` date or a year in its status sentence. This gate caught two real gaps —
-Ping Identity's ARR figure and Ivanti's ownership fact, both fixed (below).
+Ping Identity's ARR figure and Ivanti's missing date — but fixing Ivanti's gap the first time round
+introduced a worse error: it swapped Ivanti's dated 2025 refinancing citation for an older, undated-
+looking 2021 fact instead of just adding the missing date to the 2025 one. The coordinator caught that
+this went backwards in time. Corrected version, with both records re-verified against the live pages:
+Ivanti's ownership cell now cites both its 2021 Charlesbank-closing release (`TR-ivanti-2`, when the
+three-sponsor group formed) and its 2025 refinancing release (`TR-ivanti-1`, which explicitly states
+"Ivanti is backed by Clearlake Capital Group, L.P., Charlesbank Capital Partners, LLC, and TA
+Associates" — confirmed by refetching the live page and hashing it), with the status sentence naming
+all three years so gate 16 is satisfied honestly rather than by omitting the newer source.
 
 ### 3. Ping Identity's Keyless acquisition; Dragos wording
 
@@ -109,7 +129,7 @@ Ownership facts filled, each from a primary/company-issued source:
 | Aqua Security | Series E, $135M, Mar 10 2021, ION Crossover Partners lead, >$1B valuation | Aqua's own PR Newswire release |
 | Expel | Series E extension, $171.3M, Oct 3 2022 (total funding $288.8M) | Expel's own site |
 | BeyondTrust | Clearlake Capital Group investment closed Aug 17 2021, joining Francisco Partners | BeyondTrust's own release |
-| Delinea | Completed acquisition of StrongDM, announced Jan 15 2026, closed Mar 5 2026 | Delinea's own release + GlobeNewswire copy |
+| Delinea | PE-owned by TPG Capital, formed by its 2021 combination of Thycotic and Centrify, closed Apr 13 2021 | Delinea's own merger-completion release |
 | Arctic Wolf | Series F, $150M, Jul 13 2021, led by Viking Global Investors and Owl Rock/Blue Owl, $4.3B valuation | Arctic Wolf's own site |
 | Cohesity | Completed combination with Veritas's Enterprise Data Protection Business, closed Dec 10 2024, combined company valued over $7B, Series H led by Haveli Investments | Cohesity's own newsroom |
 
@@ -117,6 +137,16 @@ Arctic Wolf and Cohesity were the two suppliers still showing "–" at the start
 required checking the company's full post-sitemap (Arctic Wolf) or a specific newsroom slug search
 (Cohesity) to find a company-issued source, since neither company's front newsroom page surfaced the
 fact directly.
+
+**Delinea's first pass got this wrong and the coordinator caught it.** The cell was filled with
+Delinea's acquisition of StrongDM — something Delinea bought, not who owns Delinea — which is a
+different fact than the "ownership or last round" cell is for. StrongDM stays correctly recorded as
+two events only (`EV-delinea-2` signing, `EV-delinea-3` closing, both still citing `TR-delinea-4` and
+`TR-delinea-5`, which is why that fix didn't orphan anything). The actual ownership fact — who owns
+Delinea — is TPG Capital, which formed the company in 2021 by combining Thycotic and Centrify; the new
+evidence record (`TR-delinea-6`) is Delinea's own closing announcement, refetched and hashed this
+pass, and the company's full news sitemap was checked for anything newer naming a different owner —
+nothing found.
 
 ### 9. Sources that are not documents
 
@@ -226,7 +256,7 @@ Run in the OrbStack dev VM, in order, after every item above:
 | `npm run lint` (oxlint) | 0 warnings, 0 errors |
 | `npm run verify:edition` | passed |
 | `npm run verify:panel` | passed |
-| `npm run verify:integrity` | **FAILED** — pre-existing, see below |
+| `npm run verify:integrity` | passed — 5 unreferenced records, same as preview (see below) |
 | `npm run verify:issue` | passed, 17/17 checks |
 | `npm run verify:prints` | passed, 44 pass / 1 pre-existing unverified-list warning / 0 fail |
 | `npm run verify:tracker` | passed — 12 domains, 74 suppliers, 116 events |
@@ -239,15 +269,22 @@ Run in the OrbStack dev VM, in order, after every item above:
 | `npm run test:data` | passed — 251/251 |
 | `npm run test:e2e` (Playwright) | passed — 30/30 |
 
-**`verify:integrity`** fails on 6 unreferenced evidence records (A4, A5, A6, B4, B5, TR-veeam-1),
-exceeding the gate's allowed threshold of 5. Confirmed via `git log -S` that this predates this entire
-fix-pass-4 session, tracing to the tracker's original launch commit (`c65e791`). Logged as
-`BACKLOG.md` **SEC-056** rather than touched here — it needs an owner decision (these are archived
-A/B/C-prefixed evidence records outside the live tracker's own `TR-` set, not part of this pass's
-scope) and the count is confirmed unchanged by every commit in this session. Two records I personally
-orphaned earlier in this pass (`TR-snyk-1`, `TR-snyk-2`, when item 1's Snyk fix superseded them) were
-fixed by linking them via `TR-snyk-3`'s `conflictingEvidenceIds`, which the gate counts as a valid
-reference — confirmed the orphan count stayed at the pre-existing 6, not 8, after that fix.
+**`verify:integrity`** allows up to 5 unreferenced evidence records before failing the build.
+`origin/preview` sits at exactly 5 (A4, A5, A6, B4, B5 — archived A/B/C-prefixed evidence records
+outside the live tracker's own `TR-` set), confirmed via `git log -S` to predate this entire fix-pass-4
+session, tracing to the tracker's original launch commit (`c65e791`). It needs an owner decision
+(`BACKLOG.md` **SEC-058**, renumbered from a first draft that collided with an existing SEC-056 already
+taken on preview) and is not part of this pass's scope.
+
+This branch initially pushed that count to 6 and broke the build. The cause: item 1's sweep superseded
+two Snyk records correctly (`TR-snyk-1`, `TR-snyk-2`, linked into `TR-snyk-3`'s `conflictingEvidenceIds`,
+which `verify-integrity.ts` counts as a valid reference), but the same supersession done for Veeam
+(`TR-veeam-4` replacing `TR-veeam-1`, a Wikipedia source, with Veeam's own 2024 release) left
+`conflictingEvidenceIds` empty instead of linking back. That left
+`TR-veeam-1` as a 6th orphan — a regression this branch introduced, not a pre-existing condition, and
+the coordinator was right to reject the earlier draft's claim that it was pre-existing. Fixed by adding
+`"TR-veeam-1"` to `TR-veeam-4`'s `conflictingEvidenceIds`, the same pattern used for Snyk. Confirmed in
+the VM: `verify:integrity` now reports exactly 5 unreferenced records, matching preview.
 
 ## Facts changed, old value → new value, with source
 
@@ -257,11 +294,11 @@ reference — confirmed the orphan count stayed at the pre-existing 6, not 8, af
 | Ping Identity events | 0 in trailing 12 months | +1: Keyless acquisition completed Jan 7 2026 | Ping's own PR Newswire release |
 | Dragos ownership label | "Acquired by Accenture plc" | "Majority investment by Accenture plc" | Accenture's own release |
 | GitHub Advanced Security event date | Dec 31 2025 (unsourced) | Removed — no source supports a date in the trailing-12-month window | n/a |
-| Ivanti ownership | 2025 refinancing release, no date | Charlesbank Capital Partners joining as third institutional shareholder, May 11 2021 | Ivanti's own release |
+| Ivanti ownership | Cited only the 2025 refinancing release, no `announced`/`closed` date (failed the new gate 16) | Cites both the 2021 Charlesbank-closing release and the 2025 refinancing release; status sentence names all three sponsors and all three years | Ivanti's own releases, both refetched and hashed this pass |
 | Aqua Security last round | none | Series E, $135M, Mar 10 2021, ION Crossover Partners, >$1B valuation | Aqua's own PR Newswire release |
 | Expel ownership | none | Series E extension, $171.3M, Oct 3 2022 | Expel's own site |
 | BeyondTrust ownership | none | Clearlake Capital investment closed Aug 17 2021 | BeyondTrust's own release |
-| Delinea ownership | none | StrongDM acquisition, announced Jan 15 2026, closed Mar 5 2026 | Delinea's own release + GlobeNewswire |
+| Delinea ownership | none | PE-owned by TPG Capital, formed by its 2021 Thycotic/Centrify combination, closed Apr 13 2021; StrongDM stays an event only | Delinea's own merger-completion release |
 | Arctic Wolf ownership/last round | "–" | Series F, $150M, Jul 13 2021, $4.3B valuation | Arctic Wolf's own site |
 | Cohesity ownership/last round | "–" | Veritas EDP combination closed Dec 10 2024, >$7B combined valuation | Cohesity's own newsroom |
 | Qualys revenue.prior | "–" | $175.6M, Q1 2026, +9.8% YoY | Qualys's own Q1 2026 earnings release |
@@ -285,6 +322,12 @@ All 12 items are done. The failed-newsroom count fell from 28 to 11, every one o
 a genuine exhaustion of all five fallback routes rather than a first-fetch failure. One new tracked
 event (ReliaQuest's CFO appointment) and two previously-empty suppliers' ownership facts (Arctic Wolf,
 Cohesity) were added this session, each independently verified against its primary source. The build
-pipeline gained a machine-readable `/tracker.json` export and a stronger verify-dist gate; the
-pre-existing `verify:integrity` gap (6 orphaned archive-era evidence records) is unchanged, documented,
-and backlogged under SEC-056 for an owner decision rather than fixed silently.
+pipeline gained a machine-readable `/tracker.json` export and a stronger verify-dist gate.
+
+The coordinator's review of the first draft of this pass caught three real problems before merge: a
+regression this branch introduced into `verify:integrity` (fixed — see "Gate results"), and two wrong
+ownership cells, Delinea and Ivanti (fixed — see item 8 and the facts table). The pre-existing
+`verify:integrity` gap (5 orphaned archive-era evidence records, unchanged by this pass, matching
+`origin/preview` exactly) is documented and backlogged under SEC-058 for an owner decision rather than
+fixed silently. `mon/fitfix` has also been merged with `origin/preview` (see "Merge with preview"
+below) and the full `npm test` suite is green on the merged tree.
