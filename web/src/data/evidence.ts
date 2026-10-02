@@ -4196,22 +4196,28 @@ const handWrittenEvidenceRecords: EvidenceRecord[] = [
 },
 {
   "id": "TR-sophos-1",
-  "title": "Sophos Group - Thoma Bravo Ownership",
-  "organization": "Sophos Group (Sophos Ltd)",
-  "publicationDate": "2020-03-01",
+  "title": "Sophos Announces Completion of Take-Private Acquisition by Thoma Bravo",
+  "organization": "Thoma Bravo",
+  "publicationDate": "2020-03-02",
   "economicPeriod": "March 2020",
-  "canonicalUrl": "https://www.thomabravo.com/press-releases/sophos",
-  "excerpt": "Thoma Bravo acquired Sophos Group through a take-private transaction, completed in March 2020.",
+  "canonicalUrl": "https://www.thomabravo.com/press-releases/sophos-announces-completion-of-take-private-acquisition-by-thoma-bravo",
+  "excerpt": "Sophos Announces Completion of Take-Private Acquisition by Thoma Bravo. Transaction · March 2, 2020.",
   "sourceClass": "OFFICIAL",
   "interpretation": "",
-  "limitations": "",
+  "limitations": "AUTO-001 fix pass 4, item 9: the prior canonicalUrl (thomabravo.com/press-releases/sophos) 404s; replaced with the actual release, found via Thoma Bravo's own sitemap.xml. The page is a client-streamed Next.js document whose body text is not reachable in plain HTML, so the excerpt here is limited to the headline and the dateline, both directly confirmed in the page's own data payload.",
   "conflictingEvidenceIds": [],
-  "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-sophos-1",
+  "artifactLabel": "SEC-MARKET-AUTO-001-COLLECT / TR-sophos-1",
   "tags": [
     "tracker",
     "endpoint-xdr"
   ],
-  "retrievedAt": "2026-09-25"
+  "retrievedAt": "2026-10-02",
+  "retrieval": {
+    "finalUrl": "https://www.thomabravo.com/press-releases/sophos-announces-completion-of-take-private-acquisition-by-thoma-bravo",
+    "sha256": "97d7411a96e6ad170706b4e3059f5ae2027ae4ebe8c5d5d85aa04db914c6f63f",
+    "fetchedAt": "2026-10-02T16:05:00Z",
+    "locator": "Page headline and dateline"
+  }
 },
 {
   "id": "TR-sophos-2",
