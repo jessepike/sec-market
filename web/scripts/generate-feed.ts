@@ -1,3 +1,4 @@
+import refreshCoverage from '../src/data/generated/refreshCoverage.json' with { type: 'json' }
 /**
  * Build-time feed + JSON-copy step.
  *
@@ -200,6 +201,7 @@ export function writeTrackerJson(
   distDir: string,
 ): { path: string; figureCount: number } {
   const payload = trackerJsonPayload(suppliers, domains, evidenceByIdMap, status)
+  writeFileSync(resolve(distDir, 'refresh-coverage.json'), JSON.stringify(refreshCoverage, null, 2) + '\n', 'utf8')
   const path = resolve(distDir, 'tracker.json')
   writeFileSync(path, JSON.stringify(payload, null, 2))
   return { path, figureCount: payload.figures.length }

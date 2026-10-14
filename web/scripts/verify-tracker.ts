@@ -297,7 +297,7 @@ for (const supplier of trackerSuppliers) {
   // own `revenue` field — that field can only ever be the parent's
   // whole-company figure, borrowed onto a row that does not disclose its
   // own revenue.
-  if (supplier.kind === 'segment' && supplier.revenue) {
+  if (supplier.kind === 'segment' && supplier.revenue && supplier.revenue.scope !== 'segment') {
     fail(
       `${who}: kind "segment" carries a revenue field. A segment's own revenue is not separately ` +
         'disclosed by definition — this can only be the parent company\'s whole-company figure ' +

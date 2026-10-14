@@ -35,8 +35,9 @@ function SupplierFacts({ supplier }: { supplier: TrackerSupplier }) {
   const { revenue, headlineMetric: metric, lastRound: round, ownership } = supplier
   return <div className="desk-facts">
     {revenue ? <>
-      <Fact label="Reported quarterly revenue" value={revenue.latest.value} period={`${revenue.latest.period} · reported ${revenue.latest.releaseDate}`} ids={revenue.latest.evidenceIds} />
+      <Fact label={supplier.kind === 'segment' ? 'Reported segment revenue' : 'Reported quarterly revenue'} value={revenue.latest.value} period={`${revenue.latest.period} · ${supplier.edgarId ? 'filed' : 'reported'} ${revenue.latest.releaseDate}`} ids={revenue.latest.evidenceIds} />
       <Fact label="Year-over-year revenue growth" value={revenue.latest.yoyGrowth} period={revenue.latest.period} ids={revenue.latest.evidenceIds} />
+      {revenue.latest.growthBasis && <Fact label="Growth reporting basis" value={revenue.latest.growthBasis} period={revenue.latest.period} ids={revenue.latest.evidenceIds} />}
       {revenue.prior && <Fact label="Prior quarter, year-over-year growth" value={revenue.prior.yoyGrowth} period={revenue.prior.period} ids={revenue.prior.evidenceIds} />}
     </> : <p className="desk-gap">{supplier.kind === 'segment' ? 'No separately reported quarterly revenue in this tracker.' : 'No comparable quarterly revenue in this tracker.'}</p>}
     {metric && <Fact label={metric.label} value={metric.value} period={metric.period} ids={metric.evidenceIds} />}
@@ -87,7 +88,7 @@ function GrowthChart({ openSupplier }: { openSupplier: (id: string) => void }) {
   const ends = growthRows.map(r => r.supplier.revenue!.latest.periodEnd).sort()
   return <section id="reported-growth" className={`desk-panel desk-growth${expanded ? ' is-expanded' : ''}`} aria-labelledby="desk-growth-heading">
     <div className="desk-panel__head"><h2 id="desk-growth-heading">Reported revenue growth</h2><button type="button" aria-pressed={byValue} onClick={() => setByValue(v => !v)}>{byValue ? 'Sort A–Z' : 'Sort by value'}</button></div>
-    <p className="desk-note">{rows.length} public suppliers. Latest quarters end {ends[0]} to {ends.at(-1)}. Year-over-year revenue growth; different fiscal periods. Company totals, excluding segments and ARR.</p>
+    <p className="desk-note">{rows.length} public suppliers. Latest quarters end {ends[0]} to {ends.at(-1)}. Year-over-year revenue growth in each company's reporting currency; different fiscal periods. Company totals, excluding segments and ARR.</p>
     <div className="desk-growth__scale" aria-hidden="true"><span /><div>{ticks.map(t => <span key={t} style={{ left: position(t) }}>{t}%</span>)}</div><span /></div>
     <ul className="desk-growth__rows">{rows.map(({ supplier, latest, prior }) => <li key={supplier.id}>
       <button type="button" className="desk-supplier-link" onClick={() => openSupplier(supplier.id)}>{shortSupplierName(supplier.name)}</button>
@@ -96,7 +97,7 @@ function GrowthChart({ openSupplier }: { openSupplier: (id: string) => void }) {
         {prior !== null && <><i className="desk-growth__join" style={{ left: position(Math.min(latest, prior)), width: `${Math.abs(latest - prior) / (max - min) * 100}%` }} /><i className="desk-growth__dot desk-growth__dot--prior" style={{ left: position(prior) }} /></>}
         <i className="desk-growth__dot" style={{ left: position(latest) }} />
       </div>
-      <a className="desk-growth__value" href={evidenceById[supplier.revenue!.latest.evidenceIds[0]].canonicalUrl} target="_blank" rel="noreferrer" title={`${supplier.revenue!.latest.period} · reported ${supplier.revenue!.latest.releaseDate} · ${evidenceById[supplier.revenue!.latest.evidenceIds[0]].organization}`} aria-label={`${supplier.name} ${supplier.revenue!.latest.yoyGrowth}, ${supplier.revenue!.latest.period}, source`}>{supplier.revenue!.latest.yoyGrowth}</a>
+      <a className="desk-growth__value" href={evidenceById[supplier.revenue!.latest.evidenceIds[0]].canonicalUrl} target="_blank" rel="noreferrer" title={`${supplier.revenue!.latest.period} · ${supplier.edgarId ? 'filed' : 'reported'} ${supplier.revenue!.latest.releaseDate} · ${supplier.revenue!.latest.growthBasis ?? 'Company reporting currency'} · ${evidenceById[supplier.revenue!.latest.evidenceIds[0]].organization}`} aria-label={`${supplier.name} ${supplier.revenue!.latest.yoyGrowth}, ${supplier.revenue!.latest.period}, source`}>{supplier.revenue!.latest.yoyGrowth}</a>
     </li>)}</ul>
     <button type="button" className="desk-growth__mobile-toggle" aria-expanded={expanded} onClick={() => setExpanded(v => !v)}>{expanded ? 'Show fewer suppliers' : `Compare all ${rows.length} suppliers`}</button>
     <p className="desk-note desk-growth__legend"><span>● Latest reported quarter</span><span>○ Quarter before</span></p>
@@ -176,7 +177,9 @@ export function MarketDesk() {
   const filtered = group ? changes.filter(item => item.type === 'filing' ? group.id === 'results' : group.types.includes(item.type)) : changes
   return <div className="market-desk">
     <div className="desk-hero"><p className="desk-kicker">Figures checked {runStatus.lastChecked} · {trackerSuppliers.length} suppliers · {trackerDomains.length} domains</p><SiteMasthead />
-      <p className="desk-snapshot">Data snapshot: <time dateTime={runStatus.lastChecked}>{formatLongDate(runStatus.lastChecked)}</time>. {secCollectedCount} of {secFilerCount} SEC filers collected. <a href="#overview">Collection coverage</a></p></div>
+      <p className="desk-snapshot">Data snapshot: <time dateTime={runStatus.lastChecked}>{formatLongDate(runStatus.lastChecked)}</time>. {secCollectedCount} of {secFilerCount} SEC filers collected. <a href="#overview">Collection coverage</a></p>
+      {runStatus.state === 'incomplete' && <p className="desk-note">Source-check coverage is incomplete. Retained figures keep their reporting periods. <a href="#refresh-coverage">See checked and failed fields</a>.</p>}
+    </div>
     <div className="desk-counts" aria-label="Event counts in the trailing twelve months">{eventGroups.map(g => {
       const annual = yearEvents.filter(e => g.types.includes(e.type)); const recent = monthEvents.filter(e => g.types.includes(e.type))
       return <button type="button" key={g.id} aria-pressed={groupId === g.id} onClick={() => { setGroupId(current => current === g.id ? null : g.id); setAllChanges(false) }}><span>{g.label}</span><strong>{annual.length}</strong><small>{recent.length} in last 30 days</small></button>

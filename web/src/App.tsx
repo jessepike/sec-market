@@ -17,6 +17,7 @@ import { MarketDesk } from './components/MarketDesk'
 import { MethodologyNote } from './components/MethodologyNote'
 import { NextEdition } from './components/NextEdition'
 import { ProvenanceRail } from './components/ProvenanceRail'
+import { RefreshCoverage } from './components/RefreshCoverage'
 import { RunStatus } from './components/RunStatus'
 import { SkipLink } from './components/SkipLink'
 import { ThesisRunningScore } from './components/ThesisRunningScore'
@@ -46,6 +47,7 @@ function FrontPage() {
     <>
       <MarketDesk />
       <RunStatus />
+      <RefreshCoverage />
       <CoverageStatement />
       <ArchiveLinks />
       <FollowLine />

@@ -187,6 +187,17 @@
     "rung": 1
   },
   {
+    "id": "EV-filing-tenable-0001660280-26-000042",
+    "supplierId": "tenable",
+    "date": "2026-10-06",
+    "type": "exec-change",
+    "text": "Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2026-10-06.",
+    "evidenceIds": [
+      "TR-filing-tenable-0001660280-26-000042"
+    ],
+    "rung": 1
+  },
+  {
     "id": "EV-filing-qualys-0001107843-26-000024",
     "supplierId": "qualys",
     "date": "2026-06-11",

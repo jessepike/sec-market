@@ -1,3 +1,4 @@
+import { withEdgarRevenue } from './edgarRevenue'
 /**
  * Tracked suppliers — step 5 of the autonomy plan
  * (docs/active/autonomy-coverage-plan.md §4–5, D-76/D-77). One record per
@@ -22,6 +23,8 @@ export interface RevenuePeriod {
   /** Same quarter, one year earlier — the figure `yoyGrowth` is computed from. AUTO-001 fix pass 4, item 6. */
   priorYearValue?: string
   yoyGrowth: string
+  /** Company's reporting currency/basis where it differs from the displayed equivalent. */
+  growthBasis?: string
   period: string
   periodEnd: string
   evidenceIds: string[]
@@ -32,6 +35,8 @@ export interface RevenuePeriodLatest extends RevenuePeriod {
 }
 
 export interface SupplierRevenue {
+  /** Separate segment figures require explicit source-backed scope. */
+  scope?: 'company' | 'segment'
   latest: RevenuePeriodLatest
   /** Absent when the research found no comparable prior-quarter figure (e.g. an unbroken-out segment). */
   prior?: RevenuePeriod
@@ -82,7 +87,7 @@ export interface TrackerSupplier {
   ownership?: Ownership
 }
 
-export const trackerSuppliers: TrackerSupplier[] = [
+export const manualTrackerSuppliers: TrackerSupplier[] = [
   {
     "id": "abnormal-security",
     "name": "Abnormal Security",
@@ -1753,6 +1758,7 @@ export const trackerSuppliers: TrackerSupplier[] = [
       "latest": {
         "value": "$468 million",
         "yoyGrowth": "+13%",
+        "growthBasis": "JPY net sales; $468 million is the company-reported USD equivalent at 159.47 JPY per USD.",
         "period": "Q2 2026",
         "periodEnd": "2026-06-30",
         "releaseDate": "2026-08-13",
@@ -2030,3 +2036,6 @@ export const trackerSuppliers: TrackerSupplier[] = [
     }
   }
 ]
+
+// Displayed SEC revenue follows checked structured facts; collector-owned claims stay manual.
+export const trackerSuppliers = manualTrackerSuppliers.map(withEdgarRevenue)

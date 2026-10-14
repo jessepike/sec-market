@@ -12,3 +12,5 @@ docs/inbox/sec-market-opus/
 # failed-sources/candidates/summary files the model leaves for it. Never
 # committed — see docs/active/auto/collect-brief.md §5.
 .collect/
+
+.refresh-lock/

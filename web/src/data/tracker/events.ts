@@ -9,6 +9,7 @@
  */
 
 import generatedFilingEvents from '../generated/filingEvents.json' with { type: 'json' }
+import { runStatus } from '../runStatus'
 
 export type TrackerEventType =
   | 'funding'
@@ -606,6 +607,17 @@ export const handCollectedEvents: TrackerEvent[] = [
     "rung": 1
   },
   {
+    "id": "EV-tenable-3",
+    "supplierId": "tenable",
+    "date": "2026-10-13",
+    "type": "debt",
+    "text": "Tenable entered into a credit agreement with JPMorgan Chase Bank, N.A. as administrative agent for a senior secured revolving credit facility of $400.0 million, including a $40.0 million sublimit for letters of credit; as of the effective date the company had no outstanding revolving loans and approximately $200,000 of outstanding letters of credit under the facility.",
+    "evidenceIds": [
+      "TR-tenable-4"
+    ],
+    "rung": 1
+  },
+  {
     "id": "EV-trend-1",
     "supplierId": "trend-micro",
     "date": "2026-08-13",
@@ -1091,7 +1103,14 @@ export const handCollectedEvents: TrackerEvent[] = [
   }
 ]
 
-export const trackerEvents: TrackerEvent[] = [
+export const retainedTrackerEvents: TrackerEvent[] = [
   ...handCollectedEvents,
   ...(generatedFilingEvents as TrackerEvent[]),
 ]
+
+const eventWindowEnd = Date.parse(runStatus.lastChecked + 'T00:00:00Z')
+// The retained source history is append-only; the live view rolls with the actual check date.
+export const trackerEvents = retainedTrackerEvents.filter(event => {
+  const date = Date.parse(event.date + 'T00:00:00Z')
+  return date >= eventWindowEnd - 365 * 86400000 && date <= eventWindowEnd
+})

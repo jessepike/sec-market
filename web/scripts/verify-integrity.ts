@@ -9,8 +9,8 @@ import { issues } from '../src/data/issues/index.ts'
 import { contextStats, chartEvidenceIds, marketCall } from '../src/data/market.ts'
 import { allPressureRows } from '../src/data/platformPressure.ts'
 import { printGroups, vendorPrints } from '../src/data/prints.ts'
-import { trackerEvents } from '../src/data/tracker/events.ts'
-import { trackerSuppliers } from '../src/data/tracker/suppliers.ts'
+import { retainedTrackerEvents } from '../src/data/tracker/events.ts'
+import { trackerSuppliers, manualTrackerSuppliers } from '../src/data/tracker/suppliers.ts'
 import type { Provenance } from '../src/data/types.ts'
 import { weekMoves } from '../src/data/whatMoved.ts'
 import { PrintGrid } from '../src/components/PrintGrid.tsx'
@@ -100,14 +100,16 @@ function collectAllReferencedIds(): Set<string> {
   // Tracker data (step 5, docs/active/autonomy-coverage-plan.md §4) — the
   // supplier tracker cites evidence.ts records the same way the rest of the
   // site does, so those citations count here too.
-  for (const supplier of trackerSuppliers) {
+  // Manual claims remain the actual fallback when an SEC source check fails.
+  // Their references are retained dependencies, not orphan evidence.
+  for (const supplier of [...trackerSuppliers, ...manualTrackerSuppliers]) {
     add(supplier.headlineMetric?.evidenceIds)
     add(supplier.revenue?.latest.evidenceIds)
     add(supplier.revenue?.prior?.evidenceIds)
     add(supplier.lastRound?.evidenceIds)
     add(supplier.ownership?.evidenceIds)
   }
-  for (const event of trackerEvents) add(event.evidenceIds)
+  for (const event of retainedTrackerEvents) add(event.evidenceIds)
 
   return ids
 }

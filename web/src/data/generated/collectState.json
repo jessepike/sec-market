@@ -1,66 +1,56 @@
 {
   "lastSuccessfulCollectDate": "2026-10-02",
-  "lastRunAt": "2026-10-02T15:32:44Z",
+  "lastRunAt": "2026-10-14T18:55:30Z",
   "collectorRun": {
-    "at": "2026-10-02T15:32:44Z",
+    "at": "2026-10-14T18:55:30Z",
     "state": "incomplete",
-    "detail": "1 data file changed (1 new event); company news pages could not be read for 11 of 74 suppliers after exhausting the fallback chain (RSS/Atom, sitemap, IR site, wire copy, EDGAR full-text search)",
+    "detail": "9 source(s) failed to load",
     "restrictedTo": null,
     "failedSources": [
       {
         "supplierId": "armis",
         "reason": "blocked",
-        "detail": "armis.com/newsroom returns a Cloudflare JS challenge page (no readable content) on curl; /feed, /rss.xml, and /sitemap.xml on the same host all return the same Cloudflare challenge; no IR subdomain found (Armis has no public IR site); servicenow.com/company/media/press-room.html (parent company, acquisition closed 2026-04-20) returns an Akamai Access Denied page; GlobeNewswire organization search for Armis returns only stale items from 2021; EDGAR full-text search for \"Armis\" with file_date 2026-09-26 to 2026-10-02 returns zero hits."
+        "detail": "armis.com/newsroom returns a 403 (Cloudflare/Akamai-style block) on three attempts; armis.com/sitemap.xml returns the same 403 block; no RSS/Atom feed found at /feed (429 on all three attempts, same as the sitemap pattern); no IR subdomain (wholly owned ServiceNow subsidiary since 2026-04-20, no separate IR site); no GlobeNewswire/PR Newswire/Business Wire search attempted this run (prior run, 2026-10-02, found only stale 2021 items); EDGAR full-text search for \"Armis\" with file_date 2026-10-03 to 2026-10-14 returns two hits, both an unrelated filer (Hercules Capital, Inc., 424B2 prospectus supplements) mentioning Armis only as a portfolio-company name, not Armis's own disclosure."
       },
       {
         "supplierId": "axonius",
         "reason": "blocked",
-        "detail": "axonius.com/newsroom returns a Vercel Security Checkpoint bot-challenge page (HTTP 429) on all three attempts, with the same 429 on /feed and /sitemap.xml; no IR subdomain found (private company); GlobeNewswire organization search for Axonius returns only stale items from 2022; EDGAR full-text search for \"Axonius\" with file_date 2026-09-26 to 2026-10-02 returns zero hits."
+        "detail": "axonius.com/feed and axonius.com/sitemap.xml both return HTTP 429 (rate-limited/bot-challenge) on three attempts each; axonius.com/news was not separately retried after /feed failed; no IR subdomain (private company); EDGAR full-text search for \"Axonius\" with file_date 2026-10-03 to 2026-10-14 returns zero hits."
       },
       {
-        "supplierId": "cato",
+        "supplierId": "beyondtrust",
         "reason": "blocked",
-        "detail": "catonetworks.com/newsroom and /feed both return an Incapsula bot-challenge shell (no readable content); /sitemap.xml redirects into the same blocked path; no IR subdomain found (private company); GlobeNewswire organization search for \"Cato Networks\" returns only stale items from 2016; EDGAR full-text search for \"Cato Networks\" with file_date 2026-09-26 to 2026-10-02 returns zero hits."
+        "detail": "beyondtrust.com/resources/blog/press-release, /newsroom, and /sitemap.xml all return a Cloudflare challenge (HTTP 403) on three attempts each; no IR subdomain (PE-owned, private); EDGAR full-text search for \"BeyondTrust\" with file_date 2026-10-03 to 2026-10-14 returns two hits, both an unrelated filer (CISO Global, Inc. DEF 14A and ARS) mentioning BeyondTrust only as a vendor/competitor reference, not BeyondTrust's own disclosure."
       },
       {
-        "supplierId": "checkpoint-email",
+        "supplierId": "bigid",
         "reason": "blocked",
-        "detail": "Check Point Email Security is a segment of Check Point Software Technologies (CIK 0001015922, ticker CHKP) with no separate newsroom. checkpoint.com/newsroom, /sitemap.xml, and /feed all return an AWS WAF challenge (HTTP 202, zero bytes) on curl; investors.checkpoint.com and ir.checkpoint.com do not resolve; www.checkpoint.com/investor-relations returns the same WAF challenge; GlobeNewswire organization search and a PR Newswire organization page both returned no matching articles. The company's own SEC filing history (data.sec.gov/submissions/CIK0001015922.json) was checked directly and shows no filing dated after 2026-09-25, so the EDGAR rung-1 route is confirmed clean even though the newsroom route is blocked."
+        "detail": "bigid.com/blog/press-releases and /sitemap.xml both return a Cloudflare \"Just a moment...\" challenge (HTTP 403) on three attempts each; no IR subdomain (private company); EDGAR full-text search for \"BigID\" with file_date 2026-10-03 to 2026-10-14 returns zero hits."
       },
       {
-        "supplierId": "checkpoint-sase",
+        "supplierId": "cohesity",
         "reason": "blocked",
-        "detail": "Check Point (CIK 0001015922, ticker CHKP). checkpoint.com/newsroom, /sitemap.xml, and /feed all return an AWS WAF challenge (HTTP 202, zero bytes) on curl; investors.checkpoint.com and ir.checkpoint.com do not resolve; www.checkpoint.com/investor-relations returns the same WAF challenge; GlobeNewswire organization search and a PR Newswire organization page both returned no matching articles. The company's own SEC filing history (data.sec.gov/submissions/CIK0001015922.json) was checked directly and shows no filing dated after 2026-09-25, so the EDGAR rung-1 route is confirmed clean even though the newsroom route is blocked."
+        "detail": "cohesity.com/newsroom/ and /sitemap.xml both return an Akamai \"Access Denied\" response (HTTP 403) on three attempts each; no IR subdomain (private company); EDGAR full-text search for \"Cohesity\" with file_date 2026-10-03 to 2026-10-14 returns zero hits."
       },
       {
-        "supplierId": "mimecast",
+        "supplierId": "reliaquest",
         "reason": "no-readable-releases",
-        "detail": "mimecast.com/resources/press-releases/ returns a server-rendered snippet that stops at May 2026 with no later item visible; no RSS/Atom feed found at /resources/press-releases/feed, /blog/feed, /feed, or /rss.xml (all 404); sitemap-en.xml lists press-release URLs but every entry carries an identical templated lastmod of 2026-09-25 with no per-item publish date; Mimecast has no separate IR subdomain since the 2022 Permira take-private; GlobeNewswire org-search page and the PR Newswire Mimecast tag page both returned HTTP 200 with no server-rendered release list (script-rendered, nothing to read); EDGAR full-text search for \"Mimecast\" 2026-09-26 to 2026-10-02 returned one hit, an unrelated bank's DEF 14A mentioning Mimecast as a vendor, not primary company news."
+        "detail": "reliaquest.com/newsroom (= /news-and-press/) returns HTTP 200 with the correct page title (\"News & Press - All\") but the article list itself is client-rendered (React/Astro) with zero readable <article> or dated press-release elements in the raw HTML; no RSS/Atom feed found at /feed (returns HTTP 404)."
       },
       {
-        "supplierId": "rubrik",
-        "reason": "blocked",
-        "detail": "EDGAR submissions for CIK 0001943896 checked first and are definitive for all 8-K-triggering event types (nothing filed since 2026-09-26 but a routine Form 4/144 on 2026-09-25) — this failure is only about the supplementary own-news check (e.g. a third-party rating action), which could not be completed. www.rubrik.com/sitemap.xml returned HTTP 403 (Access Denied, Akamai edge); www.rubrik.com/company/newsroom, /company/newsroom/feed, /company/newsroom/rss.xml, and /feed all returned HTTP 403 the same way; ir.rubrik.com returned a Cloudflare 'Just a moment...' challenge page; businesswire.com's own search was blocked with HTTP 403; prnewswire.com/news/rubrik/ loaded but returned 'No results'; globenewswire.com's search path for Rubrik returned a 404. No related 8-K or other filer mention found in EDGAR full-text search since 2026-09-26."
-      },
-      {
-        "supplierId": "sysdig",
+        "supplierId": "trustwave",
         "reason": "no-readable-releases",
-        "detail": "EDGAR full-text search for \"Sysdig\" since 2026-09-26 returned zero hits (private company, no filer CIK). sysdig.com/newsroom/ returned HTTP 200 but is client-rendered with no dated press-release items in the raw HTML; sysdig.com/press-releases/ and /blog/feed/ returned 404; sysdig.com/feed/ (the company blog RSS, real per-item pubDates) was readable and its most recent item (Oct 1, 2026, 'With AI agents, runtime is the only place truth lives') is a blog/thought-leadership post, not a tracked event type, and no company-news item fell in the window. sitemap.xml's /newsroom URL lastmod (2026-08-13) predates the since-date with no individual press-release URLs listed. prnewswire.com/news/sysdig/ loaded and returned 'No results'; businesswire.com's search was blocked with HTTP 403; globenewswire.com's organization search path returned the generic homepage, not organization-specific results."
+        "detail": "trustwave.com/en-us/newsroom and /en-us/resources/news/ both return HTTP 404; trustwave.com/sitemap.xml returns HTTP 200 (8.3 MB) but contains zero URLs under any news or press path, consistent with Trustwave's own newsroom having been folded into its acquirer LevelBlue's site after the 2025-08-19 acquisition close; LevelBlue itself is not a tracked supplier so its site was not checked this run."
       },
       {
-        "supplierId": "tenable",
-        "reason": "blocked",
-        "detail": "EDGAR submissions for CIK 0001660280 checked first and are definitive for all 8-K-triggering event types (nothing filed since 2026-09-26). www.tenable.com/press-releases and /news both loaded and list only AI-product announcements, none dated after 2026-09-26. This entry is only about the supplementary own-news check: investors.tenable.com/news-releases and investors.tenable.com/ both failed three attempts (HTTP/2 stream INTERNAL_ERROR, then HTTP/1.1 timeout twice) — no IR-specific press release list could be read. No rating action or other IR-only item could be ruled in or out beyond what the main newsroom already showed."
+        "supplierId": "veracode",
+        "reason": "no-readable-releases",
+        "detail": "veracode.com/feed returns HTTP 200 with a well-formed but empty RSS channel (zero <item> entries); veracode.com/press-releases returns HTTP 404; veracode.com/sitemap.xml returns HTTP 200 but is a sitemap index with no dedicated news/press-release sub-sitemap (only page, resources, securities, directories, leadership, and resource-type sub-sitemaps)."
       },
       {
-        "supplierId": "varonis",
-        "reason": "blocked",
-        "detail": "EDGAR submissions for CIK 0001361113 checked first and are definitive for all 8-K-triggering event types (nothing filed since 2026-09-26). www.varonis.com/press-releases loaded but no dated items after 2026-09-26 were present. This entry is only about the supplementary own-news check: ir.varonis.com/news-and-events/press-releases/default.aspx and ir.varonis.com/ both returned a Cloudflare 'Just a moment...' challenge (HTTP 403) on three attempts (default HTTP/2, forced HTTP/1.1, default again) — no IR-specific press release list could be read. No rating action or other IR-only item could be ruled in or out beyond what the main newsroom already showed."
-      },
-      {
-        "supplierId": "zscaler",
-        "reason": "blocked",
-        "detail": "EDGAR submissions for CIK 0001713683 checked first and are definitive for all 8-K-triggering event types (nothing filed since 2026-09-26 except a Form 4, which is not a tracked event type). www.zscaler.com/press (= /company/news-press) loaded and its sitemap-derived /press/ URL list is the complete, dated press-release index through 2026-10-02 (used in place of the page's own 5-item featured panel, which does not expose the full history) — no tracked event type found in it since the since-date. This entry is only about the supplementary IR-site check: ir.zscaler.com/sitemap.xml and ir.zscaler.com/news-events/press-releases did not return a clean response after three attempts (HTTP/2 stream INTERNAL_ERROR on the default transport, then no response within the retry window on forced HTTP/1.1) — no IR-specific press release list could be read. No rating action or other IR-only item could be ruled in or out beyond what the main newsroom already showed. Business Wire's own search page also returned HTTP 403 on a supplementary check; not needed since the company's own newsroom was already read in full."
+        "supplierId": "witnessai",
+        "reason": "not-found",
+        "detail": "witnessai.com/newsroom and /sitemap.xml both return HTTP 404 on three attempts each; witnessai.com/feed returns HTTP 200 but is a client-rendered HTML blog page, not RSS/Atom, with no readable dated press-release content; no IR subdomain (small private company); EDGAR full-text search for \"WitnessAI\" with file_date 2026-10-03 to 2026-10-14 returns zero hits."
       }
     ]
   }

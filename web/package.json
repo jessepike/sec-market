@@ -28,8 +28,8 @@
     "build": "npm run verify:edition && npm run verify:panel && npm run verify:integrity && npm run verify:issue && npm run verify:prints && npm run verify:tracker && tsc -b && npm run build:client && npm run build:server && npm run prerender && npm run seo && npm run build:feed && npm run verify:dist",
     "lint": "oxlint",
     "preview": "vite preview",
-    "test:e2e": "playwright test",
-    "test:data": "tsx --tsconfig tsconfig.app.json --test tests/landscape-data.test.ts tests/issue-data.test.ts tests/dist-fixtures.test.ts tests/html-escape.test.ts tests/market-picture.test.ts tests/corrections-data.test.ts tests/sign-issue.test.ts tests/print-checks.test.ts tests/stale-report.test.ts tests/reconfirmations.test.ts tests/platform-pressure.test.ts tests/run-status.test.ts tests/edgar-logic.test.ts tests/tracker-data.test.ts tests/tracker-presentation.test.ts",
+    "test:e2e": "node scripts/ensure-test-browser.mjs && playwright test",
+    "test:data": "tsx --tsconfig tsconfig.app.json --test tests/landscape-data.test.ts tests/issue-data.test.ts tests/dist-fixtures.test.ts tests/html-escape.test.ts tests/market-picture.test.ts tests/corrections-data.test.ts tests/sign-issue.test.ts tests/print-checks.test.ts tests/stale-report.test.ts tests/reconfirmations.test.ts tests/platform-pressure.test.ts tests/run-status.test.ts tests/edgar-logic.test.ts tests/tracker-data.test.ts tests/tracker-presentation.test.ts tests/refresh-coverage.test.ts",
     "test": "npm run lint && npm run test:data && npm run build && npm run test:e2e"
   },
   "dependencies": {

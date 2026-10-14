@@ -105,3 +105,15 @@
   .desk-section-head { display: grid; }.desk-search { min-width: 0; }.desk-domain-select { display: grid; gap: 6px; margin-top: 12px; font-size: 12px; }.desk-domain-select select { width: 100%; min-height: 44px; border: 1px solid #dfe1de; border-radius: 6px; padding: 8px; background: white; }
   .desk-domains__grid { grid-template-columns: minmax(0,1fr); }.desk-domain:not(.is-selected) { display: none; }.desk-dialog { padding: 18px; }.desk-dialog__head { top: -18px; }.desk-dialog h2 { font-size: 21px; }
 }
+
+.refresh-coverage {
+  margin-block: 1.5rem;
+  padding: 1.25rem;
+  border: 1px solid #ddd9cd;
+  background: #f9f7f0;
+  font-size: .875rem;
+  line-height: 1.6;
+}
+.refresh-coverage h2 { margin-top: 0; font-size: 1.15rem; }
+.refresh-coverage summary { cursor: pointer; }
+.refresh-coverage li { margin-block: .45rem; overflow-wrap: anywhere; }

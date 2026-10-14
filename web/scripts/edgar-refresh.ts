@@ -1,4 +1,5 @@
-import { mkdir, writeFile } from 'node:fs/promises'
+import { mkdir, readFile, writeFile } from 'node:fs/promises'
+import { createHash } from 'node:crypto'
 import { dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { edgarRegistry, unsupported } from '../src/data/edgarRegistry.ts'
@@ -20,6 +21,7 @@ import { buildSupplierRecord, type CompanyFacts, type SupplierFailure, type Supp
 const USER_AGENT = 'SecurityMarketPulse research jesse@keatingpike.com'
 const REQUEST_INTERVAL_MS = 250 // 4 requests/second, under the ≤5/second budget
 const OUTPUT_PATH = new URL('../src/data/generated/edgarFacts.json', import.meta.url)
+const checks: Array<{ supplierId: string; checkedAt: string; url: string; status: string; sha256?: string; reason?: string }> = []
 
 function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms))
@@ -27,22 +29,34 @@ function sleep(ms: number): Promise<void> {
 
 async function fetchCompanyFacts(cik: string): Promise<CompanyFacts> {
   const url = `https://data.sec.gov/api/xbrl/companyfacts/CIK${cik}.json`
-  const response = await fetch(url, { headers: { 'User-Agent': USER_AGENT, Accept: 'application/json' } })
-  if (!response.ok) {
-    throw new Error(`HTTP ${response.status} ${response.statusText} fetching ${url}`)
+  let lastError: unknown
+  for (let attempt = 0; attempt < 3; attempt++) {
+    try {
+      const response = await fetch(url, { headers: { 'User-Agent': USER_AGENT, Accept: 'application/json' }, signal: AbortSignal.timeout(30000) })
+      if (!response.ok) throw new Error(`HTTP ${response.status} fetching ${url}`)
+      const text = await response.text()
+      const data = JSON.parse(text) as CompanyFacts
+      checks.push({ supplierId: edgarRegistry.find(s => s.cik === cik)!.id, checkedAt: new Date().toISOString(), url, status: 'checked', sha256: createHash('sha256').update(text).digest('hex') })
+      return data
+    } catch (error) { lastError = error; if (attempt < 2) await sleep(1000) }
   }
-  return (await response.json()) as CompanyFacts
+  throw lastError
 }
 
+interface CheckedSupplierRecord extends SupplierRecord {
+  sourceCheck?: { checkedAt: string; url: string; sha256: string }
+}
 interface RunResult {
   generatedAt: string
-  suppliers: SupplierRecord[]
+  suppliers: CheckedSupplierRecord[]
   unsupported: typeof unsupported
   failures: SupplierFailure[]
+  checks: typeof checks
 }
 
 async function run(): Promise<RunResult> {
-  const suppliers: SupplierRecord[] = []
+  const previous = JSON.parse(await readFile(OUTPUT_PATH, 'utf8')) as RunResult
+  const suppliers: CheckedSupplierRecord[] = []
   const failures: SupplierFailure[] = []
 
   for (const [index, supplier] of edgarRegistry.entries()) {
@@ -56,11 +70,15 @@ async function run(): Promise<RunResult> {
         companyFacts,
         supplier.revenueConcepts,
       )
-      suppliers.push(record)
+      const source = checks.find(c => c.supplierId === supplier.id && c.status === 'checked')!
+      suppliers.push({ ...record, sourceCheck: { checkedAt: source.checkedAt, url: source.url, sha256: source.sha256! } })
       console.log(`ok    ${supplier.id.padEnd(12)} ${record.concept} — ${record.quarters.length} quarters`)
     } catch (error) {
       const reason = error instanceof Error ? error.message : String(error)
       failures.push({ id: supplier.id, name: supplier.name, reason })
+      const retained = previous.suppliers.find(s => s.id === supplier.id)
+      if (retained) suppliers.push(retained)
+      checks.push({ supplierId: supplier.id, checkedAt: new Date().toISOString(), url: `https://data.sec.gov/api/xbrl/companyfacts/CIK${supplier.cik}.json`, status: 'failed-retained', reason })
       console.error(`FAIL  ${supplier.id.padEnd(12)} ${reason}`)
     }
   }
@@ -70,6 +88,7 @@ async function run(): Promise<RunResult> {
     suppliers,
     unsupported,
     failures,
+    checks,
   }
 }
 

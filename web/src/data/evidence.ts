@@ -1,3 +1,4 @@
+import { edgarRevenueEvidence } from './tracker/edgarRevenue'
 import type { EvidenceRecord } from './types'
 import generatedFilingEvidence from './generated/filingEvidence.json' with { type: 'json' }
 
@@ -5430,10 +5431,36 @@ const handWrittenEvidenceRecords: EvidenceRecord[] = [
     "locator": "Transaction Details and Advisors section"
   }
 },
+{
+  "id": "TR-tenable-4",
+  "title": "Tenable Holdings, Inc. — Form 8-K, Items 1.01 and 2.03 (Credit Agreement)",
+  "organization": "Tenable Holdings, Inc.",
+  "publicationDate": "2026-10-13",
+  "economicPeriod": "N/A (financing agreement, not a reporting period)",
+  "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1660280/000166028026000046/tenb-20261013.htm",
+  "excerpt": "The Credit Agreement provides for a senior secured revolving credit facility in an aggregate principal amount of $400.0 million, including a $40.0 million sublimit for the issuance of letters of credit. ... As of the Effective Date, the Company had no outstanding revolving loans and approximately $200,000 of outstanding letters of credit under the Credit Agreement.",
+  "sourceClass": "FILING",
+  "interpretation": "",
+  "limitations": "",
+  "conflictingEvidenceIds": [],
+  "artifactLabel": "SEC-MARKET-AUTO-001-COLLECT / TR-tenable-4",
+  "tags": [
+    "tracker",
+    "exposure"
+  ],
+  "retrievedAt": "2026-10-14",
+  "retrieval": {
+    "finalUrl": "https://www.sec.gov/Archives/edgar/data/1660280/000166028026000046/tenb-20261013.htm",
+    "sha256": "76634c5079897aa2a65ed369fb299fc2fad78c0101f88caa1909bed6c6332789",
+    "fetchedAt": "2026-10-14T17:50:46Z",
+    "locator": "Item 1.01 Entry into a Material Definitive Agreement"
+  }
+},
 ]
 
 export const evidenceRecords: EvidenceRecord[] = [
   ...handWrittenEvidenceRecords,
+  ...edgarRevenueEvidence,
   ...(generatedFilingEvidence as EvidenceRecord[]),
 ]
 

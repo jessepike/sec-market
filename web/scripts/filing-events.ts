@@ -1,10 +1,9 @@
-import { mkdir, writeFile } from 'node:fs/promises'
+import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { edgarRegistry } from '../src/data/edgarRegistry.ts'
 import { handCollectedEvents } from '../src/data/tracker/events.ts'
 import type { TrackerEvent, TrackerEventType } from '../src/data/tracker/events.ts'
-import { runStatus } from '../src/data/runStatus.ts'
 
 /**
  * AUTO-001 fix pass 4, item 5: dated events drawn straight from each SEC
@@ -54,7 +53,8 @@ const EVIDENCE_OUTPUT_PATH = new URL('../src/data/generated/filingEvidence.json'
 // runStatus.lastChecked, the pipeline's own "as of" date — not today's wall
 // clock, which would include a filing nothing else on the site is treating
 // as current yet).
-const [lastCheckedYear, lastCheckedMonth, lastCheckedDay] = runStatus.lastChecked.split('-').map(Number)
+const refreshDate = process.env.SMP_REFRESH_DATE ?? new Date().toISOString().slice(0, 10)
+const [lastCheckedYear, lastCheckedMonth, lastCheckedDay] = refreshDate.split('-').map(Number)
 const WINDOW_END_MS = Date.UTC(lastCheckedYear, lastCheckedMonth - 1, lastCheckedDay)
 const WINDOW_START = new Date(WINDOW_END_MS - 365 * 86_400_000).toISOString().slice(0, 10)
 
@@ -90,9 +90,15 @@ function documentUrl(cik: string, accessionNumber: string, primaryDocument: stri
 }
 
 async function fetchText(url: string): Promise<string> {
-  const response = await fetch(url, { headers: { 'User-Agent': USER_AGENT } })
-  if (!response.ok) throw new Error(`HTTP ${response.status} fetching ${url}`)
-  return response.text()
+  let failure: unknown
+  for (let attempt = 0; attempt < 3; attempt++) {
+    try {
+      const response = await fetch(url, { headers: { 'User-Agent': USER_AGENT }, signal: AbortSignal.timeout(30000) })
+      if (!response.ok) throw new Error(`HTTP ${response.status} fetching ${url}`)
+      return await response.text()
+    } catch (error) { failure = error; if (attempt < 2) await sleep(1000) }
+  }
+  throw failure
 }
 
 interface GeneratedEvent extends TrackerEvent {}
@@ -120,6 +126,9 @@ interface GeneratedEvidence {
 const existingEventKeys = new Set(handCollectedEvents.map((event) => `${event.supplierId}|${event.date}`))
 
 async function main() {
+  const previousEvents = JSON.parse(await readFile(EVENTS_OUTPUT_PATH, 'utf8')) as GeneratedEvent[]
+  const previousEvidence = JSON.parse(await readFile(EVIDENCE_OUTPUT_PATH, 'utf8')) as GeneratedEvidence[]
+  const checks: Array<{ supplierId: string; url: string; checkedAt: string; status: string; reason?: string }> = []
   const events: GeneratedEvent[] = []
   const evidence: GeneratedEvidence[] = []
   const today = new Date().toISOString().slice(0, 10)
@@ -130,8 +139,13 @@ async function main() {
     let data: SubmissionsResponse
     try {
       data = JSON.parse(await fetchText(url)) as SubmissionsResponse
+      checks.push({ supplierId: supplier.id, url, checkedAt: new Date().toISOString(), status: 'checked' })
     } catch (error) {
       console.error(`FAIL  ${supplier.id.padEnd(12)} ${error instanceof Error ? error.message : String(error)}`)
+      checks.push({ supplierId: supplier.id, url, checkedAt: new Date().toISOString(), status: 'failed-retained', reason: String(error) })
+      events.push(...previousEvents.filter(e => e.supplierId === supplier.id))
+      const ids = new Set(events.filter(e => e.supplierId === supplier.id).flatMap(e => e.evidenceIds))
+      evidence.push(...previousEvidence.filter(e => ids.has(e.id)))
       continue
     }
 
@@ -140,7 +154,7 @@ async function main() {
     for (let i = 0; i < recent.form.length; i++) {
       if (recent.form[i] !== '8-K') continue
       const filingDate = recent.filingDate[i]
-      if (filingDate < WINDOW_START || filingDate > runStatus.lastChecked) continue
+      if (filingDate < WINDOW_START || filingDate > refreshDate) continue
       const itemCodes = (recent.items[i] ?? '').split(',').map((s) => s.trim())
       const matchedCode = itemCodes.find((code) => code in ITEM_CODE_MAP)
       if (!matchedCode) continue
@@ -199,6 +213,7 @@ async function main() {
   }
 
   await mkdir(dirname(fileURLToPath(EVENTS_OUTPUT_PATH)), { recursive: true })
+  await writeFile(new URL('../src/data/generated/filingRun.json', import.meta.url), `${JSON.stringify({ checkedAt: new Date().toISOString(), windowEnd: refreshDate, checks }, null, 2)}\n`, 'utf8')
   await writeFile(EVENTS_OUTPUT_PATH, `${JSON.stringify(events, null, 2)}\n`, 'utf8')
   await writeFile(EVIDENCE_OUTPUT_PATH, `${JSON.stringify(evidence, null, 2)}\n`, 'utf8')
   console.log(`\nwrote ${events.length} filing-driven event(s) to ${fileURLToPath(EVENTS_OUTPUT_PATH)}`)

@@ -14,8 +14,7 @@ export function FollowLine() {
   return (
     <section id="follow" className="follow-line" aria-label="Follow">
       <p>
-        SEC filings refresh daily; press, funding and distress facts refresh twice a week —{' '}
-        <a href="/feed.xml">follow by RSS</a>.
+        Source checks and retained reporting dates are listed in the coverage report. Follow published records by RSS:         <a href="/feed.xml">follow by RSS</a>.
       </p>
     </section>
   )

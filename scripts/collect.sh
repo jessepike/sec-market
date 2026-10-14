@@ -51,6 +51,7 @@ mkdir -p "$SCRATCH_DIR"
 RUN_LOG="$SCRATCH_DIR/run-$STAMP.log"
 RECEIPT="$SCRATCH_DIR/receipt.json"
 COLLECT_STATE_PATH="$WEB_DIR/src/data/generated/collectState.json"
+PREVIOUS_SUCCESS="$(node -e 'const fs=require("fs");try{const d=JSON.parse(fs.readFileSync(process.argv[1],"utf8"));process.stdout.write(d.lastSuccessfulCollectDate||"")}catch{}' "$COLLECT_STATE_PATH")"
 
 log() { printf '%s  %s\n' "$(date -u +%H:%M:%SZ)" "$*" | tee -a "$RUN_LOG"; }
 
@@ -67,7 +68,7 @@ fi
 # JSON string-escape: backslash, quote, flatten newlines/tabs to spaces —
 # same approach scripts/gather.sh's receipt() uses.
 json_escape() {
-  printf '%s' "$1" | tr '\n\r\t' '   ' | sed 's/\\/\\\\/g; s/"/\\"/g; s/^/"/; s/$/"/'
+  node -e 'process.stdout.write(JSON.stringify(process.argv[1]))' "$1"
 }
 
 # JSON array of strings from newline-separated stdin, or "[]" for empty
@@ -123,10 +124,10 @@ fi
 # subscription login returns 401 on the first call, and without this check
 # the receipt would blame the collect for a problem that actually needs a
 # person at a browser running `claude setup-token`.
-AUTH_OUT="$(claude -p "ok" --model "$MODEL" < /dev/null 2>&1)"
+AUTH_OUT="$(claude -p "Reply only OK. Do not use tools or read files." --model "$MODEL" --tools "" < /dev/null 2>&1)"
 case "$AUTH_OUT" in
   *401*|*uthenticat*|*"access token"*)
-    DETAIL="the Claude login on this host is not valid: $AUTH_OUT. Run 'claude setup-token' on this host (or, in CI, re-run it on the owner's account and update the CLAUDE_CODE_OAUTH_TOKEN repository secret)."
+    DETAIL="the Claude login on this host is not valid; collector credential requires owner setup. No source check performed."
     log "blocked-auth: $DETAIL"
     write_receipt "blocked-auth" "" "$COLLECT_ONLY" "[]" "[]" "$DETAIL"
     exit 1
@@ -184,11 +185,12 @@ else
 fi
 
 cat > "$PROMPT_FILE" <<EOM
-Read docs/active/auto/collect-brief.md in this repository and carry it out in
+Read $BRIEF_PATH in this repository and carry it out in
 full, now.
 
-Since-date for this run: $SINCE_DATE (look only for facts dated after this,
-and on or before $TODAY). $SCOPE_LINE
+Since-date for newly appended events: $SINCE_DATE (events must be dated after this,
+and on or before $TODAY). Verification of retained claims is not restricted
+to that date window; follow the selected brief. $SCOPE_LINE
 
 Follow every ground rule in section 0 of the brief. In particular: you do not
 touch git at all, you do not touch web/src/data/runStatus.ts, you fetch with
@@ -228,10 +230,16 @@ DISALLOWED_TOOLS=(
 
 log "invoking claude -p --model $MODEL (since=$SINCE_DATE, only=${COLLECT_ONLY:-all})"
 CLAUDE_OUT="$SCRATCH_DIR/claude-$STAMP.txt"
+RESUME_ARGS=()
+if [ -n "${SMP_RESUME_SESSION:-}" ]; then
+  RESUME_ARGS=(--resume "$SMP_RESUME_SESSION")
+  PROMPT="Continue the interrupted full refresh in this same session. Read $BRIEF_PATH again. Preserve completed public-source research and any sourced data edits. ${SMP_RESUME_NOTE:-} Immediately persist receipts for every supplier already actually checked, then write .collect/supplier-checks.json after EACH remaining supplier so interruption never loses verified progress. Do not mark unchecked fields checked. Finish all 74 suppliers; no helpers, git, deployments or credential operations. Since-date $SINCE_DATE; through $TODAY. $PROMPT"
+fi
 # `timeout` is not on macOS by default; a background child plus a watchdog
 # does the same job without adding a dependency (same shape as gather.sh).
 (
   claude -p "$PROMPT" \
+    "${RESUME_ARGS[@]}" \
     --model "$MODEL" \
     --permission-mode acceptEdits \
     --allowedTools "${ALLOWED_TOOLS[@]}" \
@@ -267,10 +275,7 @@ done
 CHANGED_JSON="$(printf '%s' "$CHANGED_LIST" | json_string_array)"
 
 # Failed-sources count, without depending on jq being present.
-FAILED_COUNT="$(node -e "
-  try { const a = $FAILED_JSON; process.stdout.write(String(Array.isArray(a) ? a.length : 0)); }
-  catch (e) { process.stdout.write('0'); }
-" 2>/dev/null)"
+FAILED_COUNT="$(node -e 'const fs=require("fs");try{const a=JSON.parse(fs.readFileSync(process.argv[1],"utf8"));if(!Array.isArray(a))throw Error();process.stdout.write(String(a.length))}catch{process.stdout.write("1")}' "$SCRATCH_DIR/failed-sources.json" 2>/dev/null)"
 FAILED_COUNT="${FAILED_COUNT:-0}"
 
 if [ "$CLAUDE_RC" -ne 0 ]; then
@@ -302,7 +307,9 @@ log "outcome: state=$STATE  $DETAIL"
 # of collectState.json touches it the same way. The model-owned
 # `lastSuccessfulCollectDate`/`lastRunAt` fields (brief §4) are read and
 # preserved exactly as the model left them, restricted run or not.
+NOW_ISO="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
 COLLECTSTATE_PATH="$COLLECT_STATE_PATH" \
+CR_PREVIOUS_SUCCESS="$PREVIOUS_SUCCESS" \
 CR_AT="$NOW_ISO" \
 CR_STATE="$STATE" \
 CR_DETAIL="$DETAIL" \
@@ -338,8 +345,8 @@ node -e '
     : null;
 
   const next = {
-    lastSuccessfulCollectDate: existing.lastSuccessfulCollectDate,
-    lastRunAt: existing.lastRunAt,
+    lastSuccessfulCollectDate: state === "incomplete" || restrictedTo !== null ? process.env.CR_PREVIOUS_SUCCESS || null : at.slice(0,10),
+    lastRunAt: at,
     collectorRun: {
       at,
       state,
@@ -350,7 +357,7 @@ node -e '
   };
   fs.writeFileSync(path, JSON.stringify(next, null, 2) + "\n");
 ' || { log "failed to write $COLLECT_STATE_PATH"; write_receipt "$STATE" "$SINCE_DATE" "$COLLECT_ONLY" "$CHANGED_JSON" "$FAILED_JSON" "$DETAIL (and collectState.json receipt write failed)"; exit 1; }
-log "wrote $COLLECT_STATE_PATH collectorRun: state=$STATE only=${COLLECT_ONLY:-none} failedSources=$FAILED_JSON"
+log "wrote $COLLECT_STATE_PATH collectorRun: state=$STATE only=${COLLECT_ONLY:-none} failedSources=$FAILED_COUNT"
 
 # ---- 7. receipt -------------------------------------------------------------
 write_receipt "$STATE" "$SINCE_DATE" "$COLLECT_ONLY" "$CHANGED_JSON" "$FAILED_JSON" "$DETAIL"
