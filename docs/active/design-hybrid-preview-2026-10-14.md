@@ -22,4 +22,14 @@ The app imports repository tracker and generated filing data, not prototype JSON
 - Local built static server is used for QA: Vite preview serves its HTML fallback as the Vercel-edge analytics script, causing an unrelated parse error. A static 404 for this non-local asset avoids that local mismatch; deployed Vercel is verified after push.
 - Pre-existing build warnings remain: five unreferenced evidence records, the archived `print-crwd-cloud` period ambiguity on its unverified list, and the large client chunk. No new financial validation failure.
 
-Preview deployment and deployed-page confirmation are pending at this source commit. A deployment receipt follows the Git-triggered Vercel build reaching Ready.
+## Deployment receipt
+
+- App commit: `ddb316b82f40401ffec40a3711e6205483b06f4b`, Git-triggered build on `preview`.
+- Ready deployment: `dpl_3s9tjZSiZujZz2nr4pACom4SHqAg`.
+- Immutable app preview: https://security-market-pulse-19oot91qu-pikeholdings.vercel.app
+- Stable review URL: https://security-market-pulse-git-preview-pikeholdings.vercel.app
+- All 32 browser tests pass against the stable deployed preview, including both widths and existing archive/issue/correction/thesis flows. No app runtime errors observed. `/tracker.json` returns all 74 suppliers and the source-derived snapshot.
+- Deployed screenshots at 1440 and 390 widths were captured and inspected. Default phone page height: 7,311px, versus captured production’s 18,698px (about 61% shorter). Desktop: 8,120px versus production’s 15,779px. Full log/list expansion remains available; these heights describe the default state.
+- Production is unchanged: `main` at `28c7ffdd2508ab1805397fbe76448c02ad40a525`, Ready production deployment `dpl_9mjdUV7fWSSgBrmSPuUbv4ekRUeg`, created September 25. Only preview was pushed.
+
+This documentation follow-up changes no app, financial data, collector or deployment settings. Jesse reviews the resulting preview next; it is not production approval. Existing data remains the October 2 snapshot; a design release is not evidence of a new collection run.
