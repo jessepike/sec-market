@@ -1,4 +1,5 @@
 import refreshCoverage from './generated/refreshCoverage.json' with { type: 'json' }
+import { lastCompleteRefreshAt } from './refreshPublication'
 import collectStateRaw from './generated/collectState.json' with { type: 'json' }
 import edgarFactsRaw from './generated/edgarFacts.json' with { type: 'json' }
 import { formatShortDate } from './dates'
@@ -279,6 +280,6 @@ function deriveRunStatus(): RunStatus {
 }
 
 const baseRunStatus = deriveRunStatus()
-export const runStatus: RunStatus = refreshCoverage.state === 'incomplete'
+export const runStatus: RunStatus = refreshCoverage.state === 'incomplete' || !lastCompleteRefreshAt
   ? { ...baseRunStatus, state: 'incomplete', detail: `${baseRunStatus.detail ?? 'Collection checked'}; ${refreshCoverage.supplierChecksReceived} of ${refreshCoverage.supplierCount} supplier coverage receipts recorded; ${refreshCoverage.summary.failed} fields failed verification and ${refreshCoverage.summary['not-checked']} fields remain unchecked.` }
   : baseRunStatus

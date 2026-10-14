@@ -21,7 +21,17 @@ while read -r _local_ref local_sha remote_ref _remote_sha; do
   case "$local_sha" in *[!0]*) ;; *) continue ;; esac
 
   if [ "${PROMOTE:-}" = "1" ]; then
-    echo "pre-push: PROMOTE=1 — allowing promotion to main." >&2
+    root="$(git rev-parse --show-toplevel)"
+    if [ "$(git rev-parse HEAD)" != "$local_sha" ] || [ -n "$(git status --porcelain --untracked-files=normal)" ]; then
+      echo 'pre-push refused: production requires the exact clean checked-out commit.' >&2
+      exit 1
+    fi
+    if [ ! -f "$root/web/scripts/refresh-publication-gate.mjs" ]; then
+      echo 'pre-push refused: this commit lacks the required complete-refresh publication guard.' >&2
+      exit 1
+    fi
+    node "$root/web/scripts/refresh-publication-gate.mjs" || exit 1
+    echo "pre-push: explicit promotion and complete-refresh guard passed." >&2
     continue
   fi
 

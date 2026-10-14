@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test'
-import { formatLongDate, formatShortDate } from '../../src/data/dates.ts'
-import { LAST_UPDATED_DISPLAY, LAST_UPDATED_ISO, SITE_HEADLINE } from '../../src/data/meta.ts'
+import { SITE_HEADLINE } from '../../src/data/meta.ts'
 import { runStatus } from '../../src/data/runStatus.ts'
+import { completeRefreshDisplay, lastAttemptAt, lastCompleteRefreshAt } from '../../src/data/refreshPublication.ts'
 
 /**
  * D-76/autonomy-coverage-plan.md §3, step 1: the front page now publishes
@@ -50,10 +50,10 @@ test('renders the market briefing without runtime errors', async ({ page }) => {
   // whatever that derivation actually produces rather than asserting a
   // fixed "updated" state — the two rescores' whole complaint was that the
   // page claimed "every source collected" with no run behind the claim.
-  await expect(page.locator('#overview .run-status__line')).toContainText('Figures checked')
+  await expect(page.locator('#overview .run-status__line')).toContainText('Last complete data refresh:')
   expect(['updated', 'no-change', 'incomplete']).toContain(runStatus.state)
   if (runStatus.state === 'updated') {
-    await expect(page.locator('#overview .run-status__line')).toContainText('Every source collected')
+    await expect(page.locator('#overview .run-status__line')).toContainText('Every required check passed')
   } else if (runStatus.state === 'no-change') {
     await expect(page.locator('#overview .run-status__line')).toContainText('No material change')
   } else {
@@ -190,25 +190,12 @@ test('the front page never opens a judged evidence record', async ({ page }) => 
  * every one of those four rendered dates back off the page and fails if any
  * of them differs from `runStatus.lastChecked` — the single source.
  */
-test('every as-of / site-updated / masthead date on the front page matches runStatus.lastChecked', async ({
-  page,
-}) => {
+test('complete-refresh date is separate from attempt and reporting dates', async ({ page }) => {
   await page.goto('/')
-
-  expect(LAST_UPDATED_ISO).toBe(runStatus.lastChecked)
-  expect(LAST_UPDATED_DISPLAY).toBe(formatLongDate(runStatus.lastChecked))
-
-  await expect(page.locator('.rail__asof time')).toHaveAttribute('datetime', runStatus.lastChecked)
-  await expect(page.locator('.rail__asof time')).toHaveText(formatShortDate(runStatus.lastChecked))
-
-  await expect(page.locator('.site-header__updated time')).toHaveAttribute('datetime', runStatus.lastChecked)
-  await expect(page.locator('.site-header__updated time')).toHaveText(formatLongDate(runStatus.lastChecked))
-
-  await expect(page.locator('.site-masthead__stamps')).toContainText(
-    `Site updated ${formatLongDate(runStatus.lastChecked)}`,
-  )
-
-  await expect(page.locator('#overview .run-status__line')).toContainText(
-    `Figures checked ${formatShortDate(runStatus.lastChecked)}`,
-  )
+  await expect(page.locator('.rail__asof')).toContainText(`Complete data refresh: ${completeRefreshDisplay}`)
+  await expect(page.locator('.site-header__updated')).toContainText(`Data refresh: ${completeRefreshDisplay}`)
+  await expect(page.locator('.site-masthead__stamps')).toContainText(`Last complete data refresh: ${completeRefreshDisplay}`)
+  await expect(page.locator('#overview .run-status__line')).toContainText(`Last complete data refresh: ${completeRefreshDisplay}`)
+  await expect(page.locator('.desk-snapshot')).toContainText(`Latest attempt: ${lastAttemptAt}`)
+  if (!lastCompleteRefreshAt) await expect(page.locator('#overview .run-status__line')).not.toContainText('Every required check passed')
 })

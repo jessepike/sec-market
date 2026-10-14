@@ -1,0 +1,1284 @@
+{
+  "version": "smp-refresh-v1",
+  "supplierIds": [
+    "abnormal-security",
+    "aqua",
+    "arctic-wolf",
+    "armis",
+    "axonius",
+    "barracuda",
+    "beyondtrust",
+    "bigid",
+    "cato",
+    "chainguard",
+    "checkpoint-email",
+    "checkpoint-sase",
+    "claroty",
+    "cloudflare",
+    "cohesity",
+    "commvault",
+    "crwd",
+    "crwd-exposure",
+    "cyberark",
+    "cyera",
+    "delinea",
+    "dragos",
+    "esentire",
+    "exabeam",
+    "expel",
+    "forescout",
+    "fortinet",
+    "github-advanced-security",
+    "google-secops",
+    "hiddenlayer",
+    "ivanti",
+    "jfrog",
+    "lakera",
+    "mimecast",
+    "msft-defender",
+    "msft-defender-o365",
+    "msft-entra",
+    "netskope",
+    "nozomi",
+    "okta",
+    "optiv",
+    "orca",
+    "panw",
+    "panw-xsiam",
+    "ping-identity",
+    "proofpoint",
+    "protect-ai",
+    "qualys",
+    "rapid7",
+    "red-canary",
+    "reliaquest",
+    "rubrik",
+    "s1",
+    "sailpoint",
+    "snyk",
+    "sonatype",
+    "sophos",
+    "splunk",
+    "surepath",
+    "sysdig",
+    "tenable",
+    "tines",
+    "torq",
+    "trend-micro",
+    "trustwave",
+    "upwind",
+    "varonis",
+    "veeam",
+    "veracode",
+    "witnessai",
+    "wiz",
+    "xage",
+    "zenity",
+    "zscaler"
+  ],
+  "groups": {
+    "identity": 720,
+    "headlineMetric": 24,
+    "lastRound": 168,
+    "ownership": 168,
+    "revenue.latest": 24,
+    "revenue.prior": 24,
+    "events": 24
+  },
+  "exclusions": {},
+  "undisclosedAnswers": {},
+  "policy": "Every supplier/group is required. Exclusions and disclosure-status answers need an explicit reviewed entry; null data or a failed source never imply inapplicability. Each group verifies its entire displayed logical claim, including qualifiers and period. Events verify current discovery through the attempt cutoff; immutable historical claims do not acquire a new reporting date.",
+  "components": {
+    "identity": [
+      "name",
+      "ticker",
+      "kind"
+    ],
+    "headlineMetric": [
+      "label",
+      "value",
+      "period"
+    ],
+    "lastRound": [
+      "date",
+      "stage",
+      "amount"
+    ],
+    "ownership": [
+      "status"
+    ],
+    "revenue.latest": [
+      "value",
+      "yoyGrowth",
+      "period",
+      "periodEnd",
+      "releaseDate"
+    ],
+    "revenue.prior": [
+      "value",
+      "yoyGrowth",
+      "period",
+      "periodEnd"
+    ],
+    "events": []
+  },
+  "pinnedFields": {
+    "abnormal-security.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "abnormal-security.headlineMetric": [
+      "headlineMetric.label",
+      "headlineMetric.period",
+      "headlineMetric.value"
+    ],
+    "abnormal-security.lastRound": [
+      "lastRound.amount",
+      "lastRound.date",
+      "lastRound.lead",
+      "lastRound.stage",
+      "lastRound.valuation"
+    ],
+    "abnormal-security.ownership": [
+      "ownership.status"
+    ],
+    "aqua.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "aqua.lastRound": [
+      "lastRound.amount",
+      "lastRound.date",
+      "lastRound.lead",
+      "lastRound.stage",
+      "lastRound.valuation"
+    ],
+    "aqua.ownership": [
+      "ownership.status"
+    ],
+    "arctic-wolf.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "arctic-wolf.lastRound": [
+      "lastRound.amount",
+      "lastRound.date",
+      "lastRound.lead",
+      "lastRound.stage",
+      "lastRound.valuation"
+    ],
+    "arctic-wolf.ownership": [
+      "ownership.status"
+    ],
+    "armis.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "armis.ownership": [
+      "ownership.acquirer",
+      "ownership.closed",
+      "ownership.status"
+    ],
+    "axonius.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "axonius.headlineMetric": [
+      "headlineMetric.label",
+      "headlineMetric.period",
+      "headlineMetric.value"
+    ],
+    "axonius.lastRound": [
+      "lastRound.amount",
+      "lastRound.date",
+      "lastRound.lead",
+      "lastRound.stage",
+      "lastRound.valuation"
+    ],
+    "axonius.ownership": [
+      "ownership.status"
+    ],
+    "barracuda.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "barracuda.ownership": [
+      "ownership.status"
+    ],
+    "beyondtrust.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "beyondtrust.ownership": [
+      "ownership.acquirer",
+      "ownership.closed",
+      "ownership.status"
+    ],
+    "bigid.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "bigid.lastRound": [
+      "lastRound.amount",
+      "lastRound.date",
+      "lastRound.lead",
+      "lastRound.stage",
+      "lastRound.valuation"
+    ],
+    "cato.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "cato.headlineMetric": [
+      "headlineMetric.label",
+      "headlineMetric.period",
+      "headlineMetric.value"
+    ],
+    "cato.lastRound": [
+      "lastRound.amount",
+      "lastRound.date",
+      "lastRound.lead",
+      "lastRound.stage",
+      "lastRound.valuation"
+    ],
+    "cato.ownership": [
+      "ownership.status"
+    ],
+    "chainguard.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "chainguard.lastRound": [
+      "lastRound.amount",
+      "lastRound.date",
+      "lastRound.lead",
+      "lastRound.stage"
+    ],
+    "chainguard.ownership": [
+      "ownership.status"
+    ],
+    "checkpoint-email.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "checkpoint-email.ownership": [
+      "ownership.status"
+    ],
+    "checkpoint-sase.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "checkpoint-sase.headlineMetric": [
+      "headlineMetric.label",
+      "headlineMetric.period",
+      "headlineMetric.value"
+    ],
+    "checkpoint-sase.ownership": [
+      "ownership.status"
+    ],
+    "checkpoint-sase.revenue.latest": [
+      "revenue.latest.period",
+      "revenue.latest.periodEnd",
+      "revenue.latest.releaseDate",
+      "revenue.latest.value",
+      "revenue.latest.yoyGrowth"
+    ],
+    "checkpoint-sase.revenue.prior": [
+      "revenue.prior.period",
+      "revenue.prior.periodEnd",
+      "revenue.prior.value",
+      "revenue.prior.yoyGrowth"
+    ],
+    "claroty.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "claroty.headlineMetric": [
+      "headlineMetric.label",
+      "headlineMetric.period",
+      "headlineMetric.value"
+    ],
+    "claroty.lastRound": [
+      "lastRound.amount",
+      "lastRound.date",
+      "lastRound.lead",
+      "lastRound.stage",
+      "lastRound.valuation"
+    ],
+    "cloudflare.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "cloudflare.headlineMetric": [
+      "headlineMetric.label",
+      "headlineMetric.period",
+      "headlineMetric.value"
+    ],
+    "cloudflare.ownership": [
+      "ownership.status"
+    ],
+    "cloudflare.revenue.latest": [
+      "revenue.latest.period",
+      "revenue.latest.periodEnd",
+      "revenue.latest.priorYearValue",
+      "revenue.latest.releaseDate",
+      "revenue.latest.value",
+      "revenue.latest.yoyGrowth"
+    ],
+    "cloudflare.revenue.prior": [
+      "revenue.prior.period",
+      "revenue.prior.periodEnd",
+      "revenue.prior.priorYearValue",
+      "revenue.prior.value",
+      "revenue.prior.yoyGrowth"
+    ],
+    "cohesity.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "cohesity.lastRound": [
+      "lastRound.amount",
+      "lastRound.date",
+      "lastRound.lead",
+      "lastRound.stage",
+      "lastRound.valuation"
+    ],
+    "cohesity.ownership": [
+      "ownership.announced",
+      "ownership.closed",
+      "ownership.status"
+    ],
+    "commvault.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "commvault.headlineMetric": [
+      "headlineMetric.label",
+      "headlineMetric.period",
+      "headlineMetric.value"
+    ],
+    "commvault.ownership": [
+      "ownership.status"
+    ],
+    "commvault.revenue.latest": [
+      "revenue.latest.period",
+      "revenue.latest.periodEnd",
+      "revenue.latest.priorYearValue",
+      "revenue.latest.releaseDate",
+      "revenue.latest.value",
+      "revenue.latest.yoyGrowth"
+    ],
+    "commvault.revenue.prior": [
+      "revenue.prior.period",
+      "revenue.prior.periodEnd",
+      "revenue.prior.priorYearValue",
+      "revenue.prior.value",
+      "revenue.prior.yoyGrowth"
+    ],
+    "crwd.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "crwd.headlineMetric": [
+      "headlineMetric.label",
+      "headlineMetric.period",
+      "headlineMetric.value"
+    ],
+    "crwd.ownership": [
+      "ownership.status"
+    ],
+    "crwd.revenue.latest": [
+      "revenue.latest.period",
+      "revenue.latest.periodEnd",
+      "revenue.latest.priorYearValue",
+      "revenue.latest.releaseDate",
+      "revenue.latest.value",
+      "revenue.latest.yoyGrowth"
+    ],
+    "crwd.revenue.prior": [
+      "revenue.prior.period",
+      "revenue.prior.periodEnd",
+      "revenue.prior.priorYearValue",
+      "revenue.prior.value",
+      "revenue.prior.yoyGrowth"
+    ],
+    "crwd-exposure.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "crwd-exposure.ownership": [
+      "ownership.status"
+    ],
+    "cyberark.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "cyberark.ownership": [
+      "ownership.acquirer",
+      "ownership.announced",
+      "ownership.closed",
+      "ownership.price",
+      "ownership.status"
+    ],
+    "cyera.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "cyera.lastRound": [
+      "lastRound.amount",
+      "lastRound.date",
+      "lastRound.lead",
+      "lastRound.stage",
+      "lastRound.valuation"
+    ],
+    "delinea.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "delinea.ownership": [
+      "ownership.acquirer",
+      "ownership.closed",
+      "ownership.status"
+    ],
+    "dragos.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "dragos.ownership": [
+      "ownership.acquirer",
+      "ownership.announced",
+      "ownership.closed",
+      "ownership.relationship",
+      "ownership.status"
+    ],
+    "esentire.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "esentire.ownership": [
+      "ownership.status"
+    ],
+    "exabeam.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "exabeam.ownership": [
+      "ownership.acquirer",
+      "ownership.closed",
+      "ownership.status"
+    ],
+    "expel.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "expel.lastRound": [
+      "lastRound.amount",
+      "lastRound.date",
+      "lastRound.lead",
+      "lastRound.stage",
+      "lastRound.valuation"
+    ],
+    "expel.ownership": [
+      "ownership.status"
+    ],
+    "forescout.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "forescout.ownership": [
+      "ownership.acquirer",
+      "ownership.status"
+    ],
+    "fortinet.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "fortinet.headlineMetric": [
+      "headlineMetric.label",
+      "headlineMetric.period",
+      "headlineMetric.value"
+    ],
+    "fortinet.ownership": [
+      "ownership.status"
+    ],
+    "fortinet.revenue.latest": [
+      "revenue.latest.period",
+      "revenue.latest.periodEnd",
+      "revenue.latest.priorYearValue",
+      "revenue.latest.releaseDate",
+      "revenue.latest.value",
+      "revenue.latest.yoyGrowth"
+    ],
+    "fortinet.revenue.prior": [
+      "revenue.prior.period",
+      "revenue.prior.periodEnd",
+      "revenue.prior.priorYearValue",
+      "revenue.prior.value",
+      "revenue.prior.yoyGrowth"
+    ],
+    "github-advanced-security.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "github-advanced-security.ownership": [
+      "ownership.status"
+    ],
+    "google-secops.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "google-secops.ownership": [
+      "ownership.status"
+    ],
+    "hiddenlayer.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "hiddenlayer.headlineMetric": [
+      "headlineMetric.label",
+      "headlineMetric.period",
+      "headlineMetric.value"
+    ],
+    "hiddenlayer.lastRound": [
+      "lastRound.amount",
+      "lastRound.date",
+      "lastRound.lead",
+      "lastRound.stage"
+    ],
+    "ivanti.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "ivanti.ownership": [
+      "ownership.acquirer",
+      "ownership.status"
+    ],
+    "jfrog.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "jfrog.headlineMetric": [
+      "headlineMetric.label",
+      "headlineMetric.period",
+      "headlineMetric.value"
+    ],
+    "jfrog.ownership": [
+      "ownership.status"
+    ],
+    "jfrog.revenue.latest": [
+      "revenue.latest.period",
+      "revenue.latest.periodEnd",
+      "revenue.latest.priorYearValue",
+      "revenue.latest.releaseDate",
+      "revenue.latest.value",
+      "revenue.latest.yoyGrowth"
+    ],
+    "jfrog.revenue.prior": [
+      "revenue.prior.period",
+      "revenue.prior.periodEnd",
+      "revenue.prior.priorYearValue",
+      "revenue.prior.value",
+      "revenue.prior.yoyGrowth"
+    ],
+    "lakera.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "lakera.ownership": [
+      "ownership.acquirer",
+      "ownership.announced",
+      "ownership.price",
+      "ownership.status"
+    ],
+    "mimecast.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "mimecast.ownership": [
+      "ownership.status"
+    ],
+    "msft-defender.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "msft-defender.ownership": [
+      "ownership.status"
+    ],
+    "msft-defender-o365.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "msft-defender-o365.ownership": [
+      "ownership.status"
+    ],
+    "msft-entra.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "msft-entra.ownership": [
+      "ownership.status"
+    ],
+    "netskope.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "netskope.headlineMetric": [
+      "headlineMetric.label",
+      "headlineMetric.period",
+      "headlineMetric.value"
+    ],
+    "netskope.ownership": [
+      "ownership.status"
+    ],
+    "netskope.revenue.latest": [
+      "revenue.latest.period",
+      "revenue.latest.periodEnd",
+      "revenue.latest.priorYearValue",
+      "revenue.latest.releaseDate",
+      "revenue.latest.value",
+      "revenue.latest.yoyGrowth"
+    ],
+    "netskope.revenue.prior": [
+      "revenue.prior.period",
+      "revenue.prior.periodEnd",
+      "revenue.prior.priorYearValue",
+      "revenue.prior.value",
+      "revenue.prior.yoyGrowth"
+    ],
+    "nozomi.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "nozomi.ownership": [
+      "ownership.acquirer",
+      "ownership.announced",
+      "ownership.closed",
+      "ownership.status"
+    ],
+    "okta.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "okta.headlineMetric": [
+      "headlineMetric.label",
+      "headlineMetric.period",
+      "headlineMetric.value"
+    ],
+    "okta.ownership": [
+      "ownership.status"
+    ],
+    "okta.revenue.latest": [
+      "revenue.latest.period",
+      "revenue.latest.periodEnd",
+      "revenue.latest.priorYearValue",
+      "revenue.latest.releaseDate",
+      "revenue.latest.value",
+      "revenue.latest.yoyGrowth"
+    ],
+    "okta.revenue.prior": [
+      "revenue.prior.period",
+      "revenue.prior.periodEnd",
+      "revenue.prior.priorYearValue",
+      "revenue.prior.value",
+      "revenue.prior.yoyGrowth"
+    ],
+    "optiv.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "optiv.ownership": [
+      "ownership.acquirer",
+      "ownership.announced",
+      "ownership.status"
+    ],
+    "orca.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "orca.lastRound": [
+      "lastRound.amount",
+      "lastRound.date",
+      "lastRound.lead",
+      "lastRound.stage",
+      "lastRound.valuation"
+    ],
+    "orca.ownership": [
+      "ownership.status"
+    ],
+    "panw.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "panw.headlineMetric": [
+      "headlineMetric.label",
+      "headlineMetric.period",
+      "headlineMetric.value"
+    ],
+    "panw.ownership": [
+      "ownership.status"
+    ],
+    "panw.revenue.latest": [
+      "revenue.latest.period",
+      "revenue.latest.periodEnd",
+      "revenue.latest.priorYearValue",
+      "revenue.latest.releaseDate",
+      "revenue.latest.value",
+      "revenue.latest.yoyGrowth"
+    ],
+    "panw.revenue.prior": [
+      "revenue.prior.period",
+      "revenue.prior.periodEnd",
+      "revenue.prior.priorYearValue",
+      "revenue.prior.value",
+      "revenue.prior.yoyGrowth"
+    ],
+    "panw-xsiam.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "panw-xsiam.ownership": [
+      "ownership.status"
+    ],
+    "ping-identity.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "ping-identity.headlineMetric": [
+      "headlineMetric.label",
+      "headlineMetric.period",
+      "headlineMetric.value"
+    ],
+    "ping-identity.ownership": [
+      "ownership.status"
+    ],
+    "proofpoint.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "proofpoint.ownership": [
+      "ownership.status"
+    ],
+    "protect-ai.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "protect-ai.ownership": [
+      "ownership.acquirer",
+      "ownership.announced",
+      "ownership.closed",
+      "ownership.price",
+      "ownership.status"
+    ],
+    "qualys.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "qualys.headlineMetric": [
+      "headlineMetric.label",
+      "headlineMetric.period",
+      "headlineMetric.value"
+    ],
+    "qualys.ownership": [
+      "ownership.status"
+    ],
+    "qualys.revenue.latest": [
+      "revenue.latest.period",
+      "revenue.latest.periodEnd",
+      "revenue.latest.priorYearValue",
+      "revenue.latest.releaseDate",
+      "revenue.latest.value",
+      "revenue.latest.yoyGrowth"
+    ],
+    "qualys.revenue.prior": [
+      "revenue.prior.period",
+      "revenue.prior.periodEnd",
+      "revenue.prior.priorYearValue",
+      "revenue.prior.value",
+      "revenue.prior.yoyGrowth"
+    ],
+    "rapid7.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "rapid7.headlineMetric": [
+      "headlineMetric.label",
+      "headlineMetric.period",
+      "headlineMetric.value"
+    ],
+    "rapid7.ownership": [
+      "ownership.status"
+    ],
+    "rapid7.revenue.latest": [
+      "revenue.latest.period",
+      "revenue.latest.periodEnd",
+      "revenue.latest.priorYearValue",
+      "revenue.latest.releaseDate",
+      "revenue.latest.value",
+      "revenue.latest.yoyGrowth"
+    ],
+    "rapid7.revenue.prior": [
+      "revenue.prior.period",
+      "revenue.prior.periodEnd",
+      "revenue.prior.priorYearValue",
+      "revenue.prior.value",
+      "revenue.prior.yoyGrowth"
+    ],
+    "red-canary.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "red-canary.ownership": [
+      "ownership.acquirer",
+      "ownership.announced",
+      "ownership.closed",
+      "ownership.price",
+      "ownership.status"
+    ],
+    "reliaquest.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "reliaquest.lastRound": [
+      "lastRound.amount",
+      "lastRound.date",
+      "lastRound.lead",
+      "lastRound.stage",
+      "lastRound.valuation"
+    ],
+    "rubrik.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "rubrik.headlineMetric": [
+      "headlineMetric.label",
+      "headlineMetric.period",
+      "headlineMetric.value"
+    ],
+    "rubrik.ownership": [
+      "ownership.status"
+    ],
+    "rubrik.revenue.latest": [
+      "revenue.latest.period",
+      "revenue.latest.periodEnd",
+      "revenue.latest.priorYearValue",
+      "revenue.latest.releaseDate",
+      "revenue.latest.value",
+      "revenue.latest.yoyGrowth"
+    ],
+    "rubrik.revenue.prior": [
+      "revenue.prior.period",
+      "revenue.prior.periodEnd",
+      "revenue.prior.priorYearValue",
+      "revenue.prior.value",
+      "revenue.prior.yoyGrowth"
+    ],
+    "s1.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "s1.headlineMetric": [
+      "headlineMetric.label",
+      "headlineMetric.period",
+      "headlineMetric.value"
+    ],
+    "s1.ownership": [
+      "ownership.status"
+    ],
+    "s1.revenue.latest": [
+      "revenue.latest.period",
+      "revenue.latest.periodEnd",
+      "revenue.latest.priorYearValue",
+      "revenue.latest.releaseDate",
+      "revenue.latest.value",
+      "revenue.latest.yoyGrowth"
+    ],
+    "s1.revenue.prior": [
+      "revenue.prior.period",
+      "revenue.prior.periodEnd",
+      "revenue.prior.priorYearValue",
+      "revenue.prior.value",
+      "revenue.prior.yoyGrowth"
+    ],
+    "sailpoint.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "sailpoint.headlineMetric": [
+      "headlineMetric.label",
+      "headlineMetric.period",
+      "headlineMetric.value"
+    ],
+    "sailpoint.ownership": [
+      "ownership.status"
+    ],
+    "sailpoint.revenue.latest": [
+      "revenue.latest.period",
+      "revenue.latest.periodEnd",
+      "revenue.latest.priorYearValue",
+      "revenue.latest.releaseDate",
+      "revenue.latest.value",
+      "revenue.latest.yoyGrowth"
+    ],
+    "sailpoint.revenue.prior": [
+      "revenue.prior.period",
+      "revenue.prior.periodEnd",
+      "revenue.prior.priorYearValue",
+      "revenue.prior.value",
+      "revenue.prior.yoyGrowth"
+    ],
+    "snyk.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "snyk.lastRound": [
+      "lastRound.amount",
+      "lastRound.date",
+      "lastRound.lead",
+      "lastRound.stage",
+      "lastRound.valuation"
+    ],
+    "snyk.ownership": [
+      "ownership.status"
+    ],
+    "sonatype.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "sonatype.ownership": [
+      "ownership.acquirer",
+      "ownership.announced",
+      "ownership.status"
+    ],
+    "sophos.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "sophos.ownership": [
+      "ownership.acquirer",
+      "ownership.announced",
+      "ownership.status"
+    ],
+    "splunk.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "splunk.ownership": [
+      "ownership.acquirer",
+      "ownership.announced",
+      "ownership.closed",
+      "ownership.price",
+      "ownership.status"
+    ],
+    "surepath.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "surepath.ownership": [
+      "ownership.acquirer",
+      "ownership.closed",
+      "ownership.price",
+      "ownership.status"
+    ],
+    "sysdig.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "sysdig.ownership": [
+      "ownership.status"
+    ],
+    "tenable.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "tenable.headlineMetric": [
+      "headlineMetric.label",
+      "headlineMetric.period",
+      "headlineMetric.value"
+    ],
+    "tenable.ownership": [
+      "ownership.status"
+    ],
+    "tenable.revenue.latest": [
+      "revenue.latest.period",
+      "revenue.latest.periodEnd",
+      "revenue.latest.priorYearValue",
+      "revenue.latest.releaseDate",
+      "revenue.latest.value",
+      "revenue.latest.yoyGrowth"
+    ],
+    "tenable.revenue.prior": [
+      "revenue.prior.period",
+      "revenue.prior.periodEnd",
+      "revenue.prior.priorYearValue",
+      "revenue.prior.value",
+      "revenue.prior.yoyGrowth"
+    ],
+    "tines.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "tines.lastRound": [
+      "lastRound.amount",
+      "lastRound.date",
+      "lastRound.lead",
+      "lastRound.stage",
+      "lastRound.valuation"
+    ],
+    "torq.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "torq.lastRound": [
+      "lastRound.amount",
+      "lastRound.date",
+      "lastRound.lead",
+      "lastRound.stage",
+      "lastRound.valuation"
+    ],
+    "trend-micro.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "trend-micro.headlineMetric": [
+      "headlineMetric.label",
+      "headlineMetric.period",
+      "headlineMetric.value"
+    ],
+    "trend-micro.ownership": [
+      "ownership.status"
+    ],
+    "trend-micro.revenue.latest": [
+      "revenue.latest.growthBasis",
+      "revenue.latest.period",
+      "revenue.latest.periodEnd",
+      "revenue.latest.releaseDate",
+      "revenue.latest.value",
+      "revenue.latest.yoyGrowth"
+    ],
+    "trustwave.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "trustwave.ownership": [
+      "ownership.acquirer",
+      "ownership.closed",
+      "ownership.status"
+    ],
+    "upwind.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "upwind.lastRound": [
+      "lastRound.amount",
+      "lastRound.date",
+      "lastRound.lead",
+      "lastRound.stage",
+      "lastRound.valuation"
+    ],
+    "upwind.ownership": [
+      "ownership.status"
+    ],
+    "varonis.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "varonis.headlineMetric": [
+      "headlineMetric.label",
+      "headlineMetric.period",
+      "headlineMetric.value"
+    ],
+    "varonis.ownership": [
+      "ownership.status"
+    ],
+    "varonis.revenue.latest": [
+      "revenue.latest.period",
+      "revenue.latest.periodEnd",
+      "revenue.latest.priorYearValue",
+      "revenue.latest.releaseDate",
+      "revenue.latest.value",
+      "revenue.latest.yoyGrowth"
+    ],
+    "varonis.revenue.prior": [
+      "revenue.prior.period",
+      "revenue.prior.periodEnd",
+      "revenue.prior.priorYearValue",
+      "revenue.prior.value",
+      "revenue.prior.yoyGrowth"
+    ],
+    "veeam.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "veeam.ownership": [
+      "ownership.acquirer",
+      "ownership.announced",
+      "ownership.status"
+    ],
+    "veracode.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "veracode.ownership": [
+      "ownership.acquirer",
+      "ownership.announced",
+      "ownership.status"
+    ],
+    "witnessai.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "witnessai.headlineMetric": [
+      "headlineMetric.label",
+      "headlineMetric.period",
+      "headlineMetric.value"
+    ],
+    "witnessai.lastRound": [
+      "lastRound.amount",
+      "lastRound.date",
+      "lastRound.lead",
+      "lastRound.stage"
+    ],
+    "wiz.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "wiz.ownership": [
+      "ownership.acquirer",
+      "ownership.announced",
+      "ownership.closed",
+      "ownership.price",
+      "ownership.status"
+    ],
+    "xage.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "xage.headlineMetric": [
+      "headlineMetric.label",
+      "headlineMetric.period",
+      "headlineMetric.value"
+    ],
+    "xage.lastRound": [
+      "lastRound.amount",
+      "lastRound.date",
+      "lastRound.lead",
+      "lastRound.stage"
+    ],
+    "zenity.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "zenity.headlineMetric": [
+      "headlineMetric.label",
+      "headlineMetric.period",
+      "headlineMetric.value"
+    ],
+    "zenity.lastRound": [
+      "lastRound.amount",
+      "lastRound.date",
+      "lastRound.lead",
+      "lastRound.stage"
+    ],
+    "zscaler.identity": [
+      "identity.kind",
+      "identity.name",
+      "identity.ticker"
+    ],
+    "zscaler.headlineMetric": [
+      "headlineMetric.label",
+      "headlineMetric.period",
+      "headlineMetric.value"
+    ],
+    "zscaler.ownership": [
+      "ownership.status"
+    ],
+    "zscaler.revenue.latest": [
+      "revenue.latest.period",
+      "revenue.latest.periodEnd",
+      "revenue.latest.priorYearValue",
+      "revenue.latest.releaseDate",
+      "revenue.latest.value",
+      "revenue.latest.yoyGrowth"
+    ],
+    "zscaler.revenue.prior": [
+      "revenue.prior.period",
+      "revenue.prior.periodEnd",
+      "revenue.prior.priorYearValue",
+      "revenue.prior.value",
+      "revenue.prior.yoyGrowth"
+    ]
+  }
+}

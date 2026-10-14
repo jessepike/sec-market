@@ -1,5 +1,7 @@
 # Full live-field refresh — owner authorized 14 October 2026
 
+> Owner amendment, 14 October 2026 22:47 UTC: a public data update requires 100% substantive verification of every required applicable logical claim. A partial attempt is held; it never advances the last complete refresh date or replaces the published snapshot. An HTTP response alone is not verification. Use the fixed versioned `web/src/data/tracker/refreshContract.json` inventory. Do not shrink the denominator, invent inapplicability, turn failures into undisclosed answers, or certify your own output. `refreshVerification.json` and `refreshPublication.json` are protected validator/publication outputs. Record candidate evidence in scratch receipts for independent validation; the existing receipt format is not a completion certificate. Preserve the attempt summary for a separate blocker notification.
+
 Read `docs/active/auto/collect-brief.md` and follow its sourcing, evidence, byte retrieval, hashing, no-judgment and no-git rules. The owner explicitly requests all live data points checked now and nightly. These amendments supersede narrower incremental scope in that brief.
 
 Do not spawn helpers. Use the existing Claude subscription only. Do not read secrets, credential/config files or unrelated projects. Do not run deployment, git, package installation, scheduler or credential commands. Public sources only; never bypass source blocks. At most three attempts per URL.

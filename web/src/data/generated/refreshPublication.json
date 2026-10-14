@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "lastCompleteRefreshAt": null,
+  "lastAttemptAt": "2026-10-14T19:30:35.514Z",
+  "publishedSourceRevision": "28c7ffdd2508ab1805397fbe76448c02ad40a525",
+  "lastAttemptState": "blocked",
+  "appDeployment": {
+    "sourceRevision": null,
+    "deployedAt": null
+  },
+  "note": "No verified complete refresh established. Current production retained; Oct 14 partial candidate held."
+}

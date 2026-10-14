@@ -7,9 +7,11 @@
 set -euo pipefail
 root="$(git rev-parse --show-toplevel)"
 cd "$root"
+hooks_dir="$(git rev-parse --git-path hooks)"
+mkdir -p "$hooks_dir"
 for hook in .githooks/*; do
   name="$(basename "$hook")"
   [ "$name" = "install" ] && continue
-  install -m 755 "$hook" ".git/hooks/$name"
-  echo "installed .git/hooks/$name"
+  install -m 755 "$hook" "$hooks_dir/$name"
+  echo "installed $hooks_dir/$name"
 done

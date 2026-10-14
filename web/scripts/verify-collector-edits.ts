@@ -28,6 +28,7 @@ export function verifyDataFile(before: string, after: string, name: string): voi
 if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href) {
  const changed = execFileSync('git', ['diff', '--name-only', base], { cwd: repo, encoding: 'utf8' }).trim().split('\n').filter(Boolean)
  for (const path of changed) {
+  if (['web/src/data/generated/refreshVerification.json', 'web/src/data/generated/refreshPublication.json'].includes(path)) throw new Error(`Collector cannot certify its own refresh or advance public dates: ${path}`)
   if (path.startsWith('web/src/data/generated/') && path.endsWith('.json')) { JSON.parse(readFileSync(resolve(repo, path), 'utf8')); continue }
   if (!arrays[path]) throw new Error(`Unexpected collector change: ${path}`)
   const before = execFileSync('git', ['show', `${base}:${path}`], { cwd: repo, encoding: 'utf8' })

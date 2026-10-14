@@ -249,6 +249,7 @@ EOF
     git push -q origin main
     git checkout -q -b preview
     git push -q origin preview
+    git -C "$remote_dir" symbolic-ref HEAD refs/heads/main
   )
   rm -rf "$seed"
 }
@@ -354,7 +355,7 @@ check_contains "drift: preview's collectState names the reason" "$E2E3_PREVIEW_S
 rm -rf "$E2E3_REMOTE" "$E2E3_CLONE"
 
 echo ""
-echo "--- end to end: gate failure -> nothing from the branch publishes, incomplete status lands ---"
+echo "--- end to end: gate failure -> no data, status or timestamp publishes ---"
 E2E4_REMOTE="$(mktemp -d)"; make_e2e_remote "$E2E4_REMOTE"
 E2E4_CLONE="$(mktemp -d)"
 git clone -q "$E2E4_REMOTE" "$E2E4_CLONE/repo"
@@ -369,6 +370,8 @@ git clone -q "$E2E4_REMOTE" "$E2E4_CLONE/repo"
   git commit -qm "data(edgar): refresh"
   git push -q origin data/edgar-3
 )
+E2E4_MAIN_BEFORE="$(cd "$E2E4_REMOTE" && git rev-parse main)"
+E2E4_PREVIEW_BEFORE="$(cd "$E2E4_REMOTE" && git rev-parse preview)"
 E2E4_OUT="$(
   cd "$E2E4_CLONE/repo" || exit 1
   E2E_NPM_CALLS="$(mktemp)"; export E2E_NPM_CALLS
@@ -376,7 +379,7 @@ E2E4_OUT="$(
   REMOTE=origin WEB_DIR=web RUNNER=edgar BRANCH=data/edgar-3 DRY_RUN=0 GH_TOKEN=x main
 )"
 E2E4_RC=$?
-check "gate failure: exit 0 (an ordinary, non-broken outcome)" "$E2E4_RC" "0"
+check "gate failure: exits blocked" "$E2E4_RC" "2"
 check_contains "gate failure: receipt names the failed gate" "$E2E4_OUT" "npm run build"
 E2E4_MAIN_HAS_DATA="$(cd "$E2E4_REMOTE" && git show main:web/src/data/generated/edgarFacts.json | grep -c '"z"' || true)"
 E2E4_PREVIEW_HAS_DATA="$(cd "$E2E4_REMOTE" && git show preview:web/src/data/generated/edgarFacts.json | grep -c '"z"' || true)"
@@ -384,9 +387,8 @@ E2E4_MAIN_STATUS="$(cd "$E2E4_REMOTE" && git show main:web/src/data/generated/co
 E2E4_PREVIEW_STATUS="$(cd "$E2E4_REMOTE" && git show preview:web/src/data/generated/collectState.json)"
 check "gate failure: main did NOT get the failed data" "$E2E4_MAIN_HAS_DATA" "0"
 check "gate failure: preview did NOT get the failed data either" "$E2E4_PREVIEW_HAS_DATA" "0"
-check_contains "gate failure: main's collectState reads incomplete (main matched preview beforehand)" "$E2E4_MAIN_STATUS" '"state": "incomplete"'
-check_contains "gate failure: preview's collectState reads incomplete" "$E2E4_PREVIEW_STATUS" '"state": "incomplete"'
-check_contains "gate failure: detail names the runner" "$E2E4_PREVIEW_STATUS" "edgar"
+check "gate failure: main revision unchanged" "$(cd "$E2E4_REMOTE" && git rev-parse main)" "$E2E4_MAIN_BEFORE"
+check "gate failure: preview revision unchanged" "$(cd "$E2E4_REMOTE" && git rev-parse preview)" "$E2E4_PREVIEW_BEFORE"
 rm -rf "$E2E4_REMOTE" "$E2E4_CLONE"
 
 echo ""

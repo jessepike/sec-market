@@ -1,5 +1,5 @@
-import { formatShortDate } from '../data/dates'
 import { runStatus } from '../data/runStatus'
+import { completeRefreshDisplay, lastAttemptAt, lastCompleteRefreshAt } from '../data/refreshPublication'
 
 /**
  * Near-top-of-page run status (autonomy-coverage-plan.md §3, §6 step 1):
@@ -18,18 +18,18 @@ import { runStatus } from '../data/runStatus'
  * text.
  */
 function statusLine(): string {
-  const checked = formatShortDate(runStatus.lastChecked)
+  if (!lastCompleteRefreshAt || runStatus.state === 'incomplete') return `Last complete data refresh: ${completeRefreshDisplay}. Latest attempt ${lastAttemptAt}: held. Published data and its complete-refresh date are retained. ${runStatus.detail ?? ''}`
   if (runStatus.state === 'updated') {
-    return `Figures checked ${checked}. Every source collected.`
+    return `Last complete data refresh: ${completeRefreshDisplay}. Every required check passed.`
   }
   if (runStatus.state === 'no-change') {
-    return `Figures checked ${checked}. No material change within our coverage.`
+    return `Last complete data refresh: ${completeRefreshDisplay}. Every required check passed with no material change within our coverage.`
   }
   // 'incomplete': runStatus.ts always sets a plain-language detail for this
   // state (see filingsClause()/deriveRunStatus() there) — there is no
   // generic fallback line here, so the wording is never a bare number with
   // no context.
-  return `Figures checked ${checked}. ${runStatus.detail}`
+  return `Last complete data refresh: ${completeRefreshDisplay}. ${runStatus.detail}`
 }
 
 export function RunStatus() {
@@ -38,7 +38,7 @@ export function RunStatus() {
       <h2 id="run-status-heading" className="visually-hidden">
         Run status
       </h2>
-      <p className={`run-status__line run-status__line--${runStatus.state}`}>{statusLine()}</p>
+      <p className={`run-status__line run-status__line--${lastCompleteRefreshAt ? runStatus.state : 'incomplete'}`}>{statusLine()}</p>
       {runStatus.state === 'incomplete' && runStatus.failedNewsSuppliers.length > 0 ? (
         <details className="run-status__failed">
           <summary>Which sources failed</summary>

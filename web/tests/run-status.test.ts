@@ -36,24 +36,24 @@ function withRunStatus(next: RunStatusData, run: () => void): void {
 }
 
 describe('RunStatus', () => {
-  it('renders "Every source collected" when the run is updated', () => {
+  it('holds an updated collector label without a verified complete refresh', () => {
     withRunStatus(
       { lastChecked: '2026-09-25', state: 'updated', failedNewsSuppliers: [] },
       () => {
         const markup = renderToStaticMarkup(createElement(RunStatus))
-        assert.match(markup, /Figures checked 25 Sep 2026/)
-        assert.match(markup, /Every source collected/)
+        assert.match(markup, /Last complete data refresh: not established/)
+        assert.match(markup, /complete-refresh date are retained/); assert.doesNotMatch(markup, /Every source collected/)
         assert.doesNotMatch(markup, /could not be read/)
       },
     )
   })
 
-  it('renders "No material change" when the run found nothing new', () => {
+  it('holds a no-change collector label without a verified complete refresh', () => {
     withRunStatus(
       { lastChecked: '2026-09-25', state: 'no-change', failedNewsSuppliers: [] },
       () => {
         const markup = renderToStaticMarkup(createElement(RunStatus))
-        assert.match(markup, /No material change within our coverage/)
+        assert.match(markup, /Latest attempt .*: held/)
         assert.doesNotMatch(markup, /Every source collected/)
       },
     )
@@ -82,7 +82,7 @@ describe('RunStatus', () => {
       },
       () => {
         const markup = renderToStaticMarkup(createElement(RunStatus))
-        assert.match(markup, /Figures checked 26 Sep 2026/)
+        assert.match(markup, /Latest attempt .*: held/)
         assert.match(markup, /Filings complete for all 14 public suppliers/)
         assert.match(markup, /company news pages could not be read for 2 of 74 suppliers/)
         assert.match(markup, /Which sources failed/)
@@ -110,7 +110,7 @@ describe('RunStatus', () => {
       },
       () => {
         const markup = renderToStaticMarkup(createElement(RunStatus))
-        assert.match(markup, /Figures checked 25 Sep 2026/)
+        assert.match(markup, /Last complete data refresh: not established/)
         assert.match(markup, /press, funding and distress sources last checked for 4 of 74 suppliers/)
         assert.doesNotMatch(markup, /Which sources failed/)
       },

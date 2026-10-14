@@ -452,15 +452,8 @@ main() {
 
   if ! run_gates; then
     log "auto-publish.sh: gate \"$GATE_FAILED_NAME\" failed; nothing from $BRANCH publishes"
-    if push_incomplete_status "$REMOTE/preview" "$GATE_FAILED_NAME failed" "$RUNNER" "$main_matched"; then
-      write_receipt "$([ "$main_matched" = "true" ] && echo true || echo false)" \
-        "$([ "$main_matched" = "true" ] && echo "preview+main (incomplete status only)" || echo "preview (incomplete status only)")" \
-        "gate \"$GATE_FAILED_NAME\" failed for $RUNNER: $GATE_FAILED_LOG"
-      exit 0
-    else
-      write_receipt false "none" "gate \"$GATE_FAILED_NAME\" failed, and the incomplete-status commit itself could not be pushed"
-      exit 1
-    fi
+    write_receipt false "none" "refresh/build gate failed; published snapshot and complete-refresh date retained: $GATE_FAILED_NAME"
+    exit 2
   fi
   log "all gates passed"
 

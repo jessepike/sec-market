@@ -6,6 +6,7 @@ import { evidenceById } from '../src/data/evidence'
 import edgarFacts from '../src/data/generated/edgarFacts.json' with { type: 'json' }
 import { supportedFieldStatus, requiredFieldGroups, validateSupplierChecks, verifyClaimSources } from '../src/data/tracker/coverage'
 import type { FieldCheck, FieldStatus, RefreshCoverage, SourceCheck, SupplierCheck } from '../src/data/tracker/coverage'
+import { evaluateRefresh } from './refresh-publication-gate.mjs'
 
 const repo = resolve('..')
 const checksPath = resolve(repo, '.collect/supplier-checks.json')
@@ -76,9 +77,17 @@ const allSuppliersAttempted = trackerSuppliers.every(s => checks.some(c => c.sup
 const coverage: RefreshCoverage = { checkedAt: new Date().toISOString(), state: allSuppliersAttempted && summary.failed === 0 && summary['not-checked'] === 0 ? 'complete' : 'incomplete',
   allSuppliersAttempted, supplierCount: trackerSuppliers.length, supplierChecksReceived: checks.length, sourceChecks: allSources, fields, summary,
   schedule: { enabled: process.env.SMP_NIGHTLY_ENABLED === '1', timezone: 'America/Los_Angeles', time: '02:00', blocker: process.env.SMP_NIGHTLY_ENABLED === '1' ? null : 'Workflow installation, safe production-deployment skip and a dedicated hosted collector credential require owner action.' } }
+const contract = JSON.parse(readFileSync(resolve('src/data/tracker/refreshContract.json'), 'utf8'))
+const verification = JSON.parse(readFileSync(resolve('src/data/generated/refreshVerification.json'), 'utf8'))
+const logical = evaluateRefresh(contract, coverage, verification)
+coverage.state = logical.complete ? 'complete' : 'incomplete'
 writeFileSync(resolve('src/data/generated/refreshCoverage.json'), JSON.stringify(coverage, null, 2) + '\n')
 console.log(JSON.stringify({ ...summary, supplierChecksReceived: checks.length, expectedSuppliers: trackerSuppliers.length, allSuppliersAttempted }))
 if (process.env.SMP_REQUIRE_ALL_ATTEMPTS === '1' && (!allSuppliersAttempted || summary['not-checked'] > 0)) process.exitCode = 2
+if (process.env.SMP_REQUIRE_COMPLETE === '1' && !logical.complete) {
+  console.error(`Complete refresh required: ${logical.verified}/${logical.required} logical claims certified; incomplete candidate held.`)
+  process.exitCode = 2
+}
 if (unsafeChangedGroups.length) {
   console.error(`Unverified factual changes refused: ${unsafeChangedGroups.join(', ')}`)
   process.exitCode = 3

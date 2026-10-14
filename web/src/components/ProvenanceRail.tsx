@@ -1,5 +1,5 @@
-import { formatShortDate } from '../data/dates'
-import { LAST_UPDATED_ISO, PRODUCT_TITLE } from '../data/meta'
+import { PRODUCT_TITLE } from '../data/meta'
+import { completeRefreshDisplay } from '../data/refreshPublication'
 
 /**
  * D-76/autonomy-coverage-plan.md §3, step 1: this rail used to carry a
@@ -15,7 +15,7 @@ export function ProvenanceRail() {
         <p className="rail__brand">{PRODUCT_TITLE}</p>
         <span className="rail__rule" aria-hidden="true" />
         <p className="rail__asof">
-          AS OF <time dateTime={LAST_UPDATED_ISO}>{formatShortDate(LAST_UPDATED_ISO)}</time>
+          Complete data refresh: {completeRefreshDisplay}
         </p>
         <p className="rail__statement">Sourced facts, checked and published automatically. No stances, rankings or forecasts.</p>
       </div>

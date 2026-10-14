@@ -25,7 +25,7 @@ test('duplicate suppliers and missing field groups are rejected', () => {
 })
 test('monitor distinguishes current complete, incomplete and overdue source receipts', () => {
   const coverage = { checkedAt: now.toISOString(), allSuppliersAttempted: true, supplierChecksReceived: 74, supplierCount: 74, state: 'complete', summary: { failed: 0, 'not-checked': 0 } }
-  assert.equal(assessCoverage(coverage, now).healthy, true)
+  assert.equal(assessCoverage(coverage, now).healthy, false)
   assert.equal(assessCoverage({ ...coverage, state: 'incomplete', summary: { failed: 3, 'not-checked': 2 } }, now).healthy, false)
   assert.match(assessCoverage(coverage, new Date('2026-10-16T18:00:00Z')).reason, /overdue/)
   assert.equal(assessCoverage({ ...coverage, allSuppliersAttempted: false }, now).healthy, false)

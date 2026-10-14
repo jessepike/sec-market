@@ -1,14 +1,18 @@
 import { pathToFileURL } from 'node:url'
 import { readFileSync } from 'node:fs'
 import { spawnSync } from 'node:child_process'
+import { evaluateRefresh } from '../web/scripts/refresh-publication-gate.mjs'
 
-export function assessCoverage(coverage, now = new Date(), maxAgeHours = 36) {
+export function assessCoverage(coverage, now = new Date(), maxAgeHours = 36, certification = null) {
   const age = (now.getTime() - Date.parse(coverage.checkedAt)) / 3600000
   if (!Number.isFinite(age) || age < -.1) return { healthy: false, reason: 'Invalid source-check timestamp.' }
   if (age > maxAgeHours) return { healthy: false, reason: `Source-check receipt is ${Math.floor(age)} hours old; nightly refresh is overdue.` }
   if (!coverage.allSuppliersAttempted) return { healthy: false, reason: `Only ${coverage.supplierChecksReceived} of ${coverage.supplierCount} supplier coverage receipts exist.` }
   if (coverage.state !== 'complete') return { healthy: false, reason: `${coverage.summary.failed} field checks failed; ${coverage.summary['not-checked']} remain unverified. Retained values are not claimed fresh.` }
-  return { healthy: true, reason: 'All supplier field checks completed within the nightly freshness window.' }
+  if (!certification) return { healthy: false, reason: 'No complete-refresh verification certificate; a complete attempt label is insufficient.' }
+  const result = evaluateRefresh(certification.contract, coverage, certification.verification, now.getTime())
+  if (!result.complete || certification.publication.lastCompleteRefreshAt !== coverage.checkedAt) return { healthy: false, reason: `Required logical checks do not certify the public refresh date (${result.verified}/${result.required}).` }
+  return { healthy: true, reason: 'Every required applicable logical claim is substantively verified within its freshness window.' }
 }
 
 if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href) {
@@ -16,7 +20,9 @@ if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href) {
   try {
     const coverage = process.env.COVERAGE_FILE ? JSON.parse(readFileSync(process.env.COVERAGE_FILE, 'utf8'))
       : await (await fetch(`${process.env.SMP_SITE ?? 'https://security-market-pulse-git-preview-pikeholdings.vercel.app'}/refresh-coverage.json`, { signal: AbortSignal.timeout(20000) })).json()
-    result = assessCoverage(coverage)
+    const certification = process.env.CERTIFICATION_FILE ? JSON.parse(readFileSync(process.env.CERTIFICATION_FILE, 'utf8'))
+      : process.env.COVERAGE_FILE ? null : await (await fetch(`${process.env.SMP_SITE ?? 'https://security-market-pulse-git-preview-pikeholdings.vercel.app'}/refresh-certification.json`, { signal: AbortSignal.timeout(20000) })).json()
+    result = assessCoverage(coverage, new Date(), 36, certification)
   } catch (error) { result = { healthy: false, reason: `Coverage endpoint could not be read: ${String(error.message)}` } }
   console.log(JSON.stringify(result))
   if (process.env.SMP_ALERT_WRITE === '1') {

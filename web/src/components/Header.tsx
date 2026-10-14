@@ -1,6 +1,7 @@
 import type { MouseEvent } from 'react'
 import { useEffect, useState } from 'react'
-import { LAST_UPDATED_DISPLAY, LAST_UPDATED_ISO, PRODUCT_TITLE } from '../data/meta'
+import { PRODUCT_TITLE } from '../data/meta'
+import { completeRefreshDisplay } from '../data/refreshPublication'
 import { normalizePath } from '../data/routes'
 
 interface NavItem {
@@ -136,7 +137,7 @@ export function Header({ path = '/' }: { path?: string }) {
           </ul>
         </nav>
         <p className="site-header__updated">
-          <time dateTime={LAST_UPDATED_ISO}>{LAST_UPDATED_DISPLAY}</time>
+          Data refresh: {completeRefreshDisplay}
         </p>
       </div>
     </header>

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { evidenceById } from '../data/evidence'
-import { formatLongDate } from '../data/dates'
 import { runStatus } from '../data/runStatus'
+import { completeRefreshDisplay, lastAttemptAt } from '../data/refreshPublication'
 import { eventSummaryForSupplier, eventsForSupplier, formatOwnershipCompact, shortSupplierName, suppliersForDomain } from '../data/tracker/derive'
 import { trackerDomains } from '../data/tracker/domains'
 import { trackerSuppliers } from '../data/tracker/suppliers'
@@ -176,8 +176,8 @@ export function MarketDesk() {
   const group = eventGroups.find(g => g.id === groupId)
   const filtered = group ? changes.filter(item => item.type === 'filing' ? group.id === 'results' : group.types.includes(item.type)) : changes
   return <div className="market-desk">
-    <div className="desk-hero"><p className="desk-kicker">Figures checked {runStatus.lastChecked} · {trackerSuppliers.length} suppliers · {trackerDomains.length} domains</p><SiteMasthead />
-      <p className="desk-snapshot">Data snapshot: <time dateTime={runStatus.lastChecked}>{formatLongDate(runStatus.lastChecked)}</time>. {secCollectedCount} of {secFilerCount} SEC filers collected. <a href="#overview">Collection coverage</a></p>
+    <div className="desk-hero"><p className="desk-kicker">Latest attempt {lastAttemptAt.slice(0, 10)} · {trackerSuppliers.length} suppliers · {trackerDomains.length} domains</p><SiteMasthead />
+      <p className="desk-snapshot">Last complete data refresh: {completeRefreshDisplay}. Latest attempt: {lastAttemptAt}. {secCollectedCount} of {secFilerCount} SEC filers attempted successfully. <a href="#overview">Collection coverage</a></p>
       {runStatus.state === 'incomplete' && <p className="desk-note">Source-check coverage is incomplete. Retained figures keep their reporting periods. <a href="#refresh-coverage">See checked and failed fields</a>.</p>}
     </div>
     <div className="desk-counts" aria-label="Event counts in the trailing twelve months">{eventGroups.map(g => {
