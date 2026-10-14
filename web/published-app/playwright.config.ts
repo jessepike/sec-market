@@ -1,4 +1,5 @@
 import { defineConfig, devices } from '@playwright/test'
+import { fileURLToPath } from 'node:url'
 
 const baseURL = process.env.E2E_BASE_URL ?? 'http://127.0.0.1:4173'
 
@@ -45,6 +46,7 @@ export default defineConfig({
     ? undefined
     : {
         command: 'node scripts/serve-built.mjs',
+        cwd: fileURLToPath(new URL('..', import.meta.url)),
         url: 'http://127.0.0.1:4173',
         reuseExistingServer: true,
         timeout: 30_000,
