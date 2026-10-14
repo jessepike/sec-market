@@ -66,7 +66,7 @@ Property changes include precision/representation and reporting-basis correction
 
 ## Validation and publication
 
-260 data tests, full build and built-artifact 32 browser tests passed. Desktop 1440px and phone 390px renders inspected. A near-top incomplete-coverage notice and the public per-field receipt make failures distinct from a quiet week. Preview deployment verification is recorded separately after publication.
+260 data tests, full build and built-artifact 32 browser tests passed. Desktop 1440px and phone 390px renders inspected. A near-top incomplete-coverage notice and the public per-field receipt make failures distinct from a quiet week. Deployed Ready at `de65a03ea5d468a4f2addcbd9b4d484dd773bb0c` (`dpl_kuykDUDMqZMtVtMDkukdqEyHWm2t`). Stable preview: https://security-market-pulse-git-preview-pikeholdings.vercel.app/. Field receipt: https://security-market-pulse-git-preview-pikeholdings.vercel.app/refresh-coverage.json — HTTP 200, exact match to built artifact, 32 deployed browser tests passed. Hosted web CI passed: https://github.com/jessepike/sec-market/actions/runs/38628539139. The pre-existing obsolete publish-issue workflow still fails; its configuration was not changed. Production remains `28c7ffd`.
 
 ## Nightly readiness
 
