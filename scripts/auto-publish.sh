@@ -259,8 +259,8 @@ GATE_FAILED_LOG=""
 run_gates() {
   local gates_json="[]"
   local name cmd_log rc
-  local gate_names=("npm ci" "npm run test:data" "npm run build")
-  local gate_cmds=("npm_ci_gate" "npm_test_data_gate" "npm_build_gate")
+  local gate_names=("npm ci" "npm run verify:refresh-publication" "npm run test:data" "npm run build")
+  local gate_cmds=("npm_ci_gate" "npm_data_publication_gate" "npm_test_data_gate" "npm_build_gate")
   local i
   for i in "${!gate_names[@]}"; do
     name="${gate_names[$i]}"
@@ -283,6 +283,7 @@ run_gates() {
 }
 
 npm_ci_gate() { ( cd "$WEB_DIR" && npm ci ); }
+npm_data_publication_gate() { ( cd "$WEB_DIR" && npm run verify:refresh-publication ); }
 npm_test_data_gate() { ( cd "$WEB_DIR" && npm run test:data ); }
 npm_build_gate() { ( cd "$WEB_DIR" && npm run build ); }
 

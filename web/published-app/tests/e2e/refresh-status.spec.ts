@@ -1,0 +1,20 @@
+import { expect, test } from '@playwright/test'
+
+for (const width of [1440, 390]) test(`app-only status preserves published data at ${width}px`, async ({ page, request }) => {
+  await page.setViewportSize({ width, height: 900 })
+  await page.goto('/')
+  await expect(page.locator('.refresh-status')).toContainText('Last complete data refresh: not established')
+  await expect(page.locator('.refresh-status')).toContainText('Published figures and their reporting periods are unchanged')
+  await expect(page.locator('.site-masthead__stamps')).not.toContainText('Site updated')
+  await expect(page.locator('.refresh-status')).toContainText('14 Oct 2026')
+  expect(await page.evaluate(() => document.body.scrollWidth <= window.innerWidth + 1)).toBe(true)
+  const release = await (await request.get('/app-release.json')).json()
+  expect(release.releaseKind).toBe('app-only');expect(release.dataUpdated).toBe(false)
+  expect(release.snapshotRevision).toBe('28c7ffdd2508ab1805397fbe76448c02ad40a525')
+  expect(Object.keys(release.dataHashes)).toHaveLength(38)
+  const attempt = await (await request.get('/refresh-attempt.json')).json()
+  expect(attempt.published).toBe(false);expect(attempt.lastCompleteRefreshAt).toBe(null)
+  expect(attempt.failedSupplierIds).toHaveLength(37)
+  expect(attempt).not.toHaveProperty('candidateChanges')
+  await expect(page.locator('body')).not.toContainText('Tenable entered into a credit agreement with JPMorgan Chase Bank')
+})

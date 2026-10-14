@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Source for web/public/og.png (1200x630 Open Graph / Twitter card).
+
+  Every string in this file is copied from the live page:
+    - wordmark and period      -> src/components/Hero.tsx eyebrow
+    - headline                 -> marketCall.headline in src/data/market.ts
+    - the three stats          -> contextStats in src/data/market.ts
+  Do not put a number here that is not already on the page and sourced there.
+
+  Regenerate after a headline or stat change, from the web/ directory,
+  inside the OrbStack dev VM:
+
+      orb run -m dev bash -lc 'cd /Users/jessepike/code/projects/sec-market/web \
+        && node assets-src/render-og.mjs'
+
+  That script rasterizes this file with the Chromium that Playwright already
+  installs for the e2e suite, so no image dependency is added to package.json.
+-->
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="1200"
+  height="630"
+  viewBox="0 0 1200 630"
+  font-family="'IBM Plex Sans', system-ui, sans-serif"
+>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap');
+  </style>
+
+  <defs>
+    <linearGradient id="mark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1d4ed8" />
+      <stop offset="1" stop-color="#0f766e" />
+    </linearGradient>
+  </defs>
+
+  <!-- Page ground -->
+  <rect width="1200" height="630" fill="#e9ecf0" />
+
+  <!-- Masthead row -->
+  <rect x="72" y="62" width="26" height="26" rx="6.5" fill="url(#mark)" />
+  <text
+    x="112"
+    y="83"
+    font-family="'IBM Plex Mono', ui-monospace, monospace"
+    font-size="18"
+    font-weight="600"
+    letter-spacing="2.5"
+    fill="#12161c"
+  >SECURITY MARKET PULSE</text>
+  <text
+    x="1128"
+    y="83"
+    text-anchor="end"
+    font-family="'IBM Plex Mono', ui-monospace, monospace"
+    font-size="16"
+    font-weight="500"
+    letter-spacing="2.2"
+    fill="#6c7684"
+  >AUGUST 2026</text>
+  <rect x="72" y="112" width="1056" height="1" fill="#cfd5dd" />
+
+  <!-- Market call -->
+  <g
+    font-family="Archivo, system-ui, sans-serif"
+    font-size="52"
+    font-weight="800"
+    letter-spacing="-1.4"
+    fill="#12161c"
+  >
+    <text x="72" y="208">Infrastructure is running ahead.</text>
+    <text x="72" y="268">Security is splitting, not booming.</text>
+  </g>
+
+  <!-- Credibility line -->
+  <text x="72" y="340" font-size="21" font-weight="400" fill="#3a424e">
+    Every number on this page links to a public source, with its limits stated.
+  </text>
+  <text x="72" y="372" font-size="19" font-weight="400" fill="#6c7684">
+    Where the evidence will not support a call, it says NO-CALL.
+  </text>
+
+  <!-- Context band: mirrors the dark band under the headline on the page -->
+  <rect x="0" y="430" width="1200" height="200" fill="#1b2430" />
+  <text
+    x="72"
+    y="476"
+    font-family="'IBM Plex Mono', ui-monospace, monospace"
+    font-size="13"
+    font-weight="500"
+    letter-spacing="1.8"
+    fill="#8b97a6"
+  >MARKET CONDITION · NOT VENDOR PERFORMANCE</text>
+  <text
+    x="1128"
+    y="476"
+    text-anchor="end"
+    font-family="'IBM Plex Mono', ui-monospace, monospace"
+    font-size="14"
+    font-weight="400"
+    letter-spacing="0.6"
+    fill="#8b97a6"
+  >securitymarketpulse.com</text>
+
+  <g
+    font-family="'IBM Plex Mono', ui-monospace, monospace"
+    font-size="44"
+    font-weight="600"
+    letter-spacing="-1"
+  >
+    <text x="72" y="552" fill="#5fd4c0">+92%</text>
+    <text x="424" y="552" fill="#e8a0c4">+4%</text>
+    <text x="776" y="552" fill="#f3d48a">NO-CALL</text>
+  </g>
+  <g
+    font-family="'IBM Plex Mono', ui-monospace, monospace"
+    font-size="13"
+    font-weight="400"
+    letter-spacing="1.3"
+    fill="#8b97a6"
+  >
+    <text x="72" y="582">NVIDIA DATA CENTER</text>
+    <text x="424" y="582">2025 SECURITY BUDGETS</text>
+    <text x="776" y="582">INFRA TO SECURITY LAG</text>
+  </g>
+</svg>

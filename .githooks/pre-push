@@ -26,11 +26,11 @@ while read -r _local_ref local_sha remote_ref _remote_sha; do
       echo 'pre-push refused: production requires the exact clean checked-out commit.' >&2
       exit 1
     fi
-    if [ ! -f "$root/web/scripts/refresh-publication-gate.mjs" ]; then
+    if [ ! -f "$root/web/scripts/app-release.mjs" ]; then
       echo 'pre-push refused: this commit lacks the required complete-refresh publication guard.' >&2
       exit 1
     fi
-    node "$root/web/scripts/refresh-publication-gate.mjs" || exit 1
+    node "$root/web/scripts/app-release.mjs" --verify || exit 1
     echo "pre-push: explicit promotion and complete-refresh guard passed." >&2
     continue
   fi

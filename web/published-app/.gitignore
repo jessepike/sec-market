@@ -1,0 +1,6 @@
+dist/
+dist-ssr/
+node_modules/
+src/release-status.json
+test-results/
+playwright-report/

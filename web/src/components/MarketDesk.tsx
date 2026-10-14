@@ -176,6 +176,7 @@ export function MarketDesk() {
   const group = eventGroups.find(g => g.id === groupId)
   const filtered = group ? changes.filter(item => item.type === 'filing' ? group.id === 'results' : group.types.includes(item.type)) : changes
   return <div className="market-desk">
+    <p className="desk-note" role="status"><strong>Diagnostic candidate — held data, not the published snapshot.</strong> <a href="/published-preview/">Review the app-only status update with unchanged production data</a>.</p>
     <div className="desk-hero"><p className="desk-kicker">Latest attempt {lastAttemptAt.slice(0, 10)} · {trackerSuppliers.length} suppliers · {trackerDomains.length} domains</p><SiteMasthead />
       <p className="desk-snapshot">Last complete data refresh: {completeRefreshDisplay}. Latest attempt: {lastAttemptAt}. {secCollectedCount} of {secFilerCount} SEC filers attempted successfully. <a href="#overview">Collection coverage</a></p>
       {runStatus.state === 'incomplete' && <p className="desk-note">Source-check coverage is incomplete. Retained figures keep their reporting periods. <a href="#refresh-coverage">See checked and failed fields</a>.</p>}
