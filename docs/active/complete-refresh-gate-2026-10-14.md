@@ -4,6 +4,8 @@
 
 The owner withdrew the pending promotion at 22:47 UTC before any main checkout, merge, push or deployment. Vercel independently confirms production **Ready**, deployment `dpl_9mjdUV7fWSSgBrmSPuUbv4ekRUeg`, exact GitHub main SHA `28c7ffdd2508ab1805397fbe76448c02ad40a525`, at https://securitymarketpulse.com. The rollback/reference baseline is the same deployment, https://security-market-pulse-bp6p56xy3-pikeholdings.vercel.app. No rollback is needed or performed.
 
+The guard is committed and pushed to preview at `7a4091dd7b7c4ef0dfe911f2b7d96648ac2ae55a`; Vercel deployment `dpl_9XvCuSDpSJZ45WPjy3nLRGyJPrUt` is ERROR because the normal release build exits 2 at the new guard. This is an expected held build, not a new deployed app/data snapshot. The installed main push guard also rejects the incomplete candidate.
+
 The existing deployed preview is the held incomplete review candidate `c052190897e81945171aee962e435d8dd8c0d29d`, https://security-market-pulse-git-preview-pikeholdings.vercel.app. It predates the new rule. The new guard work has no publishable deployment: the release build correctly exits 2 before emitting an artifact. Do not promote either the old candidate or this new guarded branch while the contract is unmet.
 
 No historical refresh is verified at 100%. The complete-refresh ledger is **not established**, rather than borrowing a collector or application deployment date. Production still displays its older site's legacy date until a compliant app/data release can be made. That is an outstanding limitation, not a claim that production now has the new date UI.
