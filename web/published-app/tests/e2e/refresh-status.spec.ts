@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test'
 
 for (const width of [1440, 390]) test(`app-only status preserves published data at ${width}px`, async ({ page, request }) => {
   await page.setViewportSize({ width, height: 900 })
-  await page.goto('/')
+  await page.goto(process.env.APP_REVIEW_PATH ?? '/')
   await expect(page.locator('.refresh-status')).toContainText('Last complete data refresh: not established')
   await expect(page.locator('.refresh-status')).toContainText('Published figures and their reporting periods are unchanged')
   await expect(page.locator('.site-masthead__stamps')).not.toContainText('Site updated')

@@ -70,7 +70,7 @@ export function buildRelease(repo) {
   const dist = resolve(web, 'dist')
   mkdirSync(dist, { recursive: true })
   writeFileSync(resolve(dist, 'refresh-attempt.json'), JSON.stringify(status, null, 2) + '\n')
-  writeFileSync(resolve(dist, 'app-release.json'), JSON.stringify({ ...decision, appRevision: status.appRevision, appBuiltAt: status.appBuiltAt, dataHashes: JSON.parse(readFileSync(resolve(published, 'snapshot-manifest.json'), 'utf8')).dataFiles }, null, 2) + '\n')
+  writeFileSync(resolve(dist, 'app-release.json'), JSON.stringify({ ...decision, rootView: preview ? 'diagnostic' : 'published', previewIncludesDiagnostic: preview, appRevision: status.appRevision, appBuiltAt: status.appBuiltAt, dataHashes: JSON.parse(readFileSync(resolve(published, 'snapshot-manifest.json'), 'utf8')).dataFiles }, null, 2) + '\n')
   verifyAppRelease(repo)
   console.log(JSON.stringify({ ...decision, previewIncludesDiagnostic: preview }))
   return decision
