@@ -9,6 +9,7 @@ export default defineConfig({
   reporter: 'line',
   use: {
     baseURL,
+    launchOptions: process.platform === 'darwin' ? { channel: 'chrome' } : {},
     trace: 'retain-on-failure',
   },
   projects: [

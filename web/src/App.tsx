@@ -13,16 +13,14 @@ import { IssueArchive } from './components/IssueArchive'
 import { IssueHero } from './components/IssueHero'
 import { IssueLanes } from './components/IssueLanes'
 import { JudgmentBoard } from './components/JudgmentBoard'
-import { MarketByDomain } from './components/MarketByDomain'
+import { MarketDesk } from './components/MarketDesk'
 import { MethodologyNote } from './components/MethodologyNote'
 import { NextEdition } from './components/NextEdition'
 import { ProvenanceRail } from './components/ProvenanceRail'
 import { RunStatus } from './components/RunStatus'
-import { SiteMasthead } from './components/SiteMasthead'
 import { SkipLink } from './components/SkipLink'
 import { ThesisRunningScore } from './components/ThesisRunningScore'
 import { WeThink } from './components/WeThink'
-import { WhatChangedTracker } from './components/WhatChangedTracker'
 import { EvidenceProvider } from './context/EvidenceProvider'
 import { useEvidence } from './context/useEvidence'
 import { issueById } from './data/issues/index'
@@ -40,60 +38,14 @@ function ArchiveNotice({ text }: { text: string }) {
   return <p className="archive-notice">{text}</p>
 }
 
-/**
- * `/` — what the site is, the run status, the twelve-domain supplier
- * tracker, and the standing reference and depth sections.
- *
- * D-76/autonomy-coverage-plan.md §3, step 1 ("Judged text leaves the live
- * pages"): every judged element that used to sit on this page — the
- * weekly-issue headline strip, "What we now think", the domain stance chips
- * and JUDGED stamps, tracked hypotheses, the standing-thesis pointer at
- * `#read`, and "Watch next" — is gone from this route. `RunStatus`
- * (`#overview`, replacing the old `IssueStrip`) is the first-screen element:
- * an honest statement of whether collection ran and whether it was
- * complete, never a judgment.
- *
- * Step 5 (autonomy-coverage-plan.md §3): the old `MarketPicture` ("the
- * market by domain" section), `PrintGrid` (the scorecard), and the week-36
- * `IssueLanes` that used to sit here are replaced by the twelve-domain
- * tracker — `MarketByDomain`, `WhatChangedTracker`, `CoverageStatement`, and
- * `ArchiveLinks`, built from `data/tracker/{domains,suppliers,events}.ts`.
- * None of the three old components is deleted; they simply have no route
- * rendering them on the front page now, the same as `DomainBoard`'s
- * `TempoSection`. `VendorLensProvider`/`VendorLens` also stop rendering here
- * — both existed only to filter `PrintGrid` and this page's `IssueLanes`,
- * and with both gone the lens has nothing left on this route to filter;
- * their files and the `useVendorLens` hook are untouched, and the issue
- * permalink page (which never mounted the provider) is unaffected.
- *
- * Step 1 fix pass, item 3: the entire Platform-pressure section is gone from
- * this route too, not just its judged "read" column — every row in that
- * table carried a hand-assigned vendor-position label (Holding / Buying in /
- * Outrun / Challengers, i.e. incumbent / challenger / early / platform /
- * absorbed), which describes competitive footing the site no longer states.
- * `PlatformPressure.tsx` itself is untouched and still exported; it simply
- * has no route rendering it now, the same as `DomainBoard`'s `TempoSection`.
- *
- * AUTO-001 fix pass (2026-09-26), item 4 ("pre-tracker material off the
- * front page"): `DomainBoard`'s `LandscapeSection` (the "security market, by
- * domain" cards — "Fortinet +52%" with no metric label, etc.), the "What
- * moved" details (`WhatMoved`), the "M&A and funding activity" details
- * (`ActivityBoard`, whose notes carried judgment text like "Not a lead —
- * mature-category check"), and "Market layers" (`MarketLayersChart`, whose
- * "Chart sources" evidence link opened judged thesis-era evidence records
- * such as C3's "strongest realized network-security acceleration in the
- * panel") are all removed from this route for the same reason as
- * `PlatformPressure` above: none of the four files is deleted, and none is
- * rendered on any route any longer, the same as `DomainBoard`'s
- * `TempoSection`.
- */
+/** October 2026 approved hybrid. Current tracker data powers the dated change log,
+ * revenue comparison, event timeline and supplier records. Collection and method
+ * remain below the market views; no owner-read placeholder or domain median. */
 function FrontPage() {
   return (
     <>
-      <SiteMasthead />
+      <MarketDesk />
       <RunStatus />
-      <MarketByDomain />
-      <WhatChangedTracker />
       <CoverageStatement />
       <ArchiveLinks />
       <FollowLine />
@@ -196,7 +148,7 @@ function AppShell({ path }: { path: string }) {
     <>
       <SkipLink />
       <ProvenanceRail />
-      <div className="app-shell" inert={isOpen ? true : undefined}>
+      <div className={`app-shell${matchRoute(path).kind === 'front' ? ' app-shell--desk' : ''}`} inert={isOpen ? true : undefined}>
         <Header path={path} />
         <main id="main" className="main-content" tabIndex={-1}>
           <RouteContent path={path} />

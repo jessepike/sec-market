@@ -1,12 +1,16 @@
 ---
 project: Security Market Signal Pipeline
 stage: Operate
-updated: 2026-10-02
+updated: 2026-10-14
 ---
 
 # Status
 
 ## Current State
+
+**2026-10-14: the owner selected the October bake-off hybrid and authorized implementing and pushing it to the existing Vercel preview (D-82).** Built in the app from preview base `a021795`, using corrected fix-pass-4 data already integrated at `32a771c`. The first screen pairs a capped, sourced change log with the public-company revenue comparison. Derived counts, supplier facts/records, a keyboard/touch timeline and a compact phone domain selector replace the stacked front-page tables. The empty owner's-read placeholder and unsupported domain medians are absent. The snapshot remains explicitly 2 October 2026; shipping a design does not refresh evidence. No production promotion is authorized. Lint, TypeScript, full build/data gates, 255 data tests and the built-page browser suite passed. Preview deployment and deployed-page verification are pending at this commit. See `docs/active/design-hybrid-preview-2026-10-14.md`.
+
+The October 2 paragraph below is historical: `mon/fitfix` is already an ancestor of `preview`; `mon/uifix` remains divergent and is not implicitly merged by selecting the redesign.
 
 **2026-10-02: fix pass 4's data side is done, committed on branch `mon/fitfix` in worktree `sec-market-wt/fitfix`, synced with `origin/preview`, not yet merged into `preview`.** Two blind scorers
 failed the preview build on rubric v3.0 (Opus 59.8/100, Sol 39.0/100); the 12-item data/pipeline brief

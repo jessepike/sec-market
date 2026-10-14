@@ -118,11 +118,11 @@ test('renders the market briefing without runtime errors', async ({ page }) => {
   await expect(page.locator('#tracker-coverage-heading')).toHaveText('What this site covers')
   await expect(page.locator('.tracker-coverage__domains li').first()).toBeVisible()
 
-  // A Microsoft segment row (item 1) shows "–" for revenue growth, not the
-  // parent company's whole-company figure, and says plainly why.
-  const entraRow = page.locator('#market .tracker-table tr', { has: page.getByTitle('Microsoft Entra ID') })
-  await expect(entraRow.locator('td[data-label="Rev. growth"]')).toContainText('–')
-  await expect(entraRow.locator('td[data-label="Ownership or last round"]')).toContainText('Segment of Microsoft')
+  // Segments keep their own scope and never borrow a parent's total revenue.
+  await page.getByTitle('Microsoft Entra ID', { exact: true }).first().click()
+  await expect(page.locator('.desk-dialog .desk-gap')).toContainText('No separately reported quarterly revenue')
+  await expect(page.locator('.desk-dialog')).toContainText('Microsoft')
+  await page.keyboard.press('Escape')
 
   expect(pageErrors).toEqual([])
 })
@@ -151,30 +151,13 @@ test('no judged stamps on the front page', async ({ page }) => {
   expect(judgedStamps).toEqual([])
 })
 
-test('opens attributed evidence without a private GitHub artifact link', async ({ page }) => {
+test('supplier records link attributed public sources and close with Escape', async ({ page }) => {
   await page.goto('/')
-
-  // The Microsoft Entra ID row (item 1: a segment may not borrow its
-  // parent's figure) has no revenue or headline-metric evidence link, so its
-  // Ownership cell's "src" control is what this test opens. Its evidence
-  // record (TR-msft-entra-1) carries a non-empty limitations note, which
-  // this test also uses to check the drawer's "Limitations / confounds"
-  // section still renders when there is something to say.
-  // The compact evidence button's visible text is "src", but its
-  // accessible name is overridden by an aria-label naming the source and
-  // date (EvidenceLink.tsx, evidenceCompactAriaLabel: "<context> — source:
-  // ..."). The row also carries a second compact link for its "Latest
-  // event" cell, so the Ownership one is picked out by that aria-label
-  // prefix rather than by class alone.
-  const entraRow = page.locator('#market .tracker-table tr', { has: page.getByTitle('Microsoft Entra ID') })
-  await entraRow.getByLabel(/^Ownership — source:/).click()
-
-  const dialog = page.getByRole('dialog', { name: 'Evidence' })
+  await page.getByTitle('Microsoft Entra ID', { exact: true }).first().click()
+  const dialog = page.locator('.desk-dialog')
   await expect(dialog).toBeVisible()
-  await expect(dialog.getByRole('link', { name: /Canonical source/ }).first()).toBeVisible()
-  await expect(dialog.getByRole('heading', { name: 'Limitations / confounds' }).first()).toBeVisible()
-  await expect(dialog.getByRole('link', { name: /github.com\/jessepike\/sec-market/ })).toHaveCount(0)
-
+  await expect(dialog.locator('.desk-sources a').first()).toHaveAttribute('href', /^https:\/\//)
+  await expect(dialog.locator('a[href*="github.com/jessepike/sec-market"]')).toHaveCount(0)
   await page.keyboard.press('Escape')
   await expect(dialog).toBeHidden()
 })
@@ -194,10 +177,8 @@ test('the front page never opens a judged evidence record', async ({ page }) => 
   const libraryText = await page.locator('#research .evidence-library__list').innerText()
   expect(libraryText).not.toContain('strongest realized network-security acceleration')
 
-  const entraRow = page.locator('#market .tracker-table tr', { has: page.getByTitle('Microsoft Entra ID') })
-  await entraRow.getByLabel(/^Ownership — source:/).click()
-  const dialog = page.getByRole('dialog', { name: 'Evidence' })
-  await expect(dialog.getByRole('heading', { name: 'Interpretation' })).toHaveCount(0)
+  await page.getByTitle('Microsoft Entra ID', { exact: true }).first().click()
+  await expect(page.locator('.desk-dialog').getByRole('heading', { name: 'Interpretation' })).toHaveCount(0)
 })
 
 /**

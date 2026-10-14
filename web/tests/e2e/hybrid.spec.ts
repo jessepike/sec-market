@@ -1,0 +1,52 @@
+import { expect, test } from '@playwright/test'
+import { recentChanges, secFilerCount } from '../../src/data/tracker/presentation'
+
+for (const width of [1440, 390]) {
+  test(`approved hybrid works at ${width}px with keyboard, sourced figures and compact phone views`, async ({ page }) => {
+    await page.setViewportSize({ width, height: width === 390 ? 844 : 900 })
+    const errors: string[] = []
+    page.on('pageerror', error => errors.push(error.message))
+    await page.goto('/')
+    await expect(page.locator('.desk-snapshot')).toContainText(`of ${secFilerCount} SEC filers`)
+    await expect(page.locator('.market-desk')).not.toContainText(/owner.s read|median/i)
+    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(width)
+    await expect(page.locator('.desk-change').first()).toBeVisible()
+    expect(await page.locator('.desk-change').first().evaluate(e => e.getBoundingClientRect().top)).toBeLessThan(width === 390 ? 844 : 900)
+    if (width === 1440) expect(await page.locator('#reported-growth').evaluate(e => e.getBoundingClientRect().top)).toBeLessThan(900)
+    if (width === 390) {
+      await expect(page.locator('.desk-domain.is-selected')).toBeVisible()
+      await page.locator('.desk-domain-select select').selectOption('identity')
+      await expect(page.locator('#domain-identity')).toBeVisible()
+      await expect(page.locator('#domain-endpoint-xdr')).toBeHidden()
+      await page.locator('.desk-growth__mobile-toggle').click()
+    }
+    const chart = page.locator('.desk-growth__rows')
+    await expect(chart.locator('li')).toHaveCount(18)
+    expect(await chart.locator('li').first().innerText()).toContain('Check Point')
+    await page.getByRole('button', { name: 'Sort by value', exact: true }).click()
+    await expect(page.getByRole('button', { name: 'Sort A–Z', exact: true })).toHaveAttribute('aria-pressed', 'true')
+    await page.getByRole('button', { name: 'Sort A–Z', exact: true }).click()
+    const open = chart.getByRole('button', { name: 'Cloudflare', exact: true })
+    await open.focus(); await page.keyboard.press('Enter')
+    const dialog = page.getByRole('dialog', { name: 'Cloudflare, Inc.' })
+    await expect(page.locator('.desk-dialog')).toBeVisible()
+    await expect(page.locator('.desk-dialog')).toContainText('+35.9%')
+    await expect(page.locator('.desk-quarter-table')).toBeVisible()
+    await page.keyboard.press('Tab')
+    expect(await page.evaluate(() => document.activeElement?.closest('dialog') !== null)).toBe(true)
+    await page.keyboard.press('Escape')
+    await expect(dialog).toBeHidden()
+    await expect(open).toBeFocused()
+    const point = page.locator('.desk-timeline__cell button').first()
+    const rect = await point.boundingBox()
+    expect(rect!.width).toBeGreaterThanOrEqual(24); expect(rect!.height).toBeGreaterThanOrEqual(24)
+    await point.focus(); await page.keyboard.press('Enter')
+    await expect(point).toHaveAttribute('aria-pressed', 'true')
+    await expect(page.locator('#desk-timeline-events .desk-change').first()).toBeVisible()
+    await expect(page.locator('#desk-timeline-events .desk-sources a').first()).toHaveAttribute('href', /^https:\/\//)
+    if (width === 390) expect(await page.evaluate(() => document.body.scrollHeight)).toBeLessThan(10000)
+    await page.locator('.desk-show-all').click()
+    await expect(page.locator('#tracker-changed .desk-change')).toHaveCount(recentChanges().length)
+    expect(errors).toEqual([])
+  })
+}

@@ -1,4 +1,4 @@
-import { LAST_UPDATED_DISPLAY, SITE_DESCRIPTION, SITE_DISCLAIMER, SITE_HEADLINE } from '../data/meta'
+import { LAST_UPDATED_DISPLAY, SITE_DISCLAIMER, SITE_HEADLINE } from '../data/meta'
 
 /**
  * The front page's masthead (SEC-MARKET-CORE-001 §5): what the site is, in
@@ -16,7 +16,7 @@ export function SiteMasthead() {
   return (
     <section className="site-masthead" aria-labelledby="site-masthead-heading">
       <h1 id="site-masthead-heading">{SITE_HEADLINE}</h1>
-      <p className="site-masthead__description">{SITE_DESCRIPTION}</p>
+      <p className="site-masthead__description">Reported revenue, funding, acquisitions, restructuring, debt and leadership changes. Every figure keeps its period and source.</p>
       <p className="site-masthead__stamps">
         {SITE_DISCLAIMER} · Site updated {LAST_UPDATED_DISPLAY}.
       </p>

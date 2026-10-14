@@ -59,7 +59,7 @@ export const CONTACT_EMAIL = 'jesse@keatingpike.com'
  * a returning reader sees, and it is still the `h1` on the issue's own page
  * where it is genuinely that page's subject. The owner edits this line.
  */
-export const SITE_HEADLINE = 'The security market, from public numbers'
+export const SITE_HEADLINE = 'The business of the security market, sourced and dated.'
 
 export const SITE_DESCRIPTION =
   'Public, sourced facts about the business of the security market: who is growing, stalling, ' +

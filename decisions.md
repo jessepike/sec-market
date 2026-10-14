@@ -1027,3 +1027,7 @@ run. The block was instead hand-built from the 7 batches' saved `failed-sources.
 newsroom could not be read after exhausting a five-route fallback chain (RSS/Atom, sitemap, an IR
 subdomain, a wire-service copy, EDGAR full-text search) — down from 28 before this pass. Full detail
 and every fact changed: `docs/active/auto/fitfix4/data-report.md`.
+
+**D-82 · 2026-10-14 — Owner selects the bake-off hybrid and authorizes preview implementation.**
+
+Owner instruction relayed by Krypton: “let's go with those changes. remove this ‘owner's read’ and let's make and push these to preview on vercel.” Approval covers the runnable app and existing preview, not production. The selected direction uses Opus's change log, event counts and supplier records, Fable's reported revenue-growth comparison, Sol's labelled value/period/source facts and Astra's compact phone approach. The supplied screenshot identifies the empty OWNER’S READ / RESERVED placeholder. Remove it and unsupported median badges; derive the SEC-filer count; use corrected fix-pass-4 evidence and retain precision, qualifiers and source dates. Tiny hover-only timeline points become selectable monthly groups and a full dated list with native keyboard/touch controls. No new collector run, financial data invention, source-date advancement or production promotion is implied.

@@ -25,7 +25,8 @@ interface NavItem {
 // so the link had no target left to resolve to (see App.tsx's FrontPage
 // comment).
 const navItems: NavItem[] = [
-  { href: '#overview', label: 'Status' },
+  { href: '#tracker-changed', label: 'What changed' },
+  { href: '#reported-growth', label: 'Reported growth' },
   { href: '/issues/', label: 'Archive', crossPage: true },
   { href: '#market', label: 'Market' },
   { href: '#research', label: 'Evidence' },
