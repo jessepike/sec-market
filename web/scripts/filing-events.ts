@@ -133,7 +133,10 @@ interface GeneratedEvidence {
 // own prior output (which `trackerEvents` in events.ts also merges in) — the
 // latter would make every event this script ever found "already covered"
 // on the very next run and silently empty the generated file out.
-const existingEventKeys = new Set(handCollectedEvents.map((event) => `${event.supplierId}|${event.date}`))
+// AUTO-002 Phase 0: dedupe by supplier, date AND type. A same-day hand-collected
+// event of a different type (e.g. an acquisition announced alongside an officer
+// change in one 8-K) must not hide the filing's own tracked item.
+const existingEventKeys = new Set(handCollectedEvents.map((event) => `${event.supplierId}|${event.date}|${event.type}`))
 
 async function main() {
   const previousEvents = JSON.parse(await readFile(EVENTS_OUTPUT_PATH, 'utf8')) as GeneratedEvent[]
@@ -176,9 +179,9 @@ async function main() {
       const primaryDocument = recent.primaryDocument[i]
       const docUrl = documentUrl(supplier.cik, accession, primaryDocument)
 
-      const dedupeKey = `${supplier.id}|${filingDate}`
+      const dedupeKey = `${supplier.id}|${filingDate}|${mapping.type}`
       if (existingEventKeys.has(dedupeKey)) {
-        console.log(`skip  ${supplier.id.padEnd(12)} ${filingDate} item ${matchedCode} — already a hand-collected event on this date`)
+        console.log(`skip  ${supplier.id.padEnd(12)} ${filingDate} item ${matchedCode} — already a hand-collected ${mapping.type} event on this date`)
         continue
       }
 

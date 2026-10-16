@@ -1,7 +1,7 @@
 ---
 id: SEC-MARKET-AUTO-002-P0
-version: 0.1
-state: in build
+version: 0.2
+state: built; independent audit fixes applied
 created: 2026-10-15
 parent: SEC-MARKET-AUTO-002 (docs/active/automation-portfolio-proposal-2026-10-15.md)
 decisions: D-89 (certified scope), D-85/D-86 (100% gate, no self-certification), D-96 (cadence)
@@ -84,3 +84,22 @@ Proof shape is exactly what `evaluateRefresh` checks: `valueSha256` over the sor
 ## Out of scope for Phase 0
 
 Scheduling and workflows (Phase 1), site display of the two tiers and removal of run-status panels (Phase 2), email (D-92 workstream), private-company data.
+
+## Audit and fixes (2026-10-15)
+
+An independent auditor (separate agent, no prior context) returned "sound with fixes". All required fixes but one are applied; the open one is listed below.
+
+| Audit finding | Fix |
+|---|---|
+| Gate trusted the copied coverage values; a value changed after certification still passed | `certify-gate.ts` re-derives every claim from the build inputs (`sec-verify/candidates.ts`) and refuses drift. Tested by changing CrowdStrike revenue after certification: refused |
+| Stale prior quarter could pass | `verifyPriorAdjacent`: prior must be the quarter immediately before latest |
+| Event dates barely checked; any same-day event covered a missed item | Events anchor to a cited filing (8-K report date or filing date; 10-Q/10-K period); evidence publication date must equal the SEC filing date; every tracked item needs an event of a matching type or citing the accession |
+| Displayed fields outside certification were unstated | 8-quarter table certified as `revenue.history`; remaining uncertified fields listed in the contract's `notCertified` |
+| Evidence dates mismatched filing dates | Fixed TR-varonis-2, TR-okta-1, TR-rapid7-4 to SEC filing dates |
+| Placeholder locator/excerpt accepted | Runner refuses missing locator/excerpt; gate refuses placeholders |
+| Raw responses not archived | Saved by SHA-256 under `.collect/sec-archive/` (Phase 1 uploads them as workflow artifacts) |
+| Verifier copies the producer's XBRL rules | Stated in the contract policy: this is a reproducibility check against SEC data, not a second methodology. Site wording must say "re-derived from SEC filings", not "independently verified". **Open:** a second oracle (for example SEC frames) is a Phase 1 candidate |
+
+The stricter event rules also found a real gap: the filing-events generator skipped any 8-K item on a date that already had a hand-collected event, of any type. Palo Alto Networks' 2025-11-19 officer change (Item 5.02, filed with the Chronosphere announcement) and a 2026-02-11 debt filing were missing. Dedupe is now by date and type.
+
+Result after fixes: 80 of 80 claims (16 suppliers, 5 groups) on live SEC data, 279 data tests pass, build passes, production data unchanged.

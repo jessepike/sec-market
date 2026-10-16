@@ -36,7 +36,7 @@
     "build:diagnostic": "npm run verify:edition && npm run verify:panel && npm run verify:integrity && npm run verify:issue && npm run verify:prints && npm run verify:tracker && tsc -b && npm run build:client && npm run build:server && npm run prerender && npm run seo && npm run build:feed && npm run verify:dist",
     "verify:app-release": "node scripts/app-release.mjs --verify",
     "certify:sec": "tsx --tsconfig tsconfig.app.json scripts/certify-sec.ts",
-    "certify:gate": "node scripts/certify-gate.mjs"
+    "certify:gate": "tsx --tsconfig tsconfig.app.json scripts/certify-gate.ts"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

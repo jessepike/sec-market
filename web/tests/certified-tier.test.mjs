@@ -5,7 +5,7 @@ import { readFileSync } from 'node:fs'
 import { edgarRegistry } from '../src/data/edgarRegistry.ts'
 import { trackerSuppliers } from '../src/data/tracker/suppliers.ts'
 import { selectRevenueFacts } from '../src/data/edgarLogic.ts'
-import { verifyRevenuePeriod, verifyNotStale, verifyIdentity, verifySecEvents, accessionFromUrl, normalizeName } from '../scripts/sec-verify/independent.mjs'
+import { verifyRevenuePeriod, verifyNotStale, verifyIdentity, verifySecEvents, verifyPriorAdjacent, verifyHistory, accessionFromUrl, normalizeName } from '../scripts/sec-verify/independent.mjs'
 
 const contract = JSON.parse(readFileSync(new URL('../src/data/tracker/certifiedContract.json', import.meta.url), 'utf8'))
 
@@ -29,7 +29,7 @@ const rows = [
 ]
 const latest = { value: '$125', priorYearValue: '$100', yoyGrowth: '+25.0%', period: 'Quarter ended 2026-03-31', periodEnd: '2026-03-31', releaseDate: '2026-05-01' }
 const subs = (forms = [], extra = {}) => ({ cik: '1', name: 'Example Security, Inc.', tickers: ['EXS'], ...extra,
-  filings: { recent: { form: forms.map(f => f.form), filingDate: forms.map(f => f.date), accessionNumber: forms.map(f => f.accn), items: forms.map(f => f.items ?? ''), primaryDocument: forms.map(() => 'x.htm') } } })
+  filings: { recent: { form: forms.map(f => f.form), filingDate: forms.map(f => f.date), reportDate: forms.map(f => f.report ?? f.date), accessionNumber: forms.map(f => f.accn), items: forms.map(f => f.items ?? ''), primaryDocument: forms.map(() => 'x.htm') } } })
 
 test('a displayed quarter that matches SEC passes, including a derived Q4', () => {
   assert.equal(verifyRevenuePeriod(facts(rows), ['Revenues'], latest, { requireReleaseDate: true }).ok, true)
@@ -64,13 +64,28 @@ test('identity passes on name and ticker match and fails on mismatch or a delist
   assert.equal(verifyIdentity(subs([{ form: '25-NSE', date: '2026-09-01', accn: 'd' }]), { name: 'Example Security', ticker: 'EXS', kind: 'public' }, now).ok, false)
 })
 
-test('SEC events must cite filings that exist and cover every tracked filing in the window', () => {
-  const index = subs([{ form: '8-K', date: '2026-06-01', accn: '0000000001-26-000001', items: '5.02,9.01' }, { form: '8-K', date: '2026-07-01', accn: '0000000001-26-000002', items: '2.02' }])
-  const ev = [{ date: '2026-06-01', accessions: ['0000000001-26-000001'] }]
-  assert.equal(verifySecEvents(index, ev, ['2026-06-01'], '2025-10-15', '2026-10-15', '2026-10-15').ok, true)
-  assert.equal(verifySecEvents(index, [], [], '2025-10-15', '2026-10-15', '2026-10-15').ok, false, 'missing 5.02 event')
-  assert.equal(verifySecEvents(index, [{ date: '2026-06-02', accessions: ['0000000001-26-000001'] }], ['2026-06-01', '2026-06-02'], '2025-10-15', '2026-10-15', '2026-10-15').ok, false, 'event after its filing')
-  assert.equal(verifySecEvents(index, [{ date: '2026-06-01', accessions: ['9999999999-26-000009'] }], ['2026-06-01'], '2025-10-15', '2026-10-15', '2026-10-15').ok, false, 'unknown accession')
+test('the prior quarter must be the one immediately before latest, and every table row must match SEC', () => {
+  assert.equal(verifyPriorAdjacent(facts(rows), ['Revenues'], '2026-03-31', '2025-12-31').ok, true)
+  assert.equal(verifyPriorAdjacent(facts(rows), ['Revenues'], '2026-03-31', '2025-09-30').ok, false, 'stale prior quarter')
+  const table = [{ periodEnd: '2026-03-31', value: 125, filedDate: '2026-05-01', accessionNumber: 'a5', derived: false }, { periodEnd: '2025-12-31', value: 130, filedDate: '2026-02-20', accessionNumber: 'a4', derived: true }]
+  assert.equal(verifyHistory(facts(rows), ['Revenues'], table).ok, true)
+  assert.equal(verifyHistory(facts(rows), ['Revenues'], [{ ...table[0], value: 126 }]).ok, false)
+  assert.equal(verifyHistory(facts(rows), ['Revenues'], [{ ...table[1], derived: false }]).ok, false)
+})
+
+test('SEC events are anchored to filings and every tracked item is represented by type', () => {
+  const W = ['2025-10-15', '2026-10-15', '2026-10-15']
+  const index = subs([{ form: '8-K', date: '2026-06-03', report: '2026-06-01', accn: '0000000001-26-000001', items: '5.02,9.01' },
+    { form: '8-K', date: '2026-07-01', accn: '0000000001-26-000002', items: '2.02' }])
+  const ev = { id: 'EV-1', date: '2026-06-01', type: 'exec-change', accessions: ['0000000001-26-000001'], evidenceDates: ['2026-06-03'] }
+  assert.equal(verifySecEvents(index, [ev], [ev], ...W).ok, true, 'event on report date')
+  assert.equal(verifySecEvents(index, [], [], ...W).ok, false, 'missing 5.02 event')
+  assert.equal(verifySecEvents(index, [{ ...ev, date: '2026-04-01' }], [{ ...ev, date: '2026-04-01' }], ...W).ok, false, 'event far before its 8-K')
+  assert.equal(verifySecEvents(index, [{ ...ev, date: '2026-06-04' }], [{ ...ev, date: '2026-06-04' }], ...W).ok, false, 'event after its filing')
+  assert.equal(verifySecEvents(index, [{ ...ev, evidenceDates: ['2026-06-01'] }], [ev], ...W).ok, false, 'evidence date not the filing date')
+  assert.equal(verifySecEvents(index, [{ ...ev, accessions: ['9999999999-26-000009'] }], [ev], ...W).ok, false, 'unknown accession')
+  const sameDayOtherType = { date: '2026-06-03', type: 'acquisition', accessions: [] }
+  assert.equal(verifySecEvents(index, [], [sameDayOtherType], ...W).ok, false, 'same-day event of another type does not cover Item 5.02')
   const late = subs([{ form: '8-K', date: '2026-10-15', accn: '0000000001-26-000003', items: '5.02' }])
   assert.equal(verifySecEvents(late, [], [], '2025-10-14', '2026-10-14', '2026-10-15').ok, false, 'filing after window end')
   assert.equal(accessionFromUrl('https://www.sec.gov/Archives/edgar/data/1660280/000166028026000046/tenb-20261013.htm'), '0001660280-26-000046')
