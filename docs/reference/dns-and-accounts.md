@@ -1,51 +1,53 @@
----
-for: owner (Cloudflare DNS changes); Krypton for follow-up
-created: 2026-10-15
-decision: D-99
----
+# DNS and accounts
 
-# DNS and account hardening checklist
+Current DNS, email-authentication and account settings for the two sites in this portfolio
+(D-99). Both domains use Cloudflare DNS, not proxied. Records verified through public DNS on
+2026-10-15.
 
-**Done 2026-10-15:** all email records below for securitymarketpulse.com (SPF, DMARC reject, null MX accepted by Cloudflare) and jessepike.dev (SPF `~all`, DMARC `v=DMARC1; p=none`). Verified through public DNS. jessepike.dev DMARC has no `rua` yet: enable Cloudflare Email > DMARC Management (owner click) to add reporting. Not done: CAA, DNSSEC, account items.
+## securitymarketpulse.com
 
-Both domains use Cloudflare DNS (DNS only, not proxied). These changes are made in the Cloudflare dashboard. State checked 2026-10-15 with public DNS queries.
+The domain sends no email, so every record tells receivers to reject mail that claims to be from it.
 
-## securitymarketpulse.com (sends no email)
+| Type | Name | Value | State |
+|---|---|---|---|
+| TXT | `@` | `v=spf1 -all` | in place |
+| TXT | `_dmarc` | `v=DMARC1; p=reject; sp=reject; adkim=s; aspf=s` | in place |
+| MX | `@` | priority `0`, server `.` (null MX) | in place |
+| CAA | `@` | `0 issue "letsencrypt.org"` (Vercel issues certificates through Let's Encrypt) | open |
+| DNSSEC | | Cloudflare, DNS, Settings, Enable DNSSEC | open |
 
-Found: no MX, no SPF, no DMARC, no CAA, no DNSSEC. Anyone can send mail that claims to be from this domain.
+Change the email records only if the email workstream (D-92) ever sends from this domain. The
+current plan sends from jessepike.dev.
 
-| Type | Name | Value |
+## jessepike.dev
+
+Mail is Fastmail (MX and DKIM in place); the newsletter is Buttondown.
+
+| Type | Name | Value | State |
+|---|---|---|---|
+| TXT | `@` | `v=spf1 include:spf.messagingengine.com ~all` | in place |
+| TXT | `_dmarc` | `v=DMARC1; p=none` | in place; no report address yet |
+| CAA | `@` | `0 issue "letsencrypt.org"` | open |
+| DNSSEC | | as above | open |
+
+To get DMARC reports, turn on Cloudflare Email, DMARC Management (owner click). Move to
+`p=quarantine` only after 2 to 4 weeks of clean reports and after confirming Buttondown signs with
+DKIM aligned to jessepike.dev; otherwise newsletter mail may be rejected.
+
+## Web security headers
+
+Both sites send a Content-Security-Policy, HSTS with `includeSubDomains`, frame denial, a
+cross-origin opener policy and a restrictive Permissions-Policy, set in each repo's `vercel.json`.
+Both publish `/.well-known/security.txt`, which expires **2027-10-15** and must be renewed before
+then (tracked in [BACKLOG.md](../../BACKLOG.md)).
+
+## Accounts
+
+| Account | Sign-in | Notes |
 |---|---|---|
-| TXT | `@` | `v=spf1 -all` |
-| TXT | `_dmarc` | `v=DMARC1; p=reject; sp=reject; adkim=s; aspf=s` |
-| MX | `@` | priority `0`, mail server `.` (null MX; skip if Cloudflare rejects it, SPF and DMARC already cover spoofing) |
-| CAA | `@` | `0 issue "letsencrypt.org"` (Vercel issues certificates through Let's Encrypt) |
+| GitHub | Passkey and two-factor | Free plan; no branch protection (D-98) |
+| Vercel | Passkey and two-factor | Confirm the plan permits commercial use; Hobby is non-commercial |
+| Cloudflare | Passkey and two-factor | DNS for both domains |
 
-Change these when the email workstream (D-92) starts sending from this domain.
-
-## jessepike.dev (Fastmail mail, Buttondown newsletter)
-
-Found: Fastmail MX and DKIM in place; SPF ends in `?all` (neutral, gives no protection); no DMARC; no CAA; no DNSSEC.
-
-| Type | Name | Value |
-|---|---|---|
-| TXT | `@` | replace with `v=spf1 include:spf.messagingengine.com ~all` |
-| TXT | `_dmarc` | `v=DMARC1; p=none; rua=mailto:<an address you read>` |
-| CAA | `@` | `0 issue "letsencrypt.org"` |
-
-Start DMARC at `p=none` to collect reports without blocking mail. Before moving to `p=quarantine` (after 2 to 4 weeks of clean reports), confirm Buttondown sends with DKIM aligned to jessepike.dev, or newsletter mail may be rejected. If Buttondown sends from its own domain, add its include to SPF only if its settings say so.
-
-## Both domains
-
-- DNSSEC: Cloudflare dashboard, DNS, Settings, Enable DNSSEC. If the registrar is not Cloudflare, copy the DS record Cloudflare shows into the registrar.
-- After changes, verify with `dig TXT _dmarc.<domain>` or an online checker.
-
-## Accounts (D-98)
-
-- GitHub: passkey two-factor; remove any unused personal access tokens.
-- Vercel and Cloudflare: passkey or hardware-key two-factor.
-- Vercel plan: confirm the team's plan permits this use. The free Hobby plan is for non-commercial use.
-
-## Recurring
-
-- `security.txt` on both sites expires 2027-10-15. Renew before then. The monitoring work in AUTO-002 should alert 30 days ahead.
+Agents do not create tokens or copy credentials into CI without the owner's approval at the time
+(D-83).

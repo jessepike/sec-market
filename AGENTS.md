@@ -1,52 +1,44 @@
-# Security Market Signal Pipeline
+# Security Market Pulse
 
-## Runtime
+Shared instructions for every agent runtime (Claude, Codex, Cursor, Gemini, Krypton). This file is
+canonical; `CLAUDE.md` and `.cursor/rules/project.mdc` point here.
 
-Shared instructions for all agent runtimes (Claude, Codex, Cursor, Gemini).
+## What this is
 
-## Intent
+https://securitymarketpulse.com, a public tracker of the business of the security market: revenue,
+funding, acquisitions, restructuring, debt and leadership changes for 74 security suppliers across
+12 market domains. SEC figures for 16 public filers are checked against their filings every 4 hours;
+a change publishes automatically when every check passes. No machine writes opinions. The owner is
+Jesse Pike.
 
-See [intent.md](intent.md)
+- **Stage:** Operate. The site is live and updates itself.
+- **Type:** automated workflow with a static website.
+- **Scope:** public information only, at commercial quality.
 
-## Classification
+## Start here
 
-- **Type:** Workflow
-- **Scale:** commercial
-- **Scope:** mvp
-- **Complexity:** standalone
+| Read | For |
+|---|---|
+| [README.md](README.md) | What the project is and where everything lives |
+| [intent.md](intent.md) | Purpose, readers and boundaries. Changes need the owner's approval |
+| [status.md](status.md) | Current state, open items and what is next. Read it first in every session |
+| [BACKLOG.md](BACKLOG.md) | Open work |
+| [decisions.md](decisions.md) | Decision ledger; the decisions in force are indexed at the top |
+| [.claude/rules/constraints.md](.claude/rules/constraints.md) | Hard rules |
+| [docs/reference/architecture.md](docs/reference/architecture.md) | How the system works |
+| [docs/reference/operations.md](docs/reference/operations.md) | Commands, shipping, repair |
 
-## Current Stage
+Load on demand: [docs/reference/](docs/reference/) for the current design, [docs/active/](docs/active/)
+for work in flight. Never load automatically: [docs/archive/](docs/archive/), `.ctx/`.
 
-Operate — Security Market Pulse is live; next job is recurring public-signal intelligence
+## Continuity
 
-## Context Map
+Sessions start cold. Everything the next agent needs is in the repo, not in a chat:
 
-| File | Load When | Purpose |
-|------|-----------|---------|
-| [intent.md](intent.md) | Always | North Star — immutable without permission |
-| [status.md](status.md) | Always | Session state — review at start, update at end |
-| [BACKLOG.md](BACKLOG.md) | Always | Canonical work queue |
-| [decisions.md](decisions.md) | Always | Decision log |
-| [README.md](README.md) | Always | Authority order and project truth |
-| [docs/reference/](docs/reference/) | Design, episode work | Settled governance and episode packet |
-| [docs/active/](docs/active/) | Current work | In-progress specs and plans |
-| [web/](web/) | Web product work | Security Market Pulse MVP |
-| [docs/archive/](docs/archive/) | Never auto | Historical hypotheses — explicit instruction only |
-| [.claude/rules/](.claude/rules/) | Always | Hard constraints |
-
-## Workflow Type
-
-Probabilistic/Agentic — human-steered judgment with transparent evidence
-
-## Trigger
-
-Recurring — public market signals are gathered on a cadence; market calls stay human-checked
-
-## Integrations
-
-- CISO Advisory concepts may be referenced; this project owns market timing and signal evidence
-- Public static website: Vercel project `security-market-pulse`, domain `securitymarketpulse.com`
-- Recurring public-signal intake is authorized; auto-publish of market calls is not
+- At the start: read `status.md`, then `git status` and `git log --oneline -10` on `preview`.
+- At the end: update `status.md` (current state only, one page) and log any decision in
+  `decisions.md` with the owner's words.
+- Krypton, the owner's agent system, picks up from `status.md` the same way.
 
 ## Production deploy (mandatory)
 
@@ -56,66 +48,63 @@ There are exactly two long-lived branches and each one owns a URL:
 
 | Branch | URL | What it is |
 |---|---|---|
-| `preview` | https://security-market-pulse-git-preview-pikeholdings.vercel.app | The trunk. All work lands here. The URL is stable — bookmark it and refresh. |
-| `main` | https://securitymarketpulse.com | Production. Moves **only** by a deliberate merge from `preview`. |
+| `preview` | https://security-market-pulse-git-preview-pikeholdings.vercel.app | The trunk. All work lands here. The URL is stable |
+| `main` | https://securitymarketpulse.com | Production. Moves only by a fast-forward from `preview` |
 
-`main` is production. Pushing to `main` publishes to the public site with no human between the commit and the world, so `main` moves only when the owner says to promote. Every other branch is short-lived and merges into `preview`, not into `main`.
+1. Work on a short-lived branch from `preview`, or on `preview` itself. Never commit on `main`.
+2. Run `npm test` from `web/`.
+3. Push `preview`. Vercel rebuilds the stable preview URL.
+4. Run the visual review below and send the owner the preview URL and the screenshots.
+5. **Only after the owner says yes:** `git checkout main && git merge --ff-only preview && PROMOTE=1 git push origin main`.
+6. Confirm the Vercel production deployment is Ready, then `curl` the live host before saying it shipped.
 
-1. Develop against the OrbStack dev server (`orb run -m dev npm run dev --prefix web`).
-2. Commit a clean tree on `preview`, or on a short-lived branch that merges into `preview`. **Never commit directly on `main`.**
-3. `git push origin preview`. Vercel rebuilds the same stable preview URL above.
-4. Run the visual review below and send the owner that URL plus the before/after screenshots.
-5. **Promotion, and only after the owner says yes:** `git checkout main && git merge --ff-only preview && git push origin main`.
-6. Vercel builds that `main` commit (project `pikeholdings/security-market-pulse`, root `web`) and serves the live domain. Confirm Ready, then curl the live host.
+A `pre-push` hook refuses a push to `main` without `PROMOTE=1`. Install it once per clone with
+`./.githooks/install`. Keeping `main` a fast-forward of `preview` means production is always an
+exact earlier state of the trunk, so "what is live" is answered by one `git log`.
 
-A `pre-push` hook refuses a direct push to `main`. Install it once per clone with `./.githooks/install`; promotion then needs `PROMOTE=1` in front of the push, which makes publishing a deliberate act rather than an ordinary one.
-
-Keeping `main` a fast-forward of `preview` is deliberate. It means production is always an exact earlier state of the trunk, never a parallel history, so "what is live" is answerable by one `git log`.
-
-**Certified data auto-promotion (D-88, AUTO-002).** `.github/workflows/certified-refresh.yml` runs every 4 hours, re-derives the certified SEC tier, and when a certified value changes pushes only its six allowlisted data files to `preview`. `.github/workflows/promote-certified.yml` runs daily and fast-forwards `main` to `preview` only when every differing file is in that allowlist, the newest `preview` commit is at least 24 hours old, and a fresh certification reproduces the committed values at 100%. Any code change on `preview` blocks it until the owner promotes. The site build refuses to publish the tracker if the certified gate fails (`web/scripts/certify-gate.ts --at-certification`). Phase specs: `docs/active/auto-002-phase0-spec.md`, `docs/active/auto-002-phase2-spec.md`.
-
-Retired exception (D-73, superseded by D-93 when the weekly issue was retired): the owner's approval of the weekly issue pull request — an approving review, or a comment whose first word is `publish` — is itself the promotion word, but only for that one issue. `.github/workflows/publish-issue.yml` and `scripts/publish-issue.sh` carry it out, and they promote to `main` only under the step 7 condition: `preview` must already match `main` on `web/` before the run starts, so his approval of an issue is never approval of unrelated site work sitting on `preview`. Every other change to `main` still reaches it exactly the way described above.
+**The one automatic exception (D-88).** `certified-refresh.yml` pushes changed certified SEC data,
+and nothing else, to `preview`. `promote-certified.yml` fast-forwards `main` once a day only when
+every file that differs is one of the six allowlisted data files, the newest `preview` commit is at
+least 24 hours old, and a fresh certification reproduces the values at 100%. Any other commit on
+`preview` blocks it until the owner promotes. So after human work lands on `preview`, ask the owner
+to promote promptly, or certified data stops reaching production.
 
 Do **not**:
 
-- commit or push anything directly to `main` — it moves only by promotion from `preview`
-- push to `main` any change that touches `web/` without owner approval of a preview
-- `vercel --prod` / CLI-upload a dirty or uncommitted working tree
-- treat `origin/main` as live until that commit has actually deployed
-- push an older `main` that would regress the scorecard already on production
-- commit with `jesse@pikeholdings.co` — Vercel blocks the GitHub deploy (`COMMIT_AUTHOR_REQUIRED`) because GitHub cannot map that address to a user
-
-This repo’s commit email must be the GitHub-verified address `jesse@keatingpike.com` (`git config user.email` in this repo). After a push, confirm the Vercel deploy is Ready, then curl the live host before telling the owner it is shipped.
-
-First production ship was a CLI upload. That split local, GitHub, and Vercel. Do not recreate it.
+- commit or push directly to `main`
+- push to `main` any change that touches `web/` without the owner's approval of a preview
+- deploy with `vercel --prod` or upload a working tree from the CLI
+- treat `origin/main` as live until that commit has deployed
+- force-push `preview` or `main`
+- commit as `jesse@pikeholdings.co`. Vercel refuses the deploy (`COMMIT_AUTHOR_REQUIRED`). The repo's
+  commit email is `jesse@keatingpike.com`
 
 ## Visual review before publish (mandatory)
 
-A build that passes is not a page that looks right. No change touching `web/` reaches `main` until an agent has **rendered the page and looked at it**.
+A build that passes is not a page that looks right. No change touching `web/` reaches `main` until
+an agent has **rendered the page and looked at it**.
 
-Before asking for approval, capture full-page screenshots of the current production site and of the preview build at **1440px and 390px** widths, compare them, and state plainly what moved. Send the owner the images with the preview URL. Run from `web/`:
+Before asking for approval, capture full-page screenshots of production and of the preview at
+**1440px and 390px**, compare them, and state plainly what moved. From `web/`:
 
 ```
 node scripts/shot.mjs https://securitymarketpulse.com/ /tmp/prod
 node scripts/shot.mjs <preview-url> /tmp/preview
 ```
 
-Hard rules:
+- **Never delete a component, CSS rule, data export or page section on the strength of static
+  analysis alone.** Render before and after and prove the pixels did not move.
+- A claim that the site improved must be backed by a render, not a build log, a Lighthouse score or
+  a passing test.
+- Report **invisible** work (SEO, prerendering, bundle size, citations, accessibility) separately
+  from **visible** work (layout, type, colour, hierarchy, charts). If nothing visible changed, say
+  so first.
 
-- **Never delete a component, a CSS rule, a data export, or a page section on the strength of static analysis alone.** "No importers found" is a hypothesis. Render the page before and after and prove the pixels did not move. Two independent agents can both be wrong about the same file.
-- A claim that the site improved must be backed by a render, not by a build log, a lighthouse score, or a passing test.
-- Separate **invisible** work (SEO, prerendering, bundle size, citation accuracy, accessibility) from **visible** work (layout, typography, colour, hierarchy, charts) when reporting. Say which of the two you did. Never let a long list of invisible wins imply the page looks different.
-- If a session's goal is "make it better" and no visible change was made, say so in the first sentence of the report.
+## Content rules
 
-## Fresh-agent minimum context
-
-1. [README.md](README.md)
-2. [intent.md](intent.md)
-3. [outcome-architecture.md](docs/reference/outcome-architecture.md)
-4. Current reconciliation and active episode under [docs/active/](docs/active/) (`SEC-MARKET-RECON-001`, `SEC-MARKET-SIG-002`)
-5. Frozen thematic packet under [docs/reference/](docs/reference/) (`SEC-MARKET-SIG-001` v0.2) only when needed
-6. Accepted shadow design and replay corpus under [docs/active/](docs/active/) (`SEC-MARKET-SHADOW-001` v0.2, `SEC-MARKET-SHADOW-CORPUS-001` v0.1)
-7. Accepted Gate S1 implementation specification under [docs/active/](docs/active/) (`SEC-MARKET-SHADOW-S1-SPEC-001` v0.2)
-8. Accepted web MVP contract and implementation under [docs/active/](docs/active/) and [web/](web/) (`SEC-MARKET-WEB-001`)
-9. Current signals job under [docs/active/signals-job.md](docs/active/signals-job.md)
-10. Production deploys only via local → GitHub → Vercel (this file, D-31)
+- Facts only. No machine-written stance, ranking, forecast or interpretation (D-76).
+- The page calls a figure certified only when `web/src/data/tracker/certification.ts` says so, and
+  says "re-derived from SEC filings", never "independently verified" (D-100).
+- Published records (issue `2026-w36`, the thesis, corrections) change only through a new dated
+  correction, never by editing the record.
+- Plain language in anything a reader sees: short sentences, no em dashes, no marketing phrasing.

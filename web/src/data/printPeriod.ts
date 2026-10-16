@@ -9,7 +9,7 @@ import type { EvidenceRecord } from './types'
  * 2026-07-25", "Series G close") — into a small set of comparable shapes.
  *
  * Both scripts/verify-prints.ts (does the card's period agree with its
- * evidence?) and scripts/stale-report.ts (how old is this print's period?)
+ * evidence?) and, until 2026-10-16, the retired stale-report script (how old is this print's period?)
  * read through this module rather than parsing period strings themselves, so
  * the two cannot silently disagree about what a period string means.
  */
@@ -294,7 +294,7 @@ export function checkPrintPeriod(cardPeriod: string, evidence: EvidenceRecord[])
   return { status: 'not-checkable', reason: `card period "${cardPeriod}" does not match a recognised pattern` }
 }
 
-// --- Period end-date derivation (used by scripts/stale-report.ts) ---------
+// --- Period end-date derivation (written for the retired stale-report script) ---------
 
 const LAST_DAY_OF_MONTH = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
@@ -313,7 +313,7 @@ function lastDayOfMonthIso(year: number, month: number): string {
 
 /**
  * The best mechanically-derivable end date for a scorecard print's period,
- * for staleness measurement only (scripts/stale-report.ts) — never used by
+ * for staleness measurement only (the retired stale-report script) — never used by
  * the figure-meaning check, which compares kinds and years rather than
  * needing one exact date.
  *

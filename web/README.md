@@ -1,73 +1,58 @@
-# Security Market Pulse — Web
+# Security Market Pulse: web
 
-Responsive single-page product for frozen Episode 002 market evidence (`SEC-MARKET-SIG-002`).
+The site at https://securitymarketpulse.com. Vite, React 19 and TypeScript, prerendered to static
+HTML at build time. No server, API, database or secrets. How the whole system fits together is in
+[docs/reference/architecture.md](../docs/reference/architecture.md); day-to-day commands are in
+[docs/reference/operations.md](../docs/reference/operations.md).
 
-## Local development
+## Commands
 
-From the repository root (via OrbStack dev VM):
+Node 22. Run from this folder.
 
-```bash
-orb run -m dev npm install --prefix web
-orb run -m dev npm run dev --prefix web
-```
+| Command | What it does |
+|---|---|
+| `npm ci` | Install exact dependencies |
+| `npm run dev` | Local development server |
+| `npm run build` | Gated production build into `dist/` (what Vercel runs) |
+| `npm test` | Lint, data tests, build, browser tests |
+| `npm run test:data` | Data and logic tests only |
+| `npm run test:e2e` | Playwright tests against `dist/` |
+| `npm run refresh:edgar`, `refresh:filing-events` | Pull SEC data for the tracked filers |
+| `npm run certify:sec`, `certify:gate` | Re-derive and gate the 80 certified claims |
+| `npm run check:links` | Check internal links in the built site |
+| `node scripts/shot.mjs <url> <prefix>` | Full-page screenshots at 1440 and 390 |
 
-Open the URL printed by Vite (typically `http://localhost:5173`).
+## Build pipeline
 
-## Production
+`npm run build` runs [scripts/app-release.mjs](scripts/app-release.mjs):
 
-- **Vercel project:** `pikeholdings/security-market-pulse`
-- **Live URL:** https://securitymarketpulse.com
-- **Vercel alias:** https://security-market-pulse.vercel.app
-- **Custom domain:** `securitymarketpulse.com` (www redirects to apex)
-- **Root directory:** `web`
-- **Git:** `jessepike/sec-market` → production on `main`
-- **Deploy contract:** [AGENTS.md](../AGENTS.md) § Production deploy
+1. `certify-gate.ts --at-certification` must report every certified claim verified with no drift,
+   or the build stops.
+2. `build:certified` runs the content gates (`verify:edition`, `verify:panel`, `verify:integrity`,
+   `verify:issue`, `verify:prints`, `verify:tracker`), type-checks, builds the client and server
+   bundles, prerenders each route, writes SEO files and the feed, and checks the output
+   (`verify:dist`).
+3. The certification receipt and `app-release.json` are copied into `dist/`.
 
-## Production build
+## Where things live
 
-```bash
-orb run -m dev npm run build --prefix web
-```
+| Path | Contents |
+|---|---|
+| `src/App.tsx`, `src/entry-server.tsx`, `src/main.tsx` | Page shell, prerender entry and client entry |
+| `src/components/` | Page sections. `MarketDesk.tsx` is the tracker; `HowThisWorks.tsx` is the Method section |
+| `src/data/tracker/` | Suppliers, domains, events, the certified contract (`certifiedContract.json`) and what the page may call certified (`certification.ts`) |
+| `src/data/generated/` | Machine-written data. The six files refreshed by the bot are listed in the architecture doc |
+| `src/data/issues/` | The one signed weekly issue (`2026-w36`), locked by hash in `issues.lock.json` |
+| `src/data/*.ts` | Evidence records, corrections, thesis and panel data, and their helpers |
+| `scripts/` | Refresh, certification, build, prerender and verification scripts |
+| `scripts/sec-verify/` | The independent SEC verifier and the 8-K Item 2.03 excerpt extractor |
+| `tests/` | Data tests (`*.test.ts`, `*.test.mjs`) and browser tests (`e2e/`) |
+| `public/` | Static files, including `.well-known/security.txt` |
+| `vercel.json` | Install command and security headers |
 
-Static output is written to `web/dist/`. Preview locally:
+## Content rules
 
-```bash
-orb run -m dev npm run preview --prefix web
-```
-
-## Lint
-
-```bash
-orb run -m dev npm run lint --prefix web
-```
-
-## CI
-
-GitHub Actions runs `npm ci`, `npm run lint`, and `npm test` on PRs and pushes that touch `web/`. Local parity: `orb run -m dev npm test --prefix web`.
-
-## Panel data integrity
-
-Quarterly chart indices are **derived in code** from frozen raw panel values in `src/data/panelRaw.ts` (`derivePanel.ts`, `panelIntegrity.ts`). The build runs `verify:panel` before compile; it fails if derived values drift from the frozen snapshot.
-
-After intentional panel edits:
-
-```bash
-orb run -m dev npm run verify:panel --prefix web
-# inspect output, then update EXPECTED_DERIVED_PANEL_JSON in src/data/panelIntegrity.ts
-```
-
-## Updating evidence and content
-
-1. **Evidence records** — Edit `src/data/evidence.ts` using only claims from accepted docs in `docs/archive/2026-08-gate-chain/episode-002/market-signal-episode-002-*.md`. Each record needs: title, organization, dates, canonical URL, excerpt, interpretation, limitations, conflicting IDs, and artifact label.
-2. **Sparse panel raw values** — Edit `src/data/panelRaw.ts` from `SEC-MARKET-SIG-PANEL-002`; run `verify:panel` and update the frozen JSON in `panelIntegrity.ts`.
-3. **Market call, domains, activity** — Edit the typed modules in `src/data/` (`market.ts`, `domains.ts`, `activity.ts`). Keep claims aligned with the brief and source manifest. Activity items use `surface: lead | more | background`.
-4. **Metadata** — `src/data/meta.ts` for freeze date and episode version.
-
-Components read from data modules only; do not embed claims directly in JSX.
-
-## Stack
-
-- Vite + React 19 + TypeScript
-- Recharts (market layers, buyer budgets)
-- lucide-react (icons)
-- Static data — no API, auth, or database
+- Components read from data modules; claims are never written directly in JSX.
+- The signed issue `2026-w36` and the thesis are dated records. Change them only through a
+  published correction (`src/data/corrections.ts`), never by editing the record.
+- Nothing on the page may call a figure certified unless `certification.ts` says it is.

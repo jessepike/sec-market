@@ -1,6 +1,29 @@
 # Decision Log
 
-Append-only. Record owner and project decisions that shape direction. Do not edit past entries; supersede with a new entry.
+Append-only ledger of owner and project decisions since 2026-08-15. Past entries are not edited;
+a later entry supersedes an earlier one. (Link paths were updated on 2026-10-16 when documents moved
+to `docs/archive/`; the words of each entry are unchanged.)
+
+## Decisions in force (as of 2026-10-16)
+
+Everything not listed here is history: superseded, completed, or about a phase that has ended.
+
+| Area | Decisions | In short |
+|---|---|---|
+| Purpose | D-1, D-76, D-77, D-102 | Intent is the authority (now v1.5). Facts publish with no human approval step; no machine publishes a judgment. A standing supplier tracker is the product |
+| What may be called verified | D-85, D-89, D-100 | Publishing needs 100% of required claims. The certified tier is the SEC filers. The page says "re-derived from SEC filings", not "independently verified" |
+| Events | D-91 | Filed events are dated, uniform, rule-listed facts from SEC filings |
+| Automation | D-88, D-96, D-98, D-101 | Certified data reaches production on its own after a soak and a fresh check. SEC is checked every 4 hours. No paid GitHub plan; `main` is guarded by design. Production renders the certified tracker |
+| Deploy path | D-31, D-32, D-50 | Local, then GitHub, then Vercel. `preview` is the trunk, `main` is production. Commits use `jesse@keatingpike.com` |
+| Attribution | D-90, D-97 | Method-page byline in the owner's legal name, Jesse Pike, with an interests statement |
+| Records | D-68, D-93 | Published records change only through dated corrections. The weekly issue is retired; issue `2026-w36` stays as an archive |
+| Distribution | D-92 | Email capture and a digest of certified changes, built as one workstream |
+| Security | D-83 (credential boundary), D-99 | No tokens or credentials copied to CI without approval at the time. Security headers and DNS hardening on both sites |
+| Roadmap | D-94, D-95 | A quarterly owner-written note is on the backlog. AI extraction for private companies is deferred |
+
+Commonly cited superseded entries: D-62 and D-64 (weekly issue) by D-77 and D-93; D-73 (issue
+approval as promotion) by D-93; D-80 (no name on the site) by D-90; D-86 and D-87 (app-only release)
+by D-101.
 
 ---
 
@@ -10,15 +33,15 @@ Gate 1 passed. Human Acceptance and AI Readiness recorded in [intent.md](intent.
 
 **D-2 · 2026-08-15 — Outcome Architecture accepted provisionally (`SEC-MARKET-OA-001` v0.1).**
 
-Gate 2 passed — provisional. Minimum causal architecture in [outcome-architecture.md](docs/reference/outcome-architecture.md).
+Gate 2 passed — provisional. Minimum causal architecture in [outcome-architecture.md](docs/archive/2026-08-gate-chain/outcome-architecture.md).
 
 **D-3 · 2026-08-15 — Manual decision episode selected (`SEC-MARKET-G3-001` v0.1).**
 
-Gate 3 passed — provisional. Intervention rationale in [intervention-selection.md](docs/reference/intervention-selection.md).
+Gate 3 passed — provisional. Intervention rationale in [intervention-selection.md](docs/archive/2026-08-gate-chain/intervention-selection.md).
 
 **D-4 · 2026-08-15 — Initial decision contract sealed (`SEC-MARKET-DC-001` v0.1).**
 
-AI data security and governance vendor landscape pilot completed. Contract in [decision-contract.md](docs/reference/decision-contract.md).
+AI data security and governance vendor landscape pilot completed. Contract in [decision-contract.md](docs/archive/2026-08-gate-chain/decision-contract.md).
 
 **D-5 · 2026-08-15 — Episode 001 decision: Conditional PREPARE (`SEC-MARKET-SIG-001` v0.2).**
 
@@ -28,7 +51,7 @@ Question: Are agents becoming a consequential cybersecurity action surface quick
 - Organizations without material exposure: remain in INVESTIGATE
 - No standing program, specialist-platform motion, or broad procurement authorized
 
-Research freeze: 2026-08-15. Independent review passed. Packet authority: [market-signal-episode-001-change-manifest.md](docs/reference/market-signal-episode-001-change-manifest.md).
+Research freeze: 2026-08-15. Independent review passed. Packet authority: [market-signal-episode-001-change-manifest.md](docs/archive/2026-08-gate-chain/episode-001/market-signal-episode-001-change-manifest.md).
 
 **D-6 · 2026-08-15 — Next authorized action: repeatability test.**
 
@@ -40,7 +63,7 @@ Repository scaffolded per ADF Folder Structure v2: root control surfaces, `docs/
 
 **D-8 · 2026-08-15 — Episode 001 reclassified as thematic validation.**
 
-Owner review found that Episode 001 did not test the original core thesis that infrastructure, investment, financial, and demand signals can reveal future cybersecurity demand. The accepted Governing Intent already contains that thesis, so no intent-version change is required. Episode 001 remains a valid frozen thematic artifact but is not evidence that the core signal model or cross-domain repeatability has been validated. Reconciliation: [intent-reconciliation-2026-08-15.md](docs/active/intent-reconciliation-2026-08-15.md).
+Owner review found that Episode 001 did not test the original core thesis that infrastructure, investment, financial, and demand signals can reveal future cybersecurity demand. The accepted Governing Intent already contains that thesis, so no intent-version change is required. Episode 001 remains a valid frozen thematic artifact but is not evidence that the core signal model or cross-domain repeatability has been validated. Reconciliation: [intent-reconciliation-2026-08-15.md](docs/archive/2026-08-gate-chain/intent-reconciliation-2026-08-15.md).
 
 **D-9 · 2026-08-15 — Episode 002 infrastructure-to-security lag question authorized.**
 
@@ -48,7 +71,7 @@ Owner acceptance: “agree. proceed.”
 
 Question: Is the current infrastructure and AI-capex cycle producing a measurable leading signal for increased cybersecurity demand, over what horizon, and which security domains are likely to capture it first?
 
-Episode contract: [market-signal-episode-002.md](docs/episodes/002/market-signal-episode-002.md). Production automation remains unauthorized.
+Episode contract: [market-signal-episode-002.md](docs/archive/2026-08-gate-chain/episode-002/market-signal-episode-002.md). Production automation remains unauthorized.
 
 **D-10 · 2026-08-15 — Episode 002 decision accepted after independent review (`SEC-MARKET-SIG-002` v0.2).**
 
@@ -191,7 +214,7 @@ Capital activity (M&A and funding) shows one section read and five headlines; no
 
 Refresh is manual: earnings clusters, material closes or raises, and Watch-next falsifiers. Not a weekly news cycle. Raises and deal values are not ARR.
 
-External reviewers start at [web-mvp-external-review-brief.md](docs/active/web-mvp-external-review-brief.md). Deploy remains a separate track.
+External reviewers start at [web-mvp-external-review-brief.md](docs/archive/2026-08-web-mvp/web-mvp-external-review-brief.md). Deploy remains a separate track.
 
 **D-23 · 2026-08-16 — External review P1 fixes before public ship.**
 
@@ -289,7 +312,7 @@ Still no scrapers, no auto-publish, no site design in these sessions.
 
 **D-36 · 2026-08-16 — Accept the 2026-08-16 review findings for the Activity rewrite.**
 
-Authority: [review-findings-2026-08-16.md](docs/archive/review-findings-2026-08-16.md).
+Authority: [review-findings-2026-08-16.md](docs/archive/2026-08-origins/review-findings-2026-08-16.md).
 
 The standing rewrite agent may resolve amounts and rewrite the statements. It may not edit `web/`, ship, build an archive, or change domain postures.
 
@@ -335,7 +358,7 @@ Hold: Activity edition rewrite (`activity.ts` + D19–D29). Re-gather when a new
 
 No new Governing Intent. `SEC-MARKET-001` v1.1 still governs. The lost-in-the-weeds problem is execution, not purpose.
 
-The lead steers from [sec-009-execution.md](docs/active/sec-009-execution.md). Owner is not in the desk loop unless the published market call would change.
+The lead steers from [sec-009-execution.md](docs/archive/2026-08-signals/sec-009-execution.md). Owner is not in the desk loop unless the published market call would change.
 
 **D-42 · 2026-08-16 — Ship the labeled Activity window now. Do not wait on unpublished RoS issues.**
 
@@ -349,11 +372,11 @@ Supersedes the D-39 / D-40 / D-41 hold that blocked Activity until #257–#258.
 
 Owner needs plain artifacts for leadership in two days — not scattered research catalogs. Create:
 
-- [intelligence-funding-ops.md](docs/active/intelligence-funding-ops.md)
-- [intelligence-ma-ops.md](docs/active/intelligence-ma-ops.md)
-- [intelligence-domains-ops.md](docs/active/intelligence-domains-ops.md)
-- [intelligence-dashboard-ops.md](docs/active/intelligence-dashboard-ops.md)
-- [leadership-brief-2026-08.md](docs/active/leadership-brief-2026-08.md)
+- [intelligence-funding-ops.md](docs/archive/2026-08-signals/intelligence-funding-ops.md)
+- [intelligence-ma-ops.md](docs/archive/2026-08-signals/intelligence-ma-ops.md)
+- [intelligence-domains-ops.md](docs/archive/2026-08-signals/intelligence-domains-ops.md)
+- [intelligence-dashboard-ops.md](docs/archive/2026-08-signals/intelligence-dashboard-ops.md)
+- [leadership-brief-2026-08.md](docs/archive/2026-08-signals/leadership-brief-2026-08.md)
 
 Each doc: question answered, sources, refresh cadence, aggregation, signal quality, decisions driven. Multi-source — Return on Security is one weekly source among many. Weekly Loop A (Tuesday gather) runs without owner babysitting.
 
@@ -389,7 +412,7 @@ No "read the edition" call to action. The page is the product. `NextEdition.tsx`
 
 Platform pressure is derived from existing sourced records, not hand-authored. Two owner hypotheses recorded 2026-08-17 enter as `TRACKING`, not as claims.
 
-Specs: [landscape-data-spec.md](docs/active/landscape-data-spec.md) then [landscape-ui-spec.md](docs/active/landscape-ui-spec.md). Neither is authorized to implement yet. `edition-dated-postures` must land first.
+Specs: [landscape-data-spec.md](docs/archive/2026-08-web-mvp/landscape-data-spec.md) then [landscape-ui-spec.md](docs/archive/2026-08-web-mvp/landscape-ui-spec.md). Neither is authorized to implement yet. `edition-dated-postures` must land first.
 
 **D-48 · 2026-08-19 — Landscape preview is one product, and preview URLs are public.**
 
@@ -434,7 +457,7 @@ The prior session's instinct to verify production by query rather than by docume
 
 **D-52 · 2026-08-20 — Integrity pass: the site stops saying things about itself that are not true.**
 
-An alignment audit against `intent.md` found several places where a mark on the page means nothing, contradicts another mark, or would crash if used. The product's whole claim is that every mark is checkable, so these are not cosmetic. Specification: [integrity-pass-spec.md](docs/active/integrity-pass-spec.md) (`SEC-MARKET-INTEGRITY-001`).
+An alignment audit against `intent.md` found several places where a mark on the page means nothing, contradicts another mark, or would crash if used. The product's whole claim is that every mark is checkable, so these are not cosmetic. Specification: [integrity-pass-spec.md](docs/archive/2026-08-web-mvp/integrity-pass-spec.md) (`SEC-MARKET-INTEGRITY-001`).
 
 Four calls settled in advance so the operator does not have to make them:
 
@@ -461,13 +484,13 @@ Recording this entry is the point of D-51. The approval existed there too; what 
 
 The owner remembered a grid of per-vendor cards organised by domain and asked what decision had taken it away. No decision had. All forty-two cards were in the served markup the whole time, nested inside a collapsed `<details>` element four sections down, so nothing on the page told a reader they existed. I first reported them as present on the strength of the HTML, which was wrong in the way that matters: being in the markup is not being on the page. Measuring in a real browser returned forty-two cards in the document and zero visible.
 
-Specification: [scorecard-visibility-spec.md](docs/active/scorecard-visibility-spec.md) (`SEC-MARKET-VIS-001`). Phase 1 is built: the scorecard moves out of the collapsed depth section to sit directly under the tracked hypotheses, its eight domain groups are collapsible individually so a phone does not receive a seventeen-thousand-pixel wall, and the group header carries a derived count rather than a hand-typed one. The "no series yet" placeholder spark is gone, since a placeholder that never becomes a chart is decoration claiming to be data.
+Specification: [scorecard-visibility-spec.md](docs/archive/2026-08-web-mvp/scorecard-visibility-spec.md) (`SEC-MARKET-VIS-001`). Phase 1 is built: the scorecard moves out of the collapsed depth section to sit directly under the tracked hypotheses, its eight domain groups are collapsible individually so a phone does not receive a seventeen-thousand-pixel wall, and the group header carries a derived count rather than a hand-typed one. The "no series yet" placeholder spark is gone, since a placeholder that never becomes a chart is decoration claiming to be data.
 
 One idea was rejected in review before it was built: promoting all forty-two cards to the top of the page. That trades one failure for its mirror — a reader who cannot find the evidence, replaced by a reader who cannot find the read. Phases 2 and 3, mapping each print to the posture it supports and giving the archive real prior editions, are specified and not started.
 
 **D-55 · 2026-08-20 — The project scorecard measures outcomes by evidence state against an exposure denominator, and refuses a composite score.**
 
-Instrument: [project-scorecard.md](docs/active/project-scorecard.md). Its job is to keep the work honest against `intent.md`, which says plainly that completing agents, a website or reports does not constitute success. Success is a decision changed, a client conversation supported, a technology or timing choice informed, and reasoning another person can reconstruct.
+Instrument: [project-scorecard.md](docs/archive/2026-08-web-mvp/project-scorecard.md). Its job is to keep the work honest against `intent.md`, which says plainly that completing agents, a website or reports does not constitute success. Success is a decision changed, a client conversation supported, a technology or timing choice informed, and reasoning another person can reconstruct.
 
 A first version was drafted and sent to an external model, which took it apart correctly. Scoring an untested outcome as zero implies it was tried and failed; giving credit for enabling work inflates the number the instrument exists to protect; capping the total simply moves the gaming into the outcomes; and I had, unsurprisingly, scored my own most recent work highest. It also caught that I had asserted `intent.md` ranks its beneficiaries when the document presents them as a table with no ordering, and that the first draft missed earliness entirely — which is the project's central thesis.
 
@@ -477,7 +500,7 @@ The honest baseline: every outcome is not assessed, legibility fails, and the de
 
 **D-56 · 2026-08-22 — The phone view is corrected back to the accepted Option D design.**
 
-Rendering the deployed preview at 390 pixels showed the page opening straight into four domain cards with no framing at all. The eyebrow, the headline and the lede all rendered after the cards, because the Option D implementation set `order: 2` on the intro and `order: 1` on the cards inside the phone media query. The accepted design render at `.design/out/option-d-mobile-1of2.png` shows the opposite and shows it clearly: one short framing sentence, then the cards. So this was drift from an accepted design, not a design choice anyone made, and nothing caught it because every build gate passed and no one had rendered the page at a phone width since Option D landed.
+Rendering the deployed preview at 390 pixels showed the page opening straight into four domain cards with no framing at all. The eyebrow, the headline and the lede all rendered after the cards, because the Option D implementation set `order: 2` on the intro and `order: 1` on the cards inside the phone media query. The accepted design render at `docs/archive/2026-08-web-mvp/design-canvas/out/option-d-mobile-1of2.png` shows the opposite and shows it clearly: one short framing sentence, then the cards. So this was drift from an accepted design, not a design choice anyone made, and nothing caught it because every build gate passed and no one had rendered the page at a phone width since Option D landed.
 
 Three further phone changes go with it. The eyebrow is hidden above the framing line, which is what the accepted design does. The lede is set smaller so the intro block stays short. And each card's judged footer collapses from three stacked lines to one wrapped line, which is again what the design shows; the desktop footer keeps its two stacked lines, and that must be proven by render rather than asserted. The navigation also gains the scorecard entry it was missing after D-54 made that section top-level.
 
@@ -509,7 +532,7 @@ These were the two questions D-55 left open and explicitly refused to guess.
 
 Two things remain owner-owned and unanswerable by me: the names in the pilot set, and the name of the human who scores the outcome review. Until the first exists the denominator stays at one, and until the second exists the H1 and H4 health results stay self-assessed and provisional.
 
-Encoded in [project-scorecard.md](docs/active/project-scorecard.md) and [decision-impact-log.md](docs/active/decision-impact-log.md). The impact log also gains the two questions D-55 flagged as missing, asking whether the reader already knew and whether their options were still open, because counting uses is not the same as knowing whether this works.
+Encoded in [project-scorecard.md](docs/archive/2026-08-web-mvp/project-scorecard.md) and [decision-impact-log.md](docs/archive/2026-08-web-mvp/decision-impact-log.md). The impact log also gains the two questions D-55 flagged as missing, asking whether the reader already knew and whether their options were still open, because counting uses is not the same as knowing whether this works.
 
 **D-59 · 2026-08-28 — The AI security coverage gets published as the acquisition read, not as more vendor cards. Posture unchanged.**
 
@@ -518,7 +541,7 @@ more AI vendors to the board — would have made it thicker without making it be
 capital rounds already on the board all say the same thing and the site already carries six of them.
 
 The bounded gather (`SEC-MARKET-AI-001` Part 2, recorded at
-[ai-coverage-gather-2026-08-27.md](docs/active/ai-coverage-gather-2026-08-27.md)) asked twelve public
+[ai-coverage-gather-2026-08-27.md](docs/archive/2026-08-signals/ai-coverage-gather-2026-08-27.md)) asked twelve public
 companies what they disclose about AI security revenue and got nothing from any of them. That null
 result was real and it was also the wrong altitude. The evidence sits one layer down in the same
 filings: Palo Alto paid $634.5M for Protect AI, F5 paid $145.2M for CalypsoAI and $50.1M for SurePath
@@ -546,7 +569,7 @@ call stayed put. The platform-absorption hypothesis stays TRACKING rather than b
 SUPPORTED; more absorptions strengthen its evidence, and moving a tracked hypothesis is a decision in
 its own right, not a side effect of loading data.
 
-Specified in [ai-coverage-presentation-spec.md](docs/active/ai-coverage-presentation-spec.md)
+Specified in [ai-coverage-presentation-spec.md](docs/archive/2026-08-signals/ai-coverage-presentation-spec.md)
 (`SEC-MARKET-AI-002`). Lands on `preview` for a rendered review; production moves only on an explicit
 owner yes, as always.
 
@@ -593,7 +616,7 @@ Avoid, both carrying the acquisition finding from D-59, plus its four filing sou
 clause. That edits a published, dated, human-signed judgment, so it is kept in its own commit and can
 be rejected without unpicking the promotion.
 
-Specified in [read-promotion-spec.md](docs/active/read-promotion-spec.md) (`SEC-MARKET-READ-001`).
+Specified in [read-promotion-spec.md](docs/archive/2026-08-web-mvp/read-promotion-spec.md) (`SEC-MARKET-READ-001`).
 This also answers a large part of SEC-019, the above-the-fold question that had been open since
 2026-08-20. Production still moves only on an explicit owner yes after a rendered review.
 
@@ -656,13 +679,13 @@ offering on an ePlus domain, if that conversation ever opens.
 
 **What this does not do.** It does not change `intent.md`; the proposed v1.2 text is in the plan and
 waits for the owner's acceptance. It does not authorise any build. Plan:
-[weekly-issue-plan.md](docs/active/weekly-issue-plan.md) (`SEC-MARKET-WEEKLY-001` v0.1). Backlog:
+[weekly-issue-plan.md](docs/archive/2026-09-weekly-issue/weekly-issue-plan.md) (`SEC-MARKET-WEEKLY-001` v0.1). Backlog:
 SEC-027 to SEC-031; SEC-017 superseded.
 
 **D-63 · 2026-09-03 — Intent v1.2 accepted as written.**
 
 The owner accepted the v1.2 text proposed in §3 of
-[weekly-issue-plan.md](docs/active/weekly-issue-plan.md): "approve the intent v1.2 text as written."
+[weekly-issue-plan.md](docs/archive/2026-09-weekly-issue/weekly-issue-plan.md): "approve the intent v1.2 text as written."
 `intent.md` now carries it. Four state-register rows moved: the weekly issue is Decided as the unit
 of product; autonomous agents are Decided for gather and draft only, with publication and every
 judgment a named person's act; newsletters are Decided for a named pilot list with public timing held
@@ -693,8 +716,8 @@ with the work; external review runs once on the specs and once on the whole diff
 task; the visual review states what moved against the spec rather than halting on any unexpected
 pixel.
 
-Specifications: [weekly-issue-spec.md](docs/active/weekly-issue-spec.md) (`SEC-MARKET-ISSUE-001`)
-and [gather-job-spec.md](docs/active/gather-job-spec.md) (`SEC-MARKET-GATHER-001`). The gather job
+Specifications: [weekly-issue-spec.md](docs/archive/2026-09-weekly-issue/weekly-issue-spec.md) (`SEC-MARKET-ISSUE-001`)
+and [gather-job-spec.md](docs/archive/2026-09-weekly-issue/gather-job-spec.md) (`SEC-MARKET-GATHER-001`). The gather job
 runs as a Claude Code cloud routine rather than a launchd job, which removes the Forge and jobs-agent
 dependencies the plan had assumed. Work lands on branch `weekly-issue`, is validated on its Vercel
 preview deploy, and merges to `preview` when the whole improvement passes.
@@ -722,7 +745,7 @@ being built and the manifest served live by production at `/issues/lock.json`. A
 `preview` but not yet promoted is still under owner review and may change; once promoted it is
 anchored. On a `main` or `preview` build with no readable anchor the gate fails closed. Codex's last
 verdict on the gate, after the empty-body fix, is recorded in
-`docs/active/issues/2026-w36-review-final-codex.md`; the residual it names (feed well-formedness)
+`docs/archive/2026-09-weekly-issue/issues/2026-w36-review-final-codex.md`; the residual it names (feed well-formedness)
 was closed in the same pass.
 
 Not decided here: promotion to `main`; signing `2026-w36`; arming the Tuesday schedule; the pilot
@@ -765,7 +788,7 @@ unchanged.
 Still open and unchanged: the pilot list, arming the Tuesday schedule, and the runtime the gather job
 runs on now that the cloud environment has been proven unable to reach the public web.
 
-**D-67 · 2026-09-20 — The owner restated what the site is for; `docs/active/product-core.md` is the working statement, and the front page is re-aimed at it on `preview`.**
+**D-67 · 2026-09-20 — The owner restated what the site is for; `docs/archive/2026-09-weekly-issue/product-core.md` is the working statement, and the front page is re-aimed at it on `preview`.**
 
 In the terminal on 2026-09-20 the owner said the site is first a credibility asset for his advisory
 work and a working instrument for deciding which suppliers and domains deserve attention. It is
@@ -777,9 +800,9 @@ signs every judgment" is the right model. `intent.md` and `.claude/rules/constra
 unchanged; the proposed amendments are in `product-core.md` section 9 and wait for his word.
 
 Decisions the run took on its own recommendation, each recorded in
-`docs/active/fable-run/RUN-STATE.md`:
+`docs/archive/2026-09-weekly-issue/fable-run/RUN-STATE.md`:
 
-- The scoring rubric is `docs/active/fable-run/site-rubric.md` v2.1. Decision value and trust carry
+- The scoring rubric is `docs/archive/2026-09-weekly-issue/fable-run/site-rubric.md` v2.1. Decision value and trust carry
   the most weight, and four blockers override any score: a mislabelled figure, an unsupported
   comparison, machine content presented as the author's opinion, an accessibility failure.
 - The supplier table on the front page is alphabetical and ranks nothing. An external review on
@@ -806,7 +829,7 @@ Two headlines in the issue gave fourth-quarter revenue as fiscal-year revenue (Z
 Alto $3.41B), and one "why it matters" line called a company-defined segment's growth the fastest of
 the week against other companies' total revenue. Shown the drafted correction text and the
 mechanism in the terminal, the owner said yes. The text is the one in
-`docs/active/fable-run/drafts/correction-2026-w36.md` section 2, dated 2026-09-20. Published issues
+`docs/archive/2026-09-weekly-issue/fable-run/drafts/correction-2026-w36.md` section 2, dated 2026-09-20. Published issues
 stay locked: corrections live in an append-only `web/src/data/corrections.ts`, show as a dated note
 beside the affected item with the original left as it was, are listed at `/corrections/`, and are
 carried in the machine-readable files. A gate now fails a fiscal-year label over a quarterly source
@@ -836,7 +859,7 @@ runner needs no owner decision. The reachability table in
 The chain is: launchd fires `scripts/gather.sh` on macbook2014 every Tuesday at 07:00; the script
 resets to `origin/preview`, works out the due ISO week, exits early if that issue or its branch
 already exists, checks its own Claude login, hands the job to `claude -p` with
-`docs/active/gather-brief.md` as the instruction, and confirms a branch reached GitHub. The host
+`docs/archive/2026-09-weekly-issue/gather-brief.md` as the instruction, and confirms a branch reached GitHub. The host
 pushes over a read-write deploy key and holds no GitHub API token. `.github/workflows/gather-pr.yml`
 opens the pull request from the pushed branch, and GitHub's own mobile notification is the one tap —
 no webhook, no credential, no spend. `.github/workflows/freshness.yml` watches the live site daily
@@ -877,7 +900,7 @@ The headline itself is copy, so it is the owner's to change. It lives in one con
 
 The owner asked whether the thesis (does security spending lag infrastructure spending) is something
 his audience needs. Answer recorded: not for a security leader, mildly for advisors and vendor
-partner teams, which matches `docs/active/product-core.md` section 5. He said to continue, the move
+partner teams, which matches `docs/archive/2026-09-weekly-issue/product-core.md` section 5. He said to continue, the move
 was built to `preview`, he was shown it, and he said "Promote".
 
 The whole judgment board (running score, thesis headline, stat band, the read, change triggers,
@@ -911,12 +934,12 @@ promotion each still need an agent session at a terminal. Three builds were prop
    The locked issue 2026-w36 is not touched.
 
 `intent.md` and `.claude/rules/constraints.md` are his to amend and are not edited by this run. The
-wording changes they need are proposed separately in `docs/active/publish-path-spec.md`.
+wording changes they need are proposed separately in `docs/archive/2026-09-weekly-issue/publish-path-spec.md`.
 
 **D-74 · 2026-09-21 — `preview` was promoted on the owner's word; `main` moved `35a888f` → `51dbffd`. The publish-on-approval workflow, the scorecard check and the stale report are on the default branch.**
 
 The owner said "promote". The promotion carried builds 1 and 3 and the first step of build 2 from
-D-73 (`docs/active/publish-path-spec.md`): `.github/workflows/publish-issue.yml`,
+D-73 (`docs/archive/2026-09-weekly-issue/publish-path-spec.md`): `.github/workflows/publish-issue.yml`,
 `scripts/publish-issue.sh`, the sign scripts, `verify:prints`, `report:stale`, and the thesis
 verdict leaving the weekly brief. Nothing a reader can see changed: four pages compared between
 production and the preview host were identical once hashed asset names and hosts were normalised.
@@ -964,12 +987,12 @@ then publishes under his name as today.
 What it supersedes: the approve-to-publish path of D-73 to D-75 for facts, the `reconfirm` word, and
 the D-66 signing of weekly issues as a precondition of publication. The existing dated stances of
 16 Aug 2026 and other judged text on the site are not removed by this decision; how they are
-retired or kept is part of the plan in `docs/active/autonomy-coverage-plan.md`. The AGENTS.md
+retired or kept is part of the plan in `docs/archive/2026-10-refresh-gate/autonomy-coverage-plan.md`. The AGENTS.md
 production-deploy contract (every `web/` change reaches `main` only on an owner yes) still governs
 changes to the site's code and layout; only the automated publication of validated facts is
 exempted, and AGENTS.md is updated when that path is built.
 
-**D-77 · 2026-09-25 — The owner said "go" on `docs/active/autonomy-coverage-plan.md` (SEC-MARKET-AUTO-001), approved the four intent amendments (`intent.md` v1.4), and chose Claude Opus 5.5 and GPT-6 Sol as the site's scorers.**
+**D-77 · 2026-09-25 — The owner said "go" on `docs/archive/2026-10-refresh-gate/autonomy-coverage-plan.md` (SEC-MARKET-AUTO-001), approved the four intent amendments (`intent.md` v1.4), and chose Claude Opus 5.5 and GPT-6 Sol as the site's scorers.**
 
 His words: "go, and apply the four intent amendments. I'm thinking we should use opus 5.5 for
 scoring along with sol 6." `intent.md` v1.4 restates purpose (a credibility asset and a working
@@ -980,7 +1003,7 @@ as the unit of product. "Go" is taken as the word to run the plan end to end, in
 promotion of `preview` to `main`, which also carries the SEC-054 Platform pressure correction whose
 wording he approved on 2026-09-21. Layout changes in later steps are still shown to him before they
 reach production. Scoring: every future score is two blind scorers, `claude-opus-5-5` and
-`gpt-6-sol` via `codex exec -m gpt-6-sol`; recorded in `docs/active/fable-run/site-rubric.md` v2.2.
+`gpt-6-sol` via `codex exec -m gpt-6-sol`; recorded in `docs/archive/2026-09-weekly-issue/fable-run/site-rubric.md` v2.2.
 
 **D-78 · 2026-09-25 — Step 0 of AUTO-001 promoted to production under D-77's "go"; `main` moved `9b98353` → `28c7ffd`.**
 
@@ -990,7 +1013,7 @@ Cato Networks); Lakera reads as closed inside Check Point on 2025-10-22; acquire
 one label. Palo Alto's segment figures and Upwind's new round were left unchanged because no
 primary source could be read. The promotion also carried the SEC-054 Platform pressure correction
 and the EDGAR runner (not yet on any page). The live host was checked: new figures and the
-corrected wording served, five routes return 200. Report: `docs/active/auto/step0/report.md`.
+corrected wording served, five routes return 200. Report: `docs/archive/2026-10-refresh-gate/auto-001/step0/report.md`.
 
 **D-79 · 2026-09-25 — The automatic publish path compares only the site, the workflows and the scripts when deciding whether production may move; record-keeping commits no longer block facts from publishing.**
 
@@ -1023,10 +1046,10 @@ that invocation's own findings, by design. Trusting the last batch's own write w
 the site's failed-newsroom count as whatever the final batch alone found, not the true count across
 all 74 suppliers. The coordinator's explicit instruction was that the count must reflect the whole
 run. The block was instead hand-built from the 7 batches' saved `failed-sources.json` receipts
-(archived at `docs/active/auto/fitfix4/batch-receipts/`), merged to 11 of 74 suppliers whose
+(archived at `docs/archive/2026-10-refresh-gate/auto-001/fitfix4/batch-receipts/`), merged to 11 of 74 suppliers whose
 newsroom could not be read after exhausting a five-route fallback chain (RSS/Atom, sitemap, an IR
 subdomain, a wire-service copy, EDGAR full-text search) — down from 28 before this pass. Full detail
-and every fact changed: `docs/active/auto/fitfix4/data-report.md`.
+and every fact changed: `docs/archive/2026-10-refresh-gate/auto-001/fitfix4/data-report.md`.
 
 **D-82 · 2026-10-14 — Owner selects the bake-off hybrid and authorizes preview implementation.**
 
@@ -1106,3 +1129,7 @@ Owner: "yes let's continue" (Phase 0). Built and audited the same night. The cer
 **D-101 · 2026-10-16 — Production renders the certified tracker (AUTO-002 Phase 2).**
 
 Owner, after Phase 1 was promoted: "promote. then continue until complete." Read as authority to build, review and ship Phase 2. Production switches from the frozen legacy snapshot (D-86) to the tracker in a new `certified` release mode, gated at build time by `certify-gate.ts --at-certification` (proofs evaluated at their certification time, every displayed claim re-derived from build inputs, no drift). Wall-clock freshness stays with the 4-hour workflow (D-96). The site clock (`runStatus.lastChecked`) moves to the SEC refresh date because the laptop collector is retired. Run-status, diagnostic and coverage panels leave the page; one paragraph states what is certified, the last certified change, and the cadence. Wording follows D-100. Byline and interests statement on the Method page per D-90 and D-97, written without pronouns. Late-filing notices (NT 10-K, NT 10-Q) added as filed events; 8-K Item 2.03 events quote the opening of the filing's own description (D-91). `promote-certified.yml` scheduled daily. `web/published-app` kept unchanged as the legacy record.
+
+**D-102 · 2026-10-16 — Repository cleanup: retired material archived, retired code removed, core documents rewritten.**
+
+Owner: "let's clean this up ... archive what we need to archive ... I want it kind of just slim down", then, to three questions: archive retired material and delete only true leftovers ("yes"); change `intent.md` and `.claude/rules/` ("yes you can change"); cut `status.md` to the current state and `BACKLOG.md` to open items, and "keep decision as historical ledger--don't trim." Scope: sec-market only. Done: retired documents moved to `docs/archive/` by era with an index; `docs/reference/` gains `architecture.md` and `operations.md`; `web/published-app`, root `scripts/` and `workflows/`, the weekly-issue workflows, the app-only and diagnostic build modes, 17 unreachable components and the unused `recharts` dependency removed (this supersedes D-101's note that `web/published-app` stays); `intent.md` v1.5; constraints updated to record D-88 and D-92; this ledger gains the index above. One visible change, a duplicated phrase in the RSS line ("Follow published records by RSS: follow by RSS" now reads "Follow new records by RSS"); every other pixel on all five routes is identical at 1440 and 390.

@@ -103,10 +103,9 @@ interface CollectFailure {
 }
 
 /**
- * The unstructured collector's receipt of its own most recent run,
- * written by `scripts/collect.sh` step 6 (or, for a gate-failure/held
- * publish, by `scripts/auto-publish.sh`'s `push_incomplete_status`) —
- * never hand-edited. `state` is the collector's own diff-based verdict
+ * The unstructured collector's receipt of its own most recent run. The
+ * collector and its publish script were retired and removed on 2026-10-16;
+ * the receipt is a frozen record (SEC-063 retires it from the build). `state` is the collector's own diff-based verdict
  * ('no-change'/'updated' only meaningful when `restrictedTo` is null and
  * `failedSources` is empty — an unrestricted, clean run). `restrictedTo`
  * is the supplier-id list the run was limited to, or null for a run that

@@ -3,12 +3,12 @@
 ## Control
 
 - **Intent ID:** `SEC-MARKET-001`
-- **Version:** `1.4`
+- **Version:** `1.5`
 - **Lifecycle state:** `accepted`
 - **Gate 1:** `passed`
-- **Supersedes:** `SEC-MARKET-001` v1.3
+- **Supersedes:** `SEC-MARKET-001` v1.4
 - **Created:** 2026-08-15
-- **Last reconciled:** 2026-09-25 — purpose, readers, scope and success brought in line with the owner's product core (`docs/active/product-core.md`); v1.3's autonomy rule unchanged
+- **Last reconciled:** 2026-10-16. v1.5 records what AUTO-002 settled (certified SEC tier, automatic publishing, named byline, email digest, weekly issue retired) and points to current documents. Purpose, readers, boundaries and the v1.3 autonomy rule are unchanged
 
 ## Compressed governing intent
 
@@ -18,7 +18,7 @@
 
 ## Purpose
 
-Security Market Pulse is first a credibility asset for the owner's advisory work and a working instrument he uses himself for supplier and domain decisions: for each security domain, which suppliers are on solid footing and what the public evidence says about why. It moves security planning from reactive response toward informed preparation, and it earns trust by being accurate, fresh and epistemically honest.
+Security Market Pulse is first a credibility asset for the owner's advisory work and a working instrument the owner uses for supplier and domain decisions: for each security domain, which suppliers are on solid footing and what the public evidence says about why. It moves security planning from reactive response toward informed preparation, and it earns trust by being accurate, fresh and epistemically honest.
 
 ## Desired outcome
 
@@ -27,7 +27,7 @@ Security leaders and the people who advise them use current, sourced market fact
 ## Value
 
 - Security leaders can see whether the suppliers they buy from are growing, stalling, consolidating, being absorbed or in financial trouble, before it reaches them as a renewal, a support change or a surprise.
-- The owner, his colleagues and vendor partner teams can ground supplier recommendations and client conversations in current evidence rather than impression.
+- The owner, the owner's colleagues and vendor partner teams can ground supplier recommendations and client conversations in current evidence rather than impression.
 - Anyone who wants a practitioner's pulse on the security market gets one that is sourced and current.
 
 ## Beneficiaries
@@ -35,7 +35,7 @@ Security leaders and the people who advise them use current, sourced market fact
 | Tier | Reader | What they come for |
 |---|---|---|
 | 1. Written for | Security leaders and decision makers: chief information security officers, security architects, people running a security program | What is happening in the market they buy from; who is growing, fading, being absorbed, or might not be here in two years |
-| 2. Also for | People who advise and sell to tier 1: the owner, his colleagues and leadership at his employer, vendor partner teams | The same picture, used to decide which suppliers to build around and what to bring to a client conversation |
+| 2. Also for | People who advise and sell to tier 1: the owner, the owner's colleagues and employer, vendor partner teams | The same picture, used to decide which suppliers to build around and what to bring to a client conversation |
 | 3. Welcome | Anyone who wants a practitioner's pulse on the security market | The same |
 
 Investors are not a designed-for reader, and the site gives no investment advice. The core is not geographically constrained. Regional differences may later justify tuned views, but they do not limit who may benefit or which national and global signals belong in the core.
@@ -58,7 +58,7 @@ Decisions changed by the site are welcome evidence and may be logged, but are no
 - Initial outputs use public, publishable information.
 - Market observation may be national or global.
 - Claims preserve provenance, uncertainty, conflicting evidence, and credible alternatives.
-- Forward-looking judgments appear only when the owner writes them himself, and must label their confidence and basis.
+- Forward-looking judgments appear only when the owner writes them, carry the owner's name, and must label their confidence and basis.
 - Public intelligence augments rather than replaces client conversations, pipeline evidence, partner information, and local judgment.
 - Scope remains practical enough to learn and deliver value incrementally.
 - A machine may retrieve, extract, validate and publish sourced facts on its own schedule, with automated checks as the only publishing gate and no human approval step. A machine does not publish judgments: no stances, rankings, forecasts, or interpretation of what a fact means.
@@ -96,7 +96,7 @@ Decisions changed by the site are welcome evidence and may be logged, but are no
 
 | Unknown | Blocking? | Why it matters | Resolution path |
 |---|---|---|---|
-| Longer-term distribution beyond the website, including newsletters | no | May extend reach after the core website proves useful | Learn from actual use |
+| Distribution beyond the website and the email digest | no | May extend reach after the core proves useful | Learn from actual use |
 | Autonomous-agent architecture | no | Affects implementation and maintainability | Decide during downstream design |
 | Detailed confidence and evidence-weighting rubric | no | Affects consistency and trust | Develop and test without changing the transparency boundary |
 | Audience- or region-specific views | no | May improve relevance after the core proves useful | Learn from actual use |
@@ -110,10 +110,13 @@ Decisions changed by the site are welcome evidence and may be logged, but are no
 | Public, publishable initial core | Decided | All downstream scope | New accepted intent version |
 | National and global market observation | Decided | Source and analysis scope | New accepted intent version |
 | Transparent, calibrated judgments | Decided | Reasoning and output behavior | New accepted intent version |
-| A standing supplier tracker updated as facts change, with a machine-generated weekly change log, as the unit of product (replaces the signed weekly issue; `SEC-MARKET-AUTO-001`) | Decided | Product shape, cadence, presentation | New accepted intent version |
+| A standing supplier tracker updated as facts change, with a machine-generated change log, as the unit of product (replaces the signed weekly issue, which is retired: D-77, D-93) | Decided | Product shape, cadence, presentation | New accepted intent version |
 | Autonomous worker agents and reasoning layer | Decided: gather, validate and publish sourced facts with no human approval step; judgments are published only when the owner writes them | Implementation | New accepted intent version |
+| Certified tier: SEC figures for public filers re-derived and gated at 100% before publishing; every other figure labeled as not certified (`SEC-MARKET-AUTO-002`, D-89, D-100) | Decided | What the site may call verified | New accepted intent version |
+| Named byline (Jesse Pike) with an interests statement on the Method page (D-90, D-97) | Decided | Attribution | New accepted intent version |
 | Responsive public-data website | Decided | MVP presentation and distribution | New accepted intent version |
-| Audience- or region-specific views and newsletters | Decided for a named pilot list; public distribution follows four held issues | Presentation and distribution | Owner decision at the 2026-10-08 review |
+| Email digest of certified changes, with signup on this site and jessepike.dev; list held by jessepike.dev (D-92) | Decided; build waits on owner inputs | Distribution | New accepted intent version |
+| Audience- or region-specific views | Exploring | Presentation | Learn from actual use |
 | Partner-risk monitor | Exploring | Potential backlog | Separate prioritization and scope decision |
 | Confidential client overlay | Exploring, with a decided boundary: built downstream inside ePlus surfaces, never in the core, never on this domain | Potential future product boundary | Explicit reconciliation and governance decision |
 
@@ -133,7 +136,8 @@ Decisions changed by the site are welcome evidence and may be logged, but are no
 - **Requirement:** maintain attribution and access to supporting research and evidence
 - **Date:** 2026-08-16
 - **v1.2 Human Acceptance:** accepted — "approve the intent v1.2 text as written" — project owner, 2026-09-03
-- **v1.4 Human Acceptance:** accepted — "go, and apply the four intent amendments" (purpose, readers, scope, success, as proposed in `docs/active/autonomy-coverage-plan.md` section 2) — project owner, 2026-09-25
+- **v1.4 Human Acceptance:** accepted — "go, and apply the four intent amendments" (purpose, readers, scope, success, as proposed in `docs/archive/2026-10-refresh-gate/autonomy-coverage-plan.md` section 2) — project owner, 2026-09-25
+- **v1.5 Human Acceptance:** the owner authorized this revision on 2026-10-16 ("yes you can change") to bring the intent in line with D-88 to D-101; the text is presented for the owner's confirmation at review
 - **v1.3 Human Acceptance:** accepted — "Source check facts can publish. I don't want to be the bottleneck for this. So it needs to be automated. There doesn't need to be any gates." Asked what the machine may say beyond facts, the owner chose "facts only, no judgments", and approved rewriting this file and the project rules to match — project owner, 2026-09-25
 
 ### AI Readiness
@@ -150,16 +154,17 @@ Decisions changed by the site are welcome evidence and may be logged, but are no
 - **Reconfirmed for v1.3 and v1.4:** ready — facts publish automatically with checks as the only gate, no machine judgments, security leaders first, distress and consolidation in scope, freshness as the first test of success
 - **Agent or model:** Claude Opus 5.5, sec-market orchestrator session
 - **Reconfirmed:** 2026-09-25
+- **Reconfirmed for v1.5:** ready. The certified tier, the automatic path to production, the byline and the email digest are explicit; purpose, readers and boundaries are unchanged
+- **Agent or model:** Claude Opus 5.5, sec-market session
+- **Reconfirmed:** 2026-10-16
 
 ## Traceability and handoff
 
-- **Originating source documents:** [security-signal-workflow-spec-v0.4.md](docs/archive/security-signal-workflow-spec-v0.4.md); [security-signal-BUILD-SPEC-v1.0.md](docs/archive/security-signal-BUILD-SPEC-v1.0.md); Gate 1 discussion completed 2026-08-15
-- **Downstream items governed:** Existing specifications require review against this intent. In particular, the build spec's partner-risk-first Phase 1 conflicts with the accepted priority and is not authorized merely by its presence in that document.
-- **Reconciliation events:** `SEC-MARKET-RECON-001` resolved 2026-08-15; Episode 001 reclassified as thematic, governing intent unchanged
-- **Current operational validation:** `SEC-MARKET-SIG-002` v0.2 completed and independently reviewed; stable infrastructure-to-security lag remains `NO-CALL`
-- **Current MVP delivery:** `SEC-MARKET-WEB-001` — responsive evidence-linked website
-- **Current product direction:** `SEC-MARKET-AUTO-001` ([autonomy-coverage-plan.md](docs/active/autonomy-coverage-plan.md)) — a standing supplier tracker across declared domains, published automatically as validated facts. `SEC-MARKET-WEEKLY-001` (the signed weekly issue) is superseded; signed issue `2026-w36` and the thesis record stay as a dated archive.
-- **Fresh-agent minimum context:** [README.md](README.md), this artifact, [product-core.md](docs/active/product-core.md), [autonomy-coverage-plan.md](docs/active/autonomy-coverage-plan.md), [intent-reconciliation-2026-08-15.md](docs/active/intent-reconciliation-2026-08-15.md), the Episode 002 packet in [docs/episodes/002/](docs/episodes/002/), and [outcome-architecture.md](docs/reference/outcome-architecture.md). Consult historical specifications only for hypotheses and proposed mechanisms.
+- **Originating source documents:** [security-signal-workflow-spec-v0.4.md](docs/archive/2026-08-origins/security-signal-workflow-spec-v0.4.md) and [security-signal-BUILD-SPEC-v1.0.md](docs/archive/2026-08-origins/security-signal-BUILD-SPEC-v1.0.md). Historical hypotheses, not implementation authority.
+- **Validation history:** Episodes 001 and 002 and the gate chain are complete and archived in [docs/archive/2026-08-gate-chain/](docs/archive/2026-08-gate-chain/). Episode 002 left the infrastructure-to-security lag at `NO-CALL`; the thesis stays on the site as a dated record.
+- **Current product direction:** `SEC-MARKET-AUTO-002` ([auto-002-proposal.md](docs/reference/auto-002-proposal.md)): a certified SEC tier refreshed every 4 hours on GitHub Actions and published to production with no human step when every check passes. It supersedes `SEC-MARKET-AUTO-001`, archived in [docs/archive/2026-10-refresh-gate/](docs/archive/2026-10-refresh-gate/).
+- **How it works now:** [architecture.md](docs/reference/architecture.md) and [operations.md](docs/reference/operations.md).
+- **Fresh-agent minimum context:** [README.md](README.md), this file, [AGENTS.md](AGENTS.md), [status.md](status.md) and [architecture.md](docs/reference/architecture.md).
 
 ## Revision record
 
@@ -169,6 +174,7 @@ Decisions changed by the site are welcome evidence and may be logged, but are no
 | 1.1 | accepted | Promote the responsive evidence-linked website from Exploring to Decided for MVP delivery | accepted, 2026-08-16 | ready, 2026-08-16 | Website becomes the primary MVP consumption surface; purpose and evidence boundaries unchanged |
 | 1.2 | accepted | Weekly issue as the unit of product; agent-drafted gather with a named person signing; newsletter to a named pilot list; ePlus overlay bounded downstream | accepted, 2026-09-03 | ready, 2026-09-03 | Episode 002 call becomes a standing thesis; purpose, beneficiaries and evidence boundaries unchanged |
 | 1.4 | accepted | Purpose becomes a credibility asset and working instrument for supplier and domain decisions; security leaders first, investors out; scope adds distress and consolidation and excludes news; success led by freshness; standing tracker replaces the signed weekly issue (D-77) | accepted, 2026-09-25 | ready, 2026-09-25 | Account-team GTM timing is no longer the organizing purpose; the thesis becomes a dated record; the public-evidence boundary and v1.3 autonomy rule unchanged |
+| 1.5 | accepted | Record AUTO-002: certified SEC tier gated at 100%, automatic promotion of certified data, named byline, email digest authorized, weekly issue retired; traceability points to current documents (D-88 to D-101) | authorized, 2026-10-16 | ready, 2026-10-16 | No change to purpose, readers or boundaries |
 | 1.3 | accepted | Remove the human approval step: sourced, machine-validated facts publish automatically; the machine publishes no judgments; judgments appear only when the owner writes them (D-76) | accepted, 2026-09-25 | ready, 2026-09-25 | The publish-on-approval path, signing and dated machine-proposed stances are superseded; purpose, beneficiaries and the public-evidence boundary unchanged |
 
 ## Gate result

@@ -1,29 +1,31 @@
-# Security Market Signal Pipeline
+# Security Market Pulse
 
 @AGENTS.md
 
-> Project context lives in AGENTS.md (canonical). This file imports it for Claude-specific sessions.
+AGENTS.md is canonical for every runtime. This file adds only what is specific to Claude sessions.
 
-## Publishing to the live site — read this before touching `web/`
+## Before touching `web/`
 
-`main` is production. A push to `main` publishes to https://securitymarketpulse.com with nobody between the commit and the public site.
+`main` is production. A push to `main` publishes to https://securitymarketpulse.com with nobody
+between the commit and the public site.
 
-- **Never commit or push to `main`.** All work lands on `preview`, which serves a stable URL at https://security-market-pulse-git-preview-pikeholdings.vercel.app. Production moves only by promoting `preview` to `main`, and that is the owner's call, not yours.
-- **Render the page and look at it** before you claim anything about how it looks. `node scripts/shot.mjs <url> <prefix>` from `web/` captures full-page images at 1440px and 390px. Compare production against the preview and say what moved.
-- **Never delete a component, CSS rule, or export because static analysis says it is unused.** Prove it with a before/after render.
-- When you report, separate invisible work (SEO, prerendering, bundle size, citations, accessibility) from visible work (layout, type, colour, hierarchy). If nothing visible changed, say that first.
+- Never commit or push to `main`. Work lands on `preview`; promotion is the owner's call.
+- Render the page and look at it before claiming anything about how it looks
+  (`node scripts/shot.mjs <url> <prefix>` from `web/`, 1440px and 390px).
+- Never delete code, CSS or data because static analysis says it is unused. Prove it with a
+  before/after render.
+- When reporting, separate invisible work from visible work. If nothing visible changed, say so first.
 
-Full contract: [AGENTS.md](AGENTS.md) § Production deploy and § Visual review before publish.
+## Context map
 
-## Context Map (progressive disclosure)
+- **Always loaded:** `intent.md`, `status.md`, `BACKLOG.md`, `decisions.md`, `.claude/rules/`
+- **Current design:** `docs/reference/` (start with `architecture.md`)
+- **Work in flight:** `docs/active/`
+- **Never load automatically:** `docs/archive/`, `.ctx/`
 
-**Always loaded:** Root artifacts — `intent.md`, `BACKLOG.md`, `status.md`, `decisions.md`
+## Working habits
 
-**Default working zone:** `docs/active/`
-
-**Load on demand:**
-- Gate chain and episode packet → `docs/reference/`
-- Manual method → [market-signal-runbook.md](docs/reference/market-signal-runbook.md)
-- Historical hypotheses → `docs/archive/` (explicit instruction only)
-
-**Never load automatically:** `docs/archive/`, `.ctx/`
+- Do not use `pkill -f` with a pattern that also appears in your own command line; it kills the
+  shell running it.
+- Commit as `jesse@keatingpike.com` and end commit messages with the attribution lines the session
+  provides.
