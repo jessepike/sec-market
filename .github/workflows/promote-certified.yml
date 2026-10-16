@@ -1,0 +1,93 @@
+name: promote certified data
+
+# AUTO-002 Phase 1 (D-88): moves certified, data-only changes from `preview`
+# to `main` with no human step. MANUAL ONLY until Phase 2: production is built
+# from the frozen published snapshot (D-86), so promoting data changes nothing
+# visible yet. Phase 2 adds a schedule here once production renders the
+# certified tier.
+#
+# Promotes only when all of these hold:
+#   - `main` is an ancestor of `preview` (fast-forward only)
+#   - every file that differs between them is in the data allowlist
+#   - the newest data commit on `preview` is at least 24 hours old (soak)
+#   - a fresh certification of `preview` passes the 100% gate and reproduces
+#     exactly the certified values committed there
+
+on:
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: promote-certified
+  cancel-in-progress: false
+
+env:
+  DATA_FILES: >-
+    web/src/data/generated/edgarFacts.json
+    web/src/data/generated/filingEvents.json
+    web/src/data/generated/filingEvidence.json
+    web/src/data/generated/filingRun.json
+    web/src/data/generated/certifiedCoverage.json
+    web/src/data/generated/certifiedVerification.json
+  SOAK_HOURS: '24'
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    outputs:
+      sha: ${{ steps.scope.outputs.sha }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: preview
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Fast-forward, data-only, soaked
+        id: scope
+        run: |
+          set -euo pipefail
+          git fetch --no-tags origin main
+          git merge-base --is-ancestor origin/main HEAD || { echo "main is not an ancestor of preview"; exit 1; }
+          changed=$(git diff --name-only origin/main HEAD | sort)
+          [ -n "$changed" ] || { echo "Nothing to promote."; exit 1; }
+          extra=$(comm -23 <(echo "$changed") <(printf '%s\n' $DATA_FILES | sort) || true)
+          [ -z "$extra" ] || { echo "Not data-only; needs the owner's promotion:"; echo "$extra"; exit 1; }
+          age=$(( ( $(date -u +%s) - $(git log -1 --format=%ct HEAD) ) / 3600 ))
+          [ "$age" -ge "$SOAK_HOURS" ] || { echo "Soaking: newest preview commit is $age h old"; exit 1; }
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      - name: Re-certify and require identical values
+        working-directory: web
+        run: |
+          set -euo pipefail
+          npm ci --no-audit --no-fund
+          cp src/data/generated/certifiedCoverage.json "$RUNNER_TEMP/committed.json"
+          npm run certify:sec
+          npm run certify:gate
+          out=$(node scripts/certify-changed.mjs "$RUNNER_TEMP/committed.json" src/data/generated/certifiedCoverage.json)
+          [ "$out" = "changed=false" ] || { echo "Fresh certification differs from preview; wait for the next refresh."; exit 1; }
+
+  promote:
+    needs: check
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ needs.check.outputs.sha }}
+          fetch-depth: 0
+      - name: Fast-forward main to the checked preview commit
+        run: git push origin "${{ needs.check.outputs.sha }}:refs/heads/main"

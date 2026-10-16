@@ -1,104 +1,75 @@
 name: freshness probe
 
-# Watches the live site from outside. This deliberately does NOT run on
-# macbook2014: a probe that runs on the same host as the job it is watching
-# goes quiet exactly when that host dies, which is the one moment it matters.
-#
-# It answers one question — is the published site still fresh — and when the
-# answer is no it opens (or updates) a GitHub issue, which reaches Jesse's
-# phone through the notifications he already gets. No webhook, no credential,
-# no spend.
+# AUTO-002 Phase 1. Watches the certified refresh and the live site. The
+# weekly signed issue was retired (D-93), so this no longer reads the issue
+# index. It answers two questions:
+#   1. Has certified-refresh.yml run in the last 10 hours? (It is scheduled
+#      every 4 hours; GitHub can delay or drop scheduled runs.)
+#   2. Does the live site answer?
+# When either answer is no it opens (or updates) one GitHub issue, which reaches
+# the owner's phone. A run that completed but was held below 100% is reported
+# by certified-refresh.yml itself.
 
 on:
   schedule:
-    - cron: '0 15 * * *' # 08:00 Pacific daily
+    - cron: '41 */6 * * *'
   workflow_dispatch:
 
-permissions:
-  contents: read
-  issues: write
+permissions: {}
 
 env:
   SITE: https://securitymarketpulse.com
-  STALE_DAYS: '10'
+  MAX_HOURS: '10'
 
 jobs:
   probe:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      actions: read
+      issues: write
     steps:
-      - name: Measure the live site
+      - name: Measure
         id: measure
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
         run: |
           set -uo pipefail
-
-          fail() { echo "state=stale" >> "$GITHUB_OUTPUT"; echo "detail=$1" >> "$GITHUB_OUTPUT"; exit 0; }
-
-          code=$(curl -sS -o /tmp/index.json -w '%{http_code}' "$SITE/issues/index.json" || echo 000)
-          if [ "$code" != "200" ]; then fail "\`$SITE/issues/index.json\` returned HTTP $code."; fi
-          if ! jq -e . /tmp/index.json >/dev/null 2>&1; then fail "The issues index is not valid JSON."; fi
-
-          count=$(jq 'length' /tmp/index.json)
-          if [ "$count" = "0" ]; then fail "The issues index is empty."; fi
-
-          # Newest published issue. Entries with no published date are drafts
-          # and do not count as freshness.
-          newest=$(jq -r '[.[] | select(.published != null) | .published] | sort | last // "none"' /tmp/index.json)
-          if [ "$newest" = "none" ] || [ "$newest" = "null" ]; then
-            fail "The live site has no published issue at all."
+          problems=""
+          last=$(gh run list -R "$REPO" --workflow certified-refresh.yml --limit 1 --json createdAt,conclusion,url --jq '.[0] // empty')
+          if [ -z "$last" ]; then
+            problems="No run of certified-refresh.yml exists yet."
+          else
+            created=$(echo "$last" | jq -r .createdAt)
+            hours=$(( ( $(date -u +%s) - $(date -u -d "$created" +%s) ) / 3600 ))
+            echo "last certified refresh: $created ($hours h ago), $(echo "$last" | jq -r .conclusion)"
+            if [ "$hours" -gt "$MAX_HOURS" ]; then problems="The certified refresh last ran **$hours hours** ago ($created). It is scheduled every 4 hours. Check that the workflow is enabled under Actions."; fi
           fi
-
-          age=$(( ( $(date -u +%s) - $(date -u -d "$newest" +%s) ) / 86400 ))
-          echo "newest published issue: $newest, $age days old"
-          echo "newest=$newest" >> "$GITHUB_OUTPUT"
-          echo "age=$age" >> "$GITHUB_OUTPUT"
-
-          if [ "$age" -gt "$STALE_DAYS" ]; then
-            fail "The newest published issue is dated **$newest**, which is **$age days** old. The promise is a weekly read."
-          fi
-
-          echo "state=fresh" >> "$GITHUB_OUTPUT"
-          echo "detail=Newest published issue $newest, $age days old." >> "$GITHUB_OUTPUT"
+          code=$(curl -sS -o /dev/null -w '%{http_code}' "$SITE/" || echo 000)
+          if [ "$code" != "200" ]; then problems="$problems The live site returned HTTP $code."; fi
+          if [ -z "$problems" ]; then echo "state=fresh" >> "$GITHUB_OUTPUT"; else echo "state=stale" >> "$GITHUB_OUTPUT"; fi
+          { echo "detail<<EOF"; echo "${problems:-Certified refresh ran within $MAX_HOURS hours and the site answered 200.}"; echo "EOF"; } >> "$GITHUB_OUTPUT"
 
       - name: Raise or clear the alert
         env:
           GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
           STATE: ${{ steps.measure.outputs.state }}
           DETAIL: ${{ steps.measure.outputs.detail }}
         run: |
           set -euo pipefail
           title="Site freshness"
-          number=$(gh issue list --state open --label freshness --json number,title \
-                    --jq "map(select(.title==\"$title\")) | .[0].number // empty")
-
+          number=$(gh issue list -R "$REPO" --state open --label freshness --json number,title --jq "map(select(.title==\"$title\")) | .[0].number // empty")
           if [ "$STATE" = "fresh" ]; then
-            if [ -n "$number" ]; then
-              gh issue comment "$number" --body "Recovered. $DETAIL"
-              gh issue close "$number"
-              echo "Closed the open freshness alert."
-            else
-              echo "Fresh, and no alert was open. Nothing to do."
-            fi
+            if [ -n "$number" ]; then gh issue comment "$number" -R "$REPO" --body "Recovered. $DETAIL"; gh issue close "$number" -R "$REPO"; fi
             exit 0
           fi
-
-          body="$DETAIL
-
-          Checked \`$SITE/issues/index.json\` at $(date -u +%Y-%m-%dT%H:%MZ).
-
-          Where to look: the weekly gather runs on macbook2014 under launchd
-          (\`com.securitymarketpulse.gather\`). Its run receipts are in
-          \`~/gather-logs/receipts/\` on that host, newest last, and every run writes one
-          whether it worked or not. A receipt with \`\"state\": \"failed\"\` means the gather
-          ran and could not finish. No receipt at all for this week means the job did not
-          fire, so check that the host is up and the launchd agent is loaded.
-
-          This issue closes itself when the site is fresh again."
-
           if [ -n "$number" ]; then
-            gh issue comment "$number" --body "Still stale. $DETAIL"
-            echo "Commented on the existing alert #$number."
+            gh issue comment "$number" -R "$REPO" --body "Still stale. $DETAIL"
           else
-            gh label create freshness --description "Site freshness probe" --color d93f0b 2>/dev/null || true
-            gh issue create --title "$title" --label freshness --body "$body"
-            echo "Opened a freshness alert."
+            gh label create freshness -R "$REPO" --description "Site freshness probe" --color d93f0b 2>/dev/null || true
+            gh issue create -R "$REPO" --title "$title" --label freshness --body "$DETAIL
+
+          This issue closes itself when both checks pass again."
           fi
