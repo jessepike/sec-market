@@ -1,120 +1,110 @@
 ---
 id: SEC-MARKET-AUTO-002
-version: 0.1
-state: draft for council review
+version: 0.2
+state: council reviewed; awaiting owner decisions
 created: 2026-10-15
+revised: 2026-10-15
 author: Claude (claude.ai session with the owner)
-supersedes: nothing yet
+reviews: council review 2026-10-15, three independent reviewers (Opus 5.5 durability/ops, Fable 5.1 governance/credibility, Sonnet 5.5 CI security). All three: approve with changes.
+supersedes: v0.1 (same file, git history)
 ---
 
-# Hosted automation, rule-based signals and portfolio tie-in
+# Hosted automation, filed events and portfolio tie-in
 
-## Why this exists
+## Owner goals (stated 2026-10-15)
 
-The owner restated the goal on 2026-10-15:
+- Runs with no laptop and no recurring human step. Low friction, low overhead.
+- No written weekly point of view. Credibility comes from accuracy and a published method.
+- Neutral, rule-based facts. No "vendor risk" framing (the owner works in security sales at a reseller that sells some tracked vendors).
+- securitymarketpulse.com stays the product domain. jessepike.dev is the author hub and email home.
+- One property in a portfolio (jessepike.dev and future sites) building the owner's profile as an AI CISO advisor and entrepreneur.
+- A durable production site.
 
-- The site should run with no laptop and no weekly human step. Low friction, low overhead, fully automated.
-- He does not want to commit to a written point of view. Credibility should come from accuracy and from a published method.
-- He wants rule-based, neutral signals instead of opinions. No "vendor risk" framing (he sells some tracked vendors in his day job).
-- securitymarketpulse.com stays the product domain. jessepike.dev becomes the author hub and email home.
-- The site is one property in a portfolio (jessepike.dev plus future sites) meant to build his profile as an AI CISO advisor and entrepreneur.
-- It must be a durable production site.
+## What the council found that v0.1 got wrong
 
-This document proposes how to get there. Several parts conflict with recorded decisions. Those are listed first, because they need the owner's decision before any build.
+All verified against the repo on 2026-10-15 unless marked.
 
-## Conflicts with recorded decisions and rules
+1. **Nothing can pass the D-85 gate today, newsrooms or not.** `web/src/data/generated/refreshVerification.json` has 0 verified claims. The proof adapter that would generate substantive proofs does not exist (`docs/active/complete-refresh-gate-2026-10-14.md`). The 16 SEC filers also carry 128 failed fields (identity, headline metric, ownership, events), because current discovery requires IR pages that return 403. v0.1's claim that the SEC tier "can reach 100% today" was wrong.
+2. **Option A does not work with current code.** `refresh-publication-gate.mjs` `evaluateRefresh` requires every supplier in `contract.supplierIds` across every group. It needs a v2 contract, a proof adapter, EDGAR submissions accepted as discovery, and a tier split in the release build.
+3. **8-K coverage is narrower than stated.** `filing-events.ts` maps Items 5.02, 2.01, 1.03, 2.05 and 3.01. Items 1.01 and 2.03, and DEFM14A for announced acquisitions, need new code.
+4. **The drafted workflow is stale and unsafe.** `edgar-refresh.yml.txt` runs only `refresh:edgar`, then `auto-publish.sh`, which can push `main`, all in one job holding `contents: write` while running `npm ci` and third-party code.
+5. **"No human step" and "production moves only by promotion" contradict each other.** The owner has to pick one.
+6. **`freshness.yml` watches the weekly issue index.** Once the weekly issue is retired, it alerts forever or checks nothing useful. It also runs on the same platform as the job it watches.
+7. **Repo bloat.** `refreshCoverage.json` is 857 KB. Committed nightly, that is roughly 300 MB of history a year.
+8. **Silent staleness.** `edgar-refresh.ts` keeps the previous record when a filer fails, and exits 0 unless more than 50% fail. `selectRevenueFacts` takes the first revenue concept with any USD fact, so a tag change can freeze a filer's latest quarter without an error (reviewer finding; not independently re-verified).
+9. **Vercel builds use `npm install`** (`web/vercel.json`), not `npm ci`, so builds can drift without a commit.
 
-| Rule or decision | What it says | What this proposal would change | Decision needed |
-|---|---|---|---|
-| `.claude/rules/constraints.md` | "A database and an email digest are not yet authorized" | Add an email signup (Kit) and an automated digest of verified changes | Owner authorizes email capture and digest; rules file updated with his approval |
-| `.claude/rules/constraints.md`, D-76 | Machine may not publish judgments: stances, rankings, forecasts, interpretation | Publish rule-based signals computed by the machine | Owner decides whether owner-written rules applied mechanically count as his judgment (allowed) or machine interpretation (not allowed) |
-| D-80 | Owner's name on no live page; no employer named | Link the site to jessepike.dev as author hub | Owner chooses: (a) named byline linking to jessepike.dev, (b) neutral footer link only, (c) keep site anonymous and link one way from jessepike.dev |
-| D-85, D-86 | A data update publishes only at 100% substantive verification of every required applicable claim | Make publishing actually able to complete | See "Refresh gate" below. Option A keeps D-85 intact |
-| D-83 | Collector runs under the owner's Claude subscription; no copying credentials to CI, no new tokens without action-time approval | Retire the laptop collector; optional phase 2 uses an API key in GitHub Secrets | Phase 1 needs no AI and no new credential. Phase 2 needs explicit approval |
-| D-73, D-75 | Weekly issue signed by owner's PR approval | Retire the weekly signed issue | Owner confirms retirement; archive stays |
+## Decisions the owner must make
 
-## Current state (from the repo, 2026-10-15)
+| # | Decision | Council recommendation |
+|---|---|---|
+| 1 | **Production promotion.** Auto-promote certified, data-only commits to `main` after gates and a soak, or keep manual promotion (a recurring human step) | Auto-promote, but only from a separate promotion job: allowlisted diff (data files only), per-value sanity bounds, preview deploy Ready, 24 hour soak on `preview`. Never from the job that ran dependencies |
+| 2 | **Certified scope (D-85).** Option A: certified tier is the SEC filers, set by source class before results are known. Option B: per-field dating, which reverses D-85 | Option A. Honest only if scope is fixed by source class in advance, logged, and stated on the Method page. Certified count derived from the filer list, never hand-set |
+| 3 | **Attribution (D-80).** (a) Named byline with an interests statement on the Method page, linking to jessepike.dev. (b) Neutral footer link. (c) Site stays anonymous, one-way link from jessepike.dev | (a), after checking ePlus outside-activity policy. If not cleared, (c). Not (b): hidden-but-findable reads worse than either |
+| 4 | **Machine-published facts (constraints.md, D-76).** Replace "signals" with "filed events": dated, uniform, rule-listed facts, no thresholds tuned after seeing results | Accept. Drop the growth-slowdown rule. List officer changes individually instead of counting them. Show debt events with amount and purpose. Add late-filing notices (NT 10-K/10-Q) |
+| 5 | **Email capture and digest (constraints.md says not yet authorized)** | Authorize the minimum version: double opt-in, plain HTML form post (no third-party script), privacy line naming the processor, digest contains only verified changes, no send when the gate fails. List lives in the jessepike.dev account |
+| 6 | **Retire the weekly signed issue (D-73, D-75)** | Retire; keep the archive |
+| 7 | **Branch protection.** Upgrade to GitHub Pro (about $4/month) for rulesets on `main`, or record that the token is the only barrier | Owner's call. Reviewers split on value; at minimum record the choice |
+| 8 | **Optional: quarterly signed note per domain** | Optional. Facts alone prove method, not judgment. A dated quarterly note per domain, auto-marked "awaiting review" when facts under it change, is the smallest addition that shows judgment |
+| 9 | **Phase 2 AI extraction for private companies** | Defer. Prompt injection from press releases into published data is a real risk, and it conflicts with D-83 and the no-human-step goal |
 
-- Production `main` is `28c7ffd` (D-78). It still shows the signed postures and Jesse's name from before D-80.
-- Preview is the facts-only tracker (D-82), 74 suppliers, 12 domains.
-- No complete refresh has ever passed the D-85 gate. The 2026-10-14 attempt: 16 of 16 SEC filers succeeded; 248 field checks failed, almost all from newsroom and investor-relations pages that block automated reading (HTTP 403, Cloudflare and Akamai challenges).
-- The EDGAR runner (`web/scripts/edgar-refresh.ts`, `refresh:filing-events`) is deterministic and has no AI in it.
-- The newsroom collector (`scripts/collect.sh`) runs headless Claude Code on the owner's Mac under his subscription login. That is the only part tied to the laptop.
-- A GitHub Actions workflow for the EDGAR refresh is drafted (`docs/active/auto/step4/workflows/edgar-refresh.yml.txt`) but never committed: the pushing token lacked workflow scope.
-- `freshness.yml` already probes the live site daily from GitHub and opens an issue when stale.
+## Revised plan
 
-## Proposal
+### Phase 0: make the gate passable (before any schedule)
 
-### 1. Run the refresh on GitHub Actions
+1. New contract `smp-refresh-v2`: the SEC filers only; groups limited to revenue (latest, prior), identity from EDGAR submissions, and SEC-filed events. Headline metric (ARR) and ownership leave the certified tier.
+2. Proof adapter that writes `structured-validation` proofs with SEC response hashes.
+3. EDGAR submissions accepted as discovery for the certified tier.
+4. Staleness checks: pick the revenue concept with the newest period end; fail a filer if its latest quarter ended more than about 150 days ago; watch for Form 25 or 15 and name changes. A single filer failure blocks that filer and opens an issue.
+5. Tier split in the release build: second-tier (non-SEC) records render with their own last-verified dates, never under the certified date.
+6. Extend `filing-events.ts`: Items 1.01, 2.03, NT 10-K/10-Q, DEFM14A.
 
-- Nightly scheduled workflow on GitHub-hosted runners. Steps: EDGAR XBRL revenue, EDGAR submissions for 8-K events (Items 1.01, 2.03, 2.05, 5.02 and similar), compute signals, run the existing data tests and build, commit data to `preview`.
-- Vercel stays the host. It redeploys on push. No change to the static Vite architecture.
-- Vercel Cron and Cloudflare Workers were considered and rejected: both would require moving data out of the build into a runtime store, a rebuild of the site's architecture, for no gain. Vercel Hobby cron also runs at most daily within a one-hour window and does not retry.
-- Moving off the laptop will not fix newsroom blocking. Cloud runner IP ranges are blocked more often than home connections. The plan stops depending on newsrooms.
+### Phase 1: hosted nightly run
 
-### 2. Refresh gate
+1. Workflow on GitHub Actions, odd-minute schedule. The file must land on `main`, because schedules only run from the default branch.
+2. Job A, `contents: read`: `npm ci --ignore-scripts` where possible, fetch EDGAR, compute, run data tests, upload the data files as an artifact.
+3. Job B, `contents: write`, no `npm ci` and no third-party code: apply only the allowlisted data files from the artifact, validate, push to `preview`.
+4. Job C, promotion, only if decision 1 is auto-promote: separate workflow; gates listed under decision 1.
+5. Commit a small summary each night. Keep full receipts as Actions artifacts, not in git.
+6. All workflows: `permissions: {}` default, least privilege per job, actions pinned to full SHAs.
+7. Vercel: `npm ci`, exact pins. Test once that Vercel builds bot-authored commits.
+8. SEC User-Agent from one environment variable with a dedicated alias.
+9. Two weeks of nightly runs on `preview` before any production change.
 
-Option A (recommended, keeps D-85): narrow the certified snapshot to what can be verified automatically every night.
+### Phase 2: site changes
 
-- Certified tier: SEC filers (currently 16) plus the EDGAR-derived fields and events for them. These can reach 100% substantive verification without a human.
-- Second tier: private companies and non-SEC filers shown as "last verified on <date>" records, clearly outside the certified snapshot. They never advance the certified refresh date.
-- The scope change is an explicit, logged owner decision and is stated on the Method page. That is a scope decision, not denominator gaming.
+1. Remove public run-status, failed-field lists and diagnostic banners. One line: "Certified figures as of <date>". Coverage report linked in the footer.
+2. Filed events per decision 4, with rule text, triggering filings and dates. Rules published with a date; changes go on the corrections page.
+3. Method page wording for the two tiers, for example: "Certified figures cover the SEC filers we track, verified nightly from EDGAR. The other tracked suppliers show last-verified dates and are outside the certified snapshot."
+4. Attribution per decision 3.
+5. Email signup and digest per decision 5. CSP in `vercel.json`: `form-action 'self'` plus the processor's form host, `script-src 'self'`, `frame-ancestors 'none'`.
 
-Option B: per-field publishing, each figure with its own as-of date and no all-or-nothing gate. Simpler, but it reverses D-85.
+### Monitoring
 
-### 3. Rule-based signals
+- Rewrite `freshness.yml` to check certified-date age and latest-attempt age, not the issue index.
+- `if: failure()` step on every run that opens or updates one GitHub issue.
+- Alert when blocked for N nights in a row, or when the certified date is older than the latest 10-Q.
+- External dead-man check (healthchecks.io or UptimeRobot) on `/refresh-publication.json`, 48 hour threshold. Owner confirms GitHub issue notifications reach his phone.
+- Monthly scheduled canary build that alerts on failure. No Dependabot PRs (they are a human step).
 
-Owner-written, published rules, applied mechanically to filed numbers. Neutral wording. No colors, no scores, no ranking, no "risk".
+### Simplify (cut once phase 1 is certified)
 
-Candidate rules (council to challenge each):
+- `web/published-app` dual renderer (about 1.4 MB with pinned hashes), after the first certified release.
+- `scripts/auto-publish.sh`, `scripts/publish-issue.sh`, `gather.sh`, `gather-pr.yml`, issue signing.
+- `check-live-sources.py` and `audit-supplier-receipts.py` on the nightly path.
+- Playwright end-to-end on data-only runs.
+- Laptop collector removed from the schedule (kept in the repo).
 
-1. Year-over-year revenue growth lower than the prior quarter's for two consecutive quarters.
-2. Year-over-year revenue growth negative in the latest quarter.
-3. Two or more officer changes (8-K Item 5.02) within 12 months, or CFO and CEO changes within 12 months.
-4. A restructuring or workforce reduction disclosed (8-K Item 2.05) in the last 12 months.
-5. New debt or convertible notes issued (8-K Item 2.03) in the last 12 months.
-6. The company was acquired or announced an agreement to be acquired.
-
-Each signal shows the rule text, the filings that triggered it, and the date. The Method page explains what each rule does and does not mean.
-
-### 4. Retire
-
-- The laptop collector from the nightly path (kept in the repo, not scheduled).
-- The weekly signed issue (archive kept).
-- Public run-status, failed-field lists and diagnostic banners. Replace with one line: "Certified figures as of <date>". The full coverage report moves to a footer link.
-
-### 5. Portfolio tie-in
-
-- Email signup through Kit (free tier), tagged `smp`. jessepike.dev uses the same Kit account with its own tag. Future sites add tags.
-- Automated weekly email of verified changes, generated from the existing change log or RSS. No human writing.
-- Privacy line on the site naming Kit as the processor.
-- Attribution per the owner's D-80 choice.
-
-### 6. Phase 2, optional
-
-Press-wire RSS (GlobeNewswire, PR Newswire, Business Wire) for private-company funding, acquisitions and leadership, with a small AI extraction step using an API key in GitHub Secrets and a spend cap. Requires explicit approval under D-83. Outputs stay in the second tier until verified against the primary document.
+Per AGENTS.md, nothing is deleted on static analysis alone; each removal is proven with a before/after render.
 
 ## Durability requirements
 
-- Runs with the owner's laptop off, and with no agent session open.
-- Every run leaves a receipt in the repo. Failures open a GitHub issue (reuse `freshness.yml` pattern), which reaches the owner's phone.
+- Runs with the laptop off and no agent session open.
 - A failed run never changes published data.
-- No secrets in phase 1. SEC requires a User-Agent with contact info; use a dedicated alias rather than a personal address.
-- Production still moves only by promotion from `preview`, unless the owner reaffirms D-76/D-79 auto-promotion for certified data commits.
-- Rollback: Vercel instant rollback plus `git revert` on `preview`.
+- No secrets in phase 0 or 1.
+- Rollback runbook written and tested once: `git revert` on `preview`, Vercel instant rollback on production.
+- Node 22 reaches end of life in April 2027; schedule the upgrade.
 
-## Rollout
+## Portfolio pattern (reusable for future sites)
 
-1. Owner decides the six conflicts above.
-2. Build on a short-lived branch into `preview`. Visual review at 1440px and 390px per AGENTS.md.
-3. Workflow file committed by the owner or by a token with workflow scope.
-4. Two weeks of nightly runs on `preview` before any production promotion.
-5. Owner promotes.
-
-## Open questions for the council
-
-- Is the certified-tier narrowing (Option A) honest under D-85, or is it denominator gaming?
-- Do mechanical signals cross the no-machine-judgment line?
-- What breaks first in a year of unattended operation?
-- Is auto-commit from Actions to `preview` (and possibly `main`) safe with no branch protection on a free private repo?
-- Does an author link help or hurt credibility, given D-80?
+GitHub Actions refreshes data and commits to the trunk. Vercel serves static builds. One email account with a tag per site, owned by jessepike.dev. Same monitoring stack: failure issue plus external dead-man check.
