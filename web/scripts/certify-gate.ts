@@ -29,9 +29,14 @@ const placeholders = new Set(['', 'checked.', 'sec submissions index'])
 for (const p of verification.verifiedClaims as Array<{ key: string; evidence: Array<{ locator?: string; excerpt?: string }> }>)
   if (p.evidence.some(e => placeholders.has((e.locator ?? '').trim().toLowerCase()) || placeholders.has((e.excerpt ?? '').trim().toLowerCase()))) drift.push(`${p.key}: placeholder locator or excerpt`)
 
-const result = evaluateRefresh(contract, coverage, verification)
+// --at-certification (used by the site build): evaluate the committed proofs at
+// the time they were made. Wall-clock freshness is enforced by the scheduled
+// certified-refresh workflow, which runs this gate without the flag.
+const atCertification = process.argv.includes('--at-certification')
+const now = atCertification ? Date.parse(coverage.checkedAt) + 60_000 : Date.now()
+const result = evaluateRefresh(contract, coverage, verification, now)
 const complete = result.complete && drift.length === 0
-const receipt = { schemaVersion: 1, contractVersion: contract.version, attemptedAt: coverage.checkedAt, evaluatedAt: new Date().toISOString(), ...result, complete, drift }
+const receipt = { schemaVersion: 1, mode: atCertification ? 'at-certification' : 'current', contractVersion: contract.version, attemptedAt: coverage.checkedAt, evaluatedAt: new Date().toISOString(), ...result, complete, drift }
 mkdirSync(resolve('..', '.collect'), { recursive: true })
 writeFileSync(resolve('..', '.collect/certified-attempt.json'), JSON.stringify(receipt, null, 2) + '\n')
 console.log(JSON.stringify({ complete, required: result.required, verified: result.verified, blockers: result.failures.length, drift: drift.length }))

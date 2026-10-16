@@ -208,7 +208,11 @@ function deriveRunStatus(): RunStatus {
   const edgarDate = isoDatePart(edgarFacts.generatedAt)
   const collectorRun = collectState.collectorRun
   const collectDate = collectorRun ? isoDatePart(collectorRun.at) : null
-  const lastChecked = collectDate && collectDate < edgarDate ? collectDate : edgarDate
+  // AUTO-002 Phase 2: the laptop collector is retired, so the site's as-of
+  // clock is the SEC refresh date. The old min(collector, SEC) rule would
+  // freeze the event window at the last collector run.
+  void collectDate
+  const lastChecked = edgarDate
 
   // No collect run has ever left a receipt in this repo — say so rather
   // than implying a clean run that never happened.

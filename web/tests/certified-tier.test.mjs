@@ -96,3 +96,22 @@ test('SEC events are anchored to filings and every tracked item is represented b
   assert.equal(verifySecEvents(late, [], [], '2025-10-14', '2026-10-14', '2026-10-15').ok, false, 'filing after window end')
   assert.equal(accessionFromUrl('https://www.sec.gov/Archives/edgar/data/1660280/000166028026000046/tenb-20261013.htm'), '0001660280-26-000046')
 })
+
+test('a late-filing notice in the window needs a late-filing event', async () => {
+  const { verifySecEvents: verify } = await import('../scripts/sec-verify/independent.mjs')
+  const index = subs([{ form: 'NT 10-Q', date: '2026-08-15', accn: '0000000001-26-000010' }])
+  assert.equal(verify(index, [], [], '2025-10-15', '2026-10-15', '2026-10-15').ok, false)
+  assert.equal(verify(index, [], [{ date: '2026-08-15', type: 'late-filing', accessions: [] }], '2025-10-15', '2026-10-15', '2026-10-15').ok, true)
+})
+
+test('debt events quote the opening of the filing’s own description, following incorporation by reference', async () => {
+  const { debtExcerpt } = await import('../scripts/sec-verify/debt-excerpt.mjs')
+  const html = `<p>Item 1.01 Entry into a Material Definitive Agreement</p><p>Credit Agreement</p>
+    <p>On October 13, 2026, Example Security, Inc. (the &#8220;Company&#8221;) entered into a $400 million senior secured revolving credit facility with a group of lenders to fund general corporate purposes.</p>
+    <p>Item 2.03 Creation of a Direct Financial Obligation</p><p>The information set forth in Item 1.01 of this Current Report is incorporated herein by reference.</p>
+    <p>Item 9.01 Financial Statements and Exhibits</p>`
+  const quote = debtExcerpt(html)
+  assert.match(quote, /\$400 million senior secured revolving credit facility/)
+  assert.doesNotMatch(quote, /Item 9\.01|incorporated herein/)
+  assert.equal(debtExcerpt('<p>Item 2.03 Creation</p><p>short</p>'), null)
+})

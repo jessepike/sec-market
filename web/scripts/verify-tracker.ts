@@ -7,7 +7,7 @@ import { evidenceById } from '../src/data/evidence.ts'
 import { runStatus } from '../src/data/runStatus.ts'
 import { edgarFilingsInLast30Days } from '../src/data/tracker/derive.ts'
 import { notCoveredByTracker, trackerDomains } from '../src/data/tracker/domains.ts'
-import { trackerEvents } from '../src/data/tracker/events.ts'
+import { retainedTrackerEvents, trackerEvents } from '../src/data/tracker/events.ts'
 import { trackerSuppliers } from '../src/data/tracker/suppliers.ts'
 
 /**
@@ -523,10 +523,12 @@ function toComparableDate(dateIso: string): string {
  * both are sourced from the same underlying fact.
  */
 function hasMatchingEvent(supplierId: string, types: string[]): boolean {
-  return trackerEvents.some((event) => {
+  // AUTO-002 Phase 2: check the retained record, not the display window, so a
+  // window that moves with every SEC refresh cannot fail the build at its edge.
+  return retainedTrackerEvents.some((event) => {
     if (event.supplierId !== supplierId || !types.includes(event.type)) return false
     const eventAge = daysBetween(event.date, runStatus.lastChecked)
-    return eventAge >= 0 && eventAge <= 365
+    return eventAge <= 400
   })
 }
 

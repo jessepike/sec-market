@@ -1,5 +1,6 @@
 import { expect, test } from '@playwright/test'
-import { recentChanges, secFilerCount } from '../../src/data/tracker/presentation'
+import { recentChanges } from '../../src/data/tracker/presentation'
+import { certifiedCount } from '../../src/data/tracker/certification'
 
 for (const width of [1440, 390]) {
   test(`approved hybrid works at ${width}px with keyboard, sourced figures and compact phone views`, async ({ page }) => {
@@ -7,7 +8,9 @@ for (const width of [1440, 390]) {
     const errors: string[] = []
     page.on('pageerror', error => errors.push(error.message))
     await page.goto('/')
-    await expect(page.locator('.desk-snapshot')).toContainText(`of ${secFilerCount} SEC filers`)
+    await expect(page.locator('.desk-snapshot')).toContainText('re-derived from each company')
+    await expect(page.locator('.desk-kicker').first()).toContainText(`${certifiedCount} SEC filers certified`)
+    await expect(page.locator('.market-desk')).not.toContainText(/Diagnostic candidate|Latest attempt/)
     await expect(page.locator('.market-desk')).not.toContainText(/owner.s read|median/i)
     expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(width)
     await expect(page.locator('.desk-change').first()).toBeVisible()

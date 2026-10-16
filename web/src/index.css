@@ -3547,6 +3547,12 @@ summary:focus-visible,
   color: var(--color-alert);
 }
 
+.run-status__note {
+  margin: 0.4rem 0 0;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
 /* Third fix pass, items 1–2: a closed, opt-in disclosure instead of an
    always-visible line of raw collector strings — a reader who wants the
    detail can open it; one who doesn't isn't shown 25+ source names by

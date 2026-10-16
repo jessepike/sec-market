@@ -23,6 +23,7 @@ export type TrackerEventType =
   | 'divestiture'
   | 'shutdown'
   | 'results'
+  | 'late-filing'
 
 export interface TrackerEvent {
   id: string

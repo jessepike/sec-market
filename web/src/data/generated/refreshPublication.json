@@ -8,5 +8,6 @@
     "sourceRevision": null,
     "deployedAt": null
   },
-  "note": "No verified complete refresh established. Current production retained; Oct 14 partial candidate held."
+  "note": "AUTO-002 Phase 2: production renders the tracker. SEC figures for the certified filers are gated by certify-gate (re-derived, no drift); other figures keep their own source and date. lastCompleteRefreshAt applies to the retired 74-supplier contract and stays null.",
+  "snapshotMode": "certified"
 }

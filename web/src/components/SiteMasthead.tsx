@@ -1,5 +1,5 @@
 import { SITE_DISCLAIMER, SITE_HEADLINE } from '../data/meta'
-import { completeRefreshDisplay } from '../data/refreshPublication'
+import { certifiedDateDisplay } from '../data/tracker/certification'
 
 /**
  * The front page's masthead (SEC-MARKET-CORE-001 §5): what the site is, in
@@ -19,7 +19,7 @@ export function SiteMasthead() {
       <h1 id="site-masthead-heading">{SITE_HEADLINE}</h1>
       <p className="site-masthead__description">Reported revenue, funding, acquisitions, restructuring, debt and leadership changes. Every figure keeps its period and source.</p>
       <p className="site-masthead__stamps">
-        {SITE_DISCLAIMER} · Last complete data refresh: {completeRefreshDisplay}.
+        {SITE_DISCLAIMER} · SEC figures certified {certifiedDateDisplay}.
       </p>
     </section>
   )

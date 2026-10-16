@@ -1,7 +1,6 @@
 import { expect, test } from '@playwright/test'
 import { SITE_HEADLINE } from '../../src/data/meta.ts'
-import { runStatus } from '../../src/data/runStatus.ts'
-import { completeRefreshDisplay, lastAttemptAt, lastCompleteRefreshAt } from '../../src/data/refreshPublication.ts'
+import { certifiedCount, certifiedDateDisplay } from '../../src/data/tracker/certification.ts'
 
 /**
  * D-76/autonomy-coverage-plan.md §3, step 1: the front page now publishes
@@ -41,34 +40,14 @@ test('renders the market briefing without runtime errors', async ({ page }) => {
 
   await expect(page.getByRole('heading', { level: 1 })).toHaveText(SITE_HEADLINE)
 
-  // RunStatus replaces the old issue strip in the same #overview slot — an
-  // honest statement of whether collection ran, never a judgment.
-  //
-  // AUTO-001 fix pass 2, item 4: runStatus is now derived from
-  // generated/edgarFacts.json and generated/collectState.json (see
-  // runStatus.ts's header comment) instead of hand-set, so this test reads
-  // whatever that derivation actually produces rather than asserting a
-  // fixed "updated" state — the two rescores' whole complaint was that the
-  // page claimed "every source collected" with no run behind the claim.
-  await expect(page.locator('#overview .run-status__line')).toContainText('Last complete data refresh:')
-  expect(['updated', 'no-change', 'incomplete']).toContain(runStatus.state)
-  if (runStatus.state === 'updated') {
-    await expect(page.locator('#overview .run-status__line')).toContainText('Every required check passed')
-  } else if (runStatus.state === 'no-change') {
-    await expect(page.locator('#overview .run-status__line')).toContainText('No material change')
-  } else {
-    // Third fix pass, items 1-3: runStatus.ts always sets `detail` for
-    // 'incomplete' — no generic fallback text to assert here.
-    await expect(page.locator('#overview .run-status__line')).toContainText(runStatus.detail!)
-    // Never a URL, an HTTP status code, or a reference to an unpublished
-    // file anywhere in the visible status line or the failed-sources
-    // disclosure — the exact defect this pass fixed.
-    const overviewText = await page.locator('#overview').innerText()
-    expect(overviewText).not.toMatch(/https?:\/\//)
-    expect(overviewText).not.toMatch(/HTTP \d{3}/)
-    expect(overviewText).not.toMatch(/\.collect\//)
-    expect(overviewText).not.toMatch(/\.json/)
-  }
+  // AUTO-002 Phase 2: the #overview slot states the certified tier in plain
+  // text: no URLs in the sentence itself, no collector failure list.
+  await expect(page.locator('#overview .run-status__line')).toContainText(`SEC figures for ${certifiedCount} public companies are re-derived from their own SEC filings`)
+  await expect(page.locator('#overview .run-status__line')).toContainText(`Last certified change: ${certifiedDateDisplay}`)
+  const lineText = await page.locator('#overview .run-status__line').innerText()
+  expect(lineText).not.toMatch(/https?:\/\/|HTTP \d{3}|\.collect\/|not established/)
+  await expect(page.getByText('Which sources failed')).toHaveCount(0)
+  await expect(page.getByText('Diagnostic candidate')).toHaveCount(0)
 
   await expect(page.getByText('refreshed weekly')).toHaveCount(0)
   await expect(page.getByText('Tell me when the next edition publishes')).toHaveCount(0)
@@ -190,12 +169,11 @@ test('the front page never opens a judged evidence record', async ({ page }) => 
  * every one of those four rendered dates back off the page and fails if any
  * of them differs from `runStatus.lastChecked` — the single source.
  */
-test('complete-refresh date is separate from attempt and reporting dates', async ({ page }) => {
+test('every rendered certification date reads the same receipt', async ({ page }) => {
   await page.goto('/')
-  await expect(page.locator('.rail__asof')).toContainText(`Complete data refresh: ${completeRefreshDisplay}`)
-  await expect(page.locator('.site-header__updated')).toContainText(`Data refresh: ${completeRefreshDisplay}`)
-  await expect(page.locator('.site-masthead__stamps')).toContainText(`Last complete data refresh: ${completeRefreshDisplay}`)
-  await expect(page.locator('#overview .run-status__line')).toContainText(`Last complete data refresh: ${completeRefreshDisplay}`)
-  await expect(page.locator('.desk-snapshot')).toContainText(`Latest attempt: ${lastAttemptAt}`)
-  if (!lastCompleteRefreshAt) await expect(page.locator('#overview .run-status__line')).not.toContainText('Every required check passed')
+  await expect(page.locator('.rail__asof')).toContainText(`SEC figures certified ${certifiedDateDisplay}`)
+  await expect(page.locator('.site-header__updated')).toContainText(`SEC figures certified ${certifiedDateDisplay}`)
+  await expect(page.locator('.site-masthead__stamps')).toContainText(`SEC figures certified ${certifiedDateDisplay}`)
+  await expect(page.locator('#overview .run-status__line')).toContainText(`Last certified change: ${certifiedDateDisplay}`)
+  await expect(page.getByText('Last complete data refresh')).toHaveCount(0)
 })

@@ -1,10 +1,9 @@
 name: promote certified data
 
-# AUTO-002 Phase 1 (D-88): moves certified, data-only changes from `preview`
-# to `main` with no human step. MANUAL ONLY until Phase 2: production is built
-# from the frozen published snapshot (D-86), so promoting data changes nothing
-# visible yet. Phase 2 adds a schedule here once production renders the
-# certified tier.
+# AUTO-002 (D-88): moves certified, data-only changes from `preview` to `main`
+# with no human step. Scheduled daily since Phase 2, when production began
+# rendering the certified tier. Code changes on `preview` block this until
+# the owner promotes them.
 #
 # Promotes only when all of these hold:
 #   - `main` is an ancestor of `preview` (fast-forward only)
@@ -14,6 +13,8 @@ name: promote certified data
 #     exactly the certified values committed there
 
 on:
+  schedule:
+    - cron: '23 15 * * *'
   workflow_dispatch:
 
 permissions: {}

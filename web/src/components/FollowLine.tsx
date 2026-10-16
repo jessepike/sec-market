@@ -14,7 +14,7 @@ export function FollowLine() {
   return (
     <section id="follow" className="follow-line" aria-label="Follow">
       <p>
-        Source checks and retained reporting dates are listed in the coverage report. Follow published records by RSS:         <a href="/feed.xml">follow by RSS</a>.
+        Every certified claim and its SEC source is listed in the <a href="/certified-coverage.json">certification receipt</a>. Follow published records by RSS:         <a href="/feed.xml">follow by RSS</a>.
       </p>
     </section>
   )

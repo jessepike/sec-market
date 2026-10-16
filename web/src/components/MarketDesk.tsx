@@ -1,20 +1,22 @@
 import { useEffect, useRef, useState } from 'react'
 import { evidenceById } from '../data/evidence'
 import { runStatus } from '../data/runStatus'
-import { completeRefreshDisplay, lastAttemptAt } from '../data/refreshPublication'
+import { certifiedCount, isCertifiedEvent, isCertifiedSupplier } from '../data/tracker/certification'
 import { eventSummaryForSupplier, eventsForSupplier, formatOwnershipCompact, shortSupplierName, suppliersForDomain } from '../data/tracker/derive'
 import { trackerDomains } from '../data/tracker/domains'
 import { trackerSuppliers } from '../data/tracker/suppliers'
 import type { TrackerSupplier } from '../data/tracker/suppliers'
-import { eventGroups, filingSeries, monthEvents, recentChanges, revenueGrowthRows, secCollectedCount, secFilerCount, yearEvents } from '../data/tracker/presentation'
+import { eventGroups, filingSeries, monthEvents, recentChanges, revenueGrowthRows, yearEvents } from '../data/tracker/presentation'
 import type { ChangeItem } from '../data/tracker/presentation'
 import { SiteMasthead } from './SiteMasthead'
 import './market-desk.css'
 
 const changes = recentChanges()
+const nonSecGrowth = revenueGrowthRows().filter(r => !isCertifiedSupplier(r.supplier.id)).map(r => shortSupplierName(r.supplier.name))
+const nonSecGrowthNote = nonSecGrowth.length ? `${nonSecGrowth.join(' and ')} ${nonSecGrowth.length > 1 ? 'figures come' : 'figure comes'} from company releases and ${nonSecGrowth.length > 1 ? 'are' : 'is'} not re-checked automatically; the rest are re-derived from SEC filings.` : 'All figures are re-derived from SEC filings.'
 const growthRows = revenueGrowthRows()
 const supplierById = Object.fromEntries(trackerSuppliers.map(s => [s.id, s]))
-const typeName = (type: string) => ({ 'exec-change': 'Leadership', 'going-concern': 'Going concern', layoff: 'Layoffs', filing: 'SEC filing' })[type] ?? type.replaceAll('-', ' ')
+const typeName = (type: string) => ({ 'exec-change': 'Leadership', 'going-concern': 'Going concern', layoff: 'Layoffs', filing: 'SEC filing', 'late-filing': 'Late filing' })[type] ?? type.replaceAll('-', ' ')
 
 function Sources({ ids }: { ids: string[] }) {
   return <span className="desk-sources">{ids.map(id => {
@@ -58,11 +60,14 @@ function SupplierDialog({ supplier, close }: { supplier: TrackerSupplier | null;
     {supplier && <>
       <div className="desk-dialog__head"><div><span className="desk-kicker">Supplier record</span><h2 id="desk-supplier-title">{supplier.name}</h2></div><button type="button" onClick={close} aria-label="Close supplier record">Close</button></div>
       <p>{supplier.domainIds.map(id => trackerDomains.find(d => d.id === id)?.name).join(' · ')}</p>
+      <p className="desk-note desk-cert-note">{isCertifiedSupplier(supplier.id)
+        ? 'Certified: name and ticker, quarterly revenue, year-over-year growth, the quarterly table, and the filing and date of SEC-filed events, all re-derived from SEC filings. Other facts here keep their own source and date and are not re-checked automatically.'
+        : 'Not certified. Each fact keeps its own source and date and is not re-checked automatically.'}</p>
       <SupplierFacts supplier={supplier} />
       {quarters.length > 0 && <section><h3>SEC quarterly revenue</h3><p className="desk-note">Exact dollars from filings. Derived quarters are labelled; comparative figures may be restated in a later filing.</p>
         <div className="desk-quarter-table"><table><thead><tr><th>Quarter ended</th><th>Revenue, USD</th><th>Filed</th><th>Source</th></tr></thead><tbody>{quarters.map(q => <tr key={q.periodEnd}><td>{q.periodEnd}</td><td>${q.value.toLocaleString('en-US')}{q.derived ? ' (derived)' : ''}</td><td>{q.filedDate}</td><td><a href={q.sourceUrl} target="_blank" rel="noreferrer">{q.form}</a></td></tr>)}</tbody></table></div>
       </section>}
-      <section><h3>Dated events</h3><ul className="desk-dialog__events">{eventsForSupplier(supplier.id).map(event => <li key={event.id}><time dateTime={event.date}>{event.date}</time> <span className="desk-type">{typeName(event.type)}</span><p>{event.text}</p><Sources ids={event.evidenceIds} /></li>)}</ul>
+      <section><h3>Dated events</h3><ul className="desk-dialog__events">{eventsForSupplier(supplier.id).map(event => <li key={event.id}><time dateTime={event.date}>{event.date}</time> <span className="desk-type">{typeName(event.type)}</span>{isCertifiedEvent(event) && <span className="desk-cert">SEC filing, date checked</span>}<p>{event.text}</p><Sources ids={event.evidenceIds} /></li>)}</ul>
         {eventsForSupplier(supplier.id).length === 0 && <p>No sourced events in this tracker.</p>}</section>
     </>}
   </dialog>
@@ -71,7 +76,7 @@ function SupplierDialog({ supplier, close }: { supplier: TrackerSupplier | null;
 function ChangeRow({ item, openSupplier }: { item: ChangeItem; openSupplier: (id: string) => void }) {
   return <li className="desk-change"><time dateTime={item.date}>{item.date}</time><div>
     <button type="button" className="desk-supplier-link" onClick={() => openSupplier(item.supplierId)}>{shortSupplierName(supplierById[item.supplierId]?.name ?? item.supplierId)}</button>
-    <span className="desk-type">{typeName(item.type)}</span><p>{item.text}</p><Sources ids={item.evidenceIds} />
+    <span className="desk-type">{typeName(item.type)}</span>{item.type !== 'filing' && isCertifiedEvent(item) && <span className="desk-cert">SEC filing, date checked</span>}<p>{item.text}</p><Sources ids={item.evidenceIds} />
     {item.filings.map(f => <a className="desk-filing" key={`${f.supplierId}-${f.periodEnd}`} href={f.sourceUrl} target="_blank" rel="noreferrer">SEC {f.form} · quarter ended {f.periodEnd} · filed {f.filedDate} ↗</a>)}
   </div></li>
 }
@@ -88,7 +93,7 @@ function GrowthChart({ openSupplier }: { openSupplier: (id: string) => void }) {
   const ends = growthRows.map(r => r.supplier.revenue!.latest.periodEnd).sort()
   return <section id="reported-growth" className={`desk-panel desk-growth${expanded ? ' is-expanded' : ''}`} aria-labelledby="desk-growth-heading">
     <div className="desk-panel__head"><h2 id="desk-growth-heading">Reported revenue growth</h2><button type="button" aria-pressed={byValue} onClick={() => setByValue(v => !v)}>{byValue ? 'Sort A–Z' : 'Sort by value'}</button></div>
-    <p className="desk-note">{rows.length} public suppliers. Latest quarters end {ends[0]} to {ends.at(-1)}. Year-over-year revenue growth in each company's reporting currency; different fiscal periods. Company totals, excluding segments and ARR.</p>
+    <p className="desk-note">{rows.length} public suppliers. Latest quarters end {ends[0]} to {ends.at(-1)}. Year-over-year revenue growth in each company's reporting currency; different fiscal periods. Company totals, excluding segments and ARR. {nonSecGrowthNote}</p>
     <div className="desk-growth__scale" aria-hidden="true"><span /><div>{ticks.map(t => <span key={t} style={{ left: position(t) }}>{t}%</span>)}</div><span /></div>
     <ul className="desk-growth__rows">{rows.map(({ supplier, latest, prior }) => <li key={supplier.id}>
       <button type="button" className="desk-supplier-link" onClick={() => openSupplier(supplier.id)}>{shortSupplierName(supplier.name)}</button>
@@ -176,10 +181,8 @@ export function MarketDesk() {
   const group = eventGroups.find(g => g.id === groupId)
   const filtered = group ? changes.filter(item => item.type === 'filing' ? group.id === 'results' : group.types.includes(item.type)) : changes
   return <div className="market-desk">
-    <p className="desk-note" role="status"><strong>Diagnostic candidate — held data, not the published snapshot.</strong> <a href="/published-preview/">Review the app-only status update with unchanged production data</a>.</p>
-    <div className="desk-hero"><p className="desk-kicker">Latest attempt {lastAttemptAt.slice(0, 10)} · {trackerSuppliers.length} suppliers · {trackerDomains.length} domains</p><SiteMasthead />
-      <p className="desk-snapshot">Last complete data refresh: {completeRefreshDisplay}. Latest attempt: {lastAttemptAt}. {secCollectedCount} of {secFilerCount} SEC filers attempted successfully. <a href="#overview">Collection coverage</a></p>
-      {runStatus.state === 'incomplete' && <p className="desk-note">Source-check coverage is incomplete. Retained figures keep their reporting periods. <a href="#refresh-coverage">See checked and failed fields</a>.</p>}
+    <div className="desk-hero"><p className="desk-kicker">{trackerSuppliers.length} suppliers · {trackerDomains.length} domains · {certifiedCount} SEC filers certified</p><SiteMasthead />
+      <p className="desk-snapshot">SEC figures are re-derived from each company&rsquo;s filings and checked every 4 hours. Other figures keep their own source and date. <a href="#overview">What is certified</a></p>
     </div>
     <div className="desk-counts" aria-label="Event counts in the trailing twelve months">{eventGroups.map(g => {
       const annual = yearEvents.filter(e => g.types.includes(e.type)); const recent = monthEvents.filter(e => g.types.includes(e.type))

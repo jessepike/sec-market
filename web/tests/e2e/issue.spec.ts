@@ -65,7 +65,7 @@ test.describe('weekly issue — front page', () => {
     // is the first thing below it now (D-76/autonomy-coverage-plan.md §3,
     // step 1) — the issue permalink below still has the read as its h1.
     await expect(page.getByRole('heading', { level: 1 })).toHaveText(SITE_HEADLINE)
-    await expect(page.locator('#overview .run-status__line')).toContainText('Last complete data refresh:')
+    await expect(page.locator('#overview .run-status__line')).toContainText('Last certified change:')
 
     for (const id of TRACKER_FRONT_IDS) {
       await expect(page.locator(`#${id}`)).toBeVisible()

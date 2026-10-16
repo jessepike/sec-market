@@ -6,115 +6,26 @@ import { RunStatus } from '../src/components/RunStatus.tsx'
 import { formatLongDate } from '../src/data/dates.ts'
 import edgarFactsRaw from '../src/data/generated/edgarFacts.json' with { type: 'json' }
 import { runStatus } from '../src/data/runStatus.ts'
-import type { RunStatus as RunStatusData } from '../src/data/runStatus.ts'
 import { LAST_UPDATED_DISPLAY, LAST_UPDATED_ISO } from '../src/data/meta.ts'
 import { trackerSuppliers } from '../src/data/tracker/suppliers.ts'
-
-/**
- * The run-status data file exports one derived value; these tests render
- * the component against a local override object built from it, one per
- * state, rather than mutating the shared export — the component reads the
- * module's `runStatus` binding directly, so each case temporarily
- * monkey-patches the exported object's own fields (safe here: it's a plain
- * object, and each test restores it before the next runs).
- *
- * Clears every existing key before assigning `next`, not just merges over
- * it — `runStatus` can carry an optional `detail` (AUTO-001 fix pass 2,
- * item 4), and a plain `Object.assign` would leave the shipped `runStatus`'s
- * real `detail` string leaking into a test case that doesn't set one.
- */
-function withRunStatus(next: RunStatusData, run: () => void): void {
-  const original = { ...runStatus }
-  for (const key of Object.keys(runStatus)) delete (runStatus as Record<string, unknown>)[key]
-  Object.assign(runStatus, next)
-  try {
-    run()
-  } finally {
-    for (const key of Object.keys(runStatus)) delete (runStatus as Record<string, unknown>)[key]
-    Object.assign(runStatus, original)
-  }
-}
+import { certifiedClaimCount, certifiedCount, certifiedDateDisplay } from '../src/data/tracker/certification.ts'
 
 describe('RunStatus', () => {
-  it('holds an updated collector label without a verified complete refresh', () => {
-    withRunStatus(
-      { lastChecked: '2026-09-25', state: 'updated', failedNewsSuppliers: [] },
-      () => {
-        const markup = renderToStaticMarkup(createElement(RunStatus))
-        assert.match(markup, /Last complete data refresh: not established/)
-        assert.match(markup, /complete-refresh date are retained/); assert.doesNotMatch(markup, /Every source collected/)
-        assert.doesNotMatch(markup, /could not be read/)
-      },
-    )
+  // AUTO-002 Phase 2: RunStatus states the certified tier, not the retired collector run.
+  it('states the certified tier, its claim count, the last certified change and the cadence', () => {
+    const html = renderToStaticMarkup(createElement(RunStatus))
+    assert.match(html, /id="overview"/)
+    assert.match(html, new RegExp(`SEC figures for ${certifiedCount} public companies are re-derived from their own SEC filings`))
+    assert.match(html, new RegExp(`all ${certifiedClaimCount} checks`))
+    assert.ok(html.includes(`Last certified change: ${certifiedDateDisplay}.`))
+    assert.match(html, /Checked every 4 hours/)
+    assert.match(html, /not re-checked automatically/)
+    assert.doesNotMatch(html, /Last complete data refresh|not established|Which sources failed/)
   })
 
-  it('holds a no-change collector label without a verified complete refresh', () => {
-    withRunStatus(
-      { lastChecked: '2026-09-25', state: 'no-change', failedNewsSuppliers: [] },
-      () => {
-        const markup = renderToStaticMarkup(createElement(RunStatus))
-        assert.match(markup, /Latest attempt .*: held/)
-        assert.doesNotMatch(markup, /Every source collected/)
-      },
-    )
-  })
-
-  /**
-   * Third fix pass (2026-09-26), items 1-3: the previous version of this
-   * derivation rendered `failedSources` as a flat list of raw collector
-   * strings — 25 of them, with URLs, HTTP status codes, and a reference to
-   * `.collect/failed-sources.json`, a file the site never publishes. The
-   * first line now reads like a status line for a security leader: the
-   * filings side and the company-news side, each stated plainly, and the
-   * affected suppliers move into a closed disclosure named by short display
-   * name with one plain reason each.
-   */
-  it('renders the incomplete wording and the supplier count', () => {
-    withRunStatus(
-      {
-        lastChecked: '2026-09-26',
-        state: 'incomplete',
-        detail: 'Filings complete for all 14 public suppliers; company news pages could not be read for 2 of 74 suppliers.',
-        failedNewsSuppliers: [
-          { supplierId: 'armis', displayName: 'Armis', reason: 'newsroom blocked automated reading' },
-          { supplierId: 'ivanti', displayName: 'Ivanti', reason: 'no primary source found' },
-        ],
-      },
-      () => {
-        const markup = renderToStaticMarkup(createElement(RunStatus))
-        assert.match(markup, /Latest attempt .*: held/)
-        assert.match(markup, /Filings complete for all 14 public suppliers/)
-        assert.match(markup, /company news pages could not be read for 2 of 74 suppliers/)
-        assert.match(markup, /Which sources failed/)
-        assert.match(markup, /Armis/)
-        assert.match(markup, /newsroom blocked automated reading/)
-        assert.match(markup, /Ivanti/)
-        assert.match(markup, /no primary source found/)
-        // Never a URL, a file path, or an HTTP status code anywhere in the
-        // rendered markup — the exact defect this pass fixed.
-        assert.doesNotMatch(markup, /https?:\/\//)
-        assert.doesNotMatch(markup, /HTTP \d{3}/)
-        assert.doesNotMatch(markup, /\.collect\//)
-        assert.doesNotMatch(markup, /failed-sources\.json/)
-      },
-    )
-  })
-
-  it('renders no disclosure when incomplete for a reason with no per-supplier failures', () => {
-    withRunStatus(
-      {
-        lastChecked: '2026-09-25',
-        state: 'incomplete',
-        failedNewsSuppliers: [],
-        detail: 'Filings complete for all 14 public suppliers; press, funding and distress sources last checked for 4 of 74 suppliers on 26 Sep 2026 (restricted run: optiv, snyk, cyera, rapid7).',
-      },
-      () => {
-        const markup = renderToStaticMarkup(createElement(RunStatus))
-        assert.match(markup, /Last complete data refresh: not established/)
-        assert.match(markup, /press, funding and distress sources last checked for 4 of 74 suppliers/)
-        assert.doesNotMatch(markup, /Which sources failed/)
-      },
-    )
+  it('never calls the tier independently verified (D-100)', () => {
+    const html = renderToStaticMarkup(createElement(RunStatus))
+    assert.doesNotMatch(html, /independently verified/i)
   })
 
   it('the shipped status is well formed: a real date, a known state, and a reason whenever incomplete', () => {

@@ -41,6 +41,8 @@
 .desk-supplier-link { padding: 2px 0; min-height: 28px; border: 0; background: transparent; color: #17181b; text-align: left; font-weight: 600 !important; }
 .desk-supplier-link:hover { color: #1f5fc8; text-decoration: underline; }
 .desk-type { font-size: 10px; margin-left: 8px; color: #62676a; text-transform: capitalize; }
+.desk-cert { font-size: 10px; margin-left: 8px; padding: 0 5px; border: 1px solid #9aa3a8; border-radius: 3px; color: #3d4448; white-space: nowrap; }
+.desk-cert-note { margin-top: 0; }
 .desk-sources { display: flex; gap: 4px 12px; flex-wrap: wrap; }
 .desk-sources a,.desk-filing { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; min-height: 26px; text-decoration: none; }
 .desk-sources time { color: #62676a; }.desk-sources a:hover,.desk-filing:hover { text-decoration: underline; }

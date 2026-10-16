@@ -3,6 +3,7 @@ import { dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { edgarRegistry } from '../src/data/edgarRegistry.ts'
 import { handCollectedEvents } from '../src/data/tracker/events.ts'
+import { debtExcerpt } from './sec-verify/debt-excerpt.mjs'
 import type { TrackerEvent, TrackerEventType } from '../src/data/tracker/events.ts'
 
 /**
@@ -74,6 +75,9 @@ const FORM_MAP: Record<string, { type: TrackerEventType; label: string }> = {
   '25-NSE': { type: 'going-concern', label: 'notification of removal from listing' },
   'DEFM14A': { type: 'acquisition', label: 'a definitive proxy statement for a proposed merger' },
   'PREM14A': { type: 'acquisition', label: 'a preliminary proxy statement for a proposed merger' },
+  // AUTO-002 Phase 2 (D-91): late-filing notices.
+  'NT 10-K': { type: 'late-filing', label: 'notice that its annual report will be filed late' },
+  'NT 10-Q': { type: 'late-filing', label: 'notice that its quarterly report will be filed late' },
 }
 
 interface SubmissionsRecent {
@@ -185,7 +189,15 @@ async function main() {
         continue
       }
 
-      const text = `${formLabel} reporting ${mapping.label}, filed ${filingDate}.`
+      let text = `${formLabel} reporting ${mapping.label}, filed ${filingDate}.`
+      // D-91: a debt event quotes the filing's own description of the obligation.
+      if (form === '8-K' && matchedCode === '2.03') {
+        try {
+          await sleep(REQUEST_INTERVAL_MS)
+          const quote = debtExcerpt(await fetchText(docUrl))
+          if (quote) text = `${text} The filing describes it as: “${quote}”`
+        } catch (error) { console.error(`WARN  ${supplier.id} ${accession}: could not read the filing for its description (${String(error)})`) }
+      }
 
       const eventId = `EV-filing-${supplier.id}-${accession}`
       const evidenceId = `TR-filing-${supplier.id}-${accession}`

@@ -11,7 +11,7 @@ export const eventGroups: { id: string; label: string; types: TrackerEventType[]
   { id: 'ownership', label: 'Acquisitions & divestitures', types: ['acquisition', 'divestiture'] },
   { id: 'funding', label: 'Funding rounds', types: ['funding'] },
   { id: 'results', label: 'Results reported', types: ['results'] },
-  { id: 'restructuring', label: 'Restructuring & layoffs', types: ['restructuring', 'layoff', 'shutdown', 'going-concern'] },
+  { id: 'restructuring', label: 'Restructuring & layoffs', types: ['restructuring', 'layoff', 'shutdown', 'going-concern', 'late-filing'] },
   { id: 'debt', label: 'Debt & credit ratings', types: ['debt', 'rating'] },
   { id: 'leadership', label: 'Leadership changes', types: ['exec-change'] },
 ]

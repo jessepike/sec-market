@@ -53,11 +53,11 @@
   "undisclosedAnswers": {},
   "policy": "Every certified supplier and group is required. Each claim is re-derived from primary SEC data by a verifier that shares no code with the producer; it applies the same XBRL rules (quarter and year durations, latest-filed restatement, newest-concept selection), so it is a reproducibility check against SEC data, not a second methodology. The gate re-derives claims from the build inputs and refuses any drift. A failed source or mismatch yields no proof and holds the run. No exclusions or disclosure answers without an explicit reviewed entry. Displayed fields outside certification are listed in notCertified.",
   "notCertified": {
-    "headlineMetric": "Company-stated metrics (ARR, cRPO, billings) are not in structured SEC data. Shown with their own source and date, outside the certified snapshot.",
-    "ownership": "Free-text status. Identity (name, ticker, no delisting or deregistration) is certified instead.",
-    "events without an sec.gov source": "Press releases and news. Shown with their own source and date, outside the certified snapshot.",
-    "event text": "Certified event claims cover the filing, its dates and the event type. The written summary of a hand-collected event is not machine-verified.",
-    "growthBasis": "Reporting-currency note shown only for non-SEC filers (Trend Micro). Not present for certified suppliers."
+    "headlineMetric": "ARR, cRPO, billings and similar figures that companies state themselves. They are not in structured SEC data.",
+    "ownership": "Free-text descriptions. The name, ticker and listing status are certified instead.",
+    "events without an sec.gov source": "Shown with the source that reported them.",
+    "event text": "For SEC events the filing, its date and the event type are certified. The written summary of a hand-collected event is not.",
+    "growthBasis": "Shown only for Trend Micro, which does not file with the SEC."
   },
   "componentNotes": {
     "priorYearValue": "Not a required component, because a newly public filer has no prior-year quarter. When displayed it is verified against SEC and covered by the gate's drift check on every leaf."

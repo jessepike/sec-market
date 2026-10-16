@@ -32,7 +32,17 @@ export function publicAttempt(coverage, publication) {
     notice: 'This is a held attempt receipt, not a published refreshed snapshot. Candidate financial values are omitted. Complete refresh requires independent substantive verification under the fixed contract.' }
 }
 
+/** AUTO-002 Phase 2: the certified tier gates the tracker build (re-derived claims, no drift). */
+export function certifiedDecision(repo) {
+  const r = spawnSync('npx', ['tsx', '--tsconfig', 'tsconfig.app.json', 'scripts/certify-gate.ts', '--at-certification'], { cwd: resolve(repo, 'web'), stdio: 'inherit', env: process.env })
+  if (r.status !== 0) throw new Error('Certified tier failed its gate; the tracker is not published.')
+  const coverage = JSON.parse(readFileSync(resolve(repo, 'web/src/data/generated/certifiedCoverage.json'), 'utf8'))
+  return { allowed: true, releaseKind: 'certified', dataUpdated: true, certifiedAt: coverage.checkedAt, contractVersion: coverage.contractVersion }
+}
+
 export function verifyAppRelease(repo) {
+  const certifiedMode = JSON.parse(readFileSync(resolve(repo, 'web/src/data/generated/refreshPublication.json'), 'utf8')).snapshotMode === 'certified'
+  if (certifiedMode) return certifiedDecision(repo)
   const published = resolve(repo, 'web/published-app')
   const manifest = JSON.parse(readFileSync(resolve(published, 'snapshot-manifest.json'), 'utf8'))
   const publication = JSON.parse(readFileSync(resolve(repo, 'web/src/data/generated/refreshPublication.json'), 'utf8'))
@@ -49,6 +59,15 @@ function command(cwd, args) { const r = spawnSync('npm', args, { cwd, stdio: 'in
 export function buildRelease(repo) {
   const decision = verifyAppRelease(repo)
   const web = resolve(repo, 'web'), published = resolve(web, 'published-app')
+  if (decision.releaseKind === 'certified') {
+    command(web, ['run', 'build:certified'])
+    const dist = resolve(web, 'dist')
+    cpSync(resolve(web, 'src/data/generated/certifiedCoverage.json'), resolve(dist, 'certified-coverage.json'))
+    const release = { ...decision, rootView: 'tracker', appRevision: process.env.VERCEL_GIT_COMMIT_SHA ?? null, appBuiltAt: new Date().toISOString() }
+    writeFileSync(resolve(dist, 'app-release.json'), JSON.stringify(release, null, 2) + '\n')
+    console.log(JSON.stringify(release))
+    return decision
+  }
   const coverage = JSON.parse(readFileSync(resolve(web, 'src/data/generated/refreshCoverage.json'), 'utf8'))
   const publication = JSON.parse(readFileSync(resolve(web, 'src/data/generated/refreshPublication.json'), 'utf8'))
   if (decision.releaseKind === 'refresh') { command(web, ['run', 'build:tracker']); return decision }
