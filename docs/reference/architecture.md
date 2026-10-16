@@ -83,7 +83,7 @@ The six allowlisted data files are `edgarFacts.json`, `filingEvents.json`, `fili
 | `web/src/data/generated/` | Machine-written data. Six files are refreshed by the bot; the rest are frozen records from earlier phases |
 | `web/scripts/` | Data refresh, certification, build, prerender and verification scripts |
 | `web/scripts/sec-verify/` | The independent verifier and the 8-K Item 2.03 excerpt extractor |
-| `web/tests/` | Data tests (`node --test`) and browser tests (`tests/e2e`, Playwright) |
+| `web/tests/` | Data tests (`tsx --test`) and browser tests (`tests/e2e`, Playwright) |
 | `.github/workflows/` | `certified-refresh`, `promote-certified`, `freshness`, `web` (CI) |
 | `.githooks/` | `pre-push` hook that refuses a push to `main` without `PROMOTE=1` |
 | `docs/` | Current design in `reference/`, work in flight in `active/`, history in `archive/` |

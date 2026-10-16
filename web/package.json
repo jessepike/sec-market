@@ -1,5 +1,5 @@
 {
-  "name": "web",
+  "name": "security-market-pulse",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -25,7 +25,6 @@
     "build:feed": "tsx --tsconfig tsconfig.app.json scripts/generate-feed.ts",
     "build": "node scripts/app-release.mjs",
     "lint": "oxlint",
-    "preview": "vite preview",
     "test:e2e": "node scripts/ensure-test-browser.mjs && node scripts/run-browser-tests.mjs",
     "test:data": "tsx --tsconfig tsconfig.app.json --test tests/landscape-data.test.ts tests/issue-data.test.ts tests/dist-fixtures.test.ts tests/html-escape.test.ts tests/corrections-data.test.ts tests/print-checks.test.ts tests/reconfirmations.test.ts tests/platform-pressure.test.ts tests/run-status.test.ts tests/edgar-logic.test.ts tests/tracker-data.test.ts tests/tracker-presentation.test.ts tests/claim-gate.test.mjs tests/certified-tier.test.mjs",
     "test": "npm run lint && npm run test:data && npm run build && npm run test:e2e",

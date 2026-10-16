@@ -15,7 +15,7 @@ A run with no human and no AI produces a certified snapshot of the SEC filers th
 
 ## What the code review found
 
-- `evaluateRefresh` in `web/scripts/refresh-publication-gate.mjs` is generic. It requires one proof per supplier × group listed in the contract it is given. A narrower contract needs no gate change.
+- `evaluateRefresh` in `web/scripts/claim-gate.mjs` (named `refresh-publication-gate.mjs` until 2026-10-16) is generic. It requires one proof per supplier × group listed in the contract it is given. A narrower contract needs no gate change.
 - Nothing produces proofs today. `web/src/data/generated/refreshVerification.json` has 0 verified claims.
 - Displayed SEC revenue already comes entirely from XBRL (`web/src/data/tracker/edgarRevenue.ts`), including `releaseDate`, which is the 10-Q or 10-K filing date.
 - `selectRevenueFacts` takes the first concept with any USD fact. A filer that changes revenue tag can silently freeze on an old concept.
@@ -61,8 +61,8 @@ Proof shape is exactly what `evaluateRefresh` checks: `valueSha256` over the sor
 
 ### 3. Runner and gate
 
-- `web/scripts/certify-sec.mjs`: builds candidate fields from the current tracker data, runs the verifier, writes `web/src/data/generated/certifiedCoverage.json` and `certifiedVerification.json`.
-- `web/scripts/certify-gate.mjs`: runs `evaluateRefresh` with the certified contract, coverage and verification; writes `.collect/certified-attempt.json`; exits 0 only at 100%.
+- `web/scripts/certify-sec.ts`: builds candidate fields from the current tracker data, runs the verifier, writes `web/src/data/generated/certifiedCoverage.json` and `certifiedVerification.json`.
+- `web/scripts/certify-gate.ts`: runs `evaluateRefresh` with the certified contract, coverage and verification; writes `.collect/certified-attempt.json`; exits 0 only at 100%.
 - npm scripts: `certify:sec`, `certify:gate`.
 
 ### 4. Fixes to the producer

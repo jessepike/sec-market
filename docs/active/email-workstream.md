@@ -1,6 +1,6 @@
 # Email workstream (D-92)
 
-**Backlog:** SEC-060 · **Status:** waiting on three owner inputs · **Owner of the list:** jessepike.dev
+**Backlog:** SEC-060 · **Status:** waiting on two owner inputs (the API key and a postal address) · **Owner of the list:** jessepike.dev
 
 The owner approved email capture and a digest as one unit: it ships complete or not at all, with no
 loose ends. Nothing is built until the inputs below exist, so that no half-finished piece sits in
@@ -30,7 +30,7 @@ the repo.
 |---|---|---|
 | Buttondown API key as GitHub secret `BUTTONDOWN_API_KEY` | The digest job sends through the API | Buttondown settings, API; then GitHub repo Settings, Secrets and variables, Actions |
 | A postal address for the email footer | Required by CAN-SPAM | A PO box or virtual mailbox is fine; a home address is not recommended |
-| Go-ahead to send the first test | Confirms the format before subscribers see it | Reply to the test email |
+| Go-ahead after the first test send (not a blocker to building) | Confirms the format before subscribers see it | Reply to the test email |
 
 ## Not in scope
 

@@ -19,7 +19,8 @@ Node 22. Run from this folder.
 | `npm run test:e2e` | Playwright tests against `dist/` |
 | `npm run refresh:edgar`, `refresh:filing-events` | Pull SEC data for the tracked filers |
 | `npm run certify:sec`, `certify:gate` | Re-derive and gate the 80 certified claims |
-| `npm run check:links` | Check internal links in the built site |
+| `npm run verify:app-release` | Run the certified gate without building (used by the `pre-push` hook) |
+| `npm run check:links` | Fetch every external source URL cited by the evidence records and report failures |
 | `node scripts/shot.mjs <url> <prefix>` | Full-page screenshots at 1440 and 390 |
 
 ## Build pipeline
@@ -34,12 +35,16 @@ Node 22. Run from this folder.
    (`verify:dist`).
 3. The certification receipt and `app-release.json` are copied into `dist/`.
 
+Most content gates date from the weekly-issue era. They now guard frozen records (the signed issue,
+the thesis panel, the scorecard prints) so those cannot change silently; `verify:tracker` guards the
+live tracker. Retiring the ones the tracker no longer needs is backlog item SEC-063.
+
 ## Where things live
 
 | Path | Contents |
 |---|---|
 | `src/App.tsx`, `src/entry-server.tsx`, `src/main.tsx` | Page shell, prerender entry and client entry |
-| `src/components/` | Page sections. `MarketDesk.tsx` is the tracker; `HowThisWorks.tsx` is the Method section |
+| `src/components/` | Page sections. `MarketDesk.tsx` is the tracker; `RunStatus.tsx` is the "what is certified" paragraph (the name predates it); `HowThisWorks.tsx` is the Method section |
 | `src/data/tracker/` | Suppliers, domains, events, the certified contract (`certifiedContract.json`) and what the page may call certified (`certification.ts`) |
 | `src/data/generated/` | Machine-written data. The six files refreshed by the bot are listed in the architecture doc |
 | `src/data/issues/` | The one signed weekly issue (`2026-w36`), locked by hash in `issues.lock.json` |

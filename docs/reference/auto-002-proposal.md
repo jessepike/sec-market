@@ -1,7 +1,7 @@
 ---
 id: SEC-MARKET-AUTO-002
 version: 0.2
-state: council reviewed; owner decisions D-88 to D-95 logged 2026-10-15; open items listed below
+state: approved 2026-10-15 (D-88 to D-99); Phases 0 to 2 shipped 2026-10-16
 created: 2026-10-15
 revised: 2026-10-15
 author: Claude (claude.ai session with the owner)
@@ -10,6 +10,8 @@ supersedes: v0.1 (same file, git history)
 ---
 
 # Hosted automation, filed events and portfolio tie-in
+
+> The plan as approved on 2026-10-15. Phases 0 to 2 shipped by 2026-10-16 (D-100, D-101); the current system is described in [architecture.md](architecture.md). Since then `refresh-publication-gate.mjs` was renamed `claim-gate.mjs` and `web/published-app` was removed (D-102).
 
 ## Owner goals (stated 2026-10-15)
 

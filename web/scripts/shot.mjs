@@ -11,9 +11,9 @@
 // answer what is on the first screen, and the first screen is where this site
 // has twice shipped a composition nobody had looked at.
 //
-// Note: launch uses { channel: 'chrome' } on purpose. Playwright's bundled
-// chromium headless shell is not installed on this host and installing it
-// would violate the host-protection rule; the system Chrome is already here.
+// Browser: the system Google Chrome when present (the owner's laptop and VMs
+// do not carry Playwright's bundled Chromium), otherwise Playwright's own
+// Chromium (CI and cloud containers).
 import { chromium } from '@playwright/test'
 
 const args = process.argv.slice(2)
@@ -28,7 +28,7 @@ const viewports = [
   { width: 1440, height: 900 },
   { width: 390, height: 844 },
 ]
-const browser = await chromium.launch({ channel: 'chrome' })
+const browser = await chromium.launch({ channel: 'chrome' }).catch(() => chromium.launch())
 
 for (const viewport of viewports) {
   const page = await browser.newPage({

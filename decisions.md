@@ -21,6 +21,8 @@ Everything not listed here is history: superseded, completed, or about a phase t
 | Security | D-83 (credential boundary), D-99 | No tokens or credentials copied to CI without approval at the time. Security headers and DNS hardening on both sites |
 | Roadmap | D-94, D-95 | A quarterly owner-written note is on the backlog. AI extraction for private companies is deferred |
 
+Numbering note: D-34 was recorded before D-33 on 2026-08-16; both stand as written.
+
 Commonly cited superseded entries: D-62 and D-64 (weekly issue) by D-77 and D-93; D-73 (issue
 approval as promotion) by D-93; D-80 (no name on the site) by D-90; D-86 and D-87 (app-only release)
 by D-101.
@@ -1132,4 +1134,9 @@ Owner, after Phase 1 was promoted: "promote. then continue until complete." Read
 
 **D-102 · 2026-10-16 — Repository cleanup: retired material archived, retired code removed, core documents rewritten.**
 
-Owner: "let's clean this up ... archive what we need to archive ... I want it kind of just slim down", then, to three questions: archive retired material and delete only true leftovers ("yes"); change `intent.md` and `.claude/rules/` ("yes you can change"); cut `status.md` to the current state and `BACKLOG.md` to open items, and "keep decision as historical ledger--don't trim." Scope: sec-market only. Done: retired documents moved to `docs/archive/` by era with an index; `docs/reference/` gains `architecture.md` and `operations.md`; `web/published-app`, root `scripts/` and `workflows/`, the weekly-issue workflows, the app-only and diagnostic build modes, 17 unreachable components and the unused `recharts` dependency removed (this supersedes D-101's note that `web/published-app` stays); `intent.md` v1.5; constraints updated to record D-88 and D-92; this ledger gains the index above. One visible change, a duplicated phrase in the RSS line ("Follow published records by RSS: follow by RSS" now reads "Follow new records by RSS"); every other pixel on all five routes is identical at 1440 and 390.
+Owner: "let's clean this up ... archive what we need to archive ... I want it kind of just slim down". To three follow-up questions: archive retired material and delete only true leftovers ("yes"); change `intent.md` and `.claude/rules/` ("yes you can change"); cut `status.md` to the current state and `BACKLOG.md` to open items, and "keep decision as historical ledger--don't trim." Scope: sec-market only.
+
+- Retired documents moved to `docs/archive/` by era, with an index. `docs/reference/` gains `architecture.md` and `operations.md`.
+- Removed: `web/published-app`, root `scripts/` and `workflows/`, the weekly-issue workflows, the app-only and diagnostic build modes, 17 unreachable components and the unused `recharts` dependency. This supersedes D-101's note that `web/published-app` stays.
+- `intent.md` revised to v1.5 (text awaiting the owner's confirmation); constraints record D-88 and D-92; this ledger gains the index above.
+- One visible change: the RSS line read "Follow published records by RSS: follow by RSS" and now reads "Follow new records by RSS". Every other pixel on all five routes is identical to production at 1440 and 390.

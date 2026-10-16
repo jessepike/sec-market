@@ -18,10 +18,11 @@ between the commit and the public site.
 
 ## Context map
 
-- **Always loaded:** `intent.md`, `status.md`, `BACKLOG.md`, `decisions.md`, `.claude/rules/`
+- **Always loaded:** `intent.md`, `status.md`, `BACKLOG.md`, `.claude/rules/`, and the "Decisions in force"
+  index at the top of `decisions.md` (open individual entries only when needed; the ledger is long)
 - **Current design:** `docs/reference/` (start with `architecture.md`)
 - **Work in flight:** `docs/active/`
-- **Never load automatically:** `docs/archive/`, `.ctx/`
+- **Never load automatically:** `docs/archive/`, `.ctx/` (local, uncommitted agent scratch context)
 
 ## Working habits
 

@@ -27,11 +27,11 @@ while read -r _local_ref local_sha remote_ref _remote_sha; do
       exit 1
     fi
     if [ ! -f "$root/web/scripts/app-release.mjs" ]; then
-      echo 'pre-push refused: this commit lacks the required complete-refresh publication guard.' >&2
+      echo 'pre-push refused: this commit lacks the certified build gate (web/scripts/app-release.mjs).' >&2
       exit 1
     fi
     node "$root/web/scripts/app-release.mjs" --verify || exit 1
-    echo "pre-push: explicit promotion and complete-refresh guard passed." >&2
+    echo "pre-push: explicit promotion and certified gate passed." >&2
     continue
   fi
 

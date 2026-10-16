@@ -36,7 +36,7 @@ import { trackerSuppliers } from './tracker/suppliers'
  * log verbatim. `collectState.json`'s `failedSources` is now an array of
  * `{ supplierId, reason, detail }` records — `reason` a small fixed
  * vocabulary (`REASON_TEXT` below), `detail` the full technical string kept
- * for whoever debugs `collect.sh` next but never rendered. This module
+ * for debugging but never rendered (the collector was retired 2026-10-16). This module
  * derives `failedNewsSuppliers`, one deduplicated, plain-language row per
  * distinct supplier, from that list.
  */
@@ -82,7 +82,7 @@ interface EdgarFacts {
 
 /**
  * The small, fixed vocabulary a collector-run failure is classified into.
- * `collect.sh`/`collect-brief.md` record one of these per failed source
+ * The retired collector recorded one of these per failed source
  * (third fix pass, item 1) instead of a free-text sentence, so the display
  * text is centralized here rather than baked into the data.
  */
@@ -261,9 +261,9 @@ function deriveRunStatus(): RunStatus {
   }
 
   // A run can be incomplete for a reason that isn't a specific supplier's
-  // source (the collector process itself didn't finish) — collect.sh writes
-  // a plain, file-path-free sentence into collectorRun.detail for exactly
-  // this case (see its own comment), safe to render as-is.
+  // source (the collector process itself didn't finish); the retired collector
+  // wrote a plain, file-path-free sentence into collectorRun.detail for this
+  // case, safe to render as-is.
   if (collectorRun.state === 'incomplete') {
     return {
       lastChecked,

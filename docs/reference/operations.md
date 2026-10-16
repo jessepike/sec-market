@@ -36,7 +36,8 @@ npm run build                # gated production build into dist/
 npm run lint
 npm run test:data            # data and logic tests
 npm run test:e2e             # browser tests against dist/
-node scripts/shot.mjs <url> <prefix>   # full-page screenshots at 1440 and 390
+node scripts/shot.mjs <url> <prefix>   # full-page screenshots at 1440 and 390 (system Chrome,
+                                       # or Playwright's Chromium where Chrome is absent)
 ```
 
 `npm test` runs lint, data tests, build and browser tests in order.
@@ -81,5 +82,5 @@ A company qualifies if it files 10-Q and 10-K reports with XBRL revenue under it
 ## Accounts the owner holds
 
 GitHub, Vercel and Cloudflare are under the owner's accounts, with passkey and two-factor sign-in.
-Agents do not create tokens or copy credentials into CI (D-83). Open account items are tracked in
-[status.md](../../status.md).
+Agents do not create tokens or copy credentials into CI (D-83). Open account items are
+backlog item SEC-061 in [BACKLOG.md](../../BACKLOG.md).

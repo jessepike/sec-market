@@ -29,7 +29,8 @@ Jesse Pike.
 | [docs/reference/operations.md](docs/reference/operations.md) | Commands, shipping, repair |
 
 Load on demand: [docs/reference/](docs/reference/) for the current design, [docs/active/](docs/active/)
-for work in flight. Never load automatically: [docs/archive/](docs/archive/), `.ctx/`.
+for work in flight. Never load automatically: [docs/archive/](docs/archive/), `.ctx/` (local, uncommitted agent scratch
+context).
 
 ## Continuity
 
@@ -105,6 +106,6 @@ node scripts/shot.mjs <preview-url> /tmp/preview
 - Facts only. No machine-written stance, ranking, forecast or interpretation (D-76).
 - The page calls a figure certified only when `web/src/data/tracker/certification.ts` says so, and
   says "re-derived from SEC filings", never "independently verified" (D-100).
-- Published records (issue `2026-w36`, the thesis, corrections) change only through a new dated
-  correction, never by editing the record.
+- Issue `2026-w36` and the thesis change only through a new dated correction, never by editing the
+  record. Corrections themselves are append-only.
 - Plain language in anything a reader sees: short sentences, no em dashes, no marketing phrasing.

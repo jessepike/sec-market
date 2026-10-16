@@ -30,6 +30,8 @@ Current state only. The full session log up to 2026-10-16 is in
   with the owner's approval. One visible change: the RSS line on the front page read "Follow
   published records by RSS: follow by RSS" and now reads "Follow new records by RSS". Everything
   else renders pixel-identical to production on all five routes at 1440 and 390.
+- A fresh review agent scored the cleaned repo 7.5 of 10 and listed 20 issues; all were fixed the
+  same session, then a second fresh review checked the result.
 
 ## Waiting on the owner
 

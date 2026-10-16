@@ -1,7 +1,7 @@
 ---
 id: SEC-MARKET-AUTO-002-P2
 version: 0.1
-state: in build
+state: shipped 2026-10-16 (D-101)
 created: 2026-10-16
 parent: SEC-MARKET-AUTO-002
 decisions: D-88 (auto-promote data), D-89 (certified tier), D-90/D-97 (byline), D-91 (filed events), D-93 (weekly issue retired), D-96 (cadence), D-100 (wording)
@@ -9,6 +9,8 @@ authority: owner, 2026-10-16: "promote. then continue until complete"
 ---
 
 # Phase 2: production renders the certified tier
+
+> Shipped to production on 2026-10-16. Later change: the cleanup of the same day (D-102) removed `web/published-app` and the non-certified release modes, so `app-release.mjs` now builds only the certified tracker.
 
 ## Goal
 
@@ -20,7 +22,7 @@ The public site shows the tracker, not the frozen legacy snapshot. SEC figures f
 
 - New release kind `certified`, selected when `refreshPublication.json` has `snapshotMode: "certified"`. Production and preview both build the tracker app. No diagnostic root and no `/published-preview/`.
 - Build gate: `certify-gate.ts --at-certification` evaluates the committed proofs at their own certification time and re-derives every claim from the build inputs (drift check). Wall-clock freshness is enforced by `certified-refresh.yml` every 4 hours, not at build time, because data commits happen only on change (D-96).
-- `web/published-app` stays in the repo unchanged as the legacy record. It is no longer the production root.
+- `web/published-app` stays in the repo unchanged as the legacy record. It is no longer the production root. (Removed later by D-102.)
 
 ### Dates
 
