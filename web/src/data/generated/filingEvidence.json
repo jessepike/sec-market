@@ -323,6 +323,25 @@
     "retrievedAt": "2026-10-16"
   },
   {
+    "id": "TR-filing-s1-0001104659-26-116654",
+    "title": "SentinelOne — Form 8-K (Item 2.03)",
+    "organization": "SentinelOne",
+    "publicationDate": "2026-10-16",
+    "economicPeriod": "2026-10-16",
+    "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1583708/000110465926116654/tm2627397d1_8k.htm",
+    "excerpt": "Form 8-K (Item 2.03): the creation of a direct financial obligation.",
+    "sourceClass": "FILING",
+    "interpretation": "",
+    "limitations": "AUTO-001 fix pass 4, item 5: generated directly from this filer's own 8-K item code at build time, with no model in the loop. States only what the item code itself establishes, not the filing's specifics (e.g. appointment vs. departure for Item 5.02) — open the filing for those.",
+    "conflictingEvidenceIds": [],
+    "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-filing-s1-0001104659-26-116654",
+    "tags": [
+      "tracker",
+      "filing-event"
+    ],
+    "retrievedAt": "2026-10-16"
+  },
+  {
     "id": "TR-filing-s1-0001583708-26-000025",
     "title": "SentinelOne — Form 8-K (Item 5.02)",
     "organization": "SentinelOne",

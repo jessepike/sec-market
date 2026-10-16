@@ -187,6 +187,17 @@
     "rung": 1
   },
   {
+    "id": "EV-filing-s1-0001104659-26-116654",
+    "supplierId": "s1",
+    "date": "2026-10-16",
+    "type": "debt",
+    "text": "Form 8-K (Item 2.03) reporting the creation of a direct financial obligation, filed 2026-10-16. The filing describes it as: “Current Report on Form 8-K is incorporated herein by reference.”",
+    "evidenceIds": [
+      "TR-filing-s1-0001104659-26-116654"
+    ],
+    "rung": 1
+  },
+  {
     "id": "EV-filing-s1-0001583708-26-000025",
     "supplierId": "s1",
     "date": "2026-03-25",
