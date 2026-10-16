@@ -64,6 +64,16 @@ const ITEM_CODE_MAP: Record<string, { type: TrackerEventType; label: string }> =
   '1.03': { type: 'going-concern', label: 'a bankruptcy or receivership filing' },
   '2.05': { type: 'restructuring', label: 'costs associated with an exit or disposal activity' },
   '3.01': { type: 'going-concern', label: 'a notice of delisting or failure to satisfy a continued listing rule' },
+  // AUTO-002 Phase 0 (D-91): debt obligations are listed as filed events.
+  '2.03': { type: 'debt', label: 'the creation of a direct financial obligation' },
+}
+
+// AUTO-002 Phase 0: whole-form events that carry no 8-K item codes.
+const FORM_MAP: Record<string, { type: TrackerEventType; label: string }> = {
+  '25': { type: 'going-concern', label: 'notification of removal from listing' },
+  '25-NSE': { type: 'going-concern', label: 'notification of removal from listing' },
+  'DEFM14A': { type: 'acquisition', label: 'a definitive proxy statement for a proposed merger' },
+  'PREM14A': { type: 'acquisition', label: 'a preliminary proxy statement for a proposed merger' },
 }
 
 interface SubmissionsRecent {
@@ -152,14 +162,16 @@ async function main() {
     const recent = data.filings.recent
     let found = 0
     for (let i = 0; i < recent.form.length; i++) {
-      if (recent.form[i] !== '8-K') continue
+      const form = recent.form[i]
+      if (form !== '8-K' && !(form in FORM_MAP)) continue
       const filingDate = recent.filingDate[i]
       if (filingDate < WINDOW_START || filingDate > refreshDate) continue
       const itemCodes = (recent.items[i] ?? '').split(',').map((s) => s.trim())
-      const matchedCode = itemCodes.find((code) => code in ITEM_CODE_MAP)
+      const matchedCode = form === '8-K' ? itemCodes.find((code) => code in ITEM_CODE_MAP) : form
       if (!matchedCode) continue
 
-      const mapping = ITEM_CODE_MAP[matchedCode]
+      const mapping = form === '8-K' ? ITEM_CODE_MAP[matchedCode] : FORM_MAP[form]
+      const formLabel = form === '8-K' ? `Form 8-K (Item ${matchedCode})` : `Form ${form}`
       const accession = recent.accessionNumber[i]
       const primaryDocument = recent.primaryDocument[i]
       const docUrl = documentUrl(supplier.cik, accession, primaryDocument)
@@ -170,7 +182,7 @@ async function main() {
         continue
       }
 
-      const text = `Form 8-K (Item ${matchedCode}) reporting ${mapping.label}, filed ${filingDate}.`
+      const text = `${formLabel} reporting ${mapping.label}, filed ${filingDate}.`
 
       const eventId = `EV-filing-${supplier.id}-${accession}`
       const evidenceId = `TR-filing-${supplier.id}-${accession}`
@@ -187,12 +199,12 @@ async function main() {
 
       evidence.push({
         id: evidenceId,
-        title: `${supplier.name} — Form 8-K, Item ${matchedCode}`,
+        title: `${supplier.name} — ${formLabel}`,
         organization: supplier.name,
         publicationDate: filingDate,
         economicPeriod: filingDate,
         canonicalUrl: docUrl,
-        excerpt: `Item ${matchedCode}: ${mapping.label}.`,
+        excerpt: `${formLabel}: ${mapping.label}.`,
         sourceClass: 'FILING',
         interpretation: '',
         limitations:

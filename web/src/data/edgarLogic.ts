@@ -137,14 +137,20 @@ export function selectRevenueFacts(
 ): { concept: string; facts: XbrlFact[] } | null {
   const gaap = companyFacts.facts?.['us-gaap']
   if (!gaap) return null
+  // AUTO-002 Phase 0: a filer that switches revenue tags must not freeze on the
+  // old one. Among concepts with 10-Q/10-K USD facts, take the one whose newest
+  // quarter or fiscal year ends latest; ties keep the priority order.
+  let best: { concept: string; facts: XbrlFact[]; newest: string } | null = null
   for (const concept of concepts) {
     const usd = gaap[concept]?.units?.USD
     if (!usd || usd.length === 0) continue
     const filingFacts = usd.filter((f) => f.form === '10-Q' || f.form === '10-K')
     if (filingFacts.length === 0) continue
-    return { concept, facts: filingFacts }
+    const periodic = filingFacts.filter((f) => f.start && (isQuarterlyDuration(daysBetween(f.start, f.end)) || (f.form === '10-K' && isAnnualDuration(daysBetween(f.start, f.end)))))
+    const newest = periodic.reduce((m, f) => (f.end > m ? f.end : m), '')
+    if (!best || newest > best.newest) best = { concept, facts: filingFacts, newest }
   }
-  return null
+  return best ? { concept: best.concept, facts: best.facts } : null
 }
 
 /**

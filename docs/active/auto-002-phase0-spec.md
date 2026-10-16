@@ -51,6 +51,10 @@ Then, per group:
 | revenue staleness (both) | No revenue concept in the raw facts has a quarter ending later than the displayed latest quarter; the newest 10-Q or 10-K in submissions was filed on or before the displayed `releaseDate` |
 | secEvents | Every tracker event for the supplier with an sec.gov source maps to an accession present in submissions with the same filing date; every in-window 8-K whose items include a tracked code is represented by an event on that filing date |
 
+The certified events window is the SEC filing run's own window (`filingRun.json` `windowEnd` back 365 days). Today the site's event list instead ends at `runStatus.lastChecked`, the earlier of the laptop collector and the SEC refresh; Phase 2 must render certified SEC events on the SEC window.
+
+Certified event claims cover the filing date, the filing's presence in the SEC index, and completeness of tracked forms and items. The prose of hand-collected events is not machine-verified; Phase 2 must show that distinction.
+
 A group that fails gets no proof. The gate then fails that group and the run is held, as D-85 requires.
 
 Proof shape is exactly what `evaluateRefresh` checks: `valueSha256` over the sorted candidate fields, `discovery` from the submissions fetch with scope `company-or-parent`, and `evidence` entries with method `structured-validation`, the source hash, a locator (concept, period, accession) and a short excerpt.

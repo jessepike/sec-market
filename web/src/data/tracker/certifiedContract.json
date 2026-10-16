@@ -1,0 +1,53 @@
+{
+  "version": "smp-certified-v2",
+  "scope": "Tracker suppliers with structured SEC XBRL quarterly revenue (edgarId in edgarRegistry). Set by source class before results are known (D-89). Derived, never hand-set: a test fails if this list differs from the derived set.",
+  "supplierIds": [
+    "cloudflare",
+    "commvault",
+    "crwd",
+    "fortinet",
+    "jfrog",
+    "netskope",
+    "okta",
+    "panw",
+    "qualys",
+    "rapid7",
+    "rubrik",
+    "s1",
+    "sailpoint",
+    "tenable",
+    "varonis",
+    "zscaler"
+  ],
+  "groups": {
+    "identity": 720,
+    "revenue.latest": 24,
+    "revenue.prior": 24,
+    "secEvents": 24
+  },
+  "components": {
+    "identity": [
+      "name",
+      "ticker",
+      "kind"
+    ],
+    "revenue.latest": [
+      "value",
+      "yoyGrowth",
+      "period",
+      "periodEnd",
+      "releaseDate"
+    ],
+    "revenue.prior": [
+      "value",
+      "yoyGrowth",
+      "period",
+      "periodEnd"
+    ],
+    "secEvents": []
+  },
+  "pinnedFields": {},
+  "exclusions": {},
+  "undisclosedAnswers": {},
+  "policy": "Every certified supplier and group is required. Each claim is re-derived from primary SEC data by an independent verifier that shares no code with the producer. A failed source or mismatch yields no proof and holds the run. No exclusions or disclosure answers without an explicit reviewed entry."
+}
