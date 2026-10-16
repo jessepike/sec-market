@@ -1,12 +1,12 @@
 [
   {
     "id": "TR-filing-crwd-0001535527-26-000018",
-    "title": "CrowdStrike — Form 8-K, Item 5.02",
+    "title": "CrowdStrike — Form 8-K (Item 5.02)",
     "organization": "CrowdStrike",
     "publicationDate": "2026-04-21",
     "economicPeriod": "2026-04-21",
     "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000018/crwd-20260416.htm",
-    "excerpt": "Item 5.02: a change in directors or certain officers.",
+    "excerpt": "Form 8-K (Item 5.02): a change in directors or certain officers.",
     "sourceClass": "FILING",
     "interpretation": "",
     "limitations": "AUTO-001 fix pass 4, item 5: generated directly from this filer's own 8-K item code at build time, with no model in the loop. States only what the item code itself establishes, not the filing's specifics (e.g. appointment vs. departure for Item 5.02) — open the filing for those.",
@@ -16,16 +16,16 @@
       "tracker",
       "filing-event"
     ],
-    "retrievedAt": "2026-10-14"
+    "retrievedAt": "2026-10-16"
   },
   {
     "id": "TR-filing-crwd-0001104659-25-124912",
-    "title": "CrowdStrike — Form 8-K, Item 5.02",
+    "title": "CrowdStrike — Form 8-K (Item 5.02)",
     "organization": "CrowdStrike",
     "publicationDate": "2025-12-29",
     "economicPeriod": "2025-12-29",
     "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000110465925124912/tm2534248d1_8k.htm",
-    "excerpt": "Item 5.02: a change in directors or certain officers.",
+    "excerpt": "Form 8-K (Item 5.02): a change in directors or certain officers.",
     "sourceClass": "FILING",
     "interpretation": "",
     "limitations": "AUTO-001 fix pass 4, item 5: generated directly from this filer's own 8-K item code at build time, with no model in the loop. States only what the item code itself establishes, not the filing's specifics (e.g. appointment vs. departure for Item 5.02) — open the filing for those.",
@@ -35,16 +35,16 @@
       "tracker",
       "filing-event"
     ],
-    "retrievedAt": "2026-10-14"
+    "retrievedAt": "2026-10-16"
   },
   {
     "id": "TR-filing-zscaler-0001713683-26-000082",
-    "title": "Zscaler — Form 8-K, Item 5.02",
+    "title": "Zscaler — Form 8-K (Item 5.02)",
     "organization": "Zscaler",
     "publicationDate": "2026-04-16",
     "economicPeriod": "2026-04-16",
     "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1713683/000171368326000082/zs-20260415.htm",
-    "excerpt": "Item 5.02: a change in directors or certain officers.",
+    "excerpt": "Form 8-K (Item 5.02): a change in directors or certain officers.",
     "sourceClass": "FILING",
     "interpretation": "",
     "limitations": "AUTO-001 fix pass 4, item 5: generated directly from this filer's own 8-K item code at build time, with no model in the loop. States only what the item code itself establishes, not the filing's specifics (e.g. appointment vs. departure for Item 5.02) — open the filing for those.",
@@ -54,16 +54,16 @@
       "tracker",
       "filing-event"
     ],
-    "retrievedAt": "2026-10-14"
+    "retrievedAt": "2026-10-16"
   },
   {
     "id": "TR-filing-panw-0001193125-26-361122",
-    "title": "Palo Alto Networks — Form 8-K, Item 5.02",
+    "title": "Palo Alto Networks — Form 8-K (Item 5.02)",
     "organization": "Palo Alto Networks",
     "publicationDate": "2026-08-21",
     "economicPeriod": "2026-08-21",
     "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1327567/000119312526361122/d180372d8k.htm",
-    "excerpt": "Item 5.02: a change in directors or certain officers.",
+    "excerpt": "Form 8-K (Item 5.02): a change in directors or certain officers.",
     "sourceClass": "FILING",
     "interpretation": "",
     "limitations": "AUTO-001 fix pass 4, item 5: generated directly from this filer's own 8-K item code at build time, with no model in the loop. States only what the item code itself establishes, not the filing's specifics (e.g. appointment vs. departure for Item 5.02) — open the filing for those.",
@@ -73,16 +73,35 @@
       "tracker",
       "filing-event"
     ],
-    "retrievedAt": "2026-10-14"
+    "retrievedAt": "2026-10-16"
+  },
+  {
+    "id": "TR-filing-panw-0001193125-26-151637",
+    "title": "Palo Alto Networks — Form 8-K (Item 2.03)",
+    "organization": "Palo Alto Networks",
+    "publicationDate": "2026-04-13",
+    "economicPeriod": "2026-04-13",
+    "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1327567/000119312526151637/d49517d8k.htm",
+    "excerpt": "Form 8-K (Item 2.03): the creation of a direct financial obligation.",
+    "sourceClass": "FILING",
+    "interpretation": "",
+    "limitations": "AUTO-001 fix pass 4, item 5: generated directly from this filer's own 8-K item code at build time, with no model in the loop. States only what the item code itself establishes, not the filing's specifics (e.g. appointment vs. departure for Item 5.02) — open the filing for those.",
+    "conflictingEvidenceIds": [],
+    "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-filing-panw-0001193125-26-151637",
+    "tags": [
+      "tracker",
+      "filing-event"
+    ],
+    "retrievedAt": "2026-10-16"
   },
   {
     "id": "TR-filing-panw-0001193125-25-315915",
-    "title": "Palo Alto Networks — Form 8-K, Item 5.02",
+    "title": "Palo Alto Networks — Form 8-K (Item 5.02)",
     "organization": "Palo Alto Networks",
     "publicationDate": "2025-12-11",
     "economicPeriod": "2025-12-11",
     "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1327567/000119312525315915/d15273d8k.htm",
-    "excerpt": "Item 5.02: a change in directors or certain officers.",
+    "excerpt": "Form 8-K (Item 5.02): a change in directors or certain officers.",
     "sourceClass": "FILING",
     "interpretation": "",
     "limitations": "AUTO-001 fix pass 4, item 5: generated directly from this filer's own 8-K item code at build time, with no model in the loop. States only what the item code itself establishes, not the filing's specifics (e.g. appointment vs. departure for Item 5.02) — open the filing for those.",
@@ -92,16 +111,16 @@
       "tracker",
       "filing-event"
     ],
-    "retrievedAt": "2026-10-14"
+    "retrievedAt": "2026-10-16"
   },
   {
     "id": "TR-filing-cloudflare-0001477333-26-000042",
-    "title": "Cloudflare — Form 8-K, Item 5.02",
+    "title": "Cloudflare — Form 8-K (Item 5.02)",
     "organization": "Cloudflare",
     "publicationDate": "2026-06-30",
     "economicPeriod": "2026-06-30",
     "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1477333/000147733326000042/cloud-20260630.htm",
-    "excerpt": "Item 5.02: a change in directors or certain officers.",
+    "excerpt": "Form 8-K (Item 5.02): a change in directors or certain officers.",
     "sourceClass": "FILING",
     "interpretation": "",
     "limitations": "AUTO-001 fix pass 4, item 5: generated directly from this filer's own 8-K item code at build time, with no model in the loop. States only what the item code itself establishes, not the filing's specifics (e.g. appointment vs. departure for Item 5.02) — open the filing for those.",
@@ -111,16 +130,16 @@
       "tracker",
       "filing-event"
     ],
-    "retrievedAt": "2026-10-14"
+    "retrievedAt": "2026-10-16"
   },
   {
     "id": "TR-filing-cloudflare-0001477333-26-000009",
-    "title": "Cloudflare — Form 8-K, Item 5.02",
+    "title": "Cloudflare — Form 8-K (Item 5.02)",
     "organization": "Cloudflare",
     "publicationDate": "2026-02-10",
     "economicPeriod": "2026-02-10",
     "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1477333/000147733326000009/cloud-20260206.htm",
-    "excerpt": "Item 5.02: a change in directors or certain officers.",
+    "excerpt": "Form 8-K (Item 5.02): a change in directors or certain officers.",
     "sourceClass": "FILING",
     "interpretation": "",
     "limitations": "AUTO-001 fix pass 4, item 5: generated directly from this filer's own 8-K item code at build time, with no model in the loop. States only what the item code itself establishes, not the filing's specifics (e.g. appointment vs. departure for Item 5.02) — open the filing for those.",
@@ -130,16 +149,16 @@
       "tracker",
       "filing-event"
     ],
-    "retrievedAt": "2026-10-14"
+    "retrievedAt": "2026-10-16"
   },
   {
     "id": "TR-filing-okta-0001660134-26-000072",
-    "title": "Okta — Form 8-K, Item 5.02",
+    "title": "Okta — Form 8-K (Item 5.02)",
     "organization": "Okta",
     "publicationDate": "2026-09-18",
     "economicPeriod": "2026-09-18",
     "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1660134/000166013426000072/okta-20260914.htm",
-    "excerpt": "Item 5.02: a change in directors or certain officers.",
+    "excerpt": "Form 8-K (Item 5.02): a change in directors or certain officers.",
     "sourceClass": "FILING",
     "interpretation": "",
     "limitations": "AUTO-001 fix pass 4, item 5: generated directly from this filer's own 8-K item code at build time, with no model in the loop. States only what the item code itself establishes, not the filing's specifics (e.g. appointment vs. departure for Item 5.02) — open the filing for those.",
@@ -149,16 +168,16 @@
       "tracker",
       "filing-event"
     ],
-    "retrievedAt": "2026-10-14"
+    "retrievedAt": "2026-10-16"
   },
   {
     "id": "TR-filing-okta-0001660134-26-000054",
-    "title": "Okta — Form 8-K, Item 5.02",
+    "title": "Okta — Form 8-K (Item 5.02)",
     "organization": "Okta",
     "publicationDate": "2026-06-23",
     "economicPeriod": "2026-06-23",
     "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1660134/000166013426000054/okta-20260618.htm",
-    "excerpt": "Item 5.02: a change in directors or certain officers.",
+    "excerpt": "Form 8-K (Item 5.02): a change in directors or certain officers.",
     "sourceClass": "FILING",
     "interpretation": "",
     "limitations": "AUTO-001 fix pass 4, item 5: generated directly from this filer's own 8-K item code at build time, with no model in the loop. States only what the item code itself establishes, not the filing's specifics (e.g. appointment vs. departure for Item 5.02) — open the filing for those.",
@@ -168,16 +187,16 @@
       "tracker",
       "filing-event"
     ],
-    "retrievedAt": "2026-10-14"
+    "retrievedAt": "2026-10-16"
   },
   {
     "id": "TR-filing-okta-0001193125-26-170498",
-    "title": "Okta — Form 8-K, Item 5.02",
+    "title": "Okta — Form 8-K (Item 5.02)",
     "organization": "Okta",
     "publicationDate": "2026-04-22",
     "economicPeriod": "2026-04-22",
     "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1660134/000119312526170498/d118360d8k.htm",
-    "excerpt": "Item 5.02: a change in directors or certain officers.",
+    "excerpt": "Form 8-K (Item 5.02): a change in directors or certain officers.",
     "sourceClass": "FILING",
     "interpretation": "",
     "limitations": "AUTO-001 fix pass 4, item 5: generated directly from this filer's own 8-K item code at build time, with no model in the loop. States only what the item code itself establishes, not the filing's specifics (e.g. appointment vs. departure for Item 5.02) — open the filing for those.",
@@ -187,16 +206,16 @@
       "tracker",
       "filing-event"
     ],
-    "retrievedAt": "2026-10-14"
+    "retrievedAt": "2026-10-16"
   },
   {
     "id": "TR-filing-okta-0001660134-26-000029",
-    "title": "Okta — Form 8-K, Item 5.02",
+    "title": "Okta — Form 8-K (Item 5.02)",
     "organization": "Okta",
     "publicationDate": "2026-03-23",
     "economicPeriod": "2026-03-23",
     "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1660134/000166013426000029/okta-20260319.htm",
-    "excerpt": "Item 5.02: a change in directors or certain officers.",
+    "excerpt": "Form 8-K (Item 5.02): a change in directors or certain officers.",
     "sourceClass": "FILING",
     "interpretation": "",
     "limitations": "AUTO-001 fix pass 4, item 5: generated directly from this filer's own 8-K item code at build time, with no model in the loop. States only what the item code itself establishes, not the filing's specifics (e.g. appointment vs. departure for Item 5.02) — open the filing for those.",
@@ -206,16 +225,16 @@
       "tracker",
       "filing-event"
     ],
-    "retrievedAt": "2026-10-14"
+    "retrievedAt": "2026-10-16"
   },
   {
     "id": "TR-filing-okta-0001660134-26-000024",
-    "title": "Okta — Form 8-K, Item 5.02",
+    "title": "Okta — Form 8-K (Item 5.02)",
     "organization": "Okta",
     "publicationDate": "2026-03-11",
     "economicPeriod": "2026-03-11",
     "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1660134/000166013426000024/okta-20260305.htm",
-    "excerpt": "Item 5.02: a change in directors or certain officers.",
+    "excerpt": "Form 8-K (Item 5.02): a change in directors or certain officers.",
     "sourceClass": "FILING",
     "interpretation": "",
     "limitations": "AUTO-001 fix pass 4, item 5: generated directly from this filer's own 8-K item code at build time, with no model in the loop. States only what the item code itself establishes, not the filing's specifics (e.g. appointment vs. departure for Item 5.02) — open the filing for those.",
@@ -225,16 +244,16 @@
       "tracker",
       "filing-event"
     ],
-    "retrievedAt": "2026-10-14"
+    "retrievedAt": "2026-10-16"
   },
   {
     "id": "TR-filing-okta-0001660134-25-000173",
-    "title": "Okta — Form 8-K, Item 5.02",
+    "title": "Okta — Form 8-K (Item 5.02)",
     "organization": "Okta",
     "publicationDate": "2025-12-19",
     "economicPeriod": "2025-12-19",
     "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1660134/000166013425000173/okta-20251215.htm",
-    "excerpt": "Item 5.02: a change in directors or certain officers.",
+    "excerpt": "Form 8-K (Item 5.02): a change in directors or certain officers.",
     "sourceClass": "FILING",
     "interpretation": "",
     "limitations": "AUTO-001 fix pass 4, item 5: generated directly from this filer's own 8-K item code at build time, with no model in the loop. States only what the item code itself establishes, not the filing's specifics (e.g. appointment vs. departure for Item 5.02) — open the filing for those.",
@@ -244,16 +263,16 @@
       "tracker",
       "filing-event"
     ],
-    "retrievedAt": "2026-10-14"
+    "retrievedAt": "2026-10-16"
   },
   {
     "id": "TR-filing-sailpoint-0002030781-26-000015",
-    "title": "SailPoint — Form 8-K, Item 5.02",
+    "title": "SailPoint — Form 8-K (Item 5.02)",
     "organization": "SailPoint",
     "publicationDate": "2026-06-12",
     "economicPeriod": "2026-06-12",
     "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/2030781/000203078126000015/sail-20260608.htm",
-    "excerpt": "Item 5.02: a change in directors or certain officers.",
+    "excerpt": "Form 8-K (Item 5.02): a change in directors or certain officers.",
     "sourceClass": "FILING",
     "interpretation": "",
     "limitations": "AUTO-001 fix pass 4, item 5: generated directly from this filer's own 8-K item code at build time, with no model in the loop. States only what the item code itself establishes, not the filing's specifics (e.g. appointment vs. departure for Item 5.02) — open the filing for those.",
@@ -263,16 +282,16 @@
       "tracker",
       "filing-event"
     ],
-    "retrievedAt": "2026-10-14"
+    "retrievedAt": "2026-10-16"
   },
   {
     "id": "TR-filing-s1-0001583708-26-000025",
-    "title": "SentinelOne — Form 8-K, Item 5.02",
+    "title": "SentinelOne — Form 8-K (Item 5.02)",
     "organization": "SentinelOne",
     "publicationDate": "2026-03-25",
     "economicPeriod": "2026-03-25",
     "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1583708/000158370826000025/s-20260319.htm",
-    "excerpt": "Item 5.02: a change in directors or certain officers.",
+    "excerpt": "Form 8-K (Item 5.02): a change in directors or certain officers.",
     "sourceClass": "FILING",
     "interpretation": "",
     "limitations": "AUTO-001 fix pass 4, item 5: generated directly from this filer's own 8-K item code at build time, with no model in the loop. States only what the item code itself establishes, not the filing's specifics (e.g. appointment vs. departure for Item 5.02) — open the filing for those.",
@@ -282,16 +301,16 @@
       "tracker",
       "filing-event"
     ],
-    "retrievedAt": "2026-10-14"
+    "retrievedAt": "2026-10-16"
   },
   {
     "id": "TR-filing-rubrik-0001193125-26-037791",
-    "title": "Rubrik — Form 8-K, Item 5.02",
+    "title": "Rubrik — Form 8-K (Item 5.02)",
     "organization": "Rubrik",
     "publicationDate": "2026-02-04",
     "economicPeriod": "2026-02-04",
     "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1943896/000119312526037791/d52441d8k.htm",
-    "excerpt": "Item 5.02: a change in directors or certain officers.",
+    "excerpt": "Form 8-K (Item 5.02): a change in directors or certain officers.",
     "sourceClass": "FILING",
     "interpretation": "",
     "limitations": "AUTO-001 fix pass 4, item 5: generated directly from this filer's own 8-K item code at build time, with no model in the loop. States only what the item code itself establishes, not the filing's specifics (e.g. appointment vs. departure for Item 5.02) — open the filing for those.",
@@ -301,16 +320,35 @@
       "tracker",
       "filing-event"
     ],
-    "retrievedAt": "2026-10-14"
+    "retrievedAt": "2026-10-16"
+  },
+  {
+    "id": "TR-filing-varonis-0001213900-26-109901",
+    "title": "Varonis — Form 8-K (Item 5.02)",
+    "organization": "Varonis",
+    "publicationDate": "2026-10-15",
+    "economicPeriod": "2026-10-15",
+    "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1361113/000121390026109901/ea0308610-8k_varonis.htm",
+    "excerpt": "Form 8-K (Item 5.02): a change in directors or certain officers.",
+    "sourceClass": "FILING",
+    "interpretation": "",
+    "limitations": "AUTO-001 fix pass 4, item 5: generated directly from this filer's own 8-K item code at build time, with no model in the loop. States only what the item code itself establishes, not the filing's specifics (e.g. appointment vs. departure for Item 5.02) — open the filing for those.",
+    "conflictingEvidenceIds": [],
+    "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-filing-varonis-0001213900-26-109901",
+    "tags": [
+      "tracker",
+      "filing-event"
+    ],
+    "retrievedAt": "2026-10-16"
   },
   {
     "id": "TR-filing-varonis-0001171843-26-003887",
-    "title": "Varonis — Form 8-K, Item 5.02",
+    "title": "Varonis — Form 8-K (Item 5.02)",
     "organization": "Varonis",
     "publicationDate": "2026-06-02",
     "economicPeriod": "2026-06-02",
     "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1361113/000117184326003887/f8k_060226.htm",
-    "excerpt": "Item 5.02: a change in directors or certain officers.",
+    "excerpt": "Form 8-K (Item 5.02): a change in directors or certain officers.",
     "sourceClass": "FILING",
     "interpretation": "",
     "limitations": "AUTO-001 fix pass 4, item 5: generated directly from this filer's own 8-K item code at build time, with no model in the loop. States only what the item code itself establishes, not the filing's specifics (e.g. appointment vs. departure for Item 5.02) — open the filing for those.",
@@ -320,16 +358,16 @@
       "tracker",
       "filing-event"
     ],
-    "retrievedAt": "2026-10-14"
+    "retrievedAt": "2026-10-16"
   },
   {
     "id": "TR-filing-tenable-0001660280-26-000042",
-    "title": "Tenable — Form 8-K, Item 5.02",
+    "title": "Tenable — Form 8-K (Item 5.02)",
     "organization": "Tenable",
     "publicationDate": "2026-10-06",
     "economicPeriod": "2026-10-06",
     "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1660280/000166028026000042/tenb-20261005.htm",
-    "excerpt": "Item 5.02: a change in directors or certain officers.",
+    "excerpt": "Form 8-K (Item 5.02): a change in directors or certain officers.",
     "sourceClass": "FILING",
     "interpretation": "",
     "limitations": "AUTO-001 fix pass 4, item 5: generated directly from this filer's own 8-K item code at build time, with no model in the loop. States only what the item code itself establishes, not the filing's specifics (e.g. appointment vs. departure for Item 5.02) — open the filing for those.",
@@ -339,16 +377,16 @@
       "tracker",
       "filing-event"
     ],
-    "retrievedAt": "2026-10-14"
+    "retrievedAt": "2026-10-16"
   },
   {
     "id": "TR-filing-qualys-0001107843-26-000024",
-    "title": "Qualys — Form 8-K, Item 5.02",
+    "title": "Qualys — Form 8-K (Item 5.02)",
     "organization": "Qualys",
     "publicationDate": "2026-06-11",
     "economicPeriod": "2026-06-11",
     "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1107843/000110784326000024/qlys-20260610.htm",
-    "excerpt": "Item 5.02: a change in directors or certain officers.",
+    "excerpt": "Form 8-K (Item 5.02): a change in directors or certain officers.",
     "sourceClass": "FILING",
     "interpretation": "",
     "limitations": "AUTO-001 fix pass 4, item 5: generated directly from this filer's own 8-K item code at build time, with no model in the loop. States only what the item code itself establishes, not the filing's specifics (e.g. appointment vs. departure for Item 5.02) — open the filing for those.",
@@ -358,16 +396,16 @@
       "tracker",
       "filing-event"
     ],
-    "retrievedAt": "2026-10-14"
+    "retrievedAt": "2026-10-16"
   },
   {
     "id": "TR-filing-rapid7-0001560327-26-000004",
-    "title": "Rapid7 — Form 8-K, Item 5.02",
+    "title": "Rapid7 — Form 8-K (Item 5.02)",
     "organization": "Rapid7",
     "publicationDate": "2026-02-10",
     "economicPeriod": "2026-02-10",
     "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1560327/000156032726000004/rp-20260210.htm",
-    "excerpt": "Item 5.02: a change in directors or certain officers.",
+    "excerpt": "Form 8-K (Item 5.02): a change in directors or certain officers.",
     "sourceClass": "FILING",
     "interpretation": "",
     "limitations": "AUTO-001 fix pass 4, item 5: generated directly from this filer's own 8-K item code at build time, with no model in the loop. States only what the item code itself establishes, not the filing's specifics (e.g. appointment vs. departure for Item 5.02) — open the filing for those.",
@@ -377,16 +415,16 @@
       "tracker",
       "filing-event"
     ],
-    "retrievedAt": "2026-10-14"
+    "retrievedAt": "2026-10-16"
   },
   {
     "id": "TR-filing-commvault-0001169561-26-000030",
-    "title": "Commvault Systems — Form 8-K, Item 5.02",
+    "title": "Commvault Systems — Form 8-K (Item 5.02)",
     "organization": "Commvault Systems",
     "publicationDate": "2026-09-24",
     "economicPeriod": "2026-09-24",
     "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1169561/000116956126000030/cvlt-20260922.htm",
-    "excerpt": "Item 5.02: a change in directors or certain officers.",
+    "excerpt": "Form 8-K (Item 5.02): a change in directors or certain officers.",
     "sourceClass": "FILING",
     "interpretation": "",
     "limitations": "AUTO-001 fix pass 4, item 5: generated directly from this filer's own 8-K item code at build time, with no model in the loop. States only what the item code itself establishes, not the filing's specifics (e.g. appointment vs. departure for Item 5.02) — open the filing for those.",
@@ -396,16 +434,16 @@
       "tracker",
       "filing-event"
     ],
-    "retrievedAt": "2026-10-14"
+    "retrievedAt": "2026-10-16"
   },
   {
     "id": "TR-filing-commvault-0001169561-25-000080",
-    "title": "Commvault Systems — Form 8-K, Item 5.02",
+    "title": "Commvault Systems — Form 8-K (Item 5.02)",
     "organization": "Commvault Systems",
     "publicationDate": "2025-10-20",
     "economicPeriod": "2025-10-20",
     "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1169561/000116956125000080/cvlt-20251015.htm",
-    "excerpt": "Item 5.02: a change in directors or certain officers.",
+    "excerpt": "Form 8-K (Item 5.02): a change in directors or certain officers.",
     "sourceClass": "FILING",
     "interpretation": "",
     "limitations": "AUTO-001 fix pass 4, item 5: generated directly from this filer's own 8-K item code at build time, with no model in the loop. States only what the item code itself establishes, not the filing's specifics (e.g. appointment vs. departure for Item 5.02) — open the filing for those.",
@@ -415,6 +453,6 @@
       "tracker",
       "filing-event"
     ],
-    "retrievedAt": "2026-10-14"
+    "retrievedAt": "2026-10-16"
   }
 ]

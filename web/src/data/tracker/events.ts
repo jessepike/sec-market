@@ -631,7 +631,7 @@ export const handCollectedEvents: TrackerEvent[] = [
   {
     "id": "EV-varonis-2",
     "supplierId": "varonis",
-    "date": "2025-10-29",
+    "date": "2025-10-28",
     "type": "layoff",
     "text": "Varonis announced a 5% headcount reduction, approximately 120 employees, disclosed with its Q3 2025 results; CEO Yakov Faitelson described it as reallocating resources toward the highest return on investment.",
     "evidenceIds": [
@@ -642,7 +642,7 @@ export const handCollectedEvents: TrackerEvent[] = [
   {
     "id": "EV-varonis-3",
     "supplierId": "varonis",
-    "date": "2025-10-29",
+    "date": "2025-10-28",
     "type": "restructuring",
     "text": "Varonis disclosed plans to end-of-life its self-hosted, on-premises product effective December 31, 2026, as part of its Q3 2025 results commentary.",
     "evidenceIds": [

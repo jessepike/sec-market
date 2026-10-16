@@ -1,0 +1,1733 @@
+{
+  "contractVersion": "smp-certified-v2",
+  "verifiedClaims": [
+    {
+      "key": "cloudflare.identity",
+      "verifiedAt": "2026-10-16T02:04:13.066Z",
+      "valueSha256": "e346e6fc5029f660fc051899f24774e80979136bfab3c16a11addde6baa8b41d",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001477333.json",
+        "sha256": "1cb6b74bcecdc450178580575b74a7588dd6cd3c5fbde81cbf968092fa48f996",
+        "checkedAt": "2026-10-16T02:04:13.064Z",
+        "coveredThrough": "2026-10-16T02:04:13.064Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001477333.json",
+          "sha256": "1cb6b74bcecdc450178580575b74a7588dd6cd3c5fbde81cbf968092fa48f996",
+          "checkedAt": "2026-10-16T02:04:13.064Z",
+          "method": "structured-validation",
+          "locator": "CIK 0001477333; name; tickers; no Form 15 or 25 since 2025-09-11",
+          "excerpt": "Cloudflare, Inc. (NET)"
+        }
+      ]
+    },
+    {
+      "key": "cloudflare.revenue.latest",
+      "verifiedAt": "2026-10-16T02:04:13.068Z",
+      "valueSha256": "f84c0324b8582eee04247a5b6aa6f4d8ce54ef4921bda0b9e7171946cf3b517c",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001477333.json",
+        "sha256": "1cb6b74bcecdc450178580575b74a7588dd6cd3c5fbde81cbf968092fa48f996",
+        "checkedAt": "2026-10-16T02:04:13.064Z",
+        "coveredThrough": "2026-10-16T02:04:13.064Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001477333.json",
+          "sha256": "04cc636210456fc5163996c546c38dd049e53b5f9ce59b8f824f1725b06afe11",
+          "checkedAt": "2026-10-16T02:04:12.756Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-06-30; accession 0001477333-26-000054; filed 2026-08-06",
+          "excerpt": "USD 696,061,000; prior-year quarter ended 2025-06-30 USD 512,316,000"
+        },
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001477333.json",
+          "sha256": "1cb6b74bcecdc450178580575b74a7588dd6cd3c5fbde81cbf968092fa48f996",
+          "checkedAt": "2026-10-16T02:04:13.064Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-06-30; accession 0001477333-26-000054; filed 2026-08-06",
+          "excerpt": "USD 696,061,000; prior-year quarter ended 2025-06-30 USD 512,316,000"
+        }
+      ]
+    },
+    {
+      "key": "cloudflare.revenue.prior",
+      "verifiedAt": "2026-10-16T02:04:13.069Z",
+      "valueSha256": "9244dad42d53e7499e7487ed3325979b436a2babf8819733e995b66b44262571",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001477333.json",
+        "sha256": "1cb6b74bcecdc450178580575b74a7588dd6cd3c5fbde81cbf968092fa48f996",
+        "checkedAt": "2026-10-16T02:04:13.064Z",
+        "coveredThrough": "2026-10-16T02:04:13.064Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001477333.json",
+          "sha256": "04cc636210456fc5163996c546c38dd049e53b5f9ce59b8f824f1725b06afe11",
+          "checkedAt": "2026-10-16T02:04:12.756Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-03-31; accession 0001477333-26-000038; filed 2026-05-08",
+          "excerpt": "USD 639,755,000; prior-year quarter ended 2025-03-31 USD 479,087,000"
+        },
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001477333.json",
+          "sha256": "1cb6b74bcecdc450178580575b74a7588dd6cd3c5fbde81cbf968092fa48f996",
+          "checkedAt": "2026-10-16T02:04:13.064Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-03-31; accession 0001477333-26-000038; filed 2026-05-08",
+          "excerpt": "USD 639,755,000; prior-year quarter ended 2025-03-31 USD 479,087,000"
+        }
+      ]
+    },
+    {
+      "key": "cloudflare.secEvents",
+      "verifiedAt": "2026-10-16T02:04:13.070Z",
+      "valueSha256": "5b616e2fb62eaa8c13469411c214d97c4249d53c2e73386fadd1b534d10ab3fd",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001477333.json",
+        "sha256": "1cb6b74bcecdc450178580575b74a7588dd6cd3c5fbde81cbf968092fa48f996",
+        "checkedAt": "2026-10-16T02:04:13.064Z",
+        "coveredThrough": "2026-10-16T02:04:13.064Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001477333.json",
+          "sha256": "1cb6b74bcecdc450178580575b74a7588dd6cd3c5fbde81cbf968092fa48f996",
+          "checkedAt": "2026-10-16T02:04:13.064Z",
+          "method": "structured-validation",
+          "locator": "submissions index; forms 8-K items 5.02, 2.01, 1.03, 2.05, 3.01, 2.03 and forms 25, 25-NSE, DEFM14A, PREM14A; 2025-10-16 to 2026-10-16",
+          "excerpt": "5 SEC-sourced events matched to filings; tracked filings in window all represented"
+        }
+      ]
+    },
+    {
+      "key": "commvault.identity",
+      "verifiedAt": "2026-10-16T02:04:14.284Z",
+      "valueSha256": "85f33ba55c32741ba7c683991ba96c0c000e560153f9f733439aa001638c034b",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001169561.json",
+        "sha256": "f66df6450b27cfe3bc0922c1d4e0f785b58eaf9ed00611b08b350bc387eb5d33",
+        "checkedAt": "2026-10-16T02:04:14.283Z",
+        "coveredThrough": "2026-10-16T02:04:14.283Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001169561.json",
+          "sha256": "f66df6450b27cfe3bc0922c1d4e0f785b58eaf9ed00611b08b350bc387eb5d33",
+          "checkedAt": "2026-10-16T02:04:14.283Z",
+          "method": "structured-validation",
+          "locator": "CIK 0001169561; name; tickers; no Form 15 or 25 since 2025-09-11",
+          "excerpt": "COMMVAULT SYSTEMS INC (CVLT)"
+        }
+      ]
+    },
+    {
+      "key": "commvault.revenue.latest",
+      "verifiedAt": "2026-10-16T02:04:14.287Z",
+      "valueSha256": "35afbcd10a333799848ec8af576d5c95975d9da24496bb1f1114c49b327c7211",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001169561.json",
+        "sha256": "f66df6450b27cfe3bc0922c1d4e0f785b58eaf9ed00611b08b350bc387eb5d33",
+        "checkedAt": "2026-10-16T02:04:14.283Z",
+        "coveredThrough": "2026-10-16T02:04:14.283Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001169561.json",
+          "sha256": "8e18cf1384df1e5c6d7ec27ecaf92c266cb738259dabddc6621e743e1dd9d8b6",
+          "checkedAt": "2026-10-16T02:04:13.982Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-06-30; accession 0001169561-26-000024; filed 2026-07-29",
+          "excerpt": "USD 314,131,000; prior-year quarter ended 2025-06-30 USD 281,978,000"
+        },
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001169561.json",
+          "sha256": "f66df6450b27cfe3bc0922c1d4e0f785b58eaf9ed00611b08b350bc387eb5d33",
+          "checkedAt": "2026-10-16T02:04:14.283Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-06-30; accession 0001169561-26-000024; filed 2026-07-29",
+          "excerpt": "USD 314,131,000; prior-year quarter ended 2025-06-30 USD 281,978,000"
+        }
+      ]
+    },
+    {
+      "key": "commvault.revenue.prior",
+      "verifiedAt": "2026-10-16T02:04:14.289Z",
+      "valueSha256": "7f8d8e328bd984692125ad9f439428f4e35735e7be9910719b690e9c09e7190c",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001169561.json",
+        "sha256": "f66df6450b27cfe3bc0922c1d4e0f785b58eaf9ed00611b08b350bc387eb5d33",
+        "checkedAt": "2026-10-16T02:04:14.283Z",
+        "coveredThrough": "2026-10-16T02:04:14.283Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001169561.json",
+          "sha256": "8e18cf1384df1e5c6d7ec27ecaf92c266cb738259dabddc6621e743e1dd9d8b6",
+          "checkedAt": "2026-10-16T02:04:13.982Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-03-31; accession 0001169561-26-000017; filed 2026-05-11; 10-K year less three filed quarters",
+          "excerpt": "USD 311,692,000; prior-year quarter ended 2025-03-31 USD 275,039,000"
+        },
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001169561.json",
+          "sha256": "f66df6450b27cfe3bc0922c1d4e0f785b58eaf9ed00611b08b350bc387eb5d33",
+          "checkedAt": "2026-10-16T02:04:14.283Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-03-31; accession 0001169561-26-000017; filed 2026-05-11; 10-K year less three filed quarters",
+          "excerpt": "USD 311,692,000; prior-year quarter ended 2025-03-31 USD 275,039,000"
+        }
+      ]
+    },
+    {
+      "key": "commvault.secEvents",
+      "verifiedAt": "2026-10-16T02:04:14.290Z",
+      "valueSha256": "b0eae3b7a558a3dd6f32eaa04eff5bee3331d3d21f5696ea282fdcaf3fb7433f",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001169561.json",
+        "sha256": "f66df6450b27cfe3bc0922c1d4e0f785b58eaf9ed00611b08b350bc387eb5d33",
+        "checkedAt": "2026-10-16T02:04:14.283Z",
+        "coveredThrough": "2026-10-16T02:04:14.283Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001169561.json",
+          "sha256": "f66df6450b27cfe3bc0922c1d4e0f785b58eaf9ed00611b08b350bc387eb5d33",
+          "checkedAt": "2026-10-16T02:04:14.283Z",
+          "method": "structured-validation",
+          "locator": "submissions index; forms 8-K items 5.02, 2.01, 1.03, 2.05, 3.01, 2.03 and forms 25, 25-NSE, DEFM14A, PREM14A; 2025-10-16 to 2026-10-16",
+          "excerpt": "7 SEC-sourced events matched to filings; tracked filings in window all represented"
+        }
+      ]
+    },
+    {
+      "key": "crwd.identity",
+      "verifiedAt": "2026-10-16T02:04:14.870Z",
+      "valueSha256": "be8460a3ca7180111861e2da663b41498ebf2a110fd2a2b8be8db8a8148765c1",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001535527.json",
+        "sha256": "085c620f5e840f51aac7cb50ebb2a78f3e57e1c94f5e9314f72d659adec5cc6a",
+        "checkedAt": "2026-10-16T02:04:14.869Z",
+        "coveredThrough": "2026-10-16T02:04:14.869Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001535527.json",
+          "sha256": "085c620f5e840f51aac7cb50ebb2a78f3e57e1c94f5e9314f72d659adec5cc6a",
+          "checkedAt": "2026-10-16T02:04:14.869Z",
+          "method": "structured-validation",
+          "locator": "CIK 0001535527; name; tickers; no Form 15 or 25 since 2025-09-11",
+          "excerpt": "CrowdStrike Holdings, Inc. (CRWD)"
+        }
+      ]
+    },
+    {
+      "key": "crwd.revenue.latest",
+      "verifiedAt": "2026-10-16T02:04:14.872Z",
+      "valueSha256": "a144a25bbf2c42bf361700d60bcf3fa8f3d4db4627aa260477d1c08b192137cf",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001535527.json",
+        "sha256": "085c620f5e840f51aac7cb50ebb2a78f3e57e1c94f5e9314f72d659adec5cc6a",
+        "checkedAt": "2026-10-16T02:04:14.869Z",
+        "coveredThrough": "2026-10-16T02:04:14.869Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001535527.json",
+          "sha256": "a71a92f1f11bd3032271ca55be7a7770a96a846ec809f925829ef952fd5f3fa1",
+          "checkedAt": "2026-10-16T02:04:14.578Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerIncludingAssessedTax; USD; quarter ended 2026-07-31; accession 0001535527-26-000031; filed 2026-08-27",
+          "excerpt": "USD 1,470,897,000; prior-year quarter ended 2025-07-31 USD 1,168,952,000"
+        },
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001535527.json",
+          "sha256": "085c620f5e840f51aac7cb50ebb2a78f3e57e1c94f5e9314f72d659adec5cc6a",
+          "checkedAt": "2026-10-16T02:04:14.869Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerIncludingAssessedTax; USD; quarter ended 2026-07-31; accession 0001535527-26-000031; filed 2026-08-27",
+          "excerpt": "USD 1,470,897,000; prior-year quarter ended 2025-07-31 USD 1,168,952,000"
+        }
+      ]
+    },
+    {
+      "key": "crwd.revenue.prior",
+      "verifiedAt": "2026-10-16T02:04:14.873Z",
+      "valueSha256": "500383afe63661070f50a46af97b25702cdabc7a346162f7dbce2b1c3bb2f561",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001535527.json",
+        "sha256": "085c620f5e840f51aac7cb50ebb2a78f3e57e1c94f5e9314f72d659adec5cc6a",
+        "checkedAt": "2026-10-16T02:04:14.869Z",
+        "coveredThrough": "2026-10-16T02:04:14.869Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001535527.json",
+          "sha256": "a71a92f1f11bd3032271ca55be7a7770a96a846ec809f925829ef952fd5f3fa1",
+          "checkedAt": "2026-10-16T02:04:14.578Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerIncludingAssessedTax; USD; quarter ended 2026-04-30; accession 0001535527-26-000025; filed 2026-06-04",
+          "excerpt": "USD 1,385,629,000; prior-year quarter ended 2025-04-30 USD 1,103,434,000"
+        },
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001535527.json",
+          "sha256": "085c620f5e840f51aac7cb50ebb2a78f3e57e1c94f5e9314f72d659adec5cc6a",
+          "checkedAt": "2026-10-16T02:04:14.869Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerIncludingAssessedTax; USD; quarter ended 2026-04-30; accession 0001535527-26-000025; filed 2026-06-04",
+          "excerpt": "USD 1,385,629,000; prior-year quarter ended 2025-04-30 USD 1,103,434,000"
+        }
+      ]
+    },
+    {
+      "key": "crwd.secEvents",
+      "verifiedAt": "2026-10-16T02:04:14.874Z",
+      "valueSha256": "046ae4920f4d102acc720eb08b636289ec738d8a8ed1e3dad6afa558d0f53cce",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001535527.json",
+        "sha256": "085c620f5e840f51aac7cb50ebb2a78f3e57e1c94f5e9314f72d659adec5cc6a",
+        "checkedAt": "2026-10-16T02:04:14.869Z",
+        "coveredThrough": "2026-10-16T02:04:14.869Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001535527.json",
+          "sha256": "085c620f5e840f51aac7cb50ebb2a78f3e57e1c94f5e9314f72d659adec5cc6a",
+          "checkedAt": "2026-10-16T02:04:14.869Z",
+          "method": "structured-validation",
+          "locator": "submissions index; forms 8-K items 5.02, 2.01, 1.03, 2.05, 3.01, 2.03 and forms 25, 25-NSE, DEFM14A, PREM14A; 2025-10-16 to 2026-10-16",
+          "excerpt": "3 SEC-sourced events matched to filings; tracked filings in window all represented"
+        }
+      ]
+    },
+    {
+      "key": "fortinet.identity",
+      "verifiedAt": "2026-10-16T02:04:15.908Z",
+      "valueSha256": "4d630c3d6aab5f60647482704fe395bf055e1cd3e0e5e8dbcbe9ddf0e9e893d2",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001262039.json",
+        "sha256": "5ab4113b0ba5630a1220098e234b319dc4fb92b2b25fc4701efb03dcad0abc74",
+        "checkedAt": "2026-10-16T02:04:15.907Z",
+        "coveredThrough": "2026-10-16T02:04:15.907Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001262039.json",
+          "sha256": "5ab4113b0ba5630a1220098e234b319dc4fb92b2b25fc4701efb03dcad0abc74",
+          "checkedAt": "2026-10-16T02:04:15.907Z",
+          "method": "structured-validation",
+          "locator": "CIK 0001262039; name; tickers; no Form 15 or 25 since 2025-09-11",
+          "excerpt": "Fortinet, Inc. (FTNT)"
+        }
+      ]
+    },
+    {
+      "key": "fortinet.revenue.latest",
+      "verifiedAt": "2026-10-16T02:04:15.909Z",
+      "valueSha256": "8ceaed32f3f632f21c276a24b6dcbf01ec3d63f827acc2b31e89d349e972c08c",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001262039.json",
+        "sha256": "5ab4113b0ba5630a1220098e234b319dc4fb92b2b25fc4701efb03dcad0abc74",
+        "checkedAt": "2026-10-16T02:04:15.907Z",
+        "coveredThrough": "2026-10-16T02:04:15.907Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001262039.json",
+          "sha256": "59391fcf61ddfa58093873acd02d39b714d88ff78987ce7e749fcc6a62f4c7f8",
+          "checkedAt": "2026-10-16T02:04:15.579Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-06-30; accession 0001262039-26-000021; filed 2026-07-30",
+          "excerpt": "USD 2,047,900,000; prior-year quarter ended 2025-06-30 USD 1,630,000,000"
+        },
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001262039.json",
+          "sha256": "5ab4113b0ba5630a1220098e234b319dc4fb92b2b25fc4701efb03dcad0abc74",
+          "checkedAt": "2026-10-16T02:04:15.907Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-06-30; accession 0001262039-26-000021; filed 2026-07-30",
+          "excerpt": "USD 2,047,900,000; prior-year quarter ended 2025-06-30 USD 1,630,000,000"
+        }
+      ]
+    },
+    {
+      "key": "fortinet.revenue.prior",
+      "verifiedAt": "2026-10-16T02:04:15.910Z",
+      "valueSha256": "b45ff2fd4c5c4583ad4233b4169c5ad8108c736eefcfcaf446e38b8f1d1d2139",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001262039.json",
+        "sha256": "5ab4113b0ba5630a1220098e234b319dc4fb92b2b25fc4701efb03dcad0abc74",
+        "checkedAt": "2026-10-16T02:04:15.907Z",
+        "coveredThrough": "2026-10-16T02:04:15.907Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001262039.json",
+          "sha256": "59391fcf61ddfa58093873acd02d39b714d88ff78987ce7e749fcc6a62f4c7f8",
+          "checkedAt": "2026-10-16T02:04:15.579Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-03-31; accession 0001262039-26-000013; filed 2026-05-08",
+          "excerpt": "USD 1,849,600,000; prior-year quarter ended 2025-03-31 USD 1,539,700,000"
+        },
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001262039.json",
+          "sha256": "5ab4113b0ba5630a1220098e234b319dc4fb92b2b25fc4701efb03dcad0abc74",
+          "checkedAt": "2026-10-16T02:04:15.907Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-03-31; accession 0001262039-26-000013; filed 2026-05-08",
+          "excerpt": "USD 1,849,600,000; prior-year quarter ended 2025-03-31 USD 1,539,700,000"
+        }
+      ]
+    },
+    {
+      "key": "fortinet.secEvents",
+      "verifiedAt": "2026-10-16T02:04:15.910Z",
+      "valueSha256": "db97a33fcde01e6a6564023f769b98ff362e2445c6d7e44e7ffe58e8144e7fe8",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001262039.json",
+        "sha256": "5ab4113b0ba5630a1220098e234b319dc4fb92b2b25fc4701efb03dcad0abc74",
+        "checkedAt": "2026-10-16T02:04:15.907Z",
+        "coveredThrough": "2026-10-16T02:04:15.907Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001262039.json",
+          "sha256": "5ab4113b0ba5630a1220098e234b319dc4fb92b2b25fc4701efb03dcad0abc74",
+          "checkedAt": "2026-10-16T02:04:15.907Z",
+          "method": "structured-validation",
+          "locator": "submissions index; forms 8-K items 5.02, 2.01, 1.03, 2.05, 3.01, 2.03 and forms 25, 25-NSE, DEFM14A, PREM14A; 2025-10-16 to 2026-10-16",
+          "excerpt": "0 SEC-sourced events matched to filings; tracked filings in window all represented"
+        }
+      ]
+    },
+    {
+      "key": "jfrog.identity",
+      "verifiedAt": "2026-10-16T02:04:16.496Z",
+      "valueSha256": "e741dd440b4f58ebe9c61acbc4df8d7fdf2d5f234fcb80f179d965956475ad49",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001800667.json",
+        "sha256": "eeffcc7bb52c32828537bbabaebbeeeb5b76a71c559fc4b545759f57deffd7d8",
+        "checkedAt": "2026-10-16T02:04:16.494Z",
+        "coveredThrough": "2026-10-16T02:04:16.494Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001800667.json",
+          "sha256": "eeffcc7bb52c32828537bbabaebbeeeb5b76a71c559fc4b545759f57deffd7d8",
+          "checkedAt": "2026-10-16T02:04:16.494Z",
+          "method": "structured-validation",
+          "locator": "CIK 0001800667; name; tickers; no Form 15 or 25 since 2025-09-11",
+          "excerpt": "JFrog Ltd (FROG)"
+        }
+      ]
+    },
+    {
+      "key": "jfrog.revenue.latest",
+      "verifiedAt": "2026-10-16T02:04:16.497Z",
+      "valueSha256": "48b9bea6ee0549e70feb6a3eb22fec51564b40eaec1cc559a978c2c1a371ef1e",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001800667.json",
+        "sha256": "eeffcc7bb52c32828537bbabaebbeeeb5b76a71c559fc4b545759f57deffd7d8",
+        "checkedAt": "2026-10-16T02:04:16.494Z",
+        "coveredThrough": "2026-10-16T02:04:16.494Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001800667.json",
+          "sha256": "5714aee0eea8ab7fa48eb1a828aacf1ede8160c9bf01aed3ce738dc080e762d7",
+          "checkedAt": "2026-10-16T02:04:16.197Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-06-30; accession 0001193125-26-340294; filed 2026-08-07",
+          "excerpt": "USD 163,772,000; prior-year quarter ended 2025-06-30 USD 127,220,000"
+        },
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001800667.json",
+          "sha256": "eeffcc7bb52c32828537bbabaebbeeeb5b76a71c559fc4b545759f57deffd7d8",
+          "checkedAt": "2026-10-16T02:04:16.494Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-06-30; accession 0001193125-26-340294; filed 2026-08-07",
+          "excerpt": "USD 163,772,000; prior-year quarter ended 2025-06-30 USD 127,220,000"
+        }
+      ]
+    },
+    {
+      "key": "jfrog.revenue.prior",
+      "verifiedAt": "2026-10-16T02:04:16.497Z",
+      "valueSha256": "bb7eede3144cfb93f6e6744f3f3b0eb3100cc0e8084a11f75dd62154f3dc5e51",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001800667.json",
+        "sha256": "eeffcc7bb52c32828537bbabaebbeeeb5b76a71c559fc4b545759f57deffd7d8",
+        "checkedAt": "2026-10-16T02:04:16.494Z",
+        "coveredThrough": "2026-10-16T02:04:16.494Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001800667.json",
+          "sha256": "5714aee0eea8ab7fa48eb1a828aacf1ede8160c9bf01aed3ce738dc080e762d7",
+          "checkedAt": "2026-10-16T02:04:16.197Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-03-31; accession 0001193125-26-214647; filed 2026-05-08",
+          "excerpt": "USD 153,977,000; prior-year quarter ended 2025-03-31 USD 122,407,000"
+        },
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001800667.json",
+          "sha256": "eeffcc7bb52c32828537bbabaebbeeeb5b76a71c559fc4b545759f57deffd7d8",
+          "checkedAt": "2026-10-16T02:04:16.494Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-03-31; accession 0001193125-26-214647; filed 2026-05-08",
+          "excerpt": "USD 153,977,000; prior-year quarter ended 2025-03-31 USD 122,407,000"
+        }
+      ]
+    },
+    {
+      "key": "jfrog.secEvents",
+      "verifiedAt": "2026-10-16T02:04:16.498Z",
+      "valueSha256": "db97a33fcde01e6a6564023f769b98ff362e2445c6d7e44e7ffe58e8144e7fe8",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001800667.json",
+        "sha256": "eeffcc7bb52c32828537bbabaebbeeeb5b76a71c559fc4b545759f57deffd7d8",
+        "checkedAt": "2026-10-16T02:04:16.494Z",
+        "coveredThrough": "2026-10-16T02:04:16.494Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001800667.json",
+          "sha256": "eeffcc7bb52c32828537bbabaebbeeeb5b76a71c559fc4b545759f57deffd7d8",
+          "checkedAt": "2026-10-16T02:04:16.494Z",
+          "method": "structured-validation",
+          "locator": "submissions index; forms 8-K items 5.02, 2.01, 1.03, 2.05, 3.01, 2.03 and forms 25, 25-NSE, DEFM14A, PREM14A; 2025-10-16 to 2026-10-16",
+          "excerpt": "0 SEC-sourced events matched to filings; tracked filings in window all represented"
+        }
+      ]
+    },
+    {
+      "key": "netskope.identity",
+      "verifiedAt": "2026-10-16T02:04:17.156Z",
+      "valueSha256": "06c744935b80b0f0c301f349624a5f7fff77d06bd7a852a44b8192c005c1eeb3",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0002063196.json",
+        "sha256": "5efbd8cc3dc848609cd80387f8db9e528f589cbc7cde33d606c5890b2b179699",
+        "checkedAt": "2026-10-16T02:04:17.156Z",
+        "coveredThrough": "2026-10-16T02:04:17.156Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/submissions/CIK0002063196.json",
+          "sha256": "5efbd8cc3dc848609cd80387f8db9e528f589cbc7cde33d606c5890b2b179699",
+          "checkedAt": "2026-10-16T02:04:17.156Z",
+          "method": "structured-validation",
+          "locator": "CIK 0002063196; name; tickers; no Form 15 or 25 since 2025-09-11",
+          "excerpt": "Netskope Inc (NTSK)"
+        }
+      ]
+    },
+    {
+      "key": "netskope.revenue.latest",
+      "verifiedAt": "2026-10-16T02:04:17.157Z",
+      "valueSha256": "5bb6902084223851cb55424bcb852802763ea8fccb1135222f009499221666cf",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0002063196.json",
+        "sha256": "5efbd8cc3dc848609cd80387f8db9e528f589cbc7cde33d606c5890b2b179699",
+        "checkedAt": "2026-10-16T02:04:17.156Z",
+        "coveredThrough": "2026-10-16T02:04:17.156Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0002063196.json",
+          "sha256": "e526ccaf33366fa8af1b9a07cc6c92b80217feba3eaf0905fd63fbb6a0d8ca7c",
+          "checkedAt": "2026-10-16T02:04:16.877Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-07-31; accession 0001193125-26-380428; filed 2026-09-02",
+          "excerpt": "USD 220,541,000; prior-year quarter ended 2025-07-31 USD 170,758,000"
+        },
+        {
+          "url": "https://data.sec.gov/submissions/CIK0002063196.json",
+          "sha256": "5efbd8cc3dc848609cd80387f8db9e528f589cbc7cde33d606c5890b2b179699",
+          "checkedAt": "2026-10-16T02:04:17.156Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-07-31; accession 0001193125-26-380428; filed 2026-09-02",
+          "excerpt": "USD 220,541,000; prior-year quarter ended 2025-07-31 USD 170,758,000"
+        }
+      ]
+    },
+    {
+      "key": "netskope.revenue.prior",
+      "verifiedAt": "2026-10-16T02:04:17.157Z",
+      "valueSha256": "2164a7573b3fdaa382950788847d4753eb401cf2e526a8b6296aa21532f060ad",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0002063196.json",
+        "sha256": "5efbd8cc3dc848609cd80387f8db9e528f589cbc7cde33d606c5890b2b179699",
+        "checkedAt": "2026-10-16T02:04:17.156Z",
+        "coveredThrough": "2026-10-16T02:04:17.156Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0002063196.json",
+          "sha256": "e526ccaf33366fa8af1b9a07cc6c92b80217feba3eaf0905fd63fbb6a0d8ca7c",
+          "checkedAt": "2026-10-16T02:04:16.877Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-04-30; accession 0001193125-26-255732; filed 2026-06-03",
+          "excerpt": "USD 201,592,000; prior-year quarter ended 2025-04-30 USD 157,736,000"
+        },
+        {
+          "url": "https://data.sec.gov/submissions/CIK0002063196.json",
+          "sha256": "5efbd8cc3dc848609cd80387f8db9e528f589cbc7cde33d606c5890b2b179699",
+          "checkedAt": "2026-10-16T02:04:17.156Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-04-30; accession 0001193125-26-255732; filed 2026-06-03",
+          "excerpt": "USD 201,592,000; prior-year quarter ended 2025-04-30 USD 157,736,000"
+        }
+      ]
+    },
+    {
+      "key": "netskope.secEvents",
+      "verifiedAt": "2026-10-16T02:04:17.157Z",
+      "valueSha256": "752d0cc1ce0fbf29e20f53435f28ac95bdf48772a76e457e4d5fd15976dea924",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0002063196.json",
+        "sha256": "5efbd8cc3dc848609cd80387f8db9e528f589cbc7cde33d606c5890b2b179699",
+        "checkedAt": "2026-10-16T02:04:17.156Z",
+        "coveredThrough": "2026-10-16T02:04:17.156Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/submissions/CIK0002063196.json",
+          "sha256": "5efbd8cc3dc848609cd80387f8db9e528f589cbc7cde33d606c5890b2b179699",
+          "checkedAt": "2026-10-16T02:04:17.156Z",
+          "method": "structured-validation",
+          "locator": "submissions index; forms 8-K items 5.02, 2.01, 1.03, 2.05, 3.01, 2.03 and forms 25, 25-NSE, DEFM14A, PREM14A; 2025-10-16 to 2026-10-16",
+          "excerpt": "3 SEC-sourced events matched to filings; tracked filings in window all represented"
+        }
+      ]
+    },
+    {
+      "key": "okta.identity",
+      "verifiedAt": "2026-10-16T02:04:17.999Z",
+      "valueSha256": "ef90aaa99be73079d57bf7c4c40612129b0ec7523f86b7813ce8be1758fc66b5",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001660134.json",
+        "sha256": "3d0e46e72cbbc4a776b7391c6913b465d05ce32da79003d32f63668d1302c949",
+        "checkedAt": "2026-10-16T02:04:17.997Z",
+        "coveredThrough": "2026-10-16T02:04:17.997Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001660134.json",
+          "sha256": "3d0e46e72cbbc4a776b7391c6913b465d05ce32da79003d32f63668d1302c949",
+          "checkedAt": "2026-10-16T02:04:17.997Z",
+          "method": "structured-validation",
+          "locator": "CIK 0001660134; name; tickers; no Form 15 or 25 since 2025-09-11",
+          "excerpt": "Okta, Inc. (OKTA)"
+        }
+      ]
+    },
+    {
+      "key": "okta.revenue.latest",
+      "verifiedAt": "2026-10-16T02:04:18.000Z",
+      "valueSha256": "9479779db1373ab442514248571bd66794967acabe75bd75e5e4673765e3693a",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001660134.json",
+        "sha256": "3d0e46e72cbbc4a776b7391c6913b465d05ce32da79003d32f63668d1302c949",
+        "checkedAt": "2026-10-16T02:04:17.997Z",
+        "coveredThrough": "2026-10-16T02:04:17.997Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001660134.json",
+          "sha256": "ce9d8dc684e7e95b8ab313f731115188cc90b20d383e32a0725832de18cef1d7",
+          "checkedAt": "2026-10-16T02:04:17.695Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-07-31; accession 0001660134-26-000069; filed 2026-08-27",
+          "excerpt": "USD 805,000,000; prior-year quarter ended 2025-07-31 USD 728,000,000"
+        },
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001660134.json",
+          "sha256": "3d0e46e72cbbc4a776b7391c6913b465d05ce32da79003d32f63668d1302c949",
+          "checkedAt": "2026-10-16T02:04:17.997Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-07-31; accession 0001660134-26-000069; filed 2026-08-27",
+          "excerpt": "USD 805,000,000; prior-year quarter ended 2025-07-31 USD 728,000,000"
+        }
+      ]
+    },
+    {
+      "key": "okta.revenue.prior",
+      "verifiedAt": "2026-10-16T02:04:18.001Z",
+      "valueSha256": "ea26a625105a103c5d71219c636742768edba6ee1061e6a23bab7971f89b6248",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001660134.json",
+        "sha256": "3d0e46e72cbbc4a776b7391c6913b465d05ce32da79003d32f63668d1302c949",
+        "checkedAt": "2026-10-16T02:04:17.997Z",
+        "coveredThrough": "2026-10-16T02:04:17.997Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001660134.json",
+          "sha256": "ce9d8dc684e7e95b8ab313f731115188cc90b20d383e32a0725832de18cef1d7",
+          "checkedAt": "2026-10-16T02:04:17.695Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-04-30; accession 0001660134-26-000051; filed 2026-05-29",
+          "excerpt": "USD 765,000,000; prior-year quarter ended 2025-04-30 USD 688,000,000"
+        },
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001660134.json",
+          "sha256": "3d0e46e72cbbc4a776b7391c6913b465d05ce32da79003d32f63668d1302c949",
+          "checkedAt": "2026-10-16T02:04:17.997Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-04-30; accession 0001660134-26-000051; filed 2026-05-29",
+          "excerpt": "USD 765,000,000; prior-year quarter ended 2025-04-30 USD 688,000,000"
+        }
+      ]
+    },
+    {
+      "key": "okta.secEvents",
+      "verifiedAt": "2026-10-16T02:04:18.001Z",
+      "valueSha256": "d1ae432c5de9698156ab9123288255bb5623d09f39e16b0fb0564c6d7d126984",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001660134.json",
+        "sha256": "3d0e46e72cbbc4a776b7391c6913b465d05ce32da79003d32f63668d1302c949",
+        "checkedAt": "2026-10-16T02:04:17.997Z",
+        "coveredThrough": "2026-10-16T02:04:17.997Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001660134.json",
+          "sha256": "3d0e46e72cbbc4a776b7391c6913b465d05ce32da79003d32f63668d1302c949",
+          "checkedAt": "2026-10-16T02:04:17.997Z",
+          "method": "structured-validation",
+          "locator": "submissions index; forms 8-K items 5.02, 2.01, 1.03, 2.05, 3.01, 2.03 and forms 25, 25-NSE, DEFM14A, PREM14A; 2025-10-16 to 2026-10-16",
+          "excerpt": "8 SEC-sourced events matched to filings; tracked filings in window all represented"
+        }
+      ]
+    },
+    {
+      "key": "panw.identity",
+      "verifiedAt": "2026-10-16T02:04:18.609Z",
+      "valueSha256": "3c4389ab3066430dde17099047a207b697d4b8baa0e262b7cb68f23ea932e935",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001327567.json",
+        "sha256": "54acd6c26e8bfcdf5e0f0dea30dabef27123525133df99729bb4ccd8f000c402",
+        "checkedAt": "2026-10-16T02:04:18.607Z",
+        "coveredThrough": "2026-10-16T02:04:18.607Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001327567.json",
+          "sha256": "54acd6c26e8bfcdf5e0f0dea30dabef27123525133df99729bb4ccd8f000c402",
+          "checkedAt": "2026-10-16T02:04:18.607Z",
+          "method": "structured-validation",
+          "locator": "CIK 0001327567; name; tickers; no Form 15 or 25 since 2025-09-11",
+          "excerpt": "Palo Alto Networks Inc (PANW)"
+        }
+      ]
+    },
+    {
+      "key": "panw.revenue.latest",
+      "verifiedAt": "2026-10-16T02:04:18.610Z",
+      "valueSha256": "fdd3c4c875c12319b7859f653a61e6c74f81ac06da3c6ff53e7c7cee915db132",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001327567.json",
+        "sha256": "54acd6c26e8bfcdf5e0f0dea30dabef27123525133df99729bb4ccd8f000c402",
+        "checkedAt": "2026-10-16T02:04:18.607Z",
+        "coveredThrough": "2026-10-16T02:04:18.607Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001327567.json",
+          "sha256": "0fce8129e237331262a97979fde517a19797896a44f4d4eeab2a0767aaa6029f",
+          "checkedAt": "2026-10-16T02:04:18.295Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-07-31; accession 0001327567-26-000023; filed 2026-09-10; 10-K year less three filed quarters",
+          "excerpt": "USD 3,410,000,000; prior-year quarter ended 2025-07-31 USD 2,536,000,000"
+        },
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001327567.json",
+          "sha256": "54acd6c26e8bfcdf5e0f0dea30dabef27123525133df99729bb4ccd8f000c402",
+          "checkedAt": "2026-10-16T02:04:18.607Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-07-31; accession 0001327567-26-000023; filed 2026-09-10; 10-K year less three filed quarters",
+          "excerpt": "USD 3,410,000,000; prior-year quarter ended 2025-07-31 USD 2,536,000,000"
+        }
+      ]
+    },
+    {
+      "key": "panw.revenue.prior",
+      "verifiedAt": "2026-10-16T02:04:18.611Z",
+      "valueSha256": "7dfe166fefa510bfc118fa911b1709c26582569490053a44996f8dd82992219d",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001327567.json",
+        "sha256": "54acd6c26e8bfcdf5e0f0dea30dabef27123525133df99729bb4ccd8f000c402",
+        "checkedAt": "2026-10-16T02:04:18.607Z",
+        "coveredThrough": "2026-10-16T02:04:18.607Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001327567.json",
+          "sha256": "0fce8129e237331262a97979fde517a19797896a44f4d4eeab2a0767aaa6029f",
+          "checkedAt": "2026-10-16T02:04:18.295Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-04-30; accession 0001327567-26-000015; filed 2026-06-03",
+          "excerpt": "USD 3,002,000,000; prior-year quarter ended 2025-04-30 USD 2,289,000,000"
+        },
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001327567.json",
+          "sha256": "54acd6c26e8bfcdf5e0f0dea30dabef27123525133df99729bb4ccd8f000c402",
+          "checkedAt": "2026-10-16T02:04:18.607Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-04-30; accession 0001327567-26-000015; filed 2026-06-03",
+          "excerpt": "USD 3,002,000,000; prior-year quarter ended 2025-04-30 USD 2,289,000,000"
+        }
+      ]
+    },
+    {
+      "key": "panw.secEvents",
+      "verifiedAt": "2026-10-16T02:04:18.611Z",
+      "valueSha256": "33e7f5163fa74e006ba3d3bf7b790b8db24377670a318d004866d06a482c2b51",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001327567.json",
+        "sha256": "54acd6c26e8bfcdf5e0f0dea30dabef27123525133df99729bb4ccd8f000c402",
+        "checkedAt": "2026-10-16T02:04:18.607Z",
+        "coveredThrough": "2026-10-16T02:04:18.607Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001327567.json",
+          "sha256": "54acd6c26e8bfcdf5e0f0dea30dabef27123525133df99729bb4ccd8f000c402",
+          "checkedAt": "2026-10-16T02:04:18.607Z",
+          "method": "structured-validation",
+          "locator": "submissions index; forms 8-K items 5.02, 2.01, 1.03, 2.05, 3.01, 2.03 and forms 25, 25-NSE, DEFM14A, PREM14A; 2025-10-16 to 2026-10-16",
+          "excerpt": "7 SEC-sourced events matched to filings; tracked filings in window all represented"
+        }
+      ]
+    },
+    {
+      "key": "qualys.identity",
+      "verifiedAt": "2026-10-16T02:04:19.213Z",
+      "valueSha256": "66a5ffbe9da7125497658e7ad885fe4180ef5f789d985e5a0da7abc21e9ff7ef",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001107843.json",
+        "sha256": "c18d13d2b70db1432c3a8540c3deb71572e2669129f47482d7b52bae8d46e8e7",
+        "checkedAt": "2026-10-16T02:04:19.212Z",
+        "coveredThrough": "2026-10-16T02:04:19.212Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001107843.json",
+          "sha256": "c18d13d2b70db1432c3a8540c3deb71572e2669129f47482d7b52bae8d46e8e7",
+          "checkedAt": "2026-10-16T02:04:19.212Z",
+          "method": "structured-validation",
+          "locator": "CIK 0001107843; name; tickers; no Form 15 or 25 since 2025-09-11",
+          "excerpt": "QUALYS, INC. (QLYS)"
+        }
+      ]
+    },
+    {
+      "key": "qualys.revenue.latest",
+      "verifiedAt": "2026-10-16T02:04:19.214Z",
+      "valueSha256": "ea47444b973531ece83def5316682db89169b74b37b49b354a58586f0e094e96",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001107843.json",
+        "sha256": "c18d13d2b70db1432c3a8540c3deb71572e2669129f47482d7b52bae8d46e8e7",
+        "checkedAt": "2026-10-16T02:04:19.212Z",
+        "coveredThrough": "2026-10-16T02:04:19.212Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001107843.json",
+          "sha256": "5881840c35ba2fea8db2bf555735c059a487ca5962c4dea1febf05955d9a1f15",
+          "checkedAt": "2026-10-16T02:04:18.910Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-06-30; accession 0001107843-26-000035; filed 2026-08-04",
+          "excerpt": "USD 182,175,000; prior-year quarter ended 2025-06-30 USD 164,062,000"
+        },
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001107843.json",
+          "sha256": "c18d13d2b70db1432c3a8540c3deb71572e2669129f47482d7b52bae8d46e8e7",
+          "checkedAt": "2026-10-16T02:04:19.212Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-06-30; accession 0001107843-26-000035; filed 2026-08-04",
+          "excerpt": "USD 182,175,000; prior-year quarter ended 2025-06-30 USD 164,062,000"
+        }
+      ]
+    },
+    {
+      "key": "qualys.revenue.prior",
+      "verifiedAt": "2026-10-16T02:04:19.215Z",
+      "valueSha256": "26a1daab4b9a8d46db50bcadf7a4395ad7aee968cffc108818388f4efcbcf9f6",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001107843.json",
+        "sha256": "c18d13d2b70db1432c3a8540c3deb71572e2669129f47482d7b52bae8d46e8e7",
+        "checkedAt": "2026-10-16T02:04:19.212Z",
+        "coveredThrough": "2026-10-16T02:04:19.212Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001107843.json",
+          "sha256": "5881840c35ba2fea8db2bf555735c059a487ca5962c4dea1febf05955d9a1f15",
+          "checkedAt": "2026-10-16T02:04:18.910Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-03-31; accession 0001107843-26-000015; filed 2026-05-05",
+          "excerpt": "USD 175,638,000; prior-year quarter ended 2025-03-31 USD 159,899,000"
+        },
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001107843.json",
+          "sha256": "c18d13d2b70db1432c3a8540c3deb71572e2669129f47482d7b52bae8d46e8e7",
+          "checkedAt": "2026-10-16T02:04:19.212Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-03-31; accession 0001107843-26-000015; filed 2026-05-05",
+          "excerpt": "USD 175,638,000; prior-year quarter ended 2025-03-31 USD 159,899,000"
+        }
+      ]
+    },
+    {
+      "key": "qualys.secEvents",
+      "verifiedAt": "2026-10-16T02:04:19.215Z",
+      "valueSha256": "a0c4d936480d87fbfcf6700e46d09785668b557efd9e7105c44ac2bd780ced3b",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001107843.json",
+        "sha256": "c18d13d2b70db1432c3a8540c3deb71572e2669129f47482d7b52bae8d46e8e7",
+        "checkedAt": "2026-10-16T02:04:19.212Z",
+        "coveredThrough": "2026-10-16T02:04:19.212Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001107843.json",
+          "sha256": "c18d13d2b70db1432c3a8540c3deb71572e2669129f47482d7b52bae8d46e8e7",
+          "checkedAt": "2026-10-16T02:04:19.212Z",
+          "method": "structured-validation",
+          "locator": "submissions index; forms 8-K items 5.02, 2.01, 1.03, 2.05, 3.01, 2.03 and forms 25, 25-NSE, DEFM14A, PREM14A; 2025-10-16 to 2026-10-16",
+          "excerpt": "2 SEC-sourced events matched to filings; tracked filings in window all represented"
+        }
+      ]
+    },
+    {
+      "key": "rapid7.identity",
+      "verifiedAt": "2026-10-16T02:04:19.846Z",
+      "valueSha256": "86a2c0f8f8c0a3089840fbf8a86c3316802223a1a5a374a9ecccc8ced664c721",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001560327.json",
+        "sha256": "370eca7830724a9b302f293cb7003e4b85eecaecc45d5ed5cffe691aa002b97f",
+        "checkedAt": "2026-10-16T02:04:19.844Z",
+        "coveredThrough": "2026-10-16T02:04:19.844Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001560327.json",
+          "sha256": "370eca7830724a9b302f293cb7003e4b85eecaecc45d5ed5cffe691aa002b97f",
+          "checkedAt": "2026-10-16T02:04:19.844Z",
+          "method": "structured-validation",
+          "locator": "CIK 0001560327; name; tickers; no Form 15 or 25 since 2025-09-11",
+          "excerpt": "Rapid7, Inc. (RPD)"
+        }
+      ]
+    },
+    {
+      "key": "rapid7.revenue.latest",
+      "verifiedAt": "2026-10-16T02:04:19.847Z",
+      "valueSha256": "fa6acda6db42c76451179cf40a29e44d4a5959a2a602a47ab433d628fcab130a",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001560327.json",
+        "sha256": "370eca7830724a9b302f293cb7003e4b85eecaecc45d5ed5cffe691aa002b97f",
+        "checkedAt": "2026-10-16T02:04:19.844Z",
+        "coveredThrough": "2026-10-16T02:04:19.844Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001560327.json",
+          "sha256": "196e90024aeca936e03fd58c8cc38a5e64022d181c0f01516cfb0c5d11f1d29b",
+          "checkedAt": "2026-10-16T02:04:19.504Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-06-30; accession 0001560327-26-000044; filed 2026-08-10",
+          "excerpt": "USD 210,883,000; prior-year quarter ended 2025-06-30 USD 214,193,000"
+        },
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001560327.json",
+          "sha256": "370eca7830724a9b302f293cb7003e4b85eecaecc45d5ed5cffe691aa002b97f",
+          "checkedAt": "2026-10-16T02:04:19.844Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-06-30; accession 0001560327-26-000044; filed 2026-08-10",
+          "excerpt": "USD 210,883,000; prior-year quarter ended 2025-06-30 USD 214,193,000"
+        }
+      ]
+    },
+    {
+      "key": "rapid7.revenue.prior",
+      "verifiedAt": "2026-10-16T02:04:19.848Z",
+      "valueSha256": "6acf012e6fc2853d3b48d68e269ab8056e3e64ef6ab0e11e0b93df2feeda1bd7",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001560327.json",
+        "sha256": "370eca7830724a9b302f293cb7003e4b85eecaecc45d5ed5cffe691aa002b97f",
+        "checkedAt": "2026-10-16T02:04:19.844Z",
+        "coveredThrough": "2026-10-16T02:04:19.844Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001560327.json",
+          "sha256": "196e90024aeca936e03fd58c8cc38a5e64022d181c0f01516cfb0c5d11f1d29b",
+          "checkedAt": "2026-10-16T02:04:19.504Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-03-31; accession 0001560327-26-000033; filed 2026-05-05",
+          "excerpt": "USD 209,691,000; prior-year quarter ended 2025-03-31 USD 210,253,000"
+        },
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001560327.json",
+          "sha256": "370eca7830724a9b302f293cb7003e4b85eecaecc45d5ed5cffe691aa002b97f",
+          "checkedAt": "2026-10-16T02:04:19.844Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-03-31; accession 0001560327-26-000033; filed 2026-05-05",
+          "excerpt": "USD 209,691,000; prior-year quarter ended 2025-03-31 USD 210,253,000"
+        }
+      ]
+    },
+    {
+      "key": "rapid7.secEvents",
+      "verifiedAt": "2026-10-16T02:04:19.848Z",
+      "valueSha256": "8e11aa1abc66860d0010ad5f94e6dc7a7f437eb27540aaf47352ffa8f2e85063",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001560327.json",
+        "sha256": "370eca7830724a9b302f293cb7003e4b85eecaecc45d5ed5cffe691aa002b97f",
+        "checkedAt": "2026-10-16T02:04:19.844Z",
+        "coveredThrough": "2026-10-16T02:04:19.844Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001560327.json",
+          "sha256": "370eca7830724a9b302f293cb7003e4b85eecaecc45d5ed5cffe691aa002b97f",
+          "checkedAt": "2026-10-16T02:04:19.844Z",
+          "method": "structured-validation",
+          "locator": "submissions index; forms 8-K items 5.02, 2.01, 1.03, 2.05, 3.01, 2.03 and forms 25, 25-NSE, DEFM14A, PREM14A; 2025-10-16 to 2026-10-16",
+          "excerpt": "5 SEC-sourced events matched to filings; tracked filings in window all represented"
+        }
+      ]
+    },
+    {
+      "key": "rubrik.identity",
+      "verifiedAt": "2026-10-16T02:04:20.410Z",
+      "valueSha256": "04582be70110e5f63be12b424b4c9643fd3a51e7bb91e7f1898bad64a9ed588f",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001943896.json",
+        "sha256": "2bfecf1e2747d99a4f3230babe28b8966a9b278ad837e0a007647eb1e3bbdda9",
+        "checkedAt": "2026-10-16T02:04:20.409Z",
+        "coveredThrough": "2026-10-16T02:04:20.409Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001943896.json",
+          "sha256": "2bfecf1e2747d99a4f3230babe28b8966a9b278ad837e0a007647eb1e3bbdda9",
+          "checkedAt": "2026-10-16T02:04:20.409Z",
+          "method": "structured-validation",
+          "locator": "CIK 0001943896; name; tickers; no Form 15 or 25 since 2025-09-11",
+          "excerpt": "Rubrik, Inc. (RBRK)"
+        }
+      ]
+    },
+    {
+      "key": "rubrik.revenue.latest",
+      "verifiedAt": "2026-10-16T02:04:20.410Z",
+      "valueSha256": "4a0ff420c90a1ae592ccccc41e4ff0edadc3700beeb7443750e37def079bab52",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001943896.json",
+        "sha256": "2bfecf1e2747d99a4f3230babe28b8966a9b278ad837e0a007647eb1e3bbdda9",
+        "checkedAt": "2026-10-16T02:04:20.409Z",
+        "coveredThrough": "2026-10-16T02:04:20.409Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001943896.json",
+          "sha256": "7d6489b8a651ac695a633d56676efce3ca3796eb75cc5596785822855f40c1c4",
+          "checkedAt": "2026-10-16T02:04:20.127Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-07-31; accession 0001943896-26-000060; filed 2026-09-01",
+          "excerpt": "USD 427,260,000; prior-year quarter ended 2025-07-31 USD 309,860,000"
+        },
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001943896.json",
+          "sha256": "2bfecf1e2747d99a4f3230babe28b8966a9b278ad837e0a007647eb1e3bbdda9",
+          "checkedAt": "2026-10-16T02:04:20.409Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-07-31; accession 0001943896-26-000060; filed 2026-09-01",
+          "excerpt": "USD 427,260,000; prior-year quarter ended 2025-07-31 USD 309,860,000"
+        }
+      ]
+    },
+    {
+      "key": "rubrik.revenue.prior",
+      "verifiedAt": "2026-10-16T02:04:20.411Z",
+      "valueSha256": "4a29d9505b93aaa3b5f362d45541679827df1a3c69478540d901197d4682d6d5",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001943896.json",
+        "sha256": "2bfecf1e2747d99a4f3230babe28b8966a9b278ad837e0a007647eb1e3bbdda9",
+        "checkedAt": "2026-10-16T02:04:20.409Z",
+        "coveredThrough": "2026-10-16T02:04:20.409Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001943896.json",
+          "sha256": "7d6489b8a651ac695a633d56676efce3ca3796eb75cc5596785822855f40c1c4",
+          "checkedAt": "2026-10-16T02:04:20.127Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-04-30; accession 0001943896-26-000047; filed 2026-06-05",
+          "excerpt": "USD 387,068,000; prior-year quarter ended 2025-04-30 USD 278,481,000"
+        },
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001943896.json",
+          "sha256": "2bfecf1e2747d99a4f3230babe28b8966a9b278ad837e0a007647eb1e3bbdda9",
+          "checkedAt": "2026-10-16T02:04:20.409Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-04-30; accession 0001943896-26-000047; filed 2026-06-05",
+          "excerpt": "USD 387,068,000; prior-year quarter ended 2025-04-30 USD 278,481,000"
+        }
+      ]
+    },
+    {
+      "key": "rubrik.secEvents",
+      "verifiedAt": "2026-10-16T02:04:20.411Z",
+      "valueSha256": "a7a2d1399bca7e67dc9c0195a174658bb839dcaf68608f557a58c18908b99ecb",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001943896.json",
+        "sha256": "2bfecf1e2747d99a4f3230babe28b8966a9b278ad837e0a007647eb1e3bbdda9",
+        "checkedAt": "2026-10-16T02:04:20.409Z",
+        "coveredThrough": "2026-10-16T02:04:20.409Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001943896.json",
+          "sha256": "2bfecf1e2747d99a4f3230babe28b8966a9b278ad837e0a007647eb1e3bbdda9",
+          "checkedAt": "2026-10-16T02:04:20.409Z",
+          "method": "structured-validation",
+          "locator": "submissions index; forms 8-K items 5.02, 2.01, 1.03, 2.05, 3.01, 2.03 and forms 25, 25-NSE, DEFM14A, PREM14A; 2025-10-16 to 2026-10-16",
+          "excerpt": "2 SEC-sourced events matched to filings; tracked filings in window all represented"
+        }
+      ]
+    },
+    {
+      "key": "s1.identity",
+      "verifiedAt": "2026-10-16T02:04:20.976Z",
+      "valueSha256": "abda95317e3f990ead4dfcc1b8d8f89f9867a4afdf4bdfb7affe6e7ab132722c",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001583708.json",
+        "sha256": "68710d3eceee690c55927f84e5a14ef977ec2e7ecc5373c55026c532a7879a32",
+        "checkedAt": "2026-10-16T02:04:20.975Z",
+        "coveredThrough": "2026-10-16T02:04:20.975Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001583708.json",
+          "sha256": "68710d3eceee690c55927f84e5a14ef977ec2e7ecc5373c55026c532a7879a32",
+          "checkedAt": "2026-10-16T02:04:20.975Z",
+          "method": "structured-validation",
+          "locator": "CIK 0001583708; name; tickers; no Form 15 or 25 since 2025-09-11",
+          "excerpt": "SentinelOne, Inc. (S)"
+        }
+      ]
+    },
+    {
+      "key": "s1.revenue.latest",
+      "verifiedAt": "2026-10-16T02:04:20.976Z",
+      "valueSha256": "a33fb927c7ef70d840ed7a3120085add27db0e108b665179f22c079dd5530b2c",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001583708.json",
+        "sha256": "68710d3eceee690c55927f84e5a14ef977ec2e7ecc5373c55026c532a7879a32",
+        "checkedAt": "2026-10-16T02:04:20.975Z",
+        "coveredThrough": "2026-10-16T02:04:20.975Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001583708.json",
+          "sha256": "8c493fe6c6c4cd7e944856a59eb4f053bd56f94cf7d176c6eef713e1e87f205c",
+          "checkedAt": "2026-10-16T02:04:20.690Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-07-31; accession 0001583708-26-000055; filed 2026-08-28",
+          "excerpt": "USD 291,981,000; prior-year quarter ended 2025-07-31 USD 242,183,000"
+        },
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001583708.json",
+          "sha256": "68710d3eceee690c55927f84e5a14ef977ec2e7ecc5373c55026c532a7879a32",
+          "checkedAt": "2026-10-16T02:04:20.975Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-07-31; accession 0001583708-26-000055; filed 2026-08-28",
+          "excerpt": "USD 291,981,000; prior-year quarter ended 2025-07-31 USD 242,183,000"
+        }
+      ]
+    },
+    {
+      "key": "s1.revenue.prior",
+      "verifiedAt": "2026-10-16T02:04:20.977Z",
+      "valueSha256": "873a74964cffa91c92b4389a208820a6a6af5755a9c1e4ed4cbf1064ec0bb7fc",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001583708.json",
+        "sha256": "68710d3eceee690c55927f84e5a14ef977ec2e7ecc5373c55026c532a7879a32",
+        "checkedAt": "2026-10-16T02:04:20.975Z",
+        "coveredThrough": "2026-10-16T02:04:20.975Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001583708.json",
+          "sha256": "8c493fe6c6c4cd7e944856a59eb4f053bd56f94cf7d176c6eef713e1e87f205c",
+          "checkedAt": "2026-10-16T02:04:20.690Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-04-30; accession 0001583708-26-000041; filed 2026-05-28",
+          "excerpt": "USD 276,657,000; prior-year quarter ended 2025-04-30 USD 229,029,000"
+        },
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001583708.json",
+          "sha256": "68710d3eceee690c55927f84e5a14ef977ec2e7ecc5373c55026c532a7879a32",
+          "checkedAt": "2026-10-16T02:04:20.975Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-04-30; accession 0001583708-26-000041; filed 2026-05-28",
+          "excerpt": "USD 276,657,000; prior-year quarter ended 2025-04-30 USD 229,029,000"
+        }
+      ]
+    },
+    {
+      "key": "s1.secEvents",
+      "verifiedAt": "2026-10-16T02:04:20.977Z",
+      "valueSha256": "f31ba6b4c61d27e08851ad2487d81daf2cae1cf5b857dcad7220f58a9c55000b",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001583708.json",
+        "sha256": "68710d3eceee690c55927f84e5a14ef977ec2e7ecc5373c55026c532a7879a32",
+        "checkedAt": "2026-10-16T02:04:20.975Z",
+        "coveredThrough": "2026-10-16T02:04:20.975Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001583708.json",
+          "sha256": "68710d3eceee690c55927f84e5a14ef977ec2e7ecc5373c55026c532a7879a32",
+          "checkedAt": "2026-10-16T02:04:20.975Z",
+          "method": "structured-validation",
+          "locator": "submissions index; forms 8-K items 5.02, 2.01, 1.03, 2.05, 3.01, 2.03 and forms 25, 25-NSE, DEFM14A, PREM14A; 2025-10-16 to 2026-10-16",
+          "excerpt": "5 SEC-sourced events matched to filings; tracked filings in window all represented"
+        }
+      ]
+    },
+    {
+      "key": "sailpoint.identity",
+      "verifiedAt": "2026-10-16T02:04:21.920Z",
+      "valueSha256": "2d12c13ec2baf28eb58cd467eb5ce5fb8797e970c67e604920174513f4151e2d",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0002030781.json",
+        "sha256": "ea7992a4bc286485ab8a4db6bba7b346a763789baf3c92ee6da36405e7f16152",
+        "checkedAt": "2026-10-16T02:04:21.919Z",
+        "coveredThrough": "2026-10-16T02:04:21.919Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/submissions/CIK0002030781.json",
+          "sha256": "ea7992a4bc286485ab8a4db6bba7b346a763789baf3c92ee6da36405e7f16152",
+          "checkedAt": "2026-10-16T02:04:21.919Z",
+          "method": "structured-validation",
+          "locator": "CIK 0002030781; name; tickers; no Form 15 or 25 since 2025-09-11",
+          "excerpt": "SailPoint, Inc. (SAIL)"
+        }
+      ]
+    },
+    {
+      "key": "sailpoint.revenue.latest",
+      "verifiedAt": "2026-10-16T02:04:21.920Z",
+      "valueSha256": "c663fa99e02c5d3270ba08abdce1dbe61e521ab7fd301c756360e6d1698ba927",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0002030781.json",
+        "sha256": "ea7992a4bc286485ab8a4db6bba7b346a763789baf3c92ee6da36405e7f16152",
+        "checkedAt": "2026-10-16T02:04:21.919Z",
+        "coveredThrough": "2026-10-16T02:04:21.919Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0002030781.json",
+          "sha256": "d31f2c9865a8a3e2e3e362086ba45eddd4b8ad52a892aba51d0738d3a3742ac5",
+          "checkedAt": "2026-10-16T02:04:21.528Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-07-31; accession 0002030781-26-000021; filed 2026-09-10",
+          "excerpt": "USD 308,813,000; prior-year quarter ended 2025-07-31 USD 264,359,000"
+        },
+        {
+          "url": "https://data.sec.gov/submissions/CIK0002030781.json",
+          "sha256": "ea7992a4bc286485ab8a4db6bba7b346a763789baf3c92ee6da36405e7f16152",
+          "checkedAt": "2026-10-16T02:04:21.919Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-07-31; accession 0002030781-26-000021; filed 2026-09-10",
+          "excerpt": "USD 308,813,000; prior-year quarter ended 2025-07-31 USD 264,359,000"
+        }
+      ]
+    },
+    {
+      "key": "sailpoint.revenue.prior",
+      "verifiedAt": "2026-10-16T02:04:21.920Z",
+      "valueSha256": "f41f86b4139494c9783b19c895146f773c8925b91529166d312de8e5bbefc20f",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0002030781.json",
+        "sha256": "ea7992a4bc286485ab8a4db6bba7b346a763789baf3c92ee6da36405e7f16152",
+        "checkedAt": "2026-10-16T02:04:21.919Z",
+        "coveredThrough": "2026-10-16T02:04:21.919Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0002030781.json",
+          "sha256": "d31f2c9865a8a3e2e3e362086ba45eddd4b8ad52a892aba51d0738d3a3742ac5",
+          "checkedAt": "2026-10-16T02:04:21.528Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-04-30; accession 0002030781-26-000011; filed 2026-06-10",
+          "excerpt": "USD 280,142,000; prior-year quarter ended 2025-04-30 USD 230,468,000"
+        },
+        {
+          "url": "https://data.sec.gov/submissions/CIK0002030781.json",
+          "sha256": "ea7992a4bc286485ab8a4db6bba7b346a763789baf3c92ee6da36405e7f16152",
+          "checkedAt": "2026-10-16T02:04:21.919Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-04-30; accession 0002030781-26-000011; filed 2026-06-10",
+          "excerpt": "USD 280,142,000; prior-year quarter ended 2025-04-30 USD 230,468,000"
+        }
+      ]
+    },
+    {
+      "key": "sailpoint.secEvents",
+      "verifiedAt": "2026-10-16T02:04:21.920Z",
+      "valueSha256": "297c71b3b8f96f4de1df5c1ab3c78e4afac25bfc475c956e653aae8fb8fdc24c",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0002030781.json",
+        "sha256": "ea7992a4bc286485ab8a4db6bba7b346a763789baf3c92ee6da36405e7f16152",
+        "checkedAt": "2026-10-16T02:04:21.919Z",
+        "coveredThrough": "2026-10-16T02:04:21.919Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/submissions/CIK0002030781.json",
+          "sha256": "ea7992a4bc286485ab8a4db6bba7b346a763789baf3c92ee6da36405e7f16152",
+          "checkedAt": "2026-10-16T02:04:21.919Z",
+          "method": "structured-validation",
+          "locator": "submissions index; forms 8-K items 5.02, 2.01, 1.03, 2.05, 3.01, 2.03 and forms 25, 25-NSE, DEFM14A, PREM14A; 2025-10-16 to 2026-10-16",
+          "excerpt": "3 SEC-sourced events matched to filings; tracked filings in window all represented"
+        }
+      ]
+    },
+    {
+      "key": "tenable.identity",
+      "verifiedAt": "2026-10-16T02:04:22.757Z",
+      "valueSha256": "85ebb026a126f1225c6b6daf1a749d89f8cbd0c29ec776a25fcaae007f408e9c",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001660280.json",
+        "sha256": "4c0916ed8cc7c703f36317069af6b437104a181b41722761b5847dd8ed8b9934",
+        "checkedAt": "2026-10-16T02:04:22.756Z",
+        "coveredThrough": "2026-10-16T02:04:22.756Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001660280.json",
+          "sha256": "4c0916ed8cc7c703f36317069af6b437104a181b41722761b5847dd8ed8b9934",
+          "checkedAt": "2026-10-16T02:04:22.756Z",
+          "method": "structured-validation",
+          "locator": "CIK 0001660280; name; tickers; no Form 15 or 25 since 2025-09-11",
+          "excerpt": "Tenable Holdings, Inc. (TENB)"
+        }
+      ]
+    },
+    {
+      "key": "tenable.revenue.latest",
+      "verifiedAt": "2026-10-16T02:04:22.758Z",
+      "valueSha256": "4f2321ca14be0883819497bb0e5d792a489c9d80407c488e9e01a99eb479a5fe",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001660280.json",
+        "sha256": "4c0916ed8cc7c703f36317069af6b437104a181b41722761b5847dd8ed8b9934",
+        "checkedAt": "2026-10-16T02:04:22.756Z",
+        "coveredThrough": "2026-10-16T02:04:22.756Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001660280.json",
+          "sha256": "25756b942a29567cbb25e024fb51cdee78bbd29e0b31498a50eb533c7e470b11",
+          "checkedAt": "2026-10-16T02:04:22.435Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-06-30; accession 0001660280-26-000035; filed 2026-08-04",
+          "excerpt": "USD 268,508,000; prior-year quarter ended 2025-06-30 USD 247,295,000"
+        },
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001660280.json",
+          "sha256": "4c0916ed8cc7c703f36317069af6b437104a181b41722761b5847dd8ed8b9934",
+          "checkedAt": "2026-10-16T02:04:22.756Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-06-30; accession 0001660280-26-000035; filed 2026-08-04",
+          "excerpt": "USD 268,508,000; prior-year quarter ended 2025-06-30 USD 247,295,000"
+        }
+      ]
+    },
+    {
+      "key": "tenable.revenue.prior",
+      "verifiedAt": "2026-10-16T02:04:22.759Z",
+      "valueSha256": "a7cea893814bce671a681663c6d4c9d0c8c45f94ae4d82921153781d1e2e3831",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001660280.json",
+        "sha256": "4c0916ed8cc7c703f36317069af6b437104a181b41722761b5847dd8ed8b9934",
+        "checkedAt": "2026-10-16T02:04:22.756Z",
+        "coveredThrough": "2026-10-16T02:04:22.756Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001660280.json",
+          "sha256": "25756b942a29567cbb25e024fb51cdee78bbd29e0b31498a50eb533c7e470b11",
+          "checkedAt": "2026-10-16T02:04:22.435Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-03-31; accession 0001660280-26-000023; filed 2026-05-05",
+          "excerpt": "USD 262,058,000; prior-year quarter ended 2025-03-31 USD 239,137,000"
+        },
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001660280.json",
+          "sha256": "4c0916ed8cc7c703f36317069af6b437104a181b41722761b5847dd8ed8b9934",
+          "checkedAt": "2026-10-16T02:04:22.756Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-03-31; accession 0001660280-26-000023; filed 2026-05-05",
+          "excerpt": "USD 262,058,000; prior-year quarter ended 2025-03-31 USD 239,137,000"
+        }
+      ]
+    },
+    {
+      "key": "tenable.secEvents",
+      "verifiedAt": "2026-10-16T02:04:22.759Z",
+      "valueSha256": "afd28e1a76cab67cc50151ad70f6871c96da9cfdf2d6b1ceb6f32b48324e79fb",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001660280.json",
+        "sha256": "4c0916ed8cc7c703f36317069af6b437104a181b41722761b5847dd8ed8b9934",
+        "checkedAt": "2026-10-16T02:04:22.756Z",
+        "coveredThrough": "2026-10-16T02:04:22.756Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001660280.json",
+          "sha256": "4c0916ed8cc7c703f36317069af6b437104a181b41722761b5847dd8ed8b9934",
+          "checkedAt": "2026-10-16T02:04:22.756Z",
+          "method": "structured-validation",
+          "locator": "submissions index; forms 8-K items 5.02, 2.01, 1.03, 2.05, 3.01, 2.03 and forms 25, 25-NSE, DEFM14A, PREM14A; 2025-10-16 to 2026-10-16",
+          "excerpt": "4 SEC-sourced events matched to filings; tracked filings in window all represented"
+        }
+      ]
+    },
+    {
+      "key": "varonis.identity",
+      "verifiedAt": "2026-10-16T02:04:23.343Z",
+      "valueSha256": "08269023b7e2a4bbd4ed162fe1f89634f969dfc6776dc95273b3e7a6b6164b66",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001361113.json",
+        "sha256": "a2c89d374e4f19014f6289d5a06190c8e7e1171f83b44fdfbd14a4b003590697",
+        "checkedAt": "2026-10-16T02:04:23.341Z",
+        "coveredThrough": "2026-10-16T02:04:23.341Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001361113.json",
+          "sha256": "a2c89d374e4f19014f6289d5a06190c8e7e1171f83b44fdfbd14a4b003590697",
+          "checkedAt": "2026-10-16T02:04:23.341Z",
+          "method": "structured-validation",
+          "locator": "CIK 0001361113; name; tickers; no Form 15 or 25 since 2025-09-11",
+          "excerpt": "VARONIS SYSTEMS INC (VRNS)"
+        }
+      ]
+    },
+    {
+      "key": "varonis.revenue.latest",
+      "verifiedAt": "2026-10-16T02:04:23.344Z",
+      "valueSha256": "07394f007740ab3e0a11958a3ece48d4d5c838058e2a744ea106f3cff29767f2",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001361113.json",
+        "sha256": "a2c89d374e4f19014f6289d5a06190c8e7e1171f83b44fdfbd14a4b003590697",
+        "checkedAt": "2026-10-16T02:04:23.341Z",
+        "coveredThrough": "2026-10-16T02:04:23.341Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001361113.json",
+          "sha256": "5c7576b0fa53ccb95eac41b4bb2859484614b21a670c8a3b610da2be91cacc8a",
+          "checkedAt": "2026-10-16T02:04:23.051Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerIncludingAssessedTax; USD; quarter ended 2026-06-30; accession 0001628280-26-050630; filed 2026-07-29",
+          "excerpt": "USD 180,023,000; prior-year quarter ended 2025-06-30 USD 152,163,000"
+        },
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001361113.json",
+          "sha256": "a2c89d374e4f19014f6289d5a06190c8e7e1171f83b44fdfbd14a4b003590697",
+          "checkedAt": "2026-10-16T02:04:23.341Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerIncludingAssessedTax; USD; quarter ended 2026-06-30; accession 0001628280-26-050630; filed 2026-07-29",
+          "excerpt": "USD 180,023,000; prior-year quarter ended 2025-06-30 USD 152,163,000"
+        }
+      ]
+    },
+    {
+      "key": "varonis.revenue.prior",
+      "verifiedAt": "2026-10-16T02:04:23.345Z",
+      "valueSha256": "91709b42733c082eee26ceda6e3d5bf7426f7b0458466eba9370e8e0847cca2a",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001361113.json",
+        "sha256": "a2c89d374e4f19014f6289d5a06190c8e7e1171f83b44fdfbd14a4b003590697",
+        "checkedAt": "2026-10-16T02:04:23.341Z",
+        "coveredThrough": "2026-10-16T02:04:23.341Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001361113.json",
+          "sha256": "5c7576b0fa53ccb95eac41b4bb2859484614b21a670c8a3b610da2be91cacc8a",
+          "checkedAt": "2026-10-16T02:04:23.051Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerIncludingAssessedTax; USD; quarter ended 2026-03-31; accession 0001628280-26-028411; filed 2026-04-29",
+          "excerpt": "USD 173,126,000; prior-year quarter ended 2025-03-31 USD 136,423,000"
+        },
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001361113.json",
+          "sha256": "a2c89d374e4f19014f6289d5a06190c8e7e1171f83b44fdfbd14a4b003590697",
+          "checkedAt": "2026-10-16T02:04:23.341Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerIncludingAssessedTax; USD; quarter ended 2026-03-31; accession 0001628280-26-028411; filed 2026-04-29",
+          "excerpt": "USD 173,126,000; prior-year quarter ended 2025-03-31 USD 136,423,000"
+        }
+      ]
+    },
+    {
+      "key": "varonis.secEvents",
+      "verifiedAt": "2026-10-16T02:04:23.345Z",
+      "valueSha256": "fd53ec0fbaa186d7263b5f4815b47ba856a0419931b2ccdd26fb02c6e488b0a6",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001361113.json",
+        "sha256": "a2c89d374e4f19014f6289d5a06190c8e7e1171f83b44fdfbd14a4b003590697",
+        "checkedAt": "2026-10-16T02:04:23.341Z",
+        "coveredThrough": "2026-10-16T02:04:23.341Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001361113.json",
+          "sha256": "a2c89d374e4f19014f6289d5a06190c8e7e1171f83b44fdfbd14a4b003590697",
+          "checkedAt": "2026-10-16T02:04:23.341Z",
+          "method": "structured-validation",
+          "locator": "submissions index; forms 8-K items 5.02, 2.01, 1.03, 2.05, 3.01, 2.03 and forms 25, 25-NSE, DEFM14A, PREM14A; 2025-10-16 to 2026-10-16",
+          "excerpt": "5 SEC-sourced events matched to filings; tracked filings in window all represented"
+        }
+      ]
+    },
+    {
+      "key": "zscaler.identity",
+      "verifiedAt": "2026-10-16T02:04:23.925Z",
+      "valueSha256": "9176167078610e816b941f9c3ea13c678beb9d0f84983d34c15df981eef3ae13",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001713683.json",
+        "sha256": "28c167ee45a0e6c6f24d9fa65bd25c0294c227ca1d4ce6fe6cd036680e446839",
+        "checkedAt": "2026-10-16T02:04:23.923Z",
+        "coveredThrough": "2026-10-16T02:04:23.923Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001713683.json",
+          "sha256": "28c167ee45a0e6c6f24d9fa65bd25c0294c227ca1d4ce6fe6cd036680e446839",
+          "checkedAt": "2026-10-16T02:04:23.923Z",
+          "method": "structured-validation",
+          "locator": "CIK 0001713683; name; tickers; no Form 15 or 25 since 2025-09-11",
+          "excerpt": "Zscaler, Inc. (ZS)"
+        }
+      ]
+    },
+    {
+      "key": "zscaler.revenue.latest",
+      "verifiedAt": "2026-10-16T02:04:23.926Z",
+      "valueSha256": "a0971c5115b6142dee2122b488e32444c23a05505b2ab413035ededa5ba7f4d3",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001713683.json",
+        "sha256": "28c167ee45a0e6c6f24d9fa65bd25c0294c227ca1d4ce6fe6cd036680e446839",
+        "checkedAt": "2026-10-16T02:04:23.923Z",
+        "coveredThrough": "2026-10-16T02:04:23.923Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001713683.json",
+          "sha256": "06053c252007a7d76d154eb77a698c48c832f9b4d6ad121a33b41d14a27a1434",
+          "checkedAt": "2026-10-16T02:04:23.631Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-07-31; accession 0001713683-26-000157; filed 2026-09-03; 10-K year less three filed quarters",
+          "excerpt": "USD 898,185,000; prior-year quarter ended 2025-07-31 USD 719,226,000"
+        },
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001713683.json",
+          "sha256": "28c167ee45a0e6c6f24d9fa65bd25c0294c227ca1d4ce6fe6cd036680e446839",
+          "checkedAt": "2026-10-16T02:04:23.923Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-07-31; accession 0001713683-26-000157; filed 2026-09-03; 10-K year less three filed quarters",
+          "excerpt": "USD 898,185,000; prior-year quarter ended 2025-07-31 USD 719,226,000"
+        }
+      ]
+    },
+    {
+      "key": "zscaler.revenue.prior",
+      "verifiedAt": "2026-10-16T02:04:23.926Z",
+      "valueSha256": "6b9093f44a4641be5c35b64046ef2c8d04f279ed896a71ada1b496430a7b47df",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001713683.json",
+        "sha256": "28c167ee45a0e6c6f24d9fa65bd25c0294c227ca1d4ce6fe6cd036680e446839",
+        "checkedAt": "2026-10-16T02:04:23.923Z",
+        "coveredThrough": "2026-10-16T02:04:23.923Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001713683.json",
+          "sha256": "06053c252007a7d76d154eb77a698c48c832f9b4d6ad121a33b41d14a27a1434",
+          "checkedAt": "2026-10-16T02:04:23.631Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-04-30; accession 0001713683-26-000096; filed 2026-05-26",
+          "excerpt": "USD 850,475,000; prior-year quarter ended 2025-04-30 USD 678,034,000"
+        },
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001713683.json",
+          "sha256": "28c167ee45a0e6c6f24d9fa65bd25c0294c227ca1d4ce6fe6cd036680e446839",
+          "checkedAt": "2026-10-16T02:04:23.923Z",
+          "method": "structured-validation",
+          "locator": "RevenueFromContractWithCustomerExcludingAssessedTax; USD; quarter ended 2026-04-30; accession 0001713683-26-000096; filed 2026-05-26",
+          "excerpt": "USD 850,475,000; prior-year quarter ended 2025-04-30 USD 678,034,000"
+        }
+      ]
+    },
+    {
+      "key": "zscaler.secEvents",
+      "verifiedAt": "2026-10-16T02:04:23.927Z",
+      "valueSha256": "742745b563f61e9d22dae177520b6d15583448d8db29dc97feb959d90d1cf9e4",
+      "result": "verified-value",
+      "discovery": {
+        "url": "https://data.sec.gov/submissions/CIK0001713683.json",
+        "sha256": "28c167ee45a0e6c6f24d9fa65bd25c0294c227ca1d4ce6fe6cd036680e446839",
+        "checkedAt": "2026-10-16T02:04:23.923Z",
+        "coveredThrough": "2026-10-16T02:04:23.923Z",
+        "scope": "company-or-parent"
+      },
+      "evidence": [
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001713683.json",
+          "sha256": "28c167ee45a0e6c6f24d9fa65bd25c0294c227ca1d4ce6fe6cd036680e446839",
+          "checkedAt": "2026-10-16T02:04:23.923Z",
+          "method": "structured-validation",
+          "locator": "submissions index; forms 8-K items 5.02, 2.01, 1.03, 2.05, 3.01, 2.03 and forms 25, 25-NSE, DEFM14A, PREM14A; 2025-10-16 to 2026-10-16",
+          "excerpt": "8 SEC-sourced events matched to filings; tracked filings in window all represented"
+        }
+      ]
+    }
+  ]
+}

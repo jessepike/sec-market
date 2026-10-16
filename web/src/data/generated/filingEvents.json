@@ -44,6 +44,17 @@
     "rung": 1
   },
   {
+    "id": "EV-filing-panw-0001193125-26-151637",
+    "supplierId": "panw",
+    "date": "2026-04-13",
+    "type": "debt",
+    "text": "Form 8-K (Item 2.03) reporting the creation of a direct financial obligation, filed 2026-04-13.",
+    "evidenceIds": [
+      "TR-filing-panw-0001193125-26-151637"
+    ],
+    "rung": 1
+  },
+  {
     "id": "EV-filing-panw-0001193125-25-315915",
     "supplierId": "panw",
     "date": "2025-12-11",
@@ -172,6 +183,17 @@
     "text": "Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2026-02-04.",
     "evidenceIds": [
       "TR-filing-rubrik-0001193125-26-037791"
+    ],
+    "rung": 1
+  },
+  {
+    "id": "EV-filing-varonis-0001213900-26-109901",
+    "supplierId": "varonis",
+    "date": "2026-10-15",
+    "type": "exec-change",
+    "text": "Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2026-10-15.",
+    "evidenceIds": [
+      "TR-filing-varonis-0001213900-26-109901"
     ],
     "rung": 1
   },
