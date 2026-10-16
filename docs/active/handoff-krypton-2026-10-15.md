@@ -45,3 +45,9 @@ When the owner answers, log each as a D-number in `decisions.md` with his words,
 - Security headers live on both sites; Cloudflare email records set (see `dns-hardening-2026-10-15.md`). Owner click pending: Cloudflare DMARC Management for jessepike.dev. DNSSEC and CAA not done.
 - Phase 0 complete (D-100). Run from `web/`: `npm run refresh:edgar && npm run refresh:filing-events && npm run certify:sec && npm run certify:gate`. Expect 80/80.
 - Next agent work: Phase 1. Workflow on GitHub Actions every 4 hours (D-96): job A read-only fetch/compute/certify; job B write, no third-party code, pushes allowlisted data to `preview`; job C gated promotion of certified data-only commits (D-88); upload `.collect/sec-archive` as artifact; rewrite `freshness.yml`; external dead-man check. Workflow-file push may need the owner.
+
+## Update 2026-10-15 later (Phase 1)
+
+- Phase 1 workflows are on `preview`; they take effect once `preview` is promoted to `main` (owner's call). After promotion, watch the first scheduled `certified refresh` run: confirm the publish job pushes to `preview` and Vercel builds that commit (author is set to jesse@keatingpike.com because Vercel refuses unmapped authors).
+- Open owner decisions: remove retired `publish-issue.yml` and `gather-pr.yml`; enable Cloudflare DMARC Management for jessepike.dev; DNSSEC and CAA.
+- Next agent work after the first scheduled run is confirmed: Phase 2 (site shows certified vs not-certified, SEC event window from `filingRun.json`, "re-derived from SEC filings" wording, remove run-status panels, switch production from the frozen snapshot to the certified tier, then schedule `promote-certified.yml`).
