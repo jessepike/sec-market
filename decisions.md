@@ -1076,4 +1076,20 @@ Owner: "approved--but let's keep all the email in a single workstream so it all 
 
 **D-94 · 2026-10-15 — Phase 2 AI extraction for private companies deferred.** Owner: "defer."
 
-Pending: branch protection (owner prefers no added cost; explanation requested).
+Resolved in D-97.
+
+**D-95 · 2026-10-15 — Update cadence: check SEC filings every 4 hours; publish only when a tracked filer has a new filing.**
+
+Owner: "confirm yes on all 3 open items." No commit or deploy when nothing changed. The site states the check schedule; an external monitor proves the checks run.
+
+**D-96 · 2026-10-15 — Byline uses the owner's legal name, Jesse Pike.**
+
+Owner: "confirm yes." Krypton stays the name of his agent system, not the site's author identity.
+
+**D-97 · 2026-10-15 — No paid GitHub plan; `main` protection relies on design, recorded as such.**
+
+Owner: "I'd rather not incur additional costs" and "confirm yes." The write-token job runs no third-party code; data reaches `main` only through the separate gated promotion job; owner uses passkey two-factor on GitHub. `main` has no branch protection beyond this.
+
+**D-98 · 2026-10-15 — Security hardening and analytics for securitymarketpulse.com and jessepike.dev.**
+
+Owner: "address those security suggestions" and "setup free web analytics." Vercel Web Analytics was already installed and collecting on both sites; no change needed. Headers (CSP, HSTS includeSubDomains, frame denial, COOP) and security.txt are added on branches. DNS changes (DNSSEC, CAA, email authentication) are made by the owner in Cloudflare from a written record list. Email provider note: jessepike.dev already uses Buttondown for its newsletter, so the email workstream (D-91) defaults to Buttondown rather than Kit, to keep one list.
