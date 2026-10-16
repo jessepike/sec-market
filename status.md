@@ -1,12 +1,14 @@
 ---
 project: Security Market Signal Pipeline
 stage: Operate
-updated: 2026-10-14
+updated: 2026-10-16
 ---
 
 # Status
 
 ## Current State
+
+**2026-10-16 — AUTO-002 Phase 2 live: production renders the certified tracker.** `main` at `f765f2b`; https://securitymarketpulse.com serves release `certified` (certifiedAt 2026-10-16T10:12Z, 80/80, no drift). Visible change: the frozen August snapshot (domain stances, weekly issue, "data refresh not established") is replaced by the tracker (what changed in 30 days, reported revenue growth, 12-month event grid, suppliers by domain); page height 16,037px to 8,138px at 1440. Header, rail and masthead show "Certified SEC figures last changed <date>"; the overview paragraph says what is certified; the Method page lists what is not (event type, event text and debt quotes included), with the owner byline. 8-K Item 2.03 events quote the opening of the filing's own description (script extract, not certified). Independent review found five label and check defects; all fixed before promotion. Tests: 280 data, 32 browser, lint clean. `promote-certified.yml` now runs daily at 15:23 UTC. Next: confirm the first scheduled certified refresh (12:17 UTC) publishes to `preview` and Vercel builds it; then the email workstream (D-92), which waits on owner items (Buttondown API key as a repo secret, a postal address for the footer, approval of the constraints.md line).
 
 **2026-10-15 late — AUTO-002 Phase 1 built and trialled; waiting on promotion to `main` to switch on the schedule.** New workflows on `preview`: `certified-refresh.yml` (every 4 h at :17; read-only certify job; write job runs no npm and pushes only six allowlisted data files to `preview`; one "Certified refresh held" issue on failure; raw SEC responses kept 90 days as the `sec-archive` artifact), `promote-certified.yml` (data-only fast-forward with 24 h soak and fresh re-certification; manual until Phase 2), `freshness.yml` rewritten (certified refresh ran within 10 h; site answers), `web.yml` hardened. Trial run 38840595332 on GitHub runners: 80/80, tests pass, artifacts uploaded. Schedules only run from the default branch, so the workflows take effect when `preview` is promoted to `main`. Production-mode build compared with the live site: no visible change (only the deployment revision label differs). Not yet exercised: the publish job (first real run after promotion) and promotion (Phase 2). Retired `publish-issue.yml` fails to parse on every push; owner confirmation needed to remove it with `gather-pr.yml`.
 

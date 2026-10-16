@@ -51,3 +51,11 @@ When the owner answers, log each as a D-number in `decisions.md` with his words,
 - Phase 1 workflows are on `preview`; they take effect once `preview` is promoted to `main` (owner's call). After promotion, watch the first scheduled `certified refresh` run: confirm the publish job pushes to `preview` and Vercel builds that commit (author is set to jesse@keatingpike.com because Vercel refuses unmapped authors).
 - Open owner decisions: remove retired `publish-issue.yml` and `gather-pr.yml`; enable Cloudflare DMARC Management for jessepike.dev; DNSSEC and CAA.
 - Next agent work after the first scheduled run is confirmed: Phase 2 (site shows certified vs not-certified, SEC event window from `filingRun.json`, "re-derived from SEC filings" wording, remove run-status panels, switch production from the frozen snapshot to the certified tier, then schedule `promote-certified.yml`).
+
+## Update 2026-10-16 (Phase 2 live)
+
+- Production renders the certified tracker (`main` `f765f2b`). Spec: `auto-002-phase2-spec.md`, decision D-101.
+- Data path is now fully automatic: `certified-refresh.yml` every 4 h pushes changed certified data to `preview`; `promote-certified.yml` daily fast-forwards `main` after a 24 h soak and a fresh 100% re-certification. Any non-data commit on `preview` blocks auto-promotion until the owner promotes, so keep `preview` and `main` in step after docs or code work.
+- Still to confirm: the first scheduled refresh and its Vercel build.
+- Next work: email workstream (D-92) as one unit. Owner inputs needed: Buttondown API key as a GitHub secret, postal address, approval to change the `.claude/rules/constraints.md` line on email.
+- Open owner items: remove retired `publish-issue.yml` and `gather-pr.yml` (they fail on every push); Cloudflare DMARC Management for jessepike.dev; DNSSEC and CAA.
