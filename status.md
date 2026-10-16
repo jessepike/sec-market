@@ -17,8 +17,10 @@ Current state only. The full session log up to 2026-10-16 is in
   UTC. The first scheduled refresh ran at 16:38 UTC on 2026-10-16: 80/80, no change, so nothing was
   published. GitHub starts scheduled runs late and sometimes skips slots; the freshness probe alarms
   only after 10 hours with no run.
-- **Branches:** `main` and `preview` are level at `399cc78`. The cleanup is on `chore/cleanup`
-  (pushed), not yet merged into `preview`.
+- **Branches:** `preview` carries the cleanup and is ahead of `main` (`399cc78`) until the owner
+  promotes. 28 merged or abandoned branches remain on GitHub (`auto/*`, `mon/*`, `issue/*`,
+  `chore/cleanup` and others); agents in this setup cannot delete remote branches, so the owner
+  deletes them in GitHub, Branches.
 
 ## Last session (2026-10-16)
 
@@ -34,17 +36,19 @@ Current state only. The full session log up to 2026-10-16 is in
 
 ## Waiting on the owner
 
-1. **Approve the cleanup.** An agent merges `chore/cleanup` into `preview`, runs the visual review and
-   sends the screenshots; the owner then says whether to promote. While non-data commits sit on
+1. **Approve the cleanup.** It is on `preview` and the visual review is done: the only visible change
+   is the RSS line. The owner says whether to promote. While non-data commits sit on
    `preview` ahead of `main`, automatic promotion of certified data waits.
 2. **Confirm `intent.md` v1.5** text (the revision was authorized; the wording is for review).
 3. **Email workstream inputs** (SEC-060): Buttondown API key as a GitHub secret, a postal address.
 4. **Account items** (SEC-061): Cloudflare DMARC Management for jessepike.dev, DNSSEC and CAA for
    both domains, Vercel plan check.
+5. **Delete stale branches** on GitHub (all but `main` and `preview`).
 
 ## Next for an agent
 
-1. After promotion, confirm production renders unchanged and `app-release.json` is current.
+1. After promotion, confirm production renders the same as the preview and `app-release.json` is
+   current.
 2. SEC-062: watch the first real data change go through end to end.
 3. SEC-060 as soon as the owner's inputs exist.
 
