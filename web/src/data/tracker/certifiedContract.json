@@ -56,6 +56,10 @@
     "headlineMetric": "Company-stated metrics (ARR, cRPO, billings) are not in structured SEC data. Shown with their own source and date, outside the certified snapshot.",
     "ownership": "Free-text status. Identity (name, ticker, no delisting or deregistration) is certified instead.",
     "events without an sec.gov source": "Press releases and news. Shown with their own source and date, outside the certified snapshot.",
-    "event text": "Certified event claims cover the filing, its dates and the event type. The written summary of a hand-collected event is not machine-verified."
+    "event text": "Certified event claims cover the filing, its dates and the event type. The written summary of a hand-collected event is not machine-verified.",
+    "growthBasis": "Reporting-currency note shown only for non-SEC filers (Trend Micro). Not present for certified suppliers."
+  },
+  "componentNotes": {
+    "priorYearValue": "Not a required component, because a newly public filer has no prior-year quarter. When displayed it is verified against SEC and covered by the gate's drift check on every leaf."
   }
 }

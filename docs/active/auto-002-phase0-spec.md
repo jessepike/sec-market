@@ -102,4 +102,6 @@ An independent auditor (separate agent, no prior context) returned "sound with f
 
 The stricter event rules also found a real gap: the filing-events generator skipped any 8-K item on a date that already had a hand-collected event, of any type. Palo Alto Networks' 2025-11-19 officer change (Item 5.02, filed with the Chronosphere announcement) and a 2026-02-11 debt filing were missing. Dedupe is now by date and type.
 
+Re-audit: fixes 1, 2, 4 and 5 closed; fix 3 had two small holes (a cited accession counted regardless of type; a loose 10-Q/10-K anchor), both fixed in a third pass. Fix 6 archive is local until Phase 1 uploads it. Fix 7 (second oracle) open and disclosed.
+
 Result after fixes: 80 of 80 claims (16 suppliers, 5 groups) on live SEC data, 279 data tests pass, build passes, production data unchanged.

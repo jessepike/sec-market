@@ -1098,3 +1098,7 @@ Owner: "I'd rather not incur additional costs" and "confirm yes." The write-toke
 **D-99 · 2026-10-15 — Security hardening and analytics for securitymarketpulse.com and jessepike.dev.**
 
 Owner: "address those security suggestions" and "setup free web analytics." Vercel Web Analytics was already installed and collecting on both sites; no change needed. Headers (CSP, HSTS includeSubDomains, frame denial, COOP) and security.txt are added on branches. DNS changes (DNSSEC, CAA, email authentication) are made by the owner in Cloudflare from a written record list. Email provider note: jessepike.dev already uses Buttondown for its newsletter, so the email workstream (D-92) defaults to Buttondown rather than Kit, to keep one list.
+
+**D-100 · 2026-10-15 — Phase 0 accepted for build: certified tier verified by re-derivation from SEC data.**
+
+Owner: "yes let's continue" (Phase 0). Built and audited the same night. The certified tier (D-89) is 16 SEC filers × 5 groups; the gate passes 80/80. Wording rule: the site says figures are "re-derived from SEC filings", not "independently verified", until a second oracle exists. Fields the site displays that are not certified are listed in `certifiedContract.json` `notCertified` and must be labelled in Phase 2. Owner also stated passkeys and two-factor are already on GitHub, Vercel and Cloudflare.

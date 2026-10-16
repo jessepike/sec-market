@@ -86,6 +86,12 @@ test('SEC events are anchored to filings and every tracked item is represented b
   assert.equal(verifySecEvents(index, [{ ...ev, accessions: ['9999999999-26-000009'] }], [ev], ...W).ok, false, 'unknown accession')
   const sameDayOtherType = { date: '2026-06-03', type: 'acquisition', accessions: [] }
   assert.equal(verifySecEvents(index, [], [sameDayOtherType], ...W).ok, false, 'same-day event of another type does not cover Item 5.02')
+  const earnings = { date: '2026-06-01', type: 'results', accessions: ['0000000001-26-000001'] }
+  assert.equal(verifySecEvents(index, [], [earnings], ...W).ok, false, 'event citing the 8-K with another type does not cover Item 5.02')
+  const tenQ = subs([{ form: '10-Q', date: '2026-08-10', report: '2026-06-30', accn: '0000000001-26-000004' }])
+  const inPeriod = { id: 'EV-2', date: '2026-05-15', type: 'acquisition', accessions: ['0000000001-26-000004'], evidenceDates: ['2026-08-10'] }
+  assert.equal(verifySecEvents(tenQ, [inPeriod], [inPeriod], ...W).ok, true, 'event inside the 10-Q period')
+  assert.equal(verifySecEvents(tenQ, [{ ...inPeriod, date: '2026-03-20' }], [], ...W).ok, false, 'event before the 10-Q period')
   const late = subs([{ form: '8-K', date: '2026-10-15', accn: '0000000001-26-000003', items: '5.02' }])
   assert.equal(verifySecEvents(late, [], [], '2025-10-14', '2026-10-14', '2026-10-15').ok, false, 'filing after window end')
   assert.equal(accessionFromUrl('https://www.sec.gov/Archives/edgar/data/1660280/000166028026000046/tenb-20261013.htm'), '0001660280-26-000046')

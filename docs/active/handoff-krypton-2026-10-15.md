@@ -39,3 +39,9 @@ When the owner answers, log each as a D-number in `decisions.md` with his words,
 - Do not schedule anything before Phase 0 makes the gate passable.
 - Do not push to `main`. Do not change `.claude/rules/` or `intent.md` without explicit owner approval.
 - Do not copy local Claude credentials to CI (D-83).
+
+## Update 2026-10-15 late
+
+- Security headers live on both sites; Cloudflare email records set (see `dns-hardening-2026-10-15.md`). Owner click pending: Cloudflare DMARC Management for jessepike.dev. DNSSEC and CAA not done.
+- Phase 0 complete (D-100). Run from `web/`: `npm run refresh:edgar && npm run refresh:filing-events && npm run certify:sec && npm run certify:gate`. Expect 80/80.
+- Next agent work: Phase 1. Workflow on GitHub Actions every 4 hours (D-96): job A read-only fetch/compute/certify; job B write, no third-party code, pushes allowlisted data to `preview`; job C gated promotion of certified data-only commits (D-88); upload `.collect/sec-archive` as artifact; rewrite `freshness.yml`; external dead-man check. Workflow-file push may need the owner.

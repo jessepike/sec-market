@@ -167,7 +167,8 @@ export function accessionFromUrl(url) {
 export const TRACKED_ITEMS = { '5.02': ['exec-change'], '2.01': ['acquisition', 'divestiture'], '1.03': ['going-concern', 'shutdown'], '2.05': ['restructuring', 'layoff'], '3.01': ['going-concern'], '2.03': ['debt'] }
 export const TRACKED_FORMS = { '25': ['going-concern'], '25-NSE': ['going-concern'], DEFM14A: ['acquisition'], PREM14A: ['acquisition'] }
 const CURRENT_REPORTS = new Set(['8-K', '8-K/A', '6-K'])
-const PERIODIC = { '10-Q': 100, '10-Q/A': 100, '10-K': 380, '10-K/A': 380 }
+// Lower bound on an event cited to a periodic report: the start of that report's period.
+const PERIODIC = { '10-Q': 92, '10-Q/A': 92, '10-K': 366, '10-K/A': 366 }
 
 /**
  * candidateEvents: [{ id, date, type, accessions: [..], evidenceDates: [..] }] for events with sec.gov sources.
@@ -207,7 +208,7 @@ export function verifySecEvents(submissions, candidateEvents, allEvents, windowS
     if (date > windowEnd && date <= today) return { ok: false, reason: `${form} ${accn} filed ${date} after the event window end ${windowEnd}; events not yet collected` }
     if (date < windowStart || date > windowEnd) continue
     for (const [code, types] of needs) {
-      const covered = allEvents.some(e => e.accessions.includes(accn) || ((e.date === date || e.date === report) && types.includes(e.type)))
+      const covered = allEvents.some(e => (e.accessions.includes(accn) || e.date === date || e.date === report) && types.includes(e.type))
       if (!covered) return { ok: false, reason: `${form} ${accn} item ${code} (report ${report}, filed ${date}) has no matching ${types.join('/')} event` }
     }
   }
