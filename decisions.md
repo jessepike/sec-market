@@ -1049,3 +1049,31 @@ Relayed at 22:47 UTC: “The data refresh on the site should always show the dat
 **D-86 · 2026-10-14 — Separate app-only truthful-status release from complete data publication.**
 
 Owner amendment relayed by Krypton: 100% is the gate for marking/publishing a refreshed data snapshot, not a requirement to block every code build indefinitely. Preserve the currently published production data and periods byte-for-byte; publish truthful complete/attempt/app status independently. No historical 100% refresh is established. The legacy production renderer/data is preserved with a full immutable data-file manifest. Preview's current candidate remains explicitly diagnostic; it is not silently rolled back. Production build excludes diagnostic candidate artifacts, even if the local preview flag is set. Autonomous data publication still runs the independent completeness gate. Failed-attempt receipt is available separately and omits unpublished candidate financial values. A future certified tracker snapshot activates only after every required applicable claim is substantively verified, without denominator gaming or self-certification. This does not authorize credential expansion, new platforms or scheduling changes.
+
+**D-87 · 2026-10-15 — Data updates auto-promote to production; freshness cadence to be set in AUTO-002.**
+
+Owner, in the claude.ai session reviewing SEC-MARKET-AUTO-002 v0.2: "i want auto-updates. also think updates should be fresh like multiple per day." Certified, data-only updates reach `main` without a human step, through the separate gated promotion job the council specified (allowlisted data diff, sanity bounds, preview Ready, soak). Cadence is pending the proposal's recommendation. Code and site changes still move to `main` only by owner promotion.
+
+**D-88 · 2026-10-15 — Certified scope is the SEC filers, fixed by source class (AUTO-002 Option A).**
+
+Owner: "go with council recommendations." The certified tier is the tracked SEC filers, set before results are known. Other suppliers show their own last-verified dates outside the certified snapshot. Method page states this. Certified count is derived from the filer list. D-85's 100% rule applies to the certified tier.
+
+**D-89 · 2026-10-15 — Named byline with an interests statement on the Method page; supersedes D-80.**
+
+Owner approved the byline and said: "I'm not worried about ePlus's outside activity." Open: whether the brand identity is his legal name or his alias. Until he decides, nothing ships.
+
+**D-90 · 2026-10-15 — "Signals" become filed events: dated, uniform, rule-listed facts.**
+
+Owner: "approved." Drop the growth-slowdown rule; list officer changes individually; show debt filings with amount and purpose; add late-filing notices. Rules are published with a date and apply to every tracked filer; changes go on the corrections page.
+
+**D-91 · 2026-10-15 — Email capture and digest authorized as one complete workstream.**
+
+Owner: "approved--but let's keep all the email in a single workstream so it all gets applied and built out together. I don't want any loose ends or dependencies that we don't implement." Minimum version per council: double opt-in, plain HTML form post, processor named, digest of verified changes only, no send when the gate fails, list owned by jessepike.dev. The `.claude/rules/constraints.md` line "A database and an email digest are not yet authorized" is updated in that workstream's pull request, for the owner's review.
+
+**D-92 · 2026-10-15 — Weekly signed issue retired; archive kept.** Owner: "yes."
+
+**D-93 · 2026-10-15 — Quarterly signed domain note goes to the backlog (SEC-059).** Owner: "let's backlog / roadmap this. open to idea, but not focused on right now."
+
+**D-94 · 2026-10-15 — Phase 2 AI extraction for private companies deferred.** Owner: "defer."
+
+Pending: branch protection (owner prefers no added cost; explanation requested).

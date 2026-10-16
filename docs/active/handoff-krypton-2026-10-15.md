@@ -19,7 +19,11 @@ Claude drafted `docs/active/automation-portfolio-proposal-2026-10-15.md`, ran a 
 - No workflow, secret, schedule, credential or setting was created or changed.
 - The session has push access to `jessepike/sec-market` as of 2026-10-15. Workflow-file write may still be blocked.
 
-## Waiting on the owner
+## Owner decisions logged 2026-10-15
+
+D-87 to D-94 in decisions.md. Still open: branch protection (owner prefers no added cost), update cadence, and whether the byline uses his legal name or his alias.
+
+## Originally waiting on the owner
 
 Nine decisions, listed in the proposal under "Decisions the owner must make". The ones that block everything:
 

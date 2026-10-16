@@ -1,7 +1,7 @@
 ---
 id: SEC-MARKET-AUTO-002
 version: 0.2
-state: council reviewed; awaiting owner decisions
+state: council reviewed; owner decisions D-87 to D-94 logged 2026-10-15; open items listed below
 created: 2026-10-15
 revised: 2026-10-15
 author: Claude (claude.ai session with the owner)
@@ -34,7 +34,11 @@ All verified against the repo on 2026-10-15 unless marked.
 8. **Silent staleness.** `edgar-refresh.ts` keeps the previous record when a filer fails, and exits 0 unless more than 50% fail. `selectRevenueFacts` takes the first revenue concept with any USD fact, so a tag change can freeze a filer's latest quarter without an error (reviewer finding; not independently re-verified).
 9. **Vercel builds use `npm install`** (`web/vercel.json`), not `npm ci`, so builds can drift without a commit.
 
-## Decisions the owner must make
+## Owner decisions (2026-10-15)
+
+Logged in decisions.md as D-87 to D-94: 1 auto-promote data (D-87), 2 Option A (D-88), 3 byline (D-89, name vs alias open), 4 filed events (D-90), 5 email as one complete workstream (D-91), 6 retire weekly issue (D-92), 8 backlog SEC-059 (D-93), 9 defer (D-94). Open: 7 branch protection (owner prefers no cost), update cadence, brand identity.
+
+## Decisions as presented to the owner
 
 | # | Decision | Council recommendation |
 |---|---|---|
@@ -96,6 +100,19 @@ All verified against the repo on 2026-10-15 unless marked.
 - Laptop collector removed from the schedule (kept in the repo).
 
 Per AGENTS.md, nothing is deleted on static analysis alone; each removal is proven with a before/after render.
+
+## Email workstream (D-91): one complete unit
+
+Ships together or not at all. Depends on Phase 1 producing a certified change log; nothing in it sends until that exists.
+
+- Provider chosen on free tier with automated sending verified first. Kit's free plan excludes RSS campaigns, so an automated digest needs its API or another provider.
+- Sender domain authentication on jessepike.dev: SPF, DKIM, DMARC.
+- Plain HTML form on securitymarketpulse.com and jessepike.dev, double opt-in, tag per site.
+- Privacy page naming the processor; unsubscribe in every email; postal address in the footer (required by CAN-SPAM; use a business address, not a home address).
+- Digest generator in GitHub Actions from verified changes only; "no verified changes" line on quiet weeks; no send when the gate failed.
+- CSP `form-action` for the provider's form host.
+- `.claude/rules/constraints.md` update in the same pull request.
+- jessepike.dev must exist as a hub page before the byline links to it.
 
 ## Durability requirements
 
