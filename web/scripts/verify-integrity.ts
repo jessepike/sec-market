@@ -97,7 +97,7 @@ function collectAllReferencedIds(): Set<string> {
   for (const record of evidenceRecords) add(record.conflictingEvidenceIds)
   for (const issue of issues) add(issueEvidenceIds(issue))
 
-  // Tracker data (step 5, docs/active/autonomy-coverage-plan.md §4) — the
+  // Tracker data (step 5, docs/archive/2026-10-refresh-gate/autonomy-coverage-plan.md §4) — the
   // supplier tracker cites evidence.ts records the same way the rest of the
   // site does, so those citations count here too.
   // Manual claims remain the actual fallback when an SEC source check fails.

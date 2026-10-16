@@ -12,7 +12,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { edgarRegistry } from '../src/data/edgarRegistry'
 import { trackerSuppliers } from '../src/data/tracker/suppliers'
-import { digest } from './refresh-publication-gate.mjs'
+import { digest } from './claim-gate.mjs'
 import { candidateFor, derivedCertifiedIds, eventWindow, leaves, windowEvents } from './sec-verify/candidates'
 import { verifyHistory, verifyIdentity, verifyNotStale, verifyPriorAdjacent, verifyRevenuePeriod, verifySecEvents } from './sec-verify/independent.mjs'
 

@@ -3,7 +3,7 @@ import type { Correction } from './types'
 
 /**
  * Append-only list of owner-approved corrections. Never edit an existing
- * entry once published: add a new one instead. See docs/active/fable-run/
+ * entry once published: add a new one instead. See docs/archive/2026-09-weekly-issue/fable-run/
  * drafts/correction-2026-w36.md for the approval record (owner approved
  * 2026-09-20, decisions.md D-68) and CorrectedReading in types.ts for the
  * per-item shape.

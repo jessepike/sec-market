@@ -329,7 +329,7 @@ export interface Correction {
  * the effective date a reader sees is computed from the original judgment
  * plus the newest reconfirmation, if any (`effectiveJudgment`). Written only
  * by the sign step, and only when the owner's approval carried the word
- * `reconfirm` (docs/active/publish-path-spec.md §4.3).
+ * `reconfirm` (docs/archive/2026-09-weekly-issue/publish-path-spec.md §4.3).
  */
 export interface Reconfirmation {
   /** `${ClaimKind}:${id}` — see claimId() in reconfirmationHelpers.ts. */

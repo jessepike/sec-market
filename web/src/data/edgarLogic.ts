@@ -1,6 +1,6 @@
 /**
  * Pure extraction and validation logic for the SEC EDGAR revenue runner
- * (step 2 of docs/active/autonomy-coverage-plan.md §5). No network calls
+ * (step 2 of docs/archive/2026-10-refresh-gate/autonomy-coverage-plan.md §5). No network calls
  * live here — `web/scripts/edgar-refresh.ts` fetches each supplier's
  * `companyfacts` JSON and hands it to `buildSupplierRecord` below. Kept
  * network-free on purpose so `tests/edgar-logic.test.ts` can run against

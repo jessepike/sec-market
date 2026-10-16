@@ -48,7 +48,7 @@ if (typeof mod.render !== 'function') {
 
 /**
  * Sections that must reach a reader without a click, per route. See §4 of
- * docs/active/weekly-issue-spec.md. A closed <details> renders its children at
+ * docs/archive/2026-09-weekly-issue/weekly-issue-spec.md. A closed <details> renders its children at
  * zero height and excludes them from hit-testing, so "present in the markup"
  * says nothing about whether anyone can read it — this asserts the structural
  * precondition (no <details> ancestor), the part a build can know.

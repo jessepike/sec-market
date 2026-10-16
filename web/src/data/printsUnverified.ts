@@ -12,7 +12,7 @@
  * the owner's word; see `scripts/prints-unverified-baseline.json` and the
  * comment beside where verify-prints.ts reads it.
  *
- * The weekly gather job must never edit this file (docs/active/gather-brief.md).
+ * The weekly gather job must never edit this file (docs/archive/2026-09-weekly-issue/gather-brief.md).
  */
 export interface PrintsUnverifiedEntry {
   /** A VendorPrint id from web/src/data/prints.ts. */

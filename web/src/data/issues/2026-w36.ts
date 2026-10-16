@@ -2,7 +2,7 @@ import type { Issue } from '../types'
 
 /**
  * First real issue. Drafted from the 2026-09-03 gather
- * (docs/active/issues/2026-w36-gather.md). Machine-authored: `read`, the four
+ * (docs/archive/2026-09-weekly-issue/issues/2026-w36-gather.md). Machine-authored: `read`, the four
  * lane sections and `sources`. Signed by Jesse Pike on 2026-09-19, who adopted
  * the gather's proposal as written; `proposed` is nulled on publish so the
  * page carries one judgment, his.

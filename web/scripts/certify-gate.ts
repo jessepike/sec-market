@@ -6,7 +6,7 @@
 // Exits 0 only when every required claim passed.
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
 import { resolve } from 'node:path'
-import { evaluateRefresh } from './refresh-publication-gate.mjs'
+import { evaluateRefresh } from './claim-gate.mjs'
 import { allCandidateLeaves, derivedCertifiedIds } from './sec-verify/candidates'
 
 const read = (path: string) => JSON.parse(readFileSync(resolve(path), 'utf8'))

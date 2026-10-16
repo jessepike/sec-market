@@ -1,13 +1,13 @@
 /**
  * Twelve-domain coverage model — step 5 of the autonomy plan
- * (docs/active/autonomy-coverage-plan.md §4, D-76/D-77). Replaces the old
+ * (docs/archive/2026-10-refresh-gate/autonomy-coverage-plan.md §4, D-76/D-77). Replaces the old
  * four-domain landscape as the site's declared coverage: a fixed list of
  * domains, each with the suppliers tracked inside it (see suppliers.ts) and
  * one factual line describing what the domain covers. No stance, ranking, or
  * forecast appears in this file — see web/scripts/verify-tracker.ts, which
  * fails the build on a banned word anywhere in a domain's scope line.
  *
- * Order here is fixed and matches docs/active/autonomy-coverage-plan.md §4's
+ * Order here is fixed and matches docs/archive/2026-10-refresh-gate/autonomy-coverage-plan.md §4's
  * table. Adding or dropping a domain is a data edit to this file plus
  * suppliers.ts, not a code change.
  */

@@ -1,0 +1,222 @@
+<title>Pulse Design Bake-off</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one narrow intro column, then three contestant columns side by side that stack on a phone. Light only, by owner rule. */
+:root {
+  color-scheme: light;
+  --bg: #f6f7f8;
+  --surface: #ffffff;
+  --ink: #16191d;
+  --muted: #5d6570;
+  --line: #e2e5e9;
+  --accent: #2f5bd3;
+  --pick: #eef3ff;
+  --sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font: 15px/1.55 var(--sans); }
+.wrap { max-width: 1440px; margin: 0 auto; padding-inline: 24px; padding-block: 32px 64px; display: grid; gap: 32px; }
+@media (max-width: 600px) { .wrap { padding-inline: 16px; } }
+header { display: grid; gap: 10px; max-width: 760px; }
+.eyebrow { font: 500 12px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+h1 { font-size: 28px; line-height: 1.15; font-weight: 600; margin: 0; text-wrap: balance; letter-spacing: -.01em; }
+h2 { font-size: 18px; font-weight: 600; margin: 0; }
+p { margin: 0; }
+.lede { color: var(--muted); max-width: 68ch; }
+.rec { background: var(--pick); border: 1px solid #cfdcff; border-radius: 8px; padding: 16px 18px; display: grid; gap: 6px; max-width: 900px; }
+.rec strong { font-weight: 600; }
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; align-items: start; }
+@media (max-width: 900px) { .grid { grid-template-columns: minmax(0, 1fr); } }
+.scores { display: grid; gap: 10px; }
+.scores .sub { font: 400 12px var(--mono); color: var(--muted); margin-left: 8px; }
+.tablewrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; font-variant-numeric: tabular-nums; }
+th, td { text-align: right; padding: 9px 14px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+th:first-child, td:first-child, th:last-child, td:last-child { text-align: left; }
+th { font: 500 12px var(--mono); color: var(--muted); background: var(--bg); }
+tbody tr:last-child td { border-bottom: 0; }
+tr.lead td { background: var(--pick); }
+td b { font-weight: 600; text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; display: grid; min-width: 0; }
+.card.picked { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.head { padding: 16px 18px 12px; display: grid; gap: 6px; border-bottom: 1px solid var(--line); }
+.row { display: flex; flex-wrap: wrap; gap: 8px; align-items: baseline; justify-content: space-between; }
+.tag { font: 500 11px/1 var(--mono); letter-spacing: .05em; text-transform: uppercase; padding: 5px 7px; border-radius: 4px; background: var(--bg); color: var(--muted); }
+.picked .tag.rec-tag { background: var(--accent); color: #fff; }
+.stats { display: flex; flex-wrap: wrap; gap: 4px 16px; font: 12px/1.4 var(--mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+.shots { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 1fr); gap: 10px; padding: 12px; background: var(--bg); border-bottom: 1px solid var(--line); align-items: start; }
+.shots figure { margin: 0; display: grid; gap: 4px; min-width: 0; }
+.shots img { display: block; width: 100%; border: 1px solid var(--line); border-radius: 4px; background: #fff; }
+figcaption { font: 11px/1.3 var(--mono); color: var(--muted); }
+.body { padding: 14px 18px 18px; display: grid; gap: 12px; }
+.body h3 { font-size: 12px; font-family: var(--mono); font-weight: 500; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); margin: 0; }
+ul { margin: 0; padding-left: 18px; display: grid; gap: 4px; }
+.links { display: flex; flex-wrap: wrap; gap: 8px; }
+a.btn { display: inline-flex; align-items: center; min-height: 32px; padding: 6px 12px; border-radius: 6px; border: 1px solid var(--line); color: var(--ink); text-decoration: none; font-weight: 500; font-size: 13px; background: var(--surface); }
+a.btn.primary { background: var(--ink); color: #fff; border-color: var(--ink); }
+a.btn:hover { border-color: var(--accent); }
+a.btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.foot { color: var(--muted); font-size: 13px; max-width: 900px; }
+code { font: 12px var(--mono); }
+</style>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Security Market Pulse · front page redesign · 2 Oct 2026</span>
+    <h1>Four models, one brief, four fresh front pages</h1>
+    <p class="lede">Claude Opus 5.5, Claude Fable 5.1, GPT-6 Sol and GPT-6 Astra each researched on their own and built a working prototype on the real tracker data (26 Sep 2026 snapshot). The images are the first screen a reader sees, at desktop and phone width. Open each prototype to scroll and click it for real.</p>
+  </header>
+
+  <section class="rec" aria-label="Recommendation">
+    <p><strong>Recommendation: build from Opus 5.5, add Fable's growth chart to the first screen, and take Sol's fact layout and Astra's phone economy.</strong></p>
+    <p>Four models then reviewed all four designs blind, labelled A to D. Three of four picked the Opus design as the winner, including Fable and Sol, who both ranked it above their own. Astra picked its own. Every reviewer flagged the same must-fix in the Opus design: the per-domain "median growth" badges have no source or period and have to go.</p>
+  </section>
+
+  <section aria-label="Blind review scores" class="scores">
+    <h2>Blind review scores <span class="sub">weighted, out of 110 · bold = reviewer scoring its own model</span></h2>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Design</th><th>Opus 5.5</th><th>Fable 5.1</th><th>GPT-6 Sol</th><th>GPT-6 Astra</th><th>Mean</th><th>Mean, others only</th><th>Picked as winner by</th></tr></thead>
+        <tbody>
+          <tr class="lead"><td>A · Opus 5.5</td><td><b>84</b></td><td>92</td><td>82</td><td>75</td><td>83.3</td><td>83.0</td><td>Opus, Fable, Sol</td></tr>
+          <tr><td>B · Fable 5.1</td><td>81</td><td><b>86</b></td><td>70</td><td>78</td><td>78.8</td><td>76.3</td><td>none (runner-up for three)</td></tr>
+          <tr><td>D · GPT-6 Astra</td><td>69</td><td>73</td><td>75</td><td><b>88</b></td><td>76.3</td><td>72.3</td><td>Astra</td></tr>
+          <tr><td>C · GPT-6 Sol</td><td>72</td><td>61</td><td><b>81</b></td><td>71</td><td>71.3</td><td>68.0</td><td>none</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="grid">
+    <article class="card picked">
+      <div class="head">
+        <div class="row"><h2>Claude Opus 5.5</h2><span class="tag rec-tag">Recommended base</span></div>
+        <p>A calm changelog of the market with counts and a timeline beside it.</p>
+        <div class="stats"><span>Desktop 6,235 px</span><span>Phone ≈11,350 px</span><span>Saw its own render</span></div>
+      </div>
+      <div class="shots">
+        <figure><img src="opus/shot-fold-1440.png" alt="Opus first screen at desktop width" loading="lazy"><figcaption>1440 first screen</figcaption></figure>
+        <figure><img src="opus/shot-fold-390.png" alt="Opus first screen at phone width" loading="lazy"><figcaption>390 phone</figcaption></figure>
+      </div>
+      <div class="body">
+        <h3>What a reader gets</h3>
+        <ul>
+          <li>Six event counts (deals, funding, results, restructuring, debt, leadership) with monthly bars.</li>
+          <li>All 25 changes from the last 30 days, each with its source.</li>
+          <li>A twelve-month timeline, one dot per event, by type.</li>
+          <li>Private funding rounds, ownership changes, a public-company table with SEC revenue sparklines, then twelve compact domain cards.</li>
+          <li>Clicking any supplier opens a side panel with all its sources and history.</li>
+          <li>A dashed, empty "Owner's read" slot, reserved for your signed words.</li>
+        </ul>
+        <h3>Watch for</h3>
+        <ul>
+          <li>All four reviewers: the per-domain "median growth" badges have no source or period and must go.</li>
+          <li>Timeline dots are 8 px and mouse-only; phone page is the longest at 11,352 px.</li>
+          <li>Says 16 SEC filers are complete; the data holds 14. Count is typed in, not derived.</li>
+        </ul>
+        <div class="links">
+          <a class="btn primary" href="opus/index.html" target="_blank" rel="noopener">Open prototype</a>
+          <a class="btn" href="opus/shot-1440.png" target="_blank" rel="noopener">Full page, desktop</a>
+          <a class="btn" href="opus/shot-390.png" target="_blank" rel="noopener">Full page, phone</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="head">
+        <div class="row"><h2>Claude Fable 5.1</h2><span class="tag">Runner-up</span></div>
+        <p>A ledger of dated events beside a chart of every public supplier's reported growth.</p>
+        <div class="stats"><span>Desktop 5,346 px</span><span>Phone 6,090 px</span><span>Saw its own render</span></div>
+      </div>
+      <div class="shots">
+        <figure><img src="fable/shot-fold-1440.png" alt="Fable first screen at desktop width" loading="lazy"><figcaption>1440 first screen</figcaption></figure>
+        <figure><img src="fable/shot-fold-390.png" alt="Fable first screen at phone width" loading="lazy"><figcaption>390 phone</figcaption></figure>
+      </div>
+      <div class="body">
+        <h3>What a reader gets</h3>
+        <ul>
+          <li>One line of counts: 74 suppliers, 18 public, 22 private, 95 dated events, 144 source documents.</li>
+          <li>The 30-day change list with filter chips by type.</li>
+          <li>A dot chart of the latest quarter's revenue growth for every public supplier, with the quarter before as a hollow dot. Alphabetical, sortable by value.</li>
+          <li>A board of all twelve domains, one fact line per supplier, with revenue trend lines for SEC filers.</li>
+        </ul>
+        <h3>Watch for</h3>
+        <ul>
+          <li>Austere; reads more like a ledger than a product.</li>
+          <li>Dropped "implied" from Upwind's valuation, rounds SEC figures in hover text, and leaves 8 SEC filings out of the change list.</li>
+        </ul>
+        <div class="links">
+          <a class="btn primary" href="fable/index.html" target="_blank" rel="noopener">Open prototype</a>
+          <a class="btn" href="fable/shot-1440.png" target="_blank" rel="noopener">Full page, desktop</a>
+          <a class="btn" href="fable/shot-390.png" target="_blank" rel="noopener">Full page, phone</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="head">
+        <div class="row"><h2>GPT-6 Astra</h2><span class="tag">Calmest</span></div>
+        <p>A short page: what changed, then a domain explorer with search.</p>
+        <div class="stats"><span>Desktop 1,866 px</span><span>Phone 2,439 px</span><span>Saw its own render</span></div>
+      </div>
+      <div class="shots">
+        <figure><img src="astra/shot-fold-1440.png" alt="Astra first screen at desktop width" loading="lazy"><figcaption>1440 first screen</figcaption></figure>
+        <figure><img src="astra/shot-fold-390.png" alt="Astra first screen at phone width" loading="lazy"><figcaption>390 phone</figcaption></figure>
+      </div>
+      <div class="body">
+        <h3>What a reader gets</h3>
+        <ul>
+          <li>Headline "The business of security." with the snapshot date.</li>
+          <li>Four latest changes, with a filter panel of counts by type.</li>
+          <li>A domain sidebar and one domain at a time, each supplier showing one headline figure with period and report date.</li>
+          <li>Collection status as one quiet line at the bottom.</li>
+        </ul>
+        <h3>Watch for</h3>
+        <ul>
+          <li>Least information at once: four changes and six suppliers before any click.</li>
+          <li>The look (spacing, type, restraint) is the best of the three.</li>
+        </ul>
+        <div class="links">
+          <a class="btn primary" href="astra/index.html" target="_blank" rel="noopener">Open prototype</a>
+          <a class="btn" href="astra/shot-1440.png" target="_blank" rel="noopener">Full page, desktop</a>
+          <a class="btn" href="astra/shot-390.png" target="_blank" rel="noopener">Full page, phone</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="head">
+        <div class="row"><h2>GPT-6 Sol</h2><span class="tag">Revised once</span></div>
+        <p>A landing-page hero beside a card of recent results and changes.</p>
+        <div class="stats"><span>Desktop 5,209 px</span><span>Phone 7,995 px</span><span>Revised after our render</span></div>
+      </div>
+      <div class="shots">
+        <figure><img src="sol/shot-fold-1440.png" alt="Sol first screen at desktop width" loading="lazy"><figcaption>1440 first screen</figcaption></figure>
+        <figure><img src="sol/shot-fold-390.png" alt="Sol first screen at phone width" loading="lazy"><figcaption>390 phone</figcaption></figure>
+      </div>
+      <div class="body">
+        <h3>What a reader gets</h3>
+        <ul>
+          <li>Big headline "What security companies reported." with three counts.</li>
+          <li>A card with the two latest results and two latest other events.</li>
+          <li>A domain sidebar showing one domain at a time, then the full 30-day log.</li>
+        </ul>
+        <h3>Watch for</h3>
+        <ul>
+          <li>The headline and buttons take half the first screen.</li>
+          <li>Its sandbox blocked the browser, so it designed blind once and revised from our screenshots.</li>
+        </ul>
+        <div class="links">
+          <a class="btn primary" href="sol/index.html" target="_blank" rel="noopener">Open prototype</a>
+          <a class="btn" href="sol/shot-1440.png" target="_blank" rel="noopener">Full page, desktop</a>
+          <a class="btn" href="sol/shot-390.png" target="_blank" rel="noopener">Full page, phone</a>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <p class="foot">All four aim at the facts-only rule (no rankings, stances or good-or-bad colour, every figure linked and dated); the reviewers found the specific slips listed on each card. Full reviews and the results summary are in <code>docs/archive/2026-10-refresh-gate/design-bakeoff/review/</code> and <code>results.md</code>. Prototypes use the 26 Sep data; the corrected data from fix pass 4 goes into whichever design is built. Brief, research notes and rationales are in <code>docs/archive/2026-10-refresh-gate/design-bakeoff/</code> in the repository.</p>
+</div>

@@ -1,0 +1,88 @@
+Draft only. The token this session pushes with has no `workflow` scope, so
+this cannot be committed to `.github/workflows/` from here — the owner (or a
+session with that scope) copies this file's content to
+`.github/workflows/edgar-refresh.yml` when step 2 is accepted.
+
+Matches the runtime plan in docs/archive/2026-10-refresh-gate/autonomy-coverage-plan.md §5, step 2:
+"Public-company figures, daily, no model involved." This workflow only
+fetches structured SEC EDGAR data, computes the series, and commits the
+result to a short-lived branch — the same shape as the existing gather job
+(a branch push, never a direct write to `preview` or `main`). Auto-merge to
+`preview`/`main` on passing checks is step 4, not this one; until that step
+lands, a human still promotes this branch the normal way.
+
+--- file content below ---
+
+name: edgar refresh
+
+# Daily SEC EDGAR pull for public-company revenue (autonomy-coverage-plan.md
+# §5, step 2). No model is involved: the script reads structured XBRL facts
+# from data.sec.gov and computes quarters/YoY with plain arithmetic, so it
+# cannot invent a number. Writes web/src/data/generated/edgarFacts.json only
+# and pushes a short-lived branch — it does not touch preview or main.
+
+on:
+  schedule:
+    - cron: '0 13 * * *' # 13:00 UTC daily
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  BRANCH: edgar/refresh-daily
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.x'
+          cache: 'npm'
+          cache-dependency-path: web/package-lock.json
+
+      - name: Install dependencies
+        working-directory: web
+        run: npm ci
+
+      - name: Fetch EDGAR facts and compute quarters/YoY
+        working-directory: web
+        run: npm run refresh:edgar
+
+      - name: Lint
+        working-directory: web
+        run: npm run lint
+
+      - name: Data tests (includes edgar-logic.test.ts)
+        working-directory: web
+        run: npm run test:data
+
+      - name: Commit the generated JSON to a short-lived branch
+        env:
+          GIT_AUTHOR_NAME: Security Market Pulse bot
+          GIT_AUTHOR_EMAIL: jesse@keatingpike.com
+          GIT_COMMITTER_NAME: Security Market Pulse bot
+          GIT_COMMITTER_EMAIL: jesse@keatingpike.com
+        run: |
+          set -euo pipefail
+          git checkout -B "$BRANCH"
+          git add web/src/data/generated/edgarFacts.json
+          if git diff --cached --quiet; then
+            echo "No change in edgarFacts.json today. Nothing to push."
+            exit 0
+          fi
+          failures=$(node -p "require('./web/src/data/generated/edgarFacts.json').failures.length")
+          total=$(node -p "require('./web/src/data/generated/edgarFacts.json').suppliers.length + require('./web/src/data/generated/edgarFacts.json').failures.length")
+          git commit -m "data(edgar): refresh SEC EDGAR revenue facts ($failures/$total suppliers failed)"
+          git push origin "$BRANCH" --force-with-lease
+
+      # This step is intentionally NOT here yet, per the plan's step ordering:
+      #   - open/update a pull request from $BRANCH into preview (like
+      #     gather-pr.yml does for the weekly issue draft), for a human to
+      #     merge — until step 4 (auto-publish path) is built and accepted.
+      # Wiring the JSON into any page is also step 5, not this one.

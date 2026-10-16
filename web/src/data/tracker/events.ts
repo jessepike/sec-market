@@ -1,9 +1,9 @@
 /**
  * Tracked events — step 5 of the autonomy plan
- * (docs/active/autonomy-coverage-plan.md §4–5, D-76/D-77). Append-only,
+ * (docs/archive/2026-10-refresh-gate/autonomy-coverage-plan.md §4–5, D-76/D-77). Append-only,
  * trailing-12-month record of dated facts per supplier, each citing evidence
  * in evidence.ts with a real source URL. Only rungs 1–4 of the sourcing
- * ladder (docs/active/fable-run/research/11-distress-signal-sources.md §5)
+ * ladder (docs/archive/2026-09-weekly-issue/fable-run/research/11-distress-signal-sources.md §5)
  * publish here — a fact resting only on a single trade-press report (rung
  * 5) is excluded, per web/scripts/verify-tracker.ts.
  */

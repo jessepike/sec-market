@@ -12,7 +12,7 @@ import { trackerSuppliers } from '../src/data/tracker/suppliers.ts'
 
 /**
  * Gate for the twelve-domain supplier tracker (step 5 of
- * docs/active/autonomy-coverage-plan.md, D-76/D-77). Checks the data the
+ * docs/archive/2026-10-refresh-gate/autonomy-coverage-plan.md, D-76/D-77). Checks the data the
  * front page's new "market by domain" section reads, before it ever reaches
  * a build:
  *
@@ -435,7 +435,7 @@ for (const event of trackerEvents) {
     fail(`${who}: rung ${event.rung} is out of range 1-5`)
   }
   if (event.rung === 5) {
-    fail(`${who}: rung 5 (single trade-press report) may not publish alone — see docs/active/fable-run/research/11-distress-signal-sources.md §5`)
+    fail(`${who}: rung 5 (single trade-press report) may not publish alone — see docs/archive/2026-09-weekly-issue/fable-run/research/11-distress-signal-sources.md §5`)
   }
 }
 

@@ -58,7 +58,7 @@ orb run -m dev npm run verify:panel --prefix web
 
 ## Updating evidence and content
 
-1. **Evidence records** — Edit `src/data/evidence.ts` using only claims from accepted docs in `docs/episodes/002/market-signal-episode-002-*.md`. Each record needs: title, organization, dates, canonical URL, excerpt, interpretation, limitations, conflicting IDs, and artifact label.
+1. **Evidence records** — Edit `src/data/evidence.ts` using only claims from accepted docs in `docs/archive/2026-08-gate-chain/episode-002/market-signal-episode-002-*.md`. Each record needs: title, organization, dates, canonical URL, excerpt, interpretation, limitations, conflicting IDs, and artifact label.
 2. **Sparse panel raw values** — Edit `src/data/panelRaw.ts` from `SEC-MARKET-SIG-PANEL-002`; run `verify:panel` and update the frozen JSON in `panelIntegrity.ts`.
 3. **Market call, domains, activity** — Edit the typed modules in `src/data/` (`market.ts`, `domains.ts`, `activity.ts`). Keep claims aligned with the brief and source manifest. Activity items use `surface: lead | more | background`.
 4. **Metadata** — `src/data/meta.ts` for freeze date and episode version.

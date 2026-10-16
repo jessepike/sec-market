@@ -51,7 +51,7 @@ export interface FiscalPeriodViolation {
  * A headline stating a fiscal-year or full-year period ("FY2026", "fiscal
  * year", "full-year", "full year") while citing evidence whose economicPeriod
  * begins with "Quarter" is exactly the mistake corrected by
- * SEC-MARKET-FABLE-001 T6-13 (see docs/active/fable-run/drafts/
+ * SEC-MARKET-FABLE-001 T6-13 (see docs/archive/2026-09-weekly-issue/fable-run/drafts/
  * correction-2026-w36.md). This is the gate that would have caught it before
  * publication: it flags every item matching that pattern, in every issue,
  * unless the item is already covered by an entry in corrections.ts. Used by

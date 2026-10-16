@@ -8,7 +8,7 @@ import { trackerSuppliers } from './tracker/suppliers'
 
 /**
  * The honest run status shown near the top of the front page
- * (docs/active/autonomy-coverage-plan.md §3, §6 step 1). Distinguishes a
+ * (docs/archive/2026-10-refresh-gate/autonomy-coverage-plan.md §3, §6 step 1). Distinguishes a
  * quiet week from a failed run — the two must never look the same.
  *
  * `updated` — every declared source was collected and checked this run.

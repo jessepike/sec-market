@@ -1,8 +1,8 @@
 import { withEdgarRevenue } from './edgarRevenue'
 /**
  * Tracked suppliers — step 5 of the autonomy plan
- * (docs/active/autonomy-coverage-plan.md §4–5, D-76/D-77). One record per
- * declared supplier, sourced from docs/active/auto/step5/research/coverage-g{1,2,3}.md
+ * (docs/archive/2026-10-refresh-gate/autonomy-coverage-plan.md §4–5, D-76/D-77). One record per
+ * declared supplier, sourced from docs/archive/2026-10-refresh-gate/auto-001/step5/research/coverage-g{1,2,3}.md
  * (~80 suppliers across the twelve domains in domains.ts). `id` reuses an
  * existing print id (prints.ts, stripped of "print-") or EDGAR registry id
  * (edgarRegistry.ts) where one already exists, so the data sets join without

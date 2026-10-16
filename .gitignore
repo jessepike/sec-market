@@ -1,16 +1,12 @@
 .DS_Store
-.ctx/
 .vercel
-web/scripts/shot-*.png
 
-docs/inbox/sec-market-opus/
+# Local agent context, never committed.
+.ctx/
 
-.il-receipts
-.design/
-
-# scripts/collect.sh scratch: prompts, claude output, receipt.json, and the
-# failed-sources/candidates/summary files the model leaves for it. Never
-# committed — see docs/active/auto/collect-brief.md §5.
+# Working files from the certify scripts: raw SEC responses (.collect/sec-archive,
+# uploaded as a workflow artifact instead) and the last gate attempt.
 .collect/
 
-.refresh-lock/
+# Screenshots from web/scripts/shot.mjs.
+web/scripts/shot-*.png

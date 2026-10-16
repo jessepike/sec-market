@@ -1,21 +1,11 @@
 ---
-description: Security Market Signal Pipeline — ADF project rules
+description: Security Market Pulse — project rules for Cursor
 globs:
   - "**/*"
 ---
 
-# Security Market Signal Pipeline
+# Security Market Pulse
 
-Follow [AGENTS.md](../../AGENTS.md) for project context and the context map.
-
-## Authority
-
-Read [README.md](../../README.md) authority order before acting. [intent.md](../../intent.md) is immutable without explicit owner permission.
-
-## Constraints
-
-- Public, publishable evidence only in the initial core
-- No production infrastructure or autonomous pipeline without explicit authorization
-- Do not read [docs/archive/](../../docs/archive/) unless instructed
-- Update [status.md](../../status.md) at session end; log decisions in [decisions.md](../../decisions.md)
-- Production deploys only via local commit → `git push origin main` → Vercel GitHub integration. Never CLI-upload a dirty working tree. Commit as `jesse@keatingpike.com`; `jesse@pikeholdings.co` blocks Vercel.
+[AGENTS.md](../../AGENTS.md) is the canonical agent contract for every runtime. Read it first, then
+[README.md](../../README.md) and [status.md](../../status.md). The hard rules are in
+[.claude/rules/constraints.md](../../.claude/rules/constraints.md).

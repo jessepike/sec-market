@@ -1,0 +1,147 @@
+Draft only, and a stub in the sense the plan means it (autonomy-coverage-plan.md
+§6, step 3): the brief this points at, docs/archive/2026-10-refresh-gate/auto-001/collect-brief.md, does
+not exist yet — writing it is step 3's job, not step 4's. This file wires up
+the runner around that brief so step 3 only has to land the brief itself and
+flip this from a draft to a real workflow. The token this session pushes with
+has no `workflow` scope, so this cannot be committed to `.github/workflows/`
+from here — the owner (or a session with that scope) copies this file's
+content to `.github/workflows/collect.yml` once the brief exists and the
+`CLAUDE_CODE_OAUTH_TOKEN` secret below is set.
+
+Owner step this needs, once (autonomy-coverage-plan.md §6, step 3's "Needs the
+owner" column): run `claude setup-token` on his own account — the token is
+tied to his login, not a service account, because this runs under his
+subscription and must never be an API key (AWS model-choice rule: "All model
+access goes through subscriptions, never API keys"). Put what it prints into
+this repository's Actions secrets as `CLAUDE_CODE_OAUTH_TOKEN`.
+
+Same production-guard note as edgar-refresh.yml.txt applies here: pushing to
+`main` needs the repository to actually allow the Actions actor to do it, and
+that stops being automatic the day BACKLOG SEC-051 (GitHub Pro branch
+protection) lands — see that file's header for the detail.
+
+--- file content below ---
+
+name: collect
+
+# Twice-weekly collection of everything EDGAR's structured data can't reach —
+# press releases, funding and acquisition announcements, WARN notices, ratings
+# actions, trade reports used only as leads to a primary document
+# (autonomy-coverage-plan.md §5, "Everything unstructured"). Runs headless
+# Claude Code under the owner's own subscription login (never an API key),
+# writes data files only, and hands the publish decision to
+# scripts/auto-publish.sh exactly like edgar-refresh.yml does — nobody is
+# asked (D-76). The prompt itself is not here: it is
+# docs/archive/2026-10-refresh-gate/auto-001/collect-brief.md, written and owned separately (step 3),
+# so changing what the model is asked to do never means touching this
+# workflow file.
+
+on:
+  schedule:
+    - cron: '0 14 * * 1,4' # 14:00 UTC Monday and Thursday
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: auto-publish
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: preview
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      - name: Install dependencies
+        working-directory: web
+        run: npm ci
+
+      - name: Install Claude Code
+        run: npm install -g @anthropic-ai/claude-code@latest
+
+      - name: Run the collection brief
+        id: run
+        env:
+          # Subscription login token from `claude setup-token`, run once by
+          # the owner on his own account — never an API key. See this file's
+          # header for the one-time setup step.
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          set -euo pipefail
+          branch="data/collect-$(date -u +%Y%m%dT%H%M%SZ)"
+          git checkout -B "$branch"
+
+          # Same shape as scripts/gather.sh's prompt file, and the same
+          # reason: a here-document nested in command substitution does not
+          # parse everywhere, so the prompt goes to a file first.
+          cat > /tmp/collect-prompt.txt <<EOF
+          Read docs/archive/2026-10-refresh-gate/auto-001/collect-brief.md in this repository and carry
+          it out in full, now.
+
+          Work on branch $branch, created from preview. Commit whatever the
+          brief tells you to commit; do not push and do not open a pull
+          request — this job pushes the branch itself after you finish, and a
+          separate step (scripts/auto-publish.sh) decides afterward whether
+          any of it reaches preview or main. Nothing you do here needs a
+          human to look at it first (D-76): stick to sourced, checkable facts
+          exactly as the brief describes, and never write a stance, a
+          ranking, a forecast, or a sentence interpreting what a fact means.
+
+          You may only write within this allowlist: web/src/data/generated/**,
+          web/src/data/tracker/events.ts, web/src/data/tracker/suppliers.ts,
+          web/src/data/evidence.ts. Anything else you touch will cause the
+          whole run to be refused and nothing will publish, so if the brief
+          seems to need a change outside that list, stop and say so in your
+          final output instead of making it. (AUTO-001 fix pass 2, item 4:
+          web/src/data/runStatus.ts dropped out of this list — it is a
+          derived module now, computed from files already in
+          web/src/data/generated/**, and nothing writes it by hand.)
+          EOF
+
+          claude -p "$(cat /tmp/collect-prompt.txt)" \
+            --model claude-sonnet-5 \
+            --permission-mode acceptEdits \
+            --allowedTools \
+              "Read" "Edit" "Write" "Glob" "Grep" \
+              "Bash(curl:*)" "Bash(shasum:*)" "Bash(sha256sum:*)" "Bash(jq:*)" \
+              "Bash(pdftotext:*)" "Bash(strings:*)" "Bash(date:*)" "Bash(wc:*)" \
+              "Bash(git status:*)" "Bash(git diff:*)" "Bash(git log:*)" \
+              "Bash(git show:*)" "Bash(git add:*)" "Bash(git commit:*)" \
+              "Bash(npm run:*)" "Bash(npm ci:*)" \
+            --disallowedTools \
+              "Bash(git push:*)" "Bash(git checkout:*)" "Bash(git switch:*)" \
+              "Bash(git branch -D:*)" "Bash(git reset --hard:*)"
+
+          if git diff --quiet HEAD -- . ':(exclude)docs/archive/2026-10-refresh-gate/auto-001'; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "collect: nothing committed this run"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+          echo "branch=$branch" >> "$GITHUB_OUTPUT"
+
+      - name: Push the branch
+        if: steps.run.outputs.changed == 'true'
+        run: git push origin "${{ steps.run.outputs.branch }}"
+
+      - name: Decide whether this publishes (scripts/auto-publish.sh)
+        if: steps.run.outputs.changed == 'true'
+        env:
+          RUNNER: collect
+          BRANCH: ${{ steps.run.outputs.branch }}
+          REMOTE: origin
+          WEB_DIR: web
+          GH_TOKEN: ${{ github.token }}
+        run: ./scripts/auto-publish.sh

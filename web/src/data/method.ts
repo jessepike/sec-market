@@ -20,7 +20,7 @@ export interface SourcingRung {
 
 /**
  * The five-rung sourcing ladder the supplier tracker follows (step 5,
- * autonomy-coverage-plan.md §5; docs/active/fable-run/research/
+ * autonomy-coverage-plan.md §5; docs/archive/2026-09-weekly-issue/fable-run/research/
  * 11-distress-signal-sources.md §5). Strongest evidence first. A fact
  * resting only on rung 5 — a single trade-press report with no primary
  * document behind it — does not publish on this site; it stays a lead until

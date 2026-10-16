@@ -9,11 +9,11 @@ import { buildSupplierRecord, type CompanyFacts, type SupplierFailure, type Supp
 // in edgarRegistry.ts, extracts eight quarters of GAAP revenue with Q4
 // derivation and YoY growth (all pure logic in ../src/data/edgarLogic.ts),
 // and writes web/src/data/generated/edgarFacts.json. No model is involved —
-// this is step 2 of docs/active/autonomy-coverage-plan.md §5: EDGAR gives
+// this is step 2 of docs/archive/2026-10-refresh-gate/autonomy-coverage-plan.md §5: EDGAR gives
 // structured facts for every US filer, so this runner cannot invent a
 // number. Run with `npm run refresh:edgar`.
 //
-// Per docs/active/gather-brief.md's User-Agent convention, and at a rate
+// Per docs/archive/2026-09-weekly-issue/gather-brief.md's User-Agent convention, and at a rate
 // SEC's fair-access policy (https://www.sec.gov/os/webmaster-faq#developers)
 // asks for (no more than 10 requests/second; this stays well under that at
 // ~4/second).

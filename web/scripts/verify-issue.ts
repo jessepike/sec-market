@@ -825,7 +825,7 @@ async function runChecks({ includeLockManifest }: { includeLockManifest: boolean
   // 16. A headline stating a fiscal-year/full-year period ("FY2026", "fiscal
   //     year", "full-year", "full year") while citing evidence whose
   //     economicPeriod begins with "Quarter" is exactly the mistake
-  //     corrected by SEC-MARKET-FABLE-001 T6-13 (docs/active/fable-run/
+  //     corrected by SEC-MARKET-FABLE-001 T6-13 (docs/archive/2026-09-weekly-issue/fable-run/
   //     drafts/correction-2026-w36.md) — the gate that would have caught it
   //     before publication. Every match must be covered by an entry in
   //     corrections.ts; see findFiscalPeriodMismatches for the shared logic,

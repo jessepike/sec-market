@@ -1,6 +1,6 @@
 /**
  * SEC EDGAR coverage registry — step 2 of the autonomy plan
- * (docs/active/autonomy-coverage-plan.md §4–5, D-76/D-77). Lists the public
+ * (docs/archive/2026-10-refresh-gate/autonomy-coverage-plan.md §4–5, D-76/D-77). Lists the public
  * suppliers whose quarterly GAAP revenue can be pulled straight from SEC
  * EDGAR's structured XBRL "companyfacts" API with no model in the loop, so
  * the figure can never be invented. `web/scripts/edgar-refresh.ts` reads

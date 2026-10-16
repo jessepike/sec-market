@@ -1,98 +1,35 @@
-import { readFileSync, writeFileSync, mkdirSync, cpSync, rmSync, readdirSync } from 'node:fs'
-import { resolve, dirname, relative } from 'node:path'
-import { createHash } from 'node:crypto'
+// Production build entry point (`npm run build`, run by Vercel).
+//
+// The site publishes in one mode: the certified tracker (AUTO-002 Phase 2,
+// D-101). Before anything is built, certify-gate re-derives every certified
+// SEC claim from the committed build inputs and must report 100% with no
+// drift. If it does not, the build fails and Vercel keeps serving the last
+// good deployment. `--verify` runs the gate without building.
+import { readFileSync, writeFileSync, cpSync } from 'node:fs'
+import { resolve, dirname } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { spawnSync } from 'node:child_process'
-import { runGate } from './refresh-publication-gate.mjs'
 
-const sha = bytes => createHash('sha256').update(bytes).digest('hex')
-export function verifyFrozenData(root, manifest) {
-  const seen = []
-  function walk(path) { for (const entry of readdirSync(path, { withFileTypes: true })) { const p = resolve(path, entry.name); if (entry.isDirectory()) walk(p); else seen.push(relative(root, p)) } }
-  walk(resolve(root, 'src/data'))
-  if (seen.length !== Object.keys(manifest.dataFiles).length || seen.some(path => !Object.hasOwn(manifest.dataFiles, path))) throw new Error('Published data inventory changed.')
-  for (const [path, expected] of Object.entries(manifest.dataFiles)) if (sha(readFileSync(resolve(root, path))) !== expected) throw new Error(`Published data changed: ${path}`)
-  return { unchanged: true, sourceRevision: manifest.sourceRevision, dataFileCount: seen.length, lastCompleteRefreshAt: manifest.lastCompleteRefreshAt }
-}
-
-export function appOnlyDecision(snapshot, publication) {
-  if (!snapshot.unchanged || publication.lastCompleteRefreshAt !== snapshot.lastCompleteRefreshAt || publication.publishedSourceRevision !== snapshot.sourceRevision) throw new Error('App-only release cannot change published data or its complete-refresh date.')
-  return { allowed: true, releaseKind: 'app-only', dataUpdated: false, snapshotRevision: snapshot.sourceRevision, lastCompleteRefreshAt: snapshot.lastCompleteRefreshAt }
-}
-
-export function diagnosticPreview(env) {
-  return env.VERCEL_ENV === 'preview' || (!env.VERCEL_ENV && !env.VERCEL && env.SMP_APP_PREVIEW === '1')
-}
-
-export function publicAttempt(coverage, publication) {
-  return { schemaVersion: 1, lastAttemptAt: publication.lastAttemptAt, state: publication.lastAttemptState, published: false,
-    lastCompleteRefreshAt: publication.lastCompleteRefreshAt, publishedSnapshotRevision: publication.publishedSourceRevision,
-    suppliersAttempted: coverage.supplierChecksReceived, supplierCount: coverage.supplierCount, attemptCounts: coverage.summary,
-    failedSupplierIds: [...new Set(coverage.fields.filter(f => ['failed', 'not-checked'].includes(f.status)).map(f => f.supplierId))],
-    notice: 'This is a held attempt receipt, not a published refreshed snapshot. Candidate financial values are omitted. Complete refresh requires independent substantive verification under the fixed contract.' }
-}
-
-/** AUTO-002 Phase 2: the certified tier gates the tracker build (re-derived claims, no drift). */
-export function certifiedDecision(repo) {
+/** Runs the certified gate; throws unless every certified claim passes. */
+export function verifyAppRelease(repo) {
+  const publication = JSON.parse(readFileSync(resolve(repo, 'web/src/data/generated/refreshPublication.json'), 'utf8'))
+  if (publication.snapshotMode !== 'certified') throw new Error(`Unknown release mode "${publication.snapshotMode}"; only "certified" is supported.`)
   const r = spawnSync('npx', ['tsx', '--tsconfig', 'tsconfig.app.json', 'scripts/certify-gate.ts', '--at-certification'], { cwd: resolve(repo, 'web'), stdio: 'inherit', env: process.env })
   if (r.status !== 0) throw new Error('Certified tier failed its gate; the tracker is not published.')
   const coverage = JSON.parse(readFileSync(resolve(repo, 'web/src/data/generated/certifiedCoverage.json'), 'utf8'))
   return { allowed: true, releaseKind: 'certified', dataUpdated: true, certifiedAt: coverage.checkedAt, contractVersion: coverage.contractVersion }
 }
 
-export function verifyAppRelease(repo) {
-  const certifiedMode = JSON.parse(readFileSync(resolve(repo, 'web/src/data/generated/refreshPublication.json'), 'utf8')).snapshotMode === 'certified'
-  if (certifiedMode) return certifiedDecision(repo)
-  const published = resolve(repo, 'web/published-app')
-  const manifest = JSON.parse(readFileSync(resolve(published, 'snapshot-manifest.json'), 'utf8'))
-  const publication = JSON.parse(readFileSync(resolve(repo, 'web/src/data/generated/refreshPublication.json'), 'utf8'))
-  if (process.env.SMP_RELEASE_KIND === 'refresh' || publication.snapshotMode === 'tracker') {
-    const result = runGate(repo)
-    if (!result.allowed || !result.complete) throw new Error('Refreshed snapshot publication requires 100% certified required checks.')
-    return { allowed: true, releaseKind: 'refresh', dataUpdated: true }
-  }
-  return appOnlyDecision(verifyFrozenData(published, manifest), publication)
-}
-
-function command(cwd, args) { const r = spawnSync('npm', args, { cwd, stdio: 'inherit', env: process.env }); if (r.status !== 0) throw new Error(`Release command failed (${r.status}): npm ${args.join(' ')}`) }
-
+/** Gate, then build, then publish the certification receipt and release record beside the site. */
 export function buildRelease(repo) {
   const decision = verifyAppRelease(repo)
-  const web = resolve(repo, 'web'), published = resolve(web, 'published-app')
-  if (decision.releaseKind === 'certified') {
-    command(web, ['run', 'build:certified'])
-    const dist = resolve(web, 'dist')
-    cpSync(resolve(web, 'src/data/generated/certifiedCoverage.json'), resolve(dist, 'certified-coverage.json'))
-    const release = { ...decision, rootView: 'tracker', appRevision: process.env.VERCEL_GIT_COMMIT_SHA ?? null, appBuiltAt: new Date().toISOString() }
-    writeFileSync(resolve(dist, 'app-release.json'), JSON.stringify(release, null, 2) + '\n')
-    console.log(JSON.stringify(release))
-    return decision
-  }
-  const coverage = JSON.parse(readFileSync(resolve(web, 'src/data/generated/refreshCoverage.json'), 'utf8'))
-  const publication = JSON.parse(readFileSync(resolve(web, 'src/data/generated/refreshPublication.json'), 'utf8'))
-  if (decision.releaseKind === 'refresh') { command(web, ['run', 'build:tracker']); return decision }
-  const status = { ...publicAttempt(coverage, publication), appRevision: process.env.VERCEL_GIT_COMMIT_SHA ?? null, appBuiltAt: new Date().toISOString(), appDeployedAt: null }
-  writeFileSync(resolve(published, 'src/release-status.json'), JSON.stringify(status, null, 2) + '\n')
-  command(published, ['run', 'build'])
-  // Default/production artifacts contain only the immutable published app/data.
-  // Preview additionally retains the explicit diagnostic candidate as its root.
-  const preview = diagnosticPreview(process.env)
-  if (preview) {
-    command(web, ['run', 'build:diagnostic'])
-    cpSync(resolve(published, 'dist'), resolve(web, 'dist/published-preview'), { recursive: true })
-    // Assets remain absolute /assets on both renderers; names are content hashed.
-    cpSync(resolve(published, 'dist/assets'), resolve(web, 'dist/assets'), { recursive: true, force: false })
-  } else {
-    rmSync(resolve(web, 'dist'), { recursive: true, force: true })
-    cpSync(resolve(published, 'dist'), resolve(web, 'dist'), { recursive: true })
-  }
-  const dist = resolve(web, 'dist')
-  mkdirSync(dist, { recursive: true })
-  writeFileSync(resolve(dist, 'refresh-attempt.json'), JSON.stringify(status, null, 2) + '\n')
-  writeFileSync(resolve(dist, 'app-release.json'), JSON.stringify({ ...decision, rootView: preview ? 'diagnostic' : 'published', previewIncludesDiagnostic: preview, appRevision: status.appRevision, appBuiltAt: status.appBuiltAt, dataHashes: JSON.parse(readFileSync(resolve(published, 'snapshot-manifest.json'), 'utf8')).dataFiles }, null, 2) + '\n')
-  verifyAppRelease(repo)
-  console.log(JSON.stringify({ ...decision, previewIncludesDiagnostic: preview }))
-  return decision
+  const web = resolve(repo, 'web'), dist = resolve(web, 'dist')
+  const r = spawnSync('npm', ['run', 'build:certified'], { cwd: web, stdio: 'inherit', env: process.env })
+  if (r.status !== 0) throw new Error(`Release command failed (${r.status}): npm run build:certified`)
+  cpSync(resolve(web, 'src/data/generated/certifiedCoverage.json'), resolve(dist, 'certified-coverage.json'))
+  const release = { ...decision, rootView: 'tracker', appRevision: process.env.VERCEL_GIT_COMMIT_SHA ?? null, appBuiltAt: new Date().toISOString() }
+  writeFileSync(resolve(dist, 'app-release.json'), JSON.stringify(release, null, 2) + '\n')
+  return release
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
