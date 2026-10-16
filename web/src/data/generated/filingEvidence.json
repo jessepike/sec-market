@@ -95,6 +95,25 @@
     "retrievedAt": "2026-10-16"
   },
   {
+    "id": "TR-filing-panw-0001193125-26-045600",
+    "title": "Palo Alto Networks — Form 8-K (Item 2.03)",
+    "organization": "Palo Alto Networks",
+    "publicationDate": "2026-02-11",
+    "economicPeriod": "2026-02-11",
+    "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1327567/000119312526045600/d40626d8k.htm",
+    "excerpt": "Form 8-K (Item 2.03): the creation of a direct financial obligation.",
+    "sourceClass": "FILING",
+    "interpretation": "",
+    "limitations": "AUTO-001 fix pass 4, item 5: generated directly from this filer's own 8-K item code at build time, with no model in the loop. States only what the item code itself establishes, not the filing's specifics (e.g. appointment vs. departure for Item 5.02) — open the filing for those.",
+    "conflictingEvidenceIds": [],
+    "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-filing-panw-0001193125-26-045600",
+    "tags": [
+      "tracker",
+      "filing-event"
+    ],
+    "retrievedAt": "2026-10-16"
+  },
+  {
     "id": "TR-filing-panw-0001193125-25-315915",
     "title": "Palo Alto Networks — Form 8-K (Item 5.02)",
     "organization": "Palo Alto Networks",
@@ -107,6 +126,25 @@
     "limitations": "AUTO-001 fix pass 4, item 5: generated directly from this filer's own 8-K item code at build time, with no model in the loop. States only what the item code itself establishes, not the filing's specifics (e.g. appointment vs. departure for Item 5.02) — open the filing for those.",
     "conflictingEvidenceIds": [],
     "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-filing-panw-0001193125-25-315915",
+    "tags": [
+      "tracker",
+      "filing-event"
+    ],
+    "retrievedAt": "2026-10-16"
+  },
+  {
+    "id": "TR-filing-panw-0001193125-25-288132",
+    "title": "Palo Alto Networks — Form 8-K (Item 5.02)",
+    "organization": "Palo Alto Networks",
+    "publicationDate": "2025-11-19",
+    "economicPeriod": "2025-11-19",
+    "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1327567/000119312525288132/d851220d8k.htm",
+    "excerpt": "Form 8-K (Item 5.02): a change in directors or certain officers.",
+    "sourceClass": "FILING",
+    "interpretation": "",
+    "limitations": "AUTO-001 fix pass 4, item 5: generated directly from this filer's own 8-K item code at build time, with no model in the loop. States only what the item code itself establishes, not the filing's specifics (e.g. appointment vs. departure for Item 5.02) — open the filing for those.",
+    "conflictingEvidenceIds": [],
+    "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-filing-panw-0001193125-25-288132",
     "tags": [
       "tracker",
       "filing-event"
@@ -304,6 +342,25 @@
     "retrievedAt": "2026-10-16"
   },
   {
+    "id": "TR-filing-rubrik-0001943896-26-000055",
+    "title": "Rubrik — Form 8-K (Item 5.02)",
+    "organization": "Rubrik",
+    "publicationDate": "2026-08-27",
+    "economicPeriod": "2026-08-27",
+    "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1943896/000194389626000055/rbrk-20260826.htm",
+    "excerpt": "Form 8-K (Item 5.02): a change in directors or certain officers.",
+    "sourceClass": "FILING",
+    "interpretation": "",
+    "limitations": "AUTO-001 fix pass 4, item 5: generated directly from this filer's own 8-K item code at build time, with no model in the loop. States only what the item code itself establishes, not the filing's specifics (e.g. appointment vs. departure for Item 5.02) — open the filing for those.",
+    "conflictingEvidenceIds": [],
+    "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-filing-rubrik-0001943896-26-000055",
+    "tags": [
+      "tracker",
+      "filing-event"
+    ],
+    "retrievedAt": "2026-10-16"
+  },
+  {
     "id": "TR-filing-rubrik-0001193125-26-037791",
     "title": "Rubrik — Form 8-K (Item 5.02)",
     "organization": "Rubrik",
@@ -392,6 +449,25 @@
     "limitations": "AUTO-001 fix pass 4, item 5: generated directly from this filer's own 8-K item code at build time, with no model in the loop. States only what the item code itself establishes, not the filing's specifics (e.g. appointment vs. departure for Item 5.02) — open the filing for those.",
     "conflictingEvidenceIds": [],
     "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-filing-qualys-0001107843-26-000024",
+    "tags": [
+      "tracker",
+      "filing-event"
+    ],
+    "retrievedAt": "2026-10-16"
+  },
+  {
+    "id": "TR-filing-rapid7-0001560327-26-000043",
+    "title": "Rapid7 — Form 8-K (Item 2.05)",
+    "organization": "Rapid7",
+    "publicationDate": "2026-08-10",
+    "economicPeriod": "2026-08-10",
+    "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1560327/000156032726000043/rp-20260807.htm",
+    "excerpt": "Form 8-K (Item 2.05): costs associated with an exit or disposal activity.",
+    "sourceClass": "FILING",
+    "interpretation": "",
+    "limitations": "AUTO-001 fix pass 4, item 5: generated directly from this filer's own 8-K item code at build time, with no model in the loop. States only what the item code itself establishes, not the filing's specifics (e.g. appointment vs. departure for Item 5.02) — open the filing for those.",
+    "conflictingEvidenceIds": [],
+    "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-filing-rapid7-0001560327-26-000043",
     "tags": [
       "tracker",
       "filing-event"

@@ -55,6 +55,17 @@
     "rung": 1
   },
   {
+    "id": "EV-filing-panw-0001193125-26-045600",
+    "supplierId": "panw",
+    "date": "2026-02-11",
+    "type": "debt",
+    "text": "Form 8-K (Item 2.03) reporting the creation of a direct financial obligation, filed 2026-02-11.",
+    "evidenceIds": [
+      "TR-filing-panw-0001193125-26-045600"
+    ],
+    "rung": 1
+  },
+  {
     "id": "EV-filing-panw-0001193125-25-315915",
     "supplierId": "panw",
     "date": "2025-12-11",
@@ -62,6 +73,17 @@
     "text": "Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2025-12-11.",
     "evidenceIds": [
       "TR-filing-panw-0001193125-25-315915"
+    ],
+    "rung": 1
+  },
+  {
+    "id": "EV-filing-panw-0001193125-25-288132",
+    "supplierId": "panw",
+    "date": "2025-11-19",
+    "type": "exec-change",
+    "text": "Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2025-11-19.",
+    "evidenceIds": [
+      "TR-filing-panw-0001193125-25-288132"
     ],
     "rung": 1
   },
@@ -176,6 +198,17 @@
     "rung": 1
   },
   {
+    "id": "EV-filing-rubrik-0001943896-26-000055",
+    "supplierId": "rubrik",
+    "date": "2026-08-27",
+    "type": "exec-change",
+    "text": "Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2026-08-27.",
+    "evidenceIds": [
+      "TR-filing-rubrik-0001943896-26-000055"
+    ],
+    "rung": 1
+  },
+  {
     "id": "EV-filing-rubrik-0001193125-26-037791",
     "supplierId": "rubrik",
     "date": "2026-02-04",
@@ -227,6 +260,17 @@
     "text": "Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2026-06-11.",
     "evidenceIds": [
       "TR-filing-qualys-0001107843-26-000024"
+    ],
+    "rung": 1
+  },
+  {
+    "id": "EV-filing-rapid7-0001560327-26-000043",
+    "supplierId": "rapid7",
+    "date": "2026-08-10",
+    "type": "restructuring",
+    "text": "Form 8-K (Item 2.05) reporting costs associated with an exit or disposal activity, filed 2026-08-10.",
+    "evidenceIds": [
+      "TR-filing-rapid7-0001560327-26-000043"
     ],
     "rung": 1
   },
