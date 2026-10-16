@@ -21,7 +21,7 @@ Claude drafted `docs/active/automation-portfolio-proposal-2026-10-15.md`, ran a 
 
 ## Owner decisions logged 2026-10-15
 
-D-87 to D-94 in decisions.md. Still open: branch protection (owner prefers no added cost), update cadence, and whether the byline uses his legal name or his alias.
+D-87 to D-98 in decisions.md. All open items resolved: 4-hour check cadence (D-95), byline Jesse Pike (D-96), no-cost branch protection by design (D-97), security hardening (D-98). Owner to-do: DNS and account steps in `dns-hardening-2026-10-15.md`; merge jessepike.dev `sec/headers`; promote `preview` when ready. Next agent work: AUTO-002 Phase 0.
 
 ## Originally waiting on the owner
 
