@@ -6,6 +6,8 @@ decision: D-99
 
 # DNS and account hardening checklist
 
+**Done 2026-10-15:** all email records below for securitymarketpulse.com (SPF, DMARC reject, null MX accepted by Cloudflare) and jessepike.dev (SPF `~all`, DMARC `v=DMARC1; p=none`). Verified through public DNS. jessepike.dev DMARC has no `rua` yet: enable Cloudflare Email > DMARC Management (owner click) to add reporting. Not done: CAA, DNSSEC, account items.
+
 Both domains use Cloudflare DNS (DNS only, not proxied). These changes are made in the Cloudflare dashboard. State checked 2026-10-15 with public DNS queries.
 
 ## securitymarketpulse.com (sends no email)
