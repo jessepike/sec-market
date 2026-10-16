@@ -23,6 +23,8 @@ the repo.
 6. **Rules:** `.claude/rules/constraints.md` already lists the digest as authorized (owner approval,
    2026-10-16).
 7. **Tests:** a test send to the owner before any subscriber receives mail.
+8. **Docs:** update the secrets line in [architecture.md](../reference/architecture.md) and the
+   operations runbook, since the digest job is the first workflow with a secret.
 
 ## Owner inputs needed
 

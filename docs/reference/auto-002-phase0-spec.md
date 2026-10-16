@@ -9,6 +9,8 @@ decisions: D-89 (certified scope), D-85/D-86 (100% gate, no self-certification),
 
 # Phase 0: make the 100% gate passable for the SEC filers
 
+> Decision record, written 2026-10-15 before Phase 0 was built. "Today" below means that date. The laptop collector it mentions was retired on 2026-10-16; file names are current.
+
 ## Goal
 
 A run with no human and no AI produces a certified snapshot of the SEC filers that passes `evaluateRefresh` at 100%, using primary SEC data only. Phase 0 proves the gate can pass. It does not schedule anything, publish anything, or change the site. Scheduling is Phase 1; the site's tier display is Phase 2.

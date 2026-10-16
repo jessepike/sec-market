@@ -136,9 +136,9 @@ Decisions changed by the site are welcome evidence and may be logged, but are no
 - **Statement:** “yes this represents what i want to use”
 - **Requirement:** maintain attribution and access to supporting research and evidence
 - **Date:** 2026-08-16
-- **v1.2 Human Acceptance:** accepted — "approve the intent v1.2 text as written" — project owner, 2026-09-03
-- **v1.3 Human Acceptance:** accepted — "Source check facts can publish. I don't want to be the bottleneck for this. So it needs to be automated. There doesn't need to be any gates." Asked what the machine may say beyond facts, the owner chose "facts only, no judgments", and approved rewriting this file and the project rules to match — project owner, 2026-09-25
-- **v1.4 Human Acceptance:** accepted — "go, and apply the four intent amendments" (purpose, readers, scope, success, as proposed in `docs/archive/2026-10-refresh-gate/autonomy-coverage-plan.md` section 2) — project owner, 2026-09-25
+- **v1.2 Human Acceptance:** accepted: "approve the intent v1.2 text as written", project owner, 2026-09-03
+- **v1.3 Human Acceptance:** accepted: "Source check facts can publish. I don't want to be the bottleneck for this. So it needs to be automated. There doesn't need to be any gates." Asked what the machine may say beyond facts, the owner chose "facts only, no judgments", and approved rewriting this file and the project rules to match; project owner, 2026-09-25
+- **v1.4 Human Acceptance:** accepted: "go, and apply the four intent amendments" (purpose, readers, scope, success, as proposed in `docs/archive/2026-10-refresh-gate/autonomy-coverage-plan.md` section 2), project owner, 2026-09-25
 - **v1.5 Human Acceptance:** the owner authorized this revision on 2026-10-16 ("yes you can change") to bring the intent in line with D-88 to D-101; the text is presented for the owner's confirmation at review
 
 ### AI Readiness
@@ -147,12 +147,12 @@ Decisions changed by the site are welcome evidence and may be logged, but are no
 - **Statement:** “Yes. I have sufficient context to reason and act against this intent without filling consequential gaps with assumptions.”
 - **Agent or model:** GPT-5.6 Sol
 - **Date:** 2026-08-15
-- **Reconfirmed for v1.1:** ready — website delivery, attribution, and evidence-access requirements are explicit
+- **Reconfirmed for v1.1:** ready: website delivery, attribution, and evidence-access requirements are explicit
 - **Reconfirmed:** 2026-08-16
-- **Reconfirmed for v1.2:** ready — the weekly issue, the machine-proposes / person-signs line, the pilot list and the downstream ePlus boundary are explicit; purpose, beneficiaries and the public-evidence boundary are unchanged
+- **Reconfirmed for v1.2:** ready: the weekly issue, the machine-proposes / person-signs line, the pilot list and the downstream ePlus boundary are explicit; purpose, beneficiaries and the public-evidence boundary are unchanged
 - **Agent or model:** Claude Fable 5.1, sec-market orchestrator session
 - **Reconfirmed:** 2026-09-03
-- **Reconfirmed for v1.3 and v1.4:** ready — facts publish automatically with checks as the only gate, no machine judgments, security leaders first, distress and consolidation in scope, freshness as the first test of success
+- **Reconfirmed for v1.3 and v1.4:** ready: facts publish automatically with checks as the only gate, no machine judgments, security leaders first, distress and consolidation in scope, freshness as the first test of success
 - **Agent or model:** Claude Opus 5.5, sec-market orchestrator session
 - **Reconfirmed:** 2026-09-25
 - **Reconfirmed for v1.5:** ready. The certified tier, the automatic path to production, the byline and the email digest are explicit; purpose, readers and boundaries are unchanged
@@ -179,6 +179,11 @@ Decisions changed by the site are welcome evidence and may be logged, but are no
 | 1.5 | proposed | Record AUTO-002: certified SEC tier gated at 100%, automatic promotion of certified data, named byline, email digest authorized, weekly issue retired; traceability points to current documents (D-88 to D-101) | authorized, 2026-10-16 | ready, 2026-10-16 | No change to purpose, readers or boundaries |
 
 ## Gate result
+
+Gate 1 is the first check of the August 2026 method (archived in
+[docs/archive/2026-08-gate-chain/](docs/archive/2026-08-gate-chain/)): the owner accepts the intent and an
+agent confirms it can act on it without guessing. `SEC-MARKET-OA-001` is the outcome architecture that
+followed it.
 
 - **Gate 1:** passed
 - **Reason:** Human Acceptance and AI Readiness are explicit; the intended outcome, beneficiaries, success evidence, boundaries, assumptions, and non-blocking unknowns are sufficiently clear for a fresh agent to proceed without consequential invention.

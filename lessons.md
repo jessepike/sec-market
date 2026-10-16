@@ -5,7 +5,8 @@ Working lessons for agents on this project, newest first, at most about 15. Each
 - `[new:<date>]` recorded this session, not yet reviewed for the owner's shared knowledge base;
 - `[withheld:<date>]` reviewed and kept here because it is specific to this project.
 
-Lessons promoted to the shared knowledge base are removed from this file; Git history keeps them.
+The owner keeps a shared knowledge base of lessons across projects, outside this repo. Lessons
+promoted there are removed from this file; Git history keeps them.
 
 ## 2026-10-16
 
@@ -16,9 +17,9 @@ Lessons promoted to the shared knowledge base are removed from this file; Git hi
 
 ## 2026-10-02
 
-- [withheld:2026-10-02] A backgrounded tool call wrapping a command that ALSO backgrounds itself with a trailing `&` produces an orphaned, unreliable process — the wrapper returns immediately while the real work's survival across turns (especially across a session interruption) is uncertain. Pass the long-running command directly to the backgrounding mechanism without an internal `&`; that is the form that gives a trustworthy completion notification.
-- [withheld:2026-10-02] After any session-rate-limit or similar interruption, a "completed exit code 0" notification for a background task is not proof it ran — check ground truth (a result file's timestamp/content, `ps aux`) before trusting it. One batch of this session's 74-supplier collector run silently never executed despite reporting success; only a timestamp check caught it.
-- [withheld:2026-10-02] A supplier's own news counting as "unreadable" is only honest after a real fallback chain, not after one fetch failing — RSS/Atom, sitemap, an IR subdomain, a wire-service copy (GlobeNewswire/PR Newswire/Business Wire), and an EDGAR full-text search, in that order, with the failure detail naming which routes were tried.
+- [withheld:2026-10-02] A backgrounded tool call wrapping a command that ALSO backgrounds itself with a trailing `&` produces an orphaned, unreliable process; the wrapper returns immediately while the real work's survival across turns (especially across a session interruption) is uncertain. Pass the long-running command directly to the backgrounding mechanism without an internal `&`; that is the form that gives a trustworthy completion notification.
+- [withheld:2026-10-02] After any session-rate-limit or similar interruption, a "completed exit code 0" notification for a background task is not proof it ran; check ground truth (a result file's timestamp/content, `ps aux`) before trusting it. One batch of this session's 74-supplier collector run silently never executed despite reporting success; only a timestamp check caught it.
+- [withheld:2026-10-02] A supplier's own news counting as "unreadable" is only honest after a real fallback chain, not after one fetch failing; RSS/Atom, sitemap, an IR subdomain, a wire-service copy (GlobeNewswire/PR Newswire/Business Wire), and an EDGAR full-text search, in that order, with the failure detail naming which routes were tried.
 
 ## 2026-09-21
 

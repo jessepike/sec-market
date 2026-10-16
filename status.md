@@ -17,8 +17,8 @@ Current state only. The full session log up to 2026-10-16 is in
   UTC. The first scheduled refresh ran at 16:38 UTC on 2026-10-16: 80/80, no change, so nothing was
   published. GitHub starts scheduled runs late and sometimes skips slots; the freshness probe alarms
   only after 10 hours with no run.
-- **Branches:** `main` and `preview` were level at `399cc78` before the cleanup. The cleanup sits on
-  `chore/cleanup` and needs the owner's promotion (below).
+- **Branches:** `main` and `preview` are level at `399cc78`. The cleanup is on `chore/cleanup`
+  (pushed), not yet merged into `preview`.
 
 ## Last session (2026-10-16)
 
@@ -30,13 +30,13 @@ Current state only. The full session log up to 2026-10-16 is in
   with the owner's approval. One visible change: the RSS line on the front page read "Follow
   published records by RSS: follow by RSS" and now reads "Follow new records by RSS". Everything
   else renders pixel-identical to production on all five routes at 1440 and 390.
-- A fresh review agent scored the cleaned repo 7.5 of 10 and listed 20 issues; all were fixed the
-  same session, then a second fresh review checked the result.
+- Two fresh review agents checked the result; their findings were fixed before handover.
 
 ## Waiting on the owner
 
-1. **Promote the cleanup** to production once reviewed. Until then `preview` holds non-data commits,
-   which pauses automatic promotion of certified data.
+1. **Approve the cleanup.** An agent merges `chore/cleanup` into `preview`, runs the visual review and
+   sends the screenshots; the owner then says whether to promote. While non-data commits sit on
+   `preview` ahead of `main`, automatic promotion of certified data waits.
 2. **Confirm `intent.md` v1.5** text (the revision was authorized; the wording is for review).
 3. **Email workstream inputs** (SEC-060): Buttondown API key as a GitHub secret, a postal address.
 4. **Account items** (SEC-061): Cloudflare DMARC Management for jessepike.dev, DNSSEC and CAA for
@@ -56,3 +56,4 @@ Current state only. The full session log up to 2026-10-16 is in
 | Refresh running | Actions tab: `certified refresh` ran within the last 10 hours |
 | Nothing held | No open GitHub issue titled "Certified refresh held" |
 | Tests | `cd web && npm test` |
+| Push guard installed | `test -x .git/hooks/pre-push` (install with `./.githooks/install`) |

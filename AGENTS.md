@@ -27,6 +27,7 @@ Jesse Pike.
 | [.claude/rules/constraints.md](.claude/rules/constraints.md) | Hard rules |
 | [docs/reference/architecture.md](docs/reference/architecture.md) | How the system works |
 | [docs/reference/operations.md](docs/reference/operations.md) | Commands, shipping, repair |
+| [lessons.md](lessons.md) | Mistakes not to repeat on this project |
 
 Load on demand: [docs/reference/](docs/reference/) for the current design, [docs/active/](docs/active/)
 for work in flight. Never load automatically: [docs/archive/](docs/archive/), `.ctx/` (local, uncommitted agent scratch
@@ -36,7 +37,8 @@ context).
 
 Sessions start cold. Everything the next agent needs is in the repo, not in a chat:
 
-- At the start: read `status.md`, then `git status` and `git log --oneline -10` on `preview`.
+- At the start: read `status.md`, then `git fetch`, `git status` and `git log --oneline -10 origin/preview`.
+  Check the push guard is installed (`test -x .git/hooks/pre-push`, else `./.githooks/install`).
 - At the end: update `status.md` (current state only, one page) and log any decision in
   `decisions.md` with the owner's words.
 - Krypton, the owner's agent system, picks up from `status.md` the same way.
@@ -45,7 +47,8 @@ Sessions start cold. Everything the next agent needs is in the repo, not in a ch
 
 The only allowed path is **local → `preview` → owner approval → `main` → Vercel production**.
 
-There are exactly two long-lived branches and each one owns a URL:
+There are exactly two long-lived branches and each one owns a URL. Any other branch is short-lived
+and is deleted once merged into `preview`:
 
 | Branch | URL | What it is |
 |---|---|---|

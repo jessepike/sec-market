@@ -17,7 +17,9 @@ who advise and sell to them. It publishes facts, not opinions.
   and is labeled as not certified on the page.
 - **Fully automated.** GitHub Actions checks SEC filings every 4 hours. A change goes to the preview
   site, then to production a day later after a fresh check reproduces it. Code changes still need
-  the owner's approval. No laptop, no paid services, no secrets.
+  the owner's approval. No laptop and no secrets. GitHub,
+  Vercel and Cloudflare run on free plans; whether Vercel's Hobby plan allows commercial use is
+  still to be checked (SEC-061).
 
 Details: [docs/reference/architecture.md](docs/reference/architecture.md).
 

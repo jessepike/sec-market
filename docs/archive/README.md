@@ -6,7 +6,8 @@ in force are indexed at the top of [../../decisions.md](../../decisions.md).
 
 Agents do not read this folder unless the owner asks (see
 [.claude/rules/constraints.md](../../.claude/rules/constraints.md)). Files were moved here unchanged
-except for link paths, which were rewritten when they moved. Some archived files mention scripts
+except for relative link paths, which were rewritten when they moved. Review transcripts keep the
+absolute `/Users/...` paths of the machine they ran on. Some archived files mention scripts
 and code that have since been deleted; find them in Git history with `git log --all -- <path>`.
 
 The folders run in date order. Each one ends where a decision changed what the project was.

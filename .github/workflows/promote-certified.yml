@@ -8,7 +8,12 @@ name: promote certified data
 # Promotes only when all of these hold:
 #   - `main` is an ancestor of `preview` (fast-forward only)
 #   - every file that differs between them is in the data allowlist
-#   - the newest data commit on `preview` is at least 24 hours old (soak)
+#   - the newest commit on `preview` is at least 24 hours old (soak)
+#
+# Nothing to promote and still soaking are normal states: the run ends green
+# with a notice. A non-data change waiting for the owner ends green with a
+# warning. Only a broken branch relationship or a failed re-certification
+# turns the run red.
 #   - a fresh certification of `preview` passes the 100% gate and reproduces
 #     exactly the certified values committed there
 
@@ -41,6 +46,7 @@ jobs:
       contents: read
     outputs:
       sha: ${{ steps.scope.outputs.sha }}
+      promote: ${{ steps.scope.outputs.promote }}
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -53,22 +59,26 @@ jobs:
         run: |
           set -euo pipefail
           git fetch --no-tags origin main
-          git merge-base --is-ancestor origin/main HEAD || { echo "main is not an ancestor of preview"; exit 1; }
+          skip() { echo "$1"; echo "promote=false" >> "$GITHUB_OUTPUT"; exit 0; }
+          git merge-base --is-ancestor origin/main HEAD || { echo "::error::main is not an ancestor of preview"; exit 1; }
           changed=$(git diff --no-renames --name-only origin/main HEAD | sort)
-          [ -n "$changed" ] || { echo "Nothing to promote."; exit 1; }
+          [ -n "$changed" ] || skip "::notice::Nothing to promote: main already matches preview."
           extra=$(comm -23 <(echo "$changed") <(printf '%s\n' $DATA_FILES | sort) || true)
-          [ -z "$extra" ] || { echo "Not data-only; needs the owner's promotion:"; echo "$extra"; exit 1; }
+          [ -z "$extra" ] || { echo "$extra"; skip "::warning::preview has non-data changes; the owner must promote them before data can move."; }
           age=$(( ( $(date -u +%s) - $(git log -1 --format=%ct HEAD) ) / 3600 ))
-          [ "$age" -ge "$SOAK_HOURS" ] || { echo "Soaking: newest preview commit is $age h old"; exit 1; }
+          [ "$age" -ge "$SOAK_HOURS" ] || skip "::notice::Soaking: newest preview commit is $age h old."
           echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+          echo "promote=true" >> "$GITHUB_OUTPUT"
 
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        if: steps.scope.outputs.promote == 'true'
         with:
           node-version: '22'
           cache: npm
           cache-dependency-path: web/package-lock.json
 
       - name: Re-certify and require identical values
+        if: steps.scope.outputs.promote == 'true'
         working-directory: web
         run: |
           set -euo pipefail
@@ -81,6 +91,7 @@ jobs:
 
   promote:
     needs: check
+    if: needs.check.outputs.promote == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 5
     permissions:

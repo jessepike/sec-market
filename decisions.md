@@ -10,7 +10,7 @@ Everything not listed here is history: superseded, completed, or about a phase t
 
 | Area | Decisions | In short |
 |---|---|---|
-| Purpose | D-1, D-76, D-77, D-102 | Intent is the authority (now v1.5). Facts publish with no human approval step; no machine publishes a judgment. A standing supplier tracker is the product |
+| Purpose | D-1, D-76, D-77, D-102 | Intent is the authority (v1.4 accepted; v1.5 awaiting the owner's confirmation). Facts publish with no human approval step; no machine publishes a judgment. A standing supplier tracker is the product |
 | What may be called verified | D-85, D-89, D-100 | Publishing needs 100% of required claims. The certified tier is the SEC filers. The page says "re-derived from SEC filings", not "independently verified" |
 | Events | D-91 | Filed events are dated, uniform, rule-listed facts from SEC filings |
 | Automation | D-88, D-96, D-98, D-101 | Certified data reaches production on its own after a soak and a fresh check. SEC is checked every 4 hours. No paid GitHub plan; `main` is guarded by design. Production renders the certified tracker |

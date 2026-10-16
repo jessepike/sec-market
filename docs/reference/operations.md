@@ -17,8 +17,9 @@ freshness probe only raises an alarm after 10 hours with no run.
 |---|---|---|
 | GitHub issue "Certified refresh held" | A run failed or fell below 100% | Open the run linked in the issue. Download the `certified-data` artifact and read `.collect/certified-attempt.json` for the blockers. Fix the cause on a branch, merge to `preview`, promote. The issue closes itself on the next good run |
 | GitHub issue from the freshness probe | No refresh in 10 hours, or the site is down | Check the Actions tab: is `certified refresh` enabled and running? Check https://securitymarketpulse.com and the Vercel dashboard |
-| `promote certified data` fails with "Not data-only" | A code or docs commit sits on `preview` ahead of `main` | Expected after any human work. Review the preview and promote (below) |
-| `promote certified data` fails with "Soaking" | The newest data commit is under 24 hours old | Nothing; it retries the next day |
+| `promote certified data` passes with a notice "Nothing to promote" or "Soaking" | Normal: `main` already matches `preview`, or the newest commit is under 24 hours old | Nothing |
+| `promote certified data` passes with a warning about non-data changes | A code or docs commit sits on `preview` ahead of `main`, so certified data cannot move | Review the preview and ask the owner to promote (below) |
+| `promote certified data` fails | `main` is not an ancestor of `preview`, or a fresh certification did not reproduce the committed values | Read the run log. The second case clears itself on the next refresh |
 | Vercel build failed with "Certified tier failed its gate" | The build gate refused the data | Production keeps serving the last good build. Run the gate locally (below) to see why |
 
 ## Local commands

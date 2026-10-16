@@ -11,7 +11,7 @@ supersedes: v0.1 (same file, git history)
 
 # Hosted automation, filed events and portfolio tie-in
 
-> The plan as approved on 2026-10-15. Phases 0 to 2 shipped by 2026-10-16 (D-100, D-101); the current system is described in [architecture.md](architecture.md). Since then `refresh-publication-gate.mjs` was renamed `claim-gate.mjs` and `web/published-app` was removed (D-102).
+> Decision record: the plan as approved on 2026-10-15. Phase 1 below says "nightly"; the owner then set the cadence to every 4 hours (D-96). Phases 0 to 2 shipped by 2026-10-16 (D-100, D-101); the current system is described in [architecture.md](architecture.md). Since then `refresh-publication-gate.mjs` was renamed `claim-gate.mjs` and `web/published-app` was removed (D-102).
 
 ## Owner goals (stated 2026-10-15)
 

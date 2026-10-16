@@ -1,5 +1,5 @@
 ---
-description: Security Market Pulse — project rules for Cursor
+description: Security Market Pulse project rules for Cursor
 globs:
   - "**/*"
 ---
