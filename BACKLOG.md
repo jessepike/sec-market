@@ -857,3 +857,9 @@ hosts) and a primary source was located for each genuinely unattributed claim. E
 unreadable for host-side reasons only, listed above.
 
 **Authorization state:** authorized by the owner 2026-08-20. Fixes above already applied; the source sweep is scoped and awaiting a go on full versus partial.
+
+### SEC-059 — Quarterly signed note per domain
+
+One short, dated, signed note per domain each quarter, automatically marked "awaiting review" when a certified fact under it changes. Proposed by the AUTO-002 council review as the smallest addition that shows judgment rather than method alone (D-94).
+
+**Authorization state:** roadmap; owner open to it, not focused on it now.

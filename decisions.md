@@ -1054,3 +1054,47 @@ Owner amendment relayed by Krypton: 100% is the gate for marking/publishing a re
 **D-87 · 2026-10-14 — Owner authorizes finishing app-only production rollout; data snapshot remains unchanged.**
 
 Krypton explicitly directs: “Continue to finish the authorized app-only production rollout: push and verify the browser-dispatch fix, deploy the truthful status UI with all 38 production data files and reporting dates unchanged, then independently check the public production endpoint and record its deployment SHA, data hashes, date labels, and test results.” No new access, credentials, scheduling or security settings. The exact final preview `f053a78e330be35f45840a4eb5b6db37b7fafa55` was Ready, rendered/inspected and had green hosted web CI. Normal clean fast-forward preview -> main with PROMOTE=1 passed the installed app/data guard. Production became Ready at 23:52:52 UTC, deployment `dpl_D4CpfWhcE24S42Q1HkK6YGKbEsJY`. Live release/attempt receipts and all 38 hashes independently match original production data; dataUpdated remains false and complete refresh is unestablished. The incomplete candidate remains diagnostic and its data gate is still closed. This is an app status rollout, not a completed data refresh. Legacy rollback/reference deployment remains `dpl_9mjdUV7fWSSgBrmSPuUbv4ekRUeg`; no rollback occurred.
+
+**D-88 · 2026-10-15 — Data updates auto-promote to production; freshness cadence to be set in AUTO-002.**
+
+Owner, in the claude.ai session reviewing SEC-MARKET-AUTO-002 v0.2: "i want auto-updates. also think updates should be fresh like multiple per day." Certified, data-only updates reach `main` without a human step, through the separate gated promotion job the council specified (allowlisted data diff, sanity bounds, preview Ready, soak). Cadence is pending the proposal's recommendation. Code and site changes still move to `main` only by owner promotion.
+
+**D-89 · 2026-10-15 — Certified scope is the SEC filers, fixed by source class (AUTO-002 Option A).**
+
+Owner: "go with council recommendations." The certified tier is the tracked SEC filers, set before results are known. Other suppliers show their own last-verified dates outside the certified snapshot. Method page states this. Certified count is derived from the filer list. D-85's 100% rule applies to the certified tier.
+
+**D-90 · 2026-10-15 — Named byline with an interests statement on the Method page; supersedes D-80.**
+
+Owner approved the byline and said: "I'm not worried about ePlus's outside activity." Open: whether the brand identity is his legal name or his alias. Until he decides, nothing ships.
+
+**D-91 · 2026-10-15 — "Signals" become filed events: dated, uniform, rule-listed facts.**
+
+Owner: "approved." Drop the growth-slowdown rule; list officer changes individually; show debt filings with amount and purpose; add late-filing notices. Rules are published with a date and apply to every tracked filer; changes go on the corrections page.
+
+**D-92 · 2026-10-15 — Email capture and digest authorized as one complete workstream.**
+
+Owner: "approved--but let's keep all the email in a single workstream so it all gets applied and built out together. I don't want any loose ends or dependencies that we don't implement." Minimum version per council: double opt-in, plain HTML form post, processor named, digest of verified changes only, no send when the gate fails, list owned by jessepike.dev. The `.claude/rules/constraints.md` line "A database and an email digest are not yet authorized" is updated in that workstream's pull request, for the owner's review.
+
+**D-93 · 2026-10-15 — Weekly signed issue retired; archive kept.** Owner: "yes."
+
+**D-94 · 2026-10-15 — Quarterly signed domain note goes to the backlog (SEC-059).** Owner: "let's backlog / roadmap this. open to idea, but not focused on right now."
+
+**D-95 · 2026-10-15 — Phase 2 AI extraction for private companies deferred.** Owner: "defer."
+
+Resolved in D-98.
+
+**D-96 · 2026-10-15 — Update cadence: check SEC filings every 4 hours; publish only when a tracked filer has a new filing.**
+
+Owner: "confirm yes on all 3 open items." No commit or deploy when nothing changed. The site states the check schedule; an external monitor proves the checks run.
+
+**D-97 · 2026-10-15 — Byline uses the owner's legal name, Jesse Pike.**
+
+Owner: "confirm yes." Krypton stays the name of his agent system, not the site's author identity.
+
+**D-98 · 2026-10-15 — No paid GitHub plan; `main` protection relies on design, recorded as such.**
+
+Owner: "I'd rather not incur additional costs" and "confirm yes." The write-token job runs no third-party code; data reaches `main` only through the separate gated promotion job; owner uses passkey two-factor on GitHub. `main` has no branch protection beyond this.
+
+**D-99 · 2026-10-15 — Security hardening and analytics for securitymarketpulse.com and jessepike.dev.**
+
+Owner: "address those security suggestions" and "setup free web analytics." Vercel Web Analytics was already installed and collecting on both sites; no change needed. Headers (CSP, HSTS includeSubDomains, frame denial, COOP) and security.txt are added on branches. DNS changes (DNSSEC, CAA, email authentication) are made by the owner in Cloudflare from a written record list. Email provider note: jessepike.dev already uses Buttondown for its newsletter, so the email workstream (D-92) defaults to Buttondown rather than Kit, to keep one list.
