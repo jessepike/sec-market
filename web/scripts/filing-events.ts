@@ -195,7 +195,7 @@ async function main() {
         try {
           await sleep(REQUEST_INTERVAL_MS)
           const quote = debtExcerpt(await fetchText(docUrl))
-          if (quote) text = `${text} The filing describes it as: “${quote}”`
+          if (quote) text = quote.endsWith('…') ? `${text} The filing describes it as: “${quote.slice(0, -1)}” …` : `${text} The filing describes it as: “${quote}”`
         } catch (error) { console.error(`WARN  ${supplier.id} ${accession}: could not read the filing for its description (${String(error)})`) }
       }
 

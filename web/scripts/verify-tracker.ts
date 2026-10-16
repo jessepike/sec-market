@@ -528,7 +528,7 @@ function hasMatchingEvent(supplierId: string, types: string[]): boolean {
   return retainedTrackerEvents.some((event) => {
     if (event.supplierId !== supplierId || !types.includes(event.type)) return false
     const eventAge = daysBetween(event.date, runStatus.lastChecked)
-    return eventAge <= 400
+    return eventAge >= 0 && eventAge <= 400
   })
 }
 

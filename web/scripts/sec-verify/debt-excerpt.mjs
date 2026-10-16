@@ -1,9 +1,10 @@
 // AUTO-002 Phase 2 (D-91): an 8-K Item 2.03 event quotes the filing's own
-// description of the obligation, which states its amount and purpose. Pure
-// text extraction, no model: find the Item 2.03 section (or the section it
-// incorporates by reference), take its first sentence that names a dollar
-// amount. Returns null when no such sentence exists, and the caller falls back
-// to the item label.
+// description of the obligation. Pure text extraction, no model: find the
+// Item 2.03 section (or the Item 1.01 section it incorporates by reference),
+// drop the item title, and take the opening prose up to 450 characters. The
+// quote is not certified and may not state an amount; the linked filing has
+// the full text. Returns null when there is no such prose, and the caller
+// falls back to the item label.
 
 const ENTITIES = { '&amp;': '&', '&nbsp;': ' ', '&#160;': ' ', '&#8217;': '’', '&rsquo;': '’', '&#8220;': '“', '&#8221;': '”', '&ldquo;': '“', '&rdquo;': '”', '&#8212;': '—', '&mdash;': '—', '&#8211;': '–', '&ndash;': '–', '&quot;': '"', '&#36;': '$' }
 
@@ -19,6 +20,8 @@ export function filingText(html) {
 }
 
 const HEADING = /(?:^|\n)(Item\s*(\d\.\d{2})[^\n]{0,160})(?=\n|$)/gi
+// Wrapped lines of the Item 2.03 / 1.01 titles, which are not description.
+const TITLE = /Direct Financial Obligation|Off-Balance Sheet Arrangement|Entry into a Material Definitive Agreement/i
 const isHeading = line => !/incorporated|of this (current )?report/i.test(line)
 
 /** Body of a section: from its last heading line to the next heading line. */
@@ -40,11 +43,14 @@ export function debtExcerpt(html) {
   const text = filingText(html)
   let body = section(text, '2.03')
   const ref = /Item\s*(\d\.\d{2})[^\n]*?incorporated/i.exec(body)
-  if (ref && ref[1] !== '2.03') body = section(text, ref[1])
-  const prose = body.split('\n').map(l => l.trim()).filter(l => l.length >= 60).join(' ').replace(/\s+/g, ' ')
+  if (ref) body = ref[1] === '1.01' ? section(text, '1.01') : ''
+  const prose = body.split('\n').map(l => l.trim())
+    .filter(l => l.length >= 60 && !TITLE.test(l))
+    .join(' ').replace(/\s+/g, ' ')
+    .replace(/[“”]/g, m => (m === '“' ? '‘' : '’'))
   if (prose.length < 60) return null
   if (prose.length <= 450) return prose
   const window = prose.slice(0, 450)
   const ends = [...window.matchAll(/[.;](?=\s+[A-Z“"(])/g)].map(m => m.index + 1).filter(i => i >= 150)
-  return ends.length ? window.slice(0, ends.at(-1)) : `${window.slice(0, window.lastIndexOf(' '))} …`
+  return ends.length ? window.slice(0, ends.at(-1)) : `${window.slice(0, window.lastIndexOf(' '))}…`
 }

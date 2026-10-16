@@ -5,7 +5,7 @@
  * Certified means: re-derived from the company's own SEC filings by a check
  * that shares no code with the producer, at 100% for every certified claim
  * (identity, latest and prior quarter revenue, the 8-quarter table, and the
- * filing and date of SEC-filed events). It does not mean a second method; see
+ * filing and date of SEC-filed events; not the event type or text). It does not mean a second method; see
  * the contract policy (D-100). Fields outside that list keep their own source
  * and date and are not re-checked automatically.
  */

@@ -15,7 +15,7 @@ export function ProvenanceRail() {
         <p className="rail__brand">{PRODUCT_TITLE}</p>
         <span className="rail__rule" aria-hidden="true" />
         <p className="rail__asof">
-          SEC figures certified {certifiedDateDisplay}
+          Certified SEC figures last changed {certifiedDateDisplay}
         </p>
         <p className="rail__statement">Sourced facts, published automatically. No stances, rankings or forecasts.</p>
       </div>

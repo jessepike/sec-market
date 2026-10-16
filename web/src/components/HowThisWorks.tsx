@@ -42,8 +42,8 @@ export function HowThisWorks() {
       <p className="method-copy">
         <strong>Certified.</strong> For the {certifiedCount} public companies that report quarterly
         revenue to the SEC in structured form, the site re-derives each figure from the company&rsquo;s
-        own SEC filings: name and ticker, quarterly revenue, year-over-year growth, the last eight
-        quarters, and the filing and date of SEC-filed events. A scheduled check runs {checkInterval}.
+        own SEC filings: name and ticker, quarterly revenue, year-over-year growth, up to eight
+        quarters, and the filing and date of SEC-filed events. A check is scheduled {checkInterval}.
         All {certifiedClaimCount} certified claims must pass before anything publishes; if one fails,
         nothing changes on the site. New figures publish only when a value changes. Last certified
         change: {certifiedDateDisplay}.
@@ -54,7 +54,8 @@ export function HowThisWorks() {
         confirms the figures reproduce from the filings. It is not a second, independent method.
       </p>
       <p className="method-copy">
-        <strong>Not certified.</strong> Everything else was collected from company releases, press and
+        <strong>Not certified.</strong> Filed-event summaries are written by a script from the
+        filing&rsquo;s form and item numbers. Everything else was collected from company releases, press and
         company pages, partly with AI assistance, and checked against the sourcing ladder below when
         it was published. It keeps that source and date and is not re-checked automatically:
       </p>
@@ -71,8 +72,8 @@ export function HowThisWorks() {
       <p className="method-copy">
         Events from SEC filings are listed one by one, with the filing linked. The same rules apply
         to every company: officer and director changes (8-K Item 5.02), completed acquisitions and
-        disposals (2.01), new debt (2.03, quoting the filing&rsquo;s own description of amount and
-        purpose), exit and restructuring costs (2.05), bankruptcy (1.03), listing notices (3.01 and
+        disposals (2.01), new debt (2.03, quoting the opening of the filing&rsquo;s own description; the
+        quote is extracted by a script, not certified, and the linked filing has the full text), exit and restructuring costs (2.05), bankruptcy (1.03), listing notices (3.01 and
         Form 25), merger proxies, and late-filing notices. A change to these rules is dated on the{' '}
         <a href="/corrections/">corrections page</a>.
       </p>

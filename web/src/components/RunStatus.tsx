@@ -20,7 +20,7 @@ export function RunStatus() {
       <p className={`run-status__line run-status__line--${receiptComplete ? 'updated' : 'incomplete'}`}>
         SEC figures for {certifiedCount} public companies are re-derived from their own SEC filings and must
         pass all {certifiedClaimCount} checks before they publish. Last certified change: {certifiedDateDisplay}.
-        Checked {checkInterval}.
+        A check is scheduled {checkInterval}.
       </p>
       <p className="run-status__note">
         Other figures keep their own source and date and are not re-checked automatically.{' '}

@@ -182,7 +182,7 @@ export function MarketDesk() {
   const filtered = group ? changes.filter(item => item.type === 'filing' ? group.id === 'results' : group.types.includes(item.type)) : changes
   return <div className="market-desk">
     <div className="desk-hero"><p className="desk-kicker">{trackerSuppliers.length} suppliers · {trackerDomains.length} domains · {certifiedCount} SEC filers certified</p><SiteMasthead />
-      <p className="desk-snapshot">SEC figures are re-derived from each company&rsquo;s filings and checked every 4 hours. Other figures keep their own source and date. <a href="#overview">What is certified</a></p>
+      <p className="desk-snapshot">SEC figures for the {certifiedCount} certified filers are re-derived from each company&rsquo;s filings, with a check scheduled every 4 hours. Other figures keep their own source and date. <a href="#overview">What is certified</a></p>
     </div>
     <div className="desk-counts" aria-label="Event counts in the trailing twelve months">{eventGroups.map(g => {
       const annual = yearEvents.filter(e => g.types.includes(e.type)); const recent = monthEvents.filter(e => g.types.includes(e.type))

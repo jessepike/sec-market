@@ -137,7 +137,7 @@ export function Header({ path = '/' }: { path?: string }) {
           </ul>
         </nav>
         <p className="site-header__updated">
-          SEC figures certified {certifiedDateDisplay}
+          Certified SEC figures last changed {certifiedDateDisplay}
         </p>
       </div>
     </header>

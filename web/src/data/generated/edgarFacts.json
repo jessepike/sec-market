@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-16T02:02:50.751Z",
+  "generatedAt": "2026-10-16T10:11:45.411Z",
   "suppliers": [
     {
       "id": "crwd",
@@ -164,7 +164,7 @@
         "2018-01-31: annual fact present but could not find all three preceding quarters to derive Q4 (fy 2020)."
       ],
       "sourceCheck": {
-        "checkedAt": "2026-10-16T02:02:44.000Z",
+        "checkedAt": "2026-10-16T10:11:39.650Z",
         "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001535527.json",
         "sha256": "a71a92f1f11bd3032271ca55be7a7770a96a846ec809f925829ef952fd5f3fa1"
       }
@@ -333,7 +333,7 @@
         "2017-07-31: annual fact present but could not find all three preceding quarters to derive Q4 (fy 2019)."
       ],
       "sourceCheck": {
-        "checkedAt": "2026-10-16T02:02:44.339Z",
+        "checkedAt": "2026-10-16T10:11:40.129Z",
         "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001713683.json",
         "sha256": "06053c252007a7d76d154eb77a698c48c832f9b4d6ad121a33b41d14a27a1434"
       }
@@ -501,7 +501,7 @@
         "2017-07-31: annual fact present but could not find all three preceding quarters to derive Q4 (fy 2019)."
       ],
       "sourceCheck": {
-        "checkedAt": "2026-10-16T02:02:44.936Z",
+        "checkedAt": "2026-10-16T10:11:40.489Z",
         "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001327567.json",
         "sha256": "0fce8129e237331262a97979fde517a19797896a44f4d4eeab2a0767aaa6029f"
       }
@@ -669,7 +669,7 @@
         "2017-12-31: annual fact present but could not find all three preceding quarters to derive Q4 (fy 2019)."
       ],
       "sourceCheck": {
-        "checkedAt": "2026-10-16T02:02:45.295Z",
+        "checkedAt": "2026-10-16T10:11:40.842Z",
         "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001262039.json",
         "sha256": "59391fcf61ddfa58093873acd02d39b714d88ff78987ce7e749fcc6a62f4c7f8"
       }
@@ -838,7 +838,7 @@
         "2018-12-31: annual fact present but could not find all three preceding quarters to derive Q4 (fy 2020)."
       ],
       "sourceCheck": {
-        "checkedAt": "2026-10-16T02:02:45.626Z",
+        "checkedAt": "2026-10-16T10:11:41.170Z",
         "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001477333.json",
         "sha256": "04cc636210456fc5163996c546c38dd049e53b5f9ce59b8f824f1725b06afe11"
       }
@@ -1007,7 +1007,7 @@
         "2018-01-31: annual fact present but could not find all three preceding quarters to derive Q4 (fy 2020)."
       ],
       "sourceCheck": {
-        "checkedAt": "2026-10-16T02:02:45.984Z",
+        "checkedAt": "2026-10-16T10:11:41.603Z",
         "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001660134.json",
         "sha256": "ce9d8dc684e7e95b8ab313f731115188cc90b20d383e32a0725832de18cef1d7"
       }
@@ -1175,7 +1175,7 @@
         "2024-01-31: annual fact present but could not find all three preceding quarters to derive Q4 (fy 2026)."
       ],
       "sourceCheck": {
-        "checkedAt": "2026-10-16T02:02:46.301Z",
+        "checkedAt": "2026-10-16T10:11:42.023Z",
         "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0002030781.json",
         "sha256": "d31f2c9865a8a3e2e3e362086ba45eddd4b8ad52a892aba51d0738d3a3742ac5"
       }
@@ -1344,7 +1344,7 @@
         "2021-01-31: annual fact present but could not find all three preceding quarters to derive Q4 (fy 2023)."
       ],
       "sourceCheck": {
-        "checkedAt": "2026-10-16T02:02:46.729Z",
+        "checkedAt": "2026-10-16T10:11:42.470Z",
         "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001583708.json",
         "sha256": "8c493fe6c6c4cd7e944856a59eb4f053bd56f94cf7d176c6eef713e1e87f205c"
       }
@@ -1512,7 +1512,7 @@
         "2023-01-31: annual fact present but could not find all three preceding quarters to derive Q4 (fy 2025)."
       ],
       "sourceCheck": {
-        "checkedAt": "2026-10-16T02:02:47.128Z",
+        "checkedAt": "2026-10-16T10:11:42.755Z",
         "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001943896.json",
         "sha256": "7d6489b8a651ac695a633d56676efce3ca3796eb75cc5596785822855f40c1c4"
       }
@@ -1680,7 +1680,7 @@
         "2016-12-31: annual fact present but could not find all three preceding quarters to derive Q4 (fy 2018)."
       ],
       "sourceCheck": {
-        "checkedAt": "2026-10-16T02:02:47.815Z",
+        "checkedAt": "2026-10-16T10:11:43.078Z",
         "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001361113.json",
         "sha256": "5c7576b0fa53ccb95eac41b4bb2859484614b21a670c8a3b610da2be91cacc8a"
       }
@@ -1837,7 +1837,7 @@
         "2025-01-31: annual fact present but could not find all three preceding quarters to derive Q4 (fy 2026)."
       ],
       "sourceCheck": {
-        "checkedAt": "2026-10-16T02:02:48.245Z",
+        "checkedAt": "2026-10-16T10:11:43.375Z",
         "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0002063196.json",
         "sha256": "e526ccaf33366fa8af1b9a07cc6c92b80217feba3eaf0905fd63fbb6a0d8ca7c"
       }
@@ -2005,7 +2005,7 @@
         "2016-12-31: annual fact present but could not find all three preceding quarters to derive Q4 (fy 2018)."
       ],
       "sourceCheck": {
-        "checkedAt": "2026-10-16T02:02:48.555Z",
+        "checkedAt": "2026-10-16T10:11:43.681Z",
         "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001660280.json",
         "sha256": "25756b942a29567cbb25e024fb51cdee78bbd29e0b31498a50eb533c7e470b11"
       }
@@ -2171,7 +2171,7 @@
       },
       "notes": [],
       "sourceCheck": {
-        "checkedAt": "2026-10-16T02:02:49.189Z",
+        "checkedAt": "2026-10-16T10:11:44.036Z",
         "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001107843.json",
         "sha256": "5881840c35ba2fea8db2bf555735c059a487ca5962c4dea1febf05955d9a1f15"
       }
@@ -2340,7 +2340,7 @@
         "2017-12-31: annual fact present but could not find all three preceding quarters to derive Q4 (fy 2019)."
       ],
       "sourceCheck": {
-        "checkedAt": "2026-10-16T02:02:49.513Z",
+        "checkedAt": "2026-10-16T10:11:44.507Z",
         "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001560327.json",
         "sha256": "196e90024aeca936e03fd58c8cc38a5e64022d181c0f01516cfb0c5d11f1d29b"
       }
@@ -2508,7 +2508,7 @@
         "2016-03-31: annual fact present but could not find all three preceding quarters to derive Q4 (fy 2018)."
       ],
       "sourceCheck": {
-        "checkedAt": "2026-10-16T02:02:50.408Z",
+        "checkedAt": "2026-10-16T10:11:45.099Z",
         "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001169561.json",
         "sha256": "8e18cf1384df1e5c6d7ec27ecaf92c266cb738259dabddc6621e743e1dd9d8b6"
       }
@@ -2677,7 +2677,7 @@
         "2019-12-31: annual fact present but could not find all three preceding quarters to derive Q4 (fy 2021)."
       ],
       "sourceCheck": {
-        "checkedAt": "2026-10-16T02:02:50.745Z",
+        "checkedAt": "2026-10-16T10:11:45.406Z",
         "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001800667.json",
         "sha256": "5714aee0eea8ab7fa48eb1a828aacf1ede8160c9bf01aed3ce738dc080e762d7"
       }
@@ -2717,112 +2717,112 @@
   "checks": [
     {
       "supplierId": "crwd",
-      "checkedAt": "2026-10-16T02:02:44.000Z",
+      "checkedAt": "2026-10-16T10:11:39.650Z",
       "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001535527.json",
       "status": "checked",
       "sha256": "a71a92f1f11bd3032271ca55be7a7770a96a846ec809f925829ef952fd5f3fa1"
     },
     {
       "supplierId": "zscaler",
-      "checkedAt": "2026-10-16T02:02:44.339Z",
+      "checkedAt": "2026-10-16T10:11:40.129Z",
       "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001713683.json",
       "status": "checked",
       "sha256": "06053c252007a7d76d154eb77a698c48c832f9b4d6ad121a33b41d14a27a1434"
     },
     {
       "supplierId": "panw",
-      "checkedAt": "2026-10-16T02:02:44.936Z",
+      "checkedAt": "2026-10-16T10:11:40.489Z",
       "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001327567.json",
       "status": "checked",
       "sha256": "0fce8129e237331262a97979fde517a19797896a44f4d4eeab2a0767aaa6029f"
     },
     {
       "supplierId": "fortinet",
-      "checkedAt": "2026-10-16T02:02:45.295Z",
+      "checkedAt": "2026-10-16T10:11:40.842Z",
       "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001262039.json",
       "status": "checked",
       "sha256": "59391fcf61ddfa58093873acd02d39b714d88ff78987ce7e749fcc6a62f4c7f8"
     },
     {
       "supplierId": "cloudflare",
-      "checkedAt": "2026-10-16T02:02:45.626Z",
+      "checkedAt": "2026-10-16T10:11:41.170Z",
       "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001477333.json",
       "status": "checked",
       "sha256": "04cc636210456fc5163996c546c38dd049e53b5f9ce59b8f824f1725b06afe11"
     },
     {
       "supplierId": "okta",
-      "checkedAt": "2026-10-16T02:02:45.984Z",
+      "checkedAt": "2026-10-16T10:11:41.603Z",
       "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001660134.json",
       "status": "checked",
       "sha256": "ce9d8dc684e7e95b8ab313f731115188cc90b20d383e32a0725832de18cef1d7"
     },
     {
       "supplierId": "sailpoint",
-      "checkedAt": "2026-10-16T02:02:46.301Z",
+      "checkedAt": "2026-10-16T10:11:42.023Z",
       "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0002030781.json",
       "status": "checked",
       "sha256": "d31f2c9865a8a3e2e3e362086ba45eddd4b8ad52a892aba51d0738d3a3742ac5"
     },
     {
       "supplierId": "s1",
-      "checkedAt": "2026-10-16T02:02:46.729Z",
+      "checkedAt": "2026-10-16T10:11:42.470Z",
       "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001583708.json",
       "status": "checked",
       "sha256": "8c493fe6c6c4cd7e944856a59eb4f053bd56f94cf7d176c6eef713e1e87f205c"
     },
     {
       "supplierId": "rubrik",
-      "checkedAt": "2026-10-16T02:02:47.128Z",
+      "checkedAt": "2026-10-16T10:11:42.755Z",
       "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001943896.json",
       "status": "checked",
       "sha256": "7d6489b8a651ac695a633d56676efce3ca3796eb75cc5596785822855f40c1c4"
     },
     {
       "supplierId": "varonis",
-      "checkedAt": "2026-10-16T02:02:47.815Z",
+      "checkedAt": "2026-10-16T10:11:43.078Z",
       "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001361113.json",
       "status": "checked",
       "sha256": "5c7576b0fa53ccb95eac41b4bb2859484614b21a670c8a3b610da2be91cacc8a"
     },
     {
       "supplierId": "netskope",
-      "checkedAt": "2026-10-16T02:02:48.245Z",
+      "checkedAt": "2026-10-16T10:11:43.375Z",
       "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0002063196.json",
       "status": "checked",
       "sha256": "e526ccaf33366fa8af1b9a07cc6c92b80217feba3eaf0905fd63fbb6a0d8ca7c"
     },
     {
       "supplierId": "tenable",
-      "checkedAt": "2026-10-16T02:02:48.555Z",
+      "checkedAt": "2026-10-16T10:11:43.681Z",
       "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001660280.json",
       "status": "checked",
       "sha256": "25756b942a29567cbb25e024fb51cdee78bbd29e0b31498a50eb533c7e470b11"
     },
     {
       "supplierId": "qualys",
-      "checkedAt": "2026-10-16T02:02:49.189Z",
+      "checkedAt": "2026-10-16T10:11:44.036Z",
       "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001107843.json",
       "status": "checked",
       "sha256": "5881840c35ba2fea8db2bf555735c059a487ca5962c4dea1febf05955d9a1f15"
     },
     {
       "supplierId": "rapid7",
-      "checkedAt": "2026-10-16T02:02:49.513Z",
+      "checkedAt": "2026-10-16T10:11:44.507Z",
       "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001560327.json",
       "status": "checked",
       "sha256": "196e90024aeca936e03fd58c8cc38a5e64022d181c0f01516cfb0c5d11f1d29b"
     },
     {
       "supplierId": "commvault",
-      "checkedAt": "2026-10-16T02:02:50.408Z",
+      "checkedAt": "2026-10-16T10:11:45.099Z",
       "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001169561.json",
       "status": "checked",
       "sha256": "8e18cf1384df1e5c6d7ec27ecaf92c266cb738259dabddc6621e743e1dd9d8b6"
     },
     {
       "supplierId": "jfrog",
-      "checkedAt": "2026-10-16T02:02:50.745Z",
+      "checkedAt": "2026-10-16T10:11:45.406Z",
       "url": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001800667.json",
       "status": "checked",
       "sha256": "5714aee0eea8ab7fa48eb1a828aacf1ede8160c9bf01aed3ce738dc080e762d7"

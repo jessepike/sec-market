@@ -56,7 +56,7 @@
     "headlineMetric": "ARR, cRPO, billings and similar figures that companies state themselves. They are not in structured SEC data.",
     "ownership": "Free-text descriptions. The name, ticker and listing status are certified instead.",
     "events without an sec.gov source": "Shown with the source that reported them.",
-    "event text": "For SEC events the filing, its date and the event type are certified. The written summary of a hand-collected event is not.",
+    "event text": "For SEC events the filing and its date are certified. The event type, the written summary, and any quoted filing text are not.",
     "growthBasis": "Shown only for Trend Micro, which does not file with the SEC."
   },
   "componentNotes": {

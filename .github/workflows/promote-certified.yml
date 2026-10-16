@@ -54,7 +54,7 @@ jobs:
           set -euo pipefail
           git fetch --no-tags origin main
           git merge-base --is-ancestor origin/main HEAD || { echo "main is not an ancestor of preview"; exit 1; }
-          changed=$(git diff --name-only origin/main HEAD | sort)
+          changed=$(git diff --no-renames --name-only origin/main HEAD | sort)
           [ -n "$changed" ] || { echo "Nothing to promote."; exit 1; }
           extra=$(comm -23 <(echo "$changed") <(printf '%s\n' $DATA_FILES | sort) || true)
           [ -z "$extra" ] || { echo "Not data-only; needs the owner's promotion:"; echo "$extra"; exit 1; }
@@ -91,4 +91,6 @@ jobs:
           ref: ${{ needs.check.outputs.sha }}
           fetch-depth: 0
       - name: Fast-forward main to the checked preview commit
-        run: git push origin "${{ needs.check.outputs.sha }}:refs/heads/main"
+        env:
+          SHA: ${{ needs.check.outputs.sha }}
+        run: git push origin "$SHA:refs/heads/main"

@@ -18,7 +18,7 @@ describe('RunStatus', () => {
     assert.match(html, new RegExp(`SEC figures for ${certifiedCount} public companies are re-derived from their own SEC filings`))
     assert.match(html, new RegExp(`all ${certifiedClaimCount} checks`))
     assert.ok(html.includes(`Last certified change: ${certifiedDateDisplay}.`))
-    assert.match(html, /Checked every 4 hours/)
+    assert.match(html, /A check is scheduled every 4 hours/)
     assert.match(html, /not re-checked automatically/)
     assert.doesNotMatch(html, /Last complete data refresh|not established|Which sources failed/)
   })
