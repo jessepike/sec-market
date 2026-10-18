@@ -47,8 +47,10 @@ Sessions start cold. Everything the next agent needs is in the repo, not in a ch
 
 The only allowed path is **local → `preview` → owner approval → `main` → Vercel production**.
 
-There are exactly two long-lived branches and each one owns a URL. Any other branch is short-lived
-and is deleted once merged into `preview`:
+There are exactly two working branches and each one owns a URL. Any other branch is short-lived and
+is deleted once merged into `preview`. One more branch, `archive/history-before-2026-10-14`, only
+holds the commit history from before the trunk was restarted on 2026-10-14; never build on it or
+delete it:
 
 | Branch | URL | What it is |
 |---|---|---|

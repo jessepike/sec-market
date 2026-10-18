@@ -27,9 +27,10 @@ Record list: [docs/reference/dns-and-accounts.md](docs/reference/dns-and-account
 
 ### SEC-062 · Watch the first automatic data change end to end
 
-The publish path has run only with no change to publish. When a tracked filer next files, confirm:
-the `data(auto)` commit lands on `preview`, Vercel builds it, `promote-certified.yml` fast-forwards
-`main` after the soak, and production shows the new figure. Fix anything that breaks.
+The refresh half has run: on 2026-10-16 the bot certified a new SentinelOne filing and pushed it to
+`preview`. That change reached production with an owner promotion, so the automatic half is still
+unproven. On the next data-only change, confirm `promote-certified.yml` fast-forwards `main` after
+the soak and production shows the new figure.
 **Authorization:** within D-88.
 
 ## Soon
