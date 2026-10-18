@@ -127,3 +127,15 @@ test('debt quotes skip wrapped item titles and do not follow references to other
     <p>Item 2.03 Creation of a Direct Financial Obligation</p><p>The information set forth in Item 8.01 of this Current Report is incorporated herein by reference.</p>`
   assert.equal(debtExcerpt(other), null)
 })
+
+test('debt quotes join hard-wrapped lines and follow a wrapped Item 1.01 reference', async () => {
+  const { debtExcerpt } = await import('../scripts/sec-verify/debt-excerpt.mjs')
+  const html = `<p>Item 1.01 Entry into a Material Definitive Agreement.</p><p>Indenture and Notes</p>
+    <p>On October 16, 2026, Example, Inc.<br>(the &#8220;Company&#8221;) completed its offering of $500,000,000 aggregate<br>principal amount of convertible senior notes due 2031.</p>
+    <p>Item 2.03 Creation of a Direct Financial Obligation or an</p><p>Obligation under an Off-Balance Sheet Arrangement of a Registrant.</p>
+    <p>The information set forth in Item 1.01 of this</p><p>Current Report on Form 8-K is incorporated herein by reference.</p>
+    <p>Item 9.01 Financial Statements and Exhibits.</p>`
+  const quote = debtExcerpt(html)
+  assert.match(quote, /^On October 16, 2026, Example, Inc\. \(the ‘Company’\) completed its offering of \$500,000,000/)
+  assert.doesNotMatch(quote, /incorporated|Indenture and Notes/)
+})

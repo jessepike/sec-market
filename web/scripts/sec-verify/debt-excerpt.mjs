@@ -1,7 +1,8 @@
 // AUTO-002 Phase 2 (D-91): an 8-K Item 2.03 event quotes the filing's own
 // description of the obligation. Pure text extraction, no model: find the
 // Item 2.03 section (or the Item 1.01 section it incorporates by reference),
-// drop the item title, and take the opening prose up to 450 characters. The
+// drop the item title and leading subheadings, join the hard-wrapped lines,
+// and take the opening prose up to 450 characters. The
 // quote is not certified and may not state an amount; the linked filing has
 // the full text. Returns null when there is no such prose, and the caller
 // falls back to the item label.
@@ -33,24 +34,33 @@ function section(text, item) {
   return text.slice(mine.at + mine.line.length, next ? next.at : undefined)
 }
 
+/** Body lines with the item title, wrapped title lines and leading subheadings removed, joined into prose. */
+function prose(body) {
+  const lines = body.split('\n').map(l => l.trim()).filter(l => l && !TITLE.test(l))
+  // A leading subheading ("Indenture and Notes") is short and has no closing punctuation.
+  while (lines.length && lines[0].length < 80 && !/[.;:,)”’"]$/.test(lines[0])) lines.shift()
+  return lines.join(' ').replace(/\s+/g, ' ').trim()
+}
+
+const REFERENCE = /incorporated (?:herein )?by reference/i
+
 /**
- * The opening of the filing's own description of the obligation: body lines
- * after the section title and short subheadings, cut at the last sentence end
- * within 450 characters (or at a word boundary). It states the purpose and,
- * usually, the amount; the linked filing has the rest.
+ * The opening of the filing's own description of the obligation: the Item 2.03
+ * text, or the Item 1.01 text when 2.03 only incorporates 1.01 by reference,
+ * cut at the last sentence end within 450 characters (or at a word boundary).
+ * Filings wrap lines mid-sentence, so lines are joined before anything is read.
  */
 export function debtExcerpt(html) {
   const text = filingText(html)
-  let body = section(text, '2.03')
-  const ref = /Item\s*(\d\.\d{2})[^\n]*?incorporated/i.exec(body)
-  if (ref) body = ref[1] === '1.01' ? section(text, '1.01') : ''
-  const prose = body.split('\n').map(l => l.trim())
-    .filter(l => l.length >= 60 && !TITLE.test(l))
-    .join(' ').replace(/\s+/g, ' ')
-    .replace(/[“”]/g, m => (m === '“' ? '‘' : '’'))
-  if (prose.length < 60) return null
-  if (prose.length <= 450) return prose
-  const window = prose.slice(0, 450)
-  const ends = [...window.matchAll(/[.;](?=\s+[A-Z“"(])/g)].map(m => m.index + 1).filter(i => i >= 150)
+  const own = section(text, '2.03')
+  const joined = own.replace(/\s+/g, ' ')
+  const ref = /Item\s*(\d\.\d{2})[^.]*?incorporated/i.exec(joined)
+  let flat = ref || REFERENCE.test(joined) ? (ref?.[1] === '1.01' ? prose(section(text, '1.01')) : '') : prose(own)
+  if (REFERENCE.test(flat.slice(0, 200))) return null
+  flat = flat.replace(/[“”]/g, m => (m === '“' ? '‘' : '’'))
+  if (flat.length < 60) return null
+  if (flat.length <= 450) return flat
+  const window = flat.slice(0, 450)
+  const ends = [...window.matchAll(/[.;](?=\s+[A-Z‘"(])/g)].map(m => m.index + 1).filter(i => i >= 150)
   return ends.length ? window.slice(0, ends.at(-1)) : `${window.slice(0, window.lastIndexOf(' '))}…`
 }
