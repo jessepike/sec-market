@@ -13,8 +13,8 @@ Everything not listed here is history: superseded, completed, or about a phase t
 | Purpose | D-1, D-76, D-77, D-102 | Intent is the authority (v1.4 accepted; v1.5 awaiting the owner's confirmation). Facts publish with no human approval step; no machine publishes a judgment. A standing supplier tracker is the product |
 | What may be called verified | D-85, D-89, D-100 | Publishing needs 100% of required claims. The certified tier is the SEC filers. The page says "re-derived from SEC filings", not "independently verified" |
 | Events | D-91 | Filed events are dated, uniform, rule-listed facts from SEC filings |
-| Automation | D-88, D-96, D-98, D-101 | Certified data reaches production on its own after a soak and a fresh check. SEC is checked every 4 hours. No paid GitHub plan; `main` is guarded by design. Production renders the certified tracker |
-| Deploy path | D-31, D-32, D-50 | Local, then GitHub, then Vercel. `preview` is the trunk, `main` is production. Commits use `jesse@keatingpike.com` |
+| Automation | D-88, D-96, D-98, D-101, D-103 | Every change reaches production on its own after a soak and full checks; major changes wait for the owner. SEC is checked every 4 hours. No paid GitHub plan; `main` is guarded by design. Production renders the certified tracker |
+| Deploy path | D-31, D-32, D-50, D-103 | Local, then GitHub, then Vercel. `preview` is the trunk, `main` is production, moved by `promote.yml`. Commits use `jesse@keatingpike.com` |
 | Attribution | D-90, D-97 | Method-page byline in the owner's legal name, Jesse Pike, with an interests statement |
 | Records | D-68, D-93 | Published records change only through dated corrections. The weekly issue is retired; issue `2026-w36` stays as an archive |
 | Distribution | D-92 | Email capture and a digest of certified changes, built as one workstream |
@@ -1140,3 +1140,12 @@ Owner: "let's clean this up ... archive what we need to archive ... I want it ki
 - Removed: `web/published-app`, root `scripts/` and `workflows/`, the weekly-issue workflows, the app-only and diagnostic build modes, 17 unreachable components and the unused `recharts` dependency. This supersedes D-101's note that `web/published-app` stays.
 - `intent.md` revised to v1.5 (text awaiting the owner's confirmation); constraints record D-88 and D-92; this ledger gains the index above.
 - One visible change: the RSS line read "Follow published records by RSS: follow by RSS" and now reads "Follow new records by RSS". Every other pixel on all five routes is identical to production at 1440 and 390.
+
+**D-103 · 2026-10-18 — Automatic promotion for every change that passes the checks; the owner reviews only major changes.**
+
+Owner, after the promotion workflow was found to have failed silently since it was scheduled: "i am not willing to promote the site and try to push to get readers until we can show a sustained ability to provide fresh and accurate content ... i need you to focus on resolving these issues", then "We should be able to auto promote. I should only have to review major updates." This widens D-88 and is the owner's approval of the matching `.claude/rules/constraints.md` change.
+
+- `promote.yml` replaces `promote-certified.yml` and runs every 4 hours. It fast-forwards `main` to `preview` after a soak (6 hours for data-only changes, 24 hours otherwise; agent's choice, adjustable), the full test suite on the exact commit, a fresh certification that reproduces the committed data, and a page-structure check against production.
+- Major changes wait for the owner: anything a reader would notice beyond data, adding or removing suppliers or sources, email, secrets or external services, intent, rules, deploy policy, security headers and the promotion rules. Agents mark them `Owner-Review: required`; the workflow also holds protected paths, new secrets and any change to page structure on its own. Held changes and failures each open a GitHub issue.
+- Monitoring and accuracy: the freshness probe now also alerts when promotion has not succeeded in 30 hours, certified data has waited 48 hours, or production does not serve `main`. Machine-written event text passes an accuracy gate before it can publish.
+- The owner will not promote the site to readers until it shows sustained fresh and accurate operation. The bar for that is open (status.md).

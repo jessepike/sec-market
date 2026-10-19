@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url'
 import { edgarRegistry } from '../src/data/edgarRegistry.ts'
 import { handCollectedEvents } from '../src/data/tracker/events.ts'
 import { debtExcerpt } from './sec-verify/debt-excerpt.mjs'
+import { quoteProblems } from './sec-verify/event-text.mjs'
 import type { TrackerEvent, TrackerEventType } from '../src/data/tracker/events.ts'
 
 /**
@@ -195,7 +196,10 @@ async function main() {
         try {
           await sleep(REQUEST_INTERVAL_MS)
           const quote = debtExcerpt(await fetchText(docUrl))
-          if (quote) text = quote.endsWith('…') ? `${text} The filing describes it as: “${quote.slice(0, -1)}” …` : `${text} The filing describes it as: “${quote}”`
+          const body = quote?.endsWith('…') ? quote.slice(0, -1) : quote
+          const problems = body ? quoteProblems(body) : ['no description found']
+          if (body && !problems.length) text = quote!.endsWith('…') ? `${text} The filing describes it as: “${body}” …` : `${text} The filing describes it as: “${body}”`
+          else console.error(`WARN  ${supplier.id} ${accession}: quote not used (${problems.join('; ')}); publishing the filing label only`)
         } catch (error) { console.error(`WARN  ${supplier.id} ${accession}: could not read the filing for its description (${String(error)})`) }
       }
 

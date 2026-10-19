@@ -1,14 +1,17 @@
 name: freshness probe
 
-# AUTO-002 Phase 1. Watches the certified refresh and the live site. The
-# weekly signed issue was retired (D-93), so this no longer reads the issue
-# index. It answers two questions:
-#   1. Has certified-refresh.yml run in the last 10 hours? (It is scheduled
-#      every 4 hours; GitHub can delay or drop scheduled runs.)
-#   2. Does the live site answer?
-# When either answer is no it opens (or updates) one GitHub issue, which reaches
-# the owner's phone. A run that completed but was held below 100% is reported
-# by certified-refresh.yml itself.
+# Watches the whole publishing chain (D-103) and the live site. Every 6 hours
+# it asks five questions; any "no" opens or updates one GitHub issue, "Site
+# freshness", which reaches the owner's phone and closes itself on recovery.
+#   1. Did certified-refresh.yml run in the last 10 hours? (scheduled every 4)
+#   2. Did promote.yml succeed in the last 30 hours? (scheduled every 4)
+#   3. Is certified data on preview reaching production? Alert when a
+#      data(auto) commit has waited more than 48 hours to reach main.
+#   4. Does production serve what main says? Alert when the live release
+#      differs from main's newest commit for more than 2 hours.
+#   5. Does the live site answer?
+# Failures inside a run are reported by that workflow's own issue; this probe
+# catches the runs that never happen and the gaps between the steps.
 
 on:
   schedule:
@@ -20,6 +23,9 @@ permissions: {}
 env:
   SITE: https://securitymarketpulse.com
   MAX_HOURS: '10'
+  PROMOTE_MAX_HOURS: '30'
+  DATA_LAG_HOURS: '48'
+  DEPLOY_LAG_HOURS: '2'
 
 jobs:
   probe:
@@ -27,8 +33,13 @@ jobs:
     timeout-minutes: 5
     permissions:
       actions: read
+      contents: read
       issues: write
     steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
       - name: Measure
         id: measure
         env:
@@ -46,10 +57,31 @@ jobs:
             echo "last certified refresh: $created ($hours h ago), $(echo "$last" | jq -r .conclusion)"
             if [ "$hours" -gt "$MAX_HOURS" ]; then problems="The certified refresh last ran **$hours hours** ago ($created). It is scheduled every 4 hours. Check that the workflow is enabled under Actions."; fi
           fi
+          now=$(date -u +%s)
+          ok=$(gh run list -R "$REPO" --workflow promote.yml --status success --limit 1 --json createdAt --jq '.[0].createdAt // empty' 2>/dev/null || true)
+          added=$(git log -1 --format=%ct origin/main -- .github/workflows/promote.yml)
+          if [ -z "$ok" ]; then
+            if [ -n "$added" ] && [ $(( (now - added) / 3600 )) -lt "$PROMOTE_MAX_HOURS" ]; then echo "promote.yml is new; no successful run expected yet"
+            else problems="$problems No successful run of promote.yml yet."; fi
+          else
+            h=$(( (now - $(date -u -d "$ok" +%s)) / 3600 ))
+            echo "last successful promote run: $ok ($h h ago)"
+            [ "$h" -le "$PROMOTE_MAX_HOURS" ] || problems="$problems promote.yml last succeeded **$h hours** ago ($ok)."
+          fi
+          oldest=$(git log origin/main..origin/preview --grep '^data(auto)' --format=%ct | tail -1)
+          if [ -n "$oldest" ]; then
+            h=$(( (now - oldest) / 3600 ))
+            echo "oldest unpromoted certified data: $h h"
+            [ "$h" -le "$DATA_LAG_HOURS" ] || problems="$problems Certified data has waited **$h hours** on preview without reaching production. Check the open promotion issues."
+          fi
+          main_sha=$(git rev-parse origin/main); main_age=$(( (now - $(git log -1 --format=%ct origin/main)) / 3600 ))
+          live_sha=$(curl -sS --max-time 20 "$SITE/app-release.json" | jq -r '.appRevision // empty' || true)
+          echo "main $main_sha ($main_age h old), live ${live_sha:-unknown}"
+          if [ "$live_sha" != "$main_sha" ] && [ "$main_age" -ge "$DEPLOY_LAG_HOURS" ]; then problems="$problems Production serves \`${live_sha:-unknown}\` but main is \`$main_sha\` ($main_age h old). Check the Vercel deployment."; fi
           code=$(curl -sS -o /dev/null -w '%{http_code}' "$SITE/" || echo 000)
           if [ "$code" != "200" ]; then problems="$problems The live site returned HTTP $code."; fi
           if [ -z "$problems" ]; then echo "state=fresh" >> "$GITHUB_OUTPUT"; else echo "state=stale" >> "$GITHUB_OUTPUT"; fi
-          { echo "detail<<EOF"; echo "${problems:-Certified refresh ran within $MAX_HOURS hours and the site answered 200.}"; echo "EOF"; } >> "$GITHUB_OUTPUT"
+          { echo "detail<<EOF"; echo "${problems:-All five checks passed: refresh ran, promotion succeeded, data is not waiting, production matches main, the site answered 200.}"; echo "EOF"; } >> "$GITHUB_OUTPUT"
 
       - name: Raise or clear the alert
         env:
@@ -71,5 +103,5 @@ jobs:
             gh label create freshness -R "$REPO" --description "Site freshness probe" --color d93f0b 2>/dev/null || true
             gh issue create -R "$REPO" --title "$title" --label freshness --body "$DETAIL
 
-          This issue closes itself when both checks pass again."
+          This issue closes itself when all five checks pass again."
           fi

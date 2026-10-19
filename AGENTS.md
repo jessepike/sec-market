@@ -7,8 +7,9 @@ canonical; `CLAUDE.md` and `.cursor/rules/project.mdc` point here.
 
 https://securitymarketpulse.com, a public tracker of the business of the security market: revenue,
 funding, acquisitions, restructuring, debt and leadership changes for 74 security suppliers across
-12 market domains. SEC figures for 16 public filers are checked against their filings every 4 hours;
-a change publishes automatically when every check passes. No machine writes opinions. The owner is
+12 market domains. SEC figures for 16 public filers are checked against their filings every 4 hours.
+Data and routine changes publish automatically when every check passes; the owner reviews only
+major changes. No machine writes opinions. The owner is
 Jesse Pike.
 
 - **Stage:** Operate. The site is live and updates itself.
@@ -45,7 +46,8 @@ Sessions start cold. Everything the next agent needs is in the repo, not in a ch
 
 ## Production deploy (mandatory)
 
-The only allowed path is **local → `preview` → owner approval → `main` → Vercel production**.
+The path is **local → `preview` → automatic checks → `main` → Vercel production** (D-103). The owner
+reviews only major changes.
 
 There are exactly two working branches and each one owns a URL. Any other branch is short-lived and
 is deleted once merged into `preview`. One more branch, `archive/history-before-2026-10-14`, only
@@ -58,40 +60,50 @@ delete it:
 | `main` | https://securitymarketpulse.com | Production. Moves only by a fast-forward from `preview` |
 
 1. Work on a short-lived branch from `preview`, or on `preview` itself. Never commit on `main`.
-2. Run `npm test` from `web/`.
-3. Push `preview`. Vercel rebuilds the stable preview URL.
-4. Run the visual review below and send the owner the preview URL and the screenshots.
-5. **Only after the owner says yes:** `git checkout main && git merge --ff-only preview && PROMOTE=1 git push origin main`.
-6. Confirm the Vercel production deployment is Ready, then `curl` the live host before saying it shipped.
+2. Run `npm test` from `web/`. Render production and the preview and compare (below).
+3. Decide whether the change is major (below). If it is, end the commit message with the trailer
+   `Owner-Review: required`.
+4. Push `preview`. Vercel rebuilds the preview URL.
+5. `.github/workflows/promote.yml` runs every 4 hours. It fast-forwards `main` once the newest commit
+   has soaked (6 hours for data-only changes, 24 hours otherwise), the full test suite passes on that
+   exact commit, a fresh certification reproduces the committed SEC data, and the page structure
+   (headings, sections, navigation, routes) matches production. A major change is held and listed
+   in the GitHub issue "Owner review needed"; any failure opens "Automatic promotion failed".
+6. When the owner approves a held change: `git checkout main && git merge --ff-only preview &&
+   PROMOTE=1 git push origin main`, then confirm the Vercel deployment and `curl` the live host.
 
-A `pre-push` hook refuses a push to `main` without `PROMOTE=1`. Install it once per clone with
-`./.githooks/install`. Keeping `main` a fast-forward of `preview` means production is always an
-exact earlier state of the trunk, so "what is live" is answered by one `git log`.
+**Major changes** need the owner and must carry the trailer:
 
-**The one automatic exception (D-88).** `certified-refresh.yml` pushes changed certified SEC data,
-and nothing else, to `preview`. `promote-certified.yml` fast-forwards `main` once a day only when
-every file that differs is one of the six allowlisted data files, the newest `preview` commit is at
-least 24 hours old, and a fresh certification reproduces the values at 100%. Any other commit on
-`preview` blocks it until the owner promotes. So after human work lands on `preview`, ask the owner
-to promote promptly, or certified data stops reaching production.
+- anything a reader would notice beyond data: layout, sections, navigation, headings, page wording
+- adding or removing suppliers, domains, data sources, claim types or certified companies
+- anything that sends email, adds an external service or uses a secret
+- `intent.md`, `.claude/rules/`, this deploy policy, security headers, the promotion rules
+
+The workflow also holds, without a trailer, any change to a protected path (`intent.md`,
+`.claude/`, `.githooks/`, `web/vercel.json`, `promote.yml`, `web/scripts/promotion/`), any workflow
+that starts using a secret, and any change to the page structure. Everything else is routine and goes
+live on its own: certified data, bug fixes, tests, monitoring, docs, refactors that render the same.
+When unsure, mark it major.
+
+A `pre-push` hook refuses a manual push to `main` without `PROMOTE=1`. Install it once per clone with
+`./.githooks/install`. Keeping `main` a fast-forward of `preview` means production is always an exact
+earlier state of the trunk, so "what is live" is answered by one `git log`.
 
 Do **not**:
 
-- commit or push directly to `main`
-- push to `main` any change that touches `web/` without the owner's approval of a preview
+- commit or push directly to `main`, except the owner-approved promotion command above
+- leave the trailer off a change you are unsure about
 - deploy with `vercel --prod` or upload a working tree from the CLI
 - treat `origin/main` as live until that commit has deployed
 - force-push `preview` or `main`
 - commit as `jesse@pikeholdings.co`. Vercel refuses the deploy (`COMMIT_AUTHOR_REQUIRED`). The repo's
   commit email is `jesse@keatingpike.com`
 
-## Visual review before publish (mandatory)
+## Visual review before every push to `preview` (mandatory)
 
-A build that passes is not a page that looks right. No change touching `web/` reaches `main` until
-an agent has **rendered the page and looked at it**.
-
-Before asking for approval, capture full-page screenshots of production and of the preview at
-**1440px and 390px**, compare them, and state plainly what moved. From `web/`:
+A build that passes is not a page that looks right. Before pushing a change that touches `web/`,
+capture full-page screenshots of production and of your local build or the preview at **1440px and
+390px**, compare them, and say in the commit message what moved, or that nothing did. From `web/`:
 
 ```
 node scripts/shot.mjs https://securitymarketpulse.com/ /tmp/prod
@@ -104,7 +116,7 @@ node scripts/shot.mjs <preview-url> /tmp/preview
   a passing test.
 - Report **invisible** work (SEO, prerendering, bundle size, citations, accessibility) separately
   from **visible** work (layout, type, colour, hierarchy, charts). If nothing visible changed, say
-  so first.
+  so first. Anything visible beyond data is a major change.
 
 ## Content rules
 

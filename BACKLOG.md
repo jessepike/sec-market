@@ -3,7 +3,7 @@
 Open work only, in priority order. Completed and retired items, SEC-002 to SEC-059, are in
 [docs/archive/2026-10-auto-002/backlog-history.md](docs/archive/2026-10-auto-002/backlog-history.md).
 Nothing here is authorized just by being listed; the authorization line on each item says where it
-stands. New items continue from SEC-071.
+stands. New items continue from SEC-072.
 
 ## Next
 
@@ -25,13 +25,21 @@ a postal address for the footer.
 Record list: [docs/reference/dns-and-accounts.md](docs/reference/dns-and-accounts.md).
 **Authorization:** owner actions in the owner's accounts (D-99).
 
-### SEC-062 · Watch the first automatic data change end to end
+### SEC-062 · Burn-in: prove sustained automatic operation
 
-The refresh half has run: on 2026-10-16 the bot certified a new SentinelOne filing and pushed it to
-`preview`. That change reached production with an owner promotion, so the automatic half is still
-unproven. On the next data-only change, confirm `promote-certified.yml` fast-forwards `main` after
-the soak and production shows the new figure.
-**Authorization:** within D-88.
+The owner will not put the site in front of readers until it runs fresh and accurate with no human
+fixes (2026-10-18). Track consecutive clean days: every scheduled `certified refresh`, `promote` and
+`freshness probe` run green, every new certified filing live within 48 hours, no manual data fix, no
+open alert issue. Any failure restarts the count. Bar to be set by the owner (recommended 30 days).
+**Authorization:** within D-103.
+
+### SEC-071 · Decide what the live site shows
+
+58 of 74 suppliers get no automated refresh, so their facts age while the page shows them beside
+current data. Options: (A) show only what refreshes, the 16 SEC filers and their filed events, with
+the rest removed or in a dated archive; (B) keep all and show each fact's age, fading old ones; (C)
+rebuild automated collection for private companies (deferred, D-95). Any option is a major change.
+**Authorization:** owner decision.
 
 ## Soon
 

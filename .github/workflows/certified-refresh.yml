@@ -3,7 +3,7 @@ name: certified refresh
 # AUTO-002 Phase 1 (D-88, D-96, D-98). Every 4 hours: pull SEC data, re-derive
 # every certified claim, run the 100% gate, and if certified values changed,
 # push only the allowlisted data files to `preview`. No AI, no secrets, no
-# laptop. Production is not touched here (see promote-certified.yml).
+# laptop. Production is not touched here (see promote.yml).
 #
 # Two jobs, two trust levels (council review, AUTO-002):
 #   certify  read-only token; runs npm ci and the repo's scripts.

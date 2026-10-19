@@ -43,12 +43,14 @@ certify-sec.ts (sec-verify/independent.mjs re-derives every claim)
    v
 certify-gate.ts                        -> must report 80/80 and zero drift
    v
-data tests, allowlist check, certify-changed.mjs (did any certified value change?)
+data tests (incl. the accuracy gate on event text), allowlist check,
+certify-changed.mjs (did any certified value change?)
    |  only if complete AND changed (publish job, write token, runs no repo code)
    v
 commit of six allowlisted data files to `preview`  -> Vercel preview build
-   |  daily at 15:23 UTC (promote-certified.yml)
-   |  only if data-only, 24 h soak, and a fresh certification reproduces the values
+   |  every 4 hours (promote.yml, D-103): soaked (6 h data-only, 24 h otherwise),
+   |  no major change, full tests green, fresh certification reproduces the data,
+   |  page structure unchanged against production
    v
 fast-forward `main`  -> Vercel production build (gated again by certify-gate)
    v
@@ -65,12 +67,16 @@ The six allowlisted data files are `edgarFacts.json`, `filingEvents.json`, `fili
 |---|---|---|
 | 100% gate | `web/scripts/certify-gate.ts`, `claim-gate.mjs` | Publishing when any certified claim fails, is missing, or drifts from the build inputs |
 | Build gate | `web/scripts/app-release.mjs` | A Vercel build of the site when the gate fails; the last good deployment keeps serving |
-| Allowlist | `certified-refresh.yml`, `promote-certified.yml` | The bot changing anything except the six data files |
+| Allowlist | `certified-refresh.yml` | The refresh bot changing anything except the six data files |
 | Two trust levels | `certified-refresh.yml` | The job holding a write token never runs `npm` or repo code |
-| Soak and re-check | `promote-certified.yml` | Production moving within 24 hours of a data change, or on values a fresh run cannot reproduce |
-| Code blocks automation | `promote-certified.yml` | Any non-data commit on `preview` stops auto-promotion until the owner promotes |
+| Accuracy gate | `web/scripts/sec-verify/event-text.mjs`, data tests | Machine-written event text that is malformed or quotes boilerplate; a bad quote falls back to the plain filing label, and any bad text fails the run |
+| Promotion rules | `promote.yml`, `web/scripts/promotion/decide.mjs` (unit-tested) | Production moving before a soak, from a diverged branch, or with a change marked major, touching a protected path or adding a secret |
+| Full re-check | `promote.yml` verify job | Production moving on a commit that fails any test, or on data a fresh certification cannot reproduce |
+| Structure guard | `web/scripts/promotion/structure.mjs` | A layout change reaching production unreviewed: any change to headings, sections, navigation or routes waits for the owner |
+| Owner review issue | `promote.yml` report job | A held major change going unnoticed; the issue lists what waits and closes on promotion |
+| Promotion failure issue | `promote.yml` report job | A failed promotion going unnoticed |
 | Held-run issue | `certified-refresh.yml` report job | A failed or incomplete run going unnoticed; one GitHub issue opens and closes on recovery |
-| Freshness probe | `freshness.yml`, every 6 hours | The refresh silently stopping (no run in 10 hours) or the site going down |
+| Freshness probe | `freshness.yml`, every 6 hours | The refresh or promotion silently stopping, certified data waiting over 48 hours, production not serving `main`, or the site going down |
 | Raw-response archive | `sec-archive` workflow artifact, 90 days | Losing the evidence a certified value was derived from |
 | Pinned actions | all workflows | A third-party action changing under us; each is pinned to a commit SHA |
 
@@ -84,7 +90,7 @@ The six allowlisted data files are `edgarFacts.json`, `filingEvents.json`, `fili
 | `web/scripts/` | Data refresh, certification, build, prerender and verification scripts |
 | `web/scripts/sec-verify/` | The independent verifier and the 8-K Item 2.03 excerpt extractor |
 | `web/tests/` | Data tests (`tsx --test`) and browser tests (`tests/e2e`, Playwright) |
-| `.github/workflows/` | `certified-refresh`, `promote-certified`, `freshness`, `web` (CI) |
+| `.github/workflows/` | `certified-refresh`, `promote`, `freshness`, `web` (CI) |
 | `.githooks/` | `pre-push` hook that refuses a push to `main` without `PROMOTE=1` |
 | `docs/` | Current design in `reference/`, work in flight in `active/`, history in `archive/` |
 

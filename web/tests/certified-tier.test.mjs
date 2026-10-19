@@ -139,3 +139,19 @@ test('debt quotes join hard-wrapped lines and follow a wrapped Item 1.01 referen
   assert.match(quote, /^On October 16, 2026, Example, Inc\. \(the ‘Company’\) completed its offering of \$500,000,000/)
   assert.doesNotMatch(quote, /incorporated|Indenture and Notes/)
 })
+
+test('every published filed-event text passes the accuracy gate', async () => {
+  const { eventTextProblems } = await import('../scripts/sec-verify/event-text.mjs')
+  const { readFileSync } = await import('node:fs')
+  const events = JSON.parse(readFileSync(new URL('../src/data/generated/filingEvents.json', import.meta.url), 'utf8'))
+  const bad = events.map(e => [e.id, eventTextProblems(e.text)]).filter(([, p]) => p.length)
+  assert.deepEqual(bad, [])
+})
+
+test('the accuracy gate rejects the boilerplate quote that once went live', async () => {
+  const { eventTextProblems, quoteProblems } = await import('../scripts/sec-verify/event-text.mjs')
+  const shipped = 'Form 8-K (Item 2.03) reporting the creation of a direct financial obligation, filed 2026-10-16. The filing describes it as: “Current Report on Form 8-K is incorporated herein by reference.”'
+  assert.ok(eventTextProblems(shipped).some(p => /boilerplate/.test(p)))
+  assert.deepEqual(quoteProblems('On October 16, 2026, SentinelOne, Inc. (the ‘Company’) completed its previously announced private offering of $1,250,000,000 of notes.'), [])
+  assert.deepEqual(eventTextProblems('Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2026-10-15.'), [])
+})

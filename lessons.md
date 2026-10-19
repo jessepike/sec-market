@@ -8,6 +8,11 @@ Working lessons for agents on this project, newest first, at most about 15. Each
 The owner keeps a shared knowledge base of lessons across projects, outside this repo. Lessons
 promoted there are removed from this file; Git history keeps them.
 
+## 2026-10-18
+
+- [new:2026-10-18] A scheduled workflow that has only ever run on its schedule is untested. `promote-certified.yml` failed every run for two days (a credential-free checkout of a private repo cannot `git fetch`), and nothing alerted because monitoring checked that the refresh ran, not that promotion succeeded. Put decision logic in a script with unit tests, and monitor each scheduled job's success and the end-to-end lag, not just that something ran.
+- [new:2026-10-18] Machine-extracted text needs its own gate. The certification proved the numbers while an 8-K quote shipped as boilerplate. Every machine-written string now passes a validator before publish and in the data tests.
+
 ## 2026-10-16
 
 - [new:2026-10-16] `pkill -f <pattern>` kills the shell that runs it when the pattern also appears in that shell's own command line (exit 144). Kill by PID, or use a pattern the command line cannot contain.

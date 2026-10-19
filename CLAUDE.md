@@ -6,12 +6,12 @@ AGENTS.md is canonical for every runtime. This file adds only what is specific t
 
 ## Before touching `web/`
 
-`main` is production. A push to `main` publishes to https://securitymarketpulse.com with nobody
-between the commit and the public site.
+`main` is production, and `promote.yml` moves it to `preview` automatically once checks pass. So a
+push to `preview` is a push to the public site, a day later, unless the change is held.
 
-- Never commit or push to `main`. Work lands on `preview`; promotion is the owner's call.
-- Render the page and look at it before claiming anything about how it looks
-  (`node scripts/shot.mjs <url> <prefix>` from `web/`, 1440px and 390px).
+- Never commit or push to `main` yourself, except the owner-approved promotion command.
+- Render the page and look at it before pushing (`node scripts/shot.mjs <url> <prefix>` from `web/`,
+  1440px and 390px). Anything visible beyond data is major: add `Owner-Review: required`.
 - Never delete code, CSS or data because static analysis says it is unused. Prove it with a
   before/after render.
 - When reporting, separate invisible work from visible work. If nothing visible changed, say so first.
