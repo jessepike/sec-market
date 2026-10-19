@@ -6,8 +6,9 @@ AGENTS.md is canonical for every runtime. This file adds only what is specific t
 
 ## Before touching `web/`
 
-`main` is production, and `promote.yml` moves it to `preview` automatically once checks pass. So a
-push to `preview` is a push to the public site, a day later, unless the change is held.
+`main` is production, and `promote.yml` fast-forwards it to `preview` automatically once checks pass.
+So a push to `preview` reaches the public site on its own (6 hours for bot data, 24 hours for other
+changes) unless the change is held for the owner.
 
 - Never commit or push to `main` yourself, except the owner-approved promotion command.
 - Render the page and look at it before pushing (`node scripts/shot.mjs <url> <prefix>` from `web/`,

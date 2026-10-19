@@ -12,9 +12,9 @@ export function quoteProblems(quote) {
   const problems = []
   if (quote.length < 80) problems.push('quote is shorter than 80 characters')
   if (quote.length > 460) problems.push('quote is longer than 460 characters')
-  if (!/^[A-Z‘(]/.test(quote)) problems.push('quote does not start a sentence')
+  if (!/^[A-Z‘($0-9]/.test(quote)) problems.push('quote does not start a sentence')
   if (/incorporated (?:herein )?by reference/i.test(quote)) problems.push('quote is reference boilerplate')
-  if (/^Item\s*\d\.\d{2}|Direct Financial Obligation|Off-Balance Sheet Arrangement/i.test(quote)) problems.push('quote contains an item title')
+  if (/^Item\s*\d\.\d{2}/i.test(quote) || /Direct Financial Obligation|Off-Balance Sheet Arrangement/.test(quote)) problems.push('quote contains an item title')
   if (!/\d/.test(quote)) problems.push('quote states no date or amount')
   if (/[“”]/.test(quote)) problems.push('quote contains unconverted inner double quotes')
   if (/&[#a-z0-9]+;|<\/?[a-z]/i.test(quote)) problems.push('quote contains HTML')

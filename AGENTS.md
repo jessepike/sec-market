@@ -64,11 +64,12 @@ delete it:
 3. Decide whether the change is major (below). If it is, end the commit message with the trailer
    `Owner-Review: required`.
 4. Push `preview`. Vercel rebuilds the preview URL.
-5. `.github/workflows/promote.yml` runs every 4 hours. It fast-forwards `main` once the newest commit
-   has soaked (6 hours for data-only changes, 24 hours otherwise), the full test suite passes on that
-   exact commit, a fresh certification reproduces the committed SEC data, and the page structure
-   (headings, sections, navigation, routes) matches production. A major change is held and listed
-   in the GitHub issue "Owner review needed"; any failure opens "Automatic promotion failed".
+5. `.github/workflows/promote.yml` runs every 4 hours. Taking commits oldest first, it promotes up to
+   the newest one that has soaked on its own clock (6 hours for the refresh bot's `data(auto)`
+   commits, 24 hours for anything else) and is not major. It then requires the full test suite to
+   pass on that exact commit, a fresh certification to reproduce the committed SEC data, and the
+   page-structure guard to match production. A major change is held, with everything after it, and
+   listed in the GitHub issue "Owner review needed"; a failure opens "Automatic promotion failed".
 6. When the owner approves a held change: `git checkout main && git merge --ff-only preview &&
    PROMOTE=1 git push origin main`, then confirm the Vercel deployment and `curl` the live host.
 
@@ -79,11 +80,19 @@ delete it:
 - anything that sends email, adds an external service or uses a secret
 - `intent.md`, `.claude/rules/`, this deploy policy, security headers, the promotion rules
 
-The workflow also holds, without a trailer, any change to a protected path (`intent.md`,
-`.claude/`, `.githooks/`, `web/vercel.json`, `promote.yml`, `web/scripts/promotion/`), any workflow
-that starts using a secret, and any change to the page structure. Everything else is routine and goes
-live on its own: certified data, bug fixes, tests, monitoring, docs, refactors that render the same.
-When unsure, mark it major.
+The workflow also holds, without a trailer:
+
+- protected paths: `intent.md`, `AGENTS.md`, `CLAUDE.md`, `.claude/`, `.githooks/`, all of
+  `.github/`, `web/vercel.json`, `web/package.json` and its lock file, the promotion scripts, and the
+  certification chain (`app-release.mjs`, `claim-gate.mjs`, `certify-*`, `sec-verify/independent.mjs`)
+- merge commits, and any workflow line that uses a secret
+- a change to the page structure: routes, h1 and h2 headings, section and navigation ids, navigation
+  links, the stylesheet, or the text of the dated records (thesis, issue `2026-w36`, corrections)
+
+The guard does not see wording changes elsewhere on the tracker page, h3 and lower headings, or
+chart markup. For those, the trailer is the only control: when unsure, mark it major. Everything else
+is routine and goes live on its own: certified data, bug fixes, tests, docs, refactors that render
+the same. Soak time comes from commit dates, so never backdate a commit.
 
 A `pre-push` hook refuses a manual push to `main` without `PROMOTE=1`. Install it once per clone with
 `./.githooks/install`. Keeping `main` a fast-forward of `preview` means production is always an exact

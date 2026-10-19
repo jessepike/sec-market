@@ -155,3 +155,8 @@ test('the accuracy gate rejects the boilerplate quote that once went live', asyn
   assert.deepEqual(quoteProblems('On October 16, 2026, SentinelOne, Inc. (the ‘Company’) completed its previously announced private offering of $1,250,000,000 of notes.'), [])
   assert.deepEqual(eventTextProblems('Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2026-10-15.'), [])
 })
+
+test('the accuracy gate accepts ordinary prose about obligations and quotes that open with an amount', async () => {
+  const { quoteProblems } = await import('../scripts/sec-verify/event-text.mjs')
+  assert.deepEqual(quoteProblems('$500,000,000 aggregate principal amount of notes was issued on October 1, 2026, creating a direct financial obligation of the Company.'), [])
+})

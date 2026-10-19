@@ -4,7 +4,8 @@ name: freshness probe
 # it asks five questions; any "no" opens or updates one GitHub issue, "Site
 # freshness", which reaches the owner's phone and closes itself on recovery.
 #   1. Did certified-refresh.yml run in the last 10 hours? (scheduled every 4)
-#   2. Did promote.yml succeed in the last 30 hours? (scheduled every 4)
+#   2. Did promote.yml complete a run without error in the last 30 hours?
+#      (scheduled every 4; a run that waits or holds still counts)
 #   3. Is certified data on preview reaching production? Alert when a
 #      data(auto) commit has waited more than 48 hours to reach main.
 #   4. Does production serve what main says? Alert when the live release
@@ -74,7 +75,11 @@ jobs:
             echo "oldest unpromoted certified data: $h h"
             [ "$h" -le "$DATA_LAG_HOURS" ] || problems="$problems Certified data has waited **$h hours** on preview without reaching production. Check the open promotion issues."
           fi
-          main_sha=$(git rev-parse origin/main); main_age=$(( (now - $(git log -1 --format=%ct origin/main)) / 3600 ))
+          main_sha=$(git rev-parse origin/main)
+          # Age from when main was last pushed (GitHub activity), not from the commit date:
+          # a promoted commit is always older than its push.
+          pushed=$(gh api "repos/$REPO/activity?ref=refs/heads/main&per_page=1" --jq '.[0].timestamp // empty' 2>/dev/null || true)
+          if [ -n "$pushed" ]; then main_age=$(( (now - $(date -u -d "$pushed" +%s)) / 3600 )); else main_age=$(( (now - $(git log -1 --format=%ct origin/main)) / 3600 )); fi
           live_sha=$(curl -sS --max-time 20 "$SITE/app-release.json" | jq -r '.appRevision // empty' || true)
           echo "main $main_sha ($main_age h old), live ${live_sha:-unknown}"
           if [ "$live_sha" != "$main_sha" ] && [ "$main_age" -ge "$DEPLOY_LAG_HOURS" ]; then problems="$problems Production serves \`${live_sha:-unknown}\` but main is \`$main_sha\` ($main_age h old). Check the Vercel deployment."; fi

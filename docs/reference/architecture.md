@@ -48,9 +48,9 @@ certify-changed.mjs (did any certified value change?)
    |  only if complete AND changed (publish job, write token, runs no repo code)
    v
 commit of six allowlisted data files to `preview`  -> Vercel preview build
-   |  every 4 hours (promote.yml, D-103): soaked (6 h data-only, 24 h otherwise),
-   |  no major change, full tests green, fresh certification reproduces the data,
-   |  page structure unchanged against production
+   |  every 4 hours (promote.yml, D-103): each commit soaked on its own clock
+   |  (6 h bot data, 24 h otherwise), no major change, full tests green, fresh
+   |  certification reproduces the data, page structure unchanged against production
    v
 fast-forward `main`  -> Vercel production build (gated again by certify-gate)
    v
@@ -70,9 +70,9 @@ The six allowlisted data files are `edgarFacts.json`, `filingEvents.json`, `fili
 | Allowlist | `certified-refresh.yml` | The refresh bot changing anything except the six data files |
 | Two trust levels | `certified-refresh.yml` | The job holding a write token never runs `npm` or repo code |
 | Accuracy gate | `web/scripts/sec-verify/event-text.mjs`, data tests | Machine-written event text that is malformed or quotes boilerplate; a bad quote falls back to the plain filing label, and any bad text fails the run |
-| Promotion rules | `promote.yml`, `web/scripts/promotion/decide.mjs` (unit-tested) | Production moving before a soak, from a diverged branch, or with a change marked major, touching a protected path or adding a secret |
+| Promotion rules | `promote.yml`, `web/scripts/promotion/decide.mjs` (unit-tested; run from main's copy) | Production moving before a commit has soaked, from a diverged or non-linear branch, or with a change marked major, touching a protected path or using a secret |
 | Full re-check | `promote.yml` verify job | Production moving on a commit that fails any test, or on data a fresh certification cannot reproduce |
-| Structure guard | `web/scripts/promotion/structure.mjs` | A layout change reaching production unreviewed: any change to headings, sections, navigation or routes waits for the owner |
+| Structure guard | `web/scripts/promotion/structure.mjs` (run from production's copy) | Unreviewed changes to routes, h1/h2 headings, section and navigation ids, navigation links, the stylesheet, or the text of the dated records. Wording elsewhere on the tracker page and h3 headings are not covered; agents mark those major |
 | Owner review issue | `promote.yml` report job | A held major change going unnoticed; the issue lists what waits and closes on promotion |
 | Promotion failure issue | `promote.yml` report job | A failed promotion going unnoticed |
 | Held-run issue | `certified-refresh.yml` report job | A failed or incomplete run going unnoticed; one GitHub issue opens and closes on recovery |

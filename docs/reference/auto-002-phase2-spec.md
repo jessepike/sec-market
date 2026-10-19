@@ -50,7 +50,7 @@ The public site shows the tracker, not the frozen legacy snapshot. SEC figures f
 
 ### Workflows
 
-- `promote-certified.yml` gets a daily schedule.
+- `promote-certified.yml` gets a daily schedule. (Replaced by `promote.yml`, D-103.)
 - `certified-refresh.yml` and `promote-certified.yml` allowlists unchanged.
 
 ### Governance docs
