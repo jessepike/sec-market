@@ -28,6 +28,15 @@ are not themselves durable hosted artifacts. Exact source bodies/reviews and col
 are saved remotely under `refs/archive/market-evidence`. Ordinary fetches exclude that custom ref.
 The independent fresh restore used a new mirror and state directory, not a copy of the live state.
 
+Actual GitHub full-suite run [39510441692](https://github.com/jessepike/sec-market/actions/runs/39510441692)
+passed on implementation `b8f6ecb4d10c7f05f51a3ad156cdd7e1ee31866e`.
+The stable Vercel preview's `/app-release.json` acknowledged that revision; `/daily-coverage.json`
+reported the exact run, 252/557, incomplete and automation disabled. Production still acknowledged
+`54590be4d91113a50879a8fb5d180441e7d149f4`. The independent data-release gate is a separate workflow
+and remains unexecuted; this web CI run must not be substituted for its evidence-bound artifact.
+GitHub's billing usage endpoint returned 403 for the integration, so remaining account quota and
+spending caps are unverified. No paid capacity or billing configuration was changed.
+
 ## Failure/recovery checks
 
 The suites cover immutable collisions, path escapes, stale CAS, real process-lock release after

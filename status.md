@@ -15,6 +15,12 @@ The owner will not promote the site to readers until sustained fresh, accurate o
 
 ## Daily pipeline: implemented, exercised, not activated
 
+Direct preview delivery: `b8f6ecb4d10c7f05f51a3ad156cdd7e1ee31866e`.
+[GitHub full suite](https://github.com/jessepike/sec-market/actions/runs/39510441692) passed.
+The [stable preview](https://security-market-pulse-git-preview-pikeholdings.vercel.app)
+acknowledged that exact revision and public 252/557 incomplete, automation-disabled coverage.
+This is a major change held for review; production is unchanged.
+
 Owner authorized daily collection AND reconciliation across the existing 74 suppliers, expansion,
 evidence/deltas, subscription-backed workers, independent validation, alerts and automatic factual
 batches. No supplier expansion or additional purchases. **No PRs:** the earlier draft #6 was closed
