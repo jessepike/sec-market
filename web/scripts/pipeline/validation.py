@@ -16,6 +16,10 @@ def normalize(text):
     return re.sub(r"\s+", " ", text).strip()
 
 
+def mentions_entity(text, supplier):
+    return any(re.search(r"\b" + re.escape(a) + r"\b", text, re.I) for a in [supplier["name"], *supplier.get("aliases", [])] if a)
+
+
 def numbers(text):
     result = set()
     for amount, unit in re.findall(r"(?<![\w.])([0-9]+(?:,[0-9]{3})*(?:\.[0-9]+)?)\s*(billion|million|thousand|bn|[bmk])?\b", text.lower()):
@@ -52,6 +56,7 @@ def verify_statement(candidate, observation, store, review, supplier, policy_has
     aliases = [supplier["name"], *supplier.get("aliases", [])]
     require(any(re.search(r"\b" + re.escape(a) + r"\b", text, re.I) for a in aliases if a), "Source entity not established")
     require(re.fullmatch(r"\d{4}-\d{2}-\d{2}", candidate["effectiveDate"] or "") is not None, "Fact date missing")
+    require(candidate["effectiveDate"] <= observation["fetchedAt"][:10], "Future effective date requires review")
     dates = source_dates(quote)
     metadata_date = page.published[:10] if page and page.published else None
     require(candidate["effectiveDate"] in dates or (not dates and candidate["effectiveDate"] == metadata_date), "Fact date not grounded in source")
@@ -113,19 +118,72 @@ def reconcile(plan, receipts, contract, now, store):
             for oid in receipt["observationIds"]:
                 observation = store.read(f"observations/{oid}.json")
                 require(observation is not None and observation["sourceId"] == source["id"], "Observation missing or wrong source")
-                require(observation["status"] in ("fetched", "not_modified"), "Failed fetch cannot earn successful coverage")
+                require(observation["status"] in ("fetched", "not_modified", "retained_immutable"), "Failed fetch cannot earn successful coverage")
                 require(urlsplit(observation["requestedUrl"]).hostname in source["allowedHosts"], "Observation outside contracted host")
-                observed_age = (instant(now) - instant(observation["fetchedAt"])).total_seconds() / 3600
+                observed_age = (instant(now) - instant(observation.get("verifiedAt", observation["fetchedAt"]))).total_seconds() / 3600
                 require(-5/60 <= observed_age <= contract["schedule"]["overdueHours"], "Stale/future source observation")
                 store.get(observation["body"])
                 if observation["status"] == "not_modified":
                     prior = store.read(f"observations/{observation.get('reusesObservationId')}.json")
                     require(prior and prior["requestedUrl"] == observation["requestedUrl"] and prior["sourceId"] == source["id"] and prior["body"] == observation["body"], "Invalid 304 retained-body chain")
+                if observation["status"] == "retained_immutable":
+                    require(source["kind"] == "sec_documents", "Only contracted SEC accession documents may be retained immutable")
+                    prior = store.read(f"observations/{observation.get('reusesObservationId')}.json")
+                    require(prior and prior["requestedUrl"] == observation["requestedUrl"] and prior["body"] == observation["body"] and prior["sourceId"] == source["id"], "Immutable document provenance differs")
+                    prefix = f"https://www.sec.gov/Archives/edgar/data/{int(source['cik'])}/"
+                    require(observation["requestedUrl"].startswith(prefix), "Wrong immutable filing CIK")
+                    anchored = False
+                    for aid in observation.get("anchorObservationIds", []):
+                        require(aid in receipt["observationIds"], "SEC anchor is outside this run")
+                        anchor = store.read(f"observations/{aid}.json")
+                        require(anchor and anchor["sourceId"] == source["id"] and anchor["status"] in ("fetched", "not_modified"), "SEC anchor was not checked")
+                        value = __import__('json').loads(store.get(anchor["body"]))
+                        recent = value.get("filings", {}).get("recent", value)
+                        for accession, document in zip(recent.get("accessionNumber", []), recent.get("primaryDocument", [])):
+                            if prefix + accession.replace('-', '') + '/' + document == observation["requestedUrl"]:
+                                anchored = True
+                    require(anchored, "Retained filing absent from current SEC index")
                 observations.append(observation)
             manifest = __import__('json').loads(store.get(receipt["itemManifest"]))
             require(manifest["sourceId"] == source["id"] and set(manifest["observations"]).issubset(receipt["observationIds"]), "Discovery manifest provenance mismatch")
             if source["kind"] not in ("sec_facts", "sec_submissions"):
                 require(set(manifest["items"]).issubset({o["requestedUrl"] for o in observations}), "Discovered item was never checked")
+            if source["kind"] == "sec_documents":
+                require(set(manifest["items"]) == {d["url"] for d in receipt.get("documents", [])}, "SEC primary text inventory incomplete")
+                for document in receipt.get("documents", []):
+                    store.get(document["body"])
+                    require(len(store.get(document["text"])) >= 100, "SEC document text missing")
+            if source["kind"] not in ("sec_facts", "sec_submissions", "sec_documents", "citation"):
+                validations = receipt.get("documentValidations", [])
+                unique([d["url"] for d in validations], "document validation")
+                require(set(manifest["items"]) == {d["url"] for d in validations}, "Document semantic validation inventory incomplete")
+                current = {o["requestedUrl"]: o for o in observations}
+                fact_hashes = {r["sha256"] for r in receipt.get("validatedFacts", [])}
+                for document in validations:
+                    validation = __import__('json').loads(store.get(document["validation"]))
+                    observation = current[document["url"]]
+                    require(validation["body"] == observation["body"] and validation["contractSha256"] == digest(contract) and validation["supplierId"] == task["supplierId"], "Document semantic validation covers different evidence/policy/entity")
+                    refs = validation["factRefs"]
+                    require(all(r["sha256"] in fact_hashes for r in refs), "Validated document facts missing from receipt")
+                    hashes = [__import__('json').loads(store.get(r))["candidateSha256"] for r in refs]
+                    held_hashes = {r["sha256"] for r in receipt.get("heldClaims", [])}
+                    for ref in validation.get("heldClaims", []):
+                        require(ref["sha256"] in held_hashes, "Unresolved claim missing from review queue")
+                        held = __import__('json').loads(store.get(ref))
+                        require(held["supplierId"] == task["supplierId"] and held["policySha256"] == digest(contract) and held["evidence"] == observation["body"], "Unresolved claim provenance differs")
+                        require(held["candidateSha256"] == digest(held["candidate"]), "Unresolved candidate hash differs")
+                        store.get(held["review"])
+                        hashes.append(held["candidateSha256"])
+                    require(sorted(hashes) == sorted(validation["candidateHashes"]), "Document candidate inventory differs")
+                    if not validation["candidateHashes"]:
+                        text = Page(store.get(observation["body"]).decode('utf8', errors='replace')).readable
+                        if validation.get("exclusionRule") == "no-registered-entity-mention-v1":
+                            supplier = next(s for s in contract["suppliers"] if s["id"] == task["supplierId"])
+                            require(source["family"] in ("investor_acquirer", "release_distribution") and len(text) >= 100 and not mentions_entity(text, supplier), "Invalid shared-publisher entity exclusion")
+                        else:
+                            review = __import__('json').loads(store.get(validation["emptyReview"]))
+                            require(review.get("noRelevantFacts") is True and review.get("evidenceSha256") == observation["body"]["sha256"] and review.get("policySha256") == digest(contract), "Empty document review missing or mismatched")
+                            require(not re.search(r"\b(funding|raised|acquisition|appointed|restructuring|layoffs|ARR|revenue|debt|shutdown)\b", text, re.I), "Empty extraction hides a business signal")
             for reference in receipt.get("validatedFacts", []):
                 fact = __import__("json").loads(store.get(reference))
                 require(fact["supplierId"] == task["supplierId"], "Validated fact has wrong entity")
@@ -160,3 +218,54 @@ def eligible_fact_references(coverage):
             for ref in receipt.get("validatedFacts", []):
                 by_hash[ref["sha256"]] = ref
     return list(by_hash.values())
+
+
+def verified_partial_document_facts(plan, coverage, contract, now, store):
+    """Release a completed document's facts while another document remains queued.
+
+This earns no source coverage and never advances the source cursor. A crashed
+extraction without its complete document validation receipt remains ineligible.
+"""
+    require(plan["contractSha256"] == digest(contract), "Partial-document policy differs")
+    sources = {s["id"]: s for s in contract["sources"]}
+    suppliers = {s["id"]: s for s in contract["suppliers"]}
+    tasks = {t["taskId"]: t for t in plan["tasks"]}
+    accepted = {}
+    for receipt in coverage["receipts"]:
+        if receipt["outcome"] in ("updated", "checked_no_change") or not receipt.get("discoveryComplete"):
+            continue
+        task = tasks[receipt["taskId"]]
+        source = sources.get(task["sourceId"])
+        require(receipt["runId"] == plan["runId"] and receipt["sourceId"] == task["sourceId"], "Partial-document run/source differs")
+        if not source or source["registration"] != "verified":
+            continue
+        manifest = __import__('json').loads(store.get(receipt["itemManifest"]))
+        require(manifest["sourceId"] == source["id"], "Partial discovery manifest differs")
+        observations = [store.read(f"observations/{oid}.json") for oid in receipt["observationIds"]]
+        current = {o["requestedUrl"]: o for o in observations if o}
+        receipt_refs = {ref["sha256"] for ref in receipt.get("validatedFacts", [])}
+        for document in receipt.get("documentValidations", []):
+            require(document["url"] in manifest["items"], "Partial document is outside discovery inventory")
+            observation = current.get(document["url"])
+            require(observation and observation["sourceId"] == source["id"] and observation["status"] in ("fetched", "not_modified"), "Partial document lacks a successful source check")
+            require(urlsplit(document["url"]).hostname in source["allowedHosts"], "Partial document outside source host")
+            age = (instant(now)-instant(observation["fetchedAt"])).total_seconds()/3600
+            require(-5/60 <= age <= contract["schedule"]["overdueHours"], "Partial document check is stale/future")
+            store.get(observation["body"])
+            if observation["status"] == "not_modified":
+                old = store.read(f"observations/{observation.get('reusesObservationId')}.json")
+                require(old and old["body"] == observation["body"] and old["requestedUrl"] == document["url"] and old["sourceId"] == source["id"], "Partial document 304 chain differs")
+            validation = __import__('json').loads(store.get(document["validation"]))
+            require(validation["supplierId"] == task["supplierId"] and validation["body"] == observation["body"] and validation["contractSha256"] == digest(contract), "Partial-document semantic receipt differs")
+            for reference in validation["factRefs"]:
+                require(reference["sha256"] in receipt_refs, "Partial fact missing from task receipt")
+                fact = __import__('json').loads(store.get(reference))
+                original = store.read(f"observations/{fact['sourceObservationId']}.json")
+                require(original and original["body"] == observation["body"], "Partial fact covers different source bytes")
+                review = __import__('json').loads(store.get(fact["review"]))
+                candidate = {k: fact[k] for k in ("supplierId", "predicate", "valueText", "quote", "effectiveDate", "amount", "currency", "qualifier", "eventStatus", "scope")}
+                require(digest(candidate) in validation["candidateHashes"], "Partial candidate missing from validated inventory")
+                checked = verify_statement(candidate, original, store, review, suppliers[task["supplierId"]], digest(contract))
+                require(checked["factId"] == fact["factId"], "Partial fact identity differs")
+                accepted[reference["sha256"]] = reference
+    return list(accepted.values())

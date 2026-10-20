@@ -9,6 +9,7 @@ import { runStatus } from '../src/data/runStatus.ts'
 import { LAST_UPDATED_DISPLAY, LAST_UPDATED_ISO } from '../src/data/meta.ts'
 import { trackerSuppliers } from '../src/data/tracker/suppliers.ts'
 import { certifiedClaimCount, certifiedCount, certifiedDateDisplay } from '../src/data/tracker/certification.ts'
+import { dailyCoverage } from '../src/data/tracker/daily.ts'
 
 describe('RunStatus', () => {
   // AUTO-002 Phase 2: RunStatus states the certified tier, not the retired collector run.
@@ -19,7 +20,7 @@ describe('RunStatus', () => {
     assert.match(html, new RegExp(`all ${certifiedClaimCount} checks`))
     assert.ok(html.includes(`Last certified change: ${certifiedDateDisplay}.`))
     assert.match(html, /A check is scheduled every 4 hours/)
-    assert.match(html, /not re-checked automatically/)
+    assert.match(html, dailyCoverage ? /Source checks do not certify every historical claim/ : /not re-checked automatically/)
     assert.doesNotMatch(html, /Last complete data refresh|not established|Which sources failed/)
   })
 

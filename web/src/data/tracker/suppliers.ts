@@ -1,4 +1,5 @@
 import { withEdgarRevenue } from './edgarRevenue'
+import { withDailyData } from './daily'
 /**
  * Tracked suppliers — step 5 of the autonomy plan
  * (docs/archive/2026-10-refresh-gate/autonomy-coverage-plan.md §4–5, D-76/D-77). One record per
@@ -2038,4 +2039,4 @@ export const manualTrackerSuppliers: TrackerSupplier[] = [
 ]
 
 // Displayed SEC revenue follows checked structured facts; collector-owned claims stay manual.
-export const trackerSuppliers = manualTrackerSuppliers.map(withEdgarRevenue)
+export const trackerSuppliers = manualTrackerSuppliers.map(withDailyData).map(withEdgarRevenue)

@@ -14,12 +14,13 @@ import contract from './certifiedContract.json' with { type: 'json' }
 import { evidenceById } from '../evidence'
 import type { TrackerEvent } from './events'
 
-interface CoverageFile { checkedAt: string; windowEnd: string; state: string; fields: { supplierId: string; field: string; status: string }[] }
+interface CoverageFile { checkedAt: string; lastDataChangeAt?: string; windowEnd: string; state: string; fields: { supplierId: string; field: string; status: string }[] }
 const receipt = coverage as unknown as CoverageFile
 
 /** Time of the certification run that produced the committed data (ISO). */
 export const certifiedAt: string = receipt.checkedAt
-export const certifiedDateDisplay = `${certifiedAt.slice(0, 10)} ${certifiedAt.slice(11, 16)} UTC`
+const dataChangedAt = receipt.lastDataChangeAt ?? certifiedAt
+export const certifiedDateDisplay = `${dataChangedAt.slice(0, 10)} ${dataChangedAt.slice(11, 16)} UTC`
 export const secWindowEnd: string = receipt.windowEnd
 export const certifiedSupplierIds: ReadonlySet<string> = new Set(contract.supplierIds)
 export const certifiedCount = contract.supplierIds.length

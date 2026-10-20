@@ -16,7 +16,7 @@ def inventory(contract, at, coverage=None):
     for task in plan["tasks"]:
         source = sources.get(task["sourceId"], {})
         receipt = receipts.get(task["taskId"], {})
-        rows.append({"supplierId": task["supplierId"], "supplier": suppliers[task["supplierId"]]["name"],
+        rows.append({"taskId": task["taskId"], "supplierId": task["supplierId"], "supplier": suppliers[task["supplierId"]]["name"],
                      "supplierKind": suppliers[task["supplierId"]]["kind"],
                      "startupStatus": suppliers[task["supplierId"]].get("startupStatus", "unclassified"),
                      "family": source.get("family", task.get("family")), "sourceId": task["sourceId"] or "",

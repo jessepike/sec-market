@@ -18,7 +18,7 @@ from unittest.mock import patch
 SCRIPTS = Path(__file__).resolve().parents[1] / "scripts/pipeline"
 sys.path.insert(0, str(SCRIPTS))
 from contracts import ContractError, canonical, digest, plan_run, validate_contract
-from discovery import discover, xml_links
+from discovery import Page, discover, xml_links
 from engine import Pipeline
 from fetcher import safe_url
 from publication import health, prepare_release, publish, verify_acknowledgement
@@ -26,7 +26,12 @@ from storage import ConflictError, LocalStore
 from validation import REVIEW_CHECKS, reconcile, verify_statement, eligible_fact_references
 from reporting import inventory
 from provenance import GitHubAuthority
+from snapshot import build_snapshot, money
 from agents import ModelUnavailable, SubscriptionAgent
+from archive import GitArchive
+from artifacts import build_artifact, stage_files, pack, unpack, inventory as artifact_inventory
+from publication import recover_publication
+from vercel import VercelAdapter
 
 T = "2026-10-19T16:00:00Z"
 QUOTE = "Fixture Vendor raised approximately $10 million on 2026-10-19."
@@ -102,6 +107,19 @@ class PipelineTests(unittest.TestCase):
 
     def test_canonical_hash_has_no_key_order_dependency(self):
         self.assertEqual(digest({"b": 2, "a": 1}), digest({"a": 1, "b": 2}))
+
+    def test_article_extraction_excludes_unrelated_navigation_and_preserves_nested_main_content(self):
+        text='Fixture Vendor publishes its announcement here. '+('This is the dated primary article. '*5)
+        page=Page('<header>Unrelated old funding banner</header><div role="main"><div>'+text+'</div><p>Final article paragraph.</p></div><footer>Unrelated footer</footer>')
+        self.assertIn('Final article paragraph.',page.readable)
+        self.assertNotIn('funding banner',page.readable)
+        self.assertNotIn('Unrelated footer',page.readable)
+
+    def test_unique_article_publication_metadata_is_read_but_ambiguous_dates_are_held(self):
+        one='<script type="application/ld+json">{"@type":"NewsArticle","datePublished":"2026-10-19"}</script>'
+        two='<script type="application/ld+json">{"@type":"NewsArticle","datePublished":"2025-01-01"}</script>'
+        self.assertEqual(Page(one).published,'2026-10-19')
+        self.assertIsNone(Page(one+two).published)
 
     def test_daily_identity_uses_utc_even_when_input_has_an_offset(self):
         a=plan_run(self.c,'2026-10-20T00:30:00Z');b=plan_run(self.c,'2026-10-19T17:30:00-07:00')
@@ -253,21 +271,137 @@ class PipelineTests(unittest.TestCase):
     def test_budget_reservations_survive_restarts(self):
         self.c['model']['maxDocumentsPerRun']=1
         result=self.run_pipeline(agent=FakeAgent(empty=True));self.assertFalse(result['complete'])
-        result=self.run_pipeline();self.assertFalse(result['complete'])
+        pages=FakeFetcher(self.store).pages
+        pages[URL]+=b' changed'
+        result=self.run_pipeline(pages=pages);self.assertFalse(result['complete'])
         self.assertEqual(result['receipts'][0]['errorCode'],'DOCUMENTS_BUDGET_EXHAUSTED')
 
-    def test_failed_task_facts_remain_ineligible_until_successful_retry(self):
+    def test_rejected_claim_is_quarantined_without_blocking_a_supported_fact(self):
         class DisagreesSecond(FakeAgent):
-            def extract(self,text,supplier): return [candidate(),candidate()]
+            def extract(self,text,supplier):
+                second=candidate();second['predicate']='valuation'
+                return [candidate(),second]
             def review(self,text,c,obs,policy):
                 self.calls+=1
                 proof=review(c,obs,policy)
                 if self.calls==2: proof['result']='rejected'
                 return proof
         result=self.run_pipeline(agent=DisagreesSecond())
-        self.assertFalse(result['complete']);self.assertEqual(eligible_fact_references(result),[])
-        result=self.run_pipeline();self.assertTrue(result['complete'])
+        self.assertTrue(result['complete'])
         self.assertEqual(len(eligible_fact_references(result)),1)
+        self.assertEqual(len(result['receipts'][0]['heldClaims']),1)
+        snapshot=build_snapshot(self.c,plan_run(self.c,T),result,self.store,T)
+        self.assertEqual(len(snapshot['events']),1)
+        self.assertTrue(any(q['reason']=='Independent review did not accept' for q in snapshot['reviewQueue']))
+
+    def test_partial_download_task_facts_are_not_eligible_and_cursor_does_not_advance(self):
+        pages=FakeFetcher(self.store).pages
+        pages['https://example.invalid/feed.xml']=b'<rss><channel><item><link>https://example.invalid/releases/one</link></item><item><link>https://example.invalid/releases/two</link></item></channel></rss>'
+        pages['https://example.invalid/releases/two']=403
+        result=self.run_pipeline(pages=pages)
+        self.assertFalse(result['complete']);self.assertEqual(eligible_fact_references(result),[])
+        self.assertIsNone(self.store.read('heads/source-'+digest('official')+'.json'))
+
+    def test_unauthenticated_collection_archives_all_pending_documents_without_advancing(self):
+        pages=FakeFetcher(self.store).pages
+        pages['https://example.invalid/feed.xml']=b'<rss><channel><item><link>https://example.invalid/releases/one</link></item><item><link>https://example.invalid/releases/two</link></item></channel></rss>'
+        pages['https://example.invalid/releases/two']=pages[URL]
+        result=Pipeline(self.c,self.store,FakeFetcher(self.store,pages),clock=lambda:T).run(T)
+        self.assertFalse(result['complete'])
+        receipt=result['receipts'][0]
+        self.assertEqual(receipt['pendingDocuments'],2)
+        self.assertEqual(len(receipt['observationIds']),3)
+        self.assertIsNone(self.store.read('heads/source-'+digest('official')+'.json'))
+
+    def test_governance_rejects_a_downloaded_document_without_semantic_accounting(self):
+        result=self.run_pipeline()
+        result['receipts'][0]['documentValidations']=[]
+        with self.assertRaises(ContractError):reconcile(plan_run(self.c,T),result['receipts'],self.c,T,self.store)
+
+    def test_remote_archive_restores_without_original_worker_and_rejects_tampering(self):
+        remote=Path(self.temp.name)/'remote.git'
+        subprocess.run(['git','init','--bare',str(remote)],check=True,capture_output=True)
+        state=LocalStore(Path(self.temp.name)/'live')
+        ref=state.put(b'real archived evidence')
+        state.compare_and_swap('latest-run',None,{'receipt':ref})
+        archive=GitArchive(Path(self.temp.name)/'mirror',str(remote))
+        receipt=archive.push(state)
+        archived_path=archive.root/'state'/ref['key'];stamp=archived_path.stat().st_mtime_ns
+        self.assertEqual(archive.push(state)['commit'],receipt['commit'])
+        self.assertEqual(archived_path.stat().st_mtime_ns,stamp)
+        destination=Path(self.temp.name)/'restored'
+        restored=GitArchive(Path(self.temp.name)/'fresh-mirror',str(remote)).restore(destination,receipt['commit'],receipt['manifestSha256'])
+        self.assertEqual(receipt['manifestSha256'],restored['manifestSha256'])
+        self.assertEqual(LocalStore(destination).get(ref),b'real archived evidence')
+        (archive.root/'state'/ref['key']).write_bytes(b'corrupt')
+        with self.assertRaises(ContractError):GitArchive.verify(archive.root,receipt['manifestSha256'])
+
+    def test_policy_change_cannot_reset_subscription_daily_budget(self):
+        self.c['model']['maxDocumentsPerRun']=1
+        agent=FakeAgent();self.assertTrue(self.run_pipeline(agent=agent)['complete'])
+        self.c['version']='expanded-source-policy'
+        result=self.run_pipeline(agent=agent)
+        self.assertFalse(result['complete'])
+        self.assertEqual(result['receipts'][0]['errorCode'],'DOCUMENTS_BUDGET_EXHAUSTED')
+        self.assertEqual(agent.calls,2)
+
+    def test_shared_publisher_entity_exclusions_are_rechecked_without_model_calls(self):
+        self.c['sources'][0]['family']='investor_acquirer'
+        self.c['suppliers'][0]['requiredFamilies']=['investor_acquirer']
+        pages=FakeFetcher(self.store).pages
+        pages[URL]=b'<html><body>Different Corporation announced a funding round. This lengthy announcement discusses only that unrelated corporation and its investors and contains no statement about the tracked entity.</body></html>'
+        agent=FakeAgent();result=self.run_pipeline(pages=pages,agent=agent)
+        self.assertTrue(result['complete']);self.assertEqual(agent.calls,0)
+        ref=result['receipts'][0]['documentValidations'][0]['validation']
+        validation=json.loads(self.store.get(ref));validation['supplierId']='different'
+        result['receipts'][0]['documentValidations'][0]['validation']=self.store.put(validation)
+        with self.assertRaises(ContractError):reconcile(plan_run(self.c,T),result['receipts'],self.c,T,self.store)
+
+    def static_artifact(self):
+        dist=Path(self.temp.name)/'dist';dist.mkdir()
+        (dist/'index.html').write_text('<html>Exact tested build</html>')
+        (dist/'app-release.json').write_text(json.dumps({'appRevision':'a'*40,'dailySnapshotSha256':'b'*64,'dailyContractSha256':'d'*64}))
+        return build_artifact(self.store,dist,{'headers':[]})
+
+    def test_detached_receipt_avoids_circular_hash_and_binds_tested_static_bytes(self):
+        artifact=self.static_artifact()
+        files=stage_files(self.store,artifact,{'artifactSha256':artifact['sha256']})
+        self.assertIn('static/deployment-receipt.json',files)
+        self.assertEqual(digest(artifact_inventory(files)),artifact['sha256'])
+        files['static/index.html']=b'untested change'
+        bad={**artifact,'archive':self.store.put(pack(files))}
+        with self.assertRaises(ContractError):stage_files(self.store,bad,{'artifactSha256':bad['sha256']})
+
+    def test_prebuilt_archive_rejects_traversal_and_executable_functions(self):
+        artifact=self.static_artifact();files=unpack(self.store.get(artifact['archive']))
+        for path in ['../escape','functions/injected.func/index.js']:
+            with self.assertRaises(ContractError):unpack(pack({**files,path:b'malicious'}))
+
+    def test_official_vercel_adapter_uploads_only_prebuilt_output(self):
+        artifact=self.static_artifact();seen=[]
+        def runner(args,**kwargs):
+            seen.append(args)
+            root=Path(kwargs['cwd'])
+            self.assertEqual({p.name for p in root.iterdir()},{'.vercel'})
+            self.assertTrue((root/'.vercel/output/static/index.html').exists())
+            self.assertIn('--prebuilt',args);self.assertNotIn('--prod',args)
+            return SimpleNamespace(returncode=0,stdout='https://exact-tested-build.vercel.app\n',stderr='')
+        adapter=VercelAdapter(self.store,'prj_123','team_123','pikeholdings',runner=runner)
+        manifest={'releaseId':'e'*64,'appRevision':'a'*40,'snapshot':{'sha256':'b'*64},'artifact':artifact,'contractSha256':'d'*64}
+        self.assertEqual(adapter.stage(manifest),'https://exact-tested-build.vercel.app')
+        self.assertEqual(len(seen),1)
+
+    def test_crash_after_promotion_recovers_acknowledgement_without_redeploying(self):
+        previous={'releaseId':'old','sequence':1,'deploymentId':'old-deploy'}
+        self.store.compare_and_swap('production',None,previous)
+        manifest={'createdAt':T,'parentReleaseId':'old','sequence':2,'appRevision':'a'*40,'snapshot':{'sha256':'b'*64},'artifact':{'sha256':'c'*64},'contractSha256':'d'*64}
+        manifest['releaseId']=digest(manifest)
+        self.store.write_once('release-attempts/'+manifest['releaseId']+'.json',manifest)
+        self.store.write_once('deployment-attempts/'+manifest['releaseId']+'.json',{'deploymentId':'new-deploy'})
+        live={'ready':True,'dataReleaseId':manifest['releaseId'],'appRevision':'a'*40,'snapshotSha256':'b'*64,'artifactSha256':'c'*64,'contractSha256':'d'*64}
+        adapter=SimpleNamespace(probe_production=lambda:live)
+        head=recover_publication(self.store,adapter)
+        self.assertEqual(head['releaseId'],manifest['releaseId']);self.assertEqual(head['sequence'],2)
 
     def test_stored_review_is_rechecked_during_reconciliation(self):
         result=self.run_pipeline();ref=result['receipts'][0]['validatedFacts'][0]
@@ -355,6 +489,86 @@ class PipelineTests(unittest.TestCase):
         with self.assertRaises(ContractError):safe_url(URL,['example.invalid'],private)
         with self.assertRaises(ContractError):safe_url('https://evil.invalid/x',['example.invalid'],private)
 
+    def test_managed_proxy_owns_dns_but_cannot_bypass_host_or_literal_ip_guards(self):
+        def unavailable(*a,**k):raise socket.gaierror('Cloud DNS is delegated to proxy')
+        self.assertEqual(safe_url(URL,['example.invalid'],unavailable,proxy_dns=True),URL)
+        with self.assertRaises(ContractError):safe_url(URL,['example.invalid'],unavailable)
+        with self.assertRaises(ContractError):safe_url('https://127.0.0.1/x',['127.0.0.1'],unavailable,proxy_dns=True)
+        with self.assertRaises(ContractError):safe_url('https://evil.invalid/x',['example.invalid'],unavailable,proxy_dns=True)
+
+    def test_snapshot_connects_verified_statements_to_actual_site_events_and_evidence(self):
+        coverage=self.run_pipeline()
+        snapshot=build_snapshot(self.c,plan_run(self.c,T),coverage,self.store,T)
+        self.assertEqual(len(snapshot['events']),1);self.assertEqual(len(snapshot['evidence']),1)
+        event=snapshot['events'][0];self.assertEqual(event['supplierId'],'fixture')
+        self.assertEqual(event['text'],QUOTE);self.assertEqual(event['type'],'funding')
+        self.assertEqual(snapshot['evidence'][0]['retrieval']['sha256'],digest(f'<html><body>{QUOTE}</body></html>'.encode()))
+        self.assertEqual(snapshot['supplierUpdates'],{}) # An undisclosed stage cannot be invented.
+
+    def test_independent_press_alone_is_held_from_the_site(self):
+        self.c['sources'][0]['family']='independent_reporting'
+        self.c['suppliers'][0]['requiredFamilies']=['independent_reporting']
+        coverage=self.run_pipeline();snapshot=build_snapshot(self.c,plan_run(self.c,T),coverage,self.store,T)
+        self.assertEqual(snapshot['events'],[]);self.assertEqual(snapshot['reviewQueue'][0]['reason'],'PRIMARY_SOURCE_REQUIRED')
+
+    def test_snapshot_cannot_renew_stale_coverage_or_accept_failed_task_facts(self):
+        coverage=self.run_pipeline()
+        with self.assertRaises(ContractError):build_snapshot(self.c,plan_run(self.c,T),coverage,self.store,'2026-10-21T16:00:00Z')
+        coverage['receipts'][0]['outcome']='failed'
+        coverage['receipts'][0]['documentValidations']=[]
+        snapshot=build_snapshot(self.c,plan_run(self.c,T),coverage,self.store,T)
+        self.assertEqual(snapshot['events'],[]);self.assertFalse(snapshot['coverage']['complete'])
+
+    def test_completed_document_can_publish_with_degraded_coverage_for_another_document(self):
+        pages=FakeFetcher(self.store).pages
+        pages['https://example.invalid/feed.xml']=b'<rss><channel><item><link>https://example.invalid/releases/one</link></item><item><link>https://example.invalid/releases/two</link></item></channel></rss>'
+        pages['https://example.invalid/releases/two']=403
+        coverage=self.run_pipeline(pages=pages)
+        snapshot=build_snapshot(self.c,plan_run(self.c,T),coverage,self.store,T)
+        self.assertEqual(len(snapshot['events']),1)
+        self.assertFalse(snapshot['coverage']['complete'])
+        self.assertEqual(snapshot['coverage']['successfulTasks'],0)
+        self.assertIsNone(self.store.read('heads/source-'+digest('official')+'.json'))
+
+    def test_fresh_governance_run_does_not_extend_actual_source_freshness(self):
+        coverage=self.run_pipeline()
+        snapshot=build_snapshot(self.c,plan_run(self.c,T),coverage,self.store,'2026-10-20T15:00:00Z')
+        self.assertEqual(snapshot['coverage']['validUntil'],'2026-10-20T22:00:00+00:00')
+        self.assertEqual(snapshot['coverage']['lastCollectionAt'],T)
+
+    def test_snapshot_retains_historical_events_without_relabelling_them_new(self):
+        coverage=self.run_pipeline();first=build_snapshot(self.c,plan_run(self.c,T),coverage,self.store,T)
+        second=build_snapshot(self.c,plan_run(self.c,T),coverage,self.store,T,previous=first)
+        self.assertEqual(second['events'],first['events']);self.assertEqual(second['parentSnapshotSha256'],digest(first))
+
+    def test_currency_and_qualifier_survive_display_formatting(self):
+        c=candidate();c.update(amount='10250000',currency='CAD',qualifier='up_to')
+        self.assertEqual(money(c),'up to C$10,250,000')
+
+    def filing_fixture(self):
+        source=self.c['sources'][0]
+        source.update(kind='sec_documents',family='filing_documents',cik='0000000001',url='https://data.sec.gov/submissions/CIK0000000001.json',allowedHosts=['data.sec.gov','www.sec.gov'])
+        self.c['suppliers'][0]['requiredFamilies']=['filing_documents']
+        document='https://www.sec.gov/Archives/edgar/data/1/000000000126000001/report.htm'
+        index={'cik':1,'filings':{'recent':{'accessionNumber':['0000000001-26-000001'],'form':['8-K'],'filingDate':['2026-10-19'],'primaryDocument':['report.htm']},'files':[]}}
+        pages={source['url']:json.dumps(index).encode(),document:('<html><body>'+QUOTE*5+'</body></html>').encode()}
+        return source,document,index,pages
+
+    def test_sec_document_delta_archives_readable_text_then_reuses_immutable_bytes(self):
+        source,document,index,pages=self.filing_fixture()
+        first=self.run_pipeline(pages=pages);self.assertTrue(first['complete'])
+        self.assertEqual(len(first['receipts'][0]['documents']),1)
+        del pages[document] # Second run cannot fetch it; it must use hash-checked retained bytes.
+        second=self.run_pipeline(pages=pages);self.assertTrue(second['complete'])
+        obs=[self.store.read(f'observations/{oid}.json') for oid in second['receipts'][0]['observationIds']]
+        self.assertTrue(any(o['status']=='retained_immutable' for o in obs))
+
+    def test_sec_document_disappearance_inside_retention_is_held(self):
+        source,document,index,pages=self.filing_fixture();self.assertTrue(self.run_pipeline(pages=pages)['complete'])
+        index['filings']['recent']={k:[] for k in index['filings']['recent']};pages[source['url']]=json.dumps(index).encode()
+        result=self.run_pipeline(pages=pages)
+        self.assertFalse(result['complete']);self.assertEqual(result['receipts'][0]['errorCode'],'SEC_INDEX_REMOVED_WITHIN_RETENTION')
+
     def test_missing_or_stale_health_is_not_green(self):
         self.assertFalse(health(None,T)['healthy'])
         result=self.run_pipeline();self.assertFalse(health(result,'2026-10-21T16:00:00Z')['healthy'])
@@ -375,7 +589,7 @@ class PipelineTests(unittest.TestCase):
         self.c['publication']['enabled']=True
         previous={'releaseId':'old','sequence':1,'deploymentId':'old-deploy'}
         self.store.compare_and_swap('production',None,previous)
-        manifest={'releaseId':'new','parentReleaseId':'old','sequence':2,'appRevision':'a'*40,'snapshot':{'sha256':'b'*64},'artifact':{'sha256':'c'*64},'contractSha256':'d'*64}
+        manifest={'createdAt':T,'releaseId':'new','parentReleaseId':'old','sequence':2,'appRevision':'a'*40,'snapshot':{'sha256':'b'*64},'artifact':{'sha256':'c'*64},'contractSha256':'d'*64}
         class Adapter:
             rolled_back=False
             def production_paths_controlled(self):return True
@@ -392,7 +606,7 @@ class PipelineTests(unittest.TestCase):
     def test_promote_timeout_also_rolls_back(self):
         self.c['publication']['enabled']=True
         self.store.compare_and_swap('production',None,{'releaseId':'old','sequence':1,'deploymentId':'old-deploy'})
-        manifest={'releaseId':'new','parentReleaseId':'old','sequence':2,'appRevision':'a'*40,'snapshot':{'sha256':'b'*64},'artifact':{'sha256':'c'*64},'contractSha256':'d'*64}
+        manifest={'createdAt':T,'releaseId':'new','parentReleaseId':'old','sequence':2,'appRevision':'a'*40,'snapshot':{'sha256':'b'*64},'artifact':{'sha256':'c'*64},'contractSha256':'d'*64}
         class Adapter:
             rolled_back=False
             def production_paths_controlled(self):return True
@@ -446,7 +660,7 @@ class PipelineTests(unittest.TestCase):
         self.c['certifiedCohorts']=[{'id':'sec','supplierIds':['fixture'],'claimGroups':['revenue'],'allRequired':True}]
         coverage['contractSha256']=digest(self.c)
         snapshot={'contractSha256':digest(self.c),'sha256':'b'*64,'allChangedClaimsVerified':True,'secCertification':{'required':1,'verified':1,'drift':0,'runId':coverage['runId'],'claimKeys':['fixture.revenue']}}
-        artifact={'sha256':'c'*64};receipt={'result':'pass','executedTests':1,'artifactSha256':'c'*64,'appRevision':'a'*40,'snapshotSha256':'b'*64}
+        artifact={'sha256':'c'*64};receipt={'result':'pass','executedTests':1,'artifactSha256':'c'*64,'appRevision':'a'*40,'snapshotSha256':'b'*64,'runId':coverage['runId'],'contractSha256':digest(self.c),'coverageSha256':digest(coverage)}
         authority=SimpleNamespace(verify_test_receipt=lambda *a:True)
         def prepare():return prepare_release(self.c,coverage,snapshot,'a'*40,artifact,receipt,None,T,authority)
         self.assertEqual(prepare()['sequence'],1)

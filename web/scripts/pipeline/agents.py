@@ -63,6 +63,11 @@ class SubscriptionAgent:
             except (OSError, subprocess.TimeoutExpired) as exc:
                 raise ModelUnavailable("SUBSCRIPTION_REQUEST_FAILED_OR_TIMED_OUT") from exc
             if result.returncode or not output.exists():
+                errors = result.stdout + result.stderr
+                if "Please sign in again" in errors or "refresh token" in errors.lower() or "401 Unauthorized" in errors:
+                    raise ModelUnavailable("CHATGPT_SIGN_IN_AGAIN")
+                if "429" in errors or "usage limit" in errors.lower():
+                    raise ModelUnavailable("SUBSCRIPTION_LIMIT_REACHED")
                 raise ModelUnavailable("SUBSCRIPTION_REQUEST_FAILED")
             for line in result.stdout.splitlines():
                 try:

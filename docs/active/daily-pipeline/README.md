@@ -1,104 +1,136 @@
-# Daily market pipeline: implementation and activation
+# Daily market pipeline
 
-**Not live. Do not enable publication or claim full-site daily coverage.** This branch implements the execution core and a disabled collection workflow. Production still uses the existing SEC refresh and branch promotion system. No supplier, published fact, page or current production schedule was changed.
+**Daily publication is disabled. Coverage is incomplete.** The candidate is connected to real
+collection receipts; production still uses the four-hour SEC and branch-promotion workflows.
+No roster expansion or paid API/infrastructure purchase has been made.
 
-The owner's requirement is daily collection AND daily reconciliation across the entire current 74-supplier roster, with room for expansion, sourced factual deltas, automatic routine publication and independent failure alerts. The durable completion criterion is a live receipt chain, not a green workflow badge.
+## Inventory and receipts
 
-## Canonical inventory
+[`contracts/market.json`](../../../contracts/market.json) is the canonical inventory. The generated
+[74-supplier matrix](coverage-matrix.md) and [source-task CSV](source-matrix.csv) show source,
+method, daily frequency, registration and actual outcome. Registration is separate from checking.
+Missing source families remain required work: 557 tasks, 303 bindings, 254 missing bindings,
+28 unverified candidates. Nineteen sitemap registrations were tested against actual XML. Startup
+classification remains unclassified until supported explicitly. The roster remains 74 suppliers;
+execution has no hard-coded supplier ceiling.
 
-[`contracts/market.json`](../../../contracts/market.json) is the single inventory used by planning and checking. [`coverage-matrix.md`](coverage-matrix.md) summarizes all suppliers; [`source-matrix.csv`](source-matrix.csv) lists every task, URL, method, registration, cadence and observed outcome.
+The real October 20 run completed 252 tasks: 32 SEC APIs, 16 primary filing-document archives,
+204 existing citation checks. Six failed, three blocked and 296 were not checked. Fourteen claims
+are held, 8,875 discovered URLs remain pending. All 80 collection model calls were reserved before
+use; no paid API fallback exists. Citation accessibility and archived filing text do not establish
+that every historical claim has been rechecked. The snapshot contains zero new non-SEC events or
+supplier patches from this run. Never turn a missing binding, blocked response or exhausted budget
+into a successful empty check.
 
-- 74 suppliers; eight required information categories each; no fixed supplier ceiling in execution code.
-- 557 required source tasks: 287 existing source bindings plus 270 explicit missing-family obligations.
-- Bindings: 32 SEC companyfacts/submissions endpoints, 208 existing citation links, 47 discovery candidates. Existing citations are not discovery feeds. A candidate homepage cannot earn coverage.
-- Families: official announcements (including results/earnings), distribution services, independent reporting, existing-citation integrity, investor/acquirer announcements where applicable, regulatory indexes and actual filing documents for public companies/segments.
-- Startup status is unclassified. Ownership/private status is insufficient to classify a startup. Funding stage is preserved where present. Reviewing these labels adds no suppliers.
-- Missing bindings remain failed work in every daily denominator. A verified registration records the intended collector; it does not mean a current check occurred.
+## Execution and trust boundaries
 
-The generated matrix initially says `not_checked` for every task. It does not borrow old citation retrieval dates or an unrelated SEC job's success as new daily receipts.
+1. An existing Mac/Linux computer runs the reviewed application code once daily. The official
+   ChatGPT-authenticated Codex CLI performs bounded extraction and a separate semantic review.
+   Model subprocess tools are disabled and infrastructure/API environment variables are removed.
+2. The collector archives exact source bodies, conditional-fetch chains, inventory, attempts,
+   candidates/reviews and pending work. Only completed sources advance their cursor. Independently
+   validated individual documents can contribute facts while the remaining source stays incomplete.
+   Daily call/document/fetch budgets survive restart and policy changes; two-hour collection and
+   three-hour worker phase limits bound work. Initial historical backfill still needs a practical
+   dated-window policy and measured capacity; the current limits do not clear 8,875 URLs daily.
+3. Native Git saves the immutable state to **`refs/archive/market-evidence`** in the existing private
+   repository. Normal branch fetches exclude this reference. Hash manifests, ordinary fast-forward
+   pushes and pinned fresh restores are implemented and exercised. This avoids a database, new
+   service, GitHub runner admin scope or release-upload token. Monitor repository/storage growth;
+   one repository remains a shared failure/access boundary, not an independent second provider.
+4. A fresh GitHub-hosted `market-release-gate.yml` checks out reviewed main and the exact archive
+   commit, verifies every evidence hash, reconciles the full inventory, rebuilds the snapshot and
+   replays the SEC producer/verifier from archived source bytes. Actual source-check dates survive
+   replay. Unchanged values preserve the prior deployed last-data-change date. It runs the full
+   application suite and exports the exact static payload with bound code/data/test receipts.
+   Publisher checks GitHub's real run identity and artifact digest; a worker cannot self-assert trust.
+5. The Vercel adapter stages only this prebuilt payload, probes exact receipts, journals and archives
+   the proposed release before promotion, probes production, and rolls back to the retained prior
+   deployment on failure. Initial adoption requires a verified current production rollback baseline
+   and closure of competing production paths. No working-tree upload or `vercel --prod` shortcut.
+6. A separate GitHub freshness job checks the external worker's archived heartbeat, fixed contract
+   denominator, live code/data/deployment receipts and public coverage deadline. It raises/updates
+   an owner-assigned GitHub issue and closes on recovery. GitHub account notification preferences
+   determine push/email delivery; actual owner delivery is not yet proved. A GitHub outage can also
+   prevent this monitor from running; it is independent of the worker, not independent of GitHub.
 
-## What runs now in code
+The worker batches publication after daily collection and reconciliation, with at most two gate/
+publication attempts per UTC day for recovery. `publicationCron` currently records target windows,
+not an installed second scheduler. macOS runs at 05:17 local time with launchd wake catch-up;
+Linux runs at 12:17 UTC with a persistent user timer. A sleeping/offline host cannot promise a fixed
+completion time. Both operate within existing account quotas; no extra paid capacity is enabled.
+The legacy four-hour cadence stays until a validated, reviewed cutover reconciles all overlapping jobs.
 
-| Component | Implemented behavior | Evidence/limit |
-|---|---|---|
-| Inventory/planning | Policy hash; stable logical run per UTC day; fixed expected task inventory | Expansion to 251 suppliers tested; actual roster stays 74 |
-| Collection | TLS/host and redirect checks, private-address rejection, per-host pacing, bounded 5xx retries, ETag/304 retained-body validation | Live source-host access remains unverified here |
-| Discovery | RSS, Atom, sitemap indexes, explicitly registered HTML pagination; archived item manifests before extraction | Pagination exhaustion or missing registration cannot mean success; empty feeds require source-specific onboarding |
-| Evidence/state | Immutable content-addressed bodies, append-only attempts, fsync/atomic writes, crash-released kernel locks, CAS checkpoints | POSIX local storage, single persistent host; not a distributed object-store integration |
-| Deltas/recovery | Changed-byte cache, assertion deduplication, preserved provenance, pending-item manifests; source cursor moves only on completion | Failed partial-task facts are ineligible; resume/duplicate/concurrency cases tested |
-| Subscription worker | Existing ChatGPT-authenticated Codex CLI, separate stateless extraction/review calls, explicit document/call limits persisted before use | No paid API fallback; tool features disabled; live CLI inference/isolation still needs validation on selected host |
-| Fact validation | Source quotes, dates, entity, number/currency, qualifiers, ARR distinction, event status, exact review/evidence/policy hashes | `source_statement_matched` is source support, not independent proof that a reported claim is objectively true |
-| SEC bridge | Archived JSON parsed by existing producer; existing independent verifier re-derives revenue/history, identity and indexed filed events | Does not replace the production 80-claim gate; full filing-document collection is still missing |
-| Reconciliation | Every expected task and supplier; current archived source checks; facts and saved semantic reviews rechecked; fresh-process `verify` command | Same-host deterministic verifier; separate production trust boundary is not deployed |
-| Release interfaces | Pinned code/data/artifact/test bindings, actual GitHub artifact provenance checks, fixed SEC cohort, preview/live acknowledgements, CAS, rollback | Vercel adapter, snapshot renderer and trusted release-gate workflow NOT implemented; publication disabled |
-| Archive transport | Cloudflare R2 Worker example: role-scoped writes, immutable records, digest checks, CAS heads, no delete route | Handler tested with an R2 double; not provisioned, not integration-tested, not connected to Python storage |
-| Outside watchdog | Pinned denominator/policy; missing/stale/incomplete receipt alerts; failed-delivery retry, deduplication and recovery | Worker tested with transport doubles; no deployed monitor, public coverage endpoint or notification destination |
+## Install on an existing computer
 
-[Validation receipts and precise test limits](validation.md).
+The temporary cloud checkout is suitable for development, tests and supervised real collection.
+It does not become an unattended host when this chat ends. Use a clean, dedicated checkout on an
+existing regularly awake Mac/Linux computer. Required programs: Node 22, Python 3.11+, Git,
+GitHub CLI, official Codex CLI and `pdftotext` (Poppler). Use that computer's own official sign-ins:
+`codex login --device-auth`, `gh auth login`, and `vercel login`. Never copy login files into CI or
+an environment snapshot. Vercel project/team configuration comes from inspected management APIs.
 
-## Development commands
-
-From `web/`, Node 22 and Python 3.11+ (stdlib only):
+Dry-run first (creates a new private configuration directory; does not activate a timer):
 
 ```sh
-npm ci
-npm run test:pipeline
-npm run test:data
-npm run pipeline -- check-contracts
-npm run pipeline -- plan
-npm run pipeline -- report --destination ../docs/active/daily-pipeline
+python3 ops/worker/install.py --directory "$HOME/.local/share/securitymarketpulse-dry-run"
 ```
 
-On a deliberately configured persistent host, state must be outside the checkout, on a persistent POSIX filesystem. The following commands perform real network/model work and deliberately exit 2 for degraded coverage:
+After the reviewed implementation and operational acceptance gates below, install using a NEW
+state directory:
+
+```sh
+python3 ops/worker/install.py --install --directory "$HOME/.local/share/securitymarketpulse"
+```
+
+The installer restores existing remote evidence/budgets before scheduling, refuses an existing
+configuration/schedule, and never transfers credentials. Linux logout persistence uses linger.
+The copied launcher follows only fast-forward reviewed main commits; divergence or dirty code is
+held. Its initial reviewed setup pin remains until main contains that implementation. Check the
+installed timer/launchd status and run its printed `oneShot` command to validate the actual host.
+Installation in this cloud was dry-run only; no unattended schedule has been activated.
+
+## Development and recovery
+
+From `web/`: `npm ci`, `npm run test:pipeline`, `npm run test:data`, `npm run pipeline -- check-contracts`.
+For separately authorized real collection (state outside checkout):
 
 ```sh
 python3 web/scripts/pipeline/cli.py run --state /srv/smp-state --subscription-worker
 python3 web/scripts/pipeline/cli.py verify --state /srv/smp-state
-python3 web/scripts/pipeline/cli.py status --state /srv/smp-state
 python3 web/scripts/pipeline/cli.py report --state /srv/smp-state --destination /srv/smp-report
+python3 web/scripts/pipeline/cli.py snapshot --state /srv/smp-state --destination /srv/smp-report/dailyMarket.json
 ```
 
-Without `--subscription-worker`, structured SEC and citation checks can run, but new unstructured documents are held. No model request is routed through an API key. Budget exhaustion creates failed receipts and leaves work pending; it never reduces the denominator. Current 40-document/80-call limits are conservative defaults, not a demonstrated daily capacity. Baseline discovery may require an explicitly reviewed bootstrap budget and/or multiple days. Measure capacity before promising freshness.
+Degraded collection/reconciliation deliberately exits 2. A verified archive can restore incomplete
+coverage faithfully; restore integrity and business coverage are distinct acceptance checks. See
+`archive-push --help` and `archive-restore --help` for pinned transport arguments. Keep the exact
+archive commit and manifest SHA-256 in an independently retained receipt; verify all files on restore.
+The October 20 remote restore at commit `7924a44781fea3d4b038686feefc50d4f30551a7` verified
+19,998 files against manifest `875227e57ebfcc8bd1ed51fca131e5a6dd72dc7db59993e56bb30df44b0d5324`.
 
-Back up after stopping collectors, so heads and journals form one consistent snapshot:
+## Remaining acceptance gates
 
-```sh
-python3 web/scripts/pipeline/cli.py backup --state /srv/smp-state --destination /mnt/independent-backup/smp-unique-run
-python3 web/scripts/pipeline/cli.py verify-backup --state /mnt/independent-backup/smp-unique-run --expected-sha256 '<independently-retained manifestSha256>'
-```
+- Resolve 254 missing source bindings and 28 candidates with actual source-specific completeness
+  rules, positive/empty/amended/blocked receipts and practical history windows. Add independent
+  reporting search plus primary-document resolution. Link checks alone cannot satisfy this.
+- Audit existing displayed claims and complete typed ownership/target roles, financial periods,
+  conflicts/retractions and category-specific freshness. Current adapter handles selected company
+  metrics/rounds/events; it does not establish every field/category is fresh.
+- Measure ongoing delta/backfill/model capacity. Do not hide an impossible daily workload by
+  dropping obligations. Subscription limits fail closed and preserve queues. Check existing GitHub
+  usage/spending controls before activating new jobs; no increase in paid spend is authorized.
+- Commit/test direct preview delivery (no PR), inspect the visible coverage disclosure, and obtain
+  review of the concrete major cutover under AGENTS.md. Do not enable publication to bypass gaps.
+- Complete official Vercel management sign-in, inspect actual project settings, import/probe rollback
+  baseline, and execute exact staged deployment, production acknowledgement and forced rollback.
+- Run the real GitHub gate artifact path on reviewed main. Local reconstruction is not a trusted
+  GitHub run. Verify issue creation/recovery and actual owner notification delivery.
+- Install on the selected persistent host; prove restart, missed schedule, blocked source, no-change,
+  amendment, bad release, recovery and multi-day burn-in. Agree an outreach acceptance duration.
 
-Use a NEW backup destination per export. Keep its root hash outside both archives. A second directory on the same ephemeral cloud disk is a recovery test, not an independent durable backup. Retention, access control, restore drills and object-store replication are activation work.
-
-## Schedule and trust boundaries
-
-The disabled `.github/workflows/daily-market.yml` proposes daily collection at 12:17 UTC, with reconciliation in the same run. It only runs on reviewed `main`, never PR/fork code, on an isolated Linux runner labelled `smp-subscription`. State survives checkout cleanup. It needs the repository variables `MARKET_PIPELINE_ENABLED=true` and `MARKET_STATE_DIR` only after the activation gates below. Existing four-hour SEC automation stays in place during migration; the new workflow does not publish.
-
-Target publication windows are 00:23 and 16:23 UTC. These are policy settings, **not implemented production jobs**. A later release must pair the last reviewed application revision with an immutable validated snapshot, rather than bundle unrelated application changes. The current branch-based Vercel auto-deploy path must be reconciled with that policy before enabling any replacement publisher. Import and verify today's production deployment as the rollback baseline first.
-
-A model cannot waive a gate. Independent semantic review is a separate call with the original document, not the collector's confidence score. Deterministic reconciliation checks the entire expected inventory. Production should run verification, publication and monitoring with separate credentials/trust boundaries; the current collection process and its fresh-process recheck are not that final isolation.
-
-Cloudflare files under `ops/` are unprovisioned deployment examples. Do not assume their free tiers establish a zero-dollar ceiling. Confirm account limits and billing controls, exact supported R2 conditional-write behavior, lifecycle/retention policy, secret roles and independent availability before selecting/deploying them. No infrastructure was bought and no credentials were created or copied into CI.
-
-## Remaining end-to-end work and acceptance gates
-
-Do not infer readiness from any one row passing.
-
-1. **Host/auth/network:** choose and configure a persistent unattended subscription worker. Verify a real structured-output inference with no shell/apps/infrastructure credentials available to the model. Run capacity/rate-limit tests. This cloud login is recognized but its inference probe received proxy CONNECT 403. The owner confirmed no unattended host/schedule is configured.
-2. **Source onboarding:** resolve all 270 missing bindings; validate all 47 discovery candidates against actual feeds/indexes, pagination and retained history. Implement filing-document/PDF support and the distribution/reporting discovery providers needed by the contract. Record positive, empty, late/amended and blocked fixtures for each collector. Classify startups explicitly. Register approved coverage boundaries without growing the supplier roster.
-3. **Independent storage:** select an existing-cost-compatible evidence archive and backup destination. Integrate the Python store with it, including role boundaries, conditional writes, crash/interruption behavior and quotas. Restore into a new machine from an independently verified manifest. Exercise actual service concurrency/consistency; local tests cannot prove those semantics.
-4. **Site snapshot:** implement mapping from eligible validated facts to every displayed field/event, precedence for conflicting sources, corrections/retractions, meaningful claim-category outcomes, historical backfill and carried-forward/undisclosed/stale labels. Re-run the current 80-claim SEC gate on that exact snapshot. Do not imply each information category was verified merely because one source family was fetched.
-5. **Trusted release gate:** implement `market-release-gate.yml` on reviewed `main`, with actual test counts, exact application/snapshot/artifact hashes and a GitHub `daily-market-gate` artifact. The provenance verifier deliberately rejects worker-supplied trust flags. It has no real gate artifact to accept today.
-6. **Vercel integration:** configure management access, inspect the real project/production aliases/build settings, implement the immutable artifact adapter, close competing production paths, then prove preview receipt → exact production receipt → forced-failure rollback. No raw working-tree upload or `vercel --prod` shortcut.
-7. **Public operational proof:** add a coverage endpoint and reader-visible freshness/coverage labels. Publish only independently reconciled receipts. Deploy the outside watchdog, pin its contract hash and full task/supplier denominator, choose the owner's alert destination and verify actual delivery. Stop the scheduler/worker and prove a missing heartbeat alerts without relying on GitHub running. A green skipped job is never a heartbeat.
-8. **Cutover/burn-in:** owner reviews the concrete preview and changed external-service/deploy policy; then disable overlapping legacy triggers, enable daily operation and verify the first full live cycle, no-change cycle, amendment, blocked-source degradation, dead worker, recovery and rollback. Agree a sustained burn-in duration before reader outreach. Do not erase failed runs from that record.
-
-The next implementation stages are source onboarding, site snapshot mapping and the trusted release gate. Full live acceptance of all eight needs the missing host, allowed network, storage/notification configuration and Vercel access. None of the live acceptance gates is marked passed by offline tests.
-
-## Access and setup receipts (2026-10-19 PDT)
-
-- Git fetch and GitHub repository/Actions reads work through platform authentication; permission metadata reports push/admin capability. GitHub Actions secret administration returned 403. Do not request a redundant PAT based on missing environment variable names.
-- Production GET works. `/app-release.json` reports application `54590be4d91113a50879a8fb5d180441e7d149f4`, certification `2026-10-18T02:36:44.349Z`. Latest refresh inspected: run `39324337964`, `2026-10-19T21:02:46Z`, certification succeeded and data publication skipped. A no-change refresh does not change the last certified-change timestamp.
-- Vercel Git integration successfully built the feature preview for [draft PR #6](https://github.com/jessepike/sec-market/pull/6). Direct preview GET returned cloud proxy CONNECT 403; its hostname was added to the draft. This does not prove Vercel management access.
-- Vercel management token is neither bound in the cloud configuration nor present in the process. Unauthenticated project management access returned 403. Local laptop checkout is not accessible from this cloud task.
-- Codex CLI 0.163.0 recognizes ChatGPT login. GitHub-hosted jobs do not inherit this login or pay for model API usage through it. No scheduled subscription host exists yet.
-- Cloud setup draft retains tested Node 22 installation and system-Chromium startup/test instructions. Required source/auth/Actions-artifact network destinations were added to the saved draft (60 custom domains total, including the feature preview). Draft persistence does not establish runtime propagation or publication; review/save it in environment settings. `VERCEL_TOKEN` remains an optional missing requirement scoped to `api.vercel.com`, entered securely there rather than chat.
+Optional Cloudflare handler examples under `ops/archive` and `ops/watchdog/worker.mjs` are not
+provisioned, selected default infrastructure or proof of a free tier. No credentials were copied to
+CI. GitHub native Git and repository APIs work; admin runner/secrets endpoints do not have the
+integration scope, and the design above does not depend on them. Vercel management browser approval
+is separate from the already-working Git deployment integration.

@@ -485,7 +485,8 @@
         "cloudflare:citation:TR-edgar-revenue-cloudflare-2026-03-31-2026-05-08",
         "cloudflare:citation:TR-edgar-revenue-cloudflare-2026-06-30-2026-08-06",
         "cloudflare:citation:TR-filing-cloudflare-0001477333-26-000009",
-        "cloudflare:citation:TR-filing-cloudflare-0001477333-26-000042"
+        "cloudflare:citation:TR-filing-cloudflare-0001477333-26-000042",
+        "cloudflare:sec_documents"
       ],
       "requiredCategories": [
         "identity_listing",
@@ -560,7 +561,8 @@
         "commvault:citation:TR-edgar-revenue-commvault-2026-03-31-2026-05-11",
         "commvault:citation:TR-edgar-revenue-commvault-2026-06-30-2026-07-29",
         "commvault:citation:TR-filing-commvault-0001169561-25-000080",
-        "commvault:citation:TR-filing-commvault-0001169561-26-000030"
+        "commvault:citation:TR-filing-commvault-0001169561-26-000030",
+        "commvault:sec_documents"
       ],
       "requiredCategories": [
         "identity_listing",
@@ -603,7 +605,8 @@
         "crwd:citation:TR-edgar-revenue-crwd-2026-04-30-2026-06-04",
         "crwd:citation:TR-edgar-revenue-crwd-2026-07-31-2026-08-27",
         "crwd:citation:TR-filing-crwd-0001104659-25-124912",
-        "crwd:citation:TR-filing-crwd-0001535527-26-000018"
+        "crwd:citation:TR-filing-crwd-0001535527-26-000018",
+        "crwd:sec_documents"
       ],
       "requiredCategories": [
         "identity_listing",
@@ -948,7 +951,8 @@
         "fortinet:sec_submissions",
         "fortinet:citation:TR-edgar-revenue-fortinet-2026-03-31-2026-05-08",
         "fortinet:citation:TR-edgar-revenue-fortinet-2026-06-30-2026-07-30",
-        "fortinet:citation:TR-fortinet-1"
+        "fortinet:citation:TR-fortinet-1",
+        "fortinet:sec_documents"
       ],
       "requiredCategories": [
         "identity_listing",
@@ -1123,7 +1127,8 @@
         "jfrog:official:1",
         "jfrog:citation:TR-edgar-revenue-jfrog-2026-03-31-2026-05-08",
         "jfrog:citation:TR-edgar-revenue-jfrog-2026-06-30-2026-08-07",
-        "jfrog:citation:TR-jfrog-1"
+        "jfrog:citation:TR-jfrog-1",
+        "jfrog:sec_documents"
       ],
       "requiredCategories": [
         "identity_listing",
@@ -1325,7 +1330,8 @@
         "netskope:citation:TR-netskope-1",
         "netskope:citation:TR-netskope-3",
         "netskope:citation:TR-netskope-4",
-        "netskope:citation:TR-netskope-5"
+        "netskope:citation:TR-netskope-5",
+        "netskope:sec_documents"
       ],
       "requiredCategories": [
         "identity_listing",
@@ -1403,7 +1409,8 @@
         "okta:citation:TR-filing-okta-0001660134-26-000054",
         "okta:citation:TR-filing-okta-0001660134-26-000072",
         "okta:citation:TR-okta-1",
-        "okta:citation:TR-okta-3"
+        "okta:citation:TR-okta-3",
+        "okta:sec_documents"
       ],
       "requiredCategories": [
         "identity_listing",
@@ -1522,7 +1529,8 @@
         "panw:citation:TR-panw-1",
         "panw:citation:TR-panw-3",
         "panw:citation:TR-panw-4",
-        "panw:citation:TR-panw-5"
+        "panw:citation:TR-panw-5",
+        "panw:sec_documents"
       ],
       "requiredCategories": [
         "identity_listing",
@@ -1695,7 +1703,8 @@
         "qualys:citation:TR-edgar-revenue-qualys-2026-03-31-2026-05-05",
         "qualys:citation:TR-edgar-revenue-qualys-2026-06-30-2026-08-04",
         "qualys:citation:TR-filing-qualys-0001107843-26-000024",
-        "qualys:citation:TR-qualys-1"
+        "qualys:citation:TR-qualys-1",
+        "qualys:sec_documents"
       ],
       "requiredCategories": [
         "identity_listing",
@@ -1740,7 +1749,8 @@
         "rapid7:citation:TR-rapid7-3",
         "rapid7:citation:TR-rapid7-4",
         "rapid7:citation:TR-rapid7-5",
-        "rapid7:citation:TR-rapid7-6"
+        "rapid7:citation:TR-rapid7-6",
+        "rapid7:sec_documents"
       ],
       "requiredCategories": [
         "identity_listing",
@@ -1848,7 +1858,8 @@
         "rubrik:citation:TR-filing-rubrik-0001193125-26-037791",
         "rubrik:citation:TR-filing-rubrik-0001943896-26-000055",
         "rubrik:citation:TR-rubrik-1",
-        "rubrik:citation:TR-rubrik-3"
+        "rubrik:citation:TR-rubrik-3",
+        "rubrik:sec_documents"
       ],
       "requiredCategories": [
         "identity_listing",
@@ -1891,7 +1902,8 @@
         "s1:citation:TR-s1-1",
         "s1:citation:TR-s1-3",
         "s1:citation:TR-s1-4",
-        "s1:citation:TR-s1-5"
+        "s1:citation:TR-s1-5",
+        "s1:sec_documents"
       ],
       "requiredCategories": [
         "identity_listing",
@@ -1929,7 +1941,8 @@
         "sailpoint:citation:TR-edgar-revenue-sailpoint-2026-07-31-2026-09-10",
         "sailpoint:citation:TR-filing-sailpoint-0002030781-26-000015",
         "sailpoint:citation:TR-sailpoint-1",
-        "sailpoint:citation:TR-sailpoint-3"
+        "sailpoint:citation:TR-sailpoint-3",
+        "sailpoint:sec_documents"
       ],
       "requiredCategories": [
         "identity_listing",
@@ -2175,7 +2188,8 @@
         "tenable:citation:TR-filing-tenable-0001660280-26-000042",
         "tenable:citation:TR-tenable-1",
         "tenable:citation:TR-tenable-2",
-        "tenable:citation:TR-tenable-4"
+        "tenable:citation:TR-tenable-4",
+        "tenable:sec_documents"
       ],
       "requiredCategories": [
         "identity_listing",
@@ -2382,7 +2396,8 @@
         "varonis:citation:TR-filing-varonis-0001171843-26-003887",
         "varonis:citation:TR-filing-varonis-0001213900-26-109901",
         "varonis:citation:TR-varonis-1",
-        "varonis:citation:TR-varonis-2"
+        "varonis:citation:TR-varonis-2",
+        "varonis:sec_documents"
       ],
       "requiredCategories": [
         "identity_listing",
@@ -2619,7 +2634,8 @@
         "zscaler:citation:TR-zscaler-3",
         "zscaler:citation:TR-zscaler-4",
         "zscaler:citation:TR-zscaler-5",
-        "zscaler:citation:TR-zscaler-6"
+        "zscaler:citation:TR-zscaler-6",
+        "zscaler:sec_documents"
       ],
       "requiredCategories": [
         "identity_listing",
@@ -2672,27 +2688,99 @@
     {
       "id": "aqua:official:1",
       "supplierId": "aqua",
-      "kind": "official_discovery",
-      "url": "https://www.aquasec.com/",
+      "kind": "sitemap",
+      "url": "https://www.aquasec.com/sitemap.xml",
       "allowedHosts": [
         "www.aquasec.com"
       ],
-      "registration": "candidate",
+      "registration": "verified",
       "required": true,
       "maxPages": 60,
       "scopePrefixes": [
-        "/news",
-        "/press",
-        "/blog",
-        "/company",
-        "/investor",
-        "/resources"
+        "/news/"
       ],
       "seedEvidenceUrls": [
         "https://www.aquasec.com/news/aqua-security-announces-leadership-transition-as-company-enters-its-next-phase-of-growth/",
         "https://www.aquasec.com/about-us/"
       ],
-      "family": "official_announcements"
+      "family": "official_announcements",
+      "registrationProof": {
+        "checkedAt": "2026-10-20T21:37:28.373081Z",
+        "scopePrefixes": [
+          "/news/"
+        ],
+        "matchedExistingEvidence": [
+          "https://www.aquasec.com/about-us/",
+          "https://www.aquasec.com/news/aqua-security-announces-leadership-transition-as-company-enters-its-next-phase-of-growth/"
+        ],
+        "observations": [
+          {
+            "url": "https://www.aquasec.com/sitemap.xml",
+            "body": {
+              "key": "objects/647ae0375f25d1eebb0bb2473306a3e35c1b48f0d5979ff610c3a01fd6103bda",
+              "sha256": "647ae0375f25d1eebb0bb2473306a3e35c1b48f0d5979ff610c3a01fd6103bda",
+              "bytes": 1162
+            }
+          },
+          {
+            "url": "https://www.aquasec.com/academy-sitemap.xml",
+            "body": {
+              "key": "objects/4377b8a337e90dd5d540fc019f1a11943282872f3273cdfa28270a1e1a0ae635",
+              "sha256": "4377b8a337e90dd5d540fc019f1a11943282872f3273cdfa28270a1e1a0ae635",
+              "bytes": 65673
+            }
+          },
+          {
+            "url": "https://www.aquasec.com/authors-sitemap.xml",
+            "body": {
+              "key": "objects/8c3fdbdbd99af470f30c1e30ddf5806e8c14fc1c9b889f6ad027996f7f73e7d1",
+              "sha256": "8c3fdbdbd99af470f30c1e30ddf5806e8c14fc1c9b889f6ad027996f7f73e7d1",
+              "bytes": 26229
+            }
+          },
+          {
+            "url": "https://www.aquasec.com/customers-sitemap.xml",
+            "body": {
+              "key": "objects/d5cbf54dd00b68363760702ec476b53c8440e20fc3b816888a2a3e32a046f125",
+              "sha256": "d5cbf54dd00b68363760702ec476b53c8440e20fc3b816888a2a3e32a046f125",
+              "bytes": 7182
+            }
+          },
+          {
+            "url": "https://www.aquasec.com/news-sitemap.xml",
+            "body": {
+              "key": "objects/fa0e689a1edf4fe3d83313cdb266c2194b406f740d8e8f2a96a273f15f4630ad",
+              "sha256": "fa0e689a1edf4fe3d83313cdb266c2194b406f740d8e8f2a96a273f15f4630ad",
+              "bytes": 132161
+            }
+          },
+          {
+            "url": "https://www.aquasec.com/page-sitemap.xml",
+            "body": {
+              "key": "objects/cc86e5d8942dc41f13c5dfcce8da249b679bb076bbad5bc04a5f4fa49516fbaf",
+              "sha256": "cc86e5d8942dc41f13c5dfcce8da249b679bb076bbad5bc04a5f4fa49516fbaf",
+              "bytes": 12166
+            }
+          },
+          {
+            "url": "https://www.aquasec.com/post-sitemap.xml",
+            "body": {
+              "key": "objects/7910e74839d6678530ac3ccf0e8c6b0bd2415a73b7853009842e7a3bb7d37f51",
+              "sha256": "7910e74839d6678530ac3ccf0e8c6b0bd2415a73b7853009842e7a3bb7d37f51",
+              "bytes": 323927
+            }
+          },
+          {
+            "url": "https://www.aquasec.com/resources-sitemap.xml",
+            "body": {
+              "key": "objects/1d23a5a21f8be536d6bd65fc245827589950289b838047274773573260c46f6a",
+              "sha256": "1d23a5a21f8be536d6bd65fc245827589950289b838047274773573260c46f6a",
+              "bytes": 15472
+            }
+          }
+        ],
+        "scopeLimitation": "Discovery inventory within registered paths; semantic completion requires separate document receipts."
+      }
     },
     {
       "id": "aqua:official:2",
@@ -2721,53 +2809,149 @@
     {
       "id": "arctic-wolf:official:1",
       "supplierId": "arctic-wolf",
-      "kind": "official_discovery",
-      "url": "https://arcticwolf.com/",
+      "kind": "sitemap",
+      "url": "https://arcticwolf.com/sitemap_index.xml",
       "allowedHosts": [
         "arcticwolf.com"
       ],
-      "registration": "candidate",
+      "registration": "verified",
       "required": true,
       "maxPages": 60,
       "scopePrefixes": [
-        "/news",
-        "/press",
-        "/blog",
-        "/company",
-        "/investor",
-        "/resources"
+        "/resources/press-releases/",
+        "/resources/blog/"
       ],
       "seedEvidenceUrls": [
         "https://arcticwolf.com/resources/press-releases/arctic-wolf-acquires-exposure-assessment-platform-visionary-sevco-security/",
         "https://arcticwolf.com/resources/blog/arctic-wolf-closes-record-breaking-series-f-funding/"
       ],
-      "family": "official_announcements"
+      "family": "official_announcements",
+      "registrationProof": {
+        "checkedAt": "2026-10-20T21:37:28.373081Z",
+        "scopePrefixes": [
+          "/resources/press-releases/",
+          "/resources/blog/"
+        ],
+        "matchedExistingEvidence": [
+          "https://arcticwolf.com/resources/blog/arctic-wolf-closes-record-breaking-series-f-funding/",
+          "https://arcticwolf.com/resources/press-releases/arctic-wolf-acquires-exposure-assessment-platform-visionary-sevco-security/"
+        ],
+        "observations": [
+          {
+            "url": "https://arcticwolf.com/sitemap_index.xml",
+            "body": {
+              "key": "objects/1f1d064af87ea4a5ac65c3c157bb9c020b8a98de3c834ed3b55da211429d2c4c",
+              "sha256": "1f1d064af87ea4a5ac65c3c157bb9c020b8a98de3c834ed3b55da211429d2c4c",
+              "bytes": 1398
+            }
+          },
+          {
+            "url": "https://arcticwolf.com/author-sitemap.xml",
+            "body": {
+              "key": "objects/f8597b3762dab385c182e2692a03c05317ed5967648ee1fec5280088039e6712",
+              "sha256": "f8597b3762dab385c182e2692a03c05317ed5967648ee1fec5280088039e6712",
+              "bytes": 125776
+            }
+          },
+          {
+            "url": "https://arcticwolf.com/category-sitemap.xml",
+            "body": {
+              "key": "objects/9c36f6deb355734f859859c50e145953fd542d8437d81ed7391c64f858a80abe",
+              "sha256": "9c36f6deb355734f859859c50e145953fd542d8437d81ed7391c64f858a80abe",
+              "bytes": 20714
+            }
+          },
+          {
+            "url": "https://arcticwolf.com/page-sitemap.xml",
+            "body": {
+              "key": "objects/a2d61d408c096ec66a87e3bf9a5c920f48118e44368c3227ec0dee6bec5470ea",
+              "sha256": "a2d61d408c096ec66a87e3bf9a5c920f48118e44368c3227ec0dee6bec5470ea",
+              "bytes": 1162389
+            }
+          },
+          {
+            "url": "https://arcticwolf.com/post-sitemap.xml",
+            "body": {
+              "key": "objects/f91dfa793f49031515ce8edd3b3d22078fea8b694cbcb588ca8a19287b910a20",
+              "sha256": "f91dfa793f49031515ce8edd3b3d22078fea8b694cbcb588ca8a19287b910a20",
+              "bytes": 106792
+            }
+          },
+          {
+            "url": "https://arcticwolf.com/post-sitemap2.xml",
+            "body": {
+              "key": "objects/8e983a66c43a13fd78ad26e9af6af98460caaa3ad27e754287dd975cb08cc140",
+              "sha256": "8e983a66c43a13fd78ad26e9af6af98460caaa3ad27e754287dd975cb08cc140",
+              "bytes": 378349
+            }
+          },
+          {
+            "url": "https://arcticwolf.com/post-sitemap3.xml",
+            "body": {
+              "key": "objects/77ad30ed768411c49edfe885d9ff80de86b33eccec3d2a125295e4d41b8c0c49",
+              "sha256": "77ad30ed768411c49edfe885d9ff80de86b33eccec3d2a125295e4d41b8c0c49",
+              "bytes": 292311
+            }
+          },
+          {
+            "url": "https://arcticwolf.com/post-sitemap4.xml",
+            "body": {
+              "key": "objects/4ee50bc46dc922b1dba236cf7c86ddba3918e82595ee89e9f38b1bf27af2e5e4",
+              "sha256": "4ee50bc46dc922b1dba236cf7c86ddba3918e82595ee89e9f38b1bf27af2e5e4",
+              "bytes": 345638
+            }
+          },
+          {
+            "url": "https://arcticwolf.com/post-sitemap5.xml",
+            "body": {
+              "key": "objects/7e2e912a6117b376633ec5de667c42ad8aebc29a81d16b30f501ce09c234ffab",
+              "sha256": "7e2e912a6117b376633ec5de667c42ad8aebc29a81d16b30f501ce09c234ffab",
+              "bytes": 14526
+            }
+          },
+          {
+            "url": "https://arcticwolf.com/post_tag-sitemap.xml",
+            "body": {
+              "key": "objects/340a807e7b6802daf1607646b15a7aacc6bdc1a6a8e7c5376a41f715fa4d25d5",
+              "sha256": "340a807e7b6802daf1607646b15a7aacc6bdc1a6a8e7c5376a41f715fa4d25d5",
+              "bytes": 42965
+            }
+          }
+        ],
+        "scopeLimitation": "Discovery inventory within registered paths; semantic completion requires separate document receipts."
+      }
     },
     {
       "id": "axonius:official:1",
       "supplierId": "axonius",
-      "kind": "official_discovery",
-      "url": "https://www.axonius.com/",
+      "kind": "sitemap",
+      "url": "https://www.axonius.com/sitemap.xml",
       "allowedHosts": [
         "www.axonius.com"
       ],
-      "registration": "candidate",
+      "registration": "verified",
       "required": true,
       "maxPages": 60,
       "scopePrefixes": [
-        "/news",
-        "/press",
-        "/blog",
-        "/company",
-        "/investor",
-        "/resources"
+        "/company/newsroom/",
+        "/newsroom/"
       ],
       "seedEvidenceUrls": [
         "https://www.axonius.com/newsroom/press-release/axonius-surpasses-200m-arr-appoints-joe-diamond-ceo",
         "https://www.axonius.com/newsroom/press-release/axonius-surpasses-200m-arr-appoints-joe-diamond-ceo",
         "https://www.axonius.com/newsroom/press-release/axonius-closes-200m-series-e-funding-round"
       ],
-      "family": "official_announcements"
+      "family": "official_announcements",
+      "registrationProof": {
+        "checkedAt": "2026-10-20T21:11:27.072079Z",
+        "endpoint": {
+          "key": "objects/5c05ad756df3479a8debae9ff5470b81d2a8b4c076f9c9c4e7a92bce3a648ab5",
+          "sha256": "5c05ad756df3479a8debae9ff5470b81d2a8b4c076f9c9c4e7a92bce3a648ab5",
+          "bytes": 126325
+        },
+        "scope": "Declared official announcement sections of publisher sitemap",
+        "matchedExistingEvidence": true
+      }
     },
     {
       "id": "barracuda:official:1",
@@ -2977,26 +3161,31 @@
     {
       "id": "cohesity:official:1",
       "supplierId": "cohesity",
-      "kind": "official_discovery",
-      "url": "https://www.cohesity.com/",
+      "kind": "sitemap",
+      "url": "https://www.cohesity.com/sitemap.us.xml",
       "allowedHosts": [
         "www.cohesity.com"
       ],
-      "registration": "candidate",
+      "registration": "verified",
       "required": true,
       "maxPages": 60,
       "scopePrefixes": [
-        "/news",
-        "/press",
-        "/blog",
-        "/company",
-        "/investor",
-        "/resources"
+        "/newsroom/"
       ],
       "seedEvidenceUrls": [
         "https://www.cohesity.com/newsroom/press/cohesity-becomes-worlds-largest-data-protection-provider-after-completing-combination-with-veritas-enterprise-data-protection-business/"
       ],
-      "family": "official_announcements"
+      "family": "official_announcements",
+      "registrationProof": {
+        "checkedAt": "2026-10-20T21:11:33.971692Z",
+        "endpoint": {
+          "key": "objects/774f5e035b006d0507db4dc02cfd44c316f866c2e3c4f25094dfc3b72618a506",
+          "sha256": "774f5e035b006d0507db4dc02cfd44c316f866c2e3c4f25094dfc3b72618a506",
+          "bytes": 341204
+        },
+        "scope": "Declared official announcement sections of publisher sitemap",
+        "matchedExistingEvidence": true
+      }
     },
     {
       "id": "commvault:sec_facts",
@@ -3147,99 +3336,304 @@
     {
       "id": "dragos:official:1",
       "supplierId": "dragos",
-      "kind": "official_discovery",
-      "url": "https://newsroom.accenture.com/",
+      "kind": "sitemap",
+      "url": "https://newsroom.accenture.com/sitemap.xml",
       "allowedHosts": [
         "newsroom.accenture.com"
       ],
-      "registration": "candidate",
+      "registration": "verified",
       "required": true,
       "maxPages": 60,
       "scopePrefixes": [
-        "/news",
-        "/press",
-        "/blog",
-        "/company",
-        "/investor",
-        "/resources"
+        "/news/"
       ],
       "seedEvidenceUrls": [
         "https://newsroom.accenture.com/news/2026/accenture-to-strengthen-critical-infrastructure-defense-with-end-to-end-cybersecurity-platform-in-age-of-ai-driven-cyber-threats-and-geopolitical-risk"
       ],
-      "family": "investor_acquirer"
+      "family": "investor_acquirer",
+      "registrationProof": {
+        "checkedAt": "2026-10-20T21:37:28.373081Z",
+        "scopePrefixes": [
+          "/news/"
+        ],
+        "matchedExistingEvidence": [
+          "https://newsroom.accenture.com/news/2026/accenture-to-strengthen-critical-infrastructure-defense-with-end-to-end-cybersecurity-platform-in-age-of-ai-driven-cyber-threats-and-geopolitical-risk"
+        ],
+        "observations": [
+          {
+            "url": "https://newsroom.accenture.com/sitemap.xml",
+            "body": {
+              "key": "objects/ffa320b4402e9c341c48d9c512ca0088a577e69208cd68be9a4e761d6fcf61d5",
+              "sha256": "ffa320b4402e9c341c48d9c512ca0088a577e69208cd68be9a4e761d6fcf61d5",
+              "bytes": 736523
+            }
+          }
+        ],
+        "scopeLimitation": "Discovery inventory within registered paths; semantic completion requires separate document receipts."
+      }
     },
     {
       "id": "esentire:official:1",
       "supplierId": "esentire",
-      "kind": "official_discovery",
-      "url": "https://www.esentire.com/",
+      "kind": "sitemap",
+      "url": "https://www.esentire.com/sitemaps-1-sitemap.xml",
       "allowedHosts": [
         "www.esentire.com"
       ],
-      "registration": "candidate",
+      "registration": "verified",
       "required": true,
       "maxPages": 60,
       "scopePrefixes": [
-        "/news",
-        "/press",
-        "/blog",
-        "/company",
-        "/investor",
-        "/resources"
+        "/news-releases/"
       ],
       "seedEvidenceUrls": [
         "https://www.esentire.com/news-releases/global-cybersecurity-leader-esentire-raises-us-325m-and-achieves-unicorn-status"
       ],
-      "family": "official_announcements"
+      "family": "official_announcements",
+      "registrationProof": {
+        "checkedAt": "2026-10-20T21:37:28.373081Z",
+        "scopePrefixes": [
+          "/news-releases/"
+        ],
+        "matchedExistingEvidence": [
+          "https://www.esentire.com/news-releases/global-cybersecurity-leader-esentire-raises-us-325m-and-achieves-unicorn-status"
+        ],
+        "observations": [
+          {
+            "url": "https://www.esentire.com/sitemaps-1-sitemap.xml",
+            "body": {
+              "key": "objects/2e73751d33bfc0fdd557cc04775f403bc56f1a8446bd0c5a044f7db631ebb729",
+              "sha256": "2e73751d33bfc0fdd557cc04775f403bc56f1a8446bd0c5a044f7db631ebb729",
+              "bytes": 1585
+            }
+          },
+          {
+            "url": "https://www.esentire.com/sitemaps-1-section-blog-1-sitemap.xml",
+            "body": {
+              "key": "objects/c4f4d2ef777f37bf0292235901f39cbf381e56dd37eb1623fd77c05a4cdd4ac2",
+              "sha256": "c4f4d2ef777f37bf0292235901f39cbf381e56dd37eb1623fd77c05a4cdd4ac2",
+              "bytes": 168779
+            }
+          },
+          {
+            "url": "https://www.esentire.com/sitemaps-1-section-glossary-1-sitemap.xml",
+            "body": {
+              "key": "objects/0c2acdda16491896043137cb9ca3165d4ca53cf8aa9c338bc5f5db1c35786766",
+              "sha256": "0c2acdda16491896043137cb9ca3165d4ca53cf8aa9c338bc5f5db1c35786766",
+              "bytes": 10277
+            }
+          },
+          {
+            "url": "https://www.esentire.com/sitemaps-1-section-homepage-1-sitemap.xml",
+            "body": {
+              "key": "objects/435ba30002ea6799e2f8d58c1344647b3b26db58e2be62b4b79a68faec575d6a",
+              "sha256": "435ba30002ea6799e2f8d58c1344647b3b26db58e2be62b4b79a68faec575d6a",
+              "bytes": 1257
+            }
+          },
+          {
+            "url": "https://www.esentire.com/sitemaps-1-section-leadership-1-sitemap.xml",
+            "body": {
+              "key": "objects/9e31f372f8263555be3ab922a6c92f8d46d9cb5c5a2c7f13a85ff9442be15d9b",
+              "sha256": "9e31f372f8263555be3ab922a6c92f8d46d9cb5c5a2c7f13a85ff9442be15d9b",
+              "bytes": 10847
+            }
+          },
+          {
+            "url": "https://www.esentire.com/sitemaps-1-section-legal-1-sitemap.xml",
+            "body": {
+              "key": "objects/7ddf1914a77e3d4c10680005c115e601d480828bda4f77605fa9002e21756928",
+              "sha256": "7ddf1914a77e3d4c10680005c115e601d480828bda4f77605fa9002e21756928",
+              "bytes": 1445
+            }
+          },
+          {
+            "url": "https://www.esentire.com/sitemaps-1-section-newsReleases-1-sitemap.xml",
+            "body": {
+              "key": "objects/85623c07873549fcca2bdedc892dea8ef344f70ddcc9f791d469cf043d3538a7",
+              "sha256": "85623c07873549fcca2bdedc892dea8ef344f70ddcc9f791d469cf043d3538a7",
+              "bytes": 43558
+            }
+          },
+          {
+            "url": "https://www.esentire.com/sitemaps-1-section-pages-1-sitemap.xml",
+            "body": {
+              "key": "objects/f25a412ee892f5400cf53d2cf6de90867bac429fae3b1c8f1918469610241d07",
+              "sha256": "f25a412ee892f5400cf53d2cf6de90867bac429fae3b1c8f1918469610241d07",
+              "bytes": 22529
+            }
+          },
+          {
+            "url": "https://www.esentire.com/sitemaps-1-section-resources-1-sitemap.xml",
+            "body": {
+              "key": "objects/912edc60c3a54d8624dd4b45257fd8e79d63f68f3748618a17a63a21d146d44c",
+              "sha256": "912edc60c3a54d8624dd4b45257fd8e79d63f68f3748618a17a63a21d146d44c",
+              "bytes": 73986
+            }
+          },
+          {
+            "url": "https://www.esentire.com/sitemaps-1-section-securityAdvisories-1-sitemap.xml",
+            "body": {
+              "key": "objects/c3362c0f1609e711f0487826be8bac3da65ca0d55435985fcc50f63d24e991aa",
+              "sha256": "c3362c0f1609e711f0487826be8bac3da65ca0d55435985fcc50f63d24e991aa",
+              "bytes": 107460
+            }
+          },
+          {
+            "url": "https://www.esentire.com/sitemaps-1-section-webNativePages-1-sitemap.xml",
+            "body": {
+              "key": "objects/9b387f3066ab88d1f67f66ea4745eb3ba681f1f68a477c0e059b1df97efac0da",
+              "sha256": "9b387f3066ab88d1f67f66ea4745eb3ba681f1f68a477c0e059b1df97efac0da",
+              "bytes": 15052
+            }
+          }
+        ],
+        "scopeLimitation": "Discovery inventory within registered paths; semantic completion requires separate document receipts."
+      }
     },
     {
       "id": "exabeam:official:1",
       "supplierId": "exabeam",
-      "kind": "official_discovery",
-      "url": "https://www.thomabravo.com/",
+      "kind": "sitemap",
+      "url": "https://www.thomabravo.com/sitemap.xml",
       "allowedHosts": [
         "www.thomabravo.com"
       ],
-      "registration": "candidate",
+      "registration": "verified",
       "required": true,
       "maxPages": 60,
       "scopePrefixes": [
-        "/news",
-        "/press",
-        "/blog",
-        "/company",
-        "/investor",
-        "/resources"
+        "/press-releases/"
       ],
       "seedEvidenceUrls": [
         "https://www.thomabravo.com/press-releases/exabeam-and-logrhythm-complete-merger-and-announce-new-company-details"
       ],
-      "family": "investor_acquirer"
+      "family": "investor_acquirer",
+      "registrationProof": {
+        "checkedAt": "2026-10-20T21:37:28.373081Z",
+        "scopePrefixes": [
+          "/press-releases/"
+        ],
+        "matchedExistingEvidence": [
+          "https://www.thomabravo.com/press-releases/exabeam-and-logrhythm-complete-merger-and-announce-new-company-details"
+        ],
+        "observations": [
+          {
+            "url": "https://www.thomabravo.com/sitemap.xml",
+            "body": {
+              "key": "objects/eb50849f4fb93fb1420b5c3e791121b2094e759e25db392f885cf8b701fe1fa3",
+              "sha256": "eb50849f4fb93fb1420b5c3e791121b2094e759e25db392f885cf8b701fe1fa3",
+              "bytes": 226085
+            }
+          }
+        ],
+        "scopeLimitation": "Discovery inventory within registered paths; semantic completion requires separate document receipts."
+      }
     },
     {
       "id": "expel:official:1",
       "supplierId": "expel",
-      "kind": "official_discovery",
-      "url": "https://expel.com/",
+      "kind": "sitemap",
+      "url": "https://expel.com/sitemap_index.xml",
       "allowedHosts": [
         "expel.com"
       ],
-      "registration": "candidate",
+      "registration": "verified",
       "required": true,
       "maxPages": 60,
       "scopePrefixes": [
-        "/news",
-        "/press",
-        "/blog",
-        "/company",
-        "/investor",
-        "/resources"
+        "/resource/"
       ],
       "seedEvidenceUrls": [
         "https://expel.com/resource/expel-raises-140-million-in-series-e-funding/",
         "https://expel.com/resource/expel-investors-fuel-rapid-growth-with-additional-series-e-investment-bringing-total-funding-to-288-million/"
       ],
-      "family": "official_announcements"
+      "family": "official_announcements",
+      "registrationProof": {
+        "checkedAt": "2026-10-20T21:37:28.373081Z",
+        "scopePrefixes": [
+          "/resource/"
+        ],
+        "matchedExistingEvidence": [
+          "https://expel.com/resource/expel-investors-fuel-rapid-growth-with-additional-series-e-investment-bringing-total-funding-to-288-million/",
+          "https://expel.com/resource/expel-raises-140-million-in-series-e-funding/"
+        ],
+        "observations": [
+          {
+            "url": "https://expel.com/sitemap_index.xml",
+            "body": {
+              "key": "objects/52ca6c72acc0813d3c5e5efcebf1791a73631e42c2c8f95bfb294ff8bfd45048",
+              "sha256": "52ca6c72acc0813d3c5e5efcebf1791a73631e42c2c8f95bfb294ff8bfd45048",
+              "bytes": 1252
+            }
+          },
+          {
+            "url": "https://expel.com/author-sitemap.xml",
+            "body": {
+              "key": "objects/117eb077c3966271b8393513635d4f50465babab1e52e99161594944a0de253b",
+              "sha256": "117eb077c3966271b8393513635d4f50465babab1e52e99161594944a0de253b",
+              "bytes": 6944
+            }
+          },
+          {
+            "url": "https://expel.com/competitor-sitemap.xml",
+            "body": {
+              "key": "objects/5f04996571f005aa0570d1c9bc6f2daf5c3e7ea66bd2d620efc815dc578500e5",
+              "sha256": "5f04996571f005aa0570d1c9bc6f2daf5c3e7ea66bd2d620efc815dc578500e5",
+              "bytes": 1162
+            }
+          },
+          {
+            "url": "https://expel.com/glossary-sitemap.xml",
+            "body": {
+              "key": "objects/8155a5d5fadfa3fe8abc2efe19b7b9764cf05c5f762dd36dc94d551b4427bb6e",
+              "sha256": "8155a5d5fadfa3fe8abc2efe19b7b9764cf05c5f762dd36dc94d551b4427bb6e",
+              "bytes": 41857
+            }
+          },
+          {
+            "url": "https://expel.com/glossary_category-sitemap.xml",
+            "body": {
+              "key": "objects/46fe49fe284a49bd4bd7103fd67f55a0294f2b0bbd8ad4bc05a1e89f12ca54ac",
+              "sha256": "46fe49fe284a49bd4bd7103fd67f55a0294f2b0bbd8ad4bc05a1e89f12ca54ac",
+              "bytes": 3576
+            }
+          },
+          {
+            "url": "https://expel.com/integration-sitemap.xml",
+            "body": {
+              "key": "objects/bedf298117bdcd82ec730d44d4c3e7a25539e816a7e0bd2cc8aebc6d03c1f1bf",
+              "sha256": "bedf298117bdcd82ec730d44d4c3e7a25539e816a7e0bd2cc8aebc6d03c1f1bf",
+              "bytes": 3412
+            }
+          },
+          {
+            "url": "https://expel.com/page-sitemap.xml",
+            "body": {
+              "key": "objects/90815812ec395e4dd0c5e22b67ba40c275d300bf20e4e21545b994964b91b31c",
+              "sha256": "90815812ec395e4dd0c5e22b67ba40c275d300bf20e4e21545b994964b91b31c",
+              "bytes": 40791
+            }
+          },
+          {
+            "url": "https://expel.com/post-sitemap.xml",
+            "body": {
+              "key": "objects/515d606de363a939f9d5b97d48534e1b38f2ab378604df0b8be15784a5fd6e60",
+              "sha256": "515d606de363a939f9d5b97d48534e1b38f2ab378604df0b8be15784a5fd6e60",
+              "bytes": 312472
+            }
+          },
+          {
+            "url": "https://expel.com/resource-sitemap.xml",
+            "body": {
+              "key": "objects/7e5cab46030636c032d568e70d7781d3eb07b1f8e20e3a164734087447851c02",
+              "sha256": "7e5cab46030636c032d568e70d7781d3eb07b1f8e20e3a164734087447851c02",
+              "bytes": 100470
+            }
+          }
+        ],
+        "scopeLimitation": "Discovery inventory within registered paths; semantic completion requires separate document receipts."
+      }
     },
     {
       "id": "forescout:official:1",
@@ -3326,51 +3720,112 @@
     {
       "id": "hiddenlayer:official:1",
       "supplierId": "hiddenlayer",
-      "kind": "official_discovery",
-      "url": "https://www.hiddenlayer.com/",
+      "kind": "sitemap",
+      "url": "https://www.hiddenlayer.com/sitemap.xml",
       "allowedHosts": [
         "www.hiddenlayer.com"
       ],
-      "registration": "candidate",
+      "registration": "verified",
       "required": true,
       "maxPages": 60,
       "scopePrefixes": [
-        "/news",
-        "/press",
-        "/blog",
-        "/company",
-        "/investor",
-        "/resources"
+        "/news/"
       ],
       "seedEvidenceUrls": [
         "https://www.hiddenlayer.com/news/hiddenlayer-100m-series-b-ai-security"
       ],
-      "family": "official_announcements"
+      "family": "official_announcements",
+      "registrationProof": {
+        "checkedAt": "2026-10-20T21:11:39.093261Z",
+        "endpoint": {
+          "key": "objects/0066988a1c947185fab6ef13ae455497893ffd85b14cd17136c6a6482ae9de2e",
+          "sha256": "0066988a1c947185fab6ef13ae455497893ffd85b14cd17136c6a6482ae9de2e",
+          "bytes": 65685
+        },
+        "scope": "Declared official announcement sections of publisher sitemap",
+        "matchedExistingEvidence": true
+      }
     },
     {
       "id": "ivanti:official:1",
       "supplierId": "ivanti",
-      "kind": "official_discovery",
-      "url": "https://www.ivanti.com/",
+      "kind": "sitemap",
+      "url": "https://www.ivanti.com/sitemap_index.xml",
       "allowedHosts": [
         "www.ivanti.com"
       ],
-      "registration": "candidate",
+      "registration": "verified",
       "required": true,
       "maxPages": 60,
       "scopePrefixes": [
-        "/news",
-        "/press",
-        "/blog",
-        "/company",
-        "/investor",
-        "/resources"
+        "/company/press-releases/"
       ],
       "seedEvidenceUrls": [
         "https://www.ivanti.com/company/press-releases/2025/ivanti-announces-successful-refinancing-and-new-capital-infusion-to-support-key-strategic-initiatives",
         "https://www.ivanti.com/company/press-releases/2021/charlesbank-capital-partners-closes-strategic-investment-in-ivanti"
       ],
-      "family": "official_announcements"
+      "family": "official_announcements",
+      "registrationProof": {
+        "checkedAt": "2026-10-20T21:37:28.373081Z",
+        "scopePrefixes": [
+          "/company/press-releases/"
+        ],
+        "matchedExistingEvidence": [
+          "https://www.ivanti.com/company/press-releases/2025/ivanti-announces-successful-refinancing-and-new-capital-infusion-to-support-key-strategic-initiatives",
+          "https://www.ivanti.com/company/press-releases/2021/charlesbank-capital-partners-closes-strategic-investment-in-ivanti"
+        ],
+        "observations": [
+          {
+            "url": "https://www.ivanti.com/sitemap_index.xml",
+            "body": {
+              "key": "objects/ba40027263c3357bb54b240dd50ba8d69cb1814431c6b45c991eb987fb766d2e",
+              "sha256": "ba40027263c3357bb54b240dd50ba8d69cb1814431c6b45c991eb987fb766d2e",
+              "bytes": 510
+            }
+          },
+          {
+            "url": "https://www.ivanti.com/sitemap_blog.xml",
+            "body": {
+              "key": "objects/e1bb8ab8c15f86e39efbe8b83feb794effb35f5549f564d9cdd03443b6b22f4b",
+              "sha256": "e1bb8ab8c15f86e39efbe8b83feb794effb35f5549f564d9cdd03443b6b22f4b",
+              "bytes": 332679
+            }
+          },
+          {
+            "url": "https://www.ivanti.com/sitemap_core.xml",
+            "body": {
+              "key": "objects/823f71bdd43faee1799a9ad77d648949aa46e3b399525cbd56bab0ebda6ec05e",
+              "sha256": "823f71bdd43faee1799a9ad77d648949aa46e3b399525cbd56bab0ebda6ec05e",
+              "bytes": 161722
+            }
+          },
+          {
+            "url": "https://www.ivanti.com/sitemap_ivi.xml",
+            "body": {
+              "key": "objects/991017571eca7b73a6372af530057820d8ec1adbdb489f4b53be5c01d51e98db",
+              "sha256": "991017571eca7b73a6372af530057820d8ec1adbdb489f4b53be5c01d51e98db",
+              "bytes": 94314
+            }
+          },
+          {
+            "url": "https://www.ivanti.com/sitemap_jobs.xml",
+            "body": {
+              "key": "objects/1e2d6121070e783da2abf72e37ca6892a3b12555066dc3281127e037c0420c9f",
+              "sha256": "1e2d6121070e783da2abf72e37ca6892a3b12555066dc3281127e037c0420c9f",
+              "bytes": 858
+            }
+          },
+          {
+            "url": "https://www.ivanti.com/sitemap_webinars.xml",
+            "body": {
+              "key": "objects/72bb41b3415c02f95ce19b02a3fc08599011dc195730fc5305f4f5ab83d1f825",
+              "sha256": "72bb41b3415c02f95ce19b02a3fc08599011dc195730fc5305f4f5ab83d1f825",
+              "bytes": 91409
+            }
+          }
+        ],
+        "scopeLimitation": "Discovery inventory within registered paths; semantic completion requires separate document receipts."
+      }
     },
     {
       "id": "jfrog:sec_facts",
@@ -3433,27 +3888,82 @@
     {
       "id": "mimecast:official:1",
       "supplierId": "mimecast",
-      "kind": "official_discovery",
-      "url": "https://www.mimecast.com/",
+      "kind": "sitemap",
+      "url": "https://www.mimecast.com/sitemap.xml",
       "allowedHosts": [
         "www.mimecast.com"
       ],
-      "registration": "candidate",
+      "registration": "verified",
       "required": true,
       "maxPages": 60,
       "scopePrefixes": [
-        "/news",
-        "/press",
-        "/blog",
-        "/company",
-        "/investor",
-        "/resources"
+        "/resources/press-releases/"
       ],
       "seedEvidenceUrls": [
         "https://www.mimecast.com/resources/press-releases/",
         "https://www.mimecast.com/resources/press-releases/"
       ],
-      "family": "official_announcements"
+      "family": "official_announcements",
+      "registrationProof": {
+        "checkedAt": "2026-10-20T21:37:28.373081Z",
+        "scopePrefixes": [
+          "/resources/press-releases/"
+        ],
+        "matchedExistingEvidence": [
+          "https://www.mimecast.com/resources/press-releases/"
+        ],
+        "observations": [
+          {
+            "url": "https://www.mimecast.com/sitemap.xml",
+            "body": {
+              "key": "objects/f9c25ec5cfeca8f7459bb5f8bf63668be02e2d9c03650cd3564a52028f20f61c",
+              "sha256": "f9c25ec5cfeca8f7459bb5f8bf63668be02e2d9c03650cd3564a52028f20f61c",
+              "bytes": 609
+            }
+          },
+          {
+            "url": "https://www.mimecast.com/sitemap-de.xml",
+            "body": {
+              "key": "objects/7da033304c76110655f83ae16fdb07b030a2872dd9caa0b3001d47422368d2c6",
+              "sha256": "7da033304c76110655f83ae16fdb07b030a2872dd9caa0b3001d47422368d2c6",
+              "bytes": 272261
+            }
+          },
+          {
+            "url": "https://www.mimecast.com/sitemap-en.xml",
+            "body": {
+              "key": "objects/1881260f826d49f7306d78e729422f398d212fffefdfe00be20ba526764489e8",
+              "sha256": "1881260f826d49f7306d78e729422f398d212fffefdfe00be20ba526764489e8",
+              "bytes": 225667
+            }
+          },
+          {
+            "url": "https://www.mimecast.com/sitemap-es.xml",
+            "body": {
+              "key": "objects/6c341cdf7b444c2defb3b705cab4999ef181e1530f438972c530de7abe5341b7",
+              "sha256": "6c341cdf7b444c2defb3b705cab4999ef181e1530f438972c530de7abe5341b7",
+              "bytes": 231727
+            }
+          },
+          {
+            "url": "https://www.mimecast.com/sitemap-fr.xml",
+            "body": {
+              "key": "objects/53fc28adf894c3453ba0d57c786d7a6965af02ff78aef5eddfa252f3f81b859b",
+              "sha256": "53fc28adf894c3453ba0d57c786d7a6965af02ff78aef5eddfa252f3f81b859b",
+              "bytes": 231983
+            }
+          },
+          {
+            "url": "https://www.mimecast.com/sitemap-it.xml",
+            "body": {
+              "key": "objects/027d37a1b2695b6bfa2041cbaee6aaed71defdc159c8d6b3086d301e12b9f4be",
+              "sha256": "027d37a1b2695b6bfa2041cbaee6aaed71defdc159c8d6b3086d301e12b9f4be",
+              "bytes": 231378
+            }
+          }
+        ],
+        "scopeLimitation": "Discovery inventory within registered paths; semantic completion requires separate document receipts."
+      }
     },
     {
       "id": "netskope:sec_facts",
@@ -3551,28 +4061,61 @@
     {
       "id": "optiv:official:1",
       "supplierId": "optiv",
-      "kind": "official_discovery",
-      "url": "https://www.optiv.com/",
+      "kind": "sitemap",
+      "url": "https://www.optiv.com/sitemap.xml",
       "allowedHosts": [
         "www.optiv.com"
       ],
-      "registration": "candidate",
+      "registration": "verified",
       "required": true,
       "maxPages": 60,
       "scopePrefixes": [
-        "/news",
-        "/press",
-        "/blog",
-        "/company",
-        "/investor",
-        "/resources"
+        "/company/press-releases/"
       ],
       "seedEvidenceUrls": [
         "https://www.optiv.com/company/press-releases/optiv-security-be-acquired-kkr",
         "https://www.optiv.com/company/press-releases/optiv-strengthens-financial-position-lender-agreement-comprehensive",
         "https://www.optiv.com/company/press-releases/optiv-sells-advisory-consulting-and-transformation-act-business-vobis"
       ],
-      "family": "official_announcements"
+      "family": "official_announcements",
+      "registrationProof": {
+        "checkedAt": "2026-10-20T21:37:28.373081Z",
+        "scopePrefixes": [
+          "/company/press-releases/"
+        ],
+        "matchedExistingEvidence": [
+          "https://www.optiv.com/company/press-releases/optiv-security-be-acquired-kkr",
+          "https://www.optiv.com/company/press-releases/optiv-strengthens-financial-position-lender-agreement-comprehensive",
+          "https://www.optiv.com/company/press-releases/optiv-sells-advisory-consulting-and-transformation-act-business-vobis"
+        ],
+        "observations": [
+          {
+            "url": "https://www.optiv.com/sitemap.xml",
+            "body": {
+              "key": "objects/beed91db94df365899c26f72a76cfe2fd6ad3c0778976111bf50c8f2422018ae",
+              "sha256": "beed91db94df365899c26f72a76cfe2fd6ad3c0778976111bf50c8f2422018ae",
+              "bytes": 471
+            }
+          },
+          {
+            "url": "https://www.optiv.com/sitemap.xml?page=1",
+            "body": {
+              "key": "objects/a39259993e032b5115532e313b222da13406886d3c7006dea97a63ea176957e0",
+              "sha256": "a39259993e032b5115532e313b222da13406886d3c7006dea97a63ea176957e0",
+              "bytes": 381869
+            }
+          },
+          {
+            "url": "https://www.optiv.com/sitemap.xml?page=2",
+            "body": {
+              "key": "objects/c1ace4bd6787b77c1fbee2825aa77fbbef82b855083b914c39119629c0c1a45e",
+              "sha256": "c1ace4bd6787b77c1fbee2825aa77fbbef82b855083b914c39119629c0c1a45e",
+              "bytes": 138753
+            }
+          }
+        ],
+        "scopeLimitation": "Discovery inventory within registered paths; semantic completion requires separate document receipts."
+      }
     },
     {
       "id": "orca:official:1",
@@ -3684,27 +4227,83 @@
     {
       "id": "proofpoint:official:1",
       "supplierId": "proofpoint",
-      "kind": "official_discovery",
-      "url": "https://www.proofpoint.com/",
+      "kind": "sitemap",
+      "url": "https://www.proofpoint.com/us/sitemap.xml",
       "allowedHosts": [
         "www.proofpoint.com"
       ],
-      "registration": "candidate",
+      "registration": "verified",
       "required": true,
       "maxPages": 60,
       "scopePrefixes": [
-        "/news",
-        "/press",
-        "/blog",
-        "/company",
-        "/investor",
-        "/resources"
+        "/us/newsroom/press-releases/"
       ],
       "seedEvidenceUrls": [
         "https://www.proofpoint.com/us/newsroom",
         "https://www.proofpoint.com/us/newsroom/press-releases/proofpoint-acquires-acuvity-deliver-ai-security-and-governance-across"
       ],
-      "family": "official_announcements"
+      "family": "official_announcements",
+      "registrationProof": {
+        "checkedAt": "2026-10-20T21:37:28.373081Z",
+        "scopePrefixes": [
+          "/us/newsroom/press-releases/"
+        ],
+        "matchedExistingEvidence": [
+          "https://www.proofpoint.com/us/newsroom/press-releases/proofpoint-acquires-acuvity-deliver-ai-security-and-governance-across",
+          "https://www.proofpoint.com/us/newsroom"
+        ],
+        "observations": [
+          {
+            "url": "https://www.proofpoint.com/us/sitemap.xml",
+            "body": {
+              "key": "objects/839ef65bf7df7ae81546e96402accf1ef7b3373d67f74b6cd23001c664389075",
+              "sha256": "839ef65bf7df7ae81546e96402accf1ef7b3373d67f74b6cd23001c664389075",
+              "bytes": 798
+            }
+          },
+          {
+            "url": "https://www.proofpoint.com/us/sitemap.xml?page=1",
+            "body": {
+              "key": "objects/e6f6796d194ac47ed0505f93cc150dcf53f609272be15b5d345e2f7fecadd15a",
+              "sha256": "e6f6796d194ac47ed0505f93cc150dcf53f609272be15b5d345e2f7fecadd15a",
+              "bytes": 185890
+            }
+          },
+          {
+            "url": "https://www.proofpoint.com/us/sitemap.xml?page=2",
+            "body": {
+              "key": "objects/a78a1f9ce0b0b103ecfd3f95dc8d68b4b73b5d0f501f2cc9e6c6ec62ef011860",
+              "sha256": "a78a1f9ce0b0b103ecfd3f95dc8d68b4b73b5d0f501f2cc9e6c6ec62ef011860",
+              "bytes": 188023
+            }
+          },
+          {
+            "url": "https://www.proofpoint.com/us/sitemap.xml?page=3",
+            "body": {
+              "key": "objects/aecbc00c997f2abf78bc9434faee039ece66b94c1e8b1a88304b4cbc4a0950d8",
+              "sha256": "aecbc00c997f2abf78bc9434faee039ece66b94c1e8b1a88304b4cbc4a0950d8",
+              "bytes": 185667
+            }
+          },
+          {
+            "url": "https://www.proofpoint.com/us/sitemap.xml?page=4",
+            "body": {
+              "key": "objects/c7301bb0ec04346c10ba0f278923e39be9bea4afacf6663ed90e7c6e2fc598a5",
+              "sha256": "c7301bb0ec04346c10ba0f278923e39be9bea4afacf6663ed90e7c6e2fc598a5",
+              "bytes": 192567
+            }
+          },
+          {
+            "url": "https://www.proofpoint.com/us/sitemap.xml?page=5",
+            "body": {
+              "key": "objects/edf1cddcf563f49129a763639d521fbf702bad16276dd7aff17a4226beac600e",
+              "sha256": "edf1cddcf563f49129a763639d521fbf702bad16276dd7aff17a4226beac600e",
+              "bytes": 105487
+            }
+          }
+        ],
+        "scopeLimitation": "Discovery inventory within registered paths; semantic completion requires separate document receipts."
+      }
     },
     {
       "id": "qualys:sec_facts",
@@ -3801,27 +4400,32 @@
     {
       "id": "reliaquest:official:1",
       "supplierId": "reliaquest",
-      "kind": "official_discovery",
-      "url": "https://reliaquest.com/",
+      "kind": "sitemap",
+      "url": "https://reliaquest.com/sitemap.xml",
       "allowedHosts": [
         "reliaquest.com"
       ],
-      "registration": "candidate",
+      "registration": "verified",
       "required": true,
       "maxPages": 60,
       "scopePrefixes": [
-        "/news",
-        "/press",
-        "/blog",
-        "/company",
-        "/investor",
-        "/resources"
+        "/news-and-press/"
       ],
       "seedEvidenceUrls": [
         "https://reliaquest.com/news-and-press/reliaquest-raises-more-than-500-million-in-funding-at-a-valuation-of-3-4-billion/",
         "https://reliaquest.com/news-and-press/reliaquest-names-krish-venkataraman-chief-financial-officer/"
       ],
-      "family": "official_announcements"
+      "family": "official_announcements",
+      "registrationProof": {
+        "checkedAt": "2026-10-20T21:11:46.090891Z",
+        "endpoint": {
+          "key": "objects/58cad01a06d365581506fc059307df92a4e812c4ee5c2a718fa62d44c4d893cf",
+          "sha256": "58cad01a06d365581506fc059307df92a4e812c4ee5c2a718fa62d44c4d893cf",
+          "bytes": 335403
+        },
+        "scope": "Declared official announcement sections of publisher sitemap",
+        "matchedExistingEvidence": true
+      }
     },
     {
       "id": "rubrik:sec_facts",
@@ -3952,27 +4556,123 @@
     {
       "id": "snyk:official:1",
       "supplierId": "snyk",
-      "kind": "official_discovery",
-      "url": "https://snyk.io/",
+      "kind": "sitemap",
+      "url": "https://snyk.io/sitemap-index.xml",
       "allowedHosts": [
         "snyk.io"
       ],
-      "registration": "candidate",
+      "registration": "verified",
       "required": true,
       "maxPages": 60,
       "scopePrefixes": [
-        "/news",
-        "/press",
-        "/blog",
-        "/company",
-        "/investor",
-        "/resources"
+        "/news/"
       ],
       "seedEvidenceUrls": [
         "https://snyk.io/news/snyk-closes-196-5-million-series-g-funding-at-7-4-billion-valuation/",
         "https://snyk.io/news/snyk-secures-strategic-investment-from-servicenow-to-accelerate-enterprise-devsecops-transformation/"
       ],
-      "family": "official_announcements"
+      "family": "official_announcements",
+      "registrationProof": {
+        "checkedAt": "2026-10-20T21:37:28.373081Z",
+        "scopePrefixes": [
+          "/news/"
+        ],
+        "matchedExistingEvidence": [
+          "https://snyk.io/news/snyk-closes-196-5-million-series-g-funding-at-7-4-billion-valuation/",
+          "https://snyk.io/news/snyk-secures-strategic-investment-from-servicenow-to-accelerate-enterprise-devsecops-transformation/"
+        ],
+        "observations": [
+          {
+            "url": "https://snyk.io/sitemap-index.xml",
+            "body": {
+              "key": "objects/ccc9a1e2f79a5bf6a6c22c29e67d3649529a88af43f7403d1a684d32e9c9688e",
+              "sha256": "ccc9a1e2f79a5bf6a6c22c29e67d3649529a88af43f7403d1a684d32e9c9688e",
+              "bytes": 885
+            }
+          },
+          {
+            "url": "https://snyk.io/sitemaps/sitemap-articles.xml",
+            "body": {
+              "key": "objects/1f1d1972d661d0a6ab6f6beae3a9c0d6c33a0760d0704723673ebb301760a683",
+              "sha256": "1f1d1972d661d0a6ab6f6beae3a9c0d6c33a0760d0704723673ebb301760a683",
+              "bytes": 147650
+            }
+          },
+          {
+            "url": "https://snyk.io/sitemaps/sitemap-blogs.xml",
+            "body": {
+              "key": "objects/324e9c5fc59823eb8b3f3c86c8871fd5c2fe0c7e6eb1d99a2a063e42fccbc25e",
+              "sha256": "324e9c5fc59823eb8b3f3c86c8871fd5c2fe0c7e6eb1d99a2a063e42fccbc25e",
+              "bytes": 762493
+            }
+          },
+          {
+            "url": "https://snyk.io/sitemaps/sitemap-case-studies.xml",
+            "body": {
+              "key": "objects/a1ff6fe5a3278ff5b1534d5a7e2ee503fd8f096a478bff46363fc5e58fb41faf",
+              "sha256": "a1ff6fe5a3278ff5b1534d5a7e2ee503fd8f096a478bff46363fc5e58fb41faf",
+              "bytes": 51684
+            }
+          },
+          {
+            "url": "https://snyk.io/sitemaps/sitemap-contributors.xml",
+            "body": {
+              "key": "objects/b2b896154c20fa2fab372c5366f8c728d929b05ca7273017fd1639732bae1acf",
+              "sha256": "b2b896154c20fa2fab372c5366f8c728d929b05ca7273017fd1639732bae1acf",
+              "bytes": 19291
+            }
+          },
+          {
+            "url": "https://snyk.io/sitemaps/sitemap-events.xml",
+            "body": {
+              "key": "objects/62d7e88ad851131dbf1456dfe693b62f73e0204fbba5a759213a1ebf7d0f23d7",
+              "sha256": "62d7e88ad851131dbf1456dfe693b62f73e0204fbba5a759213a1ebf7d0f23d7",
+              "bytes": 8864
+            }
+          },
+          {
+            "url": "https://snyk.io/sitemaps/sitemap-pages.xml",
+            "body": {
+              "key": "objects/2e36e5de90deb16e3abbf8cff99d6eafe04aa1d97c3573f228de98e3e4e93298",
+              "sha256": "2e36e5de90deb16e3abbf8cff99d6eafe04aa1d97c3573f228de98e3e4e93298",
+              "bytes": 293173
+            }
+          },
+          {
+            "url": "https://snyk.io/sitemaps/sitemap-podcasts.xml",
+            "body": {
+              "key": "objects/b9b45910e30e2cfe4cab2d84ac209fae77e04bb8f4bc576ee12a3253e1064e0a",
+              "sha256": "b9b45910e30e2cfe4cab2d84ac209fae77e04bb8f4bc576ee12a3253e1064e0a",
+              "bytes": 28911
+            }
+          },
+          {
+            "url": "https://snyk.io/sitemaps/sitemap-policies.xml",
+            "body": {
+              "key": "objects/c14e3ea03e8ff6529928b75e11153a4b0228e7d897b518e30f309b749f738a03",
+              "sha256": "c14e3ea03e8ff6529928b75e11153a4b0228e7d897b518e30f309b749f738a03",
+              "bytes": 713
+            }
+          },
+          {
+            "url": "https://snyk.io/sitemaps/sitemap-press-releases.xml",
+            "body": {
+              "key": "objects/fc56206854321bf8deb3a52351a229320be5119ca7d7bac049795bbce209d016",
+              "sha256": "fc56206854321bf8deb3a52351a229320be5119ca7d7bac049795bbce209d016",
+              "bytes": 35604
+            }
+          },
+          {
+            "url": "https://snyk.io/sitemaps/sitemap-videos.xml",
+            "body": {
+              "key": "objects/131e500c4fca4b1f74badcc3a2738a2b74506f90ef260ea438a4544a5c3871c0",
+              "sha256": "131e500c4fca4b1f74badcc3a2738a2b74506f90ef260ea438a4544a5c3871c0",
+              "bytes": 36078
+            }
+          }
+        ],
+        "scopeLimitation": "Discovery inventory within registered paths; semantic completion requires separate document receipts."
+      }
     },
     {
       "id": "sonatype:official:1",
@@ -4002,26 +4702,41 @@
     {
       "id": "sophos:official:1",
       "supplierId": "sophos",
-      "kind": "official_discovery",
-      "url": "https://www.thomabravo.com/",
+      "kind": "sitemap",
+      "url": "https://www.thomabravo.com/sitemap.xml",
       "allowedHosts": [
         "www.thomabravo.com"
       ],
-      "registration": "candidate",
+      "registration": "verified",
       "required": true,
       "maxPages": 60,
       "scopePrefixes": [
-        "/news",
-        "/press",
-        "/blog",
-        "/company",
-        "/investor",
-        "/resources"
+        "/press-releases/"
       ],
       "seedEvidenceUrls": [
         "https://www.thomabravo.com/press-releases/sophos-announces-completion-of-take-private-acquisition-by-thoma-bravo"
       ],
-      "family": "investor_acquirer"
+      "family": "investor_acquirer",
+      "registrationProof": {
+        "checkedAt": "2026-10-20T21:37:28.373081Z",
+        "scopePrefixes": [
+          "/press-releases/"
+        ],
+        "matchedExistingEvidence": [
+          "https://www.thomabravo.com/press-releases/sophos-announces-completion-of-take-private-acquisition-by-thoma-bravo"
+        ],
+        "observations": [
+          {
+            "url": "https://www.thomabravo.com/sitemap.xml",
+            "body": {
+              "key": "objects/eb50849f4fb93fb1420b5c3e791121b2094e759e25db392f885cf8b701fe1fa3",
+              "sha256": "eb50849f4fb93fb1420b5c3e791121b2094e759e25db392f885cf8b701fe1fa3",
+              "bytes": 226085
+            }
+          }
+        ],
+        "scopeLimitation": "Discovery inventory within registered paths; semantic completion requires separate document receipts."
+      }
     },
     {
       "id": "sysdig:official:1",
@@ -4157,27 +4872,155 @@
     {
       "id": "upwind:official:1",
       "supplierId": "upwind",
-      "kind": "official_discovery",
-      "url": "https://www.upwind.io/",
+      "kind": "sitemap",
+      "url": "https://www.upwind.io/sitemap_index.xml",
       "allowedHosts": [
         "www.upwind.io"
       ],
-      "registration": "candidate",
+      "registration": "verified",
       "required": true,
       "maxPages": 60,
       "scopePrefixes": [
-        "/news",
-        "/press",
-        "/blog",
-        "/company",
-        "/investor",
-        "/resources"
+        "/feed/"
       ],
       "seedEvidenceUrls": [
         "https://www.upwind.io/feed/building-next-wave-cloud-security-upwind",
         "https://www.upwind.io/feed/building-the-future-introducing-the-upwind-ai-security-lab"
       ],
-      "family": "official_announcements"
+      "family": "official_announcements",
+      "registrationProof": {
+        "checkedAt": "2026-10-20T21:37:28.373081Z",
+        "scopePrefixes": [
+          "/feed/"
+        ],
+        "matchedExistingEvidence": [
+          "https://www.upwind.io/feed/building-the-future-introducing-the-upwind-ai-security-lab",
+          "https://www.upwind.io/feed/building-next-wave-cloud-security-upwind"
+        ],
+        "observations": [
+          {
+            "url": "https://www.upwind.io/sitemap_index.xml",
+            "body": {
+              "key": "objects/a8b37768e58b0155b1a0f8efcc5e6dbebf667c3b5d4ff5ae37d4337286bc668f",
+              "sha256": "a8b37768e58b0155b1a0f8efcc5e6dbebf667c3b5d4ff5ae37d4337286bc668f",
+              "bytes": 2073
+            }
+          },
+          {
+            "url": "https://www.upwind.io/author_tax-sitemap.xml",
+            "body": {
+              "key": "objects/062ab7409ee5929fb7dc5e525728e213c6401434c1002856e02fa00dd70db252",
+              "sha256": "062ab7409ee5929fb7dc5e525728e213c6401434c1002856e02fa00dd70db252",
+              "bytes": 9518
+            }
+          },
+          {
+            "url": "https://www.upwind.io/case-study-sitemap.xml",
+            "body": {
+              "key": "objects/3f2c4df50123974c06b4a58f0fcc94ac504c78a0394b2fd0a56cc7dc49787388",
+              "sha256": "3f2c4df50123974c06b4a58f0fcc94ac504c78a0394b2fd0a56cc7dc49787388",
+              "bytes": 18317
+            }
+          },
+          {
+            "url": "https://www.upwind.io/category-sitemap.xml",
+            "body": {
+              "key": "objects/2cdb8fa400cacf2a29c8d3d60080a73cb57dbafbd8f10d1787e118c590b18b71",
+              "sha256": "2cdb8fa400cacf2a29c8d3d60080a73cb57dbafbd8f10d1787e118c590b18b71",
+              "bytes": 1589
+            }
+          },
+          {
+            "url": "https://www.upwind.io/episode-sitemap.xml",
+            "body": {
+              "key": "objects/1a4a79735e6b747060204d059cc8a0197c8d97fa097e5163bf4fe653ce948150",
+              "sha256": "1a4a79735e6b747060204d059cc8a0197c8d97fa097e5163bf4fe653ce948150",
+              "bytes": 12773
+            }
+          },
+          {
+            "url": "https://www.upwind.io/event-sitemap.xml",
+            "body": {
+              "key": "objects/dbb51728581dac30a5f052405b106e0dcf6e907466cbbef99269f693447d23e6",
+              "sha256": "dbb51728581dac30a5f052405b106e0dcf6e907466cbbef99269f693447d23e6",
+              "bytes": 48337
+            }
+          },
+          {
+            "url": "https://www.upwind.io/glossary-category-sitemap.xml",
+            "body": {
+              "key": "objects/3b8ba904f725ba25d830aaf8accf74b53c41e5f58dbf84cdb621f332a774736c",
+              "sha256": "3b8ba904f725ba25d830aaf8accf74b53c41e5f58dbf84cdb621f332a774736c",
+              "bytes": 1772
+            }
+          },
+          {
+            "url": "https://www.upwind.io/glossary-page-sitemap.xml",
+            "body": {
+              "key": "objects/0fd866f8d9f91e395f686b0b3a84e60729ae766e4fe7d8ddaf5314aede2750b1",
+              "sha256": "0fd866f8d9f91e395f686b0b3a84e60729ae766e4fe7d8ddaf5314aede2750b1",
+              "bytes": 122750
+            }
+          },
+          {
+            "url": "https://www.upwind.io/glossary_collection-sitemap.xml",
+            "body": {
+              "key": "objects/cb39ef99d0fa5ccf98721568a1f6a8056e71e45905a0586aa85c752b6f12212e",
+              "sha256": "cb39ef99d0fa5ccf98721568a1f6a8056e71e45905a0586aa85c752b6f12212e",
+              "bytes": 1359
+            }
+          },
+          {
+            "url": "https://www.upwind.io/integration-category-sitemap.xml",
+            "body": {
+              "key": "objects/e0d6c990b05b8ab2d87fe69b502a81081e78fe8e66c1c339635e663026ea228c",
+              "sha256": "e0d6c990b05b8ab2d87fe69b502a81081e78fe8e66c1c339635e663026ea228c",
+              "bytes": 4161
+            }
+          },
+          {
+            "url": "https://www.upwind.io/integration-sitemap.xml",
+            "body": {
+              "key": "objects/0278f32982d701ae42af49e1178214da8804bf3947d57c30b23b600b39281db3",
+              "sha256": "0278f32982d701ae42af49e1178214da8804bf3947d57c30b23b600b39281db3",
+              "bytes": 15105
+            }
+          },
+          {
+            "url": "https://www.upwind.io/page-sitemap.xml",
+            "body": {
+              "key": "objects/f230f528c053a7b2f48d8c400dc703f5fa123bf17efb766e3569923507ce49a2",
+              "sha256": "f230f528c053a7b2f48d8c400dc703f5fa123bf17efb766e3569923507ce49a2",
+              "bytes": 69719
+            }
+          },
+          {
+            "url": "https://www.upwind.io/post-sitemap.xml",
+            "body": {
+              "key": "objects/676a5d50765d57f4f8d081fb1abca0e0c15dea1cb4d7ec1ac8d781b22796f901",
+              "sha256": "676a5d50765d57f4f8d081fb1abca0e0c15dea1cb4d7ec1ac8d781b22796f901",
+              "bytes": 293381
+            }
+          },
+          {
+            "url": "https://www.upwind.io/series-sitemap.xml",
+            "body": {
+              "key": "objects/66ebd536408985560946cf6f02e61daca2843fbd380180dd5a69b4c4be57350a",
+              "sha256": "66ebd536408985560946cf6f02e61daca2843fbd380180dd5a69b4c4be57350a",
+              "bytes": 1716
+            }
+          },
+          {
+            "url": "https://www.upwind.io/threat-post-sitemap.xml",
+            "body": {
+              "key": "objects/64ab6b9a562b590edff5150a7b422d464a2c8346fdd14f489990ee275552f5c0",
+              "sha256": "64ab6b9a562b590edff5150a7b422d464a2c8346fdd14f489990ee275552f5c0",
+              "bytes": 83999
+            }
+          }
+        ],
+        "scopeLimitation": "Discovery inventory within registered paths; semantic completion requires separate document receipts."
+      }
     },
     {
       "id": "varonis:sec_facts",
@@ -4216,28 +5059,34 @@
     {
       "id": "veeam:official:1",
       "supplierId": "veeam",
-      "kind": "official_discovery",
-      "url": "https://www.veeam.com/",
+      "kind": "sitemap",
+      "url": "https://www.veeam.com/sitemap.xml",
       "allowedHosts": [
         "www.veeam.com"
       ],
-      "registration": "candidate",
+      "registration": "verified",
       "required": true,
       "maxPages": 60,
       "scopePrefixes": [
-        "/news",
-        "/press",
-        "/blog",
-        "/company",
-        "/investor",
-        "/resources"
+        "/company/news/",
+        "/company/press-release/"
       ],
       "seedEvidenceUrls": [
         "https://www.veeam.com/news/veeam-acquires-securiti-ai.html",
         "https://www.veeam.com/news/veeam-to-acquire-securiti-ai.html",
         "https://www.veeam.com/company/press-release/veeam-the-worlds-1-leader-in-data-resilience-welcomes-new-investors-with-a-dollar15-billion-valuation.html"
       ],
-      "family": "official_announcements"
+      "family": "official_announcements",
+      "registrationProof": {
+        "checkedAt": "2026-10-20T21:11:51.507499Z",
+        "endpoint": {
+          "key": "objects/777ceb4e7652923791bf49f2636c6aede3c16a2b776304a6fbe3aaa2de920eb5",
+          "sha256": "777ceb4e7652923791bf49f2636c6aede3c16a2b776304a6fbe3aaa2de920eb5",
+          "bytes": 488696
+        },
+        "scope": "Declared official announcement sections of publisher sitemap",
+        "matchedExistingEvidence": true
+      }
     },
     {
       "id": "veracode:official:1",
@@ -4266,26 +5115,89 @@
     {
       "id": "witnessai:official:1",
       "supplierId": "witnessai",
-      "kind": "official_discovery",
-      "url": "https://witness.ai/",
+      "kind": "sitemap",
+      "url": "https://witness.ai/sitemap_index.xml",
       "allowedHosts": [
         "witness.ai"
       ],
-      "registration": "candidate",
+      "registration": "verified",
       "required": true,
       "maxPages": 60,
       "scopePrefixes": [
-        "/news",
-        "/press",
-        "/blog",
-        "/company",
-        "/investor",
-        "/resources"
+        "/blog/"
       ],
       "seedEvidenceUrls": [
         "https://witness.ai/blog/witnessai-raises-58m-to-help-enterprises-move-faster-with-ai-safely/"
       ],
-      "family": "official_announcements"
+      "family": "official_announcements",
+      "registrationProof": {
+        "checkedAt": "2026-10-20T21:37:28.373081Z",
+        "scopePrefixes": [
+          "/blog/"
+        ],
+        "matchedExistingEvidence": [
+          "https://witness.ai/blog/witnessai-raises-58m-to-help-enterprises-move-faster-with-ai-safely/"
+        ],
+        "observations": [
+          {
+            "url": "https://witness.ai/sitemap_index.xml",
+            "body": {
+              "key": "objects/eb2698fb202c54425a4488418d9e5d37ccd6739a98eccea7047716da8ac8cc1c",
+              "sha256": "eb2698fb202c54425a4488418d9e5d37ccd6739a98eccea7047716da8ac8cc1c",
+              "bytes": 1006
+            }
+          },
+          {
+            "url": "https://witness.ai/category-sitemap.xml",
+            "body": {
+              "key": "objects/e3d2fe52ccda9ae55111642aa871423ea52b1c690a2629d508ee1bdece69e1f9",
+              "sha256": "e3d2fe52ccda9ae55111642aa871423ea52b1c690a2629d508ee1bdece69e1f9",
+              "bytes": 726
+            }
+          },
+          {
+            "url": "https://witness.ai/page-sitemap.xml",
+            "body": {
+              "key": "objects/0ffaccc062e0cf6d45bac5ae40d6434fbb45d78865686a8995d4dc5034ea4d67",
+              "sha256": "0ffaccc062e0cf6d45bac5ae40d6434fbb45d78865686a8995d4dc5034ea4d67",
+              "bytes": 3052
+            }
+          },
+          {
+            "url": "https://witness.ai/post-sitemap.xml",
+            "body": {
+              "key": "objects/5cb7e2123f762a8dc3877db35f7e6cbb1096fffd72490f4965099c7370bb7545",
+              "sha256": "5cb7e2123f762a8dc3877db35f7e6cbb1096fffd72490f4965099c7370bb7545",
+              "bytes": 76051
+            }
+          },
+          {
+            "url": "https://witness.ai/quote-sitemap.xml",
+            "body": {
+              "key": "objects/d9e5f1f11590d40addc12018f42ba43d9f1d118b30340b1c989df54259ffba7b",
+              "sha256": "d9e5f1f11590d40addc12018f42ba43d9f1d118b30340b1c989df54259ffba7b",
+              "bytes": 612
+            }
+          },
+          {
+            "url": "https://witness.ai/resource-type-sitemap.xml",
+            "body": {
+              "key": "objects/d9e5f1f11590d40addc12018f42ba43d9f1d118b30340b1c989df54259ffba7b",
+              "sha256": "d9e5f1f11590d40addc12018f42ba43d9f1d118b30340b1c989df54259ffba7b",
+              "bytes": 612
+            }
+          },
+          {
+            "url": "https://witness.ai/resources-sitemap.xml",
+            "body": {
+              "key": "objects/7a797a55f533372fe8656a88398c712ae2f747d6c4d4a01ec1947f7979d18e09",
+              "sha256": "7a797a55f533372fe8656a88398c712ae2f747d6c4d4a01ec1947f7979d18e09",
+              "bytes": 15297
+            }
+          }
+        ],
+        "scopeLimitation": "Discovery inventory within registered paths; semantic completion requires separate document receipts."
+      }
     },
     {
       "id": "zenity:official:1",
@@ -8088,6 +9000,326 @@
       ],
       "seedEvidenceUrls": [],
       "evidenceId": "TR-zscaler-6"
+    },
+    {
+      "id": "cloudflare:sec_documents",
+      "supplierId": "cloudflare",
+      "kind": "sec_documents",
+      "url": "https://data.sec.gov/submissions/CIK0001477333.json",
+      "allowedHosts": [
+        "data.sec.gov",
+        "www.sec.gov"
+      ],
+      "registration": "verified",
+      "required": true,
+      "maxPages": 100,
+      "scopePrefixes": [
+        "/Archives/edgar/data/"
+      ],
+      "seedEvidenceUrls": [],
+      "family": "filing_documents",
+      "cik": "0001477333",
+      "lookbackDays": 365
+    },
+    {
+      "id": "commvault:sec_documents",
+      "supplierId": "commvault",
+      "kind": "sec_documents",
+      "url": "https://data.sec.gov/submissions/CIK0001169561.json",
+      "allowedHosts": [
+        "data.sec.gov",
+        "www.sec.gov"
+      ],
+      "registration": "verified",
+      "required": true,
+      "maxPages": 100,
+      "scopePrefixes": [
+        "/Archives/edgar/data/"
+      ],
+      "seedEvidenceUrls": [],
+      "family": "filing_documents",
+      "cik": "0001169561",
+      "lookbackDays": 365
+    },
+    {
+      "id": "crwd:sec_documents",
+      "supplierId": "crwd",
+      "kind": "sec_documents",
+      "url": "https://data.sec.gov/submissions/CIK0001535527.json",
+      "allowedHosts": [
+        "data.sec.gov",
+        "www.sec.gov"
+      ],
+      "registration": "verified",
+      "required": true,
+      "maxPages": 100,
+      "scopePrefixes": [
+        "/Archives/edgar/data/"
+      ],
+      "seedEvidenceUrls": [],
+      "family": "filing_documents",
+      "cik": "0001535527",
+      "lookbackDays": 365
+    },
+    {
+      "id": "fortinet:sec_documents",
+      "supplierId": "fortinet",
+      "kind": "sec_documents",
+      "url": "https://data.sec.gov/submissions/CIK0001262039.json",
+      "allowedHosts": [
+        "data.sec.gov",
+        "www.sec.gov"
+      ],
+      "registration": "verified",
+      "required": true,
+      "maxPages": 100,
+      "scopePrefixes": [
+        "/Archives/edgar/data/"
+      ],
+      "seedEvidenceUrls": [],
+      "family": "filing_documents",
+      "cik": "0001262039",
+      "lookbackDays": 365
+    },
+    {
+      "id": "jfrog:sec_documents",
+      "supplierId": "jfrog",
+      "kind": "sec_documents",
+      "url": "https://data.sec.gov/submissions/CIK0001800667.json",
+      "allowedHosts": [
+        "data.sec.gov",
+        "www.sec.gov"
+      ],
+      "registration": "verified",
+      "required": true,
+      "maxPages": 100,
+      "scopePrefixes": [
+        "/Archives/edgar/data/"
+      ],
+      "seedEvidenceUrls": [],
+      "family": "filing_documents",
+      "cik": "0001800667",
+      "lookbackDays": 365
+    },
+    {
+      "id": "netskope:sec_documents",
+      "supplierId": "netskope",
+      "kind": "sec_documents",
+      "url": "https://data.sec.gov/submissions/CIK0002063196.json",
+      "allowedHosts": [
+        "data.sec.gov",
+        "www.sec.gov"
+      ],
+      "registration": "verified",
+      "required": true,
+      "maxPages": 100,
+      "scopePrefixes": [
+        "/Archives/edgar/data/"
+      ],
+      "seedEvidenceUrls": [],
+      "family": "filing_documents",
+      "cik": "0002063196",
+      "lookbackDays": 365
+    },
+    {
+      "id": "okta:sec_documents",
+      "supplierId": "okta",
+      "kind": "sec_documents",
+      "url": "https://data.sec.gov/submissions/CIK0001660134.json",
+      "allowedHosts": [
+        "data.sec.gov",
+        "www.sec.gov"
+      ],
+      "registration": "verified",
+      "required": true,
+      "maxPages": 100,
+      "scopePrefixes": [
+        "/Archives/edgar/data/"
+      ],
+      "seedEvidenceUrls": [],
+      "family": "filing_documents",
+      "cik": "0001660134",
+      "lookbackDays": 365
+    },
+    {
+      "id": "panw:sec_documents",
+      "supplierId": "panw",
+      "kind": "sec_documents",
+      "url": "https://data.sec.gov/submissions/CIK0001327567.json",
+      "allowedHosts": [
+        "data.sec.gov",
+        "www.sec.gov"
+      ],
+      "registration": "verified",
+      "required": true,
+      "maxPages": 100,
+      "scopePrefixes": [
+        "/Archives/edgar/data/"
+      ],
+      "seedEvidenceUrls": [],
+      "family": "filing_documents",
+      "cik": "0001327567",
+      "lookbackDays": 365
+    },
+    {
+      "id": "qualys:sec_documents",
+      "supplierId": "qualys",
+      "kind": "sec_documents",
+      "url": "https://data.sec.gov/submissions/CIK0001107843.json",
+      "allowedHosts": [
+        "data.sec.gov",
+        "www.sec.gov"
+      ],
+      "registration": "verified",
+      "required": true,
+      "maxPages": 100,
+      "scopePrefixes": [
+        "/Archives/edgar/data/"
+      ],
+      "seedEvidenceUrls": [],
+      "family": "filing_documents",
+      "cik": "0001107843",
+      "lookbackDays": 365
+    },
+    {
+      "id": "rapid7:sec_documents",
+      "supplierId": "rapid7",
+      "kind": "sec_documents",
+      "url": "https://data.sec.gov/submissions/CIK0001560327.json",
+      "allowedHosts": [
+        "data.sec.gov",
+        "www.sec.gov"
+      ],
+      "registration": "verified",
+      "required": true,
+      "maxPages": 100,
+      "scopePrefixes": [
+        "/Archives/edgar/data/"
+      ],
+      "seedEvidenceUrls": [],
+      "family": "filing_documents",
+      "cik": "0001560327",
+      "lookbackDays": 365
+    },
+    {
+      "id": "rubrik:sec_documents",
+      "supplierId": "rubrik",
+      "kind": "sec_documents",
+      "url": "https://data.sec.gov/submissions/CIK0001943896.json",
+      "allowedHosts": [
+        "data.sec.gov",
+        "www.sec.gov"
+      ],
+      "registration": "verified",
+      "required": true,
+      "maxPages": 100,
+      "scopePrefixes": [
+        "/Archives/edgar/data/"
+      ],
+      "seedEvidenceUrls": [],
+      "family": "filing_documents",
+      "cik": "0001943896",
+      "lookbackDays": 365
+    },
+    {
+      "id": "s1:sec_documents",
+      "supplierId": "s1",
+      "kind": "sec_documents",
+      "url": "https://data.sec.gov/submissions/CIK0001583708.json",
+      "allowedHosts": [
+        "data.sec.gov",
+        "www.sec.gov"
+      ],
+      "registration": "verified",
+      "required": true,
+      "maxPages": 100,
+      "scopePrefixes": [
+        "/Archives/edgar/data/"
+      ],
+      "seedEvidenceUrls": [],
+      "family": "filing_documents",
+      "cik": "0001583708",
+      "lookbackDays": 365
+    },
+    {
+      "id": "sailpoint:sec_documents",
+      "supplierId": "sailpoint",
+      "kind": "sec_documents",
+      "url": "https://data.sec.gov/submissions/CIK0002030781.json",
+      "allowedHosts": [
+        "data.sec.gov",
+        "www.sec.gov"
+      ],
+      "registration": "verified",
+      "required": true,
+      "maxPages": 100,
+      "scopePrefixes": [
+        "/Archives/edgar/data/"
+      ],
+      "seedEvidenceUrls": [],
+      "family": "filing_documents",
+      "cik": "0002030781",
+      "lookbackDays": 365
+    },
+    {
+      "id": "tenable:sec_documents",
+      "supplierId": "tenable",
+      "kind": "sec_documents",
+      "url": "https://data.sec.gov/submissions/CIK0001660280.json",
+      "allowedHosts": [
+        "data.sec.gov",
+        "www.sec.gov"
+      ],
+      "registration": "verified",
+      "required": true,
+      "maxPages": 100,
+      "scopePrefixes": [
+        "/Archives/edgar/data/"
+      ],
+      "seedEvidenceUrls": [],
+      "family": "filing_documents",
+      "cik": "0001660280",
+      "lookbackDays": 365
+    },
+    {
+      "id": "varonis:sec_documents",
+      "supplierId": "varonis",
+      "kind": "sec_documents",
+      "url": "https://data.sec.gov/submissions/CIK0001361113.json",
+      "allowedHosts": [
+        "data.sec.gov",
+        "www.sec.gov"
+      ],
+      "registration": "verified",
+      "required": true,
+      "maxPages": 100,
+      "scopePrefixes": [
+        "/Archives/edgar/data/"
+      ],
+      "seedEvidenceUrls": [],
+      "family": "filing_documents",
+      "cik": "0001361113",
+      "lookbackDays": 365
+    },
+    {
+      "id": "zscaler:sec_documents",
+      "supplierId": "zscaler",
+      "kind": "sec_documents",
+      "url": "https://data.sec.gov/submissions/CIK0001713683.json",
+      "allowedHosts": [
+        "data.sec.gov",
+        "www.sec.gov"
+      ],
+      "registration": "verified",
+      "required": true,
+      "maxPages": 100,
+      "scopePrefixes": [
+        "/Archives/edgar/data/"
+      ],
+      "seedEvidenceUrls": [],
+      "family": "filing_documents",
+      "cik": "0001713683",
+      "lookbackDays": 365
     }
   ],
   "costPolicy": {

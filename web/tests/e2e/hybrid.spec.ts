@@ -8,7 +8,7 @@ for (const width of [1440, 390]) {
     const errors: string[] = []
     page.on('pageerror', error => errors.push(error.message))
     await page.goto('/')
-    await expect(page.locator('.desk-snapshot')).toContainText('re-derived from each company')
+    await expect(page.locator('.desk-snapshot').filter({ hasText: 'SEC figures' })).toContainText('re-derived from each company')
     await expect(page.locator('.desk-kicker').first()).toContainText(`${certifiedCount} SEC filers certified`)
     await expect(page.locator('.market-desk')).not.toContainText(/Diagnostic candidate|Latest attempt/)
     await expect(page.locator('.market-desk')).not.toContainText(/owner.s read|median/i)

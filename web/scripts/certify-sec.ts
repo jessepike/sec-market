@@ -10,6 +10,7 @@
 import { createHash } from 'node:crypto'
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { resolve } from 'node:path'
+import { isDeepStrictEqual } from 'node:util'
 import { edgarRegistry } from '../src/data/edgarRegistry'
 import { trackerSuppliers } from '../src/data/tracker/suppliers'
 import { digest } from './claim-gate.mjs'
@@ -34,7 +35,7 @@ async function fetchJson(url: string): Promise<Fetched> {
       const text = await res.text()
       const sha256 = createHash('sha256').update(text).digest('hex')
       writeFileSync(resolve(archiveDir, `${sha256}.json`), text)
-      return { url, checkedAt: new Date().toISOString(), status: 'ok', sha256, body: JSON.parse(text) }
+      return { url, checkedAt: res.headers.get('x-smp-source-checked-at') ?? new Date().toISOString(), status: 'ok', sha256, body: JSON.parse(text) }
     } catch (error) { reason = error instanceof Error ? error.message : String(error); await sleep(1000) }
   }
   return { url, checkedAt: new Date().toISOString(), status: 'failed', reason }
@@ -94,7 +95,7 @@ async function main() {
       const checkedAt = new Date().toISOString()
       for (const [field, leaf] of groupLeaves) {
         const prev = previous.fields.find((f: { supplierId: string; field: string }) => f.supplierId === id && f.field === field)
-        const status = !result.ok ? 'failed' : prev && JSON.stringify(prev.value) === JSON.stringify(leaf) ? 'checked-no-change' : 'updated'
+        const status = !result.ok ? 'failed' : prev && isDeepStrictEqual(prev.value, leaf) ? 'checked-no-change' : 'updated'
         fields.push({ supplierId: id, field, status, checkedAt, sourceUrls: [facts.url, subs.url], value: leaf, reason: result.ok ? 'Re-derived from primary SEC data.' : result.reason!, retained: !result.ok })
       }
       if (!result.ok) { console.log(`HOLD  ${id}.${group}: ${result.reason}`); continue }
@@ -107,7 +108,9 @@ async function main() {
   }
 
   const summary = Object.fromEntries(['updated', 'checked-no-change', 'failed'].map(s => [s, fields.filter(f => f.status === s).length]))
-  const coverage = { contractVersion: contract.version, checkedAt: new Date().toISOString(), windowEnd, state: summary.failed === 0 ? 'complete' : 'incomplete',
+  const completedAt = new Date().toISOString()
+  const coverage = { contractVersion: contract.version, checkedAt: completedAt, windowEnd, state: summary.failed === 0 ? 'complete' : 'incomplete',
+    lastDataChangeAt: summary.updated === 0 && previous.checkedAt ? previous.lastDataChangeAt ?? previous.checkedAt : completedAt,
     allSuppliersAttempted: true, supplierCount: ids.length, supplierChecksReceived: received, sourceChecks, fields, summary }
   writeFileSync(previousPath, JSON.stringify(coverage, null, 2) + '\n')
   writeFileSync(generated('certifiedVerification.json'), JSON.stringify({ contractVersion: contract.version, verifiedClaims: proofs }, null, 2) + '\n')

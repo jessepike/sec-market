@@ -1,5 +1,6 @@
 import { edgarRevenueEvidence } from './tracker/edgarRevenue'
 import type { EvidenceRecord } from './types'
+import { dailyEvidence } from './tracker/daily'
 import generatedFilingEvidence from './generated/filingEvidence.json' with { type: 'json' }
 
 const handWrittenEvidenceRecords: EvidenceRecord[] = [
@@ -5462,6 +5463,7 @@ export const evidenceRecords: EvidenceRecord[] = [
   ...handWrittenEvidenceRecords,
   ...edgarRevenueEvidence,
   ...(generatedFilingEvidence as EvidenceRecord[]),
+  ...dailyEvidence,
 ]
 
 export const evidenceById = Object.fromEntries(

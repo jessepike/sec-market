@@ -10,22 +10,39 @@ from urllib.parse import urlsplit
 from contracts import require, utcnow
 
 
-def safe_url(url, allowed_hosts, resolver=socket.getaddrinfo):
+def safe_url(url, allowed_hosts, resolver=socket.getaddrinfo, proxy_dns=False):
     parsed = urlsplit(url)
     require(parsed.scheme == "https" and not parsed.username and not parsed.password and parsed.port in (None, 443), "Unsafe source protocol or credentials")
     require(parsed.hostname in allowed_hosts, "Unapproved source/redirect host")
-    for answer in resolver(parsed.hostname, 443, type=socket.SOCK_STREAM):
+    require(not parsed.hostname.endswith((".localhost", ".local", ".internal")) and parsed.hostname != "localhost", "Local network names prohibited")
+    try:
+        literal = ipaddress.ip_address(parsed.hostname)
+    except ValueError:
+        literal = None
+    require(literal is None or literal.is_global, "Private/reserved network targets are prohibited")
+    if proxy_dns:
+        # The approved egress proxy owns DNS for CONNECT. Container DNS may be
+        # disabled; it is neither the resolver nor the network used by this request.
+        return url
+    try:
+        answers = resolver(parsed.hostname, 443, type=socket.SOCK_STREAM)
+    except socket.gaierror:
+        # Managed cloud networking resolves targets in its trusted HTTPS proxy.
+        # Keep exact host/protocol/literal-IP checks; never enable this without a proxy.
+        require(proxy_dns, "LOCAL_DNS_UNAVAILABLE_WITHOUT_TRUSTED_PROXY")
+        return url
+    for answer in answers:
         address = ipaddress.ip_address(answer[4][0])
         require(address.is_global, "Private/reserved network targets are prohibited")
     return url
 
 
 class ContractRedirect(urllib.request.HTTPRedirectHandler):
-    def __init__(self, hosts):
-        self.hosts = hosts
+    def __init__(self, hosts, proxy_dns=False):
+        self.hosts, self.proxy_dns = hosts, proxy_dns
 
     def redirect_request(self, request, fp, code, msg, headers, newurl):
-        safe_url(newurl, self.hosts)
+        safe_url(newurl, self.hosts, proxy_dns=self.proxy_dns)
         return super().redirect_request(request, fp, code, msg, headers, newurl)
 
 
@@ -34,9 +51,10 @@ class Fetcher:
         self.store, self.max_bytes, self.timeout = store, max_bytes, timeout
         self.rate_lock = threading.Lock()
         self.last_request = {}
+        self.proxy_dns = bool(urllib.request.getproxies().get("https"))
 
     def fetch(self, source, url=None, previous=None, attempt=0):
-        url = safe_url(url or source["url"], source["allowedHosts"])
+        url = safe_url(url or source["url"], source["allowedHosts"], proxy_dns=self.proxy_dns)
         # Shared across all matrix threads, including repeated SEC source hosts.
         with self.rate_lock:
             host = urlsplit(url).hostname
@@ -50,7 +68,7 @@ class Fetcher:
                 headers["If-None-Match"] = previous["etag"]
             if previous.get("lastModified"):
                 headers["If-Modified-Since"] = previous["lastModified"]
-        opener = urllib.request.build_opener(ContractRedirect(source["allowedHosts"]))
+        opener = urllib.request.build_opener(ContractRedirect(source["allowedHosts"], self.proxy_dns))
         try:
             response = opener.open(urllib.request.Request(url, headers=headers), timeout=self.timeout)
         except urllib.error.HTTPError as error:
@@ -73,7 +91,7 @@ class Fetcher:
             blocked = "403" in str(error.reason) or isinstance(error.reason, PermissionError)
             return {"requestedUrl": url, "fetchedAt": utcnow(), "status": "blocked" if blocked else "failed", "httpStatus": 403 if blocked else None, "errorCode": "NETWORK_POLICY_BLOCKED" if blocked else "SOURCE_CONNECTION_FAILED"}
         with response:
-            safe_url(response.url, source["allowedHosts"])
+            safe_url(response.url, source["allowedHosts"], proxy_dns=self.proxy_dns)
             body = response.read(self.max_bytes + 1)
             require(len(body) <= self.max_bytes, "Source exceeds request size budget")
             require(response.status == 200, "Unexpected source response status")

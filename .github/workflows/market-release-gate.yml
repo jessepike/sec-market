@@ -1,0 +1,79 @@
+name: independent daily release gate
+
+on:
+  workflow_dispatch:
+    inputs:
+      archive_commit:
+        description: Immutable evidence archive commit
+        required: true
+        type: string
+      manifest_sha256:
+        description: Evidence archive manifest SHA-256
+        required: true
+        type: string
+
+permissions: {}
+concurrency:
+  group: independent-market-release-gate
+  cancel-in-progress: false
+
+jobs:
+  gate:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+          path: application
+      - name: Check input formats
+        env:
+          ARCHIVE_COMMIT: ${{ inputs.archive_commit }}
+          MANIFEST_SHA256: ${{ inputs.manifest_sha256 }}
+        run: |
+          python3 - <<'PY'
+          import os,re
+          assert re.fullmatch(r'[a-f0-9]{40}',os.environ['ARCHIVE_COMMIT'])
+          assert re.fullmatch(r'[a-f0-9]{64}',os.environ['MANIFEST_SHA256'])
+          PY
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ inputs.archive_commit }}
+          persist-credentials: false
+          path: evidence
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: application/web/package-lock.json
+      - name: Verify archive root and complete evidence integrity
+        env:
+          MANIFEST_SHA256: ${{ inputs.manifest_sha256 }}
+        run: |
+          python3 - <<'PY'
+          import os,sys
+          sys.path.insert(0,'application/web/scripts/pipeline')
+          from archive import GitArchive
+          GitArchive.verify('evidence',os.environ['MANIFEST_SHA256'])
+          PY
+      - name: Install pinned dependencies and browser
+        working-directory: application/web
+        run: |
+          npm ci --no-audit --no-fund
+          npx playwright install --with-deps chromium
+      - name: Reconstruct, certify and test the candidate
+        env:
+          CI: 'true'
+          SMP_ARCHIVE_COMMIT: ${{ inputs.archive_commit }}
+          SMP_ARCHIVE_MANIFEST_SHA256: ${{ inputs.manifest_sha256 }}
+        run: python3 application/web/scripts/pipeline/gate.py --repo application --state evidence/state --destination "$RUNNER_TEMP/daily-gate"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: daily-market-gate
+          path: ${{ runner.temp }}/daily-gate
+          if-no-files-found: error
+          retention-days: 7

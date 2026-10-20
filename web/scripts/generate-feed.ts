@@ -2,6 +2,7 @@ import refreshCoverage from '../src/data/generated/refreshCoverage.json' with { 
 import refreshPublication from '../src/data/generated/refreshPublication.json' with { type: 'json' }
 import refreshVerification from '../src/data/generated/refreshVerification.json' with { type: 'json' }
 import refreshContract from '../src/data/tracker/refreshContract.json' with { type: 'json' }
+import dailyMarket from '../src/data/generated/dailyMarket.json' with { type: 'json' }
 /**
  * Build-time feed + JSON-copy step.
  *
@@ -205,6 +206,7 @@ export function writeTrackerJson(
 ): { path: string; figureCount: number } {
   const payload = trackerJsonPayload(suppliers, domains, evidenceByIdMap, status)
   writeFileSync(resolve(distDir, 'refresh-coverage.json'), JSON.stringify(refreshCoverage, null, 2) + '\n', 'utf8')
+  writeFileSync(resolve(distDir, 'daily-coverage.json'), JSON.stringify(dailyMarket.enabled ? dailyMarket.coverage : { complete: false, checkedAt: null, reason: 'DAILY_COLLECTION_NOT_ACTIVATED' }, null, 2) + '\n', 'utf8')
   writeFileSync(resolve(distDir, 'refresh-publication.json'), JSON.stringify(refreshPublication, null, 2) + '\n', 'utf8')
   writeFileSync(resolve(distDir, 'refresh-certification.json'), JSON.stringify({ contract: refreshContract, verification: refreshVerification, publication: refreshPublication }, null, 2) + '\n', 'utf8')
   const path = resolve(distDir, 'tracker.json')

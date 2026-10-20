@@ -9,9 +9,11 @@ import { readFileSync, writeFileSync, cpSync } from 'node:fs'
 import { resolve, dirname } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { spawnSync } from 'node:child_process'
+import { verifyDaily } from './verify-daily.mjs'
 
 /** Runs the certified gate; throws unless every certified claim passes. */
 export function verifyAppRelease(repo) {
+  verifyDaily(resolve(repo, 'web'))
   const publication = JSON.parse(readFileSync(resolve(repo, 'web/src/data/generated/refreshPublication.json'), 'utf8'))
   if (publication.snapshotMode !== 'certified') throw new Error(`Unknown release mode "${publication.snapshotMode}"; only "certified" is supported.`)
   const r = spawnSync('npx', ['tsx', '--tsconfig', 'tsconfig.app.json', 'scripts/certify-gate.ts', '--at-certification'], { cwd: resolve(repo, 'web'), stdio: 'inherit', env: process.env })
@@ -28,6 +30,8 @@ export function buildRelease(repo) {
   if (r.status !== 0) throw new Error(`Release command failed (${r.status}): npm run build:certified`)
   cpSync(resolve(web, 'src/data/generated/certifiedCoverage.json'), resolve(dist, 'certified-coverage.json'))
   const release = { ...decision, rootView: 'tracker', appRevision: process.env.VERCEL_GIT_COMMIT_SHA ?? null, appBuiltAt: new Date().toISOString() }
+  const daily = verifyDaily(web)
+  if (daily.enabled) Object.assign(release, { dailyRunId: daily.runId, dailySnapshotSha256: daily.fileSha256, dailyContractSha256: daily.contractSha256, dailyCoverageComplete: daily.coverageComplete })
   writeFileSync(resolve(dist, 'app-release.json'), JSON.stringify(release, null, 2) + '\n')
   return release
 }

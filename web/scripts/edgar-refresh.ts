@@ -36,7 +36,7 @@ async function fetchCompanyFacts(cik: string): Promise<CompanyFacts> {
       if (!response.ok) throw new Error(`HTTP ${response.status} fetching ${url}`)
       const text = await response.text()
       const data = JSON.parse(text) as CompanyFacts
-      checks.push({ supplierId: edgarRegistry.find(s => s.cik === cik)!.id, checkedAt: new Date().toISOString(), url, status: 'checked', sha256: createHash('sha256').update(text).digest('hex') })
+      checks.push({ supplierId: edgarRegistry.find(s => s.cik === cik)!.id, checkedAt: response.headers.get('x-smp-source-checked-at') ?? new Date().toISOString(), url, status: 'checked', sha256: createHash('sha256').update(text).digest('hex') })
       return data
     } catch (error) { lastError = error; if (attempt < 2) await sleep(1000) }
   }

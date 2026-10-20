@@ -10,6 +10,7 @@
 
 import generatedFilingEvents from '../generated/filingEvents.json' with { type: 'json' }
 import { runStatus } from '../runStatus'
+import { dailyEvents } from './daily'
 
 export type TrackerEventType =
   | 'funding'
@@ -1107,6 +1108,7 @@ export const handCollectedEvents: TrackerEvent[] = [
 export const retainedTrackerEvents: TrackerEvent[] = [
   ...handCollectedEvents,
   ...(generatedFilingEvents as TrackerEvent[]),
+  ...dailyEvents,
 ]
 
 const eventWindowEnd = Date.parse(runStatus.lastChecked + 'T00:00:00Z')

@@ -4,7 +4,7 @@ Append-only ledger of owner and project decisions since 2026-08-15. Past entries
 a later entry supersedes an earlier one. (Link paths were updated on 2026-10-16 when documents moved
 to `docs/archive/`; the words of each entry are unchanged.)
 
-## Decisions in force (as of 2026-10-19)
+## Decisions in force (as of 2026-10-20)
 
 Everything not listed here is history: superseded, completed, or about a phase that has ended.
 
@@ -19,7 +19,7 @@ Everything not listed here is history: superseded, completed, or about a phase t
 | Records | D-68, D-93 | Published records change only through dated corrections. The weekly issue is retired; issue `2026-w36` stays as an archive |
 | Distribution | D-92 | Email capture and a digest of certified changes, built as one workstream |
 | Security | D-83 (credential boundary), D-99 | No tokens or credentials copied to CI without approval at the time. Security headers and DNS hardening on both sites |
-| Daily coverage | D-104 | Daily collection and reconciliation for all 74 current suppliers authorized; expansion-ready, subscription-backed, no paid fallback. Cutover requires live receipts |
+| Daily coverage | D-104, D-105 | Daily collection and reconciliation for all 74 current suppliers authorized; expansion-ready, subscription-backed, no paid fallback. Cutover requires live receipts |
 | Roadmap | D-94, D-104 | A quarterly owner-written note is on the backlog. Private-company extraction is now authorized within the daily pipeline workstream |
 
 Numbering note: D-34 was recorded before D-33 on 2026-08-16; both stand as written.
@@ -1173,3 +1173,30 @@ until it's done." This authorizes implementation and validation, not a readiness
 or offline tests. The implementation and outstanding live gates are recorded in
 [the daily pipeline runbook](docs/active/daily-pipeline/README.md). Existing deployment controls
 remain until the concrete preview and operational cutover are reviewed under AGENTS.md.
+
+
+**D-105 · 2026-10-20 — Continue implementation through verified blockers; direct preview delivery, no PR.**
+
+Owner: "Why did you create a PR? I don't use PRs" and "I gave you instructions to figure shit out."
+Owner: "If you have a blocker. If not, I expect you to build this out." The draft PR was closed
+unmerged; implementation continues and will be committed directly to preview after the required
+checks. This does not waive the existing review of a concrete major preview before production.
+
+Implementation choice within D-104: use the existing private repository's custom
+`refs/archive/market-evidence` reference for immutable evidence, excluded from ordinary branch
+fetches, and a standalone scheduled Mac/Linux worker with its own official subscription login.
+GitHub Git/Actions access works; runner/secret admin scopes are unnecessary for this design.
+A real push and pinned fresh restore verified 19,998 files; restored coverage remains degraded at
+252/557. A separate GitHub gate reconstructs and tests the exact archived candidate, and an outside
+GitHub job monitors the local worker and actual production receipts. These last two workflows and
+the Vercel prebuilt stage/promote/rollback adapter are implemented but not live-accepted yet.
+
+Owner answered "Neither is configured yet" about a persistent subscription worker or scheduled
+cloud task, and "Ready to sign in now" for official browser authentication. ChatGPT login and real
+inference were verified. Vercel management uses its official browser approval; no token is requested
+in chat. Neither the transient cloud checkout nor a dry-run installer establishes an unattended
+host. No API fallback, paid infrastructure purchase or login-file transfer to CI is authorized.
+
+Initial collection reached its bounded budget and exposed source-binding, historical backlog and
+claim-mapping gaps. Preserve these as failed/pending work. No full-site freshness or autonomous
+readiness claim is authorized by a green build or by the successful archive restore.

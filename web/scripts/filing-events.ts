@@ -104,12 +104,14 @@ function documentUrl(cik: string, accessionNumber: string, primaryDocument: stri
   return `https://www.sec.gov/Archives/edgar/data/${cikNum}/${accNoDashes}/${primaryDocument}`
 }
 
+const sourceCheckedAt = new Map<string, string>()
 async function fetchText(url: string): Promise<string> {
   let failure: unknown
   for (let attempt = 0; attempt < 3; attempt++) {
     try {
       const response = await fetch(url, { headers: { 'User-Agent': USER_AGENT }, signal: AbortSignal.timeout(30000) })
       if (!response.ok) throw new Error(`HTTP ${response.status} fetching ${url}`)
+      sourceCheckedAt.set(url, response.headers.get('x-smp-source-checked-at') ?? new Date().toISOString())
       return await response.text()
     } catch (error) { failure = error; if (attempt < 2) await sleep(1000) }
   }
@@ -157,7 +159,7 @@ async function main() {
     let data: SubmissionsResponse
     try {
       data = JSON.parse(await fetchText(url)) as SubmissionsResponse
-      checks.push({ supplierId: supplier.id, url, checkedAt: new Date().toISOString(), status: 'checked' })
+      checks.push({ supplierId: supplier.id, url, checkedAt: sourceCheckedAt.get(url)!, status: 'checked' })
     } catch (error) {
       console.error(`FAIL  ${supplier.id.padEnd(12)} ${error instanceof Error ? error.message : String(error)}`)
       checks.push({ supplierId: supplier.id, url, checkedAt: new Date().toISOString(), status: 'failed-retained', reason: String(error) })
@@ -234,7 +236,7 @@ async function main() {
         conflictingEvidenceIds: [],
         artifactLabel: `SEC-MARKET-AUTO-001-STEP5 / ${evidenceId}`,
         tags: ['tracker', 'filing-event'],
-        retrievedAt: today,
+        retrievedAt: (sourceCheckedAt.get(docUrl) ?? sourceCheckedAt.get(url) ?? today).slice(0, 10),
       })
 
       found += 1

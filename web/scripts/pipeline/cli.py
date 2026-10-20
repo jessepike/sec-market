@@ -13,16 +13,21 @@ from publication import health
 from reporting import csv_matrix, inventory, markdown_matrix
 from validation import reconcile
 from storage import LocalStore
+from snapshot import build_snapshot
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("command", choices=["check-contracts", "plan", "run", "verify", "status", "report", "backup", "verify-backup"])
+    parser.add_argument("command", choices=["check-contracts", "plan", "run", "verify", "snapshot", "onboard", "status", "report", "backup", "verify-backup", "archive-push", "archive-restore"])
     parser.add_argument("--contract", default=str(Path(__file__).resolve().parents[3] / "contracts/market.json"))
     parser.add_argument("--state", default=str(Path(__file__).resolve().parents[3] / ".collect/daily-state"))
     parser.add_argument("--at", default=None)
     parser.add_argument("--destination")
+    parser.add_argument("--baseline", help="Optional exported baseline supplier JSON")
     parser.add_argument("--expected-sha256", help="Independently retained backup root hash")
+    parser.add_argument("--archive-mirror", help="Dedicated Git mirror outside the live state directory")
+    parser.add_argument("--archive-remote", default="https://github.com/jessepike/sec-market.git")
+    parser.add_argument("--expected-commit", help="Pinned remote archive commit for restoration")
     parser.add_argument("--subscription-worker", action="store_true", help="Use existing ChatGPT-authenticated Codex CLI; never API-key fallback")
     args = parser.parse_args()
     contract = validate_contract(json.loads(Path(args.contract).read_text()))
@@ -35,6 +40,28 @@ def main():
     elif args.command == "run":
         agent = SubscriptionAgent(contract["model"]) if args.subscription_worker else None
         result = Pipeline(contract, store, Fetcher(store), agent).run(at)
+    elif args.command == "onboard":
+        from onboarding import probe_sources
+        result = probe_sources(contract, store, Fetcher(store, timeout=12))
+        if args.destination:
+            Path(args.destination).write_text(json.dumps(result, indent=2) + "\n")
+    elif args.command == "snapshot":
+        if not args.destination:
+            parser.error("--destination required")
+        latest = store.read("heads/latest-run.json")
+        if not latest:
+            raise ValueError("No archived daily run to materialize")
+        coverage = json.loads(store.get(latest["receipt"]))
+        plan = store.read(f"runs/{coverage['runId']}/plan.json")
+        path = Path(args.destination)
+        previous = json.loads(path.read_text()) if path.exists() else None
+        baseline = json.loads(Path(args.baseline).read_text()) if args.baseline else None
+        result = build_snapshot(contract, plan, coverage, store, at, baseline, previous)
+        body = (json.dumps(result, indent=2, ensure_ascii=False) + "\n").encode()
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(body)
+        path.with_suffix(".seal.json").write_text(json.dumps({"schemaVersion": 1, "fileSha256": digest(body), "runId": result["runId"], "contractSha256": result["contractSha256"]}, indent=2) + "\n")
+        result = {"snapshotSha256": result["snapshotSha256"], "fileSha256": digest(body), "events": len(result["events"]), "supplierUpdates": len(result["supplierUpdates"]), "reviewQueue": len(result["reviewQueue"])}
     elif args.command in ("status", "verify"):
         latest = store.read("heads/latest-run.json")
         coverage = json.loads(store.get(latest["receipt"])) if latest else None
@@ -61,6 +88,17 @@ def main():
         (destination / "source-matrix.csv").write_text(csv_matrix(rows))
         (destination / "coverage-matrix.md").write_text(markdown_matrix(contract, rows))
         result = {"suppliers": len(contract["suppliers"]), "requiredTasks": len(rows), "missingBindings": sum(r["registration"] == "missing" for r in rows), "candidateBindings": sum(r["registration"] == "candidate" for r in rows)}
+    elif args.command in ("archive-push", "archive-restore"):
+        from archive import GitArchive
+        if not args.archive_mirror:
+            parser.error("--archive-mirror required")
+        archive = GitArchive(args.archive_mirror, args.archive_remote)
+        if args.command == "archive-push":
+            result = archive.push(store)
+        else:
+            if not args.destination or not args.expected_commit or not args.expected_sha256:
+                parser.error("Restore requires --destination, --expected-commit and --expected-sha256")
+            result = archive.restore(args.destination, args.expected_commit, args.expected_sha256)
     elif args.command == "backup":
         if not args.destination:
             parser.error("--destination required")
