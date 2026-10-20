@@ -196,6 +196,8 @@ export function verifySecEvents(submissions, candidateEvents, allEvents, windowS
       if (event.evidenceDates[k] !== f.date) return { ok: false, reason: `${event.id}: evidence for ${a} is dated ${event.evidenceDates[k]}; SEC filing date is ${f.date}` }
       if (event.date > f.date) return { ok: false, reason: `${event.id}: dated ${event.date}, after its source filing ${a} (${f.date})` }
       if (CURRENT_REPORTS.has(f.form) && (event.date === f.report || event.date === f.date)) anchored = true
+      // Notices and transaction forms are filed events, with no quarterly period.
+      if (f.form in TRACKED_FORMS && event.date === f.date) anchored = true
       if (f.form in PERIODIC && days(event.date, f.report) <= PERIODIC[f.form]) anchored = true
     }
     if (!anchored) return { ok: false, reason: `${event.id}: date ${event.date} is not the report date or filing date of any cited filing, nor inside a cited report's period` }

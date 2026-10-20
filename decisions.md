@@ -4,7 +4,7 @@ Append-only ledger of owner and project decisions since 2026-08-15. Past entries
 a later entry supersedes an earlier one. (Link paths were updated on 2026-10-16 when documents moved
 to `docs/archive/`; the words of each entry are unchanged.)
 
-## Decisions in force (as of 2026-10-16)
+## Decisions in force (as of 2026-10-19)
 
 Everything not listed here is history: superseded, completed, or about a phase that has ended.
 
@@ -13,13 +13,14 @@ Everything not listed here is history: superseded, completed, or about a phase t
 | Purpose | D-1, D-76, D-77, D-102 | Intent is the authority (v1.4 accepted; v1.5 awaiting the owner's confirmation). Facts publish with no human approval step; no machine publishes a judgment. A standing supplier tracker is the product |
 | What may be called verified | D-85, D-89, D-100 | Publishing needs 100% of required claims. The certified tier is the SEC filers. The page says "re-derived from SEC filings", not "independently verified" |
 | Events | D-91 | Filed events are dated, uniform, rule-listed facts from SEC filings |
-| Automation | D-88, D-96, D-98, D-101, D-103 | Every change reaches production on its own after a soak and full checks; major changes wait for the owner. SEC is checked every 4 hours. No paid GitHub plan and no branch protection; `main` is guarded by the promotion workflow's rules and a client-side push hook. Production renders the certified tracker |
+| Automation | D-88, D-96, D-98, D-101, D-103, D-104 | Every change reaches production on its own after a soak and full checks; major changes wait for the owner. SEC is checked every 4 hours. No paid GitHub plan and no branch protection; `main` is guarded by the promotion workflow's rules and a client-side push hook. Production renders the certified tracker |
 | Deploy path | D-31, D-32, D-50, D-103 | Local, then GitHub, then Vercel. `preview` is the trunk, `main` is production, moved by `promote.yml`. Commits use `jesse@keatingpike.com` |
 | Attribution | D-90, D-97 | Method-page byline in the owner's legal name, Jesse Pike, with an interests statement |
 | Records | D-68, D-93 | Published records change only through dated corrections. The weekly issue is retired; issue `2026-w36` stays as an archive |
 | Distribution | D-92 | Email capture and a digest of certified changes, built as one workstream |
 | Security | D-83 (credential boundary), D-99 | No tokens or credentials copied to CI without approval at the time. Security headers and DNS hardening on both sites |
-| Roadmap | D-94, D-95 | A quarterly owner-written note is on the backlog. AI extraction for private companies is deferred |
+| Daily coverage | D-104 | Daily collection and reconciliation for all 74 current suppliers authorized; expansion-ready, subscription-backed, no paid fallback. Cutover requires live receipts |
+| Roadmap | D-94, D-104 | A quarterly owner-written note is on the backlog. Private-company extraction is now authorized within the daily pipeline workstream |
 
 Numbering note: D-34 was recorded before D-33 on 2026-08-16; both stand as written.
 
@@ -1149,3 +1150,26 @@ Owner, after the promotion workflow was found to have failed silently since it w
 - Major changes wait for the owner: anything a reader would notice beyond data, adding or removing suppliers or sources, email, secrets or external services, intent, rules, deploy policy, security headers and the promotion rules. Agents mark them `Owner-Review: required`; the workflow also holds protected paths, new secrets and any change to page structure on its own. Held changes and failures each open a GitHub issue.
 - Monitoring and accuracy: the freshness probe now also alerts when promotion has not succeeded in 30 hours, certified data has waited 48 hours, or production does not serve `main`. Machine-written event text passes an accuracy gate before it can publish.
 - The owner will not promote the site to readers until it shows sustained fresh and accurate operation. The bar for that is open (status.md).
+
+**D-104 · 2026-10-19 — Durable daily collection for the full roster authorized; live activation requires receipts.**
+
+Owner: "the current 74 suppliers, yes ... build for and architect for ... significant expansion"
+and "I need the entire site updated and fresh daily." Daily reconciliation is part of every daily
+run, not a weekly substitute. No supplier expansion yet. This supersedes D-95's deferral of
+private-company extraction for this workstream; D-96's four-hour cadence remains operational
+until the replacement passes its cutover gates.
+
+Owner: "I'm going to use my subscription for this" and "I don't want to be incurring a bunch of
+extra costs." Use subscription-authenticated workers where supported, with explicit budgets,
+no paid model API fallback and no automatic infrastructure purchases. Subscription authentication
+does not provide an unattended host; owner confirmed neither a persistent worker nor a scheduled
+cloud task is configured. Credential creation/copying remains governed by D-83.
+
+Owner: "routine factual updates, publish automatically. Absolutely" and approved separating data
+releases from unrelated application changes, with one or two daily batches. Unresolved claims,
+failures and missing heartbeats need owner notification; significant changes and scope remain
+governed. Owner: "I need you to build this end to end ... run, test it, validate it ... keep resolving
+until it's done." This authorizes implementation and validation, not a readiness claim from a plan
+or offline tests. The implementation and outstanding live gates are recorded in
+[the daily pipeline runbook](docs/active/daily-pipeline/README.md). Existing deployment controls
+remain until the concrete preview and operational cutover are reviewed under AGENTS.md.

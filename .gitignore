@@ -7,6 +7,8 @@
 # Working files from the certify scripts: raw SEC responses (.collect/sec-archive,
 # uploaded as a workflow artifact instead) and the last gate attempt.
 .collect/
+__pycache__/
+*.py[cod]
 
 # Screenshots from web/scripts/shot.mjs.
 web/scripts/shot-*.png

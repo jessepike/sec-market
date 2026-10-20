@@ -27,11 +27,13 @@
     "lint": "oxlint",
     "test:e2e": "node scripts/ensure-test-browser.mjs && node scripts/run-browser-tests.mjs",
     "test:data": "tsx --tsconfig tsconfig.app.json --test 'tests/*.test.ts' 'tests/*.test.mjs'",
-    "test": "npm run lint && npm run test:data && npm run build && npm run test:e2e",
+    "test": "npm run lint && npm run test:data && npm run test:pipeline && npm run build && npm run test:e2e",
     "verify:app-release": "node scripts/app-release.mjs --verify",
     "certify:sec": "tsx --tsconfig tsconfig.app.json scripts/certify-sec.ts",
     "certify:gate": "tsx --tsconfig tsconfig.app.json scripts/certify-gate.ts",
-    "build:certified": "npm run verify:edition && npm run verify:panel && npm run verify:integrity && npm run verify:issue && npm run verify:prints && npm run verify:tracker && tsc -b && npm run build:client && npm run build:server && npm run prerender && npm run seo && npm run build:feed && npm run verify:dist"
+    "build:certified": "npm run verify:edition && npm run verify:panel && npm run verify:integrity && npm run verify:issue && npm run verify:prints && npm run verify:tracker && tsc -b && npm run build:client && npm run build:server && npm run prerender && npm run seo && npm run build:feed && npm run verify:dist",
+    "test:pipeline": "python3 -m unittest discover -s tests -p 'test_pipeline.py' -v",
+    "pipeline": "python3 scripts/pipeline/cli.py"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

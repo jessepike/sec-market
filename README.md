@@ -60,3 +60,5 @@ Shipping goes through `preview` and the owner's approval: see [AGENTS.md](AGENTS
 
 Vercel (`pikeholdings/security-market-pulse`, root `web`), Cloudflare DNS, GitHub Actions. The
 author hub and email list live at [jessepike.dev](https://jessepike.dev).
+
+Daily full-roster automation is in development: [implementation, matrix and activation gates](docs/active/daily-pipeline/README.md). It is not live; the existing SEC-only schedule remains until cutover.

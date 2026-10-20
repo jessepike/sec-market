@@ -1,0 +1,112 @@
+"""Reviewed coverage inventory and canonical hashing; no network or model calls."""
+import hashlib
+import json
+import re
+from datetime import datetime, timezone
+from urllib.parse import urlsplit
+
+
+class ContractError(ValueError):
+    pass
+
+
+def canonical(value):
+    return json.dumps(value, sort_keys=True, separators=(",", ":"), ensure_ascii=False, allow_nan=False).encode()
+
+
+def digest(value):
+    return hashlib.sha256(value if isinstance(value, bytes) else canonical(value)).hexdigest()
+
+
+def utcnow():
+    return datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
+
+
+def instant(value):
+    try:
+        result = datetime.fromisoformat(value.replace("Z", "+00:00"))
+        if result.tzinfo is None:
+            raise ValueError("Timezone required")
+        return result
+    except (ValueError, AttributeError) as exc:
+        raise ContractError("Invalid timezone-aware timestamp") from exc
+
+
+def require(condition, reason):
+    if not condition:
+        raise ContractError(reason)
+
+
+def unique(items, label):
+    require(len(items) == len(set(items)), f"Duplicate {label}")
+
+
+def validate_contract(contract):
+    require(contract.get("schemaVersion") == 1, "Unsupported contract schema")
+    require(bool(contract.get("version")), "Contract version required")
+    schedule = contract["schedule"]
+    require(schedule["intervalHours"] == 24 and schedule["reconcileEveryRun"] is True,
+            "Every required daily run must reconcile coverage")
+    require(24 < schedule["overdueHours"] <= 36, "Daily freshness threshold out of bounds")
+    require(1 <= schedule["maxWorkers"] <= 16, "Unsafe worker parallelism")
+    require(contract["model"]["provider"] == "codex_subscription", "Only approved subscription provider allowed")
+    require(contract["model"]["allowApiBilling"] is False, "Paid API fallback is prohibited")
+    for key in ("maxDocumentsPerRun", "maxCallsPerRun", "maxDocumentChars", "timeoutSeconds"):
+        require(0 < contract["model"][key], f"Invalid model budget: {key}")
+    suppliers, sources = contract["suppliers"], contract["sources"]
+    require(bool(suppliers), "Supplier denominator cannot be empty")
+    unique([s["id"] for s in suppliers], "supplier ID")
+    unique([s["id"] for s in sources], "source ID")
+    supplier_ids = {s["id"] for s in suppliers}
+    source_map = {s["id"]: s for s in sources}
+    for source in sources:
+        require(type(source["required"]) is bool, "Source requirement must be boolean")
+        require(source["supplierId"] in supplier_ids, "Orphan source binding")
+        require(source["registration"] in ("verified", "candidate"), "Unknown source registration")
+        require(source["kind"] in ("sec_facts", "sec_submissions", "official_discovery", "rss", "sitemap", "html_index", "citation"), "Unknown collector kind")
+        require(bool(source.get("family")), "Source family required")
+        url = urlsplit(source["url"])
+        require(url.scheme == "https" and not url.username and not url.password and url.port in (None, 443), "Unsafe source URL")
+        require(url.hostname in source["allowedHosts"], "Source host is outside its contract")
+        require(1 <= source["maxPages"] <= 1000, "Invalid pagination limit")
+    for supplier in suppliers:
+        require(bool(supplier["requiredCategories"]), "Supplier has no coverage requirements")
+        require(bool(supplier.get("requiredFamilies")), "Supplier has no required source families")
+        unique(supplier["sourceIds"], "supplier source binding")
+        unique(supplier["requiredCategories"], "required category")
+        unique(supplier["requiredFamilies"], "required source family")
+        require(set(supplier["sourceIds"]) == {s["id"] for s in sources if s["supplierId"] == supplier["id"]}, "Source absent from supplier inventory")
+        for sid in supplier["sourceIds"]:
+            require(sid in source_map and source_map[sid]["supplierId"] == supplier["id"], "Invalid supplier/source join")
+    return contract
+
+
+def plan_run(contract, scheduled_at, previous_run=None):
+    validate_contract(contract)
+    at = instant(scheduled_at).astimezone(timezone.utc)
+    contract_hash = digest(contract)
+    # Same approved contract and UTC day generate the same logical inventory.
+    run_id = digest({"contract": contract_hash, "day": at.date().isoformat()})
+    tasks = []
+    for source in contract["sources"]:
+        tasks.append({"taskId": digest({"run": run_id, "source": source["id"]}),
+                      "sourceId": source["id"], "supplierId": source["supplierId"],
+                      "kind": "collect", "required": source["required"]})
+    # Missing discovery bindings are explicit failed work, never an absent denominator.
+    for supplier in contract["suppliers"]:
+        bound = {s["family"] for s in contract["sources"] if s["supplierId"] == supplier["id"] and s["required"]}
+        for family in supplier["requiredFamilies"]:
+            if family in bound:
+                continue
+            tasks.append({"taskId": digest({"run": run_id, "gap": supplier["id"], "family": family}),
+                          "sourceId": None, "supplierId": supplier["id"],
+                          "kind": "missing_discovery", "family": family, "required": True})
+    inventory = sorted(tasks, key=lambda t: t["taskId"])
+    return {"schemaVersion": 1, "runId": run_id, "scheduledAt": at.isoformat().replace("+00:00", "Z"),
+            "contractVersion": contract["version"], "contractSha256": contract_hash,
+            "previousRunId": previous_run, "inventorySha256": digest(inventory),
+            "supplierIds": sorted(s["id"] for s in contract["suppliers"]), "tasks": inventory}
+
+
+def valid_hash(value):
+    return isinstance(value, str) and bool(re.fullmatch(r"[a-f0-9]{64}", value))

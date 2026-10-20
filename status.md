@@ -1,52 +1,68 @@
 ---
 project: Security Market Pulse
 stage: Operate
-updated: 2026-10-16
+updated: 2026-10-20
 ---
 
 # Status
 
-Current state only. The full session log up to 2026-10-16 is in
-[docs/archive/2026-10-auto-002/status-history.md](docs/archive/2026-10-auto-002/status-history.md).
+## Live
 
-## Now
+- https://securitymarketpulse.com serves `54590be4d91113a50879a8fb5d180441e7d149f4`.
+  Last certified data change: `2026-10-18T02:36:44.349Z` (Oct 17, 7:36pm PDT).
+- Latest SEC refresh inspected: [39324337964](https://github.com/jessepike/sec-market/actions/runs/39324337964),
+  `2026-10-19T21:02:46Z` (Oct 19, 2:02pm PDT), success; certification passed, data publication skipped.
+  A no-change check does not advance the last data-change timestamp.
+- Existing production automation checks 16 SEC filers every four hours. It does not refresh the
+  entire 74-supplier site. D-103 promotion changes remain on `preview` ahead of production.
+- Owner's outreach hold stands until sustained fresh, accurate operation is demonstrated.
 
-- **Live:** https://securitymarketpulse.com at `54590be` (2026-10-18): the certified tracker, the
-  first automatic data change (a SentinelOne 8-K filed 2026-10-16) and the debt-quote fix.
-- **Owner's position (2026-10-18):** no outreach to readers until the site shows sustained, fresh and
-  accurate operation with no human fixes. The bar for "sustained" is open (below).
-- **Automation (D-103, on `preview`, not yet live):** `promote.yml` replaces `promote-certified.yml`.
-  Every change that passes the checks goes live on its own; major changes wait for the owner. The
-  freshness probe now watches promotion success, data lag and deploy lag; machine-written event text
-  passes an accuracy gate. Until this is promoted, the old promotion workflow (now fixed) moves
-  data-only changes, and `preview` holds non-data commits, so nothing moves on its own.
-- **Branches:** `main`, `preview` and `archive/history-before-2026-10-14` (earlier history, kept).
-- **Traffic:** 38 visitors since launch, all direct. Not a goal until the burn-in is passed.
+## Authorized work in progress (D-104)
 
-## Waiting on the owner
+Owner requested implementation of daily collection **and daily reconciliation** for all current
+74 suppliers, expansion-ready contracts, durable evidence/deltas, subscription-backed agents,
+independent checks and alerts, automatic factual releases, and separate data/application releases.
+No supplier expansion or additional spending is authorized.
 
-1. **Promote D-103** once. It changes the promotion rules, which are a protected path, so it needs
-   the owner by its own rules. After it, routine changes go live without the owner.
-2. **Set the burn-in bar** (recommended: 30 consecutive days with every scheduled run green, every
-   new filing live within 48 hours, and no manual data fix).
-3. **Scope of the live site:** 58 of 74 suppliers have no automated refresh. Options: show only what
-   refreshes (16 SEC filers), keep all with visible fact ages, or rebuild collection (D-95 deferred).
-4. **Confirm `intent.md` v1.5** text.
-5. **Email inputs** (SEC-060) and **account items** (SEC-061), when outreach is back on.
+`feat/durable-daily-pipeline` is based on `preview`. Implementation and exact activation gaps:
+[runbook](docs/active/daily-pipeline/README.md),
+[74-supplier matrix](docs/active/daily-pipeline/coverage-matrix.md),
+[all source tasks](docs/active/daily-pipeline/source-matrix.csv).
 
-## Next for an agent
+- Canonical policy: 557 required daily tasks; 270 missing source-family bindings; 47 unverified
+  discovery candidates. Missing work stays in the denominator. Startup status is unclassified.
+- Implemented execution core: immutable evidence, resumable manifests, conditional fetches,
+  deduplication, persistent model budgets, separate semantic review, deterministic reconciliation,
+  release/provenance/rollback interfaces and disabled collection workflow. Existing published
+  claims/page/schedule remain unchanged. Independent SEC verifier now correctly anchors late
+  notices/transaction forms to their filing date, with regression tests.
+- Local checks: 63 pipeline tests; full existing data/operations and browser checks recorded in
+  [validation](docs/active/daily-pipeline/validation.md). Production/candidate full-page screenshots
+  at 1440/390 were pixel-identical. Local tests do not establish live operational readiness.
 
-1. After D-103 is live, confirm the first `promote` run ends green and the probe stays clear.
-2. Track the burn-in: count consecutive clean days from the Actions history.
-3. SEC-063 (retire the frozen AUTO-001 data from the build) as routine work.
+## Blocked live prerequisites and remaining implementation
 
-## Health checks
+- Owner confirmed **no persistent unattended subscription worker or scheduled cloud task exists**.
+  Existing cloud CLI recognizes ChatGPT login; inference probe failed with proxy CONNECT 403.
+  GitHub-hosted jobs do not inherit this login. No API fallback or copied login tokens.
+- GitHub repository/Actions access works; secret administration returned 403. Vercel management
+  token is unbound/missing. Public production GET works. The user's local computer is not accessible.
+- Cloud setup draft saved Node 22/Python/system-Chromium instructions and 59 custom network hosts.
+  Review/save in environment settings; saving a draft does not prove runtime application/publication.
+- Still required: verified discovery bindings and filing/PDF collectors; startup classifications;
+  durable remote-store integration/independent backups; full claim-to-site snapshot mapping;
+  actual trusted release-gate workflow and Vercel artifact adapter; public coverage endpoint;
+  deployed outside watchdog and confirmed owner alert destination. Cloudflare files are tested
+  handler examples, not deployed services or proof of zero cost.
+- Keep `MARKET_PIPELINE_ENABLED` unset/false and publication disabled until the runbook's live
+  acceptance gates pass. Current four-hour legacy automation stays until a verified daily cutover.
 
-| Check | How |
-|---|---|
-| Site up and certified | `curl -s https://securitymarketpulse.com/app-release.json` shows `releaseKind: certified` |
-| Refresh running | Actions tab: `certified refresh` ran within the last 10 hours |
-| Promotion running | Actions tab: `promote` succeeded within the last 30 hours |
-| No open alerts | No open issue titled "Site freshness", "Automatic promotion failed" or "Certified refresh held" |
-| Tests | `cd web && npm test` |
-| Push guard installed | `test -x .git/hooks/pre-push` (install with `./.githooks/install`) |
+## Next
+
+1. Configure the selected unattended host, required source/auth network access and secure Vercel
+   binding; choose storage/backup and alert destination without exceeding the approved cost ceiling.
+2. Continue source onboarding and snapshot/release integration against real receipts, then run the
+   runbook's complete live failure/recovery/rollback tests. Review the concrete preview before the
+   external-service/deploy-policy cutover, as required by AGENTS.md.
+3. Establish burn-in duration before outreach. Prior open items remain: intent v1.5 confirmation,
+   SEC-060 email inputs, SEC-061 account items, SEC-063 retired snapshot cleanup.
