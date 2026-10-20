@@ -24,7 +24,8 @@ Owner requested implementation of daily collection **and daily reconciliation** 
 independent checks and alerts, automatic factual releases, and separate data/application releases.
 No supplier expansion or additional spending is authorized.
 
-`feat/durable-daily-pipeline` is based on `preview`. Implementation and exact activation gaps:
+[Draft PR #6](https://github.com/jessepike/sec-market/pull/6), `feat/durable-daily-pipeline`,
+is based on `preview`. Implementation and exact activation gaps:
 [runbook](docs/active/daily-pipeline/README.md),
 [74-supplier matrix](docs/active/daily-pipeline/coverage-matrix.md),
 [all source tasks](docs/active/daily-pipeline/source-matrix.csv).
@@ -36,6 +37,9 @@ No supplier expansion or additional spending is authorized.
   release/provenance/rollback interfaces and disabled collection workflow. Existing published
   claims/page/schedule remain unchanged. Independent SEC verifier now correctly anchors late
   notices/transaction forms to their filing date, with regression tests.
+- GitHub [full test job](https://github.com/jessepike/sec-market/actions/runs/39367373345) passed
+  on code commit `c674fba`. Vercel reports its feature preview ready; direct preview GET received
+  cloud proxy CONNECT 403. The preview hostname is now in the saved network draft.
 - Local checks: 63 pipeline tests; full existing data/operations and browser checks recorded in
   [validation](docs/active/daily-pipeline/validation.md). Production/candidate full-page screenshots
   at 1440/390 were pixel-identical. Local tests do not establish live operational readiness.
@@ -47,7 +51,7 @@ No supplier expansion or additional spending is authorized.
   GitHub-hosted jobs do not inherit this login. No API fallback or copied login tokens.
 - GitHub repository/Actions access works; secret administration returned 403. Vercel management
   token is unbound/missing. Public production GET works. The user's local computer is not accessible.
-- Cloud setup draft saved Node 22/Python/system-Chromium instructions and 59 custom network hosts.
+- Cloud setup draft saved Node 22/Python/system-Chromium instructions and 60 custom network hosts.
   Review/save in environment settings; saving a draft does not prove runtime application/publication.
 - Still required: verified discovery bindings and filing/PDF collectors; startup classifications;
   durable remote-store integration/independent backups; full claim-to-site snapshot mapping;

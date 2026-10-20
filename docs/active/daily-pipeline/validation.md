@@ -26,6 +26,12 @@ loaded and charts painted. Full-page heights: 8,236px at 1440; 7,575px at 390. F
 also visually inspected. There are no visible page changes. Cloud-only raw logs and images are in
 `/workspace/sec-market-review-evidence/`; those local paths are not durable GitHub artifacts.
 
+GitHub also ran the unmodified `npm test` successfully on code commit `c674fba`:
+[run 39367373345](https://github.com/jessepike/sec-market/actions/runs/39367373345).
+Vercel reported that feature preview ready. Direct preview receipt inspection received proxy
+CONNECT 403, so its deployed contents are not independently acknowledged from this cloud session.
+Subsequent changes only record these operational receipts in documentation.
+
 ## Failure and recovery coverage
 
 - Missing/duplicate task receipts, changed policy/denominator, missing discovery registration,
