@@ -77,3 +77,42 @@ The final staging/browser/baseline evidence is archived at
 `d38721ca1e1e6b2869c1dfb2dbce14024270ce3c`, manifest SHA-256
 `07d9bd0426c7b85c48920973f5ebf25ab611cf33db8b1b28cb7d9d4792809110` (20,010 files).
 The pinned fresh restore proof remains the earlier 19,998-file archive; no second restore is implied.
+
+
+## Native cloud execution delivery and live canaries (October 20, 2026)
+
+Commit `6a43ed1c4a9439fc9ef0ddc13fb76bfab3f54299` is on preview and acknowledged by Vercel.
+[Actual full GitHub CI 39523581752](https://github.com/jessepike/sec-market/actions/runs/39523581752)
+passed: 251 data, 91 pipeline and 32 browser tests, with 80 SEC proofs and zero drift. Added
+adversarial checks cover native strict schemas/roles/policies/staleness/contradictory replies,
+separate review context, capped-budget replay without duplicate fetches, real Git fresh-session
+restore/lease exclusion, expired-lease recovery and stale archive writers. Full-page renders at
+1440/390 were inspected; no additional visible change beyond the existing preview disclosure.
+
+The actual native wrapper restored and verified the 20,010-file remote archive, acquired a remote
+lease and archived a supervised one-source known-fact canary. Fresh HiddenLayer source bytes
+matched the prior body hash; the funding statement passed one actual official ChatGPT CLI review
+in a different isolated context. The native collector and review context IDs, task/policy/body
+hashes and fact date are retained. Three native work reservations include a diagnostic duplicate
+caused by reordered metadata; none was refunded or reset. One document and one fetch were reserved.
+This tests the durable queue with actual evidence, not fresh scheduled-VM authentication or a
+new market announcement. The historical canary did not update site events or full-run coverage.
+
+Owner notification canary: private [issue #7](https://github.com/jessepike/sec-market/issues/7)
+was created with jessepike assigned, then the same issue was acknowledged closed on controlled
+recovery. The first recovery query returned a stale empty listing; a current updated-order listing
+and no-cache API request resolved it. Phone/email delivery and scheduled watchdog execution are
+not proved by the issue API cycle.
+
+Native finish independently retained 252/557 incomplete coverage, 14 held claims and zero new
+site events, exited 2 as required, archived its final receipt and released the lease. Latest remote
+archive `02c04f568c010e4fa036bd90c791bd9ece01e6e7`, manifest SHA-256
+`26f7d3249981cdb983ff6339c5f7237bdd2e57bd5c02ce49c66cddd3d50972df`, has 20,035 files.
+A separate fresh remote restore verified all 20,035 and confirmed all canary responses, the retained
+3/1/1 budget, released lease and owner-alert receipt. This supersedes the earlier restore-count
+limits above. Ordinary old local state is now stale and must not overwrite newer remote heads.
+
+No recurring native schedule has been created; the saved environment draft is not published by
+this chat. [Exact UI handoff and prompts](scheduler-handoff.md) are pinned to the tested commit.
+Full source onboarding, fresh scheduled execution, actual production gate/cutover/rollback,
+missed-worker delivery and sustained complete operation remain acceptance requirements.

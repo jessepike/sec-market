@@ -6,91 +6,77 @@ updated: 2026-10-20
 
 # Status
 
-## Production
+## Live and delivered
 
-https://securitymarketpulse.com serves application `54590be4d91113a50879a8fb5d180441e7d149f4`.
-Last certified data change inspected: `2026-10-18T02:36:44.349Z`. The existing four-hour
-SEC workflow covers 16 filers, not the entire 74-supplier site. D-103 changes remain on preview.
-The owner will not promote the site to readers until sustained fresh, accurate operation is proved.
+Production https://securitymarketpulse.com still serves `54590be4d91113a50879a8fb5d180441e7d149f4`.
+Its last inspected certified data change is `2026-10-18T02:36:44.349Z`. Legacy four-hour SEC jobs
+cover 16 filers. They stay until the daily replacement passes acceptance; they do not refresh
+all 74 suppliers. The owner requires sustained accurate operation before promoting to readers.
 
-## Daily pipeline: implemented, exercised, not activated
+Native cloud implementation delivered directly to preview at
+`6a43ed1c4a9439fc9ef0ddc13fb76bfab3f54299`.
+[Full GitHub CI passed](https://github.com/jessepike/sec-market/actions/runs/39523581752):
+251 data, 91 pipeline and 32 browser tests; 80/80 SEC proofs and zero drift.
+[Vercel preview](https://security-market-pulse-git-preview-pikeholdings.vercel.app) acknowledges
+that exact commit and discloses incomplete coverage. Full-page desktop/phone renders reviewed;
+this delivery adds no visible change beyond the existing coverage disclosure. **No PRs.**
+Major changes remain held under AGENTS.md; production has not been promoted.
 
-Current native-cloud delivery is being validated on preview; operational activation remains held.
-Direct preview delivery: staging fix/research `530af0b9da4ba9d20ca07ec113b7c57136cdcaf4`;
-[its full GitHub suite](https://github.com/jessepike/sec-market/actions/runs/39519068246) passed.
-Earlier full implementation: `b8f6ecb4d10c7f05f51a3ad156cdd7e1ee31866e`.
-[GitHub full suite](https://github.com/jessepike/sec-market/actions/runs/39510441692) passed.
-The [stable preview](https://security-market-pulse-git-preview-pikeholdings.vercel.app)
-acknowledged that exact revision and public 252/557 incomplete, automation-disabled coverage.
-This is a major change held for review; production is unchanged.
+## Actual coverage and durability
 
-Owner authorized daily collection AND reconciliation across the existing 74 suppliers, expansion,
-evidence/deltas, subscription-backed workers, independent validation, alerts and automatic factual
-batches. No supplier expansion or additional purchases. **No PRs:** the earlier draft #6 was closed
-unmerged; deliver tested work directly to preview. See D-104/D-105 and the
-[runbook](docs/active/daily-pipeline/README.md), [matrix](docs/active/daily-pipeline/coverage-matrix.md)
-and [task receipts](docs/active/daily-pipeline/source-matrix.csv).
+- Contract: 74 suppliers, 303 bindings, **557 required daily tasks**, 254 missing family bindings,
+  28 candidates, 19 verified sitemap registrations. Startup status is unclassified. No roster
+  expansion or API/infrastructure purchase. [Matrix](docs/active/daily-pipeline/coverage-matrix.md).
+- Actual full run `26863a52238929063d5a6191c7e390dbeacf413920d84ac1b4f2f58bed8cdde7`
+  finished `2026-10-20T22:02:44.836353Z`: **252/557 complete** (32 SEC APIs, 16 primary-document
+  archives, 204 citation checks); 296 not checked, six failed, three blocked. Fourteen held claims,
+  8,875 pending URLs. Eighty collection model reservations reached the limit. No new non-SEC site
+  events/patches. Retrieval does not audit every historical claim. Daily publication is disabled.
+- Implemented: immutable evidence/deltas, persistent budgets, source/document queues, extraction
+  plus independent review, snapshot/receipts, separate GitHub exact-artifact gate, Vercel prebuilt
+  stage/probe/promote/rollback, outside watchdog and native cloud runner. The native queue needs
+  no second CLI login: scheduled agents answer strict role/policy-bound work. Replays retain source
+  timestamps/downloads and reservations. Expiring remote leases and archive CAS reject stale writers;
+  exhausted model capacity stops historical downloads while retaining missing work.
+- Real native runner restored and verified 20,010 files from archive
+  `d38721ca1e1e6b2869c1dfb2dbce14024270ce3c`, acquired an acknowledged lease, and completed a
+  supervised known-fact canary. A fresh retrieved HiddenLayer statement passed a separate official
+  ChatGPT CLI review. This is not a fresh scheduled VM test. Three native work reservations
+  (including a diagnostic duplicate input), one document, one fetch and one live CLI review;
+  no paid fallback. Finish correctly exited 2, preserving 252/557 and 14 held claims, then released
+  its lease. The owner-assigned GitHub notification create/recovery canary passed: issue #7 closed.
+  Phone/email transport is not confirmed.
+- Latest durable custom ref `refs/archive/market-evidence`:
+  **`02c04f568c010e4fa036bd90c791bd9ece01e6e7`**, **20,035 files**, manifest SHA-256
+  **`26f7d3249981cdb983ff6339c5f7237bdd2e57bd5c02ce49c66cddd3d50972df`**.
+  A second independent fresh restore verified all 20,035 files, retained budgets, sealed
+  canary responses, released lease and alert receipt. Native archive/operational state is separate from ordinary app branches and excluded from normal
+  branch fetches. Older `.collect/daily-state` and prior restore copies are stale: restore the latest
+  remote state before writing; never overwrite its newer budgets/heads from an old local copy.
 
-- Canonical inventory: 303 bindings, 557 required daily tasks; 254 missing family bindings and
-  28 candidate registrations remain explicit gaps. Nineteen real sitemaps registered after probes.
-  Startup status remains unclassified; private ownership alone does not establish startup status.
-- Actual collection `26863a52238929063d5a6191c7e390dbeacf413920d84ac1b4f2f58bed8cdde7`
-  finished `2026-10-20T22:02:44.836353Z`: **252/557 complete**, 296 not checked, six failed,
-  three blocked. All 32 SEC API tasks, 16 filing-document tasks and 204 citation checks succeeded.
-  Link/document retrieval does not certify every historical claim. Fourteen claims held; 8,875
-  document URLs pending. Current conservative budget was reached: 80 collection model calls,
-  36 document reservations and 5,000 fetch reservations. No paid API fallback.
-- Official ChatGPT CLI sign-in and real extraction/review pilot succeeded. Full run produced
-  no new publishable non-SEC events/field updates; candidate displays incomplete coverage near
-  the headline and exposes `/daily-coverage.json`, including deadlines that become overdue locally.
-- Immutable evidence (~1.5 GB) is saved via working native Git to the private custom ref
-  `refs/archive/market-evidence`, excluded from ordinary branch fetches. Fresh remote restore
-  verified 19,998 files at `7924a44781fea3d4b038686feefc50d4f30551a7`; manifest SHA-256
-  `875227e57ebfcc8bd1ed51fca131e5a6dd72dc7db59993e56bb30df44b0d5324`.
-  Restored independent reconciliation reproduces 252/557 degraded coverage. This is an actual
-  remote recovery test, not a claim that coverage passed. SEC replay reproduced 80/80 proofs,
-  zero changes and preserved the October 18 last-data-change timestamp.
-- Implemented: native cloud request/response queue and outside-checkout runner, separate
-  extraction/review contexts, leased fresh archive restore, archive CAS, replay without duplicate
-  downloads/budget reservations, and a hard stop on historical downloads at model capacity.
-  Full local suite passed: 251 data, 91 pipeline and 32 browser tests. Native scheduler creation,
-  environment binding and a real timed invocation are still unverified.
-- Implemented: PDF/HTML reading, filing primary-document archive, persistent budgets/queues,
-  snapshot adapter, exact build/snapshot receipts, GitHub-hosted independent gate, prebuilt Vercel
-  staging/promotion/rollback adapter, Mac/Linux worker installer, outside GitHub watchdog.
-  Live promotion/rollback and scheduler acceptance remain outstanding; the controlled
-  owner-assigned GitHub notification create/recovery canary passed (issue #7, now closed); real preview
-  staging is verified. Optional Cloudflare
-  examples are not deployed and are not the selected default storage/monitor path.
+## Exact next actions and boundaries
 
-## Access and work remaining
+1. **UI handoff:** [scheduler instructions and exact pinned prompts](docs/active/daily-pipeline/scheduler-handoff.md).
+   Native daily collector 05:17 and separate fresh governance 08:17 America/Los_Angeles are trial
+   targets, not installed schedules. This onboarding toolset cannot publish environments or create
+   scheduled tasks. Save and publish a clean environment from the saved dependency/network setup,
+   excluding evidence/mirrors and personal login files. Create both schedules in a regular cloud
+   chat and retain task identities, Run-now receipts and a subsequent timed invocation. Verify the
+   schedule really retains this repository/environment. A generic text reminder does not qualify.
+2. Complete source-family onboarding, bounded backfill/current-claim audits, semantic delta efficiency
+   and typed ownership/non-SEC financial adapters. Existing selected metric/round/event adapters do
+   not cover every field. Current budgets do not clear the historical backlog daily.
+3. Validate native fresh-VM authorization, the actual trusted GitHub gate, live promotion/rollback,
+   missed-worker alert and owner delivery; sustain daily operation. Then review the concrete major
+   cutover. Close competing deployment paths before activation. Current prebuilt preview proof
+   covers 24 exact static files and 32 remote browser checks; production rollback baseline is saved.
 
-- GitHub Git push and repository/Actions APIs work. Runner/secret administration returns 403,
-  but the standalone worker design does not require those admin scopes. Release asset upload
-  rejected the integration credential; native Git archive works. The empty test draft was removed.
-- Vercel official browser OAuth is verified as `jessepike`, with owner access to the existing
-  `pikeholdings/security-market-pulse` project. Management reads and prebuilt preview creation
-  work. All 24 staged static files match their tested hashes; exact staged receipts and the
-  immutable current-production rollback baseline are verified. All 32 remote browser checks
-  passed with the test-preview toolbar disabled; the project setting was restored. The cloud network change now
-  permits direct deployment probes; no further account sign-in is needed. Never request a token
-  in chat or snapshot login credentials. Production settings/aliases have not been changed.
-  The local computer cannot be inspected from this checkout. No persistent unattended subscription
-  worker exists yet. This temporary cloud task is not a durable scheduled host.
-- Finish complete source onboarding, bounded historical backfill/current-claim audits, semantic
-  delta efficiency and typed ownership/non-SEC financial adapters. Existing adapter publishes
-  independently supported events, selected company metrics and rounds, not every possible field.
-- Validate the exact preview, actual GitHub gate artifact, Vercel stage/probe/rollback, owner alert
-  delivery and missed-worker detection. Then review the concrete major cutover under AGENTS.md;
-  keep publication disabled and legacy jobs running until those gates pass. Owner now requests
-  research and preference for native Codex Cloud scheduled automations using the subscription,
-  rather than assuming a local host is required. Current official docs confirm web scheduled
-  tasks and remote cloud execution on subscription usage. Schedule-to-environment binding and
-  a fresh unattended run are not verified; this onboarding toolset cannot create schedules.
-  The executable native handoff is [ops/cloud/TASKS.md](ops/cloud/TASKS.md), with exact prompt
-  generation from the tested full commit. It requires no nested Codex login. See
-  [cloud scheduling research](docs/active/daily-pipeline/cloud-scheduling.md). The Mac/Linux
-  installer is a fallback, not an owner-selected requirement.
-- Cloud setup draft preserves Node 22/Python/system Chromium. Draft persistence is not environment
-  publication or a fresh-task restore proof. Current checks and limits are in
-  [validation](docs/active/daily-pipeline/validation.md). No PR is required for delivery.
+GitHub Git/repository/Actions access and Vercel owner management access are verified. No new login
+is currently required for this VM. A future scheduled VM does not inherit personal credentials;
+never snapshot or transfer OAuth files to CI. D-83 credential governance remains. No API billing
+fallback. Native cloud is preferred; the Mac/Linux installer is a fallback. The local computer
+cannot be inspected here. Saved cloud draft/start instructions are not published or scheduled jobs.
+
+[Runbook](docs/active/daily-pipeline/README.md) · [Native task runner](ops/cloud/TASKS.md) ·
+[Current cloud documentation research](docs/active/daily-pipeline/cloud-scheduling.md) ·
+[Validation](docs/active/daily-pipeline/validation.md) · D-104 through D-108 in decisions.md.
