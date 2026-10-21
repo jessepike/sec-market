@@ -306,16 +306,5 @@
       "TR-filing-commvault-0001169561-26-000030"
     ],
     "rung": 1
-  },
-  {
-    "id": "EV-filing-commvault-0001169561-25-000080",
-    "supplierId": "commvault",
-    "date": "2025-10-20",
-    "type": "exec-change",
-    "text": "Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2025-10-20.",
-    "evidenceIds": [
-      "TR-filing-commvault-0001169561-25-000080"
-    ],
-    "rung": 1
   }
 ]
