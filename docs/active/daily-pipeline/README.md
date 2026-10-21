@@ -61,7 +61,13 @@ Linux runs at 12:17 UTC with a persistent user timer. A sleeping/offline host ca
 completion time. Both operate within existing account quotas; no extra paid capacity is enabled.
 The legacy four-hour cadence stays until a validated, reviewed cutover reconciles all overlapping jobs.
 
-## Install on an existing computer
+## Hosting decision and local fallback
+
+The owner requests native Codex Cloud scheduling research before selecting a local host.
+Current official documentation confirms web schedules and remote cloud coding using shared
+subscription allowance. [Research and cloud acceptance tests](cloud-scheduling.md) distinguish
+product capability from this account's still-unverified scheduled environment binding. No native
+schedule has been created by the available onboarding tools. The following installer is a fallback.
 
 The temporary cloud checkout is suitable for development, tests and supervised real collection.
 It does not become an unattended host when this chat ends. Use a clean, dedicated checkout on an
@@ -122,8 +128,9 @@ The October 20 remote restore at commit `7924a44781fea3d4b038686feefc50d4f30551a
   usage/spending controls before activating new jobs; no increase in paid spend is authorized.
 - Commit/test direct preview delivery (no PR), inspect the visible coverage disclosure, and obtain
   review of the concrete major cutover under AGENTS.md. Do not enable publication to bypass gaps.
-- Complete official Vercel management sign-in, inspect actual project settings, import/probe rollback
-  baseline, and execute exact staged deployment, production acknowledgement and forced rollback.
+- Vercel management, prebuilt staging, all 24 staged file hashes and the immutable rollback
+  baseline are now verified. Execute production acknowledgement and forced rollback only after
+  the concrete major cutover and its other acceptance gates pass.
 - Run the real GitHub gate artifact path on reviewed main. Local reconstruction is not a trusted
   GitHub run. Verify issue creation/recovery and actual owner notification delivery.
 - Install on the selected persistent host; prove restart, missed schedule, blocked source, no-change,
@@ -134,3 +141,27 @@ provisioned, selected default infrastructure or proof of a free tier. No credent
 CI. GitHub native Git and repository APIs work; admin runner/secrets endpoints do not have the
 integration scope, and the design above does not depend on them. Vercel management browser approval
 is separate from the already-working Git deployment integration.
+
+
+## Vercel management verification (October 20)
+
+Official browser authorization succeeded as `jessepike`, owner of `pikeholdings`.
+The existing `security-market-pulse` project (`prj_g8sZPXo81XT2Xopa1oLrsbYjTehV`)
+is linked to this GitHub repository, production branch main, root directory web. Its production
+deployment is READY and matches the public application's exact revision. Current Git production
+assignment remains enabled; no project setting or production alias was modified.
+
+An actual prebuilt preview upload succeeded. The first live test found that Vercel CLI validates
+an empty `web` directory even when uploading prebuilt output from `.vercel/output`; the adapter
+and its regression assertion now accommodate that actual setting without uploading source files.
+The cloud proxy initially rejected unique `*.vercel.app` hosts. The saved domain change
+subsequently took effect: the exact staged receipt and all 24 static file hashes were fetched and
+verified, and the immutable current-production deployment was imported as the rollback baseline.
+No production promotion or forced rollback has been executed. No further Vercel sign-in is needed.
+
+
+Vercel staging/management evidence was subsequently archived at commit
+`b22e2d84d447d5a12bd343202aa732c0d057b84e`, manifest SHA-256
+`6f03fbc6018e7249f00fd4606a71ff7273c317717fc0011693c38d65e34e31da`, 20,004 files.
+This later evidence increment was pushed and hash-manifested; the fresh independent restore proof
+above covers its earlier parent, not an unperformed second restore.

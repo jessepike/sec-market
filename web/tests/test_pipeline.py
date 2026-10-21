@@ -382,7 +382,8 @@ class PipelineTests(unittest.TestCase):
         def runner(args,**kwargs):
             seen.append(args)
             root=Path(kwargs['cwd'])
-            self.assertEqual({p.name for p in root.iterdir()},{'.vercel'})
+            self.assertEqual({p.name for p in root.iterdir()},{'.vercel', 'web'})
+            self.assertEqual(list((root/'web').iterdir()), [])
             self.assertTrue((root/'.vercel/output/static/index.html').exists())
             self.assertIn('--prebuilt',args);self.assertNotIn('--prod',args)
             return SimpleNamespace(returncode=0,stdout='https://exact-tested-build.vercel.app\n',stderr='')

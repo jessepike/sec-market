@@ -53,6 +53,9 @@ class VercelAdapter:
         files = stage_files(self.store, manifest["artifact"], receipt)
         with tempfile.TemporaryDirectory(prefix="smp-prebuilt-") as directory:
             root = Path(directory)
+            # The existing project has rootDirectory=web. The official CLI
+            # validates that directory even when uploading only prebuilt output.
+            (root / "web").mkdir()
             for name, body in files.items():
                 path = root / ".vercel/output" / name
                 path.parent.mkdir(parents=True, exist_ok=True)

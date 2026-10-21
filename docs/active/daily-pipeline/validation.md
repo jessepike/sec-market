@@ -19,7 +19,10 @@ system Chromium. **Publication remains disabled; full-site daily operation has n
 | SEC reconstruction from restored evidence | 80 proofs, 256 unchanged field leaves, zero failures | Independent isolated app copy, exact archived source bytes; no GitHub trust claim |
 | Repeat unchanged certification | Pass | Last-data-change remains `2026-10-18T02:36:44.349Z`; later verification does not make source retrieval newer |
 | Worker installation | Dry-run only | Mac/Linux schedule and launcher implemented; no persistent host activated |
-| Vercel management | Official browser approval pending | Public GET/Git integration works; management stage/promote/rollback not exercised |
+| Vercel management | Official OAuth and existing project/deployment inspection passed | Owner account confirmed; no production settings changed |
+| Vercel prebuilt staging | Adapter upload, exact receipt and all 24 static-file hashes passed | Root-directory defect corrected; cloud network restriction resolved. No production promotion/rollback executed |
+| Vercel rollback baseline | Actual immutable production receipt imported and verified | Baseline is retained; executing production rollback remains untested |
+| Real staged browser suite | 32 passed | Cloud proxy configured for API requests; Vercel preview toolbar disabled at test-deployment creation, project setting restored exactly afterward |
 | GitHub independent gate | Implemented, not live-executed | Workflow must reach reviewed main; no self-declared trusted receipt accepted |
 | Owner notification | Implemented, not delivered | Issue transport and account push/email settings still need actual delivery test |
 
@@ -52,8 +55,16 @@ are tested. Doubles do not prove actual Vercel promotion/rollback or notificatio
 
 Complete source bindings, bounded dated backfill and semantic delta capacity; historical claim and
 category audits; typed ownership/financial-period adapters; actual trusted GitHub gate artifact;
-official Vercel management connection, baseline/stage/probe/rollback; actual owner alert and missed
+Vercel baseline/live probe/promotion/rollback (management connection and staging are verified); actual owner alert and missed
 schedule; persistent host restart/recovery; full complete daily cycle and multi-day burn-in.
 No supplier expansion or spending increase was performed. The earlier local-only foundation test
 results (63 pipeline, 244 data, 30 browser) are superseded by the counts above. The earlier draft PR
 was closed; delivery proceeds directly through preview under repository governance.
+
+
+The remote browser run first exposed direct-DNS failures in Playwright API requests and Vercel's
+preview-toolbar injection conflicting with the existing CSP. A cloud-only override now uses the
+existing credential-free proxy. A fresh prebuilt test deployment was created with preview feedback
+disabled; all 32 unmodified browser assertions passed, and the project setting was restored to its
+original null value. All 24 files on that final deployment also match the tested hash inventory.
+Production feedback, security headers, aliases and promotion controls were not changed.

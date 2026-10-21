@@ -1200,3 +1200,35 @@ host. No API fallback, paid infrastructure purchase or login-file transfer to CI
 Initial collection reached its bounded budget and exposed source-binding, historical backlog and
 claim-mapping gaps. Preserve these as failed/pending work. No full-site freshness or autonomous
 readiness claim is authorized by a green build or by the successful archive restore.
+
+
+**D-106 · 2026-10-20 — Official Vercel management login approved; staging verified separately from cutover.**
+
+Owner completed the official browser approval and replied "done." Actual `vercel whoami`
+returned `jessepike`; team membership is owner and existing project/deployment reads work.
+This supplies the Vercel management access requested under D-104, without a pasted token or
+credential transfer to CI. A prebuilt-only preview upload exercised real write permission.
+The first live attempt found the project's `web` root-directory requirement; it is fixed and
+regression-checked. Production promotion/settings changes remain held behind the concrete major
+preview and operational acceptance gates. The initial cloud network block on immutable deployment
+URLs subsequently resolved. Exact staged receipt and all 24 static file hashes match; current
+production was imported and verified as the immutable rollback baseline. No production alias or
+project setting was changed.
+
+
+**D-107 · 2026-10-20 — Research current Codex Cloud scheduling before requiring a local worker.**
+
+Owner: "Can we use Codex Cloud and set up a scheduled ... session?" and "I want to use my
+subscription ... Look at the latest ... features and capabilities in Codex." Treat native scheduled
+cloud execution as the preferred hosting option to verify. The fact that an individual development
+session ends does not prove a cloud automation scheduler is unavailable. Keep the local installer
+as a fallback while checking official current scheduling, subscription, credentials, runtime and
+state-retention capabilities. Do not present a local host requirement as an established product limit.
+
+
+Research outcome for D-107: current official web scheduling, cloud execution, pricing and
+execution-mode docs were fetched from learn.chatgpt.com. Web recurring tasks and subscription-backed
+cloud coding are supported product capabilities. The local-project keep-computer-on rule does not
+establish a universal local-host requirement. Actual schedule creation/environment binding and a
+fresh unattended run remain acceptance work; current onboarding tools expose no schedule operation.
+See the linked cloud scheduling research for primary sources and exact tests.

@@ -50,7 +50,8 @@ and [task receipts](docs/active/daily-pipeline/source-matrix.csv).
 - Implemented: PDF/HTML reading, filing primary-document archive, persistent budgets/queues,
   snapshot adapter, exact build/snapshot receipts, GitHub-hosted independent gate, prebuilt Vercel
   staging/promotion/rollback adapter, Mac/Linux worker installer, outside GitHub watchdog.
-  Their live deployment/alert/scheduler acceptance is still outstanding. Optional Cloudflare
+  Live promotion/rollback, alert and scheduler acceptance remain outstanding; real preview
+  staging is verified. Optional Cloudflare
   examples are not deployed and are not the selected default storage/monitor path.
 
 ## Access and work remaining
@@ -58,8 +59,13 @@ and [task receipts](docs/active/daily-pipeline/source-matrix.csv).
 - GitHub Git push and repository/Actions APIs work. Runner/secret administration returns 403,
   but the standalone worker design does not require those admin scopes. Release asset upload
   rejected the integration credential; native Git archive works. The empty test draft was removed.
-- Vercel production/preview GET and Git deployments work. Management OAuth approval is pending
-  through the official browser flow; never request a token in chat or snapshot login credentials.
+- Vercel official browser OAuth is verified as `jessepike`, with owner access to the existing
+  `pikeholdings/security-market-pulse` project. Management reads and prebuilt preview creation
+  work. All 24 staged static files match their tested hashes; exact staged receipts and the
+  immutable current-production rollback baseline are verified. All 32 remote browser checks
+  passed with the test-preview toolbar disabled; the project setting was restored. The cloud network change now
+  permits direct deployment probes; no further account sign-in is needed. Never request a token
+  in chat or snapshot login credentials. Production settings/aliases have not been changed.
   The local computer cannot be inspected from this checkout. No persistent unattended subscription
   worker exists yet. This temporary cloud task is not a durable scheduled host.
 - Finish complete source onboarding, bounded historical backfill/current-claim audits, semantic
@@ -67,8 +73,13 @@ and [task receipts](docs/active/daily-pipeline/source-matrix.csv).
   independently supported events, selected company metrics and rounds, not every possible field.
 - Validate the exact preview, actual GitHub gate artifact, Vercel stage/probe/rollback, owner alert
   delivery and missed-worker detection. Then review the concrete major cutover under AGENTS.md;
-  keep publication disabled and legacy jobs running until those gates pass. Install the worker on
-  an existing regularly awake Mac/Linux computer, with its own official Codex/GitHub/Vercel logins.
+  keep publication disabled and legacy jobs running until those gates pass. Owner now requests
+  research and preference for native Codex Cloud scheduled automations using the subscription,
+  rather than assuming a local host is required. Current official docs confirm web scheduled
+  tasks and remote cloud execution on subscription usage. Schedule-to-environment binding and
+  a fresh unattended run are not verified; this onboarding toolset cannot create schedules. See
+  [cloud scheduling research](docs/active/daily-pipeline/cloud-scheduling.md). The Mac/Linux
+  installer is a fallback, not an owner-selected requirement.
 - Cloud setup draft preserves Node 22/Python/system Chromium. Draft persistence is not environment
   publication or a fresh-task restore proof. Current checks and limits are in
   [validation](docs/active/daily-pipeline/validation.md). No PR is required for delivery.
