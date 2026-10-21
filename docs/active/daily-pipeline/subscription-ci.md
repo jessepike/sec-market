@@ -5,6 +5,17 @@ available in that chat supports prompts/times/timezones but cannot retain this r
 published environment or guarantee fresh cloud chats. No task was saved or run. Do not send the
 owner through that same setup again, or treat natural-language instructions as environment binding.
 
+## Actual private-runner proof
+
+[GitHub run 39695166480](https://github.com/jessepike/sec-market/actions/runs/39695166480)
+passed in 37 seconds on commit `a9b0ad292fbd7b9e8d7d11e94d24b44343f47d21`.
+Its actual log receipt confirms all 20,035 remote files were restored/hash-verified and a fresh
+Cloudflare SEC companyfacts response returned HTTP 200 with valid CIK/facts. No model call,
+credential transfer, archive mutation or deployment occurred. The archived full-site result remains
+252/557 incomplete. [Bounded receipt](receipts/github-host-2026-10-21.json).
+[Full application CI 39695166516](https://github.com/jessepike/sec-market/actions/runs/39695166516)
+also passed. These prove hosting/source reachability, not subscription auth or daily activation.
+
 ## Documented mechanism and concrete credentials
 
 [OpenAI's account-auth CI guide](https://learn.chatgpt.com/docs/auth/ci-cd-auth) explicitly covers
@@ -20,6 +31,12 @@ The proposed store uses GitHub's encrypted Actions repository secrets:
 |---|---|---|
 | `SMP_CODEX_AUTH_JSON` | Created by a runner bootstrap after official browser/device sign-in, then refreshed by the CLI | This private worker only; never in Git, logs, caches or artifacts |
 | `SMP_AUTH_STORE_TOKEN` | Write the refreshed login back to `SMP_CODEX_AUTH_JSON` | A fine-grained GitHub token restricted to `jessepike/sec-market`, repository Secrets read/write |
+| `VERCEL_TOKEN` (publisher stage) | Durable authorization for the existing `pikeholdings/security-market-pulse` publisher | Minimum available scope for that existing project/team; protected GitHub secret |
+
+The earlier Vercel browser approval proved management/staging in one interactive VM. Its temporary
+auth directory is absent in the new session; it was not installed as unattended publisher auth.
+The publisher credential must be separately provisioned and tested before automatic publication.
+No new Vercel service, project or subscription is needed for that requirement.
 
 The workflow's short-lived `GITHUB_TOKEN` handles code/evidence/Actions/alerts with explicit job
 permissions. It cannot update Actions secrets. On October 21 the existing Codex GitHub integration
@@ -77,3 +94,9 @@ proved on the real runner; no such login has been started. Never paste a token o
 
 The scheduler failure is a new operational finding, not approval to transfer credentials or
 purchase API usage/infrastructure. Current full-site collection remains incomplete at 252/557.
+
+
+The old cloud environment draft also rejected the instruction correction with `stale_base`.
+Its portable [complete proposed start-instruction change](environment-correction-2026-10-21.json)
+is preserved here and is not applied. The GitHub host path does not depend on publishing this
+old environment; do not send the owner through new onboarding merely to continue CI work.

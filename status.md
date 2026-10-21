@@ -61,12 +61,16 @@ Major changes remain held under AGENTS.md; production has not been promoted.
    chats. Neither proposed task was saved or run. Do not repeat that UI handoff. The screenshot
    is evidence about the attempted scheduler, not proof that every possible cloud surface lacks
    the capability. The [private CI alternative](docs/active/daily-pipeline/subscription-ci.md)
-   uses the documented account-auth round-trip. A credential-free GitHub-hosted runtime canary
-   and a seven-test credential persistence helper are prepared. No account credentials have been
+   uses the documented account-auth round-trip. A real credential-free GitHub-hosted runtime canary
+   [39695166480](https://github.com/jessepike/sec-market/actions/runs/39695166480) passed in 37 seconds:
+   all 20,035 archive files verified, current SEC response valid. The persistence helper passed
+   seven fictional-data tests; [full application CI 39695166516](https://github.com/jessepike/sec-market/actions/runs/39695166516) passed. No account credentials have been
    transferred; no recurring replacement worker is active. Current integration secret-management
    and Actions-admin APIs return 403 even though repository push/Actions reads work. D-83 requires
-   explicit approval for a dedicated CI login and repo-restricted secret-writer credential. Actual
-   runner receipt and account usage limits must be checked before activation.
+   explicit approval for a dedicated CI login and repo-restricted secret-writer credential. The actual
+   host receipt is saved; dedicated runner auth, refresh write-back and account usage limits remain
+   activation gates. The previous Vercel login directory was transient and is absent in this fresh
+   session; durable publisher authorization also remains a governed credential requirement.
 2. Complete source-family onboarding, bounded backfill/current-claim audits, semantic delta efficiency
    and typed ownership/non-SEC financial adapters. Existing selected metric/round/event adapters do
    not cover every field. Current budgets do not clear the historical backlog daily.
@@ -85,3 +89,8 @@ cannot be inspected here. Saved cloud draft/start instructions are not published
 [Runbook](docs/active/daily-pipeline/README.md) · [Native task runner](ops/cloud/TASKS.md) ·
 [Current cloud documentation research](docs/active/daily-pipeline/cloud-scheduling.md) ·
 [Validation](docs/active/daily-pipeline/validation.md) · D-104 through D-108 in decisions.md.
+
+The attempted environment start-instruction correction returned `stale_base`; persistence is
+unconfirmed. Its complete proposed change is preserved in
+[portable JSON](docs/active/daily-pipeline/environment-correction-2026-10-21.json). This does not
+block the GitHub route or require repeating the failed native scheduler setup.

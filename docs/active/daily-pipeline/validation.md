@@ -116,3 +116,26 @@ No recurring native schedule has been created; the saved environment draft is no
 this chat. [Exact UI handoff and prompts](scheduler-handoff.md) are pinned to the tested commit.
 Full source onboarding, fresh scheduled execution, actual production gate/cutover/rollback,
 missed-worker delivery and sustained complete operation remain acceptance requirements.
+
+
+## Native scheduler failure and actual private CI host (October 21, 2026)
+
+Owner's screenshot reports the attempted scheduler cannot retain the repo/environment or guarantee
+fresh chats. Neither task was saved or run. Previous native scheduler handoff is marked blocked;
+separate documentation of cloud coding and scheduling did not prove they could be bound here.
+
+Commit `a9b0ad292fbd7b9e8d7d11e94d24b44343f47d21` passed the full local suite and actual
+[GitHub application CI 39695166516](https://github.com/jessepike/sec-market/actions/runs/39695166516)
+(251 data, 91 pipeline, 32 browser). Seven additional auth-store tests use fictional data only.
+The credential-free [private GitHub host canary 39695166480](https://github.com/jessepike/sec-market/actions/runs/39695166480)
+passed in 37 seconds: all 20,035 files restored/verified, current SEC companyfacts HTTP 200 and
+valid facts/CIK. The [actual receipt](receipts/github-host-2026-10-21.json) was retrieved from the
+successful workflow log. Artifact upload passed on the runner; this development session's direct
+artifact download was blocked at its signed storage destination, so log retrieval supplied the
+readable receipt. No subscription credentials were transferred and no model called.
+
+The proposed auth-store helper is not wired into an active subscription worker. Real device
+sign-in, protected secret provisioning, refresh persistence across runners, durable Vercel publisher
+auth, Actions spend guard, complete coverage and production acceptance remain required.
+No replacement daily schedule is active. The stale environment draft correction is preserved
+as portable repository JSON; it is not applied and does not block the independent GitHub path.

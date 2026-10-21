@@ -1,0 +1,34 @@
+{
+  "kind": "credential-free-github-host-canary",
+  "checkedAt": "2026-10-21T23:43:19.161791Z",
+  "appRevision": "a9b0ad292fbd7b9e8d7d11e94d24b44343f47d21",
+  "githubRunId": "39695166480",
+  "runnerOs": "Linux",
+  "archive": {
+    "commit": "02c04f568c010e4fa036bd90c791bd9ece01e6e7",
+    "manifestSha256": "26f7d3249981cdb983ff6339c5f7237bdd2e57bd5c02ce49c66cddd3d50972df",
+    "files": 20035
+  },
+  "archivedCoverage": {
+    "runId": "26863a52238929063d5a6191c7e390dbeacf413920d84ac1b4f2f58bed8cdde7",
+    "successfulTasks": 252,
+    "requiredTasks": 557,
+    "complete": false
+  },
+  "sourceProbe": {
+    "sourceId": "cloudflare:sec_facts",
+    "checkedAt": "2026-10-21T23:43:18.700001Z",
+    "outcome": "fetched",
+    "httpStatus": 200,
+    "validSecResponse": true
+  },
+  "modelCalls": 0,
+  "subscriptionCredentialsTransferred": false,
+  "archiveChanged": false,
+  "publicationAttempted": false,
+  "recurringWorkerActivated": false,
+  "runtimeCanaryPassed": true,
+  "githubRunUrl": "https://github.com/jessepike/sec-market/actions/runs/39695166480",
+  "jobElapsedSeconds": 37,
+  "authHelperTests": 7
+}
