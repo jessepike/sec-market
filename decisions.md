@@ -1251,3 +1251,17 @@ use separate contexts, strict imports, persisted reservations and remote lease/C
 This does not waive D-83 credential governance or approve an unseen major production cutover.
 Scheduler creation/publication are UI-only with this toolset; prepare the concrete tested task
 prompts and require real scheduler identities/timed-run receipts before claiming activation.
+
+
+**Operational finding · 2026-10-21 — Owner's screenshot disproves the native scheduler handoff.**
+
+The owner supplied the attempted scheduler's response: it "cannot bind jessepike/sec-market and
+ the published Codex Cloud environment or guarantee a fresh cloud chat for every run" and
+"Neither task was saved or run." This is a report from that attempted scheduler, not an
+owner-authored permission change. Record the handoff as failed and do not send the owner through
+it again. Prior official documentation established scheduling and cloud execution separately;
+it did not establish that this scheduler can combine them. Prepare and test the documented
+trusted-private CI alternative while retaining D-83's explicit action-time credential boundary.
+No new account login, token creation, credential transfer, spending increase or production cutover
+is authorized by the screenshot itself. Existing task authorization still covers implementation,
+credential-free hosting tests, source validation and direct preview delivery without a PR.

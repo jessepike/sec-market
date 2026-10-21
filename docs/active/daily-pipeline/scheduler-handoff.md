@@ -1,5 +1,11 @@
 # Codex Cloud scheduler handoff
 
+**Blocked as of October 21, 2026. Do not repeat this handoff.** The owner supplied a screenshot
+of the attempted setup: the available scheduler cannot bind this repository and published cloud
+environment or guarantee a fresh cloud chat. Neither task was saved or run. The prompts below
+are retained as the attempted configuration, not an activation procedure. See
+[the private CI alternative](subscription-ci.md) for the concrete access requirements and host test.
+
 Tested application pin: `6a43ed1c4a9439fc9ef0ddc13fb76bfab3f54299`.
 
 This file does not activate schedules. This onboarding chat has no scheduler/publish tool. GitHub and Vercel access have been verified; this is a product UI boundary.

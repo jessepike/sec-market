@@ -1,7 +1,7 @@
 ---
 project: Security Market Pulse
 stage: Operate
-updated: 2026-10-20
+updated: 2026-10-21
 ---
 
 # Status
@@ -56,13 +56,17 @@ Major changes remain held under AGENTS.md; production has not been promoted.
 
 ## Exact next actions and boundaries
 
-1. **UI handoff:** [scheduler instructions and exact pinned prompts](docs/active/daily-pipeline/scheduler-handoff.md).
-   Native daily collector 05:17 and separate fresh governance 08:17 America/Los_Angeles are trial
-   targets, not installed schedules. This onboarding toolset cannot publish environments or create
-   scheduled tasks. Save and publish a clean environment from the saved dependency/network setup,
-   excluding evidence/mirrors and personal login files. Create both schedules in a regular cloud
-   chat and retain task identities, Run-now receipts and a subsequent timed invocation. Verify the
-   schedule really retains this repository/environment. A generic text reminder does not qualify.
+1. **Native scheduler handoff FAILED.** On October 21 the owner supplied a screenshot showing
+   the available scheduler cannot bind this repo/published environment or guarantee fresh cloud
+   chats. Neither proposed task was saved or run. Do not repeat that UI handoff. The screenshot
+   is evidence about the attempted scheduler, not proof that every possible cloud surface lacks
+   the capability. The [private CI alternative](docs/active/daily-pipeline/subscription-ci.md)
+   uses the documented account-auth round-trip. A credential-free GitHub-hosted runtime canary
+   and a seven-test credential persistence helper are prepared. No account credentials have been
+   transferred; no recurring replacement worker is active. Current integration secret-management
+   and Actions-admin APIs return 403 even though repository push/Actions reads work. D-83 requires
+   explicit approval for a dedicated CI login and repo-restricted secret-writer credential. Actual
+   runner receipt and account usage limits must be checked before activation.
 2. Complete source-family onboarding, bounded backfill/current-claim audits, semantic delta efficiency
    and typed ownership/non-SEC financial adapters. Existing selected metric/round/event adapters do
    not cover every field. Current budgets do not clear the historical backlog daily.
@@ -71,10 +75,11 @@ Major changes remain held under AGENTS.md; production has not been promoted.
    cutover. Close competing deployment paths before activation. Current prebuilt preview proof
    covers 24 exact static files and 32 remote browser checks; production rollback baseline is saved.
 
-GitHub Git/repository/Actions access and Vercel owner management access are verified. No new login
-is currently required for this VM. A future scheduled VM does not inherit personal credentials;
+GitHub Git/repository/Actions access and Vercel owner management access are verified. The proposed private CI worker needs a dedicated official account login, separately authorized
+for that job stream. A future runner does not inherit personal credentials;
 never snapshot or transfer OAuth files to CI. D-83 credential governance remains. No API billing
-fallback. Native cloud is preferred; the Mac/Linux installer is a fallback. The local computer
+fallback. The attempted native scheduling route is blocked; private CI is being evaluated. The Mac/Linux
+installer remains a fallback. The local computer
 cannot be inspected here. Saved cloud draft/start instructions are not published or scheduled jobs.
 
 [Runbook](docs/active/daily-pipeline/README.md) · [Native task runner](ops/cloud/TASKS.md) ·

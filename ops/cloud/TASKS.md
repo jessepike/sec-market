@@ -1,5 +1,10 @@
 # Native cloud collection and governance
 
+**Scheduling handoff blocked (October 21):** the owner's attempted scheduler could not retain this
+repository/environment or fresh chats, and saved no tasks. This runner remains implemented/tested;
+the scheduling instructions below are historical, not an activation procedure. See
+[the private CI alternative](../../docs/active/daily-pipeline/subscription-ci.md).
+
 This runner is for personal Codex Cloud tasks using the subscription. It does not need a second
 Codex CLI login or a copied OAuth file. The scheduler must supply a real fresh cloud context.
 **The runner and task-spec generator do not install a schedule.** Initial operation is a trial;

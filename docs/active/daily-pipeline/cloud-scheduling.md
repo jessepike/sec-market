@@ -1,5 +1,11 @@
 # Codex cloud scheduling: current research and acceptance
 
+**October 21 update: the proposed UI handoff failed.** The owner supplied the attempted scheduler's
+response: it cannot bind the repo and published cloud environment or guarantee fresh cloud chats.
+Neither task was saved or run. Product capabilities documented separately do not prove that the
+available scheduler combines them. Do not repeat the previous UI handoff. See
+[private CI alternative and concrete credential requirements](subscription-ci.md).
+
 Researched October 20, 2026 (America/Los_Angeles), from the current official OpenAI documentation.
 **Cloud-first is the owner's requested route. An always-on local computer is not an established
 requirement. No recurring cloud job has been created or verified by this onboarding chat.**
