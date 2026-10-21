@@ -28,6 +28,20 @@ The CLI's documented cloud commands do not expose schedule creation; this is not
 web product lacks it. This onboarding chat's available tools likewise expose no schedule-creation
 or schedule-update operation. Do not call that an account-level absence.
 
+## Official private-CI alternative
+
+OpenAI also publishes [Maintain Codex account auth in CI/CD (advanced)](https://learn.chatgpt.com/docs/auth/ci-cd-auth).
+It explicitly covers trusted private ephemeral runners: restore managed ChatGPT auth, run Codex,
+and securely persist the refreshed auth for the next serialized job. One auth copy must not be
+shared by concurrent machines. API keys are recommended in that guide, but account-based automation
+is documented for the stated use case; a subscription worker is not inherently limited to a laptop.
+This is a fallback if native scheduling cannot bind the required environment. D-83 still requires
+owner approval before copying credentials into CI. No auth file has been copied or exposed.
+
+[Codex access tokens](https://learn.chatgpt.com/docs/enterprise/access-tokens) are a separate newer
+option currently documented for Business/Enterprise. Do not assume an individual Pro subscription
+has that feature or require an upgrade. Team Tasks likewise use workspace credits.
+
 ## Cloud-first implementation
 
 1. Publish the reviewed reusable environment with Node 22, Python, tools, allowed source/service

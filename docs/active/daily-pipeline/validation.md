@@ -68,3 +68,12 @@ existing credential-free proxy. A fresh prebuilt test deployment was created wit
 disabled; all 32 unmodified browser assertions passed, and the project setting was restored to its
 original null value. All 24 files on that final deployment also match the tested hash inventory.
 Production feedback, security headers, aliases and promotion controls were not changed.
+
+
+The subsequent adapter fix and current cloud-scheduling research were delivered directly on preview
+as `530af0b9da4ba9d20ca07ec113b7c57136cdcaf4`; its actual GitHub full suite
+[39519068246](https://github.com/jessepike/sec-market/actions/runs/39519068246) passed.
+The final staging/browser/baseline evidence is archived at
+`d38721ca1e1e6b2869c1dfb2dbce14024270ce3c`, manifest SHA-256
+`07d9bd0426c7b85c48920973f5ebf25ab611cf33db8b1b28cb7d9d4792809110` (20,010 files).
+The pinned fresh restore proof remains the earlier 19,998-file archive; no second restore is implied.

@@ -1232,3 +1232,10 @@ cloud coding are supported product capabilities. The local-project keep-computer
 establish a universal local-host requirement. Actual schedule creation/environment binding and a
 fresh unattended run remain acceptance work; current onboarding tools expose no schedule operation.
 See the linked cloud scheduling research for primary sources and exact tests.
+
+
+Additional current official documentation explicitly describes maintaining ChatGPT-managed auth
+on trusted private ephemeral CI runners, with serialized refresh and secure state write-back.
+This is another documented option, not proof that current CI is configured and not authorization
+to copy credentials under D-83. Business/Enterprise access tokens and Team Tasks have distinct
+plan/billing boundaries; they are not assumed to be included in this owner's individual subscription.

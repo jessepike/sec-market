@@ -15,7 +15,9 @@ The owner will not promote the site to readers until sustained fresh, accurate o
 
 ## Daily pipeline: implemented, exercised, not activated
 
-Direct preview delivery: `b8f6ecb4d10c7f05f51a3ad156cdd7e1ee31866e`.
+Direct preview delivery: staging fix/research `530af0b9da4ba9d20ca07ec113b7c57136cdcaf4`;
+[its full GitHub suite](https://github.com/jessepike/sec-market/actions/runs/39519068246) passed.
+Earlier full implementation: `b8f6ecb4d10c7f05f51a3ad156cdd7e1ee31866e`.
 [GitHub full suite](https://github.com/jessepike/sec-market/actions/runs/39510441692) passed.
 The [stable preview](https://security-market-pulse-git-preview-pikeholdings.vercel.app)
 acknowledged that exact revision and public 252/557 incomplete, automation-disabled coverage.
