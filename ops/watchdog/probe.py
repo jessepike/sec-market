@@ -23,7 +23,7 @@ TITLE = "Daily pipeline needs attention"
 
 
 def api(path, raw=False):
-    args = ["gh", "api", f"repos/{REPO}/{path}"]
+    args = ["gh", "api", f"repos/{REPO}/{path}", "--header", "Cache-Control: no-cache"]
     if raw:
         args.extend(["--header", "Accept: application/vnd.github.raw+json"])
     result = subprocess.run(args, capture_output=True, timeout=60)
@@ -61,6 +61,19 @@ def inspect(contract, read_archive, get_live, now, authority=None):
         problems.append("WORKER_HEARTBEAT_OVERDUE")
     if any(value != 0 for value in heartbeat.get("phases", {}).values()) or not heartbeat.get("phases"):
         problems.append("WORKER_PHASE_FAILED")
+    native = heartbeat.get("executionMode") == "codex_cloud_native"
+    if native:
+        roles = {}
+        for role in ("collector", "governance"):
+            receipt = read_archive("heads/cloud-" + role + ".json")
+            roles[role] = receipt
+            checked_age = (instant(now) - instant(receipt["checkedAt"])).total_seconds()/3600
+            if not 0 <= checked_age <= contract["schedule"]["overdueHours"] or receipt["phase"] != "finish":
+                problems.append("CLOUD_" + role.upper() + "_NOT_FINISHED_OR_OVERDUE")
+            if receipt.get("contractSha256") != digest(contract) or receipt["coverage"]["runId"] != coverage["runId"]:
+                problems.append("CLOUD_" + role.upper() + "_COVERS_DIFFERENT_RUN_OR_POLICY")
+        if roles["collector"]["sessionId"] == roles["governance"]["sessionId"]:
+            problems.append("CLOUD_GOVERNANCE_CONTEXT_NOT_SEPARATE")
     production = read_archive("heads/production.json")
     saved = read_archive(f"releases/{production['releaseId']}.json")
     manifest = saved["manifest"]
@@ -82,14 +95,14 @@ def inspect(contract, read_archive, get_live, now, authority=None):
         problems.append("COLLECTION_HAS_NOT_REACHED_PRODUCTION")
     if public.get("complete") is not True or not public.get("validUntil") or instant(now) > instant(public["validUntil"]):
         problems.append("PUBLIC_COVERAGE_INCOMPLETE_OR_OVERDUE")
-    queue = read_archive("heads/dailySnapshot.json").get("reviewQueue", [])
+    queue = read_archive("heads/cloud-snapshot.json" if native else "heads/dailySnapshot.json").get("reviewQueue", [])
     if queue:
         problems.append(f"OWNER_REVIEW_QUEUE_{len(queue)}")
     return {"healthy": not problems, "checkedAt": now, "runId": coverage["runId"], "reasons": problems}
 
 
 def notify(result):
-    issues = api("issues?state=open&per_page=100")
+    issues = api("issues?state=open&per_page=100&sort=updated&direction=desc")
     existing = next((i for i in issues if i["title"] == TITLE and "pull_request" not in i), None)
     body = ("The independent daily pipeline probe " + ("recovered." if result["healthy"] else "needs attention.")
             + "\n\nChecked: " + result["checkedAt"] + "\n\nReasons: " + ", ".join(result["reasons"])
@@ -111,7 +124,7 @@ def notify(result):
         if sent.returncode:
             raise ValueError("GITHUB_OWNER_ALERT_DELIVERY_FAILED")
         issue = json.loads(sent.stdout)
-        return {"delivery": "github_issue_updated", "url": issue["html_url"], "notificationTransport": "GitHub account notification settings"}
+        return {"delivery": "github_issue_updated", "url": issue["html_url"], "number": issue["number"], "state": issue["state"], "notificationTransport": "GitHub account notification settings"}
 
 
 def main():

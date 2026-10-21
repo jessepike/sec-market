@@ -55,8 +55,10 @@ has that feature or require an upgrade. Team Tasks likewise use workspace credit
    run IDs, checked/missing counts, pending claims and remote archive acknowledgements.
 4. Use the subscription-authenticated execution path. Before unattended activation, prove that a
    fresh cloud run can perform actual model work without reusing a token copied into an image or
-   falling back to a billed API. The current nested CLI adapter needs this fresh-run auth test;
-   native scheduled-agent execution is an alternative adapter, not an already-completed integration.
+   falling back to a billed API. The native queued adapter in `ops/cloud/` now lets the scheduled agent answer bounded work
+   directly, avoiding a second CLI login. Its strict extraction/review handoff and durable resume
+   are tested; actual scheduled execution in a fresh published environment remains a live gate.
+   The CLI adapter remains available as a fallback, with its own official sign-in requirements.
 5. Keep deterministic reconciliation and the exact-artifact GitHub gate separate from collection.
    Publish at most two factual batches/day, using reviewed app code and independently validated data.
    Vercel management access, exact prebuilt staging and its 32 browser tests are already verified.
@@ -89,3 +91,14 @@ cutover requiring a concrete reviewed implementation. No credentials were create
 
 No always-on local host is requested while this native cloud route is being evaluated. The existing
 Mac/Linux installer remains an implemented fallback only.
+
+## Implemented native handoff
+
+See [the executable task runbook](../../../ops/cloud/TASKS.md). `ops/cloud/run.py` restores verified
+remote state, acquires an acknowledged three-hour lease, checkpoints queued work and responses,
+replays without renewing source timestamps, and seals the final reconciliation. Archive pushes
+now support expected-commit compare-and-swap so stale cloud sessions cannot overwrite budgets.
+`ops/cloud/task_spec.py` produces exact collector/governance prompts and cadence for a tested
+commit; it does not call or impersonate a scheduler API. Initial prompts explicitly run as trials.
+The independent watchdog recognizes separate native collector/governance receipts. Native
+Vercel authorization, timed scheduling, complete coverage and production cutover remain unproved.

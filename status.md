@@ -15,6 +15,7 @@ The owner will not promote the site to readers until sustained fresh, accurate o
 
 ## Daily pipeline: implemented, exercised, not activated
 
+Current native-cloud delivery is being validated on preview; operational activation remains held.
 Direct preview delivery: staging fix/research `530af0b9da4ba9d20ca07ec113b7c57136cdcaf4`;
 [its full GitHub suite](https://github.com/jessepike/sec-market/actions/runs/39519068246) passed.
 Earlier full implementation: `b8f6ecb4d10c7f05f51a3ad156cdd7e1ee31866e`.
@@ -49,10 +50,16 @@ and [task receipts](docs/active/daily-pipeline/source-matrix.csv).
   Restored independent reconciliation reproduces 252/557 degraded coverage. This is an actual
   remote recovery test, not a claim that coverage passed. SEC replay reproduced 80/80 proofs,
   zero changes and preserved the October 18 last-data-change timestamp.
+- Implemented: native cloud request/response queue and outside-checkout runner, separate
+  extraction/review contexts, leased fresh archive restore, archive CAS, replay without duplicate
+  downloads/budget reservations, and a hard stop on historical downloads at model capacity.
+  Full local suite passed: 251 data, 91 pipeline and 32 browser tests. Native scheduler creation,
+  environment binding and a real timed invocation are still unverified.
 - Implemented: PDF/HTML reading, filing primary-document archive, persistent budgets/queues,
   snapshot adapter, exact build/snapshot receipts, GitHub-hosted independent gate, prebuilt Vercel
   staging/promotion/rollback adapter, Mac/Linux worker installer, outside GitHub watchdog.
-  Live promotion/rollback, alert and scheduler acceptance remain outstanding; real preview
+  Live promotion/rollback and scheduler acceptance remain outstanding; the controlled
+  owner-assigned GitHub notification create/recovery canary passed (issue #7, now closed); real preview
   staging is verified. Optional Cloudflare
   examples are not deployed and are not the selected default storage/monitor path.
 
@@ -79,7 +86,9 @@ and [task receipts](docs/active/daily-pipeline/source-matrix.csv).
   research and preference for native Codex Cloud scheduled automations using the subscription,
   rather than assuming a local host is required. Current official docs confirm web scheduled
   tasks and remote cloud execution on subscription usage. Schedule-to-environment binding and
-  a fresh unattended run are not verified; this onboarding toolset cannot create schedules. See
+  a fresh unattended run are not verified; this onboarding toolset cannot create schedules.
+  The executable native handoff is [ops/cloud/TASKS.md](ops/cloud/TASKS.md), with exact prompt
+  generation from the tested full commit. It requires no nested Codex login. See
   [cloud scheduling research](docs/active/daily-pipeline/cloud-scheduling.md). The Mac/Linux
   installer is a fallback, not an owner-selected requirement.
 - Cloud setup draft preserves Node 22/Python/system Chromium. Draft persistence is not environment

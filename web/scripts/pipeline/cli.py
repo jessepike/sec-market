@@ -6,6 +6,7 @@ import sys
 from pathlib import Path
 
 from agents import SubscriptionAgent
+from native import NativeAgent, pending_work, submit_work
 from contracts import digest, plan_run, utcnow, validate_contract
 from engine import Pipeline
 from fetcher import Fetcher
@@ -18,7 +19,7 @@ from snapshot import build_snapshot
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("command", choices=["check-contracts", "plan", "run", "verify", "snapshot", "onboard", "status", "report", "backup", "verify-backup", "archive-push", "archive-restore"])
+    parser.add_argument("command", choices=["check-contracts", "plan", "run", "verify", "snapshot", "onboard", "status", "report", "backup", "verify-backup", "archive-push", "archive-restore", "native-pending", "native-submit"])
     parser.add_argument("--contract", default=str(Path(__file__).resolve().parents[3] / "contracts/market.json"))
     parser.add_argument("--state", default=str(Path(__file__).resolve().parents[3] / ".collect/daily-state"))
     parser.add_argument("--at", default=None)
@@ -29,6 +30,11 @@ def main():
     parser.add_argument("--archive-remote", default="https://github.com/jessepike/sec-market.git")
     parser.add_argument("--expected-commit", help="Pinned remote archive commit for restoration")
     parser.add_argument("--subscription-worker", action="store_true", help="Use existing ChatGPT-authenticated Codex CLI; never API-key fallback")
+    parser.add_argument("--native-worker", action="store_true", help="Queue model work for the scheduled native Codex agent; no nested login")
+    parser.add_argument("--role", choices=["collector", "governance"])
+    parser.add_argument("--session-id", help="Actual native task/chat context identifier; not a credential")
+    parser.add_argument("--task-id")
+    parser.add_argument("--response-file")
     args = parser.parse_args()
     contract = validate_contract(json.loads(Path(args.contract).read_text()))
     store = LocalStore(args.state)
@@ -38,8 +44,23 @@ def main():
     elif args.command == "plan":
         result = plan_run(contract, at)
     elif args.command == "run":
+        if args.native_worker and (args.subscription_worker or not args.session_id):
+            parser.error("Native work requires --session-id and cannot also select the CLI worker")
         agent = SubscriptionAgent(contract["model"]) if args.subscription_worker else None
-        result = Pipeline(contract, store, Fetcher(store), agent).run(at)
+        if args.native_worker:
+            agent = NativeAgent(contract["model"], store, digest(contract), args.session_id)
+        result = Pipeline(contract, store, Fetcher(store), agent).run(at, replay=args.native_worker)
+    elif args.command == "native-pending":
+        if not args.role:
+            parser.error("--role required")
+        tasks = pending_work(store, digest(contract), args.role, at)
+        if args.task_id:
+            tasks = [task for task in tasks if task["taskId"] == args.task_id]
+        result = {"pending": len(tasks), "tasks": tasks}
+    elif args.command == "native-submit":
+        if not all((args.task_id, args.response_file, args.role, args.session_id)):
+            parser.error("Submit requires --task-id, --response-file, --role and --session-id")
+        result = submit_work(store, args.task_id, json.loads(Path(args.response_file).read_text()), args.role, args.session_id, digest(contract), at)
     elif args.command == "onboard":
         from onboarding import probe_sources
         result = probe_sources(contract, store, Fetcher(store, timeout=12))

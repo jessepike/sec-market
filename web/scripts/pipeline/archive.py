@@ -50,10 +50,12 @@ class GitArchive:
             return expected
         return None
 
-    def push(self, store):
+    def push(self, store, expected_commit=None):
         require(not self.root.is_relative_to(store.root), "Archive mirror must be outside source state")
         with LocalStore(self.root.parent / (self.root.name + "-lock")).lock("git-archive"):
             parent = self._open()
+            if expected_commit is not None and parent != expected_commit:
+                raise ConflictError("ARCHIVE_CHANGED_SINCE_RESTORE")
             previous = self.root / "archive-manifest.json"
             if previous.exists():
                 self.verify(self.root)

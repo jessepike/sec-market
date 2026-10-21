@@ -11,6 +11,7 @@ import unittest
 import hashlib
 import io
 import zipfile
+import importlib.util
 from urllib.parse import urlsplit
 from types import SimpleNamespace
 from unittest.mock import patch
@@ -32,6 +33,11 @@ from archive import GitArchive
 from artifacts import build_artifact, stage_files, pack, unpack, inventory as artifact_inventory
 from publication import recover_publication
 from vercel import VercelAdapter
+from native import NativeAgent, WorkPending, pending_work, submit_work
+
+cloud_spec = importlib.util.spec_from_file_location("cloud_worker", SCRIPTS.parents[2] / "ops/cloud/run.py")
+cloud_worker = importlib.util.module_from_spec(cloud_spec)
+cloud_spec.loader.exec_module(cloud_worker)
 
 T = "2026-10-19T16:00:00Z"
 QUOTE = "Fixture Vendor raised approximately $10 million on 2026-10-19."
@@ -268,6 +274,101 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(len(list((self.store.root/"facts").glob('*.json'))),1)
         self.assertEqual(len(eligible_fact_references(second)),1)
 
+    def test_native_cloud_roundtrip_separates_review_and_replays_without_refetch_or_rebudget(self):
+        self.c['model']['maxDocumentsPerRun']=1
+        self.c['model']['maxCallsPerRun']=2
+        calls = []
+        fetcher = FakeFetcher(self.store)
+        original_fetch = fetcher.fetch
+        def counted(*args):
+            calls.append(args[1])
+            return original_fetch(*args)
+        fetcher.fetch = counted
+        def advance(session):
+            agent = NativeAgent(self.c['model'], self.store, digest(self.c), session, clock=lambda:T)
+            return Pipeline(self.c, self.store, fetcher, agent, clock=lambda:T).run(T, replay=True)
+        first = advance('collector-context')
+        self.assertFalse(first['complete'])
+        extract = pending_work(self.store, digest(self.c), 'collector', T)[0]
+        submit_work(self.store,extract['taskId'],{'facts':[candidate()]},'collector','collector-context',digest(self.c),T)
+        second = advance('governance-context')
+        self.assertFalse(second['complete'])
+        task = pending_work(self.store,digest(self.c),'governance',T)[0]
+        obs = self.store.read('observations/'+second['receipts'][0]['observationIds'][-1]+'.json')
+        answer = review(candidate(),obs,digest(self.c))
+        with self.assertRaisesRegex(ContractError,'SEPARATE_CONTEXT'):
+            submit_work(self.store,task['taskId'],answer,'governance','collector-context',digest(self.c),T)
+        submit_work(self.store,task['taskId'],answer,'governance','governance-context',digest(self.c),T)
+        third = advance('governance-context')
+        self.assertTrue(third['complete'])
+        self.assertEqual(len(eligible_fact_references(third)),1)
+        self.assertEqual(len(calls),2) # current feed + article, not one download per model round
+        budget = self.store.read('heads/budget-2026-10-19.json')
+        self.assertEqual(budget,{'calls':2,'documents':1,'fetches':2})
+        self.assertTrue(advance('governance-context')['complete'])
+        self.assertEqual(self.store.read('heads/budget-2026-10-19.json'),budget)
+
+    def test_fresh_cloud_bootstrap_restores_remote_state_and_excludes_overlapping_sessions(self):
+        remote=Path(self.temp.name)/'cloud-remote.git'
+        subprocess.run(['git','init','--bare',str(remote)],check=True,capture_output=True)
+        original=LocalStore(Path(self.temp.name)/'original')
+        original.compare_and_swap('budget-day',None,{'calls':7})
+        GitArchive(Path(self.temp.name)/'initial-mirror',str(remote)).push(original)
+        def local_archive(root):return GitArchive(root/'archive',str(remote))
+        def fake_git(*args):return 'a'*40 if args[0]=='rev-parse' else ''
+        mock_process=SimpleNamespace(run=lambda *_args,**_kwargs:SimpleNamespace(stdout='v22.23.3'))
+        root=Path(self.temp.name)/'cloud-one'
+        with patch.object(cloud_worker,'archive_for',local_archive),patch.object(cloud_worker,'git',fake_git),patch.object(cloud_worker,'subprocess',mock_process),patch.object(cloud_worker.shutil,'which',return_value='/installed'):
+            receipt=cloud_worker.bootstrap(root,'collector','cloud-one','a'*40)
+            restored=LocalStore(root/'state')
+            self.assertEqual(restored.read('heads/budget-day.json'),{'calls':7})
+            self.assertEqual(receipt['archive']['commit'],LocalStore(root).read('heads/remote-archive.json')['commit'])
+            with self.assertRaisesRegex(ContractError,'ACTIVE_LEASE'):
+                cloud_worker.bootstrap(Path(self.temp.name)/'cloud-two','governance','cloud-two','a'*40)
+            session=LocalStore(root).read('session.json')
+            cloud_worker.checkpoint(root,restored,session,'finish',{'trial':True},finish=True)
+            second=cloud_worker.bootstrap(Path(self.temp.name)/'cloud-three','governance','cloud-three','a'*40)
+            self.assertEqual(second['receipt']['role'],'governance')
+            self.assertFalse(second['receipt']['coverage']['complete'])
+
+    def test_expired_cloud_lease_can_be_recovered_but_expired_owner_cannot_continue(self):
+        session={'sessionId':'one','role':'collector'}
+        cloud_worker.acquire_lease(self.store,session,T)
+        with self.assertRaisesRegex(ContractError,'EXPIRED'):
+            cloud_worker.require_lease(self.store,session,'2026-10-19T20:00:00Z')
+        next_session={'sessionId':'two','role':'governance'}
+        cloud_worker.acquire_lease(self.store,next_session,'2026-10-19T20:00:00Z')
+        with self.assertRaises(ContractError):cloud_worker.require_lease(self.store,session,'2026-10-19T20:01:00Z')
+
+    def test_native_queue_rejects_wrong_role_policy_schema_staleness_and_answer_overwrite(self):
+        agent=NativeAgent(self.c['model'],self.store,digest(self.c),'collector-context',clock=lambda:T)
+        agent.reserve=lambda *_:None
+        with self.assertRaises(WorkPending):agent.extract(QUOTE,self.c['suppliers'][0])
+        task=pending_work(self.store,digest(self.c),'collector',T)[0]
+        for answer,role,policy,at in [({'facts':[]},'governance',digest(self.c),T),
+                                     ({'facts':[]},'collector','a'*64,T),
+                                     ({'facts':[],'extra':True},'collector',digest(self.c),T),
+                                     ({'facts':[]},'collector',digest(self.c),'2026-10-21T16:00:00Z')]:
+            with self.assertRaises(ContractError):submit_work(self.store,task['taskId'],answer,role,'collector-context',policy,at)
+        submit_work(self.store,task['taskId'],{'facts':[]},'collector','collector-context',digest(self.c),T)
+        with self.assertRaisesRegex(ContractError,'ALREADY_SEALED'):
+            submit_work(self.store,task['taskId'],{'facts':[candidate()]},'collector','collector-context',digest(self.c),T)
+        self.assertEqual(agent.extract(QUOTE,self.c['suppliers'][0]),[])
+
+    def test_exhausted_model_budget_stops_backlog_downloads_but_keeps_missing_inventory(self):
+        class AtCapacity(FakeAgent):
+            def extract(self,*_):raise ModelUnavailable('SUBSCRIPTION_LIMIT_REACHED')
+        pages=FakeFetcher(self.store).pages
+        urls=[f'https://example.invalid/releases/{i}' for i in range(50)]
+        pages['https://example.invalid/feed.xml']=('<rss><channel>'+''.join(f'<item><link>{u}</link></item>' for u in urls)+'</channel></rss>').encode()
+        for u in urls:pages[u]=b'<html><body>Fixture Vendor news.</body></html>'
+        result=self.run_pipeline(agent=AtCapacity(),pages=pages)
+        self.assertFalse(result['complete'])
+        receipt=result['receipts'][0]
+        self.assertEqual(receipt['pendingDocuments'],50)
+        self.assertEqual(len(json.loads(self.store.get(receipt['itemManifest']))['items']),50)
+        self.assertEqual(len(receipt['observationIds']),2)
+
     def test_budget_reservations_survive_restarts(self):
         self.c['model']['maxDocumentsPerRun']=1
         result=self.run_pipeline(agent=FakeAgent(empty=True));self.assertFalse(result['complete'])
@@ -335,6 +436,23 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(LocalStore(destination).get(ref),b'real archived evidence')
         (archive.root/'state'/ref['key']).write_bytes(b'corrupt')
         with self.assertRaises(ContractError):GitArchive.verify(archive.root,receipt['manifestSha256'])
+
+    def test_archive_compare_and_swap_rejects_a_stale_cloud_session_before_overwriting_budget(self):
+        remote=Path(self.temp.name)/'remote.git'
+        subprocess.run(['git','init','--bare',str(remote)],check=True,capture_output=True)
+        live=LocalStore(Path(self.temp.name)/'live')
+        live.compare_and_swap('budget-day',None,{'calls':1})
+        archive=GitArchive(Path(self.temp.name)/'mirror',str(remote));first=archive.push(live)
+        other=GitArchive(Path(self.temp.name)/'other-mirror',str(remote))
+        destination=Path(self.temp.name)/'other-state';other.restore(destination)
+        stale=LocalStore(destination)
+        live.compare_and_swap('budget-day',{'calls':1},{'calls':2})
+        second=archive.push(live,expected_commit=first['commit'])
+        with self.assertRaisesRegex(ConflictError,'CHANGED_SINCE_RESTORE'):
+            other.push(stale,expected_commit=first['commit'])
+        restored=Path(self.temp.name)/'final-state'
+        other.restore(restored,expected_commit=second['commit'])
+        self.assertEqual(LocalStore(restored).read('heads/budget-day.json'),{'calls':2})
 
     def test_policy_change_cannot_reset_subscription_daily_budget(self):
         self.c['model']['maxDocumentsPerRun']=1

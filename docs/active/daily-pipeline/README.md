@@ -24,9 +24,12 @@ into a successful empty check.
 
 ## Execution and trust boundaries
 
-1. An existing Mac/Linux computer runs the reviewed application code once daily. The official
-   ChatGPT-authenticated Codex CLI performs bounded extraction and a separate semantic review.
-   Model subprocess tools are disabled and infrastructure/API environment variables are removed.
+1. The preferred runtime is a native scheduled Codex Cloud collector and a separate governance
+   chat. The [cloud runner](../../../ops/cloud/TASKS.md) restores remote state, obtains a lease and
+   queues model work for those native agents, without nested CLI authentication. Strict imports
+   bind responses to prompts/policy/roles. Actual scheduler creation and fresh scheduled execution
+   still require UI acceptance. The existing Mac/Linux CLI worker remains a fallback; its model
+   subprocess tools are disabled and infrastructure/API environment variables are removed.
 2. The collector archives exact source bodies, conditional-fetch chains, inventory, attempts,
    candidates/reviews and pending work. Only completed sources advance their cursor. Independently
    validated individual documents can contribute facts while the remaining source stays incomplete.
@@ -67,7 +70,12 @@ The owner requests native Codex Cloud scheduling research before selecting a loc
 Current official documentation confirms web schedules and remote cloud coding using shared
 subscription allowance. [Research and cloud acceptance tests](cloud-scheduling.md) distinguish
 product capability from this account's still-unverified scheduled environment binding. No native
-schedule has been created by the available onboarding tools. The following installer is a fallback.
+schedule has been created by the available onboarding tools. The native runner and exact prompt
+generator are implemented in `ops/cloud/`; see its task handoff and acceptance instructions.
+Native queued work has separate collector/reviewer contexts, immutable responses, persisted budget
+reservations, replay without duplicate downloads, remote archive compare-and-swap and expiring
+leases. These protections do not establish full source coverage or timed scheduling. The following
+installer is a fallback.
 
 The temporary cloud checkout is suitable for development, tests and supervised real collection.
 It does not become an unattended host when this chat ends. Use a clean, dedicated checkout on an

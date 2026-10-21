@@ -1239,3 +1239,15 @@ on trusted private ephemeral CI runners, with serialized refresh and secure stat
 This is another documented option, not proof that current CI is configured and not authorization
 to copy credentials under D-83. Business/Enterprise access tokens and Team Tasks have distinct
 plan/billing boundaries; they are not assumed to be included in this owner's individual subscription.
+
+
+**D-108 · 2026-10-20 — Execute the cloud-first route; native agent work must survive sessions.**
+
+Owner: "Go get it done. Go finish ... execute that" after the current Codex Cloud scheduling
+research. Continue implementing and testing the subscription-backed cloud route; do not substitute
+a local host requirement, a PR or a readiness statement for real operation. A native durable work
+queue removes the need to copy a second Codex login into future worker VMs. Extraction and review
+use separate contexts, strict imports, persisted reservations and remote lease/CAS protection.
+This does not waive D-83 credential governance or approve an unseen major production cutover.
+Scheduler creation/publication are UI-only with this toolset; prepare the concrete tested task
+prompts and require real scheduler identities/timed-run receipts before claiming activation.

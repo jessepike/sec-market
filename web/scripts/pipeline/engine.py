@@ -24,6 +24,7 @@ class Pipeline:
         self.budget_lock = threading.RLock()
         self.model_unavailable = None
         self.deadline = float("inf")
+        self.native_budget_exhausted = False
 
     def _structured(self, source, documents, day):
         result = subprocess.run(["node", "--import", "tsx", str(Path(__file__).with_name("sec-adapter.mjs"))],
@@ -32,7 +33,8 @@ class Pipeline:
         require(result.returncode == 0, "Independent SEC validation failed")
         return json.loads(result.stdout)["facts"]
 
-    def run(self, scheduled_at):
+    def run(self, scheduled_at, replay=False):
+        self.replay = replay
         self.deadline = time.monotonic() + self.contract["schedule"].get("maxRuntimeSeconds", 7200)
         proposed = plan_run(self.contract, scheduled_at)
         plan_key = f"runs/{proposed['runId']}/plan.json"
@@ -42,6 +44,10 @@ class Pipeline:
             self.store.write_once(plan_key, plan)
             self.store.write_once(f"contracts/{plan['contractSha256']}.json", self.contract)
             self.budget_name = f"budget-{plan['scheduledAt'][:10]}"
+            counts = self.store.read(f"heads/{self.budget_name}.json") or {}
+            self.native_budget_exhausted = bool(getattr(self.agent, "queued_work", False) and
+                (counts.get("calls", 0) >= self.contract["model"]["maxCallsPerRun"] or
+                 counts.get("documents", 0) >= self.contract["model"]["maxDocumentsPerRun"]))
             if self.agent:
                 self.agent.reserve = self._reserve
             with ThreadPoolExecutor(max_workers=self.contract["schedule"]["maxWorkers"]) as pool:
@@ -55,6 +61,11 @@ class Pipeline:
             return result
 
     def _task(self, plan, task):
+        prior_task = self.store.read(f"heads/task-{task['taskId']}.json") if self.replay else None
+        if prior_task and prior_task["outcome"] in ("updated", "checked_no_change"):
+            age = (instant(self.clock()) - instant(prior_task["completedAt"])).total_seconds()/3600
+            if 0 <= age <= self.contract["schedule"]["overdueHours"]:
+                return prior_task
         attempt_id = digest({"task": task["taskId"], "at": self.clock(), "nonce": __import__('uuid').uuid4().hex})
         receipt = {"taskId": task["taskId"], "sourceId": task["sourceId"], "supplierId": task["supplierId"],
                    "runId": plan["runId"], "attemptId": attempt_id, "startedAt": self.clock(), "completedAt": None,
@@ -69,6 +80,15 @@ class Pipeline:
             observations = {}
 
             def request(url):
+                run_download = f"runs/{plan['runId']}/downloads/{digest({'source': source['id'], 'url': url})}.json"
+                retained = self.store.read(run_download) if self.replay else None
+                if retained:
+                    old_observation = self.store.read(f"observations/{retained['observationId']}.json")
+                    age = (instant(self.clock()) - instant(old_observation["fetchedAt"])).total_seconds()/3600
+                    if 0 <= age <= self.contract["schedule"]["overdueHours"]:
+                        observations[url] = old_observation
+                        receipt["observationIds"].append(old_observation["observationId"])
+                        return old_observation, self.store.get(old_observation["body"])
                 download_name = f"download-{digest({'source': source['id'], 'url': url})}"
                 download_head = self.store.read(f"heads/{download_name}.json")
                 old = download_head or previous["observations"].get(url)
@@ -88,6 +108,8 @@ class Pipeline:
                 self.store.write_once(f"observations/{observation['observationId']}.json", observation)
                 if observation["status"] in ("fetched", "not_modified"):
                     self.store.compare_and_swap(download_name, download_head, observation)
+                    if self.replay:
+                        self.store.write_once(run_download, {"observationId": observation["observationId"]})
                 if source["kind"] == "sec_documents" and url.startswith("https://www.sec.gov/Archives/") and observation["status"] == "fetched":
                     self.store.write_once(cache_key, observation)
                 observations[url] = observation
@@ -149,14 +171,24 @@ class Pipeline:
                         try:
                             extracted = self.store.read(f"document-extractions/{cache_key}.json")
                             if extracted is None:
-                                self._reserve("documents", self.contract["model"]["maxDocumentsPerRun"])
+                                reservation_key = f"document-reservations/{plan['scheduledAt'][:10]}/{cache_key}.json"
+                                if not self.store.read(reservation_key):
+                                    self._reserve("documents", self.contract["model"]["maxDocumentsPerRun"])
+                                    self.store.write_once(reservation_key, {"cacheKey": cache_key})
                                 candidates = self.agent.extract(model_text, self.suppliers[source["supplierId"]])
                                 extracted = {"candidates": candidates, "body": observation["body"], "policySha256": plan["contractSha256"]}
+                                if hasattr(self.agent, "extraction_session"):
+                                    extracted["nativeCollectorSession"] = self.agent.extraction_session
                                 self.store.write_once(f"document-extractions/{cache_key}.json", extracted)
                             candidates = extracted["candidates"]
+                            if hasattr(self.agent, "extraction_session"):
+                                self.agent.extraction_session = extracted.get("nativeCollectorSession")
                         except (ModelUnavailable, ValueError) as exc:
                             if isinstance(exc, ModelUnavailable) or "BUDGET_EXHAUSTED" in str(exc):
-                                self.model_unavailable = str(exc)[:160]
+                                if getattr(self.agent, "queued_work", False):
+                                    self.native_budget_exhausted = True
+                                else:
+                                    self.model_unavailable = str(exc)[:160]
                             pending.append(url)
                             pending_errors.append(str(exc)[:160])
                             return
@@ -189,7 +221,17 @@ class Pipeline:
                         self.store.write_once(f"document-validation/{cache_key}.json", validation)
                         receipt.setdefault("documentValidations", []).append({"url": url, "validation": self.store.put(validation)})
                         validated_hashes[url] = cache_key
-                for url in sorted(found["items"], key=lambda u: found.get("itemModified", {}).get(u, ""), reverse=True):
+                ordered = sorted(found["items"], key=lambda u: found.get("itemModified", {}).get(u, ""), reverse=True)
+                for index, url in enumerate(ordered):
+                    cached_download = f"runs/{plan['runId']}/downloads/{digest({'source': source['id'], 'url': url})}.json"
+                    if self.native_budget_exhausted and source["kind"] != "sec_documents" and not self.store.read(cached_download):
+                        pending.append(url)
+                        pending_errors.append("NATIVE_NEW_WORK_BUDGET_EXHAUSTED")
+                        continue
+                    if self.model_unavailable and source["kind"] != "sec_documents":
+                        pending.extend(ordered[index:])
+                        pending_errors.append(self.model_unavailable)
+                        break
                     try:
                         process_item(url)
                     except (ValueError, ModelUnavailable, OSError, TimeoutError) as exc:
@@ -238,4 +280,6 @@ class Pipeline:
     def _finish(self, receipt):
         receipt["completedAt"] = self.clock()
         self.store.write_once(f"runs/{receipt['runId']}/attempts/{receipt['attemptId']}.json", receipt)
+        head = "task-" + receipt["taskId"]
+        self.store.compare_and_swap(head, self.store.read(f"heads/{head}.json"), receipt)
         return receipt
