@@ -27,7 +27,7 @@ The private subscription runner preparation is now delivered at
 and [host CI](https://github.com/jessepike/sec-market/actions/runs/39697710737) passed:
 16 runner tests, 251 data, 91 pipeline, 32 browser, 80/80 SEC proofs and zero drift.
 The real fresh runner reverified 20,035 archive files and a current SEC response. D-109 approval
-is recorded. Owner-only **SMP_AUTH_STORE_TOKEN** entry is pending; no dedicated login or daily
+is recorded. The owner reports **SMP_AUTH_STORE_TOKEN** saved; an explicit bootstrap request is submitted to verify it. No dedicated login or daily
 replacement is active. [Setup and actual receipt](docs/active/daily-pipeline/subscription-ci.md).
 
 ## Actual coverage and durability
