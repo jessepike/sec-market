@@ -8,6 +8,7 @@ from pathlib import Path
 
 from auth_store import AuthStore, managed_auth
 from bootstrap import GuardedRunner, SubscriptionAgent, PROJECT
+from account_rpc import refresh_account
 
 
 def execute(root, exercise_refresh=False):
@@ -23,12 +24,9 @@ def execute(root, exercise_refresh=False):
     before = managed_auth(auth)
     started = datetime.now(timezone.utc)
     if exercise_refresh:
-        # Controlled metadata-only exercise of the documented official client
-        # stale-auth path. Never call OAuth endpoints or modify source dates.
-        older = dict(before)
-        older["last_refresh"] = (started - timedelta(days=10)).isoformat().replace("+00:00", "Z")
-        (home / "auth.json").write_text(json.dumps(older))
-        os.chmod(home / "auth.json", 0o600)
+        # The official protocol explicitly requests managed OAuth refresh.
+        # Do not mutate cache dates or implement OAuth endpoints ourselves.
+        refresh_account(store)
     os.environ["CODEX_HOME"] = str(home)
     repo = Path(__file__).resolve().parents[2]
     config = dict(json.loads((repo / "contracts/market.json").read_text())["model"])

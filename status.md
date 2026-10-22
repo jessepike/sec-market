@@ -29,7 +29,7 @@ and [host CI](https://github.com/jessepike/sec-market/actions/runs/39697710737) 
 The real fresh runner reverified 20,035 archive files and a current SEC response. D-109 approval
 is recorded. The protected secret was verified and official dedicated runner sign-in succeeded in run
 39700686412. Its real subscription probe passed and login was saved directly in encrypted
-Actions storage. A second fresh-runner refresh/write-back probe is requested. No daily
+Actions storage. The first fresh runner restored auth and completed its model call, but aging cache metadata did not trigger rotation. A corrected explicit official app-server refresh probe is being submitted; rotation/write-back acceptance remains pending. No daily
 replacement is active. [Setup and actual receipt](docs/active/daily-pipeline/subscription-ci.md).
 
 ## Actual coverage and durability

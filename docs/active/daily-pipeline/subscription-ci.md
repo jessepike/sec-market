@@ -116,9 +116,8 @@ overwrite an existing login. One bounded subscription probe follows; login data 
 Git, model input, logs or artifacts. Setup receipts contain status/context IDs only.
 
 `subscription-account-probe.yml` is a separate fresh-runner acceptance job in the same serialized
-account concurrency group. It restores the current secret, sets only the local auth cache's
-`last_refresh` metadata to exercise the documented stale-cache behavior, then lets the official
-client perform OAuth refresh itself. It never calls OAuth endpoints directly. It must confirm
+account concurrency group. It restores the current secret and requests proactive managed-auth refresh through the
+pinned official client's app-server `account/read` method with `refreshToken: true`. It never calls OAuth endpoints directly. It must confirm
 actual token rotation and a current refresh time, securely save the result, and return one real
 subscription probe. Collection/source dates are not changed by this credential test. A failed
 write-back stops model work. These controlled one-time probes are separate from collection budgets.
@@ -165,3 +164,28 @@ the expiration. Do not put the value in chat. This is protected credential entry
 by D-109, not a new permission request. After it is saved, submit the bootstrap request and promptly
 relay the official browser challenge. Durable Vercel publisher auth and usage/spending verification
 remain subsequent activation requirements; the secret entry alone does not finish the rollout.
+
+
+## October 21 live account acceptance
+
+The owner reported the protected GitHub secret saved and completed official browser sign-in.
+[Bootstrap 39700686412](https://github.com/jessepike/sec-market/actions/runs/39700686412) passed:
+the runner created its own dedicated managed login, stored it directly in the encrypted repo
+secret and completed one real subscription call. No development/local auth was copied.
+
+[First fresh-runner probe 39700921768](https://github.com/jessepike/sec-market/actions/runs/39700921768)
+restored that secret and completed its subscription call, but failed acceptance with
+`OFFICIAL_CLIENT_REFRESH_NOT_CONFIRMED`. Aging only `last_refresh` did not exercise rotation in
+CLI 0.163.0. That test assumption has been removed. The exact pinned client's generated
+`GetAccountParams` schema explicitly documents `account/read` with `refreshToken: true` as the
+normal managed refresh-token flow. `ops/ci/account_rpc.py` uses that official stdio protocol,
+with bounded runtime, no credential-bearing transport output, and protected auth checkpoint even
+on failure. It never calls OAuth endpoints directly. Real rotation still requires a passing rerun.
+
+The prepared Vercel access probe accepts only the existing project/team IDs. It restores an owner-
+provided team-scoped `VERCEL_TOKEN` into a private temporary official CLI auth file, removes the
+credential from the child environment and argv, and reads the existing project only. It outputs
+selected nonsecret settings and explicitly does not establish publish permission or change
+production. The owner has been asked to save that token in protected Actions storage; no publisher
+request is submitted until the owner reports it saved. These auth paths have 22 fictional-data
+unit tests including proactive-refresh protocol, timeout cleanup and publisher credential isolation.
