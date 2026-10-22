@@ -22,6 +22,14 @@ that exact commit and discloses incomplete coverage. Full-page desktop/phone ren
 this delivery adds no visible change beyond the existing coverage disclosure. **No PRs.**
 Major changes remain held under AGENTS.md; production has not been promoted.
 
+The private subscription runner preparation is now delivered at
+`c8e295d91b7ec39b1aaa3f8447d6aec2c69b6851`. Both [application CI](https://github.com/jessepike/sec-market/actions/runs/39697710710)
+and [host CI](https://github.com/jessepike/sec-market/actions/runs/39697710737) passed:
+16 runner tests, 251 data, 91 pipeline, 32 browser, 80/80 SEC proofs and zero drift.
+The real fresh runner reverified 20,035 archive files and a current SEC response. D-109 approval
+is recorded. Owner-only **SMP_AUTH_STORE_TOKEN** entry is pending; no dedicated login or daily
+replacement is active. [Setup and actual receipt](docs/active/daily-pipeline/subscription-ci.md).
+
 ## Actual coverage and durability
 
 - Contract: 74 suppliers, 303 bindings, **557 required daily tasks**, 254 missing family bindings,

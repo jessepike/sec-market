@@ -143,3 +143,25 @@ Publication remains disabled and no collection request has been submitted. The b
 probe and collector share the same noncanceling account concurrency group. Sixteen fictional-data
 unit tests cover credential isolation, failed persistence, deadlines and crash budget protection.
 The existing full application suite also remains required before pushing this preparation.
+
+
+## Delivered implementation verification and owner-only entry
+
+Commit `c8e295d91b7ec39b1aaa3f8447d6aec2c69b6851` is on preview, with no PR.
+[Application CI 39697710710](https://github.com/jessepike/sec-market/actions/runs/39697710710)
+and [private runner 39697710737](https://github.com/jessepike/sec-market/actions/runs/39697710737)
+both passed. The runner verified all 20,035 archive files and fetched a valid current SEC response;
+16 fictional-data worker tests passed. Application CI passed 251 data, 91 pipeline and 32 browser
+tests, 80/80 SEC proofs and zero drift. [Actual bounded receipt](receipts/ci-worker-2026-10-21.json).
+No account initialization, token transfer, recurring collection or publication occurred.
+
+The current owner action is to create a fine-grained token at
+https://github.com/settings/personal-access-tokens/new named `sec-market auth persistence`.
+Use resource owner `jessepike`, select only `sec-market`, and set repository **Secrets: read and
+write**. Leave other permissions at their minimum defaults. Record its expiration for renewal
+monitoring. Save its value directly as **SMP_AUTH_STORE_TOKEN** at
+https://github.com/jessepike/sec-market/settings/secrets/actions/new, and report only `saved` plus
+the expiration. Do not put the value in chat. This is protected credential entry already authorized
+by D-109, not a new permission request. After it is saved, submit the bootstrap request and promptly
+relay the official browser challenge. Durable Vercel publisher auth and usage/spending verification
+remain subsequent activation requirements; the secret entry alone does not finish the rollout.

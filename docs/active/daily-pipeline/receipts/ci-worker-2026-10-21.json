@@ -1,0 +1,63 @@
+{
+  "kind": "prepared-private-subscription-worker-verification",
+  "appRevision": "c8e295d91b7ec39b1aaa3f8447d6aec2c69b6851",
+  "checks": {
+    "application": {
+      "conclusion": "success",
+      "headSha": "c8e295d91b7ec39b1aaa3f8447d6aec2c69b6851",
+      "status": "completed",
+      "url": "https://github.com/jessepike/sec-market/actions/runs/39697710710"
+    },
+    "privateHost": {
+      "conclusion": "success",
+      "headSha": "c8e295d91b7ec39b1aaa3f8447d6aec2c69b6851",
+      "status": "completed",
+      "url": "https://github.com/jessepike/sec-market/actions/runs/39697710737"
+    }
+  },
+  "applicationTests": {
+    "data": 251,
+    "pipeline": 91,
+    "browser": 32,
+    "secProofs": 80,
+    "secDrift": 0
+  },
+  "workerUnitTests": 16,
+  "hostReceipt": {
+    "kind": "credential-free-github-host-canary",
+    "checkedAt": "2026-10-22T00:07:46.992636Z",
+    "appRevision": "c8e295d91b7ec39b1aaa3f8447d6aec2c69b6851",
+    "githubRunId": "39697710737",
+    "runnerOs": "Linux",
+    "archive": {
+      "commit": "02c04f568c010e4fa036bd90c791bd9ece01e6e7",
+      "manifestSha256": "26f7d3249981cdb983ff6339c5f7237bdd2e57bd5c02ce49c66cddd3d50972df",
+      "files": 20035
+    },
+    "archivedCoverage": {
+      "runId": "26863a52238929063d5a6191c7e390dbeacf413920d84ac1b4f2f58bed8cdde7",
+      "successfulTasks": 252,
+      "requiredTasks": 557,
+      "complete": false
+    },
+    "sourceProbe": {
+      "sourceId": "cloudflare:sec_facts",
+      "checkedAt": "2026-10-22T00:07:46.576651Z",
+      "outcome": "fetched",
+      "httpStatus": 200,
+      "validSecResponse": true
+    },
+    "modelCalls": 0,
+    "subscriptionCredentialsTransferred": false,
+    "archiveChanged": false,
+    "publicationAttempted": false,
+    "recurringWorkerActivated": false,
+    "runtimeCanaryPassed": true
+  },
+  "ownerCredentialApproval": "D-109",
+  "protectedSecretEntry": "pending",
+  "dedicatedAccountInitialized": false,
+  "refreshWriteBackAccepted": false,
+  "recurringWorkerActivated": false,
+  "publicationEnabled": false
+}
