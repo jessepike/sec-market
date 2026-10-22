@@ -68,7 +68,7 @@ def checkpoint(root, store, session, phase, result, finish=False):
     store.write_once(f"cloud/sessions/{digest(session['sessionId'])}/{digest(entry)}.json", entry)
     name = "cloud-" + session["role"]
     store.compare_and_swap(name, store.read(f"heads/{name}.json"), entry)
-    heartbeat = {"executionMode": "codex_cloud_native", "startedAt": session["startedAt"], "finishedAt": now,
+    heartbeat = {"executionMode": session.get("executionMode", "codex_cloud_native"), "startedAt": session["startedAt"], "finishedAt": now,
                  "appRevision": session["appRevision"], "role": session["role"], "sessionId": session["sessionId"],
                  "phases": {phase: 0 if phase == "finish" and entry["coverage"]["complete"] else 2},
                  "publication": result.get("publication", entry["publication"]) if isinstance(result, dict) else entry["publication"]}
@@ -85,7 +85,7 @@ def checkpoint(root, store, session, phase, result, finish=False):
     return {"receipt": entry, "archive": acknowledged}
 
 
-def bootstrap(root, role, session_id, revision):
+def bootstrap(root, role, session_id, revision, execution_mode="codex_cloud_native"):
     require(role in ("collector", "governance") and session_id and len(session_id) <= 160, "CLOUD_ROLE_AND_CONTEXT_REQUIRED")
     require(revision == git("rev-parse", "HEAD"), "CLOUD_REVISION_DIFFERS_FROM_REVIEWED_PIN")
     require(not git("status", "--porcelain", "--untracked-files=normal"), "CLOUD_CHECKOUT_MUST_BE_CLEAN")
@@ -99,7 +99,8 @@ def bootstrap(root, role, session_id, revision):
     root.mkdir(parents=True, exist_ok=True)
     restored = archive_for(root).restore(root / "state")
     store = LocalStore(root / "state")
-    session = {"schemaVersion": 1, "sessionId": session_id, "role": role, "appRevision": revision,
+    require(execution_mode in ("codex_cloud_native", "github_subscription"), "Unknown execution mode")
+    session = {"schemaVersion": 1, "sessionId": session_id, "role": role, "appRevision": revision, "executionMode": execution_mode,
                "startedAt": utcnow(), "restored": restored}
     acquire_lease(store, session, session["startedAt"])
     # Win the remote fast-forward race before exposing any model work or budgets.

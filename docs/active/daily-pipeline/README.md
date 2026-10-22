@@ -24,12 +24,13 @@ into a successful empty check.
 
 ## Execution and trust boundaries
 
-1. The preferred runtime is a native scheduled Codex Cloud collector and a separate governance
-   chat. The [cloud runner](../../../ops/cloud/TASKS.md) restores remote state, obtains a lease and
-   queues model work for those native agents, without nested CLI authentication. Strict imports
-   bind responses to prompts/policy/roles. Actual scheduler creation and fresh scheduled execution
-   still require UI acceptance. The existing Mac/Linux CLI worker remains a fallback; its model
-   subprocess tools are disabled and infrastructure/API environment variables are removed.
+1. The current implementation route is a private GitHub-hosted subscription worker using
+   [official managed account-auth persistence](subscription-ci.md). The owner approved dedicated
+   credential setup under D-109. A real credential-free runner passed; dedicated device sign-in,
+   refreshed-auth write-back and a second fresh-runner probe are pending the protected secret entry.
+   The attempted native cloud scheduler could not bind this repository/environment and saved no
+   tasks. Do not repeat that failed handoff. Native durable work remains available if a scheduler
+   with enforceable binding becomes available; the Mac/Linux CLI worker remains a fallback.
 2. The collector archives exact source bodies, conditional-fetch chains, inventory, attempts,
    candidates/reviews and pending work. Only completed sources advance their cursor. Independently
    validated individual documents can contribute facts while the remaining source stays incomplete.

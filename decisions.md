@@ -1265,3 +1265,17 @@ trusted-private CI alternative while retaining D-83's explicit action-time crede
 No new account login, token creation, credential transfer, spending increase or production cutover
 is authorized by the screenshot itself. Existing task authorization still covers implementation,
 credential-free hosting tests, source validation and direct preview delivery without a PR.
+
+
+**D-109 · 2026-10-21 — Dedicated private CI credential setup explicitly approved.**
+
+Owner, responding to the concrete request for a dedicated Codex subscription login, repo-only
+GitHub secret writer and durable Vercel publisher authorization: "Yeah, she have my approval.
+We need to get this done." This is the action-time approval required by D-83 for that defined
+credential setup. Do not ask again for the same approval. Use protected secret entry and official
+browser/device sign-in; never request credentials in chat or copy a concurrently used local/
+development login. The owner supplies the repo-restricted secret writer in GitHub's protected UI;
+the bootstrap runner creates and persists its own dedicated account login. Verify secure refresh
+write-back and a fresh-runner restore before scheduling work. The existing no-purchase/no-API-fallback,
+source scope and concrete major production-cutover controls remain; this approval does not itself
+assert account setup, full coverage or production readiness.

@@ -64,24 +64,25 @@ Major changes remain held under AGENTS.md; production has not been promoted.
    uses the documented account-auth round-trip. A real credential-free GitHub-hosted runtime canary
    [39695166480](https://github.com/jessepike/sec-market/actions/runs/39695166480) passed in 37 seconds:
    all 20,035 archive files verified, current SEC response valid. The persistence helper passed
-   seven fictional-data tests; [full application CI 39695166516](https://github.com/jessepike/sec-market/actions/runs/39695166516) passed. No account credentials have been
+   16 fictional-data tests; [full application CI 39695166516](https://github.com/jessepike/sec-market/actions/runs/39695166516) passed. No account credentials have been
    transferred; no recurring replacement worker is active. Current integration secret-management
-   and Actions-admin APIs return 403 even though repository push/Actions reads work. D-83 requires
-   explicit approval for a dedicated CI login and repo-restricted secret-writer credential. The actual
+   and Actions-admin APIs return 403 even though repository push/Actions reads work. D-109 now records explicit owner approval for the dedicated CI login, repo-only secret writer
+   and durable Vercel publisher credential. A protected secret-entry request is pending; official
+   runner bootstrap, refresh-probe and bounded collector jobs are prepared. Latest local verification passed 16 runner tests, 251 data tests, 91 pipeline tests and 32 browser tests; 80/80 SEC proofs, zero drift. They share one serialized account stream; no initialization/collection request exists yet. Remote budget escrow prevents a killed runner from resetting daily capacity. The actual
    host receipt is saved; dedicated runner auth, refresh write-back and account usage limits remain
    activation gates. The previous Vercel login directory was transient and is absent in this fresh
    session; durable publisher authorization also remains a governed credential requirement.
-2. Complete source-family onboarding, bounded backfill/current-claim audits, semantic delta efficiency
+2. After protected secret entry, trigger official dedicated runner sign-in and promptly relay its live browser challenge. Prove refresh/write-back on a second fresh runner, then run the bounded collector. No recurring activation before usage/spending checks. Complete source-family onboarding, bounded backfill/current-claim audits, semantic delta efficiency
    and typed ownership/non-SEC financial adapters. Existing selected metric/round/event adapters do
    not cover every field. Current budgets do not clear the historical backlog daily.
-3. Validate native fresh-VM authorization, the actual trusted GitHub gate, live promotion/rollback,
+3. Validate private-runner authorization, the actual trusted GitHub gate, live promotion/rollback,
    missed-worker alert and owner delivery; sustain daily operation. Then review the concrete major
    cutover. Close competing deployment paths before activation. Current prebuilt preview proof
    covers 24 exact static files and 32 remote browser checks; production rollback baseline is saved.
 
-GitHub Git/repository/Actions access and Vercel owner management access are verified. The proposed private CI worker needs a dedicated official account login, separately authorized
-for that job stream. A future runner does not inherit personal credentials;
-never snapshot or transfer OAuth files to CI. D-83 credential governance remains. No API billing
+GitHub Git/repository/Actions access and Vercel owner management access are verified. The dedicated CI account login and credential setup are now explicitly authorized under D-109. A future runner does not inherit personal credentials;
+do not snapshot credentials or copy a local/development login. Create the dedicated CI login through
+official runner/device sign-in and encrypted secret storage. D-83 governance remains for other changes. No API billing
 fallback. The attempted native scheduling route is blocked; private CI is being evaluated. The Mac/Linux
 installer remains a fallback. The local computer
 cannot be inspected here. Saved cloud draft/start instructions are not published or scheduled jobs.

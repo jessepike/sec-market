@@ -1,0 +1,47 @@
+name: dedicated subscription account probe
+
+on:
+  push:
+    branches: [preview]
+    paths: ['ops/ci/probe-request.json']
+  workflow_dispatch:
+
+permissions: {}
+concurrency:
+  group: sec-market-subscription-account
+  cancel-in-progress: false
+
+jobs:
+  restore-and-probe:
+    if: github.repository == 'jessepike/sec-market' && github.event.repository.private == true && (github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[probe-account]'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '22'
+      - name: Install the exact official account client
+        run: |
+          npm install --prefix "$RUNNER_TEMP/smp-cli" --no-save --package-lock=false @openai/codex@0.163.0
+          echo "$RUNNER_TEMP/smp-cli/node_modules/.bin" >> "$GITHUB_PATH"
+      - name: Restore and exercise official refresh and protected write-back
+        env:
+          SMP_CODEX_AUTH_JSON: ${{ secrets.SMP_CODEX_AUTH_JSON }}
+          SMP_AUTH_STORE_TOKEN: ${{ secrets.SMP_AUTH_STORE_TOKEN }}
+        run: python3 ops/ci/probe.py --root "$RUNNER_TEMP/smp-account-probe" --exercise-refresh --output "$RUNNER_TEMP/smp-probe-receipt.json"
+      - name: Retain only the nonsecret probe receipt
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: dedicated-account-probe-receipt
+          path: ${{ runner.temp }}/smp-probe-receipt.json
+          if-no-files-found: error
+          retention-days: 14
+      - name: Remove ephemeral login files
+        if: always()
+        run: rm -rf -- "$RUNNER_TEMP/smp-account-probe"
