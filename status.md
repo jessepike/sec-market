@@ -29,7 +29,7 @@ and [host CI](https://github.com/jessepike/sec-market/actions/runs/39697710737) 
 The real fresh runner reverified 20,035 archive files and a current SEC response. D-109 approval
 is recorded. The protected secret was verified and official dedicated runner sign-in succeeded in run
 39700686412. Its real subscription probe passed and login was saved directly in encrypted
-Actions storage. The first fresh runner restored auth and completed its model call, but aging cache metadata did not trigger rotation. A corrected explicit official app-server refresh probe is being submitted; rotation/write-back acceptance remains pending. No daily
+Actions storage. Fresh-runner explicit official refresh, token rotation, protected write-back and a real model call passed in run 39701323872. The owner reports VERCEL_TOKEN saved; a read-only project-access probe is submitted. Both owner-provided tokens have no expiration, per the owner. No daily
 replacement is active. [Setup and actual receipt](docs/active/daily-pipeline/subscription-ci.md).
 
 ## Actual coverage and durability

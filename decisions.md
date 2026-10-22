@@ -1279,3 +1279,14 @@ the bootstrap runner creates and persists its own dedicated account login. Verif
 write-back and a fresh-runner restore before scheduling work. The existing no-purchase/no-API-fallback,
 source scope and concrete major production-cutover controls remain; this approval does not itself
 assert account setup, full coverage or production readiness.
+
+
+**Operational record · 2026-10-21 — Owner completed protected credential entry.**
+
+Owner: "signed in", then "vercel saved. both have no expiration. this is not a critical info
+site." Official dedicated Codex runner sign-in and its real subscription probe passed; the corrected
+fresh-runner explicit managed refresh confirmed actual rotation and protected write-back in
+39701323872. Record GitHub writer/Vercel token expiration as owner-reported none. Continue the
+approved durable publisher tests without requesting credential approval or imposing a new
+expiration requirement. No new API billing, service purchase or unseen production cutover follows
+from this operational update.
