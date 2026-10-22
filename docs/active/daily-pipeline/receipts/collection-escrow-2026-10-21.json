@@ -1,0 +1,38 @@
+{
+  "githubRunId": "39704072057",
+  "workflowUrl": "https://github.com/jessepike/sec-market/actions/runs/39704072057",
+  "appRevision": "255f5fadca18ad86b5a7fcb1277413ffb6bc7ca9",
+  "independentFreshRestore": true,
+  "archive": {
+    "commit": "8fd2f5d2685c6ae9789d0452ee9f11a383254764",
+    "manifestSha256": "9187749f9de4b69cca967c6ac4835afb8d66c1d75f0ad50b782cceb18a15f33f",
+    "files": 20039
+  },
+  "lease": {
+    "expiresAt": "2026-10-22T04:10:46.088636Z",
+    "role": "collector",
+    "sessionId": "github-39704072057-1",
+    "startedAt": "2026-10-22T01:10:46.088636Z"
+  },
+  "escrows": [
+    {
+      "before": null,
+      "ceiling": {
+        "calls": 80,
+        "documents": 40,
+        "fetches": 5000
+      },
+      "day": "2026-10-22",
+      "sessionId": "github-39704072057-1"
+    }
+  ],
+  "remoteBudget": {
+    "calls": 80,
+    "documents": 40,
+    "fetches": 5000
+  },
+  "phase": "budget_reserved",
+  "completeCollectionAccepted": false,
+  "publicationEnabled": false,
+  "recurringWorkerActivated": false
+}

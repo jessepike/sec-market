@@ -14,25 +14,25 @@ See `source-matrix.csv` for every task, URL, collector, registration, last check
 |---|---|---|---:|---:|---:|---:|---:|
 | Abnormal Security | private | unclassified | 6 | 2 | 1 | 3 | 2 |
 | Aqua Security | private | unclassified | 7 | 4 | 1 | 2 | 3 |
-| Arctic Wolf Networks, Inc. | private | unclassified | 6 | 3 | 0 | 3 | 2 |
+| Arctic Wolf Networks, Inc. | private | unclassified | 6 | 3 | 0 | 3 | 0 |
 | Armis Security Ltd. | acquired | unclassified | 6 | 2 | 0 | 4 | 2 |
-| Axonius, Inc. | private | unclassified | 7 | 4 | 0 | 3 | 3 |
+| Axonius, Inc. | private | unclassified | 7 | 4 | 0 | 3 | 0 |
 | Barracuda Networks | pe-owned | unclassified | 5 | 1 | 1 | 3 | 1 |
-| BeyondTrust | pe-owned | unclassified | 5 | 1 | 1 | 3 | 1 |
-| BigID | private | unclassified | 5 | 1 | 0 | 4 | 1 |
+| BeyondTrust | pe-owned | unclassified | 5 | 1 | 1 | 3 | 0 |
+| BigID | private | unclassified | 5 | 1 | 0 | 4 | 0 |
 | Cato Networks | private | unclassified | 7 | 3 | 1 | 3 | 3 |
 | Chainguard | private | unclassified | 6 | 2 | 1 | 3 | 2 |
 | Check Point Email Security | segment | unclassified | 9 | 2 | 2 | 5 | 2 |
 | Check Point | public | unclassified | 10 | 5 | 1 | 4 | 5 |
 | Claroty Ltd. | private | unclassified | 5 | 1 | 0 | 4 | 1 |
 | Cloudflare | public | unclassified | 13 | 10 | 0 | 3 | 10 |
-| Cohesity | private | unclassified | 5 | 2 | 0 | 3 | 1 |
+| Cohesity | private | unclassified | 5 | 2 | 0 | 3 | 0 |
 | Commvault Systems, Inc. | public | unclassified | 14 | 11 | 0 | 3 | 11 |
 | CrowdStrike Holdings, Inc. | public | unclassified | 12 | 9 | 0 | 3 | 9 |
 | CrowdStrike Falcon Exposure Management | segment | unclassified | 7 | 1 | 0 | 6 | 1 |
 | CyberArk | acquired | unclassified | 6 | 2 | 0 | 4 | 2 |
 | Cyera | private | unclassified | 9 | 5 | 1 | 3 | 5 |
-| Delinea | pe-owned | unclassified | 8 | 4 | 2 | 2 | 4 |
+| Delinea | pe-owned | unclassified | 8 | 4 | 2 | 2 | 2 |
 | Dragos, Inc. | acquired | unclassified | 6 | 3 | 0 | 3 | 2 |
 | eSentire, Inc. | pe-owned | unclassified | 5 | 2 | 0 | 3 | 1 |
 | Exabeam, Inc. | private | unclassified | 5 | 2 | 0 | 3 | 1 |
@@ -65,7 +65,7 @@ See `source-matrix.csv` for every task, URL, collector, registration, last check
 | ReliaQuest, LLC | pe-owned | unclassified | 6 | 3 | 0 | 3 | 2 |
 | Rubrik, Inc. | public | unclassified | 12 | 9 | 1 | 2 | 9 |
 | SentinelOne, Inc. | public | unclassified | 14 | 11 | 0 | 3 | 11 |
-| SailPoint | public | unclassified | 11 | 8 | 0 | 3 | 8 |
+| SailPoint | public | unclassified | 11 | 8 | 0 | 3 | 7 |
 | Snyk, Inc. | private | unclassified | 6 | 3 | 0 | 3 | 2 |
 | Sonatype Inc. | pe-owned | unclassified | 6 | 2 | 1 | 3 | 2 |
 | Sophos Group (Sophos Ltd) | pe-owned | unclassified | 7 | 4 | 0 | 3 | 1 |

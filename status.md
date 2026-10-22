@@ -6,102 +6,85 @@ updated: 2026-10-21
 
 # Status
 
-## Live and delivered
+## Live and held
 
-Production https://securitymarketpulse.com still serves `54590be4d91113a50879a8fb5d180441e7d149f4`.
-Its last inspected certified data change is `2026-10-18T02:36:44.349Z`. Legacy four-hour SEC jobs
-cover 16 filers. They stay until the daily replacement passes acceptance; they do not refresh
-all 74 suppliers. The owner requires sustained accurate operation before promoting to readers.
+Production https://securitymarketpulse.com last acknowledged
+`54590be4d91113a50879a8fb5d180441e7d149f4`; certified data last changed
+`2026-10-18T02:36:44.349Z`. The legacy four-hour SEC schedule covers 16 filers and stays active.
+The daily 74-supplier replacement is on `preview`, with **publication and recurring collection
+disabled**. Major production cutover still requires owner approval after acceptance. No PRs,
+roster expansion, paid API fallback or new infrastructure purchase. No web/layout changes this session.
 
-Native cloud implementation delivered directly to preview at
-`6a43ed1c4a9439fc9ef0ddc13fb76bfab3f54299`.
-[Full GitHub CI passed](https://github.com/jessepike/sec-market/actions/runs/39523581752):
-251 data, 91 pipeline and 32 browser tests; 80/80 SEC proofs and zero drift.
-[Vercel preview](https://security-market-pulse-git-preview-pikeholdings.vercel.app) acknowledges
-that exact commit and discloses incomplete coverage. Full-page desktop/phone renders reviewed;
-this delivery adds no visible change beyond the existing coverage disclosure. **No PRs.**
-Major changes remain held under AGENTS.md; production has not been promoted.
+## Credentials and private CI acceptance
 
-The private subscription runner preparation is now delivered at
-`c8e295d91b7ec39b1aaa3f8447d6aec2c69b6851`. Both [application CI](https://github.com/jessepike/sec-market/actions/runs/39697710710)
-and [host CI](https://github.com/jessepike/sec-market/actions/runs/39697710737) passed:
-16 runner tests, 251 data, 91 pipeline, 32 browser, 80/80 SEC proofs and zero drift.
-The real fresh runner reverified 20,035 archive files and a current SEC response. D-109 approval
-is recorded. The protected secret was verified and official dedicated runner sign-in succeeded in run
-39700686412. Its real subscription probe passed and login was saved directly in encrypted
-Actions storage. Fresh-runner explicit official refresh, token rotation, protected write-back and a real model call passed in run 39701323872. The owner reports VERCEL_TOKEN saved; read-only probe 39701439701 failed with a generic CLI error. A diagnostic rerun and the first explicit bounded collection acceptance request are prepared; publication remains disabled. Both owner-provided tokens have no expiration, per the owner. No daily
-replacement is active. [Setup and actual receipt](docs/active/daily-pipeline/subscription-ci.md).
+D-109 authorizes the dedicated official Codex login, repository-only secret writer and existing-
+project Vercel credential. **Credentials are configured; do not repeat login or secret-entry
+requests.** The owner reports both supplied tokens have no expiration.
 
-## Actual coverage and durability
+- Dedicated runner sign-in, encrypted login storage and real subscription call passed in
+  [39700686412](https://github.com/jessepike/sec-market/actions/runs/39700686412).
+- A second fresh runner proved official `account/read` refresh, token rotation, protected write-back
+  and a real subscription call in [39701323872](https://github.com/jessepike/sec-market/actions/runs/39701323872).
+- Vercel probe `39701439701` hid its CLI error. Diagnostic `39703939654` located it in user lookup
+  before project access. Fixed probe addresses the pinned project with explicit `teamId`, avoiding
+  `--scope` user discovery. [39704072043](https://github.com/jessepike/sec-market/actions/runs/39704072043)
+  passed with the configured credential. Read access is proved; publish permission and production-
+  path controls are not accepted. [Receipt](docs/active/daily-pipeline/receipts/publisher-access-2026-10-21.json).
+- First collector `39703939715` stopped before collection: fresh Ubuntu lacked `pdftotext`.
+  Fixed workflow installs Poppler and initializes a nonsecret setup-failure receipt. Corrected pin
+  **`255f5fadca18ad86b5a7fcb1277413ffb6bc7ca9`** passed
+  [application CI](https://github.com/jessepike/sec-market/actions/runs/39704072065) and
+  [private host canary](https://github.com/jessepike/sec-market/actions/runs/39704072051).
+  24 worker, 251 data, 91 pipeline and 32 hosted browser tests passed; lint/build passed.
+  Local browser 30/32 was limited by blocked Google Fonts requests; hosted browser 32/32 passed.
 
-- Contract: 74 suppliers, 303 bindings, **557 required daily tasks**, 254 missing family bindings,
-  28 candidates, 19 verified sitemap registrations. Startup status is unclassified. No roster
-  expansion or API/infrastructure purchase. [Matrix](docs/active/daily-pipeline/coverage-matrix.md).
-- Actual full run `26863a52238929063d5a6191c7e390dbeacf413920d84ac1b4f2f58bed8cdde7`
-  finished `2026-10-20T22:02:44.836353Z`: **252/557 complete** (32 SEC APIs, 16 primary-document
-  archives, 204 citation checks); 296 not checked, six failed, three blocked. Fourteen held claims,
-  8,875 pending URLs. Eighty collection model reservations reached the limit. No new non-SEC site
-  events/patches. Retrieval does not audit every historical claim. Daily publication is disabled.
-- Implemented: immutable evidence/deltas, persistent budgets, source/document queues, extraction
-  plus independent review, snapshot/receipts, separate GitHub exact-artifact gate, Vercel prebuilt
-  stage/probe/promote/rollback, outside watchdog and native cloud runner. The native queue needs
-  no second CLI login: scheduled agents answer strict role/policy-bound work. Replays retain source
-  timestamps/downloads and reservations. Expiring remote leases and archive CAS reject stale writers;
-  exhausted model capacity stops historical downloads while retaining missing work.
-- Real native runner restored and verified 20,010 files from archive
-  `d38721ca1e1e6b2869c1dfb2dbce14024270ce3c`, acquired an acknowledged lease, and completed a
-  supervised known-fact canary. A fresh retrieved HiddenLayer statement passed a separate official
-  ChatGPT CLI review. This is not a fresh scheduled VM test. Three native work reservations
-  (including a diagnostic duplicate input), one document, one fetch and one live CLI review;
-  no paid fallback. Finish correctly exited 2, preserving 252/557 and 14 held claims, then released
-  its lease. The owner-assigned GitHub notification create/recovery canary passed: issue #7 closed.
-  Phone/email transport is not confirmed.
-- Latest durable custom ref `refs/archive/market-evidence`:
-  **`02c04f568c010e4fa036bd90c791bd9ece01e6e7`**, **20,035 files**, manifest SHA-256
-  **`26f7d3249981cdb983ff6339c5f7237bdd2e57bd5c02ce49c66cddd3d50972df`**.
-  A second independent fresh restore verified all 20,035 files, retained budgets, sealed
-  canary responses, released lease and alert receipt. Native archive/operational state is separate from ordinary app branches and excluded from normal
-  branch fetches. Older `.collect/daily-state` and prior restore copies are stale: restore the latest
-  remote state before writing; never overwrite its newer budgets/heads from an old local copy.
+## Actual collection and durability
 
-## Exact next actions and boundaries
+[Bounded subscription run 39704072057](https://github.com/jessepike/sec-market/actions/runs/39704072057)
+completed on the corrected pin, archived its final state and correctly **exited 2 for incomplete
+coverage**. Run `a466a48826e856d93851c0e8eedf76b47ab3e5cd957086b78196337792b6698d`, scheduled
+`2026-10-22T01:11:00.854231Z`, reconciled `2026-10-22T01:21:15.264539Z`:
 
-1. **Native scheduler handoff FAILED.** On October 21 the owner supplied a screenshot showing
-   the available scheduler cannot bind this repo/published environment or guarantee fresh cloud
-   chats. Neither proposed task was saved or run. Do not repeat that UI handoff. The screenshot
-   is evidence about the attempted scheduler, not proof that every possible cloud surface lacks
-   the capability. The [private CI alternative](docs/active/daily-pipeline/subscription-ci.md)
-   uses the documented account-auth round-trip. A real credential-free GitHub-hosted runtime canary
-   [39695166480](https://github.com/jessepike/sec-market/actions/runs/39695166480) passed in 37 seconds:
-   all 20,035 archive files verified, current SEC response valid. The persistence helper passed
-   16 fictional-data tests; [full application CI 39695166516](https://github.com/jessepike/sec-market/actions/runs/39695166516) passed. No account credentials have been
-   transferred; no recurring replacement worker is active. Current integration secret-management
-   and Actions-admin APIs return 403 even though repository push/Actions reads work. D-109 now records explicit owner approval for the dedicated CI login, repo-only secret writer
-   and durable Vercel publisher credential. A protected secret-entry request is pending; official
-   runner bootstrap, refresh-probe and bounded collector jobs are prepared. Latest local verification passed 16 runner tests, 251 data tests, 91 pipeline tests and 32 browser tests; 80/80 SEC proofs, zero drift. They share one serialized account stream; no initialization/collection request exists yet. Remote budget escrow prevents a killed runner from resetting daily capacity. The actual
-   host receipt is saved; dedicated runner auth, refresh write-back and account usage limits remain
-   activation gates. The previous Vercel login directory was transient and is absent in this fresh
-   session; durable publisher authorization also remains a governed credential requirement.
-2. After protected secret entry, trigger official dedicated runner sign-in and promptly relay its live browser challenge. Prove refresh/write-back on a second fresh runner, then run the bounded collector. No recurring activation before usage/spending checks. Complete source-family onboarding, bounded backfill/current-claim audits, semantic delta efficiency
-   and typed ownership/non-SEC financial adapters. Existing selected metric/round/event adapters do
-   not cover every field. Current budgets do not clear the historical backlog daily.
-3. Validate private-runner authorization, the actual trusted GitHub gate, live promotion/rollback,
-   missed-worker alert and owner delivery; sustain daily operation. Then review the concrete major
-   cutover. Close competing deployment paths before activation. Current prebuilt preview proof
-   covers 24 exact static files and 32 remote browser checks; production rollback baseline is saved.
+- **241/557 complete**: 32 SEC APIs, 16 filing archives, 193 citation checks; 301 not checked,
+  13 blocked, two failed. Prior run was 252/557. Eleven previously passing citations now have
+  five HTTP 403s, three 429s, two 502s and one timeout. All 48 SEC tasks passed.
+- **80 model calls, 39 document reservations, 412 fetches**, no API fallback. October 22 UTC model
+  capacity is exhausted; preserve that budget. 8,557 URLs remain pending, 28 claims held. Four
+  historical source-backed events are retained in the unpublished snapshot; no supplier patches.
+- Fresh independent restore verified **22,468 files**, reproduced every reconciled task and the
+  exact snapshot seal/content. Final lease released `2026-10-22T01:21:35.837403Z`. Pre-work fresh
+  restore also verified the remotely acknowledged 80/40/5,000 crash-protection escrow. Final
+  acknowledged budget records actual 80/39/412 usage. Auth remains outside archived state.
 
-GitHub Git/repository/Actions access and Vercel owner management access are verified. The dedicated CI account login and credential setup are now explicitly authorized under D-109. A future runner does not inherit personal credentials;
-do not snapshot credentials or copy a local/development login. Create the dedicated CI login through
-official runner/device sign-in and encrypted secret storage. D-83 governance remains for other changes. No API billing
-fallback. The attempted native scheduling route is blocked; private CI is being evaluated. The Mac/Linux
-installer remains a fallback. The local computer
-cannot be inspected here. Saved cloud draft/start instructions are not published or scheduled jobs.
+Latest finished `refs/archive/market-evidence`: **`9d39da64faab36500ddcab7c29a47f43a0f82b90`**,
+manifest SHA-256 **`0640d1158a57c4948f5667d2f2f7fde90b11a305db2f8739bc6fc9bd99f67ee4`**.
+[Actual receipt and independent verification](docs/active/daily-pipeline/receipts/subscription-collection-2026-10-21.json).
+Snapshot SHA-256 `d031c5221056248cacc829b524185b1c166b5c609abc169e44e825441bfd5929`.
+**Restore the latest remote state before writing.** Old local copies and the earlier 20,035-file
+archive are stale and must not overwrite newer heads or budgets. Ordinary branch fetches exclude
+this custom ref. Source dates and held work are preserved; retrieval is not a historical claim audit.
 
-[Runbook](docs/active/daily-pipeline/README.md) · [Native task runner](ops/cloud/TASKS.md) ·
-[Current cloud documentation research](docs/active/daily-pipeline/cloud-scheduling.md) ·
-[Validation](docs/active/daily-pipeline/validation.md) · D-104 through D-108 in decisions.md.
+## Remaining acceptance
 
-The attempted environment start-instruction correction returned `stale_base`; persistence is
-unconfirmed. Its complete proposed change is preserved in
-[portable JSON](docs/active/daily-pipeline/environment-correction-2026-10-21.json). This does not
-block the GitHub route or require repeating the failed native scheduler setup.
+1. Complete full-roster coverage: 74 suppliers, 303 bindings, 557 required daily tasks, **254 missing
+   family bindings**, 28 candidates and 19 verified sitemap registrations. Startup status remains
+   unclassified. [Current matrix](docs/active/daily-pipeline/coverage-matrix.md) and CSV now reflect
+   the actual latest run. Address source blocks/retries, bounded backfill/current-claim audits,
+   semantic delta capacity and typed ownership/non-SEC financial adapters. Current budgets do not
+   clear the historical queue daily. Verify Actions usage/spending limits before recurring activation.
+2. Exercise the actual independent GitHub exact-artifact gate, prebuilt publisher permission,
+   promotion/rollback, missed-worker alert and owner delivery; sustain accurate daily operation.
+   Prior prebuilt preview proof covers 24 exact files and 32 remote browser checks; production
+   rollback baseline is saved. Owner-assigned GitHub alert/recovery issue #7 passed; phone/email
+   delivery remains unconfirmed. Close competing publication paths only in the reviewed cutover.
+3. Keep publication and recurring collection disabled until those gates and owner-reviewed major
+   cutover pass. This trial proves bounded private-runner operation, not complete daily acceptance.
+
+The attempted native scheduler could not bind this repo/environment or guarantee fresh chats;
+no native tasks were saved or run. **Do not repeat that failed UI handoff.** Private CI is independent.
+The environment instruction correction returned `stale_base`; its
+[portable proposal](docs/active/daily-pipeline/environment-correction-2026-10-21.json) remains
+unapplied and does not block CI. Saved drafts are not published jobs. Mac/Linux installer is fallback.
+
+[Runbook](docs/active/daily-pipeline/README.md) · [Private CI](docs/active/daily-pipeline/subscription-ci.md) ·
+[Validation](docs/active/daily-pipeline/validation.md) · D-104 through D-109 in decisions.md.

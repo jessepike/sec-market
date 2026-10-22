@@ -1,191 +1,110 @@
 # Subscription-backed private GitHub runner
 
-**Credential setup approved under D-109 (October 21).** Do not ask for that approval again.
-The protected secret-writer entry and official runner sign-in remain actual setup steps; approval
-does not establish that credentials exist or that the worker is active.
+**Credential setup passed under D-109.** Dedicated login, refresh rotation/write-back and the
+existing-project Vercel read probe are proved on fresh GitHub runners. Do not repeat login or
+secret-entry requests. Publication and recurring collection remain disabled; full collection
+acceptance and the production cutover are separate gates.
 
-The owner's October 21 screenshot confirms the native scheduler handoff failed. The scheduler
-available in that chat supports prompts/times/timezones but cannot retain this repository and
-published environment or guarantee fresh cloud chats. No task was saved or run. Do not send the
-owner through that same setup again, or treat natural-language instructions as environment binding.
+## Actual acceptance receipts
 
-## Actual private-runner proof
-
-[GitHub run 39695166480](https://github.com/jessepike/sec-market/actions/runs/39695166480)
-passed in 37 seconds on commit `a9b0ad292fbd7b9e8d7d11e94d24b44343f47d21`.
-Its actual log receipt confirms all 20,035 remote files were restored/hash-verified and a fresh
-Cloudflare SEC companyfacts response returned HTTP 200 with valid CIK/facts. No model call,
-credential transfer, archive mutation or deployment occurred. The archived full-site result remains
-252/557 incomplete. [Bounded receipt](receipts/github-host-2026-10-21.json).
-[Full application CI 39695166516](https://github.com/jessepike/sec-market/actions/runs/39695166516)
-also passed. These prove hosting/source reachability, not subscription auth or daily activation.
-
-## Documented mechanism and concrete credentials
-
-[OpenAI's account-auth CI guide](https://learn.chatgpt.com/docs/auth/ci-cd-auth) explicitly covers
-trusted private ephemeral runners: restore managed ChatGPT auth, run Codex using its subscription,
-and persist the refreshed auth before the next serialized run. It excludes API-key and
-`chatgptAuthTokens` host-integration auth. This requires a **dedicated official Codex account login**
-for this job stream. Do not copy this development session's credentials or a concurrently used
-local login.
-
-The proposed store uses GitHub's encrypted Actions repository secrets:
-
-| Secret | Purpose | Minimum scope |
+| Check | Actual result | Limit |
 |---|---|---|
-| `SMP_CODEX_AUTH_JSON` | Created by a runner bootstrap after official browser/device sign-in, then refreshed by the CLI | This private worker only; never in Git, logs, caches or artifacts |
-| `SMP_AUTH_STORE_TOKEN` | Write the refreshed login back to `SMP_CODEX_AUTH_JSON` | A fine-grained GitHub token restricted to `jessepike/sec-market`, repository Secrets read/write |
-| `VERCEL_TOKEN` (publisher stage) | Durable authorization for the existing `pikeholdings/security-market-pulse` publisher | Minimum available scope for that existing project/team; protected GitHub secret |
+| Private host canary [39695166480](https://github.com/jessepike/sec-market/actions/runs/39695166480) | 20,035 archive files restored/hash-verified and current valid SEC response | Credential-free; no model or archive mutation |
+| Dedicated account [39700686412](https://github.com/jessepike/sec-market/actions/runs/39700686412) | Official browser sign-in, encrypted login storage and real subscription call passed | Runner created its own login; no development auth copied |
+| Official refresh [39701323872](https://github.com/jessepike/sec-market/actions/runs/39701323872) | Fresh-runner restore, `account/read` with `refreshToken: true`, actual token rotation, protected write-back and real subscription call passed | Not a collection or perpetual credential guarantee |
+| Vercel access [39704072043](https://github.com/jessepike/sec-market/actions/runs/39704072043) | Existing project/team read passed using the saved token | Read-only; no deployment; production paths not yet controlled; publish permission not accepted |
+| Corrected application [39704072065](https://github.com/jessepike/sec-market/actions/runs/39704072065) | Full application CI passed | Separate from the independent evidence-bound release gate |
+| Bounded collection [39704072057](https://github.com/jessepike/sec-market/actions/runs/39704072057) | Finished 241/557, exit 2; 80 model calls; final archive independently restored and snapshot reproduced | Incomplete; no recurring trigger or publication |
 
-The earlier Vercel browser approval proved management/staging in one interactive VM. Its temporary
-auth directory is absent in the new session; it was not installed as unattended publisher auth.
-The publisher credential must be separately provisioned and tested before automatic publication.
-No new Vercel service, project or subscription is needed for that requirement.
+[Publisher receipt](receipts/publisher-access-2026-10-21.json) ·
+[collection and independent final verification](receipts/subscription-collection-2026-10-21.json) ·
+[independent pre-work escrow verification](receipts/collection-escrow-2026-10-21.json).
+The owner reports the GitHub secret-writer and Vercel tokens have no expiration.
 
-The workflow's short-lived `GITHUB_TOKEN` handles code/evidence/Actions/alerts with explicit job
-permissions. It cannot update Actions secrets. On October 21 the existing Codex GitHub integration
-could read/push this private repository and inspect Actions runs, but both Actions permission
-administration and the secret public-key endpoint returned **403 Resource not accessible by
-integration**. Repository-level `admin: true` does not grant those missing integration scopes.
+## Diagnosed acceptance failures
 
-Owner approval was obtained for this defined setup under D-109.
-[D-83](../../../decisions.md) explicitly says: "Do not copy local Max credentials to CI, create
-tokens, add OAuth grants or expand material access without explicit action-time approval."
-Later D-104/D-105/D-108 preserve this boundary; D-109 supplies approval for this defined CI setup.
-The protected secret-entry step is pending; no dedicated runner login has been initialized yet.
-After approval, the owner enters only the repo-restricted secret-writer token in GitHub's protected
-Actions secret UI. A bootstrap runner then starts official Codex device sign-in; the owner approves
-it in the browser, and that runner saves its own dedicated auth directly into `SMP_CODEX_AUTH_JSON`.
-The owner never needs to handle or paste the auth JSON. The bootstrap/device flow itself must be
-proved on the real runner; no such login has been started. Never paste a token or login file into chat. No new access is required merely to inspect the proposed code or canary.
+Original Vercel probe [39701439701](https://github.com/jessepike/sec-market/actions/runs/39701439701)
+collapsed every CLI error into one generic failure. Diagnostic rerun
+[39703939654](https://github.com/jessepike/sec-market/actions/runs/39703939654) located failure in
+user lookup before the project endpoint. The fixed request uses the known project ID plus explicit
+`teamId` query and avoids `--scope` user discovery. The configured credential then passed without
+replacement. The probe retains only fixed failure categories; remote response text and credentials
+never enter logs or artifacts. Automatic CLI update checks are disabled.
 
-## Prepared and testable implementation
+First collector [39703939715](https://github.com/jessepike/sec-market/actions/runs/39703939715)
+stopped in dependency setup because the current Ubuntu image lacked `pdftotext`. Neither models
+nor archive operations began. The workflow now installs `poppler-utils`, checks the executable,
+and initializes a nonsecret setup-failure receipt before dependency installation.
 
-- `ops/ci/auth_store.py` validates managed account auth, restores it into a private outside-checkout
-  directory (0700/0600), and sends only changed, current auth bytes through stdin to the official
-  `gh secret set` client. It never sends credentials on argv or into model input. A failed write
-  does not acknowledge or revert refreshed auth and must stop further model work. Host-integrated
-  auth, API-key mode, missing tokens, unsafe paths and symlinks are rejected. It is wired into the prepared bootstrap, probe and bounded collector; none is an active daily worker. Its tests use fictional values only.
-- `.github/workflows/subscription-runtime-canary.yml` is an actual bounded GitHub-hosted test,
-  triggered by changes to its canary files on preview. It uses only GitHub's existing ephemeral
-  read-only token to restore the real private evidence archive, verify every hash and probe one
-  registered SEC source. It transfers no subscription credential, calls no model, changes no
-  remote state and deploys nothing. Its small artifact explicitly records whether that test passed.
-  A green host test is not subscription-worker acceptance or full-site coverage.
+Earlier fresh-runner probe [39700921768](https://github.com/jessepike/sec-market/actions/runs/39700921768)
+restored auth and called the subscription successfully but did not establish refresh rotation.
+Aging `last_refresh` was insufficient in CLI 0.163.0. The corrected helper uses the official
+app-server stdio `account/read` method, rather than calling OAuth endpoints directly. Its accepted
+replacement is run 39701323872 above.
 
-## Remaining activation sequence after approval
+## Authorization and credential isolation
 
-1. Verify the canary's actual GitHub receipt. Confirm Actions minutes and a spending limit that
-   prevents additional charges; subscription model usage does not make runner CPU time unlimited.
-   Billing/secret administration cannot be verified using the current integration's scopes.
-2. Add the repo-restricted secret writer through GitHub's protected UI, then run a dedicated
-   official device sign-in on the bootstrap runner and let it create the encrypted auth secret.
-   Never copy a local/development login. Verify both protected secrets without exposing values. Use one workflow-wide concurrency group with
-   `cancel-in-progress: false`, no PR/fork trigger and a reviewed exact code pin.
-3. Wire the auth helper into the subscription adapter outside model subprocesses. Restore state
-   and budgets first. Run one bounded real auth probe, save any refresh immediately, and checkpoint
-   changed auth after model requests and on failure. If persistence fails, stop model work and alert;
-   do not restore an obsolete bootstrap copy. A crash between refresh and write-back can still
-   require reseeding; unattended auth is not promised to last forever.
-4. Collect once daily, with reconciliation each run. Each extraction/review already uses a fresh
-   isolated CLI context, so independent semantic review does not depend on native chat scheduling.
-   Retain the separate deterministic GitHub release gate and outside freshness watcher. Start with
-   a bounded canary before spending the full collection allowance; measure runtime/capacity before
-   enabling a daily schedule within the account's existing Actions allowance.
-5. Prove secure refresh write-back and restore from a second fresh runner, a deliberate failure/
-   missed-run alert, complete source coverage, exact-artifact staging and rollback. Only then review
-   the concrete major cutover. Publication stays disabled and legacy SEC jobs remain operational.
+[OpenAI's account-auth CI guide](https://learn.chatgpt.com/docs/auth/ci-cd-auth) documents trusted
+private ephemeral runners restoring managed account auth and persisting refreshes between serialized
+runs. API-key and host-integration `chatgptAuthTokens` modes are rejected. D-109 supplies the
+action-time approval required by D-83 for this dedicated CI setup.
 
-The scheduler failure is a new operational finding, not approval to transfer credentials or
-purchase API usage/infrastructure. Current full-site collection remains incomplete at 252/557.
+| Protected repository secret | Purpose |
+|---|---|
+| `SMP_CODEX_AUTH_JSON` | Official dedicated runner login, refreshed by the official CLI |
+| `SMP_AUTH_STORE_TOKEN` | Fine-grained repository-only Secrets read/write for refreshed-auth persistence |
+| `VERCEL_TOKEN` | Existing `pikeholdings/security-market-pulse` publisher credential |
 
+The workflow's ephemeral `GITHUB_TOKEN` supplies explicit code/evidence/Actions permissions and
+cannot update Actions secrets. The development integration cannot administer secrets/billing;
+its 403 responses are not evidence that the configured runner credentials are missing.
+Never request credentials in chat, copy a development/local login or dump auth files/environment.
 
-The old cloud environment draft also rejected the instruction correction with `stale_base`.
-Its portable [complete proposed start-instruction change](environment-correction-2026-10-21.json)
-is preserved here and is not applied. The GitHub host path does not depend on publishing this
-old environment; do not send the owner through new onboarding merely to continue CI work.
+`ops/ci/auth_store.py` restores auth outside checkout with 0700 directories/0600 files and sends
+only changed current auth bytes through stdin to `gh secret set`. No token enters argv or model
+input. Failed persistence does not acknowledge or revert refreshed auth and stops further model
+work. `GuardedRunner` checkpoints after every official execution, including failures. Bootstrap,
+refresh and collection share one noncanceling account concurrency group and have no PR/fork
+trigger. A crash between refresh and write-back can still require a new dedicated login.
 
+The Vercel probe writes the owner-provided token to a fresh private temporary official CLI auth
+file, strips unrelated credentials from child environment/argv and removes the file at exit.
+The fixed endpoint verifies both pinned project and team IDs. Its successful receipt reports
+`productionPathsControlled: false`, `publishPermissionAccepted: false` and no deployment.
+Those are remaining cutover gates, not grounds to expand credentials or alter production now.
 
-## Prepared account bootstrap and refresh acceptance
+## Bounded collection and recovery
 
-`subscription-account-bootstrap.yml` runs only on an explicit private preview initialization
-request or manual dispatch. It uses the official pinned Codex CLI, posts only the temporary
-browser challenge to a private setup check, clears the challenge when the attempt ends, and
-saves the runner's own managed auth directly into the encrypted Actions secret. It refuses to
-overwrite an existing login. One bounded subscription probe follows; login data never enters
-Git, model input, logs or artifacts. Setup receipts contain status/context IDs only.
+`subscription-collector.yml` accepts explicit private-preview requests/manual dispatch only.
+It restores and hash-checks the latest remote evidence archive, acquires a remotely acknowledged
+lease, then reserves remaining daily calls/documents/fetches in that archive before spending them.
+A killed runner leaves the conservative full ceiling reserved; retries cannot reset capacity.
+Normal completion checkpoints actual usage. Archive snapshots occur outside concurrent writes.
 
-`subscription-account-probe.yml` is a separate fresh-runner acceptance job in the same serialized
-account concurrency group. It restores the current secret and requests proactive managed-auth refresh through the
-pinned official client's app-server `account/read` method with `refreshToken: true`. It never calls OAuth endpoints directly. It must confirm
-actual token rotation and a current refresh time, securely save the result, and return one real
-subscription probe. Collection/source dates are not changed by this credential test. A failed
-write-back stops model work. These controlled one-time probes are separate from collection budgets.
+New reservations stop after twenty minutes; an in-flight request can finish within its existing
+timeout. The full job has a 35-minute limit including restore/checkpoints. Each extraction and
+semantic review uses a fresh isolated official CLI context, with no paid API fallback. Auth stays
+outside archived state. Reconciliation retains unresolved work and writes a snapshot/matrix.
+Final acknowledged archive releases the lease; incomplete coverage deliberately exits 2.
+A green workflow is not required to retain an honest incomplete-coverage result.
 
+## Remaining activation gates
 
-## Prepared bounded collector and crash recovery
+1. Full collection acceptance remains incomplete: 241/557 complete, 301 not checked, 13 blocked,
+   two failed; 8,557 pending URLs and 28 held claims. All 48 SEC tasks passed. Citation checks fell
+   from 204 to 193 because five links returned 403, three returned 429, two 502 and one timed out.
+   Actual usage was 80 calls, 39 document reservations and 412 fetches in about eleven minutes.
+   Four historical source-backed events are retained in the unpublished snapshot; no supplier
+   field patches. Every final archive file, reconciled receipt and rebuilt snapshot matched;
+   the lease is released. Do not reset the October 22 UTC model budget for another acceptance run.
+2. Complete missing source families, bounded backfill/current-claim audits, semantic delta efficiency
+   and typed ownership/non-SEC financial adapters. Existing budgets do not clear the historical queue
+   daily. Verify Actions usage and no-additional-charge limits before enabling recurring work.
+3. Exercise the actual independent GitHub exact-artifact gate and publisher stage/live/rollback,
+   missed-worker alert and owner delivery. Sustain accurate daily operation. Review the concrete major
+   cutover before promoting to readers or closing competing publication paths. Legacy SEC jobs stay.
 
-`subscription-collector.yml` is an explicit acceptance job, with no recurring trigger. It restores
-and hash-checks the latest remote archive, acquires an acknowledged lease, and reserves the remaining
-daily call/document/fetch allowance in the remote archive before work. The running process tracks
-actual usage locally. On normal completion it saves that actual usage; a killed runner leaves the
-conservative full allowance reserved, preventing retries from resetting budgets. A failed remote
-reservation cannot begin collection. Archive snapshots occur outside concurrent collection writes.
-
-New collection reservations stop after twenty minutes without altering the canonical source
-contract; an in-flight request may finish within its existing timeout. The whole job has a
-35-minute ceiling including restore and archive checkpoints.
-Model auth is checkpointed after each official CLI execution, including failures. Reconciliation
-reads actual archived attempts, writes the matrix and a snapshot retaining unresolved claims, and
-releases the lease only with an acknowledged final archive. Incomplete coverage exits nonzero.
-Publication remains disabled and no collection request has been submitted. The bootstrap, refresh
-probe and collector share the same noncanceling account concurrency group. Sixteen fictional-data
-unit tests cover credential isolation, failed persistence, deadlines and crash budget protection.
-The existing full application suite also remains required before pushing this preparation.
-
-
-## Delivered implementation verification and owner-only entry
-
-Commit `c8e295d91b7ec39b1aaa3f8447d6aec2c69b6851` is on preview, with no PR.
-[Application CI 39697710710](https://github.com/jessepike/sec-market/actions/runs/39697710710)
-and [private runner 39697710737](https://github.com/jessepike/sec-market/actions/runs/39697710737)
-both passed. The runner verified all 20,035 archive files and fetched a valid current SEC response;
-16 fictional-data worker tests passed. Application CI passed 251 data, 91 pipeline and 32 browser
-tests, 80/80 SEC proofs and zero drift. [Actual bounded receipt](receipts/ci-worker-2026-10-21.json).
-No account initialization, token transfer, recurring collection or publication occurred.
-
-The current owner action is to create a fine-grained token at
-https://github.com/settings/personal-access-tokens/new named `sec-market auth persistence`.
-Use resource owner `jessepike`, select only `sec-market`, and set repository **Secrets: read and
-write**. Leave other permissions at their minimum defaults. Record its expiration for renewal
-monitoring. Save its value directly as **SMP_AUTH_STORE_TOKEN** at
-https://github.com/jessepike/sec-market/settings/secrets/actions/new, and report only `saved` plus
-the expiration. Do not put the value in chat. This is protected credential entry already authorized
-by D-109, not a new permission request. After it is saved, submit the bootstrap request and promptly
-relay the official browser challenge. Durable Vercel publisher auth and usage/spending verification
-remain subsequent activation requirements; the secret entry alone does not finish the rollout.
-
-
-## October 21 live account acceptance
-
-The owner reported the protected GitHub secret saved and completed official browser sign-in.
-[Bootstrap 39700686412](https://github.com/jessepike/sec-market/actions/runs/39700686412) passed:
-the runner created its own dedicated managed login, stored it directly in the encrypted repo
-secret and completed one real subscription call. No development/local auth was copied.
-
-[First fresh-runner probe 39700921768](https://github.com/jessepike/sec-market/actions/runs/39700921768)
-restored that secret and completed its subscription call, but failed acceptance with
-`OFFICIAL_CLIENT_REFRESH_NOT_CONFIRMED`. Aging only `last_refresh` did not exercise rotation in
-CLI 0.163.0. That test assumption has been removed. The exact pinned client's generated
-`GetAccountParams` schema explicitly documents `account/read` with `refreshToken: true` as the
-normal managed refresh-token flow. `ops/ci/account_rpc.py` uses that official stdio protocol,
-with bounded runtime, no credential-bearing transport output, and protected auth checkpoint even
-on failure. It never calls OAuth endpoints directly. Real rotation still requires a passing rerun.
-
-The prepared Vercel access probe accepts only the existing project/team IDs. It restores an owner-
-provided team-scoped `VERCEL_TOKEN` into a private temporary official CLI auth file, removes the
-credential from the child environment and argv, and reads the existing project only. It outputs
-selected nonsecret settings and explicitly does not establish publish permission or change
-production. The owner has been asked to save that token in protected Actions storage; no publisher
-request is submitted until the owner reports it saved. These auth paths have 22 fictional-data
-unit tests including proactive-refresh protocol, timeout cleanup and publisher credential isolation.
+The attempted native scheduler could not bind this repository/environment or guarantee fresh chats;
+no tasks were saved or run. Do not repeat that failed UI handoff. The old environment correction
+returned `stale_base`; its [portable proposal](environment-correction-2026-10-21.json) remains
+unapplied and is independent of this CI route. The Mac/Linux worker remains a fallback.

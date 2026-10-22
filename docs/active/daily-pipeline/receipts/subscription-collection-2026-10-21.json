@@ -1,0 +1,116 @@
+{
+  "workflowUrl": "https://github.com/jessepike/sec-market/actions/runs/39704072057",
+  "githubRunId": "39704072057",
+  "appRevision": "255f5fadca18ad86b5a7fcb1277413ffb6bc7ca9",
+  "workflowConclusion": "failure",
+  "collectorExitCode": 2,
+  "interpretation": "Bounded runner completed and archived an incomplete collection; full coverage acceptance has not passed.",
+  "archivedResult": {
+    "apiFallback": false,
+    "complete": false,
+    "executionMode": "github_subscription",
+    "githubRunId": "39704072057",
+    "modelCalls": 80,
+    "publication": {
+      "published": false,
+      "reason": "INITIAL_CUTOVER_NOT_ENABLED"
+    },
+    "requiredTasks": 557,
+    "reviewQueue": 28,
+    "runId": "a466a48826e856d93851c0e8eedf76b47ab3e5cd957086b78196337792b6698d",
+    "snapshotSha256": "d031c5221056248cacc829b524185b1c166b5c609abc169e44e825441bfd5929",
+    "successfulTasks": 241
+  },
+  "archive": {
+    "commit": "9d39da64faab36500ddcab7c29a47f43a0f82b90",
+    "manifestSha256": "0640d1158a57c4948f5667d2f2f7fde90b11a305db2f8739bc6fc9bd99f67ee4",
+    "files": 22468
+  },
+  "independentVerification": {
+    "runId": "a466a48826e856d93851c0e8eedf76b47ab3e5cd957086b78196337792b6698d",
+    "scheduledAt": "2026-10-22T01:11:00.854231Z",
+    "checkedAt": "2026-10-22T01:21:15.264539Z",
+    "successfulTasks": 241,
+    "requiredTasks": 557,
+    "complete": false,
+    "outcomes": {
+      "checked_no_change": 240,
+      "updated": 1,
+      "blocked": 13,
+      "not_checked": 301,
+      "failed": 2
+    },
+    "errorCounts": {
+      "HTTP_429": 4,
+      "HTTP_403": 9,
+      "HTTP_502": 3,
+      "Unapproved source/redirect host": 1,
+      "TimeoutError": 1,
+      "NO_REGISTERED_DISCOVERY_SOURCE": 254,
+      "EMPTY_EXTRACTION_NOT_INDEPENDENTLY_CONFIRMED": 2,
+      "SOURCE_BINDING_UNVERIFIED": 28,
+      "SUBSCRIPTION_CALL_BUDGET_EXHAUSTED": 14
+    },
+    "successfulKinds": {
+      "sec_facts": 16,
+      "sec_submissions": 16,
+      "citation": 193,
+      "sec_documents": 16
+    },
+    "pendingUrls": 8557,
+    "newFactIds": 1,
+    "snapshotSha256": "d031c5221056248cacc829b524185b1c166b5c609abc169e44e825441bfd5929",
+    "reviewQueue": 28,
+    "eventCount": 4,
+    "supplierUpdateCount": 0,
+    "budget": {
+      "calls": 80,
+      "documents": 39,
+      "fetches": 412
+    },
+    "lease": {
+      "expiresAt": "2026-10-22T04:10:46.088636Z",
+      "releasedAt": "2026-10-22T01:21:35.837403Z",
+      "role": "collector",
+      "sessionId": "github-39704072057-1",
+      "startedAt": "2026-10-22T01:10:46.088636Z"
+    },
+    "heartbeat": {
+      "appRevision": "255f5fadca18ad86b5a7fcb1277413ffb6bc7ca9",
+      "executionMode": "github_subscription",
+      "finishedAt": "2026-10-22T01:21:35.837403Z",
+      "phases": {
+        "finish": 2
+      },
+      "publication": {
+        "published": false,
+        "reason": "INITIAL_CUTOVER_NOT_ENABLED"
+      },
+      "role": "collector",
+      "sessionId": "github-39704072057-1",
+      "startedAt": "2026-10-22T01:10:46.088636Z"
+    },
+    "independentReconciliationMatched": true,
+    "snapshotSealVerified": true,
+    "snapshotRebuildMatched": true,
+    "semanticReceiptCounts": {
+      "document-validation": {
+        "before": 15,
+        "after": 56
+      },
+      "candidate-reviews": {
+        "before": 14,
+        "after": 40
+      },
+      "document-extractions": {
+        "before": 36,
+        "after": 75
+      }
+    },
+    "priorArchiveReadOnly": true
+  },
+  "modelApiFallback": false,
+  "publicationEnabled": false,
+  "recurringWorkerActivated": false,
+  "archiveMutationByVerifier": false
+}

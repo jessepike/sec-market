@@ -14,20 +14,23 @@ Missing source families remain required work: 557 tasks, 303 bindings, 254 missi
 classification remains unclassified until supported explicitly. The roster remains 74 suppliers;
 execution has no hard-coded supplier ceiling.
 
-The real October 20 run completed 252 tasks: 32 SEC APIs, 16 primary filing-document archives,
-204 existing citation checks. Six failed, three blocked and 296 were not checked. Fourteen claims
-are held, 8,875 discovered URLs remain pending. All 80 collection model calls were reserved before
-use; no paid API fallback exists. Citation accessibility and archived filing text do not establish
-that every historical claim has been rechecked. The snapshot contains zero new non-SEC events or
-supplier patches from this run. Never turn a missing binding, blocked response or exhausted budget
-into a successful empty check.
+The real October 22 UTC (October 21 Pacific) private subscription run completed **241/557** tasks:
+32 SEC APIs, 16 primary filing-document archives and 193 existing citation checks. Two failed,
+13 were blocked and 301 were not checked. Twenty-eight claims are held and 8,557 discovered URLs
+remain pending. Actual usage was 80 model calls, 39 document reservations and 412 fetches. Four
+historical source-backed events are retained in the unpublished snapshot; no supplier field patches.
+The model allowance is exhausted for that UTC day. No paid API fallback exists. Citation accessibility
+and archived filing text do not establish that every historical claim has been rechecked. Missing
+bindings, blocked responses and exhausted budgets stay incomplete. The final archive and snapshot
+were independently restored/reproduced; the collector released its lease and correctly exited 2.
+[Actual collection and verification receipt](receipts/subscription-collection-2026-10-21.json).
 
 ## Execution and trust boundaries
 
 1. The current implementation route is a private GitHub-hosted subscription worker using
    [official managed account-auth persistence](subscription-ci.md). The owner approved dedicated
-   credential setup under D-109. A real credential-free runner passed; dedicated device sign-in,
-   refreshed-auth write-back and a second fresh-runner probe are pending the protected secret entry.
+   credential setup under D-109. Dedicated runner sign-in, refreshed-auth write-back and a fresh-runner real model probe passed;
+   Vercel project access also passed. The first corrected bounded collection completed and archived an incomplete result.
    The attempted native cloud scheduler could not bind this repository/environment and saved no
    tasks. Do not repeat that failed handoff. Native durable work remains available if a scheduler
    with enforceable binding becomes available; the Mac/Linux CLI worker remains a fallback.

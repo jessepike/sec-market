@@ -1,0 +1,22 @@
+{
+  "publisherAccessPassed": true,
+  "githubRunId": "39704072043",
+  "projectId": "prj_g8sZPXo81XT2Xopa1oLrsbYjTehV",
+  "teamId": "team_gRV7FrVjjr1PPI1IvgoCEJrH",
+  "scope": "pikeholdings",
+  "rootDirectory": "web",
+  "framework": "vite",
+  "productionPathsControlled": false,
+  "readOnly": true,
+  "deploymentAttempted": false,
+  "publishPermissionAccepted": false,
+  "dailyWorkerActivated": false,
+  "workflowUrl": "https://github.com/jessepike/sec-market/actions/runs/39704072043",
+  "appRevision": "255f5fadca18ad86b5a7fcb1277413ffb6bc7ca9",
+  "receiptSource": "actual completed GitHub job log",
+  "diagnosedRuns": [
+    "39701439701",
+    "39703939654"
+  ],
+  "fix": "Fixed existing-project API endpoint with explicit teamId; no CLI user scope discovery"
+}

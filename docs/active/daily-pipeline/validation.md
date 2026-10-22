@@ -139,3 +139,47 @@ sign-in, protected secret provisioning, refresh persistence across runners, dura
 auth, Actions spend guard, complete coverage and production acceptance remain required.
 No replacement daily schedule is active. The stale environment draft correction is preserved
 as portable repository JSON; it is not applied and does not block the independent GitHub path.
+
+## Durable publisher diagnosis and bounded collection (October 21 Pacific / October 22 UTC)
+
+Acceptance pin `255f5fadca18ad86b5a7fcb1277413ffb6bc7ca9` passed
+[hosted application CI 39704072065](https://github.com/jessepike/sec-market/actions/runs/39704072065)
+and [host canary 39704072051](https://github.com/jessepike/sec-market/actions/runs/39704072051).
+24 fictional-data worker tests, 251 data, 91 pipeline and 32 hosted browser tests passed.
+Local lint/build/data/pipeline passed; local system Chromium passed 30/32 because the cloud policy
+blocked Google Fonts. Hosted Chromium passed all 32 unmodified checks. No web files/layout changed.
+
+Vercel probe 39701439701 hid the actual error. Diagnostic 39703939654 classified it as CLI user
+lookup before the project request. The fixed endpoint passes explicit `teamId` without `--scope`
+user discovery; [39704072043](https://github.com/jessepike/sec-market/actions/runs/39704072043)
+passed using the already-configured credential. No token replacement, deployment or production
+mutation occurred. Read access is proved; publisher permission and production-path controls remain
+unaccepted. [Actual nonsecret receipt](receipts/publisher-access-2026-10-21.json).
+
+First collection attempt 39703939715 failed before evidence/auth work because the fresh Ubuntu
+image lacked `pdftotext`. The workflow now installs Poppler and initializes a nonsecret setup-failure
+receipt. Corrected [39704072057](https://github.com/jessepike/sec-market/actions/runs/39704072057)
+completed in about eleven collection minutes, archived its result and correctly exited 2:
+
+| Actual check | Result |
+|---|---|
+| Coverage | 241/557 complete; 301 not checked, 13 blocked, two failed |
+| Successful sources | All 32 SEC APIs and 16 filing archives; 193 citations |
+| Compared with prior 252/557 | Eleven citations regressed: five 403, three 429, two 502, one timeout |
+| Actual usage | 80 calls, 39 document reservations, 412 fetches; no API fallback |
+| Pending/held work | 8,557 pending URLs, 28 held claims; fixed 254 missing family bindings retained |
+| Semantic artifacts | Document validations 15 → 56; candidate reviews 14 → 40; extractions 36 → 75 |
+| Unpublished candidate | Four historical source-backed events; no supplier field patches |
+| Pre-work crash protection | Independent fresh restore verified 20,039 files and acknowledged 80/40/5,000 escrow |
+| Final archive | Independent fresh restore verified every one of 22,468 files against the pinned manifest |
+| Independent reconciliation | Re-read exact archived attempts, reproduced the full 557-task receipt |
+| Independent snapshot build | Exact complete content and SHA-256 reproduced from receipts and prior snapshot |
+| Lease and final budget | Released; actual 80/39/412 acknowledged remotely; UTC-day model budget remains exhausted |
+| Publication/schedule | Disabled; no production cutover or recurring collection activated |
+
+Final custom ref commit `9d39da64faab36500ddcab7c29a47f43a0f82b90`, manifest SHA-256
+`0640d1158a57c4948f5667d2f2f7fde90b11a305db2f8739bc6fc9bd99f67ee4`.
+Snapshot SHA-256 `d031c5221056248cacc829b524185b1c166b5c609abc169e44e825441bfd5929`.
+The independent verifier did not write the archive. The current source matrix/CSV were regenerated
+from those actual receipts. [Final receipt and detailed verification](receipts/subscription-collection-2026-10-21.json).
+This proves bounded private-runner operation and retained evidence, not full daily acceptance.
