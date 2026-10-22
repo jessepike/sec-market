@@ -6,10 +6,24 @@ from pathlib import Path
 from types import SimpleNamespace
 from unittest.mock import patch
 
-from publisher_probe import PublisherAuth, PROJECT_ID, execute
+from publisher_probe import PublisherAuth, PROJECT_ID, execute, failure_reason
 
 
 class PublisherCredentialTests(unittest.TestCase):
+    def test_failure_classification_never_returns_raw_transport_or_credentials(self):
+        for message, category in [
+            ('Error: unknown option --raw', 'CLI_USAGE'),
+            ('Error: You do not have access to the specified account', 'ACCOUNT_ACCESS_DENIED'),
+            ('Error: The specified scope does not exist', 'TEAM_ACCESS_DENIED'),
+            ('Error: token is not valid', 'TOKEN_REJECTED'),
+            ('Error: Not able to load user: fetch failed', 'NETWORK'),
+            ('Error: Not able to load user', 'USER_LOOKUP'),
+            ('fictional-secret-response', 'UNCLASSIFIED'),
+        ]:
+            with self.subTest(category=category):
+                result = SimpleNamespace(stdout='fictional-secret-token', stderr=message)
+                self.assertEqual(failure_reason(result), 'VERCEL_READ_ONLY_ACCESS_PROBE_FAILED_' + category)
+
     def test_private_auth_file_and_no_credentials_on_argv_or_in_child_environment(self):
         with tempfile.TemporaryDirectory() as folder:
             root = Path(folder) / 'publisher'

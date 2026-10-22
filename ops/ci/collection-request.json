@@ -1,0 +1,10 @@
+{
+  "operation": "bounded_collection_acceptance",
+  "ownerApproval": "D-109",
+  "ownerRequest": "Continue collection acceptance after verified dedicated account login and refresh",
+  "publicationEnabled": false,
+  "recurringWorkerActivated": false,
+  "maximumSeconds": 1200,
+  "requestedAt": "2026-10-22T01:07:27.580424+00:00",
+  "nonce": "5f298bbe07c747349c148b29bb0777c6"
+}

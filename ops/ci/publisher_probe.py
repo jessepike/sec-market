@@ -15,6 +15,25 @@ TEAM_ID = 'team_gRV7FrVjjr1PPI1IvgoCEJrH'
 SCOPE = 'pikeholdings'
 
 
+def failure_reason(result):
+    """Classify CLI failures without retaining remote text or credential values."""
+    text = ((result.stdout or '') + '\n' + (getattr(result, 'stderr', '') or '')).lower()
+    categories = [
+        ('CLI_USAGE', ('unknown option', 'unexpected argument', 'missing required')),
+        ('AUTH_REQUIRED', ('no existing credentials', 'authentication required', 'please log in')),
+        ('TOKEN_REJECTED', ('invalid token', 'token is not valid', 'token has expired', 'unauthorized', 'invalid_token')),
+        ('ACCOUNT_ACCESS_DENIED', ('do not have access to the specified account',)),
+        ('TEAM_ACCESS_DENIED', ('do not have access to the specified team', 'specified scope does not exist')),
+        ('RATE_LIMITED', ('rate limit', 'too many requests')),
+        ('NETWORK', ('fetch failed', 'enotfound', 'econnreset', 'etimedout', 'certificate')),
+        ('USER_LOOKUP', ('not able to load user',)),
+        ('TEAM_LOOKUP', ('not able to load teams',)),
+        ('ACCESS_DENIED', ('forbidden', 'not authorized', 'not_authorized', 'permission')),
+    ]
+    category = next((name for name, markers in categories if any(x in text for x in markers)), 'UNCLASSIFIED')
+    return 'VERCEL_READ_ONLY_ACCESS_PROBE_FAILED_' + category
+
+
 class PublisherAuth:
     def __init__(self, root, token, runner=subprocess.run):
         self.root = Path(root).absolute()
@@ -36,11 +55,11 @@ class PublisherAuth:
 
     def cli(self, args):
         env = safe_process_env()
-        env.update(CI='1', VERCEL_TELEMETRY_DISABLED='1')
+        env.update(CI='1', VERCEL_TELEMETRY_DISABLED='1', NO_UPDATE_NOTIFIER='1')
         result = self.runner(['vercel', *args, '--scope', SCOPE, '--global-config', str(self.root)],
                              capture_output=True, text=True, timeout=90, env=env)
         if result.returncode:
-            raise RuntimeError('VERCEL_READ_ONLY_ACCESS_PROBE_FAILED')
+            raise RuntimeError(failure_reason(result))
         return result.stdout.strip()
 
     def __exit__(self, *_args):
