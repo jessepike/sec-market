@@ -147,7 +147,11 @@ class Pipeline:
                         text = readable_document(body, observation.get("contentType", ""))
                         receipt.setdefault("documents", []).append({"url": url, "body": observation["body"], "text": self.store.put(text.encode())})
                         return
-                    cache_key = digest({"supplier": source["supplierId"], "body": observation["body"]["sha256"], "contract": plan["contractSha256"], "extractor": 3})
+                    page = Page(body.decode("utf8", errors="replace"))
+                    # Re-extract only pages whose newly supported publication
+                    # metadata changes the model input; preserve other caches.
+                    extractor = 4 if page.published_from_time else 3
+                    cache_key = digest({"supplier": source["supplierId"], "body": observation["body"]["sha256"], "contract": plan["contractSha256"], "extractor": extractor})
                     with self.store.lock(f"document-{cache_key}", blocking=True), self.model_lock:
                         cached = self.store.read(f"document-validation/{cache_key}.json")
                         if cached and cached["supplierId"] == source["supplierId"]:
@@ -155,7 +159,6 @@ class Pipeline:
                             receipt.setdefault("heldClaims", []).extend(cached.get("heldClaims", []))
                             receipt.setdefault("documentValidations", []).append({"url": url, "validation": self.store.put(cached)})
                             return
-                        page = Page(body.decode("utf8", errors="replace"))
                         if source["family"] in ("investor_acquirer", "release_distribution") and not mentions_entity(page.readable, self.suppliers[source["supplierId"]]):
                             require(len(page.readable) >= 100, "Shared publisher page is unreadable")
                             validation = {"supplierId": source["supplierId"], "body": observation["body"], "contractSha256": plan["contractSha256"],

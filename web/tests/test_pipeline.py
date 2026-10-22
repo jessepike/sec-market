@@ -127,6 +127,45 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(Page(one).published,'2026-10-19')
         self.assertIsNone(Page(one+two).published)
 
+    def test_labeled_publication_time_is_read_without_borrowing_an_event_or_listing_date(self):
+        time='<div class="press-release-details__date"><time datetime="2019-11-13">Nov 13, 2019</time></div>'
+        page=Page('<main>'+time+'<p>Announcement body</p></main>')
+        self.assertEqual(page.published, '2019-11-13')
+        self.assertTrue(page.published_from_time)
+        self.assertIsNone(Page('<main><time datetime="2026-10-19">Upcoming event</time></main>').published)
+        self.assertIsNone(Page('<main>'+time+time.replace('2019-11-13','2020-07-29')+'</main>').published)
+        self.assertIsNone(Page('<main>'+time.replace('2019-11-13','2019-02-30')+'</main>').published)
+        self.assertIsNone(Page('<time itemprop="dateModified" datetime="2026-10-19">Updated</time>').published)
+        self.assertEqual(Page('<article><time itemprop="datePublished" datetime="2026-10-19T09:00:00Z">Published</time></article>').published,'2026-10-19')
+        self.assertIsNone(Page('<aside>'+time+'</aside>').published)
+        self.assertIsNone(Page('<main><div class="post-date"><time datetime="2026-10-19">Related article</time></div></main>').published)
+
+    def test_existing_publication_metadata_keeps_its_cache_and_ambiguous_metadata_stays_held(self):
+        time='<main><div class="press-release-details__date"><time datetime="2026-10-19">Published</time></div></main>'
+        page=Page('<meta property="article:published_time" content="2026-10-18">'+time)
+        self.assertEqual(page.published,'2026-10-18')
+        self.assertFalse(page.published_from_time)
+        ambiguous=''.join('<script type="application/ld+json">'+json.dumps({'@type':'NewsArticle','datePublished':d})+'</script>' for d in ['2026-10-17','2026-10-18'])
+        self.assertIsNone(Page(ambiguous+time).published)
+
+    def test_new_publication_time_reextracts_old_held_cache_then_reuses_reviewed_result(self):
+        statement='Fixture Vendor raised approximately $10 million.'
+        html=('<html><main><div class="press-release-details__date"><time datetime="2026-10-19">Oct 19, 2026</time></div><p>'+statement+'</p></main></html>').encode()
+        pages={'https://example.invalid/feed.xml':b'<rss><channel><item><link>'+URL.encode()+b'</link></item></channel></rss>',URL:html}
+        old_key=digest({'supplier':'fixture','body':digest(html),'contract':digest(self.c),'extractor':3})
+        self.store.write_once('document-extractions/'+old_key+'.json',{'candidates':[{**candidate(),'effectiveDate':None}],'body':self.store.put(html),'policySha256':digest(self.c)})
+        agent=FakeAgent()
+        def extract(text,supplier):
+            agent.calls+=1
+            self.assertIn('Source publication date metadata: 2026-10-19',text)
+            return [{**candidate(),'valueText':statement,'quote':statement}]
+        agent.extract=extract
+        first=self.run_pipeline(agent=agent,pages=pages)
+        self.assertTrue(first['complete'])
+        self.assertEqual(agent.calls,2)
+        self.assertTrue(self.run_pipeline(agent=agent,pages=pages)['complete'])
+        self.assertEqual(agent.calls,2)
+
     def test_daily_identity_uses_utc_even_when_input_has_an_offset(self):
         a=plan_run(self.c,'2026-10-20T00:30:00Z');b=plan_run(self.c,'2026-10-19T17:30:00-07:00')
         self.assertEqual(a['runId'],b['runId']);self.assertEqual(a['scheduledAt'],b['scheduledAt'])

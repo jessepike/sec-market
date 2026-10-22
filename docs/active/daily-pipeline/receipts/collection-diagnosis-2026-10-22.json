@@ -143,5 +143,62 @@
   "modelCallsThisAudit": 0,
   "archiveChanged": false,
   "publicationEnabled": false,
-  "recurringWorkerActivated": false
+  "recurringWorkerActivated": false,
+  "publicationTimeRepair": {
+    "archivedDocumentsWithNewDateMetadata": [
+      {
+        "url": "https://www.mimecast.com/resources/press-releases/acquisition-dmarc-analyzer/",
+        "publicationDate": "2019-11-13",
+        "oldHold": "Fact date not grounded in source"
+      },
+      {
+        "url": "https://www.mimecast.com/resources/press-releases/acquisition-of-messagecontrol/",
+        "publicationDate": "2020-07-29",
+        "oldHold": "Fact date not grounded in source"
+      },
+      {
+        "url": "https://www.mimecast.com/resources/press-releases/amol-kulkarni-board-of-directors/",
+        "publicationDate": "2024-10-15",
+        "oldHold": "Fact date missing"
+      },
+      {
+        "url": "https://www.mimecast.com/resources/press-releases/apac-expansion/",
+        "publicationDate": "2025-12-10",
+        "oldHold": "Fact date missing"
+      },
+      {
+        "url": "https://www.mimecast.com/resources/press-releases/aron-ain/",
+        "publicationDate": "2017-03-30",
+        "oldHold": "Fact date not grounded in source"
+      }
+    ],
+    "existingClaimsReclassified": false,
+    "modelCalls": 0
+  },
+  "localVisualComparison": [
+    {
+      "width": 1440,
+      "before": [
+        1440,
+        8263
+      ],
+      "after": [
+        1440,
+        8263
+      ],
+      "identicalPixels": true
+    },
+    {
+      "width": 390,
+      "before": [
+        390,
+        7704
+      ],
+      "after": [
+        390,
+        7704
+      ],
+      "identicalPixels": true
+    }
+  ]
 }

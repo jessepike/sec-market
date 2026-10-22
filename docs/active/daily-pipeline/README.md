@@ -177,3 +177,21 @@ Vercel staging/management evidence was subsequently archived at commit
 `6f03fbc6018e7249f00fd4606a71ff7273c317717fc0011693c38d65e34e31da`, 20,004 files.
 This later evidence increment was pushed and hash-manifested; the fresh independent restore proof
 above covers its earlier parent, not an unperformed second restore.
+
+## Durable publisher and collection diagnosis (October 22)
+
+The configured private CI credential now passes actual prebuilt staging in
+[39797014280](https://github.com/jessepike/sec-market/actions/runs/39797014280). All 25 static files
+(24 payload files plus the detached receipt) matched exactly. Production stayed on `54590be`;
+no project setting, alias, archive head or model budget changed. The deployed payload remains the
+retained smoke test, not a new independently gated daily release.
+[Durable staging receipt](receipts/publisher-stage-2026-10-22.json).
+
+An independent restore again verified all 22,468 evidence files and reproduced the 241/557
+reconciliation and exact snapshot. The queue has 8,557 source/URL pairs, 7,936 distinct URLs and
+28 held claims. Twenty-seven holds concern dates. A narrow publication-time parser correction
+recovers metadata on five archived Mimecast documents without accepting their held claims or
+spending another model call. [Collection diagnosis](receipts/collection-diagnosis-2026-10-22.json).
+The existing application CI now retains full-page production and tested-build screenshots at
+1440px and 390px. Major cutover, independent gate, production controls/rollback, complete source
+coverage, usage limits and owner notification delivery still require acceptance.

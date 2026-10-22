@@ -1,7 +1,7 @@
 # Subscription-backed private GitHub runner
 
 **Credential setup passed under D-109.** Dedicated login, refresh rotation/write-back and the
-existing-project Vercel read probe are proved on fresh GitHub runners. Do not repeat login or
+existing-project Vercel read probe and prebuilt staging are proved on fresh GitHub runners. Do not repeat login or
 secret-entry requests. Publication and recurring collection remain disabled; full collection
 acceptance and the production cutover are separate gates.
 
@@ -13,10 +13,12 @@ acceptance and the production cutover are separate gates.
 | Dedicated account [39700686412](https://github.com/jessepike/sec-market/actions/runs/39700686412) | Official browser sign-in, encrypted login storage and real subscription call passed | Runner created its own login; no development auth copied |
 | Official refresh [39701323872](https://github.com/jessepike/sec-market/actions/runs/39701323872) | Fresh-runner restore, `account/read` with `refreshToken: true`, actual token rotation, protected write-back and real subscription call passed | Not a collection or perpetual credential guarantee |
 | Vercel access [39704072043](https://github.com/jessepike/sec-market/actions/runs/39704072043) | Existing project/team read passed using the saved token | Read-only; no deployment; production paths not yet controlled; publish permission not accepted |
+| Durable staging [39797014280](https://github.com/jessepike/sec-market/actions/runs/39797014280) | Existing credential staged the archived prebuilt smoke payload; all 25 static files, including the detached receipt, matched byte for byte | Preview write permission passed; production unchanged; independent gate and production controls remain unaccepted |
 | Corrected application [39704072065](https://github.com/jessepike/sec-market/actions/runs/39704072065) | Full application CI passed | Separate from the independent evidence-bound release gate |
 | Bounded collection [39704072057](https://github.com/jessepike/sec-market/actions/runs/39704072057) | Finished 241/557, exit 2; 80 model calls; final archive independently restored and snapshot reproduced | Incomplete; no recurring trigger or publication |
 
 [Publisher receipt](receipts/publisher-access-2026-10-21.json) ·
+[durable prebuilt staging](receipts/publisher-stage-2026-10-22.json) ·
 [collection and independent final verification](receipts/subscription-collection-2026-10-21.json) ·
 [independent pre-work escrow verification](receipts/collection-escrow-2026-10-21.json).
 The owner reports the GitHub secret-writer and Vercel tokens have no expiration.
@@ -73,6 +75,15 @@ The fixed endpoint verifies both pinned project and team IDs. Its successful rec
 `productionPathsControlled: false`, `publishPermissionAccepted: false` and no deployment.
 Those are remaining cutover gates, not grounds to expand credentials or alter production now.
 
+The October 22 staging probe uses the official CLI's cached team selector only after the pinned
+project/team read passes. This avoids repeating the failing user discovery during `--scope`
+resolution. Its temporary auth directory contains the token and nonsecret selector; deployment
+children inherit no GitHub, account-auth or API credentials. The actual adapter uploads only the
+retained prebuilt payload, checks all 25 static files and confirms the production receipt is
+unchanged. The payload retains its old application revision and smoke-test authority. This
+accepts the durable credential's preview write permission, not a fresh daily release or production
+promotion. No project settings or aliases were changed and the archive was read only.
+
 ## Bounded collection and recovery
 
 `subscription-collector.yml` accepts explicit private-preview requests/manual dispatch only.
@@ -100,9 +111,20 @@ A green workflow is not required to retain an honest incomplete-coverage result.
 2. Complete missing source families, bounded backfill/current-claim audits, semantic delta efficiency
    and typed ownership/non-SEC financial adapters. Existing budgets do not clear the historical queue
    daily. Verify Actions usage and no-additional-charge limits before enabling recurring work.
-3. Exercise the actual independent GitHub exact-artifact gate and publisher stage/live/rollback,
+3. Durable-credential prebuilt staging now passes. Exercise the actual independent GitHub
+   exact-artifact gate and production acknowledgement/rollback,
    missed-worker alert and owner delivery. Sustain accurate daily operation. Review the concrete major
    cutover before promoting to readers or closing competing publication paths. Legacy SEC jobs stay.
+
+The [October 22 independent collection diagnosis](receipts/collection-diagnosis-2026-10-22.json)
+restored and verified all 22,468 files, reproduced the exact reconciliation and rebuilt the snapshot
+using its original parent from archive history. It spent no model calls. The 8,557 pending
+source/URL pairs represent 7,936 distinct URLs; Dragos's investor source alone contributes 3,256.
+Twenty-seven of 28 held claims lack a usable source date. A parser correction now reads explicitly
+labeled publication `<time datetime>` elements on five archived Mimecast pages and refreshes only
+the affected extraction caches. Ambiguous listings, arbitrary event times and invalid dates remain
+unclassified. No existing hold or coverage receipt is upgraded by that offline correction; fresh
+independent model review must fit a later UTC day's retained budget.
 
 The attempted native scheduler could not bind this repository/environment or guarantee fresh chats;
 no tasks were saved or run. Do not repeat that failed UI handoff. The old environment correction

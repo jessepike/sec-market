@@ -3,7 +3,7 @@ import json
 import gzip
 import io
 import re
-from datetime import timedelta
+from datetime import date, timedelta
 import xml.etree.ElementTree as ET
 from html.parser import HTMLParser
 from urllib.parse import urljoin, urlsplit
@@ -17,8 +17,14 @@ class Page(HTMLParser):
         self.links, self.feeds, self.text, self.published = [], [], [], None
         self.regions, self.region_text = [], {"article": [], "main": []}
         self.json_ld, self.json_parts, self.json_dates, self.meta_published = False, [], set(), False
+        self.time_dates, self.published_from_time = set(), False
         self.skip = 0
         self.feed(html)
+        # A labeled article publication date is usable metadata. An arbitrary
+        # event time, modified date or a multi-entry listing is not.
+        if not self.published and not self.json_dates and len(self.time_dates) == 1:
+            self.published = next(iter(self.time_dates))
+            self.published_from_time = True
 
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
@@ -26,6 +32,20 @@ class Page(HTMLParser):
         region = tag if tag in ("article", "main") else "main" if a.get("role") == "main" else None
         if region:
             self.regions.append((tag, region, 1))
+        # This explicit press-release label is verified against archived
+        # Mimecast pages. Generic post-date classes can belong to sidebar cards.
+        publication_classes = {'press-release-details__date'}
+        if publication_classes.intersection(a.get('class', '').split()):
+            self.regions.append((tag, 'publication', 1))
+        regions = {r for _, r, _ in self.regions}
+        if tag == 'time' and (('article' in regions and 'datePublished' in a.get('itemprop', '').split()) or
+                             ('publication' in regions and bool(regions & {'main', 'article'}))):
+            value = a.get('datetime', '')
+            if re.fullmatch(r'\d{4}-\d{2}-\d{2}(?:T.*)?', value):
+                try:
+                    self.time_dates.add(date.fromisoformat(value[:10]).isoformat())
+                except ValueError:
+                    pass
         if tag == "script" and a.get("type") == "application/ld+json":
             self.json_ld, self.json_parts = True, []
         if tag in ("script", "style", "noscript"):
@@ -73,7 +93,7 @@ class Page(HTMLParser):
             self.json_parts.append(data)
         if not self.skip:
             self.text.append(data)
-            for region in {region for _, region, _ in self.regions}:
+            for region in {region for _, region, _ in self.regions if region in self.region_text}:
                 self.region_text[region].append(data)
 
     @property
