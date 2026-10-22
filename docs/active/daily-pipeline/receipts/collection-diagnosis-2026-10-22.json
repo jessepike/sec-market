@@ -200,5 +200,31 @@
       ],
       "identicalPixels": true
     }
-  ]
+  ],
+  "hostedVisualReview": {
+    "workflowRunId": "39797898423",
+    "testedRevision": "5485ccfe466ef06941c938edc72fbea11cd530a9",
+    "artifactId": 12435290077,
+    "artifactSha256": "0d3465a0c5f678e4828943ec6af632143cdb93922990705623fceb10fedb7582",
+    "widths": [
+      1440,
+      390
+    ],
+    "screenshotsInspected": true,
+    "productionCompared": true,
+    "existingPreviewDifferences": "Preview already contains corrected SentinelOne text, refreshed run timestamps and leadership count 42 versus production 43. These predate the publication-time parser correction. Navigation and section layout are retained.",
+    "parserBeforeAfterPixelsIdentical": true
+  },
+  "finalHostedValidation": {
+    "workflowRunId": "39799459596",
+    "appRevision": "1fcacfb4382ed51c309873861dc0eaec05ed2ef6",
+    "dataTestsPassed": 251,
+    "pipelineTestsPassed": 94,
+    "browserTestsPassed": 32,
+    "lintPassed": true,
+    "buildPassed": true,
+    "screenshotsMatchInspectedCaptures": true,
+    "visualArtifactId": 12434827571,
+    "visualArtifactSha256": "d1854036462e472e8b1a031a19d6ec64b8f4e27649982af5431de039cad4a23b"
+  }
 }

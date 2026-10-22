@@ -1,90 +1,81 @@
 ---
 project: Security Market Pulse
 stage: Operate
-updated: 2026-10-21
+updated: 2026-10-22
 ---
 
 # Status
 
 ## Live and held
 
-Production https://securitymarketpulse.com last acknowledged
-`54590be4d91113a50879a8fb5d180441e7d149f4`; certified data last changed
-`2026-10-18T02:36:44.349Z`. The legacy four-hour SEC schedule covers 16 filers and stays active.
-The daily 74-supplier replacement is on `preview`, with **publication and recurring collection
-disabled**. Major production cutover still requires owner approval after acceptance. No PRs,
-roster expansion, paid API fallback or new infrastructure purchase. No web/layout changes this session.
+Production https://securitymarketpulse.com is READY at `54590be4d91113a50879a8fb5d180441e7d149f4`;
+its live receipt reports certified data changed `2026-10-18T02:36:44.349Z`. The legacy four-hour SEC
+schedule stays active. Work is on `preview`; the daily 74-supplier replacement still has
+**publication and recurring collection disabled**. Major cutover requires owner review after
+acceptance. No PRs, roster expansion, paid API fallback, infrastructure purchase, production
+setting/alias change or visible change this session.
 
-## Credentials and private CI acceptance
+## Credentials and publisher acceptance
 
-D-109 authorizes the dedicated official Codex login, repository-only secret writer and existing-
-project Vercel credential. **Credentials are configured; do not repeat login or secret-entry
-requests.** The owner reports both supplied tokens have no expiration.
+**Credentials are configured under D-109; do not repeat login or secret-entry requests.**
+Dedicated sign-in/real subscription calls passed in `39700686412`; official refresh, rotation and
+protected write-back passed on a fresh runner in `39701323872`. Owner reports both supplied tokens
+have no expiration. The development cloud's restricted network is separate from CI credentials;
+use connected GitHub/Vercel tools to inspect jobs.
 
-- Dedicated runner sign-in, encrypted login storage and real subscription call passed in
-  [39700686412](https://github.com/jessepike/sec-market/actions/runs/39700686412).
-- A second fresh runner proved official `account/read` refresh, token rotation, protected write-back
-  and a real subscription call in [39701323872](https://github.com/jessepike/sec-market/actions/runs/39701323872).
-- Vercel probe `39701439701` hid its CLI error. Diagnostic `39703939654` located it in user lookup
-  before project access. Fixed probe addresses the pinned project with explicit `teamId`, avoiding
-  `--scope` user discovery. [39704072043](https://github.com/jessepike/sec-market/actions/runs/39704072043)
-  passed with the configured credential. Read access is proved; publish permission and production-
-  path controls are not accepted. [Receipt](docs/active/daily-pipeline/receipts/publisher-access-2026-10-21.json).
-- First collector `39703939715` stopped before collection: fresh Ubuntu lacked `pdftotext`.
-  Fixed workflow installs Poppler and initializes a nonsecret setup-failure receipt. Corrected pin
-  **`255f5fadca18ad86b5a7fcb1277413ffb6bc7ca9`** passed
-  [application CI](https://github.com/jessepike/sec-market/actions/runs/39704072065) and
-  [private host canary](https://github.com/jessepike/sec-market/actions/runs/39704072051).
-  24 worker, 251 data, 91 pipeline and 32 hosted browser tests passed; lint/build passed.
-  Local browser 30/32 was limited by blocked Google Fonts requests; hosted browser 32/32 passed.
+- Existing-project read passed in `39704072043`. **Durable-credential prebuilt staging now passed**
+  in [39797014280](https://github.com/jessepike/sec-market/actions/runs/39797014280), code `4dc585e`.
+  A verified cached team selector avoids the official CLI's failing user-scope lookup. All **25
+  static files** (24 payload files plus detached receipt) matched byte for byte at
+  https://security-market-pulse-e47i6gdel-pikeholdings.vercel.app. Production was unchanged.
+  This retained smoke payload is revision `a6f987b`, not a fresh independently gated daily release.
+  [Receipt](docs/active/daily-pipeline/receipts/publisher-stage-2026-10-22.json).
+- Application CI `39797014285` and fresh-runner canary `39797014125` passed on `4dc585e`.
+  Hosted production/tested-build screenshots at 1440px and 390px were added in `5485ccf`;
+  application run `39797898423` passed, including all 32 browser tests; four captures were inspected.
+- Collection date repair is on `preview` in `1fcacfb`. Hosted application CI
+  [39799459596](https://github.com/jessepike/sec-market/actions/runs/39799459596) passed: 251 data,
+  94 pipeline and all 32 browser tests, lint/build. Final hosted captures match the inspected set. Explicit publication times now supply dates on five archived Mimecast pages.
+  Arbitrary event/sidebar times, invalid dates and ambiguous listings stay held. Only affected
+  extraction caches refresh; no existing hold or coverage receipt is upgraded. Local 28 worker,
+  251 data and 94 pipeline tests, lint/build passed. System Chromium passed 30/32; two console
+  assertions see blocked font requests. Desktop/phone before/after renders are pixel-identical.
 
-## Actual collection and durability
+## Collection, state and budget
 
-[Bounded subscription run 39704072057](https://github.com/jessepike/sec-market/actions/runs/39704072057)
-completed on the corrected pin, archived its final state and correctly **exited 2 for incomplete
-coverage**. Run `a466a48826e856d93851c0e8eedf76b47ab3e5cd957086b78196337792b6698d`, scheduled
-`2026-10-22T01:11:00.854231Z`, reconciled `2026-10-22T01:21:15.264539Z`:
-
-- **241/557 complete**: 32 SEC APIs, 16 filing archives, 193 citation checks; 301 not checked,
-  13 blocked, two failed. Prior run was 252/557. Eleven previously passing citations now have
-  five HTTP 403s, three 429s, two 502s and one timeout. All 48 SEC tasks passed.
-- **80 model calls, 39 document reservations, 412 fetches**, no API fallback. October 22 UTC model
-  capacity is exhausted; preserve that budget. 8,557 URLs remain pending, 28 claims held. Four
-  historical source-backed events are retained in the unpublished snapshot; no supplier patches.
-- Fresh independent restore verified **22,468 files**, reproduced every reconciled task and the
-  exact snapshot seal/content. Final lease released `2026-10-22T01:21:35.837403Z`. Pre-work fresh
-  restore also verified the remotely acknowledged 80/40/5,000 crash-protection escrow. Final
-  acknowledged budget records actual 80/39/412 usage. Auth remains outside archived state.
+Actual [bounded subscription run 39704072057](https://github.com/jessepike/sec-market/actions/runs/39704072057)
+finished and archived **241/557 complete**, correctly exiting 2: 48 SEC tasks and 193 citations
+passed; 301 tasks were not checked, 13 blocked and two failed. Actual usage: **80 calls / 39 documents /
+412 fetches**. **October 22 UTC model capacity is exhausted; do not reset it or run another model trial.**
+There are 8,557 pending source/URL pairs (7,936 distinct URLs), 28 held claims, four unpublished
+historical events and no supplier patches. Dragos's investor source contributes 3,256 queued URLs;
+27 holds concern dates. Repaired documents still need fresh review within a later UTC day's budget.
 
 Latest finished `refs/archive/market-evidence`: **`9d39da64faab36500ddcab7c29a47f43a0f82b90`**,
 manifest SHA-256 **`0640d1158a57c4948f5667d2f2f7fde90b11a305db2f8739bc6fc9bd99f67ee4`**.
-[Actual receipt and independent verification](docs/active/daily-pipeline/receipts/subscription-collection-2026-10-21.json).
-Snapshot SHA-256 `d031c5221056248cacc829b524185b1c166b5c609abc169e44e825441bfd5929`.
-**Restore the latest remote state before writing.** Old local copies and the earlier 20,035-file
-archive are stale and must not overwrite newer heads or budgets. Ordinary branch fetches exclude
-this custom ref. Source dates and held work are preserved; retrieval is not a historical claim audit.
+A new independent restore verified **22,468 files**, reproduced reconciliation and rebuilt the exact
+snapshot using its parent from archive history. The lease remains released. No remote archive or
+budget changed. **Restore latest remote state before writing**; ordinary branch fetches exclude
+this custom ref. Auth stays outside archives.
+[Actual receipt](docs/active/daily-pipeline/receipts/subscription-collection-2026-10-21.json) ·
+[current diagnosis](docs/active/daily-pipeline/receipts/collection-diagnosis-2026-10-22.json).
 
 ## Remaining acceptance
 
-1. Complete full-roster coverage: 74 suppliers, 303 bindings, 557 required daily tasks, **254 missing
-   family bindings**, 28 candidates and 19 verified sitemap registrations. Startup status remains
-   unclassified. [Current matrix](docs/active/daily-pipeline/coverage-matrix.md) and CSV now reflect
-   the actual latest run. Address source blocks/retries, bounded backfill/current-claim audits,
-   semantic delta capacity and typed ownership/non-SEC financial adapters. Current budgets do not
-   clear the historical queue daily. Verify Actions usage/spending limits before recurring activation.
-2. Exercise the actual independent GitHub exact-artifact gate, prebuilt publisher permission,
-   promotion/rollback, missed-worker alert and owner delivery; sustain accurate daily operation.
-   Prior prebuilt preview proof covers 24 exact files and 32 remote browser checks; production
-   rollback baseline is saved. Owner-assigned GitHub alert/recovery issue #7 passed; phone/email
-   delivery remains unconfirmed. Close competing publication paths only in the reviewed cutover.
-3. Keep publication and recurring collection disabled until those gates and owner-reviewed major
-   cutover pass. This trial proves bounded private-runner operation, not complete daily acceptance.
+1. Finish full-roster coverage: 74 suppliers, 303 bindings, 557 required tasks, **254 missing family
+   bindings**, 28 candidates and 19 verified sitemap registrations. Startup status stays unclassified.
+   Resolve source blocks, bounded history/current-claim audits, semantic delta capacity and typed
+   ownership/non-SEC financial adapters. Current limits cannot clear the historical queue daily.
+   Verify Actions usage/spending limits before recurring activation.
+2. Exercise the independent GitHub exact-artifact gate on reviewed main, production path controls,
+   live acknowledgement/rollback, missed-worker alert and owner delivery, then sustain accurate daily
+   operation. Preview write permission passed; production controls remain unaccepted. Owner-assigned
+   issue #7 alert/recovery passed; phone/email delivery is unconfirmed.
+3. Review the concrete major cutover before promotion or closure of competing publication paths.
+   Keep legacy SEC jobs and publication/recurring holds until acceptance.
 
-The attempted native scheduler could not bind this repo/environment or guarantee fresh chats;
-no native tasks were saved or run. **Do not repeat that failed UI handoff.** Private CI is independent.
-The environment instruction correction returned `stale_base`; its
-[portable proposal](docs/active/daily-pipeline/environment-correction-2026-10-21.json) remains
-unapplied and does not block CI. Saved drafts are not published jobs. Mac/Linux installer is fallback.
-
-[Runbook](docs/active/daily-pipeline/README.md) · [Private CI](docs/active/daily-pipeline/subscription-ci.md) ·
+The failed native scheduler saved/ran no tasks; **do not repeat that UI handoff**. Private CI is
+independent. The unapplied environment correction (`stale_base`) does not block CI; Mac/Linux is
+fallback. [Runbook](docs/active/daily-pipeline/README.md) ·
+[Private CI](docs/active/daily-pipeline/subscription-ci.md) ·
 [Validation](docs/active/daily-pipeline/validation.md) · D-104 through D-109 in decisions.md.
