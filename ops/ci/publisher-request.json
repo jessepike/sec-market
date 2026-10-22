@@ -1,9 +1,9 @@
 {
-  "operation": "verify_existing_publisher",
+  "operation": "stage_archived_prebuilt_smoke_without_promotion",
   "ownerApproval": "D-109",
   "ownerReportedSecretSaved": true,
   "ownerReportedExpiration": "none",
-  "requestedAt": "2026-10-22T01:09:40.394627+00:00",
-  "nonce": "3d049a01716145b780874b11b83bc9a3",
+  "requestedAt": "2026-10-22T14:35:10.700009+00:00",
+  "nonce": "2b38824350384d9ab9a739dae31faec8",
   "diagnosesRun": "39701439701"
 }

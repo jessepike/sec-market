@@ -50,8 +50,26 @@ class PublisherAuth:
             json.dump({'token': self.token}, handle)
             handle.flush()
             os.fsync(handle.fileno())
+        # Official CLI scope resolution accepts a cached team selector. Pin it
+        # only after the fixed project/team API check; no user lookup is needed
+        # for an already verified, repository-owned project.
         self.token = None
         return self
+
+    def pin_verified_team(self):
+        (self.root / 'config.json').write_text(json.dumps({
+            'currentTeam': TEAM_ID, 'cachedTeamIds': {SCOPE: TEAM_ID},
+        }))
+
+    @staticmethod
+    def isolated_runner(args, **kwargs):
+        env = safe_process_env()
+        env.update(CI='1', VERCEL_TELEMETRY_DISABLED='1', NO_UPDATE_NOTIFIER='1')
+        kwargs['env'] = env
+        result = subprocess.run(args, **kwargs)
+        if result.returncode:
+            raise RuntimeError(failure_reason(result).replace('READ_ONLY_ACCESS_PROBE', 'PREBUILT_STAGE'))
+        return result
 
     def cli(self, args):
         env = safe_process_env()

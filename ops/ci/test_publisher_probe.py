@@ -49,12 +49,26 @@ class PublisherCredentialTests(unittest.TestCase):
                     self.assertEqual(root.stat().st_mode & 0o777, 0o700)
                     self.assertEqual((root / 'auth.json').stat().st_mode & 0o777, 0o600)
                     self.assertEqual(json.loads((root / 'auth.json').read_text()), {'token': 'fictional-vercel'})
+                    client.pin_verified_team()
+                    self.assertEqual(json.loads((root / 'config.json').read_text()), {
+                        'currentTeam': TEAM_ID, 'cachedTeamIds': {'pikeholdings': TEAM_ID},
+                    })
                     client.cli(['api', '/v9/projects/' + PROJECT_ID, '--raw'])
             self.assertFalse(root.exists())
             self.assertNotIn('fictional-vercel', calls[0][0])
             self.assertNotIn('--scope', calls[0][0])
             for key in ['GH_TOKEN', 'SMP_AUTH_STORE_TOKEN', 'OPENAI_API_KEY', 'VERCEL_TOKEN', 'CODEX_HOME']:
                 self.assertNotIn(key, calls[0][1])
+
+    def test_stage_runner_sanitizes_inherited_credentials_and_cli_failure(self):
+        with patch.dict(os.environ, {'GH_TOKEN': 'fictional-gh', 'SMP_CODEX_AUTH_JSON': 'fictional-auth',
+                                     'VERCEL_TOKEN': 'fictional-vercel'}), patch('publisher_probe.subprocess.run') as runner:
+            runner.return_value = SimpleNamespace(returncode=1, stdout='fictional-vercel', stderr='Error: Not able to load user')
+            with self.assertRaisesRegex(RuntimeError, '^VERCEL_PREBUILT_STAGE_FAILED_USER_LOOKUP$'):
+                PublisherAuth.isolated_runner(['vercel', 'deploy'], env=dict(os.environ))
+            env = runner.call_args.kwargs['env']
+            for key in ['GH_TOKEN', 'SMP_CODEX_AUTH_JSON', 'VERCEL_TOKEN']:
+                self.assertNotIn(key, env)
 
     def test_unsafe_auth_paths_and_missing_tokens_are_rejected(self):
         from bootstrap import REPO
