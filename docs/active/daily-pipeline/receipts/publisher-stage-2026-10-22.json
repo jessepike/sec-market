@@ -1,0 +1,162 @@
+{
+  "publisherStagePassed": true,
+  "checkedAt": "2026-10-22T14:36:49.164771Z",
+  "githubRunId": "39797014280",
+  "projectId": "prj_g8sZPXo81XT2Xopa1oLrsbYjTehV",
+  "teamId": "team_gRV7FrVjjr1PPI1IvgoCEJrH",
+  "archive": {
+    "commit": "9d39da64faab36500ddcab7c29a47f43a0f82b90",
+    "manifestSha256": "0640d1158a57c4948f5667d2f2f7fde90b11a305db2f8739bc6fc9bd99f67ee4",
+    "files": 22468
+  },
+  "deployment": "https://security-market-pulse-e47i6gdel-pikeholdings.vercel.app",
+  "artifactSha256": "a74f4085880a42980ffc3c12000f7baf48d5887fe3a0e4418724e1200f65bf25",
+  "smokeAppRevision": "a6f987b0bed378ca7135ef92faba8478147184bc",
+  "acknowledgement": {
+    "appRevision": "a6f987b0bed378ca7135ef92faba8478147184bc",
+    "artifactSha256": "a74f4085880a42980ffc3c12000f7baf48d5887fe3a0e4418724e1200f65bf25",
+    "contractSha256": "ea9fa9b42a96f6715839de0d51cb58f9238f13618e5aecad2f5575524c1679b1",
+    "dataReleaseId": "76cb8908434843983d658df19a3e5c011713da973ffd708ef94c039eaec19c84",
+    "ready": true,
+    "snapshotSha256": "c131ac9ecbf3ec3fcddadb74e8d490800e86ce9488a92b037bac2a35aba276b9"
+  },
+  "verifiedStaticFiles": [
+    {
+      "path": "/.well-known/security.txt",
+      "sha256": "ebee4bacc9801522b3c2d2f860a43680aeb6afa3cfab90608eb2e3d2583617ea",
+      "bytes": 164
+    },
+    {
+      "path": "/app-release.json",
+      "sha256": "5bfa6f88c16141d09ed3f46d545982d23805280d36b97420fb7f1b8c8141fa53",
+      "bytes": 595
+    },
+    {
+      "path": "/assets/index-BW-aSQ4L.js",
+      "sha256": "16f3e70cecdb588d9dce1c308b09b52b693bcd376216546cda0dde5c60a7b008",
+      "bytes": 1945416
+    },
+    {
+      "path": "/assets/index-DK9FJloa.css",
+      "sha256": "c1dca51489cfad413d209826c17e4595ecbc451ca19ce1c453c37097d2ac65d4",
+      "bytes": 67447
+    },
+    {
+      "path": "/certified-coverage.json",
+      "sha256": "342bc34cdda19c457f716149fcf5651855331c1f916eb279704dfdc8f93be2ab",
+      "bytes": 165837
+    },
+    {
+      "path": "/corrections.json",
+      "sha256": "42cbac44dc1dfffd217237999eb1d12ae72e4bb142fa9495e8a53d8108999712",
+      "bytes": 2618
+    },
+    {
+      "path": "/corrections/index.html",
+      "sha256": "52ed371c078456e262d40d2e512cdf550c56e903e24523f6fcb3008f91bdf311",
+      "bytes": 9137
+    },
+    {
+      "path": "/daily-coverage.json",
+      "sha256": "10f3762174544a2a4c224f56dd733e272e53c8481d186b7970a73ba23968e57d",
+      "bytes": 478723
+    },
+    {
+      "path": "/deployment-receipt.json",
+      "sha256": "cf0a7f985003a1d0d5172570dc1a67c997ff93fccb90c4940d5cd6899448ec61",
+      "bytes": 406
+    },
+    {
+      "path": "/favicon.svg",
+      "sha256": "61bc9a161de58248288e6905425d7180f0624c2865007b97d763fdac12043a66",
+      "bytes": 9522
+    },
+    {
+      "path": "/feed.xml",
+      "sha256": "eee9e7bb8b8cb1af945f499c725ae7f7c5354be94c7ef068e1ac8fd710d8d0d0",
+      "bytes": 2825
+    },
+    {
+      "path": "/index.html",
+      "sha256": "f5ed6eb6e67022fb0fc0addeb9855703e026ddc95bd878b639ce852c7a9fb035",
+      "bytes": 301474
+    },
+    {
+      "path": "/issues/2026-w36.json",
+      "sha256": "1b7a4deb8bbc52b98a1ded15d4005274645bda039c1d4727437a13ec4179c626",
+      "bytes": 45382
+    },
+    {
+      "path": "/issues/2026-w36/index.html",
+      "sha256": "4a353b60d8dfff8a160cc6555e6eb097d12d64b5fad4a21c6e55182c22bfbf38",
+      "bytes": 34523
+    },
+    {
+      "path": "/issues/index.html",
+      "sha256": "1a7a210cda8bde054f0f6a0ddae04d260984bceed19421ea26ea862950eafee6",
+      "bytes": 7117
+    },
+    {
+      "path": "/issues/index.json",
+      "sha256": "905978012e82819228823891d36c46f4c8cf050a21dbf9ed05dc88203d2031ef",
+      "bytes": 341
+    },
+    {
+      "path": "/issues/lock.json",
+      "sha256": "9578d1a6f9a05739ecab5061d972e141503b7df6f8a0f3bee93bac9321f0b78a",
+      "bytes": 85
+    },
+    {
+      "path": "/og.png",
+      "sha256": "127023c2aaa5d8d7089a1c84d7fba5313fe373a2874071005b6e8addb46335c9",
+      "bytes": 54382
+    },
+    {
+      "path": "/refresh-certification.json",
+      "sha256": "c6e1864a08b9a01e4410bc6c193933ae008987b05617164a2c58c1d6bb45134e",
+      "bytes": 33245
+    },
+    {
+      "path": "/refresh-coverage.json",
+      "sha256": "d9849a53bd9de2787d1a40ae5f4bc6e3b0028b708d6b5c20b565882943fc7a22",
+      "bytes": 857445
+    },
+    {
+      "path": "/refresh-publication.json",
+      "sha256": "733afdaf9f5fcc5c41005532efa663147eb80947d55305de1d44633251f02d1e",
+      "bytes": 597
+    },
+    {
+      "path": "/robots.txt",
+      "sha256": "fdac3a3cb126649d693b906d486352a0e430a90287b3b08d83a5ae85c04cab61",
+      "bytes": 77
+    },
+    {
+      "path": "/sitemap.xml",
+      "sha256": "cb38f2a12abcb6744799ea753471c15d7233e8db0ba14a7c9697520bbfd245fe",
+      "bytes": 1873
+    },
+    {
+      "path": "/thesis/index.html",
+      "sha256": "4b2ed0972eb21c3028f3ac23524528cb015fc40b08bba776907fb06c616249ef",
+      "bytes": 13218
+    },
+    {
+      "path": "/tracker.json",
+      "sha256": "7ec5aa870f755a767404dec513261252c05ee1481272fb840234694cdea276b1",
+      "bytes": 72205
+    }
+  ],
+  "productionAppRevision": "54590be4d91113a50879a8fb5d180441e7d149f4",
+  "productionUnchanged": true,
+  "productionPromoted": false,
+  "projectSettingsChanged": false,
+  "archiveChanged": false,
+  "modelCalls": 0,
+  "independentReleaseGateAccepted": false,
+  "productionPathsControlled": false,
+  "dailyWorkerActivated": false,
+  "workflowUrl": "https://github.com/jessepike/sec-market/actions/runs/39797014280",
+  "probeRevision": "4dc585e6c2eebd1964ff3d5a2c7f307143a12f67",
+  "receiptSource": "actual completed private GitHub job log"
+}
