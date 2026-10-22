@@ -56,7 +56,9 @@ class PublisherAuth:
     def cli(self, args):
         env = safe_process_env()
         env.update(CI='1', VERCEL_TELEMETRY_DISABLED='1', NO_UPDATE_NOTIFIER='1')
-        result = self.runner(['vercel', *args, '--scope', SCOPE, '--global-config', str(self.root)],
+        # The endpoint carries the known team ID. --scope first performs user
+        # discovery, which can fail before a team-scoped token reaches it.
+        result = self.runner(['vercel', *args, '--global-config', str(self.root)],
                              capture_output=True, text=True, timeout=90, env=env)
         if result.returncode:
             raise RuntimeError(failure_reason(result))
@@ -71,7 +73,7 @@ def execute(root):
         raise RuntimeError('PRIVATE_GITHUB_RUNNER_REQUIRED')
     token = os.environ.pop('VERCEL_TOKEN', '')
     with PublisherAuth(root, token) as client:
-        project = json.loads(client.cli(['api', '/v9/projects/' + PROJECT_ID, '--raw']))
+        project = json.loads(client.cli(['api', '/v9/projects/' + PROJECT_ID + '?teamId=' + TEAM_ID, '--raw']))
         if project.get('id') != PROJECT_ID or project.get('accountId') != TEAM_ID:
             raise RuntimeError('EXISTING_VERCEL_PROJECT_AND_TEAM_DIFFER')
         return {'publisherAccessPassed': True, 'githubRunId': os.environ['GITHUB_RUN_ID'],

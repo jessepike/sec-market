@@ -6,10 +6,22 @@ from pathlib import Path
 from types import SimpleNamespace
 from unittest.mock import patch
 
-from publisher_probe import PublisherAuth, PROJECT_ID, execute, failure_reason
+from publisher_probe import PublisherAuth, PROJECT_ID, TEAM_ID, execute, failure_reason
 
 
 class PublisherCredentialTests(unittest.TestCase):
+    def test_project_probe_uses_fixed_team_without_user_scope_discovery(self):
+        project = {'id': PROJECT_ID, 'accountId': TEAM_ID, 'rootDirectory': 'web', 'framework': 'vite'}
+        with tempfile.TemporaryDirectory() as folder, patch.dict(os.environ, {
+            'GITHUB_ACTIONS': 'true', 'GITHUB_REPOSITORY': 'jessepike/sec-market',
+            'GITHUB_RUN_ID': 'fictional-run', 'VERCEL_TOKEN': 'fictional-token',
+        }), patch('publisher_probe.PublisherAuth.cli', return_value=json.dumps(project)) as cli:
+            receipt = execute(Path(folder) / 'auth')
+        cli.assert_called_once_with(['api', '/v9/projects/' + PROJECT_ID + '?teamId=' + TEAM_ID, '--raw'])
+        self.assertTrue(receipt['publisherAccessPassed'])
+        self.assertFalse(receipt['publishPermissionAccepted'])
+        self.assertFalse(receipt['deploymentAttempted'])
+
     def test_failure_classification_never_returns_raw_transport_or_credentials(self):
         for message, category in [
             ('Error: unknown option --raw', 'CLI_USAGE'),
@@ -40,6 +52,7 @@ class PublisherCredentialTests(unittest.TestCase):
                     client.cli(['api', '/v9/projects/' + PROJECT_ID, '--raw'])
             self.assertFalse(root.exists())
             self.assertNotIn('fictional-vercel', calls[0][0])
+            self.assertNotIn('--scope', calls[0][0])
             for key in ['GH_TOKEN', 'SMP_AUTH_STORE_TOKEN', 'OPENAI_API_KEY', 'VERCEL_TOKEN', 'CODEX_HOME']:
                 self.assertNotIn(key, calls[0][1])
 

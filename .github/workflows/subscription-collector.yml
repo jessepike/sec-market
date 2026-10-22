@@ -26,6 +26,18 @@ jobs:
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: '22'
+      - name: Initialize nonsecret setup receipt and install document reader
+        run: |
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          receipt = {'githubRunId': os.environ['GITHUB_RUN_ID'], 'complete': False,
+                     'reason': 'RUNNER_SETUP_NOT_COMPLETED', 'apiFallback': False,
+                     'publication': {'published': False, 'reason': 'INITIAL_CUTOVER_NOT_ENABLED'}}
+          (Path(os.environ['RUNNER_TEMP']) / 'smp-collection-receipt.json').write_text(json.dumps(receipt, indent=2) + '\n')
+          PY
+          sudo apt-get update -qq
+          sudo apt-get install --yes --no-install-recommends poppler-utils
       - name: Install pinned application and official account client
         run: |
           npm ci --prefix web --no-audit --no-fund
