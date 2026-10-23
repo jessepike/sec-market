@@ -13,13 +13,13 @@ Everything not listed here is history: superseded, completed, or about a phase t
 | Purpose | D-1, D-76, D-77, D-102 | Intent is the authority (v1.4 accepted; v1.5 awaiting the owner's confirmation). Facts publish with no human approval step; no machine publishes a judgment. A standing supplier tracker is the product |
 | What may be called verified | D-85, D-89, D-100 | Publishing needs 100% of required claims. The certified tier is the SEC filers. The page says "re-derived from SEC filings", not "independently verified" |
 | Events | D-91 | Filed events are dated, uniform, rule-listed facts from SEC filings |
-| Automation | D-104 through D-110 | Owner-approved daily collection, independently gated fact publication and controlled rollback verification through private GitHub Actions and the existing Vercel project. Legacy certified refresh and automatic branch promotion are disabled. Actual scheduled and live receipts still required |
+| Automation | D-104 through D-110 | Owner-approved daily collection, independently gated fact publication and controlled rollback through private GitHub Actions and the existing Vercel project. The first actual scheduled collection, publication and rollback/restoration passed October 23; sustained operation remains open. Legacy publication paths stay disabled |
 | Deploy path | D-31, D-32, D-50, D-110 | Reviewed code advances from preview to main; Vercel Git production paths are closed. Main's independent gate produces the exact static artifact, which stages without domains before acknowledged promotion. Commits use `jesse@keatingpike.com` |
 | Attribution | D-90, D-97 | Method-page byline in the owner's legal name, Jesse Pike, with an interests statement |
 | Records | D-68, D-93 | Published records change only through dated corrections. The weekly issue is retired; issue `2026-w36` stays as an archive |
 | Distribution | D-92 | Email capture and a digest of certified changes, built as one workstream |
 | Security | D-83 (credential boundary), D-99 | No tokens or credentials copied to CI without approval at the time. Security headers and DNS hardening on both sites |
-| Daily coverage | D-104 through D-110 | Bounded daily collection for all 74 current suppliers authorized. Every published changed fact needs evidence and checks; complete SEC certification remains mandatory. Partial general coverage stays explicit. No paid fallback; actual scheduled, production and rollback receipts remain acceptance work |
+| Daily coverage | D-104 through D-110 | Bounded daily collection for all 74 current suppliers authorized. Every published changed fact needs evidence and checks; complete SEC certification remains mandatory. Actual scheduled coverage is 121/557 with explicit gaps and holds. First live release and controlled rollback are verified; full coverage and sustained operation remain open. No paid fallback |
 | Roadmap | D-94, D-104 | A quarterly owner-written note is on the backlog. Private-company extraction is now authorized within the daily pipeline workstream |
 
 Numbering note: D-34 was recorded before D-33 on 2026-08-16; both stand as written.
@@ -1314,3 +1314,27 @@ remains charged. Do not infer completion from approval, a passing build or a sta
 Retain actual scheduled, production, rollback/restoration and monitoring receipts in the
 [activation record](docs/active/daily-pipeline/activation-2026-10-23.md). Sustained operation and
 full source coverage remain separate open acceptance work.
+
+
+**Operational record · 2026-10-23 — First scheduled daily release and controlled restoration verified.**
+
+Actual scheduled main collector `39946689429` completed 121/557 required source checks with
+`executionCompleted: true`, `complete: false` and zero model calls. Its genuine-source publisher
+callback `39947099729` passed independent main gate `39947450834` and published sequence 1,
+release `2e17a786a85e46406df0cdc10da99819dd20f3f6b385f5acc328e51a7a4ec390`, on application
+`7bd94ec77e99462c068f254e134235a894585cbb`. Controlled drill `39947974279` acknowledged the
+retained baseline and restored current production at 11:46 UTC, verifying current static bytes
+while preserving the accepted production head. The legacy baseline's lack of a full original byte
+inventory stays explicit in that receipt.
+
+Regular scheduled publisher `39948978666` confirmed no new release was needed. Repeat collector
+`39954446259` verified scheduled source reuse without renewing source timestamps. Independent
+scheduled monitor `39950995198` retains only explicit incomplete-coverage and 28-review-queue
+reasons; execution issues 8 and 9 closed on recovery, while coverage issue 10 remains open.
+This is first-cycle activation evidence, not sustained operation or full source coverage.
+
+October 23's independent-gate allowance is 2/2 spent. Keep main frozen at the accepted application
+revision; documentation can advance on preview. Temporary date-guarded crons and the one-time
+drill guard stay in place until the next regular code promotion. No budget was reset, and no PR,
+purchase or paid API fallback was used. Archive pins and receipts are retained in the
+[activation record](docs/active/daily-pipeline/activation-2026-10-23.md).

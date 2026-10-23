@@ -33,14 +33,18 @@ GitHub Actions chain: `subscription-collector.yml`, `subscription-publisher.yml`
 refresh and automatic main-promotion workflows are disabled. A successful bounded collector may
 retain explicit source gaps; those gaps do not become fresh checks. Track actual scheduled runs,
 exact-artifact production acknowledgements, certified filing delivery within 48 hours, manual fixes
-and execution alerts. Sustained operation is still unproved; no clean-day count is claimed.
+and execution alerts. October 23's actual scheduled collection, callback publication, main gate,
+controlled rollback/restoration and independent monitoring now have receipts. A regular publisher
+also proved no-op recovery, and a repeat scheduled collector proved honest source reuse. This is
+the first completed activation cycle; sustained operation is still unproved and no multi-day
+clean count is claimed. Execution issues 8/9 closed; issue 10 retains explicit coverage gaps.
 The owner has not set the acceptance duration (previous recommendation: 30 days).
 **Authorization:** D-104 through D-110; [current activation record](docs/active/daily-pipeline/activation-2026-10-23.md).
 
 ### SEC-071 · Complete and disclose full-roster source coverage
 
 Bounded daily collection for all 74 existing suppliers is authorized and implemented. The latest
-completed source run checked 244/557 tasks; full source coverage remains incomplete, with 254
+actual scheduled source run checked 121/557 tasks; full source coverage remains incomplete, with 254
 missing family bindings and 28 held claims. Resolve source registration, blocks, dated evidence,
 typed ownership/financial adapters and retained historical audits within existing budgets. Keep
 task and field ages visible and leave unsupported or unchecked facts held. General partial coverage
