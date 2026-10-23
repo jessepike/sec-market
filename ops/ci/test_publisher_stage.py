@@ -61,8 +61,10 @@ class PublisherBytesTests(unittest.TestCase):
                     return SimpleNamespace(returncode=0, stdout='{}', stderr='')
                 return SimpleNamespace(returncode=0, stdout='{"id":"dpl_123","projectId":"prj_123","readyState":"READY","target":"production","url":"exact.vercel.app"}', stderr='')
             adapter.runner = runner
-            with patch.object(adapter, '_get', return_value={'appRevision': 'a'*40}):
+            with patch.object(adapter, '_get', return_value={'appRevision': 'a'*40}), \
+                 patch.object(adapter, '_close_assignment_after_alias') as close:
                 adapter._switch_production('https://exact.vercel.app', operation)
+            close.assert_called_once_with()
             self.assertEqual(commands[0][2], '/v13/deployments/exact.vercel.app?teamId=team_123')
             self.assertEqual(commands[1][2], '/' + version + '/projects/prj_123/' + operation + '/dpl_123?teamId=team_123')
             self.assertIn('POST', commands[1])
@@ -86,6 +88,46 @@ class PublisherBytesTests(unittest.TestCase):
         with patch.object(adapter,'_cli',side_effect=RuntimeError('remote token sensitive')):
             with self.assertRaisesRegex(RuntimeError,'VERCEL_ROLLBACK_FAILED_UNCLASSIFIED'):
                 adapter._alias_api(['api','/fictional'],'ROLLBACK')
+
+    def test_alias_server_assignment_flip_is_closed_with_only_narrow_patch(self):
+        from vercel import IGNORE_GIT_PRODUCTION
+        import json
+        adapter=self.adapter([])
+        project={'id':'prj_123','accountId':'team_123', 'commandForIgnoringBuildStep':IGNORE_GIT_PRODUCTION,
+                 'autoAssignCustomDomains':True}
+        calls=[]
+        def api(args,phase):
+            calls.append((args,phase))
+            if '--method' in args:
+                self.assertEqual(args[args.index('--method')+1],'PATCH')
+                from pathlib import Path
+                self.assertEqual(json.loads(Path(args[args.index('--input')+1]).read_text()),
+                                 {'autoAssignCustomDomains':False})
+                project['autoAssignCustomDomains']=False
+                return '{}'
+            return json.dumps(project)
+        with patch.object(adapter,'_alias_api',side_effect=api):
+            adapter._close_assignment_after_alias()
+        self.assertEqual(len(calls),3)
+        self.assertTrue(all(phase=='CONTROL' for _,phase in calls))
+
+    def test_already_closed_assignment_needs_no_patch(self):
+        from vercel import IGNORE_GIT_PRODUCTION
+        import json
+        adapter=self.adapter([])
+        with patch.object(adapter,'_alias_api',return_value=json.dumps({'id':'prj_123','accountId':'team_123',
+                 'commandForIgnoringBuildStep':IGNORE_GIT_PRODUCTION,'autoAssignCustomDomains':False})) as api:
+            adapter._close_assignment_after_alias()
+        self.assertEqual(api.call_count,1)
+
+    def test_changed_ignore_command_fails_before_any_control_patch(self):
+        import json
+        adapter=self.adapter([])
+        with patch.object(adapter,'_alias_api',return_value=json.dumps({'id':'prj_123','accountId':'team_123',
+                 'commandForIgnoringBuildStep':'different','autoAssignCustomDomains':True})) as api:
+            with self.assertRaisesRegex(ValueError,'VERCEL_CONTROL_IDENTITY_OR_IGNORE_DIFFERS'):
+                adapter._close_assignment_after_alias()
+        self.assertEqual(api.call_count,1)
 
     def test_normal_probe_verifies_actual_static_bytes(self):
         adapter = self.adapter([])

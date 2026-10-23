@@ -141,12 +141,32 @@ class VercelAdapter:
         for attempt in range(36):
             try:
                 if self._get(self.site, '/app-release.json') == expected:
+                    self._close_assignment_after_alias()
                     return
             except (ValueError, OSError):
                 pass
             if attempt < 35:
                 time.sleep(5)
         raise ValueError('VERCEL_ALIAS_CHANGE_NOT_ACKNOWLEDGED')
+
+    def _close_assignment_after_alias(self):
+        path = '/v9/projects/' + self.project_id
+        def read():
+            project = json.loads(self._alias_api(['api', path, '--raw'], 'CONTROL'))
+            require(project.get('id') == self.project_id and project.get('accountId') == self.team_id
+                    and project.get('commandForIgnoringBuildStep') == IGNORE_GIT_PRODUCTION,
+                    'VERCEL_CONTROL_IDENTITY_OR_IGNORE_DIFFERS')
+            return project
+        project = read()
+        if project.get('autoAssignCustomDomains') is True:
+            # Promotion/rollback may change this server-side. Repair only this
+            # already authorized invariant; never replace unrelated settings.
+            with tempfile.TemporaryDirectory(prefix='smp-control-') as directory:
+                body = Path(directory) / 'body.json'
+                body.write_text('{"autoAssignCustomDomains":false}')
+                self._alias_api(['api', path, '--method', 'PATCH', '--input', str(body), '--raw'], 'CONTROL')
+            project = read()
+        require(project.get('autoAssignCustomDomains') is False, 'VERCEL_CONTROL_ASSIGNMENT_NOT_CLOSED')
 
     def _alias_api(self, args, phase):
         try:
