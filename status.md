@@ -54,8 +54,8 @@ Validation before activation: 83 operational tests in OrbStack; application runs
 [39914570279](https://github.com/jessepike/sec-market/actions/runs/39914570279), plus canary
 [39914569790](https://github.com/jessepike/sec-market/actions/runs/39914569790), passed.
 Restore the latest `refs/archive/market-evidence` before writing state; auth stays outside it.
-No PR, purchase or paid API fallback was used. The original checkout's local M2 edits remain
-preserved. Implementation checkout: `/Users/jessepike/code/projects/sec-market-finish-20261022`.
+No PR, purchase or paid API fallback was used. The original checkout's uncommitted status and
+lessons edits remain preserved. Implementation checkout: `/Users/jessepike/code/projects/sec-market-finish-20261022`.
 
 [Activation receipts and archive pins](docs/active/daily-pipeline/activation-2026-10-23.md) ·
 [Current operations](docs/active/daily-pipeline/github-operations.md) ·

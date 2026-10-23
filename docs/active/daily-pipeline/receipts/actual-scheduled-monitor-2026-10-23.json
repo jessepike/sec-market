@@ -1,0 +1,37 @@
+{
+  "githubRun": {
+    "conclusion": "failure",
+    "created_at": "2026-10-23T12:07:36Z",
+    "event": "schedule",
+    "head_branch": "main",
+    "head_sha": "7bd94ec77e99462c068f254e134235a894585cbb",
+    "html_url": "https://github.com/jessepike/sec-market/actions/runs/39950995198",
+    "id": 39950995198,
+    "path": ".github/workflows/freshness.yml",
+    "run_attempt": 1,
+    "status": "completed",
+    "updated_at": "2026-10-23T12:07:59Z"
+  },
+  "monitorResult": {
+    "healthy": false,
+    "checkedAt": "2026-10-23T12:07:45.077767Z",
+    "runId": "e054ea73c89fe78db9702f94d2a3b669ce91884f7d7abda0a88698dbcfc7ec50",
+    "reasons": [
+      "OVERDUE_OR_INCOMPLETE_COVERAGE",
+      "PUBLIC_COVERAGE_INCOMPLETE_OR_OVERDUE",
+      "OWNER_REVIEW_QUEUE_28"
+    ],
+    "publicationEnabled": true,
+    "scheduledRunUrl": "https://github.com/jessepike/sec-market/actions/runs/39946689429",
+    "successfulTasks": 121,
+    "requiredTasks": 557,
+    "notification": {
+      "delivery": "github_issue_updated",
+      "url": "https://github.com/jessepike/sec-market/issues/10",
+      "number": 10,
+      "state": "open",
+      "notificationTransport": "GitHub account notification settings"
+    }
+  },
+  "interpretation": "The scheduled monitor ran and delivered the assigned-owner coverage alert. Its failure preserves incomplete coverage; timer, worker and production acknowledgement checks produced no additional failures."
+}

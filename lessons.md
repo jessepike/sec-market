@@ -10,6 +10,7 @@ promoted there are removed from this file; Git history keeps them.
 
 ## 2026-10-23
 
+- [new:2026-10-23] An actual timer can execute several hours after its cron window. Verify GitHub's schedule event and the matching immutable collection receipt; a delayed acceptance retry must preserve the original source-check time and budgets. Successful execution can reduce current coverage when rechecks exhaust the fetch allowance, so retain the new gaps rather than presenting the earlier count as fresh.
 - [new:2026-10-23] A successful Vercel prebuilt upload does not prove that high-level promotion or rollback can resolve the same account. Use the explicit verified team and project API routes, validate the READY immutable target, await the live receipt, and recheck that automatic domain assignment stays closed. Runtime acceptance remains separate from local adapter tests.
 - [new:2026-10-23] The public tracker export has no event inventory. Verify a missing event in the rendered feature and exact staged bundle; a rolling count can fall when an older event ages out even when the new correction is present.
 - [new:2026-10-23] A GitHub concurrency group permits only one pending job, so a new pending callback can displace a collector even with cancel-in-progress false. Run read-only acceptance preflight outside the mutation group and require the actual scheduled collection receipt before requesting it.

@@ -15,17 +15,21 @@ who advise and sell to them. It publishes facts, not opinions.
   publishes.
 - **Everything else** was collected from company releases and pages, keeps its own source and date,
   and is labeled as not certified on the page.
-- **Fully automated.** GitHub Actions checks SEC filings every 4 hours. A change goes to the preview
-  site, then to production once the full test suite passes and a fresh check reproduces it. Routine
-  code changes publish the same way; major changes wait for the owner. No laptop and no secrets. GitHub,
-  Vercel and Cloudflare run on free plans; whether Vercel's Hobby plan allows commercial use is
-  still to be checked (SEC-061).
+- **Daily operation.** Private GitHub Actions collects bounded source changes at 05:17 UTC daily.
+  A separate publisher runs after successful scheduled collection and at 06:23/16:23 UTC. It
+  replays the SEC claims, tests the exact artifact, uploads it to the existing Vercel project and
+  verifies production bytes. Public facts may publish after these checks; market judgments remain
+  owner-written. Coverage gaps remain visible. The existing protected GitHub secrets supply the
+  subscription account and publisher; Codex Cloud and a running laptop are not dependencies.
 
-Details: [docs/reference/architecture.md](docs/reference/architecture.md).
+Current operation: [GitHub/Vercel runbook](docs/active/daily-pipeline/github-operations.md).
+Architecture: [docs/reference/architecture.md](docs/reference/architecture.md).
 
 ## Status
 
-Live and updating itself. Current state, open items and next steps: [status.md](status.md).
+The approved daily pipeline is live. Actual scheduled collection, exact-artifact publication and
+controlled rollback/restoration passed on October 23, 2026. Source coverage remains incomplete.
+Current state and receipt links: [status.md](status.md).
 
 ## Repository
 
@@ -40,25 +44,26 @@ Live and updating itself. Current state, open items and next steps: [status.md](
 | [lessons.md](lessons.md) | Working lessons for agents |
 | [.claude/rules/](.claude/rules/) | Hard constraints |
 | [web/](web/) | The site and its data, scripts and tests ([web/README.md](web/README.md)) |
-| [.github/workflows/](.github/workflows/) | Scheduled refresh, automatic promotion, freshness probe, CI |
+| [.github/workflows/](.github/workflows/) | Daily collection, exact-artifact gate/publisher, independent monitoring, CI |
 | [.githooks/](.githooks/) | Push guard for `main` |
 | [docs/](docs/) | Current design in `reference/`, work in flight in `active/`, history in `archive/` ([docs/README.md](docs/README.md)) |
 
 ## Working on it
 
 ```bash
-cd web
-npm ci
-npm run dev        # local site
-npm test           # lint, data tests, gated build, browser tests
+orb run -m dev bash -lc 'cd /mnt/mac/Users/jessepike/code/projects/sec-market/web && npm ci && npm run dev'
+# In another terminal, run lint, data tests, gated build and browser tests:
+orb run -m dev bash -lc 'cd /mnt/mac/Users/jessepike/code/projects/sec-market/web && npm test'
 ```
 
 Shipping goes through `preview` and the owner's approval: see [AGENTS.md](AGENTS.md) and
-[docs/reference/operations.md](docs/reference/operations.md).
+[docs/active/daily-pipeline/github-operations.md](docs/active/daily-pipeline/github-operations.md).
 
 ## Hosting
 
 Vercel (`pikeholdings/security-market-pulse`, root `web`), Cloudflare DNS, GitHub Actions. The
 author hub and email list live at [jessepike.dev](https://jessepike.dev).
 
-Daily full-roster automation is in development: [implementation, matrix and activation gates](docs/active/daily-pipeline/README.md). It is not live; the existing SEC-only schedule remains until cutover.
+The legacy SEC-only refresh and promotion schedules are disabled. The daily collector covers the
+declared roster subject to explicit source and budget gaps; it does not claim every supplier is
+fresh. [Activation receipts](docs/active/daily-pipeline/activation-2026-10-23.md) record what ran.

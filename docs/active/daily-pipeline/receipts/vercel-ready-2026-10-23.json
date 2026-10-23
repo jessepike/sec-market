@@ -1,0 +1,38 @@
+{
+  "observedOn": "2026-10-23",
+  "source": "Vercel get_deployment securitymarketpulse.com",
+  "response": {
+    "result": {
+      "deployment": {
+        "id": "dpl_3fEZ6y9gBbqabjfEpKK2mo44VWq1",
+        "name": "security-market-pulse",
+        "url": "security-market-pulse-6cyvuucv4-pikeholdings.vercel.app",
+        "type": "LAMBDAS",
+        "state": "READY",
+        "createdAt": 1792755672436,
+        "creator": {
+          "uid": "um6xyC6srGbNQRAR3KB77kfs",
+          "username": "jessepike"
+        },
+        "project": {
+          "id": "prj_g8sZPXo81XT2Xopa1oLrsbYjTehV",
+          "name": "security-market-pulse",
+          "framework": "vite"
+        },
+        "meta": {},
+        "alias": [
+          "security-market-pulse-pikeholdings.vercel.app"
+        ],
+        "target": "production",
+        "regions": [
+          "iad1"
+        ],
+        "buildingAt": 1792755673292,
+        "ready": 1792755674454,
+        "readyState": "READY",
+        "source": "cli",
+        "aliasError": null
+      }
+    }
+  }
+}

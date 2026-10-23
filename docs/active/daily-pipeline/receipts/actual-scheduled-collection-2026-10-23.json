@@ -1,0 +1,28 @@
+{
+  "githubRunId": "39946689429",
+  "githubEventName": "schedule",
+  "githubRef": "refs/heads/main",
+  "appRevision": "7bd94ec77e99462c068f254e134235a894585cbb",
+  "runId": "e054ea73c89fe78db9702f94d2a3b669ce91884f7d7abda0a88698dbcfc7ec50",
+  "successfulTasks": 121,
+  "requiredTasks": 557,
+  "complete": false,
+  "modelCalls": 0,
+  "apiFallback": false,
+  "snapshotSha256": "c659d3cf6d969ab7d559779d60f2f69436a20aad1e04c556a5c407b16b59cc5e",
+  "reviewQueue": 28,
+  "executionMode": "github_subscription",
+  "publication": {
+    "published": false,
+    "reason": "SEPARATE_PUBLISHER_REQUIRED"
+  },
+  "executionCompleted": true,
+  "outcome": "completed_with_gaps",
+  "archive": {
+    "commit": "e356266b3e43b0bb225c11fa4833011395f62a8c",
+    "parentCommit": "16f9c467a8d8eeff59f526d2833b51b9dc753069",
+    "manifestSha256": "f8f3455ad10d80af9ce38194226f5d67da124afa952c8c6185e48aaa224e8f8b",
+    "files": 25741,
+    "ref": "refs/archive/market-evidence"
+  }
+}

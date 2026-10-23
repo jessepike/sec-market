@@ -1,0 +1,64 @@
+{
+  "passed": true,
+  "drill": {
+    "drillId": "bfc2ed6470eacba8698f1ec047f80b51463175c351bcb41ee2410c29d60afe36",
+    "startedAt": "2026-10-23T11:44:58.055066Z",
+    "current": {
+      "deploymentId": "https://security-market-pulse-6cyvuucv4-pikeholdings.vercel.app",
+      "releaseId": "2e17a786a85e46406df0cdc10da99819dd20f3f6b385f5acc328e51a7a4ec390",
+      "sequence": 1
+    },
+    "baseline": {
+      "deploymentId": "https://security-market-pulse-167s9wzif-pikeholdings.vercel.app",
+      "legacyAppReceipt": {
+        "allowed": true,
+        "appBuiltAt": "2026-10-18T19:13:57.104Z",
+        "appRevision": "54590be4d91113a50879a8fb5d180441e7d149f4",
+        "certifiedAt": "2026-10-18T02:36:44.349Z",
+        "contractVersion": "smp-certified-v2",
+        "dataUpdated": true,
+        "releaseKind": "certified",
+        "rootView": "tracker"
+      },
+      "legacyBaseline": true,
+      "releaseId": "40c3a5b4e335d5ef886efa2e38b187119992804b2cda3b0324396eca10ac6040",
+      "sequence": 0
+    },
+    "phase": "passed",
+    "productionHeadRemains": "2e17a786a85e46406df0cdc10da99819dd20f3f6b385f5acc328e51a7a4ec390",
+    "checkedAt": "2026-10-23T11:46:13.860264Z",
+    "baselineByteInventoryAvailable": false,
+    "currentBytesVerified": true,
+    "completedAt": "2026-10-23T11:46:13.860251Z"
+  },
+  "upstreamPublisher": {
+    "githubRunId": 39947099729,
+    "appRevision": "7bd94ec77e99462c068f254e134235a894585cbb",
+    "event": "workflow_run",
+    "createdAt": "2026-10-23T11:35:06Z",
+    "finishedAt": "2026-10-23T11:42:32Z"
+  },
+  "sourceCollectionReceipts": [
+    {
+      "appRevision": "7bd94ec77e99462c068f254e134235a894585cbb",
+      "complete": false,
+      "contractSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+      "executionCompleted": true,
+      "githubEventName": "schedule",
+      "githubRef": "refs/heads/main",
+      "githubRunAttempt": 1,
+      "githubRunId": "39946689429",
+      "outcome": "completed_with_gaps",
+      "requiredTasks": 557,
+      "runId": "e054ea73c89fe78db9702f94d2a3b669ce91884f7d7abda0a88698dbcfc7ec50",
+      "successfulTasks": 121
+    }
+  ],
+  "archive": {
+    "commit": "4ede66ac2c2f571a04acf30942edf3238546b1ac",
+    "parentCommit": "2b83448261aa6153e8767771de147582f72a9d11",
+    "manifestSha256": "ef17af087129ee1de49f37d2ad8285eab750f7aa706c5a742b4a22b62a193e44",
+    "files": 25768,
+    "ref": "refs/archive/market-evidence"
+  }
+}

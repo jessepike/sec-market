@@ -1,0 +1,20 @@
+{
+  "githubRunId": "39947099729",
+  "githubEventName": "workflow_run",
+  "appRevision": "7bd94ec77e99462c068f254e134235a894585cbb",
+  "activated": true,
+  "publication": {
+    "published": true,
+    "releaseId": "2e17a786a85e46406df0cdc10da99819dd20f3f6b385f5acc328e51a7a4ec390",
+    "sequence": 1,
+    "deploymentId": "https://security-market-pulse-6cyvuucv4-pikeholdings.vercel.app",
+    "githubRunId": 39947450834
+  },
+  "archive": {
+    "commit": "563a632b90f98e1f531ea71583a0d7d9fd323bd8",
+    "parentCommit": "c78db10b11a55f0c64ea444a0e664fbebee0506c",
+    "manifestSha256": "586eb7c3f76bcc053c3043575944550d4900819037c3c89d7af2af5e25cd7841",
+    "files": 25756,
+    "ref": "refs/archive/market-evidence"
+  }
+}

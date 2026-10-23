@@ -3,8 +3,8 @@
 Owner: "Approve activation and verification". D-110 records this approval for the reviewed daily
 facts pipeline, including controlled rollback and restoration, on October 22 Pacific time.
 The platform is private GitHub Actions and the existing Vercel project. No Codex Cloud scheduler,
-paid model API fallback, purchase or pull request was used. The original checkout's local M2 edits
-remain preserved; implementation uses `/Users/jessepike/code/projects/sec-market-finish-20261022`.
+paid model API fallback, purchase or pull request was used. The original checkout's uncommitted
+status and lessons edits remain preserved; implementation uses `/Users/jessepike/code/projects/sec-market-finish-20261022`.
 
 ## First activation cycle verified
 
@@ -42,6 +42,8 @@ Retained receipts: [scheduled collection](receipts/actual-scheduled-collection-2
 [Vercel READY](receipts/vercel-ready-2026-10-23.json),
 [scheduled monitor](receipts/actual-scheduled-monitor-2026-10-23.json) and
 [post-rollback controls](receipts/post-rollback-controls-2026-10-23.json).
+The [source and budget audit](receipts/source-budget-audit-2026-10-23.json) retains the observed
+request counts, conservative reservations and unchanged reuse timestamps.
 
 The drill's upstream publisher receipt identifies `39947099729`, event `workflow_run`, application
 revision `7bd94ec77e99462c068f254e134235a894585cbb`. Its source clock identifies actual scheduled
@@ -114,6 +116,13 @@ Post-rollback read [39978528957](https://github.com/jessepike/sec-market/actions
 succeeded and confirmed `productionPathsControlled: true`.
 
 ## Earlier evidence and validation
+
+Original Vercel probe
+[39701439701](https://github.com/jessepike/sec-market/actions/runs/39701439701) failed during CLI
+account lookup before it reached the existing project. Diagnostic `39703939654` isolated
+`USER_LOOKUP`; explicit team/project read `39704072043` and prebuilt stage `39797014280` passed
+with the configured credential. The successful post-rollback read `39978528957` verifies that
+same approach on the active production controls. No replacement login or billing fallback was needed.
 
 The earlier [main gate 39908495114](https://github.com/jessepike/sec-market/actions/runs/39908495114)
 passed 389 checks, but [publisher 39908275916](https://github.com/jessepike/sec-market/actions/runs/39908275916)

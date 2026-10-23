@@ -1,0 +1,18 @@
+{
+  "githubRunId": "39948978666",
+  "githubEventName": "schedule",
+  "appRevision": "7bd94ec77e99462c068f254e134235a894585cbb",
+  "activated": true,
+  "publication": {
+    "published": false,
+    "reason": "EXACT_COLLECTION_AND_CODE_ALREADY_ACKNOWLEDGED",
+    "releaseId": "2e17a786a85e46406df0cdc10da99819dd20f3f6b385f5acc328e51a7a4ec390"
+  },
+  "archive": {
+    "commit": "634b02f4585c8532b37fb37d85ac4606b6425bf0",
+    "parentCommit": "99bcbc80a918ac9630d342fe3b68230d1f008749",
+    "manifestSha256": "37e335fcb8d46babc0ec65eb49d00eed7a75f25fcf127bc5dd5b63e77344ce6a",
+    "files": 25771,
+    "ref": "refs/archive/market-evidence"
+  }
+}

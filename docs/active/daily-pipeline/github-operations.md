@@ -9,7 +9,7 @@ already configured under D-109. Do not repeat credential entry or add a paid mod
 | Job | UTC schedule | Responsibility |
 | --- | --- | --- |
 | `subscription-collector.yml` | 05:17 daily | Restore state, recover a dead runner's lease, collect bounded current changes, verify facts, archive attempts and coverage. |
-| `subscription-publisher.yml` | 06:23 and 16:23 daily | Invoke the independent main gate, validate its exact artifact, stage production without assigning domains, promote, acknowledge and archive. |
+| `subscription-publisher.yml` | After verified scheduled collection; 06:23 and 16:23 daily | Invoke the independent main gate, validate its exact artifact, stage production without assigning domains, promote, acknowledge and archive. Identical acknowledged collection/code skips another gate. |
 | `freshness.yml` | Every six hours at minute 41 | Independently inspect the actual timer, archived coverage, heartbeat and public release; maintain an owner-assigned alert. |
 
 05:17 UTC is 22:17 Pacific daylight time on the preceding calendar date. The schedules use UTC
@@ -42,7 +42,7 @@ and no assigned domain, then checks every static file and detached receipt byte 
 After promotion it repeats the checks against the public host.
 
 Promotion intent is checkpointed remotely before changing production. A failed acknowledgement
-returns to the retained, previously served immutable deployment using Vercel's rollback command.
+returns to the retained, previously served immutable deployment using Vercel's rollback API.
 A subsequent runner can recover an interrupted, fully journaled promotion. A preview gate can
 produce a review-only deployment, but its provenance cannot authorize production.
 
@@ -50,6 +50,11 @@ The initial cutover must disable the legacy `certified-refresh.yml` and `promote
 turn off Vercel auto-assignment and ignore Git builds from main/archive. This closes competing
 publication routes. Preserve the currently verified production deployment as the rollback baseline
 before that cutover. No dirty checkout or source upload is used by the publisher.
+
+The owner approved activation and the one-time rollback/restoration check under D-110. These
+controls were applied and verified. Promotion and rollback use explicit project/team API routes;
+the high-level CLI account lookup that caused the earlier probe/promotion failure is bypassed.
+After an alias change, the adapter verifies that automatic domain assignment stays disabled.
 
 ## Failure and recovery
 
@@ -76,8 +81,18 @@ citations when the remaining allowance is scarce. The next UTC day naturally get
 - Fresh collection: run `39899030431`, archive `991432eea90004d3d8a2b0fb1c80ac28f01904b4`,
   manifest `a8c686a2cd6fea61ce307ebf393d8138011544b3388ed11ffee05363e225fb92`, 24,685 files.
 - Actual failure alert: issue #8, assigned to the owner.
-- The independent gate, exact review deployment, cutover, scheduled runs and production
-  acknowledgement must be recorded from their actual results. Configuration is not a run receipt.
+- Actual October 23 scheduled collection `39946689429`, gate `39947450834`, publication
+  `39947099729` and controlled rollback/restoration `39947974279` passed. The published revision
+  is `7bd94ec77e99462c068f254e134235a894585cbb`; all 25 public static files match the gate artifact.
+- Scheduled publisher `39948978666` correctly skipped an identical release. Scheduled acceptance
+  retry `39954446259` verified the prior actual scheduled source work without fetching again or
+  changing its check time or budget counters.
+- Execution alerts #8/#9 recovered. Scheduled monitor `39950995198` keeps assigned issue #10 open
+  for incomplete coverage and 28 held review items. See [activation receipts](activation-2026-10-23.md).
+
+The current day used both gate/publication attempts and the full conservative collection allowance.
+Keep main on the accepted production revision for the rest of that UTC day. Documentation updates
+stay on preview; temporary acceptance-trigger cleanup joins a later ordinary code promotion.
 
 Full source coverage and a sustained run of clean days remain distinct acceptance work. Do not
 describe partial coverage, one successful release or an installed schedule as sustained operation.

@@ -1,0 +1,14 @@
+{
+  "publisherAccessPassed": true,
+  "githubRunId": "39978528957",
+  "projectId": "prj_g8sZPXo81XT2Xopa1oLrsbYjTehV",
+  "teamId": "team_gRV7FrVjjr1PPI1IvgoCEJrH",
+  "scope": "pikeholdings",
+  "rootDirectory": "web",
+  "framework": "vite",
+  "productionPathsControlled": true,
+  "readOnly": true,
+  "deploymentAttempted": false,
+  "publishPermissionAccepted": false,
+  "dailyWorkerActivated": false
+}

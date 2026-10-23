@@ -1,9 +1,11 @@
 # Controlled rollback acceptance
 
-This manual drill is prepared for the owner's cutover review. It has not run.
-After the first accepted main-gate release is acknowledged in production, run
-the `controlled production rollback acceptance` workflow on main with that
-current release's SHA-256. The job uses the existing credential and project.
+The owner approved this drill and actual run
+[39947974279](https://github.com/jessepike/sec-market/actions/runs/39947974279) passed on October 23,
+2026. It acknowledged the retained legacy baseline, restored accepted release
+`2e17a786a85e46406df0cdc10da99819dd20f3f6b385f5acc328e51a7a4ec390`, and verified its static bytes.
+The production head stayed unchanged. [Receipt](receipts/actual-rollback-restoration-2026-10-23.json).
+The manual route remains available for directed recovery with the explicit accepted release hash.
 
 The owner's activation approval also authorizes one automatic acceptance after
 a successful actual scheduled `daily exact-artifact publisher` run on main.
@@ -11,7 +13,7 @@ It also accepts that trusted publisher's `workflow_run` callback from an actual
 scheduled collector. The receipt keeps the publisher's actual event type in
 `upstreamPublisher`; it never relabels a callback as a schedule.
 The workflow independently reads the upstream run from GitHub and requires its
-private repository, workflow path, main revision, scheduled event and completed
+private repository, workflow path, main revision, permitted event and completed
 success. This route is restricted to UTC October 23, 2026. It skips a legacy
 production head and any previously recorded drill phase, so it cannot repeat on
 later daily runs. It derives the target from the accepted archived production

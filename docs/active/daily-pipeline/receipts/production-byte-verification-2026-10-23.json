@@ -1,0 +1,188 @@
+{
+  "checkedAt": "2026-10-23T15:28:57.510712+00:00",
+  "site": "https://securitymarketpulse.com",
+  "passed": true,
+  "verifiedStaticFiles": 25,
+  "files": [
+    {
+      "path": "/.well-known/security.txt",
+      "sha256": "ebee4bacc9801522b3c2d2f860a43680aeb6afa3cfab90608eb2e3d2583617ea",
+      "bytes": 164,
+      "matches": true
+    },
+    {
+      "path": "/app-release.json",
+      "sha256": "2c44353acc1251e825fcd3cd13a74658238256ffb1f1fe368ee9037cfbb2d48c",
+      "bytes": 595,
+      "matches": true
+    },
+    {
+      "path": "/assets/index-DK9FJloa.css",
+      "sha256": "c1dca51489cfad413d209826c17e4595ecbc451ca19ce1c453c37097d2ac65d4",
+      "bytes": 67447,
+      "matches": true
+    },
+    {
+      "path": "/assets/index-DnkfLPlT.js",
+      "sha256": "9e6664b01a1eaf839531a13de121e83a49daa6ebb7220c378e1691f26cc2a7c7",
+      "bytes": 1955566,
+      "matches": true
+    },
+    {
+      "path": "/certified-coverage.json",
+      "sha256": "66ad94680f9a8b558e463e72b7ffb3b5665df70d5dce13c15aeed990681a65d6",
+      "bytes": 165707,
+      "matches": true
+    },
+    {
+      "path": "/corrections.json",
+      "sha256": "42cbac44dc1dfffd217237999eb1d12ae72e4bb142fa9495e8a53d8108999712",
+      "bytes": 2618,
+      "matches": true
+    },
+    {
+      "path": "/corrections/index.html",
+      "sha256": "57b84a3b925b31a72aa4f1b052f3c195bf24def9871be85054c2f48f94c97a70",
+      "bytes": 9137,
+      "matches": true
+    },
+    {
+      "path": "/daily-coverage.json",
+      "sha256": "82943cccb7ac98dd1c6e87e7cd27c73fd59a2e22a269ff4f2eda240f97507005",
+      "bytes": 489563,
+      "matches": true
+    },
+    {
+      "path": "/deployment-receipt.json",
+      "sha256": "87faf3b77860136df74bb483a55fd20304111aa4a5c9b51ec109428d5fe82bd9",
+      "bytes": 406,
+      "matches": true
+    },
+    {
+      "path": "/favicon.svg",
+      "sha256": "61bc9a161de58248288e6905425d7180f0624c2865007b97d763fdac12043a66",
+      "bytes": 9522,
+      "matches": true
+    },
+    {
+      "path": "/feed.xml",
+      "sha256": "eee9e7bb8b8cb1af945f499c725ae7f7c5354be94c7ef068e1ac8fd710d8d0d0",
+      "bytes": 2825,
+      "matches": true
+    },
+    {
+      "path": "/index.html",
+      "sha256": "7b3cb8e7d4d6951ed1dfe90dd58123a512122c28b6c6e907202215c1c07edb3d",
+      "bytes": 301644,
+      "matches": true
+    },
+    {
+      "path": "/issues/2026-w36.json",
+      "sha256": "1b7a4deb8bbc52b98a1ded15d4005274645bda039c1d4727437a13ec4179c626",
+      "bytes": 45382,
+      "matches": true
+    },
+    {
+      "path": "/issues/2026-w36/index.html",
+      "sha256": "ab1770c9b1e6efdf34b1d9ee74ffd5aad0f4aa3d08fa3cb75d4d035e3a98e810",
+      "bytes": 34523,
+      "matches": true
+    },
+    {
+      "path": "/issues/index.html",
+      "sha256": "1077ce9b1fa99f4b41f78274dce2c1e32d2cbbea1182f9ac9f7103be10ffd11d",
+      "bytes": 7117,
+      "matches": true
+    },
+    {
+      "path": "/issues/index.json",
+      "sha256": "905978012e82819228823891d36c46f4c8cf050a21dbf9ed05dc88203d2031ef",
+      "bytes": 341,
+      "matches": true
+    },
+    {
+      "path": "/issues/lock.json",
+      "sha256": "9578d1a6f9a05739ecab5061d972e141503b7df6f8a0f3bee93bac9321f0b78a",
+      "bytes": 85,
+      "matches": true
+    },
+    {
+      "path": "/og.png",
+      "sha256": "127023c2aaa5d8d7089a1c84d7fba5313fe373a2874071005b6e8addb46335c9",
+      "bytes": 54382,
+      "matches": true
+    },
+    {
+      "path": "/refresh-certification.json",
+      "sha256": "c6e1864a08b9a01e4410bc6c193933ae008987b05617164a2c58c1d6bb45134e",
+      "bytes": 33245,
+      "matches": true
+    },
+    {
+      "path": "/refresh-coverage.json",
+      "sha256": "d9849a53bd9de2787d1a40ae5f4bc6e3b0028b708d6b5c20b565882943fc7a22",
+      "bytes": 857445,
+      "matches": true
+    },
+    {
+      "path": "/refresh-publication.json",
+      "sha256": "733afdaf9f5fcc5c41005532efa663147eb80947d55305de1d44633251f02d1e",
+      "bytes": 597,
+      "matches": true
+    },
+    {
+      "path": "/robots.txt",
+      "sha256": "fdac3a3cb126649d693b906d486352a0e430a90287b3b08d83a5ae85c04cab61",
+      "bytes": 77,
+      "matches": true
+    },
+    {
+      "path": "/sitemap.xml",
+      "sha256": "018910d24a280f414e83f053306aba701db0015f76daa8c1c56ce7ca803e612e",
+      "bytes": 1873,
+      "matches": true
+    },
+    {
+      "path": "/thesis/index.html",
+      "sha256": "2e119db834b8f67792a568c670dd3af387d9cf7e2f4f6267a916b9c32f4cb683",
+      "bytes": 13218,
+      "matches": true
+    },
+    {
+      "path": "/tracker.json",
+      "sha256": "6a12bfeef97c5d6f42eaf396698826ce1382fe59d060be6dc30acb5cbe00d622",
+      "bytes": 72488,
+      "matches": true
+    }
+  ],
+  "appReceipt": {
+    "allowed": true,
+    "releaseKind": "certified",
+    "dataUpdated": true,
+    "certifiedAt": "2026-10-23T11:39:20.155Z",
+    "contractVersion": "smp-certified-v2",
+    "rootView": "tracker",
+    "appRevision": "7bd94ec77e99462c068f254e134235a894585cbb",
+    "appBuiltAt": "2026-10-23T11:39:48.805Z",
+    "dailyRunId": "e054ea73c89fe78db9702f94d2a3b669ce91884f7d7abda0a88698dbcfc7ec50",
+    "dailySnapshotSha256": "53b49106fa9118d603db5e64e37cf03f7f2c6fd1fb797acf18e73f540196c84f",
+    "dailyContractSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+    "dailyCoverageComplete": false
+  },
+  "deploymentReceipt": {
+    "ready": true,
+    "appRevision": "7bd94ec77e99462c068f254e134235a894585cbb",
+    "dataReleaseId": "2e17a786a85e46406df0cdc10da99819dd20f3f6b385f5acc328e51a7a4ec390",
+    "snapshotSha256": "53b49106fa9118d603db5e64e37cf03f7f2c6fd1fb797acf18e73f540196c84f",
+    "artifactSha256": "f05659e33f0d590fad939119a37f7c87ebc0a01808292c15df9a400c06de7826",
+    "contractSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe"
+  },
+  "coverage": {
+    "checkedAt": "2026-10-23T11:38:59.377139Z",
+    "successfulTasks": 121,
+    "requiredTasks": 557,
+    "complete": false,
+    "contractSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe"
+  },
+  "gateRunId": 39947450834
+}

@@ -11,10 +11,12 @@ This changes no collection policy or budget counters. Retain the real GitHub
 schedule event and its archived collection-run receipt as acceptance evidence;
 a dispatch is not a scheduled receipt. GitHub may delay the scheduled run.
 
-Remove the temporary cron and its guard after the acceptance and active
-publisher's pinned main gate finish. Do not move main during that gate: its
-publisher requires the exact main revision that it started with. The normal
-collector schedule continues after this temporary acceptance is removed.
+Actual collection `39946689429` and verification-only retry `39954446259` passed. The accepted
+main gate and production acknowledgement also passed. Both gate/publication slots for October 23
+UTC are consumed, so keep main on the accepted production revision for that day; a documentation
+or cleanup promotion would otherwise request an unnecessary third gate. Remove temporary triggers
+with the next ordinary code promotion. Their UTC date guards prevent source work on a later date
+or annual recurrence. The normal collector schedule remains active.
 
 For these two temporary expressions only, a later scheduled runner may reuse
 source work already completed successfully by an actual scheduled main collector
