@@ -174,3 +174,22 @@ through the normal reviewed preview route; do not manufacture exact-text approva
 Source gaps, mismatched reviews and exhausted allowances remain agent execution work or explicit
 limits. New services, spending, a roster change or publishing judgments would require separate
 authorization; none is recommended here.
+
+## Source-record consistency follow-through
+
+The latest draft bundle is
+[version 2](dated-correction-candidates-2026-10-23.v2.json): six event/supplier targets plus five
+related evidence-record replacements, still in the same five factual correction groups. Source
+metadata can contain the same wrong reading as the event. In particular, Optiv's evidence date
+is May 8 in the registry while the source is March 16; several stored excerpts repeat the
+incorrect financing or resignation reading. Correcting an event while showing its old false
+excerpt in the drawer would leave the reader with contradictory data.
+
+The typed correction target must therefore also support an exact evidence-record replacement.
+Preserve its original object/hash; allow only the relevant title, publication date, economic
+period, excerpt and limitations to change. Keep its identity, canonical URL, organization,
+source class and original retrieval date intact for these five cases. Validate every new excerpt
+against the actual bound body, and have the independent bundle review cover its dates and
+interpretation. Apply the corrected evidence view consistently to drawers, current exports and
+checks while retaining originals for the dated correction history. Do not relabel old metadata
+as newly fetched evidence or use a registry excerpt as primary proof.

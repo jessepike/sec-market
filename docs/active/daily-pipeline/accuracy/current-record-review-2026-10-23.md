@@ -10,8 +10,8 @@ precision or recall. An insufficient record may have a supported core fact and o
 qualifier; it is not automatically false.
 
 The exact source arrays match production application
-`7bd94ec77e99462c068f254e134235a894585cbb`. An actual production probe confirmed all six proposed
-correction targets' original text in the served application bundle, and the two Expel fields in
+`7bd94ec77e99462c068f254e134235a894585cbb`. Actual production probes confirmed all 11 proposed
+targets' original text in the served application bundle, and the two Expel fields in
 `/tracker.json`. Historical events still follow the UI's normal date filters; bundle presence
 does not mean every historical event is on the first screen.
 
@@ -20,7 +20,8 @@ check, source timestamp, allowance or publication receipt was upgraded by this r
 
 ## Corrections prepared
 
-Five correction groups affect six target records. The extra target is Expel's funding field,
+Five correction groups affect six event/field targets and five related evidence records. The extra
+supplier target is Expel's funding field,
 whose wording is ambiguous alongside its directly incorrect ownership sentence. The drafts
 preserve original objects and their hashes, proposed after-values or withdrawals, source-body
 and observation identities, and the original fetch dates.
@@ -33,7 +34,14 @@ and observation identities, and the original fetch dates.
 | Zscaler leadership | Board resignation effective April 16, mixed into the September CRO record | The separate primary filing gives April 15, already recorded in its own event. Remove the incorrect retrospective clause and retain the supported CRO transition. |
 | Expel funding | Additional $171.3 million in the Series E extension | The company increased the total Series E round to $171.3 million. Correct both affected fields and keep cumulative company funding, initial round and valuation date distinct. Do not infer an incremental amount from rounded totals. |
 
-See [exact draft targets and source bindings](dated-correction-candidates-2026-10-23.json).
+The related evidence records contain some of the same errors in their excerpts or publication
+metadata. Draft version 2 corrects those five records too, including Optiv's source date and the
+incorrect Expel, Check Point and Zscaler excerpts. Their replacement excerpts are literal text
+from the bound primary bodies. All 11 original target readings are still present in the served
+production bundle. This targeted metadata follow-through does not change the fixed 177-record
+audit denominator or claim that every evidence-record field has been reviewed.
+
+See [latest exact draft targets and source bindings](dated-correction-candidates-2026-10-23.v2.json).
 Draft correction dates remain placeholders until actual publication. No correction has been
 admitted, applied or published.
 
@@ -89,7 +97,7 @@ substitute for those steps.
 - [A–M event ledger](event-review-a-m-2026-10-23.json).
 - [N–Z event ledger](event-review-n-z-2026-10-23.json).
 - [Supplier-field ledger](supplier-fields-review-2026-10-23.json).
-- [Actual production presence](production-claim-presence-2026-10-23.json).
+- [Actual production presence for all 11 targets](production-claim-presence-2026-10-23.v2.json).
 - [Pinned binding inputs](source-bindings-inputs-2026-10-23.json).
 - [Verified source bindings](source-bindings-2026-10-23.md).
 - [Updated operational scorecard](../evaluations/2026-10-23/accuracy-scorecard.md).

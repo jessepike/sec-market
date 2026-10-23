@@ -53,17 +53,26 @@ tests; inspected 1440px/390px renders were pixel-identical. Candidate code passe
 A separate fixed source audit reviewed 97 hand events and 80 supplier fields: 90 supported,
 71 insufficient, 11 missing strict primary proof, five contradicted. All 177 dataset/source-byte
 bindings passed verification; semantic judgments remain distinct from mechanical binding checks.
-The actual production probe confirms the six drafted target readings are still served. Five
+The actual production probe confirms the 11 drafted target readings are still served. Five
 correction groups cover Check Point issuance timing, Optiv agreement/date, Splunk charge
 attribution/qualifiers, Zscaler resignation date and Expel round-total wording (two fields).
-No corrections have been applied. The original Varonis primary bodies are now durably retained
+Five related evidence-record replacements keep the quoted text and dates consistent with those
+six event/field corrections. The 177-record audit denominator is unchanged. No corrections have
+been applied. The original Varonis primary bodies are now durably retained
 with hashes matching their earlier verification; no retrieval timestamp was renewed.
 
 The scorecard separately fails known contradictions even when release tests pass. It retains
 unmeasured overall precision, eligible-event recall, sustained operation and value. The new audit
 binding/scorecard checks pass 141 operational tests. These checks do not constitute semantic
 admission. [Source bindings](docs/active/daily-pipeline/accuracy/source-bindings-2026-10-23.json) ·
-[Exact correction drafts](docs/active/daily-pipeline/accuracy/dated-correction-candidates-2026-10-23.json).
+[Exact correction drafts](docs/active/daily-pipeline/accuracy/dated-correction-candidates-2026-10-23.v2.json).
+
+The audit/evaluation candidate passed actual GitHub
+[web CI](https://github.com/jessepike/sec-market/actions/runs/40006695935) and
+[private runner checks](https://github.com/jessepike/sec-market/actions/runs/40006696146), with no
+application-data or layout changes. All 11 target before-hashes and five replacement excerpts
+were checked against exact primary bodies. These are draft/verification receipts, not correction
+admission: [remote validation](docs/active/daily-pipeline/accuracy/remote-validation-2026-10-23.json).
 
 ## Required next work and limits
 

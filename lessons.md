@@ -10,6 +10,7 @@ promoted there are removed from this file; Git history keeps them.
 
 ## 2026-10-23
 
+- [new:2026-10-23] Correct the related evidence metadata with the fact. A drawer can repeat the same wrong date, qualifier or amount through a handwritten excerpt after its event is fixed. Verify replacement excerpts against actual source bytes, preserve the original record, and apply the corrected evidence view to every consumer.
 - [new:2026-10-23] Passing SEC/build checks do not establish support for hand-collected text. Pin a complete record inventory and check actual source bodies; distinguish directly contradicted readings from incomplete support or missing primary provenance. Keep known factual errors visible even when operational checks pass.
 - [new:2026-10-23] A recorded URL and body hash cannot reconstruct a source after its temporary file disappears. Retain the original bytes and provenance when first checked. Recover unchanged temporary proof only against its already recorded hash; never give it a new retrieval time.
 - [new:2026-10-23] A new daily event cannot safely correct an older same-date field or withdraw a duplicate. Preserve original history and bind a dated correction to the exact before-value, after-value or withdrawal, source evidence and current independent review. An assertion that all changed claims were verified does not audit arbitrary static edits.

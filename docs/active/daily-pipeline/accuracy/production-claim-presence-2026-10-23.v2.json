@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "kind": "actual_production_claim_presence",
+  "checkedAt": "2026-10-23T18:56:20.221707+00:00",
+  "appReceipt": {
+    "allowed": true,
+    "releaseKind": "certified",
+    "dataUpdated": true,
+    "certifiedAt": "2026-10-23T11:39:20.155Z",
+    "contractVersion": "smp-certified-v2",
+    "rootView": "tracker",
+    "appRevision": "7bd94ec77e99462c068f254e134235a894585cbb",
+    "appBuiltAt": "2026-10-23T11:39:48.805Z",
+    "dailyRunId": "e054ea73c89fe78db9702f94d2a3b669ce91884f7d7abda0a88698dbcfc7ec50",
+    "dailySnapshotSha256": "53b49106fa9118d603db5e64e37cf03f7f2c6fd1fb797acf18e73f540196c84f",
+    "dailyContractSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+    "dailyCoverageComplete": false
+  },
+  "appReceiptFileSha256": "2c44353acc1251e825fcd3cd13a74658238256ffb1f1fe368ee9037cfbb2d48c",
+  "bundleUrl": "https://securitymarketpulse.com/assets/index-DnkfLPlT.js",
+  "bundleSha256": "9e6664b01a1eaf839531a13de121e83a49daa6ebb7220c378e1691f26cc2a7c7",
+  "targetRecords": [
+    {
+      "targetId": "event:EV-checkpoint-2",
+      "originalTextPresentInServedBundle": true,
+      "originalTextSha256": "86960847e717f38451b1fda436ce019e5f18c6a11f355cfc5d9d3cdf5fdaeb17"
+    },
+    {
+      "targetId": "event:EV-optiv-2",
+      "originalTextPresentInServedBundle": true,
+      "originalTextSha256": "42aa6ec5fbf8aa99bb3bb0e3624ac1ccfa25ecbaceaa32b4d76166d7c338349f"
+    },
+    {
+      "targetId": "event:EV-splunk-1",
+      "originalTextPresentInServedBundle": true,
+      "originalTextSha256": "254021b249e80b0b6cf8740ea88810108c54406edbefd4ce02c528075da08e0c"
+    },
+    {
+      "targetId": "event:EV-zscaler-2",
+      "originalTextPresentInServedBundle": true,
+      "originalTextSha256": "8ddfff7136a389642c1383c454e899cb69406706d3faadb6644a7287205dbaa9"
+    },
+    {
+      "targetId": "supplier:expel:lastRound",
+      "originalTextPresentInServedBundle": true,
+      "originalTextSha256": "86012db8828ba42091600104f6869c80af0fcf6ac098d15c76b1a55815e9c05d"
+    },
+    {
+      "targetId": "supplier:expel:ownership",
+      "originalTextPresentInServedBundle": true,
+      "originalTextSha256": "10db8dcd8650e6ffddada356f863008f121ccf8dc3d1ae96bd6f800917bd4741"
+    },
+    {
+      "targetId": "evidence:TR-checkpoint-4",
+      "originalTextPresentInServedBundle": true,
+      "originalTextSha256": "86960847e717f38451b1fda436ce019e5f18c6a11f355cfc5d9d3cdf5fdaeb17"
+    },
+    {
+      "targetId": "evidence:TR-optiv-3",
+      "originalTextPresentInServedBundle": true,
+      "originalTextSha256": "271ed36f19bd5d033cd5f431c18b76ff3e335c8c45861e5cc24bccd07607dd31"
+    },
+    {
+      "targetId": "evidence:TR-splunk-2",
+      "originalTextPresentInServedBundle": true,
+      "originalTextSha256": "c77d7dd7ec3984f69e54ed4c8619a3e97138dc70c1863cce8d812bd05d59bafd"
+    },
+    {
+      "targetId": "evidence:TR-zscaler-4",
+      "originalTextPresentInServedBundle": true,
+      "originalTextSha256": "4626cbac4ba0ed0db263d8d7e032f956f681316f0d347959d716c115b664caf5"
+    },
+    {
+      "targetId": "evidence:TR-expel-2",
+      "originalTextPresentInServedBundle": true,
+      "originalTextSha256": "d09dd9e2a241f04b17dc86b5c24fffda05066e0d07d4ad2629e26b5990a5e514"
+    }
+  ],
+  "productionHttpRequests": 3,
+  "sourceWebsiteRequests": 0,
+  "modelCalls": 0,
+  "budgetChanges": 0,
+  "supersedesProbeSha256": "b91bcd1d54ef1d1e3ab0f0cefaa298089cf2d9fe83d0dc40757d5250510cc0ea",
+  "limitations": [
+    "Retained application text presence does not establish that every historical event is within every active UI date filter.",
+    "These eleven targeted original readings include five related evidence metadata records; the fixed record-review denominator remains177.",
+    "No current primary-source check or correction admission is claimed."
+  ]
+}
