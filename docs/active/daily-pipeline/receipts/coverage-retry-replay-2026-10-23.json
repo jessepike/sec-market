@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "verifiedAt": "2026-10-23T17:48:24.346649Z",
+  "applicationRevision": "d01908ef7953d91e8349872696e25f9ccd01eecc",
+  "scope": "Offline retry integration only. No live coverage upgrade, collection, model invocation, archive write, production change or budget refund.",
+  "baselineArchiveCommit": "b78cfa15980d7be9da54b31e28b16a0840c1d112",
+  "baselineManifestSha256": "760b5c38fcb7fba2a3a223233539cce4eb5aa47d559571efa95b287047ac1ff8",
+  "baselineVerifiedFiles": 25777,
+  "baselineIntegrityEvidence": "Full exact archive hash verification performed by the parent before this replay; this replay uses isolated copy-on-write copies and independently verifies reused source bodies and receipts through reconcile.",
+  "contractSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+  "networkGuard": "Python DNS and connection entry points raise; fetcher, model and structured producer entry points raise and count any attempted invocation.",
+  "baselineHeadsUnchanged": true,
+  "scenarios": [
+    {
+      "scenario": "actual_121",
+      "startingCoverageSha256": "370c35cf48074658a53f920c66b4ba1e4be711a158111fd04a03ad9c8cfde410",
+      "startingCoverageCheckedAt": "2026-10-23T11:34:15.010723Z",
+      "successfulTasksBefore": 121,
+      "budgetBefore": {
+        "calls": 80,
+        "documents": 40,
+        "fetches": 5500
+      },
+      "budgetAfter": {
+        "calls": 80,
+        "documents": 40,
+        "fetches": 5500
+      },
+      "fetchCalls": 0,
+      "modelCalls": 0,
+      "structuredProducerCalls": 0,
+      "successfulReceiptCompletedAtMinimum": "2026-10-23T11:33:37.304593Z",
+      "successfulReceiptCompletedAtMaximum": "2026-10-23T11:34:14.202567Z",
+      "passes": [
+        {
+          "attempt": 1,
+          "successfulTasks": 121,
+          "requiredTasks": 557,
+          "complete": false,
+          "successfulReceiptSetSha256": "410e17146010a89cf8a5bf6e758098e2a2215da96e3cbd101ee01fab3bdc0d45",
+          "originalSuccessfulReceiptsUnchanged": true,
+          "originalSourceObservationReferencesUnchanged": true,
+          "budgetUnchanged": true
+        },
+        {
+          "attempt": 2,
+          "successfulTasks": 121,
+          "requiredTasks": 557,
+          "complete": false,
+          "successfulReceiptSetSha256": "410e17146010a89cf8a5bf6e758098e2a2215da96e3cbd101ee01fab3bdc0d45",
+          "originalSuccessfulReceiptsUnchanged": true,
+          "originalSourceObservationReferencesUnchanged": true,
+          "budgetUnchanged": true
+        }
+      ],
+      "sourceObservationInventorySha256": "a08050590ee3169af19aa0f334ef2eac9d8166870d3a9d84dfd5414298a6532e",
+      "sourceObservationCount": 319,
+      "uniqueSourceBodies": 282,
+      "sourceBodySha256Sample": [
+        "0fce8129e237331262a97979fde517a19797896a44f4d4eeab2a0767aaa6029f",
+        "9c4e836f51b8c835ba34dc55b1dc3a68ca980bf88453e288683311592b1639b3",
+        "761c088227adf88d69e0b950068488fbd8af5a27f36d8b9bf049a3a883989559",
+        "fc2072a68239d888ccd57a2aed52e140e9e271892fef6626ccb3529ba4085c64",
+        "9270d5521607c0b16e4f25e00d1d6f13fa13b3de44aa8a4000dd80ee6b66696c"
+      ],
+      "sourceTimeConservationEvidence": "Original successful receipts and source observation references remained identical in both replays; reconcile independently verified the referenced source hashes and source-specific ages. This inventory hashes their unchanged original fetch and verification timestamps."
+    },
+    {
+      "scenario": "counterfactual_authenticated_244",
+      "startingCoverageSha256": "12baabcbf3f9eff5fab2022949c57ff5ffbf14b3361a715f67dafc8421ed87cb",
+      "startingCoverageCheckedAt": "2026-10-23T04:15:33.078892Z",
+      "successfulTasksBefore": 244,
+      "budgetBefore": {
+        "calls": 80,
+        "documents": 40,
+        "fetches": 5500
+      },
+      "budgetAfter": {
+        "calls": 80,
+        "documents": 40,
+        "fetches": 5500
+      },
+      "fetchCalls": 0,
+      "modelCalls": 0,
+      "structuredProducerCalls": 0,
+      "successfulReceiptCompletedAtMinimum": "2026-10-23T04:14:22.393755Z",
+      "successfulReceiptCompletedAtMaximum": "2026-10-23T04:15:21.500499Z",
+      "passes": [
+        {
+          "attempt": 1,
+          "successfulTasks": 244,
+          "requiredTasks": 557,
+          "complete": false,
+          "successfulReceiptSetSha256": "1a171aa8b4c7f904ecbc5dc8672ac679433270255f3fe5834a72ef19018ab64a",
+          "originalSuccessfulReceiptsUnchanged": true,
+          "originalSourceObservationReferencesUnchanged": true,
+          "budgetUnchanged": true
+        },
+        {
+          "attempt": 2,
+          "successfulTasks": 244,
+          "requiredTasks": 557,
+          "complete": false,
+          "successfulReceiptSetSha256": "1a171aa8b4c7f904ecbc5dc8672ac679433270255f3fe5834a72ef19018ab64a",
+          "originalSuccessfulReceiptsUnchanged": true,
+          "originalSourceObservationReferencesUnchanged": true,
+          "budgetUnchanged": true
+        }
+      ],
+      "sourceObservationInventorySha256": "88b93821a0a87801fe74077bfeaea076461af5f6791cb86634bf97b90f035b6a",
+      "sourceObservationCount": 442,
+      "uniqueSourceBodies": 369,
+      "sourceBodySha256Sample": [
+        "505fc7264c13b2007e198c1746a8757dfb33f990ccaec0b68288d032eb94681f",
+        "5adcce8c3be3d621a242dcecb0a50e6c3af03e9a4c0dee7a09cca3646a836407",
+        "91a29691f4e71e8b68a02cd2180c8814a701fe52128f1f2b5545f23b733c7b26",
+        "28ca14e5815a207367f2c76481b29f568879463e8d6341e3a7036a32b6bc2860",
+        "b973219c21130948e95082bffa553d0277c0a273cf8c51edecbbed59ac07d9e2"
+      ],
+      "sourceTimeConservationEvidence": "Original successful receipts and source observation references remained identical in both replays; reconcile independently verified the referenced source hashes and source-specific ages. This inventory hashes their unchanged original fetch and verification timestamps."
+    }
+  ],
+  "interpretation": "The actual 121 checks survive repeated exhausted retries with identical original successful receipts and source times. Selecting the authentic historical 244-check coverage as a local starting head demonstrates that this implementation would preserve those 244 checks under the same exhausted ledger. It does not authenticate unanchored legacy attempts or promote 121 live checks to 244. Failed and missing tasks stay incomplete; source timestamps are never renewed by reuse.",
+  "implementationSha256": "c4787a245871da0fa1d28497de43d2aaec98c93b5c013b1d6769d0787fb49629"
+}
