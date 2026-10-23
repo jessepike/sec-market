@@ -3,7 +3,7 @@
 Open work only, in priority order. Completed and retired items, SEC-002 to SEC-059, are in
 [docs/archive/2026-10-auto-002/backlog-history.md](docs/archive/2026-10-auto-002/backlog-history.md).
 Nothing here is authorized just by being listed; the authorization line on each item says where it
-stands. New items continue from SEC-074.
+stands. New items continue from SEC-075.
 
 ## Next
 
@@ -112,14 +112,35 @@ would allow a stronger claim. **Authorization:** proposed; the wording change ne
 working copy or an archived snapshot; leave the cited text unchanged. **Authorization:** routine
 maintenance; any change to what a record says goes through a correction.
 
-## Later (owner ideas, not authorized)
+## Later (implementation authority noted per item)
 
 ### SEC-073 · Search the sourced market records
 
-The owner wants search after reliable current operation and broader source coverage. Define the
-reader journey, searchable records, freshness/provenance display and evaluation cases when this
-work is picked up. Do not use search to mask missing or stale underlying facts.
-**Authorization:** recorded owner direction for later work; implementation has not started.
+Develop search after reliable current operation and broader source coverage. Find companies by
+name or alias, and search their market events and supporting sourced records. Let readers combine
+search with company-type navigation (SEC-074), open the matching company/event and its evidence,
+and see the source date and freshness status. Define representative search cases, useful empty
+results and clear/reset behavior when this work is picked up. Do not use search to mask missing
+or stale underlying facts.
+**Authorization:** owner explicitly requested adding development of search to the backlog on
+October 23. Queued for later work; implementation has not started.
+
+### SEC-074 · Navigate companies by ownership, funding and stage
+
+Let readers browse public companies, privately held companies, private-equity-backed companies,
+startups and venture-funded companies, with room for other useful groupings such as bootstrapped
+companies or subsidiaries. Connect these views to search (SEC-073), company records and sourced
+events; expose named investors/owners and their portfolio relationships where evidence supports
+them.
+
+Ownership, funding and company stage overlap: a venture-funded startup can also be privately held.
+Keep these as separate attributes rather than forcing each company into one exclusive category.
+Show dated supporting sources and an explicit unknown/unclassified state when evidence is missing.
+Define classification rules and test representative overlaps and ownership changes before build.
+Keep the current supplier roster unchanged unless expansion is separately approved.
+**Authorization:** owner requested this navigation capability as a backlog item on October 23:
+"public companies, private equity, startups, venture funded, etc." Queue after current reliability
+work and coverage expansion; implementation has not started.
 
 ### SEC-067 · Quarterly signed note per domain
 

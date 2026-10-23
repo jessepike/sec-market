@@ -12,6 +12,10 @@ Make today's site consistent, durable, accurate and fresh before expanding cover
 (D-111). The owner reports no useful decision or conversation yet; value is unmeasured. The thread
 goal remains active. No owner decision is currently needed for the identified repair work.
 
+Later work now explicitly includes search (SEC-073) and navigation by public/private status,
+private-equity backing, startup stage and venture funding (SEC-074). Both are queued in the backlog
+after current reliability work and coverage expansion.
+
 [Current scorecard](docs/active/daily-pipeline/evaluations/2026-10-23/review-scorecard.md) ·
 [Rubric](docs/active/daily-pipeline/evaluation-rubric.md) ·
 [Recovery plan](docs/active/daily-pipeline/coverage-recovery-plan-2026-10-23.md) · [Work queue](BACKLOG.md).
