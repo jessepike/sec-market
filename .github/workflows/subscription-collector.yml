@@ -11,6 +11,12 @@ on:
     branches: [preview]
     paths: ['ops/ci/collection-request.json']
   workflow_dispatch:
+    inputs:
+      source_probe:
+        description: 'Run bounded source diagnostics only (main branch, no collection or publication)'
+        type: boolean
+        required: false
+        default: false
 
 permissions: {}
 concurrency:
@@ -65,6 +71,7 @@ jobs:
           sudo apt-get update -qq
           sudo apt-get install --yes --no-install-recommends poppler-utils
       - name: Install pinned application and official account client
+        if: github.event_name != 'workflow_dispatch' || !inputs.source_probe
         run: |
           npm ci --prefix web --no-audit --no-fund
           npm install --prefix "$RUNNER_TEMP/smp-cli" --no-save --package-lock=false @openai/codex@0.163.0
@@ -73,6 +80,7 @@ jobs:
       - name: Verify worker and persistence guards
         run: python3 -m unittest discover -s ops/ci -p 'test_*.py' -v
       - name: Restore acknowledged evidence, collect bounded deltas and reconcile
+        if: github.event_name != 'workflow_dispatch' || !inputs.source_probe
         env:
           GH_TOKEN: ${{ github.token }}
           SMP_CODEX_AUTH_JSON: ${{ secrets.SMP_CODEX_AUTH_JSON }}
@@ -81,16 +89,23 @@ jobs:
         run: |
           gh auth setup-git --hostname github.com
           python3 ops/ci/collect.py --root "$RUNNER_TEMP/smp-collection" --maximum-seconds 1200 --output "$RUNNER_TEMP/smp-collection-receipt.json"
+      - name: Probe candidate sources under the acknowledged lease and budget
+        if: github.event_name == 'workflow_dispatch' && inputs.source_probe
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh auth setup-git --hostname github.com
+          python3 ops/ci/collect.py --source-probe --root "$RUNNER_TEMP/smp-collection" --maximum-seconds 1200 --output "$RUNNER_TEMP/smp-collection-receipt.json"
       - name: Retain only the bounded nonsecret collection receipt
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
-          name: subscription-collection-receipt
+          name: ${{ github.event_name == 'workflow_dispatch' && inputs.source_probe && 'source-probe-receipt' || 'subscription-collection-receipt' }}
           path: ${{ runner.temp }}/smp-collection-receipt.json
           if-no-files-found: error
           retention-days: 14
       - name: Report failure or recovery to the owner
-        if: always()
+        if: always() && (github.event_name != 'workflow_dispatch' || !inputs.source_probe)
         env:
           GH_TOKEN: ${{ github.token }}
           JOB_STATUS: ${{ job.status }}
