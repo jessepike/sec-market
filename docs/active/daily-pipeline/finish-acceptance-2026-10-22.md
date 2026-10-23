@@ -47,7 +47,41 @@ The monitor independently checks GitHub's actual scheduled-event identity. A man
 green workflow alone cannot prove the timer or complete coverage. Collection is monitored even
 while public publication remains disabled.
 
-## Verification and outstanding receipts
+## Verified candidate and production decision
+
+The exact independently tested candidate is available at
+https://security-market-pulse-46vmiltbr-pikeholdings.vercel.app.
+Independent gate [39900926508](https://github.com/jessepike/sec-market/actions/runs/39900926508)
+passed all 389 checks: 256 data, 99 pipeline and 34 browser tests. Hosted Varonis browser checks
+also passed at both widths. The full-page captures were inspected at 1440px and 390px.
+The layout remains consistent; visible changes include the Varonis agreement, daily cadence,
+updated figures and an explicit incomplete source-coverage statement.
+
+Staging [39901214904](https://github.com/jessepike/sec-market/actions/runs/39901214904)
+verified all 25 static files against artifact SHA-256
+`f98e9e9d2dd204041296dce9318772a5bbe432bbc5da54c569b5d5a9f9f44821`.
+Production stayed at `54590be4d91113a50879a8fb5d180441e7d149f4`.
+This preview gate is accepted for review only; publication still requires a new independent gate
+on reviewed main.
+
+The actual archived collection at `991432eea90004d3d8a2b0fb1c80ac28f01904b4` completed
+244/557 source checks with zero additional model calls. Its manifest is
+`a8c686a2cd6fea61ce307ebf393d8138011544b3388ed11ffee05363e225fb92`.
+The cancelled older runner's reserved usage remains charged. Verified lease-only recovery
+preserves those counters. Execution failure raised assigned-owner issue
+[8](https://github.com/jessepike/sec-market/issues/8); coverage failures remain separate.
+Local operational checks now total 57, with six monitor tests.
+
+The requested decision is approval to activate this candidate: close the competing legacy
+publication paths, advance main from reviewed preview, run the main independent gate and exact
+production publisher, and perform the journaled rollback-and-restoration acceptance. No PR or
+paid API fallback is involved. The retained legacy deployment remains the initial rollback target.
+
+The completion claim still requires actual production acknowledgement, rollback restoration,
+and real scheduled collection/publication receipts. Those have not yet been obtained.
+Full source coverage and sustained multi-day operation remain open regardless of a green timer.
+
+## Earlier verification history
 
 - Preview code `0acd501c5821fcf55af5311333f274abfdca9b1b` deployed READY as
   `dpl_3vcMFMEVr752R2ARzgBHJ1TxCfXn`. Hosted application run `39898311917` passed.

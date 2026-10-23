@@ -26,8 +26,11 @@ ledger now 5,367 fetches. No counter was reset.
 The missing October 15 Proofpoint/Varonis acquisition agreement is primary-source verified and
 rendered on preview at both widths. Daily schedules, independent gate, assigned-owner failure
 alerts, interrupted-run recovery, exact production-target staging and byte verification are
-implemented. Tests: 252 data, 99 pipeline, 52 operational, five monitor and 34 browser checks pass.
-Actual failure alert is owner-assigned issue #8. Fresh independent preview gate is run `39899676747`.
+implemented. Tests: 256 data, 99 pipeline, 57 operational, six monitor and 34 browser checks pass.
+Actual failure alert is owner-assigned issue #8. Independent preview gate `39900926508` passed.
+Exact staged preview `39901214904` verified all 25 static files; production stayed unchanged.
+The review URL is https://security-market-pulse-46vmiltbr-pikeholdings.vercel.app.
+Hosted Varonis checks passed at both widths and full-page captures were inspected.
 Source coverage remains incomplete; actual scheduled and production receipts are still acceptance
 work. The prospective preview policy is enabled for main after review; current production is still
 the earlier revision below. No PR, purchase or paid API fallback has been used.
