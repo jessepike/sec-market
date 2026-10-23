@@ -107,6 +107,20 @@ Proper subscription reviews and actual collection/gate/publication receipts rema
 No new corrections are live. Remaining support/provenance gaps also need resolution; they are not
 all false facts. No owner factual decision is currently needed for these five groups.
 
+The enabled/disabled test repair passed actual GitHub
+[web CI 40014182428](https://github.com/jessepike/sec-market/actions/runs/40014182428) at preview
+`3f792015c50e176a19380d4914c80a961b2db3fb`; Vercel preview deployment
+`dpl_AtBoC478LjpAedbpQoDshKpujg6R` is READY at that revision. Private runner checks
+[40013265472](https://github.com/jessepike/sec-market/actions/runs/40013265472) passed the unchanged
+operational code, restored the real archive, performed one separate SEC connectivity probe and
+made zero model calls or archive changes. The live site was rechecked at 19:49 UTC: main remains
+`7bd94ec77e99462c068f254e134235a894585cbb`, coverage 121/557; the preview correction bundle remains
+disabled. This is candidate validation, not admission or a production data update.
+[Remote receipts and screenshot hashes](docs/active/daily-pipeline/accuracy/correction-remote-validation-2026-10-23.json).
+The inspected GitHub screenshots show unchanged layout; preview still uses earlier committed
+coverage (0/557 and overdue), while actual production shows 121/557. Their source dates and
+trailing event windows differ. Production must receive a fresh archive-derived gate payload.
+
 Main remains frozen for October 23 UTC: both gate/publication attempts are spent and charged
 fetch/model/document counters are 5,500/80/40. Never refund/reset them or substitute offline agent
 review for current pipeline admission. After the natural allowance renews, run proper review,

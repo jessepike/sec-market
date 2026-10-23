@@ -1,0 +1,31 @@
+{
+  "kind": "credential-free-github-host-canary",
+  "checkedAt": "2026-10-23T19:41:27.843628Z",
+  "appRevision": "6b7d096aaf9b95d893b7653294d0d9e411a0ed41",
+  "githubRunId": "40013265472",
+  "runnerOs": "Linux",
+  "archive": {
+    "commit": "b78cfa15980d7be9da54b31e28b16a0840c1d112",
+    "manifestSha256": "760b5c38fcb7fba2a3a223233539cce4eb5aa47d559571efa95b287047ac1ff8",
+    "files": 25777
+  },
+  "archivedCoverage": {
+    "runId": "e054ea73c89fe78db9702f94d2a3b669ce91884f7d7abda0a88698dbcfc7ec50",
+    "successfulTasks": 121,
+    "requiredTasks": 557,
+    "complete": false
+  },
+  "sourceProbe": {
+    "sourceId": "cloudflare:sec_facts",
+    "checkedAt": "2026-10-23T19:41:27.367377Z",
+    "outcome": "fetched",
+    "httpStatus": 200,
+    "validSecResponse": true
+  },
+  "modelCalls": 0,
+  "subscriptionCredentialsTransferred": false,
+  "archiveChanged": false,
+  "publicationAttempted": false,
+  "recurringWorkerActivated": false,
+  "runtimeCanaryPassed": true
+}

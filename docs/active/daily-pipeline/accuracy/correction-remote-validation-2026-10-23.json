@@ -1,0 +1,56 @@
+{
+  "kind": "actual_remote_correction_candidate_validation",
+  "checkedAt": "2026-10-23T19:54:00.173861+00:00",
+  "webRun": {
+    "conclusion": "success",
+    "createdAt": "2026-10-23T19:47:29Z",
+    "databaseId": 40014182428,
+    "headSha": "3f792015c50e176a19380d4914c80a961b2db3fb",
+    "status": "completed",
+    "updatedAt": "2026-10-23T19:49:41Z",
+    "url": "https://github.com/jessepike/sec-market/actions/runs/40014182428"
+  },
+  "runtimeCanary": {
+    "githubRunId": "40013265472",
+    "appRevision": "6b7d096aaf9b95d893b7653294d0d9e411a0ed41",
+    "runtimeCanaryPassed": true,
+    "modelCalls": 0,
+    "archiveChanged": false,
+    "sourceProbe": {
+      "sourceId": "cloudflare:sec_facts",
+      "checkedAt": "2026-10-23T19:41:27.367377Z",
+      "outcome": "fetched",
+      "httpStatus": 200,
+      "validSecResponse": true
+    }
+  },
+  "vercelPreview": {
+    "deploymentId": "dpl_AtBoC478LjpAedbpQoDshKpujg6R",
+    "state": "READY",
+    "appRevision": "3f792015c50e176a19380d4914c80a961b2db3fb",
+    "url": "https://security-market-pulse-m2846vzy3-pikeholdings.vercel.app"
+  },
+  "visuals": {
+    "production-1440.png": "2cdee7135749e81042285e86f597690c24b5548c704bd50db8a4479258e2b3e7",
+    "production-390.png": "2b30848ff9d5fef36e421efcf84f9524f5faab07f3077224ec76220f90e3c236",
+    "tested-build-1440.png": "86fae1defd6c95807d81c7bae72f1355195404f96fac8eea41571a9df0afe3ed",
+    "tested-build-390.png": "e59f56c9641b85cb6e289b047ee42698d45ddbc74c8da3f0dd981d98881b682d"
+  },
+  "visualReading": {
+    "layoutChanged": false,
+    "productionCoverage": "121/557 on 2026-10-23",
+    "previewCoverage": "0/557 committed earlier evidence; next check overdue",
+    "note": "The source dates and trailing event window differ. The independent production gate must reconstruct from the actual archive; do not promote preview data as a fresh collection."
+  },
+  "production": {
+    "appRevision": "7bd94ec77e99462c068f254e134235a894585cbb",
+    "releaseId": "2e17a786a85e46406df0cdc10da99819dd20f3f6b385f5acc328e51a7a4ec390",
+    "coverage": {
+      "successfulTasks": 121,
+      "requiredTasks": 557
+    },
+    "unchanged": true
+  },
+  "semanticAdmission": false,
+  "productionCorrectionsApplied": false
+}
