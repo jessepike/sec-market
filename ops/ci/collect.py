@@ -72,6 +72,16 @@ def escrow_budgets(root, state, session, contract, at):
     state.compare_and_swap(name, ceiling, before or {"calls": 0, "documents": 0, "fetches": 0})
 
 
+def execution_outcome(complete, cancelled=False):
+    """Keep runner completion separate from the unchanged coverage verdict."""
+    return {"executionCompleted": not cancelled,
+            "outcome": "cancelled" if cancelled else "completed_complete" if complete else "completed_with_gaps"}
+
+
+def exit_code(result):
+    return 0 if result.get('executionCompleted') is True else 2
+
+
 def execute(root, maximum_seconds=1200, publisher_config=None):
     require(os.environ.get("GITHUB_ACTIONS") == "true" and os.environ.get("GITHUB_REPOSITORY") == PROJECT, "PRIVATE_GITHUB_RUNNER_REQUIRED")
     require(60 <= maximum_seconds <= 1200, "CI collection budget may not exceed twenty minutes")
@@ -125,12 +135,16 @@ def execute(root, maximum_seconds=1200, publisher_config=None):
                   "complete": checked["complete"], "modelCalls": agent.calls, "apiFallback": False,
                   "snapshotSha256": snapshot["snapshotSha256"], "reviewQueue": len(snapshot["reviewQueue"]),
                   "executionMode": "github_subscription", "publication": {"published": False, "reason": "INITIAL_CUTOVER_NOT_ENABLED"}}
+        result.update(execution_outcome(checked['complete'], collector.cancelled))
         if contract["publication"]["enabled"]:
             # Publication has a separate runner/time budget and never receives
             # subscription auth. Its independent gate may take 35 minutes.
             result["publication"] = {"published": False, "reason": "SEPARATE_PUBLISHER_REQUIRED"}
         finished = session_runtime.checkpoint(root, state, session, "finish", result, finish=True)
         result["archive"] = finished["archive"]
+        # A cancellation arriving during the final remote write still fails
+        # execution, even if the durable evidence checkpoint succeeded.
+        result.update(execution_outcome(checked['complete'], collector.cancelled))
         return result
     except Exception as error:
         session_runtime.checkpoint(root, state, session, "failed", {"errorType": type(error).__name__, "published": False}, finish=True)
@@ -155,7 +169,8 @@ if __name__ == "__main__":
     try:
         result = execute(args.root, args.maximum_seconds, args.publisher_config)
     except Exception as error:
-        result = {"complete": False, "reason": str(error)[:120] if type(error) is RuntimeError else type(error).__name__, "apiFallback": False}
+        result = {"complete": False, "executionCompleted": False, "outcome": "failed",
+                  "reason": str(error)[:120] if type(error) is RuntimeError else type(error).__name__, "apiFallback": False}
     Path(args.output).write_text(json.dumps(result, indent=2) + "\n")
     print(json.dumps(result, indent=2))
-    raise SystemExit(0 if result.get("complete") else 2)
+    raise SystemExit(exit_code(result))

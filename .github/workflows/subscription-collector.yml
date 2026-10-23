@@ -35,7 +35,7 @@ jobs:
           python3 - <<'PY'
           import json, os
           from pathlib import Path
-          receipt = {'githubRunId': os.environ['GITHUB_RUN_ID'], 'complete': False,
+          receipt = {'githubRunId': os.environ['GITHUB_RUN_ID'], 'complete': False, 'executionCompleted': False, 'outcome': 'failed',
                      'reason': 'RUNNER_SETUP_NOT_COMPLETED', 'apiFallback': False,
                      'publication': {'published': False, 'reason': 'INITIAL_CUTOVER_NOT_ENABLED'}}
           (Path(os.environ['RUNNER_TEMP']) / 'smp-collection-receipt.json').write_text(json.dumps(receipt, indent=2) + '\n')

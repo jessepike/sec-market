@@ -12,6 +12,7 @@ import time
 import urllib.error
 import urllib.request
 from pathlib import Path
+from urllib.parse import quote
 
 from artifacts import stage_files
 from contracts import canonical, require
@@ -28,6 +29,7 @@ class VercelAdapter:
         self.store, self.project_id, self.team_id, self.scope, self.site = store, project_id, team_id, scope, site
         self.executable, self.global_config, self.runner = executable, global_config, runner
         self.pending = None
+        self.pending_files = None
 
     def _cli(self, args, cwd=None):
         command = [self.executable, *args, "--scope", self.scope]
@@ -61,11 +63,29 @@ class VercelAdapter:
                 path.parent.mkdir(parents=True, exist_ok=True)
                 path.write_bytes(body)
             (root / ".vercel/project.json").write_bytes(canonical({"projectId": self.project_id, "orgId": self.team_id}))
-            output = self._cli(["deploy", "--prebuilt", "--yes"], cwd=root)
+            args = ["deploy", "--prebuilt", "--yes"]
+            if manifest.get("mode") != "stage_only_smoke_test":
+                # A production-target deployment with no assigned domain can
+                # later be promoted without Vercel rebuilding tested bytes.
+                args.extend(["--target=production", "--skip-domain"])
+            output = self._cli(args, cwd=root)
         urls = re.findall(r"https://[a-z0-9-]+\.vercel\.app\b", output)
         require(len(set(urls)) == 1, "Unrecognized immutable deployment URL")
         self.pending = receipt
+        self.pending_files = files
         return urls[0]
+
+    def verify_static_files(self, deployment):
+        require(deployment == self.site or re.fullmatch(r"https://[a-z0-9-]+\.vercel\.app", deployment), "Unapproved deployment probe")
+        for name, expected in sorted((self.pending_files or {}).items()):
+            if not name.startswith('static/'):
+                continue
+            url = deployment + '/' + quote(name[len('static/'):], safe='/')
+            request = urllib.request.Request(url, headers={'Cache-Control': 'no-cache'})
+            with urllib.request.urlopen(request, timeout=30) as response:
+                require(response.status == 200 and response.url == url, 'DEPLOYED_STATIC_FILE_REDIRECT_OR_HTTP_FAILURE')
+                actual = response.read(len(expected) + 1)
+            require(actual == expected, 'DEPLOYED_STATIC_FILE_BYTES_DIFFER')
 
     @staticmethod
     def _get(base, path):
@@ -86,6 +106,7 @@ class VercelAdapter:
             require(error.code == 404 and previous and previous.get("legacyBaseline") and app == previous.get("legacyAppReceipt"), "Deployment has no recognized release receipt")
             return {"ready": True, "dataReleaseId": previous["releaseId"], "appRevision": app["appRevision"], "legacyBaseline": True}
         require(app.get("appRevision") == receipt.get("appRevision") and app.get("dailySnapshotSha256") == receipt.get("snapshotSha256") and app.get("dailyContractSha256") == receipt.get("contractSha256"), "Application and detached deployment receipts differ")
+        self.verify_static_files(deployment)
         return receipt
 
     def promote(self, deployment):
@@ -109,8 +130,9 @@ class VercelAdapter:
         require(re.fullmatch(r"https://[a-z0-9-]+\.vercel\.app", deployment), "Unapproved rollback target")
         previous = self.store.read("heads/production.json")
         self.pending = {"dataReleaseId": previous["releaseId"]} if previous else None
-        # Promote the retained immutable deployment rather than rebuilding it.
-        self._cli(["promote", deployment, "--yes"])
+        self.pending_files = None
+        # A previously served production deployment must use instant rollback.
+        self._cli(["rollback", deployment, "--yes"])
 
     def import_baseline(self):
         require(self.store.read("heads/production.json") is None, "Production baseline already imported")

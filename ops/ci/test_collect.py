@@ -3,11 +3,29 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from collect import BoundedPipeline, escrow_budgets, session_runtime
+from collect import BoundedPipeline, escrow_budgets, session_runtime, execution_outcome, exit_code
 from storage import LocalStore
 
 
 class CollectionDurabilityTests(unittest.TestCase):
+    def test_completed_partial_execution_is_success_without_upgrading_coverage(self):
+        receipt = {'complete': False, **execution_outcome(False)}
+        self.assertFalse(receipt['complete'])
+        self.assertEqual(receipt['outcome'], 'completed_with_gaps')
+        self.assertEqual(exit_code(receipt), 0)
+
+    def test_completed_full_execution_keeps_explicit_coverage_outcome(self):
+        self.assertEqual(execution_outcome(True), {'executionCompleted': True, 'outcome': 'completed_complete'})
+
+    def test_cancelled_execution_fails_even_with_complete_coverage(self):
+        receipt = {'complete': True, **execution_outcome(True, cancelled=True)}
+        self.assertEqual(receipt['outcome'], 'cancelled')
+        self.assertEqual(exit_code(receipt), 2)
+
+    def test_setup_failure_or_legacy_coverage_cannot_claim_completed_execution(self):
+        self.assertEqual(exit_code({'complete': False, 'reason': 'RUNNER_SETUP_NOT_COMPLETED'}), 2)
+        self.assertEqual(exit_code({'complete': True}), 2)
+
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)

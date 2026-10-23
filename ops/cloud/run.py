@@ -70,7 +70,8 @@ def checkpoint(root, store, session, phase, result, finish=False):
     store.compare_and_swap(name, store.read(f"heads/{name}.json"), entry)
     heartbeat = {"executionMode": session.get("executionMode", "codex_cloud_native"), "startedAt": session["startedAt"], "finishedAt": now,
                  "appRevision": session["appRevision"], "role": session["role"], "sessionId": session["sessionId"],
-                 "phases": {phase: 0 if phase == "finish" and entry["coverage"]["complete"] else 2},
+                 "phases": {phase: 0 if phase == "finish" and result.get("executionCompleted", True) else 2},
+                 "coverageComplete": entry["coverage"]["complete"],
                  "publication": result.get("publication", entry["publication"]) if isinstance(result, dict) else entry["publication"]}
     store.compare_and_swap("worker-heartbeat", store.read("heads/worker-heartbeat.json"), heartbeat)
     if finish:
