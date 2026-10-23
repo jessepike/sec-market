@@ -10,7 +10,7 @@ from pathlib import Path
 from agents import ModelUnavailable
 from contracts import canonical, digest, instant, plan_run, require, utcnow
 from discovery import Page, decoded_discovery_body, discover
-from documents import readable_document
+from documents import article_input, readable_document, verify_article_input
 from selection import select_documents
 from validation import reconcile, verify_statement, mentions_entity
 
@@ -242,18 +242,20 @@ class Pipeline:
                         if neutral_filings:
                             require(observation.get('requestedUrl') == url and observation.get('finalUrl', url) == url,
                                     'Neutral SEC primary response URL differs')
-                        text = readable_document(decoded_discovery_body(body) if neutral_filings else body,
-                                                 observation.get("contentType", ""))
+                        text = readable_document(body, observation.get("contentType", ""))
                         receipt.setdefault("documents", []).append({"url": url, "body": observation["body"], "text": self.store.put(text.encode())})
                         return
-                    page = Page(body.decode("utf8", errors="replace"), source_url=observation.get('finalUrl') or observation['requestedUrl'])
+                    input_view = article_input(body, observation)
+                    page = input_view['page']
+                    input_fields = {'compressedInput': input_view['compressedInput']} if input_view['compressedInput'] is not None else {}
                     # Re-extract only pages whose newly supported publication
                     # metadata changes the model input; preserve other caches.
-                    extractor = 5 if page.scoped_extraction else 4 if page.published_from_time else 3
+                    extractor = input_view['extractor']
                     cache_key = digest({"supplier": source["supplierId"], "body": observation["body"]["sha256"], "contract": plan["contractSha256"], "extractor": extractor})
                     with self.store.lock(f"document-{cache_key}", blocking=True), self.model_lock:
                         cached = self.store.read(f"document-validation/{cache_key}.json")
                         if cached and cached["supplierId"] == source["supplierId"]:
+                            verify_article_input(cached, body, observation)
                             receipt["validatedFacts"].extend(cached["factRefs"])
                             receipt.setdefault("heldClaims", []).extend(cached.get("heldClaims", []))
                             receipt.setdefault("documentValidations", []).append({"url": url, "validation": self.store.put(cached)})
@@ -261,7 +263,7 @@ class Pipeline:
                         if source["family"] in ("investor_acquirer", "release_distribution") and not mentions_entity(page.readable, self.suppliers[source["supplierId"]]):
                             require(len(page.readable) >= 100, "Shared publisher page is unreadable")
                             validation = {"supplierId": source["supplierId"], "body": observation["body"], "contractSha256": plan["contractSha256"],
-                                          "candidateHashes": [], "factRefs": [], "heldClaims": [], "exclusionRule": "no-registered-entity-mention-v1", "emptyReview": None}
+                                          "candidateHashes": [], "factRefs": [], "heldClaims": [], "exclusionRule": "no-registered-entity-mention-v1", "emptyReview": None, **input_fields}
                             self.store.write_once(f"document-validation/{cache_key}.json", validation)
                             receipt.setdefault("documentValidations", []).append({"url": url, "validation": self.store.put(validation)})
                             return
@@ -274,7 +276,7 @@ class Pipeline:
                             pending.append(url)
                             pending_errors.append(self.model_unavailable or "SUBSCRIPTION_WORKER_REQUIRED")
                             return
-                        model_text = (f"Source publication date metadata: {page.published}\n" if page.published else "") + page.readable
+                        model_text = input_view['modelText']
                         try:
                             extracted = self.store.read(f"document-extractions/{cache_key}.json")
                             if extracted is None:
@@ -283,10 +285,11 @@ class Pipeline:
                                     self._reserve("documents", self.contract["model"]["maxDocumentsPerRun"])
                                     self.store.write_once(reservation_key, {"cacheKey": cache_key})
                                 candidates = self.agent.extract(model_text, self.suppliers[source["supplierId"]])
-                                extracted = {"candidates": candidates, "body": observation["body"], "policySha256": plan["contractSha256"]}
+                                extracted = {"candidates": candidates, "body": observation["body"], "policySha256": plan["contractSha256"], **input_fields}
                                 if hasattr(self.agent, "extraction_session"):
                                     extracted["nativeCollectorSession"] = self.agent.extraction_session
                                 self.store.write_once(f"document-extractions/{cache_key}.json", extracted)
+                            verify_article_input(extracted, body, observation)
                             candidates = extracted["candidates"]
                             if hasattr(self.agent, "extraction_session"):
                                 self.agent.extraction_session = extracted.get("nativeCollectorSession")
@@ -324,7 +327,7 @@ class Pipeline:
                                 held_claims.append(self.store.put(held))
                         receipt["validatedFacts"].extend(document_facts)
                         receipt.setdefault("heldClaims", []).extend(held_claims)
-                        validation = {"supplierId": source["supplierId"], "body": observation["body"], "contractSha256": plan["contractSha256"], "candidateHashes": [digest(c) for c in candidates], "factRefs": document_facts, "heldClaims": held_claims, "emptyReview": self.store.put(review) if not candidates else None}
+                        validation = {"supplierId": source["supplierId"], "body": observation["body"], "contractSha256": plan["contractSha256"], "candidateHashes": [digest(c) for c in candidates], "factRefs": document_facts, "heldClaims": held_claims, "emptyReview": self.store.put(review) if not candidates else None, **input_fields}
                         self.store.write_once(f"document-validation/{cache_key}.json", validation)
                         receipt.setdefault("documentValidations", []).append({"url": url, "validation": self.store.put(validation)})
                         validated_hashes[url] = cache_key
@@ -334,6 +337,22 @@ class Pipeline:
                 audit_history = dict((audit_head or {}).get("documents", {})) if (audit_head or {}).get("contractSha256") == plan["contractSha256"] else {}
                 bounded = self.contract.get("collection") and source["kind"] not in ("sec_documents", "citation")
                 if bounded:
+                    # Only affected compressed inputs become due again. Old
+                    # ordinary audit entries keep their exact rotation stamps.
+                    for url, stamp in list(audit_history.items()):
+                        downloaded = self.store.read(f"heads/download-{digest({'source': source['id'], 'url': url})}.json") or previous['observations'].get(url)
+                        reference = downloaded.get('body') if downloaded else stamp.get('body')
+                        if reference is None:
+                            continue
+                        raw = self.store.get(reference)
+                        if raw.startswith(b'\x1f\x8b'):
+                            try:
+                                view = article_input(raw, downloaded or {'requestedUrl': url})
+                                current_input = stamp.get('body') == reference and stamp.get('compressedInput') == view['compressedInput']
+                            except ValueError:
+                                current_input = False
+                            if not current_input:
+                                del audit_history[url]
                     # Feeds can age old URLs out. Preserve previously pending
                     # obligations even when they disappear from today's index.
                     retained_items = set(found["items"])
@@ -373,6 +392,9 @@ class Pipeline:
                     for document in receipt.get("documentValidations", []):
                         url = document["url"]
                         audit_history[url] = {"modified": found.get("itemModified", {}).get(url, ""), "checkedAt": self.clock()}
+                        validation = json.loads(self.store.get(document['validation']))
+                        if 'compressedInput' in validation:
+                            audit_history[url].update(body=validation['body'], compressedInput=validation['compressedInput'])
                     retained_manifest = self.store.put({"sourceId": source["id"], "items": selected_inventory["items"]})
                     self.store.compare_and_swap(audit_name, audit_head, {"documents": audit_history, "inventory": retained_manifest, "contractSha256": plan["contractSha256"]})
                 if pending:

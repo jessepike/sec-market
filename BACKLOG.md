@@ -67,10 +67,11 @@ Separately repair [Xage's source-classification defect](docs/active/daily-pipeli
 through a bounded dated metadata operation and proper provenance/review. Its paid syndicated release
 is still labelled independent in production. Do not weaken the current protected-field guards or
 silently add this to the five correction groups or fixed 177-record audit.
-The retained citation diagnostic also confirms that generic article extraction receives Barracuda
-gzip bytes as text. Decode through the existing bounded view before semantic extraction, invalidate
-affected input caches, and keep its JavaScript newsroom shell incomplete; no request is needed to
-implement or test this repair.
+The generic article path now decodes bounded gzip before extraction and verification, binds its
+decoded model input, and rejects affected legacy caches and partial receipts. All 355 operational,
+12 monitor and both complete application suites pass locally. The retained Barracuda parser replay
+preserves the shell's incomplete result and original evidence; citation tasks themselves remain
+transport-only. Obtain actual preview CI receipts before using the candidate in normal collection.
 
 **Authorization:** owner request on October 23 to fix coverage within existing limits, set an active
 goal and track durability/accuracy/value; clarified priority is current operation before expansion.

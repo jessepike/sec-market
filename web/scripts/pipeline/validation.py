@@ -6,6 +6,7 @@ from urllib.parse import urlsplit
 
 from contracts import canonical, digest, instant, require, unique
 from discovery import Page, decoded_discovery_body
+from documents import article_input, verify_article_input
 
 
 PREDICATES = {"funding", "valuation", "revenue", "arr", "acquisition", "leadership_change", "restructuring", "layoff", "debt", "shutdown", "late_filing"}
@@ -47,9 +48,16 @@ def verify_statement(candidate, observation, store, review, supplier, policy_has
     require(candidate["eventStatus"] in ("reported", "announced", "closed"), "Invalid event status")
     require(candidate["qualifier"] in ("exact", "approximately", "at_least", "more_than", "up_to"), "Missing numeric qualifier")
     require(observation["status"] in ("fetched", "not_modified"), "Unsuccessful source observation")
-    raw = store.get(observation["body"]).decode("utf8")
-    page = Page(raw, source_url=observation.get('finalUrl') or observation['requestedUrl']) if "html" in observation.get("contentType", "") else None
-    text = page.readable if page else normalize(raw)
+    body = store.get(observation['body'])
+    if body.startswith(b'\x1f\x8b'):
+        view = article_input(body, observation)
+        raw = view['decoded'].decode('utf8')
+        page = view['page'] if 'html' in observation.get('contentType', '') else None
+        text = page.readable if page else normalize(raw)
+    else:
+        raw = body.decode('utf8')
+        page = Page(raw, source_url=observation.get('finalUrl') or observation['requestedUrl']) if 'html' in observation.get('contentType', '') else None
+        text = page.readable if page else normalize(raw)
     quote, statement = normalize(candidate["quote"]), normalize(candidate["valueText"])
     require(len(quote) >= 20 and len(quote) <= 6000 and quote in text, "Exact source excerpt missing")
     require(len(statement) >= 15 and statement in quote, "Published statement must be supported verbatim")
@@ -159,7 +167,7 @@ def _replay_neutral_filings(receipt, source, contract, task, observations, manif
             and [item['url'] for item in retained] == urls, 'Neutral SEC filing retained document inventory differs')
     for item, observation in zip(retained, primary):
         require(item['body'] == observation['body'], 'Neutral SEC filing primary body binding differs')
-        text = readable_document(decoded_discovery_body(store.get(observation['body'])), observation.get('contentType', ''))
+        text = readable_document(store.get(observation['body']), observation.get('contentType', ''))
         require(store.get(item['text']) == text.encode(), 'Neutral SEC filing readable text differs from original body')
         if observation['status'] == 'retained_immutable':
             prior = store.read('observations/' + observation['reusesObservationId'] + '.json')
@@ -170,6 +178,32 @@ def _replay_neutral_filings(receipt, source, contract, task, observations, manif
         if observation['status'] == 'not_modified':
             prior = store.read('observations/' + observation['reusesObservationId'] + '.json')
             require(prior.get('finalUrl', prior['requestedUrl']) == item['url'], 'Neutral SEC filing prior response URL differs')
+
+
+def _verify_compressed_validation_inputs(receipt, store):
+    """Check input receipts even when a task is incomplete or reused today."""
+    import json
+    current = {o['requestedUrl']: o for oid in receipt.get('observationIds', [])
+               if (o := store.read('observations/' + oid + '.json'))}
+    covered = set()
+    for document in receipt.get('documentValidations', []):
+        observation = current.get(document['url'])
+        if not observation:
+            continue
+        reference = observation['body']
+        body = store.get(reference)
+        if body.startswith(b'\x1f\x8b'):
+            validation = json.loads(store.get(document['validation']))
+            require(observation and validation['body'] == observation['body'], 'Compressed article validation body differs')
+            view = verify_article_input(validation, body, observation)
+            covered.add(digest(view['compressedInput']))
+    for reference in receipt.get('validatedFacts', []):
+        fact = json.loads(store.get(reference))
+        if fact.get('sourceObservationId'):
+            original = store.read('observations/' + fact['sourceObservationId'] + '.json')
+            if original and store.get(original['body']).startswith(b'\x1f\x8b'):
+                expected = article_input(store.get(original['body']), original)['compressedInput']
+                require(digest(expected) in covered, 'Compressed article fact lacks its input validation')
 
 
 def reconcile(plan, receipts, contract, now, store):
@@ -191,6 +225,8 @@ def reconcile(plan, receipts, contract, now, store):
             require(all(receipt.get(key, []) == [] for key in
                         ("validatedFacts", "newFactIds", "documentValidations", "heldClaims", "documents")),
                     "Neutral SEC index receipt contains facts or semantic document work")
+        if source and source['kind'] not in ('sec_facts', 'sec_submissions', 'sec_documents', 'sec_index'):
+            _verify_compressed_validation_inputs(receipt, store)
         require(receipt["runId"] == plan["runId"] and receipt["sourceId"] == task["sourceId"], "Receipt provenance mismatch")
         age = (instant(now) - instant(receipt["completedAt"])).total_seconds() / 3600
         require(age >= -5/60, "Future check timestamp")
@@ -299,7 +335,7 @@ def reconcile(plan, receipts, contract, now, store):
                         hashes.append(held["candidateSha256"])
                     require(sorted(hashes) == sorted(validation["candidateHashes"]), "Document candidate inventory differs")
                     if not validation["candidateHashes"]:
-                        text = Page(store.get(observation["body"]).decode('utf8', errors='replace'), source_url=observation.get('finalUrl') or observation['requestedUrl']).readable
+                        text = article_input(store.get(observation['body']), observation)['page'].readable
                         if validation.get("exclusionRule") == "no-registered-entity-mention-v1":
                             supplier = next(s for s in contract["suppliers"] if s["id"] == task["supplierId"])
                             require(source["family"] in ("investor_acquirer", "release_distribution") and len(text) >= 100 and not mentions_entity(text, supplier), "Invalid shared-publisher entity exclusion")
@@ -390,6 +426,7 @@ extraction without its complete document validation receipt remains ineligible.
                 require(old and old["body"] == observation["body"] and old["requestedUrl"] == document["url"] and old["sourceId"] == source["id"], "Partial document 304 chain differs")
             validation = __import__('json').loads(store.get(document["validation"]))
             require(validation["supplierId"] == task["supplierId"] and validation["body"] == observation["body"] and validation["contractSha256"] == digest(contract), "Partial-document semantic receipt differs")
+            verify_article_input(validation, store.get(observation['body']), observation)
             for reference in validation["factRefs"]:
                 require(reference["sha256"] in receipt_refs, "Partial fact missing from task receipt")
                 fact = __import__('json').loads(store.get(reference))

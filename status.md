@@ -42,9 +42,9 @@ expired proof needs actual refresh/rebinding, never a renewed date on old bytes.
 
 A separate source-role audit found Xage evidence `TR-xage-1` labelled independent while its retained
 Yahoo page identifies a paid GlobeNewswire release. Production still serves that label. The
-[dated metadata proposal](docs/active/daily-pipeline/accuracy/source-classification-correction-proposal-2026-10-23.md)
-requires a narrowly scoped adapter and proper provenance/review; it changes none of the five groups
-or the fixed 177-record denominator.
+[scoped admission design](docs/active/daily-pipeline/accuracy/source-classification-admission-design-2026-10-23.md)
+uses one typed operation within the existing correction path. Implementation and actual review
+remain required; the five factual groups and fixed 177-record denominator stay unchanged.
 
 [Scorecard](docs/active/daily-pipeline/evaluations/2026-10-23/accuracy-scorecard.md) ·
 [Rubric](docs/active/daily-pipeline/evaluation-rubric.md) ·
@@ -71,7 +71,7 @@ readable text and immutable anchors, with no model or certified-company expansio
 historical CrowdStrike/Palo Alto bodies are retained and readable; current qualification is pending.
 The real ReliaQuest empty-attribute parser crash is fixed and replayed against unchanged bytes.
 
-The latest batch passes 333 operational and 12 monitor tests locally. Both disabled and isolated
+The preceding filing batch passed 333 operational and 12 monitor tests locally. Both disabled and isolated
 synthetic enabled application runs pass 321 data, 112 pipeline and 38 browser checks plus full build.
 All four inspected local screenshots match their previous versions byte for byte. These are
 non-admitting candidate checks.
@@ -86,9 +86,17 @@ changes; its separate SEC connectivity probe adds no collection or qualification
 
 The [citation input diagnostic](docs/active/daily-pipeline/accuracy/citation-gzip-input-diagnostic-2026-10-23.json)
 checked 204 retained full citation responses and found one compressed body: Barracuda's shell.
-The generic article path still reads compressed bytes as text. Repair bounded input decoding and
-invalidate only affected extraction caches before qualifying that source; keep shell discovery
-incomplete and preserve the original bytes/time. This is the next code repair, with no quota need.
+The diagnostic manually reproduces compressed-byte parsing in the generic article path; citation
+tasks themselves are transport-only and do not run that extractor. Bounded decoding, separate
+compressed-input cache identities and strict partial/full replay bindings are now implemented.
+All 355 operational and 12 monitor tests pass locally; disabled and synthetic enabled application
+runs each pass 321 data, 112 pipeline and 38 browser checks plus full build. The actual retained
+Barracuda shell stays incomplete, all five ordinary correction text views remain exactly equal,
+and all 25,777 archived file metadata entries are unchanged. Four inspected screenshots match the
+previous local versions byte for byte. Actual preview CI is pending; none of this adds source credit.
+[Local receipts](docs/active/daily-pipeline/receipts/compressed-input-validation-2026-10-23.json).
+The coverage matrix is regenerated from the fixed October 23 receipt and current contract, with
+original check times retained; its provenance explicitly identifies a historical snapshot.
 
 ## Limits and next work
 

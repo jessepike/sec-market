@@ -18,7 +18,7 @@ from urllib.parse import urlsplit
 
 from agents import SubscriptionAgent
 from contracts import canonical, digest, instant, require, unique, utcnow, valid_hash
-from discovery import Page
+from discovery import Page, decoded_discovery_body
 from validation import REVIEW_CHECKS
 
 ORIGINALS = "web/src/data/tracker/originals.json"
@@ -233,7 +233,7 @@ def validate_sources(group, store, market, admitted_at):
             require(_time(observation["verifiedAt"]) <= at, "Correction observation verification after admission")
         age = (at - _time(source["fetchedAt"])).total_seconds()
         require(0 <= age <= 30 * 3600, "Correction source expired or future at admission")
-        raw = store.get(source["body"]).decode("utf8", errors="strict")
+        raw = decoded_discovery_body(store.get(source["body"])).decode("utf8", errors="strict")
         page = Page(raw, source_url=source["url"])
         # Whole decoded source text is retained. No excerpt-only or silent truncation.
         text = _normalize(" ".join(page.text))

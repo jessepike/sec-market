@@ -1,0 +1,237 @@
+{
+  "schemaVersion": 1,
+  "kind": "historical_compressed_article_and_plain_correction_source_replay",
+  "checkedAt": "2026-10-23T21:31:25.934242Z",
+  "archiveCommit": "b78cfa15980d7be9da54b31e28b16a0840c1d112",
+  "archiveManifestSha256": "760b5c38fcb7fba2a3a223233539cce4eb5aa47d559571efa95b287047ac1ff8",
+  "compressedDiagnosticPin": "98afdc4ccef5985aae674d57e7bbfb85d8376251d5908973e1b8dcef6e49b970",
+  "observation": {
+    "body": {
+      "bytes": 22363,
+      "key": "objects/340f5ce1d51d8b3ac8652ecd54eb52c84c4c7eddb8f40090ae52aa1012c6a130",
+      "sha256": "340f5ce1d51d8b3ac8652ecd54eb52c84c4c7eddb8f40090ae52aa1012c6a130"
+    },
+    "contentType": "text/html;charset=utf-8",
+    "etag": "\"23a51-65e7ba2f8893d-gzip\"",
+    "fetchedAt": "2026-10-23T11:34:09.091727Z",
+    "finalUrl": "https://www.barracuda.com/company/news",
+    "httpStatus": 200,
+    "lastModified": "Fri, 23 Oct 2026 05:56:08 GMT",
+    "observationId": "ad9c16e190c51b55d7dac938c0fe1b4b6335c3c690d8e82041b75827da042b15",
+    "requestedUrl": "https://www.barracuda.com/company/news",
+    "sourceId": "barracuda:citation:TR-barracuda-1",
+    "status": "fetched"
+  },
+  "inputDescriptor": {
+    "schemaVersion": 1,
+    "inputView": "bounded-gzip-1",
+    "extractor": 3,
+    "sourceUrl": "https://www.barracuda.com/company/news",
+    "rawSha256": "340f5ce1d51d8b3ac8652ecd54eb52c84c4c7eddb8f40090ae52aa1012c6a130",
+    "decodedSha256": "39a7d9a84c6d237c42ed4d9da5030284cda8d373dd96d5ecb202abff5917ed54",
+    "decodedBytes": 146001,
+    "articleSha256": "06b83c270d3334dee59adda503ac41ddadf9d900d03840ec0229ea97985bcab7",
+    "modelInputSha256": "240c958419af7d2e44059dc984cb50ac0a61d62c9cd5414471619bcaece27941",
+    "modelInputChars": 253
+  },
+  "shellDiscovery": {
+    "reason": "BARRACUDA_NEWSROOM_DATA_REQUIRED",
+    "requiredEndpoints": [
+      "https://www.barracuda.com/content/barracuda-corp/us/en/company/news/jcr:content/root/container/container/news_room.news_room.json"
+    ]
+  },
+  "actualCandidateDiscovery": {
+    "complete": false,
+    "items": [],
+    "observations": [],
+    "reason": "SOURCE_BINDING_UNVERIFIED"
+  },
+  "correctionGroups": [
+    {
+      "groupId": "FC-20261023-checkpoint-sase",
+      "wholeTextCharacters": 27245,
+      "documents": [
+        {
+          "source": {
+            "body": {
+              "bytes": 110102,
+              "key": "objects/ad90c231db200ef3ca6909ed9ff62f08b037dd78be7fe85bc8c5011fae488593",
+              "sha256": "ad90c231db200ef3ca6909ed9ff62f08b037dd78be7fe85bc8c5011fae488593"
+            },
+            "evidenceId": "TR-checkpoint-4",
+            "fetchedAt": "2026-10-23T11:34:05.920028Z",
+            "observationId": "823bdeb7978f9445b46cd456181b80329fcb2ced4dd40dac8cae6af492d6da35",
+            "sourceId": "checkpoint-sase:citation:TR-checkpoint-4",
+            "url": "https://www.checkpoint.com/press-releases/check-point-software-reports-2026-second-quarter-financial-results/"
+          },
+          "textSha256": "4dfd989e47592c711456ebd25358ff96daa4eb9c15dd67d41dae7f5f46940ec9",
+          "textCharacters": 14215
+        },
+        {
+          "source": {
+            "body": {
+              "bytes": 26715,
+              "key": "objects/99fd41f785699aa0fc9fb4ea0baa79249c0953a5391c9aca86f1e5c0adb55b3c",
+              "sha256": "99fd41f785699aa0fc9fb4ea0baa79249c0953a5391c9aca86f1e5c0adb55b3c"
+            },
+            "evidenceId": "TR-checkpoint-5",
+            "fetchedAt": "2026-10-23T04:15:09.250598Z",
+            "observationId": "265257237110d3c7eada63a363a0a42c72a6fc0d1cf5fa71dceb10d7364d2699",
+            "sourceId": "checkpoint-sase:citation:TR-checkpoint-5",
+            "url": "https://www.sec.gov/Archives/edgar/data/1015922/000117891325004030/zk2534094.htm"
+          },
+          "textSha256": "a04cf7c33992a94bd05d241cdef300caba03d5888c05380743b8396a37264e8b",
+          "textCharacters": 13030
+        }
+      ],
+      "reviewPolicySha256": "1c52ee664765de6234a3d68bcd4767e42a3da9fe471b6c61686cac1a1616d774"
+    },
+    {
+      "groupId": "FC-20261023-optiv",
+      "wholeTextCharacters": 7295,
+      "documents": [
+        {
+          "source": {
+            "body": {
+              "bytes": 110479,
+              "key": "objects/1db3ec3b06b80372a401ce680bd0c22f2bfa30facc0676c0ee357584976d6028",
+              "sha256": "1db3ec3b06b80372a401ce680bd0c22f2bfa30facc0676c0ee357584976d6028"
+            },
+            "evidenceId": "TR-optiv-3",
+            "fetchedAt": "2026-10-23T11:34:10.387430Z",
+            "observationId": "2f4690a9102722bf834b098712e7ce709b9aa1dccc2f3870dfefb83f40cc8426",
+            "sourceId": "optiv:citation:TR-optiv-3",
+            "url": "https://www.optiv.com/company/press-releases/optiv-strengthens-financial-position-lender-agreement-comprehensive"
+          },
+          "textSha256": "84367a7bfa0186b673f866c7581aaf4e308448da4a133d1d916aab225be4ea58",
+          "textCharacters": 7295
+        }
+      ],
+      "reviewPolicySha256": "4f9e7feb90232a3aafe2cd84265c2e8202c9e009229e7592c5ab87373f64bcf5"
+    },
+    {
+      "groupId": "FC-20261023-splunk",
+      "wholeTextCharacters": 12373,
+      "documents": [
+        {
+          "source": {
+            "body": {
+              "bytes": 45244,
+              "key": "objects/e3de17409d6f8024d2d489ff6163a6249f72e7d5831da2118d9d2e873861dea5",
+              "sha256": "e3de17409d6f8024d2d489ff6163a6249f72e7d5831da2118d9d2e873861dea5"
+            },
+            "evidenceId": "TR-splunk-2",
+            "fetchedAt": "2026-10-23T04:14:49.799584Z",
+            "observationId": "ad8b7473392061097411bdbb1b613d8f3880425ca5ec2e6148d81c400ccad883",
+            "sourceId": "splunk:citation:TR-splunk-2",
+            "url": "https://www.sec.gov/Archives/edgar/data/858877/000085887726000075/csco-20260513.htm"
+          },
+          "textSha256": "176f9e4cbc7ecd2ea1050d071ae36dc6bbd9bf4ebc3e3f58b6dfa76e5f1e6930",
+          "textCharacters": 12373
+        }
+      ],
+      "reviewPolicySha256": "270b7c7a1f7180b3fef2896b7633a87bf0667b9f4a3c75593fa72b959ecb87f6"
+    },
+    {
+      "groupId": "FC-20261023-zscaler",
+      "wholeTextCharacters": 7511,
+      "documents": [
+        {
+          "source": {
+            "body": {
+              "bytes": 27835,
+              "key": "objects/068f33d83f983b8207850ff9af866bf0ac56f7e443e04883fe82efee90b6e6bd",
+              "sha256": "068f33d83f983b8207850ff9af866bf0ac56f7e443e04883fe82efee90b6e6bd"
+            },
+            "evidenceId": "TR-zscaler-4",
+            "fetchedAt": "2026-10-23T11:34:11.000593Z",
+            "observationId": "77f7d2dc508eb9c414811e247bfa613cfc32e207793eb0ff76d41921f1091f39",
+            "sourceId": "zscaler:citation:TR-zscaler-4",
+            "url": "https://www.sec.gov/Archives/edgar/data/1713683/000171368326000193/zs-20260924.htm"
+          },
+          "textSha256": "dbc3280eed2635bdc4fe42190043b77918d6122154663b9df861aa59423b1d2e",
+          "textCharacters": 3955
+        },
+        {
+          "source": {
+            "body": {
+              "bytes": 24581,
+              "key": "objects/bdb9b0f0a56b6625c04b1cfaed33daab6505b97632df199519ee1dd1c117b85d",
+              "sha256": "bdb9b0f0a56b6625c04b1cfaed33daab6505b97632df199519ee1dd1c117b85d"
+            },
+            "evidenceId": "TR-zscaler-6",
+            "fetchedAt": "2026-10-23T04:15:08.041972Z",
+            "observationId": "ede509be7e95f39b65fcbc5059182768804c3c4081a0bda957dc618249caabae",
+            "sourceId": "zscaler:citation:TR-zscaler-6",
+            "url": "https://www.sec.gov/Archives/edgar/data/1713683/000171368326000082/zs-20260415.htm"
+          },
+          "textSha256": "b93679dd81000a0ab531b9ee600d92b71142c127600f13216652ec0203663780",
+          "textCharacters": 3556
+        }
+      ],
+      "reviewPolicySha256": "54e40bd49e9c04d26aebe3f7eaa3ece37d15be460c4b5d76c3041e8c272e182f"
+    },
+    {
+      "groupId": "FC-20261023-expel",
+      "wholeTextCharacters": 25311,
+      "documents": [
+        {
+          "source": {
+            "body": {
+              "bytes": 1294400,
+              "key": "objects/71da4f0b9d823a407f681cd185cc1a75f60e45e6f222faec7963b32b117d71ae",
+              "sha256": "71da4f0b9d823a407f681cd185cc1a75f60e45e6f222faec7963b32b117d71ae"
+            },
+            "evidenceId": "TR-expel-1",
+            "fetchedAt": "2026-10-23T11:34:07.035590Z",
+            "observationId": "99eff05e9f94d7a42d92b84a8cbf393dd1f1e45294d409327f24ac96acd57a7d",
+            "sourceId": "expel:citation:TR-expel-1",
+            "url": "https://expel.com/resource/expel-raises-140-million-in-series-e-funding/"
+          },
+          "textSha256": "f7911310f32df55c2263ab097f67612a84460c8b57a5d871308f0a36946a2404",
+          "textCharacters": 14466
+        },
+        {
+          "source": {
+            "body": {
+              "bytes": 1291126,
+              "key": "objects/1ded75f04f3ef7db72c3411ba03d554861d576853a50853b0435b46cca474d68",
+              "sha256": "1ded75f04f3ef7db72c3411ba03d554861d576853a50853b0435b46cca474d68"
+            },
+            "evidenceId": "TR-expel-2",
+            "fetchedAt": "2026-10-23T04:14:50.674018Z",
+            "observationId": "2e88142f05a60df7a25678f19ce3916f29e3aa8eebd5b7eca221c4961e3df852",
+            "sourceId": "expel:citation:TR-expel-2",
+            "url": "https://expel.com/resource/expel-investors-fuel-rapid-growth-with-additional-series-e-investment-bringing-total-funding-to-288-million/"
+          },
+          "textSha256": "208935007d86de959c179117d4ac4480e17c9ebcec7932842d994769cbc99141",
+          "textCharacters": 10845
+        }
+      ],
+      "reviewPolicySha256": "d1ea72b754450e603d89092cc38d9fa81d165575af2a36745e5938220fd82087"
+    }
+  ],
+  "policySha256": "e0bf81c44037981c769c744f87e112b2881135402c12e97862416c41fe185a4f",
+  "allFiveGroupPoliciesUnchanged": true,
+  "readerPins": {
+    "web/scripts/pipeline/documents.py": "4e3dbd2dbc6409bd8b8be660cf2b673601ca1c3bc90325fc4fbf6cceddc9b69f",
+    "web/scripts/pipeline/engine.py": "7ab30bdfffe171b6e8a2d2c3fdb3ad9f8a02c66cc0560a03eb9d1ea0eff102e5",
+    "web/scripts/pipeline/validation.py": "c21ebf9a7710044ea3912c7fd7e6ef74099bf7e91613c3ef0fac41c4bc50f87b",
+    "web/scripts/pipeline/corrections.py": "f27f4390242b8e9767751d6d3ff41861ec7bb1292962fd04354d2aac9e8ebe7d"
+  },
+  "archiveFileMetadataUnchanged": true,
+  "archiveFiles": 25777,
+  "sourceRequests": 0,
+  "modelCalls": 0,
+  "semanticAdmission": false,
+  "newCoverageChecks": 0,
+  "sourcesActivated": 0,
+  "observationTimesRenewed": false,
+  "limitations": [
+    "The compressed retained citation body is manually parsed for this diagnostic; the actual citation collector is transport-only.",
+    "No real subscription correction review or source qualification was performed."
+  ],
+  "plainCorrectionTextsExactBeforeAfter": true,
+  "plainReaderPriorRevision": "e239e784ee72eaa6709d17d4a6fdfc2a1d437f53",
+  "differentialCheckedAt": "2026-10-23T21:34:29.077101Z"
+}

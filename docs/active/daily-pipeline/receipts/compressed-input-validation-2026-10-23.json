@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "kind": "offline_compressed_article_input_validation",
+  "checkedAt": "2026-10-23T21:34:29.141983Z",
+  "checks": {
+    "disabled": {
+      "path": "/tmp/smp-compressed-input-disabled-20261023.log",
+      "sha256": "464b0206d757e3215a3d7648754113012ede4b0631f5c67aa16cd27c551cacaa",
+      "nodePassCounts": [
+        "321"
+      ],
+      "pythonCounts": [
+        "112"
+      ],
+      "browserPassed": [
+        "38"
+      ]
+    },
+    "enabledSynthetic": {
+      "path": "/tmp/smp-compressed-input-enabled-20261023.log",
+      "sha256": "0bee7a7e6028f05f93dc85cad8afd25b6cd7126a875987129365e30150d4353a",
+      "nodePassCounts": [
+        "321"
+      ],
+      "pythonCounts": [
+        "112"
+      ],
+      "browserPassed": [
+        "38"
+      ]
+    },
+    "operational": {
+      "path": "/tmp/smp-compressed-input-ops-20261023.log",
+      "sha256": "852fcadd65cbc8e20a4d194e6a5c6556aae18d7ace97531da8a16bc771c45473",
+      "nodePassCounts": [],
+      "pythonCounts": [
+        "355"
+      ],
+      "browserPassed": []
+    },
+    "monitor": {
+      "path": "/tmp/smp-compressed-input-monitor-20261023.log",
+      "sha256": "72f09eca554e87a45b7156c6109520cf15e8b6ec157dc5c033610649b49b8698",
+      "nodePassCounts": [],
+      "pythonCounts": [
+        "12"
+      ],
+      "browserPassed": []
+    }
+  },
+  "sourceFiles": {
+    "web/scripts/pipeline/corrections.py": "f27f4390242b8e9767751d6d3ff41861ec7bb1292962fd04354d2aac9e8ebe7d",
+    "web/scripts/pipeline/documents.py": "4e3dbd2dbc6409bd8b8be660cf2b673601ca1c3bc90325fc4fbf6cceddc9b69f",
+    "web/scripts/pipeline/engine.py": "7ab30bdfffe171b6e8a2d2c3fdb3ad9f8a02c66cc0560a03eb9d1ea0eff102e5",
+    "web/scripts/pipeline/validation.py": "c21ebf9a7710044ea3912c7fd7e6ef74099bf7e91613c3ef0fac41c4bc50f87b",
+    "ops/ci/test_compressed_article_input.py": "bfc1f7d64d14cfcaa84b101edab6387af475024c8f66716cb34653a115a2378b"
+  },
+  "replay": {
+    "path": "docs/active/daily-pipeline/receipts/compressed-input-replay-2026-10-23.json",
+    "sha256": "272448e79224d6b4248c05615491b819fdbe2d1ac6b8c739ad510c9e00d425fc"
+  },
+  "visualReview": {
+    "widths": [
+      1440,
+      390
+    ],
+    "humanInspected": true,
+    "images": {
+      "tested-build-1440.png": {
+        "sha256": "03180ad413a848bf154a3ab670d702092a5ab3eb5c95c804f8f7fb52f6719a71",
+        "sameAsPreviousLocal": true
+      },
+      "tested-build-390.png": {
+        "sha256": "aad0f67af8e1f055f433012e1d106748c2514ff6e75d8c8233a1d3ee33f417de",
+        "sameAsPreviousLocal": true
+      },
+      "production-1440.png": {
+        "sha256": "da96852377f954fe2a9a1b8af850aa9e8582d8d54375aceadbeaf1f27ade477f",
+        "sameAsPreviousLocal": true
+      },
+      "production-390.png": {
+        "sha256": "3dc53f7acc95a096577a2dab86329f20f2380124623823c6f6ab285d9e5a3542",
+        "sameAsPreviousLocal": true
+      }
+    },
+    "visibleLayoutChanges": false
+  },
+  "liveSuccessfulTasks": 121,
+  "requiredTasks": 557,
+  "sourceRequests": 0,
+  "modelCalls": 0,
+  "semanticAdmission": false,
+  "newCoverageChecks": 0,
+  "sourcesActivated": 0,
+  "archiveWrites": 0,
+  "quotaChanges": false,
+  "publicationAttempted": false,
+  "limitations": [
+    "Tests and synthetic reviews establish mechanics, not actual subscription admission.",
+    "Citation tasks remain transport-only; the compressed source is a retained parser-view diagnostic.",
+    "Production corrections and collection coverage are unchanged."
+  ]
+}
