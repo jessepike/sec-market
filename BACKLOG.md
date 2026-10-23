@@ -23,6 +23,14 @@ remain unchanged. Generic claim accuracy and eligible-event recall require a fix
 benchmark; passing the existing tests does not estimate those error rates. Reader value remains
 unmeasured: the owner reports no real use yet.
 
+The [fixed existing-record review](docs/active/daily-pipeline/accuracy/current-record-review-2026-10-23.md)
+now covers 97 hand events and 80 supplier fields. Five directly contradicting records and a related
+ambiguous funding field have exact correction drafts. Implement the separate dated factual-correction
+ledger, current-view projection and current-policy admission adapter before applying them. Preserve
+raw history and existing owner-approved issue corrections; reject unreviewed static edits. Resolve
+the remaining support/date/provenance gaps without treating them all as false. Known contradictions
+must stay visible separately from passing release tests and the unchanged 121/557 source result.
+
 **Authorization:** owner request on October 23 to fix coverage within existing limits, set an active
 goal and track durability/accuracy/value; clarified priority is current operation before expansion.
 [Recovery plan](docs/active/daily-pipeline/coverage-recovery-plan-2026-10-23.md).

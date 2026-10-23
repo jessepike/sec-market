@@ -9,16 +9,12 @@ updated: 2026-10-23
 ## Current priority
 
 Make today's site consistent, durable, accurate and fresh before expanding coverage or adding search
-(D-111). The owner reports no useful decision or conversation yet; value is unmeasured. The thread
-goal remains active. No owner decision is currently needed for the identified repair work.
+(D-111). The active thread goal remains open. The owner reports no useful decision or conversation
+yet; value is unmeasured. Search (SEC-073) and company-type navigation (SEC-074) are queued later.
 
-Later work now explicitly includes search (SEC-073) and navigation by public/private status,
-private-equity backing, startup stage and venture funding (SEC-074). Both are queued in the backlog
-after current reliability work and coverage expansion.
-
-[Current scorecard](docs/active/daily-pipeline/evaluations/2026-10-23/review-scorecard.md) ·
-[Rubric](docs/active/daily-pipeline/evaluation-rubric.md) ·
-[Recovery plan](docs/active/daily-pipeline/coverage-recovery-plan-2026-10-23.md) · [Work queue](BACKLOG.md).
+[Current scorecard](docs/active/daily-pipeline/evaluations/2026-10-23/accuracy-scorecard.md) ·
+[Existing-record review](docs/active/daily-pipeline/accuracy/current-record-review-2026-10-23.md) ·
+[Rubric](docs/active/daily-pipeline/evaluation-rubric.md) · [Work queue](BACKLOG.md).
 
 ## Actual production
 
@@ -29,66 +25,68 @@ files matched production. The primary-sourced Varonis agreement is live. Actual 
 [39946689429](https://github.com/jessepike/sec-market/actions/runs/39946689429), publication
 [39947099729](https://github.com/jessepike/sec-market/actions/runs/39947099729), main gate
 [39947450834](https://github.com/jessepike/sec-market/actions/runs/39947450834) and controlled rollback/restoration
-[39947974279](https://github.com/jessepike/sec-market/actions/runs/39947974279) passed. Repeat scheduled
-collection [39954446259](https://github.com/jessepike/sec-market/actions/runs/39954446259) reused the original
-source evidence without changing its 11:34:15 UTC check time. One cycle does not prove sustained operation.
+[39947974279](https://github.com/jessepike/sec-market/actions/runs/39947974279) passed.
+Repeat scheduled collection reused original evidence without changing the 11:34:15 UTC source time.
+One cycle does not prove sustained operation. [Activation evidence](docs/active/daily-pipeline/activation-2026-10-23.md).
 
-Current coverage remains **121/557**: 48 SEC tasks and 73 citations. The 436 gaps are 254 missing
-registrations, 28 unverified registrations, 149 fetch-cap failures and five blocked pages. The separate
-claim queue has 28 holds. Latest scheduled monitor
-[39995104575](https://github.com/jessepike/sec-market/actions/runs/39995104575) verified the job/publication
-receipts and updated assigned [issue 10](https://github.com/jessepike/sec-market/issues/10) for incomplete
-coverage and the holds. Execution issues 8/9 recovered. Notification delivery beyond GitHub depends
-on the owner's existing GitHub settings.
+Coverage remains **121/557**: 48 SEC tasks and 73 citations. The 436 gaps are 254 missing
+registrations, 28 unverified registrations, 149 fetch-cap failures and five blocked pages. The
+separate claim queue has 28 holds. Latest scheduled monitor
+[39995104575](https://github.com/jessepike/sec-market/actions/runs/39995104575) updated assigned
+[issue 10](https://github.com/jessepike/sec-market/issues/10) for incomplete coverage and those holds.
+Execution issues 8/9 recovered. GitHub delivery is verified; additional notification delivery
+uses the owner's GitHub settings. No source gap is waived by the new audit.
 
-## Repair candidate on preview
+## Repair candidate and actual accuracy findings
 
-The production baseline lost 14 of 28 held-review entries and omitted four older-policy candidate
-facts from its pending state. This is a data-preservation defect; those four facts are not approved
-for publication. The tested candidate preserves all 28 holds and quarantines all four with their
-source/review chains. Exact current-policy admission can resolve only a matching held claim and
-retains an immutable resolution record.
-
-Same-day retries now independently validate and retain successful receipts instead of overwriting
-them with exhausted-budget failures. Full archived replays preserved the actual 121 checks and the
-historical 244-check counterfactual through two retries each, with original dates, zero new requests
-or model calls, unchanged counters and an unchanged read-only archive. Compatible full responses
-are shared within a run; supplier-specific URL hints prioritize work inside the existing limits.
-eSentire article extraction excludes related-story sidebars and binds publication metadata to the
-observed canonical URL. Conflicting dates remain unresolved. No live coverage increase is claimed.
-
-Local verification passed 123 operational, 256 data, 112 pipeline and 34 browser tests, plus lint,
-build and integrity checks. Rendered 1440px/390px pages were inspected and are pixel-identical to the
-local baseline. This is invisible reliability work. Exact proofs are in
-[validation](docs/active/daily-pipeline/receipts/coverage-recovery-validation-2026-10-23.json),
-[retry replay](docs/active/daily-pipeline/receipts/coverage-retry-final-replay-2026-10-23.json) and
-[continuity replay](docs/active/daily-pipeline/receipts/continuity-final-replay-2026-10-23.json).
-
-Preview candidate `7c3d2eea35c783b866a6e955849d0e77a4017cac` passed actual GitHub
+Preview repairs independently retain valid same-day checks, share compatible full responses and
+preserve all 28 unresolved reviews plus four older-policy candidates in quarantine. Exact current
+admission can close only the matching held claim, retaining a replayable resolution. eSentire
+extraction excludes related-story sidebars; conflicting dates stay unresolved. Actual archived
+retries retained 121 checks and the historical 244-check counterfactual without requests, renewed
+dates or budget changes. Local application checks passed 256 data, 112 pipeline and 34 browser
+tests; inspected 1440px/390px renders were pixel-identical. Candidate code passed actual
 [web CI](https://github.com/jessepike/sec-market/actions/runs/40001666502) and
-[private runner acceptance](https://github.com/jessepike/sec-market/actions/runs/40001666534).
-Vercel preview is Ready; hosted 1440px/390px renders match the tested local pixels. The preview
-uses repository baseline data; production data still comes from the accepted main artifact.
-[Remote acceptance](docs/active/daily-pipeline/receipts/coverage-recovery-remote-2026-10-23.json)
-pins both runs, the live production receipt and unchanged candidate code hashes.
+[private runner checks](https://github.com/jessepike/sec-market/actions/runs/40001666534).
+[Repair receipts](docs/active/daily-pipeline/receipts/coverage-recovery-remote-2026-10-23.json).
 
-## Next verification and limits
+A separate fixed source audit reviewed 97 hand events and 80 supplier fields: 90 supported,
+71 insufficient, 11 missing strict primary proof, five contradicted. All 177 dataset/source-byte
+bindings passed verification; semantic judgments remain distinct from mechanical binding checks.
+The actual production probe confirms the six drafted target readings are still served. Five
+correction groups cover Check Point issuance timing, Optiv agreement/date, Splunk charge
+attribution/qualifiers, Zscaler resignation date and Expel round-total wording (two fields).
+No corrections have been applied. The original Varonis primary bodies are now durably retained
+with hashes matching their earlier verification; no retrieval timestamp was renewed.
 
-Main stays frozen on the accepted revision for October 23 UTC: both gate/publication attempts are
-spent, and source/model/document counters are 5,500/80/40. Never reset or refund them. Preview fixes
-await the next natural UTC allowance and normal main gate. Then verify actual scheduled collection,
-publication and preservation receipts before upgrading the live scorecard. Overall factual accuracy,
-eligible-event recall, sustained operation and reader value remain unmeasured. The coverage inventory
-keeps all 557 obligations visible by family, supplier, domain and cause.
+The scorecard separately fails known contradictions even when release tests pass. It retains
+unmeasured overall precision, eligible-event recall, sustained operation and value. The new audit
+binding/scorecard checks pass 141 operational tests. These checks do not constitute semantic
+admission. [Source bindings](docs/active/daily-pipeline/accuracy/source-bindings-2026-10-23.json) ·
+[Exact correction drafts](docs/active/daily-pipeline/accuracy/dated-correction-candidates-2026-10-23.json).
+
+## Required next work and limits
+
+Implement the dated factual-correction ledger, deterministic current-view projection and
+current-policy admission adapter described in the
+[correction proposal](docs/active/daily-pipeline/accuracy/correction-path-proposal-2026-10-23.md).
+Preserve raw history, keep owner-approved issue/thesis corrections intact and reject unreviewed
+static edits. The existing publisher assertion does not independently verify arbitrary static
+fact changes. Remaining support/provenance gaps also need resolution; they are not all false facts.
+No owner factual decision is currently needed for the five supported correction groups.
+
+Main remains frozen for October 23 UTC: both gate/publication attempts are spent and charged
+fetch/model/document counters are 5,500/80/40. Never refund/reset them or substitute offline agent
+review for current pipeline admission. After the natural allowance renews, run proper review,
+normal main gate, actual scheduled collection/publication and preservation/correction receipts.
+Current fixes and audit work have not increased live source coverage.
 
 Daily collection is 05:17 UTC; publication follows verified scheduled collection and runs at 06:23
-and 16:23 UTC. GitHub may run late. Legacy refresh/branch-promotion jobs remain disabled; Vercel's
-competing production paths remain closed. The earlier Vercel probe failed in CLI account lookup;
-explicit team/project API routes now have actual stage, promotion and rollback receipts. No Codex
-Cloud dependency, purchase, PR or paid API fallback. Restore the latest evidence archive before writes.
+and 16:23 UTC. GitHub can run late. Legacy refresh/branch-promotion jobs remain disabled and Vercel's
+competing production paths remain closed. The old Vercel probe's CLI account lookup is bypassed
+through explicit verified team/project APIs. No Codex Cloud dependency, purchase, PR or paid API
+fallback. Restore the latest evidence archive before state writes.
 
 Implementation checkout: `/Users/jessepike/code/projects/sec-market-finish-20261022`.
 Original `/Users/jessepike/code/projects/sec-market` status/lessons edits remain untouched.
-[Activation receipts](docs/active/daily-pipeline/activation-2026-10-23.md) ·
-[Current operating route](docs/active/daily-pipeline/github-operations.md) ·
-[Held-claim/source triage](docs/active/daily-pipeline/receipts/current-content-triage-2026-10-23.md).
+[Current operating route](docs/active/daily-pipeline/github-operations.md).
