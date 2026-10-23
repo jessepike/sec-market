@@ -94,6 +94,74 @@ class FakeAgent:
 
 
 class PipelineTests(unittest.TestCase):
+    def citation_retry_fixture(self):
+        self.c['schedule']['maxFetchesPerRun'] = 1
+        self.c['sources'][0].update(kind='citation', family='citation_integrity', url=URL)
+        self.c['suppliers'][0]['requiredFamilies'] = ['citation_integrity']
+        return self.run_pipeline()
+
+    def test_exhausted_retry_reuses_hash_checked_success_without_refreshing_dates(self):
+        first = self.citation_retry_fixture()
+        fetcher = FakeFetcher(self.store)
+        with patch.object(fetcher, 'fetch', side_effect=AssertionError('retry must not fetch')):
+            second = Pipeline(self.c, self.store, fetcher, clock=lambda: T).run(T)
+        self.assertTrue(second['complete'])
+        self.assertEqual(second['receipts'], first['receipts'])
+        self.assertEqual(self.store.read('heads/budget-' + T[:10] + '.json')['fetches'], 1)
+
+    def test_success_can_recover_after_forced_cap_failure_overwrites_task_head(self):
+        first = self.citation_retry_fixture()
+        failed = self.run_pipeline()
+        self.assertFalse(failed['complete'])
+        self.assertEqual(failed['receipts'][0]['errorCode'], 'FETCHES_BUDGET_EXHAUSTED')
+        recovered = Pipeline(self.c, self.store, FakeFetcher(self.store), clock=lambda: T).run(T)
+        self.assertEqual(recovered['receipts'], first['receipts'])
+        self.assertTrue(recovered['complete'])
+
+    def test_fresh_receipt_cannot_reuse_stale_future_or_tampered_source(self):
+        first = self.citation_retry_fixture()
+        receipt = first['receipts'][0]
+        path = self.store.root / ('observations/' + receipt['observationIds'][0] + '.json')
+        original = json.loads(path.read_text())
+        for stamp in ('2026-10-01T00:00:00Z', '2026-11-01T00:00:00Z'):
+            path.write_text(json.dumps({**original, 'fetchedAt': stamp}))
+            result = Pipeline(self.c, self.store, FakeFetcher(self.store), clock=lambda: T).run(T)
+            self.assertFalse(result['complete'])
+        path.write_text(json.dumps(original))
+        (self.store.root / original['body']['key']).write_bytes(b'tampered')
+        result = Pipeline(self.c, self.store, FakeFetcher(self.store), clock=lambda: T).run(T)
+        self.assertFalse(result['complete'])
+
+    def test_changed_policy_and_new_day_never_borrow_prior_task_success(self):
+        first = self.citation_retry_fixture()
+        changed = copy.deepcopy(self.c)
+        changed['version'] = 'changed-policy'
+        result = Pipeline(changed, self.store, FakeFetcher(self.store), clock=lambda: T).run(T)
+        self.assertFalse(result['complete'])
+        self.assertNotEqual(result['runId'], first['runId'])
+        tomorrow = '2026-10-20T16:00:00Z'
+        self.store.compare_and_swap('budget-' + tomorrow[:10], None, {'fetches': 1})
+        result = Pipeline(self.c, self.store, FakeFetcher(self.store), clock=lambda: tomorrow).run(tomorrow)
+        self.assertFalse(result['complete'])
+        self.assertNotEqual(result['runId'], first['runId'])
+
+    def test_blocked_or_malformed_prior_checks_never_earn_retry_success(self):
+        self.c['schedule']['maxFetchesPerRun'] = 1
+        self.c['sources'][0].update(kind='citation', family='citation_integrity', url=URL)
+        self.c['suppliers'][0]['requiredFamilies'] = ['citation_integrity']
+        blocked = self.run_pipeline(pages={URL: 403})
+        self.assertEqual(blocked['receipts'][0]['outcome'], 'blocked')
+        retried = Pipeline(self.c, self.store, FakeFetcher(self.store), clock=lambda: T).run(T)
+        self.assertFalse(retried['complete'])
+
+    def test_changed_attempt_json_cannot_override_content_addressed_success(self):
+        first = self.citation_retry_fixture()
+        receipt = first['receipts'][0]
+        path = self.store.root / f"runs/{first['runId']}/attempts/{receipt['attemptId']}.json"
+        path.write_text(json.dumps({**receipt, 'supplierId': 'forged'}))
+        result = Pipeline(self.c, self.store, FakeFetcher(self.store), clock=lambda: T).run(T)
+        self.assertFalse(result['complete'])
+
     def test_gate_attempt_is_checkpointed_before_external_dispatch(self):
         self.c["publication"].update(enabled=True, maxBatchesPerDay=2)
         self.store.write_once("releases/old.json", {"manifest": {}})
@@ -149,7 +217,7 @@ class PipelineTests(unittest.TestCase):
         self.c = contract()
 
     def run_pipeline(self, c=None, agent=None, pages=None):
-        return Pipeline(c or self.c, self.store, FakeFetcher(self.store, pages), agent or FakeAgent(), clock=lambda: T).run(T)
+        return Pipeline(c or self.c, self.store, FakeFetcher(self.store, pages), agent or FakeAgent(), clock=lambda: T).run(T, force_refresh=True)
 
     def source_observation(self, text=QUOTE):
         body = self.store.put(text.encode())

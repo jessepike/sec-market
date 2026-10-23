@@ -34,8 +34,9 @@ class Pipeline:
         require(result.returncode == 0, "Independent SEC validation failed")
         return json.loads(result.stdout)["facts"]
 
-    def run(self, scheduled_at, replay=False):
+    def run(self, scheduled_at, replay=False, force_refresh=False):
         self.replay = replay
+        self.force_refresh = force_refresh
         self.deadline = time.monotonic() + self.contract["schedule"].get("maxRuntimeSeconds", 7200)
         proposed = plan_run(self.contract, scheduled_at)
         plan_key = f"runs/{proposed['runId']}/plan.json"
@@ -44,6 +45,12 @@ class Pipeline:
             require(plan["contractSha256"] == digest(self.contract), "Resume contract differs")
             self.store.write_once(plan_key, plan)
             self.store.write_once(f"contracts/{plan['contractSha256']}.json", self.contract)
+            self.prior_receipts = {}
+            prior = self.store.read("heads/latest-run.json")
+            if prior and prior.get("runId") == plan["runId"]:
+                saved = json.loads(self.store.get(prior["receipt"]))
+                require(saved["contractSha256"] == plan["contractSha256"], "Prior receipt policy differs")
+                self.prior_receipts = {r["attemptId"]: r for r in saved["receipts"]}
             self.budget_name = f"budget-{plan['scheduledAt'][:10]}"
             counts = self.store.read(f"heads/{self.budget_name}.json") or {}
             self.native_budget_exhausted = bool(getattr(self.agent, "queued_work", False) and
@@ -65,11 +72,10 @@ class Pipeline:
             return result
 
     def _task(self, plan, task):
-        prior_task = self.store.read(f"heads/task-{task['taskId']}.json") if self.replay else None
-        if prior_task and prior_task["outcome"] in ("updated", "checked_no_change"):
-            age = (instant(self.clock()) - instant(prior_task["completedAt"])).total_seconds()/3600
-            if 0 <= age <= self.contract["schedule"]["overdueHours"]:
-                return prior_task
+        if not self.force_refresh:
+            reusable = self._reusable_receipt(plan, task)
+            if reusable is not None:
+                return reusable
         attempt_id = digest({"task": task["taskId"], "at": self.clock(), "nonce": __import__('uuid').uuid4().hex})
         receipt = {"taskId": task["taskId"], "sourceId": task["sourceId"], "supplierId": task["supplierId"],
                    "runId": plan["runId"], "attemptId": attempt_id, "startedAt": self.clock(), "completedAt": None,
@@ -299,6 +305,36 @@ class Pipeline:
                 counts[kind] = counts.get(kind, 0) + 1
                 self.store.compare_and_swap(self.budget_name, previous, counts)
 
+    def _reusable_receipt(self, plan, task):
+        candidates = {r['attemptId']: r for r in self.prior_receipts.values() if r.get('taskId') == task['taskId']}
+        # Immutable seals retain successful attempts even after a later forced
+        # refresh fails. Unsealed legacy attempts earn no trust from JSON alone.
+        directory = self.store.root / 'receipt-integrity' / plan['runId'] / task['taskId']
+        for path in directory.glob('*.json'):
+            try:
+                ref = self.store.read(str(path.relative_to(self.store.root)))
+                receipt = json.loads(self.store.get(ref))
+                candidates[receipt['attemptId']] = receipt
+            except (ValueError, KeyError, OSError):
+                continue
+        subset = {**plan, 'tasks': [task], 'inventorySha256': digest([task])}
+        for receipt in sorted(candidates.values(), key=lambda r: str(r.get('completedAt', '')), reverse=True):
+            try:
+                if receipt.get('outcome') not in ('updated', 'checked_no_change'):
+                    continue
+                age = (instant(self.clock()) - instant(receipt['completedAt'])).total_seconds()/3600
+                require(0 <= age <= self.contract['schedule']['overdueHours'], 'Prior receipt stale or future')
+                require(receipt.get('discoveryComplete') is True and bool(receipt.get('observationIds')), 'Prior discovery incomplete')
+                require(receipt['supplierId'] == task['supplierId'], 'Prior receipt entity differs')
+                archived = self.store.read(f"runs/{plan['runId']}/attempts/{receipt['attemptId']}.json")
+                require(archived == receipt, 'Prior attempt differs from hash-anchored receipt')
+                verified = reconcile(subset, [receipt], self.contract, self.clock(), self.store)
+                require(verified['successfulTasks'] == int(task['required']), 'Prior source check is stale or incomplete')
+                return receipt
+            except (ValueError, KeyError, OSError, TypeError):
+                continue
+        return None
+
     def _accept(self, fact, accepted, validated):
         key = f"facts/{fact['factId']}.json"
         with self.store.lock(f"fact-{fact['factId']}", blocking=True):
@@ -314,6 +350,8 @@ class Pipeline:
     def _finish(self, receipt):
         receipt["completedAt"] = self.clock()
         self.store.write_once(f"runs/{receipt['runId']}/attempts/{receipt['attemptId']}.json", receipt)
+        reference = self.store.put(receipt)
+        self.store.write_once(f"receipt-integrity/{receipt['runId']}/{receipt['taskId']}/{receipt['attemptId']}.json", reference)
         head = "task-" + receipt["taskId"]
         self.store.compare_and_swap(head, self.store.read(f"heads/{head}.json"), receipt)
         return receipt
