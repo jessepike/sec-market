@@ -184,7 +184,7 @@ def inspect(contract, read_archive, get_live, now, authority=None):
             problems.append("PUBLIC_FACTUAL_CORRECTION_INVENTORY_DIFFERS")
     queue = read_archive("heads/cloud-snapshot.json" if native else "heads/dailySnapshot.json").get("reviewQueue", [])
     if queue:
-        problems.append(f"OWNER_REVIEW_QUEUE_{len(queue)}")
+        problems.append(f"HELD_CLAIMS_{len(queue)}")
     return {"healthy": not problems, "checkedAt": now, "runId": coverage["runId"], "reasons": problems}
 
 

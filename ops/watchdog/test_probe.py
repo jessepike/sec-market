@@ -121,6 +121,48 @@ class InitialPublicationTests(unittest.TestCase):
             self.assertIn("INDEPENDENT_PROBE_FAILED", reasons)
 
 
+class HeldClaimAlertTests(unittest.TestCase):
+    """Held facts require evidence work; their count does not assign a human decision."""
+    def inspect(self, held, complete=True):
+        contract = {"schedule": {"overdueHours": 30}, "suppliers": [{"id": "fixture"}]}
+        coverage = {"runId": "daily", "checkedAt": "2026-10-23T04:00:00Z",
+                    "contractSha256": probe.digest(contract), "complete": complete,
+                    "supplierCount": 1, "successfulTasks": 2 if complete else 1,
+                    "requiredTasks": 2, "gapTaskIds": [] if complete else ["gap"],
+                    "validUntil": "2026-10-24T10:00:00Z"}
+        app = {"appRevision": "a" * 40, "dailySnapshotSha256": "b" * 64}
+        entries = {"heads/latest-run.json": {"receipt": {"key": "coverage"}}, "coverage": coverage,
+                   "heads/worker-heartbeat.json": {"finishedAt": "2026-10-23T04:00:00Z",
+                       "phases": {"finish": 0}, "executionMode": "github_subscription"},
+                   "heads/production.json": {"releaseId": "fixture"},
+                   "releases/fixture.json": {"manifest": {"appRevision": app["appRevision"],
+                       "snapshot": {"sha256": app["dailySnapshotSha256"]}}},
+                   "heads/dailySnapshot.json": {"reviewQueue": [{"reason": "source date unresolved"}] * held}}
+        public = {"https://securitymarketpulse.com/deployment-receipt.json": {"fictional": True},
+                  "https://securitymarketpulse.com/app-release.json": app,
+                  "https://securitymarketpulse.com/daily-coverage.json": coverage}
+        with patch.object(probe, "plan_run", return_value={"tasks": [{"required": True}] * 2}), \
+             patch.object(probe, "verify_acknowledgement"):
+            return probe.inspect(contract, lambda key, **kw: entries[key], lambda url: public[url],
+                                 "2026-10-23T04:10:00Z")
+
+    def test_held_claims_stay_unhealthy_without_implying_an_owner_decision(self):
+        result = self.inspect(28)
+        self.assertFalse(result["healthy"])
+        self.assertEqual(result["reasons"], ["HELD_CLAIMS_28"])
+
+    def test_empty_queue_does_not_raise_a_held_claim_alert(self):
+        result = self.inspect(0)
+        self.assertTrue(result["healthy"])
+        self.assertEqual(result["reasons"], [])
+
+    def test_source_gaps_and_held_claims_keep_separate_reasons(self):
+        result = self.inspect(28, complete=False)
+        self.assertFalse(result["healthy"])
+        self.assertEqual(set(result["reasons"]), {
+            "OVERDUE_OR_INCOMPLETE_COVERAGE", "PUBLIC_COVERAGE_INCOMPLETE_OR_OVERDUE", "HELD_CLAIMS_28"})
+
+
 class CorrectionCollectionTests(unittest.TestCase):
     def setUp(self):
         self.context = {"policySha256": "p", "requests": {"groups": [{"id": "one"}, {"id": "two"}]}}

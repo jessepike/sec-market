@@ -70,8 +70,9 @@ preserves the original five groups, all existing review hashes and financial-pri
 one additional scoped target changes neither financial claims nor the fixed 177-record audit.
 Complete integrated tests, real quota-respecting review and full publication proof before calling it fixed.
 The latest scheduled monitor reports the 28 held claims under the legacy reason
-`OWNER_REVIEW_QUEUE_28`. Rename that alert reason during monitor maintenance to avoid implying
-that these evidence investigations require the owner's judgment; retain the hold count and failure.
+`OWNER_REVIEW_QUEUE_28`. The candidate now uses `HELD_CLAIMS_28` and retains the unhealthy result
+and independent source-gap reasons; all 15 monitor tests pass. Verify the wording on the next real
+scheduled monitor after main advances. These investigations do not require an owner judgment now.
 The generic article path now decodes bounded gzip before extraction and verification, binds its
 decoded model input, and rejects affected legacy caches and partial receipts. All 355 operational,
 12 monitor and both complete application suites pass locally. The retained Barracuda parser replay
