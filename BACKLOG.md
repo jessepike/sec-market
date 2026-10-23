@@ -52,6 +52,19 @@ without activating registrations. Validate the exact parent/product relationship
 responses before replacing any missing binding. Parent filing checks cannot supply product revenue,
 events or a new certified tier; all 22 obligations remain open pending proper collection.
 
+The issuer-bound filing-document extension now independently verifies full index selection,
+original body/text bindings and current immutable anchors with no semantic output. All 29 eligible
+historical CrowdStrike/Palo Alto bodies are retained and readable; this supplies no current credit.
+The actual ReliaQuest empty-HTML-attribute crash is repaired and replayed against unchanged bytes.
+
+All missing reporting/distribution and official/investor tasks now have separate retained-evidence
+audits, preserving the 254 missing-family denominator. Qualify family-relevant literal endpoints
+under the shared charged allowance; historical articles and broad portfolio sites remain leads.
+Separately repair [Xage's source-classification defect](docs/active/daily-pipeline/accuracy/source-classification-correction-proposal-2026-10-23.md)
+through a bounded dated metadata operation and proper provenance/review. Its paid syndicated release
+is still labelled independent in production. Do not weaken the current protected-field guards or
+silently add this to the five correction groups or fixed 177-record audit.
+
 **Authorization:** owner request on October 23 to fix coverage within existing limits, set an active
 goal and track durability/accuracy/value; clarified priority is current operation before expansion.
 [Recovery plan](docs/active/daily-pipeline/coverage-recovery-plan-2026-10-23.md).

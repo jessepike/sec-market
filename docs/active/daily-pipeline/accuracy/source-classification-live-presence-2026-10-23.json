@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "kind": "actual_production_source_class_presence_probe",
+  "checkedAt": "2026-10-23T21:09:12.410266+00:00",
+  "url": "https://securitymarketpulse.com/assets/index-DnkfLPlT.js",
+  "appRevision": "7bd94ec77e99462c068f254e134235a894585cbb",
+  "bundleSha256": "9e6664b01a1eaf839531a13de121e83a49daa6ebb7220c378e1691f26cc2a7c7",
+  "evidenceId": "TR-xage-1",
+  "observedSourceClass": "INDEPENDENT",
+  "observedOrganization": "Yahoo Finance",
+  "recordLiteralSha256": "777d4f97af75ae7058addd24710500d1f530e33750cd63c70922894d1441c29c",
+  "method": "Exact unique record-id literal and source-class/publisher literals in served JS asset; no script execution.",
+  "semanticAdmission": false,
+  "correctionApplied": false,
+  "sourceRequests": 0,
+  "modelCalls": 0,
+  "limitations": [
+    "Production asset inspection confirms the existing label. It does not classify the underlying source or independently validate company figures."
+  ]
+}
