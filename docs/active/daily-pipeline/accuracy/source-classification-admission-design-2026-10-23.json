@@ -1,0 +1,807 @@
+{
+  "schemaVersion": 1,
+  "kind": "candidate_source_classification_admission_design",
+  "checkedAt": "2026-10-23T21:33:29.832155Z",
+  "status": "design only; no implementation, active request, review or admission",
+  "inputs": {
+    "contracts/market.json": {
+      "sha256": "327e52fdab4f97d3f0d628978501aa7197b31ddadb4006d16d3f776a8acb47c0",
+      "bytes": 279411
+    },
+    "contracts/factual-baseline.json": {
+      "sha256": "ab3bca0e49a38495d310021857ee2c1a3ca6ebe7979593d1e8b36437cb2a294e",
+      "bytes": 35212
+    },
+    "contracts/factual-corrections.json": {
+      "sha256": "4b65725ec0dae65ddca0a4196778c60dd99a8523823300214dc0b22df0e92138",
+      "bytes": 19776
+    },
+    "web/src/data/tracker/originals.json": {
+      "sha256": "7d164cb81003db0a66eccbb25c2e8605e33b853b9a6e20cb2c6900794822b4a3",
+      "bytes": 381034
+    },
+    "web/src/data/tracker/factualCorrectionPolicy.json": {
+      "sha256": "49b9fd91ef44889b3965059ec18588967adc3498820a3fff7bedbf0d559cdbc1",
+      "bytes": 1498
+    },
+    "web/scripts/pipeline/corrections.py": {
+      "sha256": "f27f4390242b8e9767751d6d3ff41861ec7bb1292962fd04354d2aac9e8ebe7d",
+      "bytes": 26773
+    },
+    "web/scripts/pipeline/agents.py": {
+      "sha256": "aedfb8e7ba76401417cc3d8c8932bbf5061bd1de09b870707c0f251d95ac30d5",
+      "bytes": 10579
+    },
+    "web/scripts/pipeline/discovery.py": {
+      "sha256": "68e87c993c9600671349ab1ad0ace342d9f7dd510cd8abdd6e872e39cff509de",
+      "bytes": 32217
+    },
+    "web/src/data/tracker/factualCorrections.ts": {
+      "sha256": "dbfe61247083530d425d980978af00a1970b3a073656275ed2a3a4a3f45aaa94",
+      "bytes": 19274
+    },
+    "web/scripts/verify-factual-corrections.mjs": {
+      "sha256": "bbb906605ca21d5fb0d89eb355d8e117a90a5880c063e79ba27a63d9c2017d34",
+      "bytes": 7759
+    },
+    "web/scripts/verify-current-facts.ts": {
+      "sha256": "a10ac1b5b9dec1ae324498afeeb97a999ff025215167e692fc81ff47ac3e97e6",
+      "bytes": 7011
+    },
+    "web/src/data/evidence.ts": {
+      "sha256": "8d3aed893166c488c58f5a66be389917aa906092a2747a28ea31ae5fd832847b",
+      "bytes": 956
+    },
+    "web/src/data/types.ts": {
+      "sha256": "87af8d8fc434ef765edb2c9de9d80c841501b19793ae13030823ddfe30cb509d",
+      "bytes": 11754
+    },
+    "web/src/components/EvidenceDrawer.tsx": {
+      "sha256": "61c351b2e4c0b3d95fd25012dd3972222b0c50485ad0bedb86dc1bce3945bc40",
+      "bytes": 8315
+    },
+    "web/src/components/EvidenceLibrary.tsx": {
+      "sha256": "0e858738aebdea7079e8fddcb1fdc7d7523b82d20f81e9cf8f20ff7c9a8e2c36",
+      "bytes": 3967
+    },
+    "docs/active/daily-pipeline/factual-corrections-spec.md": {
+      "sha256": "532bfafd70285c519916907807924a213198b2bb6dfa3f51e2024ff874418ed1",
+      "bytes": 13803
+    },
+    "docs/active/daily-pipeline/correction-review-retention-spec.md": {
+      "sha256": "1ff6894690e008b62ab66d22b49ee52573a921d8635cf778f5d3e98ce2b299c3",
+      "bytes": 4531
+    },
+    "docs/active/daily-pipeline/accuracy/missing-distribution-reporting-bindings-audit-2026-10-23.json": {
+      "sha256": "a144b0deed9677e6868602939d17b663347e16569b8d8e0ad9e9473ef7276265",
+      "bytes": 329719
+    },
+    "docs/active/daily-pipeline/accuracy/source-classification-correction-proposal-2026-10-23.md": {
+      "sha256": "a4e7913f29eaf125854665723c7ef44054327be25d04abb418097c27c06edf46",
+      "bytes": 2579
+    },
+    "docs/active/daily-pipeline/accuracy/source-classification-live-presence-2026-10-23.json": {
+      "sha256": "7d487bf83c988bc3c11f8a4f73f7ba7fafb46a17f5354adc0340a231ebc5e132",
+      "bytes": 954
+    },
+    "docs/active/daily-pipeline/accuracy/source-bindings-2026-10-23.json": {
+      "sha256": "7aa72d2b75a39b10b17f557bd605fd7e5a2bfeef2d0f8f48a7bed302d5e74f76",
+      "bytes": 274939
+    },
+    "docs/active/daily-pipeline/accuracy/correction-source-replay-2026-10-23.json": {
+      "sha256": "c9d30089650f8d2135591d0bbf4106024b4d7c4730e0b6d0ee665d88d0c56670",
+      "bytes": 5165
+    }
+  },
+  "recommendation": {
+    "operation": "reclassify_publisher_disclosure",
+    "reviewScope": "publisher_disclosure_only",
+    "targetId": "evidence:TR-xage-1",
+    "from": "INDEPENDENT",
+    "to": "OFFICIAL",
+    "mutableFields": [
+      "limitations",
+      "sourceClass"
+    ],
+    "sourceSufficiency": "The retained publisher page supports its own paid-release label and issuer/provider attribution within this narrowly defined review scope. It is primary evidence of that publication role only.",
+    "wholeDocumentFits": true,
+    "originalWireRequiredForThisRoleCorrection": false,
+    "financialPrimaryProofEstablished": false,
+    "reason": "The same exact article contains the publisher paid-release notice, Xage byline and GlobeNewswire dateline; its complete visible text fits the ordinary cap. A direct issuer/wire original remains unproven and cannot be inferred from links.",
+    "ledger": "existing dated factual-correction machinery with explicit scope-specific dispatch",
+    "independentPublicationPathAdded": false
+  },
+  "records": {
+    "original": {
+      "id": "TR-xage-1",
+      "title": "Xage Security hits record growth",
+      "organization": "Yahoo Finance",
+      "publicationDate": "2026-03-18",
+      "economicPeriod": "N/A (company update)",
+      "canonicalUrl": "https://finance.yahoo.com/news/xage-security-hits-record-growth-120000615.html",
+      "excerpt": "Xage Security reported 81% year-over-year revenue growth and 102% year-over-year customer growth, a 50% rise in net-new revenue between Q3 and Q4 2025, and over 100% growth in net-new revenue from Q4 2025 into Q1 2026 (unaudited, no absolute dollar revenue figure disclosed). The company also closed a $15 million equity round led by Piva Capital in December 2025.",
+      "sourceClass": "INDEPENDENT",
+      "interpretation": "",
+      "limitations": "Trade-press relay of company-stated figures; not independently confirmed against a direct Xage or Piva Capital primary release, though an SEC Form D filed the same date (2026-03-18) is consistent with a Reg D raise around this period.",
+      "conflictingEvidenceIds": [],
+      "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-xage-1",
+      "tags": [
+        "tracker",
+        "ot-iot"
+      ],
+      "retrievedAt": "2026-09-25"
+    },
+    "originalSha256": "62bb8bcce0698b5f164867d9bc070be77ee4eebde095947dd96eb8a693d0d6fb",
+    "proposed": {
+      "id": "TR-xage-1",
+      "title": "Xage Security hits record growth",
+      "organization": "Yahoo Finance",
+      "publicationDate": "2026-03-18",
+      "economicPeriod": "N/A (company update)",
+      "canonicalUrl": "https://finance.yahoo.com/news/xage-security-hits-record-growth-120000615.html",
+      "excerpt": "Xage Security reported 81% year-over-year revenue growth and 102% year-over-year customer growth, a 50% rise in net-new revenue between Q3 and Q4 2025, and over 100% growth in net-new revenue from Q4 2025 into Q1 2026 (unaudited, no absolute dollar revenue figure disclosed). The company also closed a $15 million equity round led by Piva Capital in December 2025.",
+      "sourceClass": "OFFICIAL",
+      "interpretation": "",
+      "limitations": "Yahoo Finance labels this page as a paid press release and attributes it to Xage Security with a GlobeNewswire dateline. It is issuer-attributed release material republished by Yahoo Finance, not independent editorial reporting. This publication-role correction does not independently verify the financial, funding or operating figures in the unchanged excerpt.",
+      "conflictingEvidenceIds": [],
+      "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-xage-1",
+      "tags": [
+        "tracker",
+        "ot-iot"
+      ],
+      "retrievedAt": "2026-09-25"
+    },
+    "proposedSha256": "86b06657bb1139a5d98d293b5599590539baec7e099b59294a3a3e7e0001fe76",
+    "changedFields": [
+      "limitations",
+      "sourceClass"
+    ],
+    "protectedFields": [
+      "artifactLabel",
+      "canonicalUrl",
+      "conflictingEvidenceIds",
+      "economicPeriod",
+      "excerpt",
+      "id",
+      "interpretation",
+      "organization",
+      "publicationDate",
+      "retrievedAt",
+      "tags",
+      "title"
+    ],
+    "allProtectedFieldsIdentical": true,
+    "originalPreservedInHistory": true
+  },
+  "archive": {
+    "root": "/tmp/smp-coverage-baseline-20261023/state",
+    "commit": "b78cfa15980d7be9da54b31e28b16a0840c1d112",
+    "manifestSha256": "760b5c38fcb7fba2a3a223233539cce4eb5aa47d559571efa95b287047ac1ff8",
+    "verifiedReadEntries": [
+      {
+        "bytes": 651,
+        "key": "state/observations/3659081ca33f1558ed74ea30327c580c2d1664dcf7429e440758089b872499b6.json",
+        "sha256": "16a589f98686dfa9371e0dd7602a45e23088a57df302d5d51d908cb5da429fbd"
+      },
+      {
+        "bytes": 1021859,
+        "key": "state/objects/01cf60192caf9038e618e16a67aed61087e163a4aff82a724ca406f56c1e2afc",
+        "sha256": "01cf60192caf9038e618e16a67aed61087e163a4aff82a724ca406f56c1e2afc"
+      }
+    ],
+    "writes": 0,
+    "observationTimesRenewed": false
+  },
+  "publisherEvidence": {
+    "originalObservation": {
+      "body": {
+        "bytes": 1021859,
+        "key": "objects/01cf60192caf9038e618e16a67aed61087e163a4aff82a724ca406f56c1e2afc",
+        "sha256": "01cf60192caf9038e618e16a67aed61087e163a4aff82a724ca406f56c1e2afc"
+      },
+      "contentType": "text/html; charset=utf-8",
+      "etag": "\"162bkkk\"",
+      "fetchedAt": "2026-10-23T04:14:56.139543Z",
+      "finalUrl": "https://finance.yahoo.com/news/xage-security-hits-record-growth-120000615.html",
+      "httpStatus": 200,
+      "lastModified": null,
+      "observationId": "3659081ca33f1558ed74ea30327c580c2d1664dcf7429e440758089b872499b6",
+      "requestedUrl": "https://finance.yahoo.com/news/xage-security-hits-record-growth-120000615.html",
+      "sourceId": "xage:citation:TR-xage-1",
+      "status": "fetched"
+    },
+    "observationFileSha256": "16a589f98686dfa9371e0dd7602a45e23088a57df302d5d51d908cb5da429fbd",
+    "configuredSource": {
+      "id": "xage:citation:TR-xage-1",
+      "supplierId": "xage",
+      "kind": "citation",
+      "family": "citation_integrity",
+      "url": "https://finance.yahoo.com/news/xage-security-hits-record-growth-120000615.html",
+      "allowedHosts": [
+        "finance.yahoo.com"
+      ],
+      "registration": "verified",
+      "required": true,
+      "maxPages": 1,
+      "scopePrefixes": [
+        "/"
+      ],
+      "seedEvidenceUrls": [],
+      "evidenceId": "TR-xage-1"
+    },
+    "configuredSourceCanonicalSha256": "664e3c6e69f8354be4b60570c62eef042b28350df987908af3dcdf3785b366b8",
+    "rawHtmlBytes": 1021859,
+    "rawHtmlChars": 1021815,
+    "rawBodySha256": "01cf60192caf9038e618e16a67aed61087e163a4aff82a724ca406f56c1e2afc",
+    "canonicalUrl": [
+      "https://finance.yahoo.com/news/xage-security-hits-record-growth-120000615.html"
+    ],
+    "publisherMetadata": {
+      "@type": "NewsArticle",
+      "headline": "Xage Security Hits Record Growth by Architecting the Future of Zero Trust for AI and Critical Infrastructure",
+      "datePublished": "2026-03-18T12:00:00Z",
+      "dateModified": "2026-03-18T12:00:00Z",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://finance.yahoo.com/news/xage-security-hits-record-growth-120000615.html"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Yahoo! Finance",
+        "alternateName": "Yahoo Finance",
+        "url": "https://finance.yahoo.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://s.yimg.com/rz/p/yahoo_finance_en-US_h_p_finance_2.png",
+          "width": 354,
+          "height": 50
+        }
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Xage Security",
+        "url": "",
+        "jobTitle": ""
+      },
+      "creator": {
+        "@type": "Person",
+        "name": "Xage Security",
+        "url": "",
+        "jobTitle": ""
+      },
+      "provider": {
+        "@type": "Organization",
+        "name": "GlobeNewswire",
+        "url": "https://www.globenewswire.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://s.yimg.com/os/creatr-uploaded-images/2025-08/b2b7bbc0-8385-11f0-977e-d9d7d4cd04d2",
+          "width": 1406,
+          "height": 301
+        }
+      }
+    },
+    "articleStructure": {
+      "articleSelector": "article[data-testid=\"article-content-wrapper\"]",
+      "matchingArticleCount": 1,
+      "disclaimerSelector": "[data-testid=\"press-release-disclaimer\"]",
+      "matchingDisclaimerCountInsideArticle": 1,
+      "issuerBylineClass": "byline-attr-author",
+      "matchingIssuerBylineCountInsideArticle": 1,
+      "completeArticleIncludesPaidAndDateline": true
+    },
+    "exactQuotes": [
+      {
+        "id": "publisher_paid_disclosure",
+        "text": "This is a paid press release. Contact the press release distributor directly with any inquiries.",
+        "normalizedWholePageStart": 3509,
+        "normalizedWholePageEnd": 3605,
+        "textSha256": "c19d91560e117519131db4522252b4830303b154b40e99e1a015e433470d43c5",
+        "literalInWholePageText": true,
+        "literalInUniqueArticle": true,
+        "scope": "publication role and attribution only"
+      },
+      {
+        "id": "issuer_attributed_dateline",
+        "text": "PALO ALTO, Calif., March 18, 2026 (GLOBE NEWSWIRE) -- Xage Security",
+        "normalizedWholePageStart": 3940,
+        "normalizedWholePageEnd": 4007,
+        "textSha256": "b51ad1b0effd0ac7dd27724093c007ae56b67f06d94c011ba04fa7b8efda213c",
+        "literalInWholePageText": true,
+        "literalInUniqueArticle": true,
+        "scope": "publication role and attribution only"
+      },
+      {
+        "id": "article_issuer_byline_context",
+        "text": "Xage Security March 18, 2026 7 min read",
+        "normalizedWholePageStart": 3715,
+        "normalizedWholePageEnd": 3754,
+        "textSha256": "e9a5846b0a14a65c1da68ca004c40836d7651ddbe965bb35ad84b95c10ba1bac",
+        "literalInWholePageText": true,
+        "literalInUniqueArticle": true,
+        "scope": "publication role and attribution only"
+      }
+    ],
+    "literalProviderAndIssuerLinks": [
+      {
+        "literalHref": "https://www.globenewswire.com/",
+        "visibleOrAccessibleLabel": "GlobeNewswire",
+        "rel": "nofollow",
+        "scope": "provider homepage",
+        "destinationFetched": false
+      },
+      {
+        "literalHref": "https://www.globenewswire.com",
+        "visibleOrAccessibleLabel": "(GLOBE NEWSWIRE)",
+        "rel": "noopener noreferrer nofollow",
+        "scope": "provider homepage",
+        "destinationFetched": false
+      },
+      {
+        "literalHref": "https://www.globenewswire.com/Tracker?data=MJIQyHq_rQCj2rp2uax_Yz7ae5LjhmTKbY9NxY0FJjDD9szsa-JXm59hlOymfjTJF8GhfuGuS3ScNqSAGgOW2A==",
+        "visibleOrAccessibleLabel": "Xage Security",
+        "rel": "noopener noreferrer nofollow",
+        "scope": "opaque provider tracking link; destination not observed",
+        "destinationFetched": false
+      }
+    ],
+    "originalWireStoryUrlFound": false,
+    "directIssuerUrlFound": false,
+    "trackerRedirectDestinationsKnown": false,
+    "provenanceLimit": "Yahoo self-identifies the physical publisher and labels Xage as author/creator and GlobeNewswire as provider. These retained publisher representations establish attribution, not an independently fetched wire original, issuer control or truth of financial figures."
+  },
+  "documentBudget": {
+    "modelMaxDocumentChars": 30000,
+    "rawHtmlFitsCharacterCap": false,
+    "normalization": "Strict UTF-8; Page(HTMLParser, convert_charrefs=True) visible text excludes script/style/noscript; join all Page.text and collapse whitespace once. No slice, excerpt selection or second entity decode.",
+    "proposedInput": "entire normalized wholePage.text",
+    "wholePageTextChars": 16832,
+    "wholePageTextSha256": "c98a0f42e0107dce354b5885d4788498689b8ba5a6e39a8beffb82824ffb7749",
+    "pageReadableChars": 10289,
+    "pageReadableSha256": "9ec1065016d86b8d67c6219b4f7ee290e565a0eb7a12b00a912eba631d145ee6",
+    "articleRegionChars": 10289,
+    "mainRegionChars": 13323,
+    "combinedGroupTextChars": 16832,
+    "combinedGroupWithinCap": true,
+    "truncated": false,
+    "whyWholePage": "The complete visible page already fits. Sending only chosen disclosures or relying on a generic article cut is unnecessary and risks losing the publisher disclaimer.",
+    "admissionRule": "Both each full visible document and the sum over the group must be <= maxDocumentChars before any document/model reservation. Changed or enlarged pages over the cap remain held without chunking or a cap increase."
+  },
+  "existingGuards": [
+    {
+      "path": "web/scripts/pipeline/corrections.py",
+      "symbols": [
+        "EVIDENCE_MUTABLE",
+        "_target",
+        "load_policy"
+      ],
+      "rules": [
+        "sourceClass and organization are generally immutable.",
+        "Factual correction sources require immutable original classes IR/FILING/OFFICIAL.",
+        "The wrongly labelled original TR-xage-1 cannot bootstrap itself into primary financial proof."
+      ],
+      "preserveUnchanged": true
+    },
+    {
+      "path": "web/src/data/tracker/factualCorrections.ts",
+      "symbols": [
+        "evidenceChanges",
+        "validateBundle"
+      ],
+      "rules": [
+        "Ordinary evidence replacement rejects any sourceClass/organization change."
+      ],
+      "preserveUnchanged": true
+    },
+    {
+      "path": "web/scripts/verify-current-facts.ts",
+      "symbols": [
+        "expectedCurrentFacts",
+        "assertCurrentFacts",
+        "loadCurrentFactInputs"
+      ],
+      "rules": [
+        "All actual exported current views must match independently loaded originals and admitted overlays; original history exports remain raw."
+      ],
+      "extendOnlyForTypedNewOverlay": true
+    }
+  ],
+  "proposedGroupExample": {
+    "id": "XAGE-SOURCE-CLASS-20261023",
+    "supplierId": "xage",
+    "reviewScope": "publisher_disclosure_only",
+    "reasonCode": "paid_release_mislabelled_independent",
+    "noteTemplate": "On {date}, corrected source TR-xage-1 from INDEPENDENT to OFFICIAL because Yahoo Finance labels it a paid Xage Security release with a GlobeNewswire dateline. Yahoo Finance remains the publisher; the quoted financial and operating figures are unchanged and are not certified by this source-role correction.",
+    "targets": [
+      {
+        "targetId": "evidence:TR-xage-1",
+        "operation": "reclassify_publisher_disclosure",
+        "original": {
+          "id": "TR-xage-1",
+          "title": "Xage Security hits record growth",
+          "organization": "Yahoo Finance",
+          "publicationDate": "2026-03-18",
+          "economicPeriod": "N/A (company update)",
+          "canonicalUrl": "https://finance.yahoo.com/news/xage-security-hits-record-growth-120000615.html",
+          "excerpt": "Xage Security reported 81% year-over-year revenue growth and 102% year-over-year customer growth, a 50% rise in net-new revenue between Q3 and Q4 2025, and over 100% growth in net-new revenue from Q4 2025 into Q1 2026 (unaudited, no absolute dollar revenue figure disclosed). The company also closed a $15 million equity round led by Piva Capital in December 2025.",
+          "sourceClass": "INDEPENDENT",
+          "interpretation": "",
+          "limitations": "Trade-press relay of company-stated figures; not independently confirmed against a direct Xage or Piva Capital primary release, though an SEC Form D filed the same date (2026-03-18) is consistent with a Reg D raise around this period.",
+          "conflictingEvidenceIds": [],
+          "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-xage-1",
+          "tags": [
+            "tracker",
+            "ot-iot"
+          ],
+          "retrievedAt": "2026-09-25"
+        },
+        "originalSha256": "62bb8bcce0698b5f164867d9bc070be77ee4eebde095947dd96eb8a693d0d6fb",
+        "proposedValue": {
+          "id": "TR-xage-1",
+          "title": "Xage Security hits record growth",
+          "organization": "Yahoo Finance",
+          "publicationDate": "2026-03-18",
+          "economicPeriod": "N/A (company update)",
+          "canonicalUrl": "https://finance.yahoo.com/news/xage-security-hits-record-growth-120000615.html",
+          "excerpt": "Xage Security reported 81% year-over-year revenue growth and 102% year-over-year customer growth, a 50% rise in net-new revenue between Q3 and Q4 2025, and over 100% growth in net-new revenue from Q4 2025 into Q1 2026 (unaudited, no absolute dollar revenue figure disclosed). The company also closed a $15 million equity round led by Piva Capital in December 2025.",
+          "sourceClass": "OFFICIAL",
+          "interpretation": "",
+          "limitations": "Yahoo Finance labels this page as a paid press release and attributes it to Xage Security with a GlobeNewswire dateline. It is issuer-attributed release material republished by Yahoo Finance, not independent editorial reporting. This publication-role correction does not independently verify the financial, funding or operating figures in the unchanged excerpt.",
+          "conflictingEvidenceIds": [],
+          "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-xage-1",
+          "tags": [
+            "tracker",
+            "ot-iot"
+          ],
+          "retrievedAt": "2026-09-25"
+        }
+      }
+    ],
+    "sources": [
+      {
+        "evidenceId": "TR-xage-1",
+        "sourceId": "xage:citation:TR-xage-1",
+        "url": "https://finance.yahoo.com/news/xage-security-hits-record-growth-120000615.html",
+        "observationId": "3659081ca33f1558ed74ea30327c580c2d1664dcf7429e440758089b872499b6",
+        "body": {
+          "bytes": 1021859,
+          "key": "objects/01cf60192caf9038e618e16a67aed61087e163a4aff82a724ca406f56c1e2afc",
+          "sha256": "01cf60192caf9038e618e16a67aed61087e163a4aff82a724ca406f56c1e2afc"
+        },
+        "fetchedAt": "2026-10-23T04:14:56.139543Z",
+        "proofScope": "publisher_disclosure_only",
+        "visibleText": {
+          "rulesVersion": "page-all-visible-text-whitespace-1",
+          "sha256": "c98a0f42e0107dce354b5885d4788498689b8ba5a6e39a8beffb82824ffb7749",
+          "chars": 16832
+        },
+        "disclosureQuoteIds": [
+          "publisher_paid_disclosure",
+          "issuer_attributed_dateline",
+          "article_issuer_byline_context"
+        ]
+      }
+    ],
+    "disclosureQuotes": [
+      {
+        "id": "publisher_paid_disclosure",
+        "text": "This is a paid press release. Contact the press release distributor directly with any inquiries.",
+        "normalizedWholePageStart": 3509,
+        "normalizedWholePageEnd": 3605,
+        "textSha256": "c19d91560e117519131db4522252b4830303b154b40e99e1a015e433470d43c5",
+        "literalInWholePageText": true,
+        "literalInUniqueArticle": true,
+        "scope": "publication role and attribution only"
+      },
+      {
+        "id": "issuer_attributed_dateline",
+        "text": "PALO ALTO, Calif., March 18, 2026 (GLOBE NEWSWIRE) -- Xage Security",
+        "normalizedWholePageStart": 3940,
+        "normalizedWholePageEnd": 4007,
+        "textSha256": "b51ad1b0effd0ac7dd27724093c007ae56b67f06d94c011ba04fa7b8efda213c",
+        "literalInWholePageText": true,
+        "literalInUniqueArticle": true,
+        "scope": "publication role and attribution only"
+      },
+      {
+        "id": "article_issuer_byline_context",
+        "text": "Xage Security March 18, 2026 7 min read",
+        "normalizedWholePageStart": 3715,
+        "normalizedWholePageEnd": 3754,
+        "textSha256": "e9a5846b0a14a65c1da68ca004c40836d7651ddbe965bb35ad84b95c10ba1bac",
+        "literalInWholePageText": true,
+        "literalInUniqueArticle": true,
+        "scope": "publication role and attribution only"
+      }
+    ]
+  },
+  "proposedGroupSha256": "f0060b9e09cdffb77e08797f0fdd49eb9bf931ea4a91685e4f0a4c911fc50abb",
+  "proposedEvidenceSetSha256": "a5138d57005644bda2474a10d29a5fa3c27cdd649d9fa8f8a704a04d6e070200",
+  "proposedReviewPolicy": {
+    "formula": "digest(proposedReviewPolicy.basis) using the existing canonical JSON SHA-256 rule; this is a candidate policy, not an admitted policy.",
+    "basis": {
+      "schemaVersion": 1,
+      "rulesVersion": "dated-publisher-disclosure-classification-1",
+      "reviewScope": "publisher_disclosure_only",
+      "baselineSha256": "ab3bca0e49a38495d310021857ee2c1a3ca6ebe7979593d1e8b36437cb2a294e",
+      "candidateSha256": "f0060b9e09cdffb77e08797f0fdd49eb9bf931ea4a91685e4f0a4c911fc50abb",
+      "supplier": {
+        "id": "xage",
+        "name": "Xage Security, Inc.",
+        "aliases": [
+          "Xage Security"
+        ],
+        "kind": "private"
+      },
+      "sources": [
+        {
+          "id": "xage:citation:TR-xage-1",
+          "supplierId": "xage",
+          "kind": "citation",
+          "family": "citation_integrity",
+          "url": "https://finance.yahoo.com/news/xage-security-hits-record-growth-120000615.html",
+          "allowedHosts": [
+            "finance.yahoo.com"
+          ],
+          "registration": "verified",
+          "required": true,
+          "maxPages": 1,
+          "scopePrefixes": [
+            "/"
+          ],
+          "seedEvidenceUrls": [],
+          "evidenceId": "TR-xage-1"
+        }
+      ],
+      "model": {
+        "provider": "codex_subscription",
+        "allowApiBilling": false,
+        "maxDocumentChars": 30000
+      },
+      "freshnessHours": 30,
+      "allowedTransition": {
+        "targetId": "evidence:TR-xage-1",
+        "originalSha256": "62bb8bcce0698b5f164867d9bc070be77ee4eebde095947dd96eb8a693d0d6fb",
+        "from": "INDEPENDENT",
+        "to": "OFFICIAL",
+        "mutableFields": [
+          "limitations",
+          "sourceClass"
+        ]
+      },
+      "checks": [
+        "class_transition",
+        "limitations_scope",
+        "literal_disclosure",
+        "publisher_source_binding",
+        "release_attribution",
+        "target_identity",
+        "unchanged_claims_and_history"
+      ]
+    },
+    "sha256": "c01560dba484aa5aa5696c8bfe5b44acefc6337ee1cebe0cd96751849e15646a",
+    "retention": "The shared global inventory policy changes when a later reviewed implementation appends this disjoint group. Existing five groups keep their byte-identical group objects and exact existing review-policy formulas/hashes; their accepted reviews and public rows remain usable unchanged. The new role group uses this distinct scope-specific policy basis. Unrelated source/list edits cannot change it; changed role dependencies require a new real review and explicit history reconciliation."
+  },
+  "proposedImplementation": {
+    "structuralAdmission": [
+      "Dispatch by explicit typed operation and publisher_disclosure_only scope inside the current ledger. Exactly one role target is allowed and it must not overlap any other requested target. Ordinary factual groups keep their current protected-field and immutable-primary-source validation without modification.",
+      "Require the same whole baseline inventories and exact complete before record; proposed shape must equal original shape.",
+      "Enforce exact target, sourceClass transition and source URL/organization; compare every field except sourceClass/limitations by canonical equality. The excerpt, all numbers, identity, tags, economic/publication dates, retrieval metadata and conflicts stay unchanged.",
+      "Validate verified configured xage citation identity, supplier/source joins, HTTPS host, exact requested/final canonical URL, successful archived observation status, exact fetchedAt and content-addressed body bytes/length.",
+      "Validate one canonical and one exact matching article wrapper, publisher disclaimer within it, exact Xage byline and GlobeNewswire dateline; bind publisher/provider metadata to this canonical article. A related-story disclosure, bare hostname, logo alone or arbitrary navigation cannot supply scope.",
+      "Replay all visible text deterministically, require the recorded text SHA/char count, match each disclosure quote literally and retain all complete relevant text. Structural matching supplies review evidence; it cannot manufacture acceptance.",
+      "Do not require the unchanged financial paraphrase to become a newly literal quote. Instead require it to remain exactly unchanged and explicitly exclude its verification from the role operation.",
+      "Reject any expired/future source at initial review completion, changed identity/body/time/text/quote, absent provenance, unsupported scope or partial group before accepted cache creation."
+    ],
+    "independentReview": {
+      "transport": "Reuse existing SubscriptionAgent.call and correction reservation flow, adding a strict publisher-disclosure schema selected only for this typed scope. No new subscription client, API key, billing fallback or publication path.",
+      "scopeEchoRequired": "publisher_disclosure_only",
+      "requiredResponseFields": [
+        "result",
+        "reviewScope",
+        "candidateSha256",
+        "evidenceSetSha256",
+        "policySha256",
+        "checks"
+      ],
+      "resultEnum": [
+        "accepted",
+        "rejected",
+        "ambiguous"
+      ],
+      "checks": [
+        "class_transition",
+        "limitations_scope",
+        "literal_disclosure",
+        "publisher_source_binding",
+        "release_attribution",
+        "target_identity",
+        "unchanged_claims_and_history"
+      ],
+      "acceptance": "All role-specific checks must be pass and every echoed scope/hash exact. The review covers the complete before/after, note and role disclosures. It explicitly does not certify financial numbers or upgrade historical claim support.",
+      "documentReservationsPerGroup": 1,
+      "modelCallsPerActualRequest": 1,
+      "persistentBudget": "Use existing daily documents/calls limits and reservation callback. Reserve document after structural/cap preflight; charge each real model request through SubscriptionAgent.call. Errors, invalid responses, cancellation and timeout retain charges.",
+      "completionSafety": "After review returns, recheck cancellation/deadline and source age using an actual completion clock before immutable accepted writes. Preserve the review attempt when late or rejected.",
+      "synthetic": "Synthetic mechanics fixtures may never create an admissible production accepted index."
+    },
+    "archiveAndReplay": {
+      "attemptNamespace": "correction-attempts",
+      "admissionNamespace": "correction-admissions",
+      "acceptedIndexKeyTemplate": "correction-admissions/<groupReviewPolicySha256>/<candidateSha256>-<evidenceSetSha256>.json",
+      "reuseExistingArchiveFlow": true,
+      "typedScopeIdentity": "The new review-policy rulesVersion and reviewScope participate in the derived policy hash. Its candidate hash binds the explicit target operation and scope; the evidence-set hash binds publisher-only proof. Reviews, admissions and public rows for this group echo reviewScope publisher_disclosure_only. An ordinary financial review cannot satisfy this identity and a role review cannot satisfy ordinary financial admission.",
+      "newScopeAdmissionRequiredFields": [
+        "reviewScope",
+        "groupId",
+        "candidateSha256",
+        "evidenceSetSha256",
+        "policySha256",
+        "admittedAt",
+        "review",
+        "sources"
+      ],
+      "legacyAdmissionSchemaUnchanged": true,
+      "acceptedIndex": "Reuse immutable content-addressed review/admission objects and the existing exact accepted index. Never trust caller acceptance flags. The different group-policy hash prevents cross-scope cache identity even under the same namespace.",
+      "replay": "Dispatch strict replay by the expected scope from committed requests, then verify the explicit admission scope, baseline, target, full source bytes/text/quote/identity joins and actual accepted subscription review under the derived group policy. Evaluate age at original admittedAt, never renew it during replay.",
+      "history": "Retain original evidence plus accepted attempt/admission and dated public before/after through the existing history path. Existing five rows and their metadata stay byte-identical. Reuse only unchanged accepted groups; changed relevant dependencies need a new real review and explicit reconciliation."
+    },
+    "inventoryPolicy": {
+      "formula": "digest({marketSha256:digest(market),requestsSha256:digest(correctionRequests),baselineSha256:correctionRequests.baseline.sha256})",
+      "usesExistingFormula": true,
+      "parallelInventoryPolicyAdded": false,
+      "currentRequestsUnchanged": true,
+      "laterAppendBehavior": "Only in a later reviewed implementation, appending the disjoint role group changes the existing global inventory policy, group/target/source-evidence manifest and expected review map in the normal way. It adds one mandatory scoped group; it neither edits the first five groups nor recomputes their review policies by a different formula.",
+      "existingReviewPoliciesUnchanged": {
+        "FC-20261023-checkpoint-sase": "1c52ee664765de6234a3d68bcd4767e42a3da9fe471b6c61686cac1a1616d774",
+        "FC-20261023-optiv": "4f9e7feb90232a3aafe2cd84265c2e8202c9e009229e7592c5ab87373f64bcf5",
+        "FC-20261023-splunk": "270b7c7a1f7180b3fef2896b7633a87bf0667b9f4a3c75593fa72b959ecb87f6",
+        "FC-20261023-zscaler": "54e40bd49e9c04d26aebe3f7eaa3ece37d15be460c4b5d76c3041e8c272e182f",
+        "FC-20261023-expel": "d1ea72b754450e603d89092cc38d9fa81d165575af2a36745e5938220fd82087"
+      },
+      "existingGroupCandidateSha256ById": {
+        "FC-20261023-checkpoint-sase": "614958a764bdbf41f47269c5ea66060a8747a72440968a478200921b3f599fb1",
+        "FC-20261023-optiv": "ce48b552db79aa960aed5e08840f28a99ccab313c9d05df874b281cf7eb9c00c",
+        "FC-20261023-splunk": "a397eb20f8a6918f19ef6004ad2107a96066d0b84532ca9f131fd050fec61240",
+        "FC-20261023-zscaler": "3ba2c4ec71de2204d152f273c0ed4114f7f99e527843abe9863f462e1047caa5",
+        "FC-20261023-expel": "b02146ce95927f20887ee6a647545e968c2d21db891aa0860ddfe3908b68e1c3"
+      },
+      "releaseBinding": "Use the existing factualCorrections.json bundle, gate seal, detached release receipt and static artifact manifest. Global policy remains the complete inventory binding; each admission policy is the derived group-specific policy with its applicable scope. No second generated file, seal or publication route.",
+      "mandatoryGroups": "The single enabled projection must contain every requested group, including all five unchanged factual groups and any later appended role group. No partial six-group bundle, bypass, older global inventory, disabled-role exception or earlier-publication exception is admitted."
+    },
+    "buildRuntimeAndRelease": [
+      "Extend the current independent Python correction gate with strict typed operation/scope dispatch. It alone authenticates the real role review, adds the accepted row to the same enabled factualCorrections.json projection and emits the existing exact seal. A static consistency seal remains insufficient.",
+      "Node independently derives the complete shared inventory and dispatches the per-group policy formula by exact committed scope. Existing five formulas/hashes remain unchanged; the new role formula is distinct. Reject a forged, missing, extra or stale stamp/map entry and an operation/scope mismatch.",
+      "Pure TypeScript receives the existing explicit expected global policy and review map and recognizes the new scoped operation as a separate typed target case in the current projector. Require the exact allowed ID, class transition, complete before/after shape and protected fields. Ordinary replace continues rejecting every sourceClass/organization change.",
+      "Use the current ledger-wide duplicate target rejection. A role target cannot collide with a factual target, group or later correction; sequential same-record repair remains held for explicit reconciliation. Preserve raw originals and every existing original-history export.",
+      "Extend the existing expected-current-views reconstruction and actual-export assertions for the admitted typed row. The same shared evidenceRecords/evidenceById must feed every consumer. Supplier/event views, the financial excerpt and certified figures must remain identical; a post-projection local edit fails.",
+      "Use the current evidence map and corrections history/page/JSON/feed. Show publisher attribution, exact before/after class/limitations and narrow scope, without claiming financial certification or owner approval.",
+      "Extend only the current seal/release metadata to bind the full shared group inventory and the new row review scope alongside existing hashes/new group IDs/publication UTC date. Preserve every existing required gate and the 557-task source denominator.",
+      "Use the existing UTC first-publication date boundary and rollback/restoration flow. Retain admittedAt separately, refuse late first publication, and preserve previous group rows, dates, reviews and raw history across later collections/releases.",
+      "Render the affected Xage drawer/library/history at desktop and phone through the current preview/release workflow. Verify only source class/limitations and dated correction history change. No implementation, request addition or publication is performed by this design artifact."
+    ],
+    "sharedLedgerTypedScope": {
+      "requestPath": "contracts/factual-corrections.json",
+      "backendModulePath": "web/scripts/pipeline/corrections.py",
+      "generatedPath": "web/src/data/generated/factualCorrections.json",
+      "sealPath": "web/src/data/generated/factualCorrections.seal.json",
+      "frontendModulePath": "web/src/data/tracker/factualCorrections.ts",
+      "buildVerifierPath": "web/scripts/verify-factual-corrections.mjs",
+      "runtimeVerifierPath": "web/scripts/verify-current-facts.ts",
+      "reuseExistingPaths": true,
+      "newParallelRequestInventory": false,
+      "newEnabledFileOrSealPath": false,
+      "allowlist": "Exactly operation reclassify_publisher_disclosure, reviewScope publisher_disclosure_only, supplier xage, target evidence:TR-xage-1, exact originalSha256, and INDEPENDENT to OFFICIAL. Only limitations can change alongside class. Reject every other ID/transition/field; do not create a general sourceClass patch path.",
+      "requestShape": "A later reviewed implementation may append one disjoint group in the existing groups list. It has reviewScope publisher_disclosure_only and exactly one target whose operation is reclassify_publisher_disclosure. Keep the existing five group objects byte-identical; do not append or edit requests in this design task.",
+      "strictSchemaDispatch": "Legacy groups with no reviewScope keep their exact current schema and dated-factual-correction-review-1 hash derivation. Only the exact publisher_disclosure_only literal selects the new strict schema and seven role checks. Unknown scope, mixed factual/role targets, replace with sourceClass changes, or the new operation under ordinary scope fail closed.",
+      "factualSourceGuardUnchanged": true,
+      "noReclassificationOfFinancialAuthority": "OFFICIAL is the proposed presentation class for an issuer-attributed release. Only the publication-role operation is admitted; factual-source policy continues to inspect immutable original evidence and its own independent primary proof. The public display class or this role admission must never authorize financial extraction, certification or a recurring-source binding."
+    }
+  },
+  "freshness": {
+    "originalFetchedAt": "2026-10-23T04:14:56.139543Z",
+    "initialReviewCompletionMustBeNoLaterThan": "2026-10-24T10:14:56.139543Z",
+    "hours": 30,
+    "newObservationCreated": false,
+    "historicalAdmissionRetention": "Only a future actual admission made while the source is fresh can later retain its original evidence age. This design receipt is not such an admission."
+  },
+  "nextEvidenceActions": {
+    "neededForRecommendedRoleScopeNow": [],
+    "whenExpired": "Fetch the exact existing configured Yahoo URL under the naturally renewed persistent reservation path; archive actual response, original URL/final URL/time/body and replay complete visible text and disclosure/attribution. Rebind the candidate and require a real review. Do not renew this old observation.",
+    "ifPublisherDisclosuresAbsentOrAmbiguous": "Hold the operation. Inspect the actually returned page for a literal original wire/issuer permalink or follow an archived opaque tracking href only as a bounded provenance probe with redirect/host safety. Record the observed final destination; never infer a tracker destination, slug or direct issuer URL.",
+    "availableLiteralProbeUrls": [
+      {
+        "literalHref": "https://www.globenewswire.com/",
+        "visibleOrAccessibleLabel": "GlobeNewswire",
+        "rel": "nofollow",
+        "scope": "provider homepage",
+        "destinationFetched": false
+      },
+      {
+        "literalHref": "https://www.globenewswire.com",
+        "visibleOrAccessibleLabel": "(GLOBE NEWSWIRE)",
+        "rel": "noopener noreferrer nofollow",
+        "scope": "provider homepage",
+        "destinationFetched": false
+      },
+      {
+        "literalHref": "https://www.globenewswire.com/Tracker?data=MJIQyHq_rQCj2rp2uax_Yz7ae5LjhmTKbY9NxY0FJjDD9szsa-JXm59hlOymfjTJF8GhfuGuS3ScNqSAGgOW2A==",
+        "visibleOrAccessibleLabel": "Xage Security",
+        "rel": "noopener noreferrer nofollow",
+        "scope": "opaque provider tracking link; destination not observed",
+        "destinationFetched": false
+      }
+    ],
+    "originalWireStoryPermalink": null,
+    "directIssuerStoryPermalink": null,
+    "financialProofSeparate": "Any finance correction needs its own direct issuer/wire/filing provenance and ordinary factual review; this publication-role review supplies none."
+  },
+  "requiredCounterexamples": [
+    "General sourceClass/organization mutations through the factual path remain rejected.",
+    "A different evidence ID, supplier, original hash, sourceClass transition or any protected-field change fails every layer.",
+    "Proposed excerpt/financial numbers/date/URL/publisher identity changes fail even if a model accepts.",
+    "Publisher disclosure in a different article, related-story rail, script-only content, changed URL or missing byline/dateline fails scoped structural binding.",
+    "Changed observation/body/fetchedAt/text SHA/quote or an over-30000-character individual/combined text set fails before model/document reservation.",
+    "Financial-primary or financial-certification scope cannot reuse a publication-role review; mismatched scope fails archive replay and build/runtime projection.",
+    "Forged accepted flags or fabricated reviews without immutable real subscription admission/index fail the independent gate.",
+    "Incomplete checks, wrong candidate/evidence/policy/scope, expired completion, timeout and cancellation stay pending with charges retained.",
+    "Unrelated source change retains a previously real admitted group and public row at zero further review charges; relevant source or target change requires a new review and cannot overwrite published history.",
+    "Direct static source edit, stale stamp, modified actual runtime export, partial public rows, same-ledger duplicate target and first-publication date rollover all fail.",
+    "Missing, unknown or mismatched reviewScope, a mixed factual/role group or the new operation under ordinary factual review fails strict schema dispatch.",
+    "Adding a later disjoint role group changes the existing global policy/manifest while the first five group objects, group review hashes and any original accepted rows remain byte-identical and incur zero repeat review charges.",
+    "A parallel enabled classification file, alternate seal or publication path cannot satisfy the shared ledger gate; all requested groups remain mandatory in the one enabled projection."
+  ],
+  "scopePreserved": {
+    "fixedSemanticAuditInventory": 177,
+    "knownContradictions": 5,
+    "existingFactualGroups": 5,
+    "existingFactualTargets": 11,
+    "originalEvents": 97,
+    "originalSuppliers": 74,
+    "originalEvidence": 273,
+    "sourceTaskDenominator": 557,
+    "actualSuccessfulSourceTasks": 121,
+    "factualPolicySha256": "e0bf81c44037981c769c744f87e112b2881135402c12e97862416c41fe185a4f",
+    "marketCanonicalSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+    "allExistingContractsAndRequestsUnchanged": true,
+    "noCoverageCredit": true,
+    "futureGlobalInventoryPolicyChangesOnReviewedGroupAppend": true,
+    "existingFiveGroupReviewHashesUnchanged": true,
+    "newParallelPublicationPaths": 0
+  },
+  "remainingChoices": {
+    "recommendation": "Reuse the existing dated correction ledger/projection/gate and add only the narrowly typed one-record publication-role operation, review schema and group-policy branch. Retained publisher self-disclosure supports the role scope without financial proof uplift.",
+    "ownerDecisionRequiredNow": false,
+    "agentOwnedWork": [
+      "Write the scoped implementation changes and adversarial tests inside the existing backend, policy stamp/build verifier, pure projection, runtime/export assertion and gate/release/history flow.",
+      "Preserve each existing five-group object, its exact legacy review formula/hash and mandatory admission rules. No general sourceClass/organization relaxation is permitted.",
+      "After a later reviewed implementation, append only the disjoint Xage role group through the existing request ledger and regenerate its complete inventory stamp; no request is appended by this design revision.",
+      "After normal allowance renewal, use still-fresh exact proof or perform a genuine new check, obtain an actual independent role review and use the existing full independent gate/publication path."
+    ],
+    "unresolvedEvidence": [
+      "No original GlobeNewswire story URL or direct Xage issuer page is proven by these bytes.",
+      "The current financial excerpt and the legacy Form D assertion are outside this operation and retain their own support limits."
+    ],
+    "noImplementationDelivered": true,
+    "ownerApprovalClaimed": false
+  },
+  "semanticAdmission": false,
+  "correctionsApplied": false,
+  "sourceActivation": false,
+  "requestsChanged": false,
+  "marketPolicyChanged": false,
+  "originalsChanged": false,
+  "modelCalls": 0,
+  "sourceRequests": 0,
+  "archiveWrites": 0,
+  "quotaChanges": false,
+  "productionChanged": false,
+  "designDirection": {
+    "source": "Root design review for the existing SEC-072 workstream",
+    "recommendation": "Reuse the existing dated correction request ledger, admission/archive flow, generated projection, independent gate, release seal and publication history. Add an explicit typed publication-role operation and scope within that machinery.",
+    "ownerApprovalClaimed": false,
+    "implementationAuthorizedByThisArtifact": false,
+    "supersedesDesignSha256": "18429bfe9ff3d328dabfcb04dba7817d39b7f3e682b8e8e3e2d6b766e903fc6e"
+  },
+  "designSha256": "fd7df3355251f0baf2b9b4f59f4ce88b25a925365abb8f95cb258890970c87f3"
+}

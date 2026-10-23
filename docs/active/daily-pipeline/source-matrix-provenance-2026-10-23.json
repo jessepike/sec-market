@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "kind": "historical_actual_source_matrix_generation",
+  "generatedAt": "2026-10-23T21:23:55.332976+00:00",
+  "contract": {
+    "path": "contracts/market.json",
+    "rawSha256": "327e52fdab4f97d3f0d628978501aa7197b31ddadb4006d16d3f776a8acb47c0",
+    "canonicalSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe"
+  },
+  "coverage": {
+    "path": "docs/active/daily-pipeline/evaluations/2026-10-23/inputs/coverage.json",
+    "rawSha256": "370c35cf48074658a53f920c66b4ba1e4be711a158111fd04a03ad9c8cfde410",
+    "checkedAt": "2026-10-23T11:34:15.010723Z",
+    "runId": "e054ea73c89fe78db9702f94d2a3b669ce91884f7d7abda0a88698dbcfc7ec50",
+    "inventorySha256": "0be1a006bc9160964edca30b9793db92de87a5798cae0c2289156b6adf9c7844"
+  },
+  "requiredTasks": 557,
+  "successfulTasks": 121,
+  "gapReasons": {
+    "FETCHES_BUDGET_EXHAUSTED": 149,
+    "NO_REGISTERED_DISCOVERY_SOURCE": 254,
+    "SOURCE_BINDING_UNVERIFIED": 28,
+    "HTTP_403": 5
+  },
+  "outputs": {
+    "docs/active/daily-pipeline/source-matrix.csv": "464bdf6396d0ffde2cd894c51e1d232781ae65e42bbc5be93ff8a92ae3f3441d",
+    "docs/active/daily-pipeline/coverage-matrix.md": "c76e5da073ae964f8d65665f585fa43674e3ef9b1a8aae1b4d2ff700cd84ddee"
+  },
+  "originalTaskCompletionTimesPreserved": true,
+  "sourceRequests": 0,
+  "modelCalls": 0,
+  "semanticAdmission": false,
+  "coverageCreditAdded": 0,
+  "archiveWrites": 0,
+  "quotaChanges": false
+}
