@@ -27,7 +27,7 @@ def evaluate(manifest, base=Path('.')):
     now = instant(manifest['evaluatedAt'])
     require(__import__('re').fullmatch('[a-f0-9]{40}', manifest['appRevision']) is not None, 'Invalid app revision')
     pins = manifest['inputs']
-    require({'contract', 'coverage'} <= set(pins) <= {'contract', 'coverage', 'gate', 'collection', 'publication', 'rollback', 'continuity'}, 'Unknown/missing input')
+    require({'contract', 'coverage'} <= set(pins) <= {'contract', 'coverage', 'gate', 'collection', 'publication', 'rollback', 'continuity', 'claimAudit'}, 'Unknown/missing input')
     data = {name: load_pinned(entry, base) for name, entry in pins.items()}
     contract, coverage = data['contract'], data['coverage']
     checked = instant(coverage['checkedAt'])
@@ -87,6 +87,34 @@ def evaluate(manifest, base=Path('.')):
             'Pinned gate receipt reports known checks, including SEC recomputation. Tests do not estimate all-site precision/recall.', executedTests=gate['executedTests'])
     else:
         add('accuracy.known_release_checks', 'accuracy', 'unmeasured', limitation='No pinned gate receipt supplied.')
+    claim_audit = data.get('claimAudit')
+    if claim_audit:
+        require(claim_audit.get('schemaVersion') == 1 and claim_audit.get('kind') == 'published_claim_review_binding_report', 'Unknown claim-audit schema')
+        require(claim_audit.get('appRevision') == revision, 'Claim audit covers another application')
+        require(claim_audit.get('bindingChecksPassed') is True, 'Claim audit lacks verified source/dataset bindings')
+        require(instant(claim_audit['evaluatedAt']) <= now, 'Future claim audit')
+        audit_pins = claim_audit['inputPins']
+        require(set(audit_pins) >= {'inventory', 'reviews'} and set(audit_pins['reviews']) == {'events_a_m', 'events_n_z', 'supplier_fields'}, 'Claim-audit evidence pins missing')
+        for pin in [audit_pins['inventory'], *audit_pins['reviews'].values()]:
+            require(set(pin) == {'path', 'sha256'} and isinstance(pin['path'], str) and valid_hash(pin['sha256']), 'Invalid claim-audit evidence pin')
+        rows = claim_audit['records']
+        allowed = {'supported', 'contradicted', 'insufficient', 'primary_source_missing'}
+        require(isinstance(rows, list) and rows and len(rows) == len({row['id'] for row in rows}), 'Missing/duplicate reviewed record')
+        require(all(row['verdict'] in allowed for row in rows), 'Unknown reviewed verdict')
+        require(all(row['partition'] in audit_pins['reviews'] for row in rows), 'Unknown review partition')
+        require(type(claim_audit['inventoryCount']) is int and type(claim_audit['reviewedCount']) is int
+                and claim_audit['inventoryCount'] == claim_audit['reviewedCount'] == len(rows), 'Reviewed inventory mismatch')
+        counts = Counter(row['verdict'] for row in rows)
+        require(set(claim_audit['verdictCounts']) == allowed and all(type(value) is int for value in claim_audit['verdictCounts'].values())
+                and claim_audit['verdictCounts'] == {key: counts[key] for key in allowed}, 'Reviewed verdict counters differ')
+        add('accuracy.reviewed_records', 'accuracy', 'pass', len(rows), len(rows), ['claimAudit'],
+            'Fixed audit inventory completed; this is review coverage, not the number of accurate records.', claim_audit['evaluatedAt'], verdictCounts=claim_audit['verdictCounts'])
+        add('accuracy.known_contradictions', 'accuracy', 'fail' if counts['contradicted'] else 'pass', counts['contradicted'], 0, ['claimAudit'],
+            'Known contradicting records in this fixed audit; zero required. Other records may still lack sufficient support. No whole-site precision/recall estimate.',
+            claim_audit['evaluatedAt'], maximumCount=0, recordIds=[row['id'] for row in rows if row['verdict'] == 'contradicted'])
+    else:
+        add('accuracy.reviewed_records', 'accuracy', 'unmeasured', limitation='No pinned published-claim audit supplied.')
+        add('accuracy.known_contradictions', 'accuracy', 'unmeasured', limitation='No pinned published-claim audit supplied; passing release tests do not establish absence of factual errors.')
     for kind in ('claim_precision', 'eligible_event_recall'):
         add('accuracy.' + kind, 'accuracy', 'unmeasured', limitation='No fixed reviewed benchmark and scoring denominators supplied.')
     collection = data.get('collection')
@@ -181,6 +209,8 @@ def markdown(report):
         'freshness.collection_receipt': 'Age of the collection check',
         'freshness.all_required_checks': 'Freshness across the declared roster',
         'accuracy.known_release_checks': 'Known release checks',
+        'accuracy.reviewed_records': 'Records included in the fixed source audit',
+        'accuracy.known_contradictions': 'Known contradicting records in the fixed audit',
         'accuracy.claim_precision': 'Claim accuracy on a reviewed benchmark',
         'accuracy.eligible_event_recall': 'Eligible events found on a reviewed benchmark',
         'durability.scheduled_execution': 'Actual scheduled collection',
@@ -198,6 +228,8 @@ def markdown(report):
         count = 'unmeasured' if m['numerator'] is None else f"{m['numerator']} / {m['denominator']}"
         if 'ageHours' in m:
             count = f"{m['ageHours']:.2f}h / maximum {m['maximumAgeHours']}h"
+        if 'maximumCount' in m:
+            count = f"{m['numerator']} / maximum {m['maximumCount']}"
         lines.append(f"| {labels.get(m['id'], m['id'])} | {m['status']} | {count} | {m['observedAt'] or 'Not supplied'} | {', '.join(m['evidence'])} | {m['limitations']} |")
         for check in m.get('checks', []):
             lines.append(f"| {labels.get(check['id'], check['id'])} | {'pass' if check['passed'] else 'fail'} | {check['retained']} / {check['expected']} retained | {m['observedAt']} | {', '.join(m['evidence'])} | Durable retention or quarantine; not publication eligibility. |")

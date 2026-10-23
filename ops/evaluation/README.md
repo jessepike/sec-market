@@ -62,3 +62,11 @@ JSON and Markdown also break the full inventory down by failure reason, source f
 and domain. Registered verified bindings, candidate bindings and missing obligations are separate
 columns. A supplier in multiple domains contributes to each domain; those subtotals can overlap.
 The primary denominator always remains the entire pinned required inventory.
+
+An optional `claimAudit` pin accepts the output of `claim_reviews.py` for the same application
+revision. It exposes fixed-inventory review coverage and known contradicting records separately
+from release-test results. A known contradiction fails its own measure even if every release test
+passed. The report must contain verified source/dataset bindings, all three review partitions,
+unique records, exact verdict counters and an observation time no later than evaluation. The
+scorecard checks that summary's internal consistency; it does not rerun its source-byte verifier
+or independently adjudicate its semantic judgments. Precision and recall remain unmeasured.

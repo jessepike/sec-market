@@ -62,6 +62,62 @@ class ScorecardTests(unittest.TestCase):
             self.assertIsNone(row['denominator'])
         self.assertNotIn('overallScore', self.report())
 
+    def claim_audit(self, verdicts=('supported', 'contradicted', 'insufficient')):
+        counts = {key: verdicts.count(key) for key in ('supported', 'contradicted', 'insufficient', 'primary_source_missing')}
+        pin = dict(path='review.json', sha256='e' * 64)
+        report = dict(schemaVersion=1, kind='published_claim_review_binding_report', appRevision='a' * 40,
+                      evaluatedAt='2026-10-23T12:30:00Z', bindingChecksPassed=True,
+                      inventoryCount=len(verdicts), reviewedCount=len(verdicts), verdictCounts=counts,
+                      inputPins=dict(inventory=pin, reviews={key:pin for key in ('events_a_m', 'events_n_z', 'supplier_fields')}),
+                      records=[dict(id=f'event:{i}', partition='events_a_m', verdict=verdict) for i, verdict in enumerate(verdicts)])
+        self.pin('claimAudit', report)
+        return report
+
+    def test_known_factual_contradiction_fails_even_when_release_tests_pass(self):
+        self.gate()
+        self.claim_audit()
+        self.assertEqual(self.measure('accuracy.known_release_checks')['status'], 'pass')
+        known = self.measure('accuracy.known_contradictions')
+        self.assertEqual((known['status'], known['numerator'], known['maximumCount']), ('fail', 1, 0))
+        self.assertEqual(known['recordIds'], ['event:1'])
+        self.assertEqual(self.measure('accuracy.reviewed_records')['numerator'], 3)
+        self.assertEqual(self.measure('accuracy.claim_precision')['status'], 'unmeasured')
+        self.assertIn('1 / maximum 0', markdown(self.report()))
+
+    def test_no_known_contradiction_does_not_estimate_precision_or_recall(self):
+        self.claim_audit(('supported', 'insufficient'))
+        self.assertEqual(self.measure('accuracy.known_contradictions')['status'], 'pass')
+        for identifier in ('accuracy.claim_precision', 'accuracy.eligible_event_recall'):
+            self.assertEqual(self.measure(identifier)['status'], 'unmeasured')
+
+    def test_missing_claim_audit_is_unmeasured(self):
+        self.assertEqual(self.measure('accuracy.known_contradictions')['status'], 'unmeasured')
+
+    def test_claim_audit_cannot_cover_another_revision_or_future_time(self):
+        for key, value in [('appRevision', 'b' * 40), ('evaluatedAt', '2026-10-23T14:00:00Z')]:
+            audit = self.claim_audit()
+            audit[key] = value
+            self.pin('claimAudit', audit)
+            with self.assertRaises(ValueError):
+                self.report()
+
+    def test_claim_audit_rejects_changed_counters_duplicates_and_missing_bindings(self):
+        mutations = [
+            lambda audit: audit['verdictCounts'].update(contradicted=0),
+            lambda audit: audit['records'].append(copy.deepcopy(audit['records'][0])),
+            lambda audit: audit.update(reviewedCount=2),
+            lambda audit: audit.update(bindingChecksPassed=False),
+            lambda audit: audit['inputPins']['reviews'].pop('events_n_z'),
+            lambda audit: audit['records'][0].update(verdict='accurate'),
+            lambda audit: audit['inputPins']['inventory'].update(sha256='not-a-hash'),
+        ]
+        for mutate in mutations:
+            audit = self.claim_audit()
+            mutate(audit)
+            self.pin('claimAudit', audit)
+            with self.assertRaises(ValueError):
+                self.report()
+
     def test_stale_check_fails_even_with_fresh_evaluation(self):
         self.manifest['evaluatedAt'] = '2026-10-25T13:00:00Z'
         self.assertEqual(self.measure('freshness.collection_receipt')['status'], 'fail')
