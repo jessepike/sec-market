@@ -105,13 +105,16 @@ jobs:
         working-directory: application/web
         run: |
           mkdir -p "$RUNNER_TEMP/daily-gate-shots"
-          npm run preview -- --host 127.0.0.1 --port 4173 &
+          node scripts/serve-built.mjs &
           server=$!
           trap 'kill "$server" 2>/dev/null || true' EXIT
+          ready=false
           for attempt in $(seq 1 30); do
-            if curl --fail --silent http://127.0.0.1:4173/ >/dev/null; then break; fi
+            if curl --fail --silent --max-time 2 http://127.0.0.1:4173/ >/dev/null; then ready=true; break; fi
+            kill -0 "$server" || { echo '::error::Exact tested-build server exited'; exit 1; }
             sleep 1
           done
+          [ "$ready" = true ] || { echo '::error::Exact tested-build server did not become ready'; exit 1; }
           node scripts/shot.mjs https://securitymarketpulse.com/ "$RUNNER_TEMP/daily-gate-shots/production"
           node scripts/shot.mjs http://127.0.0.1:4173/ "$RUNNER_TEMP/daily-gate-shots/tested"
       - name: Retain visual review captures
