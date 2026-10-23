@@ -70,3 +70,17 @@ passed. The report must contain verified source/dataset bindings, all three revi
 unique records, exact verdict counters and an observation time no later than evaluation. The
 scorecard checks that summary's internal consistency; it does not rerun its source-byte verifier
 or independently adjudicate its semantic judgments. Precision and recall remain unmeasured.
+
+To reproduce the fixed existing-record binding check after restoring the verified archive:
+
+```sh
+python3 ops/evaluation/claim_reviews.py --root . --state /path/to/restored/state \
+  --manifest docs/active/daily-pipeline/accuracy/source-bindings-inputs-2026-10-23.json \
+  --outputprefix /path/to/new-source-bindings
+```
+
+Manifest paths resolve inside the explicit repository root. The tool reads known JSON array
+declarations without executing TypeScript, verifies the exact inventory and raw source proofs,
+and writes a new JSON/Markdown pair. Original issue corrections, source objects and publication
+state remain unchanged. The retained Varonis fixture is the only explicit exception to archived
+observation proof and is bound to its earlier receipt and exact known body hash.

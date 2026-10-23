@@ -136,6 +136,9 @@ def verify_proof(root, state, manifest, proof, record, registry):
         require(isinstance(label, str) and ('additional' in label.lower() or 'supplemental' in label.lower()),
                 'Unlabeled supplemental proof: ' + str(eid))
         require(bool(proof.get('observationId')), 'Supplemental proof lacks archived observation')
+    for key in ('fetchedAt', 'sourceVerifiedAt'):
+        if proof.get(key) is not None:
+            require(instant(proof[key]) <= instant(manifest['evaluatedAt']), 'Proof timestamp after audit: ' + key)
     excerpt_values = quotes(proof)
     if proof.get('observationId'):
         oid = proof['observationId']
@@ -147,6 +150,8 @@ def verify_proof(root, state, manifest, proof, record, registry):
                 'Observation URL differs: ' + str(eid))
         require(proof['fetchedAt'] == observation['fetchedAt'], 'Observation fetch time differs: ' + str(eid))
         instant(proof['fetchedAt'])
+        if observation.get('verifiedAt') is not None:
+            require(instant(observation['verifiedAt']) <= instant(manifest['evaluatedAt']), 'Observation verification after audit')
         if proof.get('sourceVerifiedAt') is not None:
             require(proof['sourceVerifiedAt'] == observation.get('verifiedAt'), 'Observation verification time differs')
         require(proof['bodySha256'] == observation['body']['sha256'], 'Observation body hash differs: ' + str(eid))
@@ -172,6 +177,8 @@ def evaluate(root, state_root, manifest):
     require(set(manifest['inputs']) == {'inventory', 'reviews'}, 'Manifest input inventory differs')
     require(set(manifest['inputs']['reviews']) == PARTITIONS, 'Missing or unexpected review partition')
     inventory = pinned(root, manifest['inputs']['inventory'])
+    if 'createdAt' in inventory:
+        require(instant(inventory['createdAt']) <= instant(manifest['evaluatedAt']), 'Inventory created after audit')
     expected = expected_records(root)
     for path in (EVENTS, SUPPLIERS, EVIDENCE):
         require(digest(inside(root, path).read_bytes()) == inventory['sourceFiles'][path], 'Dataset hash differs: ' + path)
@@ -187,6 +194,7 @@ def evaluate(root, state_root, manifest):
     for partition in sorted(PARTITIONS):
         review = pinned(root, manifest['inputs']['reviews'][partition])
         require(review.get('kind') == 'archived_published_claim_review' and review.get('schemaVersion') == 1, 'Review kind/schema differs')
+        require(instant(review.get('evaluatedAt')) <= instant(manifest['evaluatedAt']), 'Review evaluated after audit')
         dataset = SUPPLIERS if partition == 'supplier_fields' else EVENTS
         require(review['datasetPath'] == dataset and review['datasetFileSha256'] == inventory['sourceFiles'][dataset], 'Review dataset binding differs')
         evidence_path = review.get('evidenceRegistryPath', review.get('evidenceDatasetPath'))

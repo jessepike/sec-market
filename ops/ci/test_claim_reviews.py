@@ -36,6 +36,7 @@ class ReviewBindingTests(unittest.TestCase):
         self.write_source(reviews.SUPPLIERS, 'manualTrackerSuppliers', self.suppliers)
         (self.root / reviews.EVIDENCE).write_text('export const evidence = []\n')
         self.inventory = {'applicationRevision': 'b' * 40,
+                          'createdAt': '2026-10-23T18:00:00Z',
                           'sourceFiles': {p: reviews.digest((self.root / p).read_bytes()) for p in (reviews.EVENTS, reviews.SUPPLIERS, reviews.EVIDENCE)},
                           'records': [{'id': 'event:EV-a', 'supplierId': 'acme', 'partition': 'events_a_m', 'published': self.events[0]},
                                       {'id': 'event:EV-z', 'supplierId': 'zen', 'partition': 'events_n_z', 'published': self.events[1]},
@@ -49,6 +50,7 @@ class ReviewBindingTests(unittest.TestCase):
             row = next(r for r in self.inventory['records'] if r['partition'] == partition)
             dataset = reviews.SUPPLIERS if partition == 'supplier_fields' else reviews.EVENTS
             self.ledgers[partition] = {'schemaVersion': 1, 'kind': 'archived_published_claim_review',
+                'evaluatedAt': '2026-10-23T18:30:00Z',
                 'datasetPath': dataset, 'datasetFileSha256': self.inventory['sourceFiles'][dataset],
                 'evidenceDatasetPath': reviews.EVIDENCE, 'evidenceDatasetFileSha256': self.inventory['sourceFiles'][reviews.EVIDENCE],
                 'inventoryCount': 1, 'reviewedCount': 1, 'expectedRecordIds': [row['id']],
@@ -166,6 +168,40 @@ class ReviewBindingTests(unittest.TestCase):
         target = self.root / self.manifest['inputs']['reviews']['events_a_m']['path']
         target.write_text(target.read_text() + '\n')
         with self.assertRaisesRegex(ValueError, 'Input hash mismatch'):
+            self.evaluate()
+
+    def test_review_time_is_required_valid_and_not_after_manifest_time(self):
+        ledger = self.ledgers['events_a_m']
+        for value in (None, 'not-a-date', '2026-10-23T19:00:01Z'):
+            ledger['evaluatedAt'] = value
+            self.repin()
+            with self.assertRaises(ValueError):
+                self.evaluate()
+        ledger['evaluatedAt'] = self.manifest['evaluatedAt']
+        self.repin()
+        self.assertTrue(self.evaluate()['bindingChecksPassed'])
+
+    def test_future_proof_times_and_inventory_creation_are_held(self):
+        proof = self.ledgers['events_a_m']['records'][0]['sourceEvidence'][0]
+        for field in ('fetchedAt', 'sourceVerifiedAt'):
+            previous = proof.get(field)
+            proof[field] = '2026-10-23T19:00:01Z'
+            self.repin()
+            with self.assertRaisesRegex(ValueError, 'Proof timestamp after audit'):
+                self.evaluate()
+            if previous is None:
+                proof.pop(field)
+            else:
+                proof[field] = previous
+        self.repin()
+        observation_path = self.state.root / ('observations/' + self.oid + '.json')
+        observation_path.write_text(json.dumps({**self.observation, 'verifiedAt': '2026-10-23T19:00:01Z'}))
+        with self.assertRaisesRegex(ValueError, 'Observation verification after audit'):
+            self.evaluate()
+        observation_path.write_text(json.dumps(self.observation))
+        self.inventory['createdAt'] = '2026-10-23T19:00:01Z'
+        self.repin()
+        with self.assertRaisesRegex(ValueError, 'Inventory created after audit'):
             self.evaluate()
 
     def test_cli_refuses_existing_report_before_any_input_reads(self):
