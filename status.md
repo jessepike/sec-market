@@ -8,6 +8,32 @@ updated: 2026-10-22
 
 ## Live and held
 
+**October 22 completion work is on preview; production cutover is not yet claimed.**
+Use [the current GitHub/Vercel runbook](docs/active/daily-pipeline/github-operations.md) and
+[acceptance record](docs/active/daily-pipeline/finish-acceptance-2026-10-22.md) before the earlier
+checkpoint below. Original local `status.md` and `lessons.md` edits were preserved in the original
+checkout; implementation uses `/Users/jessepike/code/projects/sec-market-finish-20261022`.
+
+Actual fresh private Actions run `39899030431` archived **244/557** successful source checks,
+zero additional model calls, at `991432eea90004d3d8a2b0fb1c80ac28f01904b4`, manifest
+`a8c686a2cd6fea61ce307ebf393d8138011544b3388ed11ffee05363e225fb92`, 24,685 files.
+It retained incomplete coverage and exited 2 under its older runner semantics. New code separates
+successful bounded execution from incomplete coverage and retains coverage alerts. Cancelled
+old-revision run `39897975103` is recovered by verified lease-only CAS; its reserved model/doc
+allowance remains charged. The explicit 5,500 fetch ceiling retains charged usage, with actual
+ledger now 5,367 fetches. No counter was reset.
+
+The missing October 15 Proofpoint/Varonis acquisition agreement is primary-source verified and
+rendered on preview at both widths. Daily schedules, independent gate, assigned-owner failure
+alerts, interrupted-run recovery, exact production-target staging and byte verification are
+implemented. Tests: 252 data, 99 pipeline, 52 operational, five monitor and 34 browser checks pass.
+Actual failure alert is owner-assigned issue #8. Fresh independent preview gate is run `39899676747`.
+Source coverage remains incomplete; actual scheduled and production receipts are still acceptance
+work. The prospective preview policy is enabled for main after review; current production is still
+the earlier revision below. No PR, purchase or paid API fallback has been used.
+
+### Earlier production checkpoint
+
 Production https://securitymarketpulse.com is READY at `54590be4d91113a50879a8fb5d180441e7d149f4`;
 its live receipt reports certified data changed `2026-10-18T02:36:44.349Z`. The legacy four-hour SEC
 schedule stays active. Work is on `preview`; the daily 74-supplier replacement still has

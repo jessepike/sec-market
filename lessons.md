@@ -8,6 +8,12 @@ Working lessons for agents on this project, newest first, at most about 15. Each
 The owner keeps a shared knowledge base of lessons across projects, outside this repo. Lessons
 promoted there are removed from this file; Git history keeps them.
 
+## 2026-10-22
+
+- [new:2026-10-22] Confirm a successful push and exact remote revision before dispatching a workflow. An early old-revision test was cancelled after reserving a conservative daily ceiling; the killed runner correctly retained that allowance. Recover only a GitHub-confirmed terminated lease, and never refund unknown model usage.
+- [new:2026-10-22] A prebuilt preview is rebuilt when promoted through Vercel's preview-to-production path. Stage a production-target prebuilt artifact with no assigned domain, verify every static byte, then promote it. Use the dedicated rollback operation for a previously served deployment.
+- [new:2026-10-22] A bounded run can finish while source coverage remains incomplete. Give execution and coverage separate outcomes and alerts; preserve every missing obligation and require the full SEC tier before publication. Prioritize mandatory SEC documents ahead of discretionary citation checks when capacity is scarce.
+
 ## 2026-10-18
 
 - [new:2026-10-18] A scheduled workflow that has only ever run on its schedule is untested. `promote-certified.yml` failed every run for two days (a credential-free checkout of a private repo cannot `git fetch`), and nothing alerted because monitoring checked that the refresh ran, not that promotion succeeded. Put decision logic in a script with unit tests, and monitor each scheduled job's success and the end-to-end lag, not just that something ran.

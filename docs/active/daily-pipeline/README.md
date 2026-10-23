@@ -1,5 +1,10 @@
 # Daily market pipeline
 
+**Current route: [GitHub Actions and Vercel](github-operations.md).** Use that runbook for the
+October 22 completion work and current schedule/recovery rules. The notes below describe the
+earlier held implementation and hosting investigation; they are not instructions to create a
+Codex Cloud scheduler or install a personal-computer worker.
+
 **Daily publication is disabled. Coverage is incomplete.** The candidate is connected to real
 collection receipts; production still uses the four-hour SEC and branch-promotion workflows.
 No roster expansion or paid API/infrastructure purchase has been made.

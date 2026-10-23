@@ -52,7 +52,7 @@ class Pipeline:
             if self.agent:
                 self.agent.reserve = self._reserve
             with ThreadPoolExecutor(max_workers=self.contract["schedule"]["maxWorkers"]) as pool:
-                priority = {"sec_facts": 0, "sec_submissions": 0, "citation": 1, "sec_documents": 2}
+                priority = {"sec_facts": 0, "sec_submissions": 0, "sec_documents": 0, "citation": 1}
                 # Rotate the same-priority sources daily so a finite global model
                 # budget does not always go to the first suppliers in the roster.
                 day = instant(plan["scheduledAt"]).date().toordinal()

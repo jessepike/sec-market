@@ -76,10 +76,11 @@ jobs:
           GitArchive.verify('evidence',os.environ['MANIFEST_SHA256'])
           PY
       - name: Install pinned dependencies and browser
+        timeout-minutes: 8
         working-directory: application/web
         run: |
           npm ci --no-audit --no-fund
-          npx playwright install --with-deps chromium
+          CI=true node scripts/ensure-test-browser.mjs
       - name: Reconstruct, certify and test the candidate
         env:
           CI: 'true'
@@ -91,6 +92,14 @@ jobs:
           name: daily-market-gate
           path: ${{ runner.temp }}/daily-gate
           if-no-files-found: error
+          retention-days: 7
+      - name: Preserve public-source test diagnostics on failure
+        if: failure()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: daily-gate-diagnostics
+          path: ${{ runner.temp }}/daily-gate/*.log
+          if-no-files-found: ignore
           retention-days: 7
       - name: Capture production and exact tested build for owner review
         working-directory: application/web

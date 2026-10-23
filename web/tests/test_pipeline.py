@@ -771,6 +771,22 @@ class PipelineTests(unittest.TestCase):
         obs=[self.store.read(f'observations/{oid}.json') for oid in second['receipts'][0]['observationIds']]
         self.assertTrue(any(o['status']=='retained_immutable' for o in obs))
 
+    def test_scarce_fetch_budget_checks_sec_primary_document_before_citations(self):
+        source, document, index, pages = self.filing_fixture()
+        citation = {**source, 'id': 'citation', 'kind': 'citation', 'family': 'citation_integrity',
+                    'url': 'https://example.invalid/citation', 'allowedHosts': ['example.invalid']}
+        self.c['sources'].append(citation)
+        self.c['suppliers'][0]['sourceIds'].append('citation')
+        self.c['suppliers'][0]['requiredFamilies'].append('citation_integrity')
+        self.c['schedule'].update(maxWorkers=1, maxFetchesPerRun=2)
+        pages[citation['url']] = b'Citation body'
+        checked = self.run_pipeline(pages=pages)
+        receipts = {r['sourceId']: r for r in checked['receipts']}
+        self.assertEqual(receipts[source['id']]['outcome'], 'checked_no_change')
+        self.assertEqual(len(receipts[source['id']]['documents']), 1)
+        self.assertEqual(receipts['citation']['errorCode'], 'FETCHES_BUDGET_EXHAUSTED')
+        self.assertEqual(self.store.read('heads/budget-' + T[:10] + '.json')['fetches'], 2)
+
     def test_sec_document_disappearance_inside_retention_is_held(self):
         source,document,index,pages=self.filing_fixture();self.assertTrue(self.run_pipeline(pages=pages)['complete'])
         index['filings']['recent']={k:[] for k in index['filings']['recent']};pages[source['url']]=json.dumps(index).encode()
