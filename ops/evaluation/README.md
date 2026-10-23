@@ -84,3 +84,35 @@ declarations without executing TypeScript, verifies the exact inventory and raw 
 and writes a new JSON/Markdown pair. Original issue corrections, source objects and publication
 state remain unchanged. The retained Varonis fixture is the only explicit exception to archived
 observation proof and is bound to its earlier receipt and exact known body hash.
+
+After the manual arrays moved into `web/src/data/tracker/originals.json`, the original command
+above correctly fails because the historical TypeScript file bytes changed. It does not select
+another source format automatically. Reproduce the same historical benchmark through the
+explicit, reviewed migration manifest and its raw SHA-256 pin:
+
+```sh
+python3 ops/evaluation/claim_reviews.py --root . --state /path/to/restored/state \
+  --manifest docs/active/daily-pipeline/accuracy/source-bindings-inputs-2026-10-23.json \
+  --source-migration-manifest docs/active/daily-pipeline/accuracy/source-migration-inputs-2026-10-23.json \
+  --source-migration-sha256 2824776f6c739161f93a6fe8107a1599eeacaff968ce29e9ad2ea55ee65240a6 \
+  --outputprefix /path/to/new-migrated-source-bindings
+```
+
+Both migration options are required together. The migration manifest pins the unchanged
+historical input manifest, the current original JSON bytes and the factual baseline bytes. The
+verifier checks every canonical before-value hash for all 97 original events, 74 suppliers and
+273 evidence objects. It compares all 177 benchmark records and all 144 relevant complete
+evidence objects exactly with the frozen inventory before replaying the original source proofs.
+It never imports or executes the TypeScript application or reads the effective correction view.
+
+In this explicit mode, the old TypeScript `sourceFiles` hashes remain historical metadata
+describing the reviewed application. They are not claims about the refactored TypeScript bytes.
+The new raw original/baseline pins and exact value comparisons establish the migration binding.
+The historical application revision, input manifest, review ledgers, verdicts and retrieval times
+stay unchanged. The report labels its migration separately and sets `semanticAdmission: false`.
+It audits the frozen historical benchmark only, not current effective facts or correction
+admission. Changing a file and generating replacement pins does not authorize new content.
+
+The migration contract and first actual replay are in
+`docs/active/daily-pipeline/accuracy/source-migration-spec-2026-10-23.md` and
+`docs/active/daily-pipeline/accuracy/source-migration-bindings-2026-10-23.json`.

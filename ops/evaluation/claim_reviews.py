@@ -20,6 +20,10 @@ VERDICTS = {'supported', 'contradicted', 'insufficient', 'primary_source_missing
 EVENTS = 'web/src/data/tracker/events.ts'
 SUPPLIERS = 'web/src/data/tracker/suppliers.ts'
 EVIDENCE = 'web/src/data/evidence.ts'
+ORIGINALS = 'web/src/data/tracker/originals.json'
+BASELINE = 'contracts/factual-baseline.json'
+INVENTORY_NAMES = {'events', 'suppliers', 'evidence'}
+MIGRATION_SCOPE = 'frozen_historical_benchmark_only'
 FIXTURE = 'ops/evaluation/fixtures/varonis-primary-2026-10-23/press-release.html'
 PROVENANCE = 'ops/evaluation/fixtures/varonis-primary-2026-10-23/provenance.json'
 RECEIPT = 'docs/active/daily-pipeline/receipts/varonis-missing-event-2026-10-22.md'
@@ -39,7 +43,18 @@ def pinned(root, pin, parse=True):
     require(set(pin) == {'path', 'sha256'} and valid_hash(pin['sha256']), 'Invalid hash pin')
     raw = inside(root, pin['path']).read_bytes()
     require(digest(raw) == pin['sha256'], 'Input hash mismatch: ' + pin['path'])
-    return json.loads(raw) if parse else raw
+    return strict_json(raw) if parse else raw
+
+
+def strict_json(raw):
+    def pairs(items):
+        result = {}
+        for key, value in items:
+            require(key not in result, 'Duplicate JSON property: ' + key)
+            result[key] = value
+        return result
+    return json.loads(raw, object_pairs_hook=pairs,
+                      parse_constant=lambda _: require(False, 'Non-finite JSON input'))
 
 
 def json_array(root, path, name):
@@ -54,6 +69,10 @@ def json_array(root, path, name):
 def expected_records(root):
     events = json_array(root, EVENTS, 'handCollectedEvents')
     suppliers = json_array(root, SUPPLIERS, 'manualTrackerSuppliers')
+    return records_from_arrays(events, suppliers)
+
+
+def records_from_arrays(events, suppliers):
     rows = []
     for event in events:
         initial = event['supplierId'][0].lower()
@@ -70,6 +89,58 @@ def expected_records(root):
                              'partition': 'supplier_fields', 'published': supplier[field]})
     require(len(rows) == len({r['id'] for r in rows}), 'Duplicate source record ID')
     return rows
+
+
+def migrated_records(root, manifest, inventory, migration_pin):
+    """An explicit pinned alternative to historical TypeScript byte verification."""
+    migration = pinned(root, migration_pin)
+    require(isinstance(migration, dict) and set(migration) == {
+        'schemaVersion', 'kind', 'scope', 'historicalManifest', 'originals', 'baseline',
+        'inventoryCounts', 'benchmarkCounts'}, 'Source migration schema differs')
+    require(type(migration['schemaVersion']) is int and migration['schemaVersion'] == 1
+            and migration['kind'] == 'pinned_historical_claim_source_migration'
+            and migration['scope'] == MIGRATION_SCOPE, 'Unsupported source migration')
+    require(pinned(root, migration['historicalManifest']) == manifest, 'Migration historical manifest differs')
+    require(migration['originals'].get('path') == ORIGINALS and migration['baseline'].get('path') == BASELINE,
+            'Unexpected migration source path')
+    originals = pinned(root, migration['originals'])
+    baseline = pinned(root, migration['baseline'])
+    require(isinstance(originals, dict) and set(originals) == INVENTORY_NAMES, 'Migration original inventory schema differs')
+    require(isinstance(baseline, dict) and set(baseline) == {'schemaVersion', 'inventories'}
+            and type(baseline['schemaVersion']) is int and baseline['schemaVersion'] == 1
+            and isinstance(baseline['inventories'], dict) and set(baseline['inventories']) == INVENTORY_NAMES,
+            'Migration baseline schema differs')
+    counts = migration['inventoryCounts']
+    require(isinstance(counts, dict) and set(counts) == INVENTORY_NAMES
+            and all(type(value) is int and value > 0 for value in counts.values()), 'Migration inventory counts invalid')
+    benchmark_counts = migration['benchmarkCounts']
+    require(isinstance(benchmark_counts, dict) and set(benchmark_counts) == {'records', 'evidence'}
+            and all(type(value) is int and value > 0 for value in benchmark_counts.values()), 'Migration benchmark counts invalid')
+    for name in sorted(INVENTORY_NAMES):
+        rows, hashes = originals[name], baseline['inventories'][name]
+        require(isinstance(rows, list) and len(rows) == counts[name]
+                and all(isinstance(row, dict) and isinstance(row.get('id'), str) and row['id'] for row in rows),
+                'Migration original inventory count/schema differs: ' + name)
+        require(len({row['id'] for row in rows}) == len(rows), 'Duplicate migration original ID: ' + name)
+        require(isinstance(hashes, dict) and all(valid_hash(value) for value in hashes.values()),
+                'Invalid migration baseline hashes: ' + name)
+        require({row['id']: digest(row) for row in rows} == hashes, 'Migration original before hashes differ: ' + name)
+    expected = records_from_arrays(originals['events'], originals['suppliers'])
+    require(len(expected) == benchmark_counts['records'] == len(inventory['records']), 'Migration benchmark count differs')
+    require(inventory['records'] == expected, 'Frozen inventory differs from migrated original records')
+    original_evidence = {row['id']: row for row in originals['evidence']}
+    registry = {row['id']: row for row in inventory['evidence']}
+    require(len(registry) == len(inventory['evidence']) == benchmark_counts['evidence'], 'Migration benchmark evidence count differs')
+    for eid, row in registry.items():
+        require(eid in original_evidence and row == original_evidence[eid], 'Frozen evidence object differs from migrated original: ' + eid)
+    metadata = {'mode': 'explicit_pinned_originals_migration', 'scope': MIGRATION_SCOPE,
+                'migrationManifestPin': migration_pin,
+                'historicalManifestPin': migration['historicalManifest'],
+                'originalsPin': migration['originals'], 'baselinePin': migration['baseline'],
+                'inventoryCountsVerified': counts, 'benchmarkCountsVerified': benchmark_counts,
+                'semanticAdmission': False,
+                'historicalSourceFilesRetainedAsMetadata': True}
+    return expected, metadata
 
 
 def normalized(value):
@@ -170,7 +241,7 @@ def verify_proof(root, state, manifest, proof, record, registry):
     return {'bound': True, 'primary': proof['sourceType'] == 'primary', 'quoteCount': len(excerpt_values)}
 
 
-def evaluate(root, state_root, manifest):
+def evaluate(root, state_root, manifest, source_migration_pin=None):
     root = Path(root).resolve()
     require(manifest.get('schemaVersion') == 1, 'Unsupported review manifest')
     instant(manifest['evaluatedAt'])
@@ -179,10 +250,14 @@ def evaluate(root, state_root, manifest):
     inventory = pinned(root, manifest['inputs']['inventory'])
     if 'createdAt' in inventory:
         require(instant(inventory['createdAt']) <= instant(manifest['evaluatedAt']), 'Inventory created after audit')
-    expected = expected_records(root)
-    for path in (EVENTS, SUPPLIERS, EVIDENCE):
-        require(digest(inside(root, path).read_bytes()) == inventory['sourceFiles'][path], 'Dataset hash differs: ' + path)
-    require(inventory['records'] == expected, 'Frozen inventory differs from independently decoded source arrays')
+    migration_metadata = None
+    if source_migration_pin is None:
+        for path in (EVENTS, SUPPLIERS, EVIDENCE):
+            require(digest(inside(root, path).read_bytes()) == inventory['sourceFiles'][path], 'Dataset hash differs: ' + path)
+        expected = expected_records(root)
+        require(inventory['records'] == expected, 'Frozen inventory differs from independently decoded source arrays')
+    else:
+        expected, migration_metadata = migrated_records(root, manifest, inventory, source_migration_pin)
     registry = {e['id']: e for e in inventory['evidence']}
     require(len(registry) == len(inventory['evidence']), 'Duplicate evidence registry ID')
     expected_eids = {eid for row in expected for eid in row['published']['evidenceIds']}
@@ -228,22 +303,28 @@ def evaluate(root, state_root, manifest):
                            'proposedCorrection': record.get('proposedCorrection')})
         partitions[partition] = {'inventoryCount': len(rows), 'reviewedCount': len(records), 'verdictCounts': dict(sorted(counts.items()))}
     verdict_counts = Counter(r['verdict'] for r in output)
-    return {'schemaVersion': 1, 'kind': 'published_claim_review_binding_report', 'evaluatedAt': manifest['evaluatedAt'],
+    report = {'schemaVersion': 1, 'kind': 'published_claim_review_binding_report', 'evaluatedAt': manifest['evaluatedAt'],
             'appRevision': inventory.get('applicationRevision'), 'bindingChecksPassed': True,
             'inputPins': manifest['inputs'], 'sourceFiles': inventory['sourceFiles'],
             'retainedPrimaryPins': manifest.get('retainedPrimary'),
             'verifierFileSha256': digest(Path(__file__).read_bytes()),
             'verdictCounts': {key: verdict_counts[key] for key in sorted(VERDICTS)},
             'manifestSha256': digest(manifest), 'bindingsVerified': True, 'semanticVerdictsIndependentlyVerified': False,
+            'semanticAdmission': False, 'sourceVerificationMode': 'explicit_pinned_originals_migration' if migration_metadata else 'historical_typescript_bytes',
             'inventoryCount': len(expected), 'reviewedCount': len(output), 'partitions': partitions,
             'nonSupportedRecords': [r for r in output if r['verdict'] != 'supported'],
             'records': output, 'limitations': ['Checks establish frozen inventory and archived byte/quote bindings only; they do not certify the manual interpretations.',
             'Historical support does not establish current endpoint freshness, claim admission, publishing readiness or completeness of eligible market events.',
             'This bounded review cannot estimate all-site precision, recall or reader value. No semantic verdict is rewritten.']}
+    if migration_metadata:
+        report['sourceMigration'] = migration_metadata
+        report['limitations'].append('Explicit migration binds the frozen historical benchmark to unchanged original JSON values; current effective corrected facts are not audited.')
+    return report
 
 
 def markdown(report):
     lines = ['# Published claim review bindings', '', 'Frozen records and archived proof bindings verified. Manual semantic verdicts remain reviewer judgments.', '',
+             'Source verification mode: ' + report.get('sourceVerificationMode', 'historical_typescript_bytes') + '.', '',
              '| Partition | Records | Verdict counts |', '|---|---:|---|']
     for name, row in report['partitions'].items():
         lines.append('| ' + name + ' | ' + str(row['reviewedCount']) + ' | ' + ', '.join(k + ': ' + str(v) for k, v in row['verdictCounts'].items()) + ' |')
@@ -260,18 +341,25 @@ def main():
     parser.add_argument('--state', required=True)
     parser.add_argument('--manifest', required=True)
     parser.add_argument('--outputprefix', required=True)
+    parser.add_argument('--source-migration-manifest')
+    parser.add_argument('--source-migration-sha256')
     args = parser.parse_args()
     prefix = Path(args.outputprefix)
     paths = [Path(str(prefix) + suffix) for suffix in ('.json', '.md')]
     require(not any(p.exists() for p in paths), 'Refusing to overwrite review output')
-    manifest = json.loads(Path(args.manifest).read_text())
-    report = evaluate(args.root, args.state, manifest)
+    require(bool(args.source_migration_manifest) == bool(args.source_migration_sha256),
+            'Both source migration manifest and raw SHA-256 pin are required together')
+    manifest = strict_json(Path(args.manifest).read_bytes())
+    migration_pin = {'path': args.source_migration_manifest, 'sha256': args.source_migration_sha256} if args.source_migration_manifest else None
+    report = evaluate(args.root, args.state, manifest, source_migration_pin=migration_pin)
     paths[0].parent.mkdir(parents=True, exist_ok=True)
     with paths[0].open('x') as stream:
         stream.write(json.dumps(report, indent=2, ensure_ascii=False) + '\n')
     with paths[1].open('x') as stream:
         stream.write(markdown(report))
-    print(json.dumps({'bindingsVerified': True, 'inventoryCount': report['inventoryCount'], 'outputs': [str(p) for p in paths]}))
+    print(json.dumps({'bindingsVerified': True, 'inventoryCount': report['inventoryCount'],
+                      'sourceVerificationMode': report['sourceVerificationMode'], 'semanticAdmission': False,
+                      'outputs': [str(p) for p in paths]}))
 
 
 if __name__ == '__main__':

@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "kind": "pinned_historical_claim_source_migration",
+  "scope": "frozen_historical_benchmark_only",
+  "historicalManifest": {
+    "path": "docs/active/daily-pipeline/accuracy/source-bindings-inputs-2026-10-23.json",
+    "sha256": "1f692bfd905abf999249e811a28ad047fe48a21fc07d766f862f3b73ca4a29ca"
+  },
+  "originals": {
+    "path": "web/src/data/tracker/originals.json",
+    "sha256": "7d164cb81003db0a66eccbb25c2e8605e33b853b9a6e20cb2c6900794822b4a3"
+  },
+  "baseline": {
+    "path": "contracts/factual-baseline.json",
+    "sha256": "ab3bca0e49a38495d310021857ee2c1a3ca6ebe7979593d1e8b36437cb2a294e"
+  },
+  "inventoryCounts": {
+    "events": 97,
+    "suppliers": 74,
+    "evidence": 273
+  },
+  "benchmarkCounts": {
+    "records": 177,
+    "evidence": 144
+  }
+}

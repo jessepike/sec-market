@@ -136,7 +136,7 @@ maintenance; any change to what a record says goes through a correction.
 ### SEC-073 · Search the sourced market records
 
 Develop search after reliable current operation and broader source coverage. Find companies by
-name or alias, and search their market events and supporting sourced records. Let readers combine
+name, ticker or alias, and search their market events and supporting sourced records. Let readers combine
 search with company-type navigation (SEC-074), open the matching company/event and its evidence,
 and see the source date and freshness status. Define representative search cases, useful empty
 results and clear/reset behavior when this work is picked up. Do not use search to mask missing

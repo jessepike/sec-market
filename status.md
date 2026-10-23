@@ -151,6 +151,17 @@ JavaScript newsroom shell cannot prove a quiet result. Their documented repairs 
 endpoint qualification are agent-owned. All 28 registration gaps, 254 missing family bindings
 and the full 557-task denominator remain unchanged; no owner decision is needed for this work.
 
+The historical accuracy audit's old TypeScript reader correctly stopped after the originals
+refactor. An explicit, hash-pinned [migration](docs/active/daily-pipeline/accuracy/source-migration-spec-2026-10-23.md)
+now reproduces all 177 historical record/source bindings from the unchanged original JSON and
+baseline, including exact equality of 144 relevant evidence objects. The benchmark, three ledgers,
+historical source hashes, application revision and verdicts are unchanged. The old mode still
+rejects changed TypeScript bytes; there is no automatic fallback. The new receipt is explicitly
+historical and non-admitting; current effective corrected facts were not audited by it.
+[Actual replay](docs/active/daily-pipeline/accuracy/source-migration-bindings-2026-10-23.json).
+All 205 integrated operational tests pass, including a regression against the real committed
+177-record benchmark. Full application results above remain 321/112/38 in both correction modes.
+
 Daily collection is 05:17 UTC; publication follows verified scheduled collection and runs at 06:23
 and 16:23 UTC. GitHub can run late. Legacy refresh/branch-promotion jobs remain disabled and Vercel's
 competing production paths remain closed. The old Vercel probe's CLI account lookup is bypassed

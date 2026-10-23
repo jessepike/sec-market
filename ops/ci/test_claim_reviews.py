@@ -77,6 +77,29 @@ class ReviewBindingTests(unittest.TestCase):
     def evaluate(self):
         return reviews.evaluate(self.root, self.state.root, self.manifest)
 
+    def migration(self):
+        self.originals = {'events': copy.deepcopy(self.events), 'suppliers': copy.deepcopy(self.suppliers),
+                          'evidence': copy.deepcopy(self.inventory['evidence'])}
+        self.baseline = {'schemaVersion': 1, 'inventories': {
+            name: {row['id']: reviews.digest(row) for row in rows} for name, rows in self.originals.items()}}
+        self.migration_manifest = {'schemaVersion': 1, 'kind': 'pinned_historical_claim_source_migration',
+            'scope': reviews.MIGRATION_SCOPE, 'historicalManifest': self.pin('historical-inputs.json', self.manifest),
+            'originals': self.pin(reviews.ORIGINALS, self.originals), 'baseline': self.pin(reviews.BASELINE, self.baseline),
+            'inventoryCounts': {name: len(rows) for name, rows in self.originals.items()},
+            'benchmarkCounts': {'records': len(self.inventory['records']), 'evidence': len(self.inventory['evidence'])}}
+        self.migration_pin = self.pin('migration.json', self.migration_manifest)
+        for path in (reviews.EVENTS, reviews.SUPPLIERS, reviews.EVIDENCE):
+            (self.root / path).write_text('export { originals } from "./refactored"\nthrow new Error("never execute")\n')
+        return self.migration_pin
+
+    def repin_migration_history(self):
+        self.repin()
+        self.migration_manifest['historicalManifest'] = self.pin('historical-inputs.json', self.manifest)
+        self.migration_pin = self.pin('migration.json', self.migration_manifest)
+
+    def evaluate_migrated(self):
+        return reviews.evaluate(self.root, self.state.root, self.manifest, self.migration_pin)
+
     def test_decodes_frozen_arrays_without_executing_typescript_and_keeps_semantics_separate(self):
         self.ledgers['events_a_m']['records'][0]['verdict'] = 'contradicted'
         self.repin()
@@ -223,6 +246,167 @@ class ReviewBindingTests(unittest.TestCase):
         proof['relationship'] = 'supplemental_archived_primary'
         self.repin()
         self.assertTrue(self.evaluate()['bindingChecksPassed'])
+
+    def test_explicit_pinned_migration_retains_all_historical_records_and_verdicts(self):
+        self.ledgers['events_a_m']['records'][0]['verdict'] = 'contradicted'
+        self.repin()
+        old = self.evaluate()
+        original_manifest = copy.deepcopy(self.manifest)
+        original_ledgers = copy.deepcopy(self.ledgers)
+        self.migration()
+        before = {str(path.relative_to(self.state.root)): path.read_bytes()
+                  for path in self.state.root.rglob('*') if path.is_file()}
+        with patch.object(reviews, 'expected_records', side_effect=AssertionError('No TypeScript parser fallback')):
+            result = self.evaluate_migrated()
+        for field in ('records', 'verdictCounts', 'partitions', 'inputPins', 'sourceFiles', 'inventoryCount', 'reviewedCount'):
+            self.assertEqual(result[field], old[field])
+        self.assertFalse(result['semanticAdmission'])
+        self.assertFalse(result['semanticVerdictsIndependentlyVerified'])
+        self.assertEqual(result['sourceVerificationMode'], 'explicit_pinned_originals_migration')
+        self.assertEqual(result['sourceMigration']['scope'], 'frozen_historical_benchmark_only')
+        self.assertEqual(result['sourceMigration']['inventoryCountsVerified'], {'events': 2, 'suppliers': 2, 'evidence': 1})
+        self.assertEqual(result['sourceMigration']['benchmarkCountsVerified'], {'records': 3, 'evidence': 1})
+        self.assertEqual(self.manifest, original_manifest)
+        self.assertEqual(self.ledgers, original_ledgers)
+        self.assertEqual(before, {str(path.relative_to(self.state.root)): path.read_bytes()
+                                 for path in self.state.root.rglob('*') if path.is_file()})
+        with self.assertRaisesRegex(ValueError, 'Dataset hash differs'):
+            self.evaluate()
+
+    def test_migration_requires_exact_manifest_raw_hash_and_unchanged_historical_inputs(self):
+        self.migration()
+        wrong = {**self.migration_pin, 'sha256': '0' * 64}
+        with self.assertRaisesRegex(ValueError, 'Input hash mismatch'):
+            reviews.evaluate(self.root, self.state.root, self.manifest, wrong)
+        target = self.root / self.migration_pin['path']
+        original = target.read_bytes()
+        target.write_bytes(original + b'\n')
+        with self.assertRaisesRegex(ValueError, 'Input hash mismatch'):
+            self.evaluate_migrated()
+        target.write_bytes(original)
+        historical = self.root / self.migration_manifest['historicalManifest']['path']
+        historical.write_bytes(historical.read_bytes() + b'\n')
+        with self.assertRaisesRegex(ValueError, 'Input hash mismatch'):
+            self.evaluate_migrated()
+
+    def test_migration_rejects_tampered_originals_and_baseline_raw_bytes(self):
+        self.migration()
+        for name in ('originals', 'baseline'):
+            path = self.root / self.migration_manifest[name]['path']
+            raw = path.read_bytes()
+            path.write_bytes(raw + b'\n')
+            with self.subTest(name=name), self.assertRaisesRegex(ValueError, 'Input hash mismatch'):
+                self.evaluate_migrated()
+            path.write_bytes(raw)
+
+    def test_migration_checks_before_hashes_of_every_original_inventory_class(self):
+        self.migration()
+        for name in sorted(reviews.INVENTORY_NAMES):
+            forged = copy.deepcopy(self.originals)
+            # Public supplier identity is outside the 3-record synthetic benchmark.
+            row = forged[name][-1]
+            row['untargetedMutation'] = 'must still be caught'
+            self.migration_manifest['originals'] = self.pin(reviews.ORIGINALS, forged)
+            self.migration_pin = self.pin('migration.json', self.migration_manifest)
+            with self.subTest(name=name), self.assertRaisesRegex(ValueError, 'original before hashes differ: ' + name):
+                self.evaluate_migrated()
+        self.migration_manifest['originals'] = self.pin(reviews.ORIGINALS, self.originals)
+        forged_baseline = copy.deepcopy(self.baseline)
+        forged_baseline['inventories']['events']['EV-a'] = '0' * 64
+        self.migration_manifest['baseline'] = self.pin(reviews.BASELINE, forged_baseline)
+        self.migration_pin = self.pin('migration.json', self.migration_manifest)
+        with self.assertRaisesRegex(ValueError, 'original before hashes differ: events'):
+            self.evaluate_migrated()
+
+    def test_migration_rejects_original_omissions_duplicates_and_added_records(self):
+        self.migration()
+        for name in sorted(reviews.INVENTORY_NAMES):
+            for mutation in ('omit', 'duplicate', 'extra'):
+                forged = copy.deepcopy(self.originals)
+                if mutation == 'omit':
+                    forged[name].pop()
+                elif mutation == 'duplicate':
+                    forged[name][-1] = copy.deepcopy(forged[name][0])
+                    if len(forged[name]) == 1:
+                        forged[name].append(copy.deepcopy(forged[name][0]))
+                else:
+                    forged[name].append({**forged[name][0], 'id': 'extra'})
+                self.migration_manifest['originals'] = self.pin(reviews.ORIGINALS, forged)
+                self.migration_pin = self.pin('migration.json', self.migration_manifest)
+                with self.subTest(name=name, mutation=mutation), self.assertRaises(ValueError):
+                    self.evaluate_migrated()
+
+    def test_migration_compares_rehashed_frozen_benchmark_and_complete_evidence_objects(self):
+        self.migration()
+        self.inventory['records'][0]['published'] = {**self.events[0], 'text': 'forged benchmark'}
+        self.repin_migration_history()
+        with self.assertRaisesRegex(ValueError, 'Frozen inventory differs from migrated original records'):
+            self.evaluate_migrated()
+        self.inventory['records'][0]['published'] = copy.deepcopy(self.events[0])
+        self.inventory['evidence'][0]['excerpt'] = 'forged complete evidence object'
+        self.repin_migration_history()
+        with self.assertRaisesRegex(ValueError, 'Frozen evidence object differs'):
+            self.evaluate_migrated()
+
+    def test_migration_rejects_changed_history_pin_counts_scope_and_source_paths(self):
+        self.migration()
+        original = copy.deepcopy(self.migration_manifest)
+        cases = [('historicalManifest', {**original['historicalManifest'], 'sha256': '0' * 64}),
+                 ('inventoryCounts', {**original['inventoryCounts'], 'evidence': 2}),
+                 ('benchmarkCounts', {'records': 4, 'evidence': 1}),
+                 ('scope', 'current_effective_facts'),
+                 ('originals', {**original['originals'], 'path': 'unapproved.json'})]
+        for key, value in cases:
+            self.migration_manifest = {**copy.deepcopy(original), key: value}
+            self.migration_pin = self.pin('migration.json', self.migration_manifest)
+            with self.subTest(key=key), self.assertRaises(ValueError):
+                self.evaluate_migrated()
+
+    def test_cli_migration_options_are_explicit_and_required_together(self):
+        for supplied in (['--source-migration-manifest', 'migration.json'], ['--source-migration-sha256', 'a' * 64]):
+            argv = ['claim_reviews.py', '--root', str(self.root), '--state', str(self.state.root),
+                    '--manifest', '/nonexistent', '--outputprefix', str(Path(self.temp.name) / 'new-report'), *supplied]
+            with patch.object(sys, 'argv', argv), self.assertRaisesRegex(ValueError, 'required together'):
+                reviews.main()
+
+    def test_migration_still_verifies_pinned_review_source_bytes_and_quotes(self):
+        self.migration()
+        proof = self.ledgers['events_a_m']['records'][0]['sourceEvidence'][0]
+        proof['support']['excerpts'] = ['Forged unsupported source quote.']
+        self.repin_migration_history()
+        with self.assertRaisesRegex(ValueError, 'excerpt not in source'):
+            self.evaluate_migrated()
+        proof['support']['excerpts'] = [self.statement]
+        self.repin_migration_history()
+        (self.state.root / self.observation['body']['key']).write_bytes(b'changed')
+        with self.assertRaisesRegex(ValueError, 'integrity verification'):
+            self.evaluate_migrated()
+
+    def test_migration_rejects_duplicate_json_properties_in_pinned_inputs(self):
+        self.migration()
+        path = self.root / self.migration_manifest['originals']['path']
+        path.write_text('{"events":[],"events":[],"suppliers":[],"evidence":[]}')
+        self.migration_manifest['originals']['sha256'] = reviews.digest(path.read_bytes())
+        self.migration_pin = self.pin('migration.json', self.migration_manifest)
+        with self.assertRaisesRegex(ValueError, 'Duplicate JSON property'):
+            self.evaluate_migrated()
+
+    def test_real_repository_migration_reproduces_exact_frozen_benchmark_without_archive_access(self):
+        root = Path(__file__).resolve().parents[2]
+        manifest_path = root / 'docs/active/daily-pipeline/accuracy/source-bindings-inputs-2026-10-23.json'
+        manifest = reviews.strict_json(manifest_path.read_bytes())
+        inventory = reviews.pinned(root, manifest['inputs']['inventory'])
+        pin = {'path': 'docs/active/daily-pipeline/accuracy/source-migration-inputs-2026-10-23.json',
+               'sha256': '2824776f6c739161f93a6fe8107a1599eeacaff968ce29e9ad2ea55ee65240a6'}
+        # This calls only JSON/hash/value migration checks. Archived proof bodies,
+        # semantic judgments and current effective corrections are outside this test.
+        expected, metadata = reviews.migrated_records(root, manifest, inventory, pin)
+        self.assertEqual(len(expected), 177)
+        self.assertEqual(expected, inventory['records'])
+        self.assertEqual(metadata['inventoryCountsVerified'], {'events': 97, 'suppliers': 74, 'evidence': 273})
+        self.assertEqual(metadata['benchmarkCountsVerified'], {'records': 177, 'evidence': 144})
+        self.assertEqual(metadata['scope'], 'frozen_historical_benchmark_only')
+        self.assertFalse(metadata['semanticAdmission'])
 
 
 if __name__ == '__main__':
