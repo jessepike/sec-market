@@ -162,6 +162,17 @@ historical and non-admitting; current effective corrected facts were not audited
 All 205 integrated operational tests pass, including a regression against the real committed
 177-record benchmark. Full application results above remain 321/112/38 in both correction modes.
 
+The integrated candidate at `7a45ce56975de252b48b22a89621ae5adaae0319` passed actual GitHub
+[web CI 40017583962](https://github.com/jessepike/sec-market/actions/runs/40017583962) (321/112/38)
+and [private runner checks 40017583725](https://github.com/jessepike/sec-market/actions/runs/40017583725)
+(205 operational tests, zero model calls, no archive mutation). The latter restored archive
+`704ea55e86eb1582b0619b3719b167191fa74da4`; its one independent SEC connectivity probe is not a
+collection check. Vercel preview `dpl_7XbnYhhS593i5rcFtFBG8Y3RiDzS` is READY at that revision.
+All four actual CI screenshots match the preceding production/tested-build images byte for byte;
+the inspected layout is unchanged. Production was rechecked after CI: the accepted main release
+and 121/557 source result are unchanged. The public preview correction bundle remains disabled.
+[Actual remote receipts](docs/active/daily-pipeline/accuracy/correction-retention-remote-validation-2026-10-23.json).
+
 Daily collection is 05:17 UTC; publication follows verified scheduled collection and runs at 06:23
 and 16:23 UTC. GitHub can run late. Legacy refresh/branch-promotion jobs remain disabled and Vercel's
 competing production paths remain closed. The old Vercel probe's CLI account lookup is bypassed

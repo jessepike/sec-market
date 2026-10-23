@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "kind": "actual_correction_retention_candidate_remote_validation",
+  "checkedAt": "2026-10-23T20:18:01.999611Z",
+  "candidateAppRevision": "7a45ce56975de252b48b22a89621ae5adaae0319",
+  "github": {
+    "web": {
+      "runId": "40017583962",
+      "event": "push",
+      "conclusion": "success",
+      "dataChecksPassed": 321,
+      "pipelineChecksPassed": 112,
+      "browserChecksPassed": 38,
+      "receipt": {
+        "path": "docs/active/daily-pipeline/accuracy/correction-retention-web-run-2026-10-23.json",
+        "sha256": "b3ed1aaa550bb1e7ec109f758e842bb00d5a00e6e143764cfa82b46e088e2181"
+      }
+    },
+    "runtimeCanary": {
+      "runId": "40017583725",
+      "conclusion": "success",
+      "operationalChecksPassed": 205,
+      "modelCalls": 0,
+      "archiveChanged": false,
+      "sourceProbeOnly": true,
+      "receipt": {
+        "path": "docs/active/daily-pipeline/accuracy/correction-retention-runtime-canary-2026-10-23.json",
+        "sha256": "cdaf432c524c9f8d140093617f15295540dec02b10233f3d8f9002c093242692"
+      }
+    }
+  },
+  "vercelPreview": {
+    "deploymentId": "dpl_7XbnYhhS593i5rcFtFBG8Y3RiDzS",
+    "state": "READY",
+    "appRevision": "7a45ce56975de252b48b22a89621ae5adaae0319",
+    "immutableUrl": "https://security-market-pulse-j9fad90sl-pikeholdings.vercel.app",
+    "stableUrl": "https://security-market-pulse-git-preview-pikeholdings.vercel.app",
+    "publicFactualCorrectionsEnabled": false
+  },
+  "visualReview": {
+    "widths": [
+      1440,
+      390
+    ],
+    "humanInspected": true,
+    "images": {
+      "production-1440.png": {
+        "sha256": "2cdee7135749e81042285e86f597690c24b5548c704bd50db8a4479258e2b3e7",
+        "sameAsPreviousCapturedVersion": true
+      },
+      "production-390.png": {
+        "sha256": "2b30848ff9d5fef36e421efcf84f9524f5faab07f3077224ec76220f90e3c236",
+        "sameAsPreviousCapturedVersion": true
+      },
+      "tested-build-1440.png": {
+        "sha256": "86fae1defd6c95807d81c7bae72f1355195404f96fac8eea41571a9df0afe3ed",
+        "sameAsPreviousCapturedVersion": true
+      },
+      "tested-build-390.png": {
+        "sha256": "e59f56c9641b85cb6e289b047ee42698d45ddbc74c8da3f0dd981d98881b682d",
+        "sameAsPreviousCapturedVersion": true
+      }
+    },
+    "visibleChangesFromPreviousCandidate": false,
+    "comparisonLimit": "Production retains121/557 collected October23; preview retains older0/557 committed data and an older rolling event window. These are not new source checks."
+  },
+  "logs": {
+    "runtime-canary.log": {
+      "sha256": "225c10a267bd9ccc746524374368380c19ffb4d974891a72c93bb094417c395c",
+      "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/correction-retention-logs/runtime-canary.log"
+    },
+    "web.log": {
+      "sha256": "e82c0eefe90e6bb8861a5b264ef5d4779ef09b5c70d2640edcc8e51cd130807f",
+      "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/correction-retention-logs/web.log"
+    }
+  },
+  "production": {
+    "appRevision": "7bd94ec77e99462c068f254e134235a894585cbb",
+    "dataReleaseId": "2e17a786a85e46406df0cdc10da99819dd20f3f6b385f5acc328e51a7a4ec390",
+    "artifactSha256": "f05659e33f0d590fad939119a37f7c87ebc0a01808292c15df9a400c06de7826",
+    "snapshotSha256": "53b49106fa9118d603db5e64e37cf03f7f2c6fd1fb797acf18e73f540196c84f",
+    "successfulTasks": 121,
+    "requiredTasks": 557,
+    "sourceCheckedAt": "2026-10-23T11:34:15.004027Z",
+    "correctionsApplied": false
+  },
+  "semanticAdmission": false,
+  "collectionAttempted": false,
+  "publicationAttempted": false,
+  "quotaChanges": false,
+  "remainingRequiredWork": [
+    "Proper independent subscription review under naturally renewed allowance.",
+    "Normal main promotion and independent archive-derived gate/publication, with actual scheduled-run and production receipts.",
+    "Repair and qualify existing discovery endpoints without counting unproven traversals as successes."
+  ]
+}
