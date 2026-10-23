@@ -144,6 +144,13 @@ completed as an exact-data/code acknowledgement no-op. It preserved the accepted
 original source-check time. Its subsequent rollback callback skipped mutation; it supplies no new
 rollback/restoration proof. [Publisher receipt](docs/active/daily-pipeline/receipts/scheduled-publisher-40015702345.json).
 
+All 28 candidate registrations have an [offline qualification audit](docs/active/daily-pipeline/accuracy/candidate-registration-audit-2026-10-23.md).
+Thirty-nine primary bodies disclose 27 endpoint leads but no complete discovery traversal. The
+Orca parser ignores real continuation controls and includes navigation; Barracuda's compressed
+JavaScript newsroom shell cannot prove a quiet result. Their documented repairs and next-day
+endpoint qualification are agent-owned. All 28 registration gaps, 254 missing family bindings
+and the full 557-task denominator remain unchanged; no owner decision is needed for this work.
+
 Daily collection is 05:17 UTC; publication follows verified scheduled collection and runs at 06:23
 and 16:23 UTC. GitHub can run late. Legacy refresh/branch-promotion jobs remain disabled and Vercel's
 competing production paths remain closed. The old Vercel probe's CLI account lookup is bypassed

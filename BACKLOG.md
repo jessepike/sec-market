@@ -34,6 +34,14 @@ raw history and existing owner-approved issue corrections; reject unreviewed sta
 the remaining support/date/provenance gaps without treating them all as false. Known contradictions
 must stay visible separately from passing release tests and the unchanged 121/557 source result.
 
+The [candidate registration audit](docs/active/daily-pipeline/accuracy/candidate-registration-audit-2026-10-23.md)
+inspected all 28 unverified bindings against 39 retained primary bodies. It found 27 disclosed
+endpoint leads and no complete discovery traversal; all 28 remain gaps. Repair the demonstrated
+Orca pagination/card extraction and Barracuda compressed newsroom-shell handling before activation.
+After allowance renewal, qualify the advertised supplier-specific Delinea, Ping Identity and
+Sonatype feeds first, then the remaining documented endpoints. These are agent-owned actions;
+none currently requires an owner source or factual judgment. They do not add source families.
+
 **Authorization:** owner request on October 23 to fix coverage within existing limits, set an active
 goal and track durability/accuracy/value; clarified priority is current operation before expansion.
 [Recovery plan](docs/active/daily-pipeline/coverage-recovery-plan-2026-10-23.md).
