@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "kind": "offline_discovery_regulatory_probe_validation",
+  "checkedAt": "2026-10-23T20:51:20.008889+00:00",
+  "checks": {
+    "disabled": {
+      "path": "/tmp/smp-discovery-regulatory-disabled-20261023.log",
+      "sha256": "a499a1c262fe5dde8836e0f414fdaac77d3d1a784503f2bb4b8f256c2e0a3b48",
+      "nodePassCounts": [
+        "321"
+      ],
+      "pythonCounts": [
+        "112"
+      ],
+      "browserPassed": [
+        "38"
+      ]
+    },
+    "enabledSynthetic": {
+      "path": "/tmp/smp-discovery-regulatory-enabled-20261023.log",
+      "sha256": "75e2ab1bb92cc411c09f582822050b6fda6435402f7cb2263e2daac9e823de1b",
+      "nodePassCounts": [
+        "321"
+      ],
+      "pythonCounts": [
+        "112"
+      ],
+      "browserPassed": [
+        "38"
+      ]
+    },
+    "operational": {
+      "path": "/tmp/smp-discovery-regulatory-ops-20261023.log",
+      "sha256": "dd7bb8e467cf6baa80aaf612298543e8dbb0684d86bc4acb80d4e6a65e165342",
+      "nodePassCounts": [],
+      "pythonCounts": [
+        "300"
+      ],
+      "browserPassed": []
+    },
+    "monitor": {
+      "path": "/tmp/smp-discovery-regulatory-monitor-20261023.log",
+      "sha256": "72f09eca554e87a45b7156c6109520cf15e8b6ec157dc5c033610649b49b8698",
+      "nodePassCounts": [],
+      "pythonCounts": [
+        "12"
+      ],
+      "browserPassed": []
+    }
+  },
+  "sourceFiles": {
+    "web/scripts/pipeline/onboarding.py": "ba28786655c9cebd57f17c8644eca2a88a38ef846a4727398a5b40ec2f6a0c2b",
+    "web/scripts/pipeline/cli.py": "147aa9688450568a7e73d4dee0dda89902ded4e8014e6d412a200c784abc4914",
+    "ops/ci/test_onboarding_budget.py": "432f34a81fb660c5f3b52d9c1da1ab602f5543c408473e7f3b1cbcabaff035e4",
+    "web/scripts/pipeline/regulatory.py": "2d33d1cf3673442ef478818d1ab9bc98943d262ffcf349f690b09166a7c82b28",
+    "web/scripts/pipeline/discovery.py": "62eccf14644262fde39e0cfed3734cf063f5cee1203ce64350053bf20181984d",
+    "web/scripts/pipeline/engine.py": "bd1828db233fdad71ec0aaca96f7dbfa4ad492e0483f27e53f0cc1da4598d56c",
+    "web/scripts/pipeline/validation.py": "5923441de354b07ded0d0a80d156ef2100044054990e87d6024d4f7ef80f9111"
+  },
+  "visualReview": {
+    "widths": [
+      1440,
+      390
+    ],
+    "humanInspected": true,
+    "images": {
+      "tested-build-1440.png": {
+        "sha256": "03180ad413a848bf154a3ab670d702092a5ab3eb5c95c804f8f7fb52f6719a71",
+        "sameAsPreviousCI": false
+      },
+      "tested-build-390.png": {
+        "sha256": "aad0f67af8e1f055f433012e1d106748c2514ff6e75d8c8233a1d3ee33f417de",
+        "sameAsPreviousCI": false
+      },
+      "production-1440.png": {
+        "sha256": "da96852377f954fe2a9a1b8af850aa9e8582d8d54375aceadbeaf1f27ade477f",
+        "sameAsPreviousCI": false
+      },
+      "production-390.png": {
+        "sha256": "3dc53f7acc95a096577a2dab86329f20f2380124623823c6f6ab285d9e5a3542",
+        "sameAsPreviousCI": false
+      }
+    },
+    "visibleLayoutChanges": false,
+    "comparisonLimit": "Committed preview source dates, event window and coverage differ from production. No data freshness or coverage credit claimed."
+  },
+  "modelCalls": 0,
+  "sourceRequests": 0,
+  "semanticAdmission": false,
+  "sourceRegistrationsActivated": 0,
+  "qualifiedSources": 0,
+  "liveSuccessfulTasks": 121,
+  "requiredTasks": 557,
+  "quotaChanges": false,
+  "publicationAttempted": false
+}

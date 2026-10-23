@@ -67,3 +67,10 @@ promoted there are removed from this file; Git history keeps them.
 ## 2026-08-19
 
 - [withheld:2026-08-19] A figure in a record's `note` field is not interchangeable with one in its `value` field. Falcon Cloud at $800M is an absolute amount; every other row in that table is a growth rate. The delegate caught this and was right.
+
+## 2026-10-23 · Source probes share collection's charged allowance
+
+The former `onboard` command called its fetcher without a persistent reservation. Diagnostic
+fetches still consume the same daily allowance. Require a store/contract/current-day-bound
+reservation before every logical request, preserve failed-request charges, and keep probe results
+unqualified with zero coverage credit. Tests use fictional fetchers and temporary state only.

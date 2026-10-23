@@ -36,11 +36,14 @@ must stay visible separately from passing release tests and the unchanged 121/55
 
 The [candidate registration audit](docs/active/daily-pipeline/accuracy/candidate-registration-audit-2026-10-23.md)
 inspected all 28 unverified bindings against 39 retained primary bodies. It found 27 disclosed
-endpoint leads and no complete discovery traversal; all 28 remain gaps. Repair the demonstrated
-Orca pagination/card extraction and Barracuda compressed newsroom-shell handling before activation.
+endpoint leads and no complete discovery traversal; all 28 remain gaps. The demonstrated
+Orca pagination/card extraction and Barracuda compressed newsroom-shell repairs are implemented
+and tested against retained bytes, with incomplete traversal still reported as a gap.
 After allowance renewal, qualify the advertised supplier-specific Delinea, Ping Identity and
 Sonatype feeds first, then the remaining documented endpoints. These are agent-owned actions;
 none currently requires an owner source or factual judgment. They do not add source families.
+Qualification probes now require the shared persistent daily fetch reservation context. Restore
+the verified current archive before any probe, use the actual UTC day, and retain all charges.
 
 The [22-obligation filing audit](docs/active/daily-pipeline/accuracy/regulatory-gap-audit-2026-10-23.md)
 supports four historical CrowdStrike/Palo Alto parent-source proposals and leaves 18 awaiting

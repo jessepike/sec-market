@@ -200,6 +200,14 @@ and [historical issuer replay](docs/active/daily-pipeline/accuracy/regulatory-in
 retain exact source hashes and original times. The replay's longer historical window is explicitly
 hypothetical; no actual source policy, counter, 74/557 inventory or live result changed.
 
+Source qualification probes now reserve each logical request against the same persistent daily
+fetch ledger as collection. The command rejects backdating and model-worker flags, preserves
+all charges and returns an explicit failure when capacity, deadline or UTC-day guards stop it.
+All 16 fictional-probe tests pass; all 300 integrated operational tests pass locally. No actual
+onboarding, source qualification, ledger change or coverage credit occurred. Restore the current
+verified archive before using this path after allowance renewal.
+[Probe budget contract](docs/active/daily-pipeline/source-probe-budget-spec-2026-10-23.md).
+
 Daily collection is 05:17 UTC; publication follows verified scheduled collection and runs at 06:23
 and 16:23 UTC. GitHub can run late. Legacy refresh/branch-promotion jobs remain disabled and Vercel's
 competing production paths remain closed. The old Vercel probe's CLI account lookup is bypassed

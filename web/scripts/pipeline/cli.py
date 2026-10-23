@@ -62,10 +62,18 @@ def main():
             parser.error("Submit requires --task-id, --response-file, --role and --session-id")
         result = submit_work(store, args.task_id, json.loads(Path(args.response_file).read_text()), args.role, args.session_id, digest(contract), at)
     elif args.command == "onboard":
-        from onboarding import probe_sources
-        result = probe_sources(contract, store, Fetcher(store, timeout=12))
+        if args.at is not None:
+            parser.error("Onboarding network probes cannot use --at; the actual current UTC day owns their budget")
+        if any((args.native_worker, args.subscription_worker, args.role, args.session_id, args.task_id, args.response_file)):
+            parser.error("Onboarding probes accept no native or subscription worker flags")
+        from onboarding import PersistentProbeBudget, probe_sources
+        reservation_context = PersistentProbeBudget(store, contract, clock=utcnow)
+        result = probe_sources(contract, store, Fetcher(store, timeout=12), reservation_context=reservation_context)
         if args.destination:
             Path(args.destination).write_text(json.dumps(result, indent=2) + "\n")
+        if result['budgetDenied']:
+            print(json.dumps(result, indent=2))
+            return 2
     elif args.command == "snapshot":
         if not args.destination:
             parser.error("--destination required")
