@@ -30,7 +30,7 @@ function fixture(t, enabled = true) {
       note: group.noteTemplate.replace('{date}', '2026-10-24'), targets: group.targets,
       admission: { result: 'accepted', policySha256: policy.policySha256, candidateSha256: digest(group), evidenceSetSha256: digest(group.sources), admittedAt: '2026-10-24T06:00:00Z', reviewSha256: 'a'.repeat(64) },
     })),
-  } : read(path)
+  } : { schemaVersion: 1, enabled: false, policySha256: null, checkedAt: null, groups: [] }
   // Synthetic seal proves file consistency only; these fixtures are never used as admission.
   function seal() {
     write(path, bundle)

@@ -3,7 +3,9 @@
 
 Run in OrbStack only. The destination must be new and outside the checkout.
 This uses no source fetch, subscription request, archive write or quota change.
-It deliberately does not create a gate seal or semantic admission record.
+It creates a local file-consistency seal for application checks, never an
+independent gate receipt or semantic admission record. The real gate requires
+archived subscription reviews that this fixture cannot supply.
 """
 import argparse
 import json
@@ -23,6 +25,11 @@ def create_fixture(repo, destination, checked_at):
     instant(checked_at)
     destination.mkdir(parents=True)
     shutil.copytree(repo / 'contracts', destination / 'contracts')
+    shutil.copytree(repo / '.github/workflows', destination / '.github/workflows')
+    shutil.copytree(repo / 'ops', destination / 'ops', ignore=shutil.ignore_patterns('__pycache__', '.env*'))
+    draft = Path('docs/active/daily-pipeline/accuracy/dated-correction-candidates-2026-10-23.v2.json')
+    (destination / draft).parent.mkdir(parents=True)
+    shutil.copyfile(repo / draft, destination / draft)
     shutil.copytree(repo / 'web', destination / 'web', ignore=shutil.ignore_patterns(
         'node_modules', 'dist', 'dist-ssr', 'test-results', 'playwright-report', '__pycache__', '.env*', '.vercel', '.git'))
     (destination / 'web/node_modules').symlink_to(repo / 'web/node_modules', target_is_directory=True)
@@ -37,11 +44,14 @@ def create_fixture(repo, destination, checked_at):
                 'reviewSha256': digest({'syntheticNonAdmittingVisualFixture': group['id']}), 'result': 'accepted'}})
     target = destination / 'web/src/data/generated/factualCorrections.json'
     target.write_text(json.dumps(bundle, indent=2, ensure_ascii=False) + '\n')
-    target.with_suffix('.seal.json').unlink(missing_ok=True)
+    target.with_suffix('.seal.json').write_text(json.dumps({'schemaVersion': 1,
+        'fileSha256': digest(target.read_bytes()), 'policySha256': stamp['policySha256'],
+        'groupIds': stamp['groupIds'], 'targetIds': stamp['targetIds'],
+        'newGroupIds': stamp['groupIds'], 'publicationDate': checked_at[:10]}, indent=2) + '\n')
     receipt = {'kind': 'synthetic_non_admitting_visual_fixture', 'semanticAdmission': False, 'publishable': False,
         'checkedAt': checked_at, 'policySha256': stamp['policySha256'], 'groups': len(bundle['groups']),
         'targets': sum(len(group['targets']) for group in bundle['groups']), 'modelCalls': 0, 'sourceRequests': 0,
-        'bundleSha256': digest(target.read_bytes()), 'fixture': str(destination)}
+        'bundleSha256': digest(target.read_bytes()), 'fixture': str(destination), 'consistencySealOnly': True}
     (destination / 'SYNTHETIC-NON-ADMITTING.json').write_text(json.dumps(receipt, indent=2) + '\n')
     return receipt
 

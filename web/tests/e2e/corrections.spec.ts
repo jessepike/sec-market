@@ -1,7 +1,14 @@
 import { expect, test } from '@playwright/test'
 import { corrections } from '../../src/data/corrections.ts'
+import { factualCorrectionHistory, publicCorrectionsJsonPayload } from '../../src/data/factualCorrectionHelpers.ts'
+import { evidenceById } from '../../src/data/evidence.ts'
+import { SITE_URL } from '../../src/data/meta.ts'
+import { factualCorrectionBundle, factualCorrectionGroups, factualCorrectionSourceEvidenceIds } from '../../src/data/tracker/correctionData.ts'
+import { trackerSuppliers } from '../../src/data/tracker/suppliers.ts'
 
 const correction = corrections.find((c) => c.id === 'C-2026-09-20-01')!
+const historySources = { evidence: evidenceById, suppliers: trackerSuppliers, groupEvidenceIds: factualCorrectionSourceEvidenceIds }
+const factualHistory = factualCorrectionHistory(factualCorrectionGroups, historySources, SITE_URL)
 
 test.describe('corrections (SEC-MARKET-FABLE-001 T6-13)', () => {
   // The correction is fixed to the issue it corrected (2026-w36), not to
@@ -65,9 +72,53 @@ test.describe('corrections (SEC-MARKET-FABLE-001 T6-13)', () => {
     expect(response.status()).toBe(200)
     const body = await response.json()
     expect(Array.isArray(body)).toBe(true)
+    expect(body).toEqual(publicCorrectionsJsonPayload(corrections, factualCorrectionGroups, historySources, SITE_URL))
     const entry = body.find((c: { id: string }) => c.id === correction.id)
     expect(entry).toBeTruthy()
     expect(entry.issueId).toBe(correction.issueId)
     expect(entry.url).toBe(`https://securitymarketpulse.com/corrections/#${correction.id}`)
+    expect(entry.approvedBy).toBe(correction.approvedBy)
+    for (const group of factualCorrectionGroups) {
+      const factual = body.find((candidate: { id: string }) => candidate.id === group.id)
+      expect(factual.kind).toBe('source_verified_factual_correction')
+      expect(factual.date).toBe(group.date)
+      expect(factual.note).toBe(group.note)
+      expect(factual.admission).toEqual(group.admission)
+      expect(factual).not.toHaveProperty('approvedBy')
+      expect(factual).not.toHaveProperty('issueId')
+    }
+  })
+
+  test('/corrections/ retains owner notes alongside every source-verified factual correction', async ({ page }) => {
+    await page.goto('/corrections/')
+    await expect(page.locator('.corrections-page__item')).toHaveCount(corrections.length + factualHistory.length)
+    for (const legacy of corrections) {
+      const item = page.locator(`[id="${legacy.id}"]`)
+      await expect(item.locator('.corrections-page__approved')).toHaveText(`Approved by ${legacy.approvedBy}`)
+      await expect(item.locator('.corrections-page__text')).toHaveText(legacy.text)
+    }
+    for (const factual of factualHistory) {
+      const item = page.locator(`[id="${factual.id}"]`)
+      await expect(item).toBeVisible()
+      await expect(item.locator('time')).toHaveAttribute('datetime', factual.date)
+      await expect(item.locator('.corrections-page__text')).toHaveText(factual.note)
+      await expect(item).toContainText('Source-verified factual correction')
+      await expect(item.locator('.corrections-page__approved')).toHaveCount(0)
+      await expect(item).not.toContainText('Approved by')
+      for (const source of factual.sources) {
+        await expect(item.getByRole('link', { name: source.title, exact: true })).toHaveAttribute('href', source.url)
+      }
+      for (const change of factual.changes) {
+        await expect(item).toContainText(`Before: ${change.before}`)
+        await expect(item).toContainText(`After: ${change.after}`)
+      }
+      await expect(item).toContainText(factual.admission.reviewSha256)
+    }
+  })
+
+  test('/factual-corrections.json matches the complete gate projection', async ({ request }) => {
+    const response = await request.get('/factual-corrections.json')
+    expect(response.status()).toBe(200)
+    expect(await response.json()).toEqual(factualCorrectionBundle)
   })
 })

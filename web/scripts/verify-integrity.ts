@@ -11,6 +11,7 @@ import { allPressureRows } from '../src/data/platformPressure.ts'
 import { printGroups, vendorPrints } from '../src/data/prints.ts'
 import { retainedTrackerEvents } from '../src/data/tracker/events.ts'
 import { trackerSuppliers, manualTrackerSuppliers } from '../src/data/tracker/suppliers.ts'
+import { factualCorrectionGroups, factualCorrectionSourceEvidenceIds } from '../src/data/tracker/correctionData.ts'
 import type { Provenance } from '../src/data/types.ts'
 import { weekMoves } from '../src/data/whatMoved.ts'
 import { PrintGrid } from '../src/components/PrintGrid.tsx'
@@ -110,6 +111,8 @@ function collectAllReferencedIds(): Set<string> {
     add(supplier.ownership?.evidenceIds)
   }
   for (const event of retainedTrackerEvents) add(event.evidenceIds)
+  // Withdrawn events still cite their sources in the public correction history.
+  for (const group of factualCorrectionGroups) add(factualCorrectionSourceEvidenceIds[group.id as keyof typeof factualCorrectionSourceEvidenceIds])
 
   return ids
 }

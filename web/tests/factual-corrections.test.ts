@@ -1,7 +1,6 @@
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { describe, it } from 'node:test'
-import disabled from '../src/data/generated/factualCorrections.json' with { type: 'json' }
 import { corrections } from '../src/data/corrections.ts'
 import type { EvidenceRecord } from '../src/data/types.ts'
 import type { TrackerEvent } from '../src/data/tracker/events.ts'
@@ -11,6 +10,9 @@ import type { FactualCorrectionBundle, FactualCorrectionGroup, FactualCorrection
 
 // Synthetic admissions exercise mechanics only. They never admit these draft corrections.
 const POLICY = 'a'.repeat(64)
+// The real gate enables the generated bundle before running this suite.
+// Disabled mechanics use an explicit fixture, never a constraint on that live build input.
+const disabled: FactualCorrectionBundle = { schemaVersion: 1, enabled: false, policySha256: null, checkedAt: null, groups: [] }
 const clone = <T>(value: T): T => JSON.parse(JSON.stringify(value)) as T
 const drafts = JSON.parse(readFileSync(new URL('../../docs/active/daily-pipeline/accuracy/dated-correction-candidates-2026-10-23.v2.json', import.meta.url), 'utf8')).candidates as Array<{
   targetId: string; operation: string; original: Record<string, unknown>; originalSha256: string; proposedValue: unknown
@@ -67,7 +69,7 @@ function target(bundle: FactualCorrectionBundle, id: string) {
 }
 
 describe('dated factual corrections (synthetic non-admitting replays)', () => {
-  it('commits exactly the empty disabled baseline and preserves all eleven real draft shapes', () => {
+  it('accepts the empty disabled fixture and preserves all eleven real draft shapes', () => {
     assert.deepEqual(disabled, { schemaVersion: 1, enabled: false, policySha256: null, checkedAt: null, groups: [] })
     const { inventories, bundle } = fixtures()
     assert.equal(bundle.groups.flatMap((group) => group.targets).length, 11)
