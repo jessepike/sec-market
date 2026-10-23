@@ -8097,7 +8097,12 @@
         }
       },
       "actualAdmission": false,
-      "remoteCi": "pending"
+      "remoteCi": {
+        "webRunId": 40035860583,
+        "runtimeRunId": 40035860591,
+        "appRevision": "6d783f3c304d668d7ede3f4d94394c179bd86880",
+        "receipt": "docs/active/daily-pipeline/receipts/coverage-repair-remote-validation-2026-10-23.json"
+      }
     }
   },
   "buildData": {
@@ -8349,7 +8354,7 @@
     "reviewed": true,
     "observedDifferences": "Production shows October 23 window, 121/557 checks and 28 acquisition events; local shows October 21 window, 0/557 checks and 29 acquisition events. Production has 10 change-log entries and local has 11. Local original EV-veeam-2 is dated 2025-10-21, included by the October 21 lower bound and excluded by October 23. Font-only replay uses the same unchanged local data on both sides.",
     "typographyReview": "No font-related change in family appearance or wrapping was observed. Data text and corresponding row counts differ; production/local pixels are not claimed identical.",
-    "previewComparison": "Parent remains responsible for actual preview/production review before promotion."
+    "previewComparison": "Actual immutable Vercel preview rendered and inspected at 1440px and 390px; current production remains on its original release. Existing source-data/window differences remain explicit."
   },
   "proofCode": [
     {
@@ -8376,6 +8381,18 @@
       "path": "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/ops/ci/test_font_artifact.py",
       "sha256": "91718459604f4ae81b856b136e4f71f1e2bd948f454fd543f62b1f06d4ac1931",
       "bytes": 2045
+    }
+  ],
+  "actualPreviewCaptures": [
+    {
+      "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/font-delivery-vercel-visual/preview-1440.png",
+      "sha256": "03180ad413a848bf154a3ab670d702092a5ab3eb5c95c804f8f7fb52f6719a71",
+      "bytes": 984390
+    },
+    {
+      "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/font-delivery-vercel-visual/preview-390.png",
+      "sha256": "aad0f67af8e1f055f433012e1d106748c2514ff6e75d8c8233a1d3ee33f417de",
+      "bytes": 435981
     }
   ]
 }

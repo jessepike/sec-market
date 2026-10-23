@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "kind": "actual_coverage_repair_remote_validation",
+  "observedAt": "2026-10-23T22:52:14.516109Z",
+  "appRevision": "6d783f3c304d668d7ede3f4d94394c179bd86880",
+  "web": {
+    "runId": 40035860583,
+    "event": "push",
+    "conclusion": "success",
+    "dataTests": 353,
+    "pipelineTests": 112,
+    "browserTests": 43,
+    "receipt": {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/receipts/font-delivery-web-run-2026-10-23.json",
+      "bytes": 2394,
+      "sha256": "d515942439982da322ead9d69c0aad42a37ab82a79572efb5d18d817d2797d17"
+    },
+    "log": {
+      "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/font-delivery-logs/web-run-40035860583.log",
+      "bytes": 299693,
+      "sha256": "97f821d7e6f940bafc1c6f423ca828798e8b20236c7d250543071a29e95de6d1"
+    }
+  },
+  "runtime": {
+    "runId": 40035860591,
+    "conclusion": "success",
+    "testsRun": 415,
+    "passed": 414,
+    "skipped": 1,
+    "skipReason": "Pinned historical read-only archive absent on hosted runner; all 415 passed locally",
+    "modelCalls": 0,
+    "archiveChanged": false,
+    "sourceConnectivityAddsCoverageCredit": false,
+    "receipt": {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/receipts/font-delivery-runtime-canary-2026-10-23.json",
+      "bytes": 970,
+      "sha256": "262e73117ecb2431c7c9f335bda015c0b51a2bec4c642ff7be0bc516f3fc60cb"
+    },
+    "log": {
+      "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/font-delivery-logs/runtime-run-40035860591.log",
+      "bytes": 160559,
+      "sha256": "5843310001bb10c19cd2c93e1719be812fdd275870b36ada7d0b6c44d5f540d2"
+    }
+  },
+  "preview": {
+    "readyDeploymentId": "dpl_2cPPQrDwVFwT2ZNQzkRkHTJpezDU",
+    "url": "https://security-market-pulse-p1ygcmhp5-pikeholdings.vercel.app",
+    "fontsHashAndMimeVerified": 24,
+    "completeLicensesVerified": 3,
+    "correctionsDisabled": true,
+    "receipt": {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/receipts/font-delivery-preview-2026-10-23.json",
+      "bytes": 11765,
+      "sha256": "01843fa43fed4c8c4a4ad51394eff9869c0f6613e06075dd7456109535e5b897"
+    }
+  },
+  "visual": {
+    "directory": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/font-delivery-github-visual",
+    "comparison": {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/receipts/font-delivery-hosted-pixels-2026-10-23.json",
+      "bytes": 1177,
+      "sha256": "8ad65cf72bbb67f87aed9fe22287d12325271fb608c31b9b3901ad634653a2e2"
+    },
+    "observedDifferences": "Both tested-build widths and production desktop exactly match the preceding hosted captures. Production phone differs in 631 pixels within native domain-selector text bounds (29,4498,145,4509); same wording and geometry. Cause not independently established."
+  },
+  "production": {
+    "appRelease": {
+      "allowed": true,
+      "releaseKind": "certified",
+      "dataUpdated": true,
+      "certifiedAt": "2026-10-23T11:39:20.155Z",
+      "contractVersion": "smp-certified-v2",
+      "rootView": "tracker",
+      "appRevision": "7bd94ec77e99462c068f254e134235a894585cbb",
+      "appBuiltAt": "2026-10-23T11:39:48.805Z",
+      "dailyRunId": "e054ea73c89fe78db9702f94d2a3b669ce91884f7d7abda0a88698dbcfc7ec50",
+      "dailySnapshotSha256": "53b49106fa9118d603db5e64e37cf03f7f2c6fd1fb797acf18e73f540196c84f",
+      "dailyContractSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+      "dailyCoverageComplete": false
+    },
+    "appReleaseRawSha256": "2c44353acc1251e825fcd3cd13a74658238256ffb1f1fe368ee9037cfbb2d48c",
+    "changed": false
+  },
+  "archiveCommitUnchanged": "704ea55e86eb1582b0619b3719b167191fa74da4",
+  "actualSourceChecksAdded": 0,
+  "semanticAdmissions": 0,
+  "gateOrPublicationAttempts": 0,
+  "productionChanged": false,
+  "next": "Natural UTC allowance renewal, approved main fast-forward, real leased diagnostics and collection/reviews, then independent publication and scheduled-run receipts."
+}

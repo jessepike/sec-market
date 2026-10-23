@@ -41,9 +41,9 @@ The candidate uses `HELD_CLAIMS_28` without assigning a human decision; all 15 w
 
 The fixed 177-record review covers 97 events and 80 supplier fields: 90 supported, 71 insufficient,
 11 missing strict primary proof and five contradicted. The disabled correction candidate has five
-factual groups/11 targets plus one scoped Xage publication-role group/target. The first five objects,
-source text views and review hashes remain exactly unchanged. All 97/74/273 original inventories
-remain immutable. Xage's paid Yahoo/GlobeNewswire release is still labelled independent in production;
+factual groups/11 targets plus one scoped Xage publication-role group/target. Original inventories,
+the five factual groups and their review hashes remain immutable.
+Xage's paid Yahoo/GlobeNewswire release is still labelled independent in production;
 the candidate changes only its source class and limitations, with no financial verification.
 [Implementation](docs/active/daily-pipeline/publisher-disclosure-implementation-2026-10-23.md).
 No correction is admitted or live. Earliest original proof expires October 24 at 10:14:49.799584 UTC.
@@ -52,29 +52,27 @@ Preview preserves valid same-day checks, compatible SEC response sharing, 28 unr
 four older-policy quarantined candidates. eSentire extraction is article-scoped. Orca pagination and
 Barracuda's bounded compressed shell stay incomplete when traversal is unproved. Generic article
 input now decodes gzip with bound cache/replay identities; citation checks remain transport-only.
-Candidate HTML/robots probes now use that bounded decoder; all 415 operational tests pass locally.
+Candidate HTML/robots probes use the same bounded decoder.
 The [five blocked-citation audit](docs/active/daily-pipeline/accuracy/blocked-citation-audit-2026-10-23.md)
 found three historical same-URL successes, all too old, and no current replacement credit.
 Standalone probes are closed; the existing collector has a manual diagnostic mode with a shared
 remote lease, acknowledged fetch-only escrow and final archive CAS, preserving normal collection proof.
-Neutral issuer indices and issuer-bound filing
-retention produce no financial facts or new certified tier; all 29 historical CrowdStrike/Palo Alto
-bodies replay, with current qualification pending. ReliaQuest's empty-attribute crash is repaired.
+Neutral issuer indices and filing retention grant no financial facts or new certified tier;
+29 historical CrowdStrike/Palo Alto bodies replay, with current qualification pending.
+ReliaQuest's empty-attribute crash is repaired.
 
-Revision `312285fe24b1e3e2f44bc79b4ab807118078183f` passed hosted web `40030255311`
-(349 data/112 pipeline/38 browser checks) and runtime canary `40030255492`
-(378 passed, one pinned-local-archive test skipped; all 379 passed locally).
-Vercel `dpl_Eq8jibgSiSqAUhmd6jEQUW3zogFr` is READY. Three hosted screenshots equal prior images;
-the production phone capture differs only in 631 pixels of native selector text paint, with the
-same wording and geometry. Disabled and synthetic enabled local applications pass builds and browser
-checks; the desktop/phone Xage drawer/history replay preserves the financial excerpt. Corrections
-remain disabled. The canary restored the unchanged archive and used zero model calls; its separate
-SEC connectivity probe adds no collection credit.
-[Local validation](docs/active/daily-pipeline/receipts/publisher-disclosure-validation-2026-10-23.json) ·
-[Remote validation](docs/active/daily-pipeline/receipts/publisher-disclosure-remote-validation-2026-10-23.json).
-The next browser run exposed unresolved Google font requests. Exact existing fonts now ship locally;
-same-data desktop/phone comparisons have identical pixels and layout. Both disabled and synthetic
-enabled applications pass 353 data, 112 pipeline and 43 browser tests. Hosted verification is pending.
+Revision `6d783f3c304d668d7ede3f4d94394c179bd86880` passed hosted web `40035860583`
+(353 data/112 pipeline/43 browser checks) and runtime canary `40035860591`
+(414 passed, one pinned-local-archive test skipped; all 415 passed locally).
+Vercel `dpl_2cPPQrDwVFwT2ZNQzkRkHTJpezDU` is READY. All 24 fonts and three licenses match their
+pinned bytes on the actual immutable preview; desktop/phone renders were inspected. Both local
+application modes pass the same full suites. Same-data font replay preserves every pixel and layout;
+hosted comparisons retain only the documented 631-pixel production selector-paint variation.
+The Xage drawer/history preserves its financial excerpt. Corrections remain disabled.
+The canary restored the unchanged archive with zero model calls; its SEC connectivity probe adds
+no collection credit. Production and archive remain unchanged.
+[Local font validation](docs/active/daily-pipeline/accuracy/font-delivery-replay-2026-10-23.md) ·
+[Remote validation](docs/active/daily-pipeline/receipts/coverage-repair-remote-validation-2026-10-23.json).
 
 [Rubric](docs/active/daily-pipeline/evaluation-rubric.md) ·
 [Scorecard](docs/active/daily-pipeline/evaluations/2026-10-23/accuracy-scorecard.md).

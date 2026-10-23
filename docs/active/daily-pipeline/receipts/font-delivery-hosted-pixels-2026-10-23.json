@@ -1,0 +1,70 @@
+{
+  "kind": "actual_ci_screenshot_comparison",
+  "rows": [
+    {
+      "label": "production",
+      "width": 1440,
+      "sameDimensions": true,
+      "previousSize": [
+        1440,
+        8322
+      ],
+      "currentSize": [
+        1440,
+        8322
+      ],
+      "changedPixels": 0,
+      "boundingBox": null
+    },
+    {
+      "label": "production",
+      "width": 390,
+      "sameDimensions": true,
+      "previousSize": [
+        390,
+        7714
+      ],
+      "currentSize": [
+        390,
+        7714
+      ],
+      "changedPixels": 631,
+      "boundingBox": [
+        29,
+        4498,
+        145,
+        4509
+      ]
+    },
+    {
+      "label": "tested-build",
+      "width": 1440,
+      "sameDimensions": true,
+      "previousSize": [
+        1440,
+        8322
+      ],
+      "currentSize": [
+        1440,
+        8322
+      ],
+      "changedPixels": 0,
+      "boundingBox": null
+    },
+    {
+      "label": "tested-build",
+      "width": 390,
+      "sameDimensions": true,
+      "previousSize": [
+        390,
+        7714
+      ],
+      "currentSize": [
+        390,
+        7714
+      ],
+      "changedPixels": 0,
+      "boundingBox": null
+    }
+  ]
+}

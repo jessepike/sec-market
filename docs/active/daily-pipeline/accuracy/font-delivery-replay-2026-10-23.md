@@ -23,7 +23,9 @@ All execution used the OrbStack dev VM and the existing dependencies.
 | Focused lint | 0 errors, 0 warnings |
 | Certified application build | Passed |
 | Full disabled and synthetic enabled application suites | Each passed 353 data, 112 pipeline and 43 browser tests |
-| Remote CI and actual preview | Pending |
+| Hosted web run 40035860583 | Passed 353 data, 112 pipeline and 43 browser tests |
+| Hosted runtime run 40035860591 | 414 passed, one pinned-local-archive test skipped; all 415 passed locally |
+| Actual immutable preview | Ready; all 24 fonts and three licenses match; desktop/phone renders inspected |
 
 The browser check loads every language subset explicitly. All 24 files return 200 with
 `font/woff2`, correct lengths and SHA-256 values. All 39 font faces load; representative family
@@ -69,5 +71,8 @@ claimed identical. The same-data baseline replay is the isolated evidence for th
 
 All eleven public JSON files other than `app-release.json` match between local builds. The
 candidate correction bundle remains disabled with no groups. No synthetic enabled fixture
-remains. No market-source requests, model calls, real allowance/archive mutations or production
-changes occurred. Actual preview review and integrated CI remain with the parent.
+remains. The font repair and application tests made no market-source requests, model calls,
+real allowance/archive mutations or production changes. The separate hosted runtime canary made
+one SEC connectivity request, retaining zero collection credit and no archive change.
+Hosted validation is retained in
+[the actual remote receipt](../receipts/coverage-repair-remote-validation-2026-10-23.json).
