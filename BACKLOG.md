@@ -64,9 +64,11 @@ The [qualification queue](docs/active/daily-pipeline/accuracy/coverage-qualifica
 maps all 254 missing tasks to exact evidence and next actions, with the 28 candidates and 154
 technical failures separately retained. It adds no successful check or source freshness.
 Separately repair [Xage's source-classification defect](docs/active/daily-pipeline/accuracy/source-classification-correction-proposal-2026-10-23.md)
-through a bounded dated metadata operation and proper provenance/review. Its paid syndicated release
-is still labelled independent in production. Do not weaken the current protected-field guards or
-silently add this to the five correction groups or fixed 177-record audit.
+through the implemented typed publisher-disclosure operation and proper provenance/review. Its paid
+syndicated release is still labelled independent in production. The disabled six-group candidate
+preserves the original five groups, all existing review hashes and financial-primary guards; its
+one additional scoped target changes neither financial claims nor the fixed 177-record audit.
+Complete integrated tests, real quota-respecting review and full publication proof before calling it fixed.
 The generic article path now decodes bounded gzip before extraction and verification, binds its
 decoded model input, and rejects affected legacy caches and partial receipts. All 355 operational,
 12 monitor and both complete application suites pass locally. The retained Barracuda parser replay

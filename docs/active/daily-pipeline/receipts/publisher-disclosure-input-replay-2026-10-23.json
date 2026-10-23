@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "kind": "retained_publisher_disclosure_candidate_input_replay",
+  "checkedAt": "2026-10-23T21:48:35.801869Z",
+  "groupId": "XAGE-SOURCE-CLASS-20261023",
+  "scope": "publisher_disclosure_only",
+  "candidateSha256": "f0060b9e09cdffb77e08797f0fdd49eb9bf931ea4a91685e4f0a4c911fc50abb",
+  "evidenceSetSha256": "a5138d57005644bda2474a10d29a5fa3c27cdd649d9fa8f8a704a04d6e070200",
+  "reviewPolicySha256": "c01560dba484aa5aa5696c8bfe5b44acefc6337ee1cebe0cd96751849e15646a",
+  "globalPolicySha256": "dd6330cf9626897d81267e889822550c3c8f5f5f7dc3b6be320139818dff2f58",
+  "groups": 6,
+  "targets": 12,
+  "ordinaryGroupCount": 5,
+  "originalFiveGroupsExactlyUnchanged": true,
+  "originalFiveReviewHashesExactlyUnchanged": true,
+  "ordinarySourceTextViewsExactAgainstRevision": "de440fff",
+  "wholeVisibleChars": 16832,
+  "wholeVisibleTextSha256": "c98a0f42e0107dce354b5885d4788498689b8ba5a6e39a8beffb82824ffb7749",
+  "source": {
+    "evidenceId": "TR-xage-1",
+    "sourceId": "xage:citation:TR-xage-1",
+    "url": "https://finance.yahoo.com/news/xage-security-hits-record-growth-120000615.html",
+    "observationId": "3659081ca33f1558ed74ea30327c580c2d1664dcf7429e440758089b872499b6",
+    "body": {
+      "bytes": 1021859,
+      "key": "objects/01cf60192caf9038e618e16a67aed61087e163a4aff82a724ca406f56c1e2afc",
+      "sha256": "01cf60192caf9038e618e16a67aed61087e163a4aff82a724ca406f56c1e2afc"
+    },
+    "fetchedAt": "2026-10-23T04:14:56.139543Z",
+    "proofScope": "publisher_disclosure_only",
+    "visibleText": {
+      "rulesVersion": "page-all-visible-text-whitespace-1",
+      "sha256": "c98a0f42e0107dce354b5885d4788498689b8ba5a6e39a8beffb82824ffb7749",
+      "chars": 16832
+    },
+    "disclosureQuoteIds": [
+      "publisher_paid_disclosure",
+      "issuer_attributed_dateline",
+      "article_issuer_byline_context"
+    ]
+  },
+  "archive": {
+    "commit": "b78cfa15980d7be9da54b31e28b16a0840c1d112",
+    "manifestSha256": "760b5c38fcb7fba2a3a223233539cce4eb5aa47d559571efa95b287047ac1ff8",
+    "files": 25777,
+    "allFileSizesAndModificationTimesUnchanged": true
+  },
+  "requestFileSha256": "bb239e6e8256b9abc797d0ac89e940179f597e20ba654d2bb0513ff26e5b5c52",
+  "policyStampFileSha256": "3489bbed55ea9ac0c34d99f984f15ea95b2c1e351f459aaa67808a67f8e39894",
+  "sourceRequests": 0,
+  "modelCalls": 0,
+  "semanticAdmission": false,
+  "archiveWrites": 0,
+  "quotaChanges": false,
+  "sourceQualification": false,
+  "newCoverageChecks": 0,
+  "productionChanged": false,
+  "limitations": [
+    "Input replay establishes exact retained publisher disclosures only; a real independent subscription review and full gate/publication remain required.",
+    "The new scoped group changes no financial claim and supplies no financial-primary or certification authority.",
+    "The fixed 177-record audit and its five contradictions are unchanged."
+  ]
+}

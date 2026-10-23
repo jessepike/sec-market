@@ -40,7 +40,7 @@ export function Corrections({ groups = factualCorrectionGroups, sources = { evid
               <li key={correction.id} id={correction.id} className="corrections-page__item">
                 <p className="corrections-page__meta">
                   <time dateTime={correction.date}>{formatShortDate(correction.date)}</time>
-                  {' · '}{correction.supplierName}{' · Source-verified factual correction'}
+                  {' · '}{correction.supplierName}{correction.reviewScope === 'publisher_disclosure_only' ? ' · Publisher disclosure correction' : ' · Source-verified factual correction'}
                 </p>
                 <p className="corrections-page__text">{correction.note}</p>
                 {correction.changes.map((change) => (
@@ -56,6 +56,7 @@ export function Corrections({ groups = factualCorrectionGroups, sources = { evid
                 <details>
                   <summary>Review record</summary>
                   <p>Admitted: {correction.admission.admittedAt}</p>
+                  {correction.reviewScope === 'publisher_disclosure_only' ? <p>Review scope: publication role only. Financial, funding and operating figures are unchanged and are not verified by this correction.</p> : null}
                   <p>Candidate SHA-256: <code style={{ overflowWrap: 'anywhere' }}>{correction.admission.candidateSha256}</code></p>
                   <p>Evidence set SHA-256: <code style={{ overflowWrap: 'anywhere' }}>{correction.admission.evidenceSetSha256}</code></p>
                   <p>Policy SHA-256: <code style={{ overflowWrap: 'anywhere' }}>{correction.admission.policySha256}</code></p>

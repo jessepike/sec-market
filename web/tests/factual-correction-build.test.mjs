@@ -8,6 +8,7 @@ import { verifyFactualCorrections } from '../scripts/verify-factual-corrections.
 
 const canonical = value => Array.isArray(value) ? '[' + value.map(canonical).join(',') + ']' : value && typeof value === 'object' ? '{' + Object.keys(value).sort().map(k => JSON.stringify(k) + ':' + canonical(value[k])).join(',') + '}' : JSON.stringify(value)
 const digest = value => createHash('sha256').update(typeof value === 'string' || Buffer.isBuffer(value) ? value : canonical(value)).digest('hex')
+const design = JSON.parse(readFileSync(new URL('../../docs/active/daily-pipeline/accuracy/source-classification-admission-design-2026-10-23.json', import.meta.url)))
 const reviewPolicy = (group, market, baselineSha256) => digest({
   schemaVersion: 1, rulesVersion: 'dated-factual-correction-review-1', baselineSha256,
   candidateSha256: digest(group),
@@ -15,6 +16,11 @@ const reviewPolicy = (group, market, baselineSha256) => digest({
   sources: group.sources.map(source => market.sources.find(configured => configured.id === source.sourceId)),
   model: Object.fromEntries(['provider', 'allowApiBilling', 'maxDocumentChars'].map(key => [key, market.model[key]])),
   freshnessHours: 30, checks: ['entity', 'value', 'currency_units', 'period_date', 'qualifiers', 'event_status', 'source_support'].sort(),
+  ...(group.reviewScope === 'publisher_disclosure_only' ? {
+    rulesVersion: 'dated-publisher-disclosure-classification-1', reviewScope: group.reviewScope,
+    allowedTransition: design.proposedReviewPolicy.basis.allowedTransition,
+    checks: ['class_transition', 'limitations_scope', 'literal_disclosure', 'publisher_source_binding', 'release_attribution', 'target_identity', 'unchanged_claims_and_history'].sort(),
+  } : {}),
 })
 
 function fixture(t, enabled = true) {
@@ -36,7 +42,8 @@ function fixture(t, enabled = true) {
     groups: requests.groups.map(group => ({
       id: group.id, supplierId: group.supplierId, reasonCode: group.reasonCode, date: '2026-10-24',
       note: group.noteTemplate.replace('{date}', '2026-10-24'), targets: group.targets,
-      admission: { result: 'accepted', policySha256: policy.reviewPolicySha256ByGroup[group.id], candidateSha256: digest(group), evidenceSetSha256: digest(group.sources), admittedAt: '2026-10-24T06:00:00Z', reviewSha256: 'a'.repeat(64) },
+      ...(group.reviewScope ? { reviewScope: group.reviewScope } : {}),
+      admission: { result: 'accepted', policySha256: policy.reviewPolicySha256ByGroup[group.id], candidateSha256: digest(group), evidenceSetSha256: digest(group.sources), admittedAt: '2026-10-24T06:00:00Z', reviewSha256: 'a'.repeat(64), ...(group.reviewScope ? { reviewScope: group.reviewScope } : {}) },
     })),
   } : { schemaVersion: 1, enabled: false, policySha256: null, checkedAt: null, groups: [] }
   // Synthetic seal proves file consistency only; these fixtures are never used as admission.
@@ -64,8 +71,10 @@ test('build binds every requested before/after and policy without certifying syn
   const f = fixture(t)
   const result = verifyFactualCorrections(f.web)
   assert.equal(result.enabled, true)
-  assert.equal(result.groupIds.length, 5)
-  assert.equal(result.targetIds.length, 11)
+  const requests = f.read('contracts/factual-corrections.json')
+  assert.equal(requests.groups.filter(group => !group.reviewScope).length, 5)
+  assert.equal(result.groupIds.length, requests.groups.length)
+  assert.equal(result.targetIds.length, requests.groups.flatMap(group => group.targets).length)
 })
 test('disabled build preserves original inventory checks', t => {
   const f = fixture(t, false)
@@ -156,4 +165,159 @@ test('global inventory policy cannot substitute for an atomic review policy', t 
   f.bundle.groups[0].admission.policySha256 = f.bundle.policySha256
   f.seal()
   assert.throws(() => verifyFactualCorrections(f.web), /unbound admission metadata/)
+})
+
+function publisherFixture(t, enabled = true) {
+  const f = fixture(t, enabled)
+  const requests = f.read('contracts/factual-corrections.json')
+  const legacyRows = structuredClone(f.bundle.groups.filter(group => !group.reviewScope))
+  if (!requests.groups.some(group => group.id === design.proposedGroupExample.id)) requests.groups.push(structuredClone(design.proposedGroupExample))
+  f.write('contracts/factual-corrections.json', requests)
+  f.repin()
+  function refresh() {
+    const current = f.read('contracts/factual-corrections.json'), policy = f.repin()
+    if (f.bundle.enabled) {
+      for (const request of current.groups) {
+        let row = f.bundle.groups.find(group => group.id === request.id)
+        if (!row) {
+          row = { id: request.id, supplierId: request.supplierId, reasonCode: request.reasonCode, date: '2026-10-24', admission: { result: 'accepted', admittedAt: '2026-10-24T06:00:00Z', reviewSha256: 'a'.repeat(64) } }
+          f.bundle.groups.push(row)
+        }
+        row.targets = structuredClone(request.targets)
+        row.note = request.noteTemplate.replace('{date}', row.date)
+        if (Object.hasOwn(request, 'reviewScope')) {
+          row.reviewScope = request.reviewScope; row.admission.reviewScope = request.reviewScope
+        }
+        Object.assign(row.admission, { policySha256: policy.reviewPolicySha256ByGroup[request.id], candidateSha256: digest(request), evidenceSetSha256: digest(request.sources) })
+      }
+    }
+    f.seal({ newGroupIds: f.bundle.enabled ? [design.proposedGroupExample.id] : [] })
+    return policy
+  }
+  refresh()
+  return { ...f, refresh, legacyRows,
+    role: () => f.bundle.groups.find(group => group.id === design.proposedGroupExample.id),
+    mutateRequest: mutate => {
+      const current = f.read('contracts/factual-corrections.json')
+      mutate(current.groups.find(group => group.id === design.proposedGroupExample.id), current)
+      f.write('contracts/factual-corrections.json', current)
+      refresh()
+    } }
+}
+
+test('scoped build derives exact role policy independently while retaining five legacy hashes and rows', t => {
+  const f = publisherFixture(t), policy = f.read('web/src/data/tracker/factualCorrectionPolicy.json')
+  assert.equal(policy.reviewPolicySha256ByGroup[design.proposedGroupExample.id], design.proposedReviewPolicy.sha256)
+  for (const [id, hash] of Object.entries(design.proposedImplementation.inventoryPolicy.existingReviewPoliciesUnchanged)) assert.equal(policy.reviewPolicySha256ByGroup[id], hash)
+  assert.deepEqual(f.bundle.groups.filter(group => !group.reviewScope), f.legacyRows)
+  const result = verifyFactualCorrections(f.web)
+  assert.equal(result.groupIds.length, 6); assert.equal(result.targetIds.length, 12)
+  assert.deepEqual(result.newGroupIds, [design.proposedGroupExample.id])
+})
+
+test('scoped disabled build still verifies exact requested scope and protected metadata', t => {
+  const f = publisherFixture(t, false)
+  assert.equal(verifyFactualCorrections(f.web).enabled, false)
+  f.mutateRequest(group => { group.targets[0].proposedValue.excerpt += ' changed financial claim' })
+  assert.throws(() => verifyFactualCorrections(f.web), /proposed transition|protected fields/)
+})
+
+test('scoped build rejects every protected proposed field even with recalculated policy and seal', t => {
+  for (const field of Object.keys(design.records.original).filter(key => !['sourceClass', 'limitations'].includes(key))) {
+    const f = publisherFixture(t)
+    f.mutateRequest(group => { group.targets[0].proposedValue[field] = Array.isArray(group.targets[0].proposedValue[field]) ? ['forged'] : 'forged' })
+    assert.throws(() => verifyFactualCorrections(f.web), /proposed transition|protected fields/)
+  }
+})
+
+test('scoped build refuses changed history and unsupported target/scope/transition combinations', t => {
+  for (const mutate of [
+    group => { group.targets[0].original.excerpt += ' changed original' },
+    group => { group.targets[0].originalSha256 = 'a'.repeat(64) },
+    group => { group.targets[0].targetId = 'evidence:TR-expel-2' },
+    group => { group.targets[0].operation = 'replace' },
+    group => { group.targets[0].proposedValue.sourceClass = 'IR' },
+    group => { group.targets[0].proposedValue.limitations = 'Independently verified finances.' },
+    group => { group.reviewScope = 'financial_verification' },
+    group => { delete group.reviewScope },
+    group => { group.supplierId = 'expel' },
+    (group, requests) => { group.targets.push(structuredClone(requests.groups[0].targets[0])) },
+  ]) {
+    const f = publisherFixture(t); f.mutateRequest(mutate)
+    assert.throws(() => verifyFactualCorrections(f.web), /publisher disclosure|review scope/)
+  }
+})
+
+test('scoped build rejects altered source/quote descriptors despite fresh hashes and synthetic acceptance', t => {
+  for (const mutate of [
+    group => { group.sources[0].proofScope = 'financial_verification' },
+    group => { group.sources[0].url += '?changed=1' },
+    group => { group.sources[0].sourceId = 'other:source' },
+    group => { group.sources[0].body.bytes = 0 },
+    group => { group.sources[0].body.key = 'objects/forged' },
+    group => { group.sources[0].fetchedAt = '2026-02-30T12:00:00Z' },
+    group => { group.sources[0].visibleText.rulesVersion = 'excerpt-only' },
+    group => { group.sources[0].visibleText.sha256 = 'malformed' },
+    group => { group.sources[0].visibleText.chars = 30001 },
+    group => { group.sources[0].disclosureQuoteIds.pop() },
+    group => { group.disclosureQuotes[0].literalInUniqueArticle = false },
+    group => { group.disclosureQuotes[0].normalizedWholePageStart++ },
+    group => { group.disclosureQuotes[0].text += ' altered'; group.disclosureQuotes[0].textSha256 = digest(group.disclosureQuotes[0].text); group.disclosureQuotes[0].normalizedWholePageEnd += 8 },
+    group => { group.disclosureQuotes[0].scope = 'financial verification' },
+  ]) {
+    const f = publisherFixture(t)
+    f.mutateRequest(mutate)
+    assert.throws(() => verifyFactualCorrections(f.web), /publisher disclosure/)
+  }
+})
+
+test('scoped public row and admission must each echo only the required narrow scope', t => {
+  for (const [object, value] of [['group', undefined], ['group', 'financial_verification'], ['admission', undefined], ['admission', 'financial_verification']]) {
+    const f = publisherFixture(t), target = object === 'group' ? f.role() : f.role().admission
+    if (value === undefined) delete target.reviewScope
+    else target.reviewScope = value
+    f.seal()
+    assert.throws(() => verifyFactualCorrections(f.web), /review scope or schema/)
+  }
+  const f = publisherFixture(t)
+  f.bundle.groups.find(group => !group.reviewScope).admission.reviewScope = 'publisher_disclosure_only'; f.seal()
+  assert.throws(() => verifyFactualCorrections(f.web), /review scope or schema/)
+})
+
+test('scoped group remains mandatory and cannot use an ordinary review policy or a stale map', t => {
+  for (const mode of ['missingGroup', 'ordinaryPolicy', 'missingMap', 'extraMap', 'staleMap']) {
+    const f = publisherFixture(t)
+    if (mode === 'missingGroup') { f.bundle.groups.pop(); f.seal() }
+    if (mode === 'ordinaryPolicy') { f.role().admission.policySha256 = f.bundle.groups[0].admission.policySha256; f.seal() }
+    if (mode.endsWith('Map')) {
+      const policy = f.read('web/src/data/tracker/factualCorrectionPolicy.json')
+      if (mode === 'missingMap') delete policy.reviewPolicySha256ByGroup[design.proposedGroupExample.id]
+      if (mode === 'extraMap') policy.reviewPolicySha256ByGroup.extra = 'f'.repeat(64)
+      if (mode === 'staleMap') policy.reviewPolicySha256ByGroup[design.proposedGroupExample.id] = 'f'.repeat(64)
+      f.write('web/src/data/tracker/factualCorrectionPolicy.json', policy)
+    }
+    assert.throws(() => verifyFactualCorrections(f.web), /incomplete groups|unbound admission|stamp differs/)
+  }
+})
+
+test('scoped admission retains its actual initial source window and dated history', t => {
+  const f = publisherFixture(t), row = f.role(), source = design.proposedGroupExample.sources[0]
+  row.admission.admittedAt = new Date(Date.parse(source.fetchedAt) + 30 * 3600000 + 1).toISOString()
+  f.bundle.checkedAt = '2026-10-24T12:00:00Z'; f.seal()
+  assert.throws(() => verifyFactualCorrections(f.web), /original source window/)
+  row.admission.admittedAt = '2026-10-24T06:00:00Z'
+  const original = structuredClone(row)
+  f.bundle.checkedAt = '2026-11-24T12:00:00Z'; f.seal({ newGroupIds: [] })
+  assert.equal(verifyFactualCorrections(f.web).enabled, true)
+  assert.deepEqual(f.role(), original)
+})
+
+test('publisher class mutation cannot be disguised as an ordinary evidence replacement', t => {
+  const f = publisherFixture(t)
+  f.mutateRequest(group => {
+    delete group.reviewScope; delete group.disclosureQuotes
+    group.targets[0].operation = 'replace'
+    group.sources = group.sources.map(source => Object.fromEntries(['evidenceId', 'sourceId', 'url', 'observationId', 'body', 'fetchedAt'].map(key => [key, source[key]])))
+  })
+  assert.throws(() => verifyFactualCorrections(f.web), /ordinary evidence replacement changes protected metadata/)
 })

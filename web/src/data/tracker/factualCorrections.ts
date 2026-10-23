@@ -3,6 +3,16 @@ import type { TrackerEvent } from './events'
 import type { FundingRound, HeadlineMetric, Ownership, TrackerSupplier } from './suppliers'
 
 export type SupplierCorrectionField = 'lastRound' | 'headlineMetric' | 'ownership'
+export type PublisherDisclosureReviewScope = 'publisher_disclosure_only'
+
+/** Publication-role metadata only; this operation supplies no financial authority. */
+export type PublisherDisclosureCorrectionTarget = {
+  targetId: 'evidence:TR-xage-1'
+  operation: 'reclassify_publisher_disclosure'
+  original: EvidenceRecord
+  originalSha256: string
+  proposedValue: EvidenceRecord
+}
 
 type Replacement<T, Id extends string> = {
   targetId: Id
@@ -19,6 +29,7 @@ export type FactualCorrectionTarget =
   | Replacement<HeadlineMetric, `supplier:${string}:headlineMetric`>
   | Replacement<Ownership, `supplier:${string}:ownership`>
   | Replacement<EvidenceRecord, `evidence:${string}`>
+  | PublisherDisclosureCorrectionTarget
 
 export interface FactualCorrectionAdmission {
   candidateSha256: string
@@ -28,6 +39,7 @@ export interface FactualCorrectionAdmission {
   admittedAt: string
   reviewSha256: string
   result: 'accepted'
+  reviewScope?: PublisherDisclosureReviewScope
 }
 
 export interface FactualCorrectionGroup {
@@ -38,6 +50,7 @@ export interface FactualCorrectionGroup {
   note: string
   targets: FactualCorrectionTarget[]
   admission: FactualCorrectionAdmission
+  reviewScope?: PublisherDisclosureReviewScope
 }
 
 export type FactualCorrectionBundle =
@@ -59,6 +72,10 @@ const idShape = /^[A-Za-z0-9][A-Za-z0-9_.-]*$/
 const supplierFields = new Set(['lastRound', 'headlineMetric', 'ownership'])
 const eventTypes = new Set(['funding', 'acquisition', 'layoff', 'restructuring', 'debt', 'rating', 'going-concern', 'exec-change', 'divestiture', 'shutdown', 'results', 'late-filing'])
 const evidenceChanges = new Set(['title', 'publicationDate', 'economicPeriod', 'excerpt', 'limitations'])
+const publisherDisclosureScope = 'publisher_disclosure_only'
+const publisherDisclosureOriginalSha256 = '62bb8bcce0698b5f164867d9bc070be77ee4eebde095947dd96eb8a693d0d6fb'
+const publisherDisclosureUrl = 'https://finance.yahoo.com/news/xage-security-hits-record-growth-120000615.html'
+const publisherDisclosureLimitations = 'Yahoo Finance labels this page as a paid press release and attributes it to Xage Security with a GlobeNewswire dateline. It is issuer-attributed release material republished by Yahoo Finance, not independent editorial reporting. This publication-role correction does not independently verify the financial, funding or operating figures in the unchanged excerpt.'
 
 function requireThat(condition: unknown, message: string): asserts condition {
   if (!condition) throw new Error(`Invalid factual corrections: ${message}`)
@@ -248,7 +265,9 @@ export function validateBundle(bundle: unknown, expectedPolicySha256: string | n
   const targetIds = new Set<string>()
   for (const entry of value.groups) {
     const group = object(entry, 'group')
-    keys(group, ['id', 'supplierId', 'reasonCode', 'date', 'note', 'targets', 'admission'], [], 'group')
+    keys(group, ['id', 'supplierId', 'reasonCode', 'date', 'note', 'targets', 'admission'], ['reviewScope'], 'group')
+    const publisherDisclosure = Object.hasOwn(group, 'reviewScope')
+    requireThat(!publisherDisclosure || group.reviewScope === publisherDisclosureScope, 'unsupported group review scope')
     id(group.id, 'group id')
     id(group.supplierId, 'group supplier')
     requireThat(!groupIds.has(group.id), `duplicate group ${group.id}`)
@@ -260,7 +279,8 @@ export function validateBundle(bundle: unknown, expectedPolicySha256: string | n
     calendarDate(group.date, 'correction date')
     requireThat(group.date <= value.checkedAt.slice(0, 10), 'correction date is after check date')
     const admission = object(group.admission, 'admission')
-    keys(admission, ['candidateSha256', 'evidenceSetSha256', 'policySha256', 'admittedAt', 'reviewSha256', 'result'], [], 'admission')
+    keys(admission, ['candidateSha256', 'evidenceSetSha256', 'policySha256', 'admittedAt', 'reviewSha256', 'result', ...(publisherDisclosure ? ['reviewScope'] : [])], [], 'admission')
+    requireThat(!publisherDisclosure || admission.reviewScope === publisherDisclosureScope, 'publisher disclosure admission scope differs')
     for (const key of ['candidateSha256', 'evidenceSetSha256', 'policySha256', 'reviewSha256']) hash(admission[key], key)
     requireThat(Object.hasOwn(reviewPolicies, group.id), `missing expected review policy for ${group.id}`)
     requireThat(admission.result === 'accepted' && admission.policySha256 === reviewPolicies[group.id], 'missing accepted current group-policy admission')
@@ -268,6 +288,7 @@ export function validateBundle(bundle: unknown, expectedPolicySha256: string | n
     requireThat(Date.parse(admission.admittedAt) <= Date.parse(value.checkedAt), 'admission is after check time')
     requireThat(group.date >= admission.admittedAt.slice(0, 10), 'correction predates admission')
     requireThat(Array.isArray(group.targets) && group.targets.length > 0, 'group targets are missing')
+    requireThat(!publisherDisclosure || group.supplierId === 'xage' && group.targets.length === 1, 'publisher disclosure requires one exact Xage target')
     for (const targetEntry of group.targets) {
       const target = object(targetEntry, 'target')
       keys(target, ['targetId', 'operation', 'original', 'originalSha256', 'proposedValue'], [], 'target')
@@ -278,7 +299,9 @@ export function validateBundle(bundle: unknown, expectedPolicySha256: string | n
       requireThat(!targetIds.has(target.targetId), `duplicate target ${target.targetId}`)
       targetIds.add(target.targetId)
       hash(target.originalSha256, 'original hash')
-      requireThat(target.operation === 'replace' || target.operation === 'withdraw', 'unsupported target operation')
+      requireThat(publisherDisclosure ? target.operation === 'reclassify_publisher_disclosure'
+        : target.operation === 'replace' || target.operation === 'withdraw', 'unsupported target operation for review scope')
+      requireThat(!publisherDisclosure || target.targetId === 'evidence:TR-xage-1', 'publisher disclosure target is not allowed')
       requireThat(target.operation !== 'withdraw' || (parts[0] === 'event' && target.proposedValue === null), 'only complete events can be withdrawn')
       if (parts[0] === 'event') {
         const original = event(target.original)
@@ -294,12 +317,21 @@ export function validateBundle(bundle: unknown, expectedPolicySha256: string | n
         supplierField(target.proposedValue, parts[2])
         requireThat(same((suppliers.get(parts[1]) as unknown as ObjectValue)[parts[2]], target.original), `supplier before-value differs: ${target.targetId}`)
       } else {
-        requireThat(target.operation === 'replace', 'evidence cannot be withdrawn')
+        requireThat(target.operation === 'replace' || publisherDisclosure && target.operation === 'reclassify_publisher_disclosure', 'evidence cannot be withdrawn')
         const original = evidenceRecord(target.original)
         const proposed = evidenceRecord(target.proposedValue)
         requireThat(original.id === parts[1] && proposed.id === parts[1], 'evidence identity does not match target')
         requireThat(evidence.has(parts[1]) && same(evidence.get(parts[1]), original), `evidence before-value differs: ${parts[1]}`)
-        const unchanged = new Set([...Object.keys(original), ...Object.keys(proposed)].filter((key) => !evidenceChanges.has(key)))
+        if (publisherDisclosure) {
+          requireThat(target.targetId === 'evidence:TR-xage-1' && target.originalSha256 === publisherDisclosureOriginalSha256
+            && original.organization === 'Yahoo Finance' && original.canonicalUrl === publisherDisclosureUrl,
+          'publisher disclosure target or immutable original differs')
+          requireThat(original.sourceClass === 'INDEPENDENT' && proposed.sourceClass === 'OFFICIAL'
+            && proposed.limitations === publisherDisclosureLimitations, 'publisher disclosure transition or limitations differs')
+          requireThat(same(Object.keys(original).sort(), Object.keys(proposed).sort()), 'publisher disclosure record shape differs')
+        }
+        const allowed = publisherDisclosure ? new Set(['sourceClass', 'limitations']) : evidenceChanges
+        const unchanged = new Set([...Object.keys(original), ...Object.keys(proposed)].filter((key) => !allowed.has(key)))
         requireThat([...unchanged].every((key) => Object.hasOwn(original, key) === Object.hasOwn(proposed, key) && (!Object.hasOwn(original, key) || same(original[key], proposed[key]))), 'evidence replacement changes protected metadata')
       }
     }

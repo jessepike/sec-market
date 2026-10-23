@@ -1,0 +1,135 @@
+{
+  "schemaVersion": 1,
+  "kind": "offline_publisher_disclosure_candidate_validation",
+  "checkedAt": "2026-10-23T21:56:00.415405+00:00",
+  "groups": 6,
+  "targets": 12,
+  "generatedBundleEnabled": false,
+  "checks": {
+    "disabledFull": {
+      "path": "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/publisher-disclosure-local-logs/smp-publisher-disclosure-disabled-20261023.log",
+      "sha256": "091f2e2bfe509cbf7b60a84a5690c68ec2fdfc8ca9ad2cbfc6a1779ce1937403",
+      "dataChecksPassed": 349,
+      "pipelineChecksPassed": 112,
+      "browserChecksPassed": 38,
+      "passed": true
+    },
+    "enabledSyntheticFull": {
+      "path": "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/publisher-disclosure-local-logs/smp-publisher-disclosure-enabled-final-20261023.log",
+      "sha256": "b11a28d8b40b04a5eb3018e6cb58f804d8e8bca18f09c1d3fea8f5b7d9c1639f",
+      "dataChecksPassed": 349,
+      "pipelineChecksPassed": 112,
+      "browserChecksPassed": 38,
+      "passed": true
+    },
+    "enabledBrowserFinal": {
+      "path": "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/publisher-disclosure-local-logs/smp-publisher-disclosure-enabled-e2e-retry2-20261023.log",
+      "sha256": "1bcc2f1cab2f6c51aa00441096b2a7007ce022637aa18facf77be1199bfb53a6",
+      "dataChecksPassed": null,
+      "pipelineChecksPassed": null,
+      "browserChecksPassed": 38,
+      "passed": true
+    },
+    "disabledBrowserFinal": {
+      "path": "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/publisher-disclosure-local-logs/smp-publisher-disclosure-disabled-e2e-final-20261023.log",
+      "sha256": "6df7f37af67af0bac29a902c28afd1dd78b3628bed89920eb7d5a6b17c31e903",
+      "dataChecksPassed": null,
+      "pipelineChecksPassed": null,
+      "browserChecksPassed": 38,
+      "passed": true
+    }
+  },
+  "operationalTests": {
+    "run": 379,
+    "passed": 379,
+    "skipped": 0,
+    "reportedByImplementationWorker": true
+  },
+  "sourceFiles": {
+    "web/scripts/pipeline/agents.py": "4891387bca57821ff3f65e2f07b353d53ceab9b757ddc183cf7eb1ac9a908bdc",
+    "web/scripts/pipeline/corrections.py": "d019310bd6c0dcea7e1400e3c63c0d9c3b67ee282f40a1eb4e14f4617d0af13c",
+    "web/scripts/verify-factual-corrections.mjs": "5cbcffb6c2a64a204cc269eb188ae1a680081c7947d0feb3aa7a0ea8f4ff66a5",
+    "web/src/data/tracker/factualCorrections.ts": "f3acc91cf5e63b7ce68ba8b08bc13a6b287a07eebb3bb57526753a21dc8b4aa7",
+    "web/src/data/factualCorrectionHelpers.ts": "4920aebe639c54578a09a30c7e26e0fc2adec56aff0c3147901f262c2dafcb14",
+    "web/src/components/Corrections.tsx": "7561020b7ce772cd91e607bc2c61874f36e1a36d58c0200d7caf9e1ffa84ece5",
+    "web/tests/e2e/corrections.spec.ts": "7511fb67a585454249e614bd061f456d298ee3a850ad0a01a3fa5208ca22c7b1",
+    "web/tests/factual-correction-build.test.mjs": "8f783641b0e39698b82e4e3165264fd3ecd24d8edc6fa0c737356232ba498c80",
+    "web/tests/publisher-disclosure-corrections.test.ts": "34569dc1f30edcdb1edab5ca58be482b9ac8eb28f0892ad51eeb251f8f9bb3d4",
+    "web/scripts/check-correction-fixture.mjs": "5954990a494bd914ce2e2fc5690f1de0eb90a5de9b11d0eb7be29bcc7274b324",
+    "ops/ci/test_publisher_disclosure_correction.py": "eaf447dc0350f2b15ef3fbf5f2cc03f39d71fc82518af71f3836afa31800347f",
+    "ops/evaluation/visual_corrections.py": "810aaf78b5496e311702dfdf2d739574a2d393dbea925b6fb610439fe6e4bd6b",
+    "contracts/factual-corrections.json": "bb239e6e8256b9abc797d0ac89e940179f597e20ba654d2bb0513ff26e5b5c52",
+    "web/src/data/tracker/factualCorrectionPolicy.json": "3489bbed55ea9ac0c34d99f984f15ea95b2c1e351f459aaa67808a67f8e39894"
+  },
+  "isolatedFixtureSourcesExact": true,
+  "receipts": {
+    "publisher-disclosure-input-replay-2026-10-23.json": "0a487c614125444da1c9a46b98bc312b25c61c2f3b259cf6b042deec484eef0f",
+    "publisher-disclosure-browser-replay-2026-10-23.json": "67c206d2fa0e0374b51a3c2cbece7f22d28534fbc20cd38d48050f1ff9ae185a"
+  },
+  "visualReview": {
+    "widths": [
+      1440,
+      390
+    ],
+    "agentInspected": true,
+    "ownerApprovalClaimed": false,
+    "images": {
+      "tested-build-1440.png": {
+        "sha256": "03180ad413a848bf154a3ab670d702092a5ab3eb5c95c804f8f7fb52f6719a71",
+        "sameAsPreviousLocal": true
+      },
+      "tested-build-390.png": {
+        "sha256": "aad0f67af8e1f055f433012e1d106748c2514ff6e75d8c8233a1d3ee33f417de",
+        "sameAsPreviousLocal": true
+      },
+      "production-1440.png": {
+        "sha256": "da96852377f954fe2a9a1b8af850aa9e8582d8d54375aceadbeaf1f27ade477f",
+        "sameAsPreviousLocal": true
+      },
+      "production-390.png": {
+        "sha256": "3dc53f7acc95a096577a2dab86329f20f2380124623823c6f6ab285d9e5a3542",
+        "sameAsPreviousLocal": true
+      }
+    },
+    "focusedSyntheticImages": {
+      "synthetic-proof-1440.png": "0cb46f05b3de9714f6b9b71c10370223f6f53e609827dbc385fa3d5088f92c1b",
+      "synthetic-role-history-1440.png": "1823d555ef826b275779390e21d9f04981cdabab9d856e0decb917c21dd42067",
+      "synthetic-proof-390.png": "c421aaf4b61de1b52a602f430c9c4d1959058cbbcb5f8ba7f30297e77e3679f6",
+      "synthetic-role-history-390.png": "dd1d0d3426d7f3fe07c8c4f2360eba3a51f41d183bf86d816577eec838905dbd",
+      "synthetic-expel-390.png": "7b6d0fd28072024b4dc8ff391ec43f3be0a018d5328666317bd0450db660938a",
+      "synthetic-xage-390.png": "4e5c1aba83f47c956a3de739e84612751b3014a06e9af8502ecf3ca427e35cf9",
+      "synthetic-expel-1440.png": "f31f28abd1541f9d19bd3f1af369531e9e001f28a2e26e596010f78a4fcf236c",
+      "synthetic-xage-1440.png": "7df619e9ac9d634173888dfcca108e358cef4880458a0b321b4ca8a55f5a2864"
+    },
+    "disabledLayoutChanges": false,
+    "enabledChanges": "Existing five factual corrections and their history plus the narrow Xage source-class/limitations and dated publisher-disclosure history; no layout redesign."
+  },
+  "recoveredTestFailures": [
+    {
+      "kind": "test-variable-error",
+      "reason": "Enabled correction history loop referred to group instead of factual; fixed test reference and all38 browser checks pass, followed by a clean full enabled run.",
+      "initialLogSha256": "9258d42dbb5892c2736014fdb5e14b649e345c10d6293f39dd1f3b626f5df045"
+    },
+    {
+      "kind": "temporary-mounted-copy-truncation",
+      "reason": "First copied test file lacked closing characters; recopy hash checked, sources now match exactly, browser and full enabled suites pass.",
+      "initialLogSha256": "3a65b176082e9fc0ebb9a7b6e2532bd0a4726ff08a9a3842ede000aee6a5b340"
+    }
+  ],
+  "semanticAdmission": false,
+  "modelCalls": 0,
+  "sourceRequests": 0,
+  "archiveWrites": 0,
+  "sourceQualification": false,
+  "newCoverageChecks": 0,
+  "quotaChanges": false,
+  "publicationAttempted": false,
+  "productionChanged": false,
+  "liveSuccessfulTasks": 121,
+  "requiredTasks": 557,
+  "limitations": [
+    "All admissions in the isolated UI fixture are fictional and cannot satisfy the independent production gate.",
+    "Real subscription review and full independent publication are still required.",
+    "No coverage check or source date advances."
+  ]
+}

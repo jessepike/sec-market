@@ -80,7 +80,7 @@ test.describe('corrections (SEC-MARKET-FABLE-001 T6-13)', () => {
     expect(entry.approvedBy).toBe(correction.approvedBy)
     for (const group of factualCorrectionGroups) {
       const factual = body.find((candidate: { id: string }) => candidate.id === group.id)
-      expect(factual.kind).toBe('source_verified_factual_correction')
+      expect(factual.kind).toBe(group.reviewScope === 'publisher_disclosure_only' ? 'publisher_disclosure_correction' : 'source_verified_factual_correction')
       expect(factual.date).toBe(group.date)
       expect(factual.note).toBe(group.note)
       expect(factual.admission).toEqual(group.admission)
@@ -102,7 +102,7 @@ test.describe('corrections (SEC-MARKET-FABLE-001 T6-13)', () => {
       await expect(item).toBeVisible()
       await expect(item.locator('time')).toHaveAttribute('datetime', factual.date)
       await expect(item.locator('.corrections-page__text')).toHaveText(factual.note)
-      await expect(item).toContainText('Source-verified factual correction')
+      await expect(item).toContainText(factual.reviewScope === 'publisher_disclosure_only' ? 'Publisher disclosure correction' : 'Source-verified factual correction')
       await expect(item.locator('.corrections-page__approved')).toHaveCount(0)
       await expect(item).not.toContainText('Approved by')
       for (const source of factual.sources) {

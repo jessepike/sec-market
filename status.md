@@ -42,9 +42,16 @@ expired proof needs actual refresh/rebinding, never a renewed date on old bytes.
 
 A separate source-role audit found Xage evidence `TR-xage-1` labelled independent while its retained
 Yahoo page identifies a paid GlobeNewswire release. Production still serves that label. The
-[scoped admission design](docs/active/daily-pipeline/accuracy/source-classification-admission-design-2026-10-23.md)
-uses one typed operation within the existing correction path. Implementation and actual review
-remain required; the five factual groups and fixed 177-record denominator stay unchanged.
+[scoped implementation](docs/active/daily-pipeline/publisher-disclosure-implementation-2026-10-23.md)
+adds one typed operation within the existing correction path. The disabled candidate now has six
+groups and 12 targets: the original five factual groups/11 targets and review hashes remain exactly
+unchanged. The real 16,832-character publisher disclosure replays against unchanged archived bytes;
+the fixed 177-record denominator is unchanged. Local validation passes 379 operational tests and
+349 data/112 pipeline/38 browser checks for both disabled and isolated synthetic enabled views.
+The enabled browser run exposed a test-variable error; the corrected browser suite passes.
+Desktop/phone drawer and history replay confirms the exact class change, unchanged financial
+excerpt and explicit proof limit. Hosted checks, actual review and publication remain required.
+The role correction supplies no financial verification or source-qualification credit.
 
 [Scorecard](docs/active/daily-pipeline/evaluations/2026-10-23/accuracy-scorecard.md) ·
 [Rubric](docs/active/daily-pipeline/evaluation-rubric.md) ·

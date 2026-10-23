@@ -30,9 +30,10 @@ def create_fixture(repo, destination, checked_at):
     shutil.copytree(repo / 'contracts', destination / 'contracts')
     shutil.copytree(repo / '.github/workflows', destination / '.github/workflows')
     shutil.copytree(repo / 'ops', destination / 'ops', ignore=shutil.ignore_patterns('__pycache__', '.env*'))
-    draft = Path('docs/active/daily-pipeline/accuracy/dated-correction-candidates-2026-10-23.v2.json')
-    (destination / draft).parent.mkdir(parents=True)
-    shutil.copyfile(repo / draft, destination / draft)
+    for draft in [Path('docs/active/daily-pipeline/accuracy/dated-correction-candidates-2026-10-23.v2.json'),
+                  Path('docs/active/daily-pipeline/accuracy/source-classification-admission-design-2026-10-23.json')]:
+        (destination / draft).parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(repo / draft, destination / draft)
     shutil.copytree(repo / 'web', destination / 'web', ignore=shutil.ignore_patterns(
         'node_modules', 'dist', 'dist-ssr', 'test-results', 'playwright-report', '__pycache__', '.env*', '.vercel', '.git'))
     (destination / 'web/node_modules').symlink_to(repo / 'web/node_modules', target_is_directory=True)
@@ -45,6 +46,9 @@ def create_fixture(repo, destination, checked_at):
             'admission': {'candidateSha256': digest(group), 'evidenceSetSha256': digest(group['sources']),
                 'policySha256': policy['reviewPolicySha256ByGroup'][group['id']], 'admittedAt': checked_at,
                 'reviewSha256': digest({'syntheticNonAdmittingVisualFixture': group['id']}), 'result': 'accepted'}})
+        if 'reviewScope' in group:
+            bundle['groups'][-1]['reviewScope'] = group['reviewScope']
+            bundle['groups'][-1]['admission']['reviewScope'] = group['reviewScope']
     target = destination / 'web/src/data/generated/factualCorrections.json'
     target.write_text(json.dumps(bundle, indent=2, ensure_ascii=False) + '\n')
     target.with_suffix('.seal.json').write_text(json.dumps({'schemaVersion': 1,

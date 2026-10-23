@@ -11,11 +11,11 @@ export interface CorrectionHistorySources {
 export const emptyCorrectionHistorySources: CorrectionHistorySources = { evidence: {}, suppliers: [] }
 
 export interface FactualCorrectionHistoryEntry extends FactualCorrectionGroup {
-  kind: 'source_verified_factual_correction'
+  kind: 'source_verified_factual_correction' | 'publisher_disclosure_correction'
   supplierName: string
   url: string
   sources: Array<{ id: string; title: string; url: string }>
-  changes: Array<{ targetId: string; label: string; operation: 'replace' | 'withdraw'; before: string; after: string }>
+  changes: Array<{ targetId: string; label: string; operation: FactualCorrectionTarget['operation']; before: string; after: string }>
 }
 
 /** These summaries describe the complete before/after records preserved in targets. */
@@ -31,8 +31,9 @@ function reading(target: FactualCorrectionTarget, side: 'original' | 'proposedVa
     label: 'Metric', value: 'Value', period: 'Period', status: 'Status', acquirer: 'Acquirer',
     announced: 'Announced', closed: 'Closed', price: 'Price', relationship: 'Relationship',
     title: 'Title', publicationDate: 'Publication date', economicPeriod: 'Period', excerpt: 'Source excerpt', limitations: 'Limitations',
+    organization: 'Publisher', sourceClass: 'Source class',
   }
-  const fields = target.targetId.startsWith('evidence:')
+  const fields = target.operation === 'reclassify_publisher_disclosure' ? ['organization', 'sourceClass', 'limitations'] : target.targetId.startsWith('evidence:')
     ? ['title', 'publicationDate', 'economicPeriod', 'excerpt', 'limitations']
     : Object.keys(value)
   return fields.filter((key) => labels[key] && Object.hasOwn(value, key))
@@ -68,13 +69,14 @@ export function factualCorrectionHistory(
     }
     return {
       ...group,
-      kind: 'source_verified_factual_correction',
+      kind: group.reviewScope === 'publisher_disclosure_only' ? 'publisher_disclosure_correction' : 'source_verified_factual_correction',
       supplierName: sources.suppliers.find((supplier) => supplier.id === group.supplierId)?.name ?? group.supplierId,
       url: `${siteUrl}/corrections/#${group.id}`,
       sources: [...links.values()],
       changes: group.targets.map((target) => ({
         targetId: target.targetId,
         label: target.targetId.startsWith('event:') ? 'Event'
+          : target.operation === 'reclassify_publisher_disclosure' ? 'Publisher disclosure and source class'
           : target.targetId.startsWith('evidence:') ? 'Source metadata'
           : target.targetId.endsWith(':lastRound') ? 'Funding round'
           : target.targetId.endsWith(':ownership') ? 'Ownership' : 'Headline metric',
@@ -99,7 +101,9 @@ export function publicCorrectionsJsonPayload(
 export function factualCorrectionFeedText(entry: FactualCorrectionHistoryEntry): string {
   return [
     entry.note,
-    'Source-verified factual correction.',
+    entry.reviewScope === 'publisher_disclosure_only'
+      ? 'Publisher disclosure correction. Verification covers publication role only and does not verify financial, funding or operating figures.'
+      : 'Source-verified factual correction.',
     ...entry.changes.map((change) => `${change.label} (${change.targetId}). Before: ${change.before} After: ${change.after}`),
     ...entry.sources.map((source) => `Source: ${source.title} (${source.url})`),
     `Admitted: ${entry.admission.admittedAt}.`,
