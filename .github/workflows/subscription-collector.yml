@@ -6,6 +6,7 @@ on:
     - cron: '17 5 * * *'
     # Temporary actual scheduler acceptance. The UTC guard prevents yearly reuse.
     - cron: '7 6 23 10 *'
+    - cron: '7 7 23 10 *'
   push:
     branches: [preview]
     paths: ['ops/ci/collection-request.json']
@@ -76,6 +77,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           SMP_CODEX_AUTH_JSON: ${{ secrets.SMP_CODEX_AUTH_JSON }}
           SMP_AUTH_STORE_TOKEN: ${{ secrets.SMP_AUTH_STORE_TOKEN }}
+          SMP_EVENT_SCHEDULE: ${{ github.event.schedule }}
         run: |
           gh auth setup-git --hostname github.com
           python3 ops/ci/collect.py --root "$RUNNER_TEMP/smp-collection" --maximum-seconds 1200 --output "$RUNNER_TEMP/smp-collection-receipt.json"

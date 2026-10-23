@@ -7,6 +7,9 @@ current release's SHA-256. The job uses the existing credential and project.
 
 The owner's activation approval also authorizes one automatic acceptance after
 a successful actual scheduled `daily exact-artifact publisher` run on main.
+It also accepts that trusted publisher's `workflow_run` callback from an actual
+scheduled collector. The receipt keeps the publisher's actual event type in
+`upstreamPublisher`; it never relabels a callback as a schedule.
 The workflow independently reads the upstream run from GitHub and requires its
 private repository, workflow path, main revision, scheduled event and completed
 success. This route is restricted to UTC October 23, 2026. It skips a legacy

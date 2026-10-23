@@ -112,7 +112,7 @@ def scheduled_upstream(run_id, runner=subprocess.run):
             and run.get('path') == '.github/workflows/subscription-publisher.yml'
             and run.get('head_branch') == 'main' and re.fullmatch(r'[a-f0-9]{40}',run.get('head_sha',''))
             and run.get('status') == 'completed' and run.get('conclusion') == 'success'
-            and run.get('event') == 'schedule', 'DRILL_UPSTREAM_NOT_TRUSTED_SCHEDULED_PUBLISHER')
+            and run.get('event') in ('schedule','workflow_run'), 'DRILL_UPSTREAM_NOT_TRUSTED_SCHEDULED_PUBLISHER')
     return {'githubRunId':run['id'],'appRevision':run['head_sha'],
             'event':run['event'],'createdAt':run.get('created_at'),'finishedAt':run.get('updated_at')}
 
@@ -178,7 +178,7 @@ def automatic_preflight(upstream_id, api=preflight_api, lookup=scheduled_upstrea
         if receipt and receipt.get('executionCompleted') is True and receipt.get('githubEventName') == 'schedule' \
                 and receipt.get('githubRef') == 'refs/heads/main' and str(receipt.get('githubRunId')) == str(run['id']) \
                 and receipt.get('appRevision') == run.get('head_sha') and receipt.get('contractSha256') == policy:
-            return {'allowed':True,'upstreamScheduledPublisher':upstream,'scheduledCollectorReceipt':receipt}
+            return {'allowed':True,'upstreamPublisher':upstream,'scheduledCollectorReceipt':receipt}
     return {'allowed':False,'reason':'DRILL_SCHEDULED_COLLECTOR_ARCHIVE_BINDING_MISSING'}
 
 
@@ -205,7 +205,7 @@ def execute(root, expected_release=None, upstream_run=None):
         if upstream:
             expected_release,skip=automatic_target(state,upstream)
             if skip:
-                result={'passed':False,'skipped':True,'reason':skip,'upstreamScheduledPublisher':upstream}
+                result={'passed':False,'skipped':True,'reason':skip,'upstreamPublisher':upstream}
                 session_runtime.checkpoint(root,state,session,'finish',result,finish=True)
                 return result
             accepted=state.read(f'releases/{expected_release}.json')['manifest']
@@ -220,7 +220,7 @@ def execute(root, expected_release=None, upstream_run=None):
                            lambda: session_runtime.checkpoint(root,state,session,'rollback_drill_journal',{}))
         output={'passed': True, 'drill': result}
         if upstream:
-            output['upstreamScheduledPublisher']=upstream
+            output['upstreamPublisher']=upstream
             output['sourceCollectionReceipts']=clocks
         state.write_once('ci/rollback-acceptance-runs/' + os.environ['GITHUB_RUN_ID'] + '-'
                          + os.environ.get('GITHUB_RUN_ATTEMPT','1') + '.json',output)

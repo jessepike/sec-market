@@ -5,12 +5,38 @@ import json
 import os
 from pathlib import Path
 
-from collect import REPO, session_runtime, recover
+from collect import REPO, session_runtime, recover, verified_scheduled_source
 from bootstrap import PROJECT
-from contracts import require, validate_contract
+from contracts import require, validate_contract, utcnow
+from provenance import GitHubAuthority
 from publisher_probe import PublisherAuth, PROJECT_ID, TEAM_ID, SCOPE
 from release import release_daily
 from storage import LocalStore
+
+
+def callback_ready(event, api=None):
+    """Read-only check before a workflow callback joins writer concurrency."""
+    api = api or GitHubAuthority()._api
+    upstream = event.get('workflow_run', {})
+    if not isinstance(upstream.get('id'), int):
+        return False
+    run = api('actions/runs/' + str(upstream['id']))
+    if not (run.get('id') == upstream['id'] and run.get('repository', {}).get('full_name') == PROJECT
+            and run.get('repository', {}).get('private') is True
+            and run.get('path') == '.github/workflows/subscription-collector.yml'
+            and run.get('head_branch') == 'main' and run.get('event') == 'schedule'
+            and run.get('status') == 'completed' and run.get('conclusion') == 'success'):
+        return False
+    runs = api('actions/workflows/subscription-collector.yml/runs?per_page=100')['workflow_runs']
+    return not any(r.get('status') in ('queued', 'in_progress', 'waiting', 'pending', 'requested') for r in runs)
+
+
+def initial_collection_ready(state, contract, upstream_id=None):
+    production = state.read('heads/production.json')
+    if not (production or {}).get('legacyBaseline'):
+        return True
+    source = verified_scheduled_source(state, contract, utcnow())
+    return source is not None and (upstream_id is None or source['githubRunId'] == upstream_id)
 
 
 def safe_failure_reason(error):
@@ -45,6 +71,17 @@ def execute(root):
     state = LocalStore(root / 'state')
     session = LocalStore(root).read('session.json')
     try:
+        callback_ok = True
+        upstream_id = None
+        if os.environ.get('GITHUB_EVENT_NAME') == 'workflow_run':
+            event = json.loads(Path(os.environ['GITHUB_EVENT_PATH']).read_text())
+            callback_ok = callback_ready(event)
+            upstream_id = event.get('workflow_run', {}).get('id')
+        if not callback_ok or not initial_collection_ready(state, contract, upstream_id):
+            result = {'githubRunId': os.environ['GITHUB_RUN_ID'], 'published': False,
+                      'activated': False, 'reason': 'WAITING_ACTUAL_SCHEDULED_COLLECTION'}
+            result['archive'] = session_runtime.checkpoint(root, state, session, 'finish', result, finish=True)['archive']
+            return result
         with PublisherAuth(root / 'publisher-auth', token) as auth:
             project = json.loads(auth.cli(['api', '/v9/projects/' + PROJECT_ID + '?teamId=' + TEAM_ID, '--raw']))
             require(project.get('id') == PROJECT_ID and project.get('accountId') == TEAM_ID,

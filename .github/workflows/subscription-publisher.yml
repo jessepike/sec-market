@@ -4,16 +4,45 @@ on:
   schedule:
     - cron: '23 6,16 * * *'
   workflow_dispatch:
+  workflow_run:
+    workflows: ['bounded subscription collector']
+    types: [completed]
 
 permissions: {}
-concurrency:
-  # Both processes write the same evidence ref; never race their leases.
-  group: sec-market-subscription-account
-  cancel-in-progress: false
-
 jobs:
+  callback-preflight:
+    if: github.event_name == 'workflow_run'
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions:
+      contents: read
+      actions: read
+    outputs:
+      ready: ${{ steps.inspect.outputs.ready }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: main
+          persist-credentials: false
+      - id: inspect
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import json,os,sys
+          sys.path.insert(0,'ops/ci')
+          from publish import callback_ready
+          ready=callback_ready(json.load(open(os.environ['GITHUB_EVENT_PATH'])))
+          with open(os.environ['GITHUB_OUTPUT'],'a') as output:
+              output.write('ready='+str(ready).lower()+'\n')
+          PY
   publish:
-    if: github.repository == 'jessepike/sec-market' && github.event.repository.private == true && github.ref == 'refs/heads/main'
+    needs: [callback-preflight]
+    if: always() && github.repository == 'jessepike/sec-market' && github.event.repository.private == true && github.ref == 'refs/heads/main' && (github.event_name != 'workflow_run' || needs.callback-preflight.outputs.ready == 'true')
+    concurrency:
+      # Skipped/read-only callbacks never replace a pending collector.
+      group: sec-market-subscription-account
+      cancel-in-progress: false
     runs-on: ubuntu-latest
     timeout-minutes: 55
     permissions:

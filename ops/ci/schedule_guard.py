@@ -4,11 +4,12 @@ import os
 from datetime import datetime, timezone
 
 ACCEPTANCE_CRON = '7 6 23 10 *'
+ACCEPTANCE_CRONS = {ACCEPTANCE_CRON, '7 7 23 10 *'}
 ACCEPTANCE_DATE = '2026-10-23'
 
 
 def allowed(event, schedule, utc_date):
-    return not (event == 'schedule' and schedule == ACCEPTANCE_CRON) or utc_date == ACCEPTANCE_DATE
+    return not (event == 'schedule' and schedule in ACCEPTANCE_CRONS) or utc_date == ACCEPTANCE_DATE
 
 
 if __name__ == '__main__':

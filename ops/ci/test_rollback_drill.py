@@ -69,6 +69,8 @@ class RollbackDrillTests(unittest.TestCase):
               'status':'completed','conclusion':'success','event':'schedule'}
         runner=Mock(return_value=SimpleNamespace(returncode=0,stdout=json.dumps(good)))
         self.assertEqual(scheduled_upstream(123,runner)['event'],'schedule')
+        runner.return_value.stdout=json.dumps({**good,'event':'workflow_run'})
+        self.assertEqual(scheduled_upstream(123,runner)['event'],'workflow_run')
         for field,value in [('event','workflow_dispatch'),('head_branch','preview'),('conclusion','failure'),
                             ('path','.github/workflows/other.yml'),('head_sha','bad')]:
             runner.return_value.stdout=json.dumps({**good,field:value})
