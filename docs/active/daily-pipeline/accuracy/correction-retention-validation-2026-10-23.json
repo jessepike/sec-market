@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "kind": "offline_correction_review_retention_validation",
+  "checkedAt": "2026-10-23T20:10:14.056292Z",
+  "parentRevision": "0fde324134915380e40b6487b3a6a0d772b8c8ac",
+  "policySha256": "e0bf81c44037981c769c744f87e112b2881135402c12e97862416c41fe185a4f",
+  "reviewPolicySha256ByGroup": {
+    "FC-20261023-checkpoint-sase": "1c52ee664765de6234a3d68bcd4767e42a3da9fe471b6c61686cac1a1616d774",
+    "FC-20261023-optiv": "4f9e7feb90232a3aafe2cd84265c2e8202c9e009229e7592c5ab87373f64bcf5",
+    "FC-20261023-splunk": "270b7c7a1f7180b3fef2896b7633a87bf0667b9f4a3c75593fa72b959ecb87f6",
+    "FC-20261023-zscaler": "54e40bd49e9c04d26aebe3f7eaa3ece37d15be460c4b5d76c3041e8c272e182f",
+    "FC-20261023-expel": "d1ea72b754450e603d89092cc38d9fa81d165575af2a36745e5938220fd82087"
+  },
+  "sourceFiles": {
+    "web/scripts/pipeline/corrections.py": "ecdd358d29fbfee49716a047cac60bad2794d11d98560a0a8b5af63e37bc73e1",
+    "web/scripts/verify-current-facts.ts": "a10ac1b5b9dec1ae324498afeeb97a999ff025215167e692fc81ff47ac3e97e6",
+    "web/scripts/verify-factual-corrections.mjs": "bbb906605ca21d5fb0d89eb355d8e117a90a5880c063e79ba27a63d9c2017d34",
+    "web/src/data/tracker/correctionData.ts": "c14874366352026993e0055dab095138e872ac25551fc4caf3fac4aedd074b0d",
+    "web/src/data/tracker/factualCorrectionPolicy.json": "49b9fd91ef44889b3965059ec18588967adc3498820a3fff7bedbf0d559cdbc1",
+    "web/src/data/tracker/factualCorrections.ts": "dbfe61247083530d425d980978af00a1970b3a073656275ed2a3a4a3f45aaa94",
+    "web/tests/current-facts.test.ts": "0c4a5d284c0d3ca4103fcb8d424eb18d5fb4f035d9321daa0aecbc0baad5f529",
+    "web/tests/factual-correction-build.test.mjs": "705839c644b611fe93d2f25259eedf31e0b1acfe5fbcf0ebbf194e37dbf1d895",
+    "web/tests/factual-correction-history.test.ts": "3acf509cc482082fcf271043b0e4d8acf9db802f963455f6341ab8f7077f16d2",
+    "web/tests/factual-corrections.test.ts": "945dec63aef37d5c3e9744ad90e1f2dfd4b8e1d0a904b6533769e45efc0bd23d",
+    "ops/ci/test_correction_admission.py": "21d5df288aead787d289fbfcdbdf0118199b55b59963f228c827d5d55e89cb4b",
+    "ops/evaluation/visual_corrections.py": "07378126176e3b4dd66a3ea7e9036c00439ad96d4fa9199942337e4b959c99e6",
+    "docs/active/daily-pipeline/correction-review-retention-spec.md": "1ff6894690e008b62ab66d22b49ee52573a921d8635cf778f5d3e98ce2b299c3",
+    "docs/active/daily-pipeline/factual-corrections-spec.md": "532bfafd70285c519916907807924a213198b2bb6dfa3f51e2024ff874418ed1"
+  },
+  "applicationChecks": {
+    "disabled": {
+      "path": "/tmp/smp-review-retention-disabled-20261023.log",
+      "sha256": "41475f04cfcbd29d3922b752f38b5a124bc3156dd099590e6bde91ec1860ff4f",
+      "dataChecksPassed": 321,
+      "pipelineChecksPassed": 112,
+      "browserChecksPassed": 38,
+      "fullBuildPassed": true
+    },
+    "enabled": {
+      "path": "/tmp/smp-review-retention-enabled-20261023.log",
+      "sha256": "823c59dbf4ce00ce7626188925ff4f7c93ae7386360d3e84f2d9de22f4a94407",
+      "dataChecksPassed": 321,
+      "pipelineChecksPassed": 112,
+      "browserChecksPassed": 38,
+      "fullBuildPassed": true
+    }
+  },
+  "operationalChecks": {
+    "passed": 194,
+    "logSha256": "4df1d4f658aac75f94bc307c158e33db9a9bce743035f709be87542d85078c47"
+  },
+  "monitorChecks": {
+    "passed": 12,
+    "logSha256": "862e40aaca48a17a8809e855375923514913cbef885892a6b2279a58f5689828"
+  },
+  "sourceReplay": {
+    "path": "docs/active/daily-pipeline/accuracy/correction-retention-source-replay-2026-10-23.json",
+    "sha256": "5bab034723ec118c2b92a1405fc9bc564250ba806bacd22a2c8ff05ceafe119c"
+  },
+  "visualReplay": {
+    "semanticAdmission": false,
+    "publishable": false,
+    "widths": [
+      1440,
+      390
+    ],
+    "humanInspected": true,
+    "horizontalOverflow": false,
+    "images": {
+      "synthetic-expel-1440.png": "f31f28abd1541f9d19bd3f1af369531e9e001f28a2e26e596010f78a4fcf236c",
+      "synthetic-expel-390.png": "8adaeb6f62f8df1234aa1842df020186b7e69b78b165c22f23d9a625b9b00fc5",
+      "synthetic-proof-1440.png": "82332373f5fd17444013469065e6f20d8ed3c31cd84a2b8dbb2295dae1e048ab",
+      "synthetic-proof-390.png": "2248e8e29fa9a65db39e1d74cd1d97c9af387e9b68b5b409ba1a90cfc0ba03a6"
+    },
+    "receiptSha256": "3b3531385ced2a94e0e544580726e0e3c6f069e27963743eb3fe481685e260f3"
+  },
+  "production": {
+    "appRevision": "7bd94ec77e99462c068f254e134235a894585cbb",
+    "dataReleaseId": "2e17a786a85e46406df0cdc10da99819dd20f3f6b385f5acc328e51a7a4ec390",
+    "successfulTasks": 121,
+    "requiredTasks": 557,
+    "correctionsApplied": false
+  },
+  "modelCalls": 0,
+  "sourceRequests": 0,
+  "quotaChanges": false,
+  "semanticAdmission": false,
+  "publicationAttempted": false,
+  "limitations": [
+    "Synthetic enabled fixtures establish application consistency only, not independent semantic admission.",
+    "Actual subscription reviews, fresh collection and normal main gate/publication remain required after the natural daily allowance renews.",
+    "Historical source audit migration is validated separately; these counts cover the correction retention unit."
+  ]
+}

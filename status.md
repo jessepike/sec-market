@@ -127,6 +127,23 @@ review for current pipeline admission. After the natural allowance renews, run p
 normal main gate, actual scheduled collection/publication and preservation/correction receipts.
 Current fixes and audit work have not increased live source coverage.
 
+The correction candidate now retains each unchanged group's review when unrelated source
+registrations or disjoint corrections change the global build policy. Changed facts, source
+bindings, supplier identity or review rules require a new review; published rows and dates cannot
+be overwritten. Backend and build code independently derive the exact expected review map.
+Both disabled and isolated enabled application runs pass 321 data, 112 pipeline and 38 browser
+checks; 194 operational and 12 monitor checks also pass. Desktop and phone correction history and
+affected supplier views were rendered and inspected. These remain non-admitting candidate checks.
+[Retention verification](docs/active/daily-pipeline/accuracy/correction-retention-validation-2026-10-23.json).
+The eight original source bodies still pass binding and quote checks. Their earliest initial
+review deadline is October 24 at 10:14:49.799584 UTC; expired proof must be properly refreshed and
+rebound rather than given a new date.
+
+Actual scheduled publisher [40015702345](https://github.com/jessepike/sec-market/actions/runs/40015702345)
+completed as an exact-data/code acknowledgement no-op. It preserved the accepted release and
+original source-check time. Its subsequent rollback callback skipped mutation; it supplies no new
+rollback/restoration proof. [Publisher receipt](docs/active/daily-pipeline/receipts/scheduled-publisher-40015702345.json).
+
 Daily collection is 05:17 UTC; publication follows verified scheduled collection and runs at 06:23
 and 16:23 UTC. GitHub can run late. Legacy refresh/branch-promotion jobs remain disabled and Vercel's
 competing production paths remain closed. The old Vercel probe's CLI account lookup is bypassed

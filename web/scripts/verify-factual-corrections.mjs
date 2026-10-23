@@ -8,6 +8,29 @@ const canonical = value => Array.isArray(value) ? '[' + value.map(canonical).joi
 const digest = value => createHash('sha256').update(Buffer.isBuffer(value) ? value : canonical(value)).digest('hex')
 const equal = (a, b) => canonical(a) === canonical(b)
 const requireThat = (condition, reason) => { if (!condition) throw new Error(`Factual correction build refused: ${reason}`) }
+const reviewChecks = ['entity', 'value', 'currency_units', 'period_date', 'qualifiers', 'event_status', 'source_support'].sort()
+
+// Derive the complete review binding here, independently of the Python gate.
+// Global inventory changes do not relabel an unchanged group's admission.
+function reviewPolicy(group, market, baselineSha256) {
+  const suppliers = market.suppliers.filter(supplier => supplier.id === group.supplierId)
+  requireThat(suppliers.length === 1, 'review supplier missing or duplicate')
+  const supplier = suppliers[0]
+  requireThat(['id', 'name', 'kind'].every(key => typeof supplier[key] === 'string' && supplier[key]) && Array.isArray(supplier.aliases) && supplier.aliases.every(alias => typeof alias === 'string'), 'review supplier identity incomplete')
+  const sources = group.sources.map(source => {
+    const matches = market.sources.filter(configured => configured.id === source.sourceId)
+    requireThat(matches.length === 1, 'review source missing or duplicate')
+    return matches[0]
+  })
+  return digest({
+    schemaVersion: 1, rulesVersion: 'dated-factual-correction-review-1', baselineSha256,
+    candidateSha256: digest(group),
+    supplier: { id: supplier.id, name: supplier.name, aliases: supplier.aliases, kind: supplier.kind },
+    sources,
+    model: { provider: market.model.provider, allowApiBilling: market.model.allowApiBilling, maxDocumentChars: market.model.maxDocumentChars },
+    freshnessHours: 30, checks: reviewChecks,
+  })
+}
 
 export function verifyFactualCorrections(web) {
   const file = resolve(web, 'src/data/generated/factualCorrections.json')
@@ -34,7 +57,8 @@ export function verifyFactualCorrections(web) {
   requireThat(new Set(groupIds).size === groupIds.length && new Set(targetIds).size === targetIds.length, 'duplicate requested group or target')
   const expected = read(resolve(web, 'src/data/tracker/factualCorrectionPolicy.json'))
   const sourceEvidenceIds = Object.fromEntries(requests.groups.map(group => [group.id, group.sources.map(source => source.evidenceId)]))
-  requireThat(equal(expected, { schemaVersion: 1, policySha256, groupIds, targetIds, sourceEvidenceIds }), 'policy stamp differs')
+  const reviewPolicySha256ByGroup = Object.fromEntries(requests.groups.map(group => [group.id, reviewPolicy(group, market, requests.baseline.sha256)]))
+  requireThat(equal(expected, { schemaVersion: 1, policySha256, groupIds, targetIds, sourceEvidenceIds, reviewPolicySha256ByGroup }), 'policy stamp differs')
   const bytes = readFileSync(file), bundle = JSON.parse(bytes)
   requireThat(bundle.schemaVersion === 1 && typeof bundle.enabled === 'boolean', 'projection schema differs')
   if (!bundle.enabled) {
@@ -49,7 +73,7 @@ export function verifyFactualCorrections(web) {
     requireThat(/^\d{4}-\d{2}-\d{2}$/.test(group.date) && new Date(group.date).toISOString().slice(0, 10) === group.date && group.date <= bundle.checkedAt.slice(0, 10), 'invalid publication date')
     requireThat(group.note === request.noteTemplate.replace('{date}', group.date), 'correction note differs from reviewed template')
     const admission = group.admission
-    requireThat(admission?.result === 'accepted' && admission.policySha256 === policySha256 && admission.candidateSha256 === digest(request) && admission.evidenceSetSha256 === digest(request.sources) && /^[a-f0-9]{64}$/.test(admission.reviewSha256 ?? ''), 'unbound admission metadata')
+    requireThat(admission?.result === 'accepted' && admission.policySha256 === reviewPolicySha256ByGroup[group.id] && admission.candidateSha256 === digest(request) && admission.evidenceSetSha256 === digest(request.sources) && /^[a-f0-9]{64}$/.test(admission.reviewSha256 ?? ''), 'unbound admission metadata')
     requireThat(Number.isFinite(Date.parse(admission.admittedAt)) && admission.admittedAt.endsWith('Z') && Date.parse(admission.admittedAt) <= Date.parse(bundle.checkedAt) && admission.admittedAt.slice(0, 10) <= group.date, 'future admission')
     for (const target of group.targets) requireThat(digest(target.original) === target.originalSha256, 'wrong original hash')
   }

@@ -29,6 +29,7 @@ const event: TrackerEvent = { id: 'EV-fixture', supplierId: 'fixture', type: 'fu
 const suppliers: TrackerSupplier[] = [{ id: 'fixture', name: 'Fixture & Company', kind: 'private', domainIds: ['fixture'] }]
 const sources = { evidence: { [evidence.id]: evidence }, suppliers }
 const admission = { candidateSha256: 'b'.repeat(64), evidenceSetSha256: 'c'.repeat(64), policySha256: 'a'.repeat(64), admittedAt: '2026-10-23T01:00:00Z', reviewSha256: 'd'.repeat(64), result: 'accepted' as const }
+const globalInventoryPolicy = 'f'.repeat(64)
 const replacement: FactualCorrectionGroup = {
   id: 'synthetic-replacement', supplierId: 'fixture', reasonCode: 'source-date', date: '2026-10-23',
   note: 'Synthetic correction <note> & "quoted".', admission,
@@ -38,7 +39,7 @@ const withdrawal: FactualCorrectionGroup = {
   ...replacement, id: 'synthetic-withdrawal', reasonCode: 'duplicate-event',
   targets: [{ targetId: 'event:EV-fixture', operation: 'withdraw', original: event, originalSha256: 'e'.repeat(64), proposedValue: null }],
 }
-const bundle = (groups: FactualCorrectionGroup[]): FactualCorrectionBundle => ({ schemaVersion: 1, enabled: true, policySha256: admission.policySha256, checkedAt: '2026-10-23T02:00:00Z', groups })
+const bundle = (groups: FactualCorrectionGroup[]): FactualCorrectionBundle => ({ schemaVersion: 1, enabled: true, policySha256: globalInventoryPolicy, checkedAt: '2026-10-23T02:00:00Z', groups })
 const disabled: FactualCorrectionBundle = { schemaVersion: 1, enabled: false, policySha256: null, checkedAt: null, groups: [] }
 
 function temporary(fn: (dir: string) => void) {
@@ -93,7 +94,7 @@ describe('factual correction history (synthetic, non-admitting)', () => {
 
   it('shows withdrawal while projection retains the original event identity only once', () => {
     const retained = { ...event, id: 'EV-original', text: 'Original transaction.' }
-    const projected = projectEvents({ events: [event, retained], suppliers, evidence: [evidence] }, bundle([withdrawal]), admission.policySha256)
+    const projected = projectEvents({ events: [event, retained], suppliers, evidence: [evidence] }, bundle([withdrawal]), globalInventoryPolicy, { [withdrawal.id]: admission.policySha256 })
     assert.deepEqual(projected, [retained])
     assert.equal(event.text, 'Old <value> & "amount"')
     const entry = factualCorrectionHistory([withdrawal], sources, SITE_URL)[0]
@@ -151,6 +152,10 @@ describe('factual correction history (synthetic, non-admitting)', () => {
     const emitted = bundle(groups)
     writeCorrectionsJson(corrections, dir, groups, sources)
     writeFactualCorrectionsJson(emitted, dir)
+    const detached = JSON.parse(readFileSync(join(dir, 'factual-corrections.json'), 'utf8'))
+    assert.equal(detached.policySha256, globalInventoryPolicy)
+    assert.equal(detached.groups[0].admission.policySha256, admission.policySha256)
+    assert.notEqual(detached.policySha256, detached.groups[0].admission.policySha256)
     const feedResult = writeFeedXml([], corrections, dir, groups, sources)
     assert.equal(feedResult.itemCount, corrections.length + 1)
     assert.ok(checkCorrectionsJsonExists(dir, corrections, groups, sources).pass)

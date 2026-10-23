@@ -16,6 +16,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO / 'web/scripts/pipeline'))
 from contracts import digest, instant
+from corrections import load_policy
 
 
 def create_fixture(repo, destination, checked_at):
@@ -23,6 +24,8 @@ def create_fixture(repo, destination, checked_at):
     if destination.exists() or destination.is_relative_to(repo):
         raise ValueError('A fresh destination outside the checkout is required')
     instant(checked_at)
+    market = json.loads((repo / 'contracts/market.json').read_bytes())
+    policy = load_policy(repo, market)
     destination.mkdir(parents=True)
     shutil.copytree(repo / 'contracts', destination / 'contracts')
     shutil.copytree(repo / '.github/workflows', destination / '.github/workflows')
@@ -40,7 +43,7 @@ def create_fixture(repo, destination, checked_at):
         bundle['groups'].append({'id': group['id'], 'supplierId': group['supplierId'], 'reasonCode': group['reasonCode'],
             'date': checked_at[:10], 'note': group['noteTemplate'].replace('{date}', checked_at[:10]), 'targets': group['targets'],
             'admission': {'candidateSha256': digest(group), 'evidenceSetSha256': digest(group['sources']),
-                'policySha256': stamp['policySha256'], 'admittedAt': checked_at,
+                'policySha256': policy['reviewPolicySha256ByGroup'][group['id']], 'admittedAt': checked_at,
                 'reviewSha256': digest({'syntheticNonAdmittingVisualFixture': group['id']}), 'result': 'accepted'}})
     target = destination / 'web/src/data/generated/factualCorrections.json'
     target.write_text(json.dumps(bundle, indent=2, ensure_ascii=False) + '\n')

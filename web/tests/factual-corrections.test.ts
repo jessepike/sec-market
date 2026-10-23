@@ -24,6 +24,7 @@ const groupTargets = [
   ['zscaler', 'event:EV-zscaler-2', 'evidence:TR-zscaler-4'],
   ['expel', 'supplier:expel:lastRound', 'supplier:expel:ownership', 'evidence:TR-expel-2'],
 ]
+const REVIEW_POLICIES = Object.fromEntries(groupTargets.map((_, index) => [`synthetic-non-admitting-${index}`, String(index + 1).repeat(64)]))
 
 function fixtures() {
   const suppliers = groupTargets.map(([id]) => ({ id, name: id, domainIds: ['fixture'], kind: 'private' })) as TrackerSupplier[]
@@ -44,7 +45,7 @@ function fixtures() {
         const draft = drafts.find((draft) => draft.targetId === id)!
         return clone({ targetId: draft.targetId, operation: draft.operation, original: draft.original, originalSha256: draft.originalSha256, proposedValue: draft.proposedValue }) as FactualCorrectionTarget
       }),
-      admission: { candidateSha256: 'b'.repeat(64), evidenceSetSha256: 'c'.repeat(64), policySha256: POLICY, admittedAt: '2026-10-24T06:00:00Z', reviewSha256: 'd'.repeat(64), result: 'accepted' },
+      admission: { candidateSha256: 'b'.repeat(64), evidenceSetSha256: 'c'.repeat(64), policySha256: REVIEW_POLICIES[`synthetic-non-admitting-${i}`], admittedAt: '2026-10-24T06:00:00Z', reviewSha256: 'd'.repeat(64), result: 'accepted' },
     })),
   }
   return { inventories, bundle }
@@ -57,9 +58,9 @@ function freeze(value: unknown) {
   }
 }
 
-function rejectedEverywhere(inventories: FactualCorrectionInventories, bundle: unknown, policy: string | null = POLICY) {
-  assert.throws(() => validateBundle(bundle, policy, inventories), /Invalid factual corrections/)
-  for (const project of [projectEvents, projectSuppliers, projectEvidence]) assert.throws(() => project(inventories, bundle, policy), /Invalid factual corrections/)
+function rejectedEverywhere(inventories: FactualCorrectionInventories, bundle: unknown, policy: string | null = POLICY, reviewPolicies: Readonly<Record<string, string>> | undefined = REVIEW_POLICIES) {
+  assert.throws(() => validateBundle(bundle, policy, inventories, reviewPolicies), /Invalid factual corrections/)
+  for (const project of [projectEvents, projectSuppliers, projectEvidence]) assert.throws(() => project(inventories, bundle, policy, reviewPolicies), /Invalid factual corrections/)
 }
 
 function target(bundle: FactualCorrectionBundle, id: string) {
@@ -73,7 +74,7 @@ describe('dated factual corrections (synthetic non-admitting replays)', () => {
     assert.deepEqual(disabled, { schemaVersion: 1, enabled: false, policySha256: null, checkedAt: null, groups: [] })
     const { inventories, bundle } = fixtures()
     assert.equal(bundle.groups.flatMap((group) => group.targets).length, 11)
-    validateBundle(bundle, POLICY, inventories)
+    validateBundle(bundle, POLICY, inventories, REVIEW_POLICIES)
     assert.deepEqual(projectEvents(inventories, disabled, null), inventories.events)
     assert.deepEqual(projectSuppliers(inventories, disabled, null), inventories.suppliers)
     assert.deepEqual(projectEvidence(inventories, disabled, null), inventories.evidence)
@@ -85,9 +86,9 @@ describe('dated factual corrections (synthetic non-admitting replays)', () => {
     const originalBundle = clone(bundle)
     freeze(inventories)
     freeze(bundle)
-    const events = projectEvents(inventories, bundle, POLICY)
-    const suppliers = projectSuppliers(inventories, bundle, POLICY)
-    const evidence = projectEvidence(inventories, bundle, POLICY)
+    const events = projectEvents(inventories, bundle, POLICY, REVIEW_POLICIES)
+    const suppliers = projectSuppliers(inventories, bundle, POLICY, REVIEW_POLICIES)
+    const evidence = projectEvidence(inventories, bundle, POLICY, REVIEW_POLICIES)
     events[0].evidenceIds.push('output-only')
     suppliers.find((record) => record.id === 'expel')!.lastRound!.amount = 'output-only'
     evidence[0].tags.push('output-only')
@@ -97,35 +98,35 @@ describe('dated factual corrections (synthetic non-admitting replays)', () => {
 
   it('applies both Expel fields and its source excerpt coherently, preserving source retrieval dates', () => {
     const { inventories, bundle } = fixtures()
-    const expel = projectSuppliers(inventories, bundle, POLICY).find((record) => record.id === 'expel')!
-    const source = projectEvidence(inventories, bundle, POLICY).find((record) => record.id === 'TR-expel-2')!
+    const expel = projectSuppliers(inventories, bundle, POLICY, REVIEW_POLICIES).find((record) => record.id === 'expel')!
+    const source = projectEvidence(inventories, bundle, POLICY, REVIEW_POLICIES).find((record) => record.id === 'TR-expel-2')!
     assert.deepEqual(expel.lastRound, target(bundle, 'supplier:expel:lastRound').proposedValue)
     assert.deepEqual(expel.ownership, target(bundle, 'supplier:expel:ownership').proposedValue)
     assert.match(expel.lastRound!.amount, /expanded Series E total/)
     assert.match(source.excerpt, /increased its Series E funding round/)
     assert.equal(source.retrievedAt, '2026-09-30')
-    assert.equal(projectEvents(inventories, bundle, POLICY).filter((record) => record.type === 'funding').length, 0)
+    assert.equal(projectEvents(inventories, bundle, POLICY, REVIEW_POLICIES).filter((record) => record.type === 'funding').length, 0)
   })
 
   it('applies the Optiv date before filtering and keeps its quoted source and publication date consistent', () => {
     const { inventories, bundle } = fixtures()
-    const effective = projectEvents(inventories, bundle, POLICY)
+    const effective = projectEvents(inventories, bundle, POLICY, REVIEW_POLICIES)
     assert.equal(effective.find((record) => record.id === 'EV-optiv-2')!.date, '2026-03-16')
     assert.equal(inventories.events.filter((record) => record.date >= '2026-04-01').some((record) => record.id === 'EV-optiv-2'), true)
     assert.equal(effective.filter((record) => record.date >= '2026-04-01').some((record) => record.id === 'EV-optiv-2'), false)
-    const source = projectEvidence(inventories, bundle, POLICY).find((record) => record.id === 'TR-optiv-3')!
+    const source = projectEvidence(inventories, bundle, POLICY, REVIEW_POLICIES).find((record) => record.id === 'TR-optiv-3')!
     assert.equal(source.publicationDate, '2026-03-16')
     assert.match(source.excerpt, /Upon closing/)
   })
 
   it('withdraws complete Check Point and Splunk events exactly once without inventing counted events', () => {
     const { inventories, bundle } = fixtures()
-    const effective = projectEvents(inventories, bundle, POLICY)
+    const effective = projectEvents(inventories, bundle, POLICY, REVIEW_POLICIES)
     assert.equal(effective.length, inventories.events.length - 2)
     assert.equal(effective.some((record) => record.id === 'EV-checkpoint-2' || record.id === 'EV-splunk-1'), false)
     assert.equal(effective.filter((record) => record.id === 'EV-checkpoint-4').length, 1)
     assert.equal(effective.filter((record) => record.type === 'debt').length, 2)
-    assert.deepEqual(projectEvents(inventories, bundle, POLICY), effective)
+    assert.deepEqual(projectEvents(inventories, bundle, POLICY, REVIEW_POLICIES), effective)
   })
 
   it('validates all targets before any projection, including an invalid final Expel evidence target', () => {
@@ -147,7 +148,7 @@ describe('dated factual corrections (synthetic non-admitting replays)', () => {
     const { inventories, bundle } = fixtures()
     const optiv = target(bundle, 'event:EV-optiv-2')
     optiv.original = Object.fromEntries(Object.entries(optiv.original).reverse()) as unknown as TrackerEvent
-    validateBundle(bundle, POLICY, inventories)
+    validateBundle(bundle, POLICY, inventories, REVIEW_POLICIES)
     ;(optiv.original as TrackerEvent).text += ' changed'
     rejectedEverywhere(inventories, bundle)
     const next = fixtures()
@@ -179,6 +180,39 @@ describe('dated factual corrections (synthetic non-admitting replays)', () => {
     const { inventories, bundle } = fixtures()
     rejectedEverywhere(inventories, bundle, null)
     rejectedEverywhere(inventories, bundle, 'f'.repeat(64))
+  })
+
+  it('requires the exact current expected review policy for every group without a global fallback', () => {
+    const { inventories, bundle } = fixtures()
+    const missing = { ...REVIEW_POLICIES }
+    delete missing[bundle.groups[0].id]
+    const renamed = { ...missing, 'different-group': REVIEW_POLICIES[bundle.groups[0].id] }
+    for (const reviewPolicies of [
+      undefined, {}, missing, renamed,
+      { ...REVIEW_POLICIES, [bundle.groups[0].id]: 'stale-or-malformed' },
+      { ...REVIEW_POLICIES, [bundle.groups[0].id]: 'e'.repeat(64) },
+      { ...REVIEW_POLICIES, [bundle.groups[0].id]: POLICY },
+      { ...REVIEW_POLICIES, unexpected: 'f'.repeat(64) },
+    ]) {
+      assert.throws(() => validateBundle(bundle, POLICY, inventories, reviewPolicies), /Invalid factual corrections/)
+      for (const project of [projectEvents, projectSuppliers, projectEvidence]) {
+        assert.throws(() => project(inventories, bundle, POLICY, reviewPolicies), /Invalid factual corrections/)
+      }
+    }
+  })
+
+  it('retains unchanged group admissions and rows when the global policy changes', () => {
+    const { inventories, bundle } = fixtures()
+    const originalRows = clone(bundle.groups)
+    const prior = projectEvents(inventories, bundle, POLICY, REVIEW_POLICIES)
+    const updatedGlobalPolicy = 'e'.repeat(64)
+    bundle.policySha256 = updatedGlobalPolicy
+    bundle.checkedAt = '2026-11-24T06:23:00Z'
+    validateBundle(bundle, updatedGlobalPolicy, inventories, REVIEW_POLICIES)
+    assert.deepEqual(projectEvents(inventories, bundle, updatedGlobalPolicy, REVIEW_POLICIES), prior)
+    assert.deepEqual(bundle.groups, originalRows)
+    assert.ok(bundle.groups.every((group) => group.admission.policySha256 !== bundle.policySha256))
+    rejectedEverywhere(inventories, bundle, POLICY)
   })
 
   it('rejects populated or relabelled disabled bundles', () => {
@@ -295,7 +329,7 @@ describe('dated factual corrections (synthetic non-admitting replays)', () => {
   it('does not expire an acknowledged historical correction on subsequent check dates', () => {
     const { inventories, bundle } = fixtures()
     bundle.checkedAt = '2027-10-24T06:23:00Z'
-    validateBundle(bundle, POLICY, inventories)
+    validateBundle(bundle, POLICY, inventories, REVIEW_POLICIES)
     assert.equal(bundle.groups[0].date, '2026-10-24')
     assert.equal(bundle.groups[0].admission.admittedAt, '2026-10-24T06:00:00Z')
   })
@@ -304,9 +338,9 @@ describe('dated factual corrections (synthetic non-admitting replays)', () => {
     const legacy = corrections.filter((record) => ['C-2026-09-20-01', 'C-2026-09-21-01'].includes(record.id))
     const before = clone(legacy)
     const { inventories, bundle } = fixtures()
-    projectEvents(inventories, bundle, POLICY)
-    projectSuppliers(inventories, bundle, POLICY)
-    projectEvidence(inventories, bundle, POLICY)
+    projectEvents(inventories, bundle, POLICY, REVIEW_POLICIES)
+    projectSuppliers(inventories, bundle, POLICY, REVIEW_POLICIES)
+    projectEvidence(inventories, bundle, POLICY, REVIEW_POLICIES)
     assert.deepEqual(legacy, before)
     assert.equal(legacy.length, 2)
     assert.ok(legacy.every((record) => record.approvedBy === 'Jesse Pike'))

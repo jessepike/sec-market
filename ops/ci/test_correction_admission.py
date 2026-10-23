@@ -10,12 +10,12 @@ import subprocess
 import sys
 import tempfile
 import unittest
-from unittest.mock import Mock
+from unittest.mock import Mock, patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "web/scripts/pipeline"))
 from agents import SubscriptionAgent, CORRECTION_REVIEW_SCHEMA
 from contracts import canonical, digest
-from corrections import load_policy, validate_baseline, process_corrections, project_bundle, replay_admission, validate_sources
+from corrections import load_policy, validate_baseline, process_corrections, project_bundle, replay_admission, validate_sources, group_review_policy
 from storage import LocalStore
 from validation import REVIEW_CHECKS
 
@@ -48,7 +48,7 @@ class CorrectionAdmissionTests(unittest.TestCase):
                                   self.target("evidence:E", self.evidence, {**self.evidence, "publicationDate": "2026-03-19", "excerpt": self.quote})],
                       "sources": [{"evidenceId": "E", "sourceId": self.observation["sourceId"], "url": self.url,
                                    "observationId": self.observation["observationId"], "body": body, "fetchedAt": self.observation["fetchedAt"]}]}
-        self.market = {"suppliers": [{"id": "example", "sourceIds": [self.observation["sourceId"]]}],
+        self.market = {"suppliers": [{"id": "example", "name": "Example Security", "aliases": [], "kind": "private", "sourceIds": [self.observation["sourceId"]]}],
                        "sources": [{"id": self.observation["sourceId"], "supplierId": "example", "registration": "verified", "kind": "citation", "url": self.url, "allowedHosts": ["example.invalid"]}],
                        "model": {"provider": "codex_subscription", "allowApiBilling": False, "maxCallsPerRun": 80,
                                  "maxDocumentsPerRun": 40, "maxDocumentChars": 30000, "timeoutSeconds": 180}}
@@ -80,9 +80,11 @@ class CorrectionAdmissionTests(unittest.TestCase):
     def repin(self):
         self.write("contracts/factual-corrections.json", self.requests)
         self.policy = digest({"marketSha256": digest(self.market), "requestsSha256": digest(self.requests), "baselineSha256": self.requests["baseline"]["sha256"]})
+        self.review_policies = {g["id"]: group_review_policy(g, self.market, self.requests["baseline"]["sha256"]) for g in self.requests["groups"]}
         self.write("web/src/data/tracker/factualCorrectionPolicy.json", {"schemaVersion": 1, "policySha256": self.policy,
                    "groupIds": [g["id"] for g in self.requests["groups"]], "targetIds": [t["targetId"] for g in self.requests["groups"] for t in g["targets"]],
-                   "sourceEvidenceIds": {g["id"]: [s["evidenceId"] for s in g["sources"]] for g in self.requests["groups"]}})
+                   "sourceEvidenceIds": {g["id"]: [s["evidenceId"] for s in g["sources"]] for g in self.requests["groups"]},
+                   "reviewPolicySha256ByGroup": self.review_policies})
 
     def reserve(self, kind, limit):
         self.charges.append((kind, limit))
@@ -419,6 +421,161 @@ class CorrectionAdmissionTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "document set exceeds"):
             self.agent.review_correction([{"text": "x" * 16000}, {"text": "y" * 16000}], self.group, self.policy)
         self.assertFalse(self.runner.called)
+
+    def test_review_policy_matches_exact_dependency_contract(self):
+        supplier = self.market["suppliers"][0]
+        expected = digest({"schemaVersion": 1, "rulesVersion": "dated-factual-correction-review-1",
+                           "baselineSha256": self.requests["baseline"]["sha256"], "candidateSha256": digest(self.group),
+                           "supplier": {key: supplier[key] for key in ("id", "name", "aliases", "kind")},
+                           "sources": [self.market["sources"][0]],
+                           "model": {key: self.market["model"][key] for key in ("provider", "allowApiBilling", "maxDocumentChars")},
+                           "freshnessHours": 30, "checks": sorted(REVIEW_CHECKS)})
+        loaded = load_policy(self.repo, self.market)
+        self.assertEqual(loaded["reviewPolicySha256ByGroup"], {self.group["id"]: expected})
+        outcome = self.process()
+        admission = json.loads(self.store.get(outcome["admitted"][0]["admission"]))
+        response = json.loads(self.store.get(admission["review"]))
+        self.assertEqual(outcome["policySha256"], self.policy)
+        self.assertNotEqual(expected, self.policy)
+        self.assertEqual(admission["policySha256"], expected)
+        self.assertEqual(response["policySha256"], expected)
+
+    def test_unrelated_source_and_budget_changes_retain_zero_charge_history(self):
+        old_outcome = self.process()
+        old_bundle = self.project(old_outcome)
+        old_global = self.policy
+        old_review_policies = copy.deepcopy(self.review_policies)
+        old_charges = list(self.charges)
+        self.market["sources"].append({**self.market["sources"][0], "id": "example:unrelated", "url": self.url + "-unrelated"})
+        self.market["suppliers"][0]["sourceIds"].append("example:unrelated")
+        self.market["model"].update(maxCallsPerRun=79, maxDocumentsPerRun=39, timeoutSeconds=179)
+        self.requests["version"] = "later-unrelated-registry-repair"
+        self.repin()
+        self.assertNotEqual(self.policy, old_global)
+        self.assertEqual(self.review_policies, old_review_policies)
+        outcome = self.process(now="2026-12-23T12:00:00Z")
+        self.assertFalse(outcome["pending"])
+        self.assertEqual(outcome["admitted"], old_outcome["admitted"])
+        self.assertEqual(self.charges, old_charges)
+        self.assertFalse(outcome["attempts"])
+        bundle = self.project(outcome, old_bundle, "2026-12-23T12:00:00Z")
+        self.assertNotEqual(bundle["policySha256"], old_bundle["policySha256"])
+        self.assertEqual(bundle["groups"], old_bundle["groups"])
+        with self.assertRaisesRegex(ValueError, "policy changed"):
+            self.project(old_outcome, old_bundle, "2026-12-23T12:00:00Z")
+
+    def test_disjoint_new_group_reviews_only_new_targets_and_preserves_old_row(self):
+        old_outcome = self.process()
+        old_bundle = self.project(old_outcome)
+        old_global = self.policy
+        old_review_policy = self.review_policies[self.group["id"]]
+        second = {"id": "FC-example-later-ownership", "supplierId": "example", "reasonCode": "announced-status",
+                  "noteTemplate": "Correction, {date}. The ownership field now records the announced agreement.",
+                  "targets": [self.target("supplier:example:ownership", self.field, {"status": "Agreement announced", "evidenceIds": ["E"]})],
+                  "sources": copy.deepcopy(self.group["sources"])}
+        self.requests["groups"].append(second)
+        self.requests["version"] = "later-disjoint-request"
+        self.repin()
+        self.assertNotEqual(self.policy, old_global)
+        self.assertEqual(self.review_policies[self.group["id"]], old_review_policy)
+        pending = process_corrections(self.repo, self.store, self.market, None, self.reserve, "2026-10-24T12:00:00Z",
+                                      clock=lambda: "2026-10-24T12:00:00Z")
+        self.assertEqual(pending["admitted"], old_outcome["admitted"])
+        self.assertEqual([row["groupId"] for row in pending["pending"]], [second["id"]])
+        with self.assertRaisesRegex(ValueError, "pending"):
+            self.project(pending, old_bundle, "2026-10-24T12:00:00Z")
+        outcome = self.process(now="2026-10-24T12:00:00Z")
+        self.assertFalse(outcome["pending"])
+        self.assertEqual(self.charges.count(("documents", 40)), 2)
+        self.assertEqual(self.charges.count(("calls", 80)), 2)
+        self.assertEqual(len(outcome["attempts"]), 1)
+        bundle = self.project(outcome, old_bundle, "2026-10-24T12:00:00Z")
+        self.assertEqual(bundle["groups"][0], old_bundle["groups"][0])
+        self.assertEqual(bundle["groups"][1]["date"], "2026-10-24")
+        self.assertEqual(bundle["groups"][1]["admission"]["policySha256"], self.review_policies[second["id"]])
+        self.assertEqual(outcome["admitted"][0], old_outcome["admitted"][0])
+
+    def test_changed_relevant_source_review_cannot_reuse_or_overwrite_history(self):
+        old_outcome = self.process()
+        old_bundle = self.project(old_outcome)
+        old_review = self.review_policies[self.group["id"]]
+        self.market["sources"][0]["registrationProof"] = {"checkedAt": self.now, "scope": "Changed registration"}
+        self.repin()
+        self.assertNotEqual(self.review_policies[self.group["id"]], old_review)
+        pending = process_corrections(self.repo, self.store, self.market, None, self.reserve, self.now, clock=lambda: self.now)
+        self.assertFalse(pending["admitted"])
+        outcome = self.process()
+        self.assertEqual(self.charges.count(("calls", 80)), 2)
+        with self.assertRaisesRegex(ValueError, "Historical correction changed"):
+            self.project(outcome, old_bundle)
+
+    def test_changed_supplier_identity_and_candidate_invalidate_review_policy(self):
+        old_outcome = self.process()
+        old_bundle = self.project(old_outcome)
+        original_supplier = copy.deepcopy(self.market["suppliers"][0])
+        original_policy = self.review_policies[self.group["id"]]
+        for field, value in (("name", "Example Security Updated"), ("aliases", ["Example"]), ("kind", "public")):
+            self.market["suppliers"][0] = {**original_supplier, field: value}
+            self.repin()
+            with self.subTest(field=field):
+                self.assertNotEqual(self.review_policies[self.group["id"]], original_policy)
+                pending = process_corrections(self.repo, self.store, self.market, None, self.reserve, self.now, clock=lambda: self.now)
+                self.assertFalse(pending["admitted"])
+        self.market["suppliers"][0] = original_supplier
+        self.group["targets"][0]["proposedValue"]["text"] = "Example Security announced an acquisition agreement."
+        self.repin()
+        self.assertNotEqual(self.review_policies[self.group["id"]], original_policy)
+        current = self.process()
+        with self.assertRaisesRegex(ValueError, "Historical correction changed"):
+            self.project(current, old_bundle)
+
+    def test_wrong_missing_and_extra_review_policy_stamp_fail_closed(self):
+        stamp_path = self.repo / "web/src/data/tracker/factualCorrectionPolicy.json"
+        good = json.loads(stamp_path.read_bytes())
+        for mapping in ({}, {self.group["id"]: "f" * 64}, {**self.review_policies, "FC-forged": "e" * 64}):
+            self.write("web/src/data/tracker/factualCorrectionPolicy.json", {**good, "reviewPolicySha256ByGroup": mapping})
+            with self.subTest(mapping=mapping), self.assertRaisesRegex(ValueError, "build policy manifest differs"):
+                self.process()
+        self.assertFalse(self.charges)
+
+    def test_old_global_policy_cannot_substitute_group_review_policy(self):
+        self.response_transform = lambda response: {**response, "policySha256": self.policy}
+        result = self.process()
+        self.assertFalse(result["admitted"])
+        self.assertIn("review policy hash differs", result["pending"][0]["reason"])
+        self.assertEqual(self.charges, [("documents", 40), ("calls", 80)])
+
+    def test_rebound_observation_cannot_reuse_old_admission(self):
+        old_outcome = self.process()
+        old_bundle = self.project(old_outcome)
+        old_review = self.review_policies[self.group["id"]]
+        rebound = {**self.observation, "observationId": "c" * 64, "fetchedAt": "2026-10-23T11:30:00Z"}
+        self.store.write_once("observations/" + rebound["observationId"] + ".json", rebound)
+        self.group["sources"][0].update(observationId=rebound["observationId"], fetchedAt=rebound["fetchedAt"])
+        self.repin()
+        self.assertNotEqual(self.review_policies[self.group["id"]], old_review)
+        pending = process_corrections(self.repo, self.store, self.market, None, self.reserve, self.now, clock=lambda: self.now)
+        self.assertFalse(pending["admitted"])
+        current = self.process()
+        self.assertFalse(current["pending"])
+        with self.assertRaisesRegex(ValueError, "Historical correction changed"):
+            self.project(current, old_bundle)
+
+    def test_review_rule_and_relevant_model_changes_invalidate_cached_review(self):
+        self.process()
+        original_policy = self.review_policies[self.group["id"]]
+        self.market["model"]["maxDocumentChars"] += 1
+        self.repin()
+        self.assertNotEqual(self.review_policies[self.group["id"]], original_policy)
+        pending = process_corrections(self.repo, self.store, self.market, None, self.reserve, self.now, clock=lambda: self.now)
+        self.assertFalse(pending["admitted"])
+        self.market["model"]["maxDocumentChars"] -= 1
+        with patch("corrections.REVIEW_RULES_VERSION", "dated-factual-correction-review-next"):
+            self.repin()
+            self.assertNotEqual(self.review_policies[self.group["id"]], original_policy)
+            pending = process_corrections(self.repo, self.store, self.market, None, self.reserve, self.now, clock=lambda: self.now)
+            self.assertFalse(pending["admitted"])
+        self.assertEqual(self.charges, [("documents", 40), ("calls", 80)])
 
 
 if __name__ == "__main__":

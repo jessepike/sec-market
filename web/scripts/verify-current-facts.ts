@@ -9,7 +9,7 @@ import { handCollectedEvents, retainedTrackerEvents, trackerEvents } from '../sr
 import { manualTrackerSuppliers, trackerSuppliers } from '../src/data/tracker/suppliers.ts'
 import { edgarRevenueEvidence, withEdgarRevenue } from '../src/data/tracker/edgarRevenue.ts'
 import { projectEvents, projectSuppliers, projectEvidence } from '../src/data/tracker/factualCorrections.ts'
-import type { FactualCorrectionInventories } from '../src/data/tracker/factualCorrections.ts'
+import type { FactualCorrectionInventories, FactualCorrectionReviewPolicyMap } from '../src/data/tracker/factualCorrections.ts'
 import type { TrackerEvent } from '../src/data/tracker/events.ts'
 import type { TrackerSupplier } from '../src/data/tracker/suppliers.ts'
 import type { EvidenceRecord } from '../src/data/types.ts'
@@ -36,6 +36,7 @@ export interface CurrentFactInputs {
   originals: FactualCorrectionInventories
   corrections: unknown
   expectedPolicySha256: string | null
+  expectedReviewPolicySha256ByGroup?: FactualCorrectionReviewPolicyMap
   daily: DailyFactInput
   filingEvents: readonly TrackerEvent[]
   filingEvidence: readonly EvidenceRecord[]
@@ -51,10 +52,10 @@ const copy = <T>(value: T): T => structuredClone(value)
  * The separate SEC certification gate verifies applySecRevenue's filed values.
  */
 export function expectedCurrentFacts(inputs: CurrentFactInputs): CurrentFactViews {
-  const { originals, corrections, expectedPolicySha256, daily } = inputs
-  const correctedEvents = projectEvents(originals, corrections, expectedPolicySha256)
-  const correctedSuppliers = projectSuppliers(originals, corrections, expectedPolicySha256)
-  const correctedEvidence = projectEvidence(originals, corrections, expectedPolicySha256)
+  const { originals, corrections, expectedPolicySha256, expectedReviewPolicySha256ByGroup, daily } = inputs
+  const correctedEvents = projectEvents(originals, corrections, expectedPolicySha256, expectedReviewPolicySha256ByGroup)
+  const correctedSuppliers = projectSuppliers(originals, corrections, expectedPolicySha256, expectedReviewPolicySha256ByGroup)
+  const correctedEvidence = projectEvidence(originals, corrections, expectedPolicySha256, expectedReviewPolicySha256ByGroup)
   const expectedSuppliers = correctedSuppliers.map((supplier) => {
     const current = copy(supplier)
     if (daily.enabled) {
@@ -96,11 +97,12 @@ export function assertCurrentFacts(actual: CurrentFactViews, expected: CurrentFa
 /** Parse fresh bytes rather than sharing the JSON module objects used by application imports. */
 export function loadCurrentFactInputs(web = resolve(dirname(fileURLToPath(import.meta.url)), '..')): CurrentFactInputs {
   const read = <T>(path: string): T => JSON.parse(readFileSync(resolve(web, path), 'utf8')) as T
-  const policy = read<{ policySha256: string }>('src/data/tracker/factualCorrectionPolicy.json')
+  const policy = read<{ policySha256: string; reviewPolicySha256ByGroup: FactualCorrectionReviewPolicyMap }>('src/data/tracker/factualCorrectionPolicy.json')
   return {
     originals: read<FactualCorrectionInventories>('src/data/tracker/originals.json'),
     corrections: read<unknown>('src/data/generated/factualCorrections.json'),
     expectedPolicySha256: policy.policySha256,
+    expectedReviewPolicySha256ByGroup: policy.reviewPolicySha256ByGroup,
     daily: read<DailyFactInput>('src/data/generated/dailyMarket.json'),
     filingEvents: read<TrackerEvent[]>('src/data/generated/filingEvents.json'),
     filingEvidence: read<EvidenceRecord[]>('src/data/generated/filingEvidence.json'),

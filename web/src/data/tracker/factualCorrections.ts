@@ -23,6 +23,7 @@ export type FactualCorrectionTarget =
 export interface FactualCorrectionAdmission {
   candidateSha256: string
   evidenceSetSha256: string
+  /** This group's review policy, independent of the bundle's global inventory policy. */
   policySha256: string
   admittedAt: string
   reviewSha256: string
@@ -42,6 +43,8 @@ export interface FactualCorrectionGroup {
 export type FactualCorrectionBundle =
   | { schemaVersion: 1; enabled: false; policySha256: null; checkedAt: null; groups: [] }
   | { schemaVersion: 1; enabled: true; policySha256: string; checkedAt: string; groups: FactualCorrectionGroup[] }
+
+export type FactualCorrectionReviewPolicyMap = Readonly<Record<string, string>>
 
 /** Pass the same complete raw inventories to every projection, including before date filtering. */
 export interface FactualCorrectionInventories {
@@ -219,7 +222,7 @@ function index<T extends { id: string }>(values: readonly T[], label: string) {
  * exact raw before-values; the gate authenticates hashes, review bytes and the policy manifest.
  * A syntactically valid admission string alone is not proof of independent review.
  */
-export function validateBundle(bundle: unknown, expectedPolicySha256: string | null, inventories: FactualCorrectionInventories): asserts bundle is FactualCorrectionBundle {
+export function validateBundle(bundle: unknown, expectedPolicySha256: string | null, inventories: FactualCorrectionInventories, expectedReviewPolicySha256ByGroup?: FactualCorrectionReviewPolicyMap): asserts bundle is FactualCorrectionBundle {
   const value = object(bundle, 'bundle')
   keys(value, ['schemaVersion', 'enabled', 'policySha256', 'checkedAt', 'groups'], [], 'bundle')
   requireThat(value.schemaVersion === 1 && typeof value.enabled === 'boolean' && Array.isArray(value.groups), 'unsupported bundle schema')
@@ -232,6 +235,12 @@ export function validateBundle(bundle: unknown, expectedPolicySha256: string | n
   requireThat(value.policySha256 === expectedPolicySha256, 'stale policy')
   timestamp(value.checkedAt, 'checkedAt')
   requireThat(value.groups.length > 0, 'enabled bundle has no groups')
+  const reviewPolicies = object(expectedReviewPolicySha256ByGroup, 'expected group review policies')
+  for (const [groupId, policy] of Object.entries(reviewPolicies)) {
+    id(groupId, 'expected review group id')
+    hash(policy, `expected review policy for ${groupId}`)
+  }
+  requireThat(Object.keys(reviewPolicies).length === value.groups.length, 'expected review group inventory differs')
   const events = index(inventories.events, 'event')
   const suppliers = index(inventories.suppliers, 'supplier')
   const evidence = index(inventories.evidence, 'evidence')
@@ -253,7 +262,8 @@ export function validateBundle(bundle: unknown, expectedPolicySha256: string | n
     const admission = object(group.admission, 'admission')
     keys(admission, ['candidateSha256', 'evidenceSetSha256', 'policySha256', 'admittedAt', 'reviewSha256', 'result'], [], 'admission')
     for (const key of ['candidateSha256', 'evidenceSetSha256', 'policySha256', 'reviewSha256']) hash(admission[key], key)
-    requireThat(admission.result === 'accepted' && admission.policySha256 === expectedPolicySha256, 'missing accepted current-policy admission')
+    requireThat(Object.hasOwn(reviewPolicies, group.id), `missing expected review policy for ${group.id}`)
+    requireThat(admission.result === 'accepted' && admission.policySha256 === reviewPolicies[group.id], 'missing accepted current group-policy admission')
     timestamp(admission.admittedAt, 'admittedAt')
     requireThat(Date.parse(admission.admittedAt) <= Date.parse(value.checkedAt), 'admission is after check time')
     requireThat(group.date >= admission.admittedAt.slice(0, 10), 'correction predates admission')
@@ -300,8 +310,8 @@ function targets(bundle: FactualCorrectionBundle) {
   return new Map(bundle.groups.flatMap((group) => group.targets.map((target) => [target.targetId, target] as const)))
 }
 
-export function projectEvents(inventories: FactualCorrectionInventories, bundle: unknown, expectedPolicySha256: string | null): TrackerEvent[] {
-  validateBundle(bundle, expectedPolicySha256, inventories)
+export function projectEvents(inventories: FactualCorrectionInventories, bundle: unknown, expectedPolicySha256: string | null, expectedReviewPolicySha256ByGroup?: FactualCorrectionReviewPolicyMap): TrackerEvent[] {
+  validateBundle(bundle, expectedPolicySha256, inventories, expectedReviewPolicySha256ByGroup)
   const changes = targets(bundle)
   return inventories.events.flatMap((record) => {
     const target = changes.get(`event:${record.id}`)
@@ -310,8 +320,8 @@ export function projectEvents(inventories: FactualCorrectionInventories, bundle:
   })
 }
 
-export function projectSuppliers(inventories: FactualCorrectionInventories, bundle: unknown, expectedPolicySha256: string | null): TrackerSupplier[] {
-  validateBundle(bundle, expectedPolicySha256, inventories)
+export function projectSuppliers(inventories: FactualCorrectionInventories, bundle: unknown, expectedPolicySha256: string | null, expectedReviewPolicySha256ByGroup?: FactualCorrectionReviewPolicyMap): TrackerSupplier[] {
+  validateBundle(bundle, expectedPolicySha256, inventories, expectedReviewPolicySha256ByGroup)
   const changes = targets(bundle)
   return inventories.suppliers.map((record) => {
     const result = copy(record)
@@ -323,8 +333,8 @@ export function projectSuppliers(inventories: FactualCorrectionInventories, bund
   })
 }
 
-export function projectEvidence(inventories: FactualCorrectionInventories, bundle: unknown, expectedPolicySha256: string | null): EvidenceRecord[] {
-  validateBundle(bundle, expectedPolicySha256, inventories)
+export function projectEvidence(inventories: FactualCorrectionInventories, bundle: unknown, expectedPolicySha256: string | null, expectedReviewPolicySha256ByGroup?: FactualCorrectionReviewPolicyMap): EvidenceRecord[] {
+  validateBundle(bundle, expectedPolicySha256, inventories, expectedReviewPolicySha256ByGroup)
   const changes = targets(bundle)
   return inventories.evidence.map((record) => copy(changes.get(`evidence:${record.id}`)?.proposedValue as EvidenceRecord ?? record))
 }

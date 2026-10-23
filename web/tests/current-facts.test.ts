@@ -37,6 +37,7 @@ describe('runtime exported current fact assertions', () => {
       const inputs = loadCurrentFactInputs()
       const before = copy(inputs.originals)
       const policy = inputs.expectedPolicySha256
+      const reviewPolicies = copy(inputs.expectedReviewPolicySha256ByGroup)
       const bundle = copy(inputs.corrections)
       const expected = expectedCurrentFacts(inputs)
       const actual = copy(expected)
@@ -50,6 +51,7 @@ describe('runtime exported current fact assertions', () => {
       assert.throws(() => assertCurrentFacts(actual, expected), /Current facts refused/)
       assert.deepEqual(inputs.originals, before)
       assert.equal(inputs.expectedPolicySha256, policy)
+      assert.deepEqual(inputs.expectedReviewPolicySha256ByGroup, reviewPolicies)
       assert.deepEqual(inputs.corrections, bundle)
     })
   }
@@ -72,7 +74,9 @@ describe('runtime exported current fact assertions', () => {
     const supplier = inputs.originals.suppliers[0]
     const source = inputs.originals.evidence[0]
     const policy = 'a'.repeat(64)
+    const reviewPolicy = '2'.repeat(64)
     inputs.expectedPolicySha256 = policy
+    inputs.expectedReviewPolicySha256ByGroup = { 'synthetic-correction': reviewPolicy }
     inputs.corrections = {
       schemaVersion: 1, enabled: true, policySha256: policy, checkedAt: '2026-10-23T12:00:00Z',
       groups: [{ id: 'synthetic-correction', supplierId: supplier.id, reasonCode: 'synthetic-only', date: '2026-10-23',
@@ -80,7 +84,7 @@ describe('runtime exported current fact assertions', () => {
           { targetId: `event:${event.id}`, operation: 'replace', original: copy(event), originalSha256: 'b'.repeat(64), proposedValue: { ...copy(event), date: '2025-10-22', text: 'Corrected synthetic event.' } },
           { targetId: `supplier:${supplier.id}:ownership`, operation: 'replace', original: copy(supplier.ownership), originalSha256: 'c'.repeat(64), proposedValue: { ...copy(supplier.ownership), status: 'Corrected synthetic ownership.' } },
           { targetId: `evidence:${source.id}`, operation: 'replace', original: copy(source), originalSha256: 'd'.repeat(64), proposedValue: { ...copy(source), excerpt: 'Corrected synthetic excerpt.' } },
-        ], admission: { candidateSha256: 'e'.repeat(64), evidenceSetSha256: 'f'.repeat(64), policySha256: policy, admittedAt: '2026-10-23T11:00:00Z', reviewSha256: '1'.repeat(64), result: 'accepted' } }],
+        ], admission: { candidateSha256: 'e'.repeat(64), evidenceSetSha256: 'f'.repeat(64), policySha256: reviewPolicy, admittedAt: '2026-10-23T11:00:00Z', reviewSha256: '1'.repeat(64), result: 'accepted' } }],
     }
     const originals = copy(inputs.originals)
     const expected = expectedCurrentFacts(inputs)
@@ -96,6 +100,17 @@ describe('runtime exported current fact assertions', () => {
     overridden.trackerSuppliers[0].ownership = copy(supplier.ownership)
     assert.throws(() => assertCurrentFacts(overridden, expected), /trackerSuppliers/)
     assert.deepEqual(inputs.originals, originals)
+    delete inputs.expectedReviewPolicySha256ByGroup
+    assert.throws(() => expectedCurrentFacts(inputs), /expected group review policies/)
+    inputs.expectedReviewPolicySha256ByGroup = { 'synthetic-correction': policy }
+    assert.throws(() => expectedCurrentFacts(inputs), /current group-policy admission/)
+    inputs.expectedReviewPolicySha256ByGroup = { 'synthetic-correction': reviewPolicy }
+    const correctedBundle = inputs.corrections as { policySha256: string; groups: unknown[] }
+    const historicalRows = copy(correctedBundle.groups)
+    correctedBundle.policySha256 = '3'.repeat(64)
+    inputs.expectedPolicySha256 = correctedBundle.policySha256
+    assert.deepEqual(expectedCurrentFacts(inputs), expected)
+    assert.deepEqual(correctedBundle.groups, historicalRows)
   })
 
   it('checks original supplier and evidence arrays as well as displayed views', () => {

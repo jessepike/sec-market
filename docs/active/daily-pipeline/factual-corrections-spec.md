@@ -42,22 +42,32 @@ explicitly refreshed and rebound, not silently given a new date.
 
 ## Policy, budget and independent admission
 
-Correction policy SHA-256 is `digest({"marketSha256": digest(marketContract),
+The global inventory policy SHA-256 is `digest({"marketSha256": digest(marketContract),
 "requestsSha256": digest(correctionRequests), "baselineSha256": baselinePin.sha256})`.
-The market contract and all 557 obligations stay intact. A correction-policy change invalidates
-its cached reviews without relabeling generic market receipts.
+It binds the collection outcome, complete build inventory, public bundle and release seal. The
+market contract and all 557 obligations stay intact. It does not relabel generic market receipts.
+
+Each group's review uses a separate policy derived from that group's candidate hash, baseline
+pin, supplier identity (`id`, `name`, `aliases`, `kind`), exact relevant configured source objects
+in committed source order, the model's `provider`, `allowApiBilling` and `maxDocumentChars`,
+the 30-hour freshness rule and sorted seven review check names. Its fixed schema and rules version
+are defined by the exact formula in
+[the review retention contract](correction-review-retention-spec.md). The committed build stamp
+contains `reviewPolicySha256ByGroup`; the backend and Node build verifier derive it independently
+and reject any missing, extra or changed value. There is no fallback to the global policy hash.
 
 One independent subscription review covers each whole group: target IDs, exact before/after
 objects or withdrawals, reason and exact note template, every primary body and all body/observation
 hashes. Use the existing subscription-only client and persistent reservation callback. Reserve
 one document per group and one model call per actual request, before invoking the model. Reuse
-only a hash-bound accepted group review for the same correction policy and evidence set. Every
+only a hash-bound accepted group review for the same group review policy and evidence set. Every
 failed/interrupted review remains charged. Never replace this review with the offline audit or
 an author-written accepted result. No live model call is authorized while today's allowance is spent.
 
 Review response has `result`, `candidateSha256`, `evidenceSetSha256`, `policySha256` and `checks`.
 `candidateSha256` is `digest(group)`; `evidenceSetSha256` is `digest(group.sources)` with the
-committed deterministic source order. Result must be `accepted`; all seven existing dimensions
+committed deterministic source order. The response's `policySha256` is the group's review policy,
+not the global inventory policy. Result must be `accepted`; all seven existing dimensions
 (`entity`, `value`, `currency_units`, `period_date`, `qualifiers`, `event_status`, `source_support`)
 must be `pass`. The independent review covers the entire correction, including the scope and
 reason for withdrawal, rather than a vaguely related source sentence.
@@ -68,6 +78,11 @@ immutable object reference), and `sources` (the exact source list). The gate rep
 byte, exact-quote and full review-hash checks without invoking a model. Initial source freshness
 is evaluated at `admittedAt`; an unchanged published historical correction does not expire every
 day merely because its original evidence becomes older. It retains the original dates and review.
+The admission's `policySha256` also means the group review policy, which identifies its accepted
+cache entry. Unrelated source registrations, budget limits or disjoint request additions change
+the global inventory policy while retaining an unchanged group's review. A relevant source,
+supplier identity, candidate or review-rule change requires a new review. It cannot overwrite an
+already published correction row; that case stays held for explicit reconciliation.
 
 Run correction work after deterministic SEC/citation work and before discretionary generic model
 extraction, using the same reservation ledger and cancellation/deadline. Keep its failure separate
@@ -96,9 +111,13 @@ objects and hashes as above. Admission is public nonsecret metadata:
 `{candidateSha256,evidenceSetSha256,policySha256,admittedAt,reviewSha256,result:"accepted"}`.
 Projection code cannot authenticate a semantic review by inspecting those strings; only the
 independent gate produces and verifies the enabled projection from archived evidence.
+The bundle's `policySha256` is global; each `admission.policySha256` is group-specific. Later
+bundles may use a different global policy while retaining prior correction rows only when each
+row exactly matches its new derivation, including targets, original publication date, note and
+all admission metadata. New disjoint groups receive their own reviews and publication dates.
 
-Pure TypeScript projection functions receive the raw inventories, this bundle and an explicit
-expected policy SHA. Reject missing/stale admission metadata, invalid date/hash shapes, duplicate
+Pure TypeScript projection functions receive the raw inventories, this bundle, an explicit
+expected global policy SHA and the explicit expected group review policy map. Reject missing/stale admission metadata, invalid date/hash shapes, duplicate
 targets/groups, a nonempty disabled bundle, partial group targets, before-value differences,
 disallowed fields and withdrawal of non-events. Compare before objects by canonical JSON equality;
 do not add a browser SHA implementation. The gate independently verifies their actual hashes.
@@ -141,6 +160,9 @@ patches, altered identity/retrieval metadata and pending corrections. Test immut
 atomic Expel/source metadata repair, corrected Optiv date/window, duplicate withdrawal/counts,
 shared UI/certification views, old issue attribution, publication-date rollover and later retention.
 Use synthetic review responses only for mechanics; mark those replays explicitly non-admitting.
+Verify that unrelated source repair and disjoint additions update the global policy while
+unchanged groups retain the same review policy, cached admission and public row without charges
+or date changes. Changed relevant dependencies, forged review maps and partial histories fail.
 
 Run existing operational and full application checks, inspect desktop/phone rendering of affected
 records and the corrections page, then use the normal preview/main route and real quota-respecting

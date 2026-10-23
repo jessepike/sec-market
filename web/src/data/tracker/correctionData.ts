@@ -8,13 +8,13 @@ import type { FactualCorrectionInventories } from './factualCorrections'
 // complete context, avoiding a cycle through the public supplier/event/evidence views.
 export const factualCorrectionOriginals = originals as unknown as FactualCorrectionInventories
 const validated: unknown = bundle
-validateBundle(validated, policy.policySha256, factualCorrectionOriginals)
+validateBundle(validated, policy.policySha256, factualCorrectionOriginals, policy.reviewPolicySha256ByGroup)
 export const factualCorrectionBundle = validated
 export const factualCorrectionGroups = factualCorrectionBundle.groups
 export const factualCorrectionSourceEvidenceIds = policy.sourceEvidenceIds
 export const originalHandCollectedEvents = factualCorrectionOriginals.events.slice()
 export const originalManualTrackerSuppliers = factualCorrectionOriginals.suppliers.slice()
 export const originalHandWrittenEvidenceRecords = factualCorrectionOriginals.evidence.slice()
-export const effectiveHandCollectedEvents = projectEvents(factualCorrectionOriginals, bundle, policy.policySha256)
-export const effectiveManualTrackerSuppliers = projectSuppliers(factualCorrectionOriginals, bundle, policy.policySha256)
-export const effectiveHandWrittenEvidenceRecords = projectEvidence(factualCorrectionOriginals, bundle, policy.policySha256)
+export const effectiveHandCollectedEvents = projectEvents(factualCorrectionOriginals, bundle, policy.policySha256, policy.reviewPolicySha256ByGroup)
+export const effectiveManualTrackerSuppliers = projectSuppliers(factualCorrectionOriginals, bundle, policy.policySha256, policy.reviewPolicySha256ByGroup)
+export const effectiveHandWrittenEvidenceRecords = projectEvidence(factualCorrectionOriginals, bundle, policy.policySha256, policy.reviewPolicySha256ByGroup)

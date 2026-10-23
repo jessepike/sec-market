@@ -5,6 +5,8 @@ process_corrections(repo, store, market, agent, reserve, now, cancelled=None),
 project_bundle(repo, store, market, outcome, previous_bundle=None, publication_at=None).
 Only SubscriptionAgent reviews admit changes. A test agent with synthetic=True writes
 non-admitting attempts, never an admission cache usable by the publication gate.
+The outcome/bundle policy binds the global inventory. Review/admission policies bind
+only the atomic group's current exact review dependencies and rules.
 """
 import copy
 import json
@@ -29,6 +31,30 @@ SUPPLIER_FIELDS = {
     "ownership": ({"status", "evidenceIds"}, {"acquirer", "announced", "closed", "price", "relationship"}),
 }
 EVIDENCE_MUTABLE = {"title", "publicationDate", "economicPeriod", "excerpt", "limitations"}
+REVIEW_RULES_VERSION = "dated-factual-correction-review-1"
+
+
+def group_review_policy(group, market, baseline_sha256):
+    """Bind the review rules and this group's exact dependencies, independent of run inventory."""
+    require(valid_hash(baseline_sha256), "Invalid correction review baseline hash")
+    suppliers = [supplier for supplier in market["suppliers"] if supplier["id"] == group["supplierId"]]
+    require(len(suppliers) == 1, "Correction review supplier missing or duplicate")
+    supplier = suppliers[0]
+    require(all(key in supplier for key in ("id", "name", "aliases", "kind")), "Correction review supplier identity incomplete")
+    require(all(isinstance(supplier[key], str) and supplier[key] for key in ("id", "name", "kind"))
+            and isinstance(supplier["aliases"], list) and all(isinstance(alias, str) for alias in supplier["aliases"]),
+            "Correction review supplier identity invalid")
+    configured = []
+    for source in group["sources"]:
+        matching = [entry for entry in market["sources"] if entry["id"] == source["sourceId"]]
+        require(len(matching) == 1, "Correction review source missing or duplicate")
+        configured.append(matching[0])
+    return digest({"schemaVersion": 1, "rulesVersion": REVIEW_RULES_VERSION,
+                   "baselineSha256": baseline_sha256, "candidateSha256": digest(group),
+                   "supplier": {key: supplier[key] for key in ("id", "name", "aliases", "kind")},
+                   "sources": configured,
+                   "model": {key: market["model"][key] for key in ("provider", "allowApiBilling", "maxDocumentChars")},
+                   "freshnessHours": 30, "checks": sorted(REVIEW_CHECKS)})
 
 
 def _keys(value, expected, label):
@@ -178,12 +204,13 @@ def load_policy(repo, market):
         require(required_evidence.issubset(evidence_ids), "Correction group source inventory incomplete")
     unique(group_ids, "correction group ID")
     unique(target_ids, "correction target ID")
-    policy = digest({"marketSha256": digest(market), "requestsSha256": digest(requests), "baselineSha256": pin["sha256"]})
+    global_policy = digest({"marketSha256": digest(market), "requestsSha256": digest(requests), "baselineSha256": pin["sha256"]})
+    review_policies = {group["id"]: group_review_policy(group, market, pin["sha256"]) for group in requests["groups"]}
     stamp = _read_json(Path(repo) / "web/src/data/tracker/factualCorrectionPolicy.json")
     source_ids = {group["id"]: [source["evidenceId"] for source in group["sources"]] for group in requests["groups"]}
-    require(type(stamp.get("schemaVersion")) is int and stamp == {"schemaVersion": 1, "policySha256": policy, "groupIds": group_ids, "targetIds": target_ids, "sourceEvidenceIds": source_ids},
+    require(type(stamp.get("schemaVersion")) is int and stamp == {"schemaVersion": 1, "policySha256": global_policy, "groupIds": group_ids, "targetIds": target_ids, "sourceEvidenceIds": source_ids, "reviewPolicySha256ByGroup": review_policies},
             "Correction build policy manifest differs")
-    return {"requests": requests, "baseline": baseline, "policySha256": policy}
+    return {"requests": requests, "baseline": baseline, "policySha256": global_policy, "reviewPolicySha256ByGroup": review_policies}
 
 
 def _normalize(value):
@@ -223,33 +250,33 @@ def validate_sources(group, store, market, admitted_at):
     return documents
 
 
-def _review(review, group, policy_hash):
+def _review(review, group, review_policy_hash):
     _keys(review, {"result", "candidateSha256", "evidenceSetSha256", "policySha256", "checks"}, "Correction review")
     require(review["candidateSha256"] == digest(group), "Correction review candidate hash differs")
     require(review["evidenceSetSha256"] == digest(group["sources"]), "Correction review evidence set hash differs")
-    require(review["policySha256"] == policy_hash, "Correction review policy hash differs")
+    require(review["policySha256"] == review_policy_hash, "Correction review policy hash differs")
     require(review["result"] == "accepted", "Correction independent review did not accept")
     require(isinstance(review["checks"], dict) and set(review["checks"]) == REVIEW_CHECKS and all(v == "pass" for v in review["checks"].values()), "Correction independent review checks incomplete")
 
 
-def _index(group, policy):
-    return "correction-admissions/" + policy + "/" + digest(group) + "-" + digest(group["sources"]) + ".json"
+def _index(group, review_policy_hash):
+    return "correction-admissions/" + review_policy_hash + "/" + digest(group) + "-" + digest(group["sources"]) + ".json"
 
 
-def replay_admission(group, reference, store, market, policy_hash, checked_at=None):
+def replay_admission(group, reference, store, market, review_policy_hash, checked_at=None):
     _reference(reference)
     admission = json.loads(store.get(reference))
     _keys(admission, {"groupId", "candidateSha256", "evidenceSetSha256", "policySha256", "admittedAt", "review", "sources"}, "Correction admission")
     require(admission["groupId"] == group["id"] and admission["candidateSha256"] == digest(group)
-            and admission["evidenceSetSha256"] == digest(group["sources"]) and admission["policySha256"] == policy_hash
+            and admission["evidenceSetSha256"] == digest(group["sources"]) and admission["policySha256"] == review_policy_hash
             and admission["sources"] == group["sources"], "Correction admission binding differs")
     _time(admission["admittedAt"])
     if checked_at:
         require(_time(admission["admittedAt"]) <= _time(checked_at), "Correction admission after gate time")
     validate_sources(group, store, market, admission["admittedAt"])
     _reference(admission["review"])
-    _review(json.loads(store.get(admission["review"])), group, policy_hash)
-    indexed = store.read(_index(group, policy_hash))
+    _review(json.loads(store.get(admission["review"])), group, review_policy_hash)
+    indexed = store.read(_index(group, review_policy_hash))
     require(indexed == {"groupId": group["id"], "admission": reference}, "Correction admission missing immutable accepted index")
     return admission
 
@@ -257,21 +284,22 @@ def replay_admission(group, reference, store, market, policy_hash, checked_at=No
 def process_corrections(repo, store, market, agent, reserve, now, cancelled=None, clock=None):
     clock = clock or utcnow
     context = load_policy(repo, market)
-    policy = context["policySha256"]
+    global_policy = context["policySha256"]
     _time(now)
-    result = {"policySha256": policy, "admitted": [], "pending": [], "attempts": []}
+    result = {"policySha256": global_policy, "admitted": [], "pending": [], "attempts": []}
     for group in context["requests"]["groups"]:
-        cached = store.read(_index(group, policy))
+        review_policy = context["reviewPolicySha256ByGroup"][group["id"]]
+        cached = store.read(_index(group, review_policy))
         if cached:
             try:
-                replay_admission(group, cached["admission"], store, market, policy, now)
+                replay_admission(group, cached["admission"], store, market, review_policy, now)
                 result["admitted"].append(cached)
                 continue
             except (ValueError, OSError, KeyError, TypeError) as exc:
                 result["pending"].append({"groupId": group["id"], "reason": str(exc)[:240]})
                 continue
         attempt = {"groupId": group["id"], "candidateSha256": digest(group), "evidenceSetSha256": digest(group["sources"]),
-                   "policySha256": policy, "startedAt": now, "sources": copy.deepcopy(group["sources"]),
+                   "policySha256": review_policy, "startedAt": now, "sources": copy.deepcopy(group["sources"]),
                    "nonce": uuid.uuid4().hex, "review": None, "outcome": "pending", "error": None}
         try:
             require(not cancelled or not cancelled(), "CORRECTION_CANCELLED_OR_DEADLINE")
@@ -279,22 +307,22 @@ def process_corrections(repo, store, market, agent, reserve, now, cancelled=None
             require(isinstance(agent, SubscriptionAgent) and callable(reserve), "CORRECTION_SUBSCRIPTION_REVIEW_REQUIRED")
             require(not getattr(agent, "synthetic", False), "SYNTHETIC_CORRECTION_REVIEW_NON_ADMITTING")
             agent.reserve = reserve
-            reservation = "correction-document-reservations/" + now[:10] + "/" + digest({"group": group, "policy": policy}) + ".json"
+            reservation = "correction-document-reservations/" + now[:10] + "/" + digest({"group": group, "policy": review_policy}) + ".json"
             if not store.read(reservation):
                 reserve("documents", market["model"]["maxDocumentsPerRun"])
                 store.write_once(reservation, {"groupId": group["id"], "candidateSha256": digest(group), "reservedAt": now})
             require(not cancelled or not cancelled(), "CORRECTION_CANCELLED_OR_DEADLINE")
-            response = agent.review_correction(documents, group, policy)
+            response = agent.review_correction(documents, group, review_policy)
             attempt["review"] = store.put(response)
-            _review(response, group, policy)
+            _review(response, group, review_policy)
             admitted_at = clock()
             require(_time(admitted_at) >= _time(now), "Correction admission completion precedes attempt")
             require(not cancelled or not cancelled(), "CORRECTION_CANCELLED_OR_DEADLINE")
             validate_sources(group, store, market, admitted_at)
             admission = {"groupId": group["id"], "candidateSha256": digest(group), "evidenceSetSha256": digest(group["sources"]),
-                         "policySha256": policy, "admittedAt": admitted_at, "review": attempt["review"], "sources": copy.deepcopy(group["sources"])}
+                         "policySha256": review_policy, "admittedAt": admitted_at, "review": attempt["review"], "sources": copy.deepcopy(group["sources"])}
             entry = {"groupId": group["id"], "admission": store.put(admission)}
-            store.write_once(_index(group, policy), entry)
+            store.write_once(_index(group, review_policy), entry)
             result["admitted"].append(entry)
             attempt["outcome"] = "accepted"
         except BaseException as exc:
@@ -314,9 +342,9 @@ def process_corrections(repo, store, market, agent, reserve, now, cancelled=None
 def project_bundle(repo, store, market, outcome, previous_bundle=None, publication_at=None):
     """Require every request and replay accepted immutable evidence without a model."""
     context = load_policy(repo, market)
-    policy, groups = context["policySha256"], context["requests"]["groups"]
+    global_policy, groups = context["policySha256"], context["requests"]["groups"]
     _time(publication_at)
-    require(isinstance(outcome, dict) and outcome.get("policySha256") == policy and not outcome.get("pending"), "Correction admissions pending or policy changed")
+    require(isinstance(outcome, dict) and outcome.get("policySha256") == global_policy and not outcome.get("pending"), "Correction admissions pending or policy changed")
     entries = outcome.get("admitted", [])
     require(isinstance(entries, list) and len(entries) == len(groups), "Correction admission inventory incomplete")
     for entry in entries:
@@ -333,15 +361,18 @@ def project_bundle(repo, store, market, outcome, previous_bundle=None, publicati
             require(previous_bundle == {"schemaVersion": 1, "enabled": False, "policySha256": None, "checkedAt": None, "groups": []},
                     "Disabled correction bundle must be empty")
     if previous_bundle and previous_bundle.get("enabled"):
-        require(previous_bundle.get("policySha256") == policy, "Published correction policy changed")
+        require(valid_hash(previous_bundle.get("policySha256")), "Published correction policy invalid")
         require(_time(previous_bundle["checkedAt"]) <= _time(publication_at), "Published correction check time is future")
         old = {g["id"]: g for g in previous_bundle["groups"]}
-        require(len(old) == len(previous_bundle["groups"]) and set(old) == {g["id"] for g in groups}, "Published correction inventory changed")
+        require(len(old) == len(previous_bundle["groups"]) and bool(old) and set(old).issubset({g["id"] for g in groups}), "Published correction inventory changed")
+        if previous_bundle["policySha256"] == global_policy:
+            require(set(old) == {g["id"] for g in groups}, "Published correction inventory changed")
     public = []
     for group in groups:
         entry = next(e for e in entries if e["groupId"] == group["id"])
         _keys(entry, {"groupId", "admission"}, "Correction admitted entry")
-        admission = replay_admission(group, entry["admission"], store, market, policy, publication_at)
+        review_policy = context["reviewPolicySha256ByGroup"][group["id"]]
+        admission = replay_admission(group, entry["admission"], store, market, review_policy, publication_at)
         metadata = {key: admission[key] for key in ("candidateSha256", "evidenceSetSha256", "policySha256", "admittedAt")}
         metadata.update(reviewSha256=admission["review"]["sha256"], result="accepted")
         day = old.get(group["id"], {}).get("date", publication_at[:10])
@@ -351,4 +382,4 @@ def project_bundle(repo, store, market, outcome, previous_bundle=None, publicati
                "note": group["noteTemplate"].replace("{date}", day), "targets": copy.deepcopy(group["targets"]), "admission": metadata}
         require(group["id"] not in old or old[group["id"]] == row, "Historical correction changed")
         public.append(row)
-    return {"schemaVersion": 1, "enabled": True, "policySha256": policy, "checkedAt": publication_at, "groups": public}
+    return {"schemaVersion": 1, "enabled": True, "policySha256": global_policy, "checkedAt": publication_at, "groups": public}

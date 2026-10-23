@@ -40,5 +40,12 @@
       "TR-expel-1",
       "TR-expel-2"
     ]
+  },
+  "reviewPolicySha256ByGroup": {
+    "FC-20261023-checkpoint-sase": "1c52ee664765de6234a3d68bcd4767e42a3da9fe471b6c61686cac1a1616d774",
+    "FC-20261023-optiv": "4f9e7feb90232a3aafe2cd84265c2e8202c9e009229e7592c5ab87373f64bcf5",
+    "FC-20261023-splunk": "270b7c7a1f7180b3fef2896b7633a87bf0667b9f4a3c75593fa72b959ecb87f6",
+    "FC-20261023-zscaler": "54e40bd49e9c04d26aebe3f7eaa3ece37d15be460c4b5d76c3041e8c272e182f",
+    "FC-20261023-expel": "d1ea72b754450e603d89092cc38d9fa81d165575af2a36745e5938220fd82087"
   }
 }
