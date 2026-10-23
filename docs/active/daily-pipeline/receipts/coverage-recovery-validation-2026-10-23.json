@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "kind": "candidate_local_validation",
+  "checkedAt": "2026-10-23T18:12:43.153298+00:00",
+  "productionRevision": "7bd94ec77e99462c068f254e134235a894585cbb",
+  "scope": "Preview candidate only; production and actual coverage unchanged.",
+  "tests": {
+    "operational": {
+      "passed": 123,
+      "logSha256": "a5a6bd6434458d7fdbb882db0c63c3540d5221d8d154b1d71428b40f1f1bd3a0"
+    },
+    "data": {
+      "passed": 256
+    },
+    "pipeline": {
+      "passed": 112
+    },
+    "browser": {
+      "passed": 34
+    },
+    "appLogSha256": "12ce30c8705e841faaf4480c3273fa0dd1e96ae44327373fcc80028fbd6de1f6",
+    "lintBuildAndDataIntegrity": "passed"
+  },
+  "visual": [
+    {
+      "width": 1440,
+      "size": [
+        1440,
+        8322
+      ],
+      "before": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/recovery-before-1440.png",
+      "after": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/recovery-after-1440.png",
+      "beforeFileSha256": "03180ad413a848bf154a3ab670d702092a5ab3eb5c95c804f8f7fb52f6719a71",
+      "afterFileSha256": "03180ad413a848bf154a3ab670d702092a5ab3eb5c95c804f8f7fb52f6719a71",
+      "pixelsIdentical": true,
+      "inspected": true
+    },
+    {
+      "width": 390,
+      "size": [
+        390,
+        7714
+      ],
+      "before": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/recovery-before-390.png",
+      "after": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/recovery-after-390.png",
+      "beforeFileSha256": "aad0f67af8e1f055f433012e1d106748c2514ff6e75d8c8233a1d3ee33f417de",
+      "afterFileSha256": "aad0f67af8e1f055f433012e1d106748c2514ff6e75d8c8233a1d3ee33f417de",
+      "pixelsIdentical": true,
+      "inspected": true
+    }
+  ],
+  "budgetChanges": 0,
+  "sourceWebsiteRequestsDuringReplays": 0,
+  "modelCallsDuringReplays": 0,
+  "replays": [
+    {
+      "path": "docs/active/daily-pipeline/receipts/coverage-retry-final-replay-2026-10-23.json",
+      "sha256": "2eece4c1d13fb455e87c0773be0f18ee9458bfce8bf40fe322ad43c4f933de8e"
+    },
+    {
+      "path": "docs/active/daily-pipeline/receipts/continuity-final-replay-2026-10-23.json",
+      "sha256": "c0fed55e08bd4d2d82f99b39e39bbd6a392969e4ccf72341ee40a951e9daeefb"
+    }
+  ]
+}

@@ -1,0 +1,894 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-23T17:54:02.194877Z",
+  "method": "Offline read-only triage of hash-verified VM archive. Each inspected hold/body hash checked. No fetch/model/archive mutation.",
+  "runId": "e054ea73c89fe78db9702f94d2a3b669ce91884f7d7abda0a88698dbcfc7ec50",
+  "contractSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+  "coverageSha256": "370c35cf48074658a53f920c66b4ba1e4be711a158111fd04a03ad9c8cfde410",
+  "sourceSnapshotSha256": "6bb35e0e786c96cf1ec51521ed60dde66a53745b871c7d566475690e6400da95",
+  "currentHoldCount": 28,
+  "currentHeldDocumentCount": 19,
+  "historicalHoldReferencesAcrossRuns": 36,
+  "holdsBySupplier": {
+    "veeam": 4,
+    "aqua": 10,
+    "upwind": 2,
+    "mimecast": 6,
+    "esentire": 6
+  },
+  "holdsByReason": {
+    "Fact date missing": 18,
+    "Fact date not grounded in source": 9,
+    "Source entity not established": 1
+  },
+  "documents": [
+    {
+      "supplierId": "veeam",
+      "url": "https://www.veeam.com/company/press-release/veeam-recognized-by-gartner-as-a-leader-in-the-first-gartner-magic-quadrant-for-privacy-ux.html",
+      "bodySha256": "65568af42593ec2b8d3e4f7a6e63cb960f5a095ed3c360cddc849741ca9206e6",
+      "bodyBytes": 183842,
+      "parsedPublication": "2026-10-16T18:12:37Z",
+      "publicationMetadata": [
+        "        <meta property=\"article:published_time\" content=\"2026-10-16T18:12:37Z\"/>",
+        "  \"datePublished\" : \"2026-10-13T00:00:00Z\","
+      ],
+      "visibleDateTokens": [
+        "October 13, 2026"
+      ],
+      "classification": "historical_event_date_missing",
+      "proposedAction": "Resolve original event evidence; article publication date cannot date a retrospective event reference.",
+      "claims": [
+        {
+          "holdReceiptSha256": "50b82ca3dd1be7a2903b914a85cdbf2f0af658b3f79e5b1e2fd71e4d126293bb",
+          "candidateSha256": "bc6282aeaac4a0cca8a07c63105361469445d4b6be4f47207c34ebad0c0296bf",
+          "predicate": "acquisition",
+          "effectiveDate": "2025-12",
+          "eventStatus": "closed",
+          "reason": "Fact date missing",
+          "policySha256": "ea9fa9b42a96f6715839de0d51cb58f9238f13618e5aecad2f5575524c1679b1",
+          "sourceObservationId": "d4091414c46afb21320243a0b707e0fd0f1aaab95a71d3e4fb0580a5f04d4a18",
+          "statement": "the acquisition of Securiti AI in December 2025"
+        }
+      ]
+    },
+    {
+      "supplierId": "veeam",
+      "url": "https://www.veeam.com/company/press-release/veeam-named-a-champion-in-omdia-s-2026-global-managed-backup-and-disaster-recovery-leadership-matrix.html",
+      "bodySha256": "6d26ceda7bc912299443f1d33fd51956e31a418ffec3855e98108fdd9411016d",
+      "bodyBytes": 183083,
+      "parsedPublication": "2026-08-20T13:00:08Z",
+      "publicationMetadata": [
+        "        <meta property=\"article:published_time\" content=\"2026-08-20T13:00:08Z\"/>",
+        "  \"datePublished\" : \"2026-08-20T13:00:10Z\","
+      ],
+      "visibleDateTokens": [
+        "August 20, 2026"
+      ],
+      "classification": "historical_event_date_missing",
+      "proposedAction": "Resolve original event evidence; article publication date cannot date a retrospective event reference.",
+      "claims": [
+        {
+          "holdReceiptSha256": "f6880b6531ddf71938fa54a67e5cd21c7cb50c005cb453acb9d1548f1d5599db",
+          "candidateSha256": "2feffab30497c9f6bf674d1de346890ccb815472065006fbdd68d266501560c8",
+          "predicate": "acquisition",
+          "effectiveDate": null,
+          "eventStatus": "closed",
+          "reason": "Fact date missing",
+          "policySha256": "ea9fa9b42a96f6715839de0d51cb58f9238f13618e5aecad2f5575524c1679b1",
+          "sourceObservationId": "1a4a2ffb86a9a31ebb7592cf1e6b500e5bdcddcca1a6282b3d074b7bfd577ac0",
+          "statement": "Veeam\u2019s acquisition of Securiti AI"
+        }
+      ]
+    },
+    {
+      "supplierId": "aqua",
+      "url": "https://www.aquasec.com/news/aqua-security-doubles-down-on-runtime-to-deliver-measurable-cloud-risk-reduction/",
+      "bodySha256": "5bd417b8b71873e729d0195fdfcb1d745889e7c8de298b97144a9a029824669e",
+      "bodyBytes": 246170,
+      "parsedPublication": "2026-02-12T14:00:04+00:00",
+      "publicationMetadata": [
+        "\t<meta property=\"article:published_time\" content=\"2026-02-12T14:00:04+00:00\" />",
+        "ds\\/2024\\/06\\/Aqua-Logo-Color-RGB-2022-300x300-1.jpg\",\"datePublished\":\"2026-02-12T14:00:04+00:00\",\"description\":\"New operating model and leadership team help enterprises respond faster and prevent compromise in production\",\"brea"
+      ],
+      "visibleDateTokens": [
+        "February 12, 2026"
+      ],
+      "classification": "reextract_review_after_allowance",
+      "proposedAction": "Existing parser already finds metadata. Re-extract and current-policy review after normal allowance renews; no manual candidate amendment. November transition metadata November 5 conflicts with visible November 6; retain conflict.",
+      "claims": [
+        {
+          "holdReceiptSha256": "7401503ccb5b29d9a124efa7ca01a0aabab616e9e7b9441046119f942d3399b1",
+          "candidateSha256": "1b7686e2c3b11de7e09c1d55f363c677a60d9c4124d6173a150e1971a1920e5f",
+          "predicate": "leadership_change",
+          "effectiveDate": null,
+          "eventStatus": "announced",
+          "reason": "Fact date missing",
+          "policySha256": "ea9fa9b42a96f6715839de0d51cb58f9238f13618e5aecad2f5575524c1679b1",
+          "sourceObservationId": "77c8737ff47748a07febf23f524954d159e1057d573efafa5e740d8af7bdfcc8",
+          "statement": "Mike Dube , appointed chief executive officer"
+        },
+        {
+          "holdReceiptSha256": "da697d12150dbbf6b55a89a0d4f983ac3ab14703771ee65bcac0eef4ed50e08e",
+          "candidateSha256": "f1e3361e552188ca7faf80adbc31a069f2f1c82d93e1443297d401b834c8230b",
+          "predicate": "leadership_change",
+          "effectiveDate": null,
+          "eventStatus": "announced",
+          "reason": "Fact date missing",
+          "policySha256": "ea9fa9b42a96f6715839de0d51cb58f9238f13618e5aecad2f5575524c1679b1",
+          "sourceObservationId": "77c8737ff47748a07febf23f524954d159e1057d573efafa5e740d8af7bdfcc8",
+          "statement": "Nir Makovski , appointed chief technology officer"
+        },
+        {
+          "holdReceiptSha256": "cbad4b79c7bf9ac495ab3ad4cc9ae30a44ddd1c1db0dbe63fc195bfd038288c0",
+          "candidateSha256": "2704c4c6696b38fc71c6e10063d0e2240cc36209fc47c19b5ebe94aa39b38888",
+          "predicate": "leadership_change",
+          "effectiveDate": null,
+          "eventStatus": "announced",
+          "reason": "Fact date missing",
+          "policySha256": "ea9fa9b42a96f6715839de0d51cb58f9238f13618e5aecad2f5575524c1679b1",
+          "sourceObservationId": "77c8737ff47748a07febf23f524954d159e1057d573efafa5e740d8af7bdfcc8",
+          "statement": "Sean McGowan , promoted from vice president of North America to chief revenue officer"
+        },
+        {
+          "holdReceiptSha256": "a3252829038f7fd87615184c03ee9331ef9f4be542eadef842a157b67566e5d2",
+          "candidateSha256": "5503230e6856146bd0a05a8b649353f17e0ca8b1171ffeff649ecdee95fccbe3",
+          "predicate": "leadership_change",
+          "effectiveDate": null,
+          "eventStatus": "announced",
+          "reason": "Fact date missing",
+          "policySha256": "ea9fa9b42a96f6715839de0d51cb58f9238f13618e5aecad2f5575524c1679b1",
+          "sourceObservationId": "77c8737ff47748a07febf23f524954d159e1057d573efafa5e740d8af7bdfcc8",
+          "statement": "Maayan Arbili , promoted from vice president of customer success to chief customer success officer"
+        },
+        {
+          "holdReceiptSha256": "88ef5bdd9fc185a1d7e560a69aaec6fe5639881c5d13f72203efe538871aaae5",
+          "candidateSha256": "d6dad755f0d471d14eae5d75929ea5da8e4620e1cf2fdc4fd16fa91031c4c567",
+          "predicate": "leadership_change",
+          "effectiveDate": null,
+          "eventStatus": "announced",
+          "reason": "Fact date missing",
+          "policySha256": "ea9fa9b42a96f6715839de0d51cb58f9238f13618e5aecad2f5575524c1679b1",
+          "sourceObservationId": "77c8737ff47748a07febf23f524954d159e1057d573efafa5e740d8af7bdfcc8",
+          "statement": "Matt Richards , formerly chief marketing officer, appointed chief operating officer"
+        },
+        {
+          "holdReceiptSha256": "90f5d5fa974039b2bf228e2a05f5001fd4d219f0469618e28ef2916019837deb",
+          "candidateSha256": "65be87d14fa862fd69bb39f525c0587a278cde74a26bc5ef11ad985db45c4866",
+          "predicate": "leadership_change",
+          "effectiveDate": null,
+          "eventStatus": "announced",
+          "reason": "Fact date missing",
+          "policySha256": "ea9fa9b42a96f6715839de0d51cb58f9238f13618e5aecad2f5575524c1679b1",
+          "sourceObservationId": "77c8737ff47748a07febf23f524954d159e1057d573efafa5e740d8af7bdfcc8",
+          "statement": "Hadas Finkleman joined Aqua as chief financial officer"
+        },
+        {
+          "holdReceiptSha256": "9cf872630f504ac96db8921f0b7f4f3f4c6889833b65d79d680fae3ccf57d74b",
+          "candidateSha256": "a39227bd0b1603712b2602dd8b62974d66999c506c84bcc338b19bc489826ed5",
+          "predicate": "leadership_change",
+          "effectiveDate": null,
+          "eventStatus": "announced",
+          "reason": "Fact date missing",
+          "policySha256": "ea9fa9b42a96f6715839de0d51cb58f9238f13618e5aecad2f5575524c1679b1",
+          "sourceObservationId": "77c8737ff47748a07febf23f524954d159e1057d573efafa5e740d8af7bdfcc8",
+          "statement": "Ayelet Hammar, joined as chief human resources officer"
+        }
+      ]
+    },
+    {
+      "supplierId": "aqua",
+      "url": "https://www.aquasec.com/news/aqua-security-announces-leadership-transition-as-company-enters-its-next-phase-of-growth/",
+      "bodySha256": "b973219c21130948e95082bffa553d0277c0a273cf8c51edecbbed59ac07d9e2",
+      "bodyBytes": 242024,
+      "parsedPublication": "2025-11-05T15:00:34+00:00",
+      "publicationMetadata": [
+        "\t<meta property=\"article:published_time\" content=\"2025-11-05T15:00:34+00:00\" />",
+        "ds\\/2022\\/06\\/Aqua-Logo-Color-RGB-2022-300x300-1.jpg\",\"datePublished\":\"2025-11-05T15:00:34+00:00\",\"breadcrumb\":{\"@id\":\"https:\\/\\/www.aquasec.com\\/news\\/aqua-security-announces-leadership-transition-as-company-enters-its-next-pha"
+      ],
+      "visibleDateTokens": [
+        "November 6, 2025"
+      ],
+      "classification": "reextract_review_after_allowance",
+      "proposedAction": "Existing parser already finds metadata. Re-extract and current-policy review after normal allowance renews; no manual candidate amendment. November transition metadata November 5 conflicts with visible November 6; retain conflict.",
+      "claims": [
+        {
+          "holdReceiptSha256": "4dfdcaeada677aa4733aa3e7dabff2f41000d16ba2f62eb1ef766aaf793b7d4e",
+          "candidateSha256": "a533f90bb7c1dc3f9fd15442cb5a3d5ca2cadf86e32a572d7b096496d8c017ad",
+          "predicate": "leadership_change",
+          "effectiveDate": null,
+          "eventStatus": "announced",
+          "reason": "Fact date missing",
+          "policySha256": "ea9fa9b42a96f6715839de0d51cb58f9238f13618e5aecad2f5575524c1679b1",
+          "sourceObservationId": "f2e6daf1ae74cac9035127d25bb3167b342b1d8b63aabb5426f13388fd1dd47a",
+          "statement": "Co-founders Dror Davidoff and Amir Jerbi will step back from their day-to-day roles as chief executive officer and chief technology officer, respectively, and will continue to serve as strategic advisors to the company."
+        },
+        {
+          "holdReceiptSha256": "64d01a868951a1206d917fdca252163eed632a246370818f686052ee0a3bb118",
+          "candidateSha256": "0933386bd3dd40df083e78f5280b2bc64450bacfea8b0ec485d6b06b83e7dff5",
+          "predicate": "leadership_change",
+          "effectiveDate": null,
+          "eventStatus": "announced",
+          "reason": "Fact date missing",
+          "policySha256": "ea9fa9b42a96f6715839de0d51cb58f9238f13618e5aecad2f5575524c1679b1",
+          "sourceObservationId": "f2e6daf1ae74cac9035127d25bb3167b342b1d8b63aabb5426f13388fd1dd47a",
+          "statement": "Mike Dube, formerly president and chief revenue officer, has been appointed CEO"
+        },
+        {
+          "holdReceiptSha256": "f9c3fd9a60d9d27d2ef20d6d1d4f9be369a917b2ba2151874e0ca60db4aea343",
+          "candidateSha256": "9e790ff385f2be42642f9d5bace12f5aec4f0282a3070b9af235182a864ae357",
+          "predicate": "leadership_change",
+          "effectiveDate": null,
+          "eventStatus": "announced",
+          "reason": "Fact date missing",
+          "policySha256": "ea9fa9b42a96f6715839de0d51cb58f9238f13618e5aecad2f5575524c1679b1",
+          "sourceObservationId": "f2e6daf1ae74cac9035127d25bb3167b342b1d8b63aabb5426f13388fd1dd47a",
+          "statement": "former Senior Vice President of Engineering Nir Makowski has been named chief product and technology officer"
+        }
+      ]
+    },
+    {
+      "supplierId": "upwind",
+      "url": "https://www.upwind.io/feed/category/company-news",
+      "bodySha256": "0cf6f5ab32702ace08e1cbd986a407a98d45cd14a30234e11f0f5056c28e6107",
+      "bodyBytes": 628297,
+      "parsedPublication": null,
+      "publicationMetadata": [],
+      "visibleDateTokens": [
+        "October 13, 2026",
+        "September 23, 2026",
+        "July 20, 2026",
+        "March 12, 2026",
+        "February 26, 2026",
+        "January 26, 2026",
+        "January 26, 2026",
+        "January 26, 2026",
+        "December 8, 2025",
+        "November 26, 2025",
+        "November 24, 2025",
+        "November 6, 2025"
+      ],
+      "classification": "listing_scope_repair",
+      "proposedAction": "Card-scoped dates or original release required. January 26 listing dates are outside candidate quote; no global listing-date fallback.",
+      "claims": [
+        {
+          "holdReceiptSha256": "38f50667e1b16b3fd656eca4bd8cb18d2a5d2f638ff177a83d64224bbdf1fe22",
+          "candidateSha256": "fca0a8a2027d9e2e6bfe7ae10ff0cc63df072c27ae34214e5990d351b21e0e29",
+          "predicate": "funding",
+          "effectiveDate": "2026-01-26",
+          "eventStatus": "announced",
+          "reason": "Fact date not grounded in source",
+          "policySha256": "ea9fa9b42a96f6715839de0d51cb58f9238f13618e5aecad2f5575524c1679b1",
+          "sourceObservationId": "02fcb9bfa5b905a4b81695d7afe35e8ebd62ec6e26e159bd9a7cd621cf19b82b",
+          "statement": "$250M in our Series B funding round"
+        },
+        {
+          "holdReceiptSha256": "3ffb478806e8a0cbadccfeb3e905949c51b7069265324b2d6b69ad8dee62ab0a",
+          "candidateSha256": "4491f423d547fdbc2efd1bd09888d9d314ac7e36fb6ad01b14af54b98355124f",
+          "predicate": "funding",
+          "effectiveDate": "2026-01-26",
+          "eventStatus": "reported",
+          "reason": "Fact date not grounded in source",
+          "policySha256": "ea9fa9b42a96f6715839de0d51cb58f9238f13618e5aecad2f5575524c1679b1",
+          "sourceObservationId": "02fcb9bfa5b905a4b81695d7afe35e8ebd62ec6e26e159bd9a7cd621cf19b82b",
+          "statement": "total investment in Upwind to over $430M"
+        }
+      ]
+    },
+    {
+      "supplierId": "mimecast",
+      "url": "https://www.mimecast.com/resources/press-releases/",
+      "bodySha256": "8207512d5900a624be2cc62ae0da00784934965ffeaa78ef8d9fba76b5a19a0e",
+      "bodyBytes": 204116,
+      "parsedPublication": null,
+      "publicationMetadata": [
+        "<time datetime=\"2026-08-03\">Aug 03, 2026</time>\r",
+        "<time datetime=\"2026-06-25\">Jun 25, 2026</time>\r",
+        "<time datetime=\"2026-06-10\">Jun 10, 2026</time>\r",
+        "<time datetime=\"2026-05-21\">May 21, 2026</time>\r",
+        "<time datetime=\"2026-03-24\">Mar 24, 2026</time>\r",
+        "<time datetime=\"2026-03-12\">Mar 12, 2026</time>\r",
+        "<time datetime=\"2026-06-23\">Jun 23, 2026</time>\r",
+        "<time datetime=\"2026-06-04\">Jun 04, 2026</time>\r"
+      ],
+      "visibleDateTokens": [
+        "Aug 03, 2026",
+        "Jun 25, 2026",
+        "Jun 10, 2026",
+        "May 21, 2026",
+        "Mar 24, 2026",
+        "Mar 12, 2026",
+        "Jun 23, 2026",
+        "Jun 04, 2026",
+        "Jun 04, 2026",
+        "May 14, 2026",
+        "May 08, 2026",
+        "May 05, 2026"
+      ],
+      "classification": "listing_scope_repair",
+      "proposedAction": "CEO listing has multiple dated cards. Resolve original archived article/card identity and date; no global date.",
+      "claims": [
+        {
+          "holdReceiptSha256": "ad69d0670e0e3e010fb27e47ce793a5ef2a8417f0d282edfbf9267128f019f9f",
+          "candidateSha256": "62a07a5cb96bab854525239a6a4e8734ce5d5e34feafb917506509dcf6982cad",
+          "predicate": "leadership_change",
+          "effectiveDate": "2026-06-25",
+          "eventStatus": "announced",
+          "reason": "Fact date not grounded in source",
+          "policySha256": "ea9fa9b42a96f6715839de0d51cb58f9238f13618e5aecad2f5575524c1679b1",
+          "sourceObservationId": "c7bad8e9cce54ccfa7ecb104539ad2ae28fe6ee7ddf28bec371a263d712e9af1",
+          "statement": "Ranjan Singh has been named Chief Executive Officer, effective immediately"
+        }
+      ]
+    },
+    {
+      "supplierId": "mimecast",
+      "url": "https://www.mimecast.com/resources/press-releases/acquisition-dmarc-analyzer/",
+      "bodySha256": "bc292f5566f864a5aab91f744daa1c2a0af078f4cbc283154055d75cd1139533",
+      "bodyBytes": 79143,
+      "parsedPublication": "2019-11-13",
+      "publicationMetadata": [
+        "                    <time datetime=\"2019-11-13\">Nov 13, 2019</time>           \r"
+      ],
+      "visibleDateTokens": [
+        "Nov 13, 2019",
+        "November 7, 2019"
+      ],
+      "classification": "existing_parser_repair_review",
+      "proposedAction": "Current parser already recognizes individual release date; re-extract/review after next allowance without manually changing candidates. Three dated historical claims are now metadata-groundable; APAC candidate date remains null.",
+      "claims": [
+        {
+          "holdReceiptSha256": "b540fbc1a5683b98be0f4a04f7f497d952925b1f9059545a50894732897a21a0",
+          "candidateSha256": "330ac9fa6ffe32f6b3812a05cb1049424706e30e2ec2d08b7bd0036d36e82b26",
+          "predicate": "acquisition",
+          "effectiveDate": "2019-11-13",
+          "eventStatus": "closed",
+          "reason": "Fact date not grounded in source",
+          "policySha256": "ea9fa9b42a96f6715839de0d51cb58f9238f13618e5aecad2f5575524c1679b1",
+          "sourceObservationId": "96179f59ca7e7dab38cff90e85aea25fd6cc305d9eaef29077854cb0e8f73225",
+          "statement": "Mimecast Limited (NASDAQ: MIME), a leading email and data security company, today announced it has acquired DMARC Analyzer"
+        }
+      ]
+    },
+    {
+      "supplierId": "mimecast",
+      "url": "https://www.mimecast.com/resources/press-releases/acquisition-of-messagecontrol/",
+      "bodySha256": "f4378223f57b76025fb20c37aa7e8cd7615653ab4987a61fa52d2dfa48eb4dd2",
+      "bodyBytes": 80427,
+      "parsedPublication": "2020-07-29",
+      "publicationMetadata": [
+        "                    <time datetime=\"2020-07-29\">Jul 29, 2020</time>           \r"
+      ],
+      "visibleDateTokens": [
+        "Jul 29, 2020"
+      ],
+      "classification": "existing_parser_repair_review",
+      "proposedAction": "Current parser already recognizes individual release date; re-extract/review after next allowance without manually changing candidates. Three dated historical claims are now metadata-groundable; APAC candidate date remains null.",
+      "claims": [
+        {
+          "holdReceiptSha256": "d36c4131cc343c6f06b654cb0fb797c311c32eb3db05937f2e94bb6ea84250cf",
+          "candidateSha256": "2d581e72efb4ba8c9887973f367ac556e896a82a0cba3cb5dd19be95da274471",
+          "predicate": "acquisition",
+          "effectiveDate": "2020-07-29",
+          "eventStatus": "closed",
+          "reason": "Fact date not grounded in source",
+          "policySha256": "ea9fa9b42a96f6715839de0d51cb58f9238f13618e5aecad2f5575524c1679b1",
+          "sourceObservationId": "87945abc2457b2790f6187bea2213d1cdd137a35e8a5629cbec4fc4b58126ad2",
+          "statement": "has acquired eTorch Inc. (d/b/a MessageControl)"
+        }
+      ]
+    },
+    {
+      "supplierId": "mimecast",
+      "url": "https://www.mimecast.com/resources/press-releases/amol-kulkarni-board-of-directors/",
+      "bodySha256": "a9f6b8b041e6f1c9a6b34fbd042c14b201bed62d008c9953b0288f1166267186",
+      "bodyBytes": 79060,
+      "parsedPublication": "2024-10-15",
+      "publicationMetadata": [
+        "                    <time datetime=\"2024-10-15\">Oct 15, 2024</time>           \r"
+      ],
+      "visibleDateTokens": [
+        "Oct 15, 2024",
+        "October 1, 2024"
+      ],
+      "classification": "historical_event_date_missing",
+      "proposedAction": "Resolve original event evidence; article publication date cannot date a retrospective event reference.",
+      "claims": [
+        {
+          "holdReceiptSha256": "8b0a41cbc8914f8de2a0706db445c9130967d8873b9e1044a982bc3c3138c86a",
+          "candidateSha256": "bef428552e795a9f814d78bc25c9a2ebeb14f564f2f4038ae2d644e886404089",
+          "predicate": "acquisition",
+          "effectiveDate": null,
+          "eventStatus": "reported",
+          "reason": "Fact date missing",
+          "policySha256": "ea9fa9b42a96f6715839de0d51cb58f9238f13618e5aecad2f5575524c1679b1",
+          "sourceObservationId": "6d1fa583bdcbb7c232d80290a40c19a4d89dd953162f25601d231ffe3b7b85fc",
+          "statement": "three strategic acquisitions, Elevate , Code42 and Aware"
+        }
+      ]
+    },
+    {
+      "supplierId": "mimecast",
+      "url": "https://www.mimecast.com/resources/press-releases/apac-expansion/",
+      "bodySha256": "ce7b374dda82bbeb44adb8993a820e929f0970859341e9807a23e288db31e800",
+      "bodyBytes": 82311,
+      "parsedPublication": "2025-12-10",
+      "publicationMetadata": [
+        "                    <time datetime=\"2025-12-10\">Dec 10, 2025</time>           \r"
+      ],
+      "visibleDateTokens": [
+        "Dec 10, 2025"
+      ],
+      "classification": "existing_parser_repair_review",
+      "proposedAction": "Current parser already recognizes individual release date; re-extract/review after next allowance without manually changing candidates. Three dated historical claims are now metadata-groundable; APAC candidate date remains null.",
+      "claims": [
+        {
+          "holdReceiptSha256": "2ff0687a8fd999861ffc9915a83a8a262f1ba02444dbb2f0f49a2fd8367d61b0",
+          "candidateSha256": "60b495ddbc53ab51d1cc9f8b2d50e6f88c381c8a39d77e452124567c0dc34067",
+          "predicate": "leadership_change",
+          "effectiveDate": null,
+          "eventStatus": "announced",
+          "reason": "Fact date missing",
+          "policySha256": "ea9fa9b42a96f6715839de0d51cb58f9238f13618e5aecad2f5575524c1679b1",
+          "sourceObservationId": "805bd9923503f895bc48b2a1f09f3024ec6447cac53b12c9416401a8c85a3547",
+          "statement": "Mimecast has appointed Nicky Choo as Vice President and General Manager for APAC."
+        }
+      ]
+    },
+    {
+      "supplierId": "mimecast",
+      "url": "https://www.mimecast.com/resources/press-releases/aron-ain/",
+      "bodySha256": "f22e532894e2641f90380f152199f8a6825cabb4cc1a1e88501330de25920525",
+      "bodyBytes": 76775,
+      "parsedPublication": "2017-03-30",
+      "publicationMetadata": [
+        "                    <time datetime=\"2017-03-30\">Mar 30, 2017</time>           \r"
+      ],
+      "visibleDateTokens": [
+        "Mar 30, 2017"
+      ],
+      "classification": "existing_parser_repair_review",
+      "proposedAction": "Current parser already recognizes individual release date; re-extract/review after next allowance without manually changing candidates. Three dated historical claims are now metadata-groundable; APAC candidate date remains null.",
+      "claims": [
+        {
+          "holdReceiptSha256": "fa54eed1f4872dde31dceb426581639c63f90ae2132ec013ad4a0fc1ad4ffc2f",
+          "candidateSha256": "f15588fa7de06b1b9f686743f0ad918bba6db83d5d2d4a2aa038132a76ffc54c",
+          "predicate": "leadership_change",
+          "effectiveDate": "2017-03-30",
+          "eventStatus": "announced",
+          "reason": "Fact date not grounded in source",
+          "policySha256": "ea9fa9b42a96f6715839de0d51cb58f9238f13618e5aecad2f5575524c1679b1",
+          "sourceObservationId": "62713de2645f841eef852be71799f64b279d22682395c1d5261494071afc66f5",
+          "statement": "Aron Ain has joined its Board of Directors"
+        }
+      ]
+    },
+    {
+      "supplierId": "esentire",
+      "url": "https://www.esentire.com/news-releases/esentire-warns-businesses-hackers-are-after-your-employees-account-credentials-as-account-compromise-threats-surge-389-in-2025",
+      "bodySha256": "9b4623a0c891aeabebbeab2b2d3e1eee6759d579a9c5528cdc630240c614b728",
+      "bodyBytes": 150714,
+      "parsedPublication": null,
+      "publicationMetadata": [
+        ":44-05:00\",\"dateModified\":\"2026-01-15T17:35:22-05:00\",\"datePublished\":\"2026-01-15T11:38:00-05:00\",\"description\":\"WATERLOO, Ontario  \u2013 January 15, 2026\u2013 Global cybersecurity solutions provider eSentire today released its 2025 YEA"
+      ],
+      "visibleDateTokens": [
+        "Oct 14, 2026",
+        "Oct 05, 2026",
+        "Oct 08, 2026",
+        "Oct 08, 2026",
+        "Oct 06, 2026",
+        "Sep 15, 2026",
+        "January 15, 2026",
+        "January 15, 2026"
+      ],
+      "classification": "sidebar_contamination",
+      "proposedAction": "Exclude Resources/Company related cards. Sidebar acquisition title must not inherit unrelated article publication date. Keep held until original document is reviewed.",
+      "claims": [
+        {
+          "holdReceiptSha256": "975ecfda4c0b4261f628067b8f901e13fd02d3b7fd6ffb88ccf935dde1653d67",
+          "candidateSha256": "7775a1cbe326fe7f47877146d67f9e2c5457ab561c75f60493317c65ad291966",
+          "predicate": "acquisition",
+          "effectiveDate": "2026-09-15",
+          "eventStatus": "announced",
+          "reason": "Fact date not grounded in source",
+          "policySha256": "ea9fa9b42a96f6715839de0d51cb58f9238f13618e5aecad2f5575524c1679b1",
+          "sourceObservationId": "82131c75e5e191f6daf1585881d8431c1e33b73bda98bcecd5f85a4a32372ca4",
+          "statement": "eSentire Acquires Stealth-Mode AI Security Startup"
+        }
+      ]
+    },
+    {
+      "supplierId": "esentire",
+      "url": "https://www.esentire.com/news-releases/esentire-awards-the-4th-sean-hennessy-bursary-and-celebrates-the-10-year-anniversary-of-its-international-headquarters-and-security-operations-centre-in-cork-ireland",
+      "bodySha256": "7168ff2fe96930c4cde60a45685f6eb6f431e0ad39f13d99325f12b322fa72ea",
+      "bodyBytes": 147947,
+      "parsedPublication": null,
+      "publicationMetadata": [
+        ":09-05:00\",\"dateModified\":\"2025-02-27T18:40:18-05:00\",\"datePublished\":\"2025-02-27T01:00:00-05:00\",\"description\":\"Learn more about the Sean Hennessy Bursary award, eSentire\u2019s operations in Cork, Ireland and how eSentire protects "
+      ],
+      "visibleDateTokens": [
+        "Oct 19, 2026",
+        "Oct 16, 2026",
+        "Oct 08, 2026",
+        "Oct 08, 2026",
+        "Oct 06, 2026",
+        "Sep 15, 2026",
+        "February 27, 2025",
+        "February 28, 2025"
+      ],
+      "classification": "sidebar_contamination",
+      "proposedAction": "Exclude Resources/Company related cards. Sidebar acquisition title must not inherit unrelated article publication date. Keep held until original document is reviewed.",
+      "claims": [
+        {
+          "holdReceiptSha256": "bf21aff21b8f768ab7f1d2f7693ba3881036ca82f0918759849f735bb5804d4d",
+          "candidateSha256": "7b752a3a9c8b6242b92519586ed079f751f376ad85c1d4be95bd8e2c36fe007e",
+          "predicate": "acquisition",
+          "effectiveDate": "2026-09-15",
+          "eventStatus": "announced",
+          "reason": "Fact date not grounded in source",
+          "policySha256": "ea9fa9b42a96f6715839de0d51cb58f9238f13618e5aecad2f5575524c1679b1",
+          "sourceObservationId": "8ba3a7da4144a0abbffc2f70de7564acf1bbd663356636c19b55f7c4d8f60ca3",
+          "statement": "eSentire Acquires Stealth-Mode AI Security Startup, Bringing New AI Observability and Control to the Atlas Platform"
+        }
+      ]
+    },
+    {
+      "supplierId": "esentire",
+      "url": "https://www.esentire.com/news-releases/esentire-advances-controlled-autonomy-secops-with-agentic-ai-that-preempts-detects-and-responds-in-a-single-unified-platform",
+      "bodySha256": "aaf25a4a56e072c040e255987a5175c24d314661db6c27eee08fb41f103b0949",
+      "bodyBytes": 145764,
+      "parsedPublication": null,
+      "publicationMetadata": [
+        ":55-04:00\",\"dateModified\":\"2026-05-27T15:09:54-04:00\",\"datePublished\":\"2026-05-26T16:10:00-04:00\",\"description\":\"Read how eSentire is unifying autonomous offensive security, exposure validation, 24x7 MDR, in a single agentic AI "
+      ],
+      "visibleDateTokens": [
+        "Oct 14, 2026",
+        "Oct 05, 2026",
+        "Oct 08, 2026",
+        "Oct 08, 2026",
+        "Oct 06, 2026",
+        "Sep 15, 2026",
+        "May 26, 2026",
+        "May 27, 2026"
+      ],
+      "classification": "source_specific_parser_proposal",
+      "proposedAction": "WebPage datePublished ignored by current parser; propose canonical url/@id-bound source-specific metadata handling, with unchanged ambiguity/conflict/future guards. Re-extract/review after allowance, preserving old holds.",
+      "claims": [
+        {
+          "holdReceiptSha256": "326797667d18dcd1b6b1fd7b892c9f0697392f4a7f5d25ebb4ceb56d0d3ea95f",
+          "candidateSha256": "266c8c0a04591ec26c8b1ab85a32c3037b1a5ca7bc9dfbe841c86f42257265c8",
+          "predicate": "leadership_change",
+          "effectiveDate": null,
+          "eventStatus": "announced",
+          "reason": "Fact date missing",
+          "policySha256": "ea9fa9b42a96f6715839de0d51cb58f9238f13618e5aecad2f5575524c1679b1",
+          "sourceObservationId": "9dbf19b636f5d5e6b3afa02a1b206c2f4b047862724eb5bd5ee2d5c7be8fd928",
+          "statement": "appointment of Ilan Mindel as Chief Cyber Officer, leading a new dedicated offensive cyber team"
+        }
+      ]
+    },
+    {
+      "supplierId": "esentire",
+      "url": "https://www.esentire.com/news-releases/esentire-appoints-cybersecurity-industry-veteran-james-c-foster-as-chief-executive-officer",
+      "bodySha256": "fdf968725a257486319f6310cbe634262f5aa28950733bf5ea55ce061386a994",
+      "bodyBytes": 149718,
+      "parsedPublication": null,
+      "publicationMetadata": [
+        ":00-04:00\",\"dateModified\":\"2026-03-19T09:08:48-04:00\",\"datePublished\":\"2026-03-19T01:00:00-04:00\",\"description\":\"WATERLOO, Ontario, March 19, 2026 \u2013 eSentire, The Authority in AI-powered Managed Detection and Response (MDR), tod"
+      ],
+      "visibleDateTokens": [
+        "Oct 14, 2026",
+        "Oct 05, 2026",
+        "Oct 08, 2026",
+        "Oct 08, 2026",
+        "Oct 06, 2026",
+        "Sep 15, 2026",
+        "March 19, 2026",
+        "March 19, 2026"
+      ],
+      "classification": "source_specific_parser_proposal",
+      "proposedAction": "WebPage datePublished ignored by current parser; propose canonical url/@id-bound source-specific metadata handling, with unchanged ambiguity/conflict/future guards. Re-extract/review after allowance, preserving old holds.",
+      "claims": [
+        {
+          "holdReceiptSha256": "8964d1b1044ea38da3a61c09ef20b6dcbfc580fd36eb51cbd83da43613c4e6a8",
+          "candidateSha256": "22a464765529d26d78f339ee92b226f07332b84db0b25831719a51dd5016cd3d",
+          "predicate": "leadership_change",
+          "effectiveDate": null,
+          "eventStatus": "announced",
+          "reason": "Fact date missing",
+          "policySha256": "ea9fa9b42a96f6715839de0d51cb58f9238f13618e5aecad2f5575524c1679b1",
+          "sourceObservationId": "14716020bb3ded98782d7ec6d4d138be7cb8aed9b9c789b9846a1d06c04c306a",
+          "statement": "Kerry Bailey, who is retiring"
+        }
+      ]
+    },
+    {
+      "supplierId": "esentire",
+      "url": "https://www.esentire.com/news-releases/esentire-supports-modern-security-skills-development-with-award-of-fifth-sean-hennessy-bursary",
+      "bodySha256": "ad2f28f26069b2f2e4324ccdbd1a832fa9994fc443632a474357fa5f56438681",
+      "bodyBytes": 150908,
+      "parsedPublication": null,
+      "publicationMetadata": [
+        ":04-05:00\",\"dateModified\":\"2026-02-26T17:54:31-05:00\",\"datePublished\":\"2026-02-26T00:00:00-05:00\",\"description\":\"eSentire announces the recipient of its fifth annual Sean Hennessy Bursary, supporting cybersecurity skills develop"
+      ],
+      "visibleDateTokens": [
+        "Oct 14, 2026",
+        "Oct 05, 2026",
+        "Oct 08, 2026",
+        "Oct 08, 2026",
+        "Oct 06, 2026",
+        "Sep 15, 2026",
+        "February 26, 2026"
+      ],
+      "classification": "sidebar_contamination",
+      "proposedAction": "Exclude Resources/Company related cards. Sidebar acquisition title must not inherit unrelated article publication date. Keep held until original document is reviewed.",
+      "claims": [
+        {
+          "holdReceiptSha256": "a23fa24a2433f0e4a55f3961d8375ca766f8d582fdf9b3824414ef55ea784f32",
+          "candidateSha256": "ee599f6501e44becb0173f4c2e85b11286722692eade762614c7222042c3d026",
+          "predicate": "acquisition",
+          "effectiveDate": "2026-09-15",
+          "eventStatus": "reported",
+          "reason": "Fact date not grounded in source",
+          "policySha256": "ea9fa9b42a96f6715839de0d51cb58f9238f13618e5aecad2f5575524c1679b1",
+          "sourceObservationId": "32718e4d7a336bd24cae6da2b7be47a8f7cbd4fc4546f862ec9317c0064bfd9f",
+          "statement": "eSentire Acquires Stealth-Mode AI Security Startup"
+        }
+      ]
+    },
+    {
+      "supplierId": "esentire",
+      "url": "https://www.esentire.com/news-releases/esentire-and-viatel-announce-exclusive-partnership-for-managed-detection-and-response-services",
+      "bodySha256": "7fdbc30dadd00cbc5fded6d4590d88e59106c69d90cc326a8dd0eb63981eb97c",
+      "bodyBytes": 147625,
+      "parsedPublication": null,
+      "publicationMetadata": [
+        ":47-05:00\",\"dateModified\":\"2025-06-23T10:18:38-04:00\",\"datePublished\":\"2019-06-04T16:23:31-04:00\",\"description\":\"DUBLIN and CORK, Ireland \u2013 June 4, 2019 \u2013 eSentire, Inc., the global leader in Managed Detection and Response (MDR)"
+      ],
+      "visibleDateTokens": [
+        "Oct 14, 2026",
+        "Oct 05, 2026",
+        "Oct 08, 2026",
+        "Oct 08, 2026",
+        "Oct 06, 2026",
+        "Sep 15, 2026",
+        "June 4, 2019",
+        "June 4, 2019"
+      ],
+      "classification": "sidebar_contamination",
+      "proposedAction": "Exclude Resources/Company related cards. Sidebar acquisition title must not inherit unrelated article publication date. Keep held until original document is reviewed.",
+      "claims": [
+        {
+          "holdReceiptSha256": "d4261a84b9a3ada39203e2089f0b3aa31fd1b16969b50fc8c4b2fbb8ce1cacdd",
+          "candidateSha256": "c97c35933a3bc2cdaeab49d545ef9cc8c8f58badbeef739316a6aa7be1b43edd",
+          "predicate": "acquisition",
+          "effectiveDate": null,
+          "eventStatus": "reported",
+          "reason": "Fact date missing",
+          "policySha256": "ea9fa9b42a96f6715839de0d51cb58f9238f13618e5aecad2f5575524c1679b1",
+          "sourceObservationId": "197f2b3779f0ef07271c24f2d600cfe964e03483a28396349d84c373088d0aba",
+          "statement": "eSentire Acquires Stealth-Mode AI Security Startup"
+        }
+      ]
+    },
+    {
+      "supplierId": "veeam",
+      "url": "https://www.veeam.com/company/press-release/veeam-named-a-champion-in-omdia-s-2026-global-managed-backup-and-disaster-recovery-leadership-matrix.html",
+      "bodySha256": "124aa99c3a0aea35247e80ddf23463aa29b7d3dd0e64113be96790ae5bba9460",
+      "bodyBytes": 183247,
+      "parsedPublication": "2026-08-20T13:00:08Z",
+      "publicationMetadata": [
+        "        <meta property=\"article:published_time\" content=\"2026-08-20T13:00:08Z\"/>",
+        "  \"datePublished\" : \"2026-08-20T13:00:10Z\","
+      ],
+      "visibleDateTokens": [
+        "August 20, 2026"
+      ],
+      "classification": "historical_event_date_missing",
+      "proposedAction": "Resolve original event evidence; article publication date cannot date a retrospective event reference.",
+      "claims": [
+        {
+          "holdReceiptSha256": "744e604cc2341c59b340ea2035af0244e0d50b7484d66ed162d72c199692a745",
+          "candidateSha256": "c172be6380da60b1a140a0e16ed317800e5e8a4b3b56e463624bc4c32cb8f613",
+          "predicate": "acquisition",
+          "effectiveDate": null,
+          "eventStatus": "closed",
+          "reason": "Fact date missing",
+          "policySha256": "ea9fa9b42a96f6715839de0d51cb58f9238f13618e5aecad2f5575524c1679b1",
+          "sourceObservationId": "006aa976279f3ca90615c20bd136ba1205b9df2ac4648d343d9e5486f97f3c7c",
+          "statement": "its most recent acquisition of Securiti AI"
+        }
+      ]
+    },
+    {
+      "supplierId": "veeam",
+      "url": "https://www.veeam.com/company/press-release/veeam-appoints-philip-goldie-vice-president-australia-new-zealand.html",
+      "bodySha256": "14955097b9993636332cdd0bc9338f7d0babea818393228fe544a4c0f0695725",
+      "bodyBytes": 181410,
+      "parsedPublication": "2026-07-20T22:00:00Z",
+      "publicationMetadata": [
+        "        <meta property=\"article:published_time\" content=\"2026-07-20T22:00:00Z\"/>",
+        "  \"datePublished\" : \"2026-07-21T00:00:00Z\","
+      ],
+      "visibleDateTokens": [
+        "July 20, 2026",
+        "July 30, 2026"
+      ],
+      "classification": "deferred_contract_alias_and_date_review",
+      "proposedAction": "Brand Veeam appears repeatedly but legal name Veeam Software does not. Explicit brand alias is deferred agent work because contract change invalidates current reviews. Resolve July20/July21 date conflict; do not globally weaken entity matching.",
+      "claims": [
+        {
+          "holdReceiptSha256": "47be939a20083410f40d0fbc3bc9d71cef971bcd7084b9803b5c80b30ec66bf6",
+          "candidateSha256": "2dab53c70e5f435f36dcd2052b94873a17622c95db22b4aa5131874f49657240",
+          "predicate": "leadership_change",
+          "effectiveDate": "2026-07-20",
+          "eventStatus": "announced",
+          "reason": "Source entity not established",
+          "policySha256": "ea9fa9b42a96f6715839de0d51cb58f9238f13618e5aecad2f5575524c1679b1",
+          "sourceObservationId": "2b8e360adf02ee195f1c3e3b993af8898469117e0f856cc3c39a4dd71438a5e1",
+          "statement": "appointment of Philip Goldie as Vice President for Australia and New Zealand"
+        }
+      ]
+    }
+  ],
+  "blockedCitationTasks": [
+    {
+      "supplierId": "tines",
+      "taskId": "65c617809ee4c963e70d472b27b06d5d5443c58f61138a4ccb15d121cff77f09",
+      "sourceId": "tines:citation:TR-tines-1",
+      "url": "https://www.bloomberg.com/news/articles/2025-02-11/goldman-softbank-back-ai-startup-tines-valued-at-1-13-billion",
+      "outcome": "blocked",
+      "errorCode": "HTTP_403",
+      "checkedAt": "2026-10-23T11:34:07.701412Z",
+      "historicalSuccessfulBodies": [],
+      "limitation": "Historical bytes do not upgrade current HTTP403 check or renew freshness."
+    },
+    {
+      "supplierId": "bigid",
+      "taskId": "969e590e026eaaecafeea5f20132df89bb34df08b3272f7ccd8c8ca93856f39a",
+      "sourceId": "bigid:citation:TR-bigid-1",
+      "url": "https://tracxn.com/d/companies/bigid/__pHSLjAzI2aqF63ud9QosF69usdaBPTT49_kou_rHtgw/funding-and-investors",
+      "outcome": "blocked",
+      "errorCode": "HTTP_403",
+      "checkedAt": "2026-10-23T11:34:08.903940Z",
+      "historicalSuccessfulBodies": [
+        {
+          "bodySha256": "b783a64ed0a7516138685bfc8c97d6143b8ed85261c77db0cd32563fb4cba31e",
+          "fetchedAt": "2026-10-20T21:41:21.276514Z",
+          "parsedPublication": "2021-08-17T11:45:44.000Z",
+          "bytes": 382395
+        }
+      ],
+      "limitation": "Historical bytes do not upgrade current HTTP403 check or renew freshness."
+    },
+    {
+      "supplierId": "delinea",
+      "taskId": "95b0a19dff8f232129f7a65414cc81b53a8bc814af40044849fb849df9801db5",
+      "sourceId": "delinea:citation:TR-delinea-3",
+      "url": "https://www.globenewswire.com/news-release/2026/09/23/3367539/0/en/delinea-appoints-timothy-regan-as-chief-financial-officer.html",
+      "outcome": "blocked",
+      "errorCode": "HTTP_403",
+      "checkedAt": "2026-10-23T11:34:11.004349Z",
+      "historicalSuccessfulBodies": [
+        {
+          "bodySha256": "1ee7964205cbb0a6fd470e737643896fee9baa3dee0eeb49446b65c0bfc1d56a",
+          "fetchedAt": "2026-10-20T21:41:49.979213Z",
+          "parsedPublication": "2026-09-23T13:02:00Z",
+          "bytes": 72075
+        },
+        {
+          "bodySha256": "295211d179b36feaa854717427f2824f7f38c06caba16b7d01cc33ef87fec4be",
+          "fetchedAt": "2026-10-20T21:22:13.108998Z",
+          "parsedPublication": "2026-09-23T13:02:00Z",
+          "bytes": 72075
+        },
+        {
+          "bodySha256": "910d0c328af31a0f017e4619651d7c46114aaadc96235bf74961824d797b9226",
+          "fetchedAt": "2026-10-20T21:11:47.690223Z",
+          "parsedPublication": "2026-09-23T13:02:00Z",
+          "bytes": 71725
+        }
+      ],
+      "limitation": "Historical bytes do not upgrade current HTTP403 check or renew freshness."
+    },
+    {
+      "supplierId": "sophos",
+      "taskId": "e25fbbd360d8011b826f69200c36e56db18ba147d4d744db03570b03ed011d5e",
+      "sourceId": "sophos:citation:TR-sophos-3",
+      "url": "https://app.researchpool.com/index.php/provider/moodys-investors-service",
+      "outcome": "blocked",
+      "errorCode": "HTTP_403",
+      "checkedAt": "2026-10-23T11:34:13.069440Z",
+      "historicalSuccessfulBodies": [],
+      "limitation": "Historical bytes do not upgrade current HTTP403 check or renew freshness."
+    },
+    {
+      "supplierId": "delinea",
+      "taskId": "227b9cfec1983ea5b7268767520afb9d8234212abb5ffa05c4e75337e2c06663",
+      "sourceId": "delinea:citation:TR-delinea-5",
+      "url": "https://www.globenewswire.com/news-release/2026/03/05/3250113/0/en/delinea-completes-strongdm-acquisition-to-secure-ai-agents-with-continuous-identity-authorization.html",
+      "outcome": "blocked",
+      "errorCode": "HTTP_403",
+      "checkedAt": "2026-10-23T11:34:13.986405Z",
+      "historicalSuccessfulBodies": [
+        {
+          "bodySha256": "37292df6db06b7af9efe4b192f91f6d2ddd369cdc964b6f0d72a1d2aaad19f1e",
+          "fetchedAt": "2026-10-20T21:11:51.518984Z",
+          "parsedPublication": "2026-03-05T13:00:00Z",
+          "bytes": 76380
+        },
+        {
+          "bodySha256": "a53d58b7dcdd45a4eb8120e2cc2b50277ba4266762c640c67e04c1f0bbcb3143",
+          "fetchedAt": "2026-10-20T21:22:12.159997Z",
+          "parsedPublication": "2026-03-05T13:00:00Z",
+          "bytes": 76366
+        }
+      ],
+      "limitation": "Historical bytes do not upgrade current HTTP403 check or renew freshness."
+    }
+  ],
+  "unresolvedDisplayedClaim": {
+    "evidenceId": "TR-bigid-1",
+    "sourceUrl": "https://tracxn.com/d/companies/bigid/__pHSLjAzI2aqF63ud9QosF69usdaBPTT49_kou_rHtgw/funding-and-investors",
+    "archivedBodySha256": "b783a64ed0a7516138685bfc8c97d6143b8ed85261c77db0cd32563fb4cba31e",
+    "displayedFields": {
+      "amount": "$60 million",
+      "date": "March 2024",
+      "valuation": "$1 billion"
+    },
+    "archivedAggregatorFields": {
+      "amount": "$61.4M",
+      "date": "Feb 08, 2024",
+      "round": "Series D",
+      "valuation": "$1B",
+      "leadInvestor": "Riverwood Capital",
+      "otherInvestors": [
+        "Advent International",
+        "SLW"
+      ],
+      "pageMetadataPublication": "2021-08-17T11:45:44.000Z"
+    },
+    "status": "unresolved_primary_source_check",
+    "proposedAction": "Qualify original primary company/investor evidence later. Do not silently correct from conflicting aggregator fields or infer funding date from stale page metadata."
+  },
+  "actualOwnerInputs": [],
+  "ownerInputExplanation": "Supported factual repairs are agent work. Source blocks/allowance are operational limits; no purchase, credentials, roster expansion or weaker gate is proposed.",
+  "parserProposal": {
+    "status": "proposal_only",
+    "scope": "Existing www.esentire.com/news-releases/ documents only; do not accept arbitrary WebPage dates globally",
+    "identityRule": "Capture one rel=canonical HTTPS URL on www.esentire.com/news-releases/. WebPage node url and string mainEntityOfPage must both exactly match canonical, with expected fetched URL binding before use. Reject multiple conflicting nodes/dates; no dateCreated/dateModified fallback.",
+    "articleRule": "Recognize exact BlogBody__Content class as article-region only after source identity is established. Exclude BlogBody__ContentLeft, BlogBody__ContentRight, Resources and Company related-link cards. Do not match class by substring.",
+    "fixtures": [
+      {
+        "bodySha256": "fdf968725a257486319f6310cbe634262f5aa28950733bf5ea55ce061386a994",
+        "nodeType": "WebPage",
+        "nodeId": null,
+        "nodeUrl": "https://www.esentire.com/news-releases/esentire-appoints-cybersecurity-industry-veteran-james-c-foster-as-chief-executive-officer",
+        "mainEntityOfPage": "https://www.esentire.com/news-releases/esentire-appoints-cybersecurity-industry-veteran-james-c-foster-as-chief-executive-officer",
+        "datePublished": "2026-03-19T01:00:00-04:00",
+        "mainArticleDateline": "March 19, 2026",
+        "expected": "Matching main article date can be metadata-grounded; current-policy extraction/review still required."
+      },
+      {
+        "bodySha256": "aaf25a4a56e072c040e255987a5175c24d314661db6c27eee08fb41f103b0949",
+        "nodeType": "WebPage",
+        "nodeId": null,
+        "nodeUrl": "https://www.esentire.com/news-releases/esentire-advances-controlled-autonomy-secops-with-agentic-ai-that-preempts-detects-and-responds-in-a-single-unified-platform",
+        "mainEntityOfPage": "https://www.esentire.com/news-releases/esentire-advances-controlled-autonomy-secops-with-agentic-ai-that-preempts-detects-and-responds-in-a-single-unified-platform",
+        "datePublished": "2026-05-26T16:10:00-04:00",
+        "mainArticleDateline": "May 27, 2026",
+        "expected": "Conflicting metadata/dateline; preserve conflict, no automatic date choice."
+      }
+    ],
+    "cacheRule": "Invalidate extraction cache only for archived pages whose newly recognized publication/article metadata differs, preserving old observations/holds and requiring current-policy review. No hold upgrades or source timestamp renewal.",
+    "adversarialCases": [
+      "Mismatched canonical/node url/mainEntityOfPage rejected",
+      "Multiple different WebPage dates rejected",
+      "Unrelated host or non-news-release WebPage unchanged",
+      "Only dateCreated/dateModified remains no publication date",
+      "Related acquisition card absent from main article extraction",
+      "May26 metadata/May27 dateline conflict retained",
+      "Arbitrary WebPage JSONLD and generic class matches remain rejected"
+    ]
+  }
+}

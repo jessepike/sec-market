@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "kind": "offline_final_collector_continuity_and_exact_resolution_replay",
+  "recordedAt": "2026-10-23T18:11:10.261720+00:00",
+  "replayAt": "2026-10-23T12:00:00Z",
+  "archive": {
+    "commit": "b78cfa15980d7be9da54b31e28b16a0840c1d112",
+    "verifiedManifestSha256": "760b5c38fcb7fba2a3a223233539cce4eb5aa47d559571efa95b287047ac1ff8",
+    "statePath": "/tmp/smp-coverage-baseline-20261023/state",
+    "inputFilesSha256": {
+      "heads/latest-run.json": "81a30598d07dfec8ce8f2f217c5476bd48c254bda6156a180c6f92c8272fe710",
+      "heads/dailySnapshot.json": "6bb35e0e786c96cf1ec51521ed60dde66a53745b871c7d566475690e6400da95",
+      "heads/production.json": "853670c77b9c74cf5b7ebbdad21ca61bda63f3a9f873a786864ce9204b8cb81a",
+      "runs/e054ea73c89fe78db9702f94d2a3b669ce91884f7d7abda0a88698dbcfc7ec50/plan.json": "8b1f2c63d0e238b35509b5a68ad29da7e3952cb1980032876f2612f867e760d3",
+      "releases/2e17a786a85e46406df0cdc10da99819dd20f3f6b385f5acc328e51a7a4ec390.json": "b8351d0ed0c52264c9fe99dc1b074c1aa1890fa78399215ac14a3fe3636d93c8",
+      "objects/370c35cf48074658a53f920c66b4ba1e4be711a158111fd04a03ad9c8cfde410": "370c35cf48074658a53f920c66b4ba1e4be711a158111fd04a03ad9c8cfde410",
+      "objects/53b49106fa9118d603db5e64e37cf03f7f2c6fd1fb797acf18e73f540196c84f": "53b49106fa9118d603db5e64e37cf03f7f2c6fd1fb797acf18e73f540196c84f"
+    }
+  },
+  "candidateSourceFilesSha256": {
+    "contracts/market.json": "327e52fdab4f97d3f0d628978501aa7197b31ddadb4006d16d3f776a8acb47c0",
+    "web/scripts/pipeline/snapshot.py": "3881acfd8e880d431ca17237c5fbc837af3bbe650817c1db24a146a85749334a",
+    "web/scripts/pipeline/gate.py": "592b59fda2602bc6374076c1ec3906f2cf456e883b0ebaba3da0423b20a5270b",
+    "web/scripts/pipeline/validation.py": "ceb3b19868eb40de1245634f3c19e30a30d1d1d6fd4f05b959c0e0ce5760e9c5",
+    "web/scripts/pipeline/discovery.py": "4fd215f34fcb6421fef7e824c83d3a1c0f5a7cd742a512235ee9ee5fd7e30acd",
+    "ops/ci/test_gate_continuity.py": "bd582c929f6cf5a1fc7a9e478934dc60816c066b021446f6f09a867c6c8e1b68"
+  },
+  "source": {
+    "runId": "e054ea73c89fe78db9702f94d2a3b669ce91884f7d7abda0a88698dbcfc7ec50",
+    "contractSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+    "coverageCheckedAt": "2026-10-23T11:34:15.010723Z",
+    "snapshotCheckedAt": "2026-10-23T11:34:34.020234Z",
+    "collectorEvents": 4,
+    "collectorHolds": 28
+  },
+  "result": {
+    "publishedEvents": 0,
+    "unresolvedHolds": 28,
+    "quarantinedFacts": 4,
+    "newAdmissions": 0,
+    "resolvedReviews": 0,
+    "snapshotSha256": "f4cd55db42ad690c26671d08ccbc97f10bf32bebf232263b7b50d246d6413873",
+    "quarantinedFactIds": [
+      "224b00aa63a063098804d0c66a4a94e3c2dfd2ccfde21cec84f6b5cf90bdbf14",
+      "3b2898c3c70e8e2edb7fb3147d849751e046af41c0414d60fc6834076a80ae57",
+      "d8589772bc58cb801c3df57ec830f223f7aef17d01746d128e655b5efca31d71",
+      "df46b12d4f5430d97adc156e63f681977ac0f7c27f248eec63651ec4303830b3"
+    ]
+  },
+  "checks": {
+    "all28RawHeldReceiptHashesPreserved": true,
+    "all4OlderPolicyFactsQuarantined": true,
+    "noUnreviewedAdmission": true,
+    "originalSourceFetchDatesPreserved": true,
+    "collectorIntegrityAndPolicyRunIdentityRechecked": true,
+    "archiveWritesDenied": true,
+    "networkAndSubprocessDenied": true
+  },
+  "verification": {
+    "testsRun": 12,
+    "failures": 0,
+    "errors": 0,
+    "output": "test_actual_shaped_old_policy_unpublished_event_is_quarantined_with_exact_evidence (test_gate_continuity.GateContinuityTests.test_actual_shaped_old_policy_unpublished_event_is_quarantined_with_exact_evidence) ... ok\ntest_all_28_unresolved_holds_survive_merge_with_14_published_holds (test_gate_continuity.GateContinuityTests.test_all_28_unresolved_holds_survive_merge_with_14_published_holds) ... ok\ntest_changed_source_bytes_and_wrong_coverage_cannot_be_hidden_by_snapshot_seal (test_gate_continuity.GateContinuityTests.test_changed_source_bytes_and_wrong_coverage_cannot_be_hidden_by_snapshot_seal) ... ok\ntest_different_date_quote_or_body_does_not_resolve (test_gate_continuity.GateContinuityTests.test_different_date_quote_or_body_does_not_resolve) ... ok\ntest_exact_current_acceptance_resolves_only_raw_hold_and_retains_proof (test_gate_continuity.GateContinuityTests.test_exact_current_acceptance_resolves_only_raw_hold_and_retains_proof) ... ok\ntest_forged_resolution_or_unaccepted_review_fails_closed (test_gate_continuity.GateContinuityTests.test_forged_resolution_or_unaccepted_review_fails_closed) ... ok\ntest_gate_keeps_live_publication_baseline_separate_from_collector_history (test_gate_continuity.GateContinuityTests.test_gate_keeps_live_publication_baseline_separate_from_collector_history) ... ok\ntest_old_collector_hold_does_not_reopen_proven_resolution (test_gate_continuity.GateContinuityTests.test_old_collector_hold_does_not_reopen_proven_resolution) ... ok\ntest_old_policy_acceptance_keeps_exact_hold_open (test_gate_continuity.GateContinuityTests.test_old_policy_acceptance_keeps_exact_hold_open) ... ok\ntest_resealed_event_tamper_or_deleted_evidence_cannot_pass_source_replay (test_gate_continuity.GateContinuityTests.test_resealed_event_tamper_or_deleted_evidence_cannot_pass_source_replay) ... ok\ntest_tampered_snapshot_or_wrong_run_fails_closed (test_gate_continuity.GateContinuityTests.test_tampered_snapshot_or_wrong_run_fails_closed) ... ok\ntest_trusted_already_published_event_and_evidence_are_not_removed_or_redated (test_gate_continuity.GateContinuityTests.test_trusted_already_published_event_and_evidence_are_not_removed_or_redated) ... ok\n\n----------------------------------------------------------------------\nRan 12 tests in 0.038s\n\nOK\n",
+    "resolutionTests": [
+      "test_exact_current_acceptance_resolves_only_raw_hold_and_retains_proof",
+      "test_different_date_quote_or_body_does_not_resolve",
+      "test_old_collector_hold_does_not_reopen_proven_resolution",
+      "test_old_policy_acceptance_keeps_exact_hold_open",
+      "test_forged_resolution_or_unaccepted_review_fails_closed"
+    ]
+  },
+  "usage": {
+    "sourceWebsiteRequests": 0,
+    "modelCalls": 0,
+    "baselineWrites": 0,
+    "budgetChanges": 0,
+    "remoteMutations": 0,
+    "promotions": 0,
+    "networkAttempts": 0,
+    "baselineWriteAttempts": 0
+  },
+  "scope": "Offline candidate verification; production unchanged. Historical replay receipt preserved."
+}

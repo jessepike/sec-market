@@ -1,0 +1,151 @@
+{
+  "sourceCodeSha256": {
+    "web/scripts/pipeline/agents.py": "868368521e819ff91fc8f15bfe1eb63369d9c945ec6abbd92d7d5c425f0a4c8b",
+    "web/scripts/pipeline/archive.py": "e0635ba9da142549461e550644342767d715cf6767af348f5d749ec9fb2adc05",
+    "web/scripts/pipeline/artifacts.py": "fcb93614b4b13a9026cfd1ecd186087c388008b2a2d4508c1e16d8a796fd4f30",
+    "web/scripts/pipeline/cli.py": "42600a703329d0e54c9517153f60877b558db8811023dfe1b78ea1260d8ed7cc",
+    "web/scripts/pipeline/contracts.py": "346acca4da6658967facb2732f3faefe0c3e1ae7dbd95e18314d628d42e7c7fd",
+    "web/scripts/pipeline/discovery.py": "4fd215f34fcb6421fef7e824c83d3a1c0f5a7cd742a512235ee9ee5fd7e30acd",
+    "web/scripts/pipeline/documents.py": "2f5f0edeb620df51c32e3b5c410d18d05a4f513aabd1f00e810d3cd83583e401",
+    "web/scripts/pipeline/engine.py": "cc94770a1257b1264f909fdb2421f59854f14300603d00328ca02913d24d10ee",
+    "web/scripts/pipeline/fetcher.py": "39841fa08861d0155de2b71faa8b8e06d393d205bd1aa5ea627091d9ed46f026",
+    "web/scripts/pipeline/gate.py": "592b59fda2602bc6374076c1ec3906f2cf456e883b0ebaba3da0423b20a5270b",
+    "web/scripts/pipeline/native.py": "30d72302532a6d7e43b86ef7b3884ce6fc7a91d638b0bf715db2a7c02332822c",
+    "web/scripts/pipeline/onboarding.py": "da80f2c15c3928c8de0f7795dbe2dc32da819ffc8730fbffd413f434ef580d01",
+    "web/scripts/pipeline/provenance.py": "7325f346b34fad9bbb306ad52ad847ff76f98d9d92e83b361912063b682805dd",
+    "web/scripts/pipeline/publication.py": "c43bcd823c2e46c53591f8507a0343d2c07322a8b0488dac7069c1e10569e291",
+    "web/scripts/pipeline/release.py": "bb901bd324078b8981e3a3ec30b7b0089241d42805418f7d8254836588ec6344",
+    "web/scripts/pipeline/reporting.py": "4bb438f0eb92cb4924da6986b534f3125bc5414326306d7df9a56fa9ee9f1cf4",
+    "web/scripts/pipeline/sec-adapter.mjs": "8710a7e55aaf0b9cb5de16d0b92614cc53c424fa5c57d2d1d219d0f5483a1f19",
+    "web/scripts/pipeline/sec-cache-fetch.mjs": "34a08b0d0c505da6284878ca2280eec43d0037ddc430d064073092027c04d37a",
+    "web/scripts/pipeline/selection.py": "405f6deb8d0b3258249f062cdb24a9fd47ba2d1da9025fdffe77242850a257d0",
+    "web/scripts/pipeline/snapshot.py": "3881acfd8e880d431ca17237c5fbc837af3bbe650817c1db24a146a85749334a",
+    "web/scripts/pipeline/storage.py": "66ce4736cc1f5fb50998d1e59067904e6145a8195fa1c1fd27415e8cf93f00a5",
+    "web/scripts/pipeline/validation.py": "ceb3b19868eb40de1245634f3c19e30a30d1d1d6fd4f05b959c0e0ce5760e9c5",
+    "web/scripts/pipeline/vercel.py": "e7236a5f532ca11e110dd0de7b9f1a7250f00f41912dbfbf5d04eda8b9017c61"
+  },
+  "schemaVersion": 1,
+  "verifiedAt": "2026-10-23T18:10:48.963193Z",
+  "applicationRevision": "f50660f26c78c42bdee1ec6f2f93a9a390a7b0d5",
+  "scope": "Offline retry integration only. No live coverage upgrade, collection, model invocation, archive write, production change or budget refund.",
+  "baselineArchiveCommit": "b78cfa15980d7be9da54b31e28b16a0840c1d112",
+  "baselineManifestSha256": "760b5c38fcb7fba2a3a223233539cce4eb5aa47d559571efa95b287047ac1ff8",
+  "baselineVerifiedFiles": 25777,
+  "baselineIntegrityEvidence": "Full exact archive hash verification performed by the parent before this replay; this replay uses isolated copy-on-write copies and independently verifies reused source bodies and receipts through reconcile.",
+  "contractSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+  "networkGuard": "Python DNS and connection entry points raise; fetcher, model and structured producer entry points raise and count any attempted invocation.",
+  "baselineHeadsUnchanged": true,
+  "scenarios": [
+    {
+      "scenario": "actual_121",
+      "startingCoverageSha256": "370c35cf48074658a53f920c66b4ba1e4be711a158111fd04a03ad9c8cfde410",
+      "startingCoverageCheckedAt": "2026-10-23T11:34:15.010723Z",
+      "successfulTasksBefore": 121,
+      "budgetBefore": {
+        "calls": 80,
+        "documents": 40,
+        "fetches": 5500
+      },
+      "budgetAfter": {
+        "calls": 80,
+        "documents": 40,
+        "fetches": 5500
+      },
+      "fetchCalls": 0,
+      "modelCalls": 0,
+      "structuredProducerCalls": 0,
+      "successfulReceiptCompletedAtMinimum": "2026-10-23T11:33:37.304593Z",
+      "successfulReceiptCompletedAtMaximum": "2026-10-23T11:34:14.202567Z",
+      "passes": [
+        {
+          "attempt": 1,
+          "successfulTasks": 121,
+          "requiredTasks": 557,
+          "complete": false,
+          "successfulReceiptSetSha256": "410e17146010a89cf8a5bf6e758098e2a2215da96e3cbd101ee01fab3bdc0d45",
+          "originalSuccessfulReceiptsUnchanged": true,
+          "originalSourceObservationReferencesUnchanged": true,
+          "budgetUnchanged": true
+        },
+        {
+          "attempt": 2,
+          "successfulTasks": 121,
+          "requiredTasks": 557,
+          "complete": false,
+          "successfulReceiptSetSha256": "410e17146010a89cf8a5bf6e758098e2a2215da96e3cbd101ee01fab3bdc0d45",
+          "originalSuccessfulReceiptsUnchanged": true,
+          "originalSourceObservationReferencesUnchanged": true,
+          "budgetUnchanged": true
+        }
+      ],
+      "sourceObservationInventorySha256": "a08050590ee3169af19aa0f334ef2eac9d8166870d3a9d84dfd5414298a6532e",
+      "sourceObservationCount": 319,
+      "uniqueSourceBodies": 282,
+      "sourceBodySha256Sample": [
+        "0fce8129e237331262a97979fde517a19797896a44f4d4eeab2a0767aaa6029f",
+        "9c4e836f51b8c835ba34dc55b1dc3a68ca980bf88453e288683311592b1639b3",
+        "761c088227adf88d69e0b950068488fbd8af5a27f36d8b9bf049a3a883989559",
+        "fc2072a68239d888ccd57a2aed52e140e9e271892fef6626ccb3529ba4085c64",
+        "9270d5521607c0b16e4f25e00d1d6f13fa13b3de44aa8a4000dd80ee6b66696c"
+      ],
+      "sourceTimeConservationEvidence": "Original successful receipts and source observation references remained identical in both replays; reconcile independently verified the referenced source hashes and source-specific ages. This inventory hashes their unchanged original fetch and verification timestamps."
+    },
+    {
+      "scenario": "counterfactual_authenticated_244",
+      "startingCoverageSha256": "12baabcbf3f9eff5fab2022949c57ff5ffbf14b3361a715f67dafc8421ed87cb",
+      "startingCoverageCheckedAt": "2026-10-23T04:15:33.078892Z",
+      "successfulTasksBefore": 244,
+      "budgetBefore": {
+        "calls": 80,
+        "documents": 40,
+        "fetches": 5500
+      },
+      "budgetAfter": {
+        "calls": 80,
+        "documents": 40,
+        "fetches": 5500
+      },
+      "fetchCalls": 0,
+      "modelCalls": 0,
+      "structuredProducerCalls": 0,
+      "successfulReceiptCompletedAtMinimum": "2026-10-23T04:14:22.393755Z",
+      "successfulReceiptCompletedAtMaximum": "2026-10-23T04:15:21.500499Z",
+      "passes": [
+        {
+          "attempt": 1,
+          "successfulTasks": 244,
+          "requiredTasks": 557,
+          "complete": false,
+          "successfulReceiptSetSha256": "1a171aa8b4c7f904ecbc5dc8672ac679433270255f3fe5834a72ef19018ab64a",
+          "originalSuccessfulReceiptsUnchanged": true,
+          "originalSourceObservationReferencesUnchanged": true,
+          "budgetUnchanged": true
+        },
+        {
+          "attempt": 2,
+          "successfulTasks": 244,
+          "requiredTasks": 557,
+          "complete": false,
+          "successfulReceiptSetSha256": "1a171aa8b4c7f904ecbc5dc8672ac679433270255f3fe5834a72ef19018ab64a",
+          "originalSuccessfulReceiptsUnchanged": true,
+          "originalSourceObservationReferencesUnchanged": true,
+          "budgetUnchanged": true
+        }
+      ],
+      "sourceObservationInventorySha256": "88b93821a0a87801fe74077bfeaea076461af5f6791cb86634bf97b90f035b6a",
+      "sourceObservationCount": 442,
+      "uniqueSourceBodies": 369,
+      "sourceBodySha256Sample": [
+        "505fc7264c13b2007e198c1746a8757dfb33f990ccaec0b68288d032eb94681f",
+        "5adcce8c3be3d621a242dcecb0a50e6c3af03e9a4c0dee7a09cca3646a836407",
+        "91a29691f4e71e8b68a02cd2180c8814a701fe52128f1f2b5545f23b733c7b26",
+        "28ca14e5815a207367f2c76481b29f568879463e8d6341e3a7036a32b6bc2860",
+        "b973219c21130948e95082bffa553d0277c0a273cf8c51edecbbed59ac07d9e2"
+      ],
+      "sourceTimeConservationEvidence": "Original successful receipts and source observation references remained identical in both replays; reconcile independently verified the referenced source hashes and source-specific ages. This inventory hashes their unchanged original fetch and verification timestamps."
+    }
+  ],
+  "interpretation": "The actual 121 checks survive repeated exhausted retries with identical original successful receipts and source times. Selecting the authentic historical 244-check coverage as a local starting head demonstrates that this implementation would preserve those 244 checks under the same exhausted ledger. It does not authenticate unanchored legacy attempts or promote 121 live checks to 244. Failed and missing tasks stay incomplete; source timestamps are never renewed by reuse.",
+  "supersedesReplayForCurrentCode": "coverage-retry-replay-2026-10-23.json",
+  "priorReceiptPreserved": true
+}

@@ -6,7 +6,7 @@ It refuses existing output files.
 
 ```sh
 python3 ops/evaluation/scorecard.py --manifest /path/to/pinned-inputs.json --output /path/to/new-scorecard
-python3 -m unittest discover -s ops/evaluation -p 'test_*.py' -v
+python3 -m unittest discover -s ops/ci -p 'test_evaluation.py' -v
 ```
 
 The manifest explicitly fixes evaluation time, application revision and the raw SHA-256 of every

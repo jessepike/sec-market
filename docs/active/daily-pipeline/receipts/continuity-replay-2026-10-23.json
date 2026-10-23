@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "kind": "offline_collector_publication_continuity_replay",
+  "applicationBaseline": "7bd94ec77e99462c068f254e134235a894585cbb",
+  "candidateCommit": "f50660f2",
+  "archive": {
+    "commit": "b78cfa15980d7be9da54b31e28b16a0840c1d112",
+    "manifestSha256": "760b5c38fcb7fba2a3a223233539cce4eb5aa47d559571efa95b287047ac1ff8",
+    "verifiedFiles": 25777,
+    "collectorSnapshotBytes": 466580,
+    "collectorSnapshotFileSha256": "6bb35e0e786c96cf1ec51521ed60dde66a53745b871c7d566475690e6400da95",
+    "collectorSnapshotSha256": "c659d3cf6d969ab7d559779d60f2f69436a20aad1e04c556a5c407b16b59cc5e"
+  },
+  "source": {
+    "runId": "e054ea73c89fe78db9702f94d2a3b669ce91884f7d7abda0a88698dbcfc7ec50",
+    "contractSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+    "coverageCheckedAt": "2026-10-23T11:34:15.010723Z",
+    "snapshotCheckedAt": "2026-10-23T11:34:34.020234Z",
+    "events": 4,
+    "unresolvedHolds": 28
+  },
+  "replayAt": "2026-10-23T12:00:00Z",
+  "publishedBefore": {
+    "genericEvents": 0,
+    "unresolvedHolds": 14
+  },
+  "candidateAfter": {
+    "genericEvents": 0,
+    "unresolvedHolds": 28,
+    "quarantinedFacts": 4,
+    "snapshotSha256": "f4cd55db42ad690c26671d08ccbc97f10bf32bebf232263b7b50d246d6413873"
+  },
+  "quarantinedFactIds": [
+    "224b00aa63a063098804d0c66a4a94e3c2dfd2ccfde21cec84f6b5cf90bdbf14",
+    "3b2898c3c70e8e2edb7fb3147d849751e046af41c0414d60fc6834076a80ae57",
+    "d8589772bc58cb801c3df57ec830f223f7aef17d01746d128e655b5efca31d71",
+    "df46b12d4f5430d97adc156e63f681977ac0f7c27f248eec63651ec4303830b3"
+  ],
+  "checks": {
+    "collectorSnapshotDigestVerified": true,
+    "collectorRunPolicyAndCoverageIdentityVerified": true,
+    "heldClaimCandidateEvidenceObservationAndReviewHashesVerified": true,
+    "historicalFactsReplayedAgainstRecordedIndependentReviewPolicy": true,
+    "historicalEventAndLinkedEvidenceMatchedArchivedSources": true,
+    "allUnresolvedHoldsRetained": true,
+    "olderPolicyUnpublishedFactsNotAdmitted": true,
+    "originalSourceFetchTimesPreserved": true,
+    "sourceStoreRejectsWrites": true
+  },
+  "verification": {
+    "combinedOperationalTestsPassed": 107,
+    "combinedPipelineTestsPassed": 109,
+    "syntheticCoverage": [
+      "older-policy event quarantined with its full linked evidence",
+      "28 unresolved holds survive a 14-item published baseline",
+      "trusted published events and evidence retain original dates",
+      "tampered snapshot and wrong run rejected",
+      "resealed event edits and missing linked evidence rejected",
+      "changed source bytes and coverage identity rejected",
+      "gate keeps live certified baseline separate from collector continuity"
+    ]
+  },
+  "usage": {
+    "baselineWrites": 0,
+    "sourceWebsiteRequests": 0,
+    "modelCalls": 0,
+    "budgetChanges": 0,
+    "remoteMutations": 0,
+    "promotions": 0,
+    "earlierReadOnlyGitHubArchiveRequests": 41,
+    "replayUsesVerifiedLocalRestoreWithoutNetwork": true
+  },
+  "remainingIssue": "The current builder preserves old review items without explicit resolution. A future closure must bind to successful current-policy claim, evidence and independent review; this fix does not waive any hold.",
+  "scope": "Candidate implementation and offline replay only. No production deployment or full-coverage claim."
+}

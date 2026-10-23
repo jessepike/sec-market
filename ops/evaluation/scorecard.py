@@ -155,7 +155,8 @@ def evaluate(manifest, base=Path('.')):
     for axis, buckets in groups.items():
         rows = []
         for label, ids in sorted(buckets.items()):
-            rows.append(dict(id=label, requiredTasks=len(ids), successfulTasks=len(set(ids) & good),
+            display = suppliers[label]['name'] if axis == 'supplier' else label.replace('_', ' ').replace('-', ' ')
+            rows.append(dict(id=label, label=display, requiredTasks=len(ids), successfulTasks=len(set(ids) & good),
                              missingBindings=sum(tasks[tid]['sourceId'] is None for tid in ids),
                              candidateBindings=sum(sources.get(tasks[tid]['sourceId'], {}).get('registration') == 'candidate' for tid in ids),
                              verifiedBindings=sum(sources.get(tasks[tid]['sourceId'], {}).get('registration') == 'verified' for tid in ids),
@@ -174,15 +175,32 @@ def evaluate(manifest, base=Path('.')):
 
 
 def markdown(report):
+    labels = {
+        'coverage.required_tasks': 'All declared source checks',
+        'coverage.sec_tasks': 'SEC source checks',
+        'freshness.collection_receipt': 'Age of the collection check',
+        'freshness.all_required_checks': 'Freshness across the declared roster',
+        'accuracy.known_release_checks': 'Known release checks',
+        'accuracy.claim_precision': 'Claim accuracy on a reviewed benchmark',
+        'accuracy.eligible_event_recall': 'Eligible events found on a reviewed benchmark',
+        'durability.scheduled_execution': 'Actual scheduled collection',
+        'durability.publication': 'Exact release publication',
+        'durability.rollback_restoration': 'Rollback and restoration',
+        'durability.data_continuity': 'Preserved facts and pending work',
+        'durability.sustained_operation': 'Sustained operation',
+        'value.observed_use': 'Observed reader value',
+        'review_queue.pending': 'Unresolved reviews retained',
+        'historical_candidates.retained_or_quarantined': 'Historical candidates retained or quarantined',
+    }
     lines = ['# Operational evaluation', '', f"Evaluated: {report['evaluatedAt']}", f"Revision: `{report['appRevision']}`", f"Run: `{report['runId']}`", '', report['trustBoundary'], '',
              '| Measure | Status | Observed / required | Observed at | Evidence | Limitations |', '|---|---|---|---|---|---|']
     for m in report['measures']:
         count = 'unmeasured' if m['numerator'] is None else f"{m['numerator']} / {m['denominator']}"
         if 'ageHours' in m:
             count = f"{m['ageHours']:.2f}h / maximum {m['maximumAgeHours']}h"
-        lines.append(f"| {m['id']} | {m['status']} | {count} | {m['observedAt'] or 'Not supplied'} | {', '.join(m['evidence'])} | {m['limitations']} |")
+        lines.append(f"| {labels.get(m['id'], m['id'])} | {m['status']} | {count} | {m['observedAt'] or 'Not supplied'} | {', '.join(m['evidence'])} | {m['limitations']} |")
         for check in m.get('checks', []):
-            lines.append(f"| {check['id']} | {'pass' if check['passed'] else 'fail'} | {check['retained']} / {check['expected']} retained | {m['observedAt']} | {', '.join(m['evidence'])} | Durable retention or quarantine; not publication eligibility. |")
+            lines.append(f"| {labels.get(check['id'], check['id'])} | {'pass' if check['passed'] else 'fail'} | {check['retained']} / {check['expected']} retained | {m['observedAt']} | {', '.join(m['evidence'])} | Durable retention or quarantine; not publication eligibility. |")
     lines += ['', '## Pinned inputs', '']
     for name, pin in report['inputs'].items():
         lines.append(f"- {name}: `{pin['path']}` SHA-256 `{pin['sha256']}`")
@@ -195,7 +213,7 @@ def markdown(report):
         lines += ['', '### By ' + axis, '', '| Group | Successful / required | Verified bindings | Candidates | Missing bindings | Outcomes |', '|---|---|---|---|---|---|']
         for row in rows:
             outcomes = ', '.join(f'{key}: {value}' for key, value in sorted(row['outcomes'].items()))
-            lines.append(f"| {row['id']} | {row['successfulTasks']} / {row['requiredTasks']} | {row['verifiedBindings']} | {row['candidateBindings']} | {row['missingBindings']} | {outcomes} |")
+            lines.append(f"| {row.get('label', row['id'])} | {row['successfulTasks']} / {row['requiredTasks']} | {row['verifiedBindings']} | {row['candidateBindings']} | {row['missingBindings']} | {outcomes} |")
     lines += ['', '## Next actions by evidence gap', '',
               '- Missing bindings: qualify an explicit source and adapter against archived primary evidence; preserve the obligation until registered.',
               '- Candidate bindings: verify entity scope, date boundaries, pagination and positive/quiet/blocked cases before awarding coverage.',

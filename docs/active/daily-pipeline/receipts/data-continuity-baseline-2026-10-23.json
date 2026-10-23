@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "runId": "e054ea73c89fe78db9702f94d2a3b669ce91884f7d7abda0a88698dbcfc7ec50",
+  "appRevision": "7bd94ec77e99462c068f254e134235a894585cbb",
+  "contractSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+  "checkedAt": "2026-10-23T17:42:59Z",
+  "sourceSnapshotSha256": "6bb35e0e786c96cf1ec51521ed60dde66a53745b871c7d566475690e6400da95",
+  "publishedSnapshotSha256": "53b49106fa9118d603db5e64e37cf03f7f2c6fd1fb797acf18e73f540196c84f",
+  "archiveCommit": "b78cfa15980d7be9da54b31e28b16a0840c1d112",
+  "sourceCollectionRunId": 39946689429,
+  "gateRunId": 39947450834,
+  "measures": [
+    {
+      "id": "review_queue.pending",
+      "expected": 28,
+      "retained": 14,
+      "passed": false
+    },
+    {
+      "id": "historical_candidates.retained_or_quarantined",
+      "expected": 4,
+      "retained": 0,
+      "passed": false
+    }
+  ],
+  "limitations": [
+    "Read-only comparison of the hash-checked archived collector snapshot and exact accepted gate snapshot.",
+    "The four historical events include older-policy reviews and must be retained as pending work, not blindly published.",
+    "This records the live baseline defect. A local fix or passing synthetic test does not prove repaired production continuity."
+  ]
+}
