@@ -92,7 +92,7 @@ the release and detached deployment receipt. Pending reviews stop before consumi
 First publication, crash recovery and rollback enforce the publication date; later runs retain
 the original correction dates. The independent monitor includes pending correction work.
 
-Local checks pass 315 data, 112 pipeline, 34 browser, 184 operational and 12 monitor tests.
+Local checks pass 315 data, 112 pipeline, 34 browser, 185 operational and 12 monitor tests.
 The full build passes. Disabled desktop/phone renders are pixel-identical to the earlier candidate.
 An isolated synthetic fixture exercises the corrected page and affected supplier views; it is
 explicitly non-admitting and cannot be published through the real gate. The five real groups'

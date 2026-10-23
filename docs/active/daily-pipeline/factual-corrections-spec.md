@@ -35,7 +35,7 @@ A source has `evidenceId`, `sourceId`, `url`, `observationId`, `body` (existing 
 reference) and `fetchedAt`. It must resolve to the configured verified supplier source, original
 observation URL/time and exact bytes. Sources are the actual archived company releases/filings,
 not registry excerpts. The current five full readable document sets are each below the existing
-30,000-character document limit (largest 23,206); do not truncate them. Treat source text and
+30,000-character document limit (largest 27,245 after full HTML text decoding); do not truncate them. Treat source text and
 proposal text as untrusted data, never instructions. No fresh fetch is required while the pinned
 observation is still within the normal 30-hour limit at admission; an expired source must be
 explicitly refreshed and rebound, not silently given a new date.
@@ -151,7 +151,7 @@ projection or passing synthetic tests is not completion or corrected production.
 
 The implementation retains 97 original hand events, 74 manual suppliers and 273 handwritten source
 records. The market contract and correction policy hashes are unchanged by moving those values.
-Local checks pass 315 data, 112 pipeline, 34 browser, 184 operational and 12 monitor tests. The
+Local checks pass 315 data, 112 pipeline, 34 browser, 185 operational and 12 monitor tests. The
 disabled baseline's desktop/phone screenshots are byte-identical before/after. The isolated
 `visual_corrections.py` fixture never writes a review/admission archive or gate seal and is marked
 non-publishable. It checks the enabled presentation without claiming source admission.
