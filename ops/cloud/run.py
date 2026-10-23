@@ -6,6 +6,8 @@ performed by the calling scheduled agent. Publication retains the existing gate.
 """
 import argparse
 import json
+import os
+import re
 import shutil
 import subprocess
 import sys
@@ -36,11 +38,31 @@ def archive_for(root):
     return GitArchive(root / "archive", "https://github.com/jessepike/sec-market.git")
 
 
+def require_source_probe_context(session_id):
+    """Only the existing private, manual main workflow can own this profile."""
+    require(os.environ.get('GITHUB_ACTIONS') == 'true'
+            and os.environ.get('GITHUB_REPOSITORY') == 'jessepike/sec-market'
+            and os.environ.get('GITHUB_REF') == 'refs/heads/main'
+            and os.environ.get('GITHUB_EVENT_NAME') == 'workflow_dispatch', 'SOURCE_PROBE_PRIVATE_MANUAL_MAIN_REQUIRED')
+    run_id, attempt = os.environ.get('GITHUB_RUN_ID', ''), os.environ.get('GITHUB_RUN_ATTEMPT', '')
+    require(re.fullmatch(r'[1-9][0-9]*', run_id) and re.fullmatch(r'[1-9][0-9]*', attempt)
+            and session_id == f'github-{run_id}-{attempt}', 'SOURCE_PROBE_RUN_IDENTITY_REQUIRED')
+    event = json.loads(Path(os.environ.get('GITHUB_EVENT_PATH', '')).read_text())
+    selected = event.get('inputs', {}).get('source_probe')
+    require(event.get('repository', {}).get('full_name') == 'jessepike/sec-market'
+            and event.get('repository', {}).get('private') is True
+            and (selected is True or selected == 'true'), 'SOURCE_PROBE_DISPATCH_INPUT_REQUIRED')
+
+
 def acquire_lease(store, session, now):
     previous = store.read("heads/cloud-lease.json")
     require(not previous or previous.get("releasedAt") or instant(previous["expiresAt"]) <= instant(now), "ANOTHER_CLOUD_SESSION_HAS_ACTIVE_LEASE")
     lease = {"sessionId": session["sessionId"], "role": session["role"], "startedAt": now,
              "expiresAt": (instant(now) + timedelta(hours=3)).isoformat().replace("+00:00", "Z")}
+    if 'checkpointProfile' in session:
+        require(session['checkpointProfile'] == 'source_probe', 'UNKNOWN_CHECKPOINT_PROFILE')
+        lease['checkpointProfile'] = session['checkpointProfile']
+        lease['sessionSha256'] = digest(session)
     store.compare_and_swap("cloud-lease", previous, lease)
 
 
@@ -61,6 +83,39 @@ def summary(store):
 
 def checkpoint(root, store, session, phase, result, finish=False):
     now = utcnow()
+    profile = session.get('checkpointProfile')
+    lease = store.read('heads/cloud-lease.json')
+    require(profile in (None, 'source_probe'), 'UNKNOWN_CHECKPOINT_PROFILE')
+    if profile or (lease or {}).get('checkpointProfile'):
+        require(profile == 'source_probe' and lease and lease.get('checkpointProfile') == profile
+                and lease.get('sessionSha256') == digest(session)
+                and session['role'] == 'collector' and session.get('executionMode') == 'github_subscription',
+                'SOURCE_PROBE_PROFILE_UNBOUND')
+        require_source_probe_context(session['sessionId'])
+        require_lease(store, session, now)
+        retained_session = LocalStore(root).read('session.json')
+        require((retained_session is None and phase == 'bootstrap') or retained_session == session,
+                'SOURCE_PROBE_SESSION_METADATA_DIFFERS')
+        entry = {'sessionId': session['sessionId'], 'role': session['role'], 'appRevision': session['appRevision'],
+                 'checkpointProfile': profile, 'phase': phase, 'recordedAt': now, 'result': result,
+                 'contractSha256': digest(json.loads((REPO / 'contracts/market.json').read_text()))}
+        store.write_once(f"ci/source-probe-checkpoints/{digest(session['sessionId'])}/{digest(entry)}.json", entry)
+    else:
+        entry = collection_checkpoint(store, session, phase, result, now)
+    if finish:
+        lease = store.read("heads/cloud-lease.json")
+        require(lease and lease["sessionId"] == session["sessionId"], "CLOUD_LEASE_CHANGED")
+        store.compare_and_swap("cloud-lease", lease, {**lease, "releasedAt": now})
+    runtime = LocalStore(root)
+    previous_ack = runtime.read("heads/remote-archive.json")
+    expected = previous_ack["commit"] if previous_ack else session["restored"]["commit"]
+    acknowledged = archive_for(root).push(store, expected_commit=expected)
+    runtime.compare_and_swap("remote-archive", previous_ack, acknowledged)
+    return {"receipt": entry, "archive": acknowledged}
+
+
+def collection_checkpoint(store, session, phase, result, now):
+    """The default collection/heartbeat protocol remains unchanged."""
     entry = {"sessionId": session["sessionId"], "role": session["role"], "appRevision": session["appRevision"],
              "phase": phase, "checkedAt": now, "coverage": summary(store), "result": result,
              "contractSha256": digest(json.loads((REPO / "contracts/market.json").read_text())),
@@ -74,20 +129,15 @@ def checkpoint(root, store, session, phase, result, finish=False):
                  "coverageComplete": entry["coverage"]["complete"],
                  "publication": result.get("publication", entry["publication"]) if isinstance(result, dict) else entry["publication"]}
     store.compare_and_swap("worker-heartbeat", store.read("heads/worker-heartbeat.json"), heartbeat)
-    if finish:
-        lease = store.read("heads/cloud-lease.json")
-        require(lease and lease["sessionId"] == session["sessionId"], "CLOUD_LEASE_CHANGED")
-        store.compare_and_swap("cloud-lease", lease, {**lease, "releasedAt": now})
-    runtime = LocalStore(root)
-    previous_ack = runtime.read("heads/remote-archive.json")
-    expected = previous_ack["commit"] if previous_ack else session["restored"]["commit"]
-    acknowledged = archive_for(root).push(store, expected_commit=expected)
-    runtime.compare_and_swap("remote-archive", previous_ack, acknowledged)
-    return {"receipt": entry, "archive": acknowledged}
+    return entry
 
 
-def bootstrap(root, role, session_id, revision, execution_mode="codex_cloud_native"):
+def bootstrap(root, role, session_id, revision, execution_mode="codex_cloud_native", checkpoint_profile=None):
     require(role in ("collector", "governance") and session_id and len(session_id) <= 160, "CLOUD_ROLE_AND_CONTEXT_REQUIRED")
+    require(checkpoint_profile in (None, 'source_probe'), 'UNKNOWN_CHECKPOINT_PROFILE')
+    if checkpoint_profile:
+        require(role == 'collector' and execution_mode == 'github_subscription', 'SOURCE_PROBE_PROFILE_UNBOUND')
+        require_source_probe_context(session_id)
     require(revision == git("rev-parse", "HEAD"), "CLOUD_REVISION_DIFFERS_FROM_REVIEWED_PIN")
     require(not git("status", "--porcelain", "--untracked-files=normal"), "CLOUD_CHECKOUT_MUST_BE_CLEAN")
     require(not root.is_relative_to(REPO), "Cloud runtime must be outside application checkout")
@@ -103,6 +153,8 @@ def bootstrap(root, role, session_id, revision, execution_mode="codex_cloud_nati
     require(execution_mode in ("codex_cloud_native", "github_subscription"), "Unknown execution mode")
     session = {"schemaVersion": 1, "sessionId": session_id, "role": role, "appRevision": revision, "executionMode": execution_mode,
                "startedAt": utcnow(), "restored": restored}
+    if checkpoint_profile:
+        session['checkpointProfile'] = checkpoint_profile
     acquire_lease(store, session, session["startedAt"])
     # Win the remote fast-forward race before exposing any model work or budgets.
     receipt = checkpoint(root, store, session, "bootstrap", {"restored": restored})
@@ -117,6 +169,7 @@ def execute(args):
         return bootstrap(root, args.role, args.session_id, args.revision)
     session = LocalStore(root).read("session.json")
     require(session is not None, "Bootstrap a fresh cloud runtime first")
+    require(not session.get('checkpointProfile'), 'SOURCE_PROBE_NATIVE_WORK_FORBIDDEN')
     require(session["appRevision"] == git("rev-parse", "HEAD"), "CLOUD_APPLICATION_PIN_CHANGED")
     require(not git("status", "--porcelain", "--untracked-files=normal"), "CLOUD_CHECKOUT_MUST_BE_CLEAN")
     store = LocalStore(root / "state")

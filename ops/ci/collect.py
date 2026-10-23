@@ -21,6 +21,7 @@ from contracts import digest, instant, require, utcnow, validate_contract
 from engine import Pipeline
 from fetcher import Fetcher
 from reporting import csv_matrix, inventory, markdown_matrix
+from onboarding import PersistentProbeBudget, ProbeReservationDenied, probe_sources
 from snapshot import build_snapshot
 from storage import LocalStore
 from validation import reconcile
@@ -91,6 +92,17 @@ def escrow_budgets(root, state, session, contract, at):
     limits = {"calls": contract["model"]["maxCallsPerRun"],
               "documents": contract["model"]["maxDocumentsPerRun"],
               "fetches": contract["schedule"].get("maxFetchesPerRun", 5000)}
+    if session.get('checkpointProfile') is not None:
+        lease = state.read('heads/cloud-lease.json')
+        require(session.get('checkpointProfile') == 'source_probe' and lease
+                and lease.get('checkpointProfile') == 'source_probe'
+                and lease.get('sessionSha256') == digest(session)
+                and LocalStore(root).read('session.json') == session, 'SOURCE_PROBE_PROFILE_UNBOUND')
+        session_runtime.require_source_probe_context(session['sessionId'])
+        session_runtime.require_lease(state, session, utcnow())
+        # Diagnostics can consume fetches only. A killed probe cannot imply
+        # unknown model calls/documents, so retain those exact prior counters.
+        limits = {'fetches': limits['fetches']}
     ceiling = {**(before or {}), **{key: max((before or {}).get(key, 0), limit) for key, limit in limits.items()}}
     state.write_once(f"ci/budget-escrows/{digest(session['sessionId'])}.json",
                      {"sessionId": session["sessionId"], "day": at[:10], "before": before, "ceiling": ceiling})
@@ -196,18 +208,86 @@ def reuse_scheduled_collection(state, contract, now, lookup=github_run, correcti
             'executionMode':'github_subscription','publication':{'published':False,'reason':'SEPARATE_PUBLISHER_REQUIRED'}}
 
 
-def execute(root, maximum_seconds=1200, publisher_config=None):
+def execute_source_probe(root, state, session, contract, maximum_seconds):
+    """Leased diagnostics share escrow/CAS but never collection or account work."""
+    require(session.get('checkpointProfile') == 'source_probe', 'SOURCE_PROBE_PROFILE_UNBOUND')
+    session_runtime.require_source_probe_context(session['sessionId'])
+    cancelled = False
+    previous_signals = {}
+    try:
+        # This exact day is escrowed. A midnight crossing during the remote
+        # acknowledgement is denied by the same bound context before transport.
+        budget = PersistentProbeBudget(state, contract, clock=utcnow, monotonic=time.monotonic,
+                                       maximum_seconds=maximum_seconds)
+        def stop(*_args):
+            nonlocal cancelled
+            cancelled = True
+            budget.deadline = 0
+        previous_signals = {s: signal.getsignal(s) for s in (signal.SIGINT, signal.SIGTERM)}
+        for signum in previous_signals:
+            signal.signal(signum, stop)
+        escrow_budgets(root, state, session, contract, budget.started_at)
+        report = probe_sources(contract, state, Fetcher(state, timeout=12), reservation_context=budget)
+        # The final in-flight request can finish after its deadline/day even
+        # when there is no next request to trigger the ordinary guard.
+        try:
+            budget.before_fetch()
+        except ProbeReservationDenied as error:
+            report.update(executionCompleted=False, budgetDenied=True, completionDenial=error.reason)
+        report['reservationContext'] = budget.summary()
+        completed = report['executionCompleted'] and not cancelled
+        result = {'schemaVersion': 1, 'checkpointProfile': 'source_probe',
+                  'githubRunId': os.environ['GITHUB_RUN_ID'],
+                  'githubRunAttempt': int(os.environ['GITHUB_RUN_ATTEMPT']),
+                  'githubEventName': os.environ['GITHUB_EVENT_NAME'], 'githubRef': os.environ['GITHUB_REF'],
+                  'appRevision': session['appRevision'], 'contractSha256': digest(contract),
+                  'diagnostic': report, 'executionCompleted': completed,
+                  'outcome': 'cancelled' if cancelled else 'completed_diagnostic' if completed else 'budget_denied',
+                  'modelCalls': 0, 'apiFallback': False, 'semanticAdmission': False,
+                  'coverageCredit': False, 'sourceChecksCredited': 0, 'qualifiedSources': 0,
+                  'publication': {'published': False, 'reason': 'SOURCE_PROBE_DIAGNOSTIC_ONLY'}}
+        state.write_once(f"ci/source-probe-runs/{result['githubRunId']}-{result['githubRunAttempt']}.json", result)
+        result['archive'] = session_runtime.checkpoint(root, state, session, 'finish', result, finish=True)['archive']
+        return result
+    except Exception as error:
+        failed = {'checkpointProfile': 'source_probe', 'errorType': type(error).__name__,
+                  'executionCompleted': False, 'outcome': 'failed', 'modelCalls': 0,
+                  'semanticAdmission': False, 'coverageCredit': False,
+                  'publication': {'published': False, 'reason': 'SOURCE_PROBE_DIAGNOSTIC_ONLY'}}
+        state.write_once(f"ci/source-probe-failures/{digest(session['sessionId'])}/{digest(failed)}.json", failed)
+        lease = state.read('heads/cloud-lease.json')
+        if lease and not lease.get('releasedAt'):
+            session_runtime.checkpoint(root, state, session, 'failed', failed, finish=True)
+        raise
+    finally:
+        for signum, handler in previous_signals.items():
+            signal.signal(signum, handler)
+
+
+def execute(root, maximum_seconds=1200, publisher_config=None, *, source_probe=False):
     require(os.environ.get("GITHUB_ACTIONS") == "true" and os.environ.get("GITHUB_REPOSITORY") == PROJECT, "PRIVATE_GITHUB_RUNNER_REQUIRED")
     require(60 <= maximum_seconds <= 1200, "CI collection budget may not exceed twenty minutes")
+    require(type(source_probe) is bool, 'SOURCE_PROBE_MODE_MUST_BE_BOOLEAN')
+    identifier = "github-" + os.environ["GITHUB_RUN_ID"] + "-" + os.environ.get("GITHUB_RUN_ATTEMPT", "1")
+    if source_probe:
+        session_runtime.require_source_probe_context(identifier)
     auth = os.environ.pop("SMP_CODEX_AUTH_JSON", "")
     writer = os.environ.pop("SMP_AUTH_STORE_TOKEN", "")
     root = Path(root).resolve()
     revision = session_runtime.git("rev-parse", "HEAD")
-    identifier = "github-" + os.environ["GITHUB_RUN_ID"] + "-" + os.environ.get("GITHUB_RUN_ATTEMPT", "1")
     recover(root / 'abandoned-lease-recovery')
-    session_runtime.bootstrap(root, "collector", identifier, revision, execution_mode="github_subscription")
+    profile = {'checkpoint_profile': 'source_probe'} if source_probe else {}
+    session_runtime.bootstrap(root, "collector", identifier, revision, execution_mode="github_subscription", **profile)
     state = LocalStore(root / "state")
     session = LocalStore(root).read("session.json")
+    if source_probe:
+        try:
+            contract = validate_contract(json.loads((REPO / 'contracts/market.json').read_text()))
+        except Exception as error:
+            session_runtime.checkpoint(root, state, session, 'failed',
+                {'errorType': type(error).__name__, 'executionCompleted': False, 'published': False}, finish=True)
+            raise
+        return execute_source_probe(root, state, session, contract, maximum_seconds)
     keeper = AuthStore(root / "auth", writer)
     try:
         contract = validate_contract(json.loads((REPO / "contracts/market.json").read_text()))
@@ -289,10 +369,11 @@ if __name__ == "__main__":
     parser.add_argument("--root", required=True)
     parser.add_argument("--maximum-seconds", type=int, default=1200)
     parser.add_argument("--publisher-config")
+    parser.add_argument('--source-probe', action='store_true', help='Private manual main diagnostics with the shared lease and budget')
     parser.add_argument("--output", required=True)
     args = parser.parse_args()
     try:
-        result = execute(args.root, args.maximum_seconds, args.publisher_config)
+        result = execute(args.root, args.maximum_seconds, args.publisher_config, source_probe=args.source_probe)
     except Exception as error:
         result = {"complete": False, "executionCompleted": False, "outcome": "failed",
                   "reason": str(error)[:120] if type(error) is RuntimeError else type(error).__name__, "apiFallback": False}

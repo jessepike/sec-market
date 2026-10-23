@@ -2,6 +2,7 @@
 """Daily pipeline commands. A failed/degraded run deliberately exits nonzero."""
 import argparse
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -28,7 +29,7 @@ def main():
     parser.add_argument("--expected-sha256", help="Independently retained backup root hash")
     parser.add_argument("--archive-mirror", help="Dedicated Git mirror outside the live state directory")
     parser.add_argument("--archive-remote", default="https://github.com/jessepike/sec-market.git")
-    parser.add_argument("--expected-commit", help="Pinned remote archive commit for restoration")
+    parser.add_argument("--expected-commit", help="Pinned remote archive commit for push or restoration")
     parser.add_argument("--subscription-worker", action="store_true", help="Use existing ChatGPT-authenticated Codex CLI; never API-key fallback")
     parser.add_argument("--native-worker", action="store_true", help="Queue model work for the scheduled native Codex agent; no nested login")
     parser.add_argument("--role", choices=["collector", "governance"])
@@ -36,6 +37,10 @@ def main():
     parser.add_argument("--task-id")
     parser.add_argument("--response-file")
     args = parser.parse_args()
+    if args.command == 'onboard':
+        parser.error('Standalone live onboarding is disabled; use the private main collector workflow manual source_probe input for leased diagnostics')
+    if args.command == 'archive-push' and not re.fullmatch(r'[0-9a-f]{40}', args.expected_commit or ''):
+        parser.error('archive-push requires --expected-commit with the full acknowledged remote commit')
     contract = validate_contract(json.loads(Path(args.contract).read_text()))
     store = LocalStore(args.state)
     at = args.at or utcnow()
@@ -61,19 +66,6 @@ def main():
         if not all((args.task_id, args.response_file, args.role, args.session_id)):
             parser.error("Submit requires --task-id, --response-file, --role and --session-id")
         result = submit_work(store, args.task_id, json.loads(Path(args.response_file).read_text()), args.role, args.session_id, digest(contract), at)
-    elif args.command == "onboard":
-        if args.at is not None:
-            parser.error("Onboarding network probes cannot use --at; the actual current UTC day owns their budget")
-        if any((args.native_worker, args.subscription_worker, args.role, args.session_id, args.task_id, args.response_file)):
-            parser.error("Onboarding probes accept no native or subscription worker flags")
-        from onboarding import PersistentProbeBudget, probe_sources
-        reservation_context = PersistentProbeBudget(store, contract, clock=utcnow)
-        result = probe_sources(contract, store, Fetcher(store, timeout=12), reservation_context=reservation_context)
-        if args.destination:
-            Path(args.destination).write_text(json.dumps(result, indent=2) + "\n")
-        if result['budgetDenied']:
-            print(json.dumps(result, indent=2))
-            return 2
     elif args.command == "snapshot":
         if not args.destination:
             parser.error("--destination required")
@@ -123,7 +115,7 @@ def main():
             parser.error("--archive-mirror required")
         archive = GitArchive(args.archive_mirror, args.archive_remote)
         if args.command == "archive-push":
-            result = archive.push(store)
+            result = archive.push(store, expected_commit=args.expected_commit)
         else:
             if not args.destination or not args.expected_commit or not args.expected_sha256:
                 parser.error("Restore requires --destination, --expected-commit and --expected-sha256")

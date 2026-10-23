@@ -299,32 +299,19 @@ class OnboardingBudgetTests(unittest.TestCase):
                 cli.main()
             fetcher.assert_not_called()
 
-    def test_cli_uses_actual_day_bound_context_and_returns_nonzero_on_denial(self):
+    def test_cli_standalone_rejects_before_contract_state_or_transport(self):
         self.seed({'calls': 80, 'documents': 40, 'fetches': 5500})
-        fetcher = FictionalFetcher(self.store)
-        with patch.object(sys, 'argv', self.cli_args()), patch.object(cli, 'validate_contract', side_effect=lambda value: value), \
-                patch.object(cli, 'utcnow', return_value=NOW), patch.object(cli, 'Fetcher', return_value=fetcher), \
-                contextlib.redirect_stdout(io.StringIO()) as output:
-            self.assertEqual(cli.main(), 2)
-        result = json.loads(output.getvalue())
-        self.assertTrue(result['budgetDenied'])
-        self.assertFalse(result['executionCompleted'])
-        self.assertFalse(result['semanticAdmission'])
-        self.assertEqual(result['reservationContext']['budgetDay'], '2026-10-23')
-        self.assertEqual(fetcher.calls, [])
-
-    def test_cli_ordinary_endpoint_failure_is_completed_diagnostic_work_only(self):
-        with patch.object(sys, 'argv', self.cli_args()), patch.object(cli, 'validate_contract', side_effect=lambda value: value), \
-                patch.object(cli, 'utcnow', return_value=NOW), \
-                patch.object(cli, 'Fetcher', side_effect=lambda store, **_kwargs: FictionalFetcher(store)), \
-                contextlib.redirect_stdout(io.StringIO()) as output:
-            self.assertEqual(cli.main(), 0)
-        result = json.loads(output.getvalue())
-        self.assertTrue(result['executionCompleted'])
-        self.assertFalse(result['budgetDenied'])
-        self.assertEqual(result['qualifiedSources'], 0)
-        self.assertEqual(result['sourceChecksCredited'], 0)
-        self.assertFalse(result['semanticAdmission'])
+        before = (self.store.root / 'heads/budget-2026-10-23.json').read_bytes()
+        with patch.object(sys, 'argv', self.cli_args()), patch.object(cli, 'validate_contract') as validator, \
+                patch.object(cli, 'LocalStore') as state, patch.object(cli, 'Fetcher') as fetcher, \
+                contextlib.redirect_stderr(io.StringIO()) as output, self.assertRaises(SystemExit) as raised:
+            cli.main()
+        self.assertEqual(raised.exception.code, 2)
+        self.assertIn('leased diagnostics', output.getvalue())
+        validator.assert_not_called()
+        state.assert_not_called()
+        fetcher.assert_not_called()
+        self.assertEqual((self.store.root / 'heads/budget-2026-10-23.json').read_bytes(), before)
 
 
 if __name__ == '__main__':
