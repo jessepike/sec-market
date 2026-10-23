@@ -60,6 +60,14 @@ local baseline. This is invisible reliability work. Exact proofs are in
 [retry replay](docs/active/daily-pipeline/receipts/coverage-retry-final-replay-2026-10-23.json) and
 [continuity replay](docs/active/daily-pipeline/receipts/continuity-final-replay-2026-10-23.json).
 
+Preview candidate `7c3d2eea35c783b866a6e955849d0e77a4017cac` passed actual GitHub
+[web CI](https://github.com/jessepike/sec-market/actions/runs/40001666502) and
+[private runner acceptance](https://github.com/jessepike/sec-market/actions/runs/40001666534).
+Vercel preview is Ready; hosted 1440px/390px renders match the tested local pixels. The preview
+uses repository baseline data; production data still comes from the accepted main artifact.
+[Remote acceptance](docs/active/daily-pipeline/receipts/coverage-recovery-remote-2026-10-23.json)
+pins both runs, the live production receipt and unchanged candidate code hashes.
+
 ## Next verification and limits
 
 Main stays frozen on the accepted revision for October 23 UTC: both gate/publication attempts are
