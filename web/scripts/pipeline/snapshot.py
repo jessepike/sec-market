@@ -100,6 +100,41 @@ def money(fact):
     return prefix + symbols[fact["currency"]] + text
 
 
+def review_resolution(store, contract, held_sha, fact_ref, policy, resolved_at):
+    """Reproduce the exact accepted statement before closing one raw held receipt."""
+    instant(resolved_at)
+    held = continuity_object(store, held_sha)
+    fact = json.loads(store.get(fact_ref))
+    require(valid_hash(policy) and fact.get('policySha256') == policy
+            and fact.get('candidateSha256') == held.get('candidateSha256') == digest(held.get('candidate'))
+            and fact.get('supplierId') == held.get('supplierId')
+            and fact.get('evidence') == [held.get('evidence')], 'RESOLUTION_EXACT_CLAIM_REQUIRED')
+    observed = store.read('observations/' + fact['sourceObservationId'] + '.json')
+    original = store.read('observations/' + held['sourceObservationId'] + '.json')
+    sources = {s['id']:s for s in contract['sources']}
+    supplier = next(s for s in contract['suppliers'] if s['id'] == fact['supplierId'])
+    for observation in (observed, original):
+        source = sources.get((observation or {}).get('sourceId'), {})
+        require(observation and observation.get('body') == held['evidence']
+                and source.get('supplierId') == fact['supplierId']
+                and source.get('family') in ('official_announcements','release_distribution','investor_acquirer','filing_documents'),
+                'RESOLUTION_SOURCE_PROOF_REQUIRED')
+    review = json.loads(store.get(fact['review']))
+    reproduced = verify_statement(held['candidate'], observed, store, review, supplier, policy)
+    require(reproduced == fact, 'RESOLUTION_ACCEPTED_FACT_DIFFERS')
+    original_review = json.loads(store.get(held['review']))
+    require(original_review.get('candidateSha256') == held['candidateSha256']
+            and original_review.get('evidenceSha256') == held['evidence']['sha256']
+            and original_review.get('policySha256') == held['policySha256'], 'RESOLUTION_HELD_REVIEW_DIFFERS')
+    record = {'heldReceiptSha256':held_sha, 'candidateSha256':held['candidateSha256'],
+              'candidate':held['candidate'], 'supplierId':fact['supplierId'], 'admittedFact':fact_ref,
+              'admittedReview':fact['review'], 'evidence':fact['evidence'], 'policySha256':policy,
+              'sourceObservationId':fact['sourceObservationId'], 'originalSourceObservationId':held['sourceObservationId'],
+              'sourceFetchedAt':observed['fetchedAt'], 'originalSourceFetchedAt':original['fetchedAt'],
+              'effectiveDate':held['candidate']['effectiveDate'], 'resolvedAt':resolved_at}
+    return {**record, 'resolutionSha256':digest(record)}
+
+
 def build_snapshot(contract, plan, coverage, store, now, baseline=None, previous=None, continuity=None):
     # Recompute from raw receipts and evidence, not a worker's completion flag.
     verified = reconcile(plan, coverage["receipts"], contract, now, store)
@@ -115,6 +150,12 @@ def build_snapshot(contract, plan, coverage, store, now, baseline=None, previous
     updates = dict(previous.get("supplierUpdates", {}))
     update_dates = dict(previous.get("supplierUpdateDates", {}))
     queue, facts_by_id, sec_records = list(previous.get("reviewQueue", [])), {}, {}
+    resolutions = {}
+    for record in previous.get('resolvedReviews', []):
+        reproduced = review_resolution(store, contract, record['heldReceiptSha256'], record['admittedFact'],
+                                       record['policySha256'], record['resolvedAt'])
+        require(reproduced == record, 'RESOLUTION_RECORD_DIFFERS')
+        resolutions[record['heldReceiptSha256']] = record
     pending={p['factId']:p for p in previous.get('pendingFacts',[])}
     if continuity:
         queue.extend(continuity['reviewQueue'])
@@ -162,6 +203,17 @@ def build_snapshot(contract, plan, coverage, store, now, baseline=None, previous
         events[f"EV-daily-{fid}"] = {"id": f"EV-daily-{fid}", "supplierId": sid, "date": date,
                                            "type": EVENT_TYPES[fact["predicate"]], "text": normalize(fact["valueText"]), "evidenceIds": [eid], "rung": rank}
         pending.pop(fid,None)  # Only current independently validated admission resolves quarantine.
+        if fact.get('policySha256') == digest(contract):
+            for item in queue:
+                sha = item.get('receiptSha256')
+                if not sha or sha in resolutions or item.get('factId') != fact.get('candidateSha256'):
+                    continue
+                held = continuity_object(store, sha)
+                # A date, quote, supplier, or archived-body difference keeps the hold open.
+                if (held.get('candidateSha256') != fact.get('candidateSha256')
+                        or held.get('supplierId') != sid or fact.get('evidence') != [held.get('evidence')]):
+                    continue
+                resolutions[sha] = review_resolution(store, contract, sha, store.put(fact), digest(contract), now)
         field, value = None, None
         if fact["predicate"] in ("arr", "revenue") and fact["amount"] is not None and suppliers[sid]["kind"] not in ("public", "segment"):
             # Keep reported ARR distinct; never replace certified GAAP quarter fields.
@@ -209,8 +261,11 @@ def build_snapshot(contract, plan, coverage, store, now, baseline=None, previous
     result = {"schemaVersion": 1, "enabled": True, "runId": verified["runId"], "checkedAt": now,
               "contractSha256": digest(contract), "supplierUpdates": updates, "supplierUpdateDates": update_dates,
               "events": sorted(events.values(), key=lambda e: (e["date"], e["id"])), "evidence": list(evidence.values()),
-              "coverage": public_coverage, "reviewQueue": list({(q["factId"], q["reason"]): q for q in queue}.values()), "secRecords": sec_records,
+              "coverage": public_coverage, "reviewQueue": list({(q["factId"], q["reason"]): q for q in queue
+                  if q.get('receiptSha256') not in resolutions}.values()), "secRecords": sec_records,
               "parentSnapshotSha256": digest(previous) if previous else None}
     if pending or 'pendingFacts' in previous or continuity:
         result['pendingFacts']=sorted(pending.values(),key=lambda p:p['factId'])
+    if resolutions or 'resolvedReviews' in previous:
+        result['resolvedReviews'] = sorted(resolutions.values(), key=lambda r:r['heldReceiptSha256'])
     return {**result, "snapshotSha256": digest(result)}

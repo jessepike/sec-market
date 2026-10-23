@@ -64,11 +64,83 @@ class GateContinuityTests(unittest.TestCase):
         ref=self.store.put(held)
         return {'factId':digest(candidate),'supplierId':'example','reason':'Fact date missing','receiptSha256':ref['sha256']}
 
-    def build(self,previous,continuity):
+    def build(self,previous,continuity,references=None):
         with patch('snapshot.reconcile',return_value=self.coverage),patch('snapshot.inventory',return_value=[]), \
-             patch('snapshot.eligible_fact_references',return_value=[]),patch('snapshot.verified_partial_document_facts',return_value=[]):
+             patch('snapshot.eligible_fact_references',return_value=references or []),patch('snapshot.verified_partial_document_facts',return_value=[]):
             return build_snapshot(self.contract,self.plan,self.coverage,self.store,'2026-10-23T12:00:00Z',
                                   previous=previous,continuity=continuity)
+
+    def resolvable_hold(self, candidate=None, evidence=None):
+        candidate = candidate or self.candidate
+        body = evidence or self.observation['body']
+        old_review = {**self.review,'candidateSha256':digest(candidate),'evidenceSha256':body['sha256']}
+        held = {'candidate':candidate,'candidateSha256':digest(candidate),'supplierId':'example',
+                'reason':'Earlier parser held claim','evidence':body,'review':self.store.put(old_review),
+                'policySha256':'b'*64,'sourceObservationId':self.observation['observationId']}
+        ref = self.store.put(held)
+        return {'factId':digest(candidate),'supplierId':'example','reason':held['reason'],'receiptSha256':ref['sha256']}
+
+    def accepted_reference(self):
+        review = {**self.review,'policySha256':digest(self.contract)}
+        return self.store.put(verify_statement(self.candidate,self.observation,self.store,review,
+                                               self.supplier,digest(self.contract)))
+
+    def test_exact_current_acceptance_resolves_only_raw_hold_and_retains_proof(self):
+        held = self.resolvable_hold()
+        unrelated = self.held(1)
+        primary = {'factId':self.fact['factId'],'supplierId':'example','reason':'PRIMARY_SOURCE_REQUIRED'}
+        conflict = {**primary,'reason':'CONFLICTING_SAME_DATE_FIELD'}
+        snapshot = self.build({'enabled':True,'reviewQueue':[held,unrelated,primary,conflict]},None,
+                              [self.accepted_reference()])
+        self.assertEqual(snapshot['reviewQueue'],[unrelated,primary,conflict])
+        proof = snapshot['resolvedReviews'][0]
+        self.assertEqual(proof['heldReceiptSha256'],held['receiptSha256'])
+        self.assertEqual(proof['candidate'],self.candidate)
+        self.assertEqual(proof['evidence'],[self.observation['body']])
+        self.assertEqual(proof['originalSourceFetchedAt'],self.observation['fetchedAt'])
+        self.assertEqual(proof['effectiveDate'],'2026-03-19')
+        self.assertEqual(proof['resolvedAt'],'2026-10-23T12:00:00Z')
+        admitted = json.loads(self.store.get(proof['admittedFact']))
+        review = json.loads(self.store.get(proof['admittedReview']))
+        self.assertEqual(admitted['candidateSha256'],proof['candidateSha256'])
+        self.assertEqual(review['policySha256'],digest(self.contract))
+        self.assertEqual(proof['resolutionSha256'],digest({k:v for k,v in proof.items() if k!='resolutionSha256'}))
+
+    def test_different_date_quote_or_body_does_not_resolve(self):
+        variants = [self.resolvable_hold({**self.candidate,'effectiveDate':'2026-03-20'}),
+                    self.resolvable_hold({**self.candidate,'quote':self.candidate['quote']+' Different quote.'}),
+                    self.resolvable_hold(evidence=self.store.put(b'different archived source body'))]
+        for held in variants:
+            with self.subTest(held=held['receiptSha256']):
+                snapshot = self.build({'enabled':True,'reviewQueue':[held]},None,[self.accepted_reference()])
+                self.assertEqual(snapshot['reviewQueue'],[held])
+                self.assertNotIn('resolvedReviews',snapshot)
+
+    def test_old_collector_hold_does_not_reopen_proven_resolution(self):
+        held = self.resolvable_hold()
+        first = self.build({'enabled':True,'reviewQueue':[held]},None,[self.accepted_reference()])
+        continuity = {'reviewQueue':[held],'pendingFacts':[]}
+        later = self.build(first,continuity)
+        self.assertEqual(later['reviewQueue'],[])
+        self.assertEqual(later['resolvedReviews'],first['resolvedReviews'])
+
+    def test_old_policy_acceptance_keeps_exact_hold_open(self):
+        held = self.resolvable_hold()
+        snapshot = self.build({'enabled':True,'reviewQueue':[held]},None,[self.store.put(self.fact)])
+        self.assertEqual(snapshot['reviewQueue'],[held])
+        self.assertNotIn('resolvedReviews',snapshot)
+
+    def test_forged_resolution_or_unaccepted_review_fails_closed(self):
+        held = self.resolvable_hold()
+        first = self.build({'enabled':True,'reviewQueue':[held]},None,[self.accepted_reference()])
+        first['resolvedReviews'][0]['originalSourceFetchedAt']='2026-10-23T12:00:00Z'
+        with self.assertRaisesRegex(ValueError,'RESOLUTION_RECORD_DIFFERS'):
+            self.build(first,None)
+        fact = json.loads(self.store.get(self.accepted_reference()))
+        rejected = {**self.review,'policySha256':digest(self.contract),'result':'held'}
+        fact['review'] = self.store.put(rejected)
+        with self.assertRaises(ValueError):
+            self.build({'enabled':True,'reviewQueue':[held]},None,[self.store.put(fact)])
 
     def test_actual_shaped_old_policy_unpublished_event_is_quarantined_with_exact_evidence(self):
         continuity=collector_continuity(self.collector,self.contract,self.coverage,self.store)
