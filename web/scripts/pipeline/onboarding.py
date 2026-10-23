@@ -11,7 +11,7 @@ from urllib.parse import urljoin, urlsplit
 from urllib.robotparser import RobotFileParser
 
 from contracts import digest, instant, require, utcnow
-from discovery import Page, xml_links
+from discovery import Page, decoded_discovery_body, xml_links
 
 
 class ProbeReservationDenied(RuntimeError):
@@ -129,13 +129,15 @@ def probe_sources(contract, store, fetcher, *, reservation_context=None):
             if observed["status"] != "fetched":
                 result["reason"] = observed.get("errorCode", "ROOT_UNAVAILABLE")
                 return result
-            page = Page(root.decode("utf8", errors="replace"))
+            root_text = decoded_discovery_body(root).decode('utf8', errors='strict' if root.startswith(b'\x1f\x8b') else 'replace')
+            page = Page(root_text)
             robots_url = urljoin(source["url"], "/robots.txt")
             observed, robots = get(robots_url)
             parser = RobotFileParser(robots_url)
             if observed["status"] == "fetched":
-                parser.parse(robots.decode("utf8", errors="replace").splitlines())
-                sitemaps = re.findall(r"(?im)^sitemap:\s*(https://\S+)", robots.decode("utf8", errors="replace"))
+                robots_text = decoded_discovery_body(robots).decode('utf8', errors='strict' if robots.startswith(b'\x1f\x8b') else 'replace')
+                parser.parse(robots_text.splitlines())
+                sitemaps = re.findall(r"(?im)^sitemap:\s*(https://\S+)", robots_text)
             else:
                 sitemaps = []
             candidates = [(urljoin(source["url"], u), "rss") for u in page.feeds]
