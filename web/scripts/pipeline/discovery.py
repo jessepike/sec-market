@@ -3,12 +3,207 @@ import json
 import gzip
 import io
 import re
-from datetime import date, timedelta
+import zlib
+from datetime import date, datetime, timedelta
 import xml.etree.ElementTree as ET
 from html.parser import HTMLParser
 from urllib.parse import urljoin, urlsplit
 
 from contracts import require, instant, utcnow
+
+
+MAX_DISCOVERY_BYTES = 32_000_000
+ORCA_HTML_MODE = "orca-news-pagination-v1"
+
+
+def decoded_discovery_body(body):
+    """A bounded parsing view; callers retain the original archived object."""
+    if body.startswith(b"\x1f\x8b"):
+        try:
+            with gzip.GzipFile(fileobj=io.BytesIO(body)) as compressed:
+                body = compressed.read(MAX_DISCOVERY_BYTES + 1)
+        except (OSError, EOFError, zlib.error) as exc:
+            raise ValueError("Invalid compressed discovery body") from exc
+    require(len(body) <= MAX_DISCOVERY_BYTES, "Decoded discovery body exceeds byte budget")
+    return body
+
+
+class IndexNode:
+    def __init__(self, tag, attrs=(), parent=None):
+        self.tag, self.attrs, self.parent = tag, dict(attrs), parent
+        self.children = []
+        self.closed = False
+
+    @property
+    def classes(self):
+        return set(self.attrs.get("class", "").split())
+
+    def walk(self):
+        if self.tag in ("script", "style", "template", "noscript"):
+            return
+        yield self
+        for child in self.children:
+            if isinstance(child, IndexNode):
+                yield from child.walk()
+
+    @property
+    def text(self):
+        if self.tag in ("script", "style", "template", "noscript"):
+            return ""
+        return " ".join(c.text if isinstance(c, IndexNode) else c for c in self.children)
+
+    def inside(self, ancestor):
+        parent = self.parent
+        while parent:
+            if parent is ancestor:
+                return True
+            parent = parent.parent
+        return False
+
+
+class IndexMarkup(HTMLParser):
+    """Only structural HTML is inspected; scripts and templates never supply cards."""
+    VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"}
+
+    def __init__(self, html):
+        super().__init__(convert_charrefs=True)
+        self.root = IndexNode("document")
+        self.stack = [self.root]
+        self.feed(html)
+
+    def handle_starttag(self, tag, attrs):
+        require(len(self.stack) <= 256, "Discovery markup nesting exceeds bound")
+        node = IndexNode(tag, attrs, self.stack[-1])
+        self.stack[-1].children.append(node)
+        if tag not in self.VOID:
+            self.stack.append(node)
+        else:
+            node.closed = True
+
+    def handle_startendtag(self, tag, attrs):
+        self.handle_starttag(tag, attrs)
+        if tag not in self.VOID:
+            self.handle_endtag(tag)
+
+    def handle_endtag(self, tag):
+        for index in range(len(self.stack)-1, 0, -1):
+            if self.stack[index].tag == tag:
+                self.stack[index].closed = True
+                del self.stack[index:]
+                break
+
+    def handle_data(self, data):
+        self.stack[-1].children.append(data)
+
+
+def orca_index_number(url):
+    parsed = urlsplit(url)
+    require(parsed.scheme == "https" and parsed.netloc == "orca.security" and not parsed.query and not parsed.fragment,
+            "Unsafe Orca index destination")
+    match = re.fullmatch(r"/resources/news/(?:page/([1-9]\d*)/)?", parsed.path)
+    require(match is not None, "Unexpected Orca index path")
+    return int(match.group(1) or 1)
+
+
+def orca_index(source, url, body, highest_page):
+    """Explicit candidate adapter for the archived Orca newsroom structure."""
+    require(source["id"] == "orca:official:1" and source["supplierId"] == "orca" and
+            source["family"] == "official_announcements" and source["allowedHosts"] == ["orca.security"] and
+            source["url"] == "https://orca.security/resources/news/" and 1 <= source["maxPages"] <= 60,
+            "Orca HTML mode requires its exact supplier/source binding")
+    current_page = orca_index_number(url)
+    nodes = list(IndexMarkup(body.decode("utf8", errors="strict")).root.walk())
+
+    def one(values, label):
+        require(len(values) == 1, "Missing or ambiguous Orca " + label)
+        require(values[0].closed, "Unclosed Orca " + label)
+        return values[0]
+
+    head = one([n for n in nodes if n.tag == "head"], "head")
+    newsroom = one([n for n in nodes if "newsroom-posts" in n.classes], "newsroom")
+    listing = one([n for n in nodes if "newsroom-posts-listing" in n.classes and n.inside(newsroom)], "listing")
+    cards_region = one([n for n in nodes if "orca-posts-container-newsroom" in n.classes and n.inside(listing)], "card container")
+    pagination = one([n for n in nodes if {"orca-pagination", "archive-posts-results__show-more"} <= n.classes], "pagination")
+    require(pagination.inside(newsroom), "Orca pagination outside newsroom")
+    page_nodes = list(pagination.walk())
+    marker = one([n for n in page_nodes if n.tag == "span" and {"page-numbers", "current"} <= n.classes and
+                  n.attrs.get("aria-current") == "page"], "current page marker")
+    require(marker.text.strip().isdigit() and int(marker.text.strip()) == current_page, "Orca current page mismatch")
+    require(not any(n.tag in ("button", "form", "select") for n in page_nodes), "Unknown Orca pagination control")
+    next_links = [n for n in nodes if n.tag == "link" and "next" in n.attrs.get("rel", "").split()]
+    require(all(n.inside(head) and n.attrs.get("href") for n in next_links), "Unknown Orca head-next control")
+    require(all(n.inside(pagination) for n in nodes if n.tag == "a" and {"next", "page-numbers"} <= n.classes),
+            "Orca next control outside pagination")
+    head_next = {urljoin(url, n.attrs["href"]) for n in next_links}
+    class_next, numbered, dots = set(), {current_page}, False
+    for node in page_nodes:
+        if "dots" in node.classes:
+            dots = True
+        if node.tag != "a":
+            continue
+        require("page-numbers" in node.classes and node.attrs.get("href"), "Unknown Orca pagination anchor")
+        target = urljoin(url, node.attrs["href"])
+        number = orca_index_number(target)
+        numbered.add(number)
+        if "next" in node.classes:
+            class_next.add(target)
+        elif "prev" in node.classes:
+            require(number == current_page - 1, "Unexpected Orca previous page")
+        else:
+            require(node.text.strip().isdigit() and int(node.text.strip()) == number, "Orca numbered page mismatch")
+    require(head_next == class_next and len(head_next) <= 1, "Missing or conflicting Orca next controls")
+    highest_page = max(highest_page, *numbered)
+    next_url = next(iter(head_next), None)
+    if next_url:
+        require(orca_index_number(next_url) == current_page + 1, "Orca pagination loop or skipped page")
+    else:
+        require(not dots and current_page == highest_page, "Unproved Orca terminal page")
+
+    cards = [n for n in nodes if n.tag == "div" and {"clickable-card", "horizontal-post-card"} <= n.classes and n.inside(cards_region)]
+    require(bool(cards), "Orca listing has no recognized static cards")
+    require(all(child in cards if isinstance(child, IndexNode) else not child.strip() for child in cards_region.children),
+            "Unknown Orca card-container content")
+    featured_regions = [n for n in nodes if "newsroom-listing-featured" in n.classes]
+    require(len(featured_regions) <= 1, "Ambiguous Orca featured region")
+    if featured_regions:
+        cards += [n for n in nodes if n.tag == "article" and {"clickable-card", "post-card", "post-card--featured"} <= n.classes and n.inside(featured_regions[0])]
+    items, dates = set(), {}
+    for card in cards:
+        require(card.closed, "Unclosed Orca card")
+        card_nodes = list(card.walk())
+        category = one([n for n in card_nodes if "post-card__category" in n.classes], "card category")
+        label = " ".join(category.text.split())
+        require(label in ("News", "Press Releases"), "Unknown Orca card category")
+        title = one([n for n in card_nodes if n.tag == "h2" and "post-card__title" in n.classes], "release title")
+        link = one([n for n in title.walk() if n.tag == "a" and n.attrs.get("href")], "release title link")
+        require(bool(link.text.strip()), "Empty Orca card title")
+        date_node = one([n for n in card_nodes if "post-card__date" in n.classes], "card date")
+        value = datetime.strptime(" ".join(date_node.text.split()), "%b %d, %Y").date().isoformat()
+        if label == "News":
+            continue
+        target = urljoin(url, link.attrs["href"])
+        parsed = urlsplit(target)
+        require(parsed.scheme == "https" and parsed.netloc == "orca.security" and not parsed.query and not parsed.fragment and
+                re.fullmatch(r"/resources/press-releases/[A-Za-z0-9_-]+/", parsed.path), "Unsafe Orca release card")
+        if card.attrs.get("data-url"):
+            require(urljoin(url, card.attrs["data-url"]) == target, "Orca card URL disagreement")
+        require(target not in dates or dates[target] == value, "Conflicting Orca release dates")
+        items.add(target)
+        dates[target] = value
+    return {"items": items, "dates": dates, "next": next_url, "highestPage": highest_page}
+
+
+def barracuda_shell(url, body):
+    parsed = urlsplit(url)
+    if parsed.scheme != "https" or parsed.netloc != "www.barracuda.com" or parsed.path != "/company/news":
+        return None
+    nodes = list(IndexMarkup(body.decode("utf8", errors="strict")).root.walk())
+    components = [n for n in nodes if n.attrs.get("data-cmp-is") == "NewsRoom" and "cmp-news-room" in n.classes]
+    containers = [n for n in nodes if n.attrs.get("data-cmp-hook-news-room") == "cardsContainer" and any(n.inside(c) for c in components)]
+    endpoint = "https://www.barracuda.com/content/barracuda-corp/us/en/company/news/jcr:content/root/container/container/news_room.news_room.json"
+    if len(components) == len(containers) == 1 and urljoin(url, containers[0].attrs.get("data-panel-endpoint", "")) == endpoint:
+        return {"reason": "BARRACUDA_NEWSROOM_DATA_REQUIRED", "requiredEndpoints": [endpoint]}
+    return {"reason": "BARRACUDA_NEWSROOM_LAYOUT_UNVERIFIED", "requiredEndpoints": []}
 
 
 class Page(HTMLParser):
@@ -166,10 +361,7 @@ def scoped(url, source):
 
 
 def xml_links(body, base):
-    if body.startswith(b"\x1f\x8b"):
-        with gzip.GzipFile(fileobj=io.BytesIO(body)) as compressed:
-            body = compressed.read(32_000_001)
-        require(len(body) <= 32_000_000, "Decompressed sitemap exceeds byte budget")
+    body = decoded_discovery_body(body)
     require(b"<!DOCTYPE" not in body.upper() and b"<!ENTITY" not in body.upper(), "XML entity declarations prohibited")
     root = ET.fromstring(body)
     kind = root.tag.rsplit("}", 1)[-1]
@@ -205,17 +397,27 @@ def discover(source, request):
     if source["registration"] != "verified":
         return {"complete": False, "items": [], "observations": [], "reason": "SOURCE_BINDING_UNVERIFIED"}
     queue, seen, items, observations, item_dates, item_modified = [source["url"]], set(), set(), [], {}, {}
+    highest_orca_page = 1
+    orca_mode = source.get("htmlCompleteness") == ORCA_HTML_MODE
+    def incomplete(reason, **details):
+        return {"complete": False, "items": sorted(items), "itemDates": item_dates,
+                "itemModified": item_modified, "observations": observations, "reason": reason, **details}
     while queue:
         if len(seen) >= source["maxPages"]:
-            return {"complete": False, "items": sorted(items), "observations": observations, "reason": "PAGINATION_BUDGET_EXHAUSTED"}
+            return incomplete("PAGINATION_BUDGET_EXHAUSTED")
         url = queue.pop(0)
         if url in seen:
             continue
         seen.add(url)
-        observation, body = request(url)
+        try:
+            observation, body = request(url)
+        except (OSError, ValueError):
+            if not orca_mode:
+                raise
+            return incomplete("ORCA_INDEX_REQUEST_FAILED", missingUrl=url)
         observations.append(observation)
         if observation["status"] not in ("fetched", "not_modified"):
-            return {"complete": False, "items": sorted(items), "observations": observations, "reason": observation.get("errorCode", "FETCH_FAILED")}
+            return incomplete(observation.get("errorCode", "FETCH_FAILED"))
         if source["kind"] == "citation":
             require(len(body) > 0, "Empty citation response")
             continue
@@ -249,8 +451,32 @@ def discover(source, request):
                 else:
                     items.update(recent["accessionNumber"])
             continue
+        try:
+            body = decoded_discovery_body(body)
+            if orca_mode:
+                require(source["kind"] == "html_index", "Orca mode requires HTML index kind")
+                parsed_index = orca_index(source, url, body, highest_orca_page)
+                for target, value in parsed_index["dates"].items():
+                    require(target not in item_dates or item_dates[target] == value, "Conflicting Orca dates across pages")
+                items.update(parsed_index["items"])
+                item_dates.update(parsed_index["dates"])
+                # Explicit card publication is an index scheduling signature,
+                # not semantic evidence of the event's effective date.
+                item_modified.update(parsed_index["dates"])
+                highest_orca_page = parsed_index["highestPage"]
+                if parsed_index["next"]:
+                    require(parsed_index["next"] not in seen, "Orca pagination loop")
+                    queue.append(parsed_index["next"])
+                continue
+            shell = barracuda_shell(url, body)
+            if shell:
+                return incomplete(**shell)
+        except ValueError as exc:
+            if orca_mode:
+                return incomplete("ORCA_INDEX_INCOMPLETE", detail=str(exc))
+            raise
         content = body.lstrip()
-        if content.startswith((b"<?xml", b"\x1f\x8b")) or re.match(br"<(rss|feed|urlset|sitemapindex)\b", content):
+        if content.startswith(b"<?xml") or re.match(br"<(rss|feed|urlset|sitemapindex)\b", content):
             parsed = xml_links(body, url)
             item_modified.update(parsed["modified"])
             for index in parsed["indexes"]:

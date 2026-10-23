@@ -75,6 +75,12 @@ def validate_contract(contract):
         require(url.scheme == "https" and not url.username and not url.password and url.port in (None, 443), "Unsafe source URL")
         require(url.hostname in source["allowedHosts"], "Source host is outside its contract")
         require(1 <= source["maxPages"] <= 1000, "Invalid pagination limit")
+        if source.get("htmlCompleteness") == "orca-news-pagination-v1":
+            require(source["kind"] == "html_index" and source["id"] == "orca:official:1" and
+                    source["supplierId"] == "orca" and source["family"] == "official_announcements" and
+                    source["allowedHosts"] == ["orca.security"] and
+                    source["url"] == "https://orca.security/resources/news/" and source["maxPages"] <= 60,
+                    "Orca HTML mode requires its exact source, supplier and index endpoint")
     for supplier in suppliers:
         require(bool(supplier["requiredCategories"]), "Supplier has no coverage requirements")
         require(bool(supplier.get("requiredFamilies")), "Supplier has no required source families")

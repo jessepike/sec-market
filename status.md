@@ -173,6 +173,15 @@ the inspected layout is unchanged. Production was rechecked after CI: the accept
 and 121/557 source result are unchanged. The public preview correction bundle remains disabled.
 [Actual remote receipts](docs/active/daily-pipeline/accuracy/correction-retention-remote-validation-2026-10-23.json).
 
+The demonstrated discovery defects now have a separate offline repair. Gzip is decoded within
+the existing 32 MB bound before choosing HTML versus XML. An explicit Orca adapter follows both
+evidenced pagination controls, isolates dated official release cards and rejects unproved terminal
+layouts. The actual first-page replay retains two release cards and stays incomplete at absent
+page 2. Barracuda's compressed newsroom shell retains zero items and names its required data
+endpoint; it cannot count as a quiet result. All 112 pipeline and 235 operational checks pass.
+The archived files, original observation times, actual registrations and 74/557 inventory remain
+unchanged. No source is newly qualified. [Repair replay](docs/active/daily-pipeline/receipts/discovery-repair-replay-2026-10-23.json).
+
 Daily collection is 05:17 UTC; publication follows verified scheduled collection and runs at 06:23
 and 16:23 UTC. GitHub can run late. Legacy refresh/branch-promotion jobs remain disabled and Vercel's
 competing production paths remain closed. The old Vercel probe's CLI account lookup is bypassed

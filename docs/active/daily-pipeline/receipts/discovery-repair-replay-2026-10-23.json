@@ -1,0 +1,288 @@
+{
+  "schemaVersion": 1,
+  "id": "SEC-MARKET-DISCOVERY-REPAIR-REPLAY-20261023",
+  "scope": "Offline candidate code repair and replay only.",
+  "liveSourceCoverage": {
+    "successful": 121,
+    "required": 557,
+    "suppliers": 74,
+    "candidateRegistrations": 28,
+    "newlyQualified": 0,
+    "newChecks": 0
+  },
+  "limits": {
+    "newNetworkCalls": 0,
+    "newModelCalls": 0,
+    "newAdmissionCalls": 0,
+    "archiveWrites": 0,
+    "newGatePublicationAttempts": 0,
+    "fetchesCharged": 5500,
+    "modelCallsCharged": 80,
+    "documentsCharged": 40,
+    "mainFrozen": true
+  },
+  "contract": {
+    "path": "contracts/market.json",
+    "sha256": "327e52fdab4f97d3f0d628978501aa7197b31ddadb4006d16d3f776a8acb47c0",
+    "obligationsRecomputed": 557,
+    "unchanged": true
+  },
+  "codeAndSpec": [
+    {
+      "path": "web/scripts/pipeline/discovery.py",
+      "sha256": "dbac11826122b1a2010135f2c3b38df6935bb66a19c45bebaee71cf3c7738c52"
+    },
+    {
+      "path": "web/scripts/pipeline/contracts.py",
+      "sha256": "231e1289cfa8d8f79a7a09a6147d6e1ccb418e09ec9680a966d37b764fe125c4"
+    },
+    {
+      "path": "ops/ci/test_discovery_repairs.py",
+      "sha256": "28a9492ab13c08a66de9c20c9037598937e75840586ac089c75354d7fb52c855"
+    },
+    {
+      "path": "docs/active/daily-pipeline/discovery-repair-spec-2026-10-23.md",
+      "sha256": "ad7dd6a58298cb16397727c2412be7392a3be70b0e0c6a949567fb7823a44073"
+    }
+  ],
+  "archiveBefore": {
+    "fileCount": 25777,
+    "metadataSha256": "5160f4d26e28bcc0abe1061235d3f0936c352b7cdb1525aa19ef513ee40de208"
+  },
+  "archiveAfter": {
+    "fileCount": 25777,
+    "metadataSha256": "5160f4d26e28bcc0abe1061235d3f0936c352b7cdb1525aa19ef513ee40de208"
+  },
+  "archiveMetadataUnchanged": true,
+  "tests": [
+    {
+      "suite": "pipeline",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_pipeline.py",
+        "-q"
+      ],
+      "cwd": "/Users/jessepike/code/projects/sec-market-finish-20261022/web",
+      "exitCode": 0,
+      "tests": 112,
+      "elapsedSeconds": 1.046,
+      "output": "----------------------------------------------------------------------\nRan 112 tests in 0.992s\n\nOK\n"
+    },
+    {
+      "suite": "operational_and_new_discovery_regressions",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "ops/ci",
+        "-p",
+        "test_*.py",
+        "-q"
+      ],
+      "cwd": "/Users/jessepike/code/projects/sec-market-finish-20261022",
+      "exitCode": 0,
+      "tests": 235,
+      "elapsedSeconds": 1.789,
+      "output": "----------------------------------------------------------------------\nRan 235 tests in 1.724s\n\nOK\n"
+    }
+  ],
+  "replays": [
+    {
+      "sourceId": "orca:official:1",
+      "hypotheticalRegistrationOnly": true,
+      "admitting": false,
+      "actualRegistryRegistration": "candidate",
+      "replayConfiguration": {
+        "id": "orca:official:1",
+        "supplierId": "orca",
+        "kind": "html_index",
+        "url": "https://orca.security/resources/news/",
+        "allowedHosts": [
+          "orca.security"
+        ],
+        "registration": "verified",
+        "required": true,
+        "maxPages": 60,
+        "scopePrefixes": [
+          "/news",
+          "/press",
+          "/blog",
+          "/company",
+          "/investor",
+          "/resources"
+        ],
+        "seedEvidenceUrls": [
+          "https://orca.security/resources/press-releases/orca-security-series-c-550-million-announcement/"
+        ],
+        "family": "official_announcements",
+        "htmlCompleteness": "orca-news-pagination-v1"
+      },
+      "input": {
+        "observationId": "b5d6182ff2fed713a7cc26fea913c63719a2f97c369ff420be7212b8a360be9a",
+        "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/b5d6182ff2fed713a7cc26fea913c63719a2f97c369ff420be7212b8a360be9a.json",
+        "observationFileSha256": "4d1106359471da8aa436527bd3324f4dfea325c0b9364a52537bb4aac203c757",
+        "rawBody": {
+          "bytes": 236182,
+          "key": "objects/9f0503f9a7c15f5a6e4686ebd9d3a4cf6be13626d43746154af19a7d1f627e54",
+          "sha256": "9f0503f9a7c15f5a6e4686ebd9d3a4cf6be13626d43746154af19a7d1f627e54"
+        },
+        "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/9f0503f9a7c15f5a6e4686ebd9d3a4cf6be13626d43746154af19a7d1f627e54",
+        "originalRequestedUrl": "https://orca.security/resources/press-releases/",
+        "originalFinalUrl": "https://orca.security/resources/news/",
+        "originalSourceId": "orca:citation:TR-orca-1",
+        "originalFetchedAt": "2026-10-23T04:14:41.172921Z",
+        "originalHttpStatus": 200,
+        "decodedBytes": 236182,
+        "decodedSha256": "9f0503f9a7c15f5a6e4686ebd9d3a4cf6be13626d43746154af19a7d1f627e54",
+        "rawHashAndSizeVerified": true,
+        "rawAndObservationUnchangedAfterReplay": true
+      },
+      "archiveLookupUrls": [
+        "https://orca.security/resources/news/",
+        "https://orca.security/resources/news/page/2/"
+      ],
+      "missingArchivedUrls": [
+        "https://orca.security/resources/news/page/2/"
+      ],
+      "result": {
+        "complete": false,
+        "items": [
+          "https://orca.security/resources/press-releases/orca-partner-success-platform-launch/",
+          "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/"
+        ],
+        "itemDates": {
+          "https://orca.security/resources/press-releases/orca-partner-success-platform-launch/": "2026-09-16",
+          "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/": "2026-07-29"
+        },
+        "itemModified": {
+          "https://orca.security/resources/press-releases/orca-partner-success-platform-launch/": "2026-09-16",
+          "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/": "2026-07-29"
+        },
+        "observations": [
+          {
+            "body": {
+              "bytes": 236182,
+              "key": "objects/9f0503f9a7c15f5a6e4686ebd9d3a4cf6be13626d43746154af19a7d1f627e54",
+              "sha256": "9f0503f9a7c15f5a6e4686ebd9d3a4cf6be13626d43746154af19a7d1f627e54"
+            },
+            "contentType": "text/html; charset=utf-8",
+            "etag": null,
+            "fetchedAt": "2026-10-23T04:14:41.172921Z",
+            "finalUrl": "https://orca.security/resources/news/",
+            "httpStatus": 200,
+            "lastModified": "Fri, 23 Oct 2026 04:14:41 GMT",
+            "observationId": "b5d6182ff2fed713a7cc26fea913c63719a2f97c369ff420be7212b8a360be9a",
+            "requestedUrl": "https://orca.security/resources/press-releases/",
+            "sourceId": "orca:citation:TR-orca-1",
+            "status": "fetched"
+          }
+        ],
+        "reason": "ORCA_INDEX_REQUEST_FAILED",
+        "missingUrl": "https://orca.security/resources/news/page/2/"
+      },
+      "limitation": "Only the original captured response is used. A canonical endpoint replay may map that retained redirect response by its observed final URL. The citation source observation remains unchanged; this supplies no actual official-source registration, new fetch, complete traversal or source admission."
+    },
+    {
+      "sourceId": "barracuda:official:1",
+      "hypotheticalRegistrationOnly": true,
+      "admitting": false,
+      "actualRegistryRegistration": "candidate",
+      "replayConfiguration": {
+        "id": "barracuda:official:1",
+        "supplierId": "barracuda",
+        "kind": "html_index",
+        "url": "https://www.barracuda.com/company/news",
+        "allowedHosts": [
+          "www.barracuda.com"
+        ],
+        "registration": "verified",
+        "required": true,
+        "maxPages": 60,
+        "scopePrefixes": [
+          "/news",
+          "/press",
+          "/blog",
+          "/company",
+          "/investor",
+          "/resources"
+        ],
+        "seedEvidenceUrls": [
+          "https://www.barracuda.com/company/news"
+        ],
+        "family": "official_announcements",
+        "htmlCompleteness": "rel-next-exhaustion-v1"
+      },
+      "input": {
+        "observationId": "ad9c16e190c51b55d7dac938c0fe1b4b6335c3c690d8e82041b75827da042b15",
+        "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/ad9c16e190c51b55d7dac938c0fe1b4b6335c3c690d8e82041b75827da042b15.json",
+        "observationFileSha256": "97581b2fb69132a3966228410ad0fcd4011f542b213582ba17c46e2113f5d039",
+        "rawBody": {
+          "bytes": 22363,
+          "key": "objects/340f5ce1d51d8b3ac8652ecd54eb52c84c4c7eddb8f40090ae52aa1012c6a130",
+          "sha256": "340f5ce1d51d8b3ac8652ecd54eb52c84c4c7eddb8f40090ae52aa1012c6a130"
+        },
+        "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/340f5ce1d51d8b3ac8652ecd54eb52c84c4c7eddb8f40090ae52aa1012c6a130",
+        "originalRequestedUrl": "https://www.barracuda.com/company/news",
+        "originalFinalUrl": "https://www.barracuda.com/company/news",
+        "originalSourceId": "barracuda:citation:TR-barracuda-1",
+        "originalFetchedAt": "2026-10-23T11:34:09.091727Z",
+        "originalHttpStatus": 200,
+        "decodedBytes": 146001,
+        "decodedSha256": "39a7d9a84c6d237c42ed4d9da5030284cda8d373dd96d5ecb202abff5917ed54",
+        "rawHashAndSizeVerified": true,
+        "rawAndObservationUnchangedAfterReplay": true
+      },
+      "archiveLookupUrls": [
+        "https://www.barracuda.com/company/news"
+      ],
+      "missingArchivedUrls": [],
+      "result": {
+        "complete": false,
+        "items": [],
+        "itemDates": {},
+        "itemModified": {},
+        "observations": [
+          {
+            "body": {
+              "bytes": 22363,
+              "key": "objects/340f5ce1d51d8b3ac8652ecd54eb52c84c4c7eddb8f40090ae52aa1012c6a130",
+              "sha256": "340f5ce1d51d8b3ac8652ecd54eb52c84c4c7eddb8f40090ae52aa1012c6a130"
+            },
+            "contentType": "text/html;charset=utf-8",
+            "etag": "\"23a51-65e7ba2f8893d-gzip\"",
+            "fetchedAt": "2026-10-23T11:34:09.091727Z",
+            "finalUrl": "https://www.barracuda.com/company/news",
+            "httpStatus": 200,
+            "lastModified": "Fri, 23 Oct 2026 05:56:08 GMT",
+            "observationId": "ad9c16e190c51b55d7dac938c0fe1b4b6335c3c690d8e82041b75827da042b15",
+            "requestedUrl": "https://www.barracuda.com/company/news",
+            "sourceId": "barracuda:citation:TR-barracuda-1",
+            "status": "fetched"
+          }
+        ],
+        "reason": "BARRACUDA_NEWSROOM_DATA_REQUIRED",
+        "requiredEndpoints": [
+          "https://www.barracuda.com/content/barracuda-corp/us/en/company/news/jcr:content/root/container/container/news_room.news_room.json"
+        ]
+      },
+      "limitation": "Only the original captured response is used. A canonical endpoint replay may map that retained redirect response by its observed final URL. The citation source observation remains unchanged; this supplies no actual official-source registration, new fetch, complete traversal or source admission."
+    }
+  ],
+  "acceptance": {
+    "bothActualCounterexamplesRemainIncomplete": true,
+    "rawPrimaryBytesAndOriginalObservationTimesPreserved": true,
+    "actualOrcaItems": "Exactly two official release cards; no navigation, pagination or external reporting items.",
+    "actualOrcaPagination": "Page 2 correctly required; its absent body prevents completion. No actual terminal layout is established.",
+    "actualBarracuda": "Bounded gzip HTML view; empty dynamic shell stays incomplete and names its exact disclosed required data endpoint.",
+    "syntheticOnly": "Positive/older-dated quiet full traversal, terminal structure, blocked/malformed behavior, limits and all parser adversaries are synthetic regression fixtures.",
+    "sourceActivation": "No actual registration or existing verified contract was changed. Actual terminal response plus full traversal qualification remain required."
+  }
+}
