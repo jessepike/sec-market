@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "kind": "actual_neutral_filings_candidate_remote_validation",
+  "checkedAt": "2026-10-23T21:16:59.606468+00:00",
+  "candidateAppRevision": "c6b1e9f2be06657c8f9b1d003d36cb6c35a15f96",
+  "github": {
+    "web": {
+      "runId": "40025157777",
+      "event": "push",
+      "conclusion": "success",
+      "dataChecksPassed": 321,
+      "pipelineChecksPassed": 112,
+      "browserChecksPassed": 38
+    },
+    "runtimeCanary": {
+      "runId": "40025157846",
+      "conclusion": "success",
+      "operationalTestsRun": 333,
+      "operationalTestsPassed": 332,
+      "operationalTestsSkipped": 1,
+      "skipReason": "The pinned historical archive is absent on CI; the exact 29-body replay and all 333 tests passed locally.",
+      "modelCalls": 0,
+      "archiveChanged": false,
+      "sourceProbeOnly": true,
+      "archive": {
+        "commit": "704ea55e86eb1582b0619b3719b167191fa74da4",
+        "manifestSha256": "78bb006ddc399c707ce255bb7b8c2d84d3c69b4be293f7f1c2332af2514ec5ac",
+        "files": 25780
+      }
+    }
+  },
+  "vercelPreview": {
+    "deploymentId": "dpl_EtMfvxNGYjNktvPpBGaDBHv43d8m",
+    "state": "READY",
+    "appRevision": "c6b1e9f2be06657c8f9b1d003d36cb6c35a15f96",
+    "immutableUrl": "https://security-market-pulse-rcns4vond-pikeholdings.vercel.app",
+    "stableUrl": "https://security-market-pulse-git-preview-pikeholdings.vercel.app",
+    "publicFactualCorrectionsEnabled": false
+  },
+  "visualReview": {
+    "widths": [
+      1440,
+      390
+    ],
+    "previousIdenticalImagesHumanInspected": true,
+    "currentLocalImagesHumanInspected": true,
+    "images": {
+      "tested-build-1440.png": {
+        "sha256": "86fae1defd6c95807d81c7bae72f1355195404f96fac8eea41571a9df0afe3ed",
+        "sameAsPreviousCI": true
+      },
+      "tested-build-390.png": {
+        "sha256": "e59f56c9641b85cb6e289b047ee42698d45ddbc74c8da3f0dd981d98881b682d",
+        "sameAsPreviousCI": true
+      },
+      "production-1440.png": {
+        "sha256": "2cdee7135749e81042285e86f597690c24b5548c704bd50db8a4479258e2b3e7",
+        "sameAsPreviousCI": true
+      },
+      "production-390.png": {
+        "sha256": "2b30848ff9d5fef36e421efcf84f9524f5faab07f3077224ec76220f90e3c236",
+        "sameAsPreviousCI": true
+      }
+    },
+    "visibleLayoutChanges": false,
+    "comparisonLimit": "Preview retains earlier committed 0/557 coverage and an older event window; production retains 121/557. Identical prior CI bytes do not establish fresh source work."
+  },
+  "production": {
+    "appRevision": "7bd94ec77e99462c068f254e134235a894585cbb",
+    "dailyRunId": "e054ea73c89fe78db9702f94d2a3b669ce91884f7d7abda0a88698dbcfc7ec50",
+    "snapshotSha256": "53b49106fa9118d603db5e64e37cf03f7f2c6fd1fb797acf18e73f540196c84f",
+    "successfulTasks": 121,
+    "requiredTasks": 557,
+    "checkedAt": "2026-10-23T11:38:59.377139Z",
+    "correctionsApplied": false
+  },
+  "receipts": {
+    "neutral-filings-web-run-2026-10-23.json": "43847a0cc649c9e539aca8420364576d3b86a6389551493bc4ae587d4bb68860",
+    "neutral-filings-runtime-run-2026-10-23.json": "0553b2ecb89a7f1faf3f055a9bf1f88c48ff19c95811215c6a6bc0aa561307c8",
+    "neutral-filings-runtime-canary-2026-10-23.json": "065cf39aa38832724c4ec77b5088d47678d6e03619cda132012fb8e8eda62d60"
+  },
+  "logs": {
+    "web.log": "9b4a72a66c1d9c2955a43f6290dd1b8547d6f50a4a9f6458b19980acf36f85d1",
+    "runtime-canary.log": "a30408be01d61cb3cacdbdcd63427613fdf431c92c6b4fd106bb5314f5f9fb17"
+  },
+  "semanticAdmission": false,
+  "collectionAttempted": false,
+  "publicationAttempted": false,
+  "quotaChanges": false,
+  "sourcesActivated": 0,
+  "qualifiedSources": 0,
+  "limitations": [
+    "A separate canary connectivity probe adds no source check or qualification.",
+    "No real correction review or new production data release occurred.",
+    "All October23 gate/publication and fetch/model/document allowances remain spent."
+  ]
+}

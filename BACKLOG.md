@@ -60,10 +60,17 @@ The actual ReliaQuest empty-HTML-attribute crash is repaired and replayed agains
 All missing reporting/distribution and official/investor tasks now have separate retained-evidence
 audits, preserving the 254 missing-family denominator. Qualify family-relevant literal endpoints
 under the shared charged allowance; historical articles and broad portfolio sites remain leads.
+The [qualification queue](docs/active/daily-pipeline/accuracy/coverage-qualification-status-2026-10-23.md)
+maps all 254 missing tasks to exact evidence and next actions, with the 28 candidates and 154
+technical failures separately retained. It adds no successful check or source freshness.
 Separately repair [Xage's source-classification defect](docs/active/daily-pipeline/accuracy/source-classification-correction-proposal-2026-10-23.md)
 through a bounded dated metadata operation and proper provenance/review. Its paid syndicated release
 is still labelled independent in production. Do not weaken the current protected-field guards or
 silently add this to the five correction groups or fixed 177-record audit.
+The retained citation diagnostic also confirms that generic article extraction receives Barracuda
+gzip bytes as text. Decode through the existing bounded view before semantic extraction, invalidate
+affected input caches, and keep its JavaScript newsroom shell incomplete; no request is needed to
+implement or test this repair.
 
 **Authorization:** owner request on October 23 to fix coverage within existing limits, set an active
 goal and track durability/accuracy/value; clarified priority is current operation before expansion.

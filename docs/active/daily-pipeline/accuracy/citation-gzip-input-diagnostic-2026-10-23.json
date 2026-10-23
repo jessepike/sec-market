@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "kind": "historical_citation_gzip_input_diagnostic",
+  "checkedAt": "2026-10-23T21:15:08.122345+00:00",
+  "contractSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+  "citationSources": 208,
+  "sourcesWithRetainedFullResponse": 204,
+  "compressedResponses": [
+    {
+      "sourceId": "barracuda:citation:TR-barracuda-1",
+      "requestedUrl": "https://www.barracuda.com/company/news",
+      "finalUrl": "https://www.barracuda.com/company/news",
+      "fetchedAt": "2026-10-23T11:34:09.091727Z",
+      "observationId": "ad9c16e190c51b55d7dac938c0fe1b4b6335c3c690d8e82041b75827da042b15",
+      "body": {
+        "bytes": 22363,
+        "key": "objects/340f5ce1d51d8b3ac8652ecd54eb52c84c4c7eddb8f40090ae52aa1012c6a130",
+        "sha256": "340f5ce1d51d8b3ac8652ecd54eb52c84c4c7eddb8f40090ae52aa1012c6a130"
+      },
+      "decodedBytes": 146001,
+      "decodedSha256": "39a7d9a84c6d237c42ed4d9da5030284cda8d373dd96d5ecb202abff5917ed54",
+      "raw": {
+        "readableCharacters": 17274,
+        "replacementCharacters": 7597,
+        "publicationMetadata": null,
+        "readableSha256": "8a8294d07f3d0a19df742766e39a3814a377353f9ab83c828c7100091aed05b7"
+      },
+      "decoded": {
+        "readableCharacters": 198,
+        "replacementCharacters": 0,
+        "publicationMetadata": "2026-05-12T10:18:11Z",
+        "readableSha256": "06b83c270d3334dee59adda503ac41ddadf9d900d03840ec0229ea97985bcab7"
+      }
+    }
+  ],
+  "sourceRequests": 0,
+  "modelCalls": 0,
+  "semanticAdmission": false,
+  "sourceActivation": false,
+  "quotaChanges": false,
+  "newCoverageChecks": 0,
+  "limitation": "Compares parser input views only. No claim admission, source freshness or complete collection traversal is established."
+}

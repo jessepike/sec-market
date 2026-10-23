@@ -49,6 +49,7 @@ or the fixed 177-record denominator.
 [Scorecard](docs/active/daily-pipeline/evaluations/2026-10-23/accuracy-scorecard.md) ·
 [Rubric](docs/active/daily-pipeline/evaluation-rubric.md) ·
 [Existing-record audit](docs/active/daily-pipeline/accuracy/current-record-review-2026-10-23.md) ·
+[Qualification queue](docs/active/daily-pipeline/accuracy/coverage-qualification-status-2026-10-23.md) ·
 [Backlog](BACKLOG.md).
 Coverage and known contradictions fail separately; overall precision, eligible-event recall,
 sustained operation and value remain unmeasured. There is no averaged overall score.
@@ -73,11 +74,21 @@ The real ReliaQuest empty-attribute parser crash is fixed and replayed against u
 The latest batch passes 333 operational and 12 monitor tests locally. Both disabled and isolated
 synthetic enabled application runs pass 321 data, 112 pipeline and 38 browser checks plus full build.
 All four inspected local screenshots match their previous versions byte for byte. These are
-non-admitting candidate checks; actual GitHub/Vercel validation for this batch is pending.
+non-admitting candidate checks.
 [Local validation](docs/active/daily-pipeline/receipts/neutral-filings-validation-2026-10-23.json).
-Previous actual preview revision `c83ec1589e0f8c94a8b6000d0173e6fb277e3364` passed web CI
-`40022453957` and private runner `40022453816` (299 passed, one explicitly skipped local-archive test).
-[Remote receipts](docs/active/daily-pipeline/receipts/discovery-regulatory-probe-remote-validation-2026-10-23.json).
+Actual preview revision `c6b1e9f2be06657c8f9b1d003d36cb6c35a15f96` passed web CI
+`40025157777` (321/112/38) and private runner `40025157846` (332 passed, one explicitly skipped
+local-archive test). Vercel `dpl_EtMfvxNGYjNktvPpBGaDBHv43d8m` is READY at that revision.
+All four CI images equal the previously inspected CI images. Its correction bundle is disabled;
+production and the verified archive remain unchanged. The canary made zero model calls/archive
+changes; its separate SEC connectivity probe adds no collection or qualification credit.
+[Remote receipts](docs/active/daily-pipeline/receipts/neutral-filings-remote-validation-2026-10-23.json).
+
+The [citation input diagnostic](docs/active/daily-pipeline/accuracy/citation-gzip-input-diagnostic-2026-10-23.json)
+checked 204 retained full citation responses and found one compressed body: Barracuda's shell.
+The generic article path still reads compressed bytes as text. Repair bounded input decoding and
+invalidate only affected extraction caches before qualifying that source; keep shell discovery
+incomplete and preserve the original bytes/time. This is the next code repair, with no quota need.
 
 ## Limits and next work
 
