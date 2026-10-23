@@ -7,6 +7,7 @@ import socket
 import subprocess
 import sys
 import tempfile
+import time
 import unittest
 import hashlib
 import io
@@ -94,6 +95,77 @@ class FakeAgent:
 
 
 class PipelineTests(unittest.TestCase):
+    def duplicate_citation_fixture(self, compatible=True):
+        self.c['sources'][0].update(kind='citation', family='citation_integrity', url=URL)
+        clone = {**self.c['sources'][0], 'id': 'second'}
+        if not compatible:
+            clone['allowedHosts'] = ['example.invalid', 'other.invalid']
+        self.c['sources'].append(clone)
+        self.c['suppliers'][0]['sourceIds'].append('second')
+        self.c['suppliers'][0]['requiredFamilies'] = ['citation_integrity']
+        self.c['schedule'].update(maxWorkers=2, maxFetchesPerRun=1 if compatible else 2)
+
+    def test_parallel_compatible_bindings_share_one_fetch_with_distinct_provenance(self):
+        self.duplicate_citation_fixture()
+        fetcher = FakeFetcher(self.store)
+        original = fetcher.fetch
+        def delayed(*args):
+            time.sleep(0.02)
+            return original(*args)
+        with patch.object(fetcher, 'fetch', side_effect=delayed) as fetch:
+            result = Pipeline(self.c, self.store, fetcher, clock=lambda: T).run(T)
+        self.assertEqual(fetch.call_count, 1)
+        self.assertTrue(result['complete'], result['receipts'])
+        self.assertEqual(result['successfulTasks'], 2)
+        observed = [self.store.read('observations/' + r['observationIds'][0] + '.json') for r in result['receipts']]
+        self.assertEqual({o['sourceId'] for o in observed}, {'official', 'second'})
+        self.assertEqual(len({o['observationId'] for o in observed}), 2)
+        self.assertEqual(len({o['transportId'] for o in observed}), 1)
+        self.assertEqual(sum(o['transportReused'] for o in observed), 1)
+        self.assertEqual(self.store.read('heads/budget-' + T[:10] + '.json')['fetches'], 1)
+
+    def test_incompatible_transport_host_policies_do_not_share(self):
+        self.duplicate_citation_fixture(compatible=False)
+        fetcher = FakeFetcher(self.store)
+        with patch.object(fetcher, 'fetch', wraps=fetcher.fetch) as fetch:
+            result = Pipeline(self.c, self.store, fetcher, clock=lambda: T).run(T)
+        self.assertTrue(result['complete'])
+        self.assertEqual(fetch.call_count, 2)
+
+    def test_conditional_responses_keep_each_sources_own_retained_body_chain(self):
+        self.duplicate_citation_fixture()
+        self.c['schedule']['maxFetchesPerRun'] = 6
+        self.run_pipeline()
+        fetcher = FakeFetcher(self.store)
+        def not_modified(source, url, previous):
+            return {**previous, 'status': 'not_modified', 'httpStatus': 304,
+                    'reusesObservationId': previous['observationId']}
+        with patch.object(fetcher, 'fetch', side_effect=not_modified) as fetch:
+            result = Pipeline(self.c, self.store, fetcher, clock=lambda: T).run(T, force_refresh=True)
+        self.assertTrue(result['complete'])
+        self.assertEqual(fetch.call_count, 2)
+        for receipt in result['receipts']:
+            observed = self.store.read('observations/' + receipt['observationIds'][0] + '.json')
+            prior = self.store.read('observations/' + observed['reusesObservationId'] + '.json')
+            self.assertEqual(prior['sourceId'], observed['sourceId'])
+
+    def test_sec_index_pair_uses_shared_narrower_policy_and_archives_primary_text(self):
+        source, document, index, pages = self.filing_fixture()
+        second = {**source, 'id': 'submissions', 'kind': 'sec_submissions', 'family': 'regulatory_filings',
+                  'allowedHosts': ['data.sec.gov']}
+        self.c['sources'].append(second)
+        self.c['suppliers'][0]['sourceIds'].append('submissions')
+        self.c['suppliers'][0]['requiredFamilies'].append('regulatory_filings')
+        self.c['schedule'].update(maxWorkers=2, maxFetchesPerRun=2)
+        fetcher = FakeFetcher(self.store, pages)
+        with patch.object(fetcher, 'fetch', wraps=fetcher.fetch) as fetch:
+            result = Pipeline(self.c, self.store, fetcher, clock=lambda: T, structured=lambda *_: []).run(T)
+        self.assertTrue(result['complete'], result['receipts'])
+        self.assertEqual(fetch.call_count, 2)
+        index_calls = [call for call in fetch.call_args_list if call.args[1] == source['url']]
+        self.assertEqual(len(index_calls), 1)
+        self.assertEqual(index_calls[0].args[0]['allowedHosts'], ['data.sec.gov'])
+
     def citation_retry_fixture(self):
         self.c['schedule']['maxFetchesPerRun'] = 1
         self.c['sources'][0].update(kind='citation', family='citation_integrity', url=URL)

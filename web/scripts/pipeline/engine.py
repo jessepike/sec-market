@@ -26,6 +26,7 @@ class Pipeline:
         self.model_unavailable = None
         self.deadline = float("inf")
         self.native_budget_exhausted = False
+        self.transport_cache = {}
 
     def _structured(self, source, documents, day):
         result = subprocess.run(["node", "--import", "tsx", str(Path(__file__).with_name("sec-adapter.mjs"))],
@@ -37,6 +38,7 @@ class Pipeline:
     def run(self, scheduled_at, replay=False, force_refresh=False):
         self.replay = replay
         self.force_refresh = force_refresh
+        self.transport_cache = {}
         self.deadline = time.monotonic() + self.contract["schedule"].get("maxRuntimeSeconds", 7200)
         proposed = plan_run(self.contract, scheduled_at)
         plan_key = f"runs/{proposed['runId']}/plan.json"
@@ -111,8 +113,7 @@ class Pipeline:
                     observation = {**cached, "status": "retained_immutable", "verifiedAt": self.clock(),
                                    "reusesObservationId": cached["observationId"], "anchorObservationIds": anchors}
                 else:
-                    self._reserve("fetches", self.contract["schedule"].get("maxFetchesPerRun", 5000))
-                    observation = self.fetcher.fetch(source, url, old)
+                    observation = self._fetch_transport(source, url, old)
                 observation["observationId"] = digest({"attempt": attempt_id, "url": url, "at": observation["fetchedAt"]})
                 observation["sourceId"] = source["id"]
                 self.store.write_once(f"observations/{observation['observationId']}.json", observation)
@@ -293,6 +294,33 @@ class Pipeline:
             receipt.update(outcome="failed", errorCode=str(exc)[:160] if isinstance(exc, (ValueError, ModelUnavailable)) else type(exc).__name__)
         return self._finish(receipt)
 
+    def _fetch_transport(self, source, url, previous):
+        hosts = sorted(source['allowedHosts'])
+        if url.startswith('https://data.sec.gov/') and source['kind'] in ('sec_facts', 'sec_submissions', 'sec_documents'):
+            # Both SEC index bindings permit this stricter redirect policy.
+            # Do not reuse a response obtained through a broader host policy.
+            require('data.sec.gov' in hosts, 'SEC transport host not registered')
+            hosts = ['data.sec.gov']
+        key = digest({'url': url, 'hosts': hosts, 'supplier': source['supplierId']})
+        with self.store.lock('transport-' + key, blocking=True):
+            if key in self.transport_cache:
+                observation = dict(self.transport_cache[key])
+                self.store.get(observation['body'])
+                observation['transportReused'] = True
+                return observation
+            self._reserve('fetches', self.contract['schedule'].get('maxFetchesPerRun', 5000))
+            observation = self.fetcher.fetch({**source, 'allowedHosts': hosts}, url, previous)
+            observation = {**observation, 'transportReused': False}
+            observation.pop('transportId', None)
+            # Source-specific 304 provenance must remain source-specific. Only
+            # full responses obtained during this invocation are shareable.
+            if observation.get('status') == 'fetched' and observation.get('httpStatus') == 200:
+                self.store.get(observation['body'])
+                observation = {**observation, 'transportReused': False,
+                               'transportId': digest({'request': key, 'at': observation['fetchedAt'], 'body': observation['body']})}
+                self.transport_cache[key] = dict(observation)
+            return observation
+
     def _reserve(self, kind, limit):
         # Run lock serializes processes; model_lock serializes this run's threads.
         # Reserve before invocation, so crashes/retries cannot reset daily budgets.
@@ -326,6 +354,11 @@ class Pipeline:
                 require(0 <= age <= self.contract['schedule']['overdueHours'], 'Prior receipt stale or future')
                 require(receipt.get('discoveryComplete') is True and bool(receipt.get('observationIds')), 'Prior discovery incomplete')
                 require(receipt['supplierId'] == task['supplierId'], 'Prior receipt entity differs')
+                for oid in receipt['observationIds']:
+                    observation = self.store.read(f'observations/{oid}.json')
+                    require(observation is not None, 'Prior source observation missing')
+                    observed_age = (instant(self.clock()) - instant(observation.get('verifiedAt', observation['fetchedAt']))).total_seconds()/3600
+                    require(0 <= observed_age <= self.contract['schedule']['overdueHours'], 'Prior observation stale or future')
                 archived = self.store.read(f"runs/{plan['runId']}/attempts/{receipt['attemptId']}.json")
                 require(archived == receipt, 'Prior attempt differs from hash-anchored receipt')
                 verified = reconcile(subset, [receipt], self.contract, self.clock(), self.store)
