@@ -27,19 +27,26 @@ Record list: [docs/reference/dns-and-accounts.md](docs/reference/dns-and-account
 
 ### SEC-062 · Burn-in: prove sustained automatic operation
 
-The owner will not put the site in front of readers until it runs fresh and accurate with no human
-fixes (2026-10-18). Track consecutive clean days: every scheduled `certified refresh`, `promote` and
-`freshness probe` run green, every new certified filing live within 48 hours, no manual data fix, no
-open alert issue. Any failure restarts the count. Bar to be set by the owner (recommended 30 days).
-**Authorization:** within D-103.
+The owner requires fresh, accurate operation without human fixes (2026-10-18). Prove the actual
+GitHub Actions chain: `subscription-collector.yml`, `subscription-publisher.yml`, the independent
+`market-release-gate.yml`, controlled rollback acceptance and `freshness.yml`. The former certified
+refresh and automatic main-promotion workflows are disabled. A successful bounded collector may
+retain explicit source gaps; those gaps do not become fresh checks. Track actual scheduled runs,
+exact-artifact production acknowledgements, certified filing delivery within 48 hours, manual fixes
+and execution alerts. Sustained operation is still unproved; no clean-day count is claimed.
+The owner has not set the acceptance duration (previous recommendation: 30 days).
+**Authorization:** D-104 through D-110; [current activation record](docs/active/daily-pipeline/activation-2026-10-23.md).
 
-### SEC-071 · Decide what the live site shows
+### SEC-071 · Complete and disclose full-roster source coverage
 
-58 of 74 suppliers get no automated refresh, so their facts age while the page shows them beside
-current data. Options: (A) show only what refreshes, the 16 SEC filers and their filed events, with
-the rest removed or in a dated archive; (B) keep all and show each fact's age, fading old ones; (C)
-rebuild automated collection for private companies (deferred, D-95). Any option is a major change.
-**Authorization:** owner decision.
+Bounded daily collection for all 74 existing suppliers is authorized and implemented. The latest
+completed source run checked 244/557 tasks; full source coverage remains incomplete, with 254
+missing family bindings and 28 held claims. Resolve source registration, blocks, dated evidence,
+typed ownership/financial adapters and retained historical audits within existing budgets. Keep
+task and field ages visible and leave unsupported or unchecked facts held. General partial coverage
+can accompany individually verified facts; the complete SEC certification requirement remains.
+No supplier expansion is authorized by this work.
+**Authorization:** D-104 through D-110. A successful runner or release is not full coverage.
 
 ## Soon
 

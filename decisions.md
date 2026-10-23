@@ -4,7 +4,7 @@ Append-only ledger of owner and project decisions since 2026-08-15. Past entries
 a later entry supersedes an earlier one. (Link paths were updated on 2026-10-16 when documents moved
 to `docs/archive/`; the words of each entry are unchanged.)
 
-## Decisions in force (as of 2026-10-20)
+## Decisions in force (as of 2026-10-23)
 
 Everything not listed here is history: superseded, completed, or about a phase that has ended.
 
@@ -13,13 +13,13 @@ Everything not listed here is history: superseded, completed, or about a phase t
 | Purpose | D-1, D-76, D-77, D-102 | Intent is the authority (v1.4 accepted; v1.5 awaiting the owner's confirmation). Facts publish with no human approval step; no machine publishes a judgment. A standing supplier tracker is the product |
 | What may be called verified | D-85, D-89, D-100 | Publishing needs 100% of required claims. The certified tier is the SEC filers. The page says "re-derived from SEC filings", not "independently verified" |
 | Events | D-91 | Filed events are dated, uniform, rule-listed facts from SEC filings |
-| Automation | D-88, D-96, D-98, D-101, D-103, D-104 | Every change reaches production on its own after a soak and full checks; major changes wait for the owner. SEC is checked every 4 hours. No paid GitHub plan and no branch protection; `main` is guarded by the promotion workflow's rules and a client-side push hook. Production renders the certified tracker |
-| Deploy path | D-31, D-32, D-50, D-103 | Local, then GitHub, then Vercel. `preview` is the trunk, `main` is production, moved by `promote.yml`. Commits use `jesse@keatingpike.com` |
+| Automation | D-104 through D-110 | Owner-approved daily collection, independently gated fact publication and controlled rollback verification through private GitHub Actions and the existing Vercel project. Legacy certified refresh and automatic branch promotion are disabled. Actual scheduled and live receipts still required |
+| Deploy path | D-31, D-32, D-50, D-110 | Reviewed code advances from preview to main; Vercel Git production paths are closed. Main's independent gate produces the exact static artifact, which stages without domains before acknowledged promotion. Commits use `jesse@keatingpike.com` |
 | Attribution | D-90, D-97 | Method-page byline in the owner's legal name, Jesse Pike, with an interests statement |
 | Records | D-68, D-93 | Published records change only through dated corrections. The weekly issue is retired; issue `2026-w36` stays as an archive |
 | Distribution | D-92 | Email capture and a digest of certified changes, built as one workstream |
 | Security | D-83 (credential boundary), D-99 | No tokens or credentials copied to CI without approval at the time. Security headers and DNS hardening on both sites |
-| Daily coverage | D-104, D-105 | Daily collection and reconciliation for all 74 current suppliers authorized; expansion-ready, subscription-backed, no paid fallback. Cutover requires live receipts |
+| Daily coverage | D-104 through D-110 | Bounded daily collection for all 74 current suppliers authorized. Every published changed fact needs evidence and checks; complete SEC certification remains mandatory. Partial general coverage stays explicit. No paid fallback; actual scheduled, production and rollback receipts remain acceptance work |
 | Roadmap | D-94, D-104 | A quarterly owner-written note is on the backlog. Private-company extraction is now authorized within the daily pipeline workstream |
 
 Numbering note: D-34 was recorded before D-33 on 2026-08-16; both stand as written.
@@ -1290,3 +1290,27 @@ fresh-runner explicit managed refresh confirmed actual rotation and protected wr
 approved durable publisher tests without requesting credential approval or imposing a new
 expiration requirement. No new API billing, service purchase or unseen production cutover follows
 from this operational update.
+
+
+**D-110 · 2026-10-23 — Reviewed daily fact pipeline activation and verification approved.**
+
+Owner: "Approve activation and verification". Approval was given October 22 Pacific time for the
+concrete reviewed daily-facts cutover and its verification, including the controlled rollback to the
+retained previously served deployment and restoration of the newly accepted immutable release.
+Use private GitHub Actions and the existing Vercel project; no pull request, infrastructure purchase,
+paid model API fallback or Codex Cloud scheduler is part of this activation.
+
+This authorizes replacing the legacy certified-refresh and automatic branch-promotion publication
+paths with bounded daily collection, an independent main gate, exact-artifact staged production,
+live acknowledgement, failure alerts and the controlled acceptance drill. Preserve complete SEC
+certification, individual changed-fact evidence gates, honest task/field freshness and general
+coverage gaps. It does not authorize supplier expansion or machine-written judgments.
+
+Actual scheduled source work remains an initial publication condition. A verified GitHub callback
+from that source can start publication; a waiting initial hold consumes no gate attempt. Temporary
+date-bound acceptance retries may verify and reuse a prior genuine scheduled collection without
+resetting counters or renewing source timestamps. Existing spent or conservatively reserved capacity
+remains charged. Do not infer completion from approval, a passing build or a staged deployment.
+Retain actual scheduled, production, rollback/restoration and monitoring receipts in the
+[activation record](docs/active/daily-pipeline/activation-2026-10-23.md). Sustained operation and
+full source coverage remain separate open acceptance work.

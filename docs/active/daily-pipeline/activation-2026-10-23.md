@@ -1,8 +1,23 @@
 # Daily pipeline activation receipts
 
-The owner approved activation and verification, including the controlled rollback and restoration,
-on October 22 Pacific time. The platform remains GitHub Actions and the existing Vercel project.
+Owner: "Approve activation and verification". D-110 records this approval for the reviewed daily
+facts pipeline, including controlled rollback and restoration, on October 22 Pacific time.
+The platform remains GitHub Actions and the existing Vercel project.
 No Codex Cloud scheduler, paid model API fallback, purchase or pull request is used.
+
+## Current checkpoint: October 23, 07:02 UTC
+
+Canonical `main` and `preview` are both `7bd94ec77e99462c068f254e134235a894585cbb`.
+Production remains `54590be4d91113a50879a8fb5d180441e7d149f4`. No actual new scheduled
+collector or publisher event had been emitted by GitHub at this checkpoint. This record does not
+claim live daily publication, successful controlled rollback or sustained operation.
+
+The current operational suite passed 83 tests in OrbStack. Application runs
+[39914573163](https://github.com/jessepike/sec-market/actions/runs/39914573163) and
+[39914570279](https://github.com/jessepike/sec-market/actions/runs/39914570279), and fresh-runner
+canary [39914569790](https://github.com/jessepike/sec-market/actions/runs/39914569790), passed.
+Fresh read probe [39909753143](https://github.com/jessepike/sec-market/actions/runs/39909753143)
+confirmed the installed Vercel production-path controls.
 
 ## Completed cutover steps
 
@@ -30,31 +45,46 @@ checks that each immutable target is READY and belongs to this project, and wait
 application receipt before accepting an alias change. Error receipts retain fixed phase and failure
 categories. Alias changes also verify the pinned project controls, restoring only automatic domain
 assignment to false if Vercel enables it. The immutable target, existing ignore rule and team remain
-required. Local validation passed 75 operational, 99 pipeline and nine monitor tests; application
-CI passed on `ae66ee5`.
+required. Later validation is recorded in the current checkpoint above.
 
 The failed attempt remains charged to both gate and publication counters. No counter was reset.
 The replacement scheduled publisher must still pass a fresh independent main gate.
 
 ## Actual scheduled acceptance
 
-The normal daily collector window passed before owner approval. A temporary October 23 06:07 UTC
-cron was added, with a UTC date guard to prevent annual reuse. The regular 05:17 UTC collector and
+The normal daily collector window passed before owner approval. Temporary October 23 06:07 and
+07:07 UTC crons were added, with a UTC date guard to prevent annual reuse. The regular 05:17 UTC collector and
 06:23/16:23 UTC publisher schedules remain unchanged. A manual dispatch is not scheduler evidence.
 
-The rollback check also has a one-time GitHub callback after an authentic successful scheduled
-publisher. A read-only preflight outside the shared writer group requires the actual archived
+The initial publisher holds until an actual completed-success scheduled main collector has an
+immutable run-and-attempt receipt matching the current contract, GitHub identity/revision and
+latest reconciled source coverage. This waiting hold consumes no independent-gate attempt. A
+verified `workflow_run` callback from genuine scheduled collection can start the publisher after
+its read-only concurrency preflight. No callback is relabelled as a scheduled publisher event.
+
+For the temporary acceptance expressions only, a later real timer may verify and reuse prior
+successful scheduled source work from the same UTC day. It checks the archived receipts and
+replays reconciliation while retaining the original source check time and coverage hash. It makes
+no model or source-fetch call and changes no budget or latest collection head. The new immutable
+clock explicitly reports `source_work_reused` and the source GitHub run ID. Normal daily and manual
+collection behavior is unchanged. [Acceptance details](scheduled-acceptance.md).
+
+The rollback check also has a one-time GitHub callback after an authentic successful publisher
+from either its scheduled event or its genuine-source callback. A read-only preflight outside the shared writer group requires the actual archived
 scheduled collector, checks for queued/running collection and any previous drill record, and expires
 after October 23 UTC. Only the mutating job receives the Vercel credential and writer group. The
 manual approved-release workflow remains available. No future daily rollback is authorized.
 
-As of 06:39 UTC, GitHub has not emitted either new scheduled run. Actual scheduled collection,
+As of 07:02 UTC, GitHub has not emitted either new scheduled run. Actual scheduled collection,
 new production acknowledgement, controlled rollback restoration and the final independent
 monitor receipt remain pending. This document does not yet claim completion.
 
 ## Coverage boundary
 
 The latest pre-activation source receipt completed 244 of 557 required tasks. Missing or blocked
-sources remain incomplete, and ownership remains announced rather than closed for Varonis.
+sources remain incomplete, with 254 missing family bindings and 28 held claims. Ownership remains
+announced rather than closed for Varonis. The October 23 ledger retains 80 charged model calls,
+40 document reservations and 5,367 of the explicit 5,500 fetch ceiling. Cancelled-run reservations
+and the failed gate/publication attempt were not refunded or reset.
 One successful execution or publication does not establish full source coverage or sustained
 multi-day operation.
