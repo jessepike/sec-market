@@ -69,12 +69,17 @@ def validate_contract(contract):
         require(type(source["required"]) is bool, "Source requirement must be boolean")
         require(source["supplierId"] in supplier_ids, "Orphan source binding")
         require(source["registration"] in ("verified", "candidate"), "Unknown source registration")
-        require(source["kind"] in ("sec_facts", "sec_submissions", "sec_documents", "official_discovery", "rss", "sitemap", "html_index", "citation"), "Unknown collector kind")
+        require(source["kind"] in ("sec_facts", "sec_submissions", "sec_documents", "sec_index", "official_discovery", "rss", "sitemap", "html_index", "citation"), "Unknown collector kind")
         require(bool(source.get("family")), "Source family required")
         url = urlsplit(source["url"])
         require(url.scheme == "https" and not url.username and not url.password and url.port in (None, 443), "Unsafe source URL")
         require(url.hostname in source["allowedHosts"], "Source host is outside its contract")
         require(1 <= source["maxPages"] <= 1000, "Invalid pagination limit")
+        if source["kind"] == "sec_index":
+            from regulatory import validate_index_source
+            validate_index_source(source, suppliers)
+        else:
+            require("regulatoryIssuer" not in source, "Explicit regulatory issuer requires neutral SEC index kind")
         if source.get("htmlCompleteness") == "orca-news-pagination-v1":
             require(source["kind"] == "html_index" and source["id"] == "orca:official:1" and
                     source["supplierId"] == "orca" and source["family"] == "official_announcements" and

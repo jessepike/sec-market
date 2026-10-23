@@ -1,11 +1,11 @@
 """Fail-closed cross-record evidence and coverage checks independent of models."""
 import re
-from datetime import datetime
+from datetime import datetime, timezone
 from decimal import Decimal
 from urllib.parse import urlsplit
 
 from contracts import canonical, digest, instant, require, unique
-from discovery import Page
+from discovery import Page, decoded_discovery_body
 
 
 PREDICATES = {"funding", "valuation", "revenue", "arr", "acquisition", "leadership_change", "restructuring", "layoff", "debt", "shutdown", "late_filing"}
@@ -102,16 +102,20 @@ def reconcile(plan, receipts, contract, now, store):
     require(set(expected) == {r["taskId"] for r in receipts}, "Required inventory missing or unexpected receipt")
     successful, gaps = [], []
     suppliers = {s["id"] for s in contract["suppliers"]}
+    sources = {s["id"]: s for s in contract["sources"]}
     require(suppliers == set(plan["supplierIds"]), "Supplier denominator changed")
     for receipt in receipts:
         task = expected[receipt["taskId"]]
+        source = sources.get(task["sourceId"])
+        if source and source["kind"] == "sec_index":
+            require(all(receipt.get(key, []) == [] for key in
+                        ("validatedFacts", "newFactIds", "documentValidations", "heldClaims", "documents")),
+                    "Neutral SEC index receipt contains facts or semantic document work")
         require(receipt["runId"] == plan["runId"] and receipt["sourceId"] == task["sourceId"], "Receipt provenance mismatch")
         age = (instant(now) - instant(receipt["completedAt"])).total_seconds() / 3600
         require(age >= -5/60, "Future check timestamp")
         ok = receipt["outcome"] in ("updated", "checked_no_change") and receipt.get("discoveryComplete") is True and bool(receipt.get("observationIds")) and age <= contract["schedule"]["overdueHours"]
         if ok:
-            sources = {s["id"]: s for s in contract["sources"]}
-            source = sources.get(task["sourceId"])
             require(source and source["registration"] == "verified", "Unverified source cannot earn coverage")
             unique(receipt["observationIds"], "observation reference")
             observations = []
@@ -146,14 +150,47 @@ def reconcile(plan, receipts, contract, now, store):
                 observations.append(observation)
             manifest = __import__('json').loads(store.get(receipt["itemManifest"]))
             require(manifest["sourceId"] == source["id"] and set(manifest["observations"]).issubset(receipt["observationIds"]), "Discovery manifest provenance mismatch")
-            if source["kind"] not in ("sec_facts", "sec_submissions"):
+            if source["kind"] == "sec_index":
+                from regulatory import validate_index_source, verify_index_documents
+                validate_index_source(source, contract["suppliers"])
+                record = __import__('json').loads(store.get(receipt["regulatoryIndexValidation"]))
+                require(set(record) == {"sourceId", "supplierId", "contractSha256", "traversalAsOf", "checkedAt", "observationIds", "documents", "verification"},
+                        "Neutral SEC index validation record schema differs")
+                require(record["sourceId"] == source["id"] and record["supplierId"] == task["supplierId"] and
+                        record["contractSha256"] == digest(contract) and record["observationIds"] == receipt["observationIds"] and
+                        manifest["observations"] == receipt["observationIds"], "Neutral SEC index validation provenance differs")
+                require(instant(receipt["startedAt"]) <= instant(record["traversalAsOf"]) <= instant(record["checkedAt"]) <= instant(receipt["completedAt"]),
+                        "Neutral SEC index check time is outside its attempt")
+                require(instant(record["traversalAsOf"]).astimezone(timezone.utc).date() == instant(record["checkedAt"]).astimezone(timezone.utc).date(),
+                        "Neutral SEC index traversal window changed")
+                require(all(instant(o["fetchedAt"]) <= instant(record["checkedAt"]) for o in observations),
+                        "Neutral SEC index validation precedes source observation")
+                require(all(o.get("finalUrl", o["requestedUrl"]) == o["requestedUrl"] for o in observations),
+                        "Neutral SEC index final response URL differs")
+                bindings = [{"url": o["requestedUrl"], "observationId": o["observationId"], "body": o["body"]} for o in observations]
+                require(record["documents"] == bindings, "Neutral SEC index document URL/body binding differs")
+                documents = [{"url": o["requestedUrl"], "document": __import__('json').loads(decoded_discovery_body(store.get(o["body"])))}
+                             for o in observations]
+                checked = verify_index_documents(source, documents, record["checkedAt"])
+                require(checked == record["verification"] and checked["facts"] == [], "Neutral SEC index independent replay differs")
+                accessions = set()
+                for item in documents:
+                    table = item["document"].get("filings", {}).get("recent", item["document"])
+                    accessions.update(accession for accession, day in zip(table["accessionNumber"], table["filingDate"])
+                                      if checked["windowStart"] <= day <= checked["windowEnd"])
+                require(type(manifest["items"]) is list and all(isinstance(item, str) and re.fullmatch(r"\d{10}-\d{2}-\d{6}", item)
+                                                              for item in manifest["items"]),
+                        "Neutral SEC index accession inventory must be an array of accession strings")
+                unique(manifest["items"], "neutral SEC index accession")
+                require(set(manifest["items"]) == accessions, "Neutral SEC index accession inventory differs")
+            if source["kind"] not in ("sec_facts", "sec_submissions", "sec_index"):
                 require(set(manifest["items"]).issubset({o["requestedUrl"] for o in observations}), "Discovered item was never checked")
             if source["kind"] == "sec_documents":
                 require(set(manifest["items"]) == {d["url"] for d in receipt.get("documents", [])}, "SEC primary text inventory incomplete")
                 for document in receipt.get("documents", []):
                     store.get(document["body"])
                     require(len(store.get(document["text"])) >= 100, "SEC document text missing")
-            if source["kind"] not in ("sec_facts", "sec_submissions", "sec_documents", "citation"):
+            if source["kind"] not in ("sec_facts", "sec_submissions", "sec_documents", "sec_index", "citation"):
                 validations = receipt.get("documentValidations", [])
                 unique([d["url"] for d in validations], "document validation")
                 require(set(manifest["items"]) == {d["url"] for d in validations}, "Document semantic validation inventory incomplete")
@@ -238,6 +275,11 @@ extraction without its complete document validation receipt remains ineligible.
         source = sources.get(task["sourceId"])
         require(receipt["runId"] == plan["runId"] and receipt["sourceId"] == task["sourceId"], "Partial-document run/source differs")
         if not source or source["registration"] != "verified":
+            continue
+        if source["kind"] == "sec_index":
+            require(all(receipt.get(key, []) == [] for key in
+                        ("validatedFacts", "newFactIds", "documentValidations", "heldClaims", "documents")),
+                    "Neutral SEC index cannot release partial semantic facts")
             continue
         manifest = __import__('json').loads(store.get(receipt["itemManifest"]))
         require(manifest["sourceId"] == source["id"], "Partial discovery manifest differs")

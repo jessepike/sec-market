@@ -1,0 +1,129 @@
+{
+  "schemaVersion": 1,
+  "id": "SEC-MARKET-REGULATORY-COLLECTION-VALIDATION-20261023",
+  "scope": "Offline, non-admitting candidate integration; no actual source activation.",
+  "files": [
+    {
+      "path": "web/scripts/pipeline/discovery.py",
+      "sha256": "62eccf14644262fde39e0cfed3734cf063f5cee1203ce64350053bf20181984d"
+    },
+    {
+      "path": "web/scripts/pipeline/contracts.py",
+      "sha256": "c4df30b63f7449a5671e8aee61ef3a29456dfba60ba2f942d78ae13c5f69cd62"
+    },
+    {
+      "path": "web/scripts/pipeline/engine.py",
+      "sha256": "bd1828db233fdad71ec0aaca96f7dbfa4ad492e0483f27e53f0cc1da4598d56c"
+    },
+    {
+      "path": "web/scripts/pipeline/validation.py",
+      "sha256": "5923441de354b07ded0d0a80d156ef2100044054990e87d6024d4f7ef80f9111"
+    },
+    {
+      "path": "web/scripts/pipeline/regulatory.py",
+      "sha256": "2d33d1cf3673442ef478818d1ab9bc98943d262ffcf349f690b09166a7c82b28"
+    },
+    {
+      "path": "ops/ci/test_regulatory_collection.py",
+      "sha256": "62786de6b1acc2ae8b11ce79d69f3ab4a7227a9cbd72dd215adde7872385aae8"
+    },
+    {
+      "path": "ops/ci/test_regulatory_index.py",
+      "sha256": "9c5fb74fa91d063b182305e55be29c0008e8212a5735de91db95275ae23b86cf"
+    },
+    {
+      "path": "docs/active/daily-pipeline/regulatory-index-spec-2026-10-23.md",
+      "sha256": "75526ccde4a3af5f796240ac9135639ec91549996843a52d69573ee5ff28a596"
+    }
+  ],
+  "contract": {
+    "path": "contracts/market.json",
+    "sha256": "327e52fdab4f97d3f0d628978501aa7197b31ddadb4006d16d3f776a8acb47c0",
+    "unchangedFromCandidateAudit": true,
+    "suppliers": 74,
+    "obligations": 557,
+    "candidateRegistrations": 28,
+    "activeNeutralIndexSources": 0,
+    "certifiedSecSuppliers": 16,
+    "existingSuccessfulChecks": 121,
+    "newlyCreditedChecks": 0
+  },
+  "tests": [
+    {
+      "suite": "existing_pipeline",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_pipeline.py",
+        "-q"
+      ],
+      "cwd": "/Users/jessepike/code/projects/sec-market-finish-20261022/web",
+      "exitCode": 0,
+      "tests": 112,
+      "elapsedSeconds": 1.057,
+      "output": "----------------------------------------------------------------------\nRan 112 tests in 0.996s\n\nOK\n"
+    },
+    {
+      "suite": "all_operational",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "ops/ci",
+        "-p",
+        "test_*.py",
+        "-q"
+      ],
+      "cwd": "/Users/jessepike/code/projects/sec-market-finish-20261022",
+      "exitCode": 0,
+      "tests": 284,
+      "elapsedSeconds": 2.015,
+      "output": "----------------------------------------------------------------------\nRan 284 tests in 1.949s\n\nOK\n"
+    }
+  ],
+  "dedicatedIntegrationTests": 33,
+  "assertions": {
+    "neutralSourceContract": "Exact declared issuer CIK/name/relationship, dedicated kind/family, strict SEC endpoint and host. Candidate shape plans but performs zero requests.",
+    "neutralCollection": "Bounded 365-day default traversal, required older indexes, preserved document URL associations, zero structured/extraction/review calls, zero facts, no prior semantic hashes carried into the head.",
+    "independentReconcile": "Replays exact archived source/url/body documents against helper; requires exact summary, manifest, observation order, original final URLs and timestamp bounds. Rejects forged summaries, facts, semantic work, missing bodies and accession omissions.",
+    "clock": "Immutable UTC traversal-as-of; verification follows the last source observation; a UTC-day crossing holds the check. Advancing-clock fixture accepts a filing that arrives during request without renewing observation dates.",
+    "transport": "Same-run strict data.sec.gov HTTP200 bytes share across target suppliers; each retains distinct source observations and validation. Conditional304, failed and broader/ordinary policies stay separate. Parent structured facts remain attached only to the parent subject.",
+    "foreignForms": "20-F,20-F/A,6-K,6-K/A primary documents retained with exact URL/date bindings and zero fact/model admission.",
+    "existingCertifiedPath": "The actual 16-company contract and certified SEC cache path are unchanged.",
+    "neutralEmptyFields": "All five semantic/fact fields require exact empty arrays (default absent=[]); falsy nonarrays fail in reconciliation and partial paths. Neutral accession manifests require actual arrays of unique safe accession strings."
+  },
+  "actualHistoricalIssuerReplay": {
+    "path": "docs/active/daily-pipeline/accuracy/regulatory-index-replay-2026-10-23.json",
+    "sha256": "c04dfe0d3c4b83dd070b0cd1984b519349bd836e1781afb95650a654c34d0cdf",
+    "limitation": "Prepared separately by the helper owner. Exact historical issuer-index checks only; no declared segment relationship is qualified, no complete actual source activation/collection is claimed."
+  },
+  "archiveBefore": {
+    "fileCount": 25777,
+    "metadataSha256": "5160f4d26e28bcc0abe1061235d3f0936c352b7cdb1525aa19ef513ee40de208"
+  },
+  "archiveAfter": {
+    "fileCount": 25777,
+    "metadataSha256": "5160f4d26e28bcc0abe1061235d3f0936c352b7cdb1525aa19ef513ee40de208"
+  },
+  "archiveMetadataUnchanged": true,
+  "limits": {
+    "newPrimaryNetworkCalls": 0,
+    "newModelCalls": 0,
+    "newAdmissionCalls": 0,
+    "realArchiveWrites": 0,
+    "newGatePublicationAttempts": 0,
+    "marketOrRosterEdits": 0,
+    "chargedFetchesUnchanged": 5500,
+    "chargedModelCallsUnchanged": 80,
+    "chargedDocumentsUnchanged": 40,
+    "mainRemainsFrozen": true
+  },
+  "remaining": "Root review and ordinary candidate CI; real source and issuer/segment relationship qualification plus normal collection/gate remain separate. No existing gap is waived."
+}

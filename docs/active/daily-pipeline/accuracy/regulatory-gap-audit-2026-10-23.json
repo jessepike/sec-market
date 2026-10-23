@@ -1,0 +1,1832 @@
+{
+  "kind": "offline_regulatory_gap_boundary_and_adapter_audit",
+  "checkedAt": "2026-10-23T20:32:39.105568Z",
+  "scope": {
+    "supplierIds": [
+      "checkpoint-email",
+      "checkpoint-sase",
+      "crwd-exposure",
+      "github-advanced-security",
+      "google-secops",
+      "msft-defender",
+      "msft-defender-o365",
+      "msft-entra",
+      "panw-xsiam",
+      "splunk",
+      "trend-micro"
+    ],
+    "families": [
+      "regulatory_filings",
+      "filing_documents"
+    ],
+    "supplierCount": 74,
+    "requiredTaskCount": 557,
+    "auditedSupplierCount": 11,
+    "missingObligationCount": 22,
+    "newSourceChecks": 0,
+    "closedObligations": 0,
+    "qualifiedArchivedParentProposalObligations": 4,
+    "otherObligationsStillRequiringIdentityProductIndexOrRegimeProof": 18
+  },
+  "archiveCommit": "b78cfa15980d7be9da54b31e28b16a0840c1d112",
+  "archiveManifestSha256": "760b5c38fcb7fba2a3a223233539cce4eb5aa47d559571efa95b287047ac1ff8",
+  "archivePinSource": "docs/active/daily-pipeline/accuracy/correction-source-replay-2026-10-23.json",
+  "archivePinSourceSha256": "c9d30089650f8d2135591d0bbf4106024b4d7c4730e0b6d0ee665d88d0c56670",
+  "verifiedArchiveEntryCount": 7286,
+  "observationsExamined": 7239,
+  "inputs": {
+    "contracts/market.json": {
+      "sha256": "327e52fdab4f97d3f0d628978501aa7197b31ddadb4006d16d3f776a8acb47c0",
+      "bytes": 279411
+    },
+    "contracts/factual-baseline.json": {
+      "sha256": "ab3bca0e49a38495d310021857ee2c1a3ca6ebe7979593d1e8b36437cb2a294e",
+      "bytes": 35212
+    },
+    "contracts/factual-corrections.json": {
+      "sha256": "4b65725ec0dae65ddca0a4196778c60dd99a8523823300214dc0b22df0e92138",
+      "bytes": 19776
+    },
+    "web/src/data/tracker/originals.json": {
+      "sha256": "7d164cb81003db0a66eccbb25c2e8605e33b853b9a6e20cb2c6900794822b4a3",
+      "bytes": 381034
+    },
+    "web/src/data/edgarRegistry.ts": {
+      "sha256": "8767b4ea38d3287a81a7fd61206b09ee8098dfbc691d43cf3572cc1665619d86",
+      "bytes": 8015
+    },
+    "web/scripts/pipeline/contracts.py": {
+      "sha256": "231e1289cfa8d8f79a7a09a6147d6e1ccb418e09ec9680a966d37b764fe125c4",
+      "bytes": 6817
+    },
+    "web/scripts/pipeline/discovery.py": {
+      "sha256": "dbac11826122b1a2010135f2c3b38df6935bb66a19c45bebaee71cf3c7738c52",
+      "bytes": 27053
+    },
+    "web/scripts/pipeline/engine.py": {
+      "sha256": "67b34b6ae59360562d31ed6ead3d2fd355a33dae10304aeea8e7470e7e8d72a2",
+      "bytes": 33513
+    },
+    "web/scripts/pipeline/sec-adapter.mjs": {
+      "sha256": "8710a7e55aaf0b9cb5de16d0b92614cc53c424fa5c57d2d1d219d0f5483a1f19",
+      "bytes": 4172
+    },
+    "web/scripts/pipeline/snapshot.py": {
+      "sha256": "3881acfd8e880d431ca17237c5fbc837af3bbe650817c1db24a146a85749334a",
+      "bytes": 19968
+    }
+  },
+  "originalInventoryCounts": {
+    "events": 97,
+    "suppliers": 74,
+    "evidence": 273
+  },
+  "currentPlan": {
+    "runId": "e054ea73c89fe78db9702f94d2a3b669ce91884f7d7abda0a88698dbcfc7ec50",
+    "contractSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+    "inventorySha256": "0be1a006bc9160964edca30b9793db92de87a5798cae0c2289156b6adf9c7844",
+    "requiredTasks": 557,
+    "newCoverageReceipt": false
+  },
+  "classificationSupplierCounts": {
+    "archived_parent_index_qualified_proposal": 2,
+    "foreign_private_issuer_index_and_adapter_missing": 2,
+    "foreign_regulatory_discovery_unresolved": 1,
+    "issuer_portfolio_proven_index_missing": 3,
+    "issuer_proven_product_scope_incomplete": 3
+  },
+  "issuers": {
+    "crwd": {
+      "legalName": "CROWDSTRIKE HOLDINGS, INC.",
+      "cik": "0001535527",
+      "proofIds": [
+        "crwd-falcon-10k"
+      ],
+      "endpointProof": "parentIndices.crwd.sec_submissions"
+    },
+    "panw": {
+      "legalName": "Palo Alto Networks, Inc",
+      "cik": "0001327567",
+      "proofIds": [
+        "panw-xsiam-10k"
+      ],
+      "endpointProof": "parentIndices.panw.sec_submissions"
+    },
+    "msft": {
+      "legalName": "MICROSOFT CORPORATION",
+      "cik": "0000789019",
+      "proofIds": [
+        "microsoft-10k"
+      ],
+      "submissionEndpoint": null,
+      "endpointStatus": "No successful archived submissions root. Exact endpoint mapping stays unverified until an actual issuer response is obtained."
+    },
+    "alphabet": {
+      "legalName": "Alphabet Inc.",
+      "cik": "0001652044",
+      "proofIds": [
+        "alphabet-10q"
+      ],
+      "submissionEndpoint": null,
+      "endpointStatus": "No successful archived submissions root. Exact endpoint mapping stays unverified until an actual issuer response is obtained."
+    },
+    "cisco": {
+      "legalName": "CISCO SYSTEMS, INC.",
+      "cik": "0000858877",
+      "proofIds": [
+        "cisco-8k"
+      ],
+      "submissionEndpoint": null,
+      "endpointStatus": "No successful archived submissions root. Exact endpoint mapping stays unverified until an actual issuer response is obtained."
+    },
+    "checkpoint": {
+      "legalName": "Check Point Software Technologies Ltd.",
+      "cik": null,
+      "commissionFileNumber": "0-28584",
+      "primaryRegime": "Foreign private issuer;6-K with20-F election",
+      "proofIds": [
+        "checkpoint-6k",
+        "checkpoint-results"
+      ],
+      "submissionEndpoint": null,
+      "identityLimit": "The manual CIK and SEC URL path are not treated as a proved root identity response. Checked6-K bodies contain no literal CIK identity field."
+    },
+    "trend": {
+      "legalName": "Trend Micro Incorporated",
+      "cik": null,
+      "exchangeCode": "TSE:4704",
+      "proofIds": [
+        "trend-results"
+      ],
+      "submissionEndpoint": null,
+      "foreignRegulatorEndpoint": null,
+      "identityLimit": "Current company release proves Tokyo listing code. Legacy SEC CIK, deregistration and any Japanese regulator feed lack archived primary proof in this audit."
+    }
+  },
+  "suppliers": [
+    {
+      "supplierId": "checkpoint-email",
+      "name": "Check Point Email Security",
+      "kind": "segment",
+      "rawOriginalSha256": "6830d52573219a404d2478afb6726294771c6deb99627a8b209ef62bad5b7028",
+      "marketSupplierSha256": "c47ca8a5be6367635d2f8ab9c4c4b22585a45f34d7e702cacd362cbd5726560a",
+      "classification": "foreign_private_issuer_index_and_adapter_missing",
+      "issuerKey": "checkpoint",
+      "primaryBoundaryProofIds": [
+        "checkpoint-email-product",
+        "checkpoint-6k"
+      ],
+      "boundary": "Primary product rename establishes Check Point portfolio; parent 6-K establishes foreign-private-issuer regime. Separate product revenue is not established.",
+      "originalClaimedCik": "0001015922",
+      "originalClaimedCikStatus": "Only confirmed when it equals issuer.cik with explicit primary identity proof;otherwise unverified manual metadata.",
+      "obligations": [
+        {
+          "family": "regulatory_filings",
+          "currentTaskId": "76e124960135bee2070123339ca384918b4ef5b6d0df12976c6d73b4ef5273f3",
+          "currentBinding": null,
+          "currentOutcome": "missing binding;no new check performed",
+          "proposedOneSourceKind": "sec_index",
+          "proposalEndpoint": null,
+          "endpointProofStatus": "unverified;mapping withheld",
+          "proposalScope": "parent issuer monitoring only;no product facts inferred",
+          "sourceActivation": false,
+          "denominatorEffect": 0
+        },
+        {
+          "family": "filing_documents",
+          "currentTaskId": "95d31c391b702898112cdedd491face438651bed5e62f3185f01c33f1bb07ad6",
+          "currentBinding": null,
+          "currentOutcome": "missing binding;no new check performed",
+          "proposedOneSourceKind": "sec_documents",
+          "proposalEndpoint": null,
+          "endpointProofStatus": "unverified;mapping withheld",
+          "proposalScope": "parent issuer monitoring only;no product facts inferred",
+          "sourceActivation": false,
+          "denominatorEffect": 0
+        }
+      ],
+      "blockingNextActions": [
+        "checkpoint-identity-index",
+        "foreign-form-adapter",
+        "parent-scope-adapter"
+      ],
+      "ownerDecisionNeededNow": false
+    },
+    {
+      "supplierId": "checkpoint-sase",
+      "name": "Check Point",
+      "kind": "public",
+      "rawOriginalSha256": "dc43dc58c0e5571ac6b7946c96ca5998ac5d8b3376da94801f954e943411d69a",
+      "marketSupplierSha256": "87d81f32fcd6ccecbfbe56fffb89ce43d148ebdb56b8c936123dcb3d6dd49946",
+      "classification": "foreign_private_issuer_index_and_adapter_missing",
+      "issuerKey": "checkpoint",
+      "primaryBoundaryProofIds": [
+        "checkpoint-6k",
+        "checkpoint-results"
+      ],
+      "boundary": "Despite its historical ID suffix, the current original record is Check Point company-wide, public, with consolidated revenue. Do not quietly narrow it to SASE product scope.",
+      "originalClaimedCik": "0001015922",
+      "originalClaimedCikStatus": "Only confirmed when it equals issuer.cik with explicit primary identity proof;otherwise unverified manual metadata.",
+      "obligations": [
+        {
+          "family": "regulatory_filings",
+          "currentTaskId": "7acefb0fb858e5754598bcb16d0e5ba50c09355cbce7177c2fd913dcfb418cfc",
+          "currentBinding": null,
+          "currentOutcome": "missing binding;no new check performed",
+          "proposedOneSourceKind": "sec_index",
+          "proposalEndpoint": null,
+          "endpointProofStatus": "unverified;mapping withheld",
+          "proposalScope": "company issuer",
+          "sourceActivation": false,
+          "denominatorEffect": 0
+        },
+        {
+          "family": "filing_documents",
+          "currentTaskId": "4fd6ffa289c12a8879a24ab3d078a1694ed75e326495ffa0ca9d8ac4f198c062",
+          "currentBinding": null,
+          "currentOutcome": "missing binding;no new check performed",
+          "proposedOneSourceKind": "sec_documents",
+          "proposalEndpoint": null,
+          "endpointProofStatus": "unverified;mapping withheld",
+          "proposalScope": "company issuer",
+          "sourceActivation": false,
+          "denominatorEffect": 0
+        }
+      ],
+      "blockingNextActions": [
+        "checkpoint-identity-index",
+        "foreign-form-adapter"
+      ],
+      "ownerDecisionNeededNow": false
+    },
+    {
+      "supplierId": "crwd-exposure",
+      "name": "CrowdStrike Falcon Exposure Management",
+      "kind": "segment",
+      "rawOriginalSha256": "42275ad85f40b167bd4dba78251533a1a61cc76bac3a5d142996d604a1850076",
+      "marketSupplierSha256": "8da3aa89659fdf21e10735cf5bf22db61807804ea636399b11226390e79e5816",
+      "classification": "archived_parent_index_qualified_proposal",
+      "issuerKey": "crwd",
+      "primaryBoundaryProofIds": [
+        "crwd-falcon-10k"
+      ],
+      "boundary": "Falcon platform exposure-management capability is named in the parent 10-K. This proves portfolio scope, not a separate legal filer or an independently reported product figure.",
+      "originalClaimedCik": "0001535527",
+      "originalClaimedCikStatus": "Only confirmed when it equals issuer.cik with explicit primary identity proof;otherwise unverified manual metadata.",
+      "obligations": [
+        {
+          "family": "regulatory_filings",
+          "currentTaskId": "1ca6754ee2c0f83d799a9c5b7fa599ec4341d81863c07bad3637a69bb949d10f",
+          "currentBinding": null,
+          "currentOutcome": "missing binding;no new check performed",
+          "proposedOneSourceKind": "sec_index",
+          "proposalEndpoint": "https://data.sec.gov/submissions/CIK0001535527.json",
+          "endpointProofStatus": "actual archived successful root and full required index bodies",
+          "proposalScope": "parent issuer monitoring only;no product facts inferred",
+          "sourceActivation": false,
+          "denominatorEffect": 0
+        },
+        {
+          "family": "filing_documents",
+          "currentTaskId": "8f4924c8c364e46fc84fbf2085400d2fb80514e2a9650ed2a70ba89a4895ea34",
+          "currentBinding": null,
+          "currentOutcome": "missing binding;no new check performed",
+          "proposedOneSourceKind": "sec_documents",
+          "proposalEndpoint": "https://data.sec.gov/submissions/CIK0001535527.json",
+          "endpointProofStatus": "actual archived successful root and full required index bodies",
+          "proposalScope": "parent issuer monitoring only;no product facts inferred",
+          "sourceActivation": false,
+          "denominatorEffect": 0
+        }
+      ],
+      "blockingNextActions": [
+        "parent-scope-adapter",
+        "fresh-parent-collection"
+      ],
+      "ownerDecisionNeededNow": false
+    },
+    {
+      "supplierId": "github-advanced-security",
+      "name": "GitHub Advanced Security",
+      "kind": "segment",
+      "rawOriginalSha256": "4551a31fa814bb33e603fb3f5613c4640d2dc85fe9e5130409aa5c6affdb804b",
+      "marketSupplierSha256": "1e551201cfffad773199379e936f3740ea5ff2fc5c79f2222c56ea7308997975",
+      "classification": "issuer_portfolio_proven_index_missing",
+      "issuerKey": "msft",
+      "primaryBoundaryProofIds": [
+        "github-product-parent",
+        "microsoft-10k"
+      ],
+      "boundary": "Primary article names Advanced Security and GitHub operating within Microsoft CoreAI; 10-K includes GitHub in the issuer portfolio. These proofs do not establish a wholly-owned legal-entity assertion.",
+      "originalClaimedCik": null,
+      "originalClaimedCikStatus": "Only confirmed when it equals issuer.cik with explicit primary identity proof;otherwise unverified manual metadata.",
+      "obligations": [
+        {
+          "family": "regulatory_filings",
+          "currentTaskId": "1f237aeeef535d90c67ecace5fded8d130bb1e257d161abd17ee043de1db5678",
+          "currentBinding": null,
+          "currentOutcome": "missing binding;no new check performed",
+          "proposedOneSourceKind": "sec_index",
+          "proposalEndpoint": null,
+          "endpointProofStatus": "unverified;mapping withheld",
+          "proposalScope": "parent issuer monitoring only;no product facts inferred",
+          "sourceActivation": false,
+          "denominatorEffect": 0
+        },
+        {
+          "family": "filing_documents",
+          "currentTaskId": "317836602eb19b45917e094bce621764d7972b129fd0a614a1854cf53110faa5",
+          "currentBinding": null,
+          "currentOutcome": "missing binding;no new check performed",
+          "proposedOneSourceKind": "sec_documents",
+          "proposalEndpoint": null,
+          "endpointProofStatus": "unverified;mapping withheld",
+          "proposalScope": "parent issuer monitoring only;no product facts inferred",
+          "sourceActivation": false,
+          "denominatorEffect": 0
+        }
+      ],
+      "blockingNextActions": [
+        "parent-scope-adapter",
+        "issuer-index-discovery"
+      ],
+      "ownerDecisionNeededNow": false
+    },
+    {
+      "supplierId": "google-secops",
+      "name": "Google SecOps",
+      "kind": "segment",
+      "rawOriginalSha256": "db3feb10647230b65b375902a4f83454c31f79ed2a5553c0869258494a655b37",
+      "marketSupplierSha256": "e5378b8e308bb93f6e44c5ac7a03b5d6e83613f751725560763a0e94591099a3",
+      "classification": "issuer_proven_product_scope_incomplete",
+      "issuerKey": "alphabet",
+      "primaryBoundaryProofIds": [
+        "alphabet-10q",
+        "alphabet-results"
+      ],
+      "boundary": "Alphabet issuer and Google Cloud aggregate are proved. Neither checked body names SecOps/Chronicle/Mandiant; the manual citation excerpt is not independent product-parent proof.",
+      "originalClaimedCik": "0001652044",
+      "originalClaimedCikStatus": "Only confirmed when it equals issuer.cik with explicit primary identity proof;otherwise unverified manual metadata.",
+      "obligations": [
+        {
+          "family": "regulatory_filings",
+          "currentTaskId": "e6bb796e2a60bdc9a2d7ffbe21ac78a253b442db3059a9c681f271eb42eec70b",
+          "currentBinding": null,
+          "currentOutcome": "missing binding;no new check performed",
+          "proposedOneSourceKind": "sec_index",
+          "proposalEndpoint": null,
+          "endpointProofStatus": "unverified;mapping withheld",
+          "proposalScope": "parent issuer monitoring only;no product facts inferred",
+          "sourceActivation": false,
+          "denominatorEffect": 0
+        },
+        {
+          "family": "filing_documents",
+          "currentTaskId": "3bc2cb3443bb74ea684526005730967971f390999f939c88b9ccb59636d72d46",
+          "currentBinding": null,
+          "currentOutcome": "missing binding;no new check performed",
+          "proposedOneSourceKind": "sec_documents",
+          "proposalEndpoint": null,
+          "endpointProofStatus": "unverified;mapping withheld",
+          "proposalScope": "parent issuer monitoring only;no product facts inferred",
+          "sourceActivation": false,
+          "denominatorEffect": 0
+        }
+      ],
+      "blockingNextActions": [
+        "product-parent-primary-proof",
+        "issuer-index-discovery",
+        "parent-scope-adapter"
+      ],
+      "ownerDecisionNeededNow": false
+    },
+    {
+      "supplierId": "msft-defender",
+      "name": "Microsoft Defender for Endpoint",
+      "kind": "segment",
+      "rawOriginalSha256": "1b5a2a0fb5244144d75440014a748d1571293ceffd4a68ee6baf491b0254c019",
+      "marketSupplierSha256": "8f34eb3a4ce80c2b377ead9af6aea95e2040df88a069a31e7ca3ffcd211c9913",
+      "classification": "issuer_portfolio_proven_index_missing",
+      "issuerKey": "msft",
+      "primaryBoundaryProofIds": [
+        "microsoft-10k"
+      ],
+      "boundary": "Defender for Endpoint is named in Microsoft 10-K. The filing reports three broader operating segments; company revenue is not Endpoint revenue.",
+      "originalClaimedCik": "0000789019",
+      "originalClaimedCikStatus": "Only confirmed when it equals issuer.cik with explicit primary identity proof;otherwise unverified manual metadata.",
+      "obligations": [
+        {
+          "family": "regulatory_filings",
+          "currentTaskId": "818a9f40e5edbcb092c9af1b7aaf6edb053fe318535b3894d8c6cba25f5edc99",
+          "currentBinding": null,
+          "currentOutcome": "missing binding;no new check performed",
+          "proposedOneSourceKind": "sec_index",
+          "proposalEndpoint": null,
+          "endpointProofStatus": "unverified;mapping withheld",
+          "proposalScope": "parent issuer monitoring only;no product facts inferred",
+          "sourceActivation": false,
+          "denominatorEffect": 0
+        },
+        {
+          "family": "filing_documents",
+          "currentTaskId": "43d1ecb54219e3e37de11141fef9b9798b236bd2e9cc596f840597a0007e75c5",
+          "currentBinding": null,
+          "currentOutcome": "missing binding;no new check performed",
+          "proposedOneSourceKind": "sec_documents",
+          "proposalEndpoint": null,
+          "endpointProofStatus": "unverified;mapping withheld",
+          "proposalScope": "parent issuer monitoring only;no product facts inferred",
+          "sourceActivation": false,
+          "denominatorEffect": 0
+        }
+      ],
+      "blockingNextActions": [
+        "parent-scope-adapter",
+        "issuer-index-discovery"
+      ],
+      "ownerDecisionNeededNow": false
+    },
+    {
+      "supplierId": "msft-defender-o365",
+      "name": "Microsoft Defender for Office 365",
+      "kind": "segment",
+      "rawOriginalSha256": "31e35ac2758acdd8d1bf5e7b762ed3386a0977a517c29dac75a81ad914a5624b",
+      "marketSupplierSha256": "c839e736ef639487f670e956a0aed76c792d84c97ce3ee5b965987b47457b501",
+      "classification": "issuer_proven_product_scope_incomplete",
+      "issuerKey": "msft",
+      "primaryBoundaryProofIds": [
+        "microsoft-10k"
+      ],
+      "boundary": "Microsoft issuer CIK is proved; checked 10-K has no exact Defender for Office 365 product mention. Raw ownership text alone does not qualify this product scope.",
+      "originalClaimedCik": "0000789019",
+      "originalClaimedCikStatus": "Only confirmed when it equals issuer.cik with explicit primary identity proof;otherwise unverified manual metadata.",
+      "obligations": [
+        {
+          "family": "regulatory_filings",
+          "currentTaskId": "08ab931393f54700c3d1a05a89426514d6c779323c4b1cf7cb2b80008c6aaa01",
+          "currentBinding": null,
+          "currentOutcome": "missing binding;no new check performed",
+          "proposedOneSourceKind": "sec_index",
+          "proposalEndpoint": null,
+          "endpointProofStatus": "unverified;mapping withheld",
+          "proposalScope": "parent issuer monitoring only;no product facts inferred",
+          "sourceActivation": false,
+          "denominatorEffect": 0
+        },
+        {
+          "family": "filing_documents",
+          "currentTaskId": "fb88a701a362fdfbc7bd9e8bae7337752b659fb3bc91f710489ebcbbec3fbb41",
+          "currentBinding": null,
+          "currentOutcome": "missing binding;no new check performed",
+          "proposedOneSourceKind": "sec_documents",
+          "proposalEndpoint": null,
+          "endpointProofStatus": "unverified;mapping withheld",
+          "proposalScope": "parent issuer monitoring only;no product facts inferred",
+          "sourceActivation": false,
+          "denominatorEffect": 0
+        }
+      ],
+      "blockingNextActions": [
+        "product-parent-primary-proof",
+        "issuer-index-discovery",
+        "parent-scope-adapter"
+      ],
+      "ownerDecisionNeededNow": false
+    },
+    {
+      "supplierId": "msft-entra",
+      "name": "Microsoft Entra ID",
+      "kind": "segment",
+      "rawOriginalSha256": "fec26ac7d0bc3ee516a7de5ede000fd047c611bcbdf2d4f9514c754bb5c4ce0b",
+      "marketSupplierSha256": "6b5bca0c7d5b7f9959bfaaac185fcffc099bae9285db6c1e0c8b8d9b9c739c9a",
+      "classification": "issuer_proven_product_scope_incomplete",
+      "issuerKey": "msft",
+      "primaryBoundaryProofIds": [
+        "microsoft-10k"
+      ],
+      "boundary": "Microsoft issuer CIK is proved; checked 10-K has no Entra ID product mention. Do not promote the manual product relation into an issuer assertion.",
+      "originalClaimedCik": "0000789019",
+      "originalClaimedCikStatus": "Only confirmed when it equals issuer.cik with explicit primary identity proof;otherwise unverified manual metadata.",
+      "obligations": [
+        {
+          "family": "regulatory_filings",
+          "currentTaskId": "15c327e06401d785405b31b268720d9854b81eba349c3c1e958760464983e175",
+          "currentBinding": null,
+          "currentOutcome": "missing binding;no new check performed",
+          "proposedOneSourceKind": "sec_index",
+          "proposalEndpoint": null,
+          "endpointProofStatus": "unverified;mapping withheld",
+          "proposalScope": "parent issuer monitoring only;no product facts inferred",
+          "sourceActivation": false,
+          "denominatorEffect": 0
+        },
+        {
+          "family": "filing_documents",
+          "currentTaskId": "60e10d418a2a4474b6c6d73c1d1ea5b064e1a381d407c7f2bf2b2cdc03771b9c",
+          "currentBinding": null,
+          "currentOutcome": "missing binding;no new check performed",
+          "proposedOneSourceKind": "sec_documents",
+          "proposalEndpoint": null,
+          "endpointProofStatus": "unverified;mapping withheld",
+          "proposalScope": "parent issuer monitoring only;no product facts inferred",
+          "sourceActivation": false,
+          "denominatorEffect": 0
+        }
+      ],
+      "blockingNextActions": [
+        "product-parent-primary-proof",
+        "issuer-index-discovery",
+        "parent-scope-adapter"
+      ],
+      "ownerDecisionNeededNow": false
+    },
+    {
+      "supplierId": "panw-xsiam",
+      "name": "Palo Alto Networks Cortex XSIAM",
+      "kind": "segment",
+      "rawOriginalSha256": "fe745c7e33eb2032d26ab7f6953e07df0c20965716f581c3b1eaa2e52f753597",
+      "marketSupplierSha256": "f21da14d7f0d73e4e63ae5d4f76b6009c14688793819b604c107fc9648b87289",
+      "classification": "archived_parent_index_qualified_proposal",
+      "issuerKey": "panw",
+      "primaryBoundaryProofIds": [
+        "panw-xsiam-10k"
+      ],
+      "boundary": "Cortex XSIAM is expressly named on the parent Cortex platform. Parent consolidated metrics/events remain parent-scoped.",
+      "originalClaimedCik": "0001327567",
+      "originalClaimedCikStatus": "Only confirmed when it equals issuer.cik with explicit primary identity proof;otherwise unverified manual metadata.",
+      "obligations": [
+        {
+          "family": "regulatory_filings",
+          "currentTaskId": "4393ecacd1b3c54b7b3b30bfbaf07e6c5cdae24e2f0c410c5fec8d920c11c41a",
+          "currentBinding": null,
+          "currentOutcome": "missing binding;no new check performed",
+          "proposedOneSourceKind": "sec_index",
+          "proposalEndpoint": "https://data.sec.gov/submissions/CIK0001327567.json",
+          "endpointProofStatus": "actual archived successful root and full required index bodies",
+          "proposalScope": "parent issuer monitoring only;no product facts inferred",
+          "sourceActivation": false,
+          "denominatorEffect": 0
+        },
+        {
+          "family": "filing_documents",
+          "currentTaskId": "2ae73458f4938778e732301acf59282a657a153bb9ba831d47b71f65e1ba21ee",
+          "currentBinding": null,
+          "currentOutcome": "missing binding;no new check performed",
+          "proposedOneSourceKind": "sec_documents",
+          "proposalEndpoint": "https://data.sec.gov/submissions/CIK0001327567.json",
+          "endpointProofStatus": "actual archived successful root and full required index bodies",
+          "proposalScope": "parent issuer monitoring only;no product facts inferred",
+          "sourceActivation": false,
+          "denominatorEffect": 0
+        }
+      ],
+      "blockingNextActions": [
+        "parent-scope-adapter",
+        "fresh-parent-collection"
+      ],
+      "ownerDecisionNeededNow": false
+    },
+    {
+      "supplierId": "splunk",
+      "name": "Splunk",
+      "kind": "segment",
+      "rawOriginalSha256": "33665270afb41fe397eb6daf4b3d2c92ab4600458edb9fdd572ba1f3b4f003e6",
+      "marketSupplierSha256": "560f35e956fc6cab9ac093a08c3ef62cb06de0e553728a53213a5550217a3549",
+      "classification": "issuer_portfolio_proven_index_missing",
+      "issuerKey": "cisco",
+      "primaryBoundaryProofIds": [
+        "splunk-acquisition",
+        "cisco-8k"
+      ],
+      "boundary": "Cisco primary release proves completed Splunk acquisition. Cisco 8-K proves Cisco issuer CIK. Cisco-wide restructuring is not a Splunk allocation.",
+      "originalClaimedCik": "0000858877",
+      "originalClaimedCikStatus": "Only confirmed when it equals issuer.cik with explicit primary identity proof;otherwise unverified manual metadata.",
+      "obligations": [
+        {
+          "family": "regulatory_filings",
+          "currentTaskId": "3c95d729bb1b2bde5196551b8f38523e1a2852be0f1c0cd1ee9d7c1c8ceffa5f",
+          "currentBinding": null,
+          "currentOutcome": "missing binding;no new check performed",
+          "proposedOneSourceKind": "sec_index",
+          "proposalEndpoint": null,
+          "endpointProofStatus": "unverified;mapping withheld",
+          "proposalScope": "parent issuer monitoring only;no product facts inferred",
+          "sourceActivation": false,
+          "denominatorEffect": 0
+        },
+        {
+          "family": "filing_documents",
+          "currentTaskId": "4ca8ae22010faa1c422476a8f20b9d2c34e3011bf49c093bd3a67af09aeee1bd",
+          "currentBinding": null,
+          "currentOutcome": "missing binding;no new check performed",
+          "proposedOneSourceKind": "sec_documents",
+          "proposalEndpoint": null,
+          "endpointProofStatus": "unverified;mapping withheld",
+          "proposalScope": "parent issuer monitoring only;no product facts inferred",
+          "sourceActivation": false,
+          "denominatorEffect": 0
+        }
+      ],
+      "blockingNextActions": [
+        "parent-scope-adapter",
+        "issuer-index-discovery"
+      ],
+      "ownerDecisionNeededNow": false
+    },
+    {
+      "supplierId": "trend-micro",
+      "name": "Trend Micro Incorporated",
+      "kind": "public",
+      "rawOriginalSha256": "d8b4fc393856dd7af9ab48f49e8029971abff657804efa708f299f5ddc974fd6",
+      "marketSupplierSha256": "003f91f447eb1a472befd646e28d099259727d97b97f552f4eef7962ed50b246",
+      "classification": "foreign_regulatory_discovery_unresolved",
+      "issuerKey": "trend",
+      "primaryBoundaryProofIds": [
+        "trend-results"
+      ],
+      "boundary": "Company release proves Trend Micro Incorporated and TSE 4704. It does not prove the historical SEC CIK/deregistration or the actual current Japanese regulatory endpoint.",
+      "originalClaimedCik": "0001089463",
+      "originalClaimedCikStatus": "Only confirmed when it equals issuer.cik with explicit primary identity proof;otherwise unverified manual metadata.",
+      "obligations": [
+        {
+          "family": "regulatory_filings",
+          "currentTaskId": "7140bfc55c419ffa02c6ffa500ce97b825fc090e58bf23d7fd4d0c2c655f3246",
+          "currentBinding": null,
+          "currentOutcome": "missing binding;no new check performed",
+          "proposedOneSourceKind": "sec_index",
+          "proposalEndpoint": null,
+          "endpointProofStatus": "unverified;mapping withheld",
+          "proposalScope": "company issuer",
+          "sourceActivation": false,
+          "denominatorEffect": 0
+        },
+        {
+          "family": "filing_documents",
+          "currentTaskId": "4788a388c299dacb943b4de83c5ed97ba2c2cc8f26e4e17940a66a5afe215f63",
+          "currentBinding": null,
+          "currentOutcome": "missing binding;no new check performed",
+          "proposedOneSourceKind": "sec_documents",
+          "proposalEndpoint": null,
+          "endpointProofStatus": "unverified;mapping withheld",
+          "proposalScope": "company issuer",
+          "sourceActivation": false,
+          "denominatorEffect": 0
+        }
+      ],
+      "blockingNextActions": [
+        "trend-regulatory-discovery"
+      ],
+      "ownerDecisionNeededNow": false
+    }
+  ],
+  "primaryProofs": [
+    {
+      "proofId": "checkpoint-6k",
+      "type": "archived_primary_document",
+      "sourceId": "checkpoint-sase:citation:TR-checkpoint-2",
+      "requestedUrl": "https://www.sec.gov/Archives/edgar/data/0001015922/000117891326002310/a2635159.htm",
+      "finalUrl": "https://www.sec.gov/Archives/edgar/data/1015922/000117891326002310/a2635159.htm",
+      "observationId": "0a3e1fed630eb5a39d8ad92274b71393576e55e879b7c7a7ff3315fec4d01a30",
+      "observationArchiveSha256": "a2a0d98ddddc238b96df5a07162260c9b9324c06ad05698c2389b432d710fc4f",
+      "status": "not_modified",
+      "fetchedAt": "2026-10-23T04:15:02.125095Z",
+      "body": {
+        "bytes": 137426,
+        "key": "objects/cdb20d13e42eac6aef2f62bed078b43ed38d2de45fb9cb30c99e38035293fabc",
+        "sha256": "cdb20d13e42eac6aef2f62bed078b43ed38d2de45fb9cb30c99e38035293fabc"
+      },
+      "fullDecodedChars": 20679,
+      "excerpts": [
+        {
+          "label": "legal registrant and filing form",
+          "decodedTextStart": 241,
+          "decodedTextEnd": 391,
+          "text": "Commission File Number 0-28584 Check Point Software Technologies Ltd. ( Translation of registrant’s name into English ) 5 Ha’solelim Street, Tel Aviv,"
+        },
+        {
+          "label": "foreign private issuer regime",
+          "decodedTextStart": 420,
+          "decodedTextEnd": 596,
+          "text": " executive office) Indicate by check mark whether the registrant files or will file annual reports under cover Form 20-F or Form 40-F. Form 20-F ☒ Form 40-F ¨ Indicate by check"
+        }
+      ]
+    },
+    {
+      "proofId": "checkpoint-email-product",
+      "type": "archived_primary_document",
+      "sourceId": "checkpoint-email:citation:TR-checkpoint-email-2",
+      "requestedUrl": "https://blog.checkpoint.com/product-updates/introducing-check-point-email-security-a-new-name-aligned-with-our-ai-driven-strategy/",
+      "finalUrl": "https://blog.checkpoint.com/product-updates/introducing-check-point-email-security-a-new-name-aligned-with-our-ai-driven-strategy/",
+      "observationId": "4de136823d9086c5a901ed78e38963a29f1d13d3335ac865f8fa19e5d65f989b",
+      "observationArchiveSha256": "362a05b87d83d882d40ff91b33d449ea3ec64b8e3a88ee556eefe041853d770c",
+      "status": "not_modified",
+      "fetchedAt": "2026-10-23T04:15:03.106156Z",
+      "body": {
+        "bytes": 112616,
+        "key": "objects/6d69cece87900607c32dd7c45af871362581f9c8542a94a0d6cb90cd1c32222a",
+        "sha256": "6d69cece87900607c32dd7c45af871362581f9c8542a94a0d6cb90cd1c32222a"
+      },
+      "fullDecodedChars": 6984,
+      "excerpts": [
+        {
+          "label": "product naming within Check Point portfolio",
+          "decodedTextStart": 3755,
+          "decodedTextEnd": 4071,
+          "text": "Check Point Email Security is the new name for Harmony Email & Collaboration, reflecting a broader strategic evolution and tighter alignment with Check Point’s AI-focused security vision. As part of Check Point’s updated platform strategy , solutions are being streamlined and organized to better support today’s dyn"
+        }
+      ]
+    },
+    {
+      "proofId": "checkpoint-results",
+      "type": "archived_primary_document",
+      "sourceId": "checkpoint-sase:citation:TR-checkpoint-4",
+      "requestedUrl": "https://www.checkpoint.com/press-releases/check-point-software-reports-2026-second-quarter-financial-results/",
+      "finalUrl": "https://www.checkpoint.com/press-releases/check-point-software-reports-2026-second-quarter-financial-results/",
+      "observationId": "823bdeb7978f9445b46cd456181b80329fcb2ced4dd40dac8cae6af492d6da35",
+      "observationArchiveSha256": "eb34ea65f613a87b9249a08931df8ede10c18b25fc208a85cffbccecb49962fb",
+      "status": "fetched",
+      "fetchedAt": "2026-10-23T11:34:05.920028Z",
+      "body": {
+        "bytes": 110102,
+        "key": "objects/ad90c231db200ef3ca6909ed9ff62f08b037dd78be7fe85bc8c5011fae488593",
+        "sha256": "ad90c231db200ef3ca6909ed9ff62f08b037dd78be7fe85bc8c5011fae488593"
+      },
+      "fullDecodedChars": 14215,
+      "excerpts": [
+        {
+          "label": "company issuer and listing",
+          "decodedTextStart": 3120,
+          "decodedTextEnd": 3288,
+          "text": "Check Point® Software Technologies Ltd . (NASDAQ: CHKP), today announced its financial results for the quarter ended June 30 th , 2026. Second Quarter 2026 Financial Hi"
+        }
+      ]
+    },
+    {
+      "proofId": "crwd-falcon-10k",
+      "type": "archived_primary_document",
+      "sourceId": "crwd:sec_documents",
+      "requestedUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000010/crwd-20260131.htm",
+      "finalUrl": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000010/crwd-20260131.htm",
+      "observationId": "c8c6e9b6eb60cbced06fc5a88902e3c1bb0551c3b7360f34956e5ef1d029c10e",
+      "observationArchiveSha256": "5455222f4f956c55cb1d0a4ce0e4d9fe2151d2d94060398d56af2b2cfd7734cf",
+      "status": "retained_immutable",
+      "fetchedAt": "2026-10-20T21:22:20.717300Z",
+      "body": {
+        "bytes": 2749303,
+        "key": "objects/c03d8b275ed8c532e01c8bbd412577b03a2e79038a6b4e3d867a74e8c1f88f67",
+        "sha256": "c03d8b275ed8c532e01c8bbd412577b03a2e79038a6b4e3d867a74e8c1f88f67"
+      },
+      "fullDecodedChars": 555160,
+      "excerpts": [
+        {
+          "label": "Falcon portfolio includes exposure management",
+          "decodedTextStart": 64099,
+          "decodedTextEnd": 64648,
+          "text": "Falcon platform is composed of two tightly integrated proprietary technologies: our lightweight sensor and our Security Cloud. Our cloud-delivered modules integrate seamlessly within the Falcon platform to provide customers with a unified set of cloud-delivered technologies across Endpoint and Workspace Security, Identity Protection, Cloud Security, Next-Gen SIEM and Modern Log Management, Data Protection, Exposure Management, IT Automation, ITSecOps and Risk, Threat Intelligence, and SaaS Security Posture Management. The Falcon platform also "
+        }
+      ],
+      "archivedVerifiedAt": "2026-10-20T21:41:59.220877Z",
+      "inlineXbrlIdentity": {
+        "EntityCentralIndexKey": {
+          "value": "0001535527",
+          "rawMarkup": "<ix:nonNumeric contextRef=\"c-1\" name=\"dei:EntityCentralIndexKey\" id=\"f-34\">0001535527</ix:nonNumeric>"
+        },
+        "EntityRegistrantName": {
+          "value": "CROWDSTRIKE HOLDINGS, INC.",
+          "rawMarkup": "<ix:nonNumeric contextRef=\"c-1\" name=\"dei:EntityRegistrantName\" id=\"f-7\">CROWDSTRIKE HOLDINGS, INC.</ix:nonNumeric>"
+        }
+      }
+    },
+    {
+      "proofId": "panw-xsiam-10k",
+      "type": "archived_primary_document",
+      "sourceId": "panw-xsiam:citation:TR-panw-xsiam-1",
+      "requestedUrl": "https://www.sec.gov/Archives/edgar/data/1327567/000132756726000023/panw-20260731.htm",
+      "finalUrl": "https://www.sec.gov/Archives/edgar/data/1327567/000132756726000023/panw-20260731.htm",
+      "observationId": "c6eceaa677080caadc165a800859935b07fe186b039e7bb12deabfb520f19e3d",
+      "observationArchiveSha256": "5c2e4cba438dfe44c8f796faabb5fcacecf05e83fa50985e755d9c49c3630c20",
+      "status": "not_modified",
+      "fetchedAt": "2026-10-23T04:14:59.011680Z",
+      "body": {
+        "bytes": 3083409,
+        "key": "objects/8605bc5f502c555918d601b6564c60d0d44e4c4d0705726af60fc424ed8130f5",
+        "sha256": "8605bc5f502c555918d601b6564c60d0d44e4c4d0705726af60fc424ed8130f5"
+      },
+      "fullDecodedChars": 503826,
+      "excerpts": [
+        {
+          "label": "named XSIAM product on issuer platform",
+          "decodedTextStart": 61867,
+          "decodedTextEnd": 62213,
+          "text": "ction and response (“CDR”), as well as attack surface management (“ASM”) capabilities on our Cortex platform. These include Cortex XSIAM ® , for AI-powered security operations replacing traditional SIEM tools; Cortex XDR ® , for the prevention, detection, and response to complex cybersecurity attacks; Cortex XSOAR ® , for security orchestration"
+        }
+      ],
+      "inlineXbrlIdentity": {
+        "EntityCentralIndexKey": {
+          "value": "0001327567",
+          "rawMarkup": "<ix:nonNumeric contextRef=\"c-1\" name=\"dei:EntityCentralIndexKey\" id=\"f-32\">0001327567</ix:nonNumeric>"
+        },
+        "EntityRegistrantName": {
+          "value": "Palo Alto Networks, Inc",
+          "rawMarkup": "<ix:nonNumeric contextRef=\"c-1\" name=\"dei:EntityRegistrantName\" id=\"f-7\">Palo Alto Networks, Inc</ix:nonNumeric>"
+        }
+      }
+    },
+    {
+      "proofId": "microsoft-10k",
+      "type": "archived_primary_document",
+      "sourceId": "msft-defender:citation:TR-msft-1",
+      "requestedUrl": "https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm",
+      "finalUrl": "https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm",
+      "observationId": "70dd641a604807b1c32486786be53ab62ec59deac566e9a40e5867cfe3d10db9",
+      "observationArchiveSha256": "6c9fdb2a7e0f1708762da2726d665667693347cf432db96bb278038bf17470ba",
+      "status": "not_modified",
+      "fetchedAt": "2026-10-23T04:15:00.534652Z",
+      "body": {
+        "bytes": 8585607,
+        "key": "objects/7ee403cf6248837b88b69729c38534d60f1171fd1447ba0fa3ac426abf2430cd",
+        "sha256": "7ee403cf6248837b88b69729c38534d60f1171fd1447ba0fa3ac426abf2430cd"
+      },
+      "fullDecodedChars": 357668,
+      "excerpts": [
+        {
+          "label": "Defender for Endpoint issuer product",
+          "decodedTextStart": 53969,
+          "decodedTextEnd": 54259,
+          "text": "es competition from various software products and from alternative platforms and devices. Microsoft Defender for Endpoint competes with endpoint security solution providers. Our Enterprise Mobility + Security offerings compete with products from a range of competitors including identity ve"
+        },
+        {
+          "label": "GitHub issuer portfolio",
+          "decodedTextStart": 57742,
+          "decodedTextEnd": 57985,
+          "text": "GitHub includes both cloud and on-premises offerings. GitHub provides a collaboration platform for developers to manage code and incorporate AI and agent-based tools across the software development lifecycle. Health and Life Sciences cloud ser"
+        },
+        {
+          "label": "actual reportable segments",
+          "decodedTextStart": 48210,
+          "decodedTextEnd": 48407,
+          "text": "We operate our business and report our financial performance using three segments: Productivity and Business Processes, Intelligent Cloud, and More Personal Computing. Our segments provide manageme"
+        }
+      ],
+      "inlineXbrlIdentity": {
+        "EntityCentralIndexKey": {
+          "value": "0000789019",
+          "rawMarkup": "<ix:nonNumeric id=\"F_384867f5-ec4e-40f1-9513-95fa225246f6\" name=\"dei:EntityCentralIndexKey\" contextRef=\"C_29985a27-1d12-4b7e-9a06-156523f6e71e\">0000789019</ix:nonNumeric>"
+        },
+        "EntityRegistrantName": {
+          "value": "MICROSOFT CORPORATION",
+          "rawMarkup": "<ix:nonNumeric id=\"F_f68c3a91-b1e2-422c-8205-2d732a91e6a7\" contextRef=\"C_29985a27-1d12-4b7e-9a06-156523f6e71e\" name=\"dei:EntityRegistrantName\"><span style=\"color:#000000;white-space:pre-wrap;font-weight:bold;font-size:22pt;font-family:Arial;font-kerning:none;min-width:fit-content;\">MICROSOFT CORPORATION</span></ix:nonNumeric>"
+        }
+      }
+    },
+    {
+      "proofId": "github-product-parent",
+      "type": "archived_primary_document",
+      "sourceId": "github-advanced-security:citation:TR-ghas-1",
+      "requestedUrl": "https://github.blog/news-insights/company-news/goodbye-github/",
+      "finalUrl": "https://github.blog/news-insights/company-news/goodbye-github/",
+      "observationId": "02fd456912024eae8fc8c48846c61aebd8df603064e6ad67570ceb0d529d0fae",
+      "observationArchiveSha256": "65616440b495beb709d3a238eac4628cf5db02901c8d477f98e51b1bece9663c",
+      "status": "fetched",
+      "fetchedAt": "2026-10-23T11:34:13.109967Z",
+      "body": {
+        "bytes": 168580,
+        "key": "objects/fc2072a68239d888ccd57a2aed52e140e9e271892fef6626ccb3529ba4085c64",
+        "sha256": "fc2072a68239d888ccd57a2aed52e140e9e271892fef6626ccb3529ba4085c64"
+      },
+      "fullDecodedChars": 15100,
+      "excerpts": [
+        {
+          "label": "named Advanced Security offering",
+          "decodedTextStart": 10280,
+          "decodedTextEnd": 10499,
+          "text": "GitHub Advanced Security transformed the industry toward “found means fixed” with the power of AI, reducing mean time to remediation by 60% and enabling teams to fix vulnerabilities 3x faster. GitHub Actions has firmly "
+        },
+        {
+          "label": "operating relationship with Microsoft",
+          "decodedTextStart": 9386,
+          "decodedTextEnd": 9545,
+          "text": "GitHub and its leadership team will continue its mission as part of Microsoft’s CoreAI organization, with more details shared soon. I’ll be staying through the"
+        }
+      ]
+    },
+    {
+      "proofId": "alphabet-10q",
+      "type": "archived_primary_document",
+      "sourceId": "wiz:citation:TR-wiz-1",
+      "requestedUrl": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000048/goog-20260331.htm",
+      "finalUrl": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000048/goog-20260331.htm",
+      "observationId": "ac47c535b11694118cf79a54d8afc0062a2dc49d585bbe84534ed14edbadfb11",
+      "observationArchiveSha256": "7c7cf72b15877b48fb061369478da6c437d0da8d7624d045f13e72dca3abfc7c",
+      "status": "not_modified",
+      "fetchedAt": "2026-10-23T04:14:55.736662Z",
+      "body": {
+        "bytes": 1714819,
+        "key": "objects/0da733204ca3463c96d324c3620ab2794bce9566ee7a6586100b66634a98aca0",
+        "sha256": "0da733204ca3463c96d324c3620ab2794bce9566ee7a6586100b66634a98aca0"
+      },
+      "fullDecodedChars": 185014,
+      "excerpts": [
+        {
+          "label": "Google Cloud issuer segment",
+          "decodedTextStart": 55205,
+          "decodedTextEnd": 55407,
+          "text": "tforms, and devices 10,379 12,384 Google Services total 77,264 89,637 Google Cloud 12,260 20,028 Other Bets 450 411 Hedging gains (losses) 260 ( 180 ) Total revenues $ 90,234 $ 109,896 The following tab"
+        }
+      ],
+      "inlineXbrlIdentity": {
+        "EntityCentralIndexKey": {
+          "value": "0001652044",
+          "rawMarkup": "<ix:nonNumeric contextRef=\"c-1\" name=\"dei:EntityCentralIndexKey\" id=\"f-81\">0001652044</ix:nonNumeric>"
+        },
+        "EntityRegistrantName": {
+          "value": "Alphabet Inc.",
+          "rawMarkup": "<ix:nonNumeric contextRef=\"c-1\" name=\"dei:EntityRegistrantName\" id=\"f-6\">Alphabet Inc.</ix:nonNumeric>"
+        }
+      }
+    },
+    {
+      "proofId": "alphabet-results",
+      "type": "archived_primary_document",
+      "sourceId": "google-secops:citation:TR-google-secops-1",
+      "requestedUrl": "https://www.sec.gov/Archives/edgar/data/0001652044/000165204426000066/googexhibit991q22026.htm",
+      "finalUrl": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000066/googexhibit991q22026.htm",
+      "observationId": "b268ae7a7575b147e51e68fe155dce04228c2a79f5d8c27ed8c227ad70475981",
+      "observationArchiveSha256": "059c243e814a5b62dfad122e9a89e6089a1131b6f77e698cc11cce7d2b7bb29a",
+      "status": "not_modified",
+      "fetchedAt": "2026-10-23T11:34:02.586549Z",
+      "body": {
+        "bytes": 371600,
+        "key": "objects/051c973548579e3e6c9bdacce6bdaca0cf10c4830f18e4d0058d620c8a3ef013",
+        "sha256": "051c973548579e3e6c9bdacce6bdaca0cf10c4830f18e4d0058d620c8a3ef013"
+      },
+      "fullDecodedChars": 24819,
+      "excerpts": [
+        {
+          "label": "issuer and Cloud results, not SecOps",
+          "decodedTextStart": 152,
+          "decodedTextEnd": 287,
+          "text": "Alphabet Inc. (NASDAQ: GOOG, GOOGL) today announced financial results for the quarter ended June 30, 2026. • Consolidated Alphabet reve"
+        },
+        {
+          "label": "Cloud aggregate",
+          "decodedTextStart": 652,
+          "decodedTextEnd": 944,
+          "text": "Google Cloud saw a meaningful acceleration in growth as revenues increased 82% to $24.8 billion, led by an increase in Google Cloud Platform (GCP) across enterprise AI Solutions and enterprise AI Infrastructure, as well as core GCP services. • Consolidated Alphabet operating income increased"
+        }
+      ]
+    },
+    {
+      "proofId": "cisco-8k",
+      "type": "archived_primary_document",
+      "sourceId": "splunk:citation:TR-splunk-2",
+      "requestedUrl": "https://www.sec.gov/Archives/edgar/data/858877/000085887726000075/csco-20260513.htm",
+      "finalUrl": "https://www.sec.gov/Archives/edgar/data/858877/000085887726000075/csco-20260513.htm",
+      "observationId": "ad8b7473392061097411bdbb1b613d8f3880425ca5ec2e6148d81c400ccad883",
+      "observationArchiveSha256": "dd1701caa434d1a6a80a10823dca6b611fd7e74431ba23cca1d0ba4d17c84593",
+      "status": "not_modified",
+      "fetchedAt": "2026-10-23T04:14:49.799584Z",
+      "body": {
+        "bytes": 45244,
+        "key": "objects/e3de17409d6f8024d2d489ff6163a6249f72e7d5831da2118d9d2e873861dea5",
+        "sha256": "e3de17409d6f8024d2d489ff6163a6249f72e7d5831da2118d9d2e873861dea5"
+      },
+      "fullDecodedChars": 12373,
+      "excerpts": [
+        {
+          "label": "legal issuer",
+          "decodedTextStart": 402,
+          "decodedTextEnd": 516,
+          "text": "CISCO SYSTEMS, INC. (Exact name of registrant as specified in its charter) ___________________________________ Del"
+        }
+      ],
+      "inlineXbrlIdentity": {
+        "EntityCentralIndexKey": {
+          "value": "0000858877",
+          "rawMarkup": "<ix:nonNumeric contextRef=\"c-1\" name=\"dei:EntityCentralIndexKey\" id=\"f-22\">0000858877</ix:nonNumeric>"
+        },
+        "EntityRegistrantName": {
+          "value": "CISCO SYSTEMS, INC.",
+          "rawMarkup": "<ix:nonNumeric contextRef=\"c-1\" name=\"dei:EntityRegistrantName\" id=\"f-3\">CISCO SYSTEMS, INC.</ix:nonNumeric>"
+        }
+      }
+    },
+    {
+      "proofId": "splunk-acquisition",
+      "type": "archived_primary_document",
+      "sourceId": "splunk:citation:TR-splunk-1",
+      "requestedUrl": "https://www.sec.gov/Archives/edgar/data/858877/000119312524070175/d783088dex991.htm",
+      "finalUrl": "https://www.sec.gov/Archives/edgar/data/858877/000119312524070175/d783088dex991.htm",
+      "observationId": "e99707e052792e2c96ca99472e7688dd921cf88f289222eaca9d808f6aff5936",
+      "observationArchiveSha256": "21d3819b9a1bf8a12b6507f98dc01e3f739aba50d8db563d61672bc3062146fc",
+      "status": "not_modified",
+      "fetchedAt": "2026-10-23T04:15:10.226241Z",
+      "body": {
+        "bytes": 24083,
+        "key": "objects/f8e7100b6df115d562c7e3e344fe093b78ba839a7d3761e667170a7f47dd2b3b",
+        "sha256": "f8e7100b6df115d562c7e3e344fe093b78ba839a7d3761e667170a7f47dd2b3b"
+      },
+      "fullDecodedChars": 12026,
+      "excerpts": [
+        {
+          "label": "completed acquisition and parent",
+          "decodedTextStart": 534,
+          "decodedTextEnd": 754,
+          "text": "t software companies globally SAN JOSE, Calif., March 18, 2024 — Cisco (NASDAQ: CSCO) today announced it completed the acquisition of Splunk, setting the foundation for delivering unparalleled visibility and insights acr"
+        }
+      ]
+    },
+    {
+      "proofId": "trend-results",
+      "type": "archived_primary_document",
+      "sourceId": "trend-micro:citation:TR-trend-1",
+      "requestedUrl": "https://newsroom.trendmicro.com/2026-08-13-Trend-Micro-Reports-Earnings-Results-for-Q2-2026",
+      "finalUrl": "https://newsroom.trendmicro.com/2026-08-13-Trend-Micro-Reports-Earnings-Results-for-Q2-2026",
+      "observationId": "a469145710c0baffff571d6f56b0ba7a3dc806114cceeb2ec4921ffc9dafdb11",
+      "observationArchiveSha256": "285d673919f9bcfd5886f062b999772e32d103ec4455862ae5c41766646f921d",
+      "status": "fetched",
+      "fetchedAt": "2026-10-23T04:14:54.588681Z",
+      "body": {
+        "bytes": 405366,
+        "key": "objects/f22dbfeaf755a51c99e8a3a973add94ed94dd6f0405cffc9fa3226b571ac5f53",
+        "sha256": "f22dbfeaf755a51c99e8a3a973add94ed94dd6f0405cffc9fa3226b571ac5f53"
+      },
+      "fullDecodedChars": 27685,
+      "excerpts": [
+        {
+          "label": "issuer and actual exchange code",
+          "decodedTextStart": 16849,
+          "decodedTextEnd": 17084,
+          "text": "374 Million, up 4% YoY** TOKYO , Aug. 13, 2026 / PRNewswire / -- Trend Micro Incorporated ( TYO: 4704 ; TSE: 4704 ), the largest global cybersecurity company headquartered outside the U.S., today announced second-quarter 2026 financial"
+        }
+      ]
+    }
+  ],
+  "parentIndices": {
+    "crwd": {
+      "sec_submissions": {
+        "configuredSource": {
+          "id": "crwd:sec_submissions",
+          "supplierId": "crwd",
+          "kind": "sec_submissions",
+          "url": "https://data.sec.gov/submissions/CIK0001535527.json",
+          "allowedHosts": [
+            "data.sec.gov"
+          ],
+          "registration": "verified",
+          "required": true,
+          "maxPages": 40,
+          "scopePrefixes": [
+            "/"
+          ],
+          "seedEvidenceUrls": [],
+          "family": "regulatory_filings"
+        },
+        "configuredSourceSha256": "9bada0cd5199b2a754cfd9a85dc910f5838825f57ec4ea4e4ed51c181009a43e",
+        "sourceHeadKey": "state/heads/source-8fe454671c5abafcc013c45e3d1f8ba4e54ef11d1716304e4f6c18f2fb6f9a77.json",
+        "sourceHeadSha256": "9bc0a8a898ed16712715dc6e72ad1557159cff0d42407b6be4830c99b244ae74",
+        "issuerIdentityFromRoot": {
+          "cik": "0001535527",
+          "name": "CrowdStrike Holdings, Inc.",
+          "tickers": [
+            "CRWD"
+          ],
+          "entityType": "operating"
+        },
+        "offlineIndexReplayComplete": true,
+        "offlineIndexItemCount": 1307,
+        "requiredIndexBodies": [
+          {
+            "url": "https://data.sec.gov/submissions/CIK0001535527.json",
+            "observationId": "6ca7a07a231aea749fd67cb3145e4b05bb97cb105cc5bb0c2d22a00b7073cf56",
+            "fetchedAt": "2026-10-23T11:33:52.194590Z",
+            "body": {
+              "bytes": 156749,
+              "key": "objects/d7bdf41f479438099d203999aa7051df0a8eb3dbfcdb9d398f97b2f49c59d34f",
+              "sha256": "d7bdf41f479438099d203999aa7051df0a8eb3dbfcdb9d398f97b2f49c59d34f"
+            }
+          },
+          {
+            "url": "https://data.sec.gov/submissions/CIK0001535527-submissions-001.json",
+            "observationId": "0d960d2f28b23cf64afe192b7f1cc1c30aece482bcf8bce95be287ee96efc508",
+            "fetchedAt": "2026-10-23T11:33:52.712839Z",
+            "body": {
+              "bytes": 47574,
+              "key": "objects/ec42aac9136a82b721386b03207e592eb28f510d6fb815469e1e353972768e28",
+              "sha256": "ec42aac9136a82b721386b03207e592eb28f510d6fb815469e1e353972768e28"
+            }
+          }
+        ],
+        "retainedFilingBodies": [],
+        "newCurrentCheck": false,
+        "sourceScope": "parent issuer only; product attribution remains separately bounded"
+      },
+      "sec_documents": {
+        "configuredSource": {
+          "id": "crwd:sec_documents",
+          "supplierId": "crwd",
+          "kind": "sec_documents",
+          "url": "https://data.sec.gov/submissions/CIK0001535527.json",
+          "allowedHosts": [
+            "data.sec.gov",
+            "www.sec.gov"
+          ],
+          "registration": "verified",
+          "required": true,
+          "maxPages": 100,
+          "scopePrefixes": [
+            "/Archives/edgar/data/"
+          ],
+          "seedEvidenceUrls": [],
+          "family": "filing_documents",
+          "cik": "0001535527",
+          "lookbackDays": 365
+        },
+        "configuredSourceSha256": "d59a46c5b7aba410572d4c96caf1587503baeeb88e5ab9771d17c4e3eccef41d",
+        "sourceHeadKey": "state/heads/source-5f8fd3e89f25ef51ee3cc7863c6ec7cdc7f11eedbb227e56bad8528682b97205.json",
+        "sourceHeadSha256": "1f7b3a5f566cc0c94ec92c1c3c3ae430728e48a5b87ef712452b25f987669ef5",
+        "issuerIdentityFromRoot": {
+          "cik": "0001535527",
+          "name": "CrowdStrike Holdings, Inc.",
+          "tickers": [
+            "CRWD"
+          ],
+          "entityType": "operating"
+        },
+        "offlineIndexReplayComplete": true,
+        "offlineIndexItemCount": 12,
+        "requiredIndexBodies": [
+          {
+            "url": "https://data.sec.gov/submissions/CIK0001535527.json",
+            "observationId": "05b7af6bd716ba2362d2cbe41a46d938bd36ed4da15aaf81cb3edbdb390bc71d",
+            "fetchedAt": "2026-10-23T11:33:40.956552Z",
+            "body": {
+              "bytes": 156749,
+              "key": "objects/d7bdf41f479438099d203999aa7051df0a8eb3dbfcdb9d398f97b2f49c59d34f",
+              "sha256": "d7bdf41f479438099d203999aa7051df0a8eb3dbfcdb9d398f97b2f49c59d34f"
+            }
+          }
+        ],
+        "retainedFilingBodies": [
+          {
+            "url": "https://www.sec.gov/Archives/edgar/data/1535527/000110465925124912/tm2534248d1_8k.htm",
+            "filingDate": "2025-12-29",
+            "observationId": "eb972b2980cb479ca684080e31a3d0bd535ab251a9645667f0fb27e5fc0399cd",
+            "fetchedAt": "2026-10-20T21:22:18.776541Z",
+            "body": {
+              "bytes": 62126,
+              "key": "objects/ad7b8d627f54ae31f0ba5c122a553ff60dcfd9bc975db6ba564686e47c1f3e21",
+              "sha256": "ad7b8d627f54ae31f0ba5c122a553ff60dcfd9bc975db6ba564686e47c1f3e21"
+            },
+            "status": "retained_immutable",
+            "archivedVerifiedAt": "2026-10-23T11:33:40.972813Z"
+          },
+          {
+            "url": "https://www.sec.gov/Archives/edgar/data/1535527/000110465926076376/tm2618192d1_8k.htm",
+            "filingDate": "2026-06-22",
+            "observationId": "88d9033540c5d08ccdb44af9a449a58f6c0714ca58cfe1296b56348e51e5d990",
+            "fetchedAt": "2026-10-20T21:22:19.086169Z",
+            "body": {
+              "bytes": 43051,
+              "key": "objects/58fc20b38cc010b4ba2b16aa962e04b91fb1f4466eba615ff95b32c34e1fd7cb",
+              "sha256": "58fc20b38cc010b4ba2b16aa962e04b91fb1f4466eba615ff95b32c34e1fd7cb"
+            },
+            "status": "retained_immutable",
+            "archivedVerifiedAt": "2026-10-23T11:33:40.988588Z"
+          },
+          {
+            "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000030/crwd-20251202.htm",
+            "filingDate": "2025-12-02",
+            "observationId": "3a4b0301d2eb74b89417a0ac8f32cc9b1d175e82705284f00390983fab3e40a5",
+            "fetchedAt": "2026-10-20T21:22:19.423680Z",
+            "body": {
+              "bytes": 29293,
+              "key": "objects/cd6dd1d633f8d71f2cd2cf15b80b4236999da9010a4152026c68568d38d66b32",
+              "sha256": "cd6dd1d633f8d71f2cd2cf15b80b4236999da9010a4152026c68568d38d66b32"
+            },
+            "status": "retained_immutable",
+            "archivedVerifiedAt": "2026-10-23T11:33:40.998085Z"
+          },
+          {
+            "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552725000033/crwd-20251031.htm",
+            "filingDate": "2025-12-03",
+            "observationId": "6d9b6061cc05cf70027f77107a47efcb4b45e1c706a2904a1286849c3339e9a8",
+            "fetchedAt": "2026-10-20T21:22:19.901285Z",
+            "body": {
+              "bytes": 2092775,
+              "key": "objects/3e7f3c5b68378cd9e8aa7630f3553798b7c863081257fc3911e99ff6f690fe0a",
+              "sha256": "3e7f3c5b68378cd9e8aa7630f3553798b7c863081257fc3911e99ff6f690fe0a"
+            },
+            "status": "retained_immutable",
+            "archivedVerifiedAt": "2026-10-23T11:33:41.107785Z"
+          },
+          {
+            "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000007/crwd-20260303.htm",
+            "filingDate": "2026-03-03",
+            "observationId": "c34c6cfa686db96eaf97761a151b630dfde000c4762e6d8f5875c6b03f27fd88",
+            "fetchedAt": "2026-10-20T21:22:20.274014Z",
+            "body": {
+              "bytes": 30646,
+              "key": "objects/5c068d29408899e522c0a8ff3324a89261ed61e80b7262270fbf94240aca7355",
+              "sha256": "5c068d29408899e522c0a8ff3324a89261ed61e80b7262270fbf94240aca7355"
+            },
+            "status": "retained_immutable",
+            "archivedVerifiedAt": "2026-10-23T11:33:41.462963Z"
+          },
+          {
+            "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000010/crwd-20260131.htm",
+            "filingDate": "2026-03-05",
+            "observationId": "1ede284e38ad16195282e9aa6496062d57fad07117b5c9ecfdb7ee13454c6142",
+            "fetchedAt": "2026-10-20T21:22:20.717300Z",
+            "body": {
+              "bytes": 2749303,
+              "key": "objects/c03d8b275ed8c532e01c8bbd412577b03a2e79038a6b4e3d867a74e8c1f88f67",
+              "sha256": "c03d8b275ed8c532e01c8bbd412577b03a2e79038a6b4e3d867a74e8c1f88f67"
+            },
+            "status": "retained_immutable",
+            "archivedVerifiedAt": "2026-10-23T11:33:41.618153Z"
+          },
+          {
+            "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000013/crwd-20260406.htm",
+            "filingDate": "2026-04-06",
+            "observationId": "8adc131c6fd886674559e157cab7b451112ed990f833e527be6bba758ed6253d",
+            "fetchedAt": "2026-10-20T21:22:21.081954Z",
+            "body": {
+              "bytes": 30820,
+              "key": "objects/d9e6f6b002a5148921022bf60839103d366c09c00f33633f29bd46052a370077",
+              "sha256": "d9e6f6b002a5148921022bf60839103d366c09c00f33633f29bd46052a370077"
+            },
+            "status": "retained_immutable",
+            "archivedVerifiedAt": "2026-10-23T11:33:42.463330Z"
+          },
+          {
+            "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000018/crwd-20260416.htm",
+            "filingDate": "2026-04-21",
+            "observationId": "a1e146c5c51667efd11539e7d14b377e5ac252a8080ba60710c374c609f50694",
+            "fetchedAt": "2026-10-20T21:22:22.161891Z",
+            "body": {
+              "bytes": 55747,
+              "key": "objects/bcc6b9c78f3b40147c0ce262e3a9d95d7dd1101c4bd758e24d4d9a7c15b52a0e",
+              "sha256": "bcc6b9c78f3b40147c0ce262e3a9d95d7dd1101c4bd758e24d4d9a7c15b52a0e"
+            },
+            "status": "retained_immutable",
+            "archivedVerifiedAt": "2026-10-23T11:33:42.496726Z"
+          },
+          {
+            "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000022/crwd-20260603.htm",
+            "filingDate": "2026-06-03",
+            "observationId": "cc8414ec06cc0cee6ef1dfe8277379910ce87608e8810b05bbdd48598bdb89b1",
+            "fetchedAt": "2026-10-20T21:22:22.270592Z",
+            "body": {
+              "bytes": 30258,
+              "key": "objects/6c79b3479595dd8a5c42b95ce2a5ebbdaf1be489862d5ba139ca14bb26d7a5b9",
+              "sha256": "6c79b3479595dd8a5c42b95ce2a5ebbdaf1be489862d5ba139ca14bb26d7a5b9"
+            },
+            "status": "retained_immutable",
+            "archivedVerifiedAt": "2026-10-23T11:33:42.521670Z"
+          },
+          {
+            "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000025/crwd-20260430.htm",
+            "filingDate": "2026-06-04",
+            "observationId": "cf6f0e081c43e3474d1050e64facb85d854ae4cbc7438a4c4acdb9157373228f",
+            "fetchedAt": "2026-10-20T21:22:22.822201Z",
+            "body": {
+              "bytes": 1705241,
+              "key": "objects/38d9f2c12fe08f8657f560651c343745a41dd31b5440988b040d262312a3246a",
+              "sha256": "38d9f2c12fe08f8657f560651c343745a41dd31b5440988b040d262312a3246a"
+            },
+            "status": "retained_immutable",
+            "archivedVerifiedAt": "2026-10-23T11:33:42.554420Z"
+          },
+          {
+            "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000029/crwd-20260826.htm",
+            "filingDate": "2026-08-26",
+            "observationId": "10753707584590df9ffaace22e7df383255ded94803afc02cfd05ae50c7b2a62",
+            "fetchedAt": "2026-10-20T21:22:23.825403Z",
+            "body": {
+              "bytes": 29858,
+              "key": "objects/9d2adc6f150bdde7dc8a6dd6a03092be2f56b885b49316ea88bd7cfe8db85698",
+              "sha256": "9d2adc6f150bdde7dc8a6dd6a03092be2f56b885b49316ea88bd7cfe8db85698"
+            },
+            "status": "retained_immutable",
+            "archivedVerifiedAt": "2026-10-23T11:33:42.973695Z"
+          },
+          {
+            "url": "https://www.sec.gov/Archives/edgar/data/1535527/000153552726000031/crwd-20260731.htm",
+            "filingDate": "2026-08-27",
+            "observationId": "1ce2573d09c1c57b07de6b76a5b2ef96cccfebb8811662da895755052903728b",
+            "fetchedAt": "2026-10-20T21:22:24.347896Z",
+            "body": {
+              "bytes": 2281149,
+              "key": "objects/2d0e6e55e18b8e31b018e4a67fc8631f1abbe33112fb0f50ab845cc92d15799a",
+              "sha256": "2d0e6e55e18b8e31b018e4a67fc8631f1abbe33112fb0f50ab845cc92d15799a"
+            },
+            "status": "retained_immutable",
+            "archivedVerifiedAt": "2026-10-23T11:33:42.991801Z"
+          }
+        ],
+        "newCurrentCheck": false,
+        "sourceScope": "parent issuer only; product attribution remains separately bounded"
+      }
+    },
+    "panw": {
+      "sec_submissions": {
+        "configuredSource": {
+          "id": "panw:sec_submissions",
+          "supplierId": "panw",
+          "kind": "sec_submissions",
+          "url": "https://data.sec.gov/submissions/CIK0001327567.json",
+          "allowedHosts": [
+            "data.sec.gov"
+          ],
+          "registration": "verified",
+          "required": true,
+          "maxPages": 40,
+          "scopePrefixes": [
+            "/"
+          ],
+          "seedEvidenceUrls": [],
+          "family": "regulatory_filings"
+        },
+        "configuredSourceSha256": "da13d97210413caad4c5c737ae2f71abb9adbd11fd747c69c42ca20972c68e2f",
+        "sourceHeadKey": "state/heads/source-171eaba9fc2d3ecc6a3356a69c139df774c7197f358ef58abf6e6f4a635e2bc3.json",
+        "sourceHeadSha256": "1eb7cbec05cd00ff929904fec02efe0cc7784f0ba59ed2154ab11b93feff23c9",
+        "issuerIdentityFromRoot": {
+          "cik": "0001327567",
+          "name": "Palo Alto Networks Inc",
+          "tickers": [
+            "PANW"
+          ],
+          "entityType": "operating"
+        },
+        "offlineIndexReplayComplete": true,
+        "offlineIndexItemCount": 1908,
+        "requiredIndexBodies": [
+          {
+            "url": "https://data.sec.gov/submissions/CIK0001327567.json",
+            "observationId": "f0d077051086912e3814c1dccc6176e964504c5d8cdb39e3ccc53e1980f2d2bf",
+            "fetchedAt": "2026-10-23T11:33:46.656179Z",
+            "body": {
+              "bytes": 154769,
+              "key": "objects/54acd6c26e8bfcdf5e0f0dea30dabef27123525133df99729bb4ccd8f000c402",
+              "sha256": "54acd6c26e8bfcdf5e0f0dea30dabef27123525133df99729bb4ccd8f000c402"
+            }
+          },
+          {
+            "url": "https://data.sec.gov/submissions/CIK0001327567-submissions-001.json",
+            "observationId": "f2000c50e2d71de3d11e090d341d766f93b01db18074ac420e3fcef716f889bc",
+            "fetchedAt": "2026-10-23T11:33:47.101515Z",
+            "body": {
+              "bytes": 140668,
+              "key": "objects/27f17d2b43ee0fb41ca44b148c2da497fd9b305e9b3cf67d63d28829f5b84937",
+              "sha256": "27f17d2b43ee0fb41ca44b148c2da497fd9b305e9b3cf67d63d28829f5b84937"
+            }
+          }
+        ],
+        "retainedFilingBodies": [],
+        "newCurrentCheck": false,
+        "sourceScope": "parent issuer only; product attribution remains separately bounded"
+      },
+      "sec_documents": {
+        "configuredSource": {
+          "id": "panw:sec_documents",
+          "supplierId": "panw",
+          "kind": "sec_documents",
+          "url": "https://data.sec.gov/submissions/CIK0001327567.json",
+          "allowedHosts": [
+            "data.sec.gov",
+            "www.sec.gov"
+          ],
+          "registration": "verified",
+          "required": true,
+          "maxPages": 100,
+          "scopePrefixes": [
+            "/Archives/edgar/data/"
+          ],
+          "seedEvidenceUrls": [],
+          "family": "filing_documents",
+          "cik": "0001327567",
+          "lookbackDays": 365
+        },
+        "configuredSourceSha256": "ddbfe6c06faabe6a22d609872f1e27eebf0cb9b97e0eed314656d4cc88659682",
+        "sourceHeadKey": "state/heads/source-b46c7e894533ab6fe6b93d9e8e6ca8cc49dfcf734668c02ee93ab36d7f95cef3.json",
+        "sourceHeadSha256": "0c5a4f8516122801487f55f7fd4575ce9792fbc70648edf7a28b6d439917d06d",
+        "issuerIdentityFromRoot": {
+          "cik": "0001327567",
+          "name": "Palo Alto Networks Inc",
+          "tickers": [
+            "PANW"
+          ],
+          "entityType": "operating"
+        },
+        "offlineIndexReplayComplete": true,
+        "offlineIndexItemCount": 17,
+        "requiredIndexBodies": [
+          {
+            "url": "https://data.sec.gov/submissions/CIK0001327567.json",
+            "observationId": "513dca0e20c83a9126803bc929aba6e09f045371b7bdab41a48ab6e38ebbaccd",
+            "fetchedAt": "2026-10-23T11:33:59.744755Z",
+            "body": {
+              "bytes": 154769,
+              "key": "objects/54acd6c26e8bfcdf5e0f0dea30dabef27123525133df99729bb4ccd8f000c402",
+              "sha256": "54acd6c26e8bfcdf5e0f0dea30dabef27123525133df99729bb4ccd8f000c402"
+            }
+          }
+        ],
+        "retainedFilingBodies": [
+          {
+            "url": "https://www.sec.gov/Archives/edgar/data/1327567/000119312525288132/d851220d8k.htm",
+            "filingDate": "2025-11-19",
+            "observationId": "471a9135d1a66544cf8129b3ae86661d8ddfc0ed23a954852c02faf30e7635c0",
+            "fetchedAt": "2026-10-20T21:21:14.896701Z",
+            "body": {
+              "bytes": 29694,
+              "key": "objects/505fc7264c13b2007e198c1746a8757dfb33f990ccaec0b68288d032eb94681f",
+              "sha256": "505fc7264c13b2007e198c1746a8757dfb33f990ccaec0b68288d032eb94681f"
+            },
+            "status": "retained_immutable",
+            "archivedVerifiedAt": "2026-10-23T11:33:59.880411Z"
+          },
+          {
+            "url": "https://www.sec.gov/Archives/edgar/data/1327567/000119312525291350/d882056d8k.htm",
+            "filingDate": "2025-11-21",
+            "observationId": "7f4d5a679b51ff753408d2c2d7392299226cde1b36d5088ce5225bb64d8fbafd",
+            "fetchedAt": "2026-10-20T21:21:15.796341Z",
+            "body": {
+              "bytes": 27700,
+              "key": "objects/b4d2c8332afc5feb053cea90c38bc3f0ca0d94b163bba97de63940de269a210e",
+              "sha256": "b4d2c8332afc5feb053cea90c38bc3f0ca0d94b163bba97de63940de269a210e"
+            },
+            "status": "retained_immutable",
+            "archivedVerifiedAt": "2026-10-23T11:33:59.887959Z"
+          },
+          {
+            "url": "https://www.sec.gov/Archives/edgar/data/1327567/000119312525315915/d15273d8k.htm",
+            "filingDate": "2025-12-11",
+            "observationId": "fcc432733faa14dba3a9950aa92312e9d5112d0892187972f9a34caa12664966",
+            "fetchedAt": "2026-10-20T21:21:17.054469Z",
+            "body": {
+              "bytes": 42865,
+              "key": "objects/768c7487de290a036d19a9ef873a6542c28c00f6dae597f2d0fdd506ee417c80",
+              "sha256": "768c7487de290a036d19a9ef873a6542c28c00f6dae597f2d0fdd506ee417c80"
+            },
+            "status": "retained_immutable",
+            "archivedVerifiedAt": "2026-10-23T11:34:00.089245Z"
+          },
+          {
+            "url": "https://www.sec.gov/Archives/edgar/data/1327567/000119312526029489/d884183d8k.htm",
+            "filingDate": "2026-01-29",
+            "observationId": "93f3eea62626692e2c4d9452e58f1870e666720ae19b54316711d6a0c443df33",
+            "fetchedAt": "2026-10-20T21:21:18.246382Z",
+            "body": {
+              "bytes": 24876,
+              "key": "objects/5212ac281d46425333cf0b06573062a7019a770aa0cce76a041d169c14156903",
+              "sha256": "5212ac281d46425333cf0b06573062a7019a770aa0cce76a041d169c14156903"
+            },
+            "status": "retained_immutable",
+            "archivedVerifiedAt": "2026-10-23T11:34:00.105772Z"
+          },
+          {
+            "url": "https://www.sec.gov/Archives/edgar/data/1327567/000119312526045600/d40626d8k.htm",
+            "filingDate": "2026-02-11",
+            "observationId": "da4eab4908c3daab69086a9016ec7ed7b888763e5cabeba30a2b34c00776aa4d",
+            "fetchedAt": "2026-10-20T21:21:19.384016Z",
+            "body": {
+              "bytes": 32657,
+              "key": "objects/7c30b77b6239b4e545c280a51b4da3dcb0109904bc465fcac84763c8e323a67d",
+              "sha256": "7c30b77b6239b4e545c280a51b4da3dcb0109904bc465fcac84763c8e323a67d"
+            },
+            "status": "retained_immutable",
+            "archivedVerifiedAt": "2026-10-23T11:34:00.116254Z"
+          },
+          {
+            "url": "https://www.sec.gov/Archives/edgar/data/1327567/000119312526119729/d84927d8k.htm",
+            "filingDate": "2026-03-23",
+            "observationId": "4a3e3c55a98966d675107658dd919a54cb2a1596ce99508fcec59995522e29bb",
+            "fetchedAt": "2026-10-20T21:21:20.670940Z",
+            "body": {
+              "bytes": 22881,
+              "key": "objects/8943cbfebc2676b5cf7328d010ecff1ebdec6a9562f93a31084c1fc21b95878f",
+              "sha256": "8943cbfebc2676b5cf7328d010ecff1ebdec6a9562f93a31084c1fc21b95878f"
+            },
+            "status": "retained_immutable",
+            "archivedVerifiedAt": "2026-10-23T11:34:00.281960Z"
+          },
+          {
+            "url": "https://www.sec.gov/Archives/edgar/data/1327567/000119312526151637/d49517d8k.htm",
+            "filingDate": "2026-04-13",
+            "observationId": "9605627997b361f9a4e44984de5751600d50ce23519cd6d0d01cdf1ecc0a28f4",
+            "fetchedAt": "2026-10-20T21:21:21.498960Z",
+            "body": {
+              "bytes": 29262,
+              "key": "objects/725e4f4b6c183e24b12f3b4adc49c2397348c73fdc5126a3f2c2861eb0c1f251",
+              "sha256": "725e4f4b6c183e24b12f3b4adc49c2397348c73fdc5126a3f2c2861eb0c1f251"
+            },
+            "status": "retained_immutable",
+            "archivedVerifiedAt": "2026-10-23T11:34:00.294032Z"
+          },
+          {
+            "url": "https://www.sec.gov/Archives/edgar/data/1327567/000119312526361122/d180372d8k.htm",
+            "filingDate": "2026-08-21",
+            "observationId": "c6c1137a578793875f12ff6db6250596c6c2277efae04fa8a5c9ccfe8da3daca",
+            "fetchedAt": "2026-10-20T21:21:22.112120Z",
+            "body": {
+              "bytes": 38388,
+              "key": "objects/328c56636e1b759f376fd46d7142b0fd65e17028ea30c9aafb4b31657319528e",
+              "sha256": "328c56636e1b759f376fd46d7142b0fd65e17028ea30c9aafb4b31657319528e"
+            },
+            "status": "retained_immutable",
+            "archivedVerifiedAt": "2026-10-23T11:34:00.317534Z"
+          },
+          {
+            "url": "https://www.sec.gov/Archives/edgar/data/1327567/000132756725000032/panw-20251119.htm",
+            "filingDate": "2025-11-19",
+            "observationId": "130cb387a604da5bf83a16d1457def24b3dcaa556a8c9d1d9d1e8a8850022297",
+            "fetchedAt": "2026-10-20T21:21:22.692457Z",
+            "body": {
+              "bytes": 32808,
+              "key": "objects/b3ccd7450a651aa1e795bfd0ac3fb5eb83fe3e6c3dd8f8d58c65ab54d1478e3b",
+              "sha256": "b3ccd7450a651aa1e795bfd0ac3fb5eb83fe3e6c3dd8f8d58c65ab54d1478e3b"
+            },
+            "status": "retained_immutable",
+            "archivedVerifiedAt": "2026-10-23T11:34:00.327705Z"
+          },
+          {
+            "url": "https://www.sec.gov/Archives/edgar/data/1327567/000132756725000035/panw-20251031.htm",
+            "filingDate": "2025-11-20",
+            "observationId": "c2f92c463db6b55024d73cec3d447e956d2b1ed8e8b6240825a9c0df0d1ac9b2",
+            "fetchedAt": "2026-10-20T21:21:23.568525Z",
+            "body": {
+              "bytes": 1625012,
+              "key": "objects/288c0ab7a165158feebcf73b933f7b6a7872852a8e02081a74ef423606ba5e38",
+              "sha256": "288c0ab7a165158feebcf73b933f7b6a7872852a8e02081a74ef423606ba5e38"
+            },
+            "status": "retained_immutable",
+            "archivedVerifiedAt": "2026-10-23T11:34:00.448779Z"
+          },
+          {
+            "url": "https://www.sec.gov/Archives/edgar/data/1327567/000132756726000003/panw-20260217.htm",
+            "filingDate": "2026-02-17",
+            "observationId": "49e61388f2468f79772d4da31bf9529e1b619c84bc7f4c692bf61fbde109feac",
+            "fetchedAt": "2026-10-20T21:21:24.013510Z",
+            "body": {
+              "bytes": 23996,
+              "key": "objects/ef8fb152c60b45c531f7fb1ddb75019c43e46e03273ec107b062d40275d44856",
+              "sha256": "ef8fb152c60b45c531f7fb1ddb75019c43e46e03273ec107b062d40275d44856"
+            },
+            "status": "retained_immutable",
+            "archivedVerifiedAt": "2026-10-23T11:34:00.685755Z"
+          },
+          {
+            "url": "https://www.sec.gov/Archives/edgar/data/1327567/000132756726000005/panw-20260131.htm",
+            "filingDate": "2026-02-18",
+            "observationId": "98d86f9450bcf440803dca87d7b8328530d52514e7fd0cc407aecb7bfcfe6f2e",
+            "fetchedAt": "2026-10-20T21:21:24.499204Z",
+            "body": {
+              "bytes": 1987746,
+              "key": "objects/8eb48a9c9430ca44ee7fd0e771d01e1108d6d7bc12d58a92aca47705c55288ba",
+              "sha256": "8eb48a9c9430ca44ee7fd0e771d01e1108d6d7bc12d58a92aca47705c55288ba"
+            },
+            "status": "retained_immutable",
+            "archivedVerifiedAt": "2026-10-23T11:34:00.695666Z"
+          },
+          {
+            "url": "https://www.sec.gov/Archives/edgar/data/1327567/000132756726000009/panw-20260310.htm",
+            "filingDate": "2026-03-11",
+            "observationId": "72640b1fe214e4eb9176189b405402491d9a66b140e40c3e398d8b4eb14f7aed",
+            "fetchedAt": "2026-10-20T21:21:24.815834Z",
+            "body": {
+              "bytes": 23281,
+              "key": "objects/7afc074b1b0d41e447ad0fe87e5885ec96800a407ddb530edf6831f14fb03965",
+              "sha256": "7afc074b1b0d41e447ad0fe87e5885ec96800a407ddb530edf6831f14fb03965"
+            },
+            "status": "retained_immutable",
+            "archivedVerifiedAt": "2026-10-23T11:34:00.946144Z"
+          },
+          {
+            "url": "https://www.sec.gov/Archives/edgar/data/1327567/000132756726000012/panw-20260602.htm",
+            "filingDate": "2026-06-02",
+            "observationId": "30e25a882dcc8f0361f1a750caed6f182282378dcd17246eb8f6b1f27468fb34",
+            "fetchedAt": "2026-10-20T21:21:25.088903Z",
+            "body": {
+              "bytes": 23973,
+              "key": "objects/bc05702040bc84744e9512c09422858c4acedab941b66a3b97e80e67d98049c4",
+              "sha256": "bc05702040bc84744e9512c09422858c4acedab941b66a3b97e80e67d98049c4"
+            },
+            "status": "retained_immutable",
+            "archivedVerifiedAt": "2026-10-23T11:34:00.953592Z"
+          },
+          {
+            "url": "https://www.sec.gov/Archives/edgar/data/1327567/000132756726000015/panw-20260430.htm",
+            "filingDate": "2026-06-03",
+            "observationId": "4d822078f8a90806e415f2ef9c2593efb24c8ed0f5bf7be1d22e4545d499e4cc",
+            "fetchedAt": "2026-10-20T21:21:28.883007Z",
+            "body": {
+              "bytes": 2194330,
+              "key": "objects/50546f2149e2af8e25e1374b0f6ed8192058029b0c5f6a7eee3d7818751fe54f",
+              "sha256": "50546f2149e2af8e25e1374b0f6ed8192058029b0c5f6a7eee3d7818751fe54f"
+            },
+            "status": "retained_immutable",
+            "archivedVerifiedAt": "2026-10-23T11:34:00.963834Z"
+          },
+          {
+            "url": "https://www.sec.gov/Archives/edgar/data/1327567/000132756726000019/panw-20260901.htm",
+            "filingDate": "2026-09-01",
+            "observationId": "4a590fb8daaaddc4043bdf7d7b22f7973a29ced495b0b33549c597661efdcd00",
+            "fetchedAt": "2026-10-20T21:21:29.710852Z",
+            "body": {
+              "bytes": 24300,
+              "key": "objects/088faa557ba5dc445b2b6162b18d53446b99667232df974282545596c8aa8dff",
+              "sha256": "088faa557ba5dc445b2b6162b18d53446b99667232df974282545596c8aa8dff"
+            },
+            "status": "retained_immutable",
+            "archivedVerifiedAt": "2026-10-23T11:34:01.229599Z"
+          },
+          {
+            "url": "https://www.sec.gov/Archives/edgar/data/1327567/000132756726000023/panw-20260731.htm",
+            "filingDate": "2026-09-10",
+            "observationId": "ead2e7dfcc03132a505a83941e10be788f97e591a534cec0c75745cdc63ca252",
+            "fetchedAt": "2026-10-20T21:21:30.593253Z",
+            "body": {
+              "bytes": 3083409,
+              "key": "objects/8605bc5f502c555918d601b6564c60d0d44e4c4d0705726af60fc424ed8130f5",
+              "sha256": "8605bc5f502c555918d601b6564c60d0d44e4c4d0705726af60fc424ed8130f5"
+            },
+            "status": "retained_immutable",
+            "archivedVerifiedAt": "2026-10-23T11:34:01.239730Z"
+          }
+        ],
+        "newCurrentCheck": false,
+        "sourceScope": "parent issuer only; product attribution remains separately bounded"
+      }
+    }
+  },
+  "boundedNegativePrimaryChecks": {
+    "microsoft-10k": {
+      "exactProductTermsAbsent": [
+        "Microsoft Defender for Office 365",
+        "Microsoft Entra ID",
+        "Entra ID"
+      ],
+      "scopeLimitation": "Absence applies only to this exact full decoded archived body; it does not establish absence from every issuer disclosure or product document."
+    },
+    "alphabet-10q": {
+      "exactProductTermsAbsent": [
+        "Google SecOps",
+        "Google Security Operations",
+        "Chronicle",
+        "Mandiant"
+      ],
+      "scopeLimitation": "Absence applies only to this exact full decoded archived body; it does not establish absence from every issuer disclosure or product document."
+    },
+    "alphabet-results": {
+      "exactProductTermsAbsent": [
+        "Google SecOps",
+        "Google Security Operations",
+        "Chronicle",
+        "Mandiant"
+      ],
+      "scopeLimitation": "Absence applies only to this exact full decoded archived body; it does not establish absence from every issuer disclosure or product document."
+    }
+  },
+  "archivedSuccessfulSubmissionRoots": [
+    "https://data.sec.gov/submissions/CIK0001107843.json",
+    "https://data.sec.gov/submissions/CIK0001169561.json",
+    "https://data.sec.gov/submissions/CIK0001262039.json",
+    "https://data.sec.gov/submissions/CIK0001327567.json",
+    "https://data.sec.gov/submissions/CIK0001361113.json",
+    "https://data.sec.gov/submissions/CIK0001477333.json",
+    "https://data.sec.gov/submissions/CIK0001535527.json",
+    "https://data.sec.gov/submissions/CIK0001560327.json",
+    "https://data.sec.gov/submissions/CIK0001583708.json",
+    "https://data.sec.gov/submissions/CIK0001660134.json",
+    "https://data.sec.gov/submissions/CIK0001660280.json",
+    "https://data.sec.gov/submissions/CIK0001713683.json",
+    "https://data.sec.gov/submissions/CIK0001800667.json",
+    "https://data.sec.gov/submissions/CIK0001943896.json",
+    "https://data.sec.gov/submissions/CIK0002030781.json",
+    "https://data.sec.gov/submissions/CIK0002063196.json"
+  ],
+  "adapterFindings": [
+    {
+      "file": "web/scripts/pipeline/sec-adapter.mjs",
+      "finding": "Requires an exact edgarRegistry supplier ID before any parse;all11 audited IDs are absent. sec_submissions emits company-scoped sec_identity and sec_events_snapshot. Reusing a parent ID/output as segment data would misattribute facts."
+    },
+    {
+      "file": "web/scripts/pipeline/discovery.py",
+      "finding": "sec_documents accepts10-K,10-Q,8-K and selected amendments/late/merger/delisting forms,not20-F/6-K. It requires actual index pagination and validates index CIK against configuredcik. An empty foreign-form selection is not proof of complete foreign issuer coverage."
+    },
+    {
+      "file": "web/scripts/pipeline/engine.py",
+      "finding": "sec_documents archives/readably decodes documents separately from statements. sec_submissions invokes the structured adapter. One source per missing family preserves557;adding companyfacts plus submissions for a single missing family adds an obligation."
+    },
+    {
+      "file": "web/src/data/edgarRegistry.ts",
+      "finding": "Unsupported list contains historical Check Point,Trend Micro and Cisco explanations;these source-code assertions are not treated as archived primary issuer or endpoint evidence."
+    }
+  ],
+  "nextActions": [
+    {
+      "id": "parent-scope-adapter",
+      "owner": "Security Market Pulse implementation operator",
+      "action": "Implement and test the neutral sec_index path described in regulatory-index-spec-2026-10-23.md. It checks the explicitly qualified issuer and retained index, emits zero facts, and preserves each product versus parent boundary and all 16 certified companies.",
+      "requiresNetwork": false,
+      "status": "proposal only;not implemented"
+    },
+    {
+      "id": "fresh-parent-collection",
+      "owner": "Security Market Pulse collector operator",
+      "action": "After the normal next-day allowance and adapter checks,obtain a real current parent root/required pages and exact filing bodies under the proper registered source scope. Archived candidate replays do not close these four product obligations.",
+      "requiresNetwork": true,
+      "status": "not run"
+    },
+    {
+      "id": "issuer-index-discovery",
+      "owner": "Security Market Pulse source researcher",
+      "action": "Under the normal next-day allowance,resolve and validate actual Microsoft,Alphabet and Cisco submissions roots against their primary CIK/name proofs;archive required pagination/terminal responses before proposing registration. No guessed exact endpoints are recorded here.",
+      "requiresNetwork": true,
+      "status": "not run"
+    },
+    {
+      "id": "checkpoint-identity-index",
+      "owner": "Security Market Pulse source researcher",
+      "action": "Obtain primary SEC issuer identity/root for Check Point and all required index responses;do not treat the manual CIK or a document URL path as a successful endpoint proof. Preserve Check Point company scope for checkpoint-sase and product scope for checkpoint-email.",
+      "requiresNetwork": true,
+      "status": "not run"
+    },
+    {
+      "id": "foreign-form-adapter",
+      "owner": "Security Market Pulse implementation operator",
+      "action": "Implement and test the specified 20-F, 20-F/A, 6-K and 6-K/A filing-document selection with exact issuer/path binding. The code snapshot audited here omits those forms. Do not add quarterly companyfacts or expand certification.",
+      "requiresNetwork": false,
+      "status": "proposal only;not implemented"
+    },
+    {
+      "id": "product-parent-primary-proof",
+      "owner": "Security Market Pulse source researcher",
+      "action": "Find direct archived or next-day official primary product-parent evidence for Google SecOps,Defender for Office365 and Entra ID. Parent filing transport alone cannot fill the missing product link.",
+      "requiresNetwork": true,
+      "status": "not run"
+    },
+    {
+      "id": "trend-regulatory-discovery",
+      "owner": "Security Market Pulse source researcher",
+      "action": "Resolve Trend Micro current filing regime and actual regulatory/index endpoint from primary issuer/regulator bytes under the normal next-day allowance. Verify any legacy SEC termination before using it. Leave both family obligations open meanwhile.",
+      "requiresNetwork": true,
+      "status": "not run"
+    }
+  ],
+  "ownerDecision": {
+    "requiredNow": false,
+    "reason": "Primary identity,index and scope-proof collection plus fail-closed adapter proposals remain agent-owned. No waiver or denominator change is proposed.",
+    "wouldRequireOwnerDecision": [
+      "Waiving or deleting existing regulatory/filing family obligations instead of resolving them.",
+      "Expanding the16-company certification cohort or attributing parent-wide revenue/events to product IDs.",
+      "Changing the meaning of coverage to silently treat a parent check as a verified product claim."
+    ]
+  },
+  "limitations": [
+    "No registration proposal is a new current source check. Actual source activation and scheduled acceptance remain unperformed.",
+    "Exact endpoint mappings are recorded only for the two archived successful parent roots. Microsoft/Alphabet/Cisco CIK identity is proved by inlineXBRL,but corresponding submission endpoints remain unverified.",
+    "Check Point and Trend Micro manual CIKs and code comments are retained as unverified existing assertions,not primary-confirmed mappings.",
+    "The audit establishes source and portfolio boundaries,not a legal ownership opinion or product-specific financial reporting.",
+    "Negative product searches are bounded to the named exact primary bodies.",
+    "A parent filing may support an explicitly scoped parent-monitoring proposal;it cannot publish a product number or product event without specific admitted evidence."
+  ],
+  "semanticAdmission": false,
+  "sourceActivation": false,
+  "contractChanged": false,
+  "denominatorChanged": false,
+  "modelCalls": 0,
+  "sourceRequests": 0,
+  "archiveWrites": 0,
+  "quotaChanges": false,
+  "productionChanged": false,
+  "adapterObservationAsOf": {
+    "checkedAt": "2026-10-23T20:32:39.105568Z",
+    "codeBeforeSha256": {
+      "web/src/data/edgarRegistry.ts": "8767b4ea38d3287a81a7fd61206b09ee8098dfbc691d43cf3572cc1665619d86",
+      "web/scripts/pipeline/contracts.py": "231e1289cfa8d8f79a7a09a6147d6e1ccb418e09ec9680a966d37b764fe125c4",
+      "web/scripts/pipeline/discovery.py": "dbac11826122b1a2010135f2c3b38df6935bb66a19c45bebaee71cf3c7738c52",
+      "web/scripts/pipeline/engine.py": "67b34b6ae59360562d31ed6ead3d2fd355a33dae10304aeea8e7470e7e8d72a2",
+      "web/scripts/pipeline/sec-adapter.mjs": "8710a7e55aaf0b9cb5de16d0b92614cc53c424fa5c57d2d1d219d0f5483a1f19",
+      "web/scripts/pipeline/snapshot.py": "3881acfd8e880d431ca17237c5fbc837af3bbe650817c1db24a146a85749334a"
+    },
+    "scope": "These findings describe the code snapshot read for this audit. Subsequent neutral-index and foreign-form candidate changes are separate."
+  },
+  "implementationFollowup": {
+    "specPath": "docs/active/daily-pipeline/regulatory-index-spec-2026-10-23.md",
+    "specSha256": "8cb721f534effb083ea11381ca344a7b260db068d08ad2ecc15d55cb10951ca7",
+    "status": "Root-owned candidate implementation follows this audit;not activated or credited here.",
+    "regulatoryIndexKind": "sec_index",
+    "emittedFacts": 0,
+    "foreignDocumentForms": [
+      "20-F",
+      "20-F/A",
+      "6-K",
+      "6-K/A"
+    ],
+    "certificationCohortUnchanged": true
+  },
+  "auditSha256": "f8a83474a1e9430d9ca21a391bd9fc20bd1bbcadd80983562146b15893c2db1b"
+}

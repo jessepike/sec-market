@@ -182,6 +182,24 @@ endpoint; it cannot count as a quiet result. All 112 pipeline and 235 operationa
 The archived files, original observation times, actual registrations and 74/557 inventory remain
 unchanged. No source is newly qualified. [Repair replay](docs/active/daily-pipeline/receipts/discovery-repair-replay-2026-10-23.json).
 
+The 22 missing regulatory/index and filing-document obligations now have a bounded
+[primary-byte audit](docs/active/daily-pipeline/accuracy/regulatory-gap-audit-2026-10-23.md).
+CrowdStrike and Palo Alto support four historical parent-source proposals; the other 18 need
+additional issuer, product, index or regulatory-regime proof. None is active or newly credited.
+These are agent-owned evidence tasks, not pending owner decisions.
+
+The [neutral SEC index adapter](docs/active/daily-pipeline/regulatory-index-spec-2026-10-23.md)
+validates issuer identity, complete retained indices and exact source observations without emitting
+facts or invoking a model. Independent reconciliation replays its summary and rejects parent-fact
+or semantic-document references. Compatible full SEC responses may be shared across suppliers;
+their separate observations and subject validation remain required. Filing-document selection now
+includes 20-F/6-K and amendments without admitting their statements. The existing 16-company
+certification tier is unchanged. Local checks pass 112 pipeline and 284 operational tests.
+[Integration validation](docs/active/daily-pipeline/receipts/regulatory-collection-validation-2026-10-23.json)
+and [historical issuer replay](docs/active/daily-pipeline/accuracy/regulatory-index-replay-2026-10-23.json)
+retain exact source hashes and original times. The replay's longer historical window is explicitly
+hypothetical; no actual source policy, counter, 74/557 inventory or live result changed.
+
 Daily collection is 05:17 UTC; publication follows verified scheduled collection and runs at 06:23
 and 16:23 UTC. GitHub can run late. Legacy refresh/branch-promotion jobs remain disabled and Vercel's
 competing production paths remain closed. The old Vercel probe's CLI account lookup is bypassed

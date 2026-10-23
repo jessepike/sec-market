@@ -42,6 +42,13 @@ After allowance renewal, qualify the advertised supplier-specific Delinea, Ping 
 Sonatype feeds first, then the remaining documented endpoints. These are agent-owned actions;
 none currently requires an owner source or factual judgment. They do not add source families.
 
+The [22-obligation filing audit](docs/active/daily-pipeline/accuracy/regulatory-gap-audit-2026-10-23.md)
+supports four historical CrowdStrike/Palo Alto parent-source proposals and leaves 18 awaiting
+further proof. A neutral issuer-index adapter and foreign-form document retention are implemented
+without activating registrations. Validate the exact parent/product relationships and fresh index
+responses before replacing any missing binding. Parent filing checks cannot supply product revenue,
+events or a new certified tier; all 22 obligations remain open pending proper collection.
+
 **Authorization:** owner request on October 23 to fix coverage within existing limits, set an active
 goal and track durability/accuracy/value; clarified priority is current operation before expansion.
 [Recovery plan](docs/active/daily-pipeline/coverage-recovery-plan-2026-10-23.md).

@@ -4,7 +4,7 @@ import gzip
 import io
 import re
 import zlib
-from datetime import date, datetime, timedelta
+from datetime import date, datetime, timedelta, timezone
 import xml.etree.ElementTree as ET
 from html.parser import HTMLParser
 from urllib.parse import urljoin, urlsplit
@@ -206,6 +206,76 @@ def barracuda_shell(url, body):
     return {"reason": "BARRACUDA_NEWSROOM_LAYOUT_UNVERIFIED", "requiredEndpoints": []}
 
 
+def discover_regulatory_index(source, request):
+    """Traverse an explicitly bound issuer index without producing market facts."""
+    from regulatory import validate_index_source
+    observations, items, dates, seen = [], set(), {}, set()
+    def result(complete, reason=None, **details):
+        return {"complete": complete, "items": sorted(items), "itemDates": dates,
+                "observations": observations, "reason": reason, **details}
+    try:
+        validate_index_source(source)
+        checked = instant(source.get("checkedAt", utcnow())).astimezone(timezone.utc)
+        cutoff = (checked - timedelta(days=source.get("lookbackDays", 365))).date().isoformat()
+        queue = [source["url"]]
+        while queue:
+            require(len(seen) < source["maxPages"], "PAGINATION_BUDGET_EXHAUSTED")
+            url = queue.pop(0)
+            require(url not in seen, "Duplicate SEC index continuation")
+            seen.add(url)
+            observation, body = request(url)
+            observations.append(observation)
+            if observation.get("status") not in ("fetched", "not_modified"):
+                return result(False, observation.get("errorCode", "SEC_INDEX_FETCH_FAILED"))
+            require(observation.get("requestedUrl") == url and observation.get("finalUrl", url) == url,
+                    "SEC index response URL differs")
+            value = json.loads(decoded_discovery_body(body))
+            require(isinstance(value, dict), "SEC index response must be an object")
+            if url == source["url"]:
+                issuer = source["regulatoryIssuer"]
+                cik = value.get("cik")
+                require((type(cik) is int or isinstance(cik, str) and re.fullmatch(r"\d{1,10}", cik)) and
+                        str(cik).zfill(10) == issuer["cik"] and value.get("name") == issuer["legalName"],
+                        "SEC index initial issuer CIK/name differs")
+                filings = value.get("filings")
+                require(isinstance(filings, dict) and isinstance(filings.get("files"), list), "SEC history metadata missing")
+                recent = filings.get("recent")
+                names = set()
+                for archive in filings["files"]:
+                    require(isinstance(archive, dict) and set(archive) == {"name", "filingCount", "filingFrom", "filingTo"},
+                            "SEC older index metadata schema differs")
+                    name = archive["name"]
+                    require(isinstance(name, str) and re.fullmatch(r"CIK" + issuer["cik"] + r"-submissions-\d{3}\.json", name),
+                            "Unsafe SEC older index filename or wrong issuer")
+                    require(name not in names, "Duplicate SEC older index metadata")
+                    names.add(name)
+                    first, last = date.fromisoformat(archive["filingFrom"]), date.fromisoformat(archive["filingTo"])
+                    require(first <= last <= checked.date() and type(archive["filingCount"]) is int and archive["filingCount"] > 0,
+                            "SEC older index date/count boundaries invalid")
+                    if last.isoformat() >= cutoff:
+                        queue.append(urljoin(source["url"], name))
+            else:
+                recent = value
+            fields = {"accessionNumber", "filingDate", "reportDate", "acceptanceDateTime", "act", "form",
+                      "fileNumber", "filmNumber", "items", "size", "isXBRL", "isInlineXBRL", "primaryDocument", "primaryDocDescription"}
+            require(isinstance(recent, dict) and fields.issubset(recent) and
+                    all(isinstance(column, list) for column in recent.values()),
+                    "SEC filing index arrays missing")
+            require(all(len(column) == len(recent["accessionNumber"]) for column in recent.values()),
+                    "SEC filing index array lengths differ")
+            for accession, filed in zip(recent["accessionNumber"], recent["filingDate"]):
+                require(isinstance(accession, str) and re.fullmatch(r"\d{10}-\d{2}-\d{6}", accession), "Unsafe SEC accession")
+                day = date.fromisoformat(filed).isoformat()
+                require(day <= checked.date().isoformat(), "Future SEC index filing date")
+                if day >= cutoff:
+                    require(accession not in dates or dates[accession] == day, "Conflicting SEC accession date")
+                    items.add(accession)
+                    dates[accession] = day
+        return result(True)
+    except (ValueError, TypeError, KeyError, OSError) as exc:
+        return result(False, "SEC_INDEX_INCOMPLETE", detail=str(exc)[:160])
+
+
 class Page(HTMLParser):
     def __init__(self, html, source_url=None):
         super().__init__(convert_charrefs=True)
@@ -396,6 +466,8 @@ def discover(source, request):
     """request(url) archives every response and returns an observation plus bytes."""
     if source["registration"] != "verified":
         return {"complete": False, "items": [], "observations": [], "reason": "SOURCE_BINDING_UNVERIFIED"}
+    if source["kind"] == "sec_index":
+        return discover_regulatory_index(source, request)
     queue, seen, items, observations, item_dates, item_modified = [source["url"]], set(), set(), [], {}, {}
     highest_orca_page = 1
     orca_mode = source.get("htmlCompleteness") == ORCA_HTML_MODE
@@ -441,7 +513,7 @@ def discover(source, request):
                     if "cik" in value:
                         require(str(int(value["cik"])) == cik, "SEC document index CIK mismatch")
                     for i, accession in enumerate(recent["accessionNumber"]):
-                        if recent["filingDate"][i] < cutoff or recent["form"][i] not in ("10-K", "10-K/A", "10-Q", "10-Q/A", "8-K", "8-K/A", "NT 10-K", "NT 10-Q", "DEFM14A", "PREM14A", "25", "25-NSE"):
+                        if recent["filingDate"][i] < cutoff or recent["form"][i] not in ("10-K", "10-K/A", "10-Q", "10-Q/A", "8-K", "8-K/A", "NT 10-K", "NT 10-Q", "DEFM14A", "PREM14A", "25", "25-NSE", "20-F", "20-F/A", "6-K", "6-K/A"):
                             continue
                         primary = recent["primaryDocument"][i]
                         require(re.fullmatch(r"\d{10}-\d{2}-\d{6}", accession) and re.fullmatch(r"[A-Za-z0-9_.-]+", primary), "Unsafe SEC document path")

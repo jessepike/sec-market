@@ -1,0 +1,391 @@
+{
+  "schemaVersion": 1,
+  "kind": "historical_neutral_sec_index_helper_replay",
+  "replayedAt": "2026-10-23T20:38:54.132839Z",
+  "historicalReplayAsOf": "2026-10-23T20:32:39.105568Z",
+  "archiveCommit": "b78cfa15980d7be9da54b31e28b16a0840c1d112",
+  "archiveManifestSha256": "760b5c38fcb7fba2a3a223233539cce4eb5aa47d559571efa95b287047ac1ff8",
+  "sourceAuditPin": {
+    "path": "docs/active/daily-pipeline/accuracy/regulatory-gap-audit-2026-10-23.json",
+    "sha256": "97b08e380b9770eeaae588e2cde88ec3e233f1c4e7dffcbfb474c96d5133c496"
+  },
+  "helperPin": {
+    "path": "web/scripts/pipeline/regulatory.py",
+    "sha256": "2d33d1cf3673442ef478818d1ab9bc98943d262ffcf349f690b09166a7c82b28"
+  },
+  "testPin": {
+    "path": "ops/ci/test_regulatory_index.py",
+    "sha256": "9c5fb74fa91d063b182305e55be29c0008e8212a5735de91db95275ae23b86cf"
+  },
+  "specPin": {
+    "path": "docs/active/daily-pipeline/regulatory-index-spec-2026-10-23.md",
+    "sha256": "75526ccde4a3af5f796240ac9135639ec91549996843a52d69573ee5ff28a596"
+  },
+  "records": [
+    {
+      "issuerKey": "crwd",
+      "rawBodyProofs": [
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001535527.json",
+          "observationId": "6ca7a07a231aea749fd67cb3145e4b05bb97cb105cc5bb0c2d22a00b7073cf56",
+          "fetchedAt": "2026-10-23T11:33:52.194590Z",
+          "body": {
+            "bytes": 156749,
+            "key": "objects/d7bdf41f479438099d203999aa7051df0a8eb3dbfcdb9d398f97b2f49c59d34f",
+            "sha256": "d7bdf41f479438099d203999aa7051df0a8eb3dbfcdb9d398f97b2f49c59d34f"
+          },
+          "sourceId": "crwd:sec_submissions",
+          "status": "fetched",
+          "archivedVerifiedAt": null,
+          "finalUrl": "https://data.sec.gov/submissions/CIK0001535527.json"
+        },
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001535527-submissions-001.json",
+          "observationId": "0d960d2f28b23cf64afe192b7f1cc1c30aece482bcf8bce95be287ee96efc508",
+          "fetchedAt": "2026-10-23T11:33:52.712839Z",
+          "body": {
+            "bytes": 47574,
+            "key": "objects/ec42aac9136a82b721386b03207e592eb28f510d6fb815469e1e353972768e28",
+            "sha256": "ec42aac9136a82b721386b03207e592eb28f510d6fb815469e1e353972768e28"
+          },
+          "sourceId": "crwd:sec_submissions",
+          "status": "fetched",
+          "archivedVerifiedAt": null,
+          "finalUrl": "https://data.sec.gov/submissions/CIK0001535527-submissions-001.json"
+        }
+      ],
+      "initialDeclaredArchives": [
+        {
+          "name": "CIK0001535527-submissions-001.json",
+          "filingCount": 306,
+          "filingFrom": "2011-12-02",
+          "filingTo": "2020-12-20"
+        }
+      ],
+      "replays": [
+        {
+          "hypotheticalSource": {
+            "id": "historical-hypothetical-crwd",
+            "supplierId": "hypothetical-subject",
+            "kind": "sec_index",
+            "url": "https://data.sec.gov/submissions/CIK0001535527.json",
+            "allowedHosts": [
+              "data.sec.gov"
+            ],
+            "registration": "verified",
+            "required": true,
+            "maxPages": 40,
+            "scopePrefixes": [
+              "/"
+            ],
+            "seedEvidenceUrls": [],
+            "family": "regulatory_filings",
+            "regulatoryIssuer": {
+              "cik": "0001535527",
+              "legalName": "CrowdStrike Holdings, Inc.",
+              "relationship": "parent"
+            },
+            "lookbackDays": 365
+          },
+          "summary": {
+            "schemaVersion": 1,
+            "kind": "regulatory_index_validation",
+            "sourceId": "historical-hypothetical-crwd",
+            "supplierId": "hypothetical-subject",
+            "issuer": {
+              "cik": "0001535527",
+              "legalName": "CrowdStrike Holdings, Inc.",
+              "relationship": "parent"
+            },
+            "sourceSha256": "b05178b47f59733ee0551a05f202c9982a0ad70a6e560084ca33ebf4b46e3860",
+            "checkedAt": "2026-10-23T20:32:39.105568Z",
+            "windowStart": "2025-10-23",
+            "windowEnd": "2026-10-23",
+            "documentCount": 1,
+            "filingRows": 1001,
+            "uniqueFilings": 1001,
+            "duplicateRows": 0,
+            "retainedFilings": 258,
+            "documents": [
+              {
+                "url": "https://data.sec.gov/submissions/CIK0001535527.json",
+                "documentSha256": "261a8eb8efd03741d7de6f2cc4a0bfe974a6c3fddd7ad730f30d219e9e61d980",
+                "filingRows": 1001,
+                "firstFilingDate": "2020-12-22",
+                "lastFilingDate": "2026-10-21",
+                "declaredFilingFrom": null,
+                "declaredFilingTo": null,
+                "declaredFilingCount": null
+              }
+            ],
+            "documentsSha256": "0a9a99998ea8bd27ec2e7164ddfaa9994aa3ef3d78a3066c5af1f45c6922dc45",
+            "facts": []
+          }
+        },
+        {
+          "hypotheticalSource": {
+            "id": "historical-hypothetical-crwd",
+            "supplierId": "hypothetical-subject",
+            "kind": "sec_index",
+            "url": "https://data.sec.gov/submissions/CIK0001535527.json",
+            "allowedHosts": [
+              "data.sec.gov"
+            ],
+            "registration": "verified",
+            "required": true,
+            "maxPages": 40,
+            "scopePrefixes": [
+              "/"
+            ],
+            "seedEvidenceUrls": [],
+            "family": "regulatory_filings",
+            "regulatoryIssuer": {
+              "cik": "0001535527",
+              "legalName": "CrowdStrike Holdings, Inc.",
+              "relationship": "parent"
+            },
+            "lookbackDays": 3650
+          },
+          "summary": {
+            "schemaVersion": 1,
+            "kind": "regulatory_index_validation",
+            "sourceId": "historical-hypothetical-crwd",
+            "supplierId": "hypothetical-subject",
+            "issuer": {
+              "cik": "0001535527",
+              "legalName": "CrowdStrike Holdings, Inc.",
+              "relationship": "parent"
+            },
+            "sourceSha256": "af0e3fc5ce72140c28c73e07562636277fb375f4a0bf59cf417b7b2b4ae913ed",
+            "checkedAt": "2026-10-23T20:32:39.105568Z",
+            "windowStart": "2016-10-25",
+            "windowEnd": "2026-10-23",
+            "documentCount": 2,
+            "filingRows": 1307,
+            "uniqueFilings": 1307,
+            "duplicateRows": 0,
+            "retainedFilings": 1305,
+            "documents": [
+              {
+                "url": "https://data.sec.gov/submissions/CIK0001535527.json",
+                "documentSha256": "261a8eb8efd03741d7de6f2cc4a0bfe974a6c3fddd7ad730f30d219e9e61d980",
+                "filingRows": 1001,
+                "firstFilingDate": "2020-12-22",
+                "lastFilingDate": "2026-10-21",
+                "declaredFilingFrom": null,
+                "declaredFilingTo": null,
+                "declaredFilingCount": null
+              },
+              {
+                "url": "https://data.sec.gov/submissions/CIK0001535527-submissions-001.json",
+                "documentSha256": "e44796c7fda8aed08e40ab7137f253f6fdffa8dd474b993cfd789cacb6c0d29c",
+                "filingRows": 306,
+                "firstFilingDate": "2011-12-02",
+                "lastFilingDate": "2020-12-17",
+                "declaredFilingFrom": "2011-12-02",
+                "declaredFilingTo": "2020-12-20",
+                "declaredFilingCount": 306
+              }
+            ],
+            "documentsSha256": "dcf96c13c4a58a77f1cb2e4709d27779ce011c76267bd816898344f825f99fb2",
+            "facts": []
+          }
+        }
+      ]
+    },
+    {
+      "issuerKey": "panw",
+      "rawBodyProofs": [
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001327567.json",
+          "observationId": "f0d077051086912e3814c1dccc6176e964504c5d8cdb39e3ccc53e1980f2d2bf",
+          "fetchedAt": "2026-10-23T11:33:46.656179Z",
+          "body": {
+            "bytes": 154769,
+            "key": "objects/54acd6c26e8bfcdf5e0f0dea30dabef27123525133df99729bb4ccd8f000c402",
+            "sha256": "54acd6c26e8bfcdf5e0f0dea30dabef27123525133df99729bb4ccd8f000c402"
+          },
+          "sourceId": "panw:sec_submissions",
+          "status": "fetched",
+          "archivedVerifiedAt": null,
+          "finalUrl": "https://data.sec.gov/submissions/CIK0001327567.json"
+        },
+        {
+          "url": "https://data.sec.gov/submissions/CIK0001327567-submissions-001.json",
+          "observationId": "f2000c50e2d71de3d11e090d341d766f93b01db18074ac420e3fcef716f889bc",
+          "fetchedAt": "2026-10-23T11:33:47.101515Z",
+          "body": {
+            "bytes": 140668,
+            "key": "objects/27f17d2b43ee0fb41ca44b148c2da497fd9b305e9b3cf67d63d28829f5b84937",
+            "sha256": "27f17d2b43ee0fb41ca44b148c2da497fd9b305e9b3cf67d63d28829f5b84937"
+          },
+          "sourceId": "panw:sec_submissions",
+          "status": "fetched",
+          "archivedVerifiedAt": null,
+          "finalUrl": "https://data.sec.gov/submissions/CIK0001327567-submissions-001.json"
+        }
+      ],
+      "initialDeclaredArchives": [
+        {
+          "name": "CIK0001327567-submissions-001.json",
+          "filingCount": 908,
+          "filingFrom": "2005-05-16",
+          "filingTo": "2019-09-30"
+        }
+      ],
+      "replays": [
+        {
+          "hypotheticalSource": {
+            "id": "historical-hypothetical-panw",
+            "supplierId": "hypothetical-subject",
+            "kind": "sec_index",
+            "url": "https://data.sec.gov/submissions/CIK0001327567.json",
+            "allowedHosts": [
+              "data.sec.gov"
+            ],
+            "registration": "verified",
+            "required": true,
+            "maxPages": 40,
+            "scopePrefixes": [
+              "/"
+            ],
+            "seedEvidenceUrls": [],
+            "family": "regulatory_filings",
+            "regulatoryIssuer": {
+              "cik": "0001327567",
+              "legalName": "Palo Alto Networks Inc",
+              "relationship": "parent"
+            },
+            "lookbackDays": 365
+          },
+          "summary": {
+            "schemaVersion": 1,
+            "kind": "regulatory_index_validation",
+            "sourceId": "historical-hypothetical-panw",
+            "supplierId": "hypothetical-subject",
+            "issuer": {
+              "cik": "0001327567",
+              "legalName": "Palo Alto Networks Inc",
+              "relationship": "parent"
+            },
+            "sourceSha256": "ebad119c55f985050fb695c2cc7a3356df53da4d41bdd624bf4192568fd45f95",
+            "checkedAt": "2026-10-23T20:32:39.105568Z",
+            "windowStart": "2025-10-23",
+            "windowEnd": "2026-10-23",
+            "documentCount": 1,
+            "filingRows": 1000,
+            "uniqueFilings": 1000,
+            "duplicateRows": 0,
+            "retainedFilings": 130,
+            "documents": [
+              {
+                "url": "https://data.sec.gov/submissions/CIK0001327567.json",
+                "documentSha256": "6c371b42b90a3e55981973a4ffdd8102da3e67e71f7462a0bb42e40f6d29404c",
+                "filingRows": 1000,
+                "firstFilingDate": "2019-10-02",
+                "lastFilingDate": "2026-10-14",
+                "declaredFilingFrom": null,
+                "declaredFilingTo": null,
+                "declaredFilingCount": null
+              }
+            ],
+            "documentsSha256": "0b733c38d5297dc07095289aec810ca525b46224f13ab322b49df2e3a1ed653f",
+            "facts": []
+          }
+        },
+        {
+          "hypotheticalSource": {
+            "id": "historical-hypothetical-panw",
+            "supplierId": "hypothetical-subject",
+            "kind": "sec_index",
+            "url": "https://data.sec.gov/submissions/CIK0001327567.json",
+            "allowedHosts": [
+              "data.sec.gov"
+            ],
+            "registration": "verified",
+            "required": true,
+            "maxPages": 40,
+            "scopePrefixes": [
+              "/"
+            ],
+            "seedEvidenceUrls": [],
+            "family": "regulatory_filings",
+            "regulatoryIssuer": {
+              "cik": "0001327567",
+              "legalName": "Palo Alto Networks Inc",
+              "relationship": "parent"
+            },
+            "lookbackDays": 3650
+          },
+          "summary": {
+            "schemaVersion": 1,
+            "kind": "regulatory_index_validation",
+            "sourceId": "historical-hypothetical-panw",
+            "supplierId": "hypothetical-subject",
+            "issuer": {
+              "cik": "0001327567",
+              "legalName": "Palo Alto Networks Inc",
+              "relationship": "parent"
+            },
+            "sourceSha256": "2f8d7359c833aeab8ea7d92b8f71cffff356d598de3b8650128c5f4af184a354",
+            "checkedAt": "2026-10-23T20:32:39.105568Z",
+            "windowStart": "2016-10-25",
+            "windowEnd": "2026-10-23",
+            "documentCount": 2,
+            "filingRows": 1908,
+            "uniqueFilings": 1908,
+            "duplicateRows": 0,
+            "retainedFilings": 1344,
+            "documents": [
+              {
+                "url": "https://data.sec.gov/submissions/CIK0001327567.json",
+                "documentSha256": "6c371b42b90a3e55981973a4ffdd8102da3e67e71f7462a0bb42e40f6d29404c",
+                "filingRows": 1000,
+                "firstFilingDate": "2019-10-02",
+                "lastFilingDate": "2026-10-14",
+                "declaredFilingFrom": null,
+                "declaredFilingTo": null,
+                "declaredFilingCount": null
+              },
+              {
+                "url": "https://data.sec.gov/submissions/CIK0001327567-submissions-001.json",
+                "documentSha256": "19b3896dcb34f32b90ab3ed1b8faac86ab367cd224436092f894779c46259b60",
+                "filingRows": 908,
+                "firstFilingDate": "2005-05-16",
+                "lastFilingDate": "2019-09-19",
+                "declaredFilingFrom": "2005-05-16",
+                "declaredFilingTo": "2019-09-30",
+                "declaredFilingCount": 908
+              }
+            ],
+            "documentsSha256": "0cc30cb6a1562a7ded0b172d36f2ba5461853cd08bdf6ebd595d419040740b3b",
+            "facts": []
+          }
+        }
+      ]
+    }
+  ],
+  "localTests": {
+    "command": "python3 -m unittest discover -s ops/ci -p test_regulatory_index.py -v",
+    "tests": 16,
+    "passed": 16,
+    "skipped": 0,
+    "archivedBodyCompatibilityTestPassed": true
+  },
+  "factsEmitted": 0,
+  "newSourceChecks": 0,
+  "sourceRequests": 0,
+  "modelCalls": 0,
+  "archiveWrites": 0,
+  "sourceActivation": false,
+  "qualificationEstablished": false,
+  "semanticAdmission": false,
+  "quotaChanges": false,
+  "limitations": [
+    "Historical issuer-only compatibility replay; hypothetical subject source declarations do not qualify or activate product-parent mappings.",
+    "Original observation IDs, body bytes, retrieval dates and existing verification dates remain unchanged. The replay timestamp is not a source retrieval or freshness renewal.",
+    "The two observed older-page metadata ranges enclose dates beyond their last actual filing. Strict containment plus exact row count is validated; universal SEC range semantics are not claimed.",
+    "The 365-day checks require only the initial root pages. Explicit hypothetical 3650-day checks include both archived older pages and validate all 1307 CrowdStrike and 1908 Palo Alto filing rows.",
+    "No supplier identity update, product event, revenue figure, certified claim or coverage credit is produced."
+  ]
+}

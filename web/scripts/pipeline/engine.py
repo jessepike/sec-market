@@ -3,13 +3,13 @@ import json
 import subprocess
 import threading
 import time
-from datetime import timedelta
+from datetime import timedelta, timezone
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 from agents import ModelUnavailable
 from contracts import canonical, digest, instant, plan_run, require, utcnow
-from discovery import Page, discover
+from discovery import Page, decoded_discovery_body, discover
 from documents import readable_document
 from selection import select_documents
 from validation import reconcile, verify_statement, mentions_entity
@@ -63,7 +63,7 @@ class Pipeline:
             if self.agent:
                 self.agent.reserve = self._reserve
             with ThreadPoolExecutor(max_workers=self.contract["schedule"]["maxWorkers"]) as pool:
-                priority = {"sec_facts": 0, "sec_submissions": 0, "sec_documents": 0, "citation": 1}
+                priority = {"sec_facts": 0, "sec_submissions": 0, "sec_documents": 0, "sec_index": 0, "citation": 1}
                 # Rotate the same-priority sources daily so a finite global model
                 # budget does not always go to the first suppliers in the roster.
                 day = instant(plan["scheduledAt"]).date().toordinal()
@@ -167,7 +167,14 @@ class Pipeline:
                 receipt["observationIds"].append(observation["observationId"])
                 return observation, self.store.get(observation["body"]) if observation.get("body") else b""
 
-            found = discover(source, request)
+            index_as_of = self.clock() if source["kind"] == "sec_index" else None
+            found = discover({**source, "checkedAt": index_as_of} if index_as_of else source, request)
+            index_checked_at = self.clock() if index_as_of else None
+            if index_as_of:
+                require(instant(index_as_of).astimezone(timezone.utc).date() == instant(index_checked_at).astimezone(timezone.utc).date(),
+                        "SEC_INDEX_WINDOW_CHANGED_DURING_DISCOVERY")
+                require(all(instant(o["fetchedAt"]) <= instant(index_checked_at) for o in found["observations"]),
+                        "SEC_INDEX_VERIFICATION_PRECEDES_SOURCE_OBSERVATION")
             if source["kind"] == "sec_documents" and found["complete"]:
                 cutoff = (instant(self.clock()) - timedelta(days=source.get("lookbackDays", 365))).date().isoformat()
                 retained = {url for url, date in previous.get("itemDates", {}).items() if date >= cutoff}
@@ -179,8 +186,19 @@ class Pipeline:
                 receipt.update(outcome="blocked" if any(o.get("status") == "blocked" for o in found["observations"]) else "not_checked", errorCode=found["reason"])
                 return self._finish(receipt)
             accepted = []
-            validated_hashes = dict(previous.get("validatedHashes", {}))
-            if source["kind"] in ("sec_facts", "sec_submissions"):
+            validated_hashes = {} if source["kind"] == "sec_index" else dict(previous.get("validatedHashes", {}))
+            if source["kind"] == "sec_index":
+                from regulatory import verify_index_documents
+                documents = [{"url": o["requestedUrl"], "document": json.loads(decoded_discovery_body(self.store.get(o["body"])))}
+                             for o in found["observations"]]
+                verified_index = verify_index_documents(source, documents, index_checked_at)
+                require(verified_index.get("facts") == [], "Neutral SEC index cannot emit facts")
+                receipt["regulatoryIndexValidation"] = self.store.put({
+                    "sourceId": source["id"], "supplierId": source["supplierId"], "contractSha256": plan["contractSha256"],
+                    "traversalAsOf": index_as_of, "checkedAt": index_checked_at, "observationIds": list(receipt["observationIds"]),
+                    "documents": [{"url": o["requestedUrl"], "observationId": o["observationId"], "body": o["body"]}
+                                  for o in found["observations"]], "verification": verified_index})
+            elif source["kind"] in ("sec_facts", "sec_submissions"):
                 documents = [json.loads(self.store.get(o["body"])) for o in found["observations"]]
                 facts = self.structured(source, documents, plan["scheduledAt"][:10])
                 for fact in facts:
@@ -342,12 +360,16 @@ class Pipeline:
 
     def _fetch_transport(self, source, url, previous):
         hosts = sorted(source['allowedHosts'])
-        if url.startswith('https://data.sec.gov/') and source['kind'] in ('sec_facts', 'sec_submissions', 'sec_documents'):
+        strict_sec = url.startswith('https://data.sec.gov/') and source['kind'] in ('sec_facts', 'sec_submissions', 'sec_documents', 'sec_index')
+        if strict_sec:
             # Both SEC index bindings permit this stricter redirect policy.
             # Do not reuse a response obtained through a broader host policy.
             require('data.sec.gov' in hosts, 'SEC transport host not registered')
             hosts = ['data.sec.gov']
-        key = digest({'url': url, 'hosts': hosts, 'supplier': source['supplierId']})
+        # These public SEC GETs use the same fixed headers and exact data-only
+        # redirect policy. Share raw 200 bytes, then validate each subject anew.
+        # Ordinary source policies and every conditional chain remain separate.
+        key = digest({'url': url, 'hosts': hosts, 'supplier': None if strict_sec else source['supplierId']})
         with self.store.lock('transport-' + key, blocking=True):
             if key in self.transport_cache:
                 observation = dict(self.transport_cache[key])
