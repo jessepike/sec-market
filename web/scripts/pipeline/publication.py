@@ -52,6 +52,9 @@ def publish(store, contract, manifest, adapter, checkpoint=None):
         require(previous is not None, "Import and verify the current production baseline before cutover")
         require((previous or {}).get("releaseId") == manifest["parentReleaseId"], "Stale release parent")
         require(manifest["sequence"] == (previous or {}).get("sequence", 0) + 1, "Release sequence regressed")
+        # Retain the exact previously served immutable target before replacing
+        # the mutable production head. The pre-promotion checkpoint archives it.
+        store.write_once(f"production-baselines/{previous['releaseId']}.json", previous)
         day = manifest["createdAt"][:10]
         budget = store.read(f"heads/publication-budget-{day}.json")
         attempts = (budget or {}).get("attempts", [])

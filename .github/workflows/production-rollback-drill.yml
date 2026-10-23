@@ -1,0 +1,63 @@
+name: controlled production rollback acceptance
+
+on:
+  workflow_dispatch:
+    inputs:
+      expected_release:
+        description: Already accepted current release SHA-256
+        required: true
+        type: string
+
+permissions: {}
+concurrency:
+  group: sec-market-subscription-account
+  cancel-in-progress: false
+
+jobs:
+  rollback-and-restore:
+    if: github.repository == 'jessepike/sec-market' && github.event.repository.private == true && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    permissions:
+      contents: write
+      actions: read
+      issues: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '22'
+      - name: Prepare document reader and official publisher
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install --yes --no-install-recommends poppler-utils
+          npm install --prefix "$RUNNER_TEMP/smp-vercel-cli" --no-save --package-lock=false vercel@64.7.0
+          echo "$RUNNER_TEMP/smp-vercel-cli/node_modules/.bin" >> "$GITHUB_PATH"
+      - name: Verify operational tests
+        run: python3 -m unittest discover -s ops/ci -p 'test_*.py' -q
+      - name: Journal intent, exercise retained baseline and restore accepted production
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          EXPECTED_RELEASE: ${{ inputs.expected_release }}
+        run: |
+          gh auth setup-git --hostname github.com
+          python3 ops/ci/rollback_drill.py --root "$RUNNER_TEMP/smp-rollback-drill" --expected-release "$EXPECTED_RELEASE" --output "$RUNNER_TEMP/smp-rollback-drill-receipt.json"
+      - name: Retain safe acceptance receipt
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: production-rollback-drill-receipt
+          path: ${{ runner.temp }}/smp-rollback-drill-receipt.json
+          if-no-files-found: warn
+          retention-days: 14
+      - name: Report failed acceptance to the owner
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 ops/ci/job_alert.py --job publisher --status failure
+      - name: Remove ephemeral credentials
+        if: always()
+        run: rm -rf -- "$RUNNER_TEMP/smp-rollback-drill/auth"
