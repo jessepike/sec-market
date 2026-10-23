@@ -1,6 +1,6 @@
 name: subscription runtime canary
 
-# Hosting/access proof only. No daily model worker or credential transfer.
+# Private hosting and archive integrity only. No market-source requests or model worker.
 on:
   push:
     branches: [preview]
@@ -28,7 +28,7 @@ jobs:
           node-version: '22'
       - name: Verify credential persistence helper using fictional data
         run: python3 -m unittest discover -s ops/ci -p 'test_*.py' -v
-      - name: Restore real evidence and probe a source from the private GitHub runner
+      - name: Verify archived evidence integrity from the private GitHub runner without source requests
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
