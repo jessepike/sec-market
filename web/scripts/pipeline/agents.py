@@ -114,6 +114,8 @@ class SubscriptionAgent:
         """Review an atomic correction against complete archived primary documents."""
         require(documents and all(len(item["text"]) <= self.config["maxDocumentChars"] for item in documents),
                 "Correction document exceeds model input budget")
+        require(sum(len(item["text"]) for item in documents) <= self.config["maxDocumentChars"],
+                "Correction document set exceeds model input budget")
         # Native work has no correction stage yet and must fail closed there.
         self.stage = "review_correction"
         envelope = {"group": group, "candidateSha256": digest(group),

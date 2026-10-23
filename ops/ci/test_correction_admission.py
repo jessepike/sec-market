@@ -395,6 +395,31 @@ class CorrectionAdmissionTests(unittest.TestCase):
         self.repin()
         self.assertFalse(self.process()["pending"])
 
+    def test_aggregate_primary_document_limit_precedes_all_reservations(self):
+        body = self.store.put(("<html><body>" + self.quote + " " + "x" * 16000 + "</body></html>").encode())
+        self.observation["body"] = body
+        (self.store.root / self.observation_path).write_bytes(canonical(self.observation))
+        self.group["sources"][0]["body"] = body
+        second_evidence = {**copy.deepcopy(self.evidence), "id": "E2", "canonicalUrl": self.url + "-second"}
+        self.raw["evidence"].append(second_evidence)
+        second_source_id = "example:citation:E2"
+        second_observation = {**self.observation, "observationId": "b" * 64, "sourceId": second_source_id,
+                              "requestedUrl": second_evidence["canonicalUrl"], "finalUrl": second_evidence["canonicalUrl"]}
+        self.store.write_once("observations/" + second_observation["observationId"] + ".json", second_observation)
+        self.market["suppliers"][0]["sourceIds"].append(second_source_id)
+        self.market["sources"].append({**self.market["sources"][0], "id": second_source_id, "url": second_evidence["canonicalUrl"]})
+        self.group["sources"].append({"evidenceId": "E2", "sourceId": second_source_id, "url": second_evidence["canonicalUrl"],
+                                      "observationId": second_observation["observationId"], "body": body, "fetchedAt": second_observation["fetchedAt"]})
+        self.pins()
+        result = self.process()
+        self.assertFalse(result["admitted"])
+        self.assertIn("document set exceeds", result["pending"][0]["reason"])
+        self.assertFalse(self.charges)
+        self.assertFalse(self.prompts)
+        with self.assertRaisesRegex(ValueError, "document set exceeds"):
+            self.agent.review_correction([{"text": "x" * 16000}, {"text": "y" * 16000}], self.group, self.policy)
+        self.assertFalse(self.runner.called)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -213,6 +213,8 @@ def validate_sources(group, store, market, admitted_at):
         require(len(text) >= 100 and len(text) <= market["model"]["maxDocumentChars"], "Correction primary document exceeds limit or is unreadable")
         require(not re.search(r"access denied|verify you are human|request rate threshold exceeded", text[:2000], re.I), "Correction source block page")
         documents.append({"source": source, "text": text})
+    require(sum(len(document["text"]) for document in documents) <= market["model"]["maxDocumentChars"],
+            "Correction primary document set exceeds model input budget")
     for target in group["targets"]:
         if target["targetId"].startswith("evidence:"):
             evidence = target["proposedValue"]
