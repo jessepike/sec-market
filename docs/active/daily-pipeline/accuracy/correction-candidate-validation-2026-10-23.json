@@ -1,17 +1,17 @@
 {
   "kind": "dated_correction_candidate_validation",
-  "codeRevision": "a495f992bdac71d20e9f82bbf1056963f637cf2f",
+  "codeRevision": "a8324a828b9fae731ba228d03ba8bc0e53995d57",
   "productionChanged": false,
   "semanticAdmission": false,
   "correctionsAppliedToProduction": false,
   "tests": {
     "data": 315,
     "pipeline": 112,
-    "browser": 34,
+    "browser": 38,
     "operational": 185,
     "monitor": 12
   },
-  "fullApplicationTestLogSha256": "a47fde0f2accf5a3bab2f8962643783d23855ef80578cf140efb97b3d4636dcf",
+  "fullApplicationTestLogSha256": "fd127b7dc315f132cea4e3808674f4d79aa34bdd14e63599fe494e870fc92294",
   "files": {
     "contracts/factual-baseline.json": "ab3bca0e49a38495d310021857ee2c1a3ca6ebe7979593d1e8b36437cb2a294e",
     "contracts/factual-corrections.json": "4b65725ec0dae65ddca0a4196778c60dd99a8523823300214dc0b22df0e92138",
@@ -23,7 +23,11 @@
     "web/scripts/pipeline/release.py": "30575a20c1c7f0ac5d013b46b780e0f3ab6b6f2facbe9bbc32d78171d53358c1",
     "web/scripts/verify-current-facts.ts": "3847ba4cf890351f580a6477639bef442e3c8dc4160510b5d855731515ebc7c9",
     "web/scripts/verify-factual-corrections.mjs": "67d6999ad788800e69546ee75edb609f72bdaf10bbe22be9f68320e7538e96bf",
-    "web/src/data/generated/factualCorrections.json": "826c7e5c70f98b5a6cc084c8d2d7f2dc2dd7bf22fcefb2621c4f9f5653761d21"
+    "web/src/data/generated/factualCorrections.json": "826c7e5c70f98b5a6cc084c8d2d7f2dc2dd7bf22fcefb2621c4f9f5653761d21",
+    "web/scripts/verify-integrity.ts": "46f3b75a8f1938ac300d04491d8afb3b5fc14e8d91fbcb2fa1314461f78b0ff1",
+    "web/scripts/pipeline/agents.py": "aedfb8e7ba76401417cc3d8c8932bbf5061bd1de09b870707c0f251d95ac30d5",
+    "web/tests/e2e/corrections.spec.ts": "9091cf0e6f5b5eda01dd9ed5283c04ff89e85c22d2713cea55fd4d2677077224",
+    "ops/evaluation/visual_corrections.py": "0716fbaffabd35ab7373c12c9fe9ce1b13b17028de434987f16acc859326b3f0"
   },
   "sourceReplay": "correction-source-replay-2026-10-23.json",
   "visualReplay": "correction-visual-replay-2026-10-23.json",
@@ -36,5 +40,14 @@
   },
   "knownLiveContradictions": 5,
   "value": "unmeasured",
-  "fullApplicationTestCodeRevision": "bf4215c8d9c2672b5212cc903283f4667c57ef29"
+  "fullApplicationTestCodeRevision": "a8324a828b9fae731ba228d03ba8bc0e53995d57",
+  "enabledFullApplicationTest": {
+    "syntheticNonAdmitting": true,
+    "data": 315,
+    "pipeline": 112,
+    "browser": 38,
+    "logSha256": "3cd26875340d36463e0f7b0cd15785aae273dbb41f072e010747ba66a9a70298",
+    "consistencySealOnly": true,
+    "independentGateReceipt": false
+  }
 }

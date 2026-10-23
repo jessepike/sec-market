@@ -151,10 +151,13 @@ projection or passing synthetic tests is not completion or corrected production.
 
 The implementation retains 97 original hand events, 74 manual suppliers and 273 handwritten source
 records. The market contract and correction policy hashes are unchanged by moving those values.
-Local checks pass 315 data, 112 pipeline, 34 browser, 185 operational and 12 monitor tests. The
+Local checks pass 315 data, 112 pipeline, 38 browser, 185 operational and 12 monitor tests. The
 disabled baseline's desktop/phone screenshots are byte-identical before/after. The isolated
-`visual_corrections.py` fixture never writes a review/admission archive or gate seal and is marked
-non-publishable. It checks the enabled presentation without claiming source admission.
+`visual_corrections.py` fixture never writes a review/admission archive or independent gate receipt
+and is marked non-publishable. It supplies a local consistency seal only to exercise all application
+checks with an enabled projection. That full command passes, including all 38 browser checks.
+Withdrawn-event sources remain referenced by the public correction history, with the existing
+orphan threshold unchanged. These checks do not claim source admission.
 
 The independent integration review found and resolved the runtime-export bypass, missing
 supplemental primary links and a crash-recovery midnight bypass. Citation discovery currently

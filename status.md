@@ -92,12 +92,16 @@ the release and detached deployment receipt. Pending reviews stop before consumi
 First publication, crash recovery and rollback enforce the publication date; later runs retain
 the original correction dates. The independent monitor includes pending correction work.
 
-Local checks pass 315 data, 112 pipeline, 34 browser, 185 operational and 12 monitor tests.
+Local checks pass 315 data, 112 pipeline, 38 browser, 185 operational and 12 monitor tests.
 The full build passes. Disabled desktop/phone renders are pixel-identical to the earlier candidate.
 An isolated synthetic fixture exercises the corrected page and affected supplier views; it is
 explicitly non-admitting and cannot be published through the real gate. The five real groups'
 eight archived primary documents pass byte, URL, timestamp and literal-quote checks without a
 new request or renewed source date. [Source replay](docs/active/daily-pipeline/accuracy/correction-source-replay-2026-10-23.json).
+The enabled fixture also passes the full application test command. Tests use explicit disabled
+fixtures rather than assuming the generated gate projection stays disabled. Integrity checks
+count source links retained by the correction history after an event withdrawal; the orphan
+threshold remains five. Its local file-consistency seal is not an independent gate receipt.
 
 Proper subscription reviews and actual collection/gate/publication receipts remain required.
 No new corrections are live. Remaining support/provenance gaps also need resolution; they are not
