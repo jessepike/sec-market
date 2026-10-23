@@ -22,7 +22,8 @@ All execution used the OrbStack dev VM and the existing dependencies.
 | Offline loading at 1440px and 390px, missing/corrupt fonts, restored external CSS | 5 passed |
 | Focused lint | 0 errors, 0 warnings |
 | Certified application build | Passed |
-| Full disabled/enabled application suites and remote CI | Parent pending |
+| Full disabled and synthetic enabled application suites | Each passed 353 data, 112 pipeline and 43 browser tests |
+| Remote CI and actual preview | Pending |
 
 The browser check loads every language subset explicitly. All 24 files return 200 with
 `font/woff2`, correct lengths and SHA-256 values. All 39 font faces load; representative family

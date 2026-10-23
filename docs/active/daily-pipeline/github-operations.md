@@ -74,11 +74,23 @@ model calls and 40 documents were not refunded. Actual fresh run `39899030431` u
 calls and finished 244/557 checks, with final charged fetch count 5,367. SEC work has priority over
 citations when the remaining allowance is scarce. The next UTC day naturally gets its own ledger.
 
-The `onboard` diagnostic command also charges each logical request to this same persistent fetch
-ledger. It requires the actual current UTC day and a verified restored archive; `--at` and model
-worker flags are rejected. It stops on exhausted capacity, deadline or a day change without
-refunding any request. Its endpoint receipts remain unqualified and provide no coverage credit.
-Do not use a temporary empty store to bypass the charged current-day archive.
+Candidate-source diagnostics use the existing collector workflow's manual `source_probe: true`
+input on `main`. Standalone `onboard` fails before opening state or transport. The diagnostic run
+restores the verified archive, acquires the shared remote lease and acknowledges a fetch-only
+ceiling before any request. It preserves model counters, normal collection receipts and alerts.
+Each logical request uses the actual current UTC day; exhausted capacity, deadline, cancellation
+or a day change stops further requests without a refund. Final persistence requires the last
+acknowledged archive commit. Manual archive pushes also require `--expected-commit`.
+
+The command after the reviewed implementation reaches main is:
+
+```sh
+gh workflow run subscription-collector.yml --repo jessepike/sec-market --ref main -f source_probe=true
+```
+
+This produces a separate `source-probe-receipt` artifact, with no source qualification, coverage
+credit, model work or publication. It does not replace the actual scheduled collector. Never use
+a temporary empty store or a separate restored clone to spend outside the shared lease.
 
 ## Evidence
 

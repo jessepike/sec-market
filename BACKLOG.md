@@ -42,8 +42,9 @@ and tested against retained bytes, with incomplete traversal still reported as a
 After allowance renewal, qualify the advertised supplier-specific Delinea, Ping Identity and
 Sonatype feeds first, then the remaining documented endpoints. These are agent-owned actions;
 none currently requires an owner source or factual judgment. They do not add source families.
-Qualification probes now require the shared persistent daily fetch reservation context. Restore
-the verified current archive before any probe, use the actual UTC day, and retain all charges.
+Qualification diagnostics now use the existing collector workflow's manual `source_probe` mode:
+verified archive restore, shared remote lease, acknowledged fetch-only escrow and final archive CAS.
+Standalone live onboarding is closed. Retain actual UTC-day charges and zero qualification credit.
 
 The [22-obligation filing audit](docs/active/daily-pipeline/accuracy/regulatory-gap-audit-2026-10-23.md)
 supports four historical CrowdStrike/Palo Alto parent-source proposals and leaves 18 awaiting
@@ -74,10 +75,15 @@ The latest scheduled monitor reports the 28 held claims under the legacy reason
 and independent source-gap reasons; all 15 monitor tests pass. Verify the wording on the next real
 scheduled monitor after main advances. These investigations do not require an owner judgment now.
 The generic article path now decodes bounded gzip before extraction and verification, binds its
-decoded model input, and rejects affected legacy caches and partial receipts. All 355 operational,
-12 monitor and both complete application suites pass locally. The retained Barracuda parser replay
+decoded model input, and rejects affected legacy caches and partial receipts. Candidate HTML and
+robots probes use the same bounded decoder. All 415 operational and 15 monitor tests pass locally.
+Both disabled and synthetic enabled applications pass 353 data, 112 pipeline and 43 browser tests.
+The retained Barracuda parser replay
 preserves the shell's incomplete result and original evidence; citation tasks themselves remain
-transport-only. Obtain actual preview CI receipts before using the candidate in normal collection.
+transport-only. The exact existing fonts now ship locally; same-data replay preserves all pixels
+at desktop and phone widths. Obtain actual preview CI receipts before normal collection.
+All [five blocked citations](docs/active/daily-pipeline/accuracy/blocked-citation-audit-2026-10-23.md)
+retain their failures: three have only expired historical successes and two have no successful body.
 
 **Authorization:** owner request on October 23 to fix coverage within existing limits, set an active
 goal and track durability/accuracy/value; clarified priority is current operation before expansion.

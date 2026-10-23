@@ -52,10 +52,11 @@ Preview preserves valid same-day checks, compatible SEC response sharing, 28 unr
 four older-policy quarantined candidates. eSentire extraction is article-scoped. Orca pagination and
 Barracuda's bounded compressed shell stay incomplete when traversal is unproved. Generic article
 input now decodes gzip with bound cache/replay identities; citation checks remain transport-only.
-Candidate HTML/robots probes now use that bounded decoder; all 394 operational tests pass locally.
+Candidate HTML/robots probes now use that bounded decoder; all 415 operational tests pass locally.
 The [five blocked-citation audit](docs/active/daily-pipeline/accuracy/blocked-citation-audit-2026-10-23.md)
 found three historical same-URL successes, all too old, and no current replacement credit.
-Standalone probes share only a local ledger; remote lease protection is being added before live use.
+Standalone probes are closed; the existing collector has a manual diagnostic mode with a shared
+remote lease, acknowledged fetch-only escrow and final archive CAS, preserving normal collection proof.
 Neutral issuer indices and issuer-bound filing
 retention produce no financial facts or new certified tier; all 29 historical CrowdStrike/Palo Alto
 bodies replay, with current qualification pending. ReliaQuest's empty-attribute crash is repaired.
@@ -71,8 +72,9 @@ remain disabled. The canary restored the unchanged archive and used zero model c
 SEC connectivity probe adds no collection credit.
 [Local validation](docs/active/daily-pipeline/receipts/publisher-disclosure-validation-2026-10-23.json) ·
 [Remote validation](docs/active/daily-pipeline/receipts/publisher-disclosure-remote-validation-2026-10-23.json).
-The next local browser run exposed unresolved Google font requests: 37/38 browser tests passed.
-An exact self-hosted-font repair is in progress; its full application tests and visual proof are pending.
+The next browser run exposed unresolved Google font requests. Exact existing fonts now ship locally;
+same-data desktop/phone comparisons have identical pixels and layout. Both disabled and synthetic
+enabled applications pass 353 data, 112 pipeline and 43 browser tests. Hosted verification is pending.
 
 [Rubric](docs/active/daily-pipeline/evaluation-rubric.md) ·
 [Scorecard](docs/active/daily-pipeline/evaluations/2026-10-23/accuracy-scorecard.md).
