@@ -76,7 +76,7 @@ and independent source-gap reasons; all 15 monitor tests pass. Verify the wordin
 scheduled monitor after main advances. These investigations do not require an owner judgment now.
 The generic article path now decodes bounded gzip before extraction and verification, binds its
 decoded model input, and rejects affected legacy caches and partial receipts. Candidate HTML and
-robots probes use the same bounded decoder. All 415 operational and 15 monitor tests pass locally.
+robots probes use the same bounded decoder. All 430 operational and 15 monitor tests pass locally.
 Both disabled and synthetic enabled applications pass 353 data, 112 pipeline and 43 browser tests.
 The retained Barracuda parser replay
 preserves the shell's incomplete result and original evidence; citation tasks themselves remain
@@ -84,6 +84,8 @@ transport-only. The exact existing fonts now ship locally; same-data replay pres
 at desktop and phone widths. Obtain actual preview CI receipts before normal collection.
 All [five blocked citations](docs/active/daily-pipeline/accuracy/blocked-citation-audit-2026-10-23.md)
 retain their failures: three have only expired historical successes and two have no successful body.
+The hosting canary is now read-only: actual run `40037406532` verified the unchanged archive with
+zero market requests. Its former unreserved SEC probes remain visible in the historical receipts.
 
 **Authorization:** owner request on October 23 to fix coverage within existing limits, set an active
 goal and track durability/accuracy/value; clarified priority is current operation before expansion.

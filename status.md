@@ -61,18 +61,20 @@ Neutral issuer indices and filing retention grant no financial facts or new cert
 29 historical CrowdStrike/Palo Alto bodies replay, with current qualification pending.
 ReliaQuest's empty-attribute crash is repaired.
 
-Revision `6d783f3c304d668d7ede3f4d94394c179bd86880` passed hosted web `40035860583`
-(353 data/112 pipeline/43 browser checks) and runtime canary `40035860591`
-(414 passed, one pinned-local-archive test skipped; all 415 passed locally).
-Vercel `dpl_2cPPQrDwVFwT2ZNQzkRkHTJpezDU` is READY. All 24 fonts and three licenses match their
-pinned bytes on the actual immutable preview; desktop/phone renders were inspected. Both local
+Revision `2234c9fe3ab1a1b154fb0dc1e9356134453cf442` passed hosted web `40037406687`
+(353 data/112 pipeline/43 browser checks) and runtime canary `40037406532`
+(429 passed, one pinned-local-archive test skipped; all 430 passed locally).
+Vercel `dpl_HRggtLMVEyaW7zsk9XgrQDSftKVB` is READY. Its web/contract tree is unchanged from the
+font-reviewed revision, whose 24 fonts and three licenses match the actual preview bytes. Both local
 application modes pass the same full suites. Same-data font replay preserves every pixel and layout;
 hosted comparisons retain only the documented 631-pixel production selector-paint variation.
 The Xage drawer/history preserves its financial excerpt. Corrections remain disabled.
-The canary restored the unchanged archive with zero model calls; its SEC connectivity probe adds
-no collection credit. Production and archive remain unchanged.
+The canary now verifies historical archive integrity with zero market requests or model calls.
+Its former direct SEC request bypassed the ledger; historical receipts remain intact. Actual source
+diagnostics now require the leased workflow. Production and archive remain unchanged.
 [Local font validation](docs/active/daily-pipeline/accuracy/font-delivery-replay-2026-10-23.md) ·
 [Remote validation](docs/active/daily-pipeline/receipts/coverage-repair-remote-validation-2026-10-23.json).
+[Read-only canary receipt](docs/active/daily-pipeline/receipts/archive-only-canary-2026-10-23.json).
 
 [Rubric](docs/active/daily-pipeline/evaluation-rubric.md) ·
 [Scorecard](docs/active/daily-pipeline/evaluations/2026-10-23/accuracy-scorecard.md).

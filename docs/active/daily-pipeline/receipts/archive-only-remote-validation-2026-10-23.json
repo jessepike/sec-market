@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "kind": "actual_archive_only_runtime_validation",
+  "observedAt": "2026-10-23T23:10:05.768237Z",
+  "appRevision": "2234c9fe3ab1a1b154fb0dc1e9356134453cf442",
+  "reviewedTreeSha": "8e75a63c181e5e3baba331db12fada99358ac755",
+  "web": {
+    "runId": 40037406687,
+    "conclusion": "success",
+    "dataTests": 353,
+    "pipelineTests": 112,
+    "browserTests": 43,
+    "log": {
+      "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/font-delivery-logs/archive-only-web-40037406687.log",
+      "sha256": "05c6a784ee97bdb52dd8fb4a0073c970284f100b45bef6175c342e288a86c52a",
+      "bytes": 299685
+    }
+  },
+  "runtime": {
+    "runId": 40037406532,
+    "scope": "private_hosting_archive_integrity",
+    "conclusion": "success",
+    "testsRun": 430,
+    "passed": 429,
+    "skipped": 1,
+    "localPassed": 430,
+    "skipReason": "Historical read-only archive absent on hosted runner",
+    "marketSourceRequests": 0,
+    "modelCalls": 0,
+    "archiveChanged": false,
+    "coverageCredit": false,
+    "receipt": {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/receipts/archive-only-canary-2026-10-23.json",
+      "sha256": "80bbe8261de57d1f2b35fb5be262e7006cbff24caacb8bb9f1a6a17bc1a1391e",
+      "bytes": 1332
+    },
+    "log": {
+      "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/font-delivery-logs/archive-only-canary-40037406532.log",
+      "sha256": "11378b2cd14900c614dc8379cb4b077837dfb6e04cee30bdcc079c16e178b8a4",
+      "bytes": 166573
+    }
+  },
+  "preview": {
+    "deploymentId": "dpl_HRggtLMVEyaW7zsk9XgrQDSftKVB",
+    "ready": true,
+    "url": "https://security-market-pulse-av99pc7ui-pikeholdings.vercel.app",
+    "appRevision": "2234c9fe3ab1a1b154fb0dc1e9356134453cf442",
+    "webAndContractTreeUnchangedFromFontReview": "6d783f3c304d668d7ede3f4d94394c179bd86880"
+  },
+  "historicalCanaryRequests": "Previous receipts retain their real SEC connectivity requests outside the persistent ledger; they were not retroactively zeroed, refunded or backfilled. New source diagnostics require the existing leased workflow.",
+  "sourceCoverage": {
+    "successful": 121,
+    "required": 557,
+    "checkedAt": "2026-10-23T11:34:15.010723Z",
+    "historical": true,
+    "newChecks": 0
+  },
+  "gateOrPublicationAttempts": 0,
+  "actualCorrectionsAdmitted": 0,
+  "productionChanged": false
+}
