@@ -35,6 +35,7 @@ claims. It reported no new execution or production-pair failure. Its legacy
 `OWNER_REVIEW_QUEUE_28` name does not establish an owner decision. Execution issues 8/9 recovered.
 GitHub issue delivery is verified; phone/email delivery depends on account settings.
 [Actual alert](docs/active/daily-pipeline/receipts/monitor-alert-40028529947-2026-10-23.json).
+The candidate uses `HELD_CLAIMS_28` without assigning a human decision; all 15 watchdog tests pass.
 
 ## Accuracy and repair candidate
 
@@ -51,7 +52,11 @@ Preview preserves valid same-day checks, compatible SEC response sharing, 28 unr
 four older-policy quarantined candidates. eSentire extraction is article-scoped. Orca pagination and
 Barracuda's bounded compressed shell stay incomplete when traversal is unproved. Generic article
 input now decodes gzip with bound cache/replay identities; citation checks remain transport-only.
-Qualification probes retain persistent daily charges. Neutral issuer indices and issuer-bound filing
+Candidate HTML/robots probes now use that bounded decoder; all 394 operational tests pass locally.
+The [five blocked-citation audit](docs/active/daily-pipeline/accuracy/blocked-citation-audit-2026-10-23.md)
+found three historical same-URL successes, all too old, and no current replacement credit.
+Standalone probes share only a local ledger; remote lease protection is being added before live use.
+Neutral issuer indices and issuer-bound filing
 retention produce no financial facts or new certified tier; all 29 historical CrowdStrike/Palo Alto
 bodies replay, with current qualification pending. ReliaQuest's empty-attribute crash is repaired.
 
@@ -66,6 +71,8 @@ remain disabled. The canary restored the unchanged archive and used zero model c
 SEC connectivity probe adds no collection credit.
 [Local validation](docs/active/daily-pipeline/receipts/publisher-disclosure-validation-2026-10-23.json) ·
 [Remote validation](docs/active/daily-pipeline/receipts/publisher-disclosure-remote-validation-2026-10-23.json).
+The next local browser run exposed unresolved Google font requests: 37/38 browser tests passed.
+An exact self-hosted-font repair is in progress; its full application tests and visual proof are pending.
 
 [Rubric](docs/active/daily-pipeline/evaluation-rubric.md) ·
 [Scorecard](docs/active/daily-pipeline/evaluations/2026-10-23/accuracy-scorecard.md).
