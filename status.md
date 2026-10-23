@@ -208,6 +208,23 @@ onboarding, source qualification, ledger change or coverage credit occurred. Res
 verified archive before using this path after allowance renewal.
 [Probe budget contract](docs/active/daily-pipeline/source-probe-budget-spec-2026-10-23.md).
 
+The integrated discovery, neutral-index and probe-budget candidate at
+`c83ec1589e0f8c94a8b6000d0173e6fb277e3364` passed actual GitHub
+[web CI 40022453957](https://github.com/jessepike/sec-market/actions/runs/40022453957)
+(321 data, 112 pipeline, 38 browser checks). Private runner
+[40022453816](https://github.com/jessepike/sec-market/actions/runs/40022453816)
+ran 300 operational tests: 299 passed and one historical-archive test was explicitly skipped
+because that pinned local archive is absent on CI; all 300 passed locally. The actual canary
+restored archive `704ea55e86eb1582b0619b3719b167191fa74da4`, made zero model calls and no archive
+changes. Its separate SEC connectivity probe adds no collection or qualification credit.
+Vercel preview `dpl_AuXfdqCSx8oSJhT4nWkkeHcR6nZe` is READY at that revision; its public correction
+bundle remains disabled. All four inspected CI screenshots match their preceding CI versions
+byte for byte. Production remains at the accepted main revision with 121/557 source checks;
+no new correction is live. [Actual remote receipts](docs/active/daily-pipeline/receipts/discovery-regulatory-probe-remote-validation-2026-10-23.json).
+Continue after natural allowance renewal with real correction reviews, bounded endpoint
+qualification and scheduled collection/publication evidence. No owner input is needed for
+the documented evidence work. Search and company-type navigation remain deferred in SEC-073/074.
+
 Daily collection is 05:17 UTC; publication follows verified scheduled collection and runs at 06:23
 and 16:23 UTC. GitHub can run late. Legacy refresh/branch-promotion jobs remain disabled and Vercel's
 competing production paths remain closed. The old Vercel probe's CLI account lookup is bypassed

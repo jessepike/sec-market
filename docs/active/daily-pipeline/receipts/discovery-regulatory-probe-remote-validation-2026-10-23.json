@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "kind": "actual_discovery_regulatory_probe_candidate_remote_validation",
+  "checkedAt": "2026-10-23T20:54:59.783488+00:00",
+  "candidateAppRevision": "c83ec1589e0f8c94a8b6000d0173e6fb277e3364",
+  "github": {
+    "web": {
+      "runId": "40022453957",
+      "event": "push",
+      "conclusion": "success",
+      "dataChecksPassed": 321,
+      "pipelineChecksPassed": 112,
+      "browserChecksPassed": 38
+    },
+    "runtimeCanary": {
+      "runId": "40022453816",
+      "conclusion": "success",
+      "operationalTestsRun": 300,
+      "operationalTestsPassed": 299,
+      "operationalTestsSkipped": 1,
+      "skipReason": "Pinned historical read-only archive absent on CI; actual primary-body replay passed locally and is separately retained.",
+      "modelCalls": 0,
+      "archiveChanged": false,
+      "sourceProbeOnly": true,
+      "archive": {
+        "commit": "704ea55e86eb1582b0619b3719b167191fa74da4",
+        "manifestSha256": "78bb006ddc399c707ce255bb7b8c2d84d3c69b4be293f7f1c2332af2514ec5ac",
+        "files": 25780
+      }
+    }
+  },
+  "vercelPreview": {
+    "deploymentId": "dpl_AuXfdqCSx8oSJhT4nWkkeHcR6nZe",
+    "state": "READY",
+    "appRevision": "c83ec1589e0f8c94a8b6000d0173e6fb277e3364",
+    "immutableUrl": "https://security-market-pulse-qtvmxf9ls-pikeholdings.vercel.app",
+    "stableUrl": "https://security-market-pulse-git-preview-pikeholdings.vercel.app",
+    "publicFactualCorrectionsEnabled": false
+  },
+  "visualReview": {
+    "widths": [
+      1440,
+      390
+    ],
+    "humanInspected": true,
+    "images": {
+      "tested-build-1440.png": {
+        "sha256": "86fae1defd6c95807d81c7bae72f1355195404f96fac8eea41571a9df0afe3ed",
+        "sameAsPreviousCI": true
+      },
+      "tested-build-390.png": {
+        "sha256": "e59f56c9641b85cb6e289b047ee42698d45ddbc74c8da3f0dd981d98881b682d",
+        "sameAsPreviousCI": true
+      },
+      "production-1440.png": {
+        "sha256": "2cdee7135749e81042285e86f597690c24b5548c704bd50db8a4479258e2b3e7",
+        "sameAsPreviousCI": true
+      },
+      "production-390.png": {
+        "sha256": "2b30848ff9d5fef36e421efcf84f9524f5faab07f3077224ec76220f90e3c236",
+        "sameAsPreviousCI": true
+      }
+    },
+    "visibleLayoutChanges": false,
+    "comparisonLimit": "Preview retains earlier committed source coverage0/557 and older event window; actual production retains121/557. No source freshness or coverage credit claimed."
+  },
+  "production": {
+    "deploymentId": "dpl_3fEZ6y9gBbqabjfEpKK2mo44VWq1",
+    "state": "READY",
+    "appRevision": "7bd94ec77e99462c068f254e134235a894585cbb",
+    "dailyRunId": "e054ea73c89fe78db9702f94d2a3b669ce91884f7d7abda0a88698dbcfc7ec50",
+    "snapshotSha256": "53b49106fa9118d603db5e64e37cf03f7f2c6fd1fb797acf18e73f540196c84f",
+    "successfulTasks": 121,
+    "requiredTasks": 557,
+    "checkedAt": "2026-10-23T11:38:59.377139Z",
+    "correctionsApplied": false
+  },
+  "receipts": {
+    "discovery-web-run-2026-10-23.json": "690ed8955e8b75a6c4eff12dd26a80baa7e97699386f65161309238db1bc61c3",
+    "discovery-runtime-run-2026-10-23.json": "17e23301c3e931fcda3b9c3dfed5e12d27852d2dff03426b945e78002388f78e",
+    "discovery-runtime-canary-2026-10-23.json": "b286a16ab2f0d76ae52cdd3b207ad74c19c47f40f1c959d747cdd883e0554f1f"
+  },
+  "logs": {
+    "web.log": "498ce4e1fb6ccbcc652205d0b597ff73ef3b775fe3afa76bce90509dfdab3da1",
+    "runtime-canary.log": "22a291ebf8fd5a7f5cf580a4200641ad33a2d90075a60583d29cfa5a4a932ad9"
+  },
+  "semanticAdmission": false,
+  "collectionAttempted": false,
+  "publicationAttempted": false,
+  "quotaChanges": false,
+  "sourceRegistrationsActivated": 0,
+  "qualifiedSources": 0,
+  "limitations": [
+    "A single canary SEC connectivity probe is distinct from collection and qualification; it adds no source check.",
+    "No real correction review or new production data release occurred.",
+    "Both October23 gate/publication attempts and fetch/model/document allowances remain spent."
+  ]
+}

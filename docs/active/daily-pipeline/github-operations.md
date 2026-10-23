@@ -74,6 +74,12 @@ model calls and 40 documents were not refunded. Actual fresh run `39899030431` u
 calls and finished 244/557 checks, with final charged fetch count 5,367. SEC work has priority over
 citations when the remaining allowance is scarce. The next UTC day naturally gets its own ledger.
 
+The `onboard` diagnostic command also charges each logical request to this same persistent fetch
+ledger. It requires the actual current UTC day and a verified restored archive; `--at` and model
+worker flags are rejected. It stops on exhausted capacity, deadline or a day change without
+refunding any request. Its endpoint receipts remain unqualified and provide no coverage credit.
+Do not use a temporary empty store to bypass the charged current-day archive.
+
 ## Evidence
 
 - Production audit and completion record: `finish-acceptance-2026-10-22.md`.
