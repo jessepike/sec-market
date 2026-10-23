@@ -25,6 +25,16 @@ class CollectionDurabilityTests(unittest.TestCase):
                 worker._reserve('calls', 8)
         self.assertIsNone(self.state.read('heads/budget-2026-10-21.json'))
 
+    def test_cancellation_stops_new_work_without_refunding_usage(self):
+        worker = BoundedPipeline(self.contract, self.state, None, maximum_seconds=60)
+        worker.budget_name = 'budget-2026-10-23'
+        prior = {'calls': 80, 'documents': 40, 'fetches': 5000}
+        self.state.compare_and_swap(worker.budget_name, None, prior)
+        worker.stop()
+        with self.assertRaisesRegex(ValueError, 'CI_COLLECTION_TIME_BUDGET_EXHAUSTED'):
+            worker._reserve('calls', 80)
+        self.assertEqual(self.state.read('heads/budget-2026-10-23.json'), prior)
+
     def test_remote_ceiling_precedes_local_spending_and_preserves_prior_usage(self):
         prior = {'calls': 3, 'documents': 2, 'fetches': 5}
         self.state.compare_and_swap('budget-2026-10-21', None, prior)

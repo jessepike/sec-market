@@ -12,9 +12,10 @@
     "intervalHours": 24,
     "overdueHours": 30,
     "reconcileEveryRun": true,
-    "collectionCron": "37 4 * * *",
-    "publicationCron": "23 5,16 * * *",
-    "maxWorkers": 4
+    "collectionCron": "17 5 * * *",
+    "publicationCron": "23 6,16 * * *",
+    "maxWorkers": 4,
+    "maxFetchesPerRun": 5500
   },
   "model": {
     "provider": "codex_subscription",
@@ -25,7 +26,7 @@
     "timeoutSeconds": 180
   },
   "publication": {
-    "enabled": false,
+    "enabled": true,
     "requireLiveAcknowledgement": true,
     "allowDegradedCoverage": true,
     "secCohort": "sec",

@@ -65,6 +65,11 @@ jobs:
           REPO: ${{ github.repository }}
         run: |
           set -uo pipefail
+          if jq -e '.publication.enabled == true' contracts/market.json >/dev/null; then
+            echo "state=fresh" >> "$GITHUB_OUTPUT"
+            echo "detail=Legacy publication checks are retired; the daily-pipeline job independently checks collection, coverage and the deployed release." >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
           problems=""
           last=$(gh run list -R "$REPO" --workflow certified-refresh.yml --limit 1 --json createdAt,conclusion,url --jq '.[0] // empty')
           if [ -z "$last" ]; then

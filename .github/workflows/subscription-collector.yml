@@ -3,7 +3,7 @@ name: bounded subscription collector
 # Collection runs daily; public publication retains its separate cutover gate.
 on:
   schedule:
-    - cron: '37 4 * * *'
+    - cron: '17 5 * * *'
   push:
     branches: [preview]
     paths: ['ops/ci/collection-request.json']
@@ -21,6 +21,7 @@ jobs:
     timeout-minutes: 35
     permissions:
       contents: write # Dedicated evidence ref; this script never writes app branches.
+      actions: read # Prove an abandoned lease's owning run actually terminated.
       issues: write
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1

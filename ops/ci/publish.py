@@ -5,7 +5,7 @@ import json
 import os
 from pathlib import Path
 
-from collect import REPO, session_runtime
+from collect import REPO, session_runtime, recover
 from bootstrap import PROJECT
 from contracts import require, validate_contract
 from publisher_probe import PublisherAuth, PROJECT_ID, TEAM_ID, SCOPE
@@ -26,6 +26,7 @@ def execute(root):
     root = Path(root).resolve()
     revision = session_runtime.git('rev-parse', 'HEAD')
     identifier = 'github-publisher-' + os.environ['GITHUB_RUN_ID'] + '-' + os.environ.get('GITHUB_RUN_ATTEMPT', '1')
+    recover(root / 'abandoned-lease-recovery')
     session_runtime.bootstrap(root, 'governance', identifier, revision, execution_mode='github_subscription')
     state = LocalStore(root / 'state')
     session = LocalStore(root).read('session.json')

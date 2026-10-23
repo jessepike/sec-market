@@ -2,7 +2,7 @@ name: daily exact-artifact publisher
 
 on:
   schedule:
-    - cron: '23 5,16 * * *'
+    - cron: '23 6,16 * * *'
   workflow_dispatch:
 
 permissions: {}

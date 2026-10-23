@@ -4,12 +4,14 @@ import argparse
 import importlib.util
 import json
 import os
+import signal
 import sys
 import time
 from pathlib import Path
 
 from auth_store import AuthStore
 from bootstrap import GuardedRunner, PROJECT
+from recover_lease import recover
 
 REPO = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO / "web/scripts/pipeline"))
@@ -31,6 +33,19 @@ class BoundedPipeline(Pipeline):
     def __init__(self, *args, maximum_seconds=1200, **kwargs):
         super().__init__(*args, **kwargs)
         self.account_deadline = time.monotonic() + maximum_seconds
+        self.cancelled = False
+
+    def stop(self, *_args):
+        # Cooperative stop: finish/record in-flight work before snapshotting.
+        # A SIGKILL retains the conservative remote escrow for unknown usage.
+        self.cancelled = True
+        self.account_deadline = 0
+
+    def _task(self, plan, task):
+        if self.cancelled:
+            # Pipeline handles reservation failures as explicit task receipts.
+            self.account_deadline = 0
+        return super()._task(plan, task)
 
     def _reserve(self, kind, limit):
         require(time.monotonic() < self.account_deadline, "CI_COLLECTION_TIME_BUDGET_EXHAUSTED")
@@ -66,6 +81,7 @@ def execute(root, maximum_seconds=1200, publisher_config=None):
     root = Path(root).resolve()
     revision = session_runtime.git("rev-parse", "HEAD")
     identifier = "github-" + os.environ["GITHUB_RUN_ID"] + "-" + os.environ.get("GITHUB_RUN_ATTEMPT", "1")
+    recover(root / 'abandoned-lease-recovery')
     session_runtime.bootstrap(root, "collector", identifier, revision, execution_mode="github_subscription")
     state = LocalStore(root / "state")
     session = LocalStore(root).read("session.json")
@@ -77,6 +93,9 @@ def execute(root, maximum_seconds=1200, publisher_config=None):
         guarded = GuardedRunner(keeper)
         agent = SubscriptionAgent(contract["model"], runner=guarded)
         collector = BoundedPipeline(contract, state, Fetcher(state), agent, maximum_seconds=maximum_seconds)
+        previous_signals = {s: signal.getsignal(s) for s in (signal.SIGINT, signal.SIGTERM)}
+        for signum in previous_signals:
+            signal.signal(signum, collector.stop)
         # All restored checkpoints and daily budgets exist before model work.
         scheduled_at = utcnow()
         escrow_budgets(root, state, session, contract, scheduled_at)
@@ -117,6 +136,9 @@ def execute(root, maximum_seconds=1200, publisher_config=None):
         session_runtime.checkpoint(root, state, session, "failed", {"errorType": type(error).__name__, "published": False}, finish=True)
         raise
     finally:
+        if 'previous_signals' in locals():
+            for signum, handler in previous_signals.items():
+                signal.signal(signum, handler)
         # Never reset from bootstrap. Persist latest official-client state even
         # on model failure; any persistence error makes the job fail visibly.
         if (keeper.home / "auth.json").exists():

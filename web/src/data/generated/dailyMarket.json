@@ -3,7 +3,7 @@
   "enabled": true,
   "runId": "26863a52238929063d5a6191c7e390dbeacf413920d84ac1b4f2f58bed8cdde7",
   "checkedAt": "2026-10-20T22:03:03.048491Z",
-  "contractSha256": "45241faf2a4c89cf10871c9f493a575129fedfe6a844dce22aa779dc7a878dd5",
+  "contractSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
   "supplierUpdates": {},
   "supplierUpdateDates": {},
   "events": [],
@@ -11,7 +11,7 @@
   "coverage": {
     "schemaVersion": 1,
     "runId": "26863a52238929063d5a6191c7e390dbeacf413920d84ac1b4f2f58bed8cdde7",
-    "contractSha256": "45241faf2a4c89cf10871c9f493a575129fedfe6a844dce22aa779dc7a878dd5",
+    "contractSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
     "inventorySha256": "3932d666d5e519aba5058f800641018865cd059b389b08c37467b0675a88d0cc",
     "checkedAt": "2026-10-20T22:03:03.048491Z",
     "supplierCount": 74,
@@ -10049,7 +10049,7 @@
         "errorCode": "POLICY_CHANGED_RECHECK_REQUIRED"
       }
     ],
-    "automationEnabled": false,
+    "automationEnabled": true,
     "overdueHours": 30,
     "scheduledAt": "2026-10-20T21:41:04.121129Z",
     "lastCollectionAt": "2026-10-20T22:02:44.823299Z",
@@ -16376,9 +16376,19 @@
   },
   "parentSnapshotSha256": null,
   "supersededPolicy": {
-    "contractSha256": "ea9fa9b42a96f6715839de0d51cb58f9238f13618e5aecad2f5575524c1679b1",
-    "snapshotSha256": "530a99caa29e207994ef055b87f73ab685780300fd43819603a09b4b873fde76",
-    "reason": "Collection policy changed. Prior checks remain dated historical records; every current-policy source check is held until collection runs again."
+    "contractSha256": "0fb68c3fcfd71f9547f68c718f8c1d4267f5359d810a00f7f6c75841c13c76d3",
+    "snapshotSha256": "c007944a15de8019a3117705e5d8ad1ca924a440d73c02bc1c7aeafa113438fc",
+    "reason": "Final prospective preview publication policy and schedule. Production remains held by reviewed-main and production-path controls. Prior checks keep original dates and await fresh collection.",
+    "priorSupersededPolicy": {
+      "contractSha256": "45241faf2a4c89cf10871c9f493a575129fedfe6a844dce22aa779dc7a878dd5",
+      "snapshotSha256": "330e25ea8d9c22a03e8dc94e632dcb0ef5268f70bf000c304d095328e676f064",
+      "reason": "Daily deterministic fetch ceiling amended from 5000 to 5500. Existing budget reservations remain charged. Prior checks retain original dates; current-policy coverage awaits fresh collection.",
+      "priorSupersededPolicy": {
+        "contractSha256": "ea9fa9b42a96f6715839de0d51cb58f9238f13618e5aecad2f5575524c1679b1",
+        "snapshotSha256": "530a99caa29e207994ef055b87f73ab685780300fd43819603a09b4b873fde76",
+        "reason": "Collection policy changed. Prior checks remain dated historical records; every current-policy source check is held until collection runs again."
+      }
+    }
   },
-  "snapshotSha256": "330e25ea8d9c22a03e8dc94e632dcb0ef5268f70bf000c304d095328e676f064"
+  "snapshotSha256": "4d888e9e1c65d6dd5219dcf33c64ced610e07fcda70d7e8625a2ecb8598dd08d"
 }
