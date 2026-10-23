@@ -1,0 +1,2604 @@
+{
+  "schemaVersion": 1,
+  "kind": "archived_published_claim_review",
+  "reviewId": "event-review-a-m-2026-10-23",
+  "datasetPath": "web/src/data/tracker/events.ts",
+  "datasetFileSha256": "14f01134bf547b9aa2f80527be7c7dbda9d1c040f0045d1926f261353aaf7b52",
+  "evidenceDatasetPath": "web/src/data/evidence.ts",
+  "evidenceDatasetFileSha256": "6d03d55bded424f0049d268da8516f0b24464bef6e9c5c184f550028d083766c",
+  "datasetCanonicalSha256": "56c3bba959666236b56032e54beb7b4dae54f4611564f1d9be6ddf773606c83f",
+  "evaluatedAt": "2026-10-23T18:28:39.180542Z",
+  "scope": "Complete assigned a-through-m supplierId handCollectedEvents stratum; not all-site precision/recall.",
+  "inventoryCount": 97,
+  "subsetInventoryCount": 38,
+  "reviewedCount": 38,
+  "expectedRecordIds": [
+    "event:EV-aqua-1",
+    "event:EV-armis-1",
+    "event:EV-axonius-1",
+    "event:EV-cato-1",
+    "event:EV-cato-2",
+    "event:EV-checkpoint-1",
+    "event:EV-checkpoint-2",
+    "event:EV-checkpoint-3",
+    "event:EV-cloudflare-1",
+    "event:EV-cloudflare-3",
+    "event:EV-cloudflare-2",
+    "event:EV-commvault-2",
+    "event:EV-commvault-3",
+    "event:EV-commvault-1",
+    "event:EV-crwd-1",
+    "event:EV-cyberark-1",
+    "event:EV-cyera-3",
+    "event:EV-cyera-4",
+    "event:EV-cyera-2",
+    "event:EV-cyera-1",
+    "event:EV-delinea-1",
+    "event:EV-dragos-1",
+    "event:EV-hiddenlayer-1",
+    "event:EV-jfrog-1",
+    "event:EV-lakera-1",
+    "event:EV-mimecast-1",
+    "event:EV-chainguard-1",
+    "event:EV-claroty-1",
+    "event:EV-arctic-wolf-1",
+    "event:EV-armis-2",
+    "event:EV-checkpoint-4",
+    "event:EV-cyera-5",
+    "event:EV-delinea-2",
+    "event:EV-delinea-3",
+    "event:EV-dragos-2",
+    "event:EV-exabeam-1",
+    "event:EV-commvault-4",
+    "event:EV-commvault-5"
+  ],
+  "archiveState": "/tmp/smp-coverage-baseline-20261023/state",
+  "archiveManifestFileSha256": "760b5c38fcb7fba2a3a223233539cce4eb5aa47d559571efa95b287047ac1ff8",
+  "records": [
+    {
+      "id": "event:EV-aqua-1",
+      "supplierId": "aqua",
+      "published": {
+        "id": "EV-aqua-1",
+        "supplierId": "aqua",
+        "date": "2025-11-05",
+        "type": "exec-change",
+        "text": "Co-founder/CEO Dror Davidoff and co-founder/CTO Amir Jerbi stepped back to strategic advisors. Mike Dube became CEO; Nir Makowski became Chief Product & Technology Officer.",
+        "evidenceIds": [
+          "TR-aqua-2"
+        ],
+        "rung": 2
+      },
+      "verdict": "insufficient",
+      "sourceEvidence": [
+        {
+          "evidenceId": "TR-aqua-2",
+          "url": "https://www.aquasec.com/news/aqua-security-announces-leadership-transition-as-company-enters-its-next-phase-of-growth/",
+          "observationId": "cf46be6bac4dca708788674066bcf1e19de4d808cac525e31f3277ebbdfe437f",
+          "fetchedAt": "2026-10-23T11:34:13.147104Z",
+          "sourceVerifiedAt": null,
+          "bodySha256": "b973219c21130948e95082bffa553d0277c0a273cf8c51edecbbed59ac07d9e2",
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/b973219c21130948e95082bffa553d0277c0a273cf8c51edecbbed59ac07d9e2",
+          "bodyBytes": 242024,
+          "sourceType": "primary",
+          "relationship": "cited",
+          "support": {
+            "excerpts": [
+              "on as Company Enters Its Next Phase of Growth TEL AVIV, Israel – November 6, 2025 — Aqua Security, the market leader in cloud native security protecting more than 40% of the Fortune 100, today announced a planned leadership transition as the company continues its trajectory of growth and global expansion. Co-founders Dror Davidoff and Amir Jerbi will step back fr",
+              "company continues its trajectory of growth and global expansion. Co-founders Dror Davidoff and Amir Jerbi will step back from their day-to-day roles as chief executive officer and chief technology officer, respectively, and will continue to serve as strategic advisors to the company. Mike Dube, formerly president and chief revenue officer, has been appointed CEO,",
+              "and will continue to serve as strategic advisors to the company. Mike Dube, formerly president and chief revenue officer, has been appointed CEO, and former Senior Vice President of Engineering Nir Makowski has been named chief product and technology officer. Dube is a highly recognized leader with nearly three decades of industry experience, bringing deep relati"
+            ],
+            "finding": "Direct text inspected; record findings state unsupported clauses."
+          },
+          "parsedPublication": "2025-11-05T15:00:34+00:00",
+          "evidenceRecordPublicationDate": "2025-11-05",
+          "evidenceRecordEconomicPeriod": "November 2025",
+          "currentArchivedEndpointState": {
+            "status": "fetched",
+            "checkedAt": "2026-10-23T11:34:13.147104Z",
+            "errorCode": null
+          },
+          "distinctArchivedBodies": 1
+        }
+      ],
+      "checks": {
+        "entity": "supported",
+        "actionStatus": "insufficient",
+        "amounts": "not_applicable",
+        "eventDate": "insufficient",
+        "qualifiers": "supported",
+        "sourcePeriod": "supported",
+        "primaryCitation": "supported"
+      },
+      "findings": "Announcement says co-founders will step back; event states completed action. November 6 body dateline conflicts with November 5 metadata. Named appointments match.",
+      "limitations": [
+        "Historical evidence only; no assertion of present endpoint accessibility or absence of later amendments.",
+        "Publication/disclosure date and economic/effective date remain separate. Accessibility alone is not factual support."
+      ],
+      "proposedCorrection": {
+        "action": "Use announced/planned transition wording; retain date conflict for explicit resolution.",
+        "approvalNeeded": false,
+        "requiresNewSources": false
+      }
+    },
+    {
+      "id": "event:EV-armis-1",
+      "supplierId": "armis",
+      "published": {
+        "id": "EV-armis-1",
+        "supplierId": "armis",
+        "date": "2026-04-20",
+        "type": "acquisition",
+        "text": "ServiceNow closed its acquisition of Armis on April 20, 2026, and disclosed that Armis was expected to contribute approximately 125 basis points to ServiceNow's second-quarter and full-year 2026 subscription revenue growth, with integration-related headwinds of approximately 25 basis points to subscription gross margin, 75 basis points to operating margin, and 200 basis points to free cash flow margin.",
+        "evidenceIds": [
+          "TR-armis-1"
+        ],
+        "rung": 1
+      },
+      "verdict": "supported",
+      "sourceEvidence": [
+        {
+          "evidenceId": "TR-armis-1",
+          "url": "https://www.sec.gov/Archives/edgar/data/1373715/000137371526000054/erq1fy26.htm",
+          "observationId": "4a35df7c0c3498c294284da19c8b4c367a8151fffb611927f377fd14e82548f0",
+          "fetchedAt": "2026-10-23T04:14:50.980197Z",
+          "sourceVerifiedAt": null,
+          "bodySha256": "890fd4842216a2a6f134c9db240a65bec50f39f4bc3fb0f9cc5cf2a68a2c07a2",
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/890fd4842216a2a6f134c9db240a65bec50f39f4bc3fb0f9cc5cf2a68a2c07a2",
+          "bodyBytes": 469274,
+          "sourceType": "primary",
+          "relationship": "cited",
+          "support": {
+            "excerpts": [
+              "de, and act across the entire technology footprint. • ServiceNow closed its acquisition of Armis on April 20, 2026. By combining Armis' real-time asset discovery and cyber exposure management with ServiceNow's AI Control Tower and automated workflows, the two companies intend to deliver a unified, end-to-end security platform that can see, decide, and act across ",
+              "subscription revenues growth guidance each include approximately 125 basis points of contribution from Armis. A portion of Armis customer contracts include termination‑for‑convenience provisions, which limit the amount of contract value reflected in cRPO. The acquisition is also expected to create headwinds of approximately 25 basis points to FY 2026 subscription",
+              "ubscription revenues growth guidance each include approximately 125 basis points of contribution from Armis. A portion of Armis customer contracts include termination‑for‑convenience provisions, which limit the amount of contract value reflected in cRPO. The acquisition is also expected to create headwinds of approximately 25 basis points to FY 2026 subscription ",
+              "ately 75 basis points to FY 2026 operating margin, approximately 200 basis points to FY 2026 free cash flow margin, and approximately 125 basis points to Q2 2026 operating margin. While we will see some near-term headwinds to margins as we integrate the business in FY 2026, strong AI efficiencies internally from Now on Now and our underlying platform leverage are"
+            ],
+            "finding": "Direct text inspected; record findings state unsupported clauses."
+          },
+          "parsedPublication": null,
+          "evidenceRecordPublicationDate": "2026-04-22",
+          "evidenceRecordEconomicPeriod": "Q1 FY2026",
+          "currentArchivedEndpointState": {
+            "status": "not_modified",
+            "checkedAt": "2026-10-23T04:14:50.980197Z",
+            "errorCode": null
+          },
+          "distinctArchivedBodies": 1
+        }
+      ],
+      "checks": {
+        "entity": "supported",
+        "actionStatus": "supported",
+        "amounts": "supported",
+        "eventDate": "supported",
+        "qualifiers": "supported",
+        "sourcePeriod": "supported",
+        "primaryCitation": "supported"
+      },
+      "findings": "Published entity, action/status, values, qualifiers and period match archived primary text. Date is announcement/disclosure date unless source expressly states effective/completion date.",
+      "limitations": [
+        "Historical evidence only; no assertion of present endpoint accessibility or absence of later amendments.",
+        "Publication/disclosure date and economic/effective date remain separate. Accessibility alone is not factual support."
+      ],
+      "proposedCorrection": null
+    },
+    {
+      "id": "event:EV-axonius-1",
+      "supplierId": "axonius",
+      "published": {
+        "id": "EV-axonius-1",
+        "supplierId": "axonius",
+        "date": "2026-05-19",
+        "type": "exec-change",
+        "text": "Axonius named Joe Diamond permanent CEO; co-founder Dean Sysman moved to executive chairman.",
+        "evidenceIds": [
+          "TR-axonius-2"
+        ],
+        "rung": 1
+      },
+      "verdict": "insufficient",
+      "sourceEvidence": [
+        {
+          "evidenceId": "TR-axonius-2",
+          "url": "https://www.axonius.com/newsroom/press-release/axonius-surpasses-200m-arr-appoints-joe-diamond-ceo",
+          "observationId": "81026bb89ae5873019554859fb1973440a91951d133a9cfb5759d0d54b99c8a7",
+          "fetchedAt": "2026-10-20T21:41:35.056518Z",
+          "sourceVerifiedAt": null,
+          "bodySha256": "fc61e42b58bbb4db54b166aea00855e5e8ead7776fa447754e94d7257df23f68",
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/fc61e42b58bbb4db54b166aea00855e5e8ead7776fa447754e94d7257df23f68",
+          "bodyBytes": 186365,
+          "sourceType": "primary",
+          "relationship": "cited",
+          "support": {
+            "excerpts": [
+              "arter of fiscal year 2027—achieving 100% growth in two years—and has appointed Joe Diamond as chief executive officer. Diamond has served as president since August 2025 and as interim CEO since February 2026. His appointment follows a succession process led by the Axonius Board of Directors. Co-founder Dean Sysman will remain executive chairman, where he will con",
+              "ss led by the Axonius Board of Directors. Co-founder Dean Sysman will remain executive chairman, where he will continue to focus on long-term strategy and board governance. Axonius is on track to be free cash flow (FCF) positive in the near term, reflecting a capital-efficient operating model that pairs durable growth with disciplined execution. “I co-founded Axo"
+            ],
+            "finding": "Direct text inspected; record findings state unsupported clauses."
+          },
+          "parsedPublication": "2026-05-19T00:00:00Z",
+          "evidenceRecordPublicationDate": "2026-05-19",
+          "evidenceRecordEconomicPeriod": "May 2026",
+          "currentArchivedEndpointState": {
+            "status": "blocked",
+            "checkedAt": "2026-10-23T04:14:55.780858Z",
+            "errorCode": "HTTP_429"
+          },
+          "distinctArchivedBodies": 6
+        }
+      ],
+      "checks": {
+        "entity": "supported",
+        "actionStatus": "insufficient",
+        "amounts": "not_applicable",
+        "eventDate": "supported",
+        "qualifiers": "supported",
+        "sourcePeriod": "supported",
+        "primaryCitation": "supported"
+      },
+      "findings": "Joe Diamond appointment after interim service matches. Sysman will remain executive chairman describes continuity; moved to executive chairman suggests a new role transition not established here.",
+      "limitations": [
+        "Historical evidence only; no assertion of present endpoint accessibility or absence of later amendments.",
+        "Publication/disclosure date and economic/effective date remain separate. Accessibility alone is not factual support."
+      ],
+      "proposedCorrection": {
+        "action": "Use appointed CEO and Sysman remained executive chairman; do not imply a new chairman transition.",
+        "approvalNeeded": false,
+        "requiresNewSources": false
+      }
+    },
+    {
+      "id": "event:EV-cato-1",
+      "supplierId": "cato",
+      "published": {
+        "id": "EV-cato-1",
+        "supplierId": "cato",
+        "date": "2026-02-24",
+        "type": "results",
+        "text": "ARR surpassed $350 million, +43% YoY, for full year 2025.",
+        "evidenceIds": [
+          "TR-cato-2"
+        ],
+        "rung": 2
+      },
+      "verdict": "supported",
+      "sourceEvidence": [
+        {
+          "evidenceId": "TR-cato-2",
+          "url": "https://www.prnewswire.com/il/news-releases/cato-networks-surpasses-350-million-arr-with-43-yoy-growth-in-2025-302694952.html",
+          "observationId": "e0a9c326677b00a6625090a3a3ae5018373922d553a7d6572945bfb0d0aea229",
+          "fetchedAt": "2026-10-23T04:14:52.773134Z",
+          "sourceVerifiedAt": null,
+          "bodySha256": "470b5b0eb7906a00b66e586383497755b1d249452bde83b5c548155a69c61bce",
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/470b5b0eb7906a00b66e586383497755b1d249452bde83b5c548155a69c61bce",
+          "bodyBytes": 70629,
+          "sourceType": "primary",
+          "relationship": "cited",
+          "support": {
+            "excerpts": [
+              "re/ -- Cato Networks , the SASE leader, today announced that its 2025 annual recurring revenue (ARR) surpassed $350 million, an increase of 43% year-over-year (YoY) compared to 2024. Cato is significantly outpacing the SASE market and reinforcing its position as the SASE leader. Gartner® estimates the SASE market will grow at a compound annual growth rate (CAGR) ",
+              "Cato Networks Surpasses $350 Million ARR with 43% YoY Growth in 2025 News provided by Cato Networks 24 Feb, 2026, 15:30 IST Share this article Share to X Share this article Share to X SASE leader continues to scale globally as enterprises modernize networking and security, including the secure adoption of AI TEL AVIV, Israel , Feb. 24, 2026 /PR"
+            ],
+            "finding": "Direct text inspected; record findings state unsupported clauses."
+          },
+          "parsedPublication": "2026-02-24T15:30:00+02:00",
+          "evidenceRecordPublicationDate": "2026-02-24",
+          "evidenceRecordEconomicPeriod": "Full year 2025",
+          "currentArchivedEndpointState": {
+            "status": "not_modified",
+            "checkedAt": "2026-10-23T04:14:52.773134Z",
+            "errorCode": null
+          },
+          "distinctArchivedBodies": 1
+        }
+      ],
+      "checks": {
+        "entity": "supported",
+        "actionStatus": "supported",
+        "amounts": "supported",
+        "eventDate": "supported",
+        "qualifiers": "supported",
+        "sourcePeriod": "supported",
+        "primaryCitation": "supported"
+      },
+      "findings": "Published entity, action/status, values, qualifiers and period match archived primary text. Date is announcement/disclosure date unless source expressly states effective/completion date.",
+      "limitations": [
+        "Historical evidence only; no assertion of present endpoint accessibility or absence of later amendments.",
+        "Publication/disclosure date and economic/effective date remain separate. Accessibility alone is not factual support."
+      ],
+      "proposedCorrection": null
+    },
+    {
+      "id": "event:EV-cato-2",
+      "supplierId": "cato",
+      "published": {
+        "id": "EV-cato-2",
+        "supplierId": "cato",
+        "date": "2026-07-27",
+        "type": "results",
+        "text": "ARR surpassed $415 million, with 42% year-over-year growth.",
+        "evidenceIds": [
+          "TR-cato-3"
+        ],
+        "rung": 2
+      },
+      "verdict": "supported",
+      "sourceEvidence": [
+        {
+          "evidenceId": "TR-cato-3",
+          "url": "https://www.prnewswire.com/il/news-releases/cato-networks-exceeds-415m-in-arr-fueled-by-42-yoy-growth-and-enterprise-demand-302833667.html",
+          "observationId": "4fe3cab6528edd1327b3bbfa0bb71e26fa02998d0ed0063668d6a0a52a4f50f9",
+          "fetchedAt": "2026-10-23T04:14:51.552164Z",
+          "sourceVerifiedAt": null,
+          "bodySha256": "17b735244f28c1029a9b05250ed0fb5aa9c81696b0c4f4667b47617e2543784d",
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/17b735244f28c1029a9b05250ed0fb5aa9c81696b0c4f4667b47617e2543784d",
+          "bodyBytes": 69624,
+          "sourceType": "primary",
+          "relationship": "cited",
+          "support": {
+            "excerpts": [
+              "k and security cloud for the AI era, today announced that it has surpassed $415 million in ARR, with 42% year-over-year (YoY) growth. Enterprise momentum accelerated in Q2, with material growth from Fortune 500 and Global 2000 accounts, including several multi-million-dollar contracts with customers across manufacturing, robotics, telecom, and data analytics. Cat",
+              " today announced that it has surpassed $415 million in ARR, with 42% year-over-year (YoY) growth. Enterprise momentum accelerated in Q2, with material growth from Fortune 500 and Global 2000 accounts, including several multi-million-dollar contracts with customers across manufacturing, robotics, telecom, and data analytics. Cato Networks now serves more than 4,80"
+            ],
+            "finding": "Direct text inspected; record findings state unsupported clauses."
+          },
+          "parsedPublication": "2026-07-27T15:30:00+03:00",
+          "evidenceRecordPublicationDate": "2026-07-27",
+          "evidenceRecordEconomicPeriod": "ARR milestone as of July 27, 2026",
+          "currentArchivedEndpointState": {
+            "status": "not_modified",
+            "checkedAt": "2026-10-23T04:14:51.552164Z",
+            "errorCode": null
+          },
+          "distinctArchivedBodies": 2
+        }
+      ],
+      "checks": {
+        "entity": "supported",
+        "actionStatus": "supported",
+        "amounts": "supported",
+        "eventDate": "supported",
+        "qualifiers": "supported",
+        "sourcePeriod": "supported",
+        "primaryCitation": "supported"
+      },
+      "findings": "Published entity, action/status, values, qualifiers and period match archived primary text. Date is announcement/disclosure date unless source expressly states effective/completion date.",
+      "limitations": [
+        "Historical evidence only; no assertion of present endpoint accessibility or absence of later amendments.",
+        "Publication/disclosure date and economic/effective date remain separate. Accessibility alone is not factual support."
+      ],
+      "proposedCorrection": null
+    },
+    {
+      "id": "event:EV-checkpoint-1",
+      "supplierId": "checkpoint-sase",
+      "published": {
+        "id": "EV-checkpoint-1",
+        "supplierId": "checkpoint-sase",
+        "date": "2026-05-01",
+        "type": "exec-change",
+        "text": "Sherif Seddik appointed Chief Revenue Officer effective May 1, 2026, succeeding Itai Greenberg.",
+        "evidenceIds": [
+          "TR-checkpoint-3"
+        ],
+        "rung": 1
+      },
+      "verdict": "supported",
+      "sourceEvidence": [
+        {
+          "evidenceId": "TR-checkpoint-3",
+          "url": "https://www.sec.gov/Archives/edgar/data/0001015922/000117891326002310/a2635159.htm",
+          "observationId": "0a3e1fed630eb5a39d8ad92274b71393576e55e879b7c7a7ff3315fec4d01a30",
+          "fetchedAt": "2026-10-23T04:15:02.125095Z",
+          "sourceVerifiedAt": null,
+          "bodySha256": "cdb20d13e42eac6aef2f62bed078b43ed38d2de45fb9cb30c99e38035293fabc",
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/cdb20d13e42eac6aef2f62bed078b43ed38d2de45fb9cb30c99e38035293fabc",
+          "bodyBytes": 137426,
+          "sourceType": "primary",
+          "relationship": "cited",
+          "support": {
+            "excerpts": [
+              "ny”) today announced a change in its commercial leadership team. Sherif Seddik will be appointed Chief Revenue Officer, effective May 1, 2026. Mr. Seddik currently serves as the Company’s President of International Sales, since 2023, and will replace Itai Greenberg, who is stepping down from the Chief Revenue Officer role. A press release announcing the appointme",
+              "hip team. Sherif Seddik will be appointed Chief Revenue Officer, effective May 1, 2026. Mr. Seddik currently serves as the Company’s President of International Sales, since 2023, and will replace Itai Greenberg, who is stepping down from the Chief Revenue Officer role. A press release announcing the appointment, as well as the Company’s 2026 first quarter financi"
+            ],
+            "finding": "Direct text inspected; record findings state unsupported clauses."
+          },
+          "parsedPublication": null,
+          "evidenceRecordPublicationDate": "2026-05-01",
+          "evidenceRecordEconomicPeriod": "May 2026",
+          "currentArchivedEndpointState": {
+            "status": "not_modified",
+            "checkedAt": "2026-10-23T04:15:02.125095Z",
+            "errorCode": null
+          },
+          "distinctArchivedBodies": 1
+        }
+      ],
+      "checks": {
+        "entity": "supported",
+        "actionStatus": "supported",
+        "amounts": "not_applicable",
+        "eventDate": "supported",
+        "qualifiers": "supported",
+        "sourcePeriod": "supported",
+        "primaryCitation": "supported"
+      },
+      "findings": "Published entity, action/status, values, qualifiers and period match archived primary text. Date is announcement/disclosure date unless source expressly states effective/completion date.",
+      "limitations": [
+        "Historical evidence only; no assertion of present endpoint accessibility or absence of later amendments.",
+        "Publication/disclosure date and economic/effective date remain separate. Accessibility alone is not factual support."
+      ],
+      "proposedCorrection": null
+    },
+    {
+      "id": "event:EV-checkpoint-2",
+      "supplierId": "checkpoint-sase",
+      "published": {
+        "id": "EV-checkpoint-2",
+        "supplierId": "checkpoint-sase",
+        "date": "2026-07-30",
+        "type": "debt",
+        "text": "$2 billion in convertible senior notes issued during Q2 2026, ~$1.8 billion net proceeds.",
+        "evidenceIds": [
+          "TR-checkpoint-4"
+        ],
+        "rung": 1
+      },
+      "verdict": "contradicted",
+      "sourceEvidence": [
+        {
+          "evidenceId": "TR-checkpoint-4",
+          "url": "https://www.checkpoint.com/press-releases/check-point-software-reports-2026-second-quarter-financial-results/",
+          "observationId": "823bdeb7978f9445b46cd456181b80329fcb2ced4dd40dac8cae6af492d6da35",
+          "fetchedAt": "2026-10-23T11:34:05.920028Z",
+          "sourceVerifiedAt": null,
+          "bodySha256": "ad90c231db200ef3ca6909ed9ff62f08b037dd78be7fe85bc8c5011fae488593",
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/ad90c231db200ef3ca6909ed9ff62f08b037dd78be7fe85bc8c5011fae488593",
+          "bodyBytes": 110102,
+          "sourceType": "primary",
+          "relationship": "cited",
+          "support": {
+            "excerpts": [
+              "June 30, 2025. The increase in cash is primarily a result of the $1.8 billion proceeds from our $2 billion convertible senior notes offering net of issuance costs and net of purchased capped calls. Cash Flow : Cash flow from operations in the second quarter of 2026 was $170 million, which included $14 million in benefit related to our currency hedging transaction",
+              "ded June 30 th , 2026. Second Quarter 2026 Financial Highlights: Total Revenues: $674 million, a 1 percent increase year over year Security Subscriptions Revenues: $333 million, a 12 percent increase year over year Remaining Performance Obligation (RPO)*: $2.6 billion, a 7 percent increase year over year. GAAP Operating Income: $185 million, representing 27 perce"
+            ],
+            "finding": "Direct text inspected; record findings state unsupported clauses."
+          },
+          "parsedPublication": null,
+          "evidenceRecordPublicationDate": "2026-07-30",
+          "evidenceRecordEconomicPeriod": "Q2 2026",
+          "currentArchivedEndpointState": {
+            "status": "fetched",
+            "checkedAt": "2026-10-23T11:34:05.920028Z",
+            "errorCode": null
+          },
+          "distinctArchivedBodies": 1
+        },
+        {
+          "evidenceId": "TR-checkpoint-5",
+          "url": "https://www.sec.gov/Archives/edgar/data/1015922/000117891325004030/zk2534094.htm",
+          "observationId": "265257237110d3c7eada63a363a0a42c72a6fc0d1cf5fa71dceb10d7364d2699",
+          "fetchedAt": "2026-10-23T04:15:09.250598Z",
+          "sourceVerifiedAt": null,
+          "bodySha256": "99fd41f785699aa0fc9fb4ea0baa79249c0953a5391c9aca86f1e5c0adb55b3c",
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/99fd41f785699aa0fc9fb4ea0baa79249c0953a5391c9aca86f1e5c0adb55b3c",
+          "bodyBytes": 26715,
+          "sourceType": "primary",
+          "relationship": "supplemental_existing_evidence",
+          "support": {
+            "excerpts": [
+              "Form 20-F or Form 40-F. Form 20-F ☒ Form 40-F ☐ EXPLANATORY NOTE On December 8, 2025, Check Point Software Technologies Ltd. (NASDAQ:CHKP) (the “Company”) closed the previously announced offering of $1.75 billion principal amount of 0.00% convertible senior notes due 2030 in a private offering to qualified institutional buyers pursuant to Rule 144A under the Secu",
+              "oceeds from the sale of the Convertible Notes were approximately $1.97 billion, after deducting the Initial Purchasers’ discounts and the estimated offering expenses payable by the Company. The Company will use (i) $192.0 million of the net proceeds from the sale of the Convertible Notes to pay the costs of the Capped Call Transactions (as defined below), and (ii",
+              "rities Act of 1933, as amended (the “Securities Act”), including $250 million of Additional Convertible Notes (as defined below) pursuant to the 13-day option of the Initial Purchasers (as defined below), resulting in a total principal amount of $2.0 billion. PURCHASE AGREEMENT On December 3, 2025, the Company entered into a purchase agreement (the “Purchase Agre"
+            ],
+            "finding": "Direct text inspected; record findings state unsupported clauses."
+          },
+          "parsedPublication": null,
+          "evidenceRecordPublicationDate": "2025-12-08",
+          "evidenceRecordEconomicPeriod": "December 2025",
+          "currentArchivedEndpointState": {
+            "status": "not_modified",
+            "checkedAt": "2026-10-23T04:15:09.250598Z",
+            "errorCode": null
+          },
+          "distinctArchivedBodies": 1
+        }
+      ],
+      "checks": {
+        "entity": "supported",
+        "actionStatus": "supported",
+        "amounts": "supported",
+        "eventDate": "contradicted",
+        "qualifiers": "insufficient",
+        "sourcePeriod": "contradicted",
+        "primaryCitation": "supported"
+      },
+      "findings": "Q2 cash comparison references the prior offering, not issuance in Q2. December 8, 2025 Form6-K dates the offering and gives1.97b net proceeds before capped calls;1.8b Q2 statement is net of issuance costs AND capped calls.",
+      "limitations": [
+        "Historical evidence only; no assertion of present endpoint accessibility or absence of later amendments.",
+        "Publication/disclosure date and economic/effective date remain separate. Accessibility alone is not factual support."
+      ],
+      "proposedCorrection": {
+        "action": "Correct offering chronology to December8,2025; distinguish1.97b offering net from1.8b after capped calls. Reconcile existing EV-checkpoint-4 duplication explicitly.",
+        "approvalNeeded": false,
+        "requiresNewSources": false
+      }
+    },
+    {
+      "id": "event:EV-checkpoint-3",
+      "supplierId": "checkpoint-sase",
+      "published": {
+        "id": "EV-checkpoint-3",
+        "supplierId": "checkpoint-sase",
+        "date": "2026-07-30",
+        "type": "results",
+        "text": "Q2 2026 revenue $674 million, +1% YoY; Security Subscriptions revenue $333 million, +12% YoY.",
+        "evidenceIds": [
+          "TR-checkpoint-1"
+        ],
+        "rung": 1
+      },
+      "verdict": "supported",
+      "sourceEvidence": [
+        {
+          "evidenceId": "TR-checkpoint-1",
+          "url": "https://www.checkpoint.com/press-releases/check-point-software-reports-2026-second-quarter-financial-results/",
+          "observationId": "823bdeb7978f9445b46cd456181b80329fcb2ced4dd40dac8cae6af492d6da35",
+          "fetchedAt": "2026-10-23T11:34:05.920028Z",
+          "sourceVerifiedAt": null,
+          "bodySha256": "ad90c231db200ef3ca6909ed9ff62f08b037dd78be7fe85bc8c5011fae488593",
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/ad90c231db200ef3ca6909ed9ff62f08b037dd78be7fe85bc8c5011fae488593",
+          "bodyBytes": 110102,
+          "sourceType": "primary",
+          "relationship": "cited",
+          "support": {
+            "excerpts": [
+              "ded June 30 th , 2026. Second Quarter 2026 Financial Highlights: Total Revenues: $674 million, a 1 percent increase year over year Security Subscriptions Revenues: $333 million, a 12 percent increase year over year Remaining Performance Obligation (RPO)*: $2.6 billion, a 7 percent increase year over year. GAAP Operating Income: $185 million, representing 27 perce",
+              "nues: $674 million, a 1 percent increase year over year Security Subscriptions Revenues: $333 million, a 12 percent increase year over year Remaining Performance Obligation (RPO)*: $2.6 billion, a 7 percent increase year over year. GAAP Operating Income: $185 million, representing 27 percent of total revenues Non-GAAP Operating Income: $260 million, representing "
+            ],
+            "finding": "Direct text inspected; record findings state unsupported clauses."
+          },
+          "parsedPublication": null,
+          "evidenceRecordPublicationDate": "2026-07-30",
+          "evidenceRecordEconomicPeriod": "Q2 2026, ended 2026-06-30",
+          "currentArchivedEndpointState": {
+            "status": "fetched",
+            "checkedAt": "2026-10-23T11:34:05.920028Z",
+            "errorCode": null
+          },
+          "distinctArchivedBodies": 1
+        }
+      ],
+      "checks": {
+        "entity": "supported",
+        "actionStatus": "supported",
+        "amounts": "supported",
+        "eventDate": "supported",
+        "qualifiers": "supported",
+        "sourcePeriod": "supported",
+        "primaryCitation": "supported"
+      },
+      "findings": "Published entity, action/status, values, qualifiers and period match archived primary text. Date is announcement/disclosure date unless source expressly states effective/completion date.",
+      "limitations": [
+        "Historical evidence only; no assertion of present endpoint accessibility or absence of later amendments.",
+        "Publication/disclosure date and economic/effective date remain separate. Accessibility alone is not factual support."
+      ],
+      "proposedCorrection": null
+    },
+    {
+      "id": "event:EV-cloudflare-1",
+      "supplierId": "cloudflare",
+      "published": {
+        "id": "EV-cloudflare-1",
+        "supplierId": "cloudflare",
+        "date": "2026-05-07",
+        "type": "restructuring",
+        "text": "Restructuring charge guided at $140.0-150.0 million ($105-110M cash, $35-40M non-cash), affecting approximately 1,100 employees, tied to shift to agentic AI-first operating model.",
+        "evidenceIds": [
+          "TR-cloudflare-3"
+        ],
+        "rung": 1
+      },
+      "verdict": "supported",
+      "sourceEvidence": [
+        {
+          "evidenceId": "TR-cloudflare-3",
+          "url": "https://www.sec.gov/Archives/edgar/data/1477333/000147733326000035/q126exhibit991.htm",
+          "observationId": "926dbe404179ef797951fd800d4e65954992f7e9b00bd2aa0f4c46d65609a8a8",
+          "fetchedAt": "2026-10-23T11:34:02.342720Z",
+          "sourceVerifiedAt": null,
+          "bodySha256": "c2af3e39ab77734c99ab92d5a2fc39f3f5d8b4ae290987fdd2f3ca434289f97f",
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/c2af3e39ab77734c99ab92d5a2fc39f3f5d8b4ae290987fdd2f3ca434289f97f",
+          "bodyBytes": 305738,
+          "sourceType": "primary",
+          "relationship": "cited",
+          "support": {
+            "excerpts": [
+              "plan, we expect to reduce our current workforce by approximately 1,100 people. We currently estimate that we will incur charges of $140.0 to $150.0 million in connection with the plan, consisting primarily of cash expenditures for notice period, severance payments, employee benefits and related costs of $105.0 to $110.0 million and non-cash expenses related to ve",
+              "oximately 1,100 people. We currently estimate that we will incur charges of $140.0 to $150.0 million in connection with the plan, consisting primarily of cash expenditures for notice period, severance payments, employee benefits and related costs of $105.0 to $110.0 million and non-cash expenses related to vesting of share-based awards of $35.0 to $40.0 million. ",
+              "percharge the value we deliver to our customers. By embracing an agentic AI-first operating model, Cloudflare will be even faster and more innovative as we continue to help build a better Internet.” First Quarter Fiscal 2026 Financial Highlights • Revenue : Total revenue of $639.8 million, representing an increase of 34% year-over-year. • Gross Profit : GAAP gros"
+            ],
+            "finding": "Direct text inspected; record findings state unsupported clauses."
+          },
+          "parsedPublication": null,
+          "evidenceRecordPublicationDate": "2026-05-07",
+          "evidenceRecordEconomicPeriod": "Q1 2026, ended 2026-03-31",
+          "currentArchivedEndpointState": {
+            "status": "not_modified",
+            "checkedAt": "2026-10-23T11:34:02.342720Z",
+            "errorCode": null
+          },
+          "distinctArchivedBodies": 1
+        }
+      ],
+      "checks": {
+        "entity": "supported",
+        "actionStatus": "supported",
+        "amounts": "supported",
+        "eventDate": "supported",
+        "qualifiers": "supported",
+        "sourcePeriod": "supported",
+        "primaryCitation": "supported"
+      },
+      "findings": "Published entity, action/status, values, qualifiers and period match archived primary text. Date is announcement/disclosure date unless source expressly states effective/completion date.",
+      "limitations": [
+        "Historical evidence only; no assertion of present endpoint accessibility or absence of later amendments.",
+        "Publication/disclosure date and economic/effective date remain separate. Accessibility alone is not factual support."
+      ],
+      "proposedCorrection": null
+    },
+    {
+      "id": "event:EV-cloudflare-3",
+      "supplierId": "cloudflare",
+      "published": {
+        "id": "EV-cloudflare-3",
+        "supplierId": "cloudflare",
+        "date": "2026-08-06",
+        "type": "results",
+        "text": "Q2 2026 revenue $696.1 million, +36% YoY.",
+        "evidenceIds": [
+          "TR-cloudflare-1"
+        ],
+        "rung": 1
+      },
+      "verdict": "supported",
+      "sourceEvidence": [
+        {
+          "evidenceId": "TR-cloudflare-1",
+          "url": "https://www.sec.gov/Archives/edgar/data/1477333/000147733326000053/q226exhibit991.htm",
+          "observationId": "358f2c4a0b8ab7f2a9984e877c1b62aabd76d08a6f5ecf85a9c5adb7741a9c8a",
+          "fetchedAt": "2026-10-23T11:34:01.671869Z",
+          "sourceVerifiedAt": null,
+          "bodySha256": "baccd01437848cdb796229a681a8066a8ac464085e668f7c7ba0ddcf3e72ef33",
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/baccd01437848cdb796229a681a8066a8ac464085e668f7c7ba0ddcf3e72ef33",
+          "bodyBytes": 445749,
+          "sourceType": "primary",
+          "relationship": "cited",
+          "support": {
+            "excerpts": [
+              "Announces Second Quarter 2026 Financial Results • Second quarter revenue totaled $696.1 million, representing an increase of 36% year-over-year • GAAP loss from operations of $205.7 million, or 30% of total revenue, and non-GAAP income from operations of $96.1 million, or 14% of revenue • Delivered Current RPO year-over-year growth of 35% San Francisco, CA, Augus"
+            ],
+            "finding": "Direct text inspected; record findings state unsupported clauses."
+          },
+          "parsedPublication": null,
+          "evidenceRecordPublicationDate": "2026-08-06",
+          "evidenceRecordEconomicPeriod": "Q2 2026, ended 2026-06-30",
+          "currentArchivedEndpointState": {
+            "status": "not_modified",
+            "checkedAt": "2026-10-23T11:34:01.671869Z",
+            "errorCode": null
+          },
+          "distinctArchivedBodies": 1
+        }
+      ],
+      "checks": {
+        "entity": "supported",
+        "actionStatus": "supported",
+        "amounts": "supported",
+        "eventDate": "supported",
+        "qualifiers": "supported",
+        "sourcePeriod": "supported",
+        "primaryCitation": "supported"
+      },
+      "findings": "Published entity, action/status, values, qualifiers and period match archived primary text. Date is announcement/disclosure date unless source expressly states effective/completion date.",
+      "limitations": [
+        "Historical evidence only; no assertion of present endpoint accessibility or absence of later amendments.",
+        "Publication/disclosure date and economic/effective date remain separate. Accessibility alone is not factual support."
+      ],
+      "proposedCorrection": null
+    },
+    {
+      "id": "event:EV-cloudflare-2",
+      "supplierId": "cloudflare",
+      "published": {
+        "id": "EV-cloudflare-2",
+        "supplierId": "cloudflare",
+        "date": "2026-08-13",
+        "type": "debt",
+        "text": "$2.5 billion aggregate principal of 0% Convertible Senior Notes due 2031 issued, ~$2,462.3 million net proceeds.",
+        "evidenceIds": [
+          "TR-cloudflare-4"
+        ],
+        "rung": 1
+      },
+      "verdict": "supported",
+      "sourceEvidence": [
+        {
+          "evidenceId": "TR-cloudflare-4",
+          "url": "https://www.sec.gov/Archives/edgar/data/1477333/000095010326012340/dp251721_8k.htm",
+          "observationId": "e8ede271df5e8305faa2a61f5aab39a5665e480571c273b1dff604a7e803d054",
+          "fetchedAt": "2026-10-23T04:15:05.614064Z",
+          "sourceVerifiedAt": null,
+          "bodySha256": "0d8835953f4a5e4378487a3e94a42428d6c4e5dff75767f960a775be6f829861",
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/0d8835953f4a5e4378487a3e94a42428d6c4e5dff75767f960a775be6f829861",
+          "bodyBytes": 54453,
+          "sourceType": "primary",
+          "relationship": "cited",
+          "support": {
+            "excerpts": [
+              "terial Definitive Agreement. Convertible Notes and the Indenture On August 13, 2026, Cloudflare, Inc. (the “Company”) issued $2.50 billion aggregate principal amount of 0% Convertible Senior Notes due 2031 (the “Notes”) pursuant to an indenture, dated August 13, 2026 (the “Indenture”), between the Company and U.S. Bank Trust Company, National Association, as trus",
+              " payable. The net proceeds from this offering were approximately $2,462.3 million after deducting the Initial Purchasers’ (as defined below) discounts and commissions and the Company’s estimated offering expenses related to the offering. The Company used $259.5 million of the net proceeds from the offering to pay the cost of the Capped Call Transactions (as defin"
+            ],
+            "finding": "Direct text inspected; record findings state unsupported clauses."
+          },
+          "parsedPublication": null,
+          "evidenceRecordPublicationDate": "2026-08-13",
+          "evidenceRecordEconomicPeriod": "August 2026",
+          "currentArchivedEndpointState": {
+            "status": "not_modified",
+            "checkedAt": "2026-10-23T04:15:05.614064Z",
+            "errorCode": null
+          },
+          "distinctArchivedBodies": 1
+        }
+      ],
+      "checks": {
+        "entity": "supported",
+        "actionStatus": "supported",
+        "amounts": "supported",
+        "eventDate": "supported",
+        "qualifiers": "supported",
+        "sourcePeriod": "supported",
+        "primaryCitation": "supported"
+      },
+      "findings": "Published entity, action/status, values, qualifiers and period match archived primary text. Date is announcement/disclosure date unless source expressly states effective/completion date.",
+      "limitations": [
+        "Historical evidence only; no assertion of present endpoint accessibility or absence of later amendments.",
+        "Publication/disclosure date and economic/effective date remain separate. Accessibility alone is not factual support."
+      ],
+      "proposedCorrection": null
+    },
+    {
+      "id": "event:EV-commvault-2",
+      "supplierId": "commvault",
+      "published": {
+        "id": "EV-commvault-2",
+        "supplierId": "commvault",
+        "date": "2026-04-28",
+        "type": "restructuring",
+        "text": "Commvault disclosed two restructuring plans initiated during fiscal 2026 covering workforce reductions, technology transitions, and office lease closures, with total fiscal 2026 charges of $32.2 million, plus an additional $2.4 million recorded in the first quarter of fiscal 2027.",
+        "evidenceIds": [
+          "TR-commvault-2",
+          "TR-commvault-1"
+        ],
+        "rung": 1
+      },
+      "verdict": "insufficient",
+      "sourceEvidence": [
+        {
+          "evidenceId": "TR-commvault-2",
+          "url": "https://www.sec.gov/Archives/edgar/data/1169561/000116956126000013/q4fy26pressrelease.htm",
+          "observationId": "6e57d00a56b484d18585da0d7f50711c9d1b458cefff884e2a11e055e8c6edfd",
+          "fetchedAt": "2026-10-23T04:14:53.936377Z",
+          "sourceVerifiedAt": null,
+          "bodySha256": "aa32993aef7648fd84bd2ea06cd6509d0a79a05f8a9e7eb7179d904c8e93391a",
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/aa32993aef7648fd84bd2ea06cd6509d0a79a05f8a9e7eb7179d904c8e93391a",
+          "bodyBytes": 684618,
+          "sourceType": "primary",
+          "relationship": "cited",
+          "support": {
+            "excerpts": [
+              "oyees vest in restricted stock awards. 7. During fiscal 2026, we initiated two restructuring plans designed to optimize our cost structure, enhance organizational agility, align resources with strategic priorities, and reorganize our business technology function. These initiatives include workforce reductions, technology transitions, office lease closures, and th",
+              "ense related to stock-based compensation 6 691 1,767 4,140 5,459 Restructuring 7 18,603 812 32,154 10,026 Amortization of intangible assets 8 1,256 1,176 4,722 3,705 Litigation settlement 9 — — — 675 Business combination costs 10 — 201 1,902 2,541 Change in contingent consideration 11 — (426) (545) 2,060 Adjustment on headquarters sale leaseback 12 — — 495 — Nonc",
+              "ds from stock-based compensation plans 7,529 6,437 14,503 17,537 Proceeds from issuance of convertible notes — — 900,000 — Purchase of capped calls — — (99,630) — Payment of contingent liability — (340) — (340) Payment of debt issuance costs — — (23,400) — Other (18) — (66) — Net cash provided by (used in) financing activities (251,782) (23,724) 345,301 (147,818)",
+              "17,537 Proceeds from issuance of convertible notes — — 900,000 — Purchase of capped calls — — (99,630) — Payment of contingent liability — (340) — (340) Payment of debt issuance costs — — (23,400) — Other (18) — (66) — Net cash provided by (used in) financing activities (251,782) (23,724) 345,301 (147,818) Effects of exchange rate — changes in cash (6,449) 6,027 "
+            ],
+            "finding": "Direct text inspected; record findings state unsupported clauses."
+          },
+          "parsedPublication": null,
+          "evidenceRecordPublicationDate": "2026-04-28",
+          "evidenceRecordEconomicPeriod": "Q4 FY2026 (quarter ended 2026-03-31); FY2026 full year",
+          "currentArchivedEndpointState": {
+            "status": "not_modified",
+            "checkedAt": "2026-10-23T04:14:53.936377Z",
+            "errorCode": null
+          },
+          "distinctArchivedBodies": 1
+        },
+        {
+          "evidenceId": "TR-commvault-1",
+          "url": "https://www.sec.gov/Archives/edgar/data/1169561/000116956126000020/q1fy27pressrelease.htm",
+          "observationId": "4e50f7f72753598984fd9699ccff5f640e0e6463b05a543728d22aace9891537",
+          "fetchedAt": "2026-10-23T11:34:08.554975Z",
+          "sourceVerifiedAt": null,
+          "bodySha256": "2dfa3bb788e9e52a44cdf6416297924c82b4714cd6932dd2d5b17fb0dc16fff6",
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/2dfa3bb788e9e52a44cdf6416297924c82b4714cd6932dd2d5b17fb0dc16fff6",
+          "bodyBytes": 356780,
+          "sourceType": "primary",
+          "relationship": "cited",
+          "support": {
+            "excerpts": [
+              "ult (Nasdaq: CVLT) today announced its financial results for the fiscal first quarter ended June 30, 2026. \"Our results reflect what we’re hearing from customers every day – they are embracing our AI-enabled platform to protect data, govern access, and make clean, trusted recoveries,\" said Sanjay Mirchandani, President and CEO, Commvault. \"With strong growth and ",
+              "ion Subscription annualized recurring revenue (ARR) 1, 2 reaches $1,054 million, up +22% year over year Free cash flow 3 increased +71% year over year to $51 million Tinton Falls, N.J. – July 28, 2026 – Commvault (Nasdaq: CVLT) today announced its financial results for the fiscal first quarter ended June 30, 2026. \"Our results reflect what we’re hearing from cust",
+              "335 Perpetual support 25,475 31,439 Other services 12,934 13,895 Total revenues 314,131 281,978 Cost of revenues: Term-based license 4,243 2,242 Software-as-a-service 29,652 25,972 Perpetual license 171 245 Customer support 14,699 14,207 Other services 8,844 8,111 Total cost of revenues 57,609 50,777 Gross margin 256,522 231,201 Operating expenses: Sales and mark",
+              "strative 46,751 41,270 Depreciation and amortization 2,319 2,607 Restructuring 2,396 237 Change in contingent consideration — (545) Total operating expenses 230,803 206,110 Income from operations 25,719 25,091 Interest income 7,687 2,009 Interest expense (1,473) (278) Other income, net 269 61 Income before income taxes 32,202 26,883 Income tax expense 11,063 3,38"
+            ],
+            "finding": "Direct text inspected; record findings state unsupported clauses."
+          },
+          "parsedPublication": null,
+          "evidenceRecordPublicationDate": "2026-07-28",
+          "evidenceRecordEconomicPeriod": "Q1 FY2027 (quarter ended 2026-06-30)",
+          "currentArchivedEndpointState": {
+            "status": "not_modified",
+            "checkedAt": "2026-10-23T11:34:08.554975Z",
+            "errorCode": null
+          },
+          "distinctArchivedBodies": 1
+        }
+      ],
+      "checks": {
+        "entity": "supported",
+        "actionStatus": "supported",
+        "amounts": "supported",
+        "eventDate": "insufficient",
+        "qualifiers": "supported",
+        "sourcePeriod": "insufficient",
+        "primaryCitation": "supported"
+      },
+      "findings": "32,154 thousand FY26 and2,396 thousand Q1FY27 round to32.2m/2.4m. However the April28 event mixes a July28 disclosure not available at April28.",
+      "limitations": [
+        "Historical evidence only; no assertion of present endpoint accessibility or absence of later amendments.",
+        "Publication/disclosure date and economic/effective date remain separate. Accessibility alone is not factual support."
+      ],
+      "proposedCorrection": {
+        "action": "Limit April28 event to FY26; date subsequent2.4m charge to July28 disclosure and preserve economic period.",
+        "approvalNeeded": false,
+        "requiresNewSources": false
+      }
+    },
+    {
+      "id": "event:EV-commvault-3",
+      "supplierId": "commvault",
+      "published": {
+        "id": "EV-commvault-3",
+        "supplierId": "commvault",
+        "date": "2026-04-28",
+        "type": "debt",
+        "text": "Commvault disclosed that it issued $900 million in convertible notes during fiscal 2026, along with $99.6 million spent on related capped-call purchases.",
+        "evidenceIds": [
+          "TR-commvault-2"
+        ],
+        "rung": 1
+      },
+      "verdict": "supported",
+      "sourceEvidence": [
+        {
+          "evidenceId": "TR-commvault-2",
+          "url": "https://www.sec.gov/Archives/edgar/data/1169561/000116956126000013/q4fy26pressrelease.htm",
+          "observationId": "6e57d00a56b484d18585da0d7f50711c9d1b458cefff884e2a11e055e8c6edfd",
+          "fetchedAt": "2026-10-23T04:14:53.936377Z",
+          "sourceVerifiedAt": null,
+          "bodySha256": "aa32993aef7648fd84bd2ea06cd6509d0a79a05f8a9e7eb7179d904c8e93391a",
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/aa32993aef7648fd84bd2ea06cd6509d0a79a05f8a9e7eb7179d904c8e93391a",
+          "bodyBytes": 684618,
+          "sourceType": "primary",
+          "relationship": "cited",
+          "support": {
+            "excerpts": [
+              "oyees vest in restricted stock awards. 7. During fiscal 2026, we initiated two restructuring plans designed to optimize our cost structure, enhance organizational agility, align resources with strategic priorities, and reorganize our business technology function. These initiatives include workforce reductions, technology transitions, office lease closures, and th",
+              "ense related to stock-based compensation 6 691 1,767 4,140 5,459 Restructuring 7 18,603 812 32,154 10,026 Amortization of intangible assets 8 1,256 1,176 4,722 3,705 Litigation settlement 9 — — — 675 Business combination costs 10 — 201 1,902 2,541 Change in contingent consideration 11 — (426) (545) 2,060 Adjustment on headquarters sale leaseback 12 — — 495 — Nonc",
+              "ds from stock-based compensation plans 7,529 6,437 14,503 17,537 Proceeds from issuance of convertible notes — — 900,000 — Purchase of capped calls — — (99,630) — Payment of contingent liability — (340) — (340) Payment of debt issuance costs — — (23,400) — Other (18) — (66) — Net cash provided by (used in) financing activities (251,782) (23,724) 345,301 (147,818)",
+              "17,537 Proceeds from issuance of convertible notes — — 900,000 — Purchase of capped calls — — (99,630) — Payment of contingent liability — (340) — (340) Payment of debt issuance costs — — (23,400) — Other (18) — (66) — Net cash provided by (used in) financing activities (251,782) (23,724) 345,301 (147,818) Effects of exchange rate — changes in cash (6,449) 6,027 "
+            ],
+            "finding": "Direct text inspected; record findings state unsupported clauses."
+          },
+          "parsedPublication": null,
+          "evidenceRecordPublicationDate": "2026-04-28",
+          "evidenceRecordEconomicPeriod": "Q4 FY2026 (quarter ended 2026-03-31); FY2026 full year",
+          "currentArchivedEndpointState": {
+            "status": "not_modified",
+            "checkedAt": "2026-10-23T04:14:53.936377Z",
+            "errorCode": null
+          },
+          "distinctArchivedBodies": 1
+        }
+      ],
+      "checks": {
+        "entity": "supported",
+        "actionStatus": "supported",
+        "amounts": "supported",
+        "eventDate": "supported",
+        "qualifiers": "supported",
+        "sourcePeriod": "supported",
+        "primaryCitation": "supported"
+      },
+      "findings": "Published entity, action/status, values, qualifiers and period match archived primary text. Date is announcement/disclosure date unless source expressly states effective/completion date.",
+      "limitations": [
+        "Historical evidence only; no assertion of present endpoint accessibility or absence of later amendments.",
+        "Publication/disclosure date and economic/effective date remain separate. Accessibility alone is not factual support."
+      ],
+      "proposedCorrection": null
+    },
+    {
+      "id": "event:EV-commvault-1",
+      "supplierId": "commvault",
+      "published": {
+        "id": "EV-commvault-1",
+        "supplierId": "commvault",
+        "date": "2026-07-28",
+        "type": "results",
+        "text": "Commvault reported Q1 FY2027 revenue of $314.1 million, up 11% year over year, and subscription ARR of $1,054 million, up 22% year over year, for the quarter ended June 30, 2026.",
+        "evidenceIds": [
+          "TR-commvault-1"
+        ],
+        "rung": 1
+      },
+      "verdict": "supported",
+      "sourceEvidence": [
+        {
+          "evidenceId": "TR-commvault-1",
+          "url": "https://www.sec.gov/Archives/edgar/data/1169561/000116956126000020/q1fy27pressrelease.htm",
+          "observationId": "4e50f7f72753598984fd9699ccff5f640e0e6463b05a543728d22aace9891537",
+          "fetchedAt": "2026-10-23T11:34:08.554975Z",
+          "sourceVerifiedAt": null,
+          "bodySha256": "2dfa3bb788e9e52a44cdf6416297924c82b4714cd6932dd2d5b17fb0dc16fff6",
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/2dfa3bb788e9e52a44cdf6416297924c82b4714cd6932dd2d5b17fb0dc16fff6",
+          "bodyBytes": 356780,
+          "sourceType": "primary",
+          "relationship": "cited",
+          "support": {
+            "excerpts": [
+              "ult (Nasdaq: CVLT) today announced its financial results for the fiscal first quarter ended June 30, 2026. \"Our results reflect what we’re hearing from customers every day – they are embracing our AI-enabled platform to protect data, govern access, and make clean, trusted recoveries,\" said Sanjay Mirchandani, President and CEO, Commvault. \"With strong growth and ",
+              "ion Subscription annualized recurring revenue (ARR) 1, 2 reaches $1,054 million, up +22% year over year Free cash flow 3 increased +71% year over year to $51 million Tinton Falls, N.J. – July 28, 2026 – Commvault (Nasdaq: CVLT) today announced its financial results for the fiscal first quarter ended June 30, 2026. \"Our results reflect what we’re hearing from cust",
+              "335 Perpetual support 25,475 31,439 Other services 12,934 13,895 Total revenues 314,131 281,978 Cost of revenues: Term-based license 4,243 2,242 Software-as-a-service 29,652 25,972 Perpetual license 171 245 Customer support 14,699 14,207 Other services 8,844 8,111 Total cost of revenues 57,609 50,777 Gross margin 256,522 231,201 Operating expenses: Sales and mark",
+              "strative 46,751 41,270 Depreciation and amortization 2,319 2,607 Restructuring 2,396 237 Change in contingent consideration — (545) Total operating expenses 230,803 206,110 Income from operations 25,719 25,091 Interest income 7,687 2,009 Interest expense (1,473) (278) Other income, net 269 61 Income before income taxes 32,202 26,883 Income tax expense 11,063 3,38"
+            ],
+            "finding": "Direct text inspected; record findings state unsupported clauses."
+          },
+          "parsedPublication": null,
+          "evidenceRecordPublicationDate": "2026-07-28",
+          "evidenceRecordEconomicPeriod": "Q1 FY2027 (quarter ended 2026-06-30)",
+          "currentArchivedEndpointState": {
+            "status": "not_modified",
+            "checkedAt": "2026-10-23T11:34:08.554975Z",
+            "errorCode": null
+          },
+          "distinctArchivedBodies": 1
+        }
+      ],
+      "checks": {
+        "entity": "supported",
+        "actionStatus": "supported",
+        "amounts": "supported",
+        "eventDate": "supported",
+        "qualifiers": "supported",
+        "sourcePeriod": "supported",
+        "primaryCitation": "supported"
+      },
+      "findings": "Published entity, action/status, values, qualifiers and period match archived primary text. Date is announcement/disclosure date unless source expressly states effective/completion date.",
+      "limitations": [
+        "Historical evidence only; no assertion of present endpoint accessibility or absence of later amendments.",
+        "Publication/disclosure date and economic/effective date remain separate. Accessibility alone is not factual support."
+      ],
+      "proposedCorrection": null
+    },
+    {
+      "id": "event:EV-crwd-1",
+      "supplierId": "crwd",
+      "published": {
+        "id": "EV-crwd-1",
+        "supplierId": "crwd",
+        "date": "2026-08-26",
+        "type": "results",
+        "text": "CrowdStrike reported Q2 FY2027 revenue of $1.47 billion, up 26% year over year, for the quarter ended 2026-07-31.",
+        "evidenceIds": [
+          "TR-crwd-1"
+        ],
+        "rung": 1
+      },
+      "verdict": "supported",
+      "sourceEvidence": [
+        {
+          "evidenceId": "TR-crwd-1",
+          "url": "https://www.sec.gov/Archives/edgar/data/0001535527/000153552726000029/crwd-20260826xex991.htm",
+          "observationId": "302f75158ec9cdb5901036906fdaceed141efb9a0b6bdb7bb452edf08118634b",
+          "fetchedAt": "2026-10-23T11:34:09.206469Z",
+          "sourceVerifiedAt": null,
+          "bodySha256": "b9cef2ed662451197fd6f26a9786f577f3da9154e6ec2b968fbebc87bb877b1a",
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/b9cef2ed662451197fd6f26a9786f577f3da9154e6ec2b968fbebc87bb877b1a",
+          "bodyBytes": 610731,
+          "sourceType": "primary",
+          "relationship": "cited",
+          "support": {
+            "excerpts": [
+              "wth.\" Second Quarter Fiscal 2027 Financial Highlights • Revenue: Total revenue was $1.47 billion, a 26% increase, compared to $1.17 billion in the second quarter of fiscal 2026. Subscription revenue was $1.40 billion, a 27% increase, compared to $1.10 billion in the second quarter of fiscal 2026. • Annual Recurring Revenue (ARR) grew 25% year-over-year to $5.84 b",
+              "unced financial results for the second quarter fiscal year 2027, ended July 31, 2026. \"Q2 was the best quarter in CrowdStrike's history,\" said George Kurtz, CrowdStrike’s Founder and Chief Executive Officer. \"Delivering record Falcon Flex results, record net new ARR, and accelerating growth—the Falcon is soaring. We're raising our full year fiscal 2027 net new AR"
+            ],
+            "finding": "Direct text inspected; record findings state unsupported clauses."
+          },
+          "parsedPublication": null,
+          "evidenceRecordPublicationDate": "2026-08-26",
+          "evidenceRecordEconomicPeriod": "Quarter ended 2026-07-31",
+          "currentArchivedEndpointState": {
+            "status": "not_modified",
+            "checkedAt": "2026-10-23T11:34:09.206469Z",
+            "errorCode": null
+          },
+          "distinctArchivedBodies": 1
+        }
+      ],
+      "checks": {
+        "entity": "supported",
+        "actionStatus": "supported",
+        "amounts": "supported",
+        "eventDate": "supported",
+        "qualifiers": "supported",
+        "sourcePeriod": "supported",
+        "primaryCitation": "supported"
+      },
+      "findings": "Published entity, action/status, values, qualifiers and period match archived primary text. Date is announcement/disclosure date unless source expressly states effective/completion date.",
+      "limitations": [
+        "Historical evidence only; no assertion of present endpoint accessibility or absence of later amendments.",
+        "Publication/disclosure date and economic/effective date remain separate. Accessibility alone is not factual support."
+      ],
+      "proposedCorrection": null
+    },
+    {
+      "id": "event:EV-cyberark-1",
+      "supplierId": "cyberark",
+      "published": {
+        "id": "EV-cyberark-1",
+        "supplierId": "cyberark",
+        "date": "2026-02-11",
+        "type": "acquisition",
+        "text": "CyberArk ceased to exist as an independent SEC filer and public entity, absorbed into Palo Alto Networks.",
+        "evidenceIds": [
+          "TR-cyberark-2"
+        ],
+        "rung": 1
+      },
+      "verdict": "insufficient",
+      "sourceEvidence": [
+        {
+          "evidenceId": "TR-cyberark-2",
+          "url": "https://www.sec.gov/Archives/edgar/data/1598110/000110465926018360/tm266096d1_1512g.htm",
+          "observationId": "ba30a77e4fceabe54503ce6ea58570cef5cc7b1d2acadd1043fd328f99dfaa64",
+          "fetchedAt": "2026-10-23T04:15:00.856624Z",
+          "sourceVerifiedAt": null,
+          "bodySha256": "3c1ad9308c960731d838b3d482a00bba08ffb3c129bf873f80f7a413b1fbb9f5",
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/3c1ad9308c960731d838b3d482a00bba08ffb3c129bf873f80f7a413b1fbb9f5",
+          "bodyBytes": 10491,
+          "sourceType": "primary",
+          "relationship": "cited",
+          "support": {
+            "excerpts": [
+              "ECURITIES AND EXCHANGE COMMISSION Washington, D.C. 20549 FORM 15 CERTIFICATION AND NOTICE OF TERMINATION OF REGISTRATION UNDER SECTION 12(g) OF THE SECURITIES EXCHANGE ACT OF 1934 OR SUSPENSION OF DUTY TO FILE REPORTS UNDER SECTIONS 13 AND 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 Commission File Number: 001-36625 CyberArk Software Ltd. (Exact name of registra",
+              " signed on its behalf by the undersigned duly authorized person. Date: February 23, 2026 CyberArk Software Ltd. By: /s/ Bruce Byrd Name: Bruce Byrd Title: Authorized Signatory"
+            ],
+            "finding": "Direct text inspected; record findings state unsupported clauses."
+          },
+          "parsedPublication": null,
+          "evidenceRecordPublicationDate": "2026-02-23",
+          "evidenceRecordEconomicPeriod": "February 2026",
+          "currentArchivedEndpointState": {
+            "status": "not_modified",
+            "checkedAt": "2026-10-23T04:15:00.856624Z",
+            "errorCode": null
+          },
+          "distinctArchivedBodies": 1
+        }
+      ],
+      "checks": {
+        "entity": "supported",
+        "actionStatus": "insufficient",
+        "amounts": "not_applicable",
+        "eventDate": "insufficient",
+        "qualifiers": "supported",
+        "sourcePeriod": "supported",
+        "primaryCitation": "supported"
+      },
+      "findings": "Form15 signed February23 establishes a registration/reporting-duty notice. It contains neither February11 nor PaloAlto nor merger, and cannot establish legal-entity extinction.",
+      "limitations": [
+        "Historical evidence only; no assertion of present endpoint accessibility or absence of later amendments.",
+        "Publication/disclosure date and economic/effective date remain separate. Accessibility alone is not factual support."
+      ],
+      "proposedCorrection": {
+        "action": "Await primary merger closing evidence; describe Form15 separately as regulatory notice rather than inferred entity extinction.",
+        "approvalNeeded": false,
+        "requiresNewSources": true
+      }
+    },
+    {
+      "id": "event:EV-cyera-3",
+      "supplierId": "cyera",
+      "published": {
+        "id": "EV-cyera-3",
+        "supplierId": "cyera",
+        "date": "2026-04-23",
+        "type": "acquisition",
+        "text": "Cyera completed its acquisition of Ryft.",
+        "evidenceIds": [
+          "TR-cyera-3"
+        ],
+        "rung": 4
+      },
+      "verdict": "supported",
+      "sourceEvidence": [
+        {
+          "evidenceId": "TR-cyera-3",
+          "url": "https://www.cyera.com/press-releases/cyera-acquires-ryft-to-extend-its-agentic-ai-security-platform",
+          "observationId": "15f535ccbaee9939b06ff3445d10ca7f4c05c4b5627f2d6ab673b1f3faa98a03",
+          "fetchedAt": "2026-10-23T04:15:00.595572Z",
+          "sourceVerifiedAt": null,
+          "bodySha256": "8db492550825f8c21eb22c0fa64144dd1171bb78b95f878b22553d09566c3807",
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/8db492550825f8c21eb22c0fa64144dd1171bb78b95f878b22553d09566c3807",
+          "bodyBytes": 264504,
+          "sourceType": "primary",
+          "relationship": "cited",
+          "support": {
+            "excerpts": [
+              "o Cyera Acquires Ryft to Extend its Agentic AI Security Platform April 23, 2026 Share NEW YORK--( BUSINESS WIRE )-- Cyera , the AI Security Platform built for the age of agents, today announced its acquisition of Ryft , the first-of-its-kind secure and automated data lake built for AI agents. The acquisition builds on Cyera’s focus on owning and leading the shift",
+              "ra , the AI Security Platform built for the age of agents, today announced its acquisition of Ryft , the first-of-its-kind secure and automated data lake built for AI agents. The acquisition builds on Cyera’s focus on owning and leading the shift toward agentic AI security, where autonomous systems depend on trusted, governed, and secure data. \"Data and AI securi",
+              "valuation, tripling its valuation in just 12 months, and has now completed four acquisitions in five years. As AI adoption accelerates, Cyera continues to lead the industry in helping global enterprises secure the data they rely on to move forward with confidence. For more on Cyera’s Agentic AI Security platform, or to request a demo, go to www.cyera.com . About "
+            ],
+            "finding": "Direct text inspected; record findings state unsupported clauses."
+          },
+          "parsedPublication": "2026-04-23",
+          "evidenceRecordPublicationDate": "2026-04-23",
+          "evidenceRecordEconomicPeriod": "N/A (acquisition announcement)",
+          "currentArchivedEndpointState": {
+            "status": "fetched",
+            "checkedAt": "2026-10-23T04:15:00.595572Z",
+            "errorCode": null
+          },
+          "distinctArchivedBodies": 3
+        }
+      ],
+      "checks": {
+        "entity": "supported",
+        "actionStatus": "supported",
+        "amounts": "not_applicable",
+        "eventDate": "supported",
+        "qualifiers": "supported",
+        "sourcePeriod": "supported",
+        "primaryCitation": "supported"
+      },
+      "findings": "April23 primary release announces Ryft acquisition and says Cyera has now completed four acquisitions; completion status is supported in context. Date is announcement date, not an independently timed legal closing.",
+      "limitations": [
+        "Historical evidence only; no assertion of present endpoint accessibility or absence of later amendments.",
+        "Publication/disclosure date and economic/effective date remain separate. Accessibility alone is not factual support."
+      ],
+      "proposedCorrection": null
+    },
+    {
+      "id": "event:EV-cyera-4",
+      "supplierId": "cyera",
+      "published": {
+        "id": "EV-cyera-4",
+        "supplierId": "cyera",
+        "date": "2026-06-10",
+        "type": "funding",
+        "text": "Cyera raised $600 million led by Evolution Equity Partners at a $12 billion valuation.",
+        "evidenceIds": [
+          "TR-cyera-4"
+        ],
+        "rung": 4
+      },
+      "verdict": "supported",
+      "sourceEvidence": [
+        {
+          "evidenceId": "TR-cyera-4",
+          "url": "https://www.cyera.com/press-releases/cyera-raises-600-million-at-12-billion-valuation-to-continue-building-the-trust-layer-for-the-ai-era",
+          "observationId": "9c3a58c427079eb68f6a37ddb8eeb55713d4183246b4acfe705c624d967aef7f",
+          "fetchedAt": "2026-10-23T11:34:12.818574Z",
+          "sourceVerifiedAt": null,
+          "bodySha256": "56f5aed04d9fec102e7d9e4688b86ec5f55fd7d6f68d1586555b908e84cf83ba",
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/56f5aed04d9fec102e7d9e4688b86ec5f55fd7d6f68d1586555b908e84cf83ba",
+          "bodyBytes": 267540,
+          "sourceType": "primary",
+          "relationship": "cited",
+          "support": {
+            "excerpts": [
+              "Cyera Raises $600 Million at $12 Billion Valuation to Continue Building the Trust Layer for the AI Era Platform The AI Security Platform Enable AI readiness, reduce data risk in real time, and continuously strengthen compliance in a single unified platform. Platform Overview Products DSPM Data Loss Prevention Ag",
+              "w a comprehensive trust layer for the enterprise. This round was led by Evolution Equity Partners, with participation from Cyberstarts and Temasek, in addition to all existing investors including Accel, AT&T Ventures, Blackstone, Coatue, Spark Capital, among others. Cyera is now positioned as one of the most valuable privately held security companies in the world"
+            ],
+            "finding": "Direct text inspected; record findings state unsupported clauses."
+          },
+          "parsedPublication": "2026-06-10",
+          "evidenceRecordPublicationDate": "2026-06-10",
+          "evidenceRecordEconomicPeriod": "N/A (funding announcement)",
+          "currentArchivedEndpointState": {
+            "status": "not_modified",
+            "checkedAt": "2026-10-23T11:34:12.818574Z",
+            "errorCode": null
+          },
+          "distinctArchivedBodies": 3
+        }
+      ],
+      "checks": {
+        "entity": "supported",
+        "actionStatus": "supported",
+        "amounts": "supported",
+        "eventDate": "supported",
+        "qualifiers": "supported",
+        "sourcePeriod": "supported",
+        "primaryCitation": "supported"
+      },
+      "findings": "Published entity, action/status, values, qualifiers and period match archived primary text. Date is announcement/disclosure date unless source expressly states effective/completion date.",
+      "limitations": [
+        "Historical evidence only; no assertion of present endpoint accessibility or absence of later amendments.",
+        "Publication/disclosure date and economic/effective date remain separate. Accessibility alone is not factual support."
+      ],
+      "proposedCorrection": null
+    },
+    {
+      "id": "event:EV-cyera-2",
+      "supplierId": "cyera",
+      "published": {
+        "id": "EV-cyera-2",
+        "supplierId": "cyera",
+        "date": "2026-09-03",
+        "type": "acquisition",
+        "text": "Cyera completed its acquisition of Oasis Security.",
+        "evidenceIds": [
+          "TR-cyera-2"
+        ],
+        "rung": 4
+      },
+      "verdict": "supported",
+      "sourceEvidence": [
+        {
+          "evidenceId": "TR-cyera-2",
+          "url": "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+          "observationId": "3fb2300a948ed7fd028d2af9ccfe937fd91b33acd8ab9ca39a1906983fcdcc1c",
+          "fetchedAt": "2026-10-23T04:14:51.233144Z",
+          "sourceVerifiedAt": null,
+          "bodySha256": "651da1d036563ce302610c41dd2f62ca9b58e769cf7c1157ea7304285a45a9f8",
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/651da1d036563ce302610c41dd2f62ca9b58e769cf7c1157ea7304285a45a9f8",
+          "bodyBytes": 264742,
+          "sourceType": "primary",
+          "relationship": "cited",
+          "support": {
+            "excerpts": [
+              " a demo Get a demo Cyera Completes Acquisition of Oasis Security September 3, 2026 Share Data and identity are the two foundational elements of every trust decision. For the first time, they're being built as one. Cyera today announced the completion of its acquisition of Oasis Security, the leading access management platform for the agentic enterprise. The acqui",
+              "irst time, they're being built as one. Cyera today announced the completion of its acquisition of Oasis Security, the leading access management platform for the agentic enterprise. The acquisition, valued at $1 billion, unites Cyera's AI and Data Security Platform with Oasis's non-human identity (NHI) management capabilities, creating a single platform that deter"
+            ],
+            "finding": "Direct text inspected; record findings state unsupported clauses."
+          },
+          "parsedPublication": "2026-09-03",
+          "evidenceRecordPublicationDate": "2026-09-03",
+          "evidenceRecordEconomicPeriod": "N/A (acquisition announcement)",
+          "currentArchivedEndpointState": {
+            "status": "fetched",
+            "checkedAt": "2026-10-23T04:14:51.233144Z",
+            "errorCode": null
+          },
+          "distinctArchivedBodies": 3
+        }
+      ],
+      "checks": {
+        "entity": "supported",
+        "actionStatus": "supported",
+        "amounts": "not_applicable",
+        "eventDate": "supported",
+        "qualifiers": "supported",
+        "sourcePeriod": "supported",
+        "primaryCitation": "supported"
+      },
+      "findings": "Published entity, action/status, values, qualifiers and period match archived primary text. Date is announcement/disclosure date unless source expressly states effective/completion date.",
+      "limitations": [
+        "Historical evidence only; no assertion of present endpoint accessibility or absence of later amendments.",
+        "Publication/disclosure date and economic/effective date remain separate. Accessibility alone is not factual support."
+      ],
+      "proposedCorrection": null
+    },
+    {
+      "id": "event:EV-cyera-1",
+      "supplierId": "cyera",
+      "published": {
+        "id": "EV-cyera-1",
+        "supplierId": "cyera",
+        "date": "2026-09-22",
+        "type": "funding",
+        "text": "Cyera announced a $400 million growth-equity investment from Goldman Sachs Alternatives at a valuation of over $12 billion.",
+        "evidenceIds": [
+          "TR-cyera-1"
+        ],
+        "rung": 4
+      },
+      "verdict": "supported",
+      "sourceEvidence": [
+        {
+          "evidenceId": "TR-cyera-1",
+          "url": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+          "observationId": "07988a0cf440b7f6a3b12d1cfbb1485d9ca292c5758fd5f2532d13dd82413b94",
+          "fetchedAt": "2026-10-23T11:34:10.678781Z",
+          "sourceVerifiedAt": null,
+          "bodySha256": "c7e1d3f5c6833dc9ed4633528dfd78a6c4b44996ffa183e6be5692d5d48ad117",
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/c7e1d3f5c6833dc9ed4633528dfd78a6c4b44996ffa183e6be5692d5d48ad117",
+          "bodyBytes": 267390,
+          "sourceType": "primary",
+          "relationship": "cited",
+          "support": {
+            "excerpts": [
+              " that brings data and identity together. Cyera today announced a $400 million extension from Growth Equity at Goldman Sachs Alternatives to its Series G, led by Evolution Equity, accelerating the company's mission to build a unified platform that governs access for every human, machine, and AI agent across the enterprise. The new investment will continue to suppo",
+              ", in motion, and in use, whether touched by humans or AI agents. Valued at over $12 billion, Cyera is backed by leading investors including Accel, Blackstone, Cyberstarts, Georgian, Lightspeed, and Sequoia. Protect your data. Secure AI. About Growth Equity at Goldman Sachs Alternatives Goldman Sachs (NYSE: GS) is one of the leading investors in alternatives globa"
+            ],
+            "finding": "Direct text inspected; record findings state unsupported clauses."
+          },
+          "parsedPublication": "2026-09-22",
+          "evidenceRecordPublicationDate": "2026-09-22",
+          "evidenceRecordEconomicPeriod": "N/A (funding announcement)",
+          "currentArchivedEndpointState": {
+            "status": "not_modified",
+            "checkedAt": "2026-10-23T11:34:10.678781Z",
+            "errorCode": null
+          },
+          "distinctArchivedBodies": 3
+        }
+      ],
+      "checks": {
+        "entity": "supported",
+        "actionStatus": "supported",
+        "amounts": "supported",
+        "eventDate": "supported",
+        "qualifiers": "supported",
+        "sourcePeriod": "supported",
+        "primaryCitation": "supported"
+      },
+      "findings": "Published entity, action/status, values, qualifiers and period match archived primary text. Date is announcement/disclosure date unless source expressly states effective/completion date.",
+      "limitations": [
+        "Historical evidence only; no assertion of present endpoint accessibility or absence of later amendments.",
+        "Publication/disclosure date and economic/effective date remain separate. Accessibility alone is not factual support."
+      ],
+      "proposedCorrection": null
+    },
+    {
+      "id": "event:EV-delinea-1",
+      "supplierId": "delinea",
+      "published": {
+        "id": "EV-delinea-1",
+        "supplierId": "delinea",
+        "date": "2026-09-23",
+        "type": "exec-change",
+        "text": "Timothy Regan appointed Chief Financial Officer of Delinea.",
+        "evidenceIds": [
+          "TR-delinea-3"
+        ],
+        "rung": 2
+      },
+      "verdict": "supported",
+      "sourceEvidence": [
+        {
+          "evidenceId": "TR-delinea-3",
+          "url": "https://www.globenewswire.com/news-release/2026/09/23/3367539/0/en/delinea-appoints-timothy-regan-as-chief-financial-officer.html",
+          "observationId": "a0a4401f1b56e922ad6d87139acd3bce1574b3554a2020569683adc685472a2a",
+          "fetchedAt": "2026-10-20T21:41:49.979213Z",
+          "sourceVerifiedAt": null,
+          "bodySha256": "1ee7964205cbb0a6fd470e737643896fee9baa3dee0eeb49446b65c0bfc1d56a",
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/1ee7964205cbb0a6fd470e737643896fee9baa3dee0eeb49446b65c0bfc1d56a",
+          "bodyBytes": 72075,
+          "sourceType": "primary",
+          "relationship": "cited",
+          "support": {
+            "excerpts": [
+              " as Delinea scales its identity security platform for the AI era September 23, 2026 09:02 ET | Source: Delinea Delinea SAN FRANCISCO, Sept. 23, 2026 (GLOBE NEWSWIRE) -- Delinea , the identity security platform that continuously controls what AI agents, humans, and machines can do and for how long, today announced the appointment of Timothy Regan, CPA, as Chief Fi",
+              "umans, and machines can do and for how long, today announced the appointment of Timothy Regan, CPA, as Chief Financial Officer. Regan joins the executive team to sharpen Delinea's commercial and operational discipline as the company continues to scale. Regan brings more than two decades of financial leadership across high-growth technology companies. He most rece"
+            ],
+            "finding": "Direct text inspected; record findings state unsupported clauses."
+          },
+          "parsedPublication": "2026-09-23T13:02:00Z",
+          "evidenceRecordPublicationDate": "2026-09-23",
+          "evidenceRecordEconomicPeriod": "September 2026",
+          "currentArchivedEndpointState": {
+            "status": "blocked",
+            "checkedAt": "2026-10-23T11:34:11.001402Z",
+            "errorCode": "HTTP_403"
+          },
+          "distinctArchivedBodies": 3
+        }
+      ],
+      "checks": {
+        "entity": "supported",
+        "actionStatus": "supported",
+        "amounts": "not_applicable",
+        "eventDate": "supported",
+        "qualifiers": "supported",
+        "sourcePeriod": "supported",
+        "primaryCitation": "supported"
+      },
+      "findings": "Published entity, action/status, values, qualifiers and period match archived primary text. Date is announcement/disclosure date unless source expressly states effective/completion date.",
+      "limitations": [
+        "Historical evidence only; no assertion of present endpoint accessibility or absence of later amendments.",
+        "Publication/disclosure date and economic/effective date remain separate. Accessibility alone is not factual support."
+      ],
+      "proposedCorrection": null
+    },
+    {
+      "id": "event:EV-dragos-1",
+      "supplierId": "dragos",
+      "published": {
+        "id": "EV-dragos-1",
+        "supplierId": "dragos",
+        "date": "2026-06-18",
+        "type": "acquisition",
+        "text": "Accenture disclosed an agreement to acquire a majority stake in Dragos, along with all of runZero and NetRise, in a filing accompanying its Q3 FY2026 earnings, dated June 18, 2026.",
+        "evidenceIds": [
+          "TR-dragos-1"
+        ],
+        "rung": 4
+      },
+      "verdict": "insufficient",
+      "sourceEvidence": [
+        {
+          "evidenceId": "TR-dragos-1",
+          "url": "https://www.helpnetsecurity.com/2026/06/19/accenture-dragos-runzero-netrise-acquisition/",
+          "observationId": "a2daae9c9bf2a6612b381faa53f81fcbe5dd1e48813412c21ac092b0dbecb2e8",
+          "fetchedAt": "2026-10-23T04:14:54.485097Z",
+          "sourceVerifiedAt": null,
+          "bodySha256": "4f064faa6eadd6b219f0229264de2afb9d9bb05eb1f308ec694ed9db5591e08f",
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/4f064faa6eadd6b219f0229264de2afb9d9bb05eb1f308ec694ed9db5591e08f",
+          "bodyBytes": 87501,
+          "sourceType": "secondary",
+          "relationship": "cited",
+          "support": {
+            "excerpts": [
+              "al Accenture is expanding its position with the acquisition of a majority stake in Dragos and all of runZero and NetRise to deliver end-to-end operational technology (OT) security for the critical infrastructure and industrial operations underpinning power grids, pipelines, manufacturing, distribution facilities and data centers. The Dragos Platform will expand t"
+            ],
+            "finding": "Direct text inspected; record findings state unsupported clauses."
+          },
+          "parsedPublication": "2026-06-19T09:06:42+00:00",
+          "evidenceRecordPublicationDate": "2026-06-19",
+          "evidenceRecordEconomicPeriod": "N/A (acquisition announcement)",
+          "currentArchivedEndpointState": {
+            "status": "fetched",
+            "checkedAt": "2026-10-23T04:14:54.485097Z",
+            "errorCode": null
+          },
+          "distinctArchivedBodies": 5
+        },
+        {
+          "evidenceId": "TR-dragos-2",
+          "url": "https://newsroom.accenture.com/news/2026/accenture-to-strengthen-critical-infrastructure-defense-with-end-to-end-cybersecurity-platform-in-age-of-ai-driven-cyber-threats-and-geopolitical-risk",
+          "observationId": "c24c9a218f6a2db633008327371adeae0e504a0ee0fa920c2ace005b1d113e41",
+          "fetchedAt": "2026-10-23T04:15:10.750960Z",
+          "sourceVerifiedAt": null,
+          "bodySha256": "ab18c124828060eff9fcc89bb35b66a94169b05d1fbd43186592621085d702e5",
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/ab18c124828060eff9fcc89bb35b66a94169b05d1fbd43186592621085d702e5",
+          "bodyBytes": 22107,
+          "sourceType": "primary",
+          "relationship": "supplemental_existing_evidence",
+          "support": {
+            "excerpts": [
+              "ed on July 31, 2026, the majority investment in Dragos closed on September 16, 2026 and the acquisition of runZero closed on September 17, 2026. As part of the closing terms, NetRise and runZero have been acquired by Dragos.) NEW YORK; June 18, 2026 – Building on its $10 billion cybersecurity business, Accenture (NYSE: ACN) is expanding its position with the acqu",
+              "d on September 16, 2026 and the acquisition of runZero closed on September 17, 2026. As part of the closing terms, NetRise and runZero have been acquired by Dragos.) NEW YORK; June 18, 2026 – Building on its $10 billion cybersecurity business, Accenture (NYSE: ACN) is expanding its position with the acquisition of a majority stake in Dragos and all of runZero and",
+              "026 and the acquisition of runZero closed on September 17, 2026. As part of the closing terms, NetRise and runZero have been acquired by Dragos.) NEW YORK; June 18, 2026 – Building on its $10 billion cybersecurity business, Accenture (NYSE: ACN) is expanding its position with the acquisition of a majority stake in Dragos and all of runZero and NetRise to deliver "
+            ],
+            "finding": "Direct text inspected; record findings state unsupported clauses."
+          },
+          "parsedPublication": null,
+          "evidenceRecordPublicationDate": "2026-09-16",
+          "evidenceRecordEconomicPeriod": "June 2026 announcement; closing note September 2026",
+          "currentArchivedEndpointState": {
+            "status": "not_modified",
+            "checkedAt": "2026-10-23T04:15:10.750960Z",
+            "errorCode": null
+          },
+          "distinctArchivedBodies": 2
+        }
+      ],
+      "checks": {
+        "entity": "supported",
+        "actionStatus": "insufficient",
+        "amounts": "not_applicable",
+        "eventDate": "supported",
+        "qualifiers": "supported",
+        "sourcePeriod": "supported",
+        "primaryCitation": "insufficient"
+      },
+      "findings": "Current HelpNetSecurity citation is secondary datedJune19. Archived Accenture release supports June18 agreement/parties, but does not establish that this appeared in an earnings-accompanying filing.",
+      "limitations": [
+        "Historical evidence only; no assertion of present endpoint accessibility or absence of later amendments.",
+        "Publication/disclosure date and economic/effective date remain separate. Accessibility alone is not factual support."
+      ],
+      "proposedCorrection": {
+        "action": "Cite archived Accenture release and remove filing-accompanying-earnings clause unless the actual filing is retained.",
+        "approvalNeeded": false,
+        "requiresNewSources": false
+      }
+    },
+    {
+      "id": "event:EV-hiddenlayer-1",
+      "supplierId": "hiddenlayer",
+      "published": {
+        "id": "EV-hiddenlayer-1",
+        "supplierId": "hiddenlayer",
+        "date": "2026-09-02",
+        "type": "funding",
+        "text": "HiddenLayer raised a $100 million Series B round led by Delta-v Capital, with participation from Ten Eleven Ventures, Morgan Stanley, M12, and Booz Allen Ventures, and reported signing more than 50 new platform customers.",
+        "evidenceIds": [
+          "TR-hiddenlayer-1"
+        ],
+        "rung": 4
+      },
+      "verdict": "supported",
+      "sourceEvidence": [
+        {
+          "evidenceId": "TR-hiddenlayer-1",
+          "url": "https://www.hiddenlayer.com/news/hiddenlayer-100m-series-b-ai-security",
+          "observationId": "9d6e84643599fe17375d6dbe108cc8fcd45edd703ec6bdefeec7857216d8065e",
+          "fetchedAt": "2026-10-23T11:34:08.926736Z",
+          "sourceVerifiedAt": null,
+          "bodySha256": "27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718",
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718",
+          "bodyBytes": 212853,
+          "sourceType": "primary",
+          "relationship": "cited",
+          "support": {
+            "excerpts": [
+              "c, generative, and predictive AI applications, today announced a $100 million Series B funding round led by Delta-v Capital , with participation from Ten Eleven Ventures , Morgan Stanley , M12, Microsoft's Venture Fund , and Booz Allen Ventures . The company will use the funding to deepen its enterprise platform, including its Agentic Runtime Security capabilitie",
+              "ing revenue grew more than 10x, and the company signed more than 50 new platform customers, including some of the largest names in securities brokerage, banking, insurance, accounting, government, technology, IT services, pharmaceuticals, airlines, and the US defense and intelligence communities. Internationally, new customers included one of the world's largest "
+            ],
+            "finding": "Direct text inspected; record findings state unsupported clauses."
+          },
+          "parsedPublication": "2026-09-02",
+          "evidenceRecordPublicationDate": "2026-09-02",
+          "evidenceRecordEconomicPeriod": "N/A (funding announcement)",
+          "currentArchivedEndpointState": {
+            "status": "not_modified",
+            "checkedAt": "2026-10-23T11:34:08.926736Z",
+            "errorCode": null
+          },
+          "distinctArchivedBodies": 1
+        }
+      ],
+      "checks": {
+        "entity": "supported",
+        "actionStatus": "supported",
+        "amounts": "supported",
+        "eventDate": "supported",
+        "qualifiers": "supported",
+        "sourcePeriod": "supported",
+        "primaryCitation": "supported"
+      },
+      "findings": "Published entity, action/status, values, qualifiers and period match archived primary text. Date is announcement/disclosure date unless source expressly states effective/completion date.",
+      "limitations": [
+        "Historical evidence only; no assertion of present endpoint accessibility or absence of later amendments.",
+        "Publication/disclosure date and economic/effective date remain separate. Accessibility alone is not factual support."
+      ],
+      "proposedCorrection": null
+    },
+    {
+      "id": "event:EV-jfrog-1",
+      "supplierId": "jfrog",
+      "published": {
+        "id": "EV-jfrog-1",
+        "supplierId": "jfrog",
+        "date": "2026-08-06",
+        "type": "results",
+        "text": "JFrog reported Q2 2026 revenue of $163.8 million, up 29% year over year, including cloud revenue of $87.5 million, up 53% year over year and equal to 53% of total revenue.",
+        "evidenceIds": [
+          "TR-jfrog-1"
+        ],
+        "rung": 1
+      },
+      "verdict": "supported",
+      "sourceEvidence": [
+        {
+          "evidenceId": "TR-jfrog-1",
+          "url": "https://investors.jfrog.com/news/news-details/2026/JFrog-Announces-Second-Quarter-2026-Results/default.aspx",
+          "observationId": "0f9ed40d38d1aa5018d59bd08ed43e78f211775777de01ead66034b5adebae60",
+          "fetchedAt": "2026-10-23T04:15:09.384404Z",
+          "sourceVerifiedAt": null,
+          "bodySha256": "d4b3f869f367be9e1195f49b15e6474a103ea45956cc5119dcdad6cbbfc7d2fc",
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/d4b3f869f367be9e1195f49b15e6474a103ea45956cc5119dcdad6cbbfc7d2fc",
+          "bodyBytes": 415271,
+          "sourceType": "primary",
+          "relationship": "cited",
+          "support": {
+            "excerpts": [
+              " Download (opens in new window) Total Second Quarter Revenues of $163.8 million; up 29% Year-over-Year Second Quarter Cloud Revenues of $87.5 million; up 53% Year-over-Year Customers with ARR greater than $1 million equaled 97, up 59% Year-over-Year Trailing four quarter Net Dollar Retention equaled 121% versus 118% in prior year SUNNYVALE, Calif.--(BUSINESS WIRE",
+              " million; up 29% Year-over-Year Second Quarter Cloud Revenues of $87.5 million; up 53% Year-over-Year Customers with ARR greater than $1 million equaled 97, up 59% Year-over-Year Trailing four quarter Net Dollar Retention equaled 121% versus 118% in prior year SUNNYVALE, Calif.--(BUSINESS WIRE)-- JFrog Ltd (Nasdaq: FROG), the Liquid Software company and creators ",
+              "26, an increase of 53% year-over-year. Cloud revenue represented 53% of total revenue, compared to 45% in the year-ago period. Net Dollar Retention rate for the trailing four quarters was 121%, driven by growing demand for software supply chain security solutions and cloud consumption. Customers with greater than $1 million ARR increased to 97, up from 61 in the "
+            ],
+            "finding": "Direct text inspected; record findings state unsupported clauses."
+          },
+          "parsedPublication": "2026-08-06T15:05:00Z",
+          "evidenceRecordPublicationDate": "2026-08-06",
+          "evidenceRecordEconomicPeriod": "Q2 2026 (quarter ended 2026-06-30)",
+          "currentArchivedEndpointState": {
+            "status": "fetched",
+            "checkedAt": "2026-10-23T04:15:09.384404Z",
+            "errorCode": null
+          },
+          "distinctArchivedBodies": 3
+        }
+      ],
+      "checks": {
+        "entity": "supported",
+        "actionStatus": "supported",
+        "amounts": "supported",
+        "eventDate": "supported",
+        "qualifiers": "supported",
+        "sourcePeriod": "supported",
+        "primaryCitation": "supported"
+      },
+      "findings": "Published entity, action/status, values, qualifiers and period match archived primary text. Date is announcement/disclosure date unless source expressly states effective/completion date.",
+      "limitations": [
+        "Historical evidence only; no assertion of present endpoint accessibility or absence of later amendments.",
+        "Publication/disclosure date and economic/effective date remain separate. Accessibility alone is not factual support."
+      ],
+      "proposedCorrection": null
+    },
+    {
+      "id": "event:EV-lakera-1",
+      "supplierId": "lakera",
+      "published": {
+        "id": "EV-lakera-1",
+        "supplierId": "lakera",
+        "date": "2025-12-31",
+        "type": "acquisition",
+        "text": "Check Point Software Technologies completed its acquisition of Lakera AI during the fourth quarter of 2025, for approximately $190 million in net cash consideration.",
+        "evidenceIds": [
+          "TR-lakera-1"
+        ],
+        "rung": 1
+      },
+      "verdict": "insufficient",
+      "sourceEvidence": [
+        {
+          "evidenceId": "TR-lakera-1",
+          "url": "https://www.sec.gov/Archives/edgar/data/1015922/000117891326000437/zk2634351.htm",
+          "observationId": "a6c14e4baaf49d4db9620dc471831380f8df9b0d214c37e04b2b0596a98fa27d",
+          "fetchedAt": "2026-10-23T04:14:50.521723Z",
+          "sourceVerifiedAt": null,
+          "bodySha256": "cccc1c26093c59405c39999f4d73979a09f84b013cf84d0e8c07240c5c55db8a",
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/cccc1c26093c59405c39999f4d73979a09f84b013cf84d0e8c07240c5c55db8a",
+          "bodyBytes": 451006,
+          "sourceType": "primary",
+          "relationship": "cited",
+          "support": {
+            "excerpts": [
+              "rts Fourth Quarter and 2025 Full Year Results Tel Aviv, Israel – February 12, 2026 — Check Point® Software Technologies Ltd. (NASDAQ: CHKP), today announced its financial results for the fourth quarter and full year ended December 31, 2025. Fourth Quarter 2025 Highlights • Calculated Billings* reached $1,039 million, an 8 percent increase year over year • Remaini",
+              "otes offering net of issuance costs and purchase of capped call. During the fourth quarter of 2025 we completed the acquisition of Lakera AI for approximately $190 million net cash consideration. • Share Repurchase Program: During the fourth quarter of 2025, the company repurchased approximately 2.2 million shares for a total of approximately $425 million, which "
+            ],
+            "finding": "Direct text inspected; record findings state unsupported clauses."
+          },
+          "parsedPublication": null,
+          "evidenceRecordPublicationDate": "2026-01-01",
+          "evidenceRecordEconomicPeriod": "FY2025 full year",
+          "currentArchivedEndpointState": {
+            "status": "not_modified",
+            "checkedAt": "2026-10-23T04:14:50.521723Z",
+            "errorCode": null
+          },
+          "distinctArchivedBodies": 1
+        }
+      ],
+      "checks": {
+        "entity": "supported",
+        "actionStatus": "supported",
+        "amounts": "supported",
+        "eventDate": "insufficient",
+        "qualifiers": "supported",
+        "sourcePeriod": "supported",
+        "primaryCitation": "supported",
+        "publicationDate": "contradicted"
+      },
+      "findings": "Source supports Q4 completion and approximate190m net cash, not exactDecember31 closing. Its earnings-release dateline is February12,2026, contradicting evidence publicationDate January1,2026.",
+      "limitations": [
+        "Historical evidence only; no assertion of present endpoint accessibility or absence of later amendments.",
+        "Publication/disclosure date and economic/effective date remain separate. Accessibility alone is not factual support."
+      ],
+      "proposedCorrection": {
+        "action": "Correct evidence publicationDate to February12,2026. Preserve Q4 closing precision; quarter-endDecember31 is not an established closing day.",
+        "approvalNeeded": false,
+        "requiresNewSources": false
+      }
+    },
+    {
+      "id": "event:EV-mimecast-1",
+      "supplierId": "mimecast",
+      "published": {
+        "id": "EV-mimecast-1",
+        "supplierId": "mimecast",
+        "date": "2026-06-25",
+        "type": "exec-change",
+        "text": "Ranjan Singh appointed CEO effective June 25, 2026, succeeding Marc van Zadelhoff.",
+        "evidenceIds": [
+          "TR-mimecast-2"
+        ],
+        "rung": 2
+      },
+      "verdict": "insufficient",
+      "sourceEvidence": [
+        {
+          "evidenceId": "TR-mimecast-2",
+          "url": "https://www.mimecast.com/resources/press-releases/",
+          "observationId": "70b211deea8f03d8bb0bfa8aa6e90a45a6b24be40cb857b21190226317256581",
+          "fetchedAt": "2026-10-23T04:14:53.372742Z",
+          "sourceVerifiedAt": null,
+          "bodySha256": "e521b506e0657f63c0251ebc86a5a2b91f6044021c27c94272816a925134ecb1",
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/e521b506e0657f63c0251ebc86a5a2b91f6044021c27c94272816a925134ecb1",
+          "bodyBytes": 204116,
+          "sourceType": "primary",
+          "relationship": "cited",
+          "support": {
+            "excerpts": [
+              " Agent Risk Center and Managed Threat Response at Black Hat 2026 Jun 25, 2026 Mimecast Appoints Ranjan Singh as Chief Executive Officer Jun 10, 2026 Mimecast Takes Top Honors in Two Categories at SC Awards Europe 2026 May 21, 2026 Mimecast Extends Governance Platform to AI Systems with Addition of Claude Enterprise Mar 24, 2026 Mimecast Introduces Runtime Data Se",
+              "ounced that Ranjan Singh has been named Chief Executive Officer, effective immediately, to lead the company’s next phase of execution and platform-led growth. Singh succeeds Marc van Zadelhoff, who transformed Mimecast from a leader in email security into a unified human, data and AI risk platform during his time as CEO. Van Zade... Read more 2,000+ Employees 42,",
+              "d the company’s next phase of execution and platform-led growth. Singh succeeds Marc van Zadelhoff, who transformed Mimecast from a leader in email security into a unified human, data and AI risk platform during his time as CEO. Van Zade... Read more 2,000+ Employees 42,000+ Customers Worldwide 27M End users protected Announcements Filters Month January February "
+            ],
+            "finding": "Direct text inspected; record findings state unsupported clauses."
+          },
+          "parsedPublication": null,
+          "evidenceRecordPublicationDate": "2026-06-25",
+          "evidenceRecordEconomicPeriod": "June 2026",
+          "currentArchivedEndpointState": {
+            "status": "fetched",
+            "checkedAt": "2026-10-23T04:14:53.372742Z",
+            "errorCode": null
+          },
+          "distinctArchivedBodies": 11
+        }
+      ],
+      "checks": {
+        "entity": "supported",
+        "actionStatus": "supported",
+        "amounts": "not_applicable",
+        "eventDate": "insufficient",
+        "qualifiers": "supported",
+        "sourcePeriod": "supported",
+        "primaryCitation": "insufficient"
+      },
+      "findings": "Multi-entry primary index associates a June25 card with CEO announcement and effective immediately. It does not bind original article publication/effective date unambiguously.",
+      "limitations": [
+        "Historical evidence only; no assertion of present endpoint accessibility or absence of later amendments.",
+        "Publication/disclosure date and economic/effective date remain separate. Accessibility alone is not factual support."
+      ],
+      "proposedCorrection": {
+        "action": "Resolve original archived CEO article/card identity and date before asserting exact effective date; preserve index announcement attribution.",
+        "approvalNeeded": false,
+        "requiresNewSources": true
+      }
+    },
+    {
+      "id": "event:EV-chainguard-1",
+      "supplierId": "chainguard",
+      "published": {
+        "id": "EV-chainguard-1",
+        "supplierId": "chainguard",
+        "date": "2025-10-23",
+        "type": "funding",
+        "text": "Chainguard raised $280 million in growth financing led by General Catalyst's Customer Value Fund.",
+        "evidenceIds": [
+          "TR-chainguard-1"
+        ],
+        "rung": 4
+      },
+      "verdict": "insufficient",
+      "sourceEvidence": [
+        {
+          "evidenceId": "TR-chainguard-1",
+          "url": "https://siliconangle.com/2025/10/23/chainguard-secures-280m-expand-trusted-open-source-software-platform/",
+          "observationId": "53f321b0f4a4ed24f4acd58a1bb6102e598c78344db0824e98b0b9b4c1c7ac9e",
+          "fetchedAt": "2026-10-23T04:15:00.787376Z",
+          "sourceVerifiedAt": null,
+          "bodySha256": "a6dac146414c931a89a1658aefe36f1a002f079fe88b114b417ae8fdf6e879f2",
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/a6dac146414c931a89a1658aefe36f1a002f079fe88b114b417ae8fdf6e879f2",
+          "bodyBytes": 178908,
+          "sourceType": "secondary",
+          "relationship": "cited",
+          "support": {
+            "excerpts": [
+              "ution provider Chainguard Inc. revealed today that it has raised $280 million in new funding to help meet growing demand and accelerate its mission to make open-source software trustworthy by default. Founded in 2021, Chainguard helps organizations build, deploy and run open-source software with minimized risk from vulnerabilities and supply chain attacks. The co",
+              "want with it.” The growth financing came from General Catalyst’s Customer Value Fund. “Chainguard is defining a new category at the heart of modern infrastructure: trusted open-source software,” said Pranav Singhvi, managing director and co-head of CVF. “By solving one of the most pressing challenges in software development and deployment, the company is setting "
+            ],
+            "finding": "Direct text inspected; record findings state unsupported clauses."
+          },
+          "parsedPublication": "2025-10-23T23:02:11+00:00",
+          "evidenceRecordPublicationDate": "2025-10-23",
+          "evidenceRecordEconomicPeriod": "N/A (funding announcement)",
+          "currentArchivedEndpointState": {
+            "status": "fetched",
+            "checkedAt": "2026-10-23T04:15:00.787376Z",
+            "errorCode": null
+          },
+          "distinctArchivedBodies": 4
+        },
+        {
+          "evidenceId": null,
+          "url": "https://www.prnewswire.com/news-releases/chainguard-announces-280-million-growth-financing-from-general-catalyst-to-usher-in-next-era-of-trusted-open-source-software-302592279.html",
+          "observationId": "10535f0d9eb2870c5734d26099878d392ce2f2a40a0729174bd9b6d5d7c1d274",
+          "fetchedAt": "2026-10-23T04:14:59.639245Z",
+          "sourceVerifiedAt": null,
+          "bodySha256": "7d8b539bddfc8d8fb62460541f1b04ce1f309277595a4482d535a9c942f4c282",
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/7d8b539bddfc8d8fb62460541f1b04ce1f309277595a4482d535a9c942f4c282",
+          "bodyBytes": 219070,
+          "sourceType": "primary",
+          "relationship": "supplemental_archived_primary",
+          "support": {
+            "excerpts": [
+              "Chainguard Announces $280 Million Growth Financing from General Catalyst to Usher in Next Era of Trusted Open Source Software News provided by Chainguard Oct 23, 2025, 11:00 ET Share this article Share to X Share this article Share to X With the strategic capital from General Catalyst's Customer Value Fund (CVF), Chaing",
+              "le Share to X With the strategic capital from General Catalyst's Customer Value Fund (CVF), Chainguard has secured $636 million in the last six months and $892 million in total over time KIRKLAND, Wash. , Oct. 23, 2025 /PRNewswire/ -- Chainguard , the trusted source for open source, today announced $280 million in growth financing from General Catalyst's Customer"
+            ],
+            "finding": "Direct text inspected; record findings state unsupported clauses."
+          },
+          "parsedPublication": "2025-10-23T11:00:00-04:00",
+          "evidenceRecordPublicationDate": null,
+          "evidenceRecordEconomicPeriod": null,
+          "currentArchivedEndpointState": {
+            "status": "not_modified",
+            "checkedAt": "2026-10-23T04:14:59.639245Z",
+            "errorCode": null
+          },
+          "distinctArchivedBodies": 1
+        }
+      ],
+      "checks": {
+        "entity": "supported",
+        "actionStatus": "supported",
+        "amounts": "supported",
+        "eventDate": "supported",
+        "qualifiers": "supported",
+        "sourcePeriod": "supported",
+        "primaryCitation": "insufficient"
+      },
+      "findings": "Current citation is secondary. Supplemental archived company-distributed PRNewswire release supports280m, October23,2025 and GeneralCatalyst CustomerValueFund.",
+      "limitations": [
+        "Historical evidence only; no assertion of present endpoint accessibility or absence of later amendments.",
+        "Publication/disclosure date and economic/effective date remain separate. Accessibility alone is not factual support."
+      ],
+      "proposedCorrection": {
+        "action": "Replace/add citation to archived Chainguard PRNewswire primary release; content supported there but current provenance needs repair.",
+        "approvalNeeded": false,
+        "requiresNewSources": false
+      }
+    },
+    {
+      "id": "event:EV-claroty-1",
+      "supplierId": "claroty",
+      "published": {
+        "id": "EV-claroty-1",
+        "supplierId": "claroty",
+        "date": "2026-01-22",
+        "type": "funding",
+        "text": "Claroty raised $150 million in growth equity led by Golub Growth at a $3 billion valuation.",
+        "evidenceIds": [
+          "TR-claroty-1"
+        ],
+        "rung": 4
+      },
+      "verdict": "primary_source_missing",
+      "sourceEvidence": [
+        {
+          "evidenceId": "TR-claroty-1",
+          "url": "https://siliconangle.com/2026/01/22/industrial-cybersecurity-startup-claroty-nabs-150m-funding-round/",
+          "observationId": "50b293869f7999f08fc0c4679522aa88a455d90f276280065e045aa70e48bd0c",
+          "fetchedAt": "2026-10-23T11:34:07.026023Z",
+          "sourceVerifiedAt": null,
+          "bodySha256": "c36419624fbbd03cfd5a08f6aaf7aa18e290679ec6eac54579734917bfe312db",
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/c36419624fbbd03cfd5a08f6aaf7aa18e290679ec6eac54579734917bfe312db",
+          "bodyBytes": 178531,
+          "sourceType": "secondary",
+          "relationship": "cited",
+          "support": {
+            "excerpts": [
+              "ies protect their industrial equipment from hackers, has secured $150 million in new funding. Golub Growth led the investment with participation from several unnamed returning backers. Calcalist reported today that the raise boosted Claroty’s valuation by 80%, to $3 billion. According to the publication, the company’s annual revenue is in the hundreds of millions",
+              "equipment from hackers, has secured $150 million in new funding. Golub Growth led the investment with participation from several unnamed returning backers. Calcalist reported today that the raise boosted Claroty’s valuation by 80%, to $3 billion. According to the publication, the company’s annual revenue is in the hundreds of millions of dollars. Many cybersecuri",
+              "tment with participation from several unnamed returning backers. Calcalist reported today that the raise boosted Claroty’s valuation by 80%, to $3 billion. According to the publication, the company’s annual revenue is in the hundreds of millions of dollars. Many cybersecurity applications collect data on malicious activity by querying the systems they’re protecti"
+            ],
+            "finding": "Direct text inspected; record findings state unsupported clauses."
+          },
+          "parsedPublication": "2026-01-22T21:34:12+00:00",
+          "evidenceRecordPublicationDate": "2026-01-22",
+          "evidenceRecordEconomicPeriod": "N/A (funding announcement)",
+          "currentArchivedEndpointState": {
+            "status": "fetched",
+            "checkedAt": "2026-10-23T11:34:07.026023Z",
+            "errorCode": null
+          },
+          "distinctArchivedBodies": 5
+        }
+      ],
+      "checks": {
+        "entity": "supported",
+        "actionStatus": "supported",
+        "amounts": "insufficient",
+        "eventDate": "supported",
+        "qualifiers": "supported",
+        "sourcePeriod": "supported",
+        "primaryCitation": "primary_source_missing"
+      },
+      "findings": "Only archived SiliconANGLE supports this event;3b valuation is itself attributed to Calcalist, not archived company/investor primary evidence.",
+      "limitations": [
+        "Historical evidence only; no assertion of present endpoint accessibility or absence of later amendments.",
+        "Publication/disclosure date and economic/effective date remain separate. Accessibility alone is not factual support."
+      ],
+      "proposedCorrection": {
+        "action": "Await original Claroty/Golub primary evidence and explicit valuation support; retain secondary attribution/uncertainty.",
+        "approvalNeeded": false,
+        "requiresNewSources": true
+      }
+    },
+    {
+      "id": "event:EV-arctic-wolf-1",
+      "supplierId": "arctic-wolf",
+      "published": {
+        "id": "EV-arctic-wolf-1",
+        "supplierId": "arctic-wolf",
+        "date": "2026-02-23",
+        "type": "acquisition",
+        "text": "Arctic Wolf announced it acquired Sevco Security, an exposure assessment platform provider. Sevco's technology will operate on the Arctic Wolf Aurora Platform.",
+        "evidenceIds": [
+          "TR-arctic-wolf-1"
+        ],
+        "rung": 4
+      },
+      "verdict": "insufficient",
+      "sourceEvidence": [
+        {
+          "evidenceId": "TR-arctic-wolf-1",
+          "url": "https://arcticwolf.com/resources/press-releases/arctic-wolf-acquires-exposure-assessment-platform-visionary-sevco-security/",
+          "observationId": "6da9321964c01596845230156794f77d6a098ed82995ac16efb8b16ebcdf235f",
+          "fetchedAt": "2026-10-23T04:14:55.201426Z",
+          "sourceVerifiedAt": null,
+          "bodySha256": "b48c4f8da74ef2df17168e0f8336c9f3a0ef932e05d67da4640e20ff042a3afe",
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/b48c4f8da74ef2df17168e0f8336c9f3a0ef932e05d67da4640e20ff042a3afe",
+          "bodyBytes": 336339,
+          "sourceType": "primary",
+          "relationship": "cited",
+          "support": {
+            "excerpts": [
+              "Arctic Wolf Unveils Next-Generation Endpoint Security Solution for the AI Era READ MORE ❯ October 14, 2026 Arctic Wolf Raises the Industry Standard for Trusted AI Security with SwarmView READ MORE ❯ October 14, 2026 Arctic Wolf Expands the Aurora Superintelligence Platform to Deliver AI Visibility, "
+            ],
+            "finding": "Direct text inspected; record findings state unsupported clauses."
+          },
+          "parsedPublication": "2026-02-23T16:59:22+00:00",
+          "evidenceRecordPublicationDate": "2026-02-23",
+          "evidenceRecordEconomicPeriod": "February 2026",
+          "currentArchivedEndpointState": {
+            "status": "not_modified",
+            "checkedAt": "2026-10-23T04:14:55.201426Z",
+            "errorCode": null
+          },
+          "distinctArchivedBodies": 1
+        },
+        {
+          "evidenceId": null,
+          "url": "https://arcticwolf.com/resources/blog/welcoming-sevco-security-expanding-the-aurora-platform-with-visionary-exposure-management/",
+          "observationId": "1dbe725f9440edbe14e3576d63509f9cafa0af154197ce6177b6dc76706ca7ca",
+          "fetchedAt": "2026-10-20T22:02:34.898932Z",
+          "sourceVerifiedAt": null,
+          "bodySha256": "a57d25706097942bdd38d8e67bbb0632582b8c967cf1ad42492934c138f1e781",
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/a57d25706097942bdd38d8e67bbb0632582b8c967cf1ad42492934c138f1e781",
+          "bodyBytes": 346752,
+          "sourceType": "primary",
+          "relationship": "supplemental_archived_primary",
+          "support": {
+            "excerpts": [
+              " That shift toward proactive security is exactly why Arctic Wolf has acquired Sevco Security, who is also recognized as a Visionary in the 2025 Gartner® Magic Quadrant™ for Exposure Assessment Platforms. 1 Why exposure management matters now Organizations can’t end cyber risk if they don’t know what assets exist, where they reside, or how they’re exposed. Yet, mo",
+              "Expanding the Aurora Platform with Visionary Exposure Management February 23, 2026 by Dan Schiappa 6 min read In this article: Select By Dan Schiappa, President, Technology and Services, Arctic Wolf Security operations is undergoing a fundamental shift. For years, organizations have focused primarily on detecting and responding to threats after they occur. But as"
+            ],
+            "finding": "Direct text inspected; record findings state unsupported clauses."
+          },
+          "parsedPublication": "2026-02-23T16:59:04+00:00",
+          "evidenceRecordPublicationDate": null,
+          "evidenceRecordEconomicPeriod": null,
+          "currentArchivedEndpointState": {
+            "status": "fetched",
+            "checkedAt": "2026-10-20T22:02:34.898932Z",
+            "errorCode": null
+          },
+          "distinctArchivedBodies": 1
+        }
+      ],
+      "checks": {
+        "entity": "supported",
+        "actionStatus": "supported",
+        "amounts": "not_applicable",
+        "eventDate": "supported",
+        "qualifiers": "supported",
+        "sourcePeriod": "supported",
+        "primaryCitation": "insufficient"
+      },
+      "findings": "Exact cited press-release body isHTTP200 but has no Sevco text. Separate archived ArcticWolf executive blog says has acquired Sevco and discusses Aurora on February23,2026.",
+      "limitations": [
+        "Historical evidence only; no assertion of present endpoint accessibility or absence of later amendments.",
+        "Publication/disclosure date and economic/effective date remain separate. Accessibility alone is not factual support."
+      ],
+      "proposedCorrection": {
+        "action": "Replace/add primary citation to archived executive blog; date is announcement date, not an independently established precise closing time.",
+        "approvalNeeded": false,
+        "requiresNewSources": false
+      }
+    },
+    {
+      "id": "event:EV-armis-2",
+      "supplierId": "armis",
+      "published": {
+        "id": "EV-armis-2",
+        "supplierId": "armis",
+        "date": "2026-01-28",
+        "type": "acquisition",
+        "text": "ServiceNow's fourth-quarter 2025 results release states that ServiceNow announced its intent to acquire Armis, and that the transaction was expected to close in the second half of 2026.",
+        "evidenceIds": [
+          "TR-armis-2"
+        ],
+        "rung": 1
+      },
+      "verdict": "supported",
+      "sourceEvidence": [
+        {
+          "evidenceId": "TR-armis-2",
+          "url": "https://www.sec.gov/Archives/edgar/data/1373715/000137371526000005/erq4fy25.htm",
+          "observationId": "09ff6a21e41c52214974f5b692a217fde5e48d482076fbab49c33d675065ff5f",
+          "fetchedAt": "2026-10-23T04:15:05.418088Z",
+          "sourceVerifiedAt": null,
+          "bodySha256": "96610c8982aa418429a462da52e03ac26ff9c06dae0112e4372e4d99ec45d49e",
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/96610c8982aa418429a462da52e03ac26ff9c06dae0112e4372e4d99ec45d49e",
+          "bodyBytes": 581648,
+          "sourceType": "primary",
+          "relationship": "cited",
+          "support": {
+            "excerpts": [
+              "support on one platform. Acquisitions • ServiceNow announced its intent to acquire Armis to create a unified, end-to-end security exposure and operations stack to help customers defend against AI-powered attacks with greater confidence and speed. The acquisition will accelerate ServiceNow’s roadmap to autonomous, proactive cybersecurity, and is expected to more t",
+              "Os as they adopt AI. The transaction is expected to close in the second half of 2026. • ServiceNow also announced its intent to acquire Veza to strengthen identity security as organizations adopt autonomous, AI-driven workflows. The acquisition will enhance customers’ ability to see and manage access across people, applications, data, cloud environments, and AI a"
+            ],
+            "finding": "Direct text inspected; record findings state unsupported clauses."
+          },
+          "parsedPublication": null,
+          "evidenceRecordPublicationDate": "2026-01-28",
+          "evidenceRecordEconomicPeriod": "Q4 FY2025",
+          "currentArchivedEndpointState": {
+            "status": "not_modified",
+            "checkedAt": "2026-10-23T04:15:05.418088Z",
+            "errorCode": null
+          },
+          "distinctArchivedBodies": 1
+        }
+      ],
+      "checks": {
+        "entity": "supported",
+        "actionStatus": "supported",
+        "amounts": "not_applicable",
+        "eventDate": "supported",
+        "qualifiers": "supported",
+        "sourcePeriod": "supported",
+        "primaryCitation": "supported"
+      },
+      "findings": "Published entity, action/status, values, qualifiers and period match archived primary text. Date is announcement/disclosure date unless source expressly states effective/completion date.",
+      "limitations": [
+        "Historical evidence only; no assertion of present endpoint accessibility or absence of later amendments.",
+        "Publication/disclosure date and economic/effective date remain separate. Accessibility alone is not factual support."
+      ],
+      "proposedCorrection": null
+    },
+    {
+      "id": "event:EV-checkpoint-4",
+      "supplierId": "checkpoint-sase",
+      "published": {
+        "id": "EV-checkpoint-4",
+        "supplierId": "checkpoint-sase",
+        "date": "2025-12-08",
+        "type": "debt",
+        "text": "Check Point closed its offering of $2.0 billion aggregate principal amount of 0.00% convertible senior notes due 2030, including $250 million of additional notes. The Form 6-K states net proceeds were approximately $1.97 billion.",
+        "evidenceIds": [
+          "TR-checkpoint-5"
+        ],
+        "rung": 1
+      },
+      "verdict": "supported",
+      "sourceEvidence": [
+        {
+          "evidenceId": "TR-checkpoint-5",
+          "url": "https://www.sec.gov/Archives/edgar/data/1015922/000117891325004030/zk2534094.htm",
+          "observationId": "265257237110d3c7eada63a363a0a42c72a6fc0d1cf5fa71dceb10d7364d2699",
+          "fetchedAt": "2026-10-23T04:15:09.250598Z",
+          "sourceVerifiedAt": null,
+          "bodySha256": "99fd41f785699aa0fc9fb4ea0baa79249c0953a5391c9aca86f1e5c0adb55b3c",
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/99fd41f785699aa0fc9fb4ea0baa79249c0953a5391c9aca86f1e5c0adb55b3c",
+          "bodyBytes": 26715,
+          "sourceType": "primary",
+          "relationship": "cited",
+          "support": {
+            "excerpts": [
+              "Form 20-F or Form 40-F. Form 20-F ☒ Form 40-F ☐ EXPLANATORY NOTE On December 8, 2025, Check Point Software Technologies Ltd. (NASDAQ:CHKP) (the “Company”) closed the previously announced offering of $1.75 billion principal amount of 0.00% convertible senior notes due 2030 in a private offering to qualified institutional buyers pursuant to Rule 144A under the Secu",
+              "oceeds from the sale of the Convertible Notes were approximately $1.97 billion, after deducting the Initial Purchasers’ discounts and the estimated offering expenses payable by the Company. The Company will use (i) $192.0 million of the net proceeds from the sale of the Convertible Notes to pay the costs of the Capped Call Transactions (as defined below), and (ii",
+              "rities Act of 1933, as amended (the “Securities Act”), including $250 million of Additional Convertible Notes (as defined below) pursuant to the 13-day option of the Initial Purchasers (as defined below), resulting in a total principal amount of $2.0 billion. PURCHASE AGREEMENT On December 3, 2025, the Company entered into a purchase agreement (the “Purchase Agre"
+            ],
+            "finding": "Direct text inspected; record findings state unsupported clauses."
+          },
+          "parsedPublication": null,
+          "evidenceRecordPublicationDate": "2025-12-08",
+          "evidenceRecordEconomicPeriod": "December 2025",
+          "currentArchivedEndpointState": {
+            "status": "not_modified",
+            "checkedAt": "2026-10-23T04:15:09.250598Z",
+            "errorCode": null
+          },
+          "distinctArchivedBodies": 1
+        }
+      ],
+      "checks": {
+        "entity": "supported",
+        "actionStatus": "supported",
+        "amounts": "supported",
+        "eventDate": "supported",
+        "qualifiers": "supported",
+        "sourcePeriod": "supported",
+        "primaryCitation": "supported"
+      },
+      "findings": "Published entity, action/status, values, qualifiers and period match archived primary text. Date is announcement/disclosure date unless source expressly states effective/completion date.",
+      "limitations": [
+        "Historical evidence only; no assertion of present endpoint accessibility or absence of later amendments.",
+        "Publication/disclosure date and economic/effective date remain separate. Accessibility alone is not factual support."
+      ],
+      "proposedCorrection": null
+    },
+    {
+      "id": "event:EV-cyera-5",
+      "supplierId": "cyera",
+      "published": {
+        "id": "EV-cyera-5",
+        "supplierId": "cyera",
+        "date": "2026-01-08",
+        "type": "funding",
+        "text": "Cyera announced a $400 million Series F funding round led by funds managed by Blackstone, bringing its total funding to over $1.7 billion and its valuation to $9 billion.",
+        "evidenceIds": [
+          "TR-cyera-5"
+        ],
+        "rung": 4
+      },
+      "verdict": "supported",
+      "sourceEvidence": [
+        {
+          "evidenceId": "TR-cyera-5",
+          "url": "https://www.cyera.com/press-releases/cyera-raises-400m-to-meet-rapidly-growing-demand-for-ai-security-among-enterprises",
+          "observationId": "e1846672c92e7983225c8768e6b555631f22671fb034e18a24f370bc7afc6df7",
+          "fetchedAt": "2026-10-23T11:34:09.482044Z",
+          "sourceVerifiedAt": null,
+          "bodySha256": "7f507d838faf136af0d10b68db116661226ae9cbd5dd6ecce969830daf1cf8f4",
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/7f507d838faf136af0d10b68db116661226ae9cbd5dd6ecce969830daf1cf8f4",
+          "bodyBytes": 267376,
+          "sourceType": "primary",
+          "relationship": "cited",
+          "support": {
+            "excerpts": [
+              "dustry’s leading AI and data security company, today announced a $400 million Series F funding round, bringing its total funding to over $1.7 billion . This raise comes just over six months after the previous round and triples the company’s valuation from a year ago to $9 billion. The round was led by funds managed by Blackstone and supported by all inside invest",
+              "00 million Series F funding round, bringing its total funding to over $1.7 billion . This raise comes just over six months after the previous round and triples the company’s valuation from a year ago to $9 billion. The round was led by funds managed by Blackstone and supported by all inside investors including Accel, Coatue, Cyberstarts, Georgian, Greenoaks, Ligh",
+              "company’s valuation from a year ago to $9 billion. The round was led by funds managed by Blackstone and supported by all inside investors including Accel, Coatue, Cyberstarts, Georgian, Greenoaks, Lightspeed Venture Partners, Redpoint, Sapphire, Sequoia Capital, and Spark. The adoption of AI among enterprises continues to accelerate, with agentic AI specifically "
+            ],
+            "finding": "Direct text inspected; record findings state unsupported clauses."
+          },
+          "parsedPublication": "2026-01-08",
+          "evidenceRecordPublicationDate": "2026-01-08",
+          "evidenceRecordEconomicPeriod": "January 2026",
+          "currentArchivedEndpointState": {
+            "status": "not_modified",
+            "checkedAt": "2026-10-23T11:34:09.482044Z",
+            "errorCode": null
+          },
+          "distinctArchivedBodies": 3
+        }
+      ],
+      "checks": {
+        "entity": "supported",
+        "actionStatus": "supported",
+        "amounts": "supported",
+        "eventDate": "supported",
+        "qualifiers": "supported",
+        "sourcePeriod": "supported",
+        "primaryCitation": "supported"
+      },
+      "findings": "Published entity, action/status, values, qualifiers and period match archived primary text. Date is announcement/disclosure date unless source expressly states effective/completion date.",
+      "limitations": [
+        "Historical evidence only; no assertion of present endpoint accessibility or absence of later amendments.",
+        "Publication/disclosure date and economic/effective date remain separate. Accessibility alone is not factual support."
+      ],
+      "proposedCorrection": null
+    },
+    {
+      "id": "event:EV-delinea-2",
+      "supplierId": "delinea",
+      "published": {
+        "id": "EV-delinea-2",
+        "supplierId": "delinea",
+        "date": "2026-01-15",
+        "type": "acquisition",
+        "text": "Delinea announced it signed a definitive agreement to acquire StrongDM.",
+        "evidenceIds": [
+          "TR-delinea-4"
+        ],
+        "rung": 4
+      },
+      "verdict": "supported",
+      "sourceEvidence": [
+        {
+          "evidenceId": "TR-delinea-4",
+          "url": "https://delinea.com/news/delinea-strongdm-to-unite-redefine-identity-security-for-the-ai-era",
+          "observationId": "930a7e4fe4b3d44f1494824f179a38b4c34e40b4e5af0124c057dc2ba176d34f",
+          "fetchedAt": "2026-10-23T04:14:59.819592Z",
+          "sourceVerifiedAt": null,
+          "bodySha256": "40d3a81783abdf0af16f21d191d1b0e5e2393e7bf42bcc3e4147d87c271b2fb4",
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/40d3a81783abdf0af16f21d191d1b0e5e2393e7bf42bcc3e4147d87c271b2fb4",
+          "bodyBytes": 126986,
+          "sourceType": "primary",
+          "relationship": "cited",
+          "support": {
+            "excerpts": [
+              "n identities, and AI agents in a single platform SAN FRANCISCO – January 15, 2026 – Delinea , a pioneering provider of solutions for securing human and machine identities through centralized authorization, today announced it has signed a definitive agreement to acquire StrongDM, the universal access management company purpose-built for modern engineering, DevOps,",
+              "rough centralized authorization, today announced it has signed a definitive agreement to acquire StrongDM, the universal access management company purpose-built for modern engineering, DevOps, and AI-driven environments. Delinea’s leadership in enterprise privileged access management (PAM), combined with StrongDM’s just-in-time (JIT) runtime authorization capabil"
+            ],
+            "finding": "Direct text inspected; record findings state unsupported clauses."
+          },
+          "parsedPublication": null,
+          "evidenceRecordPublicationDate": "2026-01-15",
+          "evidenceRecordEconomicPeriod": "January 2026",
+          "currentArchivedEndpointState": {
+            "status": "fetched",
+            "checkedAt": "2026-10-23T04:14:59.819592Z",
+            "errorCode": null
+          },
+          "distinctArchivedBodies": 5
+        }
+      ],
+      "checks": {
+        "entity": "supported",
+        "actionStatus": "supported",
+        "amounts": "not_applicable",
+        "eventDate": "supported",
+        "qualifiers": "supported",
+        "sourcePeriod": "supported",
+        "primaryCitation": "supported"
+      },
+      "findings": "Published entity, action/status, values, qualifiers and period match archived primary text. Date is announcement/disclosure date unless source expressly states effective/completion date.",
+      "limitations": [
+        "Historical evidence only; no assertion of present endpoint accessibility or absence of later amendments.",
+        "Publication/disclosure date and economic/effective date remain separate. Accessibility alone is not factual support."
+      ],
+      "proposedCorrection": null
+    },
+    {
+      "id": "event:EV-delinea-3",
+      "supplierId": "delinea",
+      "published": {
+        "id": "EV-delinea-3",
+        "supplierId": "delinea",
+        "date": "2026-03-05",
+        "type": "acquisition",
+        "text": "Delinea announced it completed its acquisition of StrongDM.",
+        "evidenceIds": [
+          "TR-delinea-5"
+        ],
+        "rung": 4
+      },
+      "verdict": "supported",
+      "sourceEvidence": [
+        {
+          "evidenceId": "TR-delinea-5",
+          "url": "https://www.globenewswire.com/news-release/2026/03/05/3250113/0/en/delinea-completes-strongdm-acquisition-to-secure-ai-agents-with-continuous-identity-authorization.html",
+          "observationId": "06845e12128160d4d58d99cdfba61335991c3ad39042bfdc2c7f3bcc63a57ab1",
+          "fetchedAt": "2026-10-20T21:41:27.583245Z",
+          "sourceVerifiedAt": null,
+          "bodySha256": "a53d58b7dcdd45a4eb8120e2cc2b50277ba4266762c640c67e04c1f0bbcb3143",
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/a53d58b7dcdd45a4eb8120e2cc2b50277ba4266762c640c67e04c1f0bbcb3143",
+          "bodyBytes": 76366,
+          "sourceType": "primary",
+          "relationship": "cited",
+          "support": {
+            "excerpts": [
+              "n to help eliminate standing privilege in AI-driven environments March 05, 2026 08:00 ET | Source: Delinea Delinea SAN FRANCISCO, March 05, 2026 (GLOBE NEWSWIRE) -- Delinea , a pioneering provider of solutions for securing human and machine identities through centralized authorization, has completed its acquisition of StrongDM, the universal access management com",
+              "an and machine identities through centralized authorization, has completed its acquisition of StrongDM, the universal access management company purpose-built for modern engineering, DevOps, and AI-driven environments. As enterprises scale agentic AI and automation, privileged access is increasingly required by non-human identities (NHIs) that operate autonomously"
+            ],
+            "finding": "Direct text inspected; record findings state unsupported clauses."
+          },
+          "parsedPublication": "2026-03-05T13:00:00Z",
+          "evidenceRecordPublicationDate": "2026-03-05",
+          "evidenceRecordEconomicPeriod": "March 2026",
+          "currentArchivedEndpointState": {
+            "status": "blocked",
+            "checkedAt": "2026-10-23T11:34:13.983569Z",
+            "errorCode": "HTTP_403"
+          },
+          "distinctArchivedBodies": 2
+        }
+      ],
+      "checks": {
+        "entity": "supported",
+        "actionStatus": "supported",
+        "amounts": "not_applicable",
+        "eventDate": "supported",
+        "qualifiers": "supported",
+        "sourcePeriod": "supported",
+        "primaryCitation": "supported"
+      },
+      "findings": "Published entity, action/status, values, qualifiers and period match archived primary text. Date is announcement/disclosure date unless source expressly states effective/completion date.",
+      "limitations": [
+        "Historical evidence only; no assertion of present endpoint accessibility or absence of later amendments.",
+        "Publication/disclosure date and economic/effective date remain separate. Accessibility alone is not factual support."
+      ],
+      "proposedCorrection": null
+    },
+    {
+      "id": "event:EV-dragos-2",
+      "supplierId": "dragos",
+      "published": {
+        "id": "EV-dragos-2",
+        "supplierId": "dragos",
+        "date": "2026-09-16",
+        "type": "acquisition",
+        "text": "Accenture's release carries a note stating that the majority investment in Dragos closed on September 16, 2026, and that NetRise and runZero, which closed on July 31, 2026 and September 17, 2026, were acquired by Dragos as part of the closing terms.",
+        "evidenceIds": [
+          "TR-dragos-2"
+        ],
+        "rung": 4
+      },
+      "verdict": "supported",
+      "sourceEvidence": [
+        {
+          "evidenceId": "TR-dragos-2",
+          "url": "https://newsroom.accenture.com/news/2026/accenture-to-strengthen-critical-infrastructure-defense-with-end-to-end-cybersecurity-platform-in-age-of-ai-driven-cyber-threats-and-geopolitical-risk",
+          "observationId": "c24c9a218f6a2db633008327371adeae0e504a0ee0fa920c2ace005b1d113e41",
+          "fetchedAt": "2026-10-23T04:15:10.750960Z",
+          "sourceVerifiedAt": null,
+          "bodySha256": "ab18c124828060eff9fcc89bb35b66a94169b05d1fbd43186592621085d702e5",
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/ab18c124828060eff9fcc89bb35b66a94169b05d1fbd43186592621085d702e5",
+          "bodyBytes": 22107,
+          "sourceType": "primary",
+          "relationship": "cited",
+          "support": {
+            "excerpts": [
+              "ed on July 31, 2026, the majority investment in Dragos closed on September 16, 2026 and the acquisition of runZero closed on September 17, 2026. As part of the closing terms, NetRise and runZero have been acquired by Dragos.) NEW YORK; June 18, 2026 – Building on its $10 billion cybersecurity business, Accenture (NYSE: ACN) is expanding its position with the acqu",
+              "d on September 16, 2026 and the acquisition of runZero closed on September 17, 2026. As part of the closing terms, NetRise and runZero have been acquired by Dragos.) NEW YORK; June 18, 2026 – Building on its $10 billion cybersecurity business, Accenture (NYSE: ACN) is expanding its position with the acquisition of a majority stake in Dragos and all of runZero and",
+              "026 and the acquisition of runZero closed on September 17, 2026. As part of the closing terms, NetRise and runZero have been acquired by Dragos.) NEW YORK; June 18, 2026 – Building on its $10 billion cybersecurity business, Accenture (NYSE: ACN) is expanding its position with the acquisition of a majority stake in Dragos and all of runZero and NetRise to deliver "
+            ],
+            "finding": "Direct text inspected; record findings state unsupported clauses."
+          },
+          "parsedPublication": null,
+          "evidenceRecordPublicationDate": "2026-09-16",
+          "evidenceRecordEconomicPeriod": "June 2026 announcement; closing note September 2026",
+          "currentArchivedEndpointState": {
+            "status": "not_modified",
+            "checkedAt": "2026-10-23T04:15:10.750960Z",
+            "errorCode": null
+          },
+          "distinctArchivedBodies": 2
+        }
+      ],
+      "checks": {
+        "entity": "supported",
+        "actionStatus": "supported",
+        "amounts": "not_applicable",
+        "eventDate": "supported",
+        "qualifiers": "supported",
+        "sourcePeriod": "supported",
+        "primaryCitation": "supported"
+      },
+      "findings": "Primary Accenture release originally datelined June18 carries a later explicit note: NetRise July31, Dragos September16, runZero September17. September16 event dates majority investment, while text explicitly preserves subsequent runZero date. Evidence publication metadataSeptember16 should not replace original June18 release date.",
+      "limitations": [
+        "Historical evidence only; no assertion of present endpoint accessibility or absence of later amendments.",
+        "Publication/disclosure date and economic/effective date remain separate. Accessibility alone is not factual support."
+      ],
+      "proposedCorrection": null
+    },
+    {
+      "id": "event:EV-exabeam-1",
+      "supplierId": "exabeam",
+      "published": {
+        "id": "EV-exabeam-1",
+        "supplierId": "exabeam",
+        "date": "2025-10-08",
+        "type": "exec-change",
+        "text": "Exabeam announced Pete Harteveld as Chief Executive Officer, following Chris O'Malley's decision to retire. Harteveld most recently served as Exabeam's Chief Revenue Officer.",
+        "evidenceIds": [
+          "TR-exabeam-2"
+        ],
+        "rung": 4
+      },
+      "verdict": "supported",
+      "sourceEvidence": [
+        {
+          "evidenceId": "TR-exabeam-2",
+          "url": "https://www.thomabravo.com/press-releases/exabeam-appoints-pete-harteveld-as-ceo",
+          "observationId": "0a9bb231847134cdaff2ff78cd2b4b80e255427a24409a6a4cb07240c21168a8",
+          "fetchedAt": "2026-10-20T21:57:09.662961Z",
+          "sourceVerifiedAt": null,
+          "bodySha256": "f60a096ea302fc709b7b285ff19aa771e4579bb217c318edfa7f6a96ce00bde7",
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/f60a096ea302fc709b7b285ff19aa771e4579bb217c318edfa7f6a96ce00bde7",
+          "bodyBytes": 150327,
+          "sourceType": "primary",
+          "relationship": "cited",
+          "support": {
+            "excerpts": [
+              "Portfolio · October 8, 2025 Exabeam Appoints Pete Harteveld as CEO BROOMFIELD, Colo. & FOSTER CITY, Calif. — Exabeam , a global leader in intelligence and automation that powers security operations, today announced Pete Harteveld as Chief Executive Officer. The leadership transition follows the decision by Chri",
+              "p transition follows the decision by Chris O’Malley to step into retirement after three years of dedicated service to the company and over 30 years of executive leadership. The transition comes at a time of strength and momentum for Exabeam. The company recently delivered strong financial performance over the last two quarters, delivering quarter-over-quarter and",
+              "wer of its business strategy and market adoption. Harteveld, who most recently served as Chief Revenue Officer at Exabeam, brings more than two decades of leadership experience that has uniquely prepared him for this opportunity. Throughout his career, he has built a reputation for scaling revenue and building high-performing global teams across the cybersecurity"
+            ],
+            "finding": "Direct text inspected; record findings state unsupported clauses."
+          },
+          "parsedPublication": null,
+          "evidenceRecordPublicationDate": "2025-10-08",
+          "evidenceRecordEconomicPeriod": "October 2025",
+          "currentArchivedEndpointState": {
+            "status": "fetched",
+            "checkedAt": "2026-10-20T21:57:09.662961Z",
+            "errorCode": null
+          },
+          "distinctArchivedBodies": 1
+        }
+      ],
+      "checks": {
+        "entity": "supported",
+        "actionStatus": "supported",
+        "amounts": "not_applicable",
+        "eventDate": "supported",
+        "qualifiers": "supported",
+        "sourcePeriod": "supported",
+        "primaryCitation": "supported"
+      },
+      "findings": "Published entity, action/status, values, qualifiers and period match archived primary text. Date is announcement/disclosure date unless source expressly states effective/completion date.",
+      "limitations": [
+        "Historical evidence only; no assertion of present endpoint accessibility or absence of later amendments.",
+        "Publication/disclosure date and economic/effective date remain separate. Accessibility alone is not factual support."
+      ],
+      "proposedCorrection": null
+    },
+    {
+      "id": "event:EV-commvault-4",
+      "supplierId": "commvault",
+      "published": {
+        "id": "EV-commvault-4",
+        "supplierId": "commvault",
+        "date": "2025-12-04",
+        "type": "exec-change",
+        "text": "Commvault disclosed in an 8-K that Chief Financial Officer Jennifer DiRico notified the company on November 30, 2025 that she will resign at the end of the calendar year.",
+        "evidenceIds": [
+          "TR-commvault-3"
+        ],
+        "rung": 1
+      },
+      "verdict": "supported",
+      "sourceEvidence": [
+        {
+          "evidenceId": "TR-commvault-3",
+          "url": "https://www.sec.gov/Archives/edgar/data/1169561/000116956125000094/cvlt-20251130.htm",
+          "observationId": "5840877ced63f8d74a1394646cda94f29209e66cdd3a48722c116ce772f97b1a",
+          "fetchedAt": "2026-10-23T11:34:05.683290Z",
+          "sourceVerifiedAt": null,
+          "bodySha256": "953589dd846ff641ab4bdcebe85d9e798a03bb36131ed1f5ce0d8b19a877e835",
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/953589dd846ff641ab4bdcebe85d9e798a03bb36131ed1f5ce0d8b19a877e835",
+          "bodyBytes": 26284,
+          "sourceType": "primary",
+          "relationship": "cited",
+          "support": {
+            "excerpts": [
+              "nge Act of 1934 Date of Report (Date of earliest event reported) November 30, 2025 COMMVAULT SYSTEMS, INC. (Exact name of registrant as specified in its charter) Delaware 1-33026 22-3447504 (State or other jurisdiction of incorporation) (Commission File Number) (I.R.S. Employer Identification No.) 1 Commvault Way Tinton Falls , New Jersey 07724 (Address of princi",
+              "om her position as Chief Financial Officer of the Company at the end of the calendar year to pursue an opportunity in another industry. The Company has initiated a comprehensive search for its next chief financial officer. Ms. DiRico’s departure was not associated with or attributable to any disagreement with the Company, including without limitation, any matter ",
+              "he undersigned hereunto duly authorized. COMMVAULT SYSTEMS, INC. Date: December 4, 2025 /s/ Danielle Sheer Name: Danielle Sheer Title: Chief Trust Officer 3"
+            ],
+            "finding": "Direct text inspected; record findings state unsupported clauses."
+          },
+          "parsedPublication": null,
+          "evidenceRecordPublicationDate": "2025-12-04",
+          "evidenceRecordEconomicPeriod": "December 2025",
+          "currentArchivedEndpointState": {
+            "status": "not_modified",
+            "checkedAt": "2026-10-23T11:34:05.683290Z",
+            "errorCode": null
+          },
+          "distinctArchivedBodies": 1
+        }
+      ],
+      "checks": {
+        "entity": "supported",
+        "actionStatus": "supported",
+        "amounts": "not_applicable",
+        "eventDate": "supported",
+        "qualifiers": "supported",
+        "sourcePeriod": "supported",
+        "primaryCitation": "supported"
+      },
+      "findings": "Published entity, action/status, values, qualifiers and period match archived primary text. Date is announcement/disclosure date unless source expressly states effective/completion date.",
+      "limitations": [
+        "Historical evidence only; no assertion of present endpoint accessibility or absence of later amendments.",
+        "Publication/disclosure date and economic/effective date remain separate. Accessibility alone is not factual support."
+      ],
+      "proposedCorrection": null
+    },
+    {
+      "id": "event:EV-commvault-5",
+      "supplierId": "commvault",
+      "published": {
+        "id": "EV-commvault-5",
+        "supplierId": "commvault",
+        "date": "2026-04-13",
+        "type": "exec-change",
+        "text": "Commvault announced the appointment of Gary Merrill as Chief Financial Officer and principal financial officer, effective April 13, 2026; he ceased to serve as Chief Commercial Officer as of that date.",
+        "evidenceIds": [
+          "TR-commvault-4"
+        ],
+        "rung": 1
+      },
+      "verdict": "supported",
+      "sourceEvidence": [
+        {
+          "evidenceId": "TR-commvault-4",
+          "url": "https://www.sec.gov/Archives/edgar/data/1169561/000116956126000008/cvlt-20260408.htm",
+          "observationId": "a9338ccd6ac8c2948516206673a0a967563f172e4f571d21e096903b6220084b",
+          "fetchedAt": "2026-10-23T11:34:07.989441Z",
+          "sourceVerifiedAt": null,
+          "bodySha256": "ce3d9dfa847a29f1f17741b00c8da8b45e9571f7ce16db2d0812354578e1188d",
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/ce3d9dfa847a29f1f17741b00c8da8b45e9571f7ce16db2d0812354578e1188d",
+          "bodyBytes": 38066,
+          "sourceType": "primary",
+          "relationship": "cited",
+          "support": {
+            "excerpts": [
+              "Officers. Appointment of Gary Merrill as Chief Financial Officer On April 13, 2026 (the “Effective Date”), Commvault Systems, Inc. (the “Company”) announced the appointment of Mr. Gary Merrill as Chief Financial Officer and principal financial officer. As of the Effective Date, Mr. Merrill will cease to serve as the Company’s Chief Commercial Officer. Mr. Merrill",
+              "al financial officer. As of the Effective Date, Mr. Merrill will cease to serve as the Company’s Chief Commercial Officer. Mr. Merrill has served as the Company’s Chief Commercial Officer since August 2024. Biographical and other information for Mr. Merrill is set forth in the Company’s Current Reports on Form 8-K filed with the Securities and Exchange Commission"
+            ],
+            "finding": "Direct text inspected; record findings state unsupported clauses."
+          },
+          "parsedPublication": null,
+          "evidenceRecordPublicationDate": "2026-04-13",
+          "evidenceRecordEconomicPeriod": "April 2026",
+          "currentArchivedEndpointState": {
+            "status": "not_modified",
+            "checkedAt": "2026-10-23T11:34:07.989441Z",
+            "errorCode": null
+          },
+          "distinctArchivedBodies": 1
+        }
+      ],
+      "checks": {
+        "entity": "supported",
+        "actionStatus": "supported",
+        "amounts": "not_applicable",
+        "eventDate": "supported",
+        "qualifiers": "supported",
+        "sourcePeriod": "supported",
+        "primaryCitation": "supported"
+      },
+      "findings": "Published entity, action/status, values, qualifiers and period match archived primary text. Date is announcement/disclosure date unless source expressly states effective/completion date.",
+      "limitations": [
+        "Historical evidence only; no assertion of present endpoint accessibility or absence of later amendments.",
+        "Publication/disclosure date and economic/effective date remain separate. Accessibility alone is not factual support."
+      ],
+      "proposedCorrection": null
+    }
+  ],
+  "summary": {
+    "insufficient": 9,
+    "supported": 27,
+    "contradicted": 1,
+    "primary_source_missing": 1
+  },
+  "limitations": [
+    "No network/model calls, source edits, Git operations, budget/ref/production changes or archive writes.",
+    "Entire assigned alphabetical stratum38of97 reviewed; not a random representative all-site benchmark.",
+    "Supported means archived primary text supports statement at reviewed precision; no present-freshness certification.",
+    "Supplemental evidence is separated from published citation and does not silently repair provenance.",
+    "Older successful bodies cannot upgrade later blocked attempts.",
+    "The hand-collected array includes historical records outside the current UI trailing-year window; this audit retains the exact assigned array denominator."
+  ],
+  "frozenInventoryPath": "docs/active/daily-pipeline/accuracy/published-inventory-2026-10-23.json",
+  "frozenInventoryFileSha256": "e8c766cbbe533d6106c896ab14015df78820dc72f4382b0dfedb267ef81be5fc",
+  "reviewCodeFiles": {
+    "web/scripts/pipeline/discovery.py": "4fd215f34fcb6421fef7e824c83d3a1c0f5a7cd742a512235ee9ee5fd7e30acd",
+    "web/src/data/tracker/events.ts": "14f01134bf547b9aa2f80527be7c7dbda9d1c040f0045d1926f261353aaf7b52",
+    "web/src/data/evidence.ts": "6d03d55bded424f0049d268da8516f0b24464bef6e9c5c184f550028d083766c"
+  }
+}

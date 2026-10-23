@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "kind": "accuracy_review_candidate_validation",
+  "checkedAt": "2026-10-23T18:51:05.260176+00:00",
+  "productionRevision": "7bd94ec77e99462c068f254e134235a894585cbb",
+  "inputSourceFiles": {
+    "web/src/data/tracker/events.ts": "14f01134bf547b9aa2f80527be7c7dbda9d1c040f0045d1926f261353aaf7b52",
+    "web/src/data/tracker/suppliers.ts": "a04d245de1eec5a87a35ecf7bdb0e2a58f739010f559240af8aaa0ea3f94c82a",
+    "web/src/data/evidence.ts": "6d03d55bded424f0049d268da8516f0b24464bef6e9c5c184f550028d083766c"
+  },
+  "codeSha256": {
+    "ops/evaluation/claim_reviews.py": "c3577108447d1b6d4de25be9d4749534e6c2a07f2b88f76e640639b34c28e93e",
+    "ops/evaluation/scorecard.py": "c9c9ce92657c90b3de8814a84995aa4c8019c689ba857a058df34627b7f7210f",
+    "ops/ci/test_claim_reviews.py": "655bc0943cad9bc661325d691ecf0edd12201e346fcea4484f7111bf0151e5c4",
+    "ops/ci/test_evaluation.py": "dd070ca37b10044c4707fd7597f09008e416d8a8bd0c79b10745ee55bce141c5"
+  },
+  "operationalTestsPassed": 141,
+  "testLogSha256": "60ccaa4181277ba1dc93d9baaca02fe61005577f08792eeb4d45e6c1154e695a",
+  "reviewedRecords": 177,
+  "verdictCounts": {
+    "contradicted": 5,
+    "insufficient": 71,
+    "primary_source_missing": 11,
+    "supported": 90
+  },
+  "bindingChecksPassed": true,
+  "semanticVerdictsIndependentlyVerifiedByTool": false,
+  "knownContradictionIds": [
+    "event:EV-checkpoint-2",
+    "event:EV-optiv-2",
+    "event:EV-splunk-1",
+    "event:EV-zscaler-2",
+    "supplier:expel:ownership"
+  ],
+  "reports": {
+    "docs/active/daily-pipeline/accuracy/source-bindings-2026-10-23.json": "7aa72d2b75a39b10b17f557bd605fd7e5a2bfeef2d0f8f48a7bed302d5e74f76",
+    "docs/active/daily-pipeline/accuracy/production-claim-presence-2026-10-23.json": "b91bcd1d54ef1d1e3ab0f0cefaa298089cf2d9fe83d0dc40757d5250510cc0ea",
+    "docs/active/daily-pipeline/accuracy/dated-correction-candidates-2026-10-23.json": "d0739422dc682201a5b8fe0da9594ae76b16015d0aac2dc642458da8f1dffb24",
+    "docs/active/daily-pipeline/evaluations/2026-10-23/accuracy-scorecard.json": "da47f6000add6d64d1bae11160d63c0c719192bf97f04a287e271ef069436adb"
+  },
+  "sourceWebsiteRequests": 0,
+  "productionSiteRequests": 4,
+  "collectionExtractionAdmissionWorkerCalls": 0,
+  "offlineAgentAnalysisPerformed": true,
+  "budgetChanges": 0,
+  "archiveWrites": 0,
+  "correctionsApplied": 0,
+  "productionChanges": 0,
+  "limits": [
+    "Known contradictions remain live and drafted corrections are pending implementation and proper admission.",
+    "141 tests validate operational/binding machinery, not overall factual correctness.",
+    "No source timestamps or successful source-check counts were renewed.",
+    "Application source and rendered layout were unchanged in this unit; prior full application/visual acceptance remains separately pinned."
+  ]
+}

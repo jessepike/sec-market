@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "evaluatedAt": "2026-10-23T18:48:48.001784+00:00",
+  "appRevision": "7bd94ec77e99462c068f254e134235a894585cbb",
+  "inputs": {
+    "contract": {
+      "path": "inputs/contract.json",
+      "sha256": "327e52fdab4f97d3f0d628978501aa7197b31ddadb4006d16d3f776a8acb47c0"
+    },
+    "coverage": {
+      "path": "inputs/coverage.json",
+      "sha256": "370c35cf48074658a53f920c66b4ba1e4be711a158111fd04a03ad9c8cfde410"
+    },
+    "gate": {
+      "path": "../../receipts/accepted-main-gate-2026-10-23.json",
+      "sha256": "0e5ea2283ff87a6857b368450aab05e9e4b51cd4408cfd00b3fe9c85ec693bab"
+    },
+    "collection": {
+      "path": "../../receipts/actual-scheduled-collection-2026-10-23.json",
+      "sha256": "9e7bb3dc4b263bd483f9f750f6d9a9d5ffca42bbcdd91f3031cba6496973a6a4"
+    },
+    "publication": {
+      "path": "../../receipts/actual-publication-2026-10-23.json",
+      "sha256": "df48bd23d296d6fe7ebc93e970ae980bba480bcaf8b6dc4b564457397e2e5af7"
+    },
+    "rollback": {
+      "path": "../../receipts/actual-rollback-restoration-2026-10-23.json",
+      "sha256": "4a3a4d390970bba171ce35f466b6e7fb98e8ddb002d970d4dfe7cd43134f0ebb"
+    },
+    "continuity": {
+      "path": "../../receipts/data-continuity-baseline-2026-10-23.json",
+      "sha256": "b8b48d9ddddc6be0fc38b977fe1a6ac688c8cf55e5b799a507ea277dba263a9f"
+    },
+    "claimAudit": {
+      "path": "../../accuracy/source-bindings-2026-10-23.json",
+      "sha256": "7aa72d2b75a39b10b17f557bd605fd7e5a2bfeef2d0f8f48a7bed302d5e74f76"
+    }
+  }
+}

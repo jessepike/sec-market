@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "kind": "actual_production_claim_presence",
+  "checkedAt": "2026-10-23T18:44:08.789896+00:00",
+  "productionUrl": "https://securitymarketpulse.com",
+  "appReceipt": {
+    "allowed": true,
+    "releaseKind": "certified",
+    "dataUpdated": true,
+    "certifiedAt": "2026-10-23T11:39:20.155Z",
+    "contractVersion": "smp-certified-v2",
+    "rootView": "tracker",
+    "appRevision": "7bd94ec77e99462c068f254e134235a894585cbb",
+    "appBuiltAt": "2026-10-23T11:39:48.805Z",
+    "dailyRunId": "e054ea73c89fe78db9702f94d2a3b669ce91884f7d7abda0a88698dbcfc7ec50",
+    "dailySnapshotSha256": "53b49106fa9118d603db5e64e37cf03f7f2c6fd1fb797acf18e73f540196c84f",
+    "dailyContractSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+    "dailyCoverageComplete": false
+  },
+  "appReceiptFileSha256": "2c44353acc1251e825fcd3cd13a74658238256ffb1f1fe368ee9037cfbb2d48c",
+  "bundleUrl": "https://securitymarketpulse.com/assets/index-DnkfLPlT.js",
+  "bundleSha256": "9e6664b01a1eaf839531a13de121e83a49daa6ebb7220c378e1691f26cc2a7c7",
+  "trackerFileSha256": "6a12bfeef97c5d6f42eaf396698826ce1382fe59d060be6dc30acb5cbe00d622",
+  "targetRecords": [
+    {
+      "targetId": "event:EV-checkpoint-2",
+      "originalTextPresentInServedBundle": true,
+      "originalTextSha256": "86960847e717f38451b1fda436ce019e5f18c6a11f355cfc5d9d3cdf5fdaeb17"
+    },
+    {
+      "targetId": "event:EV-optiv-2",
+      "originalTextPresentInServedBundle": true,
+      "originalTextSha256": "42aa6ec5fbf8aa99bb3bb0e3624ac1ccfa25ecbaceaa32b4d76166d7c338349f"
+    },
+    {
+      "targetId": "event:EV-splunk-1",
+      "originalTextPresentInServedBundle": true,
+      "originalTextSha256": "254021b249e80b0b6cf8740ea88810108c54406edbefd4ce02c528075da08e0c"
+    },
+    {
+      "targetId": "event:EV-zscaler-2",
+      "originalTextPresentInServedBundle": true,
+      "originalTextSha256": "8ddfff7136a389642c1383c454e899cb69406706d3faadb6644a7287205dbaa9"
+    },
+    {
+      "targetId": "supplier:expel:lastRound",
+      "originalTextPresentInServedBundle": true,
+      "originalTextSha256": "86012db8828ba42091600104f6869c80af0fcf6ac098d15c76b1a55815e9c05d"
+    },
+    {
+      "targetId": "supplier:expel:ownership",
+      "originalTextPresentInServedBundle": true,
+      "originalTextSha256": "10db8dcd8650e6ffddada356f863008f121ccf8dc3d1ae96bd6f800917bd4741"
+    }
+  ],
+  "servedExpelFigures": [
+    {
+      "id": "expel-last-round",
+      "supplierId": "expel",
+      "type": "last-round",
+      "label": "Last funding round (Series E (extension))",
+      "value": "$171.3 million (extension; initial Series E $140.3M on 2021-11-18, total funding $288.8 million)",
+      "period": "2022-10-03",
+      "sourceUrls": [
+        "https://expel.com/resource/expel-raises-140-million-in-series-e-funding/",
+        "https://expel.com/resource/expel-investors-fuel-rapid-growth-with-additional-series-e-investment-bringing-total-funding-to-288-million/"
+      ]
+    },
+    {
+      "id": "expel-ownership",
+      "supplierId": "expel",
+      "type": "ownership",
+      "label": "Ownership",
+      "value": "Independent, venture-backed. Series E extension raised an additional $171.3M on October 3, 2022, bringing total funding to $288.8M. Initial Series E of $140.3M closed November 18, 2021 at a valuation over $1 billion.",
+      "period": "",
+      "sourceUrls": [
+        "https://expel.com/resource/expel-raises-140-million-in-series-e-funding/",
+        "https://expel.com/resource/expel-investors-fuel-rapid-growth-with-additional-series-e-investment-bringing-total-funding-to-288-million/"
+      ]
+    }
+  ],
+  "productionHttpRequests": 4,
+  "sourceWebsiteRequests": 0,
+  "modelCalls": 0,
+  "budgetChanges": 0,
+  "limitations": [
+    "Exact original strings are present in the actually served application bundle, and Expel fields are in the public export.",
+    "Presence in the retained client data does not establish that each historical event is inside every current UI date filter.",
+    "Source-support judgments are in the separate archived review ledgers; this probe is not a new primary-source check."
+  ]
+}

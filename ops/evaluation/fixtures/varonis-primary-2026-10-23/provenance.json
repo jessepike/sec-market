@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "kind": "retained_manual_primary_evidence",
+  "provenanceReceipt": "docs/active/daily-pipeline/receipts/varonis-missing-event-2026-10-22.md",
+  "limitations": [
+    "Original manually retrieved source bodies recovered unchanged from the implementation session's temporary files.",
+    "Hashes match the earlier documented verification. These bodies are outside archive commit b78cfa15980d7be9da54b31e28b16a0840c1d112 and have no observation IDs there.",
+    "No new source fetch or current endpoint check occurred while retaining these fixtures. Original source dates and retrieval records are not renewed."
+  ],
+  "fixtures": [
+    {
+      "file": "press-release.html",
+      "sourceUrl": "https://www.proofpoint.com/us/newsroom/press-releases/proofpoint-acquire-varonis-creating-global-leader-data-and-ai-security",
+      "sha256": "6c712edbfb4aa71e87567f5dc9de15dc6efebb72de73154daff595bbb9b220ca",
+      "bytes": 132826,
+      "publicationDate": "2026-10-15",
+      "originalRetrievalRecordedAt": "2026-10-23T03:57:13Z",
+      "retrievalRecord": "web/src/data/evidence.ts#TR-varonis-proofpoint-agreement"
+    },
+    {
+      "file": "company-blog.html",
+      "sourceUrl": "https://www.varonis.com/blog/proofpoint",
+      "sha256": "4d80a9dc7f2208c90281de7748775f0aae565b5796bdd396841893b3a6c096eb",
+      "bytes": 231897,
+      "publicationDate": "2026-10-15",
+      "originalRetrievalRecordedAt": null,
+      "retrievalRecord": "docs/active/daily-pipeline/receipts/varonis-missing-event-2026-10-22.md"
+    }
+  ]
+}

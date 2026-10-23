@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "evaluatedAt": "2026-10-23T18:48:44.239377+00:00",
+  "inputs": {
+    "inventory": {
+      "path": "docs/active/daily-pipeline/accuracy/published-inventory-2026-10-23.json",
+      "sha256": "e8c766cbbe533d6106c896ab14015df78820dc72f4382b0dfedb267ef81be5fc"
+    },
+    "reviews": {
+      "events_a_m": {
+        "path": "docs/active/daily-pipeline/accuracy/event-review-a-m-2026-10-23.json",
+        "sha256": "7b543ed415754f0728baecc4420b40b9094f0b6675a25e6fec34f0490a8e25dd"
+      },
+      "events_n_z": {
+        "path": "docs/active/daily-pipeline/accuracy/event-review-n-z-2026-10-23.json",
+        "sha256": "6831c72b60044fd7615160de288a98b1542cc388d2ba481981165571aadd49b3"
+      },
+      "supplier_fields": {
+        "path": "docs/active/daily-pipeline/accuracy/supplier-fields-review-2026-10-23.json",
+        "sha256": "fa1382462c95f2cff79cc3a5b55131e43cf57324bf0a60507bed44efbe1ca188"
+      }
+    }
+  },
+  "retainedPrimary": {
+    "provenance": {
+      "path": "ops/evaluation/fixtures/varonis-primary-2026-10-23/provenance.json",
+      "sha256": "c2a56877023a220ab400b118c55adedae8e0a789c64e398cd464f751859cd7ef"
+    },
+    "receipt": {
+      "path": "docs/active/daily-pipeline/receipts/varonis-missing-event-2026-10-22.md",
+      "sha256": "f64622144fbc800d5e6670b24a96c46f865ef1d58196c2ab5c8bcbdc7b1708ad"
+    }
+  }
+}
