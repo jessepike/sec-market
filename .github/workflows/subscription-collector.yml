@@ -1,7 +1,9 @@
 name: bounded subscription collector
 
-# Explicit acceptance runs only; recurring activation requires usage/cutover checks.
+# Collection runs daily; public publication retains its separate cutover gate.
 on:
+  schedule:
+    - cron: '37 4 * * *'
   push:
     branches: [preview]
     paths: ['ops/ci/collection-request.json']
@@ -14,11 +16,12 @@ concurrency:
 
 jobs:
   collect-and-reconcile:
-    if: github.repository == 'jessepike/sec-market' && github.event.repository.private == true && (github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[collect-account]'))
+    if: github.repository == 'jessepike/sec-market' && github.event.repository.private == true && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[collect-account]'))
     runs-on: ubuntu-latest
     timeout-minutes: 35
     permissions:
       contents: write # Dedicated evidence ref; this script never writes app branches.
+      issues: write
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -62,6 +65,12 @@ jobs:
           path: ${{ runner.temp }}/smp-collection-receipt.json
           if-no-files-found: error
           retention-days: 14
+      - name: Report failure or recovery to the owner
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          JOB_STATUS: ${{ job.status }}
+        run: python3 ops/ci/job_alert.py --job collector --status "$JOB_STATUS"
       - name: Remove ephemeral account and evidence files
         if: always()
         run: rm -rf -- "$RUNNER_TEMP/smp-collection"

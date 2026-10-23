@@ -1857,9 +1857,10 @@ export const manualTrackerSuppliers: TrackerSupplier[] = [
       }
     },
     "ownership": {
-      "status": "Independent, publicly traded (Nasdaq: VRNS).",
+      "status": "Publicly traded (Nasdaq: VRNS); agreed on October 15, 2026 to be acquired by Proofpoint. Expected closing in the first half of 2027, subject to shareholder and regulatory approvals.",
+      "announced": "2026-10-15",
       "evidenceIds": [
-        "TR-varonis-1"
+        "TR-varonis-1", "TR-varonis-proofpoint-agreement"
       ]
     }
   },

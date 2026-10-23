@@ -5,6 +5,28 @@ import generatedFilingEvidence from './generated/filingEvidence.json' with { typ
 
 const handWrittenEvidenceRecords: EvidenceRecord[] = [
   {
+    id: 'TR-varonis-proofpoint-agreement',
+    title: 'Proofpoint to Acquire Varonis in a $6.3 Billion Transaction',
+    organization: 'Varonis Systems, Inc. and Proofpoint, Inc.',
+    publicationDate: '2026-10-15',
+    economicPeriod: 'N/A (announced acquisition agreement)',
+    canonicalUrl: 'https://www.proofpoint.com/us/newsroom/press-releases/proofpoint-acquire-varonis-creating-global-leader-data-and-ai-security',
+    excerpt: 'Under the terms of the agreement, Varonis shareholders will receive $49.75 per share in cash.',
+    sourceClass: 'IR',
+    interpretation: '',
+    limitations: 'Announced agreement. Completion has not been established. Closing timing is the companies’ expectation.',
+    conflictingEvidenceIds: [],
+    artifactLabel: 'SEC-MARKET / TR-varonis-proofpoint-agreement',
+    tags: ['tracker', 'acquisition'],
+    retrievedAt: '2026-10-23',
+    retrieval: {
+      finalUrl: 'https://www.proofpoint.com/us/newsroom/press-releases/proofpoint-acquire-varonis-creating-global-leader-data-and-ai-security',
+      sha256: '6c712edbfb4aa71e87567f5dc9de15dc6efebb72de73154daff595bbb9b220ca',
+      fetchedAt: '2026-10-23T03:57:13Z',
+      locator: 'Opening announcement, terms and Transaction Details; article:published_time 2026-10-15T11:55:41-07:00',
+    },
+  },
+  {
     id: 'A1a',
     title: 'NVIDIA Q1 FY24 Financial Results',
     organization: 'NVIDIA',

@@ -11,6 +11,7 @@ from agents import ModelUnavailable
 from contracts import canonical, digest, instant, plan_run, require, utcnow
 from discovery import Page, discover
 from documents import readable_document
+from selection import select_documents
 from validation import reconcile, verify_statement, mentions_entity
 
 
@@ -52,7 +53,10 @@ class Pipeline:
                 self.agent.reserve = self._reserve
             with ThreadPoolExecutor(max_workers=self.contract["schedule"]["maxWorkers"]) as pool:
                 priority = {"sec_facts": 0, "sec_submissions": 0, "citation": 1, "sec_documents": 2}
-                tasks = sorted(plan["tasks"], key=lambda t: priority.get(self.sources.get(t["sourceId"], {}).get("kind"), 3))
+                # Rotate the same-priority sources daily so a finite global model
+                # budget does not always go to the first suppliers in the roster.
+                day = instant(plan["scheduledAt"]).date().toordinal()
+                tasks = sorted(plan["tasks"], key=lambda t: (priority.get(self.sources.get(t["sourceId"], {}).get("kind"), 3), digest({"day": day, "task": t["taskId"]})))
                 receipts = list(pool.map(lambda task: self._task(plan, task), tasks))
             result = reconcile(plan, receipts, self.contract, self.clock(), self.store)
             result_ref = self.store.put(result)
@@ -225,6 +229,25 @@ class Pipeline:
                         receipt.setdefault("documentValidations", []).append({"url": url, "validation": self.store.put(validation)})
                         validated_hashes[url] = cache_key
                 ordered = sorted(found["items"], key=lambda u: found.get("itemModified", {}).get(u, ""), reverse=True)
+                audit_name = f"audit-{digest(source['id'])}"
+                audit_head = self.store.read(f"heads/{audit_name}.json")
+                audit_history = dict((audit_head or {}).get("documents", {})) if (audit_head or {}).get("contractSha256") == plan["contractSha256"] else {}
+                bounded = self.contract.get("collection") and source["kind"] not in ("sec_documents", "citation")
+                if bounded:
+                    # Feeds can age old URLs out. Preserve previously pending
+                    # obligations even when they disappear from today's index.
+                    retained_items = set(found["items"])
+                    prior_receipt = self.store.read(f"heads/task-{task['taskId']}.json")
+                    if prior_receipt and prior_receipt.get("pendingManifest"):
+                        retained_items.update(json.loads(self.store.get(prior_receipt["pendingManifest"]))["items"])
+                    if audit_head and audit_head.get("inventory"):
+                        retained_items.update(json.loads(self.store.get(audit_head["inventory"]))["items"])
+                    selected_inventory = {**found, "items": sorted(retained_items)}
+                    ordered, deferred = select_documents(selected_inventory, audit_history, self.contract["collection"], self.clock())
+                    pending.extend(deferred)
+                    if deferred:
+                        pending_errors.append("HISTORICAL_OR_UNCHANGED_AUDIT_PENDING")
+                    receipt["collectionScope"] = {"mode": "delta_with_retained_audit", "selectedDocuments": len(ordered), "deferredDocuments": len(deferred), "currentWindowDays": self.contract["collection"]["currentWindowDays"]}
                 for index, url in enumerate(ordered):
                     cached_download = f"runs/{plan['runId']}/downloads/{digest({'source': source['id'], 'url': url})}.json"
                     if self.native_budget_exhausted and source["kind"] != "sec_documents" and not self.store.read(cached_download):
@@ -243,6 +266,14 @@ class Pipeline:
                         pending.append(url)
                         pending_errors.append(str(exc)[:160] if isinstance(exc, (ValueError, ModelUnavailable)) else type(exc).__name__)
                         receipt.setdefault("heldDocuments", []).append({"url": url, "reason": pending_errors[-1]})
+                if bounded:
+                    # This is an audit work cursor, never the source's successful
+                    # completeness cursor. Failed/pending checks are not advanced.
+                    for document in receipt.get("documentValidations", []):
+                        url = document["url"]
+                        audit_history[url] = {"modified": found.get("itemModified", {}).get(url, ""), "checkedAt": self.clock()}
+                    retained_manifest = self.store.put({"sourceId": source["id"], "items": selected_inventory["items"]})
+                    self.store.compare_and_swap(audit_name, audit_head, {"documents": audit_history, "inventory": retained_manifest, "contractSha256": plan["contractSha256"]})
                 if pending:
                     receipt.update(outcome="not_checked", errorCode=pending_errors[0], pendingDocuments=len(pending),
                                    pendingManifest=self.store.put({"sourceId": source["id"], "runId": plan["runId"], "items": pending}))

@@ -2,12 +2,18 @@
   "schemaVersion": 1,
   "version": "market-daily-v1",
   "scope": "Current 74 suppliers; expansion requires a reviewed registry change, with no hard-coded supplier ceiling.",
+  "collection": {
+    "mode": "delta_with_retained_audit",
+    "currentWindowDays": 30,
+    "maxDocumentsPerSource": 2,
+    "maxAuditDocumentsPerSource": 1
+  },
   "schedule": {
     "intervalHours": 24,
     "overdueHours": 30,
     "reconcileEveryRun": true,
-    "collectionCron": "17 12 * * *",
-    "publicationCron": "23 0,16 * * *",
+    "collectionCron": "37 4 * * *",
+    "publicationCron": "23 5,16 * * *",
     "maxWorkers": 4
   },
   "model": {

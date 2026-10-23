@@ -93,6 +93,9 @@ def release_daily(store, contract, archive, revision, config, checkpoint):
         count = (prior or {}).get("attempts", 0)
         require(count < contract["publication"]["maxBatchesPerDay"], "DAILY_GATE_BUDGET_EXHAUSTED")
         store.compare_and_swap(f"gate-budget-{day}", prior, {"attempts": count + 1})
+        # Persist the reservation remotely before dispatch. A killed ephemeral
+        # runner must not refund its gate attempt on the next archive restore.
+        checkpoint()
         run_id, artifact_id = dispatch_gate(store, archive, revision, authority)
         inputs, receipt = import_gate(store, authority, run_id, artifact_id, archive)
         manifest = prepare_release(contract, inputs["coverage"], inputs["snapshot"], revision, inputs["artifact"], receipt, previous, utcnow(), authority)

@@ -45,6 +45,47 @@ def get_json(url):
         return json.loads(body)
 
 
+def inspect_collection(contract, read_archive, now, authority):
+    """Check the installed Actions clock separately from source completeness.
+
+    A dispatch can prove execution, but cannot prove the daily timer fired.
+    The archive's trigger is compared with GitHub's own run metadata.
+    """
+    problems = []
+    collector = read_archive("heads/cloud-collector.json")
+    result = collector.get("result", {})
+    run_id = result.get("githubRunId")
+    if not str(run_id).isdigit():
+        problems.append("COLLECTOR_RUN_ID_MISSING")
+    else:
+        run = authority._api(f"actions/runs/{run_id}")
+        if (run.get("path") != ".github/workflows/subscription-collector.yml"
+                or run.get("head_sha") != collector.get("appRevision")
+                or run.get("event") != result.get("githubEventName")):
+            problems.append("COLLECTOR_GITHUB_IDENTITY_DIFFERS")
+        if collector.get("phase") != "finish" or run.get("status") != "completed":
+            problems.append("COLLECTOR_DID_NOT_FINISH")
+    runs = authority._api("actions/workflows/subscription-collector.yml/runs?event=schedule&per_page=10")["workflow_runs"]
+    scheduled = next((r for r in runs if r.get("event") == "schedule" and r.get("head_branch") == "main"), None)
+    if not scheduled:
+        problems.append("NO_ACTUAL_SCHEDULED_COLLECTION")
+    else:
+        age = (instant(now) - instant(scheduled["created_at"])).total_seconds()/3600
+        if not 0 <= age <= contract["schedule"]["overdueHours"]:
+            problems.append("SCHEDULED_COLLECTION_OVERDUE")
+        if scheduled.get("status") != "completed" or scheduled.get("conclusion") != "success":
+            problems.append("SCHEDULED_COLLECTION_FAILED_OR_UNFINISHED")
+    latest = read_archive("heads/latest-run.json")
+    coverage = read_archive(latest["receipt"]["key"], reference=latest["receipt"])
+    state = health(coverage, now, contract["schedule"]["overdueHours"], digest(contract))
+    if not state["healthy"]:
+        problems.append(state["reason"])
+    return {"healthy": not problems, "checkedAt": now, "runId": coverage["runId"],
+            "reasons": problems, "publicationEnabled": contract["publication"]["enabled"],
+            "scheduledRunUrl": scheduled.get("html_url") if scheduled else None,
+            "successfulTasks": coverage["successfulTasks"], "requiredTasks": coverage["requiredTasks"]}
+
+
 def inspect(contract, read_archive, get_live, now, authority=None):
     latest = read_archive("heads/latest-run.json")
     coverage = read_archive(latest["receipt"]["key"], reference=latest["receipt"])
@@ -132,9 +173,6 @@ def main():
     parser.add_argument("--notify", action="store_true")
     args = parser.parse_args()
     contract = json.loads((ROOT / "contracts/market.json").read_text())
-    if not contract["publication"]["enabled"]:
-        print(json.dumps({"activated": False, "healthy": False, "reason": "DAILY_CUTOVER_NOT_ENABLED"}))
-        return 0  # Explicitly unactivated; a green Actions job is not coverage evidence.
     now = utcnow()
     try:
         commit = api("git/ref/archive/market-evidence")["object"]["sha"]
@@ -145,7 +183,12 @@ def main():
             if reference and (digest(body) != reference["sha256"] or len(body) != reference["bytes"]):
                 raise ValueError("Independent coverage object hash differs")
             return json.loads(body)
-        result = inspect(contract, read_archive, get_json, now, GitHubAuthority())
+        authority = GitHubAuthority()
+        result = inspect_collection(contract, read_archive, now, authority)
+        if contract["publication"]["enabled"]:
+            publication = inspect(contract, read_archive, get_json, now, authority)
+            result["reasons"] = list(dict.fromkeys(result["reasons"] + publication["reasons"]))
+            result["healthy"] = not result["reasons"]
     except (ValueError, OSError, KeyError, subprocess.SubprocessError) as error:
         result = {"healthy": False, "checkedAt": now, "reasons": ["INDEPENDENT_PROBE_FAILED", type(error).__name__]}
     if args.notify:

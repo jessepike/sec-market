@@ -21,7 +21,6 @@ from reporting import csv_matrix, inventory, markdown_matrix
 from snapshot import build_snapshot
 from storage import LocalStore
 from validation import reconcile
-from release import release_daily
 
 spec = importlib.util.spec_from_file_location("session_runtime", REPO / "ops/cloud/run.py")
 session_runtime = importlib.util.module_from_spec(spec)
@@ -99,17 +98,18 @@ def execute(root, maximum_seconds=1200, publisher_config=None):
         state.put(csv_matrix(rows).encode())
         state.put(markdown_matrix(contract, rows).encode())
         keeper.checkpoint()
-        result = {"githubRunId": os.environ["GITHUB_RUN_ID"], "runId": checked["runId"],
+        result = {"githubRunId": os.environ["GITHUB_RUN_ID"],
+                  "githubEventName": os.environ.get("GITHUB_EVENT_NAME"),
+                  "githubRef": os.environ.get("GITHUB_REF"), "appRevision": revision,
+                  "runId": checked["runId"],
                   "successfulTasks": checked["successfulTasks"], "requiredTasks": checked["requiredTasks"],
                   "complete": checked["complete"], "modelCalls": agent.calls, "apiFallback": False,
                   "snapshotSha256": snapshot["snapshotSha256"], "reviewQueue": len(snapshot["reviewQueue"]),
                   "executionMode": "github_subscription", "publication": {"published": False, "reason": "INITIAL_CUTOVER_NOT_ENABLED"}}
         if contract["publication"]["enabled"]:
-            require(publisher_config, "Reviewed publisher settings required")
-            config = json.loads(Path(publisher_config).read_text())
-            archived = session_runtime.checkpoint(root, state, session, "gate_requested", result)["archive"]
-            result["publication"] = release_daily(state, contract, archived, revision, config,
-                checkpoint=lambda: session_runtime.checkpoint(root, state, session, "publication_journal", {})["archive"])
+            # Publication has a separate runner/time budget and never receives
+            # subscription auth. Its independent gate may take 35 minutes.
+            result["publication"] = {"published": False, "reason": "SEPARATE_PUBLISHER_REQUIRED"}
         finished = session_runtime.checkpoint(root, state, session, "finish", result, finish=True)
         result["archive"] = finished["archive"]
         return result

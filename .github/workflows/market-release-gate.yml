@@ -19,7 +19,9 @@ concurrency:
 
 jobs:
   gate:
-    if: github.ref == 'refs/heads/main'
+    # Preview can exercise the same gate before cutover. The publisher's
+    # GitHubAuthority independently requires main and rejects preview artifacts.
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/preview'
     runs-on: ubuntu-latest
     timeout-minutes: 35
     permissions:
@@ -75,5 +77,25 @@ jobs:
         with:
           name: daily-market-gate
           path: ${{ runner.temp }}/daily-gate
+          if-no-files-found: error
+          retention-days: 7
+      - name: Capture production and exact tested build for owner review
+        working-directory: application/web
+        run: |
+          mkdir -p "$RUNNER_TEMP/daily-gate-shots"
+          npm run preview -- --host 127.0.0.1 --port 4173 &
+          server=$!
+          trap 'kill "$server" 2>/dev/null || true' EXIT
+          for attempt in $(seq 1 30); do
+            if curl --fail --silent http://127.0.0.1:4173/ >/dev/null; then break; fi
+            sleep 1
+          done
+          node scripts/shot.mjs https://securitymarketpulse.com/ "$RUNNER_TEMP/daily-gate-shots/production"
+          node scripts/shot.mjs http://127.0.0.1:4173/ "$RUNNER_TEMP/daily-gate-shots/tested"
+      - name: Retain visual review captures
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: daily-market-gate-screenshots
+          path: ${{ runner.temp }}/daily-gate-shots
           if-no-files-found: error
           retention-days: 7

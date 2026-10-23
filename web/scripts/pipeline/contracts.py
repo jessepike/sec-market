@@ -44,6 +44,12 @@ def unique(items, label):
 def validate_contract(contract):
     require(contract.get("schemaVersion") == 1, "Unsupported contract schema")
     require(bool(contract.get("version")), "Contract version required")
+    if "collection" in contract:
+        policy = contract["collection"]
+        require(policy.get("mode") == "delta_with_retained_audit", "Unsupported collection mode")
+        for key in ("currentWindowDays", "maxDocumentsPerSource", "maxAuditDocumentsPerSource"):
+            require(type(policy.get(key)) is int and policy[key] > 0, "Invalid collection bound: " + key)
+        require(policy["maxAuditDocumentsPerSource"] <= policy["maxDocumentsPerSource"], "Audit exceeds source budget")
     schedule = contract["schedule"]
     require(schedule["intervalHours"] == 24 and schedule["reconcileEveryRun"] is True,
             "Every required daily run must reconcile coverage")

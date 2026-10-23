@@ -21,6 +21,8 @@ sys.path.insert(0, str(SCRIPTS))
 from contracts import ContractError, canonical, digest, plan_run, validate_contract
 from discovery import Page, discover, xml_links
 from engine import Pipeline
+from selection import select_documents
+from release import release_daily
 from fetcher import safe_url
 from publication import health, prepare_release, publish, verify_acknowledgement
 from storage import ConflictError, LocalStore
@@ -92,6 +94,54 @@ class FakeAgent:
 
 
 class PipelineTests(unittest.TestCase):
+    def test_gate_attempt_is_checkpointed_before_external_dispatch(self):
+        self.c["publication"].update(enabled=True, maxBatchesPerDay=2)
+        self.store.write_once("releases/old.json", {"manifest": {}})
+        self.store.compare_and_swap("latest-run", None, {"receipt": {"sha256": "a" * 64}})
+        saved = []
+        def checkpoint():
+            # Simulate remote archival of the reservation immediately followed
+            # by runner death before the external dispatch begins.
+            saved.extend(p.read_text() for p in self.store.root.glob("heads/gate-budget-*.json"))
+            raise RuntimeError("runner terminated")
+        with patch("release.VercelAdapter") as adapter, patch("release.recover_publication", return_value={"releaseId": "old"}), patch("release.dispatch_gate") as dispatch:
+            adapter.return_value.production_paths_controlled.return_value = True
+            with self.assertRaisesRegex(RuntimeError, "runner terminated"):
+                release_daily(self.store, self.c, {}, "b" * 40, {"vercel": {"project_id": "fixture"}}, checkpoint)
+            dispatch.assert_not_called()
+        self.assertEqual([json.loads(s)["attempts"] for s in saved], [1])
+
+    def test_delta_selection_bounds_history_and_prioritizes_changed_current_documents(self):
+        policy = {"currentWindowDays": 30, "maxDocumentsPerSource": 2, "maxAuditDocumentsPerSource": 1}
+        found = {"items": ["old", "unknown", "new", "changed"], "itemModified": {"old": "2020-01-01", "new": "2026-10-19", "changed": "2026-10-20"}}
+        history = {"changed": {"modified": "2026-10-18", "checkedAt": T}}
+        selected, pending = select_documents(found, history, policy, T)
+        self.assertEqual(selected, ["changed", "new"])
+        self.assertEqual(pending, ["old", "unknown"])
+        self.assertEqual(set(selected + pending), set(found["items"]))
+
+    def test_undated_and_historical_audit_is_finite_and_rotates_after_success(self):
+        policy = {"currentWindowDays": 30, "maxDocumentsPerSource": 2, "maxAuditDocumentsPerSource": 1}
+        found = {"items": ["a", "b", "c"], "itemModified": {}}
+        selected, pending = select_documents(found, {}, policy, T)
+        self.assertEqual(selected, ["a"])
+        self.assertEqual(pending, ["b", "c"])
+        selected, pending = select_documents(found, {"a": {"modified": "", "checkedAt": T}}, policy, T)
+        self.assertEqual(selected, ["b"])
+        self.assertEqual(pending, ["a", "c"])
+
+    def test_bounded_collection_keeps_full_inventory_and_partial_facts(self):
+        self.c["collection"] = {"mode": "delta_with_retained_audit", "currentWindowDays": 30, "maxDocumentsPerSource": 2, "maxAuditDocumentsPerSource": 1}
+        pages = {"https://example.invalid/feed.xml": b'<rss><channel><item><link>https://example.invalid/releases/one</link></item><item><link>https://example.invalid/releases/two</link></item></channel></rss>', URL: f"<html><body>{QUOTE}</body></html>".encode()}
+        result = self.run_pipeline(pages=pages)
+        receipt = result["receipts"][0]
+        self.assertFalse(result["complete"])
+        self.assertEqual(receipt["outcome"], "not_checked")
+        self.assertEqual(receipt["pendingDocuments"], 1)
+        self.assertEqual(len(receipt["validatedFacts"]), 1)
+        self.assertEqual(json.loads(self.store.get(receipt["pendingManifest"]))["items"], ["https://example.invalid/releases/two"])
+        self.assertIsNone(self.store.read(f"heads/source-{digest('official')}.json"))
+
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)

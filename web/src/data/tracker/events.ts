@@ -631,6 +631,15 @@ export const handCollectedEvents: TrackerEvent[] = [
     "rung": 1
   },
   {
+    "id": "EV-varonis-proofpoint-agreement",
+    "supplierId": "varonis",
+    "date": "2026-10-15",
+    "type": "acquisition",
+    "text": "Varonis and Proofpoint announced a definitive agreement for Proofpoint to acquire Varonis in an all-cash transaction valued at approximately $6.3 billion, or $49.75 per share. The companies expect closing in the first half of 2027, subject to shareholder and regulatory approvals; they remain separate companies until closing.",
+    "evidenceIds": ["TR-varonis-proofpoint-agreement"],
+    "rung": 1
+  },
+  {
     "id": "EV-varonis-2",
     "supplierId": "varonis",
     "date": "2025-10-28",
