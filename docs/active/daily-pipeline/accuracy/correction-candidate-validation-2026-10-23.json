@@ -1,0 +1,39 @@
+{
+  "kind": "dated_correction_candidate_validation",
+  "codeRevision": "bf4215c",
+  "productionChanged": false,
+  "semanticAdmission": false,
+  "correctionsAppliedToProduction": false,
+  "tests": {
+    "data": 315,
+    "pipeline": 112,
+    "browser": 34,
+    "operational": 184,
+    "monitor": 12
+  },
+  "fullApplicationTestLogSha256": "a47fde0f2accf5a3bab2f8962643783d23855ef80578cf140efb97b3d4636dcf",
+  "files": {
+    "contracts/factual-baseline.json": "ab3bca0e49a38495d310021857ee2c1a3ca6ebe7979593d1e8b36437cb2a294e",
+    "contracts/factual-corrections.json": "4b65725ec0dae65ddca0a4196778c60dd99a8523823300214dc0b22df0e92138",
+    "web/src/data/tracker/originals.json": "7d164cb81003db0a66eccbb25c2e8605e33b853b9a6e20cb2c6900794822b4a3",
+    "web/scripts/pipeline/corrections.py": "9a5cd993126d8f83cc16aa9f9c1ba7f682eda80207e0dc29b6a0043ee89686aa",
+    "web/scripts/pipeline/engine.py": "67b34b6ae59360562d31ed6ead3d2fd355a33dae10304aeea8e7470e7e8d72a2",
+    "web/scripts/pipeline/gate.py": "6a8fe075a79b9569e9f3194f1f969678540e61f54dc4e4c2bd07f959332cc5aa",
+    "web/scripts/pipeline/publication.py": "6497c6fbf8494638a79a9b00afa4b18f50d67598fa635c273d82d1553c8ffe84",
+    "web/scripts/pipeline/release.py": "30575a20c1c7f0ac5d013b46b780e0f3ab6b6f2facbe9bbc32d78171d53358c1",
+    "web/scripts/verify-current-facts.ts": "3847ba4cf890351f580a6477639bef442e3c8dc4160510b5d855731515ebc7c9",
+    "web/scripts/verify-factual-corrections.mjs": "67d6999ad788800e69546ee75edb609f72bdaf10bbe22be9f68320e7538e96bf",
+    "web/src/data/generated/factualCorrections.json": "826c7e5c70f98b5a6cc084c8d2d7f2dc2dd7bf22fcefb2621c4f9f5653761d21"
+  },
+  "sourceReplay": "correction-source-replay-2026-10-23.json",
+  "visualReplay": "correction-visual-replay-2026-10-23.json",
+  "runtimeModelCalls": 0,
+  "primarySourceRequests": 0,
+  "chargedAllowanceChanged": false,
+  "liveCoverage": {
+    "successfulTasks": 121,
+    "requiredTasks": 557
+  },
+  "knownLiveContradictions": 5,
+  "value": "unmeasured"
+}

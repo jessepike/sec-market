@@ -76,13 +76,32 @@ admission: [remote validation](docs/active/daily-pipeline/accuracy/remote-valida
 
 ## Required next work and limits
 
-Implement the dated factual-correction ledger, deterministic current-view projection and
-current-policy admission adapter described in the
-[correction proposal](docs/active/daily-pipeline/accuracy/correction-path-proposal-2026-10-23.md).
-Preserve raw history, keep owner-approved issue/thesis corrections intact and reject unreviewed
-static edits. The existing publisher assertion does not independently verify arbitrary static
-fact changes. Remaining support/provenance gaps also need resolution; they are not all false facts.
-No owner factual decision is currently needed for the five supported correction groups.
+The dated factual-correction path is implemented as a disabled development candidate under the
+[implementation contract](docs/active/daily-pipeline/factual-corrections-spec.md). Five atomic groups
+cover eleven targets, including source metadata. All 97 original hand events, 74 manual suppliers
+and 273 handwritten evidence records retain their exact object values in a separately pinned
+inventory. Shared projections feed the tracker, source drawers, certification inputs and exports.
+An independent runtime check rejects factual overrides outside those projections. The public
+correction page, JSON and feed retain before/after readings, all bound primary links and review
+hashes; legacy owner approval attribution is unchanged.
+
+The collector archives pending/accepted corrections separately from all 557 source obligations,
+prioritizes whole-group reviews and uses the existing charged reservation ledger. The gate replays
+actual archived admissions, requires all five groups, and binds the public correction bytes to
+the release and detached deployment receipt. Pending reviews stop before consuming a gate attempt.
+First publication, crash recovery and rollback enforce the publication date; later runs retain
+the original correction dates. The independent monitor includes pending correction work.
+
+Local checks pass 315 data, 112 pipeline, 34 browser, 184 operational and 12 monitor tests.
+The full build passes. Disabled desktop/phone renders are pixel-identical to the earlier candidate.
+An isolated synthetic fixture exercises the corrected page and affected supplier views; it is
+explicitly non-admitting and cannot be published through the real gate. The five real groups'
+eight archived primary documents pass byte, URL, timestamp and literal-quote checks without a
+new request or renewed source date. [Source replay](docs/active/daily-pipeline/accuracy/correction-source-replay-2026-10-23.json).
+
+Proper subscription reviews and actual collection/gate/publication receipts remain required.
+No new corrections are live. Remaining support/provenance gaps also need resolution; they are not
+all false facts. No owner factual decision is currently needed for these five groups.
 
 Main remains frozen for October 23 UTC: both gate/publication attempts are spent and charged
 fetch/model/document counters are 5,500/80/40. Never refund/reset them or substitute offline agent

@@ -25,8 +25,11 @@ unmeasured: the owner reports no real use yet.
 
 The [fixed existing-record review](docs/active/daily-pipeline/accuracy/current-record-review-2026-10-23.md)
 now covers 97 hand events and 80 supplier fields. Five directly contradicting records and a related
-ambiguous funding field have exact correction drafts. Implement the separate dated factual-correction
-ledger, current-view projection and current-policy admission adapter before applying them. Preserve
+ambiguous funding field have exact correction drafts. The separate dated factual-correction ledger,
+current-view projection and current-policy admission adapter are implemented in the disabled
+candidate, with immutable originals, runtime export checks and release/date bindings. Run actual
+independent subscription reviews and gated publication after the natural daily allowance renews;
+synthetic tests and source-byte checks do not admit corrections. Preserve
 raw history and existing owner-approved issue corrections; reject unreviewed static edits. Resolve
 the remaining support/date/provenance gaps without treating them all as false. Known contradictions
 must stay visible separately from passing release tests and the unchanged 121/557 source result.
@@ -130,6 +133,8 @@ search with company-type navigation (SEC-074), open the matching company/event a
 and see the source date and freshness status. Define representative search cases, useful empty
 results and clear/reset behavior when this work is picked up. Do not use search to mask missing
 or stale underlying facts.
+The current front-page name/ticker filter is a limited starting point; this item adds search across
+the underlying market records and their evidence.
 **Authorization:** owner explicitly requested adding development of search to the backlog on
 October 23. Queued for later work; implementation has not started.
 
