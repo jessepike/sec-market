@@ -48,7 +48,7 @@ def verify_statement(candidate, observation, store, review, supplier, policy_has
     require(candidate["qualifier"] in ("exact", "approximately", "at_least", "more_than", "up_to"), "Missing numeric qualifier")
     require(observation["status"] in ("fetched", "not_modified"), "Unsuccessful source observation")
     raw = store.get(observation["body"]).decode("utf8")
-    page = Page(raw) if "html" in observation.get("contentType", "") else None
+    page = Page(raw, source_url=observation.get('finalUrl') or observation['requestedUrl']) if "html" in observation.get("contentType", "") else None
     text = page.readable if page else normalize(raw)
     quote, statement = normalize(candidate["quote"]), normalize(candidate["valueText"])
     require(len(quote) >= 20 and len(quote) <= 6000 and quote in text, "Exact source excerpt missing")
@@ -176,7 +176,7 @@ def reconcile(plan, receipts, contract, now, store):
                         hashes.append(held["candidateSha256"])
                     require(sorted(hashes) == sorted(validation["candidateHashes"]), "Document candidate inventory differs")
                     if not validation["candidateHashes"]:
-                        text = Page(store.get(observation["body"]).decode('utf8', errors='replace')).readable
+                        text = Page(store.get(observation["body"]).decode('utf8', errors='replace'), source_url=observation.get('finalUrl') or observation['requestedUrl']).readable
                         if validation.get("exclusionRule") == "no-registered-entity-mention-v1":
                             supplier = next(s for s in contract["suppliers"] if s["id"] == task["supplierId"])
                             require(source["family"] in ("investor_acquirer", "release_distribution") and len(text) >= 100 and not mentions_entity(text, supplier), "Invalid shared-publisher entity exclusion")

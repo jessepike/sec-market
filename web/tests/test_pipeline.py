@@ -22,7 +22,7 @@ sys.path.insert(0, str(SCRIPTS))
 from contracts import ContractError, canonical, digest, plan_run, validate_contract
 from discovery import Page, discover, xml_links
 from engine import Pipeline
-from selection import select_documents
+from selection import select_documents, entity_url_priority
 from release import release_daily
 from fetcher import safe_url
 from publication import health, prepare_release, publish, verify_acknowledgement
@@ -269,6 +269,44 @@ class PipelineTests(unittest.TestCase):
         selected, pending = select_documents(found, {"a": {"modified": "", "checkedAt": T}}, policy, T)
         self.assertEqual(selected, ["b"])
         self.assertEqual(pending, ["a", "c"])
+
+    def test_shared_publisher_prioritizes_registered_entity_without_dropping_other_urls(self):
+        supplier = {'name': 'Dragos, Inc.', 'aliases': ['Dragos']}
+        relevant = 'https://newsroom.invalid/news/2026/accenture-dragos-acquisition'
+        generic = ['https://newsroom.invalid/news/z-other', 'https://newsroom.invalid/news/y-other']
+        found = {'items': [relevant, *generic], 'itemModified': {relevant: '2026-10-18', **{u: '2026-10-19' for u in generic}}}
+        policy = {'currentWindowDays': 30, 'maxDocumentsPerSource': 2, 'maxAuditDocumentsPerSource': 1}
+        selected, deferred = select_documents(found, {}, policy, T, supplier=supplier)
+        self.assertEqual(selected[0], relevant)
+        self.assertEqual(len(selected), 2)
+        self.assertEqual(set(selected + deferred), set(found['items']))
+
+    def test_entity_history_does_not_displace_current_work_or_expand_audit_allowance(self):
+        supplier = {'name': 'Dragos, Inc.', 'aliases': ['Dragos']}
+        current = ['https://newsroom.invalid/news/generic-a', 'https://newsroom.invalid/news/generic-b']
+        archived = 'https://newsroom.invalid/news/2020/dragos-funding'
+        undated = 'https://newsroom.invalid/news/dragos-undated'
+        found = {'items': [*current, archived, undated], 'itemModified': {**{u: '2026-10-19' for u in current}, archived: '2020-01-01'}}
+        policy = {'currentWindowDays': 30, 'maxDocumentsPerSource': 2, 'maxAuditDocumentsPerSource': 1}
+        selected, deferred = select_documents(found, {}, policy, T, supplier=supplier)
+        self.assertEqual(set(selected), set(current))
+        self.assertEqual(set(deferred), {archived, undated})
+        found['items'] = [archived, undated, 'https://newsroom.invalid/news/z-generic']
+        selected, deferred = select_documents(found, {}, policy, T, supplier=supplier)
+        self.assertEqual(len(selected), 1)
+        self.assertIn(selected[0], (archived, undated))
+        self.assertEqual(len(deferred), 2)
+
+    def test_entity_url_priority_uses_whole_unambiguous_registered_slugs(self):
+        dragos = {'name': 'Dragos, Inc.', 'aliases': ['D', 'Dragos']}
+        self.assertTrue(entity_url_priority('https://publisher.invalid/news/dragos-funding', dragos))
+        for url in ('https://dragos.invalid/news/other', 'https://publisher.invalid/news/notdragos',
+                    'https://publisher.invalid/news/dragostechnology', 'https://publisher.invalid/news/other?q=dragos'):
+            self.assertFalse(entity_url_priority(url, dragos))
+        self.assertFalse(entity_url_priority('https://publisher.invalid/news/aqua-funding', {'name': 'Aqua', 'aliases': ['IBM', 'Wiz']}))
+        self.assertFalse(entity_url_priority('https://publisher.invalid/news/security-update', {'name': 'Security, Inc.', 'aliases': []}))
+        self.assertTrue(entity_url_priority('https://publisher.invalid/news/check-point-results', {'name': 'Check Point', 'aliases': []}))
+        self.assertTrue(entity_url_priority('https://publisher.invalid/news/checkpoint-results', {'name': 'Check Point', 'aliases': []}))
 
     def test_bounded_collection_keeps_full_inventory_and_partial_facts(self):
         self.c["collection"] = {"mode": "delta_with_retained_audit", "currentWindowDays": 30, "maxDocumentsPerSource": 2, "maxAuditDocumentsPerSource": 1}

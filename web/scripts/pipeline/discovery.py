@@ -12,24 +12,71 @@ from contracts import require, instant, utcnow
 
 
 class Page(HTMLParser):
-    def __init__(self, html):
+    def __init__(self, html, source_url=None):
         super().__init__(convert_charrefs=True)
+        self.source_url = source_url
+        source = urlsplit(source_url or '')
+        self.esentire_scope = source.scheme == 'https' and source.hostname == 'www.esentire.com' and source.path.startswith('/news-releases/') and bool(source.path.removeprefix('/news-releases/')) and not source.query and not source.fragment and not source.username and source.port in (None, 443)
+        self.canonicals, self.webpage_nodes = [], []
+        self.scoped_articles, self.scoped_article_text = 0, []
+        self.scoped_extraction, self.publication_ambiguous = False, False
         self.links, self.feeds, self.text, self.published = [], [], [], None
         self.regions, self.region_text = [], {"article": [], "main": []}
         self.json_ld, self.json_parts, self.json_dates, self.meta_published = False, [], set(), False
         self.time_dates, self.published_from_time = set(), False
         self.skip = 0
         self.feed(html)
+        self._finish_scoped_publication()
         # A labeled article publication date is usable metadata. An arbitrary
         # event time, modified date or a multi-entry listing is not.
-        if not self.published and not self.json_dates and len(self.time_dates) == 1:
+        if not self.publication_ambiguous and not self.published and not self.json_dates and len(self.time_dates) == 1:
             self.published = next(iter(self.time_dates))
             self.published_from_time = True
+
+    def _finish_scoped_publication(self):
+        if not self.esentire_scope or not self.scoped_articles:
+            return
+        # This exact archived source layout has no semantic article/main element.
+        # Scope the body even when its publication metadata remains conflicting.
+        self.scoped_extraction = True
+        matching = [node for node in self.webpage_nodes if node.get('url') == self.source_url and node.get('mainEntityOfPage') == self.source_url]
+        self.publication_ambiguous = True
+        if self.canonicals != [self.source_url] or len(self.webpage_nodes) != 1 or len(matching) != 1 or self.scoped_articles != 1:
+            self.published = None
+            return
+        value = matching[0].get('datePublished')
+        try:
+            published = instant(value)
+            require(published.date() <= date.today(), 'Future publication date')
+        except (ValueError, TypeError):
+            self.published = None
+            return
+        article = re.sub(r'\s+', ' ', ' '.join(self.scoped_article_text)).strip()
+        dateline = re.search(r'^[^.!?]{0,100}?\b((?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},?\s+\d{4})\b', article)
+        if dateline:
+            from datetime import datetime
+            try:
+                day = datetime.strptime(dateline.group(1).replace(',', ''), '%B %d %Y').date().isoformat()
+            except ValueError:
+                self.published = None
+                return
+            if day != value[:10]:
+                self.published = None
+                return
+        other_dates = self.json_dates | ({self.published} if self.published else set())
+        if any(item[:10] != value[:10] for item in other_dates):
+            self.published = None
+            return
+        self.published = value
+        self.publication_ambiguous = False
 
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
         self.regions = [(t, r, depth + (t == tag)) for t, r, depth in self.regions]
         region = tag if tag in ("article", "main") else "main" if a.get("role") == "main" else None
+        if self.esentire_scope and 'BlogBody__Content' in a.get('class', '').split():
+            self.scoped_articles += 1
+            self.regions.append((tag, 'scoped_article', 1))
         if region:
             self.regions.append((tag, region, 1))
         # This explicit press-release label is verified against archived
@@ -54,6 +101,8 @@ class Page(HTMLParser):
             self.links.append({"url": a["href"], "next": "next" in a.get("rel", "").split()})
         if tag == "link" and a.get("href") and a.get("type", "") in ("application/rss+xml", "application/atom+xml"):
             self.feeds.append(a["href"])
+        if tag == 'link' and 'canonical' in a.get('rel', '').split() and a.get('href'):
+            self.canonicals.append(a['href'])
         if tag == "meta" and a.get("property") in ("article:published_time", "datePublished"):
             self.published = a.get("content")
             self.meta_published = bool(self.published)
@@ -69,6 +118,8 @@ class Page(HTMLParser):
                     elif isinstance(item, dict):
                         types = item.get("@type", [])
                         types = [types] if isinstance(types, str) else types
+                        if self.esentire_scope and 'WebPage' in types:
+                            self.webpage_nodes.append(item)
                         if any(t in ("Article", "NewsArticle", "BlogPosting", "PressRelease") for t in types):
                             date = item.get("datePublished", "")
                             if isinstance(date, str) and re.match(r"^\d{4}-\d{2}-\d{2}", date): self.json_dates.add(date)
@@ -93,11 +144,15 @@ class Page(HTMLParser):
             self.json_parts.append(data)
         if not self.skip:
             self.text.append(data)
+            if any(region == 'scoped_article' for _, region, _ in self.regions):
+                self.scoped_article_text.append(data)
             for region in {region for _, region, _ in self.regions if region in self.region_text}:
                 self.region_text[region].append(data)
 
     @property
     def readable(self):
+        if self.scoped_extraction and self.scoped_articles == 1:
+            return re.sub(r'\s+', ' ', ' '.join(self.scoped_article_text)).strip()
         for region in ("article", "main"):
             text = re.sub(r"\s+", " ", " ".join(self.region_text[region])).strip()
             if len(text) >= 100:

@@ -158,10 +158,10 @@ class Pipeline:
                         text = readable_document(body, observation.get("contentType", ""))
                         receipt.setdefault("documents", []).append({"url": url, "body": observation["body"], "text": self.store.put(text.encode())})
                         return
-                    page = Page(body.decode("utf8", errors="replace"))
+                    page = Page(body.decode("utf8", errors="replace"), source_url=observation.get('finalUrl') or observation['requestedUrl'])
                     # Re-extract only pages whose newly supported publication
                     # metadata changes the model input; preserve other caches.
-                    extractor = 4 if page.published_from_time else 3
+                    extractor = 5 if page.scoped_extraction else 4 if page.published_from_time else 3
                     cache_key = digest({"supplier": source["supplierId"], "body": observation["body"]["sha256"], "contract": plan["contractSha256"], "extractor": extractor})
                     with self.store.lock(f"document-{cache_key}", blocking=True), self.model_lock:
                         cached = self.store.read(f"document-validation/{cache_key}.json")
@@ -250,7 +250,8 @@ class Pipeline:
                     if audit_head and audit_head.get("inventory"):
                         retained_items.update(json.loads(self.store.get(audit_head["inventory"]))["items"])
                     selected_inventory = {**found, "items": sorted(retained_items)}
-                    ordered, deferred = select_documents(selected_inventory, audit_history, self.contract["collection"], self.clock())
+                    ordered, deferred = select_documents(selected_inventory, audit_history, self.contract["collection"], self.clock(),
+                        supplier=self.suppliers[source['supplierId']] if source['family'] in ('investor_acquirer', 'release_distribution') else None)
                     pending.extend(deferred)
                     if deferred:
                         pending_errors.append("HISTORICAL_OR_UNCHANGED_AUDIT_PENDING")

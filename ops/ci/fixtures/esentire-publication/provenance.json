@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "archiveState": "Read-only restored /tmp/smp-coverage-baseline-20261023/state",
+  "fixtures": [
+    {
+      "file": "ceo.html",
+      "sourceUrl": "https://www.esentire.com/news-releases/esentire-appoints-cybersecurity-industry-veteran-james-c-foster-as-chief-executive-officer",
+      "originalBodySha256": "fdf968725a257486319f6310cbe634262f5aa28950733bf5ea55ce061386a994",
+      "fixtureSha256": "fdf968725a257486319f6310cbe634262f5aa28950733bf5ea55ce061386a994",
+      "bytes": 149718,
+      "representation": "Full unchanged archived response body; no network retrieval during this repair."
+    },
+    {
+      "file": "autonomy-conflict.html",
+      "sourceUrl": "https://www.esentire.com/news-releases/esentire-advances-controlled-autonomy-secops-with-agentic-ai-that-preempts-detects-and-responds-in-a-single-unified-platform",
+      "originalBodySha256": "aaf25a4a56e072c040e255987a5175c24d314661db6c27eee08fb41f103b0949",
+      "fixtureSha256": "aaf25a4a56e072c040e255987a5175c24d314661db6c27eee08fb41f103b0949",
+      "bytes": 145764,
+      "representation": "Full unchanged archived response body; no network retrieval during this repair."
+    }
+  ]
+}

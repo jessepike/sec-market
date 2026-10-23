@@ -1,10 +1,34 @@
 """Bound daily semantic work without asserting historical discovery completeness."""
 from datetime import timedelta
+import re
+from urllib.parse import unquote, urlsplit
 
 from contracts import instant
 
 
-def select_documents(found, history, policy, now):
+def entity_url_priority(url, supplier):
+    """Exact registered slugs are a work-order hint, never entity evidence."""
+    if not supplier:
+        return False
+    legal = {'inc', 'incorporated', 'corp', 'corporation', 'llc', 'ltd', 'limited', 'plc'}
+    generic = {'security', 'cybersecurity', 'systems', 'software', 'solutions', 'technology',
+               'technologies', 'networks', 'network', 'holdings', 'group', 'global', 'international'}
+    path = tuple(re.findall(r'[a-z0-9]+', unquote(urlsplit(url).path).lower()))
+    for name in [supplier['name'], *supplier.get('aliases', [])]:
+        words = re.findall(r'[a-z0-9]+', name.lower())
+        while words and words[-1] in legal:
+            words.pop()
+        if not words or len(''.join(words)) < 5 or (len(words) == 1 and words[0] in generic):
+            continue
+        phrase = tuple(words)
+        if any(path[i:i + len(phrase)] == phrase for i in range(len(path) - len(phrase) + 1)):
+            return True
+        if len(words) > 1 and ''.join(words) in path:
+            return True
+    return False
+
+
+def select_documents(found, history, policy, now, supplier=None):
     """Return current/delta work first and retain every deferred URL for audit.
 
     lastmod is only a scheduling hint, never evidence of a fact's effective date.
@@ -26,9 +50,9 @@ def select_documents(found, history, policy, now):
             current.append(url)
         elif due:
             audit.append(url)
-    current.sort(key=lambda u: (modified.get(u, ""), u), reverse=True)
+    current.sort(key=lambda u: (entity_url_priority(u, supplier), modified.get(u, ""), u), reverse=True)
     # Oldest successful audit first. New, undated pages use stable URL order.
-    audit.sort(key=lambda u: (history.get(u, {}).get("checkedAt", ""), u))
+    audit.sort(key=lambda u: (not entity_url_priority(u, supplier), history.get(u, {}).get("checkedAt", ""), u))
     maximum = policy["maxDocumentsPerSource"]
     selected = current[:maximum]
     selected += audit[:min(policy["maxAuditDocumentsPerSource"], maximum - len(selected))]
