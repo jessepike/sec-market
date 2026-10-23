@@ -82,6 +82,20 @@ def exit_code(result):
     return 0 if result.get('executionCompleted') is True else 2
 
 
+def archive_collection_result(state, result, contract, attempt):
+    """Bind the runner identity to actual reconciled collection evidence."""
+    import re
+    run_id = str(result['githubRunId'])
+    require(re.fullmatch(r'[0-9]+', run_id) and re.fullmatch(r'[0-9]+', str(attempt)),
+            'COLLECTION_RUN_IDENTITY_REQUIRED')
+    fields = ('githubRunId', 'githubEventName', 'githubRef', 'appRevision', 'runId',
+              'successfulTasks', 'requiredTasks', 'complete', 'executionCompleted', 'outcome')
+    retained = {key: result[key] for key in fields}
+    retained.update(githubRunAttempt=int(attempt), contractSha256=digest(contract))
+    state.write_once(f'ci/collection-runs/{run_id}-{attempt}.json', retained)
+    return retained
+
+
 def execute(root, maximum_seconds=1200, publisher_config=None):
     require(os.environ.get("GITHUB_ACTIONS") == "true" and os.environ.get("GITHUB_REPOSITORY") == PROJECT, "PRIVATE_GITHUB_RUNNER_REQUIRED")
     require(60 <= maximum_seconds <= 1200, "CI collection budget may not exceed twenty minutes")
@@ -140,6 +154,7 @@ def execute(root, maximum_seconds=1200, publisher_config=None):
             # Publication has a separate runner/time budget and never receives
             # subscription auth. Its independent gate may take 35 minutes.
             result["publication"] = {"published": False, "reason": "SEPARATE_PUBLISHER_REQUIRED"}
+        archive_collection_result(state, result, contract, os.environ.get('GITHUB_RUN_ATTEMPT', '1'))
         finished = session_runtime.checkpoint(root, state, session, "finish", result, finish=True)
         result["archive"] = finished["archive"]
         # A cancellation arriving during the final remote write still fails

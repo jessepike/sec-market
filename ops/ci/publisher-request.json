@@ -1,9 +1,8 @@
 {
-  "operation": "stage_archived_prebuilt_smoke_without_promotion",
-  "ownerApproval": "D-109",
-  "ownerReportedSecretSaved": true,
-  "ownerReportedExpiration": "none",
-  "requestedAt": "2026-10-22T14:35:10.700009+00:00",
-  "nonce": "2b38824350384d9ab9a739dae31faec8",
-  "diagnosesRun": "39701439701"
+  "operation": "stage_verified_preview_gate",
+  "gateRunId": 39900926508,
+  "artifactId": 12479086604,
+  "archiveCommit": "991432eea90004d3d8a2b0fb1c80ac28f01904b4",
+  "manifestSha256": "a8c686a2cd6fea61ce307ebf393d8138011544b3388ed11ffee05363e225fb92",
+  "purpose": "Stage the independently tested daily candidate for owner review; no production promotion."
 }

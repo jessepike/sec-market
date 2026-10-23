@@ -75,6 +75,17 @@ def inspect_collection(contract, read_archive, now, authority):
             problems.append("SCHEDULED_COLLECTION_OVERDUE")
         if scheduled.get("status") != "completed" or scheduled.get("conclusion") != "success":
             problems.append("SCHEDULED_COLLECTION_FAILED_OR_UNFINISHED")
+        try:
+            acknowledgement = read_archive(f"ci/collection-runs/{scheduled['id']}-{scheduled.get('run_attempt', 1)}.json")
+            if (not acknowledgement or acknowledgement.get("executionCompleted") is not True
+                    or str(acknowledgement.get("githubRunId")) != str(scheduled["id"])
+                    or acknowledgement.get("githubEventName") != "schedule"
+                    or acknowledgement.get("githubRef") != "refs/heads/main"
+                    or acknowledgement.get("appRevision") != scheduled.get("head_sha")
+                    or acknowledgement.get("contractSha256") != digest(contract)):
+                problems.append("SCHEDULED_COLLECTION_RECEIPT_DIFFERS")
+        except (KeyError, ValueError, OSError, subprocess.SubprocessError):
+            problems.append("SCHEDULED_COLLECTION_RECEIPT_MISSING")
     latest = read_archive("heads/latest-run.json")
     coverage = read_archive(latest["receipt"]["key"], reference=latest["receipt"])
     state = health(coverage, now, contract["schedule"]["overdueHours"], digest(contract))

@@ -20,10 +20,15 @@ class ScheduledCollectionTests(unittest.TestCase):
                         "heads/latest-run.json": {"receipt": {"key": "coverage"}}, "coverage": self.coverage}
         self.run = {"path": ".github/workflows/subscription-collector.yml", "head_sha": "a"*40,
                     "event": "workflow_dispatch", "status": "completed", "conclusion": "success"}
-        self.scheduled = {"event": "schedule", "head_branch": "main", "status": "completed",
+        self.scheduled = {"id": 122, "run_attempt": 1, "head_sha": "a"*40,
+                          "event": "schedule", "head_branch": "main", "status": "completed",
                           "conclusion": "success", "created_at": "2026-10-23T03:30:00Z",
                           "html_url": "https://github.com/jessepike/sec-market/actions/runs/122"}
         self.runs = [self.scheduled]
+        self.entries["ci/collection-runs/122-1.json"] = {
+            "executionCompleted": True, "githubRunId": "122", "githubEventName": "schedule",
+            "githubRef": "refs/heads/main", "appRevision": "a"*40,
+            "contractSha256": probe.digest(self.contract)}
 
     def inspect(self):
         owner = self
@@ -52,6 +57,10 @@ class ScheduledCollectionTests(unittest.TestCase):
         result = self.inspect()
         self.assertFalse(result["healthy"])
         self.assertIn("OVERDUE_OR_INCOMPLETE_COVERAGE", result["reasons"])
+
+    def test_green_timer_without_its_own_archived_collection_is_detected(self):
+        del self.entries["ci/collection-runs/122-1.json"]
+        self.assertIn("SCHEDULED_COLLECTION_RECEIPT_MISSING", self.inspect()["reasons"])
 
     def test_failed_or_expired_timer_and_forged_archive_trigger_are_detected(self):
         self.scheduled.update(conclusion="failure", created_at="2026-10-20T03:30:00Z")

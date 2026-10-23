@@ -3,11 +3,27 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from collect import BoundedPipeline, escrow_budgets, session_runtime, execution_outcome, exit_code
+from collect import BoundedPipeline, escrow_budgets, session_runtime, execution_outcome, exit_code, archive_collection_result
 from storage import LocalStore
 
 
 class CollectionDurabilityTests(unittest.TestCase):
+    def test_timer_receipt_binds_actual_identity_policy_and_coverage_without_secrets(self):
+        result = {'githubRunId': '123', 'githubEventName': 'schedule', 'githubRef': 'refs/heads/main',
+                  'appRevision': 'a'*40, 'runId': 'real-collection', 'successfulTasks': 244,
+                  'requiredTasks': 557, 'complete': False, **execution_outcome(False),
+                  'unexpectedSecret': 'must not survive'}
+        retained = archive_collection_result(self.state, result, self.contract, '2')
+        self.assertEqual(self.state.read('ci/collection-runs/123-2.json'), retained)
+        self.assertEqual(retained['githubEventName'], 'schedule')
+        self.assertEqual(retained['githubRunAttempt'], 2)
+        self.assertFalse(retained['complete'])
+        self.assertNotIn('unexpectedSecret', retained)
+        from contracts import digest
+        self.assertEqual(retained['contractSha256'], digest(self.contract))
+        with self.assertRaisesRegex(ValueError, 'Immutable object collision'):
+            archive_collection_result(self.state, {**result, 'runId': 'different'}, self.contract, '2')
+
     def test_completed_partial_execution_is_success_without_upgrading_coverage(self):
         receipt = {'complete': False, **execution_outcome(False)}
         self.assertFalse(receipt['complete'])
