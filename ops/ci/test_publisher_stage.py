@@ -46,8 +46,46 @@ class PublisherBytesTests(unittest.TestCase):
 
     def test_previous_served_deployment_uses_instant_rollback(self):
         commands = []
-        self.adapter(commands).rollback('https://old.vercel.app')
-        self.assertEqual(commands[0][1:4], ['rollback', 'https://old.vercel.app', '--yes'])
+        adapter = self.adapter(commands)
+        with patch.object(adapter, '_switch_production') as switch:
+            adapter.rollback('https://old.vercel.app')
+        switch.assert_called_once_with('https://old.vercel.app', 'rollback')
+
+    def test_alias_api_is_team_pinned_and_avoids_user_scope_discovery(self):
+        for operation, version in [('promote', 'v10'), ('rollback', 'v9')]:
+            commands = []
+            adapter = self.adapter(commands)
+            def runner(args, **_kwargs):
+                commands.append(args)
+                if '--method' in args:
+                    return SimpleNamespace(returncode=0, stdout='{}', stderr='')
+                return SimpleNamespace(returncode=0, stdout='{"id":"dpl_123","projectId":"prj_123","readyState":"READY","target":"production","url":"exact.vercel.app"}', stderr='')
+            adapter.runner = runner
+            with patch.object(adapter, '_get', return_value={'appRevision': 'a'*40}):
+                adapter._switch_production('https://exact.vercel.app', operation)
+            self.assertEqual(commands[0][2], '/v13/deployments/exact.vercel.app?teamId=team_123')
+            self.assertEqual(commands[1][2], '/' + version + '/projects/prj_123/' + operation + '/dpl_123?teamId=team_123')
+            self.assertIn('POST', commands[1])
+            self.assertTrue(all('--scope' not in command for command in commands))
+
+    def test_unready_wrong_project_or_url_cannot_request_alias_change(self):
+        baseline={'id':'dpl_123','projectId':'prj_123','readyState':'READY','target':'production','url':'exact.vercel.app'}
+        for field,value in [('projectId','prj_other'),('readyState','BUILDING'),('target','preview'),('url','other.vercel.app')]:
+            adapter=self.adapter([])
+            import json
+            with patch.object(adapter,'_alias_api',return_value=json.dumps({**baseline,field:value})) as api:
+                with self.assertRaisesRegex(ValueError,'VERCEL_ALIAS_TARGET_NOT_READY_PROJECT_PRODUCTION'):
+                    adapter._switch_production('https://exact.vercel.app','promote')
+            self.assertEqual(api.call_count,1)
+
+    def test_alias_api_error_keeps_phase_and_fixed_category_only(self):
+        adapter=self.adapter([])
+        with patch.object(adapter,'_cli',side_effect=RuntimeError('VERCEL_PREBUILT_STAGE_FAILED_USER_LOOKUP')):
+            with self.assertRaisesRegex(RuntimeError,'VERCEL_PROMOTION_FAILED_USER_LOOKUP'):
+                adapter._alias_api(['api','/fictional'],'PROMOTION')
+        with patch.object(adapter,'_cli',side_effect=RuntimeError('remote token sensitive')):
+            with self.assertRaisesRegex(RuntimeError,'VERCEL_ROLLBACK_FAILED_UNCLASSIFIED'):
+                adapter._alias_api(['api','/fictional'],'ROLLBACK')
 
     def test_normal_probe_verifies_actual_static_bytes(self):
         adapter = self.adapter([])

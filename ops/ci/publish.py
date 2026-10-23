@@ -13,6 +13,19 @@ from release import release_daily
 from storage import LocalStore
 
 
+def safe_failure_reason(error):
+    reason = str(error)
+    # These are fixed categories emitted locally by the isolated CLI wrapper.
+    categories = (
+        'CLI_USAGE', 'AUTH_REQUIRED', 'TOKEN_REJECTED', 'ACCOUNT_ACCESS_DENIED', 'TEAM_ACCESS_DENIED',
+        'RATE_LIMITED', 'NETWORK', 'USER_LOOKUP', 'TEAM_LOOKUP', 'ACCESS_DENIED', 'UNCLASSIFIED')
+    allowed = {'VERCEL_' + phase + '_FAILED_' + category for category in categories
+               for phase in ('PREBUILT_STAGE', 'GET_TARGET', 'PROMOTION', 'ROLLBACK')}
+    allowed.update({'VERCEL_ALIAS_CHANGE_NOT_ACKNOWLEDGED', 'VERCEL_ALIAS_TARGET_NOT_READY_PROJECT_PRODUCTION',
+                    'VERCEL_OPERATION_FAILED', 'GITHUB_RELEASE_GATE_DISPATCH_FAILED', 'DAILY_GATE_BUDGET_EXHAUSTED'})
+    return reason if reason in allowed else 'PUBLISHER_FAILED'
+
+
 def execute(root):
     require(os.environ.get('GITHUB_ACTIONS') == 'true' and os.environ.get('GITHUB_REPOSITORY') == PROJECT,
             'PRIVATE_GITHUB_RUNNER_REQUIRED')
@@ -46,7 +59,8 @@ def execute(root):
         result['archive'] = session_runtime.checkpoint(root, state, session, 'finish', result, finish=True)['archive']
         return result
     except Exception as error:
-        session_runtime.checkpoint(root, state, session, 'failed', {'errorType': type(error).__name__, 'published': False}, finish=True)
+        session_runtime.checkpoint(root, state, session, 'failed', {'errorType': type(error).__name__,
+                                   'reason': safe_failure_reason(error), 'published': False}, finish=True)
         raise
 
 
@@ -60,7 +74,7 @@ if __name__ == '__main__':
         code = 0
     except Exception as error:
         # Fixed categories only; remote response text can contain credentials.
-        result = {'published': False, 'reason': 'PUBLISHER_FAILED', 'errorType': type(error).__name__}
+        result = {'published': False, 'reason': safe_failure_reason(error), 'errorType': type(error).__name__}
         code = 2
     Path(args.output).write_text(json.dumps(result, indent=2) + '\n')
     print(json.dumps(result, indent=2))

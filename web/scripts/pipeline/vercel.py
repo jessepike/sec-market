@@ -32,7 +32,14 @@ class VercelAdapter:
         self.pending_files = None
 
     def _cli(self, args, cwd=None):
-        command = [self.executable, *args, "--scope", self.scope]
+        args = list(args)
+        if args[0] == 'api':
+            # The known team ID avoids account/user discovery in high-level
+            # CLI promotion commands. Every API call is explicitly scoped.
+            args[1] += ('&' if '?' in args[1] else '?') + 'teamId=' + self.team_id
+        command = [self.executable, *args]
+        if args[0] != 'api':
+            command.extend(["--scope", self.scope])
         if self.global_config:
             command.extend(["--global-config", self.global_config])
         env = dict(os.environ, VERCEL_TELEMETRY_DISABLED="1")
@@ -111,7 +118,46 @@ class VercelAdapter:
 
     def promote(self, deployment):
         require(re.fullmatch(r"https://[a-z0-9-]+\.vercel\.app", deployment), "Unapproved promotion target")
-        self._cli(["promote", deployment, "--yes"])
+        self._switch_production(deployment, 'promote')
+
+    def _switch_production(self, deployment, operation):
+        require(operation in ('promote', 'rollback'), 'VERCEL_ALIAS_OPERATION_INVALID')
+        host = deployment.removeprefix('https://')
+        meta = json.loads(self._alias_api(['api', '/v13/deployments/' + host, '--raw'], 'GET_TARGET'))
+        identifier = meta.get('id', '')
+        require(re.fullmatch(r'dpl_[A-Za-z0-9]+', identifier) and meta.get('projectId') == self.project_id
+                and meta.get('readyState') == 'READY' and meta.get('target') == 'production'
+                and meta.get('url') == host, 'VERCEL_ALIAS_TARGET_NOT_READY_PROJECT_PRODUCTION')
+        expected = self._get(deployment, '/app-release.json')
+        version = 'v10' if operation == 'promote' else 'v9'
+        with tempfile.TemporaryDirectory(prefix='smp-alias-') as directory:
+            body = Path(directory) / 'body.json'
+            body.write_text('{}')
+            self._alias_api(['api', f'/{version}/projects/{self.project_id}/{operation}/{identifier}',
+                             '--method', 'POST', '--input', str(body), '--raw'],
+                            'PROMOTION' if operation == 'promote' else 'ROLLBACK')
+        # API acceptance is asynchronous. Wait for actual domain assignment
+        # before the publication journal records an acknowledgement.
+        for attempt in range(36):
+            try:
+                if self._get(self.site, '/app-release.json') == expected:
+                    return
+            except (ValueError, OSError):
+                pass
+            if attempt < 35:
+                time.sleep(5)
+        raise ValueError('VERCEL_ALIAS_CHANGE_NOT_ACKNOWLEDGED')
+
+    def _alias_api(self, args, phase):
+        try:
+            return self._cli(args)
+        except (RuntimeError, ValueError) as error:
+            categories = ('CLI_USAGE', 'AUTH_REQUIRED', 'TOKEN_REJECTED', 'ACCOUNT_ACCESS_DENIED',
+                          'TEAM_ACCESS_DENIED', 'RATE_LIMITED', 'NETWORK', 'USER_LOOKUP', 'TEAM_LOOKUP',
+                          'ACCESS_DENIED', 'UNCLASSIFIED')
+            category = next((c for c in categories if str(error) == 'VERCEL_PREBUILT_STAGE_FAILED_' + c),
+                            'UNCLASSIFIED')
+            raise RuntimeError('VERCEL_' + phase + '_FAILED_' + category) from None
 
     def probe_production(self):
         for attempt in range(6):
@@ -132,7 +178,7 @@ class VercelAdapter:
         self.pending = {"dataReleaseId": previous["releaseId"]} if previous else None
         self.pending_files = None
         # A previously served production deployment must use instant rollback.
-        self._cli(["rollback", deployment, "--yes"])
+        self._switch_production(deployment, 'rollback')
 
     def import_baseline(self):
         require(self.store.read("heads/production.json") is None, "Production baseline already imported")

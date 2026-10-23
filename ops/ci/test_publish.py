@@ -6,6 +6,10 @@ import publish
 
 
 class PublisherBoundaryTests(unittest.TestCase):
+    def test_failure_receipt_retains_only_fixed_local_error_categories(self):
+        self.assertEqual(publish.safe_failure_reason(RuntimeError('VERCEL_PROMOTION_FAILED_USER_LOOKUP')),
+                         'VERCEL_PROMOTION_FAILED_USER_LOOKUP')
+        self.assertEqual(publish.safe_failure_reason(RuntimeError('remote secret sensitive')),'PUBLISHER_FAILED')
     def setUp(self):
         self.env = patch.dict(os.environ, {'GITHUB_ACTIONS': 'true', 'GITHUB_REPOSITORY': 'jessepike/sec-market',
                                           'GITHUB_REF': 'refs/heads/main'}, clear=True)
