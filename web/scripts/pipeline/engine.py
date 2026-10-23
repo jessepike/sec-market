@@ -127,8 +127,17 @@ class Pipeline:
             previous_head = self.store.read(f"heads/source-{digest(source['id'])}.json")
             previous = previous_head or {"observations": {}, "items": [], "validatedHashes": {}}
             observations = {}
+            neutral_filings = source['kind'] == 'sec_documents' and 'regulatoryIssuer' in source
+            if neutral_filings:
+                require(previous.get('validatedHashes', {}) == {} and all(previous.get(key, []) == [] for key in
+                        ('validatedFacts', 'factRefs', 'newFactIds', 'documentValidations', 'heldClaims')),
+                        'Neutral SEC filing source head contains semantic references')
+            index_as_of = self.clock() if source['kind'] == 'sec_index' or neutral_filings else None
 
             def request(url):
+                if neutral_filings:
+                    require(instant(index_as_of).astimezone(timezone.utc).date() == instant(self.clock()).astimezone(timezone.utc).date(),
+                            'SEC_FILING_WINDOW_CHANGED_DURING_COLLECTION')
                 if url in observations:
                     retained_observation = observations[url]
                     return retained_observation, self.store.get(retained_observation['body']) if retained_observation.get('body') else b''
@@ -167,7 +176,6 @@ class Pipeline:
                 receipt["observationIds"].append(observation["observationId"])
                 return observation, self.store.get(observation["body"]) if observation.get("body") else b""
 
-            index_as_of = self.clock() if source["kind"] == "sec_index" else None
             found = discover({**source, "checkedAt": index_as_of} if index_as_of else source, request)
             index_checked_at = self.clock() if index_as_of else None
             if index_as_of:
@@ -175,6 +183,16 @@ class Pipeline:
                         "SEC_INDEX_WINDOW_CHANGED_DURING_DISCOVERY")
                 require(all(instant(o["fetchedAt"]) <= instant(index_checked_at) for o in found["observations"]),
                         "SEC_INDEX_VERIFICATION_PRECEDES_SOURCE_OBSERVATION")
+            filing_verification = None
+            if neutral_filings and found['complete']:
+                from regulatory import verify_filing_index_documents
+                index_documents = [{'url': o['requestedUrl'], 'document': json.loads(decoded_discovery_body(self.store.get(o['body'])))}
+                                   for o in found['observations']]
+                filing_verification = verify_filing_index_documents(source, index_documents, index_checked_at)
+                selected = filing_verification['selectedDocuments']
+                require(found['items'] == [item['url'] for item in selected] and
+                        found.get('itemDates') == {item['url']: item['filingDate'] for item in selected},
+                        'Neutral SEC filing discovery selection differs')
             if source["kind"] == "sec_documents" and found["complete"]:
                 cutoff = (instant(self.clock()) - timedelta(days=source.get("lookbackDays", 365))).date().isoformat()
                 retained = {url for url, date in previous.get("itemDates", {}).items() if date >= cutoff}
@@ -186,7 +204,15 @@ class Pipeline:
                 receipt.update(outcome="blocked" if any(o.get("status") == "blocked" for o in found["observations"]) else "not_checked", errorCode=found["reason"])
                 return self._finish(receipt)
             accepted = []
-            validated_hashes = {} if source["kind"] == "sec_index" else dict(previous.get("validatedHashes", {}))
+            validated_hashes = {} if source["kind"] == "sec_index" or neutral_filings else dict(previous.get("validatedHashes", {}))
+            if neutral_filings:
+                receipt['regulatoryFilingValidation'] = self.store.put({
+                    'sourceId': source['id'], 'supplierId': source['supplierId'], 'contractSha256': plan['contractSha256'],
+                    'traversalAsOf': index_as_of, 'checkedAt': index_checked_at,
+                    'observationIds': list(receipt['observationIds']),
+                    'documents': [{'url': o['requestedUrl'], 'observationId': o['observationId'], 'body': o['body']}
+                                  for o in found['observations']], 'verification': filing_verification,
+                    'selectedDocuments': filing_verification['selectedDocuments']})
             if source["kind"] == "sec_index":
                 from regulatory import verify_index_documents
                 documents = [{"url": o["requestedUrl"], "document": json.loads(decoded_discovery_body(self.store.get(o["body"])))}
@@ -213,7 +239,11 @@ class Pipeline:
                     if source["kind"] == "sec_documents":
                         # Establish archived primary-document coverage separately from facts.
                         # Reading a filing is not automatic proof of every sentence it contains.
-                        text = readable_document(body, observation.get("contentType", ""))
+                        if neutral_filings:
+                            require(observation.get('requestedUrl') == url and observation.get('finalUrl', url) == url,
+                                    'Neutral SEC primary response URL differs')
+                        text = readable_document(decoded_discovery_body(body) if neutral_filings else body,
+                                                 observation.get("contentType", ""))
                         receipt.setdefault("documents", []).append({"url": url, "body": observation["body"], "text": self.store.put(text.encode())})
                         return
                     page = Page(body.decode("utf8", errors="replace"), source_url=observation.get('finalUrl') or observation['requestedUrl'])
@@ -350,6 +380,9 @@ class Pipeline:
                                    pendingManifest=self.store.put({"sourceId": source["id"], "runId": plan["runId"], "items": pending}))
                     return self._finish(receipt)
             # Advance only after all discovered items are either independently validated or explicitly no-fact.
+            if neutral_filings:
+                require(instant(index_as_of).astimezone(timezone.utc).date() == instant(self.clock()).astimezone(timezone.utc).date(),
+                        'SEC_FILING_WINDOW_CHANGED_DURING_COLLECTION')
             head = {"observations": observations, "items": found["items"], "itemDates": found.get("itemDates", {}), "validatedHashes": validated_hashes, "manifest": manifest}
             self.store.compare_and_swap(f"source-{digest(source['id'])}", previous_head, head)
             receipt.update(outcome="updated" if accepted else "checked_no_change", newFactIds=accepted)

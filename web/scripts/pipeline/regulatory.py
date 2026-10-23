@@ -16,16 +16,20 @@ TABLE_FIELDS = {
     'primaryDocument', 'primaryDocDescription',
 }
 STRING_FIELDS = {'act', 'fileNumber', 'filmNumber', 'items', 'primaryDocDescription'}
+SEC_FILING_FORMS = frozenset(('10-K', '10-K/A', '10-Q', '10-Q/A', '8-K', '8-K/A',
+                              'NT 10-K', 'NT 10-Q', 'DEFM14A', 'PREM14A', '25', '25-NSE',
+                              '20-F', '20-F/A', '6-K', '6-K/A'))
 
 
-def validate_index_source(source, suppliers=None):
+def _validate_source(source, suppliers, filing_documents):
     """Validate an explicit declaration; with suppliers, also check subject kind/join.
 
     Return the original source unchanged. This never establishes qualification
     evidence for the declared direct or parent relationship.
     """
-    require(isinstance(source, dict) and source.get('kind') == 'sec_index'
-            and source.get('family') == 'regulatory_filings', 'Invalid neutral SEC index kind/family')
+    kind, family = ('sec_documents', 'filing_documents') if filing_documents else ('sec_index', 'regulatory_filings')
+    require(isinstance(source, dict) and source.get('kind') == kind
+            and source.get('family') == family, 'Invalid neutral SEC index kind/family')
     require(all(isinstance(source.get(key), str) and source[key].strip() for key in ('id', 'supplierId')),
             'SEC index source/subject identity missing')
     require(source.get('registration') in ('candidate', 'verified') and type(source.get('required')) is bool,
@@ -44,8 +48,11 @@ def validate_index_source(source, suppliers=None):
             'SEC index issuer legal name missing or malformed')
     require(issuer['relationship'] in ('direct', 'parent'), 'Invalid SEC index issuer relationship')
     endpoint = 'https://data.sec.gov/submissions/CIK' + issuer['cik'] + '.json'
-    require(source.get('url') == endpoint and source.get('allowedHosts') == ['data.sec.gov'],
+    hosts = ['data.sec.gov', 'www.sec.gov'] if filing_documents else ['data.sec.gov']
+    require(source.get('url') == endpoint and source.get('allowedHosts') == hosts,
             'SEC index requires its exact issuer endpoint and restricted host')
+    if filing_documents:
+        require(source.get('cik') == issuer['cik'], 'SEC filing document CIK fields differ')
     if suppliers is not None:
         require(isinstance(suppliers, list) and all(isinstance(supplier, dict) for supplier in suppliers),
                 'SEC index supplier inventory must contain objects')
@@ -56,6 +63,33 @@ def validate_index_source(source, suppliers=None):
         expected_kind = 'public' if issuer['relationship'] == 'direct' else 'segment'
         require(supplier.get('kind') == expected_kind, 'SEC index relationship incompatible with subject kind')
     return source
+
+
+def validate_index_source(source, suppliers=None):
+    return _validate_source(source, suppliers, False)
+
+
+def validate_filing_source(source, suppliers=None):
+    """Validate an explicitly bound, zero-fact primary-document declaration."""
+    return _validate_source(source, suppliers, True)
+
+
+def filing_document_inventory(source, documents, window_start, window_end):
+    """Select URLs/dates deterministically; callers must first verify the index."""
+    selected = {}
+    for item in documents:
+        table = item['document'].get('filings', {}).get('recent', item['document'])
+        for accession, day, form, primary in zip(table['accessionNumber'], table['filingDate'],
+                                                 table['form'], table['primaryDocument']):
+            if window_start <= day <= window_end and form in SEC_FILING_FORMS:
+                require(isinstance(primary, str) and primary and all(
+                    part not in ('.', '..') and re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9_.-]*', part)
+                    for part in primary.split('/')), 'Unsafe SEC primary document path')
+                url = ('https://www.sec.gov/Archives/edgar/data/' + str(int(source['cik'])) + '/'
+                       + accession.replace('-', '') + '/' + primary)
+                require(url not in selected or selected[url] == day, 'Conflicting SEC primary document date')
+                selected[url] = day
+    return [{'url': url, 'filingDate': selected[url]} for url in sorted(selected)]
 
 
 def _date(value, label):
@@ -110,7 +144,10 @@ def verify_index_documents(source, documents, checked_at):
     metadata. No secondary page can replace that issuer response. Duplicate
     identical rows are counted transparently; conflicting full rows fail.
     """
-    validate_index_source(source)
+    if source.get('kind') == 'sec_documents':
+        validate_filing_source(source)
+    else:
+        validate_index_source(source)
     require(source['registration'] == 'verified', 'SEC index acceptance requires verified source registration')
     checked = instant(checked_at).astimezone(timezone.utc)
     cutoff = checked.date() - timedelta(days=source.get('lookbackDays', 365))
@@ -182,3 +219,11 @@ def verify_index_documents(source, documents, checked_at):
             'duplicateRows': len(all_rows) - len(unique_rows),
             'retainedFilings': sum(cutoff.isoformat() <= row['filingDate'] <= checked.date().isoformat() for row in unique_rows.values()),
             'documents': summaries, 'documentsSha256': digest(documents), 'facts': []}
+
+
+def verify_filing_index_documents(source, documents, checked_at):
+    """Verify complete issuer indices and derive the exact zero-fact body set."""
+    validate_filing_source(source)
+    checked = verify_index_documents(source, documents, checked_at)
+    return {**checked, 'kind': 'regulatory_filing_documents_validation',
+            'selectedDocuments': filing_document_inventory(source, documents, checked['windowStart'], checked['windowEnd'])}

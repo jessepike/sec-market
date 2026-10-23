@@ -10,6 +10,7 @@ from html.parser import HTMLParser
 from urllib.parse import urljoin, urlsplit
 
 from contracts import require, instant, utcnow
+from regulatory import SEC_FILING_FORMS
 
 
 MAX_DISCOVERY_BYTES = 32_000_000
@@ -30,7 +31,7 @@ def decoded_discovery_body(body):
 
 class IndexNode:
     def __init__(self, tag, attrs=(), parent=None):
-        self.tag, self.attrs, self.parent = tag, dict(attrs), parent
+        self.tag, self.attrs, self.parent = tag, {key: '' if value is None else value for key, value in attrs}, parent
         self.children = []
         self.closed = False
 
@@ -208,13 +209,15 @@ def barracuda_shell(url, body):
 
 def discover_regulatory_index(source, request):
     """Traverse an explicitly bound issuer index without producing market facts."""
-    from regulatory import validate_index_source
+    from regulatory import validate_index_source, validate_filing_source, filing_document_inventory, TABLE_FIELDS
     observations, items, dates, seen = [], set(), {}, set()
+    documents = []
     def result(complete, reason=None, **details):
         return {"complete": complete, "items": sorted(items), "itemDates": dates,
                 "observations": observations, "reason": reason, **details}
     try:
-        validate_index_source(source)
+        filing_documents = source['kind'] == 'sec_documents'
+        (validate_filing_source if filing_documents else validate_index_source)(source)
         checked = instant(source.get("checkedAt", utcnow())).astimezone(timezone.utc)
         cutoff = (checked - timedelta(days=source.get("lookbackDays", 365))).date().isoformat()
         queue = [source["url"]]
@@ -231,6 +234,7 @@ def discover_regulatory_index(source, request):
                     "SEC index response URL differs")
             value = json.loads(decoded_discovery_body(body))
             require(isinstance(value, dict), "SEC index response must be an object")
+            documents.append({'url': url, 'document': value})
             if url == source["url"]:
                 issuer = source["regulatoryIssuer"]
                 cik = value.get("cik")
@@ -256,9 +260,7 @@ def discover_regulatory_index(source, request):
                         queue.append(urljoin(source["url"], name))
             else:
                 recent = value
-            fields = {"accessionNumber", "filingDate", "reportDate", "acceptanceDateTime", "act", "form",
-                      "fileNumber", "filmNumber", "items", "size", "isXBRL", "isInlineXBRL", "primaryDocument", "primaryDocDescription"}
-            require(isinstance(recent, dict) and fields.issubset(recent) and
+            require(isinstance(recent, dict) and TABLE_FIELDS.issubset(recent) and
                     all(isinstance(column, list) for column in recent.values()),
                     "SEC filing index arrays missing")
             require(all(len(column) == len(recent["accessionNumber"]) for column in recent.values()),
@@ -271,6 +273,10 @@ def discover_regulatory_index(source, request):
                     require(accession not in dates or dates[accession] == day, "Conflicting SEC accession date")
                     items.add(accession)
                     dates[accession] = day
+        if filing_documents:
+            selected = filing_document_inventory(source, documents, cutoff, checked.date().isoformat())
+            items = {item['url'] for item in selected}
+            dates = {item['url']: item['filingDate'] for item in selected}
         return result(True)
     except (ValueError, TypeError, KeyError, OSError) as exc:
         return result(False, "SEC_INDEX_INCOMPLETE", detail=str(exc)[:160])
@@ -336,7 +342,7 @@ class Page(HTMLParser):
         self.publication_ambiguous = False
 
     def handle_starttag(self, tag, attrs):
-        a = dict(attrs)
+        a = {key: '' if value is None else value for key, value in attrs}
         self.regions = [(t, r, depth + (t == tag)) for t, r, depth in self.regions]
         region = tag if tag in ("article", "main") else "main" if a.get("role") == "main" else None
         if self.esentire_scope and 'BlogBody__Content' in a.get('class', '').split():
@@ -466,7 +472,7 @@ def discover(source, request):
     """request(url) archives every response and returns an observation plus bytes."""
     if source["registration"] != "verified":
         return {"complete": False, "items": [], "observations": [], "reason": "SOURCE_BINDING_UNVERIFIED"}
-    if source["kind"] == "sec_index":
+    if source["kind"] == "sec_index" or source["kind"] == "sec_documents" and 'regulatoryIssuer' in source:
         return discover_regulatory_index(source, request)
     queue, seen, items, observations, item_dates, item_modified = [source["url"]], set(), set(), [], {}, {}
     highest_orca_page = 1
@@ -513,7 +519,7 @@ def discover(source, request):
                     if "cik" in value:
                         require(str(int(value["cik"])) == cik, "SEC document index CIK mismatch")
                     for i, accession in enumerate(recent["accessionNumber"]):
-                        if recent["filingDate"][i] < cutoff or recent["form"][i] not in ("10-K", "10-K/A", "10-Q", "10-Q/A", "8-K", "8-K/A", "NT 10-K", "NT 10-Q", "DEFM14A", "PREM14A", "25", "25-NSE", "20-F", "20-F/A", "6-K", "6-K/A"):
+                        if recent["filingDate"][i] < cutoff or recent["form"][i] not in SEC_FILING_FORMS:
                             continue
                         primary = recent["primaryDocument"][i]
                         require(re.fullmatch(r"\d{10}-\d{2}-\d{6}", accession) and re.fullmatch(r"[A-Za-z0-9_.-]+", primary), "Unsafe SEC document path")

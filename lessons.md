@@ -74,3 +74,9 @@ The former `onboard` command called its fetcher without a persistent reservation
 fetches still consume the same daily allowance. Require a store/contract/current-day-bound
 reservation before every logical request, preserve failed-request charges, and keep probe results
 unqualified with zero coverage credit. Tests use fictional fetchers and temporary state only.
+
+- A publisher hostname does not establish editorial independence. The retained Yahoo Xage item
+  identifies a paid GlobeNewswire release despite its original independent-source label. Preserve
+  issuer, distributor and host roles separately; correct metadata through its dated review path.
+- Valid HTML may contain valueless attributes. Normalize parser `None` values before class,
+  relation or publication matching; replay the actual failing body and preserve its original hash.

@@ -78,8 +78,11 @@ def validate_contract(contract):
         if source["kind"] == "sec_index":
             from regulatory import validate_index_source
             validate_index_source(source, suppliers)
+        elif source["kind"] == "sec_documents" and "regulatoryIssuer" in source:
+            from regulatory import validate_filing_source
+            validate_filing_source(source, suppliers)
         else:
-            require("regulatoryIssuer" not in source, "Explicit regulatory issuer requires neutral SEC index kind")
+            require("regulatoryIssuer" not in source, "Explicit regulatory issuer requires neutral SEC index or filing documents kind")
         if source.get("htmlCompleteness") == "orca-news-pagination-v1":
             require(source["kind"] == "html_index" and source["id"] == "orca:official:1" and
                     source["supplierId"] == "orca" and source["family"] == "official_announcements" and

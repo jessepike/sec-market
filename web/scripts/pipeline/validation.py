@@ -94,6 +94,84 @@ def verify_statement(candidate, observation, store, review, supplier, policy_has
             "assurance": "source_statement_matched", "policySha256": policy_hash}
 
 
+def _neutral_filing_source(source):
+    return source and source['kind'] == 'sec_documents' and 'regulatoryIssuer' in source
+
+
+def _reject_filing_semantics(value):
+    require(all(value.get(key, []) == [] for key in
+                ('validatedFacts', 'newFactIds', 'documentValidations', 'heldClaims', 'factRefs'))
+            and value.get('validatedHashes', {}) == {},
+            'Neutral SEC filing record contains semantic references')
+
+
+def _replay_neutral_filings(receipt, source, contract, task, observations, manifest, store):
+    from documents import readable_document
+    from regulatory import validate_filing_source, verify_filing_index_documents
+    import json
+    validate_filing_source(source, contract['suppliers'])
+    require(receipt.get('supplierId') == source['supplierId'] == task['supplierId'],
+            'Neutral SEC filing receipt subject differs')
+    record = json.loads(store.get(receipt['regulatoryFilingValidation']))
+    require(set(record) == {'sourceId', 'supplierId', 'contractSha256', 'traversalAsOf', 'checkedAt',
+                            'observationIds', 'documents', 'verification', 'selectedDocuments'},
+            'Neutral SEC filing validation record schema differs')
+    require(record['sourceId'] == source['id'] and record['supplierId'] == task['supplierId']
+            and record['contractSha256'] == digest(contract), 'Neutral SEC filing validation provenance differs')
+    index_ids = record['observationIds']
+    require(type(index_ids) is list and index_ids and all(isinstance(oid, str) for oid in index_ids),
+            'Neutral SEC filing index observations missing')
+    unique(index_ids, 'neutral SEC filing index observation')
+    require(index_ids == manifest['observations'] == receipt['observationIds'][:len(index_ids)],
+            'Neutral SEC filing ordered index observations differ')
+    index_observations = observations[:len(index_ids)]
+    require(instant(receipt['startedAt']) <= instant(record['traversalAsOf']) <= instant(record['checkedAt'])
+            <= instant(receipt['completedAt']), 'Neutral SEC filing validation time is outside its attempt')
+    require(len({instant(value).astimezone(timezone.utc).date() for value in
+                 (record['traversalAsOf'], record['checkedAt'], receipt['completedAt'])}) == 1,
+            'Neutral SEC filing traversal window changed')
+    require(all(instant(o['fetchedAt']) <= instant(record['checkedAt']) for o in index_observations),
+            'Neutral SEC filing validation precedes index observation')
+    require(all(instant(o.get('verifiedAt', o['fetchedAt'])) <= instant(receipt['completedAt']) for o in observations),
+            'Neutral SEC filing completion precedes observation')
+    require(all(o.get('finalUrl', o['requestedUrl']) == o['requestedUrl'] for o in observations),
+            'Neutral SEC filing final response URL differs')
+    require(all(o['status'] in ('fetched', 'not_modified') for o in index_observations),
+            'Neutral SEC filing indices require current transport checks')
+    unique([o['requestedUrl'] for o in observations], 'neutral SEC filing observed URL')
+    require([o['observationId'] for o in observations] == receipt['observationIds'],
+            'Neutral SEC filing stored observation identity differs')
+    bindings = [{'url': o['requestedUrl'], 'observationId': o['observationId'], 'body': o['body']}
+                for o in index_observations]
+    require(record['documents'] == bindings, 'Neutral SEC filing index URL/body binding differs')
+    decoded = [{'url': o['requestedUrl'], 'document': json.loads(decoded_discovery_body(store.get(o['body'])))}
+               for o in index_observations]
+    checked = verify_filing_index_documents(source, decoded, record['checkedAt'])
+    require(checked == record['verification'] and checked['facts'] == [], 'Neutral SEC filing independent index replay differs')
+    selected = checked['selectedDocuments']
+    urls = [item['url'] for item in selected]
+    require(record['selectedDocuments'] == selected and manifest['items'] == urls,
+            'Neutral SEC filing selected URL/date inventory differs')
+    primary = observations[len(index_ids):]
+    require([o['requestedUrl'] for o in primary] == urls, 'Neutral SEC filing observed primary inventory differs')
+    retained = receipt.get('documents', [])
+    require(type(retained) is list and all(isinstance(item, dict) and set(item) == {'url', 'body', 'text'} for item in retained)
+            and [item['url'] for item in retained] == urls, 'Neutral SEC filing retained document inventory differs')
+    for item, observation in zip(retained, primary):
+        require(item['body'] == observation['body'], 'Neutral SEC filing primary body binding differs')
+        text = readable_document(decoded_discovery_body(store.get(observation['body'])), observation.get('contentType', ''))
+        require(store.get(item['text']) == text.encode(), 'Neutral SEC filing readable text differs from original body')
+        if observation['status'] == 'retained_immutable':
+            prior = store.read('observations/' + observation['reusesObservationId'] + '.json')
+            require(prior['status'] == 'fetched' and prior.get('finalUrl', prior['requestedUrl']) == item['url']
+                    and observation.get('anchorObservationIds') == index_ids
+                    and instant(record['checkedAt']) <= instant(observation['verifiedAt']),
+                    'Neutral SEC filing immutable index anchors differ')
+        if observation['status'] == 'not_modified':
+            prior = store.read('observations/' + observation['reusesObservationId'] + '.json')
+            require(prior.get('finalUrl', prior['requestedUrl']) == item['url'], 'Neutral SEC filing prior response URL differs')
+
+
 def reconcile(plan, receipts, contract, now, store):
     require(plan["contractSha256"] == digest(contract), "Contract changed after planning")
     require(plan["inventorySha256"] == digest(plan["tasks"]), "Task inventory changed")
@@ -107,6 +185,8 @@ def reconcile(plan, receipts, contract, now, store):
     for receipt in receipts:
         task = expected[receipt["taskId"]]
         source = sources.get(task["sourceId"])
+        if _neutral_filing_source(source):
+            _reject_filing_semantics(receipt)
         if source and source["kind"] == "sec_index":
             require(all(receipt.get(key, []) == [] for key in
                         ("validatedFacts", "newFactIds", "documentValidations", "heldClaims", "documents")),
@@ -117,6 +197,10 @@ def reconcile(plan, receipts, contract, now, store):
         ok = receipt["outcome"] in ("updated", "checked_no_change") and receipt.get("discoveryComplete") is True and bool(receipt.get("observationIds")) and age <= contract["schedule"]["overdueHours"]
         if ok:
             require(source and source["registration"] == "verified", "Unverified source cannot earn coverage")
+            if _neutral_filing_source(source):
+                head = store.read('heads/source-' + digest(source['id']) + '.json')
+                if head is not None:
+                    _reject_filing_semantics(head)
             unique(receipt["observationIds"], "observation reference")
             observations = []
             for oid in receipt["observationIds"]:
@@ -141,7 +225,7 @@ def reconcile(plan, receipts, contract, now, store):
                         require(aid in receipt["observationIds"], "SEC anchor is outside this run")
                         anchor = store.read(f"observations/{aid}.json")
                         require(anchor and anchor["sourceId"] == source["id"] and anchor["status"] in ("fetched", "not_modified"), "SEC anchor was not checked")
-                        value = __import__('json').loads(store.get(anchor["body"]))
+                        value = __import__('json').loads(decoded_discovery_body(store.get(anchor["body"])))
                         recent = value.get("filings", {}).get("recent", value)
                         for accession, document in zip(recent.get("accessionNumber", []), recent.get("primaryDocument", [])):
                             if prefix + accession.replace('-', '') + '/' + document == observation["requestedUrl"]:
@@ -183,6 +267,8 @@ def reconcile(plan, receipts, contract, now, store):
                         "Neutral SEC index accession inventory must be an array of accession strings")
                 unique(manifest["items"], "neutral SEC index accession")
                 require(set(manifest["items"]) == accessions, "Neutral SEC index accession inventory differs")
+            if _neutral_filing_source(source):
+                _replay_neutral_filings(receipt, source, contract, task, observations, manifest, store)
             if source["kind"] not in ("sec_facts", "sec_submissions", "sec_index"):
                 require(set(manifest["items"]).issubset({o["requestedUrl"] for o in observations}), "Discovered item was never checked")
             if source["kind"] == "sec_documents":
@@ -269,6 +355,11 @@ extraction without its complete document validation receipt remains ineligible.
     tasks = {t["taskId"]: t for t in plan["tasks"]}
     accepted = {}
     for receipt in coverage["receipts"]:
+        task = tasks[receipt['taskId']]
+        source = sources.get(task['sourceId'])
+        if _neutral_filing_source(source):
+            _reject_filing_semantics(receipt)
+            continue
         if receipt["outcome"] in ("updated", "checked_no_change") or not receipt.get("discoveryComplete"):
             continue
         task = tasks[receipt["taskId"]]

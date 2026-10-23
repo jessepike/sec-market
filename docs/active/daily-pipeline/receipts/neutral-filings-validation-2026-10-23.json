@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "kind": "offline_neutral_filings_and_empty_attributes_validation",
+  "checkedAt": "2026-10-23T21:11:02.323475+00:00",
+  "checks": {
+    "disabled": {
+      "path": "/tmp/smp-neutral-filings-disabled-20261023.log",
+      "sha256": "2413a79d1d10ec2806a5f9bb3757847533e0966eb10bce3ae9f9710cb70de735",
+      "nodePassCounts": [
+        "321"
+      ],
+      "pythonCounts": [
+        "112"
+      ],
+      "browserPassed": [
+        "38"
+      ]
+    },
+    "enabledSynthetic": {
+      "path": "/tmp/smp-neutral-filings-enabled-20261023.log",
+      "sha256": "e86d3740ac67fc93874d487068ea53291789a131998965f899b4d3c7f3ee3baa",
+      "nodePassCounts": [
+        "321"
+      ],
+      "pythonCounts": [
+        "112"
+      ],
+      "browserPassed": [
+        "38"
+      ]
+    },
+    "operational": {
+      "path": "/tmp/smp-neutral-filings-ops-20261023.log",
+      "sha256": "894fb123f13807507a7be04319916a6c16dfdabc5efdd68014505cc34b60936d",
+      "nodePassCounts": [],
+      "pythonCounts": [
+        "333"
+      ],
+      "browserPassed": []
+    },
+    "monitor": {
+      "path": "/tmp/smp-neutral-filings-monitor-20261023.log",
+      "sha256": "72f09eca554e87a45b7156c6109520cf15e8b6ec157dc5c033610649b49b8698",
+      "nodePassCounts": [],
+      "pythonCounts": [
+        "12"
+      ],
+      "browserPassed": []
+    }
+  },
+  "sourceFiles": {
+    "web/scripts/pipeline/contracts.py": "45b50e4ef471ddfddecbab25d0ea13989be3ed5fee3da04aeaf742edc734dfb3",
+    "web/scripts/pipeline/regulatory.py": "3b9aae159336752f6a284ae513a26d13046d7ba52252582d289b46d69c9cab4d",
+    "web/scripts/pipeline/discovery.py": "68e87c993c9600671349ab1ad0ace342d9f7dd510cd8abdd6e872e39cff509de",
+    "web/scripts/pipeline/engine.py": "03e161ef439dcffe60942d7e31e6f3c2a9b9822e7d791e3c813519ec8eeb3d37",
+    "web/scripts/pipeline/validation.py": "034e80ee78c4c80d15be49dc7bd09bfee3c9fd606bb617a0a82c6bbfafdf7881",
+    "ops/ci/test_neutral_filing_documents.py": "ff9421bc5a3821a7dcf3283698b24f64b7039e4fa4b3edcaf2224d0cace6cd63",
+    "ops/ci/test_empty_html_attributes.py": "e58df65947bdfebc84a422f964c7f1b24c97eaf18b1a096d86592067010d644e"
+  },
+  "historicalReplays": {
+    "docs/active/daily-pipeline/accuracy/parent-filing-document-availability-2026-10-23.json": "098c103bab7eb16b63191da8733f1474b3f0d7c56a6d9660c59671996aa0bbca",
+    "docs/active/daily-pipeline/receipts/empty-html-attribute-replay-2026-10-23.json": "6cc0e479238b2ce91be9e586bb194dc61d7f3b4768433423ce4a1bcc5f5cfa42"
+  },
+  "visualReview": {
+    "widths": [
+      1440,
+      390
+    ],
+    "humanInspected": true,
+    "images": {
+      "tested-build-1440.png": {
+        "sha256": "03180ad413a848bf154a3ab670d702092a5ab3eb5c95c804f8f7fb52f6719a71",
+        "sameAsPreviousLocal": true
+      },
+      "tested-build-390.png": {
+        "sha256": "aad0f67af8e1f055f433012e1d106748c2514ff6e75d8c8233a1d3ee33f417de",
+        "sameAsPreviousLocal": true
+      },
+      "production-1440.png": {
+        "sha256": "da96852377f954fe2a9a1b8af850aa9e8582d8d54375aceadbeaf1f27ade477f",
+        "sameAsPreviousLocal": true
+      },
+      "production-390.png": {
+        "sha256": "3dc53f7acc95a096577a2dab86329f20f2380124623823c6f6ab285d9e5a3542",
+        "sameAsPreviousLocal": true
+      }
+    },
+    "visibleLayoutChanges": false,
+    "comparisonLimit": "Preview retains earlier0/557 committed coverage and older event window; production retains121/557."
+  },
+  "sourceRequests": 0,
+  "modelCalls": 0,
+  "semanticAdmission": false,
+  "sourcesActivated": 0,
+  "newCoverageChecks": 0,
+  "quotaChanges": false,
+  "publicationAttempted": false
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "kind": "historical_empty_html_attribute_repair_replay",
+  "checkedAt": "2026-10-23T21:09:27.083445+00:00",
+  "observationId": "7811b478cfe36ed4e1b5c69ea0c10b37c919c26be9fa3b5326ba7828a1388947",
+  "sourceId": "reliaquest:citation:TR-reliaquest-1",
+  "requestedUrl": "https://reliaquest.com/news-and-press/reliaquest-raises-more-than-500-million-in-funding-at-a-valuation-of-3-4-billion/",
+  "finalUrl": "https://reliaquest.com/news-and-press/reliaquest-raises-more-than-500-million-in-funding-at-a-valuation-of-3-4-billion/",
+  "fetchedAt": "2026-10-23T04:14:58.384402Z",
+  "body": {
+    "bytes": 65738,
+    "key": "objects/ae823daea1d3fd09c791948763d3d51d2e37c9beb9fca4c589bed7b9de0f6cb7",
+    "sha256": "ae823daea1d3fd09c791948763d3d51d2e37c9beb9fca4c589bed7b9de0f6cb7"
+  },
+  "priorRevision": "c83ec1589e0f8c94a8b6000d0173e6fb277e3364",
+  "priorParserError": {
+    "type": "AttributeError",
+    "detail": "'NoneType' object has no attribute 'split'"
+  },
+  "afterReadableCharacters": 8884,
+  "afterReadableSha256": "e83199381e1a0e557e131454dc3bacb1d8aa1262bef5e982a2abc7a48d332929",
+  "publicationMetadata": "2025-03-31T20:28:09",
+  "parserSourceSha256": "68e87c993c9600671349ab1ad0ace342d9f7dd510cd8abdd6e872e39cff509de",
+  "archiveFileMetadataUnchanged": true,
+  "archiveFiles": 25777,
+  "sourceRequests": 0,
+  "modelCalls": 0,
+  "semanticAdmission": false,
+  "qualifiedSources": 0,
+  "newCoverageChecks": 0,
+  "observationTimeRenewed": false
+}
