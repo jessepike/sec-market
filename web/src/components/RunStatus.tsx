@@ -9,8 +9,8 @@ import { dailyCoverage, dailyOverdue } from '../data/tracker/daily'
  * must-see gate and the header brand link still resolve to `#overview`.
  *
  * The date is the certification run that produced the committed data. The
- * scheduled check runs every 4 hours and commits only when a certified value
- * changes (D-96), so this is the date of the last certified change; a missed
+ * scheduled check follows the active collection cadence and publishes a new
+ * value only when that value changes, so this is the date of the last certified change; a missed
  * check is reported to the owner by the freshness probe, not shown here.
  */
 export function DailyCollectionStatus({ className = 'run-status__line' }: { className?: string }) {

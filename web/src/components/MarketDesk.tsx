@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { evidenceById } from '../data/evidence'
 import { runStatus } from '../data/runStatus'
-import { certifiedCount, isCertifiedEvent, isCertifiedSupplier } from '../data/tracker/certification'
+import { checkInterval, certifiedCount, isCertifiedEvent, isCertifiedSupplier } from '../data/tracker/certification'
 import { eventSummaryForSupplier, eventsForSupplier, formatOwnershipCompact, shortSupplierName, suppliersForDomain } from '../data/tracker/derive'
 import { trackerDomains } from '../data/tracker/domains'
 import { trackerSuppliers } from '../data/tracker/suppliers'
@@ -183,7 +183,7 @@ export function MarketDesk() {
   const filtered = group ? changes.filter(item => item.type === 'filing' ? group.id === 'results' : group.types.includes(item.type)) : changes
   return <div className="market-desk">
     <div className="desk-hero"><p className="desk-kicker">{trackerSuppliers.length} suppliers · {trackerDomains.length} domains · {certifiedCount} SEC filers certified</p><SiteMasthead />
-      <p className="desk-snapshot">SEC figures for the {certifiedCount} certified filers are re-derived from each company&rsquo;s filings, with a check scheduled every 4 hours. Other figures keep their own source and date. <a href="#overview">What is certified</a></p>
+      <p className="desk-snapshot">SEC figures for the {certifiedCount} certified filers are re-derived from each company&rsquo;s filings, with a check scheduled {checkInterval}. Other figures keep their own source and date. <a href="#overview">What is certified</a></p>
       <DailyCollectionStatus className="desk-snapshot" />
     </div>
     <div className="desk-counts" aria-label="Event counts in the trailing twelve months">{eventGroups.map(g => {
