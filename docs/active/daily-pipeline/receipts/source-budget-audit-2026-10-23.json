@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "auditDate": "2026-10-23",
+  "method": "Read-only GitHub raw archive objects pinned to exact commits, downloaded job receipts and retained independent gate inputs. No collection, models, budget changes or remote writes performed by this audit.",
+  "applicationRevision": "7bd94ec77e99462c068f254e134235a894585cbb",
+  "archive": {
+    "latestInspectedCommit": "b78cfa15980d7be9da54b31e28b16a0840c1d112",
+    "ref": "refs/archive/market-evidence",
+    "actualCollectionCommit": "e356266b3e43b0bb225c11fa4833011395f62a8c",
+    "actualCollectionParentCommit": "16f9c467a8d8eeff59f526d2833b51b9dc753069",
+    "actualCollectionManifestSha256": "f8f3455ad10d80af9ce38194226f5d67da124afa952c8c6185e48aaa224e8f8b",
+    "reuseCommit": "31f42da428398008522f7ffa42ea0a93812c9eab",
+    "reuseParentCommit": "9e5b5a548b47e3f68d4920e4e0013f86d6610f4b",
+    "reuseManifestSha256": "263fad8c84a90fb082342aa09fe96df0688ab4ad2b98218286029b71a324726f"
+  },
+  "actualScheduledCollection": {
+    "githubRunId": 39946689429,
+    "githubEventName": "schedule",
+    "githubRef": "refs/heads/main",
+    "runId": "e054ea73c89fe78db9702f94d2a3b669ce91884f7d7abda0a88698dbcfc7ec50",
+    "checkedAt": "2026-10-23T11:34:15.010723Z",
+    "coverageObjectSha256": "370c35cf48074658a53f920c66b4ba1e4be711a158111fd04a03ad9c8cfde410",
+    "coverageObjectBytes": 462995,
+    "downloadedCoverageSha256Matches": true,
+    "snapshotSha256": "c659d3cf6d969ab7d559779d60f2f69436a20aad1e04c556a5c407b16b59cc5e",
+    "requiredTasks": 557,
+    "successfulTasks": 121,
+    "complete": false,
+    "executionCompleted": true,
+    "modelCalls": 0,
+    "successfulTasksByKind": {
+      "sec_facts": 16,
+      "sec_submissions": 16,
+      "sec_documents": 16,
+      "citation": 73
+    },
+    "taskOutcomes": {
+      "checked_no_change": 121,
+      "failed_FETCHES_BUDGET_EXHAUSTED": 149,
+      "blocked_HTTP_403": 5,
+      "not_checked_NO_REGISTERED_DISCOVERY_SOURCE": 254,
+      "not_checked_SOURCE_BINDING_UNVERIFIED": 28
+    },
+    "heldClaimCount": 28
+  },
+  "comparisonWithEarlierManualCollection": {
+    "earlierReconciliationCheckedAt": "2026-10-23T05:56:48.511285Z",
+    "earlierSuccessfulTasks": 244,
+    "earlierSuccessfulTasksByKind": {
+      "sec_facts": 16,
+      "sec_submissions": 16,
+      "sec_documents": 16,
+      "citation": 196
+    },
+    "lostSuccessfulTasks": 123,
+    "lostTaskKind": "citation",
+    "lostTaskCurrentReason": "FETCHES_BUDGET_EXHAUSTED",
+    "newlySuccessfulTaskIdsRelativeToEarlier244": 0,
+    "meaning": "All 121 successful task IDs were also successful in the earlier 244-task result. The later run performed current source checks; zero newly successful task IDs does not mean zero fresh requests. Historical successes were not counted as newly checked when remaining fetch capacity could not recheck them."
+  },
+  "sourceWork": {
+    "totalObservationReferences": 324,
+    "newFetchReservations": 133,
+    "newRequestObservations": 133,
+    "secFactsAndSubmissionsRequestObservations": 39,
+    "secFactsAndSubmissionsBreakdown": "16 companyfacts requests and 23 submissions/index requests, including seven submission archive pages.",
+    "currentSecDocumentIndexRequests": 16,
+    "successfulCitationRequests": 73,
+    "blockedRequests": 5,
+    "retainedImmutableSecDocumentObservations": 191,
+    "immutableDocumentMeaning": "Previously archived accession-document bytes were retained and hash checked against current SEC index anchors. Original fetchedAt is preserved; verifiedAt records the current index-backed check. This does not mean 191 new filing downloads or semantic reviews of every filing sentence.",
+    "freshSourceExample": {
+      "observationId": "1c9768673cdd72687e72c804a94fc7f05670750e8e3322a8f3b259ef5f7e195a",
+      "sourceId": "cloudflare:sec_facts",
+      "status": "fetched",
+      "httpStatus": 200,
+      "fetchedAt": "2026-10-23T11:33:37.675394Z",
+      "bodySha256": "04cc636210456fc5163996c546c38dd049e53b5f9ce59b8f824f1725b06afe11"
+    },
+    "immutableSourceExample": {
+      "observationId": "be1c58d0e9930b7983878436375280b244d87cbac4aa8a39482397fe8490c392",
+      "sourceId": "zscaler:sec_documents",
+      "status": "retained_immutable",
+      "originalFetchedAt": "2026-10-20T21:22:05.158499Z",
+      "verifiedAt": "2026-10-23T11:33:39.157259Z",
+      "bodySha256": "989c1865d6d387bc70033f1f6d1edc99f35b0d8cde010f4de094423eddf638e0",
+      "anchorObservationId": "b854b2e9485dfa9d23141d42ffe3191b488bf48a6c76d331c6303ab9bd24f201"
+    }
+  },
+  "budgetConservation": {
+    "day": "2026-10-23",
+    "escrowKey": "ci/budget-escrows/cb41ec8d3f60a40a4b5e71d7f51dae65eff788cfb433d81d8ff70b035d48c223.json",
+    "beforeActualCollectionFromEscrow": { "calls": 80, "documents": 40, "fetches": 5367 },
+    "afterActualCollection": { "calls": 80, "documents": 40, "fetches": 5500 },
+    "actualCollectionDelta": { "calls": 0, "documents": 0, "fetches": 133 },
+    "ceiling": { "calls": 80, "documents": 40, "fetches": 5500 },
+    "remaining": { "calls": 0, "documents": 0, "fetches": 0 },
+    "gateAttemptsUsed": 2,
+    "gateAttemptsRemaining": 0,
+    "publicationAttemptsUsed": 2,
+    "publicationAttemptsRemaining": 0,
+    "publicationAttemptReleaseIds": [
+      "02d51e6e5b6e42d4adeaab613d3baf56ecc6437c111bd96d65d1946203c46e82",
+      "2e17a786a85e46406df0cdc10da99819dd20f3f6b385f5acc328e51a7a4ec390"
+    ],
+    "meaning": "Counters record charged reservations. No reservation was refunded or reset. The pre-collection remote checkpoint records the escrow ceiling; its immutable escrow receipt supplies the actual local starting counters."
+  },
+  "secondActualSchedule": {
+    "githubRunId": 39954446259,
+    "outcome": "source_work_reused",
+    "reusesScheduledCollectionRunId": 39946689429,
+    "sourceCheckedAt": "2026-10-23T11:34:15.010723Z",
+    "sourceReceiptSha256": "370c35cf48074658a53f920c66b4ba1e4be711a158111fd04a03ad9c8cfde410",
+    "successfulTasks": 121,
+    "modelCalls": 0,
+    "fetches": 0,
+    "latestRunHeadBeforeAfterIdentical": true,
+    "budgetHeadBeforeAfterIdentical": true,
+    "beforeAndAfterCounters": { "calls": 80, "documents": 40, "fetches": 5500 },
+    "freshnessRenewed": false
+  }
+}
