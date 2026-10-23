@@ -1,0 +1,2293 @@
+{
+  "schemaVersion": 1,
+  "id": "SEC-MARKET-BLOCKED-CITATION-AUDIT-20261023",
+  "auditDate": "2026-10-23",
+  "fixedAsOf": "2026-10-23T11:34:15.010723Z",
+  "scope": {
+    "exactSourceIds": [
+      "bigid:citation:TR-bigid-1",
+      "delinea:citation:TR-delinea-3",
+      "delinea:citation:TR-delinea-5",
+      "sophos:citation:TR-sophos-3",
+      "tines:citation:TR-tines-1"
+    ],
+    "blockedTasksAudited": 5,
+    "blockedTasksRemain": 5,
+    "suppliersUnchanged": 74,
+    "requiredTasksUnchanged": 557,
+    "successfulTasksUnchanged": 121,
+    "newCoverageCredit": 0
+  },
+  "inputs": {
+    "contract": {
+      "path": "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/contracts/market.json",
+      "sha256": "327e52fdab4f97d3f0d628978501aa7197b31ddadb4006d16d3f776a8acb47c0"
+    },
+    "originals": {
+      "path": "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/web/src/data/tracker/originals.json",
+      "sha256": "7d164cb81003db0a66eccbb25c2e8605e33b853b9a6e20cb2c6900794822b4a3"
+    },
+    "coverage": {
+      "path": "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/evaluations/2026-10-23/inputs/coverage.json",
+      "sha256": "370c35cf48074658a53f920c66b4ba1e4be711a158111fd04a03ad9c8cfde410"
+    },
+    "archiveProvenance": {
+      "path": "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/receipts/coverage-recovery-remote-2026-10-23.json",
+      "sha256": "146a014b6d787d20c778cf910e25528bef4a5d704c6d4d1fa194f05740a409be"
+    },
+    "priorReadOnlySeal": {
+      "path": "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/missing-primary-bindings-audit-2026-10-23.json",
+      "sha256": "d8ccae1c7bd9dfe723e4e97f6ca561c523f217c654307ed20c666872e065796a"
+    }
+  },
+  "script": {
+    "path": "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/ops/evaluation/blocked_citation_audit.py",
+    "sha256": "dd9123e0d34a9980b13b9969625d186738f0e1992f04ce52d19bcb95987fe9fb"
+  },
+  "archive": {
+    "root": "/tmp/smp-coverage-baseline-20261023/state",
+    "provenance": {
+      "commit": "b78cfa15980d7be9da54b31e28b16a0840c1d112",
+      "manifestSha256": "760b5c38fcb7fba2a3a223233539cce4eb5aa47d559571efa95b287047ac1ff8",
+      "files": 25777
+    },
+    "before": {
+      "fileCount": 25777,
+      "metadataSha256": "5160f4d26e28bcc0abe1061235d3f0936c352b7cdb1525aa19ef513ee40de208"
+    },
+    "after": {
+      "fileCount": 25777,
+      "metadataSha256": "5160f4d26e28bcc0abe1061235d3f0936c352b7cdb1525aa19ef513ee40de208"
+    },
+    "allFileSizesAndMtimesUnchanged": true,
+    "matchesPriorReadOnlySeal": true
+  },
+  "method": {
+    "allObservationRecordsIndexed": 7239,
+    "uniqueFullSuccessBodiesScannedAndHashVerified": 5281,
+    "scope": "Every successful archived body was bounded-decoded and raw hash/size checked. Explicit subject and event word patterns selected rendered-text candidates; subject must occur in requested URL to exclude unrelated page mentions. All same-URL successes are retained independently of that filter.",
+    "patterns": {
+      "bigid:citation:TR-bigid-1": [
+        "\\bBigID\\b",
+        "\\bRiverwood\\b"
+      ],
+      "delinea:citation:TR-delinea-3": [
+        "\\bDelinea\\b",
+        "\\bTimothy Regan\\b"
+      ],
+      "delinea:citation:TR-delinea-5": [
+        "\\bDelinea\\b",
+        "\\bStrongDM\\b"
+      ],
+      "sophos:citation:TR-sophos-3": [
+        "\\bSophos\\b",
+        "\\bMoody[’\\']?s?\\b|ResearchPool"
+      ],
+      "tines:citation:TR-tines-1": [
+        "\\bTines\\b",
+        "\\bSoftBank\\b|Goldman|\\$125 million|\\$1\\.13 billion"
+      ]
+    },
+    "limitations": "This literal scan cannot prove that differently worded or uncited primary evidence does not exist. No live availability, redirect or access-policy result is inferred.",
+    "sourceAge": "Age is measured against the original fixed coverage.checkedAt using the unchanged 30-hour source limit. Original fetchedAt/verifiedAt values remain unchanged. Publication date and original manual retrievedAt are distinct from a collector check.",
+    "blockedBodyAbsence": "All five current blocked observations omit body and finalUrl. The report preserves null for absent fields and does not invent a response body, redirect destination or block reason."
+  },
+  "summary": {
+    "withEarlierSameUrlSuccessfulBody": 3,
+    "withoutEarlierSameUrlSuccessfulBody": 2,
+    "verifiedReplacementUrls": 0,
+    "ownerDecisionsNeeded": []
+  },
+  "existingReviewUnchanged": {
+    "records": 177,
+    "supported": 90,
+    "insufficient": 71,
+    "missingStrictPrimary": 11,
+    "contradicted": 5,
+    "bigidTableDiscrepancy": "Insufficient primary support requiring research; no new contradiction verdict or count is assigned."
+  },
+  "limits": {
+    "sourceRequests": 0,
+    "networkRequests": 0,
+    "modelCalls": 0,
+    "admissionCalls": 0,
+    "realStateWrites": 0,
+    "quotaChanges": 0,
+    "urlOrRegistrationEdits": 0,
+    "chargedFetchesUnchanged": 5500,
+    "chargedModelCallsUnchanged": 80,
+    "chargedDocumentsUnchanged": 40,
+    "freshChecksClaimed": 0
+  },
+  "records": [
+    {
+      "taskId": "969e590e026eaaecafeea5f20132df89bb34df08b3272f7ccd8c8ca93856f39a",
+      "sourceId": "bigid:citation:TR-bigid-1",
+      "supplierId": "bigid",
+      "source": {
+        "id": "bigid:citation:TR-bigid-1",
+        "supplierId": "bigid",
+        "kind": "citation",
+        "family": "citation_integrity",
+        "url": "https://tracxn.com/d/companies/bigid/__pHSLjAzI2aqF63ud9QosF69usdaBPTT49_kou_rHtgw/funding-and-investors",
+        "allowedHosts": [
+          "tracxn.com"
+        ],
+        "registration": "verified",
+        "required": true,
+        "maxPages": 1,
+        "scopePrefixes": [
+          "/"
+        ],
+        "seedEvidenceUrls": [],
+        "evidenceId": "TR-bigid-1"
+      },
+      "originalEvidence": {
+        "id": "TR-bigid-1",
+        "title": "BigID funding and investors summary",
+        "organization": "Tracxn",
+        "publicationDate": "2024-03-01",
+        "economicPeriod": "N/A (funding history aggregator)",
+        "canonicalUrl": "https://tracxn.com/d/companies/bigid/__pHSLjAzI2aqF63ud9QosF69usdaBPTT49_kou_rHtgw/funding-and-investors",
+        "excerpt": "$60 million growth round led by Riverwood Capital, with Silver Lake Waterman and Advent International participating, at a $1 billion valuation, March 2024.",
+        "sourceClass": "INDEPENDENT",
+        "interpretation": "",
+        "limitations": "Third-party funding aggregator, not a BigID or Riverwood Capital press release directly reached this pass.",
+        "conflictingEvidenceIds": [],
+        "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-bigid-1",
+        "tags": [
+          "tracker",
+          "data"
+        ],
+        "retrievedAt": "2026-09-25"
+      },
+      "originalEvidenceSha256": "8642a4c3eaf97adbeda75a459ac7da37996cff399cd6aecb24b294efa1bdbe29",
+      "fixedReceipt": {
+        "attemptId": "81df2aa64bf3ea1715de26e34767a1b65b82d84640fbc627a266cc28221a5621",
+        "completedAt": "2026-10-23T11:34:08.903940Z",
+        "discoveryComplete": false,
+        "errorCode": "HTTP_403",
+        "itemManifest": {
+          "bytes": 135,
+          "key": "objects/e87b42c638439d3fb27c7e8abcea9f490ebfc65b21950609e0dcb6348f269e79",
+          "sha256": "e87b42c638439d3fb27c7e8abcea9f490ebfc65b21950609e0dcb6348f269e79"
+        },
+        "newFactIds": [],
+        "observationIds": [
+          "30b98a7d09c0b9a5e2f3e15e82966b112aa889823be0910a725abb549633e0f3"
+        ],
+        "outcome": "blocked",
+        "runId": "e054ea73c89fe78db9702f94d2a3b669ce91884f7d7abda0a88698dbcfc7ec50",
+        "sourceId": "bigid:citation:TR-bigid-1",
+        "startedAt": "2026-10-23T11:34:08.563970Z",
+        "supplierId": "bigid",
+        "taskId": "969e590e026eaaecafeea5f20132df89bb34df08b3272f7ccd8c8ca93856f39a",
+        "validatedFacts": []
+      },
+      "itemManifest": {
+        "items": [],
+        "observations": [
+          "30b98a7d09c0b9a5e2f3e15e82966b112aa889823be0910a725abb549633e0f3"
+        ],
+        "sourceId": "bigid:citation:TR-bigid-1"
+      },
+      "currentBlockedObservation": {
+        "observationId": "30b98a7d09c0b9a5e2f3e15e82966b112aa889823be0910a725abb549633e0f3",
+        "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/30b98a7d09c0b9a5e2f3e15e82966b112aa889823be0910a725abb549633e0f3.json",
+        "observationSha256": "434b879c89fb83481212eab0ba5ed04ae03a53b5311f21cb7cd482daffe40143",
+        "sourceId": "bigid:citation:TR-bigid-1",
+        "requestedUrl": "https://tracxn.com/d/companies/bigid/__pHSLjAzI2aqF63ud9QosF69usdaBPTT49_kou_rHtgw/funding-and-investors",
+        "finalUrl": null,
+        "status": "blocked",
+        "httpStatus": 403,
+        "errorCode": "HTTP_403",
+        "fetchedAt": "2026-10-23T11:34:08.901733Z",
+        "verifiedAt": null,
+        "body": null,
+        "bodyRetained": false,
+        "ageHoursAtFixedCoverage": 0.001697,
+        "withinThirtyHourSourceLimit": true,
+        "earnsCurrentCoverage": false
+      },
+      "sameUrlHistory": [
+        {
+          "observationId": "6652fb8eb2115c4905294a06d15719b0353eff8d4caa15252bbf661bc8d64a12",
+          "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/6652fb8eb2115c4905294a06d15719b0353eff8d4caa15252bbf661bc8d64a12.json",
+          "observationSha256": "09e4b883c866074baa6194703b1f8ebf0ab3f8530c8c373833712a35c43a886c",
+          "sourceId": "bigid:citation:TR-bigid-1",
+          "requestedUrl": "https://tracxn.com/d/companies/bigid/__pHSLjAzI2aqF63ud9QosF69usdaBPTT49_kou_rHtgw/funding-and-investors",
+          "finalUrl": "https://tracxn.com/d/companies/bigid/__pHSLjAzI2aqF63ud9QosF69usdaBPTT49_kou_rHtgw/funding-and-investors",
+          "status": "fetched",
+          "httpStatus": 200,
+          "errorCode": null,
+          "fetchedAt": "2026-10-20T21:11:42.095562Z",
+          "verifiedAt": null,
+          "body": {
+            "bytes": 382395,
+            "key": "objects/b783a64ed0a7516138685bfc8c97d6143b8ed85261c77db0cd32563fb4cba31e",
+            "sha256": "b783a64ed0a7516138685bfc8c97d6143b8ed85261c77db0cd32563fb4cba31e"
+          },
+          "bodyRetained": true,
+          "ageHoursAtFixedCoverage": 62.37581,
+          "withinThirtyHourSourceLimit": false,
+          "earnsCurrentCoverage": false,
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/b783a64ed0a7516138685bfc8c97d6143b8ed85261c77db0cd32563fb4cba31e",
+          "rawBodyHashAndSizeVerified": true,
+          "decodedSha256": "b783a64ed0a7516138685bfc8c97d6143b8ed85261c77db0cd32563fb4cba31e",
+          "decodedBytes": 382395,
+          "observedCanonicals": [
+            "https://tracxn.com/d/companies/bigid/__pHSLjAzI2aqF63ud9QosF69usdaBPTT49_kou_rHtgw/funding-and-investors"
+          ],
+          "publicationMetadata": "2021-08-17T11:45:44.000Z",
+          "literalExcerpts": [
+            {
+              "term": "\\bBigID\\b",
+              "text": "Most viewed in 2019 BigID's Funding Rounds BigID has raised a total of $308M over 10 funding rounds : 2 Seed , 2 Early-Stage and 6 Late-Stage round s . BigID's largest funding round so far was a Series D round for $70M in Dec 2020 . Here is the list of all funding rounds of BigID : Date of Funding Funding Amount Round Name Post-Money Valuation Revenue Multiple Lead Investors Other Investors Feb 08, 2024 $61.4M Series D $1B - Riverwood Capital Advent International , SLW Jan 25, 2022 Undisclosed Series D - - ServiceNow , Comcast , Splunk , SAP , Salesforce Ventures , Hewlett Packard Pathfinder - Apr 22, 2021 $30M Series D $1.25B - Advent Intern",
+              "offset": 0,
+              "normalizedTextSha256": "8a017fbf13be1827e53b00e904f51234d65cfda9af008a702daeab8e07199745"
+            },
+            {
+              "term": "\\bRiverwood\\b",
+              "text": "nvestors Other Investors Feb 08, 2024 $61.4M Series D $1B - Riverwood Capital Advent International , SLW Jan 25, 2022 Undisclosed Series D - - ServiceNow , Comcast , Splunk , SAP , Salesforce Ventures , Hewlett Packard Pathfinder - Apr 22, 2021 $30M Series D $1.25B - Advent International - Dec 16, 2020 $70M Series D $1B - Tiger Global Management , Salesforce Ventures Glynn Capital , Bessemer Venture Partners , Scale Venture Partners , Boldstart Ventures Jan 06, 2020 $50M Series C - - Tiger Global Management - Jun 27, 2019 $50M Series C - - Bessemer Venture Partners ClearSky , Boldstart Ventures , SAP.iO , Scale Venture Partners , Comcast Vent",
+              "offset": 369,
+              "normalizedTextSha256": "8a017fbf13be1827e53b00e904f51234d65cfda9af008a702daeab8e07199745"
+            }
+          ],
+          "textNormalization": "HTML text with entity decoding and collapsed whitespace; no source bytes changed."
+        },
+        {
+          "observationId": "983018466d3088eaf5951b7dbd09a3c79c1611bb16a319b15a2997767aaf72b5",
+          "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/983018466d3088eaf5951b7dbd09a3c79c1611bb16a319b15a2997767aaf72b5.json",
+          "observationSha256": "272f0b3db4278eaf946a70c899bff972cd06200f6e145d0e172c0d743cf29579",
+          "sourceId": "bigid:citation:TR-bigid-1",
+          "requestedUrl": "https://tracxn.com/d/companies/bigid/__pHSLjAzI2aqF63ud9QosF69usdaBPTT49_kou_rHtgw/funding-and-investors",
+          "finalUrl": "https://tracxn.com/d/companies/bigid/__pHSLjAzI2aqF63ud9QosF69usdaBPTT49_kou_rHtgw/funding-and-investors",
+          "status": "not_modified",
+          "httpStatus": 304,
+          "errorCode": null,
+          "fetchedAt": "2026-10-20T21:22:17.228209Z",
+          "verifiedAt": null,
+          "body": {
+            "bytes": 382395,
+            "key": "objects/b783a64ed0a7516138685bfc8c97d6143b8ed85261c77db0cd32563fb4cba31e",
+            "sha256": "b783a64ed0a7516138685bfc8c97d6143b8ed85261c77db0cd32563fb4cba31e"
+          },
+          "bodyRetained": true,
+          "ageHoursAtFixedCoverage": 62.199384,
+          "withinThirtyHourSourceLimit": false,
+          "earnsCurrentCoverage": false,
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/b783a64ed0a7516138685bfc8c97d6143b8ed85261c77db0cd32563fb4cba31e",
+          "rawBodyHashAndSizeVerified": true,
+          "decodedSha256": "b783a64ed0a7516138685bfc8c97d6143b8ed85261c77db0cd32563fb4cba31e",
+          "decodedBytes": 382395
+        },
+        {
+          "observationId": "a6a002107f25fb6aaf03a4d2eefb067e8f7348509a74855474798569b01e1258",
+          "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/a6a002107f25fb6aaf03a4d2eefb067e8f7348509a74855474798569b01e1258.json",
+          "observationSha256": "9461e157d049e18e063ac21f56bb7e6ebf4d9ced88d2546ad0b75bf7d61d9818",
+          "sourceId": "bigid:citation:TR-bigid-1",
+          "requestedUrl": "https://tracxn.com/d/companies/bigid/__pHSLjAzI2aqF63ud9QosF69usdaBPTT49_kou_rHtgw/funding-and-investors",
+          "finalUrl": "https://tracxn.com/d/companies/bigid/__pHSLjAzI2aqF63ud9QosF69usdaBPTT49_kou_rHtgw/funding-and-investors",
+          "status": "not_modified",
+          "httpStatus": 304,
+          "errorCode": null,
+          "fetchedAt": "2026-10-20T21:41:21.276514Z",
+          "verifiedAt": null,
+          "body": {
+            "bytes": 382395,
+            "key": "objects/b783a64ed0a7516138685bfc8c97d6143b8ed85261c77db0cd32563fb4cba31e",
+            "sha256": "b783a64ed0a7516138685bfc8c97d6143b8ed85261c77db0cd32563fb4cba31e"
+          },
+          "bodyRetained": true,
+          "ageHoursAtFixedCoverage": 61.881593,
+          "withinThirtyHourSourceLimit": false,
+          "earnsCurrentCoverage": false,
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/b783a64ed0a7516138685bfc8c97d6143b8ed85261c77db0cd32563fb4cba31e",
+          "rawBodyHashAndSizeVerified": true,
+          "decodedSha256": "b783a64ed0a7516138685bfc8c97d6143b8ed85261c77db0cd32563fb4cba31e",
+          "decodedBytes": 382395
+        },
+        {
+          "observationId": "abc469d96d76fc90e38f82f8639725def193a3c789f6eef2b346d8865ce7c36d",
+          "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/abc469d96d76fc90e38f82f8639725def193a3c789f6eef2b346d8865ce7c36d.json",
+          "observationSha256": "17346c85924f663e995755a605d8e42a6ff39fe2a75f8ca0cb4c1fe04a614689",
+          "sourceId": "bigid:citation:TR-bigid-1",
+          "requestedUrl": "https://tracxn.com/d/companies/bigid/__pHSLjAzI2aqF63ud9QosF69usdaBPTT49_kou_rHtgw/funding-and-investors",
+          "finalUrl": null,
+          "status": "blocked",
+          "httpStatus": 403,
+          "errorCode": "HTTP_403",
+          "fetchedAt": "2026-10-22T01:11:28.838834Z",
+          "verifiedAt": null,
+          "body": null,
+          "bodyRetained": false,
+          "ageHoursAtFixedCoverage": 34.379492,
+          "withinThirtyHourSourceLimit": false,
+          "earnsCurrentCoverage": false
+        },
+        {
+          "observationId": "1f424bdb7dbd2167a2b62f179246eabaf99b102d13a735a4798fd9e20e72cf3f",
+          "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/1f424bdb7dbd2167a2b62f179246eabaf99b102d13a735a4798fd9e20e72cf3f.json",
+          "observationSha256": "7574d5f88ee4d23cb296d1c4aa51e31985b8fedf5945f6a83c5fdfe1e5800a0a",
+          "sourceId": "bigid:citation:TR-bigid-1",
+          "requestedUrl": "https://tracxn.com/d/companies/bigid/__pHSLjAzI2aqF63ud9QosF69usdaBPTT49_kou_rHtgw/funding-and-investors",
+          "finalUrl": null,
+          "status": "blocked",
+          "httpStatus": 403,
+          "errorCode": "HTTP_403",
+          "fetchedAt": "2026-10-23T04:14:42.497779Z",
+          "verifiedAt": null,
+          "body": null,
+          "bodyRetained": false,
+          "ageHoursAtFixedCoverage": 7.325698,
+          "withinThirtyHourSourceLimit": true,
+          "earnsCurrentCoverage": false
+        },
+        {
+          "observationId": "30b98a7d09c0b9a5e2f3e15e82966b112aa889823be0910a725abb549633e0f3",
+          "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/30b98a7d09c0b9a5e2f3e15e82966b112aa889823be0910a725abb549633e0f3.json",
+          "observationSha256": "434b879c89fb83481212eab0ba5ed04ae03a53b5311f21cb7cd482daffe40143",
+          "sourceId": "bigid:citation:TR-bigid-1",
+          "requestedUrl": "https://tracxn.com/d/companies/bigid/__pHSLjAzI2aqF63ud9QosF69usdaBPTT49_kou_rHtgw/funding-and-investors",
+          "finalUrl": null,
+          "status": "blocked",
+          "httpStatus": 403,
+          "errorCode": "HTTP_403",
+          "fetchedAt": "2026-10-23T11:34:08.901733Z",
+          "verifiedAt": null,
+          "body": null,
+          "bodyRetained": false,
+          "ageHoursAtFixedCoverage": 0.001697,
+          "withinThirtyHourSourceLimit": true,
+          "earnsCurrentCoverage": false
+        }
+      ],
+      "sameUrlStatusCounts": {
+        "200": 1,
+        "304": 2,
+        "403": 3
+      },
+      "observedSameUrlRedirects": [],
+      "manualRetrievalObjectPresent": false,
+      "earlierSameUrlSuccessfulBodies": 1,
+      "historicalEventCandidateBodies": [
+        {
+          "observationId": "6652fb8eb2115c4905294a06d15719b0353eff8d4caa15252bbf661bc8d64a12",
+          "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/6652fb8eb2115c4905294a06d15719b0353eff8d4caa15252bbf661bc8d64a12.json",
+          "observationSha256": "09e4b883c866074baa6194703b1f8ebf0ab3f8530c8c373833712a35c43a886c",
+          "sourceId": "bigid:citation:TR-bigid-1",
+          "requestedUrl": "https://tracxn.com/d/companies/bigid/__pHSLjAzI2aqF63ud9QosF69usdaBPTT49_kou_rHtgw/funding-and-investors",
+          "finalUrl": "https://tracxn.com/d/companies/bigid/__pHSLjAzI2aqF63ud9QosF69usdaBPTT49_kou_rHtgw/funding-and-investors",
+          "status": "fetched",
+          "httpStatus": 200,
+          "errorCode": null,
+          "fetchedAt": "2026-10-20T21:11:42.095562Z",
+          "verifiedAt": null,
+          "body": {
+            "bytes": 382395,
+            "key": "objects/b783a64ed0a7516138685bfc8c97d6143b8ed85261c77db0cd32563fb4cba31e",
+            "sha256": "b783a64ed0a7516138685bfc8c97d6143b8ed85261c77db0cd32563fb4cba31e"
+          },
+          "bodyRetained": true,
+          "ageHoursAtFixedCoverage": 62.37581,
+          "withinThirtyHourSourceLimit": false,
+          "earnsCurrentCoverage": false,
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/b783a64ed0a7516138685bfc8c97d6143b8ed85261c77db0cd32563fb4cba31e",
+          "rawBodyHashAndSizeVerified": true,
+          "decodedSha256": "b783a64ed0a7516138685bfc8c97d6143b8ed85261c77db0cd32563fb4cba31e",
+          "decodedBytes": 382395,
+          "observedCanonicals": [
+            "https://tracxn.com/d/companies/bigid/__pHSLjAzI2aqF63ud9QosF69usdaBPTT49_kou_rHtgw/funding-and-investors"
+          ],
+          "publicationMetadata": "2021-08-17T11:45:44.000Z",
+          "literalExcerpts": [
+            {
+              "term": "\\bBigID\\b",
+              "text": "Most viewed in 2019 BigID's Funding Rounds BigID has raised a total of $308M over 10 funding rounds : 2 Seed , 2 Early-Stage and 6 Late-Stage round s . BigID's largest funding round so far was a Series D round for $70M in Dec 2020 . Here is the list of all funding rounds of BigID : Date of Funding Funding Amount Round Name Post-Money Valuation Revenue Multiple Lead Investors Other Investors Feb 08, 2024 $61.4M Series D $1B - Riverwood Capital Advent International , SLW Jan 25, 2022 Undisclosed Series D - - ServiceNow , Comcast , Splunk , SAP , Salesforce Ventures , Hewlett Packard Pathfinder - Apr 22, 2021 $30M Series D $1.25B - Advent Intern",
+              "offset": 0,
+              "normalizedTextSha256": "8a017fbf13be1827e53b00e904f51234d65cfda9af008a702daeab8e07199745"
+            },
+            {
+              "term": "\\bRiverwood\\b",
+              "text": "nvestors Other Investors Feb 08, 2024 $61.4M Series D $1B - Riverwood Capital Advent International , SLW Jan 25, 2022 Undisclosed Series D - - ServiceNow , Comcast , Splunk , SAP , Salesforce Ventures , Hewlett Packard Pathfinder - Apr 22, 2021 $30M Series D $1.25B - Advent International - Dec 16, 2020 $70M Series D $1B - Tiger Global Management , Salesforce Ventures Glynn Capital , Bessemer Venture Partners , Scale Venture Partners , Boldstart Ventures Jan 06, 2020 $50M Series C - - Tiger Global Management - Jun 27, 2019 $50M Series C - - Bessemer Venture Partners ClearSky , Boldstart Ventures , SAP.iO , Scale Venture Partners , Comcast Vent",
+              "offset": 369,
+              "normalizedTextSha256": "8a017fbf13be1827e53b00e904f51234d65cfda9af008a702daeab8e07199745"
+            }
+          ],
+          "textNormalization": "HTML text with entity decoding and collapsed whitespace; no source bytes changed."
+        }
+      ],
+      "literalAlternateLeads": [
+        {
+          "literalHrefOrCanonical": "https://bigid.com",
+          "resolvedUrl": "https://bigid.com",
+          "disclosedInObservationId": "6652fb8eb2115c4905294a06d15719b0353eff8d4caa15252bbf661bc8d64a12",
+          "disclosedInBodySha256": "b783a64ed0a7516138685bfc8c97d6143b8ed85261c77db0cd32563fb4cba31e",
+          "isObservedCanonical": false,
+          "role": "supplier_site_historical_lead",
+          "observedResponseIds": [],
+          "successfulBodyObservationIds": [],
+          "isVerifiedReplacement": false
+        }
+      ],
+      "evidenceInterpretation": "The earlier Tracxn aggregator table lists February 8, 2024, $61.4M Series D, $1B and Riverwood Capital. The retained tracker says March 2024 and $60M. This audit preserves that discrepancy and admits no replacement funding fact. The literal BigID homepage is only a primary research entry.",
+      "nextAction": {
+        "owner": "pipeline agent",
+        "action": "After natural allowance renewal, use ordinary budgeted access to the unchanged citation if permitted. Separately locate BigID’s or Riverwood’s original round statement from the literal BigID entry, resolve amount/date differences, and retain a reviewed correction proposal if warranted.",
+        "humanInputRequired": false
+      },
+      "sourceRelocationLimit": {
+        "ordinaryCorrectionCanChangeCanonicalUrl": false,
+        "ordinaryCorrectionCanChangeSourceClassOrOrganization": false,
+        "sourceBindingRemainsBoundToImmutableOriginalUrl": true,
+        "futureReviewedRelocationOrNewPrimaryEvidencePathRequiredIfDifferentUrlUsed": true,
+        "currentlyImplementedOrAuthorizedByThisAudit": false
+      },
+      "currentCoverageCredit": 0,
+      "currentOutcomeUnchanged": "blocked",
+      "boundary": "Citation collection checks transport. Historical body presence, a canonical URL or a distributor link does not validate financial content, refresh a check, qualify recurring discovery or authorize a URL change."
+    },
+    {
+      "taskId": "95b0a19dff8f232129f7a65414cc81b53a8bc814af40044849fb849df9801db5",
+      "sourceId": "delinea:citation:TR-delinea-3",
+      "supplierId": "delinea",
+      "source": {
+        "id": "delinea:citation:TR-delinea-3",
+        "supplierId": "delinea",
+        "kind": "citation",
+        "family": "citation_integrity",
+        "url": "https://www.globenewswire.com/news-release/2026/09/23/3367539/0/en/delinea-appoints-timothy-regan-as-chief-financial-officer.html",
+        "allowedHosts": [
+          "www.globenewswire.com"
+        ],
+        "registration": "verified",
+        "required": true,
+        "maxPages": 1,
+        "scopePrefixes": [
+          "/"
+        ],
+        "seedEvidenceUrls": [],
+        "evidenceId": "TR-delinea-3"
+      },
+      "originalEvidence": {
+        "id": "TR-delinea-3",
+        "title": "Delinea Appoints Timothy Regan as Chief Financial Officer",
+        "organization": "Delinea",
+        "publicationDate": "2026-09-23",
+        "economicPeriod": "September 2026",
+        "canonicalUrl": "https://www.globenewswire.com/news-release/2026/09/23/3367539/0/en/delinea-appoints-timothy-regan-as-chief-financial-officer.html",
+        "excerpt": "Timothy Regan appointed Chief Financial Officer of Delinea. He previously served as CFO at Dropbox from 2020 to 2025.",
+        "sourceClass": "IR",
+        "interpretation": "",
+        "limitations": "Whether this followed a predecessor departure was not confirmed.",
+        "conflictingEvidenceIds": [],
+        "artifactLabel": "SEC-MARKET-AUTO-001-FITFIX2 / TR-delinea-3",
+        "tags": [
+          "tracker",
+          "identity"
+        ],
+        "retrievedAt": "2026-09-25"
+      },
+      "originalEvidenceSha256": "3bfaa945e2953296ecadb14684e043772d2bf27b6ec7e461f1c414f33cdda096",
+      "fixedReceipt": {
+        "attemptId": "4f55f4a64fb24e66e0cfedf623459dd2f0eb22644ee4f8030f778229db4a58b1",
+        "completedAt": "2026-10-23T11:34:11.004349Z",
+        "discoveryComplete": false,
+        "errorCode": "HTTP_403",
+        "itemManifest": {
+          "bytes": 139,
+          "key": "objects/ec193a2f7e08adc915f6d169d858dc6c8794ad70ac2673eb62b366d40be00289",
+          "sha256": "ec193a2f7e08adc915f6d169d858dc6c8794ad70ac2673eb62b366d40be00289"
+        },
+        "newFactIds": [],
+        "observationIds": [
+          "e456008aed46ff37dae8a007dbe44f373c4a4f18a48be412559914943eeac1da"
+        ],
+        "outcome": "blocked",
+        "runId": "e054ea73c89fe78db9702f94d2a3b669ce91884f7d7abda0a88698dbcfc7ec50",
+        "sourceId": "delinea:citation:TR-delinea-3",
+        "startedAt": "2026-10-23T11:34:10.402145Z",
+        "supplierId": "delinea",
+        "taskId": "95b0a19dff8f232129f7a65414cc81b53a8bc814af40044849fb849df9801db5",
+        "validatedFacts": []
+      },
+      "itemManifest": {
+        "items": [],
+        "observations": [
+          "e456008aed46ff37dae8a007dbe44f373c4a4f18a48be412559914943eeac1da"
+        ],
+        "sourceId": "delinea:citation:TR-delinea-3"
+      },
+      "currentBlockedObservation": {
+        "observationId": "e456008aed46ff37dae8a007dbe44f373c4a4f18a48be412559914943eeac1da",
+        "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/e456008aed46ff37dae8a007dbe44f373c4a4f18a48be412559914943eeac1da.json",
+        "observationSha256": "1b69e582bc70429f8f6d2ae01feb7d4fc8e8febbceec82eaa5a4214c1fc7cd84",
+        "sourceId": "delinea:citation:TR-delinea-3",
+        "requestedUrl": "https://www.globenewswire.com/news-release/2026/09/23/3367539/0/en/delinea-appoints-timothy-regan-as-chief-financial-officer.html",
+        "finalUrl": null,
+        "status": "blocked",
+        "httpStatus": 403,
+        "errorCode": "HTTP_403",
+        "fetchedAt": "2026-10-23T11:34:11.001402Z",
+        "verifiedAt": null,
+        "body": null,
+        "bodyRetained": false,
+        "ageHoursAtFixedCoverage": 0.001114,
+        "withinThirtyHourSourceLimit": true,
+        "earnsCurrentCoverage": false
+      },
+      "sameUrlHistory": [
+        {
+          "observationId": "25ab86adba193677097aa3dc362ca248f0ca2edce763935abdee97110bc5a75a",
+          "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/25ab86adba193677097aa3dc362ca248f0ca2edce763935abdee97110bc5a75a.json",
+          "observationSha256": "43d59a62b3f36fc61a921fec2290226ce9583b12906930fc3b032e33dbde4625",
+          "sourceId": "delinea:citation:TR-delinea-3",
+          "requestedUrl": "https://www.globenewswire.com/news-release/2026/09/23/3367539/0/en/delinea-appoints-timothy-regan-as-chief-financial-officer.html",
+          "finalUrl": "https://www.globenewswire.com/news-release/2026/09/23/3367539/0/en/delinea-appoints-timothy-regan-as-chief-financial-officer.html",
+          "status": "fetched",
+          "httpStatus": 200,
+          "errorCode": null,
+          "fetchedAt": "2026-10-20T21:11:47.690223Z",
+          "verifiedAt": null,
+          "body": {
+            "bytes": 71725,
+            "key": "objects/910d0c328af31a0f017e4619651d7c46114aaadc96235bf74961824d797b9226",
+            "sha256": "910d0c328af31a0f017e4619651d7c46114aaadc96235bf74961824d797b9226"
+          },
+          "bodyRetained": true,
+          "ageHoursAtFixedCoverage": 62.374256,
+          "withinThirtyHourSourceLimit": false,
+          "earnsCurrentCoverage": false,
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/910d0c328af31a0f017e4619651d7c46114aaadc96235bf74961824d797b9226",
+          "rawBodyHashAndSizeVerified": true,
+          "decodedSha256": "910d0c328af31a0f017e4619651d7c46114aaadc96235bf74961824d797b9226",
+          "decodedBytes": 71725,
+          "observedCanonicals": [
+            "https://www.globenewswire.com/news-release/2026/09/23/3367539/0/en/delinea-appoints-timothy-regan-as-chief-financial-officer.html"
+          ],
+          "publicationMetadata": "2026-09-23T13:02:00Z",
+          "literalExcerpts": [
+            {
+              "term": "\\bDelinea\\b",
+              "text": "ment News Telecom Services News More Browse the Latest News Delinea Appoints Timothy Regan as Chief Financial Officer Former Dropbox CFO who helped take the company public joins as Delinea scales its identity security platform for the AI era September 23, 2026 09:02 ET | Source: Delinea Delinea SAN FRANCISCO, Sept. 23, 2026 (GLOBE NEWSWIRE) -- Delinea , the identity security platform that continuously controls what AI agents, humans, and machines can do and for how long, today announced the appointment of Timothy Regan, CPA, as Chief Financial Officer. Regan joins the executive team to sharpen Delinea's commercial and operational discipline a",
+              "offset": 970,
+              "normalizedTextSha256": "a473305d002d1fef55b467a9007665838f69ef4af94a98fc5408a0189ef99372"
+            },
+            {
+              "term": "\\bTimothy Regan\\b",
+              "text": " Services News More Browse the Latest News Delinea Appoints Timothy Regan as Chief Financial Officer Former Dropbox CFO who helped take the company public joins as Delinea scales its identity security platform for the AI era September 23, 2026 09:02 ET | Source: Delinea Delinea SAN FRANCISCO, Sept. 23, 2026 (GLOBE NEWSWIRE) -- Delinea , the identity security platform that continuously controls what AI agents, humans, and machines can do and for how long, today announced the appointment of Timothy Regan, CPA, as Chief Financial Officer. Regan joins the executive team to sharpen Delinea's commercial and operational discipline as the company con",
+              "offset": 987,
+              "normalizedTextSha256": "a473305d002d1fef55b467a9007665838f69ef4af94a98fc5408a0189ef99372"
+            }
+          ],
+          "textNormalization": "HTML text with entity decoding and collapsed whitespace; no source bytes changed."
+        },
+        {
+          "observationId": "8d6ea4fa1fd261c9d9e8c17afe75ba62f195ec38e284652ca6d16c58c1527e0a",
+          "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/8d6ea4fa1fd261c9d9e8c17afe75ba62f195ec38e284652ca6d16c58c1527e0a.json",
+          "observationSha256": "52a056709279477fbf703a11274fe89c823f0337d46ebd0f38c65537fa6e6ea0",
+          "sourceId": "delinea:citation:TR-delinea-3",
+          "requestedUrl": "https://www.globenewswire.com/news-release/2026/09/23/3367539/0/en/delinea-appoints-timothy-regan-as-chief-financial-officer.html",
+          "finalUrl": "https://www.globenewswire.com/news-release/2026/09/23/3367539/0/en/delinea-appoints-timothy-regan-as-chief-financial-officer.html",
+          "status": "fetched",
+          "httpStatus": 200,
+          "errorCode": null,
+          "fetchedAt": "2026-10-20T21:22:13.108998Z",
+          "verifiedAt": null,
+          "body": {
+            "bytes": 72075,
+            "key": "objects/295211d179b36feaa854717427f2824f7f38c06caba16b7d01cc33ef87fec4be",
+            "sha256": "295211d179b36feaa854717427f2824f7f38c06caba16b7d01cc33ef87fec4be"
+          },
+          "bodyRetained": true,
+          "ageHoursAtFixedCoverage": 62.200528,
+          "withinThirtyHourSourceLimit": false,
+          "earnsCurrentCoverage": false,
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/295211d179b36feaa854717427f2824f7f38c06caba16b7d01cc33ef87fec4be",
+          "rawBodyHashAndSizeVerified": true,
+          "decodedSha256": "295211d179b36feaa854717427f2824f7f38c06caba16b7d01cc33ef87fec4be",
+          "decodedBytes": 72075,
+          "observedCanonicals": [
+            "https://www.globenewswire.com/news-release/2026/09/23/3367539/0/en/delinea-appoints-timothy-regan-as-chief-financial-officer.html"
+          ],
+          "publicationMetadata": "2026-09-23T13:02:00Z",
+          "literalExcerpts": [
+            {
+              "term": "\\bDelinea\\b",
+              "text": "ment News Telecom Services News More Browse the Latest News Delinea Appoints Timothy Regan as Chief Financial Officer Former Dropbox CFO who helped take the company public joins as Delinea scales its identity security platform for the AI era September 23, 2026 09:02 ET | Source: Delinea Delinea SAN FRANCISCO, Sept. 23, 2026 (GLOBE NEWSWIRE) -- Delinea , the identity security platform that continuously controls what AI agents, humans, and machines can do and for how long, today announced the appointment of Timothy Regan, CPA, as Chief Financial Officer. Regan joins the executive team to sharpen Delinea's commercial and operational discipline a",
+              "offset": 970,
+              "normalizedTextSha256": "5a3f2aa864015e6fda838f3475ddecda663eb3c1c62d9e6f67af53e82142ece3"
+            },
+            {
+              "term": "\\bTimothy Regan\\b",
+              "text": " Services News More Browse the Latest News Delinea Appoints Timothy Regan as Chief Financial Officer Former Dropbox CFO who helped take the company public joins as Delinea scales its identity security platform for the AI era September 23, 2026 09:02 ET | Source: Delinea Delinea SAN FRANCISCO, Sept. 23, 2026 (GLOBE NEWSWIRE) -- Delinea , the identity security platform that continuously controls what AI agents, humans, and machines can do and for how long, today announced the appointment of Timothy Regan, CPA, as Chief Financial Officer. Regan joins the executive team to sharpen Delinea's commercial and operational discipline as the company con",
+              "offset": 987,
+              "normalizedTextSha256": "5a3f2aa864015e6fda838f3475ddecda663eb3c1c62d9e6f67af53e82142ece3"
+            }
+          ],
+          "textNormalization": "HTML text with entity decoding and collapsed whitespace; no source bytes changed."
+        },
+        {
+          "observationId": "a0a4401f1b56e922ad6d87139acd3bce1574b3554a2020569683adc685472a2a",
+          "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/a0a4401f1b56e922ad6d87139acd3bce1574b3554a2020569683adc685472a2a.json",
+          "observationSha256": "c542f3b9adc5fd4090ddbc0ec22fa55b6b7163a949e7acf5d9fe599eaf7a302c",
+          "sourceId": "delinea:citation:TR-delinea-3",
+          "requestedUrl": "https://www.globenewswire.com/news-release/2026/09/23/3367539/0/en/delinea-appoints-timothy-regan-as-chief-financial-officer.html",
+          "finalUrl": "https://www.globenewswire.com/news-release/2026/09/23/3367539/0/en/delinea-appoints-timothy-regan-as-chief-financial-officer.html",
+          "status": "fetched",
+          "httpStatus": 200,
+          "errorCode": null,
+          "fetchedAt": "2026-10-20T21:41:49.979213Z",
+          "verifiedAt": null,
+          "body": {
+            "bytes": 72075,
+            "key": "objects/1ee7964205cbb0a6fd470e737643896fee9baa3dee0eeb49446b65c0bfc1d56a",
+            "sha256": "1ee7964205cbb0a6fd470e737643896fee9baa3dee0eeb49446b65c0bfc1d56a"
+          },
+          "bodyRetained": true,
+          "ageHoursAtFixedCoverage": 61.87362,
+          "withinThirtyHourSourceLimit": false,
+          "earnsCurrentCoverage": false,
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/1ee7964205cbb0a6fd470e737643896fee9baa3dee0eeb49446b65c0bfc1d56a",
+          "rawBodyHashAndSizeVerified": true,
+          "decodedSha256": "1ee7964205cbb0a6fd470e737643896fee9baa3dee0eeb49446b65c0bfc1d56a",
+          "decodedBytes": 72075,
+          "observedCanonicals": [
+            "https://www.globenewswire.com/news-release/2026/09/23/3367539/0/en/delinea-appoints-timothy-regan-as-chief-financial-officer.html"
+          ],
+          "publicationMetadata": "2026-09-23T13:02:00Z",
+          "literalExcerpts": [
+            {
+              "term": "\\bDelinea\\b",
+              "text": "ment News Telecom Services News More Browse the Latest News Delinea Appoints Timothy Regan as Chief Financial Officer Former Dropbox CFO who helped take the company public joins as Delinea scales its identity security platform for the AI era September 23, 2026 09:02 ET | Source: Delinea Delinea SAN FRANCISCO, Sept. 23, 2026 (GLOBE NEWSWIRE) -- Delinea , the identity security platform that continuously controls what AI agents, humans, and machines can do and for how long, today announced the appointment of Timothy Regan, CPA, as Chief Financial Officer. Regan joins the executive team to sharpen Delinea's commercial and operational discipline a",
+              "offset": 970,
+              "normalizedTextSha256": "5a3f2aa864015e6fda838f3475ddecda663eb3c1c62d9e6f67af53e82142ece3"
+            },
+            {
+              "term": "\\bTimothy Regan\\b",
+              "text": " Services News More Browse the Latest News Delinea Appoints Timothy Regan as Chief Financial Officer Former Dropbox CFO who helped take the company public joins as Delinea scales its identity security platform for the AI era September 23, 2026 09:02 ET | Source: Delinea Delinea SAN FRANCISCO, Sept. 23, 2026 (GLOBE NEWSWIRE) -- Delinea , the identity security platform that continuously controls what AI agents, humans, and machines can do and for how long, today announced the appointment of Timothy Regan, CPA, as Chief Financial Officer. Regan joins the executive team to sharpen Delinea's commercial and operational discipline as the company con",
+              "offset": 987,
+              "normalizedTextSha256": "5a3f2aa864015e6fda838f3475ddecda663eb3c1c62d9e6f67af53e82142ece3"
+            }
+          ],
+          "textNormalization": "HTML text with entity decoding and collapsed whitespace; no source bytes changed."
+        },
+        {
+          "observationId": "ca9e4f59681dff67d235911774b1e7dc13033a28310896d94e9a2ba4e8a4cf5d",
+          "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/ca9e4f59681dff67d235911774b1e7dc13033a28310896d94e9a2ba4e8a4cf5d.json",
+          "observationSha256": "45222bc9d3ce2b355209c18053cba4acd9ebc177b0057530e199d760a714d19b",
+          "sourceId": "delinea:citation:TR-delinea-3",
+          "requestedUrl": "https://www.globenewswire.com/news-release/2026/09/23/3367539/0/en/delinea-appoints-timothy-regan-as-chief-financial-officer.html",
+          "finalUrl": null,
+          "status": "blocked",
+          "httpStatus": 403,
+          "errorCode": "HTTP_403",
+          "fetchedAt": "2026-10-22T01:11:48.078132Z",
+          "verifiedAt": null,
+          "body": null,
+          "bodyRetained": false,
+          "ageHoursAtFixedCoverage": 34.374148,
+          "withinThirtyHourSourceLimit": false,
+          "earnsCurrentCoverage": false
+        },
+        {
+          "observationId": "d7f49544083e0b1e5d89b24e1769440cd7b5c6f778492370ef8c1561a5dda650",
+          "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/d7f49544083e0b1e5d89b24e1769440cd7b5c6f778492370ef8c1561a5dda650.json",
+          "observationSha256": "2f8e481cb2665bb2e2fadcb1be7af48405a1b992a101758a04e2298731e2e270",
+          "sourceId": "delinea:citation:TR-delinea-3",
+          "requestedUrl": "https://www.globenewswire.com/news-release/2026/09/23/3367539/0/en/delinea-appoints-timothy-regan-as-chief-financial-officer.html",
+          "finalUrl": null,
+          "status": "blocked",
+          "httpStatus": 403,
+          "errorCode": "HTTP_403",
+          "fetchedAt": "2026-10-23T04:14:44.616125Z",
+          "verifiedAt": null,
+          "body": null,
+          "bodyRetained": false,
+          "ageHoursAtFixedCoverage": 7.32511,
+          "withinThirtyHourSourceLimit": true,
+          "earnsCurrentCoverage": false
+        },
+        {
+          "observationId": "e456008aed46ff37dae8a007dbe44f373c4a4f18a48be412559914943eeac1da",
+          "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/e456008aed46ff37dae8a007dbe44f373c4a4f18a48be412559914943eeac1da.json",
+          "observationSha256": "1b69e582bc70429f8f6d2ae01feb7d4fc8e8febbceec82eaa5a4214c1fc7cd84",
+          "sourceId": "delinea:citation:TR-delinea-3",
+          "requestedUrl": "https://www.globenewswire.com/news-release/2026/09/23/3367539/0/en/delinea-appoints-timothy-regan-as-chief-financial-officer.html",
+          "finalUrl": null,
+          "status": "blocked",
+          "httpStatus": 403,
+          "errorCode": "HTTP_403",
+          "fetchedAt": "2026-10-23T11:34:11.001402Z",
+          "verifiedAt": null,
+          "body": null,
+          "bodyRetained": false,
+          "ageHoursAtFixedCoverage": 0.001114,
+          "withinThirtyHourSourceLimit": true,
+          "earnsCurrentCoverage": false
+        }
+      ],
+      "sameUrlStatusCounts": {
+        "200": 3,
+        "403": 3
+      },
+      "observedSameUrlRedirects": [],
+      "manualRetrievalObjectPresent": false,
+      "earlierSameUrlSuccessfulBodies": 3,
+      "historicalEventCandidateBodies": [
+        {
+          "observationId": "b7ba77ab0af6072963051a69862c502196b2bf1a6fe6e6d9b154ba2d0d3987fb",
+          "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/b7ba77ab0af6072963051a69862c502196b2bf1a6fe6e6d9b154ba2d0d3987fb.json",
+          "observationSha256": "3b56836cc5dbcb186045b779af35475907f54d1c525926cfb7e03cff3a0f19c4",
+          "sourceId": "delinea:citation:TR-delinea-5",
+          "requestedUrl": "https://www.globenewswire.com/news-release/2026/03/05/3250113/0/en/delinea-completes-strongdm-acquisition-to-secure-ai-agents-with-continuous-identity-authorization.html",
+          "finalUrl": "https://www.globenewswire.com/news-release/2026/03/05/3250113/0/en/delinea-completes-strongdm-acquisition-to-secure-ai-agents-with-continuous-identity-authorization.html",
+          "status": "fetched",
+          "httpStatus": 200,
+          "errorCode": null,
+          "fetchedAt": "2026-10-20T21:11:51.518984Z",
+          "verifiedAt": null,
+          "body": {
+            "bytes": 76380,
+            "key": "objects/37292df6db06b7af9efe4b192f91f6d2ddd369cdc964b6f0d72a1d2aaad19f1e",
+            "sha256": "37292df6db06b7af9efe4b192f91f6d2ddd369cdc964b6f0d72a1d2aaad19f1e"
+          },
+          "bodyRetained": true,
+          "ageHoursAtFixedCoverage": 62.373192,
+          "withinThirtyHourSourceLimit": false,
+          "earnsCurrentCoverage": false,
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/37292df6db06b7af9efe4b192f91f6d2ddd369cdc964b6f0d72a1d2aaad19f1e",
+          "rawBodyHashAndSizeVerified": true,
+          "decodedSha256": "37292df6db06b7af9efe4b192f91f6d2ddd369cdc964b6f0d72a1d2aaad19f1e",
+          "decodedBytes": 76380,
+          "observedCanonicals": [
+            "https://www.globenewswire.com/news-release/2026/03/05/3250113/0/en/delinea-completes-strongdm-acquisition-to-secure-ai-agents-with-continuous-identity-authorization.html"
+          ],
+          "publicationMetadata": "2026-03-05T13:00:00Z",
+          "literalExcerpts": [
+            {
+              "term": "\\bDelinea\\b",
+              "text": "ment News Telecom Services News More Browse the Latest News Delinea Completes StrongDM Acquisition to Secure AI Agents with Continuous Identity Authorization Deal unifies enterprise PAM with just-in-time runtime authorization to help eliminate standing privilege in AI-driven environments March 05, 2026 08:00 ET | Source: Delinea Delinea SAN FRANCISCO, March 05, 2026 (GLOBE NEWSWIRE) -- Delinea , a pioneering provider of solutions for securing human and machine identities through centralized authorization, has completed its acquisition of StrongDM, the universal access management company purpose-built for modern engineering, DevOps, and AI-dri",
+              "offset": 970,
+              "normalizedTextSha256": "006fb8ff28a4061e18ef9986c124304aee9ce2a9aaf2cf25b2da4ae769285ced"
+            },
+            {
+              "term": "\\bTimothy Regan\\b",
+              "text": "tember 23, 2026 09:02 ET | Source: Delinea Delinea Appoints Timothy Regan as Chief Financial Officer Delinea today announced the appointment of Timothy Regan, CPA, as Chief Financial Officer. Read More Explore October 20, 2026 17:00 ET New Crypto: Pepeto Announces Another Stage Sellout While Dogecoin Price Prediction Targets 112% and Shiba Inu Setup Returns October 20, 2026 16:48 ET reVolver Podcasts Brings Classic Radionovela La Colorina to Today’s Audio Audiences October 20, 2026 16:30 ET Xos Heads to RE+ 2026 with Rapidly Deployable Power Hub Energy Storage October 20, 2026 16:28 ET Canon U.S.A. and DigiTech Launch Texas ST2/X1 UV LED Flat",
+              "offset": 7566,
+              "normalizedTextSha256": "006fb8ff28a4061e18ef9986c124304aee9ce2a9aaf2cf25b2da4ae769285ced"
+            }
+          ],
+          "textNormalization": "HTML text with entity decoding and collapsed whitespace; no source bytes changed."
+        },
+        {
+          "observationId": "06845e12128160d4d58d99cdfba61335991c3ad39042bfdc2c7f3bcc63a57ab1",
+          "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/06845e12128160d4d58d99cdfba61335991c3ad39042bfdc2c7f3bcc63a57ab1.json",
+          "observationSha256": "cc3a01e2e63e11982638bd1841ce4e76816f85fc16244a631255b95a9791254b",
+          "sourceId": "delinea:citation:TR-delinea-5",
+          "requestedUrl": "https://www.globenewswire.com/news-release/2026/03/05/3250113/0/en/delinea-completes-strongdm-acquisition-to-secure-ai-agents-with-continuous-identity-authorization.html",
+          "finalUrl": "https://www.globenewswire.com/news-release/2026/03/05/3250113/0/en/delinea-completes-strongdm-acquisition-to-secure-ai-agents-with-continuous-identity-authorization.html",
+          "status": "fetched",
+          "httpStatus": 200,
+          "errorCode": null,
+          "fetchedAt": "2026-10-20T21:41:27.583245Z",
+          "verifiedAt": null,
+          "body": {
+            "bytes": 76366,
+            "key": "objects/a53d58b7dcdd45a4eb8120e2cc2b50277ba4266762c640c67e04c1f0bbcb3143",
+            "sha256": "a53d58b7dcdd45a4eb8120e2cc2b50277ba4266762c640c67e04c1f0bbcb3143"
+          },
+          "bodyRetained": true,
+          "ageHoursAtFixedCoverage": 61.879841,
+          "withinThirtyHourSourceLimit": false,
+          "earnsCurrentCoverage": false,
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/a53d58b7dcdd45a4eb8120e2cc2b50277ba4266762c640c67e04c1f0bbcb3143",
+          "rawBodyHashAndSizeVerified": true,
+          "decodedSha256": "a53d58b7dcdd45a4eb8120e2cc2b50277ba4266762c640c67e04c1f0bbcb3143",
+          "decodedBytes": 76366,
+          "observedCanonicals": [
+            "https://www.globenewswire.com/news-release/2026/03/05/3250113/0/en/delinea-completes-strongdm-acquisition-to-secure-ai-agents-with-continuous-identity-authorization.html"
+          ],
+          "publicationMetadata": "2026-03-05T13:00:00Z",
+          "literalExcerpts": [
+            {
+              "term": "\\bDelinea\\b",
+              "text": "ment News Telecom Services News More Browse the Latest News Delinea Completes StrongDM Acquisition to Secure AI Agents with Continuous Identity Authorization Deal unifies enterprise PAM with just-in-time runtime authorization to help eliminate standing privilege in AI-driven environments March 05, 2026 08:00 ET | Source: Delinea Delinea SAN FRANCISCO, March 05, 2026 (GLOBE NEWSWIRE) -- Delinea , a pioneering provider of solutions for securing human and machine identities through centralized authorization, has completed its acquisition of StrongDM, the universal access management company purpose-built for modern engineering, DevOps, and AI-dri",
+              "offset": 970,
+              "normalizedTextSha256": "f19ca4d50d33256a5212447a99ba03b5fa3009028347efda2bfdaf7d412a2949"
+            },
+            {
+              "term": "\\bTimothy Regan\\b",
+              "text": "tember 23, 2026 09:02 ET | Source: Delinea Delinea Appoints Timothy Regan as Chief Financial Officer Delinea today announced the appointment of Timothy Regan, CPA, as Chief Financial Officer. Read More Explore October 20, 2026 05:21 ET Heineken® teams up with Amazon to launch \"Pubscription\"... The world’s first streaming service for nights out October 20, 2026 05:12 ET Sutherland and FlowX.AI Partner to Deliver Enterprise-Grade AI Solutions for Complex, Regulated Industries October 20, 2026 05:02 ET Future Travel Starts Now: 2026 JETOUR Global Technology Experience Day Kicks Off October 20, 2026 05:00 ET KFSH Brings Cardiac Catheterization Di",
+              "offset": 7566,
+              "normalizedTextSha256": "f19ca4d50d33256a5212447a99ba03b5fa3009028347efda2bfdaf7d412a2949"
+            }
+          ],
+          "textNormalization": "HTML text with entity decoding and collapsed whitespace; no source bytes changed."
+        },
+        {
+          "observationId": "25ab86adba193677097aa3dc362ca248f0ca2edce763935abdee97110bc5a75a",
+          "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/25ab86adba193677097aa3dc362ca248f0ca2edce763935abdee97110bc5a75a.json",
+          "observationSha256": "43d59a62b3f36fc61a921fec2290226ce9583b12906930fc3b032e33dbde4625",
+          "sourceId": "delinea:citation:TR-delinea-3",
+          "requestedUrl": "https://www.globenewswire.com/news-release/2026/09/23/3367539/0/en/delinea-appoints-timothy-regan-as-chief-financial-officer.html",
+          "finalUrl": "https://www.globenewswire.com/news-release/2026/09/23/3367539/0/en/delinea-appoints-timothy-regan-as-chief-financial-officer.html",
+          "status": "fetched",
+          "httpStatus": 200,
+          "errorCode": null,
+          "fetchedAt": "2026-10-20T21:11:47.690223Z",
+          "verifiedAt": null,
+          "body": {
+            "bytes": 71725,
+            "key": "objects/910d0c328af31a0f017e4619651d7c46114aaadc96235bf74961824d797b9226",
+            "sha256": "910d0c328af31a0f017e4619651d7c46114aaadc96235bf74961824d797b9226"
+          },
+          "bodyRetained": true,
+          "ageHoursAtFixedCoverage": 62.374256,
+          "withinThirtyHourSourceLimit": false,
+          "earnsCurrentCoverage": false,
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/910d0c328af31a0f017e4619651d7c46114aaadc96235bf74961824d797b9226",
+          "rawBodyHashAndSizeVerified": true,
+          "decodedSha256": "910d0c328af31a0f017e4619651d7c46114aaadc96235bf74961824d797b9226",
+          "decodedBytes": 71725,
+          "observedCanonicals": [
+            "https://www.globenewswire.com/news-release/2026/09/23/3367539/0/en/delinea-appoints-timothy-regan-as-chief-financial-officer.html"
+          ],
+          "publicationMetadata": "2026-09-23T13:02:00Z",
+          "literalExcerpts": [
+            {
+              "term": "\\bDelinea\\b",
+              "text": "ment News Telecom Services News More Browse the Latest News Delinea Appoints Timothy Regan as Chief Financial Officer Former Dropbox CFO who helped take the company public joins as Delinea scales its identity security platform for the AI era September 23, 2026 09:02 ET | Source: Delinea Delinea SAN FRANCISCO, Sept. 23, 2026 (GLOBE NEWSWIRE) -- Delinea , the identity security platform that continuously controls what AI agents, humans, and machines can do and for how long, today announced the appointment of Timothy Regan, CPA, as Chief Financial Officer. Regan joins the executive team to sharpen Delinea's commercial and operational discipline a",
+              "offset": 970,
+              "normalizedTextSha256": "a473305d002d1fef55b467a9007665838f69ef4af94a98fc5408a0189ef99372"
+            },
+            {
+              "term": "\\bTimothy Regan\\b",
+              "text": " Services News More Browse the Latest News Delinea Appoints Timothy Regan as Chief Financial Officer Former Dropbox CFO who helped take the company public joins as Delinea scales its identity security platform for the AI era September 23, 2026 09:02 ET | Source: Delinea Delinea SAN FRANCISCO, Sept. 23, 2026 (GLOBE NEWSWIRE) -- Delinea , the identity security platform that continuously controls what AI agents, humans, and machines can do and for how long, today announced the appointment of Timothy Regan, CPA, as Chief Financial Officer. Regan joins the executive team to sharpen Delinea's commercial and operational discipline as the company con",
+              "offset": 987,
+              "normalizedTextSha256": "a473305d002d1fef55b467a9007665838f69ef4af94a98fc5408a0189ef99372"
+            }
+          ],
+          "textNormalization": "HTML text with entity decoding and collapsed whitespace; no source bytes changed."
+        },
+        {
+          "observationId": "8d6ea4fa1fd261c9d9e8c17afe75ba62f195ec38e284652ca6d16c58c1527e0a",
+          "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/8d6ea4fa1fd261c9d9e8c17afe75ba62f195ec38e284652ca6d16c58c1527e0a.json",
+          "observationSha256": "52a056709279477fbf703a11274fe89c823f0337d46ebd0f38c65537fa6e6ea0",
+          "sourceId": "delinea:citation:TR-delinea-3",
+          "requestedUrl": "https://www.globenewswire.com/news-release/2026/09/23/3367539/0/en/delinea-appoints-timothy-regan-as-chief-financial-officer.html",
+          "finalUrl": "https://www.globenewswire.com/news-release/2026/09/23/3367539/0/en/delinea-appoints-timothy-regan-as-chief-financial-officer.html",
+          "status": "fetched",
+          "httpStatus": 200,
+          "errorCode": null,
+          "fetchedAt": "2026-10-20T21:22:13.108998Z",
+          "verifiedAt": null,
+          "body": {
+            "bytes": 72075,
+            "key": "objects/295211d179b36feaa854717427f2824f7f38c06caba16b7d01cc33ef87fec4be",
+            "sha256": "295211d179b36feaa854717427f2824f7f38c06caba16b7d01cc33ef87fec4be"
+          },
+          "bodyRetained": true,
+          "ageHoursAtFixedCoverage": 62.200528,
+          "withinThirtyHourSourceLimit": false,
+          "earnsCurrentCoverage": false,
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/295211d179b36feaa854717427f2824f7f38c06caba16b7d01cc33ef87fec4be",
+          "rawBodyHashAndSizeVerified": true,
+          "decodedSha256": "295211d179b36feaa854717427f2824f7f38c06caba16b7d01cc33ef87fec4be",
+          "decodedBytes": 72075,
+          "observedCanonicals": [
+            "https://www.globenewswire.com/news-release/2026/09/23/3367539/0/en/delinea-appoints-timothy-regan-as-chief-financial-officer.html"
+          ],
+          "publicationMetadata": "2026-09-23T13:02:00Z",
+          "literalExcerpts": [
+            {
+              "term": "\\bDelinea\\b",
+              "text": "ment News Telecom Services News More Browse the Latest News Delinea Appoints Timothy Regan as Chief Financial Officer Former Dropbox CFO who helped take the company public joins as Delinea scales its identity security platform for the AI era September 23, 2026 09:02 ET | Source: Delinea Delinea SAN FRANCISCO, Sept. 23, 2026 (GLOBE NEWSWIRE) -- Delinea , the identity security platform that continuously controls what AI agents, humans, and machines can do and for how long, today announced the appointment of Timothy Regan, CPA, as Chief Financial Officer. Regan joins the executive team to sharpen Delinea's commercial and operational discipline a",
+              "offset": 970,
+              "normalizedTextSha256": "5a3f2aa864015e6fda838f3475ddecda663eb3c1c62d9e6f67af53e82142ece3"
+            },
+            {
+              "term": "\\bTimothy Regan\\b",
+              "text": " Services News More Browse the Latest News Delinea Appoints Timothy Regan as Chief Financial Officer Former Dropbox CFO who helped take the company public joins as Delinea scales its identity security platform for the AI era September 23, 2026 09:02 ET | Source: Delinea Delinea SAN FRANCISCO, Sept. 23, 2026 (GLOBE NEWSWIRE) -- Delinea , the identity security platform that continuously controls what AI agents, humans, and machines can do and for how long, today announced the appointment of Timothy Regan, CPA, as Chief Financial Officer. Regan joins the executive team to sharpen Delinea's commercial and operational discipline as the company con",
+              "offset": 987,
+              "normalizedTextSha256": "5a3f2aa864015e6fda838f3475ddecda663eb3c1c62d9e6f67af53e82142ece3"
+            }
+          ],
+          "textNormalization": "HTML text with entity decoding and collapsed whitespace; no source bytes changed."
+        },
+        {
+          "observationId": "a0a4401f1b56e922ad6d87139acd3bce1574b3554a2020569683adc685472a2a",
+          "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/a0a4401f1b56e922ad6d87139acd3bce1574b3554a2020569683adc685472a2a.json",
+          "observationSha256": "c542f3b9adc5fd4090ddbc0ec22fa55b6b7163a949e7acf5d9fe599eaf7a302c",
+          "sourceId": "delinea:citation:TR-delinea-3",
+          "requestedUrl": "https://www.globenewswire.com/news-release/2026/09/23/3367539/0/en/delinea-appoints-timothy-regan-as-chief-financial-officer.html",
+          "finalUrl": "https://www.globenewswire.com/news-release/2026/09/23/3367539/0/en/delinea-appoints-timothy-regan-as-chief-financial-officer.html",
+          "status": "fetched",
+          "httpStatus": 200,
+          "errorCode": null,
+          "fetchedAt": "2026-10-20T21:41:49.979213Z",
+          "verifiedAt": null,
+          "body": {
+            "bytes": 72075,
+            "key": "objects/1ee7964205cbb0a6fd470e737643896fee9baa3dee0eeb49446b65c0bfc1d56a",
+            "sha256": "1ee7964205cbb0a6fd470e737643896fee9baa3dee0eeb49446b65c0bfc1d56a"
+          },
+          "bodyRetained": true,
+          "ageHoursAtFixedCoverage": 61.87362,
+          "withinThirtyHourSourceLimit": false,
+          "earnsCurrentCoverage": false,
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/1ee7964205cbb0a6fd470e737643896fee9baa3dee0eeb49446b65c0bfc1d56a",
+          "rawBodyHashAndSizeVerified": true,
+          "decodedSha256": "1ee7964205cbb0a6fd470e737643896fee9baa3dee0eeb49446b65c0bfc1d56a",
+          "decodedBytes": 72075,
+          "observedCanonicals": [
+            "https://www.globenewswire.com/news-release/2026/09/23/3367539/0/en/delinea-appoints-timothy-regan-as-chief-financial-officer.html"
+          ],
+          "publicationMetadata": "2026-09-23T13:02:00Z",
+          "literalExcerpts": [
+            {
+              "term": "\\bDelinea\\b",
+              "text": "ment News Telecom Services News More Browse the Latest News Delinea Appoints Timothy Regan as Chief Financial Officer Former Dropbox CFO who helped take the company public joins as Delinea scales its identity security platform for the AI era September 23, 2026 09:02 ET | Source: Delinea Delinea SAN FRANCISCO, Sept. 23, 2026 (GLOBE NEWSWIRE) -- Delinea , the identity security platform that continuously controls what AI agents, humans, and machines can do and for how long, today announced the appointment of Timothy Regan, CPA, as Chief Financial Officer. Regan joins the executive team to sharpen Delinea's commercial and operational discipline a",
+              "offset": 970,
+              "normalizedTextSha256": "5a3f2aa864015e6fda838f3475ddecda663eb3c1c62d9e6f67af53e82142ece3"
+            },
+            {
+              "term": "\\bTimothy Regan\\b",
+              "text": " Services News More Browse the Latest News Delinea Appoints Timothy Regan as Chief Financial Officer Former Dropbox CFO who helped take the company public joins as Delinea scales its identity security platform for the AI era September 23, 2026 09:02 ET | Source: Delinea Delinea SAN FRANCISCO, Sept. 23, 2026 (GLOBE NEWSWIRE) -- Delinea , the identity security platform that continuously controls what AI agents, humans, and machines can do and for how long, today announced the appointment of Timothy Regan, CPA, as Chief Financial Officer. Regan joins the executive team to sharpen Delinea's commercial and operational discipline as the company con",
+              "offset": 987,
+              "normalizedTextSha256": "5a3f2aa864015e6fda838f3475ddecda663eb3c1c62d9e6f67af53e82142ece3"
+            }
+          ],
+          "textNormalization": "HTML text with entity decoding and collapsed whitespace; no source bytes changed."
+        }
+      ],
+      "literalAlternateLeads": [
+        {
+          "literalHrefOrCanonical": "https://www.globenewswire.com/news-release/2026/09/23/3367539/0/en/delinea-appoints-timothy-regan-as-chief-financial-officer.html",
+          "resolvedUrl": "https://www.globenewswire.com/news-release/2026/09/23/3367539/0/en/delinea-appoints-timothy-regan-as-chief-financial-officer.html",
+          "disclosedInObservationId": "25ab86adba193677097aa3dc362ca248f0ca2edce763935abdee97110bc5a75a",
+          "disclosedInBodySha256": "910d0c328af31a0f017e4619651d7c46114aaadc96235bf74961824d797b9226",
+          "isObservedCanonical": true,
+          "role": "distributor_historical_lead",
+          "observedResponseIds": [
+            "25ab86adba193677097aa3dc362ca248f0ca2edce763935abdee97110bc5a75a",
+            "8d6ea4fa1fd261c9d9e8c17afe75ba62f195ec38e284652ca6d16c58c1527e0a",
+            "a0a4401f1b56e922ad6d87139acd3bce1574b3554a2020569683adc685472a2a",
+            "ca9e4f59681dff67d235911774b1e7dc13033a28310896d94e9a2ba4e8a4cf5d",
+            "d7f49544083e0b1e5d89b24e1769440cd7b5c6f778492370ef8c1561a5dda650",
+            "e456008aed46ff37dae8a007dbe44f373c4a4f18a48be412559914943eeac1da"
+          ],
+          "successfulBodyObservationIds": [
+            "25ab86adba193677097aa3dc362ca248f0ca2edce763935abdee97110bc5a75a",
+            "8d6ea4fa1fd261c9d9e8c17afe75ba62f195ec38e284652ca6d16c58c1527e0a",
+            "a0a4401f1b56e922ad6d87139acd3bce1574b3554a2020569683adc685472a2a"
+          ],
+          "isVerifiedReplacement": false
+        },
+        {
+          "literalHrefOrCanonical": "/en/search/organization/Delinea",
+          "resolvedUrl": "https://www.globenewswire.com/en/search/organization/Delinea",
+          "disclosedInObservationId": "25ab86adba193677097aa3dc362ca248f0ca2edce763935abdee97110bc5a75a",
+          "disclosedInBodySha256": "910d0c328af31a0f017e4619651d7c46114aaadc96235bf74961824d797b9226",
+          "isObservedCanonical": false,
+          "role": "distributor_historical_lead",
+          "observedResponseIds": [],
+          "successfulBodyObservationIds": [],
+          "isVerifiedReplacement": false
+        },
+        {
+          "literalHrefOrCanonical": "/en/search/tag/delinea",
+          "resolvedUrl": "https://www.globenewswire.com/en/search/tag/delinea",
+          "disclosedInObservationId": "25ab86adba193677097aa3dc362ca248f0ca2edce763935abdee97110bc5a75a",
+          "disclosedInBodySha256": "910d0c328af31a0f017e4619651d7c46114aaadc96235bf74961824d797b9226",
+          "isObservedCanonical": false,
+          "role": "distributor_historical_lead",
+          "observedResponseIds": [],
+          "successfulBodyObservationIds": [],
+          "isVerifiedReplacement": false
+        },
+        {
+          "literalHrefOrCanonical": "https://delinea.com/",
+          "resolvedUrl": "https://delinea.com/",
+          "disclosedInObservationId": "25ab86adba193677097aa3dc362ca248f0ca2edce763935abdee97110bc5a75a",
+          "disclosedInBodySha256": "910d0c328af31a0f017e4619651d7c46114aaadc96235bf74961824d797b9226",
+          "isObservedCanonical": false,
+          "role": "supplier_site_historical_lead",
+          "observedResponseIds": [],
+          "successfulBodyObservationIds": [],
+          "isVerifiedReplacement": false
+        }
+      ],
+      "evidenceInterpretation": "Earlier GlobeNewswire bodies retain the September CFO appointment statement and source identity. The literal Delinea homepage and distributor organization search are research entries; neither is an exact supplier-owned replacement for this CFO release.",
+      "nextAction": {
+        "owner": "pipeline agent",
+        "action": "After natural allowance renewal, retry the unchanged citation only through normal permitted transport. Qualify a supplier-owned event alternative from retained literal links with actual body, publication date and exact event identity before proposing any reviewed citation change.",
+        "humanInputRequired": false
+      },
+      "sourceRelocationLimit": {
+        "ordinaryCorrectionCanChangeCanonicalUrl": false,
+        "ordinaryCorrectionCanChangeSourceClassOrOrganization": false,
+        "sourceBindingRemainsBoundToImmutableOriginalUrl": true,
+        "futureReviewedRelocationOrNewPrimaryEvidencePathRequiredIfDifferentUrlUsed": true,
+        "currentlyImplementedOrAuthorizedByThisAudit": false
+      },
+      "currentCoverageCredit": 0,
+      "currentOutcomeUnchanged": "blocked",
+      "boundary": "Citation collection checks transport. Historical body presence, a canonical URL or a distributor link does not validate financial content, refresh a check, qualify recurring discovery or authorize a URL change."
+    },
+    {
+      "taskId": "227b9cfec1983ea5b7268767520afb9d8234212abb5ffa05c4e75337e2c06663",
+      "sourceId": "delinea:citation:TR-delinea-5",
+      "supplierId": "delinea",
+      "source": {
+        "id": "delinea:citation:TR-delinea-5",
+        "supplierId": "delinea",
+        "kind": "citation",
+        "family": "citation_integrity",
+        "url": "https://www.globenewswire.com/news-release/2026/03/05/3250113/0/en/delinea-completes-strongdm-acquisition-to-secure-ai-agents-with-continuous-identity-authorization.html",
+        "allowedHosts": [
+          "www.globenewswire.com"
+        ],
+        "registration": "verified",
+        "required": true,
+        "maxPages": 1,
+        "scopePrefixes": [
+          "/"
+        ],
+        "seedEvidenceUrls": [],
+        "evidenceId": "TR-delinea-5"
+      },
+      "originalEvidence": {
+        "id": "TR-delinea-5",
+        "title": "Delinea Completes StrongDM Acquisition to Secure AI Agents with Continuous Identity Authorization",
+        "organization": "Delinea",
+        "publicationDate": "2026-03-05",
+        "economicPeriod": "March 2026",
+        "canonicalUrl": "https://www.globenewswire.com/news-release/2026/03/05/3250113/0/en/delinea-completes-strongdm-acquisition-to-secure-ai-agents-with-continuous-identity-authorization.html",
+        "excerpt": "Delinea... has completed its acquisition of StrongDM, the universal access management company purpose-built for modern engineering, DevOps, and AI-driven environments.",
+        "sourceClass": "OFFICIAL",
+        "interpretation": "",
+        "limitations": "",
+        "conflictingEvidenceIds": [],
+        "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-delinea-5",
+        "tags": [
+          "tracker"
+        ],
+        "retrievedAt": "2026-09-26",
+        "retrieval": {
+          "finalUrl": "https://www.globenewswire.com/news-release/2026/03/05/3250113/0/en/delinea-completes-strongdm-acquisition-to-secure-ai-agents-with-continuous-identity-authorization.html",
+          "sha256": "d18b79e5bfb9b2a1c3a1dbf1bf0e7d2001a7487989a68f6dc18067086a5329cc",
+          "fetchedAt": "2026-09-26T17:30:00Z",
+          "locator": "First paragraph"
+        }
+      },
+      "originalEvidenceSha256": "cc9c2ddca79bb373ea42a6a30f5c8e84b5d4541e6e0a0263cf8e37441eb9ee5f",
+      "fixedReceipt": {
+        "attemptId": "4d8015227589cdd1427bfb7d8b64b9ed4be20e45a4af4af2f3a7d5d6bc565d38",
+        "completedAt": "2026-10-23T11:34:13.986405Z",
+        "discoveryComplete": false,
+        "errorCode": "HTTP_403",
+        "itemManifest": {
+          "bytes": 139,
+          "key": "objects/b4ba956d41dc0ce41e7d18531dbd8078858be11eed97895d5773a78572b0b21c",
+          "sha256": "b4ba956d41dc0ce41e7d18531dbd8078858be11eed97895d5773a78572b0b21c"
+        },
+        "newFactIds": [],
+        "observationIds": [
+          "1e7f18a9cadb3c4e33e6fda9432411d8fc452cf228f24c3ad17f79250986b073"
+        ],
+        "outcome": "blocked",
+        "runId": "e054ea73c89fe78db9702f94d2a3b669ce91884f7d7abda0a88698dbcfc7ec50",
+        "sourceId": "delinea:citation:TR-delinea-5",
+        "startedAt": "2026-10-23T11:34:13.155826Z",
+        "supplierId": "delinea",
+        "taskId": "227b9cfec1983ea5b7268767520afb9d8234212abb5ffa05c4e75337e2c06663",
+        "validatedFacts": []
+      },
+      "itemManifest": {
+        "items": [],
+        "observations": [
+          "1e7f18a9cadb3c4e33e6fda9432411d8fc452cf228f24c3ad17f79250986b073"
+        ],
+        "sourceId": "delinea:citation:TR-delinea-5"
+      },
+      "currentBlockedObservation": {
+        "observationId": "1e7f18a9cadb3c4e33e6fda9432411d8fc452cf228f24c3ad17f79250986b073",
+        "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/1e7f18a9cadb3c4e33e6fda9432411d8fc452cf228f24c3ad17f79250986b073.json",
+        "observationSha256": "4aed1282eb3a2df7c0aaab4fa8b12bda90bc8dc8bdaad570dbd0c62aeb056bf9",
+        "sourceId": "delinea:citation:TR-delinea-5",
+        "requestedUrl": "https://www.globenewswire.com/news-release/2026/03/05/3250113/0/en/delinea-completes-strongdm-acquisition-to-secure-ai-agents-with-continuous-identity-authorization.html",
+        "finalUrl": null,
+        "status": "blocked",
+        "httpStatus": 403,
+        "errorCode": "HTTP_403",
+        "fetchedAt": "2026-10-23T11:34:13.983569Z",
+        "verifiedAt": null,
+        "body": null,
+        "bodyRetained": false,
+        "ageHoursAtFixedCoverage": 0.000285,
+        "withinThirtyHourSourceLimit": true,
+        "earnsCurrentCoverage": false
+      },
+      "sameUrlHistory": [
+        {
+          "observationId": "b7ba77ab0af6072963051a69862c502196b2bf1a6fe6e6d9b154ba2d0d3987fb",
+          "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/b7ba77ab0af6072963051a69862c502196b2bf1a6fe6e6d9b154ba2d0d3987fb.json",
+          "observationSha256": "3b56836cc5dbcb186045b779af35475907f54d1c525926cfb7e03cff3a0f19c4",
+          "sourceId": "delinea:citation:TR-delinea-5",
+          "requestedUrl": "https://www.globenewswire.com/news-release/2026/03/05/3250113/0/en/delinea-completes-strongdm-acquisition-to-secure-ai-agents-with-continuous-identity-authorization.html",
+          "finalUrl": "https://www.globenewswire.com/news-release/2026/03/05/3250113/0/en/delinea-completes-strongdm-acquisition-to-secure-ai-agents-with-continuous-identity-authorization.html",
+          "status": "fetched",
+          "httpStatus": 200,
+          "errorCode": null,
+          "fetchedAt": "2026-10-20T21:11:51.518984Z",
+          "verifiedAt": null,
+          "body": {
+            "bytes": 76380,
+            "key": "objects/37292df6db06b7af9efe4b192f91f6d2ddd369cdc964b6f0d72a1d2aaad19f1e",
+            "sha256": "37292df6db06b7af9efe4b192f91f6d2ddd369cdc964b6f0d72a1d2aaad19f1e"
+          },
+          "bodyRetained": true,
+          "ageHoursAtFixedCoverage": 62.373192,
+          "withinThirtyHourSourceLimit": false,
+          "earnsCurrentCoverage": false,
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/37292df6db06b7af9efe4b192f91f6d2ddd369cdc964b6f0d72a1d2aaad19f1e",
+          "rawBodyHashAndSizeVerified": true,
+          "decodedSha256": "37292df6db06b7af9efe4b192f91f6d2ddd369cdc964b6f0d72a1d2aaad19f1e",
+          "decodedBytes": 76380,
+          "observedCanonicals": [
+            "https://www.globenewswire.com/news-release/2026/03/05/3250113/0/en/delinea-completes-strongdm-acquisition-to-secure-ai-agents-with-continuous-identity-authorization.html"
+          ],
+          "publicationMetadata": "2026-03-05T13:00:00Z",
+          "literalExcerpts": [
+            {
+              "term": "\\bDelinea\\b",
+              "text": "ment News Telecom Services News More Browse the Latest News Delinea Completes StrongDM Acquisition to Secure AI Agents with Continuous Identity Authorization Deal unifies enterprise PAM with just-in-time runtime authorization to help eliminate standing privilege in AI-driven environments March 05, 2026 08:00 ET | Source: Delinea Delinea SAN FRANCISCO, March 05, 2026 (GLOBE NEWSWIRE) -- Delinea , a pioneering provider of solutions for securing human and machine identities through centralized authorization, has completed its acquisition of StrongDM, the universal access management company purpose-built for modern engineering, DevOps, and AI-dri",
+              "offset": 970,
+              "normalizedTextSha256": "006fb8ff28a4061e18ef9986c124304aee9ce2a9aaf2cf25b2da4ae769285ced"
+            },
+            {
+              "term": "\\bStrongDM\\b",
+              "text": "Services News More Browse the Latest News Delinea Completes StrongDM Acquisition to Secure AI Agents with Continuous Identity Authorization Deal unifies enterprise PAM with just-in-time runtime authorization to help eliminate standing privilege in AI-driven environments March 05, 2026 08:00 ET | Source: Delinea Delinea SAN FRANCISCO, March 05, 2026 (GLOBE NEWSWIRE) -- Delinea , a pioneering provider of solutions for securing human and machine identities through centralized authorization, has completed its acquisition of StrongDM, the universal access management company purpose-built for modern engineering, DevOps, and AI-driven environments. ",
+              "offset": 988,
+              "normalizedTextSha256": "006fb8ff28a4061e18ef9986c124304aee9ce2a9aaf2cf25b2da4ae769285ced"
+            }
+          ],
+          "textNormalization": "HTML text with entity decoding and collapsed whitespace; no source bytes changed."
+        },
+        {
+          "observationId": "2728de66ffaf10a9248d853ce34fd39590b2d630c0ca6e6df89ab658eb8f5424",
+          "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/2728de66ffaf10a9248d853ce34fd39590b2d630c0ca6e6df89ab658eb8f5424.json",
+          "observationSha256": "1cccf155ef8512722b7e857b88289b673a307ecf7ca0400d3ec4848e300d07cb",
+          "sourceId": "delinea:citation:TR-delinea-5",
+          "requestedUrl": "https://www.globenewswire.com/news-release/2026/03/05/3250113/0/en/delinea-completes-strongdm-acquisition-to-secure-ai-agents-with-continuous-identity-authorization.html",
+          "finalUrl": "https://www.globenewswire.com/news-release/2026/03/05/3250113/0/en/delinea-completes-strongdm-acquisition-to-secure-ai-agents-with-continuous-identity-authorization.html",
+          "status": "fetched",
+          "httpStatus": 200,
+          "errorCode": null,
+          "fetchedAt": "2026-10-20T21:22:12.159997Z",
+          "verifiedAt": null,
+          "body": {
+            "bytes": 76366,
+            "key": "objects/a53d58b7dcdd45a4eb8120e2cc2b50277ba4266762c640c67e04c1f0bbcb3143",
+            "sha256": "a53d58b7dcdd45a4eb8120e2cc2b50277ba4266762c640c67e04c1f0bbcb3143"
+          },
+          "bodyRetained": true,
+          "ageHoursAtFixedCoverage": 62.200792,
+          "withinThirtyHourSourceLimit": false,
+          "earnsCurrentCoverage": false,
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/a53d58b7dcdd45a4eb8120e2cc2b50277ba4266762c640c67e04c1f0bbcb3143",
+          "rawBodyHashAndSizeVerified": true,
+          "decodedSha256": "a53d58b7dcdd45a4eb8120e2cc2b50277ba4266762c640c67e04c1f0bbcb3143",
+          "decodedBytes": 76366,
+          "observedCanonicals": [
+            "https://www.globenewswire.com/news-release/2026/03/05/3250113/0/en/delinea-completes-strongdm-acquisition-to-secure-ai-agents-with-continuous-identity-authorization.html"
+          ],
+          "publicationMetadata": "2026-03-05T13:00:00Z",
+          "literalExcerpts": [
+            {
+              "term": "\\bDelinea\\b",
+              "text": "ment News Telecom Services News More Browse the Latest News Delinea Completes StrongDM Acquisition to Secure AI Agents with Continuous Identity Authorization Deal unifies enterprise PAM with just-in-time runtime authorization to help eliminate standing privilege in AI-driven environments March 05, 2026 08:00 ET | Source: Delinea Delinea SAN FRANCISCO, March 05, 2026 (GLOBE NEWSWIRE) -- Delinea , a pioneering provider of solutions for securing human and machine identities through centralized authorization, has completed its acquisition of StrongDM, the universal access management company purpose-built for modern engineering, DevOps, and AI-dri",
+              "offset": 970,
+              "normalizedTextSha256": "f19ca4d50d33256a5212447a99ba03b5fa3009028347efda2bfdaf7d412a2949"
+            },
+            {
+              "term": "\\bStrongDM\\b",
+              "text": "Services News More Browse the Latest News Delinea Completes StrongDM Acquisition to Secure AI Agents with Continuous Identity Authorization Deal unifies enterprise PAM with just-in-time runtime authorization to help eliminate standing privilege in AI-driven environments March 05, 2026 08:00 ET | Source: Delinea Delinea SAN FRANCISCO, March 05, 2026 (GLOBE NEWSWIRE) -- Delinea , a pioneering provider of solutions for securing human and machine identities through centralized authorization, has completed its acquisition of StrongDM, the universal access management company purpose-built for modern engineering, DevOps, and AI-driven environments. ",
+              "offset": 988,
+              "normalizedTextSha256": "f19ca4d50d33256a5212447a99ba03b5fa3009028347efda2bfdaf7d412a2949"
+            }
+          ],
+          "textNormalization": "HTML text with entity decoding and collapsed whitespace; no source bytes changed."
+        },
+        {
+          "observationId": "06845e12128160d4d58d99cdfba61335991c3ad39042bfdc2c7f3bcc63a57ab1",
+          "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/06845e12128160d4d58d99cdfba61335991c3ad39042bfdc2c7f3bcc63a57ab1.json",
+          "observationSha256": "cc3a01e2e63e11982638bd1841ce4e76816f85fc16244a631255b95a9791254b",
+          "sourceId": "delinea:citation:TR-delinea-5",
+          "requestedUrl": "https://www.globenewswire.com/news-release/2026/03/05/3250113/0/en/delinea-completes-strongdm-acquisition-to-secure-ai-agents-with-continuous-identity-authorization.html",
+          "finalUrl": "https://www.globenewswire.com/news-release/2026/03/05/3250113/0/en/delinea-completes-strongdm-acquisition-to-secure-ai-agents-with-continuous-identity-authorization.html",
+          "status": "fetched",
+          "httpStatus": 200,
+          "errorCode": null,
+          "fetchedAt": "2026-10-20T21:41:27.583245Z",
+          "verifiedAt": null,
+          "body": {
+            "bytes": 76366,
+            "key": "objects/a53d58b7dcdd45a4eb8120e2cc2b50277ba4266762c640c67e04c1f0bbcb3143",
+            "sha256": "a53d58b7dcdd45a4eb8120e2cc2b50277ba4266762c640c67e04c1f0bbcb3143"
+          },
+          "bodyRetained": true,
+          "ageHoursAtFixedCoverage": 61.879841,
+          "withinThirtyHourSourceLimit": false,
+          "earnsCurrentCoverage": false,
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/a53d58b7dcdd45a4eb8120e2cc2b50277ba4266762c640c67e04c1f0bbcb3143",
+          "rawBodyHashAndSizeVerified": true,
+          "decodedSha256": "a53d58b7dcdd45a4eb8120e2cc2b50277ba4266762c640c67e04c1f0bbcb3143",
+          "decodedBytes": 76366,
+          "observedCanonicals": [
+            "https://www.globenewswire.com/news-release/2026/03/05/3250113/0/en/delinea-completes-strongdm-acquisition-to-secure-ai-agents-with-continuous-identity-authorization.html"
+          ],
+          "publicationMetadata": "2026-03-05T13:00:00Z",
+          "literalExcerpts": [
+            {
+              "term": "\\bDelinea\\b",
+              "text": "ment News Telecom Services News More Browse the Latest News Delinea Completes StrongDM Acquisition to Secure AI Agents with Continuous Identity Authorization Deal unifies enterprise PAM with just-in-time runtime authorization to help eliminate standing privilege in AI-driven environments March 05, 2026 08:00 ET | Source: Delinea Delinea SAN FRANCISCO, March 05, 2026 (GLOBE NEWSWIRE) -- Delinea , a pioneering provider of solutions for securing human and machine identities through centralized authorization, has completed its acquisition of StrongDM, the universal access management company purpose-built for modern engineering, DevOps, and AI-dri",
+              "offset": 970,
+              "normalizedTextSha256": "f19ca4d50d33256a5212447a99ba03b5fa3009028347efda2bfdaf7d412a2949"
+            },
+            {
+              "term": "\\bStrongDM\\b",
+              "text": "Services News More Browse the Latest News Delinea Completes StrongDM Acquisition to Secure AI Agents with Continuous Identity Authorization Deal unifies enterprise PAM with just-in-time runtime authorization to help eliminate standing privilege in AI-driven environments March 05, 2026 08:00 ET | Source: Delinea Delinea SAN FRANCISCO, March 05, 2026 (GLOBE NEWSWIRE) -- Delinea , a pioneering provider of solutions for securing human and machine identities through centralized authorization, has completed its acquisition of StrongDM, the universal access management company purpose-built for modern engineering, DevOps, and AI-driven environments. ",
+              "offset": 988,
+              "normalizedTextSha256": "f19ca4d50d33256a5212447a99ba03b5fa3009028347efda2bfdaf7d412a2949"
+            }
+          ],
+          "textNormalization": "HTML text with entity decoding and collapsed whitespace; no source bytes changed."
+        },
+        {
+          "observationId": "72e9f9f4b02ef973487c17b266caa85fd965e8affe4c134e5361dcdc84bb485b",
+          "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/72e9f9f4b02ef973487c17b266caa85fd965e8affe4c134e5361dcdc84bb485b.json",
+          "observationSha256": "fdd1ad1610b78b7014a0b0049ef0e95c6d7d0ef5a31b854fd26478040b0b9cde",
+          "sourceId": "delinea:citation:TR-delinea-5",
+          "requestedUrl": "https://www.globenewswire.com/news-release/2026/03/05/3250113/0/en/delinea-completes-strongdm-acquisition-to-secure-ai-agents-with-continuous-identity-authorization.html",
+          "finalUrl": null,
+          "status": "blocked",
+          "httpStatus": 403,
+          "errorCode": "HTTP_403",
+          "fetchedAt": "2026-10-22T01:11:44.200524Z",
+          "verifiedAt": null,
+          "body": null,
+          "bodyRetained": false,
+          "ageHoursAtFixedCoverage": 34.375225,
+          "withinThirtyHourSourceLimit": false,
+          "earnsCurrentCoverage": false
+        },
+        {
+          "observationId": "c3b7d3aa0b8f15ba2de31e4f4e6aef63b79eb95d073f5bd428a5dee383037a35",
+          "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/c3b7d3aa0b8f15ba2de31e4f4e6aef63b79eb95d073f5bd428a5dee383037a35.json",
+          "observationSha256": "6171692c3eafca0051a47391f0e53d96a1cf066a0dddfd9ad7a61b6f7ecfd3e2",
+          "sourceId": "delinea:citation:TR-delinea-5",
+          "requestedUrl": "https://www.globenewswire.com/news-release/2026/03/05/3250113/0/en/delinea-completes-strongdm-acquisition-to-secure-ai-agents-with-continuous-identity-authorization.html",
+          "finalUrl": null,
+          "status": "blocked",
+          "httpStatus": 403,
+          "errorCode": "HTTP_403",
+          "fetchedAt": "2026-10-23T04:14:47.578166Z",
+          "verifiedAt": null,
+          "body": null,
+          "bodyRetained": false,
+          "ageHoursAtFixedCoverage": 7.324287,
+          "withinThirtyHourSourceLimit": true,
+          "earnsCurrentCoverage": false
+        },
+        {
+          "observationId": "1e7f18a9cadb3c4e33e6fda9432411d8fc452cf228f24c3ad17f79250986b073",
+          "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/1e7f18a9cadb3c4e33e6fda9432411d8fc452cf228f24c3ad17f79250986b073.json",
+          "observationSha256": "4aed1282eb3a2df7c0aaab4fa8b12bda90bc8dc8bdaad570dbd0c62aeb056bf9",
+          "sourceId": "delinea:citation:TR-delinea-5",
+          "requestedUrl": "https://www.globenewswire.com/news-release/2026/03/05/3250113/0/en/delinea-completes-strongdm-acquisition-to-secure-ai-agents-with-continuous-identity-authorization.html",
+          "finalUrl": null,
+          "status": "blocked",
+          "httpStatus": 403,
+          "errorCode": "HTTP_403",
+          "fetchedAt": "2026-10-23T11:34:13.983569Z",
+          "verifiedAt": null,
+          "body": null,
+          "bodyRetained": false,
+          "ageHoursAtFixedCoverage": 0.000285,
+          "withinThirtyHourSourceLimit": true,
+          "earnsCurrentCoverage": false
+        }
+      ],
+      "sameUrlStatusCounts": {
+        "200": 3,
+        "403": 3
+      },
+      "observedSameUrlRedirects": [],
+      "manualRetrievalObjectPresent": false,
+      "earlierSameUrlSuccessfulBodies": 3,
+      "historicalEventCandidateBodies": [
+        {
+          "observationId": "af1dd9d957d385687117946a19eda5583205c6690590830dfe262a85a75a50d6",
+          "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/af1dd9d957d385687117946a19eda5583205c6690590830dfe262a85a75a50d6.json",
+          "observationSha256": "03422b38d39843188b5cd1559defb678b6cc2ec353e3369546c73c56e896f82a",
+          "sourceId": "delinea:citation:TR-delinea-4",
+          "requestedUrl": "https://delinea.com/news/delinea-strongdm-to-unite-redefine-identity-security-for-the-ai-era",
+          "finalUrl": "https://delinea.com/news/delinea-strongdm-to-unite-redefine-identity-security-for-the-ai-era",
+          "status": "fetched",
+          "httpStatus": 200,
+          "errorCode": null,
+          "fetchedAt": "2026-10-20T21:12:03.446124Z",
+          "verifiedAt": null,
+          "body": {
+            "bytes": 127184,
+            "key": "objects/63e869d7508b3c66f0243764a5456a3d2cfb681072332286c62143aab03468cb",
+            "sha256": "63e869d7508b3c66f0243764a5456a3d2cfb681072332286c62143aab03468cb"
+          },
+          "bodyRetained": true,
+          "ageHoursAtFixedCoverage": 62.369879,
+          "withinThirtyHourSourceLimit": false,
+          "earnsCurrentCoverage": false,
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/63e869d7508b3c66f0243764a5456a3d2cfb681072332286c62143aab03468cb",
+          "rawBodyHashAndSizeVerified": true,
+          "decodedSha256": "63e869d7508b3c66f0243764a5456a3d2cfb681072332286c62143aab03468cb",
+          "decodedBytes": 127184,
+          "observedCanonicals": [
+            "https://delinea.com/news/delinea-strongdm-to-unite-redefine-identity-security-for-the-ai-era"
+          ],
+          "publicationMetadata": null,
+          "literalExcerpts": [
+            {
+              "term": "\\bDelinea\\b",
+              "text": "Delinea and StrongDM to Unite to Redefine Identity Security for the Agentic AI Era Written by Justin Ordman Strategic acquisition to unify PAM and just-in-time runtime authorization for administrators, developers, non-human identities, and AI agents in a single platform SAN FRANCISCO – January 15, 2026 – Delinea , a pioneering provider of solutions for securing human and machine identities through centralized authorization, today announced it has signed a definitive agreement to acquire StrongDM, the universal access management company purpose-built for modern engineering, DevOps, and AI-driven environments. Delinea’s leadership in enterprise",
+              "offset": 0,
+              "normalizedTextSha256": "e8feadd02f57ecf2341609fab445d209f1277ffc47744b12ecad1e9a53bf4a8b"
+            },
+            {
+              "term": "\\bStrongDM\\b",
+              "text": "Delinea and StrongDM to Unite to Redefine Identity Security for the Agentic AI Era Written by Justin Ordman Strategic acquisition to unify PAM and just-in-time runtime authorization for administrators, developers, non-human identities, and AI agents in a single platform SAN FRANCISCO – January 15, 2026 – Delinea , a pioneering provider of solutions for securing human and machine identities through centralized authorization, today announced it has signed a definitive agreement to acquire StrongDM, the universal access management company purpose-built for modern engineering, DevOps, and AI-driven environments. Delinea’s leadership in enterprise",
+              "offset": 0,
+              "normalizedTextSha256": "e8feadd02f57ecf2341609fab445d209f1277ffc47744b12ecad1e9a53bf4a8b"
+            }
+          ],
+          "textNormalization": "HTML text with entity decoding and collapsed whitespace; no source bytes changed."
+        },
+        {
+          "observationId": "e695f7833686180c4fe14afbc3b3c6d8b2e79311f667d50cc6442b3fed6bd18a",
+          "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/e695f7833686180c4fe14afbc3b3c6d8b2e79311f667d50cc6442b3fed6bd18a.json",
+          "observationSha256": "d208378eda10b9d01eb6ed7c17828bbf82c41f1a2da675f841fb7adca25d09b9",
+          "sourceId": "delinea:citation:TR-delinea-4",
+          "requestedUrl": "https://delinea.com/news/delinea-strongdm-to-unite-redefine-identity-security-for-the-ai-era",
+          "finalUrl": "https://delinea.com/news/delinea-strongdm-to-unite-redefine-identity-security-for-the-ai-era",
+          "status": "fetched",
+          "httpStatus": 200,
+          "errorCode": null,
+          "fetchedAt": "2026-10-20T21:22:28.893886Z",
+          "verifiedAt": null,
+          "body": {
+            "bytes": 127184,
+            "key": "objects/1bebcab4098cc7dc5cdba24abbb979bed8646cdc1acd7088ffa09e0068daa9e8",
+            "sha256": "1bebcab4098cc7dc5cdba24abbb979bed8646cdc1acd7088ffa09e0068daa9e8"
+          },
+          "bodyRetained": true,
+          "ageHoursAtFixedCoverage": 62.196144,
+          "withinThirtyHourSourceLimit": false,
+          "earnsCurrentCoverage": false,
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/1bebcab4098cc7dc5cdba24abbb979bed8646cdc1acd7088ffa09e0068daa9e8",
+          "rawBodyHashAndSizeVerified": true,
+          "decodedSha256": "1bebcab4098cc7dc5cdba24abbb979bed8646cdc1acd7088ffa09e0068daa9e8",
+          "decodedBytes": 127184,
+          "observedCanonicals": [
+            "https://delinea.com/news/delinea-strongdm-to-unite-redefine-identity-security-for-the-ai-era"
+          ],
+          "publicationMetadata": null,
+          "literalExcerpts": [
+            {
+              "term": "\\bDelinea\\b",
+              "text": "Delinea and StrongDM to Unite to Redefine Identity Security for the Agentic AI Era Written by Justin Ordman Strategic acquisition to unify PAM and just-in-time runtime authorization for administrators, developers, non-human identities, and AI agents in a single platform SAN FRANCISCO – January 15, 2026 – Delinea , a pioneering provider of solutions for securing human and machine identities through centralized authorization, today announced it has signed a definitive agreement to acquire StrongDM, the universal access management company purpose-built for modern engineering, DevOps, and AI-driven environments. Delinea’s leadership in enterprise",
+              "offset": 0,
+              "normalizedTextSha256": "e8feadd02f57ecf2341609fab445d209f1277ffc47744b12ecad1e9a53bf4a8b"
+            },
+            {
+              "term": "\\bStrongDM\\b",
+              "text": "Delinea and StrongDM to Unite to Redefine Identity Security for the Agentic AI Era Written by Justin Ordman Strategic acquisition to unify PAM and just-in-time runtime authorization for administrators, developers, non-human identities, and AI agents in a single platform SAN FRANCISCO – January 15, 2026 – Delinea , a pioneering provider of solutions for securing human and machine identities through centralized authorization, today announced it has signed a definitive agreement to acquire StrongDM, the universal access management company purpose-built for modern engineering, DevOps, and AI-driven environments. Delinea’s leadership in enterprise",
+              "offset": 0,
+              "normalizedTextSha256": "e8feadd02f57ecf2341609fab445d209f1277ffc47744b12ecad1e9a53bf4a8b"
+            }
+          ],
+          "textNormalization": "HTML text with entity decoding and collapsed whitespace; no source bytes changed."
+        },
+        {
+          "observationId": "6b45982aaf69fbb9f1f8ceba8ade6feb227a0503e3b97ed4297eecaa56c4340a",
+          "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/6b45982aaf69fbb9f1f8ceba8ade6feb227a0503e3b97ed4297eecaa56c4340a.json",
+          "observationSha256": "37013c6cd7474e818a3e70352592bfe3beb10476bbae9840cacfbc55a0a07402",
+          "sourceId": "delinea:citation:TR-delinea-4",
+          "requestedUrl": "https://delinea.com/news/delinea-strongdm-to-unite-redefine-identity-security-for-the-ai-era",
+          "finalUrl": "https://delinea.com/news/delinea-strongdm-to-unite-redefine-identity-security-for-the-ai-era",
+          "status": "fetched",
+          "httpStatus": 200,
+          "errorCode": null,
+          "fetchedAt": "2026-10-20T21:41:27.276044Z",
+          "verifiedAt": null,
+          "body": {
+            "bytes": 127184,
+            "key": "objects/9748700af5be7e951c923f6ddeaf05249372054ba73389b6ae1c7de36969d6c2",
+            "sha256": "9748700af5be7e951c923f6ddeaf05249372054ba73389b6ae1c7de36969d6c2"
+          },
+          "bodyRetained": true,
+          "ageHoursAtFixedCoverage": 61.879926,
+          "withinThirtyHourSourceLimit": false,
+          "earnsCurrentCoverage": false,
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/9748700af5be7e951c923f6ddeaf05249372054ba73389b6ae1c7de36969d6c2",
+          "rawBodyHashAndSizeVerified": true,
+          "decodedSha256": "9748700af5be7e951c923f6ddeaf05249372054ba73389b6ae1c7de36969d6c2",
+          "decodedBytes": 127184,
+          "observedCanonicals": [
+            "https://delinea.com/news/delinea-strongdm-to-unite-redefine-identity-security-for-the-ai-era"
+          ],
+          "publicationMetadata": null,
+          "literalExcerpts": [
+            {
+              "term": "\\bDelinea\\b",
+              "text": "Delinea and StrongDM to Unite to Redefine Identity Security for the Agentic AI Era Written by Justin Ordman Strategic acquisition to unify PAM and just-in-time runtime authorization for administrators, developers, non-human identities, and AI agents in a single platform SAN FRANCISCO – January 15, 2026 – Delinea , a pioneering provider of solutions for securing human and machine identities through centralized authorization, today announced it has signed a definitive agreement to acquire StrongDM, the universal access management company purpose-built for modern engineering, DevOps, and AI-driven environments. Delinea’s leadership in enterprise",
+              "offset": 0,
+              "normalizedTextSha256": "e8feadd02f57ecf2341609fab445d209f1277ffc47744b12ecad1e9a53bf4a8b"
+            },
+            {
+              "term": "\\bStrongDM\\b",
+              "text": "Delinea and StrongDM to Unite to Redefine Identity Security for the Agentic AI Era Written by Justin Ordman Strategic acquisition to unify PAM and just-in-time runtime authorization for administrators, developers, non-human identities, and AI agents in a single platform SAN FRANCISCO – January 15, 2026 – Delinea , a pioneering provider of solutions for securing human and machine identities through centralized authorization, today announced it has signed a definitive agreement to acquire StrongDM, the universal access management company purpose-built for modern engineering, DevOps, and AI-driven environments. Delinea’s leadership in enterprise",
+              "offset": 0,
+              "normalizedTextSha256": "e8feadd02f57ecf2341609fab445d209f1277ffc47744b12ecad1e9a53bf4a8b"
+            }
+          ],
+          "textNormalization": "HTML text with entity decoding and collapsed whitespace; no source bytes changed."
+        },
+        {
+          "observationId": "24504e5a9d7d4de8087361ed76df67462fb2cb2b7e4b22bc10e9ad240d93fa7d",
+          "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/24504e5a9d7d4de8087361ed76df67462fb2cb2b7e4b22bc10e9ad240d93fa7d.json",
+          "observationSha256": "2db6a737e9821fa3f9ca6903358a95c02c8bebffaf0523719193f6987ff51f26",
+          "sourceId": "delinea:citation:TR-delinea-4",
+          "requestedUrl": "https://delinea.com/news/delinea-strongdm-to-unite-redefine-identity-security-for-the-ai-era",
+          "finalUrl": "https://delinea.com/news/delinea-strongdm-to-unite-redefine-identity-security-for-the-ai-era",
+          "status": "fetched",
+          "httpStatus": 200,
+          "errorCode": null,
+          "fetchedAt": "2026-10-22T01:11:50.901272Z",
+          "verifiedAt": null,
+          "body": {
+            "bytes": 126986,
+            "key": "objects/f4572e11b69f5f64cc39ef831bd70a9733af4380e132ae36c27e23cc2d5a1042",
+            "sha256": "f4572e11b69f5f64cc39ef831bd70a9733af4380e132ae36c27e23cc2d5a1042"
+          },
+          "bodyRetained": true,
+          "ageHoursAtFixedCoverage": 34.373364,
+          "withinThirtyHourSourceLimit": false,
+          "earnsCurrentCoverage": false,
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/f4572e11b69f5f64cc39ef831bd70a9733af4380e132ae36c27e23cc2d5a1042",
+          "rawBodyHashAndSizeVerified": true,
+          "decodedSha256": "f4572e11b69f5f64cc39ef831bd70a9733af4380e132ae36c27e23cc2d5a1042",
+          "decodedBytes": 126986,
+          "observedCanonicals": [
+            "https://delinea.com/news/delinea-strongdm-to-unite-redefine-identity-security-for-the-ai-era"
+          ],
+          "publicationMetadata": null,
+          "literalExcerpts": [
+            {
+              "term": "\\bDelinea\\b",
+              "text": "Delinea and StrongDM to Unite to Redefine Identity Security for the Agentic AI Era Written by Justin Ordman Strategic acquisition to unify PAM and just-in-time runtime authorization for administrators, developers, non-human identities, and AI agents in a single platform SAN FRANCISCO – January 15, 2026 – Delinea , a pioneering provider of solutions for securing human and machine identities through centralized authorization, today announced it has signed a definitive agreement to acquire StrongDM, the universal access management company purpose-built for modern engineering, DevOps, and AI-driven environments. Delinea’s leadership in enterprise",
+              "offset": 0,
+              "normalizedTextSha256": "82e7157cc02fad11ed072e8d58708607308a76449593eeffa02994057699b615"
+            },
+            {
+              "term": "\\bStrongDM\\b",
+              "text": "Delinea and StrongDM to Unite to Redefine Identity Security for the Agentic AI Era Written by Justin Ordman Strategic acquisition to unify PAM and just-in-time runtime authorization for administrators, developers, non-human identities, and AI agents in a single platform SAN FRANCISCO – January 15, 2026 – Delinea , a pioneering provider of solutions for securing human and machine identities through centralized authorization, today announced it has signed a definitive agreement to acquire StrongDM, the universal access management company purpose-built for modern engineering, DevOps, and AI-driven environments. Delinea’s leadership in enterprise",
+              "offset": 0,
+              "normalizedTextSha256": "82e7157cc02fad11ed072e8d58708607308a76449593eeffa02994057699b615"
+            }
+          ],
+          "textNormalization": "HTML text with entity decoding and collapsed whitespace; no source bytes changed."
+        },
+        {
+          "observationId": "930a7e4fe4b3d44f1494824f179a38b4c34e40b4e5af0124c057dc2ba176d34f",
+          "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/930a7e4fe4b3d44f1494824f179a38b4c34e40b4e5af0124c057dc2ba176d34f.json",
+          "observationSha256": "a88b1eeac16c47cb325cf664b515b8b8c76382e5288613b6cb81eaa38305fd11",
+          "sourceId": "delinea:citation:TR-delinea-4",
+          "requestedUrl": "https://delinea.com/news/delinea-strongdm-to-unite-redefine-identity-security-for-the-ai-era",
+          "finalUrl": "https://delinea.com/news/delinea-strongdm-to-unite-redefine-identity-security-for-the-ai-era",
+          "status": "fetched",
+          "httpStatus": 200,
+          "errorCode": null,
+          "fetchedAt": "2026-10-23T04:14:59.819592Z",
+          "verifiedAt": null,
+          "body": {
+            "bytes": 126986,
+            "key": "objects/40d3a81783abdf0af16f21d191d1b0e5e2393e7bf42bcc3e4147d87c271b2fb4",
+            "sha256": "40d3a81783abdf0af16f21d191d1b0e5e2393e7bf42bcc3e4147d87c271b2fb4"
+          },
+          "bodyRetained": true,
+          "ageHoursAtFixedCoverage": 7.320886,
+          "withinThirtyHourSourceLimit": true,
+          "earnsCurrentCoverage": false,
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/40d3a81783abdf0af16f21d191d1b0e5e2393e7bf42bcc3e4147d87c271b2fb4",
+          "rawBodyHashAndSizeVerified": true,
+          "decodedSha256": "40d3a81783abdf0af16f21d191d1b0e5e2393e7bf42bcc3e4147d87c271b2fb4",
+          "decodedBytes": 126986,
+          "observedCanonicals": [
+            "https://delinea.com/news/delinea-strongdm-to-unite-redefine-identity-security-for-the-ai-era"
+          ],
+          "publicationMetadata": null,
+          "literalExcerpts": [
+            {
+              "term": "\\bDelinea\\b",
+              "text": "Delinea and StrongDM to Unite to Redefine Identity Security for the Agentic AI Era Written by Justin Ordman Strategic acquisition to unify PAM and just-in-time runtime authorization for administrators, developers, non-human identities, and AI agents in a single platform SAN FRANCISCO – January 15, 2026 – Delinea , a pioneering provider of solutions for securing human and machine identities through centralized authorization, today announced it has signed a definitive agreement to acquire StrongDM, the universal access management company purpose-built for modern engineering, DevOps, and AI-driven environments. Delinea’s leadership in enterprise",
+              "offset": 0,
+              "normalizedTextSha256": "82e7157cc02fad11ed072e8d58708607308a76449593eeffa02994057699b615"
+            },
+            {
+              "term": "\\bStrongDM\\b",
+              "text": "Delinea and StrongDM to Unite to Redefine Identity Security for the Agentic AI Era Written by Justin Ordman Strategic acquisition to unify PAM and just-in-time runtime authorization for administrators, developers, non-human identities, and AI agents in a single platform SAN FRANCISCO – January 15, 2026 – Delinea , a pioneering provider of solutions for securing human and machine identities through centralized authorization, today announced it has signed a definitive agreement to acquire StrongDM, the universal access management company purpose-built for modern engineering, DevOps, and AI-driven environments. Delinea’s leadership in enterprise",
+              "offset": 0,
+              "normalizedTextSha256": "82e7157cc02fad11ed072e8d58708607308a76449593eeffa02994057699b615"
+            }
+          ],
+          "textNormalization": "HTML text with entity decoding and collapsed whitespace; no source bytes changed."
+        },
+        {
+          "observationId": "b7ba77ab0af6072963051a69862c502196b2bf1a6fe6e6d9b154ba2d0d3987fb",
+          "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/b7ba77ab0af6072963051a69862c502196b2bf1a6fe6e6d9b154ba2d0d3987fb.json",
+          "observationSha256": "3b56836cc5dbcb186045b779af35475907f54d1c525926cfb7e03cff3a0f19c4",
+          "sourceId": "delinea:citation:TR-delinea-5",
+          "requestedUrl": "https://www.globenewswire.com/news-release/2026/03/05/3250113/0/en/delinea-completes-strongdm-acquisition-to-secure-ai-agents-with-continuous-identity-authorization.html",
+          "finalUrl": "https://www.globenewswire.com/news-release/2026/03/05/3250113/0/en/delinea-completes-strongdm-acquisition-to-secure-ai-agents-with-continuous-identity-authorization.html",
+          "status": "fetched",
+          "httpStatus": 200,
+          "errorCode": null,
+          "fetchedAt": "2026-10-20T21:11:51.518984Z",
+          "verifiedAt": null,
+          "body": {
+            "bytes": 76380,
+            "key": "objects/37292df6db06b7af9efe4b192f91f6d2ddd369cdc964b6f0d72a1d2aaad19f1e",
+            "sha256": "37292df6db06b7af9efe4b192f91f6d2ddd369cdc964b6f0d72a1d2aaad19f1e"
+          },
+          "bodyRetained": true,
+          "ageHoursAtFixedCoverage": 62.373192,
+          "withinThirtyHourSourceLimit": false,
+          "earnsCurrentCoverage": false,
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/37292df6db06b7af9efe4b192f91f6d2ddd369cdc964b6f0d72a1d2aaad19f1e",
+          "rawBodyHashAndSizeVerified": true,
+          "decodedSha256": "37292df6db06b7af9efe4b192f91f6d2ddd369cdc964b6f0d72a1d2aaad19f1e",
+          "decodedBytes": 76380,
+          "observedCanonicals": [
+            "https://www.globenewswire.com/news-release/2026/03/05/3250113/0/en/delinea-completes-strongdm-acquisition-to-secure-ai-agents-with-continuous-identity-authorization.html"
+          ],
+          "publicationMetadata": "2026-03-05T13:00:00Z",
+          "literalExcerpts": [
+            {
+              "term": "\\bDelinea\\b",
+              "text": "ment News Telecom Services News More Browse the Latest News Delinea Completes StrongDM Acquisition to Secure AI Agents with Continuous Identity Authorization Deal unifies enterprise PAM with just-in-time runtime authorization to help eliminate standing privilege in AI-driven environments March 05, 2026 08:00 ET | Source: Delinea Delinea SAN FRANCISCO, March 05, 2026 (GLOBE NEWSWIRE) -- Delinea , a pioneering provider of solutions for securing human and machine identities through centralized authorization, has completed its acquisition of StrongDM, the universal access management company purpose-built for modern engineering, DevOps, and AI-dri",
+              "offset": 970,
+              "normalizedTextSha256": "006fb8ff28a4061e18ef9986c124304aee9ce2a9aaf2cf25b2da4ae769285ced"
+            },
+            {
+              "term": "\\bStrongDM\\b",
+              "text": "Services News More Browse the Latest News Delinea Completes StrongDM Acquisition to Secure AI Agents with Continuous Identity Authorization Deal unifies enterprise PAM with just-in-time runtime authorization to help eliminate standing privilege in AI-driven environments March 05, 2026 08:00 ET | Source: Delinea Delinea SAN FRANCISCO, March 05, 2026 (GLOBE NEWSWIRE) -- Delinea , a pioneering provider of solutions for securing human and machine identities through centralized authorization, has completed its acquisition of StrongDM, the universal access management company purpose-built for modern engineering, DevOps, and AI-driven environments. ",
+              "offset": 988,
+              "normalizedTextSha256": "006fb8ff28a4061e18ef9986c124304aee9ce2a9aaf2cf25b2da4ae769285ced"
+            }
+          ],
+          "textNormalization": "HTML text with entity decoding and collapsed whitespace; no source bytes changed."
+        },
+        {
+          "observationId": "2728de66ffaf10a9248d853ce34fd39590b2d630c0ca6e6df89ab658eb8f5424",
+          "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/2728de66ffaf10a9248d853ce34fd39590b2d630c0ca6e6df89ab658eb8f5424.json",
+          "observationSha256": "1cccf155ef8512722b7e857b88289b673a307ecf7ca0400d3ec4848e300d07cb",
+          "sourceId": "delinea:citation:TR-delinea-5",
+          "requestedUrl": "https://www.globenewswire.com/news-release/2026/03/05/3250113/0/en/delinea-completes-strongdm-acquisition-to-secure-ai-agents-with-continuous-identity-authorization.html",
+          "finalUrl": "https://www.globenewswire.com/news-release/2026/03/05/3250113/0/en/delinea-completes-strongdm-acquisition-to-secure-ai-agents-with-continuous-identity-authorization.html",
+          "status": "fetched",
+          "httpStatus": 200,
+          "errorCode": null,
+          "fetchedAt": "2026-10-20T21:22:12.159997Z",
+          "verifiedAt": null,
+          "body": {
+            "bytes": 76366,
+            "key": "objects/a53d58b7dcdd45a4eb8120e2cc2b50277ba4266762c640c67e04c1f0bbcb3143",
+            "sha256": "a53d58b7dcdd45a4eb8120e2cc2b50277ba4266762c640c67e04c1f0bbcb3143"
+          },
+          "bodyRetained": true,
+          "ageHoursAtFixedCoverage": 62.200792,
+          "withinThirtyHourSourceLimit": false,
+          "earnsCurrentCoverage": false,
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/a53d58b7dcdd45a4eb8120e2cc2b50277ba4266762c640c67e04c1f0bbcb3143",
+          "rawBodyHashAndSizeVerified": true,
+          "decodedSha256": "a53d58b7dcdd45a4eb8120e2cc2b50277ba4266762c640c67e04c1f0bbcb3143",
+          "decodedBytes": 76366,
+          "observedCanonicals": [
+            "https://www.globenewswire.com/news-release/2026/03/05/3250113/0/en/delinea-completes-strongdm-acquisition-to-secure-ai-agents-with-continuous-identity-authorization.html"
+          ],
+          "publicationMetadata": "2026-03-05T13:00:00Z",
+          "literalExcerpts": [
+            {
+              "term": "\\bDelinea\\b",
+              "text": "ment News Telecom Services News More Browse the Latest News Delinea Completes StrongDM Acquisition to Secure AI Agents with Continuous Identity Authorization Deal unifies enterprise PAM with just-in-time runtime authorization to help eliminate standing privilege in AI-driven environments March 05, 2026 08:00 ET | Source: Delinea Delinea SAN FRANCISCO, March 05, 2026 (GLOBE NEWSWIRE) -- Delinea , a pioneering provider of solutions for securing human and machine identities through centralized authorization, has completed its acquisition of StrongDM, the universal access management company purpose-built for modern engineering, DevOps, and AI-dri",
+              "offset": 970,
+              "normalizedTextSha256": "f19ca4d50d33256a5212447a99ba03b5fa3009028347efda2bfdaf7d412a2949"
+            },
+            {
+              "term": "\\bStrongDM\\b",
+              "text": "Services News More Browse the Latest News Delinea Completes StrongDM Acquisition to Secure AI Agents with Continuous Identity Authorization Deal unifies enterprise PAM with just-in-time runtime authorization to help eliminate standing privilege in AI-driven environments March 05, 2026 08:00 ET | Source: Delinea Delinea SAN FRANCISCO, March 05, 2026 (GLOBE NEWSWIRE) -- Delinea , a pioneering provider of solutions for securing human and machine identities through centralized authorization, has completed its acquisition of StrongDM, the universal access management company purpose-built for modern engineering, DevOps, and AI-driven environments. ",
+              "offset": 988,
+              "normalizedTextSha256": "f19ca4d50d33256a5212447a99ba03b5fa3009028347efda2bfdaf7d412a2949"
+            }
+          ],
+          "textNormalization": "HTML text with entity decoding and collapsed whitespace; no source bytes changed."
+        },
+        {
+          "observationId": "06845e12128160d4d58d99cdfba61335991c3ad39042bfdc2c7f3bcc63a57ab1",
+          "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/06845e12128160d4d58d99cdfba61335991c3ad39042bfdc2c7f3bcc63a57ab1.json",
+          "observationSha256": "cc3a01e2e63e11982638bd1841ce4e76816f85fc16244a631255b95a9791254b",
+          "sourceId": "delinea:citation:TR-delinea-5",
+          "requestedUrl": "https://www.globenewswire.com/news-release/2026/03/05/3250113/0/en/delinea-completes-strongdm-acquisition-to-secure-ai-agents-with-continuous-identity-authorization.html",
+          "finalUrl": "https://www.globenewswire.com/news-release/2026/03/05/3250113/0/en/delinea-completes-strongdm-acquisition-to-secure-ai-agents-with-continuous-identity-authorization.html",
+          "status": "fetched",
+          "httpStatus": 200,
+          "errorCode": null,
+          "fetchedAt": "2026-10-20T21:41:27.583245Z",
+          "verifiedAt": null,
+          "body": {
+            "bytes": 76366,
+            "key": "objects/a53d58b7dcdd45a4eb8120e2cc2b50277ba4266762c640c67e04c1f0bbcb3143",
+            "sha256": "a53d58b7dcdd45a4eb8120e2cc2b50277ba4266762c640c67e04c1f0bbcb3143"
+          },
+          "bodyRetained": true,
+          "ageHoursAtFixedCoverage": 61.879841,
+          "withinThirtyHourSourceLimit": false,
+          "earnsCurrentCoverage": false,
+          "bodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/a53d58b7dcdd45a4eb8120e2cc2b50277ba4266762c640c67e04c1f0bbcb3143",
+          "rawBodyHashAndSizeVerified": true,
+          "decodedSha256": "a53d58b7dcdd45a4eb8120e2cc2b50277ba4266762c640c67e04c1f0bbcb3143",
+          "decodedBytes": 76366,
+          "observedCanonicals": [
+            "https://www.globenewswire.com/news-release/2026/03/05/3250113/0/en/delinea-completes-strongdm-acquisition-to-secure-ai-agents-with-continuous-identity-authorization.html"
+          ],
+          "publicationMetadata": "2026-03-05T13:00:00Z",
+          "literalExcerpts": [
+            {
+              "term": "\\bDelinea\\b",
+              "text": "ment News Telecom Services News More Browse the Latest News Delinea Completes StrongDM Acquisition to Secure AI Agents with Continuous Identity Authorization Deal unifies enterprise PAM with just-in-time runtime authorization to help eliminate standing privilege in AI-driven environments March 05, 2026 08:00 ET | Source: Delinea Delinea SAN FRANCISCO, March 05, 2026 (GLOBE NEWSWIRE) -- Delinea , a pioneering provider of solutions for securing human and machine identities through centralized authorization, has completed its acquisition of StrongDM, the universal access management company purpose-built for modern engineering, DevOps, and AI-dri",
+              "offset": 970,
+              "normalizedTextSha256": "f19ca4d50d33256a5212447a99ba03b5fa3009028347efda2bfdaf7d412a2949"
+            },
+            {
+              "term": "\\bStrongDM\\b",
+              "text": "Services News More Browse the Latest News Delinea Completes StrongDM Acquisition to Secure AI Agents with Continuous Identity Authorization Deal unifies enterprise PAM with just-in-time runtime authorization to help eliminate standing privilege in AI-driven environments March 05, 2026 08:00 ET | Source: Delinea Delinea SAN FRANCISCO, March 05, 2026 (GLOBE NEWSWIRE) -- Delinea , a pioneering provider of solutions for securing human and machine identities through centralized authorization, has completed its acquisition of StrongDM, the universal access management company purpose-built for modern engineering, DevOps, and AI-driven environments. ",
+              "offset": 988,
+              "normalizedTextSha256": "f19ca4d50d33256a5212447a99ba03b5fa3009028347efda2bfdaf7d412a2949"
+            }
+          ],
+          "textNormalization": "HTML text with entity decoding and collapsed whitespace; no source bytes changed."
+        }
+      ],
+      "literalAlternateLeads": [
+        {
+          "literalHrefOrCanonical": "https://www.globenewswire.com/news-release/2026/03/05/3250113/0/en/delinea-completes-strongdm-acquisition-to-secure-ai-agents-with-continuous-identity-authorization.html",
+          "resolvedUrl": "https://www.globenewswire.com/news-release/2026/03/05/3250113/0/en/delinea-completes-strongdm-acquisition-to-secure-ai-agents-with-continuous-identity-authorization.html",
+          "disclosedInObservationId": "b7ba77ab0af6072963051a69862c502196b2bf1a6fe6e6d9b154ba2d0d3987fb",
+          "disclosedInBodySha256": "37292df6db06b7af9efe4b192f91f6d2ddd369cdc964b6f0d72a1d2aaad19f1e",
+          "isObservedCanonical": true,
+          "role": "distributor_historical_lead",
+          "observedResponseIds": [
+            "b7ba77ab0af6072963051a69862c502196b2bf1a6fe6e6d9b154ba2d0d3987fb",
+            "2728de66ffaf10a9248d853ce34fd39590b2d630c0ca6e6df89ab658eb8f5424",
+            "06845e12128160d4d58d99cdfba61335991c3ad39042bfdc2c7f3bcc63a57ab1",
+            "72e9f9f4b02ef973487c17b266caa85fd965e8affe4c134e5361dcdc84bb485b",
+            "c3b7d3aa0b8f15ba2de31e4f4e6aef63b79eb95d073f5bd428a5dee383037a35",
+            "1e7f18a9cadb3c4e33e6fda9432411d8fc452cf228f24c3ad17f79250986b073"
+          ],
+          "successfulBodyObservationIds": [
+            "b7ba77ab0af6072963051a69862c502196b2bf1a6fe6e6d9b154ba2d0d3987fb",
+            "2728de66ffaf10a9248d853ce34fd39590b2d630c0ca6e6df89ab658eb8f5424",
+            "06845e12128160d4d58d99cdfba61335991c3ad39042bfdc2c7f3bcc63a57ab1"
+          ],
+          "isVerifiedReplacement": false
+        },
+        {
+          "literalHrefOrCanonical": "/en/search/organization/Delinea",
+          "resolvedUrl": "https://www.globenewswire.com/en/search/organization/Delinea",
+          "disclosedInObservationId": "b7ba77ab0af6072963051a69862c502196b2bf1a6fe6e6d9b154ba2d0d3987fb",
+          "disclosedInBodySha256": "37292df6db06b7af9efe4b192f91f6d2ddd369cdc964b6f0d72a1d2aaad19f1e",
+          "isObservedCanonical": false,
+          "role": "distributor_historical_lead",
+          "observedResponseIds": [],
+          "successfulBodyObservationIds": [],
+          "isVerifiedReplacement": false
+        },
+        {
+          "literalHrefOrCanonical": "/en/search/tag/delinea",
+          "resolvedUrl": "https://www.globenewswire.com/en/search/tag/delinea",
+          "disclosedInObservationId": "b7ba77ab0af6072963051a69862c502196b2bf1a6fe6e6d9b154ba2d0d3987fb",
+          "disclosedInBodySha256": "37292df6db06b7af9efe4b192f91f6d2ddd369cdc964b6f0d72a1d2aaad19f1e",
+          "isObservedCanonical": false,
+          "role": "distributor_historical_lead",
+          "observedResponseIds": [],
+          "successfulBodyObservationIds": [],
+          "isVerifiedReplacement": false
+        },
+        {
+          "literalHrefOrCanonical": "https://delinea.com/",
+          "resolvedUrl": "https://delinea.com/",
+          "disclosedInObservationId": "b7ba77ab0af6072963051a69862c502196b2bf1a6fe6e6d9b154ba2d0d3987fb",
+          "disclosedInBodySha256": "37292df6db06b7af9efe4b192f91f6d2ddd369cdc964b6f0d72a1d2aaad19f1e",
+          "isObservedCanonical": false,
+          "role": "supplier_site_historical_lead",
+          "observedResponseIds": [],
+          "successfulBodyObservationIds": [],
+          "isVerifiedReplacement": false
+        },
+        {
+          "literalHrefOrCanonical": "https://delinea.com/news/delinea-strongdm-to-unite-redefine-identity-security-for-the-ai-era",
+          "resolvedUrl": "https://delinea.com/news/delinea-strongdm-to-unite-redefine-identity-security-for-the-ai-era",
+          "disclosedInObservationId": "af1dd9d957d385687117946a19eda5583205c6690590830dfe262a85a75a50d6",
+          "disclosedInBodySha256": "63e869d7508b3c66f0243764a5456a3d2cfb681072332286c62143aab03468cb",
+          "isObservedCanonical": true,
+          "role": "supplier_site_historical_lead",
+          "observedResponseIds": [
+            "af1dd9d957d385687117946a19eda5583205c6690590830dfe262a85a75a50d6",
+            "e695f7833686180c4fe14afbc3b3c6d8b2e79311f667d50cc6442b3fed6bd18a",
+            "6b45982aaf69fbb9f1f8ceba8ade6feb227a0503e3b97ed4297eecaa56c4340a",
+            "24504e5a9d7d4de8087361ed76df67462fb2cb2b7e4b22bc10e9ad240d93fa7d",
+            "930a7e4fe4b3d44f1494824f179a38b4c34e40b4e5af0124c057dc2ba176d34f"
+          ],
+          "successfulBodyObservationIds": [
+            "af1dd9d957d385687117946a19eda5583205c6690590830dfe262a85a75a50d6",
+            "e695f7833686180c4fe14afbc3b3c6d8b2e79311f667d50cc6442b3fed6bd18a",
+            "6b45982aaf69fbb9f1f8ceba8ade6feb227a0503e3b97ed4297eecaa56c4340a",
+            "24504e5a9d7d4de8087361ed76df67462fb2cb2b7e4b22bc10e9ad240d93fa7d",
+            "930a7e4fe4b3d44f1494824f179a38b4c34e40b4e5af0124c057dc2ba176d34f"
+          ],
+          "isVerifiedReplacement": false
+        },
+        {
+          "literalHrefOrCanonical": "https://delinea.com/news",
+          "resolvedUrl": "https://delinea.com/news",
+          "disclosedInObservationId": "af1dd9d957d385687117946a19eda5583205c6690590830dfe262a85a75a50d6",
+          "disclosedInBodySha256": "63e869d7508b3c66f0243764a5456a3d2cfb681072332286c62143aab03468cb",
+          "isObservedCanonical": false,
+          "role": "supplier_site_historical_lead",
+          "observedResponseIds": [],
+          "successfulBodyObservationIds": [],
+          "isVerifiedReplacement": false
+        },
+        {
+          "literalHrefOrCanonical": "https://delinea.com/press",
+          "resolvedUrl": "https://delinea.com/press",
+          "disclosedInObservationId": "af1dd9d957d385687117946a19eda5583205c6690590830dfe262a85a75a50d6",
+          "disclosedInBodySha256": "63e869d7508b3c66f0243764a5456a3d2cfb681072332286c62143aab03468cb",
+          "isObservedCanonical": false,
+          "role": "supplier_site_historical_lead",
+          "observedResponseIds": [],
+          "successfulBodyObservationIds": [],
+          "isVerifiedReplacement": false
+        },
+        {
+          "literalHrefOrCanonical": "//www.delinea.com/",
+          "resolvedUrl": "https://www.delinea.com/",
+          "disclosedInObservationId": "af1dd9d957d385687117946a19eda5583205c6690590830dfe262a85a75a50d6",
+          "disclosedInBodySha256": "63e869d7508b3c66f0243764a5456a3d2cfb681072332286c62143aab03468cb",
+          "isObservedCanonical": false,
+          "role": "supplier_site_historical_lead",
+          "observedResponseIds": [],
+          "successfulBodyObservationIds": [],
+          "isVerifiedReplacement": false
+        },
+        {
+          "literalHrefOrCanonical": "https://delinea.com/news/delinea-acquires-strongdm-to-secure-ai-with-continuous-authorization",
+          "resolvedUrl": "https://delinea.com/news/delinea-acquires-strongdm-to-secure-ai-with-continuous-authorization",
+          "disclosedInObservationId": "af1dd9d957d385687117946a19eda5583205c6690590830dfe262a85a75a50d6",
+          "disclosedInBodySha256": "63e869d7508b3c66f0243764a5456a3d2cfb681072332286c62143aab03468cb",
+          "isObservedCanonical": false,
+          "role": "supplier_site_historical_lead",
+          "observedResponseIds": [],
+          "successfulBodyObservationIds": [],
+          "isVerifiedReplacement": false
+        },
+        {
+          "literalHrefOrCanonical": "https://delinea.com/news/rss.xml",
+          "resolvedUrl": "https://delinea.com/news/rss.xml",
+          "disclosedInObservationId": "af1dd9d957d385687117946a19eda5583205c6690590830dfe262a85a75a50d6",
+          "disclosedInBodySha256": "63e869d7508b3c66f0243764a5456a3d2cfb681072332286c62143aab03468cb",
+          "isObservedCanonical": false,
+          "role": "supplier_site_historical_lead",
+          "observedResponseIds": [],
+          "successfulBodyObservationIds": [],
+          "isVerifiedReplacement": false
+        }
+      ],
+      "evidenceInterpretation": "Earlier GlobeNewswire bodies are historical distributed Delinea statements. The retained supplier-owned January signing statement is a distinct event from March completion. Its literal completed-acquisition link is a useful primary lead only until its actual body and dates are checked.",
+      "nextAction": {
+        "owner": "pipeline agent",
+        "action": "After natural allowance renewal, retry the unchanged citation only through normal permitted transport. Qualify a supplier-owned event alternative from retained literal links with actual body, publication date and exact event identity before proposing any reviewed citation change.",
+        "humanInputRequired": false
+      },
+      "sourceRelocationLimit": {
+        "ordinaryCorrectionCanChangeCanonicalUrl": false,
+        "ordinaryCorrectionCanChangeSourceClassOrOrganization": false,
+        "sourceBindingRemainsBoundToImmutableOriginalUrl": true,
+        "futureReviewedRelocationOrNewPrimaryEvidencePathRequiredIfDifferentUrlUsed": true,
+        "currentlyImplementedOrAuthorizedByThisAudit": false
+      },
+      "currentCoverageCredit": 0,
+      "currentOutcomeUnchanged": "blocked",
+      "boundary": "Citation collection checks transport. Historical body presence, a canonical URL or a distributor link does not validate financial content, refresh a check, qualify recurring discovery or authorize a URL change."
+    },
+    {
+      "taskId": "e25fbbd360d8011b826f69200c36e56db18ba147d4d744db03570b03ed011d5e",
+      "sourceId": "sophos:citation:TR-sophos-3",
+      "supplierId": "sophos",
+      "source": {
+        "id": "sophos:citation:TR-sophos-3",
+        "supplierId": "sophos",
+        "kind": "citation",
+        "family": "citation_integrity",
+        "url": "https://app.researchpool.com/index.php/provider/moodys-investors-service",
+        "allowedHosts": [
+          "app.researchpool.com"
+        ],
+        "registration": "verified",
+        "required": true,
+        "maxPages": 1,
+        "scopePrefixes": [
+          "/"
+        ],
+        "seedEvidenceUrls": [],
+        "evidenceId": "TR-sophos-3"
+      },
+      "originalEvidence": {
+        "id": "TR-sophos-3",
+        "title": "Moody's Rating Action - Sophos Group",
+        "organization": "Moody's Investors Service",
+        "publicationDate": "2026-03-01",
+        "economicPeriod": "March 2026",
+        "canonicalUrl": "https://app.researchpool.com/index.php/provider/moodys-investors-service",
+        "excerpt": "Moody's downgraded Sophos to B3 from B2, with outlook revised to stable.",
+        "sourceClass": "INDEPENDENT",
+        "interpretation": "",
+        "limitations": "Agency rating actions republished through third-party aggregator; original agency pages not directly verified this session.",
+        "conflictingEvidenceIds": [],
+        "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-sophos-3",
+        "tags": [
+          "tracker",
+          "endpoint-xdr"
+        ],
+        "retrievedAt": "2026-09-25"
+      },
+      "originalEvidenceSha256": "22acbde8f6972b700848d6d6bc1098efb06a8d4def0ea9f20119f5b75e6cd6e5",
+      "fixedReceipt": {
+        "attemptId": "c3d4e3b11f2ad51b11a3f49d3d132850f58ef2749eeb92e999d6ffb9116bdbaf",
+        "completedAt": "2026-10-23T11:34:13.069440Z",
+        "discoveryComplete": false,
+        "errorCode": "HTTP_403",
+        "itemManifest": {
+          "bytes": 137,
+          "key": "objects/fcf629444bee42b0e599edcd4318be6087fe663d552549458a5f4933a28734c4",
+          "sha256": "fcf629444bee42b0e599edcd4318be6087fe663d552549458a5f4933a28734c4"
+        },
+        "newFactIds": [],
+        "observationIds": [
+          "c75ec5ebed3aae11ee71af2b06c7e36208be441dccb741ea7adcdc0d7296175b"
+        ],
+        "outcome": "blocked",
+        "runId": "e054ea73c89fe78db9702f94d2a3b669ce91884f7d7abda0a88698dbcfc7ec50",
+        "sourceId": "sophos:citation:TR-sophos-3",
+        "startedAt": "2026-10-23T11:34:12.807712Z",
+        "supplierId": "sophos",
+        "taskId": "e25fbbd360d8011b826f69200c36e56db18ba147d4d744db03570b03ed011d5e",
+        "validatedFacts": []
+      },
+      "itemManifest": {
+        "items": [],
+        "observations": [
+          "c75ec5ebed3aae11ee71af2b06c7e36208be441dccb741ea7adcdc0d7296175b"
+        ],
+        "sourceId": "sophos:citation:TR-sophos-3"
+      },
+      "currentBlockedObservation": {
+        "observationId": "c75ec5ebed3aae11ee71af2b06c7e36208be441dccb741ea7adcdc0d7296175b",
+        "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/c75ec5ebed3aae11ee71af2b06c7e36208be441dccb741ea7adcdc0d7296175b.json",
+        "observationSha256": "16e74281619f9ba20b7ae6855a517f1dbf8cb32287963c4912a5287601c3dddc",
+        "sourceId": "sophos:citation:TR-sophos-3",
+        "requestedUrl": "https://app.researchpool.com/index.php/provider/moodys-investors-service",
+        "finalUrl": null,
+        "status": "blocked",
+        "httpStatus": 403,
+        "errorCode": "HTTP_403",
+        "fetchedAt": "2026-10-23T11:34:13.067360Z",
+        "verifiedAt": null,
+        "body": null,
+        "bodyRetained": false,
+        "ageHoursAtFixedCoverage": 0.00054,
+        "withinThirtyHourSourceLimit": true,
+        "earnsCurrentCoverage": false
+      },
+      "sameUrlHistory": [
+        {
+          "observationId": "8005d7eeaff252f99fc3f544dbe9c6095465337580bbc81d1b4164dafb8d93eb",
+          "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/8005d7eeaff252f99fc3f544dbe9c6095465337580bbc81d1b4164dafb8d93eb.json",
+          "observationSha256": "155a41ff1b9a77bfb9eeecaa77ffc32a57dcd4a727356d8da81db8ac4370cb22",
+          "sourceId": "sophos:citation:TR-sophos-3",
+          "requestedUrl": "https://app.researchpool.com/index.php/provider/moodys-investors-service",
+          "finalUrl": null,
+          "status": "blocked",
+          "httpStatus": 403,
+          "errorCode": "HTTP_403",
+          "fetchedAt": "2026-10-20T21:12:09.661164Z",
+          "verifiedAt": null,
+          "body": null,
+          "bodyRetained": false,
+          "ageHoursAtFixedCoverage": 62.368153,
+          "withinThirtyHourSourceLimit": false,
+          "earnsCurrentCoverage": false
+        },
+        {
+          "observationId": "8574f58d73e0c8cd48517e69b24823b5f3de63c1673b4da0ee49510b839accf4",
+          "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/8574f58d73e0c8cd48517e69b24823b5f3de63c1673b4da0ee49510b839accf4.json",
+          "observationSha256": "3907ce2b9b336a3fd36e88a1c3938dc222cdd2402bad99b42ba4032ff80a6495",
+          "sourceId": "sophos:citation:TR-sophos-3",
+          "requestedUrl": "https://app.researchpool.com/index.php/provider/moodys-investors-service",
+          "finalUrl": null,
+          "status": "blocked",
+          "httpStatus": 403,
+          "errorCode": "HTTP_403",
+          "fetchedAt": "2026-10-20T21:21:56.978937Z",
+          "verifiedAt": null,
+          "body": null,
+          "bodyRetained": false,
+          "ageHoursAtFixedCoverage": 62.205009,
+          "withinThirtyHourSourceLimit": false,
+          "earnsCurrentCoverage": false
+        },
+        {
+          "observationId": "53b965375f9a8a4146cf5f72d856c6027b7b235ed23efacdb3d63af9fa38acd1",
+          "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/53b965375f9a8a4146cf5f72d856c6027b7b235ed23efacdb3d63af9fa38acd1.json",
+          "observationSha256": "1a679d067ced8a189d05f7eea0b18976ecd60e800ab8239bc7a8020fb921c946",
+          "sourceId": "sophos:citation:TR-sophos-3",
+          "requestedUrl": "https://app.researchpool.com/index.php/provider/moodys-investors-service",
+          "finalUrl": null,
+          "status": "blocked",
+          "httpStatus": 403,
+          "errorCode": "HTTP_403",
+          "fetchedAt": "2026-10-20T21:41:42.010314Z",
+          "verifiedAt": null,
+          "body": null,
+          "bodyRetained": false,
+          "ageHoursAtFixedCoverage": 61.875833,
+          "withinThirtyHourSourceLimit": false,
+          "earnsCurrentCoverage": false
+        },
+        {
+          "observationId": "fc9cd20dc8aef83e88d028a987bddcce189a1719f952d6fddc80a8a8edd49738",
+          "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/fc9cd20dc8aef83e88d028a987bddcce189a1719f952d6fddc80a8a8edd49738.json",
+          "observationSha256": "b67bbe3d4cbace726d183775e3237c6bc30e4248cdbc160547e1542087550b36",
+          "sourceId": "sophos:citation:TR-sophos-3",
+          "requestedUrl": "https://app.researchpool.com/index.php/provider/moodys-investors-service",
+          "finalUrl": null,
+          "status": "blocked",
+          "httpStatus": 403,
+          "errorCode": "HTTP_403",
+          "fetchedAt": "2026-10-22T01:11:28.897509Z",
+          "verifiedAt": null,
+          "body": null,
+          "bodyRetained": false,
+          "ageHoursAtFixedCoverage": 34.379476,
+          "withinThirtyHourSourceLimit": false,
+          "earnsCurrentCoverage": false
+        },
+        {
+          "observationId": "c9aa0d630156611b2025108f3666196a11e165c470c3a32862eb419673b9d69c",
+          "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/c9aa0d630156611b2025108f3666196a11e165c470c3a32862eb419673b9d69c.json",
+          "observationSha256": "e3bb9f18709bbedf77d196a1da2528d0325a7dad25b4704029ed685f7c15d616",
+          "sourceId": "sophos:citation:TR-sophos-3",
+          "requestedUrl": "https://app.researchpool.com/index.php/provider/moodys-investors-service",
+          "finalUrl": null,
+          "status": "blocked",
+          "httpStatus": 403,
+          "errorCode": "HTTP_403",
+          "fetchedAt": "2026-10-23T04:14:46.667566Z",
+          "verifiedAt": null,
+          "body": null,
+          "bodyRetained": false,
+          "ageHoursAtFixedCoverage": 7.32454,
+          "withinThirtyHourSourceLimit": true,
+          "earnsCurrentCoverage": false
+        },
+        {
+          "observationId": "c75ec5ebed3aae11ee71af2b06c7e36208be441dccb741ea7adcdc0d7296175b",
+          "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/c75ec5ebed3aae11ee71af2b06c7e36208be441dccb741ea7adcdc0d7296175b.json",
+          "observationSha256": "16e74281619f9ba20b7ae6855a517f1dbf8cb32287963c4912a5287601c3dddc",
+          "sourceId": "sophos:citation:TR-sophos-3",
+          "requestedUrl": "https://app.researchpool.com/index.php/provider/moodys-investors-service",
+          "finalUrl": null,
+          "status": "blocked",
+          "httpStatus": 403,
+          "errorCode": "HTTP_403",
+          "fetchedAt": "2026-10-23T11:34:13.067360Z",
+          "verifiedAt": null,
+          "body": null,
+          "bodyRetained": false,
+          "ageHoursAtFixedCoverage": 0.00054,
+          "withinThirtyHourSourceLimit": true,
+          "earnsCurrentCoverage": false
+        }
+      ],
+      "sameUrlStatusCounts": {
+        "403": 6
+      },
+      "observedSameUrlRedirects": [],
+      "manualRetrievalObjectPresent": false,
+      "earlierSameUrlSuccessfulBodies": 0,
+      "historicalEventCandidateBodies": [],
+      "literalAlternateLeads": [],
+      "evidenceInterpretation": "The configured ResearchPool URL identifies a generic Moody’s provider listing rather than an exact Sophos rating-action document. No successful same-URL body exists, and no original agency report for this claim was found by this scan. A successful future listing response alone would not substantiate the rating claim.",
+      "nextAction": {
+        "owner": "pipeline agent",
+        "action": "Locate the exact Moody’s Sophos rating action and an openly accessible primary agency or issuer disclosure through ordinary permitted research. Retain the current citation as blocked; hold unsupported rating/date details for factual review. No proxy, login bypass or provider-listing substitution.",
+        "humanInputRequired": false
+      },
+      "sourceRelocationLimit": {
+        "ordinaryCorrectionCanChangeCanonicalUrl": false,
+        "ordinaryCorrectionCanChangeSourceClassOrOrganization": false,
+        "sourceBindingRemainsBoundToImmutableOriginalUrl": true,
+        "futureReviewedRelocationOrNewPrimaryEvidencePathRequiredIfDifferentUrlUsed": true,
+        "currentlyImplementedOrAuthorizedByThisAudit": false
+      },
+      "currentCoverageCredit": 0,
+      "currentOutcomeUnchanged": "blocked",
+      "boundary": "Citation collection checks transport. Historical body presence, a canonical URL or a distributor link does not validate financial content, refresh a check, qualify recurring discovery or authorize a URL change."
+    },
+    {
+      "taskId": "65c617809ee4c963e70d472b27b06d5d5443c58f61138a4ccb15d121cff77f09",
+      "sourceId": "tines:citation:TR-tines-1",
+      "supplierId": "tines",
+      "source": {
+        "id": "tines:citation:TR-tines-1",
+        "supplierId": "tines",
+        "kind": "citation",
+        "family": "citation_integrity",
+        "url": "https://www.bloomberg.com/news/articles/2025-02-11/goldman-softbank-back-ai-startup-tines-valued-at-1-13-billion",
+        "allowedHosts": [
+          "www.bloomberg.com"
+        ],
+        "registration": "verified",
+        "required": true,
+        "maxPages": 1,
+        "scopePrefixes": [
+          "/"
+        ],
+        "seedEvidenceUrls": [],
+        "evidenceId": "TR-tines-1"
+      },
+      "originalEvidence": {
+        "id": "TR-tines-1",
+        "title": "Goldman, SoftBank Back AI Startup Tines Valued at $1.13 Billion",
+        "organization": "Bloomberg",
+        "publicationDate": "2025-02-11",
+        "economicPeriod": "February 2025",
+        "canonicalUrl": "https://www.bloomberg.com/news/articles/2025-02-11/goldman-softbank-back-ai-startup-tines-valued-at-1-13-billion",
+        "excerpt": "Tines raised $125 million in Series C funding at a $1.13 billion valuation, led by Goldman Sachs and SoftBank.",
+        "sourceClass": "INDEPENDENT",
+        "interpretation": "",
+        "limitations": "Company did not publish a dedicated press-release URL for this round; Bloomberg's report is corroborated by the Irish Times, 2026-07-28, and listed on Tines' own newsroom page.",
+        "conflictingEvidenceIds": [],
+        "artifactLabel": "SEC-MARKET-AUTO-001-FITFIX2 / TR-tines-1",
+        "tags": [
+          "tracker",
+          "secops"
+        ],
+        "retrievedAt": "2026-09-25"
+      },
+      "originalEvidenceSha256": "d3e22f3e6642d7df22eb06d962d01056bba5001da509abfc3b681f4c07c4e0fa",
+      "fixedReceipt": {
+        "attemptId": "438146442e7fb5567d7d22b96060734de0fdb1798d458c6f957b4189f15d494d",
+        "completedAt": "2026-10-23T11:34:07.701412Z",
+        "discoveryComplete": false,
+        "errorCode": "HTTP_403",
+        "itemManifest": {
+          "bytes": 135,
+          "key": "objects/7e854f3b9f1b2f68be14c2026320ca0078614a2a9e343f2423855047d863c738",
+          "sha256": "7e854f3b9f1b2f68be14c2026320ca0078614a2a9e343f2423855047d863c738"
+        },
+        "newFactIds": [],
+        "observationIds": [
+          "25279e349bbf6c8ef30133eddcf0f53d3f3ed98ff93abfd0d8fac0d0118bc51d"
+        ],
+        "outcome": "blocked",
+        "runId": "e054ea73c89fe78db9702f94d2a3b669ce91884f7d7abda0a88698dbcfc7ec50",
+        "sourceId": "tines:citation:TR-tines-1",
+        "startedAt": "2026-10-23T11:34:07.261533Z",
+        "supplierId": "tines",
+        "taskId": "65c617809ee4c963e70d472b27b06d5d5443c58f61138a4ccb15d121cff77f09",
+        "validatedFacts": []
+      },
+      "itemManifest": {
+        "items": [],
+        "observations": [
+          "25279e349bbf6c8ef30133eddcf0f53d3f3ed98ff93abfd0d8fac0d0118bc51d"
+        ],
+        "sourceId": "tines:citation:TR-tines-1"
+      },
+      "currentBlockedObservation": {
+        "observationId": "25279e349bbf6c8ef30133eddcf0f53d3f3ed98ff93abfd0d8fac0d0118bc51d",
+        "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/25279e349bbf6c8ef30133eddcf0f53d3f3ed98ff93abfd0d8fac0d0118bc51d.json",
+        "observationSha256": "a8d378f0771ef0d09ec945b0bb93d88b51dfc5553a9a472b3edba47bfe0d22a6",
+        "sourceId": "tines:citation:TR-tines-1",
+        "requestedUrl": "https://www.bloomberg.com/news/articles/2025-02-11/goldman-softbank-back-ai-startup-tines-valued-at-1-13-billion",
+        "finalUrl": null,
+        "status": "blocked",
+        "httpStatus": 403,
+        "errorCode": "HTTP_403",
+        "fetchedAt": "2026-10-23T11:34:07.699064Z",
+        "verifiedAt": null,
+        "body": null,
+        "bodyRetained": false,
+        "ageHoursAtFixedCoverage": 0.002031,
+        "withinThirtyHourSourceLimit": true,
+        "earnsCurrentCoverage": false
+      },
+      "sameUrlHistory": [
+        {
+          "observationId": "a12ae5f0876724a8ab727477d520d0d7e2d7ecafdf8b8ac93032af0901c7746c",
+          "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/a12ae5f0876724a8ab727477d520d0d7e2d7ecafdf8b8ac93032af0901c7746c.json",
+          "observationSha256": "fdd084b86b1c62169197ea7a67f7763909f68f7b57026d7eb85a68630c8d38a8",
+          "sourceId": "tines:citation:TR-tines-1",
+          "requestedUrl": "https://www.bloomberg.com/news/articles/2025-02-11/goldman-softbank-back-ai-startup-tines-valued-at-1-13-billion",
+          "finalUrl": null,
+          "status": "blocked",
+          "httpStatus": 403,
+          "errorCode": "HTTP_403",
+          "fetchedAt": "2026-10-20T21:12:07.605859Z",
+          "verifiedAt": null,
+          "body": null,
+          "bodyRetained": false,
+          "ageHoursAtFixedCoverage": 62.368724,
+          "withinThirtyHourSourceLimit": false,
+          "earnsCurrentCoverage": false
+        },
+        {
+          "observationId": "2a3302080b32f68653396c1cceba94960e5baf59fc6f1fe94698538ba639884c",
+          "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/2a3302080b32f68653396c1cceba94960e5baf59fc6f1fe94698538ba639884c.json",
+          "observationSha256": "a3db1829594a71c36b5287563cb1eb79c444963857885223adda82fe8bc625eb",
+          "sourceId": "tines:citation:TR-tines-1",
+          "requestedUrl": "https://www.bloomberg.com/news/articles/2025-02-11/goldman-softbank-back-ai-startup-tines-valued-at-1-13-billion",
+          "finalUrl": null,
+          "status": "blocked",
+          "httpStatus": 403,
+          "errorCode": "HTTP_403",
+          "fetchedAt": "2026-10-20T21:21:11.768485Z",
+          "verifiedAt": null,
+          "body": null,
+          "bodyRetained": false,
+          "ageHoursAtFixedCoverage": 62.217567,
+          "withinThirtyHourSourceLimit": false,
+          "earnsCurrentCoverage": false
+        },
+        {
+          "observationId": "05db7154794bd78af5723f2bd8eac6d495887cd813251ef7e112391a7def1c8e",
+          "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/05db7154794bd78af5723f2bd8eac6d495887cd813251ef7e112391a7def1c8e.json",
+          "observationSha256": "a02de5b435af2a7c09e838934593fb248e361f4f12070f83540db35fb67c0b06",
+          "sourceId": "tines:citation:TR-tines-1",
+          "requestedUrl": "https://www.bloomberg.com/news/articles/2025-02-11/goldman-softbank-back-ai-startup-tines-valued-at-1-13-billion",
+          "finalUrl": null,
+          "status": "blocked",
+          "httpStatus": 403,
+          "errorCode": "HTTP_403",
+          "fetchedAt": "2026-10-20T21:41:52.858355Z",
+          "verifiedAt": null,
+          "body": null,
+          "bodyRetained": false,
+          "ageHoursAtFixedCoverage": 61.87282,
+          "withinThirtyHourSourceLimit": false,
+          "earnsCurrentCoverage": false
+        },
+        {
+          "observationId": "a700c029a6d976d4b912cfbf4147551a7b2d1d2f86194c76124cd753003933ec",
+          "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/a700c029a6d976d4b912cfbf4147551a7b2d1d2f86194c76124cd753003933ec.json",
+          "observationSha256": "6724cdd78cb303c0d1cb47f979105b56c43d1e39a2bcf0c501efe6be0e12e2c2",
+          "sourceId": "tines:citation:TR-tines-1",
+          "requestedUrl": "https://www.bloomberg.com/news/articles/2025-02-11/goldman-softbank-back-ai-startup-tines-valued-at-1-13-billion",
+          "finalUrl": null,
+          "status": "blocked",
+          "httpStatus": 403,
+          "errorCode": "HTTP_403",
+          "fetchedAt": "2026-10-22T01:11:37.363176Z",
+          "verifiedAt": null,
+          "body": null,
+          "bodyRetained": false,
+          "ageHoursAtFixedCoverage": 34.377124,
+          "withinThirtyHourSourceLimit": false,
+          "earnsCurrentCoverage": false
+        },
+        {
+          "observationId": "64262b0b7a92d78cfc9d8f695117147770c6edd6b52825e6585b6c09094fcd79",
+          "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/64262b0b7a92d78cfc9d8f695117147770c6edd6b52825e6585b6c09094fcd79.json",
+          "observationSha256": "65a9d8f19133f3df37dfdac2b18ec79d297febe659667c205394b62062085521",
+          "sourceId": "tines:citation:TR-tines-1",
+          "requestedUrl": "https://www.bloomberg.com/news/articles/2025-02-11/goldman-softbank-back-ai-startup-tines-valued-at-1-13-billion",
+          "finalUrl": null,
+          "status": "blocked",
+          "httpStatus": 403,
+          "errorCode": "HTTP_403",
+          "fetchedAt": "2026-10-23T04:14:41.329336Z",
+          "verifiedAt": null,
+          "body": null,
+          "bodyRetained": false,
+          "ageHoursAtFixedCoverage": 7.326023,
+          "withinThirtyHourSourceLimit": true,
+          "earnsCurrentCoverage": false
+        },
+        {
+          "observationId": "25279e349bbf6c8ef30133eddcf0f53d3f3ed98ff93abfd0d8fac0d0118bc51d",
+          "observationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/25279e349bbf6c8ef30133eddcf0f53d3f3ed98ff93abfd0d8fac0d0118bc51d.json",
+          "observationSha256": "a8d378f0771ef0d09ec945b0bb93d88b51dfc5553a9a472b3edba47bfe0d22a6",
+          "sourceId": "tines:citation:TR-tines-1",
+          "requestedUrl": "https://www.bloomberg.com/news/articles/2025-02-11/goldman-softbank-back-ai-startup-tines-valued-at-1-13-billion",
+          "finalUrl": null,
+          "status": "blocked",
+          "httpStatus": 403,
+          "errorCode": "HTTP_403",
+          "fetchedAt": "2026-10-23T11:34:07.699064Z",
+          "verifiedAt": null,
+          "body": null,
+          "bodyRetained": false,
+          "ageHoursAtFixedCoverage": 0.002031,
+          "withinThirtyHourSourceLimit": true,
+          "earnsCurrentCoverage": false
+        }
+      ],
+      "sameUrlStatusCounts": {
+        "403": 6
+      },
+      "observedSameUrlRedirects": [],
+      "manualRetrievalObjectPresent": false,
+      "earlierSameUrlSuccessfulBodies": 0,
+      "historicalEventCandidateBodies": [],
+      "literalAlternateLeads": [],
+      "evidenceInterpretation": "No successful Bloomberg body or same-event primary funding statement was found by the disclosed retained-body scan. Original tracker prose mentioning a company newsroom and Irish Times corroboration supplies no literal URL or retained body for those alternatives.",
+      "nextAction": {
+        "owner": "pipeline agent",
+        "action": "Locate an openly accessible Tines, Goldman Sachs or SoftBank statement for the exact February 2025 round, then verify amount, valuation and lead investors. If ordinary Bloomberg access remains blocked, retain that status and propose a separately reviewed exact evidence replacement; do not bypass its controls.",
+        "humanInputRequired": false
+      },
+      "sourceRelocationLimit": {
+        "ordinaryCorrectionCanChangeCanonicalUrl": false,
+        "ordinaryCorrectionCanChangeSourceClassOrOrganization": false,
+        "sourceBindingRemainsBoundToImmutableOriginalUrl": true,
+        "futureReviewedRelocationOrNewPrimaryEvidencePathRequiredIfDifferentUrlUsed": true,
+        "currentlyImplementedOrAuthorizedByThisAudit": false
+      },
+      "currentCoverageCredit": 0,
+      "currentOutcomeUnchanged": "blocked",
+      "boundary": "Citation collection checks transport. Historical body presence, a canonical URL or a distributor link does not validate financial content, refresh a check, qualify recurring discovery or authorize a URL change."
+    }
+  ]
+}

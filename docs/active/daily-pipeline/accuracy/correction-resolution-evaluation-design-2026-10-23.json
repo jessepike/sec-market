@@ -1,0 +1,619 @@
+{
+  "schemaVersion": 1,
+  "kind": "candidate_correction_resolution_evaluation_design",
+  "checkedAt": "2026-10-23T22:27:00.529263Z",
+  "status": "Design only; no evaluator implementation or live resolution observation. External-font gate repair has priority.",
+  "requestedCodeContextRefs": [
+    "312285fe",
+    "ab208532"
+  ],
+  "inputs": {
+    "scorecard": {
+      "path": "ops/evaluation/scorecard.py",
+      "sha256": "c9c9ce92657c90b3de8814a84995aa4c8019c689ba857a058df34627b7f7210f",
+      "bytes": 23306
+    },
+    "claimVerifier": {
+      "path": "ops/evaluation/claim_reviews.py",
+      "sha256": "d1c30e67f31451c386935fa945ad21bf98a8c9b09a7b7e6b2cfff13352b1186a",
+      "bytes": 23188
+    },
+    "claimAudit": {
+      "path": "docs/active/daily-pipeline/accuracy/source-bindings-2026-10-23.json",
+      "sha256": "7aa72d2b75a39b10b17f557bd605fd7e5a2bfeef2d0f8f48a7bed302d5e74f76",
+      "bytes": 274939
+    },
+    "publishedInventory": {
+      "path": "docs/active/daily-pipeline/accuracy/published-inventory-2026-10-23.json",
+      "sha256": "e8c766cbbe533d6106c896ab14015df78820dc72f4382b0dfedb267ef81be5fc",
+      "bytes": 233846
+    },
+    "sourceMigration": {
+      "path": "docs/active/daily-pipeline/accuracy/source-migration-inputs-2026-10-23.json",
+      "sha256": "2824776f6c739161f93a6fe8107a1599eeacaff968ce29e9ad2ea55ee65240a6",
+      "bytes": 786
+    },
+    "market": {
+      "path": "contracts/market.json",
+      "sha256": "327e52fdab4f97d3f0d628978501aa7197b31ddadb4006d16d3f776a8acb47c0",
+      "bytes": 279411
+    },
+    "requests": {
+      "path": "contracts/factual-corrections.json",
+      "sha256": "bb239e6e8256b9abc797d0ac89e940179f597e20ba654d2bb0513ff26e5b5c52",
+      "bytes": 32077
+    },
+    "baseline": {
+      "path": "contracts/factual-baseline.json",
+      "sha256": "ab3bca0e49a38495d310021857ee2c1a3ca6ebe7979593d1e8b36437cb2a294e",
+      "bytes": 35212
+    },
+    "originals": {
+      "path": "web/src/data/tracker/originals.json",
+      "sha256": "7d164cb81003db0a66eccbb25c2e8605e33b853b9a6e20cb2c6900794822b4a3",
+      "bytes": 381034
+    },
+    "disabledBundle": {
+      "path": "web/src/data/generated/factualCorrections.json",
+      "sha256": "826c7e5c70f98b5a6cc084c8d2d7f2dc2dd7bf22fcefb2621c4f9f5653761d21",
+      "bytes": 106
+    },
+    "correctionAdapter": {
+      "path": "web/scripts/pipeline/corrections.py",
+      "sha256": "d019310bd6c0dcea7e1400e3c63c0d9c3b67ee282f40a1eb4e14f4617d0af13c",
+      "bytes": 39496
+    },
+    "collector": {
+      "path": "ops/ci/collect.py",
+      "sha256": "5524ac45f067822acae656b6f348532e85751f3c44026f21fdfc548770961974",
+      "bytes": 16877
+    },
+    "gate": {
+      "path": "web/scripts/pipeline/gate.py",
+      "sha256": "6a8fe075a79b9569e9f3194f1f969678540e61f54dc4e4c2bd07f959332cc5aa",
+      "bytes": 10850
+    },
+    "release": {
+      "path": "web/scripts/pipeline/release.py",
+      "sha256": "30575a20c1c7f0ac5d013b46b780e0f3ab6b6f2facbe9bbc32d78171d53358c1",
+      "bytes": 8827
+    },
+    "publication": {
+      "path": "web/scripts/pipeline/publication.py",
+      "sha256": "6497c6fbf8494638a79a9b00afa4b18f50d67598fa635c273d82d1553c8ffe84",
+      "bytes": 11899
+    },
+    "githubAuthority": {
+      "path": "web/scripts/pipeline/provenance.py",
+      "sha256": "7325f346b34fad9bbb306ad52ad847ff76f98d9d92e83b361912063b682805dd",
+      "bytes": 2597
+    },
+    "vercelAdapter": {
+      "path": "web/scripts/pipeline/vercel.py",
+      "sha256": "4c20bcae3fb8e17dc537eb4f06dab6e2907e2f9fc3673fd237601f881bdc2b8b",
+      "bytes": 12738
+    },
+    "artifacts": {
+      "path": "web/scripts/pipeline/artifacts.py",
+      "sha256": "fcb93614b4b13a9026cfd1ecd186087c388008b2a2d4508c1e16d8a796fd4f30",
+      "bytes": 3952
+    },
+    "staticByteVerifier": {
+      "path": "ops/ci/publisher_stage.py",
+      "sha256": "c22e27a2b1e08e21db893eb3d300f4f2238e18550c9355f72501f7acf3b38fba",
+      "bytes": 5915
+    },
+    "runtimeVerifier": {
+      "path": "web/scripts/verify-current-facts.ts",
+      "sha256": "a10ac1b5b9dec1ae324498afeeb97a999ff025215167e692fc81ff47ac3e97e6",
+      "bytes": 7011
+    },
+    "historicalPublicPresence": {
+      "path": "docs/active/daily-pipeline/accuracy/production-claim-presence-2026-10-23.v2.json",
+      "sha256": "0225a1a1fcb3fbec3493e5bbf92f6a7b402c00b35817cd029026b229d5897e25",
+      "bytes": 3798
+    },
+    "actualPublicationSummary": {
+      "path": "docs/active/daily-pipeline/receipts/actual-publication-2026-10-23.json",
+      "sha256": "df48bd23d296d6fe7ebc93e970ae980bba480bcaf8b6dc4b564457397e2e5af7",
+      "bytes": 717
+    }
+  },
+  "recommendation": {
+    "artifact": "A separate optional current-remediation observation paired with the immutable historical claim audit.",
+    "proposedHelper": "ops/evaluation/correction_resolution.py",
+    "measureId": "accuracy.known_contradictions_resolved",
+    "measureLabel": "Known contradicting records with an admitted correction confirmed in production",
+    "fixedDenominator": 5,
+    "existingScorecardChanged": false,
+    "existingAppRevisionEqualityGuardChanged": false,
+    "scope": "One bounded five-record observation. No new workflow, monitor, metrics framework, publication path or general attestation/history system.",
+    "authentication": "Only an explicit read-only authenticated gather+verify invocation can produce a current measured result. Offline JSON replay never gains live authority from stored flags.",
+    "implementationState": "Await root design review; do not implement before the current font-gate failure is handled."
+  },
+  "baseline": {
+    "applicationRevision": "7bd94ec77e99462c068f254e134235a894585cbb",
+    "inventoryCount": 177,
+    "verdictCounts": {
+      "contradicted": 5,
+      "insufficient": 71,
+      "primary_source_missing": 11,
+      "supported": 90
+    },
+    "contradictionRecordIds": [
+      "event:EV-checkpoint-2",
+      "event:EV-optiv-2",
+      "event:EV-splunk-1",
+      "event:EV-zscaler-2",
+      "supplier:expel:ownership"
+    ],
+    "sourceAuditRawSha256": "7aa72d2b75a39b10b17f557bd605fd7e5a2bfeef2d0f8f48a7bed302d5e74f76",
+    "benchmarkValuesAndVerdictsUnchanged": true,
+    "baselineMigrationScope": "frozen_historical_benchmark_only"
+  },
+  "exactMapping": [
+    {
+      "auditRecordId": "event:EV-checkpoint-2",
+      "supplierId": "checkpoint-sase",
+      "groupId": "FC-20261023-checkpoint-sase",
+      "targetId": "event:EV-checkpoint-2",
+      "baselineAuditPointer": "/records/6",
+      "baselineInventoryPointer": "/records/6",
+      "originalSha256": "b120cfaa27eb08d07cc6abe78eb00e5a46992ecb0401c6fd78ad8123d31d1b0e",
+      "operation": "withdraw",
+      "requiredProposedSha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+      "requiredProposedValue": null,
+      "currentCandidateSha256": "614958a764bdbf41f47269c5ea66060a8747a72440968a478200921b3f599fb1",
+      "currentEvidenceSetSha256": "b4039088e3c211b2b41054475f790b9d20832b664f401e6fd5ff9e3a16589255",
+      "currentReviewPolicySha256": "1c52ee664765de6234a3d68bcd4767e42a3da9fe471b6c61686cac1a1616d774",
+      "atomicTargetIds": [
+        "event:EV-checkpoint-2",
+        "evidence:TR-checkpoint-4"
+      ],
+      "atomicTargetPins": [
+        {
+          "targetId": "event:EV-checkpoint-2",
+          "operation": "withdraw",
+          "originalSha256": "b120cfaa27eb08d07cc6abe78eb00e5a46992ecb0401c6fd78ad8123d31d1b0e",
+          "proposedSha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+        },
+        {
+          "targetId": "evidence:TR-checkpoint-4",
+          "operation": "replace",
+          "originalSha256": "76b9dd382e9a891978f98600e50309f59e9336f473d63a4b00b0121e07f1dd20",
+          "proposedSha256": "15260d94279c7a395f76b9fff9b34318c583772fc7638ea415ff0f1d4717644a"
+        }
+      ],
+      "requiredCurrentView": "The target ID is absent from effective unfiltered retained events, with an authenticated withdrawal and dated history; absence from a filtered screen is insufficient."
+    },
+    {
+      "auditRecordId": "event:EV-optiv-2",
+      "supplierId": "optiv",
+      "groupId": "FC-20261023-optiv",
+      "targetId": "event:EV-optiv-2",
+      "baselineAuditPointer": "/records/42",
+      "baselineInventoryPointer": "/records/30",
+      "originalSha256": "68afb31b23da5d0da64c20f037b93fc50c602cfd659d8eecaf20f3283ce495dc",
+      "operation": "replace",
+      "requiredProposedSha256": "85c8211685f7a57fa0786087ca04a1c06043c095d311e5fff5f7ba45490ab0a4",
+      "requiredProposedValue": {
+        "date": "2026-03-16",
+        "evidenceIds": [
+          "TR-optiv-3"
+        ],
+        "id": "EV-optiv-2",
+        "rung": 1,
+        "supplierId": "optiv",
+        "text": "Optiv announced an agreement with creditors to amend and extend its credit facilities. Upon closing, the amendments would extend the First Lien Credit Agreement to August 2028 and the Second Lien Credit Agreement to August 2029.",
+        "type": "debt"
+      },
+      "currentCandidateSha256": "ce48b552db79aa960aed5e08840f28a99ccab313c9d05df874b281cf7eb9c00c",
+      "currentEvidenceSetSha256": "7f5a8b85f2fbf854d9623d561a89c0ded68723742833047d05fb24c7e4342a2b",
+      "currentReviewPolicySha256": "4f9e7feb90232a3aafe2cd84265c2e8202c9e009229e7592c5ab87373f64bcf5",
+      "atomicTargetIds": [
+        "event:EV-optiv-2",
+        "evidence:TR-optiv-3"
+      ],
+      "atomicTargetPins": [
+        {
+          "targetId": "event:EV-optiv-2",
+          "operation": "replace",
+          "originalSha256": "68afb31b23da5d0da64c20f037b93fc50c602cfd659d8eecaf20f3283ce495dc",
+          "proposedSha256": "85c8211685f7a57fa0786087ca04a1c06043c095d311e5fff5f7ba45490ab0a4"
+        },
+        {
+          "targetId": "evidence:TR-optiv-3",
+          "operation": "replace",
+          "originalSha256": "245e407e28b8048cb98b760db8dd77a4aef73722dfac87094da07c0ec36144fe",
+          "proposedSha256": "3475c5e17eb97e2c5a7e5fc351b7678edd77516a85f226b99c22155e4b1c7a3f"
+        }
+      ],
+      "requiredCurrentView": "The exact admitted proposed record is present in effective unfiltered retained events."
+    },
+    {
+      "auditRecordId": "event:EV-splunk-1",
+      "supplierId": "splunk",
+      "groupId": "FC-20261023-splunk",
+      "targetId": "event:EV-splunk-1",
+      "baselineAuditPointer": "/records/59",
+      "baselineInventoryPointer": "/records/47",
+      "originalSha256": "7f77d3d0ceda35c7b38ecfa7d55f9f71a0c67515195a17e7a153d3b8a96063a7",
+      "operation": "withdraw",
+      "requiredProposedSha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+      "requiredProposedValue": null,
+      "currentCandidateSha256": "a397eb20f8a6918f19ef6004ad2107a96066d0b84532ca9f131fd050fec61240",
+      "currentEvidenceSetSha256": "eb165cdbb2d9b4e76d07dbaa0ca217167ced0e492cadd89957aa1ebbce6157f5",
+      "currentReviewPolicySha256": "270b7c7a1f7180b3fef2896b7633a87bf0667b9f4a3c75593fa72b959ecb87f6",
+      "atomicTargetIds": [
+        "event:EV-splunk-1",
+        "evidence:TR-splunk-2"
+      ],
+      "atomicTargetPins": [
+        {
+          "targetId": "event:EV-splunk-1",
+          "operation": "withdraw",
+          "originalSha256": "7f77d3d0ceda35c7b38ecfa7d55f9f71a0c67515195a17e7a153d3b8a96063a7",
+          "proposedSha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+        },
+        {
+          "targetId": "evidence:TR-splunk-2",
+          "operation": "replace",
+          "originalSha256": "9ef47b2e8fe8364c3a0853dfdd20b20f82bdae9cdee950b4830ff7d0568de81b",
+          "proposedSha256": "89ca30379f3008d2020be17eba57c35a8195fd18d1d1ff6f2609b99b5235b1d8"
+        }
+      ],
+      "requiredCurrentView": "The target ID is absent from effective unfiltered retained events, with an authenticated withdrawal and dated history; absence from a filtered screen is insufficient."
+    },
+    {
+      "auditRecordId": "event:EV-zscaler-2",
+      "supplierId": "zscaler",
+      "groupId": "FC-20261023-zscaler",
+      "targetId": "event:EV-zscaler-2",
+      "baselineAuditPointer": "/records/75",
+      "baselineInventoryPointer": "/records/63",
+      "originalSha256": "d31acc6c715157cb47c3fee921ef994a309b7ad28bbf12835b10b65caf91dd8d",
+      "operation": "replace",
+      "requiredProposedSha256": "24207d8f8d7ae06b19a2ce7fbef638f0a1f0576d9cee1b928299efe6206ba423",
+      "requiredProposedValue": {
+        "date": "2026-09-24",
+        "evidenceIds": [
+          "TR-zscaler-4"
+        ],
+        "id": "EV-zscaler-2",
+        "rung": 1,
+        "supplierId": "zscaler",
+        "text": "Zscaler disclosed that Ross Tackett would succeed Mike Rich as Chief Revenue Officer effective October 1, 2026. Rich would remain as a strategic advisor through December 31, 2026.",
+        "type": "exec-change"
+      },
+      "currentCandidateSha256": "3ba2c4ec71de2204d152f273c0ed4114f7f99e527843abe9863f462e1047caa5",
+      "currentEvidenceSetSha256": "f0e0f20f00cfc1bf339642dfb9672e159a3bfa1ddacb70549e6a5e2f815bfb7a",
+      "currentReviewPolicySha256": "54e40bd49e9c04d26aebe3f7eaa3ece37d15be460c4b5d76c3041e8c272e182f",
+      "atomicTargetIds": [
+        "event:EV-zscaler-2",
+        "evidence:TR-zscaler-4"
+      ],
+      "atomicTargetPins": [
+        {
+          "targetId": "event:EV-zscaler-2",
+          "operation": "replace",
+          "originalSha256": "d31acc6c715157cb47c3fee921ef994a309b7ad28bbf12835b10b65caf91dd8d",
+          "proposedSha256": "24207d8f8d7ae06b19a2ce7fbef638f0a1f0576d9cee1b928299efe6206ba423"
+        },
+        {
+          "targetId": "evidence:TR-zscaler-4",
+          "operation": "replace",
+          "originalSha256": "2d6feee592f99fe0abccadb2deb29e3bce9e7dec2f1730ee2445e8a4b57ba6ed",
+          "proposedSha256": "570b5e1b62105dc43aef626d26a31a99420dd50c773c3591f86a9e324f1bbdb4"
+        }
+      ],
+      "requiredCurrentView": "The exact admitted proposed record is present in effective unfiltered retained events."
+    },
+    {
+      "auditRecordId": "supplier:expel:ownership",
+      "supplierId": "expel",
+      "groupId": "FC-20261023-expel",
+      "targetId": "supplier:expel:ownership",
+      "baselineAuditPointer": "/records/131",
+      "baselineInventoryPointer": "/records/131",
+      "originalSha256": "c2bfb07b34e1593f8e0bbd7e5c86985e0e8a27c6d5ac169655e22c3890f439b7",
+      "operation": "replace",
+      "requiredProposedSha256": "b0a1a22b56fad8cf1cfd4b1f8a685d7de9609c4aa29eb0f1057616e5ba4ea3f0",
+      "requiredProposedValue": {
+        "evidenceIds": [
+          "TR-expel-1",
+          "TR-expel-2"
+        ],
+        "status": "Expel reported that its Series E round had expanded to $171.3 million on October 3, 2022, bringing cumulative company funding to $288.8 million. The initial Series E was $140.3 million on November 18, 2021 at a valuation over $1 billion."
+      },
+      "currentCandidateSha256": "b02146ce95927f20887ee6a647545e968c2d21db891aa0860ddfe3908b68e1c3",
+      "currentEvidenceSetSha256": "2a9d219a14e673acc89c71ed14b34c61700da6c9ba871edc833fe362c3a6b0da",
+      "currentReviewPolicySha256": "d1ea72b754450e603d89092cc38d9fa81d165575af2a36745e5938220fd82087",
+      "atomicTargetIds": [
+        "supplier:expel:lastRound",
+        "supplier:expel:ownership",
+        "evidence:TR-expel-2"
+      ],
+      "atomicTargetPins": [
+        {
+          "targetId": "supplier:expel:lastRound",
+          "operation": "replace",
+          "originalSha256": "a6043aacba424de89221285c27060717edec36ab1e019eda26542fac059eb440",
+          "proposedSha256": "626ad935326d52a307d9d6349a0ca70a8b09014cf259e039205fadb58b97d9a4"
+        },
+        {
+          "targetId": "supplier:expel:ownership",
+          "operation": "replace",
+          "originalSha256": "c2bfb07b34e1593f8e0bbd7e5c86985e0e8a27c6d5ac169655e22c3890f439b7",
+          "proposedSha256": "b0a1a22b56fad8cf1cfd4b1f8a685d7de9609c4aa29eb0f1057616e5ba4ea3f0"
+        },
+        {
+          "targetId": "evidence:TR-expel-2",
+          "operation": "replace",
+          "originalSha256": "185078dfe5fcdaacb9ab526924dd0df81a8af8e1e4e48d4dd440228c6c4d4628",
+          "proposedSha256": "788a5017e2dc594613610cb04d7b47ffc452391f40753478fba46c114aa0a3df"
+        }
+      ],
+      "requiredCurrentView": "The exact admitted proposed ownership field is in effective current Expel supplier data; the whole Expel group including lastRound/evidence is admitted."
+    }
+  ],
+  "resolutionMapping": [
+    {
+      "auditRecordId": "event:EV-checkpoint-2",
+      "supplierId": "checkpoint-sase",
+      "groupId": "FC-20261023-checkpoint-sase",
+      "targetId": "event:EV-checkpoint-2",
+      "originalSha256": "b120cfaa27eb08d07cc6abe78eb00e5a46992ecb0401c6fd78ad8123d31d1b0e",
+      "operation": "withdraw",
+      "requiredProposedSha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+    },
+    {
+      "auditRecordId": "event:EV-optiv-2",
+      "supplierId": "optiv",
+      "groupId": "FC-20261023-optiv",
+      "targetId": "event:EV-optiv-2",
+      "originalSha256": "68afb31b23da5d0da64c20f037b93fc50c602cfd659d8eecaf20f3283ce495dc",
+      "operation": "replace",
+      "requiredProposedSha256": "85c8211685f7a57fa0786087ca04a1c06043c095d311e5fff5f7ba45490ab0a4"
+    },
+    {
+      "auditRecordId": "event:EV-splunk-1",
+      "supplierId": "splunk",
+      "groupId": "FC-20261023-splunk",
+      "targetId": "event:EV-splunk-1",
+      "originalSha256": "7f77d3d0ceda35c7b38ecfa7d55f9f71a0c67515195a17e7a153d3b8a96063a7",
+      "operation": "withdraw",
+      "requiredProposedSha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b"
+    },
+    {
+      "auditRecordId": "event:EV-zscaler-2",
+      "supplierId": "zscaler",
+      "groupId": "FC-20261023-zscaler",
+      "targetId": "event:EV-zscaler-2",
+      "originalSha256": "d31acc6c715157cb47c3fee921ef994a309b7ad28bbf12835b10b65caf91dd8d",
+      "operation": "replace",
+      "requiredProposedSha256": "24207d8f8d7ae06b19a2ce7fbef638f0a1f0576d9cee1b928299efe6206ba423"
+    },
+    {
+      "auditRecordId": "supplier:expel:ownership",
+      "supplierId": "expel",
+      "groupId": "FC-20261023-expel",
+      "targetId": "supplier:expel:ownership",
+      "originalSha256": "c2bfb07b34e1593f8e0bbd7e5c86985e0e8a27c6d5ac169655e22c3890f439b7",
+      "operation": "replace",
+      "requiredProposedSha256": "b0a1a22b56fad8cf1cfd4b1f8a685d7de9609c4aa29eb0f1057616e5ba4ea3f0"
+    }
+  ],
+  "resolutionMappingSha256": "502bf1d3a5ee23808dc803bafe3cbe10fee0e739dd7ec606b1783d2ea1c94580",
+  "mappingRules": [
+    "Derive the contradicted ID set from the raw pinned claim audit and require exact equality with these five rows; reject missing, duplicate, added or relabelled IDs.",
+    "Match each frozen inventory published object to the exact target original and canonical originalSha256. Retain these fixed target operation/proposed-value digests as the bounded repair definition.",
+    "Resolve the same group ID in the contracts belonging to the actually published application revision, rather than the current preview checkout. Derive its complete candidate/evidence/review policy hashes there and replay every atomic target, including related evidence and Expel lastRound.",
+    "Current group source bytes may later be genuinely refreshed/rebound. They change candidate/evidence/policy hashes and require actual fresh admission; no newly computed digest grants acceptance. The core five repair operations/after-value digests remain the reviewed mapping. Changing those requires an explicit mapping review, not a quiet new hash."
+  ],
+  "pairedObservationShape": {
+    "schemaVersion": 1,
+    "kind": "current_known_contradiction_remediation_observation",
+    "baselineClaimAudit": {
+      "path": "docs/active/daily-pipeline/accuracy/source-bindings-2026-10-23.json",
+      "sha256": "7aa72d2b75a39b10b17f557bd605fd7e5a2bfeef2d0f8f48a7bed302d5e74f76"
+    },
+    "baselineInventory": {
+      "path": "docs/active/daily-pipeline/accuracy/published-inventory-2026-10-23.json",
+      "sha256": "e8c766cbbe533d6106c896ab14015df78820dc72f4382b0dfedb267ef81be5fc"
+    },
+    "mappingSha256": "502bf1d3a5ee23808dc803bafe3cbe10fee0e739dd7ec606b1783d2ea1c94580",
+    "observedAt": "<actual public probe completion time, or null when unmeasured>",
+    "baselineAppRevision": "7bd94ec77e99462c068f254e134235a894585cbb",
+    "observedProductionAppRevision": "<observed exact revision, or null>",
+    "releaseId": "<authenticated acknowledged release, or null>",
+    "evidencePins": "<raw pins for the actual archive/gate/publisher and public-response bytes>",
+    "measure": {
+      "id": "accuracy.known_contradictions_resolved",
+      "axis": "accuracy",
+      "status": "<derived pass/fail/unmeasured>",
+      "numerator": "<derived resolved count, or null if no authenticated target state>",
+      "denominator": 5,
+      "verifiedResolvedCount": "<derived R>",
+      "verifiedUnresolvedCount": "<derived U>",
+      "unmeasuredCount": "<derived M>"
+    },
+    "records": "<exact five mapped IDs with derived state/reason and admission/review/group/gate/artifact/public evidence references>",
+    "prohibitedInputAuthorityFlags": [
+      "trusted",
+      "accepted",
+      "live",
+      "resolved",
+      "published"
+    ],
+    "note": "This is a receipt/output shape, not evidence that an invocation happened. An arbitrary authored copy or new hash cannot authenticate it."
+  },
+  "smallestInputs": {
+    "fixed": "Raw pinned claim audit, frozen inventory and explicit source migration; derive exact five IDs and original object hashes.",
+    "publishedContext": "Actual acknowledged release manifest/record, its archive manifest and state, real correction review/admission/index, exact gate/publisher/collector run-artifact selectors, and release-specific market/request/baseline/original/stamp JSON bytes.",
+    "currentReads": "Authenticated GitHub gate/collector/publisher run and artifact responses, existing Vercel project/team/current-domain deployment response, and actual no-cache public receipt/static-file bytes.",
+    "beforeEvidenceExists": "Selectors may be absent. Emit unmeasured, retain the five pending repairs and request no model, gate or source refresh."
+  },
+  "verification": [
+    {
+      "step": "Exact five and real admission",
+      "required": "Match the raw audit contradicted set and frozen published objects to the mapped target before hashes. Use the contracts from the actually published revision, not a mutable preview checkout. Replay each whole atomic group, its real accepted review/admission and accepted index through load_policy/replay_admission; initial source age is evaluated at original admittedAt.",
+      "authentication": "Authenticate the original approved main subscription-collector run/attempt and its receipt/checkpoint with gh API/artifact digest checks. Bind the accepted attempt, correction-collection record and actual reservation/call path. A later cached zero-call run or a synthetic accepted local index is not original-review proof. If this origin chain is missing, leave unmeasured."
+    },
+    {
+      "step": "Independent gate and exact bundle",
+      "required": "GitHubAuthority.verify_test_receipt must authenticate the successful main gate revision and daily-market-gate ZIP digest/receipt. Bind archive manifest, snapshot, correction seal and all required groups. Unpack the tested artifact and recompute its complete inventory/hash. Replay the exact public correction bundle at its original checkedAt with the acknowledged parent bundle for retained dates.",
+      "apis": [
+        "GitHubAuthority.verify_test_receipt",
+        "artifacts.unpack/inventory",
+        "corrections.project_bundle"
+      ],
+      "limit": "Do not run the gate or prepare_corrections, which writes generated files. Do not import_gate into real state; its checks may be reused read-only or in an isolated audit store."
+    },
+    {
+      "step": "Acknowledged production and actual public app",
+      "required": "Validate canonical releaseId, retained acknowledgement, authenticated publisher run/artifact, gate/artifact/snapshot/correction identities and deployment target. Read the existing Vercel project/team/domain deployment and require READY. Read actual public app/deployment receipts and compare all expected static bytes, including correction/history/tracker JSON, index and referenced JS chunks. Require receipts to remain equal before/after the probe.",
+      "apis": [
+        "publication.verify_acknowledgement",
+        "VercelAdapter._get/_cli GET",
+        "artifacts.stage_files",
+        "VercelAdapter.probe_production/verify_static_files",
+        "publisher_stage.verify_files"
+      ],
+      "criticalLimit": "Populate expected files from pure stage_files(readOnlyStore,artifact,acknowledgement) before probing. pending_files=None otherwise verifies zero app files. Never call adapter.stage. Use the static byte reader for large JS; _get is a bounded JSON receipt reader."
+    },
+    {
+      "step": "Effective target result",
+      "required": "Require exact mapped after-value in effective unfiltered retained events/current supplier data, or an authenticated withdrawal plus absent effective retained event. Actual exported views must have passed the authenticated gate runtime assertion and the fetched public app must exactly equal that tested artifact.",
+      "limits": [
+        "Original text can remain in immutable history and compiled JS after a valid correction; its literal presence is not unresolved proof.",
+        "An event omitted by a UI date filter or a search with no result is not withdrawal proof.",
+        "Corrections JSON, a screenshot or accepted/live flags alone cannot establish effective current values."
+      ]
+    }
+  ],
+  "formula": {
+    "B": "Exact baseline contradicted ID set; |B|=5.",
+    "R": "Count of baseline IDs independently derived resolved.",
+    "U": "Count independently derived unresolved from positive authenticated current evidence.",
+    "M": "5-R-U; all remaining baseline IDs unmeasured.",
+    "status": "pass if R==5; fail if U>0; otherwise unmeasured.",
+    "numerator": "R when R+U>0; null if no target has authenticated current state. Always include verifiedResolvedCount=R and unmeasuredCount=M so partial evidence is explicit.",
+    "denominator": 5,
+    "outputFields": [
+      "id",
+      "axis",
+      "status",
+      "numerator",
+      "denominator",
+      "observedAt",
+      "evidence",
+      "limitations",
+      "baselineAppRevision",
+      "observedProductionAppRevision",
+      "releaseId",
+      "verifiedResolvedCount",
+      "verifiedUnresolvedCount",
+      "unmeasuredCount",
+      "records"
+    ],
+    "recordOutputFields": [
+      "auditRecordId",
+      "groupId",
+      "targetId",
+      "state",
+      "reasonCode",
+      "candidateSha256",
+      "evidenceSetSha256",
+      "groupReviewPolicySha256",
+      "admissionRef",
+      "reviewRef",
+      "gateRunId",
+      "gateArtifactId",
+      "artifactSha256",
+      "releaseId",
+      "publicObservationRefs"
+    ],
+    "historicalMeasure": "accuracy.known_contradictions remains5/maximum0 and its frozen historical fail. The new remediation measure may later reach5/5 without rewriting that historical result.",
+    "noOverallScore": true
+  },
+  "states": {
+    "resolved": "All five proof stages are authenticated/replayed, the exact mapped correction is accepted as a factual group, all atomic targets are in the exact published bundle, and the effective current target matches the required after digest or authenticated withdrawal.",
+    "unresolved": "An authenticated current public artifact/effective-view proof positively shows the exact contradictory before reading still active, or a proven rollback/regression restores it. No authored flag or mere lack of local admission proves this state.",
+    "unmeasured": "Required admission/origin/gate/acknowledged-release/public evidence or authenticated read phase is absent, inaccessible, stale/reused as current or incapable of establishing effective target state. Repair work remains unresolved; no credit.",
+    "inconsistentEvidence": "Duplicate IDs, changed baseline/mapping, future timestamps, impossible joins, altered bytes or forged metadata reject the supplied resolution input. Do not turn an inconsistent positive claim into a pass or silently discard it."
+  },
+  "currentAssessment": {
+    "actualAdmissionsPending": true,
+    "committedProjectionEnabled": false,
+    "newMeasureStatusIfDesignedNow": "unmeasured",
+    "verifiedResolvedCount": 0,
+    "verifiedUnresolvedCount": 0,
+    "unmeasuredCount": 5,
+    "repairWorkRemaining": 5,
+    "historicalContradictionCount": 5,
+    "newMeasureCanUseCurrentSyntheticReceipts": false,
+    "reason": "No authenticated real correction admission/review plus exact corrected production artifact chain exists in the supplied evidence. Prior public presence receipts document old readings at their original times; they are not new full authenticated resolution observations."
+  },
+  "xageSeparation": {
+    "groupId": "XAGE-SOURCE-CLASS-20261023",
+    "targetId": "evidence:TR-xage-1",
+    "reviewScope": "publisher_disclosure_only",
+    "countedInFive": false,
+    "effectOnFixed177": 0,
+    "effectOnNewDenominator": 0,
+    "rule": "Retain Xage status separately. Its typed review establishes publication role only and cannot satisfy any factual contradiction row or financial review. The full current release still obeys its complete six-group/12-target admission rules."
+  },
+  "historicalPairing": {
+    "existingScorecard": "Keep its fixed177 verdicts and accuracy.known_contradictions5/maximum0 untouched, including the historical fail.",
+    "sidecar": "The new sidecar separately identifies the fixed baseline revision and the newly observed production revision/release/time. It can later show5/5 completed repairs without rewriting the audit.",
+    "identityContract": "Keep scorecard claimAudit.appRevision == manifest.appRevision. Do not feed the old audit into a new-app slot or relax equality. Link/pin the sidecar beside the existing report; any later scorecard integration needs an explicitly distinct input role.",
+    "noAverages": "No combined accuracy score; precision, recall, sustained operation and reader value remain separate."
+  },
+  "invocation": {
+    "proposedOnly": true,
+    "authenticatedReadOnlyCommand": "orb run -m dev python3 ops/evaluation/correction_resolution.py --root . --input /tmp/smp-resolution/pinned-inputs.json --state /tmp/verified-published-evidence/state --authenticate-production --capture /tmp/smp-resolution/new-observations --outputprefix /tmp/smp-resolution/current-remediation",
+    "offlineBehavior": "Without --authenticate-production, or when required authenticated proof cannot be obtained, emit unmeasured. Do not read a serialized authority flag or reuse an earlier capture as a new current observation.",
+    "existingReadOnlyApiSequence": [
+      "authority = GitHubAuthority()",
+      "authority.verify_test_receipt(actualGateReceipt, artifact)",
+      "files = artifacts.unpack(readOnlyStore.get(artifact[\"archive\"]))",
+      "require(digest(artifacts.inventory(files)) == artifact[\"sha256\"])",
+      "replay_admission(group, admissionRef, readOnlyStore, releaseMarket, derivedGroupPolicy, publicBundle[\"checkedAt\"])",
+      "project_bundle(releaseJsonContext, readOnlyStore, releaseMarket, archivedOutcome, previous_bundle=parentPublicBundle, publication_at=publicBundle[\"checkedAt\"])",
+      "adapter.pending_files = artifacts.stage_files(readOnlyStore, artifact, actualAcknowledgement)",
+      "actualPublicReceipt = adapter.probe_production()",
+      "publication.verify_acknowledgement(actualManifest, actualPublicReceipt)"
+    ],
+    "noMutations": "Use the existing authenticated sessions; no new keys, source/model calls, gate rerun, deployment action, real archive write, lease/checkpoint operation or budget reset/reservation.",
+    "notAvailableYet": "The helper and flags are proposed and were not run. Existing primitives supply the actual verification; no new attestation service or workflow is proposed."
+  },
+  "requiredCounterexamples": [
+    "Absent evidence, an offline authored accepted/live JSON, or a synthetic/canary archive with new self-authored hashes: no credit.",
+    "Wrong/missing collector origin, gate/publisher workflow, branch/revision, expired artifact or ZIP digest: no credit.",
+    "Changed original/after hash, duplicate/omitted target, partial Expel/evidence group or Xage substituted into the five: reject.",
+    "Matching receipts with differing public JS/correction bytes or an empty expected-file inventory: unmeasured.",
+    "Raw-history text survives or a filtered event is absent: do not infer unresolved/resolved.",
+    "Authenticated current artifact still applies the exact wrong before-value or a verified rollback restores it: unresolved.",
+    "Partial evidence preserves R+U+M=5; unknown rows do not count resolved.",
+    "Old valid admitted sources remain valid at their original admission time; do not renew dates or call the model again.",
+    "Saved public capture is relabelled current, or authored trust flags are deserialized into authority: reject/unmeasured."
+  ],
+  "limits": [
+    "This measures documented production repair through the approved pipeline. It does not independently re-adjudicate semantics or estimate whole-site accuracy.",
+    "Hashes and schema establish identity only. Existing offline APIs cannot prove a model, workflow or live publication actually ran.",
+    "Review objects have no provider signature; require the authenticated approved collector execution/checkpoint chain. Missing proof stays unmeasured.",
+    "The current observation is bounded by its actual read time. A later observation may show regression; old receipts must retain their original times."
+  ],
+  "nextAction": "Root reviews this design after the observed external-font gate failure is addressed; no evaluator implementation now.",
+  "implementationPerformed": false,
+  "benchmarkChanged": false,
+  "scorecardChanged": false,
+  "semanticAdmission": false,
+  "modelCalls": 0,
+  "networkRequests": 0,
+  "sourceRequests": 0,
+  "archiveWrites": 0,
+  "quotaChanges": false,
+  "productionChanged": false,
+  "designSha256": "52fab44f260099b5a7cc56b8fe4047a2a4f27eeeaa816686e694b22ca346a68d"
+}
