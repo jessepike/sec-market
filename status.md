@@ -93,8 +93,14 @@ All 355 operational and 12 monitor tests pass locally; disabled and synthetic en
 runs each pass 321 data, 112 pipeline and 38 browser checks plus full build. The actual retained
 Barracuda shell stays incomplete, all five ordinary correction text views remain exactly equal,
 and all 25,777 archived file metadata entries are unchanged. Four inspected screenshots match the
-previous local versions byte for byte. Actual preview CI is pending; none of this adds source credit.
+previous local versions byte for byte. Preview revision `de440fff418bfbf540da0881d7b594db3467adbd`
+passed web CI `40028241591` and runtime canary `40028241608` (354 passed, one pinned-local-archive
+test skipped). Vercel `dpl_HR6JMcSk8FtiCvfw1mZcNJ7YhPCP` is READY at that revision. All four hosted
+screenshots equal the previously inspected hosted images. The canary restored the unchanged real
+archive, made zero model calls and performed only a separate SEC connectivity probe. Corrections
+remain disabled, production is unchanged, and none of this adds source credit.
 [Local receipts](docs/active/daily-pipeline/receipts/compressed-input-validation-2026-10-23.json).
+[Remote receipts](docs/active/daily-pipeline/receipts/compressed-input-remote-validation-2026-10-23.json).
 The coverage matrix is regenerated from the fixed October 23 receipt and current contract, with
 original check times retained; its provenance explicitly identifies a historical snapshot.
 

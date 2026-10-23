@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "kind": "actual_compressed_article_input_candidate_remote_validation",
+  "checkedAt": "2026-10-23T21:43:03.006784+00:00",
+  "candidateAppRevision": "de440fff418bfbf540da0881d7b594db3467adbd",
+  "github": {
+    "web": {
+      "runId": "40028241591",
+      "event": "push",
+      "conclusion": "success",
+      "dataChecksPassed": 321,
+      "pipelineChecksPassed": 112,
+      "browserChecksPassed": 38
+    },
+    "runtimeCanary": {
+      "runId": "40028241608",
+      "event": "push",
+      "conclusion": "success",
+      "operationalTestsRun": 355,
+      "operationalTestsPassed": 354,
+      "operationalTestsSkipped": 1,
+      "skipReason": "The pinned historical archive is absent on CI; all 355 tests and the exact retained-source replays passed locally.",
+      "modelCalls": 0,
+      "archiveChanged": false,
+      "sourceProbeOnly": true,
+      "archive": {
+        "commit": "704ea55e86eb1582b0619b3719b167191fa74da4",
+        "manifestSha256": "78bb006ddc399c707ce255bb7b8c2d84d3c69b4be293f7f1c2332af2514ec5ac",
+        "files": 25780
+      }
+    }
+  },
+  "vercelPreview": {
+    "deploymentId": "dpl_HR6JMcSk8FtiCvfw1mZcNJ7YhPCP",
+    "state": "READY",
+    "appRevision": "de440fff418bfbf540da0881d7b594db3467adbd",
+    "immutableUrl": "https://security-market-pulse-jkii48d6d-pikeholdings.vercel.app",
+    "stableUrl": "https://security-market-pulse-git-preview-pikeholdings.vercel.app",
+    "publicFactualCorrectionsEnabled": false
+  },
+  "visualReview": {
+    "widths": [
+      1440,
+      390
+    ],
+    "previousIdenticalImagesHumanInspected": true,
+    "currentLocalImagesHumanInspected": true,
+    "images": {
+      "tested-build-1440.png": {
+        "sha256": "86fae1defd6c95807d81c7bae72f1355195404f96fac8eea41571a9df0afe3ed",
+        "sameAsPreviousCI": true
+      },
+      "tested-build-390.png": {
+        "sha256": "e59f56c9641b85cb6e289b047ee42698d45ddbc74c8da3f0dd981d98881b682d",
+        "sameAsPreviousCI": true
+      },
+      "production-1440.png": {
+        "sha256": "2cdee7135749e81042285e86f597690c24b5548c704bd50db8a4479258e2b3e7",
+        "sameAsPreviousCI": true
+      },
+      "production-390.png": {
+        "sha256": "2b30848ff9d5fef36e421efcf84f9524f5faab07f3077224ec76220f90e3c236",
+        "sameAsPreviousCI": true
+      }
+    },
+    "visibleLayoutChanges": false,
+    "comparisonLimit": "Preview retains earlier committed 0/557 coverage and an older event window; production retains 121/557. Identical prior CI bytes do not establish fresh source work."
+  },
+  "production": {
+    "appRevision": "7bd94ec77e99462c068f254e134235a894585cbb",
+    "dailyRunId": "e054ea73c89fe78db9702f94d2a3b669ce91884f7d7abda0a88698dbcfc7ec50",
+    "snapshotSha256": "53b49106fa9118d603db5e64e37cf03f7f2c6fd1fb797acf18e73f540196c84f",
+    "successfulTasks": 121,
+    "requiredTasks": 557,
+    "checkedAt": "2026-10-23T11:38:59.377139Z",
+    "correctionsApplied": false
+  },
+  "receipts": {
+    "compressed-input-web-run-2026-10-23.json": "95253e27760c0d508d90c6cbf1f2e737f23277a3a515757f267f134bb22f9db4",
+    "compressed-input-runtime-run-2026-10-23.json": "546816382dac59c185f1fd714d440610761380c1fd76cab584867241ce383f35",
+    "compressed-input-runtime-canary-2026-10-23.json": "7718eed2465877202ea0b1cca2998b33c4e7b28a2b66b898b0cb83bd18886dd2"
+  },
+  "logs": {
+    "web.log": "20c289e4024ee4e113dfd389b0392ba33a272a8b6d6ffc5ac70930e43be68b73",
+    "runtime-canary.log": "b10ec289e68db34d3409644ecd282bb7ef4defa75aedde5b61f1ae85216879f6"
+  },
+  "semanticAdmission": false,
+  "collectionAttempted": false,
+  "publicationAttempted": false,
+  "quotaChanges": false,
+  "sourcesActivated": 0,
+  "qualifiedSources": 0,
+  "limitations": [
+    "Citation tasks remain transport-only; the retained compressed source diagnoses article parsing, not an actual failed citation check.",
+    "The canary connectivity probe adds no collection or source-qualification credit.",
+    "Production remains unchanged; real review and normal scheduled collection/publication are still pending.",
+    "October23 collection and gate/publication allowances remain spent."
+  ]
+}
