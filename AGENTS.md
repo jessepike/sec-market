@@ -7,7 +7,7 @@ canonical; `CLAUDE.md` and `.cursor/rules/project.mdc` point here.
 
 https://securitymarketpulse.com, a public tracker of the business of the security market: revenue,
 funding, acquisitions, restructuring, debt and leadership changes for 74 security suppliers across
-12 market domains. SEC figures for 16 public filers are checked against their filings every 4 hours.
+12 market domains. SEC figures for 16 public filers are checked against their filings in the daily pipeline.
 Data and routine changes publish automatically when every check passes; the owner reviews only
 major changes. No machine writes opinions. The owner is
 Jesse Pike.
@@ -64,14 +64,21 @@ delete it:
 3. Decide whether the change is major (below). If it is, end the commit message with the trailer
    `Owner-Review: required`.
 4. Push `preview`. Vercel rebuilds the preview URL.
-5. `.github/workflows/promote.yml` runs every 4 hours. Taking commits oldest first, it promotes up to
-   the newest one that has soaked on its own clock (6 hours for the refresh bot's `data(auto)`
-   commits, 24 hours for anything else) and is not major. It then requires the full test suite to
-   pass on that exact commit, a fresh certification to reproduce the committed SEC data, and the
-   page-structure guard to match production. A major change is held, with everything after it, and
-   listed in the GitHub issue "Owner review needed"; a failure opens "Automatic promotion failed".
-6. When the owner approves a held change: `git checkout main && git merge --ff-only preview &&
-   PROMOTE=1 git push origin main`, then confirm the Vercel deployment and `curl` the live host.
+5. Advance reviewed code only through an approved fast-forward from preview:
+   `git checkout main && git merge --ff-only preview && PROMOTE=1 git push origin main`.
+   The owner approved the daily pipeline activation and verification under D-110. Continue that
+   approved scope without asking for activation again. Observe the current daily gate allowance;
+   changing main creates a new code-bound gate requirement.
+6. The actual scheduled collector feeds `subscription-publisher.yml`, which invokes the independent
+   main gate, verifies its exact static artifact, stages production without assigning domains,
+   promotes and verifies the public bytes. Vercel Git builds from main/archive and automatic domain
+   assignment remain closed. A main push alone does not publish. Confirm the acknowledged release
+   and live host before reporting shipment. See `docs/active/daily-pipeline/github-operations.md`.
+
+D-110 supersedes the former four-hour branch promotion route. The legacy `promote.yml` and
+`certified-refresh.yml` workflows are disabled. Do not re-enable them or reopen Vercel's competing
+production paths. Production is delivered through existing GitHub Actions and Vercel; Codex Cloud
+and an always-on personal computer are not dependencies.
 
 **Major changes** need the owner and must carry the trailer:
 
@@ -80,7 +87,7 @@ delete it:
 - anything that sends email, adds an external service or uses a secret
 - `intent.md`, `.claude/rules/`, this deploy policy, security headers, the promotion rules
 
-The workflow also holds, without a trailer:
+The retired branch promoter held these paths automatically. They remain sensitive review surfaces:
 
 - protected paths: `intent.md`, `AGENTS.md`, `CLAUDE.md`, `.claude/`, `.githooks/`, all of
   `.github/`, `web/vercel.json`, `web/package.json` and its lock file, the promotion scripts, and the
@@ -89,10 +96,9 @@ The workflow also holds, without a trailer:
 - a change to the page structure: routes, h1 and h2 headings, section and navigation ids, navigation
   links, the stylesheet, or the text of the dated records (thesis, issue `2026-w36`, corrections)
 
-The guard does not see wording changes elsewhere on the tracker page, h3 and lower headings, or
-chart markup. For those, the trailer is the only control: when unsure, mark it major. Everything else
-is routine and goes live on its own: certified data, bug fixes, tests, docs, refactors that render
-the same. Soak time comes from commit dates, so never backdate a commit.
+The structural guard does not detect every wording or chart change. Mark reader-visible changes
+for owner review. Routine code still advances through preview and the approved main promotion;
+the independent publisher delivers only the accepted artifact. Never backdate a commit.
 
 A `pre-push` hook refuses a manual push to `main` without `PROMOTE=1`. Install it once per clone with
 `./.githooks/install`. Keeping `main` a fast-forward of `preview` means production is always an exact

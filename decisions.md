@@ -20,6 +20,7 @@ Everything not listed here is history: superseded, completed, or about a phase t
 | Distribution | D-92 | Email capture and a digest of certified changes, built as one workstream |
 | Security | D-83 (credential boundary), D-99 | No tokens or credentials copied to CI without approval at the time. Security headers and DNS hardening on both sites |
 | Daily coverage | D-104 through D-110 | Bounded daily collection for all 74 current suppliers authorized. Every published changed fact needs evidence and checks; complete SEC certification remains mandatory. Actual scheduled coverage is 121/557 with explicit gaps and holds. First live release and controlled rollback are verified; full coverage and sustained operation remain open. No paid fallback |
+| Current priority | D-111 | Make the current site consistent, durable, accurate and fresh before expanding coverage or building search. Reader value is unmeasured; no observed useful decision or conversation yet. Track separate evidence-backed measures and preserve every declared coverage obligation |
 | Roadmap | D-94, D-104 | A quarterly owner-written note is on the backlog. Private-company extraction is now authorized within the daily pipeline workstream |
 
 Numbering note: D-34 was recorded before D-33 on 2026-08-16; both stand as written.
@@ -1338,3 +1339,25 @@ revision; documentation can advance on preview. Temporary date-guarded crons and
 drill guard stay in place until the next regular code promotion. No budget was reset, and no PR,
 purchase or paid API fallback was used. Archive pins and receipts are retained in the
 [activation record](docs/active/daily-pipeline/activation-2026-10-23.md).
+
+
+**D-111 · 2026-10-23 — Repair current operation before expanding coverage or building search.**
+
+Owner: "Now finish the coverage gaps. Why are only 121 of 557 checks passing? Fix what you can
+within the existing limits and tell me what actually needs my input. set this as a goal."
+The thread goal is active. The owner also requested an evaluation rubric for durability, accuracy
+and value, and clarified: "Right now, I need to focus on getting what we have there today working
+consistently and durable and accurate and fresh. Then I need to expand coverage. We need to build
+a search capability, etc."
+
+Prioritize existing-source reliability, preserved evidence and queues, accurate claim handling,
+honest freshness and actual runtime proof. Retain all declared missing obligations and their
+denominators while separating current-operation work from later expansion. Preserve charged
+allowances; do not buy capacity, use paid model APIs or reset a reservation to manufacture a pass.
+No change to intent, supplier roster, public judgments or secret authority follows from this work.
+
+The owner reports: "No, it hasn't helped with anything yet. There is not one yet." Reader value
+is unmeasured. Use separate evidence-bound measures for durability, accuracy, freshness, coverage
+and value; an operational pass must not conceal a failed continuity check or unmeasured use.
+Factual extraction and source/date validation holds are agent work, not automatic owner decisions.
+Search is later work. See the [recovery plan](docs/active/daily-pipeline/coverage-recovery-plan-2026-10-23.md).

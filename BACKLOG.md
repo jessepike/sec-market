@@ -3,9 +3,29 @@
 Open work only, in priority order. Completed and retired items, SEC-002 to SEC-059, are in
 [docs/archive/2026-10-auto-002/backlog-history.md](docs/archive/2026-10-auto-002/backlog-history.md).
 Nothing here is authorized just by being listed; the authorization line on each item says where it
-stands. New items continue from SEC-072.
+stands. New items continue from SEC-074.
 
 ## Next
+
+### SEC-072 · Make the current site consistently accurate, fresh and durable
+
+This is the current priority. Keep the full 557-obligation inventory visible while repairing the
+operation of existing sources before expanding collection or adding search. Fix repeated checks
+that erase valid successes, duplicate transport, publication/collector queue discontinuity and
+source-specific extraction errors. Retain unresolved work and require evidence-bound resolution.
+Track exact source ages, known release checks, data continuity, scheduled operation and recovery
+with the [evaluation rubric](docs/active/daily-pipeline/evaluation-rubric.md) and reproducible
+[baseline scorecard](docs/active/daily-pipeline/evaluations/2026-10-23/live-baseline.md).
+
+Candidate fixes and archived replays do not improve the live 121/557 result until a normal fresh
+run and independently gated publication prove it. October 23's charged collection and gate limits
+remain unchanged. Generic claim accuracy and eligible-event recall require a fixed reviewed
+benchmark; passing the existing tests does not estimate those error rates. Reader value remains
+unmeasured: the owner reports no real use yet.
+
+**Authorization:** owner request on October 23 to fix coverage within existing limits, set an active
+goal and track durability/accuracy/value; clarified priority is current operation before expansion.
+[Recovery plan](docs/active/daily-pipeline/coverage-recovery-plan-2026-10-23.md).
 
 ### SEC-060 · Email workstream
 
@@ -42,6 +62,8 @@ The owner has not set the acceptance duration (previous recommendation: 30 days)
 **Authorization:** D-104 through D-110; [current activation record](docs/active/daily-pipeline/activation-2026-10-23.md).
 
 ### SEC-071 · Complete and disclose full-roster source coverage
+
+Sequence this after SEC-072's current-operation fixes and runtime proof. Keep its gaps visible now.
 
 Bounded daily collection for all 74 existing suppliers is authorized and implemented. The latest
 actual scheduled source run checked 121/557 tasks; full source coverage remains incomplete, with 254
@@ -91,6 +113,13 @@ working copy or an archived snapshot; leave the cited text unchanged. **Authoriz
 maintenance; any change to what a record says goes through a correction.
 
 ## Later (owner ideas, not authorized)
+
+### SEC-073 · Search the sourced market records
+
+The owner wants search after reliable current operation and broader source coverage. Define the
+reader journey, searchable records, freshness/provenance display and evaluation cases when this
+work is picked up. Do not use search to mask missing or stale underlying facts.
+**Authorization:** recorded owner direction for later work; implementation has not started.
 
 ### SEC-067 · Quarterly signed note per domain
 
