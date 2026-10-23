@@ -5,6 +5,29 @@ After the first accepted main-gate release is acknowledged in production, run
 the `controlled production rollback acceptance` workflow on main with that
 current release's SHA-256. The job uses the existing credential and project.
 
+The owner's activation approval also authorizes one automatic acceptance after
+a successful actual scheduled `daily exact-artifact publisher` run on main.
+The workflow independently reads the upstream run from GitHub and requires its
+private repository, workflow path, main revision, scheduled event and completed
+success. This route is restricted to UTC October 23, 2026. It skips a legacy
+production head and any previously recorded drill phase, so it cannot repeat on
+later daily runs. It derives the target from the accepted archived production
+head and verifies that release matches the upstream publisher revision.
+
+A separate read-only preflight runs before requesting the shared account
+concurrency group. It skips when a collector is queued or running, and requires
+a successfully finished actual scheduled collector with its matching immutable
+archive receipt. Manual collection cannot substitute for this proof. This
+avoids placing a new pending acceptance job ahead of a waiting collector; if
+preflight skips, the already authorized manual drill remains available. Only
+the mutating job receives the existing Vercel credential. The preflight has no
+model work, archive writes or production access.
+
+The retained receipt includes the upstream scheduled publisher ID and clock,
+and matching archived collection-run receipts when available. Missing or
+incomplete source coverage is preserved. Manual acceptance still requires its
+explicit expected release and can be used for a directed recovery or rerun.
+
 Before publication replaces the production head, it retains the previous head
 at `production-baselines/<releaseId>.json`. Its ordinary pre-promotion remote
 checkpoint archives that immutable record. The drill obtains the baseline

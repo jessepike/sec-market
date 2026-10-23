@@ -2,6 +2,11 @@
 import copy
 import importlib.util
 import unittest
+import io
+import json
+import tempfile
+from contextlib import redirect_stdout
+from unittest.mock import patch
 from pathlib import Path
 
 spec = importlib.util.spec_from_file_location("watchdog", Path(__file__).with_name("probe.py"))
@@ -68,6 +73,52 @@ class ScheduledCollectionTests(unittest.TestCase):
         result = self.inspect()
         for reason in ("SCHEDULED_COLLECTION_FAILED_OR_UNFINISHED", "SCHEDULED_COLLECTION_OVERDUE", "COLLECTOR_GITHUB_IDENTITY_DIFFERS"):
             self.assertIn(reason, result["reasons"])
+
+
+class InitialPublicationTests(unittest.TestCase):
+    def inspect_baseline(self, changed=False):
+        contract = {"schedule": {"overdueHours": 30}, "suppliers": [{"id": "fixture"}]}
+        coverage = {"runId": "daily", "checkedAt": "2026-10-23T04:00:00Z",
+                    "contractSha256": probe.digest(contract), "complete": False,
+                    "supplierCount": 1, "successfulTasks": 0, "requiredTasks": 1, "gapTaskIds": ["gap"]}
+        app = {"appRevision": "a" * 40, "certifiedAt": "2026-10-21T04:00:00Z"}
+        entries = {"heads/latest-run.json": {"receipt": {"key": "coverage"}}, "coverage": coverage,
+                   "heads/worker-heartbeat.json": {"finishedAt": "2026-10-23T04:00:00Z", "phases": {"finish": 0}, "executionMode": "github_subscription"},
+                   "heads/production.json": {"legacyBaseline": True, "releaseId": "legacy", "legacyAppReceipt": app}}
+        reads, requests = [], []
+        def read(key, **kwargs):
+            reads.append(key)
+            return entries[key]
+        def live(url):
+            requests.append(url)
+            return {**app, "appRevision": "b" * 40} if changed else app
+        with patch.object(probe, "plan_run", return_value={"tasks": [{"required": True}]}):
+            result = probe.inspect(contract, read, live, "2026-10-23T04:10:00Z")
+        self.assertFalse(any(key.startswith("releases/") for key in reads))
+        self.assertEqual(requests, ["https://securitymarketpulse.com/app-release.json"])
+        return result
+
+    def test_retained_legacy_baseline_reports_pending_cutover_and_coverage_gaps(self):
+        result = self.inspect_baseline()
+        self.assertFalse(result["healthy"])
+        self.assertIn("INITIAL_PRODUCTION_CUTOVER_PENDING", result["reasons"])
+        self.assertIn("OVERDUE_OR_INCOMPLETE_COVERAGE", result["reasons"])
+        self.assertNotIn("LEGACY_PRODUCTION_BASELINE_DIFFERS", result["reasons"])
+
+    def test_changed_legacy_baseline_stays_held(self):
+        self.assertIn("LEGACY_PRODUCTION_BASELINE_DIFFERS", self.inspect_baseline(changed=True)["reasons"])
+
+    def test_publication_probe_failure_preserves_collection_diagnosis(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            (root / "contracts").mkdir()
+            (root / "contracts/market.json").write_text(json.dumps({"publication": {"enabled": True}}))
+            output = io.StringIO()
+            with patch.object(probe, "ROOT", root), patch("sys.argv", ["probe.py"]), patch.object(probe, "api", return_value={"object": {"sha": "a" * 40}}), patch.object(probe, "inspect_collection", return_value={"healthy": False, "reasons": ["NO_ACTUAL_SCHEDULED_COLLECTION"]}), patch.object(probe, "inspect", side_effect=KeyError("missing")), redirect_stdout(output):
+                self.assertEqual(probe.main(), 2)
+            reasons = json.loads(output.getvalue())["reasons"]
+            self.assertIn("NO_ACTUAL_SCHEDULED_COLLECTION", reasons)
+            self.assertIn("INDEPENDENT_PROBE_FAILED", reasons)
 
 
 if __name__ == "__main__":

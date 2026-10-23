@@ -1,14 +1,31 @@
 ---
 project: Security Market Pulse
 stage: Operate
-updated: 2026-10-22
+updated: 2026-10-23
 ---
 
 # Status
 
 ## Live and held
 
-**October 22 completion work is on preview; production cutover is not yet claimed.**
+**The owner approved activation. Main has the reviewed daily pipeline; production acknowledgement is pending.**
+The public site still serves `54590be4d91113a50879a8fb5d180441e7d149f4`. The legacy refresh and
+promotion jobs are disabled, and a fresh runner confirms the Vercel production paths are controlled.
+Main gate `39908495114` passed 389 checks. Publisher `39908275916` staged its exact production
+artifact, then failed during CLI promotion; owner-assigned failure issue #9 is open. Promotion and
+rollback now use explicit team-scoped project APIs, wait for the live receipt, and verify that
+automatic domain assignment remains disabled. Latest local checks: 75 operational, 99 pipeline
+and nine monitor tests pass; application CI passed on `ae66ee5`.
+
+GitHub has not yet emitted the new actual scheduled collection or publication runs. The ordinary
+collector remains 05:17 UTC and publisher 06:23/16:23 UTC. A date-bound October 23 06:07 UTC
+acceptance collection was added because approval arrived after the normal window. No manual
+dispatch is being counted as timer evidence. Controlled rollback acceptance has a one-time
+GitHub callback after a verified scheduled publisher, guarded by its archived scheduled collector
+receipt and with a read-only preflight outside the shared mutation queue. The manual route remains.
+See [the activation receipts](docs/active/daily-pipeline/activation-2026-10-23.md).
+
+### Prepared candidate and earlier checks
 Use [the current GitHub/Vercel runbook](docs/active/daily-pipeline/github-operations.md) and
 [acceptance record](docs/active/daily-pipeline/finish-acceptance-2026-10-22.md) before the earlier
 checkpoint below. Original local `status.md` and `lessons.md` edits were preserved in the original

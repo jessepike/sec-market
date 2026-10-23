@@ -127,6 +127,12 @@ def inspect(contract, read_archive, get_live, now, authority=None):
         if roles["collector"]["sessionId"] == roles["governance"]["sessionId"]:
             problems.append("CLOUD_GOVERNANCE_CONTEXT_NOT_SEPARATE")
     production = read_archive("heads/production.json")
+    if production.get("legacyBaseline"):
+        problems.append("INITIAL_PRODUCTION_CUTOVER_PENDING")
+        app = get_live("https://securitymarketpulse.com/app-release.json")
+        if app != production.get("legacyAppReceipt"):
+            problems.append("LEGACY_PRODUCTION_BASELINE_DIFFERS")
+        return {"healthy": False, "checkedAt": now, "runId": coverage["runId"], "reasons": problems}
     saved = read_archive(f"releases/{production['releaseId']}.json")
     manifest = saved["manifest"]
     if authority:
@@ -185,6 +191,7 @@ def main():
     args = parser.parse_args()
     contract = json.loads((ROOT / "contracts/market.json").read_text())
     now = utcnow()
+    result = None
     try:
         commit = api("git/ref/archive/market-evidence")["object"]["sha"]
         def read_archive(key, reference=None):
@@ -201,7 +208,8 @@ def main():
             result["reasons"] = list(dict.fromkeys(result["reasons"] + publication["reasons"]))
             result["healthy"] = not result["reasons"]
     except (ValueError, OSError, KeyError, subprocess.SubprocessError) as error:
-        result = {"healthy": False, "checkedAt": now, "reasons": ["INDEPENDENT_PROBE_FAILED", type(error).__name__]}
+        result = {**(result or {}), "healthy": False, "checkedAt": now,
+                  "reasons": list(dict.fromkeys((result or {}).get("reasons", []) + ["INDEPENDENT_PROBE_FAILED", type(error).__name__]))}
     if args.notify:
         result["notification"] = notify(result)
     print(json.dumps(result, indent=2))
