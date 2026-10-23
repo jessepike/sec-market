@@ -81,6 +81,26 @@ The completion claim still requires actual production acknowledgement, rollback 
 and real scheduled collection/publication receipts. Those have not yet been obtained.
 Full source coverage and sustained multi-day operation remain open regardless of a green timer.
 
+A later full hosted browser replay from the ordinary committed checkout returned 29/34:
+three checks compared the staged archive's generated data with the checkout's different snapshot,
+and two strict-console checks detected Vercel's preview feedback script blocked by the site's CSP.
+That replay cannot replace the 34/34 exact-input gate or the 2/2 hosted Varonis checks. Production
+acceptance must use the main gate's matching inputs and verify the actual production host; preview
+feedback injection is not part of the static artifact.
+
+## Pending cutover commands
+
+The owner approval question is pending. No production setting, legacy schedule or main ref has
+changed. Reviewed preview is `e30dd095658a7ec76dfde07b162845acfbf26b4c` plus receipt-only updates.
+After approval, disable `certified-refresh.yml` and `promote.yml`, set Vercel
+`autoAssignCustomDomains` false and `commandForIgnoringBuildStep` to
+`test "$VERCEL_GIT_COMMIT_REF" = main || test "$VERCEL_GIT_COMMIT_REF" = data/archive`,
+and confirm the live `54590be` app receipt remains unchanged. Then fast-forward main from
+preview. Dispatch `subscription-publisher.yml` on main; it requests a fresh independent main gate
+and records publication. Run `production-rollback-drill.yml` with the acknowledged release hash.
+Do not cancel collection or rollback jobs. Confirm actual scheduled collector and publisher runs
+and their archived receipts before claiming completion.
+
 ## Earlier verification history
 
 - Preview code `0acd501c5821fcf55af5311333f274abfdca9b1b` deployed READY as
