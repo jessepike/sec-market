@@ -16,9 +16,10 @@ from validation import reconcile, verify_statement, mentions_entity
 
 
 class Pipeline:
-    def __init__(self, contract, store, fetcher, agent=None, clock=utcnow, structured=None):
+    def __init__(self, contract, store, fetcher, agent=None, clock=utcnow, structured=None, correction_work=None):
         self.contract, self.store, self.fetcher, self.agent, self.clock = contract, store, fetcher, agent, clock
         self.structured = structured or self._structured
+        self.correction_work = correction_work
         self.sources = {s["id"]: s for s in contract["sources"]}
         self.suppliers = {s["id"]: s for s in contract["suppliers"]}
         self.model_lock = threading.Lock()
@@ -27,6 +28,7 @@ class Pipeline:
         self.deadline = float("inf")
         self.native_budget_exhausted = False
         self.transport_cache = {}
+        self.defer_citation_models = False
 
     def _structured(self, source, documents, day):
         result = subprocess.run(["node", "--import", "tsx", str(Path(__file__).with_name("sec-adapter.mjs"))],
@@ -66,12 +68,47 @@ class Pipeline:
                 # budget does not always go to the first suppliers in the roster.
                 day = instant(plan["scheduledAt"]).date().toordinal()
                 tasks = sorted(plan["tasks"], key=lambda t: (priority.get(self.sources.get(t["sourceId"], {}).get("kind"), 3), digest({"day": day, "task": t["taskId"]})))
-                receipts = list(pool.map(lambda task: self._task(plan, task), tasks))
+                if self.correction_work is None:
+                    receipts = list(pool.map(lambda task: self._task(plan, task), tasks))
+                else:
+                    deterministic = [t for t in tasks if self.sources.get(t["sourceId"], {}).get("kind") in priority]
+                    discretionary = [t for t in tasks if self.sources.get(t["sourceId"], {}).get("kind") not in priority]
+                    # Citation transport and accepted caches run first, while
+                    # uncached citation model work waits for whole-group review.
+                    self.defer_citation_models = True
+                    try:
+                        receipts = list(pool.map(lambda task: self._task(plan, task), deterministic))
+                    finally:
+                        self.defer_citation_models = False
+                    deferred_ids = {r['taskId'] for r in receipts if r.get('citationModelWorkDeferred')}
+                    second_phase = [t for t in deterministic if t['taskId'] in deferred_ids] + discretionary
+                    try:
+                        corrections = self.correction_work(reserve=self._reserve, now=self.clock(),
+                                                           cancelled=self._work_cancelled)
+                    except (ValueError, RuntimeError, OSError, KeyError, TypeError) as exc:
+                        # Invalid correction inputs cannot erase ordinary source
+                        # receipts or turn a failed review into an admission.
+                        corrections = {"policySha256": None, "admitted": [], "pending": [], "attempts": [],
+                                       "error": str(exc)[:160] if isinstance(exc, (ValueError, ModelUnavailable)) else type(exc).__name__}
+                    correction_record = {"runId": plan["runId"], "checkedAt": self.clock(), **corrections}
+                    correction_ref = self.store.put(correction_record)
+                    self.store.write_once(f"runs/{plan['runId']}/correction-collections/{correction_ref['sha256']}.json", correction_record)
+                    old = self.store.read("heads/correction-collection.json")
+                    self.store.compare_and_swap("correction-collection", old, {"runId": plan["runId"], "outcome": correction_ref})
+                    final_receipts = {r['taskId']: r for r in receipts}
+                    for receipt in pool.map(lambda task: self._task(plan, task), second_phase):
+                        final_receipts[receipt['taskId']] = receipt
+                    receipts = [final_receipts[t['taskId']] for t in tasks]
             result = reconcile(plan, receipts, self.contract, self.clock(), self.store)
             result_ref = self.store.put(result)
             previous = self.store.read("heads/latest-run.json")
             self.store.compare_and_swap("latest-run", previous, {"runId": plan["runId"], "receipt": result_ref})
-            return result
+            # Coverage remains exactly replayable by reconcile. Corrections
+            # have their own immutable receipt and never alter its denominator.
+            return {**result, "corrections": {**corrections, "receipt": correction_ref}} if self.correction_work is not None else result
+
+    def _work_cancelled(self):
+        return bool(getattr(self, "cancelled", False) or time.monotonic() >= self.deadline)
 
     def _task(self, plan, task):
         if not self.force_refresh:
@@ -92,6 +129,9 @@ class Pipeline:
             observations = {}
 
             def request(url):
+                if url in observations:
+                    retained_observation = observations[url]
+                    return retained_observation, self.store.get(retained_observation['body']) if retained_observation.get('body') else b''
                 run_download = f"runs/{plan['runId']}/downloads/{digest({'source': source['id'], 'url': url})}.json"
                 retained = self.store.read(run_download) if self.replay else None
                 if retained:
@@ -176,6 +216,11 @@ class Pipeline:
                                           "candidateHashes": [], "factRefs": [], "heldClaims": [], "exclusionRule": "no-registered-entity-mention-v1", "emptyReview": None}
                             self.store.write_once(f"document-validation/{cache_key}.json", validation)
                             receipt.setdefault("documentValidations", []).append({"url": url, "validation": self.store.put(validation)})
+                            return
+                        if source['kind'] == 'citation' and self.defer_citation_models:
+                            receipt['citationModelWorkDeferred'] = True
+                            pending.append(url)
+                            pending_errors.append('CITATION_MODEL_WORK_DEFERRED_FOR_CORRECTIONS')
                             return
                         if self.agent is None or self.model_unavailable:
                             pending.append(url)

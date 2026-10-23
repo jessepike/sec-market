@@ -97,6 +97,27 @@ def inspect_collection(contract, read_archive, now, authority):
             "successfulTasks": coverage["successfulTasks"], "requiredTasks": coverage["requiredTasks"]}
 
 
+def inspect_corrections(context, read_archive, run_id):
+    """Report correction work separately from the fixed source denominator."""
+    try:
+        head = read_archive("heads/correction-collection.json")
+        if head.get("runId") != run_id:
+            return ["CORRECTION_COLLECTION_COVERS_DIFFERENT_RUN"]
+        outcome = read_archive(head["outcome"]["key"], reference=head["outcome"])
+        if outcome.get("runId") != run_id or outcome.get("policySha256") != context["policySha256"]:
+            return ["CORRECTION_COLLECTION_POLICY_OR_RUN_DIFFERS"]
+        pending = outcome.get("pending", [])
+        if pending or outcome.get("error"):
+            return ["FACTUAL_CORRECTIONS_PENDING_" + str(len(pending))] if pending else ["FACTUAL_CORRECTION_INPUT_ERROR"]
+        expected = [group["id"] for group in context["requests"]["groups"]]
+        actual = [group["groupId"] for group in outcome.get("admitted", [])]
+        if len(actual) != len(expected) or set(actual) != set(expected):
+            return ["FACTUAL_CORRECTION_ADMISSIONS_INCOMPLETE"]
+        return []
+    except (ValueError, OSError, KeyError, TypeError, subprocess.SubprocessError):
+        return ["FACTUAL_CORRECTION_COLLECTION_MISSING_OR_INVALID"]
+
+
 def inspect(contract, read_archive, get_live, now, authority=None):
     latest = read_archive("heads/latest-run.json")
     coverage = read_archive(latest["receipt"]["key"], reference=latest["receipt"])
@@ -153,6 +174,14 @@ def inspect(contract, read_archive, get_live, now, authority=None):
         problems.append("COLLECTION_HAS_NOT_REACHED_PRODUCTION")
     if public.get("complete") is not True or not public.get("validUntil") or instant(now) > instant(public["validUntil"]):
         problems.append("PUBLIC_COVERAGE_INCOMPLETE_OR_OVERDUE")
+    if manifest.get("factualCorrections"):
+        expected = manifest["factualCorrections"]
+        public_corrections = get_live("https://securitymarketpulse.com/factual-corrections.json")
+        if (public_corrections.get("enabled") is not True or public_corrections.get("policySha256") != expected["policySha256"]
+                or [g["id"] for g in public_corrections.get("groups", [])] != expected["groupIds"]
+                or [t["targetId"] for g in public_corrections.get("groups", []) for t in g["targets"]] != expected["targetIds"]
+                or app.get("factualCorrections", {}).get("fileSha256") != expected["fileSha256"]):
+            problems.append("PUBLIC_FACTUAL_CORRECTION_INVENTORY_DIFFERS")
     queue = read_archive("heads/cloud-snapshot.json" if native else "heads/dailySnapshot.json").get("reviewQueue", [])
     if queue:
         problems.append(f"OWNER_REVIEW_QUEUE_{len(queue)}")
@@ -203,6 +232,11 @@ def main():
             return json.loads(body)
         authority = GitHubAuthority()
         result = inspect_collection(contract, read_archive, now, authority)
+        if (ROOT / "contracts/factual-corrections.json").exists():
+            from corrections import load_policy
+            context = load_policy(ROOT, contract)
+            result["reasons"] += inspect_corrections(context, read_archive, result["runId"])
+            result["healthy"] = not result["reasons"]
         if contract["publication"]["enabled"]:
             publication = inspect(contract, read_archive, get_json, now, authority)
             result["reasons"] = list(dict.fromkeys(result["reasons"] + publication["reasons"]))

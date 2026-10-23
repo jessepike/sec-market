@@ -16,7 +16,7 @@ from schedule_guard import ACCEPTANCE_CRONS, ACCEPTANCE_DATE
 
 REPO = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO / "web/scripts/pipeline"))
-from agents import SubscriptionAgent
+from agents import ModelUnavailable, SubscriptionAgent
 from contracts import digest, instant, require, utcnow, validate_contract
 from engine import Pipeline
 from fetcher import Fetcher
@@ -51,6 +51,33 @@ class BoundedPipeline(Pipeline):
     def _reserve(self, kind, limit):
         require(time.monotonic() < self.account_deadline, "CI_COLLECTION_TIME_BUDGET_EXHAUSTED")
         return super()._reserve(kind, limit)
+
+    def _work_cancelled(self):
+        return time.monotonic() >= self.account_deadline or super()._work_cancelled()
+
+
+def correction_work(repo, state, contract, agent):
+    """Enable the separate group review only for a committed requests contract."""
+    requests = Path(repo) / 'contracts/factual-corrections.json'
+    if not requests.exists():
+        return None
+
+    def process(*, reserve, now, cancelled):
+        from corrections import process_corrections
+        try:
+            return process_corrections(repo, state, contract, agent, reserve, now, cancelled=cancelled)
+        except (ValueError, RuntimeError, OSError, KeyError, TypeError) as exc:
+            # Keep invalid-policy/input work visible without losing the source
+            # collection. Only the admission adapter can produce admissions.
+            reason = str(exc)[:160] if isinstance(exc, (ValueError, ModelUnavailable)) else type(exc).__name__
+            try:
+                groups = json.loads(requests.read_text()).get('groups', [])
+                pending = [{'groupId': g['id'], 'reason': reason} for g in groups]
+            except (ValueError, OSError, KeyError, TypeError):
+                pending = []
+            return {'policySha256': None, 'admitted': [], 'pending': pending, 'attempts': [], 'error': reason}
+
+    return process
 
 
 def escrow_budgets(root, state, session, contract, at):
@@ -92,7 +119,7 @@ def archive_collection_result(state, result, contract, attempt):
     fields = ('githubRunId', 'githubEventName', 'githubRef', 'appRevision', 'runId',
               'successfulTasks', 'requiredTasks', 'complete', 'executionCompleted', 'outcome')
     retained = {key: result[key] for key in fields}
-    for key in ('reusesScheduledCollectionRunId','sourceReceiptSha256','sourceCheckedAt'):
+    for key in ('reusesScheduledCollectionRunId','sourceReceiptSha256','sourceCheckedAt','corrections'):
         if key in result:
             retained[key]=result[key]
     retained.update(githubRunAttempt=int(attempt), contractSha256=digest(contract))
@@ -147,8 +174,12 @@ def verified_scheduled_source(state, contract, now, lookup=github_run):
     return selected
 
 
-def reuse_scheduled_collection(state, contract, now, lookup=github_run):
+def reuse_scheduled_collection(state, contract, now, lookup=github_run, corrections_enabled=False):
     """Reuse verified timer work only for the date-bound acceptance retries."""
+    # Even an unchanged market contract can acquire new correction requests.
+    # Replay source receipts and let the adapter validate its exact cache.
+    if corrections_enabled:
+        return None
     if os.environ.get('GITHUB_EVENT_NAME') != 'schedule' or os.environ.get('GITHUB_REF') != 'refs/heads/main' \
             or os.environ.get('SMP_EVENT_SCHEDULE') not in ACCEPTANCE_CRONS or now[:10] != ACCEPTANCE_DATE:
         return None
@@ -180,7 +211,8 @@ def execute(root, maximum_seconds=1200, publisher_config=None):
     keeper = AuthStore(root / "auth", writer)
     try:
         contract = validate_contract(json.loads((REPO / "contracts/market.json").read_text()))
-        reused=reuse_scheduled_collection(state,contract,utcnow())
+        corrections_enabled = (REPO / 'contracts/factual-corrections.json').exists()
+        reused=reuse_scheduled_collection(state,contract,utcnow(),corrections_enabled=corrections_enabled)
         if reused:
             archive_collection_result(state,reused,contract,os.environ.get('GITHUB_RUN_ATTEMPT','1'))
             reused['archive']=session_runtime.checkpoint(root,state,session,'finish',reused,finish=True)['archive']
@@ -190,14 +222,16 @@ def execute(root, maximum_seconds=1200, publisher_config=None):
         os.environ["CODEX_HOME"] = str(keeper.home)
         guarded = GuardedRunner(keeper)
         agent = SubscriptionAgent(contract["model"], runner=guarded)
-        collector = BoundedPipeline(contract, state, Fetcher(state), agent, maximum_seconds=maximum_seconds)
+        work = correction_work(REPO, state, contract, agent)
+        collector = BoundedPipeline(contract, state, Fetcher(state), agent, maximum_seconds=maximum_seconds,
+                                    correction_work=work)
         previous_signals = {s: signal.getsignal(s) for s in (signal.SIGINT, signal.SIGTERM)}
         for signum in previous_signals:
             signal.signal(signum, collector.stop)
         # All restored checkpoints and daily budgets exist before model work.
         scheduled_at = utcnow()
         escrow_budgets(root, state, session, contract, scheduled_at)
-        collected = collector.run(scheduled_at)
+        collected = collector.run(scheduled_at, replay=work is not None)
         session_runtime.checkpoint(root, state, session, "collection", session_runtime.summary(state))
         plan = state.read(f"runs/{collected['runId']}/plan.json")
         receipts = []
@@ -224,6 +258,8 @@ def execute(root, maximum_seconds=1200, publisher_config=None):
                   "snapshotSha256": snapshot["snapshotSha256"], "reviewQueue": len(snapshot["reviewQueue"]),
                   "executionMode": "github_subscription", "publication": {"published": False, "reason": "INITIAL_CUTOVER_NOT_ENABLED"}}
         result.update(execution_outcome(checked['complete'], collector.cancelled))
+        if 'corrections' in collected:
+            result['corrections'] = collected['corrections']
         if contract["publication"]["enabled"]:
             # Publication has a separate runner/time budget and never receives
             # subscription auth. Its independent gate may take 35 minutes.

@@ -20,6 +20,30 @@ from storage import LocalStore
 from validation import reconcile
 
 
+def prepare_corrections(repo, store, contract, coverage, previous_bundle=None, now=None):
+    """Replay real archived admissions before any application build command."""
+    from corrections import load_policy, project_bundle
+    context = load_policy(repo, contract)
+    latest = store.read("heads/correction-collection.json")
+    require(latest and latest.get("runId") == coverage["runId"], "CURRENT_CORRECTION_COLLECTION_REQUIRED")
+    outcome = json.loads(store.get(latest["outcome"]))
+    require(outcome.get("runId") == coverage["runId"] and outcome.get("policySha256") == context["policySha256"],
+            "CORRECTION_COLLECTION_POLICY_OR_RUN_DIFFERS")
+    moment = now or utcnow()
+    bundle = project_bundle(repo, store, contract, outcome, previous_bundle=previous_bundle, publication_at=moment)
+    old_ids = {group["id"] for group in (previous_bundle or {}).get("groups", [])}
+    raw = (json.dumps(bundle, indent=2, ensure_ascii=False) + "\n").encode()
+    seal = {"schemaVersion": 1, "fileSha256": digest(raw), "policySha256": context["policySha256"],
+            "groupIds": [group["id"] for group in bundle["groups"]],
+            "targetIds": [target["targetId"] for group in bundle["groups"] for target in group["targets"]],
+            "newGroupIds": [group["id"] for group in bundle["groups"] if group["id"] not in old_ids],
+            "publicationDate": moment[:10]}
+    target = repo / "web/src/data/generated/factualCorrections.json"
+    target.write_bytes(raw)
+    target.with_suffix(".seal.json").write_bytes(canonical(seal))
+    return seal
+
+
 def prepare_data(repo, store, destination):
     contract = validate_contract(json.loads((repo / "contracts/market.json").read_text()))
     latest = store.read("heads/latest-run.json")
@@ -33,6 +57,7 @@ def prepare_data(repo, store, destination):
     require(collector is not None, 'Archived collector continuity missing')
     continuity=collector_continuity(collector,contract,coverage,store)
     previous = json.loads((repo / "web/src/data/generated/dailyMarket.json").read_text())
+    previous_corrections = None
     production = store.read("heads/production.json")
     if production and not production.get("legacyBaseline"):
         from vercel import VercelAdapter
@@ -47,6 +72,10 @@ def prepare_data(repo, store, destination):
         # Compare with what is actually deployed, rather than main's older
         # committed data, when deciding whether a certified value changed.
         (repo / "web/src/data/generated/certifiedCoverage.json").write_bytes(files["static/certified-coverage.json"])
+        if "static/factual-corrections.json" in files:
+            previous_corrections = json.loads(files["static/factual-corrections.json"])
+    if (repo / "contracts/factual-corrections.json").exists():
+        prepare_corrections(repo, store, contract, coverage, previous_bundle=previous_corrections)
     snapshot = build_snapshot(contract, plan, verified, store, utcnow(), previous=previous,continuity=continuity)
     raw = (json.dumps(snapshot, indent=2, ensure_ascii=False) + "\n").encode()
     target = repo / "web/src/data/generated/dailyMarket.json"
@@ -98,12 +127,21 @@ def run_gate(repo, store, destination, github_run_id, app_revision):
     snapshot_ref.update(contractSha256=digest(contract), allChangedClaimsVerified=True,
                         secCertification={"required": len(cohort["supplierIds"])*len(cohort["claimGroups"]), "verified": len(proof["verifiedClaims"]), "drift": 0,
                                           "runId": coverage["runId"], "claimKeys": [p["key"] for p in proof["verifiedClaims"]]})
+    correction_path = repo / "web/src/data/generated/factualCorrections.json"
+    correction_proof = None
+    if (repo / "contracts/factual-corrections.json").exists():
+        correction_proof = json.loads(correction_path.with_suffix(".seal.json").read_text())
+        require(correction_proof["fileSha256"] == digest(correction_path.read_bytes()), "CORRECTION_PROJECTION_CHANGED_DURING_GATE")
+        require((repo / "web/dist/factual-corrections.json").read_bytes() == correction_path.read_bytes(), "CORRECTION_PUBLIC_EXPORT_DIFFERS")
+        snapshot_ref["factualCorrections"] = correction_proof
     artifact = build_artifact(store, repo / "web/dist", json.loads((repo / "web/vercel.json").read_text()))
     receipt = {"result": "pass", "executedTests": executed, "checks": checks, "githubRunId": github_run_id,
                "appRevision": app_revision, "snapshotSha256": snapshot_ref["sha256"], "artifactSha256": artifact["sha256"],
                "runId": coverage["runId"], "contractSha256": digest(contract), "coverageSha256": digest(coverage),
                "collectionReceiptSha256": collection_hash,
                "archiveCommit": os.environ.get("SMP_ARCHIVE_COMMIT"), "archiveManifestSha256": os.environ.get("SMP_ARCHIVE_MANIFEST_SHA256")}
+    if correction_proof:
+        receipt["factualCorrections"] = correction_proof
     (destination / "gate-receipt.json").write_bytes(canonical(receipt))
     (destination / "build.zip").write_bytes(store.get(artifact["archive"]))
     (destination / "snapshot.json").write_bytes(raw)

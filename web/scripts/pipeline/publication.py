@@ -3,6 +3,21 @@ from contracts import digest, instant, require, valid_hash
 from storage import ConflictError
 
 
+def verify_correction_publication(proof, now):
+    if proof is None:
+        return
+    require(isinstance(proof, dict) and proof.get("schemaVersion") == 1, "CORRECTION_RELEASE_SCHEMA_DIFFERS")
+    require(valid_hash(proof.get("fileSha256")) and valid_hash(proof.get("policySha256")), "CORRECTION_RELEASE_HASH_INVALID")
+    for field in ("groupIds", "targetIds", "newGroupIds"):
+        values = proof.get(field)
+        require(isinstance(values, list) and all(isinstance(value, str) and value for value in values)
+                and len(set(values)) == len(values), "CORRECTION_RELEASE_INVENTORY_INVALID")
+    require(proof["groupIds"] and proof["targetIds"] and set(proof["newGroupIds"]).issubset(proof["groupIds"]), "CORRECTION_RELEASE_INVENTORY_INCOMPLETE")
+    day = proof.get("publicationDate")
+    require(isinstance(day, str) and len(day) == 10 and instant(day + "T00:00:00Z").date().isoformat() == day, "CORRECTION_PUBLICATION_DATE_INVALID")
+    require(not proof["newGroupIds"] or instant(now).date().isoformat() == day, "NEW_CORRECTION_PUBLICATION_DATE_ROLLED_OVER")
+
+
 def prepare_release(contract, coverage, snapshot, app_revision, artifact, test_receipt, previous, now, authority):
     require(len(app_revision) == 40 and all(c in "0123456789abcdef" for c in app_revision), "Pin a full reviewed application revision")
     require(coverage["contractSha256"] == digest(contract), "Coverage contract mismatch")
@@ -22,6 +37,9 @@ def prepare_release(contract, coverage, snapshot, app_revision, artifact, test_r
     require(bool(expected_keys) and sec.get("required") == len(expected_keys) and sec.get("verified") == len(expected_keys) and sec.get("drift") == 0 and sec.get("runId") == coverage["runId"], "Fresh complete SEC certification required")
     require(len(sec.get("claimKeys", [])) == len(expected_keys) and set(sec["claimKeys"]) == expected_keys, "SEC claim inventory missing, duplicated or changed")
     require(snapshot.get("allChangedClaimsVerified") is True, "Unverified changed facts cannot publish")
+    corrections = snapshot.get("factualCorrections")
+    require(corrections == test_receipt.get("factualCorrections"), "CORRECTION_GATE_RELEASE_BINDING_DIFFERS")
+    verify_correction_publication(corrections, now)
     require(authority is not None and authority.verify_test_receipt(test_receipt, artifact), "Trusted workflow provenance required")
     manifest = {"schemaVersion": 1, "sequence": (previous or {}).get("sequence", 0) + 1,
                 "parentReleaseId": (previous or {}).get("releaseId"), "createdAt": now,
@@ -30,6 +48,8 @@ def prepare_release(contract, coverage, snapshot, app_revision, artifact, test_r
                 "collectionReceiptSha256": test_receipt.get("collectionReceiptSha256"),
                 "snapshot": snapshot, "artifact": artifact, "testReceiptSha256": digest(test_receipt),
                 "testProvenance": {"githubRunId": test_receipt.get("githubRunId"), "githubArtifactId": test_receipt.get("githubArtifactId")}}
+    if corrections:
+        manifest["factualCorrections"] = corrections
     return {**manifest, "releaseId": digest(manifest)}
 
 
@@ -40,10 +60,14 @@ def verify_acknowledgement(manifest, receipt):
     require(receipt.get("snapshotSha256") == manifest["snapshot"]["sha256"], "Deployed snapshot differs")
     require(receipt.get("artifactSha256") == manifest["artifact"]["sha256"], "Deployed artifact differs")
     require(receipt.get("contractSha256") == manifest["contractSha256"], "Deployed coverage contract differs")
+    if manifest.get("factualCorrections"):
+        require(receipt.get("factualCorrections") == manifest["factualCorrections"], "Deployed correction projection differs")
     return receipt
 
 
 def publish(store, contract, manifest, adapter, checkpoint=None):
+    from contracts import utcnow
+    verify_correction_publication(manifest.get("factualCorrections"), utcnow())
     require(contract["publication"]["enabled"] is True, "Production cutover is not enabled")
     require(adapter.production_paths_controlled(), "Competing production paths have not been closed")
     require(not getattr(adapter, "requires_remote_checkpoint", False) or checkpoint is not None, "Remote pre-promotion checkpoint required")
@@ -68,7 +92,9 @@ def publish(store, contract, manifest, adapter, checkpoint=None):
         if checkpoint:
             checkpoint()  # Remote evidence must survive a disk loss during promotion.
         try:
+            verify_correction_publication(manifest.get("factualCorrections"), utcnow())
             adapter.promote(deployment)
+            verify_correction_publication(manifest.get("factualCorrections"), utcnow())
             ack = verify_acknowledgement(manifest, adapter.probe_production())
         except Exception:
             if previous:
@@ -85,6 +111,7 @@ def publish(store, contract, manifest, adapter, checkpoint=None):
 
 def recover_publication(store, adapter):
     """Finish only a previously tested, journaled promotion after a worker crash."""
+    from contracts import utcnow
     with store.lock("production-publisher"):
         previous = store.read("heads/production.json")
         require(previous is not None, "No production baseline for recovery")
@@ -98,6 +125,18 @@ def recover_publication(store, adapter):
         require(manifest and staged and manifest["parentReleaseId"] == previous["releaseId"], "Production differs without a recoverable tested journal")
         require(digest({k: v for k, v in manifest.items() if k != "releaseId"}) == release_id, "Recovery manifest hash differs")
         verify_acknowledgement(manifest, live)
+        try:
+            # A crash can interrupt publish's post-promotion midnight check.
+            # Without a timely acknowledgement, a new correction cannot be
+            # accepted on a later day by recovery alone.
+            verify_correction_publication(manifest.get("factualCorrections"), utcnow())
+        except ValueError:
+            adapter.rollback(previous["deploymentId"])
+            restored = adapter.probe_production()
+            require(restored.get("ready") is True and restored.get("dataReleaseId") == previous["releaseId"], "ROLLBACK_NOT_ACKNOWLEDGED")
+            store.write_once(f"rollback-events/{release_id}.json", {"failedReleaseId": release_id,
+                             "restoredReleaseId": previous["releaseId"], "reason": "CORRECTION_RECOVERY_DATE_UNPROVEN"})
+            raise
         store.write_once(f"releases/{release_id}.json", {"manifest": manifest, "acknowledgement": live})
         head = {"releaseId": release_id, "sequence": manifest["sequence"], "deploymentId": staged["deploymentId"]}
         store.compare_and_swap("production", previous, head)

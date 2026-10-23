@@ -46,7 +46,11 @@ import dailyMarket from '../src/data/generated/dailyMarket.json' with { type: 'j
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
-import { correctionsJsonPayload, correctionsNewestFirst } from '../src/data/correctionHelpers.ts'
+import { correctionsNewestFirst } from '../src/data/correctionHelpers.ts'
+import { emptyCorrectionHistorySources, factualCorrectionFeedText, factualCorrectionHistory, publicCorrectionsJsonPayload } from '../src/data/factualCorrectionHelpers.ts'
+import type { CorrectionHistorySources } from '../src/data/factualCorrectionHelpers.ts'
+import { factualCorrectionBundle, factualCorrectionGroups, factualCorrectionSourceEvidenceIds } from '../src/data/tracker/correctionData.ts'
+import type { FactualCorrectionBundle, FactualCorrectionGroup } from '../src/data/tracker/factualCorrections.ts'
 import { corrections } from '../src/data/corrections.ts'
 import { evidenceById } from '../src/data/evidence.ts'
 import {
@@ -100,7 +104,7 @@ function xmlEscape(text: string): string {
  * `isPermaLink="false"` since their guid is an anchor on `/corrections/`,
  * not a standalone resource of its own.
  */
-export function buildFeedXml(issuesList: Issue[], correctionsList: Correction[] = []): string {
+export function buildFeedXml(issuesList: Issue[], correctionsList: Correction[] = [], factualGroups: readonly FactualCorrectionGroup[] = [], sources: CorrectionHistorySources = emptyCorrectionHistorySources): string {
   const publishedIssues = feedIssuesNewestFirst(issuesList)
 
   const issueItems = publishedIssues.map((issue) => {
@@ -128,7 +132,14 @@ export function buildFeedXml(issuesList: Issue[], correctionsList: Correction[] 
     </item>`
   })
 
-  const items = [...issueItems, ...correctionItems].join('\n')
+  const factualItems = factualCorrectionHistory(factualGroups, sources, SITE_URL).map((entry) => `    <item>
+      <title>${xmlEscape(`Source-verified factual correction: ${entry.supplierName}`)}</title>
+      <link>${xmlEscape(entry.url)}</link>
+      <guid isPermaLink="false">${xmlEscape(entry.url)}</guid>
+      <pubDate>${toRfc822(entry.date)}</pubDate>
+      <description>${xmlEscape(factualCorrectionFeedText(entry))}</description>
+    </item>`)
+  const items = [...issueItems, ...correctionItems, ...factualItems].join('\n')
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
@@ -147,11 +158,13 @@ export function writeFeedXml(
   issuesList: Issue[],
   correctionsList: Correction[],
   distDir: string,
+  factualGroups: readonly FactualCorrectionGroup[] = [],
+  sources: CorrectionHistorySources = emptyCorrectionHistorySources,
 ): { path: string; itemCount: number } {
-  const feed = buildFeedXml(issuesList, correctionsList)
+  const feed = buildFeedXml(issuesList, correctionsList, factualGroups, sources)
   const path = resolve(distDir, 'feed.xml')
   writeFileSync(path, feed)
-  return { path, itemCount: feedIssuesNewestFirst(issuesList).length + correctionsList.length }
+  return { path, itemCount: feedIssuesNewestFirst(issuesList).length + correctionsList.length + factualGroups.length }
 }
 
 /**
@@ -165,11 +178,20 @@ export function writeFeedXml(
 export function writeCorrectionsJson(
   correctionsList: Correction[],
   distDir: string,
+  factualGroups: readonly FactualCorrectionGroup[] = [],
+  sources: CorrectionHistorySources = emptyCorrectionHistorySources,
 ): { path: string; count: number } {
-  const payload = correctionsJsonPayload(correctionsList, SITE_URL)
+  const payload = publicCorrectionsJsonPayload(correctionsList, factualGroups, sources, SITE_URL)
   const path = resolve(distDir, 'corrections.json')
   writeFileSync(path, JSON.stringify(payload, null, 2))
   return { path, count: payload.length }
+}
+
+/** Full gate-produced projection, bound as a separate public release artifact. */
+export function writeFactualCorrectionsJson(bundle: FactualCorrectionBundle, distDir: string): string {
+  const path = resolve(distDir, 'factual-corrections.json')
+  writeFileSync(path, JSON.stringify(bundle, null, 2) + '\n')
+  return path
 }
 
 /** Writes dist/issues/<id>.json for every issue. Throws (does not exit) on an unresolved evidence id. */
@@ -250,7 +272,7 @@ if (isMainModule()) {
 
   let feedResult: { path: string; itemCount: number }
   try {
-    feedResult = writeFeedXml(issues, corrections, distDir)
+    feedResult = writeFeedXml(issues, corrections, distDir, factualCorrectionGroups, { evidence: evidenceById, suppliers: trackerSuppliers, groupEvidenceIds: factualCorrectionSourceEvidenceIds })
   } catch (error) {
     fail(error instanceof Error ? error.message : String(error))
   }
@@ -264,7 +286,8 @@ if (isMainModule()) {
   }
   console.log(`generate-feed OK: wrote ${jsonPaths.length} dist/issues/<id>.json file(s).`)
 
-  const correctionsResult = writeCorrectionsJson(corrections, distDir)
+  const correctionsResult = writeCorrectionsJson(corrections, distDir, factualCorrectionGroups, { evidence: evidenceById, suppliers: trackerSuppliers, groupEvidenceIds: factualCorrectionSourceEvidenceIds })
+  writeFactualCorrectionsJson(factualCorrectionBundle, distDir)
   console.log(
     `generate-feed OK: wrote dist/corrections.json with ${correctionsResult.count} entr${correctionsResult.count === 1 ? 'y' : 'ies'}.`,
   )
@@ -302,6 +325,7 @@ if (isMainModule()) {
       : []),
     { href: `${SITE_URL}/issues/lock.json`, title: 'Publication ledger (JSON)' },
     { href: `${SITE_URL}/corrections.json`, title: 'Corrections (JSON)' },
+    ...(factualCorrectionGroups.length ? [{ href: `${SITE_URL}/factual-corrections.json`, title: 'Factual correction records (JSON)' }] : []),
     { href: `${SITE_URL}/tracker.json`, title: 'Tracker (JSON)' },
   ]
 

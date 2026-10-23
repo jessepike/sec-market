@@ -43,6 +43,8 @@ def execute(root, request):
     manifest = {'mode': 'stage_only_smoke_test', 'appRevision': receipt['appRevision'],
                 'snapshot': inputs['snapshot'], 'artifact': inputs['artifact'],
                 'contractSha256': receipt['contractSha256']}
+    if inputs['snapshot'].get('factualCorrections'):
+        manifest['factualCorrections'] = inputs['snapshot']['factualCorrections']
     manifest['releaseId'] = digest({'previewOnly': manifest, 'gateReceipt': receipt})
     token = os.environ.pop('VERCEL_TOKEN', '')
     with PublisherAuth(root / 'auth', token) as auth:

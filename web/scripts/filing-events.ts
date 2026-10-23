@@ -2,7 +2,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { edgarRegistry } from '../src/data/edgarRegistry.ts'
-import { handCollectedEvents } from '../src/data/tracker/events.ts'
+import { effectiveHandCollectedEvents } from '../src/data/tracker/events.ts'
 import { debtExcerpt } from './sec-verify/debt-excerpt.mjs'
 import { quoteProblems } from './sec-verify/event-text.mjs'
 import type { TrackerEvent, TrackerEventType } from '../src/data/tracker/events.ts'
@@ -143,7 +143,7 @@ interface GeneratedEvidence {
 // AUTO-002 Phase 0: dedupe by supplier, date AND type. A same-day hand-collected
 // event of a different type (e.g. an acquisition announced alongside an officer
 // change in one 8-K) must not hide the filing's own tracked item.
-const existingEventKeys = new Set(handCollectedEvents.map((event) => `${event.supplierId}|${event.date}|${event.type}`))
+const existingEventKeys = new Set(effectiveHandCollectedEvents.map((event) => `${event.supplierId}|${event.date}|${event.type}`))
 
 async function main() {
   const previousEvents = JSON.parse(await readFile(EVENTS_OUTPUT_PATH, 'utf8')) as GeneratedEvent[]

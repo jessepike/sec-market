@@ -59,6 +59,8 @@ class VercelAdapter:
         receipt = {"ready": True, "appRevision": manifest["appRevision"], "dataReleaseId": manifest["releaseId"],
                    "snapshotSha256": manifest["snapshot"]["sha256"], "artifactSha256": manifest["artifact"]["sha256"],
                    "contractSha256": manifest["contractSha256"]}
+        if manifest.get("factualCorrections"):
+            receipt["factualCorrections"] = manifest["factualCorrections"]
         files = stage_files(self.store, manifest["artifact"], receipt)
         with tempfile.TemporaryDirectory(prefix="smp-prebuilt-") as directory:
             root = Path(directory)

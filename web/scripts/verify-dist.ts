@@ -16,7 +16,10 @@ import assert from 'node:assert/strict'
 import { existsSync, readFileSync } from 'node:fs'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
-import { correctionsJsonPayload } from '../src/data/correctionHelpers.ts'
+import { emptyCorrectionHistorySources, factualCorrectionFeedText, factualCorrectionHistory, publicCorrectionsJsonPayload } from '../src/data/factualCorrectionHelpers.ts'
+import type { CorrectionHistorySources } from '../src/data/factualCorrectionHelpers.ts'
+import { factualCorrectionBundle, factualCorrectionGroups, factualCorrectionSourceEvidenceIds } from '../src/data/tracker/correctionData.ts'
+import type { FactualCorrectionBundle, FactualCorrectionGroup } from '../src/data/tracker/factualCorrections.ts'
 import { corrections } from '../src/data/corrections.ts'
 import { evidenceById } from '../src/data/evidence.ts'
 import {
@@ -179,6 +182,8 @@ export function checkIssuesIndexJsonExists(distDir: string, issuesList: Issue[])
 interface FeedItem {
   guid: string
   pubDate: string
+  title: string
+  description: string
 }
 
 type XmlNode =
@@ -487,7 +492,11 @@ function extractFeedItems(xml: string): FeedItem[] {
     if (!pubDateEl) {
       throw new Error(`dist/feed.xml <item> block ${index} has no <pubDate>`)
     }
-    return { guid: elementText(guidEl).trim(), pubDate: elementText(pubDateEl).trim() }
+    return {
+      guid: elementText(guidEl).trim(), pubDate: elementText(pubDateEl).trim(),
+      title: htmlUnescapeAttr(elementText(childElement(item, 'title') ?? { type: 'text', value: '' })),
+      description: htmlUnescapeAttr(elementText(childElement(item, 'description') ?? { type: 'text', value: '' })),
+    }
   })
 }
 
@@ -500,6 +509,8 @@ export function checkFeedXmlExistsAndParses(
   distDir: string,
   issuesList: Issue[],
   correctionsList: Correction[] = [],
+  factualGroups: readonly FactualCorrectionGroup[] = [],
+  sources: CorrectionHistorySources = emptyCorrectionHistorySources,
 ): CheckResult {
   return runCheck('11d feed-xml-exists-and-parses', () => {
     const path = resolve(distDir, 'feed.xml')
@@ -561,15 +572,17 @@ export function checkFeedXmlExistsAndParses(
     // --- Correction items (SEC-MARKET-FABLE-001 T6-13): same discipline as
     // above — exact count, exact guid set, and per-item pubDate identity —
     // applied to the separate, appended set of correction <item>s. ---------
-    if (correctionParsedItems.length !== correctionsList.length) {
+    const factual = factualCorrectionHistory(factualGroups, sources, SITE_URL)
+    const allCorrections = [...correctionsList, ...factual]
+    if (correctionParsedItems.length !== allCorrections.length) {
       throw new Error(
-        `dist/feed.xml has ${correctionParsedItems.length} correction <item> element(s), expected exactly one per correction (${correctionsList.length})`,
+        `dist/feed.xml has ${correctionParsedItems.length} correction <item> element(s), expected exactly one per correction (${allCorrections.length})`,
       )
     }
 
-    const correctionById = new Map(correctionsList.map((correction) => [correction.id, correction]))
+    const correctionById = new Map(allCorrections.map((correction) => [correction.id, correction]))
     const expectedCorrectionGuids = new Set(
-      correctionsList.map((correction) => `${SITE_URL}/corrections/#${correction.id}`),
+      allCorrections.map((correction) => `${SITE_URL}/corrections/#${correction.id}`),
     )
     const actualCorrectionGuids = new Set(correctionParsedItems.map((item) => item.guid))
     const missingCorrectionGuids = [...expectedCorrectionGuids].filter(
@@ -592,6 +605,10 @@ export function checkFeedXmlExistsAndParses(
         throw new Error(`dist/feed.xml correction item guid "${item.guid}" does not map to a known correction id`)
       }
       const expectedPubDate = toRfc822(correction.date)
+      if ('kind' in correction) {
+        assert.equal(item.title, `Source-verified factual correction: ${correction.supplierName}`, 'factual correction feed title differs')
+        assert.equal(item.description, factualCorrectionFeedText(correction), 'factual correction feed description differs')
+      }
       if (item.pubDate !== expectedPubDate) {
         throw new Error(
           `dist/feed.xml correction item "${item.guid}" pubDate is "${item.pubDate}", expected "${expectedPubDate}" ` +
@@ -813,7 +830,7 @@ export function checkAlternateLinksResolve(distDir: string, issuesList: Issue[])
  * `correctionsJsonPayload` builds from the source `corrections` array — the
  * same identity discipline check 11b applies to each issue's JSON copy.
  */
-export function checkCorrectionsJsonExists(distDir: string, correctionsList: Correction[]): CheckResult {
+export function checkCorrectionsJsonExists(distDir: string, correctionsList: Correction[], factualGroups: readonly FactualCorrectionGroup[] = [], sources: CorrectionHistorySources = emptyCorrectionHistorySources): CheckResult {
   return runCheck('11i corrections-json-exists', () => {
     const path = resolve(distDir, 'corrections.json')
     if (!existsSync(path)) {
@@ -823,7 +840,7 @@ export function checkCorrectionsJsonExists(distDir: string, correctionsList: Cor
     if (!Array.isArray(parsed)) {
       throw new Error('dist/corrections.json does not parse to an array')
     }
-    const expected = JSON.parse(JSON.stringify(correctionsJsonPayload(correctionsList, SITE_URL)))
+    const expected = JSON.parse(JSON.stringify(publicCorrectionsJsonPayload(correctionsList, factualGroups, sources, SITE_URL)))
     try {
       assert.deepStrictEqual(parsed, expected)
     } catch (error) {
@@ -834,6 +851,15 @@ export function checkCorrectionsJsonExists(distDir: string, correctionsList: Cor
       )
     }
     return `${parsed.length} correction(s) present, well-formed, and identity-checked`
+  })
+}
+
+export function checkFactualCorrectionsJsonExists(distDir: string, bundle: FactualCorrectionBundle): CheckResult {
+  return runCheck('11k factual-corrections-json-exists', () => {
+    const path = resolve(distDir, 'factual-corrections.json')
+    if (!existsSync(path)) throw new Error('dist/factual-corrections.json is missing')
+    assert.equal(readFileSync(path, 'utf8'), JSON.stringify(bundle, null, 2) + '\n', 'factual correction bundle bytes differ from admitted projection')
+    return `${bundle.groups.length} group(s) match the gate projection`
   })
 }
 
@@ -880,7 +906,7 @@ function isMainModule(): boolean {
   return process.argv[1] !== undefined && pathToFileURL(process.argv[1]).href === import.meta.url
 }
 
-const EXPECTED_CHECK_COUNT = 10
+const EXPECTED_CHECK_COUNT = 11
 
 export function report(results: CheckResult[]): boolean {
   if (results.length !== EXPECTED_CHECK_COUNT) {
@@ -908,12 +934,13 @@ if (isMainModule()) {
       checkEveryRouteHtmlExists(distDir, issues),
       checkEveryIssueJsonExists(distDir, issues, evidenceById),
       checkIssuesIndexJsonExists(distDir, issues),
-      checkFeedXmlExistsAndParses(distDir, issues, corrections),
+      checkFeedXmlExistsAndParses(distDir, issues, corrections, factualCorrectionGroups, { evidence: evidenceById, suppliers: trackerSuppliers, groupEvidenceIds: factualCorrectionSourceEvidenceIds }),
       checkSitemapXmlListsEveryRoute(distDir, issues),
       checkLockJsonMatchesSource(distDir, SOURCE_LOCK_PATH),
       checkRouteDescriptionMeta(distDir, issues),
       checkAlternateLinksResolve(distDir, issues),
-      checkCorrectionsJsonExists(distDir, corrections),
+      checkCorrectionsJsonExists(distDir, corrections, factualCorrectionGroups, { evidence: evidenceById, suppliers: trackerSuppliers, groupEvidenceIds: factualCorrectionSourceEvidenceIds }),
+      checkFactualCorrectionsJsonExists(distDir, factualCorrectionBundle),
       checkTrackerJsonExists(distDir, trackerSuppliers, trackerDomains, evidenceById, runStatus),
     ]
     const anyFail = report(results)

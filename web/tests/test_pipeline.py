@@ -244,7 +244,7 @@ class PipelineTests(unittest.TestCase):
             # by runner death before the external dispatch begins.
             saved.extend(p.read_text() for p in self.store.root.glob("heads/gate-budget-*.json"))
             raise RuntimeError("runner terminated")
-        with patch("release.VercelAdapter") as adapter, patch("release.recover_publication", return_value={"releaseId": "old"}), patch("release.dispatch_gate") as dispatch:
+        with patch("release.VercelAdapter") as adapter, patch("release.recover_publication", return_value={"releaseId": "old"}), patch("release.dispatch_gate") as dispatch, patch("release.preflight_corrections"):
             adapter.return_value.production_paths_controlled.return_value = True
             with self.assertRaisesRegex(RuntimeError, "runner terminated"):
                 release_daily(self.store, self.c, {}, "b" * 40, {"vercel": {"project_id": "fixture"}}, checkpoint)

@@ -121,5 +121,32 @@ class InitialPublicationTests(unittest.TestCase):
             self.assertIn("INDEPENDENT_PROBE_FAILED", reasons)
 
 
+class CorrectionCollectionTests(unittest.TestCase):
+    def setUp(self):
+        self.context = {"policySha256": "p", "requests": {"groups": [{"id": "one"}, {"id": "two"}]}}
+        self.outcome = {"runId": "daily", "policySha256": "p", "pending": [], "admitted": [{"groupId": "one"}, {"groupId": "two"}]}
+        self.entries = {"heads/correction-collection.json": {"runId": "daily", "outcome": {"key": "correction"}}, "correction": self.outcome}
+
+    def inspect(self):
+        return probe.inspect_corrections(self.context, lambda key, **kw: self.entries[key], "daily")
+
+    def test_complete_correction_inventory_has_its_own_green_check(self):
+        self.assertEqual(self.inspect(), [])
+
+    def test_pending_and_input_error_cannot_be_hidden_by_source_success(self):
+        self.outcome["pending"] = [{"groupId": "two", "reason": "held"}]
+        self.assertEqual(self.inspect(), ["FACTUAL_CORRECTIONS_PENDING_1"])
+        self.outcome.update(pending=[], error="invalid input")
+        self.assertEqual(self.inspect(), ["FACTUAL_CORRECTION_INPUT_ERROR"])
+
+    def test_stale_policy_missing_or_duplicate_admissions_are_detected(self):
+        self.outcome["admitted"] = [{"groupId": "one"}, {"groupId": "one"}]
+        self.assertEqual(self.inspect(), ["FACTUAL_CORRECTION_ADMISSIONS_INCOMPLETE"])
+        self.outcome["policySha256"] = "old"
+        self.assertEqual(self.inspect(), ["CORRECTION_COLLECTION_POLICY_OR_RUN_DIFFERS"])
+        del self.entries["heads/correction-collection.json"]
+        self.assertEqual(self.inspect(), ["FACTUAL_CORRECTION_COLLECTION_MISSING_OR_INVALID"])
+
+
 if __name__ == "__main__":
     unittest.main()

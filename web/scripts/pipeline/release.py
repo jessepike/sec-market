@@ -34,6 +34,16 @@ def import_gate(store, authority, run_id, artifact_id, expected_archive):
         require(store.put(build) == inputs["artifact"]["archive"], "Gate build transport hash differs")
         require(store.put(inventory(fields)) == inputs["artifact"]["inventory"], "Gate tested file inventory differs")
         require(digest(inventory(fields)) == inputs["artifact"]["sha256"], "Gate payload digest differs")
+        corrections = inputs["snapshot"].get("factualCorrections")
+        require(corrections == receipt.get("factualCorrections"), "CORRECTION_GATE_RECEIPT_DIFFERS")
+        if corrections:
+            body = fields.get("static/factual-corrections.json")
+            require(body is not None and digest(body) == corrections["fileSha256"], "CORRECTION_GATE_PUBLIC_BYTES_DIFFER")
+            public = json.loads(body)
+            require(public.get("enabled") is True and public.get("policySha256") == corrections["policySha256"]
+                    and [g["id"] for g in public["groups"]] == corrections["groupIds"]
+                    and [t["targetId"] for g in public["groups"] for t in g["targets"]] == corrections["targetIds"],
+                    "CORRECTION_GATE_PUBLIC_INVENTORY_DIFFERS")
         raw = archive.read("snapshot.json")
         reference = store.put(raw)
         require(all(inputs["snapshot"].get(k) == v for k, v in reference.items()), "Gate snapshot bytes differ")
@@ -74,6 +84,24 @@ def dispatch_gate(store, archive, revision, authority, runner=subprocess.run):
     raise TimeoutError("Independent release gate did not finish within its budget")
 
 
+def preflight_corrections(repo, store, contract, collection_run_id, previous_manifest, now):
+    """Pending reviews must not consume a scarce gate/publication attempt."""
+    if not (Path(repo) / "contracts/factual-corrections.json").exists():
+        return
+    from corrections import project_bundle
+    latest = store.read("heads/correction-collection.json")
+    require(latest and latest.get("runId") == collection_run_id, "CURRENT_CORRECTION_COLLECTION_REQUIRED")
+    outcome = json.loads(store.get(latest["outcome"]))
+    require(outcome.get("runId") == collection_run_id, "CORRECTION_COLLECTION_RUN_DIFFERS")
+    previous_bundle = None
+    if previous_manifest:
+        files = unpack(store.get(previous_manifest["artifact"]["archive"]))
+        require(digest(inventory(files)) == previous_manifest["artifact"]["sha256"], "Previous correction baseline artifact differs")
+        if "static/factual-corrections.json" in files:
+            previous_bundle = json.loads(files["static/factual-corrections.json"])
+    project_bundle(repo, store, contract, outcome, previous_bundle=previous_bundle, publication_at=now)
+
+
 def release_daily(store, contract, archive, revision, config, checkpoint):
     if not contract["publication"]["enabled"]:
         return {"published": False, "reason": "INITIAL_CUTOVER_NOT_ENABLED"}
@@ -86,6 +114,8 @@ def release_daily(store, contract, archive, revision, config, checkpoint):
     already = store.read(f"releases/{previous['releaseId']}.json")
     if already and already["manifest"].get("collectionReceiptSha256") == latest["receipt"]["sha256"] and already["manifest"]["appRevision"] == revision:
         return {"published": False, "reason": "EXACT_COLLECTION_AND_CODE_ALREADY_ACKNOWLEDGED", "releaseId": previous["releaseId"]}
+    preflight_corrections(Path(__file__).resolve().parents[3], store, contract, latest.get("runId"),
+                          already["manifest"] if already else None, utcnow())
     authority = GitHubAuthority()
     day = datetime.now(timezone.utc).date().isoformat()
     with store.lock("daily-release-controller"):

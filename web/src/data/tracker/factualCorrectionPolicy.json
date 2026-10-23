@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "policySha256": "e0bf81c44037981c769c744f87e112b2881135402c12e97862416c41fe185a4f",
+  "groupIds": [
+    "FC-20261023-checkpoint-sase",
+    "FC-20261023-optiv",
+    "FC-20261023-splunk",
+    "FC-20261023-zscaler",
+    "FC-20261023-expel"
+  ],
+  "targetIds": [
+    "event:EV-checkpoint-2",
+    "evidence:TR-checkpoint-4",
+    "event:EV-optiv-2",
+    "evidence:TR-optiv-3",
+    "event:EV-splunk-1",
+    "evidence:TR-splunk-2",
+    "event:EV-zscaler-2",
+    "evidence:TR-zscaler-4",
+    "supplier:expel:lastRound",
+    "supplier:expel:ownership",
+    "evidence:TR-expel-2"
+  ],
+  "sourceEvidenceIds": {
+    "FC-20261023-checkpoint-sase": [
+      "TR-checkpoint-4",
+      "TR-checkpoint-5"
+    ],
+    "FC-20261023-optiv": [
+      "TR-optiv-3"
+    ],
+    "FC-20261023-splunk": [
+      "TR-splunk-2"
+    ],
+    "FC-20261023-zscaler": [
+      "TR-zscaler-4",
+      "TR-zscaler-6"
+    ],
+    "FC-20261023-expel": [
+      "TR-expel-1",
+      "TR-expel-2"
+    ]
+  }
+}
