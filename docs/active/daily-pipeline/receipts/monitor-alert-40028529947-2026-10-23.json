@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "kind": "actual_scheduled_monitor_and_alert_receipt",
+  "githubRunId": "40028529947",
+  "event": "schedule",
+  "conclusion": "failure",
+  "result": {
+    "healthy": false,
+    "checkedAt": "2026-10-23T21:41:09.823523Z",
+    "runId": "e054ea73c89fe78db9702f94d2a3b669ce91884f7d7abda0a88698dbcfc7ec50",
+    "reasons": [
+      "OVERDUE_OR_INCOMPLETE_COVERAGE",
+      "PUBLIC_COVERAGE_INCOMPLETE_OR_OVERDUE",
+      "OWNER_REVIEW_QUEUE_28"
+    ],
+    "publicationEnabled": true,
+    "scheduledRunUrl": "https://github.com/jessepike/sec-market/actions/runs/39954446259",
+    "successfulTasks": 121,
+    "requiredTasks": 557,
+    "notification": {
+      "delivery": "github_issue_updated",
+      "url": "https://github.com/jessepike/sec-market/issues/10",
+      "number": 10,
+      "state": "open",
+      "notificationTransport": "GitHub account notification settings"
+    }
+  },
+  "logSha256": "3ac70fc6af0a9bfdd1cf05b80eb068cf786ccacb441f320806f386d1b13d9cc4",
+  "diagnosis": "Actual monitor intentionally remains unhealthy for known source gaps and held claims; no new collector identity, schedule, execution, artifact or production-pair fault was reported.",
+  "ownerQueueLabelLimit": "OWNER_REVIEW_QUEUE_28 is the existing monitor reason for the held claim queue. It does not establish that the owner must make a factual judgment; public-evidence investigation remains agent-owned.",
+  "notificationLimit": "GitHub issue delivery is verified. Phone/email delivery depends on GitHub account notification settings and is not proven by this receipt.",
+  "collectionAttempted": false,
+  "publicationAttempted": false,
+  "quotaChanges": false
+}

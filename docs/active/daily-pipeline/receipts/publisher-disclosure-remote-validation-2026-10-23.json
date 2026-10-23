@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 1,
+  "kind": "actual_publisher_disclosure_candidate_remote_validation",
+  "checkedAt": "2026-10-23T22:02:52.753925+00:00",
+  "candidateAppRevision": "312285fe24b1e3e2f44bc79b4ab807118078183f",
+  "github": {
+    "web": {
+      "runId": "40030255311",
+      "event": "push",
+      "conclusion": "success",
+      "dataChecksPassed": 349,
+      "pipelineChecksPassed": 112,
+      "browserChecksPassed": 38
+    },
+    "runtimeCanary": {
+      "runId": "40030255492",
+      "event": "push",
+      "conclusion": "success",
+      "operationalTestsRun": 379,
+      "operationalTestsPassed": 378,
+      "operationalTestsSkipped": 1,
+      "skipReason": "The pinned historical archive is absent on CI. All379 operational cases passed locally; actual retained-byte replays are separate.",
+      "archive": {
+        "commit": "704ea55e86eb1582b0619b3719b167191fa74da4",
+        "manifestSha256": "78bb006ddc399c707ce255bb7b8c2d84d3c69b4be293f7f1c2332af2514ec5ac",
+        "files": 25780
+      },
+      "modelCalls": 0,
+      "archiveChanged": false,
+      "sourceProbeOnly": true
+    }
+  },
+  "vercelPreview": {
+    "deploymentId": "dpl_Eq8jibgSiSqAUhmd6jEQUW3zogFr",
+    "state": "READY",
+    "appRevision": "312285fe24b1e3e2f44bc79b4ab807118078183f",
+    "immutableUrl": "https://security-market-pulse-q0hwdcoj0-pikeholdings.vercel.app",
+    "stableUrl": "https://security-market-pulse-git-preview-pikeholdings.vercel.app",
+    "publicFactualCorrectionsEnabled": false
+  },
+  "visualReview": {
+    "widths": [
+      1440,
+      390
+    ],
+    "agentInspectedCurrentLocalAndSyntheticImages": true,
+    "agentInspectedChangedHostedRegion": true,
+    "ownerApprovalClaimed": false,
+    "images": {
+      "tested-build-1440.png": {
+        "sha256": "86fae1defd6c95807d81c7bae72f1355195404f96fac8eea41571a9df0afe3ed",
+        "sameAsPreviousCI": true
+      },
+      "tested-build-390.png": {
+        "sha256": "e59f56c9641b85cb6e289b047ee42698d45ddbc74c8da3f0dd981d98881b682d",
+        "sameAsPreviousCI": true
+      },
+      "production-1440.png": {
+        "sha256": "2cdee7135749e81042285e86f597690c24b5548c704bd50db8a4479258e2b3e7",
+        "sameAsPreviousCI": true
+      },
+      "production-390.png": {
+        "sha256": "ce65fab09607606c1de60b164666174ccfbdaf1ca51c1a5d8e4cb39d953e6fd1",
+        "sameAsPreviousCI": false
+      }
+    },
+    "visibleLayoutChanges": false,
+    "mobileProductionComparison": {
+      "sameDimensions": [
+        390,
+        7714
+      ],
+      "differentPixels": 631,
+      "differenceBoundingBox": [
+        29,
+        4498,
+        145,
+        4509
+      ],
+      "region": "Native mobile domain selector selected text: Endpoint and XDR (6).",
+      "observedDifference": "Text paint/underline differs; wording, geometry and all pixels outside this small region are identical.",
+      "causeEstablished": false
+    },
+    "comparisonLimit": "Preview retains earlier committed 0/557 coverage and an older event window; production retains 121/557. Identical prior CI bytes do not establish fresh source work."
+  },
+  "production": {
+    "appRevision": "7bd94ec77e99462c068f254e134235a894585cbb",
+    "dailyRunId": "e054ea73c89fe78db9702f94d2a3b669ce91884f7d7abda0a88698dbcfc7ec50",
+    "snapshotSha256": "53b49106fa9118d603db5e64e37cf03f7f2c6fd1fb797acf18e73f540196c84f",
+    "successfulTasks": 121,
+    "requiredTasks": 557,
+    "checkedAt": "2026-10-23T11:38:59.377139Z",
+    "correctionsApplied": false
+  },
+  "receipts": {
+    "publisher-disclosure-web-run-2026-10-23.json": "028329ceee85402cc5ba458cdbc4dde2df9f6018d4be5e277b5dda5576e82c4d",
+    "publisher-disclosure-runtime-run-2026-10-23.json": "3e4bc9bbd23898901e1c61bad74819a83c0c9dbbc46602c1c3bfbced627c6724",
+    "publisher-disclosure-runtime-canary-2026-10-23.json": "2fce84007e5a9b0150d8a134d09bceb14718ec56ed8c2095e411a86fa398d36c",
+    "publisher-disclosure-production-app-check-2026-10-23.json": "2c44353acc1251e825fcd3cd13a74658238256ffb1f1fe368ee9037cfbb2d48c",
+    "monitor-run-40028529947-2026-10-23.json": "8bf012519efc3b51b9de55716f93d5f51c27b8eeb3a3531c9ed2ba6a04005478",
+    "monitor-alert-40028529947-2026-10-23.json": "b7131475bc146ef3c435ce1e051e08e55cb13b61601548351f3dd939fa784257"
+  },
+  "logs": {
+    "actual-monitor-40028529947.log": "3ac70fc6af0a9bfdd1cf05b80eb068cf786ccacb441f320806f386d1b13d9cc4",
+    "web.log": "9fc19c6e3d32ef3e2762cefda8a1aada8619b85b08c7b4db0eb277d76ee5bc44",
+    "runtime-canary.log": "8d214506791eafde9ee7a11849a1e3f7c580dd8da3b819b3971d671258e4ef3f"
+  },
+  "semanticAdmission": false,
+  "collectionAttempted": false,
+  "publicationAttempted": false,
+  "quotaChanges": false,
+  "sourcesActivated": 0,
+  "qualifiedSources": 0,
+  "limitations": [
+    "Preview and synthetic validation do not admit or publish a correction.",
+    "Production remains121/557. The separate canary connectivity probe adds no coverage credit.",
+    "Real quota-respecting review, full independent gate and actual scheduled production receipts are pending.",
+    "One native mobile selector text-rendering variation is documented; its cause is not independently established."
+  ],
+  "candidateCorrections": {
+    "groups": 6,
+    "targets": 12,
+    "originalFiveGroupsAndReviewHashesUnchanged": true,
+    "roleReviewScope": "publisher_disclosure_only",
+    "globalPolicySha256": "dd6330cf9626897d81267e889822550c3c8f5f5f7dc3b6be320139818dff2f58"
+  },
+  "latestActualMonitor": {
+    "runId": "40028529947",
+    "event": "schedule",
+    "conclusion": "failure",
+    "githubIssue": 10,
+    "delivery": "github_issue_updated",
+    "reasons": [
+      "OVERDUE_OR_INCOMPLETE_COVERAGE",
+      "PUBLIC_COVERAGE_INCOMPLETE_OR_OVERDUE",
+      "OWNER_REVIEW_QUEUE_28"
+    ],
+    "newExecutionFailureReported": false
+  }
+}
