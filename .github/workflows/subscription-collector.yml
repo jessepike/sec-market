@@ -4,6 +4,8 @@ name: bounded subscription collector
 on:
   schedule:
     - cron: '17 5 * * *'
+    # Temporary actual scheduler acceptance. The UTC guard prevents yearly reuse.
+    - cron: '7 6 23 10 *'
   push:
     branches: [preview]
     paths: ['ops/ci/collection-request.json']
@@ -15,8 +17,27 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  collect-and-reconcile:
+  schedule-guard:
     if: github.repository == 'jessepike/sec-market' && github.event.repository.private == true && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[collect-account]'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    permissions:
+      contents: read
+    outputs:
+      allowed: ${{ steps.guard.outputs.allowed }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - id: guard
+        name: Restrict the temporary scheduler acceptance to its UTC date
+        env:
+          SMP_EVENT_NAME: ${{ github.event_name }}
+          SMP_EVENT_SCHEDULE: ${{ github.event.schedule }}
+        run: python3 ops/ci/schedule_guard.py
+  collect-and-reconcile:
+    needs: schedule-guard
+    if: needs.schedule-guard.outputs.allowed == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 35
     permissions:
