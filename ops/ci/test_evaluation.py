@@ -3,9 +3,11 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
-from scorecard import digest, evaluate, load_pinned, markdown, plan_run
+import sys
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / 'ops/evaluation'))
+from scorecard import digest, evaluate, load_pinned, markdown, plan_run
 
 
 class ScorecardTests(unittest.TestCase):

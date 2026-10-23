@@ -15,7 +15,7 @@ from pathlib import Path
 
 from artifacts import build_artifact, unpack, inventory
 from contracts import canonical, digest, require, utcnow, validate_contract
-from snapshot import build_snapshot
+from snapshot import build_snapshot, collector_continuity
 from storage import LocalStore
 from validation import reconcile
 
@@ -29,6 +29,9 @@ def prepare_data(repo, store, destination):
     archived = [store.read(f"runs/{coverage['runId']}/attempts/{r['attemptId']}.json") for r in coverage["receipts"]]
     require(archived == coverage["receipts"], "Worker summary differs from archived receipts")
     verified = reconcile(plan, archived, contract, utcnow(), store)
+    collector=store.read('heads/dailySnapshot.json') or store.read('heads/cloud-snapshot.json')
+    require(collector is not None, 'Archived collector continuity missing')
+    continuity=collector_continuity(collector,contract,coverage,store)
     previous = json.loads((repo / "web/src/data/generated/dailyMarket.json").read_text())
     production = store.read("heads/production.json")
     if production and not production.get("legacyBaseline"):
@@ -44,7 +47,7 @@ def prepare_data(repo, store, destination):
         # Compare with what is actually deployed, rather than main's older
         # committed data, when deciding whether a certified value changed.
         (repo / "web/src/data/generated/certifiedCoverage.json").write_bytes(files["static/certified-coverage.json"])
-    snapshot = build_snapshot(contract, plan, verified, store, utcnow(), previous=previous)
+    snapshot = build_snapshot(contract, plan, verified, store, utcnow(), previous=previous,continuity=continuity)
     raw = (json.dumps(snapshot, indent=2, ensure_ascii=False) + "\n").encode()
     target = repo / "web/src/data/generated/dailyMarket.json"
     target.write_bytes(raw)
