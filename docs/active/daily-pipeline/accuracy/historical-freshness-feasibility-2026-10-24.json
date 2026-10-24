@@ -1,0 +1,2608 @@
+{
+  "schemaVersion": 1,
+  "id": "SEC-MARKET-HISTORICAL-FRESHNESS-FEASIBILITY-20261024",
+  "evaluatedAt": "2026-10-24T02:46:17.178535Z",
+  "status": "read_only_feasibility_no_policy_change",
+  "conclusion": "All 9914 retained source/URL contexts need successful transport within 30h for strict full-source success; they do not all need new model work. The regular scheduled selection cannot keep any of the 17 full inventories fresh, and even ideal raw sharing cannot sustain all 17 within the 5500/day fetch cap.",
+  "ownerDecisionBoundary": "No new permission is needed to continue accepted repairs or honestly degraded collection. A change in what whole-source success means needs an explicit owner policy decision; this audit changes no meaning, scope, 557 denominator or allowance.",
+  "inputs": {
+    "market": {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/contracts/market.json",
+      "sha256": "327e52fdab4f97d3f0d628978501aa7197b31ddadb4006d16d3f776a8acb47c0",
+      "bytes": 279411
+    },
+    "acceptedBoundedDelta": {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/bounded-delta-2026-10-22.md",
+      "sha256": "ab7daef4ab48964d027de6599ddbdc85e1369019fe09fdec3f1fa700a0d4dd79",
+      "bytes": 4108
+    },
+    "retainedRebindingAudit": {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/retained-audit-rebinding-spec-2026-10-24.json",
+      "sha256": "47573b70c9d6a2d84632be55464b0bf5530328f41803f8b02f74edac82852566",
+      "bytes": 125644
+    },
+    "coverage": {
+      "receipt": {
+        "bytes": 506366,
+        "key": "objects/dd2b9964d49530c86429d5278a393f63ca8ecae9c35208b2b2ff45cafb1c5f35",
+        "sha256": "dd2b9964d49530c86429d5278a393f63ca8ecae9c35208b2b2ff45cafb1c5f35"
+      },
+      "runId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+      "checkedAt": "2026-10-24T00:38:18.811621Z",
+      "contractSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+      "inventorySha256": "7b7823e4aac8d07689cc99e0b8a0363c7f100550d973ce026bb9df8b34ae5a95",
+      "requiredTasks": 557,
+      "successfulTasks": 244,
+      "complete": false
+    },
+    "codePins": [
+      {
+        "path": "web/scripts/pipeline/engine.py",
+        "sha256": "69b90ae23e0de66a0664e9337e24ef8ca0762311cadf8bc3f250c4a55b56b2e0",
+        "bytes": 45429
+      },
+      {
+        "path": "web/scripts/pipeline/validation.py",
+        "sha256": "cc0502c6badc58b0070f18adb1e337b4ae5e2252a34d8c6841cbb341512d3b42",
+        "bytes": 35415
+      },
+      {
+        "path": "web/scripts/pipeline/selection.py",
+        "sha256": "2842220d94dbbed5cab6fb198dc59d4d34732b2d74dbffa7e547d31ed0b54858",
+        "bytes": 3451
+      },
+      {
+        "path": "web/scripts/pipeline/retained_audit.py",
+        "sha256": "6e6d75cea50b174a765adaa4c895b06895835c21668353fcfc224e68740c87f7",
+        "bytes": 30041
+      },
+      {
+        "path": "web/scripts/pipeline/fetcher.py",
+        "sha256": "39841fa08861d0155de2b71faa8b8e06d393d205bd1aa5ea627091d9ed46f026",
+        "bytes": 5747
+      },
+      {
+        "path": "web/scripts/pipeline/contracts.py",
+        "sha256": "6f5f9056bc22ce59c45579951fd351c0c041d3a234e67226bc217429cc9004f0",
+        "bytes": 7899
+      }
+    ]
+  },
+  "archive": {
+    "commit": "b9f1208bd9e957bee5cca2c0b4db28a4fc1fa63f",
+    "verifiedGitArchiveManifestSha256": "5480056315f07d6c6be4e66d5f9a643437d020eb039f2d51fe378ad70803c9bb",
+    "root": "/var/tmp/smp-renewal-20261024/archive-b9f1208b/jessepike-sec-market-b9f1208bd9e957bee5cca2c0b4db28a4fc1fa63f/state",
+    "before": {
+      "files": 31048,
+      "sizeMtimeContentSealSha256": "9748436e638241a3178bfb8baddb68067a46ec6cc4b0883bbad700f1198b2f5f"
+    },
+    "after": {
+      "files": 31048,
+      "sizeMtimeContentSealSha256": "9748436e638241a3178bfb8baddb68067a46ec6cc4b0883bbad700f1198b2f5f"
+    },
+    "unchanged": true
+  },
+  "limits": {
+    "collection": {
+      "mode": "delta_with_retained_audit",
+      "currentWindowDays": 30,
+      "maxDocumentsPerSource": 2,
+      "maxAuditDocumentsPerSource": 1
+    },
+    "model": {
+      "provider": "codex_subscription",
+      "allowApiBilling": false,
+      "maxDocumentsPerRun": 40,
+      "maxCallsPerRun": 80,
+      "maxDocumentChars": 30000,
+      "timeoutSeconds": 180
+    },
+    "schedule": {
+      "intervalHours": 24,
+      "overdueHours": 30,
+      "reconcileEveryRun": true,
+      "collectionCron": "17 5 * * *",
+      "publicationCron": "23 6,16 * * *",
+      "maxWorkers": 4,
+      "maxFetchesPerRun": 5500
+    },
+    "interpretation": "maxDocumentsPerSource and maxAuditDocumentsPerSource are selection bounds per invocation, not a separate persistent per-source daily ledger. Daily model/document/fetch ledgers are persistent. More forced invocations are technically possible but do not prove an authorized regular operating solution or change sustained fetch arithmetic."
+  },
+  "sources": [
+    {
+      "sourceId": "proofpoint:official:1",
+      "supplierId": "proofpoint",
+      "name": "Proofpoint",
+      "family": "official_announcements",
+      "sourceUrl": "https://www.proofpoint.com/us/sitemap.xml",
+      "allowedHosts": [
+        "www.proofpoint.com"
+      ],
+      "inventoryCount": 212,
+      "inventorySha256": "3fedf2721241f31d55514c539cf9b223532c161f024e9abb024e1fe900957912",
+      "currentSchedulingDue": 1,
+      "oldOrUndatedAuditDue": 210,
+      "retainedNotDue": 1,
+      "selectedDue": 2,
+      "deferredDue": 209,
+      "optimisticInvocationsAtTwoForUnresolved": 106,
+      "frozenClassificationScheduledInvocationLowerBound": 210,
+      "articleTransportRequestsPer30hCurrent": 212,
+      "minimumAverageArticleFetchesPer24h": "848/5",
+      "actualDiscoveryResponses": 6,
+      "itemManifest": {
+        "bytes": 26622,
+        "key": "objects/7eb69a2a18051228dabcba33138440a3ff5efcbf7b67e56d0d7eb15751525a6a",
+        "sha256": "7eb69a2a18051228dabcba33138440a3ff5efcbf7b67e56d0d7eb15751525a6a"
+      },
+      "priorAuditInventory": {
+        "bytes": 26203,
+        "key": "objects/07fa8238445f7ff0cbfcab93dc64ef1ef903f7f678bc4418c0e87d0ce675479c",
+        "sha256": "07fa8238445f7ff0cbfcab93dc64ef1ef903f7f678bc4418c0e87d0ce675479c"
+      },
+      "latestPendingManifest": {
+        "bytes": 26278,
+        "key": "objects/3d171351e6d87086a97bf230c6d306dfafe9d6a79170981cc05a30c49fbb1f87",
+        "sha256": "3d171351e6d87086a97bf230c6d306dfafe9d6a79170981cc05a30c49fbb1f87"
+      },
+      "auditHeadAtVerifiedArchive": {
+        "key": "heads/audit-54014c9f2d0ef01c4922d3b808fb9c8da36c6e5bab7c39b0ad0bb8dd07b73104.json",
+        "sha256": "820ca00cbd6f994bb18ad5cbba6e59c28a12e79af3661779788d4e615d5d9602",
+        "bytes": 486
+      },
+      "discoveryEvidence": [
+        {
+          "observationId": "bb246d01a9bb7bb98599936f6644a67c8c17332b73253b691b03943a01896258",
+          "observationSha256": "588563da242d85991adf0b4b031ce236fdf64703cf78d648f1922dccb4b0c829",
+          "requestedUrl": "https://www.proofpoint.com/us/sitemap.xml",
+          "fetchedAt": "2026-10-24T00:06:50.512665Z",
+          "body": {
+            "bytes": 798,
+            "key": "objects/4f8a55eadd1d80095cbf5528a909323d57947e124a722e7a001b4e11d4fc3de0",
+            "sha256": "4f8a55eadd1d80095cbf5528a909323d57947e124a722e7a001b4e11d4fc3de0"
+          }
+        },
+        {
+          "observationId": "ddefe03729cc51bb18805396e9e8249be84b3fa38cd2d7406b5018b7f8417914",
+          "observationSha256": "f2d0e3f5a97e85e0f5f48a60637fa79f85f2dc580d5d7d76030caaee082d70b7",
+          "requestedUrl": "https://www.proofpoint.com/us/sitemap.xml?page=1",
+          "fetchedAt": "2026-10-24T00:06:51.399061Z",
+          "body": {
+            "bytes": 185889,
+            "key": "objects/8252f6361efc2007b04ddc08e337d0b2c7627188174cc707a3d25125de3ecc55",
+            "sha256": "8252f6361efc2007b04ddc08e337d0b2c7627188174cc707a3d25125de3ecc55"
+          }
+        },
+        {
+          "observationId": "10bd9d23e9506e74fd89faab3b8d0dadf4b550cb5d4a04e3d8d3a4a18f24c7e5",
+          "observationSha256": "d84d9909ba1728d4d8aad8c8c6fd9d3eda538ed91d477520b4b15f7bd1b9bf27",
+          "requestedUrl": "https://www.proofpoint.com/us/sitemap.xml?page=2",
+          "fetchedAt": "2026-10-24T00:06:51.808017Z",
+          "body": {
+            "bytes": 188058,
+            "key": "objects/6ed1472f4a274cf8ee4ca750c175e1b1a90ddd5b569fe7ad8fa97de6496efbd6",
+            "sha256": "6ed1472f4a274cf8ee4ca750c175e1b1a90ddd5b569fe7ad8fa97de6496efbd6"
+          }
+        },
+        {
+          "observationId": "40065e9ecfab846ab78fb89c7c538b525cb6f42644238bf0c849ff1379532185",
+          "observationSha256": "0d493877112f8cb67b45fd8d2433ca9489e4e362acd6753e339b2f5b17cebadf",
+          "requestedUrl": "https://www.proofpoint.com/us/sitemap.xml?page=3",
+          "fetchedAt": "2026-10-24T00:06:52.202450Z",
+          "body": {
+            "bytes": 185702,
+            "key": "objects/fd48a0de58719843fd1c9a330b2fd01819f348b49ba3d98947551707155fa4b0",
+            "sha256": "fd48a0de58719843fd1c9a330b2fd01819f348b49ba3d98947551707155fa4b0"
+          }
+        },
+        {
+          "observationId": "8fe8a46d0764bc3f7d34c535edc7fe15e39d9348792c2852d91ffc2cd6eef228",
+          "observationSha256": "c1c73a4a43eb0e104bfe998a2ad690e88307cb9050e7cfb0377ccd3295721305",
+          "requestedUrl": "https://www.proofpoint.com/us/sitemap.xml?page=4",
+          "fetchedAt": "2026-10-24T00:06:52.661202Z",
+          "body": {
+            "bytes": 192565,
+            "key": "objects/98c14f0353965716fa3cbb1adca4c3c1b7a2ee3ac1589bf5c08cd32671da5ade",
+            "sha256": "98c14f0353965716fa3cbb1adca4c3c1b7a2ee3ac1589bf5c08cd32671da5ade"
+          }
+        },
+        {
+          "observationId": "a4251120af03ddf1b92929769742d911519dd117df77453765dbad5de8603d10",
+          "observationSha256": "e429f1fb9383ce12fc8b1e7f2b105cc2a64046440197797a5fce7929fd47d30a",
+          "requestedUrl": "https://www.proofpoint.com/us/sitemap.xml?page=5",
+          "fetchedAt": "2026-10-24T00:06:53.000388Z",
+          "body": {
+            "bytes": 105487,
+            "key": "objects/edf1cddcf563f49129a763639d521fbf702bad16276dd7aff17a4226beac600e",
+            "sha256": "edf1cddcf563f49129a763639d521fbf702bad16276dd7aff17a4226beac600e"
+          }
+        }
+      ],
+      "sourceTaskRemainsIncomplete": true
+    },
+    {
+      "sourceId": "veeam:official:1",
+      "supplierId": "veeam",
+      "name": "Veeam Software",
+      "family": "official_announcements",
+      "sourceUrl": "https://www.veeam.com/sitemap.xml",
+      "allowedHosts": [
+        "www.veeam.com"
+      ],
+      "inventoryCount": 727,
+      "inventorySha256": "e2c637c904cf673cc1fd676103c559de57d41182545d137c5f15af06daf45320",
+      "currentSchedulingDue": 3,
+      "oldOrUndatedAuditDue": 723,
+      "retainedNotDue": 1,
+      "selectedDue": 2,
+      "deferredDue": 724,
+      "optimisticInvocationsAtTwoForUnresolved": 363,
+      "frozenClassificationScheduledInvocationLowerBound": 723,
+      "articleTransportRequestsPer30hCurrent": 727,
+      "minimumAverageArticleFetchesPer24h": "2908/5",
+      "actualDiscoveryResponses": 1,
+      "itemManifest": {
+        "bytes": 93429,
+        "key": "objects/596dc73c4423a938545da9a2dea61ff2624f399fb6220c0c895f6a0b3c64e6ec",
+        "sha256": "596dc73c4423a938545da9a2dea61ff2624f399fb6220c0c895f6a0b3c64e6ec"
+      },
+      "priorAuditInventory": {
+        "bytes": 93345,
+        "key": "objects/73a08728763adb74b734f8521e76429fb7100368c1688a33d98cd9982fdcb37a",
+        "sha256": "73a08728763adb74b734f8521e76429fb7100368c1688a33d98cd9982fdcb37a"
+      },
+      "latestPendingManifest": {
+        "bytes": 93420,
+        "key": "objects/c79cba2a9957b41136bef15314fa19a91f37791977d6248a45f1fee0b424c765",
+        "sha256": "c79cba2a9957b41136bef15314fa19a91f37791977d6248a45f1fee0b424c765"
+      },
+      "auditHeadAtVerifiedArchive": {
+        "key": "heads/audit-b71db544a23429b85b48142d2739733a67cea4b0528c61241cb4ea210347a818.json",
+        "sha256": "830edea28b004f4a7dd14b42b595fadfd620707994fa2074134a73383b617fb1",
+        "bytes": 504
+      },
+      "discoveryEvidence": [
+        {
+          "observationId": "ce9b835e10cb26692370bc704d037ea2d9f1deb67bfbfd0fefec8304ecec1d39",
+          "observationSha256": "3a16b146f98105845210ea279689e657e7e322d57142f916f03b8e44fe587ff5",
+          "requestedUrl": "https://www.veeam.com/sitemap.xml",
+          "fetchedAt": "2026-10-24T00:06:50.409949Z",
+          "body": {
+            "bytes": 489560,
+            "key": "objects/6c3517df34f6ff442af39281ef09dc5936036cc5a3abb5a3dc4a498db31368d7",
+            "sha256": "6c3517df34f6ff442af39281ef09dc5936036cc5a3abb5a3dc4a498db31368d7"
+          }
+        }
+      ],
+      "sourceTaskRemainsIncomplete": true
+    },
+    {
+      "sourceId": "exabeam:official:1",
+      "supplierId": "exabeam",
+      "name": "Exabeam, Inc.",
+      "family": "investor_acquirer",
+      "sourceUrl": "https://www.thomabravo.com/sitemap.xml",
+      "allowedHosts": [
+        "www.thomabravo.com"
+      ],
+      "inventoryCount": 638,
+      "inventorySha256": "707f1bdf3d4701eac76119b58dcc4acaec700a998e93704ee343a46bc7b7d7da",
+      "currentSchedulingDue": 22,
+      "oldOrUndatedAuditDue": 611,
+      "retainedNotDue": 5,
+      "selectedDue": 2,
+      "deferredDue": 631,
+      "optimisticInvocationsAtTwoForUnresolved": 317,
+      "frozenClassificationScheduledInvocationLowerBound": 611,
+      "articleTransportRequestsPer30hCurrent": 638,
+      "minimumAverageArticleFetchesPer24h": "2552/5",
+      "actualDiscoveryResponses": 1,
+      "itemManifest": {
+        "bytes": 74578,
+        "key": "objects/0b2c774b9f0a1f3c63bfbb041745090e39db16f8d08efd55da60701561aee5c7",
+        "sha256": "0b2c774b9f0a1f3c63bfbb041745090e39db16f8d08efd55da60701561aee5c7"
+      },
+      "priorAuditInventory": {
+        "bytes": 74494,
+        "key": "objects/5e0bdc108a9f1e24639ed5cdc8a8331796ff6c0ab44881f2a373940d5ccd4422",
+        "sha256": "5e0bdc108a9f1e24639ed5cdc8a8331796ff6c0ab44881f2a373940d5ccd4422"
+      },
+      "latestPendingManifest": {
+        "bytes": 74297,
+        "key": "objects/ba2b08d5abda31d29ff97ca46b1238833be9e5abb058fbddcd9df3147fe9c82b",
+        "sha256": "ba2b08d5abda31d29ff97ca46b1238833be9e5abb058fbddcd9df3147fe9c82b"
+      },
+      "auditHeadAtVerifiedArchive": {
+        "key": "heads/audit-9cbe1512812dc9f5a104a130f8018ae577fa3e509839970a265c34cec7f7c789.json",
+        "sha256": "20364a6ed164274bc6ef9b6766caa28e4d0ef66e121a91acde1b73dd90970005",
+        "bytes": 1446
+      },
+      "discoveryEvidence": [
+        {
+          "observationId": "e11804309dd2d9ca1b9901cc805adca60619ab90cf608d4e25bcfbd0d993aad6",
+          "observationSha256": "d549887e5542fdb34ebfcbab7194fcc18e3edfb2942689ddbd20db17afb4de1b",
+          "requestedUrl": "https://www.thomabravo.com/sitemap.xml",
+          "fetchedAt": "2026-10-24T00:06:50.832614Z",
+          "body": {
+            "bytes": 226085,
+            "key": "objects/eb50849f4fb93fb1420b5c3e791121b2094e759e25db392f885cf8b701fe1fa3",
+            "sha256": "eb50849f4fb93fb1420b5c3e791121b2094e759e25db392f885cf8b701fe1fa3"
+          }
+        }
+      ],
+      "sourceTaskRemainsIncomplete": true
+    },
+    {
+      "sourceId": "hiddenlayer:official:1",
+      "supplierId": "hiddenlayer",
+      "name": "HiddenLayer, Inc.",
+      "family": "official_announcements",
+      "sourceUrl": "https://www.hiddenlayer.com/sitemap.xml",
+      "allowedHosts": [
+        "www.hiddenlayer.com"
+      ],
+      "inventoryCount": 89,
+      "inventorySha256": "f2f588af951705d0267ab228d82c4434047f203e46ee5d82b2381176cbfe07b3",
+      "currentSchedulingDue": 0,
+      "oldOrUndatedAuditDue": 86,
+      "retainedNotDue": 3,
+      "selectedDue": 1,
+      "deferredDue": 85,
+      "optimisticInvocationsAtTwoForUnresolved": 43,
+      "frozenClassificationScheduledInvocationLowerBound": 86,
+      "articleTransportRequestsPer30hCurrent": 89,
+      "minimumAverageArticleFetchesPer24h": "356/5",
+      "actualDiscoveryResponses": 1,
+      "itemManifest": {
+        "bytes": 9829,
+        "key": "objects/7ad2463d5a434c11a9ad1bbe40bf4a5597ae3a9d8983405af0a4551523888047",
+        "sha256": "7ad2463d5a434c11a9ad1bbe40bf4a5597ae3a9d8983405af0a4551523888047"
+      },
+      "priorAuditInventory": {
+        "bytes": 9745,
+        "key": "objects/a4ae8d4ed45f5ee7299c18c0e27eca49a2059ee42120f55f19371eb7cb323766",
+        "sha256": "a4ae8d4ed45f5ee7299c18c0e27eca49a2059ee42120f55f19371eb7cb323766"
+      },
+      "latestPendingManifest": {
+        "bytes": 9723,
+        "key": "objects/b1fd789d807c4f02daeeece848fd53af9d3efd55adeab279fbdab70b48b10f09",
+        "sha256": "b1fd789d807c4f02daeeece848fd53af9d3efd55adeab279fbdab70b48b10f09"
+      },
+      "auditHeadAtVerifiedArchive": {
+        "key": "heads/audit-4b9f30b8507bd01555575d57a03edb7505b8946ff44e3a67025a674afb183e83.json",
+        "sha256": "3a1a2d03b52b7accfbc434c8580cf45be5a531a1fcf69f0ba238427e7df99c90",
+        "bytes": 823
+      },
+      "discoveryEvidence": [
+        {
+          "observationId": "3db29517063e2467d18b5dbe27321c1deb3b854e981ac4b614781746835a4ca4",
+          "observationSha256": "910cd598d516fa0027955c4b4f0b25187e9c19bf4f05eb8a09d42538ac0b3648",
+          "requestedUrl": "https://www.hiddenlayer.com/sitemap.xml",
+          "fetchedAt": "2026-10-24T00:06:50.809290Z",
+          "body": {
+            "bytes": 65685,
+            "key": "objects/0066988a1c947185fab6ef13ae455497893ffd85b14cd17136c6a6482ae9de2e",
+            "sha256": "0066988a1c947185fab6ef13ae455497893ffd85b14cd17136c6a6482ae9de2e"
+          }
+        }
+      ],
+      "sourceTaskRemainsIncomplete": true
+    },
+    {
+      "sourceId": "optiv:official:1",
+      "supplierId": "optiv",
+      "name": "Optiv Security Inc.",
+      "family": "official_announcements",
+      "sourceUrl": "https://www.optiv.com/sitemap.xml",
+      "allowedHosts": [
+        "www.optiv.com"
+      ],
+      "inventoryCount": 179,
+      "inventorySha256": "f2c0eda08750bb97194b840911367eac23b1f56789c0692aed07b7b473795797",
+      "currentSchedulingDue": 2,
+      "oldOrUndatedAuditDue": 177,
+      "retainedNotDue": 0,
+      "selectedDue": 2,
+      "deferredDue": 177,
+      "optimisticInvocationsAtTwoForUnresolved": 90,
+      "frozenClassificationScheduledInvocationLowerBound": 177,
+      "articleTransportRequestsPer30hCurrent": 179,
+      "minimumAverageArticleFetchesPer24h": "716/5",
+      "actualDiscoveryResponses": 3,
+      "itemManifest": {
+        "bytes": 21137,
+        "key": "objects/087fefaa91f131bc9f9e20093debc8d2ee97807679f3354c730945344e12dcb0",
+        "sha256": "087fefaa91f131bc9f9e20093debc8d2ee97807679f3354c730945344e12dcb0"
+      },
+      "priorAuditInventory": {
+        "bytes": 20919,
+        "key": "objects/a102c5e7a3dc3a3a384d731d8a9ebc1e29dabe06d965aefabd993a7f0aac4353",
+        "sha256": "a102c5e7a3dc3a3a384d731d8a9ebc1e29dabe06d965aefabd993a7f0aac4353"
+      },
+      "latestPendingManifest": {
+        "bytes": 20994,
+        "key": "objects/beee297016548c0863afc23075830415262eb5f75c5c85007bb517de03908acc",
+        "sha256": "beee297016548c0863afc23075830415262eb5f75c5c85007bb517de03908acc"
+      },
+      "auditHeadAtVerifiedArchive": {
+        "key": "heads/audit-7748a9bdd1bbac6498520a46d225bac7cc6801bfec5c74e1d6f44514c06db3f7.json",
+        "sha256": "c9edf0bc268864a7e6ccaa43f8314194175daa30b4594ad92e8ba813c18cba1c",
+        "bytes": 285
+      },
+      "discoveryEvidence": [
+        {
+          "observationId": "a7e8d5eeb551025547a177c41ff73f5a902f3ec8fcca01a188b406a42a5879e3",
+          "observationSha256": "e21899d5ea299d6310b846dc31c5b94c01393efe517c3a3549e7755800144403",
+          "requestedUrl": "https://www.optiv.com/sitemap.xml",
+          "fetchedAt": "2026-10-24T00:08:05.497253Z",
+          "body": {
+            "bytes": 471,
+            "key": "objects/c406c2ec891e4b4993ba189622f57bf6828ba6120fa044a3f93b61245c13d909",
+            "sha256": "c406c2ec891e4b4993ba189622f57bf6828ba6120fa044a3f93b61245c13d909"
+          }
+        },
+        {
+          "observationId": "a2a3a32705bfbd2cdb50d813aef54b1cef7b2913dbcf46ec001a35d3749ab9ee",
+          "observationSha256": "3dee7ff43bcb6733fa43846eff447263271c5daef542e419ce33dea864eab088",
+          "requestedUrl": "https://www.optiv.com/sitemap.xml?page=1",
+          "fetchedAt": "2026-10-24T00:08:06.238020Z",
+          "body": {
+            "bytes": 381904,
+            "key": "objects/2f50b5957927a937f884956ad146e3d0e98415dfed06e2cc90c535e56325d9df",
+            "sha256": "2f50b5957927a937f884956ad146e3d0e98415dfed06e2cc90c535e56325d9df"
+          }
+        },
+        {
+          "observationId": "699b299b06ad3314b3ad5751ec7df5f74439351a3f323b31f065ca66a93a037e",
+          "observationSha256": "2d365f2acb250f804f592007f1615e4e39ab852c340c9d825f6d252b1b3d60a6",
+          "requestedUrl": "https://www.optiv.com/sitemap.xml?page=2",
+          "fetchedAt": "2026-10-24T00:08:06.756312Z",
+          "body": {
+            "bytes": 138971,
+            "key": "objects/97605f3f60c8d9d26604c6c5d5c62f735c003567ce84f152639d9855abf87afd",
+            "sha256": "97605f3f60c8d9d26604c6c5d5c62f735c003567ce84f152639d9855abf87afd"
+          }
+        }
+      ],
+      "sourceTaskRemainsIncomplete": true
+    },
+    {
+      "sourceId": "aqua:official:1",
+      "supplierId": "aqua",
+      "name": "Aqua Security",
+      "family": "official_announcements",
+      "sourceUrl": "https://www.aquasec.com/sitemap.xml",
+      "allowedHosts": [
+        "www.aquasec.com"
+      ],
+      "inventoryCount": 448,
+      "inventorySha256": "512fbd7a900c3d40903e0d78ede5ed14f43c0c81d615abc2c418045d820c7758",
+      "currentSchedulingDue": 1,
+      "oldOrUndatedAuditDue": 447,
+      "retainedNotDue": 0,
+      "selectedDue": 2,
+      "deferredDue": 446,
+      "optimisticInvocationsAtTwoForUnresolved": 224,
+      "frozenClassificationScheduledInvocationLowerBound": 447,
+      "articleTransportRequestsPer30hCurrent": 448,
+      "minimumAverageArticleFetchesPer24h": "1792/5",
+      "actualDiscoveryResponses": 8,
+      "itemManifest": {
+        "bytes": 40492,
+        "key": "objects/e1174c7ac352045d09e8eaccb75087ff240ad73fd35285837c32cafc1b5454e7",
+        "sha256": "e1174c7ac352045d09e8eaccb75087ff240ad73fd35285837c32cafc1b5454e7"
+      },
+      "priorAuditInventory": {
+        "bytes": 39939,
+        "key": "objects/7348d656fba5549a3aa7b38ddacfb32eea7a1c797b591bbcb8b936358afc7274",
+        "sha256": "7348d656fba5549a3aa7b38ddacfb32eea7a1c797b591bbcb8b936358afc7274"
+      },
+      "latestPendingManifest": {
+        "bytes": 40014,
+        "key": "objects/27dd3270bf3e2dcacaaf35b3a763df567f06cb640458aea906f8c67aaa7fc962",
+        "sha256": "27dd3270bf3e2dcacaaf35b3a763df567f06cb640458aea906f8c67aaa7fc962"
+      },
+      "auditHeadAtVerifiedArchive": {
+        "key": "heads/audit-2af0608f751487c7ea9be10e36444d770433dd4c78248f47902bba22489cc5b4.json",
+        "sha256": "20f502facf820a0308f76db70235c2de50cabaa203cc81b05604c3b64c782d9f",
+        "bytes": 285
+      },
+      "discoveryEvidence": [
+        {
+          "observationId": "79297246549900b0fd4aa812e4faadb1b15d6a8d6241a143687ef0fe588f8c53",
+          "observationSha256": "84886c387eb2b0cefdb92a715fffa66f056a4eff47a9139f7d9c13a6e8e4fef7",
+          "requestedUrl": "https://www.aquasec.com/sitemap.xml",
+          "fetchedAt": "2026-10-24T00:08:19.436031Z",
+          "body": {
+            "bytes": 1162,
+            "key": "objects/9e8122f17c0678b3a4137432577fdf1501f42c834d78d0539360f92a1762eaeb",
+            "sha256": "9e8122f17c0678b3a4137432577fdf1501f42c834d78d0539360f92a1762eaeb"
+          }
+        },
+        {
+          "observationId": "edb7bc7c11c2d355da66b9e0ccfec0ac18f5c9baa73b8a4afaa34f40eeaab730",
+          "observationSha256": "50868bc35a1127e1273f5a14ae65bf82be9902951b5f9512e274cb4aa543f2ea",
+          "requestedUrl": "https://www.aquasec.com/academy-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:08:19.640662Z",
+          "body": {
+            "bytes": 65673,
+            "key": "objects/4377b8a337e90dd5d540fc019f1a11943282872f3273cdfa28270a1e1a0ae635",
+            "sha256": "4377b8a337e90dd5d540fc019f1a11943282872f3273cdfa28270a1e1a0ae635"
+          }
+        },
+        {
+          "observationId": "8fa5fd4f944d74da10ae215c44032d0d826c66ce012db6f67ecd0d08555f47fa",
+          "observationSha256": "ea055680bafcbd9ca5a5a3c8eee63a81e4dc3f8b6e33f4c9d80a13e2e19abda8",
+          "requestedUrl": "https://www.aquasec.com/authors-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:08:19.988504Z",
+          "body": {
+            "bytes": 26229,
+            "key": "objects/8c3fdbdbd99af470f30c1e30ddf5806e8c14fc1c9b889f6ad027996f7f73e7d1",
+            "sha256": "8c3fdbdbd99af470f30c1e30ddf5806e8c14fc1c9b889f6ad027996f7f73e7d1"
+          }
+        },
+        {
+          "observationId": "6c6afb72d6e365d1948db0e843a3acda78762261891c2d94763d0621a4c5729e",
+          "observationSha256": "9f8a3421f44fdb750f56a4b377b8d995e1038dde9be3bf465051df5ee33732d2",
+          "requestedUrl": "https://www.aquasec.com/customers-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:08:20.214527Z",
+          "body": {
+            "bytes": 7182,
+            "key": "objects/d5cbf54dd00b68363760702ec476b53c8440e20fc3b816888a2a3e32a046f125",
+            "sha256": "d5cbf54dd00b68363760702ec476b53c8440e20fc3b816888a2a3e32a046f125"
+          }
+        },
+        {
+          "observationId": "da8a7097df25cc9ac66e62b7f62dc703ca2192161216c541e4c7b1c0eeb39c06",
+          "observationSha256": "b9f49d80074e4de4f2d711884268c985be98b0ba43bf89005eefc3c704d13abf",
+          "requestedUrl": "https://www.aquasec.com/news-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:08:20.539628Z",
+          "body": {
+            "bytes": 132161,
+            "key": "objects/fa0e689a1edf4fe3d83313cdb266c2194b406f740d8e8f2a96a273f15f4630ad",
+            "sha256": "fa0e689a1edf4fe3d83313cdb266c2194b406f740d8e8f2a96a273f15f4630ad"
+          }
+        },
+        {
+          "observationId": "58c05d548119a17b0bdfd12b85571f96712795a67260a55d9d72e9d0d1885dd3",
+          "observationSha256": "167e078b24d03226149b5e40cd8624a0283f170aa30ac0d5256f491201ccf3e3",
+          "requestedUrl": "https://www.aquasec.com/page-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:08:20.828792Z",
+          "body": {
+            "bytes": 12436,
+            "key": "objects/89bdf9fedf2d43bc5e41434a2aba65cd99e4718a8e8f6069fb0e2dd67d5c5618",
+            "sha256": "89bdf9fedf2d43bc5e41434a2aba65cd99e4718a8e8f6069fb0e2dd67d5c5618"
+          }
+        },
+        {
+          "observationId": "fa34d0acb0f026c93ff354a3dabaaf36ef3a1119b89ef5b850a0d61e68e8dbf0",
+          "observationSha256": "da0ca24fcc56c11d3f9936104f80718a68225f9cbce1343eacba4f4c01f10b22",
+          "requestedUrl": "https://www.aquasec.com/post-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:08:21.160362Z",
+          "body": {
+            "bytes": 324361,
+            "key": "objects/2a8e39f3898ab9aa20653b7b3df67c56458a8cff88bc28313096d595dac697e4",
+            "sha256": "2a8e39f3898ab9aa20653b7b3df67c56458a8cff88bc28313096d595dac697e4"
+          }
+        },
+        {
+          "observationId": "b8f692e47a82ffc55572ffbbc737dfef9669cab37a8a87e70af847f99579f1c2",
+          "observationSha256": "558948140871fb69a041ba5beb16202112af3060c4f8dd285d206c5ece7d02bd",
+          "requestedUrl": "https://www.aquasec.com/resources-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:08:21.429379Z",
+          "body": {
+            "bytes": 15472,
+            "key": "objects/1d23a5a21f8be536d6bd65fc245827589950289b838047274773573260c46f6a",
+            "sha256": "1d23a5a21f8be536d6bd65fc245827589950289b838047274773573260c46f6a"
+          }
+        }
+      ],
+      "sourceTaskRemainsIncomplete": true
+    },
+    {
+      "sourceId": "mimecast:official:1",
+      "supplierId": "mimecast",
+      "name": "Mimecast",
+      "family": "official_announcements",
+      "sourceUrl": "https://www.mimecast.com/sitemap.xml",
+      "allowedHosts": [
+        "www.mimecast.com"
+      ],
+      "inventoryCount": 137,
+      "inventorySha256": "33c45ae4f949904d9eefc4b8a3fded79773d432b6edb73feb715532bf76b969b",
+      "currentSchedulingDue": 137,
+      "oldOrUndatedAuditDue": 0,
+      "retainedNotDue": 0,
+      "selectedDue": 2,
+      "deferredDue": 135,
+      "optimisticInvocationsAtTwoForUnresolved": 69,
+      "frozenClassificationScheduledInvocationLowerBound": 69,
+      "articleTransportRequestsPer30hCurrent": 137,
+      "minimumAverageArticleFetchesPer24h": "548/5",
+      "actualDiscoveryResponses": 6,
+      "itemManifest": {
+        "bytes": 12315,
+        "key": "objects/92374e448309fc3854e38cb1872b27ae54d3f5264bc4946cea6fe255899570b0",
+        "sha256": "92374e448309fc3854e38cb1872b27ae54d3f5264bc4946cea6fe255899570b0"
+      },
+      "priorAuditInventory": {
+        "bytes": 11896,
+        "key": "objects/2df6db51b3cabe4cbeebfc5c34ae9a2bad9723f4e999fa93ae7da4d32a8095e0",
+        "sha256": "2df6db51b3cabe4cbeebfc5c34ae9a2bad9723f4e999fa93ae7da4d32a8095e0"
+      },
+      "latestPendingManifest": {
+        "bytes": 11971,
+        "key": "objects/b12a4b1041a6709effc70de86922d1e916d3ca95a4d40e657b83915553480f7a",
+        "sha256": "b12a4b1041a6709effc70de86922d1e916d3ca95a4d40e657b83915553480f7a"
+      },
+      "auditHeadAtVerifiedArchive": {
+        "key": "heads/audit-41e212d73240ecc9c48342e2d4ebee7d50b14c26651621c8fbe80fc3b234e9f4.json",
+        "sha256": "661a70195efac4756a732689d9da88b840de2dd8a8563ef18c8cdc28288fedea",
+        "bytes": 285
+      },
+      "discoveryEvidence": [
+        {
+          "observationId": "ea6d0a5fc0b029742ff465a619fa42a04f8a6c40ab5bc22e5398b5bd7f322aea",
+          "observationSha256": "8993d8c79f6341e3c0a5f58e6f104ce508b54cae8d5227805c889daf7bb73913",
+          "requestedUrl": "https://www.mimecast.com/sitemap.xml",
+          "fetchedAt": "2026-10-24T00:08:19.606566Z",
+          "body": {
+            "bytes": 609,
+            "key": "objects/fa628935b6a2232e997625b37a9bb7bb23ce023c7ebe06b2fbf7cb65c0ef869b",
+            "sha256": "fa628935b6a2232e997625b37a9bb7bb23ce023c7ebe06b2fbf7cb65c0ef869b"
+          }
+        },
+        {
+          "observationId": "e317da49e2190cb3bd201c251c08eb02befe24bc7e4567972b74992861394897",
+          "observationSha256": "f0593865ab0cb7c7a5e0f56d530a13d410e8d4c47808654c0ef1cd46842f5e13",
+          "requestedUrl": "https://www.mimecast.com/sitemap-de.xml",
+          "fetchedAt": "2026-10-24T00:08:19.933947Z",
+          "body": {
+            "bytes": 272099,
+            "key": "objects/25e9efb16351cd7d1540768aa3f44ab1a31e0dd6f2ef5f8f399c14a4aa9a952c",
+            "sha256": "25e9efb16351cd7d1540768aa3f44ab1a31e0dd6f2ef5f8f399c14a4aa9a952c"
+          }
+        },
+        {
+          "observationId": "0c73ad6cb1767e3dcffa7c4f613bf67f84c65f7ead22c4e2eb361c9f9a23e82a",
+          "observationSha256": "cd71975d8ce4e425d2865a826cf6f9e1c500ac0024176614660c74b3b12e0b7f",
+          "requestedUrl": "https://www.mimecast.com/sitemap-en.xml",
+          "fetchedAt": "2026-10-24T00:08:20.231096Z",
+          "body": {
+            "bytes": 225508,
+            "key": "objects/f830bf7ea743cfd8191c127d58aa8ffc06e0ffabf6ed99112b599df237e9c951",
+            "sha256": "f830bf7ea743cfd8191c127d58aa8ffc06e0ffabf6ed99112b599df237e9c951"
+          }
+        },
+        {
+          "observationId": "ab4d14a4a12f84419e99a6259b9727d02f05e409854e862bae77db4b7f7cfddb",
+          "observationSha256": "5c3d9bcffb7e4d60cb1e4c4a0a9195493bd44c939926f0fc809995106ee944bd",
+          "requestedUrl": "https://www.mimecast.com/sitemap-es.xml",
+          "fetchedAt": "2026-10-24T00:08:20.490122Z",
+          "body": {
+            "bytes": 231565,
+            "key": "objects/7d2bba44a2f09c01e5e7d7f8fb1b781df3b76c49bb8cd216da65ede1b3d920b7",
+            "sha256": "7d2bba44a2f09c01e5e7d7f8fb1b781df3b76c49bb8cd216da65ede1b3d920b7"
+          }
+        },
+        {
+          "observationId": "567cb5713e85d9a80c6e26ce865e36e5cd117f3f05d4f0510e2f0d84e2605018",
+          "observationSha256": "8031fe2a98b2e57f5f8cd0eb5c57e74a7e39c26a5097fd0b3538dc64b5137c90",
+          "requestedUrl": "https://www.mimecast.com/sitemap-fr.xml",
+          "fetchedAt": "2026-10-24T00:08:20.826041Z",
+          "body": {
+            "bytes": 231821,
+            "key": "objects/e1445957d506473051293d1fbc994855792b67fb3625ef23a40d7c968aade9e1",
+            "sha256": "e1445957d506473051293d1fbc994855792b67fb3625ef23a40d7c968aade9e1"
+          }
+        },
+        {
+          "observationId": "7bc2877110efd3d0427510a0e7d70d565beefd9eb6899a15e0a0c43cb2b9f8c9",
+          "observationSha256": "2d452b7075b540a6e132498d98482faa8511734af7b105fc4ec3b97b266d9e9c",
+          "requestedUrl": "https://www.mimecast.com/sitemap-it.xml",
+          "fetchedAt": "2026-10-24T00:08:21.107563Z",
+          "body": {
+            "bytes": 231216,
+            "key": "objects/46ef67e3b97c3de33350bcc838bb61f3f56dbaf4f87747d3d785d3adfb81b8dc",
+            "sha256": "46ef67e3b97c3de33350bcc838bb61f3f56dbaf4f87747d3d785d3adfb81b8dc"
+          }
+        }
+      ],
+      "sourceTaskRemainsIncomplete": true
+    },
+    {
+      "sourceId": "arctic-wolf:official:1",
+      "supplierId": "arctic-wolf",
+      "name": "Arctic Wolf Networks, Inc.",
+      "family": "official_announcements",
+      "sourceUrl": "https://arcticwolf.com/sitemap_index.xml",
+      "allowedHosts": [
+        "arcticwolf.com"
+      ],
+      "inventoryCount": 1298,
+      "inventorySha256": "80eaa63a1d9cc083e6a4622f7332689d0532efd7ea632e8adcf48fd09f961f67",
+      "currentSchedulingDue": 13,
+      "oldOrUndatedAuditDue": 1282,
+      "retainedNotDue": 3,
+      "selectedDue": 2,
+      "deferredDue": 1293,
+      "optimisticInvocationsAtTwoForUnresolved": 648,
+      "frozenClassificationScheduledInvocationLowerBound": 1282,
+      "articleTransportRequestsPer30hCurrent": 1298,
+      "minimumAverageArticleFetchesPer24h": "5192/5",
+      "actualDiscoveryResponses": 10,
+      "itemManifest": {
+        "bytes": 128895,
+        "key": "objects/af7c3ecd03dbf8cbc2d4d506fd4d44390959d5a58b2204c170e99855be367439",
+        "sha256": "af7c3ecd03dbf8cbc2d4d506fd4d44390959d5a58b2204c170e99855be367439"
+      },
+      "priorAuditInventory": {
+        "bytes": 128208,
+        "key": "objects/005d4390e23d32a9ee87cf04a13cbc2461e610b1987d62689ac90129caa0faac",
+        "sha256": "005d4390e23d32a9ee87cf04a13cbc2461e610b1987d62689ac90129caa0faac"
+      },
+      "latestPendingManifest": {
+        "bytes": 128157,
+        "key": "objects/1397a2099d48127b256f60a648bb3b1352793780b86400df13d9bfa8a436d050",
+        "sha256": "1397a2099d48127b256f60a648bb3b1352793780b86400df13d9bfa8a436d050"
+      },
+      "auditHeadAtVerifiedArchive": {
+        "key": "heads/audit-19e39ee922dcf6e1d2837ea4493ae9b490167bc5dc4d663e7878440aa1b11552.json",
+        "sha256": "1b97abe7f4fda0ed0e99aa43d668a168ced9c137edd8cb9e8e71526bead5f12b",
+        "bytes": 917
+      },
+      "discoveryEvidence": [
+        {
+          "observationId": "dc137e470b7373c1560fadce77efd3e84114ebd4f9934b6d99fe3ffeeb538314",
+          "observationSha256": "eb0dcb97b766f5e7dd58749af8bffecbe32da9ae3163977f37e1df5e51d76dc6",
+          "requestedUrl": "https://arcticwolf.com/sitemap_index.xml",
+          "fetchedAt": "2026-10-24T00:08:28.035108Z",
+          "body": {
+            "bytes": 1398,
+            "key": "objects/e6d09ed2f05e5e6054a2a43d8ad9889fa22f172da881c5a07db39691f0e473a6",
+            "sha256": "e6d09ed2f05e5e6054a2a43d8ad9889fa22f172da881c5a07db39691f0e473a6"
+          }
+        },
+        {
+          "observationId": "e7d2243a7124d1196424f2bc87d14726a8f7155926aa938e1e359341cb9255fe",
+          "observationSha256": "fc5f0a65177f544c25b1e2db44ca4615b3afd575b9be526eaff05bc9ee58bca1",
+          "requestedUrl": "https://arcticwolf.com/author-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:08:28.441798Z",
+          "body": {
+            "bytes": 125776,
+            "key": "objects/f8597b3762dab385c182e2692a03c05317ed5967648ee1fec5280088039e6712",
+            "sha256": "f8597b3762dab385c182e2692a03c05317ed5967648ee1fec5280088039e6712"
+          }
+        },
+        {
+          "observationId": "29617a587cc2f1694f1da8e453081b4505538a69e358be62061844cdec40210b",
+          "observationSha256": "4d9b0bb8f89690705954ce6a004a160e6e936cc04c7c6fea23c259ba08cbacb2",
+          "requestedUrl": "https://arcticwolf.com/category-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:08:28.728857Z",
+          "body": {
+            "bytes": 20714,
+            "key": "objects/4eef50ef27906a7675d022f31c138fce907d1b2d3c6c98210059b2112a5507c5",
+            "sha256": "4eef50ef27906a7675d022f31c138fce907d1b2d3c6c98210059b2112a5507c5"
+          }
+        },
+        {
+          "observationId": "cf75c229d13eed6fdbc721e1d7d9a8095d10b2380b135acd472f9ca7243ad703",
+          "observationSha256": "3ed5413e11fbf1582128c6b5613c9758d34051d7a8a4d30630e0b7054472024d",
+          "requestedUrl": "https://arcticwolf.com/page-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:08:29.292278Z",
+          "body": {
+            "bytes": 1162389,
+            "key": "objects/a2d61d408c096ec66a87e3bf9a5c920f48118e44368c3227ec0dee6bec5470ea",
+            "sha256": "a2d61d408c096ec66a87e3bf9a5c920f48118e44368c3227ec0dee6bec5470ea"
+          }
+        },
+        {
+          "observationId": "21d5204d1ae5e5c200a092d0378e8ed2f95bb7a5936b964dd7d931eea9010e9b",
+          "observationSha256": "5f6c7b278e9911e76d9d9343241513faa4e762886dea23825485cdd8f12b57e2",
+          "requestedUrl": "https://arcticwolf.com/post-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:08:29.690735Z",
+          "body": {
+            "bytes": 106792,
+            "key": "objects/f91dfa793f49031515ce8edd3b3d22078fea8b694cbcb588ca8a19287b910a20",
+            "sha256": "f91dfa793f49031515ce8edd3b3d22078fea8b694cbcb588ca8a19287b910a20"
+          }
+        },
+        {
+          "observationId": "2c0d8fa1c05951477953b096973f3c1bf3815b19aa659b72fe671305a00f6c73",
+          "observationSha256": "1eb41362978f8d15d203afdc6c91e2251c76b30b5bc395f53da7d941c31ce002",
+          "requestedUrl": "https://arcticwolf.com/post-sitemap2.xml",
+          "fetchedAt": "2026-10-24T00:08:30.001824Z",
+          "body": {
+            "bytes": 378349,
+            "key": "objects/8e983a66c43a13fd78ad26e9af6af98460caaa3ad27e754287dd975cb08cc140",
+            "sha256": "8e983a66c43a13fd78ad26e9af6af98460caaa3ad27e754287dd975cb08cc140"
+          }
+        },
+        {
+          "observationId": "e68cecc0de2f7edf11d8f2577dc5b4422b297fe25f13bb6a8c1aaeb6a97ed18c",
+          "observationSha256": "4c5a8ba82e95a98f724ddff5f53db5da98c7889eb5eb7038b786f1fe3990ee81",
+          "requestedUrl": "https://arcticwolf.com/post-sitemap3.xml",
+          "fetchedAt": "2026-10-24T00:08:30.359321Z",
+          "body": {
+            "bytes": 292311,
+            "key": "objects/77ad30ed768411c49edfe885d9ff80de86b33eccec3d2a125295e4d41b8c0c49",
+            "sha256": "77ad30ed768411c49edfe885d9ff80de86b33eccec3d2a125295e4d41b8c0c49"
+          }
+        },
+        {
+          "observationId": "f75d006e5a8ae2f9da16c383dde1d827e5c675530f3c09f5f92c4ff2d27a1af8",
+          "observationSha256": "5e70ffd8daa00171ab7f9fb2e2781364609912c8457cd4874f76f992d354ec6f",
+          "requestedUrl": "https://arcticwolf.com/post-sitemap4.xml",
+          "fetchedAt": "2026-10-24T00:08:30.630943Z",
+          "body": {
+            "bytes": 346202,
+            "key": "objects/575c785f6dff93e9c2c3d862954bea103ff3a1afc13c8cf1ffda3d37eb2934b8",
+            "sha256": "575c785f6dff93e9c2c3d862954bea103ff3a1afc13c8cf1ffda3d37eb2934b8"
+          }
+        },
+        {
+          "observationId": "e6e6ca663053181b1739b073a303ba6e1362062d5a473fd618cf5460baef2a9e",
+          "observationSha256": "047069345f02c36a1c532c84cffd2d199e6c03f69e5d56e12bab262205ef76c8",
+          "requestedUrl": "https://arcticwolf.com/post-sitemap5.xml",
+          "fetchedAt": "2026-10-24T00:08:30.931823Z",
+          "body": {
+            "bytes": 16906,
+            "key": "objects/a52707192d6f8bf3059b580b85eaa15feb2fbafd7e126728c0a517b60acec121",
+            "sha256": "a52707192d6f8bf3059b580b85eaa15feb2fbafd7e126728c0a517b60acec121"
+          }
+        },
+        {
+          "observationId": "840d3da43a5f81f42e6da0add084fd9c17e851096679e8c33bd6a1339449b750",
+          "observationSha256": "acb6011f4f6065082a028d6da4b2aeac876da2352aa13eaa0f847b11ce880db3",
+          "requestedUrl": "https://arcticwolf.com/post_tag-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:08:31.235672Z",
+          "body": {
+            "bytes": 42965,
+            "key": "objects/bc678ca6cb1d5b46ccba7bcf74b3753860d6bd9128181409d5f6712de677f6aa",
+            "sha256": "bc678ca6cb1d5b46ccba7bcf74b3753860d6bd9128181409d5f6712de677f6aa"
+          }
+        }
+      ],
+      "sourceTaskRemainsIncomplete": true
+    },
+    {
+      "sourceId": "witnessai:official:1",
+      "supplierId": "witnessai",
+      "name": "WitnessAI",
+      "family": "official_announcements",
+      "sourceUrl": "https://witness.ai/sitemap_index.xml",
+      "allowedHosts": [
+        "witness.ai"
+      ],
+      "inventoryCount": 243,
+      "inventorySha256": "0a4130b38f5ea7aaf9f1a59f75655b37f3c3c55c845052266c0d7000ff5738db",
+      "currentSchedulingDue": 23,
+      "oldOrUndatedAuditDue": 218,
+      "retainedNotDue": 2,
+      "selectedDue": 2,
+      "deferredDue": 239,
+      "optimisticInvocationsAtTwoForUnresolved": 121,
+      "frozenClassificationScheduledInvocationLowerBound": 218,
+      "articleTransportRequestsPer30hCurrent": 243,
+      "minimumAverageArticleFetchesPer24h": "972/5",
+      "actualDiscoveryResponses": 7,
+      "itemManifest": {
+        "bytes": 14924,
+        "key": "objects/17df6eafd092b3e949988b39b401715122e176767538b034d13d9094735042c4",
+        "sha256": "17df6eafd092b3e949988b39b401715122e176767538b034d13d9094735042c4"
+      },
+      "priorAuditInventory": {
+        "bytes": 14438,
+        "key": "objects/5933ac790938686ac5adf86c73c15c8e06a018e836b617a67a897be93566e6fd",
+        "sha256": "5933ac790938686ac5adf86c73c15c8e06a018e836b617a67a897be93566e6fd"
+      },
+      "latestPendingManifest": {
+        "bytes": 14513,
+        "key": "objects/55294162355e95900127109044434d3e6eb876bd8198230920402fd4a5e40b89",
+        "sha256": "55294162355e95900127109044434d3e6eb876bd8198230920402fd4a5e40b89"
+      },
+      "auditHeadAtVerifiedArchive": {
+        "key": "heads/audit-2e0a964d21c58946d11620ab6f0e85f16c4116ea2fa7742acd9345e758735b96.json",
+        "sha256": "3f96fed4187c2d7492f8e921d868b6f32c486fa2342ed3df164664a1e73bc76d",
+        "bytes": 548
+      },
+      "discoveryEvidence": [
+        {
+          "observationId": "14fe114f9a684ed91e564d9dfa655bfec12911aa7a3386c40a9d1356b1e3fc75",
+          "observationSha256": "ceb8741ff58aaf27b399d0d4ae09de0521f33d5e805c485c02c75f93c78fac62",
+          "requestedUrl": "https://witness.ai/sitemap_index.xml",
+          "fetchedAt": "2026-10-24T00:09:12.433946Z",
+          "body": {
+            "bytes": 1006,
+            "key": "objects/0b1ecb8b28dff8aaef5807a3939003ba52695d4269d294d44af598b80bd2c0b2",
+            "sha256": "0b1ecb8b28dff8aaef5807a3939003ba52695d4269d294d44af598b80bd2c0b2"
+          }
+        },
+        {
+          "observationId": "64b6f6383fbcd639f60d3e235cd31f50056522a7da364e1b3d86c534720e17a9",
+          "observationSha256": "8f4da8f18f2cb36885f97bf85853756d393533a4d496a035e339b0820803b161",
+          "requestedUrl": "https://witness.ai/category-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:09:12.681344Z",
+          "body": {
+            "bytes": 726,
+            "key": "objects/8c81cf8f4350e264f48626aef979cf3d7a54402a52d257c952ac0faf619295c0",
+            "sha256": "8c81cf8f4350e264f48626aef979cf3d7a54402a52d257c952ac0faf619295c0"
+          }
+        },
+        {
+          "observationId": "1ecdb3ce122fd3a18f891cb5dd601ee102770134ce0dba292a4b9fd13ca8699c",
+          "observationSha256": "180fe868679d9cf20405a6c0129c141bb71b1000f3b1f6c43f1989b4a7023233",
+          "requestedUrl": "https://witness.ai/page-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:09:13.020877Z",
+          "body": {
+            "bytes": 3052,
+            "key": "objects/0ffaccc062e0cf6d45bac5ae40d6434fbb45d78865686a8995d4dc5034ea4d67",
+            "sha256": "0ffaccc062e0cf6d45bac5ae40d6434fbb45d78865686a8995d4dc5034ea4d67"
+          }
+        },
+        {
+          "observationId": "101af4c4a0e7b724f7a68cf0f709658f9ffd550ce4a9506b258df56110b71d6e",
+          "observationSha256": "bfa6e40c481bf0474c3d4949b85ba15b31dbd305ead95794d58c871b65b91300",
+          "requestedUrl": "https://witness.ai/post-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:09:13.350815Z",
+          "body": {
+            "bytes": 76022,
+            "key": "objects/660f75e0219fc7e8172a475a1e38a5a7811a5c3d0570f9d5bf26f645423d458b",
+            "sha256": "660f75e0219fc7e8172a475a1e38a5a7811a5c3d0570f9d5bf26f645423d458b"
+          }
+        },
+        {
+          "observationId": "4e5cab8b3e2083bf57e2cada81972cb87f757ac4e67ab7c727c7b6fc0388ccf5",
+          "observationSha256": "4c2cd4ea3f03d6e14bc674b729474f4f953514008ce8a470124e9472f7b7057e",
+          "requestedUrl": "https://witness.ai/quote-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:09:13.576978Z",
+          "body": {
+            "bytes": 612,
+            "key": "objects/d9e5f1f11590d40addc12018f42ba43d9f1d118b30340b1c989df54259ffba7b",
+            "sha256": "d9e5f1f11590d40addc12018f42ba43d9f1d118b30340b1c989df54259ffba7b"
+          }
+        },
+        {
+          "observationId": "b4947544777bf12c9f1f4150772477c50701162484f4371b88ca0bcf8a0c001e",
+          "observationSha256": "aa90235b18524198db6da3c6b0ca73f62cbf76516dcf75e591675a9bc42ecaa5",
+          "requestedUrl": "https://witness.ai/resource-type-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:09:13.997254Z",
+          "body": {
+            "bytes": 612,
+            "key": "objects/d9e5f1f11590d40addc12018f42ba43d9f1d118b30340b1c989df54259ffba7b",
+            "sha256": "d9e5f1f11590d40addc12018f42ba43d9f1d118b30340b1c989df54259ffba7b"
+          }
+        },
+        {
+          "observationId": "44813a254ef97ca250d0c8e7cc1e955937fdcd2bb89ff6cceb5d1b092ffc9131",
+          "observationSha256": "57b5112f1a38aecdd15ebab81b898e551f414f9a60f761aee9722bc57b2b62ed",
+          "requestedUrl": "https://witness.ai/resources-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:09:14.283887Z",
+          "body": {
+            "bytes": 15297,
+            "key": "objects/0a3ea306cb74d7c0391a001e0cfa01b9d906efd6217b829f4fb03c162f080395",
+            "sha256": "0a3ea306cb74d7c0391a001e0cfa01b9d906efd6217b829f4fb03c162f080395"
+          }
+        }
+      ],
+      "sourceTaskRemainsIncomplete": true
+    },
+    {
+      "sourceId": "expel:official:1",
+      "supplierId": "expel",
+      "name": "Expel, Inc.",
+      "family": "official_announcements",
+      "sourceUrl": "https://expel.com/sitemap_index.xml",
+      "allowedHosts": [
+        "expel.com"
+      ],
+      "inventoryCount": 329,
+      "inventorySha256": "1ad1db12e60742e2e29a7d8905bd1c0038ab1d1a6741c0efdb92ac7be457a24c",
+      "currentSchedulingDue": 83,
+      "oldOrUndatedAuditDue": 246,
+      "retainedNotDue": 0,
+      "selectedDue": 2,
+      "deferredDue": 327,
+      "optimisticInvocationsAtTwoForUnresolved": 165,
+      "frozenClassificationScheduledInvocationLowerBound": 246,
+      "articleTransportRequestsPer30hCurrent": 329,
+      "minimumAverageArticleFetchesPer24h": "1316/5",
+      "actualDiscoveryResponses": 9,
+      "itemManifest": {
+        "bytes": 32359,
+        "key": "objects/954cc4c3f633f9a821e66b29162b385fb0270dae51ba5c3aa918eb38d904765e",
+        "sha256": "954cc4c3f633f9a821e66b29162b385fb0270dae51ba5c3aa918eb38d904765e"
+      },
+      "priorAuditInventory": {
+        "bytes": 31739,
+        "key": "objects/a43f39c34287e874a0f1028d688f636120cc455259d7e45e48744098b960cf9d",
+        "sha256": "a43f39c34287e874a0f1028d688f636120cc455259d7e45e48744098b960cf9d"
+      },
+      "latestPendingManifest": {
+        "bytes": 31814,
+        "key": "objects/c4038c230c2abf2d5bda785f298382f929250d898d84f1083e65dcaccbb21332",
+        "sha256": "c4038c230c2abf2d5bda785f298382f929250d898d84f1083e65dcaccbb21332"
+      },
+      "auditHeadAtVerifiedArchive": {
+        "key": "heads/audit-ede3eedf16bf825534319b3ca794d5e10e17dd1ecbc8c689f4574e2539d4a2f7.json",
+        "sha256": "9f74853574792428b3eebe8a38901b7f18a8861a2d9bc53113b183cc2b0dc2bc",
+        "bytes": 285
+      },
+      "discoveryEvidence": [
+        {
+          "observationId": "5cf85d95c978ed6a518bc649ed6030df055d2eca53765e0e8f3bd3c99e6b4b7f",
+          "observationSha256": "9a62ac147f0c657cf2f03b980af799f4f2e14b5ff178d4b1f4926fbce0f87c4c",
+          "requestedUrl": "https://expel.com/sitemap_index.xml",
+          "fetchedAt": "2026-10-24T00:09:21.487077Z",
+          "body": {
+            "bytes": 1252,
+            "key": "objects/00a588f9af019180c9277c6464e5d87206d0cd98339ba122e6be4a740671b969",
+            "sha256": "00a588f9af019180c9277c6464e5d87206d0cd98339ba122e6be4a740671b969"
+          }
+        },
+        {
+          "observationId": "b13c11e97d9a336a087abb1027373e7b2b545b585688f37495de7dc5d0c5ae01",
+          "observationSha256": "4ae7f0452e2bcbd3604308e177af2527546e4acfb104d50cb791990b3fc468dd",
+          "requestedUrl": "https://expel.com/author-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:09:22.209601Z",
+          "body": {
+            "bytes": 7067,
+            "key": "objects/624fa0b921414ad4c32ed9351afeac3e59577283fed51c736086b1ffd0e37e3e",
+            "sha256": "624fa0b921414ad4c32ed9351afeac3e59577283fed51c736086b1ffd0e37e3e"
+          }
+        },
+        {
+          "observationId": "86a8a661731eb4379dff63adba2da095722dcb07d95bcefe0bcc982328277602",
+          "observationSha256": "7ba162de762e785868e41f13d2ae4afc4d3f98e686aaeadb125740d349e500f4",
+          "requestedUrl": "https://expel.com/competitor-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:09:22.862155Z",
+          "body": {
+            "bytes": 1162,
+            "key": "objects/5f04996571f005aa0570d1c9bc6f2daf5c3e7ea66bd2d620efc815dc578500e5",
+            "sha256": "5f04996571f005aa0570d1c9bc6f2daf5c3e7ea66bd2d620efc815dc578500e5"
+          }
+        },
+        {
+          "observationId": "e0faa62a8d314cb0fd56b24e9dce4f8e0a061693fecf45ea358e6d881610f6a8",
+          "observationSha256": "c97eeb85661d9e489d8c744b33b0f6e445c480c9c7e359daec892440f3107417",
+          "requestedUrl": "https://expel.com/glossary-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:09:23.798844Z",
+          "body": {
+            "bytes": 42662,
+            "key": "objects/dfed750ad06d03e5370babe27623517583a97e6e168ca2a985949261e5fbef88",
+            "sha256": "dfed750ad06d03e5370babe27623517583a97e6e168ca2a985949261e5fbef88"
+          }
+        },
+        {
+          "observationId": "3e8eef62c8364c0e19c824a8b37fe993f417947b38c5f0a55d073679484be096",
+          "observationSha256": "2f64635fb59f3d426e4f1a490d75c2db31676d4b02cd9494e37604c3ce744801",
+          "requestedUrl": "https://expel.com/glossary_category-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:09:24.574461Z",
+          "body": {
+            "bytes": 3576,
+            "key": "objects/4f7291fd34edfd124dee031e5d25cf53d582c4723ad7af7a49e5ce9c139c8bcb",
+            "sha256": "4f7291fd34edfd124dee031e5d25cf53d582c4723ad7af7a49e5ce9c139c8bcb"
+          }
+        },
+        {
+          "observationId": "f4bcccde815b147488ee20ae658213473a3a36d066e24025d291e29ceb3f790b",
+          "observationSha256": "385a7670494c4e2b199c437547efb15a9930cffbe20f8215561d91645fc4aded",
+          "requestedUrl": "https://expel.com/integration-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:09:25.274300Z",
+          "body": {
+            "bytes": 3412,
+            "key": "objects/bedf298117bdcd82ec730d44d4c3e7a25539e816a7e0bd2cc8aebc6d03c1f1bf",
+            "sha256": "bedf298117bdcd82ec730d44d4c3e7a25539e816a7e0bd2cc8aebc6d03c1f1bf"
+          }
+        },
+        {
+          "observationId": "0f2bcc474736f975393f3ae92096ee3448ff3084d4636feb694fc47af0e0d11b",
+          "observationSha256": "0b1ad64dcd02de23c5133ae861e78696c1e84a33ff11e42fec521276c3a90da7",
+          "requestedUrl": "https://expel.com/page-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:09:26.184800Z",
+          "body": {
+            "bytes": 40791,
+            "key": "objects/dda65a6164c92d0e507d5132317223a2a59f50fa40f1220aea1dd9ba8864be8e",
+            "sha256": "dda65a6164c92d0e507d5132317223a2a59f50fa40f1220aea1dd9ba8864be8e"
+          }
+        },
+        {
+          "observationId": "1f76dfea68513124a0335a88a1d32a7d5a4bdb2930be3e5ee83b2b22ed44f352",
+          "observationSha256": "6c444533ae0c3ef6d9a43bc3b0bcbff89217e18125a900971078d133f0b7726b",
+          "requestedUrl": "https://expel.com/post-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:09:27.699027Z",
+          "body": {
+            "bytes": 313342,
+            "key": "objects/5de72f93c787c0e088bdb0e581cdfa5ededf379aedc0a74f706d26bd1dc9423a",
+            "sha256": "5de72f93c787c0e088bdb0e581cdfa5ededf379aedc0a74f706d26bd1dc9423a"
+          }
+        },
+        {
+          "observationId": "c33ad18eaf73787fc6769a86a3ac1782544d2ad2d3902f8e27765b8bf9eb1efc",
+          "observationSha256": "31f3863022759c5359af782280a3286c7024f6be712b79a4cf392d225d582bb2",
+          "requestedUrl": "https://expel.com/resource-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:09:28.701787Z",
+          "body": {
+            "bytes": 100783,
+            "key": "objects/869f3acbf6cdc12c28d39ae76a07742985c2d0637bb4033892fda63851a0036c",
+            "sha256": "869f3acbf6cdc12c28d39ae76a07742985c2d0637bb4033892fda63851a0036c"
+          }
+        }
+      ],
+      "sourceTaskRemainsIncomplete": true
+    },
+    {
+      "sourceId": "ivanti:official:1",
+      "supplierId": "ivanti",
+      "name": "Ivanti, Inc.",
+      "family": "official_announcements",
+      "sourceUrl": "https://www.ivanti.com/sitemap_index.xml",
+      "allowedHosts": [
+        "www.ivanti.com"
+      ],
+      "inventoryCount": 429,
+      "inventorySha256": "12795d0c7365fe627341b2be344bc353508924af851ec63af9ad39f810d12270",
+      "currentSchedulingDue": 2,
+      "oldOrUndatedAuditDue": 426,
+      "retainedNotDue": 1,
+      "selectedDue": 2,
+      "deferredDue": 426,
+      "optimisticInvocationsAtTwoForUnresolved": 214,
+      "frozenClassificationScheduledInvocationLowerBound": 426,
+      "articleTransportRequestsPer30hCurrent": 429,
+      "minimumAverageArticleFetchesPer24h": "1716/5",
+      "actualDiscoveryResponses": 6,
+      "itemManifest": {
+        "bytes": 54968,
+        "key": "objects/02efb8b2677d03c23e4c6e998e70001198d13e96754961f30f7e6dbf05bdb68b",
+        "sha256": "02efb8b2677d03c23e4c6e998e70001198d13e96754961f30f7e6dbf05bdb68b"
+      },
+      "priorAuditInventory": {
+        "bytes": 54549,
+        "key": "objects/9eed845d2f728645c2228a810d3985dc45eda2a1f01885c338bca56550099bd3",
+        "sha256": "9eed845d2f728645c2228a810d3985dc45eda2a1f01885c338bca56550099bd3"
+      },
+      "latestPendingManifest": {
+        "bytes": 54624,
+        "key": "objects/a6d7487c5c1215b9d0f7b0eb2ee2e41ce5e9bca8428cacf9e8b6c4c280cca846",
+        "sha256": "a6d7487c5c1215b9d0f7b0eb2ee2e41ce5e9bca8428cacf9e8b6c4c280cca846"
+      },
+      "auditHeadAtVerifiedArchive": {
+        "key": "heads/audit-1a561149f2477f457902c3336f503b7f4e30adb8ba5c67822651bfa2a13533ba.json",
+        "sha256": "0ef36dd5f7fc52e13d7931dbd31ccf67ba88ef4b0777807522b91c0585315fd1",
+        "bytes": 522
+      },
+      "discoveryEvidence": [
+        {
+          "observationId": "a27cdf2eb3640101a32eac66fb9c8f4392f7d2870d6c11d7f39b6f3dccbc1166",
+          "observationSha256": "ab2495fc05f0bbdd00f7fa3a2a75e5f9386d2e67713b10d68e418d1565600370",
+          "requestedUrl": "https://www.ivanti.com/sitemap_index.xml",
+          "fetchedAt": "2026-10-24T00:09:30.992082Z",
+          "body": {
+            "bytes": 510,
+            "key": "objects/ba40027263c3357bb54b240dd50ba8d69cb1814431c6b45c991eb987fb766d2e",
+            "sha256": "ba40027263c3357bb54b240dd50ba8d69cb1814431c6b45c991eb987fb766d2e"
+          }
+        },
+        {
+          "observationId": "0f42160c1655c00a2b44bafb406c3b549cd0edb488c2e9508f04ffbc0b395523",
+          "observationSha256": "66d613f3e03085bdb1d094d80b37de1df822a64b88eec15b337d91e1f8964c19",
+          "requestedUrl": "https://www.ivanti.com/sitemap_blog.xml",
+          "fetchedAt": "2026-10-24T00:09:31.283883Z",
+          "body": {
+            "bytes": 332679,
+            "key": "objects/e1bb8ab8c15f86e39efbe8b83feb794effb35f5549f564d9cdd03443b6b22f4b",
+            "sha256": "e1bb8ab8c15f86e39efbe8b83feb794effb35f5549f564d9cdd03443b6b22f4b"
+          }
+        },
+        {
+          "observationId": "f56ab9fc1958440dd6dad400c403656cc080fb0f9ffb6660abb070d9de076bb0",
+          "observationSha256": "7ae696ab200e4b65bfe04ad3ab744d4ad62cfc761b765dd898bbc0e87f7cd16b",
+          "requestedUrl": "https://www.ivanti.com/sitemap_core.xml",
+          "fetchedAt": "2026-10-24T00:09:31.598897Z",
+          "body": {
+            "bytes": 162152,
+            "key": "objects/a194b96710db12fadb8ac1c0fa2e5b8b751b35f3d966bc3151b2595e6fcb1536",
+            "sha256": "a194b96710db12fadb8ac1c0fa2e5b8b751b35f3d966bc3151b2595e6fcb1536"
+          }
+        },
+        {
+          "observationId": "5cccc5a1f0beda6f4e78881e91814c13ccc961ad4fe8504b8c468820e5b471c7",
+          "observationSha256": "95eb9885e0a3b1341f654051ba59d5aa32a1bfaf9cdd92e0c98ebb8cacae104b",
+          "requestedUrl": "https://www.ivanti.com/sitemap_ivi.xml",
+          "fetchedAt": "2026-10-24T00:09:31.871218Z",
+          "body": {
+            "bytes": 94314,
+            "key": "objects/991017571eca7b73a6372af530057820d8ec1adbdb489f4b53be5c01d51e98db",
+            "sha256": "991017571eca7b73a6372af530057820d8ec1adbdb489f4b53be5c01d51e98db"
+          }
+        },
+        {
+          "observationId": "384e42adc99e8e11fff8310a7fdbfbb189cc1e3be7f47119a43e0ee85ed51de1",
+          "observationSha256": "7f9508063b106e089e8374f206fedb415e4dc94fcbdaa51b2e83de5fe99df2a3",
+          "requestedUrl": "https://www.ivanti.com/sitemap_jobs.xml",
+          "fetchedAt": "2026-10-24T00:09:32.192404Z",
+          "body": {
+            "bytes": 858,
+            "key": "objects/1e2d6121070e783da2abf72e37ca6892a3b12555066dc3281127e037c0420c9f",
+            "sha256": "1e2d6121070e783da2abf72e37ca6892a3b12555066dc3281127e037c0420c9f"
+          }
+        },
+        {
+          "observationId": "89767d1b24b1b89ed6d5a441e3c11dcb71699278590f25bd30262a2022b3ffcb",
+          "observationSha256": "394bc4294226c0472c089377de0b892b0a99dab2dff0c7cda1218cfe6da60d0d",
+          "requestedUrl": "https://www.ivanti.com/sitemap_webinars.xml",
+          "fetchedAt": "2026-10-24T00:09:32.491625Z",
+          "body": {
+            "bytes": 91552,
+            "key": "objects/fa3c761f2b7d2e8a177fa81d86775a9be2daf953616f09f4b36922dc31d83b3c",
+            "sha256": "fa3c761f2b7d2e8a177fa81d86775a9be2daf953616f09f4b36922dc31d83b3c"
+          }
+        }
+      ],
+      "sourceTaskRemainsIncomplete": true
+    },
+    {
+      "sourceId": "reliaquest:official:1",
+      "supplierId": "reliaquest",
+      "name": "ReliaQuest, LLC",
+      "family": "official_announcements",
+      "sourceUrl": "https://reliaquest.com/sitemap.xml",
+      "allowedHosts": [
+        "reliaquest.com"
+      ],
+      "inventoryCount": 91,
+      "inventorySha256": "d6dac569c0e5398f0221faefcabf17eb18a8e7856457a4c1e36a0a1d4a3fe4df",
+      "currentSchedulingDue": 76,
+      "oldOrUndatedAuditDue": 14,
+      "retainedNotDue": 1,
+      "selectedDue": 2,
+      "deferredDue": 88,
+      "optimisticInvocationsAtTwoForUnresolved": 45,
+      "frozenClassificationScheduledInvocationLowerBound": 45,
+      "articleTransportRequestsPer30hCurrent": 91,
+      "minimumAverageArticleFetchesPer24h": "364/5",
+      "actualDiscoveryResponses": 1,
+      "itemManifest": {
+        "bytes": 9896,
+        "key": "objects/707187d32b4addec41abd1bfa73804fb9f5aef28dea0f7ee1e3fa84f4ec8d175",
+        "sha256": "707187d32b4addec41abd1bfa73804fb9f5aef28dea0f7ee1e3fa84f4ec8d175"
+      },
+      "priorAuditInventory": {
+        "bytes": 9812,
+        "key": "objects/a7f01683e16912b2c09844f2e9ffb75825f54c8716310b5582a87922e54b213a",
+        "sha256": "a7f01683e16912b2c09844f2e9ffb75825f54c8716310b5582a87922e54b213a"
+      },
+      "latestPendingManifest": {
+        "bytes": 9887,
+        "key": "objects/4f9fb424362a2ae8c9f1a28d50cb575e1d1149ef0b3c0a9d0ad18cd867de4c7d",
+        "sha256": "4f9fb424362a2ae8c9f1a28d50cb575e1d1149ef0b3c0a9d0ad18cd867de4c7d"
+      },
+      "auditHeadAtVerifiedArchive": {
+        "key": "heads/audit-bd53063718aa0ac74bd236a901a677248159c684a13ded9b4fd70e40deed13fe.json",
+        "sha256": "a551ab9eb2c12a76ad8132a3ac8f273594460bee93a0aeafc9c05b545403b3fe",
+        "bytes": 406
+      },
+      "discoveryEvidence": [
+        {
+          "observationId": "c2582438195a11ccbd6c7302bae56ea00668c2a0f19d636f6b25996cc857ca24",
+          "observationSha256": "0f1106ccce44d204f9682cdfbc6cbbaf7dffbd1a3d40d63a954c83996ccad740",
+          "requestedUrl": "https://reliaquest.com/sitemap.xml",
+          "fetchedAt": "2026-10-24T00:09:40.713584Z",
+          "body": {
+            "bytes": 337148,
+            "key": "objects/25661d89ce5851f77ca5380d9dc658ec347fd1341866efd80f4dd0fde376f895",
+            "sha256": "25661d89ce5851f77ca5380d9dc658ec347fd1341866efd80f4dd0fde376f895"
+          }
+        }
+      ],
+      "sourceTaskRemainsIncomplete": true
+    },
+    {
+      "sourceId": "upwind:official:1",
+      "supplierId": "upwind",
+      "name": "Upwind",
+      "family": "official_announcements",
+      "sourceUrl": "https://www.upwind.io/sitemap_index.xml",
+      "allowedHosts": [
+        "www.upwind.io"
+      ],
+      "inventoryCount": 976,
+      "inventorySha256": "3b651bc292baa285ca0d6d14ec0219e7faa0e3bef6fabcd53fbfd5c1fd325a3e",
+      "currentSchedulingDue": 176,
+      "oldOrUndatedAuditDue": 798,
+      "retainedNotDue": 2,
+      "selectedDue": 2,
+      "deferredDue": 972,
+      "optimisticInvocationsAtTwoForUnresolved": 487,
+      "frozenClassificationScheduledInvocationLowerBound": 798,
+      "articleTransportRequestsPer30hCurrent": 976,
+      "minimumAverageArticleFetchesPer24h": "3904/5",
+      "actualDiscoveryResponses": 15,
+      "itemManifest": {
+        "bytes": 104089,
+        "key": "objects/06cef2c54b74c08c1b8d8932d0e9ecf5f4dc671244dd4cea49c3a8c63469dd7e",
+        "sha256": "06cef2c54b74c08c1b8d8932d0e9ecf5f4dc671244dd4cea49c3a8c63469dd7e"
+      },
+      "priorAuditInventory": {
+        "bytes": 103205,
+        "key": "objects/7afb9d39948b16e350394d20e2afa654d24b2dfb8c2f6c8c5bd8cca35ccdff58",
+        "sha256": "7afb9d39948b16e350394d20e2afa654d24b2dfb8c2f6c8c5bd8cca35ccdff58"
+      },
+      "latestPendingManifest": {
+        "bytes": 103280,
+        "key": "objects/eafedebd14d5e6670be816b8414c8e5c41d5fdfcc0d0d750a176edb054e8f1ee",
+        "sha256": "eafedebd14d5e6670be816b8414c8e5c41d5fdfcc0d0d750a176edb054e8f1ee"
+      },
+      "auditHeadAtVerifiedArchive": {
+        "key": "heads/audit-538a5dc1444243d33e3da5f9473ddd4dcb63e909e1891dd5c0328d4c356c819b.json",
+        "sha256": "523d2ba819186a10ebea1c59e78a98bc8015710e79843d422a744d7dfbbfd7de",
+        "bytes": 643
+      },
+      "discoveryEvidence": [
+        {
+          "observationId": "aa804f4f8a3431f910ea461a4d9bf38d76d5584736bab50f87cbe78ab32c00a7",
+          "observationSha256": "2f48df6e0ef64c3a7f3bd72edfc144a245d2058e18c0c4ddb00411f68492c894",
+          "requestedUrl": "https://www.upwind.io/sitemap_index.xml",
+          "fetchedAt": "2026-10-24T00:09:59.021015Z",
+          "body": {
+            "bytes": 2073,
+            "key": "objects/01970412a71cd656bd2e38835ab0566b1345fad4c6fcf445c2e53195fe6e2783",
+            "sha256": "01970412a71cd656bd2e38835ab0566b1345fad4c6fcf445c2e53195fe6e2783"
+          }
+        },
+        {
+          "observationId": "e9d3b81292158a00c36d6dcc6d8292f54ca72f972b09aac104bd20917658f8ed",
+          "observationSha256": "8b055b3dca652164ab19da682b6e1a6f2a63e92ba75e4607765291ac88cac837",
+          "requestedUrl": "https://www.upwind.io/author_tax-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:09:59.262634Z",
+          "body": {
+            "bytes": 9649,
+            "key": "objects/33fd74843b669a525dfe90785d588472172708221e4c213e1c5d6269642e7a67",
+            "sha256": "33fd74843b669a525dfe90785d588472172708221e4c213e1c5d6269642e7a67"
+          }
+        },
+        {
+          "observationId": "a811c946b5e3fa04ad456c34f17d1b0682114ade810c71032232f7bf137b322c",
+          "observationSha256": "92f693d16cbcae3760ba2cf7171fba48a09e061d7c7dc7519f1316da1515815b",
+          "requestedUrl": "https://www.upwind.io/case-study-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:09:59.545733Z",
+          "body": {
+            "bytes": 18317,
+            "key": "objects/3f2c4df50123974c06b4a58f0fcc94ac504c78a0394b2fd0a56cc7dc49787388",
+            "sha256": "3f2c4df50123974c06b4a58f0fcc94ac504c78a0394b2fd0a56cc7dc49787388"
+          }
+        },
+        {
+          "observationId": "384d8628c74bebd1c12037640f1229543ea87d8dc77010d33becae60a53db30c",
+          "observationSha256": "eb02e92a8edc0b5a6d0523597c5d21e3e92744b61465985b0e4e6e7cc5ff183d",
+          "requestedUrl": "https://www.upwind.io/category-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:09:59.879302Z",
+          "body": {
+            "bytes": 1589,
+            "key": "objects/ea9d7aea5cd7b59a494c609b9f9b8732b77f4d2e573e47251cd0aeab658cc4fd",
+            "sha256": "ea9d7aea5cd7b59a494c609b9f9b8732b77f4d2e573e47251cd0aeab658cc4fd"
+          }
+        },
+        {
+          "observationId": "8fe6f753ac0d5adc97f0e6ec75e9e8478dfa24bc58337a176f6f9bc7f0f78b39",
+          "observationSha256": "04fb283172c0178f223c6e0981714e26c433531bd5b572db3c9c600666203f7c",
+          "requestedUrl": "https://www.upwind.io/episode-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:10:00.205053Z",
+          "body": {
+            "bytes": 13025,
+            "key": "objects/6d11f04bb82b0b46d7ce03290e1455fd324353d703db126605e5177af9a43c3c",
+            "sha256": "6d11f04bb82b0b46d7ce03290e1455fd324353d703db126605e5177af9a43c3c"
+          }
+        },
+        {
+          "observationId": "26a6767eef2ef93ae5e952ca72f9db80012dd2afe9787bb541e7fe78f4b25795",
+          "observationSha256": "940ca88b93e1e16f7ab3a23543fb5d9b391596d2d3cf833a84a14fff1b80a6d3",
+          "requestedUrl": "https://www.upwind.io/event-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:10:00.481900Z",
+          "body": {
+            "bytes": 48626,
+            "key": "objects/ee3443c1e41c1c1ca2920485f907516a212b0dce7bede582e3ff5c48315d510b",
+            "sha256": "ee3443c1e41c1c1ca2920485f907516a212b0dce7bede582e3ff5c48315d510b"
+          }
+        },
+        {
+          "observationId": "720137f6e584e505ce5f8cc602fb68a8879fac1d8fd328e8b17b4cda56dafe2e",
+          "observationSha256": "c77d74000dddc1aee5e9ac4f9199c960d25b96a6c1d01b537317c8dbaad7470f",
+          "requestedUrl": "https://www.upwind.io/glossary-category-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:10:00.803959Z",
+          "body": {
+            "bytes": 1772,
+            "key": "objects/3b8ba904f725ba25d830aaf8accf74b53c41e5f58dbf84cdb621f332a774736c",
+            "sha256": "3b8ba904f725ba25d830aaf8accf74b53c41e5f58dbf84cdb621f332a774736c"
+          }
+        },
+        {
+          "observationId": "5e491d3ed855f53a0cbf20eb63152ef56d4de56fe1c134476406883585aebd04",
+          "observationSha256": "44f503d0eb75c6c97e23a9fe96a3b4a9de3b0fb9bccec91a4351d8f66d8893b3",
+          "requestedUrl": "https://www.upwind.io/glossary-page-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:10:01.077206Z",
+          "body": {
+            "bytes": 122750,
+            "key": "objects/0fd866f8d9f91e395f686b0b3a84e60729ae766e4fe7d8ddaf5314aede2750b1",
+            "sha256": "0fd866f8d9f91e395f686b0b3a84e60729ae766e4fe7d8ddaf5314aede2750b1"
+          }
+        },
+        {
+          "observationId": "7dc574ab7c283a43006c03c6d1c047ff5244c27e7b7f78fa534379b8507e7a44",
+          "observationSha256": "b520c59f75021a8b974818b59f3da918947ef141a9a451d44786823037e1ff79",
+          "requestedUrl": "https://www.upwind.io/glossary_collection-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:10:01.397449Z",
+          "body": {
+            "bytes": 1359,
+            "key": "objects/cb39ef99d0fa5ccf98721568a1f6a8056e71e45905a0586aa85c752b6f12212e",
+            "sha256": "cb39ef99d0fa5ccf98721568a1f6a8056e71e45905a0586aa85c752b6f12212e"
+          }
+        },
+        {
+          "observationId": "c227e08f79f5e2080f03b23bb4b74f16b7178f5bde8eef059f1819e27ae3954a",
+          "observationSha256": "474a763f042111aa3f8c4a906af119473916757eb9f0e5fdad91b61faae2e590",
+          "requestedUrl": "https://www.upwind.io/integration-category-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:10:01.664925Z",
+          "body": {
+            "bytes": 4161,
+            "key": "objects/e0d6c990b05b8ab2d87fe69b502a81081e78fe8e66c1c339635e663026ea228c",
+            "sha256": "e0d6c990b05b8ab2d87fe69b502a81081e78fe8e66c1c339635e663026ea228c"
+          }
+        },
+        {
+          "observationId": "b16cb37776d1265422aab58a6f804976450bd796a2e413bf1f636eba88bc41ae",
+          "observationSha256": "a95971cae8c4ad0a2d2823f0998dec25d71fc3239a139a729ada21b6d68e4013",
+          "requestedUrl": "https://www.upwind.io/integration-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:10:01.997934Z",
+          "body": {
+            "bytes": 15105,
+            "key": "objects/0278f32982d701ae42af49e1178214da8804bf3947d57c30b23b600b39281db3",
+            "sha256": "0278f32982d701ae42af49e1178214da8804bf3947d57c30b23b600b39281db3"
+          }
+        },
+        {
+          "observationId": "464fcbeab4a7820cb63be694c5d1cc6505dd58accac11fb2a623c45e121b1f41",
+          "observationSha256": "42fb5476d3ea2893f7b1a9a95faa07df3f513c1d6b7b3447b2bd76f68a6fca43",
+          "requestedUrl": "https://www.upwind.io/page-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:10:02.286505Z",
+          "body": {
+            "bytes": 63685,
+            "key": "objects/489f44bd860d6161deeb1695eef35ec75780ed55c1dd18529d9075bc0a0ed924",
+            "sha256": "489f44bd860d6161deeb1695eef35ec75780ed55c1dd18529d9075bc0a0ed924"
+          }
+        },
+        {
+          "observationId": "3450ea0bdd21533b3f01864e15f797dfc57e2f9e9184b94f864746d92b1c4b44",
+          "observationSha256": "d12666c2fc53433533900de945e6082c2e41682167bfa698c5a8ca833c594a18",
+          "requestedUrl": "https://www.upwind.io/post-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:10:02.611396Z",
+          "body": {
+            "bytes": 294938,
+            "key": "objects/6e521893b03d22aafe3b4f254a61ab6dea77f24e6eb502f29df6d36143ea933c",
+            "sha256": "6e521893b03d22aafe3b4f254a61ab6dea77f24e6eb502f29df6d36143ea933c"
+          }
+        },
+        {
+          "observationId": "9fbacaab9fa502a4af02dd613f04a494d45826704667aa8a97a69bd92b348c7e",
+          "observationSha256": "63e6132a6c6b6c82bd9b77112334bad12599f13adf68165d5392eefd751aa473",
+          "requestedUrl": "https://www.upwind.io/series-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:10:02.844363Z",
+          "body": {
+            "bytes": 1716,
+            "key": "objects/c03bd92435fcd6a450f657e7d27ed829b1ac453033478ac2e43715908752978d",
+            "sha256": "c03bd92435fcd6a450f657e7d27ed829b1ac453033478ac2e43715908752978d"
+          }
+        },
+        {
+          "observationId": "e73306a1a018de31f0d2eeff1f1b9733ff034735c93556d69b54d8064ba17d9e",
+          "observationSha256": "affd94c701f33f0e86fac658f1a63e8aab88e3d451e82e6fe3584baaedce1bc7",
+          "requestedUrl": "https://www.upwind.io/threat-post-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:10:03.176867Z",
+          "body": {
+            "bytes": 88380,
+            "key": "objects/6812b3248849a20ce4b9858103ebd186d4875a573eb86d55ff7557a168b6a209",
+            "sha256": "6812b3248849a20ce4b9858103ebd186d4875a573eb86d55ff7557a168b6a209"
+          }
+        }
+      ],
+      "sourceTaskRemainsIncomplete": true
+    },
+    {
+      "sourceId": "sophos:official:1",
+      "supplierId": "sophos",
+      "name": "Sophos Group (Sophos Ltd)",
+      "family": "investor_acquirer",
+      "sourceUrl": "https://www.thomabravo.com/sitemap.xml",
+      "allowedHosts": [
+        "www.thomabravo.com"
+      ],
+      "inventoryCount": 638,
+      "inventorySha256": "707f1bdf3d4701eac76119b58dcc4acaec700a998e93704ee343a46bc7b7d7da",
+      "currentSchedulingDue": 23,
+      "oldOrUndatedAuditDue": 611,
+      "retainedNotDue": 4,
+      "selectedDue": 2,
+      "deferredDue": 632,
+      "optimisticInvocationsAtTwoForUnresolved": 317,
+      "frozenClassificationScheduledInvocationLowerBound": 611,
+      "articleTransportRequestsPer30hCurrent": 638,
+      "minimumAverageArticleFetchesPer24h": "2552/5",
+      "actualDiscoveryResponses": 1,
+      "itemManifest": {
+        "bytes": 74577,
+        "key": "objects/a50b0afe54739f3c9a3fb2a3ed4eb1bf6f08e19865106da011806b79dfec6c8d",
+        "sha256": "a50b0afe54739f3c9a3fb2a3ed4eb1bf6f08e19865106da011806b79dfec6c8d"
+      },
+      "priorAuditInventory": {
+        "bytes": 74493,
+        "key": "objects/f4282c006ef5b7406668287a3a8e01fd6ce16d6371917d69d6bd83c6311e052c",
+        "sha256": "f4282c006ef5b7406668287a3a8e01fd6ce16d6371917d69d6bd83c6311e052c"
+      },
+      "latestPendingManifest": {
+        "bytes": 74568,
+        "key": "objects/af28e55b4bf4c2a89c30b41c6e2d628d7b762b6fb4ef2f0e6e4342c30179ca8f",
+        "sha256": "af28e55b4bf4c2a89c30b41c6e2d628d7b762b6fb4ef2f0e6e4342c30179ca8f"
+      },
+      "auditHeadAtVerifiedArchive": {
+        "key": "heads/audit-399b91fe597546b9aa6ac2667a0d60b4b973b999d828b899d5e47ff8520e2b74.json",
+        "sha256": "3a2f429838bb93b1a0ef4dec108b5349182159ddf49f44b677de076d88a3f937",
+        "bytes": 1193
+      },
+      "discoveryEvidence": [
+        {
+          "observationId": "bf61e51d5b324aa0af9b8d306e9c1a5f750442c16ef1e055ddaf936a3019c0ee",
+          "observationSha256": "121e4fd3c92711fa1b0fc58f13374fd9be838ef57b63b48bd6809b9bd7c2cc7b",
+          "requestedUrl": "https://www.thomabravo.com/sitemap.xml",
+          "fetchedAt": "2026-10-24T00:10:25.416189Z",
+          "body": {
+            "bytes": 226085,
+            "key": "objects/eb50849f4fb93fb1420b5c3e791121b2094e759e25db392f885cf8b701fe1fa3",
+            "sha256": "eb50849f4fb93fb1420b5c3e791121b2094e759e25db392f885cf8b701fe1fa3"
+          }
+        }
+      ],
+      "sourceTaskRemainsIncomplete": true
+    },
+    {
+      "sourceId": "snyk:official:1",
+      "supplierId": "snyk",
+      "name": "Snyk, Inc.",
+      "family": "official_announcements",
+      "sourceUrl": "https://snyk.io/sitemap-index.xml",
+      "allowedHosts": [
+        "snyk.io"
+      ],
+      "inventoryCount": 54,
+      "inventorySha256": "3ad2f13f02f412fc1304b4cf7f3ed7082d1553b8f3c98a09db5ddd2c71e5e6ed",
+      "currentSchedulingDue": 54,
+      "oldOrUndatedAuditDue": 0,
+      "retainedNotDue": 0,
+      "selectedDue": 2,
+      "deferredDue": 52,
+      "optimisticInvocationsAtTwoForUnresolved": 27,
+      "frozenClassificationScheduledInvocationLowerBound": 27,
+      "articleTransportRequestsPer30hCurrent": 54,
+      "minimumAverageArticleFetchesPer24h": "216/5",
+      "actualDiscoveryResponses": 11,
+      "itemManifest": {
+        "bytes": 5253,
+        "key": "objects/58b3e00940ea37fb189d868ad37489da69d2dcc56e3ddb3584ac7f18461d84a2",
+        "sha256": "58b3e00940ea37fb189d868ad37489da69d2dcc56e3ddb3584ac7f18461d84a2"
+      },
+      "priorAuditInventory": {
+        "bytes": 4499,
+        "key": "objects/234356fe93d29af579a3286a03679981573d1980fd84488815a4e6c0d8e4364a",
+        "sha256": "234356fe93d29af579a3286a03679981573d1980fd84488815a4e6c0d8e4364a"
+      },
+      "latestPendingManifest": {
+        "bytes": 4574,
+        "key": "objects/42b48a04e98a07ef18ca7590906feca558e49a161fdeb3c070150b5a8556dc57",
+        "sha256": "42b48a04e98a07ef18ca7590906feca558e49a161fdeb3c070150b5a8556dc57"
+      },
+      "auditHeadAtVerifiedArchive": {
+        "key": "heads/audit-ba1bb0987850a42674fc55951f80495cf1645551184cc2f52836e084d5e9b4b8.json",
+        "sha256": "e01305b7eac732f91b6584a9e68a58a35d77a7bcaeddb86b3ca52e14da0c08e0",
+        "bytes": 284
+      },
+      "discoveryEvidence": [
+        {
+          "observationId": "14be56d2f8f147b24f3458117e3e8519cfb11632f488454bc94382404eb10957",
+          "observationSha256": "8d1d94d4c4e1ad067afa1a96b4069fa4ad3e49a8f1994520750af219a8c6eb7d",
+          "requestedUrl": "https://snyk.io/sitemap-index.xml",
+          "fetchedAt": "2026-10-24T00:10:53.182318Z",
+          "body": {
+            "bytes": 885,
+            "key": "objects/ccc9a1e2f79a5bf6a6c22c29e67d3649529a88af43f7403d1a684d32e9c9688e",
+            "sha256": "ccc9a1e2f79a5bf6a6c22c29e67d3649529a88af43f7403d1a684d32e9c9688e"
+          }
+        },
+        {
+          "observationId": "f44064044b9a57058c5d46c6aecc49727cbfcd45942093b5dc7f9f945d1cf709",
+          "observationSha256": "168b26a18f9a4ac9d4fa384c87b5fcd2c9676db921e114184e0f71e74668b8f5",
+          "requestedUrl": "https://snyk.io/sitemaps/sitemap-articles.xml",
+          "fetchedAt": "2026-10-24T00:10:53.617268Z",
+          "body": {
+            "bytes": 147402,
+            "key": "objects/9f0a5753eca9387331583e55aafbf2d049c12334cce4e4898208c88e679b4a71",
+            "sha256": "9f0a5753eca9387331583e55aafbf2d049c12334cce4e4898208c88e679b4a71"
+          }
+        },
+        {
+          "observationId": "9fc52e698546d9f9f48cfeb8366a84dc017de8060945ed438e41c7acc7bff191",
+          "observationSha256": "fba08f79f4a73bdb28287e12c6ba130b17d88a08fc196056c818be9528031921",
+          "requestedUrl": "https://snyk.io/sitemaps/sitemap-blogs.xml",
+          "fetchedAt": "2026-10-24T00:10:54.218933Z",
+          "body": {
+            "bytes": 763211,
+            "key": "objects/d59b84c76fe14f699dec1d4ceadfe21c2bf5e8ae32eacc1c25a16811c8ef7683",
+            "sha256": "d59b84c76fe14f699dec1d4ceadfe21c2bf5e8ae32eacc1c25a16811c8ef7683"
+          }
+        },
+        {
+          "observationId": "0e1a4e2edff9d84ae67916ddcb51d7771a299c6c3ba46d58453b27b7cffb05aa",
+          "observationSha256": "7d7fc751e73b338abe6a169041828f260e078fb2e48b8ecef436849743512b7b",
+          "requestedUrl": "https://snyk.io/sitemaps/sitemap-case-studies.xml",
+          "fetchedAt": "2026-10-24T00:10:54.507997Z",
+          "body": {
+            "bytes": 51436,
+            "key": "objects/e824cb6b10cf656e8edaebb0e393f3697b2a483bca8c840aec2884fa549006e9",
+            "sha256": "e824cb6b10cf656e8edaebb0e393f3697b2a483bca8c840aec2884fa549006e9"
+          }
+        },
+        {
+          "observationId": "3bfe883945dfd092c6e09c8ab45334f27fa09555025ffda2cfa99629077acc86",
+          "observationSha256": "5928e130be59ec4c254350e90f577ccd030d5a2930a405b63a0edc200a2f51ac",
+          "requestedUrl": "https://snyk.io/sitemaps/sitemap-contributors.xml",
+          "fetchedAt": "2026-10-24T00:10:54.938883Z",
+          "body": {
+            "bytes": 19161,
+            "key": "objects/5da3f0dfa4df9a135aedb56185fee6aea57728c878559f58da743945e085f5a7",
+            "sha256": "5da3f0dfa4df9a135aedb56185fee6aea57728c878559f58da743945e085f5a7"
+          }
+        },
+        {
+          "observationId": "76a2108817cad6398412a2fc4b23d3d82d944232cb9a135062d1e3cedd98f6d5",
+          "observationSha256": "8a9bf158783c7389eaf444513237f4987fa6d15f0d2a89d2dc00fb7187bf25d3",
+          "requestedUrl": "https://snyk.io/sitemaps/sitemap-events.xml",
+          "fetchedAt": "2026-10-24T00:10:55.110383Z",
+          "body": {
+            "bytes": 8616,
+            "key": "objects/ff77521b32f2b72ec302ec0d9b91e255d1f037d6c1d376779da5bd87d1ad7def",
+            "sha256": "ff77521b32f2b72ec302ec0d9b91e255d1f037d6c1d376779da5bd87d1ad7def"
+          }
+        },
+        {
+          "observationId": "a300838cef2e5604ee153b3547b459e85ad9af8afd0d115d166e5ae917ae13a3",
+          "observationSha256": "3623b45a326aff0107143d8157b08a393a47867a78d1f3f3c2020fe4e4b14c3a",
+          "requestedUrl": "https://snyk.io/sitemaps/sitemap-pages.xml",
+          "fetchedAt": "2026-10-24T00:10:55.578198Z",
+          "body": {
+            "bytes": 292925,
+            "key": "objects/da43f688291bb379301b6a3a3dceee98b08e9ec0a60d9d682a8cee9b3993b154",
+            "sha256": "da43f688291bb379301b6a3a3dceee98b08e9ec0a60d9d682a8cee9b3993b154"
+          }
+        },
+        {
+          "observationId": "dfd51d7946e6fdaf6d5dc42f89488ce1701f4ffff9dca9220b20c2f7f9e325d4",
+          "observationSha256": "dede399004b2423843deea5099d4610fdcde460ea271d5c510f565e9eb4d2687",
+          "requestedUrl": "https://snyk.io/sitemaps/sitemap-podcasts.xml",
+          "fetchedAt": "2026-10-24T00:10:55.781647Z",
+          "body": {
+            "bytes": 28663,
+            "key": "objects/b3c5195fc9eb83d46d21cbd747e6de4ddfd770c53abd369699b68aedc9385009",
+            "sha256": "b3c5195fc9eb83d46d21cbd747e6de4ddfd770c53abd369699b68aedc9385009"
+          }
+        },
+        {
+          "observationId": "9a5ba4766059c6be39073477c3d6143da2545c84421ad583b823f15bfbec86e6",
+          "observationSha256": "6500c18c2d1400ad7f28cb2c6616c21ce60a8c14aa47310672a6553c19e7e549",
+          "requestedUrl": "https://snyk.io/sitemaps/sitemap-policies.xml",
+          "fetchedAt": "2026-10-24T00:10:56.126687Z",
+          "body": {
+            "bytes": 465,
+            "key": "objects/d69ca523988dcca5575cec7dfe2c3788addd9c1e4d4cec53381725c5ffcda735",
+            "sha256": "d69ca523988dcca5575cec7dfe2c3788addd9c1e4d4cec53381725c5ffcda735"
+          }
+        },
+        {
+          "observationId": "5a6a98f59a99658f72b5f81f0e66e04e95cb4172f10fe2a1472f9e699503ecfc",
+          "observationSha256": "bd3b6fd3a1cb6ac688816583cb2796849c89f6b067f907c4e0157c7da4e88dd5",
+          "requestedUrl": "https://snyk.io/sitemaps/sitemap-press-releases.xml",
+          "fetchedAt": "2026-10-24T00:10:56.466331Z",
+          "body": {
+            "bytes": 35356,
+            "key": "objects/a458e733f6d58f90c88a9432d4d9f8af818ba9ef44f8da556238498e73e41997",
+            "sha256": "a458e733f6d58f90c88a9432d4d9f8af818ba9ef44f8da556238498e73e41997"
+          }
+        },
+        {
+          "observationId": "0855d48ffbf2a1993a6070f8b9ac77a28ed73336cca646a5df97f8a94a2f2bf3",
+          "observationSha256": "5660f676961d0c46bbc75748d2540a7aedfa3c8508ce6aa1d12e0a8610b0eb21",
+          "requestedUrl": "https://snyk.io/sitemaps/sitemap-videos.xml",
+          "fetchedAt": "2026-10-24T00:10:56.705895Z",
+          "body": {
+            "bytes": 35830,
+            "key": "objects/1945b779f9b1676b0115e5d91430406bccf93a9a9f58803bae0bd9c72aaa2775",
+            "sha256": "1945b779f9b1676b0115e5d91430406bccf93a9a9f58803bae0bd9c72aaa2775"
+          }
+        }
+      ],
+      "sourceTaskRemainsIncomplete": true
+    },
+    {
+      "sourceId": "esentire:official:1",
+      "supplierId": "esentire",
+      "name": "eSentire, Inc.",
+      "family": "official_announcements",
+      "sourceUrl": "https://www.esentire.com/sitemaps-1-sitemap.xml",
+      "allowedHosts": [
+        "www.esentire.com"
+      ],
+      "inventoryCount": 170,
+      "inventorySha256": "df603cbe53c9966022140520377f00696a5c4d97f2612258ee4e52184e5847ea",
+      "currentSchedulingDue": 0,
+      "oldOrUndatedAuditDue": 170,
+      "retainedNotDue": 0,
+      "selectedDue": 1,
+      "deferredDue": 169,
+      "optimisticInvocationsAtTwoForUnresolved": 85,
+      "frozenClassificationScheduledInvocationLowerBound": 170,
+      "articleTransportRequestsPer30hCurrent": 170,
+      "minimumAverageArticleFetchesPer24h": "136",
+      "actualDiscoveryResponses": 11,
+      "itemManifest": {
+        "bytes": 24012,
+        "key": "objects/6087f7d5906b95e84c3420599d766765479b6d610a0caef65c0d96cefc2eb454",
+        "sha256": "6087f7d5906b95e84c3420599d766765479b6d610a0caef65c0d96cefc2eb454"
+      },
+      "priorAuditInventory": {
+        "bytes": 23258,
+        "key": "objects/6b5c16fa0b3023f81ac5559af0c186e57015e1143a1d28e3a08416c657e321e1",
+        "sha256": "6b5c16fa0b3023f81ac5559af0c186e57015e1143a1d28e3a08416c657e321e1"
+      },
+      "latestPendingManifest": {
+        "bytes": 23333,
+        "key": "objects/86f184bf8abbf42b1eb483467eeff833f9b1a3df8a6b162cff1b938e2df4bbb6",
+        "sha256": "86f184bf8abbf42b1eb483467eeff833f9b1a3df8a6b162cff1b938e2df4bbb6"
+      },
+      "auditHeadAtVerifiedArchive": {
+        "key": "heads/audit-381c926c69aa7adc47b13cb5404896c91b87b6007fe7a25a3d8d3e2b01278ab6.json",
+        "sha256": "c36d3126a8d72c02f2cb33f039ca35f57aab4d75f4fc08b2fbc1c2432dacb4ac",
+        "bytes": 285
+      },
+      "discoveryEvidence": [
+        {
+          "observationId": "8d3206a257ea8fa7604cb987dcb1faeb9b030a2dbd6b0d8d2c93538c9af1ebb5",
+          "observationSha256": "413bef555b56a4afe156ea912680e40300a693ee51a93d3476c87c4ff89a498a",
+          "requestedUrl": "https://www.esentire.com/sitemaps-1-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:11:02.363597Z",
+          "body": {
+            "bytes": 1585,
+            "key": "objects/eab2b19c1d0db0e28ce07a33655841a71cd2c65a4d80fbd135123cb11ad7d478",
+            "sha256": "eab2b19c1d0db0e28ce07a33655841a71cd2c65a4d80fbd135123cb11ad7d478"
+          }
+        },
+        {
+          "observationId": "4c1b15edf5b5cbd375e7541da3a0fd842a67c13f753d525ecba93b98ffa4733b",
+          "observationSha256": "6710e8cd50f9188a24a679421803454e364bc5a975ddb663a292f1026223976e",
+          "requestedUrl": "https://www.esentire.com/sitemaps-1-section-blog-1-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:11:02.738135Z",
+          "body": {
+            "bytes": 168779,
+            "key": "objects/c4f4d2ef777f37bf0292235901f39cbf381e56dd37eb1623fd77c05a4cdd4ac2",
+            "sha256": "c4f4d2ef777f37bf0292235901f39cbf381e56dd37eb1623fd77c05a4cdd4ac2"
+          }
+        },
+        {
+          "observationId": "54781809eefc79d2f9be66ab0d6b013b4b42e20c8c856d406542a85561f7057e",
+          "observationSha256": "46930d544a76096ffa3a292c4ab1c78ca174e0b89aa9fcfc69512e05ed86e491",
+          "requestedUrl": "https://www.esentire.com/sitemaps-1-section-glossary-1-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:11:03.005935Z",
+          "body": {
+            "bytes": 10277,
+            "key": "objects/0c2acdda16491896043137cb9ca3165d4ca53cf8aa9c338bc5f5db1c35786766",
+            "sha256": "0c2acdda16491896043137cb9ca3165d4ca53cf8aa9c338bc5f5db1c35786766"
+          }
+        },
+        {
+          "observationId": "991a317b38f5640706a51847722492d2c22b9a2e3ad0d059859ab3b05a1eddfc",
+          "observationSha256": "0298112a8f676ac91950e80d2fcfd10ed12af1e6fccc2e668b4fec22ed37d866",
+          "requestedUrl": "https://www.esentire.com/sitemaps-1-section-homepage-1-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:11:03.354397Z",
+          "body": {
+            "bytes": 1257,
+            "key": "objects/435ba30002ea6799e2f8d58c1344647b3b26db58e2be62b4b79a68faec575d6a",
+            "sha256": "435ba30002ea6799e2f8d58c1344647b3b26db58e2be62b4b79a68faec575d6a"
+          }
+        },
+        {
+          "observationId": "9d4d98e7b5ef5aa287f31736a1081123eac5377f95a7ccef9cbd58abc6b5d6d8",
+          "observationSha256": "47c76616cf79563b9be83d5932227b8382611a51614550169764d6d5ead4c07f",
+          "requestedUrl": "https://www.esentire.com/sitemaps-1-section-leadership-1-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:11:03.583257Z",
+          "body": {
+            "bytes": 10847,
+            "key": "objects/9e31f372f8263555be3ab922a6c92f8d46d9cb5c5a2c7f13a85ff9442be15d9b",
+            "sha256": "9e31f372f8263555be3ab922a6c92f8d46d9cb5c5a2c7f13a85ff9442be15d9b"
+          }
+        },
+        {
+          "observationId": "d16c00cb97d39299b121af5908437a4dc4da51a4013eccedab31ac42fd77071a",
+          "observationSha256": "3b3ff622a0ee240feae8714ee912b30d7065149d389fed7bce5a8a8c8c70b734",
+          "requestedUrl": "https://www.esentire.com/sitemaps-1-section-legal-1-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:11:03.874840Z",
+          "body": {
+            "bytes": 1445,
+            "key": "objects/7ddf1914a77e3d4c10680005c115e601d480828bda4f77605fa9002e21756928",
+            "sha256": "7ddf1914a77e3d4c10680005c115e601d480828bda4f77605fa9002e21756928"
+          }
+        },
+        {
+          "observationId": "45ca56e4af36a06cb3e098ca1c3ae4169c7ca9f0a7ee8fcda00f887635ac821e",
+          "observationSha256": "e3cb1cacccf8daf677b5e3a6b11e84e77c883cadef58e7392dd4d03faf9c9803",
+          "requestedUrl": "https://www.esentire.com/sitemaps-1-section-newsReleases-1-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:11:04.162325Z",
+          "body": {
+            "bytes": 43558,
+            "key": "objects/85623c07873549fcca2bdedc892dea8ef344f70ddcc9f791d469cf043d3538a7",
+            "sha256": "85623c07873549fcca2bdedc892dea8ef344f70ddcc9f791d469cf043d3538a7"
+          }
+        },
+        {
+          "observationId": "eb55a6c8fb6756f64d7663b548b60bccd22d958d1a8df1ddbc1fcb80d662d1af",
+          "observationSha256": "2f19a5a4b14f3ac28295955de5c2727d195083871b23437dc1bdf51dd6701e75",
+          "requestedUrl": "https://www.esentire.com/sitemaps-1-section-pages-1-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:11:04.493705Z",
+          "body": {
+            "bytes": 22529,
+            "key": "objects/f25a412ee892f5400cf53d2cf6de90867bac429fae3b1c8f1918469610241d07",
+            "sha256": "f25a412ee892f5400cf53d2cf6de90867bac429fae3b1c8f1918469610241d07"
+          }
+        },
+        {
+          "observationId": "7a3b2202fed2656c3712e852afd554bc417ee8d38eb5b3158159fc58dc6df27f",
+          "observationSha256": "57551af42918b0b1e28e31862536cc6be01a7cb39ebf57a0270534119739291d",
+          "requestedUrl": "https://www.esentire.com/sitemaps-1-section-resources-1-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:11:04.798696Z",
+          "body": {
+            "bytes": 73986,
+            "key": "objects/912edc60c3a54d8624dd4b45257fd8e79d63f68f3748618a17a63a21d146d44c",
+            "sha256": "912edc60c3a54d8624dd4b45257fd8e79d63f68f3748618a17a63a21d146d44c"
+          }
+        },
+        {
+          "observationId": "ceda7e362cb9990efd2388d2aaaaefff0149f34fa5cff9d8bfda43ec81aa7dd3",
+          "observationSha256": "5c4f724e1e55216c51c9ad1261b6f33d847bb36db1f421fecef449a94c5c7443",
+          "requestedUrl": "https://www.esentire.com/sitemaps-1-section-securityAdvisories-1-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:11:05.081532Z",
+          "body": {
+            "bytes": 107881,
+            "key": "objects/65e11d10ee2c0149d321e517f49d3255b7550117fdc108be050000efd56b01f6",
+            "sha256": "65e11d10ee2c0149d321e517f49d3255b7550117fdc108be050000efd56b01f6"
+          }
+        },
+        {
+          "observationId": "f05cad5adbd28f3f9def9bc05d2bdac3c2a490694839335751a906f759691a5e",
+          "observationSha256": "d0940d32db1ea84ebed49a51532018927393ec00aec3b53637ef823e2c72b3d1",
+          "requestedUrl": "https://www.esentire.com/sitemaps-1-section-webNativePages-1-sitemap.xml",
+          "fetchedAt": "2026-10-24T00:11:05.392278Z",
+          "body": {
+            "bytes": 15052,
+            "key": "objects/9b387f3066ab88d1f67f66ea4745eb3ba681f1f68a477c0e059b1df97efac0da",
+            "sha256": "9b387f3066ab88d1f67f66ea4745eb3ba681f1f68a477c0e059b1df97efac0da"
+          }
+        }
+      ],
+      "sourceTaskRemainsIncomplete": true
+    },
+    {
+      "sourceId": "dragos:official:1",
+      "supplierId": "dragos",
+      "name": "Dragos, Inc.",
+      "family": "investor_acquirer",
+      "sourceUrl": "https://newsroom.accenture.com/sitemap.xml",
+      "allowedHosts": [
+        "newsroom.accenture.com"
+      ],
+      "inventoryCount": 3256,
+      "inventorySha256": "7ebef5ad445bf6af6a8727b248b0490e29712ca67f4a61a7d217341697cca6a0",
+      "currentSchedulingDue": 15,
+      "oldOrUndatedAuditDue": 3240,
+      "retainedNotDue": 1,
+      "selectedDue": 2,
+      "deferredDue": 3253,
+      "optimisticInvocationsAtTwoForUnresolved": 1628,
+      "frozenClassificationScheduledInvocationLowerBound": 3240,
+      "articleTransportRequestsPer30hCurrent": 3256,
+      "minimumAverageArticleFetchesPer24h": "13024/5",
+      "actualDiscoveryResponses": 1,
+      "itemManifest": {
+        "bytes": 476568,
+        "key": "objects/aa24a83fb3af0ecee7a6454ead84202265177c2556e4f93acf1281d1a541cb0b",
+        "sha256": "aa24a83fb3af0ecee7a6454ead84202265177c2556e4f93acf1281d1a541cb0b"
+      },
+      "priorAuditInventory": {
+        "bytes": 476484,
+        "key": "objects/0b6838549a8b8ada165edd7f59c40251e2d9b33eaff4f7f488e19f372fa9616b",
+        "sha256": "0b6838549a8b8ada165edd7f59c40251e2d9b33eaff4f7f488e19f372fa9616b"
+      },
+      "latestPendingManifest": {
+        "bytes": 476559,
+        "key": "objects/951fc23091f92e79f8bc301fa156365343ba0db37afb070d70bc6e3933dc1f43",
+        "sha256": "951fc23091f92e79f8bc301fa156365343ba0db37afb070d70bc6e3933dc1f43"
+      },
+      "auditHeadAtVerifiedArchive": {
+        "key": "heads/audit-2e98ffca15556887612ab5a0c7c417458f0a0eca4ca3a8f8a6aae3b207300f5b.json",
+        "sha256": "bc254773f3117fe5ba1b2c9df578f16882b028de68c5989f17ca8278d4cf0219",
+        "bytes": 557
+      },
+      "discoveryEvidence": [
+        {
+          "observationId": "a86e849ef8e129825132a01a31fe906b43df5d72746a6b41fa4f4ba47b074d2b",
+          "observationSha256": "7c83505da8a9c3d05ecbed8f1231e0dab123c93d30f519e02564774bd44c461b",
+          "requestedUrl": "https://newsroom.accenture.com/sitemap.xml",
+          "fetchedAt": "2026-10-24T00:11:10.084988Z",
+          "body": {
+            "bytes": 736986,
+            "key": "objects/39474481111eef688364cd98a83b90dc8682527f1c9a5c54166b79904e8cc7be",
+            "sha256": "39474481111eef688364cd98a83b90dc8682527f1c9a5c54166b79904e8cc7be"
+          }
+        }
+      ],
+      "sourceTaskRemainsIncomplete": true
+    }
+  ],
+  "transport": {
+    "articleSourceContexts": 9914,
+    "uniqueArticleUrls": 9276,
+    "sharedArticleUrls": 638,
+    "sharedGroups": [
+      {
+        "sourceIds": [
+          "exabeam:official:1",
+          "sophos:official:1"
+        ],
+        "urlCount": 638,
+        "urlInventorySha256": "707f1bdf3d4701eac76119b58dcc4acaec700a998e93704ee343a46bc7b7d7da",
+        "authority": "Exact overlap of independently reconstructed full inventories; no subject or semantic proof shared."
+      }
+    ],
+    "actualDiscoverySourceContexts": 98,
+    "uniqueDiscoveryUrls": 97,
+    "currentTransportKeysIncludingIndexes": 10012,
+    "idealHostPolicyKeysIncludingIndexes": 9373,
+    "uniqueArticlesSha256": "7e8ceeb5a36cf31354394033c21f2028cc9f10b6355d445aeb1d8739fed98031",
+    "currentKeysSha256": "c5da1bc4ecd6c7a6cce848bd94e9ac7d4d5d5a9229b59303118810fd3c53bcf0",
+    "idealKeysSha256": "f18da56358d774d221a4044850d823912e2da4bc61ca325a81cb7359326153af",
+    "articleOnlyCurrentRate": {
+      "requestsPer30Hours": 9914,
+      "minimumAveragePer24Hours": 7931.2,
+      "minimumAveragePer24HoursExactFraction": "39656/5",
+      "excessOver5500Per24Hours": 2431.2
+    },
+    "articleOnlyIdealSharedRate": {
+      "requestsPer30Hours": 9276,
+      "minimumAveragePer24Hours": 7420.8,
+      "minimumAveragePer24HoursExactFraction": "37104/5",
+      "excessOver5500Per24Hours": 1920.8
+    },
+    "withObservedIndexOverheadCurrentRate": {
+      "requestsPer30Hours": 10012,
+      "minimumAveragePer24Hours": 8009.6,
+      "minimumAveragePer24HoursExactFraction": "40048/5",
+      "excessOver5500Per24Hours": 2509.6
+    },
+    "withObservedIndexOverheadIdealSharedRate": {
+      "requestsPer30Hours": 9373,
+      "minimumAveragePer24Hours": 7498.4,
+      "minimumAveragePer24HoursExactFraction": "37492/5",
+      "excessOver5500Per24Hours": 1998.4
+    },
+    "maximumSustainableContextsPer30hAt5500Daily": 6875.0,
+    "lowerBoundExcludesOtherRequiredTasks": 540,
+    "currentOrdinarySharingRule": "same invocation, exact URL + sorted allowedHosts + supplierId; full HTTP 200 only. Cross-supplier reuse is currently restricted to strict data.sec.gov sources.",
+    "twoUtcDaysOneOffReservationEnvelope": 11000,
+    "oneOffBoundary": "Two UTC-day allowances can theoretically contain enough raw requests inside one 30h window after semantic proof exists. This does not prove achievable completion with selection, extraction, index, runtime and other task constraints; it cannot sustain the required average rate."
+  },
+  "semanticAndArchivedTransport": {
+    "latestSuccessfulRawSourceUrlObservations": 4543,
+    "freshAtPinnedCoverageTime": 43,
+    "haveEtagOrLastModified": 3530,
+    "notModifiedLatestObservations": 24,
+    "rawMetadataDoesNotEstablishCurrentPolicySemanticCoverage": true,
+    "currentPolicyValidationFilesForTheseSuppliers": 24,
+    "currentRetainedChainsInPinnedRebindingAudit": 24,
+    "validatedDispositionsFromPinnedAudit": {
+      "independently_reviewed_empty": 8,
+      "deterministic_entity_exclusion": 10,
+      "complete_candidate_dispositions": 6
+    },
+    "unresolvedInventoryUrls": 9890,
+    "dueCurrentSchedulingSignatures": 631,
+    "dueOldOrUndatedSignatures": 9259,
+    "semanticBudgetCannotBeDerivedExactlyFromUrlCount": "Every URL needs a valid document disposition, but unchanged exact-context caches and valid shared-publisher no-entity exclusions require zero new model/document reservations. Unfetched/changed inputs cannot be assumed cacheable, irrelevant or distinct.",
+    "conditionalIfEveryUnresolvedInputNeededANewDocumentReservation": {
+      "documents": 9890,
+      "minimumDaily40DocumentAllowances": 248,
+      "isClaimAboutActualRequiredNewModelWork": false
+    }
+  },
+  "retainedEvidence": [
+    {
+      "sourceId": "arctic-wolf:official:1",
+      "url": "https://arcticwolf.com/resources/blog/agents-investigate-humans-decide-how-active-response-works-in-the-aurora-agentic-soc/",
+      "observationId": "6247ea286f4fd649d9097a2fe95ece34ea799cd735c44de9afb89afe0557685e",
+      "observationCanonicalSha256": "622d6094c76d313722c0c44f72461f969033c7c95fff6d7c375ee58762857306",
+      "body": {
+        "bytes": 348718,
+        "key": "objects/c7a9daab913a5d926710518808d5310b465e222a4d2e299f44cd243f60235e80",
+        "sha256": "c7a9daab913a5d926710518808d5310b465e222a4d2e299f44cd243f60235e80"
+      },
+      "fetchedAt": "2026-10-24T00:37:50.514292Z",
+      "status": "fetched",
+      "freshUntil": "2026-10-25T06:37:50.514292Z",
+      "previousPinnedReplayKind": "independently_reviewed_empty",
+      "validation": {
+        "bytes": 529,
+        "key": "objects/282eca7e6be6d37e5868bd3e574a2cf7a5037abf466b3f3115f87d205aba0bd9",
+        "sha256": "282eca7e6be6d37e5868bd3e574a2cf7a5037abf466b3f3115f87d205aba0bd9"
+      },
+      "fullSemanticReplayRepeatedHere": false
+    },
+    {
+      "sourceId": "arctic-wolf:official:1",
+      "url": "https://arcticwolf.com/resources/blog/php2shell-critical-php-vulnerabilities-enable-unauthenticated-remote-code-execution/",
+      "observationId": "56771ad9d3d1021669a151d283c06fc250ff6e1f06242fcc2082e8122a8251d4",
+      "observationCanonicalSha256": "5a3e0ebaee5d011518c5d9db988f0c6c5f432118cf574fade5db497ed2cbfc9a",
+      "body": {
+        "bytes": 379571,
+        "key": "objects/4e0bb68f302b5d1beadfe3fbdb70fb13aa8003f1d5460318478a11cc01a424bc",
+        "sha256": "4e0bb68f302b5d1beadfe3fbdb70fb13aa8003f1d5460318478a11cc01a424bc"
+      },
+      "fetchedAt": "2026-10-24T00:08:31.595756Z",
+      "status": "fetched",
+      "freshUntil": "2026-10-25T06:08:31.595756Z",
+      "previousPinnedReplayKind": "independently_reviewed_empty",
+      "validation": {
+        "bytes": 529,
+        "key": "objects/9f6d41898f8137e8cdd5d5782335883fcc4e1a312fc909396d5fe6a5390703ea",
+        "sha256": "9f6d41898f8137e8cdd5d5782335883fcc4e1a312fc909396d5fe6a5390703ea"
+      },
+      "fullSemanticReplayRepeatedHere": false
+    },
+    {
+      "sourceId": "arctic-wolf:official:1",
+      "url": "https://arcticwolf.com/resources/press-releases/arctic-wolf-named-best-security-vendor-in-crns-annual-best-of-the-channel-awards/",
+      "observationId": "7e61e62a67f524b93ffb33f5efffd273fcb327cce19db3ef491a4e2b147d5c76",
+      "observationCanonicalSha256": "df2fb250238bb4cfdc19321f26aa36b2309e4636bc8a411b7d683ed86e59c455",
+      "body": {
+        "bytes": 339709,
+        "key": "objects/cb0c88ff3b48f5958e0b31a61b6d4714a8dedad1eabb8bb2a755b2d9b4c7d7f8",
+        "sha256": "cb0c88ff3b48f5958e0b31a61b6d4714a8dedad1eabb8bb2a755b2d9b4c7d7f8"
+      },
+      "fetchedAt": "2026-10-24T00:09:04.362631Z",
+      "status": "fetched",
+      "freshUntil": "2026-10-25T06:09:04.362631Z",
+      "previousPinnedReplayKind": "independently_reviewed_empty",
+      "validation": {
+        "bytes": 529,
+        "key": "objects/057189a10ff4073430185f3271a0806c41959b3c208ddbcaa4f242d2a6df060d",
+        "sha256": "057189a10ff4073430185f3271a0806c41959b3c208ddbcaa4f242d2a6df060d"
+      },
+      "fullSemanticReplayRepeatedHere": false
+    },
+    {
+      "sourceId": "dragos:official:1",
+      "url": "https://newsroom.accenture.com/news/2026/tuv-sud-and-accenture-accelerate-certification-of-physical-ai-in-automated-factories-and-warehouses-with-nvidia-technologies-to-drive-manufacturing-productivity",
+      "observationId": "6f889c617e8df3012793a404018e1653d600b70cef18a427577d8a65aa462745",
+      "observationCanonicalSha256": "559adde39bb42b9d54a5b33e69b900d69bdf7565d364aa96c763a5452e80a15a",
+      "body": {
+        "bytes": 17127,
+        "key": "objects/1910627e2709f67d29b014810ab0b029b957180555f937aa63c87f977acbd906",
+        "sha256": "1910627e2709f67d29b014810ab0b029b957180555f937aa63c87f977acbd906"
+      },
+      "fetchedAt": "2026-10-24T00:11:38.112094Z",
+      "status": "fetched",
+      "freshUntil": "2026-10-25T06:11:38.112094Z",
+      "previousPinnedReplayKind": "deterministic_entity_exclusion",
+      "validation": {
+        "bytes": 407,
+        "key": "objects/822521c9bf83eabd65c2010d0c456dd18dca6f18fe6ca976eee4df33eaff5a7e",
+        "sha256": "822521c9bf83eabd65c2010d0c456dd18dca6f18fe6ca976eee4df33eaff5a7e"
+      },
+      "fullSemanticReplayRepeatedHere": false
+    },
+    {
+      "sourceId": "exabeam:official:1",
+      "url": "https://www.thomabravo.com/press-releases/calabrio-welcomes-dave-rhodes-as-chief-executive-officer",
+      "observationId": "d0cfa15c8e0d52fe26862fdd6cff5ad85e61ff2eba9ee5b6dd27f3d00e5aede3",
+      "observationCanonicalSha256": "dee0daf43158551e6f406cf4836bcab296a90ececb66111d437573782199cba0",
+      "body": {
+        "bytes": 149785,
+        "key": "objects/bc391ec3de465298bacfdab4d196a08b63840cce499cfa03e6d3ea55f2705a2b",
+        "sha256": "bc391ec3de465298bacfdab4d196a08b63840cce499cfa03e6d3ea55f2705a2b"
+      },
+      "fetchedAt": "2026-10-24T00:37:00.477226Z",
+      "status": "fetched",
+      "freshUntil": "2026-10-25T06:37:00.477226Z",
+      "previousPinnedReplayKind": "deterministic_entity_exclusion",
+      "validation": {
+        "bytes": 409,
+        "key": "objects/9a51c74927e0bc0c4363061e81f352bd33305a399ee1fbd1211f6ae438a490bc",
+        "sha256": "9a51c74927e0bc0c4363061e81f352bd33305a399ee1fbd1211f6ae438a490bc"
+      },
+      "fullSemanticReplayRepeatedHere": false
+    },
+    {
+      "sourceId": "exabeam:official:1",
+      "url": "https://www.thomabravo.com/press-releases/j.d.-power-to-merge-with-autodata-solutions-creating-a-leading-source-of-automotive-data-analytics-and-software-solutions",
+      "observationId": "07d53e719050ddd50e44b1d62d6a159746bdb48718ab028cfc00f3bbff26b61a",
+      "observationCanonicalSha256": "7945c932ca61a62b21fc2aa30bd0d212471af1a3e275c43a4d54ef969bfbff6a",
+      "body": {
+        "bytes": 157670,
+        "key": "objects/f9e399d4092858193a563b03139a8b236b74c8f5597fb491e1464072bc68a3fc",
+        "sha256": "f9e399d4092858193a563b03139a8b236b74c8f5597fb491e1464072bc68a3fc"
+      },
+      "fetchedAt": "2026-10-23T04:15:22.688976Z",
+      "status": "fetched",
+      "freshUntil": "2026-10-24T10:15:22.688976Z",
+      "previousPinnedReplayKind": "deterministic_entity_exclusion",
+      "validation": {
+        "bytes": 409,
+        "key": "objects/7cd0ceff0a46ea953e40656b319095d561a058801d241880fffd132f5bf50016",
+        "sha256": "7cd0ceff0a46ea953e40656b319095d561a058801d241880fffd132f5bf50016"
+      },
+      "fullSemanticReplayRepeatedHere": false
+    },
+    {
+      "sourceId": "exabeam:official:1",
+      "url": "https://www.thomabravo.com/press-releases/thoma-bravo-announces-strategic-acquisition-of-calabrio-to-accelerate-companys-cloud-first-customer-experience-growth",
+      "observationId": "caa4039c85e6e070858e313a3ef715506eb62e42c2f023fe8db5a84ac83a781a",
+      "observationCanonicalSha256": "67af36156788b8e1f98e7ff82bc19f66f04ba33ba9f285a9b03a04d43b1d4efd",
+      "body": {
+        "bytes": 162440,
+        "key": "objects/cae8ebbf2148d3ce4c42f6c74c6e450b9c6ef3517c57d70881de69714886755f",
+        "sha256": "cae8ebbf2148d3ce4c42f6c74c6e450b9c6ef3517c57d70881de69714886755f"
+      },
+      "fetchedAt": "2026-10-24T00:07:22.362652Z",
+      "status": "fetched",
+      "freshUntil": "2026-10-25T06:07:22.362652Z",
+      "previousPinnedReplayKind": "deterministic_entity_exclusion",
+      "validation": {
+        "bytes": 409,
+        "key": "objects/fdfad16e7720319b7f15cce75e366f801d421f3ea9b877bab3229431fdf8004c",
+        "sha256": "fdfad16e7720319b7f15cce75e366f801d421f3ea9b877bab3229431fdf8004c"
+      },
+      "fullSemanticReplayRepeatedHere": false
+    },
+    {
+      "sourceId": "exabeam:official:1",
+      "url": "https://www.thomabravo.com/press-releases/thoma-bravo-owned-quorum-software-and-aucerna-to-merge-and-acquire-tietoevrys-oil-and-gas-software-business",
+      "observationId": "023f0e4efff32c226384432eb9e498b0578c1989421513f5fe8cb8e8b326903a",
+      "observationCanonicalSha256": "978a7a279421981a92e03bbfab909c638d0871c545e00e49774d11011cce51a6",
+      "body": {
+        "bytes": 157366,
+        "key": "objects/e0aedbe85354130b0cbd6b4ec4ac35866ffb89f04e7c0089ab2bc1560957a822",
+        "sha256": "e0aedbe85354130b0cbd6b4ec4ac35866ffb89f04e7c0089ab2bc1560957a822"
+      },
+      "fetchedAt": "2026-10-24T00:06:51.328978Z",
+      "status": "fetched",
+      "freshUntil": "2026-10-25T06:06:51.328978Z",
+      "previousPinnedReplayKind": "deterministic_entity_exclusion",
+      "validation": {
+        "bytes": 409,
+        "key": "objects/3abd4aaa7287c06cf36082cecb2c896d12ec0dbfb746a283b17cd8cc38303eae",
+        "sha256": "3abd4aaa7287c06cf36082cecb2c896d12ec0dbfb746a283b17cd8cc38303eae"
+      },
+      "fullSemanticReplayRepeatedHere": false
+    },
+    {
+      "sourceId": "exabeam:official:1",
+      "url": "https://www.thomabravo.com/press-releases/thoma-bravo-to-acquire-significant-majority-interest-in-centrify-the-leading-next-generation-identity-access-management-vendor",
+      "observationId": "3e40d2157c5cbe584509d64eab20afd0bc843d8f45c07bdacdd3e6b90cb8ca61",
+      "observationCanonicalSha256": "4389f949a0b8ab10738afb6f5124e82526fdb0e5b5357284826939032df35c38",
+      "body": {
+        "bytes": 158837,
+        "key": "objects/88c41b8f4dd3d7f5fe7ab1c27b59237d2178c0e515ab0507beebc1a272a892b7",
+        "sha256": "88c41b8f4dd3d7f5fe7ab1c27b59237d2178c0e515ab0507beebc1a272a892b7"
+      },
+      "fetchedAt": "2026-10-24T00:37:25.819855Z",
+      "status": "fetched",
+      "freshUntil": "2026-10-25T06:37:25.819855Z",
+      "previousPinnedReplayKind": "deterministic_entity_exclusion",
+      "validation": {
+        "bytes": 409,
+        "key": "objects/b58f63add9b176c9fee646ed268e5166976a82f49c6d46e4f38c43297d8074ee",
+        "sha256": "b58f63add9b176c9fee646ed268e5166976a82f49c6d46e4f38c43297d8074ee"
+      },
+      "fullSemanticReplayRepeatedHere": false
+    },
+    {
+      "sourceId": "hiddenlayer:official:1",
+      "url": "https://www.hiddenlayer.com/news/2023-sc-awards-finalists-most-promising-early-stage-start-up",
+      "observationId": "35cdb92e230507bd31ba17df52e6cb927e4445c63c05653dbcce51a24e805547",
+      "observationCanonicalSha256": "911df53380ba1e395ffcde51af1ec843681eaa1bfab67a99cfdb6e5c923c8f49",
+      "body": {
+        "bytes": 203576,
+        "key": "objects/7a69f02b78f45fec4720af1edacf0c2ba8c9d553c0a04e6b544622d738357066",
+        "sha256": "7a69f02b78f45fec4720af1edacf0c2ba8c9d553c0a04e6b544622d738357066"
+      },
+      "fetchedAt": "2026-10-24T00:07:22.237954Z",
+      "status": "not_modified",
+      "freshUntil": "2026-10-25T06:07:22.237954Z",
+      "previousPinnedReplayKind": "complete_candidate_dispositions",
+      "validation": {
+        "bytes": 600,
+        "key": "objects/0e55683f34794c21028a63499101758213a2af96481fc0254d86c4e77a9643dd",
+        "sha256": "0e55683f34794c21028a63499101758213a2af96481fc0254d86c4e77a9643dd"
+      },
+      "fullSemanticReplayRepeatedHere": false
+    },
+    {
+      "sourceId": "hiddenlayer:official:1",
+      "url": "https://www.hiddenlayer.com/news/ai-and-ml-reliability-and-security-blenderbot-and-other-cases",
+      "observationId": "9bb9b5ddc4f85431304e5399b27721fc5e0d951d033d5c541a5b605e5e59e0fc",
+      "observationCanonicalSha256": "f08c7362164fdd0dc116795165745aaba16e33bed08594d8680338e88dd3bacb",
+      "body": {
+        "bytes": 203821,
+        "key": "objects/09df48f7ef27f5e67b23d0f057924f33d6caba2ba668ce097dcbafb45d3e3137",
+        "sha256": "09df48f7ef27f5e67b23d0f057924f33d6caba2ba668ce097dcbafb45d3e3137"
+      },
+      "fetchedAt": "2026-10-24T00:37:00.221058Z",
+      "status": "fetched",
+      "freshUntil": "2026-10-25T06:37:00.221058Z",
+      "previousPinnedReplayKind": "complete_candidate_dispositions",
+      "validation": {
+        "bytes": 600,
+        "key": "objects/6369027aa4b32cd079448a781a40eb7bfcda8908c1ec313a4cf2bebab143f823",
+        "sha256": "6369027aa4b32cd079448a781a40eb7bfcda8908c1ec313a4cf2bebab143f823"
+      },
+      "fullSemanticReplayRepeatedHere": false
+    },
+    {
+      "sourceId": "hiddenlayer:official:1",
+      "url": "https://www.hiddenlayer.com/news/dont-confuse-irresponsible-implementation-for-an-evil-ai-overlord",
+      "observationId": "94a0712a805f4b2b862e045f61488de8a91ebafc8cd0068de5e5eea36955fb9e",
+      "observationCanonicalSha256": "f2d816273b5b034fefb5823b70fee2d9064e6e56ea3e6ba35fe56f0aceee1087",
+      "body": {
+        "bytes": 204144,
+        "key": "objects/50dbf2e9d81ab0adb0c2dedf8246e463d0757ee0bb7fa3c78df10d2cb1a0d7a8",
+        "sha256": "50dbf2e9d81ab0adb0c2dedf8246e463d0757ee0bb7fa3c78df10d2cb1a0d7a8"
+      },
+      "fetchedAt": "2026-10-24T00:06:51.177671Z",
+      "status": "not_modified",
+      "freshUntil": "2026-10-25T06:06:51.177671Z",
+      "previousPinnedReplayKind": "complete_candidate_dispositions",
+      "validation": {
+        "bytes": 839,
+        "key": "objects/882e40e4cd0f8a74d62157ed4e1b8feb2dd9d7e6958d0e3ec71223508bf6bae4",
+        "sha256": "882e40e4cd0f8a74d62157ed4e1b8feb2dd9d7e6958d0e3ec71223508bf6bae4"
+      },
+      "fullSemanticReplayRepeatedHere": false
+    },
+    {
+      "sourceId": "ivanti:official:1",
+      "url": "https://www.ivanti.com/company/press-releases/2026/ivanti-appoints-robert-ruelas-as-chief-revenue-officer-and-promotes-sterling-parker-to-chief-customer-officer",
+      "observationId": "62b43c379db5dfa1791bcfd0b73627f8ef9dbb923089880bd4e3dbd2f27e87dd",
+      "observationCanonicalSha256": "33fb08992ee286c7b55493634bfa7af0dd7f4fc74d04c927d675334fafd8cb70",
+      "body": {
+        "bytes": 24560,
+        "key": "objects/58c10f35189df85452b3f4fdb4f6a00f572fd82c57a341fd110bb562e98abfc1",
+        "sha256": "58c10f35189df85452b3f4fdb4f6a00f572fd82c57a341fd110bb562e98abfc1"
+      },
+      "fetchedAt": "2026-10-24T00:10:07.287277Z",
+      "status": "fetched",
+      "freshUntil": "2026-10-25T06:10:07.287277Z",
+      "previousPinnedReplayKind": "complete_candidate_dispositions",
+      "validation": {
+        "bytes": 833,
+        "key": "objects/de167881cba8a4b3cbb3ed9376a554ee7f9646c96f0606dc020c5eacad5da7a4",
+        "sha256": "de167881cba8a4b3cbb3ed9376a554ee7f9646c96f0606dc020c5eacad5da7a4"
+      },
+      "fullSemanticReplayRepeatedHere": false
+    },
+    {
+      "sourceId": "proofpoint:official:1",
+      "url": "https://www.proofpoint.com/us/newsroom/press-releases/proofpoint-acquire-varonis-creating-global-leader-data-and-ai-security",
+      "observationId": "7a2cda6cee608e0661e11b309d240e069eabc8a3ea3bd7782e7722c6c669ecbe",
+      "observationCanonicalSha256": "cfc46de63f6770bb4d13cdfefcecd1dd246906d6e4959a5a3014f932e2b9f875",
+      "body": {
+        "bytes": 132826,
+        "key": "objects/f69fbf3de82e24a83d96487fb832c36d639033ce2255a5595afb4c0b97fef9a7",
+        "sha256": "f69fbf3de82e24a83d96487fb832c36d639033ce2255a5595afb4c0b97fef9a7"
+      },
+      "fetchedAt": "2026-10-24T00:06:53.572672Z",
+      "status": "fetched",
+      "freshUntil": "2026-10-25T06:06:53.572672Z",
+      "previousPinnedReplayKind": "complete_candidate_dispositions",
+      "validation": {
+        "bytes": 1076,
+        "key": "objects/379d6c84c73043f035a29ef612433cdad1ddaca703e86a8f8ba72c0cb6b5d959",
+        "sha256": "379d6c84c73043f035a29ef612433cdad1ddaca703e86a8f8ba72c0cb6b5d959"
+      },
+      "fullSemanticReplayRepeatedHere": false
+    },
+    {
+      "sourceId": "reliaquest:official:1",
+      "url": "https://reliaquest.com/news-and-press/",
+      "observationId": "b643cddd4f949b9002417462cb4e8116e80e9177e091cb3483c6b228ec4f52e9",
+      "observationCanonicalSha256": "30b35bb67e2e565ba33e7d9e81b5844b862254c12a2fa0ea605109188d430bd5",
+      "body": {
+        "bytes": 51380,
+        "key": "objects/b159a9c61ea28655d3bc6301edbd32cb4d4f0e9289a9a5b4e947679d8949d410",
+        "sha256": "b159a9c61ea28655d3bc6301edbd32cb4d4f0e9289a9a5b4e947679d8949d410"
+      },
+      "fetchedAt": "2026-10-24T00:09:41.008505Z",
+      "status": "fetched",
+      "freshUntil": "2026-10-25T06:09:41.008505Z",
+      "previousPinnedReplayKind": "independently_reviewed_empty",
+      "validation": {
+        "bytes": 527,
+        "key": "objects/e3ee1f2b89e42884e1515c370fdc0f61b24a0b4b282ba3e90a17ebdadcff12d5",
+        "sha256": "e3ee1f2b89e42884e1515c370fdc0f61b24a0b4b282ba3e90a17ebdadcff12d5"
+      },
+      "fullSemanticReplayRepeatedHere": false
+    },
+    {
+      "sourceId": "sophos:official:1",
+      "url": "https://www.thomabravo.com/press-releases/calabrio-welcomes-dave-rhodes-as-chief-executive-officer",
+      "observationId": "cf6978ef0e6056a778fdca06e2e87212cbbb147c141a71f9a2a3cd5311a6e41a",
+      "observationCanonicalSha256": "da5717b69a4acd13161202dab892ce2b0a59ee31b2175e70f48c6350b96e4507",
+      "body": {
+        "bytes": 149785,
+        "key": "objects/bc391ec3de465298bacfdab4d196a08b63840cce499cfa03e6d3ea55f2705a2b",
+        "sha256": "bc391ec3de465298bacfdab4d196a08b63840cce499cfa03e6d3ea55f2705a2b"
+      },
+      "fetchedAt": "2026-10-24T00:11:02.310624Z",
+      "status": "fetched",
+      "freshUntil": "2026-10-25T06:11:02.310624Z",
+      "previousPinnedReplayKind": "deterministic_entity_exclusion",
+      "validation": {
+        "bytes": 408,
+        "key": "objects/557eb28987f9777f6e9e840817df1d6eb14b668dbbf1356ef38ab247f210cd70",
+        "sha256": "557eb28987f9777f6e9e840817df1d6eb14b668dbbf1356ef38ab247f210cd70"
+      },
+      "fullSemanticReplayRepeatedHere": false
+    },
+    {
+      "sourceId": "sophos:official:1",
+      "url": "https://www.thomabravo.com/press-releases/j.d.-power-to-merge-with-autodata-solutions-creating-a-leading-source-of-automotive-data-analytics-and-software-solutions",
+      "observationId": "e50f4286cb35383299ed6bdf077498a0ff5744a22aa7143651ed53a48d1605a9",
+      "observationCanonicalSha256": "755598f5bf642ae973688ebe247a5e38bfe106178e39050329c9525b82a03832",
+      "body": {
+        "bytes": 157670,
+        "key": "objects/f9e399d4092858193a563b03139a8b236b74c8f5597fb491e1464072bc68a3fc",
+        "sha256": "f9e399d4092858193a563b03139a8b236b74c8f5597fb491e1464072bc68a3fc"
+      },
+      "fetchedAt": "2026-10-23T04:15:22.373793Z",
+      "status": "not_modified",
+      "freshUntil": "2026-10-24T10:15:22.373793Z",
+      "previousPinnedReplayKind": "deterministic_entity_exclusion",
+      "validation": {
+        "bytes": 408,
+        "key": "objects/95349b3bdf14c76446de2d5a223b342e5b226f7a6a461a3af3e7819acb43870c",
+        "sha256": "95349b3bdf14c76446de2d5a223b342e5b226f7a6a461a3af3e7819acb43870c"
+      },
+      "fullSemanticReplayRepeatedHere": false
+    },
+    {
+      "sourceId": "sophos:official:1",
+      "url": "https://www.thomabravo.com/press-releases/thoma-bravo-announces-strategic-acquisition-of-calabrio-to-accelerate-companys-cloud-first-customer-experience-growth",
+      "observationId": "10b3bebbbcea822037e91cb1ce9986e889aeb90cab68cc034c9dfe1b5252706b",
+      "observationCanonicalSha256": "4663fb5e8403ede678ac4a2184d26c36895de194c8de0d5af8a36731494affbc",
+      "body": {
+        "bytes": 162440,
+        "key": "objects/cae8ebbf2148d3ce4c42f6c74c6e450b9c6ef3517c57d70881de69714886755f",
+        "sha256": "cae8ebbf2148d3ce4c42f6c74c6e450b9c6ef3517c57d70881de69714886755f"
+      },
+      "fetchedAt": "2026-10-24T00:10:25.645130Z",
+      "status": "not_modified",
+      "freshUntil": "2026-10-25T06:10:25.645130Z",
+      "previousPinnedReplayKind": "deterministic_entity_exclusion",
+      "validation": {
+        "bytes": 408,
+        "key": "objects/ba40c40527f4832639d339bebf5a44914857c46874565920ccd6d10f4fb80fea",
+        "sha256": "ba40c40527f4832639d339bebf5a44914857c46874565920ccd6d10f4fb80fea"
+      },
+      "fullSemanticReplayRepeatedHere": false
+    },
+    {
+      "sourceId": "sophos:official:1",
+      "url": "https://www.thomabravo.com/press-releases/thoma-bravo-owned-quorum-software-and-aucerna-to-merge-and-acquire-tietoevrys-oil-and-gas-software-business",
+      "observationId": "6fc5c43ca4bb24b28b8561bffbdccee7b2d3860c7b32bc8c2369cd33ce9fac46",
+      "observationCanonicalSha256": "708c04c8d3d17e72024786e1e7e3b8de73f8d8ae55697795c314dae629dea3b2",
+      "body": {
+        "bytes": 157396,
+        "key": "objects/a77d37027244d7d82eeaa5edce9d67f7b6d25b8b2d3e583db0303cf29acfe745",
+        "sha256": "a77d37027244d7d82eeaa5edce9d67f7b6d25b8b2d3e583db0303cf29acfe745"
+      },
+      "fetchedAt": "2026-10-23T04:15:22.923121Z",
+      "status": "not_modified",
+      "freshUntil": "2026-10-24T10:15:22.923121Z",
+      "previousPinnedReplayKind": "deterministic_entity_exclusion",
+      "validation": {
+        "bytes": 408,
+        "key": "objects/f244b45855ccf71aa41d83f145d91fdd34a7ece4c46789a33f6becd64f247175",
+        "sha256": "f244b45855ccf71aa41d83f145d91fdd34a7ece4c46789a33f6becd64f247175"
+      },
+      "fullSemanticReplayRepeatedHere": false
+    },
+    {
+      "sourceId": "upwind:official:1",
+      "url": "https://www.upwind.io/feed/threat-post",
+      "observationId": "7a4e314a2699022c8085bb5491902cfa893b1d219a795bf5aa3f442c8787a603",
+      "observationCanonicalSha256": "3337832ae828c53fb114fc32d93e28a094bbe57a6bdcd4c31b956949c6867835",
+      "body": {
+        "bytes": 426825,
+        "key": "objects/c5544c01da177d74a3676fb1d895622c408aa0c7235bfb45a9a35548279e9dfb",
+        "sha256": "c5544c01da177d74a3676fb1d895622c408aa0c7235bfb45a9a35548279e9dfb"
+      },
+      "fetchedAt": "2026-10-24T00:10:34.303118Z",
+      "status": "fetched",
+      "freshUntil": "2026-10-25T06:10:34.303118Z",
+      "previousPinnedReplayKind": "independently_reviewed_empty",
+      "validation": {
+        "bytes": 524,
+        "key": "objects/878f242ff92d6021de3a2eb8a757e3c21bc5a9593614025618e059cf981ead01",
+        "sha256": "878f242ff92d6021de3a2eb8a757e3c21bc5a9593614025618e059cf981ead01"
+      },
+      "fullSemanticReplayRepeatedHere": false
+    },
+    {
+      "sourceId": "upwind:official:1",
+      "url": "https://www.upwind.io/feed/threat-post/multiple-cves-node-js-tls-hostname-verification-and-ip-normalization-flaws-enable-mitm-and-certificate-bypass",
+      "observationId": "03db37fbf65b70da6dacd03c02a76b064fd1662ba0b253c98b9d739a2c75aa22",
+      "observationCanonicalSha256": "6d17fd55db7ce31950abe0a7998fa40fc59711472737345b9530fc2b5279f091",
+      "body": {
+        "bytes": 327079,
+        "key": "objects/5d5f6f9fca24fb6fdfd15ee25ec9e918534c2e44559cc07d1e042ab173aa381f",
+        "sha256": "5d5f6f9fca24fb6fdfd15ee25ec9e918534c2e44559cc07d1e042ab173aa381f"
+      },
+      "fetchedAt": "2026-10-24T00:10:03.486391Z",
+      "status": "fetched",
+      "freshUntil": "2026-10-25T06:10:03.486391Z",
+      "previousPinnedReplayKind": "independently_reviewed_empty",
+      "validation": {
+        "bytes": 524,
+        "key": "objects/3f5959d3581e8d31d3e13b2f06d42b50228ffb4482867137ffec407713e30c0f",
+        "sha256": "3f5959d3581e8d31d3e13b2f06d42b50228ffb4482867137ffec407713e30c0f"
+      },
+      "fullSemanticReplayRepeatedHere": false
+    },
+    {
+      "sourceId": "veeam:official:1",
+      "url": "https://www.veeam.com/company/press-release/veeam-recognized-by-gartner-as-a-leader-in-the-first-gartner-magic-quadrant-for-privacy-ux.html",
+      "observationId": "2c972087fe5fef8919e217dfb7f87ca7dd5e7dbf2b565becd8e3d51046cb7f41",
+      "observationCanonicalSha256": "c572ac25118eaad6d628ebf6750e5884bf3780ec4f3110d723af17d2614bc5fe",
+      "body": {
+        "bytes": 183842,
+        "key": "objects/65568af42593ec2b8d3e4f7a6e63cb960f5a095ed3c360cddc849741ca9206e6",
+        "sha256": "65568af42593ec2b8d3e4f7a6e63cb960f5a095ed3c360cddc849741ca9206e6"
+      },
+      "fetchedAt": "2026-10-24T00:06:59.290023Z",
+      "status": "fetched",
+      "freshUntil": "2026-10-25T06:06:59.290023Z",
+      "previousPinnedReplayKind": "complete_candidate_dispositions",
+      "validation": {
+        "bytes": 594,
+        "key": "objects/928c05c2ea9bc10d6f2f8689152c4184f66ad390772cf1875486a6d294f62b63",
+        "sha256": "928c05c2ea9bc10d6f2f8689152c4184f66ad390772cf1875486a6d294f62b63"
+      },
+      "fullSemanticReplayRepeatedHere": false
+    },
+    {
+      "sourceId": "witnessai:official:1",
+      "url": "https://witness.ai/blog/category/blog/",
+      "observationId": "d93b56b904f19019201707886dfeed2f53ee7ea8ee663043efa8fdbbbabeb50d",
+      "observationCanonicalSha256": "3c9a42f6316b4155138979c37a752778cb159a8f9923a4171aa8d8b37f47c6fd",
+      "body": {
+        "bytes": 120069,
+        "key": "objects/1ca08d0d273672753cc94bc69c7b0d80316586b3958a5a332b7b2b5c94b722de",
+        "sha256": "1ca08d0d273672753cc94bc69c7b0d80316586b3958a5a332b7b2b5c94b722de"
+      },
+      "fetchedAt": "2026-10-24T00:09:49.288588Z",
+      "status": "fetched",
+      "freshUntil": "2026-10-25T06:09:49.288588Z",
+      "previousPinnedReplayKind": "independently_reviewed_empty",
+      "validation": {
+        "bytes": 527,
+        "key": "objects/bdc98a92a51ebe596b074248467d69f9dd6177053b3c97a05d7a744823016119",
+        "sha256": "bdc98a92a51ebe596b074248467d69f9dd6177053b3c97a05d7a744823016119"
+      },
+      "fullSemanticReplayRepeatedHere": false
+    },
+    {
+      "sourceId": "witnessai:official:1",
+      "url": "https://witness.ai/blog/palo-alto-prisma-alternatives/",
+      "observationId": "63dcefa7b86db061b90e71637ceb011c7645ad88ec4f8ce6f7415f2f8e455199",
+      "observationCanonicalSha256": "7c1e9a811d17d71816e48b858acc8705a6657e73e1b8adf45273e82bf29c2138",
+      "body": {
+        "bytes": 193795,
+        "key": "objects/32c9c93089e8f39b4b046490239d08f5c8336d15acab00408bc8b999d6a610d0",
+        "sha256": "32c9c93089e8f39b4b046490239d08f5c8336d15acab00408bc8b999d6a610d0"
+      },
+      "fetchedAt": "2026-10-24T00:09:15.278201Z",
+      "status": "fetched",
+      "freshUntil": "2026-10-25T06:09:15.278201Z",
+      "previousPinnedReplayKind": "independently_reviewed_empty",
+      "validation": {
+        "bytes": 527,
+        "key": "objects/6f95574d10d6ccd6eef547182e1ebddc59765c83be11ae442c2792c2bd8df4ed",
+        "sha256": "6f95574d10d6ccd6eef547182e1ebddc59765c83be11ae442c2792c2bd8df4ed"
+      },
+      "fullSemanticReplayRepeatedHere": false
+    }
+  ],
+  "implementationOnlyOptions": [
+    {
+      "option": "Retained evidence rebinding",
+      "alreadyAllowed": true,
+      "benefit": "Recover exact current-policy proof without repeating models while the original transport is fresh.",
+      "limit": "Only 24 chains are currently replayable in the pinned audit; all retain original dates and expire. None of the 17 tasks completes from rebinding alone."
+    },
+    {
+      "option": "Conditional GET and exact semantic cache reuse",
+      "alreadyAllowed": true,
+      "benefit": "3,530 of 4,543 latest archived raw checks have an ETag or Last-Modified hint. A genuine successful conditional request can establish new transport and unchanged exact input can reuse semantic proof.",
+      "limit": "Each actual request is charged; server support/unchanged bytes are not promised. A 304 does not remove the 30h request-rate requirement, copy provenance between suppliers, or renew old observation/review dates."
+    },
+    {
+      "option": "Strict public-200 raw transport sharing",
+      "alreadyAllowedAsPolicyMeaning": true,
+      "implementedForOrdinaryCrossSupplierSources": false,
+      "benefit": "A narrowly reviewed implementation with identical exact URL/host/redirect/header policy and separate source observations/semantic validation could remove the 638 duplicated Thoma Bravo article GETs, following the existing strict SEC sharing principle.",
+      "limit": "Even the optimistic shared bound remains 7,420.8 article requests/day. Do not share 304 chains, failures, supplier dispositions, broader redirect policies or old fetchedAt."
+    },
+    {
+      "option": "Exact shared-publisher entity screening",
+      "alreadyAllowed": true,
+      "benefit": "Full readable primary text with no correctly registered entity mention may resolve investor_acquirer/release_distribution documents without models. Ten such current-policy validations already exist among the 24.",
+      "limit": "The 4,532 shared-publisher source/URL contexts still need fresh transport and exact per-target validation. URL/title absence is insufficient. The current malformed Sophos alias must be corrected through proper reviewed data/policy handling before trusting broad Sophos exclusions."
+    },
+    {
+      "option": "Source-specific current/archive discovery boundaries",
+      "alreadyAllowedForQualificationAndScheduling": true,
+      "benefit": "Actual bounded first-party indexes, dated entries and literal pagination can improve future discovery and scheduling without increasing caps.",
+      "limit": "No reviewed evidence here grants an ordinary-site immutable-history exception. A newer index visit/lastmod/old boundary cannot renew retained article transport, drop known inventory, or silently make a new complete/quiet source claim."
+    }
+  ],
+  "decisionSurfaceCritique": {
+    "decisionDocument": {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/history-and-daily-coverage-decision-2026-10-24.md",
+      "sha256": "6b484819276a2910bcb3f8bdf94c2c3a9eb00736472e0d3858e2e9aaf1a7d594",
+      "bytes": 6965
+    },
+    "assessment": "The proposal identifies a genuine meaning-of-success choice only if the owner wants continuously successful whole-source checks while all 9914 ordinary documents retain the 30h rule. Existing code repairs and honest degraded operation remain authorized without this choice.",
+    "retainBoundaries": [
+      "Keep intake success, completed current fact processing and historical audit completion separate.",
+      "A fresh complete index is not a complete current-event recall or semantic-review result.",
+      "Retain old source/effective/review dates, complete URL inventory, policy provenance and measured baseline; no automatic claim or financial-certification refresh."
+    ],
+    "recommendedTightenings": [
+      "Support the decision with the hard sustained-fetch lower bound, not only the per-invocation two-selected operational bound.",
+      "Replace the unconditional consequence that separate daily monitoring can work within the existing allowance with a requirement to measure actual intake volume, new/changed/undated work, continuation completeness and semantic cost. Feasibility of a newly defined daily metric is not proved by this inventory audit.",
+      "Ensure intake-only success cannot enter a metric named complete current-event coverage, or mark unreviewed current documents quiet/old. Required current processing and unknown-date work must stay explicit.",
+      "Present an owner decision only for changing what a successful source check establishes. Conditional fetch, exact cache/rebinding repairs, legitimate source qualification and correct entity screening already fit the authorized strict work."
+    ]
+  },
+  "strongestCaseAgainstConclusion": {
+    "case": "The two-selected bound alone is not an impossibility theorem: forced invocations are possible, zero-model cache/exclusion work can exceed the new-model document count, and two UTC-day fetch allowances can permit a one-off fresh window. A genuinely qualified source scope/boundary may reduce future work.",
+    "whySustainedBoundStillHolds": "The 9276 unique leaf URL lower bound already grants perfect safe sharing and zero new model work, omits index and other task overhead, and still requires 7420.8 charged requests/day on average. No retained ordinary-site proof permits skipping these real requests while keeping the current 30h full-history rule.",
+    "wouldChangeConclusion": "Actual primary evidence and a properly reviewed qualification/policy interpretation that preserves every obligation while proving fewer required fresh leaf checks; or an explicit owner change to the success/freshness definition. Neither is established by the inspected archive."
+  },
+  "guards": {
+    "sourceNetworkModelRequests": 0,
+    "archiveWrites": 0,
+    "runtimeOrPolicyEdits": 0,
+    "gitActions": 0,
+    "coverageCredit": 0,
+    "suppliers": 74,
+    "requiredObligations": 557,
+    "coverageUnchanged": "244/557",
+    "onlyOutputs": [
+      "historical-freshness-feasibility-2026-10-24.json",
+      "historical-freshness-feasibility-2026-10-24.md"
+    ]
+  }
+}
