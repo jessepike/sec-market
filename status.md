@@ -1,7 +1,7 @@
 ---
 project: Security Market Pulse
 stage: Operate
-updated: 2026-10-23
+updated: 2026-10-24
 ---
 
 # Current state
@@ -83,13 +83,21 @@ sustained operation and value remain unmeasured; no overall average conceals tho
 
 ## Next work and limits
 
-October 23 UTC is charged at **5,500 fetches / 80 model calls / 40 documents**; both gate and
-publication attempts are spent. Main stays frozen this UTC day. Never reset/refund counters, use
-paid fallback or substitute synthetic/offline review for actual admission.
+The new UTC day has begun. Reviewed preview `399f77608970c39c5f418af2e76982e86db54693` advanced
+to main by an approved fast-forward with the complete push guard running in OrbStack. Production
+has not moved. Real manual collector [40042968468](https://github.com/jessepike/sec-market/actions/runs/40042968468)
+is collecting/reviewing that revision; setup and all worker guards passed. Final usage, source
+coverage and correction results are pending. A manual run is not scheduled-run proof.
 
-After natural renewal, restore the current verified archive, finish real correction reviews while
-proof is still fresh or genuinely refresh/rebind it, and qualify the documented Delinea/Ping/Sonatype
-feeds and other evidenced endpoints within the allowance. Obtain the full main gate and actual
+October 23's **5,500 fetches / 80 model calls / 40 documents** and both gate/publication attempts
+remain untouched. October 24 had no existing ledger before dispatch; the actual runner initializes
+its new-day allowance. Never reset/refund counters, use paid fallback or substitute offline review
+for actual admission. No gate or publication has been requested this new day.
+
+Await the actual collector and its acknowledged archive. Finish real correction reviews while
+proof is fresh or genuinely refresh/rebind it. Then run leased diagnostics and qualify the
+documented Delinea/Ping/Sonatype feeds and other evidenced endpoints within the remaining allowance.
+Do not enqueue competing writer jobs while collection is pending. Obtain the full main gate and actual
 scheduled collection/publication receipts. No owner source or factual choice currently blocks this.
 
 Collection is 05:17 UTC; publication follows a verified timer and runs at 06:23/16:23 UTC. GitHub can
