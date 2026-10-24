@@ -20,6 +20,7 @@ from discovery import (DELINEA_HTML_MODE, DELINEA_HTML_MODE_V2, DELINEA_INDEX,
 
 
 BOUNDED_CANDIDATE_OPERATION = 'bounded_candidate_traversal'
+DISABLED_QUALIFICATION_OPERATION = 'disabled_qualification_probe'
 BOUNDED_CANDIDATE_LIMIT = 60
 BOUNDED_CANDIDATE_SAMPLE_LIMIT = 1
 BOUNDED_CANDIDATE_MAX_REQUESTS = 183
@@ -321,9 +322,29 @@ def validate_qualification_probe_plan(contract, store, path):
     raw = Path(path).read_bytes()
     require(0 < len(raw) <= 1_000_000, 'QUALIFICATION_PLAN_SIZE_INVALID')
     plan = json.loads(raw)
-    if isinstance(plan, dict) and plan.get('schemaVersion') == 2:
-        return _validate_bounded_candidate_plan(contract, store, path, raw, plan)
+    if isinstance(plan, dict) and type(plan.get('schemaVersion')) is int and plan.get('schemaVersion') == 2:
+        operation = plan.get('operation')
+        if operation == BOUNDED_CANDIDATE_OPERATION:
+            return _validate_bounded_candidate_plan(contract, store, path, raw, plan)
+        if operation == DISABLED_QUALIFICATION_OPERATION:
+            return _validate_disabled_qualification_plan(contract, path, raw, plan)
+        require(False, 'QUALIFICATION_PLAN_OPERATION_UNKNOWN')
     return _validate_legacy_qualification_probe_plan(contract, store, path, raw=raw, plan=plan)
+
+
+def _validate_disabled_qualification_plan(contract, path, raw, plan):
+    """Validate the closed no-source operation for the exact current policy."""
+    require(isinstance(plan, dict) and set(plan) == {
+                'schemaVersion', 'operation', 'marketSha256', 'maxRequests', 'sources'}
+            and type(plan.get('schemaVersion')) is int and plan['schemaVersion'] == 2
+            and plan.get('operation') == DISABLED_QUALIFICATION_OPERATION
+            and plan.get('marketSha256') == digest(contract)
+            and type(plan.get('maxRequests')) is int and plan['maxRequests'] == 0
+            and type(plan.get('sources')) is list and plan['sources'] == [],
+            'DISABLED_QUALIFICATION_PLAN_SHAPE_OR_POLICY_INVALID')
+    return {'rawSha256': digest(raw), 'canonicalSha256': digest(plan), 'path': str(path),
+            'marketSha256': digest(contract), 'maxRequests': 0,
+            'operation': DISABLED_QUALIFICATION_OPERATION, 'plan': plan}
 
 
 def _candidate_adapter(source, index_url, mode):
@@ -1462,6 +1483,23 @@ def _probe_sec_candidate_pair(index_source, documents_source, store, fetcher, bu
     return [index_result, documents_result]
 
 
+def _probe_disabled_qualification(contract, store, budget, plan):
+    """Retain an explicit zero-request diagnostic; never enter source probing."""
+    require(plan.get('operation') == DISABLED_QUALIFICATION_OPERATION
+            and plan.get('maxRequests') == 0 and plan.get('plan', {}).get('sources') == [],
+            'DISABLED_QUALIFICATION_OPERATION_REQUIRED')
+    return {'schemaVersion': 1, 'operation': DISABLED_QUALIFICATION_OPERATION,
+            'checkedAt': budget.clock(), 'startedAt': budget.started_at,
+            'contractSha256': digest(contract), 'planRawSha256': plan['rawSha256'],
+            'planCanonicalSha256': plan['canonicalSha256'], 'planReference': plan['rawPlanReference'],
+            'maxRequests': 0, 'sources': [], 'reservationContext': budget.summary(),
+            'executionCompleted': True, 'budgetDenied': False,
+            'disabled': True, 'reason': 'QUALIFICATION_PROBE_EXPLICITLY_DISABLED',
+            'qualified': False, 'sourceChecksCredited': 0, 'qualifiedSources': 0,
+            'semanticAdmission': False, 'coverageCredit': False, 'modelCalls': 0,
+            'facts': [], 'newFactIds': []}
+
+
 def probe_sources(contract, store, fetcher, *, reservation_context=None, qualification_plan_path=None):
     require(isinstance(reservation_context, PersistentProbeBudget), 'SOURCE_PROBE_BOUND_RESERVATION_CONTEXT_REQUIRED')
     reservation_context.assert_bound(store, contract)
@@ -1475,6 +1513,8 @@ def probe_sources(contract, store, fetcher, *, reservation_context=None, qualifi
         qualification['rawPlanReference'] = store.put(raw)
         if qualification.get('operation') == BOUNDED_CANDIDATE_OPERATION:
             return _probe_bounded_candidate_traversal(contract, store, fetcher, reservation_context, qualification)
+        if qualification.get('operation') == DISABLED_QUALIFICATION_OPERATION:
+            return _probe_disabled_qualification(contract, store, reservation_context, qualification)
     def probe(source):
         result = {"sourceId": source["id"], "supplierId": source["supplierId"],
                   "checkedAt": reservation_context.clock(), "registration": "candidate", "observations": [], "endpoints": [],
