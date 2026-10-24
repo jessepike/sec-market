@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "githubRun": {
+    "conclusion": "failure",
+    "createdAt": "2026-10-24T05:01:46Z",
+    "databaseId": 40064649402,
+    "event": "workflow_dispatch",
+    "headSha": "7622bf6134f32282b58357979f59dfc9c718c730",
+    "status": "completed",
+    "updatedAt": "2026-10-24T05:04:30Z",
+    "url": "https://github.com/jessepike/sec-market/actions/runs/40064649402"
+  },
+  "archiveBefore": "9c8737cb4213f149f788b7ef1414921b8951bf0e",
+  "archiveAfter": "89ed7271dcffbf8ab1dd1a314cfedb20157b4ad1",
+  "archiveDiff": {
+    "ahead_by": 2,
+    "files": [
+      {
+        "filename": "archive-manifest.json",
+        "status": "modified"
+      },
+      {
+        "filename": "state/ci/source-probe-checkpoints/6d2e103d972e35e5dd91d369b9c1f6bf948298df319650c6bd94de8d6f8042e3/6561750c4873d661fa58d576e7f8534c00ec30e994268ef226a5e47d937af5c6.json",
+        "status": "added"
+      },
+      {
+        "filename": "state/ci/source-probe-checkpoints/6d2e103d972e35e5dd91d369b9c1f6bf948298df319650c6bd94de8d6f8042e3/924ba18ebe5b38dcde7ae93815797c43ccef4165c517925c694f12b462a2f4be.json",
+        "status": "added"
+      },
+      {
+        "filename": "state/ci/source-probe-failures/6d2e103d972e35e5dd91d369b9c1f6bf948298df319650c6bd94de8d6f8042e3/4e078c22e6fb0948a314766fce8ec22df41ad03429cb60348c9cc3eb1b61aa6f.json",
+        "status": "added"
+      },
+      {
+        "filename": "state/heads/cloud-lease.json",
+        "status": "modified"
+      }
+    ],
+    "status": "ahead"
+  },
+  "archivedFailure": {
+    "checkpointProfile": "source_probe",
+    "coverageCredit": false,
+    "errorType": "ContractError",
+    "executionCompleted": false,
+    "modelCalls": 0,
+    "outcome": "failed",
+    "publication": {
+      "published": false,
+      "reason": "SOURCE_PROBE_DIAGNOSTIC_ONLY"
+    },
+    "semanticAdmission": false
+  },
+  "budgetAfter": {
+    "calls": 80,
+    "documents": 40,
+    "fetches": 641
+  },
+  "leaseReleasedAt": "2026-10-24T05:03:59.679756Z",
+  "diagnosis": {
+    "remoteReason": "ContractError",
+    "localReproducibleGuard": "QUALIFICATION_PLAN_SHAPE_OR_POLICY_INVALID",
+    "planContractSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+    "currentContractSha256": "79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60",
+    "exactRemoteGuardDisclosed": false
+  },
+  "marketSourceRequests": 0,
+  "modelCalls": 0,
+  "sourceChecksCredited": 0,
+  "semanticAdmission": false,
+  "coverageCredit": false,
+  "productionChanged": false,
+  "limitations": [
+    "Failed manual diagnostic; not a scheduled collector run.",
+    "Historical nested proof also pins old policy; changing only the outer hash is insufficient.",
+    "Explicit reviewed old-to-current policy bridge required before retry."
+  ],
+  "filePins": {
+    "stale-plan-probe-run-40064649402.json": {
+      "sha256": "46eed779fa79e08001319c08b7377d210becf29170b2a66b1c33378023325717",
+      "bytes": 295
+    },
+    "stale-plan-probe-archive-diff.json": {
+      "sha256": "0eed4039a17e4d775fbc00f6e56f6cf76199b2749f7a77d2b141e9383453d6bf",
+      "bytes": 763
+    },
+    "stale-plan-probe-archived-failure.json": {
+      "sha256": "d61e9f67264f149aafe3157ab6927df3c87c19d556a94e31f945e47a64feffac",
+      "bytes": 249
+    },
+    "stale-plan-probe-40064649402/smp-collection-receipt.json": {
+      "sha256": "669ab75f9204ab954f91975d7b9303a064b3cfa7f30ec15d93200507c19aa6f7",
+      "bytes": 131
+    }
+  }
+}

@@ -76,8 +76,14 @@ gate allowance. October 25 scheduled collection/publication must provide the act
 public receipt; do not call manual dispatch or an offline replay scheduled proof. The old source's
 30-hour deadline is October 25 at approximately 06:38 UTC.
 
-After scheduled collection, use the already reviewed leased fetch-only diagnostic for the seven
-next literal Ping/Delinea/Sonatype targets. It charges the existing fetch ledger and grants no
+Manual fetch-only diagnostic `40064649402` failed before any request or new reservation because
+its plan and nested proofs still pin the old policy. The authenticated archive diff contains only
+lease/checkpoint/failure records, no observation or budget changes; the lease is released. Keep
+that guard and implement an explicit historical policy bridge before retry.
+[Actual diagnostic hold](docs/active/daily-pipeline/receipts/separate-policy-stale-plan-hold-2026-10-24.json).
+
+After scheduled collection and the reviewed proof migration, use the leased fetch-only diagnostic
+for the seven next literal Ping/Delinea/Sonatype targets. It charges the existing fetch ledger and grants no
 qualification, model review or coverage credit. Previously observed RSS feeds were truncated and
 23 Ping pages remained unobserved. Never infer full traversal from a terminal-page check alone.
 [Seven-target response review](docs/active/daily-pipeline/accuracy/seven-target-response-review-2026-10-24.md) ·

@@ -106,3 +106,5 @@ unqualified with zero coverage credit. Tests use fictional fetchers and temporar
   issuer, distributor and host roles separately; correct metadata through its dated review path.
 - Valid HTML may contain valueless attributes. Normalize parser `None` values before class,
   relation or publication matching; replay the actual failing body and preserve its original hash.
+
+- A market-contract version change also invalidates separately pinned diagnostic plans and their nested historical proofs. Verify all dependent entry points before dispatch; migrate old proof explicitly, preserving original hashes and charges, rather than replacing only the outer policy hash.
