@@ -43,7 +43,7 @@
     {
       "sourceId": "delinea:official:1",
       "originalSourceSha256": "d6130aaaa8b1b04cb3324289c5befe7f76de687d297b3774b33629914babdee5",
-      "proposedAdapterSha256": "cc3912d5e20b30019adc7c41b3d88b8a194b7ee0e1f7bf6a2bdeef08e9f5acc7",
+      "proposedAdapterSha256": "22cf16ba6b2fe75fbb65e0f85e195541bbecf71178fa1d06a53252ee64ee3e50",
       "startProof": {
         "type": "qualification_observation",
         "record": {
@@ -77,7 +77,7 @@
     {
       "sourceId": "sonatype:official:1",
       "originalSourceSha256": "19596f68dcf01c09d6a043dc47cd67ebbde0bdc079b5a7b42cad057f518da17e",
-      "proposedAdapterSha256": "a664fb7dd0116b8d50c90c604f09697760407ff171ec64269217c2d450cfa839",
+      "proposedAdapterSha256": "f6dbc8d7870f65c8c685ff6d868fd84a84a750a8fc5a4d245097849fa99640e3",
       "startProof": {
         "type": "qualification_observation",
         "record": {
@@ -109,5 +109,5 @@
       }
     }
   ],
-  "parserRevision": 3
+  "parserRevision": 4
 }

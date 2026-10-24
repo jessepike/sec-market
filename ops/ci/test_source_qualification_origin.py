@@ -58,11 +58,11 @@ class QualificationOriginTests(unittest.TestCase):
         return copy.deepcopy(result)
 
     def result(self, run, *, complete=True, at=NOW, suffix='main', revision=1):
-        from onboarding import BOUNDED_CANDIDATE_BINDINGS_V2, BOUNDED_CANDIDATE_BINDINGS_V3
+        from onboarding import BOUNDED_CANDIDATE_BINDINGS_V2, BOUNDED_CANDIDATE_BINDINGS_V3, BOUNDED_CANDIDATE_BINDINGS_V4
         rows, bindings = [], []
         sources = {s['id']: s for s in self.original['sources']}
         selected = {1: BOUNDED_CANDIDATE_BINDINGS, 2: BOUNDED_CANDIDATE_BINDINGS_V2,
-                    3: BOUNDED_CANDIDATE_BINDINGS_V3}[revision]
+                    3: BOUNDED_CANDIDATE_BINDINGS_V3, 4: BOUNDED_CANDIDATE_BINDINGS_V4}[revision]
         for i, (sid, url, mode) in enumerate(selected):
             source = sources[sid]
             adapter = _candidate_adapter(source, url, mode)
@@ -100,11 +100,11 @@ class QualificationOriginTests(unittest.TestCase):
                  'sourceResultSha256': digest(row)} for i, row in enumerate(rows)]
 
     def activate(self, *, extra=None, mutate=None, drop_main=False, revision=1):
-        from onboarding import BOUNDED_CANDIDATE_BINDINGS_V2, BOUNDED_CANDIDATE_BINDINGS_V3
+        from onboarding import BOUNDED_CANDIDATE_BINDINGS_V2, BOUNDED_CANDIDATE_BINDINGS_V3, BOUNDED_CANDIDATE_BINDINGS_V4
         current = copy.deepcopy(self.original)
         changes = []
         selected = {1: BOUNDED_CANDIDATE_BINDINGS, 2: BOUNDED_CANDIDATE_BINDINGS_V2,
-                    3: BOUNDED_CANDIDATE_BINDINGS_V3}[revision]
+                    3: BOUNDED_CANDIDATE_BINDINGS_V3, 4: BOUNDED_CANDIDATE_BINDINGS_V4}[revision]
         for i, (sid, url, mode) in enumerate(selected):
             pos = next(j for j, s in enumerate(current['sources']) if s['id'] == sid)
             old = current['sources'][pos]
@@ -294,6 +294,33 @@ class QualificationOriginTests(unittest.TestCase):
                          sorted([old[0], middle[0], self.main[0]], key=digest))
 
 
+    def test_v4_origin_preserves_three_original_revision_inventories(self):
+        earlier = [copy.deepcopy(self.main),
+                   self.result(1004, suffix='v2-partial', revision=2, complete=False),
+                   self.result(1005, suffix='v3-partial', revision=3, complete=False)]
+        self.main = self.result(1006, suffix='v4', revision=4)
+        contract = self.activate(revision=4, extra={sid: [rows[i] for rows in earlier]
+            for i, (sid, _, _) in enumerate(BOUNDED_CANDIDATE_BINDINGS)})
+        for source in contract['sources']:
+            if source['id'] not in {sid for sid, _, _ in BOUNDED_CANDIDATE_BINDINGS}:
+                continue
+            resolved = resolve_inventory_origin(self.origin(contract, source['id']), contract, source['id'], self.store)
+            self.assertEqual(len(resolved['items']), 4)
+            expected = '-v3' if source['id'].startswith('ping-identity:') else '-v4'
+            self.assertTrue(source['htmlCompleteness'].endswith(expected))
+
+    def test_v4_selected_sparse_adapter_keeps_exact_original_candidate_context(self):
+        from onboarding import BOUNDED_CANDIDATE_BINDINGS_V4
+        from source_qualification_origin import _sparse_adapter
+        sources = {s['id']: s for s in self.original['sources']}
+        for sid, url, mode in BOUNDED_CANDIDATE_BINDINGS_V4:
+            adapter = _candidate_adapter(sources[sid], url, mode)
+            self.assertEqual(_sparse_adapter(self.original, sid, adapter), adapter)
+            altered = dict(adapter, maxPages=59)
+            with self.assertRaisesRegex(ValueError, 'SPARSE_ADAPTER_CONTEXT_DIFFERS'):
+                _sparse_adapter(self.original, sid, altered)
+
+
 class RealReplayOriginBoundaryTests(unittest.TestCase):
     def setUp(self):
         from test_bounded_candidate_history_replay import BoundedCandidateHistoryReplayTests
@@ -421,6 +448,49 @@ class RealReplayOriginBoundaryTests(unittest.TestCase):
         adapter['allowedHosts'].append('extra.invalid')
         with self.assertRaisesRegex(ValueError, 'SPARSE_ADAPTER_CONTEXT_DIFFERS'):
             _explicit_inventory(fixture.store, entry, fixture.policy, sid, adapter)
+
+    def test_prior_explicit_pages_use_exact_v4_adapter_without_renewing_original_proof(self):
+        from onboarding import BOUNDED_CANDIDATE_BINDINGS_V3, BOUNDED_CANDIDATE_BINDINGS_V4
+        from test_html_archive_discovery import delinea_page, sonatype_page
+        fixture = self.fixture.fixture
+        for index, make_body, page in ((1, delinea_page, 2), (2, sonatype_page, 13)):
+            sid, root, mode = BOUNDED_CANDIDATE_BINDINGS_V4[index]
+            source = next(s for s in fixture.policy['sources'] if s['id'] == sid)
+            proof, observed = fixture._start_proof(source, root, (0, 3, 6)[index])
+            body = make_body(page)
+            article = (root + '/company/blog/2020/06/02/retained-release' if index == 1
+                       else root + '/retained-release-')
+            body = body.replace((root + f'/fixture-{page}-0').encode(), article.encode())
+            observed['body'] = fixture.store.put(body)
+            observation_ref = fixture.store.put(observed)
+            record = json.loads(fixture.store.get(proof['record']))
+            for row in record['diagnostic']['qualification']['targets']:
+                row['observation'] = observation_ref
+            record['githubRunId'] = str(8810 + index)
+            raw = canonical(record)
+            key = f"ci/source-probe-runs/{record['githubRunId']}-1.json"
+            fixture.store.write_once(key, raw)
+            proof.update(record={'key': key, 'sha256': digest(raw), 'bytes': len(raw)},
+                         body=observed['body'], observation=observation_ref,
+                         priorTargetSha256=digest(record['diagnostic']['qualification']['targets'][proof['priorTargetIndex']]))
+            entry = {'kind': 'explicit_qualification_page',
+                     'originalContract': self.original_reference(), 'proof': proof}
+            adapter = _candidate_adapter(source, root, mode)
+            prior = _candidate_adapter(source, root, BOUNDED_CANDIDATE_BINDINGS_V3[index][2])
+            with self.subTest(source=sid):
+                with self.assertRaisesRegex(ValueError, 'Unsafe HTML archive article path'):
+                    _explicit_inventory(fixture.store, entry, fixture.policy, sid, prior)
+                items, dates, at, pages = _explicit_inventory(fixture.store, entry, fixture.policy, sid, adapter)
+                self.assertIn(article, items)
+                self.assertEqual(at, proof['fetchedAt'])
+                self.assertEqual(pages[0]['observation'], observation_ref)
+                self.assertEqual(pages[0]['body'], proof['body'])
+                self.assertEqual(pages[0]['adapterSha256'], digest(adapter))
+                if index == 1:
+                    self.assertEqual(dates, {})
+                altered = dict(adapter, maxPages=59)
+                with self.assertRaisesRegex(ValueError, 'SPARSE_ADAPTER_CONTEXT_DIFFERS'):
+                    _explicit_inventory(fixture.store, entry, fixture.policy, sid, altered)
 
 
 if __name__ == '__main__':

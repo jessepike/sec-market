@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "sourcePins": {
+    "web/scripts/pipeline/onboarding.py": "61ea8ed1f9fa81bbf43346dcede0a776e5b1b255768f70cf2a24274a719de770",
+    "web/scripts/pipeline/discovery.py": "c1e1e58b9f4901f52c403aa4b047dec554301eaf9b56783f337d20a8f736eca4",
+    "web/scripts/pipeline/contracts.py": "83ccf3dd6b1d93e4106899cc3c99a184a0fc7d46c8e3e849cefa2921b83c7089",
+    "web/scripts/pipeline/source_qualification_origin.py": "c57e88f2e40fc69bee9bc94411ccd5e1a8acc99a2f211a9ee8e948cab88cd15b",
+    "contracts/source-qualification-probes.json": "0353ec8ef62fedd09758cc44b1fcbe80bbe713e996432a3684f524acd66c6c55"
+  },
+  "operationalTests": {
+    "passed": 678,
+    "log": "/var/tmp/smp-parser-v4-installed-plan-ops-20261024.log"
+  },
+  "webTests": {
+    "dataPassed": 368,
+    "pipelinePassed": 115,
+    "browserPassed": 42,
+    "browserSkipped": 1,
+    "lint": "passed",
+    "build": "passed",
+    "log": "/var/tmp/smp-parser-v4-web-20261024.log"
+  },
+  "visual": {
+    "widths": [
+      1440,
+      390
+    ],
+    "productionAndLocalViewed": true,
+    "sameFixturePixelsIdentical": true,
+    "previousLocalPrefix": "parser-v3-local",
+    "currentLocalPrefix": "parser-v4-local",
+    "currentProductionPrefix": "parser-v4-production",
+    "artifactDirectory": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024",
+    "visibleChange": false,
+    "uncollectedFixtureMustNotPublish": true
+  },
+  "independentReview": "docs/active/daily-pipeline/accuracy/bounded-parser-v4-independent-review-2026-10-24.md",
+  "historicalActualRunsReplayedExactly": [
+    "40072784799",
+    "40075237236",
+    "40077375424"
+  ],
+  "newSourceRegistration": false,
+  "activationAuthorityEntries": 0,
+  "productionChanged": false,
+  "coverageCredit": false
+}

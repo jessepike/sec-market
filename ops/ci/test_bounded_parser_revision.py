@@ -10,7 +10,7 @@ sys.path.insert(0, str(ROOT / 'ops/ci'))
 from contracts import canonical, digest
 from onboarding import (_candidate_primary_shape, _candidate_adapter,
                         _validate_bounded_candidate_plan, BOUNDED_CANDIDATE_BINDINGS_V2,
-                        BOUNDED_CANDIDATE_BINDINGS_V3)
+                        BOUNDED_CANDIDATE_BINDINGS_V3, BOUNDED_CANDIDATE_BINDINGS_V4)
 import test_bounded_candidate_traversal as fixtures
 
 URL = 'https://press.pingidentity.com/2019-08-23-Ping-Identity-Files-Registration-Statement-for-Proposed-IPO'
@@ -86,6 +86,14 @@ class PrimaryShapeRevisionTests(unittest.TestCase):
             with self.subTest(url=url), self.assertRaisesRegex(ValueError, 'Unsafe V3 literal article URL'):
                 _candidate_primary_shape(article().replace(URL.encode(), url.encode()), url, 3)
 
+    def test_revision_four_primary_reuses_revision_three_shape_and_rejections(self):
+        url = URL.replace('2019-08-23', '2019-8-23')
+        body = article().replace(URL.encode(), url.encode())
+        self.assertEqual(_candidate_primary_shape(body, url, 3), _candidate_primary_shape(body, url, 4))
+        for unsafe in (' ' + url, url.replace('2019-8-23', '2019-2-29')):
+            with self.subTest(url=unsafe), self.assertRaises(ValueError):
+                _candidate_primary_shape(article().replace(URL.encode(), unsafe.encode()), unsafe, 4)
+
 
 class PlanRevisionTests(unittest.TestCase):
     def setUp(self):
@@ -103,7 +111,7 @@ class PlanRevisionTests(unittest.TestCase):
     def test_revision_is_explicit_and_rejects_unknown_or_boolean_values(self):
         plan = self.fixture.plan()
         self.assertEqual(self.validate(plan)['parserRevision'], 1)
-        for revision in (True, False, 0, 1, 4, '2'):
+        for revision in (True, False, 0, 1, 5, 4.0, '2'):
             altered = dict(plan, parserRevision=revision)
             with self.subTest(revision=revision), self.assertRaisesRegex(ValueError, 'PARSER_REVISION_INVALID'):
                 self.validate(altered)
@@ -134,6 +142,19 @@ class PlanRevisionTests(unittest.TestCase):
         downgraded = dict(plan, parserRevision=2)
         with self.assertRaisesRegex(ValueError, 'PROPOSED_ADAPTER_BINDING_INVALID'):
             self.validate(downgraded)
+
+    def test_revision_four_keeps_ping_v3_and_requires_exact_new_other_adapters(self):
+        plan = dict(self.fixture.plan(), parserRevision=4)
+        with self.assertRaisesRegex(ValueError, 'PROPOSED_ADAPTER_BINDING_INVALID'):
+            self.validate(plan)
+        sources = {row['id']: row for row in self.fixture.policy['sources']}
+        for row, (sid, index, mode) in zip(plan['sources'], BOUNDED_CANDIDATE_BINDINGS_V4):
+            row['proposedAdapterSha256'] = digest(_candidate_adapter(sources[sid], index, mode))
+        validated = self.validate(plan)
+        self.assertEqual(validated['parserRevision'], 4)
+        self.assertEqual(validated['sources'][0]['mode'], BOUNDED_CANDIDATE_BINDINGS_V3[0][2])
+        with self.assertRaisesRegex(ValueError, 'PROPOSED_ADAPTER_BINDING_INVALID'):
+            self.validate(dict(plan, parserRevision=3))
 
 
 if __name__ == '__main__':

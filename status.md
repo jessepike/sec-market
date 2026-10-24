@@ -66,8 +66,11 @@ Archive `c112ffb8b924d227e1ce3064b9c8de9edf4986b1`, manifest `92acb137…2d87`, 
 correction and production heads are unchanged. Independent exact replay and file/directory seals
 pass. [Actual V3 audit](docs/active/daily-pipeline/accuracy/bounded-traversal-v3-actual-response-review-2026-10-24.md).
 
-The narrow V4 route repair is being implemented from these authenticated responses. Delinea's
-terminal markup remains unproved. No source is activated. The dormant typed inventory-origin
+The narrow V4 route repair and exact operational plan pass independent review, all 678 operational
+tests and the complete web checks. All three earlier actual diagnostics replay exactly, with
+unchanged sealed archives. Desktop/phone pixels remain identical. The next leased diagnostic
+still needs actual execution. Delinea's terminal markup remains unproved. No source is activated.
+The dormant typed inventory-origin
 helper has an empty trusted activation registry. The explicit disabled operation is implemented
 but the operational plan remains active. Full V3 checks passed: 668 operational, 368 data,
 115 pipeline and 42 browser tests; one appropriate fixture skip. Desktop/phone pixels are unchanged.

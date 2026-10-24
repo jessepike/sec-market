@@ -22,10 +22,12 @@ PING_INDEX = "https://press.pingidentity.com/news-releases"
 DELINEA_HTML_MODE = 'delinea-news-pagination-v1'
 DELINEA_HTML_MODE_V2 = 'delinea-news-pagination-v2'
 DELINEA_HTML_MODE_V3 = 'delinea-news-pagination-v3'
+DELINEA_HTML_MODE_V4 = 'delinea-news-pagination-v4'
 DELINEA_INDEX = 'https://delinea.com/news'
 SONATYPE_HTML_MODE = 'sonatype-press-pagination-v1'
 SONATYPE_HTML_MODE_V2 = 'sonatype-press-pagination-v2'
 SONATYPE_HTML_MODE_V3 = 'sonatype-press-pagination-v3'
+SONATYPE_HTML_MODE_V4 = 'sonatype-press-pagination-v4'
 SONATYPE_INDEX = 'https://www.sonatype.com/press-releases'
 
 
@@ -275,10 +277,11 @@ def _index_target(base, href):
 
 def html_index_number(url, mode):
     """Strict request/continuation grammar for the two observed archive roots."""
-    delinea = mode in (DELINEA_HTML_MODE, DELINEA_HTML_MODE_V2, DELINEA_HTML_MODE_V3)
+    delinea = mode in (DELINEA_HTML_MODE, DELINEA_HTML_MODE_V2, DELINEA_HTML_MODE_V3, DELINEA_HTML_MODE_V4)
     root = DELINEA_INDEX if delinea else SONATYPE_INDEX
-    require(mode in (DELINEA_HTML_MODE, DELINEA_HTML_MODE_V2, DELINEA_HTML_MODE_V3,
-                     SONATYPE_HTML_MODE, SONATYPE_HTML_MODE_V2, SONATYPE_HTML_MODE_V3), 'Unknown HTML index mode')
+    require(mode in (DELINEA_HTML_MODE, DELINEA_HTML_MODE_V2, DELINEA_HTML_MODE_V3, DELINEA_HTML_MODE_V4,
+                     SONATYPE_HTML_MODE, SONATYPE_HTML_MODE_V2, SONATYPE_HTML_MODE_V3, SONATYPE_HTML_MODE_V4),
+            'Unknown HTML index mode')
     require(isinstance(url, str) and not any(ord(c) <= 32 or ord(c) == 127 for c in url), 'Unsafe HTML index URL text')
     parsed, expected = urlsplit(url), urlsplit(root)
     require(parsed.scheme == 'https' and parsed.netloc == expected.netloc and not parsed.fragment,
@@ -294,7 +297,7 @@ def html_index_number(url, mode):
 
 
 def _html_archive(source, url, body, mode):
-    delinea = mode in (DELINEA_HTML_MODE, DELINEA_HTML_MODE_V2, DELINEA_HTML_MODE_V3)
+    delinea = mode in (DELINEA_HTML_MODE, DELINEA_HTML_MODE_V2, DELINEA_HTML_MODE_V3, DELINEA_HTML_MODE_V4)
     supplier = 'delinea' if delinea else 'sonatype'
     root = DELINEA_INDEX if delinea else SONATYPE_INDEX
     host = urlsplit(root).netloc
@@ -314,17 +317,17 @@ def _html_archive(source, url, body, mode):
 
 
 def _archive_article_url(base, href, mode):
-    if mode in (DELINEA_HTML_MODE_V3, SONATYPE_HTML_MODE_V3):
+    if mode in (DELINEA_HTML_MODE_V3, SONATYPE_HTML_MODE_V3, DELINEA_HTML_MODE_V4, SONATYPE_HTML_MODE_V4):
         _v3_literal_article_href(href)
     target = _index_target(base, href)
     parsed = urlsplit(target)
-    delinea = mode in (DELINEA_HTML_MODE, DELINEA_HTML_MODE_V2, DELINEA_HTML_MODE_V3)
+    delinea = mode in (DELINEA_HTML_MODE, DELINEA_HTML_MODE_V2, DELINEA_HTML_MODE_V3, DELINEA_HTML_MODE_V4)
     root = urlsplit(DELINEA_INDEX if delinea else SONATYPE_INDEX)
     prefix = '/news/' if delinea else '/press-releases/'
     path_match = bool(re.fullmatch(re.escape(prefix) + r'[a-z0-9]+(?:-[a-z0-9]+)*', parsed.path))
     if mode == DELINEA_HTML_MODE_V2:
         path_match = bool(re.fullmatch(re.escape(prefix) + r'[a-z0-9]+(?:-[a-z0-9]+)*-?', parsed.path))
-    if mode == DELINEA_HTML_MODE_V3:
+    if mode in (DELINEA_HTML_MODE_V3, DELINEA_HTML_MODE_V4):
         reserved = {'page', 'pages', 'news', 'press-releases'}
         direct = re.fullmatch(re.escape(prefix) + r'([a-z0-9]+(?:-[a-z0-9]+)*-?)', parsed.path)
         historical = re.fullmatch(r'/news/about-us/news/press-releases/[0-9]{4}/([a-z0-9]+(?:-[a-z0-9]+)*)', parsed.path)
@@ -332,15 +335,29 @@ def _archive_article_url(base, href, mode):
         historical_slug = historical.group(1) if historical else ''
         path_match = bool((direct and direct_slug not in reserved and not direct_slug.isdigit()) or
                           (historical and historical_slug not in reserved and not historical_slug.isdigit()))
+        if mode == DELINEA_HTML_MODE_V4:
+            dated_company_blog = re.fullmatch(
+                r'/news/company/blog/([0-9]{4})/([0-9]{2})/([0-9]{2})/([a-z0-9]+(?:-[a-z0-9]+)*)',
+                parsed.path)
+            if dated_company_blog:
+                try:
+                    date(*(int(part) for part in dated_company_blog.groups()[:3]))
+                    blog_slug = dated_company_blog.group(4)
+                    path_match = blog_slug not in reserved and not blog_slug.isdigit()
+                except ValueError:
+                    path_match = False
     if mode == SONATYPE_HTML_MODE_V2 and parsed.path == (
             '/press-releases/sonatype-introduces-cutting-edge-ai/ml-component-detection'):
         path_match = True
-    if mode == SONATYPE_HTML_MODE_V3:
-        direct = re.fullmatch(r'/press-releases/([a-z0-9]+(?:-[a-z0-9]+)*)', parsed.path)
-        nested = re.fullmatch(r'/press-releases/([a-z0-9]+(?:-[a-z0-9]+)*)/([a-z0-9]+(?:-[a-z0-9]+)*)', parsed.path)
+    if mode in (SONATYPE_HTML_MODE_V3, SONATYPE_HTML_MODE_V4):
+        final_slug = r'[a-z0-9]+(?:-[a-z0-9]+)*' + ('-?' if mode == SONATYPE_HTML_MODE_V4 else '')
+        direct = re.fullmatch(r'/press-releases/(' + final_slug + r')', parsed.path)
+        nested = re.fullmatch(r'/press-releases/([a-z0-9]+(?:-[a-z0-9]+)*)/(' + final_slug + r')', parsed.path)
         segments = (direct.groups() if direct else nested.groups() if nested else ())
         reserved = {'page', 'pages', 'news', 'press-releases'}
-        path_match = bool(segments) and all(segment not in reserved and not segment.isdigit() for segment in segments)
+        checked_segments = tuple(segment.rstrip('-') for segment in segments) if mode == SONATYPE_HTML_MODE_V4 else segments
+        path_match = bool(checked_segments) and all(segment not in reserved and not segment.isdigit()
+                                                    for segment in checked_segments)
     require(parsed.scheme == 'https' and parsed.netloc == root.netloc and not parsed.query and not parsed.fragment
             and path_match, 'Unsafe HTML archive article path')
     return target
@@ -513,9 +530,9 @@ def parse_source_html_index(source, url, body, highest_page, as_of):
     """Pure source-bound layout evidence; caller owns transport and qualification."""
     modes = {PING_HTML_MODE: ping_index, PING_HTML_MODE_V2: ping_index, PING_HTML_MODE_V3: ping_index,
              DELINEA_HTML_MODE: delinea_index, DELINEA_HTML_MODE_V2: delinea_index,
-             DELINEA_HTML_MODE_V3: delinea_index,
+             DELINEA_HTML_MODE_V3: delinea_index, DELINEA_HTML_MODE_V4: delinea_index,
              SONATYPE_HTML_MODE: sonatype_index, SONATYPE_HTML_MODE_V2: sonatype_index,
-             SONATYPE_HTML_MODE_V3: sonatype_index}
+             SONATYPE_HTML_MODE_V3: sonatype_index, SONATYPE_HTML_MODE_V4: sonatype_index}
     require(source.get('htmlCompleteness') in modes, 'Unknown source HTML mode')
     require(type(highest_page) is int and highest_page >= 1, 'Invalid prior advertised HTML page')
     return modes[source['htmlCompleteness']](source, url, decoded_discovery_body(body), highest_page, as_of)
@@ -902,12 +919,13 @@ def discover(source, request):
     highest_orca_page = 1
     orca_mode = source.get("htmlCompleteness") == ORCA_HTML_MODE
     source_html_mode = source.get('htmlCompleteness') in (PING_HTML_MODE, PING_HTML_MODE_V2, PING_HTML_MODE_V3,
-        DELINEA_HTML_MODE, DELINEA_HTML_MODE_V2, DELINEA_HTML_MODE_V3,
-        SONATYPE_HTML_MODE, SONATYPE_HTML_MODE_V2, SONATYPE_HTML_MODE_V3)
+        DELINEA_HTML_MODE, DELINEA_HTML_MODE_V2, DELINEA_HTML_MODE_V3, DELINEA_HTML_MODE_V4,
+        SONATYPE_HTML_MODE, SONATYPE_HTML_MODE_V2, SONATYPE_HTML_MODE_V3, SONATYPE_HTML_MODE_V4)
     source_label = {PING_HTML_MODE: 'PING', PING_HTML_MODE_V2: 'PING', PING_HTML_MODE_V3: 'PING',
-                    DELINEA_HTML_MODE: 'DELINEA', DELINEA_HTML_MODE_V2: 'DELINEA', DELINEA_HTML_MODE_V3: 'DELINEA',
+                    DELINEA_HTML_MODE: 'DELINEA', DELINEA_HTML_MODE_V2: 'DELINEA',
+                    DELINEA_HTML_MODE_V3: 'DELINEA', DELINEA_HTML_MODE_V4: 'DELINEA',
                     SONATYPE_HTML_MODE: 'SONATYPE', SONATYPE_HTML_MODE_V2: 'SONATYPE',
-                    SONATYPE_HTML_MODE_V3: 'SONATYPE'}.get(source.get('htmlCompleteness'))
+                    SONATYPE_HTML_MODE_V3: 'SONATYPE', SONATYPE_HTML_MODE_V4: 'SONATYPE'}.get(source.get('htmlCompleteness'))
     highest_source_page, last_source_date, source_as_of = 1, None, source.get('checkedAt')
     def incomplete(reason, **details):
         return {"complete": False, "items": sorted(items), "itemDates": item_dates,

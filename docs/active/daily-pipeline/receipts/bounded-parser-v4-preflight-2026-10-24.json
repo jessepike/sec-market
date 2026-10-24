@@ -1,0 +1,56 @@
+{
+  "rawSha256": "0353ec8ef62fedd09758cc44b1fcbe80bbe713e996432a3684f524acd66c6c55",
+  "canonicalSha256": "2e4ade663b1a76386c44e4150f310da72b6ff1ce632f5a685c7bdf2ea5f2f917",
+  "parserRevision": 4,
+  "adapters": [
+    {
+      "sourceId": "ping-identity:official:1",
+      "proposedAdapterSha256": "b071ca029730ddd2dfaf7e7f41a6073b89f4e54979da3cc7fddb7c9c509e7700",
+      "mode": "ping-release-pagination-v3"
+    },
+    {
+      "sourceId": "delinea:official:1",
+      "proposedAdapterSha256": "22cf16ba6b2fe75fbb65e0f85e195541bbecf71178fa1d06a53252ee64ee3e50",
+      "mode": "delinea-news-pagination-v4"
+    },
+    {
+      "sourceId": "sonatype:official:1",
+      "proposedAdapterSha256": "f6dbc8d7870f65c8c685ff6d868fd84a84a750a8fc5a4d245097849fa99640e3",
+      "mode": "sonatype-press-pagination-v4"
+    }
+  ],
+  "originalStartProofsPreserved": true,
+  "historicalRuns": [
+    {
+      "run": "40072784799",
+      "parserRevision": 1,
+      "exactOriginalDiagnostic": true
+    },
+    {
+      "run": "40075237236",
+      "parserRevision": 2,
+      "exactOriginalDiagnostic": true
+    },
+    {
+      "run": "40077375424",
+      "parserRevision": 3,
+      "exactOriginalDiagnostic": true
+    }
+  ],
+  "stateMutations": 0,
+  "before": {
+    "files": 35596,
+    "contentSha256": "24ecd18c469e11e634cc797fed2d4be46970ca54eaaeddfba30ccf1e588ffbb1",
+    "fileMtimeSha256": "2e1fbe0fa7214633f8e0b92a361606f87abfe8ce7efaba171c66b65ba6930932",
+    "directories": 1325,
+    "directoryMtimeSha256": "55253b6e4f6a3fbea7816d75933153fc77b56b3322b75278fe26effc3daf87b2"
+  },
+  "after": {
+    "files": 35596,
+    "contentSha256": "24ecd18c469e11e634cc797fed2d4be46970ca54eaaeddfba30ccf1e588ffbb1",
+    "fileMtimeSha256": "2e1fbe0fa7214633f8e0b92a361606f87abfe8ce7efaba171c66b65ba6930932",
+    "directories": 1325,
+    "directoryMtimeSha256": "55253b6e4f6a3fbea7816d75933153fc77b56b3322b75278fe26effc3daf87b2"
+  },
+  "coverageCredit": false
+}
