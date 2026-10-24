@@ -6,6 +6,7 @@ from pathlib import Path
 import tempfile
 import unittest
 from unittest.mock import patch
+from urllib.parse import urlsplit
 
 from test_onboarding_budget import Clock, FictionalFetcher, NOW, contract
 from contracts import canonical, digest
@@ -114,6 +115,284 @@ class SourceQualificationProbeTests(unittest.TestCase):
 
     def write(self, plan):
         self.path.write_bytes(canonical(plan))
+
+    def explicit_followup(self, *, channel=None, modern=False):
+        if channel:
+            source_id, feed, index = channel
+            source=self.policy['sources'][0]
+            source.update(id=source_id, url=feed, allowedHosts=[urlsplit(feed).hostname,'example.invalid'])
+            seed_qualification_plan(self.store,self.policy,self.path,disclosure='rss')
+        old_raw=self.path.read_text()
+        old=validate_qualification_probe_plan(self.policy,self.store,self.path)
+        self.store.compare_and_swap('budget-2026-10-23',None,{'calls':80,'documents':40,'fetches':10})
+        source=self.policy['sources'][0]
+        next_urls=['https://'+source['allowedHosts'][0]+'/next-'+str(i) for i in range(7)]
+        next_urls[-1]+= ',literal?first=one&second=two'
+        if channel:
+            next_urls[0]=index
+            body=('<rss><channel><link>'+index+'</link>'+''.join('<item><link>'+escape(u)+'</link></item>'
+                  for u in next_urls[1:])+'</channel></rss>').encode()
+            # The selected prior request must be the exact source feed.
+            for target in old['plan']['targets']:
+                if target['id']=='qualification-0':target['url']=feed;target['expectedFormat']='rss'
+            old_raw=canonical(old['plan']).decode()
+            old.update(rawSha256=digest(old_raw.encode()),canonicalSha256=digest(old['plan']))
+            old['targets']=[{**t,'literalRecognition':'html_link_feed_or_canonical'} for t in old['plan']['targets']]
+        else:
+            body=('<html><body>'+''.join('<a href="'+escape(u,quote=True)+'">Next literal</a>' for u in next_urls)+'</body></html>').encode()
+        budget=self.budget()
+        explicit=_probe_qualification_targets(self.policy,self.store,Responses(self.store,[body]*7),budget,old)
+        if modern:
+            explicit['plan']['rawPlanReference']=self.store.put(old_raw.encode())
+        record={'checkpointProfile':'source_probe','contractSha256':digest(self.policy),'executionCompleted':True,
+                'appRevision':'a'*40,
+                'outcome':'completed_diagnostic','apiFallback':False,
+                'publication':{'published':False,'reason':'SOURCE_PROBE_DIAGNOSTIC_ONLY'},
+                'modelCalls':0,'sourceChecksCredited':0,'qualifiedSources':0,'semanticAdmission':False,'coverageCredit':False,
+                'githubEventName':'workflow_dispatch','githubRef':'refs/heads/main','githubRunId':'902','githubRunAttempt':1,
+                'diagnostic':{'contractSha256':digest(self.policy),'executionCompleted':True,'checkedAt':NOW,
+                    'qualified':False,'budgetDenied':False,
+                    'sources':[{'sourceId':source['id'],'supplierId':source['supplierId'],
+                                'registration':'candidate','qualified':False,'facts':[],
+                                'semanticAdmission':False,'coverageCredit':False,'fetchReservations':[]}],
+                    'facts':[],'qualifiedSources':0,'sourceChecksCredited':0,
+                    'semanticAdmission':False,'coverageCredit':False,
+                    'reservationContext':budget.summary(),'qualification':explicit}}
+        key='ci/source-probe-runs/902-1.json';self.store.write_once(key,record)
+        row=explicit['targets'][0];observed=json.loads(self.store.get(row['observation']))
+        proof={'type':'qualification_observation','record':file_reference(self.store,key),
+               'priorTargetId':row['targetId'],'priorTargetIndex':0,'priorTargetSha256':digest(row),
+               'priorPlanRaw':old_raw,'priorPlanRawSha256':old['rawSha256'],
+               'priorPlanCanonicalSha256':old['canonicalSha256'],'observation':row['observation'],
+               'body':observed['body'],'fetchedAt':observed['fetchedAt']}
+        if modern:
+            proof.pop('priorPlanRaw')
+            proof['priorPlanReference']=explicit['plan']['rawPlanReference']
+        plan={'schemaVersion':1,'marketSha256':digest(self.policy),'maxRequests':7,
+              'targets':[{'id':'next-'+str(i),'sourceId':source['id'],'url':u,'expectedFormat':'html',
+                          'proof':copy.deepcopy(proof)} for i,u in enumerate(next_urls)]}
+        self.write(plan)
+        return plan,record,key
+
+    def test_actual_execution_retains_exact_raw_plan_once_and_pure_validation_stays_read_only(self):
+        raw=self.path.read_bytes();before=retained_files(self.store)
+        validated=self.validate()
+        self.assertNotIn('rawPlanReference',validated)
+        self.assertEqual(retained_files(self.store),before)
+        with patch.object(self.store,'put',wraps=self.store.put) as put:
+            result=probe_sources(self.policy,self.store,Responses(self.store),reservation_context=self.budget(),
+                                 qualification_plan_path=self.path)
+        reference=result['qualification']['plan']['rawPlanReference']
+        self.assertEqual(self.store.get(reference),raw)
+        self.assertEqual(reference['sha256'],result['qualification']['plan']['rawSha256'])
+        self.assertEqual(sum(call.args[0]==raw for call in put.call_args_list),1)
+
+    def test_compact_reference_proof_replays_and_rejects_missing_altered_or_legacy_fallback(self):
+        plan,record,_key=self.explicit_followup(modern=True)
+        before=retained_files(self.store);self.validate();self.assertEqual(retained_files(self.store),before)
+        def raw_only(proof):
+            proof['priorPlanRaw']=self.store.get(proof.pop('priorPlanReference')).decode()
+        mutations=[lambda p:p['priorPlanReference'].update(bytes=1),
+                   lambda p:p['priorPlanReference'].update(sha256='b'*64),
+                   lambda p:p.update(priorPlanReference=self.store.put(b'{}')),
+                   lambda p:p.update(priorPlanRaw='{}'),
+                   lambda p:p.pop('priorPlanReference'),raw_only]
+        for mutate in mutations:
+            candidate=copy.deepcopy(plan);mutate(candidate['targets'][-1]['proof']);self.write(candidate)
+            fetcher=Responses(self.store);budget=self.budget();before=retained_files(self.store)
+            with self.subTest(mutation=mutate),patch.object(self.store,'put') as put,self.assertRaises(ValueError):
+                probe_sources(self.policy,self.store,fetcher,reservation_context=budget,qualification_plan_path=self.path)
+            put.assert_not_called();self.assertEqual(fetcher.calls,[]);self.assertEqual(retained_files(self.store),before)
+        self.write(plan)
+        reference=plan['targets'][0]['proof']['priorPlanReference']
+        path=self.store.root/reference['key'];raw=path.read_bytes();path.write_bytes(b'tampered')
+        with self.assertRaisesRegex(ValueError,'integrity'):self.validate()
+        path.write_bytes(raw);path.unlink()
+        with self.assertRaises(FileNotFoundError):self.validate()
+
+    def test_leased_execution_persists_raw_plan_only_after_acknowledged_escrow(self):
+        from test_leased_source_probe import LeasedSourceProbeTests
+        case=LeasedSourceProbeTests();case.setUp();persisted=[];original=LocalStore.put
+        def put(store,body):
+            path=case.repo/'contracts/source-qualification-probes.json'
+            if isinstance(body,bytes) and path.exists() and body==path.read_bytes():
+                self.assertGreaterEqual(len(case.pushes),2)
+                persisted.append(body)
+            return original(store,body)
+        try:
+            with patch.object(LocalStore,'put',new=put):result=case.run_probe()
+            self.assertEqual(len(persisted),1)
+            reference=result['diagnostic']['qualification']['plan']['rawPlanReference']
+            self.assertEqual(case.state().get(reference),persisted[0])
+        finally:case.doCleanups()
+
+    def test_invalid_last_target_persists_no_current_raw_plan_and_starts_no_transport(self):
+        plan=copy.deepcopy(self.plan);plan['targets'][-1]['url']='https://example.invalid/not-disclosed';self.write(plan)
+        fetcher=Responses(self.store);budget=self.budget();before=retained_files(self.store)
+        with patch.object(self.store,'put') as put,self.assertRaisesRegex(ValueError,'NOT_LITERAL'):
+            probe_sources(self.policy,self.store,fetcher,reservation_context=budget,qualification_plan_path=self.path)
+        put.assert_not_called();self.assertEqual(fetcher.calls,[]);self.assertEqual(retained_files(self.store),before)
+
+    def test_several_actual_synthetic_generations_use_small_references_without_raw_nesting(self):
+        self.store.compare_and_swap('budget-2026-10-23',None,{'calls':80,'documents':40,'fetches':0})
+        sizes=[]
+        for generation in range(6):
+            next_urls=['https://example.invalid/generation-'+str(generation)+'-'+str(i) for i in range(7)]
+            body=('<html><body>'+''.join('<a href="'+u+'">Next disclosure</a>' for u in next_urls)+'</body></html>').encode()
+            result=probe_sources(self.policy,self.store,Responses(self.store,[body]*30),reservation_context=self.budget(),
+                                 qualification_plan_path=self.path)
+            prior=result['qualification']['plan'];row=result['qualification']['targets'][0]
+            observation=json.loads(self.store.get(row['observation']))
+            key='ci/source-probe-runs/'+str(1000+generation)+'-1.json'
+            record={'checkpointProfile':'source_probe','contractSha256':digest(self.policy),'appRevision':'a'*40,
+                    'executionCompleted':True,'outcome':'completed_diagnostic','apiFallback':False,
+                    'publication':{'published':False,'reason':'SOURCE_PROBE_DIAGNOSTIC_ONLY'},
+                    'modelCalls':0,'sourceChecksCredited':0,'qualifiedSources':0,'semanticAdmission':False,'coverageCredit':False,
+                    'githubEventName':'workflow_dispatch','githubRef':'refs/heads/main','githubRunId':str(1000+generation),
+                    'githubRunAttempt':1,'diagnostic':result}
+            self.store.write_once(key,record)
+            proof={'type':'qualification_observation','record':file_reference(self.store,key),
+                   'priorTargetId':row['targetId'],'priorTargetIndex':0,'priorTargetSha256':digest(row),
+                   'priorPlanReference':prior['rawPlanReference'],'priorPlanRawSha256':prior['rawSha256'],
+                   'priorPlanCanonicalSha256':prior['canonicalSha256'],'observation':row['observation'],
+                   'body':observation['body'],'fetchedAt':observation['fetchedAt']}
+            plan={'schemaVersion':1,'marketSha256':digest(self.policy),'maxRequests':7,
+                  'targets':[{'id':'generation-'+str(generation)+'-'+str(i),'sourceId':self.policy['sources'][0]['id'],
+                              'url':u,'expectedFormat':'html','proof':copy.deepcopy(proof)} for i,u in enumerate(next_urls)]}
+            self.write(plan);self.validate();sizes.append(len(self.path.read_bytes()))
+            self.assertTrue(all('priorPlanRaw' not in t['proof'] for t in plan['targets']))
+        self.assertLess(max(sizes),20_000)
+        self.assertLess(max(sizes)-min(sizes),1_000)
+
+    def test_explicit_followup_binds_prior_plan_row_charge_and_literal_commas_without_writes(self):
+        plan,_record,_key=self.explicit_followup()
+        before=retained_files(self.store)
+        result=self.validate()
+        self.assertEqual(retained_files(self.store),before)
+        self.assertEqual([t['url'] for t in result['targets']],[t['url'] for t in plan['targets']])
+        self.assertIn(',literal?',result['targets'][-1]['url'])
+        self.assertEqual(self.store.read('heads/budget-2026-10-23.json'),{'calls':80,'documents':40,'fetches':17})
+
+    def test_explicit_followup_proof_tampering_fails_all_seven_before_transport(self):
+        plan,_record,_key=self.explicit_followup()
+        mutations=[lambda p:p.update(priorTargetId='missing'),lambda p:p.update(priorTargetIndex=1),
+                   lambda p:p.update(priorTargetSha256='b'*64),lambda p:p.update(priorPlanRaw=p['priorPlanRaw']+' '),
+                   lambda p:p.update(priorPlanRawSha256='b'*64),lambda p:p.update(priorPlanCanonicalSha256='b'*64),
+                   lambda p:p.update(fetchedAt='2026-10-24T00:00:00Z'),lambda p:p['body'].update(bytes=1)]
+        for mutate in mutations:
+            changed=copy.deepcopy(plan);mutate(changed['targets'][-1]['proof']);self.write(changed)
+            before=retained_files(self.store);fetcher=Responses(self.store);budget=self.budget()
+            with self.subTest(mutation=mutate),self.assertRaises(ValueError):
+                probe_sources(self.policy,self.store,fetcher,reservation_context=budget,qualification_plan_path=self.path)
+            self.assertEqual(fetcher.calls,[]);self.assertEqual(budget.reservations,0)
+            self.assertEqual(retained_files(self.store),before)
+
+    def test_changed_prior_results_or_reservation_ledger_fail_even_with_rehashed_record(self):
+        plan,record,key=self.explicit_followup()
+        def row(r):return r['diagnostic']['qualification']['targets'][0]
+        def old(r):return r['diagnostic']['qualification']['plan']
+        mutations=[lambda r:row(r).update(reservation=None),lambda r:row(r).update(budgetDenied=True),
+                   lambda r:row(r).update(reason='HTTP_403'),lambda r:row(r).update(sourceId='other-source'),
+                   lambda r:row(r).update(coverageCredit=True),lambda r:r.update(apiFallback=True),
+                   lambda r:r['diagnostic']['sources'][0].update(supplierId='other-supplier'),
+                   lambda r:r['diagnostic']['sources'].append(copy.deepcopy(r['diagnostic']['sources'][0])),
+                   lambda r:r['diagnostic']['qualification']['targets'][1].update(modelCalls=1),
+                   lambda r:r.update(executionCompleted=False),lambda r:r.update(contractSha256='b'*64),
+                   lambda r:old(r).update(rawSha256='b'*64),
+                   lambda r:old(r)['targets'].reverse(),
+                   lambda r:r['diagnostic']['qualification']['targets'].reverse(),
+                   lambda r:r['diagnostic']['qualification']['targets'].append(copy.deepcopy(row(r))),
+                   lambda r:row(r)['reservation'].update(chargedFetchCount=12),
+                   lambda r:r['diagnostic']['reservationContext']['currentBudget'].update(calls=81)]
+        for mutate in mutations:
+            changed=copy.deepcopy(record);mutate(changed)
+            (self.store.root/key).write_bytes(canonical(changed))
+            candidate=copy.deepcopy(plan)
+            for target in candidate['targets']:
+                target['proof']['record']=file_reference(self.store,key)
+                target['proof']['priorTargetSha256']=digest(row(changed))
+            self.write(candidate)
+            with self.subTest(mutation=mutate),self.assertRaises(ValueError):self.validate()
+
+    def test_prior_runtime_day_and_diagnostic_flags_reject_rehashed_contradictions(self):
+        plan,record,key=self.explicit_followup()
+        mutations={
+            'start previous day':lambda r:r['diagnostic']['reservationContext'].update(startedAt='2026-10-22T23:59:00Z'),
+            'finish next day':lambda r:r['diagnostic'].update(checkedAt='2026-10-24T00:00:00Z'),
+            'local date hides UTC crossing':lambda r:r['diagnostic']['reservationContext'].update(startedAt='2026-10-23T00:30:00+02:00'),
+            'elapsed overrun':lambda r:r['diagnostic']['reservationContext'].update(startedAt='2026-10-23T11:00:00Z'),
+            'boolean runtime':lambda r:r['diagnostic']['reservationContext'].update(maximumRuntimeSeconds=True),
+            'zero runtime':lambda r:r['diagnostic']['reservationContext'].update(maximumRuntimeSeconds=0),
+            'oversized runtime':lambda r:r['diagnostic']['reservationContext'].update(maximumRuntimeSeconds=1201),
+            'qualified diagnostic':lambda r:r['diagnostic'].update(qualified=True),
+            'budget denied diagnostic':lambda r:r['diagnostic'].update(budgetDenied=True),
+            'qualified integer zero':lambda r:r['diagnostic'].update(qualified=0),
+            'budget denied integer zero':lambda r:r['diagnostic'].update(budgetDenied=0),
+            'unfinished inflight':lambda r:r['diagnostic'].update(executionCompleted=False),
+        }
+        for name,mutate in mutations.items():
+            changed=copy.deepcopy(record);mutate(changed)
+            (self.store.root/key).write_bytes(canonical(changed));candidate=copy.deepcopy(plan)
+            for target in candidate['targets']:target['proof']['record']=file_reference(self.store,key)
+            self.write(candidate)
+            fetcher=Responses(self.store);budget=self.budget();before=retained_files(self.store)
+            with self.subTest(name=name),self.assertRaises(ValueError):
+                probe_sources(self.policy,self.store,fetcher,reservation_context=budget,qualification_plan_path=self.path)
+            self.assertEqual(fetcher.calls,[]);self.assertEqual(budget.reservations,0)
+            self.assertEqual(retained_files(self.store),before)
+
+    def test_only_exact_source_bound_rss_channel_disclosures_are_allowed(self):
+        for source_id,feed,index in (
+            ('delinea:official:1','https://delinea.com/news/rss.xml','https://delinea.com/news'),
+            ('sonatype:official:1','https://www.sonatype.com/press-releases/rss.xml','https://www.sonatype.com/press-releases')):
+            # Each case owns a fresh archive and no transport beyond fictional responses.
+            with self.subTest(source=source_id),tempfile.TemporaryDirectory() as directory:
+                original_store,original_policy,original_path=self.store,self.policy,self.path
+                self.store=LocalStore(Path(directory)/'state');self.policy=contract();self.path=Path(directory)/'plan.json'
+                try:
+                    plan,_record,_key=self.explicit_followup(channel=(source_id,feed,index))
+                    result=self.validate()
+                    self.assertEqual(result['targets'][0]['literalRecognition'],'source_bound_rss_channel_link')
+                    plan['targets'][0]['url']=index+'/invented';self.write(plan)
+                    with self.assertRaisesRegex(ValueError,'NOT_LITERAL'):self.validate()
+                finally:self.store,self.policy,self.path=original_store,original_policy,original_path
+
+    def repin_explicit_observation(self, plan, record, key, observation):
+        reference=self.store.put(observation)
+        row=record['diagnostic']['qualification']['targets'][0]
+        row['observation']=reference
+        (self.store.root/key).write_bytes(canonical(record))
+        for target in plan['targets']:
+            target['proof'].update(record=file_reference(self.store,key),observation=reference,
+                                  priorTargetSha256=digest(row),body=observation.get('body'))
+        self.write(plan)
+
+    def test_explicit_failed_or_redirected_prior_observation_is_not_disclosure_proof(self):
+        plan,record,key=self.explicit_followup()
+        observed=json.loads(self.store.get(record['diagnostic']['qualification']['targets'][0]['observation']))
+        for change in ({'status':'blocked','httpStatus':403}, {'finalUrl':'https://example.invalid/different'},
+                       {'fetchedAt':'2026-10-24T00:00:00Z'}):
+            with self.subTest(change=change):
+                self.repin_explicit_observation(copy.deepcopy(plan),copy.deepcopy(record),key,{**observed,**change})
+                with self.assertRaises(ValueError):self.validate()
+
+    def test_duplicate_rss_channel_cannot_supply_source_bound_index_proof(self):
+        self.store=LocalStore(Path(self.temp.name)/'channel-state')
+        plan,record,key=self.explicit_followup(channel=(
+            'delinea:official:1','https://delinea.com/news/rss.xml','https://delinea.com/news'))
+        observed=json.loads(self.store.get(record['diagnostic']['qualification']['targets'][0]['observation']))
+        raw=self.store.get(observed['body']).replace(b'<channel>',b'<channel><link>https://delinea.com/news</link>')
+        observed['body']=self.store.put(raw)
+        self.repin_explicit_observation(plan,record,key,observed)
+        with self.assertRaisesRegex(ValueError,'CHANNEL_DISCLOSURE_DIFFERS'):self.validate()
+
+    def test_explicit_followup_body_tamper_fails_integrity_without_transport(self):
+        plan,_record,_key=self.explicit_followup()
+        (self.store.root/plan['targets'][0]['proof']['body']['key']).write_bytes(b'changed body')
+        fetcher=Responses(self.store);budget=self.budget()
+        with self.assertRaisesRegex(ValueError,'integrity'):
+            probe_sources(self.policy,self.store,fetcher,reservation_context=budget,qualification_plan_path=self.path)
+        self.assertEqual(fetcher.calls,[]);self.assertEqual(budget.reservations,0)
 
     def test_exact_plan_hashes_literal_disclosures_and_read_only_validation(self):
         before = retained_files(self.store)

@@ -123,6 +123,131 @@ def _qualification_reference(store, reference, pattern):
     return store.get(reference)
 
 
+def _qualification_explicit_observation(recorded, proof, source, contract, store):
+    """Bind a retained explicit result to its old committed plan and charged request."""
+    require(recorded.get('executionCompleted') is True and recorded.get('outcome') == 'completed_diagnostic'
+            and recorded.get('apiFallback') is False
+            and isinstance(recorded.get('appRevision'), str) and re.fullmatch(r'[a-f0-9]{40}', recorded['appRevision'])
+            and recorded.get('publication') == {'published': False, 'reason': 'SOURCE_PROBE_DIAGNOSTIC_ONLY'},
+            'QUALIFICATION_PRIOR_RUN_NOT_COMPLETED_DIAGNOSTIC')
+    diagnostic = recorded.get('diagnostic')
+    require(isinstance(diagnostic, dict), 'QUALIFICATION_PRIOR_DIAGNOSTIC_INVALID')
+    qualification = diagnostic.get('qualification')
+    require(isinstance(qualification, dict), 'QUALIFICATION_PRIOR_EXPLICIT_RESULTS_REQUIRED')
+    for summary in (diagnostic, qualification):
+        require(summary.get('semanticAdmission') is False and summary.get('coverageCredit') is False
+                and summary.get('facts') == []
+                and all(type(summary.get(k)) is int and summary[k] == 0
+                        for k in ('sourceChecksCredited', 'qualifiedSources')),
+                'QUALIFICATION_PRIOR_SUMMARY_CREDIT_INVALID')
+    require(diagnostic.get('contractSha256') == digest(contract) and diagnostic.get('executionCompleted') is True
+            and diagnostic.get('qualified') is False and diagnostic.get('budgetDenied') is False
+            and qualification.get('modelCalls') == 0 and type(qualification.get('modelCalls')) is int,
+            'QUALIFICATION_PRIOR_SUMMARY_POLICY_INVALID')
+    prior = qualification.get('plan')
+    require(isinstance(prior, dict), 'QUALIFICATION_PRIOR_PLAN_REQUIRED')
+    if 'rawPlanReference' in prior:
+        require('priorPlanReference' in proof and proof['priorPlanReference'] == prior['rawPlanReference'],
+                'QUALIFICATION_PRIOR_PLAN_REFERENCE_DIFFERS')
+        raw = _qualification_reference(store, proof['priorPlanReference'], r'objects/[a-f0-9]{64}')
+        require(proof['priorPlanReference']['sha256'] == prior.get('rawSha256'),
+                'QUALIFICATION_PRIOR_PLAN_REFERENCE_HASH_DIFFERS')
+    else:
+        require(isinstance(proof.get('priorPlanRaw'), str), 'QUALIFICATION_LEGACY_PRIOR_PLAN_RAW_REQUIRED')
+        raw = proof['priorPlanRaw'].encode()
+    require(0 < len(raw) <= 1_000_000, 'QUALIFICATION_PRIOR_PLAN_REQUIRED')
+    old_plan = json.loads(raw)
+    require(digest(raw) == proof['priorPlanRawSha256'] == prior.get('rawSha256')
+            and digest(old_plan) == proof['priorPlanCanonicalSha256'] == prior.get('canonicalSha256')
+            and old_plan == prior.get('plan') and old_plan.get('marketSha256') == digest(contract)
+            and prior.get('marketSha256') == digest(contract) and prior.get('maxRequests') == 7
+            and set(old_plan) == {'schemaVersion', 'marketSha256', 'maxRequests', 'targets'}
+            and type(old_plan['schemaVersion']) is int and old_plan['schemaVersion'] == 1
+            and type(old_plan['maxRequests']) is int and old_plan['maxRequests'] == 7,
+            'QUALIFICATION_PRIOR_PLAN_HASH_OR_POLICY_DIFFERS')
+    old_targets, validated, rows = old_plan.get('targets'), prior.get('targets'), qualification.get('targets')
+    require(all(isinstance(x, list) and len(x) == 7 and all(isinstance(t, dict) for t in x)
+                for x in (old_targets, validated, rows)), 'QUALIFICATION_PRIOR_TARGET_INVENTORY_INVALID')
+    require(len({t.get('id') for t in old_targets}) == 7
+            and len({r.get('targetId') for r in rows}) == 7,
+            'QUALIFICATION_PRIOR_TARGET_AMBIGUOUS')
+    for old, checked, row in zip(old_targets, validated, rows):
+        require({k:v for k,v in checked.items() if k != 'literalRecognition'} == old
+                and checked.get('literalRecognition') in ('html_link_feed_or_canonical', 'rss_or_atom_item_link',
+                                                          'source_bound_rss_channel_link')
+                and row.get('targetId') == old.get('id')
+                and all(row.get(k) == old.get(k) for k in ('sourceId', 'url', 'expectedFormat', 'proof')),
+                'QUALIFICATION_PRIOR_TARGET_MOVED_OR_CHANGED')
+        require(row.get('qualified') is False and row.get('facts') == []
+                and row.get('semanticAdmission') is False and row.get('coverageCredit') is False
+                and all(type(row.get(k)) is int and row[k] == 0
+                        for k in ('sourceChecksCredited', 'qualifiedSources', 'modelCalls')),
+                'QUALIFICATION_PRIOR_ROW_CREDIT_INVALID')
+    index = proof['priorTargetIndex']
+    require(type(index) is int and 0 <= index < 7, 'QUALIFICATION_PRIOR_TARGET_INDEX_INVALID')
+    row = rows[index]
+    require(row.get('targetId') == proof['priorTargetId'] and digest(row) == proof['priorTargetSha256']
+            and row.get('sourceId') == source['id'] and row.get('observation') == proof['observation']
+            and row.get('budgetDenied') is False and not row.get('errorType')
+            and row.get('reason') == 'RESPONSE_RETAINED_SCOPE_AND_HISTORY_REVIEW_REQUIRED'
+            and row.get('qualified') is False and row.get('facts') == []
+            and row.get('semanticAdmission') is False and row.get('coverageCredit') is False
+            and all(type(row.get(k)) is int and row[k] == 0
+                    for k in ('sourceChecksCredited', 'qualifiedSources', 'modelCalls')),
+            'QUALIFICATION_PRIOR_EXPLICIT_ROW_DIFFERS_OR_FAILED')
+    context = diagnostic.get('reservationContext')
+    require(isinstance(context, dict) and context.get('contractSha256') == digest(contract)
+            and isinstance(context.get('initialBudget'), dict) and isinstance(context.get('currentBudget'), dict)
+            and type(context.get('fetchLimit')) is int
+            and context['fetchLimit'] == contract['schedule'].get('maxFetchesPerRun', 5000),
+            'QUALIFICATION_PRIOR_RESERVATION_CONTEXT_INVALID')
+    initial, current = context['initialBudget'], context['currentBudget']
+    require(all(type(b.get(k)) is int and b[k] >= 0 for b in (initial,current)
+                for k in ('calls','documents','fetches'))
+            and all(initial[k] == current[k] for k in ('calls','documents')),
+            'QUALIFICATION_PRIOR_COUNTERS_INVALID')
+    generic = diagnostic.get('sources')
+    require(isinstance(generic, list) and all(isinstance(s,dict) and isinstance(s.get('fetchReservations'),list)
+            for s in generic), 'QUALIFICATION_PRIOR_RESERVATION_INVENTORY_INVALID')
+    source_rows = [s for s in generic if s.get('sourceId') == source['id']]
+    require(len(source_rows) == 1 and source_rows[0].get('supplierId') == source['supplierId']
+            and source_rows[0].get('registration') == 'candidate'
+            and source_rows[0].get('qualified') is False and source_rows[0].get('facts') == []
+            and source_rows[0].get('semanticAdmission') is False and source_rows[0].get('coverageCredit') is False,
+            'QUALIFICATION_PRIOR_SOURCE_JOIN_DIFFERS')
+    reservations = [r for s in generic for r in s['fetchReservations']]
+    reservations += [r['reservation'] for r in rows if r.get('reservation') is not None]
+    require(type(context.get('probeFetchReservations')) is int
+            and len(reservations) == context['probeFetchReservations'] == current['fetches'] - initial['fetches']
+            and type(qualification.get('chargedExplicitRequests')) is int
+            and qualification['chargedExplicitRequests'] == sum(r.get('reservation') is not None for r in rows)
+            and type(qualification.get('maximumExplicitRequests')) is int and qualification['maximumExplicitRequests'] == 7,
+            'QUALIFICATION_PRIOR_RESERVATION_COUNTS_DIFFER')
+    charges=[]
+    for reservation in reservations:
+        require(isinstance(reservation, dict) and reservation.get('budgetDay') == context.get('budgetDay')
+                and type(reservation.get('fetchLimit')) is int and reservation['fetchLimit'] == context['fetchLimit']
+                and type(reservation.get('chargedFetchCount')) is int
+                and initial['fetches'] < reservation['chargedFetchCount'] <= current['fetches'] <= context['fetchLimit'],
+                'QUALIFICATION_PRIOR_CHARGE_INVALID')
+        charges.append(reservation['chargedFetchCount'])
+    require(sorted(charges) == list(range(initial['fetches']+1,current['fetches']+1))
+            and row.get('reservation') is not None, 'QUALIFICATION_PRIOR_UNRESERVED_OR_DUPLICATE_CHARGE')
+    observed = json.loads(_qualification_reference(store, proof['observation'], r'objects/[a-f0-9]{64}'))
+    maximum = context.get('maximumRuntimeSeconds')
+    contract_runtime = contract['schedule'].get('maxRuntimeSeconds', 7200)
+    require(type(maximum) is int and type(contract_runtime) is int and 0 < maximum <= min(contract_runtime,1200),
+            'QUALIFICATION_PRIOR_RUNTIME_BOUND_INVALID')
+    started = instant(context['startedAt']).astimezone(timezone.utc)
+    fetched = instant(proof['fetchedAt']).astimezone(timezone.utc)
+    checked = instant(diagnostic['checkedAt']).astimezone(timezone.utc)
+    require(observed.get('requestedUrl') == row['url'] == observed.get('finalUrl')
+            and all(moment.date().isoformat() == context['budgetDay'] for moment in (started,fetched,checked))
+            and started <= fetched <= checked and (checked-started).total_seconds() <= maximum,
+            'QUALIFICATION_PRIOR_REQUEST_OR_RESERVATION_TIME_DIFFERS')
+    return observed
+
+
 def validate_qualification_probe_plan(contract, store, path):
     """Read and prove the entire committed allowlist without writing or fetching."""
     raw = Path(path).read_bytes()
@@ -148,11 +273,17 @@ def validate_qualification_probe_plan(contract, store, path):
         require(url not in urls, 'QUALIFICATION_TARGET_DUPLICATE_URL')
         identifiers.add(target['id']); urls.add(url)
         proof = target['proof']
-        require(isinstance(proof, dict) and proof.get('type') in ('source_observation', 'diagnostic_observation'),
+        require(isinstance(proof, dict) and proof.get('type') in ('source_observation', 'diagnostic_observation', 'qualification_observation'),
                 'QUALIFICATION_PROOF_TYPE_INVALID')
         fields = {'type', 'record', 'body', 'fetchedAt'}
-        if proof['type'] == 'diagnostic_observation':
+        if proof['type'] != 'source_observation':
             fields.add('observation')
+        if proof['type'] == 'qualification_observation':
+            fields.update(('priorTargetId','priorTargetIndex','priorTargetSha256',
+                           'priorPlanRawSha256','priorPlanCanonicalSha256'))
+            require(('priorPlanRaw' in proof) != ('priorPlanReference' in proof),
+                    'QUALIFICATION_PRIOR_PLAN_EXACTLY_ONE_REPRESENTATION_REQUIRED')
+            fields.add('priorPlanRaw' if 'priorPlanRaw' in proof else 'priorPlanReference')
         require(set(proof) == fields, 'QUALIFICATION_PROOF_SHAPE_INVALID')
         if proof['type'] == 'source_observation':
             observation = json.loads(_qualification_reference(store, proof['record'], r'observations/[a-f0-9]{64}\.json'))
@@ -173,24 +304,10 @@ def validate_qualification_probe_plan(contract, store, path):
                     and str(recorded.get('githubRunId')) + '-' + str(recorded.get('githubRunAttempt')) == Path(proof['record']['key']).stem,
                     'QUALIFICATION_DIAGNOSTIC_PROVENANCE_INVALID')
             diagnostic = recorded.get('diagnostic', {})
-            require(isinstance(diagnostic, dict) and isinstance(diagnostic.get('sources'), list),
-                    'QUALIFICATION_DIAGNOSTIC_SHAPE_INVALID')
-            require(all(isinstance(r, dict) for r in diagnostic['sources']), 'QUALIFICATION_DIAGNOSTIC_SOURCE_SHAPE_INVALID')
-            matches = [r for r in diagnostic['sources'] if r.get('sourceId') == source['id']]
-            require(len(matches) == 1 and matches[0].get('supplierId') == source['supplierId']
-                    and matches[0].get('qualified') is False and matches[0].get('facts') == []
-                    and matches[0].get('registration') == 'candidate'
-                    and matches[0].get('semanticAdmission') is False and matches[0].get('coverageCredit') is False
-                    and isinstance(matches[0].get('observations'), list)
-                    and proof['observation'] in matches[0].get('observations', []),
-                    'QUALIFICATION_DIAGNOSTIC_SOURCE_BINDING_DIFFERS')
-            reservations = matches[0].get('fetchReservations')
-            require(isinstance(reservations, list) and all(isinstance(r, dict) for r in reservations),
-                    'QUALIFICATION_DIAGNOSTIC_RESERVATIONS_INVALID')
-            observation = json.loads(_qualification_reference(store, proof['observation'], r'objects/[a-f0-9]{64}'))
-            require(isinstance(observation, dict)
-                    and observation.get('requestedUrl') in [r.get('url') for r in reservations],
-                    'QUALIFICATION_DIAGNOSTIC_REQUEST_DIFFERS')
+            if proof['type'] == 'qualification_observation':
+                observation = _qualification_explicit_observation(recorded, proof, source, contract, store)
+            else:
+                observation = _qualification_generic_observation(diagnostic, proof, source, store)
         require(isinstance(observation, dict) and observation.get('status') == 'fetched'
                 and observation.get('httpStatus') == 200 and observation.get('body') == proof['body']
                 and observation.get('fetchedAt') == proof['fetchedAt'], 'QUALIFICATION_OBSERVATION_BODY_OR_TIME_DIFFERS')
@@ -205,6 +322,16 @@ def validate_qualification_probe_plan(contract, store, path):
             require(parsed['kind'] in ('rss', 'feed'), 'QUALIFICATION_DISCLOSURE_XML_INVALID')
             literal_urls = set(parsed['links'])
             recognition = 'rss_or_atom_item_link'
+            channels = {'delinea:official:1': ('https://delinea.com/news/rss.xml', 'https://delinea.com/news'),
+                        'sonatype:official:1': ('https://www.sonatype.com/press-releases/rss.xml', 'https://www.sonatype.com/press-releases')}
+            allowed = channels.get(source['id'])
+            if proof['type'] == 'qualification_observation' and allowed and base == allowed[0] and url == allowed[1]:
+                root = ET.fromstring(body)
+                links = root.findall('./channel/link') if root.tag == 'rss' else []
+                require(len(links) == 1 and links[0].text and links[0].text.strip() == url,
+                        'QUALIFICATION_SOURCE_CHANNEL_DISCLOSURE_DIFFERS')
+                literal_urls.add(url)
+                recognition = 'source_bound_rss_channel_link'
         else:
             page = Page(body.decode('utf8', errors='strict'), source_url=base)
             literal_urls = {urljoin(base, u) for u in [*page.canonicals, *page.feeds, *(link['url'] for link in page.links)]}
@@ -213,6 +340,28 @@ def validate_qualification_probe_plan(contract, store, path):
         validated.append({**copy.deepcopy(target), 'literalRecognition': recognition})
     return {'rawSha256': digest(raw), 'canonicalSha256': digest(plan), 'path': str(path),
             'marketSha256': digest(contract), 'maxRequests': 7, 'plan': plan, 'targets': validated}
+
+
+def _qualification_generic_observation(diagnostic, proof, source, store):
+    require(isinstance(diagnostic, dict) and isinstance(diagnostic.get('sources'), list),
+            'QUALIFICATION_DIAGNOSTIC_SHAPE_INVALID')
+    require(all(isinstance(r, dict) for r in diagnostic['sources']), 'QUALIFICATION_DIAGNOSTIC_SOURCE_SHAPE_INVALID')
+    matches = [r for r in diagnostic['sources'] if r.get('sourceId') == source['id']]
+    require(len(matches) == 1 and matches[0].get('supplierId') == source['supplierId']
+            and matches[0].get('qualified') is False and matches[0].get('facts') == []
+            and matches[0].get('registration') == 'candidate'
+            and matches[0].get('semanticAdmission') is False and matches[0].get('coverageCredit') is False
+            and isinstance(matches[0].get('observations'), list)
+            and proof['observation'] in matches[0].get('observations', []),
+            'QUALIFICATION_DIAGNOSTIC_SOURCE_BINDING_DIFFERS')
+    reservations = matches[0].get('fetchReservations')
+    require(isinstance(reservations, list) and all(isinstance(r, dict) for r in reservations),
+            'QUALIFICATION_DIAGNOSTIC_RESERVATIONS_INVALID')
+    observation = json.loads(_qualification_reference(store, proof['observation'], r'objects/[a-f0-9]{64}'))
+    require(isinstance(observation, dict)
+            and observation.get('requestedUrl') in [r.get('url') for r in reservations],
+            'QUALIFICATION_DIAGNOSTIC_REQUEST_DIFFERS')
+    return observation
 
 
 def _probe_qualification_targets(contract, store, fetcher, budget, plan):
@@ -266,6 +415,12 @@ def probe_sources(contract, store, fetcher, *, reservation_context=None, qualifi
     reservation_context.assert_bound(store, contract)
     qualification = (validate_qualification_probe_plan(contract, store, qualification_plan_path)
                      if qualification_plan_path is not None else None)
+    if qualification is not None:
+        # The leased caller has acknowledged escrow before entering this path.
+        # Validate all seven first; never persist a partial/invalid allowlist.
+        raw = Path(qualification['path']).read_bytes()
+        require(digest(raw) == qualification['rawSha256'], 'QUALIFICATION_CURRENT_PLAN_CHANGED_AFTER_VALIDATION')
+        qualification['rawPlanReference'] = store.put(raw)
     def probe(source):
         result = {"sourceId": source["id"], "supplierId": source["supplierId"],
                   "checkedAt": reservation_context.clock(), "registration": "candidate", "observations": [], "endpoints": [],

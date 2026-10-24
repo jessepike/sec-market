@@ -1,0 +1,25 @@
+# Seven-request qualification follow-up candidate
+
+This preview candidate replaces the diagnostic request allowlist with the seven literal next targets in `seven-target-response-review-2026-10-24.json`. It makes no request, grants no source qualification or coverage credit, and admits no fact. The old reviewed plan remains embedded verbatim as historical proof in each new proof record and in the companion specification JSON.
+
+## Proof contract
+
+The new closed `qualification_observation` variant binds the exact original diagnostic run record, prior explicit target ID and array position, hash of that complete result row, original committed plan bytes and their raw/canonical hashes, observation reference, body reference and original fetch time. Validation checks the prior raw plan against both recorded hashes and recorded plan content, its validated-target projection and exact explicit source/request/proof joins. Duplicate IDs, moved rows, failed or unreserved results, altered source/policy/plan/body/time and ambiguous references fail before any source request.
+
+The original run must be a completed, main-branch manual diagnostic with no API fallback, publication, models, facts, qualification or coverage credit. Explicit target and diagnostic summaries must retain those same zero-credit conditions; the diagnostic must explicitly have `qualified=false` and `budgetDenied=false`. Every recorded reservation must be an integer charge in the recorded current-day interval, unique across generic and explicit requests; the complete interval must match initial/current counters and the reservation total. Semantic counters remain unchanged. The selected observation must be a successful nonredirected response to the exact prior explicit request. Start, fetch and completion times must all fall in the reservation UTC day, in order, and within a recorded strictly positive integer runtime bounded by the contract and 1,200 seconds.
+
+## Literal disclosure
+
+Existing HTML and RSS item recognition remains unchanged. A qualification-local RSS channel exception recognizes only these exact source/request/channel triples: `delinea:official:1`, `https://delinea.com/news/rss.xml`, `https://delinea.com/news`; and `sonatype:official:1`, `https://www.sonatype.com/press-releases/rss.xml`, `https://www.sonatype.com/press-releases`. A single literal direct `rss/channel/link` must disclose that exact channel URL. This does not change generic discovery, registration, history completeness or article dates.
+
+## Execution and verification limits
+
+Actual probe execution will retain the exact current committed plan bytes once as a content-addressed object, after the existing acknowledged escrow and a complete pure validation. It rechecks the raw hash before writing and records `qualification.plan.rawPlanReference`. Future proofs must reference that exact recorded object through `priorPlanReference`, with its raw and canonical hashes and all existing row/source/reservation/time checks unchanged. Exactly one raw embedding or object reference is permitted. Raw embedding remains valid only for historical receipts without a recorded raw-plan reference, including the retained b9 batch. Pure validation performs no writes. This prevents repeated sevenfold nesting across diagnostic generations without changing transport, heads, scheduling or budgets.
+
+The existing seven-request cap, shared lease, persistent fetch reservation, UTC guard and checkpoint behavior remain unchanged. The whole new plan is validated before generic or explicit transport. Offline tests exercise proof tampering, reservation failures, source-specific channel restrictions and leased budget behavior. A final read-only replay validates all seven targets against the verified retained archive. No source/model requests, archive writes, counter changes, workflow changes or deployment are part of this task.
+
+## Candidate verification
+
+All 63 focused qualification, persistent-budget and leased-probe tests passed in OrbStack; the full operational suite passed 476 tests. Six synthetic executed generations kept each subsequent referenced plan below 20 KB, with less than 1 KB size variance. Tests also prove exact stored raw bytes, acknowledged-escrow ordering, reference tamper rejection and no plan write or request when the final target is invalid. Actual validation of the seven new targets against archive `b9f1208bd9e957bee5cca2c0b4db28a4fc1fa63f` succeeded with network and archive writes denied. All 31,048 retained files kept the same content/size/mtime seal before and after. The companion JSON retains the exact target identities, old raw plan, code and plan hashes, seal receipts and zero-usage result.
+
+The new plan has raw hash `4aaa2f35c9804184dae97f0a461f48f506aeeb10d5f82ae93e339151276c05ef` and canonical hash `b2abf80563c2e3b36a542c9a15654b0e81f0842dca49ff6d48892f506d46f647`. These are request-authority proofs for a future diagnostic only. The next bodies, full history, source qualification and semantic review remain unobserved. The plan remains a local preview candidate; nothing was committed, pushed or promoted.

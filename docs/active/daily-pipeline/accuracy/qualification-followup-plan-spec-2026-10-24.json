@@ -1,0 +1,294 @@
+{
+  "schemaVersion": 1,
+  "kind": "qualification_followup_preview_candidate_spec",
+  "status": "preview_candidate_no_requests_or_activation",
+  "reviewPath": "docs/active/daily-pipeline/accuracy/seven-target-response-review-2026-10-24.json",
+  "reviewFileSha256": "ecf2564dae890347135b245b6dc7e06631fa4d1ca81d3ba0f9e57dbde328b197",
+  "archive": "b9f1208bd9e957bee5cca2c0b4db28a4fc1fa63f",
+  "manifestSha256": "5480056315f07d6c6be4e66d5f9a643437d020eb039f2d51fe378ad70803c9bb",
+  "originalRunRecord": {
+    "key": "ci/source-probe-runs/40049636626-1.json",
+    "sha256": "062864ce984d76a23f70673b1f10140b334b27f2cb024a9f22dabe2872dcac7d",
+    "bytes": 97577
+  },
+  "priorCommittedPlanRaw": "{\n  \"schemaVersion\": 1,\n  \"marketSha256\": \"de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe\",\n  \"maxRequests\": 7,\n  \"targets\": [\n    {\n      \"id\": \"ping-index\",\n      \"sourceId\": \"ping-identity:official:1\",\n      \"url\": \"https://press.pingidentity.com/news-releases\",\n      \"expectedFormat\": \"html\",\n      \"proof\": {\n        \"type\": \"diagnostic_observation\",\n        \"record\": {\n          \"key\": \"ci/source-probe-runs/40044528648-1.json\",\n          \"sha256\": \"1fda9a60d3cdd5d297c8c95f77a74564828a866545ea876d6c2fcbe8ac5a04bb\",\n          \"bytes\": 78209\n        },\n        \"observation\": {\n          \"key\": \"objects/094ade837a8c58d265e341acf7c665afb7de3ed08e287d03f134fb0e3e9426aa\",\n          \"sha256\": \"094ade837a8c58d265e341acf7c665afb7de3ed08e287d03f134fb0e3e9426aa\",\n          \"bytes\": 453\n        },\n        \"body\": {\n          \"bytes\": 98724,\n          \"key\": \"objects/d06c171a9aa6c5150e47355692dbdecdaacc544a15ce7fd01bbc6812883007be\",\n          \"sha256\": \"d06c171a9aa6c5150e47355692dbdecdaacc544a15ce7fd01bbc6812883007be\"\n        },\n        \"fetchedAt\": \"2026-10-24T00:23:18.322865Z\"\n      }\n    },\n    {\n      \"id\": \"ping-rss\",\n      \"sourceId\": \"ping-identity:official:1\",\n      \"url\": \"https://press.pingidentity.com/news-releases?pagetemplate=rss\",\n      \"expectedFormat\": \"rss\",\n      \"proof\": {\n        \"type\": \"diagnostic_observation\",\n        \"record\": {\n          \"key\": \"ci/source-probe-runs/40044528648-1.json\",\n          \"sha256\": \"1fda9a60d3cdd5d297c8c95f77a74564828a866545ea876d6c2fcbe8ac5a04bb\",\n          \"bytes\": 78209\n        },\n        \"observation\": {\n          \"key\": \"objects/094ade837a8c58d265e341acf7c665afb7de3ed08e287d03f134fb0e3e9426aa\",\n          \"sha256\": \"094ade837a8c58d265e341acf7c665afb7de3ed08e287d03f134fb0e3e9426aa\",\n          \"bytes\": 453\n        },\n        \"body\": {\n          \"bytes\": 98724,\n          \"key\": \"objects/d06c171a9aa6c5150e47355692dbdecdaacc544a15ce7fd01bbc6812883007be\",\n          \"sha256\": \"d06c171a9aa6c5150e47355692dbdecdaacc544a15ce7fd01bbc6812883007be\"\n        },\n        \"fetchedAt\": \"2026-10-24T00:23:18.322865Z\"\n      }\n    },\n    {\n      \"id\": \"ping-next\",\n      \"sourceId\": \"ping-identity:official:1\",\n      \"url\": \"https://press.pingidentity.com/news-releases?o=10\",\n      \"expectedFormat\": \"html\",\n      \"proof\": {\n        \"type\": \"diagnostic_observation\",\n        \"record\": {\n          \"key\": \"ci/source-probe-runs/40044528648-1.json\",\n          \"sha256\": \"1fda9a60d3cdd5d297c8c95f77a74564828a866545ea876d6c2fcbe8ac5a04bb\",\n          \"bytes\": 78209\n        },\n        \"observation\": {\n          \"key\": \"objects/094ade837a8c58d265e341acf7c665afb7de3ed08e287d03f134fb0e3e9426aa\",\n          \"sha256\": \"094ade837a8c58d265e341acf7c665afb7de3ed08e287d03f134fb0e3e9426aa\",\n          \"bytes\": 453\n        },\n        \"body\": {\n          \"bytes\": 98724,\n          \"key\": \"objects/d06c171a9aa6c5150e47355692dbdecdaacc544a15ce7fd01bbc6812883007be\",\n          \"sha256\": \"d06c171a9aa6c5150e47355692dbdecdaacc544a15ce7fd01bbc6812883007be\"\n        },\n        \"fetchedAt\": \"2026-10-24T00:23:18.322865Z\"\n      }\n    },\n    {\n      \"id\": \"ping-october-release\",\n      \"sourceId\": \"ping-identity:official:1\",\n      \"url\": \"https://press.pingidentity.com/2026-10-06-Ping-Identity-Survey-Finds-AI-Trust-Changes-When-Assistance-Turns-to-Action\",\n      \"expectedFormat\": \"html\",\n      \"proof\": {\n        \"type\": \"diagnostic_observation\",\n        \"record\": {\n          \"key\": \"ci/source-probe-runs/40044528648-1.json\",\n          \"sha256\": \"1fda9a60d3cdd5d297c8c95f77a74564828a866545ea876d6c2fcbe8ac5a04bb\",\n          \"bytes\": 78209\n        },\n        \"observation\": {\n          \"key\": \"objects/a07b862a198e20ecb74b3765a57327ea59fe0011ad4059a1804bf6cb037b7d1d\",\n          \"sha256\": \"a07b862a198e20ecb74b3765a57327ea59fe0011ad4059a1804bf6cb037b7d1d\",\n          \"bytes\": 511\n        },\n        \"body\": {\n          \"bytes\": 2460,\n          \"key\": \"objects/906b1656404e95d8ed52082ecfd40d738e2ff24368ab6638cda810d4e38055a8\",\n          \"sha256\": \"906b1656404e95d8ed52082ecfd40d738e2ff24368ab6638cda810d4e38055a8\"\n        },\n        \"fetchedAt\": \"2026-10-24T00:23:19.389251Z\"\n      }\n    },\n    {\n      \"id\": \"ping-september-release\",\n      \"sourceId\": \"ping-identity:official:1\",\n      \"url\": \"https://press.pingidentity.com/2026-09-29-Ping-Identity-Launches-Identity-Agents-on-Google-Cloud-Marketplace\",\n      \"expectedFormat\": \"html\",\n      \"proof\": {\n        \"type\": \"diagnostic_observation\",\n        \"record\": {\n          \"key\": \"ci/source-probe-runs/40044528648-1.json\",\n          \"sha256\": \"1fda9a60d3cdd5d297c8c95f77a74564828a866545ea876d6c2fcbe8ac5a04bb\",\n          \"bytes\": 78209\n        },\n        \"observation\": {\n          \"key\": \"objects/a07b862a198e20ecb74b3765a57327ea59fe0011ad4059a1804bf6cb037b7d1d\",\n          \"sha256\": \"a07b862a198e20ecb74b3765a57327ea59fe0011ad4059a1804bf6cb037b7d1d\",\n          \"bytes\": 511\n        },\n        \"body\": {\n          \"bytes\": 2460,\n          \"key\": \"objects/906b1656404e95d8ed52082ecfd40d738e2ff24368ab6638cda810d4e38055a8\",\n          \"sha256\": \"906b1656404e95d8ed52082ecfd40d738e2ff24368ab6638cda810d4e38055a8\"\n        },\n        \"fetchedAt\": \"2026-10-24T00:23:19.389251Z\"\n      }\n    },\n    {\n      \"id\": \"delinea-rss\",\n      \"sourceId\": \"delinea:official:1\",\n      \"url\": \"https://delinea.com/news/rss.xml\",\n      \"expectedFormat\": \"rss\",\n      \"proof\": {\n        \"type\": \"source_observation\",\n        \"record\": {\n          \"key\": \"observations/930a7e4fe4b3d44f1494824f179a38b4c34e40b4e5af0124c057dc2ba176d34f.json\",\n          \"sha256\": \"a88b1eeac16c47cb325cf664b515b8b8c76382e5288613b6cb81eaa38305fd11\",\n          \"bytes\": 702\n        },\n        \"body\": {\n          \"bytes\": 126986,\n          \"key\": \"objects/40d3a81783abdf0af16f21d191d1b0e5e2393e7bf42bcc3e4147d87c271b2fb4\",\n          \"sha256\": \"40d3a81783abdf0af16f21d191d1b0e5e2393e7bf42bcc3e4147d87c271b2fb4\"\n        },\n        \"fetchedAt\": \"2026-10-23T04:14:59.819592Z\"\n      }\n    },\n    {\n      \"id\": \"sonatype-rss\",\n      \"sourceId\": \"sonatype:official:1\",\n      \"url\": \"https://www.sonatype.com/press-releases/rss.xml\",\n      \"expectedFormat\": \"rss\",\n      \"proof\": {\n        \"type\": \"source_observation\",\n        \"record\": {\n          \"key\": \"observations/ae28f598db53f607758766cf78b7f1360d6189c8076faeca1134f11d3776e7fe.json\",\n          \"sha256\": \"9dfa16580ee4f7baaade6507e611a21dc2dba88fd1d10b7ed06115868dfc5d9f\",\n          \"bytes\": 724\n        },\n        \"body\": {\n          \"bytes\": 112635,\n          \"key\": \"objects/0797efe21e3568cbb309a739affe457a236ecc6de41c9752f5172f29bb32b7ea\",\n          \"sha256\": \"0797efe21e3568cbb309a739affe457a236ecc6de41c9752f5172f29bb32b7ea\"\n        },\n        \"fetchedAt\": \"2026-10-23T04:14:51.574093Z\"\n      }\n    }\n  ]\n}\n",
+  "priorCommittedPlanHashes": {
+    "rawSha256": "163e439adf2d383d9aa47d7a8c3a00ba4d75e31149a20b012c2a8772211496cf",
+    "canonicalSha256": "f66db4b9a9f97542136c000f1c660036de38b5a77fbd0dcb3ea958edc54f04ba",
+    "marketSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+    "maxRequests": 7
+  },
+  "targets": [
+    {
+      "id": "ping-page-3",
+      "url": "https://press.pingidentity.com/news-releases?o=20",
+      "sourceId": "ping-identity:official:1",
+      "purpose": "Next sequential page; extend the actual traversal without skipping history.",
+      "literalProof": {
+        "observation": {
+          "key": "objects/f61107756abf878060b6082d9067715f1c0ab6ce9d45946a72d1a3731f258c88",
+          "sha256": "f61107756abf878060b6082d9067715f1c0ab6ce9d45946a72d1a3731f258c88",
+          "bytes": 489
+        },
+        "body": {
+          "bytes": 99084,
+          "key": "objects/277c8d143f01e294d926ca6f85eb3c9874b08107721386a69feeaf59107372e3",
+          "sha256": "277c8d143f01e294d926ca6f85eb3c9874b08107721386a69feeaf59107372e3"
+        },
+        "fetchedAt": "2026-10-24T01:26:56.036210Z",
+        "location": "wd_page_next anchor and numbered Show page 3 anchor"
+      },
+      "fetchNow": false,
+      "qualifiesSourceByItself": false
+    },
+    {
+      "id": "ping-advertised-last",
+      "url": "https://press.pingidentity.com/news-releases?o=240",
+      "sourceId": "ping-identity:official:1",
+      "purpose": "Capture advertised final-page structure; this isolated response cannot prove intervening pages.",
+      "literalProof": {
+        "observation": {
+          "key": "objects/f61107756abf878060b6082d9067715f1c0ab6ce9d45946a72d1a3731f258c88",
+          "sha256": "f61107756abf878060b6082d9067715f1c0ab6ce9d45946a72d1a3731f258c88",
+          "bytes": 489
+        },
+        "body": {
+          "bytes": 99084,
+          "key": "objects/277c8d143f01e294d926ca6f85eb3c9874b08107721386a69feeaf59107372e3",
+          "sha256": "277c8d143f01e294d926ca6f85eb3c9874b08107721386a69feeaf59107372e3"
+        },
+        "fetchedAt": "2026-10-24T01:26:56.036210Z",
+        "location": "wd_page_end / Show page 25 anchor"
+      },
+      "fetchNow": false,
+      "qualifiesSourceByItself": false
+    },
+    {
+      "id": "delinea-news-index",
+      "url": "https://delinea.com/news",
+      "sourceId": "delinea:official:1",
+      "purpose": "Capture official channel index and its literal history controls.",
+      "literalProof": {
+        "observation": {
+          "key": "objects/b1c77ae0d3d5bae003a409156d7ba7f3e9335729cb742ddcb35637601fb18b24",
+          "sha256": "b1c77ae0d3d5bae003a409156d7ba7f3e9335729cb742ddcb35637601fb18b24",
+          "bytes": 490
+        },
+        "body": {
+          "bytes": 28691,
+          "key": "objects/74d9fae664b325629a04a64078fee6c350b48ea548e4c23f5f4e0b9fca895160",
+          "sha256": "74d9fae664b325629a04a64078fee6c350b48ea548e4c23f5f4e0b9fca895160"
+        },
+        "fetchedAt": "2026-10-24T01:26:57.325781Z",
+        "location": "rss/channel/link"
+      },
+      "fetchNow": false,
+      "qualifiesSourceByItself": false
+    },
+    {
+      "id": "sonatype-press-index",
+      "url": "https://www.sonatype.com/press-releases",
+      "sourceId": "sonatype:official:1",
+      "purpose": "Capture official channel index and its literal history controls.",
+      "literalProof": {
+        "observation": {
+          "key": "objects/2024ec20f568a0ea3d613099cacd214fac128bdc1cb8a4b61f33166c029f43eb",
+          "sha256": "2024ec20f568a0ea3d613099cacd214fac128bdc1cb8a4b61f33166c029f43eb",
+          "bytes": 520
+        },
+        "body": {
+          "bytes": 18997,
+          "key": "objects/defaacb0b1fc34da75566f1067c9bff22aeca96caa38fbc60010ba554bbf9e5f",
+          "sha256": "defaacb0b1fc34da75566f1067c9bff22aeca96caa38fbc60010ba554bbf9e5f"
+        },
+        "fetchedAt": "2026-10-24T01:26:57.481593Z",
+        "location": "rss/channel/link"
+      },
+      "fetchNow": false,
+      "qualifiesSourceByItself": false
+    },
+    {
+      "id": "delinea-current-1",
+      "url": "https://delinea.com/news/delinea-fastpath-launches-mcp-server-for-ai-powered-access-governance-and-audit-readiness",
+      "sourceId": "delinea:official:1",
+      "purpose": "Capture full primary article; compare title, canonical identity and publication metadata to the actual RSS entry.",
+      "literalProof": {
+        "observation": {
+          "key": "objects/b1c77ae0d3d5bae003a409156d7ba7f3e9335729cb742ddcb35637601fb18b24",
+          "sha256": "b1c77ae0d3d5bae003a409156d7ba7f3e9335729cb742ddcb35637601fb18b24",
+          "bytes": 490
+        },
+        "body": {
+          "bytes": 28691,
+          "key": "objects/74d9fae664b325629a04a64078fee6c350b48ea548e4c23f5f4e0b9fca895160",
+          "sha256": "74d9fae664b325629a04a64078fee6c350b48ea548e4c23f5f4e0b9fca895160"
+        },
+        "fetchedAt": "2026-10-24T01:26:57.325781Z",
+        "location": "rss/channel/item/link: Delinea Fastpath Launches MCP Server for AI-Powered Access Governance and Audit Readiness"
+      },
+      "fetchNow": false,
+      "qualifiesSourceByItself": false
+    },
+    {
+      "id": "delinea-current-2",
+      "url": "https://delinea.com/news/2026-identity-security-report-the-ai-enforcement-gap",
+      "sourceId": "delinea:official:1",
+      "purpose": "Capture full primary article; compare title, canonical identity and publication metadata to the actual RSS entry.",
+      "literalProof": {
+        "observation": {
+          "key": "objects/b1c77ae0d3d5bae003a409156d7ba7f3e9335729cb742ddcb35637601fb18b24",
+          "sha256": "b1c77ae0d3d5bae003a409156d7ba7f3e9335729cb742ddcb35637601fb18b24",
+          "bytes": 490
+        },
+        "body": {
+          "bytes": 28691,
+          "key": "objects/74d9fae664b325629a04a64078fee6c350b48ea548e4c23f5f4e0b9fca895160",
+          "sha256": "74d9fae664b325629a04a64078fee6c350b48ea548e4c23f5f4e0b9fca895160"
+        },
+        "fetchedAt": "2026-10-24T01:26:57.325781Z",
+        "location": "rss/channel/item/link: 2026 Identity Security Report: The AI Enforcement Gap"
+      },
+      "fetchNow": false,
+      "qualifiesSourceByItself": false
+    },
+    {
+      "id": "sonatype-current-1",
+      "url": "https://www.sonatype.com/press-releases/sonatype-unveils-nexus-repository-pro-plus",
+      "sourceId": "sonatype:official:1",
+      "purpose": "Capture full primary article; compare title, canonical identity and publication metadata to the actual RSS entry.",
+      "literalProof": {
+        "observation": {
+          "key": "objects/2024ec20f568a0ea3d613099cacd214fac128bdc1cb8a4b61f33166c029f43eb",
+          "sha256": "2024ec20f568a0ea3d613099cacd214fac128bdc1cb8a4b61f33166c029f43eb",
+          "bytes": 520
+        },
+        "body": {
+          "bytes": 18997,
+          "key": "objects/defaacb0b1fc34da75566f1067c9bff22aeca96caa38fbc60010ba554bbf9e5f",
+          "sha256": "defaacb0b1fc34da75566f1067c9bff22aeca96caa38fbc60010ba554bbf9e5f"
+        },
+        "fetchedAt": "2026-10-24T01:26:57.481593Z",
+        "location": "rss/channel/item/link: Sonatype Unveils Nexus Repository Pro+ to Stop Malicious Components"
+      },
+      "fetchNow": false,
+      "qualifiesSourceByItself": false
+    }
+  ],
+  "limits": {
+    "maxRequests": 7,
+    "sourceChecksCredited": 0,
+    "qualifiedSources": 0,
+    "modelCalls": 0,
+    "coverageCredit": false,
+    "semanticAdmission": false,
+    "fetchNow": false
+  },
+  "validation": {
+    "evaluatedAt": "2026-10-24T02:22:05.999204+00:00",
+    "readOnlyActualArchivePassed": true,
+    "before": {
+      "files": 31048,
+      "contentManifestSha256": "038c4ebcc98e436ab9fce8ad9f451e512374f4110ba6fc63213b7fadc10f407d",
+      "sizeMtimeContentSealSha256": "9748436e638241a3178bfb8baddb68067a46ec6cc4b0883bbad700f1198b2f5f"
+    },
+    "after": {
+      "files": 31048,
+      "contentManifestSha256": "038c4ebcc98e436ab9fce8ad9f451e512374f4110ba6fc63213b7fadc10f407d",
+      "sizeMtimeContentSealSha256": "9748436e638241a3178bfb8baddb68067a46ec6cc4b0883bbad700f1198b2f5f"
+    },
+    "planRawSha256": "4aaa2f35c9804184dae97f0a461f48f506aeeb10d5f82ae93e339151276c05ef",
+    "planCanonicalSha256": "b2abf80563c2e3b36a542c9a15654b0e81f0842dca49ff6d48892f506d46f647",
+    "marketSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+    "sourceFilesSha256": {
+      "web/scripts/pipeline/onboarding.py": "b2fe39bb760deab674c22dbc8f15aeb5e526d562b327dbf12c868013eb565a68",
+      "ops/ci/test_source_qualification_probe.py": "481860e65831b973f768fd4312207bf230f43335c05d82d8bbd1d48602caae83"
+    },
+    "priorRecordSha256": "062864ce984d76a23f70673b1f10140b334b27f2cb024a9f22dabe2872dcac7d",
+    "validatedTargets": [
+      {
+        "id": "ping-page-3",
+        "sourceId": "ping-identity:official:1",
+        "url": "https://press.pingidentity.com/news-releases?o=20",
+        "priorTargetId": "ping-next",
+        "priorTargetIndex": 2,
+        "literalRecognition": "html_link_feed_or_canonical"
+      },
+      {
+        "id": "ping-advertised-last",
+        "sourceId": "ping-identity:official:1",
+        "url": "https://press.pingidentity.com/news-releases?o=240",
+        "priorTargetId": "ping-next",
+        "priorTargetIndex": 2,
+        "literalRecognition": "html_link_feed_or_canonical"
+      },
+      {
+        "id": "delinea-news-index",
+        "sourceId": "delinea:official:1",
+        "url": "https://delinea.com/news",
+        "priorTargetId": "delinea-rss",
+        "priorTargetIndex": 5,
+        "literalRecognition": "source_bound_rss_channel_link"
+      },
+      {
+        "id": "sonatype-press-index",
+        "sourceId": "sonatype:official:1",
+        "url": "https://www.sonatype.com/press-releases",
+        "priorTargetId": "sonatype-rss",
+        "priorTargetIndex": 6,
+        "literalRecognition": "source_bound_rss_channel_link"
+      },
+      {
+        "id": "delinea-current-1",
+        "sourceId": "delinea:official:1",
+        "url": "https://delinea.com/news/delinea-fastpath-launches-mcp-server-for-ai-powered-access-governance-and-audit-readiness",
+        "priorTargetId": "delinea-rss",
+        "priorTargetIndex": 5,
+        "literalRecognition": "rss_or_atom_item_link"
+      },
+      {
+        "id": "delinea-current-2",
+        "sourceId": "delinea:official:1",
+        "url": "https://delinea.com/news/2026-identity-security-report-the-ai-enforcement-gap",
+        "priorTargetId": "delinea-rss",
+        "priorTargetIndex": 5,
+        "literalRecognition": "rss_or_atom_item_link"
+      },
+      {
+        "id": "sonatype-current-1",
+        "sourceId": "sonatype:official:1",
+        "url": "https://www.sonatype.com/press-releases/sonatype-unveils-nexus-repository-pro-plus",
+        "priorTargetId": "sonatype-rss",
+        "priorTargetIndex": 6,
+        "literalRecognition": "rss_or_atom_item_link"
+      }
+    ],
+    "focusedQualificationBudgetLeasedTestsPassed": 63,
+    "usage": {
+      "sourceWebsiteRequests": 0,
+      "modelCalls": 0,
+      "archiveWrites": 0,
+      "counterChanges": 0,
+      "remoteMutations": 0,
+      "networkAttempts": 0,
+      "archiveWriteAttempts": 0
+    },
+    "fullOperationalTestsPassed": 476,
+    "newVariantRuntimeAndSummaryHardening": {
+      "actualSevenTargetsPassed": true,
+      "utcDayBound": true,
+      "strictBoundedRuntime": true,
+      "qualifiedAndBudgetDeniedMustBeFalse": true,
+      "legacyProofVariantsUnchanged": true
+    },
+    "boundedPlanStorage": {
+      "pureValidatorWrites": 0,
+      "legacyB9SevenTargetsPassed": true,
+      "futureRawPlanStorage": "One exact current raw plan object after complete validation and acknowledged escrow; hash rechecked before store.put",
+      "futureProof": "Exact recorded priorPlanReference; raw/canonical digest checks unchanged",
+      "legacyRawFallback": "Only original receipts lacking rawPlanReference",
+      "syntheticGenerationsTested": 6,
+      "syntheticEachPlanBytesLessThan": 20000,
+      "syntheticPlanSizeVarianceLessThan": 1000
+    }
+  }
+}
