@@ -48,6 +48,18 @@ class CorrectionResolutionTests(unittest.TestCase):
         })
         self.assertEqual(evaluator.measure_states(['resolved'] * 5)['status'], 'pass')
 
+    def test_old_global_policy_is_unmeasured_until_current_collection_matches(self):
+        head = {'runId': 'current-run'}
+        context = {'policySha256': 'b' * 64}
+        evaluator._require_current_correction_policy(
+            {'runId': 'current-run', 'policySha256': 'b' * 64}, head, context)
+        with self.assertRaisesRegex(evaluator.Unavailable, 'does not match the published market policy'):
+            evaluator._require_current_correction_policy(
+                {'runId': 'current-run', 'policySha256': 'a' * 64}, head, context)
+        with self.assertRaisesRegex(ValueError, 'head/run differs'):
+            evaluator._require_current_correction_policy(
+                {'runId': 'other-run', 'policySha256': 'b' * 64}, head, context)
+
     def test_publisher_join_requires_checkpoint_and_authenticated_artifact(self):
         release = 'a' * 64
         checkpoint_result = {'githubRunId': '123', 'githubEventName': 'workflow_dispatch',

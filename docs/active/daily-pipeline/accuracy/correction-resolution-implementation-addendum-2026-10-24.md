@@ -74,3 +74,25 @@ domain acceptance values, the `mac gh` bridge, archive byte verification, reject
 cached admission without an original accepted attempt, original reservation matching, and
 the rule that a disabled export counts unresolved only with rollback proof. The separate
 authenticated gather supplied the real Actions and production evidence.
+
+## D-112 helper and policy compatibility check
+
+A local-only compatibility simulation used the exact helper files from the last published app
+revision (`26181a2d4eb0aad1bd751cda70ab8e65142d2813`) as one fixture and the current D-112
+working-tree files as a separate candidate fixture. It exercised evaluator imports and
+`corrections.load_policy` in both isolated helper sets. Neither path imports `separation`,
+`retained_audit`, `snapshot` or `coverage_summary`: this evaluator replays correction admissions
+through `corrections.py`, checks helper identities, and verifies the sealed release bytes; it
+does not call collection validation or snapshot reconstruction. The D-112 `validation.py`
+imports its separation helpers lazily, outside the evaluator's correction replay path. The
+`coverage_summary.py` file is a CI helper, not a pipeline runtime dependency.
+
+The D-112 candidate changes the global correction-policy hash because `load_policy` hashes the
+entire market contract. In this local simulation the published-v1 hash was
+`e740d7407afc7b11be8802b250ea564224b10969717507818726e44e7b33f27e` and the candidate-v2 hash
+was `aeccba5ed7151d6b06f3e02c78da5d3fe91c83e825929d07fb87574e5b961667`; all six group review
+policy hashes stayed the same. If deployment changes the contract before a matching current
+collector/correction receipt exists, the prior-policy receipt cannot establish current
+resolution. The evaluator now emits its existing all-unmeasured observation for that transition.
+It does not accept the older receipt, change any pin, or reuse its admissions as current proof.
+This is a candidate compatibility simulation, not a claim that D-112 has published or is live.

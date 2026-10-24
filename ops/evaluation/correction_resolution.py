@@ -731,6 +731,17 @@ def _collector_clock_for_run(state, run_id):
     return matches[0]
 
 
+def _require_current_correction_policy(outcome, correction_head, context):
+    """Do not treat an older-policy correction result as current evidence."""
+    require(outcome.get('runId') == correction_head.get('runId'),
+            'Correction collection head/run differs')
+    if outcome.get('policySha256') != context['policySha256']:
+        # A market contract revision can change the global correction policy
+        # even when each group's review policy is unchanged. This is a missing
+        # current-policy observation, not evidence for or against resolution.
+        raise Unavailable('Current correction collection does not match the published market policy')
+
+
 def _frozen_original_values(root, design):
     inventory_obj, _ = pin(Path(root), INVENTORY,
                            design['inputs']['publishedInventory']['sha256'])
@@ -963,9 +974,7 @@ def _gather_from_state(root, state, archive, remote_commit, restored, design, ma
         require(correction_head and correction_head.get('runId') == manifest.get('runId'),
                 'Current correction admissions do not belong to published collection run')
         outcome = strict_json(state.get(correction_head['outcome']), 'correction collection')
-        require(outcome.get('runId') == correction_head['runId']
-                and outcome.get('policySha256') == context['policySha256'],
-                'Correction collection head/policy differs from current source policy')
+        _require_current_correction_policy(outcome, correction_head, context)
         coverage = strict_json(state.get(latest['receipt']), 'collection coverage')
         require(coverage.get('runId') == manifest['runId'], 'Published release coverage run differs')
         collector = _authenticate_collector(state, correction_head, outcome, authority, coverage)
