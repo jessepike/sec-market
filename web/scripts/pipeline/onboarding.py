@@ -13,7 +13,20 @@ from urllib.parse import urljoin, urlsplit
 from urllib.robotparser import RobotFileParser
 
 from contracts import digest, instant, require, utcnow, valid_hash, validate_contract
-from discovery import Page, decoded_discovery_body, xml_links
+from discovery import (DELINEA_HTML_MODE, DELINEA_INDEX, PING_HTML_MODE, PING_INDEX,
+                       SONATYPE_HTML_MODE, SONATYPE_INDEX, IndexMarkup, Page,
+                       decoded_discovery_body, parse_source_html_index, xml_links)
+
+
+BOUNDED_CANDIDATE_OPERATION = 'bounded_candidate_traversal'
+BOUNDED_CANDIDATE_LIMIT = 60
+BOUNDED_CANDIDATE_SAMPLE_LIMIT = 1
+BOUNDED_CANDIDATE_MAX_REQUESTS = 183
+BOUNDED_CANDIDATE_BINDINGS = (
+    ('ping-identity:official:1', PING_INDEX, PING_HTML_MODE),
+    ('delinea:official:1', DELINEA_INDEX, DELINEA_HTML_MODE),
+    ('sonatype:official:1', SONATYPE_INDEX, SONATYPE_HTML_MODE),
+)
 
 
 class ProbeReservationDenied(RuntimeError):
@@ -298,10 +311,99 @@ def _qualification_explicit_observation(recorded, proof, source, contract, store
 
 
 def validate_qualification_probe_plan(contract, store, path):
-    """Read and prove the entire committed allowlist without writing or fetching."""
+    """Validate one explicit qualification operation without changing schema 1."""
     raw = Path(path).read_bytes()
     require(0 < len(raw) <= 1_000_000, 'QUALIFICATION_PLAN_SIZE_INVALID')
     plan = json.loads(raw)
+    if isinstance(plan, dict) and plan.get('schemaVersion') == 2:
+        return _validate_bounded_candidate_plan(contract, store, path, raw, plan)
+    return _validate_legacy_qualification_probe_plan(contract, store, path, raw=raw, plan=plan)
+
+
+def _candidate_adapter(source, index_url, mode):
+    adapter = copy.deepcopy(source)
+    adapter.update(kind='html_index', url=index_url, htmlCompleteness=mode)
+    return adapter
+
+
+def _validate_bounded_candidate_plan(contract, store, path, raw, plan):
+    require(isinstance(plan, dict) and set(plan) == {
+            'schemaVersion', 'operation', 'marketSha256', 'maxRequests',
+            'maxIndexPagesPerSource', 'primarySamplesPerSource', 'sources'}
+            and type(plan.get('schemaVersion')) is int and plan['schemaVersion'] == 2
+            and plan.get('operation') == BOUNDED_CANDIDATE_OPERATION
+            and plan.get('marketSha256') == digest(contract)
+            and type(plan.get('maxRequests')) is int and plan['maxRequests'] == BOUNDED_CANDIDATE_MAX_REQUESTS
+            and type(plan.get('maxIndexPagesPerSource')) is int
+            and plan['maxIndexPagesPerSource'] == BOUNDED_CANDIDATE_LIMIT
+            and type(plan.get('primarySamplesPerSource')) is int
+            and plan['primarySamplesPerSource'] == BOUNDED_CANDIDATE_SAMPLE_LIMIT
+            and isinstance(plan.get('sources'), list) and len(plan['sources']) == len(BOUNDED_CANDIDATE_BINDINGS),
+            'BOUNDED_CANDIDATE_PLAN_SHAPE_OR_POLICY_INVALID')
+    sources = {source['id']: source for source in contract['sources']}
+    validated = []
+    # Validate all source declarations and all independently retained start proofs
+    # before the caller can make its first request.
+    for row, (source_id, index_url, mode) in zip(plan['sources'], BOUNDED_CANDIDATE_BINDINGS):
+        require(isinstance(row, dict) and set(row) == {
+                'sourceId', 'originalSourceSha256', 'proposedAdapterSha256', 'startProof'}
+                and row.get('sourceId') == source_id, 'BOUNDED_CANDIDATE_SOURCE_INVENTORY_INVALID')
+        source = sources.get(source_id)
+        require(isinstance(source, dict) and source.get('registration') == 'candidate'
+                and source.get('kind') == 'official_discovery'
+                and source.get('family') == 'official_announcements'
+                and type(source.get('maxPages')) is int and source['maxPages'] == BOUNDED_CANDIDATE_LIMIT
+                and row.get('originalSourceSha256') == digest(source),
+                'BOUNDED_CANDIDATE_ORIGINAL_SOURCE_BINDING_INVALID')
+        adapter = _candidate_adapter(source, index_url, mode)
+        require(row.get('proposedAdapterSha256') == digest(adapter)
+                and adapter.get('allowedHosts') == [urlsplit(index_url).hostname],
+                'BOUNDED_CANDIDATE_PROPOSED_ADAPTER_BINDING_INVALID')
+        proof = row.get('startProof')
+        require(isinstance(proof, dict) and proof.get('type') == 'qualification_observation'
+                and set(proof) == {'type', 'record', 'body', 'fetchedAt', 'observation',
+                    'priorTargetId', 'priorTargetIndex', 'priorTargetSha256',
+                    'priorPlanRawSha256', 'priorPlanCanonicalSha256', 'priorPlanReference'},
+                'BOUNDED_CANDIDATE_START_PROOF_SHAPE_INVALID')
+        recorded = json.loads(_qualification_reference(
+            store, proof['record'], r'ci/source-probe-runs/[0-9]+-[0-9]+\.json'))
+        proof_contract, proof_source = _qualification_proof_policy(recorded, proof, source, contract, store)
+        require(isinstance(recorded, dict) and recorded.get('checkpointProfile') == 'source_probe'
+                and recorded.get('contractSha256') == digest(proof_contract)
+                and all(type(recorded.get(key)) is int and recorded[key] == 0
+                        for key in ('modelCalls', 'sourceChecksCredited', 'qualifiedSources'))
+                and recorded.get('semanticAdmission') is False and recorded.get('coverageCredit') is False
+                and recorded.get('githubEventName') == 'workflow_dispatch'
+                and recorded.get('githubRef') == 'refs/heads/main'
+                and str(recorded.get('githubRunId')) + '-' + str(recorded.get('githubRunAttempt'))
+                    == Path(proof['record']['key']).stem,
+                'BOUNDED_CANDIDATE_START_PROVENANCE_INVALID')
+        observed = _qualification_explicit_observation(recorded, proof, proof_source, proof_contract, store)
+        require(observed.get('status') == 'fetched' and observed.get('httpStatus') == 200
+                and observed.get('body') == proof.get('body') and observed.get('fetchedAt') == proof.get('fetchedAt')
+                and observed.get('requestedUrl') == observed.get('finalUrl'),
+                'BOUNDED_CANDIDATE_START_OBSERVATION_INVALID')
+        start_body = decoded_discovery_body(_qualification_reference(store, proof['body'], r'objects/[a-f0-9]{64}'))
+        start_page = Page(start_body.decode('utf8', errors='strict'), source_url=observed['finalUrl'])
+        require(index_url in {urljoin(observed['finalUrl'], target) for target in start_page.canonicals}
+                and urlsplit(index_url).hostname in source['allowedHosts'],
+                'BOUNDED_CANDIDATE_START_INDEX_NOT_DISCLOSED')
+        validated.append({'sourceId': source_id, 'originalSourceSha256': digest(source),
+                          'proposedAdapterSha256': digest(adapter), 'indexUrl': index_url,
+                          'mode': mode, 'source': copy.deepcopy(source), 'adapter': adapter,
+                          'startProof': copy.deepcopy(proof)})
+    require(len({row['sourceId'] for row in validated}) == len(BOUNDED_CANDIDATE_BINDINGS),
+            'BOUNDED_CANDIDATE_SOURCE_JOIN_NOT_ONE_TO_ONE')
+    return {'rawSha256': digest(raw), 'canonicalSha256': digest(plan), 'path': str(path),
+            'marketSha256': digest(contract), 'maxRequests': BOUNDED_CANDIDATE_MAX_REQUESTS,
+            'operation': BOUNDED_CANDIDATE_OPERATION, 'plan': plan, 'sources': validated}
+
+
+def _validate_legacy_qualification_probe_plan(contract, store, path, *, raw=None, plan=None):
+    """Read and prove the entire committed allowlist without writing or fetching."""
+    raw = Path(path).read_bytes() if raw is None else raw
+    require(0 < len(raw) <= 1_000_000, 'QUALIFICATION_PLAN_SIZE_INVALID')
+    plan = json.loads(raw) if plan is None else plan
     require(isinstance(plan, dict) and set(plan) == {'schemaVersion', 'marketSha256', 'maxRequests', 'targets'}
             and type(plan['schemaVersion']) is int and plan['schemaVersion'] == 1
             and plan['marketSha256'] == digest(contract)
@@ -467,6 +569,506 @@ def _probe_qualification_targets(contract, store, fetcher, budget, plan):
             'chargedExplicitRequests': sum(row['reservation'] is not None for row in results),
             'qualifiedSources': 0, 'sourceChecksCredited': 0, 'semanticAdmission': False,
             'coverageCredit': False, 'modelCalls': 0, 'facts': []}
+
+
+def _candidate_primary_shape(body, url):
+    """Check primary transport shape only; produce no fact or admission."""
+    decoded = decoded_discovery_body(body)
+    text = decoded.decode('utf8', errors='strict')
+    nodes = list(IndexMarkup(text).root.walk())
+    canonicals = [node.attrs.get('href') for node in nodes
+                  if node.tag == 'link' and 'canonical' in node.attrs.get('rel', '').split()]
+    headings = [' '.join(node.text.split()) for node in nodes if node.tag == 'h1']
+    require(canonicals == [url], 'BOUNDED_CANDIDATE_PRIMARY_CANONICAL_DIFFERS')
+    require(len(headings) == 1 and headings[0], 'BOUNDED_CANDIDATE_PRIMARY_HEADING_AMBIGUOUS')
+    from documents import readable_document
+    readable = readable_document(body, 'text/html')
+    date_values = []
+    for node in nodes:
+        if node.tag == 'time' and node.attrs.get('datetime'):
+            date_values.append({'kind': 'time_datetime', 'value': node.attrs['datetime']})
+        elif node.tag == 'meta' and node.attrs.get('property') in ('article:published_time', 'datePublished'):
+            value = node.attrs.get('content', '')
+            if value:
+                date_values.append({'kind': 'published_meta', 'value': value})
+    return {'canonical': canonicals[0], 'heading': headings[0], 'readableCharacters': len(readable.strip()),
+            'dateMetadata': date_values, 'dateMetadataState': 'one_or_more_present' if date_values else 'unknown'}
+
+
+def _store_bounded_candidate_observation(store, binding, url, observed):
+    """Wrap an immutable raw fetch result with the candidate identity that requested it."""
+    raw_reference = store.put(observed)
+    return store.put({'schemaVersion': 1, 'sourceId': binding['sourceId'],
+                      'adapterSha256': binding['proposedAdapterSha256'],
+                      'requestedUrl': url, 'rawObservation': raw_reference})
+
+
+def _read_bounded_candidate_observation(store, reference, binding, url):
+    wrapper = json.loads(_qualification_reference(store, reference, r'objects/[a-f0-9]{64}'))
+    require(isinstance(wrapper, dict) and set(wrapper) == {
+            'schemaVersion', 'sourceId', 'adapterSha256', 'requestedUrl', 'rawObservation'}
+            and type(wrapper.get('schemaVersion')) is int and wrapper['schemaVersion'] == 1
+            and wrapper.get('sourceId') == binding['sourceId']
+            and wrapper.get('adapterSha256') == binding['proposedAdapterSha256']
+            and wrapper.get('requestedUrl') == url,
+            'BOUNDED_CANDIDATE_OBSERVATION_SOURCE_BINDING_INVALID')
+    observed = json.loads(_qualification_reference(store, wrapper['rawObservation'], r'objects/[a-f0-9]{64}'))
+    require(isinstance(observed, dict), 'BOUNDED_CANDIDATE_RAW_OBSERVATION_INVALID')
+    return observed
+
+
+def _verify_bounded_candidate_result(contract, store, plan, report):
+    """Independently replay stored page bodies, joins and actual reservation references."""
+    require(isinstance(report, dict) and type(report.get('schemaVersion')) is int and report.get('schemaVersion') == 1
+            and report.get('operation') == BOUNDED_CANDIDATE_OPERATION
+            and report.get('contractSha256') == digest(contract)
+            and report.get('planRawSha256') == plan['rawSha256']
+            and report.get('planCanonicalSha256') == plan['canonicalSha256']
+            and report.get('qualified') is False and report.get('semanticAdmission') is False
+            and report.get('coverageCredit') is False and report.get('facts') == []
+            and all(type(report.get(key)) is int and report[key] == 0
+                    for key in ('sourceChecksCredited', 'qualifiedSources', 'modelCalls'))
+            and report.get('newFactIds') == [],
+            'BOUNDED_CANDIDATE_REPORT_CREDIT_OR_POLICY_INVALID')
+    plan_reference = report.get('planReference')
+    require(isinstance(plan_reference, dict)
+            and _qualification_reference(store, plan_reference, r'objects/[a-f0-9]{64}')
+            == Path(plan['path']).read_bytes()
+            and digest(Path(plan['path']).read_bytes()) == plan['rawSha256'],
+            'BOUNDED_CANDIDATE_PLAN_REFERENCE_DIFFERS')
+    context = report.get('reservationContext')
+    require(isinstance(context, dict) and context.get('contractSha256') == digest(contract)
+            and isinstance(context.get('initialBudget'), (dict, type(None)))
+            and isinstance(context.get('currentBudget'), dict)
+            and type(context.get('fetchLimit')) is int
+            and context['fetchLimit'] == contract['schedule'].get('maxFetchesPerRun', 5000)
+            and type(context.get('probeFetchReservations')) is int
+            and context['probeFetchReservations'] >= 0
+            and context.get('budgetDay') == instant(context.get('startedAt')).astimezone(timezone.utc).date().isoformat()
+            and type(context.get('maximumRuntimeSeconds')) is int
+            and 0 < context['maximumRuntimeSeconds'] <= 1200,
+            'BOUNDED_CANDIDATE_RESERVATION_CONTEXT_INVALID')
+    started = instant(context['startedAt']).astimezone(timezone.utc)
+    checked = instant(report['checkedAt']).astimezone(timezone.utc)
+    denial_reasons = {denial.get('reason') for source_result in report.get('sources', [])
+                      for denial in source_result.get('reservationDenials', [])}
+    require(started <= checked
+            and (checked.date().isoformat() == context['budgetDay']
+                 or 'SOURCE_PROBE_UTC_DAY_CHANGED' in denial_reasons)
+            and ((checked-started).total_seconds() <= context['maximumRuntimeSeconds']
+                 or 'SOURCE_PROBE_DEADLINE_EXCEEDED' in denial_reasons),
+            'BOUNDED_CANDIDATE_RUN_TIME_INVALID')
+    initial_budget = context['initialBudget'] or {'calls': 0, 'documents': 0, 'fetches': 0}
+    current_budget = context['currentBudget']
+    require(all(type(row.get(key)) is int and row[key] >= 0
+                for row in (initial_budget, current_budget) for key in ('calls', 'documents', 'fetches'))
+            and initial_budget['calls'] == current_budget['calls']
+            and initial_budget['documents'] == current_budget['documents'],
+            'BOUNDED_CANDIDATE_NONFETCH_LEDGER_CHANGED')
+    initial_count = initial_budget.get('fetches', 0)
+    current_count = current_budget.get('fetches')
+    require(type(initial_count) is int and initial_count >= 0 and type(current_count) is int
+            and initial_count <= current_count <= context['fetchLimit'],
+            'BOUNDED_CANDIDATE_LEDGER_COUNTERS_INVALID')
+    sources = report.get('sources')
+    require(isinstance(sources, list) and len(sources) == len(plan['sources']),
+            'BOUNDED_CANDIDATE_SOURCE_REPORT_INVALID')
+    charges, request_count = [], 0
+    for source_result, binding in zip(sources, plan['sources']):
+        require(source_result.get('sourceId') == binding['sourceId']
+                and source_result.get('originalSourceSha256') == binding['originalSourceSha256']
+                and source_result.get('proposedAdapterSha256') == binding['proposedAdapterSha256']
+                and source_result.get('registration') == 'candidate'
+                and source_result.get('qualified') is False and source_result.get('facts') == []
+                and source_result.get('semanticAdmission') is False and source_result.get('coverageCredit') is False
+                and all(type(source_result.get(key)) is int and source_result[key] == 0
+                        for key in ('sourceChecksCredited', 'qualifiedSources', 'modelCalls'))
+                and source_result.get('newFactIds') == [],
+                'BOUNDED_CANDIDATE_SOURCE_REPORT_JOIN_INVALID')
+        observations = source_result.get('observations')
+        require(isinstance(observations, list) and len(observations) <= BOUNDED_CANDIDATE_LIMIT,
+                'BOUNDED_CANDIDATE_PAGE_INVENTORY_INVALID')
+        highest, visited, items, dates = 1, set(), set(), {}
+        terminal, expected_url = False, binding['indexUrl']
+        consumed_pages = 0
+        for page_number, page_row in enumerate(observations, 1):
+            consumed_pages += 1
+            require(isinstance(page_row, dict) and set(page_row) == {'url', 'observation', 'parser'},
+                    'BOUNDED_CANDIDATE_PAGE_ROW_INVALID')
+            url = page_row['url']
+            require(url == expected_url and url not in visited and page_number <= BOUNDED_CANDIDATE_LIMIT,
+                    'BOUNDED_CANDIDATE_PAGE_SEQUENCE_INVALID')
+            visited.add(url)
+            observed = _read_bounded_candidate_observation(store, page_row['observation'], binding, url)
+            if observed.get('status') != 'fetched' or observed.get('httpStatus') != 200:
+                require(page_row['parser'] is None,
+                        'BOUNDED_CANDIDATE_FAILED_PAGE_ROW_INVALID')
+                if isinstance(observed.get('fetchedAt'), str):
+                    failed_at = instant(observed['fetchedAt']).astimezone(timezone.utc)
+                    require(started <= failed_at <= checked and failed_at.date().isoformat() == context['budgetDay'],
+                            'BOUNDED_CANDIDATE_FAILED_PAGE_TIME_INVALID')
+                expected_url = None
+                break
+            if page_row['parser'] == {'error': 'BOUNDED_CANDIDATE_INDEX_RESPONSE_URL_DIFFERS'}:
+                require(observed.get('requestedUrl') != url or observed.get('finalUrl') != url,
+                        'BOUNDED_CANDIDATE_RECORDED_URL_FAILURE_NOT_PRESENT')
+                expected_url = None
+                break
+            require(isinstance(observed, dict) and observed.get('requestedUrl') == url
+                    and observed.get('finalUrl') == url and observed.get('status') == 'fetched'
+                    and observed.get('httpStatus') == 200 and isinstance(observed.get('body'), dict),
+                    'BOUNDED_CANDIDATE_PAGE_OBSERVATION_INVALID')
+            fetched = instant(observed.get('fetchedAt')).astimezone(timezone.utc)
+            if page_row['parser'] == {'error': 'BOUNDED_CANDIDATE_INDEX_RESPONSE_TIME_INVALID'}:
+                require(fetched.date().isoformat() != context['budgetDay'] or fetched < started or fetched > checked,
+                        'BOUNDED_CANDIDATE_RECORDED_TIME_FAILURE_NOT_PRESENT')
+                expected_url = None
+                break
+            require(started <= fetched <= checked and fetched.date().isoformat() == context['budgetDay'],
+                    'BOUNDED_CANDIDATE_PAGE_TIME_INVALID')
+            body = _qualification_reference(store, observed['body'], r'objects/[a-f0-9]{64}')
+            try:
+                parsed = parse_source_html_index(binding['adapter'], url, body, highest, observed['fetchedAt'])
+            except (ValueError, TypeError, KeyError) as error:
+                require(page_row['parser'] == {'error': str(error)[:160]},
+                        'BOUNDED_CANDIDATE_PAGE_PARSER_FAILURE_DIFFERS')
+                expected_url = None
+                break
+            snapshot = {'currentPage': parsed['currentPage'], 'highestPage': parsed['highestPage'],
+                        'items': sorted(parsed['items']), 'dates': parsed['dates'], 'next': parsed['next'],
+                        'terminalProved': parsed['terminalProved']}
+            require(page_row['parser'] == snapshot and parsed['currentPage'] == page_number,
+                    'BOUNDED_CANDIDATE_PAGE_PARSER_REPLAY_DIFFERS')
+            overlap = items & parsed['items']
+            date_conflict = any(item in dates and dates[item] != value
+                                for item, value in parsed['dates'].items())
+            if overlap or date_conflict:
+                require(source_result.get('reason') == ('BOUNDED_CANDIDATE_CROSS_PAGE_DUPLICATE'
+                        if overlap else 'BOUNDED_CANDIDATE_CROSS_PAGE_DATE_CONFLICT'),
+                        'BOUNDED_CANDIDATE_CROSS_PAGE_CONFLICT_REASON_DIFFERS')
+                items.update(parsed['items'])
+                for item, value in parsed['dates'].items():
+                    dates.setdefault(item, value)
+                expected_url = None
+                break
+            items.update(parsed['items']); dates.update(parsed['dates']); highest = parsed['highestPage']
+            terminal = bool(parsed['terminalProved'])
+            expected_url = parsed['next']
+            if expected_url is None:
+                break
+        require(consumed_pages == len(observations), 'BOUNDED_CANDIDATE_UNCONSUMED_PAGE_ROWS')
+        require(source_result.get('inventory') == {'items': sorted(items), 'dates': dates}
+                and source_result.get('indexComplete') is (terminal and bool(observations)
+                    and len(observations) <= BOUNDED_CANDIDATE_LIMIT)
+                and source_result.get('terminalProved') is terminal,
+                'BOUNDED_CANDIDATE_INVENTORY_OR_COMPLETION_DIFFERS')
+        sample = source_result.get('primarySample')
+        if sample is not None:
+            require(isinstance(sample, dict) and sample.get('url') == (sorted(items)[0] if items else None)
+                    and isinstance(sample.get('observation'), dict), 'BOUNDED_CANDIDATE_SAMPLE_SELECTION_INVALID')
+            observed = _read_bounded_candidate_observation(store, sample['observation'], binding, sample['url'])
+            if observed.get('status') == 'fetched' and observed.get('httpStatus') == 200:
+                if observed.get('finalUrl') != sample['url']:
+                    expected_reason = (observed.get('errorCode') or
+                                       'BOUNDED_CANDIDATE_PRIMARY_RESPONSE_INVALID')
+                    require(sample.get('shape') is None and source_result.get('reason') == expected_reason,
+                            'BOUNDED_CANDIDATE_SAMPLE_RESPONSE_URL_INVALID')
+                elif observed.get('requestedUrl') != sample['url']:
+                    expected_reason = (observed.get('errorCode') or
+                                       'BOUNDED_CANDIDATE_PRIMARY_RESPONSE_INVALID')
+                    require(sample.get('shape') is None and source_result.get('reason') == expected_reason,
+                            'BOUNDED_CANDIDATE_SAMPLE_RESPONSE_URL_INVALID')
+                else:
+                    require(isinstance(observed.get('body'), dict), 'BOUNDED_CANDIDATE_SAMPLE_RESPONSE_URL_INVALID')
+                    fetched = instant(observed.get('fetchedAt')).astimezone(timezone.utc)
+                    if fetched.date().isoformat() != context['budgetDay'] or fetched < started or fetched > checked:
+                        require(sample.get('shape') is None and source_result.get('reason') ==
+                                'BOUNDED_CANDIDATE_PRIMARY_RESPONSE_TIME_INVALID',
+                                'BOUNDED_CANDIDATE_SAMPLE_TIME_INVALID')
+                    else:
+                        body = _qualification_reference(store, observed['body'], r'objects/[a-f0-9]{64}')
+                        try:
+                            shape = _candidate_primary_shape(body, sample['url'])
+                        except (ValueError, TypeError, KeyError) as error:
+                            shape = {'error': str(error)[:160]}
+                        require(sample.get('shape') == shape, 'BOUNDED_CANDIDATE_SAMPLE_SHAPE_REPLAY_DIFFERS')
+            else:
+                require(sample.get('shape') is None, 'BOUNDED_CANDIDATE_FAILED_SAMPLE_HAS_SHAPE')
+        elif items:
+            require(source_result.get('sampleReason'), 'BOUNDED_CANDIDATE_SAMPLE_MISSING_REASON')
+        request_rows = source_result.get('requestReservations')
+        require(isinstance(request_rows, list), 'BOUNDED_CANDIDATE_REQUEST_RESERVATIONS_INVALID')
+        local_observations = [row['observation'] for row in observations]
+        if sample is not None:
+            local_observations.append(sample['observation'])
+        observed_refs = list(local_observations)
+        request_refs = []
+        for request_row in request_rows:
+            require(isinstance(request_row, dict) and isinstance(request_row.get('reservation'), dict)
+                    and (request_row.get('observation') is None or isinstance(request_row.get('observation'), dict)),
+                    'BOUNDED_CANDIDATE_REQUEST_RESERVATION_JOIN_INVALID')
+            if request_row.get('observation') is not None:
+                require(set(request_row) == {'url', 'reservation', 'observation'},
+                        'BOUNDED_CANDIDATE_REQUEST_RESERVATION_JOIN_INVALID')
+            else:
+                require((set(request_row) == {'url', 'reservation', 'observation', 'denial'}
+                         and isinstance(request_row.get('denial'), str)
+                         and any(denial.get('url') == request_row.get('url')
+                                 and denial.get('reason') == request_row['denial']
+                                 and denial.get('reservationCharged') is True
+                                 and denial.get('reservation') == request_row['reservation']
+                                 for denial in source_result.get('reservationDenials', []))
+                         or set(request_row) == {'url', 'reservation', 'observation', 'transportOrParseError'}
+                         and isinstance(request_row.get('transportOrParseError'), str)
+                         and source_result.get('reason') == request_row['transportOrParseError']),
+                        'BOUNDED_CANDIDATE_REQUEST_RESERVATION_JOIN_INVALID')
+            reservation = request_row['reservation']
+            require(reservation.get('budgetDay') == context['budgetDay']
+                    and reservation.get('fetchLimit') == context['fetchLimit']
+                    and type(reservation.get('chargedFetchCount')) is int
+                    and initial_count < reservation['chargedFetchCount'] <= current_count,
+                    'BOUNDED_CANDIDATE_REQUEST_CHARGE_INVALID')
+            charges.append(reservation['chargedFetchCount'])
+            request_count += 1
+            observation_ref = request_row.get('observation')
+            if observation_ref is None:
+                require(request_row.get('denial') or request_row.get('transportOrParseError'),
+                        'BOUNDED_CANDIDATE_CHARGED_REQUEST_WITHOUT_OUTCOME')
+                continue
+            require(observation_ref in observed_refs and request_row.get('url') in
+                    [row['url'] for row in observations] + ([sample['url']] if sample is not None else []),
+                    'BOUNDED_CANDIDATE_REQUEST_OBSERVATION_JOIN_INVALID')
+            observed = _read_bounded_candidate_observation(store, observation_ref, binding, request_row['url'])
+            request_refs.append(observation_ref)
+        require([ref['sha256'] for ref in request_refs] == [ref['sha256'] for ref in observed_refs],
+                'BOUNDED_CANDIDATE_REQUEST_OBSERVATION_INVENTORY_DIFFERS')
+    denial_counts = Counter()
+    for source_result in sources:
+        completion_guards = []
+        for denial in source_result.get('reservationDenials', []):
+            require(isinstance(denial, dict) and isinstance(denial.get('reason'), str),
+                    'BOUNDED_CANDIDATE_DENIAL_ROW_INVALID')
+            denial_counts[denial['reason']] += 1
+            reservation = denial.get('reservation')
+            if denial.get('reservationCharged'):
+                require(isinstance(reservation, dict)
+                        and any(row.get('reservation') == reservation and row.get('denial') == denial['reason']
+                                for row in source_result.get('requestReservations', [])),
+                        'BOUNDED_CANDIDATE_CHARGED_DENIAL_JOIN_INVALID')
+            else:
+                require(reservation is None, 'BOUNDED_CANDIDATE_UNCHARGED_DENIAL_HAS_RESERVATION')
+            if denial.get('phase') == 'post_response_completion_guard':
+                require(denial.get('reservationCharged') is False
+                        and denial.get('reason') in ('SOURCE_PROBE_DEADLINE_EXCEEDED', 'SOURCE_PROBE_UTC_DAY_CHANGED'),
+                        'BOUNDED_CANDIDATE_COMPLETION_GUARD_INVALID')
+                completion_guards.append(denial['reason'])
+        guard_reason = source_result.get('completionGuardReason')
+        require((guard_reason is None and not completion_guards)
+                or (len(completion_guards) == 1 and guard_reason == completion_guards[0]),
+                'BOUNDED_CANDIDATE_COMPLETION_GUARD_INVALID')
+    require(request_count <= BOUNDED_CANDIDATE_MAX_REQUESTS and len(charges) == len(set(charges))
+            and len(charges) == context.get('probeFetchReservations')
+            and sorted(charges) == list(range(initial_count + 1, current_count + 1))
+            and current_count - initial_count == len(charges)
+            and dict(denial_counts) == context.get('reservationDenials', {})
+            and report.get('budgetDenied') is bool(denial_counts)
+            and report.get('executionCompleted') is (not bool(denial_counts)),
+            'BOUNDED_CANDIDATE_TOTAL_REQUEST_BOUND_INVALID')
+    return True
+
+
+def _probe_bounded_candidate_traversal(contract, store, fetcher, budget, plan):
+    """Run the explicit three-source diagnostic; never invoke generic fanout."""
+    require(plan.get('operation') == BOUNDED_CANDIDATE_OPERATION, 'BOUNDED_CANDIDATE_OPERATION_REQUIRED')
+    raw = Path(plan['path']).read_bytes()
+    require(digest(raw) == plan['rawSha256'], 'BOUNDED_CANDIDATE_CURRENT_PLAN_CHANGED')
+    plan_reference = store.put(raw)
+    started_at = budget.started_at
+    results = []
+    global_denial = None
+    for binding in plan['sources']:
+        result = {'sourceId': binding['sourceId'], 'supplierId': binding['source']['supplierId'],
+                  'registration': 'candidate', 'originalSourceSha256': binding['originalSourceSha256'],
+                  'proposedAdapterSha256': binding['proposedAdapterSha256'], 'observations': [],
+                  'inventory': {'items': [], 'dates': {}}, 'indexComplete': False,
+                  'terminalProved': False, 'primarySample': None, 'requestReservations': [],
+                  'qualified': False, 'semanticAdmission': False, 'coverageCredit': False,
+                  'sourceChecksCredited': 0, 'qualifiedSources': 0, 'modelCalls': 0, 'facts': [], 'newFactIds': []}
+        items, dates, visited = set(), {}, set()
+        highest, url = 1, binding['indexUrl']
+        for page_number in range(1, BOUNDED_CANDIDATE_LIMIT + 1):
+            if global_denial:
+                result['reason'] = global_denial
+                break
+            if url is None:
+                break
+            if url in visited:
+                result['reason'] = 'BOUNDED_CANDIDATE_PAGINATION_LOOP'
+                break
+            visited.add(url)
+            reservation = None
+            try:
+                reservation = budget.reserve_fetch()
+                budget.before_fetch()
+            except ProbeReservationDenied as error:
+                result['reservationDenials'] = [{'url': url, 'reason': error.reason,
+                    'budgetDay': budget.day, 'reservationCharged': reservation is not None,
+                    'reservation': reservation}]
+                if reservation is not None:
+                    result['requestReservations'].append({'url': url, 'reservation': reservation,
+                                                          'observation': None, 'denial': error.reason})
+                result['reason'] = error.reason
+                global_denial = error.reason
+                break
+            try:
+                observed = fetcher.fetch(binding['adapter'], url)
+                observation_ref = _store_bounded_candidate_observation(store, binding, url, observed)
+                result['requestReservations'].append({'url': url, 'reservation': reservation,
+                                                      'observation': observation_ref})
+                page_row = {'url': url, 'observation': observation_ref, 'parser': None}
+                result['observations'].append(page_row)
+                if observed.get('status') != 'fetched' or observed.get('httpStatus') != 200:
+                    result['reason'] = observed.get('errorCode') or 'BOUNDED_CANDIDATE_INDEX_UNAVAILABLE'
+                    break
+                if observed.get('requestedUrl') != url or observed.get('finalUrl') != url:
+                    page_row['parser'] = {'error': 'BOUNDED_CANDIDATE_INDEX_RESPONSE_URL_DIFFERS'}
+                    result['reason'] = 'BOUNDED_CANDIDATE_INDEX_RESPONSE_URL_DIFFERS'
+                    break
+                fetched = instant(observed.get('fetchedAt')).astimezone(timezone.utc)
+                checked_now = instant(budget.clock()).astimezone(timezone.utc)
+                if fetched.date().isoformat() != budget.day or budget.started > fetched or fetched > checked_now:
+                    page_row['parser'] = {'error': 'BOUNDED_CANDIDATE_INDEX_RESPONSE_TIME_INVALID'}
+                    result['reason'] = 'BOUNDED_CANDIDATE_INDEX_RESPONSE_TIME_INVALID'
+                    break
+                body = _qualification_reference(store, observed['body'], r'objects/[a-f0-9]{64}')
+                try:
+                    parsed = parse_source_html_index(binding['adapter'], url, body, highest, observed['fetchedAt'])
+                except (ValueError, TypeError, KeyError) as error:
+                    page_row['parser'] = {'error': str(error)[:160]}
+                    raise
+                require(parsed.get('currentPage') == page_number, 'BOUNDED_CANDIDATE_PAGE_SEQUENCE_DIFFERS')
+                snapshot = {'currentPage': parsed['currentPage'], 'highestPage': parsed['highestPage'],
+                            'items': sorted(parsed['items']), 'dates': parsed['dates'], 'next': parsed['next'],
+                            'terminalProved': parsed['terminalProved']}
+                page_row['parser'] = snapshot
+                overlap = items & parsed['items']
+                date_conflict = any(item in dates and dates[item] != value
+                                    for item, value in parsed['dates'].items())
+                if overlap or date_conflict:
+                    items.update(parsed['items'])
+                    for item, value in parsed['dates'].items():
+                        dates.setdefault(item, value)
+                    result['reason'] = ('BOUNDED_CANDIDATE_CROSS_PAGE_DUPLICATE' if overlap
+                                        else 'BOUNDED_CANDIDATE_CROSS_PAGE_DATE_CONFLICT')
+                    break
+                items.update(parsed['items']); dates.update(parsed['dates']); highest = parsed['highestPage']
+                if parsed.get('terminalProved'):
+                    result['terminalProved'] = True
+                    result['indexComplete'] = True
+                    result['reason'] = 'COMPLETE_DIAGNOSTIC_INVENTORY'
+                    break
+                if parsed.get('next') is None:
+                    result['reason'] = 'BOUNDED_CANDIDATE_TERMINAL_UNPROVED'
+                    break
+                if page_number == BOUNDED_CANDIDATE_LIMIT:
+                    result['reason'] = 'BOUNDED_CANDIDATE_PAGE_CAP_REACHED'
+                    break
+                url = parsed['next']
+            except ProbeReservationDenied as error:
+                # The reservation remains charged; no response observation exists.
+                result['reservationDenials'] = [{'url': url, 'reason': error.reason,
+                    'budgetDay': budget.day, 'reservationCharged': True, 'reservation': reservation}]
+                if reservation is not None:
+                    result['requestReservations'].append({'url': url, 'reservation': reservation,
+                                                          'observation': None, 'denial': error.reason})
+                result['reason'] = error.reason
+                global_denial = error.reason
+                break
+            except (ValueError, OSError, RuntimeError, KeyError, TypeError) as error:
+                result['reason'] = str(error)[:160] if isinstance(error, ValueError) else type(error).__name__
+                if reservation is not None and not any(row['url'] == url for row in result['requestReservations']):
+                    result['requestReservations'].append({'url': url, 'reservation': reservation,
+                                                          'observation': None, 'transportOrParseError': result['reason']})
+                break
+        if result.get('indexComplete') and result['observations']:
+            result['inventory'] = {'items': sorted(items), 'dates': dates}
+        else:
+            result['inventory'] = {'items': sorted(items), 'dates': dates}
+        if items and not global_denial:
+            sample_url = sorted(items)[0]
+            reservation = None
+            try:
+                reservation = budget.reserve_fetch()
+                budget.before_fetch()
+                observed = fetcher.fetch(binding['adapter'], sample_url)
+                observation_ref = _store_bounded_candidate_observation(store, binding, sample_url, observed)
+                result['requestReservations'].append({'url': sample_url, 'reservation': reservation,
+                                                      'observation': observation_ref})
+                result['primarySample'] = {'url': sample_url, 'observation': observation_ref, 'shape': None}
+                if observed.get('requestedUrl') != sample_url or observed.get('finalUrl') != sample_url \
+                        or observed.get('status') != 'fetched' or observed.get('httpStatus') != 200:
+                    result['reason'] = observed.get('errorCode') or 'BOUNDED_CANDIDATE_PRIMARY_RESPONSE_INVALID'
+                else:
+                    fetched = instant(observed.get('fetchedAt')).astimezone(timezone.utc)
+                    checked_now = instant(budget.clock()).astimezone(timezone.utc)
+                    require(fetched.date().isoformat() == budget.day and budget.started <= fetched
+                            and fetched <= checked_now,
+                            'BOUNDED_CANDIDATE_PRIMARY_RESPONSE_TIME_INVALID')
+                    body = _qualification_reference(store, observed['body'], r'objects/[a-f0-9]{64}')
+                    try:
+                        result['primarySample']['shape'] = _candidate_primary_shape(body, sample_url)
+                    except (ValueError, TypeError, KeyError) as error:
+                        result['primarySample']['shape'] = {'error': str(error)[:160]}
+                        result['reason'] = str(error)[:160]
+                    if not result['indexComplete']:
+                        result['reason'] = result.get('reason', 'BOUNDED_CANDIDATE_INDEX_INCOMPLETE')
+            except ProbeReservationDenied as error:
+                result['reservationDenials'] = [{'url': sample_url, 'reason': error.reason,
+                    'budgetDay': budget.day, 'reservationCharged': reservation is not None,
+                    'reservation': reservation}]
+                if reservation is not None:
+                    result['requestReservations'].append({'url': sample_url, 'reservation': reservation,
+                                                          'observation': None, 'denial': error.reason})
+                result['reason'] = error.reason
+                result['sampleReason'] = error.reason
+                global_denial = error.reason
+            except (ValueError, OSError, RuntimeError, KeyError, TypeError) as error:
+                result['reason'] = str(error)[:160] if isinstance(error, ValueError) else type(error).__name__
+                result['sampleReason'] = result['reason']
+                if reservation is not None and not any(row['url'] == sample_url for row in result['requestReservations']):
+                    result['requestReservations'].append({'url': sample_url, 'reservation': reservation,
+                                                          'observation': None, 'transportOrParseError': result['reason']})
+        elif items:
+            result.setdefault('sampleReason', 'SKIPPED_AFTER_RESERVATION_DENIAL')
+        elif not result.get('reason'):
+            result['reason'] = 'BOUNDED_CANDIDATE_NO_INVENTORY'
+        if global_denial is None:
+            try:
+                # Catch a deadline or UTC-day change after the final response,
+                # even when no further reservation would otherwise be attempted.
+                budget.before_fetch()
+            except ProbeReservationDenied as error:
+                global_denial = error.reason
+                result['completionGuardReason'] = error.reason
+                result.setdefault('reservationDenials', []).append({
+                    'url': (result.get('requestReservations') or [{'url': binding['indexUrl']}])[-1]['url'],
+                    'reason': error.reason, 'budgetDay': budget.day,
+                    'reservationCharged': False, 'reservation': None,
+                    'phase': 'post_response_completion_guard'})
+        store.write_once(f"source-probes/bounded-candidate/{plan['canonicalSha256']}/"
+                         f"{binding['sourceId'].replace(':', '_')}/{digest(result)}.json", result)
+        results.append(result)
+    report = {'schemaVersion': 1, 'operation': BOUNDED_CANDIDATE_OPERATION,
+              'checkedAt': budget.clock(), 'startedAt': started_at,
+              'contractSha256': digest(contract), 'planRawSha256': plan['rawSha256'],
+              'planCanonicalSha256': plan['canonicalSha256'], 'planReference': plan_reference,
+              'sources': results, 'reservationContext': budget.summary(),
+              'executionCompleted': global_denial is None, 'budgetDenied': global_denial is not None,
+              'qualified': False, 'sourceChecksCredited': 0, 'qualifiedSources': 0,
+              'semanticAdmission': False, 'coverageCredit': False, 'modelCalls': 0,
+              'facts': [], 'newFactIds': []}
+    _verify_bounded_candidate_result(contract, store, plan, report)
+    return report
 
 
 def _sec_diagnostic_pages(source, root_document, checked_at):
@@ -738,10 +1340,12 @@ def probe_sources(contract, store, fetcher, *, reservation_context=None, qualifi
                      if qualification_plan_path is not None else None)
     if qualification is not None:
         # The leased caller has acknowledged escrow before entering this path.
-        # Validate all seven first; never persist a partial/invalid allowlist.
+        # Persist only a plan that was fully validated before transport.
         raw = Path(qualification['path']).read_bytes()
         require(digest(raw) == qualification['rawSha256'], 'QUALIFICATION_CURRENT_PLAN_CHANGED_AFTER_VALIDATION')
         qualification['rawPlanReference'] = store.put(raw)
+        if qualification.get('operation') == BOUNDED_CANDIDATE_OPERATION:
+            return _probe_bounded_candidate_traversal(contract, store, fetcher, reservation_context, qualification)
     def probe(source):
         result = {"sourceId": source["id"], "supplierId": source["supplierId"],
                   "checkedAt": reservation_context.clock(), "registration": "candidate", "observations": [], "endpoints": [],

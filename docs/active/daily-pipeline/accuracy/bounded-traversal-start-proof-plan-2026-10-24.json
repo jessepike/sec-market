@@ -1,0 +1,412 @@
+{
+  "schemaVersion": 1,
+  "id": "BOUNDED-TRAVERSAL-START-PROOF-INPUTS-2026-10-24",
+  "preparedAt": "2026-10-24T06:41:29.248209Z",
+  "status": "Exact three provenance inputs for a future schema2 plan; no adapter hashes, qualification or activation",
+  "targetPlan": {
+    "schemaVersion": 2,
+    "operation": "bounded_candidate_traversal",
+    "marketSha256": "79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60",
+    "sourceCount": 3,
+    "adapterBindings": "Await final helper; no proposed binding hashes computed or reconstructed here."
+  },
+  "rows": [
+    {
+      "sourceId": "ping-identity:official:1",
+      "supplierId": "ping-identity",
+      "originalSourceSha256": "b38afb84403d53cadcda401c89b10a1f66ef57ec4e119466a89daea6cee3998e",
+      "originalCandidateSource": {
+        "allowedHosts": [
+          "press.pingidentity.com"
+        ],
+        "family": "official_announcements",
+        "id": "ping-identity:official:1",
+        "kind": "official_discovery",
+        "maxPages": 60,
+        "registration": "candidate",
+        "required": true,
+        "scopePrefixes": [
+          "/news",
+          "/press",
+          "/blog",
+          "/company",
+          "/investor",
+          "/resources"
+        ],
+        "seedEvidenceUrls": [
+          "https://press.pingidentity.com/2024-11-14-Ping-Identity-Surpasses-30-Annual-Growth-in-SaaS-Revenue-and-Approaches-800M-ARR-as-an-Enterprise-Identity-Market-Leader",
+          "https://press.pingidentity.com/2022-10-18-Thoma-Bravo-Completes-Acquisition-of-Ping-Identity"
+        ],
+        "supplierId": "ping-identity",
+        "url": "https://press.pingidentity.com/"
+      },
+      "startUrl": "https://press.pingidentity.com/news-releases",
+      "startProof": {
+        "type": "qualification_observation",
+        "record": {
+          "key": "ci/source-probe-runs/40069462824-1.json",
+          "sha256": "e737f0436db33a783f3e583cb316865357017b4122d5a9c07474b160e89da4f7",
+          "bytes": 109959
+        },
+        "priorTargetId": "ping-page-4",
+        "priorTargetIndex": 0,
+        "priorTargetSha256": "ac884f1c3ab1a36fd8e038e1d8326362882b1cc4d45eb6b6d4ea8721e4e7f2de",
+        "priorPlanRawSha256": "62385a674edf896b479dc4fb9330e3e269afcbdc0b6715dd44f9b18608adbf4f",
+        "priorPlanCanonicalSha256": "42bf79e9e0a7f8907dc47b50836ec0e826c3a7ec81c028b9ba72e3da42d98356",
+        "priorPlanReference": {
+          "bytes": 11388,
+          "key": "objects/62385a674edf896b479dc4fb9330e3e269afcbdc0b6715dd44f9b18608adbf4f",
+          "sha256": "62385a674edf896b479dc4fb9330e3e269afcbdc0b6715dd44f9b18608adbf4f"
+        },
+        "observation": {
+          "bytes": 489,
+          "key": "objects/bd59a8ea860dc416e97bb74a521b0ec1514e1dd713fd12b2b66f3402cdcd1b20",
+          "sha256": "bd59a8ea860dc416e97bb74a521b0ec1514e1dd713fd12b2b66f3402cdcd1b20"
+        },
+        "body": {
+          "bytes": 98902,
+          "key": "objects/72df8982df491644101ee178aa59e3e9d8c63af22059eb088f5395aa84930448",
+          "sha256": "72df8982df491644101ee178aa59e3e9d8c63af22059eb088f5395aa84930448"
+        },
+        "fetchedAt": "2026-10-24T06:18:03.422278Z"
+      },
+      "origin": {
+        "rowSha256": "ac884f1c3ab1a36fd8e038e1d8326362882b1cc4d45eb6b6d4ea8721e4e7f2de",
+        "requestedUrl": "https://press.pingidentity.com/news-releases?o=30",
+        "reservation": {
+          "budgetDay": "2026-10-24",
+          "chargedFetchCount": 1230,
+          "fetchLimit": 5500
+        },
+        "fetchedAt": "2026-10-24T06:18:03.422278Z"
+      },
+      "literalStartDisclosure": {
+        "type": "html_canonical_in_head",
+        "attributes": {
+          "rel": "canonical",
+          "href": "https://press.pingidentity.com/news-releases"
+        },
+        "originalPageUrl": "https://press.pingidentity.com/news-releases?o=30",
+        "recognition": "html_link_feed_or_canonical"
+      },
+      "validation": {
+        "originalQualificationObservationJoinsPassed": true,
+        "sourceAndSupplierExact": true,
+        "allOriginalRowsAnd125ChargesReplayed": true,
+        "literalCanonicalStartPassed": true,
+        "historicalPolicyBridgeAbsent": true,
+        "nestedRawPlanCopyAbsent": true
+      }
+    },
+    {
+      "sourceId": "delinea:official:1",
+      "supplierId": "delinea",
+      "originalSourceSha256": "d6130aaaa8b1b04cb3324289c5befe7f76de687d297b3774b33629914babdee5",
+      "originalCandidateSource": {
+        "allowedHosts": [
+          "delinea.com"
+        ],
+        "family": "official_announcements",
+        "id": "delinea:official:1",
+        "kind": "official_discovery",
+        "maxPages": 60,
+        "registration": "candidate",
+        "required": true,
+        "scopePrefixes": [
+          "/news",
+          "/press",
+          "/blog",
+          "/company",
+          "/investor",
+          "/resources"
+        ],
+        "seedEvidenceUrls": [
+          "https://delinea.com/news/delinea-strongdm-to-unite-redefine-identity-security-for-the-ai-era",
+          "https://delinea.com/news/thycotic-and-centrify-merge-to-become-a-leading-cloud-privileged-identity-security-vendor"
+        ],
+        "supplierId": "delinea",
+        "url": "https://delinea.com/"
+      },
+      "startUrl": "https://delinea.com/news",
+      "startProof": {
+        "type": "qualification_observation",
+        "record": {
+          "key": "ci/source-probe-runs/40069462824-1.json",
+          "sha256": "e737f0436db33a783f3e583cb316865357017b4122d5a9c07474b160e89da4f7",
+          "bytes": 109959
+        },
+        "priorTargetId": "delinea-news-page-2",
+        "priorTargetIndex": 3,
+        "priorTargetSha256": "ed64cd62236bbc16a9446909aab1c87bc7609657cc723ea66eef8dc8bce64cec",
+        "priorPlanRawSha256": "62385a674edf896b479dc4fb9330e3e269afcbdc0b6715dd44f9b18608adbf4f",
+        "priorPlanCanonicalSha256": "42bf79e9e0a7f8907dc47b50836ec0e826c3a7ec81c028b9ba72e3da42d98356",
+        "priorPlanReference": {
+          "bytes": 11388,
+          "key": "objects/62385a674edf896b479dc4fb9330e3e269afcbdc0b6715dd44f9b18608adbf4f",
+          "sha256": "62385a674edf896b479dc4fb9330e3e269afcbdc0b6715dd44f9b18608adbf4f"
+        },
+        "observation": {
+          "bytes": 454,
+          "key": "objects/3acc7ee12d95723b7b6cd8e58750156f2f53011f0d8f75ca115f99b015f120db",
+          "sha256": "3acc7ee12d95723b7b6cd8e58750156f2f53011f0d8f75ca115f99b015f120db"
+        },
+        "body": {
+          "bytes": 147873,
+          "key": "objects/980c5a789a807c502e6622d38c9c0a8757a7c62ec889c8b09e788b238cd2508d",
+          "sha256": "980c5a789a807c502e6622d38c9c0a8757a7c62ec889c8b09e788b238cd2508d"
+        },
+        "fetchedAt": "2026-10-24T06:18:04.434669Z"
+      },
+      "origin": {
+        "rowSha256": "ed64cd62236bbc16a9446909aab1c87bc7609657cc723ea66eef8dc8bce64cec",
+        "requestedUrl": "https://delinea.com/news/page/2",
+        "reservation": {
+          "budgetDay": "2026-10-24",
+          "chargedFetchCount": 1233,
+          "fetchLimit": 5500
+        },
+        "fetchedAt": "2026-10-24T06:18:04.434669Z"
+      },
+      "literalStartDisclosure": {
+        "type": "html_canonical_in_head",
+        "attributes": {
+          "rel": "canonical",
+          "href": "https://delinea.com/news"
+        },
+        "originalPageUrl": "https://delinea.com/news/page/2",
+        "recognition": "html_link_feed_or_canonical"
+      },
+      "validation": {
+        "originalQualificationObservationJoinsPassed": true,
+        "sourceAndSupplierExact": true,
+        "allOriginalRowsAnd125ChargesReplayed": true,
+        "literalCanonicalStartPassed": true,
+        "historicalPolicyBridgeAbsent": true,
+        "nestedRawPlanCopyAbsent": true
+      }
+    },
+    {
+      "sourceId": "sonatype:official:1",
+      "supplierId": "sonatype",
+      "originalSourceSha256": "19596f68dcf01c09d6a043dc47cd67ebbde0bdc079b5a7b42cad057f518da17e",
+      "originalCandidateSource": {
+        "allowedHosts": [
+          "www.sonatype.com"
+        ],
+        "family": "official_announcements",
+        "id": "sonatype:official:1",
+        "kind": "official_discovery",
+        "maxPages": 60,
+        "registration": "candidate",
+        "required": true,
+        "scopePrefixes": [
+          "/news",
+          "/press",
+          "/blog",
+          "/company",
+          "/investor",
+          "/resources"
+        ],
+        "seedEvidenceUrls": [
+          "https://www.sonatype.com/press-releases/vista-acquires-majority-interest-in-sonatype",
+          "https://www.sonatype.com/press-releases/sonatype-strengthens-leadership-team-for-ai-driven-growth"
+        ],
+        "supplierId": "sonatype",
+        "url": "https://www.sonatype.com/"
+      },
+      "startUrl": "https://www.sonatype.com/press-releases",
+      "startProof": {
+        "type": "qualification_observation",
+        "record": {
+          "key": "ci/source-probe-runs/40069462824-1.json",
+          "sha256": "e737f0436db33a783f3e583cb316865357017b4122d5a9c07474b160e89da4f7",
+          "bytes": 109959
+        },
+        "priorTargetId": "sonatype-press-page-13",
+        "priorTargetIndex": 6,
+        "priorTargetSha256": "e9897e6f8e372c52374840ab33bf2831f5bcfd717439158c4397d59a341fa49b",
+        "priorPlanRawSha256": "62385a674edf896b479dc4fb9330e3e269afcbdc0b6715dd44f9b18608adbf4f",
+        "priorPlanCanonicalSha256": "42bf79e9e0a7f8907dc47b50836ec0e826c3a7ec81c028b9ba72e3da42d98356",
+        "priorPlanReference": {
+          "bytes": 11388,
+          "key": "objects/62385a674edf896b479dc4fb9330e3e269afcbdc0b6715dd44f9b18608adbf4f",
+          "sha256": "62385a674edf896b479dc4fb9330e3e269afcbdc0b6715dd44f9b18608adbf4f"
+        },
+        "observation": {
+          "bytes": 520,
+          "key": "objects/68e902fd0d166b3eb63d051aa54c8bd99a87fed20b207f87f736b62097a8656e",
+          "sha256": "68e902fd0d166b3eb63d051aa54c8bd99a87fed20b207f87f736b62097a8656e"
+        },
+        "body": {
+          "bytes": 137035,
+          "key": "objects/7af5acbbd1aa77e6d5819b03d682e1c41ad692583516f24a573806e0e25fec8d",
+          "sha256": "7af5acbbd1aa77e6d5819b03d682e1c41ad692583516f24a573806e0e25fec8d"
+        },
+        "fetchedAt": "2026-10-24T06:18:06.058227Z"
+      },
+      "origin": {
+        "rowSha256": "e9897e6f8e372c52374840ab33bf2831f5bcfd717439158c4397d59a341fa49b",
+        "requestedUrl": "https://www.sonatype.com/press-releases?page=13",
+        "reservation": {
+          "budgetDay": "2026-10-24",
+          "chargedFetchCount": 1236,
+          "fetchLimit": 5500
+        },
+        "fetchedAt": "2026-10-24T06:18:06.058227Z"
+      },
+      "literalStartDisclosure": {
+        "type": "html_canonical_in_head",
+        "attributes": {
+          "rel": "canonical",
+          "href": "https://www.sonatype.com/press-releases"
+        },
+        "originalPageUrl": "https://www.sonatype.com/press-releases?page=13",
+        "recognition": "html_link_feed_or_canonical"
+      },
+      "validation": {
+        "originalQualificationObservationJoinsPassed": true,
+        "sourceAndSupplierExact": true,
+        "allOriginalRowsAnd125ChargesReplayed": true,
+        "literalCanonicalStartPassed": true,
+        "historicalPolicyBridgeAbsent": true,
+        "nestedRawPlanCopyAbsent": true
+      }
+    }
+  ],
+  "originalPolicy": {
+    "key": "contracts/79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60.json",
+    "sha256": "79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60",
+    "bytes": 200746,
+    "canonicalSha256": "79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60"
+  },
+  "originalDiagnostic": {
+    "runId": "40069462824",
+    "attempt": 1,
+    "appRevision": "377043028e01301b3433790caddc7a7dd5aaebc5",
+    "record": {
+      "key": "ci/source-probe-runs/40069462824-1.json",
+      "sha256": "e737f0436db33a783f3e583cb316865357017b4122d5a9c07474b160e89da4f7",
+      "bytes": 109959
+    },
+    "reservationContext": {
+      "budgetDay": "2026-10-24",
+      "contractSha256": "79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60",
+      "currentBudget": {
+        "calls": 80,
+        "documents": 40,
+        "fetches": 1236
+      },
+      "fetchLimit": 5500,
+      "initialBudget": {
+        "calls": 80,
+        "documents": 40,
+        "fetches": 1111
+      },
+      "maximumRuntimeSeconds": 1200,
+      "probeFetchReservations": 125,
+      "reservationDenials": {},
+      "startedAt": "2026-10-24T06:17:32.117408Z"
+    },
+    "originalExplicitRequests": 7,
+    "originalGenericRequests": 118,
+    "originalTotalReservations": 125,
+    "currentCredit": false
+  },
+  "priorPlan": {
+    "rawReference": {
+      "bytes": 11388,
+      "key": "objects/62385a674edf896b479dc4fb9330e3e269afcbdc0b6715dd44f9b18608adbf4f",
+      "sha256": "62385a674edf896b479dc4fb9330e3e269afcbdc0b6715dd44f9b18608adbf4f"
+    },
+    "rawSha256": "62385a674edf896b479dc4fb9330e3e269afcbdc0b6715dd44f9b18608adbf4f",
+    "canonicalSha256": "42bf79e9e0a7f8907dc47b50836ec0e826c3a7ec81c028b9ba72e3da42d98356",
+    "bytes": 11388,
+    "unchanged": true
+  },
+  "archive": {
+    "root": "/var/tmp/smp-pagination-probe-20261024/archive-21a4f7be/jessepike-sec-market-21a4f7be073d30cef4547e1bbafcfea413024c12",
+    "commit": "21a4f7be073d30cef4547e1bbafcfea413024c12",
+    "manifestSha256": "77a402e1335e23e7cb42a6c0bb7aecc841f1bec07684ecc9b70d5c1708b2c7eb",
+    "verifiedManifestFiles": 35148,
+    "sealedFiles": 35152,
+    "sealDefinition": "Canonical sorted relative-path map to sha256,bytes,mtimeNs for every file",
+    "beforeSealSha256": "e917582dd0c64ee150e0a698978ae600adacbbc1a593cba43f0353af392842d0",
+    "afterSealSha256": "e917582dd0c64ee150e0a698978ae600adacbbc1a593cba43f0353af392842d0",
+    "selectedEntries": [
+      {
+        "bytes": 109959,
+        "key": "state/ci/source-probe-runs/40069462824-1.json",
+        "sha256": "e737f0436db33a783f3e583cb316865357017b4122d5a9c07474b160e89da4f7"
+      },
+      {
+        "bytes": 200746,
+        "key": "state/contracts/79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60.json",
+        "sha256": "79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60"
+      },
+      {
+        "bytes": 454,
+        "key": "state/objects/3acc7ee12d95723b7b6cd8e58750156f2f53011f0d8f75ca115f99b015f120db",
+        "sha256": "3acc7ee12d95723b7b6cd8e58750156f2f53011f0d8f75ca115f99b015f120db"
+      },
+      {
+        "bytes": 11388,
+        "key": "state/objects/62385a674edf896b479dc4fb9330e3e269afcbdc0b6715dd44f9b18608adbf4f",
+        "sha256": "62385a674edf896b479dc4fb9330e3e269afcbdc0b6715dd44f9b18608adbf4f"
+      },
+      {
+        "bytes": 520,
+        "key": "state/objects/68e902fd0d166b3eb63d051aa54c8bd99a87fed20b207f87f736b62097a8656e",
+        "sha256": "68e902fd0d166b3eb63d051aa54c8bd99a87fed20b207f87f736b62097a8656e"
+      },
+      {
+        "bytes": 98902,
+        "key": "state/objects/72df8982df491644101ee178aa59e3e9d8c63af22059eb088f5395aa84930448",
+        "sha256": "72df8982df491644101ee178aa59e3e9d8c63af22059eb088f5395aa84930448"
+      },
+      {
+        "bytes": 137035,
+        "key": "state/objects/7af5acbbd1aa77e6d5819b03d682e1c41ad692583516f24a573806e0e25fec8d",
+        "sha256": "7af5acbbd1aa77e6d5819b03d682e1c41ad692583516f24a573806e0e25fec8d"
+      },
+      {
+        "bytes": 147873,
+        "key": "state/objects/980c5a789a807c502e6622d38c9c0a8757a7c62ec889c8b09e788b238cd2508d",
+        "sha256": "980c5a789a807c502e6622d38c9c0a8757a7c62ec889c8b09e788b238cd2508d"
+      },
+      {
+        "bytes": 489,
+        "key": "state/objects/bd59a8ea860dc416e97bb74a521b0ec1514e1dd713fd12b2b66f3402cdcd1b20",
+        "sha256": "bd59a8ea860dc416e97bb74a521b0ec1514e1dd713fd12b2b66f3402cdcd1b20"
+      }
+    ],
+    "selectedReferenceInventorySha256": "18a7008ccb924d6e5ad0872099f94eb01dfe36c5ad7cb77fafc18ce97678f68f",
+    "bytesContentAndMtimeUnchanged": true
+  },
+  "validation": {
+    "scope": "Existing full qualification_observation policy/record/prior-plan/row/body/time/source/charge checks, plus exact literal canonical start recognition; not a schema2 adapter validation or qualification.",
+    "verifier": {
+      "path": "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/onboarding.py",
+      "sha256": "8cc108c473964a8189ba3b4671143369e6a18e553fc2de1a516626bdb2a02382",
+      "bytes": 91583
+    },
+    "sourceRequests": 0,
+    "modelCalls": 0,
+    "actualStateWrites": 0,
+    "archiveWrites": 0,
+    "wholeArchiveReadOnlyGuard": true
+  },
+  "authority": {
+    "suppliers": 74,
+    "requiredObligations": 557,
+    "coverageCredit": false,
+    "sourceChecksCredited": 0,
+    "qualifiedSources": 0,
+    "semanticAdmission": false,
+    "facts": [],
+    "sourceRegistrationsChanged": false,
+    "requestPlanChanged": false,
+    "runtimeChanged": false,
+    "oldReport": "244/557 under original combined policy remains unchanged"
+  },
+  "inputsSha256": "b62f6ac8b4c9e21f825df32200ca2d40bbcbb8dbe3b7bf347522eb40c5055038"
+}

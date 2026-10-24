@@ -1,0 +1,448 @@
+{
+  "kind": "bounded_candidate_traversal_independent_review",
+  "codePins": {
+    "web/scripts/pipeline/onboarding.py": "4ebe29043e7241bfafefdc3b408e5bdc1de397c5a3c4b946b715aa8eebc21cb9",
+    "web/scripts/pipeline/discovery.py": "01c9d384e8399abd8dbc2b04e77936b0d6f43b1bc2831470d67e80a9727eea22",
+    "web/scripts/pipeline/contracts.py": "89a427b6daa20f7a0d5ea5c1316290e2058b1ca16dcc517a3d7dd6e1e317d4ef",
+    "ops/ci/test_bounded_candidate_traversal.py": "64d2f428d3fd122ab34d50d3aedbe9af4bb9f8b5bc735aba6346d258fd239ccb",
+    "contracts/market.json": "5b2b52dc2d17709f562b64ad6cb435086971ff8a6ccb9ce2fe95296a1ce1a7ff",
+    "contracts/source-qualification-probes.json": "fd0ab3821699d577782754cfb1ddc7ba7e4d4f9c2a7c6fd626d4b1f12c6644f7",
+    "docs/active/daily-pipeline/accuracy/bounded-traversal-candidate-plan-2026-10-24.json": "fd0ab3821699d577782754cfb1ddc7ba7e4d4f9c2a7c6fd626d4b1f12c6644f7"
+  },
+  "syntheticCases": [
+    {
+      "case": "wrong_source_wrapper",
+      "outcome": "ContractError:BOUNDED_CANDIDATE_OBSERVATION_SOURCE_BINDING_INVALID",
+      "pass": true
+    },
+    {
+      "case": "extra_after_terminal",
+      "outcome": "ContractError:BOUNDED_CANDIDATE_UNCONSUMED_PAGE_ROWS",
+      "pass": true
+    },
+    {
+      "case": "charged_interval_gap",
+      "outcome": "ContractError:BOUNDED_CANDIDATE_TOTAL_REQUEST_BOUND_INVALID",
+      "pass": true
+    },
+    {
+      "case": "changed_model_document_ledger",
+      "outcome": "ContractError:BOUNDED_CANDIDATE_NONFETCH_LEDGER_CHANGED",
+      "pass": true
+    },
+    {
+      "case": "row_fact_injection",
+      "outcome": "ContractError:BOUNDED_CANDIDATE_SOURCE_REPORT_JOIN_INVALID",
+      "pass": true
+    },
+    {
+      "case": "forged_incomplete_terminal",
+      "outcome": "ContractError:BOUNDED_CANDIDATE_INVENTORY_OR_COMPLETION_DIFFERS",
+      "pass": true
+    },
+    {
+      "case": "over_cap_ledger",
+      "outcome": "ContractError:BOUNDED_CANDIDATE_RESERVATION_CONTEXT_INVALID",
+      "pass": true
+    },
+    {
+      "case": "boolean_top_model_count",
+      "outcome": "ContractError:BOUNDED_CANDIDATE_REPORT_CREDIT_OR_POLICY_INVALID",
+      "pass": true
+    },
+    {
+      "case": "tampered_body_hash",
+      "outcome": "ContractError:QUALIFICATION_OBJECT_ADDRESS_INVALID",
+      "pass": true
+    },
+    {
+      "case": "post_reservation_denial",
+      "outcome": "RETURNED",
+      "executionCompleted": false,
+      "budgetDenied": true,
+      "firstReason": "SOURCE_PROBE_DEADLINE_EXCEEDED",
+      "lastReason": "SOURCE_PROBE_DEADLINE_EXCEEDED",
+      "requests": 0,
+      "charges": 1,
+      "pass": true
+    },
+    {
+      "case": "pre_reservation_exhaustion",
+      "outcome": "RETURNED",
+      "executionCompleted": false,
+      "budgetDenied": true,
+      "firstReason": "FETCHES_BUDGET_EXHAUSTED",
+      "lastReason": "FETCHES_BUDGET_EXHAUSTED",
+      "requests": 0,
+      "charges": 0,
+      "pass": true
+    },
+    {
+      "case": "primary_redirect",
+      "outcome": "RETURNED",
+      "executionCompleted": true,
+      "budgetDenied": false,
+      "firstReason": "BOUNDED_CANDIDATE_PRIMARY_RESPONSE_INVALID",
+      "lastReason": "COMPLETE_DIAGNOSTIC_INVENTORY",
+      "requests": 18,
+      "charges": 18,
+      "pass": true
+    },
+    {
+      "case": "primary_future_time",
+      "outcome": "RETURNED",
+      "executionCompleted": true,
+      "budgetDenied": false,
+      "firstReason": "BOUNDED_CANDIDATE_PRIMARY_RESPONSE_TIME_INVALID",
+      "lastReason": "COMPLETE_DIAGNOSTIC_INVENTORY",
+      "requests": 18,
+      "charges": 18,
+      "pass": true
+    },
+    {
+      "case": "last_response_deadline",
+      "outcome": "RETURNED",
+      "executionCompleted": false,
+      "budgetDenied": true,
+      "firstReason": "COMPLETE_DIAGNOSTIC_INVENTORY",
+      "lastReason": "COMPLETE_DIAGNOSTIC_INVENTORY",
+      "requests": 18,
+      "charges": 18,
+      "pass": true
+    },
+    {
+      "case": "last_response_utc_rollover",
+      "outcome": "RETURNED",
+      "executionCompleted": false,
+      "budgetDenied": true,
+      "firstReason": "COMPLETE_DIAGNOSTIC_INVENTORY",
+      "lastReason": "BOUNDED_CANDIDATE_PRIMARY_RESPONSE_TIME_INVALID",
+      "requests": 18,
+      "charges": 18,
+      "pass": true
+    },
+    {
+      "case": "scalar:primarySamplesPerSource",
+      "value": true,
+      "outcome": "ContractError:BOUNDED_CANDIDATE_PLAN_SHAPE_OR_POLICY_INVALID",
+      "requests": 0,
+      "charges": 0,
+      "pass": true
+    },
+    {
+      "case": "scalar:primarySamplesPerSource",
+      "value": 1,
+      "outcome": "ContractError:BOUNDED_CANDIDATE_PLAN_SHAPE_OR_POLICY_INVALID",
+      "requests": 0,
+      "charges": 0,
+      "pass": true
+    },
+    {
+      "case": "scalar:maxIndexPagesPerSource",
+      "value": 60,
+      "outcome": "ContractError:BOUNDED_CANDIDATE_PLAN_SHAPE_OR_POLICY_INVALID",
+      "requests": 0,
+      "charges": 0,
+      "pass": true
+    },
+    {
+      "case": "scalar:maxRequests",
+      "value": 183,
+      "outcome": "ContractError:BOUNDED_CANDIDATE_PLAN_SHAPE_OR_POLICY_INVALID",
+      "requests": 0,
+      "charges": 0,
+      "pass": true
+    }
+  ],
+  "actualEvidence": {
+    "archive": "/var/tmp/smp-pagination-probe-20261024/archive-21a4f7be/jessepike-sec-market-21a4f7be073d30cef4547e1bbafcfea413024c12",
+    "manifestSha256": "77a402e1335e23e7cb42a6c0bb7aecc841f1bec07684ecc9b70d5c1708b2c7eb",
+    "authenticatedEntries": 35148,
+    "before": {
+      "files": 35152,
+      "contentSha256": "221f84165362669fd84247df60b79baad3cd91b801f1ae04639ae76d09d8ecb0",
+      "fileMtimeSha256": "b637e994d3560bf125b7714c03bbf6e80da9486b0572f58122810e20a3c28c7f",
+      "directories": 1309,
+      "directoryMtimeSha256": "33d6edcffa3cd1716296e4b83483478a4aaa922401f61415ab60ee559ce3014d"
+    },
+    "planRawSha256": "fd0ab3821699d577782754cfb1ddc7ba7e4d4f9c2a7c6fd626d4b1f12c6644f7",
+    "planCanonicalSha256": "7cf3f9b2e3314c930ca5d8c482551fc015fbe4a819f151df9f1dc42f333488e1",
+    "startProofsValidated": 3,
+    "envelopeNegatives": [
+      {
+        "field": "checkpointProfile",
+        "value": "ordinary",
+        "outcome": "ContractError:BOUNDED_CANDIDATE_START_PROVENANCE_INVALID",
+        "pass": true
+      },
+      {
+        "field": "githubRef",
+        "value": "refs/heads/preview",
+        "outcome": "ContractError:BOUNDED_CANDIDATE_START_PROVENANCE_INVALID",
+        "pass": true
+      },
+      {
+        "field": "githubEventName",
+        "value": "push",
+        "outcome": "ContractError:BOUNDED_CANDIDATE_START_PROVENANCE_INVALID",
+        "pass": true
+      },
+      {
+        "field": "modelCalls",
+        "value": 80,
+        "outcome": "ContractError:BOUNDED_CANDIDATE_START_PROVENANCE_INVALID",
+        "pass": true
+      },
+      {
+        "field": "sourceChecksCredited",
+        "value": 3,
+        "outcome": "ContractError:BOUNDED_CANDIDATE_START_PROVENANCE_INVALID",
+        "pass": true
+      }
+    ],
+    "parserReplays": [
+      {
+        "sourceId": "ping-identity:official:1",
+        "requestedUrl": "https://press.pingidentity.com/news-releases?o=30",
+        "finalUrl": "https://press.pingidentity.com/news-releases?o=30",
+        "fetchedAt": "2026-10-24T06:18:03.422278Z",
+        "observation": {
+          "bytes": 489,
+          "key": "objects/bd59a8ea860dc416e97bb74a521b0ec1514e1dd713fd12b2b66f3402cdcd1b20",
+          "sha256": "bd59a8ea860dc416e97bb74a521b0ec1514e1dd713fd12b2b66f3402cdcd1b20"
+        },
+        "body": {
+          "bytes": 98902,
+          "key": "objects/72df8982df491644101ee178aa59e3e9d8c63af22059eb088f5395aa84930448",
+          "sha256": "72df8982df491644101ee178aa59e3e9d8c63af22059eb088f5395aa84930448"
+        },
+        "currentPage": 4,
+        "highestPage": 25,
+        "terminalProved": false,
+        "next": "https://press.pingidentity.com/news-releases?o=40",
+        "items": 10,
+        "datedItems": 10,
+        "inventorySha256": "e07a9969b259740a9a86fe89d2bb2f228be50832c266bcff2b40e7a9ab0bb484"
+      },
+      {
+        "sourceId": "ping-identity:official:1",
+        "requestedUrl": "https://press.pingidentity.com/news-releases?o=40",
+        "finalUrl": "https://press.pingidentity.com/news-releases?o=40",
+        "fetchedAt": "2026-10-24T06:18:03.692125Z",
+        "observation": {
+          "bytes": 489,
+          "key": "objects/c1b12a05263efd3cbc4529a4aa0e7a3761e41f9ed19143437126fcad3f9db90c",
+          "sha256": "c1b12a05263efd3cbc4529a4aa0e7a3761e41f9ed19143437126fcad3f9db90c"
+        },
+        "body": {
+          "bytes": 98812,
+          "key": "objects/115f355f5b10494d14e55ac057d957c0ee91ad4e0471e44aff249a056c236f30",
+          "sha256": "115f355f5b10494d14e55ac057d957c0ee91ad4e0471e44aff249a056c236f30"
+        },
+        "currentPage": 5,
+        "highestPage": 25,
+        "terminalProved": false,
+        "next": "https://press.pingidentity.com/news-releases?o=50",
+        "items": 10,
+        "datedItems": 10,
+        "inventorySha256": "b9b6ac6c08e86a4f1c65e658e130df1cfa7afd790515979f43d8749c9e032922"
+      },
+      {
+        "sourceId": "ping-identity:official:1",
+        "requestedUrl": "https://press.pingidentity.com/news-releases?o=50",
+        "finalUrl": "https://press.pingidentity.com/news-releases?o=50",
+        "fetchedAt": "2026-10-24T06:18:03.982938Z",
+        "observation": {
+          "bytes": 489,
+          "key": "objects/b56d86236b146647a7735fc365b43abb202af63ac1e29913d92135740cba854b",
+          "sha256": "b56d86236b146647a7735fc365b43abb202af63ac1e29913d92135740cba854b"
+        },
+        "body": {
+          "bytes": 98912,
+          "key": "objects/afae0d7893d6d01238357eb165d29ddb3d34bdcaf82bee7e7f1310eb5a5dcaa5",
+          "sha256": "afae0d7893d6d01238357eb165d29ddb3d34bdcaf82bee7e7f1310eb5a5dcaa5"
+        },
+        "currentPage": 6,
+        "highestPage": 25,
+        "terminalProved": false,
+        "next": "https://press.pingidentity.com/news-releases?o=60",
+        "items": 10,
+        "datedItems": 10,
+        "inventorySha256": "c3c5c6f1c88b29515d3cf0d22d21812a4648b3a378fe0d3659e9334bed814bf4"
+      },
+      {
+        "sourceId": "delinea:official:1",
+        "requestedUrl": "https://delinea.com/news/page/2",
+        "finalUrl": "https://delinea.com/news/page/2",
+        "fetchedAt": "2026-10-24T06:18:04.434669Z",
+        "observation": {
+          "bytes": 454,
+          "key": "objects/3acc7ee12d95723b7b6cd8e58750156f2f53011f0d8f75ca115f99b015f120db",
+          "sha256": "3acc7ee12d95723b7b6cd8e58750156f2f53011f0d8f75ca115f99b015f120db"
+        },
+        "body": {
+          "bytes": 147873,
+          "key": "objects/980c5a789a807c502e6622d38c9c0a8757a7c62ec889c8b09e788b238cd2508d",
+          "sha256": "980c5a789a807c502e6622d38c9c0a8757a7c62ec889c8b09e788b238cd2508d"
+        },
+        "currentPage": 2,
+        "highestPage": 5,
+        "terminalProved": false,
+        "next": "https://delinea.com/news/page/3",
+        "items": 12,
+        "datedItems": 0,
+        "inventorySha256": "63ca77443e414783c6c029c7bea929c8f2792a4d2d19dc19f6ac63e83875d6b4"
+      },
+      {
+        "sourceId": "delinea:official:1",
+        "requestedUrl": "https://delinea.com/news/page/5",
+        "finalUrl": "https://delinea.com/news/page/5",
+        "fetchedAt": "2026-10-24T06:18:04.926828Z",
+        "observation": {
+          "bytes": 454,
+          "key": "objects/0a677a55a4de47adf422752188c8dbe5bafed70c43a0d8e4488b63cfc8d2f0d9",
+          "sha256": "0a677a55a4de47adf422752188c8dbe5bafed70c43a0d8e4488b63cfc8d2f0d9"
+        },
+        "body": {
+          "bytes": 143647,
+          "key": "objects/86c8d960459eefc948b8108c822594f1d1cef002bfe3bddc54bb2d51b621a039",
+          "sha256": "86c8d960459eefc948b8108c822594f1d1cef002bfe3bddc54bb2d51b621a039"
+        },
+        "currentPage": 5,
+        "highestPage": 7,
+        "terminalProved": false,
+        "next": "https://delinea.com/news/page/6",
+        "items": 12,
+        "datedItems": 0,
+        "inventorySha256": "549e3775040ec9c96015c3fe87f07a17d268df23bf13b77e00fb534d90b773ed"
+      },
+      {
+        "sourceId": "sonatype:official:1",
+        "requestedUrl": "https://www.sonatype.com/press-releases?page=2",
+        "finalUrl": "https://www.sonatype.com/press-releases?page=2",
+        "fetchedAt": "2026-10-24T06:18:05.641087Z",
+        "observation": {
+          "bytes": 518,
+          "key": "objects/ca81271603fdc04866126f6e1515efd3fd8e1258708705482508919aac974d8f",
+          "sha256": "ca81271603fdc04866126f6e1515efd3fd8e1258708705482508919aac974d8f"
+        },
+        "body": {
+          "bytes": 138853,
+          "key": "objects/0300547485e666bc98a698d10c349e8ccad865bb0ad840d2dcffc32d883bd751",
+          "sha256": "0300547485e666bc98a698d10c349e8ccad865bb0ad840d2dcffc32d883bd751"
+        },
+        "currentPage": 2,
+        "highestPage": 13,
+        "terminalProved": false,
+        "next": "https://www.sonatype.com/press-releases?page=3",
+        "items": 16,
+        "datedItems": 16,
+        "inventorySha256": "33dde3b181f885fd26297358263779925389eb10920eb9581bc9e51f5f500758"
+      },
+      {
+        "sourceId": "sonatype:official:1",
+        "requestedUrl": "https://www.sonatype.com/press-releases?page=13",
+        "finalUrl": "https://www.sonatype.com/press-releases?page=13",
+        "fetchedAt": "2026-10-24T06:18:06.058227Z",
+        "observation": {
+          "bytes": 520,
+          "key": "objects/68e902fd0d166b3eb63d051aa54c8bd99a87fed20b207f87f736b62097a8656e",
+          "sha256": "68e902fd0d166b3eb63d051aa54c8bd99a87fed20b207f87f736b62097a8656e"
+        },
+        "body": {
+          "bytes": 137035,
+          "key": "objects/7af5acbbd1aa77e6d5819b03d682e1c41ad692583516f24a573806e0e25fec8d",
+          "sha256": "7af5acbbd1aa77e6d5819b03d682e1c41ad692583516f24a573806e0e25fec8d"
+        },
+        "currentPage": 13,
+        "highestPage": 13,
+        "terminalProved": true,
+        "next": null,
+        "items": 13,
+        "datedItems": 13,
+        "inventorySha256": "8a0f80681abfbba2df54ba2866d90995376c18d7b3826ca08a115b88186adc08"
+      }
+    ],
+    "after": {
+      "files": 35152,
+      "contentSha256": "221f84165362669fd84247df60b79baad3cd91b801f1ae04639ae76d09d8ecb0",
+      "fileMtimeSha256": "b637e994d3560bf125b7714c03bbf6e80da9486b0572f58122810e20a3c28c7f",
+      "directories": 1309,
+      "directoryMtimeSha256": "33d6edcffa3cd1716296e4b83483478a4aaa922401f61415ab60ee559ce3014d"
+    },
+    "unchanged": true
+  },
+  "deniedOperations": [],
+  "codePinsUnchanged": true,
+  "allSyntheticCasesPass": true,
+  "schemaVersion": 1,
+  "verdict": "no_outstanding_actionable_findings_within_reviewed_scope",
+  "focusedSuite": {
+    "command": "orb run -m dev sh -c 'cd /mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022 && PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s ops/ci -p test_bounded_candidate_traversal.py -q'",
+    "tests": 12,
+    "passed": 12,
+    "failed": 0
+  },
+  "initialCounterexampleCodeSha256": "949abd1d5990fc513c29ca65df20310710bf821606694d06948038d4bb736c33",
+  "resolvedFindings": [
+    {
+      "issue": "Start proof skipped enclosing historical run provenance checks",
+      "finalEvidence": "All five rehashed actual-record envelope mutations reject BOUNDED_CANDIDATE_START_PROVENANCE_INVALID; original evidence validates."
+    },
+    {
+      "issue": "Page/sample observations lacked explicit candidate/adapter binding",
+      "finalEvidence": "Typed wrapper binds original raw observation to source, adapter and requested URL; foreign wrapper rejected."
+    },
+    {
+      "issue": "Extra rows after a terminal/failure were not consumed",
+      "finalEvidence": "Every listed page must be consumed; appended terminal row rejected."
+    },
+    {
+      "issue": "Ledger interval, cap, nonfetch counters and per-source zero-credit checks were incomplete",
+      "finalEvidence": "Gapped and over-cap shifted charges, nonfetch drift, injected row facts and Boolean model counter reject."
+    },
+    {
+      "issue": "Charged before-fetch denial omitted its reservation join",
+      "finalEvidence": "Post-reservation denial returns incomplete with one charge and zero transport; pre-reservation exhaustion returns zero charges."
+    },
+    {
+      "issue": "Primary redirect/future time caused whole-report replay error",
+      "finalEvidence": "Both retain charged incomplete primary sample shape with explicit source reason; no qualification claimed."
+    },
+    {
+      "issue": "Final response/day denial representation was inconsistent",
+      "finalEvidence": "Final monotonic deadline and near-midnight primary rollover retain all 18 charges and return executionCompleted=false,budgetDenied=true."
+    }
+  ],
+  "boundaries": {
+    "sourceRequests": 0,
+    "networkRequests": 0,
+    "modelCalls": 0,
+    "actualStateWrites": 0,
+    "archiveWrites": 0,
+    "registrationChanges": 0,
+    "policyChanges": 0,
+    "qualificationCredit": 0,
+    "coverageCredit": 0,
+    "productionChanges": 0,
+    "gitOperations": 0
+  },
+  "limitations": [
+    "All synthetic transport occurred only in disposable fictional stores. The fixture's start authority is patched only for caller tests; actual start-proof verification is separate and unpatched.",
+    "Actual archived page bodies retain exact original requested/final URLs, observation/body references and fetchedAt values. Parsing isolated historical pages is not an actual consecutive traversal.",
+    "Sonatype page13 proves that page's terminal layout only. Ping4/5/6, Delinea2/5 and Sonatype2/13 do not provide every intermediate page or a fresh complete walk.",
+    "Three original candidate registrations remain unchanged. After the initial review the integrator replaced the operational plan with byte-identical schema2 candidate bytes; whole preflight at the operational path independently passes with zero requests/writes. No actual diagnostic completion or qualification is claimed.",
+    "executionCompleted describes diagnostic execution, not successful source qualification. Failed primary samples can coexist with a complete index; later activation must independently require all qualification evidence.",
+    "Current immutable-plan-path validation is execution-scoped. Eventual activation still needs the retained-origin/closed-plan transition support described in scoped-source-qualification-transition-spec-2026-10-24.md."
+  ],
+  "priorOperationalPlanRawSha256": "62385a674edf896b479dc4fb9330e3e269afcbdc0b6715dd44f9b18608adbf4f",
+  "operationalPlanPreflight": {
+    "rawSha256": "fd0ab3821699d577782754cfb1ddc7ba7e4d4f9c2a7c6fd626d4b1f12c6644f7",
+    "canonicalSha256": "7cf3f9b2e3314c930ca5d8c482551fc015fbe4a819f151df9f1dc42f333488e1",
+    "sourcesValidated": 3,
+    "equalsCandidateBytes": true,
+    "writes": 0,
+    "requests": 0
+  },
+  "reviewSha256": "a0e59fd73be48c2887f6476fe292426968d8e2e29e9aa79b21251df55ad852e3"
+}

@@ -63,7 +63,7 @@ accepted release and dated remediation observation remain separate and unchanged
 
 ## Limits, schedule and alerts
 
-October 24 usage is **1,236 fetches / 80 model calls / 40 documents**. There are 4,264 fetches
+October 24 UTC usage is **1,236 fetches / 80 model calls / 40 documents**. There are 4,264 fetches
 remaining and no model/document allowance. Both gate/publication attempts are charged (2/2).
 Never reset/refund a charge, buy capacity or substitute paid models. Reserve the next natural
 UTC allowance for the real publisher and independent gate; production remains unchanged meanwhile.
@@ -116,11 +116,15 @@ path, a coordinated registry/probe-plan migration and the correction policy oute
 all six group hashes/rows/dates and all 557 obligations. These are agent-owned tasks; no owner
 source decision is currently required. Do not activate an unqualified row to make collection run.
 
-Offline work is preparing one bounded traversal for Ping, Delinea and Sonatype, avoiding the
-117-request generic fanout observed per diagnostic batch. Full index traversal stays required;
-historical article processing remains separate. A proposed hard ceiling is 183 source requests
-and zero models, with no qualification or intake credit until actual evidence independently
-replays. [Bounded traversal proposal](docs/active/daily-pipeline/accuracy/bounded-candidate-qualification-next-step-2026-10-24.md).
+The bounded traversal for Ping, Delinea and Sonatype is implemented and independently reviewed,
+with a locally installed exact schema-2 plan. It avoids generic fanout, follows actual literal
+links, and retains a 183-request ceiling with zero models or source credit. Full traversal,
+primary shape samples and independent replay remain required; Delinea's terminal is still unproved.
+All 601 ops, 368 data, 115 pipeline and 42 browser checks pass (one uncollected-fixture skip).
+Same-fixture preview pixels remain exact at desktop/phone widths. No source is activated.
+Preview/main activation and the first actual bounded walk are next.
+[Local validation](docs/active/daily-pipeline/receipts/bounded-traversal-local-validation-2026-10-24.json) ·
+[Independent review](docs/active/daily-pipeline/accuracy/bounded-candidate-traversal-independent-review-2026-10-24.md).
 
 The original checkout `/Users/jessepike/code/projects/sec-market` remains at `0a660a72`.
 Preserve its modified status/lessons and untracked `web/tests/daily-measures.test.ts`; all current

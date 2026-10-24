@@ -1,0 +1,88 @@
+{
+  "checkedAt": "2026-10-24T07:00:21Z",
+  "scope": "offline_bounded_traversal_activation_candidate",
+  "operation": "bounded_candidate_traversal",
+  "contractSha256": "79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60",
+  "planRawSha256": "fd0ab3821699d577782754cfb1ddc7ba7e4d4f9c2a7c6fd626d4b1f12c6644f7",
+  "planCanonicalSha256": "7cf3f9b2e3314c930ca5d8c482551fc015fbe4a819f151df9f1dc42f333488e1",
+  "onboardingSha256": "4ebe29043e7241bfafefdc3b408e5bdc1de397c5a3c4b946b715aa8eebc21cb9",
+  "independentReview": {
+    "path": "docs/active/daily-pipeline/accuracy/bounded-candidate-traversal-independent-review-2026-10-24.json",
+    "adversarialProducerCases": 19,
+    "focusedTests": 12,
+    "alteredStartProofEnvelopeCasesRejected": 5
+  },
+  "localChecks": {
+    "operationalTests": 601,
+    "dataTests": 368,
+    "pipelineTests": 115,
+    "browserTestsPassed": 42,
+    "browserTestsSkipped": 1,
+    "skipScope": "uncollected fixture deadline; no actual freshness credit",
+    "lint": "pass",
+    "build": "pass",
+    "logs": [
+      "/var/tmp/smp-bounded-traversal-final-ops-20261024.log",
+      "/var/tmp/smp-bounded-traversal-final-web-20261024.log"
+    ]
+  },
+  "actualPlanPreflight": {
+    "passed": true,
+    "sourceRows": 3,
+    "verifiedArchiveFiles": 35148,
+    "frozenFiles": 35152,
+    "archiveCommit": "21a4f7be073d30cef4547e1bbafcfea413024c12",
+    "manifestSha256": "77a402e1335e23e7cb42a6c0bb7aecc841f1bec07684ecc9b70d5c1708b2c7eb",
+    "beforeAndAfter": {
+      "files": 35152,
+      "contentSha256": "221f84165362669fd84247df60b79baad3cd91b801f1ae04639ae76d09d8ecb0",
+      "fileMtimeSha256": "b637e994d3560bf125b7714c03bbf6e80da9486b0572f58122810e20a3c28c7f",
+      "directories": 1309,
+      "directoryMtimeSha256": "33d6edcffa3cd1716296e4b83483478a4aaa922401f61415ab60ee559ce3014d"
+    },
+    "prohibitedOperations": [],
+    "memoryMutations": 0
+  },
+  "visual": {
+    "scope": "collection support leaves previously approved preview fixture pixels unchanged",
+    "widths": [
+      1440,
+      390
+    ],
+    "sameFixturePixelsIdentical": true,
+    "allFourFullPageCapturesViewed": true,
+    "artifactDirectory": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024",
+    "prefixes": [
+      "qualification-support-production",
+      "qualification-support-local"
+    ],
+    "productionHeights": [
+      8359,
+      7714
+    ],
+    "candidateHeights": [
+      8379,
+      7749
+    ],
+    "candidateContainsUncollectedFixture": true,
+    "candidateFixtureMustNotPublish": true
+  },
+  "productionControls": {
+    "projectId": "prj_g8sZPXo81XT2Xopa1oLrsbYjTehV",
+    "teamId": "team_gRV7FrVjjr1PPI1IvgoCEJrH",
+    "autoAssignCustomDomains": false,
+    "mainAndArchiveGitBuildsIgnored": true
+  },
+  "currentUsage": {
+    "utcDay": "2026-10-24",
+    "fetches": 1236,
+    "modelCalls": 80,
+    "documents": 40,
+    "gateAttempts": 2
+  },
+  "actualSourceRequests": 0,
+  "sourceActivationPerformed": false,
+  "qualifiedSources": 0,
+  "coverageCredit": false,
+  "publicationAttempted": false
+}
