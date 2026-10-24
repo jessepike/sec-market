@@ -15,6 +15,7 @@ from provenance import GitHubAuthority
 from release import import_gate
 from storage import LocalStore
 from vercel import VercelAdapter
+from coverage_summary import coverage_details
 
 
 def validate_request(request):
@@ -40,6 +41,7 @@ def execute(root, request):
     # Fixed preview authority deliberately cannot satisfy production provenance.
     authority = GitHubAuthority(branch='preview')
     inputs, receipt = import_gate(state, authority, request['gateRunId'], request['artifactId'], archived)
+    details = coverage_details(inputs['coverage'])
     manifest = {'mode': 'stage_only_smoke_test', 'appRevision': receipt['appRevision'],
                 'snapshot': inputs['snapshot'], 'artifact': inputs['artifact'],
                 'contractSha256': receipt['contractSha256']}
@@ -66,7 +68,7 @@ def execute(root, request):
             'appRevision': receipt['appRevision'], 'gateRunId': request['gateRunId'], 'artifactId': request['artifactId'],
             'archive': archived, 'artifactSha256': manifest['artifact']['sha256'],
             'snapshotSha256': manifest['snapshot']['sha256'], 'coverage': {
-                key: inputs['coverage'][key] for key in ('complete', 'successfulTasks', 'requiredTasks', 'runId')},
+                **{key: inputs['coverage'][key] for key in ('complete', 'successfulTasks', 'requiredTasks', 'runId')}, **details},
             'acknowledgement': acknowledgement, 'verifiedStaticFiles': verified,
             'productionAppRevision': before.get('appRevision'), 'productionUnchanged': True,
             'productionPromoted': False, 'projectSettingsChanged': False, 'archiveChanged': False,

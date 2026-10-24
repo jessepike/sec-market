@@ -16,6 +16,7 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO / "web/scripts/pipeline"))
+sys.path.insert(0, str(REPO / "ops/ci"))
 from archive import GitArchive
 from contracts import canonical, digest, instant, require, utcnow, validate_contract
 from engine import Pipeline
@@ -26,6 +27,7 @@ from release import release_daily
 from snapshot import build_snapshot
 from storage import LocalStore
 from validation import reconcile
+from coverage_summary import coverage_details
 
 
 def git(*args):
@@ -78,7 +80,8 @@ def summary(store):
     return {"runId": coverage["runId"] if coverage else None,
             "successfulTasks": coverage["successfulTasks"] if coverage else 0,
             "requiredTasks": coverage["requiredTasks"] if coverage else None,
-            "complete": bool(coverage and coverage["complete"])}
+            "complete": bool(coverage and coverage["complete"]),
+            **(coverage_details(coverage) if coverage else {})}
 
 
 def checkpoint(root, store, session, phase, result, finish=False):

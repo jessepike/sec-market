@@ -1,0 +1,43 @@
+{
+  "kind": "offline_correction_policy_migration",
+  "mechanicsOnlyNonAdmitting": true,
+  "archiveManifestSha256": "cd9d84c67a70f11b72eeba25a012e3402a88b2d5a9c692f145c225b0a2c3418a",
+  "archiveFiles": 31075,
+  "releaseId": "19fde803d09aa544672183769c257e37faf727b75e1914955f54f3c5fb126941",
+  "originalPolicySha256": "e740d7407afc7b11be8802b250ea564224b10969717507818726e44e7b33f27e",
+  "prospectivePolicySha256": "aeccba5ed7151d6b06f3e02c78da5d3fe91c83e825929d07fb87574e5b961667",
+  "simulatedPublicationAt": "2026-10-25T06:23:00Z",
+  "unchangedGroups": 6,
+  "unchangedTargetCount": 12,
+  "originalGroupDates": {
+    "FC-20261023-checkpoint-sase": "2026-10-24",
+    "FC-20261023-optiv": "2026-10-24",
+    "FC-20261023-splunk": "2026-10-24",
+    "FC-20261023-zscaler": "2026-10-24",
+    "FC-20261023-expel": "2026-10-24",
+    "XAGE-SOURCE-CLASS-20261023": "2026-10-24"
+  },
+  "originalRowsAndAdmissionsUnchanged": true,
+  "archiveSealBefore": {
+    "files": 31079,
+    "contentSha256": "cc1862a947ef7b54017c86a1c653c3a03298271a816f0ff982ccbce6c6d45309",
+    "fileMtimeSha256": "a6ac93a7720f819bbf25bc66073ce03295759e9d7d208a33915d63e55d7f642a",
+    "directories": 738,
+    "directoryMtimeSha256": "36bd1a13a1885c95303ecccb789f5573a537316dc1ae5bd0560ef996c90c2434"
+  },
+  "archiveSealAfter": {
+    "files": 31079,
+    "contentSha256": "cc1862a947ef7b54017c86a1c653c3a03298271a816f0ff982ccbce6c6d45309",
+    "fileMtimeSha256": "a6ac93a7720f819bbf25bc66073ce03295759e9d7d208a33915d63e55d7f642a",
+    "directories": 738,
+    "directoryMtimeSha256": "36bd1a13a1885c95303ecccb789f5573a537316dc1ae5bd0560ef996c90c2434"
+  },
+  "modelCalls": 0,
+  "sourceRequests": 0,
+  "reservations": 0,
+  "stateWrites": 0,
+  "publicationAttempts": 0,
+  "limitations": [
+    "A simulated later publication time exercises retention; this is not a new release or live observation."
+  ]
+}

@@ -1,5 +1,14 @@
 # Offline operational scorecard
 
+The separate `correction_resolution.py` evaluator measures only remediation of the five fixed
+contradictions in the frozen claim audit. Offline invocation keeps all five rows unmeasured.
+Measured results require its authenticated production-gather mode, original charged review
+attempts, the exact gate and publisher artifacts, Vercel acknowledgement and every static byte.
+The [retained October 24 observation](../../docs/active/daily-pipeline/accuracy/current-correction-resolution-observation-2026-10-24.md)
+records 5/5 resolved at approximately 04:01 UTC. This is neither current general accuracy nor
+reader value. See the [implementation evidence](../../docs/active/daily-pipeline/accuracy/correction-resolution-implementation-evidence-2026-10-24.md)
+for the read-only gather command and archive prerequisites.
+
 Run in the OrbStack VM with Python's standard library. No network, credentials, model calls or
 archive mutations are required. The evaluator writes a new JSON report and Markdown companion.
 It refuses existing output files.
@@ -35,6 +44,17 @@ Only contract and raw coverage are required. The others use the existing receipt
 `docs/active/daily-pipeline/receipts/`. Missing optional evidence remains unmeasured. Supplied
 inconsistent evidence causes exit 2 and no scorecard. A valid report can contain failed measures;
 its CLI exits 0 because report generation succeeded, not because operations passed.
+
+For the accepted `daily_intake_with_separate_history` policy, the evaluator requires coverage
+schema 2 and reports fresh source intake, current-document processing and retained historical
+review as separate measures. A checked intake must have complete discovery and observation
+references in its raw receipt. Failed intake may retain partial, stale or otherwise ineligible
+observations; offline scoring cannot authenticate their freshness. A processing outcome cannot
+replace successful-intake proof. Counter consistency is checked, but supplied summaries are not
+source-body authentication. Pending or held
+processing stays visible beside intake, and historical review backlog stays separate from freshness.
+An empty observed document inventory is unmeasured rather than 0/0. The frozen October 23 legacy
+report is replayed byte-for-byte by the evaluator test suite.
 
 The raw coverage must include its full task receipts and immutable inventory identities.
 The smaller public daily-coverage.json cannot replace it. The manifest coverage byte hash must

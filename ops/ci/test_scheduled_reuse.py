@@ -9,6 +9,59 @@ from storage import LocalStore
 
 
 class ScheduledReuseTests(unittest.TestCase):
+    def install_v2(self):
+        from test_coverage_summary import separated_coverage
+        from coverage_summary import coverage_details
+        from contracts import canonical
+        self.coverage.update(separated_coverage())
+        head = self.state.read('heads/latest-run.json')
+        self.reference = self.state.put(self.coverage)
+        self.state.compare_and_swap('latest-run', head, {'runId': self.coverage['runId'], 'receipt': self.reference})
+        details = coverage_details(self.coverage)
+        self.clock.update({k: self.coverage[k] for k in ('successfulTasks', 'requiredTasks', 'complete')}, **details)
+        (self.state.root/'ci/collection-runs/123-1.json').write_bytes(canonical(self.clock))
+        old = self.state.read('heads/cloud-collector.json')
+        self.state.compare_and_swap('cloud-collector', old, {'coverage': {
+            **{k: self.coverage[k] for k in ('runId', 'successfulTasks', 'requiredTasks', 'complete')}, **details}})
+
+    def test_v2_reuse_preserves_and_archives_separate_review_boundaries(self):
+        self.install_v2()
+        before = {p.name: p.read_bytes() for p in (self.state.root/'heads').glob('*.json')}
+        result = self.reuse()
+        self.assertTrue(result['intake']['complete'])
+        self.assertFalse(result['processing']['complete'])
+        self.assertFalse(result['historicalReview']['complete'])
+        self.assertEqual(result['sourceCheckedAt'], self.coverage['checkedAt'])
+        retained = archive_collection_result(self.state, result, self.contract, '1')
+        self.assertEqual(retained['processing'], self.coverage['processing'])
+        self.assertEqual(before, {p.name: p.read_bytes() for p in (self.state.root/'heads').glob('*.json')})
+
+    def test_v2_reuse_rejects_clock_with_different_review_summary(self):
+        from contracts import canonical
+        self.install_v2()
+        self.clock['processing']['pendingDocuments'] = 0
+        (self.state.root/'ci/collection-runs/123-1.json').write_bytes(canonical(self.clock))
+        self.assertIsNone(self.reuse())
+
+    def test_actual_v2_checkpoint_summary_roundtrips_into_scheduled_reuse(self):
+        from collect import session_runtime
+        self.install_v2()
+        session = {'sessionId': 'github-real-checkpoint', 'role': 'collector', 'appRevision': 'a'*40,
+                   'executionMode': 'github_subscription', 'startedAt': self.coverage['checkedAt']}
+        entry = session_runtime.collection_checkpoint(self.state, session, 'finish',
+                    {'executionCompleted': True}, '2026-10-23T06:31:00Z')
+        self.assertEqual(self.state.read('heads/cloud-collector.json')['coverage'], entry['coverage'])
+        self.assertEqual(entry['coverage']['intake'], self.coverage['intake'])
+        result = self.reuse()
+        self.assertEqual(result['processing'], entry['coverage']['processing'])
+        self.assertEqual(result['historicalReview'], entry['coverage']['historicalReview'])
+        self.assertEqual(result['sourceCheckedAt'], self.coverage['checkedAt'])
+
+    def test_actual_legacy_checkpoint_summary_remains_identical(self):
+        from collect import session_runtime
+        self.assertEqual(session_runtime.summary(self.state), {
+            'runId': self.coverage['runId'], 'successfulTasks': 244, 'requiredTasks': 557, 'complete': False})
+
     def setUp(self):
         self.temp=tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)

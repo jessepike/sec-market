@@ -26,6 +26,19 @@ export function verifyAppRelease(repo) {
   return { allowed: true, releaseKind: 'certified', dataUpdated: true, certifiedAt: coverage.checkedAt, contractVersion: coverage.contractVersion }
 }
 
+/** Preserve legacy receipt fields; v2 makes the three independent measures explicit. */
+export function dailyReleaseMetadata(daily) {
+  if (!daily.enabled) return {}
+  const metadata = { dailyRunId: daily.runId, dailySnapshotSha256: daily.fileSha256, dailyContractSha256: daily.contractSha256, dailyCoverageComplete: daily.coverageComplete }
+  if (daily.coverageMeasure === 'daily_source_intake_v2') Object.assign(metadata, {
+    dailyCoverageMeasure: daily.coverageMeasure,
+    dailyIntakeComplete: daily.intakeComplete,
+    dailyProcessingComplete: daily.processingComplete,
+    dailyHistoricalReviewComplete: daily.historicalReviewComplete,
+  })
+  return metadata
+}
+
 /** Gate, then build, then publish the certification receipt and release record beside the site. */
 export function buildRelease(repo) {
   const decision = verifyAppRelease(repo)
@@ -35,7 +48,7 @@ export function buildRelease(repo) {
   cpSync(resolve(web, 'src/data/generated/certifiedCoverage.json'), resolve(dist, 'certified-coverage.json'))
   const release = { ...decision, rootView: 'tracker', appRevision: process.env.VERCEL_GIT_COMMIT_SHA ?? null, appBuiltAt: new Date().toISOString() }
   const daily = verifyDaily(web)
-  if (daily.enabled) Object.assign(release, { dailyRunId: daily.runId, dailySnapshotSha256: daily.fileSha256, dailyContractSha256: daily.contractSha256, dailyCoverageComplete: daily.coverageComplete })
+  Object.assign(release, dailyReleaseMetadata(daily))
   const factual = verifyFactualCorrections(web)
   if (factual.enabled) release.factualCorrections = factual
   writeFileSync(resolve(dist, 'app-release.json'), JSON.stringify(release, null, 2) + '\n')

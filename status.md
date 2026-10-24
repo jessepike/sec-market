@@ -10,8 +10,10 @@ Make the current site consistent, durable, accurate and fresh before expansion (
 The coverage goal remains active. Reader value is unmeasured; the owner reports no useful real
 use yet. Search and overlapping ownership/funding/stage navigation are queued in SEC-073/074.
 The owner accepted D-112: separate fresh daily intake, fact processing and historical review.
-Implementation is underway; the accepted production receipt still uses the former combined
-definition. Preserve its 244/557 result and dates until a new-policy release actually publishes.
+Implementation and independent offline review now pass. The accepted production receipt still uses
+the former combined definition. Preserve its 244/557 result and dates until a new-policy release
+actually publishes. Preview/main activation and actual new-policy scheduled/public receipts remain
+to be obtained under the existing approval and charged limits.
 
 ## Accepted production
 
@@ -128,6 +130,17 @@ ideal sharing, above the fixed 5,500 limit. The owner selected the reviewed sepa
 the [D-112 implementation specification](docs/active/daily-pipeline/separate-freshness-history-spec-2026-10-24.md)
 preserves every obligation and original date, with distinct intake/processing/history measures.
 No quota increase, refund, new source or changed live coverage follows from this decision alone.
+
+The D-112 candidate passes 555 operational tests, 115 pipeline tests, and the full application
+suite (368 data, 115 pipeline and 42 browser passes; one uncollected-deadline skip). The independently
+reviewed actual replay preserves 9,914 URLs, 24 reviewed bindings, 9,890 pending, five held documents
+and four exact original fact references. The 17 archived intake checks supply no live credit.
+Flat sealed revalidation witnesses keep completed work closed across quiet days and preserve
+pending changes across failed/partial discovery and rollover. Typed queue markers independently
+replay and close only with current proof. All six correction groups retain exact original rows,
+admissions and dates under the new enclosing policy. Phone/desktop layouts were inspected;
+the unchanged phone fold assertion passes with both uncollected and large-history fixtures.
+[Independent D-112 acceptance](docs/active/daily-pipeline/accuracy/separate-freshness-history-independent-review-2026-10-24.md).
 
 Next prepare the scoped source adapters from retained evidence and obtain the actual scheduled
 cycle on repaired main within charged limits. Collection is 05:17 UTC; publication follows successful scheduled

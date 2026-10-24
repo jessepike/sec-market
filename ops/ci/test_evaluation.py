@@ -15,7 +15,7 @@ class ScorecardTests(unittest.TestCase):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)
         self.base = Path(self.temp.name)
-        self.contract = json.loads((ROOT / 'contracts/market.json').read_text())
+        self.contract = json.loads((ROOT / 'docs/active/daily-pipeline/evaluations/2026-10-24/operational-inputs/contract.json').read_text())
         self.plan = plan_run(self.contract, '2026-10-23T12:00:00Z')
         self.manifest = dict(schemaVersion=1, evaluatedAt='2026-10-23T13:00:00Z', appRevision='a' * 40, inputs={})
         self.pin('contract', self.contract)
@@ -267,6 +267,132 @@ class ScorecardTests(unittest.TestCase):
         self.assertIn('121 / 557', output)
         self.assertIn('unmeasured', output)
         self.assertIn(self.manifest['inputs']['coverage']['sha256'], output)
+
+    def test_legacy_schema_serialization_is_byte_deterministic(self):
+        first = self.report()
+        second = self.report()
+        self.assertEqual(json.dumps(first, indent=2, allow_nan=False) + '\n',
+                         json.dumps(second, indent=2, allow_nan=False) + '\n')
+        self.assertEqual(markdown(first), markdown(second))
+
+    def test_current_pinned_operational_report_replays_byte_exactly(self):
+        folder = ROOT / 'docs/active/daily-pipeline/evaluations/2026-10-24'
+        manifest = json.loads((folder / 'operational-scorecard-inputs.json').read_text())
+        report = evaluate(manifest, folder)
+        self.assertEqual(json.dumps(report, indent=2, allow_nan=False) + '\n',
+                         (folder / 'operational-scorecard.json').read_text())
+        self.assertEqual(markdown(report), (folder / 'operational-scorecard.md').read_text())
+
+
+class SeparateMeasureTests(unittest.TestCase):
+    # Exercise the real evaluator with synthetic, explicitly distinct measures.
+    # These fixtures never count as authenticated source observations.
+    def setUp(self):
+        ScorecardTests.setUp(self)
+        self.contract = json.loads((ROOT / 'contracts/market.json').read_text())
+        self.plan = plan_run(self.contract, '2026-10-23T12:00:00Z')
+        self.pin('contract', self.contract)
+        sources = {s['id']: s for s in self.contract['sources']}
+        good = {t['taskId'] for t in self.plan['tasks'] if sources.get(t['sourceId'], {}).get('registration') == 'verified'}
+        receipts, views = [], []
+        for task in self.plan['tasks']:
+            ok = task['taskId'] in good
+            receipt = dict(taskId=task['taskId'], runId=self.plan['runId'], sourceId=task['sourceId'], supplierId=task['supplierId'], completedAt='2026-10-23T11:59:00Z', outcome='not_checked', discoveryComplete=ok, observationIds=['observation'] if ok else [])
+            receipts.append(receipt)
+            empty = dict(complete=True, inventoryDocuments=0, reviewedDocuments=0, pendingDocuments=0, heldDocuments=0)
+            views.append(dict(taskId=task['taskId'], sourceId=task['sourceId'], supplierId=task['supplierId'], outcome='checked' if ok else 'not_checked', intakeOutcome='checked' if ok else 'not_checked', intakeErrorCode=None if ok else 'DAILY_INTAKE_INCOMPLETE', processingOutcome=receipt['outcome'], processing={**empty, 'changedDocuments':0, 'unknownDateDocuments':0}, historicalReview=dict(empty)))
+        self.coverage.update(schemaVersion=2, measure='daily_source_intake_v2', contractSha256=digest(self.contract), runId=self.plan['runId'], inventorySha256=self.plan['inventorySha256'], successfulTasks=len(good), gapTaskIds=sorted({t['taskId'] for t in self.plan['tasks'] if t['required']} - good), receipts=receipts, tasks=views)
+        target = next(v for v in views if v['intakeOutcome'] == 'checked')
+        target['processing'].update(complete=False, inventoryDocuments=3, reviewedDocuments=2, pendingDocuments=1, heldDocuments=1, changedDocuments=1, unknownDateDocuments=1)
+        target['historicalReview'].update(complete=False, inventoryDocuments=3, reviewedDocuments=2, pendingDocuments=1, heldDocuments=1)
+        self.aggregate()
+
+    pin = ScorecardTests.pin
+    report = ScorecardTests.report
+    measure = ScorecardTests.measure
+
+    def aggregate(self):
+        for kind in ('processing', 'historicalReview'):
+            fields = ['inventoryDocuments', 'reviewedDocuments', 'pendingDocuments', 'heldDocuments'] + (['changedDocuments', 'unknownDateDocuments'] if kind == 'processing' else [])
+            self.coverage[kind] = {field:sum(v[kind][field] for v in self.coverage['tasks']) for field in fields}
+            self.coverage[kind]['complete'] = all(v[kind]['complete'] for v in self.coverage['tasks'])
+        self.coverage['intake'] = {key:self.coverage[key] for key in ('successfulTasks', 'requiredTasks', 'gapTaskIds', 'complete')}
+        self.coverage['intake'].update(measure='daily_source_intake_v2', evaluated=True, status='collected')
+        self.pin('coverage', self.coverage)
+
+    def test_separate_intake_does_not_clear_processing_or_history(self):
+        report = self.report()
+        self.assertEqual(report['coverageMeasure'], 'daily_source_intake_v2')
+        self.assertEqual(self.measure('coverage.required_tasks')['numerator'], 275)
+        for identifier in ('coverage.processing', 'coverage.historicalReview'):
+            row = self.measure(identifier)
+            self.assertEqual((row['status'], row['numerator'], row['denominator']), ('fail', 2, 3))
+        self.assertEqual(self.measure('coverage.processing')['unknownDateDocuments'], 1)
+        self.assertIn('Daily source intake', markdown(report))
+
+    def test_malformed_separate_views_refused(self):
+        baseline = copy.deepcopy(self.coverage)
+        mutations = [
+            lambda c:c.update(measure='wrong'),
+            lambda c:c['intake'].update(successfulTasks=557),
+            lambda c:c['tasks'][0].update(processingOutcome='updated'),
+            lambda c:c['tasks'][0]['processing'].update(inventoryDocuments=True),
+            lambda c:c['tasks'][0]['processing'].update(pendingDocuments=-1),
+            lambda c:c['tasks'][0]['processing'].update(heldDocuments=4),
+            lambda c:c['tasks'][0]['processing'].update(complete=True),
+            lambda c:c['processing'].update(unknownDateDocuments=99),
+            lambda c:c['historicalReview'].update(evaluated=False),
+            lambda c:c['tasks'].pop(),
+        ]
+        for mutate in mutations:
+            with self.subTest(mutation=mutate):
+                self.coverage=copy.deepcopy(baseline)
+                mutate(self.coverage)
+                self.pin('coverage', self.coverage)
+                with self.assertRaises(ValueError): self.report()
+
+    def test_checked_intake_requires_raw_discovery_but_failures_keep_partial_evidence(self):
+        baseline = copy.deepcopy(self.coverage)
+        self.coverage['intake']['evaluated'] = False
+        self.pin('coverage', self.coverage)
+        with self.assertRaisesRegex(ValueError, 'not a collected observation'):
+            self.report()
+        self.coverage = copy.deepcopy(baseline)
+        checked = next(row for row in self.coverage['tasks'] if row['intakeOutcome'] == 'checked')
+        receipt = next(row for row in self.coverage['receipts'] if row['taskId'] == checked['taskId'])
+        receipt['discoveryComplete'] = False
+        self.pin('coverage', self.coverage)
+        with self.assertRaisesRegex(ValueError, 'Checked intake lacks complete raw discovery'):
+            self.report()
+        self.coverage = copy.deepcopy(baseline)
+        checked = next(row for row in self.coverage['tasks'] if row['intakeOutcome'] == 'checked')
+        receipt = next(row for row in self.coverage['receipts'] if row['taskId'] == checked['taskId'])
+        receipt['observationIds'] = []
+        self.pin('coverage', self.coverage)
+        with self.assertRaisesRegex(ValueError, 'Checked intake lacks complete raw discovery'):
+            self.report()
+        self.coverage = copy.deepcopy(baseline)
+        unchecked = next(row for row in self.coverage['tasks'] if row['intakeOutcome'] != 'checked')
+        receipt = next(row for row in self.coverage['receipts'] if row['taskId'] == unchecked['taskId'])
+        # Partial pagination or retained observations may accompany a failed intake.
+        # Offline scoring cannot infer freshness from these references.
+        receipt['observationIds'] = ['observation']
+        self.pin('coverage', self.coverage)
+        self.assertEqual(self.measure('coverage.required_tasks')['status'], 'fail')
+        receipt['discoveryComplete'] = True  # e.g. complete but stale/otherwise ineligible evidence
+        self.pin('coverage', self.coverage)
+        self.assertEqual(self.measure('coverage.required_tasks')['status'], 'fail')
+
+    def test_empty_observed_inventory_is_unmeasured(self):
+        for view in self.coverage['tasks']:
+            for kind in ('processing', 'historicalReview'):
+                view[kind]={key:(True if key == 'complete' else 0) for key in view[kind]}
+        self.aggregate()
+        for identifier in ('coverage.processing', 'coverage.historicalReview'):
+            row=self.measure(identifier)
+            self.assertEqual(row['status'], 'unmeasured')
+            self.assertIsNone(row['numerator'])
+            self.assertIsNone(row['denominator'])
 
 
 if __name__ == '__main__':

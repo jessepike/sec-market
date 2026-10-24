@@ -1,5 +1,20 @@
 # Lessons
 
+## 2026-10-24 · Separate measures keep their own evidence
+
+- [new:2026-10-24] Valid historical review and current revalidation are different states. Known
+  changed or failed article work must override a recent audit cursor, pass continuity with its
+  own typed proof, and close its exact derived queue marker after actual successful revalidation.
+  Preserve original candidate-held records and immutable history throughout that lifecycle.
+- [new:2026-10-24] Successful intake needs complete discovery and actual observation references. Partial or
+  blocked discovery can still have useful retained observations; those observations alone
+  cannot establish success. A summary verifier must preserve these failure receipts.
+- [new:2026-10-24] A transport age needs both lower and upper bounds. A future same-body observation must not
+  clear known changed work or make processing complete while old review evidence remains valid.
+- [new:2026-10-24] Changing the enclosing collection policy changes the global correction stamp. Retain the old
+  stamp against its pinned contract and prove every group review policy is unchanged before
+  updating the prospective stamp; never rewrite original admissions to match a new global hash.
+
 Working lessons for agents on this project, newest first, at most about 15. Each line carries a tag:
 
 - `[new:<date>]` recorded this session, not yet reviewed for the owner's shared knowledge base;

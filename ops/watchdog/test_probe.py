@@ -190,5 +190,86 @@ class CorrectionCollectionTests(unittest.TestCase):
         self.assertEqual(self.inspect(), ["FACTUAL_CORRECTION_COLLECTION_MISSING_OR_INVALID"])
 
 
+class SeparateCoverageTests(unittest.TestCase):
+    def setUp(self):
+        self.contract = json.loads((Path(__file__).resolve().parents[2] / 'contracts/market.json').read_text())
+        self.plan = probe.plan_run(self.contract, '2026-10-23T04:00:00Z')
+        sources = {source['id']: source for source in self.contract['sources']}
+        self.checked = next(task for task in self.plan['tasks']
+                            if task['required'] and sources.get(task['sourceId'], {}).get('registration') == 'verified')
+        self.coverage = self.make_coverage()
+
+    @staticmethod
+    def progress(kind, pending=0):
+        inventory = pending
+        value = dict(complete=pending == 0, inventoryDocuments=inventory,
+                     reviewedDocuments=0, pendingDocuments=pending, heldDocuments=0)
+        if kind == 'processing':
+            value.update(changedDocuments=0, unknownDateDocuments=0)
+        return value
+
+    def make_coverage(self):
+        required = [task for task in self.plan['tasks'] if task['required']]
+        rows, receipts = [], []
+        for task in self.plan['tasks']:
+            checked = task['taskId'] == self.checked['taskId']
+            intake = 'checked' if checked else 'not_checked'
+            receipt = dict(taskId=task['taskId'], sourceId=task['sourceId'], supplierId=task['supplierId'],
+                           outcome='checked_no_change' if checked else 'not_checked',
+                           discoveryComplete=checked, observationIds=['observation'] if checked else [])
+            receipts.append(receipt)
+            rows.append(dict(taskId=task['taskId'], sourceId=task['sourceId'], supplierId=task['supplierId'],
+                             intakeOutcome=intake, outcome=intake, processingOutcome=receipt['outcome'],
+                             processing=self.progress('processing'),
+                             historicalReview=self.progress('historicalReview', 1 if checked else 0)))
+        good = {self.checked['taskId']}
+        gaps = sorted({task['taskId'] for task in required} - good)
+        coverage = dict(schemaVersion=2, measure='daily_source_intake_v2', checkedAt='2026-10-23T04:00:00Z',
+                        runId=self.plan['runId'], successfulTasks=1, requiredTasks=len(required),
+                        complete=False, gapTaskIds=gaps,
+                        intake=dict(measure='daily_source_intake_v2', evaluated=True, status='collected', successfulTasks=1,
+                                    requiredTasks=len(required), complete=False, gapTaskIds=gaps),
+                        tasks=rows, receipts=receipts)
+        for kind in ('processing', 'historicalReview'):
+            fields = ['inventoryDocuments', 'reviewedDocuments', 'pendingDocuments', 'heldDocuments']
+            if kind == 'processing':
+                fields += ['changedDocuments', 'unknownDateDocuments']
+            coverage[kind] = {field:sum(row[kind][field] for row in rows) for field in fields}
+            coverage[kind]['complete'] = all(row[kind]['complete'] for row in rows)
+        return coverage
+
+    def test_public_unbound_source_encoding_matches_planned_none(self):
+        public = copy.deepcopy(self.coverage)
+        public['sources'] = public['tasks']
+        for row in public['tasks']:
+            if row['sourceId'] is None:
+                row['sourceId'] = ''
+        reasons, _ = probe.separate_health(self.contract, public, public=True)
+        self.assertNotIn('SEPARATE_COVERAGE_INVALID_OR_UNCOLLECTED', reasons)
+
+    def test_raw_discovery_cannot_disagree_with_checked_intake(self):
+        receipt = next(item for item in self.coverage['receipts'] if item['taskId'] == self.checked['taskId'])
+        receipt['discoveryComplete'] = False
+        reasons, _ = probe.separate_health(self.contract, self.coverage)
+        self.assertIn('SEPARATE_COVERAGE_INVALID_OR_UNCOLLECTED', reasons)
+
+    def test_failed_intake_can_retain_partial_or_ineligible_observations(self):
+        task = next(row for row in self.coverage['tasks'] if row['intakeOutcome'] != 'checked')
+        receipt = next(item for item in self.coverage['receipts'] if item['taskId'] == task['taskId'])
+        receipt['observationIds'] = ['partial-page']
+        reasons, _ = probe.separate_health(self.contract, self.coverage)
+        self.assertNotIn('SEPARATE_COVERAGE_INVALID_OR_UNCOLLECTED', reasons)
+        receipt['discoveryComplete'] = True  # complete but possibly stale or otherwise ineligible
+        reasons, _ = probe.separate_health(self.contract, self.coverage)
+        self.assertNotIn('SEPARATE_COVERAGE_INVALID_OR_UNCOLLECTED', reasons)
+
+    def test_historical_backlog_is_reported_separately_from_fresh_intake(self):
+        reasons, details = probe.separate_health(self.contract, self.coverage)
+        self.assertIn('HISTORICAL_REVIEW_PENDING_1', reasons)
+        self.assertIn('DAILY_INTAKE_INCOMPLETE', reasons)
+        self.assertNotIn('PROCESSING_PENDING_1', reasons)
+        self.assertEqual(details['historicalReview']['pendingDocuments'], 1)
+
+
 if __name__ == "__main__":
     unittest.main()

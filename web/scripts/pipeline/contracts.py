@@ -46,7 +46,7 @@ def validate_contract(contract):
     require(bool(contract.get("version")), "Contract version required")
     if "collection" in contract:
         policy = contract["collection"]
-        require(policy.get("mode") == "delta_with_retained_audit", "Unsupported collection mode")
+        require(policy.get("mode") in ("delta_with_retained_audit", "daily_intake_with_separate_history"), "Unsupported collection mode")
         for key in ("currentWindowDays", "maxDocumentsPerSource", "maxAuditDocumentsPerSource"):
             require(type(policy.get(key)) is int and policy[key] > 0, "Invalid collection bound: " + key)
         require(policy["maxAuditDocumentsPerSource"] <= policy["maxDocumentsPerSource"], "Audit exceeds source budget")

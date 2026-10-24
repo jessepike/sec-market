@@ -213,12 +213,13 @@ def _verify_compressed_validation_inputs(receipt, store):
 
 
 def reconcile(plan, receipts, contract, now, store):
+    from separation import enabled as separated, MEASURE, source_measure, totals
     require(plan["contractSha256"] == digest(contract), "Contract changed after planning")
     require(plan["inventorySha256"] == digest(plan["tasks"]), "Task inventory changed")
     unique([r["taskId"] for r in receipts], "final task receipt")
     expected = {t["taskId"]: t for t in plan["tasks"]}
     require(set(expected) == {r["taskId"] for r in receipts}, "Required inventory missing or unexpected receipt")
-    successful, gaps = [], []
+    successful, gaps, measured_tasks = [], [], []
     suppliers = {s["id"] for s in contract["suppliers"]}
     sources = {s["id"]: s for s in contract["sources"]}
     require(suppliers == set(plan["supplierIds"]), "Supplier denominator changed")
@@ -227,6 +228,13 @@ def reconcile(plan, receipts, contract, now, store):
         source = sources.get(task["sourceId"])
         from retained_audit import bounded, verify_receipt
         repaired_audit = bounded(source, contract) and verify_receipt(receipt, plan, contract, source, now, store)
+        details = None
+        if separated(contract) and repaired_audit:
+            from retained_audit import separated_details
+            details = separated_details(receipt, contract, source, now, store)
+            partitions = __import__('json').loads(store.get(receipt['processingManifest']))
+            require(partitions == {'schemaVersion': 2, 'sourceId': source['id'], 'runId': receipt['runId'],
+                                   **details['partitions']}, 'Separated processing partition proof differs')
         if _neutral_filing_source(source):
             _reject_filing_semantics(receipt)
         if source and source["kind"] == "sec_index":
@@ -239,6 +247,8 @@ def reconcile(plan, receipts, contract, now, store):
         age = (instant(now) - instant(receipt["completedAt"])).total_seconds() / 3600
         require(age >= -5/60, "Future check timestamp")
         ok = receipt["outcome"] in ("updated", "checked_no_change") and receipt.get("discoveryComplete") is True and bool(receipt.get("observationIds")) and age <= contract["schedule"]["overdueHours"]
+        if separated(contract) and repaired_audit:
+            ok = False  # Independent intake proof below replaces combined document freshness.
         if ok:
             require(source and source["registration"] == "verified", "Unverified source cannot earn coverage")
             if _neutral_filing_source(source):
@@ -369,14 +379,26 @@ def reconcile(plan, receipts, contract, now, store):
             require(not receipt.get("newFactIds"), "No-change receipt contains new facts")
         if receipt["outcome"] == "updated":
             require(bool(receipt.get("newFactIds")), "Updated receipt has no accepted facts")
+        if separated(contract):
+            measure = source_measure(receipt, source, contract, now, store, details, legacy_ok=ok)
+            measured_tasks.append(measure)
+            if details is not None:
+                ok = details['intakeComplete'] and -5/60 <= age <= contract['schedule']['overdueHours']
+                require((measure['intakeOutcome'] == 'checked') == ok, 'Daily intake attempt freshness differs')
         if task["required"]:
             (successful if ok else gaps).append(task["taskId"])
     required = sum(t["required"] for t in plan["tasks"])
-    return {"schemaVersion": 1, "runId": plan["runId"], "contractSha256": plan["contractSha256"],
+    result = {"schemaVersion": 1, "runId": plan["runId"], "contractSha256": plan["contractSha256"],
             "inventorySha256": plan["inventorySha256"], "checkedAt": now, "supplierCount": len(suppliers),
             "requiredTasks": required, "successfulTasks": len(successful), "gapTaskIds": gaps,
             "complete": required > 0 and len(successful) == required, "outcome": "complete" if not gaps else "degraded",
             "receipts": receipts}
+    if separated(contract):
+        result.update(schemaVersion=2, measure=MEASURE, tasks=measured_tasks,
+                      intake={'measure': MEASURE, 'successfulTasks': len(successful), 'requiredTasks': required,
+                              'gapTaskIds': gaps, 'complete': result['complete'], 'evaluated': True, 'status': 'collected'},
+                      processing=totals(measured_tasks, 'processing'), historicalReview=totals(measured_tasks, 'historicalReview'))
+    return result
 
 
 def eligible_fact_references(coverage):
@@ -418,8 +440,11 @@ extraction without its complete document validation receipt remains ineligible.
             # Repaired partial receipts already replay the complete full inventory,
             # including retained URLs no longer present in today's feed.
             full = __import__('json').loads(store.get(receipt['retainedInventoryManifest']))
+            changed = set(__import__('json').loads(store.get(receipt['processingManifest']))['revalidationRequired']) if receipt.get('retainedAuditVersion') == 2 else set()
             for document in receipt.get('documentValidations', []):
                 require(document['url'] in full['items'], 'Partial retained document is outside full inventory')
+                if document['url'] in changed:
+                    continue  # Known changes retain history but cannot release old facts as current processing.
                 validation = __import__('json').loads(store.get(document['validation']))
                 for reference in validation['factRefs']:
                     accepted[reference['sha256']] = reference

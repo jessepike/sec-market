@@ -14,6 +14,7 @@ sys.path.insert(0, str(REPO / "web/scripts/pipeline"))
 from archive import GitArchive
 from contracts import digest, instant, plan_run, require, utcnow, validate_contract
 from storage import LocalStore
+from coverage_summary import coverage_details
 
 
 def run(root):
@@ -46,6 +47,7 @@ def run(root):
             and type(coverage['complete']) is bool
             and coverage['complete'] == (coverage['requiredTasks'] > 0 and coverage['successfulTasks'] == coverage['requiredTasks']),
             'CANARY_ARCHIVED_COVERAGE_INVENTORY_DIFFERS')
+    details = coverage_details(coverage)
     instant(coverage['checkedAt'])
     receipts = coverage['receipts']
     tasks = {task['taskId']: task for task in plan['tasks']}
@@ -61,7 +63,7 @@ def run(root):
               "runnerOs": platform.system(), "archive": restored,
               "archivedCoverage": {"runId": coverage["runId"], 'checkedAt': coverage['checkedAt'], 'historical': True,
                   'receiptSha256': latest['receipt']['sha256'], 'inventorySha256': plan['inventorySha256'],
-                  "successfulTasks": coverage["successfulTasks"], "requiredTasks": coverage["requiredTasks"], "complete": coverage["complete"]},
+                  "successfulTasks": coverage["successfulTasks"], "requiredTasks": coverage["requiredTasks"], "complete": coverage["complete"], **details},
               **noncollection_fields(),
               "modelCalls": 0, "subscriptionCredentialsTransferred": False,
               "archiveChanged": False, "publicationAttempted": False,

@@ -1,0 +1,23 @@
+{
+  "kind": "prospective_uncollected_policy_baseline_migration",
+  "mechanicsOnlyNonAdmitting": true,
+  "originalContractSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+  "originalSnapshotSha256": "4d888e9e1c65d6dd5219dcf33c64ced610e07fcda70d7e8625a2ecb8598dd08d",
+  "originalFileSha256": "d72a48eb1c4e6be667eba31bc8cff73f1088baea1521f0ad7db845b23345c935",
+  "currentContractSha256": "79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60",
+  "candidateSnapshotSha256": "e797841d93674b223c75397cd979b61586eb8648358f9791b6b361824785e231",
+  "candidateFileSha256": "e339c9157c0e4daffcd85705d894a4ac4dfb19ca252d1c581a604ea359d27fd1",
+  "currentIntake": {
+    "successfulTasks": 0,
+    "requiredTasks": 557,
+    "evaluated": false
+  },
+  "priorProductionLegacyCombinedCoverage": {
+    "successfulTasks": 244,
+    "requiredTasks": 557,
+    "reinterpreted": false
+  },
+  "originalCheckTimesPreserved": true,
+  "fullOriginalContractAndSnapshotPinned": true,
+  "sourceModelArchivePublicationCalls": 0
+}

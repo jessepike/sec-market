@@ -25,6 +25,7 @@ from onboarding import PersistentProbeBudget, ProbeReservationDenied, probe_sour
 from snapshot import build_snapshot
 from storage import LocalStore
 from validation import reconcile
+from coverage_summary import coverage_details
 
 spec = importlib.util.spec_from_file_location("session_runtime", REPO / "ops/cloud/run.py")
 session_runtime = importlib.util.module_from_spec(spec)
@@ -112,10 +113,11 @@ def escrow_budgets(root, state, session, contract, at):
     state.compare_and_swap(name, ceiling, before or {"calls": 0, "documents": 0, "fetches": 0})
 
 
-def execution_outcome(complete, cancelled=False):
+def execution_outcome(complete, cancelled=False, coverage=None):
     """Keep runner completion separate from the unchanged coverage verdict."""
-    return {"executionCompleted": not cancelled,
-            "outcome": "cancelled" if cancelled else "completed_complete" if complete else "completed_with_gaps"}
+    separated = coverage_details(coverage) if coverage is not None else {}
+    outcome = ("completed_intake" if complete else "completed_intake_with_gaps") if separated else ("completed_complete" if complete else "completed_with_gaps")
+    return {"executionCompleted": not cancelled, "outcome": "cancelled" if cancelled else outcome, **separated}
 
 
 def exit_code(result):
@@ -131,7 +133,8 @@ def archive_collection_result(state, result, contract, attempt):
     fields = ('githubRunId', 'githubEventName', 'githubRef', 'appRevision', 'runId',
               'successfulTasks', 'requiredTasks', 'complete', 'executionCompleted', 'outcome')
     retained = {key: result[key] for key in fields}
-    for key in ('reusesScheduledCollectionRunId','sourceReceiptSha256','sourceCheckedAt','corrections'):
+    for key in ('reusesScheduledCollectionRunId','sourceReceiptSha256','sourceCheckedAt','corrections',
+                'coverageMeasure','intake','processing','historicalReview'):
         if key in result:
             retained[key]=result[key]
     retained.update(githubRunAttempt=int(attempt), contractSha256=digest(contract))
@@ -149,8 +152,11 @@ def verified_scheduled_source(state, contract, now, lookup=github_run):
     if coverage.get('contractSha256') != digest(contract) or coverage.get('requiredTasks',0) <= 0 \
             or not 0 <= age <= contract['schedule']['overdueHours']:
         return None
+    details = coverage_details(coverage)
     summary=(state.read('heads/cloud-collector.json') or {}).get('coverage',{})
     if any(summary.get(k) != coverage.get(k) for k in ('runId','successfulTasks','requiredTasks','complete')):
+        return None
+    if any(summary.get(k) != v for k, v in details.items()):
         return None
     selected=None
     for path in sorted((state.root/'ci/collection-runs').glob('*.json'),reverse=True):
@@ -171,6 +177,8 @@ def verified_scheduled_source(state, contract, now, lookup=github_run):
             continue
         if any(clock.get(k) != coverage.get(k) for k in ('successfulTasks','requiredTasks','complete')):
             continue
+        if any(clock.get(k) != v for k, v in details.items()):
+            continue
         selected={'githubRunId':run['id'],'clock':clock,'run':run,'coverage':coverage,'receipt':latest['receipt']}
         break
     if selected is None:
@@ -182,6 +190,8 @@ def verified_scheduled_source(state, contract, now, lookup=github_run):
     require(original == coverage,'REUSED_SCHEDULE_RECONCILIATION_DIFFERS')
     current=reconcile(plan,receipts,contract,now,state)
     if any(current.get(k) != coverage.get(k) for k in ('successfulTasks','requiredTasks','complete','gapTaskIds')):
+        return None
+    if coverage_details(current) != details:
         return None
     return selected
 
@@ -203,6 +213,7 @@ def reuse_scheduled_collection(state, contract, now, lookup=github_run, correcti
             'appRevision':session_runtime.git('rev-parse','HEAD'),'runId':coverage['runId'],
             'successfulTasks':coverage['successfulTasks'],'requiredTasks':coverage['requiredTasks'],
             'complete':coverage['complete'],'executionCompleted':True,'outcome':'source_work_reused',
+            **coverage_details(coverage),
             'reusesScheduledCollectionRunId':source['githubRunId'],'sourceReceiptSha256':source['receipt']['sha256'],
             'sourceCheckedAt':coverage['checkedAt'],'modelCalls':0,'fetches':0,'apiFallback':False,
             'executionMode':'github_subscription','publication':{'published':False,'reason':'SEPARATE_PUBLISHER_REQUIRED'}}
@@ -340,7 +351,7 @@ def execute(root, maximum_seconds=1200, publisher_config=None, *, source_probe=F
                   "complete": checked["complete"], "modelCalls": agent.calls, "apiFallback": False,
                   "snapshotSha256": snapshot["snapshotSha256"], "reviewQueue": len(snapshot["reviewQueue"]),
                   "executionMode": "github_subscription", "publication": {"published": False, "reason": "INITIAL_CUTOVER_NOT_ENABLED"}}
-        result.update(execution_outcome(checked['complete'], collector.cancelled))
+        result.update(execution_outcome(checked['complete'], collector.cancelled, checked))
         if 'corrections' in collected:
             result['corrections'] = collected['corrections']
         if contract["publication"]["enabled"]:
@@ -352,7 +363,7 @@ def execute(root, maximum_seconds=1200, publisher_config=None, *, source_probe=F
         result["archive"] = finished["archive"]
         # A cancellation arriving during the final remote write still fails
         # execution, even if the durable evidence checkpoint succeeded.
-        result.update(execution_outcome(checked['complete'], collector.cancelled))
+        result.update(execution_outcome(checked['complete'], collector.cancelled, checked))
         return result
     except Exception as error:
         session_runtime.checkpoint(root, state, session, "failed", {"errorType": type(error).__name__, "published": False}, finish=True)

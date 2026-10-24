@@ -1,6 +1,6 @@
 import { certifiedClaimCount, certifiedCount, certifiedDateDisplay, checkInterval, receiptComplete } from '../data/tracker/certification'
 import { useEffect, useState } from 'react'
-import { dailyCoverage, dailyOverdue } from '../data/tracker/daily'
+import { dailyCoverage, dailyOverdue, type DailyCoverage } from '../data/tracker/daily'
 
 /**
  * AUTO-002 Phase 2: the `#overview` slot states what is certified and when,
@@ -13,21 +13,46 @@ import { dailyCoverage, dailyOverdue } from '../data/tracker/daily'
  * value only when that value changes, so this is the date of the last certified change; a missed
  * check is reported to the owner by the freshness probe, not shown here.
  */
-export function DailyCollectionStatus({ className = 'run-status__line' }: { className?: string }) {
+export function DailyCollectionStatus({ className = 'run-status__line', coverage = dailyCoverage }: {
+  className?: string; coverage?: DailyCoverage | null
+}) {
   const [overdue, setOverdue] = useState(false)
   useEffect(() => {
-    const coverage = dailyCoverage
     if (!coverage) return
     const update = () => setOverdue(dailyOverdue(coverage, Date.now()))
     update()
     const timer = setInterval(update, 60000)
     return () => clearInterval(timer)
-  }, [])
-  if (!dailyCoverage) return null
-  return <p className={`${className} run-status__line--${dailyCoverage.complete && !overdue ? 'updated' : 'incomplete'}`} aria-live="polite">
-    Latest recorded collection: {dailyCoverage.lastCollectionAt.slice(0, 16).replace('T', ' ')} UTC.{' '}
-    {dailyCoverage.successfulTasks} of {dailyCoverage.requiredTasks} required source checks completed.
-    {!dailyCoverage.complete && ' Coverage is incomplete.'}{overdue && ' The next check is overdue.'}{' '}
+  }, [coverage])
+  if (!coverage) return null
+  if (coverage.schemaVersion === 2) {
+    const { intake, processing, historicalReview: history } = coverage
+    const complete = intake.complete && processing.complete && history.complete && history.heldDocuments === 0
+    return <div className={`${className} run-status__line--${complete && !overdue ? 'updated' : 'incomplete'}`} aria-live="polite">
+      {intake.evaluated && overdue && 'The next source check is overdue. '}
+      {intake.evaluated ? <>Daily source intake: {intake.successfulTasks} of {intake.requiredTasks} checked; {intake.complete ? 'complete' : 'incomplete'}.</> : <>Daily source intake: not yet collected ({intake.successfulTasks} of {intake.requiredTasks}).</>}<br />
+      {processing.evaluated === false ? <>Document processing: not evaluated; pending, held and unknown-date counts unmeasured.</> : <>
+      Document processing ({processing.complete ? 'complete' : 'incomplete'}): {processing.inventoryDocuments === 0 ? 'no documents observed' : <>{processing.reviewedDocuments} of {processing.inventoryDocuments} reviewed</>};{' '}
+      {processing.pendingDocuments} pending, {processing.heldDocuments} held,{' '}
+      {processing.changedDocuments} changed, {processing.unknownDateDocuments} dates unknown.</>}<br />
+      {history.evaluated === false ? <>Historical review: not evaluated; pending and held counts unmeasured.</> : <>
+      Historical review ({history.complete ? 'complete' : 'incomplete'}): {history.inventoryDocuments === 0 ? 'no documents observed' : <>{history.reviewedDocuments} of {history.inventoryDocuments} reviewed</>};{' '}
+      {history.pendingDocuments} pending, {history.heldDocuments} held.</>}{' '}
+      <details>
+        <summary>Dates, review limits and source receipts</summary>
+        {intake.evaluated ? 'Latest recorded source intake: ' : 'Source intake has not yet been collected under this policy. Earlier recorded collection: '}
+        {coverage.lastCollectionAt.slice(0, 16).replace('T', ' ')} UTC.{' '}
+        Source intake does not mean every current event or historical claim has been reviewed. Earlier evidence keeps its original source and review dates.{' '}
+        Index date hints guide collection; they do not verify article publication or event dates.{' '}
+        Processing counts refer to inventoried documents; historical review counts refer to retained documents. Held documents have been reviewed but remain unresolved. Changed and unknown-date counts are separate classifications, not additional reviewed documents.{' '}
+        <a href="/daily-coverage.json">Sources, frequency and check receipts</a>
+      </details>
+    </div>
+  }
+  return <p className={`${className} run-status__line--${coverage.complete && !overdue ? 'updated' : 'incomplete'}`} aria-live="polite">
+    Latest recorded collection: {coverage.lastCollectionAt.slice(0, 16).replace('T', ' ')} UTC.{' '}
+    {coverage.successfulTasks} of {coverage.requiredTasks} required source checks completed.
+    {!coverage.complete && ' Coverage is incomplete.'}{overdue && ' The next check is overdue.'}{' '}
     <a href="/daily-coverage.json">Sources, frequency and check receipts</a>
   </p>
 }

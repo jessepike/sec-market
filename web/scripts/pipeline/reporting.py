@@ -7,16 +7,18 @@ from contracts import digest, plan_run
 
 
 def inventory(contract, at, coverage=None):
+    from separation import enabled as separated
     plan = plan_run(contract, at)
     # A receipt for a different policy must not annotate this policy as checked.
     receipts = {r["taskId"]: r for r in (coverage or {}).get("receipts", [])} if (coverage or {}).get("contractSha256") == digest(contract) else {}
+    measures = {r['taskId']: r for r in (coverage or {}).get('tasks', [])} if receipts else {}
     sources = {s["id"]: s for s in contract["sources"]}
     suppliers = {s["id"]: s for s in contract["suppliers"]}
     rows = []
     for task in plan["tasks"]:
         source = sources.get(task["sourceId"], {})
         receipt = receipts.get(task["taskId"], {})
-        rows.append({"taskId": task["taskId"], "supplierId": task["supplierId"], "supplier": suppliers[task["supplierId"]]["name"],
+        row = {"taskId": task["taskId"], "supplierId": task["supplierId"], "supplier": suppliers[task["supplierId"]]["name"],
                      "supplierKind": suppliers[task["supplierId"]]["kind"],
                      "startupStatus": suppliers[task["supplierId"]].get("startupStatus", "unclassified"),
                      "family": source.get("family", task.get("family")), "sourceId": task["sourceId"] or "",
@@ -24,7 +26,15 @@ def inventory(contract, at, coverage=None):
                      "registration": source.get("registration", "missing"), "required": task["required"],
                      "intervalHours": contract["schedule"]["intervalHours"],
                      "lastCheckedAt": receipt.get("completedAt") or "",
-                     "outcome": receipt.get("outcome", "not_checked"), "errorCode": receipt.get("errorCode") or ""})
+                     "outcome": receipt.get("outcome", "not_checked"), "errorCode": receipt.get("errorCode") or ""}
+        if separated(contract):
+            measure = measures.get(task['taskId'], {})
+            row.update(outcome=measure.get('intakeOutcome', 'not_checked'), errorCode=measure.get('intakeErrorCode') or '',
+                       measure='daily_source_intake_v2', intakeOutcome=measure.get('intakeOutcome', 'not_checked'),
+                       intakeErrorCode=measure.get('intakeErrorCode'), processingOutcome=receipt.get('outcome', 'not_checked'),
+                       processingErrorCode=receipt.get('errorCode'), processing=measure.get('processing'),
+                       historicalReview=measure.get('historicalReview'), processingManifest=receipt.get('processingManifest'))
+        rows.append(row)
     return sorted(rows, key=lambda r: (r["supplierId"], r["family"], r["sourceId"]))
 
 
@@ -48,6 +58,6 @@ def markdown_matrix(contract, rows):
     for supplier in contract["suppliers"]:
         subset = [r for r in rows if r["supplierId"] == supplier["id"]]
         c = Counter(r["registration"] for r in subset)
-        successful = sum(r["outcome"] in ("updated", "checked_no_change") for r in subset)
+        successful = sum(r["outcome"] in ("updated", "checked_no_change", "checked") for r in subset)
         lines.append(f"| {supplier['name']} | {supplier['kind']} | {supplier.get('startupStatus', 'unclassified')} | {len(subset)} | {c['verified']} | {c['candidate']} | {c['missing']} | {successful} |")
     return "\n".join(lines) + "\n"

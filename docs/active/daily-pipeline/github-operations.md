@@ -22,6 +22,25 @@ The publisher also requires main provenance and the explicit Vercel production-p
 
 ## What may publish
 
+D-112 versions source coverage as `daily_source_intake_v2`. Intake still uses the complete
+557-obligation denominator. Processing and historical review have separate source/URL inventories,
+reviewed, pending and held counts. Unknown dates remain explicit. An intake pass means the declared
+source check completed; it supplies no complete-event, historical-accuracy or reader-value result.
+Old combined 121/557 and 244/557 receipts keep their original contracts and meaning.
+
+Version-2 collection receipts use `completed_intake` or `completed_intake_with_gaps` for successful
+runner execution and retain the separate summaries through the immutable clock, checkpoint,
+scheduled reuse, build, public app receipt and monitor. Completed historical review can still hold
+claims. An uncollected preview baseline grants zero fresh checks and exposes its old timestamps.
+The read-only canary retains its contract-match guard: an old-policy archive cannot prove that
+the new-policy collector ran. Only actual new-policy collection can clear that transition hold.
+
+Keep original semantic review dates during retained reuse. Known article changes and failures
+remain due work within the existing bounded selection. Derived revalidation holds need their own
+replayable provenance and close only against an independently verified current result; original
+candidate-held records remain archived. A subsequent quiet day must reuse a sealed revalidation
+cursor without presenting the old article as newly retrieved.
+
 Public, sourced facts may publish after automated checks. Market judgments remain owner-written.
 All 80 SEC claims must pass independent re-derivation from archived inputs. General coverage may
 remain incomplete; every changed generic fact still needs its own source bytes, exact supporting

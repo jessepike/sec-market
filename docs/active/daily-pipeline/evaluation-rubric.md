@@ -47,7 +47,21 @@ its freshness result describes that time. Scheduled execution on this repaired r
 sustained operation remain unmeasured. Manual execution is not a failed or successful timer
 attempt. See `ops/evaluation/README.md` for the reproduction command and input boundaries.
 
+Under `daily_intake_with_separate_history`, intake, processing and historical review are distinct
+coverage measures. Intake requires a collected schema-2 observation. A checked task must have
+complete raw discovery and observation references; failed intake may retain partial or ineligible
+observations. Pending or held current processing remains visible even when intake
+passes; historical backlog is reported separately and cannot renew source age. Empty observed
+document inventories are unmeasured, not 0/0. These separate summaries do not estimate claim
+precision, event recall or all-site accuracy, and they do not change the fixed source denominator.
+
 ## Trust and further evaluation
+
+The separate [authenticated current-remediation observation](accuracy/current-correction-resolution-observation-2026-10-24.md)
+records all five mapped contradictions resolved around 04:01 UTC on October 24. It binds the
+original accepted reviews and reservations, exact gate/publisher evidence and live static bytes.
+The historical 177-record audit retains its original results. Five repaired benchmark records
+do not establish general current accuracy, event recall, sustained operation or reader value.
 
 Pins establish byte identity and reproducibility, not independent authenticity. The caller must
 obtain reviewed actual receipts. Archive body replay, actual GitHub run verification and current

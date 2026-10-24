@@ -22,6 +22,92 @@ REPO = "jessepike/sec-market"
 TITLE = "Daily pipeline needs attention"
 
 
+def separate_health(contract, coverage, public=False):
+    """Keep intake alarms and document backlog visible under the accepted policy."""
+    if contract.get('collection', {}).get('mode') != 'daily_intake_with_separate_history':
+        return [], {}
+    try:
+        from contracts import require
+        measure = 'daily_source_intake_v2'
+        require(coverage.get('schemaVersion') == 2 and coverage.get('measure') == measure,
+                'Separate coverage version differs')
+        intake = coverage['intake']
+        require(intake.get('evaluated') is True and intake.get('status') == 'collected', 'Intake is uncollected')
+        for field in ('successfulTasks', 'requiredTasks'):
+            require(type(coverage[field]) is int and coverage[field] >= 0, 'Invalid intake count')
+        require(0 <= coverage['successfulTasks'] <= coverage['requiredTasks'] and coverage['requiredTasks'] > 0,
+                'Impossible intake count')
+        require(type(coverage['complete']) is bool and coverage['complete'] == (coverage['successfulTasks'] == coverage['requiredTasks']),
+                'False intake completeness')
+        require(all(intake[field] == coverage[field] for field in ('successfulTasks', 'requiredTasks', 'gapTaskIds', 'complete'))
+                and intake.get('measure') == measure, 'Separate intake aliases differ')
+        rows = coverage['sources' if public else 'tasks']
+        require(isinstance(rows, list)
+                and len({row['taskId'] for row in rows}) == len(rows), 'Separate task inventory differs')
+        good_all = {row['taskId'] for row in rows if row.get('intakeOutcome') == 'checked'}
+        require(all(row.get('outcome') == row.get('intakeOutcome') and row.get('intakeOutcome') in ('checked', 'not_checked', 'blocked', 'failed') for row in rows),
+                'Separate task outcome differs')
+        require(isinstance(coverage['gapTaskIds'], list)
+                and len(coverage['gapTaskIds']) == len(set(coverage['gapTaskIds'])), 'Separate task gaps are invalid')
+        expected = {task['taskId']: task for task in plan_run(contract, coverage['checkedAt'])['tasks']}
+        require(set(expected) == {row['taskId'] for row in rows}, 'Separate planned inventory differs')
+        required = {task['taskId'] for task in expected.values() if task['required']}
+        good = good_all & required
+        require(coverage['requiredTasks'] == len(required), 'Separate required denominator differs')
+        require(type(coverage['successfulTasks']) is int and len(good) == coverage['successfulTasks'],
+                'Separate intake success differs')
+        require(set(coverage['gapTaskIds']) == required - good, 'Separate intake gaps differ')
+        sources = {source['id']: source for source in contract['sources']}
+        for row in rows:
+            task = expected[row['taskId']]
+            # Public coverage serializes an unbound source as an empty string;
+            # the contract planner represents the same value as None.
+            raw_source_id = row.get('sourceId')
+            require('sourceId' in row and 'supplierId' in row
+                    and (raw_source_id is None or isinstance(raw_source_id, str)),
+                    'Separate task subject fields missing or malformed')
+            source_id = raw_source_id or None
+            require(source_id == task['sourceId'] and row.get('supplierId') == task['supplierId'], 'Separate source identity differs')
+            if row['taskId'] in good:
+                require(sources.get(task['sourceId'], {}).get('registration') == 'verified', 'Unverified intake success')
+        if not public:
+            receipts = {receipt['taskId']: receipt for receipt in coverage['receipts']}
+            require(len(receipts) == len(coverage['receipts']) and set(receipts) == set(expected), 'Raw receipt inventory differs')
+            for row in rows:
+                receipt = receipts[row['taskId']]
+                require(row.get('processingOutcome') == receipt.get('outcome'), 'Raw processing outcome differs')
+                discovered, observation_ids = receipt.get('discoveryComplete'), receipt.get('observationIds')
+                require(type(discovered) is bool and isinstance(observation_ids, list)
+                        and all(isinstance(value, str) and value for value in observation_ids),
+                        'Invalid raw discovery receipt')
+                if row['taskId'] in good:
+                    require(discovered and bool(observation_ids),
+                            'Checked intake lacks complete raw discovery')
+        summaries = {}
+        for kind in ('processing', 'historicalReview'):
+            fields = ['inventoryDocuments', 'reviewedDocuments', 'pendingDocuments', 'heldDocuments']
+            if kind == 'processing': fields += ['changedDocuments', 'unknownDateDocuments']
+            for value in [coverage[kind]] + [row[kind] for row in rows]:
+                require(value.get('evaluated') is not False and all(type(value[field]) is int and value[field] >= 0 for field in fields), 'Invalid progress counters')
+                require(value['inventoryDocuments'] == value['reviewedDocuments'] + value['pendingDocuments'] and value['heldDocuments'] <= value['reviewedDocuments'], 'Invalid review partition')
+                if kind == 'processing':
+                    require(value['changedDocuments'] + value['unknownDateDocuments'] <= value['inventoryDocuments'], 'Invalid document classification')
+                complete = value['pendingDocuments'] == 0 and (kind != 'processing' or value['heldDocuments'] == 0)
+                require(type(value['complete']) is bool and value['complete'] == complete, 'False progress completeness')
+            require(all(coverage[kind][field] == sum(row[kind][field] for row in rows) for field in fields), 'Progress aggregate differs')
+            summaries[kind] = coverage[kind]
+        reasons = []
+        if not coverage['complete']: reasons.append('DAILY_INTAKE_INCOMPLETE')
+        processing = summaries['processing']
+        if processing['pendingDocuments']: reasons.append('PROCESSING_PENDING_' + str(processing['pendingDocuments']))
+        if processing['heldDocuments']: reasons.append('PROCESSING_HELD_' + str(processing['heldDocuments']))
+        historical = summaries['historicalReview']
+        if historical['pendingDocuments']: reasons.append('HISTORICAL_REVIEW_PENDING_' + str(historical['pendingDocuments']))
+        return reasons, {'coverageMeasure': measure, **summaries}
+    except (ValueError, KeyError, TypeError):
+        return ['SEPARATE_COVERAGE_INVALID_OR_UNCOLLECTED'], {'coverageMeasure': 'daily_source_intake_v2'}
+
+
 def api(path, raw=False):
     args = ["gh", "api", f"repos/{REPO}/{path}", "--header", "Cache-Control: no-cache"]
     if raw:
@@ -91,10 +177,12 @@ def inspect_collection(contract, read_archive, now, authority):
     state = health(coverage, now, contract["schedule"]["overdueHours"], digest(contract))
     if not state["healthy"]:
         problems.append(state["reason"])
+    separate_problems, details = separate_health(contract, coverage)
+    problems.extend(separate_problems)
     return {"healthy": not problems, "checkedAt": now, "runId": coverage["runId"],
             "reasons": problems, "publicationEnabled": contract["publication"]["enabled"],
             "scheduledRunUrl": scheduled.get("html_url") if scheduled else None,
-            "successfulTasks": coverage["successfulTasks"], "requiredTasks": coverage["requiredTasks"]}
+            "successfulTasks": coverage["successfulTasks"], "requiredTasks": coverage["requiredTasks"], **details}
 
 
 def inspect_corrections(context, read_archive, run_id):
@@ -125,6 +213,8 @@ def inspect(contract, read_archive, get_live, now, authority=None):
     status = health(coverage, now, contract["schedule"]["overdueHours"], digest(contract))
     if not status["healthy"]:
         problems.append(status["reason"])
+    separate_problems, details = separate_health(contract, coverage)
+    problems.extend(separate_problems)
     expected = plan_run(contract, coverage["checkedAt"])
     if coverage["supplierCount"] != len(contract["suppliers"]) or coverage["requiredTasks"] != sum(t["required"] for t in expected["tasks"]):
         problems.append("COVERAGE_DENOMINATOR_DIFFERS")
@@ -170,6 +260,8 @@ def inspect(contract, read_archive, get_live, now, authority=None):
     if app.get("appRevision") != manifest["appRevision"] or app.get("dailySnapshotSha256") != manifest["snapshot"]["sha256"]:
         problems.append("DEPLOYED_APPLICATION_DATA_PAIR_DIFFERS")
     public = get_live("https://securitymarketpulse.com/daily-coverage.json")
+    public_problems, _ = separate_health(contract, public, public=True)
+    problems.extend('PUBLIC_' + reason for reason in public_problems)
     if public.get("runId") != coverage["runId"] or public.get("contractSha256") != digest(contract):
         problems.append("COLLECTION_HAS_NOT_REACHED_PRODUCTION")
     if public.get("complete") is not True or not public.get("validUntil") or instant(now) > instant(public["validUntil"]):
@@ -185,7 +277,7 @@ def inspect(contract, read_archive, get_live, now, authority=None):
     queue = read_archive("heads/cloud-snapshot.json" if native else "heads/dailySnapshot.json").get("reviewQueue", [])
     if queue:
         problems.append(f"HELD_CLAIMS_{len(queue)}")
-    return {"healthy": not problems, "checkedAt": now, "runId": coverage["runId"], "reasons": problems}
+    return {"healthy": not problems, "checkedAt": now, "runId": coverage["runId"], "reasons": problems, **details}
 
 
 def notify(result):

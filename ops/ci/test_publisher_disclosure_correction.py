@@ -173,7 +173,11 @@ class PublisherDisclosureCorrectionTests(unittest.TestCase):
             self.assertEqual(digest(group), item["candidateSha256"])
             self.assertEqual(digest(group["sources"]), item["evidenceSetSha256"])
             self.assertEqual(group_review_policy(group, market, requests["baseline"]["sha256"]), item["reviewPolicySha256"])
-        self.assertEqual(load_policy(ROOT, market)["policySha256"], repair["proposedGlobalPolicySha256"])
+        historical_market = json.loads((ROOT / 'docs/active/daily-pipeline/evaluations/2026-10-24/operational-inputs/contract.json').read_text())
+        self.assertEqual(digest({'marketSha256': digest(historical_market), 'requestsSha256': digest(requests),
+                                 'baselineSha256': requests['baseline']['sha256']}), repair['proposedGlobalPolicySha256'])
+        self.assertEqual(load_policy(ROOT, market)['policySha256'], digest({'marketSha256': digest(market),
+                         'requestsSha256': digest(requests), 'baselineSha256': requests['baseline']['sha256']}))
 
     def test_same_gate_seal_publication_date_and_history_flow_carries_the_scope(self):
         f = self.f

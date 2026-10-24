@@ -19,6 +19,23 @@ from test_correction_collection import fixture_contract, NOW
 
 
 class RuntimeCanaryTests(unittest.TestCase):
+    def test_v2_archive_reports_intake_and_pending_reviews_without_live_credit(self):
+        from test_coverage_summary import separated_coverage
+        coverage = {**self.coverage, **separated_coverage()}
+        # Keep the real fixture's required source inventory and blocked intake.
+        coverage.update(successfulTasks=0, requiredTasks=self.coverage['requiredTasks'], complete=False,
+                        gapTaskIds=[r['taskId'] for r in coverage['receipts']])
+        coverage['intake'].update(successfulTasks=0, requiredTasks=coverage['requiredTasks'], complete=False,
+                                  gapTaskIds=coverage['gapTaskIds'])
+        self.replace_coverage(coverage)
+        self.prepare()
+        result = self.execute()
+        self.assertEqual(result['archivedCoverage']['coverageMeasure'], 'daily_source_intake_v2')
+        self.assertFalse(result['archivedCoverage']['processing']['complete'])
+        self.assertEqual(result['archivedCoverage']['historicalReview']['pendingDocuments'], 18)
+        self.assertFalse(result['coverageCredit'])
+        self.assert_no_market_work()
+
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)

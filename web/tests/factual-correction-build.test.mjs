@@ -242,7 +242,11 @@ test('scoped build proves historical baseline and exact three-field amendment wi
     assert.equal(digest(group.sources), item.evidenceSetSha256)
     assert.equal(policy.reviewPolicySha256ByGroup[group.id], item.reviewPolicySha256)
   }
-  assert.equal(policy.policySha256, repair.proposedGlobalPolicySha256)
+  const historicalMarket = JSON.parse(readFileSync(new URL('../../docs/active/daily-pipeline/evaluations/2026-10-24/operational-inputs/contract.json', import.meta.url)))
+  assert.equal(digest({ marketSha256: digest(historicalMarket), requestsSha256: digest(requests), baselineSha256: requests.baseline.sha256 }), repair.proposedGlobalPolicySha256)
+  // D-112 changes the enclosing collection policy, preserving every group's
+  // independently bound review/admission context and original admission dates.
+  assert.equal(policy.policySha256, digest({ marketSha256: digest(market), requestsSha256: digest(requests), baselineSha256: requests.baseline.sha256 }))
   assert.equal(policy.reviewPolicySha256ByGroup[design.proposedGroupExample.id], design.proposedReviewPolicy.sha256)
   assert.deepEqual(f.bundle.groups.filter(group => !group.reviewScope), f.legacyRows)
   const result = verifyFactualCorrections(f.web)

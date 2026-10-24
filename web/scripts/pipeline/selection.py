@@ -6,6 +6,22 @@ from urllib.parse import unquote, urlsplit
 from contracts import instant
 
 
+def date_partitions(items, modified, policy, now):
+    """Index signatures classify work only; they never establish a fact date."""
+    cutoff = (instant(now) - timedelta(days=policy['currentWindowDays'])).date()
+    current, historical, unknown = set(), set(), set()
+    for url in items:
+        stamp = modified.get(url, '')
+        try:
+            day = __import__('datetime').date.fromisoformat(stamp[:10])
+            if day > instant(now).date():
+                raise ValueError('Future scheduling hint')
+            (current if day >= cutoff else historical).add(url)
+        except (ValueError, TypeError):
+            unknown.add(url)
+    return current, historical, unknown
+
+
 def entity_url_priority(url, supplier):
     """Exact registered slugs are a work-order hint, never entity evidence."""
     if not supplier:
@@ -40,6 +56,7 @@ def select_documents(found, history, policy, now, supplier=None):
     modified = found.get("itemModified", {})
     cutoff = (instant(now) - timedelta(days=policy["currentWindowDays"])).date().isoformat()
     current, audit, audit_order = [], [], {}
+    revalidation = set(found.get('requiredRevalidation', []))
     for url in sorted(items):
         stamp = modified.get(url, "")
         old = history.get(url)
@@ -53,7 +70,7 @@ def select_documents(found, history, policy, now, supplier=None):
             valid_check = False
         due = not valid_check or old["checkedAt"][:10] < cutoff
         audit_order[url] = old["checkedAt"] if valid_check else ""
-        if changed or (recent and due):
+        if url in revalidation or changed or (recent and due):
             current.append(url)
         elif due:
             audit.append(url)

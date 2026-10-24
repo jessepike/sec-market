@@ -11,6 +11,69 @@ sys.path.insert(0, str(PIPELINE))
 from contracts import digest, instant, plan_run, require, valid_hash  # noqa: E402
 
 
+SEPARATE_MODE = 'daily_intake_with_separate_history'
+SEPARATE_MEASURE = 'daily_source_intake_v2'
+
+
+def separate_progress(value, kind):
+    fields = ('inventoryDocuments', 'reviewedDocuments', 'pendingDocuments', 'heldDocuments')
+    if kind == 'processing':
+        fields += ('changedDocuments', 'unknownDateDocuments')
+    require(isinstance(value, dict) and value.get('evaluated') is not False,
+            'Uncollected preview progress is not a collector receipt')
+    require(all(type(value.get(field)) is int and value[field] >= 0 for field in fields),
+            'Invalid separate progress counter')
+    require(value['inventoryDocuments'] == value['reviewedDocuments'] + value['pendingDocuments']
+            and value['heldDocuments'] <= value['reviewedDocuments'], 'Separate review partition differs')
+    if kind == 'processing':
+        require(value['changedDocuments'] + value['unknownDateDocuments'] <= value['inventoryDocuments'],
+                'Separate document classifications overlap or exceed inventory')
+    complete = value['pendingDocuments'] == 0 and (kind != 'processing' or value['heldDocuments'] == 0)
+    require(type(value.get('complete')) is bool and value['complete'] == complete,
+            'False separate progress completeness')
+    return {field: value[field] for field in fields}
+
+
+def separate_views(coverage, plan, receipts):
+    require(coverage.get('schemaVersion') == 2 and coverage.get('measure') == SEPARATE_MEASURE,
+            'Separate intake coverage schema or measure differs')
+    require(coverage.get('intake', {}).get('evaluated') is True,
+            'Separate intake is not a collected observation')
+    rows = coverage.get('tasks')
+    require(isinstance(rows, list) and all(isinstance(row, dict) for row in rows), 'Separate task views missing')
+    require(len(rows) == len({row['taskId'] for row in rows}) == len(plan['tasks']), 'Separate task inventory differs')
+    views = {row['taskId']: row for row in rows}
+    require(set(views) == {task['taskId'] for task in plan['tasks']}, 'Separate task inventory differs')
+    for task in plan['tasks']:
+        row, receipt = views[task['taskId']], receipts[task['taskId']]
+        require('sourceId' in row and 'supplierId' in row,
+                'Separate task subject fields missing')
+        require(row.get('sourceId') == task['sourceId'] and row.get('supplierId') == task['supplierId'],
+                'Separate task view subject differs')
+        require(row.get('intakeOutcome') in ('checked', 'not_checked', 'blocked', 'failed')
+                and row.get('outcome') == row['intakeOutcome'], 'Separate intake outcome differs')
+        require(row.get('processingOutcome') == receipt['outcome'], 'Separate processing outcome differs')
+        require(row.get('intakeErrorCode') is None if row['intakeOutcome'] == 'checked'
+                else isinstance(row.get('intakeErrorCode'), str) and bool(row['intakeErrorCode']),
+                'Separate intake error differs')
+        for kind in ('processing', 'historicalReview'):
+            separate_progress(row.get(kind), kind)
+    summaries = {}
+    for kind in ('processing', 'historicalReview'):
+        summary = separate_progress(coverage.get(kind), kind)
+        for field, count in summary.items():
+            require(count == sum(row[kind][field] for row in rows), 'Separate aggregate differs from task views')
+        require(coverage[kind]['complete'] == all(row[kind]['complete'] for row in rows),
+                'Separate aggregate completeness differs')
+        summaries[kind] = summary
+    expected_intake = {key: coverage[key] for key in
+                       ('successfulTasks', 'requiredTasks', 'gapTaskIds', 'complete')}
+    expected_intake.update(measure=SEPARATE_MEASURE, evaluated=True, status='collected')
+    require(coverage.get('intake') == expected_intake,
+            'Separate intake aliases differ')
+    return views, summaries
+
+
 def load_pinned(entry, base):
     require(set(entry) == {'path', 'sha256'}, 'Pin requires path and raw sha256')
     require(valid_hash(entry['sha256']), 'Invalid input hash')
@@ -40,13 +103,33 @@ def evaluate(manifest, base=Path('.')):
     require(len(receipts) == len({r['taskId'] for r in receipts}), 'Duplicate receipt')
     require({r['taskId'] for r in receipts} == {t['taskId'] for t in plan['tasks']}, 'Receipt inventory mismatch')
     require(coverage['requiredTasks'] == len(tasks) and coverage['supplierCount'] == len(contract['suppliers']), 'Coverage denominator mismatch')
+    separated = contract.get('collection', {}).get('mode') == SEPARATE_MODE
+    views, progress = (separate_views(coverage, plan, {r['taskId']: r for r in receipts}) if separated else ({}, {}))
+    if not separated:
+        require(coverage.get('schemaVersion', 1) != 2 and coverage.get('measure') != SEPARATE_MEASURE,
+                'Separate intake receipt used with legacy policy')
     good = set()
     for receipt in receipts:
         task = next(t for t in plan['tasks'] if t['taskId'] == receipt['taskId'])
         require(receipt['runId'] == plan['runId'] and receipt['sourceId'] == task['sourceId'] and receipt['supplierId'] == task['supplierId'], 'Receipt identity mismatch')
         require(instant(receipt['completedAt']) <= checked, 'Future task completion')
-        if receipt['outcome'] in ('updated', 'checked_no_change'):
+        success = views[receipt['taskId']]['intakeOutcome'] == 'checked' if separated else receipt['outcome'] in ('updated', 'checked_no_change')
+        if separated:
+            # The separate intake label must be supported by the raw discovery receipt.
+            # Processing can be incomplete, but it cannot manufacture or conceal intake.
+            discovered = receipt.get('discoveryComplete')
+            observation_ids = receipt.get('observationIds')
+            require(type(discovered) is bool and isinstance(observation_ids, list)
+                    and all(isinstance(value, str) and value for value in observation_ids),
+                    'Invalid raw discovery receipt')
+            if success:
+                require(discovered and bool(observation_ids),
+                        'Checked intake lacks complete raw discovery')
+        if success:
             require(receipt.get('discoveryComplete') is True and bool(receipt.get('observationIds')), 'Unsupported success receipt')
+            if separated:
+                source = next((source for source in contract['sources'] if source['id'] == task['sourceId']), None)
+                require(source and source['registration'] == 'verified', 'Unverified source claims intake success')
             if receipt['taskId'] in tasks:
                 good.add(receipt['taskId'])
     require(type(coverage['successfulTasks']) is int and coverage['successfulTasks'] == len(good), 'Success counter differs from receipts')
@@ -61,7 +144,17 @@ def evaluate(manifest, base=Path('.')):
                              observedAt=observed_at, evidence=list(evidence), limitations=limitation, **extra))
 
     add('coverage.required_tasks', 'coverage', 'pass' if coverage['complete'] else 'fail', len(good), len(tasks), ['coverage', 'contract'],
-        'Receipt-level source checks; does not establish every historical claim is accurate.', coverage['checkedAt'])
+        ('Fresh source intake only; processing and historical review are separate. No complete-event or all-site accuracy claim.'
+         if separated else 'Receipt-level source checks; does not establish every historical claim is accurate.'), coverage['checkedAt'],
+        **({'label': 'Daily source intake'} if separated else {}))
+    if separated:
+        for kind, label in (('processing', 'Observed document processing'), ('historicalReview', 'Retained historical review')):
+            value = progress[kind]
+            observed = value['inventoryDocuments'] > 0
+            add('coverage.' + kind, 'coverage', ('pass' if coverage[kind]['complete'] else 'fail') if observed else 'unmeasured',
+                value['reviewedDocuments'] if observed else None, value['inventoryDocuments'] if observed else None,
+                ['coverage', 'contract'], 'Source/URL inventory; reviewed documents can contain held claims. Pinned counters are not source-body authentication or an accuracy estimate.',
+                coverage['checkedAt'], label=label, **value)
     sources = {s['id']: s for s in contract['sources']}
     sec = {tid for tid, task in tasks.items() if sources.get(task['sourceId'], {}).get('kind') in ('sec_facts', 'sec_submissions', 'sec_documents')}
     add('coverage.sec_tasks', 'coverage', 'pass' if sec and sec <= good else 'fail', len(sec & good), len(sec), ['coverage', 'contract'],
@@ -71,7 +164,9 @@ def evaluate(manifest, base=Path('.')):
         limitation='Collection check age only. This evaluator does not replay archived observation bodies.', observed_at=coverage['checkedAt'],
         ageHours=age, maximumAgeHours=contract['schedule']['overdueHours'])
     add('freshness.all_required_checks', 'freshness', 'pass' if coverage['complete'] and age <= contract['schedule']['overdueHours'] else 'fail', len(good), len(tasks), ['coverage', 'contract'],
-        'Incomplete required source checks prevent a full-roster freshness pass.', coverage['checkedAt'])
+        ('Fresh intake across the declared roster only; pending processing and history remain separately visible.'
+         if separated else 'Incomplete required source checks prevent a full-roster freshness pass.'), coverage['checkedAt'],
+        **({'label': 'Fresh intake across the declared roster'} if separated else {}))
     gate = data.get('gate')
     if gate:
         require(gate['runId'] == coverage['runId'] and gate['appRevision'] == revision and gate['contractSha256'] == digest(contract), 'Gate identity mismatch')
@@ -177,7 +272,7 @@ def evaluate(manifest, base=Path('.')):
         source = sources.get(task['sourceId'], {})
         receipt = receipt_by_task[tid]
         family = source.get('family', task.get('family', 'unknown'))
-        reason = 'successful' if tid in good else receipt.get('errorCode') or receipt['outcome']
+        reason = 'successful' if tid in good else (views[tid].get('intakeErrorCode') or views[tid]['intakeOutcome'] if separated else receipt.get('errorCode') or receipt['outcome'])
         groups['family'][family].append(tid)
         groups['supplier'][task['supplierId']].append(tid)
         for domain in suppliers[task['supplierId']].get('domainIds', ['unclassified']):
@@ -192,7 +287,7 @@ def evaluate(manifest, base=Path('.')):
                              missingBindings=sum(tasks[tid]['sourceId'] is None for tid in ids),
                              candidateBindings=sum(sources.get(tasks[tid]['sourceId'], {}).get('registration') == 'candidate' for tid in ids),
                              verifiedBindings=sum(sources.get(tasks[tid]['sourceId'], {}).get('registration') == 'verified' for tid in ids),
-                             outcomes=dict(Counter(receipt_by_task[tid]['outcome'] for tid in ids)), taskIds=ids))
+                             outcomes=dict(Counter(views[tid]['intakeOutcome'] if separated else receipt_by_task[tid]['outcome'] for tid in ids)), taskIds=ids))
         breakdowns[axis] = rows
     registration = Counter(s['registration'] for s in sources.values() if s['required'])
     overview = dict(requiredTasks=len(tasks), successfulTasks=len(good), gapTasks=len(tasks)-len(good),
@@ -200,6 +295,7 @@ def evaluate(manifest, base=Path('.')):
                     missingBindings=sum(t['sourceId'] is None for t in tasks.values()),
                     limitation='Verified registration is not a successful source check. 557 total obligations remain the primary denominator. Domain totals can overlap for suppliers in multiple domains.')
     return dict(schemaVersion=1, evaluatedAt=manifest['evaluatedAt'], appRevision=revision, runId=coverage['runId'],
+                **({'coverageMeasure': SEPARATE_MEASURE} if separated else {}),
                 contractSha256=digest(contract), inputs=pins, measures=measures,
                 manifestSha256=digest(manifest),
                 coverageOverview=overview, coverageBreakdowns=breakdowns,
@@ -234,7 +330,7 @@ def markdown(report):
             count = f"{m['ageHours']:.2f}h / maximum {m['maximumAgeHours']}h"
         if 'maximumCount' in m:
             count = f"{m['numerator']} / maximum {m['maximumCount']}"
-        lines.append(f"| {labels.get(m['id'], m['id'])} | {m['status']} | {count} | {m['observedAt'] or 'Not supplied'} | {', '.join(m['evidence'])} | {m['limitations']} |")
+        lines.append(f"| {m.get('label', labels.get(m['id'], m['id']))} | {m['status']} | {count} | {m['observedAt'] or 'Not supplied'} | {', '.join(m['evidence'])} | {m['limitations']} |")
         for check in m.get('checks', []):
             lines.append(f"| {labels.get(check['id'], check['id'])} | {'pass' if check['passed'] else 'fail'} | {check['retained']} / {check['expected']} retained | {m['observedAt']} | {', '.join(m['evidence'])} | Durable retention or quarantine; not publication eligibility. |")
     lines += ['', '## Pinned inputs', '']

@@ -40,8 +40,9 @@ Retained-proof rebinding is now implemented and independently reviewed: 24 histo
 replay over the unchanged 9,914 source/URL inventory, with 9,890 due and all 17 tasks incomplete
 under the old rule. The capacity audit proves the old whole-history freshness requirement cannot
 be sustained within the fixed fetch allowance. The owner accepted D-112 to separate daily intake,
-fact processing and historical review. Implement its versioned policy, explicit reader labels,
-monitor/scorecard support, semantic-policy compatibility and actual scheduled/publication proof.
+fact processing and historical review. The versioned policy, reader labels, monitor/scorecard
+support and semantic-policy compatibility are implemented and independently tested locally.
+Obtain actual new-policy scheduled collection and publication proof after preview/main activation.
 Keep old 121/557 and 244/557 reports under their original definitions; do not count a fresh index
 as complete event coverage or renew old evidence dates. No owner policy choice remains pending.
 
