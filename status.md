@@ -96,6 +96,11 @@ seven responses are unobserved and live coverage remains 244/557.
 [Ping replay](docs/active/daily-pipeline/accuracy/ping-parser-actual-replay-2026-10-24.json) ·
 [Follow-up plan](docs/active/daily-pipeline/accuracy/qualification-followup-plan-spec-2026-10-24.md) ·
 [Integrated candidate checks](docs/active/daily-pipeline/receipts/offline-coverage-candidate-2026-10-24.json).
+Preview code `0bf39cbf` passed actual GitHub web run `40054232998` and read-only canary
+`40054232990`; Vercel preview is Ready. Full-page and fold renders at 1440/390 were reviewed.
+Git preview uses the older baseline fixture (0/557 and no applied corrections); it is not the
+accepted daily artifact. Production remains unchanged at 244/557 with all six groups.
+[Preview checks and visual boundary](docs/active/daily-pipeline/receipts/coverage-candidate-preview-2026-10-24.json).
 
 The [retained-audit proposal](docs/active/daily-pipeline/accuracy/retained-audit-rebinding-spec-2026-10-24.md)
 replays all 24 retained completed pages, but 9,890 due URLs still need work and all 17 historical

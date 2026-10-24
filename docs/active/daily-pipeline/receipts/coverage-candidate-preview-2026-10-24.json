@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-24T02:31:26.817330Z",
+  "candidateRevision": "0bf39cbffbec0100f8dae81a139f58dbcff6f039",
+  "webRun": {
+    "conclusion": "success",
+    "createdAt": "2026-10-24T02:27:24Z",
+    "databaseId": 40054232998,
+    "event": "push",
+    "headSha": "0bf39cbffbec0100f8dae81a139f58dbcff6f039",
+    "status": "completed",
+    "updatedAt": "2026-10-24T02:29:36Z",
+    "url": "https://github.com/jessepike/sec-market/actions/runs/40054232998"
+  },
+  "readOnlyCanaryRun": {
+    "conclusion": "success",
+    "createdAt": "2026-10-24T02:27:24Z",
+    "databaseId": 40054232990,
+    "event": "push",
+    "headSha": "0bf39cbffbec0100f8dae81a139f58dbcff6f039",
+    "status": "completed",
+    "updatedAt": "2026-10-24T02:28:32Z",
+    "url": "https://github.com/jessepike/sec-market/actions/runs/40054232990"
+  },
+  "previewDeployment": {
+    "id": "dpl_FuGrt8hQGwQwNibDjZT3ZHVWAieE",
+    "state": "READY",
+    "url": "https://security-market-pulse-fg563dk2c-pikeholdings.vercel.app",
+    "projectId": "prj_g8sZPXo81XT2Xopa1oLrsbYjTehV",
+    "observedThrough": "authenticated Vercel get_deployment"
+  },
+  "productionAppRevision": "26181a2d4eb0aad1bd751cda70ab8e65142d2813",
+  "productionCoverage": {
+    "successful": 244,
+    "required": 557
+  },
+  "visualReview": {
+    "widths": [
+      1440,
+      390
+    ],
+    "fullPageAndFoldCaptured": true,
+    "reviewed": true,
+    "layout": "Same desktop and phone structure; no visible design change was implemented.",
+    "dataBoundary": "Git preview uses the old baseline fixture (0/557, no applied factual corrections). Production serves the accepted daily release (244/557 and six correction groups). Event totals and dates differ; this is not a comparison of identical data or approval to publish the preview artifact."
+  },
+  "files": {
+    "hostDirectory": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024",
+    "inventory": {
+      "candidate-0bf39cbf-canary-run.json": {
+        "sha256": "3d0d6159960445fe30e8468da874971b5d4a0dd9ca431f5e7f1f83616cc9bdbf",
+        "bytes": 282
+      },
+      "candidate-0bf39cbf-preview-1440.png": {
+        "sha256": "03180ad413a848bf154a3ab670d702092a5ab3eb5c95c804f8f7fb52f6719a71",
+        "bytes": 984390
+      },
+      "candidate-0bf39cbf-preview-390.png": {
+        "sha256": "aad0f67af8e1f055f433012e1d106748c2514ff6e75d8c8233a1d3ee33f417de",
+        "bytes": 435981
+      },
+      "candidate-0bf39cbf-preview-app-release.json": {
+        "sha256": "9791584498ed030ee6c36ca8accbaa81ac9346b4130866da0b2037e7fed744eb",
+        "bytes": 595
+      },
+      "candidate-0bf39cbf-preview-fold-1440.png": {
+        "sha256": "ef361e90ff20173c1990fff74e50c84a74258b3d5fb3068cb0ba6a62b2315948",
+        "bytes": 138963
+      },
+      "candidate-0bf39cbf-preview-fold-390.png": {
+        "sha256": "9b61cfc32ec0b63ec41123cbb5eb7f4780740f89c354fcfce7aafa3e9598bb63",
+        "bytes": 58369
+      },
+      "candidate-0bf39cbf-production-1440.png": {
+        "sha256": "8651f15011d8a0518a5e4f96a43d693c014ea1d33a041f1586e830a088cce1ad",
+        "bytes": 996984
+      },
+      "candidate-0bf39cbf-production-390.png": {
+        "sha256": "0c81367ea5540676b295a8ba96173ef98e5e9c41993a3dac9392166ae2af10d9",
+        "bytes": 437240
+      },
+      "candidate-0bf39cbf-production-app-release.json": {
+        "sha256": "3e29c4a8b9e4225ccec6767f148f892b866cd931f09e01237c14f803c1a210d7",
+        "bytes": 1474
+      },
+      "candidate-0bf39cbf-production-daily-coverage.json": {
+        "sha256": "f907e695972098777ad9caadc16363d75a0f54e83685f7882b040a2149e50949",
+        "bytes": 479308
+      },
+      "candidate-0bf39cbf-production-fold-1440.png": {
+        "sha256": "4764abbcb551093093063acf62784889455bf1719b00c359314469548ae05914",
+        "bytes": 140324
+      },
+      "candidate-0bf39cbf-production-fold-390.png": {
+        "sha256": "f4151c6dd4bedfb838912f205536c70625d7cdeaa08830bc9b3a296cdc83faa7",
+        "bytes": 59511
+      },
+      "candidate-0bf39cbf-web-run.json": {
+        "sha256": "7cfad1333cc39c2746f306cd2e59e8d3efce22a5843d96bd2018fb6c4b2c7266",
+        "bytes": 282
+      }
+    }
+  },
+  "limitations": [
+    "No production promotion or publication occurred.",
+    "No new source coverage or scheduled-run acceptance is established.",
+    "The candidate must enter the existing independent exact-artifact daily publisher before it can change production."
+  ]
+}
