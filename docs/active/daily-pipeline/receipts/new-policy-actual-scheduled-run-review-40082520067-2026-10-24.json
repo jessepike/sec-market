@@ -1,0 +1,191 @@
+{
+  "schemaVersion": 1,
+  "observation": "actual-scheduled-collector-run-review",
+  "observedAt": "2026-10-24T17:15:00Z",
+  "run": {
+    "githubRunId": 40082520067,
+    "attempt": 1,
+    "event": "schedule",
+    "ref": "refs/heads/main",
+    "headSha": "4b5e5ec1669ddad052c6320ddf4a4dffdb9c1f5e",
+    "workflowPath": ".github/workflows/subscription-collector.yml",
+    "createdAt": "2026-10-24T09:34:54Z",
+    "updatedAt": "2026-10-24T09:43:25Z",
+    "status": "completed",
+    "conclusion": "success",
+    "githubRunJsonSha256": "5a155ae60ee5206143c05dec54b26d5d531519855eb5a4618f5587f19d8e50d8",
+    "githubArtifact": {
+      "artifactId": 12556245288,
+      "transportSha256": "18c18a634fdf53ebe654f142f510e5beaefa03f379561813ccde5f1c656f72d9"
+    }
+  },
+  "collection": {
+    "projectReceipt": "docs/active/daily-pipeline/receipts/new-policy-scheduled-collection-40082520067-2026-10-24.json",
+    "hostArtifact": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/scheduled-40082520067/collection-receipt/smp-collection-receipt.json",
+    "receiptSha256": "b67df25cdfc5fbaa20a2fed590fa141c4aaffe33bb2ba9a898b17175c0d9cf11",
+    "runId": "f484565fc865f03670ad413a1e4bd5ccb4c6b6b571b5a314f4bc251d591638b0",
+    "appRevision": "4b5e5ec1669ddad052c6320ddf4a4dffdb9c1f5e",
+    "contractSha256": "79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60",
+    "coverageMeasure": "daily_source_intake_v2",
+    "successfulTasks": 261,
+    "requiredTasks": 557,
+    "complete": false,
+    "executionCompleted": true,
+    "outcome": "completed_intake_with_gaps",
+    "modelCalls": 0,
+    "apiFallback": false,
+    "correctionPolicySha256": "aeccba5ed7151d6b06f3e02c78da5d3fe91c83e825929d07fb87574e5b961667",
+    "admittedCorrectionGroups": [
+      "FC-20261023-checkpoint-sase",
+      "FC-20261023-optiv",
+      "FC-20261023-splunk",
+      "FC-20261023-zscaler",
+      "FC-20261023-expel",
+      "XAGE-SOURCE-CLASS-20261023"
+    ],
+    "pendingCorrectionGroups": 0,
+    "correctionAttempts": 0,
+    "historicalReview": {
+      "complete": false,
+      "inventoryDocuments": 9914,
+      "reviewedDocuments": 24,
+      "pendingDocuments": 9890,
+      "heldDocuments": 5,
+      "unknownDateDocuments": 1
+    }
+  },
+  "archive": {
+    "commit": "04181beb9a26b9dee7a8bf2a853da4fea43397a8",
+    "manifestSha256": "97b142ed2e151ad539b80704b96befe43bc1ec14469bead619451c3bf0037cf7",
+    "manifestFiles": 36766,
+    "tarBytes": 289480647,
+    "tarSha256": "4e6a37fc5d67fe30a73e6406f9f17b229c3e4243c948499422649e7a8cf0f9c3",
+    "priorArchive": {
+      "commit": "e467ab000b8225931d6684eb6d0aa39bbba1f6c9",
+      "manifestSha256": "ce989f357ecda7ef5a460ad96ceededf6a8f4b1cd566a408eb6ba79f3a4fad70",
+      "manifestFiles": 35790,
+      "priorPathsRetained": 35790,
+      "immutablePathsChanged": 0,
+      "addedPaths": 976,
+      "changedHeadFiles": 321
+    },
+    "verification": {
+      "currentRoot": "/var/tmp/smp-scheduled-40082520067-20261024/extracted/jessepike-sec-market-04181beb9a26b9dee7a8bf2a853da4fea43397a8",
+      "priorRoot": "/var/tmp/smp-bounded-v4-probe-20261024/archive-e467ab00/jessepike-sec-market-e467ab000b8225931d6684eb6d0aa39bbba1f6c9",
+      "integrityVerifier": "web/scripts/pipeline/archive.py:108 GitArchive.verify(root, expected_manifest)",
+      "sealFunction": "ops/ci/replay_retained_audit.py:55 fingerprint(root)",
+      "readOnlyVerificationCommand": "orb run -m dev python3 -B -c \"import sys; from pathlib import Path; sys.path.insert(0, '/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline'); from archive import GitArchive; GitArchive.verify(Path('/var/tmp/smp-scheduled-40082520067-20261024/extracted/jessepike-sec-market-04181beb9a26b9dee7a8'), expected_manifest='97b142ed2e151ad539b80704b96befe43bc1ec14469bead619451c3bf0037cf7'); GitArchive.verify(Path('/var/tmp/smp-bounded-v4-probe-20261024/archive-e467ab00/jessepike-sec-market-e467ab000b8225931d6684eb6d0aa39bbba1f6c9'), expected_manifest='ce989f357ecda7ef5a460ad96ceededf6a8f4b1cd566a408eb6ba79f3a4fad70')\"",
+      "fingerprintsBeforeAndAfterReplay": {
+        "currentArchive": {
+          "before": {
+            "files": 36770,
+            "contentSha256": "fd1f010f48155925372821f9d490ce6da0bcd974d26ccf7c73040234437670ad",
+            "fileMtimeSha256": "6b70ef21e375e32ca60ab342333cf835f977016a060d6ebc4e974b2413223852",
+            "directories": 1331,
+            "directoryMtimeSha256": "258900d9b2456b0865714b5f1084ebf66140323e71a55664200f1ddf993ac5ee"
+          },
+          "after": {
+            "files": 36770,
+            "contentSha256": "fd1f010f48155925372821f9d490ce6da0bcd974d26ccf7c73040234437670ad",
+            "fileMtimeSha256": "6b70ef21e375e32ca60ab342333cf835f977016a060d6ebc4e974b2413223852",
+            "directories": 1331,
+            "directoryMtimeSha256": "258900d9b2456b0865714b5f1084ebf66140323e71a55664200f1ddf993ac5ee"
+          }
+        },
+        "priorArchive": {
+          "before": {
+            "files": 35794,
+            "contentSha256": "f7553377296d774075b716a64ff11212b81317ea6c9093b9989e334092bc3ce9",
+            "fileMtimeSha256": "d5cb9c5312d11b5c127fe703f0a0eeeb6020adf7a34bcd590bd1ab1332bac350",
+            "directories": 1330,
+            "directoryMtimeSha256": "63d30e5fd36d1f33e9a368d180fefd002198b3c009a4d26f801870dbb119ebad"
+          },
+          "after": {
+            "files": 35794,
+            "contentSha256": "f7553377296d774075b716a64ff11212b81317ea6c9093b9989e334092bc3ce9",
+            "fileMtimeSha256": "d5cb9c5312d11b5c127fe703f0a0eeeb6020adf7a34bcd590bd1ab1332bac350",
+            "directories": 1330,
+            "directoryMtimeSha256": "63d30e5fd36d1f33e9a368d180fefd002198b3c009a4d26f801870dbb119ebad"
+          }
+        }
+      },
+      "sealsBeforeAfterReplayUnchanged": true
+    },
+    "memoryStoreMutations": 0,
+    "productionHead": {
+      "releaseId": "19fde803d09aa544672183769c257e37faf727b75e1914955f54f3c5fb126941",
+      "sequence": 3,
+      "unchangedFromPriorArchive": true
+    }
+  },
+  "reuseAndFreshness": {
+    "sameRunIdAsPriorManualCollection": true,
+    "checkedTaskCountSameAsPriorArchive": true,
+    "tasksWithIdenticalObservationIdSets": 260,
+    "successfulReceiptVerifiedAtMin": "2026-10-24T05:38:57.840712Z",
+    "successfulReceiptVerifiedAtMax": "2026-10-24T05:39:18.982743Z",
+    "referencedObservationFetchedAtMin": "2026-10-20T21:21:05.117970Z",
+    "referencedObservationFetchedAtMax": "2026-10-24T05:41:24.235479Z",
+    "allSuccessfulObservationsPrecedeScheduledRun": true,
+    "fetchBudgetBefore": 1438,
+    "fetchBudgetAfter": 1452,
+    "fetchBudgetDelta": 14,
+    "modelBudgetCalls": 80,
+    "documentBudgetCalls": 40,
+    "reviewQueueCount": 32,
+    "reviewQueueCanonicalSha256": "e83deaa4f0d454ccfa391118c5d0e86ec7881ba3f87a5efef81cf3b0dc93dfe7",
+    "reviewQueueSameAsPriorArchive": true
+  },
+  "publication": {
+    "publisherAttempts": [
+      {
+        "runId": 40083080190,
+        "projectReceipt": "docs/active/daily-pipeline/receipts/new-policy-publisher-40083080190-2026-10-24.json",
+        "receiptSha256": "f5925dd790f7a0ae8c349c3168600b6d930e51f817fe2d06c1b3c0cb41dac1b0",
+        "githubArtifactId": 12556485018,
+        "githubArtifactTransportSha256": "342ab7ca2c09af90d725c8498660cf65ff88d555a3c81b8cec8bf936926ff449",
+        "published": false,
+        "reason": "DAILY_GATE_BUDGET_EXHAUSTED",
+        "errorType": "ContractError"
+      },
+      {
+        "runId": 40089243152,
+        "projectReceipt": "docs/active/daily-pipeline/receipts/new-policy-publisher-40089243152-2026-10-24.json",
+        "receiptSha256": "f5925dd790f7a0ae8c349c3168600b6d930e51f817fe2d06c1b3c0cb41dac1b0",
+        "githubArtifactId": 12558238111,
+        "githubArtifactTransportSha256": "ac5d2fa86ac84a760432043b89f5540f04dbe6605e7e033392e1af1d8e242c88",
+        "published": false,
+        "reason": "DAILY_GATE_BUDGET_EXHAUSTED",
+        "errorType": "ContractError",
+        "issue12LinkDeliveredAt": "2026-10-24T11:19:56Z"
+      }
+    ],
+    "productionAppRevisionAtLiveCheck": "26181a2d4eb0aad1bd751cda70ab8e65142d2813",
+    "productionPolicyAtLiveCheck": "de193",
+    "productionCoverageAtLiveCheck": "244/557",
+    "liveCheckAt": "2026-10-24T17:15:00Z"
+  },
+  "evaluatorReplay": {
+    "function": "verified_scheduled_source",
+    "result": "accepted_actual_scheduled_run",
+    "lookup": "actual_GitHub_run_record_fixture",
+    "evaluationTime": "collection_receipt_checkedAt",
+    "networkCalls": 0,
+    "stateMutations": 0
+  },
+  "limitations": [
+    "Timer execution is verified; the 261/557 coverage result is incomplete.",
+    "Successful task counts include retained/reused receipts; they are not new fetch counts and do not renew source observation dates.",
+    "The timer event does not establish a sustained recurring schedule history.",
+    "Publisher attempts failed, so this run did not publish the new policy to production.",
+    "The live-site check showed the prior production app and 244/557 coverage.",
+    "No claim is made about overall source accuracy or market coverage."
+  ],
+  "actionsPerformed": {
+    "networkSourceRequests": 0,
+    "modelCalls": 0,
+    "sourceStateWrites": 0,
+    "archiveWrites": 0,
+    "publisherOrDeploymentActions": 0
+  }
+}

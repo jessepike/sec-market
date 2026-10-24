@@ -34,24 +34,35 @@ redirect. This new definition is not an apples-to-apples improvement over the ol
 Processing/history retain 9,914 source/URL pairs, 24 reviewed, 9,890 pending and five held documents.
 All 32 review holds, four ordinary fact references, eight private events and six correction groups
 remain retained with original evidence and dates. Canary `40067538266` and independent archive,
-policy and private continuity replay passed. New-policy publication and timer evidence remain
-unmeasured. [Private transition](docs/active/daily-pipeline/accuracy/actual-new-policy-private-transition-2026-10-24.md).
+policy and private continuity replay passed. Genuine scheduled collector `40082520067` succeeded
+on main `4b5e5ec1`, created 09:34:54 UTC and finished 09:43:25 UTC. It reports the same 261/557
+and preserved daily run ID, charging 14 additional fetches and zero models. This does not renew
+every source date or mean 261 new requests. Its complete archive/reconciliation review passes:
+all 36,766 entries authenticate, every prior path remains, no immutable changes, and original
+dates, six correction groups and all 32 review holds are preserved. Timer execution passes;
+sustained operation and new-policy publication remain unmeasured.
+[Scheduled-run review](docs/active/daily-pipeline/accuracy/new-policy-actual-scheduled-run-review-2026-10-24.md).
+[Private transition](docs/active/daily-pipeline/accuracy/actual-new-policy-private-transition-2026-10-24.md).
 [Rubric](docs/active/daily-pipeline/evaluation-rubric.md).
 [Manual scorecard](docs/active/daily-pipeline/evaluations/2026-10-24/new-policy-manual-scorecard.md).
 
 ## Limits, schedule and alerts
 
-October 24 UTC usage is **1,438 fetches / 80 model calls / 40 documents**; 4,062 fetches remain,
+October 24 UTC usage is **1,452 fetches / 80 model calls / 40 documents**; 4,048 fetches remain,
 with no model/document allowance. Both publication/gate attempts are charged (2/2). No resets,
 refunds, purchases or paid fallback. Reserve the next natural UTC allowance for publication.
 
-The October 24 05:17 UTC scheduled collector has not appeared as of approximately 08:47 UTC.
-GitHub has previously delayed actual schedules by hours. A manual run supplies no timer proof.
+The October 24 05:17 UTC scheduled collector appeared at 09:34 UTC and succeeded. GitHub delayed
+this actual timer by over four hours. A manual run supplies no timer proof.
 Publisher opportunities are 00:23, 06:23 and 16:23 UTC plus a genuine scheduled-collector callback.
 The old public source expires October 25 at 06:38:18 UTC. The early retry gives nominal margin;
 GitHub delays remain possible. Exact acknowledged collection/code returns before gate charge.
 Assigned issue 10 delivery is verified; latest monitor `40068017082` accurately reports remaining
 coverage/history/timer/publication gaps and claim holds. Phone/email depends on account settings.
+Scheduled-source publisher callback `40083080190` and actual scheduled publisher `40089243152`
+failed with `DAILY_GATE_BUDGET_EXHAUSTED`; assigned issue 12 was updated at 11:19 UTC. No charge
+was reset. The next natural UTC allowance starts at 5 p.m. Pacific on October 24, with the
+00:23 UTC retry scheduled for 5:23 p.m. Pacific. Actual start/publication receipts remain required.
 
 ## Current source repair
 
@@ -79,6 +90,11 @@ correction and production heads remain unchanged. Original V4 report and file/di
 replay exactly. Independent actual-run review also passes: all 594 prior V3 source/URL pairs
 remain within V4's 676; all original V1–V4 reports reproduce exactly. No source is activated.
 [Actual V4 review](docs/active/daily-pipeline/accuracy/bounded-traversal-v4-actual-response-review-2026-10-24.md).
+V5 is independently reviewed and installed locally: Ping V3 / Delinea V5 / Sonatype V5, raw plan
+`ddb59635…a7b3`. It adds positive Delinea terminal proof and one exact Sonatype raw-lead warning;
+that card's article identity is still unreviewed. Original V1–V4 reports replay exactly. All 713
+operational, 368 data, 115 pipeline and 42 browser checks pass, with one appropriate fixture skip.
+Desktop/phone pixels remain identical. V5 preview/main activation and actual diagnostic are next.
 The dormant typed inventory-origin
 helper has an empty trusted activation registry. The explicit disabled operation is implemented
 but the operational plan remains active. Full V3 checks passed: 668 operational, 368 data,
@@ -86,9 +102,11 @@ but the operational plan remains active. Full V3 checks passed: 668 operational,
 
 Four neutral parent-issuer bindings have a reviewed proposal and archived relationship proof;
 fresh bounded qualification and a closed registry/plan/correction transition remain agent work.
+Their standalone bounded diagnostic passes independent review and 137 focused checks after a
+final-clock race repair. It remains dormant, disconnected from current dispatch and registration.
 [Neutral bindings](docs/active/daily-pipeline/accuracy/four-neutral-regulatory-bindings-spec-2026-10-24.md).
-No owner source decision is currently required. Genuine scheduled execution, new-policy publication,
-source activation/collection and sustained operation still need actual receipts.
+No owner source decision is currently required. New-policy publication, source activation/current
+collection and sustained operation still need actual receipts.
 
 Implementation and receipts live in `/Users/jessepike/code/projects/sec-market-finish-20261022`.
 The original checkout `/Users/jessepike/code/projects/sec-market` remains at `0a660a72`; preserve its

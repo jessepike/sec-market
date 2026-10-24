@@ -23,10 +23,14 @@ remain unchanged. Generic claim accuracy and eligible-event recall require a fix
 benchmark; passing the existing tests does not estimate those error rates. Reader value remains
 unmeasured: the owner reports no real use yet.
 
-D-112 now has an actual manual private collection: 261/557 daily-intake checks, with 296 gaps,
+D-112 now has actual manual and scheduled private collection receipts: 261/557 daily-intake checks, with 296 gaps,
 24/9,914 reviewed documents and all 32 review holds preserved. Its matching archive canary passes.
-This new measure does not rewrite the live old-policy 244/557 report. New-policy scheduled and
-production receipts remain pending; both daily gate attempts are charged. The next literal
+This new measure does not rewrite the live old-policy 244/557 report. Genuine scheduled run
+`40082520067` completed on October 24 from main `4b5e5ec1`; its full archive/receipt review passes.
+Original evidence dates and the shared run ID remain intact; it did not newly fetch
+all 261 successful tasks. New-policy production remains pending. Publisher callback `40083080190`
+and scheduled publisher `40089243152` failed with `DAILY_GATE_BUDGET_EXHAUSTED`; assigned
+issue 12 records the alert. Both daily gate attempts remain charged. The next literal
 pagination batch actually completed in diagnostic `40069462824`: seven HTTP 200 responses,
 125 charged requests, zero models and zero qualification credit. All 35,148 archive files verify
 with unchanged earlier immutable evidence and protected collection/production heads.
@@ -37,7 +41,13 @@ replaces repeated generic probe overhead with one complete source-bound walk; it
 ceiling grants no current coverage. The [four neutral filing bindings proposal](docs/active/daily-pipeline/accuracy/four-neutral-regulatory-bindings-spec-2026-10-24.md)
 is retained for a coordinated registry/diagnostic/correction-stamp transition after actual source
 proof. Candidate source declarations stay unqualified while their bounded paths are implemented
-and independently reviewed. No owner source decision is currently required.
+and independently reviewed. No owner source decision is currently required. All earlier bounded
+V1–V4 actual reports and inventories remain exact. Reviewed V5 adds Delinea's observed positive
+terminal and preserves one mislinked Sonatype card URI as a raw, unreviewed processing lead.
+Obtain its complete actual walk and independently review a closed registration/inventory
+transition before source activation. The Sonatype card's title/date-to-destination identity still
+needs its exact primary response; an index scheduling date or URL exception supplies no article
+or factual validation.
 
 The authenticated [current five-record remediation observation](docs/active/daily-pipeline/accuracy/current-correction-resolution-observation-2026-10-24.md)
 reports 5/5 resolved against the actual gated production release. The frozen 177-record audit
@@ -58,7 +68,7 @@ under the old rule. The capacity audit proves the old whole-history freshness re
 be sustained within the fixed fetch allowance. The owner accepted D-112 to separate daily intake,
 fact processing and historical review. The versioned policy, reader labels, monitor/scorecard
 support and semantic-policy compatibility are implemented and independently tested locally.
-Obtain actual new-policy scheduled collection and publication proof after preview/main activation.
+The actual new-policy scheduled collection archive review passes; obtain publication proof.
 Keep old 121/557 and 244/557 reports under their original definitions; do not count a fresh index
 as complete event coverage or renew old evidence dates. No owner policy choice remains pending.
 
@@ -171,8 +181,10 @@ The owner has not set the acceptance duration (previous recommendation: 30 days)
 Sequence this after SEC-072's current-operation fixes and runtime proof. Keep its gaps visible now.
 
 Bounded daily collection for all 74 existing suppliers is authorized and implemented. The latest
-actual scheduled source run checked 121/557 tasks; full source coverage remains incomplete, with 254
-missing family bindings and 28 held claims. Resolve source registration, blocks, dated evidence,
+actual new-policy scheduled source run reports 261/557 daily-intake tasks; its full archive review
+passes. The old 121/557 report keeps its original combined definition. Current intake gaps
+are 254 missing family bindings, 28 unqualified candidates, nine HTTP 403s, four HTTP 429s and one
+unsafe redirect. All 32 claim-review holds remain separate. Resolve source registration, blocks, dated evidence,
 typed ownership/financial adapters and retained historical audits within existing budgets. Keep
 task and field ages visible and leave unsupported or unchecked facts held. General partial coverage
 can accompany individually verified facts; the complete SEC certification requirement remains.
