@@ -4,8 +4,10 @@ from types import SimpleNamespace
 from unittest.mock import Mock, patch
 
 from contracts import digest
-from rollback_drill import drill, scheduled_upstream, automatic_target, automatic_preflight, scheduled_source_clocks, REPO
+from rollback_drill import (drill, scheduled_upstream, automatic_target, automatic_preflight,
+                            scheduled_source_clocks, verify_release_pair, failure_category, REPO)
 from storage import LocalStore
+from vercel import VercelAdapter
 
 
 class RollbackDrillTests(unittest.TestCase):
@@ -117,7 +119,9 @@ class RollbackDrillTests(unittest.TestCase):
         self.phases=[]
 
     def run_drill(self):
-        with patch('rollback_drill.verify_ready'), patch('rollback_drill.stage_files',return_value={'static/index.html':b'accepted'}):
+        with patch('rollback_drill.verify_ready'), patch('rollback_drill.time.sleep'), \
+             patch('rollback_drill.stage_files',side_effect=lambda _store,artifact,_ack:
+                   {'static/index.html':b'parent' if artifact['sha256']=='old-x' else b'accepted'}):
             return drill(self.store,self.adapter,self.current['releaseId'],
                          lambda:self.phases.append(self.store.read('heads/rollback-drill.json')['phase']),Mock())
 
@@ -134,17 +138,109 @@ class RollbackDrillTests(unittest.TestCase):
         self.adapter.promote.assert_not_called()
 
     def test_failed_baseline_live_probe_still_restores_latest(self):
-        self.adapter._get.side_effect=[self.baseline['legacyAppReceipt'],{'appRevision':'wrong'}]
-        with self.assertRaisesRegex(ValueError,'DRILL_BASELINE_LIVE_RECEIPT_DIFFERS'):
+        self.adapter._get.side_effect=lambda host,path:self.baseline['legacyAppReceipt'] if host==self.baseline['deploymentId'] else {'appRevision':'wrong'}
+        with self.assertRaisesRegex(ValueError,'DRILL_VERIFICATION_FAILED_BASELINE_VERIFICATION_EXPECTED_ACKNOWLEDGEMENT_DIFFERS'):
             self.run_drill()
         self.assertEqual(self.adapter.rollback.call_args.args[0],self.current['deploymentId'])
         self.assertEqual(self.phases[-1],'current_restored')
 
     def test_failed_remote_intent_performs_no_alias_changes(self):
-        with patch('rollback_drill.verify_ready'), patch('rollback_drill.stage_files',return_value={}):
+        with patch('rollback_drill.verify_ready'), patch('rollback_drill.stage_files',return_value={'static/index.html':b'accepted'}):
             with self.assertRaisesRegex(RuntimeError,'archive unavailable'):
                 drill(self.store,self.adapter,self.current['releaseId'],Mock(side_effect=RuntimeError('archive unavailable')),Mock())
         self.adapter.rollback.assert_not_called()
+
+    def nonlegacy_parent(self):
+        prior_manifest={**self.manifest,'parentReleaseId':None,'appRevision':'a'*40,
+                        'artifact':{'sha256':'old-x'},'snapshot':{'sha256':'old-s'}}
+        prior_manifest.pop('releaseId')
+        prior_manifest['releaseId']=digest(prior_manifest)
+        prior_ack={**self.ack,'appRevision':'a'*40,'artifactSha256':'old-x','snapshotSha256':'old-s',
+                   'dataReleaseId':prior_manifest['releaseId']}
+        self.baseline={'sequence':1,'deploymentId':'https://old.vercel.app','releaseId':prior_manifest['releaseId']}
+        self.store.write_once('releases/'+self.baseline['releaseId']+'.json',
+                              {'manifest':prior_manifest,'acknowledgement':prior_ack})
+        updated={**self.manifest,'parentReleaseId':self.baseline['releaseId']}
+        updated.pop('releaseId');updated['releaseId']=digest(updated)
+        old=self.current;self.current={**old,'releaseId':updated['releaseId'],'sequence':2}
+        self.manifest=updated;self.ack={**self.ack,'dataReleaseId':updated['releaseId']}
+        self.store.compare_and_swap('production',old,self.current)
+        self.store.write_once('releases/'+self.current['releaseId']+'.json',
+                              {'manifest':updated,'acknowledgement':self.ack})
+        self.store.write_once('production-baselines/'+self.baseline['releaseId']+'.json',self.baseline)
+        live={'receipt':self.ack}
+        self.adapter.rollback.side_effect=lambda target:live.update(receipt=prior_ack if target==self.baseline['deploymentId'] else self.ack)
+        self.adapter.probe.side_effect=lambda target:prior_ack if target==self.baseline['deploymentId'] else (
+            self.ack if target==self.current['deploymentId'] else live['receipt'])
+        return prior_manifest,prior_ack,live
+
+    def test_nonlegacy_parent_verifies_exact_parent_inventory_and_restores_without_head_mutation(self):
+        _manifest,prior_ack,_live=self.nonlegacy_parent()
+        inventories=[]
+        self.adapter.verify_static_files.side_effect=lambda target:inventories.append((target,dict(self.adapter.pending_files)))
+        result=self.run_drill()
+        self.assertTrue(result['baselineBytesVerified'])
+        self.assertEqual(result['phase'],'passed')
+        self.assertIn((self.adapter.site,{'static/index.html':b'parent'}),inventories)
+        self.assertIn((self.adapter.site,{'static/index.html':b'accepted'}),inventories)
+        self.assertEqual(self.store.read('heads/production.json'),self.current)
+        self.adapter.promote.assert_not_called()
+
+    def test_app_then_detached_then_static_propagation_retry_keeps_exact_parent_expectation(self):
+        manifest,ack,_live=self.nonlegacy_parent()
+        attempts={'probe':0,'static':0}
+        app={'appRevision':ack['appRevision'],'dailySnapshotSha256':ack['snapshotSha256'],
+             'dailyContractSha256':ack['contractSha256']}
+        def probe(target):
+            attempts['probe']+=1
+            return VercelAdapter.probe(self.adapter,target)
+        def get(target,path):
+            if path=='/app-release.json':
+                return ({'appRevision':self.ack['appRevision'],'dailySnapshotSha256':self.ack['snapshotSha256'],
+                         'dailyContractSha256':self.ack['contractSha256']} if attempts['probe']==1 else app)
+            return self.ack if attempts['probe']<=2 else ack
+        def static(target):
+            self.assertEqual(self.adapter.pending_files,{'static/index.html':b'parent'})
+            if attempts['probe']==3:raise ValueError('DEPLOYED_STATIC_FILE_BYTES_DIFFER')
+        self.adapter.probe.side_effect=probe;self.adapter._get.side_effect=get
+        self.adapter.verify_static_files.side_effect=static
+        with patch('rollback_drill.time.sleep') as sleep:
+            verify_release_pair(self.adapter,self.adapter.site,manifest,ack,{'static/index.html':b'parent'},'baseline_verification')
+        self.assertEqual(attempts['probe'],4)
+        self.assertEqual(sleep.call_count,3)
+        self.assertEqual(self.adapter.pending,ack)
+
+    def test_permanent_nonlegacy_baseline_failure_restores_current_and_records_safe_phase(self):
+        _manifest,_ack,live=self.nonlegacy_parent()
+        base_probe=self.adapter.probe.side_effect
+        def probe(target):
+            if target==self.adapter.site and live['receipt'] != self.ack:
+                raise ValueError('DEPLOYED_STATIC_FILE_BYTES_DIFFER')
+            return base_probe(target)
+        self.adapter.probe.side_effect=probe
+        with self.assertRaisesRegex(ValueError,'BASELINE_VERIFICATION_STATIC_BYTES_OR_RESPONSE_DIFFERS'):
+            self.run_drill()
+        journal=self.store.read('heads/rollback-drill.json')
+        self.assertEqual(journal['phase'],'current_restored')
+        self.assertTrue(journal['currentBytesVerified'])
+        self.assertEqual(journal['failurePhase'],'baseline_verification')
+        self.assertEqual(journal['failureCategory'],'STATIC_BYTES_OR_RESPONSE_DIFFERS')
+        self.assertNotIn('baseline_acknowledged',self.phases)
+        self.assertEqual(self.store.read('heads/production.json'),self.current)
+
+    def test_empty_parent_inventory_is_rejected_before_any_alias_change(self):
+        self.nonlegacy_parent()
+        for invalid in ({},{'static/deployment-receipt.json':b'receipt'}):
+            def files(_store,artifact,_ack):
+                return invalid if artifact['sha256']=='old-x' else {'static/index.html':b'accepted'}
+            with self.subTest(inventory=invalid),patch('rollback_drill.verify_ready'),patch('rollback_drill.stage_files',side_effect=files):
+                with self.assertRaisesRegex(ValueError,'DRILL_NONEMPTY_STATIC_PAYLOAD_REQUIRED'):
+                    drill(self.store,self.adapter,self.current['releaseId'],Mock(),Mock())
+        self.adapter.rollback.assert_not_called()
+        self.assertEqual(self.store.read('heads/production.json'),self.current)
+
+    def test_failure_categories_never_include_remote_text(self):
+        self.assertEqual(failure_category(RuntimeError('secret response https://private.invalid TOKEN=secret')),'UNCLASSIFIED')
 
     def test_different_current_release_is_held_before_any_alias_change(self):
         with self.assertRaisesRegex(ValueError,'DRILL_ACCEPTED_CURRENT_RELEASE_REQUIRED'):

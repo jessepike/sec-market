@@ -5,6 +5,7 @@ import json
 import os
 import re
 import subprocess
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -17,6 +18,62 @@ from provenance import GitHubAuthority
 from publisher_probe import PublisherAuth, PROJECT_ID, TEAM_ID, SCOPE
 from storage import LocalStore
 from vercel import VercelAdapter
+
+
+def failure_category(error):
+    # Never expose remote response text, URLs, headers or CLI stderr.
+    reason = str(error)
+    if reason == 'Application and detached deployment receipts differ':
+        return 'RECEIPT_PAIR_DIFFERS'
+    if reason in ('DEPLOYED_STATIC_FILE_BYTES_DIFFER', 'DEPLOYED_STATIC_FILE_REDIRECT_OR_HTTP_FAILURE'):
+        return 'STATIC_BYTES_OR_RESPONSE_DIFFERS'
+    if reason in ('Deployment not ready', 'Deployed code differs', 'Deployed data release differs',
+                  'Deployed snapshot differs', 'Deployed artifact differs', 'Deployed coverage contract differs',
+                  'Deployed correction projection differs', 'DRILL_BASELINE_LIVE_RECEIPT_DIFFERS'):
+        return 'EXPECTED_ACKNOWLEDGEMENT_DIFFERS'
+    if isinstance(error, OSError):
+        return 'NETWORK_OR_IO'
+    return 'UNCLASSIFIED'
+
+
+class DrillVerificationError(ValueError):
+    def __init__(self, phase, category):
+        self.failure_phase, self.failure_category = phase, category
+        super().__init__('DRILL_VERIFICATION_FAILED_' + phase.upper() + '_' + category)
+
+
+def require_payload(files):
+    require(isinstance(files, dict) and any(name.startswith('static/')
+            and name != 'static/deployment-receipt.json' for name in files),
+            'DRILL_NONEMPTY_STATIC_PAYLOAD_REQUIRED')
+
+
+def verify_release_pair(adapter, deployment, manifest, acknowledgement, files, phase):
+    """Retry one complete exact pair/acknowledgement/static check, never its criteria."""
+    require_payload(files)
+    verify_acknowledgement(manifest, acknowledgement)
+    adapter.pending, adapter.pending_files = acknowledgement, files
+    for attempt in range(6):
+        try:
+            verify_acknowledgement(manifest, adapter.probe(deployment))
+            adapter.verify_static_files(deployment)
+            return
+        except (ValueError, OSError) as error:
+            if attempt == 5:
+                raise DrillVerificationError(phase, failure_category(error)) from None
+        time.sleep(5)
+
+
+def verify_legacy_live(adapter, baseline):
+    for attempt in range(6):
+        try:
+            require(adapter._get(adapter.site, '/app-release.json') == baseline['legacyAppReceipt'],
+                    'DRILL_BASELINE_LIVE_RECEIPT_DIFFERS')
+            return
+        except (ValueError, OSError) as error:
+            if attempt == 5:
+                raise DrillVerificationError('baseline_verification', failure_category(error)) from None
+        time.sleep(5)
 
 
 def verify_ready(adapter, deployment):
@@ -45,12 +102,9 @@ def drill(store, adapter, expected_release, checkpoint, authority=None):
     require(adapter.production_paths_controlled(), 'DRILL_COMPETING_PATHS_MUST_BE_CLOSED')
     verify_ready(adapter, current['deploymentId'])
     verify_ready(adapter, baseline['deploymentId'])
-    verify_acknowledgement(manifest, adapter.probe(current['deploymentId']))
     files = stage_files(store, manifest['artifact'], saved['acknowledgement'])
-    adapter.pending_files = files
-    adapter.verify_static_files(current['deploymentId'])
-    adapter.verify_static_files(adapter.site)
-    verify_acknowledgement(manifest, adapter.probe(adapter.site))
+    verify_release_pair(adapter, current['deploymentId'], manifest, saved['acknowledgement'], files, 'preflight_current')
+    verify_release_pair(adapter, adapter.site, manifest, saved['acknowledgement'], files, 'preflight_current')
     if baseline.get('legacyBaseline'):
         require(digest({k: v for k, v in baseline.items() if k != 'releaseId'}) == baseline['releaseId'],
                 'DRILL_LEGACY_BASELINE_HASH_DIFFERS')
@@ -62,8 +116,9 @@ def drill(store, adapter, expected_release, checkpoint, authority=None):
         require(prior['manifest'].get('releaseId') == baseline['releaseId'] and
                 digest({k:v for k,v in prior['manifest'].items() if k != 'releaseId'}) == baseline['releaseId'],
                 'DRILL_PARENT_MANIFEST_HASH_DIFFERS')
-        adapter.pending_files = stage_files(store, prior['manifest']['artifact'], prior['acknowledgement'])
-        verify_acknowledgement(prior['manifest'], adapter.probe(baseline['deploymentId']))
+        baseline_files = stage_files(store, prior['manifest']['artifact'], prior['acknowledgement'])
+        verify_release_pair(adapter, baseline['deploymentId'], prior['manifest'], prior['acknowledgement'],
+                            baseline_files, 'preflight_parent')
     identifier = digest({'run': os.environ.get('GITHUB_RUN_ID'), 'attempt': os.environ.get('GITHUB_RUN_ATTEMPT'),
                          'current': current, 'baseline': baseline})
     journal = {'drillId': identifier, 'startedAt': utcnow(), 'current': current, 'baseline': baseline,
@@ -76,25 +131,29 @@ def drill(store, adapter, expected_release, checkpoint, authority=None):
         checkpoint()
     record('intent_archived')
     attempted = False
+    phase = 'baseline_alias_change'
     try:
         attempted = True
         adapter.rollback(baseline['deploymentId'])
+        phase = 'baseline_verification'
         if baseline.get('legacyBaseline'):
-            require(adapter._get(adapter.site, '/app-release.json') == baseline['legacyAppReceipt'],
-                    'DRILL_BASELINE_LIVE_RECEIPT_DIFFERS')
+            verify_legacy_live(adapter, baseline)
         else:
-            adapter.pending_files = stage_files(store, prior['manifest']['artifact'], prior['acknowledgement'])
-            verify_acknowledgement(prior['manifest'], adapter.probe(adapter.site))
-        record('baseline_acknowledged', baselineByteInventoryAvailable=not baseline.get('legacyBaseline', False))
+            verify_release_pair(adapter, adapter.site, prior['manifest'], prior['acknowledgement'],
+                                baseline_files, 'baseline_verification')
+        record('baseline_acknowledged', baselineByteInventoryAvailable=not baseline.get('legacyBaseline', False),
+               baselineBytesVerified=not baseline.get('legacyBaseline', False))
+    except Exception as error:
+        record('baseline_failed', failurePhase=phase,
+               failureCategory=getattr(error, 'failure_category', failure_category(error)))
+        raise
     finally:
         if attempted:
             # Always restore the already accepted immutable deployment, even
             # when the baseline probe or its remote journal fails.
             adapter.rollback(current['deploymentId'])
-            adapter.pending = saved['acknowledgement']
-            adapter.pending_files = files
-            verify_acknowledgement(manifest, adapter.probe_production())
-            adapter.verify_static_files(adapter.site)
+            verify_release_pair(adapter, adapter.site, manifest, saved['acknowledgement'], files,
+                                'current_restoration_verification')
             record('current_restored', currentBytesVerified=True)
     require(store.read('heads/production.json') == current, 'DRILL_PRODUCTION_HEAD_CHANGED')
     record('passed', completedAt=utcnow())
@@ -228,7 +287,10 @@ def execute(root, expected_release=None, upstream_run=None):
         output['archive']=final['archive']
         return output
     except Exception as error:
-        session_runtime.checkpoint(root,state,session,'failed',{'errorType':type(error).__name__},finish=True)
+        diagnostic={'errorType':type(error).__name__, 'failureCategory':getattr(error,'failure_category',failure_category(error))}
+        if isinstance(error, DrillVerificationError):
+            diagnostic['failurePhase']=error.failure_phase
+        session_runtime.checkpoint(root,state,session,'failed',diagnostic,finish=True)
         raise
 
 
@@ -250,7 +312,10 @@ if __name__ == '__main__':
         else:
             result=execute(args.root,args.expected_release,args.upstream_run)
     except Exception as error:
-        result={'passed':False,'errorType':type(error).__name__}
+        result={'passed':False,'errorType':type(error).__name__,
+                'failureCategory':getattr(error,'failure_category',failure_category(error))}
+        if isinstance(error, DrillVerificationError):
+            result['failurePhase']=error.failure_phase
     Path(args.output).write_text(json.dumps(result,indent=2)+'\n')
     print(json.dumps(result,indent=2))
     raise SystemExit(0 if result.get('passed') or result.get('skipped') else 2)

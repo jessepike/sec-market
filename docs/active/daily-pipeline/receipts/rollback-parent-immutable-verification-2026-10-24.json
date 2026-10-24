@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "checkedAt": "2026-10-24T01:09:54.590281Z",
+  "parentReleaseId": "2e17a786a85e46406df0cdc10da99819dd20f3f6b385f5acc328e51a7a4ec390",
+  "host": "https://security-market-pulse-6cyvuucv4-pikeholdings.vercel.app",
+  "staticFilesVerified": 25,
+  "receiptSha256": "87faf3b77860136df74bb483a55fd20304111aa4a5c9b51ec109428d5fe82bd9",
+  "deploymentActions": 0
+}

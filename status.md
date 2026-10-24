@@ -20,7 +20,10 @@ independent main gate [40046450545](https://github.com/jessepike/sec-market/acti
 passed. All 53 static files match the tested artifact on the public and immutable hosts.
 [Production-byte receipt](docs/active/daily-pipeline/receipts/actual-correction-production-bytes-2026-10-24.json).
 Controlled rollback/restoration [40047154814](https://github.com/jessepike/sec-market/actions/runs/40047154814)
-is running against this exact release. Do not dispatch another archive writer until it finishes.
+failed during baseline verification. Its acknowledged journal records `current_restored` and
+`currentBytesVerified: true`; the live receipt remains the accepted release. The lease is released.
+The bounded complete-receipt/static-byte retry repair passes 18 focused and 449 operational tests.
+Deploy that reviewed repair before another controlled check; no blind retry.
 
 Actual live coverage is **244/557**, up from 121. The 313 gaps are 254 missing family bindings,
 28 unqualified candidate sources, 17 unfinished historical audits, nine HTTP 403 responses,
@@ -62,14 +65,14 @@ The local candidate separates due work from retained successful history. Archive
 evidence is independently rebound. A committed seven-target diagnostic plan proves every URL
 from retained disclosure bytes and uses the existing leased fetch-only path. No source was
 activated; no new coverage credit was granted. Current integrated checks pass 353 data,
-115 pipeline, 43 browser and 444 operational tests. Local screenshots are pixel-identical before
-after these backend changes. Run the real bounded diagnostic only after the active rollback ends.
+115 pipeline, 43 browser and 449 operational tests. Local screenshots are pixel-identical before
+after these backend changes. Resolve the rollback verification failure before the next diagnostic.
 [Selection repair](docs/active/daily-pipeline/accuracy/selection-pending-repair-spec-2026-10-24.md) ·
 [Qualification plan](docs/active/daily-pipeline/accuracy/source-qualification-spec-2026-10-24.md).
 
 Next verify current failure alerts, the seven actual diagnostic responses and the actual scheduled
 cycle on repaired main. Collection is 05:17 UTC; publication follows successful scheduled
-collection and runs at 06:23/16:23 UTC. Monitoring is 03:41/09:41/15:41/21:41 UTC; GitHub can run
+collection and runs at 06:23/16:23 UTC. Monitoring is 00:41/06:41/12:41/18:41 UTC; GitHub can run
 late. Preserve all declared obligations and unresolved evidence. No owner source choice currently
 blocks these repairs. Use GitHub Actions/Vercel under the existing approval; Codex Cloud, legacy
 publication paths, new purchases and paid API fallback stay closed. [Runbook](docs/active/daily-pipeline/github-operations.md).
