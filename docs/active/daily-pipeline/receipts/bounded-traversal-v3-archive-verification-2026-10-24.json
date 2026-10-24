@@ -1,0 +1,59 @@
+{
+  "archiveRoot": "/var/tmp/smp-bounded-v3-probe-20261024/archive-c112ffb8/jessepike-sec-market-c112ffb8b924d227e1ce3064b9c8de9edf4986b1",
+  "commit": "c112ffb8b924d227e1ce3064b9c8de9edf4986b1",
+  "manifestSha256": "92acb13705494a1453d8240c3f87f617dde22a07ec3ffc428cbb4deb22ea2d87",
+  "files": 35592,
+  "priorFiles": 35412,
+  "addedFiles": 180,
+  "removedFiles": [],
+  "changedExistingFiles": [
+    "state/heads/budget-2026-10-24.json",
+    "state/heads/cloud-lease.json"
+  ],
+  "immutableChanges": [],
+  "protectedHeads": {
+    "latest-run": true,
+    "cloud-collector": true,
+    "cloud-snapshot": true,
+    "dailySnapshot": true,
+    "correction-collection": true,
+    "production": true
+  },
+  "artifactDiagnosticMatchesRetainedRun": true,
+  "originalDiagnosticReplayedExactly": true,
+  "parserRevision": 3,
+  "storeMutations": 0,
+  "before": {
+    "files": 35596,
+    "contentSha256": "24ecd18c469e11e634cc797fed2d4be46970ca54eaaeddfba30ccf1e588ffbb1",
+    "fileMtimeSha256": "2e1fbe0fa7214633f8e0b92a361606f87abfe8ce7efaba171c66b65ba6930932",
+    "directories": 1325,
+    "directoryMtimeSha256": "55253b6e4f6a3fbea7816d75933153fc77b56b3322b75278fe26effc3daf87b2"
+  },
+  "after": {
+    "files": 35596,
+    "contentSha256": "24ecd18c469e11e634cc797fed2d4be46970ca54eaaeddfba30ccf1e588ffbb1",
+    "fileMtimeSha256": "2e1fbe0fa7214633f8e0b92a361606f87abfe8ce7efaba171c66b65ba6930932",
+    "directories": 1325,
+    "directoryMtimeSha256": "55253b6e4f6a3fbea7816d75933153fc77b56b3322b75278fe26effc3daf87b2"
+  },
+  "budget": {
+    "budgetDay": "2026-10-24",
+    "contractSha256": "79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60",
+    "fetchLimit": 5500,
+    "maximumRuntimeSeconds": 1200,
+    "startedAt": "2026-10-24T08:18:37.234703Z",
+    "initialBudget": {
+      "calls": 80,
+      "documents": 40,
+      "fetches": 1318
+    },
+    "probeFetchReservations": 57,
+    "reservationDenials": {},
+    "currentBudget": {
+      "calls": 80,
+      "documents": 40,
+      "fetches": 1375
+    }
+  }
+}
