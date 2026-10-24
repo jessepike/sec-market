@@ -90,6 +90,29 @@ class OnboardingBudgetTests(unittest.TestCase):
         policy = policy or self.contract
         return probe_sources(policy, self.store, fetcher, reservation_context=budget or self.budget(policy))
 
+    def candidate_sec_recent_fixture(self):
+        from regulatory import TABLE_FIELDS
+        issuer = {'cik': '0001535527', 'legalName': 'CrowdStrike Holdings, Inc.', 'relationship': 'parent'}
+        index = {'id': 'crwd-exposure:sec_index', 'supplierId': 'crwd-exposure',
+            'family': 'regulatory_filings', 'kind': 'sec_index', 'url': 'https://data.sec.gov/submissions/CIK0001535527.json',
+            'allowedHosts': ['data.sec.gov'], 'scopePrefixes': ['/submissions/'], 'maxPages': 40,
+            'lookbackDays': 365, 'regulatoryIssuer': issuer, 'registration': 'candidate', 'required': True}
+        documents = {'id': 'crwd-exposure:sec_documents', 'supplierId': 'crwd-exposure',
+            'family': 'filing_documents', 'kind': 'sec_documents', 'registration': 'candidate',
+            'url': index['url'], 'allowedHosts': ['data.sec.gov', 'www.sec.gov'],
+            'scopePrefixes': ['/Archives/edgar/data/'], 'maxPages': 100, 'lookbackDays': 365,
+            'cik': issuer['cik'], 'regulatoryIssuer': issuer, 'required': True}
+        filing = {'accessionNumber': '0001535527-26-000001', 'filingDate': '2026-10-20',
+            'reportDate': '', 'acceptanceDateTime': '2026-10-20T12:00:00Z', 'act': '34',
+            'form': '8-K', 'fileNumber': '001-12345', 'filmNumber': '26123456', 'items': '5.02',
+            'size': 42, 'isXBRL': 0, 'isInlineXBRL': 0, 'primaryDocument': 'release.htm',
+            'primaryDocDescription': 'Synthetic release'}
+        recent = {key: [filing[key]] for key in TABLE_FIELDS}
+        root = {'cik': 1535527, 'name': issuer['legalName'], 'filings': {'recent': recent, 'files': []}}
+        self.contract['sources'] = [index, documents]
+        primary_url = 'https://www.sec.gov/Archives/edgar/data/1535527/000153552726000001/release.htm'
+        return index, documents, root, primary_url
+
     def test_fully_charged_5500_80_40_ledger_makes_zero_requests_and_preserves_bytes(self):
         self.contract = contract(count=8)
         original = {'calls': 80, 'documents': 40, 'fetches': 5500, 'extraCounter': 12, 'extraMetadata': {'keep': True}}
@@ -284,6 +307,199 @@ class OnboardingBudgetTests(unittest.TestCase):
         self.assertEqual(maximum, 4)
         self.assertEqual(len(fetcher.calls), 8)
         self.assertTrue(report['executionCompleted'])
+        self.assertEqual(report['sourceChecksCredited'], 0)
+
+    def test_candidate_sec_pair_fetches_selected_primary_under_document_source_id(self):
+        from regulatory import TABLE_FIELDS
+        issuer = {'cik': '0001535527', 'legalName': 'CrowdStrike Holdings, Inc.', 'relationship': 'parent'}
+        index = self.contract['sources'][0]
+        index.update({'id': 'crwd-exposure:sec_index', 'supplierId': 'crwd-exposure',
+            'family': 'regulatory_filings', 'kind': 'sec_index', 'url': 'https://data.sec.gov/submissions/CIK0001535527.json',
+            'allowedHosts': ['data.sec.gov'], 'scopePrefixes': ['/submissions/'], 'maxPages': 40,
+            'lookbackDays': 365, 'regulatoryIssuer': issuer, 'registration': 'candidate'})
+        documents = {'id': 'crwd-exposure:sec_documents', 'supplierId': 'crwd-exposure',
+            'family': 'filing_documents', 'kind': 'sec_documents', 'registration': 'candidate',
+            'url': index['url'], 'allowedHosts': ['data.sec.gov', 'www.sec.gov'],
+            'scopePrefixes': ['/Archives/edgar/data/'], 'maxPages': 100, 'lookbackDays': 365,
+            'cik': issuer['cik'], 'regulatoryIssuer': issuer, 'required': True}
+        self.contract['sources'] = [index, documents]
+        filing = {'accessionNumber': '0001535527-26-000001', 'filingDate': '2026-10-20',
+            'reportDate': '', 'acceptanceDateTime': '2026-10-20T12:00:00Z', 'act': '34',
+            'form': '8-K', 'fileNumber': '001-12345', 'filmNumber': '26123456', 'items': '5.02',
+            'size': 42, 'isXBRL': 0, 'isInlineXBRL': 0, 'primaryDocument': 'release.htm',
+            'primaryDocDescription': 'Synthetic release'}
+        table = {key: [] for key in TABLE_FIELDS}
+        older_table = {key: [filing[key]] for key in TABLE_FIELDS}
+        older_url = 'https://data.sec.gov/submissions/CIK0001535527-submissions-001.json'
+        root = {'cik': 1535527, 'name': issuer['legalName'], 'filings': {'recent': table, 'files': [
+            {'name': 'CIK0001535527-submissions-001.json', 'filingCount': 1,
+             'filingFrom': '2026-10-20', 'filingTo': '2026-10-20'}]}}
+        older = older_table
+        primary_url = 'https://www.sec.gov/Archives/edgar/data/1535527/000153552726000001/release.htm'
+        calls = []
+        class JsonAndBodyFetcher:
+            def fetch(inner, received_source, url):
+                calls.append((received_source['id'], url))
+                if url == index['url']:
+                    raw = json.dumps(root).encode()
+                elif url == older_url:
+                    raw = json.dumps(older).encode()
+                else:
+                    raw = ('<html><body>' + ('Readable primary filing body. ' * 20) + '</body></html>').encode()
+                return {'requestedUrl': url, 'finalUrl': url, 'fetchedAt': NOW, 'status': 'fetched',
+                        'httpStatus': 200, 'contentType': 'application/json' if url != primary_url else 'text/html',
+                        'body': self.store.put(raw)}
+        report = self.run_probes(JsonAndBodyFetcher())
+        by_source = {row['sourceId']: row for row in report['sources']}
+        self.assertEqual(calls, [('crwd-exposure:sec_index', index['url']),
+                                 ('crwd-exposure:sec_index', older_url),
+                                 ('crwd-exposure:sec_documents', primary_url)])
+        index_row = by_source['crwd-exposure:sec_index']
+        document_row = by_source['crwd-exposure:sec_documents']
+        self.assertTrue(index_row['secIndexDiagnostic']['allRequiredPagesFetched'])
+        self.assertEqual(len(index_row['observations']), 2)
+        for reference in index_row['observations']:
+            self.assertEqual(json.loads(self.store.get(reference))['sourceId'], 'crwd-exposure:sec_index')
+        self.assertEqual(index_row['secIndexDiagnostic']['requiredOlderPages'][0]['url'], older_url)
+        self.assertEqual(document_row['secDocumentsDiagnostic']['selectedCount'], 1)
+        self.assertTrue(document_row['secDocumentsDiagnostic']['allSelectedBodiesFetched'])
+        observation = json.loads(self.store.get(document_row['observations'][0]))
+        self.assertEqual(observation['sourceId'], 'crwd-exposure:sec_documents')
+        self.assertEqual(document_row['secDocumentsDiagnostic']['indexObservations'], index_row['observations'])
+        self.assertEqual(len(document_row['secDocumentsDiagnostic']['primaryDocuments']), 1)
+        self.assertEqual(document_row['secDocumentsDiagnostic']['primaryDocuments'][0]['filingDate'], '2026-10-20')
+        self.assertIsNotNone(self.store.get(document_row['secDocumentsDiagnostic']['primaryDocuments'][0]['readableText']))
+        self.assertFalse(document_row['secDocumentsDiagnostic']['semanticEvidence'])
+        self.assertFalse(document_row['qualified'])
+        self.assertEqual(document_row['facts'], [])
+        self.assertEqual(report['sourceChecksCredited'], 0)
+
+    def test_candidate_sec_ambiguous_join_fails_before_any_request(self):
+        issuer = {'cik': '0001535527', 'legalName': 'CrowdStrike Holdings, Inc.', 'relationship': 'parent'}
+        index = {'id': 'crwd-exposure:sec_index', 'supplierId': 'crwd-exposure',
+            'family': 'regulatory_filings', 'kind': 'sec_index', 'url': 'https://data.sec.gov/submissions/CIK0001535527.json',
+            'allowedHosts': ['data.sec.gov'], 'scopePrefixes': ['/submissions/'], 'maxPages': 40,
+            'lookbackDays': 365, 'regulatoryIssuer': issuer, 'registration': 'candidate', 'required': True}
+        duplicate = copy.deepcopy(index)
+        duplicate['id'] = 'crwd-exposure:sec_index_duplicate'
+        documents = {'id': 'crwd-exposure:sec_documents', 'supplierId': 'crwd-exposure',
+            'family': 'filing_documents', 'kind': 'sec_documents', 'registration': 'candidate',
+            'url': index['url'], 'allowedHosts': ['data.sec.gov', 'www.sec.gov'],
+            'scopePrefixes': ['/Archives/edgar/data/'], 'maxPages': 100, 'lookbackDays': 365,
+            'cik': issuer['cik'], 'regulatoryIssuer': issuer, 'required': True}
+        self.contract['sources'] = [index, duplicate, documents]
+        self.contract['sources'].append({'id': 'ordinary-candidate', 'supplierId': 'ordinary-candidate',
+            'registration': 'candidate', 'kind': 'html_index', 'family': 'official_announcements',
+            'url': 'https://example.invalid/news', 'allowedHosts': ['example.invalid'],
+            'maxPages': 2, 'required': True})
+        fetcher = FictionalFetcher(self.store)
+        report = self.run_probes(fetcher)
+        self.assertEqual(fetcher.calls, [])
+        by_source = {row['sourceId']: row for row in report['sources']}
+        self.assertTrue(all(by_source[source_id]['reason'] == 'SEC_DIAGNOSTIC_EXACT_ONE_TO_ONE_SOURCE_JOIN_REQUIRED'
+                            for source_id in (index['id'], duplicate['id'], documents['id'])))
+        self.assertEqual(by_source['ordinary-candidate']['reason'],
+                         'SEC_DIAGNOSTIC_PREFLIGHT_BLOCKED_ALL_TRANSPORT')
+
+    def test_candidate_sec_final_deadline_and_utc_rollover_hold_both_rows_incomplete(self):
+        for mode in ('deadline', 'day'):
+            with self.subTest(mode=mode):
+                self.store = LocalStore(Path(self.temp.name) / ('synthetic-' + mode))
+                self.clock = Clock()
+                index, documents, root, primary_url = self.candidate_sec_recent_fixture()
+                calls = []
+                class LastFetchExpires:
+                    def fetch(inner, received_source, url):
+                        calls.append((received_source['id'], url))
+                        if url == index['url']:
+                            raw = json.dumps(root).encode()
+                            return {'requestedUrl': url, 'finalUrl': url, 'fetchedAt': NOW, 'status': 'fetched',
+                                    'httpStatus': 200, 'contentType': 'application/json', 'body': self.store.put(raw)}
+                        if url == primary_url:
+                            if mode == 'deadline':
+                                self.clock.elapsed = 1201
+                            else:
+                                self.clock.current = '2026-10-24T00:00:00Z'
+                            raw = ('<html><body>' + ('Readable primary filing body. ' * 20) + '</body></html>').encode()
+                            return {'requestedUrl': url, 'finalUrl': url, 'fetchedAt': NOW, 'status': 'fetched',
+                                    'httpStatus': 200, 'contentType': 'text/html', 'body': self.store.put(raw)}
+                        raise AssertionError('unexpected SEC request: ' + url)
+                report = self.run_probes(LastFetchExpires())
+                by_source = {row['sourceId']: row for row in report['sources']}
+                expected = 'SOURCE_PROBE_DEADLINE_EXCEEDED' if mode == 'deadline' else 'SOURCE_PROBE_UTC_DAY_CHANGED'
+                self.assertEqual(calls, [('crwd-exposure:sec_index', index['url']),
+                                         ('crwd-exposure:sec_documents', primary_url)])
+                for row in by_source.values():
+                    self.assertEqual(row['reason'], expected)
+                    self.assertFalse(row['executionCompleted'])
+                    self.assertTrue(row['budgetDenied'])
+                    self.assertEqual(row['reservationDenials'][-1]['reason'], expected)
+                self.assertFalse(by_source[index['id']]['secIndexDiagnostic']['allRequiredPagesFetched'])
+                self.assertFalse(by_source[documents['id']]['secDocumentsDiagnostic']['allSelectedBodiesFetched'])
+
+    def test_candidate_sec_pre_and_post_reservation_denials_report_charge_truthfully(self):
+        for mode in ('pre-reservation', 'post-reservation'):
+            with self.subTest(mode=mode):
+                self.store = LocalStore(Path(self.temp.name) / ('synthetic-' + mode))
+                self.clock = Clock()
+                index, documents, root, _primary_url = self.candidate_sec_recent_fixture()
+                if mode == 'pre-reservation':
+                    self.seed({'calls': 80, 'documents': 40, 'fetches': 5500})
+                budget = self.budget()
+                if mode == 'post-reservation':
+                    original_before_fetch = budget.before_fetch
+                    def expire_after_reservation():
+                        self.clock.elapsed = 1201
+                        original_before_fetch()
+                    budget.before_fetch = expire_after_reservation
+                report = self.run_probes(FictionalFetcher(self.store), budget=budget)
+                row = next(item for item in report['sources'] if item['sourceId'] == index['id'])
+                denial = row['reservationDenials'][0]
+                self.assertEqual(denial['reason'], 'FETCHES_BUDGET_EXHAUSTED' if mode == 'pre-reservation'
+                                 else 'SOURCE_PROBE_DEADLINE_EXCEEDED')
+                self.assertIs(denial['reservationCharged'], mode == 'post-reservation')
+                self.assertEqual(len(row['fetchReservations']), 0 if mode == 'pre-reservation' else 1)
+                self.assertEqual(budget.summary()['probeFetchReservations'], 0 if mode == 'pre-reservation' else 1)
+
+    def test_candidate_sec_failed_primary_body_is_retained_as_incomplete(self):
+        from regulatory import TABLE_FIELDS
+        issuer = {'cik': '0001535527', 'legalName': 'CrowdStrike Holdings, Inc.', 'relationship': 'parent'}
+        index = {'id': 'crwd-exposure:sec_index', 'supplierId': 'crwd-exposure',
+            'family': 'regulatory_filings', 'kind': 'sec_index', 'url': 'https://data.sec.gov/submissions/CIK0001535527.json',
+            'allowedHosts': ['data.sec.gov'], 'scopePrefixes': ['/submissions/'], 'maxPages': 40,
+            'lookbackDays': 365, 'regulatoryIssuer': issuer, 'registration': 'candidate', 'required': True}
+        documents = {'id': 'crwd-exposure:sec_documents', 'supplierId': 'crwd-exposure',
+            'family': 'filing_documents', 'kind': 'sec_documents', 'registration': 'candidate',
+            'url': index['url'], 'allowedHosts': ['data.sec.gov', 'www.sec.gov'],
+            'scopePrefixes': ['/Archives/edgar/data/'], 'maxPages': 100, 'lookbackDays': 365,
+            'cik': issuer['cik'], 'regulatoryIssuer': issuer, 'required': True}
+        self.contract['sources'] = [index, documents]
+        filing = {'accessionNumber': '0001535527-26-000001', 'filingDate': '2026-10-20',
+            'reportDate': '', 'acceptanceDateTime': '2026-10-20T12:00:00Z', 'act': '34',
+            'form': '8-K', 'fileNumber': '001-12345', 'filmNumber': '26123456', 'items': '5.02',
+            'size': 42, 'isXBRL': 0, 'isInlineXBRL': 0, 'primaryDocument': 'release.htm',
+            'primaryDocDescription': 'Synthetic release'}
+        recent = {key: [filing[key]] for key in TABLE_FIELDS}
+        root = {'cik': 1535527, 'name': issuer['legalName'], 'filings': {'recent': recent, 'files': []}}
+        primary_url = 'https://www.sec.gov/Archives/edgar/data/1535527/000153552726000001/release.htm'
+        calls = []
+        class FailedPrimaryFetcher:
+            def fetch(inner, received_source, url):
+                calls.append((received_source['id'], url))
+                if url == index['url']:
+                    raw = json.dumps(root).encode()
+                    return {'requestedUrl': url, 'finalUrl': url, 'fetchedAt': NOW, 'status': 'fetched',
+                            'httpStatus': 200, 'contentType': 'application/json', 'body': self.store.put(raw)}
+                return {'requestedUrl': url, 'finalUrl': url, 'fetchedAt': NOW, 'status': 'blocked',
+                        'httpStatus': 403, 'errorCode': 'HTTP_403'}
+        report = self.run_probes(FailedPrimaryFetcher())
+        by_source = {row['sourceId']: row for row in report['sources']}
+        row = by_source['crwd-exposure:sec_documents']
+        self.assertEqual(calls, [('crwd-exposure:sec_index', index['url']),
+                                 ('crwd-exposure:sec_documents', primary_url)])
+        self.assertEqual(row['reason'], 'SEC_DIAGNOSTIC_PRIMARY_BODY_RESPONSE_INVALID')
+        self.assertFalse(row['secDocumentsDiagnostic']['allSelectedBodiesFetched'])
+        self.assertEqual(row['secDocumentsDiagnostic']['primaryDocuments'][0]['httpStatus'], 403)
         self.assertEqual(report['sourceChecksCredited'], 0)
 
     def cli_args(self, extra=None):
