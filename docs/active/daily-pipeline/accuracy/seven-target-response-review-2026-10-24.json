@@ -1,0 +1,1728 @@
+{
+  "schemaVersion": 1,
+  "id": "SEC-MARKET-SEVEN-TARGET-RESPONSE-REVIEW-20261024",
+  "reviewedAt": "2026-10-24T01:41:52.261985Z",
+  "status": "actual_retained_response_review_only_no_qualification",
+  "archive": {
+    "commit": "b9f1208bd9e957bee5cca2c0b4db28a4fc1fa63f",
+    "verifiedGitArchiveManifestSha256": "5480056315f07d6c6be4e66d5f9a643437d020eb039f2d51fe378ad70803c9bb",
+    "statePath": "/var/tmp/smp-renewal-20261024/archive-b9f1208b/jessepike-sec-market-b9f1208bd9e957bee5cca2c0b4db28a4fc1fa63f/state",
+    "before": {
+      "files": 31048,
+      "contentManifestSha256": "038c4ebcc98e436ab9fce8ad9f451e512374f4110ba6fc63213b7fadc10f407d",
+      "sizeMtimeContentSealSha256": "9748436e638241a3178bfb8baddb68067a46ec6cc4b0883bbad700f1198b2f5f"
+    },
+    "after": {
+      "files": 31048,
+      "contentManifestSha256": "038c4ebcc98e436ab9fce8ad9f451e512374f4110ba6fc63213b7fadc10f407d",
+      "sizeMtimeContentSealSha256": "9748436e638241a3178bfb8baddb68067a46ec6cc4b0883bbad700f1198b2f5f"
+    },
+    "sealDefinition": "Canonical SHA256 of path-sorted relative-path/bytes/mtimeNs/SHA256 rows; contentManifest excludes mtimeNs. Distinct from GitArchive manifest."
+  },
+  "inputReceipt": {
+    "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/receipts/seven-target-probe-result-2026-10-24.json",
+    "sha256": "fa03facb466a84fd91bfd9f47ab4e4c436bbacb6634dd6d5a91f9cfb86e16f58",
+    "bytes": 146130,
+    "originalArchivedRunRecord": {
+      "key": "ci/source-probe-runs/40049636626-1.json",
+      "sha256": "062864ce984d76a23f70673b1f10140b334b27f2cb024a9f22dabe2872dcac7d",
+      "bytes": 97577
+    },
+    "githubRunId": "40049636626",
+    "appRevision": "da5cef21dfae1341289267e2e3dc35a3ffdefde5",
+    "checkedAt": "2026-10-24T01:26:57.483815Z"
+  },
+  "marketSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+  "originalProposal": {
+    "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/qualification-adapter-next-spec-2026-10-24.md",
+    "sha256Before": "fc2b052b7fb0effbb11823c471093cf3d652ab05fbe0f30c7aa25f9865b766f7",
+    "sha256After": "fc2b052b7fb0effbb11823c471093cf3d652ab05fbe0f30c7aa25f9865b766f7"
+  },
+  "probePlan": {
+    "rawSha256": "163e439adf2d383d9aa47d7a8c3a00ba4d75e31149a20b012c2a8772211496cf",
+    "canonicalSha256": "f66db4b9a9f97542136c000f1c660036de38b5a77fbd0dcb3ea958edc54f04ba",
+    "marketSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+    "maxRequests": 7
+  },
+  "actualSourceProbeReservations": 125,
+  "explicitReservedFetches": 7,
+  "explicitChargedCounts": [
+    635,
+    636,
+    637,
+    638,
+    639,
+    640,
+    641
+  ],
+  "usageAtReceipt": {
+    "calls": 80,
+    "documents": 40,
+    "fetches": 641
+  },
+  "schedulingWindow": {
+    "currentWindowDays": 30,
+    "start": "2026-09-24",
+    "end": "2026-10-24",
+    "meaning": "Scheduling priority only; no reduction of discovery/history obligations."
+  },
+  "targets": [
+    {
+      "targetId": "ping-index",
+      "sourceId": "ping-identity:official:1",
+      "supplierId": "ping-identity",
+      "registration": "candidate",
+      "requestedUrl": "https://press.pingidentity.com/news-releases",
+      "finalUrl": "https://press.pingidentity.com/news-releases",
+      "fetchedAt": "2026-10-24T01:26:54.975043Z",
+      "httpStatus": 200,
+      "observation": {
+        "key": "objects/09eb766cec6f9e2d9cbd7a3f412bdca185b7a604a635d596f2f19b506ad884f7",
+        "sha256": "09eb766cec6f9e2d9cbd7a3f412bdca185b7a604a635d596f2f19b506ad884f7",
+        "bytes": 479
+      },
+      "body": {
+        "bytes": 98724,
+        "key": "objects/a3ea17921e3b778f56c42fe0ecfa2f035db991f34afb167e6cb09dc28f4113b2",
+        "sha256": "a3ea17921e3b778f56c42fe0ecfa2f035db991f34afb167e6cb09dc28f4113b2"
+      },
+      "contentType": "text/html; charset=UTF-8",
+      "chargedFetchCount": 635,
+      "diagnosticReason": "RESPONSE_RETAINED_SCOPE_AND_HISTORY_REVIEW_REQUIRED",
+      "qualified": false,
+      "sourceChecksCredited": 0,
+      "analysis": {
+        "kind": "ping_release_index",
+        "canonicals": [
+          "https://press.pingidentity.com/news-releases"
+        ],
+        "feeds": [
+          "https://press.pingidentity.com/news-releases?pagetemplate=rss"
+        ],
+        "cards": [
+          {
+            "title": "Ping Identity Survey Finds AI Trust Changes When Assistance Turns to Action",
+            "url": "https://press.pingidentity.com/2026-10-06-Ping-Identity-Survey-Finds-AI-Trust-Changes-When-Assistance-Turns-to-Action",
+            "dateText": "Oct 06, 2026",
+            "publicationDay": "2026-10-06",
+            "withinSchedulingWindow": true
+          },
+          {
+            "title": "Ping Identity Launches Identity Agents on Google Cloud Marketplace",
+            "url": "https://press.pingidentity.com/2026-09-29-Ping-Identity-Launches-Identity-Agents-on-Google-Cloud-Marketplace",
+            "dateText": "Sep 29, 2026",
+            "publicationDay": "2026-09-29",
+            "withinSchedulingWindow": true
+          },
+          {
+            "title": "Ping Identity Secures Claude Personal Agents From Discovery to Action",
+            "url": "https://press.pingidentity.com/2026-09-01-Ping-Identity-Secures-Claude-Personal-Agents-From-Discovery-to-Action",
+            "dateText": "Sep 01, 2026",
+            "publicationDay": "2026-09-01",
+            "withinSchedulingWindow": false
+          },
+          {
+            "title": "Ping Identity Verification and Fraud Protection Listed in Epic Toolbox",
+            "url": "https://press.pingidentity.com/2026-07-28-Ping-Identity-Verification-and-Fraud-Protection-Listed-in-Epic-Toolbox",
+            "dateText": "Jul 28, 2026",
+            "publicationDay": "2026-07-28",
+            "withinSchedulingWindow": false
+          },
+          {
+            "title": "Ping Identity Extends Runtime Identity™ for AI Agents Across AWS, Google Cloud, and Cloudflare",
+            "url": "https://press.pingidentity.com/2026-06-16-Ping-Identity-Extends-Runtime-Identity-TM-for-AI-Agents-Across-AWS,-Google-Cloud,-and-Cloudflare",
+            "dateText": "Jun 16, 2026",
+            "publicationDay": "2026-06-16",
+            "withinSchedulingWindow": false
+          },
+          {
+            "title": "Ping Identity Redefines the Identity Control Plane for the Agentic Enterprise",
+            "url": "https://press.pingidentity.com/2026-05-27-Ping-Identity-Redefines-the-Identity-Control-Plane-for-the-Agentic-Enterprise",
+            "dateText": "May 27, 2026",
+            "publicationDay": "2026-05-27",
+            "withinSchedulingWindow": false
+          },
+          {
+            "title": "Ping Identity and OLOID Bring Passwordless, Verified Trust to the Clinical Workforce",
+            "url": "https://press.pingidentity.com/2026-05-05-Ping-Identity-and-OLOID-Bring-Passwordless,-Verified-Trust-to-the-Clinical-Workforce",
+            "dateText": "May 05, 2026",
+            "publicationDay": "2026-05-05",
+            "withinSchedulingWindow": false
+          },
+          {
+            "title": "Ping Identity Warns of Emerging Authorization Risks as AI Agents Scale Across Enterprises",
+            "url": "https://press.pingidentity.com/2026-04-28-Ping-Identity-Warns-of-Emerging-Authorization-Risks-as-AI-Agents-Scale-Across-Enterprises",
+            "dateText": "Apr 28, 2026",
+            "publicationDay": "2026-04-28",
+            "withinSchedulingWindow": false
+          },
+          {
+            "title": "Ping Identity Wins 2026 Google Cloud Security Partner of the Year Award for Identity & Access Management",
+            "url": "https://press.pingidentity.com/2026-04-22-Ping-Identity-Wins-2026-Google-Cloud-Security-Partner-of-the-Year-Award-for-Identity-Access-Management",
+            "dateText": "Apr 22, 2026",
+            "publicationDay": "2026-04-22",
+            "withinSchedulingWindow": false
+          },
+          {
+            "title": "Ping Identity Defines the Runtime Identity Standard for Autonomous AI",
+            "url": "https://press.pingidentity.com/2026-03-24-Ping-Identity-Defines-the-Runtime-Identity-Standard-for-Autonomous-AI",
+            "dateText": "Mar 24, 2026",
+            "publicationDay": "2026-03-24",
+            "withinSchedulingWindow": false
+          }
+        ],
+        "cardCount": 10,
+        "currentPage": 1,
+        "controls": [
+          {
+            "classes": [
+              "wd_page_link",
+              "wd_page_prev"
+            ],
+            "text": "«",
+            "links": []
+          },
+          {
+            "classes": [
+              "wd_page_active",
+              "wd_page_link"
+            ],
+            "text": "1",
+            "links": []
+          },
+          {
+            "classes": [
+              "wd_page_link",
+              "wd_page_mid2"
+            ],
+            "text": "2",
+            "links": [
+              {
+                "url": "https://press.pingidentity.com/news-releases?o=10",
+                "label": "2",
+                "ariaLabel": "Show page 2"
+              }
+            ]
+          },
+          {
+            "classes": [
+              "wd_page_link",
+              "wd_page_mid2"
+            ],
+            "text": "3",
+            "links": [
+              {
+                "url": "https://press.pingidentity.com/news-releases?o=20",
+                "label": "3",
+                "ariaLabel": "Show page 3"
+              }
+            ]
+          },
+          {
+            "classes": [
+              "wd_page_link",
+              "wd_page_mid2"
+            ],
+            "text": "4",
+            "links": [
+              {
+                "url": "https://press.pingidentity.com/news-releases?o=30",
+                "label": "4",
+                "ariaLabel": "Show page 4"
+              }
+            ]
+          },
+          {
+            "classes": [
+              "wd_page_link",
+              "wd_page_mid2"
+            ],
+            "text": "5",
+            "links": [
+              {
+                "url": "https://press.pingidentity.com/news-releases?o=40",
+                "label": "5",
+                "ariaLabel": "Show page 5"
+              }
+            ]
+          },
+          {
+            "classes": [
+              "wd_page_link",
+              "wd_page_mid2"
+            ],
+            "text": "6",
+            "links": [
+              {
+                "url": "https://press.pingidentity.com/news-releases?o=50",
+                "label": "6",
+                "ariaLabel": "Show page 6"
+              }
+            ]
+          },
+          {
+            "classes": [
+              "wd_page_link",
+              "wd_page_mid2"
+            ],
+            "text": "7",
+            "links": [
+              {
+                "url": "https://press.pingidentity.com/news-releases?o=60",
+                "label": "7",
+                "ariaLabel": "Show page 7"
+              }
+            ]
+          },
+          {
+            "classes": [
+              "wd_page_link",
+              "wd_page_mid2"
+            ],
+            "text": "8",
+            "links": [
+              {
+                "url": "https://press.pingidentity.com/news-releases?o=70",
+                "label": "8",
+                "ariaLabel": "Show page 8"
+              }
+            ]
+          },
+          {
+            "classes": [
+              "wd_page_link",
+              "wd_page_mid2"
+            ],
+            "text": "9",
+            "links": [
+              {
+                "url": "https://press.pingidentity.com/news-releases?o=80",
+                "label": "9",
+                "ariaLabel": "Show page 9"
+              }
+            ]
+          },
+          {
+            "classes": [
+              "wd_page_link",
+              "wd_page_skip2"
+            ],
+            "text": "…",
+            "links": []
+          },
+          {
+            "classes": [
+              "wd_page_end",
+              "wd_page_link"
+            ],
+            "text": "25",
+            "links": [
+              {
+                "url": "https://press.pingidentity.com/news-releases?o=240",
+                "label": "25",
+                "ariaLabel": "Show page 25"
+              }
+            ]
+          },
+          {
+            "classes": [
+              "wd_page_link",
+              "wd_page_next"
+            ],
+            "text": "»",
+            "links": [
+              {
+                "url": "https://press.pingidentity.com/news-releases?o=10",
+                "label": "»",
+                "ariaLabel": "Show next page"
+              }
+            ]
+          }
+        ],
+        "highestAdvertisedPage": 25,
+        "headNext": [],
+        "firstPublicationDay": "2026-10-06",
+        "lastPublicationDay": "2026-03-24",
+        "completeHistoryProved": false
+      }
+    },
+    {
+      "targetId": "ping-rss",
+      "sourceId": "ping-identity:official:1",
+      "supplierId": "ping-identity",
+      "registration": "candidate",
+      "requestedUrl": "https://press.pingidentity.com/news-releases?pagetemplate=rss",
+      "finalUrl": "https://press.pingidentity.com/news-releases?pagetemplate=rss",
+      "fetchedAt": "2026-10-24T01:26:55.207819Z",
+      "httpStatus": 200,
+      "observation": {
+        "key": "objects/08f71ae64c6c78e0c1e8fbf7b638c19b8095cb7e74679a90f97c58afb1c1f507",
+        "sha256": "08f71ae64c6c78e0c1e8fbf7b638c19b8095cb7e74679a90f97c58afb1c1f507",
+        "bytes": 511
+      },
+      "body": {
+        "bytes": 2460,
+        "key": "objects/906b1656404e95d8ed52082ecfd40d738e2ff24368ab6638cda810d4e38055a8",
+        "sha256": "906b1656404e95d8ed52082ecfd40d738e2ff24368ab6638cda810d4e38055a8"
+      },
+      "contentType": "text/xml; charset=UTF-8",
+      "chargedFetchCount": 636,
+      "diagnosticReason": "RESPONSE_RETAINED_SCOPE_AND_HISTORY_REVIEW_REQUIRED",
+      "qualified": false,
+      "sourceChecksCredited": 0,
+      "analysis": {
+        "kind": "rss_2_0",
+        "channelFields": [
+          {
+            "tag": "title",
+            "attributes": {},
+            "text": "Ping Identity Press Releases"
+          },
+          {
+            "tag": "link",
+            "attributes": {},
+            "text": "https://press.pingidentity.com/"
+          },
+          {
+            "tag": "description",
+            "attributes": {},
+            "text": ""
+          }
+        ],
+        "entries": [
+          {
+            "title": "Ping Identity Survey Finds AI Trust Changes When Assistance Turns to Action",
+            "url": "https://press.pingidentity.com/2026-10-06-Ping-Identity-Survey-Finds-AI-Trust-Changes-When-Assistance-Turns-to-Action",
+            "guid": "https://press.pingidentity.com/2026-10-06-Ping-Identity-Survey-Finds-AI-Trust-Changes-When-Assistance-Turns-to-Action",
+            "guidAttributes": {},
+            "pubDate": "Tue, 06 Oct 2026 10:09:00 -0400",
+            "publishedUtc": "2026-10-06T14:09:00Z",
+            "publisherCalendarDay": "2026-10-06",
+            "dcDate": null,
+            "dcDateAgrees": true,
+            "withinSchedulingWindow": true,
+            "descriptionChars": 0,
+            "descriptionReadableChars": 0,
+            "encodedContentChars": 0,
+            "encodedReadableChars": 0,
+            "encodedReadableExcerpt": "",
+            "embeddedContentLinks": [],
+            "categoryValues": []
+          },
+          {
+            "title": "Ping Identity Launches Identity Agents on Google Cloud Marketplace",
+            "url": "https://press.pingidentity.com/2026-09-29-Ping-Identity-Launches-Identity-Agents-on-Google-Cloud-Marketplace",
+            "guid": "https://press.pingidentity.com/2026-09-29-Ping-Identity-Launches-Identity-Agents-on-Google-Cloud-Marketplace",
+            "guidAttributes": {},
+            "pubDate": "Tue, 29 Sep 2026 09:00:00 -0400",
+            "publishedUtc": "2026-09-29T13:00:00Z",
+            "publisherCalendarDay": "2026-09-29",
+            "dcDate": null,
+            "dcDateAgrees": true,
+            "withinSchedulingWindow": true,
+            "descriptionChars": 0,
+            "descriptionReadableChars": 0,
+            "encodedContentChars": 0,
+            "encodedReadableChars": 0,
+            "encodedReadableExcerpt": "",
+            "embeddedContentLinks": [],
+            "categoryValues": []
+          },
+          {
+            "title": "Ping Identity Secures Claude Personal Agents From Discovery to Action",
+            "url": "https://press.pingidentity.com/2026-09-01-Ping-Identity-Secures-Claude-Personal-Agents-From-Discovery-to-Action",
+            "guid": "https://press.pingidentity.com/2026-09-01-Ping-Identity-Secures-Claude-Personal-Agents-From-Discovery-to-Action",
+            "guidAttributes": {},
+            "pubDate": "Tue, 01 Sep 2026 09:00:00 -0400",
+            "publishedUtc": "2026-09-01T13:00:00Z",
+            "publisherCalendarDay": "2026-09-01",
+            "dcDate": null,
+            "dcDateAgrees": true,
+            "withinSchedulingWindow": false,
+            "descriptionChars": 0,
+            "descriptionReadableChars": 0,
+            "encodedContentChars": 0,
+            "encodedReadableChars": 0,
+            "encodedReadableExcerpt": "",
+            "embeddedContentLinks": [],
+            "categoryValues": []
+          },
+          {
+            "title": "Ping Identity Verification and Fraud Protection Listed in Epic Toolbox",
+            "url": "https://press.pingidentity.com/2026-07-28-Ping-Identity-Verification-and-Fraud-Protection-Listed-in-Epic-Toolbox",
+            "guid": "https://press.pingidentity.com/2026-07-28-Ping-Identity-Verification-and-Fraud-Protection-Listed-in-Epic-Toolbox",
+            "guidAttributes": {},
+            "pubDate": "Tue, 28 Jul 2026 09:00:00 -0400",
+            "publishedUtc": "2026-07-28T13:00:00Z",
+            "publisherCalendarDay": "2026-07-28",
+            "dcDate": null,
+            "dcDateAgrees": true,
+            "withinSchedulingWindow": false,
+            "descriptionChars": 0,
+            "descriptionReadableChars": 0,
+            "encodedContentChars": 0,
+            "encodedReadableChars": 0,
+            "encodedReadableExcerpt": "",
+            "embeddedContentLinks": [],
+            "categoryValues": []
+          },
+          {
+            "title": "Ping Identity Extends Runtime Identity™ for AI Agents Across AWS, Google Cloud, and Cloudflare",
+            "url": "https://press.pingidentity.com/2026-06-16-Ping-Identity-Extends-Runtime-Identity-TM-for-AI-Agents-Across-AWS,-Google-Cloud,-and-Cloudflare",
+            "guid": "https://press.pingidentity.com/2026-06-16-Ping-Identity-Extends-Runtime-Identity-TM-for-AI-Agents-Across-AWS,-Google-Cloud,-and-Cloudflare",
+            "guidAttributes": {},
+            "pubDate": "Tue, 16 Jun 2026 09:00:00 -0400",
+            "publishedUtc": "2026-06-16T13:00:00Z",
+            "publisherCalendarDay": "2026-06-16",
+            "dcDate": null,
+            "dcDateAgrees": true,
+            "withinSchedulingWindow": false,
+            "descriptionChars": 0,
+            "descriptionReadableChars": 0,
+            "encodedContentChars": 0,
+            "encodedReadableChars": 0,
+            "encodedReadableExcerpt": "",
+            "embeddedContentLinks": [],
+            "categoryValues": []
+          }
+        ],
+        "itemCount": 5,
+        "continuationControls": [],
+        "firstPublicationDay": "2026-10-06",
+        "lastPublicationDay": "2026-06-16",
+        "currentSchedulingItems": 2,
+        "duplicates": 0,
+        "allGuidLinksAgree": true,
+        "completeHistoryProved": false,
+        "literalChannelIndex": "https://press.pingidentity.com/",
+        "feedContentIsCompleteReleaseBody": false,
+        "dublinCoreDateCount": 0,
+        "allPresentDublinCoreDatesAgree": true
+      }
+    },
+    {
+      "targetId": "ping-next",
+      "sourceId": "ping-identity:official:1",
+      "supplierId": "ping-identity",
+      "registration": "candidate",
+      "requestedUrl": "https://press.pingidentity.com/news-releases?o=10",
+      "finalUrl": "https://press.pingidentity.com/news-releases?o=10",
+      "fetchedAt": "2026-10-24T01:26:56.036210Z",
+      "httpStatus": 200,
+      "observation": {
+        "key": "objects/f61107756abf878060b6082d9067715f1c0ab6ce9d45946a72d1a3731f258c88",
+        "sha256": "f61107756abf878060b6082d9067715f1c0ab6ce9d45946a72d1a3731f258c88",
+        "bytes": 489
+      },
+      "body": {
+        "bytes": 99084,
+        "key": "objects/277c8d143f01e294d926ca6f85eb3c9874b08107721386a69feeaf59107372e3",
+        "sha256": "277c8d143f01e294d926ca6f85eb3c9874b08107721386a69feeaf59107372e3"
+      },
+      "contentType": "text/html; charset=UTF-8",
+      "chargedFetchCount": 637,
+      "diagnosticReason": "RESPONSE_RETAINED_SCOPE_AND_HISTORY_REVIEW_REQUIRED",
+      "qualified": false,
+      "sourceChecksCredited": 0,
+      "analysis": {
+        "kind": "ping_release_index",
+        "canonicals": [
+          "https://press.pingidentity.com/news-releases"
+        ],
+        "feeds": [
+          "https://press.pingidentity.com/news-releases?pagetemplate=rss"
+        ],
+        "cards": [
+          {
+            "title": "Ping Identity: Only 9% of Organizations are Prepared for Continuous AI-Driven Identity Threats",
+            "url": "https://press.pingidentity.com/2026-03-17-Ping-Identity-Only-9-of-Organizations-are-Prepared-for-Continuous-AI-Driven-Identity-Threats",
+            "dateText": "Mar 17, 2026",
+            "publicationDay": "2026-03-17",
+            "withinSchedulingWindow": false
+          },
+          {
+            "title": "Ping Identity Secure Containers Approved for Iron Bank to Accelerate IL5 Deployment Across Defense Environments",
+            "url": "https://press.pingidentity.com/2026-02-26-Ping-Identity-Secure-Containers-Approved-for-Iron-Bank-to-Accelerate-IL5-Deployment-Across-Defense-Environments",
+            "dateText": "Feb 26, 2026",
+            "publicationDay": "2026-02-26",
+            "withinSchedulingWindow": false
+          },
+          {
+            "title": "Ping Identity Advances Universal Services to Redefine Trust in the Age of AI-Driven Fraud",
+            "url": "https://press.pingidentity.com/2026-01-20-Ping-Identity-Advances-Universal-Services-to-Redefine-Trust-in-the-Age-of-AI-Driven-Fraud",
+            "dateText": "Jan 20, 2026",
+            "publicationDay": "2026-01-20",
+            "withinSchedulingWindow": false
+          },
+          {
+            "title": "Ping Identity Marks Digital Trust Milestone with Zero-Knowledge Biometrics in the Age of AI",
+            "url": "https://press.pingidentity.com/2026-01-07-Ping-Identity-Marks-Digital-Trust-Milestone-with-Zero-Knowledge-Biometrics-in-the-Age-of-AI",
+            "dateText": "Jan 07, 2026",
+            "publicationDay": "2026-01-07",
+            "withinSchedulingWindow": false
+          },
+          {
+            "title": "Ping Identity Appoints Adnan Chaudhry as Chief Revenue Officer to Scale Trusted Identity for the AI Era",
+            "url": "https://press.pingidentity.com/2026-01-06-Ping-Identity-Appoints-Adnan-Chaudhry-as-Chief-Revenue-Officer-to-Scale-Trusted-Identity-for-the-AI-Era",
+            "dateText": "Jan 06, 2026",
+            "publicationDay": "2026-01-06",
+            "withinSchedulingWindow": false
+          },
+          {
+            "title": "Ping Identity Recognized as a Leader in 2025 Gartner® Magic Quadrant™ for Access Management",
+            "url": "https://press.pingidentity.com/2025-11-18-Ping-Identity-Recognized-as-a-Leader-in-2025-Gartner-R-Magic-Quadrant-TM-for-Access-Management",
+            "dateText": "Nov 18, 2025",
+            "publicationDay": "2025-11-18",
+            "withinSchedulingWindow": false
+          },
+          {
+            "title": "Ping Identity Launches 'Identity for AI' Solution to Power Innovation and Trust in the Agent Economy",
+            "url": "https://press.pingidentity.com/2025-11-06-Ping-Identity-Launches-Identity-for-AI-Solution-to-Power-Innovation-and-Trust-in-the-Agent-Economy",
+            "dateText": "Nov 06, 2025",
+            "publicationDay": "2025-11-06",
+            "withinSchedulingWindow": false
+          },
+          {
+            "title": "Ping Identity Strengthens Defense Against AI-Driven Impersonation with Privacy-Preserving Biometrics",
+            "url": "https://press.pingidentity.com/2025-10-30-Ping-Identity-Strengthens-Defense-Against-AI-Driven-Impersonation-with-Privacy-Preserving-Biometrics",
+            "dateText": "Oct 30, 2025",
+            "publicationDay": "2025-10-30",
+            "withinSchedulingWindow": false
+          },
+          {
+            "title": "Ping Identity Survey Reveals Consumer Trust Plummeting as AI Use Soars",
+            "url": "https://press.pingidentity.com/2025-10-01-Ping-Identity-Survey-Reveals-Consumer-Trust-Plummeting-as-AI-Use-Soars",
+            "dateText": "Oct 01, 2025",
+            "publicationDay": "2025-10-01",
+            "withinSchedulingWindow": false
+          },
+          {
+            "title": "Ping Identity Shapes the Future of Enterprise Security With AI-Driven Trust Framework",
+            "url": "https://press.pingidentity.com/2025-09-17-Ping-Identity-Shapes-the-Future-of-Enterprise-Security-With-AI-Driven-Trust-Framework",
+            "dateText": "Sep 17, 2025",
+            "publicationDay": "2025-09-17",
+            "withinSchedulingWindow": false
+          }
+        ],
+        "cardCount": 10,
+        "currentPage": 2,
+        "controls": [
+          {
+            "classes": [
+              "wd_page_link",
+              "wd_page_prev"
+            ],
+            "text": "«",
+            "links": [
+              {
+                "url": "https://press.pingidentity.com/news-releases?o=0",
+                "label": "«",
+                "ariaLabel": "Show previous page"
+              }
+            ]
+          },
+          {
+            "classes": [
+              "wd_page_link",
+              "wd_page_mid1"
+            ],
+            "text": "1",
+            "links": [
+              {
+                "url": "https://press.pingidentity.com/news-releases?o=0",
+                "label": "1",
+                "ariaLabel": "Show page 1"
+              }
+            ]
+          },
+          {
+            "classes": [
+              "wd_page_active",
+              "wd_page_link"
+            ],
+            "text": "2",
+            "links": []
+          },
+          {
+            "classes": [
+              "wd_page_link",
+              "wd_page_mid2"
+            ],
+            "text": "3",
+            "links": [
+              {
+                "url": "https://press.pingidentity.com/news-releases?o=20",
+                "label": "3",
+                "ariaLabel": "Show page 3"
+              }
+            ]
+          },
+          {
+            "classes": [
+              "wd_page_link",
+              "wd_page_mid2"
+            ],
+            "text": "4",
+            "links": [
+              {
+                "url": "https://press.pingidentity.com/news-releases?o=30",
+                "label": "4",
+                "ariaLabel": "Show page 4"
+              }
+            ]
+          },
+          {
+            "classes": [
+              "wd_page_link",
+              "wd_page_mid2"
+            ],
+            "text": "5",
+            "links": [
+              {
+                "url": "https://press.pingidentity.com/news-releases?o=40",
+                "label": "5",
+                "ariaLabel": "Show page 5"
+              }
+            ]
+          },
+          {
+            "classes": [
+              "wd_page_link",
+              "wd_page_mid2"
+            ],
+            "text": "6",
+            "links": [
+              {
+                "url": "https://press.pingidentity.com/news-releases?o=50",
+                "label": "6",
+                "ariaLabel": "Show page 6"
+              }
+            ]
+          },
+          {
+            "classes": [
+              "wd_page_link",
+              "wd_page_mid2"
+            ],
+            "text": "7",
+            "links": [
+              {
+                "url": "https://press.pingidentity.com/news-releases?o=60",
+                "label": "7",
+                "ariaLabel": "Show page 7"
+              }
+            ]
+          },
+          {
+            "classes": [
+              "wd_page_link",
+              "wd_page_mid2"
+            ],
+            "text": "8",
+            "links": [
+              {
+                "url": "https://press.pingidentity.com/news-releases?o=70",
+                "label": "8",
+                "ariaLabel": "Show page 8"
+              }
+            ]
+          },
+          {
+            "classes": [
+              "wd_page_link",
+              "wd_page_mid2"
+            ],
+            "text": "9",
+            "links": [
+              {
+                "url": "https://press.pingidentity.com/news-releases?o=80",
+                "label": "9",
+                "ariaLabel": "Show page 9"
+              }
+            ]
+          },
+          {
+            "classes": [
+              "wd_page_link",
+              "wd_page_skip2"
+            ],
+            "text": "…",
+            "links": []
+          },
+          {
+            "classes": [
+              "wd_page_end",
+              "wd_page_link"
+            ],
+            "text": "25",
+            "links": [
+              {
+                "url": "https://press.pingidentity.com/news-releases?o=240",
+                "label": "25",
+                "ariaLabel": "Show page 25"
+              }
+            ]
+          },
+          {
+            "classes": [
+              "wd_page_link",
+              "wd_page_next"
+            ],
+            "text": "»",
+            "links": [
+              {
+                "url": "https://press.pingidentity.com/news-releases?o=20",
+                "label": "»",
+                "ariaLabel": "Show next page"
+              }
+            ]
+          }
+        ],
+        "highestAdvertisedPage": 25,
+        "headNext": [],
+        "firstPublicationDay": "2026-03-17",
+        "lastPublicationDay": "2025-09-17",
+        "completeHistoryProved": false
+      }
+    },
+    {
+      "targetId": "ping-october-release",
+      "sourceId": "ping-identity:official:1",
+      "supplierId": "ping-identity",
+      "registration": "candidate",
+      "requestedUrl": "https://press.pingidentity.com/2026-10-06-Ping-Identity-Survey-Finds-AI-Trust-Changes-When-Assistance-Turns-to-Action",
+      "finalUrl": "https://press.pingidentity.com/2026-10-06-Ping-Identity-Survey-Finds-AI-Trust-Changes-When-Assistance-Turns-to-Action",
+      "fetchedAt": "2026-10-24T01:26:56.183679Z",
+      "httpStatus": 200,
+      "observation": {
+        "key": "objects/8c9300f4514ed8158dc9c7d554f459b0243444c358a51054c9dcd05a80625836",
+        "sha256": "8c9300f4514ed8158dc9c7d554f459b0243444c358a51054c9dcd05a80625836",
+        "bytes": 625
+      },
+      "body": {
+        "bytes": 67082,
+        "key": "objects/3edc55978320ef0386bc37e93cbfb4963397f06e1618a38450b0f128e3309dcc",
+        "sha256": "3edc55978320ef0386bc37e93cbfb4963397f06e1618a38450b0f128e3309dcc"
+      },
+      "contentType": "text/html; charset=UTF-8",
+      "chargedFetchCount": 638,
+      "diagnosticReason": "RESPONSE_RETAINED_SCOPE_AND_HISTORY_REVIEW_REQUIRED",
+      "qualified": false,
+      "sourceChecksCredited": 0,
+      "analysis": {
+        "kind": "ping_primary_release",
+        "canonicals": [
+          "https://press.pingidentity.com/2026-10-06-Ping-Identity-Survey-Finds-AI-Trust-Changes-When-Assistance-Turns-to-Action"
+        ],
+        "title": "Ping Identity Survey Finds AI Trust Changes When Assistance Turns to Action",
+        "releaseContainer": "div.wd_newsfeed_releases-detail",
+        "readableChars": 5108,
+        "releaseContainerReadableChars": 4991,
+        "datelineLiteral": "DENVER , Oct. 6, 2026 / PRNewswire / --",
+        "releaseBeginning": "Ping Identity Survey Finds AI Trust Changes When Assistance Turns to Action Global research reveals a sharp drop in consumer comfort as AI moves from providing support and recommendations to taking action DENVER , Oct. 6, 2026 / PRNewswire / -- Ping Identity , a leader in securing digital identities for the world's largest enterprises, released its 2026 Consumer Survey, revealing a clear limit to how much autonomy consumers are willing to give AI: just 5% of consumers are comfortable with AI taking action with their approval and only 3% with routine transactions without final approval. The findings, based on a survey of 11,000 consumers across 12 countries, reveal a trust challenge as AI mov",
+        "genericPagePublished": null,
+        "genericPagePublicationAmbiguous": false,
+        "recognizedStructuredPublicationMetadataPresent": false,
+        "titleMetadata": [
+          {
+            "tag": "meta",
+            "attributes": {
+              "name": "twitter:title",
+              "content": "Ping Identity Survey Finds AI Trust Changes When Assistance Turns to Action"
+            }
+          },
+          {
+            "tag": "meta",
+            "attributes": {
+              "property": "og:title",
+              "content": "Ping Identity Survey Finds AI Trust Changes When Assistance Turns to Action"
+            }
+          }
+        ],
+        "officialCompanyChannel": true,
+        "releaseDistributionAttribution": "PRNewswire",
+        "independentReportingCredit": false,
+        "semanticAdmissionPerformed": false,
+        "rssAndCardTitleUrlDayAgree": true,
+        "publicationDaySupportedByDateline": "2026-10-06"
+      }
+    },
+    {
+      "targetId": "ping-september-release",
+      "sourceId": "ping-identity:official:1",
+      "supplierId": "ping-identity",
+      "registration": "candidate",
+      "requestedUrl": "https://press.pingidentity.com/2026-09-29-Ping-Identity-Launches-Identity-Agents-on-Google-Cloud-Marketplace",
+      "finalUrl": "https://press.pingidentity.com/2026-09-29-Ping-Identity-Launches-Identity-Agents-on-Google-Cloud-Marketplace",
+      "fetchedAt": "2026-10-24T01:26:57.016732Z",
+      "httpStatus": 200,
+      "observation": {
+        "key": "objects/b528962be3c9a8d8632b80bd96da5d2dad27738d9d790879c38e5df0e5bc5f80",
+        "sha256": "b528962be3c9a8d8632b80bd96da5d2dad27738d9d790879c38e5df0e5bc5f80",
+        "bytes": 607
+      },
+      "body": {
+        "bytes": 65646,
+        "key": "objects/e6dfbde8ea792ecca82c03b030d3157ab2a0edf015bef2cc5a454f6ac849e282",
+        "sha256": "e6dfbde8ea792ecca82c03b030d3157ab2a0edf015bef2cc5a454f6ac849e282"
+      },
+      "contentType": "text/html; charset=UTF-8",
+      "chargedFetchCount": 639,
+      "diagnosticReason": "RESPONSE_RETAINED_SCOPE_AND_HISTORY_REVIEW_REQUIRED",
+      "qualified": false,
+      "sourceChecksCredited": 0,
+      "analysis": {
+        "kind": "ping_primary_release",
+        "canonicals": [
+          "https://press.pingidentity.com/2026-09-29-Ping-Identity-Launches-Identity-Agents-on-Google-Cloud-Marketplace"
+        ],
+        "title": "Ping Identity Launches Identity Agents on Google Cloud Marketplace",
+        "releaseContainer": "div.wd_newsfeed_releases-detail",
+        "readableChars": 4171,
+        "releaseContainerReadableChars": 4054,
+        "datelineLiteral": "DENVER , Sept. 29, 2026 / PRNewswire / --",
+        "releaseBeginning": "Ping Identity Launches Identity Agents on Google Cloud Marketplace New agents enable employee self-service and identity administration capabilities in Google Cloud Gemini Enterprise DENVER , Sept. 29, 2026 / PRNewswire / -- Ping Identity , a leader in securing digital identities for the world's largest enterprises, today announced three new identity agents that let employees and authorized administrators complete common identity tasks in Google Cloud Gemini Enterprise using natural-language conversations. Employees can now manage device authentication, while authorized administrators can reset passwords, terminate sessions and manage access without moving between Gemini Enterprise and separa",
+        "genericPagePublished": null,
+        "genericPagePublicationAmbiguous": false,
+        "recognizedStructuredPublicationMetadataPresent": false,
+        "titleMetadata": [
+          {
+            "tag": "meta",
+            "attributes": {
+              "name": "twitter:title",
+              "content": "Ping Identity Launches Identity Agents on Google Cloud Marketplace - Sep 29, 2026"
+            }
+          },
+          {
+            "tag": "meta",
+            "attributes": {
+              "property": "og:title",
+              "content": "Ping Identity Launches Identity Agents on Google Cloud Marketplace - Sep 29, 2026"
+            }
+          }
+        ],
+        "officialCompanyChannel": true,
+        "releaseDistributionAttribution": "PRNewswire",
+        "independentReportingCredit": false,
+        "semanticAdmissionPerformed": false,
+        "rssAndCardTitleUrlDayAgree": true,
+        "publicationDaySupportedByDateline": "2026-09-29"
+      }
+    },
+    {
+      "targetId": "delinea-rss",
+      "sourceId": "delinea:official:1",
+      "supplierId": "delinea",
+      "registration": "candidate",
+      "requestedUrl": "https://delinea.com/news/rss.xml",
+      "finalUrl": "https://delinea.com/news/rss.xml",
+      "fetchedAt": "2026-10-24T01:26:57.325781Z",
+      "httpStatus": 200,
+      "observation": {
+        "key": "objects/b1c77ae0d3d5bae003a409156d7ba7f3e9335729cb742ddcb35637601fb18b24",
+        "sha256": "b1c77ae0d3d5bae003a409156d7ba7f3e9335729cb742ddcb35637601fb18b24",
+        "bytes": 490
+      },
+      "body": {
+        "bytes": 28691,
+        "key": "objects/74d9fae664b325629a04a64078fee6c350b48ea548e4c23f5f4e0b9fca895160",
+        "sha256": "74d9fae664b325629a04a64078fee6c350b48ea548e4c23f5f4e0b9fca895160"
+      },
+      "contentType": "text/xml; charset=UTF-8",
+      "chargedFetchCount": 640,
+      "diagnosticReason": "RESPONSE_RETAINED_SCOPE_AND_HISTORY_REVIEW_REQUIRED",
+      "qualified": false,
+      "sourceChecksCredited": 0,
+      "analysis": {
+        "kind": "rss_2_0",
+        "channelFields": [
+          {
+            "tag": "title",
+            "attributes": {},
+            "text": "Delinea News"
+          },
+          {
+            "tag": "link",
+            "attributes": {},
+            "text": "https://delinea.com/news"
+          },
+          {
+            "tag": "description",
+            "attributes": {},
+            "text": "Stay up to date with what's happening at Delinea: Company growth, new hires, breakthroughs, awards, and cyber security announcements."
+          },
+          {
+            "tag": "language",
+            "attributes": {},
+            "text": "en"
+          },
+          {
+            "tag": "pubDate",
+            "attributes": {},
+            "text": "Wed, 21 Oct 2026 12:00:02 GMT"
+          },
+          {
+            "tag": "{http://purl.org/dc/elements/1.1/}date",
+            "attributes": {},
+            "text": "2026-10-21T12:00:02Z"
+          },
+          {
+            "tag": "{http://purl.org/dc/elements/1.1/}language",
+            "attributes": {},
+            "text": "en"
+          }
+        ],
+        "entries": [
+          {
+            "title": "Delinea Fastpath Launches MCP Server for AI-Powered Access Governance and Audit Readiness",
+            "url": "https://delinea.com/news/delinea-fastpath-launches-mcp-server-for-ai-powered-access-governance-and-audit-readiness",
+            "guid": "https://delinea.com/news/delinea-fastpath-launches-mcp-server-for-ai-powered-access-governance-and-audit-readiness",
+            "guidAttributes": {},
+            "pubDate": "Wed, 21 Oct 2026 12:00:02 GMT",
+            "publishedUtc": "2026-10-21T12:00:02Z",
+            "publisherCalendarDay": "2026-10-21",
+            "dcDate": "2026-10-21T12:00:02Z",
+            "dcDateAgrees": true,
+            "withinSchedulingWindow": true,
+            "descriptionChars": 807,
+            "descriptionReadableChars": 88,
+            "encodedContentChars": 1376,
+            "encodedReadableChars": 88,
+            "encodedReadableExcerpt": "New capability delivers fine-grained, cross-application access insights to AI assistants",
+            "embeddedContentLinks": [
+              "https://delinea.com/news/delinea-fastpath-launches-mcp-server-for-ai-powered-access-governance-and-audit-readiness"
+            ],
+            "categoryValues": []
+          },
+          {
+            "title": "2026 Identity Security Report: The AI Enforcement Gap",
+            "url": "https://delinea.com/news/2026-identity-security-report-the-ai-enforcement-gap",
+            "guid": "https://delinea.com/news/2026-identity-security-report-the-ai-enforcement-gap",
+            "guidAttributes": {},
+            "pubDate": "Tue, 29 Sep 2026 11:59:59 GMT",
+            "publishedUtc": "2026-09-29T11:59:59Z",
+            "publisherCalendarDay": "2026-09-29",
+            "dcDate": "2026-09-29T11:59:59Z",
+            "dcDateAgrees": true,
+            "withinSchedulingWindow": true,
+            "descriptionChars": 838,
+            "descriptionReadableChars": 115,
+            "encodedContentChars": 1370,
+            "encodedReadableChars": 115,
+            "encodedReadableExcerpt": "New research reveals a gap between AI policy and enforcement, and pressure on employees to use AI on sensitive data",
+            "embeddedContentLinks": [
+              "https://delinea.com/news/2026-identity-security-report-the-ai-enforcement-gap"
+            ],
+            "categoryValues": []
+          },
+          {
+            "title": "Delinea Appoints Timothy Regan as Chief Financial Officer",
+            "url": "https://delinea.com/news/delinea-appoints-timothy-regan-as-cfo",
+            "guid": "https://delinea.com/news/delinea-appoints-timothy-regan-as-cfo",
+            "guidAttributes": {},
+            "pubDate": "Wed, 23 Sep 2026 13:00:03 GMT",
+            "publishedUtc": "2026-09-23T13:00:03Z",
+            "publisherCalendarDay": "2026-09-23",
+            "dcDate": "2026-09-23T13:00:03Z",
+            "dcDateAgrees": true,
+            "withinSchedulingWindow": false,
+            "descriptionChars": 737,
+            "descriptionReadableChars": 125,
+            "encodedContentChars": 1254,
+            "encodedReadableChars": 125,
+            "encodedReadableExcerpt": "Former Dropbox CFO, who helped take the company public, joins as Delinea scales its identity security platform for the AI era",
+            "embeddedContentLinks": [
+              "https://delinea.com/news/delinea-appoints-timothy-regan-as-cfo"
+            ],
+            "categoryValues": []
+          },
+          {
+            "title": "Delinea Named a Winner of the United States Top Workplaces 2026 Award",
+            "url": "https://delinea.com/news/delinea-named-a-winner-of-the-united-states-top-workplaces-2026-award",
+            "guid": "https://delinea.com/news/delinea-named-a-winner-of-the-united-states-top-workplaces-2026-award",
+            "guidAttributes": {},
+            "pubDate": "Tue, 22 Sep 2026 12:00:01 GMT",
+            "publishedUtc": "2026-09-22T12:00:01Z",
+            "publisherCalendarDay": "2026-09-22",
+            "dcDate": "2026-09-22T12:00:01Z",
+            "dcDateAgrees": true,
+            "withinSchedulingWindow": false,
+            "descriptionChars": 686,
+            "descriptionReadableChars": 73,
+            "encodedContentChars": 1235,
+            "encodedReadableChars": 73,
+            "encodedReadableExcerpt": "Identity security leader is recognized as a Top Workplace for Remote Work",
+            "embeddedContentLinks": [
+              "https://delinea.com/news/delinea-named-a-winner-of-the-united-states-top-workplaces-2026-award"
+            ],
+            "categoryValues": []
+          },
+          {
+            "title": "Delinea Joins Anthropic's Project Glasswing",
+            "url": "https://delinea.com/news/delinea-joins-anthropics-project-glasswing",
+            "guid": "https://delinea.com/news/delinea-joins-anthropics-project-glasswing",
+            "guidAttributes": {},
+            "pubDate": "Thu, 17 Sep 2026 12:00:00 GMT",
+            "publishedUtc": "2026-09-17T12:00:00Z",
+            "publisherCalendarDay": "2026-09-17",
+            "dcDate": "2026-09-17T12:00:00Z",
+            "dcDateAgrees": true,
+            "withinSchedulingWindow": false,
+            "descriptionChars": 760,
+            "descriptionReadableChars": 105,
+            "encodedContentChars": 1282,
+            "encodedReadableChars": 105,
+            "encodedReadableExcerpt": "Delinea will apply Anthropic's frontier AI model to its own vaulting, secrets, and session-brokering code",
+            "embeddedContentLinks": [
+              "https://delinea.com/news/delinea-joins-anthropics-project-glasswing"
+            ],
+            "categoryValues": []
+          },
+          {
+            "title": "Delinea Delivers Runtime Authorization for AI Agents",
+            "url": "https://delinea.com/news/delinea-delivers-runtime-authorization-for-ai-agents",
+            "guid": "https://delinea.com/news/delinea-delivers-runtime-authorization-for-ai-agents",
+            "guidAttributes": {},
+            "pubDate": "Wed, 29 Jul 2026 12:00:02 GMT",
+            "publishedUtc": "2026-07-29T12:00:02Z",
+            "publisherCalendarDay": "2026-07-29",
+            "dcDate": "2026-07-29T12:00:02Z",
+            "dcDateAgrees": true,
+            "withinSchedulingWindow": false,
+            "descriptionChars": 730,
+            "descriptionReadableChars": 90,
+            "encodedContentChars": 1262,
+            "encodedReadableChars": 90,
+            "encodedReadableExcerpt": "Closing the gap between secrets management and access control, across protocols agents use",
+            "embeddedContentLinks": [
+              "https://delinea.com/news/delinea-delivers-runtime-authorization-for-ai-agents"
+            ],
+            "categoryValues": []
+          },
+          {
+            "title": "Delinea Launches New Partner Program",
+            "url": "https://delinea.com/news/delinea-launches-new-partner-program",
+            "guid": "https://delinea.com/news/delinea-launches-new-partner-program",
+            "guidAttributes": {},
+            "pubDate": "Wed, 15 Jul 2026 11:05:52 GMT",
+            "publishedUtc": "2026-07-15T11:05:52Z",
+            "publisherCalendarDay": "2026-07-15",
+            "dcDate": "2026-07-15T11:05:52Z",
+            "dcDateAgrees": true,
+            "withinSchedulingWindow": false,
+            "descriptionChars": 700,
+            "descriptionReadableChars": 106,
+            "encodedContentChars": 1216,
+            "encodedReadableChars": 106,
+            "encodedReadableExcerpt": "Delinea Partner Advantage Program brings codified rules of engagement and AI-powered enablement to channel",
+            "embeddedContentLinks": [
+              "https://delinea.com/news/delinea-launches-new-partner-program"
+            ],
+            "categoryValues": []
+          },
+          {
+            "title": "Delinea Achieves FedRAMP High Authorization for Secret Server",
+            "url": "https://delinea.com/news/delinea-achieves-fedramp-high-authorization-for-secret-server",
+            "guid": "https://delinea.com/news/delinea-achieves-fedramp-high-authorization-for-secret-server",
+            "guidAttributes": {},
+            "pubDate": "Wed, 08 Jul 2026 12:00:00 GMT",
+            "publishedUtc": "2026-07-08T12:00:00Z",
+            "publisherCalendarDay": "2026-07-08",
+            "dcDate": "2026-07-08T12:00:00Z",
+            "dcDateAgrees": true,
+            "withinSchedulingWindow": false,
+            "descriptionChars": 729,
+            "descriptionReadableChars": 133,
+            "encodedContentChars": 1270,
+            "encodedReadableChars": 133,
+            "encodedReadableExcerpt": "Delinea’s Privileged Access Management solution is now available to U.S. Federal agencies via the FedRAMP Marketplace under UberEther",
+            "embeddedContentLinks": [
+              "https://delinea.com/news/delinea-achieves-fedramp-high-authorization-for-secret-server"
+            ],
+            "categoryValues": []
+          },
+          {
+            "title": "Delinea Named a Growth & Innovation Leader in Frost Radar for PAM 2026",
+            "url": "https://delinea.com/news/delinea-named-a-growth-and-innovation-leader-in-frost-radar-for-pam-2026",
+            "guid": "https://delinea.com/news/delinea-named-a-growth-and-innovation-leader-in-frost-radar-for-pam-2026",
+            "guidAttributes": {},
+            "pubDate": "Wed, 17 Jun 2026 12:00:00 GMT",
+            "publishedUtc": "2026-06-17T12:00:00Z",
+            "publisherCalendarDay": "2026-06-17",
+            "dcDate": "2026-06-17T12:00:00Z",
+            "dcDateAgrees": true,
+            "withinSchedulingWindow": false,
+            "descriptionChars": 814,
+            "descriptionReadableChars": 160,
+            "encodedContentChars": 1366,
+            "encodedReadableChars": 160,
+            "encodedReadableExcerpt": "Company recognized as a leader for the third time among top Privileged Access Management vendors, reflecting strong market momentum and platform depth in AI era",
+            "embeddedContentLinks": [
+              "https://delinea.com/news/delinea-named-a-growth-and-innovation-leader-in-frost-radar-for-pam-2026"
+            ],
+            "categoryValues": []
+          },
+          {
+            "title": "Delinea an Axios Winner of Greater Bay Area Top Workplaces 2026 Award",
+            "url": "https://delinea.com/news/axios-names-delinea-a-winner-of-the-greater-bay-area-top-workplaces-2026-award",
+            "guid": "https://delinea.com/news/axios-names-delinea-a-winner-of-the-greater-bay-area-top-workplaces-2026-award",
+            "guidAttributes": {},
+            "pubDate": "Tue, 16 Jun 2026 12:00:01 GMT",
+            "publishedUtc": "2026-06-16T12:00:01Z",
+            "publisherCalendarDay": "2026-06-16",
+            "dcDate": "2026-06-16T12:00:01Z",
+            "dcDateAgrees": true,
+            "withinSchedulingWindow": false,
+            "descriptionChars": 794,
+            "descriptionReadableChars": 121,
+            "encodedContentChars": 1352,
+            "encodedReadableChars": 121,
+            "encodedReadableExcerpt": "Identity security leader is one of 52 Bay Area organizations with over 500 employees to be recognized on this year’s list",
+            "embeddedContentLinks": [
+              "https://delinea.com/news/axios-names-delinea-a-winner-of-the-greater-bay-area-top-workplaces-2026-award"
+            ],
+            "categoryValues": []
+          }
+        ],
+        "itemCount": 10,
+        "continuationControls": [],
+        "firstPublicationDay": "2026-10-21",
+        "lastPublicationDay": "2026-06-16",
+        "currentSchedulingItems": 2,
+        "duplicates": 0,
+        "allGuidLinksAgree": true,
+        "completeHistoryProved": false,
+        "literalChannelIndex": "https://delinea.com/news",
+        "feedContentIsCompleteReleaseBody": false,
+        "dublinCoreDateCount": 10,
+        "allPresentDublinCoreDatesAgree": true
+      }
+    },
+    {
+      "targetId": "sonatype-rss",
+      "sourceId": "sonatype:official:1",
+      "supplierId": "sonatype",
+      "registration": "candidate",
+      "requestedUrl": "https://www.sonatype.com/press-releases/rss.xml",
+      "finalUrl": "https://www.sonatype.com/press-releases/rss.xml",
+      "fetchedAt": "2026-10-24T01:26:57.481593Z",
+      "httpStatus": 200,
+      "observation": {
+        "key": "objects/2024ec20f568a0ea3d613099cacd214fac128bdc1cb8a4b61f33166c029f43eb",
+        "sha256": "2024ec20f568a0ea3d613099cacd214fac128bdc1cb8a4b61f33166c029f43eb",
+        "bytes": 520
+      },
+      "body": {
+        "bytes": 18997,
+        "key": "objects/defaacb0b1fc34da75566f1067c9bff22aeca96caa38fbc60010ba554bbf9e5f",
+        "sha256": "defaacb0b1fc34da75566f1067c9bff22aeca96caa38fbc60010ba554bbf9e5f"
+      },
+      "contentType": "text/xml; charset=UTF-8",
+      "chargedFetchCount": 641,
+      "diagnosticReason": "RESPONSE_RETAINED_SCOPE_AND_HISTORY_REVIEW_REQUIRED",
+      "qualified": false,
+      "sourceChecksCredited": 0,
+      "analysis": {
+        "kind": "rss_2_0",
+        "channelFields": [
+          {
+            "tag": "title",
+            "attributes": {},
+            "text": "Press Releases"
+          },
+          {
+            "tag": "link",
+            "attributes": {},
+            "text": "https://www.sonatype.com/press-releases"
+          },
+          {
+            "tag": "description",
+            "attributes": {},
+            "text": "Stay updated with the latest Sonatype News. Discover groundbreaking press releases and industry insights. Don't miss out on the latest developments!"
+          },
+          {
+            "tag": "language",
+            "attributes": {},
+            "text": "en"
+          },
+          {
+            "tag": "pubDate",
+            "attributes": {},
+            "text": "Wed, 14 Oct 2026 10:00:00 GMT"
+          },
+          {
+            "tag": "{http://purl.org/dc/elements/1.1/}date",
+            "attributes": {},
+            "text": "2026-10-14T10:00:00Z"
+          },
+          {
+            "tag": "{http://purl.org/dc/elements/1.1/}language",
+            "attributes": {},
+            "text": "en"
+          }
+        ],
+        "entries": [
+          {
+            "title": "Sonatype Unveils Nexus Repository Pro+ to Stop Malicious Components",
+            "url": "https://www.sonatype.com/press-releases/sonatype-unveils-nexus-repository-pro-plus",
+            "guid": "https://www.sonatype.com/press-releases/sonatype-unveils-nexus-repository-pro-plus",
+            "guidAttributes": {},
+            "pubDate": "Wed, 14 Oct 2026 10:00:00 GMT",
+            "publishedUtc": "2026-10-14T10:00:00Z",
+            "publisherCalendarDay": "2026-10-14",
+            "dcDate": "2026-10-14T10:00:00Z",
+            "dcDateAgrees": true,
+            "withinSchedulingWindow": true,
+            "descriptionChars": 233,
+            "descriptionReadableChars": 153,
+            "encodedContentChars": 784,
+            "encodedReadableChars": 153,
+            "encodedReadableExcerpt": "Open source packages, AI models and MCP servers are screened as soon as developers or AI agents request them, so only trusted components reach the build.",
+            "embeddedContentLinks": [],
+            "categoryValues": [
+              "Open Source",
+              "News and Views",
+              "Product Updates",
+              "Sonatype Research"
+            ]
+          },
+          {
+            "title": "Sonatype Automates Fixes in AI-Driven Software Development",
+            "url": "https://www.sonatype.com/press-releases/automating-fixes-in-ai-driven-development",
+            "guid": "https://www.sonatype.com/press-releases/automating-fixes-in-ai-driven-development",
+            "guidAttributes": {},
+            "pubDate": "Tue, 18 Aug 2026 10:00:02 GMT",
+            "publishedUtc": "2026-08-18T10:00:02Z",
+            "publisherCalendarDay": "2026-08-18",
+            "dcDate": "2026-08-18T10:00:02Z",
+            "dcDateAgrees": true,
+            "withinSchedulingWindow": false,
+            "descriptionChars": 267,
+            "descriptionReadableChars": 149,
+            "encodedContentChars": 817,
+            "encodedReadableChars": 149,
+            "encodedReadableExcerpt": "Real-time intelligence, governance at selection, and agentic remediation help enterprises fix the risk that outpaces the speed of AI-driven assembly.",
+            "embeddedContentLinks": [],
+            "categoryValues": [
+              "News and Views",
+              "Product Updates",
+              "Sonatype Research"
+            ]
+          },
+          {
+            "title": "Sonatype Research Labs Marks 15 Years of Open Source Intelligence",
+            "url": "https://www.sonatype.com/press-releases/sonatype-research-labs-marks-15-years-of-intelligence",
+            "guid": "https://www.sonatype.com/press-releases/sonatype-research-labs-marks-15-years-of-intelligence",
+            "guidAttributes": {},
+            "pubDate": "Tue, 14 Jul 2026 10:00:00 GMT",
+            "publishedUtc": "2026-07-14T10:00:00Z",
+            "publisherCalendarDay": "2026-07-14",
+            "dcDate": "2026-07-14T10:00:00Z",
+            "dcDateAgrees": true,
+            "withinSchedulingWindow": false,
+            "descriptionChars": 266,
+            "descriptionReadableChars": 158,
+            "encodedContentChars": 828,
+            "encodedReadableChars": 158,
+            "encodedReadableExcerpt": "New research finds attackers are shifting from broad malware campaigns to precision attacks targeting developers, trusted software, and AI-driven development.",
+            "embeddedContentLinks": [],
+            "categoryValues": [
+              "Open Source",
+              "News and Views",
+              "Sonatype Research"
+            ]
+          },
+          {
+            "title": "Sonatype Named a Leader in the 2026 Gartner® Magic Quadrant™",
+            "url": "https://www.sonatype.com/press-releases/sonatype-named-a-leader-in-the-2026-gartner-magic-quadrant",
+            "guid": "https://www.sonatype.com/press-releases/sonatype-named-a-leader-in-the-2026-gartner-magic-quadrant",
+            "guidAttributes": {},
+            "pubDate": "Thu, 18 Jun 2026 17:32:08 GMT",
+            "publishedUtc": "2026-06-18T17:32:08Z",
+            "publisherCalendarDay": "2026-06-18",
+            "dcDate": "2026-06-18T17:32:08Z",
+            "dcDateAgrees": true,
+            "withinSchedulingWindow": false,
+            "descriptionChars": 177,
+            "descriptionReadableChars": 60,
+            "encodedContentChars": 744,
+            "encodedReadableChars": 60,
+            "encodedReadableExcerpt": "Recognized for Completeness of Vision and Ability to Execute",
+            "embeddedContentLinks": [],
+            "categoryValues": [
+              "News and Views"
+            ]
+          },
+          {
+            "title": "Sonatype Strengthens Leadership Team for AI-Driven Growth",
+            "url": "https://www.sonatype.com/press-releases/sonatype-strengthens-leadership-team-for-ai-driven-growth",
+            "guid": "https://www.sonatype.com/press-releases/sonatype-strengthens-leadership-team-for-ai-driven-growth",
+            "guidAttributes": {},
+            "pubDate": "Tue, 09 Jun 2026 10:00:02 GMT",
+            "publishedUtc": "2026-06-09T10:00:02Z",
+            "publisherCalendarDay": "2026-06-09",
+            "dcDate": "2026-06-09T10:00:02Z",
+            "dcDateAgrees": true,
+            "withinSchedulingWindow": false,
+            "descriptionChars": 286,
+            "descriptionReadableChars": 169,
+            "encodedContentChars": 852,
+            "encodedReadableChars": 169,
+            "encodedReadableExcerpt": "New leaders bring deep expertise in scaling organizations and strengthening market leadership growth amid accelerating demand for secure, AI-driven software development.",
+            "embeddedContentLinks": [],
+            "categoryValues": [
+              "News and Views"
+            ]
+          },
+          {
+            "title": "Sonatype Firewall Extends Malicious Package Protection",
+            "url": "https://www.sonatype.com/press-releases/sonatype-firewall-extends-malicious-package-protection",
+            "guid": "https://www.sonatype.com/press-releases/sonatype-firewall-extends-malicious-package-protection",
+            "guidAttributes": {},
+            "pubDate": "Wed, 27 May 2026 10:00:00 GMT",
+            "publishedUtc": "2026-05-27T10:00:00Z",
+            "publisherCalendarDay": "2026-05-27",
+            "dcDate": "2026-05-27T10:00:00Z",
+            "dcDateAgrees": true,
+            "withinSchedulingWindow": false,
+            "descriptionChars": 309,
+            "descriptionReadableChars": 192,
+            "encodedContentChars": 872,
+            "encodedReadableChars": 192,
+            "encodedReadableExcerpt": "New Sonatype research finds only 9% of brandjacking malware relies on typosquatting alone, as attackers use trusted-looking package names to slip past developer workflows and steal credentials",
+            "embeddedContentLinks": [],
+            "categoryValues": [
+              "News and Views",
+              "Product Updates",
+              "Sonatype Research"
+            ]
+          },
+          {
+            "title": "Sonatype and Package Registry Leaders Unite on OS Sustainability",
+            "url": "https://www.sonatype.com/press-releases/sonatype-and-package-registry-leaders-unite",
+            "guid": "https://www.sonatype.com/press-releases/sonatype-and-package-registry-leaders-unite",
+            "guidAttributes": {},
+            "pubDate": "Wed, 06 May 2026 10:00:00 GMT",
+            "publishedUtc": "2026-05-06T10:00:00Z",
+            "publisherCalendarDay": "2026-05-06",
+            "dcDate": "2026-05-06T10:00:00Z",
+            "dcDateAgrees": true,
+            "withinSchedulingWindow": false,
+            "descriptionChars": 263,
+            "descriptionReadableChars": 146,
+            "encodedContentChars": 815,
+            "encodedReadableChars": 146,
+            "encodedReadableExcerpt": "New Linux Foundation initiative convenes registry leaders to develop shared approaches to funding, governance, and long-term ecosystem resilience.",
+            "embeddedContentLinks": [],
+            "categoryValues": [
+              "Open Source",
+              "News and Views"
+            ]
+          },
+          {
+            "title": "Sonatype Releases Q1 2026 Open Source Malware Index",
+            "url": "https://www.sonatype.com/press-releases/sonatype-q1-2026-open-source-malware-index",
+            "guid": "https://www.sonatype.com/press-releases/sonatype-q1-2026-open-source-malware-index",
+            "guidAttributes": {},
+            "pubDate": "Tue, 14 Apr 2026 10:00:00 GMT",
+            "publishedUtc": "2026-04-14T10:00:00Z",
+            "publisherCalendarDay": "2026-04-14",
+            "dcDate": "2026-04-14T10:00:00Z",
+            "dcDateAgrees": true,
+            "withinSchedulingWindow": false,
+            "descriptionChars": 243,
+            "descriptionReadableChars": 126,
+            "encodedContentChars": 794,
+            "encodedReadableChars": 126,
+            "encodedReadableExcerpt": "Malicious open source packages reach 1.346 million as attackers abuse trusted software, release paths, and developer workflows",
+            "embeddedContentLinks": [],
+            "categoryValues": [
+              "News and Views",
+              "Malware",
+              "Sonatype Research"
+            ]
+          },
+          {
+            "title": "AI Grounded in Intelligence Delivers Safer Outcomes | Sonatype",
+            "url": "https://www.sonatype.com/press-releases/sonatype-research-on-ai-coding-safety",
+            "guid": "https://www.sonatype.com/press-releases/sonatype-research-on-ai-coding-safety",
+            "guidAttributes": {},
+            "pubDate": "Tue, 24 Mar 2026 12:00:03 GMT",
+            "publishedUtc": "2026-03-24T12:00:03Z",
+            "publisherCalendarDay": "2026-03-24",
+            "dcDate": "2026-03-24T12:00:03Z",
+            "dcDateAgrees": true,
+            "withinSchedulingWindow": false,
+            "descriptionChars": 284,
+            "descriptionReadableChars": 167,
+            "encodedContentChars": 830,
+            "encodedReadableChars": 167,
+            "encodedReadableExcerpt": "Across nearly 37,000 software upgrade recommendations, AI grounded in real-time intelligence delivered safer outcomes than larger models operating without live context",
+            "embeddedContentLinks": [],
+            "categoryValues": [
+              "News and Views",
+              "AI",
+              "Sonatype Research"
+            ]
+          },
+          {
+            "title": "Sonatype Research Reveals Open Source Malware Grows 75%",
+            "url": "https://www.sonatype.com/press-releases/sonatype-research-reveals-open-malware-grows-75-percent",
+            "guid": "https://www.sonatype.com/press-releases/sonatype-research-reveals-open-malware-grows-75-percent",
+            "guidAttributes": {},
+            "pubDate": "Wed, 28 Jan 2026 11:00:00 GMT",
+            "publishedUtc": "2026-01-28T11:00:00Z",
+            "publisherCalendarDay": "2026-01-28",
+            "dcDate": "2026-01-28T11:00:00Z",
+            "dcDateAgrees": true,
+            "withinSchedulingWindow": false,
+            "descriptionChars": 300,
+            "descriptionReadableChars": 183,
+            "encodedContentChars": 864,
+            "encodedReadableChars": 183,
+            "encodedReadableExcerpt": "2026 State of the Software Supply Chain® report finds AI-driven development accelerates risk and expands attack surface, making enforceable AI guardrails essential for modern software",
+            "embeddedContentLinks": [],
+            "categoryValues": [
+              "Software Supply Chain",
+              "News and Views",
+              "Sonatype Research"
+            ]
+          }
+        ],
+        "itemCount": 10,
+        "continuationControls": [],
+        "firstPublicationDay": "2026-10-14",
+        "lastPublicationDay": "2026-01-28",
+        "currentSchedulingItems": 1,
+        "duplicates": 0,
+        "allGuidLinksAgree": true,
+        "completeHistoryProved": false,
+        "literalChannelIndex": "https://www.sonatype.com/press-releases",
+        "feedContentIsCompleteReleaseBody": false,
+        "dublinCoreDateCount": 10,
+        "allPresentDublinCoreDatesAgree": true
+      }
+    }
+  ],
+  "comparison": {
+    "pingRssMatchesHtmlFirstFive": true,
+    "pingArticleTitlesCanonicalsDatelinesAgree": true,
+    "pingGenericPagePublished": [
+      null,
+      null
+    ],
+    "pingObservedPages": [
+      1,
+      2
+    ],
+    "pingAdvertisedHighestPage": 25,
+    "pingUnobservedPages": 23,
+    "pingDistinctCards": 20,
+    "pingRangeFirstDay": "2026-10-06",
+    "pingRangeLastDay": "2025-09-17",
+    "allThreeFeedsHaveNoNextControl": true,
+    "currentFeedItemCounts": {
+      "ping": 2,
+      "delinea": 2,
+      "sonatype": 1
+    },
+    "completeHistoryProvedForAnySource": false,
+    "newEligibleEventsOrFactsClaimed": 0,
+    "pingUnobservedPageCountBasis": "The seven reviewed responses contain index pages 1 and 2 only; count is relative to the advertised 25-page index."
+  },
+  "minimumEvidencedNextRequests": [
+    {
+      "id": "ping-page-3",
+      "url": "https://press.pingidentity.com/news-releases?o=20",
+      "sourceId": "ping-identity:official:1",
+      "purpose": "Next sequential page; extend the actual traversal without skipping history.",
+      "literalProof": {
+        "observation": {
+          "key": "objects/f61107756abf878060b6082d9067715f1c0ab6ce9d45946a72d1a3731f258c88",
+          "sha256": "f61107756abf878060b6082d9067715f1c0ab6ce9d45946a72d1a3731f258c88",
+          "bytes": 489
+        },
+        "body": {
+          "bytes": 99084,
+          "key": "objects/277c8d143f01e294d926ca6f85eb3c9874b08107721386a69feeaf59107372e3",
+          "sha256": "277c8d143f01e294d926ca6f85eb3c9874b08107721386a69feeaf59107372e3"
+        },
+        "fetchedAt": "2026-10-24T01:26:56.036210Z",
+        "location": "wd_page_next anchor and numbered Show page 3 anchor"
+      },
+      "fetchNow": false,
+      "qualifiesSourceByItself": false
+    },
+    {
+      "id": "ping-advertised-last",
+      "url": "https://press.pingidentity.com/news-releases?o=240",
+      "sourceId": "ping-identity:official:1",
+      "purpose": "Capture advertised final-page structure; this isolated response cannot prove intervening pages.",
+      "literalProof": {
+        "observation": {
+          "key": "objects/f61107756abf878060b6082d9067715f1c0ab6ce9d45946a72d1a3731f258c88",
+          "sha256": "f61107756abf878060b6082d9067715f1c0ab6ce9d45946a72d1a3731f258c88",
+          "bytes": 489
+        },
+        "body": {
+          "bytes": 99084,
+          "key": "objects/277c8d143f01e294d926ca6f85eb3c9874b08107721386a69feeaf59107372e3",
+          "sha256": "277c8d143f01e294d926ca6f85eb3c9874b08107721386a69feeaf59107372e3"
+        },
+        "fetchedAt": "2026-10-24T01:26:56.036210Z",
+        "location": "wd_page_end / Show page 25 anchor"
+      },
+      "fetchNow": false,
+      "qualifiesSourceByItself": false
+    },
+    {
+      "id": "delinea-news-index",
+      "url": "https://delinea.com/news",
+      "sourceId": "delinea:official:1",
+      "purpose": "Capture official channel index and its literal history controls.",
+      "literalProof": {
+        "observation": {
+          "key": "objects/b1c77ae0d3d5bae003a409156d7ba7f3e9335729cb742ddcb35637601fb18b24",
+          "sha256": "b1c77ae0d3d5bae003a409156d7ba7f3e9335729cb742ddcb35637601fb18b24",
+          "bytes": 490
+        },
+        "body": {
+          "bytes": 28691,
+          "key": "objects/74d9fae664b325629a04a64078fee6c350b48ea548e4c23f5f4e0b9fca895160",
+          "sha256": "74d9fae664b325629a04a64078fee6c350b48ea548e4c23f5f4e0b9fca895160"
+        },
+        "fetchedAt": "2026-10-24T01:26:57.325781Z",
+        "location": "rss/channel/link"
+      },
+      "fetchNow": false,
+      "qualifiesSourceByItself": false
+    },
+    {
+      "id": "sonatype-press-index",
+      "url": "https://www.sonatype.com/press-releases",
+      "sourceId": "sonatype:official:1",
+      "purpose": "Capture official channel index and its literal history controls.",
+      "literalProof": {
+        "observation": {
+          "key": "objects/2024ec20f568a0ea3d613099cacd214fac128bdc1cb8a4b61f33166c029f43eb",
+          "sha256": "2024ec20f568a0ea3d613099cacd214fac128bdc1cb8a4b61f33166c029f43eb",
+          "bytes": 520
+        },
+        "body": {
+          "bytes": 18997,
+          "key": "objects/defaacb0b1fc34da75566f1067c9bff22aeca96caa38fbc60010ba554bbf9e5f",
+          "sha256": "defaacb0b1fc34da75566f1067c9bff22aeca96caa38fbc60010ba554bbf9e5f"
+        },
+        "fetchedAt": "2026-10-24T01:26:57.481593Z",
+        "location": "rss/channel/link"
+      },
+      "fetchNow": false,
+      "qualifiesSourceByItself": false
+    },
+    {
+      "id": "delinea-current-1",
+      "url": "https://delinea.com/news/delinea-fastpath-launches-mcp-server-for-ai-powered-access-governance-and-audit-readiness",
+      "sourceId": "delinea:official:1",
+      "purpose": "Capture full primary article; compare title, canonical identity and publication metadata to the actual RSS entry.",
+      "literalProof": {
+        "observation": {
+          "key": "objects/b1c77ae0d3d5bae003a409156d7ba7f3e9335729cb742ddcb35637601fb18b24",
+          "sha256": "b1c77ae0d3d5bae003a409156d7ba7f3e9335729cb742ddcb35637601fb18b24",
+          "bytes": 490
+        },
+        "body": {
+          "bytes": 28691,
+          "key": "objects/74d9fae664b325629a04a64078fee6c350b48ea548e4c23f5f4e0b9fca895160",
+          "sha256": "74d9fae664b325629a04a64078fee6c350b48ea548e4c23f5f4e0b9fca895160"
+        },
+        "fetchedAt": "2026-10-24T01:26:57.325781Z",
+        "location": "rss/channel/item/link: Delinea Fastpath Launches MCP Server for AI-Powered Access Governance and Audit Readiness"
+      },
+      "fetchNow": false,
+      "qualifiesSourceByItself": false
+    },
+    {
+      "id": "delinea-current-2",
+      "url": "https://delinea.com/news/2026-identity-security-report-the-ai-enforcement-gap",
+      "sourceId": "delinea:official:1",
+      "purpose": "Capture full primary article; compare title, canonical identity and publication metadata to the actual RSS entry.",
+      "literalProof": {
+        "observation": {
+          "key": "objects/b1c77ae0d3d5bae003a409156d7ba7f3e9335729cb742ddcb35637601fb18b24",
+          "sha256": "b1c77ae0d3d5bae003a409156d7ba7f3e9335729cb742ddcb35637601fb18b24",
+          "bytes": 490
+        },
+        "body": {
+          "bytes": 28691,
+          "key": "objects/74d9fae664b325629a04a64078fee6c350b48ea548e4c23f5f4e0b9fca895160",
+          "sha256": "74d9fae664b325629a04a64078fee6c350b48ea548e4c23f5f4e0b9fca895160"
+        },
+        "fetchedAt": "2026-10-24T01:26:57.325781Z",
+        "location": "rss/channel/item/link: 2026 Identity Security Report: The AI Enforcement Gap"
+      },
+      "fetchNow": false,
+      "qualifiesSourceByItself": false
+    },
+    {
+      "id": "sonatype-current-1",
+      "url": "https://www.sonatype.com/press-releases/sonatype-unveils-nexus-repository-pro-plus",
+      "sourceId": "sonatype:official:1",
+      "purpose": "Capture full primary article; compare title, canonical identity and publication metadata to the actual RSS entry.",
+      "literalProof": {
+        "observation": {
+          "key": "objects/2024ec20f568a0ea3d613099cacd214fac128bdc1cb8a4b61f33166c029f43eb",
+          "sha256": "2024ec20f568a0ea3d613099cacd214fac128bdc1cb8a4b61f33166c029f43eb",
+          "bytes": 520
+        },
+        "body": {
+          "bytes": 18997,
+          "key": "objects/defaacb0b1fc34da75566f1067c9bff22aeca96caa38fbc60010ba554bbf9e5f",
+          "sha256": "defaacb0b1fc34da75566f1067c9bff22aeca96caa38fbc60010ba554bbf9e5f"
+        },
+        "fetchedAt": "2026-10-24T01:26:57.481593Z",
+        "location": "rss/channel/item/link: Sonatype Unveils Nexus Repository Pro+ to Stop Malicious Components"
+      },
+      "fetchNow": false,
+      "qualifiesSourceByItself": false
+    }
+  ],
+  "minimumAdapterProposal": {
+    "ping": [
+      "Explicit exact-bound HTML mode for wd_newsfeed_releases / wd_item_list / wd_item; extract title links and strict wd_date days into itemDates and itemModified.",
+      "Handle active/previous/numbered/next wd_page_links controls with literal ten-item offset links and highest advertised page across traversal. Page 2 canonical intentionally names the root; do not collapse distinct requested index pages by canonical.",
+      "Accept observed dated root article links including commas; preserve exact literal URLs and do not widen generic prefix scope or normalize slugs.",
+      "No terminal rule is proven. An actual final layout and full ordered traversal remain prerequisites; capture retains missing-page incomplete behavior.",
+      "The two article datelines support October 6 and September 29 day agreement. Generic Page.published remains null; do not fabricate structured metadata, infer date from URL, or treat RSS/card time as an event effective date. A later source-specific article publication parser is optional only if the existing extraction path needs it; qualify exact primary dateline scope before adding it."
+    ],
+    "delineaSonatype": [
+      "RSS 2.0 exact-bound helper may preserve observed entry title/link/guid/pubDate plus DC date agreement, duplicate/conflict checks and scheduling signatures. No generic Atom/date fallback is evidenced by these bodies.",
+      "Only actual entry links under delinea.com/news/ or www.sonatype.com/press-releases/ qualify this item-path proposal; ignore HubSpot tracker/image URLs, authors and channel pubDate as article evidence.",
+      "No feed continuation or terminal/history contract is proved. Capture the literal channel index and all advertised history before selecting a complete discovery authority.",
+      "Encoded content and descriptions contain teasers. Fetch full primary articles through the existing evidence path before semantic work; this report performs no admission."
+    ]
+  },
+  "remainingHolds": [
+    "All three existing registrations remain candidate and their obligations remain gaps.",
+    "Ping has actual pages 1 and 2 only; 23 advertised pages remain unobserved, including the unqualified terminal layout. Future intervening links must be literal, not constructed.",
+    "Delinea/Sonatype channel indexes, current full article responses and history traversal remain missing from this seven-response set. No empty-feed quiet rule is evidenced.",
+    "Preserve all known historical seeds, pending inventory, source ages and prior evidence-rebinding holds. Discovery dates prioritize but do not discard history.",
+    "Actual recorded 80 model calls and 40 documents exhaust the current semantic allowance. Fetch-only results cannot complete those reviews."
+  ],
+  "authority": {
+    "networkRequestsThisReview": 0,
+    "modelCallsThisReview": 0,
+    "archiveWritesThisReview": 0,
+    "observationsCreated": 0,
+    "sourceChecksCredited": 0,
+    "qualifiedSources": 0,
+    "semanticAdmission": false,
+    "coverageCredit": false,
+    "runtimeChanged": false,
+    "policyOrRegistrationChanged": false,
+    "suppliers": 74,
+    "requiredObligations": 557,
+    "coverageUnchanged": "244/557",
+    "ownerInputRequired": false
+  },
+  "reviewScope": "Semantic inspection of exactly the seven current response observations/bodies; other archive files were read only for content/size/mtime seals."
+}

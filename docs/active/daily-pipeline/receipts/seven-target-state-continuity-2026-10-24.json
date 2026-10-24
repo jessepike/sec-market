@@ -1,0 +1,43 @@
+{
+  "checkedAt": "2026-10-24T01:39:28.986534Z",
+  "archives": [
+    {
+      "root": "/tmp/smp-renewal-20261024/archive-4b325ab6/jessepike-sec-market-4b325ab62385379c9d76b585ee3c3575ba8cab4d",
+      "manifestSha256": "3bebbef137b62f331b218fbf947bff25ca00a5bebf45bb3441dace9fd1fe619e",
+      "verifiedFiles": 30823
+    },
+    {
+      "root": "/var/tmp/smp-renewal-20261024/archive-b9f1208b/jessepike-sec-market-b9f1208bd9e957bee5cca2c0b4db28a4fc1fa63f",
+      "manifestSha256": "5480056315f07d6c6be4e66d5f9a643437d020eb039f2d51fe378ad70803c9bb",
+      "verifiedFiles": 31048
+    }
+  ],
+  "ordinaryHeadsByteIdentical": 6851,
+  "changedOperationalHeads": [
+    "budget-2026-10-24.json",
+    "cloud-governance.json",
+    "cloud-lease.json",
+    "production.json",
+    "rollback-drill.json",
+    "worker-heartbeat.json"
+  ],
+  "addedOperationalHeads": [
+    "gate-budget-2026-10-24.json",
+    "publication-budget-2026-10-24.json"
+  ],
+  "removedHeads": [],
+  "oldBudget": {
+    "calls": 80,
+    "documents": 40,
+    "fetches": 516
+  },
+  "newBudget": {
+    "calls": 80,
+    "documents": 40,
+    "fetches": 641
+  },
+  "limitation": "Compares actual second collector archive with post-publication/drill/diagnostic archive; intervening operational heads changed as listed. No source or admission head changed. This diagnostic grants no coverage credit.",
+  "modelCalls": 0,
+  "marketSourceRequests": 0,
+  "archiveWrites": 0
+}

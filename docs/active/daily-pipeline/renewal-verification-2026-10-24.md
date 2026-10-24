@@ -27,6 +27,12 @@ semantic admission, source qualification, publication or coverage credit. Full s
 history still need review. Archive `b9f1208bd9e957bee5cca2c0b4db28a4fc1fa63f`, manifest
 `5480056315f07d6c6be4e66d5f9a643437d020eb039f2d51fe378ad70803c9bb`.
 
+All 31,048 files in that archive independently pass integrity verification. Comparing its heads
+with the verified preceding collector archive finds 6,851 ordinary heads byte-identical, no
+removed heads and only the expected intervening publication/drill/lease/budget operational changes.
+This proves archive-head continuity for the diagnostic interval; it does not infer public
+projection completeness or new source credit. [Continuity receipt](receipts/seven-target-state-continuity-2026-10-24.json).
+
 Manual monitor `40049638842` passed its 15 tests and reported the true outstanding conditions:
 incomplete private/public coverage and 32 held claims. GitHub updated assigned issue 10 at
 `2026-10-24T01:24:43Z`. A failed alarm result is not a failed restore. Publisher issue 11 from the
@@ -45,3 +51,41 @@ was used.
 - [Post-restoration monitor](receipts/post-restoration-monitor-run-2026-10-24.json)
 - [Delivered alarm](receipts/post-restoration-monitor-issue-2026-10-24.json)
 - [Current rubric observation](evaluations/2026-10-24/current-observation.md)
+
+## Final repair release
+
+Publisher `40050633432` and independent gate `40050850177` passed on main
+`26181a2d4eb0aad1bd751cda70ab8e65142d2813`; all four gate checks and 511 tests passed.
+Production is now release `19fde803d09aa544672183769c257e37faf727b75e1914955f54f3c5fb126941`,
+sequence 3, READY deployment `dpl_9KqhU2bnfcmaQyYg73ZB1tXT9WBV`.
+The authenticated GitHub artifact transport, build ZIP, payload inventory, enriched test receipt,
+manifest and detached acknowledgement were all matched before independently checking 53 files
+on both public and immutable hosts. Gate production/tested renders were inspected at both widths;
+layout and page heights remain unchanged. The primary-sourced Varonis agreement remains in the
+tested output and all six accepted corrections persist.
+
+The final-release-specific drill `40051385049` also passed at `2026-10-24T01:51:46.523836Z`.
+Its retained baseline is corrected sequence 2. Both complete inventories were checked, the current
+release restored, and production head unchanged. Independent verification afterward matched all
+53 files on both hosts at `2026-10-24T01:52:28.952269Z`. Publisher issue 11 closed after actual
+publication at `01:45:10Z`; incomplete-coverage issue 10 remains open.
+
+Final manual monitor `40051997369` passed all 15 tests, checked the restored release and updated
+assigned issue 10 at `2026-10-24T01:56:16Z`. Its only reasons remain incomplete private/public
+coverage and 32 held claims. It reported no missing publication, deployed-receipt mismatch or
+restoration error. [Final monitor](receipts/final-repair-monitor-run-2026-10-24.json) and
+[delivered issue](receipts/final-repair-monitor-issue-2026-10-24.json).
+
+Both daily gate and publication attempts are now charged. The final manual batch used the
+remaining allowance; it should have been reserved for scheduled-cycle acceptance. Later same-day
+publication may hold until UTC renewal. No charge was reset or refunded. The next actual scheduled
+collector remains pending; this manual success does not establish repaired scheduled durability.
+
+- [Final publication](receipts/repair-publication-result-2026-10-24.json)
+- [Final gate](receipts/repair-main-gate-result-2026-10-24.json)
+- [Final publication bytes](receipts/actual-repair-production-bytes-2026-10-24.json)
+- [Final rollback](receipts/repair-release-rollback-result-2026-10-24.json)
+- [Independent post-drill bytes](receipts/actual-repair-restored-production-bytes-2026-10-24.json)
+- [Charged release attempts](receipts/repair-release-budget-2026-10-24.json)
+- [Actual source response review](accuracy/seven-target-response-review-2026-10-24.md)
+- [Current release observation](evaluations/2026-10-24/repair-release-observation.md)

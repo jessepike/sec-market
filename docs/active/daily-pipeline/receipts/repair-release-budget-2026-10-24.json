@@ -1,0 +1,13 @@
+{
+  "archiveCommit": "c576bd7bfd16ed4f97d6bd004099f598b5faf573",
+  "budgetDay": "2026-10-24",
+  "gate": {
+    "attempts": 2
+  },
+  "publication": {
+    "attempts": [
+      "a564d0a471931329bdf8a2e263bf26838ecb23d06d4a98d78cc4735c629c44f4",
+      "19fde803d09aa544672183769c257e37faf727b75e1914955f54f3c5fb126941"
+    ]
+  }
+}

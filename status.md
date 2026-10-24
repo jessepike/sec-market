@@ -12,18 +12,18 @@ use yet. Search and overlapping ownership/funding/stage navigation are queued in
 
 ## Accepted production
 
-https://securitymarketpulse.com now serves application `abcd9646fdbc296fddc557f2077544d53c75f12a`,
-release `a564d0a471931329bdf8a2e263bf26838ecb23d06d4a98d78cc4735c629c44f4`, sequence 2.
-Vercel `dpl_3rK7kFDXHYYHpJ2egpC7q9uC4GL4` is READY. The primary-sourced Varonis agreement remains.
-Publisher [40046226013](https://github.com/jessepike/sec-market/actions/runs/40046226013) and
-independent main gate [40046450545](https://github.com/jessepike/sec-market/actions/runs/40046450545)
+https://securitymarketpulse.com now serves application `26181a2d4eb0aad1bd751cda70ab8e65142d2813`,
+release `19fde803d09aa544672183769c257e37faf727b75e1914955f54f3c5fb126941`, sequence 3.
+Vercel `dpl_9KqhU2bnfcmaQyYg73ZB1tXT9WBV` is READY. The primary-sourced Varonis agreement remains.
+Publisher [40050633432](https://github.com/jessepike/sec-market/actions/runs/40050633432) and
+independent main gate [40050850177](https://github.com/jessepike/sec-market/actions/runs/40050850177)
 passed. All 53 static files match the tested artifact on the public and immutable hosts.
-[Production-byte receipt](docs/active/daily-pipeline/receipts/actual-correction-production-bytes-2026-10-24.json).
-Controlled rollback/restoration [40049214904](https://github.com/jessepike/sec-market/actions/runs/40049214904)
-passed on repaired main `da5cef21dfae1341289267e2e3dc35a3ffdefde5`: baseline/current bytes verified,
-production head unchanged. All 53 files on both current hosts matched independently afterward.
+[Production-byte receipt](docs/active/daily-pipeline/receipts/actual-repair-production-bytes-2026-10-24.json).
+Final-release rollback/restoration [40051385049](https://github.com/jessepike/sec-market/actions/runs/40051385049)
+passed: baseline/current bytes verified and production head unchanged. All 53 files on both current
+hosts matched independently afterward. Earlier repaired drill `40049214904` also passed on sequence 2.
 The earlier failed attempt `40047154814` and its successful restoration remain recorded;
-the original remote exception category is unknown. [Repaired receipt](docs/active/daily-pipeline/receipts/correction-rollback-repaired-result-2026-10-24.json).
+the original remote exception category is unknown. [Final drill receipt](docs/active/daily-pipeline/receipts/repair-release-rollback-result-2026-10-24.json).
 
 Actual live coverage is **244/557**, up from 121. The 313 gaps are 254 missing family bindings,
 28 unqualified candidate sources, 17 unfinished historical audits, nine HTTP 403 responses,
@@ -47,17 +47,19 @@ Actual manual collectors `40042968468` and `40045615085` completed on reviewed m
 They preserve all 28 earlier claim/reason holds; the current queue has 32 holds, and the publisher
 retains four older-policy facts in quarantine. [Continuity evidence](docs/active/daily-pipeline/accuracy/renewal-collector-audit-2026-10-24.json).
 The October 24 ledger is **641 fetches / 80 model calls / 40 documents**. Fetch capacity remains
-4,859; no model/document capacity remains. October 23's charged limits and gate attempts are
+4,859; no model/document capacity remains. Both October 24 gate/publication attempts are charged
+(2/2). Later publication may hold until the next UTC allowance; reserve scheduled-cycle capacity
+before another manual acceptance publication. October 23's charged limits and gate attempts are
 unchanged. Never reset/refund usage, use paid fallback or substitute an offline audit for admission.
 
 October 23's actual scheduled collector/publisher/gate and rollback receipts remain valid history;
 today's manual runs do not prove the repaired recurring cycle or sustained durability.
 [Activation receipts](docs/active/daily-pipeline/activation-2026-10-23.md).
 The latest actual scheduled monitor remains `40028529947`. Manual post-restoration monitor
-[40049638842](https://github.com/jessepike/sec-market/actions/runs/40049638842) delivered assigned
+[40051997369](https://github.com/jessepike/sec-market/actions/runs/40051997369) passed its 15 tests and delivered assigned
 [issue 10](https://github.com/jessepike/sec-market/issues/10) for incomplete private/public coverage
 and `HELD_CLAIMS_32`. Its failure is an accurate coverage alarm, not a failed production restore.
-The earlier rollback failure also opened publisher issue 11; require actual publisher recovery.
+Publisher issue 11 closed after actual successful repair publication `40050633432` at 01:45:10 UTC.
 Phone/email delivery depends on GitHub account settings; GitHub issue delivery is verified.
 
 ## Next work
@@ -76,15 +78,18 @@ after these backend changes; actual preview/production renders were also reviewe
 [Selection repair](docs/active/daily-pipeline/accuracy/selection-pending-repair-spec-2026-10-24.md) ·
 [Qualification plan](docs/active/daily-pipeline/accuracy/source-qualification-spec-2026-10-24.md).
 
-The [current rubric observation](docs/active/daily-pipeline/evaluations/2026-10-24/current-observation.md)
+The [current rubric observation](docs/active/daily-pipeline/evaluations/2026-10-24/repair-release-observation.md)
 keeps coverage, the five known repaired groups, single-release publication and manual rollback
 separate from unmeasured scheduled durability, precision/recall and reader value. Accepted
 corrections survive initial-admission window closure; relevant changes hold publication rather
 than revert known repairs. [Retention replay](docs/active/daily-pipeline/accuracy/correction-retention-replay-2026-10-24.md).
 
-Next publish the reviewed repair batch through the remaining exact-artifact gate, verify publisher
-alert recovery, review the seven retained responses and obtain the actual scheduled cycle on repaired
-main. Collection is 05:17 UTC; publication follows successful scheduled
+The [actual response review](docs/active/daily-pipeline/accuracy/seven-target-response-review-2026-10-24.md)
+finds 23 unobserved Ping pages and truncated Delinea/Sonatype feeds. Seven further literal targets
+are evidenced; a terminal-page check alone would not establish full traversal. No source is qualified.
+
+Next prepare the scoped source adapters from retained evidence and obtain the actual scheduled
+cycle on repaired main within charged limits. Collection is 05:17 UTC; publication follows successful scheduled
 collection and runs at 06:23/16:23 UTC. Monitoring is 00:41/06:41/12:41/18:41 UTC; GitHub can run
 late. Preserve all declared obligations and unresolved evidence. No owner source choice currently
 blocks these repairs. Use GitHub Actions/Vercel under the existing approval; Codex Cloud, legacy
