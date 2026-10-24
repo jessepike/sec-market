@@ -53,9 +53,11 @@ now have exact next actions. Orca's leased diagnostic is promoted under unchange
 766 operational tests, full web checks and independent review passing. Actual run `40126516584`
 retained 90 leads from 26 successful pages, then stopped at HTTP 302 on page 27 after 27 charged
 requests. Its archive verifies completely and replays without writes. The redirect destination
-was not retained, so completeness and source qualification remain unproved. Restore exact
-disabled plan `ad1c5cc2…`, add bounded diagnostic redirect metadata without changing normal
-transport policy, and obtain one capped actual follow-up before the final publisher freeze.
+was not retained, so completeness and source qualification remain unproved. Exact disabled
+plan `ad1c5cc2…` is restored on main. The bounded redirect observation repair now passes
+780 operational tests, full web checks and independent review without changing normal
+transport policy. The exact original `93257fbf…` plan is selected for one capped actual follow-up
+after CI/promotion; authenticate its result, restore disabled `ad1…`, then freeze main.
 Source activation remains a later closed policy transition after current production proof.
 [Actual diagnostic audit](docs/active/daily-pipeline/accuracy/orca-actual-leased-source-review-2026-10-24.md).
 [Integration handoff](docs/active/daily-pipeline/accuracy/orca-leased-diagnostic-integration-handoff-2026-10-24.md).

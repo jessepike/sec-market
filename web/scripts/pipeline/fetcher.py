@@ -7,7 +7,7 @@ import threading
 import time
 from urllib.parse import urlsplit
 
-from contracts import require, utcnow
+from contracts import ContractError, require, utcnow
 
 
 def safe_url(url, allowed_hosts, resolver=socket.getaddrinfo, proxy_dns=False):
@@ -46,8 +46,88 @@ class ContractRedirect(urllib.request.HTTPRedirectHandler):
         return super().redirect_request(request, fp, code, msg, headers, newurl)
 
 
+
+# These diagnostics describe observed responses and considered targets only.
+# They do not assert that a proposed redirect request actually reached transport.
+REDIRECT_EVENT_LIMIT, REDIRECT_TEXT_LIMIT = 64, 4096
+
+
+def _redirect_text(value):
+    if value is None:
+        return None, False, None
+    value = str(value)
+    return value[:REDIRECT_TEXT_LIMIT], len(value) > REDIRECT_TEXT_LIMIT, len(value)
+
+
+def _redirect_fields(**values):
+    fields = {}
+    for name, value in values.items():
+        fields[name], fields[name + 'Truncated'], fields[name + 'Length'] = _redirect_text(value)
+    return fields
+
+
+class DiagnosticContractRedirect(ContractRedirect):
+    """Observe redirects while delegating every policy and loop decision."""
+    def __init__(self, hosts, proxy_dns=False):
+        super().__init__(hosts, proxy_dns)
+        self.responses, self.truncated, self.active = [], False, None
+
+    def redirect_request(self, request, fp, code, msg, headers, newurl):
+        if self.active is not None:
+            self.active.update(_redirect_fields(proposedTargetUrl=newurl), category='proposal_constructed')
+        try:
+            return super().redirect_request(request, fp, code, msg, headers, newurl)
+        except ContractError:
+            if self.active is not None:
+                self.active['category'] = 'policy_rejected'
+            raise
+
+    def http_error_302(self, request, fp, code, msg, headers):
+        event = {'httpStatus': code, **_redirect_fields(responseUrl=request.full_url,
+                 rawLocation=headers.get('Location'), proposedTargetUrl=None), 'category': 'observed'}
+        if len(self.responses) < REDIRECT_EVENT_LIMIT:
+            self.responses.append(event)
+        else:
+            self.truncated = True
+        prior, self.active = self.active, event
+        try:
+            return super().http_error_302(request, fp, code, msg, headers)
+        except urllib.error.HTTPError:
+            if event['category'] != 'policy_rejected':
+                event['category'] = 'http_redirect_error'
+            raise
+        except ValueError:
+            if event['category'] != 'policy_rejected':
+                event['category'] = 'invalid_redirect'
+            raise
+        finally:
+            self.active = prior
+
+    http_error_301 = http_error_303 = http_error_307 = http_error_308 = http_error_302
+
+
+def _redirect_result(result, handler, error=None):
+    later = result.get('redirectDiagnostics')
+    relevant_error = error is not None and error.code in (301, 302, 303, 307, 308)
+    if not handler.responses and not handler.truncated and not relevant_error:
+        return result
+    responses = handler.responses + (later['responses'] if later else [])
+    terminal = None
+    if error is not None:
+        terminal = {'httpStatus': error.code, 'category': 'http_error',
+                    **_redirect_fields(errorUrl=error.url, rawLocation=error.headers.get('Location') if error.headers else None)}
+    if later and later['lastHttpError'] is not None:
+        terminal = later['lastHttpError']
+    return {**result, 'redirectDiagnostics': {'schemaVersion': 1,
+        'responses': responses[:REDIRECT_EVENT_LIMIT],
+        'responsesTruncated': handler.truncated or len(responses) > REDIRECT_EVENT_LIMIT or bool(later and later['responsesTruncated']),
+        'lastHttpError': terminal}}
+
+
 class Fetcher:
-    def __init__(self, store, max_bytes=32_000_000, timeout=30):
+    def __init__(self, store, max_bytes=32_000_000, timeout=30, *, redirect_diagnostics=False):
+        require(type(redirect_diagnostics) is bool, "Redirect diagnostic mode must be boolean")
+        self.redirect_diagnostics = redirect_diagnostics
         self.store, self.max_bytes, self.timeout = store, max_bytes, timeout
         self.rate_lock = threading.Lock()
         self.last_request = {}
@@ -68,31 +148,41 @@ class Fetcher:
                 headers["If-None-Match"] = previous["etag"]
             if previous.get("lastModified"):
                 headers["If-Modified-Since"] = previous["lastModified"]
-        opener = urllib.request.build_opener(ContractRedirect(source["allowedHosts"], self.proxy_dns))
+        handler = (DiagnosticContractRedirect if self.redirect_diagnostics else ContractRedirect)(source["allowedHosts"], self.proxy_dns)
+        opener = urllib.request.build_opener(handler)
+        def retained(result, error=None):
+            return _redirect_result(result, handler, error) if self.redirect_diagnostics else result
         try:
             response = opener.open(urllib.request.Request(url, headers=headers), timeout=self.timeout)
         except urllib.error.HTTPError as error:
             if error.code in (500, 502, 503, 504) and attempt < 2:
                 time.sleep(2 ** attempt)
-                return self.fetch(source, url, previous, attempt + 1)
+                return retained(self.fetch(source, url, previous, attempt + 1), error)
             if error.code != 304:
-                return {"requestedUrl": url, "fetchedAt": utcnow(), "status": "blocked" if error.code in (401, 403, 429) else "failed", "httpStatus": error.code, "errorCode": f"HTTP_{error.code}"}
+                return retained({"requestedUrl": url, "fetchedAt": utcnow(), "status": "blocked" if error.code in (401, 403, 429) else "failed", "httpStatus": error.code, "errorCode": f"HTTP_{error.code}"}, error)
             if not previous or not previous.get("body"):
                 # Retry without validators; never award success for a bodyless 304.
                 require(previous is not None, "304 received without retained evidence")
-                return self.fetch(source, url, previous=None)
+                return retained(self.fetch(source, url, previous=None), error)
             try:
                 self.store.get(previous["body"])
             except FileNotFoundError:
-                return self.fetch(source, url, previous=None)
-            return {**previous, "requestedUrl": url, "fetchedAt": utcnow(), "status": "not_modified", "httpStatus": 304, "reusesObservationId": previous["observationId"]}
+                return retained(self.fetch(source, url, previous=None), error)
+            prior = previous if not self.redirect_diagnostics else {k: v for k, v in previous.items() if k != "redirectDiagnostics"}
+            return retained({**prior, "requestedUrl": url, "fetchedAt": utcnow(), "status": "not_modified", "httpStatus": 304, "reusesObservationId": previous["observationId"]}, error)
         except urllib.error.URLError as error:
             # A proxy denial is a configuration failure, not a reason for a retry loop.
             blocked = "403" in str(error.reason) or isinstance(error.reason, PermissionError)
-            return {"requestedUrl": url, "fetchedAt": utcnow(), "status": "blocked" if blocked else "failed", "httpStatus": 403 if blocked else None, "errorCode": "NETWORK_POLICY_BLOCKED" if blocked else "SOURCE_CONNECTION_FAILED"}
+            return retained({"requestedUrl": url, "fetchedAt": utcnow(), "status": "blocked" if blocked else "failed", "httpStatus": 403 if blocked else None, "errorCode": "NETWORK_POLICY_BLOCKED" if blocked else "SOURCE_CONNECTION_FAILED"})
+        except ValueError as error:
+            if not self.redirect_diagnostics or not handler.responses:
+                raise
+            return retained({"requestedUrl": url, "fetchedAt": utcnow(), "status": "failed",
+                "httpStatus": handler.responses[-1]["httpStatus"],
+                "errorCode": "REDIRECT_POLICY_REJECTED" if isinstance(error, ContractError) else "REDIRECT_RESPONSE_INVALID"})
         with response:
             safe_url(response.url, source["allowedHosts"], proxy_dns=self.proxy_dns)
             body = response.read(self.max_bytes + 1)
             require(len(body) <= self.max_bytes, "Source exceeds request size budget")
             require(response.status == 200, "Unexpected source response status")
-            return {"requestedUrl": url, "finalUrl": response.url, "fetchedAt": utcnow(), "status": "fetched", "httpStatus": 200, "body": self.store.put(body), "etag": response.headers.get("ETag"), "lastModified": response.headers.get("Last-Modified"), "contentType": response.headers.get("Content-Type", "")}
+            return retained({"requestedUrl": url, "finalUrl": response.url, "fetchedAt": utcnow(), "status": "fetched", "httpStatus": 200, "body": self.store.put(body), "etag": response.headers.get("ETag"), "lastModified": response.headers.get("Last-Modified"), "contentType": response.headers.get("Content-Type", "")})

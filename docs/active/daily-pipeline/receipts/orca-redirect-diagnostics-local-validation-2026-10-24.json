@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "unit": "orca-only-redirect-observation-and-exact-original-plan-follow-up",
+  "checkedAt": "2026-10-24T20:10:55.190422+00:00",
+  "baseRevision": "c6c5f64cb0cb9854e5b340ab896190ee85dd3db4",
+  "files": {
+    "web/scripts/pipeline/fetcher.py": "dbf25815953f1da8aac763d7b237161910f154ec8bac056a74cf5a2a547e8104",
+    "ops/ci/collect.py": "097187b7dc1e03165eabb51d935fd6c678b84b27a733958951cb2db97222e540",
+    "ops/ci/test_orca_redirect_diagnostics.py": "ba4c186b776bed8ed83c33fb2bd3e17460932322dbc3df1b697e718ed2328d2e",
+    "contracts/source-qualification-probes.json": "93257fbffe11598ffff5ee7b890fdd0e992d59d4b276d0ad09aa8ddfe56f7d98",
+    "contracts/market.json": "24221c946781559c0ff3626e4e479c4647da915d0f2d7559ea88046982532c3c",
+    "web/scripts/pipeline/orca_qualification.py": "731ee99cdc88bc4e69ef135f4c2e60f75248bc4db9bc389a3b5aa5773457935d",
+    "web/scripts/pipeline/onboarding.py": "f15e008c081f0b9c48e53ab0b4c4388798d2bd54aaade904188b40305aa6bb69"
+  },
+  "tests": {
+    "operational": 780,
+    "newRedirectTests": 14,
+    "focusedCombined": 69,
+    "independentExtraComparisons": 5,
+    "webCommand": "npm test",
+    "lint": "pass",
+    "data": 373,
+    "pipeline": 115,
+    "browserPassed": 42,
+    "browserSkipped": 1,
+    "build": "pass",
+    "distribution": "pass"
+  },
+  "logs": {
+    "/var/tmp/smp-orca-redirect-fullops-20261024.log": "c177fb54b7c0563d70a268e2b621aaf00adea0308f601775a16166146e56c988",
+    "/var/tmp/smp-orca-redirect-web-20261024.log": "b765713248d61b8fe1ebb0ce9299b1c51e336c1d17cfcad7f8c8a173649ef90d"
+  },
+  "visual": {
+    "production-1440": {
+      "beforeSha256": "8651f15011d8a0518a5e4f96a43d693c014ea1d33a041f1586e830a088cce1ad",
+      "afterSha256": "8651f15011d8a0518a5e4f96a43d693c014ea1d33a041f1586e830a088cce1ad",
+      "size": [
+        1440,
+        8359
+      ],
+      "identicalPixels": true,
+      "renderedAndViewed": true
+    },
+    "production-390": {
+      "beforeSha256": "0c81367ea5540676b295a8ba96173ef98e5e9c41993a3dac9392166ae2af10d9",
+      "afterSha256": "0c81367ea5540676b295a8ba96173ef98e5e9c41993a3dac9392166ae2af10d9",
+      "size": [
+        390,
+        7714
+      ],
+      "identicalPixels": true,
+      "renderedAndViewed": true
+    },
+    "local-1440": {
+      "beforeSha256": "b044622ff53e695fee8334a95746b932c0df81ff6e26ecb810bfd9228765cdd9",
+      "afterSha256": "b044622ff53e695fee8334a95746b932c0df81ff6e26ecb810bfd9228765cdd9",
+      "size": [
+        1440,
+        8379
+      ],
+      "identicalPixels": true,
+      "renderedAndViewed": true
+    },
+    "local-390": {
+      "beforeSha256": "7dc872da46a4cf5e2eb765df88e1ae28e34eb70f8d5c38b19835bab09afcd3df",
+      "afterSha256": "7dc872da46a4cf5e2eb765df88e1ae28e34eb70f8d5c38b19835bab09afcd3df",
+      "size": [
+        390,
+        7749
+      ],
+      "identicalPixels": true,
+      "renderedAndViewed": true
+    }
+  },
+  "actualArchivePlanPreflight": {
+    "archiveCommit": "3dcd8798c2e5261ded4dd8afea348168ce2224af",
+    "planSha256": "93257fbffe11598ffff5ee7b890fdd0e992d59d4b276d0ad09aa8ddfe56f7d98",
+    "sourceId": "orca:official:1",
+    "adapterSha256": "6b64c7c761c899e28297fe3e8bf18784dbf6da9dcb88f2d2d7ccab1671c963b2",
+    "maxFetchReservations": 61,
+    "stateWrites": 0,
+    "network": 0
+  },
+  "actualNewSourceRun": false,
+  "qualificationCredit": false,
+  "productionChanged": false
+}

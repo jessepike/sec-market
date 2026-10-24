@@ -249,7 +249,7 @@ def execute_source_probe(root, state, session, contract, maximum_seconds):
             signal.signal(signum, stop)
         escrow_budgets(root, state, session, contract, budget.started_at)
         if orca is not None:
-            report = orca.execute(contract, state, Fetcher(state, timeout=12), budget, orca_plan)
+            report = orca.execute(contract, state, Fetcher(state, timeout=12, redirect_diagnostics=True), budget, orca_plan)
             # Reconstruct readiness and retain repeated module/caller denials.
             report = orca.finalize_report(contract, state, qualification_raw, report, budget)
         else:

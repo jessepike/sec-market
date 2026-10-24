@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "archive": {
+    "commit": "3dcd8798c2e5261ded4dd8afea348168ce2224af",
+    "manifestSha256": "34c98107d3b35af79da17fbce9874e043bb18c326b9b34083904d8d91e0e934e",
+    "manifestFilesVerified": 41005,
+    "extractionRoot": "/var/tmp/smp-orca-40126516584-20261024/extracted/jessepike-sec-market-3dcd8798c2e5261ded4dd8afea348168ce2224af",
+    "beforeAfterSealEqual": true,
+    "seal": {
+      "files": 41009,
+      "directories": 1906,
+      "contentSha256": "2a1f01b3c9552320bd8bd7eb099538e42105a1ff3dbcc9482a46f84464114829",
+      "contentRows": "sorted [relativePath, byteLength, rawSha256] triples",
+      "fileMtimeSha256": "6cf088ea5f5d35a3af4c3e0d4043010102e5651e7bc35d0dc8600447cef48661",
+      "directoryMtimeSha256": "52d929d497e5266f25e7b5b7686cb87c482e85ddd022fbaceb2a6a08a43fabf6"
+    }
+  },
+  "sameArchiveSealComparison": {
+    "archiveRoot": "/var/tmp/smp-orca-40126516584-20261024/extracted/jessepike-sec-market-3dcd8798c2e5261ded4dd8afea348168ce2224af",
+    "files": 41009,
+    "directories": 1906,
+    "fingerprintRows": "sorted [relativePath, rawSha256] pairs",
+    "fingerprintContentSha256": "eab114a22d66d2f8b5f5b0baa51e27092f391da999dcef331f7b0a106b86e405",
+    "preflightRows": "sorted [relativePath, byteLength, rawSha256] triples",
+    "preflightContentSha256": "2a1f01b3c9552320bd8bd7eb099538e42105a1ff3dbcc9482a46f84464114829",
+    "fileMtimeSha256Both": "6cf088ea5f5d35a3af4c3e0d4043010102e5651e7bc35d0dc8600447cef48661",
+    "directoryMtimeSha256Both": "52d929d497e5266f25e7b5b7686cb87c482e85ddd022fbaceb2a6a08a43fabf6",
+    "interpretation": "The content digest difference is caused by the different row shape; both were computed over this same archive tree."
+  },
+  "liveQualificationPlan": {
+    "sha256": "ad1c5cc234fe4fa69cbceb5370ac74825a37dc80b08528ca908d14b1352e53b4",
+    "operation": "disabled_qualification_probe",
+    "maxRequests": 0,
+    "sources": [],
+    "assertedBeforeReplay": true
+  },
+  "diagnosticRun": {
+    "runId": "40126516584",
+    "recordKey": "ci/source-probe-runs/40126516584-1.json",
+    "originalPlanSha256": "93257fbffe11598ffff5ee7b890fdd0e992d59d4b276d0ad09aa8ddfe56f7d98",
+    "remainsSeparateFromNormalRun": true,
+    "normalRunHeadUnchanged": true
+  },
+  "normalCollection": {
+    "runId": "2c57fb25697bfc4b40df574890334adfa1d6d0df610837e12aa3a71e22515523",
+    "receiptRef": {
+      "key": "objects/4780f1b69db3d5b7fef1d599ce88819d80fe84fbf5d002f1f21ff00b64672180",
+      "sha256": "4780f1b69db3d5b7fef1d599ce88819d80fe84fbf5d002f1f21ff00b64672180",
+      "bytes": 1100518
+    },
+    "checkedAt": "2026-10-24T18:32:56.227836Z",
+    "policySha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+    "successfulTasks": 264,
+    "requiredTasks": 557
+  },
+  "offlineReconstructions": [
+    {
+      "asOf": "2026-10-25T00:23:00Z",
+      "coverageAgeHours": 5.834381156666667,
+      "snapshotSha256": "6feec3970cb598b8edf8cea93b4af3d51eb903dc5ba7bbfb2b767fc8d6eff846",
+      "successfulTasks": 264,
+      "requiredTasks": 557,
+      "ordinaryFacts": 4,
+      "reviewQueue": 33,
+      "processing": {
+        "inventoryDocuments": 10655,
+        "reviewedDocuments": 23,
+        "pendingDocuments": 10632,
+        "heldDocuments": 5,
+        "changedDocuments": 1,
+        "unknownDateDocuments": 291
+      },
+      "historicalReview": {
+        "inventoryDocuments": 10655,
+        "reviewedDocuments": 24,
+        "pendingDocuments": 10631,
+        "heldDocuments": 5
+      },
+      "lastCollectionAt": "2026-10-24T18:32:51.588317Z",
+      "validUntil": "2026-10-26T00:29:16.957017+00:00"
+    },
+    {
+      "asOf": "2026-10-25T06:23:00Z",
+      "coverageAgeHours": 11.834381156666668,
+      "snapshotSha256": "b93b6872127b3b4e3e6439596cc0390beb28c66e946b5ac3c6ccfb32576b6799",
+      "successfulTasks": 264,
+      "requiredTasks": 557,
+      "ordinaryFacts": 4,
+      "reviewQueue": 33,
+      "processing": {
+        "inventoryDocuments": 10655,
+        "reviewedDocuments": 23,
+        "pendingDocuments": 10632,
+        "heldDocuments": 5,
+        "changedDocuments": 1,
+        "unknownDateDocuments": 291
+      },
+      "historicalReview": {
+        "inventoryDocuments": 10655,
+        "reviewedDocuments": 24,
+        "pendingDocuments": 10631,
+        "heldDocuments": 5
+      },
+      "lastCollectionAt": "2026-10-24T18:32:51.588317Z",
+      "validUntil": "2026-10-26T00:29:16.957017+00:00"
+    },
+    {
+      "asOf": "2026-10-25T16:23:00Z",
+      "coverageAgeHours": 21.834381156666666,
+      "snapshotSha256": "089ea80ecfc106a3b112281b044f96ec22e58a587d43eab03e0c94afe476e87e",
+      "successfulTasks": 264,
+      "requiredTasks": 557,
+      "ordinaryFacts": 4,
+      "reviewQueue": 33,
+      "processing": {
+        "inventoryDocuments": 10655,
+        "reviewedDocuments": 23,
+        "pendingDocuments": 10632,
+        "heldDocuments": 5,
+        "changedDocuments": 1,
+        "unknownDateDocuments": 291
+      },
+      "historicalReview": {
+        "inventoryDocuments": 10655,
+        "reviewedDocuments": 24,
+        "pendingDocuments": 10631,
+        "heldDocuments": 5
+      },
+      "lastCollectionAt": "2026-10-24T18:32:51.588317Z",
+      "validUntil": "2026-10-26T00:29:16.957017+00:00"
+    }
+  ],
+  "execution": {
+    "filesystemWrites": 0,
+    "sourceRequests": 0,
+    "modelCalls": 0,
+    "networkOperations": 0,
+    "automaticRollbackPreflight": {
+      "allowed": false,
+      "reason": "DRILL_AUTOMATIC_ACCEPTANCE_DATE_EXPIRED"
+    }
+  },
+  "limitation": "Offline future-time reconstruction only; it is not a scheduled collection, publisher run, gate, or fresh observation."
+}

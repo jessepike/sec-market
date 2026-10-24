@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "kind": "orca_redirect_diagnostics_original_report_replay",
+  "originalRunId": "40126516584",
+  "appRevision": "53920fcb7312d593c1eff307a6ff5ae5393b3a9e",
+  "archive": {
+    "root": "/var/tmp/smp-orca-40126516584-20261024/extracted/jessepike-sec-market-3dcd8798c2e5261ded4dd8afea348168ce2224af",
+    "commit": "3dcd8798c2e5261ded4dd8afea348168ce2224af",
+    "manifestSha256": "34c98107d3b35af79da17fbce9874e043bb18c326b9b34083904d8d91e0e934e",
+    "manifestEntries": 41005
+  },
+  "record": {
+    "key": "ci/source-probe-runs/40126516584-1.json",
+    "sha256": "c0cafd9329c7a02c7d32eba45bddc2aea481f760a8461ca6727ceb9bb7a4deae",
+    "bytes": 73098
+  },
+  "originalPlan": {
+    "bytes": 1040,
+    "key": "objects/93257fbffe11598ffff5ee7b890fdd0e992d59d4b276d0ad09aa8ddfe56f7d98",
+    "sha256": "93257fbffe11598ffff5ee7b890fdd0e992d59d4b276d0ad09aa8ddfe56f7d98"
+  },
+  "reportSha256": "e5e4a89f6f234ad8bc19e05e41171c22ddc012434dd46ee3b379e577f1cb6c55",
+  "inventorySha256": "e3025b6b4d1a8fd352512987568ac0654cf8f2d909ebe56c8ed587ec106337b0",
+  "originalReportUnchanged": true,
+  "requests": 27,
+  "leads": 90,
+  "indexComplete": false,
+  "evidenceComplete": false,
+  "reason": "ORCA_RESPONSE_INCOMPLETE",
+  "lastOriginalObservation": {
+    "errorCode": "HTTP_302",
+    "fetchedAt": "2026-10-24T19:47:09.867651Z",
+    "httpStatus": 302,
+    "requestedUrl": "https://orca.security/resources/news/page/27/",
+    "status": "failed"
+  },
+  "before": {
+    "files": 41009,
+    "contentSha256": "eab114a22d66d2f8b5f5b0baa51e27092f391da999dcef331f7b0a106b86e405",
+    "fileMtimeSha256": "6cf088ea5f5d35a3af4c3e0d4043010102e5651e7bc35d0dc8600447cef48661",
+    "directories": 1906,
+    "directoryMtimeSha256": "52d929d497e5266f25e7b5b7686cb87c482e85ddd022fbaceb2a6a08a43fabf6"
+  },
+  "after": {
+    "files": 41009,
+    "contentSha256": "eab114a22d66d2f8b5f5b0baa51e27092f391da999dcef331f7b0a106b86e405",
+    "fileMtimeSha256": "6cf088ea5f5d35a3af4c3e0d4043010102e5651e7bc35d0dc8600447cef48661",
+    "directories": 1906,
+    "directoryMtimeSha256": "52d929d497e5266f25e7b5b7686cb87c482e85ddd022fbaceb2a6a08a43fabf6"
+  },
+  "memoryStoreMutations": 0,
+  "guardAttempts": [],
+  "sourceRequests": 0,
+  "modelCalls": 0,
+  "sourceChecksCredited": 0,
+  "qualifiedSources": 0,
+  "coverageCredit": false,
+  "pins": {
+    "web/scripts/pipeline/fetcher.py": "dbf25815953f1da8aac763d7b237161910f154ec8bac056a74cf5a2a547e8104",
+    "ops/ci/collect.py": "097187b7dc1e03165eabb51d935fd6c678b84b27a733958951cb2db97222e540",
+    "ops/ci/test_orca_redirect_diagnostics.py": "ba4c186b776bed8ed83c33fb2bd3e17460932322dbc3df1b697e718ed2328d2e",
+    "contracts/source-qualification-probes.json": "ad1c5cc234fe4fa69cbceb5370ac74825a37dc80b08528ca908d14b1352e53b4",
+    "contracts/market.json": "24221c946781559c0ff3626e4e479c4647da915d0f2d7559ea88046982532c3c"
+  },
+  "focusedTests": 69,
+  "operationsTests": 780
+}

@@ -23,7 +23,9 @@ The five known contradictions were resolved against this release. General precis
 reader value and sustained operation remain unmeasured.
 [Publication receipts](docs/active/daily-pipeline/renewal-verification-2026-10-24.md).
 
-Main and preview are `53920fcb`; the reviewed midnight repair and bounded Orca route are promoted. The gate had
+Main and preview are `c6c5f64c`; the reviewed midnight repair, bounded Orca route and exact
+disabled-plan restoration are promoted. Preview web `40128087011` and main web `40128302398`
+passed; preview `dpl_55UapQFQcw5z8P8NVnCtt32ocV7j` is READY. The gate had
 incorrectly compared collection-time sealed date partitions with gate-time classifications.
 The repair verifies the complete original sealed receipt at its original time and evaluates
 current freshness separately. Actual archive reconstruction now passes all three October 25
@@ -102,10 +104,16 @@ Actual manual `source_probe` run `40126516584` completed at 19:47 UTC on main `5
 It charged 27 fetches, retained 90 leads from 26 index pages, then failed on page 27 with
 HTTP 302. The stored response has no redirect destination, so the source remains unqualified.
 Full archive verification and historical replay pass with zero writes; all earlier evidence,
-normal-run and production heads remain intact. The exact disabled plan `ad1c5cc2…` is restored
-in this change. A narrowly scoped follow-up will retain bounded redirect metadata before
-one further capped diagnostic. No model, document, coverage or publication credit was used.
+normal-run and production heads remain intact. The exact disabled plan `ad1c5cc2…` was restored
+on main. The independently reviewed redirect observation repair passes 780 operational and
+all web checks. Its desktop/phone pixels are identical to the preceding reviewed captures.
+This change selects exact original plan `93257fbf…` for one capped diagnostic after CI/promotion;
+restore exact disabled `ad1…` after authenticating that result. No model, document, coverage
+or publication credit follows from this diagnostic. The actual latest archive also reconstructs
+all three next-day publisher snapshots under disabled configuration with unchanged evidence.
 [Actual Orca audit](docs/active/daily-pipeline/accuracy/orca-actual-leased-source-review-2026-10-24.md).
+[Redirect repair and bounded follow-up](docs/active/daily-pipeline/accuracy/orca-redirect-diagnostics-handoff-2026-10-24.md).
+[Latest-archive next-day replay](docs/active/daily-pipeline/accuracy/orca-disabled-plan-midnight-preflight-2026-10-24.md).
 [Leased diagnostic handoff](docs/active/daily-pipeline/accuracy/orca-leased-diagnostic-integration-handoff-2026-10-24.md).
 Freeze the final reviewed main before the next publisher. Current-policy scheduled collection
 and actual production update remain required.
