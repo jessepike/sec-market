@@ -9,7 +9,7 @@ already configured under D-109. Do not repeat credential entry or add a paid mod
 | Job | UTC schedule | Responsibility |
 | --- | --- | --- |
 | `subscription-collector.yml` | 05:17 daily | Restore state, recover a dead runner's lease, collect bounded current changes, verify facts, archive attempts and coverage. |
-| `subscription-publisher.yml` | After verified scheduled collection; 06:23 and 16:23 daily | Invoke the independent main gate, validate its exact artifact, stage production without assigning domains, promote, acknowledge and archive. Identical acknowledged collection/code skips another gate. |
+| `subscription-publisher.yml` | After verified scheduled collection; 00:23, 06:23 and 16:23 daily | Invoke the independent main gate, validate its exact artifact, stage production without assigning domains, promote, acknowledge and archive. Identical acknowledged collection/code skips another gate. The two-attempt daily cap remains. |
 | `freshness.yml` | Every six hours at minute 41 | Independently inspect the actual timer, archived coverage, heartbeat and public release; maintain an owner-assigned alert. |
 
 05:17 UTC is 22:17 Pacific daylight time on the preceding calendar date. The schedules use UTC

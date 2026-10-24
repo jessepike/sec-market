@@ -69,6 +69,12 @@ model/document allowance remains. Both daily gate/publication attempts are charg
 reset, refund, buy capacity or dispatch an extra acceptance gate. Reserve the next UTC allowance
 for the genuine scheduled/public cycle. Main promotion leaves verified production untouched.
 
+A reviewed retry-schedule repair adds 00:23 UTC to the existing 06:23/16:23 publisher. The old
+source deadline is October 25 06:38:18 UTC; a nominal 15-minute margin is insufficient given actual
+multi-hour GitHub scheduling delay. The additional opportunity preserves all charged attempts,
+the two-batch cap and exact artifact checks. It still requires actual scheduled/public receipts.
+[Retry specification](docs/active/daily-pipeline/accuracy/utc-renewal-publication-retry-spec-2026-10-24.md).
+
 The next normal scheduled collector is **05:17 UTC October 24**; GitHub may start it late. Check its
 actual event, revision, archived source times and distinct measures. Then rerun the unchanged
 read-only canary against the matching archive. Its publisher callback may correctly hold at today's

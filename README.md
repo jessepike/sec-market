@@ -16,7 +16,7 @@ who advise and sell to them. It publishes facts, not opinions.
 - **Everything else** was collected from company releases and pages, keeps its own source and date,
   and is labeled as not certified on the page.
 - **Daily operation.** Private GitHub Actions collects bounded source changes at 05:17 UTC daily.
-  A separate publisher runs after successful scheduled collection and at 06:23/16:23 UTC. It
+  A separate publisher runs after successful scheduled collection and at 00:23/06:23/16:23 UTC. It
   replays the SEC claims, tests the exact artifact, uploads it to the existing Vercel project and
   verifies production bytes. Public facts may publish after these checks; market judgments remain
   owner-written. Coverage gaps remain visible. The existing protected GitHub secrets supply the
