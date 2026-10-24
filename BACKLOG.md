@@ -51,6 +51,12 @@ times. Original evidence dates, four ordinary facts and 33 queue entries remain 
 The [remaining 25 candidates](docs/active/daily-pipeline/accuracy/remaining-candidate-qualification-batch-spec-2026-10-24.md)
 now have exact next actions; Orca's reviewed 61-request diagnostic remains dormant pending
 dispatch integration and actual proof. No new source credit follows from its offline tests.
+The Orca-only route is now locally integrated under unchanged H: 766 total operational tests,
+full web checks, independent review and zero-write actual-archive preflight pass. Obtain preview
+CI, deliberately promote, dispatch only the capped diagnostic, verify its actual archive, then
+restore exact disabled plan `ad1c5cc2…` and freeze main for the natural publisher. Source
+activation remains a later closed policy transition after actual current production proof.
+[Integration handoff](docs/active/daily-pipeline/accuracy/orca-leased-diagnostic-integration-handoff-2026-10-24.md).
 The [current evidence-bound scorecard](docs/active/daily-pipeline/evaluations/2026-10-24/html-activation-current-scorecard.md)
 records those separate measures and preserves the old benchmark reports.
 

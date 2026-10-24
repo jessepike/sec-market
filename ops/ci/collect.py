@@ -227,7 +227,15 @@ def execute_source_probe(root, state, session, contract, maximum_seconds):
     previous_signals = {}
     try:
         qualification_plan = REPO / 'contracts/source-qualification-probes.json'
-        validate_qualification_probe_plan(contract, state, qualification_plan)
+        qualification_raw = qualification_plan.read_bytes()
+        require(0 < len(qualification_raw) <= 1_000_000, 'QUALIFICATION_PLAN_SIZE_INVALID')
+        selected_plan = json.loads(qualification_raw)
+        orca = None
+        if isinstance(selected_plan, dict) and selected_plan.get('operation') == 'bounded_orca_qualification':
+            import orca_qualification as orca
+            orca_plan = orca.validate_plan(contract, state, qualification_raw, qualification_plan)
+        else:
+            validate_qualification_probe_plan(contract, state, qualification_plan)
         # This exact day is escrowed. A midnight crossing during the remote
         # acknowledgement is denied by the same bound context before transport.
         budget = PersistentProbeBudget(state, contract, clock=utcnow, monotonic=time.monotonic,
@@ -240,15 +248,20 @@ def execute_source_probe(root, state, session, contract, maximum_seconds):
         for signum in previous_signals:
             signal.signal(signum, stop)
         escrow_budgets(root, state, session, contract, budget.started_at)
-        report = probe_sources(contract, state, Fetcher(state, timeout=12), reservation_context=budget,
-                               qualification_plan_path=qualification_plan)
-        # The final in-flight request can finish after its deadline/day even
-        # when there is no next request to trigger the ordinary guard.
-        try:
-            budget.before_fetch()
-        except ProbeReservationDenied as error:
-            report.update(executionCompleted=False, budgetDenied=True, completionDenial=error.reason)
-        report['reservationContext'] = budget.summary()
+        if orca is not None:
+            report = orca.execute(contract, state, Fetcher(state, timeout=12), budget, orca_plan)
+            # Reconstruct readiness and retain repeated module/caller denials.
+            report = orca.finalize_report(contract, state, qualification_raw, report, budget)
+        else:
+            report = probe_sources(contract, state, Fetcher(state, timeout=12), reservation_context=budget,
+                                   qualification_plan_path=qualification_plan)
+            # The final in-flight request can finish after its deadline/day even
+            # when there is no next request to trigger the ordinary guard.
+            try:
+                budget.before_fetch()
+            except ProbeReservationDenied as error:
+                report.update(executionCompleted=False, budgetDenied=True, completionDenial=error.reason)
+            report['reservationContext'] = budget.summary()
         completed = report['executionCompleted'] and not cancelled
         result = {'schemaVersion': 1, 'checkpointProfile': 'source_probe',
                   'githubRunId': os.environ['GITHUB_RUN_ID'],

@@ -2,6 +2,8 @@
 
 Root reviewed the prepared module and its tests. It is suitable to retain as dormant code.
 Activation and actual source qualification remain pending.
+This review pins the initial dormant revision. The later [leased integration review](orca-leased-diagnostic-integration-independent-review-2026-10-24.md)
+records the updated finalization and exact new code/plan pins.
 
 The module pins policy `8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db`,
 the exact existing candidate, its original endpoint observation/body, and a closed proposed

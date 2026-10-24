@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "kind": "orca_leased_diagnostic_readonly_preflight",
+  "archive": {
+    "commit": "b78bd35bb531ed49480ce1557780d3b2d9a522a2",
+    "manifestSha256": "3971ae961442d6a18c5ed145c64660d68190d91f470acf27b74c3d136f6d6849",
+    "manifestEntries": 40917,
+    "root": "/var/tmp/smp-html-collection-40120612027-20261024/extracted/jessepike-sec-market-b78bd35bb531ed49480ce1557780d3b2d9a522a2"
+  },
+  "plan": {
+    "schemaVersion": 2,
+    "operation": "bounded_orca_qualification",
+    "marketSha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+    "originalContract": {
+      "key": "contracts/8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db.json",
+      "sha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+      "bytes": 204449
+    },
+    "sourceId": "orca:official:1",
+    "originalSourceSha256": "11dc1755e9febe013fbc5d35a636afc948432251f6186cf62ce3effcb5cac4cf",
+    "proposedAdapterSha256": "6b64c7c761c899e28297fe3e8bf18784dbf6da9dcb88f2d2d7ccab1671c963b2",
+    "startProof": {
+      "observation": {
+        "key": "observations/b5d6182ff2fed713a7cc26fea913c63719a2f97c369ff420be7212b8a360be9a.json",
+        "sha256": "4d1106359471da8aa436527bd3324f4dfea325c0b9364a52537bb4aac203c757",
+        "bytes": 596
+      },
+      "body": {
+        "key": "objects/9f0503f9a7c15f5a6e4686ebd9d3a4cf6be13626d43746154af19a7d1f627e54",
+        "sha256": "9f0503f9a7c15f5a6e4686ebd9d3a4cf6be13626d43746154af19a7d1f627e54",
+        "bytes": 236182
+      },
+      "fetchedAt": "2026-10-23T04:14:41.172921Z"
+    },
+    "maxRequests": 61,
+    "maxIndexPages": 60,
+    "primarySamples": 1
+  },
+  "planRawSha256": "93257fbffe11598ffff5ee7b890fdd0e992d59d4b276d0ad09aa8ddfe56f7d98",
+  "planCanonicalSha256": "93257fbffe11598ffff5ee7b890fdd0e992d59d4b276d0ad09aa8ddfe56f7d98",
+  "planBytes": 1040,
+  "sourceRegistration": "candidate",
+  "proposedAdapterSha256": "6b64c7c761c899e28297fe3e8bf18784dbf6da9dcb88f2d2d7ccab1671c963b2",
+  "originalObservation": {
+    "body": {
+      "bytes": 236182,
+      "key": "objects/9f0503f9a7c15f5a6e4686ebd9d3a4cf6be13626d43746154af19a7d1f627e54",
+      "sha256": "9f0503f9a7c15f5a6e4686ebd9d3a4cf6be13626d43746154af19a7d1f627e54"
+    },
+    "contentType": "text/html; charset=utf-8",
+    "etag": null,
+    "fetchedAt": "2026-10-23T04:14:41.172921Z",
+    "finalUrl": "https://orca.security/resources/news/",
+    "httpStatus": 200,
+    "lastModified": "Fri, 23 Oct 2026 04:14:41 GMT",
+    "observationId": "b5d6182ff2fed713a7cc26fea913c63719a2f97c369ff420be7212b8a360be9a",
+    "requestedUrl": "https://orca.security/resources/press-releases/",
+    "sourceId": "orca:citation:TR-orca-1",
+    "status": "fetched"
+  },
+  "before": {
+    "files": 40921,
+    "contentSha256": "4a62d684028c83306c446b4468685abd2b2ec6d48c9d2ce2b6c64473f0816a09",
+    "fileMtimeSha256": "41afa5b58bf402a96da392552113918a9055fbdaa37749a799423528b9d49a14",
+    "directories": 1904,
+    "directoryMtimeSha256": "0d09fc1fd0fd80ec691efb26c61f624330f7a22f8938de492403eb487e47779a"
+  },
+  "after": {
+    "files": 40921,
+    "contentSha256": "4a62d684028c83306c446b4468685abd2b2ec6d48c9d2ce2b6c64473f0816a09",
+    "fileMtimeSha256": "41afa5b58bf402a96da392552113918a9055fbdaa37749a799423528b9d49a14",
+    "directories": 1904,
+    "directoryMtimeSha256": "0d09fc1fd0fd80ec691efb26c61f624330f7a22f8938de492403eb487e47779a"
+  },
+  "memoryStoreMutations": 0,
+  "guardAttempts": [],
+  "sourceRequests": 0,
+  "modelCalls": 0,
+  "coverageCredit": false,
+  "sourceQualification": false
+}

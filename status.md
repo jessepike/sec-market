@@ -23,12 +23,15 @@ The five known contradictions were resolved against this release. General precis
 reader value and sustained operation remain unmeasured.
 [Publication receipts](docs/active/daily-pipeline/renewal-verification-2026-10-24.md).
 
-Main is currently `1ed94479`; its reviewed midnight repair is ready for promotion. The gate had
+Main and preview are `3e3bf9e9`; the reviewed midnight repair is promoted. The gate had
 incorrectly compared collection-time sealed date partitions with gate-time classifications.
 The repair verifies the complete original sealed receipt at its original time and evaluates
 current freshness separately. Actual archive reconstruction now passes all three October 25
 publisher times without changing source dates, facts, review holds or archive bytes/mtimes.
 All 755 operational and full web checks pass; independent review passes. Preview web
+`40124646702` and archive canary `40124646775` passed. Preview deployment
+`dpl_851fA8CqvuVHgnLJnvjcWobmUQXJ` is READY and matches the reviewed local pixels at 1440/390.
+Main web `40124904455` passed. Earlier preview web
 `40120307659` and main web `40120612557` passed. Preview `dpl_4Ggdsc2VCrnKoNbVLrFTtb34k7Ds`
 is READY. The acknowledgement repair changes no web source; reviewed desktop/phone renders
 remain identical. Main Git builds intentionally do not publish; only the exact-artifact
@@ -95,8 +98,14 @@ The next 25-candidate qualification batch is mapped individually; Orca has a rev
 61-request diagnostic with 115 focused tests, including its actual retained-body replay.
 It is not routed or activated and supplies no current coverage.
 [Next candidate batch](docs/active/daily-pipeline/accuracy/remaining-candidate-qualification-batch-spec-2026-10-24.md).
-Promote only the reviewed midnight repair before the next publisher; prepare further source
-qualification separately on preview. Current-policy scheduled collection remains required.
+The next Orca diagnostic is locally integrated into the existing manual leased source-probe
+path under unchanged H, capped at 61 fetches with zero model/document/gate work. All 766
+operational, 373 data, 115 pipeline and 42 browser checks pass (one fixture skip), plus independent
+review and exact actual-archive preflight. Current desktop/phone pixels are unchanged.
+Its actual proof and disabled-plan restoration remain pending; no new qualification credit is claimed.
+[Leased diagnostic handoff](docs/active/daily-pipeline/accuracy/orca-leased-diagnostic-integration-handoff-2026-10-24.md).
+Freeze the final reviewed main before the next publisher. Current-policy scheduled collection
+and actual production update remain required.
 
 Implementation: `/Users/jessepike/code/projects/sec-market-finish-20261022`.
 Preserve original `/Users/jessepike/code/projects/sec-market` at `0a660a72`, including its modified

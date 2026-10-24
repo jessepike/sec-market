@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "kind": "local-orca-leased-integration-validation",
+  "checks": {
+    "operationalPassed": 766,
+    "dataPassed": 373,
+    "pipelinePassed": 115,
+    "browserPassed": 42,
+    "browserSkipped": 1,
+    "lint": "pass",
+    "build": "pass"
+  },
+  "pins": [
+    {
+      "path": "ops/ci/collect.py",
+      "sha256": "f1569eb265112efb51611eaa244f882bc02d1e2b19a3683860ecd3ca19a16c62"
+    },
+    {
+      "path": "web/scripts/pipeline/orca_qualification.py",
+      "sha256": "731ee99cdc88bc4e69ef135f4c2e60f75248bc4db9bc389a3b5aa5773457935d"
+    },
+    {
+      "path": "ops/ci/test_leased_orca_probe.py",
+      "sha256": "fc75b61e7b049112aac09354cbb5ba76d61e4a2b558f2a64740d260c7dd84416"
+    },
+    {
+      "path": "contracts/source-qualification-probes.json",
+      "sha256": "93257fbffe11598ffff5ee7b890fdd0e992d59d4b276d0ad09aa8ddfe56f7d98"
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/orca-leased-diagnostic-integration-independent-review-2026-10-24.md",
+      "sha256": "2a7d7ea40aed08780f04f446b6aa574c328c5ae7883dc5705f149e8ba5240304"
+    }
+  ],
+  "logs": [
+    {
+      "path": "/var/tmp/smp-orca-leased-final-ops-20261024.log",
+      "sha256": "86fe1be884713300d87de4363e5e225c8401f37ee1cc5ef26e18295a743bb8cd"
+    },
+    {
+      "path": "/var/tmp/smp-orca-leased-final-web-20261024.log",
+      "sha256": "65ce8a0167aa25cc66f6f13c36d0b5969f362fe8ddeb04b86a71f55527b19ea5"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/orca-integration-production-1440.png",
+      "sha256": "8651f15011d8a0518a5e4f96a43d693c014ea1d33a041f1586e830a088cce1ad",
+      "width": 1440,
+      "height": 8359,
+      "samePixelsAsReviewedMidnightCapture": true
+    },
+    {
+      "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/orca-integration-production-390.png",
+      "sha256": "0c81367ea5540676b295a8ba96173ef98e5e9c41993a3dac9392166ae2af10d9",
+      "width": 390,
+      "height": 7714,
+      "samePixelsAsReviewedMidnightCapture": true
+    },
+    {
+      "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/orca-integration-local-1440.png",
+      "sha256": "b044622ff53e695fee8334a95746b932c0df81ff6e26ecb810bfd9228765cdd9",
+      "width": 1440,
+      "height": 8379,
+      "samePixelsAsReviewedMidnightCapture": true
+    },
+    {
+      "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/orca-integration-local-390.png",
+      "sha256": "7dc872da46a4cf5e2eb765df88e1ae28e34eb70f8d5c38b19835bab09afcd3df",
+      "width": 390,
+      "height": 7749,
+      "samePixelsAsReviewedMidnightCapture": true
+    }
+  ],
+  "visibleChange": false,
+  "sourceRequests": 0,
+  "modelCalls": 0,
+  "gateUses": 0,
+  "provesQualification": false,
+  "provesPublication": false
+}

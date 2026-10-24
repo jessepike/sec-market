@@ -199,6 +199,38 @@ def _reconstruct(store, plan, requests, started_at, checked_at, completion_denia
             'indexComplete': terminal, 'evidenceComplete': ready, 'reason': completion_denial or reason}
 
 
+def _seal_report(contract, store, raw, report, budget):
+    from onboarding import ProbeReservationDenied
+    plan = validate_plan(contract, store, raw)
+    denials = list(report['completionDenials'])
+    require(len(denials) < 2, 'ORCA_COMPLETION_GUARD_ALREADY_FINAL')
+    checked_at = None
+    try:
+        budget.before_fetch(); checked_at = budget.clock(); budget.before_fetch()
+    except ProbeReservationDenied as error:
+        denials.append(error.reason)
+    if checked_at is None:
+        checked_at = budget.clock()
+    sealed = copy.deepcopy(report)
+    sealed.update(checkedAt=checked_at, completionDenials=denials,
+                  completionDenial=denials[-1] if denials else None,
+                  reservationContext=budget.summary(),
+                  budgetDenied=bool(denials) or any(r['denial'] is not None for r in report['requests']),
+                  executionCompleted=not denials and not any(r['denial'] is not None for r in report['requests']))
+    sealed.update(_reconstruct(store, plan, sealed['requests'], sealed['startedAt'], checked_at, sealed['completionDenial']))
+    verify_report(contract, store, raw, sealed)
+    return sealed
+
+
+def finalize_report(contract, store, raw_plan_bytes, report, budget):
+    """Retain the leased caller's extra guard without losing earlier denials."""
+    from onboarding import PersistentProbeBudget
+    require(isinstance(budget, PersistentProbeBudget), 'ORCA_BOUND_BUDGET_REQUIRED')
+    budget.assert_bound(store, contract)
+    verify_report(contract, store, raw_plan_bytes, report)
+    return _seal_report(contract, store, raw_plan_bytes, report, budget)
+
+
 def execute(contract, store, fetcher, budget, normalized_plan):
     """Caller owns the external mutation lease. This module has no routing hook."""
     from onboarding import PersistentProbeBudget, ProbeReservationDenied, _store_bounded_candidate_observation
@@ -247,25 +279,14 @@ def execute(contract, store, fetcher, budget, normalized_plan):
                     break
         except (ValueError, KeyError, TypeError, OSError, UnicodeError):
             break
-    checked_at, denial = None, None
-    try:
-        budget.before_fetch(); checked_at = budget.clock(); budget.before_fetch()
-    except ProbeReservationDenied as error:
-        denial = error.reason
-    if checked_at is None:
-        checked_at = budget.clock()
     report = {'schemaVersion': 1, 'operation': OPERATION, 'contractSha256': digest(contract),
               'planRawSha256': digest(raw), 'planCanonicalSha256': plan['canonicalSha256'], 'planReference': plan_ref,
               'sourceId': SOURCE_ID, 'supplierId': 'orca', 'originalSourceSha256': SOURCE_SHA256,
-              'proposedAdapterSha256': plan['proposedAdapterSha256'], 'startedAt': budget.started_at, 'checkedAt': checked_at,
-              'requests': requests, 'completionDenial': denial, 'reservationContext': budget.summary(),
-              'budgetDenied': denial is not None or any(r['denial'] is not None for r in requests),
-              'executionCompleted': denial is None and not any(r['denial'] is not None for r in requests),
+              'proposedAdapterSha256': plan['proposedAdapterSha256'], 'startedAt': budget.started_at,
+              'requests': requests, 'completionDenials': [],
               'qualified': False, 'semanticAdmission': False, 'coverageCredit': False,
               'facts': [], 'newFactIds': [], 'heldClaims': [], 'documentValidations': [], **{k: 0 for k in ZERO_FIELDS}}
-    report.update(_reconstruct(store, plan, requests, report['startedAt'], checked_at, denial))
-    verify_report(contract, store, raw, report)
-    return report
+    return _seal_report(contract, store, raw, report, budget)
 
 
 def verify_report(contract, store, raw_plan_bytes, report):
@@ -273,7 +294,7 @@ def verify_report(contract, store, raw_plan_bytes, report):
     plan = validate_plan(contract, store, raw_plan_bytes)
     fields = {'schemaVersion', 'operation', 'contractSha256', 'planRawSha256', 'planCanonicalSha256', 'planReference',
               'sourceId', 'supplierId', 'originalSourceSha256', 'proposedAdapterSha256', 'startedAt', 'checkedAt',
-              'requests', 'completionDenial', 'reservationContext', 'budgetDenied', 'executionCompleted',
+              'requests', 'completionDenial', 'completionDenials', 'reservationContext', 'budgetDenied', 'executionCompleted',
               'qualified', 'semanticAdmission', 'coverageCredit', 'facts', 'newFactIds', 'heldClaims', 'documentValidations',
               'pages', 'inventory', 'primarySample', 'indexComplete', 'evidenceComplete', 'reason', *ZERO_FIELDS}
     require(type(report) is dict and set(report) == fields and type(report['schemaVersion']) is int and report['schemaVersion'] == 1 and
@@ -285,7 +306,10 @@ def verify_report(contract, store, raw_plan_bytes, report):
             all(report[k] is False for k in ('qualified', 'semanticAdmission', 'coverageCredit')) and
             all(type(report[k]) is int and report[k] == 0 for k in ZERO_FIELDS) and
             all(report[k] == [] for k in ('facts', 'newFactIds', 'heldClaims', 'documentValidations')) and
-            (report['completionDenial'] is None or isinstance(report['completionDenial'], str)), 'ORCA_REPORT_ENVELOPE_DIFFERS')
+            type(report['completionDenials']) is list and len(report['completionDenials']) <= 2 and
+            all(isinstance(d, str) and d for d in report['completionDenials']) and
+            report['completionDenial'] == (report['completionDenials'][-1] if report['completionDenials'] else None),
+            'ORCA_REPORT_ENVELOPE_DIFFERS')
     c = report['reservationContext']
     require(type(c) is dict and set(c) == {'budgetDay', 'contractSha256', 'fetchLimit', 'maximumRuntimeSeconds', 'startedAt',
             'initialBudget', 'currentBudget', 'probeFetchReservations', 'reservationDenials'} and c['contractSha256'] == POLICY_SHA256 and
@@ -311,8 +335,7 @@ def verify_report(contract, store, raw_plan_bytes, report):
             charges.append(reservation['chargedFetchCount'])
         if row['denial'] is not None:
             denials[row['denial']] += 1
-    if report['completionDenial'] is not None:
-        denials[report['completionDenial']] += 1
+    denials.update(report['completionDenials'])
     require(charges == list(range(initial['fetches'] + 1, current['fetches'] + 1)) and
             dict(denials) == c['reservationDenials'] and report['budgetDenied'] is bool(denials) and
             report['executionCompleted'] is (not bool(denials)), 'ORCA_CHARGES_OR_DENIALS_DIFFER')
