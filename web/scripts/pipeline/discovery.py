@@ -15,6 +15,98 @@ from regulatory import SEC_FILING_FORMS
 
 MAX_DISCOVERY_BYTES = 32_000_000
 ORCA_HTML_MODE = "orca-news-pagination-v1"
+PING_HTML_MODE = "ping-release-pagination-v1"
+PING_INDEX = "https://press.pingidentity.com/news-releases"
+
+
+def ping_index_number(url):
+    parsed = urlsplit(url)
+    require(parsed.scheme == 'https' and parsed.netloc == 'press.pingidentity.com' and
+            parsed.path == '/news-releases' and not parsed.fragment, 'Unsafe Ping index destination')
+    require(not parsed.query or re.fullmatch(r'o=(0|[1-9]\d*)', parsed.query), 'Unknown Ping index query')
+    offset = int(parsed.query[2:]) if parsed.query else 0
+    require(offset % 10 == 0, 'Ping offset must follow observed ten-item pages')
+    return offset // 10 + 1
+
+
+def ping_index(source, url, body, highest_page, as_of):
+    require(source['kind'] == 'html_index' and source['id'] == 'ping-identity:official:1' and
+            source['supplierId'] == 'ping-identity' and source['family'] == 'official_announcements' and
+            source['allowedHosts'] == ['press.pingidentity.com'] and source['url'] == PING_INDEX and
+            1 <= source['maxPages'] <= 60, 'Ping HTML mode requires its exact supplier/source binding')
+    current = ping_index_number(url)
+    nodes = list(IndexMarkup(body.decode('utf8', errors='strict')).root.walk())
+    def one(values, label):
+        require(len(values) == 1 and values[0].closed, 'Missing or ambiguous Ping ' + label)
+        return values[0]
+    canonical = one([n for n in nodes if n.tag == 'link' and 'canonical' in n.attrs.get('rel','').split()], 'canonical link')
+    require(canonical.attrs.get('href') == PING_INDEX, 'Unexpected Ping canonical index')
+    require(not any(n.tag == 'link' and {'next', 'prev'} & set(n.attrs.get('rel','').lower().split()) for n in nodes),
+            'Unqualified Ping head pagination signal')
+    region = one([n for n in nodes if n.tag == 'div' and 'wd_newsfeed_releases' in n.classes], 'release region')
+    listing = one([n for n in nodes if n.tag == 'ul' and 'wd_item_list' in n.classes and n.inside(region)], 'card list')
+    cards = [n for n in listing.walk() if n.tag == 'li' and 'wd_item' in n.classes]
+    require(bool(cards), 'Ping has no qualified static cards')
+    require(all(c in cards if isinstance(c, IndexNode) else not c.strip() for c in listing.children), 'Unknown Ping card-list content')
+    dates, ordered_dates = {}, []
+    for card in cards:
+        require(card.closed and card.parent is listing, 'Invalid Ping card structure')
+        descendants = list(card.walk())
+        title = one([n for n in descendants if 'wd_title' in n.classes], 'card title')
+        link = one([n for n in title.walk() if n.tag == 'a'], 'title link')
+        require(link.text.strip() and link.attrs.get('href'), 'Empty Ping title link')
+        require(not any(ord(c) <= 32 or ord(c) == 127 for c in link.attrs['href']), 'Control or whitespace in Ping article URL')
+        target = urljoin(url, link.attrs['href']); parsed = urlsplit(target)
+        require(parsed.scheme == 'https' and parsed.netloc == 'press.pingidentity.com' and not parsed.query and not parsed.fragment and
+                re.fullmatch(r'/\d{4}-\d{2}-\d{2}-[A-Za-z0-9_,-]+', parsed.path), 'Unsafe Ping article path')
+        stamp = one([n for n in descendants if 'wd_date' in n.classes], 'card date').text.strip()
+        require(re.fullmatch(r'[A-Z][a-z]{2} \d{2}, \d{4}', stamp), 'Malformed Ping card date')
+        day = datetime.strptime(stamp, '%b %d, %Y').date().isoformat()
+        require(day <= instant(as_of).date().isoformat(), 'Future Ping card date')
+        require(target not in dates, 'Duplicate Ping card URL')
+        dates[target] = day; ordered_dates.append(day)
+    require(ordered_dates == sorted(ordered_dates, reverse=True), 'Ping card dates out of order')
+    paging = one([n for n in nodes if n.tag == 'ul' and 'wd_page_links' in n.classes and n.inside(region)], 'pagination')
+    controls = [n for n in paging.children if isinstance(n, IndexNode)]
+    require(all(n.tag == 'li' and n.closed and 'wd_page_link' in n.classes for n in controls), 'Unknown Ping pagination control')
+    require(all(isinstance(n, IndexNode) or not n.strip() for n in paging.children), 'Unknown Ping pagination text')
+    active = one([n for n in controls if 'wd_page_active' in n.classes], 'active page')
+    marker = one([n for n in active.walk() if n.tag == 'span' and n.attrs.get('aria-current') == 'page'], 'active marker')
+    require(marker.text.strip() == str(current) and not any(n.tag == 'a' for n in active.walk()), 'Ping active page mismatch')
+    numbered, next_urls, previous, sequence = {}, [], [], []
+    for control in controls:
+        roles = control.classes - {'wd_page_link'}
+        require(len(roles) == 1 and roles <= {'wd_page_active','wd_page_prev','wd_page_next','wd_page_mid1','wd_page_mid2','wd_page_end','wd_page_skip1','wd_page_skip2'}, 'Unknown Ping page role')
+        role = next(iter(roles)); children = [n for n in control.children if isinstance(n, IndexNode)]
+        child = one(children, 'page control child')
+        require(child.tag in ('a','span') and not any(n.tag in ('a','button','form','select') for n in child.walk() if n is not child), 'Unknown Ping page control')
+        if role.startswith('wd_page_skip'):
+            require(child.tag == 'span' and child.text.strip() == '…', 'Invalid Ping ellipsis'); sequence.append(None); continue
+        if role == 'wd_page_active':
+            sequence.append(current); continue
+        if role == 'wd_page_prev' and current == 1:
+            require(child.tag == 'span' and child.text.strip() == '«', 'Invalid Ping disabled previous'); previous.append(None); continue
+        require(child.tag == 'a' and child.attrs.get('href'), 'Unproved Ping disabled control')
+        target = urljoin(url, child.attrs['href']); number = ping_index_number(target)
+        if role == 'wd_page_next':
+            require(number == current + 1 and child.text.strip() == '»', 'Ping next loop or gap'); next_urls.append(target)
+        elif role == 'wd_page_prev':
+            require(number == current - 1 and child.text.strip() == '«', 'Ping previous mismatch'); previous.append(target)
+        else:
+            require(child.text.strip() == str(number) and number not in numbered and number != current, 'Ping numbered page mismatch or duplicate')
+            numbered[number] = target; sequence.append(number)
+    require(len(previous) == 1 and len(next_urls) <= 1, 'Missing or duplicate Ping directional control')
+    require(sequence and sequence[0] == 1 and sequence[-1] is not None, 'Incomplete Ping advertised page sequence')
+    for i, number in enumerate(sequence):
+        if number is None:
+            require(0 < i < len(sequence)-1 and sequence[i-1] is not None and sequence[i+1] is not None and sequence[i+1] > sequence[i-1]+1, 'Invalid Ping advertised gap')
+        elif i and sequence[i-1] is not None:
+            require(number == sequence[i-1]+1, 'Ping missing sequential page control')
+    highest_page = max(highest_page, *numbered, current)
+    if next_urls:
+        require(numbered.get(current+1) == next_urls[0] and len(cards) == 10, 'Conflicting Ping next/numbered controls or page size')
+    return {'items': set(dates), 'dates': dates, 'highestPage': highest_page,
+            'next': next_urls[0] if next_urls else None, 'lastDate': ordered_dates[-1], 'firstDate': ordered_dates[0]}
 
 
 def decoded_discovery_body(body):
@@ -477,6 +569,8 @@ def discover(source, request):
     queue, seen, items, observations, item_dates, item_modified = [source["url"]], set(), set(), [], {}, {}
     highest_orca_page = 1
     orca_mode = source.get("htmlCompleteness") == ORCA_HTML_MODE
+    ping_mode = source.get('htmlCompleteness') == PING_HTML_MODE
+    highest_ping_page, ping_last_date, ping_as_of = 1, None, source.get('checkedAt')
     def incomplete(reason, **details):
         return {"complete": False, "items": sorted(items), "itemDates": item_dates,
                 "itemModified": item_modified, "observations": observations, "reason": reason, **details}
@@ -490,9 +584,9 @@ def discover(source, request):
         try:
             observation, body = request(url)
         except (OSError, ValueError):
-            if not orca_mode:
+            if not (orca_mode or ping_mode):
                 raise
-            return incomplete("ORCA_INDEX_REQUEST_FAILED", missingUrl=url)
+            return incomplete("PING_INDEX_REQUEST_FAILED" if ping_mode else "ORCA_INDEX_REQUEST_FAILED", missingUrl=url)
         observations.append(observation)
         if observation["status"] not in ("fetched", "not_modified"):
             return incomplete(observation.get("errorCode", "FETCH_FAILED"))
@@ -531,6 +625,21 @@ def discover(source, request):
             continue
         try:
             body = decoded_discovery_body(body)
+            if ping_mode:
+                require(observation.get('requestedUrl') == url and observation.get('finalUrl') == url,
+                        'Ping response request/final URL mismatch')
+                ping_as_of = ping_as_of or observation.get('fetchedAt')
+                instant(ping_as_of)
+                parsed_index = ping_index(source, url, body, highest_ping_page, ping_as_of)
+                require(not (items & parsed_index['items']), 'Duplicate Ping card across pages')
+                require(ping_last_date is None or parsed_index['firstDate'] <= ping_last_date, 'Ping dates out of order across pages')
+                items.update(parsed_index['items']); item_dates.update(parsed_index['dates']); item_modified.update(parsed_index['dates'])
+                highest_ping_page = parsed_index['highestPage']; ping_last_date = parsed_index['lastDate']
+                if not parsed_index['next']:
+                    return incomplete('PING_TERMINAL_LAYOUT_UNPROVED', highestAdvertisedPage=highest_ping_page)
+                require(parsed_index['next'] not in seen, 'Ping pagination loop')
+                queue.append(parsed_index['next'])
+                continue
             if orca_mode:
                 require(source["kind"] == "html_index", "Orca mode requires HTML index kind")
                 parsed_index = orca_index(source, url, body, highest_orca_page)
@@ -550,8 +659,8 @@ def discover(source, request):
             if shell:
                 return incomplete(**shell)
         except ValueError as exc:
-            if orca_mode:
-                return incomplete("ORCA_INDEX_INCOMPLETE", detail=str(exc))
+            if orca_mode or ping_mode:
+                return incomplete("PING_INDEX_INCOMPLETE" if ping_mode else "ORCA_INDEX_INCOMPLETE", detail=str(exc))
             raise
         content = body.lstrip()
         if content.startswith(b"<?xml") or re.match(br"<(rss|feed|urlset|sitemapindex)\b", content):

@@ -89,6 +89,12 @@ def validate_contract(contract):
                     source["allowedHosts"] == ["orca.security"] and
                     source["url"] == "https://orca.security/resources/news/" and source["maxPages"] <= 60,
                     "Orca HTML mode requires its exact source, supplier and index endpoint")
+        if source.get("htmlCompleteness") == "ping-release-pagination-v1":
+            require(source["kind"] == "html_index" and source["id"] == "ping-identity:official:1" and
+                    source["supplierId"] == "ping-identity" and source["family"] == "official_announcements" and
+                    source["allowedHosts"] == ["press.pingidentity.com"] and
+                    source["url"] == "https://press.pingidentity.com/news-releases" and source["maxPages"] <= 60,
+                    "Ping HTML mode requires its exact source, supplier and index endpoint")
     for supplier in suppliers:
         require(bool(supplier["requiredCategories"]), "Supplier has no coverage requirements")
         require(bool(supplier.get("requiredFamilies")), "Supplier has no required source families")

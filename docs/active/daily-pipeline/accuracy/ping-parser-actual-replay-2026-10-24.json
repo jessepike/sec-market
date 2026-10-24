@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "kind": "offline_ping_candidate_discovery_replay",
+  "evaluatedAt": "2026-10-24T02:08:54.093503+00:00",
+  "archiveCommit": "b9f1208bd9e957bee5cca2c0b4db28a4fc1fa63f",
+  "verifiedGitArchiveManifestSha256": "5480056315f07d6c6be4e66d5f9a643437d020eb039f2d51fe378ad70803c9bb",
+  "archiveBefore": {
+    "files": 31048,
+    "sizeMtimeContentSealSha256": "9748436e638241a3178bfb8baddb68067a46ec6cc4b0883bbad700f1198b2f5f"
+  },
+  "archiveAfter": {
+    "files": 31048,
+    "sizeMtimeContentSealSha256": "9748436e638241a3178bfb8baddb68067a46ec6cc4b0883bbad700f1198b2f5f"
+  },
+  "archiveUnchanged": true,
+  "inputs": [
+    {
+      "url": "https://press.pingidentity.com/news-releases",
+      "observationSha256": "09eb766cec6f9e2d9cbd7a3f412bdca185b7a604a635d596f2f19b506ad884f7",
+      "bodySha256": "a3ea17921e3b778f56c42fe0ecfa2f035db991f34afb167e6cb09dc28f4113b2",
+      "bodyBytes": 98724,
+      "fetchedAt": "2026-10-24T01:26:54.975043Z"
+    },
+    {
+      "url": "https://press.pingidentity.com/news-releases?o=10",
+      "observationSha256": "f61107756abf878060b6082d9067715f1c0ab6ce9d45946a72d1a3731f258c88",
+      "bodySha256": "277c8d143f01e294d926ca6f85eb3c9874b08107721386a69feeaf59107372e3",
+      "bodyBytes": 99084,
+      "fetchedAt": "2026-10-24T01:26:56.036210Z"
+    }
+  ],
+  "requests": [
+    "https://press.pingidentity.com/news-releases",
+    "https://press.pingidentity.com/news-releases?o=10",
+    "https://press.pingidentity.com/news-releases?o=20"
+  ],
+  "sourceForOfflineReplayOnly": {
+    "id": "ping-identity:official:1",
+    "supplierId": "ping-identity",
+    "family": "official_announcements",
+    "kind": "html_index",
+    "registration": "verified",
+    "url": "https://press.pingidentity.com/news-releases",
+    "allowedHosts": [
+      "press.pingidentity.com"
+    ],
+    "maxPages": 60,
+    "htmlCompleteness": "ping-release-pagination-v1",
+    "checkedAt": "2026-10-24T01:26:57.483815Z"
+  },
+  "complete": false,
+  "reason": "PING_INDEX_REQUEST_FAILED",
+  "itemCount": 20,
+  "itemDates": {
+    "https://press.pingidentity.com/2026-10-06-Ping-Identity-Survey-Finds-AI-Trust-Changes-When-Assistance-Turns-to-Action": "2026-10-06",
+    "https://press.pingidentity.com/2026-09-29-Ping-Identity-Launches-Identity-Agents-on-Google-Cloud-Marketplace": "2026-09-29",
+    "https://press.pingidentity.com/2026-09-01-Ping-Identity-Secures-Claude-Personal-Agents-From-Discovery-to-Action": "2026-09-01",
+    "https://press.pingidentity.com/2026-07-28-Ping-Identity-Verification-and-Fraud-Protection-Listed-in-Epic-Toolbox": "2026-07-28",
+    "https://press.pingidentity.com/2026-06-16-Ping-Identity-Extends-Runtime-Identity-TM-for-AI-Agents-Across-AWS,-Google-Cloud,-and-Cloudflare": "2026-06-16",
+    "https://press.pingidentity.com/2026-05-27-Ping-Identity-Redefines-the-Identity-Control-Plane-for-the-Agentic-Enterprise": "2026-05-27",
+    "https://press.pingidentity.com/2026-05-05-Ping-Identity-and-OLOID-Bring-Passwordless,-Verified-Trust-to-the-Clinical-Workforce": "2026-05-05",
+    "https://press.pingidentity.com/2026-04-28-Ping-Identity-Warns-of-Emerging-Authorization-Risks-as-AI-Agents-Scale-Across-Enterprises": "2026-04-28",
+    "https://press.pingidentity.com/2026-04-22-Ping-Identity-Wins-2026-Google-Cloud-Security-Partner-of-the-Year-Award-for-Identity-Access-Management": "2026-04-22",
+    "https://press.pingidentity.com/2026-03-24-Ping-Identity-Defines-the-Runtime-Identity-Standard-for-Autonomous-AI": "2026-03-24",
+    "https://press.pingidentity.com/2026-03-17-Ping-Identity-Only-9-of-Organizations-are-Prepared-for-Continuous-AI-Driven-Identity-Threats": "2026-03-17",
+    "https://press.pingidentity.com/2026-02-26-Ping-Identity-Secure-Containers-Approved-for-Iron-Bank-to-Accelerate-IL5-Deployment-Across-Defense-Environments": "2026-02-26",
+    "https://press.pingidentity.com/2026-01-20-Ping-Identity-Advances-Universal-Services-to-Redefine-Trust-in-the-Age-of-AI-Driven-Fraud": "2026-01-20",
+    "https://press.pingidentity.com/2026-01-07-Ping-Identity-Marks-Digital-Trust-Milestone-with-Zero-Knowledge-Biometrics-in-the-Age-of-AI": "2026-01-07",
+    "https://press.pingidentity.com/2026-01-06-Ping-Identity-Appoints-Adnan-Chaudhry-as-Chief-Revenue-Officer-to-Scale-Trusted-Identity-for-the-AI-Era": "2026-01-06",
+    "https://press.pingidentity.com/2025-11-18-Ping-Identity-Recognized-as-a-Leader-in-2025-Gartner-R-Magic-Quadrant-TM-for-Access-Management": "2025-11-18",
+    "https://press.pingidentity.com/2025-11-06-Ping-Identity-Launches-Identity-for-AI-Solution-to-Power-Innovation-and-Trust-in-the-Agent-Economy": "2025-11-06",
+    "https://press.pingidentity.com/2025-10-30-Ping-Identity-Strengthens-Defense-Against-AI-Driven-Impersonation-with-Privacy-Preserving-Biometrics": "2025-10-30",
+    "https://press.pingidentity.com/2025-10-01-Ping-Identity-Survey-Reveals-Consumer-Trust-Plummeting-as-AI-Use-Soars": "2025-10-01",
+    "https://press.pingidentity.com/2025-09-17-Ping-Identity-Shapes-the-Future-of-Enterprise-Security-With-AI-Driven-Trust-Framework": "2025-09-17"
+  },
+  "itemModifiedEqualsItemDates": true,
+  "networkModelSourceCalls": 0,
+  "archiveWrites": 0,
+  "codeSha256": {
+    "web/scripts/pipeline/discovery.py": "c354f3368b15e7a8aab6b357d4f11c238f436bfb1af8430bc7282a80b203e6e2",
+    "web/scripts/pipeline/contracts.py": "6f5f9056bc22ce59c45579951fd351c0c041d3a234e67226bc217429cc9004f0",
+    "ops/ci/test_ping_discovery.py": "f7056cff4474daa27e93919da071f12ac96e058b96bc26c13de0eaae98ef7dc3"
+  },
+  "tests": {
+    "pingCandidate": 11,
+    "pipeline": 115,
+    "opsCiIncludingOrcaAndGeneric": 467
+  },
+  "limitations": [
+    "Preview candidate only; actual candidate registration and market policy unchanged.",
+    "Offline source verified flag permits exercising parser only and is not a source qualification.",
+    "Only pages1/2 observed. Page3 missing; terminal and empty layouts always held pending actual primary proof.",
+    "Card dates are scheduling signatures only. Generic Page.published unchanged; no article date or semantic coverage admission."
+  ],
+  "replayAttempts": [
+    {
+      "evaluatedAt": "2026-10-24T02:13:47.858174+00:00",
+      "purpose": "Percent-escape and head-pagination hardening",
+      "archiveBefore": {
+        "files": 31048,
+        "sizeMtimeContentSealSha256": "9748436e638241a3178bfb8baddb68067a46ec6cc4b0883bbad700f1198b2f5f"
+      },
+      "archiveAfter": {
+        "files": 31048,
+        "sizeMtimeContentSealSha256": "9748436e638241a3178bfb8baddb68067a46ec6cc4b0883bbad700f1198b2f5f"
+      },
+      "complete": false,
+      "reason": "PING_INDEX_REQUEST_FAILED",
+      "itemCount": 20,
+      "requests": [
+        "https://press.pingidentity.com/news-releases",
+        "https://press.pingidentity.com/news-releases?o=10",
+        "https://press.pingidentity.com/news-releases?o=20"
+      ],
+      "networkModelSourceCalls": 0,
+      "archiveWrites": 0,
+      "focusedTestsPassed": 11
+    }
+  ]
+}
