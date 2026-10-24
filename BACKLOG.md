@@ -23,7 +23,31 @@ remain unchanged. Generic claim accuracy and eligible-event recall require a fix
 benchmark; passing the existing tests does not estimate those error rates. Reader value remains
 unmeasured: the owner reports no real use yet.
 
-D-112 now has actual manual and scheduled private collection receipts: 261/557 daily-intake checks, with 296 gaps,
+D-112 now has an actual current-policy manual collection at **264/557**, with **293 gaps**:
+254 missing bindings, 25 candidate feeds, nine HTTP 403s, four HTTP 429s and one unsafe redirect.
+The three newly activated Ping/Delinea/Sonatype indexes pass intake. Their 737 leads still need
+processing. Collector `40120612027` and current-policy archive canary `40121717778` passed;
+the archive preserves every earlier path and changes no immutable evidence. Processing is
+23/10,655 currently reviewed; historical review retains 24/10,655. Upwind's current page body
+is unknown after its sitemap changed and requires revalidation. All 32 prior holds survive,
+with one additional revalidation entry. The exact [74-company overview and 557-row ledger](docs/active/daily-pipeline/evaluations/2026-10-24/current-source-coverage.md)
+and [actual collection audit](docs/active/daily-pipeline/accuracy/html-source-activation-actual-collection-review-2026-10-24.md)
+are the current private coverage references. Manual execution supplies no current-policy timer
+proof or publication. Main stays `1ed94479` for the next natural publisher allowance. The late
+scheduled publisher `40122602778` also failed with `DAILY_GATE_BUDGET_EXHAUSTED`; issue 12
+updated at 18:55 UTC. October 24 usage is 1,926/5,500 fetches, 80/80 models, 40/40 documents,
+and 2/2 publication attempts. No reset, refund or paid fallback. Next allowance is 00:00 UTC
+October 25; publisher retry is scheduled 00:23 UTC, collector 05:17 UTC. Actual production
+update and current-policy scheduled collection remain required.
+The actual archive's next-midnight gate replay exposed a date-partition validation defect:
+six September 24 hints age out of the current lane, making a sealed collection proof falsely
+differ. Repair that comparison using the original authenticated receipt context, while deriving
+current classifications and enforcing source/fact freshness at gate time. Require targeted
+cross-midnight tests and exact archive replay before promoting the repair.
+The [current evidence-bound scorecard](docs/active/daily-pipeline/evaluations/2026-10-24/html-activation-current-scorecard.md)
+records those separate measures and preserves the old benchmark reports.
+
+The preceding D-112 policy has actual manual and scheduled private receipts: 261/557 daily-intake checks, with 296 gaps,
 24/9,914 reviewed documents and all 32 review holds preserved. Its matching archive canary passes.
 This new measure does not rewrite the live old-policy 244/557 report. Genuine scheduled run
 `40082520067` completed on October 24 from main `4b5e5ec1`; its full archive/receipt review passes.
@@ -52,11 +76,11 @@ or factual validation.
 The [actual V5 review](docs/active/daily-pipeline/accuracy/bounded-traversal-v5-actual-response-review-2026-10-24.md)
 now proves complete walks for Ping Identity (242 URLs), Delinea (290) and Sonatype (205).
 All earlier accepted card leads and all retained XML article leads survive. The exact Sonatype
-mislinked card remains pending primary-content review. These 737 source/URL pairs supply no
-normal intake or publication credit. Complete the closed three-source activation, actual
-collection, strict archive canary and next independently gated publication. The remaining
-unqualified bindings, 254 missing-family obligations, HTTP failures and 9,890 historical reviews
-remain agent-owned work; activation may change those counts only through actual receipts.
+mislinked card remains pending primary-content review. The closed three-source activation,
+actual collection and strict archive canary now pass; independently gated publication remains
+pending. Current intake credit comes from the actual collector receipt, never the diagnostic.
+The remaining 25 unqualified bindings, 254 missing-family obligations, 14 access failures and
+10,631 pending historical reviews remain agent-owned work. Update counts only from actual receipts.
 
 The authenticated [current five-record remediation observation](docs/active/daily-pipeline/accuracy/current-correction-resolution-observation-2026-10-24.md)
 reports 5/5 resolved against the actual gated production release. The frozen 177-record audit

@@ -1,0 +1,231 @@
+{
+  "schemaVersion": 1,
+  "kind": "html_source_activation_actual_collection_review",
+  "reviewDate": "2026-10-24",
+  "collector": {
+    "runId": "40120612027",
+    "event": "workflow_dispatch",
+    "conclusion": "success",
+    "branch": "main",
+    "headSha": "1ed94479ca2b4e44a5009bf83f47d306e75be0aa",
+    "appRevision": "1ed94479ca2b4e44a5009bf83f47d306e75be0aa",
+    "createdAt": "2026-10-24T18:25:13Z",
+    "updatedAt": "2026-10-24T18:38:01Z",
+    "artifact": {
+      "artifactId": "12571731343",
+      "name": "subscription-collection-receipt",
+      "transportDigest": "sha256:a04d30c4d4decbabc9d1c89cc24c2c6b0890f775c641053b98cb79d2a85500c8"
+    },
+    "receipt": {
+      "projectPath": "docs/active/daily-pipeline/receipts/html-activation-collection-40120612027-2026-10-24.json",
+      "hostArtifactPath": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/html-activation-collection-40120612027/smp-collection-receipt.json",
+      "sha256": "ef940fc940968b7a3a45d604bd5075c62bd35780373eef359d1a08c9eb7820c0",
+      "projectAndHostBytesMatch": true
+    },
+    "runReceipt": {
+      "runId": "2c57fb25697bfc4b40df574890334adfa1d6d0df610837e12aa3a71e22515523",
+      "checkedAt": "2026-10-24T18:32:56.227836Z",
+      "contractSha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+      "snapshotSha256": "7b2431c3b22bc3869ee7d5a012756c672787db13a68e6f2e8dcf3e778f84521c",
+      "successfulTasks": 264,
+      "requiredTasks": 557,
+      "complete": false,
+      "intakeGaps": 293,
+      "intakeGapBreakdown": {
+        "missingBindings": 254,
+        "candidateBindings": 25,
+        "http403": 9,
+        "http429": 4,
+        "redirects": 1
+      },
+      "modelCalls": 0,
+      "publication": {
+        "published": false,
+        "reason": "SEPARATE_PUBLISHER_REQUIRED"
+      }
+    }
+  },
+  "htmlSources": [
+    {
+      "sourceId": "sonatype:official:1",
+      "attemptId": "ef4d25628e375cbaafbc877ef5f391ef392631b734e25eb831c27565c3768258",
+      "result": "not_checked",
+      "reason": "HISTORICAL_OR_UNCHANGED_AUDIT_PENDING",
+      "discoveryComplete": true,
+      "inventoryUrls": 205,
+      "indexObservationCount": 13,
+      "allObservationSourceAndBodyHashesVerified": true,
+      "newFactIds": 0,
+      "itemManifest": {
+        "key": "objects/b90eb4c76c1a3a7bfeb0a9065564d9ed1e41551009d51d4f648318300d0ba081",
+        "sha256": "b90eb4c76c1a3a7bfeb0a9065564d9ed1e41551009d51d4f648318300d0ba081",
+        "bytes": 60578
+      },
+      "startedAt": "2026-10-24T18:30:16.526599Z",
+      "completedAt": "2026-10-24T18:31:24.581874Z"
+    },
+    {
+      "sourceId": "delinea:official:1",
+      "attemptId": "f93a8f499f47c1fb62f934b8a66a840ac3b85ee11eede5c7d44ca4a487767481",
+      "result": "not_checked",
+      "reason": "HISTORICAL_OR_UNCHANGED_AUDIT_PENDING",
+      "discoveryComplete": true,
+      "inventoryUrls": 290,
+      "indexObservationCount": 25,
+      "allObservationSourceAndBodyHashesVerified": true,
+      "newFactIds": 0,
+      "unknownDateUrls": 290,
+      "itemManifest": {
+        "key": "objects/5c0cfa0ef1f45c241c0f36f95d6bf677ec90737efae6df18de1a023571e2379f",
+        "sha256": "5c0cfa0ef1f45c241c0f36f95d6bf677ec90737efae6df18de1a023571e2379f",
+        "bytes": 28789
+      },
+      "startedAt": "2026-10-24T18:30:17.610622Z",
+      "completedAt": "2026-10-24T18:31:28.697363Z"
+    },
+    {
+      "sourceId": "ping-identity:official:1",
+      "attemptId": "c8593f60cb1e988579605eedc102d0e522ef91e91d336fbc74a4aaf2b1781652",
+      "result": "not_checked",
+      "reason": "HISTORICAL_OR_UNCHANGED_AUDIT_PENDING",
+      "discoveryComplete": true,
+      "inventoryUrls": 242,
+      "indexObservationCount": 25,
+      "allObservationSourceAndBodyHashesVerified": true,
+      "newFactIds": 0,
+      "itemManifest": {
+        "key": "objects/64fed0db4f58a8ad21d37578abbc5dc2d8ce433368349b7cf2a4dfb7cc987759",
+        "sha256": "64fed0db4f58a8ad21d37578abbc5dc2d8ce433368349b7cf2a4dfb7cc987759",
+        "bytes": 103839
+      },
+      "startedAt": "2026-10-24T18:31:15.334111Z",
+      "completedAt": "2026-10-24T18:32:04.861564Z"
+    }
+  ],
+  "evaluation": {
+    "previousInventory": 9914,
+    "newHtmlInventory": 737,
+    "existingSourceInventoryIncrease": 4,
+    "currentInventory": 10655,
+    "processing": {
+      "reviewedDocuments": 23,
+      "pendingDocuments": 10632,
+      "heldDocuments": 5,
+      "changedDocuments": 1,
+      "unknownDateDocuments": 291,
+      "complete": false
+    },
+    "historicalReview": {
+      "reviewedDocuments": 24,
+      "pendingDocuments": 10631,
+      "heldDocuments": 5,
+      "complete": false
+    },
+    "reviewQueue": {
+      "previousEntries": 32,
+      "currentEntries": 33,
+      "previousEntriesRemainExactPrefix": true,
+      "additionalEntry": {
+        "kind": "source_document_revalidation",
+        "reason": "SOURCE_DOCUMENT_REVALIDATION_REQUIRED",
+        "sourceId": "upwind:official:1",
+        "url": "https://www.upwind.io/feed/threat-post"
+      }
+    },
+    "changedDocument": {
+      "url": "https://www.upwind.io/feed/threat-post",
+      "revalidationRequired": true,
+      "lastModifiedBefore": "2026-10-23T20:47:05+00:00",
+      "lastModifiedAfter": "2026-10-24T17:24:35+00:00",
+      "sitemapUrl": "https://www.upwind.io/threat-post-sitemap.xml",
+      "sitemapBodySha256Before": "6812b3248849a20ce4b9858103ebd186d4875a573eb86d55ff7557a168b6a209",
+      "sitemapBodySha256After": "17109017857de186d27128007140755259d6d9d975ee82b5f4dd3952fea7d41a",
+      "primaryBodyBytesBefore": 426825,
+      "primaryBodyBytesAfter": null,
+      "primaryBodySha256Before": "c5544c01da177d74a3676fb1d895622c408aa0c7235bfb45a9a35548279e9dfb",
+      "primaryBodySha256After": null,
+      "interpretation": "Sitemap freshness metadata changed. The retained primary observation predates that change, and the current run did not fetch or conditionally verify the primary URL. Current article-body state is unknown; revalidation remains pending.",
+      "lastRetainedPrimaryObservation": {
+        "observationId": "7a4e314a2699022c8085bb5491902cfa893b1d219a795bf5aa3f442c8787a603",
+        "status": "fetched",
+        "fetchedAt": "2026-10-24T00:10:34.303118Z",
+        "verifiedAt": null,
+        "bodyBytes": 426825,
+        "bodySha256": "c5544c01da177d74a3676fb1d895622c408aa0c7235bfb45a9a35548279e9dfb"
+      },
+      "currentRunHasPrimaryObservation": false,
+      "currentPrimaryBodyKnown": false
+    },
+    "preservation": {
+      "ordinaryFactReferences": 4,
+      "ordinaryFactReferencesExactlyUnchanged": true,
+      "olderQuarantineFactObjects": 4,
+      "olderQuarantineObjectsPresent": true,
+      "reviewQueueBaselineEntries": 32,
+      "reviewQueueBaselineEntriesRetained": true,
+      "correctionGroups": [
+        "FC-20261023-checkpoint-sase",
+        "FC-20261023-optiv",
+        "FC-20261023-splunk",
+        "FC-20261023-zscaler",
+        "FC-20261023-expel",
+        "XAGE-SOURCE-CLASS-20261023"
+      ],
+      "pendingCorrections": 0,
+      "newFactIds": 0
+    }
+  },
+  "budget": {
+    "before": {
+      "fetches": 1518,
+      "calls": 80,
+      "documents": 40
+    },
+    "after": {
+      "fetches": 1926,
+      "calls": 80,
+      "documents": 40
+    },
+    "additionalFetches": 408,
+    "modelCalls": 0,
+    "gateAttempts": 2,
+    "gateLimit": 2
+  },
+  "archive": {
+    "current": {
+      "root": "/var/tmp/smp-html-collection-40120612027-20261024/extracted/jessepike-sec-market-b78bd35bb531ed49480ce1557780d3b2d9a522a2",
+      "commit": "b78bd35bb531ed49480ce1557780d3b2d9a522a2",
+      "parentCommit": "0fafd6a9e3bb889e91c7038e1729c8312c2989a5",
+      "manifestSha256": "3971ae961442d6a18c5ed145c64660d68190d91f470acf27b74c3d136f6d6849",
+      "manifestEntries": 40917,
+      "verified": true,
+      "sealBeforeAndAfterIdentical": true,
+      "seal": {
+        "files": 40921,
+        "contentSha256": "4a62d684028c83306c446b4468685abd2b2ec6d48c9d2ce2b6c64473f0816a09",
+        "fileMtimeSha256": "41afa5b58bf402a96da392552113918a9055fbdaa37749a799423528b9d49a14",
+        "directories": 1904,
+        "directoryMtimeSha256": "0d09fc1fd0fd80ec691efb26c61f624330f7a22f8938de492403eb487e47779a"
+      }
+    },
+    "priorVerifiedV5": {
+      "manifestSha256": "009eccae7ab1518e7fea20e1617ef98665a6c1f6b2d4439e6f747b089d9bb639",
+      "manifestEntries": 36979
+    },
+    "comparison": {
+      "removedPaths": 0,
+      "addedPaths": 3938,
+      "changedPaths": 619,
+      "changedPathsAreAllStateHeads": true,
+      "immutablePathChanges": 0,
+      "productionHeadUnchanged": true,
+      "productionReleaseId": "19fde803d09aa544672183769c257e37faf727b75e1914955f54f3c5fb126941",
+      "productionSequence": 3
+    }
+  },
+  "limitations": [
+    "The event was manually dispatched and does not prove a scheduled execution or sustained cadence.",
+    "The new source inventories are pending historical review; their intake is not semantic admission, accuracy, or complete 557-task coverage.",
+    "The collector receipt reports no publication; production remains on the previously recorded release."
+  ]
+}

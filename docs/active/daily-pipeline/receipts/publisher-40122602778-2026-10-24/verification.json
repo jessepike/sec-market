@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "githubRunId": 40122602778,
+  "githubEvent": "schedule",
+  "appRevision": "1ed94479ca2b4e44a5009bf83f47d306e75be0aa",
+  "githubConclusion": "failure",
+  "createdAt": "2026-10-24T18:51:08Z",
+  "artifactId": 12571423081,
+  "artifactName": "daily-publication-receipt",
+  "artifactZipSha256": "242f2ba3cd96a1fc27d9220afa7904ad0e5be600c3894679053127f2a444ab17",
+  "receiptFile": "smp-publish-receipt.json",
+  "published": false,
+  "reason": "DAILY_GATE_BUDGET_EXHAUSTED",
+  "alertIssue": 12,
+  "alertIssueUpdatedAt": "2026-10-24T18:55:01Z",
+  "automaticRollbackCallback": {
+    "githubRunId": 40122919033,
+    "conclusion": "skipped",
+    "suppliesRollbackProof": false
+  },
+  "liveAppRevisionObserved": "26181a2d4eb0aad1bd751cda70ab8e65142d2813",
+  "liveCertifiedAt": "2026-10-24T01:41:40.176Z",
+  "limitsResetOrRefunded": false,
+  "nextNaturalAllowanceAt": "2026-10-25T00:00:00Z",
+  "nextPublisherCronAt": "2026-10-25T00:23:00Z",
+  "cronIsExecutionReceipt": false
+}

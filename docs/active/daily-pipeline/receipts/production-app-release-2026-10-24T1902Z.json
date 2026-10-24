@@ -1,0 +1,43 @@
+{
+  "allowed": true,
+  "releaseKind": "certified",
+  "dataUpdated": true,
+  "certifiedAt": "2026-10-24T01:41:40.176Z",
+  "contractVersion": "smp-certified-v2",
+  "rootView": "tracker",
+  "appRevision": "26181a2d4eb0aad1bd751cda70ab8e65142d2813",
+  "appBuiltAt": "2026-10-24T01:42:14.530Z",
+  "dailyRunId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+  "dailySnapshotSha256": "3fc853643035a9b5d8846792624d4a6bfa4436e89d9c1433b07b4d9a647ef78f",
+  "dailyContractSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+  "dailyCoverageComplete": false,
+  "factualCorrections": {
+    "enabled": true,
+    "policySha256": "e740d7407afc7b11be8802b250ea564224b10969717507818726e44e7b33f27e",
+    "fileSha256": "d76a49455951cb8be37d56ef3749ea3ac980a1f3a7073f27225ae3af030a7b9d",
+    "groupIds": [
+      "FC-20261023-checkpoint-sase",
+      "FC-20261023-optiv",
+      "FC-20261023-splunk",
+      "FC-20261023-zscaler",
+      "FC-20261023-expel",
+      "XAGE-SOURCE-CLASS-20261023"
+    ],
+    "targetIds": [
+      "event:EV-checkpoint-2",
+      "evidence:TR-checkpoint-4",
+      "event:EV-optiv-2",
+      "evidence:TR-optiv-3",
+      "event:EV-splunk-1",
+      "evidence:TR-splunk-2",
+      "event:EV-zscaler-2",
+      "evidence:TR-zscaler-4",
+      "supplier:expel:lastRound",
+      "supplier:expel:ownership",
+      "evidence:TR-expel-2",
+      "evidence:TR-xage-1"
+    ],
+    "newGroupIds": [],
+    "publicationDate": "2026-10-24"
+  }
+}
