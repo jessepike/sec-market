@@ -229,8 +229,9 @@ class CorrectionCollectionTests(unittest.TestCase):
         worker.account_deadline = 0
         self.assertTrue(worker._work_cancelled())
 
-    def test_actual_557_tasks_survive_when_every_correction_and_budget_is_pending(self):
-        self.contract = json.loads((REPO / 'contracts/market.json').read_text())
+    def test_original_557_tasks_survive_when_every_correction_and_budget_is_pending(self):
+        # This empty-store fixture predates qualification origins and their objects.
+        self.contract = json.loads((REPO / 'web/scripts/migration-proofs/daily-v2-original/market.json').read_text())
         self.state.compare_and_swap('budget-2026-10-23', None, {'calls': 80, 'documents': 40, 'fetches': 5500})
         with patch.object(self.fetcher, 'fetch', side_effect=AssertionError('No HTTP allowed')):
             result = self.run_pipeline(lambda **_: self.pending('DOCUMENTS_BUDGET_EXHAUSTED'))

@@ -1,0 +1,61 @@
+{
+  "archiveRoot": "/var/tmp/smp-bounded-v5-probe-20261024/archive-85b1dc72/jessepike-sec-market-85b1dc728091de55ef7ff584ecdc8502585ff29b",
+  "commit": "85b1dc728091de55ef7ff584ecdc8502585ff29b",
+  "manifestSha256": "009eccae7ab1518e7fea20e1617ef98665a6c1f6b2d4439e6f747b089d9bb639",
+  "files": 36979,
+  "priorFiles": 36766,
+  "addedFiles": 213,
+  "removedFiles": [],
+  "changedExistingFiles": [
+    "state/heads/budget-2026-10-24.json",
+    "state/heads/cloud-governance.json",
+    "state/heads/cloud-lease.json",
+    "state/heads/worker-heartbeat.json"
+  ],
+  "immutableChanges": [],
+  "protectedHeads": {
+    "latest-run": true,
+    "cloud-collector": true,
+    "cloud-snapshot": true,
+    "dailySnapshot": true,
+    "correction-collection": true,
+    "production": true
+  },
+  "artifactDiagnosticMatchesRetainedRun": true,
+  "originalDiagnosticReplayedExactly": true,
+  "parserRevision": 5,
+  "storeMutations": 0,
+  "before": {
+    "files": 36983,
+    "contentSha256": "033828772d205f8b726f25807c9c64a90e5b013a6f645533cbccb673874fd94b",
+    "fileMtimeSha256": "f9bdb9e7d14bae4d0aabbf31dda41608fe8b3326b0b74b5554f1a0928ac131f6",
+    "directories": 1338,
+    "directoryMtimeSha256": "10f85320a732d9732d0d10148fb230c326b8246fe000dacc32f58b8a75b26e8a"
+  },
+  "after": {
+    "files": 36983,
+    "contentSha256": "033828772d205f8b726f25807c9c64a90e5b013a6f645533cbccb673874fd94b",
+    "fileMtimeSha256": "f9bdb9e7d14bae4d0aabbf31dda41608fe8b3326b0b74b5554f1a0928ac131f6",
+    "directories": 1338,
+    "directoryMtimeSha256": "10f85320a732d9732d0d10148fb230c326b8246fe000dacc32f58b8a75b26e8a"
+  },
+  "budget": {
+    "budgetDay": "2026-10-24",
+    "contractSha256": "79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60",
+    "fetchLimit": 5500,
+    "maximumRuntimeSeconds": 1200,
+    "startedAt": "2026-10-24T17:37:21.907160Z",
+    "initialBudget": {
+      "calls": 80,
+      "documents": 40,
+      "fetches": 1452
+    },
+    "probeFetchReservations": 66,
+    "reservationDenials": {},
+    "currentBudget": {
+      "calls": 80,
+      "documents": 40,
+      "fetches": 1518
+    }
+  }
+}

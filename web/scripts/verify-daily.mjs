@@ -1,6 +1,7 @@
 import { readFileSync, existsSync } from 'node:fs'
 import { createHash } from 'node:crypto'
 import { resolve } from 'node:path'
+import { verifyProspectiveV2Migration } from './pipeline/daily_baseline_migration.mjs'
 
 const canonical = x => Array.isArray(x) ? '[' + x.map(canonical).join(',') + ']' : x && typeof x === 'object' ? '{' + Object.keys(x).sort().map(k => JSON.stringify(k) + ':' + canonical(x[k])).join(',') + '}' : JSON.stringify(x)
 const hash = x => createHash('sha256').update(canonical(x)).digest('hex')
@@ -60,6 +61,10 @@ function verifyV2(contract, data, coverage, rows, required) {
   }
   if (uncollected) {
     const old = data.supersededPolicy
+    if (old?.snapshot?.coverage?.schemaVersion === 2) {
+      verifyProspectiveV2Migration(data, contract, required)
+      return
+    }
     requireV2(coverage.successfulTasks === 0 && coverage.complete === false && coverage.validUntil === null &&
       rows.every(r => r.outcome === 'not_checked'), 'uncollected intake claims a check')
     requireV2(object(old) && object(old.contract) && object(old.snapshot) &&

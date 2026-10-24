@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "kind": "html_source_activation_package_independent_review",
+  "result": "accepted_bounded_package_and_baseline_transition",
+  "reviewDate": "2026-10-24",
+  "package": {
+    "contractSha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+    "seedManifestPath": "contracts/html-qualification-seeds/8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db/seed.json",
+    "seedManifestBytes": 5619,
+    "seedManifestSha256": "468acb882c44a1f75122b39b55a767e343361486eebe5269d1071bc8ae3666ba",
+    "payloadCount": 7,
+    "transitionDescriptor": {
+      "key": "objects/e9fd173e0c6121e95456bfb7d3614374d8bd397428cf7b2865161a48f574b4d1",
+      "bytes": 1623,
+      "sha256": "e9fd173e0c6121e95456bfb7d3614374d8bd397428cf7b2865161a48f574b4d1"
+    },
+    "transitionPointer": {
+      "bytes": 171,
+      "sha256": "269606aefb5407e08e9d00c8a05281f702bd44059c6d157899033608d157ac21"
+    }
+  },
+  "preflight": {
+    "path": "docs/active/daily-pipeline/accuracy/html-source-activation-package-preflight-2026-10-24.json",
+    "sha256": "bca24d6e6971aab80b7d9e375a5a55ad01789e8b1234481294633547dad8265b",
+    "proofArchiveCommit": "85b1dc728091de55ef7ff584ecdc8502585ff29b",
+    "proofArchiveManifestSha256": "009eccae7ab1518e7fea20e1617ef98665a6c1f6b2d4439e6f747b089d9bb639",
+    "sourceCount": 3,
+    "inventoryLeadCount": 737,
+    "inventoryDocuments": {
+      "ping-identity:official:1": 242,
+      "delinea:official:1": 290,
+      "sonatype:official:1": 205
+    },
+    "noMockAuthorities": true,
+    "sideEffects": {
+      "archiveWrites": 0,
+      "sourceRequests": 0,
+      "modelCalls": 0,
+      "normalReceiptWrites": 0,
+      "coverageCredit": false,
+      "semanticAdmission": false
+    }
+  },
+  "preservation": {
+    "allInventoryPairs": 26969,
+    "allInventoryPairsSha256": "4688bc87cb44b3d52bf2042b837bfda10d83f7edfbb9c1340256f16315703fcd",
+    "retainedInventoryPairs": 9914,
+    "retainedInventoryPairsSha256": "105fd717e7e5dc14543daca8704c792c01f166ade5d688e4d0da59dcd9371b45",
+    "bindings": 24,
+    "bindingsSha256": "d67d3eda48ae4606aadc3fc6bf260f0c99c8e765782d7c9fe77d04a7928f148c",
+    "factReferences": 52,
+    "factReferencesSha256": "e4b05dbaf842a383ab729a762117e49f4aba8bc4d17407d22ce436a8ec164c2c",
+    "reviewQueueEntries": 32,
+    "reviewQueueSha256": "e83deaa4f0d454ccfa391118c5d0e86ec7881ba3f87a5efef81cf3b0dc93dfe7",
+    "protectedReferences": 8,
+    "protectedReferencesSha256": "9364f3b52165459c2b4a4b28dc130a820e55b886b9df6a07f58feb5b810fce36",
+    "sixOriginalAdmissionReviewRowsDatesUnchanged": true,
+    "sixProjectedCorrectionRowsDate": "2026-10-24"
+  },
+  "baseline": {
+    "path": "web/src/data/generated/dailyMarket.json",
+    "bytes": 1085696,
+    "sha256": "e1945874cb3f2cb661bf67671ec2bd760ae363761e21f85e3ea8d044afd91384",
+    "snapshotSha256": "12963c0fe5634517693a889444c5ae17140b95599994332c20bbf9b8d63b329b",
+    "requiredTasks": 557,
+    "successfulTasks": 0,
+    "contractSha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+    "verifyCommand": "orb run -m dev node scripts/verify-daily.mjs",
+    "verifyResult": "passed_with_intake_processing_historical_review_incomplete"
+  },
+  "knownLimitations": [
+    "No ordinary scheduled collection under the activated contract is established by this package review.",
+    "The Sonatype page-10 card/destination mismatch remains pending ordinary primary review.",
+    "This package review does not establish semantic admission, coverage credit, or overall accuracy."
+  ],
+  "finding": null
+}

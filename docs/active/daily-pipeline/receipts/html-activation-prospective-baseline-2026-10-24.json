@@ -1,0 +1,22 @@
+{
+  "kind": "prospective_html_activation_baseline",
+  "activatedContractSha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+  "snapshotSha256": "12963c0fe5634517693a889444c5ae17140b95599994332c20bbf9b8d63b329b",
+  "fileSha256": "e1945874cb3f2cb661bf67671ec2bd760ae363761e21f85e3ea8d044afd91384",
+  "fileBytes": 5108696,
+  "previousSnapshotSha256": "e797841d93674b223c75397cd979b61586eb8648358f9791b6b361824785e231",
+  "transitionReference": {
+    "key": "source-qualification-transitions/8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db.json",
+    "sha256": "269606aefb5407e08e9d00c8a05281f702bd44059c6d157899033608d157ac21",
+    "bytes": 171
+  },
+  "successfulTasks": 0,
+  "requiredTasks": 557,
+  "evaluated": false,
+  "complete": false,
+  "originalCollectionDatesPreserved": true,
+  "entirePreviousBaselinePreserved": true,
+  "sourceRequests": 0,
+  "modelCalls": 0,
+  "coverageCredit": false
+}

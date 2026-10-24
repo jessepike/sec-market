@@ -271,8 +271,9 @@ class DiscoveryRepairTests(unittest.TestCase):
         self.assertTrue(found['complete'])
         self.assertEqual(found['items'], ['https://example.test/news/article'])
 
-    def test_real_contract_is_unchanged_74_suppliers_557_obligations_and_28_candidates(self):
-        contract = json.loads((ROOT / 'contracts/market.json').read_text())
+    def test_original_contract_has_74_suppliers_557_obligations_and_28_candidates(self):
+        # The original baseline remains fixed when candidates later qualify.
+        contract = json.loads((ROOT / 'web/scripts/migration-proofs/daily-v2-original/market.json').read_text())
         validate_contract(contract)
         self.assertEqual(len(contract['suppliers']), 74)
         self.assertEqual(len(plan_run(contract, '2026-10-23T00:00:00Z')['tasks']), 557)

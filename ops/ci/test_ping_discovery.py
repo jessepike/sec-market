@@ -185,7 +185,8 @@ class PingDiscoveryTests(unittest.TestCase):
         for key,value in [('id','other'),('supplierId','other'),('family','investor_acquirer'),('allowedHosts',['evil.invalid']),('maxPages',61),('url',PING_INDEX+'/')]:
             with self.subTest(key=key),self.assertRaises(ValueError):self.parse(source={**SOURCE,key:value})
         self.assertEqual(self.run_pages({}, {**SOURCE,'registration':'candidate'})['reason'],'SOURCE_BINDING_UNVERIFIED')
-        contract=json.loads((ROOT/'contracts/market.json').read_text())
+        # This old-mode fixture predates the qualified source's origin metadata.
+        contract=json.loads((ROOT/'web/scripts/migration-proofs/daily-v2-original/market.json').read_text())
         source=next(s for s in contract['sources'] if s['id']==SOURCE['id'])
         source.update(SOURCE);validate_contract(contract)
         source['maxPages']=61

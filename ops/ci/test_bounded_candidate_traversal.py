@@ -56,7 +56,8 @@ class BoundedCandidateTraversalTests(unittest.TestCase):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)
         self.store = LocalStore(Path(self.temp.name) / 'state')
-        self.policy = json.loads((ROOT / 'contracts/market.json').read_text())
+        # This fixture models the original, unqualified HTML candidates.
+        self.policy = json.loads((ROOT / 'web/scripts/migration-proofs/daily-v2-original/market.json').read_text())
         self.path = Path(self.temp.name) / 'plan.json'
         self.clock = Clock()
 

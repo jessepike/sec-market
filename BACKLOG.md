@@ -49,6 +49,15 @@ transition before source activation. The Sonatype card's title/date-to-destinati
 needs its exact primary response; an index scheduling date or URL exception supplies no article
 or factual validation.
 
+The [actual V5 review](docs/active/daily-pipeline/accuracy/bounded-traversal-v5-actual-response-review-2026-10-24.md)
+now proves complete walks for Ping Identity (242 URLs), Delinea (290) and Sonatype (205).
+All earlier accepted card leads and all retained XML article leads survive. The exact Sonatype
+mislinked card remains pending primary-content review. These 737 source/URL pairs supply no
+normal intake or publication credit. Complete the closed three-source activation, actual
+collection, strict archive canary and next independently gated publication. The remaining
+unqualified bindings, 254 missing-family obligations, HTTP failures and 9,890 historical reviews
+remain agent-owned work; activation may change those counts only through actual receipts.
+
 The authenticated [current five-record remediation observation](docs/active/daily-pipeline/accuracy/current-correction-resolution-observation-2026-10-24.md)
 reports 5/5 resolved against the actual gated production release. The frozen 177-record audit
 retains its original results; current precision, recall and sustained operation remain unmeasured.

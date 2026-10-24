@@ -305,6 +305,8 @@ def execute(root, maximum_seconds=1200, publisher_config=None, *, source_probe=F
     keeper = AuthStore(root / "auth", writer)
     try:
         contract = validate_contract(json.loads((REPO / "contracts/market.json").read_text()))
+        from html_qualification_seed import seed_before_collection
+        seed_before_collection(REPO, root, state, session, contract, session_runtime)
         corrections_enabled = (REPO / 'contracts/factual-corrections.json').exists()
         reused=reuse_scheduled_collection(state,contract,utcnow(),corrections_enabled=corrections_enabled)
         if reused:

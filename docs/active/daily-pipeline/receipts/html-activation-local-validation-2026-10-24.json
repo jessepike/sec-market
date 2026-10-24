@@ -1,0 +1,58 @@
+{
+  "kind": "html_activation_local_integration",
+  "candidateParentRevision": "a59f1fe64c86c95805792ed4dbd3e3b92c0b9d15",
+  "contractSha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+  "sourcePins": {
+    "contracts/market.json": "24221c946781559c0ff3626e4e479c4647da915d0f2d7559ea88046982532c3c",
+    "contracts/source-qualification-probes.json": "ad1c5cc234fe4fa69cbceb5370ac74825a37dc80b08528ca908d14b1352e53b4",
+    "ops/ci/collect.py": "00429db123d6e8e4a81665786118956708c52db4e62d9c13527d38eb3221f79a",
+    "ops/ci/html_qualification_seed.py": "e524176e79969f5e8e15115ea6d61a255999e5221e53e376803a4a35997676f9",
+    "web/scripts/pipeline/source_qualification_origin.py": "955ddadd22585672f677b533a6478034cb8048a0ec71faea37af0bfa74469bc6",
+    "web/scripts/pipeline/daily_baseline_migration.mjs": "a199f498783a1373af501c47e31ed1edc812441b0117654cd7e65513467e92c5",
+    "web/scripts/verify-daily.mjs": "553a53b78118ddb593779c505ea3c57638948e59b29180f37a854eefcf284276",
+    "web/src/data/generated/dailyMarket.json": "e1945874cb3f2cb661bf67671ec2bd760ae363761e21f85e3ea8d044afd91384",
+    "web/src/data/generated/dailyMarket.seal.json": "9a2ff0562a582a05d1405ab2da8fe80fd23cf71f484775973b90ac4cdc50444b",
+    "web/src/data/tracker/factualCorrectionPolicy.json": "7319ece4c5c4f6c7d515fb9ef7ff13211daf38e041948edd26732e9ccfa2dbc7"
+  },
+  "checks": {
+    "operationalTests": 730,
+    "dataTests": 373,
+    "pipelineTests": 115,
+    "browserTestsPassed": 42,
+    "browserFixtureSkip": 1,
+    "lint": "passed",
+    "build": "passed"
+  },
+  "screenshots": {
+    "production-1440": {
+      "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/html-activation-production-1440.png",
+      "sha256": "8651f15011d8a0518a5e4f96a43d693c014ea1d33a041f1586e830a088cce1ad"
+    },
+    "production-390": {
+      "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/html-activation-production-390.png",
+      "sha256": "0c81367ea5540676b295a8ba96173ef98e5e9c41993a3dac9392166ae2af10d9"
+    },
+    "local-1440": {
+      "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/html-activation-local-1440.png",
+      "sha256": "b044622ff53e695fee8334a95746b932c0df81ff6e26ecb810bfd9228765cdd9"
+    },
+    "local-390": {
+      "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/html-activation-local-390.png",
+      "sha256": "7dc872da46a4cf5e2eb765df88e1ae28e34eb70f8d5c38b19835bab09afcd3df"
+    }
+  },
+  "visualReview": {
+    "viewedWidths": [
+      1440,
+      390
+    ],
+    "samePixelsAsPreviousV5Local": true,
+    "layoutChange": false,
+    "productionDifference": "Local is an uncollected prospective fixture with original historical rows. Publication must replace it from actual acknowledged collection."
+  },
+  "actualCollection": false,
+  "actualCurrentPolicyCanary": false,
+  "productionUpdated": false,
+  "modelsInvoked": 0,
+  "marketSourceRequests": 0
+}

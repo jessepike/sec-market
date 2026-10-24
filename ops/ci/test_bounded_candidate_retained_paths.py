@@ -109,7 +109,8 @@ class BoundedCandidateRetainedPathTests(unittest.TestCase):
             self.assertEqual(requests[0], source['url'])
 
     def test_contract_recognizes_exact_v2_bindings_only(self):
-        contract = json.loads((ROOT / 'contracts/market.json').read_text())
+        # V2 adapter validation starts from the original candidate declarations.
+        contract = json.loads((ROOT / 'web/scripts/migration-proofs/daily-v2-original/market.json').read_text())
         for source_id, url, host, mode in (
             ('ping-identity:official:1', PING_INDEX, 'press.pingidentity.com', PING_HTML_MODE_V2),
             ('delinea:official:1', DELINEA_INDEX, 'delinea.com', DELINEA_HTML_MODE_V2),

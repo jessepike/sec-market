@@ -179,7 +179,8 @@ class HtmlV5DiscoveryTests(unittest.TestCase):
         self.assertNotIn('newFactIds', found)
 
     def test_v5_bindings_validate_without_registering_a_source(self):
-        contract = json.loads((ROOT / 'contracts/market.json').read_text())
+        # This test deliberately validates adapters without activating candidates.
+        contract = json.loads((ROOT / 'web/scripts/migration-proofs/daily-v2-original/market.json').read_text())
         for source_id, mode, index, host in [
             ('delinea:official:1', DELINEA_HTML_MODE_V5, DELINEA_INDEX, 'delinea.com'),
             ('sonatype:official:1', SONATYPE_HTML_MODE_V5, SONATYPE_INDEX, 'www.sonatype.com'),

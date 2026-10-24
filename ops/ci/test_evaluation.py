@@ -289,7 +289,8 @@ class SeparateMeasureTests(unittest.TestCase):
     # These fixtures never count as authenticated source observations.
     def setUp(self):
         ScorecardTests.setUp(self)
-        self.contract = json.loads((ROOT / 'contracts/market.json').read_text())
+        # Keep this synthetic 275-verified-source report in its original context.
+        self.contract = json.loads((ROOT / 'web/scripts/migration-proofs/daily-v2-original/market.json').read_text())
         self.plan = plan_run(self.contract, '2026-10-23T12:00:00Z')
         self.pin('contract', self.contract)
         sources = {s['id']: s for s in self.contract['sources']}

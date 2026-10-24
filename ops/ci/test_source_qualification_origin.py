@@ -32,7 +32,7 @@ class QualificationOriginTests(unittest.TestCase):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)
         self.store = LocalStore(Path(self.temp.name) / 'state')
-        self.original = json.loads((ROOT / 'contracts/market.json').read_text())
+        self.original = json.loads((ROOT / 'web/scripts/migration-proofs/daily-v2-original/market.json').read_text())
         raw = canonical(self.original)
         key = 'contracts/' + digest(self.original) + '.json'
         self.store.write_once(key, raw)

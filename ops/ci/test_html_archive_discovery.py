@@ -260,7 +260,8 @@ class HtmlArchiveDiscoveryTests(unittest.TestCase):
             found, calls = replay(supplier, {}, registration='candidate')
             self.assertEqual(found['reason'], 'SOURCE_BINDING_UNVERIFIED')
             self.assertEqual(calls, [])
-            contract = json.loads((ROOT / 'contracts/market.json').read_text())
+            # V1 binding checks use the original candidate context.
+            contract = json.loads((ROOT / 'web/scripts/migration-proofs/daily-v2-original/market.json').read_text())
             registered = next(x for x in contract['sources'] if x['id'] == s['id'])
             registered.update(s)
             validate_contract(contract)
