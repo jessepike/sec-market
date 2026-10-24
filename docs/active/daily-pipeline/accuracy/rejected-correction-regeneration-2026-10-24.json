@@ -1,0 +1,332 @@
+{
+  "schemaVersion": 1,
+  "kind": "rejected_correction_request_regeneration",
+  "checkedAt": "2026-10-24T00:24:09.528630Z",
+  "spec": "docs/active/daily-pipeline/accuracy/failed-correction-review-repair-spec-2026-10-24.md",
+  "specSha256": "af9eb9fefb823ff63b553ac1b497faf16b8145854240aa983e7a450cc25c9c59",
+  "requestChanges": [
+    {
+      "path": "/groups/0/noteTemplate",
+      "before": "Correction, {date}. The Check Point debt entry dated 30 July 2026 incorrectly described a new Q2 offering. The offering closed on 8 December 2025 and is already recorded on that date. The Q2 cash comparison used proceeds after issuance costs and capped-call purchases. The duplicate July issuance entry is withdrawn.",
+      "after": "Correction, {date}. The Check Point debt entry dated 30 July 2026 incorrectly described a new Q2 offering. The offering closed on 8 December 2025. The Q2 cash comparison used proceeds after issuance costs and capped-call purchases. The July issuance entry is withdrawn."
+    },
+    {
+      "path": "/groups/0/reasonCode",
+      "before": "duplicate-issuance",
+      "after": "incorrect-issuance-period"
+    },
+    {
+      "path": "/groups/3/noteTemplate",
+      "before": "Correction, {date}. The Zscaler entry dated 24 September 2026 included an unrelated board resignation with an incorrect effective date. Raj Judge resigned from the board on 15 April 2026, already recorded separately. That clause is removed; the September entry retains the Chief Revenue Officer transition.",
+      "after": "Correction, {date}. The Zscaler entry dated 24 September 2026 included a board resignation with an incorrect effective date. Raj Judge resigned from the board effective 15 April 2026. That clause is removed; the September entry retains the Chief Revenue Officer transition."
+    }
+  ],
+  "stampChanges": [
+    {
+      "path": "/policySha256",
+      "before": "dd6330cf9626897d81267e889822550c3c8f5f5f7dc3b6be320139818dff2f58",
+      "after": "e740d7407afc7b11be8802b250ea564224b10969717507818726e44e7b33f27e"
+    },
+    {
+      "path": "/reviewPolicySha256ByGroup/FC-20261023-checkpoint-sase",
+      "before": "1c52ee664765de6234a3d68bcd4767e42a3da9fe471b6c61686cac1a1616d774",
+      "after": "36bc23722c1131f94ab3c2db1c553505539987aa55738cfa9bb72dfa3871ad6f"
+    },
+    {
+      "path": "/reviewPolicySha256ByGroup/FC-20261023-zscaler",
+      "before": "54e40bd49e9c04d26aebe3f7eaa3ece37d15be460c4b5d76c3041e8c272e182f",
+      "after": "dc8522069fc87cbf0371e0ea29ec80fbf647c1dd7ce816e02a7fb4a94b35a390"
+    }
+  ],
+  "groups": [
+    {
+      "id": "FC-20261023-checkpoint-sase",
+      "priorCandidateSha256": "614958a764bdbf41f47269c5ea66060a8747a72440968a478200921b3f599fb1",
+      "candidateSha256": "af4a673ac14a090128e97bf328b1639e00eecf1c0b5f11098d07a34be26bba15",
+      "priorReviewPolicySha256": "1c52ee664765de6234a3d68bcd4767e42a3da9fe471b6c61686cac1a1616d774",
+      "reviewPolicySha256": "36bc23722c1131f94ab3c2db1c553505539987aa55738cfa9bb72dfa3871ad6f",
+      "evidenceSetSha256": "b4039088e3c211b2b41054475f790b9d20832b664f401e6fd5ff9e3a16589255",
+      "unchangedCanonicalGroup": false,
+      "unchangedTargets": true,
+      "unchangedSources": true,
+      "acceptedReviewRetained": false
+    },
+    {
+      "id": "FC-20261023-optiv",
+      "priorCandidateSha256": "ce48b552db79aa960aed5e08840f28a99ccab313c9d05df874b281cf7eb9c00c",
+      "candidateSha256": "ce48b552db79aa960aed5e08840f28a99ccab313c9d05df874b281cf7eb9c00c",
+      "priorReviewPolicySha256": "4f9e7feb90232a3aafe2cd84265c2e8202c9e009229e7592c5ab87373f64bcf5",
+      "reviewPolicySha256": "4f9e7feb90232a3aafe2cd84265c2e8202c9e009229e7592c5ab87373f64bcf5",
+      "evidenceSetSha256": "7f5a8b85f2fbf854d9623d561a89c0ded68723742833047d05fb24c7e4342a2b",
+      "unchangedCanonicalGroup": true,
+      "unchangedTargets": true,
+      "unchangedSources": true,
+      "acceptedReviewRetained": true
+    },
+    {
+      "id": "FC-20261023-splunk",
+      "priorCandidateSha256": "a397eb20f8a6918f19ef6004ad2107a96066d0b84532ca9f131fd050fec61240",
+      "candidateSha256": "a397eb20f8a6918f19ef6004ad2107a96066d0b84532ca9f131fd050fec61240",
+      "priorReviewPolicySha256": "270b7c7a1f7180b3fef2896b7633a87bf0667b9f4a3c75593fa72b959ecb87f6",
+      "reviewPolicySha256": "270b7c7a1f7180b3fef2896b7633a87bf0667b9f4a3c75593fa72b959ecb87f6",
+      "evidenceSetSha256": "eb165cdbb2d9b4e76d07dbaa0ca217167ced0e492cadd89957aa1ebbce6157f5",
+      "unchangedCanonicalGroup": true,
+      "unchangedTargets": true,
+      "unchangedSources": true,
+      "acceptedReviewRetained": true
+    },
+    {
+      "id": "FC-20261023-zscaler",
+      "priorCandidateSha256": "3ba2c4ec71de2204d152f273c0ed4114f7f99e527843abe9863f462e1047caa5",
+      "candidateSha256": "46f6626eebb75b300b770b6290c38124f02773a93636810d2d84dffbfb0854f3",
+      "priorReviewPolicySha256": "54e40bd49e9c04d26aebe3f7eaa3ece37d15be460c4b5d76c3041e8c272e182f",
+      "reviewPolicySha256": "dc8522069fc87cbf0371e0ea29ec80fbf647c1dd7ce816e02a7fb4a94b35a390",
+      "evidenceSetSha256": "f0e0f20f00cfc1bf339642dfb9672e159a3bfa1ddacb70549e6a5e2f815bfb7a",
+      "unchangedCanonicalGroup": false,
+      "unchangedTargets": true,
+      "unchangedSources": true,
+      "acceptedReviewRetained": false
+    },
+    {
+      "id": "FC-20261023-expel",
+      "priorCandidateSha256": "b02146ce95927f20887ee6a647545e968c2d21db891aa0860ddfe3908b68e1c3",
+      "candidateSha256": "b02146ce95927f20887ee6a647545e968c2d21db891aa0860ddfe3908b68e1c3",
+      "priorReviewPolicySha256": "d1ea72b754450e603d89092cc38d9fa81d165575af2a36745e5938220fd82087",
+      "reviewPolicySha256": "d1ea72b754450e603d89092cc38d9fa81d165575af2a36745e5938220fd82087",
+      "evidenceSetSha256": "2a9d219a14e673acc89c71ed14b34c61700da6c9ba871edc833fe362c3a6b0da",
+      "unchangedCanonicalGroup": true,
+      "unchangedTargets": true,
+      "unchangedSources": true,
+      "acceptedReviewRetained": true
+    },
+    {
+      "id": "XAGE-SOURCE-CLASS-20261023",
+      "priorCandidateSha256": "f0060b9e09cdffb77e08797f0fdd49eb9bf931ea4a91685e4f0a4c911fc50abb",
+      "candidateSha256": "f0060b9e09cdffb77e08797f0fdd49eb9bf931ea4a91685e4f0a4c911fc50abb",
+      "priorReviewPolicySha256": "c01560dba484aa5aa5696c8bfe5b44acefc6337ee1cebe0cd96751849e15646a",
+      "reviewPolicySha256": "c01560dba484aa5aa5696c8bfe5b44acefc6337ee1cebe0cd96751849e15646a",
+      "evidenceSetSha256": "a5138d57005644bda2474a10d29a5fa3c27cdd649d9fa8f8a704a04d6e070200",
+      "unchangedCanonicalGroup": true,
+      "unchangedTargets": true,
+      "unchangedSources": true,
+      "acceptedReviewRetained": true
+    }
+  ],
+  "rawFileBindings": [
+    {
+      "path": "contracts/factual-corrections.json",
+      "sha256": "bb239e6e8256b9abc797d0ac89e940179f597e20ba654d2bb0513ff26e5b5c52",
+      "bytes": 32077,
+      "afterSha256": "9c9fbe0d3d40ece11e1407ce9460086c732f62da88d3b0f220ab9d6f8757da00",
+      "afterBytes": 32004,
+      "unchanged": false
+    },
+    {
+      "path": "web/src/data/tracker/factualCorrectionPolicy.json",
+      "sha256": "3489bbed55ea9ac0c34d99f984f15ea95b2c1e351f459aaa67808a67f8e39894",
+      "bytes": 1721,
+      "afterSha256": "97a08f91ee36a7f565f79b7b35bf1b5b113d4ac0f4e6d9d1ab8fccf3b366ac98",
+      "afterBytes": 1721,
+      "unchanged": false
+    },
+    {
+      "path": "contracts/factual-baseline.json",
+      "sha256": "ab3bca0e49a38495d310021857ee2c1a3ca6ebe7979593d1e8b36437cb2a294e",
+      "bytes": 35212,
+      "afterSha256": "ab3bca0e49a38495d310021857ee2c1a3ca6ebe7979593d1e8b36437cb2a294e",
+      "afterBytes": 35212,
+      "unchanged": true
+    },
+    {
+      "path": "web/src/data/tracker/originals.json",
+      "sha256": "7d164cb81003db0a66eccbb25c2e8605e33b853b9a6e20cb2c6900794822b4a3",
+      "bytes": 381034,
+      "afterSha256": "7d164cb81003db0a66eccbb25c2e8605e33b853b9a6e20cb2c6900794822b4a3",
+      "afterBytes": 381034,
+      "unchanged": true
+    },
+    {
+      "path": "web/src/data/generated/factualCorrections.json",
+      "sha256": "826c7e5c70f98b5a6cc084c8d2d7f2dc2dd7bf22fcefb2621c4f9f5653761d21",
+      "bytes": 106,
+      "afterSha256": "826c7e5c70f98b5a6cc084c8d2d7f2dc2dd7bf22fcefb2621c4f9f5653761d21",
+      "afterBytes": 106,
+      "unchanged": true
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/published-inventory-2026-10-23.json",
+      "sha256": "e8c766cbbe533d6106c896ab14015df78820dc72f4382b0dfedb267ef81be5fc",
+      "bytes": 233846,
+      "afterSha256": "e8c766cbbe533d6106c896ab14015df78820dc72f4382b0dfedb267ef81be5fc",
+      "afterBytes": 233846,
+      "unchanged": true
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/event-review-a-m-2026-10-23.json",
+      "sha256": "7b543ed415754f0728baecc4420b40b9094f0b6675a25e6fec34f0490a8e25dd",
+      "bytes": 150852,
+      "afterSha256": "7b543ed415754f0728baecc4420b40b9094f0b6675a25e6fec34f0490a8e25dd",
+      "afterBytes": 150852,
+      "unchanged": true
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/event-review-n-z-2026-10-23.json",
+      "sha256": "6831c72b60044fd7615160de288a98b1542cc388d2ba481981165571aadd49b3",
+      "bytes": 294969,
+      "afterSha256": "6831c72b60044fd7615160de288a98b1542cc388d2ba481981165571aadd49b3",
+      "afterBytes": 294969,
+      "unchanged": true
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/supplier-fields-review-2026-10-23.json",
+      "sha256": "fa1382462c95f2cff79cc3a5b55131e43cf57324bf0a60507bed44efbe1ca188",
+      "bytes": 318296,
+      "afterSha256": "fa1382462c95f2cff79cc3a5b55131e43cf57324bf0a60507bed44efbe1ca188",
+      "afterBytes": 318296,
+      "unchanged": true
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/source-bindings-inputs-2026-10-23.json",
+      "sha256": "1f692bfd905abf999249e811a28ad047fe48a21fc07d766f862f3b73ca4a29ca",
+      "bytes": 1357,
+      "afterSha256": "1f692bfd905abf999249e811a28ad047fe48a21fc07d766f862f3b73ca4a29ca",
+      "afterBytes": 1357,
+      "unchanged": true
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/source-bindings-2026-10-23.json",
+      "sha256": "7aa72d2b75a39b10b17f557bd605fd7e5a2bfeef2d0f8f48a7bed302d5e74f76",
+      "bytes": 274939,
+      "afterSha256": "7aa72d2b75a39b10b17f557bd605fd7e5a2bfeef2d0f8f48a7bed302d5e74f76",
+      "afterBytes": 274939,
+      "unchanged": true
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/source-bindings-2026-10-23.md",
+      "sha256": "6914b6be08731b2ac57aad37ed7e7f35461ca61f611b39a15269f30c97321cdb",
+      "bytes": 14258,
+      "afterSha256": "6914b6be08731b2ac57aad37ed7e7f35461ca61f611b39a15269f30c97321cdb",
+      "afterBytes": 14258,
+      "unchanged": true
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/dated-correction-candidates-2026-10-23.json",
+      "sha256": "d0739422dc682201a5b8fe0da9594ae76b16015d0aac2dc642458da8f1dffb24",
+      "bytes": 16617,
+      "afterSha256": "d0739422dc682201a5b8fe0da9594ae76b16015d0aac2dc642458da8f1dffb24",
+      "afterBytes": 16617,
+      "unchanged": true
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/dated-correction-candidates-2026-10-23.v2.json",
+      "sha256": "214adae7e036118699996511fcb653e0a0d75ae2835642da9c7de9605522631d",
+      "bytes": 35502,
+      "afterSha256": "214adae7e036118699996511fcb653e0a0d75ae2835642da9c7de9605522631d",
+      "afterBytes": 35502,
+      "unchanged": true
+    }
+  ],
+  "baselineSha256": "ab3bca0e49a38495d310021857ee2c1a3ca6ebe7979593d1e8b36437cb2a294e",
+  "globalPolicySha256": "e740d7407afc7b11be8802b250ea564224b10969717507818726e44e7b33f27e",
+  "disabledBundleUnchanged": true,
+  "allTargetsAndSourcesUnchanged": true,
+  "fourAcceptedGroupsAndPoliciesUnchanged": true,
+  "requestVersionUnchanged": true,
+  "regeneration": {
+    "workingDirectory": "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022",
+    "runtime": "orb run -m dev bash -lc",
+    "pythonSource": "import copy,json,sys\nfrom pathlib import Path\nsys.path.insert(0,'web/scripts/pipeline')\nfrom contracts import canonical,digest\nfrom corrections import group_review_policy,load_policy\nroot=Path.cwd();temp=Path('/tmp/smp-rejected-correction-repair-20261024')\nrequest_path=root/'contracts/factual-corrections.json';stamp_path=root/'web/src/data/tracker/factualCorrectionPolicy.json'\nraw=request_path.read_bytes()\nassert digest(raw)=='bb239e6e8256b9abc797d0ac89e940179f597e20ba654d2bb0513ff26e5b5c52'\nold=json.loads(raw);market=json.loads((root/'contracts/market.json').read_bytes());old_stamp=json.loads(stamp_path.read_bytes())\nload_policy(root,market)\nchanges={\n'FC-20261023-checkpoint-sase':{\n'reasonCode':'incorrect-issuance-period',\n'noteTemplate':'Correction, {date}. The Check Point debt entry dated 30 July 2026 incorrectly described a new Q2 offering. The offering closed on 8 December 2025. The Q2 cash comparison used proceeds after issuance costs and capped-call purchases. The July issuance entry is withdrawn.'},\n'FC-20261023-zscaler':{\n'noteTemplate':'Correction, {date}. The Zscaler entry dated 24 September 2026 included a board resignation with an incorrect effective date. Raj Judge resigned from the board effective 15 April 2026. That clause is removed; the September entry retains the Chief Revenue Officer transition.'}}\nnew=copy.deepcopy(old)\nfor group in new['groups']:\n for key,value in changes.get(group['id'],{}).items():\n  token=json.dumps(group[key]).encode();replacement=json.dumps(value).encode()\n  assert raw.count(token)==1\n  raw=raw.replace(token,replacement)\n  group[key]=value\nassert json.loads(raw)==new\nnew_stamp=copy.deepcopy(old_stamp)\nnew_stamp['policySha256']=digest({'marketSha256':digest(market),'requestsSha256':digest(new),'baselineSha256':new['baseline']['sha256']})\nnew_stamp['reviewPolicySha256ByGroup']={g['id']:group_review_policy(g,market,new['baseline']['sha256']) for g in new['groups']}\nassert len(new['groups'])==6\nfor before,after in zip(old['groups'],new['groups']):\n assert before['targets']==after['targets'] and before['sources']==after['sources']\n if before['id'] not in changes:\n  assert canonical(before)==canonical(after)\n  assert old_stamp['reviewPolicySha256ByGroup'][before['id']]==new_stamp['reviewPolicySha256ByGroup'][before['id']]\nrequest_path.write_bytes(raw)\nstamp_path.write_text(json.dumps(new_stamp,indent=2)+'\\n')\nload_policy(root,market)\nprint('global',new_stamp['policySha256'])\nfor group in new['groups']:\n print(group['id'],'candidate',digest(group),'review',new_stamp['reviewPolicySha256ByGroup'][group['id']])\nprint('All six target/source arrays unchanged; four accepted groups and policies exact.')\n",
+    "usesExistingHelpers": [
+      "contracts.digest",
+      "contracts.canonical",
+      "corrections.group_review_policy",
+      "corrections.load_policy"
+    ],
+    "initialRawRequestGuard": "bb239e6e8256b9abc797d0ac89e940179f597e20ba654d2bb0513ff26e5b5c52"
+  },
+  "actualAdmissionReplay": {
+    "verificationOwner": "correction_admission",
+    "source": "docs/active/daily-pipeline/accuracy/failed-correction-review-repair-spec-2026-10-24.json",
+    "sourceSha256": "c1ebf4d321a4b43eb0c99ebfbe965f3e5ea472f5caa3ee3a3d800352635d9376",
+    "verifiedArchiveCommit": "cc898bbd1fcd6b9816d774b2b11b52c505f19201",
+    "acceptedGroupsReplayed": 4,
+    "modelCalls": 0,
+    "archiveWrites": 0,
+    "result": "passed according to independent bound diagnosis verification; no actual replay performed by regeneration command"
+  },
+  "newAdmissions": 0,
+  "marketSourceRequests": 0,
+  "modelCalls": 0,
+  "quotaChanges": 0,
+  "realArchiveWrites": 0,
+  "productionChanged": false,
+  "independentDiagnosis": {
+    "path": "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/failed-correction-review-repair-spec-2026-10-24.json",
+    "sha256": "c1ebf4d321a4b43eb0c99ebfbe965f3e5ea472f5caa3ee3a3d800352635d9376",
+    "bytes": 19850
+  },
+  "initialFocusedRun": {
+    "python": {
+      "passed": 67,
+      "failed": 1,
+      "total": 68,
+      "log": {
+        "path": "/tmp/smp-rejected-correction-repair-20261024/python-focused.log",
+        "sha256": "591ad77e8024133e484c00a0d28e7309690e8c01a946852a1f75f0d03c440bd9",
+        "bytes": 14929
+      }
+    },
+    "nodeTs": {
+      "passed": 92,
+      "failed": 1,
+      "total": 93,
+      "log": {
+        "path": "/tmp/smp-rejected-correction-repair-20261024/node-focused.log",
+        "sha256": "9086ac7f1d17015af7c189f50d34a56cd303c3ee8b7b7248d0aadec87cade01e",
+        "bytes": 24975
+      }
+    },
+    "failures": "Two current tests compare all original five against immutable historical Xage design pins; root is adapting exact amendment tests without rewriting historical design.",
+    "finalIntegratedTests": "pending parent"
+  },
+  "focusedTests": {
+    "nodeTs": {
+      "passed": 93,
+      "failed": 0,
+      "skipped": 0,
+      "log": {
+        "path": "/tmp/smp-rejected-correction-repair-20261024/node-focused-final.log",
+        "sha256": "cedc041bcae46689ff3b953370714fb6d3d765588b5ca5449dcf0227a1a9b8cd",
+        "bytes": 23814
+      }
+    },
+    "allOperational": {
+      "passed": 430,
+      "failed": 0,
+      "skipped": 0,
+      "log": {
+        "path": "/tmp/smp-rejected-correction-repair-20261024/python-all-ops.log",
+        "sha256": "0741c26a1d7ddf4a96a7339611d79a609873ff1e76035bb7b154d73de681b564",
+        "bytes": 78575
+      }
+    },
+    "focusedLint": {
+      "errors": 0,
+      "warnings": 0
+    },
+    "fullApplicationSuite": "pending parent"
+  },
+  "dependentTestChanges": [
+    {
+      "path": "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/ops/ci/test_publisher_disclosure_correction.py",
+      "sha256": "8b68246605804f18e1c5875cc3614917249253be1b610ea6e69ee0c13d1b5346",
+      "bytes": 28835
+    },
+    {
+      "path": "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/web/tests/factual-correction-build.test.mjs",
+      "sha256": "fbc8b979c10add7ec1c6f8cff1117e323b5cc93eef86c467a47870316ce5f3c8",
+      "bytes": 22662
+    }
+  ],
+  "testInvariant": "Reverse only the exact approved three metadata changes, reproduce immutable historical request/candidate/review pins, verify amended current pins and four unchanged accepted groups including scoped Xage; never rewrite historical design."
+}

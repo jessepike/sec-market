@@ -6,8 +6,8 @@
   "groups": [
     {
       "id": "FC-20261023-checkpoint-sase",
-      "noteTemplate": "Correction, {date}. The Check Point debt entry dated 30 July 2026 incorrectly described a new Q2 offering. The offering closed on 8 December 2025 and is already recorded on that date. The Q2 cash comparison used proceeds after issuance costs and capped-call purchases. The duplicate July issuance entry is withdrawn.",
-      "reasonCode": "duplicate-issuance",
+      "noteTemplate": "Correction, {date}. The Check Point debt entry dated 30 July 2026 incorrectly described a new Q2 offering. The offering closed on 8 December 2025. The Q2 cash comparison used proceeds after issuance costs and capped-call purchases. The July issuance entry is withdrawn.",
+      "reasonCode": "incorrect-issuance-period",
       "sources": [
         {
           "body": {
@@ -274,7 +274,7 @@
     },
     {
       "id": "FC-20261023-zscaler",
-      "noteTemplate": "Correction, {date}. The Zscaler entry dated 24 September 2026 included an unrelated board resignation with an incorrect effective date. Raj Judge resigned from the board on 15 April 2026, already recorded separately. That clause is removed; the September entry retains the Chief Revenue Officer transition.",
+      "noteTemplate": "Correction, {date}. The Zscaler entry dated 24 September 2026 included a board resignation with an incorrect effective date. Raj Judge resigned from the board effective 15 April 2026. That clause is removed; the September entry retains the Chief Revenue Officer transition.",
       "reasonCode": "incorrect-resignation-date",
       "sources": [
         {

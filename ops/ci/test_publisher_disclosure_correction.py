@@ -135,15 +135,45 @@ class PublisherDisclosureCorrectionTests(unittest.TestCase):
         self.assertEqual(digest(self.original), PUBLISHER_ORIGINAL_SHA256)
         self.assertEqual(digest(self.group["targets"][0]["proposedValue"]), PUBLISHER_PROPOSED_SHA256)
 
-    def test_five_existing_group_objects_and_review_hashes_are_unchanged(self):
+    def test_historical_baseline_and_exact_three_field_amendment_preserve_accepted_groups(self):
         requests = json.loads((ROOT / "contracts/factual-corrections.json").read_bytes())
         market = json.loads((ROOT / "contracts/market.json").read_bytes())
+        repair = json.loads((ROOT / "docs/active/daily-pipeline/accuracy/failed-correction-review-repair-spec-2026-10-24.json").read_bytes())
+        permitted = {"FC-20261023-checkpoint-sase": {"noteTemplate", "reasonCode"},
+                     "FC-20261023-zscaler": {"noteTemplate"}}
+        self.assertEqual(set(repair["changedFields"]), {gid + "." + field for gid, fields in permitted.items() for field in fields})
+        self.assertEqual(len(repair["changedFields"]), 3)
+        self.assertEqual(len(repair["diagnosis"]), 2)
+        self.assertEqual({item["groupId"] for item in repair["diagnosis"]}, set(permitted))
         expected = self.design["proposedImplementation"]["inventoryPolicy"]
         groups = {g["id"]: g for g in requests["groups"]}
+        historical = copy.deepcopy(requests)
+        historical_groups = {g["id"]: g for g in historical["groups"]}
+        for item in repair["diagnosis"]:
+            gid = item["groupId"]
+            self.assertEqual(set(item["proposedChanges"]), permitted[gid])
+            self.assertEqual(digest(groups[gid]), item["proposedCandidateSha256"])
+            self.assertEqual(group_review_policy(groups[gid], market, requests["baseline"]["sha256"]), item["proposedReviewPolicySha256"])
+            self.assertEqual(digest(groups[gid]["sources"]), item["evidenceSetSha256"])
+            self.assertEqual(digest(groups[gid]["targets"]), item["targetSetSha256"])
+            for field, values in item["proposedChanges"].items():
+                self.assertEqual(groups[gid][field], values["new"])
+                self.assertNotEqual(values["old"], values["new"])
+                historical_groups[gid][field] = values["old"]
         for gid, sha in expected["existingGroupCandidateSha256ById"].items():
-            self.assertEqual(digest(groups[gid]), sha)
-            self.assertEqual(group_review_policy(groups[gid], market, requests["baseline"]["sha256"]),
+            self.assertEqual(digest(historical_groups[gid]), sha)
+            self.assertEqual(group_review_policy(historical_groups[gid], market, requests["baseline"]["sha256"]),
                              expected["existingReviewPoliciesUnchanged"][gid])
+        self.assertEqual(digest(historical), repair["oldRequestsCanonicalSha256"])
+        accepted = repair["preservedAcceptedAdmissions"]
+        self.assertEqual({item["groupId"] for item in accepted}, {"FC-20261023-optiv", "FC-20261023-splunk", "FC-20261023-expel", "XAGE-SOURCE-CLASS-20261023"})
+        self.assertEqual(len(accepted), 4)
+        for item in accepted:
+            group = groups[item["groupId"]]
+            self.assertEqual(digest(group), item["candidateSha256"])
+            self.assertEqual(digest(group["sources"]), item["evidenceSetSha256"])
+            self.assertEqual(group_review_policy(group, market, requests["baseline"]["sha256"]), item["reviewPolicySha256"])
+        self.assertEqual(load_policy(ROOT, market)["policySha256"], repair["proposedGlobalPolicySha256"])
 
     def test_same_gate_seal_publication_date_and_history_flow_carries_the_scope(self):
         f = self.f

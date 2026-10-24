@@ -1,0 +1,378 @@
+{
+  "kind": "failed_correction_review_diagnosis_and_bounded_input_repair_proposal",
+  "checkedAt": "2026-10-24T00:23:31.521544Z",
+  "archiveCommit": "cc898bbd1fcd6b9816d774b2b11b52c505f19201",
+  "archiveManifestSha256": "bb56469079ab63c7dfc50cc39b1d73176e40b464ac4e181123ea4c3959ed3633",
+  "archiveFiles": 29562,
+  "archiveVerified": true,
+  "stateFileMetadataUnchanged": true,
+  "collector": {
+    "githubRunId": "40042968468",
+    "appRevision": "399f77608970c39c5f418af2e76982e86db54693",
+    "runId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+    "successfulTasks": 244,
+    "requiredTasks": 557,
+    "receiptCanonicalSha256": "b96e8e85063590b79ff35c3f818860f037cb3b529973f5155ac901e0368fa8da"
+  },
+  "baselineSha256": "ab3bca0e49a38495d310021857ee2c1a3ca6ebe7979593d1e8b36437cb2a294e",
+  "sourceContractSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+  "oldRequestsCanonicalSha256": "35a14a3ee393036a1a688cc24d575437a77ae8fd4f441205a2511d0870934aae",
+  "oldGlobalPolicySha256": "dd6330cf9626897d81267e889822550c3c8f5f5f7dc3b6be320139818dff2f58",
+  "proposedGlobalPolicySha256": "e740d7407afc7b11be8802b250ea564224b10969717507818726e44e7b33f27e",
+  "changedGroupIds": [
+    "FC-20261023-checkpoint-sase",
+    "FC-20261023-zscaler"
+  ],
+  "changedFields": [
+    "FC-20261023-checkpoint-sase.reasonCode",
+    "FC-20261023-checkpoint-sase.noteTemplate",
+    "FC-20261023-zscaler.noteTemplate"
+  ],
+  "diagnosis": [
+    {
+      "groupId": "FC-20261023-checkpoint-sase",
+      "actualAttempt": {
+        "bytes": 1683,
+        "key": "objects/e1bf99e7516dfc3e648d3eae9a4968ee9e2edfa6e7666a5ef2bd4065bcd572f9",
+        "sha256": "e1bf99e7516dfc3e648d3eae9a4968ee9e2edfa6e7666a5ef2bd4065bcd572f9"
+      },
+      "actualAttemptCompletedAt": "2026-10-24T00:06:13.783205Z",
+      "actualReviewReference": {
+        "bytes": 428,
+        "key": "objects/dd8de73b7d8f95b8bba647f80ef0d1e1a976b0571a4f1ac6a696923016c8ee68",
+        "sha256": "dd8de73b7d8f95b8bba647f80ef0d1e1a976b0571a4f1ac6a696923016c8ee68"
+      },
+      "actualReview": {
+        "candidateSha256": "614958a764bdbf41f47269c5ea66060a8747a72440968a478200921b3f599fb1",
+        "checks": {
+          "currency_units": "pass",
+          "entity": "pass",
+          "event_status": "pass",
+          "period_date": "pass",
+          "qualifiers": "pass",
+          "source_support": "fail",
+          "value": "pass"
+        },
+        "evidenceSetSha256": "b4039088e3c211b2b41054475f790b9d20832b664f401e6fd5ff9e3a16589255",
+        "policySha256": "1c52ee664765de6234a3d68bcd4767e42a3da9fe471b6c61686cac1a1616d774",
+        "result": "rejected"
+      },
+      "observedVerdictOnly": true,
+      "causalLimit": "Strict response has no rationale. Six checks pass; source_support is the only non-pass. Tracker-state and interpretive note assertions are the identified input defects; their causal role is an inference.",
+      "oldCandidateSha256": "614958a764bdbf41f47269c5ea66060a8747a72440968a478200921b3f599fb1",
+      "oldReviewPolicySha256": "1c52ee664765de6234a3d68bcd4767e42a3da9fe471b6c61686cac1a1616d774",
+      "evidenceSetSha256": "b4039088e3c211b2b41054475f790b9d20832b664f401e6fd5ff9e3a16589255",
+      "proposedChanges": {
+        "noteTemplate": {
+          "old": "Correction, {date}. The Check Point debt entry dated 30 July 2026 incorrectly described a new Q2 offering. The offering closed on 8 December 2025 and is already recorded on that date. The Q2 cash comparison used proceeds after issuance costs and capped-call purchases. The duplicate July issuance entry is withdrawn.",
+          "new": "Correction, {date}. The Check Point debt entry dated 30 July 2026 incorrectly described a new Q2 offering. The offering closed on 8 December 2025. The Q2 cash comparison used proceeds after issuance costs and capped-call purchases. The July issuance entry is withdrawn."
+        },
+        "reasonCode": {
+          "old": "duplicate-issuance",
+          "new": "incorrect-issuance-period"
+        }
+      },
+      "proposedCandidateSha256": "af4a673ac14a090128e97bf328b1639e00eecf1c0b5f11098d07a34be26bba15",
+      "proposedReviewPolicySha256": "36bc23722c1131f94ab3c2db1c553505539987aa55738cfa9bb72dfa3871ad6f",
+      "targetsUnchanged": true,
+      "targetSetSha256": "192f6b8322e2f96e99f9baa408567289b0e1dee5bc74449874c42d7fd18fc58a",
+      "sourcesUnchanged": true,
+      "combinedWholeTextChars": 27245,
+      "sourcePinsAndLiteralSupport": [
+        {
+          "body": {
+            "bytes": 110102,
+            "key": "objects/ad90c231db200ef3ca6909ed9ff62f08b037dd78be7fe85bc8c5011fae488593",
+            "sha256": "ad90c231db200ef3ca6909ed9ff62f08b037dd78be7fe85bc8c5011fae488593"
+          },
+          "evidenceId": "TR-checkpoint-4",
+          "fetchedAt": "2026-10-23T11:34:05.920028Z",
+          "observationId": "823bdeb7978f9445b46cd456181b80329fcb2ced4dd40dac8cae6af492d6da35",
+          "sourceId": "checkpoint-sase:citation:TR-checkpoint-4",
+          "url": "https://www.checkpoint.com/press-releases/check-point-software-reports-2026-second-quarter-financial-results/",
+          "wholeTextChars": 14215,
+          "wholeTextSha256": "4dfd989e47592c711456ebd25358ff96daa4eb9c15dd67d41dae7f5f46940ec9",
+          "literalSupport": [
+            {
+              "text": "The increase in cash is primarily a result of the $1.8 billion proceeds from our $2 billion convertible senior notes offering net of issuance costs and net of purchased capped calls.",
+              "normalizedWholeTextStart": 4826,
+              "normalizedWholeTextEnd": 5008,
+              "sha256": "de81cb8274ec5f3a442da6093541a03190c28f74b17e8e872aa6f652350ff242"
+            }
+          ]
+        },
+        {
+          "body": {
+            "bytes": 26715,
+            "key": "objects/99fd41f785699aa0fc9fb4ea0baa79249c0953a5391c9aca86f1e5c0adb55b3c",
+            "sha256": "99fd41f785699aa0fc9fb4ea0baa79249c0953a5391c9aca86f1e5c0adb55b3c"
+          },
+          "evidenceId": "TR-checkpoint-5",
+          "fetchedAt": "2026-10-23T04:15:09.250598Z",
+          "observationId": "265257237110d3c7eada63a363a0a42c72a6fc0d1cf5fa71dceb10d7364d2699",
+          "sourceId": "checkpoint-sase:citation:TR-checkpoint-5",
+          "url": "https://www.sec.gov/Archives/edgar/data/1015922/000117891325004030/zk2534094.htm",
+          "wholeTextChars": 13030,
+          "wholeTextSha256": "a04cf7c33992a94bd05d241cdef300caba03d5888c05380743b8396a37264e8b",
+          "literalSupport": [
+            {
+              "text": "The sale of the Convertible Notes closed on December 8, 2025.",
+              "normalizedWholeTextStart": 2377,
+              "normalizedWholeTextEnd": 2438,
+              "sha256": "f0aea1a44d28dec139e441f752a267c5173fcd15cbd173114b58aa0cb5f06e78"
+            },
+            {
+              "text": "resulting in a total principal amount of $2.0 billion.",
+              "normalizedWholeTextStart": 1108,
+              "normalizedWholeTextEnd": 1162,
+              "sha256": "abb361685cf6f93783de2539349818d4c012236271d0baa2e862fcb05ad62344"
+            },
+            {
+              "text": "The net proceeds from the sale of the Convertible Notes were approximately $1.97 billion, after deducting the Initial Purchasers’ discounts and the estimated offering expenses payable by the Company.",
+              "normalizedWholeTextStart": 8339,
+              "normalizedWholeTextEnd": 8538,
+              "sha256": "6ce6ea967a4ebd044a530e93143af8dc6738e2572bea8fa763052245a741a20e"
+            },
+            {
+              "text": "$192.0 million of the net proceeds from the sale of the Convertible Notes to pay the costs of the Capped Call Transactions",
+              "normalizedWholeTextStart": 8564,
+              "normalizedWholeTextEnd": 8686,
+              "sha256": "387f150963bc000391acb2e40b3721b992b3c95a808bfc0f2db1dd355ab171e7"
+            }
+          ]
+        }
+      ],
+      "earliestInitialAdmissionDeadline": "2026-10-24T10:15:09.250598Z",
+      "internalTrackerStateNotProvedByPrimaryDocuments": true,
+      "unsupportedNotePhrases": [
+        "already recorded on that date",
+        "duplicate"
+      ],
+      "sourceByteAndExcerptValidation": "passed without review/model calls; not semantic admission"
+    },
+    {
+      "groupId": "FC-20261023-zscaler",
+      "actualAttempt": {
+        "bytes": 1621,
+        "key": "objects/92fd58797420c18e1ea36b56334d7276dc7d5d0a5ca86a9bd7e1264c9394d2ec",
+        "sha256": "92fd58797420c18e1ea36b56334d7276dc7d5d0a5ca86a9bd7e1264c9394d2ec"
+      },
+      "actualAttemptCompletedAt": "2026-10-24T00:06:38.110524Z",
+      "actualReviewReference": {
+        "bytes": 432,
+        "key": "objects/890c1cc09d894c5966751404930161d1c7bc5e897c4c1006d108b00cd931243f",
+        "sha256": "890c1cc09d894c5966751404930161d1c7bc5e897c4c1006d108b00cd931243f"
+      },
+      "actualReview": {
+        "candidateSha256": "3ba2c4ec71de2204d152f273c0ed4114f7f99e527843abe9863f462e1047caa5",
+        "checks": {
+          "currency_units": "pass",
+          "entity": "pass",
+          "event_status": "pass",
+          "period_date": "pass",
+          "qualifiers": "pass",
+          "source_support": "unknown",
+          "value": "pass"
+        },
+        "evidenceSetSha256": "f0e0f20f00cfc1bf339642dfb9672e159a3bfa1ddacb70549e6a5e2f815bfb7a",
+        "policySha256": "54e40bd49e9c04d26aebe3f7eaa3ece37d15be460c4b5d76c3041e8c272e182f",
+        "result": "ambiguous"
+      },
+      "observedVerdictOnly": true,
+      "causalLimit": "Strict response has no rationale. Six checks pass; source_support is the only non-pass. Tracker-state and interpretive note assertions are the identified input defects; their causal role is an inference.",
+      "oldCandidateSha256": "3ba2c4ec71de2204d152f273c0ed4114f7f99e527843abe9863f462e1047caa5",
+      "oldReviewPolicySha256": "54e40bd49e9c04d26aebe3f7eaa3ece37d15be460c4b5d76c3041e8c272e182f",
+      "evidenceSetSha256": "f0e0f20f00cfc1bf339642dfb9672e159a3bfa1ddacb70549e6a5e2f815bfb7a",
+      "proposedChanges": {
+        "noteTemplate": {
+          "old": "Correction, {date}. The Zscaler entry dated 24 September 2026 included an unrelated board resignation with an incorrect effective date. Raj Judge resigned from the board on 15 April 2026, already recorded separately. That clause is removed; the September entry retains the Chief Revenue Officer transition.",
+          "new": "Correction, {date}. The Zscaler entry dated 24 September 2026 included a board resignation with an incorrect effective date. Raj Judge resigned from the board effective 15 April 2026. That clause is removed; the September entry retains the Chief Revenue Officer transition."
+        }
+      },
+      "proposedCandidateSha256": "46f6626eebb75b300b770b6290c38124f02773a93636810d2d84dffbfb0854f3",
+      "proposedReviewPolicySha256": "dc8522069fc87cbf0371e0ea29ec80fbf647c1dd7ce816e02a7fb4a94b35a390",
+      "targetsUnchanged": true,
+      "targetSetSha256": "33d2b640f7aeb3d88a2a480f2913dd0873326e9020855e1c56ff83f3e685087a",
+      "sourcesUnchanged": true,
+      "combinedWholeTextChars": 7511,
+      "sourcePinsAndLiteralSupport": [
+        {
+          "body": {
+            "bytes": 27835,
+            "key": "objects/068f33d83f983b8207850ff9af866bf0ac56f7e443e04883fe82efee90b6e6bd",
+            "sha256": "068f33d83f983b8207850ff9af866bf0ac56f7e443e04883fe82efee90b6e6bd"
+          },
+          "evidenceId": "TR-zscaler-4",
+          "fetchedAt": "2026-10-23T11:34:11.000593Z",
+          "observationId": "77f7d2dc508eb9c414811e247bfa613cfc32e207793eb0ff76d41921f1091f39",
+          "sourceId": "zscaler:citation:TR-zscaler-4",
+          "url": "https://www.sec.gov/Archives/edgar/data/1713683/000171368326000193/zs-20260924.htm",
+          "wholeTextChars": 3955,
+          "wholeTextSha256": "dbc3280eed2635bdc4fe42190043b77918d6122154663b9df861aa59423b1d2e",
+          "literalSupport": [
+            {
+              "text": "Zscaler, Inc. (the “ Company ”) is promoting Ross Tackett to be the Company’s Chief Revenue Officer effective October 1, 2026.",
+              "normalizedWholeTextStart": 2384,
+              "normalizedWholeTextEnd": 2510,
+              "sha256": "5276ba067b0b6507771b8428c3753770e6978c98a7c7a97235bca416b7ce5cc7"
+            },
+            {
+              "text": "Mr. Tackett will succeed Mike Rich, who will step down as an officer effective October 1, 2026, but will remain with the Company as a strategic advisor for a transition period through December 31, 2026.",
+              "normalizedWholeTextStart": 2511,
+              "normalizedWholeTextEnd": 2713,
+              "sha256": "877e0bc14e11d3a0950ab9c8e42fa57aedde707bd79d44005a7fe1794c126eef"
+            }
+          ]
+        },
+        {
+          "body": {
+            "bytes": 24581,
+            "key": "objects/bdb9b0f0a56b6625c04b1cfaed33daab6505b97632df199519ee1dd1c117b85d",
+            "sha256": "bdb9b0f0a56b6625c04b1cfaed33daab6505b97632df199519ee1dd1c117b85d"
+          },
+          "evidenceId": "TR-zscaler-6",
+          "fetchedAt": "2026-10-23T04:15:08.041972Z",
+          "observationId": "ede509be7e95f39b65fcbc5059182768804c3c4081a0bda957dc618249caabae",
+          "sourceId": "zscaler:citation:TR-zscaler-6",
+          "url": "https://www.sec.gov/Archives/edgar/data/1713683/000171368326000082/zs-20260415.htm",
+          "wholeTextChars": 3556,
+          "wholeTextSha256": "b93679dd81000a0ab531b9ee600d92b71142c127600f13216652ec0203663780",
+          "literalSupport": [
+            {
+              "text": "In addition, Mr. Judge resigned as a member of the Board of Directors of the Company, effective April 15, 2026.",
+              "normalizedWholeTextStart": 2967,
+              "normalizedWholeTextEnd": 3078,
+              "sha256": "52192785102ce99b869415d6a5c76ee720cec233d69b80c8b3c78992efc78e8e"
+            },
+            {
+              "text": "Mr. Judge’s departure will be effective on July 31, 2026.",
+              "normalizedWholeTextStart": 2514,
+              "normalizedWholeTextEnd": 2571,
+              "sha256": "0677e661fabdbcb4be74a5195a968c68d652d04ef8210d591c4710487a248020"
+            },
+            {
+              "text": "Zscaler, Inc. April 16, 2026",
+              "normalizedWholeTextStart": 3468,
+              "normalizedWholeTextEnd": 3496,
+              "sha256": "657cb564164766e2fc6b18aff14d62e1078ffd9add5bee7d828e030fd092d092"
+            }
+          ]
+        }
+      ],
+      "earliestInitialAdmissionDeadline": "2026-10-24T10:15:08.041972Z",
+      "internalTrackerStateNotProvedByPrimaryDocuments": true,
+      "unsupportedNotePhrases": [
+        "already recorded separately",
+        "unrelated"
+      ],
+      "sourceByteAndExcerptValidation": "passed without review/model calls; not semantic admission"
+    }
+  ],
+  "preservedAcceptedAdmissions": [
+    {
+      "groupId": "FC-20261023-optiv",
+      "candidateSha256": "ce48b552db79aa960aed5e08840f28a99ccab313c9d05df874b281cf7eb9c00c",
+      "evidenceSetSha256": "7f5a8b85f2fbf854d9623d561a89c0ded68723742833047d05fb24c7e4342a2b",
+      "reviewPolicySha256": "4f9e7feb90232a3aafe2cd84265c2e8202c9e009229e7592c5ab87373f64bcf5",
+      "admission": {
+        "bytes": 1014,
+        "key": "objects/580099157608b61895574d2b136c93a940109f82d0a33459388a83f46fbc7bf2",
+        "sha256": "580099157608b61895574d2b136c93a940109f82d0a33459388a83f46fbc7bf2"
+      },
+      "review": {
+        "bytes": 428,
+        "key": "objects/faf2a5773a4b7eacd806e8a1995bc8719d8a12a2bfb30e0fa5e77db24d1df44c",
+        "sha256": "faf2a5773a4b7eacd806e8a1995bc8719d8a12a2bfb30e0fa5e77db24d1df44c"
+      },
+      "admittedAt": "2026-10-24T00:06:23.550203Z",
+      "realAdmissionReplayPassed": true,
+      "proposedGroupExactEqual": true
+    },
+    {
+      "groupId": "FC-20261023-splunk",
+      "candidateSha256": "a397eb20f8a6918f19ef6004ad2107a96066d0b84532ca9f131fd050fec61240",
+      "evidenceSetSha256": "eb165cdbb2d9b4e76d07dbaa0ca217167ced0e492cadd89957aa1ebbce6157f5",
+      "reviewPolicySha256": "270b7c7a1f7180b3fef2896b7633a87bf0667b9f4a3c75593fa72b959ecb87f6",
+      "admission": {
+        "bytes": 988,
+        "key": "objects/a42addfcd5043dceffcd259fc8bdac7486b012400fae4b82ce0e5b00968e18af",
+        "sha256": "a42addfcd5043dceffcd259fc8bdac7486b012400fae4b82ce0e5b00968e18af"
+      },
+      "review": {
+        "bytes": 428,
+        "key": "objects/f5366dfae77204b65cc05a3f5b6fd65f1c86bcc3edd38da0a342761667dc6887",
+        "sha256": "f5366dfae77204b65cc05a3f5b6fd65f1c86bcc3edd38da0a342761667dc6887"
+      },
+      "admittedAt": "2026-10-24T00:06:29.666148Z",
+      "realAdmissionReplayPassed": true,
+      "proposedGroupExactEqual": true
+    },
+    {
+      "groupId": "FC-20261023-expel",
+      "candidateSha256": "b02146ce95927f20887ee6a647545e968c2d21db891aa0860ddfe3908b68e1c3",
+      "evidenceSetSha256": "2a9d219a14e673acc89c71ed14b34c61700da6c9ba871edc833fe362c3a6b0da",
+      "reviewPolicySha256": "d1ea72b754450e603d89092cc38d9fa81d165575af2a36745e5938220fd82087",
+      "admission": {
+        "bytes": 1493,
+        "key": "objects/b120ca46429f8e52a09d4fce293c14ddb08319212b2b9a8e0f10b39661deed4c",
+        "sha256": "b120ca46429f8e52a09d4fce293c14ddb08319212b2b9a8e0f10b39661deed4c"
+      },
+      "review": {
+        "bytes": 428,
+        "key": "objects/d70505f6c750763f017bf3aa7ae88e366dfc0ffe2dcd6c47b599b56d59bed70f",
+        "sha256": "d70505f6c750763f017bf3aa7ae88e366dfc0ffe2dcd6c47b599b56d59bed70f"
+      },
+      "admittedAt": "2026-10-24T00:06:43.307502Z",
+      "realAdmissionReplayPassed": true,
+      "proposedGroupExactEqual": true
+    },
+    {
+      "groupId": "XAGE-SOURCE-CLASS-20261023",
+      "candidateSha256": "f0060b9e09cdffb77e08797f0fdd49eb9bf931ea4a91685e4f0a4c911fc50abb",
+      "evidenceSetSha256": "a5138d57005644bda2474a10d29a5fa3c27cdd649d9fa8f8a704a04d6e070200",
+      "reviewPolicySha256": "c01560dba484aa5aa5696c8bfe5b44acefc6337ee1cebe0cd96751849e15646a",
+      "admission": {
+        "bytes": 1340,
+        "key": "objects/ec322362de6fb9e4e20cea0c9ed825990a01bf0c41d5b32662ab6131914f6c98",
+        "sha256": "ec322362de6fb9e4e20cea0c9ed825990a01bf0c41d5b32662ab6131914f6c98"
+      },
+      "review": {
+        "bytes": 535,
+        "key": "objects/5d806d7b4897fa6082cba2ae8b1a496b863ddfbd6af2721d4e1f957d93bfdf46",
+        "sha256": "5d806d7b4897fa6082cba2ae8b1a496b863ddfbd6af2721d4e1f957d93bfdf46"
+      },
+      "admittedAt": "2026-10-24T00:06:50.078120Z",
+      "realAdmissionReplayPassed": true,
+      "proposedGroupExactEqual": true
+    }
+  ],
+  "requiredNextStep": "Implement only the three specified fields and derived policy stamp, verify four actual admission replays, then obtain independent real reviews for the changed candidates through the existing leased collector. No acceptance is predicted.",
+  "reviewerProtocolChanged": false,
+  "targetsOrSourcePinsChanged": false,
+  "semanticAdmission": false,
+  "correctionsApplied": false,
+  "modelCalls": 0,
+  "sourceRequests": 0,
+  "archiveWrites": 0,
+  "quotaChanged": false,
+  "productionChanged": false,
+  "independentImplementationReview": {
+    "checkedAt": "2026-10-24T00:24:21.505642Z",
+    "result": "pass",
+    "exactChangedFields": [
+      "FC-20261023-checkpoint-sase.reasonCode",
+      "FC-20261023-checkpoint-sase.noteTemplate",
+      "FC-20261023-zscaler.noteTemplate"
+    ],
+    "requestsReversedToOriginalCanonicalSha256": "35a14a3ee393036a1a688cc24d575437a77ae8fd4f441205a2511d0870934aae",
+    "currentStampBackendValidated": true,
+    "currentGlobalPolicySha256": "e740d7407afc7b11be8802b250ea564224b10969717507818726e44e7b33f27e",
+    "allTargetsAndSourcesExact": true,
+    "preservedAcceptedGroupAndReviewHashesExact": true,
+    "actualAdmissionsReplayedWithCurrentPolicy": 4,
+    "newSemanticAdmission": false,
+    "modelCalls": 0,
+    "sourceRequests": 0,
+    "archiveWrites": 0
+  }
+}

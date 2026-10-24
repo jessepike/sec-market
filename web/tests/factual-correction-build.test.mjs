@@ -205,10 +205,45 @@ function publisherFixture(t, enabled = true) {
     } }
 }
 
-test('scoped build derives exact role policy independently while retaining five legacy hashes and rows', t => {
+test('scoped build proves historical baseline and exact three-field amendment with accepted hashes retained', t => {
   const f = publisherFixture(t), policy = f.read('web/src/data/tracker/factualCorrectionPolicy.json')
+  const repair = JSON.parse(readFileSync(new URL('../../docs/active/daily-pipeline/accuracy/failed-correction-review-repair-spec-2026-10-24.json', import.meta.url)))
+  const permitted = { 'FC-20261023-checkpoint-sase': ['noteTemplate', 'reasonCode'], 'FC-20261023-zscaler': ['noteTemplate'] }
+  assert.deepEqual(repair.changedFields.slice().sort(), Object.entries(permitted).flatMap(([id, fields]) => fields.map(field => `${id}.${field}`)).sort())
+  assert.equal(repair.changedFields.length, 3)
+  assert.equal(repair.diagnosis.length, 2)
+  assert.deepEqual(repair.diagnosis.map(item => item.groupId).sort(), Object.keys(permitted).sort())
+  const requests = f.read('contracts/factual-corrections.json'), market = f.read('contracts/market.json')
+  const historical = structuredClone(requests)
+  for (const item of repair.diagnosis) {
+    const group = requests.groups.find(group => group.id === item.groupId)
+    const prior = historical.groups.find(group => group.id === item.groupId)
+    assert.deepEqual(Object.keys(item.proposedChanges).sort(), permitted[item.groupId])
+    assert.equal(digest(group), item.proposedCandidateSha256)
+    assert.equal(policy.reviewPolicySha256ByGroup[group.id], item.proposedReviewPolicySha256)
+    assert.equal(digest(group.sources), item.evidenceSetSha256)
+    assert.equal(digest(group.targets), item.targetSetSha256)
+    for (const [field, values] of Object.entries(item.proposedChanges)) {
+      assert.equal(group[field], values.new)
+      assert.notEqual(values.old, values.new)
+      prior[field] = values.old
+    }
+  }
+  assert.equal(digest(historical), repair.oldRequestsCanonicalSha256)
+  for (const [id, hash] of Object.entries(design.proposedImplementation.inventoryPolicy.existingReviewPoliciesUnchanged)) {
+    const prior = historical.groups.find(group => group.id === id)
+    assert.equal(digest(prior), design.proposedImplementation.inventoryPolicy.existingGroupCandidateSha256ById[id])
+    assert.equal(reviewPolicy(prior, market, requests.baseline.sha256), hash)
+  }
+  assert.deepEqual(repair.preservedAcceptedAdmissions.map(item => item.groupId).sort(), ['FC-20261023-optiv', 'FC-20261023-splunk', 'FC-20261023-expel', 'XAGE-SOURCE-CLASS-20261023'].sort())
+  for (const item of repair.preservedAcceptedAdmissions) {
+    const group = requests.groups.find(group => group.id === item.groupId)
+    assert.equal(digest(group), item.candidateSha256)
+    assert.equal(digest(group.sources), item.evidenceSetSha256)
+    assert.equal(policy.reviewPolicySha256ByGroup[group.id], item.reviewPolicySha256)
+  }
+  assert.equal(policy.policySha256, repair.proposedGlobalPolicySha256)
   assert.equal(policy.reviewPolicySha256ByGroup[design.proposedGroupExample.id], design.proposedReviewPolicy.sha256)
-  for (const [id, hash] of Object.entries(design.proposedImplementation.inventoryPolicy.existingReviewPoliciesUnchanged)) assert.equal(policy.reviewPolicySha256ByGroup[id], hash)
   assert.deepEqual(f.bundle.groups.filter(group => !group.reviewScope), f.legacyRows)
   const result = verifyFactualCorrections(f.web)
   assert.equal(result.groupIds.length, 6); assert.equal(result.targetIds.length, 12)
