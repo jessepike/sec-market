@@ -23,6 +23,11 @@ All 254 missing tasks have exact retained-evidence audits and agent-owned next a
 The coverage matrix is an explicitly historical October 23 snapshot, with original check times.
 No audited lead or candidate repair receives current credit.
 
+The October 24 manual collector reached **244/557**; that result has not published. It used
+64 model calls, 33 documents and 377 charged fetches. Its acknowledged archive
+`cc898bbd1fcd6b9816d774b2b11b52c505f19201` has 29,562 independently hash-verified files.
+[Actual result](docs/active/daily-pipeline/receipts/renewal-collector-result-2026-10-24.json).
+
 Actual scheduled collector `39946689429`, publisher `39947099729`, main gate `39947450834` and
 rollback/restoration `39947974279` passed. Repeat timer `39954446259` retained original checks;
 publisher `40015702345` acknowledged exact existing data/code without a new release.
@@ -46,7 +51,12 @@ the five factual groups and their review hashes remain immutable.
 Xage's paid Yahoo/GlobeNewswire release is still labelled independent in production;
 the candidate changes only its source class and limitations, with no financial verification.
 [Implementation](docs/active/daily-pipeline/publisher-disclosure-implementation-2026-10-23.md).
-No correction is admitted or live. Earliest original proof expires October 24 at 10:14:49.799584 UTC.
+The actual collector admitted Optiv, Splunk, Expel and the scoped Xage source-class correction.
+Check Point was rejected and Zscaler was ambiguous; neither obtained source-support approval.
+Both notes assert internal tracker state that the primary bodies cannot prove. A two-group
+wording repair is being prepared; the returned verdicts contain no explanation, so this input
+defect is not a proven explanation of the model decisions. Four accepted groups stay exact.
+No correction is live. Earliest original proof expires October 24 at 10:14:49.799584 UTC.
 
 Preview preserves valid same-day checks, compatible SEC response sharing, 28 unresolved holds and
 four older-policy quarantined candidates. eSentire extraction is article-scoped. Orca pagination and
@@ -86,18 +96,19 @@ sustained operation and value remain unmeasured; no overall average conceals tho
 The new UTC day has begun. Reviewed preview `399f77608970c39c5f418af2e76982e86db54693` advanced
 to main by an approved fast-forward with the complete push guard running in OrbStack. Production
 has not moved. Real manual collector [40042968468](https://github.com/jessepike/sec-market/actions/runs/40042968468)
-is collecting/reviewing that revision; setup and all worker guards passed. Final usage, source
-coverage and correction results are pending. A manual run is not scheduled-run proof.
+completed successfully with incomplete coverage. A manual run is not scheduled-run proof.
 
 October 23's **5,500 fetches / 80 model calls / 40 documents** and both gate/publication attempts
-remain untouched. October 24 had no existing ledger before dispatch; the actual runner initializes
-its new-day allowance. Never reset/refund counters, use paid fallback or substitute offline review
+remain untouched. October 24 now retains actual usage above, leaving 16 model calls and seven
+documents before further work. Never reset/refund counters, use paid fallback or substitute offline review
 for actual admission. No gate or publication has been requested this new day.
 
-Await the actual collector and its acknowledged archive. Finish real correction reviews while
-proof is fresh or genuinely refresh/rebind it. Then run leased diagnostics and qualify the
+Finish the two real correction reviews while proof is fresh or genuinely refresh/rebind it.
+Leased fetch-only diagnostic [40044528648](https://github.com/jessepike/sec-market/actions/runs/40044528648)
+is running on the same main revision. It grants no source qualification, coverage or admission.
+Use its actual retained bodies to qualify the
 documented Delinea/Ping/Sonatype feeds and other evidenced endpoints within the remaining allowance.
-Do not enqueue competing writer jobs while collection is pending. Obtain the full main gate and actual
+Do not enqueue competing writer jobs while the diagnostic is pending. Obtain the full main gate and actual
 scheduled collection/publication receipts. No owner source or factual choice currently blocks this.
 
 Collection is 05:17 UTC; publication follows a verified timer and runs at 06:23/16:23 UTC. GitHub can
