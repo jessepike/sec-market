@@ -28,7 +28,7 @@ The 293 intake gaps have separate next actions:
 | Gap | Count | Required work |
 |---|---:|---|
 | Missing family bindings | 254 | Qualify literal primary endpoints; the [full obligation queue](docs/active/daily-pipeline/accuracy/coverage-qualification-status-2026-10-23.md) preserves every missing task. Four neutral parent-issuer proposals remain dormant until current source proof and a closed transition pass. |
-| Candidate sources | 25 | Complete source-specific pagination, entity/date boundaries and a readable primary sample. [Exact source actions](docs/active/daily-pipeline/accuracy/remaining-candidate-qualification-batch-spec-2026-10-24.md). |
+| Candidate sources | 25 | Complete source-specific pagination, entity/date boundaries and a readable primary sample. [Current exact source queue](docs/active/daily-pipeline/accuracy/current-candidate-source-queue-2026-10-24.md). |
 | Access failures | 14 | Recover 9 HTTP 403, 4 HTTP 429 and 1 unsafe redirect without bypassing source or host policy. |
 
 Ping Identity, Delinea and Sonatype now pass actual intake; their 737 leads remain pending
@@ -41,9 +41,14 @@ HTTP 302 responses redirecting page 27 to itself. It charged 27 fetch reservatio
 qualification or coverage credit. Seek an alternate complete official index or source-owned
 pagination evidence; do not treat the self-redirect as terminal. [Actual audit](docs/active/daily-pipeline/accuracy/orca-redirect-actual-source-review-2026-10-24.md).
 Restore exact disabled plan ad1 after each diagnostic. A [seven-endpoint batch](docs/active/daily-pipeline/accuracy/schema1-seven-source-endpoint-preflight-2026-10-24.md)
-can use the existing runner under unchanged H, bounded at 257 logical fetch reservations including
-its unavoidable 25-source generic discovery. The exact plan 98b110fe… is independently reviewed
-and selected for one actual diagnostic after CI/promotion; restore disabled ad1 afterward.
+ran under unchanged H in actual diagnostic 40131875060, completing at 20:59:04 UTC. It charged
+115 logical fetch reservations within the reviewed 257 maximum, including generic discovery.
+Five explicit endpoint bodies were retained. Trend Micro returned HTML at the advertised RSS
+endpoint; Check Point failed without a retained explicit status/body. No candidate was qualified
+or credited. Restore exact disabled ad1 after the actual archive audit, then freeze main.
+[Actual batch audit](docs/active/daily-pipeline/accuracy/seven-source-endpoint-actual-review-2026-10-24.md)
+verifies every archive entry and next-day normal replay. The current queue records new literal
+Trend Micro, Aqua and Q4 controller leads, with their original dates and unresolved proof requirements.
 The retained GitHub RSS parser false positive is repaired with a parser-level declaration guard:
 800 operational and all web checks pass, with old H reports, origins, seeds and the next snapshot
 unchanged. Real DTD/entity input remains rejected. Qualification and current coverage stay separate.
@@ -54,7 +59,7 @@ reviewed main while those run. The midnight partition repair passes actual-archi
 at all three publisher times without renewing evidence. Manual diagnostics and successful skipped
 callbacks are not scheduled collection or publication proof.
 
-October 24 usage is 1,980/5,500 fetch reservations, 80/80 models, 40/40 documents and 2/2 gate attempts.
+October 24 usage is 2,095/5,500 fetch reservations, 80/80 models, 40/40 documents and 2/2 gate attempts.
 The next natural allowance starts 00:00 UTC October 25. Assigned issue 12 records publisher budget
 failure; issue 10 retains coverage/history gaps. Verify issue 12 recovery after actual publication.
 No owner source decision is currently required. No refund, reset, purchase or paid fallback.

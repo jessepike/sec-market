@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "kind": "actual_scheduled_monitor_observation",
+  "observedAt": "2026-10-24 21:19:02 UTC",
+  "run": {
+    "conclusion": "failure",
+    "created_at": "2026-10-24T21:11:13Z",
+    "event": "schedule",
+    "head_sha": "ad50865eae2abbe03b3105c363d5804951184e2d",
+    "html_url": "https://github.com/jessepike/sec-market/actions/runs/40133102924",
+    "id": 40133102924,
+    "path": ".github/workflows/freshness.yml",
+    "repository": {
+      "full_name": "jessepike/sec-market",
+      "private": true
+    },
+    "run_attempt": 1,
+    "status": "completed",
+    "updated_at": "2026-10-24T21:11:36Z"
+  },
+  "alert": {
+    "assignees": [
+      "jessepike"
+    ],
+    "body": "The independent daily pipeline probe needs attention.\n\nChecked: 2026-10-24T21:11:23.419148Z\n\nReasons: SCHEDULED_COLLECTION_RECEIPT_DIFFERS, OVERDUE_OR_INCOMPLETE_COVERAGE, DAILY_INTAKE_INCOMPLETE, PROCESSING_PENDING_10632, PROCESSING_HELD_5, HISTORICAL_REVIEW_PENDING_10631, WORKER_PHASE_FAILED, PUBLIC_SEPARATE_COVERAGE_INVALID_OR_UNCOLLECTED, COLLECTION_HAS_NOT_REACHED_PRODUCTION, PUBLIC_COVERAGE_INCOMPLETE_OR_OVERDUE, HELD_CLAIMS_33\n\nNo missing check is counted as fresh. Inspect the daily coverage receipt and the private refs/archive/market-evidence ref.\n\n[Daily coverage](https://securitymarketpulse.com/daily-coverage.json)",
+    "html_url": "https://github.com/jessepike/sec-market/issues/10",
+    "number": 10,
+    "state": "open",
+    "title": "Daily pipeline needs attention",
+    "updated_at": "2026-10-24T21:11:33Z"
+  },
+  "interpretation": {
+    "healthy": false,
+    "scheduledCollectorUnderCurrentPolicyProved": false,
+    "productionUpdateProved": false,
+    "currentDailyIntake": {
+      "successful": 264,
+      "required": 557
+    },
+    "expectedUnresolvedConditions": [
+      "Current H collection has no matching actual scheduled clock yet",
+      "Current H collection has not reached production",
+      "Publisher remains held by October 24 gate allowance",
+      "Explicit intake, processing, historical and held-claim gaps remain"
+    ],
+    "limitations": [
+      "This run proves the independent monitor executed on schedule and updated its assigned GitHub issue",
+      "A failed health result preserves outstanding conditions; it does not establish a failed source collection",
+      "No fresh source check, publication, rollback, phone or email delivery is inferred"
+    ]
+  }
+}

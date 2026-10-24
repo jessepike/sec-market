@@ -1,0 +1,257 @@
+{
+  "schemaVersion": 1,
+  "observationType": "actual_bounded_diagnostic_review",
+  "run": {
+    "githubRunId": "40131875060",
+    "attempt": 1,
+    "event": "workflow_dispatch",
+    "ref": "refs/heads/main",
+    "appRevision": "ad50865eae2abbe03b3105c363d5804951184e2d",
+    "contractSha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+    "planRawSha256": "98b110fe4fd1beb898ff7ccaa190a3e4eb6dcb61e1da3ed5a5d72151bddd2ce4",
+    "planCanonicalSha256": "98b110fe4fd1beb898ff7ccaa190a3e4eb6dcb61e1da3ed5a5d72151bddd2ce4",
+    "currentLocalQualificationPlanSha256": "ad1c5cc234fe4fa69cbceb5370ac74825a37dc80b08528ca908d14b1352e53b4",
+    "currentLocalQualificationPlanOperation": "disabled_qualification_probe",
+    "currentLocalQualificationPlanMaxRequests": 0,
+    "planTargetCount": 7,
+    "maxExplicitRequests": 7,
+    "outcome": "completed_diagnostic",
+    "executionCompleted": true,
+    "qualification": false,
+    "semanticAdmission": false,
+    "coverageCredit": false,
+    "sourceChecksCredited": 0,
+    "modelCalls": 0,
+    "facts": []
+  },
+  "artifact": {
+    "artifactId": "12575277423",
+    "name": "source-probe-receipt",
+    "zipSha256": "24c1e61b1bc6547e6e4869d216882cf56f3ee02c2f3b0df30553fe22f084ffc7",
+    "rawReceiptPath": "docs/active/daily-pipeline/receipts/seven-source-probe-40131875060-2026-10-24.json",
+    "rawReceiptBytes": 134964,
+    "rawReceiptSha256": "e51bba4334a263a8bebcb48774897f0aa62a01d3ab51735d0a25b28208b1b71e"
+  },
+  "archive": {
+    "commit": "ac0260ed95c3bf5090b236e42b3a7090a70c3861",
+    "parentCommit": "0bd6446661ffc8b2b32caa18f880636d2c7b4f6c",
+    "ref": "refs/archive/market-evidence",
+    "manifestSha256": "895213b31bb9f75814acc9484cad9aabd3719e07ddd72c621275a9b2568a1e5c",
+    "manifestEntries": 41245,
+    "tarballSha256": "d0a6363fb79263b30c85faf90165488a3812ead59a54e60a6a1f6a885ced9ca2",
+    "vmRoot": "/var/tmp/smp-seven-source-40131875060-20261024/extracted",
+    "parentManifest": {
+      "entries": 41069,
+      "rawSha256": "8d936efcfde6cb6447a0aeb95fc2f527909edc17d58569fdffc3bfc55a13f6ae",
+      "gitBlobSha1": "731253f1477c74ce70884a0de0b3e6a87d4ef120",
+      "missingEntriesInChild": 0,
+      "changedEntriesInChild": [
+        "state/heads/budget-2026-10-24.json",
+        "state/heads/cloud-lease.json"
+      ],
+      "addedEntries": 176
+    },
+    "previousActualDiagnosticArchive": {
+      "commit": "3511f25b6f7ebb6dad8dbb0d3d8121ed2dd92886",
+      "manifestEntries": 41066,
+      "missingEntriesInChild": 0,
+      "changedEntriesInChild": [
+        "state/heads/budget-2026-10-24.json",
+        "state/heads/cloud-lease.json"
+      ]
+    },
+    "integrityVerified": true,
+    "postReplaySeal": {
+      "files": 41249,
+      "directories": 1909,
+      "contentSha256": "b8bd1238df24aef1f4f3bc35667a010ac6781560c2f1caa9e16b0ed3d6a5803d",
+      "fileMtimeSha256": "68f9ac508d47b9b37d0d96ccb30b4e8cf4af5f40afb021247b9e7fe874c64413",
+      "directoryMtimeSha256": "4eb6c0290521914d53fca3cb905aa9135bab079abef4556c9d2879f3dcea1e25"
+    },
+    "preReplaySealEqualsPostReplaySeal": true
+  },
+  "budget": {
+    "genericCandidateRows": 25,
+    "genericFetchReservations": 108,
+    "explicitChargedRequests": 7,
+    "totalChargedFetches": 115,
+    "initialFetches": 1980,
+    "finalFetches": 2095,
+    "remainingFetchCapacity": 3405,
+    "fetchLimit": 5500,
+    "callsBefore": 80,
+    "callsAfter": 80,
+    "documentsBefore": 40,
+    "documentsAfter": 40,
+    "explicitReservationCounts": [2089, 2090, 2091, 2092, 2093, 2094, 2095]
+  },
+  "sourceResults": [
+    {
+      "targetId": "next-trend-micro-1",
+      "sourceId": "trend-micro:official:1",
+      "requestedUrl": "https://newsroom.trendmicro.com/rss?rsspage=20295",
+      "reservationCount": 2089,
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "fetchedAt": "2026-10-24T20:58:19.353441Z",
+      "bodyBytes": 382633,
+      "bodySha256": "9e3ec403834175d40fa859ce50249e4e56cc6a733cff53d903c7dcae89580d2c",
+      "parserResult": "XML entity declarations prohibited",
+      "disposition": "incomplete_html_at_rss_target"
+    },
+    {
+      "targetId": "next-trustwave-1",
+      "sourceId": "trustwave:official:1",
+      "requestedUrl": "https://www.levelblue.com/newsroom/press-releases/rss.xml",
+      "reservationCount": 2090,
+      "status": 200,
+      "contentType": "text/xml; charset=UTF-8",
+      "fetchedAt": "2026-10-24T20:58:19.425487Z",
+      "bodyBytes": 20909,
+      "bodySha256": "9cb8a1a57ce19ba8f2cb8a5dc6b44638bc5ada327b8ff9ae4befe1011393c722",
+      "format": "rss",
+      "items": 10,
+      "continuations": 0,
+      "itemDateRange": ["2026-04-08", "2026-10-21"],
+      "disposition": "scope_and_history_review_only"
+    },
+    {
+      "targetId": "next-checkpoint-email-1",
+      "sourceId": "checkpoint-email:official:1",
+      "requestedUrl": "https://blog.checkpoint.com/feed/",
+      "reservationCount": 2091,
+      "httpStatus": null,
+      "observation": null,
+      "disposition": "response_status_and_body_unknown_for_explicit_target"
+    },
+    {
+      "targetId": "next-aqua-2",
+      "sourceId": "aqua:official:2",
+      "requestedUrl": "https://www.prnewswire.com/news/aqua-security/",
+      "reservationCount": 2092,
+      "status": 200,
+      "contentType": "text/html;charset=utf-8",
+      "fetchedAt": "2026-10-24T20:58:21.071962Z",
+      "bodyBytes": 238057,
+      "bodySha256": "8b2da66d12b042f97bb5e58e103cea2ddf9ef84c2d94aef2932e9a2f4bc89f49",
+      "pageTitle": "Aqua Security News and Press Releases | PR Newswire",
+      "heading": "News from Aqua Security",
+      "aquaReleaseLinks": 21,
+      "visibleDateRange": ["2020-02-27", "2021-10-11"],
+      "nextPage": "https://www.prnewswire.com/news/aqua-security/?page=2",
+      "disposition": "scope_and_history_review_only"
+    },
+    {
+      "targetId": "next-jfrog-1",
+      "sourceId": "jfrog:official:1",
+      "requestedUrl": "https://investors.jfrog.com/news/default.aspx",
+      "reservationCount": 2093,
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "fetchedAt": "2026-10-24T20:58:21.814627Z",
+      "bodyBytes": 114902,
+      "bodySha256": "ead58a93ed20878e2ffb83512b3e8b52c08d878b3dff19e8d95a1162630ef20d",
+      "pageTitle": "Jfrog Ltd. - News",
+      "staticAnchors": 42,
+      "staticPagerControl": true,
+      "q4Scripts": true,
+      "disposition": "single_page_scope_and_history_review_only"
+    },
+    {
+      "targetId": "next-rapid7-1",
+      "sourceId": "rapid7:official:1",
+      "requestedUrl": "https://investors.rapid7.com/news/default.aspx",
+      "reservationCount": 2094,
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "fetchedAt": "2026-10-24T20:58:21.972999Z",
+      "bodyBytes": 90652,
+      "bodySha256": "9ece5b105eb693076ea90ace3310c9cfbae7747b4e32faca80d9208dd1776479",
+      "pageTitle": "Rapid7 - News",
+      "staticAnchors": 99,
+      "staticPagerControl": false,
+      "q4Scripts": true,
+      "disposition": "single_page_scope_and_history_review_only"
+    },
+    {
+      "targetId": "next-rubrik-1",
+      "sourceId": "rubrik:official:1",
+      "requestedUrl": "https://ir.rubrik.com/news-events/press-releases/default.aspx",
+      "reservationCount": 2095,
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "fetchedAt": "2026-10-24T20:58:22.127737Z",
+      "bodyBytes": 42385,
+      "bodySha256": "c5a34d9cf87cd3e52f567fdf8883ca60e33f7e28a8923bc006469e91cd883a17",
+      "pageTitle": "Rubrik - News & Events - Press Releases",
+      "staticAnchors": 64,
+      "staticPagerControl": false,
+      "q4Scripts": true,
+      "disposition": "single_page_scope_and_history_review_only"
+    }
+  ],
+  "genericObservations": {
+    "sourceRows": 25,
+    "fetchReservations": 108,
+    "githubFeed": {
+      "url": "https://github.blog/feed/",
+      "status": 200,
+      "format": "rss",
+      "items": 10,
+      "bodySha256": "251d0a6b45ff8e4a1a40eba63b66781a7cfefbe6c1dd1151b2a1daae57107379"
+    },
+    "checkpointFeed": {
+      "url": "https://blog.checkpoint.com/feed/",
+      "status": 200,
+      "format": "rss",
+      "items": 10,
+      "scope": "separate_generic_observation_not_a_substitute_for_the_explicit_target_result"
+    },
+    "noQualificationOrCredit": true
+  },
+  "normalCollectorReplay": {
+    "asOf": "2026-10-25T00:23:00Z",
+    "runId": "2c57fb25697bfc4b40df574890334adfa1d6d0df610837e12aa3a71e22515523",
+    "checkedAt": "2026-10-24T18:32:51.588317Z",
+    "successfulTasks": 264,
+    "requiredTasks": 557,
+    "processing": {
+      "inventoryDocuments": 10655,
+      "reviewedDocuments": 23,
+      "pendingDocuments": 10632,
+      "heldDocuments": 5,
+      "unknownDateDocuments": 291,
+      "changedDocuments": 1,
+      "complete": false
+    },
+    "historicalReview": {
+      "inventoryDocuments": 10655,
+      "reviewedDocuments": 24,
+      "pendingDocuments": 10631,
+      "heldDocuments": 5,
+      "complete": false
+    },
+    "ordinaryFactRefs": 4,
+    "reviewQueue": 33,
+    "lastCollectionAt": "2026-10-24T18:32:51.588317Z",
+    "validUntil": "2026-10-26T00:29:16.957017+00:00",
+    "snapshotSha256": "6feec3970cb598b8edf8cea93b4af3d51eb903dc5ba7bbfb2b767fc8d6eff846",
+    "newFactIds": [],
+    "memoryStoreWrites": 0,
+    "networkRequests": 0,
+    "modelCalls": 0,
+    "archiveSealUnchanged": true
+  },
+  "production": {
+    "releaseId": "19fde803d09aa544672183769c257e37faf727b75e1914955f54f3c5fb126941",
+    "sequence": 3,
+    "changed": false
+  },
+  "limitations": [
+    "This is a bounded diagnostic, not source qualification, approval, or source-check credit.",
+    "The explicit Check Point result has no bound observation; its HTTP status and response body are unknown even though a separate generic request to the same URL parsed as RSS.",
+    "Trend Micro returned HTML at an RSS-target URL; no redirect or usable RSS response was observed.",
+    "The LevelBlue feed and four single-page HTML responses still need supplier-scope and history review; dynamic Q4 pagination was not traversed.",
+    "The 00:23 replay confirms the prior normal snapshot and its dates; it does not constitute a fresh scheduled collection or production publication."
+  ]
+}

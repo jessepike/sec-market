@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-24T20:46:36Z",
+  "account": "jessepike",
+  "operation": "GET notifications?all=true&participating=true&per_page=100",
+  "deliveryChannel": "GitHub notification inbox",
+  "notifications": [
+    {
+      "id": "26618476217",
+      "reason": "assign",
+      "subject": {
+        "title": "Daily market collector needs attention",
+        "type": "Issue",
+        "url": "https://api.github.com/repos/jessepike/sec-market/issues/13"
+      },
+      "unread": true,
+      "updated_at": "2026-10-24T18:38:03Z"
+    },
+    {
+      "id": "26611011936",
+      "reason": "assign",
+      "subject": {
+        "title": "Daily market publisher needs attention",
+        "type": "Issue",
+        "url": "https://api.github.com/repos/jessepike/sec-market/issues/12"
+      },
+      "unread": true,
+      "updated_at": "2026-10-24T18:55:01Z"
+    },
+    {
+      "id": "26580877562",
+      "reason": "assign",
+      "subject": {
+        "title": "Daily pipeline needs attention",
+        "type": "Issue",
+        "url": "https://api.github.com/repos/jessepike/sec-market/issues/10"
+      },
+      "unread": false,
+      "updated_at": "2026-10-24T16:15:07Z"
+    }
+  ],
+  "readStateChanged": false,
+  "phoneDelivery": "unverified",
+  "emailDelivery": "unverified"
+}
