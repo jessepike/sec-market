@@ -1,0 +1,56 @@
+{
+  "archiveRoot": "/var/tmp/smp-bounded-probe-20261024/archive-c9619457/jessepike-sec-market-c961945736499da3105d565e513eda78a01e996a",
+  "commit": "c961945736499da3105d565e513eda78a01e996a",
+  "manifestSha256": "b23cb5f5185e6a147956b89107ae6252fb53fbb24a5f49ece507deb7da020dc0",
+  "files": 35256,
+  "priorFiles": 35148,
+  "addedFiles": 108,
+  "removedFiles": [],
+  "changedExistingFiles": [
+    "state/heads/budget-2026-10-24.json",
+    "state/heads/cloud-lease.json"
+  ],
+  "immutableChanges": [],
+  "protectedHeads": {
+    "latest-run": true,
+    "cloud-collector": true,
+    "cloud-snapshot": true,
+    "dailySnapshot": true,
+    "correction-collection": true,
+    "production": true
+  },
+  "artifactDiagnosticMatchesRetainedRun": true,
+  "before": {
+    "files": 35260,
+    "contentSha256": "5b7caa38b7934a2d4fcb36c9b11110c8c9fa9af1530e5b751fa8e83bf1b506d4",
+    "fileMtimeSha256": "eab426d938445aa84343d1d5a792b3e71b2c078e2efb41f90926ab45f55c1727",
+    "directories": 1315,
+    "directoryMtimeSha256": "f928234ace9c02dcbdfb975312784c5b0474a446188cc0f42eb23f1d9d69d470"
+  },
+  "after": {
+    "files": 35260,
+    "contentSha256": "5b7caa38b7934a2d4fcb36c9b11110c8c9fa9af1530e5b751fa8e83bf1b506d4",
+    "fileMtimeSha256": "eab426d938445aa84343d1d5a792b3e71b2c078e2efb41f90926ab45f55c1727",
+    "directories": 1315,
+    "directoryMtimeSha256": "f928234ace9c02dcbdfb975312784c5b0474a446188cc0f42eb23f1d9d69d470"
+  },
+  "budget": {
+    "budgetDay": "2026-10-24",
+    "contractSha256": "79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60",
+    "fetchLimit": 5500,
+    "maximumRuntimeSeconds": 1200,
+    "startedAt": "2026-10-24T07:08:08.206596Z",
+    "initialBudget": {
+      "calls": 80,
+      "documents": 40,
+      "fetches": 1236
+    },
+    "probeFetchReservations": 33,
+    "reservationDenials": {},
+    "currentBudget": {
+      "calls": 80,
+      "documents": 40,
+      "fetches": 1269
+    }
+  }
+}

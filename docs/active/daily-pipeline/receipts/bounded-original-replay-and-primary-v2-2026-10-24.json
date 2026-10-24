@@ -1,0 +1,34 @@
+{
+  "actualRun": "40072784799",
+  "originalRevision": 1,
+  "originalPartialDiagnosticReplayedExactly": true,
+  "v2PrimaryShape": {
+    "canonical": "https://press.pingidentity.com/2019-08-23-Ping-Identity-Files-Registration-Statement-for-Proposed-IPO",
+    "heading": "Ping Identity Files Registration Statement for Proposed IPO",
+    "readableCharacters": 3273,
+    "dateMetadata": [],
+    "dateMetadataState": "unknown"
+  },
+  "body": {
+    "bytes": 64460,
+    "key": "objects/e282e8c041b3bded80dad2e2c4b4b30e2623e2a2073156c5b5a07f44d3ffcc6f",
+    "sha256": "e282e8c041b3bded80dad2e2c4b4b30e2623e2a2073156c5b5a07f44d3ffcc6f"
+  },
+  "originalFetchedAt": "2026-10-24T07:08:42.868204Z",
+  "before": {
+    "files": 35260,
+    "contentSha256": "5b7caa38b7934a2d4fcb36c9b11110c8c9fa9af1530e5b751fa8e83bf1b506d4",
+    "fileMtimeSha256": "eab426d938445aa84343d1d5a792b3e71b2c078e2efb41f90926ab45f55c1727",
+    "directories": 1315,
+    "directoryMtimeSha256": "f928234ace9c02dcbdfb975312784c5b0474a446188cc0f42eb23f1d9d69d470"
+  },
+  "after": {
+    "files": 35260,
+    "contentSha256": "5b7caa38b7934a2d4fcb36c9b11110c8c9fa9af1530e5b751fa8e83bf1b506d4",
+    "fileMtimeSha256": "eab426d938445aa84343d1d5a792b3e71b2c078e2efb41f90926ab45f55c1727",
+    "directories": 1315,
+    "directoryMtimeSha256": "f928234ace9c02dcbdfb975312784c5b0474a446188cc0f42eb23f1d9d69d470"
+  },
+  "storeMutations": 0,
+  "coverageCredit": false
+}

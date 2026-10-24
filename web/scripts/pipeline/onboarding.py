@@ -13,8 +13,9 @@ from urllib.parse import urljoin, urlsplit
 from urllib.robotparser import RobotFileParser
 
 from contracts import digest, instant, require, utcnow, valid_hash, validate_contract
-from discovery import (DELINEA_HTML_MODE, DELINEA_INDEX, PING_HTML_MODE, PING_INDEX,
-                       SONATYPE_HTML_MODE, SONATYPE_INDEX, IndexMarkup, Page,
+from discovery import (DELINEA_HTML_MODE, DELINEA_HTML_MODE_V2, DELINEA_INDEX,
+                       PING_HTML_MODE, PING_HTML_MODE_V2, PING_INDEX,
+                       SONATYPE_HTML_MODE, SONATYPE_HTML_MODE_V2, SONATYPE_INDEX, IndexMarkup, Page,
                        decoded_discovery_body, parse_source_html_index, xml_links)
 
 
@@ -26,6 +27,11 @@ BOUNDED_CANDIDATE_BINDINGS = (
     ('ping-identity:official:1', PING_INDEX, PING_HTML_MODE),
     ('delinea:official:1', DELINEA_INDEX, DELINEA_HTML_MODE),
     ('sonatype:official:1', SONATYPE_INDEX, SONATYPE_HTML_MODE),
+)
+BOUNDED_CANDIDATE_BINDINGS_V2 = (
+    ('ping-identity:official:1', PING_INDEX, PING_HTML_MODE_V2),
+    ('delinea:official:1', DELINEA_INDEX, DELINEA_HTML_MODE_V2),
+    ('sonatype:official:1', SONATYPE_INDEX, SONATYPE_HTML_MODE_V2),
 )
 
 
@@ -327,9 +333,17 @@ def _candidate_adapter(source, index_url, mode):
 
 
 def _validate_bounded_candidate_plan(contract, store, path, raw, plan):
-    require(isinstance(plan, dict) and set(plan) == {
+    revision = plan.get('parserRevision', 1) if isinstance(plan, dict) else None
+    require(type(revision) is int and revision in (1, 2)
+            and (revision == 2 or 'parserRevision' not in plan),
+            'BOUNDED_CANDIDATE_PARSER_REVISION_INVALID')
+    fields = {
             'schemaVersion', 'operation', 'marketSha256', 'maxRequests',
             'maxIndexPagesPerSource', 'primarySamplesPerSource', 'sources'}
+    if revision == 2:
+        fields.add('parserRevision')
+    bindings = BOUNDED_CANDIDATE_BINDINGS_V2 if revision == 2 else BOUNDED_CANDIDATE_BINDINGS
+    require(isinstance(plan, dict) and set(plan) == fields
             and type(plan.get('schemaVersion')) is int and plan['schemaVersion'] == 2
             and plan.get('operation') == BOUNDED_CANDIDATE_OPERATION
             and plan.get('marketSha256') == digest(contract)
@@ -344,7 +358,7 @@ def _validate_bounded_candidate_plan(contract, store, path, raw, plan):
     validated = []
     # Validate all source declarations and all independently retained start proofs
     # before the caller can make its first request.
-    for row, (source_id, index_url, mode) in zip(plan['sources'], BOUNDED_CANDIDATE_BINDINGS):
+    for row, (source_id, index_url, mode) in zip(plan['sources'], bindings):
         require(isinstance(row, dict) and set(row) == {
                 'sourceId', 'originalSourceSha256', 'proposedAdapterSha256', 'startProof'}
                 and row.get('sourceId') == source_id, 'BOUNDED_CANDIDATE_SOURCE_INVENTORY_INVALID')
@@ -396,7 +410,8 @@ def _validate_bounded_candidate_plan(contract, store, path, raw, plan):
             'BOUNDED_CANDIDATE_SOURCE_JOIN_NOT_ONE_TO_ONE')
     return {'rawSha256': digest(raw), 'canonicalSha256': digest(plan), 'path': str(path),
             'marketSha256': digest(contract), 'maxRequests': BOUNDED_CANDIDATE_MAX_REQUESTS,
-            'operation': BOUNDED_CANDIDATE_OPERATION, 'plan': plan, 'sources': validated}
+            'operation': BOUNDED_CANDIDATE_OPERATION, 'parserRevision': revision,
+            'plan': plan, 'sources': validated}
 
 
 def _validate_legacy_qualification_probe_plan(contract, store, path, *, raw=None, plan=None):
@@ -571,7 +586,7 @@ def _probe_qualification_targets(contract, store, fetcher, budget, plan):
             'coverageCredit': False, 'modelCalls': 0, 'facts': []}
 
 
-def _candidate_primary_shape(body, url):
+def _candidate_primary_shape(body, url, parser_revision=1):
     """Check primary transport shape only; produce no fact or admission."""
     decoded = decoded_discovery_body(body)
     text = decoded.decode('utf8', errors='strict')
@@ -580,6 +595,43 @@ def _candidate_primary_shape(body, url):
                   if node.tag == 'link' and 'canonical' in node.attrs.get('rel', '').split()]
     headings = [' '.join(node.text.split()) for node in nodes if node.tag == 'h1']
     require(canonicals == [url], 'BOUNDED_CANDIDATE_PRIMARY_CANONICAL_DIFFERS')
+    require(type(parser_revision) is int and parser_revision in (1, 2),
+            'BOUNDED_CANDIDATE_PARSER_REVISION_INVALID')
+    if parser_revision == 2 and urlsplit(url).netloc == 'press.pingidentity.com' \
+            and any(node.tag == 'div' and 'wd_newsfeed_releases-detail' in node.classes for node in nodes):
+        require(not headings, 'BOUNDED_CANDIDATE_PRIMARY_PING_DETAIL_AMBIGUOUS')
+    if parser_revision == 2 and not headings:
+        parsed_url = urlsplit(url)
+        require(parsed_url.scheme == 'https' and parsed_url.netloc == 'press.pingidentity.com'
+                and not parsed_url.query and not parsed_url.fragment
+                and re.fullmatch(r'/\d{4}-\d{2}-\d{2}-[A-Za-z0-9_,-]+', parsed_url.path),
+                'BOUNDED_CANDIDATE_PRIMARY_HEADING_AMBIGUOUS')
+        mains = [node for node in nodes if node.tag == 'main']
+        details = [node for node in nodes if node.tag == 'div'
+                   and 'wd_newsfeed_releases-detail' in node.classes]
+        titles = [node for node in nodes if node.tag == 'div' and 'wd_title' in node.classes]
+        bodies = [node for node in nodes if node.tag == 'div'
+                  and {'wd_body', 'wd_news_body'} <= node.classes]
+        require(len(mains) == len(details) == len(titles) == len(bodies) == 1
+                and all(node.closed for node in mains + details + titles + bodies)
+                and details[0].inside(mains[0]) and titles[0].parent is details[0]
+                and bodies[0].inside(details[0])
+                and len(' '.join(bodies[0].text.split())) >= 100,
+                'BOUNDED_CANDIDATE_PRIMARY_PING_DETAIL_AMBIGUOUS')
+        opening = ' '.join(bodies[0].text.split())[:2000].lower()
+        require(not any(marker in opening for marker in (
+            'your request originates from an undeclared automated tool',
+            'request rate threshold exceeded', 'access denied', 'verify you are human')),
+            'SOURCE_BLOCK_PAGE')
+        title = ' '.join(titles[0].text.split())
+        document_titles = [' '.join(node.text.split()) for node in nodes if node.tag == 'title']
+        og_titles = [node.attrs.get('content') for node in nodes
+                     if node.tag == 'meta' and node.attrs.get('property') == 'og:title']
+        og_urls = [node.attrs.get('content') for node in nodes
+                   if node.tag == 'meta' and node.attrs.get('property') == 'og:url']
+        require(title and document_titles == [title] and og_titles == [title] and og_urls == [url],
+                'BOUNDED_CANDIDATE_PRIMARY_PING_METADATA_DIFFERS')
+        headings = [title]
     require(len(headings) == 1 and headings[0], 'BOUNDED_CANDIDATE_PRIMARY_HEADING_AMBIGUOUS')
     from documents import readable_document
     readable = readable_document(body, 'text/html')
@@ -617,8 +669,8 @@ def _read_bounded_candidate_observation(store, reference, binding, url):
     return observed
 
 
-def _verify_bounded_candidate_result(contract, store, plan, report):
-    """Independently replay stored page bodies, joins and actual reservation references."""
+def _replay_bounded_candidate_result(contract, store, plan, report, raw_plan_bytes):
+    """Replay a bounded diagnostic against the exact immutable plan bytes supplied."""
     require(isinstance(report, dict) and type(report.get('schemaVersion')) is int and report.get('schemaVersion') == 1
             and report.get('operation') == BOUNDED_CANDIDATE_OPERATION
             and report.get('contractSha256') == digest(contract)
@@ -633,8 +685,8 @@ def _verify_bounded_candidate_result(contract, store, plan, report):
     plan_reference = report.get('planReference')
     require(isinstance(plan_reference, dict)
             and _qualification_reference(store, plan_reference, r'objects/[a-f0-9]{64}')
-            == Path(plan['path']).read_bytes()
-            and digest(Path(plan['path']).read_bytes()) == plan['rawSha256'],
+            == raw_plan_bytes
+            and digest(raw_plan_bytes) == plan['rawSha256'],
             'BOUNDED_CANDIDATE_PLAN_REFERENCE_DIFFERS')
     context = report.get('reservationContext')
     require(isinstance(context, dict) and context.get('contractSha256') == digest(contract)
@@ -652,6 +704,12 @@ def _verify_bounded_candidate_result(contract, store, plan, report):
     checked = instant(report['checkedAt']).astimezone(timezone.utc)
     denial_reasons = {denial.get('reason') for source_result in report.get('sources', [])
                       for denial in source_result.get('reservationDenials', [])}
+    outer_completion_denial = report.get('completionDenial')
+    if outer_completion_denial is not None:
+        require(outer_completion_denial in ('SOURCE_PROBE_DEADLINE_EXCEEDED',
+                                            'SOURCE_PROBE_UTC_DAY_CHANGED'),
+                'BOUNDED_CANDIDATE_COMPLETION_GUARD_INVALID')
+        denial_reasons.add(outer_completion_denial)
     require(started <= checked
             and (checked.date().isoformat() == context['budgetDay']
                  or 'SOURCE_PROBE_UTC_DAY_CHANGED' in denial_reasons)
@@ -788,7 +846,7 @@ def _verify_bounded_candidate_result(contract, store, plan, report):
                     else:
                         body = _qualification_reference(store, observed['body'], r'objects/[a-f0-9]{64}')
                         try:
-                            shape = _candidate_primary_shape(body, sample['url'])
+                            shape = _candidate_primary_shape(body, sample['url'], plan.get('parserRevision', 1))
                         except (ValueError, TypeError, KeyError) as error:
                             shape = {'error': str(error)[:160]}
                         require(sample.get('shape') == shape, 'BOUNDED_CANDIDATE_SAMPLE_SHAPE_REPLAY_DIFFERS')
@@ -866,15 +924,85 @@ def _verify_bounded_candidate_result(contract, store, plan, report):
         require((guard_reason is None and not completion_guards)
                 or (len(completion_guards) == 1 and guard_reason == completion_guards[0]),
                 'BOUNDED_CANDIDATE_COMPLETION_GUARD_INVALID')
+    expected_context_denials = Counter(denial_counts)
+    if outer_completion_denial is not None:
+        expected_context_denials[outer_completion_denial] += 1
     require(request_count <= BOUNDED_CANDIDATE_MAX_REQUESTS and len(charges) == len(set(charges))
             and len(charges) == context.get('probeFetchReservations')
             and sorted(charges) == list(range(initial_count + 1, current_count + 1))
             and current_count - initial_count == len(charges)
-            and dict(denial_counts) == context.get('reservationDenials', {})
-            and report.get('budgetDenied') is bool(denial_counts)
-            and report.get('executionCompleted') is (not bool(denial_counts)),
+            and dict(expected_context_denials) == context.get('reservationDenials', {})
+            and report.get('budgetDenied') is bool(expected_context_denials)
+            and report.get('executionCompleted') is (not bool(expected_context_denials)),
             'BOUNDED_CANDIDATE_TOTAL_REQUEST_BOUND_INVALID')
     return True
+
+
+def _verify_bounded_candidate_result(contract, store, plan, report):
+    """Replay a live diagnostic and require the current plan file to remain exact."""
+    require(isinstance(plan, dict) and isinstance(plan.get('path'), str),
+            'BOUNDED_CANDIDATE_CURRENT_PLAN_PATH_REQUIRED')
+    raw = Path(plan['path']).read_bytes()
+    require(digest(raw) == plan.get('rawSha256'), 'BOUNDED_CANDIDATE_CURRENT_PLAN_CHANGED')
+    return _replay_bounded_candidate_result(contract, store, plan, report, raw)
+
+
+def replay_bounded_candidate_diagnostic(original_contract, store, run_record_reference, raw_plan_reference):
+    """Replay one archived schema-2 diagnostic without consulting the live plan path.
+
+    The caller must authenticate the run record's external Actions provenance. This
+    function checks the immutable record reference and its internal execution envelope.
+    It returns diagnostic evidence only; it never changes a source declaration or grants
+    semantic, intake, or coverage credit.
+    """
+    record_raw = _qualification_reference(
+        store, run_record_reference, r'ci/source-probe-runs/[0-9]+-[0-9]+\.json')
+    record = json.loads(record_raw)
+    require(isinstance(record, dict)
+            and type(record.get('schemaVersion')) is int and record['schemaVersion'] == 1
+            and record.get('checkpointProfile') == 'source_probe'
+            and type(record.get('githubRunId')) in (str, int)
+            and str(record.get('githubRunId')).isdigit()
+            and type(record.get('githubRunAttempt')) is int and record['githubRunAttempt'] > 0
+            and run_record_reference['key'] ==
+                f"ci/source-probe-runs/{record['githubRunId']}-{record['githubRunAttempt']}.json"
+            and record.get('githubEventName') == 'workflow_dispatch'
+            and record.get('githubRef') == 'refs/heads/main'
+            and isinstance(record.get('appRevision'), str)
+            and re.fullmatch(r'[a-f0-9]{40}', record['appRevision'])
+            and record.get('contractSha256') == digest(original_contract)
+            and type(record.get('apiFallback')) is bool and record['apiFallback'] is False
+            and type(record.get('modelCalls')) is int and record['modelCalls'] == 0
+            and type(record.get('sourceChecksCredited')) is int and record['sourceChecksCredited'] == 0
+            and type(record.get('qualifiedSources')) is int and record['qualifiedSources'] == 0
+            and type(record.get('semanticAdmission')) is bool and record['semanticAdmission'] is False
+            and type(record.get('coverageCredit')) is bool and record['coverageCredit'] is False
+            and record.get('publication') == {'published': False,
+                'reason': 'SOURCE_PROBE_DIAGNOSTIC_ONLY'}
+            and isinstance(record.get('diagnostic'), dict),
+            'BOUNDED_CANDIDATE_HISTORICAL_RUN_ENVELOPE_INVALID')
+    report = record['diagnostic']
+    require(report.get('operation') == BOUNDED_CANDIDATE_OPERATION
+            and report.get('contractSha256') == digest(original_contract)
+            and report.get('planReference') == raw_plan_reference
+            and isinstance(raw_plan_reference, dict)
+            and set(raw_plan_reference) == {'key', 'sha256', 'bytes'},
+            'BOUNDED_CANDIDATE_HISTORICAL_PLAN_JOIN_INVALID')
+    raw = _qualification_reference(store, raw_plan_reference, r'objects/[a-f0-9]{64}')
+    try:
+        plan_data = json.loads(raw)
+    except (ValueError, TypeError):
+        require(False, 'BOUNDED_CANDIDATE_HISTORICAL_PLAN_JSON_INVALID')
+    plan = _validate_bounded_candidate_plan(original_contract, store, None, raw, plan_data)
+    require(type(record.get('executionCompleted')) is bool
+            and ((record.get('outcome') == 'completed_diagnostic'
+                  and record['executionCompleted'] and report.get('executionCompleted') is True)
+                 or (record.get('outcome') == 'budget_denied'
+                     and not record['executionCompleted'] and report.get('executionCompleted') is False)
+                 or (record.get('outcome') == 'cancelled' and not record['executionCompleted'])),
+            'BOUNDED_CANDIDATE_HISTORICAL_OUTCOME_INVALID')
+    _replay_bounded_candidate_result(original_contract, store, plan, report, raw)
+    return {'plan': plan, 'report': report}
 
 
 def _probe_bounded_candidate_traversal(contract, store, fetcher, budget, plan):
@@ -1016,7 +1144,8 @@ def _probe_bounded_candidate_traversal(contract, store, fetcher, budget, plan):
                             'BOUNDED_CANDIDATE_PRIMARY_RESPONSE_TIME_INVALID')
                     body = _qualification_reference(store, observed['body'], r'objects/[a-f0-9]{64}')
                     try:
-                        result['primarySample']['shape'] = _candidate_primary_shape(body, sample_url)
+                        result['primarySample']['shape'] = _candidate_primary_shape(
+                            body, sample_url, plan.get('parserRevision', 1))
                     except (ValueError, TypeError, KeyError) as error:
                         result['primarySample']['shape'] = {'error': str(error)[:160]}
                         result['reason'] = str(error)[:160]

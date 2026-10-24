@@ -9,7 +9,7 @@
     {
       "sourceId": "ping-identity:official:1",
       "originalSourceSha256": "b38afb84403d53cadcda401c89b10a1f66ef57ec4e119466a89daea6cee3998e",
-      "proposedAdapterSha256": "475a96547adb246a83441b5db4e111d51c06e352ea469d6efbfed0b7d453a333",
+      "proposedAdapterSha256": "6de42d307454adcc8648c518cf4eccdd146ee02dff007849313eec9f09526070",
       "startProof": {
         "type": "qualification_observation",
         "record": {
@@ -43,7 +43,7 @@
     {
       "sourceId": "delinea:official:1",
       "originalSourceSha256": "d6130aaaa8b1b04cb3324289c5befe7f76de687d297b3774b33629914babdee5",
-      "proposedAdapterSha256": "605e9e414b650c1fd21e2fba45b41968c37a0367cf4961c72decb3d57b647804",
+      "proposedAdapterSha256": "b6383a2a0034c6dc7937b910e24a64359500d78d45885ef46058374200322962",
       "startProof": {
         "type": "qualification_observation",
         "record": {
@@ -77,7 +77,7 @@
     {
       "sourceId": "sonatype:official:1",
       "originalSourceSha256": "19596f68dcf01c09d6a043dc47cd67ebbde0bdc079b5a7b42cad057f518da17e",
-      "proposedAdapterSha256": "9dfc1759b75c07838be019189d46a1b3c354e680d4359ac346356691d1e01d7f",
+      "proposedAdapterSha256": "c2957e860170f15ad1858005d7ebc00fc936d73c349637e5ef87e5b83494afe6",
       "startProof": {
         "type": "qualification_observation",
         "record": {
@@ -108,5 +108,6 @@
         "fetchedAt": "2026-10-24T06:18:06.058227Z"
       }
     }
-  ]
+  ],
+  "parserRevision": 2
 }

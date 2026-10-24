@@ -16,10 +16,13 @@ from regulatory import SEC_FILING_FORMS
 MAX_DISCOVERY_BYTES = 32_000_000
 ORCA_HTML_MODE = "orca-news-pagination-v1"
 PING_HTML_MODE = "ping-release-pagination-v1"
+PING_HTML_MODE_V2 = "ping-release-pagination-v2"
 PING_INDEX = "https://press.pingidentity.com/news-releases"
 DELINEA_HTML_MODE = 'delinea-news-pagination-v1'
+DELINEA_HTML_MODE_V2 = 'delinea-news-pagination-v2'
 DELINEA_INDEX = 'https://delinea.com/news'
 SONATYPE_HTML_MODE = 'sonatype-press-pagination-v1'
+SONATYPE_HTML_MODE_V2 = 'sonatype-press-pagination-v2'
 SONATYPE_INDEX = 'https://www.sonatype.com/press-releases'
 
 
@@ -39,7 +42,8 @@ def ping_index(source, url, body, highest_page, as_of):
             source['supplierId'] == 'ping-identity' and source['family'] == 'official_announcements' and
             source['allowedHosts'] == ['press.pingidentity.com'] and source['url'] == PING_INDEX and
             type(source['maxPages']) is int and 1 <= source['maxPages'] <= 60 and
-            source.get('htmlCompleteness') == PING_HTML_MODE, 'Ping HTML mode requires its exact supplier/source binding')
+            source.get('htmlCompleteness') in (PING_HTML_MODE, PING_HTML_MODE_V2),
+            'Ping HTML mode requires its exact supplier/source binding')
     current = ping_index_number(url)
     nodes = list(IndexMarkup(body.decode('utf8', errors='strict')).root.walk())
     def one(values, label):
@@ -63,11 +67,22 @@ def ping_index(source, url, body, highest_page, as_of):
         require(link.text.strip() and link.attrs.get('href'), 'Empty Ping title link')
         require(not any(ord(c) <= 32 or ord(c) == 127 for c in link.attrs['href']), 'Control or whitespace in Ping article URL')
         target = urljoin(url, link.attrs['href']); parsed = urlsplit(target)
-        require(parsed.scheme == 'https' and parsed.netloc == 'press.pingidentity.com' and not parsed.query and not parsed.fragment and
-                re.fullmatch(r'/\d{4}-\d{2}-\d{2}-[A-Za-z0-9_,-]+', parsed.path), 'Unsafe Ping article path')
+        path_ok = bool(re.fullmatch(r'/\d{4}-\d{2}-\d{2}-[A-Za-z0-9_,-]+', parsed.path))
+        compact_day = None
+        if source['htmlCompleteness'] == PING_HTML_MODE_V2:
+            compact = re.fullmatch(r'/(\d{6}-\d{2})-[A-Za-z0-9_,-]+', parsed.path)
+            if compact:
+                try:
+                    compact_day = datetime.strptime(compact.group(1), '%Y%m-%d').date().isoformat()
+                    path_ok = True
+                except ValueError:
+                    path_ok = False
+        require(parsed.scheme == 'https' and parsed.netloc == 'press.pingidentity.com' and not parsed.query and not parsed.fragment
+                and path_ok, 'Unsafe Ping article path')
         stamp = one([n for n in descendants if 'wd_date' in n.classes], 'card date').text.strip()
         require(re.fullmatch(r'[A-Z][a-z]{2} \d{2}, \d{4}', stamp), 'Malformed Ping card date')
         day = datetime.strptime(stamp, '%b %d, %Y').date().isoformat()
+        require(compact_day is None or compact_day == day, 'Ping compact article date differs from card date')
         require(day <= instant(as_of).astimezone(timezone.utc).date().isoformat(), 'Future Ping card date')
         require(target not in dates, 'Duplicate Ping card URL')
         dates[target] = day; ordered_dates.append(day)
@@ -219,13 +234,15 @@ def _index_target(base, href):
 
 def html_index_number(url, mode):
     """Strict request/continuation grammar for the two observed archive roots."""
-    root = DELINEA_INDEX if mode == DELINEA_HTML_MODE else SONATYPE_INDEX
-    require(mode in (DELINEA_HTML_MODE, SONATYPE_HTML_MODE), 'Unknown HTML index mode')
+    delinea = mode in (DELINEA_HTML_MODE, DELINEA_HTML_MODE_V2)
+    root = DELINEA_INDEX if delinea else SONATYPE_INDEX
+    require(mode in (DELINEA_HTML_MODE, DELINEA_HTML_MODE_V2,
+                     SONATYPE_HTML_MODE, SONATYPE_HTML_MODE_V2), 'Unknown HTML index mode')
     require(isinstance(url, str) and not any(ord(c) <= 32 or ord(c) == 127 for c in url), 'Unsafe HTML index URL text')
     parsed, expected = urlsplit(url), urlsplit(root)
     require(parsed.scheme == 'https' and parsed.netloc == expected.netloc and not parsed.fragment,
             'Unsafe HTML index destination')
-    if mode == DELINEA_HTML_MODE:
+    if delinea:
         require(not parsed.query, 'Unknown Delinea index query')
         match = re.fullmatch(r'/news(?:/page/([1-9]\d*))?', parsed.path)
         require(match is not None and (not match[1] or int(match[1]) >= 2), 'Unknown Delinea index path')
@@ -236,7 +253,7 @@ def html_index_number(url, mode):
 
 
 def _html_archive(source, url, body, mode):
-    delinea = mode == DELINEA_HTML_MODE
+    delinea = mode in (DELINEA_HTML_MODE, DELINEA_HTML_MODE_V2)
     supplier = 'delinea' if delinea else 'sonatype'
     root = DELINEA_INDEX if delinea else SONATYPE_INDEX
     host = urlsplit(root).netloc
@@ -258,15 +275,23 @@ def _html_archive(source, url, body, mode):
 def _archive_article_url(base, href, mode):
     target = _index_target(base, href)
     parsed = urlsplit(target)
-    root = urlsplit(DELINEA_INDEX if mode == DELINEA_HTML_MODE else SONATYPE_INDEX)
-    prefix = '/news/' if mode == DELINEA_HTML_MODE else '/press-releases/'
-    require(parsed.scheme == 'https' and parsed.netloc == root.netloc and not parsed.query and not parsed.fragment and
-            re.fullmatch(re.escape(prefix) + r'[a-z0-9]+(?:-[a-z0-9]+)*', parsed.path), 'Unsafe HTML archive article path')
+    delinea = mode in (DELINEA_HTML_MODE, DELINEA_HTML_MODE_V2)
+    root = urlsplit(DELINEA_INDEX if delinea else SONATYPE_INDEX)
+    prefix = '/news/' if delinea else '/press-releases/'
+    path_match = bool(re.fullmatch(re.escape(prefix) + r'[a-z0-9]+(?:-[a-z0-9]+)*', parsed.path))
+    if mode == DELINEA_HTML_MODE_V2:
+        path_match = bool(re.fullmatch(re.escape(prefix) + r'[a-z0-9]+(?:-[a-z0-9]+)*-?', parsed.path))
+    if mode == SONATYPE_HTML_MODE_V2 and parsed.path == (
+            '/press-releases/sonatype-introduces-cutting-edge-ai/ml-component-detection'):
+        path_match = True
+    require(parsed.scheme == 'https' and parsed.netloc == root.netloc and not parsed.query and not parsed.fragment
+            and path_match, 'Unsafe HTML archive article path')
     return target
 
 
 def delinea_index(source, url, body, highest_page, as_of):
-    current, nodes = _html_archive(source, url, body, DELINEA_HTML_MODE)
+    mode = source.get('htmlCompleteness')
+    current, nodes = _html_archive(source, url, body, mode)
     instant(as_of)
     region = _index_one([n for n in nodes if n.tag == 'section' and 'blog-index' in n.classes], 'Delinea cards')
     cards = [n for n in nodes if n.tag == 'article' and 'blog-index__post' in n.classes]
@@ -276,9 +301,9 @@ def delinea_index(source, url, body, highest_page, as_of):
         title = _index_one([n for n in card.walk() if n.tag == 'h2' and 'blog-index__post-title' in n.classes], 'Delinea title')
         link = _index_one([n for n in title.walk() if n.tag == 'a' and 'blog-index__post-title-link' in n.classes], 'Delinea title link')
         require(link.text.strip(), 'Empty Delinea title')
-        target = _archive_article_url(url, link.attrs.get('href'), DELINEA_HTML_MODE)
+        target = _archive_article_url(url, link.attrs.get('href'), mode)
         image = _index_one([n for n in card.walk() if n.tag == 'a' and 'blog-index__post-image-wrapper' in n.classes], 'Delinea image link')
-        require(_archive_article_url(url, image.attrs.get('href'), DELINEA_HTML_MODE) == target and target not in items,
+        require(_archive_article_url(url, image.attrs.get('href'), mode) == target and target not in items,
                 'Duplicate or conflicting Delinea article')
         items.add(target)
     paging = _index_one([n for n in nodes if n.tag == 'nav' and 'blog-pagination' in n.classes], 'Delinea pagination')
@@ -297,11 +322,11 @@ def delinea_index(source, url, body, highest_page, as_of):
         require('blog-pagination__prev-link--disabled' in previous.classes and not previous.attrs.get('href'), 'Delinea first previous differs')
     else:
         require('blog-pagination__prev-link--disabled' not in previous.classes and
-                html_index_number(_index_target(url, previous.attrs.get('href')), DELINEA_HTML_MODE) == current - 1,
+                html_index_number(_index_target(url, previous.attrs.get('href')), mode) == current - 1,
                 'Delinea previous mismatch')
     numbered, active = [], []
     for n in [n for n in anchors if 'blog-pagination__number-link' in n.classes]:
-        number = html_index_number(_index_target(url, n.attrs.get('href')), DELINEA_HTML_MODE)
+        number = html_index_number(_index_target(url, n.attrs.get('href')), mode)
         require(n.text.strip() == str(number), 'Delinea numbered label differs')
         numbered.append(number)
         if 'blog-pagination__link--active' in n.classes or n.attrs.get('aria-current'):
@@ -319,7 +344,7 @@ def delinea_index(source, url, body, highest_page, as_of):
     if following and following[0].attrs.get('href'):
         require('blog-pagination__next-link--disabled' not in following[0].classes, 'Conflicting Delinea disabled next')
         next_url = _index_target(url, following[0].attrs['href'])
-        require(html_index_number(next_url, DELINEA_HTML_MODE) == current + 1 and current + 1 in numbered and len(cards) == 12,
+        require(html_index_number(next_url, mode) == current + 1 and current + 1 in numbered and len(cards) == 12,
                 'Delinea next loop, gap or card-size change')
     head_next = [n for n in nodes if n.tag == 'link' and 'next' in n.attrs.get('rel', '').lower().split()]
     head_previous = [n for n in nodes if n.tag == 'link' and 'prev' in n.attrs.get('rel', '').lower().split()]
@@ -334,7 +359,8 @@ def delinea_index(source, url, body, highest_page, as_of):
 
 
 def sonatype_index(source, url, body, highest_page, as_of):
-    current, nodes = _html_archive(source, url, body, SONATYPE_HTML_MODE)
+    mode = source.get('htmlCompleteness')
+    current, nodes = _html_archive(source, url, body, mode)
     region = _index_one([n for n in nodes if n.tag == 'div' and 'listing__grid' in n.classes], 'Sonatype cards')
     cards = [n for n in nodes if n.tag == 'div' and 'listing__grid-card' in n.classes]
     require(0 < len(cards) <= 16 and all(n.closed and n.parent is region for n in cards), 'Invalid Sonatype card inventory')
@@ -344,7 +370,7 @@ def sonatype_index(source, url, body, highest_page, as_of):
         title = _index_one([n for n in content.walk() if n.tag == 'h3'], 'Sonatype title')
         link = _index_one([n for n in card.walk() if n.tag == 'a' and 'pr_link' in n.classes], 'Sonatype article link')
         require(title.text.strip(), 'Empty Sonatype title')
-        target = _archive_article_url(url, link.attrs.get('href'), SONATYPE_HTML_MODE)
+        target = _archive_article_url(url, link.attrs.get('href'), mode)
         meta = _index_one([n for n in content.walk() if n.tag == 'div' and 'card-content__meta' in n.classes], 'Sonatype date region')
         stamp = _index_one([n for n in meta.walk() if n.tag == 'p'], 'Sonatype date').text.strip()
         require(re.fullmatch(r'[A-Z][a-z]+ [0-9]{1,2}, [0-9]{4}', stamp), 'Malformed Sonatype card date')
@@ -362,7 +388,7 @@ def sonatype_index(source, url, body, highest_page, as_of):
         if 'pagination-link' in n.classes:
             require(n.parent.tag == 'li' and n.parent.parent is number_region and
                     n.classes <= {'pagination-link', 'current-page'}, 'Unknown Sonatype numbered control')
-            number = html_index_number(_index_target(url, n.attrs.get('href')), SONATYPE_HTML_MODE)
+            number = html_index_number(_index_target(url, n.attrs.get('href')), mode)
             require(n.text.strip() == str(number), 'Sonatype numbered label differs')
             numbered.append(number)
             if 'current-page' in n.classes:
@@ -387,7 +413,7 @@ def sonatype_index(source, url, body, highest_page, as_of):
                 require(n.text.strip() == 'Next', 'Sonatype next label differs')
                 if 'hide' not in parent.classes:
                     target = _index_target(url, n.attrs.get('href'))
-                    require(html_index_number(target, SONATYPE_HTML_MODE) == current + 1, 'Sonatype next loop or gap')
+                    require(html_index_number(target, mode) == current + 1, 'Sonatype next loop or gap')
                     following.append(target)
                 else:
                     require(n.attrs.get('href') == '/press-releases?page=' + str(current + 1), 'Unproved hidden Sonatype next target')
@@ -428,7 +454,9 @@ def sonatype_index(source, url, body, highest_page, as_of):
 
 def parse_source_html_index(source, url, body, highest_page, as_of):
     """Pure source-bound layout evidence; caller owns transport and qualification."""
-    modes = {PING_HTML_MODE: ping_index, DELINEA_HTML_MODE: delinea_index, SONATYPE_HTML_MODE: sonatype_index}
+    modes = {PING_HTML_MODE: ping_index, PING_HTML_MODE_V2: ping_index,
+             DELINEA_HTML_MODE: delinea_index, DELINEA_HTML_MODE_V2: delinea_index,
+             SONATYPE_HTML_MODE: sonatype_index, SONATYPE_HTML_MODE_V2: sonatype_index}
     require(source.get('htmlCompleteness') in modes, 'Unknown source HTML mode')
     require(type(highest_page) is int and highest_page >= 1, 'Invalid prior advertised HTML page')
     return modes[source['htmlCompleteness']](source, url, decoded_discovery_body(body), highest_page, as_of)
@@ -814,8 +842,11 @@ def discover(source, request):
     queue, seen, items, observations, item_dates, item_modified = [source["url"]], set(), set(), [], {}, {}
     highest_orca_page = 1
     orca_mode = source.get("htmlCompleteness") == ORCA_HTML_MODE
-    source_html_mode = source.get('htmlCompleteness') in (PING_HTML_MODE, DELINEA_HTML_MODE, SONATYPE_HTML_MODE)
-    source_label = {PING_HTML_MODE: 'PING', DELINEA_HTML_MODE: 'DELINEA', SONATYPE_HTML_MODE: 'SONATYPE'}.get(source.get('htmlCompleteness'))
+    source_html_mode = source.get('htmlCompleteness') in (PING_HTML_MODE, PING_HTML_MODE_V2,
+        DELINEA_HTML_MODE, DELINEA_HTML_MODE_V2, SONATYPE_HTML_MODE, SONATYPE_HTML_MODE_V2)
+    source_label = {PING_HTML_MODE: 'PING', PING_HTML_MODE_V2: 'PING',
+                    DELINEA_HTML_MODE: 'DELINEA', DELINEA_HTML_MODE_V2: 'DELINEA',
+                    SONATYPE_HTML_MODE: 'SONATYPE', SONATYPE_HTML_MODE_V2: 'SONATYPE'}.get(source.get('htmlCompleteness'))
     highest_source_page, last_source_date, source_as_of = 1, None, source.get('checkedAt')
     def incomplete(reason, **details):
         return {"complete": False, "items": sorted(items), "itemDates": item_dates,

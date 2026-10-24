@@ -12,9 +12,9 @@ use yet. Search and overlapping ownership/funding/stage navigation remain queued
 
 The owner accepted D-112: separate daily source intake, document processing and historical
 review, preserving all 74 suppliers, 557 obligations, URLs and original dates. Approved main is
-`377043028e01301b3433790caddc7a7dd5aaebc5`. Its actual preview web run `40069052672` passed;
-Vercel preview `dpl_FQhyLEHhWWUKoMXNeT3D6sefe5G8` is READY. Main web run `40069425216`
-also passed. The preceding main web run `40066479146` passed.
+`24b9b369758099f3b06739d3c7a7e93600cd362e`. Actual preview web run `40072560254` and
+read-only archive canary `40072560367` passed; Vercel preview
+`dpl_7FYDuZwqVow8U72X9gZPnMxNs8Sw` is READY. Main web run `40072766133` passed.
 The repaired historical request plan and early UTC publisher retry are active. Source registration,
 market-call authority, paid API prohibition and daily charged limits are unchanged.
 
@@ -63,12 +63,12 @@ accepted release and dated remediation observation remain separate and unchanged
 
 ## Limits, schedule and alerts
 
-October 24 UTC usage is **1,236 fetches / 80 model calls / 40 documents**. There are 4,264 fetches
+October 24 UTC usage is **1,269 fetches / 80 model calls / 40 documents**. There are 4,231 fetches
 remaining and no model/document allowance. Both gate/publication attempts are charged (2/2).
 Never reset/refund a charge, buy capacity or substitute paid models. Reserve the next natural
 UTC allowance for the real publisher and independent gate; production remains unchanged meanwhile.
 
-The normal 05:17 UTC October 24 collection has not appeared as of 06:26 UTC. The workflow is
+The normal 05:17 UTC October 24 collection has not appeared as of 07:12 UTC. The workflow is
 active, the private repository is enabled and main is its default branch. Earlier actual GitHub
 schedules started hours late. A manual run cannot supply timer evidence. Check the genuine next
 scheduled run and preserve its actual event, revision, source times and archived clock.
@@ -122,7 +122,23 @@ links, and retains a 183-request ceiling with zero models or source credit. Full
 primary shape samples and independent replay remain required; Delinea's terminal is still unproved.
 All 601 ops, 368 data, 115 pipeline and 42 browser checks pass (one uncollected-fixture skip).
 Same-fixture preview pixels remain exact at desktop/phone widths. No source is activated.
-Preview/main activation and the first actual bounded walk are next.
+The exact plan reached preview/main. Actual bounded diagnostic `40072784799` completed at
+07:08:47.637490 UTC, charging only 33 fetches (1,236 to 1,269) and zero models. All three walks
+remain partial: Ping page 18 rejects a literal article path and its primary sample has a scoped
+static title instead of an h1; Delinea page 9 and Sonatype page 3 reject literal article paths.
+No source gained qualification, normal intake, semantic admission or timer credit. The successful
+publisher callback `40073025706` correctly skipped publication for a manual diagnostic.
+Archive `c961945736499da3105d565e513eda78a01e996a`, manifest `b23cb5f5…020dc0`, verifies all
+35,256 files. All 35,148 earlier paths remain, with 108 additions, no immutable changes and
+unchanged normal collection, correction and production heads. Before/after file and directory
+seals are exact. Explicit version-2 parser support and its exact next plan pass independent review,
+preserving original version-1 failures, inventories and dates for historical replay. Eight focused
+revision tests include the independently found truncated/blocked scoped-body failures. All 652
+operational tests pass across the complete local tree, including the dormant helper. Full web
+checks pass again and both same-fixture screen widths remain pixel-identical. The reviewed V2
+plan is installed locally; a new main activation and real bounded diagnostic remain pending.
+The separate dormant inventory-origin helper has an empty trusted activation registry and is
+under independent review. No source is activated.
 [Local validation](docs/active/daily-pipeline/receipts/bounded-traversal-local-validation-2026-10-24.json) ·
 [Independent review](docs/active/daily-pipeline/accuracy/bounded-candidate-traversal-independent-review-2026-10-24.md).
 

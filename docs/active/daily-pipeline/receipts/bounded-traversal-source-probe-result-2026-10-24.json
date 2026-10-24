@@ -1,0 +1,2138 @@
+{
+  "schemaVersion": 1,
+  "checkpointProfile": "source_probe",
+  "githubRunId": "40072784799",
+  "githubRunAttempt": 1,
+  "githubEventName": "workflow_dispatch",
+  "githubRef": "refs/heads/main",
+  "appRevision": "24b9b369758099f3b06739d3c7a7e93600cd362e",
+  "contractSha256": "79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60",
+  "diagnostic": {
+    "schemaVersion": 1,
+    "operation": "bounded_candidate_traversal",
+    "checkedAt": "2026-10-24T07:08:47.637490Z",
+    "startedAt": "2026-10-24T07:08:08.206596Z",
+    "contractSha256": "79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60",
+    "planRawSha256": "fd0ab3821699d577782754cfb1ddc7ba7e4d4f9c2a7c6fd626d4b1f12c6644f7",
+    "planCanonicalSha256": "7cf3f9b2e3314c930ca5d8c482551fc015fbe4a819f151df9f1dc42f333488e1",
+    "planReference": {
+      "key": "objects/fd0ab3821699d577782754cfb1ddc7ba7e4d4f9c2a7c6fd626d4b1f12c6644f7",
+      "sha256": "fd0ab3821699d577782754cfb1ddc7ba7e4d4f9c2a7c6fd626d4b1f12c6644f7",
+      "bytes": 5315
+    },
+    "sources": [
+      {
+        "sourceId": "ping-identity:official:1",
+        "supplierId": "ping-identity",
+        "registration": "candidate",
+        "originalSourceSha256": "b38afb84403d53cadcda401c89b10a1f66ef57ec4e119466a89daea6cee3998e",
+        "proposedAdapterSha256": "475a96547adb246a83441b5db4e111d51c06e352ea469d6efbfed0b7d453a333",
+        "observations": [
+          {
+            "url": "https://press.pingidentity.com/news-releases",
+            "observation": {
+              "key": "objects/894e06c5b6e8f76da70338ceb8c69b81c02b7b71664f197c63eff8364026dce3",
+              "sha256": "894e06c5b6e8f76da70338ceb8c69b81c02b7b71664f197c63eff8364026dce3",
+              "bytes": 390
+            },
+            "parser": {
+              "currentPage": 1,
+              "highestPage": 25,
+              "items": [
+                "https://press.pingidentity.com/2026-03-24-Ping-Identity-Defines-the-Runtime-Identity-Standard-for-Autonomous-AI",
+                "https://press.pingidentity.com/2026-04-22-Ping-Identity-Wins-2026-Google-Cloud-Security-Partner-of-the-Year-Award-for-Identity-Access-Management",
+                "https://press.pingidentity.com/2026-04-28-Ping-Identity-Warns-of-Emerging-Authorization-Risks-as-AI-Agents-Scale-Across-Enterprises",
+                "https://press.pingidentity.com/2026-05-05-Ping-Identity-and-OLOID-Bring-Passwordless,-Verified-Trust-to-the-Clinical-Workforce",
+                "https://press.pingidentity.com/2026-05-27-Ping-Identity-Redefines-the-Identity-Control-Plane-for-the-Agentic-Enterprise",
+                "https://press.pingidentity.com/2026-06-16-Ping-Identity-Extends-Runtime-Identity-TM-for-AI-Agents-Across-AWS,-Google-Cloud,-and-Cloudflare",
+                "https://press.pingidentity.com/2026-07-28-Ping-Identity-Verification-and-Fraud-Protection-Listed-in-Epic-Toolbox",
+                "https://press.pingidentity.com/2026-09-01-Ping-Identity-Secures-Claude-Personal-Agents-From-Discovery-to-Action",
+                "https://press.pingidentity.com/2026-09-29-Ping-Identity-Launches-Identity-Agents-on-Google-Cloud-Marketplace",
+                "https://press.pingidentity.com/2026-10-06-Ping-Identity-Survey-Finds-AI-Trust-Changes-When-Assistance-Turns-to-Action"
+              ],
+              "dates": {
+                "https://press.pingidentity.com/2026-10-06-Ping-Identity-Survey-Finds-AI-Trust-Changes-When-Assistance-Turns-to-Action": "2026-10-06",
+                "https://press.pingidentity.com/2026-09-29-Ping-Identity-Launches-Identity-Agents-on-Google-Cloud-Marketplace": "2026-09-29",
+                "https://press.pingidentity.com/2026-09-01-Ping-Identity-Secures-Claude-Personal-Agents-From-Discovery-to-Action": "2026-09-01",
+                "https://press.pingidentity.com/2026-07-28-Ping-Identity-Verification-and-Fraud-Protection-Listed-in-Epic-Toolbox": "2026-07-28",
+                "https://press.pingidentity.com/2026-06-16-Ping-Identity-Extends-Runtime-Identity-TM-for-AI-Agents-Across-AWS,-Google-Cloud,-and-Cloudflare": "2026-06-16",
+                "https://press.pingidentity.com/2026-05-27-Ping-Identity-Redefines-the-Identity-Control-Plane-for-the-Agentic-Enterprise": "2026-05-27",
+                "https://press.pingidentity.com/2026-05-05-Ping-Identity-and-OLOID-Bring-Passwordless,-Verified-Trust-to-the-Clinical-Workforce": "2026-05-05",
+                "https://press.pingidentity.com/2026-04-28-Ping-Identity-Warns-of-Emerging-Authorization-Risks-as-AI-Agents-Scale-Across-Enterprises": "2026-04-28",
+                "https://press.pingidentity.com/2026-04-22-Ping-Identity-Wins-2026-Google-Cloud-Security-Partner-of-the-Year-Award-for-Identity-Access-Management": "2026-04-22",
+                "https://press.pingidentity.com/2026-03-24-Ping-Identity-Defines-the-Runtime-Identity-Standard-for-Autonomous-AI": "2026-03-24"
+              },
+              "next": "https://press.pingidentity.com/news-releases?o=10",
+              "terminalProved": false
+            }
+          },
+          {
+            "url": "https://press.pingidentity.com/news-releases?o=10",
+            "observation": {
+              "key": "objects/045243c1f5a9299c9eb588236b6fc429d61e1539c253bc7079a3a2f8d429aa2e",
+              "sha256": "045243c1f5a9299c9eb588236b6fc429d61e1539c253bc7079a3a2f8d429aa2e",
+              "bytes": 395
+            },
+            "parser": {
+              "currentPage": 2,
+              "highestPage": 25,
+              "items": [
+                "https://press.pingidentity.com/2025-09-17-Ping-Identity-Shapes-the-Future-of-Enterprise-Security-With-AI-Driven-Trust-Framework",
+                "https://press.pingidentity.com/2025-10-01-Ping-Identity-Survey-Reveals-Consumer-Trust-Plummeting-as-AI-Use-Soars",
+                "https://press.pingidentity.com/2025-10-30-Ping-Identity-Strengthens-Defense-Against-AI-Driven-Impersonation-with-Privacy-Preserving-Biometrics",
+                "https://press.pingidentity.com/2025-11-06-Ping-Identity-Launches-Identity-for-AI-Solution-to-Power-Innovation-and-Trust-in-the-Agent-Economy",
+                "https://press.pingidentity.com/2025-11-18-Ping-Identity-Recognized-as-a-Leader-in-2025-Gartner-R-Magic-Quadrant-TM-for-Access-Management",
+                "https://press.pingidentity.com/2026-01-06-Ping-Identity-Appoints-Adnan-Chaudhry-as-Chief-Revenue-Officer-to-Scale-Trusted-Identity-for-the-AI-Era",
+                "https://press.pingidentity.com/2026-01-07-Ping-Identity-Marks-Digital-Trust-Milestone-with-Zero-Knowledge-Biometrics-in-the-Age-of-AI",
+                "https://press.pingidentity.com/2026-01-20-Ping-Identity-Advances-Universal-Services-to-Redefine-Trust-in-the-Age-of-AI-Driven-Fraud",
+                "https://press.pingidentity.com/2026-02-26-Ping-Identity-Secure-Containers-Approved-for-Iron-Bank-to-Accelerate-IL5-Deployment-Across-Defense-Environments",
+                "https://press.pingidentity.com/2026-03-17-Ping-Identity-Only-9-of-Organizations-are-Prepared-for-Continuous-AI-Driven-Identity-Threats"
+              ],
+              "dates": {
+                "https://press.pingidentity.com/2026-03-17-Ping-Identity-Only-9-of-Organizations-are-Prepared-for-Continuous-AI-Driven-Identity-Threats": "2026-03-17",
+                "https://press.pingidentity.com/2026-02-26-Ping-Identity-Secure-Containers-Approved-for-Iron-Bank-to-Accelerate-IL5-Deployment-Across-Defense-Environments": "2026-02-26",
+                "https://press.pingidentity.com/2026-01-20-Ping-Identity-Advances-Universal-Services-to-Redefine-Trust-in-the-Age-of-AI-Driven-Fraud": "2026-01-20",
+                "https://press.pingidentity.com/2026-01-07-Ping-Identity-Marks-Digital-Trust-Milestone-with-Zero-Knowledge-Biometrics-in-the-Age-of-AI": "2026-01-07",
+                "https://press.pingidentity.com/2026-01-06-Ping-Identity-Appoints-Adnan-Chaudhry-as-Chief-Revenue-Officer-to-Scale-Trusted-Identity-for-the-AI-Era": "2026-01-06",
+                "https://press.pingidentity.com/2025-11-18-Ping-Identity-Recognized-as-a-Leader-in-2025-Gartner-R-Magic-Quadrant-TM-for-Access-Management": "2025-11-18",
+                "https://press.pingidentity.com/2025-11-06-Ping-Identity-Launches-Identity-for-AI-Solution-to-Power-Innovation-and-Trust-in-the-Agent-Economy": "2025-11-06",
+                "https://press.pingidentity.com/2025-10-30-Ping-Identity-Strengthens-Defense-Against-AI-Driven-Impersonation-with-Privacy-Preserving-Biometrics": "2025-10-30",
+                "https://press.pingidentity.com/2025-10-01-Ping-Identity-Survey-Reveals-Consumer-Trust-Plummeting-as-AI-Use-Soars": "2025-10-01",
+                "https://press.pingidentity.com/2025-09-17-Ping-Identity-Shapes-the-Future-of-Enterprise-Security-With-AI-Driven-Trust-Framework": "2025-09-17"
+              },
+              "next": "https://press.pingidentity.com/news-releases?o=20",
+              "terminalProved": false
+            }
+          },
+          {
+            "url": "https://press.pingidentity.com/news-releases?o=20",
+            "observation": {
+              "key": "objects/fb05ac09c3fdee9cb228c5bb07fc05eb470935f9bc79e2a90041444e1d1b1dab",
+              "sha256": "fb05ac09c3fdee9cb228c5bb07fc05eb470935f9bc79e2a90041444e1d1b1dab",
+              "bytes": 395
+            },
+            "parser": {
+              "currentPage": 3,
+              "highestPage": 25,
+              "items": [
+                "https://press.pingidentity.com/2024-09-25-Ping-Identity-Survey-Finds-87-of-Consumers-Concerned-About-Identity-Fraud,-as-AI-Sparks-Hesitation",
+                "https://press.pingidentity.com/2024-10-29-Ping-Identitys-YOUniverse-2024-Celebrates-the-Future-of-Identity",
+                "https://press.pingidentity.com/2024-11-14-Ping-Identity-Surpasses-30-Annual-Growth-in-SaaS-Revenue-and-Approaches-800M-ARR-as-an-Enterprise-Identity-Market-Leader",
+                "https://press.pingidentity.com/2024-12-05-Ping-Identity-Named-as-a-Leader-in-2024-Gartner-R-Magic-Quadrant-TM-for-Access-Management",
+                "https://press.pingidentity.com/2024-12-06-Ping-Identity-Named-a-Leader-in-Q4-2024-Analyst-Report-on-Customer-Identity-and-Access-Management-Solutions",
+                "https://press.pingidentity.com/2024-12-12-Ping-Identity-Celebrates-Identity-Excellence-Award-Winners-2024",
+                "https://press.pingidentity.com/2025-01-09-Ping-Identity-Named-a-2025-Best-Place-to-Work-for-Seventh-Consecutive-Year-by-Built-In",
+                "https://press.pingidentity.com/2025-04-10-Ping-Identity-Doubles-Down-on-Partner-Strategy-with-New-Partner-Program-and-Advisory-Board",
+                "https://press.pingidentity.com/2025-08-05-Ping-Identity-Named-a-Leader-in-Three-2025-KuppingerCole-Reports",
+                "https://press.pingidentity.com/2025-08-18-Ping-Identity-Unveils-Just-in-time-Privileged-Access-Capability-to-Empower-Enterprises-Across-the-Full-Identity-Lifecycle"
+              ],
+              "dates": {
+                "https://press.pingidentity.com/2025-08-18-Ping-Identity-Unveils-Just-in-time-Privileged-Access-Capability-to-Empower-Enterprises-Across-the-Full-Identity-Lifecycle": "2025-08-18",
+                "https://press.pingidentity.com/2025-08-05-Ping-Identity-Named-a-Leader-in-Three-2025-KuppingerCole-Reports": "2025-08-05",
+                "https://press.pingidentity.com/2025-04-10-Ping-Identity-Doubles-Down-on-Partner-Strategy-with-New-Partner-Program-and-Advisory-Board": "2025-04-10",
+                "https://press.pingidentity.com/2025-01-09-Ping-Identity-Named-a-2025-Best-Place-to-Work-for-Seventh-Consecutive-Year-by-Built-In": "2025-01-09",
+                "https://press.pingidentity.com/2024-12-12-Ping-Identity-Celebrates-Identity-Excellence-Award-Winners-2024": "2024-12-12",
+                "https://press.pingidentity.com/2024-12-06-Ping-Identity-Named-a-Leader-in-Q4-2024-Analyst-Report-on-Customer-Identity-and-Access-Management-Solutions": "2024-12-06",
+                "https://press.pingidentity.com/2024-12-05-Ping-Identity-Named-as-a-Leader-in-2024-Gartner-R-Magic-Quadrant-TM-for-Access-Management": "2024-12-05",
+                "https://press.pingidentity.com/2024-11-14-Ping-Identity-Surpasses-30-Annual-Growth-in-SaaS-Revenue-and-Approaches-800M-ARR-as-an-Enterprise-Identity-Market-Leader": "2024-11-14",
+                "https://press.pingidentity.com/2024-10-29-Ping-Identitys-YOUniverse-2024-Celebrates-the-Future-of-Identity": "2024-10-29",
+                "https://press.pingidentity.com/2024-09-25-Ping-Identity-Survey-Finds-87-of-Consumers-Concerned-About-Identity-Fraud,-as-AI-Sparks-Hesitation": "2024-09-25"
+              },
+              "next": "https://press.pingidentity.com/news-releases?o=30",
+              "terminalProved": false
+            }
+          },
+          {
+            "url": "https://press.pingidentity.com/news-releases?o=30",
+            "observation": {
+              "key": "objects/73f2f52115f8be00625772b0aeeba7c728fc12820a52e6c9ca809a709f5fb8e0",
+              "sha256": "73f2f52115f8be00625772b0aeeba7c728fc12820a52e6c9ca809a709f5fb8e0",
+              "bytes": 395
+            },
+            "parser": {
+              "currentPage": 4,
+              "highestPage": 25,
+              "items": [
+                "https://press.pingidentity.com/2024-02-27-Ping-Identity-Named-an-Overall-Leader-in-2024-KuppingerCole-Identity-Fabrics-Leadership-Compass",
+                "https://press.pingidentity.com/2024-03-05-Ping-Identity-Celebrates-the-Next-Generation-at-Girls-and-Science-Event",
+                "https://press.pingidentity.com/2024-03-19-Ping-Identity-Expands-Authorized-Training-Partner-Network-with-TD-SYNNEX-and-ExitCertified",
+                "https://press.pingidentity.com/2024-04-02-Ping-Identity-Wins-the-2024-Gold-Globee-R-Award-for-Identity-and-Access-Management",
+                "https://press.pingidentity.com/2024-04-30-Ping-Identity-Global-Survey-Reveals-Urgent-Need-for-Advanced-Identity-Protection-in-AI-Era",
+                "https://press.pingidentity.com/2024-05-07-Ping-Identity-Named-Global-InfoSec-Award-Winner-at-RSA-2024-for-Second-Year",
+                "https://press.pingidentity.com/2024-05-22-Ping-Identity-Celebrates-Second-Annual-HelPING-Hands-Day,-a-Global-Day-of-Giving-Back",
+                "https://press.pingidentity.com/2024-06-04-Ping-Identity-Named-Leader-in-Two-2024-KuppingerCole-Reports-for-CIAM-and-Passwordless",
+                "https://press.pingidentity.com/2024-09-03-Ping-Identity-Adds-Key-ICAM-Capabilities-to-FedRAMP-High-DoD-IL5-Offerings",
+                "https://press.pingidentity.com/2024-09-10-Ping-Identity-Named-a-Leader-in-KuppingerColes-Passwordless-for-Enterprises-Leadership-Compass"
+              ],
+              "dates": {
+                "https://press.pingidentity.com/2024-09-10-Ping-Identity-Named-a-Leader-in-KuppingerColes-Passwordless-for-Enterprises-Leadership-Compass": "2024-09-10",
+                "https://press.pingidentity.com/2024-09-03-Ping-Identity-Adds-Key-ICAM-Capabilities-to-FedRAMP-High-DoD-IL5-Offerings": "2024-09-03",
+                "https://press.pingidentity.com/2024-06-04-Ping-Identity-Named-Leader-in-Two-2024-KuppingerCole-Reports-for-CIAM-and-Passwordless": "2024-06-04",
+                "https://press.pingidentity.com/2024-05-22-Ping-Identity-Celebrates-Second-Annual-HelPING-Hands-Day,-a-Global-Day-of-Giving-Back": "2024-05-22",
+                "https://press.pingidentity.com/2024-05-07-Ping-Identity-Named-Global-InfoSec-Award-Winner-at-RSA-2024-for-Second-Year": "2024-05-07",
+                "https://press.pingidentity.com/2024-04-30-Ping-Identity-Global-Survey-Reveals-Urgent-Need-for-Advanced-Identity-Protection-in-AI-Era": "2024-04-30",
+                "https://press.pingidentity.com/2024-04-02-Ping-Identity-Wins-the-2024-Gold-Globee-R-Award-for-Identity-and-Access-Management": "2024-04-02",
+                "https://press.pingidentity.com/2024-03-19-Ping-Identity-Expands-Authorized-Training-Partner-Network-with-TD-SYNNEX-and-ExitCertified": "2024-03-19",
+                "https://press.pingidentity.com/2024-03-05-Ping-Identity-Celebrates-the-Next-Generation-at-Girls-and-Science-Event": "2024-03-05",
+                "https://press.pingidentity.com/2024-02-27-Ping-Identity-Named-an-Overall-Leader-in-2024-KuppingerCole-Identity-Fabrics-Leadership-Compass": "2024-02-27"
+              },
+              "next": "https://press.pingidentity.com/news-releases?o=40",
+              "terminalProved": false
+            }
+          },
+          {
+            "url": "https://press.pingidentity.com/news-releases?o=40",
+            "observation": {
+              "key": "objects/d80d652c51946f98ffd3ce36254df5e883e6021ddc01c12487578916bbf0ba6c",
+              "sha256": "d80d652c51946f98ffd3ce36254df5e883e6021ddc01c12487578916bbf0ba6c",
+              "bytes": 395
+            },
+            "parser": {
+              "currentPage": 5,
+              "highestPage": 25,
+              "items": [
+                "https://press.pingidentity.com/2023-05-30-Ping-Identity-Launches-PingOne-Protect-a-New-Way-to-Protect-Against-Identity-Fraud",
+                "https://press.pingidentity.com/2023-07-19-Ping-Identitys-DaVinci-Honored-with-CRNs-2023-Tech-Innovator-Award",
+                "https://press.pingidentity.com/2023-08-22-Ping-Identity-Recognized-as-an-Overall-Leader-in-2023-KuppingerCole-Access-Management-Report",
+                "https://press.pingidentity.com/2023-09-19-Ping-Identitys-New-Solution-Propels-a-Passwordless-Future-for-Better-Customer-Experiences",
+                "https://press.pingidentity.com/2023-10-10-Ping-Identitys-YOUniverse-2023-Underscores-Commitment-to-Customers-and-Acceleration-to-Cloud",
+                "https://press.pingidentity.com/2023-10-24-Ping-Identity-Survey-Finds-Easy-Digital-Experiences-Are-New-Barometer-for-Customer-Loyalty",
+                "https://press.pingidentity.com/2023-10-31-Ping-Identity-Achieves-FedRAMP-High-Certification",
+                "https://press.pingidentity.com/2023-11-21-Ping-Identity-and-ForgeRock-Named-as-Leaders-in-2023-Gartner-R-Magic-Quadrant-TM-for-Access-Management",
+                "https://press.pingidentity.com/2023-12-12-Ping-Identity-Celebrates-Identity-Excellence-Award-Winners-2023",
+                "https://press.pingidentity.com/2024-01-09-Ping-Identity-Honored-Among-Best-Places-to-Work-in-US-2024-by-Built-In"
+              ],
+              "dates": {
+                "https://press.pingidentity.com/2024-01-09-Ping-Identity-Honored-Among-Best-Places-to-Work-in-US-2024-by-Built-In": "2024-01-09",
+                "https://press.pingidentity.com/2023-12-12-Ping-Identity-Celebrates-Identity-Excellence-Award-Winners-2023": "2023-12-12",
+                "https://press.pingidentity.com/2023-11-21-Ping-Identity-and-ForgeRock-Named-as-Leaders-in-2023-Gartner-R-Magic-Quadrant-TM-for-Access-Management": "2023-11-21",
+                "https://press.pingidentity.com/2023-10-31-Ping-Identity-Achieves-FedRAMP-High-Certification": "2023-10-31",
+                "https://press.pingidentity.com/2023-10-24-Ping-Identity-Survey-Finds-Easy-Digital-Experiences-Are-New-Barometer-for-Customer-Loyalty": "2023-10-24",
+                "https://press.pingidentity.com/2023-10-10-Ping-Identitys-YOUniverse-2023-Underscores-Commitment-to-Customers-and-Acceleration-to-Cloud": "2023-10-10",
+                "https://press.pingidentity.com/2023-09-19-Ping-Identitys-New-Solution-Propels-a-Passwordless-Future-for-Better-Customer-Experiences": "2023-09-19",
+                "https://press.pingidentity.com/2023-08-22-Ping-Identity-Recognized-as-an-Overall-Leader-in-2023-KuppingerCole-Access-Management-Report": "2023-08-22",
+                "https://press.pingidentity.com/2023-07-19-Ping-Identitys-DaVinci-Honored-with-CRNs-2023-Tech-Innovator-Award": "2023-07-19",
+                "https://press.pingidentity.com/2023-05-30-Ping-Identity-Launches-PingOne-Protect-a-New-Way-to-Protect-Against-Identity-Fraud": "2023-05-30"
+              },
+              "next": "https://press.pingidentity.com/news-releases?o=50",
+              "terminalProved": false
+            }
+          },
+          {
+            "url": "https://press.pingidentity.com/news-releases?o=50",
+            "observation": {
+              "key": "objects/38695c0a55e4da8dd776cc73c9bf08d474886f5fbaa242728f23a127a92d8a9a",
+              "sha256": "38695c0a55e4da8dd776cc73c9bf08d474886f5fbaa242728f23a127a92d8a9a",
+              "bytes": 395
+            },
+            "parser": {
+              "currentPage": 6,
+              "highestPage": 25,
+              "items": [
+                "https://press.pingidentity.com/2022-11-16-Ping-Identity-Named-a-Leader-in-Customer-Identity-and-Access-Management-2022-Analyst-Report",
+                "https://press.pingidentity.com/2022-12-06-Ping-Identity-Solutions-Now-Available-Through-Carahsofts-U-S-Department-of-Defense-Enterprise-Software-Initiative-Blanket-Purchase-Agreement",
+                "https://press.pingidentity.com/2023-01-12-Ping-Identity-Recognized-on-Built-Ins-2023-Best-Places-to-Work-Lists",
+                "https://press.pingidentity.com/2023-02-14-Ping-Identity-and-Deloitte-Forge-Alliance-to-Give-Organizations-Advanced-Identity-and-Access-Solutions",
+                "https://press.pingidentity.com/2023-02-28-Ping-Identity-Named-an-Overall-Leader-in-2023-KuppingerCole-Leadership-Compass-for-Reusable-Verified-Identity",
+                "https://press.pingidentity.com/2023-03-20-Ping-Identity-Launches-New-Decentralized-Identity-Management-Solution",
+                "https://press.pingidentity.com/2023-04-25-Ping-Identity-Named-Winner-of-the-Coveted-Global-InfoSec-Awards-during-RSA-2023",
+                "https://press.pingidentity.com/2023-05-04-Ping-Identity-Wins-Cloud-Security-Award-at-2023-Security-Excellence-Awards",
+                "https://press.pingidentity.com/2023-05-16-Ping-Identity-Achieves-DOD-IL5-Authorization",
+                "https://press.pingidentity.com/2023-05-24-Ping-Identity-Recognized-as-Top-Workplace-by-Denver-Post-for-Ninth-Time"
+              ],
+              "dates": {
+                "https://press.pingidentity.com/2023-05-24-Ping-Identity-Recognized-as-Top-Workplace-by-Denver-Post-for-Ninth-Time": "2023-05-24",
+                "https://press.pingidentity.com/2023-05-16-Ping-Identity-Achieves-DOD-IL5-Authorization": "2023-05-16",
+                "https://press.pingidentity.com/2023-05-04-Ping-Identity-Wins-Cloud-Security-Award-at-2023-Security-Excellence-Awards": "2023-05-04",
+                "https://press.pingidentity.com/2023-04-25-Ping-Identity-Named-Winner-of-the-Coveted-Global-InfoSec-Awards-during-RSA-2023": "2023-04-25",
+                "https://press.pingidentity.com/2023-03-20-Ping-Identity-Launches-New-Decentralized-Identity-Management-Solution": "2023-03-20",
+                "https://press.pingidentity.com/2023-02-28-Ping-Identity-Named-an-Overall-Leader-in-2023-KuppingerCole-Leadership-Compass-for-Reusable-Verified-Identity": "2023-02-28",
+                "https://press.pingidentity.com/2023-02-14-Ping-Identity-and-Deloitte-Forge-Alliance-to-Give-Organizations-Advanced-Identity-and-Access-Solutions": "2023-02-14",
+                "https://press.pingidentity.com/2023-01-12-Ping-Identity-Recognized-on-Built-Ins-2023-Best-Places-to-Work-Lists": "2023-01-12",
+                "https://press.pingidentity.com/2022-12-06-Ping-Identity-Solutions-Now-Available-Through-Carahsofts-U-S-Department-of-Defense-Enterprise-Software-Initiative-Blanket-Purchase-Agreement": "2022-12-06",
+                "https://press.pingidentity.com/2022-11-16-Ping-Identity-Named-a-Leader-in-Customer-Identity-and-Access-Management-2022-Analyst-Report": "2022-11-16"
+              },
+              "next": "https://press.pingidentity.com/news-releases?o=60",
+              "terminalProved": false
+            }
+          },
+          {
+            "url": "https://press.pingidentity.com/news-releases?o=60",
+            "observation": {
+              "key": "objects/b207f16a55f89d226ae1a73c6918cb6c1f76eda9a9a6ae93df5e18aaabfeb5e4",
+              "sha256": "b207f16a55f89d226ae1a73c6918cb6c1f76eda9a9a6ae93df5e18aaabfeb5e4",
+              "bytes": 395
+            },
+            "parser": {
+              "currentPage": 7,
+              "highestPage": 25,
+              "items": [
+                "https://press.pingidentity.com/2022-07-19-Ping-Identity-Helps-Flinks-Empower-Fintech-Innovators-with-a-True-Open-Banking-Experience",
+                "https://press.pingidentity.com/2022-08-03-Ping-Identity-Reports-Second-Quarter-2022-Results",
+                "https://press.pingidentity.com/2022-08-03-Ping-Identity-to-be-Acquired-by-Thoma-Bravo-for-2-8-Billion",
+                "https://press.pingidentity.com/2022-09-29-Ping-Identity-Announces-2022-Identity-Excellence-Awards-Finalists",
+                "https://press.pingidentity.com/2022-10-06-Ping-Identitys-YOUniverse-2022-Celebrates-Simplified-Identity-Security",
+                "https://press.pingidentity.com/2022-10-07-Ping-Identity-Announces-Identity-Excellence-Award-Winners-2022",
+                "https://press.pingidentity.com/2022-10-18-Thoma-Bravo-Completes-Acquisition-of-Ping-Identity",
+                "https://press.pingidentity.com/2022-10-25-Ping-Identity-Named-a-Leader-in-Three-2022-KuppingerCole-Leadership-Compass-Reports",
+                "https://press.pingidentity.com/2022-11-07-Ping-Identity-Named-a-Leader-in-the-2022-Gartner-R-Magic-Quadrant-TM-for-Access-Management-for-Sixth-Consecutive-Year",
+                "https://press.pingidentity.com/2022-11-09-Ping-Identity-Survey-Shows-Consumers-Want-Convenience-Without-Sacrificing-Security"
+              ],
+              "dates": {
+                "https://press.pingidentity.com/2022-11-09-Ping-Identity-Survey-Shows-Consumers-Want-Convenience-Without-Sacrificing-Security": "2022-11-09",
+                "https://press.pingidentity.com/2022-11-07-Ping-Identity-Named-a-Leader-in-the-2022-Gartner-R-Magic-Quadrant-TM-for-Access-Management-for-Sixth-Consecutive-Year": "2022-11-07",
+                "https://press.pingidentity.com/2022-10-25-Ping-Identity-Named-a-Leader-in-Three-2022-KuppingerCole-Leadership-Compass-Reports": "2022-10-25",
+                "https://press.pingidentity.com/2022-10-18-Thoma-Bravo-Completes-Acquisition-of-Ping-Identity": "2022-10-18",
+                "https://press.pingidentity.com/2022-10-07-Ping-Identity-Announces-Identity-Excellence-Award-Winners-2022": "2022-10-07",
+                "https://press.pingidentity.com/2022-10-06-Ping-Identitys-YOUniverse-2022-Celebrates-Simplified-Identity-Security": "2022-10-06",
+                "https://press.pingidentity.com/2022-09-29-Ping-Identity-Announces-2022-Identity-Excellence-Awards-Finalists": "2022-09-29",
+                "https://press.pingidentity.com/2022-08-03-Ping-Identity-Reports-Second-Quarter-2022-Results": "2022-08-03",
+                "https://press.pingidentity.com/2022-08-03-Ping-Identity-to-be-Acquired-by-Thoma-Bravo-for-2-8-Billion": "2022-08-03",
+                "https://press.pingidentity.com/2022-07-19-Ping-Identity-Helps-Flinks-Empower-Fintech-Innovators-with-a-True-Open-Banking-Experience": "2022-07-19"
+              },
+              "next": "https://press.pingidentity.com/news-releases?o=70",
+              "terminalProved": false
+            }
+          },
+          {
+            "url": "https://press.pingidentity.com/news-releases?o=70",
+            "observation": {
+              "key": "objects/d0c7cdc3faf80c6f032a5ffdc697bcf88689babb4b6efce96c1c1e6d89e3609d",
+              "sha256": "d0c7cdc3faf80c6f032a5ffdc697bcf88689babb4b6efce96c1c1e6d89e3609d",
+              "bytes": 395
+            },
+            "parser": {
+              "currentPage": 8,
+              "highestPage": 25,
+              "items": [
+                "https://press.pingidentity.com/2022-05-04-Ping-Identity-Reports-First-Quarter-2022-Results,-Provides-Outlook-for-Second-Quarter-and-Full-Year-2022",
+                "https://press.pingidentity.com/2022-05-11-Expert-Insights-Recognizes-Ping-Identity-as-Top-Zero-Trust-Solution",
+                "https://press.pingidentity.com/2022-05-24-Ping-Identity-Recognized-as-Top-Workplace-by-Denver-Post",
+                "https://press.pingidentity.com/2022-06-01-Ping-Identity-to-Participate-in-Upcoming-Investor-Conferences",
+                "https://press.pingidentity.com/2022-06-07-Ping-Identity-Solutions-Now-Available-on-AWS-Marketplace-Through-Carahsoft",
+                "https://press.pingidentity.com/2022-06-09-Ping-Identity,-Yubico,-and-EntryPoint-Team-Up-to-Bring-Zero-Trust-to-FIDO2-with-Derived-FIDO2-Credentials",
+                "https://press.pingidentity.com/2022-06-14-Ping-Identity-and-Yubico-Survey-Finds-IT-Leaders-Eager-to-Eliminate-Passwords",
+                "https://press.pingidentity.com/2022-06-21-Ping-Identity-Launches-Ping-Ventures-to-Accelerate-Innovation-in-Identity-Security",
+                "https://press.pingidentity.com/2022-06-28-Ping-Identity-Named-a-Leader-in-2022-KuppingerCole-Leadership-Compass-Report",
+                "https://press.pingidentity.com/2022-07-05-Ping-Identity-Announces-Date-for-Second-Quarter-2022-Earnings-Conference-Call"
+              ],
+              "dates": {
+                "https://press.pingidentity.com/2022-07-05-Ping-Identity-Announces-Date-for-Second-Quarter-2022-Earnings-Conference-Call": "2022-07-05",
+                "https://press.pingidentity.com/2022-06-28-Ping-Identity-Named-a-Leader-in-2022-KuppingerCole-Leadership-Compass-Report": "2022-06-28",
+                "https://press.pingidentity.com/2022-06-21-Ping-Identity-Launches-Ping-Ventures-to-Accelerate-Innovation-in-Identity-Security": "2022-06-21",
+                "https://press.pingidentity.com/2022-06-14-Ping-Identity-and-Yubico-Survey-Finds-IT-Leaders-Eager-to-Eliminate-Passwords": "2022-06-14",
+                "https://press.pingidentity.com/2022-06-09-Ping-Identity,-Yubico,-and-EntryPoint-Team-Up-to-Bring-Zero-Trust-to-FIDO2-with-Derived-FIDO2-Credentials": "2022-06-09",
+                "https://press.pingidentity.com/2022-06-07-Ping-Identity-Solutions-Now-Available-on-AWS-Marketplace-Through-Carahsoft": "2022-06-07",
+                "https://press.pingidentity.com/2022-06-01-Ping-Identity-to-Participate-in-Upcoming-Investor-Conferences": "2022-06-01",
+                "https://press.pingidentity.com/2022-05-24-Ping-Identity-Recognized-as-Top-Workplace-by-Denver-Post": "2022-05-24",
+                "https://press.pingidentity.com/2022-05-11-Expert-Insights-Recognizes-Ping-Identity-as-Top-Zero-Trust-Solution": "2022-05-11",
+                "https://press.pingidentity.com/2022-05-04-Ping-Identity-Reports-First-Quarter-2022-Results,-Provides-Outlook-for-Second-Quarter-and-Full-Year-2022": "2022-05-04"
+              },
+              "next": "https://press.pingidentity.com/news-releases?o=80",
+              "terminalProved": false
+            }
+          },
+          {
+            "url": "https://press.pingidentity.com/news-releases?o=80",
+            "observation": {
+              "key": "objects/ce779aa360f9b56a51929e16dc3076ad67682596eb0b85bd87a370bdd95d9ade",
+              "sha256": "ce779aa360f9b56a51929e16dc3076ad67682596eb0b85bd87a370bdd95d9ade",
+              "bytes": 395
+            },
+            "parser": {
+              "currentPage": 9,
+              "highestPage": 25,
+              "items": [
+                "https://press.pingidentity.com/2022-01-26-Ping-Identity-Announces-Date-for-Fourth-Quarter-and-Fiscal-Year-2021-Earnings-Conference-Call",
+                "https://press.pingidentity.com/2022-02-01-Ping-Identity-Launches-PingOne-DaVinci-A-No-Code-Identity-Orchestration-Service-for-Delivering-Seamless-Digital-Identity-Experiences",
+                "https://press.pingidentity.com/2022-02-10-Ping-Identity-Announces-2021-Partners-of-the-Year",
+                "https://press.pingidentity.com/2022-02-15-Ping-Identity-Partners-with-Carahsoft-to-Bring-Identity-Security-Solutions-to-Government-Customers",
+                "https://press.pingidentity.com/2022-02-24-Ping-Identity-Reports-Fourth-Quarter-and-Full-year-2021-Results,-Provides-Outlook-for-First-Quarter-and-Full-Year-2022",
+                "https://press.pingidentity.com/2022-03-01-Ping-Identity-to-Add-Seasoned-Executive-Leaders-to-Board-of-Directors",
+                "https://press.pingidentity.com/2022-03-01-Ping-Identity-to-Participate-in-Raymond-James-Institutional-Investors-Conference",
+                "https://press.pingidentity.com/2022-03-23-Ping-Identity-and-TD-SYNNEX-Enter-Strategic-Partnership-to-Deliver-Market-Leading-Identity-Security-Solutions",
+                "https://press.pingidentity.com/2022-04-06-Ping-Identity-Announces-Date-for-First-Quarter-2022-Earnings-Conference-Call",
+                "https://press.pingidentity.com/2022-04-13-Ping-Identity-Names-Technology-Veteran-Rakesh-Thaker-as-SVP,-Chief-Development-Officer"
+              ],
+              "dates": {
+                "https://press.pingidentity.com/2022-04-13-Ping-Identity-Names-Technology-Veteran-Rakesh-Thaker-as-SVP,-Chief-Development-Officer": "2022-04-13",
+                "https://press.pingidentity.com/2022-04-06-Ping-Identity-Announces-Date-for-First-Quarter-2022-Earnings-Conference-Call": "2022-04-06",
+                "https://press.pingidentity.com/2022-03-23-Ping-Identity-and-TD-SYNNEX-Enter-Strategic-Partnership-to-Deliver-Market-Leading-Identity-Security-Solutions": "2022-03-23",
+                "https://press.pingidentity.com/2022-03-01-Ping-Identity-to-Participate-in-Raymond-James-Institutional-Investors-Conference": "2022-03-01",
+                "https://press.pingidentity.com/2022-03-01-Ping-Identity-to-Add-Seasoned-Executive-Leaders-to-Board-of-Directors": "2022-03-01",
+                "https://press.pingidentity.com/2022-02-24-Ping-Identity-Reports-Fourth-Quarter-and-Full-year-2021-Results,-Provides-Outlook-for-First-Quarter-and-Full-Year-2022": "2022-02-24",
+                "https://press.pingidentity.com/2022-02-15-Ping-Identity-Partners-with-Carahsoft-to-Bring-Identity-Security-Solutions-to-Government-Customers": "2022-02-15",
+                "https://press.pingidentity.com/2022-02-10-Ping-Identity-Announces-2021-Partners-of-the-Year": "2022-02-10",
+                "https://press.pingidentity.com/2022-02-01-Ping-Identity-Launches-PingOne-DaVinci-A-No-Code-Identity-Orchestration-Service-for-Delivering-Seamless-Digital-Identity-Experiences": "2022-02-01",
+                "https://press.pingidentity.com/2022-01-26-Ping-Identity-Announces-Date-for-Fourth-Quarter-and-Fiscal-Year-2021-Earnings-Conference-Call": "2022-01-26"
+              },
+              "next": "https://press.pingidentity.com/news-releases?o=90",
+              "terminalProved": false
+            }
+          },
+          {
+            "url": "https://press.pingidentity.com/news-releases?o=90",
+            "observation": {
+              "key": "objects/62c4be68ee928a82696d5d24a9d321d541db00ecf5bc88781f4a7ce9317383e4",
+              "sha256": "62c4be68ee928a82696d5d24a9d321d541db00ecf5bc88781f4a7ce9317383e4",
+              "bytes": 395
+            },
+            "parser": {
+              "currentPage": 10,
+              "highestPage": 25,
+              "items": [
+                "https://press.pingidentity.com/2021-10-06-Ping-Identity-Adds-New-Online-Fraud-Detection-and-API-Intelligence-Tools-to-PingOne-Cloud-Platform",
+                "https://press.pingidentity.com/2021-10-07-Ping-Identity-Announces-2021-Identity-Excellence-Awards-Winners",
+                "https://press.pingidentity.com/2021-10-12-Ping-Identity-Joins-Palo-Alto-Networks-Cortex-XSOAR-Marketplace",
+                "https://press.pingidentity.com/2021-11-03-Ping-Identity-Named-a-Leader-for-the-Fifth-Consecutive-Year-in-the-2021-Gartner-R-Magic-Quadrant-TM-for-Access-Management",
+                "https://press.pingidentity.com/2021-11-08-Ping-Identity-Names-Shalini-Sharma-new-Chief-Legal-Officer",
+                "https://press.pingidentity.com/2021-11-09-Ping-Identity-Achieves-FedRAMP-In-Process-Designation-for-its-Cloud-Identity-and-Access-Management-Solution",
+                "https://press.pingidentity.com/2021-11-10-Ping-Identity-Wins-Multiple-Industry-Awards-for-Leadership,-Identity-Management-Products-and-Services",
+                "https://press.pingidentity.com/2021-12-14-Ping-Identity-Launches-PingOne-Authorize,-Advancing-its-Cloud-Identity-Platform-with-Dynamic-Authorization-Capabilities",
+                "https://press.pingidentity.com/2022-01-06-Ping-Identity-to-Participate-in-24th-Annual-Needham-Growth-Conference",
+                "https://press.pingidentity.com/2022-01-19-Ping-Identity-Named-as-Best-Places-To-Work-by-Built-In"
+              ],
+              "dates": {
+                "https://press.pingidentity.com/2022-01-19-Ping-Identity-Named-as-Best-Places-To-Work-by-Built-In": "2022-01-19",
+                "https://press.pingidentity.com/2022-01-06-Ping-Identity-to-Participate-in-24th-Annual-Needham-Growth-Conference": "2022-01-06",
+                "https://press.pingidentity.com/2021-12-14-Ping-Identity-Launches-PingOne-Authorize,-Advancing-its-Cloud-Identity-Platform-with-Dynamic-Authorization-Capabilities": "2021-12-14",
+                "https://press.pingidentity.com/2021-11-10-Ping-Identity-Wins-Multiple-Industry-Awards-for-Leadership,-Identity-Management-Products-and-Services": "2021-11-10",
+                "https://press.pingidentity.com/2021-11-09-Ping-Identity-Achieves-FedRAMP-In-Process-Designation-for-its-Cloud-Identity-and-Access-Management-Solution": "2021-11-09",
+                "https://press.pingidentity.com/2021-11-08-Ping-Identity-Names-Shalini-Sharma-new-Chief-Legal-Officer": "2021-11-08",
+                "https://press.pingidentity.com/2021-11-03-Ping-Identity-Named-a-Leader-for-the-Fifth-Consecutive-Year-in-the-2021-Gartner-R-Magic-Quadrant-TM-for-Access-Management": "2021-11-03",
+                "https://press.pingidentity.com/2021-10-12-Ping-Identity-Joins-Palo-Alto-Networks-Cortex-XSOAR-Marketplace": "2021-10-12",
+                "https://press.pingidentity.com/2021-10-07-Ping-Identity-Announces-2021-Identity-Excellence-Awards-Winners": "2021-10-07",
+                "https://press.pingidentity.com/2021-10-06-Ping-Identity-Adds-New-Online-Fraud-Detection-and-API-Intelligence-Tools-to-PingOne-Cloud-Platform": "2021-10-06"
+              },
+              "next": "https://press.pingidentity.com/news-releases?o=100",
+              "terminalProved": false
+            }
+          },
+          {
+            "url": "https://press.pingidentity.com/news-releases?o=100",
+            "observation": {
+              "key": "objects/67f989dad4ade433a1bfb21a9d759ca78c5ae5dbd4e20dec66dd4dc9c7dedac7",
+              "sha256": "67f989dad4ade433a1bfb21a9d759ca78c5ae5dbd4e20dec66dd4dc9c7dedac7",
+              "bytes": 396
+            },
+            "parser": {
+              "currentPage": 11,
+              "highestPage": 25,
+              "items": [
+                "https://press.pingidentity.com/2021-06-15-Ping-Identity-Launches-New-Partner-Sales-Certification-to-Help-Global-Partner-Network-Thrive",
+                "https://press.pingidentity.com/2021-06-16-Ping-Identity-Wins-Best-Identity-Management-Solution-From-SC-Awards-Europe-2021",
+                "https://press.pingidentity.com/2021-06-21-Ping-Identity-Announces-Enhanced-PingOne-Cloud-Platform-and-Dynamic-Authorization-Solution-at-Identiverse-2021",
+                "https://press.pingidentity.com/2021-06-21-Ping-Identity-Announces-the-Acquisition-of-SecuredTouch-to-Accelerate-Identity-Fraud-Capabilities",
+                "https://press.pingidentity.com/2021-06-21-Ping-Identity-puts-users-in-control-of-their-identity-with-New-Personal-Identity-Solution",
+                "https://press.pingidentity.com/2021-07-20-Ping-Identity-Added-to-the-Department-of-Homeland-Security-Continuous-Diagnostics-and-Mitigation-Approved-Products-List",
+                "https://press.pingidentity.com/2021-09-14-Ping-Identity-Names-Jason-Kees-Chief-Information-Security-Officer",
+                "https://press.pingidentity.com/2021-09-21-Ping-Identity-Survey-Finds-Greater-Appetite-for-Password-Alternatives-That-Make-Login-Easy-and-Prioritize-Privacy",
+                "https://press.pingidentity.com/2021-09-27-Ping-Identity-Acquires-Singular-Key-to-Accelerate-No-Code-Identity-Security-Integration-and-Orchestration",
+                "https://press.pingidentity.com/2021-09-29-Ping-Identity-Announces-2021-Identity-Excellence-Awards-Finalists"
+              ],
+              "dates": {
+                "https://press.pingidentity.com/2021-09-29-Ping-Identity-Announces-2021-Identity-Excellence-Awards-Finalists": "2021-09-29",
+                "https://press.pingidentity.com/2021-09-27-Ping-Identity-Acquires-Singular-Key-to-Accelerate-No-Code-Identity-Security-Integration-and-Orchestration": "2021-09-27",
+                "https://press.pingidentity.com/2021-09-21-Ping-Identity-Survey-Finds-Greater-Appetite-for-Password-Alternatives-That-Make-Login-Easy-and-Prioritize-Privacy": "2021-09-21",
+                "https://press.pingidentity.com/2021-09-14-Ping-Identity-Names-Jason-Kees-Chief-Information-Security-Officer": "2021-09-14",
+                "https://press.pingidentity.com/2021-07-20-Ping-Identity-Added-to-the-Department-of-Homeland-Security-Continuous-Diagnostics-and-Mitigation-Approved-Products-List": "2021-07-20",
+                "https://press.pingidentity.com/2021-06-21-Ping-Identity-Announces-Enhanced-PingOne-Cloud-Platform-and-Dynamic-Authorization-Solution-at-Identiverse-2021": "2021-06-21",
+                "https://press.pingidentity.com/2021-06-21-Ping-Identity-puts-users-in-control-of-their-identity-with-New-Personal-Identity-Solution": "2021-06-21",
+                "https://press.pingidentity.com/2021-06-21-Ping-Identity-Announces-the-Acquisition-of-SecuredTouch-to-Accelerate-Identity-Fraud-Capabilities": "2021-06-21",
+                "https://press.pingidentity.com/2021-06-16-Ping-Identity-Wins-Best-Identity-Management-Solution-From-SC-Awards-Europe-2021": "2021-06-16",
+                "https://press.pingidentity.com/2021-06-15-Ping-Identity-Launches-New-Partner-Sales-Certification-to-Help-Global-Partner-Network-Thrive": "2021-06-15"
+              },
+              "next": "https://press.pingidentity.com/news-releases?o=110",
+              "terminalProved": false
+            }
+          },
+          {
+            "url": "https://press.pingidentity.com/news-releases?o=110",
+            "observation": {
+              "key": "objects/d95d9b78e43499d94429f22950784bdf6d9823462ed07ea1476d1df9337170d9",
+              "sha256": "d95d9b78e43499d94429f22950784bdf6d9823462ed07ea1476d1df9337170d9",
+              "bytes": 396
+            },
+            "parser": {
+              "currentPage": 12,
+              "highestPage": 25,
+              "items": [
+                "https://press.pingidentity.com/2021-03-10-Ping-Identity-Recognized-for-Excellence-by-User-Review-Sites-G2-and-Expert-Insights",
+                "https://press.pingidentity.com/2021-03-23-Ping-Identity-Finds-Securing-the-Work-from-Home-Economy-Requires-Greater-Investment-in-Zero-Trust-Identity-Security",
+                "https://press.pingidentity.com/2021-04-06-Ping-Identity-Named-Best-Identity-Management-Solution-Finalist-by-SC-Media-Awards-2021",
+                "https://press.pingidentity.com/2021-04-13-Ping-Identity-Named-to-CRNs-2021-Security-100-List",
+                "https://press.pingidentity.com/2021-04-20-Ping-YOUniverse-Brings-Together-Identity-Management-Leaders-and-Security-Professionals-to-Solve-Real-Business-Challenges",
+                "https://press.pingidentity.com/2021-04-27-Ping-Identity-Improves-Identity-Management-for-Global-Logistics-Provider-DB-Schenker",
+                "https://press.pingidentity.com/2021-05-05-Ping-Identity-Honored-as-a-Top-Workplace-by-The-Denver-Post",
+                "https://press.pingidentity.com/2021-05-18-Ping-Identity-and-ProofID-Unite-to-Simplify-Identity-Security-for-Tesco-Bank",
+                "https://press.pingidentity.com/2021-06-02-Ping-Identity-Achieves-FAPI-CIBA-Certification-to-Help-Companies-Gain-Financial-Grade-Security-and-a-Better-Customer-Experience",
+                "https://press.pingidentity.com/2021-06-03-Ping-Identity-Names-Jason-Wolf-As-New-Chief-Revenue-Officer"
+              ],
+              "dates": {
+                "https://press.pingidentity.com/2021-06-03-Ping-Identity-Names-Jason-Wolf-As-New-Chief-Revenue-Officer": "2021-06-03",
+                "https://press.pingidentity.com/2021-06-02-Ping-Identity-Achieves-FAPI-CIBA-Certification-to-Help-Companies-Gain-Financial-Grade-Security-and-a-Better-Customer-Experience": "2021-06-02",
+                "https://press.pingidentity.com/2021-05-18-Ping-Identity-and-ProofID-Unite-to-Simplify-Identity-Security-for-Tesco-Bank": "2021-05-18",
+                "https://press.pingidentity.com/2021-05-05-Ping-Identity-Honored-as-a-Top-Workplace-by-The-Denver-Post": "2021-05-05",
+                "https://press.pingidentity.com/2021-04-27-Ping-Identity-Improves-Identity-Management-for-Global-Logistics-Provider-DB-Schenker": "2021-04-27",
+                "https://press.pingidentity.com/2021-04-20-Ping-YOUniverse-Brings-Together-Identity-Management-Leaders-and-Security-Professionals-to-Solve-Real-Business-Challenges": "2021-04-20",
+                "https://press.pingidentity.com/2021-04-13-Ping-Identity-Named-to-CRNs-2021-Security-100-List": "2021-04-13",
+                "https://press.pingidentity.com/2021-04-06-Ping-Identity-Named-Best-Identity-Management-Solution-Finalist-by-SC-Media-Awards-2021": "2021-04-06",
+                "https://press.pingidentity.com/2021-03-23-Ping-Identity-Finds-Securing-the-Work-from-Home-Economy-Requires-Greater-Investment-in-Zero-Trust-Identity-Security": "2021-03-23",
+                "https://press.pingidentity.com/2021-03-10-Ping-Identity-Recognized-for-Excellence-by-User-Review-Sites-G2-and-Expert-Insights": "2021-03-10"
+              },
+              "next": "https://press.pingidentity.com/news-releases?o=120",
+              "terminalProved": false
+            }
+          },
+          {
+            "url": "https://press.pingidentity.com/news-releases?o=120",
+            "observation": {
+              "key": "objects/a3b1478a508de4356d70b8be00a02fe7293c4d287401db26a937fc2426785d19",
+              "sha256": "a3b1478a508de4356d70b8be00a02fe7293c4d287401db26a937fc2426785d19",
+              "bytes": 396
+            },
+            "parser": {
+              "currentPage": 13,
+              "highestPage": 25,
+              "items": [
+                "https://press.pingidentity.com/2020-12-08-Ping-Identity-Honored-With-Multiple-Industry-Achievements",
+                "https://press.pingidentity.com/2021-01-07-Hall-of-Fame-CIO-Paul-Martin-Joins-Ping-Identitys-Board-of-Directors",
+                "https://press.pingidentity.com/2021-01-13-Ping-Identity-Wins-Glassdoor-Employees-Choice-Award",
+                "https://press.pingidentity.com/2021-01-20-Ping-Identity-Shortlisted-as-Best-Hybrid-Cloud-Solution-in-Cloud-Awards",
+                "https://press.pingidentity.com/2021-02-02-Ping-Identity-Launches-New-Identity-Verification-Service-to-Radically-Simplify-Customer-Onboarding-and-Reduce-Fraud",
+                "https://press.pingidentity.com/2021-02-17-Ping-Identitys-Project-COVID-Freedom-Aims-to-Make-Vaccination-Verification-Simple",
+                "https://press.pingidentity.com/2021-02-18-Peter-Burke-Joins-Ping-Identity-as-Senior-Vice-President-of-R-D",
+                "https://press.pingidentity.com/2021-02-25-Ping-Identity-Named-as-Leader-in-Three-KuppingerCole-Leadership-Compass-Reports",
+                "https://press.pingidentity.com/2021-03-02-Ping-Identity-Welcomes-Diane-Gherson-to-its-Board-of-Directors",
+                "https://press.pingidentity.com/2021-03-03-Ping-Identity-Joins-Decentralized-Identity-Foundation-to-Advance-Open-Standards-for-Personal-Identity"
+              ],
+              "dates": {
+                "https://press.pingidentity.com/2021-03-03-Ping-Identity-Joins-Decentralized-Identity-Foundation-to-Advance-Open-Standards-for-Personal-Identity": "2021-03-03",
+                "https://press.pingidentity.com/2021-03-02-Ping-Identity-Welcomes-Diane-Gherson-to-its-Board-of-Directors": "2021-03-02",
+                "https://press.pingidentity.com/2021-02-25-Ping-Identity-Named-as-Leader-in-Three-KuppingerCole-Leadership-Compass-Reports": "2021-02-25",
+                "https://press.pingidentity.com/2021-02-18-Peter-Burke-Joins-Ping-Identity-as-Senior-Vice-President-of-R-D": "2021-02-18",
+                "https://press.pingidentity.com/2021-02-17-Ping-Identitys-Project-COVID-Freedom-Aims-to-Make-Vaccination-Verification-Simple": "2021-02-17",
+                "https://press.pingidentity.com/2021-02-02-Ping-Identity-Launches-New-Identity-Verification-Service-to-Radically-Simplify-Customer-Onboarding-and-Reduce-Fraud": "2021-02-02",
+                "https://press.pingidentity.com/2021-01-20-Ping-Identity-Shortlisted-as-Best-Hybrid-Cloud-Solution-in-Cloud-Awards": "2021-01-20",
+                "https://press.pingidentity.com/2021-01-13-Ping-Identity-Wins-Glassdoor-Employees-Choice-Award": "2021-01-13",
+                "https://press.pingidentity.com/2021-01-07-Hall-of-Fame-CIO-Paul-Martin-Joins-Ping-Identitys-Board-of-Directors": "2021-01-07",
+                "https://press.pingidentity.com/2020-12-08-Ping-Identity-Honored-With-Multiple-Industry-Achievements": "2020-12-08"
+              },
+              "next": "https://press.pingidentity.com/news-releases?o=130",
+              "terminalProved": false
+            }
+          },
+          {
+            "url": "https://press.pingidentity.com/news-releases?o=130",
+            "observation": {
+              "key": "objects/f700b815a7ef67f9d6a4d4686deee7a5e090ff1c27876f7a844f649283d32494",
+              "sha256": "f700b815a7ef67f9d6a4d4686deee7a5e090ff1c27876f7a844f649283d32494",
+              "bytes": 396
+            },
+            "parser": {
+              "currentPage": 14,
+              "highestPage": 25,
+              "items": [
+                "https://press.pingidentity.com/2020-10-07-Ping-Identity-Acquires-Personal-Identity-Leader-ShoCard-to-Revolutionize-Privacy,-Streamline-Customer-Interactions-and-Put-Users-in-Control-of-their-Identity",
+                "https://press.pingidentity.com/2020-10-07-Ping-Identity-Launches-New-Cloud-Services-Enabling-Advanced-Risk-Management-and-Authentication-for-the-Enterprise",
+                "https://press.pingidentity.com/2020-10-19-Ping-Identity-Named-as-Denver-Top-Workplace,-CEO-Named-as-Most-Admired-CEO",
+                "https://press.pingidentity.com/2020-10-27-Industry-veteran-Emma-Maslen-Joins-Ping-Identity-as-Vice-President-and-General-Manager-for-EMEA-and-APAC",
+                "https://press.pingidentity.com/2020-10-28-Ping-Identity-Unveils-Advanced-Passwordless-Features-to-Transform-Digital-Experiences",
+                "https://press.pingidentity.com/2020-11-02-Ping-Identity-to-Acquire-Symphonic-Software-to-Accelerate-Dynamic-Authorization-for-Enterprises-Pursuing-Zero-Trust-Identity-Security",
+                "https://press.pingidentity.com/2020-11-17-Ping-Identity-Launches-Consumer-Data-Right-Integration-Kit-To-Support-Banking-and-Fintech-Compliance-with-Australian-Regulation",
+                "https://press.pingidentity.com/2020-11-19-Ping-Identity-Named-One-of-25-Highest-Rated-Public-Cloud-Computing-Companies-to-Work-for-During-the-COVID-Crisis",
+                "https://press.pingidentity.com/2020-11-23-Ping-Identity-Named-a-Leader-for-the-Fourth-Consecutive-Year-in-the-2020-Gartner-Magic-Quadrant-for-Access-Management",
+                "https://press.pingidentity.com/2020-12-01-Ping-Identity-Ranked-First-in-All-Use-Cases-in-the-Gartner-2020-Critical-Capabilities-for-Access-Management-Report"
+              ],
+              "dates": {
+                "https://press.pingidentity.com/2020-12-01-Ping-Identity-Ranked-First-in-All-Use-Cases-in-the-Gartner-2020-Critical-Capabilities-for-Access-Management-Report": "2020-12-01",
+                "https://press.pingidentity.com/2020-11-23-Ping-Identity-Named-a-Leader-for-the-Fourth-Consecutive-Year-in-the-2020-Gartner-Magic-Quadrant-for-Access-Management": "2020-11-23",
+                "https://press.pingidentity.com/2020-11-19-Ping-Identity-Named-One-of-25-Highest-Rated-Public-Cloud-Computing-Companies-to-Work-for-During-the-COVID-Crisis": "2020-11-19",
+                "https://press.pingidentity.com/2020-11-17-Ping-Identity-Launches-Consumer-Data-Right-Integration-Kit-To-Support-Banking-and-Fintech-Compliance-with-Australian-Regulation": "2020-11-17",
+                "https://press.pingidentity.com/2020-11-02-Ping-Identity-to-Acquire-Symphonic-Software-to-Accelerate-Dynamic-Authorization-for-Enterprises-Pursuing-Zero-Trust-Identity-Security": "2020-11-02",
+                "https://press.pingidentity.com/2020-10-28-Ping-Identity-Unveils-Advanced-Passwordless-Features-to-Transform-Digital-Experiences": "2020-10-28",
+                "https://press.pingidentity.com/2020-10-27-Industry-veteran-Emma-Maslen-Joins-Ping-Identity-as-Vice-President-and-General-Manager-for-EMEA-and-APAC": "2020-10-27",
+                "https://press.pingidentity.com/2020-10-19-Ping-Identity-Named-as-Denver-Top-Workplace,-CEO-Named-as-Most-Admired-CEO": "2020-10-19",
+                "https://press.pingidentity.com/2020-10-07-Ping-Identity-Acquires-Personal-Identity-Leader-ShoCard-to-Revolutionize-Privacy,-Streamline-Customer-Interactions-and-Put-Users-in-Control-of-their-Identity": "2020-10-07",
+                "https://press.pingidentity.com/2020-10-07-Ping-Identity-Launches-New-Cloud-Services-Enabling-Advanced-Risk-Management-and-Authentication-for-the-Enterprise": "2020-10-07"
+              },
+              "next": "https://press.pingidentity.com/news-releases?o=140",
+              "terminalProved": false
+            }
+          },
+          {
+            "url": "https://press.pingidentity.com/news-releases?o=140",
+            "observation": {
+              "key": "objects/48823a41c62c1482c24ccd6dca8ec6cf9b7a8df49dc9cbaaf2014175c5b65471",
+              "sha256": "48823a41c62c1482c24ccd6dca8ec6cf9b7a8df49dc9cbaaf2014175c5b65471",
+              "bytes": 396
+            },
+            "parser": {
+              "currentPage": 15,
+              "highestPage": 25,
+              "items": [
+                "https://press.pingidentity.com/2020-03-31-Ping-Identity-Multi-Factor-Authentication-Now-Available-in-AWS-Marketplace",
+                "https://press.pingidentity.com/2020-05-14-Security-and-Enterprise-Cloud-Veteran-Candace-Worley-Joins-Ping-Identity-as-Chief-Product-Officer",
+                "https://press.pingidentity.com/2020-06-10-Ping-Identity-Releases-Consumer-Data-Right-Sandbox-to-Fast-Track-Open-Banking-Adoption-in-Australia",
+                "https://press.pingidentity.com/2020-06-16-Ping-Identity-Workforce-Identity-Solutions-Now-Available-in-AWS-Marketplace",
+                "https://press.pingidentity.com/2020-07-21-Ping-Identity-Announces-New-Global-Partner-Program-Offerings",
+                "https://press.pingidentity.com/2020-08-27-Ping-Identity-Recognized-as-an-IoT-IAM-Leader-for-the-Second-Consecutive-Year-by-Quadrant-Knowledge-Solutions",
+                "https://press.pingidentity.com/2020-08-31-Ping-Identity-Releases-Updated-Consumer-Data-Right-Sandbox-For-Fast-Tracking-Open-Banking-Adoption-in-Australia",
+                "https://press.pingidentity.com/2020-09-02-Ping-Identity-Named-a-Leader-in-2020-ISG-Provider-Lens-TM-for-Cyber-Security-Solutions-Services-Quadrant-Report",
+                "https://press.pingidentity.com/2020-09-23-Ping-Identity-Announces-Finalists-for-2020-Identity-Excellence-Awards",
+                "https://press.pingidentity.com/2020-10-07-Ping-Identity-Announces-Winners-of-the-2020-Identity-Excellence-Awards"
+              ],
+              "dates": {
+                "https://press.pingidentity.com/2020-10-07-Ping-Identity-Announces-Winners-of-the-2020-Identity-Excellence-Awards": "2020-10-07",
+                "https://press.pingidentity.com/2020-09-23-Ping-Identity-Announces-Finalists-for-2020-Identity-Excellence-Awards": "2020-09-23",
+                "https://press.pingidentity.com/2020-09-02-Ping-Identity-Named-a-Leader-in-2020-ISG-Provider-Lens-TM-for-Cyber-Security-Solutions-Services-Quadrant-Report": "2020-09-02",
+                "https://press.pingidentity.com/2020-08-31-Ping-Identity-Releases-Updated-Consumer-Data-Right-Sandbox-For-Fast-Tracking-Open-Banking-Adoption-in-Australia": "2020-08-31",
+                "https://press.pingidentity.com/2020-08-27-Ping-Identity-Recognized-as-an-IoT-IAM-Leader-for-the-Second-Consecutive-Year-by-Quadrant-Knowledge-Solutions": "2020-08-27",
+                "https://press.pingidentity.com/2020-07-21-Ping-Identity-Announces-New-Global-Partner-Program-Offerings": "2020-07-21",
+                "https://press.pingidentity.com/2020-06-16-Ping-Identity-Workforce-Identity-Solutions-Now-Available-in-AWS-Marketplace": "2020-06-16",
+                "https://press.pingidentity.com/2020-06-10-Ping-Identity-Releases-Consumer-Data-Right-Sandbox-to-Fast-Track-Open-Banking-Adoption-in-Australia": "2020-06-10",
+                "https://press.pingidentity.com/2020-05-14-Security-and-Enterprise-Cloud-Veteran-Candace-Worley-Joins-Ping-Identity-as-Chief-Product-Officer": "2020-05-14",
+                "https://press.pingidentity.com/2020-03-31-Ping-Identity-Multi-Factor-Authentication-Now-Available-in-AWS-Marketplace": "2020-03-31"
+              },
+              "next": "https://press.pingidentity.com/news-releases?o=150",
+              "terminalProved": false
+            }
+          },
+          {
+            "url": "https://press.pingidentity.com/news-releases?o=150",
+            "observation": {
+              "key": "objects/db5ab634f50fbbeb4477c930990142141a122da32ced5211bacd67383a36379c",
+              "sha256": "db5ab634f50fbbeb4477c930990142141a122da32ced5211bacd67383a36379c",
+              "bytes": 396
+            },
+            "parser": {
+              "currentPage": 16,
+              "highestPage": 25,
+              "items": [
+                "https://press.pingidentity.com/2019-11-12-Ping-Identity-Secures-One-of-the-Nations-First-Government-Issued-Digital-IDs-in-myColorado-App",
+                "https://press.pingidentity.com/2019-11-19-Ping-Identity-Announces-Record-breaking-Scale-and-Performance-of-Its-Customer-Identity-Solutions",
+                "https://press.pingidentity.com/2019-11-21-Ping-Identity-Announces-Winners-of-the-2019-Identity-Excellence-Awards",
+                "https://press.pingidentity.com/2019-11-21-Ping-Identity-Customers-and-Partners-Recognized-with-2019-Identity-Excellence-Awards",
+                "https://press.pingidentity.com/2019-11-21-Ping-Identity-Presents-Intermountain-Healthcare-with-CEOs-Choice-Honor-at-the-2019-Identity-Excellence-Awards",
+                "https://press.pingidentity.com/2019-11-25-Ping-Identity-Highlights-the-Addition-of-Board-Members",
+                "https://press.pingidentity.com/2019-12-11-Ping-Identity-Solutions-Accelerate-Enterprise-Multi-cloud-Adoption",
+                "https://press.pingidentity.com/2019-12-17-Ping-Identity-Builds-and-Matures-Zero-Trust-Security-Infrastructures",
+                "https://press.pingidentity.com/2020-02-20-Ping-Identity-Names-Distinguished-Identity-Leader-Patrick-Harding-as-New-Chief-Product-Architect",
+                "https://press.pingidentity.com/2020-03-03-Ping-Identity-Announces-New-Workforce-and-Customer-Authentication-Solutions-for-the-Modern-Digital-Enterprise"
+              ],
+              "dates": {
+                "https://press.pingidentity.com/2020-03-03-Ping-Identity-Announces-New-Workforce-and-Customer-Authentication-Solutions-for-the-Modern-Digital-Enterprise": "2020-03-03",
+                "https://press.pingidentity.com/2020-02-20-Ping-Identity-Names-Distinguished-Identity-Leader-Patrick-Harding-as-New-Chief-Product-Architect": "2020-02-20",
+                "https://press.pingidentity.com/2019-12-17-Ping-Identity-Builds-and-Matures-Zero-Trust-Security-Infrastructures": "2019-12-17",
+                "https://press.pingidentity.com/2019-12-11-Ping-Identity-Solutions-Accelerate-Enterprise-Multi-cloud-Adoption": "2019-12-11",
+                "https://press.pingidentity.com/2019-11-25-Ping-Identity-Highlights-the-Addition-of-Board-Members": "2019-11-25",
+                "https://press.pingidentity.com/2019-11-21-Ping-Identity-Customers-and-Partners-Recognized-with-2019-Identity-Excellence-Awards": "2019-11-21",
+                "https://press.pingidentity.com/2019-11-21-Ping-Identity-Presents-Intermountain-Healthcare-with-CEOs-Choice-Honor-at-the-2019-Identity-Excellence-Awards": "2019-11-21",
+                "https://press.pingidentity.com/2019-11-21-Ping-Identity-Announces-Winners-of-the-2019-Identity-Excellence-Awards": "2019-11-21",
+                "https://press.pingidentity.com/2019-11-19-Ping-Identity-Announces-Record-breaking-Scale-and-Performance-of-Its-Customer-Identity-Solutions": "2019-11-19",
+                "https://press.pingidentity.com/2019-11-12-Ping-Identity-Secures-One-of-the-Nations-First-Government-Issued-Digital-IDs-in-myColorado-App": "2019-11-12"
+              },
+              "next": "https://press.pingidentity.com/news-releases?o=160",
+              "terminalProved": false
+            }
+          },
+          {
+            "url": "https://press.pingidentity.com/news-releases?o=160",
+            "observation": {
+              "key": "objects/e2dbee2ca7765c9a5cc1fab697c50619fd3499e3a68f17dca1ff5129e78309e6",
+              "sha256": "e2dbee2ca7765c9a5cc1fab697c50619fd3499e3a68f17dca1ff5129e78309e6",
+              "bytes": 396
+            },
+            "parser": {
+              "currentPage": 17,
+              "highestPage": 25,
+              "items": [
+                "https://press.pingidentity.com/2019-08-23-Ping-Identity-Files-Registration-Statement-for-Proposed-IPO",
+                "https://press.pingidentity.com/2019-09-05-Security-and-Privacy-Drive-Competitive-Advantages,-Says-Ping-Identity-CISO-Advisory-Council",
+                "https://press.pingidentity.com/2019-09-09-Ping-Identity-Announces-Launch-of-Initial-Public-Offering",
+                "https://press.pingidentity.com/2019-09-13-Ping-Identity-to-Present-the-Future-of-Identity-Security-at-IDENTIFY-2019",
+                "https://press.pingidentity.com/2019-09-18-Ping-Identity-Announces-Pricing-of-Initial-Public-Offering",
+                "https://press.pingidentity.com/2019-10-01-Ping-Identity-Releases-Self-Service-Solution-to-Simplify-Modernization-of-Legacy-Identity-Infrastructure",
+                "https://press.pingidentity.com/2019-10-09-Denver-Rescue-Mission-Chooses-Ping-Identity-to-Secure-Its-Hybrid-Cloud-Environment",
+                "https://press.pingidentity.com/2019-10-17-Ping-Identity-Expands-into-Northern-Europe-with-New-Office-as-Market-for-Identity-Security-Grows",
+                "https://press.pingidentity.com/2019-10-22-81-of-Consumers-Would-Stop-Engaging-with-a-Brand-Online-After-a-Data-Breach,-Reports-Ping-Identity",
+                "https://press.pingidentity.com/2019-10-27-Ping-Identity-Helps-Mortgage-Choice-Deliver-Enterprise-Grade-Security-to-Franchisees-Across-Australia"
+              ],
+              "dates": {
+                "https://press.pingidentity.com/2019-10-27-Ping-Identity-Helps-Mortgage-Choice-Deliver-Enterprise-Grade-Security-to-Franchisees-Across-Australia": "2019-10-27",
+                "https://press.pingidentity.com/2019-10-22-81-of-Consumers-Would-Stop-Engaging-with-a-Brand-Online-After-a-Data-Breach,-Reports-Ping-Identity": "2019-10-22",
+                "https://press.pingidentity.com/2019-10-17-Ping-Identity-Expands-into-Northern-Europe-with-New-Office-as-Market-for-Identity-Security-Grows": "2019-10-17",
+                "https://press.pingidentity.com/2019-10-09-Denver-Rescue-Mission-Chooses-Ping-Identity-to-Secure-Its-Hybrid-Cloud-Environment": "2019-10-09",
+                "https://press.pingidentity.com/2019-10-01-Ping-Identity-Releases-Self-Service-Solution-to-Simplify-Modernization-of-Legacy-Identity-Infrastructure": "2019-10-01",
+                "https://press.pingidentity.com/2019-09-18-Ping-Identity-Announces-Pricing-of-Initial-Public-Offering": "2019-09-18",
+                "https://press.pingidentity.com/2019-09-13-Ping-Identity-to-Present-the-Future-of-Identity-Security-at-IDENTIFY-2019": "2019-09-13",
+                "https://press.pingidentity.com/2019-09-09-Ping-Identity-Announces-Launch-of-Initial-Public-Offering": "2019-09-09",
+                "https://press.pingidentity.com/2019-09-05-Security-and-Privacy-Drive-Competitive-Advantages,-Says-Ping-Identity-CISO-Advisory-Council": "2019-09-05",
+                "https://press.pingidentity.com/2019-08-23-Ping-Identity-Files-Registration-Statement-for-Proposed-IPO": "2019-08-23"
+              },
+              "next": "https://press.pingidentity.com/news-releases?o=170",
+              "terminalProved": false
+            }
+          },
+          {
+            "url": "https://press.pingidentity.com/news-releases?o=170",
+            "observation": {
+              "key": "objects/7608cbaf07cafa7d5ac1765ab243e4877863cfcb7892ab9f682e86a6a6b7bc96",
+              "sha256": "7608cbaf07cafa7d5ac1765ab243e4877863cfcb7892ab9f682e86a6a6b7bc96",
+              "bytes": 396
+            },
+            "parser": {
+              "error": "Unsafe Ping article path"
+            }
+          }
+        ],
+        "inventory": {
+          "items": [
+            "https://press.pingidentity.com/2019-08-23-Ping-Identity-Files-Registration-Statement-for-Proposed-IPO",
+            "https://press.pingidentity.com/2019-09-05-Security-and-Privacy-Drive-Competitive-Advantages,-Says-Ping-Identity-CISO-Advisory-Council",
+            "https://press.pingidentity.com/2019-09-09-Ping-Identity-Announces-Launch-of-Initial-Public-Offering",
+            "https://press.pingidentity.com/2019-09-13-Ping-Identity-to-Present-the-Future-of-Identity-Security-at-IDENTIFY-2019",
+            "https://press.pingidentity.com/2019-09-18-Ping-Identity-Announces-Pricing-of-Initial-Public-Offering",
+            "https://press.pingidentity.com/2019-10-01-Ping-Identity-Releases-Self-Service-Solution-to-Simplify-Modernization-of-Legacy-Identity-Infrastructure",
+            "https://press.pingidentity.com/2019-10-09-Denver-Rescue-Mission-Chooses-Ping-Identity-to-Secure-Its-Hybrid-Cloud-Environment",
+            "https://press.pingidentity.com/2019-10-17-Ping-Identity-Expands-into-Northern-Europe-with-New-Office-as-Market-for-Identity-Security-Grows",
+            "https://press.pingidentity.com/2019-10-22-81-of-Consumers-Would-Stop-Engaging-with-a-Brand-Online-After-a-Data-Breach,-Reports-Ping-Identity",
+            "https://press.pingidentity.com/2019-10-27-Ping-Identity-Helps-Mortgage-Choice-Deliver-Enterprise-Grade-Security-to-Franchisees-Across-Australia",
+            "https://press.pingidentity.com/2019-11-12-Ping-Identity-Secures-One-of-the-Nations-First-Government-Issued-Digital-IDs-in-myColorado-App",
+            "https://press.pingidentity.com/2019-11-19-Ping-Identity-Announces-Record-breaking-Scale-and-Performance-of-Its-Customer-Identity-Solutions",
+            "https://press.pingidentity.com/2019-11-21-Ping-Identity-Announces-Winners-of-the-2019-Identity-Excellence-Awards",
+            "https://press.pingidentity.com/2019-11-21-Ping-Identity-Customers-and-Partners-Recognized-with-2019-Identity-Excellence-Awards",
+            "https://press.pingidentity.com/2019-11-21-Ping-Identity-Presents-Intermountain-Healthcare-with-CEOs-Choice-Honor-at-the-2019-Identity-Excellence-Awards",
+            "https://press.pingidentity.com/2019-11-25-Ping-Identity-Highlights-the-Addition-of-Board-Members",
+            "https://press.pingidentity.com/2019-12-11-Ping-Identity-Solutions-Accelerate-Enterprise-Multi-cloud-Adoption",
+            "https://press.pingidentity.com/2019-12-17-Ping-Identity-Builds-and-Matures-Zero-Trust-Security-Infrastructures",
+            "https://press.pingidentity.com/2020-02-20-Ping-Identity-Names-Distinguished-Identity-Leader-Patrick-Harding-as-New-Chief-Product-Architect",
+            "https://press.pingidentity.com/2020-03-03-Ping-Identity-Announces-New-Workforce-and-Customer-Authentication-Solutions-for-the-Modern-Digital-Enterprise",
+            "https://press.pingidentity.com/2020-03-31-Ping-Identity-Multi-Factor-Authentication-Now-Available-in-AWS-Marketplace",
+            "https://press.pingidentity.com/2020-05-14-Security-and-Enterprise-Cloud-Veteran-Candace-Worley-Joins-Ping-Identity-as-Chief-Product-Officer",
+            "https://press.pingidentity.com/2020-06-10-Ping-Identity-Releases-Consumer-Data-Right-Sandbox-to-Fast-Track-Open-Banking-Adoption-in-Australia",
+            "https://press.pingidentity.com/2020-06-16-Ping-Identity-Workforce-Identity-Solutions-Now-Available-in-AWS-Marketplace",
+            "https://press.pingidentity.com/2020-07-21-Ping-Identity-Announces-New-Global-Partner-Program-Offerings",
+            "https://press.pingidentity.com/2020-08-27-Ping-Identity-Recognized-as-an-IoT-IAM-Leader-for-the-Second-Consecutive-Year-by-Quadrant-Knowledge-Solutions",
+            "https://press.pingidentity.com/2020-08-31-Ping-Identity-Releases-Updated-Consumer-Data-Right-Sandbox-For-Fast-Tracking-Open-Banking-Adoption-in-Australia",
+            "https://press.pingidentity.com/2020-09-02-Ping-Identity-Named-a-Leader-in-2020-ISG-Provider-Lens-TM-for-Cyber-Security-Solutions-Services-Quadrant-Report",
+            "https://press.pingidentity.com/2020-09-23-Ping-Identity-Announces-Finalists-for-2020-Identity-Excellence-Awards",
+            "https://press.pingidentity.com/2020-10-07-Ping-Identity-Acquires-Personal-Identity-Leader-ShoCard-to-Revolutionize-Privacy,-Streamline-Customer-Interactions-and-Put-Users-in-Control-of-their-Identity",
+            "https://press.pingidentity.com/2020-10-07-Ping-Identity-Announces-Winners-of-the-2020-Identity-Excellence-Awards",
+            "https://press.pingidentity.com/2020-10-07-Ping-Identity-Launches-New-Cloud-Services-Enabling-Advanced-Risk-Management-and-Authentication-for-the-Enterprise",
+            "https://press.pingidentity.com/2020-10-19-Ping-Identity-Named-as-Denver-Top-Workplace,-CEO-Named-as-Most-Admired-CEO",
+            "https://press.pingidentity.com/2020-10-27-Industry-veteran-Emma-Maslen-Joins-Ping-Identity-as-Vice-President-and-General-Manager-for-EMEA-and-APAC",
+            "https://press.pingidentity.com/2020-10-28-Ping-Identity-Unveils-Advanced-Passwordless-Features-to-Transform-Digital-Experiences",
+            "https://press.pingidentity.com/2020-11-02-Ping-Identity-to-Acquire-Symphonic-Software-to-Accelerate-Dynamic-Authorization-for-Enterprises-Pursuing-Zero-Trust-Identity-Security",
+            "https://press.pingidentity.com/2020-11-17-Ping-Identity-Launches-Consumer-Data-Right-Integration-Kit-To-Support-Banking-and-Fintech-Compliance-with-Australian-Regulation",
+            "https://press.pingidentity.com/2020-11-19-Ping-Identity-Named-One-of-25-Highest-Rated-Public-Cloud-Computing-Companies-to-Work-for-During-the-COVID-Crisis",
+            "https://press.pingidentity.com/2020-11-23-Ping-Identity-Named-a-Leader-for-the-Fourth-Consecutive-Year-in-the-2020-Gartner-Magic-Quadrant-for-Access-Management",
+            "https://press.pingidentity.com/2020-12-01-Ping-Identity-Ranked-First-in-All-Use-Cases-in-the-Gartner-2020-Critical-Capabilities-for-Access-Management-Report",
+            "https://press.pingidentity.com/2020-12-08-Ping-Identity-Honored-With-Multiple-Industry-Achievements",
+            "https://press.pingidentity.com/2021-01-07-Hall-of-Fame-CIO-Paul-Martin-Joins-Ping-Identitys-Board-of-Directors",
+            "https://press.pingidentity.com/2021-01-13-Ping-Identity-Wins-Glassdoor-Employees-Choice-Award",
+            "https://press.pingidentity.com/2021-01-20-Ping-Identity-Shortlisted-as-Best-Hybrid-Cloud-Solution-in-Cloud-Awards",
+            "https://press.pingidentity.com/2021-02-02-Ping-Identity-Launches-New-Identity-Verification-Service-to-Radically-Simplify-Customer-Onboarding-and-Reduce-Fraud",
+            "https://press.pingidentity.com/2021-02-17-Ping-Identitys-Project-COVID-Freedom-Aims-to-Make-Vaccination-Verification-Simple",
+            "https://press.pingidentity.com/2021-02-18-Peter-Burke-Joins-Ping-Identity-as-Senior-Vice-President-of-R-D",
+            "https://press.pingidentity.com/2021-02-25-Ping-Identity-Named-as-Leader-in-Three-KuppingerCole-Leadership-Compass-Reports",
+            "https://press.pingidentity.com/2021-03-02-Ping-Identity-Welcomes-Diane-Gherson-to-its-Board-of-Directors",
+            "https://press.pingidentity.com/2021-03-03-Ping-Identity-Joins-Decentralized-Identity-Foundation-to-Advance-Open-Standards-for-Personal-Identity",
+            "https://press.pingidentity.com/2021-03-10-Ping-Identity-Recognized-for-Excellence-by-User-Review-Sites-G2-and-Expert-Insights",
+            "https://press.pingidentity.com/2021-03-23-Ping-Identity-Finds-Securing-the-Work-from-Home-Economy-Requires-Greater-Investment-in-Zero-Trust-Identity-Security",
+            "https://press.pingidentity.com/2021-04-06-Ping-Identity-Named-Best-Identity-Management-Solution-Finalist-by-SC-Media-Awards-2021",
+            "https://press.pingidentity.com/2021-04-13-Ping-Identity-Named-to-CRNs-2021-Security-100-List",
+            "https://press.pingidentity.com/2021-04-20-Ping-YOUniverse-Brings-Together-Identity-Management-Leaders-and-Security-Professionals-to-Solve-Real-Business-Challenges",
+            "https://press.pingidentity.com/2021-04-27-Ping-Identity-Improves-Identity-Management-for-Global-Logistics-Provider-DB-Schenker",
+            "https://press.pingidentity.com/2021-05-05-Ping-Identity-Honored-as-a-Top-Workplace-by-The-Denver-Post",
+            "https://press.pingidentity.com/2021-05-18-Ping-Identity-and-ProofID-Unite-to-Simplify-Identity-Security-for-Tesco-Bank",
+            "https://press.pingidentity.com/2021-06-02-Ping-Identity-Achieves-FAPI-CIBA-Certification-to-Help-Companies-Gain-Financial-Grade-Security-and-a-Better-Customer-Experience",
+            "https://press.pingidentity.com/2021-06-03-Ping-Identity-Names-Jason-Wolf-As-New-Chief-Revenue-Officer",
+            "https://press.pingidentity.com/2021-06-15-Ping-Identity-Launches-New-Partner-Sales-Certification-to-Help-Global-Partner-Network-Thrive",
+            "https://press.pingidentity.com/2021-06-16-Ping-Identity-Wins-Best-Identity-Management-Solution-From-SC-Awards-Europe-2021",
+            "https://press.pingidentity.com/2021-06-21-Ping-Identity-Announces-Enhanced-PingOne-Cloud-Platform-and-Dynamic-Authorization-Solution-at-Identiverse-2021",
+            "https://press.pingidentity.com/2021-06-21-Ping-Identity-Announces-the-Acquisition-of-SecuredTouch-to-Accelerate-Identity-Fraud-Capabilities",
+            "https://press.pingidentity.com/2021-06-21-Ping-Identity-puts-users-in-control-of-their-identity-with-New-Personal-Identity-Solution",
+            "https://press.pingidentity.com/2021-07-20-Ping-Identity-Added-to-the-Department-of-Homeland-Security-Continuous-Diagnostics-and-Mitigation-Approved-Products-List",
+            "https://press.pingidentity.com/2021-09-14-Ping-Identity-Names-Jason-Kees-Chief-Information-Security-Officer",
+            "https://press.pingidentity.com/2021-09-21-Ping-Identity-Survey-Finds-Greater-Appetite-for-Password-Alternatives-That-Make-Login-Easy-and-Prioritize-Privacy",
+            "https://press.pingidentity.com/2021-09-27-Ping-Identity-Acquires-Singular-Key-to-Accelerate-No-Code-Identity-Security-Integration-and-Orchestration",
+            "https://press.pingidentity.com/2021-09-29-Ping-Identity-Announces-2021-Identity-Excellence-Awards-Finalists",
+            "https://press.pingidentity.com/2021-10-06-Ping-Identity-Adds-New-Online-Fraud-Detection-and-API-Intelligence-Tools-to-PingOne-Cloud-Platform",
+            "https://press.pingidentity.com/2021-10-07-Ping-Identity-Announces-2021-Identity-Excellence-Awards-Winners",
+            "https://press.pingidentity.com/2021-10-12-Ping-Identity-Joins-Palo-Alto-Networks-Cortex-XSOAR-Marketplace",
+            "https://press.pingidentity.com/2021-11-03-Ping-Identity-Named-a-Leader-for-the-Fifth-Consecutive-Year-in-the-2021-Gartner-R-Magic-Quadrant-TM-for-Access-Management",
+            "https://press.pingidentity.com/2021-11-08-Ping-Identity-Names-Shalini-Sharma-new-Chief-Legal-Officer",
+            "https://press.pingidentity.com/2021-11-09-Ping-Identity-Achieves-FedRAMP-In-Process-Designation-for-its-Cloud-Identity-and-Access-Management-Solution",
+            "https://press.pingidentity.com/2021-11-10-Ping-Identity-Wins-Multiple-Industry-Awards-for-Leadership,-Identity-Management-Products-and-Services",
+            "https://press.pingidentity.com/2021-12-14-Ping-Identity-Launches-PingOne-Authorize,-Advancing-its-Cloud-Identity-Platform-with-Dynamic-Authorization-Capabilities",
+            "https://press.pingidentity.com/2022-01-06-Ping-Identity-to-Participate-in-24th-Annual-Needham-Growth-Conference",
+            "https://press.pingidentity.com/2022-01-19-Ping-Identity-Named-as-Best-Places-To-Work-by-Built-In",
+            "https://press.pingidentity.com/2022-01-26-Ping-Identity-Announces-Date-for-Fourth-Quarter-and-Fiscal-Year-2021-Earnings-Conference-Call",
+            "https://press.pingidentity.com/2022-02-01-Ping-Identity-Launches-PingOne-DaVinci-A-No-Code-Identity-Orchestration-Service-for-Delivering-Seamless-Digital-Identity-Experiences",
+            "https://press.pingidentity.com/2022-02-10-Ping-Identity-Announces-2021-Partners-of-the-Year",
+            "https://press.pingidentity.com/2022-02-15-Ping-Identity-Partners-with-Carahsoft-to-Bring-Identity-Security-Solutions-to-Government-Customers",
+            "https://press.pingidentity.com/2022-02-24-Ping-Identity-Reports-Fourth-Quarter-and-Full-year-2021-Results,-Provides-Outlook-for-First-Quarter-and-Full-Year-2022",
+            "https://press.pingidentity.com/2022-03-01-Ping-Identity-to-Add-Seasoned-Executive-Leaders-to-Board-of-Directors",
+            "https://press.pingidentity.com/2022-03-01-Ping-Identity-to-Participate-in-Raymond-James-Institutional-Investors-Conference",
+            "https://press.pingidentity.com/2022-03-23-Ping-Identity-and-TD-SYNNEX-Enter-Strategic-Partnership-to-Deliver-Market-Leading-Identity-Security-Solutions",
+            "https://press.pingidentity.com/2022-04-06-Ping-Identity-Announces-Date-for-First-Quarter-2022-Earnings-Conference-Call",
+            "https://press.pingidentity.com/2022-04-13-Ping-Identity-Names-Technology-Veteran-Rakesh-Thaker-as-SVP,-Chief-Development-Officer",
+            "https://press.pingidentity.com/2022-05-04-Ping-Identity-Reports-First-Quarter-2022-Results,-Provides-Outlook-for-Second-Quarter-and-Full-Year-2022",
+            "https://press.pingidentity.com/2022-05-11-Expert-Insights-Recognizes-Ping-Identity-as-Top-Zero-Trust-Solution",
+            "https://press.pingidentity.com/2022-05-24-Ping-Identity-Recognized-as-Top-Workplace-by-Denver-Post",
+            "https://press.pingidentity.com/2022-06-01-Ping-Identity-to-Participate-in-Upcoming-Investor-Conferences",
+            "https://press.pingidentity.com/2022-06-07-Ping-Identity-Solutions-Now-Available-on-AWS-Marketplace-Through-Carahsoft",
+            "https://press.pingidentity.com/2022-06-09-Ping-Identity,-Yubico,-and-EntryPoint-Team-Up-to-Bring-Zero-Trust-to-FIDO2-with-Derived-FIDO2-Credentials",
+            "https://press.pingidentity.com/2022-06-14-Ping-Identity-and-Yubico-Survey-Finds-IT-Leaders-Eager-to-Eliminate-Passwords",
+            "https://press.pingidentity.com/2022-06-21-Ping-Identity-Launches-Ping-Ventures-to-Accelerate-Innovation-in-Identity-Security",
+            "https://press.pingidentity.com/2022-06-28-Ping-Identity-Named-a-Leader-in-2022-KuppingerCole-Leadership-Compass-Report",
+            "https://press.pingidentity.com/2022-07-05-Ping-Identity-Announces-Date-for-Second-Quarter-2022-Earnings-Conference-Call",
+            "https://press.pingidentity.com/2022-07-19-Ping-Identity-Helps-Flinks-Empower-Fintech-Innovators-with-a-True-Open-Banking-Experience",
+            "https://press.pingidentity.com/2022-08-03-Ping-Identity-Reports-Second-Quarter-2022-Results",
+            "https://press.pingidentity.com/2022-08-03-Ping-Identity-to-be-Acquired-by-Thoma-Bravo-for-2-8-Billion",
+            "https://press.pingidentity.com/2022-09-29-Ping-Identity-Announces-2022-Identity-Excellence-Awards-Finalists",
+            "https://press.pingidentity.com/2022-10-06-Ping-Identitys-YOUniverse-2022-Celebrates-Simplified-Identity-Security",
+            "https://press.pingidentity.com/2022-10-07-Ping-Identity-Announces-Identity-Excellence-Award-Winners-2022",
+            "https://press.pingidentity.com/2022-10-18-Thoma-Bravo-Completes-Acquisition-of-Ping-Identity",
+            "https://press.pingidentity.com/2022-10-25-Ping-Identity-Named-a-Leader-in-Three-2022-KuppingerCole-Leadership-Compass-Reports",
+            "https://press.pingidentity.com/2022-11-07-Ping-Identity-Named-a-Leader-in-the-2022-Gartner-R-Magic-Quadrant-TM-for-Access-Management-for-Sixth-Consecutive-Year",
+            "https://press.pingidentity.com/2022-11-09-Ping-Identity-Survey-Shows-Consumers-Want-Convenience-Without-Sacrificing-Security",
+            "https://press.pingidentity.com/2022-11-16-Ping-Identity-Named-a-Leader-in-Customer-Identity-and-Access-Management-2022-Analyst-Report",
+            "https://press.pingidentity.com/2022-12-06-Ping-Identity-Solutions-Now-Available-Through-Carahsofts-U-S-Department-of-Defense-Enterprise-Software-Initiative-Blanket-Purchase-Agreement",
+            "https://press.pingidentity.com/2023-01-12-Ping-Identity-Recognized-on-Built-Ins-2023-Best-Places-to-Work-Lists",
+            "https://press.pingidentity.com/2023-02-14-Ping-Identity-and-Deloitte-Forge-Alliance-to-Give-Organizations-Advanced-Identity-and-Access-Solutions",
+            "https://press.pingidentity.com/2023-02-28-Ping-Identity-Named-an-Overall-Leader-in-2023-KuppingerCole-Leadership-Compass-for-Reusable-Verified-Identity",
+            "https://press.pingidentity.com/2023-03-20-Ping-Identity-Launches-New-Decentralized-Identity-Management-Solution",
+            "https://press.pingidentity.com/2023-04-25-Ping-Identity-Named-Winner-of-the-Coveted-Global-InfoSec-Awards-during-RSA-2023",
+            "https://press.pingidentity.com/2023-05-04-Ping-Identity-Wins-Cloud-Security-Award-at-2023-Security-Excellence-Awards",
+            "https://press.pingidentity.com/2023-05-16-Ping-Identity-Achieves-DOD-IL5-Authorization",
+            "https://press.pingidentity.com/2023-05-24-Ping-Identity-Recognized-as-Top-Workplace-by-Denver-Post-for-Ninth-Time",
+            "https://press.pingidentity.com/2023-05-30-Ping-Identity-Launches-PingOne-Protect-a-New-Way-to-Protect-Against-Identity-Fraud",
+            "https://press.pingidentity.com/2023-07-19-Ping-Identitys-DaVinci-Honored-with-CRNs-2023-Tech-Innovator-Award",
+            "https://press.pingidentity.com/2023-08-22-Ping-Identity-Recognized-as-an-Overall-Leader-in-2023-KuppingerCole-Access-Management-Report",
+            "https://press.pingidentity.com/2023-09-19-Ping-Identitys-New-Solution-Propels-a-Passwordless-Future-for-Better-Customer-Experiences",
+            "https://press.pingidentity.com/2023-10-10-Ping-Identitys-YOUniverse-2023-Underscores-Commitment-to-Customers-and-Acceleration-to-Cloud",
+            "https://press.pingidentity.com/2023-10-24-Ping-Identity-Survey-Finds-Easy-Digital-Experiences-Are-New-Barometer-for-Customer-Loyalty",
+            "https://press.pingidentity.com/2023-10-31-Ping-Identity-Achieves-FedRAMP-High-Certification",
+            "https://press.pingidentity.com/2023-11-21-Ping-Identity-and-ForgeRock-Named-as-Leaders-in-2023-Gartner-R-Magic-Quadrant-TM-for-Access-Management",
+            "https://press.pingidentity.com/2023-12-12-Ping-Identity-Celebrates-Identity-Excellence-Award-Winners-2023",
+            "https://press.pingidentity.com/2024-01-09-Ping-Identity-Honored-Among-Best-Places-to-Work-in-US-2024-by-Built-In",
+            "https://press.pingidentity.com/2024-02-27-Ping-Identity-Named-an-Overall-Leader-in-2024-KuppingerCole-Identity-Fabrics-Leadership-Compass",
+            "https://press.pingidentity.com/2024-03-05-Ping-Identity-Celebrates-the-Next-Generation-at-Girls-and-Science-Event",
+            "https://press.pingidentity.com/2024-03-19-Ping-Identity-Expands-Authorized-Training-Partner-Network-with-TD-SYNNEX-and-ExitCertified",
+            "https://press.pingidentity.com/2024-04-02-Ping-Identity-Wins-the-2024-Gold-Globee-R-Award-for-Identity-and-Access-Management",
+            "https://press.pingidentity.com/2024-04-30-Ping-Identity-Global-Survey-Reveals-Urgent-Need-for-Advanced-Identity-Protection-in-AI-Era",
+            "https://press.pingidentity.com/2024-05-07-Ping-Identity-Named-Global-InfoSec-Award-Winner-at-RSA-2024-for-Second-Year",
+            "https://press.pingidentity.com/2024-05-22-Ping-Identity-Celebrates-Second-Annual-HelPING-Hands-Day,-a-Global-Day-of-Giving-Back",
+            "https://press.pingidentity.com/2024-06-04-Ping-Identity-Named-Leader-in-Two-2024-KuppingerCole-Reports-for-CIAM-and-Passwordless",
+            "https://press.pingidentity.com/2024-09-03-Ping-Identity-Adds-Key-ICAM-Capabilities-to-FedRAMP-High-DoD-IL5-Offerings",
+            "https://press.pingidentity.com/2024-09-10-Ping-Identity-Named-a-Leader-in-KuppingerColes-Passwordless-for-Enterprises-Leadership-Compass",
+            "https://press.pingidentity.com/2024-09-25-Ping-Identity-Survey-Finds-87-of-Consumers-Concerned-About-Identity-Fraud,-as-AI-Sparks-Hesitation",
+            "https://press.pingidentity.com/2024-10-29-Ping-Identitys-YOUniverse-2024-Celebrates-the-Future-of-Identity",
+            "https://press.pingidentity.com/2024-11-14-Ping-Identity-Surpasses-30-Annual-Growth-in-SaaS-Revenue-and-Approaches-800M-ARR-as-an-Enterprise-Identity-Market-Leader",
+            "https://press.pingidentity.com/2024-12-05-Ping-Identity-Named-as-a-Leader-in-2024-Gartner-R-Magic-Quadrant-TM-for-Access-Management",
+            "https://press.pingidentity.com/2024-12-06-Ping-Identity-Named-a-Leader-in-Q4-2024-Analyst-Report-on-Customer-Identity-and-Access-Management-Solutions",
+            "https://press.pingidentity.com/2024-12-12-Ping-Identity-Celebrates-Identity-Excellence-Award-Winners-2024",
+            "https://press.pingidentity.com/2025-01-09-Ping-Identity-Named-a-2025-Best-Place-to-Work-for-Seventh-Consecutive-Year-by-Built-In",
+            "https://press.pingidentity.com/2025-04-10-Ping-Identity-Doubles-Down-on-Partner-Strategy-with-New-Partner-Program-and-Advisory-Board",
+            "https://press.pingidentity.com/2025-08-05-Ping-Identity-Named-a-Leader-in-Three-2025-KuppingerCole-Reports",
+            "https://press.pingidentity.com/2025-08-18-Ping-Identity-Unveils-Just-in-time-Privileged-Access-Capability-to-Empower-Enterprises-Across-the-Full-Identity-Lifecycle",
+            "https://press.pingidentity.com/2025-09-17-Ping-Identity-Shapes-the-Future-of-Enterprise-Security-With-AI-Driven-Trust-Framework",
+            "https://press.pingidentity.com/2025-10-01-Ping-Identity-Survey-Reveals-Consumer-Trust-Plummeting-as-AI-Use-Soars",
+            "https://press.pingidentity.com/2025-10-30-Ping-Identity-Strengthens-Defense-Against-AI-Driven-Impersonation-with-Privacy-Preserving-Biometrics",
+            "https://press.pingidentity.com/2025-11-06-Ping-Identity-Launches-Identity-for-AI-Solution-to-Power-Innovation-and-Trust-in-the-Agent-Economy",
+            "https://press.pingidentity.com/2025-11-18-Ping-Identity-Recognized-as-a-Leader-in-2025-Gartner-R-Magic-Quadrant-TM-for-Access-Management",
+            "https://press.pingidentity.com/2026-01-06-Ping-Identity-Appoints-Adnan-Chaudhry-as-Chief-Revenue-Officer-to-Scale-Trusted-Identity-for-the-AI-Era",
+            "https://press.pingidentity.com/2026-01-07-Ping-Identity-Marks-Digital-Trust-Milestone-with-Zero-Knowledge-Biometrics-in-the-Age-of-AI",
+            "https://press.pingidentity.com/2026-01-20-Ping-Identity-Advances-Universal-Services-to-Redefine-Trust-in-the-Age-of-AI-Driven-Fraud",
+            "https://press.pingidentity.com/2026-02-26-Ping-Identity-Secure-Containers-Approved-for-Iron-Bank-to-Accelerate-IL5-Deployment-Across-Defense-Environments",
+            "https://press.pingidentity.com/2026-03-17-Ping-Identity-Only-9-of-Organizations-are-Prepared-for-Continuous-AI-Driven-Identity-Threats",
+            "https://press.pingidentity.com/2026-03-24-Ping-Identity-Defines-the-Runtime-Identity-Standard-for-Autonomous-AI",
+            "https://press.pingidentity.com/2026-04-22-Ping-Identity-Wins-2026-Google-Cloud-Security-Partner-of-the-Year-Award-for-Identity-Access-Management",
+            "https://press.pingidentity.com/2026-04-28-Ping-Identity-Warns-of-Emerging-Authorization-Risks-as-AI-Agents-Scale-Across-Enterprises",
+            "https://press.pingidentity.com/2026-05-05-Ping-Identity-and-OLOID-Bring-Passwordless,-Verified-Trust-to-the-Clinical-Workforce",
+            "https://press.pingidentity.com/2026-05-27-Ping-Identity-Redefines-the-Identity-Control-Plane-for-the-Agentic-Enterprise",
+            "https://press.pingidentity.com/2026-06-16-Ping-Identity-Extends-Runtime-Identity-TM-for-AI-Agents-Across-AWS,-Google-Cloud,-and-Cloudflare",
+            "https://press.pingidentity.com/2026-07-28-Ping-Identity-Verification-and-Fraud-Protection-Listed-in-Epic-Toolbox",
+            "https://press.pingidentity.com/2026-09-01-Ping-Identity-Secures-Claude-Personal-Agents-From-Discovery-to-Action",
+            "https://press.pingidentity.com/2026-09-29-Ping-Identity-Launches-Identity-Agents-on-Google-Cloud-Marketplace",
+            "https://press.pingidentity.com/2026-10-06-Ping-Identity-Survey-Finds-AI-Trust-Changes-When-Assistance-Turns-to-Action"
+          ],
+          "dates": {
+            "https://press.pingidentity.com/2026-10-06-Ping-Identity-Survey-Finds-AI-Trust-Changes-When-Assistance-Turns-to-Action": "2026-10-06",
+            "https://press.pingidentity.com/2026-09-29-Ping-Identity-Launches-Identity-Agents-on-Google-Cloud-Marketplace": "2026-09-29",
+            "https://press.pingidentity.com/2026-09-01-Ping-Identity-Secures-Claude-Personal-Agents-From-Discovery-to-Action": "2026-09-01",
+            "https://press.pingidentity.com/2026-07-28-Ping-Identity-Verification-and-Fraud-Protection-Listed-in-Epic-Toolbox": "2026-07-28",
+            "https://press.pingidentity.com/2026-06-16-Ping-Identity-Extends-Runtime-Identity-TM-for-AI-Agents-Across-AWS,-Google-Cloud,-and-Cloudflare": "2026-06-16",
+            "https://press.pingidentity.com/2026-05-27-Ping-Identity-Redefines-the-Identity-Control-Plane-for-the-Agentic-Enterprise": "2026-05-27",
+            "https://press.pingidentity.com/2026-05-05-Ping-Identity-and-OLOID-Bring-Passwordless,-Verified-Trust-to-the-Clinical-Workforce": "2026-05-05",
+            "https://press.pingidentity.com/2026-04-28-Ping-Identity-Warns-of-Emerging-Authorization-Risks-as-AI-Agents-Scale-Across-Enterprises": "2026-04-28",
+            "https://press.pingidentity.com/2026-04-22-Ping-Identity-Wins-2026-Google-Cloud-Security-Partner-of-the-Year-Award-for-Identity-Access-Management": "2026-04-22",
+            "https://press.pingidentity.com/2026-03-24-Ping-Identity-Defines-the-Runtime-Identity-Standard-for-Autonomous-AI": "2026-03-24",
+            "https://press.pingidentity.com/2026-03-17-Ping-Identity-Only-9-of-Organizations-are-Prepared-for-Continuous-AI-Driven-Identity-Threats": "2026-03-17",
+            "https://press.pingidentity.com/2026-02-26-Ping-Identity-Secure-Containers-Approved-for-Iron-Bank-to-Accelerate-IL5-Deployment-Across-Defense-Environments": "2026-02-26",
+            "https://press.pingidentity.com/2026-01-20-Ping-Identity-Advances-Universal-Services-to-Redefine-Trust-in-the-Age-of-AI-Driven-Fraud": "2026-01-20",
+            "https://press.pingidentity.com/2026-01-07-Ping-Identity-Marks-Digital-Trust-Milestone-with-Zero-Knowledge-Biometrics-in-the-Age-of-AI": "2026-01-07",
+            "https://press.pingidentity.com/2026-01-06-Ping-Identity-Appoints-Adnan-Chaudhry-as-Chief-Revenue-Officer-to-Scale-Trusted-Identity-for-the-AI-Era": "2026-01-06",
+            "https://press.pingidentity.com/2025-11-18-Ping-Identity-Recognized-as-a-Leader-in-2025-Gartner-R-Magic-Quadrant-TM-for-Access-Management": "2025-11-18",
+            "https://press.pingidentity.com/2025-11-06-Ping-Identity-Launches-Identity-for-AI-Solution-to-Power-Innovation-and-Trust-in-the-Agent-Economy": "2025-11-06",
+            "https://press.pingidentity.com/2025-10-30-Ping-Identity-Strengthens-Defense-Against-AI-Driven-Impersonation-with-Privacy-Preserving-Biometrics": "2025-10-30",
+            "https://press.pingidentity.com/2025-10-01-Ping-Identity-Survey-Reveals-Consumer-Trust-Plummeting-as-AI-Use-Soars": "2025-10-01",
+            "https://press.pingidentity.com/2025-09-17-Ping-Identity-Shapes-the-Future-of-Enterprise-Security-With-AI-Driven-Trust-Framework": "2025-09-17",
+            "https://press.pingidentity.com/2025-08-18-Ping-Identity-Unveils-Just-in-time-Privileged-Access-Capability-to-Empower-Enterprises-Across-the-Full-Identity-Lifecycle": "2025-08-18",
+            "https://press.pingidentity.com/2025-08-05-Ping-Identity-Named-a-Leader-in-Three-2025-KuppingerCole-Reports": "2025-08-05",
+            "https://press.pingidentity.com/2025-04-10-Ping-Identity-Doubles-Down-on-Partner-Strategy-with-New-Partner-Program-and-Advisory-Board": "2025-04-10",
+            "https://press.pingidentity.com/2025-01-09-Ping-Identity-Named-a-2025-Best-Place-to-Work-for-Seventh-Consecutive-Year-by-Built-In": "2025-01-09",
+            "https://press.pingidentity.com/2024-12-12-Ping-Identity-Celebrates-Identity-Excellence-Award-Winners-2024": "2024-12-12",
+            "https://press.pingidentity.com/2024-12-06-Ping-Identity-Named-a-Leader-in-Q4-2024-Analyst-Report-on-Customer-Identity-and-Access-Management-Solutions": "2024-12-06",
+            "https://press.pingidentity.com/2024-12-05-Ping-Identity-Named-as-a-Leader-in-2024-Gartner-R-Magic-Quadrant-TM-for-Access-Management": "2024-12-05",
+            "https://press.pingidentity.com/2024-11-14-Ping-Identity-Surpasses-30-Annual-Growth-in-SaaS-Revenue-and-Approaches-800M-ARR-as-an-Enterprise-Identity-Market-Leader": "2024-11-14",
+            "https://press.pingidentity.com/2024-10-29-Ping-Identitys-YOUniverse-2024-Celebrates-the-Future-of-Identity": "2024-10-29",
+            "https://press.pingidentity.com/2024-09-25-Ping-Identity-Survey-Finds-87-of-Consumers-Concerned-About-Identity-Fraud,-as-AI-Sparks-Hesitation": "2024-09-25",
+            "https://press.pingidentity.com/2024-09-10-Ping-Identity-Named-a-Leader-in-KuppingerColes-Passwordless-for-Enterprises-Leadership-Compass": "2024-09-10",
+            "https://press.pingidentity.com/2024-09-03-Ping-Identity-Adds-Key-ICAM-Capabilities-to-FedRAMP-High-DoD-IL5-Offerings": "2024-09-03",
+            "https://press.pingidentity.com/2024-06-04-Ping-Identity-Named-Leader-in-Two-2024-KuppingerCole-Reports-for-CIAM-and-Passwordless": "2024-06-04",
+            "https://press.pingidentity.com/2024-05-22-Ping-Identity-Celebrates-Second-Annual-HelPING-Hands-Day,-a-Global-Day-of-Giving-Back": "2024-05-22",
+            "https://press.pingidentity.com/2024-05-07-Ping-Identity-Named-Global-InfoSec-Award-Winner-at-RSA-2024-for-Second-Year": "2024-05-07",
+            "https://press.pingidentity.com/2024-04-30-Ping-Identity-Global-Survey-Reveals-Urgent-Need-for-Advanced-Identity-Protection-in-AI-Era": "2024-04-30",
+            "https://press.pingidentity.com/2024-04-02-Ping-Identity-Wins-the-2024-Gold-Globee-R-Award-for-Identity-and-Access-Management": "2024-04-02",
+            "https://press.pingidentity.com/2024-03-19-Ping-Identity-Expands-Authorized-Training-Partner-Network-with-TD-SYNNEX-and-ExitCertified": "2024-03-19",
+            "https://press.pingidentity.com/2024-03-05-Ping-Identity-Celebrates-the-Next-Generation-at-Girls-and-Science-Event": "2024-03-05",
+            "https://press.pingidentity.com/2024-02-27-Ping-Identity-Named-an-Overall-Leader-in-2024-KuppingerCole-Identity-Fabrics-Leadership-Compass": "2024-02-27",
+            "https://press.pingidentity.com/2024-01-09-Ping-Identity-Honored-Among-Best-Places-to-Work-in-US-2024-by-Built-In": "2024-01-09",
+            "https://press.pingidentity.com/2023-12-12-Ping-Identity-Celebrates-Identity-Excellence-Award-Winners-2023": "2023-12-12",
+            "https://press.pingidentity.com/2023-11-21-Ping-Identity-and-ForgeRock-Named-as-Leaders-in-2023-Gartner-R-Magic-Quadrant-TM-for-Access-Management": "2023-11-21",
+            "https://press.pingidentity.com/2023-10-31-Ping-Identity-Achieves-FedRAMP-High-Certification": "2023-10-31",
+            "https://press.pingidentity.com/2023-10-24-Ping-Identity-Survey-Finds-Easy-Digital-Experiences-Are-New-Barometer-for-Customer-Loyalty": "2023-10-24",
+            "https://press.pingidentity.com/2023-10-10-Ping-Identitys-YOUniverse-2023-Underscores-Commitment-to-Customers-and-Acceleration-to-Cloud": "2023-10-10",
+            "https://press.pingidentity.com/2023-09-19-Ping-Identitys-New-Solution-Propels-a-Passwordless-Future-for-Better-Customer-Experiences": "2023-09-19",
+            "https://press.pingidentity.com/2023-08-22-Ping-Identity-Recognized-as-an-Overall-Leader-in-2023-KuppingerCole-Access-Management-Report": "2023-08-22",
+            "https://press.pingidentity.com/2023-07-19-Ping-Identitys-DaVinci-Honored-with-CRNs-2023-Tech-Innovator-Award": "2023-07-19",
+            "https://press.pingidentity.com/2023-05-30-Ping-Identity-Launches-PingOne-Protect-a-New-Way-to-Protect-Against-Identity-Fraud": "2023-05-30",
+            "https://press.pingidentity.com/2023-05-24-Ping-Identity-Recognized-as-Top-Workplace-by-Denver-Post-for-Ninth-Time": "2023-05-24",
+            "https://press.pingidentity.com/2023-05-16-Ping-Identity-Achieves-DOD-IL5-Authorization": "2023-05-16",
+            "https://press.pingidentity.com/2023-05-04-Ping-Identity-Wins-Cloud-Security-Award-at-2023-Security-Excellence-Awards": "2023-05-04",
+            "https://press.pingidentity.com/2023-04-25-Ping-Identity-Named-Winner-of-the-Coveted-Global-InfoSec-Awards-during-RSA-2023": "2023-04-25",
+            "https://press.pingidentity.com/2023-03-20-Ping-Identity-Launches-New-Decentralized-Identity-Management-Solution": "2023-03-20",
+            "https://press.pingidentity.com/2023-02-28-Ping-Identity-Named-an-Overall-Leader-in-2023-KuppingerCole-Leadership-Compass-for-Reusable-Verified-Identity": "2023-02-28",
+            "https://press.pingidentity.com/2023-02-14-Ping-Identity-and-Deloitte-Forge-Alliance-to-Give-Organizations-Advanced-Identity-and-Access-Solutions": "2023-02-14",
+            "https://press.pingidentity.com/2023-01-12-Ping-Identity-Recognized-on-Built-Ins-2023-Best-Places-to-Work-Lists": "2023-01-12",
+            "https://press.pingidentity.com/2022-12-06-Ping-Identity-Solutions-Now-Available-Through-Carahsofts-U-S-Department-of-Defense-Enterprise-Software-Initiative-Blanket-Purchase-Agreement": "2022-12-06",
+            "https://press.pingidentity.com/2022-11-16-Ping-Identity-Named-a-Leader-in-Customer-Identity-and-Access-Management-2022-Analyst-Report": "2022-11-16",
+            "https://press.pingidentity.com/2022-11-09-Ping-Identity-Survey-Shows-Consumers-Want-Convenience-Without-Sacrificing-Security": "2022-11-09",
+            "https://press.pingidentity.com/2022-11-07-Ping-Identity-Named-a-Leader-in-the-2022-Gartner-R-Magic-Quadrant-TM-for-Access-Management-for-Sixth-Consecutive-Year": "2022-11-07",
+            "https://press.pingidentity.com/2022-10-25-Ping-Identity-Named-a-Leader-in-Three-2022-KuppingerCole-Leadership-Compass-Reports": "2022-10-25",
+            "https://press.pingidentity.com/2022-10-18-Thoma-Bravo-Completes-Acquisition-of-Ping-Identity": "2022-10-18",
+            "https://press.pingidentity.com/2022-10-07-Ping-Identity-Announces-Identity-Excellence-Award-Winners-2022": "2022-10-07",
+            "https://press.pingidentity.com/2022-10-06-Ping-Identitys-YOUniverse-2022-Celebrates-Simplified-Identity-Security": "2022-10-06",
+            "https://press.pingidentity.com/2022-09-29-Ping-Identity-Announces-2022-Identity-Excellence-Awards-Finalists": "2022-09-29",
+            "https://press.pingidentity.com/2022-08-03-Ping-Identity-Reports-Second-Quarter-2022-Results": "2022-08-03",
+            "https://press.pingidentity.com/2022-08-03-Ping-Identity-to-be-Acquired-by-Thoma-Bravo-for-2-8-Billion": "2022-08-03",
+            "https://press.pingidentity.com/2022-07-19-Ping-Identity-Helps-Flinks-Empower-Fintech-Innovators-with-a-True-Open-Banking-Experience": "2022-07-19",
+            "https://press.pingidentity.com/2022-07-05-Ping-Identity-Announces-Date-for-Second-Quarter-2022-Earnings-Conference-Call": "2022-07-05",
+            "https://press.pingidentity.com/2022-06-28-Ping-Identity-Named-a-Leader-in-2022-KuppingerCole-Leadership-Compass-Report": "2022-06-28",
+            "https://press.pingidentity.com/2022-06-21-Ping-Identity-Launches-Ping-Ventures-to-Accelerate-Innovation-in-Identity-Security": "2022-06-21",
+            "https://press.pingidentity.com/2022-06-14-Ping-Identity-and-Yubico-Survey-Finds-IT-Leaders-Eager-to-Eliminate-Passwords": "2022-06-14",
+            "https://press.pingidentity.com/2022-06-09-Ping-Identity,-Yubico,-and-EntryPoint-Team-Up-to-Bring-Zero-Trust-to-FIDO2-with-Derived-FIDO2-Credentials": "2022-06-09",
+            "https://press.pingidentity.com/2022-06-07-Ping-Identity-Solutions-Now-Available-on-AWS-Marketplace-Through-Carahsoft": "2022-06-07",
+            "https://press.pingidentity.com/2022-06-01-Ping-Identity-to-Participate-in-Upcoming-Investor-Conferences": "2022-06-01",
+            "https://press.pingidentity.com/2022-05-24-Ping-Identity-Recognized-as-Top-Workplace-by-Denver-Post": "2022-05-24",
+            "https://press.pingidentity.com/2022-05-11-Expert-Insights-Recognizes-Ping-Identity-as-Top-Zero-Trust-Solution": "2022-05-11",
+            "https://press.pingidentity.com/2022-05-04-Ping-Identity-Reports-First-Quarter-2022-Results,-Provides-Outlook-for-Second-Quarter-and-Full-Year-2022": "2022-05-04",
+            "https://press.pingidentity.com/2022-04-13-Ping-Identity-Names-Technology-Veteran-Rakesh-Thaker-as-SVP,-Chief-Development-Officer": "2022-04-13",
+            "https://press.pingidentity.com/2022-04-06-Ping-Identity-Announces-Date-for-First-Quarter-2022-Earnings-Conference-Call": "2022-04-06",
+            "https://press.pingidentity.com/2022-03-23-Ping-Identity-and-TD-SYNNEX-Enter-Strategic-Partnership-to-Deliver-Market-Leading-Identity-Security-Solutions": "2022-03-23",
+            "https://press.pingidentity.com/2022-03-01-Ping-Identity-to-Participate-in-Raymond-James-Institutional-Investors-Conference": "2022-03-01",
+            "https://press.pingidentity.com/2022-03-01-Ping-Identity-to-Add-Seasoned-Executive-Leaders-to-Board-of-Directors": "2022-03-01",
+            "https://press.pingidentity.com/2022-02-24-Ping-Identity-Reports-Fourth-Quarter-and-Full-year-2021-Results,-Provides-Outlook-for-First-Quarter-and-Full-Year-2022": "2022-02-24",
+            "https://press.pingidentity.com/2022-02-15-Ping-Identity-Partners-with-Carahsoft-to-Bring-Identity-Security-Solutions-to-Government-Customers": "2022-02-15",
+            "https://press.pingidentity.com/2022-02-10-Ping-Identity-Announces-2021-Partners-of-the-Year": "2022-02-10",
+            "https://press.pingidentity.com/2022-02-01-Ping-Identity-Launches-PingOne-DaVinci-A-No-Code-Identity-Orchestration-Service-for-Delivering-Seamless-Digital-Identity-Experiences": "2022-02-01",
+            "https://press.pingidentity.com/2022-01-26-Ping-Identity-Announces-Date-for-Fourth-Quarter-and-Fiscal-Year-2021-Earnings-Conference-Call": "2022-01-26",
+            "https://press.pingidentity.com/2022-01-19-Ping-Identity-Named-as-Best-Places-To-Work-by-Built-In": "2022-01-19",
+            "https://press.pingidentity.com/2022-01-06-Ping-Identity-to-Participate-in-24th-Annual-Needham-Growth-Conference": "2022-01-06",
+            "https://press.pingidentity.com/2021-12-14-Ping-Identity-Launches-PingOne-Authorize,-Advancing-its-Cloud-Identity-Platform-with-Dynamic-Authorization-Capabilities": "2021-12-14",
+            "https://press.pingidentity.com/2021-11-10-Ping-Identity-Wins-Multiple-Industry-Awards-for-Leadership,-Identity-Management-Products-and-Services": "2021-11-10",
+            "https://press.pingidentity.com/2021-11-09-Ping-Identity-Achieves-FedRAMP-In-Process-Designation-for-its-Cloud-Identity-and-Access-Management-Solution": "2021-11-09",
+            "https://press.pingidentity.com/2021-11-08-Ping-Identity-Names-Shalini-Sharma-new-Chief-Legal-Officer": "2021-11-08",
+            "https://press.pingidentity.com/2021-11-03-Ping-Identity-Named-a-Leader-for-the-Fifth-Consecutive-Year-in-the-2021-Gartner-R-Magic-Quadrant-TM-for-Access-Management": "2021-11-03",
+            "https://press.pingidentity.com/2021-10-12-Ping-Identity-Joins-Palo-Alto-Networks-Cortex-XSOAR-Marketplace": "2021-10-12",
+            "https://press.pingidentity.com/2021-10-07-Ping-Identity-Announces-2021-Identity-Excellence-Awards-Winners": "2021-10-07",
+            "https://press.pingidentity.com/2021-10-06-Ping-Identity-Adds-New-Online-Fraud-Detection-and-API-Intelligence-Tools-to-PingOne-Cloud-Platform": "2021-10-06",
+            "https://press.pingidentity.com/2021-09-29-Ping-Identity-Announces-2021-Identity-Excellence-Awards-Finalists": "2021-09-29",
+            "https://press.pingidentity.com/2021-09-27-Ping-Identity-Acquires-Singular-Key-to-Accelerate-No-Code-Identity-Security-Integration-and-Orchestration": "2021-09-27",
+            "https://press.pingidentity.com/2021-09-21-Ping-Identity-Survey-Finds-Greater-Appetite-for-Password-Alternatives-That-Make-Login-Easy-and-Prioritize-Privacy": "2021-09-21",
+            "https://press.pingidentity.com/2021-09-14-Ping-Identity-Names-Jason-Kees-Chief-Information-Security-Officer": "2021-09-14",
+            "https://press.pingidentity.com/2021-07-20-Ping-Identity-Added-to-the-Department-of-Homeland-Security-Continuous-Diagnostics-and-Mitigation-Approved-Products-List": "2021-07-20",
+            "https://press.pingidentity.com/2021-06-21-Ping-Identity-Announces-Enhanced-PingOne-Cloud-Platform-and-Dynamic-Authorization-Solution-at-Identiverse-2021": "2021-06-21",
+            "https://press.pingidentity.com/2021-06-21-Ping-Identity-puts-users-in-control-of-their-identity-with-New-Personal-Identity-Solution": "2021-06-21",
+            "https://press.pingidentity.com/2021-06-21-Ping-Identity-Announces-the-Acquisition-of-SecuredTouch-to-Accelerate-Identity-Fraud-Capabilities": "2021-06-21",
+            "https://press.pingidentity.com/2021-06-16-Ping-Identity-Wins-Best-Identity-Management-Solution-From-SC-Awards-Europe-2021": "2021-06-16",
+            "https://press.pingidentity.com/2021-06-15-Ping-Identity-Launches-New-Partner-Sales-Certification-to-Help-Global-Partner-Network-Thrive": "2021-06-15",
+            "https://press.pingidentity.com/2021-06-03-Ping-Identity-Names-Jason-Wolf-As-New-Chief-Revenue-Officer": "2021-06-03",
+            "https://press.pingidentity.com/2021-06-02-Ping-Identity-Achieves-FAPI-CIBA-Certification-to-Help-Companies-Gain-Financial-Grade-Security-and-a-Better-Customer-Experience": "2021-06-02",
+            "https://press.pingidentity.com/2021-05-18-Ping-Identity-and-ProofID-Unite-to-Simplify-Identity-Security-for-Tesco-Bank": "2021-05-18",
+            "https://press.pingidentity.com/2021-05-05-Ping-Identity-Honored-as-a-Top-Workplace-by-The-Denver-Post": "2021-05-05",
+            "https://press.pingidentity.com/2021-04-27-Ping-Identity-Improves-Identity-Management-for-Global-Logistics-Provider-DB-Schenker": "2021-04-27",
+            "https://press.pingidentity.com/2021-04-20-Ping-YOUniverse-Brings-Together-Identity-Management-Leaders-and-Security-Professionals-to-Solve-Real-Business-Challenges": "2021-04-20",
+            "https://press.pingidentity.com/2021-04-13-Ping-Identity-Named-to-CRNs-2021-Security-100-List": "2021-04-13",
+            "https://press.pingidentity.com/2021-04-06-Ping-Identity-Named-Best-Identity-Management-Solution-Finalist-by-SC-Media-Awards-2021": "2021-04-06",
+            "https://press.pingidentity.com/2021-03-23-Ping-Identity-Finds-Securing-the-Work-from-Home-Economy-Requires-Greater-Investment-in-Zero-Trust-Identity-Security": "2021-03-23",
+            "https://press.pingidentity.com/2021-03-10-Ping-Identity-Recognized-for-Excellence-by-User-Review-Sites-G2-and-Expert-Insights": "2021-03-10",
+            "https://press.pingidentity.com/2021-03-03-Ping-Identity-Joins-Decentralized-Identity-Foundation-to-Advance-Open-Standards-for-Personal-Identity": "2021-03-03",
+            "https://press.pingidentity.com/2021-03-02-Ping-Identity-Welcomes-Diane-Gherson-to-its-Board-of-Directors": "2021-03-02",
+            "https://press.pingidentity.com/2021-02-25-Ping-Identity-Named-as-Leader-in-Three-KuppingerCole-Leadership-Compass-Reports": "2021-02-25",
+            "https://press.pingidentity.com/2021-02-18-Peter-Burke-Joins-Ping-Identity-as-Senior-Vice-President-of-R-D": "2021-02-18",
+            "https://press.pingidentity.com/2021-02-17-Ping-Identitys-Project-COVID-Freedom-Aims-to-Make-Vaccination-Verification-Simple": "2021-02-17",
+            "https://press.pingidentity.com/2021-02-02-Ping-Identity-Launches-New-Identity-Verification-Service-to-Radically-Simplify-Customer-Onboarding-and-Reduce-Fraud": "2021-02-02",
+            "https://press.pingidentity.com/2021-01-20-Ping-Identity-Shortlisted-as-Best-Hybrid-Cloud-Solution-in-Cloud-Awards": "2021-01-20",
+            "https://press.pingidentity.com/2021-01-13-Ping-Identity-Wins-Glassdoor-Employees-Choice-Award": "2021-01-13",
+            "https://press.pingidentity.com/2021-01-07-Hall-of-Fame-CIO-Paul-Martin-Joins-Ping-Identitys-Board-of-Directors": "2021-01-07",
+            "https://press.pingidentity.com/2020-12-08-Ping-Identity-Honored-With-Multiple-Industry-Achievements": "2020-12-08",
+            "https://press.pingidentity.com/2020-12-01-Ping-Identity-Ranked-First-in-All-Use-Cases-in-the-Gartner-2020-Critical-Capabilities-for-Access-Management-Report": "2020-12-01",
+            "https://press.pingidentity.com/2020-11-23-Ping-Identity-Named-a-Leader-for-the-Fourth-Consecutive-Year-in-the-2020-Gartner-Magic-Quadrant-for-Access-Management": "2020-11-23",
+            "https://press.pingidentity.com/2020-11-19-Ping-Identity-Named-One-of-25-Highest-Rated-Public-Cloud-Computing-Companies-to-Work-for-During-the-COVID-Crisis": "2020-11-19",
+            "https://press.pingidentity.com/2020-11-17-Ping-Identity-Launches-Consumer-Data-Right-Integration-Kit-To-Support-Banking-and-Fintech-Compliance-with-Australian-Regulation": "2020-11-17",
+            "https://press.pingidentity.com/2020-11-02-Ping-Identity-to-Acquire-Symphonic-Software-to-Accelerate-Dynamic-Authorization-for-Enterprises-Pursuing-Zero-Trust-Identity-Security": "2020-11-02",
+            "https://press.pingidentity.com/2020-10-28-Ping-Identity-Unveils-Advanced-Passwordless-Features-to-Transform-Digital-Experiences": "2020-10-28",
+            "https://press.pingidentity.com/2020-10-27-Industry-veteran-Emma-Maslen-Joins-Ping-Identity-as-Vice-President-and-General-Manager-for-EMEA-and-APAC": "2020-10-27",
+            "https://press.pingidentity.com/2020-10-19-Ping-Identity-Named-as-Denver-Top-Workplace,-CEO-Named-as-Most-Admired-CEO": "2020-10-19",
+            "https://press.pingidentity.com/2020-10-07-Ping-Identity-Acquires-Personal-Identity-Leader-ShoCard-to-Revolutionize-Privacy,-Streamline-Customer-Interactions-and-Put-Users-in-Control-of-their-Identity": "2020-10-07",
+            "https://press.pingidentity.com/2020-10-07-Ping-Identity-Launches-New-Cloud-Services-Enabling-Advanced-Risk-Management-and-Authentication-for-the-Enterprise": "2020-10-07",
+            "https://press.pingidentity.com/2020-10-07-Ping-Identity-Announces-Winners-of-the-2020-Identity-Excellence-Awards": "2020-10-07",
+            "https://press.pingidentity.com/2020-09-23-Ping-Identity-Announces-Finalists-for-2020-Identity-Excellence-Awards": "2020-09-23",
+            "https://press.pingidentity.com/2020-09-02-Ping-Identity-Named-a-Leader-in-2020-ISG-Provider-Lens-TM-for-Cyber-Security-Solutions-Services-Quadrant-Report": "2020-09-02",
+            "https://press.pingidentity.com/2020-08-31-Ping-Identity-Releases-Updated-Consumer-Data-Right-Sandbox-For-Fast-Tracking-Open-Banking-Adoption-in-Australia": "2020-08-31",
+            "https://press.pingidentity.com/2020-08-27-Ping-Identity-Recognized-as-an-IoT-IAM-Leader-for-the-Second-Consecutive-Year-by-Quadrant-Knowledge-Solutions": "2020-08-27",
+            "https://press.pingidentity.com/2020-07-21-Ping-Identity-Announces-New-Global-Partner-Program-Offerings": "2020-07-21",
+            "https://press.pingidentity.com/2020-06-16-Ping-Identity-Workforce-Identity-Solutions-Now-Available-in-AWS-Marketplace": "2020-06-16",
+            "https://press.pingidentity.com/2020-06-10-Ping-Identity-Releases-Consumer-Data-Right-Sandbox-to-Fast-Track-Open-Banking-Adoption-in-Australia": "2020-06-10",
+            "https://press.pingidentity.com/2020-05-14-Security-and-Enterprise-Cloud-Veteran-Candace-Worley-Joins-Ping-Identity-as-Chief-Product-Officer": "2020-05-14",
+            "https://press.pingidentity.com/2020-03-31-Ping-Identity-Multi-Factor-Authentication-Now-Available-in-AWS-Marketplace": "2020-03-31",
+            "https://press.pingidentity.com/2020-03-03-Ping-Identity-Announces-New-Workforce-and-Customer-Authentication-Solutions-for-the-Modern-Digital-Enterprise": "2020-03-03",
+            "https://press.pingidentity.com/2020-02-20-Ping-Identity-Names-Distinguished-Identity-Leader-Patrick-Harding-as-New-Chief-Product-Architect": "2020-02-20",
+            "https://press.pingidentity.com/2019-12-17-Ping-Identity-Builds-and-Matures-Zero-Trust-Security-Infrastructures": "2019-12-17",
+            "https://press.pingidentity.com/2019-12-11-Ping-Identity-Solutions-Accelerate-Enterprise-Multi-cloud-Adoption": "2019-12-11",
+            "https://press.pingidentity.com/2019-11-25-Ping-Identity-Highlights-the-Addition-of-Board-Members": "2019-11-25",
+            "https://press.pingidentity.com/2019-11-21-Ping-Identity-Customers-and-Partners-Recognized-with-2019-Identity-Excellence-Awards": "2019-11-21",
+            "https://press.pingidentity.com/2019-11-21-Ping-Identity-Presents-Intermountain-Healthcare-with-CEOs-Choice-Honor-at-the-2019-Identity-Excellence-Awards": "2019-11-21",
+            "https://press.pingidentity.com/2019-11-21-Ping-Identity-Announces-Winners-of-the-2019-Identity-Excellence-Awards": "2019-11-21",
+            "https://press.pingidentity.com/2019-11-19-Ping-Identity-Announces-Record-breaking-Scale-and-Performance-of-Its-Customer-Identity-Solutions": "2019-11-19",
+            "https://press.pingidentity.com/2019-11-12-Ping-Identity-Secures-One-of-the-Nations-First-Government-Issued-Digital-IDs-in-myColorado-App": "2019-11-12",
+            "https://press.pingidentity.com/2019-10-27-Ping-Identity-Helps-Mortgage-Choice-Deliver-Enterprise-Grade-Security-to-Franchisees-Across-Australia": "2019-10-27",
+            "https://press.pingidentity.com/2019-10-22-81-of-Consumers-Would-Stop-Engaging-with-a-Brand-Online-After-a-Data-Breach,-Reports-Ping-Identity": "2019-10-22",
+            "https://press.pingidentity.com/2019-10-17-Ping-Identity-Expands-into-Northern-Europe-with-New-Office-as-Market-for-Identity-Security-Grows": "2019-10-17",
+            "https://press.pingidentity.com/2019-10-09-Denver-Rescue-Mission-Chooses-Ping-Identity-to-Secure-Its-Hybrid-Cloud-Environment": "2019-10-09",
+            "https://press.pingidentity.com/2019-10-01-Ping-Identity-Releases-Self-Service-Solution-to-Simplify-Modernization-of-Legacy-Identity-Infrastructure": "2019-10-01",
+            "https://press.pingidentity.com/2019-09-18-Ping-Identity-Announces-Pricing-of-Initial-Public-Offering": "2019-09-18",
+            "https://press.pingidentity.com/2019-09-13-Ping-Identity-to-Present-the-Future-of-Identity-Security-at-IDENTIFY-2019": "2019-09-13",
+            "https://press.pingidentity.com/2019-09-09-Ping-Identity-Announces-Launch-of-Initial-Public-Offering": "2019-09-09",
+            "https://press.pingidentity.com/2019-09-05-Security-and-Privacy-Drive-Competitive-Advantages,-Says-Ping-Identity-CISO-Advisory-Council": "2019-09-05",
+            "https://press.pingidentity.com/2019-08-23-Ping-Identity-Files-Registration-Statement-for-Proposed-IPO": "2019-08-23"
+          }
+        },
+        "indexComplete": false,
+        "terminalProved": false,
+        "primarySample": {
+          "url": "https://press.pingidentity.com/2019-08-23-Ping-Identity-Files-Registration-Statement-for-Proposed-IPO",
+          "observation": {
+            "key": "objects/28a41015668e956b60fe35987fc499cb55714946bc8212b5fa6637d2bcd4040c",
+            "sha256": "28a41015668e956b60fe35987fc499cb55714946bc8212b5fa6637d2bcd4040c",
+            "bytes": 447
+          },
+          "shape": {
+            "error": "BOUNDED_CANDIDATE_PRIMARY_HEADING_AMBIGUOUS"
+          }
+        },
+        "requestReservations": [
+          {
+            "url": "https://press.pingidentity.com/news-releases",
+            "reservation": {
+              "budgetDay": "2026-10-24",
+              "fetchLimit": 5500,
+              "chargedFetchCount": 1237
+            },
+            "observation": {
+              "key": "objects/894e06c5b6e8f76da70338ceb8c69b81c02b7b71664f197c63eff8364026dce3",
+              "sha256": "894e06c5b6e8f76da70338ceb8c69b81c02b7b71664f197c63eff8364026dce3",
+              "bytes": 390
+            }
+          },
+          {
+            "url": "https://press.pingidentity.com/news-releases?o=10",
+            "reservation": {
+              "budgetDay": "2026-10-24",
+              "fetchLimit": 5500,
+              "chargedFetchCount": 1238
+            },
+            "observation": {
+              "key": "objects/045243c1f5a9299c9eb588236b6fc429d61e1539c253bc7079a3a2f8d429aa2e",
+              "sha256": "045243c1f5a9299c9eb588236b6fc429d61e1539c253bc7079a3a2f8d429aa2e",
+              "bytes": 395
+            }
+          },
+          {
+            "url": "https://press.pingidentity.com/news-releases?o=20",
+            "reservation": {
+              "budgetDay": "2026-10-24",
+              "fetchLimit": 5500,
+              "chargedFetchCount": 1239
+            },
+            "observation": {
+              "key": "objects/fb05ac09c3fdee9cb228c5bb07fc05eb470935f9bc79e2a90041444e1d1b1dab",
+              "sha256": "fb05ac09c3fdee9cb228c5bb07fc05eb470935f9bc79e2a90041444e1d1b1dab",
+              "bytes": 395
+            }
+          },
+          {
+            "url": "https://press.pingidentity.com/news-releases?o=30",
+            "reservation": {
+              "budgetDay": "2026-10-24",
+              "fetchLimit": 5500,
+              "chargedFetchCount": 1240
+            },
+            "observation": {
+              "key": "objects/73f2f52115f8be00625772b0aeeba7c728fc12820a52e6c9ca809a709f5fb8e0",
+              "sha256": "73f2f52115f8be00625772b0aeeba7c728fc12820a52e6c9ca809a709f5fb8e0",
+              "bytes": 395
+            }
+          },
+          {
+            "url": "https://press.pingidentity.com/news-releases?o=40",
+            "reservation": {
+              "budgetDay": "2026-10-24",
+              "fetchLimit": 5500,
+              "chargedFetchCount": 1241
+            },
+            "observation": {
+              "key": "objects/d80d652c51946f98ffd3ce36254df5e883e6021ddc01c12487578916bbf0ba6c",
+              "sha256": "d80d652c51946f98ffd3ce36254df5e883e6021ddc01c12487578916bbf0ba6c",
+              "bytes": 395
+            }
+          },
+          {
+            "url": "https://press.pingidentity.com/news-releases?o=50",
+            "reservation": {
+              "budgetDay": "2026-10-24",
+              "fetchLimit": 5500,
+              "chargedFetchCount": 1242
+            },
+            "observation": {
+              "key": "objects/38695c0a55e4da8dd776cc73c9bf08d474886f5fbaa242728f23a127a92d8a9a",
+              "sha256": "38695c0a55e4da8dd776cc73c9bf08d474886f5fbaa242728f23a127a92d8a9a",
+              "bytes": 395
+            }
+          },
+          {
+            "url": "https://press.pingidentity.com/news-releases?o=60",
+            "reservation": {
+              "budgetDay": "2026-10-24",
+              "fetchLimit": 5500,
+              "chargedFetchCount": 1243
+            },
+            "observation": {
+              "key": "objects/b207f16a55f89d226ae1a73c6918cb6c1f76eda9a9a6ae93df5e18aaabfeb5e4",
+              "sha256": "b207f16a55f89d226ae1a73c6918cb6c1f76eda9a9a6ae93df5e18aaabfeb5e4",
+              "bytes": 395
+            }
+          },
+          {
+            "url": "https://press.pingidentity.com/news-releases?o=70",
+            "reservation": {
+              "budgetDay": "2026-10-24",
+              "fetchLimit": 5500,
+              "chargedFetchCount": 1244
+            },
+            "observation": {
+              "key": "objects/d0c7cdc3faf80c6f032a5ffdc697bcf88689babb4b6efce96c1c1e6d89e3609d",
+              "sha256": "d0c7cdc3faf80c6f032a5ffdc697bcf88689babb4b6efce96c1c1e6d89e3609d",
+              "bytes": 395
+            }
+          },
+          {
+            "url": "https://press.pingidentity.com/news-releases?o=80",
+            "reservation": {
+              "budgetDay": "2026-10-24",
+              "fetchLimit": 5500,
+              "chargedFetchCount": 1245
+            },
+            "observation": {
+              "key": "objects/ce779aa360f9b56a51929e16dc3076ad67682596eb0b85bd87a370bdd95d9ade",
+              "sha256": "ce779aa360f9b56a51929e16dc3076ad67682596eb0b85bd87a370bdd95d9ade",
+              "bytes": 395
+            }
+          },
+          {
+            "url": "https://press.pingidentity.com/news-releases?o=90",
+            "reservation": {
+              "budgetDay": "2026-10-24",
+              "fetchLimit": 5500,
+              "chargedFetchCount": 1246
+            },
+            "observation": {
+              "key": "objects/62c4be68ee928a82696d5d24a9d321d541db00ecf5bc88781f4a7ce9317383e4",
+              "sha256": "62c4be68ee928a82696d5d24a9d321d541db00ecf5bc88781f4a7ce9317383e4",
+              "bytes": 395
+            }
+          },
+          {
+            "url": "https://press.pingidentity.com/news-releases?o=100",
+            "reservation": {
+              "budgetDay": "2026-10-24",
+              "fetchLimit": 5500,
+              "chargedFetchCount": 1247
+            },
+            "observation": {
+              "key": "objects/67f989dad4ade433a1bfb21a9d759ca78c5ae5dbd4e20dec66dd4dc9c7dedac7",
+              "sha256": "67f989dad4ade433a1bfb21a9d759ca78c5ae5dbd4e20dec66dd4dc9c7dedac7",
+              "bytes": 396
+            }
+          },
+          {
+            "url": "https://press.pingidentity.com/news-releases?o=110",
+            "reservation": {
+              "budgetDay": "2026-10-24",
+              "fetchLimit": 5500,
+              "chargedFetchCount": 1248
+            },
+            "observation": {
+              "key": "objects/d95d9b78e43499d94429f22950784bdf6d9823462ed07ea1476d1df9337170d9",
+              "sha256": "d95d9b78e43499d94429f22950784bdf6d9823462ed07ea1476d1df9337170d9",
+              "bytes": 396
+            }
+          },
+          {
+            "url": "https://press.pingidentity.com/news-releases?o=120",
+            "reservation": {
+              "budgetDay": "2026-10-24",
+              "fetchLimit": 5500,
+              "chargedFetchCount": 1249
+            },
+            "observation": {
+              "key": "objects/a3b1478a508de4356d70b8be00a02fe7293c4d287401db26a937fc2426785d19",
+              "sha256": "a3b1478a508de4356d70b8be00a02fe7293c4d287401db26a937fc2426785d19",
+              "bytes": 396
+            }
+          },
+          {
+            "url": "https://press.pingidentity.com/news-releases?o=130",
+            "reservation": {
+              "budgetDay": "2026-10-24",
+              "fetchLimit": 5500,
+              "chargedFetchCount": 1250
+            },
+            "observation": {
+              "key": "objects/f700b815a7ef67f9d6a4d4686deee7a5e090ff1c27876f7a844f649283d32494",
+              "sha256": "f700b815a7ef67f9d6a4d4686deee7a5e090ff1c27876f7a844f649283d32494",
+              "bytes": 396
+            }
+          },
+          {
+            "url": "https://press.pingidentity.com/news-releases?o=140",
+            "reservation": {
+              "budgetDay": "2026-10-24",
+              "fetchLimit": 5500,
+              "chargedFetchCount": 1251
+            },
+            "observation": {
+              "key": "objects/48823a41c62c1482c24ccd6dca8ec6cf9b7a8df49dc9cbaaf2014175c5b65471",
+              "sha256": "48823a41c62c1482c24ccd6dca8ec6cf9b7a8df49dc9cbaaf2014175c5b65471",
+              "bytes": 396
+            }
+          },
+          {
+            "url": "https://press.pingidentity.com/news-releases?o=150",
+            "reservation": {
+              "budgetDay": "2026-10-24",
+              "fetchLimit": 5500,
+              "chargedFetchCount": 1252
+            },
+            "observation": {
+              "key": "objects/db5ab634f50fbbeb4477c930990142141a122da32ced5211bacd67383a36379c",
+              "sha256": "db5ab634f50fbbeb4477c930990142141a122da32ced5211bacd67383a36379c",
+              "bytes": 396
+            }
+          },
+          {
+            "url": "https://press.pingidentity.com/news-releases?o=160",
+            "reservation": {
+              "budgetDay": "2026-10-24",
+              "fetchLimit": 5500,
+              "chargedFetchCount": 1253
+            },
+            "observation": {
+              "key": "objects/e2dbee2ca7765c9a5cc1fab697c50619fd3499e3a68f17dca1ff5129e78309e6",
+              "sha256": "e2dbee2ca7765c9a5cc1fab697c50619fd3499e3a68f17dca1ff5129e78309e6",
+              "bytes": 396
+            }
+          },
+          {
+            "url": "https://press.pingidentity.com/news-releases?o=170",
+            "reservation": {
+              "budgetDay": "2026-10-24",
+              "fetchLimit": 5500,
+              "chargedFetchCount": 1254
+            },
+            "observation": {
+              "key": "objects/7608cbaf07cafa7d5ac1765ab243e4877863cfcb7892ab9f682e86a6a6b7bc96",
+              "sha256": "7608cbaf07cafa7d5ac1765ab243e4877863cfcb7892ab9f682e86a6a6b7bc96",
+              "bytes": 396
+            }
+          },
+          {
+            "url": "https://press.pingidentity.com/2019-08-23-Ping-Identity-Files-Registration-Statement-for-Proposed-IPO",
+            "reservation": {
+              "budgetDay": "2026-10-24",
+              "fetchLimit": 5500,
+              "chargedFetchCount": 1255
+            },
+            "observation": {
+              "key": "objects/28a41015668e956b60fe35987fc499cb55714946bc8212b5fa6637d2bcd4040c",
+              "sha256": "28a41015668e956b60fe35987fc499cb55714946bc8212b5fa6637d2bcd4040c",
+              "bytes": 447
+            }
+          }
+        ],
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "sourceChecksCredited": 0,
+        "qualifiedSources": 0,
+        "modelCalls": 0,
+        "facts": [],
+        "newFactIds": [],
+        "reason": "BOUNDED_CANDIDATE_PRIMARY_HEADING_AMBIGUOUS"
+      },
+      {
+        "sourceId": "delinea:official:1",
+        "supplierId": "delinea",
+        "registration": "candidate",
+        "originalSourceSha256": "d6130aaaa8b1b04cb3324289c5befe7f76de687d297b3774b33629914babdee5",
+        "proposedAdapterSha256": "605e9e414b650c1fd21e2fba45b41968c37a0367cf4961c72decb3d57b647804",
+        "observations": [
+          {
+            "url": "https://delinea.com/news",
+            "observation": {
+              "key": "objects/92c5d42690ab710a6c6461ff1e446a12e56573cb84b1bdbe3443a95f1a2ffdb3",
+              "sha256": "92c5d42690ab710a6c6461ff1e446a12e56573cb84b1bdbe3443a95f1a2ffdb3",
+              "bytes": 364
+            },
+            "parser": {
+              "currentPage": 1,
+              "highestPage": 5,
+              "items": [
+                "https://delinea.com/news/2026-identity-security-report-the-ai-enforcement-gap",
+                "https://delinea.com/news/axios-names-delinea-a-winner-of-the-greater-bay-area-top-workplaces-2026-award",
+                "https://delinea.com/news/delinea-achieves-fedramp-high-authorization-for-secret-server",
+                "https://delinea.com/news/delinea-an-overall-leader-2026-kuppingercole-leadership-compass-for-pam",
+                "https://delinea.com/news/delinea-appoints-timothy-regan-as-cfo",
+                "https://delinea.com/news/delinea-delivers-runtime-authorization-for-ai-agents",
+                "https://delinea.com/news/delinea-fastpath-launches-mcp-server-for-ai-powered-access-governance-and-audit-readiness",
+                "https://delinea.com/news/delinea-integrates-with-cyera-to-prioritize-data-aware-identity-security-in-the-ai-era",
+                "https://delinea.com/news/delinea-joins-anthropics-project-glasswing",
+                "https://delinea.com/news/delinea-launches-new-partner-program",
+                "https://delinea.com/news/delinea-named-a-growth-and-innovation-leader-in-frost-radar-for-pam-2026",
+                "https://delinea.com/news/delinea-named-a-winner-of-the-united-states-top-workplaces-2026-award"
+              ],
+              "dates": {},
+              "next": "https://delinea.com/news/page/2",
+              "terminalProved": false
+            }
+          },
+          {
+            "url": "https://delinea.com/news/page/2",
+            "observation": {
+              "key": "objects/6609f35da9c2fcbe82b8a6912d7d25bfb0399b2c8e794ea7540a26409c74e152",
+              "sha256": "6609f35da9c2fcbe82b8a6912d7d25bfb0399b2c8e794ea7540a26409c74e152",
+              "bytes": 371
+            },
+            "parser": {
+              "currentPage": 2,
+              "highestPage": 5,
+              "items": [
+                "https://delinea.com/news/delinea-acquires-strongdm-to-secure-ai-with-continuous-authorization",
+                "https://delinea.com/news/delinea-and-climb-channel-solutions-extend-global-partnership-to-europe",
+                "https://delinea.com/news/delinea-appoints-scott-goree-as-svp-of-channel-and-alliances",
+                "https://delinea.com/news/delinea-appoints-three-senior-leaders-to-accelerate-growth-across-emea-and-apac",
+                "https://delinea.com/news/delinea-leaders-recognized-on-crns-2026-women-of-the-channel-list",
+                "https://delinea.com/news/delinea-partners-with-ncc-group-to-deliver-privileged-access-management",
+                "https://delinea.com/news/delinea-recognized-as-an-overall-leader-in-the-kuppingercole-leadership-compass-for-non-human-identity-management-2025",
+                "https://delinea.com/news/delinea-recognized-in-gartner-market-guide-for-guardian-agents",
+                "https://delinea.com/news/delinea-report-finds-90-of-organizations-pressure-security-about-ai-governance",
+                "https://delinea.com/news/delinea-strongdm-to-unite-redefine-identity-security-for-the-ai-era",
+                "https://delinea.com/news/delinea-to-host-its-inaugural-delinea-edge-customer-conference-in-2027",
+                "https://delinea.com/news/kara-trovato-of-delinea-honored-as-a-2026-crn-channel-chief"
+              ],
+              "dates": {},
+              "next": "https://delinea.com/news/page/3",
+              "terminalProved": false
+            }
+          },
+          {
+            "url": "https://delinea.com/news/page/3",
+            "observation": {
+              "key": "objects/3c7bb958dadfd10126d31bd348e39bf1d426dd47b5273a6476cd03ed45f70f4e",
+              "sha256": "3c7bb958dadfd10126d31bd348e39bf1d426dd47b5273a6476cd03ed45f70f4e",
+              "bytes": 371
+            },
+            "parser": {
+              "currentPage": 3,
+              "highestPage": 5,
+              "items": [
+                "https://delinea.com/news/delinea-awarded-frost-and-sullivans-top-honor-for-innovation-leadership-in-securing-non-human-identities",
+                "https://delinea.com/news/delinea-expands-oem-agreement-with-ibm-for-identity-security-solutions",
+                "https://delinea.com/news/delinea-iris-ai-makea-identity-security-simpler-stronger-and-smarter",
+                "https://delinea.com/news/delinea-is-a-proud-part-of-microsoft-security-store-partner-ecosystem",
+                "https://delinea.com/news/delinea-mcp-server-to-provide-secure-credential-access-for-ai-agents",
+                "https://delinea.com/news/delinea-named-a-leader-in-2025-gartner-magic-quadrant-for-pam-for-seventh-consecutive-time",
+                "https://delinea.com/news/delinea-named-a-leader-in-2025-privileged-identity-management-report",
+                "https://delinea.com/news/delinea-named-a-winner-of-the-united-states-top-workplaces-2025-award",
+                "https://delinea.com/news/delinea-secret-server-under-assessment-for-fedramp-high-authorization",
+                "https://delinea.com/news/delinea-surpasses-400m-in-arr-and-expands-global-momentum",
+                "https://delinea.com/news/identity-security-controls-central-to-cyber-insurance-decisions",
+                "https://delinea.com/news/new-research-highlights-gaps-in-organizations-machine-identity-visibility-and-ai-governance"
+              ],
+              "dates": {},
+              "next": "https://delinea.com/news/page/4",
+              "terminalProved": false
+            }
+          },
+          {
+            "url": "https://delinea.com/news/page/4",
+            "observation": {
+              "key": "objects/003317ee89b5eb78f4e6123fcdb9a20e89d34f12c3212f0f7eed69f8406ee1d8",
+              "sha256": "003317ee89b5eb78f4e6123fcdb9a20e89d34f12c3212f0f7eed69f8406ee1d8",
+              "bytes": 371
+            },
+            "parser": {
+              "currentPage": 4,
+              "highestPage": 6,
+              "items": [
+                "https://delinea.com/news/2025-state-of-ransomware-report-reveals-volatile-threat-landscape",
+                "https://delinea.com/news/delinea-and-utimaco-join-forces-to-provide-customers-with-highest-level-of-security",
+                "https://delinea.com/news/delinea-begins-fedramp-high-authorization-process-for-secret-server",
+                "https://delinea.com/news/delinea-demonstrates-strong-growth-in-securing-ai-with-advanced-identity-security",
+                "https://delinea.com/news/delinea-earns-5-star-rating-2025-crn-partner-program-guide",
+                "https://delinea.com/news/delinea-gives-greater-visibility-and-control-over-all-user-identities",
+                "https://delinea.com/news/delinea-hires-alex-thurber-as-senior-vice-president-of-global-channels-further-strengthening-its-partner-strategy",
+                "https://delinea.com/news/delinea-labs-ai-threat-landscape",
+                "https://delinea.com/news/delinea-partners-with-microsoft-to-ensure-seamless-transition",
+                "https://delinea.com/news/delinea-unveils-enterprise-grade-cloud-native-security-capabilities",
+                "https://delinea.com/news/delinea-wins-2025-technology-top-workplaces-award",
+                "https://delinea.com/news/three-delinea-leaders-named-to-2025-crn-women-of-the-channel-list"
+              ],
+              "dates": {},
+              "next": "https://delinea.com/news/page/5",
+              "terminalProved": false
+            }
+          },
+          {
+            "url": "https://delinea.com/news/page/5",
+            "observation": {
+              "key": "objects/6821f7b00886b051773133d30c5bda18ad2cea6c9b272e7d7f42fc0671cef66c",
+              "sha256": "6821f7b00886b051773133d30c5bda18ad2cea6c9b272e7d7f42fc0671cef66c",
+              "bytes": 371
+            },
+            "parser": {
+              "currentPage": 5,
+              "highestPage": 7,
+              "items": [
+                "https://delinea.com/news/delinea-a-leader-in-kuppingercole-leadership-compass-for-pam-2024",
+                "https://delinea.com/news/delinea-acquire-fastpath-revolutionize-privileged-access-identity-governance",
+                "https://delinea.com/news/delinea-completes-acquisition-of-fastpath-modernize-identity-security",
+                "https://delinea.com/news/delinea-debuts-privilege-control-for-servers",
+                "https://delinea.com/news/delinea-hires-cyberark-veteran-chris-kelly-as-president-gtm",
+                "https://delinea.com/news/delinea-industry-first-quantum-safe-encryption-privileged-accounts",
+                "https://delinea.com/news/delinea-joins-cve-numbering-authority-program",
+                "https://delinea.com/news/delinea-launches-ciem-itdr-identity-security-needs-of-modern-enterprises",
+                "https://delinea.com/news/delinea-named-a-leader-in-2024-gartner-magic-quadrant-for-pam",
+                "https://delinea.com/news/delinea-poised-disrupt-identity-security-arr-milestone",
+                "https://delinea.com/news/kara-trovato-of-delinea-recognized-2025-crn-channel-chiefs-list",
+                "https://delinea.com/news/organizations-plan-increases-identity-security-spending"
+              ],
+              "dates": {},
+              "next": "https://delinea.com/news/page/6",
+              "terminalProved": false
+            }
+          },
+          {
+            "url": "https://delinea.com/news/page/6",
+            "observation": {
+              "key": "objects/04a6449afa526684d7e63d3cfec3c0a8e28b5aa8c39b20cf6c64bfc478097f28",
+              "sha256": "04a6449afa526684d7e63d3cfec3c0a8e28b5aa8c39b20cf6c64bfc478097f28",
+              "bytes": 371
+            },
+            "parser": {
+              "currentPage": 6,
+              "highestPage": 8,
+              "items": [
+                "https://delinea.com/news/delinea-acquires-authomize-detect-mitigate-identity-threats",
+                "https://delinea.com/news/delinea-appoints-new-vp-northern-europe",
+                "https://delinea.com/news/delinea-appoints-norbert-kiss-as-svp-for-apac",
+                "https://delinea.com/news/delinea-extends-education-complimentary-compliance-resources",
+                "https://delinea.com/news/delinea-joins-microsoft-security-copilot-partner-private-preview",
+                "https://delinea.com/news/delinea-kate-reed-chief-marketing-officer",
+                "https://delinea.com/news/delinea-launches-comprehensive-global-partner-program",
+                "https://delinea.com/news/delinea-patent-delegated-machine-credentials",
+                "https://delinea.com/news/delinea-platform-marketplace-expands-400-integrations",
+                "https://delinea.com/news/delinea-research-legacy-technology-hindering-evolution-passwordless-authentication",
+                "https://delinea.com/news/delinea-research-ransomware-motivation-shifts-data-exfiltration",
+                "https://delinea.com/news/secret-server-boosts-usability"
+              ],
+              "dates": {},
+              "next": "https://delinea.com/news/page/7",
+              "terminalProved": false
+            }
+          },
+          {
+            "url": "https://delinea.com/news/page/7",
+            "observation": {
+              "key": "objects/0448aa1c586e037552b180e70fa7ad79716d6de0911db88c5d0f3ce758e85b32",
+              "sha256": "0448aa1c586e037552b180e70fa7ad79716d6de0911db88c5d0f3ce758e85b32",
+              "bytes": 371
+            },
+            "parser": {
+              "currentPage": 7,
+              "highestPage": 9,
+              "items": [
+                "https://delinea.com/news/2023-blackhat-usa-passwordless-future",
+                "https://delinea.com/news/cyber-insurance-gap-2023-survey-report",
+                "https://delinea.com/news/david-koenig-chief-information-officer",
+                "https://delinea.com/news/delinea-20th-cybersecurity-awareness-month-champion",
+                "https://delinea.com/news/delinea-accelerates-time-to-value-devops-secrets-management",
+                "https://delinea.com/news/delinea-intelligent-automated-auditing",
+                "https://delinea.com/news/delinea-leader-privileged-identity-management",
+                "https://delinea.com/news/delinea-publishes-conversational-cyber-insurance",
+                "https://delinea.com/news/delinea-reduces-risk-identity-based-attacks-workstations",
+                "https://delinea.com/news/delinea-secret-server-available-microsoft-azure-marketplace",
+                "https://delinea.com/news/leader-2023-gartner-magic-quadrant-privileged-access-management",
+                "https://delinea.com/news/secret-server-mfa-enforcement-depth"
+              ],
+              "dates": {},
+              "next": "https://delinea.com/news/page/8",
+              "terminalProved": false
+            }
+          },
+          {
+            "url": "https://delinea.com/news/page/8",
+            "observation": {
+              "key": "objects/93a6cf93f2db785571487dba9d14926a3d9c2493b906c48094f97cef9f98e984",
+              "sha256": "93a6cf93f2db785571487dba9d14926a3d9c2493b906c48094f97cef9f98e984",
+              "bytes": 371
+            },
+            "parser": {
+              "currentPage": 8,
+              "highestPage": 10,
+              "items": [
+                "https://delinea.com/news/2023-global-infosec-awards-rsa-conference",
+                "https://delinea.com/news/channel-katie-mccroskey-and-kara-trovato-2023-crn-women-channel",
+                "https://delinea.com/news/delinea-growth-leader-pam-frost-sullivan",
+                "https://delinea.com/news/delinea-recognized-award-cybersecurity-evangelism",
+                "https://delinea.com/news/delinea-soc-2-type-ll-compliance",
+                "https://delinea.com/news/delinea-unlocked-2023",
+                "https://delinea.com/news/delinea-workstation-policy-framework",
+                "https://delinea.com/news/global-research-leadership-overlooks-cybersecurity",
+                "https://delinea.com/news/latest-release-reduces-risk-lateral-movement",
+                "https://delinea.com/news/product-update-backdoor-threats-servers",
+                "https://delinea.com/news/rsa-conference-survey-cloud-security-cybersecurity-concern",
+                "https://delinea.com/news/strong-channel-momentum-2023"
+              ],
+              "dates": {},
+              "next": "https://delinea.com/news/page/9",
+              "terminalProved": false
+            }
+          },
+          {
+            "url": "https://delinea.com/news/page/9",
+            "observation": {
+              "key": "objects/45419ff6ca8bba4b9efd07ffd16d6e5656608a2a7449b44512d34c3848ec9bb6",
+              "sha256": "45419ff6ca8bba4b9efd07ffd16d6e5656608a2a7449b44512d34c3848ec9bb6",
+              "bytes": 371
+            },
+            "parser": {
+              "error": "Unsafe HTML archive article path"
+            }
+          }
+        ],
+        "inventory": {
+          "items": [
+            "https://delinea.com/news/2023-blackhat-usa-passwordless-future",
+            "https://delinea.com/news/2023-global-infosec-awards-rsa-conference",
+            "https://delinea.com/news/2025-state-of-ransomware-report-reveals-volatile-threat-landscape",
+            "https://delinea.com/news/2026-identity-security-report-the-ai-enforcement-gap",
+            "https://delinea.com/news/axios-names-delinea-a-winner-of-the-greater-bay-area-top-workplaces-2026-award",
+            "https://delinea.com/news/channel-katie-mccroskey-and-kara-trovato-2023-crn-women-channel",
+            "https://delinea.com/news/cyber-insurance-gap-2023-survey-report",
+            "https://delinea.com/news/david-koenig-chief-information-officer",
+            "https://delinea.com/news/delinea-20th-cybersecurity-awareness-month-champion",
+            "https://delinea.com/news/delinea-a-leader-in-kuppingercole-leadership-compass-for-pam-2024",
+            "https://delinea.com/news/delinea-accelerates-time-to-value-devops-secrets-management",
+            "https://delinea.com/news/delinea-achieves-fedramp-high-authorization-for-secret-server",
+            "https://delinea.com/news/delinea-acquire-fastpath-revolutionize-privileged-access-identity-governance",
+            "https://delinea.com/news/delinea-acquires-authomize-detect-mitigate-identity-threats",
+            "https://delinea.com/news/delinea-acquires-strongdm-to-secure-ai-with-continuous-authorization",
+            "https://delinea.com/news/delinea-an-overall-leader-2026-kuppingercole-leadership-compass-for-pam",
+            "https://delinea.com/news/delinea-and-climb-channel-solutions-extend-global-partnership-to-europe",
+            "https://delinea.com/news/delinea-and-utimaco-join-forces-to-provide-customers-with-highest-level-of-security",
+            "https://delinea.com/news/delinea-appoints-new-vp-northern-europe",
+            "https://delinea.com/news/delinea-appoints-norbert-kiss-as-svp-for-apac",
+            "https://delinea.com/news/delinea-appoints-scott-goree-as-svp-of-channel-and-alliances",
+            "https://delinea.com/news/delinea-appoints-three-senior-leaders-to-accelerate-growth-across-emea-and-apac",
+            "https://delinea.com/news/delinea-appoints-timothy-regan-as-cfo",
+            "https://delinea.com/news/delinea-awarded-frost-and-sullivans-top-honor-for-innovation-leadership-in-securing-non-human-identities",
+            "https://delinea.com/news/delinea-begins-fedramp-high-authorization-process-for-secret-server",
+            "https://delinea.com/news/delinea-completes-acquisition-of-fastpath-modernize-identity-security",
+            "https://delinea.com/news/delinea-debuts-privilege-control-for-servers",
+            "https://delinea.com/news/delinea-delivers-runtime-authorization-for-ai-agents",
+            "https://delinea.com/news/delinea-demonstrates-strong-growth-in-securing-ai-with-advanced-identity-security",
+            "https://delinea.com/news/delinea-earns-5-star-rating-2025-crn-partner-program-guide",
+            "https://delinea.com/news/delinea-expands-oem-agreement-with-ibm-for-identity-security-solutions",
+            "https://delinea.com/news/delinea-extends-education-complimentary-compliance-resources",
+            "https://delinea.com/news/delinea-fastpath-launches-mcp-server-for-ai-powered-access-governance-and-audit-readiness",
+            "https://delinea.com/news/delinea-gives-greater-visibility-and-control-over-all-user-identities",
+            "https://delinea.com/news/delinea-growth-leader-pam-frost-sullivan",
+            "https://delinea.com/news/delinea-hires-alex-thurber-as-senior-vice-president-of-global-channels-further-strengthening-its-partner-strategy",
+            "https://delinea.com/news/delinea-hires-cyberark-veteran-chris-kelly-as-president-gtm",
+            "https://delinea.com/news/delinea-industry-first-quantum-safe-encryption-privileged-accounts",
+            "https://delinea.com/news/delinea-integrates-with-cyera-to-prioritize-data-aware-identity-security-in-the-ai-era",
+            "https://delinea.com/news/delinea-intelligent-automated-auditing",
+            "https://delinea.com/news/delinea-iris-ai-makea-identity-security-simpler-stronger-and-smarter",
+            "https://delinea.com/news/delinea-is-a-proud-part-of-microsoft-security-store-partner-ecosystem",
+            "https://delinea.com/news/delinea-joins-anthropics-project-glasswing",
+            "https://delinea.com/news/delinea-joins-cve-numbering-authority-program",
+            "https://delinea.com/news/delinea-joins-microsoft-security-copilot-partner-private-preview",
+            "https://delinea.com/news/delinea-kate-reed-chief-marketing-officer",
+            "https://delinea.com/news/delinea-labs-ai-threat-landscape",
+            "https://delinea.com/news/delinea-launches-ciem-itdr-identity-security-needs-of-modern-enterprises",
+            "https://delinea.com/news/delinea-launches-comprehensive-global-partner-program",
+            "https://delinea.com/news/delinea-launches-new-partner-program",
+            "https://delinea.com/news/delinea-leader-privileged-identity-management",
+            "https://delinea.com/news/delinea-leaders-recognized-on-crns-2026-women-of-the-channel-list",
+            "https://delinea.com/news/delinea-mcp-server-to-provide-secure-credential-access-for-ai-agents",
+            "https://delinea.com/news/delinea-named-a-growth-and-innovation-leader-in-frost-radar-for-pam-2026",
+            "https://delinea.com/news/delinea-named-a-leader-in-2024-gartner-magic-quadrant-for-pam",
+            "https://delinea.com/news/delinea-named-a-leader-in-2025-gartner-magic-quadrant-for-pam-for-seventh-consecutive-time",
+            "https://delinea.com/news/delinea-named-a-leader-in-2025-privileged-identity-management-report",
+            "https://delinea.com/news/delinea-named-a-winner-of-the-united-states-top-workplaces-2025-award",
+            "https://delinea.com/news/delinea-named-a-winner-of-the-united-states-top-workplaces-2026-award",
+            "https://delinea.com/news/delinea-partners-with-microsoft-to-ensure-seamless-transition",
+            "https://delinea.com/news/delinea-partners-with-ncc-group-to-deliver-privileged-access-management",
+            "https://delinea.com/news/delinea-patent-delegated-machine-credentials",
+            "https://delinea.com/news/delinea-platform-marketplace-expands-400-integrations",
+            "https://delinea.com/news/delinea-poised-disrupt-identity-security-arr-milestone",
+            "https://delinea.com/news/delinea-publishes-conversational-cyber-insurance",
+            "https://delinea.com/news/delinea-recognized-as-an-overall-leader-in-the-kuppingercole-leadership-compass-for-non-human-identity-management-2025",
+            "https://delinea.com/news/delinea-recognized-award-cybersecurity-evangelism",
+            "https://delinea.com/news/delinea-recognized-in-gartner-market-guide-for-guardian-agents",
+            "https://delinea.com/news/delinea-reduces-risk-identity-based-attacks-workstations",
+            "https://delinea.com/news/delinea-report-finds-90-of-organizations-pressure-security-about-ai-governance",
+            "https://delinea.com/news/delinea-research-legacy-technology-hindering-evolution-passwordless-authentication",
+            "https://delinea.com/news/delinea-research-ransomware-motivation-shifts-data-exfiltration",
+            "https://delinea.com/news/delinea-secret-server-available-microsoft-azure-marketplace",
+            "https://delinea.com/news/delinea-secret-server-under-assessment-for-fedramp-high-authorization",
+            "https://delinea.com/news/delinea-soc-2-type-ll-compliance",
+            "https://delinea.com/news/delinea-strongdm-to-unite-redefine-identity-security-for-the-ai-era",
+            "https://delinea.com/news/delinea-surpasses-400m-in-arr-and-expands-global-momentum",
+            "https://delinea.com/news/delinea-to-host-its-inaugural-delinea-edge-customer-conference-in-2027",
+            "https://delinea.com/news/delinea-unlocked-2023",
+            "https://delinea.com/news/delinea-unveils-enterprise-grade-cloud-native-security-capabilities",
+            "https://delinea.com/news/delinea-wins-2025-technology-top-workplaces-award",
+            "https://delinea.com/news/delinea-workstation-policy-framework",
+            "https://delinea.com/news/global-research-leadership-overlooks-cybersecurity",
+            "https://delinea.com/news/identity-security-controls-central-to-cyber-insurance-decisions",
+            "https://delinea.com/news/kara-trovato-of-delinea-honored-as-a-2026-crn-channel-chief",
+            "https://delinea.com/news/kara-trovato-of-delinea-recognized-2025-crn-channel-chiefs-list",
+            "https://delinea.com/news/latest-release-reduces-risk-lateral-movement",
+            "https://delinea.com/news/leader-2023-gartner-magic-quadrant-privileged-access-management",
+            "https://delinea.com/news/new-research-highlights-gaps-in-organizations-machine-identity-visibility-and-ai-governance",
+            "https://delinea.com/news/organizations-plan-increases-identity-security-spending",
+            "https://delinea.com/news/product-update-backdoor-threats-servers",
+            "https://delinea.com/news/rsa-conference-survey-cloud-security-cybersecurity-concern",
+            "https://delinea.com/news/secret-server-boosts-usability",
+            "https://delinea.com/news/secret-server-mfa-enforcement-depth",
+            "https://delinea.com/news/strong-channel-momentum-2023",
+            "https://delinea.com/news/three-delinea-leaders-named-to-2025-crn-women-of-the-channel-list"
+          ],
+          "dates": {}
+        },
+        "indexComplete": false,
+        "terminalProved": false,
+        "primarySample": {
+          "url": "https://delinea.com/news/2023-blackhat-usa-passwordless-future",
+          "observation": {
+            "key": "objects/d47df0c73ec2afe76396d248dd6dfc838311e111815f285a6d8767a446a03960",
+            "sha256": "d47df0c73ec2afe76396d248dd6dfc838311e111815f285a6d8767a446a03960",
+            "bytes": 402
+          },
+          "shape": {
+            "canonical": "https://delinea.com/news/2023-blackhat-usa-passwordless-future",
+            "heading": "Delinea Survey from 2023 BlackHat USA Conference Reveals Momentum Toward a Passwordless Future",
+            "readableCharacters": 4459,
+            "dateMetadata": [],
+            "dateMetadataState": "unknown"
+          }
+        },
+        "requestReservations": [
+          {
+            "url": "https://delinea.com/news",
+            "reservation": {
+              "budgetDay": "2026-10-24",
+              "fetchLimit": 5500,
+              "chargedFetchCount": 1256
+            },
+            "observation": {
+              "key": "objects/92c5d42690ab710a6c6461ff1e446a12e56573cb84b1bdbe3443a95f1a2ffdb3",
+              "sha256": "92c5d42690ab710a6c6461ff1e446a12e56573cb84b1bdbe3443a95f1a2ffdb3",
+              "bytes": 364
+            }
+          },
+          {
+            "url": "https://delinea.com/news/page/2",
+            "reservation": {
+              "budgetDay": "2026-10-24",
+              "fetchLimit": 5500,
+              "chargedFetchCount": 1257
+            },
+            "observation": {
+              "key": "objects/6609f35da9c2fcbe82b8a6912d7d25bfb0399b2c8e794ea7540a26409c74e152",
+              "sha256": "6609f35da9c2fcbe82b8a6912d7d25bfb0399b2c8e794ea7540a26409c74e152",
+              "bytes": 371
+            }
+          },
+          {
+            "url": "https://delinea.com/news/page/3",
+            "reservation": {
+              "budgetDay": "2026-10-24",
+              "fetchLimit": 5500,
+              "chargedFetchCount": 1258
+            },
+            "observation": {
+              "key": "objects/3c7bb958dadfd10126d31bd348e39bf1d426dd47b5273a6476cd03ed45f70f4e",
+              "sha256": "3c7bb958dadfd10126d31bd348e39bf1d426dd47b5273a6476cd03ed45f70f4e",
+              "bytes": 371
+            }
+          },
+          {
+            "url": "https://delinea.com/news/page/4",
+            "reservation": {
+              "budgetDay": "2026-10-24",
+              "fetchLimit": 5500,
+              "chargedFetchCount": 1259
+            },
+            "observation": {
+              "key": "objects/003317ee89b5eb78f4e6123fcdb9a20e89d34f12c3212f0f7eed69f8406ee1d8",
+              "sha256": "003317ee89b5eb78f4e6123fcdb9a20e89d34f12c3212f0f7eed69f8406ee1d8",
+              "bytes": 371
+            }
+          },
+          {
+            "url": "https://delinea.com/news/page/5",
+            "reservation": {
+              "budgetDay": "2026-10-24",
+              "fetchLimit": 5500,
+              "chargedFetchCount": 1260
+            },
+            "observation": {
+              "key": "objects/6821f7b00886b051773133d30c5bda18ad2cea6c9b272e7d7f42fc0671cef66c",
+              "sha256": "6821f7b00886b051773133d30c5bda18ad2cea6c9b272e7d7f42fc0671cef66c",
+              "bytes": 371
+            }
+          },
+          {
+            "url": "https://delinea.com/news/page/6",
+            "reservation": {
+              "budgetDay": "2026-10-24",
+              "fetchLimit": 5500,
+              "chargedFetchCount": 1261
+            },
+            "observation": {
+              "key": "objects/04a6449afa526684d7e63d3cfec3c0a8e28b5aa8c39b20cf6c64bfc478097f28",
+              "sha256": "04a6449afa526684d7e63d3cfec3c0a8e28b5aa8c39b20cf6c64bfc478097f28",
+              "bytes": 371
+            }
+          },
+          {
+            "url": "https://delinea.com/news/page/7",
+            "reservation": {
+              "budgetDay": "2026-10-24",
+              "fetchLimit": 5500,
+              "chargedFetchCount": 1262
+            },
+            "observation": {
+              "key": "objects/0448aa1c586e037552b180e70fa7ad79716d6de0911db88c5d0f3ce758e85b32",
+              "sha256": "0448aa1c586e037552b180e70fa7ad79716d6de0911db88c5d0f3ce758e85b32",
+              "bytes": 371
+            }
+          },
+          {
+            "url": "https://delinea.com/news/page/8",
+            "reservation": {
+              "budgetDay": "2026-10-24",
+              "fetchLimit": 5500,
+              "chargedFetchCount": 1263
+            },
+            "observation": {
+              "key": "objects/93a6cf93f2db785571487dba9d14926a3d9c2493b906c48094f97cef9f98e984",
+              "sha256": "93a6cf93f2db785571487dba9d14926a3d9c2493b906c48094f97cef9f98e984",
+              "bytes": 371
+            }
+          },
+          {
+            "url": "https://delinea.com/news/page/9",
+            "reservation": {
+              "budgetDay": "2026-10-24",
+              "fetchLimit": 5500,
+              "chargedFetchCount": 1264
+            },
+            "observation": {
+              "key": "objects/45419ff6ca8bba4b9efd07ffd16d6e5656608a2a7449b44512d34c3848ec9bb6",
+              "sha256": "45419ff6ca8bba4b9efd07ffd16d6e5656608a2a7449b44512d34c3848ec9bb6",
+              "bytes": 371
+            }
+          },
+          {
+            "url": "https://delinea.com/news/2023-blackhat-usa-passwordless-future",
+            "reservation": {
+              "budgetDay": "2026-10-24",
+              "fetchLimit": 5500,
+              "chargedFetchCount": 1265
+            },
+            "observation": {
+              "key": "objects/d47df0c73ec2afe76396d248dd6dfc838311e111815f285a6d8767a446a03960",
+              "sha256": "d47df0c73ec2afe76396d248dd6dfc838311e111815f285a6d8767a446a03960",
+              "bytes": 402
+            }
+          }
+        ],
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "sourceChecksCredited": 0,
+        "qualifiedSources": 0,
+        "modelCalls": 0,
+        "facts": [],
+        "newFactIds": [],
+        "reason": "Unsafe HTML archive article path"
+      },
+      {
+        "sourceId": "sonatype:official:1",
+        "supplierId": "sonatype",
+        "registration": "candidate",
+        "originalSourceSha256": "19596f68dcf01c09d6a043dc47cd67ebbde0bdc079b5a7b42cad057f518da17e",
+        "proposedAdapterSha256": "9dfc1759b75c07838be019189d46a1b3c354e680d4359ac346356691d1e01d7f",
+        "observations": [
+          {
+            "url": "https://www.sonatype.com/press-releases",
+            "observation": {
+              "key": "objects/ed3ffe0c83ab937fe22fe1be335ba5c2491b2dbfdc2d0a48578439ce09824f11",
+              "sha256": "ed3ffe0c83ab937fe22fe1be335ba5c2491b2dbfdc2d0a48578439ce09824f11",
+              "bytes": 380
+            },
+            "parser": {
+              "currentPage": 1,
+              "highestPage": 13,
+              "items": [
+                "https://www.sonatype.com/press-releases/automating-fixes-in-ai-driven-development",
+                "https://www.sonatype.com/press-releases/grand-opening-of-india-innovation-hub",
+                "https://www.sonatype.com/press-releases/introducing-guide-for-secure-agentic-development",
+                "https://www.sonatype.com/press-releases/open-source-malware-index-q3-2025",
+                "https://www.sonatype.com/press-releases/sonatype-and-package-registry-leaders-unite",
+                "https://www.sonatype.com/press-releases/sonatype-announces-2025-elevate-award-winners",
+                "https://www.sonatype.com/press-releases/sonatype-firewall-extends-malicious-package-protection",
+                "https://www.sonatype.com/press-releases/sonatype-intelligence-report-cve-crisis",
+                "https://www.sonatype.com/press-releases/sonatype-named-a-leader-in-the-2026-gartner-magic-quadrant",
+                "https://www.sonatype.com/press-releases/sonatype-q1-2026-open-source-malware-index",
+                "https://www.sonatype.com/press-releases/sonatype-research-labs-marks-15-years-of-intelligence",
+                "https://www.sonatype.com/press-releases/sonatype-research-on-ai-coding-safety",
+                "https://www.sonatype.com/press-releases/sonatype-research-reveals-open-malware-grows-75-percent",
+                "https://www.sonatype.com/press-releases/sonatype-strengthens-leadership-team-for-ai-driven-growth",
+                "https://www.sonatype.com/press-releases/sonatype-unveils-nexus-one-platform",
+                "https://www.sonatype.com/press-releases/sonatype-unveils-nexus-repository-pro-plus"
+              ],
+              "dates": {
+                "https://www.sonatype.com/press-releases/sonatype-unveils-nexus-repository-pro-plus": "2026-10-14",
+                "https://www.sonatype.com/press-releases/automating-fixes-in-ai-driven-development": "2026-08-18",
+                "https://www.sonatype.com/press-releases/sonatype-research-labs-marks-15-years-of-intelligence": "2026-07-14",
+                "https://www.sonatype.com/press-releases/sonatype-named-a-leader-in-the-2026-gartner-magic-quadrant": "2026-06-18",
+                "https://www.sonatype.com/press-releases/sonatype-strengthens-leadership-team-for-ai-driven-growth": "2026-06-09",
+                "https://www.sonatype.com/press-releases/sonatype-firewall-extends-malicious-package-protection": "2026-05-27",
+                "https://www.sonatype.com/press-releases/sonatype-and-package-registry-leaders-unite": "2026-05-06",
+                "https://www.sonatype.com/press-releases/sonatype-q1-2026-open-source-malware-index": "2026-04-14",
+                "https://www.sonatype.com/press-releases/sonatype-research-on-ai-coding-safety": "2026-03-24",
+                "https://www.sonatype.com/press-releases/sonatype-research-reveals-open-malware-grows-75-percent": "2026-01-28",
+                "https://www.sonatype.com/press-releases/introducing-guide-for-secure-agentic-development": "2025-12-09",
+                "https://www.sonatype.com/press-releases/sonatype-intelligence-report-cve-crisis": "2025-11-20",
+                "https://www.sonatype.com/press-releases/sonatype-unveils-nexus-one-platform": "2025-11-19",
+                "https://www.sonatype.com/press-releases/grand-opening-of-india-innovation-hub": "2025-11-10",
+                "https://www.sonatype.com/press-releases/sonatype-announces-2025-elevate-award-winners": "2025-10-20",
+                "https://www.sonatype.com/press-releases/open-source-malware-index-q3-2025": "2025-10-15"
+              },
+              "next": "https://www.sonatype.com/press-releases?page=2",
+              "terminalProved": false
+            }
+          },
+          {
+            "url": "https://www.sonatype.com/press-releases?page=2",
+            "observation": {
+              "key": "objects/d3009749b043c91fbb31ddef929ac2691de525447aaca5d253a77bd00078c87c",
+              "sha256": "d3009749b043c91fbb31ddef929ac2691de525447aaca5d253a77bd00078c87c",
+              "bytes": 387
+            },
+            "parser": {
+              "currentPage": 2,
+              "highestPage": 13,
+              "items": [
+                "https://www.sonatype.com/press-releases/18000-new-malicious-packages-discovered-in-q1",
+                "https://www.sonatype.com/press-releases/global-operations-expand-with-india-innovation-center",
+                "https://www.sonatype.com/press-releases/open-source-malware-reaches-778500-packages",
+                "https://www.sonatype.com/press-releases/q2-2025-open-source-malware-index",
+                "https://www.sonatype.com/press-releases/solutions-now-available-in-the-aws-marketplace-ai-agents-category",
+                "https://www.sonatype.com/press-releases/sonatype-and-opentext-partner",
+                "https://www.sonatype.com/press-releases/sonatype-announces-2024-elevate-awards-winners",
+                "https://www.sonatype.com/press-releases/sonatype-announces-integration-with-buy-with-aws-offering",
+                "https://www.sonatype.com/press-releases/sonatype-appoints-bhagwat-swaroop-as-ceo",
+                "https://www.sonatype.com/press-releases/sonatype-expands-open-source-malware-protection",
+                "https://www.sonatype.com/press-releases/sonatype-launches-nexus-repository-cloud-for-the-gen-ai-era",
+                "https://www.sonatype.com/press-releases/sonatype-named-leader-in-sca-software-report",
+                "https://www.sonatype.com/press-releases/sonatype-named-visionary-on-2025-gartner-magic-quadrant",
+                "https://www.sonatype.com/press-releases/sonatype-supports-secure-development-in-rust",
+                "https://www.sonatype.com/press-releases/sonatype-unveils-industry-first-ai-sca",
+                "https://www.sonatype.com/press-releases/sonatypes-10th-annual-state-of-the-software-supply-chain-report"
+              ],
+              "dates": {
+                "https://www.sonatype.com/press-releases/sonatype-named-visionary-on-2025-gartner-magic-quadrant": "2025-10-14",
+                "https://www.sonatype.com/press-releases/sonatype-launches-nexus-repository-cloud-for-the-gen-ai-era": "2025-10-08",
+                "https://www.sonatype.com/press-releases/sonatype-appoints-bhagwat-swaroop-as-ceo": "2025-07-29",
+                "https://www.sonatype.com/press-releases/solutions-now-available-in-the-aws-marketplace-ai-agents-category": "2025-07-16",
+                "https://www.sonatype.com/press-releases/q2-2025-open-source-malware-index": "2025-07-08",
+                "https://www.sonatype.com/press-releases/global-operations-expand-with-india-innovation-center": "2025-06-19",
+                "https://www.sonatype.com/press-releases/sonatype-expands-open-source-malware-protection": "2025-04-29",
+                "https://www.sonatype.com/press-releases/18000-new-malicious-packages-discovered-in-q1": "2025-04-02",
+                "https://www.sonatype.com/press-releases/sonatype-supports-secure-development-in-rust": "2025-03-27",
+                "https://www.sonatype.com/press-releases/sonatype-unveils-industry-first-ai-sca": "2025-03-04",
+                "https://www.sonatype.com/press-releases/open-source-malware-reaches-778500-packages": "2024-12-10",
+                "https://www.sonatype.com/press-releases/sonatype-announces-integration-with-buy-with-aws-offering": "2024-12-05",
+                "https://www.sonatype.com/press-releases/sonatype-and-opentext-partner": "2024-11-20",
+                "https://www.sonatype.com/press-releases/sonatype-named-leader-in-sca-software-report": "2024-11-13",
+                "https://www.sonatype.com/press-releases/sonatype-announces-2024-elevate-awards-winners": "2024-10-28",
+                "https://www.sonatype.com/press-releases/sonatypes-10th-annual-state-of-the-software-supply-chain-report": "2024-10-10"
+              },
+              "next": "https://www.sonatype.com/press-releases?page=3",
+              "terminalProved": false
+            }
+          },
+          {
+            "url": "https://www.sonatype.com/press-releases?page=3",
+            "observation": {
+              "key": "objects/ebb4fce159b039bb6d101722f854da7aadcab2b722b81fa191afb8c2fd4fea78",
+              "sha256": "ebb4fce159b039bb6d101722f854da7aadcab2b722b81fa191afb8c2fd4fea78",
+              "bytes": 387
+            },
+            "parser": {
+              "error": "Unsafe HTML archive article path"
+            }
+          }
+        ],
+        "inventory": {
+          "items": [
+            "https://www.sonatype.com/press-releases/18000-new-malicious-packages-discovered-in-q1",
+            "https://www.sonatype.com/press-releases/automating-fixes-in-ai-driven-development",
+            "https://www.sonatype.com/press-releases/global-operations-expand-with-india-innovation-center",
+            "https://www.sonatype.com/press-releases/grand-opening-of-india-innovation-hub",
+            "https://www.sonatype.com/press-releases/introducing-guide-for-secure-agentic-development",
+            "https://www.sonatype.com/press-releases/open-source-malware-index-q3-2025",
+            "https://www.sonatype.com/press-releases/open-source-malware-reaches-778500-packages",
+            "https://www.sonatype.com/press-releases/q2-2025-open-source-malware-index",
+            "https://www.sonatype.com/press-releases/solutions-now-available-in-the-aws-marketplace-ai-agents-category",
+            "https://www.sonatype.com/press-releases/sonatype-and-opentext-partner",
+            "https://www.sonatype.com/press-releases/sonatype-and-package-registry-leaders-unite",
+            "https://www.sonatype.com/press-releases/sonatype-announces-2024-elevate-awards-winners",
+            "https://www.sonatype.com/press-releases/sonatype-announces-2025-elevate-award-winners",
+            "https://www.sonatype.com/press-releases/sonatype-announces-integration-with-buy-with-aws-offering",
+            "https://www.sonatype.com/press-releases/sonatype-appoints-bhagwat-swaroop-as-ceo",
+            "https://www.sonatype.com/press-releases/sonatype-expands-open-source-malware-protection",
+            "https://www.sonatype.com/press-releases/sonatype-firewall-extends-malicious-package-protection",
+            "https://www.sonatype.com/press-releases/sonatype-intelligence-report-cve-crisis",
+            "https://www.sonatype.com/press-releases/sonatype-launches-nexus-repository-cloud-for-the-gen-ai-era",
+            "https://www.sonatype.com/press-releases/sonatype-named-a-leader-in-the-2026-gartner-magic-quadrant",
+            "https://www.sonatype.com/press-releases/sonatype-named-leader-in-sca-software-report",
+            "https://www.sonatype.com/press-releases/sonatype-named-visionary-on-2025-gartner-magic-quadrant",
+            "https://www.sonatype.com/press-releases/sonatype-q1-2026-open-source-malware-index",
+            "https://www.sonatype.com/press-releases/sonatype-research-labs-marks-15-years-of-intelligence",
+            "https://www.sonatype.com/press-releases/sonatype-research-on-ai-coding-safety",
+            "https://www.sonatype.com/press-releases/sonatype-research-reveals-open-malware-grows-75-percent",
+            "https://www.sonatype.com/press-releases/sonatype-strengthens-leadership-team-for-ai-driven-growth",
+            "https://www.sonatype.com/press-releases/sonatype-supports-secure-development-in-rust",
+            "https://www.sonatype.com/press-releases/sonatype-unveils-industry-first-ai-sca",
+            "https://www.sonatype.com/press-releases/sonatype-unveils-nexus-one-platform",
+            "https://www.sonatype.com/press-releases/sonatype-unveils-nexus-repository-pro-plus",
+            "https://www.sonatype.com/press-releases/sonatypes-10th-annual-state-of-the-software-supply-chain-report"
+          ],
+          "dates": {
+            "https://www.sonatype.com/press-releases/sonatype-unveils-nexus-repository-pro-plus": "2026-10-14",
+            "https://www.sonatype.com/press-releases/automating-fixes-in-ai-driven-development": "2026-08-18",
+            "https://www.sonatype.com/press-releases/sonatype-research-labs-marks-15-years-of-intelligence": "2026-07-14",
+            "https://www.sonatype.com/press-releases/sonatype-named-a-leader-in-the-2026-gartner-magic-quadrant": "2026-06-18",
+            "https://www.sonatype.com/press-releases/sonatype-strengthens-leadership-team-for-ai-driven-growth": "2026-06-09",
+            "https://www.sonatype.com/press-releases/sonatype-firewall-extends-malicious-package-protection": "2026-05-27",
+            "https://www.sonatype.com/press-releases/sonatype-and-package-registry-leaders-unite": "2026-05-06",
+            "https://www.sonatype.com/press-releases/sonatype-q1-2026-open-source-malware-index": "2026-04-14",
+            "https://www.sonatype.com/press-releases/sonatype-research-on-ai-coding-safety": "2026-03-24",
+            "https://www.sonatype.com/press-releases/sonatype-research-reveals-open-malware-grows-75-percent": "2026-01-28",
+            "https://www.sonatype.com/press-releases/introducing-guide-for-secure-agentic-development": "2025-12-09",
+            "https://www.sonatype.com/press-releases/sonatype-intelligence-report-cve-crisis": "2025-11-20",
+            "https://www.sonatype.com/press-releases/sonatype-unveils-nexus-one-platform": "2025-11-19",
+            "https://www.sonatype.com/press-releases/grand-opening-of-india-innovation-hub": "2025-11-10",
+            "https://www.sonatype.com/press-releases/sonatype-announces-2025-elevate-award-winners": "2025-10-20",
+            "https://www.sonatype.com/press-releases/open-source-malware-index-q3-2025": "2025-10-15",
+            "https://www.sonatype.com/press-releases/sonatype-named-visionary-on-2025-gartner-magic-quadrant": "2025-10-14",
+            "https://www.sonatype.com/press-releases/sonatype-launches-nexus-repository-cloud-for-the-gen-ai-era": "2025-10-08",
+            "https://www.sonatype.com/press-releases/sonatype-appoints-bhagwat-swaroop-as-ceo": "2025-07-29",
+            "https://www.sonatype.com/press-releases/solutions-now-available-in-the-aws-marketplace-ai-agents-category": "2025-07-16",
+            "https://www.sonatype.com/press-releases/q2-2025-open-source-malware-index": "2025-07-08",
+            "https://www.sonatype.com/press-releases/global-operations-expand-with-india-innovation-center": "2025-06-19",
+            "https://www.sonatype.com/press-releases/sonatype-expands-open-source-malware-protection": "2025-04-29",
+            "https://www.sonatype.com/press-releases/18000-new-malicious-packages-discovered-in-q1": "2025-04-02",
+            "https://www.sonatype.com/press-releases/sonatype-supports-secure-development-in-rust": "2025-03-27",
+            "https://www.sonatype.com/press-releases/sonatype-unveils-industry-first-ai-sca": "2025-03-04",
+            "https://www.sonatype.com/press-releases/open-source-malware-reaches-778500-packages": "2024-12-10",
+            "https://www.sonatype.com/press-releases/sonatype-announces-integration-with-buy-with-aws-offering": "2024-12-05",
+            "https://www.sonatype.com/press-releases/sonatype-and-opentext-partner": "2024-11-20",
+            "https://www.sonatype.com/press-releases/sonatype-named-leader-in-sca-software-report": "2024-11-13",
+            "https://www.sonatype.com/press-releases/sonatype-announces-2024-elevate-awards-winners": "2024-10-28",
+            "https://www.sonatype.com/press-releases/sonatypes-10th-annual-state-of-the-software-supply-chain-report": "2024-10-10"
+          }
+        },
+        "indexComplete": false,
+        "terminalProved": false,
+        "primarySample": {
+          "url": "https://www.sonatype.com/press-releases/18000-new-malicious-packages-discovered-in-q1",
+          "observation": {
+            "key": "objects/e9e6e54c45f948494d1b5404a455d94f829beb5247c95ac73f178fd57579233a",
+            "sha256": "e9e6e54c45f948494d1b5404a455d94f829beb5247c95ac73f178fd57579233a",
+            "bytes": 426
+          },
+          "shape": {
+            "canonical": "https://www.sonatype.com/press-releases/18000-new-malicious-packages-discovered-in-q1",
+            "heading": "Nearly 18,000 New Malicious Packages Discovered in Q1 According to Sonatype Open Source Malware Index",
+            "readableCharacters": 4782,
+            "dateMetadata": [],
+            "dateMetadataState": "unknown"
+          }
+        },
+        "requestReservations": [
+          {
+            "url": "https://www.sonatype.com/press-releases",
+            "reservation": {
+              "budgetDay": "2026-10-24",
+              "fetchLimit": 5500,
+              "chargedFetchCount": 1266
+            },
+            "observation": {
+              "key": "objects/ed3ffe0c83ab937fe22fe1be335ba5c2491b2dbfdc2d0a48578439ce09824f11",
+              "sha256": "ed3ffe0c83ab937fe22fe1be335ba5c2491b2dbfdc2d0a48578439ce09824f11",
+              "bytes": 380
+            }
+          },
+          {
+            "url": "https://www.sonatype.com/press-releases?page=2",
+            "reservation": {
+              "budgetDay": "2026-10-24",
+              "fetchLimit": 5500,
+              "chargedFetchCount": 1267
+            },
+            "observation": {
+              "key": "objects/d3009749b043c91fbb31ddef929ac2691de525447aaca5d253a77bd00078c87c",
+              "sha256": "d3009749b043c91fbb31ddef929ac2691de525447aaca5d253a77bd00078c87c",
+              "bytes": 387
+            }
+          },
+          {
+            "url": "https://www.sonatype.com/press-releases?page=3",
+            "reservation": {
+              "budgetDay": "2026-10-24",
+              "fetchLimit": 5500,
+              "chargedFetchCount": 1268
+            },
+            "observation": {
+              "key": "objects/ebb4fce159b039bb6d101722f854da7aadcab2b722b81fa191afb8c2fd4fea78",
+              "sha256": "ebb4fce159b039bb6d101722f854da7aadcab2b722b81fa191afb8c2fd4fea78",
+              "bytes": 387
+            }
+          },
+          {
+            "url": "https://www.sonatype.com/press-releases/18000-new-malicious-packages-discovered-in-q1",
+            "reservation": {
+              "budgetDay": "2026-10-24",
+              "fetchLimit": 5500,
+              "chargedFetchCount": 1269
+            },
+            "observation": {
+              "key": "objects/e9e6e54c45f948494d1b5404a455d94f829beb5247c95ac73f178fd57579233a",
+              "sha256": "e9e6e54c45f948494d1b5404a455d94f829beb5247c95ac73f178fd57579233a",
+              "bytes": 426
+            }
+          }
+        ],
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "sourceChecksCredited": 0,
+        "qualifiedSources": 0,
+        "modelCalls": 0,
+        "facts": [],
+        "newFactIds": [],
+        "reason": "Unsafe HTML archive article path"
+      }
+    ],
+    "reservationContext": {
+      "budgetDay": "2026-10-24",
+      "contractSha256": "79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60",
+      "fetchLimit": 5500,
+      "maximumRuntimeSeconds": 1200,
+      "startedAt": "2026-10-24T07:08:08.206596Z",
+      "initialBudget": {
+        "calls": 80,
+        "documents": 40,
+        "fetches": 1236
+      },
+      "probeFetchReservations": 33,
+      "reservationDenials": {},
+      "currentBudget": {
+        "calls": 80,
+        "documents": 40,
+        "fetches": 1269
+      }
+    },
+    "executionCompleted": true,
+    "budgetDenied": false,
+    "qualified": false,
+    "sourceChecksCredited": 0,
+    "qualifiedSources": 0,
+    "semanticAdmission": false,
+    "coverageCredit": false,
+    "modelCalls": 0,
+    "facts": [],
+    "newFactIds": []
+  },
+  "executionCompleted": true,
+  "outcome": "completed_diagnostic",
+  "modelCalls": 0,
+  "apiFallback": false,
+  "semanticAdmission": false,
+  "coverageCredit": false,
+  "sourceChecksCredited": 0,
+  "qualifiedSources": 0,
+  "publication": {
+    "published": false,
+    "reason": "SOURCE_PROBE_DIAGNOSTIC_ONLY"
+  },
+  "archive": {
+    "commit": "c961945736499da3105d565e513eda78a01e996a",
+    "parentCommit": "1d6c7f68796c61ba989f2b924885dab997e9a2dc",
+    "manifestSha256": "b23cb5f5185e6a147956b89107ae6252fb53fbb24a5f49ece507deb7da020dc0",
+    "files": 35256,
+    "ref": "refs/archive/market-evidence"
+  }
+}
