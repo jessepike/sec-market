@@ -23,6 +23,10 @@ remain unchanged. Generic claim accuracy and eligible-event recall require a fix
 benchmark; passing the existing tests does not estimate those error rates. Reader value remains
 unmeasured: the owner reports no real use yet.
 
+The authenticated [current five-record remediation observation](docs/active/daily-pipeline/accuracy/current-correction-resolution-observation-2026-10-24.md)
+reports 5/5 resolved against the actual gated production release. The frozen 177-record audit
+retains its original results; current precision, recall and sustained operation remain unmeasured.
+
 The [October 24 executable scorecard](docs/active/daily-pipeline/evaluations/2026-10-24/operational-scorecard.md)
 pins the original raw collection time and exact repaired gate/publication/rollback receipts.
 Manual runs supply no scheduled-attempt denominator. The reviewed next-seven-request candidate

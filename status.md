@@ -42,7 +42,13 @@ and all failed attempts remain archived. Xage's paid release is now classified a
 that change grants no financial certification. [Actual admission proof](docs/active/daily-pipeline/accuracy/actual-correction-admissions-2026-10-24.md).
 The frozen 177-record audit still describes the original records: 90 supported, 71 insufficient,
 11 missing strict primary proof and five contradicted. Do not rebase it or call it current precision.
-A separate current-remediation evaluator remains pending. [Rubric](docs/active/daily-pipeline/evaluation-rubric.md).
+The separately authenticated current-remediation observation resolves all five mapped contradictions
+at approximately 04:01 UTC, binding the original accepted attempts/reservations, exact gate,
+publisher and all 53 live static files. Eleven focused tests and independent review validate its
+proof checks. This is a five-record remediation result, with no general precision/recall claim.
+[Current observation](docs/active/daily-pipeline/accuracy/current-correction-resolution-observation-2026-10-24.md) ·
+[Independent review](docs/active/daily-pipeline/accuracy/correction-resolution-independent-review-2026-10-24.md) ·
+[Rubric](docs/active/daily-pipeline/evaluation-rubric.md).
 
 ## Operation and limits
 
