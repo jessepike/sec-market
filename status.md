@@ -137,8 +137,11 @@ revision tests include the independently found truncated/blocked scoped-body fai
 operational tests pass across the complete local tree, including the dormant helper. Full web
 checks pass again and both same-fixture screen widths remain pixel-identical. The reviewed V2
 plan is installed locally; a new main activation and real bounded diagnostic remain pending.
-The separate dormant inventory-origin helper has an empty trusted activation registry and is
-under independent review. No source is activated.
+The separate dormant inventory-origin helper passes independent review with its trusted activation
+registry empty. All 9,914 existing bounded source/URL pairs belong to 17 unchanged source contexts;
+the three candidates each have zero normal inventory URLs. Earlier generic XML disclosures remain
+retained unqualified leads; a future activation must reconcile the relevant news leads separately.
+No source is activated.
 [Local validation](docs/active/daily-pipeline/receipts/bounded-traversal-local-validation-2026-10-24.json) ·
 [Independent review](docs/active/daily-pipeline/accuracy/bounded-candidate-traversal-independent-review-2026-10-24.md).
 

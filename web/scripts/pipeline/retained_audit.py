@@ -10,6 +10,8 @@ from contracts import canonical, digest, instant, plan_run, require, unique
 from documents import article_input, verify_article_input
 from separation import (enabled as separated, audit_version, original_contract, bridge, compatible, summary,
                         document_context, document_cache_key)
+from source_qualification_origin import (is_qualification_predecessor, qualification_predecessors,
+                                         resolve_inventory_origin)
 
 
 VERSION = 1
@@ -457,7 +459,8 @@ class AuditIndex:
                 if receipt.get('retainedAuditVersion') not in (1, 2) and bounded(old_source, original):
                     legacy_eligible(receipt, original, self.store)
                 result.append(origin)
-        return sorted(result, key=lambda origin: (origin['runId'], origin['attemptId']))
+        return (sorted(result, key=lambda origin: (origin['runId'], origin['attemptId'])) +
+                qualification_predecessors(contract, source_id, self.store, before_time))
 
     def binding(self, source_id, url, contract, at, before_attempt=None, before_time=None):
         choices = []
@@ -565,6 +568,12 @@ def predecessor_inventory(origins, contract, source_id, store):
     items = set()
     seen = set()
     for origin in origins:
+        if is_qualification_predecessor(origin):
+            key = ('qualification', digest(origin))
+            require(key not in seen, 'Duplicate qualification inventory predecessor')
+            seen.add(key)
+            items.update(resolve_inventory_origin(origin, contract, source_id, store)['items'])
+            continue
         key = (origin['runId'], origin['attemptId'])
         require(key not in seen, 'Duplicate retained inventory predecessor')
         seen.add(key)
@@ -816,9 +825,17 @@ def verify_receipt(receipt, plan, contract, source, at, store):
     independently_required = index_for(store).predecessors(source['id'], contract, receipt['attemptId'], receipt['startedAt'])
     required_prior = predecessor_inventory(independently_required, contract, source['id'], store)
     require(required_prior.issubset(prior), 'Retained predecessor inventory omitted anchored history')
-    require(all(origin['attemptId'] != receipt['attemptId'] and
-                instant(resolve_origin(store, origin, contract, source['id'], inventory_only=True)['completedAt']) <= instant(receipt['startedAt'])
-                for origin in receipt['retainedInventoryPredecessors']), 'Retained predecessor is self or future')
+    required_qualifications = {digest(origin) for origin in independently_required if is_qualification_predecessor(origin)}
+    require(required_qualifications.issubset({digest(origin) for origin in receipt['retainedInventoryPredecessors']
+                                            if is_qualification_predecessor(origin)}),
+            'Retained predecessor omitted qualification origin')
+    for origin in receipt['retainedInventoryPredecessors']:
+        if is_qualification_predecessor(origin):
+            resolve_inventory_origin(origin, contract, source['id'], store, receipt['startedAt'])
+        else:
+            require(origin['attemptId'] != receipt['attemptId'] and
+                    instant(resolve_origin(store, origin, contract, source['id'], inventory_only=True)['completedAt']) <= instant(receipt['startedAt']),
+                    'Retained predecessor is self or future')
     require(full['sourceId'] == manifest['sourceId'] == source['id'], 'Retained receipt inventory source differs')
     unique(full['items'], 'retained full inventory URL')
     require(set(full['items']) == set(manifest['items']) | prior, 'Retained full inventory/predecessor join differs')

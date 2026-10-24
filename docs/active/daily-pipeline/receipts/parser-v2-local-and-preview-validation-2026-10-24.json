@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "implementationRevision": "f63d0b4b00fff09fce69d7bebe37ad6943258e96",
+  "sourcePins": {
+    "web/scripts/pipeline/onboarding.py": "f55dc3451288bdc31fedd6b1ce769fe31cf89816874edf5911de8ccb1e1d4a04",
+    "web/scripts/pipeline/discovery.py": "efcff4436760e8a15ce8cb220db555f6aaa72834a78c3452b303021360a6361f",
+    "web/scripts/pipeline/contracts.py": "390a4c2f16ebc56bc444924031b041bc2b8a4dd8f91decdcaf6a28367f67c37c",
+    "contracts/source-qualification-probes.json": "c6755ab3dd3bb491b24d2c5f791349b5f69682167ea381bbf9faefd9d8b479e5"
+  },
+  "localFullTreeOperationalTests": {
+    "passed": 652,
+    "includesUncommittedDormantOriginUnit": true,
+    "log": "/var/tmp/smp-parser-v2-final-ops-20261024.log"
+  },
+  "webTests": {
+    "dataPassed": 368,
+    "pipelinePassed": 115,
+    "browserPassed": 42,
+    "browserSkipped": 1,
+    "lint": "passed",
+    "build": "passed",
+    "log": "/var/tmp/smp-parser-v2-web-20261024.log"
+  },
+  "visual": {
+    "widths": [
+      1440,
+      390
+    ],
+    "productionAndLocalViewed": true,
+    "sameFixturePixelsIdentical": true,
+    "previousLocalPrefix": "qualification-support-local",
+    "currentLocalPrefix": "parser-v2-local",
+    "currentProductionPrefix": "parser-v2-production",
+    "artifactDirectory": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024",
+    "visibleChange": false,
+    "uncollectedFixtureMustNotPublish": true
+  },
+  "githubPreview": {
+    "webRun": "40074302968",
+    "webConclusion": "success",
+    "archiveCanaryRun": "40074302976",
+    "canaryConclusion": "success",
+    "deployment": "dpl_6sCs8kGRAqtFSE51vk7A7TWSaXgv",
+    "deploymentState": "READY",
+    "url": "https://security-market-pulse-34vfwkmny-pikeholdings.vercel.app"
+  },
+  "sourceRegistrationChanged": false,
+  "productionChanged": false,
+  "qualificationCredit": false,
+  "coverageCredit": false
+}
