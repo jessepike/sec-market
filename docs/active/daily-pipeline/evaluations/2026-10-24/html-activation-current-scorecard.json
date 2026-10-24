@@ -1,0 +1,350 @@
+{
+  "schemaVersion": 1,
+  "kind": "html_activation_current_scorecard",
+  "evaluatedAt": "2026-10-24T19:02:00Z",
+  "evaluationRubric": {
+    "path": "docs/active/daily-pipeline/evaluation-rubric.md",
+    "sha256": "1c351a83c56114ffc8d1dd0511df8f76e911eec6fb398b0ec587f0f570d4ef01"
+  },
+  "privatePolicy": {
+    "policySha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+    "collectorRunId": "40120612027",
+    "event": "workflow_dispatch",
+    "applicationRevision": "1ed94479ca2b4e44a5009bf83f47d306e75be0aa",
+    "successfulTasks": 264,
+    "requiredTasks": 557,
+    "intakeGaps": 293,
+    "checkedAt": "2026-10-24T18:32:56.227836Z"
+  },
+  "publicProduction": {
+    "releaseId": "19fde803d09aa544672183769c257e37faf727b75e1914955f54f3c5fb126941",
+    "applicationRevision": "26181a2d4eb0aad1bd751cda70ab8e65142d2813",
+    "policy": "de193",
+    "coverage": {
+      "successfulTasks": 244,
+      "requiredTasks": 557
+    },
+    "collectionCheckedAt": "2026-10-24T00:38:18.811621Z",
+    "latestSuccessfulTaskCompletedAt": "2026-10-24T00:38:18.807979Z",
+    "liveCheckAt": "2026-10-24T19:02:00Z",
+    "liveCheckConfirmsSameReleaseAndDailyRun": true,
+    "newPolicyPublished": false
+  },
+  "measures": [
+    {
+      "id": "coverage.private_intake",
+      "axis": "coverage",
+      "status": "fail",
+      "numerator": 264,
+      "denominator": 557,
+      "observedAt": "2026-10-24T18:32:56.227836Z",
+      "evidence": ["currentCollection", "currentCoverageLedger"],
+      "limitations": "Private current-policy intake. The 293 remaining tasks stay in the fixed denominator. The manual run does not update production."
+    },
+    {
+      "id": "coverage.public_release_intake",
+      "axis": "coverage",
+      "status": "fail",
+      "numerator": 244,
+      "denominator": 557,
+      "observedAt": "2026-10-24T19:02:00Z",
+      "dataCheckedAt": "2026-10-24T00:38:18.811621Z",
+      "evidence": ["currentPublicCoverage", "productionAppRelease"],
+      "limitations": "This is the last supplied live production coverage observation for release 19fde. The private 264/557 run is not public data."
+    },
+    {
+      "id": "coverage.private_processing",
+      "axis": "coverage",
+      "status": "fail",
+      "numerator": 23,
+      "denominator": 10655,
+      "observedAt": "2026-10-24T18:32:56.227836Z",
+      "inventoryDocuments": 10655,
+      "pendingDocuments": 10632,
+      "heldDocuments": 5,
+      "changedDocuments": 1,
+      "unknownDateDocuments": 291,
+      "reviewQueueEntries": 33,
+      "priorReviewQueueEntriesRetained": 32,
+      "evidence": ["currentCollectionReview"],
+      "limitations": "Current processing review is separate from source intake and historical review. One Upwind page is pending revalidation; its current body is unknown because no new primary-page observation was recorded."
+    },
+    {
+      "id": "coverage.private_historical_review",
+      "axis": "coverage",
+      "status": "fail",
+      "numerator": 24,
+      "denominator": 10655,
+      "observedAt": "2026-10-24T18:32:56.227836Z",
+      "pendingDocuments": 10631,
+      "heldDocuments": 5,
+      "evidence": ["currentCollectionReview"],
+      "limitations": "Historical review is shown separately from current processing. The inventory denominator includes the new discovered URLs."
+    },
+    {
+      "id": "freshness.private_collection_receipt_age",
+      "axis": "freshness",
+      "status": "pass",
+      "numerator": null,
+      "denominator": null,
+      "observedAt": "2026-10-24T18:32:56.227836Z",
+      "ageHours": 0.4843811567,
+      "maximumAgeHours": 30,
+      "evidence": ["currentCollection", "currentContract"],
+      "limitations": "Age of the private receipt only. It does not mean all required tasks or processing work are fresh."
+    },
+    {
+      "id": "freshness.public_collection_receipt_age",
+      "axis": "freshness",
+      "status": "pass",
+      "numerator": null,
+      "denominator": null,
+      "observedAt": "2026-10-24T00:38:18.811621Z",
+      "ageHours": 18.39477455,
+      "maximumAgeHours": 30,
+      "evidence": ["currentPublicCoverage", "productionAppRelease"],
+      "limitations": "Age of the last supplied public collection receipt at evaluation time. The public roster remains incomplete."
+    },
+    {
+      "id": "freshness.private_all_required_checks",
+      "axis": "freshness",
+      "status": "fail",
+      "numerator": 264,
+      "denominator": 557,
+      "observedAt": "2026-10-24T18:32:56.227836Z",
+      "evidence": ["currentCollection"],
+      "limitations": "A recent partial intake does not make the full roster fresh."
+    },
+    {
+      "id": "freshness.public_all_required_checks",
+      "axis": "freshness",
+      "status": "fail",
+      "numerator": 244,
+      "denominator": 557,
+      "observedAt": "2026-10-24T19:02:00Z",
+      "dataCheckedAt": "2026-10-24T00:38:18.811621Z",
+      "evidence": ["currentPublicCoverage", "productionAppRelease"],
+      "limitations": "Production still has the prior 244/557 release."
+    },
+    {
+      "id": "accuracy.known_release_checks",
+      "axis": "accuracy",
+      "status": "unmeasured",
+      "numerator": null,
+      "denominator": null,
+      "observedAt": null,
+      "evidence": [],
+      "limitations": "The archive canary passed integrity checks, but no current-policy bound release-gate result is supplied here. Canary success and skipped preflight work do not establish source accuracy."
+    },
+    {
+      "id": "accuracy.historical_fixed_audit_coverage",
+      "axis": "accuracy",
+      "status": "pass",
+      "numerator": 177,
+      "denominator": 177,
+      "observedAt": "2026-10-23T18:48:44.239377Z",
+      "evidence": ["currentCorrectionObservation"],
+      "limitations": "This is the completed historical review inventory. Its original verdicts remain fixed and are not a current precision estimate."
+    },
+    {
+      "id": "accuracy.historical_known_contradictions",
+      "axis": "accuracy",
+      "status": "fail",
+      "numerator": 5,
+      "denominator": 177,
+      "observedAt": "2026-10-23T18:48:44.239377Z",
+      "evidence": ["currentCorrectionObservation"],
+      "recordIds": [
+        "event:EV-checkpoint-2",
+        "event:EV-optiv-2",
+        "event:EV-splunk-1",
+        "event:EV-zscaler-2",
+        "supplier:expel:ownership"
+      ],
+      "limitations": "These are the immutable original audit verdicts. The separate 5/5 target-specific remediation result does not rewrite the historical audit or measure general accuracy."
+    },
+    {
+      "id": "accuracy.mapped_corrections_in_production",
+      "axis": "accuracy",
+      "status": "pass",
+      "numerator": 5,
+      "denominator": 5,
+      "observedAt": "2026-10-24T01:47:20.043700Z",
+      "evidence": ["repairReleaseObservation", "currentCorrectionObservation"],
+      "releaseId": "19fde803d09aa544672183769c257e37faf727b75e1914955f54f3c5fb126941",
+      "limitations": "Target-specific evidence for five mapped historical records only. It does not imply zero current contradictions or general site accuracy."
+    },
+    {
+      "id": "accuracy.claim_precision",
+      "axis": "accuracy",
+      "status": "unmeasured",
+      "numerator": null,
+      "denominator": null,
+      "observedAt": null,
+      "evidence": [],
+      "limitations": "No current reviewed benchmark and explicit precision denominator."
+    },
+    {
+      "id": "accuracy.eligible_event_recall",
+      "axis": "accuracy",
+      "status": "unmeasured",
+      "numerator": null,
+      "denominator": null,
+      "observedAt": null,
+      "evidence": [],
+      "limitations": "No reviewed eligible-event benchmark and omission denominator."
+    },
+    {
+      "id": "durability.prior_policy_scheduled_execution",
+      "axis": "durability",
+      "status": "pass",
+      "numerator": 1,
+      "denominator": 1,
+      "observedAt": "2026-10-24T09:43:25Z",
+      "evidence": ["priorScheduledReview", "priorScheduledCollection"],
+      "limitations": "A genuine schedule event completed on earlier revision 4b5e5ec and prior policy. It does not prove a timer run under current policy 8b44 or sustained operation. The 261/557 result reused receipts and is not 261 new fetches."
+    },
+    {
+      "id": "durability.current_policy_scheduled_execution",
+      "axis": "durability",
+      "status": "unmeasured",
+      "numerator": null,
+      "denominator": null,
+      "observedAt": null,
+      "evidence": ["priorScheduledReview", "currentCollection"],
+      "limitations": "No scheduled collector run is supplied for current policy 8b44 / revision 1ed94479. The 40120612027 run was manually dispatched."
+    },
+    {
+      "id": "durability.current_policy_scheduled_publication",
+      "axis": "durability",
+      "status": "fail",
+      "numerator": 0,
+      "denominator": 1,
+      "observedAt": "2026-10-24T18:55:18Z",
+      "evidence": ["scheduledPublisherFailure", "scheduledPublisherVerification"],
+      "githubRunId": "40122602778",
+      "githubEvent": "schedule",
+      "githubCreatedAt": "2026-10-24T18:51:08Z",
+      "failureReason": "DAILY_GATE_BUDGET_EXHAUSTED",
+      "artifactId": "12571423081",
+      "artifactZipSha256": "242f2ba3cd96a1fc27d9220afa7904ad0e5be600c3894679053127f2a444ab17",
+      "limitations": "The scheduled publisher failed before publication with DAILY_GATE_BUDGET_EXHAUSTED. Production remains on release 19fde; no new public update is recorded. The prospective-publication preflight partition check is under repair; this is a publication-gate issue, not a source-accuracy finding."
+    },
+    {
+      "id": "durability.production_rollback_restoration",
+      "axis": "durability",
+      "status": "pass",
+      "numerator": 1,
+      "denominator": 1,
+      "observedAt": "2026-10-24T01:52:28Z",
+      "evidence": ["repairReleaseObservation"],
+      "limitations": "One manual rollback drill passed for production release 19fde. It does not establish sustained operation or rollback behavior for an unpublished policy revision."
+    },
+    {
+      "id": "durability.archive_integrity_canary",
+      "axis": "durability",
+      "status": "pass",
+      "numerator": 1,
+      "denominator": 1,
+      "observedAt": "2026-10-24T18:41:36.696494Z",
+      "evidence": ["currentCanary"],
+      "limitations": "The canary verified private archive integrity and compatibility only. It is not a source collection, timer, publisher or deployment result."
+    },
+    {
+      "id": "durability.sustained_operation",
+      "axis": "durability",
+      "status": "unmeasured",
+      "numerator": null,
+      "denominator": null,
+      "observedAt": null,
+      "evidence": ["priorScheduledReview", "currentCanary"],
+      "limitations": "There is no complete dated window of expected current-policy executions, publications and recovery outcomes."
+    },
+    {
+      "id": "durability.data_continuity",
+      "axis": "durability",
+      "status": "pass",
+      "numerator": 32,
+      "denominator": 32,
+      "observedAt": "2026-10-24T18:32:56.227836Z",
+      "evidence": ["currentCollectionReview"],
+      "limitations": "The previous 32 review-queue entries remain an exact prefix; a new Upwind revalidation entry makes 33. Four ordinary fact references and four older quarantine objects were retained. This is a bounded continuity check, not a complete site-data audit."
+    },
+    {
+      "id": "value.observed_use",
+      "axis": "value",
+      "status": "unmeasured",
+      "numerator": null,
+      "denominator": null,
+      "observedAt": null,
+      "evidence": [],
+      "limitations": "The owner reports no observed real use."
+    }
+  ],
+  "evidencePins": {
+    "currentCollection": {
+      "path": "docs/active/daily-pipeline/receipts/html-activation-collection-40120612027-2026-10-24.json",
+      "sha256": "ef940fc940968b7a3a45d604bd5075c62bd35780373eef359d1a08c9eb7820c0"
+    },
+    "currentCanary": {
+      "path": "docs/active/daily-pipeline/receipts/html-activation-canary-40121717778-2026-10-24.json",
+      "sha256": "51d6fc0f80286b74d708114363813515ffd9a0addfa0f7fdb520a55b9d8f06d3"
+    },
+    "currentCollectionReview": {
+      "path": "docs/active/daily-pipeline/accuracy/html-source-activation-actual-collection-review-2026-10-24.json",
+      "sha256": "df62f8300399822b5484cf768f6b2780fcd38051e673ffe92a4aa838a16777cf"
+    },
+    "currentCoverageLedger": {
+      "path": "docs/active/daily-pipeline/evaluations/2026-10-24/current-source-coverage.md",
+      "sha256": "9bc97b3c698fa6c2607ce24c23abb50802f6f9bc6edf386f65e03b48c62b837d"
+    },
+    "currentPublicCoverage": {
+      "path": "docs/active/daily-pipeline/evaluations/2026-10-24/operational-inputs/coverage.json",
+      "sha256": "dd2b9964d49530c86429d5278a393f63ca8ecae9c35208b2b2ff45cafb1c5f35"
+    },
+    "productionAppRelease": {
+      "path": "docs/active/daily-pipeline/receipts/production-app-release-2026-10-24T1902Z.json",
+      "sha256": "3e29c4a8b9e4225ccec6767f148f892b866cd931f09e01237c14f803c1a210d7"
+    },
+    "currentContract": {
+      "path": "docs/active/daily-pipeline/accuracy/html-source-activation-package-preflight-2026-10-24.json",
+      "sha256": "bca24d6e6971aab80b7d9e375a5a55ad01789e8b1234481294633547dad8265b"
+    },
+    "priorScheduledReview": {
+      "path": "docs/active/daily-pipeline/receipts/new-policy-actual-scheduled-run-review-40082520067-2026-10-24.json",
+      "sha256": "4e2f6c96e34d313e7dcf310b8d184f228db590deecec4cca85ab82934cc3d7af"
+    },
+    "priorScheduledCollection": {
+      "path": "docs/active/daily-pipeline/receipts/new-policy-scheduled-collection-40082520067-2026-10-24.json",
+      "sha256": "b67df25cdfc5fbaa20a2fed590fa141c4aaffe33bb2ba9a898b17175c0d9cf11"
+    },
+    "scheduledPublisherFailure": {
+      "path": "docs/active/daily-pipeline/receipts/publisher-40122602778-2026-10-24/smp-publish-receipt.json",
+      "sha256": "f5925dd790f7a0ae8c349c3168600b6d930e51f817fe2d06c1b3c0cb41dac1b0"
+    },
+    "scheduledPublisherVerification": {
+      "path": "docs/active/daily-pipeline/receipts/publisher-40122602778-2026-10-24/verification.json",
+      "sha256": "986ea970270b8dc44846688ebb3909c1b56950bb020683d53163ecda716f1b14"
+    },
+    "productionObservation": {
+      "path": "docs/active/daily-pipeline/evaluations/2026-10-24/repair-release-observation.json",
+      "sha256": "20d8985233cf3bd536cc4e5306120e9663e083b83268d923feaa453802283a1f"
+    },
+    "currentCorrectionObservation": {
+      "path": "docs/active/daily-pipeline/accuracy/current-correction-resolution-observation-2026-10-24.json",
+      "sha256": "1aabc80a3ad2e573c4c88996b5b21cd518f2e7d4929006aa0b92a90d07098cc4"
+    },
+    "evaluationRubric": {
+      "path": "docs/active/daily-pipeline/evaluation-rubric.md",
+      "sha256": "1c351a83c56114ffc8d1dd0511df8f76e911eec6fb398b0ec587f0f570d4ef01"
+    }
+  },
+  "limitations": [
+    "Private current-policy coverage is 264/557; production remains on the previous 244/557 release.",
+    "The current-policy collection was manually dispatched. The earlier genuine scheduled run used revision 4b5e5ec and does not prove timer execution under current policy 8b44.",
+    "The scheduled publisher attempt failed with DAILY_GATE_BUDGET_EXHAUSTED. No new public release was delivered.",
+    "The prospective-publication preflight partition check is under repair. This publication-gate issue is not a current source-accuracy failure.",
+    "Precision, eligible-event recall, sustained operation and observed reader value are unmeasured.",
+    "The scorecard does not calculate an overall score."
+  ]
+}
