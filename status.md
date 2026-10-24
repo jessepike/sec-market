@@ -8,146 +8,85 @@ updated: 2026-10-24
 
 Make the current site consistent, durable, accurate and fresh before expansion (D-111).
 The coverage goal remains active. Reader value is unmeasured; the owner reports no useful real
-use yet. Search and overlapping ownership/funding/stage navigation are queued in SEC-073/074.
-The owner accepted D-112: separate fresh daily intake, fact processing and historical review.
-Implementation and independent offline review now pass. The accepted production receipt still uses
-the former combined definition. Preserve its 244/557 result and dates until a new-policy release
-actually publishes. Preview/main activation and actual new-policy scheduled/public receipts remain
-to be obtained under the existing approval and charged limits.
+use yet. Search and overlapping ownership/funding/stage navigation remain queued as SEC-073/074.
+
+The owner accepted D-112: separate daily source intake, current document processing and historical
+review. Reviewed application `7622bf6134f32282b58357979f59dfc9c718c730` is now on main by approved
+fast-forward from preview. This code promotion does not publish the preview fixture. The independent
+publisher must build and verify actual archived evidence before changing production.
 
 ## Accepted production
 
-https://securitymarketpulse.com now serves application `26181a2d4eb0aad1bd751cda70ab8e65142d2813`,
+https://securitymarketpulse.com still serves application `26181a2d4eb0aad1bd751cda70ab8e65142d2813`,
 release `19fde803d09aa544672183769c257e37faf727b75e1914955f54f3c5fb126941`, sequence 3.
-Vercel `dpl_9KqhU2bnfcmaQyYg73ZB1tXT9WBV` is READY. The primary-sourced Varonis agreement remains.
-Publisher [40050633432](https://github.com/jessepike/sec-market/actions/runs/40050633432) and
-independent main gate [40050850177](https://github.com/jessepike/sec-market/actions/runs/40050850177)
-passed. All 53 static files match the tested artifact on the public and immutable hosts.
-[Production-byte receipt](docs/active/daily-pipeline/receipts/actual-repair-production-bytes-2026-10-24.json).
-Final-release rollback/restoration [40051385049](https://github.com/jessepike/sec-market/actions/runs/40051385049)
-passed: baseline/current bytes verified and production head unchanged. All 53 files on both current
-hosts matched independently afterward. Earlier repaired drill `40049214904` also passed on sequence 2.
-The earlier failed attempt `40047154814` and its successful restoration remain recorded;
-the original remote exception category is unknown. [Final drill receipt](docs/active/daily-pipeline/receipts/repair-release-rollback-result-2026-10-24.json).
+Vercel `dpl_9KqhU2bnfcmaQyYg73ZB1tXT9WBV` is READY. The primary-sourced Varonis agreement and
+all six correction groups remain live. Publisher `40050633432`, independent gate `40050850177`
+and final rollback/restoration `40051385049` passed; all 53 static files matched on both hosts.
+[Actual publication and drill](docs/active/daily-pipeline/renewal-verification-2026-10-24.md).
 
-Actual live coverage is **244/557**, up from 121. The 313 gaps are 254 missing family bindings,
-28 unqualified candidate sources, 17 unfinished historical audits, nine HTTP 403 responses,
-four HTTP 429 responses and one unapproved redirect host. No fetch-cap failure remains.
-The inventory stays at 74 suppliers and 557 obligations. Seventeen broad sources retain about
-9,900 historical references; modification dates do not establish their publication dates.
-[Actual collection audit](docs/active/daily-pipeline/accuracy/renewal-collector-audit-2026-10-24.md).
+The last accepted coverage remains **244/557 under the original combined policy**, up from 121.
+Its 313 gaps are 254 missing family bindings, 28 unqualified candidates, 17 unfinished historical
+audits, nine HTTP 403s, four HTTP 429s and one unapproved redirect host. Preserve that original
+report and its 00:38:18 UTC collection time. New policy results must carry their own definition.
+[Collection audit](docs/active/daily-pipeline/accuracy/renewal-collector-audit-2026-10-24.md).
 
-All six correction groups are admitted and live: five factual groups/11 targets plus the scoped
-Xage source-class target. Check Point and Zscaler initially failed source support; exactly three
-note/reason fields were amended before new real reviews. Four previous admissions stayed exact,
-and all failed attempts remain archived. Xage's paid release is now classified as official;
-that change grants no financial certification. [Actual admission proof](docs/active/daily-pipeline/accuracy/actual-correction-admissions-2026-10-24.md).
-The frozen 177-record audit still describes the original records: 90 supported, 71 insufficient,
-11 missing strict primary proof and five contradicted. Do not rebase it or call it current precision.
-The separately authenticated current-remediation observation resolves all five mapped contradictions
-at approximately 04:01 UTC, binding the original accepted attempts/reservations, exact gate,
-publisher and all 53 live static files. Eleven focused tests and independent review validate its
-proof checks. This is a five-record remediation result, with no general precision/recall claim.
-[Current observation](docs/active/daily-pipeline/accuracy/current-correction-resolution-observation-2026-10-24.md) ·
-[Independent review](docs/active/daily-pipeline/accuracy/correction-resolution-independent-review-2026-10-24.md) ·
-[Rubric](docs/active/daily-pipeline/evaluation-rubric.md).
+The separately authenticated current-remediation observation resolves all five known contradictions
+using actual original model attempts, reservations, gate, publisher and live bytes. All six group
+review policies and target dates remain exact. The frozen 177-record original audit is unchanged:
+90 supported, 71 insufficient, 11 missing strict primary proof and five contradicted. Neither report
+measures general current precision, recall or reader value.
+[Current five-record observation](docs/active/daily-pipeline/accuracy/current-correction-resolution-observation-2026-10-24.md).
 
-## Operation and limits
+## Approved policy activation
 
-Actual manual collectors `40042968468` and `40045615085` completed on reviewed main revisions.
-They preserve all 28 earlier claim/reason holds; the current queue has 32 holds, and the publisher
-retains four older-policy facts in quarantine. [Continuity evidence](docs/active/daily-pipeline/accuracy/renewal-collector-audit-2026-10-24.json).
-The October 24 ledger is **641 fetches / 80 model calls / 40 documents**. Fetch capacity remains
-4,859; no model/document capacity remains. Both October 24 gate/publication attempts are charged
-(2/2). Later publication may hold until the next UTC allowance; reserve scheduled-cycle capacity
-before another manual acceptance publication. October 23's charged limits and gate attempts are
-unchanged. Never reset/refund usage, use paid fallback or substitute an offline audit for admission.
+The whole-history rule needs at least 7,420.8 requests/day against the fixed 5,500 limit. D-112
+preserves all 74 suppliers, 557 obligations, 9,914 source/URL references and original dates while
+separating intake, processing and history. The actual archived replay preserves 24 reviewed bindings,
+9,890 pending URLs, five held documents and four exact original fact references. Its 17 archived
+intake successes are a subset replay; 540 obligations were not executed, and no new live coverage
+is credited. All 17 historical reviews remain incomplete.
+[Accepted specification](docs/active/daily-pipeline/separate-freshness-history-spec-2026-10-24.md) ·
+[Independent review and exact replay](docs/active/daily-pipeline/accuracy/separate-freshness-history-independent-review-2026-10-24.md).
 
-October 23's actual scheduled collector/publisher/gate and rollback receipts remain valid history;
-today's manual runs do not prove the repaired recurring cycle or sustained durability.
-[Activation receipts](docs/active/daily-pipeline/activation-2026-10-23.md).
-The latest actual scheduled monitor remains `40028529947`. Manual post-restoration monitor
-[40051997369](https://github.com/jessepike/sec-market/actions/runs/40051997369) passed its 15 tests and delivered assigned
-[issue 10](https://github.com/jessepike/sec-market/issues/10) for incomplete private/public coverage
-and `HELD_CLAIMS_32`. Its failure is an accurate coverage alarm, not a failed production restore.
-Publisher issue 11 closed after actual successful repair publication `40050633432` at 01:45:10 UTC.
-Phone/email delivery depends on GitHub account settings; GitHub issue delivery is verified.
+Final local checks passed 555 operational, 115 pipeline, 368 data and 42 browser tests, with one
+appropriate uncollected-deadline skip. Actual preview web run `40064011712` and main web run
+`40064410373` passed. Vercel preview
+`dpl_qkeHEzkfD4Hskpwf7jQVFnuG8661` is READY at the stable preview URL. Full-page and fold renders
+were inspected at 1440/390 and shown to the owner. The visible change is three distinct status lines
+and evidence details. Preview uses an explicitly uncollected old fixture; production's dates,
+counts and corrections differ. The fixture must never replace actual collected production data.
 
-## Next work
+Read-only canary `40064011691` failed with remote category `ContractError`. Its exact remote guard
+is undisclosed. A read-only local replay against authenticated archive `9c8737cb` reproduces the
+contract-matching guard: the archive uses old contract `de1932f7`, while new code requires `79cdd19b`.
+Keep that guard. Obtain actual new-policy scheduled collection before rerunning the canary.
+[Preview, canary, visual and main receipts](docs/active/daily-pipeline/receipts/separate-policy-preview-and-main-2026-10-24.json).
 
-Reviewed main now separates due work from retained successful history. Archived replay removes
-20 false deferred entries without deleting inventory. Source completeness stays held until prior
-evidence is independently rebound. A committed seven-target diagnostic plan proves every URL
-from retained disclosure bytes and uses the existing leased fetch-only path. No source was
-activated; no new coverage credit was granted. Actual leased diagnostic
-[40049636626](https://github.com/jessepike/sec-market/actions/runs/40049636626) fetched all seven
-targets (Ping RSS: five items; Delinea/Sonatype: ten each). Its 125 reserved fetches include the
-existing generic diagnostics; model/document usage stayed 80/40. All sources remain unqualified
-pending scope, dates and history review. Current integrated checks pass 353 data,
-115 pipeline, 43 browser and 476 operational tests. Local screenshots are pixel-identical before
-after these backend changes; actual preview/production renders were also reviewed at both widths.
-[Selection repair](docs/active/daily-pipeline/accuracy/selection-pending-repair-spec-2026-10-24.md) ·
-[Qualification plan](docs/active/daily-pipeline/accuracy/source-qualification-spec-2026-10-24.md).
+## Operation and remaining work
 
-The [current rubric observation](docs/active/daily-pipeline/evaluations/2026-10-24/repair-release-observation.md)
-keeps coverage, the five known repaired groups, single-release publication and manual rollback
-separate from unmeasured scheduled durability, precision/recall and reader value. Accepted
-corrections survive initial-admission window closure; relevant changes hold publication rather
-than revert known repairs. [Retention replay](docs/active/daily-pipeline/accuracy/correction-retention-replay-2026-10-24.md).
+October 24 usage is **641 fetches / 80 model calls / 40 documents**; 4,859 fetches remain and no
+model/document allowance remains. Both daily gate/publication attempts are charged (2/2). Do not
+reset, refund, buy capacity or dispatch an extra acceptance gate. Reserve the next UTC allowance
+for the genuine scheduled/public cycle. Main promotion leaves verified production untouched.
 
-The [actual response review](docs/active/daily-pipeline/accuracy/seven-target-response-review-2026-10-24.md)
-finds 23 unobserved Ping pages and truncated Delinea/Sonatype feeds. Seven further literal targets
-are evidenced; a terminal-page check alone would not establish full traversal. No source is qualified.
+The next normal scheduled collector is **05:17 UTC October 24**; GitHub may start it late. Check its
+actual event, revision, archived source times and distinct measures. Then rerun the unchanged
+read-only canary against the matching archive. Its publisher callback may correctly hold at today's
+gate allowance. October 25 scheduled collection/publication must provide the actual new-policy
+public receipt; do not call manual dispatch or an offline replay scheduled proof. The old source's
+30-hour deadline is October 25 at approximately 06:38 UTC.
 
-New preview candidates parse the retained Ping cards and continuation controls, preserving exactly
-20 releases from pages 1/2 and holding unobserved terminal layouts. The next seven requests have
-complete prior-run/source/body/charge/time proofs. Future plans reference one retained raw-plan
-object, preventing repeated sevenfold proof growth. These changes are offline-tested; the next
-seven responses are unobserved and live coverage remains 244/557.
-[Ping replay](docs/active/daily-pipeline/accuracy/ping-parser-actual-replay-2026-10-24.json) ·
-[Follow-up plan](docs/active/daily-pipeline/accuracy/qualification-followup-plan-spec-2026-10-24.md) ·
-[Integrated candidate checks](docs/active/daily-pipeline/receipts/offline-coverage-candidate-2026-10-24.json).
-Preview code `0bf39cbf` passed actual GitHub web run `40054232998` and read-only canary
-`40054232990`; Vercel preview is Ready. Full-page and fold renders at 1440/390 were reviewed.
-Git preview uses the older baseline fixture (0/557 and no applied corrections); it is not the
-accepted daily artifact. Production remains unchanged at 244/557 with all six groups.
-[Preview checks and visual boundary](docs/active/daily-pipeline/receipts/coverage-candidate-preview-2026-10-24.json).
+After scheduled collection, use the already reviewed leased fetch-only diagnostic for the seven
+next literal Ping/Delinea/Sonatype targets. It charges the existing fetch ledger and grants no
+qualification, model review or coverage credit. Previously observed RSS feeds were truncated and
+23 Ping pages remained unobserved. Never infer full traversal from a terminal-page check alone.
+[Seven-target response review](docs/active/daily-pipeline/accuracy/seven-target-response-review-2026-10-24.md) ·
+[Follow-up request proof](docs/active/daily-pipeline/accuracy/qualification-followup-plan-spec-2026-10-24.md).
 
-The [retained-audit repair](docs/active/daily-pipeline/accuracy/retained-audit-rebinding-implementation-2026-10-24.md)
-now independently replays all 24 retained completed pages, preserves all 9,914 source/URL
-obligations, and leaves 9,890 due URLs and all 17 historical tasks incomplete under the former
-policy. Both b9 and current 9c archive replays preserve all content and mtimes. The four independent
-guard findings are fixed and retested; 507 operational, 115 pipeline, 353 data and 43 browser
-tests pass. This is a committed candidate, with no live source credit. The executable
-[operational scorecard](docs/active/daily-pipeline/evaluations/2026-10-24/operational-scorecard.md)
-reproduces byte-for-byte with pinned inputs: 244/557 coverage, 48/48 SEC source checks, repaired
-publication/rollback passes, and unmeasured current scheduled execution, sustained durability and
-reader value. It keeps the original 00:38:18 UTC collection time and the frozen accuracy audit apart.
-
-The [independent capacity audit](docs/active/daily-pipeline/accuracy/historical-freshness-feasibility-2026-10-24.md)
-proves that keeping all historical articles fresh needs at least 7,420.8 requests/day even with
-ideal sharing, above the fixed 5,500 limit. The owner selected the reviewed separation proposal;
-the [D-112 implementation specification](docs/active/daily-pipeline/separate-freshness-history-spec-2026-10-24.md)
-preserves every obligation and original date, with distinct intake/processing/history measures.
-No quota increase, refund, new source or changed live coverage follows from this decision alone.
-
-The D-112 candidate passes 555 operational tests, 115 pipeline tests, and the full application
-suite (368 data, 115 pipeline and 42 browser passes; one uncollected-deadline skip). The independently
-reviewed actual replay preserves 9,914 URLs, 24 reviewed bindings, 9,890 pending, five held documents
-and four exact original fact references. The 17 archived intake checks supply no live credit.
-Flat sealed revalidation witnesses keep completed work closed across quiet days and preserve
-pending changes across failed/partial discovery and rollover. Typed queue markers independently
-replay and close only with current proof. All six correction groups retain exact original rows,
-admissions and dates under the new enclosing policy. Phone/desktop layouts were inspected;
-the unchanged phone fold assertion passes with both uncollected and large-history fixtures.
-[Independent D-112 acceptance](docs/active/daily-pipeline/accuracy/separate-freshness-history-independent-review-2026-10-24.md).
-
-Next prepare the scoped source adapters from retained evidence and obtain the actual scheduled
-cycle on repaired main within charged limits. Collection is 05:17 UTC; publication follows successful scheduled
-collection and runs at 06:23/16:23 UTC. Monitoring is 00:41/06:41/12:41/18:41 UTC; GitHub can run
-late. Preserve all declared obligations and unresolved evidence. No owner source choice currently
-blocks these repairs. Use GitHub Actions/Vercel under the existing approval; Codex Cloud, legacy
-publication paths, new purchases and paid API fallback stay closed. [Runbook](docs/active/daily-pipeline/github-operations.md).
-
-Implementation: `/Users/jessepike/code/projects/sec-market-finish-20261022`.
-Original `/Users/jessepike/code/projects/sec-market` status/lessons edits remain untouched.
+There are 32 preserved review holds and four quarantined older-policy facts. Source qualification,
+existing missing bindings and current fact review remain work, not automatic owner questions.
+Monitor `40051997369` delivered assigned issue 10 for incomplete coverage and held claims; publisher
+issue 11 closed after repair. Actual new-policy scheduled durability and publication remain
+unmeasured. The executable rubric keeps coverage, accuracy, release verification and reader value
+separate. [Evaluation rubric](docs/active/daily-pipeline/evaluation-rubric.md) ·
+[Original-policy reproducible scorecard](docs/active/daily-pipeline/evaluations/2026-10-24/operational-scorecard.md).

@@ -1,0 +1,221 @@
+{
+  "schemaVersion": 1,
+  "observedAt": "2026-10-24T04:59:33.982190+00:00",
+  "candidateRevision": "7622bf6134f32282b58357979f59dfc9c718c730",
+  "webRun": {
+    "conclusion": "success",
+    "createdAt": "2026-10-24T04:51:49Z",
+    "databaseId": 40064011712,
+    "event": "push",
+    "headSha": "7622bf6134f32282b58357979f59dfc9c718c730",
+    "status": "completed",
+    "updatedAt": "2026-10-24T04:53:40Z",
+    "url": "https://github.com/jessepike/sec-market/actions/runs/40064011712"
+  },
+  "readOnlyCanaryRun": {
+    "conclusion": "failure",
+    "createdAt": "2026-10-24T04:51:49Z",
+    "databaseId": 40064011691,
+    "event": "push",
+    "headSha": "7622bf6134f32282b58357979f59dfc9c718c730",
+    "status": "completed",
+    "updatedAt": "2026-10-24T04:53:00Z",
+    "url": "https://github.com/jessepike/sec-market/actions/runs/40064011691"
+  },
+  "readOnlyCanaryReceipt": {
+    "runtimeCanaryScope": "private_hosting_archive_integrity",
+    "runtimeCanaryPassed": false,
+    "reason": "ContractError",
+    "sourceProbe": {
+      "performed": false,
+      "reason": "LEASED_COLLECTOR_WORKFLOW_REQUIRED"
+    },
+    "marketSourceRequests": 0,
+    "sourceChecksCredited": 0,
+    "qualifiedSources": 0,
+    "coverageCredit": false,
+    "semanticAdmission": false,
+    "modelCalls": 0,
+    "subscriptionCredentialsTransferred": false,
+    "archiveChanged": false,
+    "publicationAttempted": false,
+    "recurringWorkerActivated": false
+  },
+  "canaryDiagnosis": {
+    "remoteReason": "ContractError",
+    "exactRemoteFailingGuardDisclosed": false,
+    "localReadOnlyGuardReproduction": "Canary archive uses another source contract",
+    "archiveRevision": "9c8737cb4213f149f788b7ef1414921b8951bf0e",
+    "archivedContractSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+    "currentContractSha256": "79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60",
+    "requiredNextEvidence": "Actual new-policy scheduled collection, then unchanged read-only canary"
+  },
+  "previewDeployment": {
+    "id": "dpl_qkeHEzkfD4Hskpwf7jQVFnuG8661",
+    "readyState": "READY",
+    "url": "security-market-pulse-2l3zx2n70-pikeholdings.vercel.app"
+  },
+  "previewAppRelease": {
+    "allowed": true,
+    "releaseKind": "certified",
+    "dataUpdated": true,
+    "certifiedAt": "2026-10-21T04:45:33.748Z",
+    "contractVersion": "smp-certified-v2",
+    "rootView": "tracker",
+    "appRevision": "7622bf6134f32282b58357979f59dfc9c718c730",
+    "appBuiltAt": "2026-10-24T04:52:13.405Z",
+    "dailyRunId": "334f0f2ef3ed1d957189585ee36fcf6d9934bae9b626febf1cde661657c7b058",
+    "dailySnapshotSha256": "e339c9157c0e4daffcd85705d894a4ac4dfb19ca252d1c581a604ea359d27fd1",
+    "dailyContractSha256": "79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60",
+    "dailyCoverageComplete": false,
+    "dailyCoverageMeasure": "daily_source_intake_v2",
+    "dailyIntakeComplete": false,
+    "dailyProcessingComplete": false,
+    "dailyHistoricalReviewComplete": false
+  },
+  "productionAppRelease": {
+    "allowed": true,
+    "releaseKind": "certified",
+    "dataUpdated": true,
+    "certifiedAt": "2026-10-24T01:41:40.176Z",
+    "contractVersion": "smp-certified-v2",
+    "rootView": "tracker",
+    "appRevision": "26181a2d4eb0aad1bd751cda70ab8e65142d2813",
+    "appBuiltAt": "2026-10-24T01:42:14.530Z",
+    "dailyRunId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+    "dailySnapshotSha256": "3fc853643035a9b5d8846792624d4a6bfa4436e89d9c1433b07b4d9a647ef78f",
+    "dailyContractSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+    "dailyCoverageComplete": false,
+    "factualCorrections": {
+      "enabled": true,
+      "policySha256": "e740d7407afc7b11be8802b250ea564224b10969717507818726e44e7b33f27e",
+      "fileSha256": "d76a49455951cb8be37d56ef3749ea3ac980a1f3a7073f27225ae3af030a7b9d",
+      "groupIds": [
+        "FC-20261023-checkpoint-sase",
+        "FC-20261023-optiv",
+        "FC-20261023-splunk",
+        "FC-20261023-zscaler",
+        "FC-20261023-expel",
+        "XAGE-SOURCE-CLASS-20261023"
+      ],
+      "targetIds": [
+        "event:EV-checkpoint-2",
+        "evidence:TR-checkpoint-4",
+        "event:EV-optiv-2",
+        "evidence:TR-optiv-3",
+        "event:EV-splunk-1",
+        "evidence:TR-splunk-2",
+        "event:EV-zscaler-2",
+        "evidence:TR-zscaler-4",
+        "supplier:expel:lastRound",
+        "supplier:expel:ownership",
+        "evidence:TR-expel-2",
+        "evidence:TR-xage-1"
+      ],
+      "newGroupIds": [],
+      "publicationDate": "2026-10-24"
+    }
+  },
+  "visualReview": {
+    "widths": [
+      1440,
+      390
+    ],
+    "fullPageAndFoldCaptured": true,
+    "allEightImagesInspected": true,
+    "visibleChange": "Three distinct intake, processing and historical-review status lines with accessible evidence details; existing layout, navigation, cards and sections retained.",
+    "dataBoundary": "Preview is explicitly uncollected0/557 with preserved old fixture date; production remains accepted244/557 with six correction groups. Different event totals and dates are fixture differences, not newly collected facts. Never publish this preview fixture as production data.",
+    "ownerShownPreviewAndImages": true
+  },
+  "activation": {
+    "approvedBy": "D-110 and D-112",
+    "mainFastForwardConfirmed": true,
+    "mainRevision": "7622bf6134f32282b58357979f59dfc9c718c730",
+    "productionChanged": false,
+    "gateAttemptsAlreadyCharged": 2,
+    "gateAttemptLimit": 2,
+    "nextActualScheduledCollectorUtc": "2026-10-24T05:17:00Z",
+    "publicationMayHoldUntilNaturalUtcAllowance": true
+  },
+  "files": {
+    "hostDirectory": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024",
+    "inventory": {
+      "candidate-7622bf61-canary-run.json": {
+        "sha256": "38b0d8ebcd82a7a1b71d9f28ccc499d8249a6c3fc05a83284141aaa0e0f1cd01",
+        "bytes": 282
+      },
+      "candidate-7622bf61-preview-1440.png": {
+        "sha256": "b044622ff53e695fee8334a95746b932c0df81ff6e26ecb810bfd9228765cdd9",
+        "bytes": 989395
+      },
+      "candidate-7622bf61-preview-390.png": {
+        "sha256": "7dc872da46a4cf5e2eb765df88e1ae28e34eb70f8d5c38b19835bab09afcd3df",
+        "bytes": 436460
+      },
+      "candidate-7622bf61-preview-app-release.json": {
+        "sha256": "1b6ccca89b10f16c7d3ae7d2aa254485517c42504a92a44ebf0e4d94e5a8aca5",
+        "bytes": 757
+      },
+      "candidate-7622bf61-preview-deployment.json": {
+        "sha256": "0205a7d902fad4ba2d093c7df801127de87b94cf5cc8e9c534f6d0adb7117c52",
+        "bytes": 14087
+      },
+      "candidate-7622bf61-preview-fold-1440.png": {
+        "sha256": "62a0e5d27f80a3d235134a608ea89b3f31351b3728be51def6b1a058cd247e74",
+        "bytes": 133321
+      },
+      "candidate-7622bf61-preview-fold-390.png": {
+        "sha256": "dcf47cf989c55060dee9ca30c84cfb5e31797a738337dc448799a5c3fb0a2193",
+        "bytes": 55881
+      },
+      "candidate-7622bf61-production-1440.png": {
+        "sha256": "8651f15011d8a0518a5e4f96a43d693c014ea1d33a041f1586e830a088cce1ad",
+        "bytes": 996984
+      },
+      "candidate-7622bf61-production-390.png": {
+        "sha256": "0c81367ea5540676b295a8ba96173ef98e5e9c41993a3dac9392166ae2af10d9",
+        "bytes": 437240
+      },
+      "candidate-7622bf61-production-app-release.json": {
+        "sha256": "3e29c4a8b9e4225ccec6767f148f892b866cd931f09e01237c14f803c1a210d7",
+        "bytes": 1474
+      },
+      "candidate-7622bf61-production-fold-1440.png": {
+        "sha256": "4764abbcb551093093063acf62784889455bf1719b00c359314469548ae05914",
+        "bytes": 140324
+      },
+      "candidate-7622bf61-production-fold-390.png": {
+        "sha256": "f4151c6dd4bedfb838912f205536c70625d7cdeaa08830bc9b3a296cdc83faa7",
+        "bytes": 59511
+      },
+      "candidate-7622bf61-web-run.json": {
+        "sha256": "5dd0eb20b514aaa0add7fe189305f63f26258a3341dad96203f48f24a2ee4fed",
+        "bytes": 282
+      }
+    }
+  },
+  "limitations": [
+    "Actual new-policy scheduled collection and publication remain unobserved.",
+    "No source coverage, model admission, publication or sustained durability credit follows from code promotion.",
+    "All 74 suppliers, 557 obligations, historical URLs, dates and charged limits remain."
+  ],
+  "mainWebRun": {
+    "conclusion": "success",
+    "createdAt": "2026-10-24T04:58:08Z",
+    "databaseId": 40064410373,
+    "event": "push",
+    "headSha": "7622bf6134f32282b58357979f59dfc9c718c730",
+    "status": "completed",
+    "updatedAt": "2026-10-24T05:00:26Z",
+    "url": "https://github.com/jessepike/sec-market/actions/runs/40064410373"
+  },
+  "independentActivationReview": {
+    "noAdditionalBlocker": true,
+    "retainedCorrectionGroups": 6,
+    "publicGroupRowsUnchanged": true,
+    "archiveLeaseReleased": true,
+    "newScheduledPlanDistinctFromOldContract": true,
+    "sourceModelNetworkRequests": 0,
+    "limitations": "Read-only code and archive replay, not actual scheduled or publication proof."
+  }
+}
