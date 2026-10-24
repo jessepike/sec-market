@@ -22,8 +22,10 @@ remain live. The original combined report remains 244/557, source checked Octobe
 were separately resolved against this published release; general precision/recall is unmeasured.
 [Publication receipts](docs/active/daily-pipeline/renewal-verification-2026-10-24.md).
 
-Approved main and preview are `a59f1fe6`. Actual web runs `40116449980`/`40116667848` and canary
-`40116449869` passed. Preview `dpl_3TnDZNwnLifbDXRSJiCaQuQCk7su` is READY. Main Git builds
+Approved main and preview are `118ef09f`. Actual web runs `40119405032`/`40119674631` passed.
+Preview `dpl_6Mcf914F6N2vsMREJ2maYdBs97de` is READY and matches both local render widths.
+Initial canary `40119405089` rejects the preceding policy's archive; an actual current-policy
+collection must clear it. Main Git builds
 are intentionally canceled; only the guarded exact-artifact publisher changes production.
 
 ## New-policy private collection and evidence
@@ -87,7 +89,13 @@ four older-policy quarantines and six correction groups with original rows and d
 prospective baseline preserves the entire prior chain and grants zero current intake credit.
 All 730 operational, 373 data, 115 pipeline and 42 browser checks pass; one fixture skip is
 appropriate. Desktop/phone pixels match the earlier local candidate. Independent actual-package
-review passes. Preview/main promotion, actual new-policy collection and strict canary remain next.
+review passes and preview/main promotion completed. First collection `40119674938` failed after
+the acknowledged seed checkpoint `a40802a2`, before budget/source/model work: the importer checked
+`archive.sha256`, while the real archive API returns `manifestSha256`. Usage remains exactly
+1,518/80/40. Assigned issue 13 records the actual failure. The narrow repair passes independent
+review and all 732 operational tests, including the real checkpoint/archive return interface;
+the current package, contract, original evidence and limits are unchanged. Promote that repair,
+rerun ordinary collection, then obtain a strict current-policy canary and publication receipts.
 [Package](docs/active/daily-pipeline/accuracy/html-source-activation-package-implementation-2026-10-24.md).
 
 Four neutral parent-issuer bindings have a reviewed proposal and archived relationship proof;

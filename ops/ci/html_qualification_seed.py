@@ -246,7 +246,7 @@ def seed_before_collection(repo, root, store, session, contract, runtime):
     from storage import LocalStore
     archive = receipt.get('archive')
     require(type(archive) is dict and re.fullmatch(r'[a-f0-9]{40}', archive.get('commit', '')) and
-            re.fullmatch(r'[a-f0-9]{64}', archive.get('sha256', '')) and
+            re.fullmatch(r'[a-f0-9]{64}', archive.get('manifestSha256', '')) and
             LocalStore(root).read('heads/remote-archive.json') == archive and
             receipt.get('receipt', {}).get('phase') == 'qualification_seeded' and
             receipt['receipt'].get('sessionId') == session['sessionId'] and

@@ -95,7 +95,8 @@ class HtmlQualificationSeedTests(unittest.TestCase):
                 old.unlink()
         self.write_manifest()
         self.session = {'role': 'collector', 'executionMode': 'github_subscription',
-                        'sessionId': 'github-123-1', 'appRevision': 'a' * 40}
+                        'sessionId': 'github-123-1', 'appRevision': 'a' * 40,
+                        'startedAt': LATER, 'restored': {'commit': 'b' * 40}}
         runtime = LocalStore(self.runtime_root)
         runtime.write_once('session.json', self.session)
         self.store.compare_and_swap('cloud-lease', None, {'sessionId': 'github-123-1', 'expiresAt': '2030-01-01T00:00:00Z'})
@@ -115,7 +116,8 @@ class HtmlQualificationSeedTests(unittest.TestCase):
         def checkpoint(root, store, session, phase, result):
             self.checkpoints.append((phase, result))
             self.assertTrue(all((store.root / row['key']).exists() for row in self.manifest['files']))
-            archive = {'commit': 'f' * 40, 'sha256': '1' * 64}
+            archive = {'commit': 'f' * 40, 'parentCommit': 'b' * 40,
+                       'manifestSha256': '1' * 64, 'files': 7, 'ref': 'refs/archive/market-evidence'}
             local = LocalStore(root)
             local.compare_and_swap('remote-archive', local.read('heads/remote-archive.json'), archive)
             return {'archive': archive, 'receipt': {'phase': phase, 'result': result, 'contractSha256': h,
@@ -237,6 +239,46 @@ class HtmlQualificationSeedTests(unittest.TestCase):
         self.assertTrue(all((self.store.root / row['key']).exists() for row in self.manifest['files']))
         self.runtime.checkpoint = lambda *_: {'archive': {'commit': 'f' * 40, 'sha256': '1' * 64}}
         self.assertRaisesRegex(ValueError, 'REMOTE_ACK_REQUIRED', self.execute)
+
+    def test_legacy_sha_only_and_missing_manifest_ack_reject_even_when_head_matches(self):
+        original = self.runtime.checkpoint
+        for change in ('legacy_sha_only', 'missing_manifest'):
+            def checkpoint(*args):
+                result = original(*args)
+                archive = result['archive']
+                manifest = archive.pop('manifestSha256')
+                if change == 'legacy_sha_only':
+                    archive['sha256'] = manifest
+                local = LocalStore(self.runtime_root)
+                local.compare_and_swap('remote-archive', local.read('heads/remote-archive.json'), archive)
+                return result
+            self.runtime.checkpoint = checkpoint
+            with self.subTest(change=change):
+                self.assertRaisesRegex(ValueError, 'REMOTE_ACK_REQUIRED', self.execute)
+
+    def test_real_checkpoint_and_real_archive_push_acknowledgement_interface(self):
+        import collect
+        from archive import GitArchive
+        runtime = collect.session_runtime
+        self.runtime = runtime
+        (self.repo / 'contracts/market.json').write_bytes(canonical(self.contract))
+        mirror = Path(self.temp.name) / 'fictional-archive-mirror'
+        mirror.mkdir()
+        archive = GitArchive(mirror, str(Path(self.temp.name) / 'fictional-remote'))
+        def fake_git(*args, **kwargs):
+            return SimpleNamespace(returncode=1 if args[0] == 'diff' else 0,
+                stdout=(('f' * 40).encode() if args[0] == 'rev-parse' else b''))
+        # Exercise the production push/checkpoint return and ACK-head writes;
+        # only the Git transport boundary is fictional and never starts Git.
+        with patch.object(runtime, 'REPO', self.repo), patch.object(runtime, 'utcnow', return_value=LATER), \
+             patch.object(runtime, 'archive_for', return_value=archive), \
+             patch.object(archive, '_open', return_value='b' * 40), patch.object(archive, '_git', side_effect=fake_git):
+            result = self.execute()
+        ack = result['archive']
+        self.assertEqual(set(ack), {'commit', 'parentCommit', 'manifestSha256', 'files', 'ref'})
+        self.assertEqual(ack['manifestSha256'], digest(json.loads((mirror / 'archive-manifest.json').read_bytes())))
+        self.assertEqual(ack, LocalStore(self.runtime_root).read('heads/remote-archive.json'))
+        self.assertTrue(all((mirror / 'state' / row['key']).exists() for row in self.manifest['files']))
 
     def test_context_and_expired_or_profiled_lease_reject_before_import(self):
         for env in ({'GITHUB_REF': 'refs/heads/preview'}, {'GITHUB_SHA': 'c' * 40}):

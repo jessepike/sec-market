@@ -1,0 +1,23 @@
+{
+  "kind": "actual_collection_ack_interface_failure",
+  "githubRunId": 40119674938,
+  "githubEventName": "workflow_dispatch",
+  "appRevision": "118ef09f98ebb2b6c9aaea1a797e882c2dcee180",
+  "contractSha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+  "artifactId": 12570369394,
+  "artifactTransportSha256": "4cfe1af55ea118b3b57aa2df1a0b26d2a474383d62ef6049e2777b60dee83187",
+  "seedCheckpointCommit": "a40802a2964829ef6b51920f47ee6da9fb53b42f",
+  "failedCheckpointCommit": "70b86d4d96040729c89a4d7d8272a358204fac42",
+  "cause": "Seed acknowledgement required sha256; real GitArchive.push returns manifestSha256.",
+  "budgetBeforeAndAfter": {"fetches": 1518, "calls": 80, "documents": 40},
+  "marketSourceRequests": 0,
+  "modelCalls": 0,
+  "sourceChecksCredited": 0,
+  "productionUpdated": false,
+  "assignedFailureIssue": 13,
+  "repairRuntimeSha256": "68c66beda7c00e65361c90e7bc30efffc2e19a41804ae76ebffd40914d9236e4",
+  "repairTestSha256": "0a4fa2722229369d8179938a2fa2fb9b1428a0825d6ac438071eef774ee56b6d",
+  "operationalTestsPassed": 732,
+  "realCheckpointArchiveInterfaceRegressionPassed": true,
+  "actualRepairedCollectionVerified": false
+}
