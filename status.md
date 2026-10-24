@@ -68,7 +68,7 @@ remaining and no model/document allowance. Both gate/publication attempts are ch
 Never reset/refund a charge, buy capacity or substitute paid models. Reserve the next natural
 UTC allowance for the real publisher and independent gate; production remains unchanged meanwhile.
 
-The normal 05:17 UTC October 24 collection has not appeared as of 07:43 UTC. The workflow is
+The normal 05:17 UTC October 24 collection has not appeared as of 08:04 UTC. The workflow is
 active, the private repository is enabled and main is its default branch. Earlier actual GitHub
 schedules started hours late. A manual run cannot supply timer evidence. Check the genuine next
 scheduled run and preserve its actual event, revision, source times and archived clock.
@@ -146,10 +146,12 @@ Archive `d161a23d80ea9e1756113644624cc2f646d2c3ed`, manifest `09909886…c92362`
 35,412 files, with every prior 35,256 path retained, 156 additions and no immutable changes.
 Normal collection, correction and production heads and all file/directory seals remain unchanged.
 [Actual V2 review](docs/active/daily-pipeline/accuracy/bounded-traversal-v2-actual-response-review-2026-10-24.md).
-V3 source-bound date/route support is implemented locally, preserving both earlier interpretations,
-with independent review in progress. All 666 operational tests pass. Delinea terminal markup is
+V3 source-bound date/route support passes independent review, preserving both earlier interpretations.
+All 668 operational, 368 data, 115 pipeline and 42 browser tests pass; one fixture deadline check
+is appropriately skipped. Same-fixture desktop/phone pixels remain identical. Delinea terminal markup is
 still unproved; its current V1/V2/V3 parser intentionally grants no terminal credit. The operational
-plan remains V2 until the exact V3 candidate passes review. The reviewed explicit disabled operation
+plan is now the exact reviewed V3 candidate locally; its new main activation and real run are pending.
+The reviewed explicit disabled operation
 is also implemented locally for a future closed activation; no operational plan is disabled now.
 The separate dormant inventory-origin helper passes independent review with its trusted activation
 registry empty. All 9,914 existing bounded source/URL pairs belong to 17 unchanged source contexts;

@@ -103,11 +103,20 @@ def validate_contract(contract):
                     source["url"] == "https://press.pingidentity.com/news-releases" and
                     type(source["maxPages"]) is int and source["maxPages"] <= 60,
                     "Ping HTML v2 mode requires its exact source, supplier and index endpoint")
+        if source.get("htmlCompleteness") == "ping-release-pagination-v3":
+            require(source["kind"] == "html_index" and source["id"] == "ping-identity:official:1" and
+                    source["supplierId"] == "ping-identity" and source["family"] == "official_announcements" and
+                    source["allowedHosts"] == ["press.pingidentity.com"] and
+                    source["url"] == "https://press.pingidentity.com/news-releases" and
+                    type(source["maxPages"]) is int and source["maxPages"] <= 60,
+                    "Ping HTML v3 mode requires its exact source, supplier and index endpoint")
         for mode, supplier_id, host, index in (
                 ('delinea-news-pagination-v1', 'delinea', 'delinea.com', 'https://delinea.com/news'),
                 ('delinea-news-pagination-v2', 'delinea', 'delinea.com', 'https://delinea.com/news'),
+                ('delinea-news-pagination-v3', 'delinea', 'delinea.com', 'https://delinea.com/news'),
                 ('sonatype-press-pagination-v1', 'sonatype', 'www.sonatype.com', 'https://www.sonatype.com/press-releases'),
-                ('sonatype-press-pagination-v2', 'sonatype', 'www.sonatype.com', 'https://www.sonatype.com/press-releases')):
+                ('sonatype-press-pagination-v2', 'sonatype', 'www.sonatype.com', 'https://www.sonatype.com/press-releases'),
+                ('sonatype-press-pagination-v3', 'sonatype', 'www.sonatype.com', 'https://www.sonatype.com/press-releases')):
             if source.get('htmlCompleteness') == mode:
                 require(source['kind'] == 'html_index' and source['id'] == supplier_id + ':official:1' and
                         source['supplierId'] == supplier_id and source['family'] == 'official_announcements' and

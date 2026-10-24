@@ -13,10 +13,11 @@ from urllib.parse import urljoin, urlsplit
 from urllib.robotparser import RobotFileParser
 
 from contracts import digest, instant, require, utcnow, valid_hash, validate_contract
-from discovery import (DELINEA_HTML_MODE, DELINEA_HTML_MODE_V2, DELINEA_INDEX,
-                       PING_HTML_MODE, PING_HTML_MODE_V2, PING_INDEX,
-                       SONATYPE_HTML_MODE, SONATYPE_HTML_MODE_V2, SONATYPE_INDEX, IndexMarkup, Page,
-                       decoded_discovery_body, parse_source_html_index, xml_links)
+from discovery import (DELINEA_HTML_MODE, DELINEA_HTML_MODE_V2, DELINEA_HTML_MODE_V3, DELINEA_INDEX,
+                       PING_HTML_MODE, PING_HTML_MODE_V2, PING_HTML_MODE_V3, PING_INDEX,
+                       SONATYPE_HTML_MODE, SONATYPE_HTML_MODE_V2, SONATYPE_HTML_MODE_V3, SONATYPE_INDEX, IndexMarkup, Page,
+                       decoded_discovery_body, parse_source_html_index, ping_article_date,
+                       _v3_literal_article_href, xml_links)
 
 
 BOUNDED_CANDIDATE_OPERATION = 'bounded_candidate_traversal'
@@ -33,6 +34,11 @@ BOUNDED_CANDIDATE_BINDINGS_V2 = (
     ('ping-identity:official:1', PING_INDEX, PING_HTML_MODE_V2),
     ('delinea:official:1', DELINEA_INDEX, DELINEA_HTML_MODE_V2),
     ('sonatype:official:1', SONATYPE_INDEX, SONATYPE_HTML_MODE_V2),
+)
+BOUNDED_CANDIDATE_BINDINGS_V3 = (
+    ('ping-identity:official:1', PING_INDEX, PING_HTML_MODE_V3),
+    ('delinea:official:1', DELINEA_INDEX, DELINEA_HTML_MODE_V3),
+    ('sonatype:official:1', SONATYPE_INDEX, SONATYPE_HTML_MODE_V3),
 )
 
 
@@ -355,15 +361,16 @@ def _candidate_adapter(source, index_url, mode):
 
 def _validate_bounded_candidate_plan(contract, store, path, raw, plan):
     revision = plan.get('parserRevision', 1) if isinstance(plan, dict) else None
-    require(type(revision) is int and revision in (1, 2)
-            and (revision == 2 or 'parserRevision' not in plan),
+    require(type(revision) is int and revision in (1, 2, 3)
+            and (revision in (2, 3) or 'parserRevision' not in plan),
             'BOUNDED_CANDIDATE_PARSER_REVISION_INVALID')
     fields = {
             'schemaVersion', 'operation', 'marketSha256', 'maxRequests',
             'maxIndexPagesPerSource', 'primarySamplesPerSource', 'sources'}
-    if revision == 2:
+    if revision in (2, 3):
         fields.add('parserRevision')
-    bindings = BOUNDED_CANDIDATE_BINDINGS_V2 if revision == 2 else BOUNDED_CANDIDATE_BINDINGS
+    bindings = {1: BOUNDED_CANDIDATE_BINDINGS, 2: BOUNDED_CANDIDATE_BINDINGS_V2,
+                3: BOUNDED_CANDIDATE_BINDINGS_V3}[revision]
     require(isinstance(plan, dict) and set(plan) == fields
             and type(plan.get('schemaVersion')) is int and plan['schemaVersion'] == 2
             and plan.get('operation') == BOUNDED_CANDIDATE_OPERATION
@@ -616,16 +623,21 @@ def _candidate_primary_shape(body, url, parser_revision=1):
                   if node.tag == 'link' and 'canonical' in node.attrs.get('rel', '').split()]
     headings = [' '.join(node.text.split()) for node in nodes if node.tag == 'h1']
     require(canonicals == [url], 'BOUNDED_CANDIDATE_PRIMARY_CANONICAL_DIFFERS')
-    require(type(parser_revision) is int and parser_revision in (1, 2),
+    require(type(parser_revision) is int and parser_revision in (1, 2, 3),
             'BOUNDED_CANDIDATE_PARSER_REVISION_INVALID')
-    if parser_revision == 2 and urlsplit(url).netloc == 'press.pingidentity.com' \
+    if parser_revision == 3:
+        _v3_literal_article_href(url)
+    if parser_revision in (2, 3) and urlsplit(url).netloc == 'press.pingidentity.com' \
             and any(node.tag == 'div' and 'wd_newsfeed_releases-detail' in node.classes for node in nodes):
         require(not headings, 'BOUNDED_CANDIDATE_PRIMARY_PING_DETAIL_AMBIGUOUS')
-    if parser_revision == 2 and not headings:
+    if parser_revision in (2, 3) and not headings:
         parsed_url = urlsplit(url)
+        path_allowed = bool(re.fullmatch(r'/\d{4}-\d{2}-\d{2}-[A-Za-z0-9_,-]+', parsed_url.path))
+        if parser_revision == 3:
+            path_allowed = ping_article_date(parsed_url.path, PING_HTML_MODE_V3) is not None
         require(parsed_url.scheme == 'https' and parsed_url.netloc == 'press.pingidentity.com'
                 and not parsed_url.query and not parsed_url.fragment
-                and re.fullmatch(r'/\d{4}-\d{2}-\d{2}-[A-Za-z0-9_,-]+', parsed_url.path),
+                and path_allowed,
                 'BOUNDED_CANDIDATE_PRIMARY_HEADING_AMBIGUOUS')
         mains = [node for node in nodes if node.tag == 'main']
         details = [node for node in nodes if node.tag == 'div'

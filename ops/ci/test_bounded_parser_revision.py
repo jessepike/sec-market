@@ -9,7 +9,8 @@ sys.path.insert(0, str(ROOT / 'web/scripts/pipeline'))
 sys.path.insert(0, str(ROOT / 'ops/ci'))
 from contracts import canonical, digest
 from onboarding import (_candidate_primary_shape, _candidate_adapter,
-                        _validate_bounded_candidate_plan, BOUNDED_CANDIDATE_BINDINGS_V2)
+                        _validate_bounded_candidate_plan, BOUNDED_CANDIDATE_BINDINGS_V2,
+                        BOUNDED_CANDIDATE_BINDINGS_V3)
 import test_bounded_candidate_traversal as fixtures
 
 URL = 'https://press.pingidentity.com/2019-08-23-Ping-Identity-Files-Registration-Statement-for-Proposed-IPO'
@@ -65,6 +66,26 @@ class PrimaryShapeRevisionTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'SOURCE_BLOCK_PAGE'):
             _candidate_primary_shape(blocked, URL, 2)
 
+    def test_revision_three_primary_uses_the_matching_valid_date_route_only(self):
+        for date_path in ('2019-8-23', '201908-23'):
+            url = URL.replace('2019-08-23', date_path)
+            body = article().replace(URL.encode(), url.encode())
+            with self.subTest(date_path=date_path):
+                with self.assertRaisesRegex(ValueError, 'PRIMARY_HEADING_AMBIGUOUS'):
+                    _candidate_primary_shape(body, url, 2)
+                result = _candidate_primary_shape(body, url, 3)
+                self.assertEqual(result['canonical'], url)
+                self.assertEqual(result['dateMetadataState'], 'unknown')
+        for invalid in ('2019-2-29', '2019-13-1'):
+            url = URL.replace('2019-08-23', invalid)
+            with self.subTest(invalid=invalid), self.assertRaisesRegex(ValueError, 'PRIMARY_HEADING_AMBIGUOUS'):
+                _candidate_primary_shape(article().replace(URL.encode(), url.encode()), url, 3)
+
+    def test_revision_three_primary_rejects_raw_url_whitespace_before_parsing(self):
+        for url in (' ' + URL, URL.replace('2019-08-23', '2019-\t8-23')):
+            with self.subTest(url=url), self.assertRaisesRegex(ValueError, 'Unsafe V3 literal article URL'):
+                _candidate_primary_shape(article().replace(URL.encode(), url.encode()), url, 3)
+
 
 class PlanRevisionTests(unittest.TestCase):
     def setUp(self):
@@ -82,7 +103,7 @@ class PlanRevisionTests(unittest.TestCase):
     def test_revision_is_explicit_and_rejects_unknown_or_boolean_values(self):
         plan = self.fixture.plan()
         self.assertEqual(self.validate(plan)['parserRevision'], 1)
-        for revision in (True, False, 0, 1, 3, '2'):
+        for revision in (True, False, 0, 1, 4, '2'):
             altered = dict(plan, parserRevision=revision)
             with self.subTest(revision=revision), self.assertRaisesRegex(ValueError, 'PARSER_REVISION_INVALID'):
                 self.validate(altered)
@@ -101,6 +122,18 @@ class PlanRevisionTests(unittest.TestCase):
         wrong['unreviewed'] = True
         with self.assertRaisesRegex(ValueError, 'PLAN_SHAPE_OR_POLICY_INVALID'):
             self.validate(wrong)
+
+    def test_revision_three_requires_its_own_exact_adapter_hashes(self):
+        plan = dict(self.fixture.plan(), parserRevision=3)
+        with self.assertRaisesRegex(ValueError, 'PROPOSED_ADAPTER_BINDING_INVALID'):
+            self.validate(plan)
+        source_map = {row['id']: row for row in self.fixture.policy['sources']}
+        for row, (source_id, index, mode) in zip(plan['sources'], BOUNDED_CANDIDATE_BINDINGS_V3):
+            row['proposedAdapterSha256'] = digest(_candidate_adapter(source_map[source_id], index, mode))
+        self.assertEqual(self.validate(plan)['parserRevision'], 3)
+        downgraded = dict(plan, parserRevision=2)
+        with self.assertRaisesRegex(ValueError, 'PROPOSED_ADAPTER_BINDING_INVALID'):
+            self.validate(downgraded)
 
 
 if __name__ == '__main__':

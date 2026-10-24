@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 2,
+  "operation": "bounded_candidate_traversal",
+  "marketSha256": "79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60",
+  "maxRequests": 183,
+  "maxIndexPagesPerSource": 60,
+  "primarySamplesPerSource": 1,
+  "sources": [
+    {
+      "sourceId": "ping-identity:official:1",
+      "originalSourceSha256": "b38afb84403d53cadcda401c89b10a1f66ef57ec4e119466a89daea6cee3998e",
+      "proposedAdapterSha256": "b071ca029730ddd2dfaf7e7f41a6073b89f4e54979da3cc7fddb7c9c509e7700",
+      "startProof": {
+        "type": "qualification_observation",
+        "record": {
+          "key": "ci/source-probe-runs/40069462824-1.json",
+          "sha256": "e737f0436db33a783f3e583cb316865357017b4122d5a9c07474b160e89da4f7",
+          "bytes": 109959
+        },
+        "priorTargetId": "ping-page-4",
+        "priorTargetIndex": 0,
+        "priorTargetSha256": "ac884f1c3ab1a36fd8e038e1d8326362882b1cc4d45eb6b6d4ea8721e4e7f2de",
+        "priorPlanRawSha256": "62385a674edf896b479dc4fb9330e3e269afcbdc0b6715dd44f9b18608adbf4f",
+        "priorPlanCanonicalSha256": "42bf79e9e0a7f8907dc47b50836ec0e826c3a7ec81c028b9ba72e3da42d98356",
+        "priorPlanReference": {
+          "bytes": 11388,
+          "key": "objects/62385a674edf896b479dc4fb9330e3e269afcbdc0b6715dd44f9b18608adbf4f",
+          "sha256": "62385a674edf896b479dc4fb9330e3e269afcbdc0b6715dd44f9b18608adbf4f"
+        },
+        "observation": {
+          "bytes": 489,
+          "key": "objects/bd59a8ea860dc416e97bb74a521b0ec1514e1dd713fd12b2b66f3402cdcd1b20",
+          "sha256": "bd59a8ea860dc416e97bb74a521b0ec1514e1dd713fd12b2b66f3402cdcd1b20"
+        },
+        "body": {
+          "bytes": 98902,
+          "key": "objects/72df8982df491644101ee178aa59e3e9d8c63af22059eb088f5395aa84930448",
+          "sha256": "72df8982df491644101ee178aa59e3e9d8c63af22059eb088f5395aa84930448"
+        },
+        "fetchedAt": "2026-10-24T06:18:03.422278Z"
+      }
+    },
+    {
+      "sourceId": "delinea:official:1",
+      "originalSourceSha256": "d6130aaaa8b1b04cb3324289c5befe7f76de687d297b3774b33629914babdee5",
+      "proposedAdapterSha256": "cc3912d5e20b30019adc7c41b3d88b8a194b7ee0e1f7bf6a2bdeef08e9f5acc7",
+      "startProof": {
+        "type": "qualification_observation",
+        "record": {
+          "key": "ci/source-probe-runs/40069462824-1.json",
+          "sha256": "e737f0436db33a783f3e583cb316865357017b4122d5a9c07474b160e89da4f7",
+          "bytes": 109959
+        },
+        "priorTargetId": "delinea-news-page-2",
+        "priorTargetIndex": 3,
+        "priorTargetSha256": "ed64cd62236bbc16a9446909aab1c87bc7609657cc723ea66eef8dc8bce64cec",
+        "priorPlanRawSha256": "62385a674edf896b479dc4fb9330e3e269afcbdc0b6715dd44f9b18608adbf4f",
+        "priorPlanCanonicalSha256": "42bf79e9e0a7f8907dc47b50836ec0e826c3a7ec81c028b9ba72e3da42d98356",
+        "priorPlanReference": {
+          "bytes": 11388,
+          "key": "objects/62385a674edf896b479dc4fb9330e3e269afcbdc0b6715dd44f9b18608adbf4f",
+          "sha256": "62385a674edf896b479dc4fb9330e3e269afcbdc0b6715dd44f9b18608adbf4f"
+        },
+        "observation": {
+          "bytes": 454,
+          "key": "objects/3acc7ee12d95723b7b6cd8e58750156f2f53011f0d8f75ca115f99b015f120db",
+          "sha256": "3acc7ee12d95723b7b6cd8e58750156f2f53011f0d8f75ca115f99b015f120db"
+        },
+        "body": {
+          "bytes": 147873,
+          "key": "objects/980c5a789a807c502e6622d38c9c0a8757a7c62ec889c8b09e788b238cd2508d",
+          "sha256": "980c5a789a807c502e6622d38c9c0a8757a7c62ec889c8b09e788b238cd2508d"
+        },
+        "fetchedAt": "2026-10-24T06:18:04.434669Z"
+      }
+    },
+    {
+      "sourceId": "sonatype:official:1",
+      "originalSourceSha256": "19596f68dcf01c09d6a043dc47cd67ebbde0bdc079b5a7b42cad057f518da17e",
+      "proposedAdapterSha256": "a664fb7dd0116b8d50c90c604f09697760407ff171ec64269217c2d450cfa839",
+      "startProof": {
+        "type": "qualification_observation",
+        "record": {
+          "key": "ci/source-probe-runs/40069462824-1.json",
+          "sha256": "e737f0436db33a783f3e583cb316865357017b4122d5a9c07474b160e89da4f7",
+          "bytes": 109959
+        },
+        "priorTargetId": "sonatype-press-page-13",
+        "priorTargetIndex": 6,
+        "priorTargetSha256": "e9897e6f8e372c52374840ab33bf2831f5bcfd717439158c4397d59a341fa49b",
+        "priorPlanRawSha256": "62385a674edf896b479dc4fb9330e3e269afcbdc0b6715dd44f9b18608adbf4f",
+        "priorPlanCanonicalSha256": "42bf79e9e0a7f8907dc47b50836ec0e826c3a7ec81c028b9ba72e3da42d98356",
+        "priorPlanReference": {
+          "bytes": 11388,
+          "key": "objects/62385a674edf896b479dc4fb9330e3e269afcbdc0b6715dd44f9b18608adbf4f",
+          "sha256": "62385a674edf896b479dc4fb9330e3e269afcbdc0b6715dd44f9b18608adbf4f"
+        },
+        "observation": {
+          "bytes": 520,
+          "key": "objects/68e902fd0d166b3eb63d051aa54c8bd99a87fed20b207f87f736b62097a8656e",
+          "sha256": "68e902fd0d166b3eb63d051aa54c8bd99a87fed20b207f87f736b62097a8656e"
+        },
+        "body": {
+          "bytes": 137035,
+          "key": "objects/7af5acbbd1aa77e6d5819b03d682e1c41ad692583516f24a573806e0e25fec8d",
+          "sha256": "7af5acbbd1aa77e6d5819b03d682e1c41ad692583516f24a573806e0e25fec8d"
+        },
+        "fetchedAt": "2026-10-24T06:18:06.058227Z"
+      }
+    }
+  ],
+  "parserRevision": 3
+}

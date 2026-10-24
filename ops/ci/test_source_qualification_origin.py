@@ -58,10 +58,12 @@ class QualificationOriginTests(unittest.TestCase):
         return copy.deepcopy(result)
 
     def result(self, run, *, complete=True, at=NOW, suffix='main', revision=1):
-        from onboarding import BOUNDED_CANDIDATE_BINDINGS_V2
+        from onboarding import BOUNDED_CANDIDATE_BINDINGS_V2, BOUNDED_CANDIDATE_BINDINGS_V3
         rows, bindings = [], []
         sources = {s['id']: s for s in self.original['sources']}
-        for i, (sid, url, mode) in enumerate(BOUNDED_CANDIDATE_BINDINGS_V2 if revision == 2 else BOUNDED_CANDIDATE_BINDINGS):
+        selected = {1: BOUNDED_CANDIDATE_BINDINGS, 2: BOUNDED_CANDIDATE_BINDINGS_V2,
+                    3: BOUNDED_CANDIDATE_BINDINGS_V3}[revision]
+        for i, (sid, url, mode) in enumerate(selected):
             source = sources[sid]
             adapter = _candidate_adapter(source, url, mode)
             body = self.store.put(('Fictional retained layout ' + suffix + sid).encode())
@@ -98,10 +100,12 @@ class QualificationOriginTests(unittest.TestCase):
                  'sourceResultSha256': digest(row)} for i, row in enumerate(rows)]
 
     def activate(self, *, extra=None, mutate=None, drop_main=False, revision=1):
-        from onboarding import BOUNDED_CANDIDATE_BINDINGS_V2
+        from onboarding import BOUNDED_CANDIDATE_BINDINGS_V2, BOUNDED_CANDIDATE_BINDINGS_V3
         current = copy.deepcopy(self.original)
         changes = []
-        for i, (sid, url, mode) in enumerate(BOUNDED_CANDIDATE_BINDINGS_V2 if revision == 2 else BOUNDED_CANDIDATE_BINDINGS):
+        selected = {1: BOUNDED_CANDIDATE_BINDINGS, 2: BOUNDED_CANDIDATE_BINDINGS_V2,
+                    3: BOUNDED_CANDIDATE_BINDINGS_V3}[revision]
+        for i, (sid, url, mode) in enumerate(selected):
             pos = next(j for j, s in enumerate(current['sources']) if s['id'] == sid)
             old = current['sources'][pos]
             adapter = _candidate_adapter(old, url, mode)
@@ -275,6 +279,19 @@ class QualificationOriginTests(unittest.TestCase):
         self.assertEqual(len(resolved['items']), 2)
         self.assertTrue(next(s for s in contract['sources'] if s['id'] == sid)['htmlCompleteness'].endswith('-v2'))
         self.assertEqual([p['origin'] for p in resolved['provenance']], sorted([old[0], self.main[0]], key=digest))
+
+    def test_v3_origin_preserves_both_earlier_revision_inventories(self):
+        old = copy.deepcopy(self.main)
+        middle = self.result(1004, suffix='v2-partial', revision=2, complete=False)
+        self.main = self.result(1005, suffix='v3', revision=3)
+        contract = self.activate(revision=3, extra={s: [old[i], middle[i]]
+            for i, (s, _, _) in enumerate(BOUNDED_CANDIDATE_BINDINGS)})
+        sid = BOUNDED_CANDIDATE_BINDINGS[0][0]
+        resolved = resolve_inventory_origin(self.origin(contract), contract, sid, self.store)
+        self.assertEqual(len(resolved['items']), 3)
+        self.assertTrue(next(s for s in contract['sources'] if s['id'] == sid)['htmlCompleteness'].endswith('-v3'))
+        self.assertEqual([p['origin'] for p in resolved['provenance']],
+                         sorted([old[0], middle[0], self.main[0]], key=digest))
 
 
 class RealReplayOriginBoundaryTests(unittest.TestCase):
