@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-24T02:27:10.577350Z",
+  "candidateCodeRevision": "363662e8",
+  "basePreviewRevision": "f17a636f1a17fec53d54bf09071b186e86d71d10",
+  "codePins": {
+    "web/scripts/pipeline/contracts.py": "6f5f9056bc22ce59c45579951fd351c0c041d3a234e67226bc217429cc9004f0",
+    "web/scripts/pipeline/discovery.py": "c354f3368b15e7a8aab6b357d4f11c238f436bfb1af8430bc7282a80b203e6e2",
+    "web/scripts/pipeline/onboarding.py": "b2fe39bb760deab674c22dbc8f15aeb5e526d562b327dbf12c868013eb565a68",
+    "contracts/source-qualification-probes.json": "4aaa2f35c9804184dae97f0a461f48f506aeeb10d5f82ae93e339151276c05ef",
+    "ops/evaluation/scorecard.py": "7eaf905c8b672076a4d91a35402d495ca8f92181b20fbddd2aad9996dea877eb"
+  },
+  "verification": {
+    "operationalTests": 476,
+    "dataTests": 353,
+    "pipelineTests": 115,
+    "browserTests": 43,
+    "results": "pass",
+    "scorecardReproduction": "json_and_markdown_byte_identical",
+    "independentReview": "no_actionable_issues_found",
+    "logs": {
+      "operational": {
+        "vmPath": "/var/tmp/smp-integrated-20261024-ops.log",
+        "sha256": "398f90bd295a33b2844b2be55f48263e76e419491990e8426357a7d8c886b9e0"
+      },
+      "web": {
+        "vmPath": "/var/tmp/smp-integrated-20261024-web.log",
+        "sha256": "dcac6f8ce007c40a1fff58c4d72c7e025110058b61af8cabc3abeb994b8b0e06"
+      }
+    }
+  },
+  "actualCoverage": {
+    "successful": 244,
+    "required": 557,
+    "newCredit": 0
+  },
+  "limitations": [
+    "Offline candidate verification, not production activation or a new scheduled-run receipt.",
+    "Ping terminal layout and complete history remain unproved.",
+    "Next seven source responses are unobserved.",
+    "Retained-audit rebinding is specified but not implemented.",
+    "Log hashes identify local test output; they do not authenticate a GitHub run."
+  ],
+  "networkSourceRequests": 0,
+  "modelCalls": 0,
+  "publicationAttempts": 0,
+  "archiveMutations": 0
+}

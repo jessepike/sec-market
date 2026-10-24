@@ -73,7 +73,7 @@ activated; no new coverage credit was granted. Actual leased diagnostic
 targets (Ping RSS: five items; Delinea/Sonatype: ten each). Its 125 reserved fetches include the
 existing generic diagnostics; model/document usage stayed 80/40. All sources remain unqualified
 pending scope, dates and history review. Current integrated checks pass 353 data,
-115 pipeline, 43 browser and 449 operational tests. Local screenshots are pixel-identical before
+115 pipeline, 43 browser and 476 operational tests. Local screenshots are pixel-identical before
 after these backend changes; actual preview/production renders were also reviewed at both widths.
 [Selection repair](docs/active/daily-pipeline/accuracy/selection-pending-repair-spec-2026-10-24.md) ·
 [Qualification plan](docs/active/daily-pipeline/accuracy/source-qualification-spec-2026-10-24.md).
@@ -87,6 +87,23 @@ than revert known repairs. [Retention replay](docs/active/daily-pipeline/accurac
 The [actual response review](docs/active/daily-pipeline/accuracy/seven-target-response-review-2026-10-24.md)
 finds 23 unobserved Ping pages and truncated Delinea/Sonatype feeds. Seven further literal targets
 are evidenced; a terminal-page check alone would not establish full traversal. No source is qualified.
+
+New preview candidates parse the retained Ping cards and continuation controls, preserving exactly
+20 releases from pages 1/2 and holding unobserved terminal layouts. The next seven requests have
+complete prior-run/source/body/charge/time proofs. Future plans reference one retained raw-plan
+object, preventing repeated sevenfold proof growth. These changes are offline-tested; the next
+seven responses are unobserved and live coverage remains 244/557.
+[Ping replay](docs/active/daily-pipeline/accuracy/ping-parser-actual-replay-2026-10-24.json) ·
+[Follow-up plan](docs/active/daily-pipeline/accuracy/qualification-followup-plan-spec-2026-10-24.md) ·
+[Integrated candidate checks](docs/active/daily-pipeline/receipts/offline-coverage-candidate-2026-10-24.json).
+
+The [retained-audit proposal](docs/active/daily-pipeline/accuracy/retained-audit-rebinding-spec-2026-10-24.md)
+replays all 24 retained completed pages, but 9,890 due URLs still need work and all 17 historical
+tasks remain incomplete. Runtime rebinding is not implemented. The executable
+[operational scorecard](docs/active/daily-pipeline/evaluations/2026-10-24/operational-scorecard.md)
+reproduces byte-for-byte with pinned inputs: 244/557 coverage, 48/48 SEC source checks, repaired
+publication/rollback passes, and unmeasured current scheduled execution, sustained durability and
+reader value. It keeps the original 00:38:18 UTC collection time and the frozen accuracy audit apart.
 
 Next prepare the scoped source adapters from retained evidence and obtain the actual scheduled
 cycle on repaired main within charged limits. Collection is 05:17 UTC; publication follows successful scheduled

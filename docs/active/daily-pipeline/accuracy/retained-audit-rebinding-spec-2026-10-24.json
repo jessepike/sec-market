@@ -1,0 +1,2324 @@
+{
+  "schemaVersion": 1,
+  "kind": "retained_audit_rebinding_spec_and_read_only_evidence",
+  "status": "proposal_for_review_no_runtime_implementation",
+  "evaluatedAt": "2026-10-24T02:14:35.795024Z",
+  "applicationRevisionSuppliedByParent": "f17a636f",
+  "archive": {
+    "root": "/var/tmp/smp-renewal-20261024/archive-b9f1208b/jessepike-sec-market-b9f1208bd9e957bee5cca2c0b4db28a4fc1fa63f",
+    "commit": "b9f1208bd9e957bee5cca2c0b4db28a4fc1fa63f",
+    "manifestSha256": "5480056315f07d6c6be4e66d5f9a643437d020eb039f2d51fe378ad70803c9bb",
+    "files": 31048,
+    "before": {
+      "files": 31052,
+      "sha256": "7763b49b9f675e47d11ac379b2aae946a3b50f6c38e9cf39410525ce4c4f4d3c"
+    },
+    "after": {
+      "files": 31052,
+      "sha256": "7763b49b9f675e47d11ac379b2aae946a3b50f6c38e9cf39410525ce4c4f4d3c"
+    },
+    "stateUnchanged": true
+  },
+  "guards": {
+    "networkSubprocessModelAndArchiveWritesDenied": true,
+    "attempts": [],
+    "archiveWrites": 0,
+    "modelCalls": 0,
+    "fetches": 0,
+    "mechanicsOnlyNonAdmitting": true,
+    "reviewPutCallsVerifiedExistingObjectsOnly": 12,
+    "note": "One-document reconcile fixtures exist in memory only; they do not constitute complete-source discovery or collector receipts."
+  },
+  "codePins": [
+    {
+      "path": "web/scripts/pipeline/engine.py",
+      "sha256": "31ba9c256c81c7288ceca46ccfd851e7764d815970193ce3857545408f792c74"
+    },
+    {
+      "path": "web/scripts/pipeline/validation.py",
+      "sha256": "c21ebf9a7710044ea3912c7fd7e6ef74099bf7e91613c3ef0fac41c4bc50f87b"
+    },
+    {
+      "path": "web/scripts/pipeline/selection.py",
+      "sha256": "2842220d94dbbed5cab6fb198dc59d4d34732b2d74dbffa7e547d31ed0b54858"
+    },
+    {
+      "path": "web/scripts/pipeline/storage.py",
+      "sha256": "66ce4736cc1f5fb50998d1e59067904e6145a8195fa1c1fd27415e8cf93f00a5"
+    },
+    {
+      "path": "web/scripts/pipeline/documents.py",
+      "sha256": "4e3dbd2dbc6409bd8b8be660cf2b673601ca1c3bc90325fc4fbf6cceddc9b69f"
+    },
+    {
+      "path": "web/scripts/pipeline/discovery.py",
+      "sha256": "c354f3368b15e7a8aab6b357d4f11c238f436bfb1af8430bc7282a80b203e6e2"
+    },
+    {
+      "path": "web/scripts/pipeline/snapshot.py",
+      "sha256": "3881acfd8e880d431ca17237c5fbc837af3bbe650817c1db24a146a85749334a"
+    },
+    {
+      "path": "web/scripts/pipeline/agents.py",
+      "sha256": "4891387bca57821ff3f65e2f07b353d53ceab9b757ddc183cf7eb1ac9a908bdc"
+    },
+    {
+      "path": "web/scripts/pipeline/archive.py",
+      "sha256": "e0635ba9da142549461e550644342767d715cf6767af348f5d749ec9fb2adc05"
+    },
+    {
+      "path": "contracts/market.json",
+      "sha256": "327e52fdab4f97d3f0d628978501aa7197b31ddadb4006d16d3f776a8acb47c0"
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/selection-pending-repair-spec-2026-10-24.md",
+      "sha256": "1b6b6b08af74912e820fe4b1d0889cddba5ae5f8627b3eba514d9537bef8da5c"
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/selection-pending-repair-verification-2026-10-24.json",
+      "sha256": "e8035391085d3e18a393470ce76999d86a6e48175d511cdbe03d52da5803d9b5"
+    }
+  ],
+  "coverage": {
+    "receipt": {
+      "bytes": 506366,
+      "key": "objects/dd2b9964d49530c86429d5278a393f63ca8ecae9c35208b2b2ff45cafb1c5f35",
+      "sha256": "dd2b9964d49530c86429d5278a393f63ca8ecae9c35208b2b2ff45cafb1c5f35"
+    },
+    "runId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+    "checkedAt": "2026-10-24T00:38:18.811621Z",
+    "contractSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+    "inventorySha256": "7b7823e4aac8d07689cc99e0b8a0363c7f100550d973ce026bb9df8b34ae5a95",
+    "requiredTasks": 557,
+    "successfulTasks": 244,
+    "complete": false
+  },
+  "findings": {
+    "originalFalsePendingDocuments": 20,
+    "original20ReplayableAtArchiveTime": 20,
+    "original20ReplayableAtEvaluationTime": 20,
+    "original20MissingOrPolicyMismatched": 0,
+    "original20ReceiptIntegritySeals": 17,
+    "original20LegacyCoverageMembershipAnchors": 3,
+    "original20AcceptedFactDispositions": 4,
+    "original20HeldDispositions": 5,
+    "original20EmptyReviews": 7,
+    "original20DeterministicExclusions": 8,
+    "historicalAuditTasks": 17,
+    "completeInventoryURLs": 9914,
+    "selectedDueURLs": 32,
+    "deferredDueURLs": 9858,
+    "currentRetainedNotDueURLs": 24,
+    "current24ReplayableAtEvaluationTime": 24,
+    "latestReceiptsStillReportedPending": 9910,
+    "tasksCompletedByThisReplay": 0,
+    "expectedTaskCoverageIncreaseFromRebindingAlone": 0,
+    "current24DispositionKinds": {
+      "independently_reviewed_empty": 8,
+      "deterministic_entity_exclusion": 10,
+      "complete_candidate_dispositions": 6
+    },
+    "note": "20 is the original selection-repair cohort. The newer b9 archive adds four completed document checks; all 24 are independently assessed here."
+  },
+  "proposedContract": {
+    "collectionPolicyAndFreshnessUnchanged": true,
+    "newReceiptFields": [
+      "retainedAuditBindings",
+      "retainedInventoryManifest",
+      "retainedInventoryPredecessorAnchors"
+    ],
+    "originAnchorForms": [
+      "sealed_origin_receipt",
+      "exact_membership_in_prior_content_addressed_coverage"
+    ],
+    "originalReferenceRule": "Flatten repeated reuse to the original completed document check; reject cycles and ambiguous origins. Never renew original source times or scheduling stamps while copying retained validations.",
+    "expiredTransportRule": "Expired retained transport becomes genuine due freshness-repair work under unchanged collection and fetch bounds. The read-only replay helper cannot secretly fetch or grant stale coverage.",
+    "exactBindingFields": [
+      "sourceId",
+      "supplierId",
+      "URL",
+      "final response URL and content type",
+      "contractSha256",
+      "full supplier requiredCategories and requiredFamilies",
+      "full source registration/family/kind/hosts",
+      "body reference",
+      "original observation ID and SHA",
+      "original extractor and decoded/model input descriptors",
+      "full extraction candidate inventory",
+      "accepted facts and held dispositions",
+      "independent accepted/empty reviews or deterministic entity exclusion",
+      "original fetched/completed times"
+    ],
+    "receiptInventoryEquation": "current discovery items union anchored prior retained inventory union anchored prior pending items = newly processed document URLs disjoint-union retained replay URLs disjoint-union unresolved pending URLs",
+    "freshnessHours": 30,
+    "freshTransportAfterExpiry": "A new real successful fetch or genuine source-specific 304 is required; same body and input/policy/context may reuse historical semantic dispositions. Different body/input/policy/context requires new appropriate validation. Never rewrite original evidence times.",
+    "failureBehavior": "Keep source not_checked; preserve retained evidence history, preserve all unresolved inventory, do not advance successful source cursor; do not relabel retained missing proof as already done.",
+    "modelBudget": "Offline replay and valid semantic cache reuse require no model reservation. New extraction/review uses unchanged persistent daily 40-document/80-call limits. No quota increase or current live work."
+  },
+  "tasks": [
+    {
+      "sourceId": "proofpoint:official:1",
+      "taskId": "82e3395719a7c8e1d117ea0f1d2bb03e221ef0d160fad7b59274c0299bc916d1",
+      "latestAttemptId": "6d60dd58943f1a6f7aa2c2713cca3846a60f90685dfe864953a570eed72ba4e2",
+      "latestReceiptCompletedAt": "2026-10-24T00:37:35.058466Z",
+      "latestReceiptPendingDocuments": 212,
+      "discovered": 212,
+      "inventory": 212,
+      "inventorySha256": "3fedf2721241f31d55514c539cf9b223532c161f024e9abb024e1fe900957912",
+      "priorAuditInventory": {
+        "bytes": 26203,
+        "key": "objects/07fa8238445f7ff0cbfcab93dc64ef1ef903f7f678bc4418c0e87d0ce675479c",
+        "sha256": "07fa8238445f7ff0cbfcab93dc64ef1ef903f7f678bc4418c0e87d0ce675479c"
+      },
+      "latestPendingManifest": {
+        "bytes": 26278,
+        "key": "objects/3d171351e6d87086a97bf230c6d306dfafe9d6a79170981cc05a30c49fbb1f87",
+        "sha256": "3d171351e6d87086a97bf230c6d306dfafe9d6a79170981cc05a30c49fbb1f87"
+      },
+      "selected": [
+        "https://www.proofpoint.com/us/newsroom/press-releases/cyber-insecurity-in-healthcare-report-2026",
+        "https://www.proofpoint.com/us/newsroom/press-releases/2021-voice-ciso-report"
+      ],
+      "deferredCount": 209,
+      "deferredInventorySha256": "3ee0534fc320e2057c38cfdf45eebbf7254d10176d16005add7ae4234623ba15",
+      "retained": [
+        "https://www.proofpoint.com/us/newsroom/press-releases/proofpoint-acquire-varonis-creating-global-leader-data-and-ai-security"
+      ],
+      "taskRemainsIncompleteAfterRebinding": true
+    },
+    {
+      "sourceId": "veeam:official:1",
+      "taskId": "da020e2b6070e1de6b20b6d009eb9e2f7453721891070f4e597997bbe9d1d84b",
+      "latestAttemptId": "f1e25d126d545e05a3bdcf387f79db0067e43fd71d9106e09f6bc1487f53238f",
+      "latestReceiptCompletedAt": "2026-10-24T00:37:44.718143Z",
+      "latestReceiptPendingDocuments": 727,
+      "discovered": 727,
+      "inventory": 727,
+      "inventorySha256": "e2c637c904cf673cc1fd676103c559de57d41182545d137c5f15af06daf45320",
+      "priorAuditInventory": {
+        "bytes": 93345,
+        "key": "objects/73a08728763adb74b734f8521e76429fb7100368c1688a33d98cd9982fdcb37a",
+        "sha256": "73a08728763adb74b734f8521e76429fb7100368c1688a33d98cd9982fdcb37a"
+      },
+      "latestPendingManifest": {
+        "bytes": 93420,
+        "key": "objects/c79cba2a9957b41136bef15314fa19a91f37791977d6248a45f1fee0b424c765",
+        "sha256": "c79cba2a9957b41136bef15314fa19a91f37791977d6248a45f1fee0b424c765"
+      },
+      "selected": [
+        "https://www.veeam.com/company/press-release/veeam-puts-customers-in-control-of-data-sovereignty-with-launch-of-new-global-sovereign-service-providers-program.html",
+        "https://www.veeam.com/company/press-release/veeam-intelligent-resops-for-microsoft-365-helps-customers-safely-use-ai-cut-storage-costs-and-recover-with-precision.html"
+      ],
+      "deferredCount": 724,
+      "deferredInventorySha256": "78edf1912c6b0efff8152d0a2cca9deb0d6eb90b4354cdfa89b93e6512d6a1b3",
+      "retained": [
+        "https://www.veeam.com/company/press-release/veeam-recognized-by-gartner-as-a-leader-in-the-first-gartner-magic-quadrant-for-privacy-ux.html"
+      ],
+      "taskRemainsIncompleteAfterRebinding": true
+    },
+    {
+      "sourceId": "exabeam:official:1",
+      "taskId": "9e6cec43b5894fa42a4633fd681e363fd6b5893844b122d4fbd1c11c787185d2",
+      "latestAttemptId": "f1c9131a84d2b8742e1b8448dd30864b976d3de7e70c76f591e4bfb78f479fa6",
+      "latestReceiptCompletedAt": "2026-10-24T00:37:49.960734Z",
+      "latestReceiptPendingDocuments": 636,
+      "discovered": 638,
+      "inventory": 638,
+      "inventorySha256": "707f1bdf3d4701eac76119b58dcc4acaec700a998e93704ee343a46bc7b7d7da",
+      "priorAuditInventory": {
+        "bytes": 74494,
+        "key": "objects/5e0bdc108a9f1e24639ed5cdc8a8331796ff6c0ab44881f2a373940d5ccd4422",
+        "sha256": "5e0bdc108a9f1e24639ed5cdc8a8331796ff6c0ab44881f2a373940d5ccd4422"
+      },
+      "latestPendingManifest": {
+        "bytes": 74297,
+        "key": "objects/ba2b08d5abda31d29ff97ca46b1238833be9e5abb058fbddcd9df3147fe9c82b",
+        "sha256": "ba2b08d5abda31d29ff97ca46b1238833be9e5abb058fbddcd9df3147fe9c82b"
+      },
+      "selected": [
+        "https://www.thomabravo.com/press-releases/thoma-bravo-completes-majority-investment-in-centrify",
+        "https://www.thomabravo.com/press-releases/centrify-announces-focus-on-privileged-access-management-spins-out-idaas-business-as-idaptive"
+      ],
+      "deferredCount": 631,
+      "deferredInventorySha256": "7af8c0b2332e312e990edeaf20ed12256452efea6daebc11db96e9c73585d8f8",
+      "retained": [
+        "https://www.thomabravo.com/press-releases/calabrio-welcomes-dave-rhodes-as-chief-executive-officer",
+        "https://www.thomabravo.com/press-releases/j.d.-power-to-merge-with-autodata-solutions-creating-a-leading-source-of-automotive-data-analytics-and-software-solutions",
+        "https://www.thomabravo.com/press-releases/thoma-bravo-announces-strategic-acquisition-of-calabrio-to-accelerate-companys-cloud-first-customer-experience-growth",
+        "https://www.thomabravo.com/press-releases/thoma-bravo-owned-quorum-software-and-aucerna-to-merge-and-acquire-tietoevrys-oil-and-gas-software-business",
+        "https://www.thomabravo.com/press-releases/thoma-bravo-to-acquire-significant-majority-interest-in-centrify-the-leading-next-generation-identity-access-management-vendor"
+      ],
+      "taskRemainsIncompleteAfterRebinding": true
+    },
+    {
+      "sourceId": "hiddenlayer:official:1",
+      "taskId": "ea2eb9c01f65a7e74283def8ffa1e018904b23940b77ed2786c6c43c55a4c4bb",
+      "latestAttemptId": "65c82bf975305d741c7d75c7482ffb17ef18af8b8670a82d1fe4205d8dee419c",
+      "latestReceiptCompletedAt": "2026-10-24T00:37:25.445882Z",
+      "latestReceiptPendingDocuments": 88,
+      "discovered": 89,
+      "inventory": 89,
+      "inventorySha256": "f2f588af951705d0267ab228d82c4434047f203e46ee5d82b2381176cbfe07b3",
+      "priorAuditInventory": {
+        "bytes": 9745,
+        "key": "objects/a4ae8d4ed45f5ee7299c18c0e27eca49a2059ee42120f55f19371eb7cb323766",
+        "sha256": "a4ae8d4ed45f5ee7299c18c0e27eca49a2059ee42120f55f19371eb7cb323766"
+      },
+      "latestPendingManifest": {
+        "bytes": 9723,
+        "key": "objects/b1fd789d807c4f02daeeece848fd53af9d3efd55adeab279fbdab70b48b10f09",
+        "sha256": "b1fd789d807c4f02daeeece848fd53af9d3efd55adeab279fbdab70b48b10f09"
+      },
+      "selected": [
+        "https://www.hiddenlayer.com/news/ai-model-vulnerability-scan-with-hiddenlayer-model-scanner"
+      ],
+      "deferredCount": 85,
+      "deferredInventorySha256": "29c391772dc61b97eb224614933c2b217740dea6e218bfaf8b9ba252fc73e604",
+      "retained": [
+        "https://www.hiddenlayer.com/news/2023-sc-awards-finalists-most-promising-early-stage-start-up",
+        "https://www.hiddenlayer.com/news/ai-and-ml-reliability-and-security-blenderbot-and-other-cases",
+        "https://www.hiddenlayer.com/news/dont-confuse-irresponsible-implementation-for-an-evil-ai-overlord"
+      ],
+      "taskRemainsIncompleteAfterRebinding": true
+    },
+    {
+      "sourceId": "optiv:official:1",
+      "taskId": "31600f8aeeff45097ea4150d2dbd293a1cec59457a53777a13e6b2b47fc5c1e7",
+      "latestAttemptId": "fb40a944f9685024bbda043e43374bcd6892391eaba487934c0f7cd9e1e13c09",
+      "latestReceiptCompletedAt": "2026-10-24T00:38:05.639937Z",
+      "latestReceiptPendingDocuments": 179,
+      "discovered": 179,
+      "inventory": 179,
+      "inventorySha256": "f2c0eda08750bb97194b840911367eac23b1f56789c0692aed07b7b473795797",
+      "priorAuditInventory": {
+        "bytes": 20919,
+        "key": "objects/a102c5e7a3dc3a3a384d731d8a9ebc1e29dabe06d965aefabd993a7f0aac4353",
+        "sha256": "a102c5e7a3dc3a3a384d731d8a9ebc1e29dabe06d965aefabd993a7f0aac4353"
+      },
+      "latestPendingManifest": {
+        "bytes": 20994,
+        "key": "objects/beee297016548c0863afc23075830415262eb5f75c5c85007bb517de03908acc",
+        "sha256": "beee297016548c0863afc23075830415262eb5f75c5c85007bb517de03908acc"
+      },
+      "selected": [
+        "https://www.optiv.com/company/press-releases/optiv-launches-cyberbotr-free-cybersecurity-awareness-training-program",
+        "https://www.optiv.com/company/press-releases/nearly-half-organizations-say-their-socs-cant-keep-pace-modern-threats"
+      ],
+      "deferredCount": 177,
+      "deferredInventorySha256": "c52884b9523e9500070cab1a153552a8efeae201daaacdd0b3c6b5ebc7fca2a3",
+      "retained": [],
+      "taskRemainsIncompleteAfterRebinding": true
+    },
+    {
+      "sourceId": "aqua:official:1",
+      "taskId": "2a17b619830c3ae397fff7eeddab5db27f64185d03ab947d1a856bc783dfa259",
+      "latestAttemptId": "4bff7c74336bff96a5b035286329b27a24650f220d116d8d8eb8088ba27da244",
+      "latestReceiptCompletedAt": "2026-10-24T00:38:17.886928Z",
+      "latestReceiptPendingDocuments": 448,
+      "discovered": 448,
+      "inventory": 448,
+      "inventorySha256": "512fbd7a900c3d40903e0d78ede5ed14f43c0c81d615abc2c418045d820c7758",
+      "priorAuditInventory": {
+        "bytes": 39939,
+        "key": "objects/7348d656fba5549a3aa7b38ddacfb32eea7a1c797b591bbcb8b936358afc7274",
+        "sha256": "7348d656fba5549a3aa7b38ddacfb32eea7a1c797b591bbcb8b936358afc7274"
+      },
+      "latestPendingManifest": {
+        "bytes": 40014,
+        "key": "objects/27dd3270bf3e2dcacaaf35b3a763df567f06cb640458aea906f8c67aaa7fc962",
+        "sha256": "27dd3270bf3e2dcacaaf35b3a763df567f06cb640458aea906f8c67aaa7fc962"
+      },
+      "selected": [
+        "https://www.aquasec.com/news/cybersecurity-solution-of-the-year-for-cloud-security/",
+        "https://www.aquasec.com/news/10-cool-startups-that-raised-venture-capital-in-april-2019/"
+      ],
+      "deferredCount": 446,
+      "deferredInventorySha256": "c5a206ca09ac9d2921907a2c0b2ac8f6b6a1c406fc0c091e8c5808c3211dc4ed",
+      "retained": [],
+      "taskRemainsIncompleteAfterRebinding": true
+    },
+    {
+      "sourceId": "mimecast:official:1",
+      "taskId": "2738fb4e14ba30d11f02f992da03eb13b4d8f953bb4cad96bb75adfac2158e8d",
+      "latestAttemptId": "4b49c91a177a89734a8a3a887399c103a0d874f8d59e61f0bed92892bcbfee9b",
+      "latestReceiptCompletedAt": "2026-10-24T00:38:17.954082Z",
+      "latestReceiptPendingDocuments": 137,
+      "discovered": 137,
+      "inventory": 137,
+      "inventorySha256": "33c45ae4f949904d9eefc4b8a3fded79773d432b6edb73feb715532bf76b969b",
+      "priorAuditInventory": {
+        "bytes": 11896,
+        "key": "objects/2df6db51b3cabe4cbeebfc5c34ae9a2bad9723f4e999fa93ae7da4d32a8095e0",
+        "sha256": "2df6db51b3cabe4cbeebfc5c34ae9a2bad9723f4e999fa93ae7da4d32a8095e0"
+      },
+      "latestPendingManifest": {
+        "bytes": 11971,
+        "key": "objects/b12a4b1041a6709effc70de86922d1e916d3ca95a4d40e657b83915553480f7a",
+        "sha256": "b12a4b1041a6709effc70de86922d1e916d3ca95a4d40e657b83915553480f7a"
+      },
+      "selected": [
+        "https://www.mimecast.com/resources/press-releases/web-security-application-visibility-and-control/",
+        "https://www.mimecast.com/resources/press-releases/threat-intelligence-report-november/"
+      ],
+      "deferredCount": 135,
+      "deferredInventorySha256": "fa5471d16ba2dbac9ab2feb065ecba93c57554053707aeeef189ca1badf2a81c",
+      "retained": [],
+      "taskRemainsIncompleteAfterRebinding": true
+    },
+    {
+      "sourceId": "arctic-wolf:official:1",
+      "taskId": "e0e8d383c58900e87a528dba5e018e2b283ac6040ca624089718ea18e99493b8",
+      "latestAttemptId": "7bef56a18d78850184e84b624868eee8817ea5b4fd03aceff20d6ce4d97a0ed8",
+      "latestReceiptCompletedAt": "2026-10-24T00:38:18.452055Z",
+      "latestReceiptPendingDocuments": 1297,
+      "discovered": 1298,
+      "inventory": 1298,
+      "inventorySha256": "80eaa63a1d9cc083e6a4622f7332689d0532efd7ea632e8adcf48fd09f961f67",
+      "priorAuditInventory": {
+        "bytes": 128208,
+        "key": "objects/005d4390e23d32a9ee87cf04a13cbc2461e610b1987d62689ac90129caa0faac",
+        "sha256": "005d4390e23d32a9ee87cf04a13cbc2461e610b1987d62689ac90129caa0faac"
+      },
+      "latestPendingManifest": {
+        "bytes": 128157,
+        "key": "objects/1397a2099d48127b256f60a648bb3b1352793780b86400df13d9bfa8a436d050",
+        "sha256": "1397a2099d48127b256f60a648bb3b1352793780b86400df13d9bfa8a436d050"
+      },
+      "selected": [
+        "https://arcticwolf.com/resources/blog/arctic-wolf-labs-finding-prioritizing-and-patching-php2shell-exposure/",
+        "https://arcticwolf.com/resources/blog/arctic-wolf-anthropic-trust-first-agentic-soc/"
+      ],
+      "deferredCount": 1293,
+      "deferredInventorySha256": "9533d552c7d3a6ed582601e87497830aac17aa2b79887fcccc128c6c349f72ee",
+      "retained": [
+        "https://arcticwolf.com/resources/blog/agents-investigate-humans-decide-how-active-response-works-in-the-aurora-agentic-soc/",
+        "https://arcticwolf.com/resources/blog/php2shell-critical-php-vulnerabilities-enable-unauthenticated-remote-code-execution/",
+        "https://arcticwolf.com/resources/press-releases/arctic-wolf-named-best-security-vendor-in-crns-annual-best-of-the-channel-awards/"
+      ],
+      "taskRemainsIncompleteAfterRebinding": true
+    },
+    {
+      "sourceId": "witnessai:official:1",
+      "taskId": "3250f824994dbe236dc0af7fb19f269fa036ec06ceb5e3a58397acc737d6c702",
+      "latestAttemptId": "1cc1c67e45c3751b44975b32373536efadf9d232be5551d1814100a13ad61998",
+      "latestReceiptCompletedAt": "2026-10-24T00:38:18.065445Z",
+      "latestReceiptPendingDocuments": 243,
+      "discovered": 243,
+      "inventory": 243,
+      "inventorySha256": "0a4130b38f5ea7aaf9f1a59f75655b37f3c3c55c845052266c0d7000ff5738db",
+      "priorAuditInventory": {
+        "bytes": 14438,
+        "key": "objects/5933ac790938686ac5adf86c73c15c8e06a018e836b617a67a897be93566e6fd",
+        "sha256": "5933ac790938686ac5adf86c73c15c8e06a018e836b617a67a897be93566e6fd"
+      },
+      "latestPendingManifest": {
+        "bytes": 14513,
+        "key": "objects/55294162355e95900127109044434d3e6eb876bd8198230920402fd4a5e40b89",
+        "sha256": "55294162355e95900127109044434d3e6eb876bd8198230920402fd4a5e40b89"
+      },
+      "selected": [
+        "https://witness.ai/blog/owasp-agentic-ai-threats-and-mitigations/",
+        "https://witness.ai/blog/malicious-mcp-servers/"
+      ],
+      "deferredCount": 239,
+      "deferredInventorySha256": "6b963a46d5d75bbf3bd66b5de8521c240a392eeddb02dd1b04d9e35dccc4f4aa",
+      "retained": [
+        "https://witness.ai/blog/category/blog/",
+        "https://witness.ai/blog/palo-alto-prisma-alternatives/"
+      ],
+      "taskRemainsIncompleteAfterRebinding": true
+    },
+    {
+      "sourceId": "expel:official:1",
+      "taskId": "706685f07f9ad145b7571c49736fc616de4409df0b9e65c96bdddcccaf50f0ef",
+      "latestAttemptId": "4a68c51d957addc6b2bd161f492ba03fa7b38000cd9884e7d99db66d2feb4fd1",
+      "latestReceiptCompletedAt": "2026-10-24T00:38:18.067420Z",
+      "latestReceiptPendingDocuments": 329,
+      "discovered": 329,
+      "inventory": 329,
+      "inventorySha256": "1ad1db12e60742e2e29a7d8905bd1c0038ab1d1a6741c0efdb92ac7be457a24c",
+      "priorAuditInventory": {
+        "bytes": 31739,
+        "key": "objects/a43f39c34287e874a0f1028d688f636120cc455259d7e45e48744098b960cf9d",
+        "sha256": "a43f39c34287e874a0f1028d688f636120cc455259d7e45e48744098b960cf9d"
+      },
+      "latestPendingManifest": {
+        "bytes": 31814,
+        "key": "objects/c4038c230c2abf2d5bda785f298382f929250d898d84f1083e65dcaccbb21332",
+        "sha256": "c4038c230c2abf2d5bda785f298382f929250d898d84f1083e65dcaccbb21332"
+      },
+      "selected": [
+        "https://expel.com/resource/php2shell-exploitation-started-days-before-patches/",
+        "https://expel.com/resource/ai-trust-vs-impact/"
+      ],
+      "deferredCount": 327,
+      "deferredInventorySha256": "d818b12c84a7c1759e5b87b02732414a6737dd8981812d1846396c0ad5ed8e15",
+      "retained": [],
+      "taskRemainsIncompleteAfterRebinding": true
+    },
+    {
+      "sourceId": "ivanti:official:1",
+      "taskId": "f91c3429d9859e24c668ff1ad2691b85219f9f5c83a36b6a295271b51bbcdb38",
+      "latestAttemptId": "dc8382b6ac6129f697984fe87331d9acd5761296a622dea687d5877fc84ec7d8",
+      "latestReceiptCompletedAt": "2026-10-24T00:38:18.169115Z",
+      "latestReceiptPendingDocuments": 429,
+      "discovered": 429,
+      "inventory": 429,
+      "inventorySha256": "12795d0c7365fe627341b2be344bc353508924af851ec63af9ad39f810d12270",
+      "priorAuditInventory": {
+        "bytes": 54549,
+        "key": "objects/9eed845d2f728645c2228a810d3985dc45eda2a1f01885c338bca56550099bd3",
+        "sha256": "9eed845d2f728645c2228a810d3985dc45eda2a1f01885c338bca56550099bd3"
+      },
+      "latestPendingManifest": {
+        "bytes": 54624,
+        "key": "objects/a6d7487c5c1215b9d0f7b0eb2ee2e41ce5e9bca8428cacf9e8b6c4c280cca846",
+        "sha256": "a6d7487c5c1215b9d0f7b0eb2ee2e41ce5e9bca8428cacf9e8b6c4c280cca846"
+      },
+      "selected": [
+        "https://www.ivanti.com/company/press-releases/2026/ivanti-autonomous-endpoint-management-named-a-leader-in-g2-fall-2026-enterprise-grid-report-for-unified-endpoint-management",
+        "https://www.ivanti.com/company/press-releases/2026/ivanti-announces-new-distribution-partnership-with-qbs-software-for-dach-region"
+      ],
+      "deferredCount": 426,
+      "deferredInventorySha256": "1939a8cd001c72b9e744fdbdaba36f186b0fcf9e5bc723cf258f8b89ba26de46",
+      "retained": [
+        "https://www.ivanti.com/company/press-releases/2026/ivanti-appoints-robert-ruelas-as-chief-revenue-officer-and-promotes-sterling-parker-to-chief-customer-officer"
+      ],
+      "taskRemainsIncompleteAfterRebinding": true
+    },
+    {
+      "sourceId": "reliaquest:official:1",
+      "taskId": "fe1ca79ebe38b3be56056dcbe6754b9ed582a75560d3ccb69bdfc6369abab2bf",
+      "latestAttemptId": "0f05bdd82aae73c10dacc4e1c2d7958352ae937443c78674b02d1e7eb8cddb70",
+      "latestReceiptCompletedAt": "2026-10-24T00:38:18.244012Z",
+      "latestReceiptPendingDocuments": 91,
+      "discovered": 91,
+      "inventory": 91,
+      "inventorySha256": "d6dac569c0e5398f0221faefcabf17eb18a8e7856457a4c1e36a0a1d4a3fe4df",
+      "priorAuditInventory": {
+        "bytes": 9812,
+        "key": "objects/a7f01683e16912b2c09844f2e9ffb75825f54c8716310b5582a87922e54b213a",
+        "sha256": "a7f01683e16912b2c09844f2e9ffb75825f54c8716310b5582a87922e54b213a"
+      },
+      "latestPendingManifest": {
+        "bytes": 9887,
+        "key": "objects/4f9fb424362a2ae8c9f1a28d50cb575e1d1149ef0b3c0a9d0ad18cd867de4c7d",
+        "sha256": "4f9fb424362a2ae8c9f1a28d50cb575e1d1149ef0b3c0a9d0ad18cd867de4c7d"
+      },
+      "selected": [
+        "https://reliaquest.com/news-and-press/reliaquest-named-to-2026-fortune-future-120/",
+        "https://reliaquest.com/news-and-press/reliaquest-names-krish-venkataraman-chief-financial-officer/"
+      ],
+      "deferredCount": 88,
+      "deferredInventorySha256": "889e62e320cd0c08b056b499355af6764a0f6c9ecfb2d572d227e65048c2c020",
+      "retained": [
+        "https://reliaquest.com/news-and-press/"
+      ],
+      "taskRemainsIncompleteAfterRebinding": true
+    },
+    {
+      "sourceId": "upwind:official:1",
+      "taskId": "21eb3bf788109b9077fecd51ab32aba6402afcd4b4e819c6cab946a0943e8686",
+      "latestAttemptId": "2f1e40bc191e4e85f44ff07906be7f33ef85cc768f073dc83c098d463382549d",
+      "latestReceiptCompletedAt": "2026-10-24T00:38:18.482466Z",
+      "latestReceiptPendingDocuments": 976,
+      "discovered": 975,
+      "inventory": 976,
+      "inventorySha256": "3b651bc292baa285ca0d6d14ec0219e7faa0e3bef6fabcd53fbfd5c1fd325a3e",
+      "priorAuditInventory": {
+        "bytes": 103205,
+        "key": "objects/7afb9d39948b16e350394d20e2afa654d24b2dfb8c2f6c8c5bd8cca35ccdff58",
+        "sha256": "7afb9d39948b16e350394d20e2afa654d24b2dfb8c2f6c8c5bd8cca35ccdff58"
+      },
+      "latestPendingManifest": {
+        "bytes": 103280,
+        "key": "objects/eafedebd14d5e6670be816b8414c8e5c41d5fdfcc0d0d750a176edb054e8f1ee",
+        "sha256": "eafedebd14d5e6670be816b8414c8e5c41d5fdfcc0d0d750a176edb054e8f1ee"
+      },
+      "selected": [
+        "https://www.upwind.io/feed/threat-post/cve-2026-113872-multer-async-filefilter-request-abort-bug-enables-remote-dos-via-process-crash",
+        "https://www.upwind.io/feed/threat-post/cve-2026-115560-php-session-serialize-handler-switch-with-upload-progress-may-enable-rce"
+      ],
+      "deferredCount": 972,
+      "deferredInventorySha256": "8ee6639f4fb3100bb35859458cfe99b12fa63d060243a351991d717d5303ad0e",
+      "retained": [
+        "https://www.upwind.io/feed/threat-post",
+        "https://www.upwind.io/feed/threat-post/multiple-cves-node-js-tls-hostname-verification-and-ip-normalization-flaws-enable-mitm-and-certificate-bypass"
+      ],
+      "taskRemainsIncompleteAfterRebinding": true
+    },
+    {
+      "sourceId": "sophos:official:1",
+      "taskId": "454fc5859352e8f063a50f853e734fa7db9d59e4d28c8d5a48a0f6b37a52d96a",
+      "latestAttemptId": "18b84d855ca5c16fcfe85278a4c2693fe3cd848d328b2464beefdddf006a525c",
+      "latestReceiptCompletedAt": "2026-10-24T00:38:18.474715Z",
+      "latestReceiptPendingDocuments": 638,
+      "discovered": 638,
+      "inventory": 638,
+      "inventorySha256": "707f1bdf3d4701eac76119b58dcc4acaec700a998e93704ee343a46bc7b7d7da",
+      "priorAuditInventory": {
+        "bytes": 74493,
+        "key": "objects/f4282c006ef5b7406668287a3a8e01fd6ce16d6371917d69d6bd83c6311e052c",
+        "sha256": "f4282c006ef5b7406668287a3a8e01fd6ce16d6371917d69d6bd83c6311e052c"
+      },
+      "latestPendingManifest": {
+        "bytes": 74568,
+        "key": "objects/af28e55b4bf4c2a89c30b41c6e2d628d7b762b6fb4ef2f0e6e4342c30179ca8f",
+        "sha256": "af28e55b4bf4c2a89c30b41c6e2d628d7b762b6fb4ef2f0e6e4342c30179ca8f"
+      },
+      "selected": [
+        "https://www.thomabravo.com/press-releases/thoma-bravo-to-acquire-significant-majority-interest-in-centrify-the-leading-next-generation-identity-access-management-vendor",
+        "https://www.thomabravo.com/press-releases/thoma-bravo-completes-majority-investment-in-centrify"
+      ],
+      "deferredCount": 632,
+      "deferredInventorySha256": "0f1c1f3e71bcbc26f0c596ebd194cd9463c780f2bef322ce07676bd9cea44b3d",
+      "retained": [
+        "https://www.thomabravo.com/press-releases/calabrio-welcomes-dave-rhodes-as-chief-executive-officer",
+        "https://www.thomabravo.com/press-releases/j.d.-power-to-merge-with-autodata-solutions-creating-a-leading-source-of-automotive-data-analytics-and-software-solutions",
+        "https://www.thomabravo.com/press-releases/thoma-bravo-announces-strategic-acquisition-of-calabrio-to-accelerate-companys-cloud-first-customer-experience-growth",
+        "https://www.thomabravo.com/press-releases/thoma-bravo-owned-quorum-software-and-aucerna-to-merge-and-acquire-tietoevrys-oil-and-gas-software-business"
+      ],
+      "taskRemainsIncompleteAfterRebinding": true
+    },
+    {
+      "sourceId": "snyk:official:1",
+      "taskId": "6a62ec4ef537ecd8973eb4ca1614010cd7ea913589d9fe814c30f0ed0391243c",
+      "latestAttemptId": "6ea705982cb856e436583c251ab5723134172c9dc90e713f530e0046474077e7",
+      "latestReceiptCompletedAt": "2026-10-24T00:38:18.663682Z",
+      "latestReceiptPendingDocuments": 54,
+      "discovered": 54,
+      "inventory": 54,
+      "inventorySha256": "3ad2f13f02f412fc1304b4cf7f3ed7082d1553b8f3c98a09db5ddd2c71e5e6ed",
+      "priorAuditInventory": {
+        "bytes": 4499,
+        "key": "objects/234356fe93d29af579a3286a03679981573d1980fd84488815a4e6c0d8e4364a",
+        "sha256": "234356fe93d29af579a3286a03679981573d1980fd84488815a4e6c0d8e4364a"
+      },
+      "latestPendingManifest": {
+        "bytes": 4574,
+        "key": "objects/42b48a04e98a07ef18ca7590906feca558e49a161fdeb3c070150b5a8556dc57",
+        "sha256": "42b48a04e98a07ef18ca7590906feca558e49a161fdeb3c070150b5a8556dc57"
+      },
+      "selected": [
+        "https://snyk.io/news/snyk-launches-evo-agentic-appsec/",
+        "https://snyk.io/news/agentic-ai-security-moves-into-production/"
+      ],
+      "deferredCount": 52,
+      "deferredInventorySha256": "0570a78a48866e4225cf2c56ce0094913f16978f5088e6b63d7a4fcbb20c8e7d",
+      "retained": [],
+      "taskRemainsIncompleteAfterRebinding": true
+    },
+    {
+      "sourceId": "esentire:official:1",
+      "taskId": "4bbd6786e9248e8a73b3d0921878ed2e7c9f414b2328e804bfda2637fab54dce",
+      "latestAttemptId": "1469fb8121d4fda2cad365ab7940824b29fd36e292b64fb00da5ec9c99bd83c5",
+      "latestReceiptCompletedAt": "2026-10-24T00:38:18.673155Z",
+      "latestReceiptPendingDocuments": 170,
+      "discovered": 170,
+      "inventory": 170,
+      "inventorySha256": "df603cbe53c9966022140520377f00696a5c4d97f2612258ee4e52184e5847ea",
+      "priorAuditInventory": {
+        "bytes": 23258,
+        "key": "objects/6b5c16fa0b3023f81ac5559af0c186e57015e1143a1d28e3a08416c657e321e1",
+        "sha256": "6b5c16fa0b3023f81ac5559af0c186e57015e1143a1d28e3a08416c657e321e1"
+      },
+      "latestPendingManifest": {
+        "bytes": 23333,
+        "key": "objects/86f184bf8abbf42b1eb483467eeff833f9b1a3df8a6b162cff1b938e2df4bbb6",
+        "sha256": "86f184bf8abbf42b1eb483467eeff833f9b1a3df8a6b162cff1b938e2df4bbb6"
+      },
+      "selected": [
+        "https://www.esentire.com/news-releases/2018s-cryptocurrency-craze-helps-drive-1500-percent-increase-in-coinmining-malware"
+      ],
+      "deferredCount": 169,
+      "deferredInventorySha256": "56b55d9d118d13e162b6e20daf56099d051507179f9f5ecb348a61fb26f2e043",
+      "retained": [],
+      "taskRemainsIncompleteAfterRebinding": true
+    },
+    {
+      "sourceId": "dragos:official:1",
+      "taskId": "2e87d6df9703945806fdb5ebfc73370cd08742c2311b01f43be3c6dab105f2b7",
+      "latestAttemptId": "897bfb0f204b7d06b06bd8ea80cda1c5777f06ab8e14c28e616dca544f4492c7",
+      "latestReceiptCompletedAt": "2026-10-24T00:38:18.807979Z",
+      "latestReceiptPendingDocuments": 3256,
+      "discovered": 3256,
+      "inventory": 3256,
+      "inventorySha256": "7ebef5ad445bf6af6a8727b248b0490e29712ca67f4a61a7d217341697cca6a0",
+      "priorAuditInventory": {
+        "bytes": 476484,
+        "key": "objects/0b6838549a8b8ada165edd7f59c40251e2d9b33eaff4f7f488e19f372fa9616b",
+        "sha256": "0b6838549a8b8ada165edd7f59c40251e2d9b33eaff4f7f488e19f372fa9616b"
+      },
+      "latestPendingManifest": {
+        "bytes": 476559,
+        "key": "objects/951fc23091f92e79f8bc301fa156365343ba0db37afb070d70bc6e3933dc1f43",
+        "sha256": "951fc23091f92e79f8bc301fa156365343ba0db37afb070d70bc6e3933dc1f43"
+      },
+      "selected": [
+        "https://newsroom.accenture.com/news/2026/accenture-dragos-and-sans-institute-launch-foundation-to-strengthen-cyber-defenses-for-u-s-utilities",
+        "https://newsroom.accenture.com/news/2026/accenture-acquires-digital-native-construction-consulting-firm-avicado"
+      ],
+      "deferredCount": 3253,
+      "deferredInventorySha256": "6ca3336ea5489496d46cd9f2c3da6e53d0205500161f09aedb5494c3b5dc109b",
+      "retained": [
+        "https://newsroom.accenture.com/news/2026/tuv-sud-and-accenture-accelerate-certification-of-physical-ai-in-automated-factories-and-warehouses-with-nvidia-technologies-to-drive-manufacturing-productivity"
+      ],
+      "taskRemainsIncompleteAfterRebinding": true
+    }
+  ],
+  "documents": [
+    {
+      "sourceId": "arctic-wolf:official:1",
+      "supplierId": "arctic-wolf",
+      "url": "https://arcticwolf.com/resources/blog/agents-investigate-humans-decide-how-active-response-works-in-the-aurora-agentic-soc/",
+      "inOriginal20": false,
+      "originalRunId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+      "originalAttemptId": "7bef56a18d78850184e84b624868eee8817ea5b4fd03aceff20d6ce4d97a0ed8",
+      "originalTaskOutcome": "not_checked",
+      "originalStartedAt": "2026-10-24T00:37:49.968669Z",
+      "originalCompletedAt": "2026-10-24T00:38:18.452055Z",
+      "originAnchor": {
+        "kind": "receipt_integrity_seal",
+        "sealPath": "receipt-integrity/be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd/e0e8d383c58900e87a528dba5e018e2b283ac6040ca624089718ea18e99493b8/7bef56a18d78850184e84b624868eee8817ea5b4fd03aceff20d6ce4d97a0ed8.json",
+        "receipt": {
+          "bytes": 2228,
+          "key": "objects/ecf2037e83eb7182f30c6d452c8212593a231da787fb0fa02d1590d4509879e7",
+          "sha256": "ecf2037e83eb7182f30c6d452c8212593a231da787fb0fa02d1590d4509879e7"
+        },
+        "attemptPath": "runs/be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd/attempts/7bef56a18d78850184e84b624868eee8817ea5b4fd03aceff20d6ce4d97a0ed8.json",
+        "originalPlanSha256": "8a31d4c23a65cc17b2f5abd94fdc8fc480125e63f9559cd031dc65455456821b"
+      },
+      "observationId": "6247ea286f4fd649d9097a2fe95ece34ea799cd735c44de9afb89afe0557685e",
+      "observationCanonicalSha256": "622d6094c76d313722c0c44f72461f969033c7c95fff6d7c375ee58762857306",
+      "sourceFetchedAt": "2026-10-24T00:37:50.514292Z",
+      "sourceStatus": "fetched",
+      "body": {
+        "bytes": 348718,
+        "key": "objects/c7a9daab913a5d926710518808d5310b465e222a4d2e299f44cd243f60235e80",
+        "sha256": "c7a9daab913a5d926710518808d5310b465e222a4d2e299f44cd243f60235e80"
+      },
+      "bodyOriginalFetchedAt": "2026-10-24T00:37:50.514292Z",
+      "reusesObservationId": null,
+      "validation": {
+        "bytes": 529,
+        "key": "objects/282eca7e6be6d37e5868bd3e574a2cf7a5037abf466b3f3115f87d205aba0bd9",
+        "sha256": "282eca7e6be6d37e5868bd3e574a2cf7a5037abf466b3f3115f87d205aba0bd9"
+      },
+      "policySha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+      "candidateHashes": [],
+      "archivedReplay": {
+        "kind": "independently_reviewed_empty",
+        "contextSha256": "ce2623d63e92777942c4390d9715eb6f5b7f5711b5f854e3b7c45579c5541088",
+        "extractor": 3,
+        "modelInputSha256": "ee77343271dc1a759c8d62727aa0994c2faf47bef71f54c39349c5b6f5372b00",
+        "modelInputChars": 15191,
+        "extractionCacheKey": "dc7e48019026c590af75fe4a31eb89a71d94242f2f32d2627285c3fd7a894002",
+        "extractionCanonicalSha256": "fa4b4e5cd1b32d3ab7345cdc1de256f03a0643f7316855f75ae97fe14b0d142c",
+        "dispositions": [
+          {
+            "kind": "independently_reviewed_empty",
+            "review": {
+              "bytes": 190,
+              "key": "objects/0d237ed62d0b00323ab23873b9cbce68572cc1e4e17c95bb60c7508a95e3887f",
+              "sha256": "0d237ed62d0b00323ab23873b9cbce68572cc1e4e17c95bb60c7508a95e3887f"
+            }
+          }
+        ],
+        "sourceAgeHours": 0.00786
+      },
+      "existingReconcileOneDocumentMechanics": "pass_non_admitting",
+      "eligibleForCurrentDocumentRebindingAtArchiveTime": true,
+      "eligibleAtEvaluationTime": true,
+      "evaluationErrors": [],
+      "reusableTransportUntil": "2026-10-25T06:37:50.514292Z"
+    },
+    {
+      "sourceId": "arctic-wolf:official:1",
+      "supplierId": "arctic-wolf",
+      "url": "https://arcticwolf.com/resources/blog/php2shell-critical-php-vulnerabilities-enable-unauthenticated-remote-code-execution/",
+      "inOriginal20": true,
+      "originalRunId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+      "originalAttemptId": "f5d12a40ad41a79e15668df2c17a3da627125ab41cfd6096b800ce16f3da6d15",
+      "originalTaskOutcome": "not_checked",
+      "originalStartedAt": "2026-10-24T00:08:27.698873Z",
+      "originalCompletedAt": "2026-10-24T00:09:40.297181Z",
+      "originAnchor": {
+        "kind": "receipt_integrity_seal",
+        "sealPath": "receipt-integrity/be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd/e0e8d383c58900e87a528dba5e018e2b283ac6040ca624089718ea18e99493b8/f5d12a40ad41a79e15668df2c17a3da627125ab41cfd6096b800ce16f3da6d15.json",
+        "receipt": {
+          "bytes": 2551,
+          "key": "objects/07ad1ee2f1684320c32cb8c9a0bc5c8b23369f041997f02dd54600c1ba602e3a",
+          "sha256": "07ad1ee2f1684320c32cb8c9a0bc5c8b23369f041997f02dd54600c1ba602e3a"
+        },
+        "attemptPath": "runs/be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd/attempts/f5d12a40ad41a79e15668df2c17a3da627125ab41cfd6096b800ce16f3da6d15.json",
+        "originalPlanSha256": "8a31d4c23a65cc17b2f5abd94fdc8fc480125e63f9559cd031dc65455456821b"
+      },
+      "observationId": "56771ad9d3d1021669a151d283c06fc250ff6e1f06242fcc2082e8122a8251d4",
+      "observationCanonicalSha256": "5a3e0ebaee5d011518c5d9db988f0c6c5f432118cf574fade5db497ed2cbfc9a",
+      "sourceFetchedAt": "2026-10-24T00:08:31.595756Z",
+      "sourceStatus": "fetched",
+      "body": {
+        "bytes": 379571,
+        "key": "objects/4e0bb68f302b5d1beadfe3fbdb70fb13aa8003f1d5460318478a11cc01a424bc",
+        "sha256": "4e0bb68f302b5d1beadfe3fbdb70fb13aa8003f1d5460318478a11cc01a424bc"
+      },
+      "bodyOriginalFetchedAt": "2026-10-24T00:08:31.595756Z",
+      "reusesObservationId": null,
+      "validation": {
+        "bytes": 529,
+        "key": "objects/9f6d41898f8137e8cdd5d5782335883fcc4e1a312fc909396d5fe6a5390703ea",
+        "sha256": "9f6d41898f8137e8cdd5d5782335883fcc4e1a312fc909396d5fe6a5390703ea"
+      },
+      "policySha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+      "candidateHashes": [],
+      "archivedReplay": {
+        "kind": "independently_reviewed_empty",
+        "contextSha256": "562813f8b6fbd3320ef159239acc7d5c1b5eceff87d292e629370cb1ec9c0783",
+        "extractor": 3,
+        "modelInputSha256": "12a2ff69d52ca8ae8a817db578f82ce60fd6f8699556e746f5d8ae6207241540",
+        "modelInputChars": 28081,
+        "extractionCacheKey": "bbec34744601054dff96b5a7437293d02aafd840db866f69a31118f8e8397b3d",
+        "extractionCanonicalSha256": "415e601fdbab4603e17472bf15804aa7939a056d4f43d17cb85009cb2cd3c7e0",
+        "dispositions": [
+          {
+            "kind": "independently_reviewed_empty",
+            "review": {
+              "bytes": 190,
+              "key": "objects/63101f88ea1a705555e9511ffa47639b3fc27a5492168dfe7f9ae5dc4a66382c",
+              "sha256": "63101f88ea1a705555e9511ffa47639b3fc27a5492168dfe7f9ae5dc4a66382c"
+            }
+          }
+        ],
+        "sourceAgeHours": 0.496449
+      },
+      "existingReconcileOneDocumentMechanics": "pass_non_admitting",
+      "eligibleForCurrentDocumentRebindingAtArchiveTime": true,
+      "eligibleAtEvaluationTime": true,
+      "evaluationErrors": [],
+      "reusableTransportUntil": "2026-10-25T06:08:31.595756Z"
+    },
+    {
+      "sourceId": "arctic-wolf:official:1",
+      "supplierId": "arctic-wolf",
+      "url": "https://arcticwolf.com/resources/press-releases/arctic-wolf-named-best-security-vendor-in-crns-annual-best-of-the-channel-awards/",
+      "inOriginal20": true,
+      "originalRunId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+      "originalAttemptId": "f5d12a40ad41a79e15668df2c17a3da627125ab41cfd6096b800ce16f3da6d15",
+      "originalTaskOutcome": "not_checked",
+      "originalStartedAt": "2026-10-24T00:08:27.698873Z",
+      "originalCompletedAt": "2026-10-24T00:09:40.297181Z",
+      "originAnchor": {
+        "kind": "receipt_integrity_seal",
+        "sealPath": "receipt-integrity/be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd/e0e8d383c58900e87a528dba5e018e2b283ac6040ca624089718ea18e99493b8/f5d12a40ad41a79e15668df2c17a3da627125ab41cfd6096b800ce16f3da6d15.json",
+        "receipt": {
+          "bytes": 2551,
+          "key": "objects/07ad1ee2f1684320c32cb8c9a0bc5c8b23369f041997f02dd54600c1ba602e3a",
+          "sha256": "07ad1ee2f1684320c32cb8c9a0bc5c8b23369f041997f02dd54600c1ba602e3a"
+        },
+        "attemptPath": "runs/be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd/attempts/f5d12a40ad41a79e15668df2c17a3da627125ab41cfd6096b800ce16f3da6d15.json",
+        "originalPlanSha256": "8a31d4c23a65cc17b2f5abd94fdc8fc480125e63f9559cd031dc65455456821b"
+      },
+      "observationId": "7e61e62a67f524b93ffb33f5efffd273fcb327cce19db3ef491a4e2b147d5c76",
+      "observationCanonicalSha256": "df2fb250238bb4cfdc19321f26aa36b2309e4636bc8a411b7d683ed86e59c455",
+      "sourceFetchedAt": "2026-10-24T00:09:04.362631Z",
+      "sourceStatus": "fetched",
+      "body": {
+        "bytes": 339709,
+        "key": "objects/cb0c88ff3b48f5958e0b31a61b6d4714a8dedad1eabb8bb2a755b2d9b4c7d7f8",
+        "sha256": "cb0c88ff3b48f5958e0b31a61b6d4714a8dedad1eabb8bb2a755b2d9b4c7d7f8"
+      },
+      "bodyOriginalFetchedAt": "2026-10-24T00:09:04.362631Z",
+      "reusesObservationId": null,
+      "validation": {
+        "bytes": 529,
+        "key": "objects/057189a10ff4073430185f3271a0806c41959b3c208ddbcaa4f242d2a6df060d",
+        "sha256": "057189a10ff4073430185f3271a0806c41959b3c208ddbcaa4f242d2a6df060d"
+      },
+      "policySha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+      "candidateHashes": [],
+      "archivedReplay": {
+        "kind": "independently_reviewed_empty",
+        "contextSha256": "93773f6390aee04dfd9223c5e01f37d1bb87d27752881a9fdf4eaac3d5f6a616",
+        "extractor": 3,
+        "modelInputSha256": "42d5f2b3a0a35407e8b7300e267f0bfd4964c5cc09020a089c67df5b49d920ff",
+        "modelInputChars": 388,
+        "extractionCacheKey": "3f66c225407c2be9b763200537a4fc90fe962daf8c96edcb14d8f50da3e9cb08",
+        "extractionCanonicalSha256": "863acb55c65360e88d291b88f4add364a2dd45317703c32fd5ccf9a8b61f5708",
+        "dispositions": [
+          {
+            "kind": "independently_reviewed_empty",
+            "review": {
+              "bytes": 190,
+              "key": "objects/ae3e2a5b5ab3b69287664d58ad432d5164ce738d2be6ee2f81f1eb5a6f1629b4",
+              "sha256": "ae3e2a5b5ab3b69287664d58ad432d5164ce738d2be6ee2f81f1eb5a6f1629b4"
+            }
+          }
+        ],
+        "sourceAgeHours": 0.487347
+      },
+      "existingReconcileOneDocumentMechanics": "pass_non_admitting",
+      "eligibleForCurrentDocumentRebindingAtArchiveTime": true,
+      "eligibleAtEvaluationTime": true,
+      "evaluationErrors": [],
+      "reusableTransportUntil": "2026-10-25T06:09:04.362631Z"
+    },
+    {
+      "sourceId": "dragos:official:1",
+      "supplierId": "dragos",
+      "url": "https://newsroom.accenture.com/news/2026/tuv-sud-and-accenture-accelerate-certification-of-physical-ai-in-automated-factories-and-warehouses-with-nvidia-technologies-to-drive-manufacturing-productivity",
+      "inOriginal20": true,
+      "originalRunId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+      "originalAttemptId": "6bf992464b97ceb5b5e2504d4d30bfb3e5161091a4b77fc657dc022aa4e46e9e",
+      "originalTaskOutcome": "not_checked",
+      "originalStartedAt": "2026-10-24T00:11:09.965125Z",
+      "originalCompletedAt": "2026-10-24T00:11:47.476377Z",
+      "originAnchor": {
+        "kind": "receipt_integrity_seal",
+        "sealPath": "receipt-integrity/be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd/2e87d6df9703945806fdb5ebfc73370cd08742c2311b01f43be3c6dab105f2b7/6bf992464b97ceb5b5e2504d4d30bfb3e5161091a4b77fc657dc022aa4e46e9e.json",
+        "receipt": {
+          "bytes": 1903,
+          "key": "objects/404a766b3130fb99913b74ecb4af5a3f3c6b220de0f8ed6caccece050cfdfce1",
+          "sha256": "404a766b3130fb99913b74ecb4af5a3f3c6b220de0f8ed6caccece050cfdfce1"
+        },
+        "attemptPath": "runs/be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd/attempts/6bf992464b97ceb5b5e2504d4d30bfb3e5161091a4b77fc657dc022aa4e46e9e.json",
+        "originalPlanSha256": "8a31d4c23a65cc17b2f5abd94fdc8fc480125e63f9559cd031dc65455456821b"
+      },
+      "observationId": "6f889c617e8df3012793a404018e1653d600b70cef18a427577d8a65aa462745",
+      "observationCanonicalSha256": "559adde39bb42b9d54a5b33e69b900d69bdf7565d364aa96c763a5452e80a15a",
+      "sourceFetchedAt": "2026-10-24T00:11:38.112094Z",
+      "sourceStatus": "fetched",
+      "body": {
+        "bytes": 17127,
+        "key": "objects/1910627e2709f67d29b014810ab0b029b957180555f937aa63c87f977acbd906",
+        "sha256": "1910627e2709f67d29b014810ab0b029b957180555f937aa63c87f977acbd906"
+      },
+      "bodyOriginalFetchedAt": "2026-10-24T00:11:38.112094Z",
+      "reusesObservationId": null,
+      "validation": {
+        "bytes": 407,
+        "key": "objects/822521c9bf83eabd65c2010d0c456dd18dca6f18fe6ca976eee4df33eaff5a7e",
+        "sha256": "822521c9bf83eabd65c2010d0c456dd18dca6f18fe6ca976eee4df33eaff5a7e"
+      },
+      "policySha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+      "candidateHashes": [],
+      "archivedReplay": {
+        "kind": "deterministic_entity_exclusion",
+        "contextSha256": "f1f4bc0fcbca123d61afe8b3128f4bda3ed4ccadbea2ec08a553fb1ea0860aec",
+        "extractor": 3,
+        "modelInputSha256": "432c9730e95277d46329c56115d7ecb525fd686e65facc7ee5eedca3cb03d099",
+        "modelInputChars": 8610,
+        "extractionCacheKey": "48cf83f77b221cc7c33841619651a1fc08d92a23693986f7ecf3b8aa30f736c9",
+        "extractionCanonicalSha256": null,
+        "dispositions": [],
+        "sourceAgeHours": 0.444639
+      },
+      "existingReconcileOneDocumentMechanics": "pass_non_admitting",
+      "eligibleForCurrentDocumentRebindingAtArchiveTime": true,
+      "eligibleAtEvaluationTime": true,
+      "evaluationErrors": [],
+      "reusableTransportUntil": "2026-10-25T06:11:38.112094Z"
+    },
+    {
+      "sourceId": "exabeam:official:1",
+      "supplierId": "exabeam",
+      "url": "https://www.thomabravo.com/press-releases/calabrio-welcomes-dave-rhodes-as-chief-executive-officer",
+      "inOriginal20": false,
+      "originalRunId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+      "originalAttemptId": "f1c9131a84d2b8742e1b8448dd30864b976d3de7e70c76f591e4bfb78f479fa6",
+      "originalTaskOutcome": "not_checked",
+      "originalStartedAt": "2026-10-24T00:36:59.782520Z",
+      "originalCompletedAt": "2026-10-24T00:37:49.960734Z",
+      "originAnchor": {
+        "kind": "receipt_integrity_seal",
+        "sealPath": "receipt-integrity/be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd/9e6cec43b5894fa42a4633fd681e363fd6b5893844b122d4fbd1c11c787185d2/f1c9131a84d2b8742e1b8448dd30864b976d3de7e70c76f591e4bfb78f479fa6.json",
+        "receipt": {
+          "bytes": 1935,
+          "key": "objects/19beb13d32692956738c9222c7a67e8b9a4cc8cbbcf1db0a45eff6b74ea0edab",
+          "sha256": "19beb13d32692956738c9222c7a67e8b9a4cc8cbbcf1db0a45eff6b74ea0edab"
+        },
+        "attemptPath": "runs/be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd/attempts/f1c9131a84d2b8742e1b8448dd30864b976d3de7e70c76f591e4bfb78f479fa6.json",
+        "originalPlanSha256": "8a31d4c23a65cc17b2f5abd94fdc8fc480125e63f9559cd031dc65455456821b"
+      },
+      "observationId": "d0cfa15c8e0d52fe26862fdd6cff5ad85e61ff2eba9ee5b6dd27f3d00e5aede3",
+      "observationCanonicalSha256": "dee0daf43158551e6f406cf4836bcab296a90ececb66111d437573782199cba0",
+      "sourceFetchedAt": "2026-10-24T00:37:00.477226Z",
+      "sourceStatus": "fetched",
+      "body": {
+        "bytes": 149785,
+        "key": "objects/bc391ec3de465298bacfdab4d196a08b63840cce499cfa03e6d3ea55f2705a2b",
+        "sha256": "bc391ec3de465298bacfdab4d196a08b63840cce499cfa03e6d3ea55f2705a2b"
+      },
+      "bodyOriginalFetchedAt": "2026-10-24T00:37:00.477226Z",
+      "reusesObservationId": null,
+      "validation": {
+        "bytes": 409,
+        "key": "objects/9a51c74927e0bc0c4363061e81f352bd33305a399ee1fbd1211f6ae438a490bc",
+        "sha256": "9a51c74927e0bc0c4363061e81f352bd33305a399ee1fbd1211f6ae438a490bc"
+      },
+      "policySha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+      "candidateHashes": [],
+      "archivedReplay": {
+        "kind": "deterministic_entity_exclusion",
+        "contextSha256": "6a252beefcd9f8d09b3ab5c20ef10555423776c764aeb9904b120e752b3a4fb7",
+        "extractor": 3,
+        "modelInputSha256": "7b4dccf3764d0ef46be1a1e15bebaa297e7c7b68462f720f8d6125ffdf78a343",
+        "modelInputChars": 3331,
+        "extractionCacheKey": "96096c9e066c96f2b8c8a4e676a405c645c338f2bd89d6c2601ee86eae5b299b",
+        "extractionCanonicalSha256": null,
+        "dispositions": [],
+        "sourceAgeHours": 0.02176
+      },
+      "existingReconcileOneDocumentMechanics": "pass_non_admitting",
+      "eligibleForCurrentDocumentRebindingAtArchiveTime": true,
+      "eligibleAtEvaluationTime": true,
+      "evaluationErrors": [],
+      "reusableTransportUntil": "2026-10-25T06:37:00.477226Z"
+    },
+    {
+      "sourceId": "exabeam:official:1",
+      "supplierId": "exabeam",
+      "url": "https://www.thomabravo.com/press-releases/j.d.-power-to-merge-with-autodata-solutions-creating-a-leading-source-of-automotive-data-analytics-and-software-solutions",
+      "inOriginal20": true,
+      "originalRunId": "e054ea73c89fe78db9702f94d2a3b669ce91884f7d7abda0a88698dbcfc7ec50",
+      "originalAttemptId": "d484f9b52426b7633f5a4a84caea307b5df255e9898ffda7db3c7ad79d0da0cd",
+      "originalTaskOutcome": "not_checked",
+      "originalStartedAt": "2026-10-23T04:15:21.534713Z",
+      "originalCompletedAt": "2026-10-23T04:15:22.705349Z",
+      "originAnchor": {
+        "kind": "legacy_coverage_membership",
+        "coverage": {
+          "key": "objects/12baabcbf3f9eff5fab2022949c57ff5ffbf14b3361a715f67dafc8421ed87cb",
+          "sha256": "12baabcbf3f9eff5fab2022949c57ff5ffbf14b3361a715f67dafc8421ed87cb",
+          "bytes": 503331
+        },
+        "attemptCanonicalSha256": "7f3c71633a7e90b6b9ce090f3d27ffeb9306dfcf24ad8aa0dbfce8c29582f62c",
+        "attemptPath": "runs/e054ea73c89fe78db9702f94d2a3b669ce91884f7d7abda0a88698dbcfc7ec50/attempts/d484f9b52426b7633f5a4a84caea307b5df255e9898ffda7db3c7ad79d0da0cd.json",
+        "originalPlanSha256": "8b1f2c63d0e238b35509b5a68ad29da7e3952cb1980032876f2612f867e760d3"
+      },
+      "observationId": "07d53e719050ddd50e44b1d62d6a159746bdb48718ab028cfc00f3bbff26b61a",
+      "observationCanonicalSha256": "7945c932ca61a62b21fc2aa30bd0d212471af1a3e275c43a4d54ef969bfbff6a",
+      "sourceFetchedAt": "2026-10-23T04:15:22.688976Z",
+      "sourceStatus": "fetched",
+      "body": {
+        "bytes": 157670,
+        "key": "objects/f9e399d4092858193a563b03139a8b236b74c8f5597fb491e1464072bc68a3fc",
+        "sha256": "f9e399d4092858193a563b03139a8b236b74c8f5597fb491e1464072bc68a3fc"
+      },
+      "bodyOriginalFetchedAt": "2026-10-23T04:15:22.688976Z",
+      "reusesObservationId": null,
+      "validation": {
+        "bytes": 409,
+        "key": "objects/7cd0ceff0a46ea953e40656b319095d561a058801d241880fffd132f5bf50016",
+        "sha256": "7cd0ceff0a46ea953e40656b319095d561a058801d241880fffd132f5bf50016"
+      },
+      "policySha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+      "candidateHashes": [],
+      "archivedReplay": {
+        "kind": "deterministic_entity_exclusion",
+        "contextSha256": "c285f4fd879f4294781e3e520673b8d03c3520a95bd1bc3404799a11ac142ef5",
+        "extractor": 3,
+        "modelInputSha256": "6fc9f278ee1785d9ffafb8a4713fe9cf982a13ee1ee362077a1b34c615ad5af5",
+        "modelInputChars": 6342,
+        "extractionCacheKey": "318154d40baefe58375e1fe0b1eb4abf5ba80df393976430d51940b2cfceac3f",
+        "extractionCanonicalSha256": null,
+        "dispositions": [],
+        "sourceAgeHours": 20.382256
+      },
+      "existingReconcileOneDocumentMechanics": "pass_non_admitting",
+      "eligibleForCurrentDocumentRebindingAtArchiveTime": true,
+      "eligibleAtEvaluationTime": true,
+      "evaluationErrors": [],
+      "reusableTransportUntil": "2026-10-24T10:15:22.688976Z"
+    },
+    {
+      "sourceId": "exabeam:official:1",
+      "supplierId": "exabeam",
+      "url": "https://www.thomabravo.com/press-releases/thoma-bravo-announces-strategic-acquisition-of-calabrio-to-accelerate-companys-cloud-first-customer-experience-growth",
+      "inOriginal20": true,
+      "originalRunId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+      "originalAttemptId": "1f67e8c1a7a9a22d3f2c2bba30768ea13a6c27680419d3d4a70c4b003cb6d2ab",
+      "originalTaskOutcome": "not_checked",
+      "originalStartedAt": "2026-10-24T00:06:50.420100Z",
+      "originalCompletedAt": "2026-10-24T00:08:19.124366Z",
+      "originAnchor": {
+        "kind": "receipt_integrity_seal",
+        "sealPath": "receipt-integrity/be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd/9e6cec43b5894fa42a4633fd681e363fd6b5893844b122d4fbd1c11c787185d2/1f67e8c1a7a9a22d3f2c2bba30768ea13a6c27680419d3d4a70c4b003cb6d2ab.json",
+        "receipt": {
+          "bytes": 1977,
+          "key": "objects/e9aeec0f9bbdb6008e7d943c76f218406c1c438fb79bee77acb83a58742b19e1",
+          "sha256": "e9aeec0f9bbdb6008e7d943c76f218406c1c438fb79bee77acb83a58742b19e1"
+        },
+        "attemptPath": "runs/be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd/attempts/1f67e8c1a7a9a22d3f2c2bba30768ea13a6c27680419d3d4a70c4b003cb6d2ab.json",
+        "originalPlanSha256": "8a31d4c23a65cc17b2f5abd94fdc8fc480125e63f9559cd031dc65455456821b"
+      },
+      "observationId": "caa4039c85e6e070858e313a3ef715506eb62e42c2f023fe8db5a84ac83a781a",
+      "observationCanonicalSha256": "67af36156788b8e1f98e7ff82bc19f66f04ba33ba9f285a9b03a04d43b1d4efd",
+      "sourceFetchedAt": "2026-10-24T00:07:22.362652Z",
+      "sourceStatus": "fetched",
+      "body": {
+        "bytes": 162440,
+        "key": "objects/cae8ebbf2148d3ce4c42f6c74c6e450b9c6ef3517c57d70881de69714886755f",
+        "sha256": "cae8ebbf2148d3ce4c42f6c74c6e450b9c6ef3517c57d70881de69714886755f"
+      },
+      "bodyOriginalFetchedAt": "2026-10-24T00:07:22.362652Z",
+      "reusesObservationId": null,
+      "validation": {
+        "bytes": 409,
+        "key": "objects/fdfad16e7720319b7f15cce75e366f801d421f3ea9b877bab3229431fdf8004c",
+        "sha256": "fdfad16e7720319b7f15cce75e366f801d421f3ea9b877bab3229431fdf8004c"
+      },
+      "policySha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+      "candidateHashes": [],
+      "archivedReplay": {
+        "kind": "deterministic_entity_exclusion",
+        "contextSha256": "08b7961f4dc750bc9418a9fb326fcaf7312ba39f837298e8907beab3eb5d6ce1",
+        "extractor": 3,
+        "modelInputSha256": "63c589882876d9d844d001b5bd92f0342a488a825b21f0db911b672df7d7ea6d",
+        "modelInputChars": 6562,
+        "extractionCacheKey": "9951c05e70054beaf2032417602e2bbe257704bd525dac95e72e167bb0ee5883",
+        "extractionCanonicalSha256": null,
+        "dispositions": [],
+        "sourceAgeHours": 0.51568
+      },
+      "existingReconcileOneDocumentMechanics": "pass_non_admitting",
+      "eligibleForCurrentDocumentRebindingAtArchiveTime": true,
+      "eligibleAtEvaluationTime": true,
+      "evaluationErrors": [],
+      "reusableTransportUntil": "2026-10-25T06:07:22.362652Z"
+    },
+    {
+      "sourceId": "exabeam:official:1",
+      "supplierId": "exabeam",
+      "url": "https://www.thomabravo.com/press-releases/thoma-bravo-owned-quorum-software-and-aucerna-to-merge-and-acquire-tietoevrys-oil-and-gas-software-business",
+      "inOriginal20": true,
+      "originalRunId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+      "originalAttemptId": "1f67e8c1a7a9a22d3f2c2bba30768ea13a6c27680419d3d4a70c4b003cb6d2ab",
+      "originalTaskOutcome": "not_checked",
+      "originalStartedAt": "2026-10-24T00:06:50.420100Z",
+      "originalCompletedAt": "2026-10-24T00:08:19.124366Z",
+      "originAnchor": {
+        "kind": "receipt_integrity_seal",
+        "sealPath": "receipt-integrity/be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd/9e6cec43b5894fa42a4633fd681e363fd6b5893844b122d4fbd1c11c787185d2/1f67e8c1a7a9a22d3f2c2bba30768ea13a6c27680419d3d4a70c4b003cb6d2ab.json",
+        "receipt": {
+          "bytes": 1977,
+          "key": "objects/e9aeec0f9bbdb6008e7d943c76f218406c1c438fb79bee77acb83a58742b19e1",
+          "sha256": "e9aeec0f9bbdb6008e7d943c76f218406c1c438fb79bee77acb83a58742b19e1"
+        },
+        "attemptPath": "runs/be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd/attempts/1f67e8c1a7a9a22d3f2c2bba30768ea13a6c27680419d3d4a70c4b003cb6d2ab.json",
+        "originalPlanSha256": "8a31d4c23a65cc17b2f5abd94fdc8fc480125e63f9559cd031dc65455456821b"
+      },
+      "observationId": "023f0e4efff32c226384432eb9e498b0578c1989421513f5fe8cb8e8b326903a",
+      "observationCanonicalSha256": "978a7a279421981a92e03bbfab909c638d0871c545e00e49774d11011cce51a6",
+      "sourceFetchedAt": "2026-10-24T00:06:51.328978Z",
+      "sourceStatus": "fetched",
+      "body": {
+        "bytes": 157366,
+        "key": "objects/e0aedbe85354130b0cbd6b4ec4ac35866ffb89f04e7c0089ab2bc1560957a822",
+        "sha256": "e0aedbe85354130b0cbd6b4ec4ac35866ffb89f04e7c0089ab2bc1560957a822"
+      },
+      "bodyOriginalFetchedAt": "2026-10-24T00:06:51.328978Z",
+      "reusesObservationId": null,
+      "validation": {
+        "bytes": 409,
+        "key": "objects/3abd4aaa7287c06cf36082cecb2c896d12ec0dbfb746a283b17cd8cc38303eae",
+        "sha256": "3abd4aaa7287c06cf36082cecb2c896d12ec0dbfb746a283b17cd8cc38303eae"
+      },
+      "policySha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+      "candidateHashes": [],
+      "archivedReplay": {
+        "kind": "deterministic_entity_exclusion",
+        "contextSha256": "cc372993e68dc205fec8aa543187a1053505a57181cb051a11c43405da179d43",
+        "extractor": 3,
+        "modelInputSha256": "bc3f245358ed451bdd23f6f7f3dad2090217d9779297ea79081c204cb002ee65",
+        "modelInputChars": 5559,
+        "extractionCacheKey": "8775755e320a4c9514d68f3386dd2479494ca84677379e70e4d8f7d3e80c0c4a",
+        "extractionCanonicalSha256": null,
+        "dispositions": [],
+        "sourceAgeHours": 0.524301
+      },
+      "existingReconcileOneDocumentMechanics": "pass_non_admitting",
+      "eligibleForCurrentDocumentRebindingAtArchiveTime": true,
+      "eligibleAtEvaluationTime": true,
+      "evaluationErrors": [],
+      "reusableTransportUntil": "2026-10-25T06:06:51.328978Z"
+    },
+    {
+      "sourceId": "exabeam:official:1",
+      "supplierId": "exabeam",
+      "url": "https://www.thomabravo.com/press-releases/thoma-bravo-to-acquire-significant-majority-interest-in-centrify-the-leading-next-generation-identity-access-management-vendor",
+      "inOriginal20": false,
+      "originalRunId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+      "originalAttemptId": "f1c9131a84d2b8742e1b8448dd30864b976d3de7e70c76f591e4bfb78f479fa6",
+      "originalTaskOutcome": "not_checked",
+      "originalStartedAt": "2026-10-24T00:36:59.782520Z",
+      "originalCompletedAt": "2026-10-24T00:37:49.960734Z",
+      "originAnchor": {
+        "kind": "receipt_integrity_seal",
+        "sealPath": "receipt-integrity/be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd/9e6cec43b5894fa42a4633fd681e363fd6b5893844b122d4fbd1c11c787185d2/f1c9131a84d2b8742e1b8448dd30864b976d3de7e70c76f591e4bfb78f479fa6.json",
+        "receipt": {
+          "bytes": 1935,
+          "key": "objects/19beb13d32692956738c9222c7a67e8b9a4cc8cbbcf1db0a45eff6b74ea0edab",
+          "sha256": "19beb13d32692956738c9222c7a67e8b9a4cc8cbbcf1db0a45eff6b74ea0edab"
+        },
+        "attemptPath": "runs/be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd/attempts/f1c9131a84d2b8742e1b8448dd30864b976d3de7e70c76f591e4bfb78f479fa6.json",
+        "originalPlanSha256": "8a31d4c23a65cc17b2f5abd94fdc8fc480125e63f9559cd031dc65455456821b"
+      },
+      "observationId": "3e40d2157c5cbe584509d64eab20afd0bc843d8f45c07bdacdd3e6b90cb8ca61",
+      "observationCanonicalSha256": "4389f949a0b8ab10738afb6f5124e82526fdb0e5b5357284826939032df35c38",
+      "sourceFetchedAt": "2026-10-24T00:37:25.819855Z",
+      "sourceStatus": "fetched",
+      "body": {
+        "bytes": 158837,
+        "key": "objects/88c41b8f4dd3d7f5fe7ab1c27b59237d2178c0e515ab0507beebc1a272a892b7",
+        "sha256": "88c41b8f4dd3d7f5fe7ab1c27b59237d2178c0e515ab0507beebc1a272a892b7"
+      },
+      "bodyOriginalFetchedAt": "2026-10-24T00:37:25.819855Z",
+      "reusesObservationId": null,
+      "validation": {
+        "bytes": 409,
+        "key": "objects/b58f63add9b176c9fee646ed268e5166976a82f49c6d46e4f38c43297d8074ee",
+        "sha256": "b58f63add9b176c9fee646ed268e5166976a82f49c6d46e4f38c43297d8074ee"
+      },
+      "policySha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+      "candidateHashes": [],
+      "archivedReplay": {
+        "kind": "deterministic_entity_exclusion",
+        "contextSha256": "2c1cefbf61f3802682144f6ebdda3a1cd047e4390fb264a78d7302aee322f5f1",
+        "extractor": 3,
+        "modelInputSha256": "8b9e89b2c886ab4d7bd0141807f2abc5c84701f5e9d2d6fba52fe82d0a62b4b2",
+        "modelInputChars": 5785,
+        "extractionCacheKey": "154db2aaf007ee4bde62b72a9890c2aee846e95a34575e157a54c2de5ab3a331",
+        "extractionCanonicalSha256": null,
+        "dispositions": [],
+        "sourceAgeHours": 0.01472
+      },
+      "existingReconcileOneDocumentMechanics": "pass_non_admitting",
+      "eligibleForCurrentDocumentRebindingAtArchiveTime": true,
+      "eligibleAtEvaluationTime": true,
+      "evaluationErrors": [],
+      "reusableTransportUntil": "2026-10-25T06:37:25.819855Z"
+    },
+    {
+      "sourceId": "hiddenlayer:official:1",
+      "supplierId": "hiddenlayer",
+      "url": "https://www.hiddenlayer.com/news/2023-sc-awards-finalists-most-promising-early-stage-start-up",
+      "inOriginal20": true,
+      "originalRunId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+      "originalAttemptId": "602dfa5a30095ecf9e03c46c2c678681df704933fb9621691867d2ccafa805c6",
+      "originalTaskOutcome": "not_checked",
+      "originalStartedAt": "2026-10-24T00:06:50.673819Z",
+      "originalCompletedAt": "2026-10-24T00:08:19.118015Z",
+      "originAnchor": {
+        "kind": "receipt_integrity_seal",
+        "sealPath": "receipt-integrity/be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd/ea2eb9c01f65a7e74283def8ffa1e018904b23940b77ed2786c6c43c55a4c4bb/602dfa5a30095ecf9e03c46c2c678681df704933fb9621691867d2ccafa805c6.json",
+        "receipt": {
+          "bytes": 2395,
+          "key": "objects/7ae4c20ecf6ade4affd1cbaf9df225c20ae931ae499bbf1f5af94c61d4b39994",
+          "sha256": "7ae4c20ecf6ade4affd1cbaf9df225c20ae931ae499bbf1f5af94c61d4b39994"
+        },
+        "attemptPath": "runs/be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd/attempts/602dfa5a30095ecf9e03c46c2c678681df704933fb9621691867d2ccafa805c6.json",
+        "originalPlanSha256": "8a31d4c23a65cc17b2f5abd94fdc8fc480125e63f9559cd031dc65455456821b"
+      },
+      "observationId": "35cdb92e230507bd31ba17df52e6cb927e4445c63c05653dbcce51a24e805547",
+      "observationCanonicalSha256": "911df53380ba1e395ffcde51af1ec843681eaa1bfab67a99cfdb6e5c923c8f49",
+      "sourceFetchedAt": "2026-10-24T00:07:22.237954Z",
+      "sourceStatus": "not_modified",
+      "body": {
+        "bytes": 203576,
+        "key": "objects/7a69f02b78f45fec4720af1edacf0c2ba8c9d553c0a04e6b544622d738357066",
+        "sha256": "7a69f02b78f45fec4720af1edacf0c2ba8c9d553c0a04e6b544622d738357066"
+      },
+      "bodyOriginalFetchedAt": "2026-10-20T21:55:48.690479Z",
+      "reusesObservationId": "efd325a504133c40df06903c8aba8e099b9fa135748bcd6a993f167ad5a7b706",
+      "validation": {
+        "bytes": 600,
+        "key": "objects/0e55683f34794c21028a63499101758213a2af96481fc0254d86c4e77a9643dd",
+        "sha256": "0e55683f34794c21028a63499101758213a2af96481fc0254d86c4e77a9643dd"
+      },
+      "policySha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+      "candidateHashes": [
+        "0b83620f8721688c22db94015a78b92bb91ebe6b30ff7acf82a2d9abae7948dd"
+      ],
+      "archivedReplay": {
+        "kind": "complete_candidate_dispositions",
+        "contextSha256": "388c194b6d4ea02616815abbc721576ba449f5459367a8e6e30ac6488ce70534",
+        "extractor": 3,
+        "modelInputSha256": "c5e498f5704113ec035621661e99b47d8277225c2263ca11a0ccc01db49f1dfe",
+        "modelInputChars": 570,
+        "extractionCacheKey": "f5553c37c95dc053d5a8c8b5a7bfcf8e1ca4847414c066182c1bdd9ffaad2cba",
+        "extractionCanonicalSha256": "95acb6bdb6b09fd8a8bdde2bf0add1b7e98c4783f8cc72d8fb346a60ad8ae0ee",
+        "dispositions": [
+          {
+            "kind": "held",
+            "heldReceipt": {
+              "bytes": 1006,
+              "key": "objects/2a00516b4d68ab5fca8c179c720946c569500b18002f72121f7f8c4a387c871c",
+              "sha256": "2a00516b4d68ab5fca8c179c720946c569500b18002f72121f7f8c4a387c871c"
+            },
+            "candidateSha256": "0b83620f8721688c22db94015a78b92bb91ebe6b30ff7acf82a2d9abae7948dd",
+            "review": {
+              "bytes": 434,
+              "key": "objects/566288852ca6c9d7ae9a4ee9d8ce6f6de7d1066ef35153864fe155687ec8ae97",
+              "sha256": "566288852ca6c9d7ae9a4ee9d8ce6f6de7d1066ef35153864fe155687ec8ae97"
+            },
+            "reviewResult": "rejected",
+            "reason": "Fact date missing",
+            "originalSourceObservationId": "35cdb92e230507bd31ba17df52e6cb927e4445c63c05653dbcce51a24e805547"
+          }
+        ],
+        "sourceAgeHours": 0.515715
+      },
+      "existingReconcileOneDocumentMechanics": "pass_non_admitting",
+      "eligibleForCurrentDocumentRebindingAtArchiveTime": true,
+      "eligibleAtEvaluationTime": true,
+      "evaluationErrors": [],
+      "reusableTransportUntil": "2026-10-25T06:07:22.237954Z"
+    },
+    {
+      "sourceId": "hiddenlayer:official:1",
+      "supplierId": "hiddenlayer",
+      "url": "https://www.hiddenlayer.com/news/ai-and-ml-reliability-and-security-blenderbot-and-other-cases",
+      "inOriginal20": false,
+      "originalRunId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+      "originalAttemptId": "65c82bf975305d741c7d75c7482ffb17ef18af8b8670a82d1fe4205d8dee419c",
+      "originalTaskOutcome": "not_checked",
+      "originalStartedAt": "2026-10-24T00:36:59.972141Z",
+      "originalCompletedAt": "2026-10-24T00:37:25.445882Z",
+      "originAnchor": {
+        "kind": "receipt_integrity_seal",
+        "sealPath": "receipt-integrity/be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd/ea2eb9c01f65a7e74283def8ffa1e018904b23940b77ed2786c6c43c55a4c4bb/65c82bf975305d741c7d75c7482ffb17ef18af8b8670a82d1fe4205d8dee419c.json",
+        "receipt": {
+          "bytes": 1692,
+          "key": "objects/eb92dcbb2c4d0de5502d8860dbb3eff79dcbaee37bfcf94650b986688da0fa15",
+          "sha256": "eb92dcbb2c4d0de5502d8860dbb3eff79dcbaee37bfcf94650b986688da0fa15"
+        },
+        "attemptPath": "runs/be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd/attempts/65c82bf975305d741c7d75c7482ffb17ef18af8b8670a82d1fe4205d8dee419c.json",
+        "originalPlanSha256": "8a31d4c23a65cc17b2f5abd94fdc8fc480125e63f9559cd031dc65455456821b"
+      },
+      "observationId": "9bb9b5ddc4f85431304e5399b27721fc5e0d951d033d5c541a5b605e5e59e0fc",
+      "observationCanonicalSha256": "f08c7362164fdd0dc116795165745aaba16e33bed08594d8680338e88dd3bacb",
+      "sourceFetchedAt": "2026-10-24T00:37:00.221058Z",
+      "sourceStatus": "fetched",
+      "body": {
+        "bytes": 203821,
+        "key": "objects/09df48f7ef27f5e67b23d0f057924f33d6caba2ba668ce097dcbafb45d3e3137",
+        "sha256": "09df48f7ef27f5e67b23d0f057924f33d6caba2ba668ce097dcbafb45d3e3137"
+      },
+      "bodyOriginalFetchedAt": "2026-10-24T00:37:00.221058Z",
+      "reusesObservationId": null,
+      "validation": {
+        "bytes": 600,
+        "key": "objects/6369027aa4b32cd079448a781a40eb7bfcda8908c1ec313a4cf2bebab143f823",
+        "sha256": "6369027aa4b32cd079448a781a40eb7bfcda8908c1ec313a4cf2bebab143f823"
+      },
+      "policySha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+      "candidateHashes": [
+        "0b83620f8721688c22db94015a78b92bb91ebe6b30ff7acf82a2d9abae7948dd"
+      ],
+      "archivedReplay": {
+        "kind": "complete_candidate_dispositions",
+        "contextSha256": "70d4daa0b662b1c5b65288817fe79e7e22ea0f795c01eb605a7132e7c9adfa47",
+        "extractor": 3,
+        "modelInputSha256": "d8e16245435e13863fb7e8447e8075a4552c59ab3d23b1efce3e58345a06ba83",
+        "modelInputChars": 571,
+        "extractionCacheKey": "d1da5fe1e2a61d456cdbd78ff4e66ec0cee7bf9d798dd67f51d65cc779aed144",
+        "extractionCanonicalSha256": "b369279c0f67f33c6e41f879c9add955ca176c9a936ba9214da83e0ca2bd2a2b",
+        "dispositions": [
+          {
+            "kind": "held",
+            "heldReceipt": {
+              "bytes": 1006,
+              "key": "objects/96fd95fd3bfee7fecb921395d1d95b468a8f49586d955adb52d9c5c6dadd8648",
+              "sha256": "96fd95fd3bfee7fecb921395d1d95b468a8f49586d955adb52d9c5c6dadd8648"
+            },
+            "candidateSha256": "0b83620f8721688c22db94015a78b92bb91ebe6b30ff7acf82a2d9abae7948dd",
+            "review": {
+              "bytes": 438,
+              "key": "objects/7956fa48692dfed3869982af0b5c50d9e1eff4ae75c5ca051257283a275b2260",
+              "sha256": "7956fa48692dfed3869982af0b5c50d9e1eff4ae75c5ca051257283a275b2260"
+            },
+            "reviewResult": "ambiguous",
+            "reason": "Fact date missing",
+            "originalSourceObservationId": "9bb9b5ddc4f85431304e5399b27721fc5e0d951d033d5c541a5b605e5e59e0fc"
+          }
+        ],
+        "sourceAgeHours": 0.021831
+      },
+      "existingReconcileOneDocumentMechanics": "pass_non_admitting",
+      "eligibleForCurrentDocumentRebindingAtArchiveTime": true,
+      "eligibleAtEvaluationTime": true,
+      "evaluationErrors": [],
+      "reusableTransportUntil": "2026-10-25T06:37:00.221058Z"
+    },
+    {
+      "sourceId": "hiddenlayer:official:1",
+      "supplierId": "hiddenlayer",
+      "url": "https://www.hiddenlayer.com/news/dont-confuse-irresponsible-implementation-for-an-evil-ai-overlord",
+      "inOriginal20": true,
+      "originalRunId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+      "originalAttemptId": "602dfa5a30095ecf9e03c46c2c678681df704933fb9621691867d2ccafa805c6",
+      "originalTaskOutcome": "not_checked",
+      "originalStartedAt": "2026-10-24T00:06:50.673819Z",
+      "originalCompletedAt": "2026-10-24T00:08:19.118015Z",
+      "originAnchor": {
+        "kind": "receipt_integrity_seal",
+        "sealPath": "receipt-integrity/be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd/ea2eb9c01f65a7e74283def8ffa1e018904b23940b77ed2786c6c43c55a4c4bb/602dfa5a30095ecf9e03c46c2c678681df704933fb9621691867d2ccafa805c6.json",
+        "receipt": {
+          "bytes": 2395,
+          "key": "objects/7ae4c20ecf6ade4affd1cbaf9df225c20ae931ae499bbf1f5af94c61d4b39994",
+          "sha256": "7ae4c20ecf6ade4affd1cbaf9df225c20ae931ae499bbf1f5af94c61d4b39994"
+        },
+        "attemptPath": "runs/be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd/attempts/602dfa5a30095ecf9e03c46c2c678681df704933fb9621691867d2ccafa805c6.json",
+        "originalPlanSha256": "8a31d4c23a65cc17b2f5abd94fdc8fc480125e63f9559cd031dc65455456821b"
+      },
+      "observationId": "94a0712a805f4b2b862e045f61488de8a91ebafc8cd0068de5e5eea36955fb9e",
+      "observationCanonicalSha256": "f2d816273b5b034fefb5823b70fee2d9064e6e56ea3e6ba35fe56f0aceee1087",
+      "sourceFetchedAt": "2026-10-24T00:06:51.177671Z",
+      "sourceStatus": "not_modified",
+      "body": {
+        "bytes": 204144,
+        "key": "objects/50dbf2e9d81ab0adb0c2dedf8246e463d0757ee0bb7fa3c78df10d2cb1a0d7a8",
+        "sha256": "50dbf2e9d81ab0adb0c2dedf8246e463d0757ee0bb7fa3c78df10d2cb1a0d7a8"
+      },
+      "bodyOriginalFetchedAt": "2026-10-20T21:55:44.817674Z",
+      "reusesObservationId": "ed3320ebff48840a59ab8971f24b870a38ca59e609c58b86436dabd092c8475a",
+      "validation": {
+        "bytes": 839,
+        "key": "objects/882e40e4cd0f8a74d62157ed4e1b8feb2dd9d7e6958d0e3ec71223508bf6bae4",
+        "sha256": "882e40e4cd0f8a74d62157ed4e1b8feb2dd9d7e6958d0e3ec71223508bf6bae4"
+      },
+      "policySha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+      "candidateHashes": [
+        "4c92cc4007e709568938dd8907b3d3371b6149e0eae76df33fb4590559eeba99",
+        "eecf195d4cc171a46347030d66d9c8adfd38bbf674f88f66daf5ef058bd8b153"
+      ],
+      "archivedReplay": {
+        "kind": "complete_candidate_dispositions",
+        "contextSha256": "3912fb1f58b6a8406f08b86e59b7c70aef6bbf44f9b1ea39070227d40f4370c2",
+        "extractor": 3,
+        "modelInputSha256": "5d6dc8a469d059fa96daf22bc8566881c1cbbd6cc883937c111295665fdeb1c4",
+        "modelInputChars": 705,
+        "extractionCacheKey": "a42477f8bb2225c6fd6beb80b7dc432661362a4741ffee0a34da595f63844fcd",
+        "extractionCanonicalSha256": "d625c7ce399bbbf5b1bac9a624f5f364cf3a148bb3dd234da4e0d69fda5f22be",
+        "dispositions": [
+          {
+            "kind": "held",
+            "heldReceipt": {
+              "bytes": 1007,
+              "key": "objects/f1ca2f0786dc4d3afe2e64fbc2a9e8c3b36c704e8f661f1e57827368c45a5cca",
+              "sha256": "f1ca2f0786dc4d3afe2e64fbc2a9e8c3b36c704e8f661f1e57827368c45a5cca"
+            },
+            "candidateSha256": "4c92cc4007e709568938dd8907b3d3371b6149e0eae76df33fb4590559eeba99",
+            "review": {
+              "bytes": 435,
+              "key": "objects/dc7ca3fad2bce2e2ab39b054f6e4737d50b9bfc4dd113ba2cd48b0b06197aed3",
+              "sha256": "dc7ca3fad2bce2e2ab39b054f6e4737d50b9bfc4dd113ba2cd48b0b06197aed3"
+            },
+            "reviewResult": "ambiguous",
+            "reason": "Fact date missing",
+            "originalSourceObservationId": "94a0712a805f4b2b862e045f61488de8a91ebafc8cd0068de5e5eea36955fb9e"
+          },
+          {
+            "kind": "held",
+            "heldReceipt": {
+              "bytes": 1080,
+              "key": "objects/3a3ecd4ec2fb1f4a464753c12b6d31d091bc9cf970de628b8cbe553459adbca9",
+              "sha256": "3a3ecd4ec2fb1f4a464753c12b6d31d091bc9cf970de628b8cbe553459adbca9"
+            },
+            "candidateSha256": "eecf195d4cc171a46347030d66d9c8adfd38bbf674f88f66daf5ef058bd8b153",
+            "review": {
+              "bytes": 425,
+              "key": "objects/eb290705b910acbc5cb270184a15ee6d28532cb08e50fa9548520a8b686dba97",
+              "sha256": "eb290705b910acbc5cb270184a15ee6d28532cb08e50fa9548520a8b686dba97"
+            },
+            "reviewResult": "accepted",
+            "reason": "Fact date missing",
+            "originalSourceObservationId": "94a0712a805f4b2b862e045f61488de8a91ebafc8cd0068de5e5eea36955fb9e"
+          }
+        ],
+        "sourceAgeHours": 0.524343
+      },
+      "existingReconcileOneDocumentMechanics": "pass_non_admitting",
+      "eligibleForCurrentDocumentRebindingAtArchiveTime": true,
+      "eligibleAtEvaluationTime": true,
+      "evaluationErrors": [],
+      "reusableTransportUntil": "2026-10-25T06:06:51.177671Z"
+    },
+    {
+      "sourceId": "ivanti:official:1",
+      "supplierId": "ivanti",
+      "url": "https://www.ivanti.com/company/press-releases/2026/ivanti-appoints-robert-ruelas-as-chief-revenue-officer-and-promotes-sterling-parker-to-chief-customer-officer",
+      "inOriginal20": true,
+      "originalRunId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+      "originalAttemptId": "0c51f9cfaff8823472ec4bd922ad1ebad1bb0344c237ba8db47fb6f3c2a22b30",
+      "originalTaskOutcome": "not_checked",
+      "originalStartedAt": "2026-10-24T00:09:30.821454Z",
+      "originalCompletedAt": "2026-10-24T00:10:52.863241Z",
+      "originAnchor": {
+        "kind": "receipt_integrity_seal",
+        "sealPath": "receipt-integrity/be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd/f91c3429d9859e24c668ff1ad2691b85219f9f5c83a36b6a295271b51bbcdb38/0c51f9cfaff8823472ec4bd922ad1ebad1bb0344c237ba8db47fb6f3c2a22b30.json",
+        "receipt": {
+          "bytes": 2585,
+          "key": "objects/6e3bb6aab73a11e65ad748e9822397b29ac472234e0f2bfa2e28a45199b58b16",
+          "sha256": "6e3bb6aab73a11e65ad748e9822397b29ac472234e0f2bfa2e28a45199b58b16"
+        },
+        "attemptPath": "runs/be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd/attempts/0c51f9cfaff8823472ec4bd922ad1ebad1bb0344c237ba8db47fb6f3c2a22b30.json",
+        "originalPlanSha256": "8a31d4c23a65cc17b2f5abd94fdc8fc480125e63f9559cd031dc65455456821b"
+      },
+      "observationId": "62b43c379db5dfa1791bcfd0b73627f8ef9dbb923089880bd4e3dbd2f27e87dd",
+      "observationCanonicalSha256": "33fb08992ee286c7b55493634bfa7af0dd7f4fc74d04c927d675334fafd8cb70",
+      "sourceFetchedAt": "2026-10-24T00:10:07.287277Z",
+      "sourceStatus": "fetched",
+      "body": {
+        "bytes": 24560,
+        "key": "objects/58c10f35189df85452b3f4fdb4f6a00f572fd82c57a341fd110bb562e98abfc1",
+        "sha256": "58c10f35189df85452b3f4fdb4f6a00f572fd82c57a341fd110bb562e98abfc1"
+      },
+      "bodyOriginalFetchedAt": "2026-10-24T00:10:07.287277Z",
+      "reusesObservationId": null,
+      "validation": {
+        "bytes": 833,
+        "key": "objects/de167881cba8a4b3cbb3ed9376a554ee7f9646c96f0606dc020c5eacad5da7a4",
+        "sha256": "de167881cba8a4b3cbb3ed9376a554ee7f9646c96f0606dc020c5eacad5da7a4"
+      },
+      "policySha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+      "candidateHashes": [
+        "135f54df7fbd761f6560ae11c543aa95e479e25695ff022810504f14d4cc7e7f",
+        "a3e46ec155073c18e2c805d198110261169037e6ce77c20a135eaf62aedbf730"
+      ],
+      "archivedReplay": {
+        "kind": "complete_candidate_dispositions",
+        "contextSha256": "1e8f237a508f4bac84d1a358266d9578a0f6225f0eb84df7ff21652720810b37",
+        "extractor": 3,
+        "modelInputSha256": "0980b26337cfbdd0f9d57f5fb70c67394a3b2e11243e752ec336e8f5b6375b78",
+        "modelInputChars": 4911,
+        "extractionCacheKey": "77e5078bfdc4bb23e07bd663a51762df6c26307ceb5571c7a8efe479b6460dce",
+        "extractionCanonicalSha256": "2ebe19deb2a9e3cfbb154209b9150b348962fd1ead43d525ca92dba98769ebc7",
+        "dispositions": [
+          {
+            "kind": "accepted",
+            "fact": {
+              "bytes": 1300,
+              "key": "objects/e726af8df4c20ca6bb7570c7313b83c3641255fafae2b3af7c17a5c05e250199",
+              "sha256": "e726af8df4c20ca6bb7570c7313b83c3641255fafae2b3af7c17a5c05e250199"
+            },
+            "candidateSha256": "135f54df7fbd761f6560ae11c543aa95e479e25695ff022810504f14d4cc7e7f",
+            "review": {
+              "bytes": 425,
+              "key": "objects/eece76cd6be5648f34105061d18840830759e2485263cda8a220ac599da72c6d",
+              "sha256": "eece76cd6be5648f34105061d18840830759e2485263cda8a220ac599da72c6d"
+            },
+            "originalSourceObservationId": "62b43c379db5dfa1791bcfd0b73627f8ef9dbb923089880bd4e3dbd2f27e87dd"
+          },
+          {
+            "kind": "accepted",
+            "fact": {
+              "bytes": 1285,
+              "key": "objects/876caeb08e375865efd8085bc90f9928d7e93df4e21b65fdad051633a510c2a5",
+              "sha256": "876caeb08e375865efd8085bc90f9928d7e93df4e21b65fdad051633a510c2a5"
+            },
+            "candidateSha256": "a3e46ec155073c18e2c805d198110261169037e6ce77c20a135eaf62aedbf730",
+            "review": {
+              "bytes": 425,
+              "key": "objects/7372fdad93a98f5a67353672bf6fcee069feed30649a4c8dd378aba14dc126ba",
+              "sha256": "7372fdad93a98f5a67353672bf6fcee069feed30649a4c8dd378aba14dc126ba"
+            },
+            "originalSourceObservationId": "62b43c379db5dfa1791bcfd0b73627f8ef9dbb923089880bd4e3dbd2f27e87dd"
+          }
+        ],
+        "sourceAgeHours": 0.469868
+      },
+      "existingReconcileOneDocumentMechanics": "pass_non_admitting",
+      "eligibleForCurrentDocumentRebindingAtArchiveTime": true,
+      "eligibleAtEvaluationTime": true,
+      "evaluationErrors": [],
+      "reusableTransportUntil": "2026-10-25T06:10:07.287277Z"
+    },
+    {
+      "sourceId": "proofpoint:official:1",
+      "supplierId": "proofpoint",
+      "url": "https://www.proofpoint.com/us/newsroom/press-releases/proofpoint-acquire-varonis-creating-global-leader-data-and-ai-security",
+      "inOriginal20": true,
+      "originalRunId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+      "originalAttemptId": "acbdcce123e0c72366b41b227e86641093492f5293e41e2a565b2ed2e1bc2f2f",
+      "originalTaskOutcome": "not_checked",
+      "originalStartedAt": "2026-10-24T00:06:50.226885Z",
+      "originalCompletedAt": "2026-10-24T00:08:27.688011Z",
+      "originAnchor": {
+        "kind": "receipt_integrity_seal",
+        "sealPath": "receipt-integrity/be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd/82e3395719a7c8e1d117ea0f1d2bb03e221ef0d160fad7b59274c0299bc916d1/acbdcce123e0c72366b41b227e86641093492f5293e41e2a565b2ed2e1bc2f2f.json",
+        "receipt": {
+          "bytes": 2651,
+          "key": "objects/1161fff8c5c518d580e7c14fcdd57e164b4fcd9ef2a3eef511e8c93d2901b9ef",
+          "sha256": "1161fff8c5c518d580e7c14fcdd57e164b4fcd9ef2a3eef511e8c93d2901b9ef"
+        },
+        "attemptPath": "runs/be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd/attempts/acbdcce123e0c72366b41b227e86641093492f5293e41e2a565b2ed2e1bc2f2f.json",
+        "originalPlanSha256": "8a31d4c23a65cc17b2f5abd94fdc8fc480125e63f9559cd031dc65455456821b"
+      },
+      "observationId": "7a2cda6cee608e0661e11b309d240e069eabc8a3ea3bd7782e7722c6c669ecbe",
+      "observationCanonicalSha256": "cfc46de63f6770bb4d13cdfefcecd1dd246906d6e4959a5a3014f932e2b9f875",
+      "sourceFetchedAt": "2026-10-24T00:06:53.572672Z",
+      "sourceStatus": "fetched",
+      "body": {
+        "bytes": 132826,
+        "key": "objects/f69fbf3de82e24a83d96487fb832c36d639033ce2255a5595afb4c0b97fef9a7",
+        "sha256": "f69fbf3de82e24a83d96487fb832c36d639033ce2255a5595afb4c0b97fef9a7"
+      },
+      "bodyOriginalFetchedAt": "2026-10-24T00:06:53.572672Z",
+      "reusesObservationId": null,
+      "validation": {
+        "bytes": 1076,
+        "key": "objects/379d6c84c73043f035a29ef612433cdad1ddaca703e86a8f8ba72c0cb6b5d959",
+        "sha256": "379d6c84c73043f035a29ef612433cdad1ddaca703e86a8f8ba72c0cb6b5d959"
+      },
+      "policySha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+      "candidateHashes": [
+        "82b88e6f4cdff6583a317cc4a64359e968a6cff6fb9395422d2aedf66befef7b",
+        "204530e18b6003a41817aa49981dbe42c2d9a78c66dab9401cdf040e6ee3acd6",
+        "d1c29e50415cb38b7ecbe4ade88726110d8f1704603fd99610fe84b7018cbeac"
+      ],
+      "archivedReplay": {
+        "kind": "complete_candidate_dispositions",
+        "contextSha256": "180d0f9ff1ea7438e14b5444198513bdc2941eaa8af74426a12610973c72eb71",
+        "extractor": 3,
+        "modelInputSha256": "5394376d365c8808b6edfba0e61101b6411a65ce9d6ea8d3f5b25ccbb2a1c645",
+        "modelInputChars": 17413,
+        "extractionCacheKey": "3b5bc3df5348d1c68d05c5eed6064abfa65ebc3d11db6520004b1a8bc6e153b9",
+        "extractionCanonicalSha256": "443080a44caff0c12a0e632ce939f2f8dedbda9a0186a7c9d40d3bb30edc1117",
+        "dispositions": [
+          {
+            "kind": "accepted",
+            "fact": {
+              "bytes": 1479,
+              "key": "objects/3491eb348cec47a93d500ae8c60b47afa5424596243989446df0cd3733af0873",
+              "sha256": "3491eb348cec47a93d500ae8c60b47afa5424596243989446df0cd3733af0873"
+            },
+            "candidateSha256": "82b88e6f4cdff6583a317cc4a64359e968a6cff6fb9395422d2aedf66befef7b",
+            "review": {
+              "bytes": 425,
+              "key": "objects/82765b91e26cfd8b11bdbe2ad36a70a69b0e5ff7a26edbed4cfd046b875fc2ca",
+              "sha256": "82765b91e26cfd8b11bdbe2ad36a70a69b0e5ff7a26edbed4cfd046b875fc2ca"
+            },
+            "originalSourceObservationId": "7a2cda6cee608e0661e11b309d240e069eabc8a3ea3bd7782e7722c6c669ecbe"
+          },
+          {
+            "kind": "accepted",
+            "fact": {
+              "bytes": 1180,
+              "key": "objects/272f902847b19bc166683a87d9d898f34fa3ce568d8a84ff59af4d6d4fb96f7e",
+              "sha256": "272f902847b19bc166683a87d9d898f34fa3ce568d8a84ff59af4d6d4fb96f7e"
+            },
+            "candidateSha256": "204530e18b6003a41817aa49981dbe42c2d9a78c66dab9401cdf040e6ee3acd6",
+            "review": {
+              "bytes": 425,
+              "key": "objects/51bef8d17428975a64f5c3768989e063073a302fd3451e84ee531215d4f8cb1c",
+              "sha256": "51bef8d17428975a64f5c3768989e063073a302fd3451e84ee531215d4f8cb1c"
+            },
+            "originalSourceObservationId": "7a2cda6cee608e0661e11b309d240e069eabc8a3ea3bd7782e7722c6c669ecbe"
+          },
+          {
+            "kind": "held",
+            "heldReceipt": {
+              "bytes": 1155,
+              "key": "objects/a461cb233704588559d0e3aebbe0f2397edffee8779cd6762d76ff2a37b5b174",
+              "sha256": "a461cb233704588559d0e3aebbe0f2397edffee8779cd6762d76ff2a37b5b174"
+            },
+            "candidateSha256": "d1c29e50415cb38b7ecbe4ade88726110d8f1704603fd99610fe84b7018cbeac",
+            "review": {
+              "bytes": 432,
+              "key": "objects/87525bb6d0cd264cbd7c0cec534a08be015bdd5b16f993225f3e417c1754c5cf",
+              "sha256": "87525bb6d0cd264cbd7c0cec534a08be015bdd5b16f993225f3e417c1754c5cf"
+            },
+            "reviewResult": "ambiguous",
+            "reason": "Independent semantic review incomplete or disagrees",
+            "originalSourceObservationId": "7a2cda6cee608e0661e11b309d240e069eabc8a3ea3bd7782e7722c6c669ecbe"
+          }
+        ],
+        "sourceAgeHours": 0.523677
+      },
+      "existingReconcileOneDocumentMechanics": "pass_non_admitting",
+      "eligibleForCurrentDocumentRebindingAtArchiveTime": true,
+      "eligibleAtEvaluationTime": true,
+      "evaluationErrors": [],
+      "reusableTransportUntil": "2026-10-25T06:06:53.572672Z"
+    },
+    {
+      "sourceId": "reliaquest:official:1",
+      "supplierId": "reliaquest",
+      "url": "https://reliaquest.com/news-and-press/",
+      "inOriginal20": true,
+      "originalRunId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+      "originalAttemptId": "98959e487b2072e0322112bdcb20c9aaad2d0acdba0bbad570bcfb281b8fcdb2",
+      "originalTaskOutcome": "not_checked",
+      "originalStartedAt": "2026-10-24T00:09:40.396832Z",
+      "originalCompletedAt": "2026-10-24T00:11:02.031402Z",
+      "originAnchor": {
+        "kind": "receipt_integrity_seal",
+        "sealPath": "receipt-integrity/be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd/fe1ca79ebe38b3be56056dcbe6754b9ed582a75560d3ccb69bdfc6369abab2bf/98959e487b2072e0322112bdcb20c9aaad2d0acdba0bbad570bcfb281b8fcdb2.json",
+        "receipt": {
+          "bytes": 1697,
+          "key": "objects/d9f39f183a4e514a967a90c7ea4552538f27ffbc9814119253a6dd9b1588e82c",
+          "sha256": "d9f39f183a4e514a967a90c7ea4552538f27ffbc9814119253a6dd9b1588e82c"
+        },
+        "attemptPath": "runs/be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd/attempts/98959e487b2072e0322112bdcb20c9aaad2d0acdba0bbad570bcfb281b8fcdb2.json",
+        "originalPlanSha256": "8a31d4c23a65cc17b2f5abd94fdc8fc480125e63f9559cd031dc65455456821b"
+      },
+      "observationId": "b643cddd4f949b9002417462cb4e8116e80e9177e091cb3483c6b228ec4f52e9",
+      "observationCanonicalSha256": "30b35bb67e2e565ba33e7d9e81b5844b862254c12a2fa0ea605109188d430bd5",
+      "sourceFetchedAt": "2026-10-24T00:09:41.008505Z",
+      "sourceStatus": "fetched",
+      "body": {
+        "bytes": 51380,
+        "key": "objects/b159a9c61ea28655d3bc6301edbd32cb4d4f0e9289a9a5b4e947679d8949d410",
+        "sha256": "b159a9c61ea28655d3bc6301edbd32cb4d4f0e9289a9a5b4e947679d8949d410"
+      },
+      "bodyOriginalFetchedAt": "2026-10-24T00:09:41.008505Z",
+      "reusesObservationId": null,
+      "validation": {
+        "bytes": 527,
+        "key": "objects/e3ee1f2b89e42884e1515c370fdc0f61b24a0b4b282ba3e90a17ebdadcff12d5",
+        "sha256": "e3ee1f2b89e42884e1515c370fdc0f61b24a0b4b282ba3e90a17ebdadcff12d5"
+      },
+      "policySha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+      "candidateHashes": [],
+      "archivedReplay": {
+        "kind": "independently_reviewed_empty",
+        "contextSha256": "28fa20a4268b152a17fe9677edf443e730f915f522c5bfd8f879b5d50955b0e2",
+        "extractor": 3,
+        "modelInputSha256": "e6e3b0a5f675e88c7d4a91b3921936046d202caad6066efb984d8fb36e1be4c5",
+        "modelInputChars": 380,
+        "extractionCacheKey": "41c757919479ce608837e359c32b1610dbad66ce5c8e477c89c9a48c526ff0ff",
+        "extractionCanonicalSha256": "8a79407082fc9fd80a56a8ec4e5e22b5fc4584769aabb2bd8036dad4c60d028c",
+        "dispositions": [
+          {
+            "kind": "independently_reviewed_empty",
+            "review": {
+              "bytes": 190,
+              "key": "objects/14d1dc0928f10f3667b6ec133a3127fba0ada3a905af2b4ea92dc71ead8c6cbe",
+              "sha256": "14d1dc0928f10f3667b6ec133a3127fba0ada3a905af2b4ea92dc71ead8c6cbe"
+            }
+          }
+        ],
+        "sourceAgeHours": 0.477168
+      },
+      "existingReconcileOneDocumentMechanics": "pass_non_admitting",
+      "eligibleForCurrentDocumentRebindingAtArchiveTime": true,
+      "eligibleAtEvaluationTime": true,
+      "evaluationErrors": [],
+      "reusableTransportUntil": "2026-10-25T06:09:41.008505Z"
+    },
+    {
+      "sourceId": "sophos:official:1",
+      "supplierId": "sophos",
+      "url": "https://www.thomabravo.com/press-releases/calabrio-welcomes-dave-rhodes-as-chief-executive-officer",
+      "inOriginal20": true,
+      "originalRunId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+      "originalAttemptId": "902249e9b3aded14c4d5a227e2917e1a6750da336d4f764fc0a79ef4a1b14cb5",
+      "originalTaskOutcome": "not_checked",
+      "originalStartedAt": "2026-10-24T00:10:25.151560Z",
+      "originalCompletedAt": "2026-10-24T00:11:20.544678Z",
+      "originAnchor": {
+        "kind": "receipt_integrity_seal",
+        "sealPath": "receipt-integrity/be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd/454fc5859352e8f063a50f853e734fa7db9d59e4d28c8d5a48a0f6b37a52d96a/902249e9b3aded14c4d5a227e2917e1a6750da336d4f764fc0a79ef4a1b14cb5.json",
+        "receipt": {
+          "bytes": 1924,
+          "key": "objects/5a43e5b94ae5ceeb577d21fcf26b28e4cd850d56134ecba7e02f6b26b4828347",
+          "sha256": "5a43e5b94ae5ceeb577d21fcf26b28e4cd850d56134ecba7e02f6b26b4828347"
+        },
+        "attemptPath": "runs/be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd/attempts/902249e9b3aded14c4d5a227e2917e1a6750da336d4f764fc0a79ef4a1b14cb5.json",
+        "originalPlanSha256": "8a31d4c23a65cc17b2f5abd94fdc8fc480125e63f9559cd031dc65455456821b"
+      },
+      "observationId": "cf6978ef0e6056a778fdca06e2e87212cbbb147c141a71f9a2a3cd5311a6e41a",
+      "observationCanonicalSha256": "da5717b69a4acd13161202dab892ce2b0a59ee31b2175e70f48c6350b96e4507",
+      "sourceFetchedAt": "2026-10-24T00:11:02.310624Z",
+      "sourceStatus": "fetched",
+      "body": {
+        "bytes": 149785,
+        "key": "objects/bc391ec3de465298bacfdab4d196a08b63840cce499cfa03e6d3ea55f2705a2b",
+        "sha256": "bc391ec3de465298bacfdab4d196a08b63840cce499cfa03e6d3ea55f2705a2b"
+      },
+      "bodyOriginalFetchedAt": "2026-10-24T00:11:02.310624Z",
+      "reusesObservationId": null,
+      "validation": {
+        "bytes": 408,
+        "key": "objects/557eb28987f9777f6e9e840817df1d6eb14b668dbbf1356ef38ab247f210cd70",
+        "sha256": "557eb28987f9777f6e9e840817df1d6eb14b668dbbf1356ef38ab247f210cd70"
+      },
+      "policySha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+      "candidateHashes": [],
+      "archivedReplay": {
+        "kind": "deterministic_entity_exclusion",
+        "contextSha256": "c0dc05607b0e4388005107da09ccb58e1dd8e47ee5d337ae086829d18b492e19",
+        "extractor": 3,
+        "modelInputSha256": "7b4dccf3764d0ef46be1a1e15bebaa297e7c7b68462f720f8d6125ffdf78a343",
+        "modelInputChars": 3331,
+        "extractionCacheKey": "5755b9c3a275d11f6f2e9355d74602ef3d2744dd779c70a0c1f8b773c1a826eb",
+        "extractionCanonicalSha256": null,
+        "dispositions": [],
+        "sourceAgeHours": 0.454584
+      },
+      "existingReconcileOneDocumentMechanics": "pass_non_admitting",
+      "eligibleForCurrentDocumentRebindingAtArchiveTime": true,
+      "eligibleAtEvaluationTime": true,
+      "evaluationErrors": [],
+      "reusableTransportUntil": "2026-10-25T06:11:02.310624Z"
+    },
+    {
+      "sourceId": "sophos:official:1",
+      "supplierId": "sophos",
+      "url": "https://www.thomabravo.com/press-releases/j.d.-power-to-merge-with-autodata-solutions-creating-a-leading-source-of-automotive-data-analytics-and-software-solutions",
+      "inOriginal20": true,
+      "originalRunId": "e054ea73c89fe78db9702f94d2a3b669ce91884f7d7abda0a88698dbcfc7ec50",
+      "originalAttemptId": "4a3bc097ab7105cb42077ae7f5fb70fa2b88cb0719a6607b1e182f29173626a0",
+      "originalTaskOutcome": "not_checked",
+      "originalStartedAt": "2026-10-23T04:15:21.518968Z",
+      "originalCompletedAt": "2026-10-23T04:15:22.965512Z",
+      "originAnchor": {
+        "kind": "legacy_coverage_membership",
+        "coverage": {
+          "key": "objects/12baabcbf3f9eff5fab2022949c57ff5ffbf14b3361a715f67dafc8421ed87cb",
+          "sha256": "12baabcbf3f9eff5fab2022949c57ff5ffbf14b3361a715f67dafc8421ed87cb",
+          "bytes": 503331
+        },
+        "attemptCanonicalSha256": "3beb53e91f1217b15102a0e18bfc45678d96c0f9d1bed16431d4349b690dc0f3",
+        "attemptPath": "runs/e054ea73c89fe78db9702f94d2a3b669ce91884f7d7abda0a88698dbcfc7ec50/attempts/4a3bc097ab7105cb42077ae7f5fb70fa2b88cb0719a6607b1e182f29173626a0.json",
+        "originalPlanSha256": "8b1f2c63d0e238b35509b5a68ad29da7e3952cb1980032876f2612f867e760d3"
+      },
+      "observationId": "e50f4286cb35383299ed6bdf077498a0ff5744a22aa7143651ed53a48d1605a9",
+      "observationCanonicalSha256": "755598f5bf642ae973688ebe247a5e38bfe106178e39050329c9525b82a03832",
+      "sourceFetchedAt": "2026-10-23T04:15:22.373793Z",
+      "sourceStatus": "not_modified",
+      "body": {
+        "bytes": 157670,
+        "key": "objects/f9e399d4092858193a563b03139a8b236b74c8f5597fb491e1464072bc68a3fc",
+        "sha256": "f9e399d4092858193a563b03139a8b236b74c8f5597fb491e1464072bc68a3fc"
+      },
+      "bodyOriginalFetchedAt": "2026-10-22T01:12:16.515747Z",
+      "reusesObservationId": "10c4d66f56ddb64311c0f3af0cbc30705d3247907d7ce7d0d22e7d85917faab3",
+      "validation": {
+        "bytes": 408,
+        "key": "objects/95349b3bdf14c76446de2d5a223b342e5b226f7a6a461a3af3e7819acb43870c",
+        "sha256": "95349b3bdf14c76446de2d5a223b342e5b226f7a6a461a3af3e7819acb43870c"
+      },
+      "policySha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+      "candidateHashes": [],
+      "archivedReplay": {
+        "kind": "deterministic_entity_exclusion",
+        "contextSha256": "fcd8647049ed3c4aba6504dd8265d86093f3a45b6872cd4826acc57b44a191a2",
+        "extractor": 3,
+        "modelInputSha256": "6fc9f278ee1785d9ffafb8a4713fe9cf982a13ee1ee362077a1b34c615ad5af5",
+        "modelInputChars": 6342,
+        "extractionCacheKey": "c09bf48f22b64de07ad6742389d5326c2399dbe7e9e57249a9dffdd530f02448",
+        "extractionCanonicalSha256": null,
+        "dispositions": [],
+        "sourceAgeHours": 20.382344
+      },
+      "existingReconcileOneDocumentMechanics": "pass_non_admitting",
+      "eligibleForCurrentDocumentRebindingAtArchiveTime": true,
+      "eligibleAtEvaluationTime": true,
+      "evaluationErrors": [],
+      "reusableTransportUntil": "2026-10-24T10:15:22.373793Z"
+    },
+    {
+      "sourceId": "sophos:official:1",
+      "supplierId": "sophos",
+      "url": "https://www.thomabravo.com/press-releases/thoma-bravo-announces-strategic-acquisition-of-calabrio-to-accelerate-companys-cloud-first-customer-experience-growth",
+      "inOriginal20": true,
+      "originalRunId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+      "originalAttemptId": "902249e9b3aded14c4d5a227e2917e1a6750da336d4f764fc0a79ef4a1b14cb5",
+      "originalTaskOutcome": "not_checked",
+      "originalStartedAt": "2026-10-24T00:10:25.151560Z",
+      "originalCompletedAt": "2026-10-24T00:11:20.544678Z",
+      "originAnchor": {
+        "kind": "receipt_integrity_seal",
+        "sealPath": "receipt-integrity/be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd/454fc5859352e8f063a50f853e734fa7db9d59e4d28c8d5a48a0f6b37a52d96a/902249e9b3aded14c4d5a227e2917e1a6750da336d4f764fc0a79ef4a1b14cb5.json",
+        "receipt": {
+          "bytes": 1924,
+          "key": "objects/5a43e5b94ae5ceeb577d21fcf26b28e4cd850d56134ecba7e02f6b26b4828347",
+          "sha256": "5a43e5b94ae5ceeb577d21fcf26b28e4cd850d56134ecba7e02f6b26b4828347"
+        },
+        "attemptPath": "runs/be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd/attempts/902249e9b3aded14c4d5a227e2917e1a6750da336d4f764fc0a79ef4a1b14cb5.json",
+        "originalPlanSha256": "8a31d4c23a65cc17b2f5abd94fdc8fc480125e63f9559cd031dc65455456821b"
+      },
+      "observationId": "10b3bebbbcea822037e91cb1ce9986e889aeb90cab68cc034c9dfe1b5252706b",
+      "observationCanonicalSha256": "4663fb5e8403ede678ac4a2184d26c36895de194c8de0d5af8a36731494affbc",
+      "sourceFetchedAt": "2026-10-24T00:10:25.645130Z",
+      "sourceStatus": "not_modified",
+      "body": {
+        "bytes": 162440,
+        "key": "objects/cae8ebbf2148d3ce4c42f6c74c6e450b9c6ef3517c57d70881de69714886755f",
+        "sha256": "cae8ebbf2148d3ce4c42f6c74c6e450b9c6ef3517c57d70881de69714886755f"
+      },
+      "bodyOriginalFetchedAt": "2026-10-22T01:12:17.080644Z",
+      "reusesObservationId": "7c019341c90a9995dcd8e4b13740841a92c395a20e48b4b54d644ec8f4198cc2",
+      "validation": {
+        "bytes": 408,
+        "key": "objects/ba40c40527f4832639d339bebf5a44914857c46874565920ccd6d10f4fb80fea",
+        "sha256": "ba40c40527f4832639d339bebf5a44914857c46874565920ccd6d10f4fb80fea"
+      },
+      "policySha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+      "candidateHashes": [],
+      "archivedReplay": {
+        "kind": "deterministic_entity_exclusion",
+        "contextSha256": "fdc425f196b68a27625d6935d419087e5e7774e25ef5893a25939e55dafe5175",
+        "extractor": 3,
+        "modelInputSha256": "63c589882876d9d844d001b5bd92f0342a488a825b21f0db911b672df7d7ea6d",
+        "modelInputChars": 6562,
+        "extractionCacheKey": "623bad37a28b988ac2c52521b28d350f3f45aa74ed42879f40c4776bbbfb8e2c",
+        "extractionCanonicalSha256": null,
+        "dispositions": [],
+        "sourceAgeHours": 0.464768
+      },
+      "existingReconcileOneDocumentMechanics": "pass_non_admitting",
+      "eligibleForCurrentDocumentRebindingAtArchiveTime": true,
+      "eligibleAtEvaluationTime": true,
+      "evaluationErrors": [],
+      "reusableTransportUntil": "2026-10-25T06:10:25.645130Z"
+    },
+    {
+      "sourceId": "sophos:official:1",
+      "supplierId": "sophos",
+      "url": "https://www.thomabravo.com/press-releases/thoma-bravo-owned-quorum-software-and-aucerna-to-merge-and-acquire-tietoevrys-oil-and-gas-software-business",
+      "inOriginal20": true,
+      "originalRunId": "e054ea73c89fe78db9702f94d2a3b669ce91884f7d7abda0a88698dbcfc7ec50",
+      "originalAttemptId": "4a3bc097ab7105cb42077ae7f5fb70fa2b88cb0719a6607b1e182f29173626a0",
+      "originalTaskOutcome": "not_checked",
+      "originalStartedAt": "2026-10-23T04:15:21.518968Z",
+      "originalCompletedAt": "2026-10-23T04:15:22.965512Z",
+      "originAnchor": {
+        "kind": "legacy_coverage_membership",
+        "coverage": {
+          "key": "objects/12baabcbf3f9eff5fab2022949c57ff5ffbf14b3361a715f67dafc8421ed87cb",
+          "sha256": "12baabcbf3f9eff5fab2022949c57ff5ffbf14b3361a715f67dafc8421ed87cb",
+          "bytes": 503331
+        },
+        "attemptCanonicalSha256": "3beb53e91f1217b15102a0e18bfc45678d96c0f9d1bed16431d4349b690dc0f3",
+        "attemptPath": "runs/e054ea73c89fe78db9702f94d2a3b669ce91884f7d7abda0a88698dbcfc7ec50/attempts/4a3bc097ab7105cb42077ae7f5fb70fa2b88cb0719a6607b1e182f29173626a0.json",
+        "originalPlanSha256": "8b1f2c63d0e238b35509b5a68ad29da7e3952cb1980032876f2612f867e760d3"
+      },
+      "observationId": "6fc5c43ca4bb24b28b8561bffbdccee7b2d3860c7b32bc8c2369cd33ce9fac46",
+      "observationCanonicalSha256": "708c04c8d3d17e72024786e1e7e3b8de73f8d8ae55697795c314dae629dea3b2",
+      "sourceFetchedAt": "2026-10-23T04:15:22.923121Z",
+      "sourceStatus": "not_modified",
+      "body": {
+        "bytes": 157396,
+        "key": "objects/a77d37027244d7d82eeaa5edce9d67f7b6d25b8b2d3e583db0303cf29acfe745",
+        "sha256": "a77d37027244d7d82eeaa5edce9d67f7b6d25b8b2d3e583db0303cf29acfe745"
+      },
+      "bodyOriginalFetchedAt": "2026-10-22T01:12:16.760428Z",
+      "reusesObservationId": "d9462c614c279f1baf2a03276e10bb59a2047f14a61189819e8504d0cd39926b",
+      "validation": {
+        "bytes": 408,
+        "key": "objects/f244b45855ccf71aa41d83f145d91fdd34a7ece4c46789a33f6becd64f247175",
+        "sha256": "f244b45855ccf71aa41d83f145d91fdd34a7ece4c46789a33f6becd64f247175"
+      },
+      "policySha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+      "candidateHashes": [],
+      "archivedReplay": {
+        "kind": "deterministic_entity_exclusion",
+        "contextSha256": "2533421a214f2dea585d650afbb30ae47038808185646f14cf6e5e53b7a1e344",
+        "extractor": 3,
+        "modelInputSha256": "bc3f245358ed451bdd23f6f7f3dad2090217d9779297ea79081c204cb002ee65",
+        "modelInputChars": 5559,
+        "extractionCacheKey": "7ba47831a8acb5e08cd02f3a72b4c4e03f9902127783c02616a67ba0f7f8170e",
+        "extractionCanonicalSha256": null,
+        "dispositions": [],
+        "sourceAgeHours": 20.382191
+      },
+      "existingReconcileOneDocumentMechanics": "pass_non_admitting",
+      "eligibleForCurrentDocumentRebindingAtArchiveTime": true,
+      "eligibleAtEvaluationTime": true,
+      "evaluationErrors": [],
+      "reusableTransportUntil": "2026-10-24T10:15:22.923121Z"
+    },
+    {
+      "sourceId": "upwind:official:1",
+      "supplierId": "upwind",
+      "url": "https://www.upwind.io/feed/threat-post",
+      "inOriginal20": true,
+      "originalRunId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+      "originalAttemptId": "7cfbcc462c05ad099421358ee4b108465cf9096ec559f740da83dfcca3b4db60",
+      "originalTaskOutcome": "not_checked",
+      "originalStartedAt": "2026-10-24T00:09:58.778547Z",
+      "originalCompletedAt": "2026-10-24T00:11:09.870380Z",
+      "originAnchor": {
+        "kind": "receipt_integrity_seal",
+        "sealPath": "receipt-integrity/be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd/21eb3bf788109b9077fecd51ab32aba6402afcd4b4e819c6cab946a0943e8686/7cfbcc462c05ad099421358ee4b108465cf9096ec559f740da83dfcca3b4db60.json",
+        "receipt": {
+          "bytes": 2809,
+          "key": "objects/f2895ad07bfcc822a4275bfdbe97f25134f8dd4732fa24d105bacbad324ea6bb",
+          "sha256": "f2895ad07bfcc822a4275bfdbe97f25134f8dd4732fa24d105bacbad324ea6bb"
+        },
+        "attemptPath": "runs/be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd/attempts/7cfbcc462c05ad099421358ee4b108465cf9096ec559f740da83dfcca3b4db60.json",
+        "originalPlanSha256": "8a31d4c23a65cc17b2f5abd94fdc8fc480125e63f9559cd031dc65455456821b"
+      },
+      "observationId": "7a4e314a2699022c8085bb5491902cfa893b1d219a795bf5aa3f442c8787a603",
+      "observationCanonicalSha256": "3337832ae828c53fb114fc32d93e28a094bbe57a6bdcd4c31b956949c6867835",
+      "sourceFetchedAt": "2026-10-24T00:10:34.303118Z",
+      "sourceStatus": "fetched",
+      "body": {
+        "bytes": 426825,
+        "key": "objects/c5544c01da177d74a3676fb1d895622c408aa0c7235bfb45a9a35548279e9dfb",
+        "sha256": "c5544c01da177d74a3676fb1d895622c408aa0c7235bfb45a9a35548279e9dfb"
+      },
+      "bodyOriginalFetchedAt": "2026-10-24T00:10:34.303118Z",
+      "reusesObservationId": null,
+      "validation": {
+        "bytes": 524,
+        "key": "objects/878f242ff92d6021de3a2eb8a757e3c21bc5a9593614025618e059cf981ead01",
+        "sha256": "878f242ff92d6021de3a2eb8a757e3c21bc5a9593614025618e059cf981ead01"
+      },
+      "policySha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+      "candidateHashes": [],
+      "archivedReplay": {
+        "kind": "independently_reviewed_empty",
+        "contextSha256": "0f633c6334ab6fee9ad6c38f7197e9d057b9d8bba58429db58a072f56a991dc3",
+        "extractor": 3,
+        "modelInputSha256": "950c14e2a85527b50f8839114c1e50babdfea1adc82589814845a0899844a782",
+        "modelInputChars": 2492,
+        "extractionCacheKey": "cea97b63e008dce0e30ed47b1e1fc2a68802fad4bea14ea4a4f0499f01e18701",
+        "extractionCanonicalSha256": "f4b6ddeaf63a2f01df839d54e0c27d736c68e4f8648eb78e0b42589afb137025",
+        "dispositions": [
+          {
+            "kind": "independently_reviewed_empty",
+            "review": {
+              "bytes": 190,
+              "key": "objects/25b8fc518506741c7dbf65e71cf29894086d32190af2b013064fcdb4c86e0ec8",
+              "sha256": "25b8fc518506741c7dbf65e71cf29894086d32190af2b013064fcdb4c86e0ec8"
+            }
+          }
+        ],
+        "sourceAgeHours": 0.462363
+      },
+      "existingReconcileOneDocumentMechanics": "pass_non_admitting",
+      "eligibleForCurrentDocumentRebindingAtArchiveTime": true,
+      "eligibleAtEvaluationTime": true,
+      "evaluationErrors": [],
+      "reusableTransportUntil": "2026-10-25T06:10:34.303118Z"
+    },
+    {
+      "sourceId": "upwind:official:1",
+      "supplierId": "upwind",
+      "url": "https://www.upwind.io/feed/threat-post/multiple-cves-node-js-tls-hostname-verification-and-ip-normalization-flaws-enable-mitm-and-certificate-bypass",
+      "inOriginal20": true,
+      "originalRunId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+      "originalAttemptId": "7cfbcc462c05ad099421358ee4b108465cf9096ec559f740da83dfcca3b4db60",
+      "originalTaskOutcome": "not_checked",
+      "originalStartedAt": "2026-10-24T00:09:58.778547Z",
+      "originalCompletedAt": "2026-10-24T00:11:09.870380Z",
+      "originAnchor": {
+        "kind": "receipt_integrity_seal",
+        "sealPath": "receipt-integrity/be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd/21eb3bf788109b9077fecd51ab32aba6402afcd4b4e819c6cab946a0943e8686/7cfbcc462c05ad099421358ee4b108465cf9096ec559f740da83dfcca3b4db60.json",
+        "receipt": {
+          "bytes": 2809,
+          "key": "objects/f2895ad07bfcc822a4275bfdbe97f25134f8dd4732fa24d105bacbad324ea6bb",
+          "sha256": "f2895ad07bfcc822a4275bfdbe97f25134f8dd4732fa24d105bacbad324ea6bb"
+        },
+        "attemptPath": "runs/be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd/attempts/7cfbcc462c05ad099421358ee4b108465cf9096ec559f740da83dfcca3b4db60.json",
+        "originalPlanSha256": "8a31d4c23a65cc17b2f5abd94fdc8fc480125e63f9559cd031dc65455456821b"
+      },
+      "observationId": "03db37fbf65b70da6dacd03c02a76b064fd1662ba0b253c98b9d739a2c75aa22",
+      "observationCanonicalSha256": "6d17fd55db7ce31950abe0a7998fa40fc59711472737345b9530fc2b5279f091",
+      "sourceFetchedAt": "2026-10-24T00:10:03.486391Z",
+      "sourceStatus": "fetched",
+      "body": {
+        "bytes": 327079,
+        "key": "objects/5d5f6f9fca24fb6fdfd15ee25ec9e918534c2e44559cc07d1e042ab173aa381f",
+        "sha256": "5d5f6f9fca24fb6fdfd15ee25ec9e918534c2e44559cc07d1e042ab173aa381f"
+      },
+      "bodyOriginalFetchedAt": "2026-10-24T00:10:03.486391Z",
+      "reusesObservationId": null,
+      "validation": {
+        "bytes": 524,
+        "key": "objects/3f5959d3581e8d31d3e13b2f06d42b50228ffb4482867137ffec407713e30c0f",
+        "sha256": "3f5959d3581e8d31d3e13b2f06d42b50228ffb4482867137ffec407713e30c0f"
+      },
+      "policySha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+      "candidateHashes": [],
+      "archivedReplay": {
+        "kind": "independently_reviewed_empty",
+        "contextSha256": "ee1f892d67fc2fb42ce575717fd563c7a54d0035a17a09ed3381e72f32895fc8",
+        "extractor": 3,
+        "modelInputSha256": "0f71b50a4be7d1a74c8843931898e2fef290a0593ed7b6eff756f3ba2881fa95",
+        "modelInputChars": 1213,
+        "extractionCacheKey": "fd6309f58c5db842be93b69efa5917d568b35819e56bbf97d0707879deb6fb01",
+        "extractionCanonicalSha256": "d03f4c481b17cb0f514e5218adea28aa29631b116f66b2d72d353d0d4d8c9adc",
+        "dispositions": [
+          {
+            "kind": "independently_reviewed_empty",
+            "review": {
+              "bytes": 190,
+              "key": "objects/ac40836b97b79ee08aaf349c68c241d832796403eb3a095153c25e9f012111dd",
+              "sha256": "ac40836b97b79ee08aaf349c68c241d832796403eb3a095153c25e9f012111dd"
+            }
+          }
+        ],
+        "sourceAgeHours": 0.470924
+      },
+      "existingReconcileOneDocumentMechanics": "pass_non_admitting",
+      "eligibleForCurrentDocumentRebindingAtArchiveTime": true,
+      "eligibleAtEvaluationTime": true,
+      "evaluationErrors": [],
+      "reusableTransportUntil": "2026-10-25T06:10:03.486391Z"
+    },
+    {
+      "sourceId": "veeam:official:1",
+      "supplierId": "veeam",
+      "url": "https://www.veeam.com/company/press-release/veeam-recognized-by-gartner-as-a-leader-in-the-first-gartner-magic-quadrant-for-privacy-ux.html",
+      "inOriginal20": true,
+      "originalRunId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+      "originalAttemptId": "182e6a1815cce584bbd0edd265c448a4f42c4084327cc63a1f56eb047961fa6a",
+      "originalTaskOutcome": "not_checked",
+      "originalStartedAt": "2026-10-24T00:06:50.270591Z",
+      "originalCompletedAt": "2026-10-24T00:08:05.242144Z",
+      "originAnchor": {
+        "kind": "receipt_integrity_seal",
+        "sealPath": "receipt-integrity/be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd/da020e2b6070e1de6b20b6d009eb9e2f7453721891070f4e597997bbe9d1d84b/182e6a1815cce584bbd0edd265c448a4f42c4084327cc63a1f56eb047961fa6a.json",
+        "receipt": {
+          "bytes": 2043,
+          "key": "objects/6892eec387f7dbaff5e5e59fee787b71eff80c8e86cbdc50cd368192fd93c9e9",
+          "sha256": "6892eec387f7dbaff5e5e59fee787b71eff80c8e86cbdc50cd368192fd93c9e9"
+        },
+        "attemptPath": "runs/be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd/attempts/182e6a1815cce584bbd0edd265c448a4f42c4084327cc63a1f56eb047961fa6a.json",
+        "originalPlanSha256": "8a31d4c23a65cc17b2f5abd94fdc8fc480125e63f9559cd031dc65455456821b"
+      },
+      "observationId": "2c972087fe5fef8919e217dfb7f87ca7dd5e7dbf2b565becd8e3d51046cb7f41",
+      "observationCanonicalSha256": "c572ac25118eaad6d628ebf6750e5884bf3780ec4f3110d723af17d2614bc5fe",
+      "sourceFetchedAt": "2026-10-24T00:06:59.290023Z",
+      "sourceStatus": "fetched",
+      "body": {
+        "bytes": 183842,
+        "key": "objects/65568af42593ec2b8d3e4f7a6e63cb960f5a095ed3c360cddc849741ca9206e6",
+        "sha256": "65568af42593ec2b8d3e4f7a6e63cb960f5a095ed3c360cddc849741ca9206e6"
+      },
+      "bodyOriginalFetchedAt": "2026-10-24T00:06:59.290023Z",
+      "reusesObservationId": null,
+      "validation": {
+        "bytes": 594,
+        "key": "objects/928c05c2ea9bc10d6f2f8689152c4184f66ad390772cf1875486a6d294f62b63",
+        "sha256": "928c05c2ea9bc10d6f2f8689152c4184f66ad390772cf1875486a6d294f62b63"
+      },
+      "policySha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+      "candidateHashes": [
+        "bc6282aeaac4a0cca8a07c63105361469445d4b6be4f47207c34ebad0c0296bf"
+      ],
+      "archivedReplay": {
+        "kind": "complete_candidate_dispositions",
+        "contextSha256": "5123c2e6e5279e7498d70c87aec81ba4a4b5311361ac5d41b86f2633df4b5870",
+        "extractor": 3,
+        "modelInputSha256": "4275d8c802788393ed5c23b6848a768328c4e799b56a34b909a13761e1d10155",
+        "modelInputChars": 11243,
+        "extractionCacheKey": "85fd237d97f055d972cb8212cceebb7b1f4baa757a067018121269fcad3a9b67",
+        "extractionCanonicalSha256": "03efaeee7138adc144b1aa053e41c7f79549ab607b7b2d55dafec824c82ea0b6",
+        "dispositions": [
+          {
+            "kind": "held",
+            "heldReceipt": {
+              "bytes": 1114,
+              "key": "objects/6bd46b7a8d382e3ae6f573d7eacffe35182ed491e8c4f3a012e7035bfd848872",
+              "sha256": "6bd46b7a8d382e3ae6f573d7eacffe35182ed491e8c4f3a012e7035bfd848872"
+            },
+            "candidateSha256": "bc6282aeaac4a0cca8a07c63105361469445d4b6be4f47207c34ebad0c0296bf",
+            "review": {
+              "bytes": 425,
+              "key": "objects/83867d3c88d6829453eff3ddb4c5e4f9dbb325e7e06a3f0cbe9c8e6bf800af55",
+              "sha256": "83867d3c88d6829453eff3ddb4c5e4f9dbb325e7e06a3f0cbe9c8e6bf800af55"
+            },
+            "reviewResult": "accepted",
+            "reason": "Fact date missing",
+            "originalSourceObservationId": "2c972087fe5fef8919e217dfb7f87ca7dd5e7dbf2b565becd8e3d51046cb7f41"
+          }
+        ],
+        "sourceAgeHours": 0.522089
+      },
+      "existingReconcileOneDocumentMechanics": "pass_non_admitting",
+      "eligibleForCurrentDocumentRebindingAtArchiveTime": true,
+      "eligibleAtEvaluationTime": true,
+      "evaluationErrors": [],
+      "reusableTransportUntil": "2026-10-25T06:06:59.290023Z"
+    },
+    {
+      "sourceId": "witnessai:official:1",
+      "supplierId": "witnessai",
+      "url": "https://witness.ai/blog/category/blog/",
+      "inOriginal20": true,
+      "originalRunId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+      "originalAttemptId": "86effb992b8475132a4c156428d985cd7a21aa4f6757d355a263dc4cc458678a",
+      "originalTaskOutcome": "not_checked",
+      "originalStartedAt": "2026-10-24T00:09:12.229519Z",
+      "originalCompletedAt": "2026-10-24T00:10:25.142105Z",
+      "originAnchor": {
+        "kind": "receipt_integrity_seal",
+        "sealPath": "receipt-integrity/be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd/3250f824994dbe236dc0af7fb19f269fa036ec06ceb5e3a58397acc737d6c702/86effb992b8475132a4c156428d985cd7a21aa4f6757d355a263dc4cc458678a.json",
+        "receipt": {
+          "bytes": 2183,
+          "key": "objects/8c5fd53bb3bf2bbcc7912e8d74106bc8a97eb47357f0cfde99f629a319c114d0",
+          "sha256": "8c5fd53bb3bf2bbcc7912e8d74106bc8a97eb47357f0cfde99f629a319c114d0"
+        },
+        "attemptPath": "runs/be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd/attempts/86effb992b8475132a4c156428d985cd7a21aa4f6757d355a263dc4cc458678a.json",
+        "originalPlanSha256": "8a31d4c23a65cc17b2f5abd94fdc8fc480125e63f9559cd031dc65455456821b"
+      },
+      "observationId": "d93b56b904f19019201707886dfeed2f53ee7ea8ee663043efa8fdbbbabeb50d",
+      "observationCanonicalSha256": "3c9a42f6316b4155138979c37a752778cb159a8f9923a4171aa8d8b37f47c6fd",
+      "sourceFetchedAt": "2026-10-24T00:09:49.288588Z",
+      "sourceStatus": "fetched",
+      "body": {
+        "bytes": 120069,
+        "key": "objects/1ca08d0d273672753cc94bc69c7b0d80316586b3958a5a332b7b2b5c94b722de",
+        "sha256": "1ca08d0d273672753cc94bc69c7b0d80316586b3958a5a332b7b2b5c94b722de"
+      },
+      "bodyOriginalFetchedAt": "2026-10-24T00:09:49.288588Z",
+      "reusesObservationId": null,
+      "validation": {
+        "bytes": 527,
+        "key": "objects/bdc98a92a51ebe596b074248467d69f9dd6177053b3c97a05d7a744823016119",
+        "sha256": "bdc98a92a51ebe596b074248467d69f9dd6177053b3c97a05d7a744823016119"
+      },
+      "policySha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+      "candidateHashes": [],
+      "archivedReplay": {
+        "kind": "independently_reviewed_empty",
+        "contextSha256": "7ea71f561e795d7728c1445a83fe87ae8c558b728d096e7f5170adf9d374b990",
+        "extractor": 3,
+        "modelInputSha256": "7936cb0188a7cdc7e12e6ae880389687c5944fb556998d408fb16ce7ed5db7c2",
+        "modelInputChars": 2530,
+        "extractionCacheKey": "60ba9c9764b471855c2583b1ffc5bf98644ec79066f7200138caaf1b611d85dc",
+        "extractionCanonicalSha256": "4da2a6698c476340c8f111ac6f8c826e92f0ae651c0efa3193f6a180a3c6ef2e",
+        "dispositions": [
+          {
+            "kind": "independently_reviewed_empty",
+            "review": {
+              "bytes": 190,
+              "key": "objects/2626a2df3434079259458a9a5fa62de768ee6b255f9ae057d8660387889fd808",
+              "sha256": "2626a2df3434079259458a9a5fa62de768ee6b255f9ae057d8660387889fd808"
+            }
+          }
+        ],
+        "sourceAgeHours": 0.474868
+      },
+      "existingReconcileOneDocumentMechanics": "pass_non_admitting",
+      "eligibleForCurrentDocumentRebindingAtArchiveTime": true,
+      "eligibleAtEvaluationTime": true,
+      "evaluationErrors": [],
+      "reusableTransportUntil": "2026-10-25T06:09:49.288588Z"
+    },
+    {
+      "sourceId": "witnessai:official:1",
+      "supplierId": "witnessai",
+      "url": "https://witness.ai/blog/palo-alto-prisma-alternatives/",
+      "inOriginal20": true,
+      "originalRunId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+      "originalAttemptId": "86effb992b8475132a4c156428d985cd7a21aa4f6757d355a263dc4cc458678a",
+      "originalTaskOutcome": "not_checked",
+      "originalStartedAt": "2026-10-24T00:09:12.229519Z",
+      "originalCompletedAt": "2026-10-24T00:10:25.142105Z",
+      "originAnchor": {
+        "kind": "receipt_integrity_seal",
+        "sealPath": "receipt-integrity/be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd/3250f824994dbe236dc0af7fb19f269fa036ec06ceb5e3a58397acc737d6c702/86effb992b8475132a4c156428d985cd7a21aa4f6757d355a263dc4cc458678a.json",
+        "receipt": {
+          "bytes": 2183,
+          "key": "objects/8c5fd53bb3bf2bbcc7912e8d74106bc8a97eb47357f0cfde99f629a319c114d0",
+          "sha256": "8c5fd53bb3bf2bbcc7912e8d74106bc8a97eb47357f0cfde99f629a319c114d0"
+        },
+        "attemptPath": "runs/be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd/attempts/86effb992b8475132a4c156428d985cd7a21aa4f6757d355a263dc4cc458678a.json",
+        "originalPlanSha256": "8a31d4c23a65cc17b2f5abd94fdc8fc480125e63f9559cd031dc65455456821b"
+      },
+      "observationId": "63dcefa7b86db061b90e71637ceb011c7645ad88ec4f8ce6f7415f2f8e455199",
+      "observationCanonicalSha256": "7c1e9a811d17d71816e48b858acc8705a6657e73e1b8adf45273e82bf29c2138",
+      "sourceFetchedAt": "2026-10-24T00:09:15.278201Z",
+      "sourceStatus": "fetched",
+      "body": {
+        "bytes": 193795,
+        "key": "objects/32c9c93089e8f39b4b046490239d08f5c8336d15acab00408bc8b999d6a610d0",
+        "sha256": "32c9c93089e8f39b4b046490239d08f5c8336d15acab00408bc8b999d6a610d0"
+      },
+      "bodyOriginalFetchedAt": "2026-10-24T00:09:15.278201Z",
+      "reusesObservationId": null,
+      "validation": {
+        "bytes": 527,
+        "key": "objects/6f95574d10d6ccd6eef547182e1ebddc59765c83be11ae442c2792c2bd8df4ed",
+        "sha256": "6f95574d10d6ccd6eef547182e1ebddc59765c83be11ae442c2792c2bd8df4ed"
+      },
+      "policySha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+      "candidateHashes": [],
+      "archivedReplay": {
+        "kind": "independently_reviewed_empty",
+        "contextSha256": "90d6fa0872ea69f2654f1366c3340ad55533201e207ae54f590869199eeb21cf",
+        "extractor": 3,
+        "modelInputSha256": "ec741f5f618df1f28a6064f873a12e5d89701b090fb1adaa2d50697c08a1bb4e",
+        "modelInputChars": 17159,
+        "extractionCacheKey": "76f21e7253063d84b98fa8ae8c7ce6fb15e70be0256a89738b195de2252887ad",
+        "extractionCanonicalSha256": "b2ba6223340d2b36655a8f0102963d5a311059f22838c396c3e8bc2f2a9caf80",
+        "dispositions": [
+          {
+            "kind": "independently_reviewed_empty",
+            "review": {
+              "bytes": 190,
+              "key": "objects/ca7066f342d24d46c1fd883e05ad1e93b68d4e8b5f2df4d894686a81228437fe",
+              "sha256": "ca7066f342d24d46c1fd883e05ad1e93b68d4e8b5f2df4d894686a81228437fe"
+            }
+          }
+        ],
+        "sourceAgeHours": 0.484315
+      },
+      "existingReconcileOneDocumentMechanics": "pass_non_admitting",
+      "eligibleForCurrentDocumentRebindingAtArchiveTime": true,
+      "eligibleAtEvaluationTime": true,
+      "evaluationErrors": [],
+      "reusableTransportUntil": "2026-10-25T06:09:15.278201Z"
+    }
+  ],
+  "tamperProbes": [
+    {
+      "name": "changed original attempt cannot pass immutable origin membership",
+      "result": "rejected",
+      "reason": "Origin attempt differs"
+    },
+    {
+      "name": "same body cannot cross supplier",
+      "result": "rejected",
+      "reason": "Validation body/policy/entity differs"
+    },
+    {
+      "name": "same body cannot cross source",
+      "result": "rejected",
+      "reason": "Document source/URL differs"
+    },
+    {
+      "name": "same body cannot change URL context",
+      "result": "rejected",
+      "reason": "Document source/URL differs"
+    },
+    {
+      "name": "policy mismatch cannot be rebound",
+      "result": "rejected",
+      "reason": "Validation body/policy/entity differs"
+    },
+    {
+      "name": "omitted held claim cannot pass complete extraction inventory",
+      "result": "rejected",
+      "reason": "Current extractor validation cache differs"
+    },
+    {
+      "name": "partial candidate list cannot be rebound",
+      "result": "rejected",
+      "reason": "Current extractor validation cache differs"
+    },
+    {
+      "name": "generic observation cannot renew itself using verifiedAt",
+      "result": "rejected",
+      "reason": "Generic document must preserve actual transport time"
+    },
+    {
+      "name": "unchanged scheduling cursor cannot extend 30 hour transport freshness",
+      "result": "rejected",
+      "reason": "Document transport stale or future"
+    }
+  ],
+  "limitations": [
+    "Proposal and archived mechanical replay only; no runtime edits, source transport, independent model review, admission, coverage receipt, publication or deployment was performed.",
+    "The original three legacy coverage-anchored observations expire around 2026-10-24T10:15:22Z. Their historical semantic proof remains inspectable afterward but cannot satisfy current coverage without fresh transport.",
+    "No historical task becomes complete while its genuinely deferred inventory remains unresolved.",
+    "All original bodies, observation times, validation objects, accepted facts, held claims and review objects remain unchanged."
+  ]
+}

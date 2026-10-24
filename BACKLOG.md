@@ -23,10 +23,19 @@ remain unchanged. Generic claim accuracy and eligible-event recall require a fix
 benchmark; passing the existing tests does not estimate those error rates. Reader value remains
 unmeasured: the owner reports no real use yet.
 
+The [October 24 executable scorecard](docs/active/daily-pipeline/evaluations/2026-10-24/operational-scorecard.md)
+pins the original raw collection time and exact repaired gate/publication/rollback receipts.
+Manual runs supply no scheduled-attempt denominator. The reviewed next-seven-request candidate
+and Ping parser retain incomplete history, consume no requests during offline proof, and grant no
+new coverage. Future diagnostic plans use content-addressed prior-plan references to remain bounded.
+The [retained-audit proposal](docs/active/daily-pipeline/accuracy/retained-audit-rebinding-spec-2026-10-24.md)
+finds replayable proof for 24 completed pages; 9,890 due URLs and all 17 historical tasks remain open.
+Implement independent retained-proof rebinding before clearing those completeness holds.
+
 The [fixed existing-record review](docs/active/daily-pipeline/accuracy/current-record-review-2026-10-23.md)
 now covers 97 hand events and 80 supplier fields. Five directly contradicting records and a related
-ambiguous funding field now have actual reviewed, gated corrections in release
-`a564d0a471931329bdf8a2e263bf26838ecb23d06d4a98d78cc4735c629c44f4`.
+ambiguous funding field now have actual reviewed, gated corrections retained in current release
+`19fde803d09aa544672183769c257e37faf727b75e1914955f54f3c5fb126941`.
 The separate dated ledger preserves immutable originals, actual independent review chains,
 runtime export checks and publication-date bindings. The scoped Xage source-class correction is
 also live and grants no financial certification. Synthetic tests and source-byte checks alone
@@ -71,20 +80,15 @@ under the shared charged allowance; historical articles and broad portfolio site
 The [qualification queue](docs/active/daily-pipeline/accuracy/coverage-qualification-status-2026-10-23.md)
 maps all 254 missing tasks to exact evidence and next actions, with the 28 candidates and 154
 technical failures separately retained. It adds no successful check or source freshness.
-Separately repair [Xage's source-classification defect](docs/active/daily-pipeline/accuracy/source-classification-correction-proposal-2026-10-23.md)
-through the implemented typed publisher-disclosure operation and proper provenance/review. Its paid
-syndicated release is still labelled independent in production. The disabled six-group candidate
-preserves the original five groups, all existing review hashes and financial-primary guards; its
-one additional scoped target changes neither financial claims nor the fixed 177-record audit.
-Complete integrated tests, real quota-respecting review and full publication proof before calling it fixed.
-The latest scheduled monitor reports the 28 held claims under the legacy reason
-`OWNER_REVIEW_QUEUE_28`. The candidate now uses `HELD_CLAIMS_28` and retains the unhealthy result
-and independent source-gap reasons; all 15 monitor tests pass. Verify the wording on the next real
-scheduled monitor after main advances. These investigations do not require an owner judgment now.
+The [Xage source-classification repair](docs/active/daily-pipeline/accuracy/actual-correction-admissions-2026-10-24.md)
+is independently admitted and live through the typed publisher-disclosure operation. Preserve all
+six admitted groups, original review hashes and financial-primary guards. The latest actual manual
+monitor `40051997369` delivered `HELD_CLAIMS_32` and independent coverage-gap reasons to assigned
+issue 10; verify the next scheduled monitor separately. These investigations require no owner judgment now.
 The generic article path now decodes bounded gzip before extraction and verification, binds its
 decoded model input, and rejects affected legacy caches and partial receipts. Candidate HTML and
-robots probes use the same bounded decoder. All 430 operational and 15 monitor tests pass locally.
-Both disabled and synthetic enabled applications pass 353 data, 112 pipeline and 43 browser tests.
+robots probes use the same bounded decoder. The integrated candidate passes 476 operational,
+353 data, 115 pipeline and 43 browser tests; the actual monitor passed its 15 tests.
 The retained Barracuda parser replay
 preserves the shell's incomplete result and original evidence; citation tasks themselves remain
 transport-only. The exact existing fonts now ship locally; same-data replay preserves all pixels
