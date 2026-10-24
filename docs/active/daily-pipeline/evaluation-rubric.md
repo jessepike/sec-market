@@ -40,6 +40,13 @@ have evidence. Sustained operation, overall claim precision, eligible-event reca
 Retain each generated report's pinned policy and evidence so later working-contract changes cannot
 rewrite this baseline. Offline corrections do not imply improved live coverage.
 
+The October 24 [operational report](evaluations/2026-10-24/operational-scorecard.md) records
+244/557 checks and 48/48 SEC source tasks using the original collection receipt and the repaired
+release's exact gate, publication and rollback receipts. The report's evaluation time is fixed;
+its freshness result describes that time. Scheduled execution on this repaired revision and
+sustained operation remain unmeasured. Manual execution is not a failed or successful timer
+attempt. See `ops/evaluation/README.md` for the reproduction command and input boundaries.
+
 ## Trust and further evaluation
 
 Pins establish byte identity and reproducibility, not independent authenticity. The caller must

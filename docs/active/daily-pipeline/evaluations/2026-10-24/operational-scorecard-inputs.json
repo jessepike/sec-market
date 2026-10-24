@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "evaluatedAt": "2026-10-24T02:17:24.003382Z",
+  "appRevision": "26181a2d4eb0aad1bd751cda70ab8e65142d2813",
+  "inputs": {
+    "contract": {
+      "path": "operational-inputs/contract.json",
+      "sha256": "327e52fdab4f97d3f0d628978501aa7197b31ddadb4006d16d3f776a8acb47c0"
+    },
+    "coverage": {
+      "path": "operational-inputs/coverage.json",
+      "sha256": "dd2b9964d49530c86429d5278a393f63ca8ecae9c35208b2b2ff45cafb1c5f35"
+    },
+    "gate": {
+      "path": "../../receipts/repair-main-gate-result-2026-10-24.json",
+      "sha256": "fe32b8e1717c3c4163240d3c68b1950b472d7de911b15461d2b900ad15d0a96a"
+    },
+    "publication": {
+      "path": "../../receipts/repair-publication-result-2026-10-24.json",
+      "sha256": "40b0ce787fc9f6e4ef1c427f57d67aea343e9545e2f59d43bf8140e83a5ef745"
+    },
+    "rollback": {
+      "path": "../../receipts/repair-release-rollback-result-2026-10-24.json",
+      "sha256": "cb101d02b7784e3b82cc8b24115e96548b97729591fe06860e6c68c87bd916aa"
+    }
+  }
+}

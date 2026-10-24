@@ -49,6 +49,20 @@ original checkedAt even when an evaluation is run after they expire. One-cycle e
 publication and rollback evidence cannot establish sustained operation. Precision, recall and value
 remain unmeasured until reviewed benchmark/use evidence and explicit denominators exist.
 
+The current pinned operational report is
+`docs/active/daily-pipeline/evaluations/2026-10-24/operational-scorecard.md`.
+It records 244/557 successful source checks, 48/48 SEC source checks, and the repaired release's
+publication and rollback. It retains the original collection time, 00:38:18 UTC, rather than the
+later gate's reconciliation time. The fixed older claim audit remains a separate historical
+benchmark. Manual collector receipts never create a scheduled-attempt denominator; their identity
+and coverage must still match if supplied. Reproduce the current report to a new output prefix:
+
+```sh
+python3 ops/evaluation/scorecard.py \
+  --manifest docs/active/daily-pipeline/evaluations/2026-10-24/operational-scorecard-inputs.json \
+  --output /tmp/smp-operational-scorecard-replay
+```
+
 An optional `continuity` pin accepts an explicit audit with `runId`, `appRevision`, `checkedAt`,
 `sourceSnapshotSha256`, `publishedSnapshotSha256`, `limitations` and `measures`. Each measure
 has a unique `id`, integer `expected` and `retained` counts and boolean `passed`, which must equal

@@ -172,6 +172,39 @@ class ScorecardTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'raw coverage'):
             self.report()
 
+    def collection(self, event='schedule', completed=True, branch='refs/heads/main'):
+        return dict(runId=self.coverage['runId'], appRevision=self.manifest['appRevision'],
+                    requiredTasks=self.coverage['requiredTasks'], successfulTasks=self.coverage['successfulTasks'],
+                    complete=self.coverage['complete'], executionCompleted=completed,
+                    githubEventName=event, githubRef=branch)
+
+    def test_manual_runs_do_not_invent_a_scheduled_attempt(self):
+        for completed in (True, False):
+            with self.subTest(completed=completed):
+                self.pin('collection', self.collection(event='workflow_dispatch', completed=completed))
+                result = self.measure('durability.scheduled_execution')
+                self.assertEqual(result['status'], 'unmeasured')
+                self.assertIsNone(result['numerator'])
+                self.assertIsNone(result['denominator'])
+
+    def test_actual_scheduled_attempts_keep_their_observed_result(self):
+        for completed, branch, expected in ((True, 'refs/heads/main', 'pass'),
+                                             (False, 'refs/heads/main', 'fail'),
+                                             (True, 'refs/heads/preview', 'fail')):
+            with self.subTest(completed=completed, branch=branch):
+                self.pin('collection', self.collection(completed=completed, branch=branch))
+                result = self.measure('durability.scheduled_execution')
+                self.assertEqual(result['status'], expected)
+                self.assertEqual(result['numerator'], int(expected == 'pass'))
+                self.assertEqual(result['denominator'], 1)
+
+    def test_manual_trigger_does_not_relax_collector_identity(self):
+        collection = self.collection(event='workflow_dispatch')
+        collection['appRevision'] = 'f' * 40
+        self.pin('collection', collection)
+        with self.assertRaisesRegex(ValueError, 'Collector identity mismatch'):
+            self.report()
+
     def test_gate_failed_check_is_not_pass(self):
         gate = self.gate()
         gate['checks']['test']['result'] = 'fail'

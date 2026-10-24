@@ -122,8 +122,12 @@ def evaluate(manifest, base=Path('.')):
         require(collection['runId'] == coverage['runId'] and collection['appRevision'] == revision, 'Collector identity mismatch')
         require(collection['requiredTasks'] == len(tasks) and collection['successfulTasks'] == len(good), 'Collector coverage differs')
         require(collection.get('complete') == coverage['complete'], 'Collector completeness differs')
-        passed = collection.get('executionCompleted') is True and collection.get('githubEventName') == 'schedule' and collection.get('githubRef') == 'refs/heads/main'
-        add('durability.scheduled_execution', 'durability', 'pass' if passed else 'fail', int(passed), 1, ['collection'], observed_at=coverage['checkedAt'], limitation='One pinned cycle; not a sustained-operation rate.')
+        if collection.get('githubEventName') == 'schedule':
+            passed = collection.get('executionCompleted') is True and collection.get('githubRef') == 'refs/heads/main'
+            add('durability.scheduled_execution', 'durability', 'pass' if passed else 'fail', int(passed), 1, ['collection'], observed_at=coverage['checkedAt'], limitation='One pinned scheduled cycle; not a sustained-operation rate.')
+        else:
+            add('durability.scheduled_execution', 'durability', 'unmeasured', evidence=['collection'],
+                observed_at=coverage['checkedAt'], limitation='A non-scheduled run supplies no timer observation or scheduled-attempt denominator.')
     else:
         add('durability.scheduled_execution', 'durability', 'unmeasured', limitation='No scheduled collector receipt supplied.')
     publication = data.get('publication')
