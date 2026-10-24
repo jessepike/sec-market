@@ -21,7 +21,7 @@ from contracts import digest, instant, require, utcnow, validate_contract
 from engine import Pipeline
 from fetcher import Fetcher
 from reporting import csv_matrix, inventory, markdown_matrix
-from onboarding import PersistentProbeBudget, ProbeReservationDenied, probe_sources
+from onboarding import PersistentProbeBudget, ProbeReservationDenied, probe_sources, validate_qualification_probe_plan
 from snapshot import build_snapshot
 from storage import LocalStore
 from validation import reconcile
@@ -215,6 +215,8 @@ def execute_source_probe(root, state, session, contract, maximum_seconds):
     cancelled = False
     previous_signals = {}
     try:
+        qualification_plan = REPO / 'contracts/source-qualification-probes.json'
+        validate_qualification_probe_plan(contract, state, qualification_plan)
         # This exact day is escrowed. A midnight crossing during the remote
         # acknowledgement is denied by the same bound context before transport.
         budget = PersistentProbeBudget(state, contract, clock=utcnow, monotonic=time.monotonic,
@@ -227,7 +229,8 @@ def execute_source_probe(root, state, session, contract, maximum_seconds):
         for signum in previous_signals:
             signal.signal(signum, stop)
         escrow_budgets(root, state, session, contract, budget.started_at)
-        report = probe_sources(contract, state, Fetcher(state, timeout=12), reservation_context=budget)
+        report = probe_sources(contract, state, Fetcher(state, timeout=12), reservation_context=budget,
+                               qualification_plan_path=qualification_plan)
         # The final in-flight request can finish after its deadline/day even
         # when there is no next request to trigger the ordinary guard.
         try:

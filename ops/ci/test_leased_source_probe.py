@@ -17,6 +17,7 @@ import cli
 from contracts import canonical, digest
 from storage import LocalStore
 from test_onboarding_budget import Clock, FictionalFetcher, NOW, contract
+from test_source_qualification_probe import seed_qualification_plan
 
 
 class LeasedSourceProbeTests(unittest.TestCase):
@@ -53,6 +54,7 @@ class LeasedSourceProbeTests(unittest.TestCase):
                 state.compare_and_swap('budget-2026-10-23', None, outer.seed)
                 state.write_once('ci/collection-runs/old-1.json', {'keep': True})
                 state.write_once('cloud/sessions/old/old.json', {'keep': True})
+                seed_qualification_plan(state, outer.policy, outer.repo / 'contracts/source-qualification-probes.json')
                 return {'commit': outer.last_commit, 'sha256': 'c' * 64}
             def push(self, state, expected_commit=None):
                 outer.events.append('push')
@@ -117,9 +119,9 @@ class LeasedSourceProbeTests(unittest.TestCase):
         result = self.run_probe()
         self.assertTrue(result['executionCompleted'])
         self.assertEqual(result['outcome'], 'completed_diagnostic')
-        self.assertEqual(self.events, ['restore', 'push', 'push', 'fetch', 'push'])
+        self.assertEqual(self.events, ['restore', 'push', 'push'] + ['fetch']*8 + ['push'])
         self.assertEqual([p['expected'] for p in self.pushes], ['b'*40, f'{1:040x}', f'{2:040x}'])
-        self.assertEqual(self.state().read('heads/budget-2026-10-23.json'), {**self.seed, 'fetches': 9})
+        self.assertEqual(self.state().read('heads/budget-2026-10-23.json'), {**self.seed, 'fetches': 16})
         self.assertTrue(self.pushes[-1]['lease']['releasedAt'])
         archived = self.state().read('ci/source-probe-runs/123-2.json')
         self.assertEqual(archived, {k: v for k, v in result.items() if k != 'archive'})
@@ -129,7 +131,40 @@ class LeasedSourceProbeTests(unittest.TestCase):
         self.assertFalse(result['semanticAdmission'])
         self.assertFalse(result['coverageCredit'])
         self.assertFalse(result['publication']['published'])
+        self.assertEqual(result['diagnostic']['qualification']['chargedExplicitRequests'], 7)
+        self.assertEqual(result['diagnostic']['qualification']['plan']['maxRequests'], 7)
         self.assert_preserved()
+
+    def test_invalid_plan_or_tampered_proof_starts_no_transport_or_escrow(self):
+        for mode in ('plan', 'proof'):
+            with self.subTest(mode=mode):
+                # A distinct runtime preserves each failed lease's evidence.
+                self.root = self.base / ('runtime-invalid-' + mode)
+                original_restore = self.archive.restore
+                def invalid_restore(destination):
+                    restored = original_restore(destination)
+                    path = self.repo / 'contracts/source-qualification-probes.json'
+                    if mode == 'plan':
+                        plan = json.loads(path.read_text())
+                        plan['targets'][-1]['url'] = 'https://example.invalid/not-disclosed'
+                        path.write_bytes(canonical(plan))
+                    else:
+                        plan = json.loads(path.read_text())
+                        body = Path(destination) / plan['targets'][-1]['proof']['body']['key']
+                        body.write_bytes(b'fictional tampering')
+                    return restored
+                self.pushes.clear()
+                self.events.clear()
+                with patch.object(self.archive, 'restore', side_effect=invalid_restore), self.assertRaises(ValueError):
+                    self.run_probe()
+                self.assertIsNone(self.fetcher)
+                self.assertNotIn('fetch', self.events)
+                self.assertEqual(self.state().read('heads/budget-2026-10-23.json'), self.seed)
+                self.assertFalse((self.state().root / 'source-probes').exists())
+                self.assertTrue(self.state().read('heads/cloud-lease.json')['releasedAt'])
+                # Only lease bootstrap/failure acknowledgement; no fetch escrow push.
+                self.assertTrue(all(p['budget'] == self.seed for p in self.pushes))
+                self.assert_preserved()
 
     def test_wrong_ref_event_repository_or_identity_starts_no_restore(self):
         for key, value in (('GITHUB_REF', 'refs/heads/preview'), ('GITHUB_EVENT_NAME', 'schedule'),
@@ -293,7 +328,7 @@ class LeasedSourceProbeTests(unittest.TestCase):
         self.fail_push_at = 3
         with self.assertRaisesRegex(RuntimeError, 'acknowledgement'):
             self.run_probe()
-        self.assertEqual(len(self.fetcher.calls), 1)
+        self.assertEqual(len(self.fetcher.calls), 8)
         self.assertEqual(LocalStore(self.root).read('heads/remote-archive.json')['commit'], f'{2:040x}')
         self.assert_preserved()
 

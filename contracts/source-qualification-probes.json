@@ -1,0 +1,172 @@
+{
+  "schemaVersion": 1,
+  "marketSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+  "maxRequests": 7,
+  "targets": [
+    {
+      "id": "ping-index",
+      "sourceId": "ping-identity:official:1",
+      "url": "https://press.pingidentity.com/news-releases",
+      "expectedFormat": "html",
+      "proof": {
+        "type": "diagnostic_observation",
+        "record": {
+          "key": "ci/source-probe-runs/40044528648-1.json",
+          "sha256": "1fda9a60d3cdd5d297c8c95f77a74564828a866545ea876d6c2fcbe8ac5a04bb",
+          "bytes": 78209
+        },
+        "observation": {
+          "key": "objects/094ade837a8c58d265e341acf7c665afb7de3ed08e287d03f134fb0e3e9426aa",
+          "sha256": "094ade837a8c58d265e341acf7c665afb7de3ed08e287d03f134fb0e3e9426aa",
+          "bytes": 453
+        },
+        "body": {
+          "bytes": 98724,
+          "key": "objects/d06c171a9aa6c5150e47355692dbdecdaacc544a15ce7fd01bbc6812883007be",
+          "sha256": "d06c171a9aa6c5150e47355692dbdecdaacc544a15ce7fd01bbc6812883007be"
+        },
+        "fetchedAt": "2026-10-24T00:23:18.322865Z"
+      }
+    },
+    {
+      "id": "ping-rss",
+      "sourceId": "ping-identity:official:1",
+      "url": "https://press.pingidentity.com/news-releases?pagetemplate=rss",
+      "expectedFormat": "rss",
+      "proof": {
+        "type": "diagnostic_observation",
+        "record": {
+          "key": "ci/source-probe-runs/40044528648-1.json",
+          "sha256": "1fda9a60d3cdd5d297c8c95f77a74564828a866545ea876d6c2fcbe8ac5a04bb",
+          "bytes": 78209
+        },
+        "observation": {
+          "key": "objects/094ade837a8c58d265e341acf7c665afb7de3ed08e287d03f134fb0e3e9426aa",
+          "sha256": "094ade837a8c58d265e341acf7c665afb7de3ed08e287d03f134fb0e3e9426aa",
+          "bytes": 453
+        },
+        "body": {
+          "bytes": 98724,
+          "key": "objects/d06c171a9aa6c5150e47355692dbdecdaacc544a15ce7fd01bbc6812883007be",
+          "sha256": "d06c171a9aa6c5150e47355692dbdecdaacc544a15ce7fd01bbc6812883007be"
+        },
+        "fetchedAt": "2026-10-24T00:23:18.322865Z"
+      }
+    },
+    {
+      "id": "ping-next",
+      "sourceId": "ping-identity:official:1",
+      "url": "https://press.pingidentity.com/news-releases?o=10",
+      "expectedFormat": "html",
+      "proof": {
+        "type": "diagnostic_observation",
+        "record": {
+          "key": "ci/source-probe-runs/40044528648-1.json",
+          "sha256": "1fda9a60d3cdd5d297c8c95f77a74564828a866545ea876d6c2fcbe8ac5a04bb",
+          "bytes": 78209
+        },
+        "observation": {
+          "key": "objects/094ade837a8c58d265e341acf7c665afb7de3ed08e287d03f134fb0e3e9426aa",
+          "sha256": "094ade837a8c58d265e341acf7c665afb7de3ed08e287d03f134fb0e3e9426aa",
+          "bytes": 453
+        },
+        "body": {
+          "bytes": 98724,
+          "key": "objects/d06c171a9aa6c5150e47355692dbdecdaacc544a15ce7fd01bbc6812883007be",
+          "sha256": "d06c171a9aa6c5150e47355692dbdecdaacc544a15ce7fd01bbc6812883007be"
+        },
+        "fetchedAt": "2026-10-24T00:23:18.322865Z"
+      }
+    },
+    {
+      "id": "ping-october-release",
+      "sourceId": "ping-identity:official:1",
+      "url": "https://press.pingidentity.com/2026-10-06-Ping-Identity-Survey-Finds-AI-Trust-Changes-When-Assistance-Turns-to-Action",
+      "expectedFormat": "html",
+      "proof": {
+        "type": "diagnostic_observation",
+        "record": {
+          "key": "ci/source-probe-runs/40044528648-1.json",
+          "sha256": "1fda9a60d3cdd5d297c8c95f77a74564828a866545ea876d6c2fcbe8ac5a04bb",
+          "bytes": 78209
+        },
+        "observation": {
+          "key": "objects/a07b862a198e20ecb74b3765a57327ea59fe0011ad4059a1804bf6cb037b7d1d",
+          "sha256": "a07b862a198e20ecb74b3765a57327ea59fe0011ad4059a1804bf6cb037b7d1d",
+          "bytes": 511
+        },
+        "body": {
+          "bytes": 2460,
+          "key": "objects/906b1656404e95d8ed52082ecfd40d738e2ff24368ab6638cda810d4e38055a8",
+          "sha256": "906b1656404e95d8ed52082ecfd40d738e2ff24368ab6638cda810d4e38055a8"
+        },
+        "fetchedAt": "2026-10-24T00:23:19.389251Z"
+      }
+    },
+    {
+      "id": "ping-september-release",
+      "sourceId": "ping-identity:official:1",
+      "url": "https://press.pingidentity.com/2026-09-29-Ping-Identity-Launches-Identity-Agents-on-Google-Cloud-Marketplace",
+      "expectedFormat": "html",
+      "proof": {
+        "type": "diagnostic_observation",
+        "record": {
+          "key": "ci/source-probe-runs/40044528648-1.json",
+          "sha256": "1fda9a60d3cdd5d297c8c95f77a74564828a866545ea876d6c2fcbe8ac5a04bb",
+          "bytes": 78209
+        },
+        "observation": {
+          "key": "objects/a07b862a198e20ecb74b3765a57327ea59fe0011ad4059a1804bf6cb037b7d1d",
+          "sha256": "a07b862a198e20ecb74b3765a57327ea59fe0011ad4059a1804bf6cb037b7d1d",
+          "bytes": 511
+        },
+        "body": {
+          "bytes": 2460,
+          "key": "objects/906b1656404e95d8ed52082ecfd40d738e2ff24368ab6638cda810d4e38055a8",
+          "sha256": "906b1656404e95d8ed52082ecfd40d738e2ff24368ab6638cda810d4e38055a8"
+        },
+        "fetchedAt": "2026-10-24T00:23:19.389251Z"
+      }
+    },
+    {
+      "id": "delinea-rss",
+      "sourceId": "delinea:official:1",
+      "url": "https://delinea.com/news/rss.xml",
+      "expectedFormat": "rss",
+      "proof": {
+        "type": "source_observation",
+        "record": {
+          "key": "observations/930a7e4fe4b3d44f1494824f179a38b4c34e40b4e5af0124c057dc2ba176d34f.json",
+          "sha256": "a88b1eeac16c47cb325cf664b515b8b8c76382e5288613b6cb81eaa38305fd11",
+          "bytes": 702
+        },
+        "body": {
+          "bytes": 126986,
+          "key": "objects/40d3a81783abdf0af16f21d191d1b0e5e2393e7bf42bcc3e4147d87c271b2fb4",
+          "sha256": "40d3a81783abdf0af16f21d191d1b0e5e2393e7bf42bcc3e4147d87c271b2fb4"
+        },
+        "fetchedAt": "2026-10-23T04:14:59.819592Z"
+      }
+    },
+    {
+      "id": "sonatype-rss",
+      "sourceId": "sonatype:official:1",
+      "url": "https://www.sonatype.com/press-releases/rss.xml",
+      "expectedFormat": "rss",
+      "proof": {
+        "type": "source_observation",
+        "record": {
+          "key": "observations/ae28f598db53f607758766cf78b7f1360d6189c8076faeca1134f11d3776e7fe.json",
+          "sha256": "9dfa16580ee4f7baaade6507e611a21dc2dba88fd1d10b7ed06115868dfc5d9f",
+          "bytes": 724
+        },
+        "body": {
+          "bytes": 112635,
+          "key": "objects/0797efe21e3568cbb309a739affe457a236ecc6de41c9752f5172f29bb32b7ea",
+          "sha256": "0797efe21e3568cbb309a739affe457a236ecc6de41c9752f5172f29bb32b7ea"
+        },
+        "fetchedAt": "2026-10-23T04:14:51.574093Z"
+      }
+    }
+  ]
+}
