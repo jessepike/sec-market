@@ -1,0 +1,232 @@
+{
+  "schemaVersion": 1,
+  "kind": "supplemental_current_rubric_observation",
+  "evaluatedAt": "2026-10-24T01:33:16Z",
+  "applicationRevision": "abcd9646fdbc296fddc557f2077544d53c75f12a",
+  "currentReleaseId": "a564d0a471931329bdf8a2e263bf26838ecb23d06d4a98d78cc4735c629c44f4",
+  "baseline": {
+    "scorecard": {
+      "path": "../2026-10-23/accuracy-scorecard.json",
+      "sha256": "da47f6000add6d64d1bae11160d63c0c719192bf97f04a287e271ef069436adb"
+    },
+    "inputs": {
+      "path": "../2026-10-23/accuracy-inputs.json",
+      "sha256": "81696b5246cc2955ee1e085bd81e7571156d28deb238a60124f774bcbd1642a6"
+    },
+    "fixedClaimAudit": {
+      "path": "../../accuracy/source-bindings-2026-10-23.json",
+      "sha256": "7aa72d2b75a39b10b17f557bd605fd7e5a2bfeef2d0f8f48a7bed302d5e74f76"
+    }
+  },
+  "evidence": {
+    "admissions": {
+      "path": "../../accuracy/actual-correction-admissions-2026-10-24.json",
+      "sha256": "b954759ed9744a7d573e387a18f28e028000e5b46464493f69dfb4ce90f3f53b"
+    },
+    "collector": {
+      "path": "../../receipts/amended-correction-collector-result-2026-10-24.json",
+      "sha256": "722c9043a296c46f90a2333a189b63cabeb37225963b700aa4163469ce521124"
+    },
+    "mainGate": {
+      "path": "../../receipts/correction-main-gate-result-2026-10-24.json",
+      "sha256": "dd5dd996fa753fbf6b98b9d926d55b6447c4ac5d6ff0f23206bc57e2f88713ab"
+    },
+    "publication": {
+      "path": "../../receipts/correction-publication-result-2026-10-24.json",
+      "sha256": "ded7dc1cdeb3355a7c3d011284aa7c2a15f6b27a1bff942e8866dcaaea73a38e"
+    },
+    "productionBytes": {
+      "path": "../../receipts/actual-correction-production-bytes-2026-10-24.json",
+      "sha256": "b8eee4de392b3ff528e81bfe95fa8fae3bec4bbd2a79c28b55f205d22dbe4c19"
+    },
+    "priorRollbackAttempt": {
+      "path": "../../receipts/correction-rollback-failed-result-2026-10-24.json",
+      "sha256": "d41e144937d48fddec9e8e8ec083f3879f3706285f1b1bd23a98ecb908a624d9"
+    },
+    "repairedRollback": {
+      "path": "../../receipts/correction-rollback-repaired-result-2026-10-24.json",
+      "sha256": "46d06a82bc31f80ef42cbbc559713ee57c8ec4175edab8b0489708fe5e0ce91a"
+    },
+    "restoredProductionBytes": {
+      "path": "../../receipts/actual-restored-production-bytes-2026-10-24.json",
+      "sha256": "f72f1e68825f0ef284e0aafa0c6b630a44b152d63681621b39ca3bb29680aa8e"
+    },
+    "prepublicationContinuityAudit": {
+      "path": "../../accuracy/renewal-collector-audit-2026-10-24.json",
+      "sha256": "146df0e29a3e662ea556ca60ede857bba7eb9f692334f271a9a0d48b0b0f9381"
+    }
+  },
+  "measures": [
+    {
+      "id": "coverage.required_tasks",
+      "axis": "coverage",
+      "status": "fail",
+      "numerator": 244,
+      "denominator": 557,
+      "observedAt": "2026-10-24T00:36:59.407248Z",
+      "evidence": ["collector", "admissions"],
+      "limitations": "Manual workflow_dispatch collection. Incomplete roster; no scheduled-cycle credit. Denominator is the pinned October 23 policy."
+    },
+    {
+      "id": "coverage.sec_tasks",
+      "axis": "coverage",
+      "status": "unmeasured",
+      "numerator": null,
+      "denominator": null,
+      "observedAt": null,
+      "evidence": [],
+      "limitations": "The supplied current summaries do not include an independently checked current SEC-subset count. The October 23 baseline was 48/48."
+    },
+    {
+      "id": "freshness.collection_receipt",
+      "axis": "freshness",
+      "status": "pass",
+      "numerator": null,
+      "denominator": null,
+      "observedAt": "2026-10-24T00:36:59.407248Z",
+      "evidence": ["collector", "admissions"],
+      "ageHours": 0.94,
+      "maximumAgeHours": 30,
+      "limitations": "Receipt-age check only; does not replay source bodies or establish full-roster freshness."
+    },
+    {
+      "id": "freshness.all_required_checks",
+      "axis": "freshness",
+      "status": "fail",
+      "numerator": 244,
+      "denominator": 557,
+      "observedAt": "2026-10-24T00:36:59.407248Z",
+      "evidence": ["collector", "admissions"],
+      "limitations": "The fixed roster is incomplete."
+    },
+    {
+      "id": "accuracy.known_release_checks",
+      "axis": "accuracy",
+      "status": "pass",
+      "numerator": 4,
+      "denominator": 4,
+      "observedAt": null,
+      "evidence": ["mainGate"],
+      "executedTests": 508,
+      "limitations": "The bound main gate passed its four checks. This is not a whole-site precision or recall estimate."
+    },
+    {
+      "id": "accuracy.reviewed_records",
+      "axis": "accuracy",
+      "status": "pass",
+      "numerator": 177,
+      "denominator": 177,
+      "observedAt": "2026-10-23T18:48:44.239377+00:00",
+      "evidence": ["fixedClaimAudit"],
+      "verdictCounts": {"contradicted": 5, "insufficient": 71, "primary_source_missing": 11, "supported": 90},
+      "limitations": "Historical fixed-inventory review coverage only. Original records and verdicts remain immutable."
+    },
+    {
+      "id": "accuracy.known_contradictions",
+      "axis": "accuracy",
+      "status": "fail",
+      "numerator": 5,
+      "denominator": 0,
+      "observedAt": "2026-10-23T18:48:44.239377+00:00",
+      "evidence": ["fixedClaimAudit"],
+      "recordIds": ["event:EV-checkpoint-2", "event:EV-optiv-2", "event:EV-splunk-1", "event:EV-zscaler-2", "supplier:expel:ownership"],
+      "limitations": "This is the frozen original-record verdict. Do not read it as a current-state correction result."
+    },
+    {
+      "id": "accuracy.current_correction_publication",
+      "axis": "accuracy",
+      "status": "pass",
+      "numerator": 5,
+      "denominator": 5,
+      "observedAt": "2026-10-24T00:52:29.240092Z",
+      "evidence": ["admissions", "mainGate", "publication", "productionBytes"],
+      "admittedFactualGroups": 5,
+      "additionalPublicationRoleGroup": 1,
+      "publishedReleaseId": "a564d0a471931329bdf8a2e263bf26838ecb23d06d4a98d78cc4735c629c44f4",
+      "productionFilesVerified": 53,
+      "limitations": "Supplemental current-correction measure, outside the existing scorecard schema. Five factual groups and one publication-role group were admitted; exact release bytes were verified on the production host. This does not revise or replace historical verdicts.",
+      "resolvedHistoricalContradictionTargets": ["event:EV-checkpoint-2", "event:EV-optiv-2", "event:EV-splunk-1", "event:EV-zscaler-2", "supplier:expel:ownership"]
+    },
+    {
+      "id": "accuracy.claim_precision",
+      "axis": "accuracy",
+      "status": "unmeasured",
+      "numerator": null,
+      "denominator": null,
+      "observedAt": null,
+      "evidence": [],
+      "limitations": "No fixed benchmark of current effective claims with correct-extraction denominator."
+    },
+    {
+      "id": "accuracy.eligible_event_recall",
+      "axis": "accuracy",
+      "status": "unmeasured",
+      "numerator": null,
+      "denominator": null,
+      "observedAt": null,
+      "evidence": [],
+      "limitations": "No reviewed eligible-event benchmark or omission denominator."
+    },
+    {
+      "id": "durability.scheduled_execution",
+      "axis": "durability",
+      "status": "unmeasured",
+      "numerator": null,
+      "denominator": null,
+      "observedAt": null,
+      "evidence": [],
+      "limitations": "The supplied collector was workflow_dispatch. No expected schedule window or actual scheduled outcome is supplied, so no scheduled-run denominator is available."
+    },
+    {
+      "id": "durability.publication",
+      "axis": "durability",
+      "status": "pass",
+      "numerator": 1,
+      "denominator": 1,
+      "observedAt": "2026-10-24T00:52:29.240092Z",
+      "evidence": ["publication", "mainGate", "productionBytes"],
+      "limitations": "Actual exact publication verified for this release; one publication does not establish sustained operation."
+    },
+    {
+      "id": "durability.rollback_restoration",
+      "axis": "durability",
+      "status": "pass",
+      "numerator": 1,
+      "denominator": 1,
+      "observedAt": "2026-10-24T01:23:17.322484Z",
+      "evidence": ["priorRollbackAttempt", "repairedRollback", "restoredProductionBytes"],
+      "limitations": "Manual rollback drill 40049214904 passed with baseline and current bytes verified and production head unchanged. Independent follow-up matched all 53 files on both production hosts at 01:24:22 UTC. Earlier failed attempt 40047154814 remains part of the history; this is one successful drill, not sustained durability."
+    },
+    {
+      "id": "durability.data_continuity",
+      "axis": "durability",
+      "status": "unmeasured",
+      "numerator": null,
+      "denominator": null,
+      "observedAt": null,
+      "evidence": ["prepublicationContinuityAudit"],
+      "limitations": "The pinned collector audit predates this release and describes a read-only projection, not the accepted snapshot. It cannot establish current-release continuity."
+    },
+    {
+      "id": "durability.sustained_operation",
+      "axis": "durability",
+      "status": "unmeasured",
+      "numerator": null,
+      "denominator": null,
+      "observedAt": null,
+      "evidence": [],
+      "limitations": "No complete expected-schedule observation window supplied."
+    },
+    {
+      "id": "value.observed_use",
+      "axis": "value",
+      "status": "unmeasured",
+      "numerator": null,
+      "denominator": null,
+      "observedAt": null,
+      "evidence": [],
+      "limitations": "Owner reports no observed real use."
+    }
+  ],
+  "trustBoundary": "Supplemental read-only observation assembled from explicitly hash-pinned artifacts. It is not generated by ops/evaluation/scorecard.py and does not authenticate GitHub beyond the supplied actual verification artifacts. No overall score."
+}

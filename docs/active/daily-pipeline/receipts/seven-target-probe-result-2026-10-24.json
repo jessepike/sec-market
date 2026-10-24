@@ -1,0 +1,3733 @@
+{
+  "schemaVersion": 1,
+  "checkpointProfile": "source_probe",
+  "githubRunId": "40049636626",
+  "githubRunAttempt": 1,
+  "githubEventName": "workflow_dispatch",
+  "githubRef": "refs/heads/main",
+  "appRevision": "da5cef21dfae1341289267e2e3dc35a3ffdefde5",
+  "contractSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+  "diagnostic": {
+    "schemaVersion": 1,
+    "checkedAt": "2026-10-24T01:26:57.483815Z",
+    "contractSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+    "sources": [
+      {
+        "sourceId": "abnormal-security:official:1",
+        "supplierId": "abnormal-security",
+        "checkedAt": "2026-10-24T01:26:37.519159Z",
+        "registration": "candidate",
+        "observations": [
+          {
+            "key": "objects/3d749c083ce93b0f295260f25cf8588713049b4c6d265d8dbe2d2a7c2d0d0e09",
+            "sha256": "3d749c083ce93b0f295260f25cf8588713049b4c6d265d8dbe2d2a7c2d0d0e09",
+            "bytes": 422
+          },
+          {
+            "key": "objects/0db89f1acb9d2279b94c6e0324b31333764d842831fe0019eb1c26578e835e53",
+            "sha256": "0db89f1acb9d2279b94c6e0324b31333764d842831fe0019eb1c26578e835e53",
+            "bytes": 483
+          },
+          {
+            "key": "objects/719c4e6e3902cbebb4463dd27a62dde8c2d3cd0a18a91ec7a4480142b6dc0695",
+            "sha256": "719c4e6e3902cbebb4463dd27a62dde8c2d3cd0a18a91ec7a4480142b6dc0695",
+            "bytes": 434
+          }
+        ],
+        "endpoints": [
+          {
+            "url": "https://abnormal.ai/sitemap.xml",
+            "kind": "sitemap",
+            "format": "urlset",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/0187dee780857eff9e576f35300a826cac8937a189ecf105d8206d56e6e85f87",
+              "sha256": "0187dee780857eff9e576f35300a826cac8937a189ecf105d8206d56e6e85f87",
+              "bytes": 1010133
+            },
+            "itemCount": 3290,
+            "indexCount": 0,
+            "sampleItems": [
+              "https://abnormal.ai/",
+              "https://abnormal.ai/about",
+              "https://abnormal.ai/about/how-we-got-here",
+              "https://abnormal.ai/about/our-mission",
+              "https://abnormal.ai/about/team"
+            ],
+            "sampleIndexes": []
+          }
+        ],
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "facts": [],
+        "fetchReservations": [
+          {
+            "url": "https://abnormal.ai/",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 517
+          },
+          {
+            "url": "https://abnormal.ai/robots.txt",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 527
+          },
+          {
+            "url": "https://abnormal.ai/sitemap.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 532
+          }
+        ],
+        "reservationDenials": [],
+        "reason": "ENDPOINTS_PROBED_SCOPE_AND_HISTORY_REVIEW_REQUIRED",
+        "executionCompleted": true,
+        "budgetDenied": false
+      },
+      {
+        "sourceId": "aqua:official:2",
+        "supplierId": "aqua",
+        "checkedAt": "2026-10-24T01:26:37.519322Z",
+        "registration": "candidate",
+        "observations": [
+          {
+            "key": "objects/85583e52c27dfae77c33533310c6cb43a792978dc273fc2256d9038e840cd662",
+            "sha256": "85583e52c27dfae77c33533310c6cb43a792978dc273fc2256d9038e840cd662",
+            "bytes": 446
+          },
+          {
+            "key": "objects/16cd23a7817bcac82727b09f4a5f94004e8f01555b5d01f1d8112374121dd0f6",
+            "sha256": "16cd23a7817bcac82727b09f4a5f94004e8f01555b5d01f1d8112374121dd0f6",
+            "bytes": 486
+          },
+          {
+            "key": "objects/47fef823d61c8d0e9399aea30320379084423472416530d9091c99c35610ee76",
+            "sha256": "47fef823d61c8d0e9399aea30320379084423472416530d9091c99c35610ee76",
+            "bytes": 487
+          },
+          {
+            "key": "objects/1b70d6b23156aea324008d0ae892ce0acfeb273d43d2bef998b6da477c3c9e5d",
+            "sha256": "1b70d6b23156aea324008d0ae892ce0acfeb273d43d2bef998b6da477c3c9e5d",
+            "bytes": 481
+          },
+          {
+            "key": "objects/27d51ad2a3cd2c78864eaa8ef79ba9ffc50f8e405d4458ecfe5719bd393b3d4d",
+            "sha256": "27d51ad2a3cd2c78864eaa8ef79ba9ffc50f8e405d4458ecfe5719bd393b3d4d",
+            "bytes": 493
+          },
+          {
+            "key": "objects/43dd769a25e3db18444ba74eea3d86e5e526a84187fd4be0493156aa8385f283",
+            "sha256": "43dd769a25e3db18444ba74eea3d86e5e526a84187fd4be0493156aa8385f283",
+            "bytes": 486
+          },
+          {
+            "key": "objects/603d67536247df6ba1f27e42f6e1d4663ae1511029efce61a8430c55de04f3c5",
+            "sha256": "603d67536247df6ba1f27e42f6e1d4663ae1511029efce61a8430c55de04f3c5",
+            "bytes": 491
+          },
+          {
+            "key": "objects/0a97e4d3b5d3b54bcc23bdd5a436f3498785a3fb7d7faa6966b4304a49974455",
+            "sha256": "0a97e4d3b5d3b54bcc23bdd5a436f3498785a3fb7d7faa6966b4304a49974455",
+            "bytes": 486
+          },
+          {
+            "key": "objects/9719a1348984dc389814799154765b03433d4ce2b9949b39d1e5e9af8b166b7c",
+            "sha256": "9719a1348984dc389814799154765b03433d4ce2b9949b39d1e5e9af8b166b7c",
+            "bytes": 493
+          },
+          {
+            "key": "objects/444044c9211d1b81898bef1165c15a960ebb5f607e8d771083ed083dc4ea67c3",
+            "sha256": "444044c9211d1b81898bef1165c15a960ebb5f607e8d771083ed083dc4ea67c3",
+            "bytes": 486
+          }
+        ],
+        "endpoints": [
+          {
+            "url": "https://www.prnewswire.com/sitemap.xml",
+            "kind": "sitemap",
+            "format": "sitemapindex",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/113422c0d8756692a5cfd7f73ecd2b110735643ecbbe2dc063de0019eaa4da59",
+              "sha256": "113422c0d8756692a5cfd7f73ecd2b110735643ecbbe2dc063de0019eaa4da59",
+              "bytes": 825
+            },
+            "itemCount": 0,
+            "indexCount": 5,
+            "sampleItems": [],
+            "sampleIndexes": [
+              "https://www.prnewswire.com/sitemap-company.xml",
+              "https://www.prnewswire.com/sitemap-gz.xml",
+              "https://www.prnewswire.com/sitemap-news-releases.xml",
+              "https://www.prnewswire.com/sitemap-products.xml",
+              "https://www.prnewswire.com/sitemap-resources.xml"
+            ]
+          },
+          {
+            "url": "https://www.prnewswire.com/sitemap-news.xml",
+            "kind": "sitemap",
+            "format": "sitemapindex",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/41f2beb4ee0350e8bb34631a6f2f1e61ab53ec144e8743c82d9ae15d1ff85b2c",
+              "sha256": "41f2beb4ee0350e8bb34631a6f2f1e61ab53ec144e8743c82d9ae15d1ff85b2c",
+              "bytes": 3474
+            },
+            "itemCount": 0,
+            "indexCount": 26,
+            "sampleItems": [],
+            "sampleIndexes": [
+              "https://www.prnewswire.com/sitemap-news.xml?page=1",
+              "https://www.prnewswire.com/sitemap-news.xml?page=10",
+              "https://www.prnewswire.com/sitemap-news.xml?page=11",
+              "https://www.prnewswire.com/sitemap-news.xml?page=12",
+              "https://www.prnewswire.com/sitemap-news.xml?page=13"
+            ]
+          },
+          {
+            "url": "https://www.prnewswire.com/es/sitemap.xml",
+            "kind": "sitemap",
+            "format": "sitemapindex",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/b4034c712b035a549b5ebfa80cb629b4afaaff67ab057696a955478395db7ecd",
+              "sha256": "b4034c712b035a549b5ebfa80cb629b4afaaff67ab057696a955478395db7ecd",
+              "bytes": 544
+            },
+            "itemCount": 0,
+            "indexCount": 3,
+            "sampleItems": [],
+            "sampleIndexes": [
+              "https://www.prnewswire.com/es/sitemap-contactenos.xml",
+              "https://www.prnewswire.com/es/sitemap-es.xml",
+              "https://www.prnewswire.com/es/sitemap-gz.xml"
+            ]
+          },
+          {
+            "url": "https://www.prnewswire.com/es/sitemap-news.xml",
+            "kind": "sitemap",
+            "format": "sitemapindex",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/64c8489bbcef2fb02a052dec6d3a9c0a0095751ad5c3c45640919e98f152a48d",
+              "sha256": "64c8489bbcef2fb02a052dec6d3a9c0a0095751ad5c3c45640919e98f152a48d",
+              "bytes": 360
+            },
+            "itemCount": 0,
+            "indexCount": 1,
+            "sampleItems": [],
+            "sampleIndexes": [
+              "https://www.prnewswire.com/es/sitemap-news.xml?page=1"
+            ]
+          },
+          {
+            "url": "https://www.prnewswire.com/sv/sitemap.xml",
+            "kind": "sitemap",
+            "format": "sitemapindex",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/f710bc12e51b8e41ed2e148d0b0b844ad00c1ed131d46304eb9c2623142c69c2",
+              "sha256": "f710bc12e51b8e41ed2e148d0b0b844ad00c1ed131d46304eb9c2623142c69c2",
+              "bytes": 545
+            },
+            "itemCount": 0,
+            "indexCount": 3,
+            "sampleItems": [],
+            "sampleIndexes": [
+              "https://www.prnewswire.com/sv/sitemap-gz.xml",
+              "https://www.prnewswire.com/sv/sitemap-kontakta-oss.xml",
+              "https://www.prnewswire.com/sv/sitemap-sv.xml"
+            ]
+          },
+          {
+            "url": "https://www.prnewswire.com/sv/sitemap-news.xml",
+            "kind": "sitemap",
+            "format": "sitemapindex",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/207b2f0b3ba752b0defd5b1daa5b425ffe6b772fe0c631b64d44e7ed8f498c96",
+              "sha256": "207b2f0b3ba752b0defd5b1daa5b425ffe6b772fe0c631b64d44e7ed8f498c96",
+              "bytes": 360
+            },
+            "itemCount": 0,
+            "indexCount": 1,
+            "sampleItems": [],
+            "sampleIndexes": [
+              "https://www.prnewswire.com/sv/sitemap-news.xml?page=1"
+            ]
+          },
+          {
+            "url": "https://www.prnewswire.com/ru/sitemap.xml",
+            "kind": "sitemap",
+            "format": "sitemapindex",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/89c7c4f4c10cd3894b0c6c1cbcd9c3e552dfd56af1c65351feef292c30ef0bd1",
+              "sha256": "89c7c4f4c10cd3894b0c6c1cbcd9c3e552dfd56af1c65351feef292c30ef0bd1",
+              "bytes": 405
+            },
+            "itemCount": 0,
+            "indexCount": 2,
+            "sampleItems": [],
+            "sampleIndexes": [
+              "https://www.prnewswire.com/ru/sitemap-contact-us.xml",
+              "https://www.prnewswire.com/ru/sitemap-gz.xml"
+            ]
+          },
+          {
+            "url": "https://www.prnewswire.com/ru/sitemap-news.xml",
+            "kind": "sitemap",
+            "format": "sitemapindex",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/f466f24958c972c3f327264fb16f582fc89c85c80ade568411052a5aeddd40e4",
+              "sha256": "f466f24958c972c3f327264fb16f582fc89c85c80ade568411052a5aeddd40e4",
+              "bytes": 360
+            },
+            "itemCount": 0,
+            "indexCount": 1,
+            "sampleItems": [],
+            "sampleIndexes": [
+              "https://www.prnewswire.com/ru/sitemap-news.xml?page=1"
+            ]
+          }
+        ],
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "facts": [],
+        "fetchReservations": [
+          {
+            "url": "https://www.prnewswire.com/",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 519
+          },
+          {
+            "url": "https://www.prnewswire.com/robots.txt",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 522
+          },
+          {
+            "url": "https://www.prnewswire.com/sitemap.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 524
+          },
+          {
+            "url": "https://www.prnewswire.com/sitemap-news.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 528
+          },
+          {
+            "url": "https://www.prnewswire.com/es/sitemap.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 531
+          },
+          {
+            "url": "https://www.prnewswire.com/es/sitemap-news.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 535
+          },
+          {
+            "url": "https://www.prnewswire.com/sv/sitemap.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 539
+          },
+          {
+            "url": "https://www.prnewswire.com/sv/sitemap-news.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 543
+          },
+          {
+            "url": "https://www.prnewswire.com/ru/sitemap.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 547
+          },
+          {
+            "url": "https://www.prnewswire.com/ru/sitemap-news.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 551
+          }
+        ],
+        "reservationDenials": [],
+        "reason": "ENDPOINTS_PROBED_SCOPE_AND_HISTORY_REVIEW_REQUIRED",
+        "executionCompleted": true,
+        "budgetDenied": false
+      },
+      {
+        "sourceId": "barracuda:official:1",
+        "supplierId": "barracuda",
+        "checkedAt": "2026-10-24T01:26:37.519437Z",
+        "registration": "candidate",
+        "observations": [
+          {
+            "key": "objects/48b1fe99ada5f9624aec441208552fe1ade8a4d8fd4bf30ac5086b4ab6ba613a",
+            "sha256": "48b1fe99ada5f9624aec441208552fe1ade8a4d8fd4bf30ac5086b4ab6ba613a",
+            "bytes": 468
+          },
+          {
+            "key": "objects/60926b3708ecfbe6083d491c80f2bd822e1a313c2daacb86e4d1a2e97b40e16d",
+            "sha256": "60926b3708ecfbe6083d491c80f2bd822e1a313c2daacb86e4d1a2e97b40e16d",
+            "bytes": 487
+          },
+          {
+            "key": "objects/0ac7c68b56dec89e8f67a6c58db09156a9456522032f32fc568322ed98c0a214",
+            "sha256": "0ac7c68b56dec89e8f67a6c58db09156a9456522032f32fc568322ed98c0a214",
+            "bytes": 496
+          }
+        ],
+        "endpoints": [
+          {
+            "url": "https://www.barracuda.com/sitemap.xml",
+            "kind": "sitemap",
+            "format": "urlset",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/ff35c3959e3ad2826bed0d55fdc24766427c16bb602e2b6d5797ff3310738f5b",
+              "sha256": "ff35c3959e3ad2826bed0d55fdc24766427c16bb602e2b6d5797ff3310738f5b",
+              "bytes": 19687
+            },
+            "itemCount": 1204,
+            "indexCount": 0,
+            "sampleItems": [
+              "https://www.barracuda.com",
+              "https://www.barracuda.com/accessibility-statement",
+              "https://www.barracuda.com/campaigns",
+              "https://www.barracuda.com/campaigns/BEU-AMER-MKTP-20200910-WAS-Allytics-Azure-Demand-Gen-LP-Registration",
+              "https://www.barracuda.com/campaigns/BEU-AMER-MKTP-20201028-CGW-Allytics-Azure-Demand-Gen-LP_LP-Registration"
+            ],
+            "sampleIndexes": []
+          }
+        ],
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "facts": [],
+        "fetchReservations": [
+          {
+            "url": "https://www.barracuda.com/",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 518
+          },
+          {
+            "url": "https://www.barracuda.com/robots.txt",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 521
+          },
+          {
+            "url": "https://www.barracuda.com/sitemap.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 525
+          }
+        ],
+        "reservationDenials": [],
+        "reason": "ENDPOINTS_PROBED_SCOPE_AND_HISTORY_REVIEW_REQUIRED",
+        "executionCompleted": true,
+        "budgetDenied": false
+      },
+      {
+        "sourceId": "beyondtrust:official:1",
+        "supplierId": "beyondtrust",
+        "checkedAt": "2026-10-24T01:26:37.519580Z",
+        "registration": "candidate",
+        "observations": [
+          {
+            "key": "objects/c29a18d2ffd85a1bba66c8198a38ab233d0ff30d4ea9d2ca2324df4e9137d0df",
+            "sha256": "c29a18d2ffd85a1bba66c8198a38ab233d0ff30d4ea9d2ca2324df4e9137d0df",
+            "bytes": 150
+          }
+        ],
+        "endpoints": [],
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "facts": [],
+        "fetchReservations": [
+          {
+            "url": "https://www.globenewswire.com/",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 520
+          }
+        ],
+        "reservationDenials": [],
+        "reason": "HTTP_403",
+        "executionCompleted": true,
+        "budgetDenied": false
+      },
+      {
+        "sourceId": "cato:official:1",
+        "supplierId": "cato",
+        "checkedAt": "2026-10-24T01:26:37.705060Z",
+        "registration": "candidate",
+        "observations": [
+          {
+            "key": "objects/a386ab7acfed14ff4d332ddae07ed66e9e011e68f2e7626ac3b6246f8c60b3fe",
+            "sha256": "a386ab7acfed14ff4d332ddae07ed66e9e011e68f2e7626ac3b6246f8c60b3fe",
+            "bytes": 446
+          },
+          {
+            "key": "objects/18f0b688527d0fb7da4cc1764584d05e78914bf697766306b89e5ba9190f95c2",
+            "sha256": "18f0b688527d0fb7da4cc1764584d05e78914bf697766306b89e5ba9190f95c2",
+            "bytes": 486
+          },
+          {
+            "key": "objects/0fe4ce5a8904ebf704aa2a7762d886b88ed76df7a90f80bb700a30c5a3438010",
+            "sha256": "0fe4ce5a8904ebf704aa2a7762d886b88ed76df7a90f80bb700a30c5a3438010",
+            "bytes": 487
+          },
+          {
+            "key": "objects/384ad94b2cd5eda9c2faf6dc6be9d29d251fc8c5d58f54dd553976058ac7f977",
+            "sha256": "384ad94b2cd5eda9c2faf6dc6be9d29d251fc8c5d58f54dd553976058ac7f977",
+            "bytes": 481
+          },
+          {
+            "key": "objects/5be262094cc87fd8d5885156a580c06dfdf134a0c7eae79f257fa9469cf02abe",
+            "sha256": "5be262094cc87fd8d5885156a580c06dfdf134a0c7eae79f257fa9469cf02abe",
+            "bytes": 493
+          },
+          {
+            "key": "objects/a3665fa549bced564b868be363d671252b56741c1ca5f70e56f5c4315cb97ed6",
+            "sha256": "a3665fa549bced564b868be363d671252b56741c1ca5f70e56f5c4315cb97ed6",
+            "bytes": 486
+          },
+          {
+            "key": "objects/7948b72618778ce9ec8a161e4708dea843556645d94a5fbd7fed42624a307639",
+            "sha256": "7948b72618778ce9ec8a161e4708dea843556645d94a5fbd7fed42624a307639",
+            "bytes": 491
+          },
+          {
+            "key": "objects/cbf8ee3f0ef0dc05220e17189b04eb770620ac2030d535ba81f8edd67d621d0f",
+            "sha256": "cbf8ee3f0ef0dc05220e17189b04eb770620ac2030d535ba81f8edd67d621d0f",
+            "bytes": 486
+          },
+          {
+            "key": "objects/3a15e636e94cc190985aaa10dc5600cf76085fc5530550ec0585ac970b45b0ff",
+            "sha256": "3a15e636e94cc190985aaa10dc5600cf76085fc5530550ec0585ac970b45b0ff",
+            "bytes": 493
+          },
+          {
+            "key": "objects/20c7b2da7e051b9b93cdd942fae770af72c68e63a6282a502b0920e3554719f7",
+            "sha256": "20c7b2da7e051b9b93cdd942fae770af72c68e63a6282a502b0920e3554719f7",
+            "bytes": 486
+          }
+        ],
+        "endpoints": [
+          {
+            "url": "https://www.prnewswire.com/sitemap.xml",
+            "kind": "sitemap",
+            "format": "sitemapindex",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/113422c0d8756692a5cfd7f73ecd2b110735643ecbbe2dc063de0019eaa4da59",
+              "sha256": "113422c0d8756692a5cfd7f73ecd2b110735643ecbbe2dc063de0019eaa4da59",
+              "bytes": 825
+            },
+            "itemCount": 0,
+            "indexCount": 5,
+            "sampleItems": [],
+            "sampleIndexes": [
+              "https://www.prnewswire.com/sitemap-company.xml",
+              "https://www.prnewswire.com/sitemap-gz.xml",
+              "https://www.prnewswire.com/sitemap-news-releases.xml",
+              "https://www.prnewswire.com/sitemap-products.xml",
+              "https://www.prnewswire.com/sitemap-resources.xml"
+            ]
+          },
+          {
+            "url": "https://www.prnewswire.com/sitemap-news.xml",
+            "kind": "sitemap",
+            "format": "sitemapindex",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/41f2beb4ee0350e8bb34631a6f2f1e61ab53ec144e8743c82d9ae15d1ff85b2c",
+              "sha256": "41f2beb4ee0350e8bb34631a6f2f1e61ab53ec144e8743c82d9ae15d1ff85b2c",
+              "bytes": 3474
+            },
+            "itemCount": 0,
+            "indexCount": 26,
+            "sampleItems": [],
+            "sampleIndexes": [
+              "https://www.prnewswire.com/sitemap-news.xml?page=1",
+              "https://www.prnewswire.com/sitemap-news.xml?page=10",
+              "https://www.prnewswire.com/sitemap-news.xml?page=11",
+              "https://www.prnewswire.com/sitemap-news.xml?page=12",
+              "https://www.prnewswire.com/sitemap-news.xml?page=13"
+            ]
+          },
+          {
+            "url": "https://www.prnewswire.com/es/sitemap.xml",
+            "kind": "sitemap",
+            "format": "sitemapindex",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/b4034c712b035a549b5ebfa80cb629b4afaaff67ab057696a955478395db7ecd",
+              "sha256": "b4034c712b035a549b5ebfa80cb629b4afaaff67ab057696a955478395db7ecd",
+              "bytes": 544
+            },
+            "itemCount": 0,
+            "indexCount": 3,
+            "sampleItems": [],
+            "sampleIndexes": [
+              "https://www.prnewswire.com/es/sitemap-contactenos.xml",
+              "https://www.prnewswire.com/es/sitemap-es.xml",
+              "https://www.prnewswire.com/es/sitemap-gz.xml"
+            ]
+          },
+          {
+            "url": "https://www.prnewswire.com/es/sitemap-news.xml",
+            "kind": "sitemap",
+            "format": "sitemapindex",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/64c8489bbcef2fb02a052dec6d3a9c0a0095751ad5c3c45640919e98f152a48d",
+              "sha256": "64c8489bbcef2fb02a052dec6d3a9c0a0095751ad5c3c45640919e98f152a48d",
+              "bytes": 360
+            },
+            "itemCount": 0,
+            "indexCount": 1,
+            "sampleItems": [],
+            "sampleIndexes": [
+              "https://www.prnewswire.com/es/sitemap-news.xml?page=1"
+            ]
+          },
+          {
+            "url": "https://www.prnewswire.com/sv/sitemap.xml",
+            "kind": "sitemap",
+            "format": "sitemapindex",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/f710bc12e51b8e41ed2e148d0b0b844ad00c1ed131d46304eb9c2623142c69c2",
+              "sha256": "f710bc12e51b8e41ed2e148d0b0b844ad00c1ed131d46304eb9c2623142c69c2",
+              "bytes": 545
+            },
+            "itemCount": 0,
+            "indexCount": 3,
+            "sampleItems": [],
+            "sampleIndexes": [
+              "https://www.prnewswire.com/sv/sitemap-gz.xml",
+              "https://www.prnewswire.com/sv/sitemap-kontakta-oss.xml",
+              "https://www.prnewswire.com/sv/sitemap-sv.xml"
+            ]
+          },
+          {
+            "url": "https://www.prnewswire.com/sv/sitemap-news.xml",
+            "kind": "sitemap",
+            "format": "sitemapindex",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/207b2f0b3ba752b0defd5b1daa5b425ffe6b772fe0c631b64d44e7ed8f498c96",
+              "sha256": "207b2f0b3ba752b0defd5b1daa5b425ffe6b772fe0c631b64d44e7ed8f498c96",
+              "bytes": 360
+            },
+            "itemCount": 0,
+            "indexCount": 1,
+            "sampleItems": [],
+            "sampleIndexes": [
+              "https://www.prnewswire.com/sv/sitemap-news.xml?page=1"
+            ]
+          },
+          {
+            "url": "https://www.prnewswire.com/ru/sitemap.xml",
+            "kind": "sitemap",
+            "format": "sitemapindex",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/89c7c4f4c10cd3894b0c6c1cbcd9c3e552dfd56af1c65351feef292c30ef0bd1",
+              "sha256": "89c7c4f4c10cd3894b0c6c1cbcd9c3e552dfd56af1c65351feef292c30ef0bd1",
+              "bytes": 405
+            },
+            "itemCount": 0,
+            "indexCount": 2,
+            "sampleItems": [],
+            "sampleIndexes": [
+              "https://www.prnewswire.com/ru/sitemap-contact-us.xml",
+              "https://www.prnewswire.com/ru/sitemap-gz.xml"
+            ]
+          },
+          {
+            "url": "https://www.prnewswire.com/ru/sitemap-news.xml",
+            "kind": "sitemap",
+            "format": "sitemapindex",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/f466f24958c972c3f327264fb16f582fc89c85c80ade568411052a5aeddd40e4",
+              "sha256": "f466f24958c972c3f327264fb16f582fc89c85c80ade568411052a5aeddd40e4",
+              "bytes": 360
+            },
+            "itemCount": 0,
+            "indexCount": 1,
+            "sampleItems": [],
+            "sampleIndexes": [
+              "https://www.prnewswire.com/ru/sitemap-news.xml?page=1"
+            ]
+          }
+        ],
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "facts": [],
+        "fetchReservations": [
+          {
+            "url": "https://www.prnewswire.com/",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 523
+          },
+          {
+            "url": "https://www.prnewswire.com/robots.txt",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 526
+          },
+          {
+            "url": "https://www.prnewswire.com/sitemap.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 530
+          },
+          {
+            "url": "https://www.prnewswire.com/sitemap-news.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 534
+          },
+          {
+            "url": "https://www.prnewswire.com/es/sitemap.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 538
+          },
+          {
+            "url": "https://www.prnewswire.com/es/sitemap-news.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 541
+          },
+          {
+            "url": "https://www.prnewswire.com/sv/sitemap.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 545
+          },
+          {
+            "url": "https://www.prnewswire.com/sv/sitemap-news.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 549
+          },
+          {
+            "url": "https://www.prnewswire.com/ru/sitemap.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 553
+          },
+          {
+            "url": "https://www.prnewswire.com/ru/sitemap-news.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 557
+          }
+        ],
+        "reservationDenials": [],
+        "reason": "ENDPOINTS_PROBED_SCOPE_AND_HISTORY_REVIEW_REQUIRED",
+        "executionCompleted": true,
+        "budgetDenied": false
+      },
+      {
+        "sourceId": "chainguard:official:1",
+        "supplierId": "chainguard",
+        "checkedAt": "2026-10-24T01:26:38.757334Z",
+        "registration": "candidate",
+        "observations": [
+          {
+            "key": "objects/7b7b2aa2f3e31e504cc845cec1965b157435caa446bc465ac5efe277e6a6a965",
+            "sha256": "7b7b2aa2f3e31e504cc845cec1965b157435caa446bc465ac5efe277e6a6a965",
+            "bytes": 446
+          },
+          {
+            "key": "objects/40e736a92c1a93213cc0168423d2ded91210648be5d2f8b01f8b99031f73edb6",
+            "sha256": "40e736a92c1a93213cc0168423d2ded91210648be5d2f8b01f8b99031f73edb6",
+            "bytes": 486
+          },
+          {
+            "key": "objects/14b981f49c00c7279cfd70c751fd5277f424fd6c040eac507cb02caad17b1a79",
+            "sha256": "14b981f49c00c7279cfd70c751fd5277f424fd6c040eac507cb02caad17b1a79",
+            "bytes": 487
+          },
+          {
+            "key": "objects/a55c5b690387417f2268abb6d33a7558d70e5950bfd8c7ddf3acc48b8d1c1bad",
+            "sha256": "a55c5b690387417f2268abb6d33a7558d70e5950bfd8c7ddf3acc48b8d1c1bad",
+            "bytes": 481
+          },
+          {
+            "key": "objects/7251d49602c6acc5a9be970ca2fd90447de2b0dfb33cc1c01c120e68bb66ebf2",
+            "sha256": "7251d49602c6acc5a9be970ca2fd90447de2b0dfb33cc1c01c120e68bb66ebf2",
+            "bytes": 493
+          },
+          {
+            "key": "objects/ab274d80b7f0b87635795f0f0d0dfceaa76918db9372fa7b22721600c266c405",
+            "sha256": "ab274d80b7f0b87635795f0f0d0dfceaa76918db9372fa7b22721600c266c405",
+            "bytes": 486
+          },
+          {
+            "key": "objects/25589e1e4b7ef85450828116b3a371ad98947052360532deeb8ab949320ff3b3",
+            "sha256": "25589e1e4b7ef85450828116b3a371ad98947052360532deeb8ab949320ff3b3",
+            "bytes": 491
+          },
+          {
+            "key": "objects/0c74858a4d36056b7fc5ec21821ad9ce8356f64cf2936b47419c3d761e8b6bd0",
+            "sha256": "0c74858a4d36056b7fc5ec21821ad9ce8356f64cf2936b47419c3d761e8b6bd0",
+            "bytes": 486
+          },
+          {
+            "key": "objects/a836d633e5776d9301af626a1c87b5ab6bc29663c2b1a64781613cd6b820eeac",
+            "sha256": "a836d633e5776d9301af626a1c87b5ab6bc29663c2b1a64781613cd6b820eeac",
+            "bytes": 493
+          },
+          {
+            "key": "objects/f0eafdbde9e70fde6bf7b3eaac27dfefa4d50e131a9875a68346e6a39cebe19f",
+            "sha256": "f0eafdbde9e70fde6bf7b3eaac27dfefa4d50e131a9875a68346e6a39cebe19f",
+            "bytes": 486
+          }
+        ],
+        "endpoints": [
+          {
+            "url": "https://www.prnewswire.com/sitemap.xml",
+            "kind": "sitemap",
+            "format": "sitemapindex",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/113422c0d8756692a5cfd7f73ecd2b110735643ecbbe2dc063de0019eaa4da59",
+              "sha256": "113422c0d8756692a5cfd7f73ecd2b110735643ecbbe2dc063de0019eaa4da59",
+              "bytes": 825
+            },
+            "itemCount": 0,
+            "indexCount": 5,
+            "sampleItems": [],
+            "sampleIndexes": [
+              "https://www.prnewswire.com/sitemap-company.xml",
+              "https://www.prnewswire.com/sitemap-gz.xml",
+              "https://www.prnewswire.com/sitemap-news-releases.xml",
+              "https://www.prnewswire.com/sitemap-products.xml",
+              "https://www.prnewswire.com/sitemap-resources.xml"
+            ]
+          },
+          {
+            "url": "https://www.prnewswire.com/sitemap-news.xml",
+            "kind": "sitemap",
+            "format": "sitemapindex",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/41f2beb4ee0350e8bb34631a6f2f1e61ab53ec144e8743c82d9ae15d1ff85b2c",
+              "sha256": "41f2beb4ee0350e8bb34631a6f2f1e61ab53ec144e8743c82d9ae15d1ff85b2c",
+              "bytes": 3474
+            },
+            "itemCount": 0,
+            "indexCount": 26,
+            "sampleItems": [],
+            "sampleIndexes": [
+              "https://www.prnewswire.com/sitemap-news.xml?page=1",
+              "https://www.prnewswire.com/sitemap-news.xml?page=10",
+              "https://www.prnewswire.com/sitemap-news.xml?page=11",
+              "https://www.prnewswire.com/sitemap-news.xml?page=12",
+              "https://www.prnewswire.com/sitemap-news.xml?page=13"
+            ]
+          },
+          {
+            "url": "https://www.prnewswire.com/es/sitemap.xml",
+            "kind": "sitemap",
+            "format": "sitemapindex",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/b4034c712b035a549b5ebfa80cb629b4afaaff67ab057696a955478395db7ecd",
+              "sha256": "b4034c712b035a549b5ebfa80cb629b4afaaff67ab057696a955478395db7ecd",
+              "bytes": 544
+            },
+            "itemCount": 0,
+            "indexCount": 3,
+            "sampleItems": [],
+            "sampleIndexes": [
+              "https://www.prnewswire.com/es/sitemap-contactenos.xml",
+              "https://www.prnewswire.com/es/sitemap-es.xml",
+              "https://www.prnewswire.com/es/sitemap-gz.xml"
+            ]
+          },
+          {
+            "url": "https://www.prnewswire.com/es/sitemap-news.xml",
+            "kind": "sitemap",
+            "format": "sitemapindex",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/64c8489bbcef2fb02a052dec6d3a9c0a0095751ad5c3c45640919e98f152a48d",
+              "sha256": "64c8489bbcef2fb02a052dec6d3a9c0a0095751ad5c3c45640919e98f152a48d",
+              "bytes": 360
+            },
+            "itemCount": 0,
+            "indexCount": 1,
+            "sampleItems": [],
+            "sampleIndexes": [
+              "https://www.prnewswire.com/es/sitemap-news.xml?page=1"
+            ]
+          },
+          {
+            "url": "https://www.prnewswire.com/sv/sitemap.xml",
+            "kind": "sitemap",
+            "format": "sitemapindex",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/f710bc12e51b8e41ed2e148d0b0b844ad00c1ed131d46304eb9c2623142c69c2",
+              "sha256": "f710bc12e51b8e41ed2e148d0b0b844ad00c1ed131d46304eb9c2623142c69c2",
+              "bytes": 545
+            },
+            "itemCount": 0,
+            "indexCount": 3,
+            "sampleItems": [],
+            "sampleIndexes": [
+              "https://www.prnewswire.com/sv/sitemap-gz.xml",
+              "https://www.prnewswire.com/sv/sitemap-kontakta-oss.xml",
+              "https://www.prnewswire.com/sv/sitemap-sv.xml"
+            ]
+          },
+          {
+            "url": "https://www.prnewswire.com/sv/sitemap-news.xml",
+            "kind": "sitemap",
+            "format": "sitemapindex",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/207b2f0b3ba752b0defd5b1daa5b425ffe6b772fe0c631b64d44e7ed8f498c96",
+              "sha256": "207b2f0b3ba752b0defd5b1daa5b425ffe6b772fe0c631b64d44e7ed8f498c96",
+              "bytes": 360
+            },
+            "itemCount": 0,
+            "indexCount": 1,
+            "sampleItems": [],
+            "sampleIndexes": [
+              "https://www.prnewswire.com/sv/sitemap-news.xml?page=1"
+            ]
+          },
+          {
+            "url": "https://www.prnewswire.com/ru/sitemap.xml",
+            "kind": "sitemap",
+            "format": "sitemapindex",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/89c7c4f4c10cd3894b0c6c1cbcd9c3e552dfd56af1c65351feef292c30ef0bd1",
+              "sha256": "89c7c4f4c10cd3894b0c6c1cbcd9c3e552dfd56af1c65351feef292c30ef0bd1",
+              "bytes": 405
+            },
+            "itemCount": 0,
+            "indexCount": 2,
+            "sampleItems": [],
+            "sampleIndexes": [
+              "https://www.prnewswire.com/ru/sitemap-contact-us.xml",
+              "https://www.prnewswire.com/ru/sitemap-gz.xml"
+            ]
+          },
+          {
+            "url": "https://www.prnewswire.com/ru/sitemap-news.xml",
+            "kind": "sitemap",
+            "format": "sitemapindex",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/f466f24958c972c3f327264fb16f582fc89c85c80ade568411052a5aeddd40e4",
+              "sha256": "f466f24958c972c3f327264fb16f582fc89c85c80ade568411052a5aeddd40e4",
+              "bytes": 360
+            },
+            "itemCount": 0,
+            "indexCount": 1,
+            "sampleItems": [],
+            "sampleIndexes": [
+              "https://www.prnewswire.com/ru/sitemap-news.xml?page=1"
+            ]
+          }
+        ],
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "facts": [],
+        "fetchReservations": [
+          {
+            "url": "https://www.prnewswire.com/",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 529
+          },
+          {
+            "url": "https://www.prnewswire.com/robots.txt",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 533
+          },
+          {
+            "url": "https://www.prnewswire.com/sitemap.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 536
+          },
+          {
+            "url": "https://www.prnewswire.com/sitemap-news.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 540
+          },
+          {
+            "url": "https://www.prnewswire.com/es/sitemap.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 544
+          },
+          {
+            "url": "https://www.prnewswire.com/es/sitemap-news.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 548
+          },
+          {
+            "url": "https://www.prnewswire.com/sv/sitemap.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 552
+          },
+          {
+            "url": "https://www.prnewswire.com/sv/sitemap-news.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 556
+          },
+          {
+            "url": "https://www.prnewswire.com/ru/sitemap.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 559
+          },
+          {
+            "url": "https://www.prnewswire.com/ru/sitemap-news.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 564
+          }
+        ],
+        "reservationDenials": [],
+        "reason": "ENDPOINTS_PROBED_SCOPE_AND_HISTORY_REVIEW_REQUIRED",
+        "executionCompleted": true,
+        "budgetDenied": false
+      },
+      {
+        "sourceId": "checkpoint-email:official:1",
+        "supplierId": "checkpoint-email",
+        "checkedAt": "2026-10-24T01:26:40.586562Z",
+        "registration": "candidate",
+        "observations": [
+          {
+            "key": "objects/7e059c7f78abacece21769f61807b37de554753149df0f062a7791495e3d339d",
+            "sha256": "7e059c7f78abacece21769f61807b37de554753149df0f062a7791495e3d339d",
+            "bytes": 448
+          },
+          {
+            "key": "objects/b464e9e285235aabcfa96e7ff296d8cf80cf45a8c0f2d5139c07fa18da76a8c8",
+            "sha256": "b464e9e285235aabcfa96e7ff296d8cf80cf45a8c0f2d5139c07fa18da76a8c8",
+            "bytes": 466
+          },
+          {
+            "key": "objects/ecb04ab799a6377a5db8adcd84e6194c4099e8a48a17293f3d5c4c5315ae5df7",
+            "sha256": "ecb04ab799a6377a5db8adcd84e6194c4099e8a48a17293f3d5c4c5315ae5df7",
+            "bytes": 503
+          },
+          {
+            "key": "objects/2b71b1fdc3f80e21d681ebdc5d182b4a9c1fa21b5a47988638cbce21bf12820c",
+            "sha256": "2b71b1fdc3f80e21d681ebdc5d182b4a9c1fa21b5a47988638cbce21bf12820c",
+            "bytes": 452
+          }
+        ],
+        "endpoints": [
+          {
+            "url": "https://blog.checkpoint.com/feed/",
+            "kind": "rss",
+            "format": "rss",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/933608c1aead2971794b0ff3c280ca7dc44a7bfcbc0e38d06e566c5c6e439a4d",
+              "sha256": "933608c1aead2971794b0ff3c280ca7dc44a7bfcbc0e38d06e566c5c6e439a4d",
+              "bytes": 28208
+            },
+            "itemCount": 10,
+            "indexCount": 0,
+            "sampleItems": [
+              "https://blog.checkpoint.com/ai-security/custom-guardrails-ai-agents/",
+              "https://blog.checkpoint.com/ai-security/infostealers-are-targeting-ai-what-aokigahara-infostealer-reveals-about-the-new-developer-attack-surface/",
+              "https://blog.checkpoint.com/ai-security/keeping-ai-agents-on-task-check-point-advances-ai-agent-safety-with-nvidia-openshell-reference-architecture/",
+              "https://blog.checkpoint.com/ai-security/php2shell-log4shell-at-ai-speed-a-cisos-perspective/",
+              "https://blog.checkpoint.com/ai-security/php2shell-one-in-ten-organizations-impacted-as-europe-bears-the-brunt/"
+            ],
+            "sampleIndexes": []
+          },
+          {
+            "url": "https://blog.checkpoint.com/sitemap_index.xml",
+            "kind": "sitemap",
+            "format": "sitemapindex",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/185d4f117071c708d122d59d0f324456cf22f0d2c80f663b9121e9ba7604f395",
+              "sha256": "185d4f117071c708d122d59d0f324456cf22f0d2c80f663b9121e9ba7604f395",
+              "bytes": 1479
+            },
+            "itemCount": 0,
+            "indexCount": 9,
+            "sampleItems": [],
+            "sampleIndexes": [
+              "https://blog.checkpoint.com/category-sitemap.xml",
+              "https://blog.checkpoint.com/mailpoet_page-sitemap.xml",
+              "https://blog.checkpoint.com/page-sitemap.xml",
+              "https://blog.checkpoint.com/post-sitemap.xml",
+              "https://blog.checkpoint.com/post-sitemap2.xml"
+            ]
+          }
+        ],
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "facts": [],
+        "fetchReservations": [
+          {
+            "url": "https://blog.checkpoint.com/",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 537
+          },
+          {
+            "url": "https://blog.checkpoint.com/robots.txt",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 542
+          },
+          {
+            "url": "https://blog.checkpoint.com/feed/",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 546
+          },
+          {
+            "url": "https://blog.checkpoint.com/sitemap_index.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 550
+          }
+        ],
+        "reservationDenials": [],
+        "reason": "ENDPOINTS_PROBED_SCOPE_AND_HISTORY_REVIEW_REQUIRED",
+        "executionCompleted": true,
+        "budgetDenied": false
+      },
+      {
+        "sourceId": "checkpoint-email:official:2",
+        "supplierId": "checkpoint-email",
+        "checkedAt": "2026-10-24T01:26:44.496509Z",
+        "registration": "candidate",
+        "observations": [
+          {
+            "key": "objects/08bc9c1c95a74a195d32cda75cab314b3d78e67ab04fb02f75a38bbc4b04141a",
+            "sha256": "08bc9c1c95a74a195d32cda75cab314b3d78e67ab04fb02f75a38bbc4b04141a",
+            "bytes": 419
+          },
+          {
+            "key": "objects/7094e91740506cf4ae937ded2bc7c87ab4aa27909c60a68b7101de39fbb3d52d",
+            "sha256": "7094e91740506cf4ae937ded2bc7c87ab4aa27909c60a68b7101de39fbb3d52d",
+            "bytes": 464
+          }
+        ],
+        "endpoints": [],
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "facts": [],
+        "fetchReservations": [
+          {
+            "url": "https://www.checkpoint.com/",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 554
+          },
+          {
+            "url": "https://www.checkpoint.com/robots.txt",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 558
+          },
+          {
+            "url": "https://www.checkpoint.com/sitemap_index.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 562
+          }
+        ],
+        "reservationDenials": [],
+        "reason": "ContractError",
+        "executionCompleted": true,
+        "budgetDenied": false
+      },
+      {
+        "sourceId": "checkpoint-sase:official:1",
+        "supplierId": "checkpoint-sase",
+        "checkedAt": "2026-10-24T01:26:44.573432Z",
+        "registration": "candidate",
+        "observations": [
+          {
+            "key": "objects/65f564814522ad264d218fd753355d44322b56651e0225fd46b9760da1a632a4",
+            "sha256": "65f564814522ad264d218fd753355d44322b56651e0225fd46b9760da1a632a4",
+            "bytes": 419
+          }
+        ],
+        "endpoints": [],
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "facts": [],
+        "fetchReservations": [
+          {
+            "url": "https://www.checkpoint.com/",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 555
+          },
+          {
+            "url": "https://www.checkpoint.com/robots.txt",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 560
+          }
+        ],
+        "reservationDenials": [],
+        "reason": "ContractError",
+        "executionCompleted": true,
+        "budgetDenied": false
+      },
+      {
+        "sourceId": "cyera:official:1",
+        "supplierId": "cyera",
+        "checkedAt": "2026-10-24T01:26:45.778084Z",
+        "registration": "candidate",
+        "observations": [
+          {
+            "key": "objects/6e46f3d7b3c98836538a0efd6515624450c9ed9711ae99eb9f6dcece4822ed9a",
+            "sha256": "6e46f3d7b3c98836538a0efd6515624450c9ed9711ae99eb9f6dcece4822ed9a",
+            "bytes": 436
+          },
+          {
+            "key": "objects/0fe5c0ac4d54f840d862973b9870b3bd097efdd93142f025265301cce1cc30ee",
+            "sha256": "0fe5c0ac4d54f840d862973b9870b3bd097efdd93142f025265301cce1cc30ee",
+            "bytes": 454
+          },
+          {
+            "key": "objects/bf2875ef2c2972f3fc883c5b1406978ba7c7a33c7268828a5a2058d33c33eb45",
+            "sha256": "bf2875ef2c2972f3fc883c5b1406978ba7c7a33c7268828a5a2058d33c33eb45",
+            "bytes": 469
+          }
+        ],
+        "endpoints": [
+          {
+            "url": "https://www.cyera.com/sitemap.xml",
+            "kind": "sitemap",
+            "format": "urlset",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/3b3715574d9104c653c36cf89a38fe0c9c2d105dd7e4a8614eef594342a0c657",
+              "sha256": "3b3715574d9104c653c36cf89a38fe0c9c2d105dd7e4a8614eef594342a0c657",
+              "bytes": 8077136
+            },
+            "itemCount": 8478,
+            "indexCount": 0,
+            "sampleItems": [
+              "https://www.cyera.com",
+              "https://www.cyera.com/about",
+              "https://www.cyera.com/access-trail-demo",
+              "https://www.cyera.com/ai-guardian-demo",
+              "https://www.cyera.com/ai-mission-week"
+            ],
+            "sampleIndexes": []
+          }
+        ],
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "facts": [],
+        "fetchReservations": [
+          {
+            "url": "https://www.cyera.com/",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 561
+          },
+          {
+            "url": "https://www.cyera.com/robots.txt",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 568
+          },
+          {
+            "url": "https://www.cyera.com/sitemap.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 570
+          }
+        ],
+        "reservationDenials": [],
+        "reason": "ENDPOINTS_PROBED_SCOPE_AND_HISTORY_REVIEW_REQUIRED",
+        "executionCompleted": true,
+        "budgetDenied": false
+      },
+      {
+        "sourceId": "delinea:official:1",
+        "supplierId": "delinea",
+        "checkedAt": "2026-10-24T01:26:46.067069Z",
+        "registration": "candidate",
+        "observations": [
+          {
+            "key": "objects/dbf497097f4927122a6624f220047f0aba480debfca683bab28b908a604c7617",
+            "sha256": "dbf497097f4927122a6624f220047f0aba480debfca683bab28b908a604c7617",
+            "bytes": 432
+          },
+          {
+            "key": "objects/1b705b584eaf477dc988898a8cdc7810473a002568f385bf74d3154387f553ac",
+            "sha256": "1b705b584eaf477dc988898a8cdc7810473a002568f385bf74d3154387f553ac",
+            "bytes": 486
+          },
+          {
+            "key": "objects/ac2d25284a93101d91a9dcd6fcfd67afbfbda2900550167d001b7a056789d490",
+            "sha256": "ac2d25284a93101d91a9dcd6fcfd67afbfbda2900550167d001b7a056789d490",
+            "bytes": 481
+          }
+        ],
+        "endpoints": [
+          {
+            "url": "https://delinea.com/sitemap.xml",
+            "kind": "sitemap",
+            "format": "urlset",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/5030752f92d33b100ec65b801fc448b3efa69c2a9dc07e2c38fb4f518ee9d5a7",
+              "sha256": "5030752f92d33b100ec65b801fc448b3efa69c2a9dc07e2c38fb4f518ee9d5a7",
+              "bytes": 10303377
+            },
+            "itemCount": 7106,
+            "indexCount": 0,
+            "sampleItems": [
+              "https://delinea.com",
+              "https://delinea.com/2024-rsac-resources",
+              "https://delinea.com/2025-blackhat-resource-toolkit",
+              "https://delinea.com/2025-rsac-resources",
+              "https://delinea.com/about"
+            ],
+            "sampleIndexes": []
+          }
+        ],
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "facts": [],
+        "fetchReservations": [
+          {
+            "url": "https://delinea.com/",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 563
+          },
+          {
+            "url": "https://delinea.com/robots.txt",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 569
+          },
+          {
+            "url": "https://delinea.com/sitemap.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 573
+          }
+        ],
+        "reservationDenials": [],
+        "reason": "ENDPOINTS_PROBED_SCOPE_AND_HISTORY_REVIEW_REQUIRED",
+        "executionCompleted": true,
+        "budgetDenied": false
+      },
+      {
+        "sourceId": "delinea:official:2",
+        "supplierId": "delinea",
+        "checkedAt": "2026-10-24T01:26:46.352611Z",
+        "registration": "candidate",
+        "observations": [
+          {
+            "key": "objects/395fa7fb106f7ea39d2d6385494c0d7f3a3f0419d72b7885a05ab726a7f780d3",
+            "sha256": "395fa7fb106f7ea39d2d6385494c0d7f3a3f0419d72b7885a05ab726a7f780d3",
+            "bytes": 150
+          }
+        ],
+        "endpoints": [],
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "facts": [],
+        "fetchReservations": [
+          {
+            "url": "https://www.globenewswire.com/",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 565
+          }
+        ],
+        "reservationDenials": [],
+        "reason": "HTTP_403",
+        "executionCompleted": true,
+        "budgetDenied": false
+      },
+      {
+        "sourceId": "forescout:official:1",
+        "supplierId": "forescout",
+        "checkedAt": "2026-10-24T01:26:46.397949Z",
+        "registration": "candidate",
+        "observations": [
+          {
+            "key": "objects/53fb66276e6112c1ab4108900f3851cbd04dad9c02e5994912b0520f60a1a4da",
+            "sha256": "53fb66276e6112c1ab4108900f3851cbd04dad9c02e5994912b0520f60a1a4da",
+            "bytes": 417
+          },
+          {
+            "key": "objects/e12d661e528858f5013b56eb1277cd408f2fd57950af69ded2070d5003fedfac",
+            "sha256": "e12d661e528858f5013b56eb1277cd408f2fd57950af69ded2070d5003fedfac",
+            "bytes": 462
+          },
+          {
+            "key": "objects/69347fa3ea534f262ba33ee237dd2f080585e562eef646ec87f693f66b54685b",
+            "sha256": "69347fa3ea534f262ba33ee237dd2f080585e562eef646ec87f693f66b54685b",
+            "bytes": 448
+          }
+        ],
+        "endpoints": [
+          {
+            "url": "https://www.forescout.com/sitemap_index.xml",
+            "kind": "sitemap",
+            "format": "sitemapindex",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/3b504b8340441b206db447dc6de290345bf772a96483c2e439368ee3b30b40b1",
+              "sha256": "3b504b8340441b206db447dc6de290345bf772a96483c2e439368ee3b30b40b1",
+              "bytes": 1319
+            },
+            "itemCount": 0,
+            "indexCount": 8,
+            "sampleItems": [],
+            "sampleIndexes": [
+              "https://www.forescout.com/category-sitemap.xml",
+              "https://www.forescout.com/event-type-sitemap.xml",
+              "https://www.forescout.com/glossary-sitemap.xml",
+              "https://www.forescout.com/language-sitemap.xml",
+              "https://www.forescout.com/page-sitemap.xml"
+            ]
+          }
+        ],
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "facts": [],
+        "fetchReservations": [
+          {
+            "url": "https://www.forescout.com/",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 566
+          },
+          {
+            "url": "https://www.forescout.com/robots.txt",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 571
+          },
+          {
+            "url": "https://www.forescout.com/sitemap_index.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 572
+          }
+        ],
+        "reservationDenials": [],
+        "reason": "ENDPOINTS_PROBED_SCOPE_AND_HISTORY_REVIEW_REQUIRED",
+        "executionCompleted": true,
+        "budgetDenied": false
+      },
+      {
+        "sourceId": "github-advanced-security:official:1",
+        "supplierId": "github-advanced-security",
+        "checkedAt": "2026-10-24T01:26:46.418069Z",
+        "registration": "candidate",
+        "observations": [
+          {
+            "key": "objects/a469afa824255dc734eafaaea909af5840cf7acdc7239f5100259f6e50422a79",
+            "sha256": "a469afa824255dc734eafaaea909af5840cf7acdc7239f5100259f6e50422a79",
+            "bytes": 405
+          },
+          {
+            "key": "objects/64af1d70c1b365cac477b57dbe5a1819ccacb45beebf8928f5cdf42630e94ff3",
+            "sha256": "64af1d70c1b365cac477b57dbe5a1819ccacb45beebf8928f5cdf42630e94ff3",
+            "bytes": 423
+          },
+          {
+            "key": "objects/5876d5f25b7081cc85c8c30ed9631931c8ab1b08b2b8ea0b568dff51a3cbbe4b",
+            "sha256": "5876d5f25b7081cc85c8c30ed9631931c8ab1b08b2b8ea0b568dff51a3cbbe4b",
+            "bytes": 487
+          },
+          {
+            "key": "objects/dcea97ba57b4b7f18d4471fa0f8742e670e26e5e83d2926ff941b4884cb080c1",
+            "sha256": "dcea97ba57b4b7f18d4471fa0f8742e670e26e5e83d2926ff941b4884cb080c1",
+            "bytes": 501
+          },
+          {
+            "key": "objects/34e68bae2ca7c87d17cce75954b71d17e6b2a6e1057494e9d10d05f38724aeee",
+            "sha256": "34e68bae2ca7c87d17cce75954b71d17e6b2a6e1057494e9d10d05f38724aeee",
+            "bytes": 436
+          },
+          {
+            "key": "objects/25634e4832f82afd807dbced94b8aeecf96830aab5c79295f87fa74c77348e38",
+            "sha256": "25634e4832f82afd807dbced94b8aeecf96830aab5c79295f87fa74c77348e38",
+            "bytes": 441
+          },
+          {
+            "key": "objects/b0fd5586d50f0f0fc544407cbe05d9581cdd1fb082501c48996d52b93aff9098",
+            "sha256": "b0fd5586d50f0f0fc544407cbe05d9581cdd1fb082501c48996d52b93aff9098",
+            "bytes": 441
+          }
+        ],
+        "endpoints": [
+          {
+            "url": "https://github.blog/feed/",
+            "result": "NOT_DISCOVERY_XML"
+          },
+          {
+            "url": "https://github.blog/comments/feed/",
+            "kind": "rss",
+            "format": "rss",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/be77aa99ba1db53676aa242d6f2b2c7c0a73751f4706a803edd2570f18594b64",
+              "sha256": "be77aa99ba1db53676aa242d6f2b2c7c0a73751f4706a803edd2570f18594b64",
+              "bytes": 800
+            },
+            "itemCount": 0,
+            "indexCount": 0,
+            "sampleItems": [],
+            "sampleIndexes": []
+          },
+          {
+            "url": "https://github.blog/sitemap_index.xml",
+            "kind": "sitemap",
+            "format": "sitemapindex",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/b5ba8982b26d5b529b7a0c23d552872f2bfed70debd9b4c4eb528df405910595",
+              "sha256": "b5ba8982b26d5b529b7a0c23d552872f2bfed70debd9b4c4eb528df405910595",
+              "bytes": 2401
+            },
+            "itemCount": 0,
+            "indexCount": 17,
+            "sampleItems": [],
+            "sampleIndexes": [
+              "https://github.blog/author-sitemap.xml",
+              "https://github.blog/category-sitemap.xml",
+              "https://github.blog/changelog-group-sitemap.xml",
+              "https://github.blog/changelog-label-sitemap.xml",
+              "https://github.blog/changelog-sitemap.xml"
+            ]
+          },
+          {
+            "url": "https://github.blog/de/sitemap_index.xml",
+            "kind": "sitemap",
+            "format": "sitemapindex",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/f8cb39512dc52d2c70b6fec5066f331e6a5bdea214f41ef56929d28c63a06920",
+              "sha256": "f8cb39512dc52d2c70b6fec5066f331e6a5bdea214f41ef56929d28c63a06920",
+              "bytes": 648
+            },
+            "itemCount": 0,
+            "indexCount": 3,
+            "sampleItems": [],
+            "sampleIndexes": [
+              "https://github.blog/de/author-sitemap.xml",
+              "https://github.blog/de/page-sitemap.xml",
+              "https://github.blog/de/post-sitemap.xml"
+            ]
+          },
+          {
+            "url": "https://github.blog/fr/sitemap_index.xml",
+            "kind": "sitemap",
+            "format": "sitemapindex",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/8b234a910cf33991169abd1918e791261f8f93698a2ccfc98cddeca185e1854b",
+              "sha256": "8b234a910cf33991169abd1918e791261f8f93698a2ccfc98cddeca185e1854b",
+              "bytes": 648
+            },
+            "itemCount": 0,
+            "indexCount": 3,
+            "sampleItems": [],
+            "sampleIndexes": [
+              "https://github.blog/fr/author-sitemap.xml",
+              "https://github.blog/fr/page-sitemap.xml",
+              "https://github.blog/fr/post-sitemap.xml"
+            ]
+          }
+        ],
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "facts": [],
+        "fetchReservations": [
+          {
+            "url": "https://github.blog/",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 567
+          },
+          {
+            "url": "https://github.blog/robots.txt",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 581
+          },
+          {
+            "url": "https://github.blog/feed/",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 588
+          },
+          {
+            "url": "https://github.blog/comments/feed/",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 591
+          },
+          {
+            "url": "https://github.blog/sitemap_index.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 595
+          },
+          {
+            "url": "https://github.blog/de/sitemap_index.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 599
+          },
+          {
+            "url": "https://github.blog/fr/sitemap_index.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 601
+          }
+        ],
+        "reservationDenials": [],
+        "reason": "ENDPOINTS_PROBED_SCOPE_AND_HISTORY_REVIEW_REQUIRED",
+        "executionCompleted": true,
+        "budgetDenied": false
+      },
+      {
+        "sourceId": "jfrog:official:1",
+        "supplierId": "jfrog",
+        "checkedAt": "2026-10-24T01:26:47.429540Z",
+        "registration": "candidate",
+        "observations": [
+          {
+            "key": "objects/47f9647b8a073abe3ecebdf0041c602b663586b81bd8e6a584acd167b409f5c9",
+            "sha256": "47f9647b8a073abe3ecebdf0041c602b663586b81bd8e6a584acd167b409f5c9",
+            "bytes": 442
+          },
+          {
+            "key": "objects/93847746f8f0da1794ad9198c0ab72d29e4a46a9a91efd164fbb0a28ef4731cc",
+            "sha256": "93847746f8f0da1794ad9198c0ab72d29e4a46a9a91efd164fbb0a28ef4731cc",
+            "bytes": 487
+          },
+          {
+            "key": "objects/8ab7aa1773e168488f4e9cacb94bbe17a075c9426710db0e703f167c7f472c24",
+            "sha256": "8ab7aa1773e168488f4e9cacb94bbe17a075c9426710db0e703f167c7f472c24",
+            "bytes": 158
+          }
+        ],
+        "endpoints": [
+          {
+            "url": "https://investors.jfrog.com/sitemap.xml",
+            "result": "HTTP_404"
+          }
+        ],
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "facts": [],
+        "fetchReservations": [
+          {
+            "url": "https://investors.jfrog.com/",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 574
+          },
+          {
+            "url": "https://investors.jfrog.com/robots.txt",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 578
+          },
+          {
+            "url": "https://investors.jfrog.com/sitemap.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 580
+          }
+        ],
+        "reservationDenials": [],
+        "reason": "ENDPOINTS_PROBED_SCOPE_AND_HISTORY_REVIEW_REQUIRED",
+        "executionCompleted": true,
+        "budgetDenied": false
+      },
+      {
+        "sourceId": "nozomi:official:1",
+        "supplierId": "nozomi",
+        "checkedAt": "2026-10-24T01:26:47.435960Z",
+        "registration": "candidate",
+        "observations": [
+          {
+            "key": "objects/62d4b865a87eff7e0cc37d91200bf817101c061276fd9fada1a0fd5379406e8a",
+            "sha256": "62d4b865a87eff7e0cc37d91200bf817101c061276fd9fada1a0fd5379406e8a",
+            "bytes": 446
+          },
+          {
+            "key": "objects/b4f7199bddef30c3ae37ffd7e5ed52fbb9b936defbe13ca78d679c9c609a0b24",
+            "sha256": "b4f7199bddef30c3ae37ffd7e5ed52fbb9b936defbe13ca78d679c9c609a0b24",
+            "bytes": 486
+          },
+          {
+            "key": "objects/fbd22d40ff04bc862c47e47457ae43d6bee2b314c234bdd408dca15803e5b2d4",
+            "sha256": "fbd22d40ff04bc862c47e47457ae43d6bee2b314c234bdd408dca15803e5b2d4",
+            "bytes": 487
+          },
+          {
+            "key": "objects/004aa645f907d4253d41d801a21ca09e55ed4bf5699e2c3a6ae4691bb152de36",
+            "sha256": "004aa645f907d4253d41d801a21ca09e55ed4bf5699e2c3a6ae4691bb152de36",
+            "bytes": 481
+          },
+          {
+            "key": "objects/a6ce5ca11bbd14b7bd6b2f51aa849816bf20d1dd7dd5758cc712bee9aca7faff",
+            "sha256": "a6ce5ca11bbd14b7bd6b2f51aa849816bf20d1dd7dd5758cc712bee9aca7faff",
+            "bytes": 493
+          },
+          {
+            "key": "objects/6481d047089ea919b27dc44347b3d0c2fbf747e3e0616abf724bc04581eacd43",
+            "sha256": "6481d047089ea919b27dc44347b3d0c2fbf747e3e0616abf724bc04581eacd43",
+            "bytes": 486
+          },
+          {
+            "key": "objects/99cf733e001cb85c9cdc775a1f72eabbc151863fa38ba69845d7991309fd5eff",
+            "sha256": "99cf733e001cb85c9cdc775a1f72eabbc151863fa38ba69845d7991309fd5eff",
+            "bytes": 491
+          },
+          {
+            "key": "objects/88a0573fbaee9be05b40210e0e0ec05cb9ab252afdbcee9d89d96f781c3b5683",
+            "sha256": "88a0573fbaee9be05b40210e0e0ec05cb9ab252afdbcee9d89d96f781c3b5683",
+            "bytes": 486
+          },
+          {
+            "key": "objects/37d78a69a97319477c77187f34e037d4808adf94efb422c0f640e084cabbc65d",
+            "sha256": "37d78a69a97319477c77187f34e037d4808adf94efb422c0f640e084cabbc65d",
+            "bytes": 493
+          },
+          {
+            "key": "objects/2b885489e353feffc8f32dd0855833b787d19eb2b1303eaa8442767b767b6505",
+            "sha256": "2b885489e353feffc8f32dd0855833b787d19eb2b1303eaa8442767b767b6505",
+            "bytes": 486
+          }
+        ],
+        "endpoints": [
+          {
+            "url": "https://www.prnewswire.com/sitemap.xml",
+            "kind": "sitemap",
+            "format": "sitemapindex",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/113422c0d8756692a5cfd7f73ecd2b110735643ecbbe2dc063de0019eaa4da59",
+              "sha256": "113422c0d8756692a5cfd7f73ecd2b110735643ecbbe2dc063de0019eaa4da59",
+              "bytes": 825
+            },
+            "itemCount": 0,
+            "indexCount": 5,
+            "sampleItems": [],
+            "sampleIndexes": [
+              "https://www.prnewswire.com/sitemap-company.xml",
+              "https://www.prnewswire.com/sitemap-gz.xml",
+              "https://www.prnewswire.com/sitemap-news-releases.xml",
+              "https://www.prnewswire.com/sitemap-products.xml",
+              "https://www.prnewswire.com/sitemap-resources.xml"
+            ]
+          },
+          {
+            "url": "https://www.prnewswire.com/sitemap-news.xml",
+            "kind": "sitemap",
+            "format": "sitemapindex",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/41f2beb4ee0350e8bb34631a6f2f1e61ab53ec144e8743c82d9ae15d1ff85b2c",
+              "sha256": "41f2beb4ee0350e8bb34631a6f2f1e61ab53ec144e8743c82d9ae15d1ff85b2c",
+              "bytes": 3474
+            },
+            "itemCount": 0,
+            "indexCount": 26,
+            "sampleItems": [],
+            "sampleIndexes": [
+              "https://www.prnewswire.com/sitemap-news.xml?page=1",
+              "https://www.prnewswire.com/sitemap-news.xml?page=10",
+              "https://www.prnewswire.com/sitemap-news.xml?page=11",
+              "https://www.prnewswire.com/sitemap-news.xml?page=12",
+              "https://www.prnewswire.com/sitemap-news.xml?page=13"
+            ]
+          },
+          {
+            "url": "https://www.prnewswire.com/es/sitemap.xml",
+            "kind": "sitemap",
+            "format": "sitemapindex",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/b4034c712b035a549b5ebfa80cb629b4afaaff67ab057696a955478395db7ecd",
+              "sha256": "b4034c712b035a549b5ebfa80cb629b4afaaff67ab057696a955478395db7ecd",
+              "bytes": 544
+            },
+            "itemCount": 0,
+            "indexCount": 3,
+            "sampleItems": [],
+            "sampleIndexes": [
+              "https://www.prnewswire.com/es/sitemap-contactenos.xml",
+              "https://www.prnewswire.com/es/sitemap-es.xml",
+              "https://www.prnewswire.com/es/sitemap-gz.xml"
+            ]
+          },
+          {
+            "url": "https://www.prnewswire.com/es/sitemap-news.xml",
+            "kind": "sitemap",
+            "format": "sitemapindex",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/64c8489bbcef2fb02a052dec6d3a9c0a0095751ad5c3c45640919e98f152a48d",
+              "sha256": "64c8489bbcef2fb02a052dec6d3a9c0a0095751ad5c3c45640919e98f152a48d",
+              "bytes": 360
+            },
+            "itemCount": 0,
+            "indexCount": 1,
+            "sampleItems": [],
+            "sampleIndexes": [
+              "https://www.prnewswire.com/es/sitemap-news.xml?page=1"
+            ]
+          },
+          {
+            "url": "https://www.prnewswire.com/sv/sitemap.xml",
+            "kind": "sitemap",
+            "format": "sitemapindex",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/f710bc12e51b8e41ed2e148d0b0b844ad00c1ed131d46304eb9c2623142c69c2",
+              "sha256": "f710bc12e51b8e41ed2e148d0b0b844ad00c1ed131d46304eb9c2623142c69c2",
+              "bytes": 545
+            },
+            "itemCount": 0,
+            "indexCount": 3,
+            "sampleItems": [],
+            "sampleIndexes": [
+              "https://www.prnewswire.com/sv/sitemap-gz.xml",
+              "https://www.prnewswire.com/sv/sitemap-kontakta-oss.xml",
+              "https://www.prnewswire.com/sv/sitemap-sv.xml"
+            ]
+          },
+          {
+            "url": "https://www.prnewswire.com/sv/sitemap-news.xml",
+            "kind": "sitemap",
+            "format": "sitemapindex",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/207b2f0b3ba752b0defd5b1daa5b425ffe6b772fe0c631b64d44e7ed8f498c96",
+              "sha256": "207b2f0b3ba752b0defd5b1daa5b425ffe6b772fe0c631b64d44e7ed8f498c96",
+              "bytes": 360
+            },
+            "itemCount": 0,
+            "indexCount": 1,
+            "sampleItems": [],
+            "sampleIndexes": [
+              "https://www.prnewswire.com/sv/sitemap-news.xml?page=1"
+            ]
+          },
+          {
+            "url": "https://www.prnewswire.com/ru/sitemap.xml",
+            "kind": "sitemap",
+            "format": "sitemapindex",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/89c7c4f4c10cd3894b0c6c1cbcd9c3e552dfd56af1c65351feef292c30ef0bd1",
+              "sha256": "89c7c4f4c10cd3894b0c6c1cbcd9c3e552dfd56af1c65351feef292c30ef0bd1",
+              "bytes": 405
+            },
+            "itemCount": 0,
+            "indexCount": 2,
+            "sampleItems": [],
+            "sampleIndexes": [
+              "https://www.prnewswire.com/ru/sitemap-contact-us.xml",
+              "https://www.prnewswire.com/ru/sitemap-gz.xml"
+            ]
+          },
+          {
+            "url": "https://www.prnewswire.com/ru/sitemap-news.xml",
+            "kind": "sitemap",
+            "format": "sitemapindex",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/f466f24958c972c3f327264fb16f582fc89c85c80ade568411052a5aeddd40e4",
+              "sha256": "f466f24958c972c3f327264fb16f582fc89c85c80ade568411052a5aeddd40e4",
+              "bytes": 360
+            },
+            "itemCount": 0,
+            "indexCount": 1,
+            "sampleItems": [],
+            "sampleIndexes": [
+              "https://www.prnewswire.com/ru/sitemap-news.xml?page=1"
+            ]
+          }
+        ],
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "facts": [],
+        "fetchReservations": [
+          {
+            "url": "https://www.prnewswire.com/",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 575
+          },
+          {
+            "url": "https://www.prnewswire.com/robots.txt",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 576
+          },
+          {
+            "url": "https://www.prnewswire.com/sitemap.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 577
+          },
+          {
+            "url": "https://www.prnewswire.com/sitemap-news.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 579
+          },
+          {
+            "url": "https://www.prnewswire.com/es/sitemap.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 582
+          },
+          {
+            "url": "https://www.prnewswire.com/es/sitemap-news.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 585
+          },
+          {
+            "url": "https://www.prnewswire.com/sv/sitemap.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 589
+          },
+          {
+            "url": "https://www.prnewswire.com/sv/sitemap-news.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 592
+          },
+          {
+            "url": "https://www.prnewswire.com/ru/sitemap.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 593
+          },
+          {
+            "url": "https://www.prnewswire.com/ru/sitemap-news.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 597
+          }
+        ],
+        "reservationDenials": [],
+        "reason": "ENDPOINTS_PROBED_SCOPE_AND_HISTORY_REVIEW_REQUIRED",
+        "executionCompleted": true,
+        "budgetDenied": false
+      },
+      {
+        "sourceId": "orca:official:1",
+        "supplierId": "orca",
+        "checkedAt": "2026-10-24T01:26:48.621659Z",
+        "registration": "candidate",
+        "observations": [
+          {
+            "key": "objects/e56d846cf6883713d6dc4c635885c3602822e3c9144c7bd6863405c1d766d27e",
+            "sha256": "e56d846cf6883713d6dc4c635885c3602822e3c9144c7bd6863405c1d766d27e",
+            "bytes": 437
+          },
+          {
+            "key": "objects/2bc752e79f749efaec607f7fcd636cff18eb9ed061711cc2c41894ed05267f7f",
+            "sha256": "2bc752e79f749efaec607f7fcd636cff18eb9ed061711cc2c41894ed05267f7f",
+            "bytes": 151
+          },
+          {
+            "key": "objects/9429e3bfc880c095b76d96c39984f7bb07c37bc29399ee294d51ac02ca62e23d",
+            "sha256": "9429e3bfc880c095b76d96c39984f7bb07c37bc29399ee294d51ac02ca62e23d",
+            "bytes": 152
+          }
+        ],
+        "endpoints": [
+          {
+            "url": "https://orca.security/sitemap.xml",
+            "result": "HTTP_302"
+          }
+        ],
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "facts": [],
+        "fetchReservations": [
+          {
+            "url": "https://orca.security/",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 583
+          },
+          {
+            "url": "https://orca.security/robots.txt",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 587
+          },
+          {
+            "url": "https://orca.security/sitemap.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 596
+          }
+        ],
+        "reservationDenials": [],
+        "reason": "ENDPOINTS_PROBED_SCOPE_AND_HISTORY_REVIEW_REQUIRED",
+        "executionCompleted": true,
+        "budgetDenied": false
+      },
+      {
+        "sourceId": "ping-identity:official:1",
+        "supplierId": "ping-identity",
+        "checkedAt": "2026-10-24T01:26:48.625026Z",
+        "registration": "candidate",
+        "observations": [
+          {
+            "key": "objects/344ee9cc783a0023fdee2b7481cce31c2d4dcb79feb3f0af90f2cf694c33386b",
+            "sha256": "344ee9cc783a0023fdee2b7481cce31c2d4dcb79feb3f0af90f2cf694c33386b",
+            "bytes": 453
+          },
+          {
+            "key": "objects/bebc06b37587ff20d7bdf7816beb0a08a3fc08273dfc9c011572b6229ec4d690",
+            "sha256": "bebc06b37587ff20d7bdf7816beb0a08a3fc08273dfc9c011572b6229ec4d690",
+            "bytes": 471
+          },
+          {
+            "key": "objects/a7d2660d56163d552851e3f3884c2c135e1247865efa816f74b1ec47c1fe0b27",
+            "sha256": "a7d2660d56163d552851e3f3884c2c135e1247865efa816f74b1ec47c1fe0b27",
+            "bytes": 511
+          },
+          {
+            "key": "objects/cfbcc0799c4bec13db8fab0700284f1a7034913e27db5f315337f526daec7d64",
+            "sha256": "cfbcc0799c4bec13db8fab0700284f1a7034913e27db5f315337f526daec7d64",
+            "bytes": 503
+          }
+        ],
+        "endpoints": [
+          {
+            "url": "https://press.pingidentity.com/news-releases?pagetemplate=rss",
+            "kind": "rss",
+            "format": "rss",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/906b1656404e95d8ed52082ecfd40d738e2ff24368ab6638cda810d4e38055a8",
+              "sha256": "906b1656404e95d8ed52082ecfd40d738e2ff24368ab6638cda810d4e38055a8",
+              "bytes": 2460
+            },
+            "itemCount": 5,
+            "indexCount": 0,
+            "sampleItems": [
+              "https://press.pingidentity.com/2026-06-16-Ping-Identity-Extends-Runtime-Identity-TM-for-AI-Agents-Across-AWS,-Google-Cloud,-and-Cloudflare",
+              "https://press.pingidentity.com/2026-07-28-Ping-Identity-Verification-and-Fraud-Protection-Listed-in-Epic-Toolbox",
+              "https://press.pingidentity.com/2026-09-01-Ping-Identity-Secures-Claude-Personal-Agents-From-Discovery-to-Action",
+              "https://press.pingidentity.com/2026-09-29-Ping-Identity-Launches-Identity-Agents-on-Google-Cloud-Marketplace",
+              "https://press.pingidentity.com/2026-10-06-Ping-Identity-Survey-Finds-AI-Trust-Changes-When-Assistance-Turns-to-Action"
+            ],
+            "sampleIndexes": []
+          },
+          {
+            "url": "https://press.pingidentity.com/?pagetemplate=googlesitemap",
+            "kind": "sitemap",
+            "format": "urlset",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/0e9e4ce942726c5c0723dce8646983339e80b679f497e6084bc397cbf0377692",
+              "sha256": "0e9e4ce942726c5c0723dce8646983339e80b679f497e6084bc397cbf0377692",
+              "bytes": 503
+            },
+            "itemCount": 1,
+            "indexCount": 0,
+            "sampleItems": [
+              "https://press.pingidentity.com/news-releases"
+            ],
+            "sampleIndexes": []
+          }
+        ],
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "facts": [],
+        "fetchReservations": [
+          {
+            "url": "https://press.pingidentity.com/",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 584
+          },
+          {
+            "url": "https://press.pingidentity.com/robots.txt",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 586
+          },
+          {
+            "url": "https://press.pingidentity.com/news-releases?pagetemplate=rss",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 590
+          },
+          {
+            "url": "https://press.pingidentity.com/?pagetemplate=googlesitemap",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 594
+          }
+        ],
+        "reservationDenials": [],
+        "reason": "ENDPOINTS_PROBED_SCOPE_AND_HISTORY_REVIEW_REQUIRED",
+        "executionCompleted": true,
+        "budgetDenied": false
+      },
+      {
+        "sourceId": "ping-identity:official:2",
+        "supplierId": "ping-identity",
+        "checkedAt": "2026-10-24T01:26:49.932484Z",
+        "registration": "candidate",
+        "observations": [
+          {
+            "key": "objects/b045fe8b8f60a17b6da2858558325edfa0373712562753e7e1702ee4e83dc979",
+            "sha256": "b045fe8b8f60a17b6da2858558325edfa0373712562753e7e1702ee4e83dc979",
+            "bytes": 446
+          },
+          {
+            "key": "objects/52e66f801c8a5811bb6ce1bc7d2966189a0f8dbe8d8f7d51d97f0b4ae834e73b",
+            "sha256": "52e66f801c8a5811bb6ce1bc7d2966189a0f8dbe8d8f7d51d97f0b4ae834e73b",
+            "bytes": 486
+          },
+          {
+            "key": "objects/8a0b067a20dfba10351c2db69bc801e8bccd96dc9c9d42af3aca5e0d4893a840",
+            "sha256": "8a0b067a20dfba10351c2db69bc801e8bccd96dc9c9d42af3aca5e0d4893a840",
+            "bytes": 487
+          },
+          {
+            "key": "objects/34a3b17df54e0eaae041af857b1bcc34dede2d0fe2d561a37303f154fcfd79ef",
+            "sha256": "34a3b17df54e0eaae041af857b1bcc34dede2d0fe2d561a37303f154fcfd79ef",
+            "bytes": 481
+          },
+          {
+            "key": "objects/735f7ff30bbdb549795808cdeef09002df597241aabffb4a6dbcb9cf38ec86bc",
+            "sha256": "735f7ff30bbdb549795808cdeef09002df597241aabffb4a6dbcb9cf38ec86bc",
+            "bytes": 493
+          },
+          {
+            "key": "objects/b6a38bf37fc4372cff9dd5ba048f62417267b6cec86151598f938a93cc0c965f",
+            "sha256": "b6a38bf37fc4372cff9dd5ba048f62417267b6cec86151598f938a93cc0c965f",
+            "bytes": 486
+          },
+          {
+            "key": "objects/87e766b22d6cff48b56529e8ed817ca1a5f8d87b04d753503091f7f7736b8e9e",
+            "sha256": "87e766b22d6cff48b56529e8ed817ca1a5f8d87b04d753503091f7f7736b8e9e",
+            "bytes": 491
+          },
+          {
+            "key": "objects/c95e9e4a6d35d5db2e71906c29c4e4abb0d7f6f0c3b45889ffd894cd1eabdd29",
+            "sha256": "c95e9e4a6d35d5db2e71906c29c4e4abb0d7f6f0c3b45889ffd894cd1eabdd29",
+            "bytes": 486
+          },
+          {
+            "key": "objects/4ea11f1cac3c998fdbac4a124ab5c2e1c9348033fbeab0e4d046c129e0932b43",
+            "sha256": "4ea11f1cac3c998fdbac4a124ab5c2e1c9348033fbeab0e4d046c129e0932b43",
+            "bytes": 493
+          },
+          {
+            "key": "objects/f8999afa004676e3b4c1beb7b20500c7d748e92e5c491fb1000c7ef6cbd79a74",
+            "sha256": "f8999afa004676e3b4c1beb7b20500c7d748e92e5c491fb1000c7ef6cbd79a74",
+            "bytes": 486
+          }
+        ],
+        "endpoints": [
+          {
+            "url": "https://www.prnewswire.com/sitemap.xml",
+            "kind": "sitemap",
+            "format": "sitemapindex",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/113422c0d8756692a5cfd7f73ecd2b110735643ecbbe2dc063de0019eaa4da59",
+              "sha256": "113422c0d8756692a5cfd7f73ecd2b110735643ecbbe2dc063de0019eaa4da59",
+              "bytes": 825
+            },
+            "itemCount": 0,
+            "indexCount": 5,
+            "sampleItems": [],
+            "sampleIndexes": [
+              "https://www.prnewswire.com/sitemap-company.xml",
+              "https://www.prnewswire.com/sitemap-gz.xml",
+              "https://www.prnewswire.com/sitemap-news-releases.xml",
+              "https://www.prnewswire.com/sitemap-products.xml",
+              "https://www.prnewswire.com/sitemap-resources.xml"
+            ]
+          },
+          {
+            "url": "https://www.prnewswire.com/sitemap-news.xml",
+            "kind": "sitemap",
+            "format": "sitemapindex",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/41f2beb4ee0350e8bb34631a6f2f1e61ab53ec144e8743c82d9ae15d1ff85b2c",
+              "sha256": "41f2beb4ee0350e8bb34631a6f2f1e61ab53ec144e8743c82d9ae15d1ff85b2c",
+              "bytes": 3474
+            },
+            "itemCount": 0,
+            "indexCount": 26,
+            "sampleItems": [],
+            "sampleIndexes": [
+              "https://www.prnewswire.com/sitemap-news.xml?page=1",
+              "https://www.prnewswire.com/sitemap-news.xml?page=10",
+              "https://www.prnewswire.com/sitemap-news.xml?page=11",
+              "https://www.prnewswire.com/sitemap-news.xml?page=12",
+              "https://www.prnewswire.com/sitemap-news.xml?page=13"
+            ]
+          },
+          {
+            "url": "https://www.prnewswire.com/es/sitemap.xml",
+            "kind": "sitemap",
+            "format": "sitemapindex",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/b4034c712b035a549b5ebfa80cb629b4afaaff67ab057696a955478395db7ecd",
+              "sha256": "b4034c712b035a549b5ebfa80cb629b4afaaff67ab057696a955478395db7ecd",
+              "bytes": 544
+            },
+            "itemCount": 0,
+            "indexCount": 3,
+            "sampleItems": [],
+            "sampleIndexes": [
+              "https://www.prnewswire.com/es/sitemap-contactenos.xml",
+              "https://www.prnewswire.com/es/sitemap-es.xml",
+              "https://www.prnewswire.com/es/sitemap-gz.xml"
+            ]
+          },
+          {
+            "url": "https://www.prnewswire.com/es/sitemap-news.xml",
+            "kind": "sitemap",
+            "format": "sitemapindex",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/64c8489bbcef2fb02a052dec6d3a9c0a0095751ad5c3c45640919e98f152a48d",
+              "sha256": "64c8489bbcef2fb02a052dec6d3a9c0a0095751ad5c3c45640919e98f152a48d",
+              "bytes": 360
+            },
+            "itemCount": 0,
+            "indexCount": 1,
+            "sampleItems": [],
+            "sampleIndexes": [
+              "https://www.prnewswire.com/es/sitemap-news.xml?page=1"
+            ]
+          },
+          {
+            "url": "https://www.prnewswire.com/sv/sitemap.xml",
+            "kind": "sitemap",
+            "format": "sitemapindex",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/f710bc12e51b8e41ed2e148d0b0b844ad00c1ed131d46304eb9c2623142c69c2",
+              "sha256": "f710bc12e51b8e41ed2e148d0b0b844ad00c1ed131d46304eb9c2623142c69c2",
+              "bytes": 545
+            },
+            "itemCount": 0,
+            "indexCount": 3,
+            "sampleItems": [],
+            "sampleIndexes": [
+              "https://www.prnewswire.com/sv/sitemap-gz.xml",
+              "https://www.prnewswire.com/sv/sitemap-kontakta-oss.xml",
+              "https://www.prnewswire.com/sv/sitemap-sv.xml"
+            ]
+          },
+          {
+            "url": "https://www.prnewswire.com/sv/sitemap-news.xml",
+            "kind": "sitemap",
+            "format": "sitemapindex",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/207b2f0b3ba752b0defd5b1daa5b425ffe6b772fe0c631b64d44e7ed8f498c96",
+              "sha256": "207b2f0b3ba752b0defd5b1daa5b425ffe6b772fe0c631b64d44e7ed8f498c96",
+              "bytes": 360
+            },
+            "itemCount": 0,
+            "indexCount": 1,
+            "sampleItems": [],
+            "sampleIndexes": [
+              "https://www.prnewswire.com/sv/sitemap-news.xml?page=1"
+            ]
+          },
+          {
+            "url": "https://www.prnewswire.com/ru/sitemap.xml",
+            "kind": "sitemap",
+            "format": "sitemapindex",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/89c7c4f4c10cd3894b0c6c1cbcd9c3e552dfd56af1c65351feef292c30ef0bd1",
+              "sha256": "89c7c4f4c10cd3894b0c6c1cbcd9c3e552dfd56af1c65351feef292c30ef0bd1",
+              "bytes": 405
+            },
+            "itemCount": 0,
+            "indexCount": 2,
+            "sampleItems": [],
+            "sampleIndexes": [
+              "https://www.prnewswire.com/ru/sitemap-contact-us.xml",
+              "https://www.prnewswire.com/ru/sitemap-gz.xml"
+            ]
+          },
+          {
+            "url": "https://www.prnewswire.com/ru/sitemap-news.xml",
+            "kind": "sitemap",
+            "format": "sitemapindex",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/f466f24958c972c3f327264fb16f582fc89c85c80ade568411052a5aeddd40e4",
+              "sha256": "f466f24958c972c3f327264fb16f582fc89c85c80ade568411052a5aeddd40e4",
+              "bytes": 360
+            },
+            "itemCount": 0,
+            "indexCount": 1,
+            "sampleItems": [],
+            "sampleIndexes": [
+              "https://www.prnewswire.com/ru/sitemap-news.xml?page=1"
+            ]
+          }
+        ],
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "facts": [],
+        "fetchReservations": [
+          {
+            "url": "https://www.prnewswire.com/",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 598
+          },
+          {
+            "url": "https://www.prnewswire.com/robots.txt",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 602
+          },
+          {
+            "url": "https://www.prnewswire.com/sitemap.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 605
+          },
+          {
+            "url": "https://www.prnewswire.com/sitemap-news.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 607
+          },
+          {
+            "url": "https://www.prnewswire.com/es/sitemap.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 610
+          },
+          {
+            "url": "https://www.prnewswire.com/es/sitemap-news.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 615
+          },
+          {
+            "url": "https://www.prnewswire.com/sv/sitemap.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 617
+          },
+          {
+            "url": "https://www.prnewswire.com/sv/sitemap-news.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 621
+          },
+          {
+            "url": "https://www.prnewswire.com/ru/sitemap.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 624
+          },
+          {
+            "url": "https://www.prnewswire.com/ru/sitemap-news.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 627
+          }
+        ],
+        "reservationDenials": [],
+        "reason": "ENDPOINTS_PROBED_SCOPE_AND_HISTORY_REVIEW_REQUIRED",
+        "executionCompleted": true,
+        "budgetDenied": false
+      },
+      {
+        "sourceId": "rapid7:official:1",
+        "supplierId": "rapid7",
+        "checkedAt": "2026-10-24T01:26:50.227836Z",
+        "registration": "candidate",
+        "observations": [
+          {
+            "key": "objects/3dd4cf7bdd90bf1d6d5f11b2d09b19725b53513cac6f1957501a5042124d5085",
+            "sha256": "3dd4cf7bdd90bf1d6d5f11b2d09b19725b53513cac6f1957501a5042124d5085",
+            "bytes": 477
+          },
+          {
+            "key": "objects/908ced35d20bf3eec1062a93f1d6e529202a5851889c07423db6ac2b093224b6",
+            "sha256": "908ced35d20bf3eec1062a93f1d6e529202a5851889c07423db6ac2b093224b6",
+            "bytes": 487
+          },
+          {
+            "key": "objects/1002d91ce52fd55617a5bd63501e07b8898e1a048c9ff05228af111e391588c2",
+            "sha256": "1002d91ce52fd55617a5bd63501e07b8898e1a048c9ff05228af111e391588c2",
+            "bytes": 159
+          }
+        ],
+        "endpoints": [
+          {
+            "url": "https://investors.rapid7.com/sitemap.xml",
+            "result": "HTTP_404"
+          }
+        ],
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "facts": [],
+        "fetchReservations": [
+          {
+            "url": "https://investors.rapid7.com/",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 600
+          },
+          {
+            "url": "https://investors.rapid7.com/robots.txt",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 606
+          },
+          {
+            "url": "https://investors.rapid7.com/sitemap.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 608
+          }
+        ],
+        "reservationDenials": [],
+        "reason": "ENDPOINTS_PROBED_SCOPE_AND_HISTORY_REVIEW_REQUIRED",
+        "executionCompleted": true,
+        "budgetDenied": false
+      },
+      {
+        "sourceId": "rubrik:official:1",
+        "supplierId": "rubrik",
+        "checkedAt": "2026-10-24T01:26:50.789341Z",
+        "registration": "candidate",
+        "observations": [
+          {
+            "key": "objects/400600bbd02fd057765b21be9083ea1c872f6d422e5570592f13d65400ccb1fc",
+            "sha256": "400600bbd02fd057765b21be9083ea1c872f6d422e5570592f13d65400ccb1fc",
+            "bytes": 463
+          },
+          {
+            "key": "objects/dec41bfc689de3e8899b2d81f0b5c77ceb7708f0c64b1608be13f957946b9c32",
+            "sha256": "dec41bfc689de3e8899b2d81f0b5c77ceb7708f0c64b1608be13f957946b9c32",
+            "bytes": 475
+          },
+          {
+            "key": "objects/cf0d07b16d2ab616d37f0a0ff15230359e73a8c765e3d2a1616828c16a921a41",
+            "sha256": "cf0d07b16d2ab616d37f0a0ff15230359e73a8c765e3d2a1616828c16a921a41",
+            "bytes": 152
+          }
+        ],
+        "endpoints": [
+          {
+            "url": "https://ir.rubrik.com/sitemap.xml",
+            "result": "HTTP_404"
+          }
+        ],
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "facts": [],
+        "fetchReservations": [
+          {
+            "url": "https://ir.rubrik.com/",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 603
+          },
+          {
+            "url": "https://ir.rubrik.com/robots.txt",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 613
+          },
+          {
+            "url": "https://ir.rubrik.com/sitemap.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 616
+          }
+        ],
+        "reservationDenials": [],
+        "reason": "ENDPOINTS_PROBED_SCOPE_AND_HISTORY_REVIEW_REQUIRED",
+        "executionCompleted": true,
+        "budgetDenied": false
+      },
+      {
+        "sourceId": "sonatype:official:1",
+        "supplierId": "sonatype",
+        "checkedAt": "2026-10-24T01:26:50.816441Z",
+        "registration": "candidate",
+        "observations": [
+          {
+            "key": "objects/c38249b1746f5f42ec5235765330f24530fd3cc7c28c5f7d44ef96e20b0a89ad",
+            "sha256": "c38249b1746f5f42ec5235765330f24530fd3cc7c28c5f7d44ef96e20b0a89ad",
+            "bytes": 478
+          },
+          {
+            "key": "objects/cd244147c828e18f6895821d050ce5b3398e9291a6bc86f9c83305a94204930f",
+            "sha256": "cd244147c828e18f6895821d050ce5b3398e9291a6bc86f9c83305a94204930f",
+            "bytes": 496
+          },
+          {
+            "key": "objects/01d295b30473d40b37a0a353f2906177465ab0d6a5fce868a087251d4ba8b6c6",
+            "sha256": "01d295b30473d40b37a0a353f2906177465ab0d6a5fce868a087251d4ba8b6c6",
+            "bytes": 492
+          }
+        ],
+        "endpoints": [
+          {
+            "url": "https://www.sonatype.com/sitemap.xml",
+            "kind": "sitemap",
+            "format": "urlset",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/974401d7a3cf7c8fd9ba1172a85aae833359ae81fe324baf09919eb9df4f2ec2",
+              "sha256": "974401d7a3cf7c8fd9ba1172a85aae833359ae81fe324baf09919eb9df4f2ec2",
+              "bytes": 8604999
+            },
+            "itemCount": 6849,
+            "indexCount": 0,
+            "sampleItems": [
+              "https://www.sonatype.com",
+              "https://www.sonatype.com/2026-profesia-tasting-event",
+              "https://www.sonatype.com/become-a-sonatype-partner",
+              "https://www.sonatype.com/blog",
+              "https://www.sonatype.com/blog/-whats-the-future-of-cyber-security"
+            ],
+            "sampleIndexes": []
+          }
+        ],
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "facts": [],
+        "fetchReservations": [
+          {
+            "url": "https://www.sonatype.com/",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 604
+          },
+          {
+            "url": "https://www.sonatype.com/robots.txt",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 609
+          },
+          {
+            "url": "https://www.sonatype.com/sitemap.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 611
+          }
+        ],
+        "reservationDenials": [],
+        "reason": "ENDPOINTS_PROBED_SCOPE_AND_HISTORY_REVIEW_REQUIRED",
+        "executionCompleted": true,
+        "budgetDenied": false
+      },
+      {
+        "sourceId": "sysdig:official:1",
+        "supplierId": "sysdig",
+        "checkedAt": "2026-10-24T01:26:51.490151Z",
+        "registration": "candidate",
+        "observations": [],
+        "endpoints": [],
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "facts": [],
+        "fetchReservations": [
+          {
+            "url": "https://sysdig.com/",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 612
+          }
+        ],
+        "reservationDenials": [],
+        "reason": "ContractError",
+        "executionCompleted": true,
+        "budgetDenied": false
+      },
+      {
+        "sourceId": "torq:official:1",
+        "supplierId": "torq",
+        "checkedAt": "2026-10-24T01:26:51.748979Z",
+        "registration": "candidate",
+        "observations": [
+          {
+            "key": "objects/496007996fade70a2d9b98751f4b4bf5219c43be02df26109d1426cf21f56ca1",
+            "sha256": "496007996fade70a2d9b98751f4b4bf5219c43be02df26109d1426cf21f56ca1",
+            "bytes": 397
+          },
+          {
+            "key": "objects/0036c659c097af463895ad987f2988ad9f839726b3ec51114a41fc4529c40791",
+            "sha256": "0036c659c097af463895ad987f2988ad9f839726b3ec51114a41fc4529c40791",
+            "bytes": 442
+          },
+          {
+            "key": "objects/947cc67869552b49a95b60e2c7a709119689c6bf2b8f4008a8d451fba3353de1",
+            "sha256": "947cc67869552b49a95b60e2c7a709119689c6bf2b8f4008a8d451fba3353de1",
+            "bytes": 428
+          }
+        ],
+        "endpoints": [
+          {
+            "url": "https://torq.io/sitemap_index.xml",
+            "kind": "sitemap",
+            "format": "sitemapindex",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/c61150f10b815bffef023bedfdf0a126a460a46e06d77026914ab2dcd22dd543",
+              "sha256": "c61150f10b815bffef023bedfdf0a126a460a46e06d77026914ab2dcd22dd543",
+              "bytes": 2077
+            },
+            "itemCount": 0,
+            "indexCount": 15,
+            "sampleItems": [],
+            "sampleIndexes": [
+              "https://torq.io/author-sitemap.xml",
+              "https://torq.io/category-sitemap.xml",
+              "https://torq.io/event-sitemap.xml",
+              "https://torq.io/event-type-sitemap.xml",
+              "https://torq.io/integrations-type-sitemap.xml"
+            ]
+          }
+        ],
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "facts": [],
+        "fetchReservations": [
+          {
+            "url": "https://torq.io/",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 614
+          },
+          {
+            "url": "https://torq.io/robots.txt",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 620
+          },
+          {
+            "url": "https://torq.io/sitemap_index.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 628
+          }
+        ],
+        "reservationDenials": [],
+        "reason": "ENDPOINTS_PROBED_SCOPE_AND_HISTORY_REVIEW_REQUIRED",
+        "executionCompleted": true,
+        "budgetDenied": false
+      },
+      {
+        "sourceId": "trend-micro:official:1",
+        "supplierId": "trend-micro",
+        "checkedAt": "2026-10-24T01:26:52.209315Z",
+        "registration": "candidate",
+        "observations": [
+          {
+            "key": "objects/17adc7674d6fdec8166853440d4d10b701172e5c1c84a9958c5cc65bea0a272a",
+            "sha256": "17adc7674d6fdec8166853440d4d10b701172e5c1c84a9958c5cc65bea0a272a",
+            "bytes": 456
+          },
+          {
+            "key": "objects/fe1737210fde31a867aaac41be40800a650919d5988438627565995991e2408d",
+            "sha256": "fe1737210fde31a867aaac41be40800a650919d5988438627565995991e2408d",
+            "bytes": 161
+          },
+          {
+            "key": "objects/6dbe12a0b8ab9ff79c5e14dbaf1a09da65af540933097d937c870c5f9cd2ec14",
+            "sha256": "6dbe12a0b8ab9ff79c5e14dbaf1a09da65af540933097d937c870c5f9cd2ec14",
+            "bytes": 162
+          }
+        ],
+        "endpoints": [
+          {
+            "url": "https://newsroom.trendmicro.com/sitemap.xml",
+            "result": "HTTP_404"
+          }
+        ],
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "facts": [],
+        "fetchReservations": [
+          {
+            "url": "https://newsroom.trendmicro.com/",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 619
+          },
+          {
+            "url": "https://newsroom.trendmicro.com/robots.txt",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 623
+          },
+          {
+            "url": "https://newsroom.trendmicro.com/sitemap.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 626
+          }
+        ],
+        "reservationDenials": [],
+        "reason": "ENDPOINTS_PROBED_SCOPE_AND_HISTORY_REVIEW_REQUIRED",
+        "executionCompleted": true,
+        "budgetDenied": false
+      },
+      {
+        "sourceId": "trustwave:official:1",
+        "supplierId": "trustwave",
+        "checkedAt": "2026-10-24T01:26:52.209625Z",
+        "registration": "candidate",
+        "observations": [
+          {
+            "key": "objects/95d0f988495f75180b130021cf97e10811a7d313e6760baa7f4c6ce5edc165ca",
+            "sha256": "95d0f988495f75180b130021cf97e10811a7d313e6760baa7f4c6ce5edc165ca",
+            "bytes": 444
+          },
+          {
+            "key": "objects/90e3ecf8ab247f374c925b3b287466f1abe978a93260ac078d591e21dc84218f",
+            "sha256": "90e3ecf8ab247f374c925b3b287466f1abe978a93260ac078d591e21dc84218f",
+            "bytes": 498
+          },
+          {
+            "key": "objects/3a38a53f5590bfd17955c1ed818a3f1374f89603cdc710d04eac3a22365944df",
+            "sha256": "3a38a53f5590bfd17955c1ed818a3f1374f89603cdc710d04eac3a22365944df",
+            "bytes": 493
+          }
+        ],
+        "endpoints": [
+          {
+            "url": "https://www.levelblue.com/sitemap.xml",
+            "kind": "sitemap",
+            "format": "urlset",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/81dd82d1cc8705154cd66d300d18c82cb7f8e99219bcbad3829e78b80c43b742",
+              "sha256": "81dd82d1cc8705154cd66d300d18c82cb7f8e99219bcbad3829e78b80c43b742",
+              "bytes": 11581454
+            },
+            "itemCount": 17774,
+            "indexCount": 0,
+            "sampleItems": [
+              "https://www.levelblue.com",
+              "https://www.levelblue.com/black-hat-usa-2025",
+              "https://www.levelblue.com/black-hat-usa-2026",
+              "https://www.levelblue.com/blogs/levelblue-blog",
+              "https://www.levelblue.com/blogs/levelblue-blog/10-critical-capabilities-of-api-detection-and-response"
+            ],
+            "sampleIndexes": []
+          }
+        ],
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "facts": [],
+        "fetchReservations": [
+          {
+            "url": "https://www.levelblue.com/",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 618
+          },
+          {
+            "url": "https://www.levelblue.com/robots.txt",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 622
+          },
+          {
+            "url": "https://www.levelblue.com/sitemap.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 625
+          }
+        ],
+        "reservationDenials": [],
+        "reason": "ENDPOINTS_PROBED_SCOPE_AND_HISTORY_REVIEW_REQUIRED",
+        "executionCompleted": true,
+        "budgetDenied": false
+      },
+      {
+        "sourceId": "veracode:official:1",
+        "supplierId": "veracode",
+        "checkedAt": "2026-10-24T01:26:53.187946Z",
+        "registration": "candidate",
+        "observations": [
+          {
+            "key": "objects/5e5377592ca3e925bd2f061daa0aa58db06da1ccd2e98167f7364a29fce8eb1f",
+            "sha256": "5e5377592ca3e925bd2f061daa0aa58db06da1ccd2e98167f7364a29fce8eb1f",
+            "bytes": 415
+          },
+          {
+            "key": "objects/54f8e421a29039b1d9a1aa7f8489e9b0fa9239e3497bac2939e4d2ec22e1139c",
+            "sha256": "54f8e421a29039b1d9a1aa7f8489e9b0fa9239e3497bac2939e4d2ec22e1139c",
+            "bytes": 461
+          },
+          {
+            "key": "objects/5cea2bf3b8f9b443830aab0d824d18c2b39f0a0ba506c28652bc195d9253acba",
+            "sha256": "5cea2bf3b8f9b443830aab0d824d18c2b39f0a0ba506c28652bc195d9253acba",
+            "bytes": 446
+          }
+        ],
+        "endpoints": [
+          {
+            "url": "https://www.veracode.com/sitemap_index.xml",
+            "kind": "sitemap",
+            "format": "sitemapindex",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/70ad55127ff4afacea385fa3340c39275312163cfd14e57f047e9d6b6d0fcf85",
+              "sha256": "70ad55127ff4afacea385fa3340c39275312163cfd14e57f047e9d6b6d0fcf85",
+              "bytes": 1062
+            },
+            "itemCount": 0,
+            "indexCount": 6,
+            "sampleItems": [],
+            "sampleIndexes": [
+              "https://www.veracode.com/directories-sitemap.xml",
+              "https://www.veracode.com/leadership-sitemap.xml",
+              "https://www.veracode.com/page-sitemap.xml",
+              "https://www.veracode.com/resource-type-sitemap.xml",
+              "https://www.veracode.com/resources-sitemap.xml"
+            ]
+          }
+        ],
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "facts": [],
+        "fetchReservations": [
+          {
+            "url": "https://www.veracode.com/",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 629
+          },
+          {
+            "url": "https://www.veracode.com/robots.txt",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 631
+          },
+          {
+            "url": "https://www.veracode.com/sitemap_index.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 632
+          }
+        ],
+        "reservationDenials": [],
+        "reason": "ENDPOINTS_PROBED_SCOPE_AND_HISTORY_REVIEW_REQUIRED",
+        "executionCompleted": true,
+        "budgetDenied": false
+      },
+      {
+        "sourceId": "zenity:official:1",
+        "supplierId": "zenity",
+        "checkedAt": "2026-10-24T01:26:53.222286Z",
+        "registration": "candidate",
+        "observations": [
+          {
+            "key": "objects/69a1e1d148db0c85d47a406024b12a6c3cecda5c5f4377fa9e82f7ea70d54d7a",
+            "sha256": "69a1e1d148db0c85d47a406024b12a6c3cecda5c5f4377fa9e82f7ea70d54d7a",
+            "bytes": 418
+          },
+          {
+            "key": "objects/238e4a61c0cf5738627cb1654c2f3ad8225725b34ea578cafb0507f30ea096c6",
+            "sha256": "238e4a61c0cf5738627cb1654c2f3ad8225725b34ea578cafb0507f30ea096c6",
+            "bytes": 479
+          },
+          {
+            "key": "objects/e52d50c4c2bae54efe0a4e0c3e3de7d37346aed495e672a44ae943580c7c2a4a",
+            "sha256": "e52d50c4c2bae54efe0a4e0c3e3de7d37346aed495e672a44ae943580c7c2a4a",
+            "bytes": 475
+          }
+        ],
+        "endpoints": [
+          {
+            "url": "https://zenity.io/sitemap.xml",
+            "kind": "sitemap",
+            "format": "urlset",
+            "result": "DISCOVERY_ENDPOINT_RESPONDED",
+            "body": {
+              "key": "objects/83292699d0bcd49df577dc936d54fcc4b7f03b171e945b19437bae02cef1b470",
+              "sha256": "83292699d0bcd49df577dc936d54fcc4b7f03b171e945b19437bae02cef1b470",
+              "bytes": 101800
+            },
+            "itemCount": 549,
+            "indexCount": 0,
+            "sampleItems": [
+              "https://zenity.io/",
+              "https://zenity.io/academy/",
+              "https://zenity.io/academy/?topics=agentic-ai",
+              "https://zenity.io/academy/?topics=ai-agents",
+              "https://zenity.io/academy/?topics=ai-security"
+            ],
+            "sampleIndexes": []
+          }
+        ],
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "facts": [],
+        "fetchReservations": [
+          {
+            "url": "https://zenity.io/",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 630
+          },
+          {
+            "url": "https://zenity.io/robots.txt",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 633
+          },
+          {
+            "url": "https://zenity.io/sitemap.xml",
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 634
+          }
+        ],
+        "reservationDenials": [],
+        "reason": "ENDPOINTS_PROBED_SCOPE_AND_HISTORY_REVIEW_REQUIRED",
+        "executionCompleted": true,
+        "budgetDenied": false
+      }
+    ],
+    "reservationContext": {
+      "budgetDay": "2026-10-24",
+      "contractSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+      "fetchLimit": 5500,
+      "maximumRuntimeSeconds": 1200,
+      "startedAt": "2026-10-24T01:26:27.102803Z",
+      "initialBudget": {
+        "calls": 80,
+        "documents": 40,
+        "fetches": 516
+      },
+      "probeFetchReservations": 125,
+      "reservationDenials": {},
+      "currentBudget": {
+        "calls": 80,
+        "documents": 40,
+        "fetches": 641
+      }
+    },
+    "qualified": false,
+    "executionCompleted": true,
+    "budgetDenied": false,
+    "sourceChecksCredited": 0,
+    "qualifiedSources": 0,
+    "semanticAdmission": false,
+    "coverageCredit": false,
+    "facts": [],
+    "qualification": {
+      "plan": {
+        "rawSha256": "163e439adf2d383d9aa47d7a8c3a00ba4d75e31149a20b012c2a8772211496cf",
+        "canonicalSha256": "f66db4b9a9f97542136c000f1c660036de38b5a77fbd0dcb3ea958edc54f04ba",
+        "path": "/home/runner/work/sec-market/sec-market/contracts/source-qualification-probes.json",
+        "marketSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+        "maxRequests": 7,
+        "plan": {
+          "schemaVersion": 1,
+          "marketSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+          "maxRequests": 7,
+          "targets": [
+            {
+              "id": "ping-index",
+              "sourceId": "ping-identity:official:1",
+              "url": "https://press.pingidentity.com/news-releases",
+              "expectedFormat": "html",
+              "proof": {
+                "type": "diagnostic_observation",
+                "record": {
+                  "key": "ci/source-probe-runs/40044528648-1.json",
+                  "sha256": "1fda9a60d3cdd5d297c8c95f77a74564828a866545ea876d6c2fcbe8ac5a04bb",
+                  "bytes": 78209
+                },
+                "observation": {
+                  "key": "objects/094ade837a8c58d265e341acf7c665afb7de3ed08e287d03f134fb0e3e9426aa",
+                  "sha256": "094ade837a8c58d265e341acf7c665afb7de3ed08e287d03f134fb0e3e9426aa",
+                  "bytes": 453
+                },
+                "body": {
+                  "bytes": 98724,
+                  "key": "objects/d06c171a9aa6c5150e47355692dbdecdaacc544a15ce7fd01bbc6812883007be",
+                  "sha256": "d06c171a9aa6c5150e47355692dbdecdaacc544a15ce7fd01bbc6812883007be"
+                },
+                "fetchedAt": "2026-10-24T00:23:18.322865Z"
+              }
+            },
+            {
+              "id": "ping-rss",
+              "sourceId": "ping-identity:official:1",
+              "url": "https://press.pingidentity.com/news-releases?pagetemplate=rss",
+              "expectedFormat": "rss",
+              "proof": {
+                "type": "diagnostic_observation",
+                "record": {
+                  "key": "ci/source-probe-runs/40044528648-1.json",
+                  "sha256": "1fda9a60d3cdd5d297c8c95f77a74564828a866545ea876d6c2fcbe8ac5a04bb",
+                  "bytes": 78209
+                },
+                "observation": {
+                  "key": "objects/094ade837a8c58d265e341acf7c665afb7de3ed08e287d03f134fb0e3e9426aa",
+                  "sha256": "094ade837a8c58d265e341acf7c665afb7de3ed08e287d03f134fb0e3e9426aa",
+                  "bytes": 453
+                },
+                "body": {
+                  "bytes": 98724,
+                  "key": "objects/d06c171a9aa6c5150e47355692dbdecdaacc544a15ce7fd01bbc6812883007be",
+                  "sha256": "d06c171a9aa6c5150e47355692dbdecdaacc544a15ce7fd01bbc6812883007be"
+                },
+                "fetchedAt": "2026-10-24T00:23:18.322865Z"
+              }
+            },
+            {
+              "id": "ping-next",
+              "sourceId": "ping-identity:official:1",
+              "url": "https://press.pingidentity.com/news-releases?o=10",
+              "expectedFormat": "html",
+              "proof": {
+                "type": "diagnostic_observation",
+                "record": {
+                  "key": "ci/source-probe-runs/40044528648-1.json",
+                  "sha256": "1fda9a60d3cdd5d297c8c95f77a74564828a866545ea876d6c2fcbe8ac5a04bb",
+                  "bytes": 78209
+                },
+                "observation": {
+                  "key": "objects/094ade837a8c58d265e341acf7c665afb7de3ed08e287d03f134fb0e3e9426aa",
+                  "sha256": "094ade837a8c58d265e341acf7c665afb7de3ed08e287d03f134fb0e3e9426aa",
+                  "bytes": 453
+                },
+                "body": {
+                  "bytes": 98724,
+                  "key": "objects/d06c171a9aa6c5150e47355692dbdecdaacc544a15ce7fd01bbc6812883007be",
+                  "sha256": "d06c171a9aa6c5150e47355692dbdecdaacc544a15ce7fd01bbc6812883007be"
+                },
+                "fetchedAt": "2026-10-24T00:23:18.322865Z"
+              }
+            },
+            {
+              "id": "ping-october-release",
+              "sourceId": "ping-identity:official:1",
+              "url": "https://press.pingidentity.com/2026-10-06-Ping-Identity-Survey-Finds-AI-Trust-Changes-When-Assistance-Turns-to-Action",
+              "expectedFormat": "html",
+              "proof": {
+                "type": "diagnostic_observation",
+                "record": {
+                  "key": "ci/source-probe-runs/40044528648-1.json",
+                  "sha256": "1fda9a60d3cdd5d297c8c95f77a74564828a866545ea876d6c2fcbe8ac5a04bb",
+                  "bytes": 78209
+                },
+                "observation": {
+                  "key": "objects/a07b862a198e20ecb74b3765a57327ea59fe0011ad4059a1804bf6cb037b7d1d",
+                  "sha256": "a07b862a198e20ecb74b3765a57327ea59fe0011ad4059a1804bf6cb037b7d1d",
+                  "bytes": 511
+                },
+                "body": {
+                  "bytes": 2460,
+                  "key": "objects/906b1656404e95d8ed52082ecfd40d738e2ff24368ab6638cda810d4e38055a8",
+                  "sha256": "906b1656404e95d8ed52082ecfd40d738e2ff24368ab6638cda810d4e38055a8"
+                },
+                "fetchedAt": "2026-10-24T00:23:19.389251Z"
+              }
+            },
+            {
+              "id": "ping-september-release",
+              "sourceId": "ping-identity:official:1",
+              "url": "https://press.pingidentity.com/2026-09-29-Ping-Identity-Launches-Identity-Agents-on-Google-Cloud-Marketplace",
+              "expectedFormat": "html",
+              "proof": {
+                "type": "diagnostic_observation",
+                "record": {
+                  "key": "ci/source-probe-runs/40044528648-1.json",
+                  "sha256": "1fda9a60d3cdd5d297c8c95f77a74564828a866545ea876d6c2fcbe8ac5a04bb",
+                  "bytes": 78209
+                },
+                "observation": {
+                  "key": "objects/a07b862a198e20ecb74b3765a57327ea59fe0011ad4059a1804bf6cb037b7d1d",
+                  "sha256": "a07b862a198e20ecb74b3765a57327ea59fe0011ad4059a1804bf6cb037b7d1d",
+                  "bytes": 511
+                },
+                "body": {
+                  "bytes": 2460,
+                  "key": "objects/906b1656404e95d8ed52082ecfd40d738e2ff24368ab6638cda810d4e38055a8",
+                  "sha256": "906b1656404e95d8ed52082ecfd40d738e2ff24368ab6638cda810d4e38055a8"
+                },
+                "fetchedAt": "2026-10-24T00:23:19.389251Z"
+              }
+            },
+            {
+              "id": "delinea-rss",
+              "sourceId": "delinea:official:1",
+              "url": "https://delinea.com/news/rss.xml",
+              "expectedFormat": "rss",
+              "proof": {
+                "type": "source_observation",
+                "record": {
+                  "key": "observations/930a7e4fe4b3d44f1494824f179a38b4c34e40b4e5af0124c057dc2ba176d34f.json",
+                  "sha256": "a88b1eeac16c47cb325cf664b515b8b8c76382e5288613b6cb81eaa38305fd11",
+                  "bytes": 702
+                },
+                "body": {
+                  "bytes": 126986,
+                  "key": "objects/40d3a81783abdf0af16f21d191d1b0e5e2393e7bf42bcc3e4147d87c271b2fb4",
+                  "sha256": "40d3a81783abdf0af16f21d191d1b0e5e2393e7bf42bcc3e4147d87c271b2fb4"
+                },
+                "fetchedAt": "2026-10-23T04:14:59.819592Z"
+              }
+            },
+            {
+              "id": "sonatype-rss",
+              "sourceId": "sonatype:official:1",
+              "url": "https://www.sonatype.com/press-releases/rss.xml",
+              "expectedFormat": "rss",
+              "proof": {
+                "type": "source_observation",
+                "record": {
+                  "key": "observations/ae28f598db53f607758766cf78b7f1360d6189c8076faeca1134f11d3776e7fe.json",
+                  "sha256": "9dfa16580ee4f7baaade6507e611a21dc2dba88fd1d10b7ed06115868dfc5d9f",
+                  "bytes": 724
+                },
+                "body": {
+                  "bytes": 112635,
+                  "key": "objects/0797efe21e3568cbb309a739affe457a236ecc6de41c9752f5172f29bb32b7ea",
+                  "sha256": "0797efe21e3568cbb309a739affe457a236ecc6de41c9752f5172f29bb32b7ea"
+                },
+                "fetchedAt": "2026-10-23T04:14:51.574093Z"
+              }
+            }
+          ]
+        },
+        "targets": [
+          {
+            "id": "ping-index",
+            "sourceId": "ping-identity:official:1",
+            "url": "https://press.pingidentity.com/news-releases",
+            "expectedFormat": "html",
+            "proof": {
+              "type": "diagnostic_observation",
+              "record": {
+                "key": "ci/source-probe-runs/40044528648-1.json",
+                "sha256": "1fda9a60d3cdd5d297c8c95f77a74564828a866545ea876d6c2fcbe8ac5a04bb",
+                "bytes": 78209
+              },
+              "observation": {
+                "key": "objects/094ade837a8c58d265e341acf7c665afb7de3ed08e287d03f134fb0e3e9426aa",
+                "sha256": "094ade837a8c58d265e341acf7c665afb7de3ed08e287d03f134fb0e3e9426aa",
+                "bytes": 453
+              },
+              "body": {
+                "bytes": 98724,
+                "key": "objects/d06c171a9aa6c5150e47355692dbdecdaacc544a15ce7fd01bbc6812883007be",
+                "sha256": "d06c171a9aa6c5150e47355692dbdecdaacc544a15ce7fd01bbc6812883007be"
+              },
+              "fetchedAt": "2026-10-24T00:23:18.322865Z"
+            },
+            "literalRecognition": "html_link_feed_or_canonical"
+          },
+          {
+            "id": "ping-rss",
+            "sourceId": "ping-identity:official:1",
+            "url": "https://press.pingidentity.com/news-releases?pagetemplate=rss",
+            "expectedFormat": "rss",
+            "proof": {
+              "type": "diagnostic_observation",
+              "record": {
+                "key": "ci/source-probe-runs/40044528648-1.json",
+                "sha256": "1fda9a60d3cdd5d297c8c95f77a74564828a866545ea876d6c2fcbe8ac5a04bb",
+                "bytes": 78209
+              },
+              "observation": {
+                "key": "objects/094ade837a8c58d265e341acf7c665afb7de3ed08e287d03f134fb0e3e9426aa",
+                "sha256": "094ade837a8c58d265e341acf7c665afb7de3ed08e287d03f134fb0e3e9426aa",
+                "bytes": 453
+              },
+              "body": {
+                "bytes": 98724,
+                "key": "objects/d06c171a9aa6c5150e47355692dbdecdaacc544a15ce7fd01bbc6812883007be",
+                "sha256": "d06c171a9aa6c5150e47355692dbdecdaacc544a15ce7fd01bbc6812883007be"
+              },
+              "fetchedAt": "2026-10-24T00:23:18.322865Z"
+            },
+            "literalRecognition": "html_link_feed_or_canonical"
+          },
+          {
+            "id": "ping-next",
+            "sourceId": "ping-identity:official:1",
+            "url": "https://press.pingidentity.com/news-releases?o=10",
+            "expectedFormat": "html",
+            "proof": {
+              "type": "diagnostic_observation",
+              "record": {
+                "key": "ci/source-probe-runs/40044528648-1.json",
+                "sha256": "1fda9a60d3cdd5d297c8c95f77a74564828a866545ea876d6c2fcbe8ac5a04bb",
+                "bytes": 78209
+              },
+              "observation": {
+                "key": "objects/094ade837a8c58d265e341acf7c665afb7de3ed08e287d03f134fb0e3e9426aa",
+                "sha256": "094ade837a8c58d265e341acf7c665afb7de3ed08e287d03f134fb0e3e9426aa",
+                "bytes": 453
+              },
+              "body": {
+                "bytes": 98724,
+                "key": "objects/d06c171a9aa6c5150e47355692dbdecdaacc544a15ce7fd01bbc6812883007be",
+                "sha256": "d06c171a9aa6c5150e47355692dbdecdaacc544a15ce7fd01bbc6812883007be"
+              },
+              "fetchedAt": "2026-10-24T00:23:18.322865Z"
+            },
+            "literalRecognition": "html_link_feed_or_canonical"
+          },
+          {
+            "id": "ping-october-release",
+            "sourceId": "ping-identity:official:1",
+            "url": "https://press.pingidentity.com/2026-10-06-Ping-Identity-Survey-Finds-AI-Trust-Changes-When-Assistance-Turns-to-Action",
+            "expectedFormat": "html",
+            "proof": {
+              "type": "diagnostic_observation",
+              "record": {
+                "key": "ci/source-probe-runs/40044528648-1.json",
+                "sha256": "1fda9a60d3cdd5d297c8c95f77a74564828a866545ea876d6c2fcbe8ac5a04bb",
+                "bytes": 78209
+              },
+              "observation": {
+                "key": "objects/a07b862a198e20ecb74b3765a57327ea59fe0011ad4059a1804bf6cb037b7d1d",
+                "sha256": "a07b862a198e20ecb74b3765a57327ea59fe0011ad4059a1804bf6cb037b7d1d",
+                "bytes": 511
+              },
+              "body": {
+                "bytes": 2460,
+                "key": "objects/906b1656404e95d8ed52082ecfd40d738e2ff24368ab6638cda810d4e38055a8",
+                "sha256": "906b1656404e95d8ed52082ecfd40d738e2ff24368ab6638cda810d4e38055a8"
+              },
+              "fetchedAt": "2026-10-24T00:23:19.389251Z"
+            },
+            "literalRecognition": "rss_or_atom_item_link"
+          },
+          {
+            "id": "ping-september-release",
+            "sourceId": "ping-identity:official:1",
+            "url": "https://press.pingidentity.com/2026-09-29-Ping-Identity-Launches-Identity-Agents-on-Google-Cloud-Marketplace",
+            "expectedFormat": "html",
+            "proof": {
+              "type": "diagnostic_observation",
+              "record": {
+                "key": "ci/source-probe-runs/40044528648-1.json",
+                "sha256": "1fda9a60d3cdd5d297c8c95f77a74564828a866545ea876d6c2fcbe8ac5a04bb",
+                "bytes": 78209
+              },
+              "observation": {
+                "key": "objects/a07b862a198e20ecb74b3765a57327ea59fe0011ad4059a1804bf6cb037b7d1d",
+                "sha256": "a07b862a198e20ecb74b3765a57327ea59fe0011ad4059a1804bf6cb037b7d1d",
+                "bytes": 511
+              },
+              "body": {
+                "bytes": 2460,
+                "key": "objects/906b1656404e95d8ed52082ecfd40d738e2ff24368ab6638cda810d4e38055a8",
+                "sha256": "906b1656404e95d8ed52082ecfd40d738e2ff24368ab6638cda810d4e38055a8"
+              },
+              "fetchedAt": "2026-10-24T00:23:19.389251Z"
+            },
+            "literalRecognition": "rss_or_atom_item_link"
+          },
+          {
+            "id": "delinea-rss",
+            "sourceId": "delinea:official:1",
+            "url": "https://delinea.com/news/rss.xml",
+            "expectedFormat": "rss",
+            "proof": {
+              "type": "source_observation",
+              "record": {
+                "key": "observations/930a7e4fe4b3d44f1494824f179a38b4c34e40b4e5af0124c057dc2ba176d34f.json",
+                "sha256": "a88b1eeac16c47cb325cf664b515b8b8c76382e5288613b6cb81eaa38305fd11",
+                "bytes": 702
+              },
+              "body": {
+                "bytes": 126986,
+                "key": "objects/40d3a81783abdf0af16f21d191d1b0e5e2393e7bf42bcc3e4147d87c271b2fb4",
+                "sha256": "40d3a81783abdf0af16f21d191d1b0e5e2393e7bf42bcc3e4147d87c271b2fb4"
+              },
+              "fetchedAt": "2026-10-23T04:14:59.819592Z"
+            },
+            "literalRecognition": "html_link_feed_or_canonical"
+          },
+          {
+            "id": "sonatype-rss",
+            "sourceId": "sonatype:official:1",
+            "url": "https://www.sonatype.com/press-releases/rss.xml",
+            "expectedFormat": "rss",
+            "proof": {
+              "type": "source_observation",
+              "record": {
+                "key": "observations/ae28f598db53f607758766cf78b7f1360d6189c8076faeca1134f11d3776e7fe.json",
+                "sha256": "9dfa16580ee4f7baaade6507e611a21dc2dba88fd1d10b7ed06115868dfc5d9f",
+                "bytes": 724
+              },
+              "body": {
+                "bytes": 112635,
+                "key": "objects/0797efe21e3568cbb309a739affe457a236ecc6de41c9752f5172f29bb32b7ea",
+                "sha256": "0797efe21e3568cbb309a739affe457a236ecc6de41c9752f5172f29bb32b7ea"
+              },
+              "fetchedAt": "2026-10-23T04:14:51.574093Z"
+            },
+            "literalRecognition": "html_link_feed_or_canonical"
+          }
+        ]
+      },
+      "targets": [
+        {
+          "targetId": "ping-index",
+          "sourceId": "ping-identity:official:1",
+          "url": "https://press.pingidentity.com/news-releases",
+          "expectedFormat": "html",
+          "proof": {
+            "type": "diagnostic_observation",
+            "record": {
+              "key": "ci/source-probe-runs/40044528648-1.json",
+              "sha256": "1fda9a60d3cdd5d297c8c95f77a74564828a866545ea876d6c2fcbe8ac5a04bb",
+              "bytes": 78209
+            },
+            "observation": {
+              "key": "objects/094ade837a8c58d265e341acf7c665afb7de3ed08e287d03f134fb0e3e9426aa",
+              "sha256": "094ade837a8c58d265e341acf7c665afb7de3ed08e287d03f134fb0e3e9426aa",
+              "bytes": 453
+            },
+            "body": {
+              "bytes": 98724,
+              "key": "objects/d06c171a9aa6c5150e47355692dbdecdaacc544a15ce7fd01bbc6812883007be",
+              "sha256": "d06c171a9aa6c5150e47355692dbdecdaacc544a15ce7fd01bbc6812883007be"
+            },
+            "fetchedAt": "2026-10-24T00:23:18.322865Z"
+          },
+          "qualified": false,
+          "semanticAdmission": false,
+          "coverageCredit": false,
+          "sourceChecksCredited": 0,
+          "qualifiedSources": 0,
+          "modelCalls": 0,
+          "facts": [],
+          "reservation": {
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 635
+          },
+          "observation": {
+            "key": "objects/09eb766cec6f9e2d9cbd7a3f412bdca185b7a604a635d596f2f19b506ad884f7",
+            "sha256": "09eb766cec6f9e2d9cbd7a3f412bdca185b7a604a635d596f2f19b506ad884f7",
+            "bytes": 479
+          },
+          "budgetDenied": false,
+          "format": "html",
+          "canonicals": [
+            "https://press.pingidentity.com/news-releases"
+          ],
+          "advertisedFeeds": [
+            "https://press.pingidentity.com/news-releases?pagetemplate=rss"
+          ],
+          "reason": "RESPONSE_RETAINED_SCOPE_AND_HISTORY_REVIEW_REQUIRED"
+        },
+        {
+          "targetId": "ping-rss",
+          "sourceId": "ping-identity:official:1",
+          "url": "https://press.pingidentity.com/news-releases?pagetemplate=rss",
+          "expectedFormat": "rss",
+          "proof": {
+            "type": "diagnostic_observation",
+            "record": {
+              "key": "ci/source-probe-runs/40044528648-1.json",
+              "sha256": "1fda9a60d3cdd5d297c8c95f77a74564828a866545ea876d6c2fcbe8ac5a04bb",
+              "bytes": 78209
+            },
+            "observation": {
+              "key": "objects/094ade837a8c58d265e341acf7c665afb7de3ed08e287d03f134fb0e3e9426aa",
+              "sha256": "094ade837a8c58d265e341acf7c665afb7de3ed08e287d03f134fb0e3e9426aa",
+              "bytes": 453
+            },
+            "body": {
+              "bytes": 98724,
+              "key": "objects/d06c171a9aa6c5150e47355692dbdecdaacc544a15ce7fd01bbc6812883007be",
+              "sha256": "d06c171a9aa6c5150e47355692dbdecdaacc544a15ce7fd01bbc6812883007be"
+            },
+            "fetchedAt": "2026-10-24T00:23:18.322865Z"
+          },
+          "qualified": false,
+          "semanticAdmission": false,
+          "coverageCredit": false,
+          "sourceChecksCredited": 0,
+          "qualifiedSources": 0,
+          "modelCalls": 0,
+          "facts": [],
+          "reservation": {
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 636
+          },
+          "observation": {
+            "key": "objects/08f71ae64c6c78e0c1e8fbf7b638c19b8095cb7e74679a90f97c58afb1c1f507",
+            "sha256": "08f71ae64c6c78e0c1e8fbf7b638c19b8095cb7e74679a90f97c58afb1c1f507",
+            "bytes": 511
+          },
+          "budgetDenied": false,
+          "format": "rss",
+          "itemCount": 5,
+          "continuationCount": 0,
+          "reason": "RESPONSE_RETAINED_SCOPE_AND_HISTORY_REVIEW_REQUIRED"
+        },
+        {
+          "targetId": "ping-next",
+          "sourceId": "ping-identity:official:1",
+          "url": "https://press.pingidentity.com/news-releases?o=10",
+          "expectedFormat": "html",
+          "proof": {
+            "type": "diagnostic_observation",
+            "record": {
+              "key": "ci/source-probe-runs/40044528648-1.json",
+              "sha256": "1fda9a60d3cdd5d297c8c95f77a74564828a866545ea876d6c2fcbe8ac5a04bb",
+              "bytes": 78209
+            },
+            "observation": {
+              "key": "objects/094ade837a8c58d265e341acf7c665afb7de3ed08e287d03f134fb0e3e9426aa",
+              "sha256": "094ade837a8c58d265e341acf7c665afb7de3ed08e287d03f134fb0e3e9426aa",
+              "bytes": 453
+            },
+            "body": {
+              "bytes": 98724,
+              "key": "objects/d06c171a9aa6c5150e47355692dbdecdaacc544a15ce7fd01bbc6812883007be",
+              "sha256": "d06c171a9aa6c5150e47355692dbdecdaacc544a15ce7fd01bbc6812883007be"
+            },
+            "fetchedAt": "2026-10-24T00:23:18.322865Z"
+          },
+          "qualified": false,
+          "semanticAdmission": false,
+          "coverageCredit": false,
+          "sourceChecksCredited": 0,
+          "qualifiedSources": 0,
+          "modelCalls": 0,
+          "facts": [],
+          "reservation": {
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 637
+          },
+          "observation": {
+            "key": "objects/f61107756abf878060b6082d9067715f1c0ab6ce9d45946a72d1a3731f258c88",
+            "sha256": "f61107756abf878060b6082d9067715f1c0ab6ce9d45946a72d1a3731f258c88",
+            "bytes": 489
+          },
+          "budgetDenied": false,
+          "format": "html",
+          "canonicals": [
+            "https://press.pingidentity.com/news-releases"
+          ],
+          "advertisedFeeds": [
+            "https://press.pingidentity.com/news-releases?pagetemplate=rss"
+          ],
+          "reason": "RESPONSE_RETAINED_SCOPE_AND_HISTORY_REVIEW_REQUIRED"
+        },
+        {
+          "targetId": "ping-october-release",
+          "sourceId": "ping-identity:official:1",
+          "url": "https://press.pingidentity.com/2026-10-06-Ping-Identity-Survey-Finds-AI-Trust-Changes-When-Assistance-Turns-to-Action",
+          "expectedFormat": "html",
+          "proof": {
+            "type": "diagnostic_observation",
+            "record": {
+              "key": "ci/source-probe-runs/40044528648-1.json",
+              "sha256": "1fda9a60d3cdd5d297c8c95f77a74564828a866545ea876d6c2fcbe8ac5a04bb",
+              "bytes": 78209
+            },
+            "observation": {
+              "key": "objects/a07b862a198e20ecb74b3765a57327ea59fe0011ad4059a1804bf6cb037b7d1d",
+              "sha256": "a07b862a198e20ecb74b3765a57327ea59fe0011ad4059a1804bf6cb037b7d1d",
+              "bytes": 511
+            },
+            "body": {
+              "bytes": 2460,
+              "key": "objects/906b1656404e95d8ed52082ecfd40d738e2ff24368ab6638cda810d4e38055a8",
+              "sha256": "906b1656404e95d8ed52082ecfd40d738e2ff24368ab6638cda810d4e38055a8"
+            },
+            "fetchedAt": "2026-10-24T00:23:19.389251Z"
+          },
+          "qualified": false,
+          "semanticAdmission": false,
+          "coverageCredit": false,
+          "sourceChecksCredited": 0,
+          "qualifiedSources": 0,
+          "modelCalls": 0,
+          "facts": [],
+          "reservation": {
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 638
+          },
+          "observation": {
+            "key": "objects/8c9300f4514ed8158dc9c7d554f459b0243444c358a51054c9dcd05a80625836",
+            "sha256": "8c9300f4514ed8158dc9c7d554f459b0243444c358a51054c9dcd05a80625836",
+            "bytes": 625
+          },
+          "budgetDenied": false,
+          "format": "html",
+          "canonicals": [
+            "https://press.pingidentity.com/2026-10-06-Ping-Identity-Survey-Finds-AI-Trust-Changes-When-Assistance-Turns-to-Action"
+          ],
+          "advertisedFeeds": [
+            "https://press.pingidentity.com/news-releases?pagetemplate=rss"
+          ],
+          "reason": "RESPONSE_RETAINED_SCOPE_AND_HISTORY_REVIEW_REQUIRED"
+        },
+        {
+          "targetId": "ping-september-release",
+          "sourceId": "ping-identity:official:1",
+          "url": "https://press.pingidentity.com/2026-09-29-Ping-Identity-Launches-Identity-Agents-on-Google-Cloud-Marketplace",
+          "expectedFormat": "html",
+          "proof": {
+            "type": "diagnostic_observation",
+            "record": {
+              "key": "ci/source-probe-runs/40044528648-1.json",
+              "sha256": "1fda9a60d3cdd5d297c8c95f77a74564828a866545ea876d6c2fcbe8ac5a04bb",
+              "bytes": 78209
+            },
+            "observation": {
+              "key": "objects/a07b862a198e20ecb74b3765a57327ea59fe0011ad4059a1804bf6cb037b7d1d",
+              "sha256": "a07b862a198e20ecb74b3765a57327ea59fe0011ad4059a1804bf6cb037b7d1d",
+              "bytes": 511
+            },
+            "body": {
+              "bytes": 2460,
+              "key": "objects/906b1656404e95d8ed52082ecfd40d738e2ff24368ab6638cda810d4e38055a8",
+              "sha256": "906b1656404e95d8ed52082ecfd40d738e2ff24368ab6638cda810d4e38055a8"
+            },
+            "fetchedAt": "2026-10-24T00:23:19.389251Z"
+          },
+          "qualified": false,
+          "semanticAdmission": false,
+          "coverageCredit": false,
+          "sourceChecksCredited": 0,
+          "qualifiedSources": 0,
+          "modelCalls": 0,
+          "facts": [],
+          "reservation": {
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 639
+          },
+          "observation": {
+            "key": "objects/b528962be3c9a8d8632b80bd96da5d2dad27738d9d790879c38e5df0e5bc5f80",
+            "sha256": "b528962be3c9a8d8632b80bd96da5d2dad27738d9d790879c38e5df0e5bc5f80",
+            "bytes": 607
+          },
+          "budgetDenied": false,
+          "format": "html",
+          "canonicals": [
+            "https://press.pingidentity.com/2026-09-29-Ping-Identity-Launches-Identity-Agents-on-Google-Cloud-Marketplace"
+          ],
+          "advertisedFeeds": [
+            "https://press.pingidentity.com/news-releases?pagetemplate=rss"
+          ],
+          "reason": "RESPONSE_RETAINED_SCOPE_AND_HISTORY_REVIEW_REQUIRED"
+        },
+        {
+          "targetId": "delinea-rss",
+          "sourceId": "delinea:official:1",
+          "url": "https://delinea.com/news/rss.xml",
+          "expectedFormat": "rss",
+          "proof": {
+            "type": "source_observation",
+            "record": {
+              "key": "observations/930a7e4fe4b3d44f1494824f179a38b4c34e40b4e5af0124c057dc2ba176d34f.json",
+              "sha256": "a88b1eeac16c47cb325cf664b515b8b8c76382e5288613b6cb81eaa38305fd11",
+              "bytes": 702
+            },
+            "body": {
+              "bytes": 126986,
+              "key": "objects/40d3a81783abdf0af16f21d191d1b0e5e2393e7bf42bcc3e4147d87c271b2fb4",
+              "sha256": "40d3a81783abdf0af16f21d191d1b0e5e2393e7bf42bcc3e4147d87c271b2fb4"
+            },
+            "fetchedAt": "2026-10-23T04:14:59.819592Z"
+          },
+          "qualified": false,
+          "semanticAdmission": false,
+          "coverageCredit": false,
+          "sourceChecksCredited": 0,
+          "qualifiedSources": 0,
+          "modelCalls": 0,
+          "facts": [],
+          "reservation": {
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 640
+          },
+          "observation": {
+            "key": "objects/b1c77ae0d3d5bae003a409156d7ba7f3e9335729cb742ddcb35637601fb18b24",
+            "sha256": "b1c77ae0d3d5bae003a409156d7ba7f3e9335729cb742ddcb35637601fb18b24",
+            "bytes": 490
+          },
+          "budgetDenied": false,
+          "format": "rss",
+          "itemCount": 10,
+          "continuationCount": 0,
+          "reason": "RESPONSE_RETAINED_SCOPE_AND_HISTORY_REVIEW_REQUIRED"
+        },
+        {
+          "targetId": "sonatype-rss",
+          "sourceId": "sonatype:official:1",
+          "url": "https://www.sonatype.com/press-releases/rss.xml",
+          "expectedFormat": "rss",
+          "proof": {
+            "type": "source_observation",
+            "record": {
+              "key": "observations/ae28f598db53f607758766cf78b7f1360d6189c8076faeca1134f11d3776e7fe.json",
+              "sha256": "9dfa16580ee4f7baaade6507e611a21dc2dba88fd1d10b7ed06115868dfc5d9f",
+              "bytes": 724
+            },
+            "body": {
+              "bytes": 112635,
+              "key": "objects/0797efe21e3568cbb309a739affe457a236ecc6de41c9752f5172f29bb32b7ea",
+              "sha256": "0797efe21e3568cbb309a739affe457a236ecc6de41c9752f5172f29bb32b7ea"
+            },
+            "fetchedAt": "2026-10-23T04:14:51.574093Z"
+          },
+          "qualified": false,
+          "semanticAdmission": false,
+          "coverageCredit": false,
+          "sourceChecksCredited": 0,
+          "qualifiedSources": 0,
+          "modelCalls": 0,
+          "facts": [],
+          "reservation": {
+            "budgetDay": "2026-10-24",
+            "fetchLimit": 5500,
+            "chargedFetchCount": 641
+          },
+          "observation": {
+            "key": "objects/2024ec20f568a0ea3d613099cacd214fac128bdc1cb8a4b61f33166c029f43eb",
+            "sha256": "2024ec20f568a0ea3d613099cacd214fac128bdc1cb8a4b61f33166c029f43eb",
+            "bytes": 520
+          },
+          "budgetDenied": false,
+          "format": "rss",
+          "itemCount": 10,
+          "continuationCount": 0,
+          "reason": "RESPONSE_RETAINED_SCOPE_AND_HISTORY_REVIEW_REQUIRED"
+        }
+      ],
+      "maximumExplicitRequests": 7,
+      "chargedExplicitRequests": 7,
+      "qualifiedSources": 0,
+      "sourceChecksCredited": 0,
+      "semanticAdmission": false,
+      "coverageCredit": false,
+      "modelCalls": 0,
+      "facts": []
+    }
+  },
+  "executionCompleted": true,
+  "outcome": "completed_diagnostic",
+  "modelCalls": 0,
+  "apiFallback": false,
+  "semanticAdmission": false,
+  "coverageCredit": false,
+  "sourceChecksCredited": 0,
+  "qualifiedSources": 0,
+  "publication": {
+    "published": false,
+    "reason": "SOURCE_PROBE_DIAGNOSTIC_ONLY"
+  },
+  "archive": {
+    "commit": "b9f1208bd9e957bee5cca2c0b4db28a4fc1fa63f",
+    "parentCommit": "99978929a80645987e57d091c1be40ac852a7bec",
+    "manifestSha256": "5480056315f07d6c6be4e66d5f9a643437d020eb039f2d51fe378ad70803c9bb",
+    "files": 31048,
+    "ref": "refs/archive/market-evidence"
+  }
+}

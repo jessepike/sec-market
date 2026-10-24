@@ -1,0 +1,433 @@
+{
+  "kind": "actual_correction_retention_future_time_read_only_replay",
+  "checkedAt": "2026-10-24T01:33:53.481495Z",
+  "conclusion": "Accepted historical corrections do not expire with their initial source window. All six live public rows remain exact without another review; pending or missing admissions hold a new release.",
+  "archive": {
+    "commit": "4b325ab62385379c9d76b585ee3c3575ba8cab4d",
+    "manifestSha256": "3bebbef137b62f331b218fbf947bff25ca00a5bebf45bb3441dace9fd1fe619e",
+    "files": 30823,
+    "allFilesIndependentlyVerified": true
+  },
+  "actualAdmissionReceipt": {
+    "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/actual-correction-admissions-2026-10-24.json",
+    "fileSha256": "b954759ed9744a7d573e387a18f28e028000e5b46464493f69dfb4ce90f3f53b"
+  },
+  "actualProductionProof": {
+    "releaseId": "a564d0a471931329bdf8a2e263bf26838ecb23d06d4a98d78cc4735c629c44f4",
+    "proofReceiptPath": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/receipts/actual-correction-production-bytes-2026-10-24.json",
+    "proofReceiptFileSha256": "b8eee4de392b3ff528e81bfe95fa8fae3bec4bbd2a79c28b55f205d22dbe4c19",
+    "publicBytesObservedAt": "2026-10-24T00:52:29.240092Z",
+    "artifactSha256": "aa8d76006b10e84fba53335adc91d1e964ebc99258d95467842cd7cc7866b9cf",
+    "liveBundleSha256": "032d646ea910b1c1ad4cf78435b5e5bed07bf657ce64817e9dbc5d4de0cbb6e5",
+    "liveBundleBytes": 27410,
+    "gateBuildZipFileSha256": "e3ca048c3c5707a74c0e170df1a4b9e6235f2bff6b1f112c33e2780f33485fd8",
+    "publicHostsPreviouslyVerified": [
+      "https://securitymarketpulse.com",
+      "https://security-market-pulse-5c9hv8vpy-pikeholdings.vercel.app"
+    ],
+    "newPublicNetworkCheckPerformed": false
+  },
+  "sourceContractSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+  "globalPolicySha256": "e740d7407afc7b11be8802b250ea564224b10969717507818726e44e7b33f27e",
+  "groupProofPins": [
+    {
+      "groupId": "FC-20261023-checkpoint-sase",
+      "scope": "factual_correction",
+      "targetIds": [
+        "event:EV-checkpoint-2",
+        "evidence:TR-checkpoint-4"
+      ],
+      "candidateSha256": "af4a673ac14a090128e97bf328b1639e00eecf1c0b5f11098d07a34be26bba15",
+      "evidenceSetSha256": "b4039088e3c211b2b41054475f790b9d20832b664f401e6fd5ff9e3a16589255",
+      "reviewPolicySha256": "36bc23722c1131f94ab3c2db1c553505539987aa55738cfa9bb72dfa3871ad6f",
+      "admission": {
+        "bytes": 1522,
+        "key": "objects/1bcaa2ca22fcb4c24597fc477c406abddf9ddb20853a4d290c79322bee46afa9",
+        "sha256": "1bcaa2ca22fcb4c24597fc477c406abddf9ddb20853a4d290c79322bee46afa9"
+      },
+      "admittedAt": "2026-10-24T00:36:49.557183Z",
+      "reviewReference": {
+        "bytes": 428,
+        "key": "objects/26950917dcbe5d2b5e862cf329b2adedf27046d94a2269d9e298d9d292bedee0",
+        "sha256": "26950917dcbe5d2b5e862cf329b2adedf27046d94a2269d9e298d9d292bedee0"
+      },
+      "immutableAcceptedIndexKey": "correction-admissions/36bc23722c1131f94ab3c2db1c553505539987aa55738cfa9bb72dfa3871ad6f/af4a673ac14a090128e97bf328b1639e00eecf1c0b5f11098d07a34be26bba15-b4039088e3c211b2b41054475f790b9d20832b664f401e6fd5ff9e3a16589255.json",
+      "completeTextSetChars": 27245,
+      "sourcePins": [
+        {
+          "body": {
+            "bytes": 110102,
+            "key": "objects/ad90c231db200ef3ca6909ed9ff62f08b037dd78be7fe85bc8c5011fae488593",
+            "sha256": "ad90c231db200ef3ca6909ed9ff62f08b037dd78be7fe85bc8c5011fae488593"
+          },
+          "evidenceId": "TR-checkpoint-4",
+          "fetchedAt": "2026-10-23T11:34:05.920028Z",
+          "observationId": "823bdeb7978f9445b46cd456181b80329fcb2ced4dd40dac8cae6af492d6da35",
+          "sourceId": "checkpoint-sase:citation:TR-checkpoint-4",
+          "url": "https://www.checkpoint.com/press-releases/check-point-software-reports-2026-second-quarter-financial-results/",
+          "ageHoursAtInitialAdmission": 13.045454765277777,
+          "completeTextChars": 14215,
+          "completeTextSha256": "4dfd989e47592c711456ebd25358ff96daa4eb9c15dd67d41dae7f5f46940ec9",
+          "initialAdmissionWindowClosesAt": "2026-10-24T17:34:05.920028Z"
+        },
+        {
+          "body": {
+            "bytes": 26715,
+            "key": "objects/99fd41f785699aa0fc9fb4ea0baa79249c0953a5391c9aca86f1e5c0adb55b3c",
+            "sha256": "99fd41f785699aa0fc9fb4ea0baa79249c0953a5391c9aca86f1e5c0adb55b3c"
+          },
+          "evidenceId": "TR-checkpoint-5",
+          "fetchedAt": "2026-10-23T04:15:09.250598Z",
+          "observationId": "265257237110d3c7eada63a363a0a42c72a6fc0d1cf5fa71dceb10d7364d2699",
+          "sourceId": "checkpoint-sase:citation:TR-checkpoint-5",
+          "url": "https://www.sec.gov/Archives/edgar/data/1015922/000117891325004030/zk2534094.htm",
+          "ageHoursAtInitialAdmission": 20.36119627361111,
+          "completeTextChars": 13030,
+          "completeTextSha256": "a04cf7c33992a94bd05d241cdef300caba03d5888c05380743b8396a37264e8b",
+          "initialAdmissionWindowClosesAt": "2026-10-24T10:15:09.250598Z"
+        }
+      ]
+    },
+    {
+      "groupId": "FC-20261023-optiv",
+      "scope": "factual_correction",
+      "targetIds": [
+        "event:EV-optiv-2",
+        "evidence:TR-optiv-3"
+      ],
+      "candidateSha256": "ce48b552db79aa960aed5e08840f28a99ccab313c9d05df874b281cf7eb9c00c",
+      "evidenceSetSha256": "7f5a8b85f2fbf854d9623d561a89c0ded68723742833047d05fb24c7e4342a2b",
+      "reviewPolicySha256": "4f9e7feb90232a3aafe2cd84265c2e8202c9e009229e7592c5ab87373f64bcf5",
+      "admission": {
+        "bytes": 1014,
+        "key": "objects/580099157608b61895574d2b136c93a940109f82d0a33459388a83f46fbc7bf2",
+        "sha256": "580099157608b61895574d2b136c93a940109f82d0a33459388a83f46fbc7bf2"
+      },
+      "admittedAt": "2026-10-24T00:06:23.550203Z",
+      "reviewReference": {
+        "bytes": 428,
+        "key": "objects/faf2a5773a4b7eacd806e8a1995bc8719d8a12a2bfb30e0fa5e77db24d1df44c",
+        "sha256": "faf2a5773a4b7eacd806e8a1995bc8719d8a12a2bfb30e0fa5e77db24d1df44c"
+      },
+      "immutableAcceptedIndexKey": "correction-admissions/4f9e7feb90232a3aafe2cd84265c2e8202c9e009229e7592c5ab87373f64bcf5/ce48b552db79aa960aed5e08840f28a99ccab313c9d05df874b281cf7eb9c00c-7f5a8b85f2fbf854d9623d561a89c0ded68723742833047d05fb24c7e4342a2b.json",
+      "completeTextSetChars": 7295,
+      "sourcePins": [
+        {
+          "body": {
+            "bytes": 110479,
+            "key": "objects/1db3ec3b06b80372a401ce680bd0c22f2bfa30facc0676c0ee357584976d6028",
+            "sha256": "1db3ec3b06b80372a401ce680bd0c22f2bfa30facc0676c0ee357584976d6028"
+          },
+          "evidenceId": "TR-optiv-3",
+          "fetchedAt": "2026-10-23T11:34:10.387430Z",
+          "observationId": "2f4690a9102722bf834b098712e7ce709b9aa1dccc2f3870dfefb83f40cc8426",
+          "sourceId": "optiv:citation:TR-optiv-3",
+          "url": "https://www.optiv.com/company/press-releases/optiv-strengthens-financial-position-lender-agreement-comprehensive",
+          "ageHoursAtInitialAdmission": 12.536989659166666,
+          "completeTextChars": 7295,
+          "completeTextSha256": "84367a7bfa0186b673f866c7581aaf4e308448da4a133d1d916aab225be4ea58",
+          "initialAdmissionWindowClosesAt": "2026-10-24T17:34:10.387430Z"
+        }
+      ]
+    },
+    {
+      "groupId": "FC-20261023-splunk",
+      "scope": "factual_correction",
+      "targetIds": [
+        "event:EV-splunk-1",
+        "evidence:TR-splunk-2"
+      ],
+      "candidateSha256": "a397eb20f8a6918f19ef6004ad2107a96066d0b84532ca9f131fd050fec61240",
+      "evidenceSetSha256": "eb165cdbb2d9b4e76d07dbaa0ca217167ced0e492cadd89957aa1ebbce6157f5",
+      "reviewPolicySha256": "270b7c7a1f7180b3fef2896b7633a87bf0667b9f4a3c75593fa72b959ecb87f6",
+      "admission": {
+        "bytes": 988,
+        "key": "objects/a42addfcd5043dceffcd259fc8bdac7486b012400fae4b82ce0e5b00968e18af",
+        "sha256": "a42addfcd5043dceffcd259fc8bdac7486b012400fae4b82ce0e5b00968e18af"
+      },
+      "admittedAt": "2026-10-24T00:06:29.666148Z",
+      "reviewReference": {
+        "bytes": 428,
+        "key": "objects/f5366dfae77204b65cc05a3f5b6fd65f1c86bcc3edd38da0a342761667dc6887",
+        "sha256": "f5366dfae77204b65cc05a3f5b6fd65f1c86bcc3edd38da0a342761667dc6887"
+      },
+      "immutableAcceptedIndexKey": "correction-admissions/270b7c7a1f7180b3fef2896b7633a87bf0667b9f4a3c75593fa72b959ecb87f6/a397eb20f8a6918f19ef6004ad2107a96066d0b84532ca9f131fd050fec61240-eb165cdbb2d9b4e76d07dbaa0ca217167ced0e492cadd89957aa1ebbce6157f5.json",
+      "completeTextSetChars": 12373,
+      "sourcePins": [
+        {
+          "body": {
+            "bytes": 45244,
+            "key": "objects/e3de17409d6f8024d2d489ff6163a6249f72e7d5831da2118d9d2e873861dea5",
+            "sha256": "e3de17409d6f8024d2d489ff6163a6249f72e7d5831da2118d9d2e873861dea5"
+          },
+          "evidenceId": "TR-splunk-2",
+          "fetchedAt": "2026-10-23T04:14:49.799584Z",
+          "observationId": "ad8b7473392061097411bdbb1b613d8f3880425ca5ec2e6148d81c400ccad883",
+          "sourceId": "splunk:citation:TR-splunk-2",
+          "url": "https://www.sec.gov/Archives/edgar/data/858877/000085887726000075/csco-20260513.htm",
+          "ageHoursAtInitialAdmission": 19.861074045555554,
+          "completeTextChars": 12373,
+          "completeTextSha256": "176f9e4cbc7ecd2ea1050d071ae36dc6bbd9bf4ebc3e3f58b6dfa76e5f1e6930",
+          "initialAdmissionWindowClosesAt": "2026-10-24T10:14:49.799584Z"
+        }
+      ]
+    },
+    {
+      "groupId": "FC-20261023-zscaler",
+      "scope": "factual_correction",
+      "targetIds": [
+        "event:EV-zscaler-2",
+        "evidence:TR-zscaler-4"
+      ],
+      "candidateSha256": "46f6626eebb75b300b770b6290c38124f02773a93636810d2d84dffbfb0854f3",
+      "evidenceSetSha256": "f0e0f20f00cfc1bf339642dfb9672e159a3bfa1ddacb70549e6a5e2f815bfb7a",
+      "reviewPolicySha256": "dc8522069fc87cbf0371e0ea29ec80fbf647c1dd7ce816e02a7fb4a94b35a390",
+      "admission": {
+        "bytes": 1460,
+        "key": "objects/f255c470cc078e1d44399f7e2027134b466f23cc5939437d196bef9d7aa04e4b",
+        "sha256": "f255c470cc078e1d44399f7e2027134b466f23cc5939437d196bef9d7aa04e4b"
+      },
+      "admittedAt": "2026-10-24T00:36:59.336802Z",
+      "reviewReference": {
+        "bytes": 428,
+        "key": "objects/0bb8d41ec2edef55c5991aebdd187c573a955c0c30b5c8ef6f44e6c692fba6cc",
+        "sha256": "0bb8d41ec2edef55c5991aebdd187c573a955c0c30b5c8ef6f44e6c692fba6cc"
+      },
+      "immutableAcceptedIndexKey": "correction-admissions/dc8522069fc87cbf0371e0ea29ec80fbf647c1dd7ce816e02a7fb4a94b35a390/46f6626eebb75b300b770b6290c38124f02773a93636810d2d84dffbfb0854f3-f0e0f20f00cfc1bf339642dfb9672e159a3bfa1ddacb70549e6a5e2f815bfb7a.json",
+      "completeTextSetChars": 7511,
+      "sourcePins": [
+        {
+          "body": {
+            "bytes": 27835,
+            "key": "objects/068f33d83f983b8207850ff9af866bf0ac56f7e443e04883fe82efee90b6e6bd",
+            "sha256": "068f33d83f983b8207850ff9af866bf0ac56f7e443e04883fe82efee90b6e6bd"
+          },
+          "evidenceId": "TR-zscaler-4",
+          "fetchedAt": "2026-10-23T11:34:11.000593Z",
+          "observationId": "77f7d2dc508eb9c414811e247bfa613cfc32e207793eb0ff76d41921f1091f39",
+          "sourceId": "zscaler:citation:TR-zscaler-4",
+          "url": "https://www.sec.gov/Archives/edgar/data/1713683/000171368326000193/zs-20260924.htm",
+          "ageHoursAtInitialAdmission": 13.046760058055556,
+          "completeTextChars": 3955,
+          "completeTextSha256": "dbc3280eed2635bdc4fe42190043b77918d6122154663b9df861aa59423b1d2e",
+          "initialAdmissionWindowClosesAt": "2026-10-24T17:34:11.000593Z"
+        },
+        {
+          "body": {
+            "bytes": 24581,
+            "key": "objects/bdb9b0f0a56b6625c04b1cfaed33daab6505b97632df199519ee1dd1c117b85d",
+            "sha256": "bdb9b0f0a56b6625c04b1cfaed33daab6505b97632df199519ee1dd1c117b85d"
+          },
+          "evidenceId": "TR-zscaler-6",
+          "fetchedAt": "2026-10-23T04:15:08.041972Z",
+          "observationId": "ede509be7e95f39b65fcbc5059182768804c3c4081a0bda957dc618249caabae",
+          "sourceId": "zscaler:citation:TR-zscaler-6",
+          "url": "https://www.sec.gov/Archives/edgar/data/1713683/000171368326000082/zs-20260415.htm",
+          "ageHoursAtInitialAdmission": 20.36424856388889,
+          "completeTextChars": 3556,
+          "completeTextSha256": "b93679dd81000a0ab531b9ee600d92b71142c127600f13216652ec0203663780",
+          "initialAdmissionWindowClosesAt": "2026-10-24T10:15:08.041972Z"
+        }
+      ]
+    },
+    {
+      "groupId": "FC-20261023-expel",
+      "scope": "factual_correction",
+      "targetIds": [
+        "supplier:expel:lastRound",
+        "supplier:expel:ownership",
+        "evidence:TR-expel-2"
+      ],
+      "candidateSha256": "b02146ce95927f20887ee6a647545e968c2d21db891aa0860ddfe3908b68e1c3",
+      "evidenceSetSha256": "2a9d219a14e673acc89c71ed14b34c61700da6c9ba871edc833fe362c3a6b0da",
+      "reviewPolicySha256": "d1ea72b754450e603d89092cc38d9fa81d165575af2a36745e5938220fd82087",
+      "admission": {
+        "bytes": 1493,
+        "key": "objects/b120ca46429f8e52a09d4fce293c14ddb08319212b2b9a8e0f10b39661deed4c",
+        "sha256": "b120ca46429f8e52a09d4fce293c14ddb08319212b2b9a8e0f10b39661deed4c"
+      },
+      "admittedAt": "2026-10-24T00:06:43.307502Z",
+      "reviewReference": {
+        "bytes": 428,
+        "key": "objects/d70505f6c750763f017bf3aa7ae88e366dfc0ffe2dcd6c47b599b56d59bed70f",
+        "sha256": "d70505f6c750763f017bf3aa7ae88e366dfc0ffe2dcd6c47b599b56d59bed70f"
+      },
+      "immutableAcceptedIndexKey": "correction-admissions/d1ea72b754450e603d89092cc38d9fa81d165575af2a36745e5938220fd82087/b02146ce95927f20887ee6a647545e968c2d21db891aa0860ddfe3908b68e1c3-2a9d219a14e673acc89c71ed14b34c61700da6c9ba871edc833fe362c3a6b0da.json",
+      "completeTextSetChars": 25311,
+      "sourcePins": [
+        {
+          "body": {
+            "bytes": 1294400,
+            "key": "objects/71da4f0b9d823a407f681cd185cc1a75f60e45e6f222faec7963b32b117d71ae",
+            "sha256": "71da4f0b9d823a407f681cd185cc1a75f60e45e6f222faec7963b32b117d71ae"
+          },
+          "evidenceId": "TR-expel-1",
+          "fetchedAt": "2026-10-23T11:34:07.035590Z",
+          "observationId": "99eff05e9f94d7a42d92b84a8cbf393dd1f1e45294d409327f24ac96acd57a7d",
+          "sourceId": "expel:citation:TR-expel-1",
+          "url": "https://expel.com/resource/expel-raises-140-million-in-series-e-funding/",
+          "ageHoursAtInitialAdmission": 12.543408864444444,
+          "completeTextChars": 14466,
+          "completeTextSha256": "f7911310f32df55c2263ab097f67612a84460c8b57a5d871308f0a36946a2404",
+          "initialAdmissionWindowClosesAt": "2026-10-24T17:34:07.035590Z"
+        },
+        {
+          "body": {
+            "bytes": 1291126,
+            "key": "objects/1ded75f04f3ef7db72c3411ba03d554861d576853a50853b0435b46cca474d68",
+            "sha256": "1ded75f04f3ef7db72c3411ba03d554861d576853a50853b0435b46cca474d68"
+          },
+          "evidenceId": "TR-expel-2",
+          "fetchedAt": "2026-10-23T04:14:50.674018Z",
+          "observationId": "2e88142f05a60df7a25678f19ce3916f29e3aa8eebd5b7eca221c4961e3df852",
+          "sourceId": "expel:citation:TR-expel-2",
+          "url": "https://expel.com/resource/expel-investors-fuel-rapid-growth-with-additional-series-e-investment-bringing-total-funding-to-288-million/",
+          "ageHoursAtInitialAdmission": 19.864620412222223,
+          "completeTextChars": 10845,
+          "completeTextSha256": "208935007d86de959c179117d4ac4480e17c9ebcec7932842d994769cbc99141",
+          "initialAdmissionWindowClosesAt": "2026-10-24T10:14:50.674018Z"
+        }
+      ]
+    },
+    {
+      "groupId": "XAGE-SOURCE-CLASS-20261023",
+      "scope": "publisher_disclosure_only",
+      "targetIds": [
+        "evidence:TR-xage-1"
+      ],
+      "candidateSha256": "f0060b9e09cdffb77e08797f0fdd49eb9bf931ea4a91685e4f0a4c911fc50abb",
+      "evidenceSetSha256": "a5138d57005644bda2474a10d29a5fa3c27cdd649d9fa8f8a704a04d6e070200",
+      "reviewPolicySha256": "c01560dba484aa5aa5696c8bfe5b44acefc6337ee1cebe0cd96751849e15646a",
+      "admission": {
+        "bytes": 1340,
+        "key": "objects/ec322362de6fb9e4e20cea0c9ed825990a01bf0c41d5b32662ab6131914f6c98",
+        "sha256": "ec322362de6fb9e4e20cea0c9ed825990a01bf0c41d5b32662ab6131914f6c98"
+      },
+      "admittedAt": "2026-10-24T00:06:50.078120Z",
+      "reviewReference": {
+        "bytes": 535,
+        "key": "objects/5d806d7b4897fa6082cba2ae8b1a496b863ddfbd6af2721d4e1f957d93bfdf46",
+        "sha256": "5d806d7b4897fa6082cba2ae8b1a496b863ddfbd6af2721d4e1f957d93bfdf46"
+      },
+      "immutableAcceptedIndexKey": "correction-admissions/c01560dba484aa5aa5696c8bfe5b44acefc6337ee1cebe0cd96751849e15646a/f0060b9e09cdffb77e08797f0fdd49eb9bf931ea4a91685e4f0a4c911fc50abb-a5138d57005644bda2474a10d29a5fa3c27cdd649d9fa8f8a704a04d6e070200.json",
+      "completeTextSetChars": 16832,
+      "sourcePins": [
+        {
+          "evidenceId": "TR-xage-1",
+          "sourceId": "xage:citation:TR-xage-1",
+          "url": "https://finance.yahoo.com/news/xage-security-hits-record-growth-120000615.html",
+          "observationId": "3659081ca33f1558ed74ea30327c580c2d1664dcf7429e440758089b872499b6",
+          "body": {
+            "bytes": 1021859,
+            "key": "objects/01cf60192caf9038e618e16a67aed61087e163a4aff82a724ca406f56c1e2afc",
+            "sha256": "01cf60192caf9038e618e16a67aed61087e163a4aff82a724ca406f56c1e2afc"
+          },
+          "fetchedAt": "2026-10-23T04:14:56.139543Z",
+          "proofScope": "publisher_disclosure_only",
+          "visibleText": {
+            "rulesVersion": "page-all-visible-text-whitespace-1",
+            "sha256": "c98a0f42e0107dce354b5885d4788498689b8ba5a6e39a8beffb82824ffb7749",
+            "chars": 16832
+          },
+          "disclosureQuoteIds": [
+            "publisher_paid_disclosure",
+            "issuer_attributed_dateline",
+            "article_issuer_byline_context"
+          ],
+          "ageHoursAtInitialAdmission": 19.864982938055554,
+          "completeTextChars": 16832,
+          "completeTextSha256": "c98a0f42e0107dce354b5885d4788498689b8ba5a6e39a8beffb82824ffb7749",
+          "initialAdmissionWindowClosesAt": "2026-10-24T10:14:56.139543Z"
+        }
+      ]
+    }
+  ],
+  "earliestInitialAdmissionWindowClosesAt": "2026-10-24T10:14:49.799584Z",
+  "initialWindowMeaning": "30h limits initial admission/completion against the pinned fetchedAt. replay_admission passes the original admittedAt to validate_sources; gate time only bounds admission from the future. This time is not expiration or scheduled renewal of an accepted correction.",
+  "testedFutureInstants": [
+    {
+      "at": "2026-10-24T05:17:00Z",
+      "admitted": 6,
+      "newAttempts": 0,
+      "modelOrQuotaReservations": 0,
+      "allPublicRowsExact": true
+    },
+    {
+      "at": "2026-10-24T16:23:00Z",
+      "admitted": 6,
+      "newAttempts": 0,
+      "modelOrQuotaReservations": 0,
+      "allPublicRowsExact": true
+    },
+    {
+      "at": "2026-10-25T16:23:00Z",
+      "admitted": 6,
+      "newAttempts": 0,
+      "modelOrQuotaReservations": 0,
+      "allPublicRowsExact": true
+    },
+    {
+      "at": "2026-12-01T16:23:00Z",
+      "admitted": 6,
+      "newAttempts": 0,
+      "modelOrQuotaReservations": 0,
+      "allPublicRowsExact": true
+    }
+  ],
+  "testConditions": {
+    "modelAgent": null,
+    "reservationFunction": "raises on any invocation",
+    "LocalStorePut": "raises on any invocation",
+    "LocalStoreWriteOnce": "raises on any invocation",
+    "LocalStoreCompareAndSwap": "raises on any invocation",
+    "allTestsReadActualAdmissionCache": true,
+    "allTestedPublicGroupsExactEqualLiveBundle": true,
+    "newAttempts": 0,
+    "newReservations": 0,
+    "newModelCalls": 0,
+    "newSourceRequests": 0
+  },
+  "negativeCases": {
+    "heldOutcomeError": "Correction admissions pending or policy changed",
+    "missingAdmissionError": "Correction admission inventory incomplete",
+    "expiredPinsForNewInitialAdmissionError": "Correction source expired or future at admission",
+    "noFallbackProjectionReturned": true
+  },
+  "holdOnRelevantChange": {
+    "dependencies": "group candidate/source set, relevant configured sources, supplier identity subset, baseline, applicable review rules and provider/allowApiBilling/maxDocumentChars policy",
+    "cacheReusedOnlyOnExactReviewPolicyAndCandidateAndEvidenceBindings": true,
+    "missingInvalidCacheOrUnavailableRequiredReview": "pending; project_bundle refuses publication",
+    "previousPublicGroupRemoval": "refused",
+    "previousPublicRowOrMetadataChange": "refused",
+    "unrelatedSourceInventoryChanges": "global policy may change while exact retained group review dependencies remain reusable",
+    "noAutomaticRegroundingOrTimestampRenewal": true,
+    "inPlaceRegroundingOfPublishedGroup": "Even a new accepted review cannot silently rewrite an existing public row or admission metadata; historical-row equality blocks it. An explicit later amendment would require separately scoped work."
+  },
+  "releaseContinuity": {
+    "preflight": "release.py:87-102,117; authenticates previous artifact, projects every group before scarce gate reservation",
+    "independentGate": "gate.py:60-78,23-43; binds acknowledged previous public bundle and generates enabled full projection before build",
+    "historicalRows": "corrections.py:526-566; pending/incomplete inventory fails, published rows/dates must remain exact",
+    "runtime": "correctionData.ts:18-20 and factualCorrections.ts:242-289,345-371; static projection has no current-clock expiry or swallowed validation error",
+    "otherFreshness": "Coverage and SEC freshness can hold a later release; they do not mutate the already-served artifact",
+    "existingAcknowledgedRelease": "release.py:115-116 can return an exact code/collection no-op",
+    "failedPromotion": "publication.py:100-106 rolls back to the prior acknowledged release, now the corrected release"
+  },
+  "repairRecommendation": "No expiry-driven repair is needed. Preserve historical admission replay and all-group release continuity; do not spend exhausted model/document capacity to renew accepted facts.",
+  "limits": "Future instants are offline computational tests, not evidence that future schedules have run. Live-byte authority is the retained actual production receipt; no current remote host or workflow was queried.",
+  "verificationOnly": {
+    "newFiles": [
+      "docs/active/daily-pipeline/accuracy/correction-retention-replay-2026-10-24.json",
+      "docs/active/daily-pipeline/accuracy/correction-retention-replay-2026-10-24.md"
+    ],
+    "runtimePolicyStateChanges": false,
+    "modelCalls": 0,
+    "sourceRequests": 0,
+    "remoteRequests": 0,
+    "quotaChanges": false,
+    "archiveWrites": 0,
+    "stateMetadataBeforeSha256": "5252eb41cfffa42069a4436fa928fca9ab79730dad938733fc651f0f501153ab",
+    "stateMetadataAfterSha256": "5252eb41cfffa42069a4436fa928fca9ab79730dad938733fc651f0f501153ab",
+    "stateFilesUnchanged": true
+  },
+  "repositoryRoot": "/Users/jessepike/code/projects/sec-market-finish-20261022"
+}
