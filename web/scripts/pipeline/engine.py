@@ -13,6 +13,8 @@ from discovery import Page, decoded_discovery_body, discover
 from documents import article_input, readable_document, verify_article_input
 from selection import select_documents
 from validation import reconcile, verify_statement, mentions_entity
+from retained_audit import (VERSION as AUDIT_VERSION, activate_compatibility, bounded as audit_bounded,
+                            index_for, predecessor_inventory, replay_binding, replay_document, verify_receipt)
 
 
 class Pipeline:
@@ -49,6 +51,9 @@ class Pipeline:
             require(plan["contractSha256"] == digest(self.contract), "Resume contract differs")
             self.store.write_once(plan_key, plan)
             self.store.write_once(f"contracts/{plan['contractSha256']}.json", self.contract)
+            self.audit_index = index_for(self.store) if self.contract.get('collection') else None
+            self.audit_compatibility = (activate_compatibility(self.store, plan, self.contract, self.audit_index)
+                                        if self.audit_index is not None else None)
             self.prior_receipts = {}
             prior = self.store.read("heads/latest-run.json")
             if prior and prior.get("runId") == plan["runId"]:
@@ -124,6 +129,8 @@ class Pipeline:
                 receipt.update(outcome="not_checked", errorCode="NO_REGISTERED_DISCOVERY_SOURCE")
                 return self._finish(receipt)
             source = self.sources[task["sourceId"]]
+            if audit_bounded(source, self.contract):
+                receipt.update(retainedAuditVersion=AUDIT_VERSION, retainedAuditCompatibility=self.audit_compatibility)
             previous_head = self.store.read(f"heads/source-{digest(source['id'])}.json")
             previous = previous_head or {"observations": {}, "items": [], "validatedHashes": {}}
             observations = {}
@@ -166,6 +173,8 @@ class Pipeline:
                 observation["observationId"] = digest({"attempt": attempt_id, "url": url, "at": observation["fetchedAt"]})
                 observation["sourceId"] = source["id"]
                 self.store.write_once(f"observations/{observation['observationId']}.json", observation)
+                if self.audit_index is not None:
+                    self.audit_index.register_observation(observation)
                 if observation["status"] in ("fetched", "not_modified"):
                     self.store.compare_and_swap(download_name, download_head, observation)
                     if self.replay:
@@ -256,6 +265,11 @@ class Pipeline:
                         cached = self.store.read(f"document-validation/{cache_key}.json")
                         if cached and cached["supplierId"] == source["supplierId"]:
                             verify_article_input(cached, body, observation)
+                            if audit_bounded(source, self.contract):
+                                transient = {**receipt, 'completedAt': self.clock(),
+                                             'validatedFacts': cached['factRefs'], 'heldClaims': cached.get('heldClaims', [])}
+                                replay_document(transient, {'url': url, 'validation': self.store.put(cached)},
+                                                observation, self.contract, source, self.clock(), self.store)
                             receipt["validatedFacts"].extend(cached["factRefs"])
                             receipt.setdefault("heldClaims", []).extend(cached.get("heldClaims", []))
                             receipt.setdefault("documentValidations", []).append({"url": url, "validation": self.store.put(cached)})
@@ -335,7 +349,7 @@ class Pipeline:
                 audit_name = f"audit-{digest(source['id'])}"
                 audit_head = self.store.read(f"heads/{audit_name}.json")
                 audit_history = dict((audit_head or {}).get("documents", {})) if (audit_head or {}).get("contractSha256") == plan["contractSha256"] else {}
-                bounded = self.contract.get("collection") and source["kind"] not in ("sec_documents", "citation")
+                bounded = audit_bounded(source, self.contract)
                 if bounded:
                     # Only affected compressed inputs become due again. Old
                     # ordinary audit entries keep their exact rotation stamps.
@@ -356,13 +370,27 @@ class Pipeline:
                     # Feeds can age old URLs out. Preserve previously pending
                     # obligations even when they disappear from today's index.
                     retained_items = set(found["items"])
+                    predecessors = self.audit_index.predecessors(source['id'], self.contract, receipt['attemptId'], receipt['startedAt'])
+                    anchored_inventory = predecessor_inventory(predecessors, self.contract, source['id'], self.store)
+                    retained_items.update(anchored_inventory)
                     prior_receipt = self.store.read(f"heads/task-{task['taskId']}.json")
                     if prior_receipt and prior_receipt.get("pendingManifest"):
                         retained_items.update(json.loads(self.store.get(prior_receipt["pendingManifest"]))["items"])
                     if audit_head and audit_head.get("inventory"):
-                        retained_items.update(json.loads(self.store.get(audit_head["inventory"]))["items"])
+                        legacy_inventory = set(json.loads(self.store.get(audit_head["inventory"]))["items"])
+                        require(legacy_inventory.issubset(retained_items), 'RETAINED_AUDIT_INVENTORY_PREDECESSOR_MISSING')
+                    receipt.update(retainedInventoryManifest=self.store.put({'sourceId': source['id'], 'items': sorted(retained_items)}),
+                                   retainedInventoryPredecessors=predecessors, retainedAuditBindings=[], retainedAuditUnbound=[])
+                    # Expired or superseded transport is genuine due work. The normal
+                    # source bound applies; an offline replay cannot renew it.
+                    selection_history = dict(audit_history)
+                    for url in list(audit_history):
+                        try:
+                            self.audit_index.binding(source['id'], url, self.contract, self.clock())
+                        except (ValueError, KeyError, OSError, TypeError):
+                            del selection_history[url]
                     selected_inventory = {**found, "items": sorted(retained_items)}
-                    ordered, deferred = select_documents(selected_inventory, audit_history, self.contract["collection"], self.clock(),
+                    ordered, deferred = select_documents(selected_inventory, selection_history, self.contract["collection"], self.clock(),
                         supplier=self.suppliers[source['supplierId']] if source['family'] in ('investor_acquirer', 'release_distribution') else None)
                     pending.extend(deferred)
                     if deferred:
@@ -371,6 +399,19 @@ class Pipeline:
                     retained_audit = set(selected_inventory["items"]) - set(ordered) - set(deferred)
                     if retained_audit:
                         receipt["retainedAuditDocuments"] = len(retained_audit)
+                    for url in sorted(retained_audit):
+                        try:
+                            binding = self.audit_index.binding(source['id'], url, self.contract, self.clock())
+                            original, validation = replay_binding(
+                                binding, self.contract, source['id'], self.clock(), self.store, self.audit_index)
+                            receipt['retainedAuditBindings'].append(binding)
+                            if original['observationId'] not in receipt['observationIds']:
+                                receipt['observationIds'].append(original['observationId'])
+                            receipt.setdefault('documentValidations', []).append({'url': url, 'validation': binding['validation']})
+                            receipt['validatedFacts'].extend(validation['factRefs'])
+                            receipt.setdefault('heldClaims', []).extend(validation.get('heldClaims', []))
+                        except (ValueError, KeyError, OSError, TypeError) as exc:
+                            receipt['retainedAuditUnbound'].append({'url': url, 'reason': str(exc)[:160]})
                 for index, url in enumerate(ordered):
                     cached_download = f"runs/{plan['runId']}/downloads/{digest({'source': source['id'], 'url': url})}.json"
                     if self.native_budget_exhausted and source["kind"] != "sec_documents" and not self.store.read(cached_download):
@@ -394,6 +435,8 @@ class Pipeline:
                     # completeness cursor. Failed/pending checks are not advanced.
                     for document in receipt.get("documentValidations", []):
                         url = document["url"]
+                        if any(binding['url'] == url for binding in receipt['retainedAuditBindings']):
+                            continue
                         audit_history[url] = {"modified": found.get("itemModified", {}).get(url, ""), "checkedAt": self.clock()}
                         validation = json.loads(self.store.get(document['validation']))
                         if 'compressedInput' in validation:
@@ -404,13 +447,17 @@ class Pipeline:
                     receipt.update(outcome="not_checked", errorCode=pending_errors[0], pendingDocuments=len(pending),
                                    pendingManifest=self.store.put({"sourceId": source["id"], "runId": plan["runId"], "items": pending}))
                     return self._finish(receipt)
-                if bounded and receipt.get("retainedAuditDocuments"):
+                if bounded and receipt.get("retainedAuditUnbound"):
                     # The scheduling cursor is not proof in this receipt. Until
                     # old evidence is independently rebound, keep completeness
                     # held without inventing unresolved document work.
                     receipt.update(outcome="not_checked", errorCode="RETAINED_AUDIT_EVIDENCE_NOT_REBOUND", pendingDocuments=0)
                     return self._finish(receipt)
             # Advance only after all discovered items are either independently validated or explicitly no-fact.
+            if audit_bounded(source, self.contract):
+                verify_receipt({**receipt, 'completedAt': self.clock(),
+                                'outcome': 'updated' if accepted else 'checked_no_change', 'newFactIds': accepted},
+                               plan, self.contract, source, self.clock(), self.store)
             if neutral_filings:
                 require(instant(index_as_of).astimezone(timezone.utc).date() == instant(self.clock()).astimezone(timezone.utc).date(),
                         'SEC_FILING_WINDOW_CHANGED_DURING_COLLECTION')
@@ -491,6 +538,9 @@ class Pipeline:
                     require(observation is not None, 'Prior source observation missing')
                     observed_age = (instant(self.clock()) - instant(observation.get('verifiedAt', observation['fetchedAt']))).total_seconds()/3600
                     require(0 <= observed_age <= self.contract['schedule']['overdueHours'], 'Prior observation stale or future')
+                    if audit_bounded(self.sources[task['sourceId']], self.contract):
+                        require(self.audit_index.latest_observation(task['sourceId'], observation['requestedUrl']) == observation,
+                                'Prior receipt superseded by a newer source observation')
                 archived = self.store.read(f"runs/{plan['runId']}/attempts/{receipt['attemptId']}.json")
                 require(archived == receipt, 'Prior attempt differs from hash-anchored receipt')
                 verified = reconcile(subset, [receipt], self.contract, self.clock(), self.store)
@@ -513,10 +563,16 @@ class Pipeline:
         validated.append(self.store.put(fact))
 
     def _finish(self, receipt):
+        receipt['observationIds'] = list(dict.fromkeys(receipt['observationIds']))
+        for key in ('validatedFacts', 'heldClaims'):
+            if key in receipt:
+                receipt[key] = list({ref['sha256']: ref for ref in receipt[key]}.values())
         receipt["completedAt"] = self.clock()
         self.store.write_once(f"runs/{receipt['runId']}/attempts/{receipt['attemptId']}.json", receipt)
         reference = self.store.put(receipt)
         self.store.write_once(f"receipt-integrity/{receipt['runId']}/{receipt['taskId']}/{receipt['attemptId']}.json", reference)
+        if getattr(self, 'audit_index', None) is not None:
+            self.audit_index.register(receipt, reference)
         head = "task-" + receipt["taskId"]
         self.store.compare_and_swap(head, self.store.read(f"heads/{head}.json"), receipt)
         return receipt

@@ -1,0 +1,1136 @@
+{
+  "schemaVersion": 1,
+  "kind": "actual_retained_audit_engine_and_reconciliation_offline_replay",
+  "mechanicsOnlyNonAdmitting": true,
+  "evaluatedAt": "2026-10-24T03:37:17.156152Z",
+  "archivedClockUsed": "2026-10-24T00:38:19.811621Z",
+  "archive": {
+    "root": "/var/tmp/smp-renewal-20261024/archive-b9f1208b/jessepike-sec-market-b9f1208bd9e957bee5cca2c0b4db28a4fc1fa63f",
+    "manifestSha256": "5480056315f07d6c6be4e66d5f9a643437d020eb039f2d51fe378ad70803c9bb",
+    "manifestFiles": 31048,
+    "before": {
+      "files": 31052,
+      "contentSha256": "7b75c9659792dc40ea30968a682750f6cc9cf538deb96bff21ee330ebeb90baf",
+      "fileMtimeSha256": "b501ab7e30bdc5be9a44bafbcd75f5b834789fee969fa22504802fae6205863a",
+      "directories": 735,
+      "directoryMtimeSha256": "0d25bc00be894f1bd98fceab7fb373808e80cf159432f890d37a88ad5d2b1b4f"
+    },
+    "after": {
+      "files": 31052,
+      "contentSha256": "7b75c9659792dc40ea30968a682750f6cc9cf538deb96bff21ee330ebeb90baf",
+      "fileMtimeSha256": "b501ab7e30bdc5be9a44bafbcd75f5b834789fee969fa22504802fae6205863a",
+      "directories": 735,
+      "directoryMtimeSha256": "0d25bc00be894f1bd98fceab7fb373808e80cf159432f890d37a88ad5d2b1b4f"
+    },
+    "contentAndMtimesUnchanged": true
+  },
+  "legacyMigration": {
+    "receipts": 188,
+    "registrySha256": "6fdf2884bbcc70962a0fc41622c5c862a61c31ed79bbf97b18cc193a843b4dce"
+  },
+  "guards": {
+    "networkModelsSubprocessAndDiskMutationsDenied": true,
+    "deniedAttempts": [],
+    "actualSourceRequests": 0,
+    "actualModelCalls": 0,
+    "actualArchiveWrites": 0,
+    "archivedTransportReads": 98,
+    "memoryOnlyMutations": 449,
+    "indexScans": 1
+  },
+  "codePins": [
+    {
+      "path": "web/scripts/pipeline/retained_audit.py",
+      "sha256": "526cc05fcd91abd13f9d942cad167d18e175b907a2b1c6122a7c13938256b8b7"
+    },
+    {
+      "path": "web/scripts/pipeline/retained_audit_legacy.json",
+      "sha256": "6fdf2884bbcc70962a0fc41622c5c862a61c31ed79bbf97b18cc193a843b4dce"
+    },
+    {
+      "path": "web/scripts/pipeline/engine.py",
+      "sha256": "69b90ae23e0de66a0664e9337e24ef8ca0762311cadf8bc3f250c4a55b56b2e0"
+    },
+    {
+      "path": "web/scripts/pipeline/validation.py",
+      "sha256": "cc0502c6badc58b0070f18adb1e337b4ae5e2252a34d8c6841cbb341512d3b42"
+    },
+    {
+      "path": "ops/ci/test_retained_audit_rebinding.py",
+      "sha256": "2e4e156e7bef1f1e72c3bb609a343fb6c34f677d23657f6cea80d7803e2bfe49"
+    },
+    {
+      "path": "ops/ci/test_compressed_article_input.py",
+      "sha256": "7d5bec90f751a611092931eb66a46bc900326fe4b3f441611b6217040133556a"
+    },
+    {
+      "path": "ops/ci/replay_retained_audit.py",
+      "sha256": "24c4b351589667b9bdd36b736b352270ec8dfe56fbe83c60382d5811f606e594"
+    }
+  ],
+  "coverage": {
+    "originalReceipt": {
+      "bytes": 506366,
+      "key": "objects/dd2b9964d49530c86429d5278a393f63ca8ecae9c35208b2b2ff45cafb1c5f35",
+      "sha256": "dd2b9964d49530c86429d5278a393f63ca8ecae9c35208b2b2ff45cafb1c5f35"
+    },
+    "contractSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+    "successfulTasks": 244,
+    "requiredTasks": 557,
+    "complete": false,
+    "unchanged": true
+  },
+  "summary": {
+    "actualSourceTasksReplayed": 17,
+    "actualFullInventoryURLs": 9914,
+    "actualRetainedBindings": 24,
+    "actualUnboundDocuments": 0,
+    "actualGenuinePendingURLs": 9890,
+    "historicalTasksStillIncomplete": 17,
+    "partialFactReferencesIndependentlyReplayed": 4,
+    "retainedBindingsEligibleAtEvaluationTime": 24,
+    "sourceAuditCursorsUnchanged": true
+  },
+  "tasks": [
+    {
+      "sourceId": "proofpoint:official:1",
+      "attemptId": "c7ece475d7c5f21aab23c5d53cfe335d023459b02f31cb22c38263bac2ea54b7",
+      "outcome": "not_checked",
+      "errorCode": "HISTORICAL_OR_UNCHANGED_AUDIT_PENDING",
+      "fullInventory": {
+        "key": "objects/07fa8238445f7ff0cbfcab93dc64ef1ef903f7f678bc4418c0e87d0ce675479c",
+        "sha256": "07fa8238445f7ff0cbfcab93dc64ef1ef903f7f678bc4418c0e87d0ce675479c",
+        "bytes": 26203
+      },
+      "fullInventoryURLs": 212,
+      "retainedBindings": [
+        {
+          "url": "https://www.proofpoint.com/us/newsroom/press-releases/proofpoint-acquire-varonis-creating-global-leader-data-and-ai-security",
+          "origin": {
+            "runId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+            "taskId": "82e3395719a7c8e1d117ea0f1d2bb03e221ef0d160fad7b59274c0299bc916d1",
+            "attemptId": "acbdcce123e0c72366b41b227e86641093492f5293e41e2a565b2ed2e1bc2f2f",
+            "receipt": {
+              "bytes": 2651,
+              "key": "objects/1161fff8c5c518d580e7c14fcdd57e164b4fcd9ef2a3eef511e8c93d2901b9ef",
+              "sha256": "1161fff8c5c518d580e7c14fcdd57e164b4fcd9ef2a3eef511e8c93d2901b9ef"
+            }
+          },
+          "sourceObservationId": "7a2cda6cee608e0661e11b309d240e069eabc8a3ea3bd7782e7722c6c669ecbe",
+          "sourceObservationSha256": "cfc46de63f6770bb4d13cdfefcecd1dd246906d6e4959a5a3014f932e2b9f875",
+          "validation": {
+            "bytes": 1076,
+            "key": "objects/379d6c84c73043f035a29ef612433cdad1ddaca703e86a8f8ba72c0cb6b5d959",
+            "sha256": "379d6c84c73043f035a29ef612433cdad1ddaca703e86a8f8ba72c0cb6b5d959"
+          },
+          "transportObservationId": "7a2cda6cee608e0661e11b309d240e069eabc8a3ea3bd7782e7722c6c669ecbe",
+          "transportObservationSha256": "cfc46de63f6770bb4d13cdfefcecd1dd246906d6e4959a5a3014f932e2b9f875"
+        }
+      ],
+      "retainedBindingCount": 1,
+      "unbound": [],
+      "pendingDocuments": 211,
+      "pendingManifest": {
+        "key": "objects/d578354f5c8bc11dec78e9d222f99374f05cf77e3d4a7c840447fed4262694a0",
+        "sha256": "d578354f5c8bc11dec78e9d222f99374f05cf77e3d4a7c840447fed4262694a0",
+        "bytes": 26151
+      },
+      "sourceAuditCursorTimesPreserved": true
+    },
+    {
+      "sourceId": "veeam:official:1",
+      "attemptId": "14da9ee08ddb57bdacbf07f2565a1503e30d6f8e046d2f075f71b5a3eeeff0ae",
+      "outcome": "not_checked",
+      "errorCode": "HISTORICAL_OR_UNCHANGED_AUDIT_PENDING",
+      "fullInventory": {
+        "key": "objects/73a08728763adb74b734f8521e76429fb7100368c1688a33d98cd9982fdcb37a",
+        "sha256": "73a08728763adb74b734f8521e76429fb7100368c1688a33d98cd9982fdcb37a",
+        "bytes": 93345
+      },
+      "fullInventoryURLs": 727,
+      "retainedBindings": [
+        {
+          "url": "https://www.veeam.com/company/press-release/veeam-recognized-by-gartner-as-a-leader-in-the-first-gartner-magic-quadrant-for-privacy-ux.html",
+          "origin": {
+            "runId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+            "taskId": "da020e2b6070e1de6b20b6d009eb9e2f7453721891070f4e597997bbe9d1d84b",
+            "attemptId": "182e6a1815cce584bbd0edd265c448a4f42c4084327cc63a1f56eb047961fa6a",
+            "receipt": {
+              "bytes": 2043,
+              "key": "objects/6892eec387f7dbaff5e5e59fee787b71eff80c8e86cbdc50cd368192fd93c9e9",
+              "sha256": "6892eec387f7dbaff5e5e59fee787b71eff80c8e86cbdc50cd368192fd93c9e9"
+            }
+          },
+          "sourceObservationId": "2c972087fe5fef8919e217dfb7f87ca7dd5e7dbf2b565becd8e3d51046cb7f41",
+          "sourceObservationSha256": "c572ac25118eaad6d628ebf6750e5884bf3780ec4f3110d723af17d2614bc5fe",
+          "validation": {
+            "bytes": 594,
+            "key": "objects/928c05c2ea9bc10d6f2f8689152c4184f66ad390772cf1875486a6d294f62b63",
+            "sha256": "928c05c2ea9bc10d6f2f8689152c4184f66ad390772cf1875486a6d294f62b63"
+          },
+          "transportObservationId": "2c972087fe5fef8919e217dfb7f87ca7dd5e7dbf2b565becd8e3d51046cb7f41",
+          "transportObservationSha256": "c572ac25118eaad6d628ebf6750e5884bf3780ec4f3110d723af17d2614bc5fe"
+        }
+      ],
+      "retainedBindingCount": 1,
+      "unbound": [],
+      "pendingDocuments": 726,
+      "pendingManifest": {
+        "key": "objects/08589ae73431e0409c338fd0cf1fee19848369dab6395ecc128ab06533d2bb6b",
+        "sha256": "08589ae73431e0409c338fd0cf1fee19848369dab6395ecc128ab06533d2bb6b",
+        "bytes": 93278
+      },
+      "sourceAuditCursorTimesPreserved": true
+    },
+    {
+      "sourceId": "exabeam:official:1",
+      "attemptId": "dbc2a94ea8d1a663cc7e40118d5c8f80312ea696cc9d0512fb3e5378213d397b",
+      "outcome": "not_checked",
+      "errorCode": "HISTORICAL_OR_UNCHANGED_AUDIT_PENDING",
+      "fullInventory": {
+        "key": "objects/5e0bdc108a9f1e24639ed5cdc8a8331796ff6c0ab44881f2a373940d5ccd4422",
+        "sha256": "5e0bdc108a9f1e24639ed5cdc8a8331796ff6c0ab44881f2a373940d5ccd4422",
+        "bytes": 74494
+      },
+      "fullInventoryURLs": 638,
+      "retainedBindings": [
+        {
+          "url": "https://www.thomabravo.com/press-releases/calabrio-welcomes-dave-rhodes-as-chief-executive-officer",
+          "origin": {
+            "runId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+            "taskId": "9e6cec43b5894fa42a4633fd681e363fd6b5893844b122d4fbd1c11c787185d2",
+            "attemptId": "f1c9131a84d2b8742e1b8448dd30864b976d3de7e70c76f591e4bfb78f479fa6",
+            "receipt": {
+              "bytes": 1935,
+              "key": "objects/19beb13d32692956738c9222c7a67e8b9a4cc8cbbcf1db0a45eff6b74ea0edab",
+              "sha256": "19beb13d32692956738c9222c7a67e8b9a4cc8cbbcf1db0a45eff6b74ea0edab"
+            }
+          },
+          "sourceObservationId": "d0cfa15c8e0d52fe26862fdd6cff5ad85e61ff2eba9ee5b6dd27f3d00e5aede3",
+          "sourceObservationSha256": "dee0daf43158551e6f406cf4836bcab296a90ececb66111d437573782199cba0",
+          "validation": {
+            "bytes": 409,
+            "key": "objects/9a51c74927e0bc0c4363061e81f352bd33305a399ee1fbd1211f6ae438a490bc",
+            "sha256": "9a51c74927e0bc0c4363061e81f352bd33305a399ee1fbd1211f6ae438a490bc"
+          },
+          "transportObservationId": "d0cfa15c8e0d52fe26862fdd6cff5ad85e61ff2eba9ee5b6dd27f3d00e5aede3",
+          "transportObservationSha256": "dee0daf43158551e6f406cf4836bcab296a90ececb66111d437573782199cba0"
+        },
+        {
+          "url": "https://www.thomabravo.com/press-releases/j.d.-power-to-merge-with-autodata-solutions-creating-a-leading-source-of-automotive-data-analytics-and-software-solutions",
+          "origin": {
+            "runId": "e054ea73c89fe78db9702f94d2a3b669ce91884f7d7abda0a88698dbcfc7ec50",
+            "taskId": "daa5ebe7de151cfa716a1e30098e2e9cb8c6c1316a87b3701d0b06c5673c0ce1",
+            "attemptId": "d484f9b52426b7633f5a4a84caea307b5df255e9898ffda7db3c7ad79d0da0cd",
+            "coverage": {
+              "key": "objects/12baabcbf3f9eff5fab2022949c57ff5ffbf14b3361a715f67dafc8421ed87cb",
+              "sha256": "12baabcbf3f9eff5fab2022949c57ff5ffbf14b3361a715f67dafc8421ed87cb",
+              "bytes": 503331
+            }
+          },
+          "sourceObservationId": "07d53e719050ddd50e44b1d62d6a159746bdb48718ab028cfc00f3bbff26b61a",
+          "sourceObservationSha256": "7945c932ca61a62b21fc2aa30bd0d212471af1a3e275c43a4d54ef969bfbff6a",
+          "validation": {
+            "bytes": 409,
+            "key": "objects/7cd0ceff0a46ea953e40656b319095d561a058801d241880fffd132f5bf50016",
+            "sha256": "7cd0ceff0a46ea953e40656b319095d561a058801d241880fffd132f5bf50016"
+          },
+          "transportObservationId": "07d53e719050ddd50e44b1d62d6a159746bdb48718ab028cfc00f3bbff26b61a",
+          "transportObservationSha256": "7945c932ca61a62b21fc2aa30bd0d212471af1a3e275c43a4d54ef969bfbff6a"
+        },
+        {
+          "url": "https://www.thomabravo.com/press-releases/thoma-bravo-announces-strategic-acquisition-of-calabrio-to-accelerate-companys-cloud-first-customer-experience-growth",
+          "origin": {
+            "runId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+            "taskId": "9e6cec43b5894fa42a4633fd681e363fd6b5893844b122d4fbd1c11c787185d2",
+            "attemptId": "1f67e8c1a7a9a22d3f2c2bba30768ea13a6c27680419d3d4a70c4b003cb6d2ab",
+            "receipt": {
+              "bytes": 1977,
+              "key": "objects/e9aeec0f9bbdb6008e7d943c76f218406c1c438fb79bee77acb83a58742b19e1",
+              "sha256": "e9aeec0f9bbdb6008e7d943c76f218406c1c438fb79bee77acb83a58742b19e1"
+            }
+          },
+          "sourceObservationId": "caa4039c85e6e070858e313a3ef715506eb62e42c2f023fe8db5a84ac83a781a",
+          "sourceObservationSha256": "67af36156788b8e1f98e7ff82bc19f66f04ba33ba9f285a9b03a04d43b1d4efd",
+          "validation": {
+            "bytes": 409,
+            "key": "objects/fdfad16e7720319b7f15cce75e366f801d421f3ea9b877bab3229431fdf8004c",
+            "sha256": "fdfad16e7720319b7f15cce75e366f801d421f3ea9b877bab3229431fdf8004c"
+          },
+          "transportObservationId": "caa4039c85e6e070858e313a3ef715506eb62e42c2f023fe8db5a84ac83a781a",
+          "transportObservationSha256": "67af36156788b8e1f98e7ff82bc19f66f04ba33ba9f285a9b03a04d43b1d4efd"
+        },
+        {
+          "url": "https://www.thomabravo.com/press-releases/thoma-bravo-owned-quorum-software-and-aucerna-to-merge-and-acquire-tietoevrys-oil-and-gas-software-business",
+          "origin": {
+            "runId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+            "taskId": "9e6cec43b5894fa42a4633fd681e363fd6b5893844b122d4fbd1c11c787185d2",
+            "attemptId": "1f67e8c1a7a9a22d3f2c2bba30768ea13a6c27680419d3d4a70c4b003cb6d2ab",
+            "receipt": {
+              "bytes": 1977,
+              "key": "objects/e9aeec0f9bbdb6008e7d943c76f218406c1c438fb79bee77acb83a58742b19e1",
+              "sha256": "e9aeec0f9bbdb6008e7d943c76f218406c1c438fb79bee77acb83a58742b19e1"
+            }
+          },
+          "sourceObservationId": "023f0e4efff32c226384432eb9e498b0578c1989421513f5fe8cb8e8b326903a",
+          "sourceObservationSha256": "978a7a279421981a92e03bbfab909c638d0871c545e00e49774d11011cce51a6",
+          "validation": {
+            "bytes": 409,
+            "key": "objects/3abd4aaa7287c06cf36082cecb2c896d12ec0dbfb746a283b17cd8cc38303eae",
+            "sha256": "3abd4aaa7287c06cf36082cecb2c896d12ec0dbfb746a283b17cd8cc38303eae"
+          },
+          "transportObservationId": "023f0e4efff32c226384432eb9e498b0578c1989421513f5fe8cb8e8b326903a",
+          "transportObservationSha256": "978a7a279421981a92e03bbfab909c638d0871c545e00e49774d11011cce51a6"
+        },
+        {
+          "url": "https://www.thomabravo.com/press-releases/thoma-bravo-to-acquire-significant-majority-interest-in-centrify-the-leading-next-generation-identity-access-management-vendor",
+          "origin": {
+            "runId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+            "taskId": "9e6cec43b5894fa42a4633fd681e363fd6b5893844b122d4fbd1c11c787185d2",
+            "attemptId": "f1c9131a84d2b8742e1b8448dd30864b976d3de7e70c76f591e4bfb78f479fa6",
+            "receipt": {
+              "bytes": 1935,
+              "key": "objects/19beb13d32692956738c9222c7a67e8b9a4cc8cbbcf1db0a45eff6b74ea0edab",
+              "sha256": "19beb13d32692956738c9222c7a67e8b9a4cc8cbbcf1db0a45eff6b74ea0edab"
+            }
+          },
+          "sourceObservationId": "3e40d2157c5cbe584509d64eab20afd0bc843d8f45c07bdacdd3e6b90cb8ca61",
+          "sourceObservationSha256": "4389f949a0b8ab10738afb6f5124e82526fdb0e5b5357284826939032df35c38",
+          "validation": {
+            "bytes": 409,
+            "key": "objects/b58f63add9b176c9fee646ed268e5166976a82f49c6d46e4f38c43297d8074ee",
+            "sha256": "b58f63add9b176c9fee646ed268e5166976a82f49c6d46e4f38c43297d8074ee"
+          },
+          "transportObservationId": "3e40d2157c5cbe584509d64eab20afd0bc843d8f45c07bdacdd3e6b90cb8ca61",
+          "transportObservationSha256": "4389f949a0b8ab10738afb6f5124e82526fdb0e5b5357284826939032df35c38"
+        }
+      ],
+      "retainedBindingCount": 5,
+      "unbound": [],
+      "pendingDocuments": 633,
+      "pendingManifest": {
+        "key": "objects/9c1d9d29f3d3b7cb5ec8b297c261729468de79fe9ea3cff9d29861decff9967c",
+        "sha256": "9c1d9d29f3d3b7cb5ec8b297c261729468de79fe9ea3cff9d29861decff9967c",
+        "bytes": 73817
+      },
+      "sourceAuditCursorTimesPreserved": true
+    },
+    {
+      "sourceId": "hiddenlayer:official:1",
+      "attemptId": "1b2b40d071fbdd946f6e6ade3b85d4b0ab83a8f939e095e3c8fbb20b6c5f11de",
+      "outcome": "not_checked",
+      "errorCode": "HISTORICAL_OR_UNCHANGED_AUDIT_PENDING",
+      "fullInventory": {
+        "key": "objects/a4ae8d4ed45f5ee7299c18c0e27eca49a2059ee42120f55f19371eb7cb323766",
+        "sha256": "a4ae8d4ed45f5ee7299c18c0e27eca49a2059ee42120f55f19371eb7cb323766",
+        "bytes": 9745
+      },
+      "fullInventoryURLs": 89,
+      "retainedBindings": [
+        {
+          "url": "https://www.hiddenlayer.com/news/2023-sc-awards-finalists-most-promising-early-stage-start-up",
+          "origin": {
+            "runId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+            "taskId": "ea2eb9c01f65a7e74283def8ffa1e018904b23940b77ed2786c6c43c55a4c4bb",
+            "attemptId": "602dfa5a30095ecf9e03c46c2c678681df704933fb9621691867d2ccafa805c6",
+            "receipt": {
+              "bytes": 2395,
+              "key": "objects/7ae4c20ecf6ade4affd1cbaf9df225c20ae931ae499bbf1f5af94c61d4b39994",
+              "sha256": "7ae4c20ecf6ade4affd1cbaf9df225c20ae931ae499bbf1f5af94c61d4b39994"
+            }
+          },
+          "sourceObservationId": "35cdb92e230507bd31ba17df52e6cb927e4445c63c05653dbcce51a24e805547",
+          "sourceObservationSha256": "911df53380ba1e395ffcde51af1ec843681eaa1bfab67a99cfdb6e5c923c8f49",
+          "validation": {
+            "bytes": 600,
+            "key": "objects/0e55683f34794c21028a63499101758213a2af96481fc0254d86c4e77a9643dd",
+            "sha256": "0e55683f34794c21028a63499101758213a2af96481fc0254d86c4e77a9643dd"
+          },
+          "transportObservationId": "35cdb92e230507bd31ba17df52e6cb927e4445c63c05653dbcce51a24e805547",
+          "transportObservationSha256": "911df53380ba1e395ffcde51af1ec843681eaa1bfab67a99cfdb6e5c923c8f49"
+        },
+        {
+          "url": "https://www.hiddenlayer.com/news/ai-and-ml-reliability-and-security-blenderbot-and-other-cases",
+          "origin": {
+            "runId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+            "taskId": "ea2eb9c01f65a7e74283def8ffa1e018904b23940b77ed2786c6c43c55a4c4bb",
+            "attemptId": "65c82bf975305d741c7d75c7482ffb17ef18af8b8670a82d1fe4205d8dee419c",
+            "receipt": {
+              "bytes": 1692,
+              "key": "objects/eb92dcbb2c4d0de5502d8860dbb3eff79dcbaee37bfcf94650b986688da0fa15",
+              "sha256": "eb92dcbb2c4d0de5502d8860dbb3eff79dcbaee37bfcf94650b986688da0fa15"
+            }
+          },
+          "sourceObservationId": "9bb9b5ddc4f85431304e5399b27721fc5e0d951d033d5c541a5b605e5e59e0fc",
+          "sourceObservationSha256": "f08c7362164fdd0dc116795165745aaba16e33bed08594d8680338e88dd3bacb",
+          "validation": {
+            "bytes": 600,
+            "key": "objects/6369027aa4b32cd079448a781a40eb7bfcda8908c1ec313a4cf2bebab143f823",
+            "sha256": "6369027aa4b32cd079448a781a40eb7bfcda8908c1ec313a4cf2bebab143f823"
+          },
+          "transportObservationId": "9bb9b5ddc4f85431304e5399b27721fc5e0d951d033d5c541a5b605e5e59e0fc",
+          "transportObservationSha256": "f08c7362164fdd0dc116795165745aaba16e33bed08594d8680338e88dd3bacb"
+        },
+        {
+          "url": "https://www.hiddenlayer.com/news/dont-confuse-irresponsible-implementation-for-an-evil-ai-overlord",
+          "origin": {
+            "runId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+            "taskId": "ea2eb9c01f65a7e74283def8ffa1e018904b23940b77ed2786c6c43c55a4c4bb",
+            "attemptId": "602dfa5a30095ecf9e03c46c2c678681df704933fb9621691867d2ccafa805c6",
+            "receipt": {
+              "bytes": 2395,
+              "key": "objects/7ae4c20ecf6ade4affd1cbaf9df225c20ae931ae499bbf1f5af94c61d4b39994",
+              "sha256": "7ae4c20ecf6ade4affd1cbaf9df225c20ae931ae499bbf1f5af94c61d4b39994"
+            }
+          },
+          "sourceObservationId": "94a0712a805f4b2b862e045f61488de8a91ebafc8cd0068de5e5eea36955fb9e",
+          "sourceObservationSha256": "f2d816273b5b034fefb5823b70fee2d9064e6e56ea3e6ba35fe56f0aceee1087",
+          "validation": {
+            "bytes": 839,
+            "key": "objects/882e40e4cd0f8a74d62157ed4e1b8feb2dd9d7e6958d0e3ec71223508bf6bae4",
+            "sha256": "882e40e4cd0f8a74d62157ed4e1b8feb2dd9d7e6958d0e3ec71223508bf6bae4"
+          },
+          "transportObservationId": "94a0712a805f4b2b862e045f61488de8a91ebafc8cd0068de5e5eea36955fb9e",
+          "transportObservationSha256": "f2d816273b5b034fefb5823b70fee2d9064e6e56ea3e6ba35fe56f0aceee1087"
+        }
+      ],
+      "retainedBindingCount": 3,
+      "unbound": [],
+      "pendingDocuments": 86,
+      "pendingManifest": {
+        "key": "objects/c5804dd2a6e732059171e277006ad22da835bd02eb4130c919dfdf5cd698fc1b",
+        "sha256": "c5804dd2a6e732059171e277006ad22da835bd02eb4130c919dfdf5cd698fc1b",
+        "bytes": 9526
+      },
+      "sourceAuditCursorTimesPreserved": true
+    },
+    {
+      "sourceId": "optiv:official:1",
+      "attemptId": "c7672c2c22ed7af652b3168c82dcd77914d85e7ae8af0e30ec8711fe304c7c17",
+      "outcome": "not_checked",
+      "errorCode": "HISTORICAL_OR_UNCHANGED_AUDIT_PENDING",
+      "fullInventory": {
+        "key": "objects/a102c5e7a3dc3a3a384d731d8a9ebc1e29dabe06d965aefabd993a7f0aac4353",
+        "sha256": "a102c5e7a3dc3a3a384d731d8a9ebc1e29dabe06d965aefabd993a7f0aac4353",
+        "bytes": 20919
+      },
+      "fullInventoryURLs": 179,
+      "retainedBindings": [],
+      "retainedBindingCount": 0,
+      "unbound": [],
+      "pendingDocuments": 179,
+      "pendingManifest": {
+        "key": "objects/beee297016548c0863afc23075830415262eb5f75c5c85007bb517de03908acc",
+        "sha256": "beee297016548c0863afc23075830415262eb5f75c5c85007bb517de03908acc",
+        "bytes": 20994
+      },
+      "sourceAuditCursorTimesPreserved": true
+    },
+    {
+      "sourceId": "aqua:official:1",
+      "attemptId": "0d765d31664dc5402dea06f6da4541baaff80785afd361de393f6446e9303f6d",
+      "outcome": "not_checked",
+      "errorCode": "HISTORICAL_OR_UNCHANGED_AUDIT_PENDING",
+      "fullInventory": {
+        "key": "objects/7348d656fba5549a3aa7b38ddacfb32eea7a1c797b591bbcb8b936358afc7274",
+        "sha256": "7348d656fba5549a3aa7b38ddacfb32eea7a1c797b591bbcb8b936358afc7274",
+        "bytes": 39939
+      },
+      "fullInventoryURLs": 448,
+      "retainedBindings": [],
+      "retainedBindingCount": 0,
+      "unbound": [],
+      "pendingDocuments": 448,
+      "pendingManifest": {
+        "key": "objects/27dd3270bf3e2dcacaaf35b3a763df567f06cb640458aea906f8c67aaa7fc962",
+        "sha256": "27dd3270bf3e2dcacaaf35b3a763df567f06cb640458aea906f8c67aaa7fc962",
+        "bytes": 40014
+      },
+      "sourceAuditCursorTimesPreserved": true
+    },
+    {
+      "sourceId": "mimecast:official:1",
+      "attemptId": "41947b1c33b9ae62c608ff662a082a0bb1912b0935f4a88864be99b31733f893",
+      "outcome": "not_checked",
+      "errorCode": "HISTORICAL_OR_UNCHANGED_AUDIT_PENDING",
+      "fullInventory": {
+        "key": "objects/2df6db51b3cabe4cbeebfc5c34ae9a2bad9723f4e999fa93ae7da4d32a8095e0",
+        "sha256": "2df6db51b3cabe4cbeebfc5c34ae9a2bad9723f4e999fa93ae7da4d32a8095e0",
+        "bytes": 11896
+      },
+      "fullInventoryURLs": 137,
+      "retainedBindings": [],
+      "retainedBindingCount": 0,
+      "unbound": [],
+      "pendingDocuments": 137,
+      "pendingManifest": {
+        "key": "objects/b12a4b1041a6709effc70de86922d1e916d3ca95a4d40e657b83915553480f7a",
+        "sha256": "b12a4b1041a6709effc70de86922d1e916d3ca95a4d40e657b83915553480f7a",
+        "bytes": 11971
+      },
+      "sourceAuditCursorTimesPreserved": true
+    },
+    {
+      "sourceId": "arctic-wolf:official:1",
+      "attemptId": "b7f508afa3f60d82e96fdc3f767d904f5ebbbbb16a3675070ec54e00986f08ce",
+      "outcome": "not_checked",
+      "errorCode": "HISTORICAL_OR_UNCHANGED_AUDIT_PENDING",
+      "fullInventory": {
+        "key": "objects/005d4390e23d32a9ee87cf04a13cbc2461e610b1987d62689ac90129caa0faac",
+        "sha256": "005d4390e23d32a9ee87cf04a13cbc2461e610b1987d62689ac90129caa0faac",
+        "bytes": 128208
+      },
+      "fullInventoryURLs": 1298,
+      "retainedBindings": [
+        {
+          "url": "https://arcticwolf.com/resources/blog/agents-investigate-humans-decide-how-active-response-works-in-the-aurora-agentic-soc/",
+          "origin": {
+            "runId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+            "taskId": "e0e8d383c58900e87a528dba5e018e2b283ac6040ca624089718ea18e99493b8",
+            "attemptId": "7bef56a18d78850184e84b624868eee8817ea5b4fd03aceff20d6ce4d97a0ed8",
+            "receipt": {
+              "bytes": 2228,
+              "key": "objects/ecf2037e83eb7182f30c6d452c8212593a231da787fb0fa02d1590d4509879e7",
+              "sha256": "ecf2037e83eb7182f30c6d452c8212593a231da787fb0fa02d1590d4509879e7"
+            }
+          },
+          "sourceObservationId": "6247ea286f4fd649d9097a2fe95ece34ea799cd735c44de9afb89afe0557685e",
+          "sourceObservationSha256": "622d6094c76d313722c0c44f72461f969033c7c95fff6d7c375ee58762857306",
+          "validation": {
+            "bytes": 529,
+            "key": "objects/282eca7e6be6d37e5868bd3e574a2cf7a5037abf466b3f3115f87d205aba0bd9",
+            "sha256": "282eca7e6be6d37e5868bd3e574a2cf7a5037abf466b3f3115f87d205aba0bd9"
+          },
+          "transportObservationId": "6247ea286f4fd649d9097a2fe95ece34ea799cd735c44de9afb89afe0557685e",
+          "transportObservationSha256": "622d6094c76d313722c0c44f72461f969033c7c95fff6d7c375ee58762857306"
+        },
+        {
+          "url": "https://arcticwolf.com/resources/blog/php2shell-critical-php-vulnerabilities-enable-unauthenticated-remote-code-execution/",
+          "origin": {
+            "runId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+            "taskId": "e0e8d383c58900e87a528dba5e018e2b283ac6040ca624089718ea18e99493b8",
+            "attemptId": "f5d12a40ad41a79e15668df2c17a3da627125ab41cfd6096b800ce16f3da6d15",
+            "receipt": {
+              "bytes": 2551,
+              "key": "objects/07ad1ee2f1684320c32cb8c9a0bc5c8b23369f041997f02dd54600c1ba602e3a",
+              "sha256": "07ad1ee2f1684320c32cb8c9a0bc5c8b23369f041997f02dd54600c1ba602e3a"
+            }
+          },
+          "sourceObservationId": "56771ad9d3d1021669a151d283c06fc250ff6e1f06242fcc2082e8122a8251d4",
+          "sourceObservationSha256": "5a3e0ebaee5d011518c5d9db988f0c6c5f432118cf574fade5db497ed2cbfc9a",
+          "validation": {
+            "bytes": 529,
+            "key": "objects/9f6d41898f8137e8cdd5d5782335883fcc4e1a312fc909396d5fe6a5390703ea",
+            "sha256": "9f6d41898f8137e8cdd5d5782335883fcc4e1a312fc909396d5fe6a5390703ea"
+          },
+          "transportObservationId": "56771ad9d3d1021669a151d283c06fc250ff6e1f06242fcc2082e8122a8251d4",
+          "transportObservationSha256": "5a3e0ebaee5d011518c5d9db988f0c6c5f432118cf574fade5db497ed2cbfc9a"
+        },
+        {
+          "url": "https://arcticwolf.com/resources/press-releases/arctic-wolf-named-best-security-vendor-in-crns-annual-best-of-the-channel-awards/",
+          "origin": {
+            "runId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+            "taskId": "e0e8d383c58900e87a528dba5e018e2b283ac6040ca624089718ea18e99493b8",
+            "attemptId": "f5d12a40ad41a79e15668df2c17a3da627125ab41cfd6096b800ce16f3da6d15",
+            "receipt": {
+              "bytes": 2551,
+              "key": "objects/07ad1ee2f1684320c32cb8c9a0bc5c8b23369f041997f02dd54600c1ba602e3a",
+              "sha256": "07ad1ee2f1684320c32cb8c9a0bc5c8b23369f041997f02dd54600c1ba602e3a"
+            }
+          },
+          "sourceObservationId": "7e61e62a67f524b93ffb33f5efffd273fcb327cce19db3ef491a4e2b147d5c76",
+          "sourceObservationSha256": "df2fb250238bb4cfdc19321f26aa36b2309e4636bc8a411b7d683ed86e59c455",
+          "validation": {
+            "bytes": 529,
+            "key": "objects/057189a10ff4073430185f3271a0806c41959b3c208ddbcaa4f242d2a6df060d",
+            "sha256": "057189a10ff4073430185f3271a0806c41959b3c208ddbcaa4f242d2a6df060d"
+          },
+          "transportObservationId": "7e61e62a67f524b93ffb33f5efffd273fcb327cce19db3ef491a4e2b147d5c76",
+          "transportObservationSha256": "df2fb250238bb4cfdc19321f26aa36b2309e4636bc8a411b7d683ed86e59c455"
+        }
+      ],
+      "retainedBindingCount": 3,
+      "unbound": [],
+      "pendingDocuments": 1295,
+      "pendingManifest": {
+        "key": "objects/8eb84e48ee03fbbdb7f1ef2a569796be0eb63dab3c9044b46d1373d8d25537fe",
+        "sha256": "8eb84e48ee03fbbdb7f1ef2a569796be0eb63dab3c9044b46d1373d8d25537fe",
+        "bytes": 127900
+      },
+      "sourceAuditCursorTimesPreserved": true
+    },
+    {
+      "sourceId": "witnessai:official:1",
+      "attemptId": "c6942282009ebb5493229c7c35abfdaa0666b32b508b85e116fa2f816b73cd1a",
+      "outcome": "not_checked",
+      "errorCode": "HISTORICAL_OR_UNCHANGED_AUDIT_PENDING",
+      "fullInventory": {
+        "key": "objects/5933ac790938686ac5adf86c73c15c8e06a018e836b617a67a897be93566e6fd",
+        "sha256": "5933ac790938686ac5adf86c73c15c8e06a018e836b617a67a897be93566e6fd",
+        "bytes": 14438
+      },
+      "fullInventoryURLs": 243,
+      "retainedBindings": [
+        {
+          "url": "https://witness.ai/blog/category/blog/",
+          "origin": {
+            "runId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+            "taskId": "3250f824994dbe236dc0af7fb19f269fa036ec06ceb5e3a58397acc737d6c702",
+            "attemptId": "86effb992b8475132a4c156428d985cd7a21aa4f6757d355a263dc4cc458678a",
+            "receipt": {
+              "bytes": 2183,
+              "key": "objects/8c5fd53bb3bf2bbcc7912e8d74106bc8a97eb47357f0cfde99f629a319c114d0",
+              "sha256": "8c5fd53bb3bf2bbcc7912e8d74106bc8a97eb47357f0cfde99f629a319c114d0"
+            }
+          },
+          "sourceObservationId": "d93b56b904f19019201707886dfeed2f53ee7ea8ee663043efa8fdbbbabeb50d",
+          "sourceObservationSha256": "3c9a42f6316b4155138979c37a752778cb159a8f9923a4171aa8d8b37f47c6fd",
+          "validation": {
+            "bytes": 527,
+            "key": "objects/bdc98a92a51ebe596b074248467d69f9dd6177053b3c97a05d7a744823016119",
+            "sha256": "bdc98a92a51ebe596b074248467d69f9dd6177053b3c97a05d7a744823016119"
+          },
+          "transportObservationId": "d93b56b904f19019201707886dfeed2f53ee7ea8ee663043efa8fdbbbabeb50d",
+          "transportObservationSha256": "3c9a42f6316b4155138979c37a752778cb159a8f9923a4171aa8d8b37f47c6fd"
+        },
+        {
+          "url": "https://witness.ai/blog/palo-alto-prisma-alternatives/",
+          "origin": {
+            "runId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+            "taskId": "3250f824994dbe236dc0af7fb19f269fa036ec06ceb5e3a58397acc737d6c702",
+            "attemptId": "86effb992b8475132a4c156428d985cd7a21aa4f6757d355a263dc4cc458678a",
+            "receipt": {
+              "bytes": 2183,
+              "key": "objects/8c5fd53bb3bf2bbcc7912e8d74106bc8a97eb47357f0cfde99f629a319c114d0",
+              "sha256": "8c5fd53bb3bf2bbcc7912e8d74106bc8a97eb47357f0cfde99f629a319c114d0"
+            }
+          },
+          "sourceObservationId": "63dcefa7b86db061b90e71637ceb011c7645ad88ec4f8ce6f7415f2f8e455199",
+          "sourceObservationSha256": "7c1e9a811d17d71816e48b858acc8705a6657e73e1b8adf45273e82bf29c2138",
+          "validation": {
+            "bytes": 527,
+            "key": "objects/6f95574d10d6ccd6eef547182e1ebddc59765c83be11ae442c2792c2bd8df4ed",
+            "sha256": "6f95574d10d6ccd6eef547182e1ebddc59765c83be11ae442c2792c2bd8df4ed"
+          },
+          "transportObservationId": "63dcefa7b86db061b90e71637ceb011c7645ad88ec4f8ce6f7415f2f8e455199",
+          "transportObservationSha256": "7c1e9a811d17d71816e48b858acc8705a6657e73e1b8adf45273e82bf29c2138"
+        }
+      ],
+      "retainedBindingCount": 2,
+      "unbound": [],
+      "pendingDocuments": 241,
+      "pendingManifest": {
+        "key": "objects/5677903c12444e81c0966ca5c31cc73d4faef0a363573b71a61955064f43a156",
+        "sha256": "5677903c12444e81c0966ca5c31cc73d4faef0a363573b71a61955064f43a156",
+        "bytes": 14415
+      },
+      "sourceAuditCursorTimesPreserved": true
+    },
+    {
+      "sourceId": "expel:official:1",
+      "attemptId": "c64e49f644717cf5025aaf097ce1b28c65bc62d026c512cb6342679a7fcf1a52",
+      "outcome": "not_checked",
+      "errorCode": "HISTORICAL_OR_UNCHANGED_AUDIT_PENDING",
+      "fullInventory": {
+        "key": "objects/a43f39c34287e874a0f1028d688f636120cc455259d7e45e48744098b960cf9d",
+        "sha256": "a43f39c34287e874a0f1028d688f636120cc455259d7e45e48744098b960cf9d",
+        "bytes": 31739
+      },
+      "fullInventoryURLs": 329,
+      "retainedBindings": [],
+      "retainedBindingCount": 0,
+      "unbound": [],
+      "pendingDocuments": 329,
+      "pendingManifest": {
+        "key": "objects/c4038c230c2abf2d5bda785f298382f929250d898d84f1083e65dcaccbb21332",
+        "sha256": "c4038c230c2abf2d5bda785f298382f929250d898d84f1083e65dcaccbb21332",
+        "bytes": 31814
+      },
+      "sourceAuditCursorTimesPreserved": true
+    },
+    {
+      "sourceId": "ivanti:official:1",
+      "attemptId": "cbec472254a5c22b6956a6d60132434a51638f608b27c46cd8dbf12109d1b7b6",
+      "outcome": "not_checked",
+      "errorCode": "HISTORICAL_OR_UNCHANGED_AUDIT_PENDING",
+      "fullInventory": {
+        "key": "objects/9eed845d2f728645c2228a810d3985dc45eda2a1f01885c338bca56550099bd3",
+        "sha256": "9eed845d2f728645c2228a810d3985dc45eda2a1f01885c338bca56550099bd3",
+        "bytes": 54549
+      },
+      "fullInventoryURLs": 429,
+      "retainedBindings": [
+        {
+          "url": "https://www.ivanti.com/company/press-releases/2026/ivanti-appoints-robert-ruelas-as-chief-revenue-officer-and-promotes-sterling-parker-to-chief-customer-officer",
+          "origin": {
+            "runId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+            "taskId": "f91c3429d9859e24c668ff1ad2691b85219f9f5c83a36b6a295271b51bbcdb38",
+            "attemptId": "0c51f9cfaff8823472ec4bd922ad1ebad1bb0344c237ba8db47fb6f3c2a22b30",
+            "receipt": {
+              "bytes": 2585,
+              "key": "objects/6e3bb6aab73a11e65ad748e9822397b29ac472234e0f2bfa2e28a45199b58b16",
+              "sha256": "6e3bb6aab73a11e65ad748e9822397b29ac472234e0f2bfa2e28a45199b58b16"
+            }
+          },
+          "sourceObservationId": "62b43c379db5dfa1791bcfd0b73627f8ef9dbb923089880bd4e3dbd2f27e87dd",
+          "sourceObservationSha256": "33fb08992ee286c7b55493634bfa7af0dd7f4fc74d04c927d675334fafd8cb70",
+          "validation": {
+            "bytes": 833,
+            "key": "objects/de167881cba8a4b3cbb3ed9376a554ee7f9646c96f0606dc020c5eacad5da7a4",
+            "sha256": "de167881cba8a4b3cbb3ed9376a554ee7f9646c96f0606dc020c5eacad5da7a4"
+          },
+          "transportObservationId": "62b43c379db5dfa1791bcfd0b73627f8ef9dbb923089880bd4e3dbd2f27e87dd",
+          "transportObservationSha256": "33fb08992ee286c7b55493634bfa7af0dd7f4fc74d04c927d675334fafd8cb70"
+        }
+      ],
+      "retainedBindingCount": 1,
+      "unbound": [],
+      "pendingDocuments": 428,
+      "pendingManifest": {
+        "key": "objects/c18f3e8606af7584f16662ea76e46b44f61b8e2da1d7c42329882447c0036fa9",
+        "sha256": "c18f3e8606af7584f16662ea76e46b44f61b8e2da1d7c42329882447c0036fa9",
+        "bytes": 54461
+      },
+      "sourceAuditCursorTimesPreserved": true
+    },
+    {
+      "sourceId": "reliaquest:official:1",
+      "attemptId": "ee10ed48ecb55773ef2d2f2117ff9eca73840ddc7991ae6e94766aae5e8ee370",
+      "outcome": "not_checked",
+      "errorCode": "HISTORICAL_OR_UNCHANGED_AUDIT_PENDING",
+      "fullInventory": {
+        "key": "objects/a7f01683e16912b2c09844f2e9ffb75825f54c8716310b5582a87922e54b213a",
+        "sha256": "a7f01683e16912b2c09844f2e9ffb75825f54c8716310b5582a87922e54b213a",
+        "bytes": 9812
+      },
+      "fullInventoryURLs": 91,
+      "retainedBindings": [
+        {
+          "url": "https://reliaquest.com/news-and-press/",
+          "origin": {
+            "runId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+            "taskId": "fe1ca79ebe38b3be56056dcbe6754b9ed582a75560d3ccb69bdfc6369abab2bf",
+            "attemptId": "98959e487b2072e0322112bdcb20c9aaad2d0acdba0bbad570bcfb281b8fcdb2",
+            "receipt": {
+              "bytes": 1697,
+              "key": "objects/d9f39f183a4e514a967a90c7ea4552538f27ffbc9814119253a6dd9b1588e82c",
+              "sha256": "d9f39f183a4e514a967a90c7ea4552538f27ffbc9814119253a6dd9b1588e82c"
+            }
+          },
+          "sourceObservationId": "b643cddd4f949b9002417462cb4e8116e80e9177e091cb3483c6b228ec4f52e9",
+          "sourceObservationSha256": "30b35bb67e2e565ba33e7d9e81b5844b862254c12a2fa0ea605109188d430bd5",
+          "validation": {
+            "bytes": 527,
+            "key": "objects/e3ee1f2b89e42884e1515c370fdc0f61b24a0b4b282ba3e90a17ebdadcff12d5",
+            "sha256": "e3ee1f2b89e42884e1515c370fdc0f61b24a0b4b282ba3e90a17ebdadcff12d5"
+          },
+          "transportObservationId": "b643cddd4f949b9002417462cb4e8116e80e9177e091cb3483c6b228ec4f52e9",
+          "transportObservationSha256": "30b35bb67e2e565ba33e7d9e81b5844b862254c12a2fa0ea605109188d430bd5"
+        }
+      ],
+      "retainedBindingCount": 1,
+      "unbound": [],
+      "pendingDocuments": 90,
+      "pendingManifest": {
+        "key": "objects/0225c84bee6f605b8e370b40e6e424f69c7fd57f7e09780b97ff8b79fea887b7",
+        "sha256": "0225c84bee6f605b8e370b40e6e424f69c7fd57f7e09780b97ff8b79fea887b7",
+        "bytes": 9846
+      },
+      "sourceAuditCursorTimesPreserved": true
+    },
+    {
+      "sourceId": "upwind:official:1",
+      "attemptId": "06f39b6499c5b40e3f019ba3587cc6d9e994556d894878905817283aa338d5a5",
+      "outcome": "not_checked",
+      "errorCode": "HISTORICAL_OR_UNCHANGED_AUDIT_PENDING",
+      "fullInventory": {
+        "key": "objects/7afb9d39948b16e350394d20e2afa654d24b2dfb8c2f6c8c5bd8cca35ccdff58",
+        "sha256": "7afb9d39948b16e350394d20e2afa654d24b2dfb8c2f6c8c5bd8cca35ccdff58",
+        "bytes": 103205
+      },
+      "fullInventoryURLs": 976,
+      "retainedBindings": [
+        {
+          "url": "https://www.upwind.io/feed/threat-post",
+          "origin": {
+            "runId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+            "taskId": "21eb3bf788109b9077fecd51ab32aba6402afcd4b4e819c6cab946a0943e8686",
+            "attemptId": "7cfbcc462c05ad099421358ee4b108465cf9096ec559f740da83dfcca3b4db60",
+            "receipt": {
+              "bytes": 2809,
+              "key": "objects/f2895ad07bfcc822a4275bfdbe97f25134f8dd4732fa24d105bacbad324ea6bb",
+              "sha256": "f2895ad07bfcc822a4275bfdbe97f25134f8dd4732fa24d105bacbad324ea6bb"
+            }
+          },
+          "sourceObservationId": "7a4e314a2699022c8085bb5491902cfa893b1d219a795bf5aa3f442c8787a603",
+          "sourceObservationSha256": "3337832ae828c53fb114fc32d93e28a094bbe57a6bdcd4c31b956949c6867835",
+          "validation": {
+            "bytes": 524,
+            "key": "objects/878f242ff92d6021de3a2eb8a757e3c21bc5a9593614025618e059cf981ead01",
+            "sha256": "878f242ff92d6021de3a2eb8a757e3c21bc5a9593614025618e059cf981ead01"
+          },
+          "transportObservationId": "7a4e314a2699022c8085bb5491902cfa893b1d219a795bf5aa3f442c8787a603",
+          "transportObservationSha256": "3337832ae828c53fb114fc32d93e28a094bbe57a6bdcd4c31b956949c6867835"
+        },
+        {
+          "url": "https://www.upwind.io/feed/threat-post/multiple-cves-node-js-tls-hostname-verification-and-ip-normalization-flaws-enable-mitm-and-certificate-bypass",
+          "origin": {
+            "runId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+            "taskId": "21eb3bf788109b9077fecd51ab32aba6402afcd4b4e819c6cab946a0943e8686",
+            "attemptId": "7cfbcc462c05ad099421358ee4b108465cf9096ec559f740da83dfcca3b4db60",
+            "receipt": {
+              "bytes": 2809,
+              "key": "objects/f2895ad07bfcc822a4275bfdbe97f25134f8dd4732fa24d105bacbad324ea6bb",
+              "sha256": "f2895ad07bfcc822a4275bfdbe97f25134f8dd4732fa24d105bacbad324ea6bb"
+            }
+          },
+          "sourceObservationId": "03db37fbf65b70da6dacd03c02a76b064fd1662ba0b253c98b9d739a2c75aa22",
+          "sourceObservationSha256": "6d17fd55db7ce31950abe0a7998fa40fc59711472737345b9530fc2b5279f091",
+          "validation": {
+            "bytes": 524,
+            "key": "objects/3f5959d3581e8d31d3e13b2f06d42b50228ffb4482867137ffec407713e30c0f",
+            "sha256": "3f5959d3581e8d31d3e13b2f06d42b50228ffb4482867137ffec407713e30c0f"
+          },
+          "transportObservationId": "03db37fbf65b70da6dacd03c02a76b064fd1662ba0b253c98b9d739a2c75aa22",
+          "transportObservationSha256": "6d17fd55db7ce31950abe0a7998fa40fc59711472737345b9530fc2b5279f091"
+        }
+      ],
+      "retainedBindingCount": 2,
+      "unbound": [],
+      "pendingDocuments": 974,
+      "pendingManifest": {
+        "key": "objects/04809875dd354bebeb547efbdcb637d0d0ef36fbf24547fb789cdae21ab50436",
+        "sha256": "04809875dd354bebeb547efbdcb637d0d0ef36fbf24547fb789cdae21ab50436",
+        "bytes": 103088
+      },
+      "sourceAuditCursorTimesPreserved": true
+    },
+    {
+      "sourceId": "sophos:official:1",
+      "attemptId": "3ddf72b980a4ccf852fd05877f30a90871955633b93541217ed5f325c4369d85",
+      "outcome": "not_checked",
+      "errorCode": "HISTORICAL_OR_UNCHANGED_AUDIT_PENDING",
+      "fullInventory": {
+        "key": "objects/f4282c006ef5b7406668287a3a8e01fd6ce16d6371917d69d6bd83c6311e052c",
+        "sha256": "f4282c006ef5b7406668287a3a8e01fd6ce16d6371917d69d6bd83c6311e052c",
+        "bytes": 74493
+      },
+      "fullInventoryURLs": 638,
+      "retainedBindings": [
+        {
+          "url": "https://www.thomabravo.com/press-releases/calabrio-welcomes-dave-rhodes-as-chief-executive-officer",
+          "origin": {
+            "runId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+            "taskId": "454fc5859352e8f063a50f853e734fa7db9d59e4d28c8d5a48a0f6b37a52d96a",
+            "attemptId": "902249e9b3aded14c4d5a227e2917e1a6750da336d4f764fc0a79ef4a1b14cb5",
+            "receipt": {
+              "bytes": 1924,
+              "key": "objects/5a43e5b94ae5ceeb577d21fcf26b28e4cd850d56134ecba7e02f6b26b4828347",
+              "sha256": "5a43e5b94ae5ceeb577d21fcf26b28e4cd850d56134ecba7e02f6b26b4828347"
+            }
+          },
+          "sourceObservationId": "cf6978ef0e6056a778fdca06e2e87212cbbb147c141a71f9a2a3cd5311a6e41a",
+          "sourceObservationSha256": "da5717b69a4acd13161202dab892ce2b0a59ee31b2175e70f48c6350b96e4507",
+          "validation": {
+            "bytes": 408,
+            "key": "objects/557eb28987f9777f6e9e840817df1d6eb14b668dbbf1356ef38ab247f210cd70",
+            "sha256": "557eb28987f9777f6e9e840817df1d6eb14b668dbbf1356ef38ab247f210cd70"
+          },
+          "transportObservationId": "cf6978ef0e6056a778fdca06e2e87212cbbb147c141a71f9a2a3cd5311a6e41a",
+          "transportObservationSha256": "da5717b69a4acd13161202dab892ce2b0a59ee31b2175e70f48c6350b96e4507"
+        },
+        {
+          "url": "https://www.thomabravo.com/press-releases/j.d.-power-to-merge-with-autodata-solutions-creating-a-leading-source-of-automotive-data-analytics-and-software-solutions",
+          "origin": {
+            "runId": "e054ea73c89fe78db9702f94d2a3b669ce91884f7d7abda0a88698dbcfc7ec50",
+            "taskId": "62a2bc43e274ae93c730582d490b07d3242efbf6fff78f3dd5880841fd6f1815",
+            "attemptId": "4a3bc097ab7105cb42077ae7f5fb70fa2b88cb0719a6607b1e182f29173626a0",
+            "coverage": {
+              "key": "objects/12baabcbf3f9eff5fab2022949c57ff5ffbf14b3361a715f67dafc8421ed87cb",
+              "sha256": "12baabcbf3f9eff5fab2022949c57ff5ffbf14b3361a715f67dafc8421ed87cb",
+              "bytes": 503331
+            }
+          },
+          "sourceObservationId": "e50f4286cb35383299ed6bdf077498a0ff5744a22aa7143651ed53a48d1605a9",
+          "sourceObservationSha256": "755598f5bf642ae973688ebe247a5e38bfe106178e39050329c9525b82a03832",
+          "validation": {
+            "bytes": 408,
+            "key": "objects/95349b3bdf14c76446de2d5a223b342e5b226f7a6a461a3af3e7819acb43870c",
+            "sha256": "95349b3bdf14c76446de2d5a223b342e5b226f7a6a461a3af3e7819acb43870c"
+          },
+          "transportObservationId": "e50f4286cb35383299ed6bdf077498a0ff5744a22aa7143651ed53a48d1605a9",
+          "transportObservationSha256": "755598f5bf642ae973688ebe247a5e38bfe106178e39050329c9525b82a03832"
+        },
+        {
+          "url": "https://www.thomabravo.com/press-releases/thoma-bravo-announces-strategic-acquisition-of-calabrio-to-accelerate-companys-cloud-first-customer-experience-growth",
+          "origin": {
+            "runId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+            "taskId": "454fc5859352e8f063a50f853e734fa7db9d59e4d28c8d5a48a0f6b37a52d96a",
+            "attemptId": "902249e9b3aded14c4d5a227e2917e1a6750da336d4f764fc0a79ef4a1b14cb5",
+            "receipt": {
+              "bytes": 1924,
+              "key": "objects/5a43e5b94ae5ceeb577d21fcf26b28e4cd850d56134ecba7e02f6b26b4828347",
+              "sha256": "5a43e5b94ae5ceeb577d21fcf26b28e4cd850d56134ecba7e02f6b26b4828347"
+            }
+          },
+          "sourceObservationId": "10b3bebbbcea822037e91cb1ce9986e889aeb90cab68cc034c9dfe1b5252706b",
+          "sourceObservationSha256": "4663fb5e8403ede678ac4a2184d26c36895de194c8de0d5af8a36731494affbc",
+          "validation": {
+            "bytes": 408,
+            "key": "objects/ba40c40527f4832639d339bebf5a44914857c46874565920ccd6d10f4fb80fea",
+            "sha256": "ba40c40527f4832639d339bebf5a44914857c46874565920ccd6d10f4fb80fea"
+          },
+          "transportObservationId": "10b3bebbbcea822037e91cb1ce9986e889aeb90cab68cc034c9dfe1b5252706b",
+          "transportObservationSha256": "4663fb5e8403ede678ac4a2184d26c36895de194c8de0d5af8a36731494affbc"
+        },
+        {
+          "url": "https://www.thomabravo.com/press-releases/thoma-bravo-owned-quorum-software-and-aucerna-to-merge-and-acquire-tietoevrys-oil-and-gas-software-business",
+          "origin": {
+            "runId": "e054ea73c89fe78db9702f94d2a3b669ce91884f7d7abda0a88698dbcfc7ec50",
+            "taskId": "62a2bc43e274ae93c730582d490b07d3242efbf6fff78f3dd5880841fd6f1815",
+            "attemptId": "4a3bc097ab7105cb42077ae7f5fb70fa2b88cb0719a6607b1e182f29173626a0",
+            "coverage": {
+              "key": "objects/12baabcbf3f9eff5fab2022949c57ff5ffbf14b3361a715f67dafc8421ed87cb",
+              "sha256": "12baabcbf3f9eff5fab2022949c57ff5ffbf14b3361a715f67dafc8421ed87cb",
+              "bytes": 503331
+            }
+          },
+          "sourceObservationId": "6fc5c43ca4bb24b28b8561bffbdccee7b2d3860c7b32bc8c2369cd33ce9fac46",
+          "sourceObservationSha256": "708c04c8d3d17e72024786e1e7e3b8de73f8d8ae55697795c314dae629dea3b2",
+          "validation": {
+            "bytes": 408,
+            "key": "objects/f244b45855ccf71aa41d83f145d91fdd34a7ece4c46789a33f6becd64f247175",
+            "sha256": "f244b45855ccf71aa41d83f145d91fdd34a7ece4c46789a33f6becd64f247175"
+          },
+          "transportObservationId": "6fc5c43ca4bb24b28b8561bffbdccee7b2d3860c7b32bc8c2369cd33ce9fac46",
+          "transportObservationSha256": "708c04c8d3d17e72024786e1e7e3b8de73f8d8ae55697795c314dae629dea3b2"
+        }
+      ],
+      "retainedBindingCount": 4,
+      "unbound": [],
+      "pendingDocuments": 634,
+      "pendingManifest": {
+        "key": "objects/0dfbb300c080c01c90148409bb4796baa125d3b7b4cc0cf8e775f64f010c7865",
+        "sha256": "0dfbb300c080c01c90148409bb4796baa125d3b7b4cc0cf8e775f64f010c7865",
+        "bytes": 73987
+      },
+      "sourceAuditCursorTimesPreserved": true
+    },
+    {
+      "sourceId": "snyk:official:1",
+      "attemptId": "7836f1df2f91e359291d63b424d7f57e3807d6ad5d1ea0a0aa528d221d62a329",
+      "outcome": "not_checked",
+      "errorCode": "HISTORICAL_OR_UNCHANGED_AUDIT_PENDING",
+      "fullInventory": {
+        "key": "objects/234356fe93d29af579a3286a03679981573d1980fd84488815a4e6c0d8e4364a",
+        "sha256": "234356fe93d29af579a3286a03679981573d1980fd84488815a4e6c0d8e4364a",
+        "bytes": 4499
+      },
+      "fullInventoryURLs": 54,
+      "retainedBindings": [],
+      "retainedBindingCount": 0,
+      "unbound": [],
+      "pendingDocuments": 54,
+      "pendingManifest": {
+        "key": "objects/42b48a04e98a07ef18ca7590906feca558e49a161fdeb3c070150b5a8556dc57",
+        "sha256": "42b48a04e98a07ef18ca7590906feca558e49a161fdeb3c070150b5a8556dc57",
+        "bytes": 4574
+      },
+      "sourceAuditCursorTimesPreserved": true
+    },
+    {
+      "sourceId": "esentire:official:1",
+      "attemptId": "c51494d9084d2481475426d2e5d44e1c9aff41eaa6672ecade294a42b25d7c79",
+      "outcome": "not_checked",
+      "errorCode": "HISTORICAL_OR_UNCHANGED_AUDIT_PENDING",
+      "fullInventory": {
+        "key": "objects/6b5c16fa0b3023f81ac5559af0c186e57015e1143a1d28e3a08416c657e321e1",
+        "sha256": "6b5c16fa0b3023f81ac5559af0c186e57015e1143a1d28e3a08416c657e321e1",
+        "bytes": 23258
+      },
+      "fullInventoryURLs": 170,
+      "retainedBindings": [],
+      "retainedBindingCount": 0,
+      "unbound": [],
+      "pendingDocuments": 170,
+      "pendingManifest": {
+        "key": "objects/86f184bf8abbf42b1eb483467eeff833f9b1a3df8a6b162cff1b938e2df4bbb6",
+        "sha256": "86f184bf8abbf42b1eb483467eeff833f9b1a3df8a6b162cff1b938e2df4bbb6",
+        "bytes": 23333
+      },
+      "sourceAuditCursorTimesPreserved": true
+    },
+    {
+      "sourceId": "dragos:official:1",
+      "attemptId": "dae8777749aea97a3c2197a116835cfc42b338e5ab55bac1f02d10410f9cd0a0",
+      "outcome": "not_checked",
+      "errorCode": "HISTORICAL_OR_UNCHANGED_AUDIT_PENDING",
+      "fullInventory": {
+        "key": "objects/0b6838549a8b8ada165edd7f59c40251e2d9b33eaff4f7f488e19f372fa9616b",
+        "sha256": "0b6838549a8b8ada165edd7f59c40251e2d9b33eaff4f7f488e19f372fa9616b",
+        "bytes": 476484
+      },
+      "fullInventoryURLs": 3256,
+      "retainedBindings": [
+        {
+          "url": "https://newsroom.accenture.com/news/2026/tuv-sud-and-accenture-accelerate-certification-of-physical-ai-in-automated-factories-and-warehouses-with-nvidia-technologies-to-drive-manufacturing-productivity",
+          "origin": {
+            "runId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+            "taskId": "2e87d6df9703945806fdb5ebfc73370cd08742c2311b01f43be3c6dab105f2b7",
+            "attemptId": "6bf992464b97ceb5b5e2504d4d30bfb3e5161091a4b77fc657dc022aa4e46e9e",
+            "receipt": {
+              "bytes": 1903,
+              "key": "objects/404a766b3130fb99913b74ecb4af5a3f3c6b220de0f8ed6caccece050cfdfce1",
+              "sha256": "404a766b3130fb99913b74ecb4af5a3f3c6b220de0f8ed6caccece050cfdfce1"
+            }
+          },
+          "sourceObservationId": "6f889c617e8df3012793a404018e1653d600b70cef18a427577d8a65aa462745",
+          "sourceObservationSha256": "559adde39bb42b9d54a5b33e69b900d69bdf7565d364aa96c763a5452e80a15a",
+          "validation": {
+            "bytes": 407,
+            "key": "objects/822521c9bf83eabd65c2010d0c456dd18dca6f18fe6ca976eee4df33eaff5a7e",
+            "sha256": "822521c9bf83eabd65c2010d0c456dd18dca6f18fe6ca976eee4df33eaff5a7e"
+          },
+          "transportObservationId": "6f889c617e8df3012793a404018e1653d600b70cef18a427577d8a65aa462745",
+          "transportObservationSha256": "559adde39bb42b9d54a5b33e69b900d69bdf7565d364aa96c763a5452e80a15a"
+        }
+      ],
+      "retainedBindingCount": 1,
+      "unbound": [],
+      "pendingDocuments": 3255,
+      "pendingManifest": {
+        "key": "objects/9ae09ce807a2287139303f14a87a6bf675cc79225565883daceb930dcc111da5",
+        "sha256": "9ae09ce807a2287139303f14a87a6bf675cc79225565883daceb930dcc111da5",
+        "bytes": 476355
+      },
+      "sourceAuditCursorTimesPreserved": true
+    }
+  ],
+  "evaluationTimeBindingEligibility": [
+    {
+      "sourceId": "proofpoint:official:1",
+      "url": "https://www.proofpoint.com/us/newsroom/press-releases/proofpoint-acquire-varonis-creating-global-leader-data-and-ai-security",
+      "eligibleAtEvaluation": true
+    },
+    {
+      "sourceId": "veeam:official:1",
+      "url": "https://www.veeam.com/company/press-release/veeam-recognized-by-gartner-as-a-leader-in-the-first-gartner-magic-quadrant-for-privacy-ux.html",
+      "eligibleAtEvaluation": true
+    },
+    {
+      "sourceId": "exabeam:official:1",
+      "url": "https://www.thomabravo.com/press-releases/calabrio-welcomes-dave-rhodes-as-chief-executive-officer",
+      "eligibleAtEvaluation": true
+    },
+    {
+      "sourceId": "exabeam:official:1",
+      "url": "https://www.thomabravo.com/press-releases/j.d.-power-to-merge-with-autodata-solutions-creating-a-leading-source-of-automotive-data-analytics-and-software-solutions",
+      "eligibleAtEvaluation": true
+    },
+    {
+      "sourceId": "exabeam:official:1",
+      "url": "https://www.thomabravo.com/press-releases/thoma-bravo-announces-strategic-acquisition-of-calabrio-to-accelerate-companys-cloud-first-customer-experience-growth",
+      "eligibleAtEvaluation": true
+    },
+    {
+      "sourceId": "exabeam:official:1",
+      "url": "https://www.thomabravo.com/press-releases/thoma-bravo-owned-quorum-software-and-aucerna-to-merge-and-acquire-tietoevrys-oil-and-gas-software-business",
+      "eligibleAtEvaluation": true
+    },
+    {
+      "sourceId": "exabeam:official:1",
+      "url": "https://www.thomabravo.com/press-releases/thoma-bravo-to-acquire-significant-majority-interest-in-centrify-the-leading-next-generation-identity-access-management-vendor",
+      "eligibleAtEvaluation": true
+    },
+    {
+      "sourceId": "hiddenlayer:official:1",
+      "url": "https://www.hiddenlayer.com/news/2023-sc-awards-finalists-most-promising-early-stage-start-up",
+      "eligibleAtEvaluation": true
+    },
+    {
+      "sourceId": "hiddenlayer:official:1",
+      "url": "https://www.hiddenlayer.com/news/ai-and-ml-reliability-and-security-blenderbot-and-other-cases",
+      "eligibleAtEvaluation": true
+    },
+    {
+      "sourceId": "hiddenlayer:official:1",
+      "url": "https://www.hiddenlayer.com/news/dont-confuse-irresponsible-implementation-for-an-evil-ai-overlord",
+      "eligibleAtEvaluation": true
+    },
+    {
+      "sourceId": "arctic-wolf:official:1",
+      "url": "https://arcticwolf.com/resources/blog/agents-investigate-humans-decide-how-active-response-works-in-the-aurora-agentic-soc/",
+      "eligibleAtEvaluation": true
+    },
+    {
+      "sourceId": "arctic-wolf:official:1",
+      "url": "https://arcticwolf.com/resources/blog/php2shell-critical-php-vulnerabilities-enable-unauthenticated-remote-code-execution/",
+      "eligibleAtEvaluation": true
+    },
+    {
+      "sourceId": "arctic-wolf:official:1",
+      "url": "https://arcticwolf.com/resources/press-releases/arctic-wolf-named-best-security-vendor-in-crns-annual-best-of-the-channel-awards/",
+      "eligibleAtEvaluation": true
+    },
+    {
+      "sourceId": "witnessai:official:1",
+      "url": "https://witness.ai/blog/category/blog/",
+      "eligibleAtEvaluation": true
+    },
+    {
+      "sourceId": "witnessai:official:1",
+      "url": "https://witness.ai/blog/palo-alto-prisma-alternatives/",
+      "eligibleAtEvaluation": true
+    },
+    {
+      "sourceId": "ivanti:official:1",
+      "url": "https://www.ivanti.com/company/press-releases/2026/ivanti-appoints-robert-ruelas-as-chief-revenue-officer-and-promotes-sterling-parker-to-chief-customer-officer",
+      "eligibleAtEvaluation": true
+    },
+    {
+      "sourceId": "reliaquest:official:1",
+      "url": "https://reliaquest.com/news-and-press/",
+      "eligibleAtEvaluation": true
+    },
+    {
+      "sourceId": "upwind:official:1",
+      "url": "https://www.upwind.io/feed/threat-post",
+      "eligibleAtEvaluation": true
+    },
+    {
+      "sourceId": "upwind:official:1",
+      "url": "https://www.upwind.io/feed/threat-post/multiple-cves-node-js-tls-hostname-verification-and-ip-normalization-flaws-enable-mitm-and-certificate-bypass",
+      "eligibleAtEvaluation": true
+    },
+    {
+      "sourceId": "sophos:official:1",
+      "url": "https://www.thomabravo.com/press-releases/calabrio-welcomes-dave-rhodes-as-chief-executive-officer",
+      "eligibleAtEvaluation": true
+    },
+    {
+      "sourceId": "sophos:official:1",
+      "url": "https://www.thomabravo.com/press-releases/j.d.-power-to-merge-with-autodata-solutions-creating-a-leading-source-of-automotive-data-analytics-and-software-solutions",
+      "eligibleAtEvaluation": true
+    },
+    {
+      "sourceId": "sophos:official:1",
+      "url": "https://www.thomabravo.com/press-releases/thoma-bravo-announces-strategic-acquisition-of-calabrio-to-accelerate-companys-cloud-first-customer-experience-growth",
+      "eligibleAtEvaluation": true
+    },
+    {
+      "sourceId": "sophos:official:1",
+      "url": "https://www.thomabravo.com/press-releases/thoma-bravo-owned-quorum-software-and-aucerna-to-merge-and-acquire-tietoevrys-oil-and-gas-software-business",
+      "eligibleAtEvaluation": true
+    },
+    {
+      "sourceId": "dragos:official:1",
+      "url": "https://newsroom.accenture.com/news/2026/tuv-sud-and-accenture-accelerate-certification-of-physical-ai-in-automated-factories-and-warehouses-with-nvidia-technologies-to-drive-manufacturing-productivity",
+      "eligibleAtEvaluation": true
+    }
+  ],
+  "limitations": [
+    "Archive-only transport and memory-only new receipts are mechanical evidence, not semantic admission or a live collector run.",
+    "The clock is pinned one second after archived coverage; actual-time eligibility is reported separately.",
+    "Existing work bounds and freshness remain unchanged; historical incomplete tasks cannot earn coverage."
+  ]
+}

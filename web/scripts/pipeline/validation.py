@@ -39,7 +39,7 @@ def source_dates(text):
     return values
 
 
-def verify_statement(candidate, observation, store, review, supplier, policy_hash):
+def verify_statement(candidate, observation, store, review, supplier, policy_hash, read_only=False):
     required = {"supplierId", "predicate", "valueText", "quote", "effectiveDate", "amount", "currency", "qualifier", "eventStatus", "scope"}
     require(set(candidate) == required, "Candidate schema mismatch")
     require(candidate["supplierId"] == supplier["id"], "Candidate entity mismatch")
@@ -96,9 +96,15 @@ def verify_statement(candidate, observation, store, review, supplier, policy_has
     identity = {k: candidate[k] for k in ("supplierId", "predicate", "effectiveDate", "amount", "currency", "qualifier", "eventStatus", "scope")}
     if candidate["amount"] is None:
         identity["statement"] = statement.lower()
+    if read_only:
+        review_bytes = canonical(review)
+        review_ref = {"key": "objects/" + digest(review_bytes), "sha256": digest(review_bytes), "bytes": len(review_bytes)}
+        require(store.get(review_ref) == review_bytes, "Archived semantic review differs")
+    else:
+        review_ref = store.put(review)
     return {"factId": digest(identity), **candidate, "evidence": [observation["body"]],
             "sourceObservationId": observation["observationId"], "candidateSha256": digest(candidate),
-            "review": store.put(review),
+            "review": review_ref,
             "assurance": "source_statement_matched", "policySha256": policy_hash}
 
 
@@ -219,6 +225,8 @@ def reconcile(plan, receipts, contract, now, store):
     for receipt in receipts:
         task = expected[receipt["taskId"]]
         source = sources.get(task["sourceId"])
+        from retained_audit import bounded, verify_receipt
+        repaired_audit = bounded(source, contract) and verify_receipt(receipt, plan, contract, source, now, store)
         if _neutral_filing_source(source):
             _reject_filing_semantics(receipt)
         if source and source["kind"] == "sec_index":
@@ -305,14 +313,14 @@ def reconcile(plan, receipts, contract, now, store):
                 require(set(manifest["items"]) == accessions, "Neutral SEC index accession inventory differs")
             if _neutral_filing_source(source):
                 _replay_neutral_filings(receipt, source, contract, task, observations, manifest, store)
-            if source["kind"] not in ("sec_facts", "sec_submissions", "sec_index"):
+            if source["kind"] not in ("sec_facts", "sec_submissions", "sec_index") and not repaired_audit:
                 require(set(manifest["items"]).issubset({o["requestedUrl"] for o in observations}), "Discovered item was never checked")
             if source["kind"] == "sec_documents":
                 require(set(manifest["items"]) == {d["url"] for d in receipt.get("documents", [])}, "SEC primary text inventory incomplete")
                 for document in receipt.get("documents", []):
                     store.get(document["body"])
                     require(len(store.get(document["text"])) >= 100, "SEC document text missing")
-            if source["kind"] not in ("sec_facts", "sec_submissions", "sec_documents", "sec_index", "citation"):
+            if source["kind"] not in ("sec_facts", "sec_submissions", "sec_documents", "sec_index", "citation") and not repaired_audit:
                 validations = receipt.get("documentValidations", [])
                 unique([d["url"] for d in validations], "document validation")
                 require(set(manifest["items"]) == {d["url"] for d in validations}, "Document semantic validation inventory incomplete")
@@ -344,6 +352,8 @@ def reconcile(plan, receipts, contract, now, store):
                             require(review.get("noRelevantFacts") is True and review.get("evidenceSha256") == observation["body"]["sha256"] and review.get("policySha256") == digest(contract), "Empty document review missing or mismatched")
                             require(not re.search(r"\b(funding|raised|acquisition|appointed|restructuring|layoffs|ARR|revenue|debt|shutdown)\b", text, re.I), "Empty extraction hides a business signal")
             for reference in receipt.get("validatedFacts", []):
+                if repaired_audit:
+                    continue  # Complete accepted/held inventories were replayed above, even for partial receipts.
                 fact = __import__("json").loads(store.get(reference))
                 require(fact["supplierId"] == task["supplierId"], "Validated fact has wrong entity")
                 for reference in fact["evidence"]:
@@ -402,6 +412,17 @@ extraction without its complete document validation receipt remains ineligible.
         source = sources.get(task["sourceId"])
         require(receipt["runId"] == plan["runId"] and receipt["sourceId"] == task["sourceId"], "Partial-document run/source differs")
         if not source or source["registration"] != "verified":
+            continue
+        from retained_audit import bounded, verify_receipt
+        if bounded(source, contract) and verify_receipt(receipt, plan, contract, source, now, store):
+            # Repaired partial receipts already replay the complete full inventory,
+            # including retained URLs no longer present in today's feed.
+            full = __import__('json').loads(store.get(receipt['retainedInventoryManifest']))
+            for document in receipt.get('documentValidations', []):
+                require(document['url'] in full['items'], 'Partial retained document is outside full inventory')
+                validation = __import__('json').loads(store.get(document['validation']))
+                for reference in validation['factRefs']:
+                    accepted[reference['sha256']] = reference
             continue
         if source["kind"] == "sec_index":
             require(all(receipt.get(key, []) == [] for key in
