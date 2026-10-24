@@ -368,6 +368,9 @@ class Pipeline:
                     if deferred:
                         pending_errors.append("HISTORICAL_OR_UNCHANGED_AUDIT_PENDING")
                     receipt["collectionScope"] = {"mode": "delta_with_retained_audit", "selectedDocuments": len(ordered), "deferredDocuments": len(deferred), "currentWindowDays": self.contract["collection"]["currentWindowDays"]}
+                    retained_audit = set(selected_inventory["items"]) - set(ordered) - set(deferred)
+                    if retained_audit:
+                        receipt["retainedAuditDocuments"] = len(retained_audit)
                 for index, url in enumerate(ordered):
                     cached_download = f"runs/{plan['runId']}/downloads/{digest({'source': source['id'], 'url': url})}.json"
                     if self.native_budget_exhausted and source["kind"] != "sec_documents" and not self.store.read(cached_download):
@@ -400,6 +403,12 @@ class Pipeline:
                 if pending:
                     receipt.update(outcome="not_checked", errorCode=pending_errors[0], pendingDocuments=len(pending),
                                    pendingManifest=self.store.put({"sourceId": source["id"], "runId": plan["runId"], "items": pending}))
+                    return self._finish(receipt)
+                if bounded and receipt.get("retainedAuditDocuments"):
+                    # The scheduling cursor is not proof in this receipt. Until
+                    # old evidence is independently rebound, keep completeness
+                    # held without inventing unresolved document work.
+                    receipt.update(outcome="not_checked", errorCode="RETAINED_AUDIT_EVIDENCE_NOT_REBOUND", pendingDocuments=0)
                     return self._finish(receipt)
             # Advance only after all discovered items are either independently validated or explicitly no-fact.
             if neutral_filings:

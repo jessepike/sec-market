@@ -39,21 +39,30 @@ def select_documents(found, history, policy, now, supplier=None):
     items = set(found["items"])
     modified = found.get("itemModified", {})
     cutoff = (instant(now) - timedelta(days=policy["currentWindowDays"])).date().isoformat()
-    current, audit = [], []
+    current, audit, audit_order = [], [], {}
     for url in sorted(items):
         stamp = modified.get(url, "")
         old = history.get(url)
         changed = old is not None and old.get("modified", "") != stamp
         recent = cutoff <= stamp[:10] <= now[:10] if stamp else False
-        due = old is None or old.get("checkedAt", "")[:10] < cutoff
+        # Invalid or future cursor times cannot suppress unresolved work.
+        try:
+            checked = instant(old["checkedAt"]) if old else None
+            valid_check = checked is not None and checked <= instant(now)
+        except (KeyError, TypeError, ValueError):
+            valid_check = False
+        due = not valid_check or old["checkedAt"][:10] < cutoff
+        audit_order[url] = old["checkedAt"] if valid_check else ""
         if changed or (recent and due):
             current.append(url)
         elif due:
             audit.append(url)
     current.sort(key=lambda u: (entity_url_priority(u, supplier), modified.get(u, ""), u), reverse=True)
     # Oldest successful audit first. New, undated pages use stable URL order.
-    audit.sort(key=lambda u: (not entity_url_priority(u, supplier), history.get(u, {}).get("checkedAt", ""), u))
+    audit.sort(key=lambda u: (not entity_url_priority(u, supplier), audit_order[u], u))
     maximum = policy["maxDocumentsPerSource"]
     selected = current[:maximum]
     selected += audit[:min(policy["maxAuditDocumentsPerSource"], maximum - len(selected))]
-    return selected, sorted(items - set(selected))
+    # Retained inventory also includes unchanged, not-yet-due successes. Those
+    # remain in the engine's inventory object without becoming pending again.
+    return selected, sorted((set(current) | set(audit)) - set(selected))

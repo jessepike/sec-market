@@ -268,7 +268,40 @@ class PipelineTests(unittest.TestCase):
         self.assertEqual(pending, ["b", "c"])
         selected, pending = select_documents(found, {"a": {"modified": "", "checkedAt": T}}, policy, T)
         self.assertEqual(selected, ["b"])
-        self.assertEqual(pending, ["a", "c"])
+        self.assertEqual(pending, ["c"])
+
+    def test_successful_unchanged_inventory_has_no_false_pending_and_is_not_mutated(self):
+        policy = {"currentWindowDays": 30, "maxDocumentsPerSource": 2, "maxAuditDocumentsPerSource": 1}
+        found = {"items": ["a", "b"], "itemModified": {"a": "2026-10-19"}}
+        history = {u: {"modified": found['itemModified'].get(u, ''), "checkedAt": T} for u in found['items']}
+        before = json.dumps([found, history], sort_keys=True)
+        self.assertEqual(select_documents(found, history, policy, T), ([], []))
+        self.assertEqual(json.dumps([found, history], sort_keys=True), before)
+
+    def test_pending_contains_only_unselected_due_work_including_failed_stale_changed_and_invalid(self):
+        policy = {"currentWindowDays": 30, "maxDocumentsPerSource": 1, "maxAuditDocumentsPerSource": 1}
+        found = {"items": ["valid", "failed", "stale", "changed", "malformed", "future"],
+                 "itemModified": {"changed": "2026-10-20"}}
+        history = {"valid": {"modified": "", "checkedAt": T},
+                   "stale": {"modified": "", "checkedAt": "2020-01-01T00:00:00Z"},
+                   "changed": {"modified": "2026-10-18", "checkedAt": T},
+                   "malformed": {"modified": "", "checkedAt": "invalid"},
+                   "future": {"modified": "", "checkedAt": "2099-01-01T00:00:00Z"}}
+        # A failed review produces no successful history entry.
+        selected, pending = select_documents(found, history, policy, T)
+        self.assertEqual(selected, ["changed"])
+        self.assertEqual(set(pending), {"failed", "stale", "malformed", "future"})
+
+    def test_mixed_invalid_audit_cursor_types_remain_due_and_sort_safely(self):
+        policy = {"currentWindowDays": 30, "maxDocumentsPerSource": 1, "maxAuditDocumentsPerSource": 1}
+        found = {"items": ["none", "number", "missing", "bad", "future", "stale", "valid"], "itemModified": {}}
+        history = {u: {"modified": "", "checkedAt": stamp} for u, stamp in
+                   [("none", None), ("number", 42), ("bad", "invalid"),
+                    ("future", "2099-01-01T00:00:00Z"), ("stale", "2020-01-01T00:00:00Z"), ("valid", T)]}
+        history['missing'] = {"modified": ""}
+        selected, pending = select_documents(found, history, policy, T)
+        self.assertEqual(len(selected), 1)
+        self.assertEqual(set(selected + pending), set(found['items']) - {'valid'})
 
     def test_shared_publisher_prioritizes_registered_entity_without_dropping_other_urls(self):
         supplier = {'name': 'Dragos, Inc.', 'aliases': ['Dragos']}

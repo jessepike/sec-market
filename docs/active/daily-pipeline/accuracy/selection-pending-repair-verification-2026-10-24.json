@@ -1,0 +1,337 @@
+{
+  "schemaVersion": 1,
+  "kind": "offline_selection_pending_repair_verification",
+  "evaluatedAt": "2026-10-24T00:45:56.772257+00:00",
+  "archiveCommit": "c4650c2bf8ed2de87476deab6af5b572a8988e01",
+  "coverageSha256": "fe952d04748e7e814091bc4f2b36edb7fb7b5db68a8951f24a54cef86a518256",
+  "originalSourceCheckedAt": "2026-10-24T00:11:47.483353Z",
+  "contractSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+  "sourceCodeSha256": "2842220d94dbbed5cab6fb198dc59d4d34732b2d74dbffa7e547d31ed0b54858",
+  "archiveBefore": {
+    "files": 29776,
+    "sha256": "86f13e70940e0a78f9dc6262e0c3abef701542c7bea2020a4d92ee2e88b5c7f3"
+  },
+  "archiveAfter": {
+    "files": 29776,
+    "sha256": "86f13e70940e0a78f9dc6262e0c3abef701542c7bea2020a4d92ee2e88b5c7f3"
+  },
+  "stateUnchanged": true,
+  "networkModelAndWritesDenied": true,
+  "externalOrWriteAttempts": 0,
+  "tasksReplayed": 17,
+  "originalPendingCount": 9897,
+  "beforeDeferredCount": 9882,
+  "afterDeferredCount": 9862,
+  "rows": [
+    {
+      "sourceId": "proofpoint:official:1",
+      "originalPendingCount": 211,
+      "retainedInventoryCount": 212,
+      "selected": [
+        "https://www.proofpoint.com/us/newsroom/press-releases/cyber-insecurity-in-healthcare-report-2026",
+        "https://www.proofpoint.com/us/newsroom/press-releases/2021-voice-ciso-report"
+      ],
+      "beforeDeferredCount": 210,
+      "afterDeferredCount": 209,
+      "checkedNotDueExcludedFromPending": [
+        "https://www.proofpoint.com/us/newsroom/press-releases/proofpoint-acquire-varonis-creating-global-leader-data-and-ai-security"
+      ],
+      "historySha256": "7cbaeb164115096020f67f94139cf151c6be4df1b67d9396b3138ebffcabfb5e",
+      "pendingManifestSha256": "90849b677a09b1bc2a01bd8020708f143d2e11825d78e036df86d1f9618a0770"
+    },
+    {
+      "sourceId": "veeam:official:1",
+      "originalPendingCount": 726,
+      "retainedInventoryCount": 727,
+      "selected": [
+        "https://www.veeam.com/company/press-release/veeam-puts-customers-in-control-of-data-sovereignty-with-launch-of-new-global-sovereign-service-providers-program.html",
+        "https://www.veeam.com/company/press-release/veeam-intelligent-resops-for-microsoft-365-helps-customers-safely-use-ai-cut-storage-costs-and-recover-with-precision.html"
+      ],
+      "beforeDeferredCount": 725,
+      "afterDeferredCount": 724,
+      "checkedNotDueExcludedFromPending": [
+        "https://www.veeam.com/company/press-release/veeam-recognized-by-gartner-as-a-leader-in-the-first-gartner-magic-quadrant-for-privacy-ux.html"
+      ],
+      "historySha256": "5d12b759dcb55c9b6bf74c9ae39ed13f1d6334118d2e6e8da1be564d4a723c4c",
+      "pendingManifestSha256": "b12e31bdbb908de5751892bf90e5c698c694b4680ce8923cc456cb4a045d9670"
+    },
+    {
+      "sourceId": "exabeam:official:1",
+      "originalPendingCount": 636,
+      "retainedInventoryCount": 638,
+      "selected": [
+        "https://www.thomabravo.com/press-releases/calabrio-welcomes-dave-rhodes-as-chief-executive-officer",
+        "https://www.thomabravo.com/press-releases/thoma-bravo-to-acquire-significant-majority-interest-in-centrify-the-leading-next-generation-identity-access-management-vendor"
+      ],
+      "beforeDeferredCount": 636,
+      "afterDeferredCount": 633,
+      "checkedNotDueExcludedFromPending": [
+        "https://www.thomabravo.com/press-releases/j.d.-power-to-merge-with-autodata-solutions-creating-a-leading-source-of-automotive-data-analytics-and-software-solutions",
+        "https://www.thomabravo.com/press-releases/thoma-bravo-announces-strategic-acquisition-of-calabrio-to-accelerate-companys-cloud-first-customer-experience-growth",
+        "https://www.thomabravo.com/press-releases/thoma-bravo-owned-quorum-software-and-aucerna-to-merge-and-acquire-tietoevrys-oil-and-gas-software-business"
+      ],
+      "historySha256": "27f2e4751f7d3c318192ad00bca80c7fd0eeb8a5ff83dcbf981f7155ac5142bf",
+      "pendingManifestSha256": "0a75de77cfc7fce1d4fb13b2baa02f7dbbce5ab18ca8c049ef87056d738d66e7"
+    },
+    {
+      "sourceId": "hiddenlayer:official:1",
+      "originalPendingCount": 87,
+      "retainedInventoryCount": 89,
+      "selected": [
+        "https://www.hiddenlayer.com/news/ai-and-ml-reliability-and-security-blenderbot-and-other-cases"
+      ],
+      "beforeDeferredCount": 88,
+      "afterDeferredCount": 86,
+      "checkedNotDueExcludedFromPending": [
+        "https://www.hiddenlayer.com/news/2023-sc-awards-finalists-most-promising-early-stage-start-up",
+        "https://www.hiddenlayer.com/news/dont-confuse-irresponsible-implementation-for-an-evil-ai-overlord"
+      ],
+      "historySha256": "3f38c96f8ae13dca4798af72310d8ce32645b4b65b8aba4ab4c16a19df657685",
+      "pendingManifestSha256": "cd83af327d69a19b504591f672f23422905238328281ae6b39eec7c56f0809e3"
+    },
+    {
+      "sourceId": "optiv:official:1",
+      "originalPendingCount": 179,
+      "retainedInventoryCount": 179,
+      "selected": [
+        "https://www.optiv.com/company/press-releases/optiv-launches-cyberbotr-free-cybersecurity-awareness-training-program",
+        "https://www.optiv.com/company/press-releases/nearly-half-organizations-say-their-socs-cant-keep-pace-modern-threats"
+      ],
+      "beforeDeferredCount": 177,
+      "afterDeferredCount": 177,
+      "checkedNotDueExcludedFromPending": [],
+      "historySha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "pendingManifestSha256": "beee297016548c0863afc23075830415262eb5f75c5c85007bb517de03908acc"
+    },
+    {
+      "sourceId": "aqua:official:1",
+      "originalPendingCount": 448,
+      "retainedInventoryCount": 448,
+      "selected": [
+        "https://www.aquasec.com/news/cybersecurity-solution-of-the-year-for-cloud-security/",
+        "https://www.aquasec.com/news/10-cool-startups-that-raised-venture-capital-in-april-2019/"
+      ],
+      "beforeDeferredCount": 446,
+      "afterDeferredCount": 446,
+      "checkedNotDueExcludedFromPending": [],
+      "historySha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "pendingManifestSha256": "27dd3270bf3e2dcacaaf35b3a763df567f06cb640458aea906f8c67aaa7fc962"
+    },
+    {
+      "sourceId": "mimecast:official:1",
+      "originalPendingCount": 137,
+      "retainedInventoryCount": 137,
+      "selected": [
+        "https://www.mimecast.com/resources/press-releases/web-security-application-visibility-and-control/",
+        "https://www.mimecast.com/resources/press-releases/threat-intelligence-report-november/"
+      ],
+      "beforeDeferredCount": 135,
+      "afterDeferredCount": 135,
+      "checkedNotDueExcludedFromPending": [],
+      "historySha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "pendingManifestSha256": "b12a4b1041a6709effc70de86922d1e916d3ca95a4d40e657b83915553480f7a"
+    },
+    {
+      "sourceId": "arctic-wolf:official:1",
+      "originalPendingCount": 1296,
+      "retainedInventoryCount": 1298,
+      "selected": [
+        "https://arcticwolf.com/resources/blog/agents-investigate-humans-decide-how-active-response-works-in-the-aurora-agentic-soc/",
+        "https://arcticwolf.com/resources/blog/arctic-wolf-labs-finding-prioritizing-and-patching-php2shell-exposure/"
+      ],
+      "beforeDeferredCount": 1296,
+      "afterDeferredCount": 1294,
+      "checkedNotDueExcludedFromPending": [
+        "https://arcticwolf.com/resources/blog/php2shell-critical-php-vulnerabilities-enable-unauthenticated-remote-code-execution/",
+        "https://arcticwolf.com/resources/press-releases/arctic-wolf-named-best-security-vendor-in-crns-annual-best-of-the-channel-awards/"
+      ],
+      "historySha256": "dfca1bce72c74e7fa386ea379f4a76c98ac6ff35fd32fb4b92ffe5b64b14c463",
+      "pendingManifestSha256": "7dd8b86a5d88554b75f251e287cbe362b022a4d594bdd09abd4870e54c7aa2b7"
+    },
+    {
+      "sourceId": "witnessai:official:1",
+      "originalPendingCount": 241,
+      "retainedInventoryCount": 243,
+      "selected": [
+        "https://witness.ai/blog/owasp-agentic-ai-threats-and-mitigations/",
+        "https://witness.ai/blog/malicious-mcp-servers/"
+      ],
+      "beforeDeferredCount": 241,
+      "afterDeferredCount": 239,
+      "checkedNotDueExcludedFromPending": [
+        "https://witness.ai/blog/category/blog/",
+        "https://witness.ai/blog/palo-alto-prisma-alternatives/"
+      ],
+      "historySha256": "b00bff300f3d6bc04ba731c937996642edff24aeeb18ff0f052ef24406921cf5",
+      "pendingManifestSha256": "1bab1e05f49ef57cd23475555f4dfad5972d884f4a5145aee733c1877dc191ce"
+    },
+    {
+      "sourceId": "expel:official:1",
+      "originalPendingCount": 329,
+      "retainedInventoryCount": 329,
+      "selected": [
+        "https://expel.com/resource/php2shell-exploitation-started-days-before-patches/",
+        "https://expel.com/resource/ai-trust-vs-impact/"
+      ],
+      "beforeDeferredCount": 327,
+      "afterDeferredCount": 327,
+      "checkedNotDueExcludedFromPending": [],
+      "historySha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "pendingManifestSha256": "c4038c230c2abf2d5bda785f298382f929250d898d84f1083e65dcaccbb21332"
+    },
+    {
+      "sourceId": "ivanti:official:1",
+      "originalPendingCount": 428,
+      "retainedInventoryCount": 429,
+      "selected": [
+        "https://www.ivanti.com/company/press-releases/2026/ivanti-autonomous-endpoint-management-named-a-leader-in-g2-fall-2026-enterprise-grid-report-for-unified-endpoint-management",
+        "https://www.ivanti.com/company/press-releases/2026/ivanti-announces-new-distribution-partnership-with-qbs-software-for-dach-region"
+      ],
+      "beforeDeferredCount": 427,
+      "afterDeferredCount": 426,
+      "checkedNotDueExcludedFromPending": [
+        "https://www.ivanti.com/company/press-releases/2026/ivanti-appoints-robert-ruelas-as-chief-revenue-officer-and-promotes-sterling-parker-to-chief-customer-officer"
+      ],
+      "historySha256": "5e9c05c3a516f68a491fd70e4cda81f094dab5783509519483d00fdfef920a5c",
+      "pendingManifestSha256": "7e9de3c755266b2fd5c3ef9d99e496ee03d3fe609fe68e893d8bab2620e98598"
+    },
+    {
+      "sourceId": "reliaquest:official:1",
+      "originalPendingCount": 90,
+      "retainedInventoryCount": 91,
+      "selected": [
+        "https://reliaquest.com/news-and-press/reliaquest-named-to-2026-fortune-future-120/",
+        "https://reliaquest.com/news-and-press/reliaquest-names-krish-venkataraman-chief-financial-officer/"
+      ],
+      "beforeDeferredCount": 89,
+      "afterDeferredCount": 88,
+      "checkedNotDueExcludedFromPending": [
+        "https://reliaquest.com/news-and-press/"
+      ],
+      "historySha256": "911572e878a442a820865ec10f7af5831017188dec09fdd56ae15f0884736543",
+      "pendingManifestSha256": "a44dac8a282d3b1f990e74c50ea2228d907f05773c9fc4e4e4e6f918d075688a"
+    },
+    {
+      "sourceId": "upwind:official:1",
+      "originalPendingCount": 974,
+      "retainedInventoryCount": 976,
+      "selected": [
+        "https://www.upwind.io/feed/threat-post/cve-2026-113872-multer-async-filefilter-request-abort-bug-enables-remote-dos-via-process-crash",
+        "https://www.upwind.io/feed/threat-post/cve-2026-115560-php-session-serialize-handler-switch-with-upload-progress-may-enable-rce"
+      ],
+      "beforeDeferredCount": 974,
+      "afterDeferredCount": 972,
+      "checkedNotDueExcludedFromPending": [
+        "https://www.upwind.io/feed/threat-post",
+        "https://www.upwind.io/feed/threat-post/multiple-cves-node-js-tls-hostname-verification-and-ip-normalization-flaws-enable-mitm-and-certificate-bypass"
+      ],
+      "historySha256": "2dfd11797e86508b8c87731eff45e5242f346e76d75518dfc41a636478409214",
+      "pendingManifestSha256": "501d2c15cce833f0b4cc720f803d11d374384b4523ce996ac4f1027ed836a225"
+    },
+    {
+      "sourceId": "sophos:official:1",
+      "originalPendingCount": 636,
+      "retainedInventoryCount": 638,
+      "selected": [
+        "https://www.thomabravo.com/press-releases/thoma-bravo-to-acquire-significant-majority-interest-in-centrify-the-leading-next-generation-identity-access-management-vendor",
+        "https://www.thomabravo.com/press-releases/thoma-bravo-completes-majority-investment-in-centrify"
+      ],
+      "beforeDeferredCount": 636,
+      "afterDeferredCount": 632,
+      "checkedNotDueExcludedFromPending": [
+        "https://www.thomabravo.com/press-releases/calabrio-welcomes-dave-rhodes-as-chief-executive-officer",
+        "https://www.thomabravo.com/press-releases/j.d.-power-to-merge-with-autodata-solutions-creating-a-leading-source-of-automotive-data-analytics-and-software-solutions",
+        "https://www.thomabravo.com/press-releases/thoma-bravo-announces-strategic-acquisition-of-calabrio-to-accelerate-companys-cloud-first-customer-experience-growth",
+        "https://www.thomabravo.com/press-releases/thoma-bravo-owned-quorum-software-and-aucerna-to-merge-and-acquire-tietoevrys-oil-and-gas-software-business"
+      ],
+      "historySha256": "90c0b9c19a1e375d976e71f8eabe104261921bf86fc866b07c5f5b8c9d24ebb9",
+      "pendingManifestSha256": "2f1b276844ad68533c43066b74a7df88b52569c089fc0189e3a882be7efbb5d7"
+    },
+    {
+      "sourceId": "snyk:official:1",
+      "originalPendingCount": 54,
+      "retainedInventoryCount": 54,
+      "selected": [
+        "https://snyk.io/news/snyk-launches-evo-agentic-appsec/",
+        "https://snyk.io/news/agentic-ai-security-moves-into-production/"
+      ],
+      "beforeDeferredCount": 52,
+      "afterDeferredCount": 52,
+      "checkedNotDueExcludedFromPending": [],
+      "historySha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "pendingManifestSha256": "42b48a04e98a07ef18ca7590906feca558e49a161fdeb3c070150b5a8556dc57"
+    },
+    {
+      "sourceId": "esentire:official:1",
+      "originalPendingCount": 170,
+      "retainedInventoryCount": 170,
+      "selected": [
+        "https://www.esentire.com/news-releases/2018s-cryptocurrency-craze-helps-drive-1500-percent-increase-in-coinmining-malware"
+      ],
+      "beforeDeferredCount": 169,
+      "afterDeferredCount": 169,
+      "checkedNotDueExcludedFromPending": [],
+      "historySha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "pendingManifestSha256": "86f184bf8abbf42b1eb483467eeff833f9b1a3df8a6b162cff1b938e2df4bbb6"
+    },
+    {
+      "sourceId": "dragos:official:1",
+      "originalPendingCount": 3255,
+      "retainedInventoryCount": 3256,
+      "selected": [
+        "https://newsroom.accenture.com/news/2026/accenture-dragos-and-sans-institute-launch-foundation-to-strengthen-cyber-defenses-for-u-s-utilities",
+        "https://newsroom.accenture.com/news/2026/accenture-acquires-digital-native-construction-consulting-firm-avicado"
+      ],
+      "beforeDeferredCount": 3254,
+      "afterDeferredCount": 3253,
+      "checkedNotDueExcludedFromPending": [
+        "https://newsroom.accenture.com/news/2026/tuv-sud-and-accenture-accelerate-certification-of-physical-ai-in-automated-factories-and-warehouses-with-nvidia-technologies-to-drive-manufacturing-productivity"
+      ],
+      "historySha256": "273061b413949a59ff596910f20c5d3596d4793cc4dee09b51efa53399e3051f",
+      "pendingManifestSha256": "7c1a223bd9722310761d92d51abd1c2542a3d4010f5afd7be5959b4d952f0be0"
+    }
+  ],
+  "limitations": [
+    "Archived selection replay only; no collector or model execution and no new coverage credit.",
+    "Complete URL inventory retained. Semantic validation, source freshness, and claim admission are unchanged.",
+    "Before deferred count uses the prior all-inventory-minus-selected definition at the same archived post-run history; it is not the original collection pending count."
+  ],
+  "codeSha256": {
+    "web/scripts/pipeline/selection.py": "2842220d94dbbed5cab6fb198dc59d4d34732b2d74dbffa7e547d31ed0b54858",
+    "web/scripts/pipeline/engine.py": "31ba9c256c81c7288ceca46ccfd851e7764d815970193ce3857545408f792c74",
+    "web/tests/test_pipeline.py": "6ae9e179f7f73d7e701b98c03318eef42427d205e5ac718fee36ed11de90d0e4",
+    "ops/ci/test_compressed_article_input.py": "87642b095fb0d0f546342d2dd777dfab59f5b6e5192fd055cfabd70ba6120449"
+  },
+  "tests": {
+    "final_selection_related": {
+      "passed": 11
+    },
+    "final_compressed_article_input": {
+      "passed": 22
+    },
+    "prior_full_ops_ci_before_final_sort_only_change": {
+      "passed": 430
+    },
+    "runtime": "OrbStack dev Python3",
+    "fullPipelineAttempts": [
+      {
+        "total": 115,
+        "passed": 114,
+        "errors": [
+          {
+            "test": "test_fresh_cloud_bootstrap_restores_remote_state_and_excludes_overlapping_sessions",
+            "reason": "INSUFFICIENT_SPACE_FOR_VERIFIED_ARCHIVE_RESTORE: VM free disk below 5GB"
+          }
+        ]
+      },
+      {
+        "evaluatedAt": "2026-10-24T00:48:06.162390+00:00",
+        "total": 115,
+        "passed": 115,
+        "errors": [],
+        "note": "Rerun after VM capacity restoration; earlier capacity failure retained above."
+      }
+    ]
+  },
+  "remainingHold": "RETAINED_AUDIT_EVIDENCE_NOT_REBOUND holds completeness when prior checked inventory lacks rebound proof in the new receipt; pendingDocuments stays zero."
+}
