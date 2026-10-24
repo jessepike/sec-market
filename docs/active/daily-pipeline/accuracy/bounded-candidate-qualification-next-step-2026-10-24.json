@@ -1,0 +1,549 @@
+{
+  "schemaVersion": 1,
+  "id": "BOUNDED-CANDIDATE-QUALIFICATION-NEXT-STEP-2026-10-24",
+  "createdAt": "2026-10-24T06:11:49.921477Z",
+  "status": "reviewable implementation specification; no requests, qualification or activation",
+  "basis": {
+    "d112Spec": {
+      "path": "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/separate-freshness-history-spec-2026-10-24.md",
+      "sha256": "6bb72bd3ae014a96670e46bb90fe3565d2e07682166b864de4ff15d410518290",
+      "bytes": 5767
+    },
+    "responseReview": {
+      "path": "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/followup-seven-target-response-review-2026-10-24.json",
+      "sha256": "7b80d2b042f05838ccf082b12e51f271a9e8286335a55ba0e793c01b9b6ca1ce",
+      "bytes": 83064
+    },
+    "responseReviewSha256": "31234b7158d114c10332086c81f3ebc06cc86e09142a7e94fb4efacb022c23e9",
+    "currentPlan": {
+      "path": "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/contracts/source-qualification-probes.json",
+      "sha256": "62385a674edf896b479dc4fb9330e3e269afcbdc0b6715dd44f9b18608adbf4f",
+      "bytes": 11388
+    },
+    "market": {
+      "path": "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/contracts/market.json",
+      "sha256": "5b2b52dc2d17709f562b64ad6cb435086971ff8a6ccb9ce2fe95296a1ce1a7ff",
+      "bytes": 279420
+    },
+    "marketCanonicalSha256": "79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60",
+    "codePins": [
+      {
+        "path": "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/contracts.py",
+        "sha256": "be2450c82f89a3905c2469da4fd44037cd27d226b264eda741f762cf3269102c",
+        "bytes": 7939
+      },
+      {
+        "path": "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/discovery.py",
+        "sha256": "c354f3368b15e7a8aab6b357d4f11c238f436bfb1af8430bc7282a80b203e6e2",
+        "bytes": 41000
+      },
+      {
+        "path": "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/onboarding.py",
+        "sha256": "1f76daefe9b2d6a8e2a18b87f01b2742a0cc094ba18b47919d5c7b3ef98d874e",
+        "bytes": 38323
+      },
+      {
+        "path": "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/engine.py",
+        "sha256": "1b181c7c188e567477b1e6efaf295d2685447dadc0904bd8a8a58da58a5ee863",
+        "bytes": 53786
+      },
+      {
+        "path": "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/retained_audit.py",
+        "sha256": "bfb3bcee44c22fddfdd3c254a145165ea174bd0127dd2c3ed0997c3849b62553",
+        "bytes": 60853
+      },
+      {
+        "path": "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/separation.py",
+        "sha256": "b2c225fef1bb704701441a611ea921e325a5a28e6ac00fcdb2b4d7273413e629",
+        "bytes": 4644
+      },
+      {
+        "path": "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/selection.py",
+        "sha256": "1f2cb4e6101c6e119be359e5ea011b810dc4e4e35b57bfde324c0ec81cdd9f93",
+        "bytes": 4225
+      },
+      {
+        "path": "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/validation.py",
+        "sha256": "039d30b83ff510cfc28495ab33038b19f1b603148eaf5de06e60da18590ce733",
+        "bytes": 37437
+      },
+      {
+        "path": "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/documents.py",
+        "sha256": "4e3dbd2dbc6409bd8b8be660cf2b673601ca1c3bc90325fc4fbf6cceddc9b69f",
+        "bytes": 3282
+      },
+      {
+        "path": "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/fetcher.py",
+        "sha256": "39841fa08861d0155de2b71faa8b8e06d393d205bd1aa5ea627091d9ed46f026",
+        "bytes": 5747
+      },
+      {
+        "path": "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/ops/ci/collect.py",
+        "sha256": "b9c67f63ea1181b32df1128a9666dd97f58fa8b97f7a40e041031ba78b9d60fa",
+        "bytes": 23140
+      }
+    ]
+  },
+  "policyConclusion": {
+    "fullDiscoveryPaginationRequired": true,
+    "allHistoricalArticleBodiesOrSemanticReviewsRequiredBeforeIntake": false,
+    "thirtyDayWindowAppliesTo": "document scheduling and bounded review selection, not permission to truncate declared discovery",
+    "datedEarlyStopAllowedByCurrentD112": false,
+    "pendingHistoryCanCoexistWithCompleteIntake": true,
+    "unqualifiedCandidateCanReceiveIntakeCredit": false,
+    "scopeChangeToCurrentOnlyFeed": "Would require a separately explicit source definition and justified completeness/policy change; not authorized or proposed by this repair."
+  },
+  "unchangedAuthority": {
+    "suppliers": 74,
+    "requiredObligations": 557,
+    "oldReport": "244/557 under original combined policy remains unchanged",
+    "existingInventory": "Preserve all9914 existing source+URL references and every predecessor, held fact, review origin and original date; add newly discovered candidate URLs as pending evidence without erasing prior URLs.",
+    "newCoverageCredit": 0,
+    "newSemanticAdmission": 0,
+    "newFacts": 0,
+    "sourceRegistrationsChanged": false
+  },
+  "sources": [
+    {
+      "sourceId": "ping-identity:official:1",
+      "supplierId": "ping-identity",
+      "family": "official_announcements",
+      "originalSource": {
+        "id": "ping-identity:official:1",
+        "supplierId": "ping-identity",
+        "kind": "official_discovery",
+        "url": "https://press.pingidentity.com/",
+        "allowedHosts": [
+          "press.pingidentity.com"
+        ],
+        "registration": "candidate",
+        "required": true,
+        "maxPages": 60,
+        "scopePrefixes": [
+          "/news",
+          "/press",
+          "/blog",
+          "/company",
+          "/investor",
+          "/resources"
+        ],
+        "seedEvidenceUrls": [
+          "https://press.pingidentity.com/2024-11-14-Ping-Identity-Surpasses-30-Annual-Growth-in-SaaS-Revenue-and-Approaches-800M-ARR-as-an-Enterprise-Identity-Market-Leader",
+          "https://press.pingidentity.com/2022-10-18-Thoma-Bravo-Completes-Acquisition-of-Ping-Identity"
+        ],
+        "family": "official_announcements"
+      },
+      "proposedBindingWithoutQualificationOrigin": {
+        "id": "ping-identity:official:1",
+        "supplierId": "ping-identity",
+        "kind": "html_index",
+        "url": "https://press.pingidentity.com/news-releases",
+        "allowedHosts": [
+          "press.pingidentity.com"
+        ],
+        "registration": "verified",
+        "required": true,
+        "maxPages": 60,
+        "scopePrefixes": [
+          "/news",
+          "/press",
+          "/blog",
+          "/company",
+          "/investor",
+          "/resources"
+        ],
+        "seedEvidenceUrls": [
+          "https://press.pingidentity.com/2024-11-14-Ping-Identity-Surpasses-30-Annual-Growth-in-SaaS-Revenue-and-Approaches-800M-ARR-as-an-Enterprise-Identity-Market-Leader",
+          "https://press.pingidentity.com/2022-10-18-Thoma-Bravo-Completes-Acquisition-of-Ping-Identity"
+        ],
+        "family": "official_announcements",
+        "htmlCompleteness": "ping-release-pagination-v1"
+      },
+      "proposedBindingSha256": "38c8ad72e8a21b4779abf583eb261972d4cc4e975558a301850889a611fc639a",
+      "initialIndexUrl": "https://press.pingidentity.com/news-releases",
+      "maximumIndexPages": 60,
+      "advertisedPages": 25,
+      "advertisedCountStatus": "terminal layout observed; intermediate traversal missing",
+      "dateHint": "ping-card-date",
+      "freshQualificationRequests": "Traverse every actual literal next page from this root through independently validated terminal, at most60; then one literal primary article sample for transport/canonical/readability/date-shape only.",
+      "semanticReviewDuringQualification": false
+    },
+    {
+      "sourceId": "delinea:official:1",
+      "supplierId": "delinea",
+      "family": "official_announcements",
+      "originalSource": {
+        "id": "delinea:official:1",
+        "supplierId": "delinea",
+        "kind": "official_discovery",
+        "url": "https://delinea.com/",
+        "allowedHosts": [
+          "delinea.com"
+        ],
+        "registration": "candidate",
+        "required": true,
+        "maxPages": 60,
+        "scopePrefixes": [
+          "/news",
+          "/press",
+          "/blog",
+          "/company",
+          "/investor",
+          "/resources"
+        ],
+        "seedEvidenceUrls": [
+          "https://delinea.com/news/delinea-strongdm-to-unite-redefine-identity-security-for-the-ai-era",
+          "https://delinea.com/news/thycotic-and-centrify-merge-to-become-a-leading-cloud-privileged-identity-security-vendor"
+        ],
+        "family": "official_announcements"
+      },
+      "proposedBindingWithoutQualificationOrigin": {
+        "id": "delinea:official:1",
+        "supplierId": "delinea",
+        "kind": "html_index",
+        "url": "https://delinea.com/news",
+        "allowedHosts": [
+          "delinea.com"
+        ],
+        "registration": "verified",
+        "required": true,
+        "maxPages": 60,
+        "scopePrefixes": [
+          "/news",
+          "/press",
+          "/blog",
+          "/company",
+          "/investor",
+          "/resources"
+        ],
+        "seedEvidenceUrls": [
+          "https://delinea.com/news/delinea-strongdm-to-unite-redefine-identity-security-for-the-ai-era",
+          "https://delinea.com/news/thycotic-and-centrify-merge-to-become-a-leading-cloud-privileged-identity-security-vendor"
+        ],
+        "family": "official_announcements",
+        "htmlCompleteness": "delinea-news-pagination-v1"
+      },
+      "proposedBindingSha256": "d08df569bfbcf7f2a0fc5ef1e5f1b1fe9b3682d7b2d505eb9d391129505b2376",
+      "initialIndexUrl": "https://delinea.com/news",
+      "maximumIndexPages": 60,
+      "advertisedPages": null,
+      "advertisedCountStatus": "numbered window reaches5; terminal unknown",
+      "dateHint": "unknown-index-date",
+      "freshQualificationRequests": "Traverse every actual literal next page from this root through independently validated terminal, at most60; then one literal primary article sample for transport/canonical/readability/date-shape only.",
+      "semanticReviewDuringQualification": false
+    },
+    {
+      "sourceId": "sonatype:official:1",
+      "supplierId": "sonatype",
+      "family": "official_announcements",
+      "originalSource": {
+        "id": "sonatype:official:1",
+        "supplierId": "sonatype",
+        "kind": "official_discovery",
+        "url": "https://www.sonatype.com/",
+        "allowedHosts": [
+          "www.sonatype.com"
+        ],
+        "registration": "candidate",
+        "required": true,
+        "maxPages": 60,
+        "scopePrefixes": [
+          "/news",
+          "/press",
+          "/blog",
+          "/company",
+          "/investor",
+          "/resources"
+        ],
+        "seedEvidenceUrls": [
+          "https://www.sonatype.com/press-releases/vista-acquires-majority-interest-in-sonatype",
+          "https://www.sonatype.com/press-releases/sonatype-strengthens-leadership-team-for-ai-driven-growth"
+        ],
+        "family": "official_announcements"
+      },
+      "proposedBindingWithoutQualificationOrigin": {
+        "id": "sonatype:official:1",
+        "supplierId": "sonatype",
+        "kind": "html_index",
+        "url": "https://www.sonatype.com/press-releases",
+        "allowedHosts": [
+          "www.sonatype.com"
+        ],
+        "registration": "verified",
+        "required": true,
+        "maxPages": 60,
+        "scopePrefixes": [
+          "/news",
+          "/press",
+          "/blog",
+          "/company",
+          "/investor",
+          "/resources"
+        ],
+        "seedEvidenceUrls": [
+          "https://www.sonatype.com/press-releases/vista-acquires-majority-interest-in-sonatype",
+          "https://www.sonatype.com/press-releases/sonatype-strengthens-leadership-team-for-ai-driven-growth"
+        ],
+        "family": "official_announcements",
+        "htmlCompleteness": "sonatype-press-pagination-v1"
+      },
+      "proposedBindingSha256": "e2a80b08ea656711de2935c9abe903073e2d9dec69f249d5d3ec26d891eb24f3",
+      "initialIndexUrl": "https://www.sonatype.com/press-releases",
+      "maximumIndexPages": 60,
+      "advertisedPages": 13,
+      "advertisedCountStatus": "terminal candidate not observed",
+      "dateHint": "sonatype-card-date",
+      "freshQualificationRequests": "Traverse every actual literal next page from this root through independently validated terminal, at most60; then one literal primary article sample for transport/canonical/readability/date-shape only.",
+      "semanticReviewDuringQualification": false
+    }
+  ],
+  "proposedOperation": {
+    "planSchema": 2,
+    "operation": "bounded_candidate_traversal",
+    "usesExistingManualInput": "source_probe=true",
+    "checkpointProfile": "source_probe",
+    "requiresWorkflowOrPublisherChange": false,
+    "legacySchema1": "Keep exact seven-target validator and existing historical D112 bridge unchanged; never infer new mode from absent fields or a failed legacy plan.",
+    "validateBeforeEscrow": "Whole current-policy plan, exact three candidate IDs, original source hashes, proposed binding hashes/adapter versions, existing maxPages60, explicit operation bound and flat archived disclosure roots.",
+    "execution": "One walk per source, at most3 parallel workers within maxWorkers4. Shared durable lease/escrow/budget reserve and before_fetch for every request. Follow only literal same-source sequential next controls from retained current bodies, not a prelisted seven-URL cap.",
+    "genericProbeFanout": false,
+    "maximumIndexRequests": 180,
+    "maximumPrimaryShapeSamples": 3,
+    "maximumLogicalFetchReservations": 183,
+    "maximumModelCalls": 0,
+    "maximumSemanticDocuments": 0,
+    "maximumRuntimeSeconds": 1200,
+    "transportTimeoutSeconds": 12,
+    "failure": "Bound, timeout, day crossing, budget denial, missing page, redirect/context conflict, duplicate or ambiguous terminal retains partial inventory and candidate hold; cannot qualify or emit intake success.",
+    "noVerifiedBypass": "Factor a shared source-bound parser/traverser invoked by the typed candidate plan. Do not set registration=verified temporarily and call the ordinary collector or add a skip-registration flag.",
+    "receipt": {
+      "originalContractSha256": "Pinned actual current79cdd policy",
+      "originalSourceSha256": "Exact actual candidate source",
+      "proposedBindingSha256": "Exact declared HTML binding before qualificationOrigin pointer",
+      "adapter": "Version and code/context hash",
+      "evidence": "Flat content-addressed index observations/body refs, literal next/previous/active/terminal controls, full observed URL/date-hint inventory, sample article observations/canonical/date-shape and durable reservations",
+      "completion": "discoveryTraversalComplete can be true; qualified remains false while actual registry is candidate; registrationReady is an evidence result only",
+      "credit": "coverageCredit=false; sourceChecksCredited=0; qualifiedSources=0; semanticAdmission=false; facts=[]; no newFactIds or model attempts",
+      "inventoryContinuity": "Persist every observed source+URL on complete or partial qualification receipts, with explicit unreviewed state. On actual registration, include the sealed qualification inventory as an independently replayed predecessor in normal source inventory; do not write fake audit cursors, semantic validations or facts. Normal discovery must still freshly traverse independently."
+    }
+  },
+  "minimalRuntimeChanges": [
+    {
+      "files": [
+        "web/scripts/pipeline/discovery.py",
+        "web/scripts/pipeline/contracts.py"
+      ],
+      "change": "Finish exact Ping terminal/start rules and add source-specific Delinea/Sonatype index rules; factor the shared traversal without changing current normal collector registration gate or D112 completeness semantics."
+    },
+    {
+      "files": [
+        "web/scripts/pipeline/onboarding.py",
+        "ops/ci/collect.py"
+      ],
+      "change": "Add explicit schema2 candidate traversal mode and independent pure receipt replay using existing leased source_probe profile. Branch before generic probe fanout. Preserve legacy schema1 exact-seven behavior and all old proof checks."
+    },
+    {
+      "files": [
+        "new narrowly scoped qualification replay module if needed",
+        "web/scripts/pipeline/validation.py or collector binding validation"
+      ],
+      "change": "Require new HTML mode declarations to resolve exact sealed qualificationOrigin/body/traversal proof; normal daily reconciliation continues independently replaying fresh discover. No raw mutable qualification flag is authority."
+    },
+    {
+      "files": [
+        "contracts/source-qualification-probes.json"
+      ],
+      "change": "Install the current-policy typed traversal plan once, carrying three source bindings and bounded literal continuation rules rather than another seven-page batch."
+    },
+    {
+      "files": [
+        "web/scripts/pipeline/retained_audit.py",
+        "web/scripts/pipeline/engine.py"
+      ],
+      "change": "If qualification reveals URLs that fall out before first registered collection, independently replay the typed qualification inventory as inventory-only predecessor authority. It supplies no document review or intake credit; keep full exact union and original timestamps even for partial candidate qualification."
+    }
+  ],
+  "registrationTransition": {
+    "beforeQualification": "Market remains79cdd and all three registrations remain candidate; proposed HTML bindings live only in the typed qualification plan.",
+    "afterActualQualification": "Separate atomic reviewed contract change updates only those exact three source kind/index URL/htmlCompleteness/registration and immutable qualificationOrigin reference, preserving source IDs, suppliers, hosts, family, required flags, maxPages60, categories and all557 task obligations.",
+    "avoidCircularHash": "Receipt binds original full contract plus proposed source binding without qualificationOrigin. Activation adds that flat receipt pointer; it never requires a receipt to hash a future contract containing its own hash.",
+    "policyMigration": "This is a source-specific substantive qualification transition, not the existing D112-only historical-probe bridge. Do not rewrite old global hashes or broaden that bridge.",
+    "diagnosticPlanDependency": "Same activation commit must replace the schema2 plan with an explicit current-policy disabled operation (zero candidate targets, no requests), or a separately reviewed current candidate plan. Leave no old79cdd proof plan falsely wrapping the new source definitions; absent/unknown/downgraded modes fail closed.",
+    "correctionsDependency": "Recompute enclosing factual correction policy stamp/projection from the new global contract while independently proving all six group review policies, admissions, rows and original dates unchanged; substantive group changes hold.",
+    "retainedFactsDependency": "Prove unrelated original semantic contexts against actual pinned old policies; source changed candidates cannot borrow semantic reviews from citations or other source IDs. Preserve existing accepted facts and original evidence dates.",
+    "firstCollection": "Only an actual normal collection under the new verified declarations can earn fresh intake. It must independently traverse all current index pages under30h/current-transport rules; current article work may remain pending when model/document budgets are exhausted."
+  },
+  "fixedBudget": {
+    "actualDiagnostic": {
+      "runId": "40066513321",
+      "totalReservations": 124,
+      "explicitReservations": 7,
+      "genericReservations": 117
+    },
+    "remainingDiscoveryWorkOnArchivedLayout": {
+      "pingMissingPages": 21,
+      "sonatypeMissingPagesIf13Terminal": 12,
+      "delineaMissingPages": "P_d-1, where P_d>=5 and <=60 if traversal completes within declared bound",
+      "missingPageFormula": "32+P_d",
+      "minimumAtP_d5": 37,
+      "conditionalMaximumAtP_d60": 92
+    },
+    "repeatedSevenBatchComparison": {
+      "basis": "Illustrative fixed layouts and unchanged117 generic-request cost; no live cost guarantee or qualification credit.",
+      "minimumBatches": 6,
+      "conditionalMaximumBatches": 14,
+      "minimumGenericOverhead": 702,
+      "conditionalMaximumGenericOverhead": 1638,
+      "minimumTotalReservations": 744,
+      "conditionalMaximumTotalReservations": 1736,
+      "formula": "ceil((32+P_d)/7)*124; each existing schema1 batch requires7 explicit targets, even when the remaining missing-page count does not divide by7",
+      "minimumExplicitReservations": 42,
+      "conditionalMaximumExplicitReservations": 98,
+      "unusedFinalBatchSlotsMinimumCase": 5,
+      "unusedFinalBatchSlotsMaximumCase": 6
+    },
+    "singleOperation": {
+      "freshKnownLayoutFormula": "25+13+P_d+3 primary shape samples =41+P_d",
+      "ifDelinea5": 46,
+      "ifDelinea60": 101,
+      "qualificationHardCeiling": 183,
+      "firstNormalCollectionHardCeiling": 186,
+      "qualificationPlusFirstCollectionHardCeiling": 369,
+      "normalDocumentRequestsMaximum": 6,
+      "allHistoricalArticleBodyFetchesRequired": false,
+      "dailyRepeatIndexCost": "P_ping+P_d+P_s, at most180 for these exact three sources; no generic117 overhead",
+      "notGuaranteed": "Future page counts/layouts and total account work can change; a bound reached before terminal is a hold."
+    },
+    "archivedSharedLedger": {
+      "archiveCommit": "20f8f6ee9b8113aea994d4251197221a6f64a005",
+      "budgetDay": "2026-10-24",
+      "fetchesCharged": 1111,
+      "fetchLimit": 5500,
+      "nominalRemainingFetches": 4389,
+      "modelCallsCharged": 80,
+      "semanticDocumentsCharged": 40,
+      "remainingModelCalls": 0,
+      "remainingSemanticDocuments": 0,
+      "qualificationCeilingFitsArchivedHeadroom": true,
+      "notReservation": "Archived accounting only; actual later lease/CAS must read and reserve against the live same-day ledger."
+    }
+  },
+  "offlineWork": [
+    "Replay retained original HTML/RSS/article bytes and build deterministic exact-source parser/date/terminal fixtures and tampering tests.",
+    "Implement typed candidate traversal plan/producer/pure independent replay and generic-fanout exclusion against fictional transport only.",
+    "Build prospective registration diff and prove unchanged74 suppliers,557 obligations, unrelated semantic contexts and six correction group policies; do not activate it.",
+    "Use all original bytes/times as fixture provenance; leave unobserved pages and article semantics explicitly unknown/pending."
+  ],
+  "actualFreshWorkStillNeeded": [
+    "One leased source-specific root-to-terminal walk for each exact proposed index URL; fresh original observations/body bindings for every page or valid current conditional-response chain. No archive-only body hash supplies current transport.",
+    "At most one actual primary shape sample per source from a literal card in that same walk (three total), validating URL/canonical/readability and date provenance only; choose current observed first card, not an invented endpoint.",
+    "After separately justified registration, a normal actual new-policy run must establish independently replayed daily intake. All processing/history partitions remain explicit; no semantic work is possible from the exhausted archived80/40 model/document ledger."
+  ],
+  "acceptanceCases": [
+    "Legacy exact-seven plans and original bridges retain exact policy/proof behavior; schema2 cannot be selected by omitted or downgraded metadata.",
+    "Ping full sequential25-page fixture accepts observed terminal; omitted page/start-link mismatch/disabled next early/changed terminal fails.",
+    "Delinea window can grow beyond5; no date-based stop; duplicate image/title links produce one article; conflicting head/next fails.",
+    "Sonatype terminal must be observed; rootPrev0fragment is not fetched; numbered/next disagreement, host/query drift or missing pages holds.",
+    "Fresh complete index with entirely pending historical reviews can pass normal D112 intake only after actual verified declaration and normal current replay.",
+    "All URLs including unknown dates and fallen-off historical cards remain in exact source+URL full inventory and pending/held partitions.",
+    "Qualification replay rejects body/row/URL/time/reservation/binding/adapter mutation and newer failed or same-time conflicting transport; no raw flags or mutable heads establish readiness.",
+    "Fixture limits, cancellation, day crossing, escrow/CAS failures and exhausted ledgers stop requests without model attempts, semantic facts or candidate credit.",
+    "After qualification activation, outer correction stamp and diagnostic plan match new policy while all six original group reviews and unrelated accepted facts remain exact."
+  ],
+  "archive": {
+    "root": "/var/tmp/smp-followup-probe-20261024/archive-20f8f6ee/jessepike-sec-market-20f8f6ee9b8113aea994d4251197221a6f64a005",
+    "manifestSha256": "962f925f60c19aa47c368c80c80d80ad6680b736223e2ceab76e071198586d37",
+    "selectedEntries": [
+      {
+        "bytes": 277064,
+        "key": "state/ci/source-probe-runs/40066513321-1.json",
+        "sha256": "4ef4905070ed2043b093aad72990fe0d45a73f3682d0d3832e0ac2fa966e6ee2"
+      },
+      {
+        "bytes": 42,
+        "key": "state/heads/budget-2026-10-24.json",
+        "sha256": "1384db48283c4ca4392ee40e617fcee4021883551b68b13e0644ed18dd996153"
+      },
+      {
+        "bytes": 138958,
+        "key": "state/objects/016390f2bb69053739461f57624864d8567ec72cd84f2808a80d6760e33b1d30",
+        "sha256": "016390f2bb69053739461f57624864d8567ec72cd84f2808a80d6760e33b1d30"
+      },
+      {
+        "bytes": 440,
+        "key": "state/objects/02b4b3a4fcc9c0a0661588383e4860a06ed9780cdd2f751577fcebae60b00d9b",
+        "sha256": "02b4b3a4fcc9c0a0661588383e4860a06ed9780cdd2f751577fcebae60b00d9b"
+      },
+      {
+        "bytes": 504,
+        "key": "state/objects/154b1e7e0330086229048ffaf87796ce51c1e5e70d94d42a3d140fba71adfeea",
+        "sha256": "154b1e7e0330086229048ffaf87796ce51c1e5e70d94d42a3d140fba71adfeea"
+      },
+      {
+        "bytes": 491,
+        "key": "state/objects/178d283473a44b4270a34f42be7a2c71c07e5985ca380c8b8a7540cfb0838784",
+        "sha256": "178d283473a44b4270a34f42be7a2c71c07e5985ca380c8b8a7540cfb0838784"
+      },
+      {
+        "bytes": 489,
+        "key": "state/objects/1f50d77a0796416ebf09d2d7fd92ba873172afb3b53dcb1da7cfe5f586289c7e",
+        "sha256": "1f50d77a0796416ebf09d2d7fd92ba873172afb3b53dcb1da7cfe5f586289c7e"
+      },
+      {
+        "bytes": 119417,
+        "key": "state/objects/4072d8f8b018edc36ec31199df49e8ebbf88ee31aeddbeef6e250384dcddcca1",
+        "sha256": "4072d8f8b018edc36ec31199df49e8ebbf88ee31aeddbeef6e250384dcddcca1"
+      },
+      {
+        "bytes": 117325,
+        "key": "state/objects/57b608f9920d1a7a83026da8b361f8e48fc4786c1744e3c80e7e74aeda7097ba",
+        "sha256": "57b608f9920d1a7a83026da8b361f8e48fc4786c1744e3c80e7e74aeda7097ba"
+      },
+      {
+        "bytes": 592,
+        "key": "state/objects/6323895cff1f9989105490b66b9c5b7b9fc09a780a0a1789e3523dc9781f8b3a",
+        "sha256": "6323895cff1f9989105490b66b9c5b7b9fc09a780a0a1789e3523dc9781f8b3a"
+      },
+      {
+        "bytes": 546,
+        "key": "state/objects/852983ed300e73d9899dab980c1ba7ad7a35fb2dcd2e7e19146633091cb67054",
+        "sha256": "852983ed300e73d9899dab980c1ba7ad7a35fb2dcd2e7e19146633091cb67054"
+      },
+      {
+        "bytes": 117339,
+        "key": "state/objects/9dd5e6a68bec1a8ee167393efe19b85cb0924c0147f323178b8774ce862961b9",
+        "sha256": "9dd5e6a68bec1a8ee167393efe19b85cb0924c0147f323178b8774ce862961b9"
+      },
+      {
+        "bytes": 99023,
+        "key": "state/objects/a65804e00578b903d8bc47768a6f3543622ce895904d5a32d66851197c9fd591",
+        "sha256": "a65804e00578b903d8bc47768a6f3543622ce895904d5a32d66851197c9fd591"
+      },
+      {
+        "bytes": 620,
+        "key": "state/objects/b6f5d583b06fe5609fffd6715f68678140ccecd42971bfa1627f3f9ef03628eb",
+        "sha256": "b6f5d583b06fe5609fffd6715f68678140ccecd42971bfa1627f3f9ef03628eb"
+      },
+      {
+        "bytes": 144789,
+        "key": "state/objects/c41039c12fb7c69bb2beb0a5c2d58c3a01b743c5d2a5523fa5cd92879ab5fe49",
+        "sha256": "c41039c12fb7c69bb2beb0a5c2d58c3a01b743c5d2a5523fa5cd92879ab5fe49"
+      },
+      {
+        "bytes": 96028,
+        "key": "state/objects/f51960d7ea48f451e533fb82cf5e31084eea6c77e69ab9b071dfeca47d5a61d0",
+        "sha256": "f51960d7ea48f451e533fb82cf5e31084eea6c77e69ab9b071dfeca47d5a61d0"
+      }
+    ],
+    "selectedContentAndMtimeUnchanged": true
+  },
+  "guards": {
+    "writeMutationNetworkSubprocessDenialsEnabled": true,
+    "sourceRequests": 0,
+    "modelCalls": 0,
+    "archiveWrites": 0,
+    "actualStateWrites": 0,
+    "runtimeOrContractEdits": 0
+  },
+  "specSha256": "86f7e61a131364ba965de0d9d3db3e6b0f530e9dc29a97a3d7f0c28362bead2a"
+}

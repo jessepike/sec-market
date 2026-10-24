@@ -1,0 +1,54 @@
+{
+  "archiveCommit": "21a4f7be073d30cef4547e1bbafcfea413024c12",
+  "manifestSha256": "77a402e1335e23e7cb42a6c0bb7aecc841f1bec07684ecc9b70d5c1708b2c7eb",
+  "verifiedFiles": 35148,
+  "previousVerifiedFiles": 34962,
+  "addedFiles": 186,
+  "removedFiles": [],
+  "changedExistingFiles": [
+    "state/heads/budget-2026-10-24.json",
+    "state/heads/cloud-lease.json"
+  ],
+  "immutableChanges": [],
+  "protectedHeadsUnchanged": [
+    "latest-run",
+    "cloud-collector",
+    "cloud-snapshot",
+    "dailySnapshot",
+    "correction-collection",
+    "production"
+  ],
+  "budget": {
+    "calls": 80,
+    "documents": 40,
+    "fetches": 1236
+  },
+  "gateAttempts": 2,
+  "before": {
+    "old": {
+      "files": 34966,
+      "fileSeal": "73cebbd1c68878a2b9ce38016dcbb0706aa7b019a435cae4ff3e6e38299a3f96",
+      "directorySeal": "d75c1821535ae29b8cbbd637cd88c01adc41e3b475d845c27c98a0f2f49a6d96"
+    },
+    "new": {
+      "files": 35152,
+      "fileSeal": "e917582dd0c64ee150e0a698978ae600adacbbc1a593cba43f0353af392842d0",
+      "directorySeal": "04a6391559c599d055f802734e0dbad58b949f57291d13e27c9cd3ce69aa9afb"
+    }
+  },
+  "after": {
+    "old": {
+      "files": 34966,
+      "fileSeal": "73cebbd1c68878a2b9ce38016dcbb0706aa7b019a435cae4ff3e6e38299a3f96",
+      "directorySeal": "d75c1821535ae29b8cbbd637cd88c01adc41e3b475d845c27c98a0f2f49a6d96"
+    },
+    "new": {
+      "files": 35152,
+      "fileSeal": "e917582dd0c64ee150e0a698978ae600adacbbc1a593cba43f0353af392842d0",
+      "directorySeal": "04a6391559c599d055f802734e0dbad58b949f57291d13e27c9cd3ce69aa9afb"
+    }
+  },
+  "marketRequests": 0,
+  "modelCalls": 0,
+  "publicationAttempted": false
+}

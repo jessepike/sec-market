@@ -12,7 +12,9 @@ use yet. Search and overlapping ownership/funding/stage navigation remain queued
 
 The owner accepted D-112: separate daily source intake, document processing and historical
 review, preserving all 74 suppliers, 557 obligations, URLs and original dates. Approved main is
-`7e17e22a1ba2c88db5cb4ab2012b752cfd55da2c`. Its actual GitHub web run `40066479146` passed.
+`377043028e01301b3433790caddc7a7dd5aaebc5`. Its actual preview web run `40069052672` passed;
+Vercel preview `dpl_FQhyLEHhWWUKoMXNeT3D6sefe5G8` is READY. Main web run `40069425216`
+also passed. The preceding main web run `40066479146` passed.
 The repaired historical request plan and early UTC publisher retry are active. Source registration,
 market-call authority, paid API prohibition and daily charged limits are unchanged.
 
@@ -61,12 +63,12 @@ accepted release and dated remediation observation remain separate and unchanged
 
 ## Limits, schedule and alerts
 
-October 24 usage is **1,111 fetches / 80 model calls / 40 documents**. There are 4,389 fetches
+October 24 usage is **1,236 fetches / 80 model calls / 40 documents**. There are 4,264 fetches
 remaining and no model/document allowance. Both gate/publication attempts are charged (2/2).
 Never reset/refund a charge, buy capacity or substitute paid models. Reserve the next natural
 UTC allowance for the real publisher and independent gate; production remains unchanged meanwhile.
 
-The normal 05:17 UTC October 24 collection has not appeared as of 06:04 UTC. The workflow is
+The normal 05:17 UTC October 24 collection has not appeared as of 06:26 UTC. The workflow is
 active, the private repository is enabled and main is its default branch. Earlier actual GitHub
 schedules started hours late. A manual run cannot supply timer evidence. Check the genuine next
 scheduled run and preserve its actual event, revision, source times and archived clock.
@@ -94,18 +96,31 @@ reservations; its explicit-only D-112 bridge repair passed independent review an
 Fresh responses still leave Ping pages 4–24, Delinea pagination and Sonatype pagination incomplete.
 The next seven literal targets are Ping pages 4–6, Delinea pages 2/5 and Sonatype pages 2/13.
 Their bounded flat-proof request plan passes independent replay and five tampering checks;
-full application checks pass. It awaits preview/main activation and a new actual leased diagnostic.
-Do not dispatch over a pending genuine
-scheduled collector. No qualification, admission or coverage follows from a parser or plan alone.
+full application checks pass. It reached preview/main and actual leased diagnostic `40069462824`
+passed at 06:18 UTC. All seven targets returned exact HTTP 200 responses; their body hashes and
+sizes were authenticated against immutable archive `21a4f7be`. All 35,148 archive files verify;
+all 34,962 preceding paths remain, with no immutable changes/removals or changed collection,
+correction or production heads. Both archive seals remain exact after verification.
+The run charged 125 requests (118 generic plus seven explicit), zero models and publication attempts.
+Do not dispatch over a pending genuine scheduled collector.
+No qualification, admission or coverage follows from a parser or plan alone.
 [Response review](docs/active/daily-pipeline/accuracy/followup-seven-target-response-review-2026-10-24.md) ·
 [Request plan](docs/active/daily-pipeline/accuracy/followup-seven-target-request-plan-implementation-2026-10-24.md).
 [Independent review](docs/active/daily-pipeline/accuracy/followup-seven-target-request-plan-independent-review-2026-10-24.md).
+[Actual activation and diagnostic](docs/active/daily-pipeline/receipts/pagination-plan-activation-2026-10-24.json).
 
-Four neutral parent-issuer bindings have a reviewed proposal under ignored `.ctx/`. Archived
+Four neutral parent-issuer bindings have a reviewed, retained
+[proposal](docs/active/daily-pipeline/accuracy/four-neutral-regulatory-bindings-spec-2026-10-24.md). Archived
 relationship proof is adequate; actual fresh qualification still needs an explicit bounded SEC
 path, a coordinated registry/probe-plan migration and the correction policy outer stamp. Retain
 all six group hashes/rows/dates and all 557 obligations. These are agent-owned tasks; no owner
 source decision is currently required. Do not activate an unqualified row to make collection run.
+
+Offline work is preparing one bounded traversal for Ping, Delinea and Sonatype, avoiding the
+117-request generic fanout observed per diagnostic batch. Full index traversal stays required;
+historical article processing remains separate. A proposed hard ceiling is 183 source requests
+and zero models, with no qualification or intake credit until actual evidence independently
+replays. [Bounded traversal proposal](docs/active/daily-pipeline/accuracy/bounded-candidate-qualification-next-step-2026-10-24.md).
 
 The original checkout `/Users/jessepike/code/projects/sec-market` remains at `0a660a72`.
 Preserve its modified status/lessons and untracked `web/tests/daily-measures.test.ts`; all current

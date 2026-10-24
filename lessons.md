@@ -108,3 +108,4 @@ unqualified with zero coverage credit. Tests use fictional fetchers and temporar
   relation or publication matching; replay the actual failing body and preserve its original hash.
 
 - A market-contract version change also invalidates separately pinned diagnostic plans and their nested historical proofs. Verify all dependent entry points before dispatch; migrate old proof explicitly, preserving original hashes and charges, rather than replacing only the outer policy hash.
+- The production push guard checks untracked files as well as tracked changes. Coordinate a brief write pause across workers, preserve unfinished files in ignored scratch with exact hashes, and restore them immediately after the clean promotion. Do not weaken the guard to accommodate concurrent work.

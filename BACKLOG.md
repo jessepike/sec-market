@@ -27,8 +27,17 @@ D-112 now has an actual manual private collection: 261/557 daily-intake checks, 
 24/9,914 reviewed documents and all 32 review holds preserved. Its matching archive canary passes.
 This new measure does not rewrite the live old-policy 244/557 report. New-policy scheduled and
 production receipts remain pending; both daily gate attempts are charged. The next literal
-pagination batch is prepared without qualification credit.
+pagination batch actually completed in diagnostic `40069462824`: seven HTTP 200 responses,
+125 charged requests, zero models and zero qualification credit. All 35,148 archive files verify
+with unchanged earlier immutable evidence and protected collection/production heads.
 [New-policy observation](docs/active/daily-pipeline/evaluations/2026-10-24/new-policy-manual-observation.md).
+
+The [bounded candidate traversal proposal](docs/active/daily-pipeline/accuracy/bounded-candidate-qualification-next-step-2026-10-24.md)
+replaces repeated generic probe overhead with one complete source-bound walk; its 183-request
+ceiling grants no current coverage. The [four neutral filing bindings proposal](docs/active/daily-pipeline/accuracy/four-neutral-regulatory-bindings-spec-2026-10-24.md)
+is retained for a coordinated registry/diagnostic/correction-stamp transition after actual source
+proof. Candidate source declarations stay unqualified while their bounded paths are implemented
+and independently reviewed. No owner source decision is currently required.
 
 The authenticated [current five-record remediation observation](docs/active/daily-pipeline/accuracy/current-correction-resolution-observation-2026-10-24.md)
 reports 5/5 resolved against the actual gated production release. The frozen 177-record audit

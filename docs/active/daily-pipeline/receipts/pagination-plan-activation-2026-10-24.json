@@ -1,0 +1,97 @@
+{
+  "checkedAt": "2026-10-24 06:26:04 UTC",
+  "scope": "reviewed_request_plan_activation_and_actual_manual_diagnostic",
+  "appRevision": "377043028e01301b3433790caddc7a7dd5aaebc5",
+  "preview": {
+    "githubRunId": 40069052672,
+    "conclusion": "success",
+    "deploymentId": "dpl_FQhyLEHhWWUKoMXNeT3D6sefe5G8",
+    "state": "READY",
+    "url": "https://security-market-pulse-f9ie88kex-pikeholdings.vercel.app"
+  },
+  "main": {
+    "promotion": "fast_forward_from_preview_with_existing_clean_tree_guard",
+    "githubRunId": 40069425216,
+    "conclusion": "success"
+  },
+  "diagnostic": {
+    "githubRunId": 40069462824,
+    "event": "workflow_dispatch",
+    "conclusion": "success",
+    "checkedAt": "2026-10-24T06:18:06.068011Z",
+    "planRawSha256": "62385a674edf896b479dc4fb9330e3e269afcbdc0b6715dd44f9b18608adbf4f",
+    "planCanonicalSha256": "42bf79e9e0a7f8907dc47b50836ec0e826c3a7ec81c028b9ba72e3da42d98356",
+    "targets": 7,
+    "exactHttp200Responses": 7,
+    "fetchReservations": 125,
+    "genericReservations": 118,
+    "explicitReservations": 7,
+    "modelCalls": 0,
+    "coverageCredit": false,
+    "qualifiedSources": 0
+  },
+  "archive": {
+    "commit": "21a4f7be073d30cef4547e1bbafcfea413024c12",
+    "manifestSha256": "77a402e1335e23e7cb42a6c0bb7aecc841f1bec07684ecc9b70d5c1708b2c7eb",
+    "verifiedFiles": 35148,
+    "previousPathsRetained": 34962,
+    "addedFiles": 186,
+    "immutableChanges": 0,
+    "removedFiles": 0,
+    "protectedCollectionAndProductionHeadsUnchanged": true
+  },
+  "usage": {
+    "fetches": 1236,
+    "calls": 80,
+    "documents": 40,
+    "fetchLimit": 5500,
+    "gateAttempts": 2,
+    "gateLimit": 2
+  },
+  "observedProduction": {
+    "allowed": true,
+    "releaseKind": "certified",
+    "dataUpdated": true,
+    "certifiedAt": "2026-10-24T01:41:40.176Z",
+    "contractVersion": "smp-certified-v2",
+    "rootView": "tracker",
+    "appRevision": "26181a2d4eb0aad1bd751cda70ab8e65142d2813",
+    "appBuiltAt": "2026-10-24T01:42:14.530Z",
+    "dailyRunId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+    "dailySnapshotSha256": "3fc853643035a9b5d8846792624d4a6bfa4436e89d9c1433b07b4d9a647ef78f",
+    "dailyContractSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+    "dailyCoverageComplete": false,
+    "factualCorrections": {
+      "enabled": true,
+      "policySha256": "e740d7407afc7b11be8802b250ea564224b10969717507818726e44e7b33f27e",
+      "fileSha256": "d76a49455951cb8be37d56ef3749ea3ac980a1f3a7073f27225ae3af030a7b9d",
+      "groupIds": [
+        "FC-20261023-checkpoint-sase",
+        "FC-20261023-optiv",
+        "FC-20261023-splunk",
+        "FC-20261023-zscaler",
+        "FC-20261023-expel",
+        "XAGE-SOURCE-CLASS-20261023"
+      ],
+      "targetIds": [
+        "event:EV-checkpoint-2",
+        "evidence:TR-checkpoint-4",
+        "event:EV-optiv-2",
+        "evidence:TR-optiv-3",
+        "event:EV-splunk-1",
+        "evidence:TR-splunk-2",
+        "event:EV-zscaler-2",
+        "evidence:TR-zscaler-4",
+        "supplier:expel:lastRound",
+        "supplier:expel:ownership",
+        "evidence:TR-expel-2",
+        "evidence:TR-xage-1"
+      ],
+      "newGroupIds": [],
+      "publicationDate": "2026-10-24"
+    }
+  },
+  "scheduledCollectionCredit": false,
+  "newPolicyPublicationCredit": false,
+  "publicationAttempted": false
+}
