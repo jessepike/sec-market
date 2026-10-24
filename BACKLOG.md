@@ -23,6 +23,13 @@ remain unchanged. Generic claim accuracy and eligible-event recall require a fix
 benchmark; passing the existing tests does not estimate those error rates. Reader value remains
 unmeasured: the owner reports no real use yet.
 
+D-112 now has an actual manual private collection: 261/557 daily-intake checks, with 296 gaps,
+24/9,914 reviewed documents and all 32 review holds preserved. Its matching archive canary passes.
+This new measure does not rewrite the live old-policy 244/557 report. New-policy scheduled and
+production receipts remain pending; both daily gate attempts are charged. The next literal
+pagination batch is prepared without qualification credit.
+[New-policy observation](docs/active/daily-pipeline/evaluations/2026-10-24/new-policy-manual-observation.md).
+
 The authenticated [current five-record remediation observation](docs/active/daily-pipeline/accuracy/current-correction-resolution-observation-2026-10-24.md)
 reports 5/5 resolved against the actual gated production release. The frozen 177-record audit
 retains its original results; current precision, recall and sustained operation remain unmeasured.

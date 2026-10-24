@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "mainRevision": "7e17e22a1ba2c88db5cb4ab2012b752cfd55da2c",
+  "mainWebRun": {
+    "conclusion": "success",
+    "createdAt": "2026-10-24T05:29:57Z",
+    "databaseId": 40066479146,
+    "event": "push",
+    "headSha": "7e17e22a1ba2c88db5cb4ab2012b752cfd55da2c",
+    "status": "completed",
+    "updatedAt": "2026-10-24T05:32:30Z",
+    "url": "https://github.com/jessepike/sec-market/actions/runs/40066479146"
+  },
+  "codePreviewWebRun": {
+    "conclusion": "success",
+    "createdAt": "2026-10-24T05:18:57Z",
+    "databaseId": 40065765757,
+    "event": "push",
+    "headSha": "111b75d50ae32adfdc45ab0cbee3c5a6d9d28686",
+    "status": "completed",
+    "updatedAt": "2026-10-24T05:21:40Z",
+    "url": "https://github.com/jessepike/sec-market/actions/runs/40065765757"
+  },
+  "previewDeployment": {
+    "id": "dpl_3JxCSJCgdeC15KEo7kbpYKEpuT85",
+    "url": "https://security-market-pulse-qlhrn0np2-pikeholdings.vercel.app",
+    "state": "READY",
+    "branch": "preview"
+  },
+  "mainGitDeployment": {
+    "id": "dpl_4SoXg7LeB5PTgvVtdwCX2z2gVtvi",
+    "state": "CANCELED",
+    "reason": "Existing mandatory main Git-build ignore rule; only independent exact-artifact publisher may publish."
+  },
+  "publisherCronsUtc": [
+    "00:23",
+    "06:23",
+    "16:23"
+  ],
+  "maxDailyGateAndPublicationAttempts": 2,
+  "chargedOctober24Attempts": 2,
+  "workflowUpdateTransport": "Existing connected GitHub application committed reviewed workflow to preview after ordinary Git credential refused workflow scope; local docs rebased with identical reviewed tree, then normal guarded fast-forward Git main promotion succeeded. No new login or credential copy.",
+  "sourceProbe": {
+    "githubRunId": 40066513321,
+    "event": "workflow_dispatch",
+    "executionCompleted": true,
+    "targetsSucceeded": 7,
+    "marketFetchReservations": 124,
+    "budgetAfter": {
+      "calls": 80,
+      "documents": 40,
+      "fetches": 765
+    },
+    "modelCalls": 0,
+    "qualificationCredit": 0,
+    "coverageCredit": false,
+    "archive": {
+      "commit": "892d9ffb809173be57eaf2729272dc06b3be798d",
+      "parentCommit": "ae5ba25b01ac7395bbb5ee808810d958aeeb2f80",
+      "manifestSha256": "2b43aebcb8fad6153a712f28793c1c86f253dc6ed23f2c69651d64dd40605f86",
+      "files": 31266,
+      "ref": "refs/archive/market-evidence"
+    }
+  },
+  "archiveContinuity": {
+    "archiveCommit": "892d9ffb809173be57eaf2729272dc06b3be798d",
+    "root": "/var/tmp/smp-followup-probe-20261024/archive-892d9ffb/jessepike-sec-market-892d9ffb809173be57eaf2729272dc06b3be798d",
+    "manifestSha256": "2b43aebcb8fad6153a712f28793c1c86f253dc6ed23f2c69651d64dd40605f86",
+    "verifiedManifestFiles": 31266,
+    "previousArchiveFiles": 31075,
+    "removedFiles": 0,
+    "changedExistingFiles": [
+      "state/heads/budget-2026-10-24.json",
+      "state/heads/cloud-lease.json"
+    ],
+    "changedImmutableFiles": 0,
+    "addedFiles": 191,
+    "marketRequests": 0,
+    "modelCalls": 0,
+    "productionChanged": false
+  },
+  "manualNewPolicyCollection": {
+    "githubRunId": 40066895586,
+    "status": "in_progress",
+    "scheduledEvidence": false
+  },
+  "scheduledNewPolicyCollection": {
+    "observed": false,
+    "lastCheckedAt": "2026-10-24T05:42:47Z",
+    "lastObservedScheduledRun": 39954446259
+  },
+  "production": {
+    "appRevision": "26181a2d4eb0aad1bd751cda70ab8e65142d2813",
+    "changed": false,
+    "combinedCoverageSuccessful": 244,
+    "requiredTasks": 557,
+    "correctionGroups": 6
+  },
+  "limitations": [
+    "New-policy scheduled collection, publication and early UTC retry receipts remain pending.",
+    "Actual successful diagnostic grants no qualification, semantic admission or coverage credit.",
+    "Do not interpret expected canceled Git production build as an exact-artifact publication failure."
+  ]
+}

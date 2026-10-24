@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "run": {
+    "conclusion": "failure",
+    "createdAt": "2026-10-24T05:53:22Z",
+    "databaseId": 40068017082,
+    "event": "workflow_dispatch",
+    "headSha": "7e17e22a1ba2c88db5cb4ab2012b752cfd55da2c",
+    "status": "completed",
+    "updatedAt": "2026-10-24T05:53:46Z",
+    "url": "https://github.com/jessepike/sec-market/actions/runs/40068017082"
+  },
+  "monitorTestsPassed": 20,
+  "healthy": false,
+  "issue": {
+    "number": 10,
+    "title": "Daily pipeline needs attention",
+    "state": "open",
+    "updated_at": "2026-10-24T05:53:43Z",
+    "html_url": "https://github.com/jessepike/sec-market/issues/10",
+    "body": "The independent daily pipeline probe needs attention.\n\nChecked: 2026-10-24T05:53:32.289331Z\n\nReasons: SCHEDULED_COLLECTION_RECEIPT_DIFFERS, OVERDUE_OR_INCOMPLETE_COVERAGE, DAILY_INTAKE_INCOMPLETE, PROCESSING_PENDING_9890, PROCESSING_HELD_5, HISTORICAL_REVIEW_PENDING_9890, PUBLIC_SEPARATE_COVERAGE_INVALID_OR_UNCOLLECTED, COLLECTION_HAS_NOT_REACHED_PRODUCTION, PUBLIC_COVERAGE_INCOMPLETE_OR_OVERDUE, HELD_CLAIMS_32\n\nNo missing check is counted as fresh. Inspect the daily coverage receipt and the private refs/archive/market-evidence ref.\n\n[Daily coverage](https://securitymarketpulse.com/daily-coverage.json)"
+  },
+  "scope": "Actual manual post-collection monitor and existing GitHub issue delivery. Not a scheduled timer observation.",
+  "interpretation": "Private contract and correction mismatches cleared after actual v2 collection. Intake/processing/history gaps, absent new-policy timer receipt, older public policy and32claim holds remain valid alarms. No collection/publication credit from an alert.",
+  "filePins": {
+    "new-policy-manual-monitor-run-40068017082.json": {
+      "sha256": "eb703c4f511d133cc8d8252aef15db6e55508f0d812ffc1b6e4d98b8c9c74a02",
+      "bytes": 295
+    },
+    "new-policy-manual-monitor-issue-10.json": {
+      "sha256": "cdc1ec9fd62358ee36c9aff9b74f05960ccd5ed7d349512fb946c647504ae51f",
+      "bytes": 4964
+    },
+    "new-policy-manual-monitor-log.txt": {
+      "sha256": "9c3c80c79123835ec88d75b370eb48979ec2354d463ecf8ad4d4dc94923905e9",
+      "bytes": 14759
+    }
+  }
+}

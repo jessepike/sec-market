@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "evaluatedAt": "2026-10-24T05:47:53Z",
+  "appRevision": "7e17e22a1ba2c88db5cb4ab2012b752cfd55da2c",
+  "inputs": {
+    "contract": {
+      "path": "new-policy-inputs/contract.json",
+      "sha256": "5b2b52dc2d17709f562b64ad6cb435086971ff8a6ccb9ce2fe95296a1ce1a7ff"
+    },
+    "coverage": {
+      "path": "new-policy-inputs/coverage.json",
+      "sha256": "8dff4c5ca6a07568efaa26d1f9dd88656c83ff095c3d3eab9a5de9c6bab0eab1"
+    },
+    "collection": {
+      "path": "new-policy-inputs/manual-collection.json",
+      "sha256": "0af16f73d59ee6c27f606c457842ef29e29a0bdd1d80a9514293d370abb4d3c2"
+    }
+  }
+}

@@ -55,6 +55,12 @@ passes; historical backlog is reported separately and cannot renew source age. E
 document inventories are unmeasured, not 0/0. These separate summaries do not estimate claim
 precision, event recall or all-site accuracy, and they do not change the fixed source denominator.
 
+The actual new-policy [manual collection observation](evaluations/2026-10-24/new-policy-manual-observation.md)
+records 261/557 intake checks at 05:41:33 UTC on October 24, with processing/history still 24/9,914.
+Its separate scorecard leaves timer execution and new-policy publication unmeasured. The matching
+archive canary passes, but supplies no source, timer or release credit. Preserve the old-policy
+reports and actual public-release evidence alongside this new private-policy observation.
+
 ## Trust and further evaluation
 
 The separate [authenticated current-remediation observation](accuracy/current-correction-resolution-observation-2026-10-24.md)

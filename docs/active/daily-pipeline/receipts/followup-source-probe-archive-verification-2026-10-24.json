@@ -1,0 +1,17 @@
+{
+  "archiveCommit": "892d9ffb809173be57eaf2729272dc06b3be798d",
+  "root": "/var/tmp/smp-followup-probe-20261024/archive-892d9ffb/jessepike-sec-market-892d9ffb809173be57eaf2729272dc06b3be798d",
+  "manifestSha256": "2b43aebcb8fad6153a712f28793c1c86f253dc6ed23f2c69651d64dd40605f86",
+  "verifiedManifestFiles": 31266,
+  "previousArchiveFiles": 31075,
+  "removedFiles": 0,
+  "changedExistingFiles": [
+    "state/heads/budget-2026-10-24.json",
+    "state/heads/cloud-lease.json"
+  ],
+  "changedImmutableFiles": 0,
+  "addedFiles": 191,
+  "marketRequests": 0,
+  "modelCalls": 0,
+  "productionChanged": false
+}
