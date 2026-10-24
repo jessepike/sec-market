@@ -10,6 +10,7 @@ promoted there are removed from this file; Git history keeps them.
 
 ## 2026-10-23
 
+- [new:2026-10-24] Check sustained throughput against freshness rules before expecting a full-source pass. Refreshing 9,276 distinct historical articles every 30 hours needs 7,420.8 fetches/day before index work, beyond the fixed 5,500 ceiling. D-112 explicitly separates fresh intake, fact processing and historical review; preserve old measurement definitions and every URL instead of manufacturing a green score.
 - [new:2026-10-24] Embedding an entire prior seven-target plan in every new proof grows the plan sevenfold per batch and eventually blocks collection. Store each validated committed raw plan once under the existing lease and acknowledged escrow, then bind later proofs to its exact recorded content reference. Keep raw embedding only for legacy receipts without that reference.
 - [new:2026-10-24] A manual collector is neither a successful nor failed scheduled attempt. Keep timer execution unmeasured with no invented denominator, while still enforcing its run, revision and coverage identities. A later release reconciliation time cannot renew the original source-check age.
 - [new:2026-10-24] Manual publication verification consumes the same UTC-day gate and publication allowances as scheduled work. Reserve capacity for the upcoming scheduled cycle before dispatching another manual batch. Controlled rollback reuses accepted artifacts and does not consume another publication batch; never refund spent attempts to make a test fit.

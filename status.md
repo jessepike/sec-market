@@ -9,6 +9,9 @@ updated: 2026-10-24
 Make the current site consistent, durable, accurate and fresh before expansion (D-111).
 The coverage goal remains active. Reader value is unmeasured; the owner reports no useful real
 use yet. Search and overlapping ownership/funding/stage navigation are queued in SEC-073/074.
+The owner accepted D-112: separate fresh daily intake, fact processing and historical review.
+Implementation is underway; the accepted production receipt still uses the former combined
+definition. Preserve its 244/557 result and dates until a new-policy release actually publishes.
 
 ## Accepted production
 
@@ -102,13 +105,23 @@ Git preview uses the older baseline fixture (0/557 and no applied corrections); 
 accepted daily artifact. Production remains unchanged at 244/557 with all six groups.
 [Preview checks and visual boundary](docs/active/daily-pipeline/receipts/coverage-candidate-preview-2026-10-24.json).
 
-The [retained-audit proposal](docs/active/daily-pipeline/accuracy/retained-audit-rebinding-spec-2026-10-24.md)
-replays all 24 retained completed pages, but 9,890 due URLs still need work and all 17 historical
-tasks remain incomplete. Runtime rebinding is not implemented. The executable
+The [retained-audit repair](docs/active/daily-pipeline/accuracy/retained-audit-rebinding-implementation-2026-10-24.md)
+now independently replays all 24 retained completed pages, preserves all 9,914 source/URL
+obligations, and leaves 9,890 due URLs and all 17 historical tasks incomplete under the former
+policy. Both b9 and current 9c archive replays preserve all content and mtimes. The four independent
+guard findings are fixed and retested; 507 operational, 115 pipeline, 353 data and 43 browser
+tests pass. This is a committed candidate, with no live source credit. The executable
 [operational scorecard](docs/active/daily-pipeline/evaluations/2026-10-24/operational-scorecard.md)
 reproduces byte-for-byte with pinned inputs: 244/557 coverage, 48/48 SEC source checks, repaired
 publication/rollback passes, and unmeasured current scheduled execution, sustained durability and
 reader value. It keeps the original 00:38:18 UTC collection time and the frozen accuracy audit apart.
+
+The [independent capacity audit](docs/active/daily-pipeline/accuracy/historical-freshness-feasibility-2026-10-24.md)
+proves that keeping all historical articles fresh needs at least 7,420.8 requests/day even with
+ideal sharing, above the fixed 5,500 limit. The owner selected the reviewed separation proposal;
+the [D-112 implementation specification](docs/active/daily-pipeline/separate-freshness-history-spec-2026-10-24.md)
+preserves every obligation and original date, with distinct intake/processing/history measures.
+No quota increase, refund, new source or changed live coverage follows from this decision alone.
 
 Next prepare the scoped source adapters from retained evidence and obtain the actual scheduled
 cycle on repaired main within charged limits. Collection is 05:17 UTC; publication follows successful scheduled

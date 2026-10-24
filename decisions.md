@@ -4,7 +4,7 @@ Append-only ledger of owner and project decisions since 2026-08-15. Past entries
 a later entry supersedes an earlier one. (Link paths were updated on 2026-10-16 when documents moved
 to `docs/archive/`; the words of each entry are unchanged.)
 
-## Decisions in force (as of 2026-10-23)
+## Decisions in force (as of 2026-10-24)
 
 Everything not listed here is history: superseded, completed, or about a phase that has ended.
 
@@ -21,6 +21,7 @@ Everything not listed here is history: superseded, completed, or about a phase t
 | Security | D-83 (credential boundary), D-99 | No tokens or credentials copied to CI without approval at the time. Security headers and DNS hardening on both sites |
 | Daily coverage | D-104 through D-110 | Bounded daily collection for all 74 current suppliers authorized. Every published changed fact needs evidence and checks; complete SEC certification remains mandatory. Actual scheduled coverage is 121/557 with explicit gaps and holds. First live release and controlled rollback are verified; full coverage and sustained operation remain open. No paid fallback |
 | Current priority | D-111 | Make the current site consistent, durable, accurate and fresh before expanding coverage or building search. Reader value is unmeasured; no observed useful decision or conversation yet. Track separate evidence-backed measures and preserve every declared coverage obligation |
+| Freshness and history | D-112 | Separate fresh daily source intake, fact-processing progress and historical review. Preserve all 557 source obligations, every historical URL and original evidence dates. A fresh intake check cannot stand for reviewed history or complete current-event coverage |
 | Roadmap | D-94, D-104 | A quarterly owner-written note is on the backlog. Private-company extraction is now authorized within the daily pipeline workstream |
 
 Numbering note: D-34 was recorded before D-33 on 2026-08-16; both stand as written.
@@ -1361,3 +1362,24 @@ is unmeasured. Use separate evidence-bound measures for durability, accuracy, fr
 and value; an operational pass must not conceal a failed continuity check or unmeasured use.
 Factual extraction and source/date validation holds are agent work, not automatic owner decisions.
 Search is later work. See the [recovery plan](docs/active/daily-pipeline/coverage-recovery-plan-2026-10-23.md).
+
+**D-112 · 2026-10-24 — Separate daily freshness and historical review.**
+
+The owner selected: "Separate daily freshness and historical review (recommended)" in response
+to the [coverage-policy proposal](docs/active/daily-pipeline/accuracy/history-and-daily-coverage-decision-2026-10-24.md).
+The independent inventory proves the existing whole-history freshness requirement needs at least
+7,420.8 article requests per day, above the unchanged 5,500 ceiling before other required work.
+
+Implement the accepted separation: fresh complete source discovery, visible progress and holds for
+new/changed/undated document processing, and separately measured historical review. Preserve the
+74 suppliers, all 557 source obligations, all retained URLs and original source/review dates.
+A historical proof may replay at its original admission time; replay cannot renew its transport
+date or imply that the old article was recently retrieved. A fresh index cannot establish that
+every current event was found or every underlying record is accurate.
+
+Version the changed policy and its baseline explicitly; preserve historical 121/557 and 244/557
+reports under their original definitions. Existing primary-source admission, independent review,
+complete SEC certification, publication checks, charged limits and existing infrastructure remain.
+No new spending, service, API billing fallback, refund, supplier removal or unknown-as-pass follows.
+The existing activation approval remains in force; new policy operation still needs actual
+scheduled-run and production evidence. Reader value remains unmeasured.

@@ -30,7 +30,16 @@ and Ping parser retain incomplete history, consume no requests during offline pr
 new coverage. Future diagnostic plans use content-addressed prior-plan references to remain bounded.
 The [retained-audit proposal](docs/active/daily-pipeline/accuracy/retained-audit-rebinding-spec-2026-10-24.md)
 finds replayable proof for 24 completed pages; 9,890 due URLs and all 17 historical tasks remain open.
-Implement independent retained-proof rebinding before clearing those completeness holds.
+Preserve independent retained-proof replay before clearing any completeness hold.
+
+Retained-proof rebinding is now implemented and independently reviewed: 24 historical checks
+replay over the unchanged 9,914 source/URL inventory, with 9,890 due and all 17 tasks incomplete
+under the old rule. The capacity audit proves the old whole-history freshness requirement cannot
+be sustained within the fixed fetch allowance. The owner accepted D-112 to separate daily intake,
+fact processing and historical review. Implement its versioned policy, explicit reader labels,
+monitor/scorecard support, semantic-policy compatibility and actual scheduled/publication proof.
+Keep old 121/557 and 244/557 reports under their original definitions; do not count a fresh index
+as complete event coverage or renew old evidence dates. No owner policy choice remains pending.
 
 The [fixed existing-record review](docs/active/daily-pipeline/accuracy/current-record-review-2026-10-23.md)
 now covers 97 hand events and 80 supplier fields. Five directly contradicting records and a related
