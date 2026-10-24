@@ -22,8 +22,8 @@ remain live. The original combined report remains 244/557, source checked Octobe
 were separately resolved against this published release; general precision/recall is unmeasured.
 [Publication receipts](docs/active/daily-pipeline/renewal-verification-2026-10-24.md).
 
-Approved main and preview are `60b08b91`. Actual web runs `40077103070`/`40077350365` and canary
-`40077103052` passed. Preview `dpl_7EpXo3ReTod8tmwbv5HuABB2qghf` is READY. Main Git builds
+Approved main and preview are `4b5e5ec1`. Actual web runs `40078800081`/`40079004105` and canary
+`40078800031` passed. Preview `dpl_HsXxpNnVi1r6WLbQYHvLxVLFGMBJ` is READY. Main Git builds
 are intentionally canceled; only the guarded exact-artifact publisher changes production.
 
 ## New-policy private collection and evidence
@@ -41,11 +41,11 @@ unmeasured. [Private transition](docs/active/daily-pipeline/accuracy/actual-new-
 
 ## Limits, schedule and alerts
 
-October 24 UTC usage is **1,375 fetches / 80 model calls / 40 documents**; 4,125 fetches remain,
+October 24 UTC usage is **1,438 fetches / 80 model calls / 40 documents**; 4,062 fetches remain,
 with no model/document allowance. Both publication/gate attempts are charged (2/2). No resets,
 refunds, purchases or paid fallback. Reserve the next natural UTC allowance for publication.
 
-The October 24 05:17 UTC scheduled collector has not appeared as of approximately 08:26 UTC.
+The October 24 05:17 UTC scheduled collector has not appeared as of approximately 08:47 UTC.
 GitHub has previously delayed actual schedules by hours. A manual run supplies no timer proof.
 Publisher opportunities are 00:23, 06:23 and 16:23 UTC plus a genuine scheduled-collector callback.
 The old public source expires October 25 at 06:38:18 UTC. The early retry gives nominal margin;
@@ -68,8 +68,17 @@ pass. [Actual V3 audit](docs/active/daily-pipeline/accuracy/bounded-traversal-v3
 
 The narrow V4 route repair and exact operational plan pass independent review, all 678 operational
 tests and the complete web checks. All three earlier actual diagnostics replay exactly, with
-unchanged sealed archives. Desktop/phone pixels remain identical. The next leased diagnostic
-still needs actual execution. Delinea's terminal markup remains unproved. No source is activated.
+unchanged sealed archives. Desktop/phone pixels remain identical, including the actual ready
+Vercel preview. Actual V4 diagnostic `40079036392` succeeded on exact main `4b5e5ec1`, checked
+08:45:25.560536 UTC. It charged 63 fetches (1,375 to 1,438), zero models and no coverage credit.
+Ping remains complete at 25 pages/242 URLs. Delinea reached page 25/290 URLs but terminal proof
+remains unproved; Sonatype stops at page 10/144 URLs on another literal path. All three primary
+samples passed. Archive `e467ab00`, manifest `ce989f35…ad70`, authenticates all 35,790 entries,
+retaining all 35,592 prior paths with 198 additions and zero immutable changes. Normal collection,
+correction and production heads remain unchanged. Original V4 report and file/directory seals
+replay exactly. Independent actual-run review also passes: all 594 prior V3 source/URL pairs
+remain within V4's 676; all original V1–V4 reports reproduce exactly. No source is activated.
+[Actual V4 review](docs/active/daily-pipeline/accuracy/bounded-traversal-v4-actual-response-review-2026-10-24.md).
 The dormant typed inventory-origin
 helper has an empty trusted activation registry. The explicit disabled operation is implemented
 but the operational plan remains active. Full V3 checks passed: 668 operational, 368 data,
