@@ -10,7 +10,7 @@ Host and OrbStack copies matched the following final hashes:
 |---|---|
 | `web/scripts/pipeline/fetcher.py` | `dbf25815953f1da8aac763d7b237161910f154ec8bac056a74cf5a2a547e8104` |
 | `ops/ci/collect.py` | `097187b7dc1e03165eabb51d935fd6c678b84b27a733958951cb2db97222e540` |
-| `ops/ci/test_orca_redirect_diagnostics.py` | `ba4c186b776bed8ed83c33fb2bd3e17460932322dbc3df1b697e718ed2328d2e` |
+| `ops/ci/test_orca_redirect_diagnostics.py` | `16bf3ca6b5b70855a35a802624d02d58976bcda43fcc7694bf090155499e2d72` |
 
 The collector diff is one constructor keyword: `redirect_diagnostics=True` only within the exact `bounded_orca_qualification` branch. The generic source-probe constructor retains its default arguments. The original `ContractRedirect` implementation, URL safety checks, normal handler selection, stdlib redirect limits, network policy, retries and conditional-request behavior remain intact.
 
@@ -67,3 +67,5 @@ This independent review and original-report replay ran while the operational pla
 After those checks, the parent locally restored that exact original operational plan only for the already approved single capped follow-up after code CI and promotion. This later local plan state supplies no fresh response or qualification proof. Actual Actions, artifact, archive, charge and response authentication still has to follow the real run. The current H policy, candidate registration, source authorities, seed package and model/document allowances are unchanged.
 
 Only this new review file was written in the repository for this review. No runtime implementation or source evidence was edited by the reviewer.
+
+The parent removed one trailing blank line from the test file after the reviewed implementation. The original test SHA-256 was `ba4c186b776bed8ed83c33fb2bd3e17460932322dbc3df1b697e718ed2328d2e`; the final formatting-only SHA-256 is `16bf3ca6b5b70855a35a802624d02d58976bcda43fcc7694bf090155499e2d72`. The 14 focused tests were rerun successfully after normalization. Runtime code is unchanged.

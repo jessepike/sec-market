@@ -6,7 +6,7 @@
   "files": {
     "web/scripts/pipeline/fetcher.py": "dbf25815953f1da8aac763d7b237161910f154ec8bac056a74cf5a2a547e8104",
     "ops/ci/collect.py": "097187b7dc1e03165eabb51d935fd6c678b84b27a733958951cb2db97222e540",
-    "ops/ci/test_orca_redirect_diagnostics.py": "ba4c186b776bed8ed83c33fb2bd3e17460932322dbc3df1b697e718ed2328d2e",
+    "ops/ci/test_orca_redirect_diagnostics.py": "16bf3ca6b5b70855a35a802624d02d58976bcda43fcc7694bf090155499e2d72",
     "contracts/source-qualification-probes.json": "93257fbffe11598ffff5ee7b890fdd0e992d59d4b276d0ad09aa8ddfe56f7d98",
     "contracts/market.json": "24221c946781559c0ff3626e4e479c4647da915d0f2d7559ea88046982532c3c",
     "web/scripts/pipeline/orca_qualification.py": "731ee99cdc88bc4e69ef135f4c2e60f75248bc4db9bc389a3b5aa5773457935d",
@@ -83,5 +83,11 @@
   },
   "actualNewSourceRun": false,
   "qualificationCredit": false,
-  "productionChanged": false
+  "productionChanged": false,
+  "testWhitespaceNormalization": {
+    "beforeSha256": "ba4c186b776bed8ed83c33fb2bd3e17460932322dbc3df1b697e718ed2328d2e",
+    "afterSha256": "16bf3ca6b5b70855a35a802624d02d58976bcda43fcc7694bf090155499e2d72",
+    "onlyOneTrailingBlankLineRemoved": true,
+    "focusedTestsRerun": 14
+  }
 }

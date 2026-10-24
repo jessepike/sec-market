@@ -16,7 +16,7 @@ Opt-in unsafe or malformed redirects return failed observations with the actual 
 |---|---|
 | `web/scripts/pipeline/fetcher.py` | `dbf25815953f1da8aac763d7b237161910f154ec8bac056a74cf5a2a547e8104` |
 | `ops/ci/collect.py` | `097187b7dc1e03165eabb51d935fd6c678b84b27a733958951cb2db97222e540` |
-| `ops/ci/test_orca_redirect_diagnostics.py` | `ba4c186b776bed8ed83c33fb2bd3e17460932322dbc3df1b697e718ed2328d2e` |
+| `ops/ci/test_orca_redirect_diagnostics.py` | `16bf3ca6b5b70855a35a802624d02d58976bcda43fcc7694bf090155499e2d72` |
 | `contracts/source-qualification-probes.json` (disabled at worker review) | `ad1c5cc234fe4fa69cbceb5370ac74825a37dc80b08528ca908d14b1352e53b4` |
 | `contracts/market.json` (unchanged) | `24221c946781559c0ff3626e4e479c4647da915d0f2d7559ea88046982532c3c` |
 | `web/scripts/pipeline/orca_qualification.py` (unchanged) | `731ee99cdc88bc4e69ef135f4c2e60f75248bc4db9bc389a3b5aa5773457935d` |
@@ -47,3 +47,5 @@ Independent review by `correction_history` found no blocker, including five addi
 ## Next bounded action
 
 I recommend one reviewed capped follow-up through the existing leased diagnostic route to observe the redirect metadata. The parent may restore the exact original `93257fbffe11598ffff5ee7b890fdd0e992d59d4b276d0ad09aa8ddfe56f7d98` plan atomically after review; this worker did not change it. Any actual result still needs authenticated run/artifact/archive/body/time/charge replay, and must keep zero model/document/gate use and zero qualification or coverage credit. Restore exact disabled `ad1...` after that diagnostic. A source activation remains separate from this transport observation repair.
+
+The parent removed one trailing blank line from the test file after the reviewed implementation. The original test SHA-256 was `ba4c186b776bed8ed83c33fb2bd3e17460932322dbc3df1b697e718ed2328d2e`; the final formatting-only SHA-256 is `16bf3ca6b5b70855a35a802624d02d58976bcda43fcc7694bf090155499e2d72`. The 14 focused tests were rerun successfully after normalization. Runtime code is unchanged.
