@@ -17,22 +17,29 @@ Track exact source ages, known release checks, data continuity, scheduled operat
 with the [evaluation rubric](docs/active/daily-pipeline/evaluation-rubric.md) and reproducible
 [baseline scorecard](docs/active/daily-pipeline/evaluations/2026-10-23/live-baseline.md).
 
-Candidate fixes and archived replays do not improve the live 121/557 result until a normal fresh
-run and independently gated publication prove it. October 23's charged collection and gate limits
+Actual October 24 collection and independently gated publication raised live coverage to 244/557.
+Candidate fixes and archived replays grant no additional current credit. October 23's charged collection and gate limits
 remain unchanged. Generic claim accuracy and eligible-event recall require a fixed reviewed
 benchmark; passing the existing tests does not estimate those error rates. Reader value remains
 unmeasured: the owner reports no real use yet.
 
 The [fixed existing-record review](docs/active/daily-pipeline/accuracy/current-record-review-2026-10-23.md)
 now covers 97 hand events and 80 supplier fields. Five directly contradicting records and a related
-ambiguous funding field have exact correction drafts. The separate dated factual-correction ledger,
-current-view projection and current-policy admission adapter are implemented in the disabled
-candidate, with immutable originals, runtime export checks and release/date bindings. Run actual
-independent subscription reviews and gated publication after the natural daily allowance renews;
-synthetic tests and source-byte checks do not admit corrections. Preserve
+ambiguous funding field now have actual reviewed, gated corrections in release
+`a564d0a471931329bdf8a2e263bf26838ecb23d06d4a98d78cc4735c629c44f4`.
+The separate dated ledger preserves immutable originals, actual independent review chains,
+runtime export checks and publication-date bindings. The scoped Xage source-class correction is
+also live and grants no financial certification. Synthetic tests and source-byte checks alone
+do not admit corrections. Preserve
 raw history and existing owner-approved issue corrections; reject unreviewed static edits. Resolve
 the remaining support/date/provenance gaps without treating them all as false. Known contradictions
-must stay visible separately from passing release tests and the unchanged 121/557 source result.
+must stay visible separately from passing release tests and current source coverage. Preserve the
+frozen audit as a historical benchmark; measure current remediation in a separate bound observation.
+The next accounting repair removes already-checked pages from pending work while keeping source
+completeness held until their prior evidence is rebound. Qualify the exact Ping/Delinea/Sonatype
+feeds with actual leased responses before registration. Investigate bounded, replayable no-entity
+screening for broad shared-publisher history; fix the evidenced Sophos alias before relying on that
+exclusion. Neither URL priority nor a missing name in an unchecked page proves irrelevance.
 
 The [candidate registration audit](docs/active/daily-pipeline/accuracy/candidate-registration-audit-2026-10-23.md)
 inspected all 28 unverified bindings against 39 retained primary bodies. It found 27 disclosed

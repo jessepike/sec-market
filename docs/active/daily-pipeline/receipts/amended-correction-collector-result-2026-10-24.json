@@ -1,0 +1,99 @@
+{
+  "githubRunId": "40045615085",
+  "githubEventName": "workflow_dispatch",
+  "githubRef": "refs/heads/main",
+  "appRevision": "abcd9646fdbc296fddc557f2077544d53c75f12a",
+  "runId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+  "successfulTasks": 244,
+  "requiredTasks": 557,
+  "complete": false,
+  "modelCalls": 16,
+  "apiFallback": false,
+  "snapshotSha256": "54062f8e140b4f4331f5c1be33554738894d26aa7b6558796fe56c8b02603070",
+  "reviewQueue": 32,
+  "executionMode": "github_subscription",
+  "publication": {
+    "published": false,
+    "reason": "SEPARATE_PUBLISHER_REQUIRED"
+  },
+  "executionCompleted": true,
+  "outcome": "completed_with_gaps",
+  "corrections": {
+    "policySha256": "e740d7407afc7b11be8802b250ea564224b10969717507818726e44e7b33f27e",
+    "admitted": [
+      {
+        "groupId": "FC-20261023-checkpoint-sase",
+        "admission": {
+          "key": "objects/1bcaa2ca22fcb4c24597fc477c406abddf9ddb20853a4d290c79322bee46afa9",
+          "sha256": "1bcaa2ca22fcb4c24597fc477c406abddf9ddb20853a4d290c79322bee46afa9",
+          "bytes": 1522
+        }
+      },
+      {
+        "admission": {
+          "bytes": 1014,
+          "key": "objects/580099157608b61895574d2b136c93a940109f82d0a33459388a83f46fbc7bf2",
+          "sha256": "580099157608b61895574d2b136c93a940109f82d0a33459388a83f46fbc7bf2"
+        },
+        "groupId": "FC-20261023-optiv"
+      },
+      {
+        "admission": {
+          "bytes": 988,
+          "key": "objects/a42addfcd5043dceffcd259fc8bdac7486b012400fae4b82ce0e5b00968e18af",
+          "sha256": "a42addfcd5043dceffcd259fc8bdac7486b012400fae4b82ce0e5b00968e18af"
+        },
+        "groupId": "FC-20261023-splunk"
+      },
+      {
+        "groupId": "FC-20261023-zscaler",
+        "admission": {
+          "key": "objects/f255c470cc078e1d44399f7e2027134b466f23cc5939437d196bef9d7aa04e4b",
+          "sha256": "f255c470cc078e1d44399f7e2027134b466f23cc5939437d196bef9d7aa04e4b",
+          "bytes": 1460
+        }
+      },
+      {
+        "admission": {
+          "bytes": 1493,
+          "key": "objects/b120ca46429f8e52a09d4fce293c14ddb08319212b2b9a8e0f10b39661deed4c",
+          "sha256": "b120ca46429f8e52a09d4fce293c14ddb08319212b2b9a8e0f10b39661deed4c"
+        },
+        "groupId": "FC-20261023-expel"
+      },
+      {
+        "admission": {
+          "bytes": 1340,
+          "key": "objects/ec322362de6fb9e4e20cea0c9ed825990a01bf0c41d5b32662ab6131914f6c98",
+          "sha256": "ec322362de6fb9e4e20cea0c9ed825990a01bf0c41d5b32662ab6131914f6c98"
+        },
+        "groupId": "XAGE-SOURCE-CLASS-20261023"
+      }
+    ],
+    "pending": [],
+    "attempts": [
+      {
+        "key": "objects/f85d33b0ed9cb31636a48893722130f7955f193b7a434fb7347e8cf3d8b32c36",
+        "sha256": "f85d33b0ed9cb31636a48893722130f7955f193b7a434fb7347e8cf3d8b32c36",
+        "bytes": 1642
+      },
+      {
+        "key": "objects/5d38e1836f5dab2b95450d9927c718e6937a936570d8da7bd8d13d1f42584bca",
+        "sha256": "5d38e1836f5dab2b95450d9927c718e6937a936570d8da7bd8d13d1f42584bca",
+        "bytes": 1580
+      }
+    ],
+    "receipt": {
+      "key": "objects/9caf37cbf9c961298b8e11779a252d713e995bdbd0e67b5028fb82d6ca8111a5",
+      "sha256": "9caf37cbf9c961298b8e11779a252d713e995bdbd0e67b5028fb82d6ca8111a5",
+      "bytes": 1900
+    }
+  },
+  "archive": {
+    "commit": "4b325ab62385379c9d76b585ee3c3575ba8cab4d",
+    "parentCommit": "9b41ae2eb7313277bc67d50d80384f7a69f80de4",
+    "manifestSha256": "3bebbef137b62f331b218fbf947bff25ca00a5bebf45bb3441dace9fd1fe619e",
+    "files": 30823,
+    "ref": "refs/archive/market-evidence"
+  }
+}

@@ -1,0 +1,698 @@
+{
+  "kind": "independent_read_only_verification_of_actual_six_correction_admissions",
+  "checkedAt": "2026-10-24T00:47:33.312020Z",
+  "archive": {
+    "commit": "4b325ab62385379c9d76b585ee3c3575ba8cab4d",
+    "manifestSha256": "3bebbef137b62f331b218fbf947bff25ca00a5bebf45bb3441dace9fd1fe619e",
+    "files": 30823,
+    "allManifestFilesIndependentlyVerified": true
+  },
+  "authority": {
+    "basis": "Root supplied the authenticated actual collector run and archive pin. This offline verifier binds the downloaded receipt and immutable archive objects; it makes no new GitHub API request.",
+    "githubRunId": "40045615085",
+    "githubRunAttempt": 1,
+    "githubEventName": "workflow_dispatch",
+    "githubRef": "refs/heads/main",
+    "appRevision": "abcd9646fdbc296fddc557f2077544d53c75f12a",
+    "downloadedCollectorReceiptFile": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/collector-40045615085/smp-collection-receipt.json",
+    "downloadedCollectorReceiptFileSha256": "722c9043a296c46f90a2333a189b63cabeb37225963b700aa4163469ce521124",
+    "archivedRunReceiptKey": "ci/collection-runs/40045615085-1.json",
+    "archivedRunReceiptCanonicalSha256": "8bad4f71d8db9d8d35cea7c5c5c5d11f91abeebf08ff050fd7a97d1d40022f5c",
+    "downloadedReceiptAndCloudFinishExactMatch": true
+  },
+  "sourceContractSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+  "requestsCanonicalSha256": "53132464cb8aaabf2f1a34313ce29b660fd4a304d76a865ccf5f0db036a0067e",
+  "baselineSha256": "ab3bca0e49a38495d310021857ee2c1a3ca6ebe7979593d1e8b36437cb2a294e",
+  "policySha256": "e740d7407afc7b11be8802b250ea564224b10969717507818726e44e7b33f27e",
+  "coverage": {
+    "runId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+    "successfulTasks": 244,
+    "requiredTasks": 557,
+    "complete": false,
+    "manualRunIsNotScheduledProof": true
+  },
+  "correctionCollectionReceipt": {
+    "bytes": 1900,
+    "key": "objects/9caf37cbf9c961298b8e11779a252d713e995bdbd0e67b5028fb82d6ca8111a5",
+    "sha256": "9caf37cbf9c961298b8e11779a252d713e995bdbd0e67b5028fb82d6ca8111a5"
+  },
+  "correctionCollectionCheckedAt": "2026-10-24T00:36:59.407248Z",
+  "verifiedAdmissionCount": 6,
+  "factualGroups": 5,
+  "publicationRoleOnlyGroups": 1,
+  "targetCount": 12,
+  "newAcceptedGroups": [
+    "FC-20261023-checkpoint-sase",
+    "FC-20261023-zscaler"
+  ],
+  "cachedAdmissionsExactUnchanged": 4,
+  "groupChains": [
+    {
+      "groupId": "FC-20261023-checkpoint-sase",
+      "scope": "factual_correction",
+      "targetIds": [
+        "event:EV-checkpoint-2",
+        "evidence:TR-checkpoint-4"
+      ],
+      "candidateSha256": "af4a673ac14a090128e97bf328b1639e00eecf1c0b5f11098d07a34be26bba15",
+      "evidenceSetSha256": "b4039088e3c211b2b41054475f790b9d20832b664f401e6fd5ff9e3a16589255",
+      "reviewPolicySha256": "36bc23722c1131f94ab3c2db1c553505539987aa55738cfa9bb72dfa3871ad6f",
+      "admission": {
+        "bytes": 1522,
+        "key": "objects/1bcaa2ca22fcb4c24597fc477c406abddf9ddb20853a4d290c79322bee46afa9",
+        "sha256": "1bcaa2ca22fcb4c24597fc477c406abddf9ddb20853a4d290c79322bee46afa9"
+      },
+      "admittedAt": "2026-10-24T00:36:49.557183Z",
+      "reviewReference": {
+        "bytes": 428,
+        "key": "objects/26950917dcbe5d2b5e862cf329b2adedf27046d94a2269d9e298d9d292bedee0",
+        "sha256": "26950917dcbe5d2b5e862cf329b2adedf27046d94a2269d9e298d9d292bedee0"
+      },
+      "review": {
+        "candidateSha256": "af4a673ac14a090128e97bf328b1639e00eecf1c0b5f11098d07a34be26bba15",
+        "checks": {
+          "currency_units": "pass",
+          "entity": "pass",
+          "event_status": "pass",
+          "period_date": "pass",
+          "qualifiers": "pass",
+          "source_support": "pass",
+          "value": "pass"
+        },
+        "evidenceSetSha256": "b4039088e3c211b2b41054475f790b9d20832b664f401e6fd5ff9e3a16589255",
+        "policySha256": "36bc23722c1131f94ab3c2db1c553505539987aa55738cfa9bb72dfa3871ad6f",
+        "result": "accepted"
+      },
+      "immutableAcceptedIndexKey": "correction-admissions/36bc23722c1131f94ab3c2db1c553505539987aa55738cfa9bb72dfa3871ad6f/af4a673ac14a090128e97bf328b1639e00eecf1c0b5f11098d07a34be26bba15-b4039088e3c211b2b41054475f790b9d20832b664f401e6fd5ff9e3a16589255.json",
+      "attemptReference": {
+        "bytes": 1642,
+        "key": "objects/f85d33b0ed9cb31636a48893722130f7955f193b7a434fb7347e8cf3d8b32c36",
+        "sha256": "f85d33b0ed9cb31636a48893722130f7955f193b7a434fb7347e8cf3d8b32c36"
+      },
+      "attemptStartedAt": "2026-10-24T00:36:42.173245Z",
+      "attemptCompletedAt": "2026-10-24T00:36:49.566239Z",
+      "documentReservationKey": "correction-document-reservations/2026-10-24/5e61896510c9cca02835b54304a568d5d44429ec3f6d66978f71b5da0a94e052.json",
+      "documentReservation": {
+        "candidateSha256": "af4a673ac14a090128e97bf328b1639e00eecf1c0b5f11098d07a34be26bba15",
+        "groupId": "FC-20261023-checkpoint-sase",
+        "reservedAt": "2026-10-24T00:36:42.173245Z"
+      },
+      "reusedFromFirstCollectorWithoutNewAttempt": false,
+      "firstCollectorAdmissionExactEqual": false,
+      "completeTextSetChars": 27245,
+      "sourcePins": [
+        {
+          "body": {
+            "bytes": 110102,
+            "key": "objects/ad90c231db200ef3ca6909ed9ff62f08b037dd78be7fe85bc8c5011fae488593",
+            "sha256": "ad90c231db200ef3ca6909ed9ff62f08b037dd78be7fe85bc8c5011fae488593"
+          },
+          "evidenceId": "TR-checkpoint-4",
+          "fetchedAt": "2026-10-23T11:34:05.920028Z",
+          "observationId": "823bdeb7978f9445b46cd456181b80329fcb2ced4dd40dac8cae6af492d6da35",
+          "sourceId": "checkpoint-sase:citation:TR-checkpoint-4",
+          "url": "https://www.checkpoint.com/press-releases/check-point-software-reports-2026-second-quarter-financial-results/",
+          "ageHoursAtInitialAdmission": 13.045454765277777,
+          "ageHoursAtVerification": 13.224275553333333,
+          "completeTextChars": 14215,
+          "completeTextSha256": "4dfd989e47592c711456ebd25358ff96daa4eb9c15dd67d41dae7f5f46940ec9",
+          "initialAdmissionExpiresAt": "2026-10-24T17:34:05.920028Z"
+        },
+        {
+          "body": {
+            "bytes": 26715,
+            "key": "objects/99fd41f785699aa0fc9fb4ea0baa79249c0953a5391c9aca86f1e5c0adb55b3c",
+            "sha256": "99fd41f785699aa0fc9fb4ea0baa79249c0953a5391c9aca86f1e5c0adb55b3c"
+          },
+          "evidenceId": "TR-checkpoint-5",
+          "fetchedAt": "2026-10-23T04:15:09.250598Z",
+          "observationId": "265257237110d3c7eada63a363a0a42c72a6fc0d1cf5fa71dceb10d7364d2699",
+          "sourceId": "checkpoint-sase:citation:TR-checkpoint-5",
+          "url": "https://www.sec.gov/Archives/edgar/data/1015922/000117891325004030/zk2534094.htm",
+          "ageHoursAtInitialAdmission": 20.36119627361111,
+          "ageHoursAtVerification": 20.540017061666667,
+          "completeTextChars": 13030,
+          "completeTextSha256": "a04cf7c33992a94bd05d241cdef300caba03d5888c05380743b8396a37264e8b",
+          "initialAdmissionExpiresAt": "2026-10-24T10:15:09.250598Z"
+        }
+      ],
+      "initialFreshnessAndAllCurrentSourceChecksPassed": true,
+      "replayAdmissionPassed": true
+    },
+    {
+      "groupId": "FC-20261023-optiv",
+      "scope": "factual_correction",
+      "targetIds": [
+        "event:EV-optiv-2",
+        "evidence:TR-optiv-3"
+      ],
+      "candidateSha256": "ce48b552db79aa960aed5e08840f28a99ccab313c9d05df874b281cf7eb9c00c",
+      "evidenceSetSha256": "7f5a8b85f2fbf854d9623d561a89c0ded68723742833047d05fb24c7e4342a2b",
+      "reviewPolicySha256": "4f9e7feb90232a3aafe2cd84265c2e8202c9e009229e7592c5ab87373f64bcf5",
+      "admission": {
+        "bytes": 1014,
+        "key": "objects/580099157608b61895574d2b136c93a940109f82d0a33459388a83f46fbc7bf2",
+        "sha256": "580099157608b61895574d2b136c93a940109f82d0a33459388a83f46fbc7bf2"
+      },
+      "admittedAt": "2026-10-24T00:06:23.550203Z",
+      "reviewReference": {
+        "bytes": 428,
+        "key": "objects/faf2a5773a4b7eacd806e8a1995bc8719d8a12a2bfb30e0fa5e77db24d1df44c",
+        "sha256": "faf2a5773a4b7eacd806e8a1995bc8719d8a12a2bfb30e0fa5e77db24d1df44c"
+      },
+      "review": {
+        "candidateSha256": "ce48b552db79aa960aed5e08840f28a99ccab313c9d05df874b281cf7eb9c00c",
+        "checks": {
+          "currency_units": "pass",
+          "entity": "pass",
+          "event_status": "pass",
+          "period_date": "pass",
+          "qualifiers": "pass",
+          "source_support": "pass",
+          "value": "pass"
+        },
+        "evidenceSetSha256": "7f5a8b85f2fbf854d9623d561a89c0ded68723742833047d05fb24c7e4342a2b",
+        "policySha256": "4f9e7feb90232a3aafe2cd84265c2e8202c9e009229e7592c5ab87373f64bcf5",
+        "result": "accepted"
+      },
+      "immutableAcceptedIndexKey": "correction-admissions/4f9e7feb90232a3aafe2cd84265c2e8202c9e009229e7592c5ab87373f64bcf5/ce48b552db79aa960aed5e08840f28a99ccab313c9d05df874b281cf7eb9c00c-7f5a8b85f2fbf854d9623d561a89c0ded68723742833047d05fb24c7e4342a2b.json",
+      "attemptReference": {
+        "bytes": 1134,
+        "key": "objects/2d12fb074b83a7677d5f30317bc293eaeac157e51bd4225023875d8252528c39",
+        "sha256": "2d12fb074b83a7677d5f30317bc293eaeac157e51bd4225023875d8252528c39"
+      },
+      "attemptStartedAt": "2026-10-24T00:06:05.665487Z",
+      "attemptCompletedAt": "2026-10-24T00:06:23.566212Z",
+      "documentReservationKey": "correction-document-reservations/2026-10-24/8cc4b20de7c612ae02bf38e8169948e0856fc10fea790cd5483574867c554a3b.json",
+      "documentReservation": {
+        "candidateSha256": "ce48b552db79aa960aed5e08840f28a99ccab313c9d05df874b281cf7eb9c00c",
+        "groupId": "FC-20261023-optiv",
+        "reservedAt": "2026-10-24T00:06:05.665487Z"
+      },
+      "reusedFromFirstCollectorWithoutNewAttempt": true,
+      "firstCollectorAdmissionExactEqual": true,
+      "completeTextSetChars": 7295,
+      "sourcePins": [
+        {
+          "body": {
+            "bytes": 110479,
+            "key": "objects/1db3ec3b06b80372a401ce680bd0c22f2bfa30facc0676c0ee357584976d6028",
+            "sha256": "1db3ec3b06b80372a401ce680bd0c22f2bfa30facc0676c0ee357584976d6028"
+          },
+          "evidenceId": "TR-optiv-3",
+          "fetchedAt": "2026-10-23T11:34:10.387430Z",
+          "observationId": "2f4690a9102722bf834b098712e7ce709b9aa1dccc2f3870dfefb83f40cc8426",
+          "sourceId": "optiv:citation:TR-optiv-3",
+          "url": "https://www.optiv.com/company/press-releases/optiv-strengthens-financial-position-lender-agreement-comprehensive",
+          "ageHoursAtInitialAdmission": 12.536989659166666,
+          "ageHoursAtVerification": 13.223034608333334,
+          "completeTextChars": 7295,
+          "completeTextSha256": "84367a7bfa0186b673f866c7581aaf4e308448da4a133d1d916aab225be4ea58",
+          "initialAdmissionExpiresAt": "2026-10-24T17:34:10.387430Z"
+        }
+      ],
+      "initialFreshnessAndAllCurrentSourceChecksPassed": true,
+      "replayAdmissionPassed": true
+    },
+    {
+      "groupId": "FC-20261023-splunk",
+      "scope": "factual_correction",
+      "targetIds": [
+        "event:EV-splunk-1",
+        "evidence:TR-splunk-2"
+      ],
+      "candidateSha256": "a397eb20f8a6918f19ef6004ad2107a96066d0b84532ca9f131fd050fec61240",
+      "evidenceSetSha256": "eb165cdbb2d9b4e76d07dbaa0ca217167ced0e492cadd89957aa1ebbce6157f5",
+      "reviewPolicySha256": "270b7c7a1f7180b3fef2896b7633a87bf0667b9f4a3c75593fa72b959ecb87f6",
+      "admission": {
+        "bytes": 988,
+        "key": "objects/a42addfcd5043dceffcd259fc8bdac7486b012400fae4b82ce0e5b00968e18af",
+        "sha256": "a42addfcd5043dceffcd259fc8bdac7486b012400fae4b82ce0e5b00968e18af"
+      },
+      "admittedAt": "2026-10-24T00:06:29.666148Z",
+      "reviewReference": {
+        "bytes": 428,
+        "key": "objects/f5366dfae77204b65cc05a3f5b6fd65f1c86bcc3edd38da0a342761667dc6887",
+        "sha256": "f5366dfae77204b65cc05a3f5b6fd65f1c86bcc3edd38da0a342761667dc6887"
+      },
+      "review": {
+        "candidateSha256": "a397eb20f8a6918f19ef6004ad2107a96066d0b84532ca9f131fd050fec61240",
+        "checks": {
+          "currency_units": "pass",
+          "entity": "pass",
+          "event_status": "pass",
+          "period_date": "pass",
+          "qualifiers": "pass",
+          "source_support": "pass",
+          "value": "pass"
+        },
+        "evidenceSetSha256": "eb165cdbb2d9b4e76d07dbaa0ca217167ced0e492cadd89957aa1ebbce6157f5",
+        "policySha256": "270b7c7a1f7180b3fef2896b7633a87bf0667b9f4a3c75593fa72b959ecb87f6",
+        "result": "accepted"
+      },
+      "immutableAcceptedIndexKey": "correction-admissions/270b7c7a1f7180b3fef2896b7633a87bf0667b9f4a3c75593fa72b959ecb87f6/a397eb20f8a6918f19ef6004ad2107a96066d0b84532ca9f131fd050fec61240-eb165cdbb2d9b4e76d07dbaa0ca217167ced0e492cadd89957aa1ebbce6157f5.json",
+      "attemptReference": {
+        "bytes": 1108,
+        "key": "objects/165d43a8a9d430a832b910db959fb521295b343ec1babaac1b08c955746370c4",
+        "sha256": "165d43a8a9d430a832b910db959fb521295b343ec1babaac1b08c955746370c4"
+      },
+      "attemptStartedAt": "2026-10-24T00:06:05.665487Z",
+      "attemptCompletedAt": "2026-10-24T00:06:29.674382Z",
+      "documentReservationKey": "correction-document-reservations/2026-10-24/4d143f60b90ed3c062f457326867e339ede1e8e285f92dc23a24eba82f66eba1.json",
+      "documentReservation": {
+        "candidateSha256": "a397eb20f8a6918f19ef6004ad2107a96066d0b84532ca9f131fd050fec61240",
+        "groupId": "FC-20261023-splunk",
+        "reservedAt": "2026-10-24T00:06:05.665487Z"
+      },
+      "reusedFromFirstCollectorWithoutNewAttempt": true,
+      "firstCollectorAdmissionExactEqual": true,
+      "completeTextSetChars": 12373,
+      "sourcePins": [
+        {
+          "body": {
+            "bytes": 45244,
+            "key": "objects/e3de17409d6f8024d2d489ff6163a6249f72e7d5831da2118d9d2e873861dea5",
+            "sha256": "e3de17409d6f8024d2d489ff6163a6249f72e7d5831da2118d9d2e873861dea5"
+          },
+          "evidenceId": "TR-splunk-2",
+          "fetchedAt": "2026-10-23T04:14:49.799584Z",
+          "observationId": "ad8b7473392061097411bdbb1b613d8f3880425ca5ec2e6148d81c400ccad883",
+          "sourceId": "splunk:citation:TR-splunk-2",
+          "url": "https://www.sec.gov/Archives/edgar/data/858877/000085887726000075/csco-20260513.htm",
+          "ageHoursAtInitialAdmission": 19.861074045555554,
+          "ageHoursAtVerification": 20.545420121111114,
+          "completeTextChars": 12373,
+          "completeTextSha256": "176f9e4cbc7ecd2ea1050d071ae36dc6bbd9bf4ebc3e3f58b6dfa76e5f1e6930",
+          "initialAdmissionExpiresAt": "2026-10-24T10:14:49.799584Z"
+        }
+      ],
+      "initialFreshnessAndAllCurrentSourceChecksPassed": true,
+      "replayAdmissionPassed": true
+    },
+    {
+      "groupId": "FC-20261023-zscaler",
+      "scope": "factual_correction",
+      "targetIds": [
+        "event:EV-zscaler-2",
+        "evidence:TR-zscaler-4"
+      ],
+      "candidateSha256": "46f6626eebb75b300b770b6290c38124f02773a93636810d2d84dffbfb0854f3",
+      "evidenceSetSha256": "f0e0f20f00cfc1bf339642dfb9672e159a3bfa1ddacb70549e6a5e2f815bfb7a",
+      "reviewPolicySha256": "dc8522069fc87cbf0371e0ea29ec80fbf647c1dd7ce816e02a7fb4a94b35a390",
+      "admission": {
+        "bytes": 1460,
+        "key": "objects/f255c470cc078e1d44399f7e2027134b466f23cc5939437d196bef9d7aa04e4b",
+        "sha256": "f255c470cc078e1d44399f7e2027134b466f23cc5939437d196bef9d7aa04e4b"
+      },
+      "admittedAt": "2026-10-24T00:36:59.336802Z",
+      "reviewReference": {
+        "bytes": 428,
+        "key": "objects/0bb8d41ec2edef55c5991aebdd187c573a955c0c30b5c8ef6f44e6c692fba6cc",
+        "sha256": "0bb8d41ec2edef55c5991aebdd187c573a955c0c30b5c8ef6f44e6c692fba6cc"
+      },
+      "review": {
+        "candidateSha256": "46f6626eebb75b300b770b6290c38124f02773a93636810d2d84dffbfb0854f3",
+        "checks": {
+          "currency_units": "pass",
+          "entity": "pass",
+          "event_status": "pass",
+          "period_date": "pass",
+          "qualifiers": "pass",
+          "source_support": "pass",
+          "value": "pass"
+        },
+        "evidenceSetSha256": "f0e0f20f00cfc1bf339642dfb9672e159a3bfa1ddacb70549e6a5e2f815bfb7a",
+        "policySha256": "dc8522069fc87cbf0371e0ea29ec80fbf647c1dd7ce816e02a7fb4a94b35a390",
+        "result": "accepted"
+      },
+      "immutableAcceptedIndexKey": "correction-admissions/dc8522069fc87cbf0371e0ea29ec80fbf647c1dd7ce816e02a7fb4a94b35a390/46f6626eebb75b300b770b6290c38124f02773a93636810d2d84dffbfb0854f3-f0e0f20f00cfc1bf339642dfb9672e159a3bfa1ddacb70549e6a5e2f815bfb7a.json",
+      "attemptReference": {
+        "bytes": 1580,
+        "key": "objects/5d38e1836f5dab2b95450d9927c718e6937a936570d8da7bd8d13d1f42584bca",
+        "sha256": "5d38e1836f5dab2b95450d9927c718e6937a936570d8da7bd8d13d1f42584bca"
+      },
+      "attemptStartedAt": "2026-10-24T00:36:42.173245Z",
+      "attemptCompletedAt": "2026-10-24T00:36:59.342302Z",
+      "documentReservationKey": "correction-document-reservations/2026-10-24/9d3c21e29bd09a07b5c358d45672a9b90d7494f0d53f0d5a06d9f47554649a59.json",
+      "documentReservation": {
+        "candidateSha256": "46f6626eebb75b300b770b6290c38124f02773a93636810d2d84dffbfb0854f3",
+        "groupId": "FC-20261023-zscaler",
+        "reservedAt": "2026-10-24T00:36:42.173245Z"
+      },
+      "reusedFromFirstCollectorWithoutNewAttempt": false,
+      "firstCollectorAdmissionExactEqual": false,
+      "completeTextSetChars": 7511,
+      "sourcePins": [
+        {
+          "body": {
+            "bytes": 27835,
+            "key": "objects/068f33d83f983b8207850ff9af866bf0ac56f7e443e04883fe82efee90b6e6bd",
+            "sha256": "068f33d83f983b8207850ff9af866bf0ac56f7e443e04883fe82efee90b6e6bd"
+          },
+          "evidenceId": "TR-zscaler-4",
+          "fetchedAt": "2026-10-23T11:34:11.000593Z",
+          "observationId": "77f7d2dc508eb9c414811e247bfa613cfc32e207793eb0ff76d41921f1091f39",
+          "sourceId": "zscaler:citation:TR-zscaler-4",
+          "url": "https://www.sec.gov/Archives/edgar/data/1713683/000171368326000193/zs-20260924.htm",
+          "ageHoursAtInitialAdmission": 13.046760058055556,
+          "ageHoursAtVerification": 13.222864285277778,
+          "completeTextChars": 3955,
+          "completeTextSha256": "dbc3280eed2635bdc4fe42190043b77918d6122154663b9df861aa59423b1d2e",
+          "initialAdmissionExpiresAt": "2026-10-24T17:34:11.000593Z"
+        },
+        {
+          "body": {
+            "bytes": 24581,
+            "key": "objects/bdb9b0f0a56b6625c04b1cfaed33daab6505b97632df199519ee1dd1c117b85d",
+            "sha256": "bdb9b0f0a56b6625c04b1cfaed33daab6505b97632df199519ee1dd1c117b85d"
+          },
+          "evidenceId": "TR-zscaler-6",
+          "fetchedAt": "2026-10-23T04:15:08.041972Z",
+          "observationId": "ede509be7e95f39b65fcbc5059182768804c3c4081a0bda957dc618249caabae",
+          "sourceId": "zscaler:citation:TR-zscaler-6",
+          "url": "https://www.sec.gov/Archives/edgar/data/1713683/000171368326000082/zs-20260415.htm",
+          "ageHoursAtInitialAdmission": 20.36424856388889,
+          "ageHoursAtVerification": 20.54035279111111,
+          "completeTextChars": 3556,
+          "completeTextSha256": "b93679dd81000a0ab531b9ee600d92b71142c127600f13216652ec0203663780",
+          "initialAdmissionExpiresAt": "2026-10-24T10:15:08.041972Z"
+        }
+      ],
+      "initialFreshnessAndAllCurrentSourceChecksPassed": true,
+      "replayAdmissionPassed": true
+    },
+    {
+      "groupId": "FC-20261023-expel",
+      "scope": "factual_correction",
+      "targetIds": [
+        "supplier:expel:lastRound",
+        "supplier:expel:ownership",
+        "evidence:TR-expel-2"
+      ],
+      "candidateSha256": "b02146ce95927f20887ee6a647545e968c2d21db891aa0860ddfe3908b68e1c3",
+      "evidenceSetSha256": "2a9d219a14e673acc89c71ed14b34c61700da6c9ba871edc833fe362c3a6b0da",
+      "reviewPolicySha256": "d1ea72b754450e603d89092cc38d9fa81d165575af2a36745e5938220fd82087",
+      "admission": {
+        "bytes": 1493,
+        "key": "objects/b120ca46429f8e52a09d4fce293c14ddb08319212b2b9a8e0f10b39661deed4c",
+        "sha256": "b120ca46429f8e52a09d4fce293c14ddb08319212b2b9a8e0f10b39661deed4c"
+      },
+      "admittedAt": "2026-10-24T00:06:43.307502Z",
+      "reviewReference": {
+        "bytes": 428,
+        "key": "objects/d70505f6c750763f017bf3aa7ae88e366dfc0ffe2dcd6c47b599b56d59bed70f",
+        "sha256": "d70505f6c750763f017bf3aa7ae88e366dfc0ffe2dcd6c47b599b56d59bed70f"
+      },
+      "review": {
+        "candidateSha256": "b02146ce95927f20887ee6a647545e968c2d21db891aa0860ddfe3908b68e1c3",
+        "checks": {
+          "currency_units": "pass",
+          "entity": "pass",
+          "event_status": "pass",
+          "period_date": "pass",
+          "qualifiers": "pass",
+          "source_support": "pass",
+          "value": "pass"
+        },
+        "evidenceSetSha256": "2a9d219a14e673acc89c71ed14b34c61700da6c9ba871edc833fe362c3a6b0da",
+        "policySha256": "d1ea72b754450e603d89092cc38d9fa81d165575af2a36745e5938220fd82087",
+        "result": "accepted"
+      },
+      "immutableAcceptedIndexKey": "correction-admissions/d1ea72b754450e603d89092cc38d9fa81d165575af2a36745e5938220fd82087/b02146ce95927f20887ee6a647545e968c2d21db891aa0860ddfe3908b68e1c3-2a9d219a14e673acc89c71ed14b34c61700da6c9ba871edc833fe362c3a6b0da.json",
+      "attemptReference": {
+        "bytes": 1613,
+        "key": "objects/7e729351e103378b72329f29a27b32e2492f23df05822cfbc8e6d8e1db65d946",
+        "sha256": "7e729351e103378b72329f29a27b32e2492f23df05822cfbc8e6d8e1db65d946"
+      },
+      "attemptStartedAt": "2026-10-24T00:06:05.665487Z",
+      "attemptCompletedAt": "2026-10-24T00:06:43.341372Z",
+      "documentReservationKey": "correction-document-reservations/2026-10-24/b165366aea2bebc7365efb56ed01bd02607352081ac12d753bedbf5e84c12f1a.json",
+      "documentReservation": {
+        "candidateSha256": "b02146ce95927f20887ee6a647545e968c2d21db891aa0860ddfe3908b68e1c3",
+        "groupId": "FC-20261023-expel",
+        "reservedAt": "2026-10-24T00:06:05.665487Z"
+      },
+      "reusedFromFirstCollectorWithoutNewAttempt": true,
+      "firstCollectorAdmissionExactEqual": true,
+      "completeTextSetChars": 25311,
+      "sourcePins": [
+        {
+          "body": {
+            "bytes": 1294400,
+            "key": "objects/71da4f0b9d823a407f681cd185cc1a75f60e45e6f222faec7963b32b117d71ae",
+            "sha256": "71da4f0b9d823a407f681cd185cc1a75f60e45e6f222faec7963b32b117d71ae"
+          },
+          "evidenceId": "TR-expel-1",
+          "fetchedAt": "2026-10-23T11:34:07.035590Z",
+          "observationId": "99eff05e9f94d7a42d92b84a8cbf393dd1f1e45294d409327f24ac96acd57a7d",
+          "sourceId": "expel:citation:TR-expel-1",
+          "url": "https://expel.com/resource/expel-raises-140-million-in-series-e-funding/",
+          "ageHoursAtInitialAdmission": 12.543408864444444,
+          "ageHoursAtVerification": 13.223965674999999,
+          "completeTextChars": 14466,
+          "completeTextSha256": "f7911310f32df55c2263ab097f67612a84460c8b57a5d871308f0a36946a2404",
+          "initialAdmissionExpiresAt": "2026-10-24T17:34:07.035590Z"
+        },
+        {
+          "body": {
+            "bytes": 1291126,
+            "key": "objects/1ded75f04f3ef7db72c3411ba03d554861d576853a50853b0435b46cca474d68",
+            "sha256": "1ded75f04f3ef7db72c3411ba03d554861d576853a50853b0435b46cca474d68"
+          },
+          "evidenceId": "TR-expel-2",
+          "fetchedAt": "2026-10-23T04:14:50.674018Z",
+          "observationId": "2e88142f05a60df7a25678f19ce3916f29e3aa8eebd5b7eca221c4961e3df852",
+          "sourceId": "expel:citation:TR-expel-2",
+          "url": "https://expel.com/resource/expel-investors-fuel-rapid-growth-with-additional-series-e-investment-bringing-total-funding-to-288-million/",
+          "ageHoursAtInitialAdmission": 19.864620412222223,
+          "ageHoursAtVerification": 20.54517722277778,
+          "completeTextChars": 10845,
+          "completeTextSha256": "208935007d86de959c179117d4ac4480e17c9ebcec7932842d994769cbc99141",
+          "initialAdmissionExpiresAt": "2026-10-24T10:14:50.674018Z"
+        }
+      ],
+      "initialFreshnessAndAllCurrentSourceChecksPassed": true,
+      "replayAdmissionPassed": true
+    },
+    {
+      "groupId": "XAGE-SOURCE-CLASS-20261023",
+      "scope": "publisher_disclosure_only",
+      "targetIds": [
+        "evidence:TR-xage-1"
+      ],
+      "candidateSha256": "f0060b9e09cdffb77e08797f0fdd49eb9bf931ea4a91685e4f0a4c911fc50abb",
+      "evidenceSetSha256": "a5138d57005644bda2474a10d29a5fa3c27cdd649d9fa8f8a704a04d6e070200",
+      "reviewPolicySha256": "c01560dba484aa5aa5696c8bfe5b44acefc6337ee1cebe0cd96751849e15646a",
+      "admission": {
+        "bytes": 1340,
+        "key": "objects/ec322362de6fb9e4e20cea0c9ed825990a01bf0c41d5b32662ab6131914f6c98",
+        "sha256": "ec322362de6fb9e4e20cea0c9ed825990a01bf0c41d5b32662ab6131914f6c98"
+      },
+      "admittedAt": "2026-10-24T00:06:50.078120Z",
+      "reviewReference": {
+        "bytes": 535,
+        "key": "objects/5d806d7b4897fa6082cba2ae8b1a496b863ddfbd6af2721d4e1f957d93bfdf46",
+        "sha256": "5d806d7b4897fa6082cba2ae8b1a496b863ddfbd6af2721d4e1f957d93bfdf46"
+      },
+      "review": {
+        "candidateSha256": "f0060b9e09cdffb77e08797f0fdd49eb9bf931ea4a91685e4f0a4c911fc50abb",
+        "checks": {
+          "class_transition": "pass",
+          "limitations_scope": "pass",
+          "literal_disclosure": "pass",
+          "publisher_source_binding": "pass",
+          "release_attribution": "pass",
+          "target_identity": "pass",
+          "unchanged_claims_and_history": "pass"
+        },
+        "evidenceSetSha256": "a5138d57005644bda2474a10d29a5fa3c27cdd649d9fa8f8a704a04d6e070200",
+        "policySha256": "c01560dba484aa5aa5696c8bfe5b44acefc6337ee1cebe0cd96751849e15646a",
+        "result": "accepted",
+        "reviewScope": "publisher_disclosure_only"
+      },
+      "immutableAcceptedIndexKey": "correction-admissions/c01560dba484aa5aa5696c8bfe5b44acefc6337ee1cebe0cd96751849e15646a/f0060b9e09cdffb77e08797f0fdd49eb9bf931ea4a91685e4f0a4c911fc50abb-a5138d57005644bda2474a10d29a5fa3c27cdd649d9fa8f8a704a04d6e070200.json",
+      "attemptReference": {
+        "bytes": 1460,
+        "key": "objects/5f7d33f76cbc3c940f1a28af6440e78bd0449458ec21e52b681ecfe9cf133956",
+        "sha256": "5f7d33f76cbc3c940f1a28af6440e78bd0449458ec21e52b681ecfe9cf133956"
+      },
+      "attemptStartedAt": "2026-10-24T00:06:05.665487Z",
+      "attemptCompletedAt": "2026-10-24T00:06:50.172474Z",
+      "documentReservationKey": "correction-document-reservations/2026-10-24/db5fa4e47bbfc2e4176ecba8793fe01f92069f04b84b8535e4767ce34b3e3dd3.json",
+      "documentReservation": {
+        "candidateSha256": "f0060b9e09cdffb77e08797f0fdd49eb9bf931ea4a91685e4f0a4c911fc50abb",
+        "groupId": "XAGE-SOURCE-CLASS-20261023",
+        "reservedAt": "2026-10-24T00:06:05.665487Z"
+      },
+      "reusedFromFirstCollectorWithoutNewAttempt": true,
+      "firstCollectorAdmissionExactEqual": true,
+      "completeTextSetChars": 16832,
+      "sourcePins": [
+        {
+          "evidenceId": "TR-xage-1",
+          "sourceId": "xage:citation:TR-xage-1",
+          "url": "https://finance.yahoo.com/news/xage-security-hits-record-growth-120000615.html",
+          "observationId": "3659081ca33f1558ed74ea30327c580c2d1664dcf7429e440758089b872499b6",
+          "body": {
+            "bytes": 1021859,
+            "key": "objects/01cf60192caf9038e618e16a67aed61087e163a4aff82a724ca406f56c1e2afc",
+            "sha256": "01cf60192caf9038e618e16a67aed61087e163a4aff82a724ca406f56c1e2afc"
+          },
+          "fetchedAt": "2026-10-23T04:14:56.139543Z",
+          "proofScope": "publisher_disclosure_only",
+          "visibleText": {
+            "rulesVersion": "page-all-visible-text-whitespace-1",
+            "sha256": "c98a0f42e0107dce354b5885d4788498689b8ba5a6e39a8beffb82824ffb7749",
+            "chars": 16832
+          },
+          "disclosureQuoteIds": [
+            "publisher_paid_disclosure",
+            "issuer_attributed_dateline",
+            "article_issuer_byline_context"
+          ],
+          "ageHoursAtInitialAdmission": 19.864982938055554,
+          "ageHoursAtVerification": 20.54365902138889,
+          "completeTextChars": 16832,
+          "completeTextSha256": "c98a0f42e0107dce354b5885d4788498689b8ba5a6e39a8beffb82824ffb7749",
+          "initialAdmissionExpiresAt": "2026-10-24T10:14:56.139543Z"
+        }
+      ],
+      "initialFreshnessAndAllCurrentSourceChecksPassed": true,
+      "replayAdmissionPassed": true
+    }
+  ],
+  "priorFailedAttemptsRetained": [
+    {
+      "groupId": "FC-20261023-checkpoint-sase",
+      "attempt": {
+        "bytes": 1683,
+        "key": "objects/e1bf99e7516dfc3e648d3eae9a4968ee9e2edfa6e7666a5ef2bd4065bcd572f9",
+        "sha256": "e1bf99e7516dfc3e648d3eae9a4968ee9e2edfa6e7666a5ef2bd4065bcd572f9"
+      },
+      "reviewReference": {
+        "bytes": 428,
+        "key": "objects/dd8de73b7d8f95b8bba647f80ef0d1e1a976b0571a4f1ac6a696923016c8ee68",
+        "sha256": "dd8de73b7d8f95b8bba647f80ef0d1e1a976b0571a4f1ac6a696923016c8ee68"
+      },
+      "review": {
+        "candidateSha256": "614958a764bdbf41f47269c5ea66060a8747a72440968a478200921b3f599fb1",
+        "checks": {
+          "currency_units": "pass",
+          "entity": "pass",
+          "event_status": "pass",
+          "period_date": "pass",
+          "qualifiers": "pass",
+          "source_support": "fail",
+          "value": "pass"
+        },
+        "evidenceSetSha256": "b4039088e3c211b2b41054475f790b9d20832b664f401e6fd5ff9e3a16589255",
+        "policySha256": "1c52ee664765de6234a3d68bcd4767e42a3da9fe471b6c61686cac1a1616d774",
+        "result": "rejected"
+      },
+      "retainedUnchangedByContentHash": true
+    },
+    {
+      "groupId": "FC-20261023-zscaler",
+      "attempt": {
+        "bytes": 1621,
+        "key": "objects/92fd58797420c18e1ea36b56334d7276dc7d5d0a5ca86a9bd7e1264c9394d2ec",
+        "sha256": "92fd58797420c18e1ea36b56334d7276dc7d5d0a5ca86a9bd7e1264c9394d2ec"
+      },
+      "reviewReference": {
+        "bytes": 432,
+        "key": "objects/890c1cc09d894c5966751404930161d1c7bc5e897c4c1006d108b00cd931243f",
+        "sha256": "890c1cc09d894c5966751404930161d1c7bc5e897c4c1006d108b00cd931243f"
+      },
+      "review": {
+        "candidateSha256": "3ba2c4ec71de2204d152f273c0ed4114f7f99e527843abe9863f462e1047caa5",
+        "checks": {
+          "currency_units": "pass",
+          "entity": "pass",
+          "event_status": "pass",
+          "period_date": "pass",
+          "qualifiers": "pass",
+          "source_support": "unknown",
+          "value": "pass"
+        },
+        "evidenceSetSha256": "f0e0f20f00cfc1bf339642dfb9672e159a3bfa1ddacb70549e6a5e2f815bfb7a",
+        "policySha256": "54e40bd49e9c04d26aebe3f7eaa3ece37d15be460c4b5d76c3041e8c272e182f",
+        "result": "ambiguous"
+      },
+      "retainedUnchangedByContentHash": true
+    }
+  ],
+  "leaseAndBudgetEvidence": {
+    "sessionId": "github-40045615085-1",
+    "phaseReceipts": {
+      "finish": {
+        "key": "cloud/sessions/83c679700690bfe68b26fddf07070c0347baaef6ac383484752ff9fa589ece08/b39f28850ecfd219313c487dc29b77def3fef78215ccdae1ae2004bd4da682d7.json",
+        "sha256": "b39f28850ecfd219313c487dc29b77def3fef78215ccdae1ae2004bd4da682d7",
+        "checkedAt": "2026-10-24T00:38:31.403438Z"
+      },
+      "collection": {
+        "key": "cloud/sessions/83c679700690bfe68b26fddf07070c0347baaef6ac383484752ff9fa589ece08/714c12898495ba63000e207a02544f8650dd9a3a3e83c0f7ca5c41846bb5d5d6.json",
+        "sha256": "714c12898495ba63000e207a02544f8650dd9a3a3e83c0f7ca5c41846bb5d5d6",
+        "checkedAt": "2026-10-24T00:38:19.285476Z"
+      },
+      "bootstrap": {
+        "key": "cloud/sessions/83c679700690bfe68b26fddf07070c0347baaef6ac383484752ff9fa589ece08/46b8b5705376f59055934fa1c08618f28402c0e6e9961d20babe2324dde4a374.json",
+        "sha256": "46b8b5705376f59055934fa1c08618f28402c0e6e9961d20babe2324dde4a374",
+        "checkedAt": "2026-10-24T00:36:17.538220Z"
+      },
+      "budget_reserved": {
+        "key": "cloud/sessions/83c679700690bfe68b26fddf07070c0347baaef6ac383484752ff9fa589ece08/109965c6bedd56eae89fcec216e0a1e074aed84235249ac59e928a377c50ff85.json",
+        "sha256": "109965c6bedd56eae89fcec216e0a1e074aed84235249ac59e928a377c50ff85",
+        "checkedAt": "2026-10-24T00:36:30.045845Z"
+      }
+    },
+    "escrowKey": "ci/budget-escrows/83c679700690bfe68b26fddf07070c0347baaef6ac383484752ff9fa589ece08.json",
+    "escrow": {
+      "before": {
+        "calls": 64,
+        "documents": 33,
+        "fetches": 494
+      },
+      "ceiling": {
+        "calls": 80,
+        "documents": 40,
+        "fetches": 5500
+      },
+      "day": "2026-10-24",
+      "sessionId": "github-40045615085-1"
+    },
+    "dayLedger": {
+      "calls": 80,
+      "documents": 40,
+      "fetches": 516
+    },
+    "actualCollectorModelCalls": 16,
+    "actualCollectorCounterDeltas": {
+      "calls": 16,
+      "documents": 7,
+      "fetches": 22
+    },
+    "callsAndDocumentsExhausted": true,
+    "noResetOrRefundPermitted": true
+  },
+  "freshnessMeaning": "Initial admissions completed within 30h of exact original source observations. All pinned bodies are also within 30h at verification. Historical replay validates the original admission time and never renews fetchedAt.",
+  "publication": {
+    "status": "pending",
+    "publisherRunId": "40046226013",
+    "statusSource": "Root reported independent main gate in preparation; this verification has not contacted publisher or public host.",
+    "gateCompletionVerified": false,
+    "acknowledgedProductionReceiptVerified": false,
+    "actualPublicBytesVerified": false,
+    "correctionsPublishedClaim": false
+  },
+  "verificationOnly": {
+    "newAdmissionsCreated": 0,
+    "modelCalls": 0,
+    "sourceRequests": 0,
+    "remoteRequests": 0,
+    "archiveWrites": 0,
+    "quotaChanges": false,
+    "stateFileMetadataBeforeSha256": "5252eb41cfffa42069a4436fa928fca9ab79730dad938733fc651f0f501153ab",
+    "stateFileMetadataAfterSha256": "5252eb41cfffa42069a4436fa928fca9ab79730dad938733fc651f0f501153ab",
+    "stateFilesUnchanged": true
+  }
+}
