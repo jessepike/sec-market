@@ -93,8 +93,18 @@ def validate_contract(contract):
             require(source["kind"] == "html_index" and source["id"] == "ping-identity:official:1" and
                     source["supplierId"] == "ping-identity" and source["family"] == "official_announcements" and
                     source["allowedHosts"] == ["press.pingidentity.com"] and
-                    source["url"] == "https://press.pingidentity.com/news-releases" and source["maxPages"] <= 60,
+                    source["url"] == "https://press.pingidentity.com/news-releases" and
+                    type(source["maxPages"]) is int and source["maxPages"] <= 60,
                     "Ping HTML mode requires its exact source, supplier and index endpoint")
+        for mode, supplier_id, host, index in (
+                ('delinea-news-pagination-v1', 'delinea', 'delinea.com', 'https://delinea.com/news'),
+                ('sonatype-press-pagination-v1', 'sonatype', 'www.sonatype.com', 'https://www.sonatype.com/press-releases')):
+            if source.get('htmlCompleteness') == mode:
+                require(source['kind'] == 'html_index' and source['id'] == supplier_id + ':official:1' and
+                        source['supplierId'] == supplier_id and source['family'] == 'official_announcements' and
+                        source['allowedHosts'] == [host] and source['url'] == index and
+                        type(source['maxPages']) is int and source['maxPages'] <= 60,
+                        'HTML archive mode requires its exact source, supplier and index endpoint')
     for supplier in suppliers:
         require(bool(supplier["requiredCategories"]), "Supplier has no coverage requirements")
         require(bool(supplier.get("requiredFamilies")), "Supplier has no required source families")

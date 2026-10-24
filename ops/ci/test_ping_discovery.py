@@ -7,6 +7,7 @@ import socket
 import sys
 import unittest
 from unittest.mock import patch
+from datetime import date, timedelta
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'web/scripts/pipeline'))
@@ -32,6 +33,33 @@ def layout(page=1):
     controls += f'<li class="wd_page_link wd_page_next"><a href="{PING_INDEX}?o={page*10}">»</a></li>'
     return f'<html><head><link rel="canonical" href="{PING_INDEX}"></head><body><a href="/2026-01-01-Footer">footer</a><div class="wd_newsfeed_releases"><ul class="wd_item_list">{cards}</ul><ul class="wd_page_links">{controls}</ul></div></body></html>'.encode()
 
+
+def complete_layout(page=1, last=25):
+    def number(n, role='wd_page_mid2'):
+        return f'<li class="wd_page_link {role}"><a href="{PING_INDEX}?o={(n-1)*10}">{n}</a></li>'
+    cards = []
+    for i in range(2 if page == last else 10):
+        day = date(2026, 10, 23) - timedelta(days=(page-1)*10+i)
+        cards.append(f'<li class="wd_item"><div class="wd_title"><a href="{PING_INDEX.rsplit("/",1)[0]}/{day.isoformat()}-Release-{page}-{i}">Fixture</a></div>'
+                     f'<div class="wd_date">{day.strftime("%b %d, %Y")}</div></li>')
+    previous = '<span>«</span>' if page == 1 else f'<a href="{PING_INDEX}?o={(page-2)*10}">«</a>'
+    controls = f'<li class="wd_page_link wd_page_prev">{previous}</li>'
+    if page > 1:
+        controls += number(1, 'wd_page_start')
+        if page > 2:
+            controls += '<li class="wd_page_link wd_page_skip1"><span>…</span></li>'
+    controls += f'<li class="wd_page_link wd_page_active"><span aria-current="page">{page}</span></li>'
+    if page < last:
+        controls += number(page+1)
+        if last > page+2:
+            controls += '<li class="wd_page_link wd_page_skip2"><span>…</span></li>'
+        if last > page+1:
+            controls += number(last, 'wd_page_end')
+    following = '<span>»</span>' if page == last else f'<a href="{PING_INDEX}?o={page*10}">»</a>'
+    controls += f'<li class="wd_page_link wd_page_next">{following}</li>'
+    return (f'<html><head><link rel="canonical" href="{PING_INDEX}"></head><body><div class="wd_newsfeed_releases">'
+            f'<ul class="wd_item_list">{"".join(cards)}</ul><ul class="wd_page_links">{controls}</ul></div></body></html>').encode()
+
 class PingDiscoveryTests(unittest.TestCase):
     def parse(self, body=None, url=PING_INDEX, source=None):
         return ping_index(source or SOURCE,url,body or layout(),1,NOW)
@@ -41,6 +69,11 @@ class PingDiscoveryTests(unittest.TestCase):
         self.assertTrue(all(',Text' in u for u in result['items']))
         self.assertEqual(set(result['dates'].values()),{f'2026-10-{d:02d}' for d in range(12,22)})
         self.assertIsNone(Page(layout().decode()).published)
+
+    def test_future_card_check_uses_utc_day_for_offset_timestamps(self):
+        self.assertEqual(len(ping_index(SOURCE,PING_INDEX,layout(),1,'2026-10-20T23:30:00-07:00')['items']),10)
+        with self.assertRaisesRegex(ValueError,'Future Ping'):
+            ping_index(SOURCE,PING_INDEX,layout(),1,'2026-10-21T00:30:00+14:00')
 
     def test_structural_date_url_and_paging_counterexamples(self):
         original=layout().decode()
@@ -120,6 +153,33 @@ class PingDiscoveryTests(unittest.TestCase):
         result=self.run_pages({PING_INDEX:(text[:start]+text[end:]).encode()})
         self.assertEqual(result['reason'],'PING_TERMINAL_LAYOUT_UNPROVED');self.assertEqual(len(result['items']),10)
         self.assertFalse(self.run_pages({PING_INDEX:b'<html>quiet</html>'})['complete'])
+
+    def test_observed_terminal_controls_require_a_full_sequential_walk(self):
+        pages = {PING_INDEX if n == 1 else PING_INDEX + '?o=' + str((n-1)*10): complete_layout(n) for n in range(1,26)}
+        result = self.run_pages(pages)
+        self.assertTrue(result['complete'])
+        self.assertEqual(len(result['items']),242)  # Fictional fixture inventory, not an actual archive claim.
+        del pages[PING_INDEX + '?o=100']
+        missing = self.run_pages(pages)
+        self.assertFalse(missing['complete'])
+        self.assertEqual(len(missing['items']),100)
+        self.assertEqual(missing['reason'],'PING_INDEX_REQUEST_FAILED')
+
+    def test_disabled_next_on_an_advertised_middle_page_and_wrong_start_hold(self):
+        first = complete_layout().replace(f'<a href="{PING_INDEX}?o=10">»</a>'.encode(), '<span>»</span>'.encode())
+        self.assertFalse(self.run_pages({PING_INDEX:first})['complete'])
+        last = complete_layout(25).replace(b'wd_page_start', b'unknown_start')
+        with self.assertRaises(ValueError):ping_index(SOURCE,PING_INDEX+'?o=240',last,25,NOW)
+        with self.assertRaises(ValueError):ping_index(SOURCE,PING_INDEX+'?o=240',complete_layout(25),26,NOW)
+
+    @unittest.skipUnless(Path('/var/tmp/smp-followup-probe-20261024/target-bundle/ping-advertised-last.body').exists(),
+                         'authenticated terminal body is a local replay input')
+    def test_actual_terminal_body_is_recognized_without_claiming_traversal(self):
+        path=Path('/var/tmp/smp-followup-probe-20261024/target-bundle/ping-advertised-last.body')
+        body=path.read_bytes(); self.assertEqual(hashlib.sha256(body).hexdigest(),'f51960d7ea48f451e533fb82cf5e31084eea6c77e69ab9b071dfeca47d5a61d0')
+        result=ping_index(SOURCE,PING_INDEX+'?o=240',body,25,NOW)
+        self.assertTrue(result['terminalProved']);self.assertIsNone(result['next']);self.assertEqual(len(result['items']),2)
+        self.assertEqual(path.read_bytes(),body)
 
     def test_exact_binding_and_inactive_registration(self):
         for key,value in [('id','other'),('supplierId','other'),('family','investor_acquirer'),('allowedHosts',['evil.invalid']),('maxPages',61),('url',PING_INDEX+'/')]:
