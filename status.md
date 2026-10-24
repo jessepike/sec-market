@@ -47,14 +47,16 @@ The candidate uses `HELD_CLAIMS_28` without assigning a human decision; all 15 w
 The fixed 177-record review covers 97 events and 80 supplier fields: 90 supported, 71 insufficient,
 11 missing strict primary proof and five contradicted. The disabled correction candidate has five
 factual groups/11 targets plus one scoped Xage publication-role group/target. Original inventories,
-the five factual groups and their review hashes remain immutable.
+all factual targets/source pins and all four accepted group/review hashes remain exact.
 Xage's paid Yahoo/GlobeNewswire release is still labelled independent in production;
 the candidate changes only its source class and limitations, with no financial verification.
 [Implementation](docs/active/daily-pipeline/publisher-disclosure-implementation-2026-10-23.md).
 The actual collector admitted Optiv, Splunk, Expel and the scoped Xage source-class correction.
 Check Point was rejected and Zscaler was ambiguous; neither obtained source-support approval.
-Both notes assert internal tracker state that the primary bodies cannot prove. A two-group
-wording repair is being prepared; the returned verdicts contain no explanation, so this input
+Both notes asserted internal tracker state that the primary bodies cannot prove. Preview
+`de06a327deb6caa606a5dbee3aaf30b1afb460f5` removes those assertions in exactly three fields.
+The full application and 430 operational tests pass; root rendered production/local at both
+required widths with unchanged layout. The returned verdicts contain no explanation, so this input
 defect is not a proven explanation of the model decisions. Four accepted groups stay exact.
 No correction is live. Earliest original proof expires October 24 at 10:14:49.799584 UTC.
 
@@ -99,16 +101,18 @@ has not moved. Real manual collector [40042968468](https://github.com/jessepike/
 completed successfully with incomplete coverage. A manual run is not scheduled-run proof.
 
 October 23's **5,500 fetches / 80 model calls / 40 documents** and both gate/publication attempts
-remain untouched. October 24 now retains actual usage above, leaving 16 model calls and seven
-documents before further work. Never reset/refund counters, use paid fallback or substitute offline review
+remain untouched. October 24 now retains **494 fetches / 64 model calls / 33 documents**, leaving
+5,006 fetches, 16 model calls and seven documents. Never reset/refund counters, use paid fallback or substitute offline review
 for actual admission. No gate or publication has been requested this new day.
 
 Finish the two real correction reviews while proof is fresh or genuinely refresh/rebind it.
 Leased fetch-only diagnostic [40044528648](https://github.com/jessepike/sec-market/actions/runs/40044528648)
-is running on the same main revision. It grants no source qualification, coverage or admission.
+completed on the same main revision and charged 117 fetches with zero model/document use.
+Its verified archive `c4650c2bf8ed2de87476deab6af5b572a8988e01` contains 29,776 files.
+It grants no source qualification, coverage or admission.
 Use its actual retained bodies to qualify the
 documented Delinea/Ping/Sonatype feeds and other evidenced endpoints within the remaining allowance.
-Do not enqueue competing writer jobs while the diagnostic is pending. Obtain the full main gate and actual
+No archive writer is pending. Obtain the full main gate and actual
 scheduled collection/publication receipts. No owner source or factual choice currently blocks this.
 
 Collection is 05:17 UTC; publication follows a verified timer and runs at 06:23/16:23 UTC. GitHub can
