@@ -12,9 +12,9 @@ use yet. Search and overlapping ownership/funding/stage navigation remain queued
 
 The owner accepted D-112: separate daily source intake, document processing and historical
 review, preserving all 74 suppliers, 557 obligations, URLs and original dates. Approved main is
-`24b9b369758099f3b06739d3c7a7e93600cd362e`. Actual preview web run `40072560254` and
-read-only archive canary `40072560367` passed; Vercel preview
-`dpl_7FYDuZwqVow8U72X9gZPnMxNs8Sw` is READY. Main web run `40072766133` passed.
+`eccc499116c412c0fd99afbbb20d21cfcb9deda4`. Actual preview web run `40075006919` and
+read-only archive canary `40075006883` passed; Vercel preview
+`dpl_62sSLHoVwvgZFga47LsBmMumit3e` is READY. Main web run `40075220503` passed.
 The repaired historical request plan and early UTC publisher retry are active. Source registration,
 market-call authority, paid API prohibition and daily charged limits are unchanged.
 
@@ -63,12 +63,12 @@ accepted release and dated remediation observation remain separate and unchanged
 
 ## Limits, schedule and alerts
 
-October 24 UTC usage is **1,269 fetches / 80 model calls / 40 documents**. There are 4,231 fetches
+October 24 UTC usage is **1,318 fetches / 80 model calls / 40 documents**. There are 4,182 fetches
 remaining and no model/document allowance. Both gate/publication attempts are charged (2/2).
 Never reset/refund a charge, buy capacity or substitute paid models. Reserve the next natural
 UTC allowance for the real publisher and independent gate; production remains unchanged meanwhile.
 
-The normal 05:17 UTC October 24 collection has not appeared as of 07:12 UTC. The workflow is
+The normal 05:17 UTC October 24 collection has not appeared as of 07:43 UTC. The workflow is
 active, the private repository is enabled and main is its default branch. Earlier actual GitHub
 schedules started hours late. A manual run cannot supply timer evidence. Check the genuine next
 scheduled run and preserve its actual event, revision, source times and archived clock.
@@ -136,7 +136,21 @@ preserving original version-1 failures, inventories and dates for historical rep
 revision tests include the independently found truncated/blocked scoped-body failures. All 652
 operational tests pass across the complete local tree, including the dormant helper. Full web
 checks pass again and both same-fixture screen widths remain pixel-identical. The reviewed V2
-plan is installed locally; a new main activation and real bounded diagnostic remain pending.
+plan reached preview/main through the unchanged clean promotion guard. Actual revision-2 bounded
+diagnostic `40075237236` completed at 07:46:10.759613 UTC on exact main `eccc4991`, charging
+49 fetches (1,269 to 1,318), zero models and no qualification or coverage. Ping reached page 21
+with 200 retained URLs; Delinea page 18 with 204; Sonatype page 7 with 96. All three samples are
+readable. Additional literal date/historical route forms still stop each index walk. Original
+V1 partial inventories remain exact and their 298 source/URL pairs are retained within V2's 500.
+Archive `d161a23d80ea9e1756113644624cc2f646d2c3ed`, manifest `09909886…c92362`, verifies all
+35,412 files, with every prior 35,256 path retained, 156 additions and no immutable changes.
+Normal collection, correction and production heads and all file/directory seals remain unchanged.
+[Actual V2 review](docs/active/daily-pipeline/accuracy/bounded-traversal-v2-actual-response-review-2026-10-24.md).
+V3 source-bound date/route support is implemented locally, preserving both earlier interpretations,
+with independent review in progress. All 666 operational tests pass. Delinea terminal markup is
+still unproved; its current V1/V2/V3 parser intentionally grants no terminal credit. The operational
+plan remains V2 until the exact V3 candidate passes review. The reviewed explicit disabled operation
+is also implemented locally for a future closed activation; no operational plan is disabled now.
 The separate dormant inventory-origin helper passes independent review with its trusted activation
 registry empty. All 9,914 existing bounded source/URL pairs belong to 17 unchanged source contexts;
 the three candidates each have zero normal inventory URLs. Earlier generic XML disclosures remain

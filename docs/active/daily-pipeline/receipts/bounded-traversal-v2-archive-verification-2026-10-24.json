@@ -1,0 +1,58 @@
+{
+  "archiveRoot": "/var/tmp/smp-bounded-v2-probe-20261024/archive-d161a23d/jessepike-sec-market-d161a23d80ea9e1756113644624cc2f646d2c3ed",
+  "commit": "d161a23d80ea9e1756113644624cc2f646d2c3ed",
+  "manifestSha256": "09909886e98bd9f6be1ebe8da243f80b8af73352889a989a2093b96e89c92362",
+  "files": 35412,
+  "priorFiles": 35256,
+  "addedFiles": 156,
+  "removedFiles": [],
+  "changedExistingFiles": [
+    "state/heads/budget-2026-10-24.json",
+    "state/heads/cloud-lease.json"
+  ],
+  "immutableChanges": [],
+  "protectedHeads": {
+    "latest-run": true,
+    "cloud-collector": true,
+    "cloud-snapshot": true,
+    "dailySnapshot": true,
+    "correction-collection": true,
+    "production": true
+  },
+  "artifactDiagnosticMatchesRetainedRun": true,
+  "historicalRevisionTwoDiagnosticReplayedExactly": true,
+  "storeMutations": 0,
+  "before": {
+    "files": 35416,
+    "contentSha256": "ceadeaa57d7a3b37e695ca57359211533e61e5ca9419542833cedc068faedace",
+    "fileMtimeSha256": "f50fc5ddae221be1bbe8bcb1c536669ad564a731d1996058ab1c445fc1001de3",
+    "directories": 1320,
+    "directoryMtimeSha256": "109a79c2199558ec1c4cba1eb615e16d0d888b58ad8cd02026ef7388678b7789"
+  },
+  "after": {
+    "files": 35416,
+    "contentSha256": "ceadeaa57d7a3b37e695ca57359211533e61e5ca9419542833cedc068faedace",
+    "fileMtimeSha256": "f50fc5ddae221be1bbe8bcb1c536669ad564a731d1996058ab1c445fc1001de3",
+    "directories": 1320,
+    "directoryMtimeSha256": "109a79c2199558ec1c4cba1eb615e16d0d888b58ad8cd02026ef7388678b7789"
+  },
+  "budget": {
+    "budgetDay": "2026-10-24",
+    "contractSha256": "79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60",
+    "fetchLimit": 5500,
+    "maximumRuntimeSeconds": 1200,
+    "startedAt": "2026-10-24T07:45:36.870164Z",
+    "initialBudget": {
+      "calls": 80,
+      "documents": 40,
+      "fetches": 1269
+    },
+    "probeFetchReservations": 49,
+    "reservationDenials": {},
+    "currentBudget": {
+      "calls": 80,
+      "documents": 40,
+      "fetches": 1318
+    }
+  }
+}
