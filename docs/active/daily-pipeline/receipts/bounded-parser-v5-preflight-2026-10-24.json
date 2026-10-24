@@ -1,0 +1,61 @@
+{
+  "rawSha256": "ddb59635145bcbe3a5a01e65a339fb602f719af2ea2e75fa1b8bf0844f41a7b3",
+  "canonicalSha256": "48308cadcc0d922459f580be3947408d96d69709f5dd677853f484351d7009cf",
+  "parserRevision": 5,
+  "adapters": [
+    {
+      "sourceId": "ping-identity:official:1",
+      "proposedAdapterSha256": "b071ca029730ddd2dfaf7e7f41a6073b89f4e54979da3cc7fddb7c9c509e7700",
+      "mode": "ping-release-pagination-v3"
+    },
+    {
+      "sourceId": "delinea:official:1",
+      "proposedAdapterSha256": "f82ba9671a5f1a6289860efa4997d672a68acc678953d6ae6b32722b41976b53",
+      "mode": "delinea-news-pagination-v5"
+    },
+    {
+      "sourceId": "sonatype:official:1",
+      "proposedAdapterSha256": "eff087aaa5493dd6fa588f92877a767e5c0edcdcce72789fb0f35dd06cb4ec74",
+      "mode": "sonatype-press-pagination-v5"
+    }
+  ],
+  "originalStartProofsPreserved": true,
+  "historicalRuns": [
+    {
+      "run": "40072784799",
+      "parserRevision": 1,
+      "exactOriginalDiagnostic": true
+    },
+    {
+      "run": "40075237236",
+      "parserRevision": 2,
+      "exactOriginalDiagnostic": true
+    },
+    {
+      "run": "40077375424",
+      "parserRevision": 3,
+      "exactOriginalDiagnostic": true
+    },
+    {
+      "run": "40079036392",
+      "parserRevision": 4,
+      "exactOriginalDiagnostic": true
+    }
+  ],
+  "stateMutations": 0,
+  "before": {
+    "files": 35794,
+    "contentSha256": "f7553377296d774075b716a64ff11212b81317ea6c9093b9989e334092bc3ce9",
+    "fileMtimeSha256": "d5cb9c5312d11b5c127fe703f0a0eeeb6020adf7a34bcd590bd1ab1332bac350",
+    "directories": 1330,
+    "directoryMtimeSha256": "63d30e5fd36d1f33e9a368d180fefd002198b3c009a4d26f801870dbb119ebad"
+  },
+  "after": {
+    "files": 35794,
+    "contentSha256": "f7553377296d774075b716a64ff11212b81317ea6c9093b9989e334092bc3ce9",
+    "fileMtimeSha256": "d5cb9c5312d11b5c127fe703f0a0eeeb6020adf7a34bcd590bd1ab1332bac350",
+    "directories": 1330,
+    "directoryMtimeSha256": "63d30e5fd36d1f33e9a368d180fefd002198b3c009a4d26f801870dbb119ebad"
+  },
+  "coverageCredit": false
+}

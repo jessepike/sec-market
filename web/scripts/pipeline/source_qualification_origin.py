@@ -41,7 +41,7 @@ def _contract(store, ref):
 
 def _binding(original, source_id, plan=None):
     from onboarding import (BOUNDED_CANDIDATE_BINDINGS, BOUNDED_CANDIDATE_BINDINGS_V2,
-                            BOUNDED_CANDIDATE_BINDINGS_V3, BOUNDED_CANDIDATE_BINDINGS_V4, _candidate_adapter)
+                            BOUNDED_CANDIDATE_BINDINGS_V3, BOUNDED_CANDIDATE_BINDINGS_V4, BOUNDED_CANDIDATE_BINDINGS_V5, _candidate_adapter)
     selected = [(i, url, mode) for i, (sid, url, mode) in enumerate(BOUNDED_CANDIDATE_BINDINGS) if sid == source_id]
     require(len(selected) == 1, 'QUALIFICATION_ORIGIN_SOURCE_NOT_ALLOWED')
     index, url, mode = selected[0]
@@ -53,9 +53,9 @@ def _binding(original, source_id, plan=None):
     if plan is not None:
         row = plan['sources'][index]
         revision = plan.get('parserRevision', 1)
-        require(type(revision) is int and revision in (1, 2, 3, 4), 'QUALIFICATION_ORIGIN_PARSER_REVISION_INVALID')
+        require(type(revision) is int and revision in (1, 2, 3, 4, 5), 'QUALIFICATION_ORIGIN_PARSER_REVISION_INVALID')
         expected = {1: BOUNDED_CANDIDATE_BINDINGS, 2: BOUNDED_CANDIDATE_BINDINGS_V2,
-                    3: BOUNDED_CANDIDATE_BINDINGS_V3, 4: BOUNDED_CANDIDATE_BINDINGS_V4}[revision][index]
+                    3: BOUNDED_CANDIDATE_BINDINGS_V3, 4: BOUNDED_CANDIDATE_BINDINGS_V4, 5: BOUNDED_CANDIDATE_BINDINGS_V5}[revision][index]
         require(row['sourceId'] == source_id and (source_id, row['indexUrl'], row['adapter']['htmlCompleteness']) == expected,
                 'QUALIFICATION_ORIGIN_PLAN_SOURCE_DIFFERS')
         url, mode = row['indexUrl'], row['adapter']['htmlCompleteness']
@@ -276,13 +276,14 @@ def _entry_identity(entry):
 
 def _sparse_adapter(original, source_id, selected=None):
     from onboarding import (BOUNDED_CANDIDATE_BINDINGS, BOUNDED_CANDIDATE_BINDINGS_V2,
-                            BOUNDED_CANDIDATE_BINDINGS_V3, BOUNDED_CANDIDATE_BINDINGS_V4, _candidate_adapter)
+                            BOUNDED_CANDIDATE_BINDINGS_V3, BOUNDED_CANDIDATE_BINDINGS_V4, BOUNDED_CANDIDATE_BINDINGS_V5, _candidate_adapter)
     index, candidate, adapter, _ = _binding(original, source_id)
     if selected is None:
         return adapter
     require((source_id, selected.get('url'), selected.get('htmlCompleteness')) in
             (BOUNDED_CANDIDATE_BINDINGS[index], BOUNDED_CANDIDATE_BINDINGS_V2[index],
-             BOUNDED_CANDIDATE_BINDINGS_V3[index], BOUNDED_CANDIDATE_BINDINGS_V4[index]),
+             BOUNDED_CANDIDATE_BINDINGS_V3[index], BOUNDED_CANDIDATE_BINDINGS_V4[index],
+             BOUNDED_CANDIDATE_BINDINGS_V5[index]),
             'QUALIFICATION_INVENTORY_SPARSE_ADAPTER_NOT_APPROVED')
     derived = _candidate_adapter(candidate, selected['url'], selected['htmlCompleteness'])
     require(digest(derived) == digest(selected), 'QUALIFICATION_INVENTORY_SPARSE_ADAPTER_CONTEXT_DIFFERS')

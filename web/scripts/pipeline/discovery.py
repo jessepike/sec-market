@@ -23,12 +23,17 @@ DELINEA_HTML_MODE = 'delinea-news-pagination-v1'
 DELINEA_HTML_MODE_V2 = 'delinea-news-pagination-v2'
 DELINEA_HTML_MODE_V3 = 'delinea-news-pagination-v3'
 DELINEA_HTML_MODE_V4 = 'delinea-news-pagination-v4'
+DELINEA_HTML_MODE_V5 = 'delinea-news-pagination-v5'
 DELINEA_INDEX = 'https://delinea.com/news'
 SONATYPE_HTML_MODE = 'sonatype-press-pagination-v1'
 SONATYPE_HTML_MODE_V2 = 'sonatype-press-pagination-v2'
 SONATYPE_HTML_MODE_V3 = 'sonatype-press-pagination-v3'
 SONATYPE_HTML_MODE_V4 = 'sonatype-press-pagination-v4'
+SONATYPE_HTML_MODE_V5 = 'sonatype-press-pagination-v5'
 SONATYPE_INDEX = 'https://www.sonatype.com/press-releases'
+SONATYPE_V5_PUBLISHER_LEAD_URL = (
+    'https://www.sonatype.com/press-releases/resources/state-of-the-software-supply-chain-2022/'
+    'establishment-and-expansion-of-software-supply-chain-regulation-standards')
 
 
 def ping_index_number(url):
@@ -277,10 +282,12 @@ def _index_target(base, href):
 
 def html_index_number(url, mode):
     """Strict request/continuation grammar for the two observed archive roots."""
-    delinea = mode in (DELINEA_HTML_MODE, DELINEA_HTML_MODE_V2, DELINEA_HTML_MODE_V3, DELINEA_HTML_MODE_V4)
+    delinea = mode in (DELINEA_HTML_MODE, DELINEA_HTML_MODE_V2, DELINEA_HTML_MODE_V3,
+                       DELINEA_HTML_MODE_V4, DELINEA_HTML_MODE_V5)
     root = DELINEA_INDEX if delinea else SONATYPE_INDEX
     require(mode in (DELINEA_HTML_MODE, DELINEA_HTML_MODE_V2, DELINEA_HTML_MODE_V3, DELINEA_HTML_MODE_V4,
-                     SONATYPE_HTML_MODE, SONATYPE_HTML_MODE_V2, SONATYPE_HTML_MODE_V3, SONATYPE_HTML_MODE_V4),
+                     DELINEA_HTML_MODE_V5, SONATYPE_HTML_MODE, SONATYPE_HTML_MODE_V2,
+                     SONATYPE_HTML_MODE_V3, SONATYPE_HTML_MODE_V4, SONATYPE_HTML_MODE_V5),
             'Unknown HTML index mode')
     require(isinstance(url, str) and not any(ord(c) <= 32 or ord(c) == 127 for c in url), 'Unsafe HTML index URL text')
     parsed, expected = urlsplit(url), urlsplit(root)
@@ -297,7 +304,8 @@ def html_index_number(url, mode):
 
 
 def _html_archive(source, url, body, mode):
-    delinea = mode in (DELINEA_HTML_MODE, DELINEA_HTML_MODE_V2, DELINEA_HTML_MODE_V3, DELINEA_HTML_MODE_V4)
+    delinea = mode in (DELINEA_HTML_MODE, DELINEA_HTML_MODE_V2, DELINEA_HTML_MODE_V3,
+                       DELINEA_HTML_MODE_V4, DELINEA_HTML_MODE_V5)
     supplier = 'delinea' if delinea else 'sonatype'
     root = DELINEA_INDEX if delinea else SONATYPE_INDEX
     host = urlsplit(root).netloc
@@ -317,17 +325,19 @@ def _html_archive(source, url, body, mode):
 
 
 def _archive_article_url(base, href, mode):
-    if mode in (DELINEA_HTML_MODE_V3, SONATYPE_HTML_MODE_V3, DELINEA_HTML_MODE_V4, SONATYPE_HTML_MODE_V4):
+    if mode in (DELINEA_HTML_MODE_V3, SONATYPE_HTML_MODE_V3, DELINEA_HTML_MODE_V4,
+                SONATYPE_HTML_MODE_V4, DELINEA_HTML_MODE_V5, SONATYPE_HTML_MODE_V5):
         _v3_literal_article_href(href)
     target = _index_target(base, href)
     parsed = urlsplit(target)
-    delinea = mode in (DELINEA_HTML_MODE, DELINEA_HTML_MODE_V2, DELINEA_HTML_MODE_V3, DELINEA_HTML_MODE_V4)
+    delinea = mode in (DELINEA_HTML_MODE, DELINEA_HTML_MODE_V2, DELINEA_HTML_MODE_V3,
+                       DELINEA_HTML_MODE_V4, DELINEA_HTML_MODE_V5)
     root = urlsplit(DELINEA_INDEX if delinea else SONATYPE_INDEX)
     prefix = '/news/' if delinea else '/press-releases/'
     path_match = bool(re.fullmatch(re.escape(prefix) + r'[a-z0-9]+(?:-[a-z0-9]+)*', parsed.path))
     if mode == DELINEA_HTML_MODE_V2:
         path_match = bool(re.fullmatch(re.escape(prefix) + r'[a-z0-9]+(?:-[a-z0-9]+)*-?', parsed.path))
-    if mode in (DELINEA_HTML_MODE_V3, DELINEA_HTML_MODE_V4):
+    if mode in (DELINEA_HTML_MODE_V3, DELINEA_HTML_MODE_V4, DELINEA_HTML_MODE_V5):
         reserved = {'page', 'pages', 'news', 'press-releases'}
         direct = re.fullmatch(re.escape(prefix) + r'([a-z0-9]+(?:-[a-z0-9]+)*-?)', parsed.path)
         historical = re.fullmatch(r'/news/about-us/news/press-releases/[0-9]{4}/([a-z0-9]+(?:-[a-z0-9]+)*)', parsed.path)
@@ -335,7 +345,7 @@ def _archive_article_url(base, href, mode):
         historical_slug = historical.group(1) if historical else ''
         path_match = bool((direct and direct_slug not in reserved and not direct_slug.isdigit()) or
                           (historical and historical_slug not in reserved and not historical_slug.isdigit()))
-        if mode == DELINEA_HTML_MODE_V4:
+        if mode in (DELINEA_HTML_MODE_V4, DELINEA_HTML_MODE_V5):
             dated_company_blog = re.fullmatch(
                 r'/news/company/blog/([0-9]{4})/([0-9]{2})/([0-9]{2})/([a-z0-9]+(?:-[a-z0-9]+)*)',
                 parsed.path)
@@ -349,15 +359,17 @@ def _archive_article_url(base, href, mode):
     if mode == SONATYPE_HTML_MODE_V2 and parsed.path == (
             '/press-releases/sonatype-introduces-cutting-edge-ai/ml-component-detection'):
         path_match = True
-    if mode in (SONATYPE_HTML_MODE_V3, SONATYPE_HTML_MODE_V4):
-        final_slug = r'[a-z0-9]+(?:-[a-z0-9]+)*' + ('-?' if mode == SONATYPE_HTML_MODE_V4 else '')
+    if mode in (SONATYPE_HTML_MODE_V3, SONATYPE_HTML_MODE_V4, SONATYPE_HTML_MODE_V5):
+        final_slug = r'[a-z0-9]+(?:-[a-z0-9]+)*' + ('-?' if mode in (SONATYPE_HTML_MODE_V4, SONATYPE_HTML_MODE_V5) else '')
         direct = re.fullmatch(r'/press-releases/(' + final_slug + r')', parsed.path)
         nested = re.fullmatch(r'/press-releases/([a-z0-9]+(?:-[a-z0-9]+)*)/(' + final_slug + r')', parsed.path)
         segments = (direct.groups() if direct else nested.groups() if nested else ())
         reserved = {'page', 'pages', 'news', 'press-releases'}
-        checked_segments = tuple(segment.rstrip('-') for segment in segments) if mode == SONATYPE_HTML_MODE_V4 else segments
+        checked_segments = tuple(segment.rstrip('-') for segment in segments) if mode in (SONATYPE_HTML_MODE_V4, SONATYPE_HTML_MODE_V5) else segments
         path_match = bool(checked_segments) and all(segment not in reserved and not segment.isdigit()
                                                     for segment in checked_segments)
+    if mode == SONATYPE_HTML_MODE_V5 and parsed.path == urlsplit(SONATYPE_V5_PUBLISHER_LEAD_URL).path:
+        path_match = True
     require(parsed.scheme == 'https' and parsed.netloc == root.netloc and not parsed.query and not parsed.fragment
             and path_match, 'Unsafe HTML archive article path')
     return target
@@ -428,6 +440,50 @@ def delinea_index(source, url, body, highest_page, as_of):
             'Conflicting Delinea head/visible previous')
     require(len(head_next) == (1 if next_url else 0) and all(_index_target(url, n.attrs.get('href')) == next_url for n in head_next),
             'Conflicting Delinea head/visible next')
+    terminal = False
+    if mode == DELINEA_HTML_MODE_V5 and following and not following[0].attrs.get('href'):
+        disabled = following[0]
+        expected_classes = {'blog-pagination__link', 'blog-pagination__next-link',
+                            'blog-pagination__next-link--disabled'}
+        require(disabled.classes == expected_classes and 'href' not in disabled.attrs
+                and set(disabled.attrs) == {'class'} and disabled.text.strip() == 'Next',
+                'Unproved Delinea disabled next control')
+        require(not head_next and numbered == list(range(current - 4, current + 1))
+                and current == max(highest_page, *numbered),
+                'Unproved Delinea terminal page sequence')
+        children = [child for child in disabled.children if isinstance(child, IndexNode)]
+        require(all(isinstance(child, IndexNode) or not child.strip() for child in disabled.children)
+                and len(children) == 2, 'Unknown Delinea disabled next descendants')
+        label, icon = children
+        require(label.tag == 'span' and label.closed and
+                label.attrs == {'class': 'blog-pagination__link-text'} and label.text.strip() == 'Next' and
+                all(isinstance(child, str) for child in label.children),
+                'Unknown Delinea disabled next label')
+        require(icon.tag == 'svg' and icon.closed and icon.attrs == {
+                    'aria-hidden': 'true', 'version': '1.0', 'viewbox': '0 0 320 512', 'width': '13',
+                    'xmlns': 'http://www.w3.org/2000/svg'},
+                'Unknown Delinea disabled next icon')
+        groups = [child for child in icon.children if isinstance(child, IndexNode)]
+        require(all(isinstance(child, IndexNode) or not child.strip() for child in icon.children)
+                and len(groups) == 1, 'Unknown Delinea disabled next icon contents')
+        group = groups[0]
+        require(group.tag == 'g' and group.closed and group.attrs == {'id': 'chevron-right3_layer'},
+                'Unknown Delinea disabled next icon group')
+        paths = [child for child in group.children if isinstance(child, IndexNode)]
+        require(all(isinstance(child, IndexNode) or not child.strip() for child in group.children)
+                and len(paths) == 1, 'Unknown Delinea disabled next icon paths')
+        path = paths[0]
+        require(path.tag == 'path' and path.closed and set(path.attrs) == {'d'} and not path.children and
+                re.fullmatch(r'[MmLlHhVvCcSsQqTtAaZz0-9.,\s+-]{1,1024}', path.attrs['d']) is not None,
+                'Unknown Delinea disabled next icon path')
+        terminal = True
+    elif mode == DELINEA_HTML_MODE_V5 and following:
+        require(following[0].attrs.get('href'), 'Delinea next control has no proved disabled state')
+    result = {'items': items, 'dates': {}, 'highestPage': max(highest_page, *numbered), 'currentPage': current,
+              'next': next_url, 'terminalProved': terminal, 'firstDate': None, 'lastDate': None}
+    if mode == DELINEA_HTML_MODE_V5:
+        result['publisherLeadWarnings'] = []
+    return result
     return {'items': items, 'dates': {}, 'highestPage': max(highest_page, *numbered), 'currentPage': current,
             'next': next_url, 'terminalProved': False, 'firstDate': None, 'lastDate': None}
 
@@ -438,7 +494,7 @@ def sonatype_index(source, url, body, highest_page, as_of):
     region = _index_one([n for n in nodes if n.tag == 'div' and 'listing__grid' in n.classes], 'Sonatype cards')
     cards = [n for n in nodes if n.tag == 'div' and 'listing__grid-card' in n.classes]
     require(0 < len(cards) <= 16 and all(n.closed and n.parent is region for n in cards), 'Invalid Sonatype card inventory')
-    dates, ordered = {}, []
+    dates, ordered, publisher_lead_warnings = {}, [], []
     for card in cards:
         content = _index_one([n for n in card.walk() if n.tag == 'div' and 'card-content' in n.classes], 'Sonatype card content')
         title = _index_one([n for n in content.walk() if n.tag == 'h3'], 'Sonatype title')
@@ -451,6 +507,9 @@ def sonatype_index(source, url, body, highest_page, as_of):
         day = datetime.strptime(stamp, '%B %d, %Y').date().isoformat()
         require(day <= instant(as_of).astimezone(timezone.utc).date().isoformat() and target not in dates, 'Future date or duplicate Sonatype article')
         dates[target] = day; ordered.append(day)
+        if mode == SONATYPE_HTML_MODE_V5 and target == SONATYPE_V5_PUBLISHER_LEAD_URL:
+            publisher_lead_warnings.append({'url': target, 'cardTitle': title.text.strip(), 'indexDate': day,
+                'reason': 'PUBLISHER_CARD_LINK_REQUIRES_PRIMARY_REVIEW'})
     require(ordered == sorted(ordered, reverse=True), 'Sonatype dates out of order')
     paging = _index_one([n for n in nodes if n.tag == 'div' and 'pagination' in n.classes], 'Sonatype pagination')
     require(not any(n.tag in ('button', 'form', 'select') for n in paging.walk()), 'Unknown Sonatype pagination structure')
@@ -522,8 +581,11 @@ def sonatype_index(source, url, body, highest_page, as_of):
                 'Unproved Sonatype terminal page')
     require(not any(n.tag == 'link' and {'next', 'prev'} & set(n.attrs.get('rel', '').lower().split()) for n in nodes),
             'Unproved Sonatype head pagination')
-    return {'items': set(dates), 'dates': dates, 'highestPage': highest_page, 'currentPage': current,
-            'next': next_url, 'terminalProved': terminal, 'firstDate': ordered[0], 'lastDate': ordered[-1]}
+    result = {'items': set(dates), 'dates': dates, 'highestPage': highest_page, 'currentPage': current,
+              'next': next_url, 'terminalProved': terminal, 'firstDate': ordered[0], 'lastDate': ordered[-1]}
+    if mode == SONATYPE_HTML_MODE_V5:
+        result['publisherLeadWarnings'] = publisher_lead_warnings
+    return result
 
 
 def parse_source_html_index(source, url, body, highest_page, as_of):
@@ -531,8 +593,10 @@ def parse_source_html_index(source, url, body, highest_page, as_of):
     modes = {PING_HTML_MODE: ping_index, PING_HTML_MODE_V2: ping_index, PING_HTML_MODE_V3: ping_index,
              DELINEA_HTML_MODE: delinea_index, DELINEA_HTML_MODE_V2: delinea_index,
              DELINEA_HTML_MODE_V3: delinea_index, DELINEA_HTML_MODE_V4: delinea_index,
+             DELINEA_HTML_MODE_V5: delinea_index,
              SONATYPE_HTML_MODE: sonatype_index, SONATYPE_HTML_MODE_V2: sonatype_index,
-             SONATYPE_HTML_MODE_V3: sonatype_index, SONATYPE_HTML_MODE_V4: sonatype_index}
+             SONATYPE_HTML_MODE_V3: sonatype_index, SONATYPE_HTML_MODE_V4: sonatype_index,
+             SONATYPE_HTML_MODE_V5: sonatype_index}
     require(source.get('htmlCompleteness') in modes, 'Unknown source HTML mode')
     require(type(highest_page) is int and highest_page >= 1, 'Invalid prior advertised HTML page')
     return modes[source['htmlCompleteness']](source, url, decoded_discovery_body(body), highest_page, as_of)
@@ -919,17 +983,22 @@ def discover(source, request):
     highest_orca_page = 1
     orca_mode = source.get("htmlCompleteness") == ORCA_HTML_MODE
     source_html_mode = source.get('htmlCompleteness') in (PING_HTML_MODE, PING_HTML_MODE_V2, PING_HTML_MODE_V3,
-        DELINEA_HTML_MODE, DELINEA_HTML_MODE_V2, DELINEA_HTML_MODE_V3, DELINEA_HTML_MODE_V4,
-        SONATYPE_HTML_MODE, SONATYPE_HTML_MODE_V2, SONATYPE_HTML_MODE_V3, SONATYPE_HTML_MODE_V4)
+        DELINEA_HTML_MODE, DELINEA_HTML_MODE_V2, DELINEA_HTML_MODE_V3, DELINEA_HTML_MODE_V4, DELINEA_HTML_MODE_V5,
+        SONATYPE_HTML_MODE, SONATYPE_HTML_MODE_V2, SONATYPE_HTML_MODE_V3, SONATYPE_HTML_MODE_V4, SONATYPE_HTML_MODE_V5)
     source_label = {PING_HTML_MODE: 'PING', PING_HTML_MODE_V2: 'PING', PING_HTML_MODE_V3: 'PING',
                     DELINEA_HTML_MODE: 'DELINEA', DELINEA_HTML_MODE_V2: 'DELINEA',
-                    DELINEA_HTML_MODE_V3: 'DELINEA', DELINEA_HTML_MODE_V4: 'DELINEA',
+                    DELINEA_HTML_MODE_V3: 'DELINEA', DELINEA_HTML_MODE_V4: 'DELINEA', DELINEA_HTML_MODE_V5: 'DELINEA',
                     SONATYPE_HTML_MODE: 'SONATYPE', SONATYPE_HTML_MODE_V2: 'SONATYPE',
-                    SONATYPE_HTML_MODE_V3: 'SONATYPE', SONATYPE_HTML_MODE_V4: 'SONATYPE'}.get(source.get('htmlCompleteness'))
+                    SONATYPE_HTML_MODE_V3: 'SONATYPE', SONATYPE_HTML_MODE_V4: 'SONATYPE',
+                    SONATYPE_HTML_MODE_V5: 'SONATYPE'}.get(source.get('htmlCompleteness'))
     highest_source_page, last_source_date, source_as_of = 1, None, source.get('checkedAt')
+    publisher_lead_warnings = []
     def incomplete(reason, **details):
-        return {"complete": False, "items": sorted(items), "itemDates": item_dates,
-                "itemModified": item_modified, "observations": observations, "reason": reason, **details}
+        result = {"complete": False, "items": sorted(items), "itemDates": item_dates,
+                  "itemModified": item_modified, "observations": observations, "reason": reason, **details}
+        if source.get('htmlCompleteness') in (DELINEA_HTML_MODE_V5, SONATYPE_HTML_MODE_V5):
+            result['publisherLeadWarnings'] = list(publisher_lead_warnings)
+        return result
     while queue:
         if len(seen) >= source["maxPages"]:
             return incomplete("PAGINATION_BUDGET_EXHAUSTED")
@@ -991,6 +1060,7 @@ def discover(source, request):
                 require(last_source_date is None or parsed_index['firstDate'] is None or
                         parsed_index['firstDate'] <= last_source_date, source_label + ' dates out of order across pages')
                 items.update(parsed_index['items']); item_dates.update(parsed_index['dates']); item_modified.update(parsed_index['dates'])
+                publisher_lead_warnings.extend(parsed_index.get('publisherLeadWarnings', []))
                 highest_source_page = parsed_index['highestPage']; last_source_date = parsed_index['lastDate']
                 if not parsed_index['next']:
                     if not parsed_index['terminalProved']:
@@ -1044,4 +1114,8 @@ def discover(source, request):
                         queue.append(target)
                 elif scoped(target, source) and target not in seen:
                     items.add(target)
-    return {"complete": True, "items": sorted(items), "itemDates": item_dates, "itemModified": item_modified, "observations": observations, "reason": None}
+    result = {"complete": True, "items": sorted(items), "itemDates": item_dates,
+              "itemModified": item_modified, "observations": observations, "reason": None}
+    if source.get('htmlCompleteness') in (DELINEA_HTML_MODE_V5, SONATYPE_HTML_MODE_V5):
+        result['publisherLeadWarnings'] = list(publisher_lead_warnings)
+    return result

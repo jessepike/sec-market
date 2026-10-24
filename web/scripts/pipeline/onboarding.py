@@ -13,9 +13,9 @@ from urllib.parse import urljoin, urlsplit
 from urllib.robotparser import RobotFileParser
 
 from contracts import digest, instant, require, utcnow, valid_hash, validate_contract
-from discovery import (DELINEA_HTML_MODE, DELINEA_HTML_MODE_V2, DELINEA_HTML_MODE_V3, DELINEA_HTML_MODE_V4, DELINEA_INDEX,
+from discovery import (DELINEA_HTML_MODE, DELINEA_HTML_MODE_V2, DELINEA_HTML_MODE_V3, DELINEA_HTML_MODE_V4, DELINEA_HTML_MODE_V5, DELINEA_INDEX,
                        PING_HTML_MODE, PING_HTML_MODE_V2, PING_HTML_MODE_V3, PING_INDEX,
-                       SONATYPE_HTML_MODE, SONATYPE_HTML_MODE_V2, SONATYPE_HTML_MODE_V3, SONATYPE_HTML_MODE_V4, SONATYPE_INDEX, IndexMarkup, Page,
+                       SONATYPE_HTML_MODE, SONATYPE_HTML_MODE_V2, SONATYPE_HTML_MODE_V3, SONATYPE_HTML_MODE_V4, SONATYPE_HTML_MODE_V5, SONATYPE_INDEX, IndexMarkup, Page,
                        decoded_discovery_body, parse_source_html_index, ping_article_date,
                        _v3_literal_article_href, xml_links)
 
@@ -44,6 +44,11 @@ BOUNDED_CANDIDATE_BINDINGS_V4 = (
     ('ping-identity:official:1', PING_INDEX, PING_HTML_MODE_V3),
     ('delinea:official:1', DELINEA_INDEX, DELINEA_HTML_MODE_V4),
     ('sonatype:official:1', SONATYPE_INDEX, SONATYPE_HTML_MODE_V4),
+)
+BOUNDED_CANDIDATE_BINDINGS_V5 = (
+    ('ping-identity:official:1', PING_INDEX, PING_HTML_MODE_V3),
+    ('delinea:official:1', DELINEA_INDEX, DELINEA_HTML_MODE_V5),
+    ('sonatype:official:1', SONATYPE_INDEX, SONATYPE_HTML_MODE_V5),
 )
 
 
@@ -366,16 +371,17 @@ def _candidate_adapter(source, index_url, mode):
 
 def _validate_bounded_candidate_plan(contract, store, path, raw, plan):
     revision = plan.get('parserRevision', 1) if isinstance(plan, dict) else None
-    require(type(revision) is int and revision in (1, 2, 3, 4)
-            and (revision in (2, 3, 4) or 'parserRevision' not in plan),
+    require(type(revision) is int and revision in (1, 2, 3, 4, 5)
+            and (revision in (2, 3, 4, 5) or 'parserRevision' not in plan),
             'BOUNDED_CANDIDATE_PARSER_REVISION_INVALID')
     fields = {
             'schemaVersion', 'operation', 'marketSha256', 'maxRequests',
             'maxIndexPagesPerSource', 'primarySamplesPerSource', 'sources'}
-    if revision in (2, 3, 4):
+    if revision in (2, 3, 4, 5):
         fields.add('parserRevision')
     bindings = {1: BOUNDED_CANDIDATE_BINDINGS, 2: BOUNDED_CANDIDATE_BINDINGS_V2,
-                3: BOUNDED_CANDIDATE_BINDINGS_V3, 4: BOUNDED_CANDIDATE_BINDINGS_V4}[revision]
+                3: BOUNDED_CANDIDATE_BINDINGS_V3, 4: BOUNDED_CANDIDATE_BINDINGS_V4,
+                5: BOUNDED_CANDIDATE_BINDINGS_V5}[revision]
     require(isinstance(plan, dict) and set(plan) == fields
             and type(plan.get('schemaVersion')) is int and plan['schemaVersion'] == 2
             and plan.get('operation') == BOUNDED_CANDIDATE_OPERATION
@@ -628,10 +634,10 @@ def _candidate_primary_shape(body, url, parser_revision=1):
                   if node.tag == 'link' and 'canonical' in node.attrs.get('rel', '').split()]
     headings = [' '.join(node.text.split()) for node in nodes if node.tag == 'h1']
     require(canonicals == [url], 'BOUNDED_CANDIDATE_PRIMARY_CANONICAL_DIFFERS')
-    require(type(parser_revision) is int and parser_revision in (1, 2, 3, 4),
+    require(type(parser_revision) is int and parser_revision in (1, 2, 3, 4, 5),
             'BOUNDED_CANDIDATE_PARSER_REVISION_INVALID')
-    # Revision 4 changes index routes only; its primary shape is exactly V3.
-    if parser_revision == 4:
+    # Revisions 4/5 change index parsing only; their primary shape is exactly V3.
+    if parser_revision in (4, 5):
         parser_revision = 3
     if parser_revision == 3:
         _v3_literal_article_href(url)
@@ -708,6 +714,16 @@ def _read_bounded_candidate_observation(store, reference, binding, url):
     observed = json.loads(_qualification_reference(store, wrapper['rawObservation'], r'objects/[a-f0-9]{64}'))
     require(isinstance(observed, dict), 'BOUNDED_CANDIDATE_RAW_OBSERVATION_INVALID')
     return observed
+
+
+
+def _bounded_candidate_page_snapshot(parsed, revision):
+    snapshot = {'currentPage': parsed['currentPage'], 'highestPage': parsed['highestPage'],
+                'items': sorted(parsed['items']), 'dates': parsed['dates'], 'next': parsed['next'],
+                'terminalProved': parsed['terminalProved']}
+    if revision == 5:
+        snapshot['publisherLeadWarnings'] = copy.deepcopy(parsed.get('publisherLeadWarnings', []))
+    return snapshot
 
 
 def _replay_bounded_candidate_result(contract, store, plan, report, raw_plan_bytes):
@@ -833,9 +849,7 @@ def _replay_bounded_candidate_result(contract, store, plan, report, raw_plan_byt
                         'BOUNDED_CANDIDATE_PAGE_PARSER_FAILURE_DIFFERS')
                 expected_url = None
                 break
-            snapshot = {'currentPage': parsed['currentPage'], 'highestPage': parsed['highestPage'],
-                        'items': sorted(parsed['items']), 'dates': parsed['dates'], 'next': parsed['next'],
-                        'terminalProved': parsed['terminalProved']}
+            snapshot = _bounded_candidate_page_snapshot(parsed, plan.get('parserRevision', 1))
             require(page_row['parser'] == snapshot and parsed['currentPage'] == page_number,
                     'BOUNDED_CANDIDATE_PAGE_PARSER_REPLAY_DIFFERS')
             overlap = items & parsed['items']
@@ -1116,9 +1130,7 @@ def _probe_bounded_candidate_traversal(contract, store, fetcher, budget, plan):
                     page_row['parser'] = {'error': str(error)[:160]}
                     raise
                 require(parsed.get('currentPage') == page_number, 'BOUNDED_CANDIDATE_PAGE_SEQUENCE_DIFFERS')
-                snapshot = {'currentPage': parsed['currentPage'], 'highestPage': parsed['highestPage'],
-                            'items': sorted(parsed['items']), 'dates': parsed['dates'], 'next': parsed['next'],
-                            'terminalProved': parsed['terminalProved']}
+                snapshot = _bounded_candidate_page_snapshot(parsed, plan.get('parserRevision', 1))
                 page_row['parser'] = snapshot
                 overlap = items & parsed['items']
                 date_conflict = any(item in dates and dates[item] != value
