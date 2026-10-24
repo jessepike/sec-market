@@ -1,0 +1,1955 @@
+{
+  "schemaVersion": 1,
+  "id": "FOLLOWUP-SEVEN-TARGET-RESPONSE-REVIEW-2026-10-24",
+  "reviewedAt": "2026-10-24T05:49:17.248286Z",
+  "status": "response structure reviewed; candidates remain unqualified; no activation",
+  "authority": {
+    "coverageCredit": false,
+    "semanticAdmission": false,
+    "sourceChecksCredited": 0,
+    "qualifiedSources": 0,
+    "modelCalls": 0,
+    "marketRequests": 0,
+    "obligations": 557,
+    "suppliers": 74,
+    "oldPolicyReport": "244/557 retained unchanged; no new collection or production claim"
+  },
+  "inputBundle": {
+    "root": "/var/tmp/smp-followup-probe-20261024/target-bundle",
+    "receipt": {
+      "path": "/var/tmp/smp-followup-probe-20261024/target-bundle/receipt.json",
+      "sha256": "0de390eb29ee068b03c6b802aaf364d6e48c661045eafa60cde5b91c53b9e435",
+      "bytes": 3358
+    },
+    "files": {
+      "delinea-current-1.body": {
+        "sha256": "4072d8f8b018edc36ec31199df49e8ebbf88ee31aeddbeef6e250384dcddcca1",
+        "bytes": 119417,
+        "mtimeNs": 1792820323002182272
+      },
+      "delinea-current-1.observation.json": {
+        "sha256": "b6f5d583b06fe5609fffd6715f68678140ccecd42971bfa1627f3f9ef03628eb",
+        "bytes": 620,
+        "mtimeNs": 1792820323002087939
+      },
+      "delinea-current-2.body": {
+        "sha256": "57b608f9920d1a7a83026da8b361f8e48fc4786c1744e3c80e7e74aeda7097ba",
+        "bytes": 117325,
+        "mtimeNs": 1792820323000871020
+      },
+      "delinea-current-2.observation.json": {
+        "sha256": "852983ed300e73d9899dab980c1ba7ad7a35fb2dcd2e7e19146633091cb67054",
+        "bytes": 546,
+        "mtimeNs": 1792820323000405477
+      },
+      "delinea-news-index.body": {
+        "sha256": "c41039c12fb7c69bb2beb0a5c2d58c3a01b743c5d2a5523fa5cd92879ab5fe49",
+        "bytes": 144789,
+        "mtimeNs": 1792820321978510741
+      },
+      "delinea-news-index.observation.json": {
+        "sha256": "02b4b3a4fcc9c0a0661588383e4860a06ed9780cdd2f751577fcebae60b00d9b",
+        "bytes": 440,
+        "mtimeNs": 1792820321978450574
+      },
+      "ping-advertised-last.body": {
+        "sha256": "f51960d7ea48f451e533fb82cf5e31084eea6c77e69ab9b071dfeca47d5a61d0",
+        "bytes": 96028,
+        "mtimeNs": 1792820322141778670
+      },
+      "ping-advertised-last.observation.json": {
+        "sha256": "178d283473a44b4270a34f42be7a2c71c07e5985ca380c8b8a7540cfb0838784",
+        "bytes": 491,
+        "mtimeNs": 1792820322141723086
+      },
+      "ping-page-3.body": {
+        "sha256": "a65804e00578b903d8bc47768a6f3543622ce895904d5a32d66851197c9fd591",
+        "bytes": 99023,
+        "mtimeNs": 1792820321921531301
+      },
+      "ping-page-3.observation.json": {
+        "sha256": "1f50d77a0796416ebf09d2d7fd92ba873172afb3b53dcb1da7cfe5f586289c7e",
+        "bytes": 489,
+        "mtimeNs": 1792820321921436051
+      },
+      "receipt.json": {
+        "sha256": "0de390eb29ee068b03c6b802aaf364d6e48c661045eafa60cde5b91c53b9e435",
+        "bytes": 3358,
+        "mtimeNs": 1792820323148990754
+      },
+      "sonatype-current-1.body": {
+        "sha256": "9dd5e6a68bec1a8ee167393efe19b85cb0924c0147f323178b8774ce862961b9",
+        "bytes": 117339,
+        "mtimeNs": 1792820323148175002
+      },
+      "sonatype-current-1.observation.json": {
+        "sha256": "6323895cff1f9989105490b66b9c5b7b9fc09a780a0a1789e3523dc9781f8b3a",
+        "bytes": 592,
+        "mtimeNs": 1792820323148111252
+      },
+      "sonatype-press-index.body": {
+        "sha256": "016390f2bb69053739461f57624864d8567ec72cd84f2808a80d6760e33b1d30",
+        "bytes": 138958,
+        "mtimeNs": 1792820322247321616
+      },
+      "sonatype-press-index.observation.json": {
+        "sha256": "154b1e7e0330086229048ffaf87796ce51c1e5e70d94d42a3d140fba71adfeea",
+        "bytes": 504,
+        "mtimeNs": 1792820322247269033
+      }
+    }
+  },
+  "archive": {
+    "root": "/var/tmp/smp-followup-probe-20261024/archive-892d9ffb/jessepike-sec-market-892d9ffb809173be57eaf2729272dc06b3be798d",
+    "commit": "892d9ffb809173be57eaf2729272dc06b3be798d",
+    "manifestSha256": "2b43aebcb8fad6153a712f28793c1c86f253dc6ed23f2c69651d64dd40605f86",
+    "manifestEntries": 31266,
+    "independentVerificationReceipt": {
+      "path": "/var/tmp/smp-followup-probe-20261024/archive-verification.json",
+      "sha256": "c2205b9059251d54556dd7d22e76a1ab323b6ca9e24c914cf187c7bc0a9ef39a",
+      "bytes": 604
+    },
+    "selectedEntries": [
+      {
+        "bytes": 277064,
+        "key": "state/ci/source-probe-runs/40066513321-1.json",
+        "sha256": "4ef4905070ed2043b093aad72990fe0d45a73f3682d0d3832e0ac2fa966e6ee2"
+      },
+      {
+        "bytes": 138958,
+        "key": "state/objects/016390f2bb69053739461f57624864d8567ec72cd84f2808a80d6760e33b1d30",
+        "sha256": "016390f2bb69053739461f57624864d8567ec72cd84f2808a80d6760e33b1d30"
+      },
+      {
+        "bytes": 440,
+        "key": "state/objects/02b4b3a4fcc9c0a0661588383e4860a06ed9780cdd2f751577fcebae60b00d9b",
+        "sha256": "02b4b3a4fcc9c0a0661588383e4860a06ed9780cdd2f751577fcebae60b00d9b"
+      },
+      {
+        "bytes": 504,
+        "key": "state/objects/154b1e7e0330086229048ffaf87796ce51c1e5e70d94d42a3d140fba71adfeea",
+        "sha256": "154b1e7e0330086229048ffaf87796ce51c1e5e70d94d42a3d140fba71adfeea"
+      },
+      {
+        "bytes": 491,
+        "key": "state/objects/178d283473a44b4270a34f42be7a2c71c07e5985ca380c8b8a7540cfb0838784",
+        "sha256": "178d283473a44b4270a34f42be7a2c71c07e5985ca380c8b8a7540cfb0838784"
+      },
+      {
+        "bytes": 489,
+        "key": "state/objects/1f50d77a0796416ebf09d2d7fd92ba873172afb3b53dcb1da7cfe5f586289c7e",
+        "sha256": "1f50d77a0796416ebf09d2d7fd92ba873172afb3b53dcb1da7cfe5f586289c7e"
+      },
+      {
+        "bytes": 99084,
+        "key": "state/objects/277c8d143f01e294d926ca6f85eb3c9874b08107721386a69feeaf59107372e3",
+        "sha256": "277c8d143f01e294d926ca6f85eb3c9874b08107721386a69feeaf59107372e3"
+      },
+      {
+        "bytes": 119417,
+        "key": "state/objects/4072d8f8b018edc36ec31199df49e8ebbf88ee31aeddbeef6e250384dcddcca1",
+        "sha256": "4072d8f8b018edc36ec31199df49e8ebbf88ee31aeddbeef6e250384dcddcca1"
+      },
+      {
+        "bytes": 117325,
+        "key": "state/objects/57b608f9920d1a7a83026da8b361f8e48fc4786c1744e3c80e7e74aeda7097ba",
+        "sha256": "57b608f9920d1a7a83026da8b361f8e48fc4786c1744e3c80e7e74aeda7097ba"
+      },
+      {
+        "bytes": 592,
+        "key": "state/objects/6323895cff1f9989105490b66b9c5b7b9fc09a780a0a1789e3523dc9781f8b3a",
+        "sha256": "6323895cff1f9989105490b66b9c5b7b9fc09a780a0a1789e3523dc9781f8b3a"
+      },
+      {
+        "bytes": 66126,
+        "key": "state/objects/6dc248c7a5fee6f96f872d97d87241a70de98bf7524298e9e7108951bbf6685d",
+        "sha256": "6dc248c7a5fee6f96f872d97d87241a70de98bf7524298e9e7108951bbf6685d"
+      },
+      {
+        "bytes": 28691,
+        "key": "state/objects/74d9fae664b325629a04a64078fee6c350b48ea548e4c23f5f4e0b9fca895160",
+        "sha256": "74d9fae664b325629a04a64078fee6c350b48ea548e4c23f5f4e0b9fca895160"
+      },
+      {
+        "bytes": 546,
+        "key": "state/objects/852983ed300e73d9899dab980c1ba7ad7a35fb2dcd2e7e19146633091cb67054",
+        "sha256": "852983ed300e73d9899dab980c1ba7ad7a35fb2dcd2e7e19146633091cb67054"
+      },
+      {
+        "bytes": 117339,
+        "key": "state/objects/9dd5e6a68bec1a8ee167393efe19b85cb0924c0147f323178b8774ce862961b9",
+        "sha256": "9dd5e6a68bec1a8ee167393efe19b85cb0924c0147f323178b8774ce862961b9"
+      },
+      {
+        "bytes": 99023,
+        "key": "state/objects/a65804e00578b903d8bc47768a6f3543622ce895904d5a32d66851197c9fd591",
+        "sha256": "a65804e00578b903d8bc47768a6f3543622ce895904d5a32d66851197c9fd591"
+      },
+      {
+        "bytes": 620,
+        "key": "state/objects/b6f5d583b06fe5609fffd6715f68678140ccecd42971bfa1627f3f9ef03628eb",
+        "sha256": "b6f5d583b06fe5609fffd6715f68678140ccecd42971bfa1627f3f9ef03628eb"
+      },
+      {
+        "bytes": 144789,
+        "key": "state/objects/c41039c12fb7c69bb2beb0a5c2d58c3a01b743c5d2a5523fa5cd92879ab5fe49",
+        "sha256": "c41039c12fb7c69bb2beb0a5c2d58c3a01b743c5d2a5523fa5cd92879ab5fe49"
+      },
+      {
+        "bytes": 98724,
+        "key": "state/objects/d06c171a9aa6c5150e47355692dbdecdaacc544a15ce7fd01bbc6812883007be",
+        "sha256": "d06c171a9aa6c5150e47355692dbdecdaacc544a15ce7fd01bbc6812883007be"
+      },
+      {
+        "bytes": 18997,
+        "key": "state/objects/defaacb0b1fc34da75566f1067c9bff22aeca96caa38fbc60010ba554bbf9e5f",
+        "sha256": "defaacb0b1fc34da75566f1067c9bff22aeca96caa38fbc60010ba554bbf9e5f"
+      },
+      {
+        "bytes": 96028,
+        "key": "state/objects/f51960d7ea48f451e533fb82cf5e31084eea6c77e69ab9b071dfeca47d5a61d0",
+        "sha256": "f51960d7ea48f451e533fb82cf5e31084eea6c77e69ab9b071dfeca47d5a61d0"
+      }
+    ]
+  },
+  "actualDiagnostic": {
+    "runId": "40066513321",
+    "appRevision": "7e17e22a1ba2c88db5cb4ab2012b752cfd55da2c",
+    "record": {
+      "key": "ci/source-probe-runs/40066513321-1.json",
+      "sha256": "4ef4905070ed2043b093aad72990fe0d45a73f3682d0d3832e0ac2fa966e6ee2",
+      "bytes": 277064
+    },
+    "contractSha256": "79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60",
+    "reservationContext": {
+      "budgetDay": "2026-10-24",
+      "contractSha256": "79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60",
+      "currentBudget": {
+        "calls": 80,
+        "documents": 40,
+        "fetches": 765
+      },
+      "fetchLimit": 5500,
+      "initialBudget": {
+        "calls": 80,
+        "documents": 40,
+        "fetches": 641
+      },
+      "maximumRuntimeSeconds": 1200,
+      "probeFetchReservations": 124,
+      "reservationDenials": {},
+      "startedAt": "2026-10-24T05:32:35.220759Z"
+    },
+    "chargedExplicitRequests": 7,
+    "totalChargedRequests": 124,
+    "note": "Actual diagnostic requests predate this read-only review; all seven HTTP200 responses remained unqualified."
+  },
+  "targets": [
+    {
+      "id": "ping-page-3",
+      "sourceId": "ping-identity:official:1",
+      "url": "https://press.pingidentity.com/news-releases?o=20",
+      "observation": {
+        "bytes": 489,
+        "key": "objects/1f50d77a0796416ebf09d2d7fd92ba873172afb3b53dcb1da7cfe5f586289c7e",
+        "sha256": "1f50d77a0796416ebf09d2d7fd92ba873172afb3b53dcb1da7cfe5f586289c7e"
+      },
+      "body": {
+        "bytes": 99023,
+        "key": "objects/a65804e00578b903d8bc47768a6f3543622ce895904d5a32d66851197c9fd591",
+        "sha256": "a65804e00578b903d8bc47768a6f3543622ce895904d5a32d66851197c9fd591"
+      },
+      "fetchedAt": "2026-10-24T05:33:09.399894Z",
+      "httpStatus": 200,
+      "canonical": [
+        "https://press.pingidentity.com/news-releases"
+      ],
+      "genericPublished": null,
+      "qualified": false,
+      "rowSha256": "b18f4d4f63471592b6f802964ddf9aaed931d1cde744a9863a2c70495c9d06bc"
+    },
+    {
+      "id": "ping-advertised-last",
+      "sourceId": "ping-identity:official:1",
+      "url": "https://press.pingidentity.com/news-releases?o=240",
+      "observation": {
+        "bytes": 491,
+        "key": "objects/178d283473a44b4270a34f42be7a2c71c07e5985ca380c8b8a7540cfb0838784",
+        "sha256": "178d283473a44b4270a34f42be7a2c71c07e5985ca380c8b8a7540cfb0838784"
+      },
+      "body": {
+        "bytes": 96028,
+        "key": "objects/f51960d7ea48f451e533fb82cf5e31084eea6c77e69ab9b071dfeca47d5a61d0",
+        "sha256": "f51960d7ea48f451e533fb82cf5e31084eea6c77e69ab9b071dfeca47d5a61d0"
+      },
+      "fetchedAt": "2026-10-24T05:33:10.149572Z",
+      "httpStatus": 200,
+      "canonical": [
+        "https://press.pingidentity.com/news-releases"
+      ],
+      "genericPublished": null,
+      "qualified": false,
+      "rowSha256": "e4850426bc162bc7cb9b43bebbad5d0a011b72e215af0b5b5532b0f6f7b11ce7"
+    },
+    {
+      "id": "delinea-news-index",
+      "sourceId": "delinea:official:1",
+      "url": "https://delinea.com/news",
+      "observation": {
+        "bytes": 440,
+        "key": "objects/02b4b3a4fcc9c0a0661588383e4860a06ed9780cdd2f751577fcebae60b00d9b",
+        "sha256": "02b4b3a4fcc9c0a0661588383e4860a06ed9780cdd2f751577fcebae60b00d9b"
+      },
+      "body": {
+        "bytes": 144789,
+        "key": "objects/c41039c12fb7c69bb2beb0a5c2d58c3a01b743c5d2a5523fa5cd92879ab5fe49",
+        "sha256": "c41039c12fb7c69bb2beb0a5c2d58c3a01b743c5d2a5523fa5cd92879ab5fe49"
+      },
+      "fetchedAt": "2026-10-24T05:33:10.227425Z",
+      "httpStatus": 200,
+      "canonical": [
+        "https://delinea.com/news"
+      ],
+      "genericPublished": null,
+      "qualified": false,
+      "rowSha256": "03462ec1b1733aaf75a99048dffc1b77dc0249816578551cbdec5946300568b1"
+    },
+    {
+      "id": "sonatype-press-index",
+      "sourceId": "sonatype:official:1",
+      "url": "https://www.sonatype.com/press-releases",
+      "observation": {
+        "bytes": 504,
+        "key": "objects/154b1e7e0330086229048ffaf87796ce51c1e5e70d94d42a3d140fba71adfeea",
+        "sha256": "154b1e7e0330086229048ffaf87796ce51c1e5e70d94d42a3d140fba71adfeea"
+      },
+      "body": {
+        "bytes": 138958,
+        "key": "objects/016390f2bb69053739461f57624864d8567ec72cd84f2808a80d6760e33b1d30",
+        "sha256": "016390f2bb69053739461f57624864d8567ec72cd84f2808a80d6760e33b1d30"
+      },
+      "fetchedAt": "2026-10-24T05:33:10.312608Z",
+      "httpStatus": 200,
+      "canonical": [
+        "https://www.sonatype.com/press-releases"
+      ],
+      "genericPublished": null,
+      "qualified": false,
+      "rowSha256": "0c9ec7b04c8b6fc2cacf7bdcf3e8e532760b4c96300be3466046e00b0e540e2b"
+    },
+    {
+      "id": "delinea-current-1",
+      "sourceId": "delinea:official:1",
+      "url": "https://delinea.com/news/delinea-fastpath-launches-mcp-server-for-ai-powered-access-governance-and-audit-readiness",
+      "observation": {
+        "bytes": 620,
+        "key": "objects/b6f5d583b06fe5609fffd6715f68678140ccecd42971bfa1627f3f9ef03628eb",
+        "sha256": "b6f5d583b06fe5609fffd6715f68678140ccecd42971bfa1627f3f9ef03628eb"
+      },
+      "body": {
+        "bytes": 119417,
+        "key": "objects/4072d8f8b018edc36ec31199df49e8ebbf88ee31aeddbeef6e250384dcddcca1",
+        "sha256": "4072d8f8b018edc36ec31199df49e8ebbf88ee31aeddbeef6e250384dcddcca1"
+      },
+      "fetchedAt": "2026-10-24T05:33:10.693423Z",
+      "httpStatus": 200,
+      "canonical": [
+        "https://delinea.com/news/delinea-fastpath-launches-mcp-server-for-ai-powered-access-governance-and-audit-readiness"
+      ],
+      "genericPublished": null,
+      "qualified": false,
+      "rowSha256": "a4c9e9d6bdb4d9f396833177d79531869ff579d9ac331212238e655337026889"
+    },
+    {
+      "id": "delinea-current-2",
+      "sourceId": "delinea:official:1",
+      "url": "https://delinea.com/news/2026-identity-security-report-the-ai-enforcement-gap",
+      "observation": {
+        "bytes": 546,
+        "key": "objects/852983ed300e73d9899dab980c1ba7ad7a35fb2dcd2e7e19146633091cb67054",
+        "sha256": "852983ed300e73d9899dab980c1ba7ad7a35fb2dcd2e7e19146633091cb67054"
+      },
+      "body": {
+        "bytes": 117325,
+        "key": "objects/57b608f9920d1a7a83026da8b361f8e48fc4786c1744e3c80e7e74aeda7097ba",
+        "sha256": "57b608f9920d1a7a83026da8b361f8e48fc4786c1744e3c80e7e74aeda7097ba"
+      },
+      "fetchedAt": "2026-10-24T05:33:10.953899Z",
+      "httpStatus": 200,
+      "canonical": [
+        "https://delinea.com/news/2026-identity-security-report-the-ai-enforcement-gap"
+      ],
+      "genericPublished": null,
+      "qualified": false,
+      "rowSha256": "fc1fb399a37d3709ec041af5af619fd3a4f46f2ee219e97e623e0a0183ef20d1"
+    },
+    {
+      "id": "sonatype-current-1",
+      "sourceId": "sonatype:official:1",
+      "url": "https://www.sonatype.com/press-releases/sonatype-unveils-nexus-repository-pro-plus",
+      "observation": {
+        "bytes": 592,
+        "key": "objects/6323895cff1f9989105490b66b9c5b7b9fc09a780a0a1789e3523dc9781f8b3a",
+        "sha256": "6323895cff1f9989105490b66b9c5b7b9fc09a780a0a1789e3523dc9781f8b3a"
+      },
+      "body": {
+        "bytes": 117339,
+        "key": "objects/9dd5e6a68bec1a8ee167393efe19b85cb0924c0147f323178b8774ce862961b9",
+        "sha256": "9dd5e6a68bec1a8ee167393efe19b85cb0924c0147f323178b8774ce862961b9"
+      },
+      "fetchedAt": "2026-10-24T05:33:11.050765Z",
+      "httpStatus": 200,
+      "canonical": [
+        "https://www.sonatype.com/press-releases/sonatype-unveils-nexus-repository-pro-plus"
+      ],
+      "genericPublished": null,
+      "qualified": false,
+      "rowSha256": "40786385db463bcbe72eb952fb6869aa23ea5ed6681a52f79f3707fa36748762"
+    }
+  ],
+  "ping": {
+    "pages": {
+      "ping-page-3": {
+        "page": 3,
+        "cards": [
+          {
+            "url": "https://press.pingidentity.com/2025-08-18-Ping-Identity-Unveils-Just-in-time-Privileged-Access-Capability-to-Empower-Enterprises-Across-the-Full-Identity-Lifecycle",
+            "title": "Ping Identity Unveils Just-in-time Privileged Access Capability to Empower Enterprises Across the Full Identity Lifecycle",
+            "indexDate": "2025-08-18",
+            "literalDate": "Aug 18, 2025"
+          },
+          {
+            "url": "https://press.pingidentity.com/2025-08-05-Ping-Identity-Named-a-Leader-in-Three-2025-KuppingerCole-Reports",
+            "title": "Ping Identity Named a Leader in Three 2025 KuppingerCole Reports",
+            "indexDate": "2025-08-05",
+            "literalDate": "Aug 05, 2025"
+          },
+          {
+            "url": "https://press.pingidentity.com/2025-04-10-Ping-Identity-Doubles-Down-on-Partner-Strategy-with-New-Partner-Program-and-Advisory-Board",
+            "title": "Ping Identity Doubles Down on Partner Strategy with New Partner Program and Advisory Board",
+            "indexDate": "2025-04-10",
+            "literalDate": "Apr 10, 2025"
+          },
+          {
+            "url": "https://press.pingidentity.com/2025-01-09-Ping-Identity-Named-a-2025-Best-Place-to-Work-for-Seventh-Consecutive-Year-by-Built-In",
+            "title": "Ping Identity Named a 2025 Best Place to Work for Seventh Consecutive Year by Built In",
+            "indexDate": "2025-01-09",
+            "literalDate": "Jan 09, 2025"
+          },
+          {
+            "url": "https://press.pingidentity.com/2024-12-12-Ping-Identity-Celebrates-Identity-Excellence-Award-Winners-2024",
+            "title": "Ping Identity Celebrates Identity Excellence Award Winners 2024",
+            "indexDate": "2024-12-12",
+            "literalDate": "Dec 12, 2024"
+          },
+          {
+            "url": "https://press.pingidentity.com/2024-12-06-Ping-Identity-Named-a-Leader-in-Q4-2024-Analyst-Report-on-Customer-Identity-and-Access-Management-Solutions",
+            "title": "Ping Identity Named a Leader in Q4 2024 Analyst Report on Customer Identity and Access Management Solutions",
+            "indexDate": "2024-12-06",
+            "literalDate": "Dec 06, 2024"
+          },
+          {
+            "url": "https://press.pingidentity.com/2024-12-05-Ping-Identity-Named-as-a-Leader-in-2024-Gartner-R-Magic-Quadrant-TM-for-Access-Management",
+            "title": "Ping Identity Named as a Leader in 2024 Gartner® Magic Quadrant™ for Access Management",
+            "indexDate": "2024-12-05",
+            "literalDate": "Dec 05, 2024"
+          },
+          {
+            "url": "https://press.pingidentity.com/2024-11-14-Ping-Identity-Surpasses-30-Annual-Growth-in-SaaS-Revenue-and-Approaches-800M-ARR-as-an-Enterprise-Identity-Market-Leader",
+            "title": "Ping Identity Surpasses 30% Annual Growth in SaaS Revenue and Approaches $800M ARR as an Enterprise Identity Market Leader",
+            "indexDate": "2024-11-14",
+            "literalDate": "Nov 14, 2024"
+          },
+          {
+            "url": "https://press.pingidentity.com/2024-10-29-Ping-Identitys-YOUniverse-2024-Celebrates-the-Future-of-Identity",
+            "title": "Ping Identity's YOUniverse 2024 Celebrates the Future of Identity",
+            "indexDate": "2024-10-29",
+            "literalDate": "Oct 29, 2024"
+          },
+          {
+            "url": "https://press.pingidentity.com/2024-09-25-Ping-Identity-Survey-Finds-87-of-Consumers-Concerned-About-Identity-Fraud,-as-AI-Sparks-Hesitation",
+            "title": "Ping Identity Survey Finds 87% of Consumers Concerned About Identity Fraud, as AI Sparks Hesitation",
+            "indexDate": "2024-09-25",
+            "literalDate": "Sep 25, 2024"
+          }
+        ],
+        "controls": [
+          {
+            "tag": "a",
+            "attributes": {
+              "aria-label": "Show previous page",
+              "href": "https://press.pingidentity.com/news-releases?o=10"
+            },
+            "text": "«",
+            "resolvedUrl": "https://press.pingidentity.com/news-releases?o=10"
+          },
+          {
+            "tag": "a",
+            "attributes": {
+              "aria-label": "Show page 1",
+              "href": "https://press.pingidentity.com/news-releases?o=0"
+            },
+            "text": "1",
+            "resolvedUrl": "https://press.pingidentity.com/news-releases?o=0"
+          },
+          {
+            "tag": "a",
+            "attributes": {
+              "aria-label": "Show page 2",
+              "href": "https://press.pingidentity.com/news-releases?o=10"
+            },
+            "text": "2",
+            "resolvedUrl": "https://press.pingidentity.com/news-releases?o=10"
+          },
+          {
+            "tag": "span",
+            "attributes": {
+              "aria-current": "page",
+              "aria-label": "Current page 3"
+            },
+            "text": "3",
+            "resolvedUrl": null
+          },
+          {
+            "tag": "a",
+            "attributes": {
+              "aria-label": "Show page 4",
+              "href": "https://press.pingidentity.com/news-releases?o=30"
+            },
+            "text": "4",
+            "resolvedUrl": "https://press.pingidentity.com/news-releases?o=30"
+          },
+          {
+            "tag": "a",
+            "attributes": {
+              "aria-label": "Show page 5",
+              "href": "https://press.pingidentity.com/news-releases?o=40"
+            },
+            "text": "5",
+            "resolvedUrl": "https://press.pingidentity.com/news-releases?o=40"
+          },
+          {
+            "tag": "a",
+            "attributes": {
+              "aria-label": "Show page 6",
+              "href": "https://press.pingidentity.com/news-releases?o=50"
+            },
+            "text": "6",
+            "resolvedUrl": "https://press.pingidentity.com/news-releases?o=50"
+          },
+          {
+            "tag": "a",
+            "attributes": {
+              "aria-label": "Show page 7",
+              "href": "https://press.pingidentity.com/news-releases?o=60"
+            },
+            "text": "7",
+            "resolvedUrl": "https://press.pingidentity.com/news-releases?o=60"
+          },
+          {
+            "tag": "a",
+            "attributes": {
+              "aria-label": "Show page 8",
+              "href": "https://press.pingidentity.com/news-releases?o=70"
+            },
+            "text": "8",
+            "resolvedUrl": "https://press.pingidentity.com/news-releases?o=70"
+          },
+          {
+            "tag": "a",
+            "attributes": {
+              "aria-label": "Show page 9",
+              "href": "https://press.pingidentity.com/news-releases?o=80"
+            },
+            "text": "9",
+            "resolvedUrl": "https://press.pingidentity.com/news-releases?o=80"
+          },
+          {
+            "tag": "span",
+            "attributes": {},
+            "text": "…",
+            "resolvedUrl": null
+          },
+          {
+            "tag": "a",
+            "attributes": {
+              "aria-label": "Show page 25",
+              "href": "https://press.pingidentity.com/news-releases?o=240"
+            },
+            "text": "25",
+            "resolvedUrl": "https://press.pingidentity.com/news-releases?o=240"
+          },
+          {
+            "tag": "a",
+            "attributes": {
+              "aria-label": "Show next page",
+              "href": "https://press.pingidentity.com/news-releases?o=30"
+            },
+            "text": "»",
+            "resolvedUrl": "https://press.pingidentity.com/news-releases?o=30"
+          }
+        ],
+        "actualContractParserAttempt": {
+          "accepted": false,
+          "error": "Ping HTML mode requires its exact supplier/source binding"
+        },
+        "proposedContextLayoutReplay": {
+          "accepted": true,
+          "items": 10,
+          "next": "https://press.pingidentity.com/news-releases?o=30",
+          "highestPage": 25
+        }
+      },
+      "ping-advertised-last": {
+        "page": 25,
+        "cards": [
+          {
+            "url": "https://press.pingidentity.com/2018-01-17-What-to-Expect-in-2018-Ping-Identity-Predicts-Proliferation-of-Blockchain-Identities-and-Death-of-Knowledge-Based-Authentication",
+            "title": "What to Expect in 2018: Ping Identity Predicts Proliferation of Blockchain Identities and Death of Knowledge-Based Authentication",
+            "indexDate": "2018-01-17",
+            "literalDate": "Jan 17, 2018"
+          },
+          {
+            "url": "https://press.pingidentity.com/2018-01-02-KPMG-and-Ping-Identity-Deliver-Consumer-Identity-and-Access-Management-Solutions",
+            "title": "KPMG and Ping Identity Deliver Consumer Identity and Access Management Solutions",
+            "indexDate": "2018-01-02",
+            "literalDate": "Jan 02, 2018"
+          }
+        ],
+        "controls": [
+          {
+            "tag": "a",
+            "attributes": {
+              "aria-label": "Show previous page",
+              "href": "https://press.pingidentity.com/news-releases?o=230"
+            },
+            "text": "«",
+            "resolvedUrl": "https://press.pingidentity.com/news-releases?o=230"
+          },
+          {
+            "tag": "a",
+            "attributes": {
+              "aria-label": "Show page 1",
+              "href": "https://press.pingidentity.com/news-releases?o=0"
+            },
+            "text": "1",
+            "resolvedUrl": "https://press.pingidentity.com/news-releases?o=0"
+          },
+          {
+            "tag": "span",
+            "attributes": {},
+            "text": "…",
+            "resolvedUrl": null
+          },
+          {
+            "tag": "a",
+            "attributes": {
+              "aria-label": "Show page 17",
+              "href": "https://press.pingidentity.com/news-releases?o=160"
+            },
+            "text": "17",
+            "resolvedUrl": "https://press.pingidentity.com/news-releases?o=160"
+          },
+          {
+            "tag": "a",
+            "attributes": {
+              "aria-label": "Show page 18",
+              "href": "https://press.pingidentity.com/news-releases?o=170"
+            },
+            "text": "18",
+            "resolvedUrl": "https://press.pingidentity.com/news-releases?o=170"
+          },
+          {
+            "tag": "a",
+            "attributes": {
+              "aria-label": "Show page 19",
+              "href": "https://press.pingidentity.com/news-releases?o=180"
+            },
+            "text": "19",
+            "resolvedUrl": "https://press.pingidentity.com/news-releases?o=180"
+          },
+          {
+            "tag": "a",
+            "attributes": {
+              "aria-label": "Show page 20",
+              "href": "https://press.pingidentity.com/news-releases?o=190"
+            },
+            "text": "20",
+            "resolvedUrl": "https://press.pingidentity.com/news-releases?o=190"
+          },
+          {
+            "tag": "a",
+            "attributes": {
+              "aria-label": "Show page 21",
+              "href": "https://press.pingidentity.com/news-releases?o=200"
+            },
+            "text": "21",
+            "resolvedUrl": "https://press.pingidentity.com/news-releases?o=200"
+          },
+          {
+            "tag": "a",
+            "attributes": {
+              "aria-label": "Show page 22",
+              "href": "https://press.pingidentity.com/news-releases?o=210"
+            },
+            "text": "22",
+            "resolvedUrl": "https://press.pingidentity.com/news-releases?o=210"
+          },
+          {
+            "tag": "a",
+            "attributes": {
+              "aria-label": "Show page 23",
+              "href": "https://press.pingidentity.com/news-releases?o=220"
+            },
+            "text": "23",
+            "resolvedUrl": "https://press.pingidentity.com/news-releases?o=220"
+          },
+          {
+            "tag": "a",
+            "attributes": {
+              "aria-label": "Show page 24",
+              "href": "https://press.pingidentity.com/news-releases?o=230"
+            },
+            "text": "24",
+            "resolvedUrl": "https://press.pingidentity.com/news-releases?o=230"
+          },
+          {
+            "tag": "span",
+            "attributes": {
+              "aria-current": "page",
+              "aria-label": "Current page 25"
+            },
+            "text": "25",
+            "resolvedUrl": null
+          },
+          {
+            "tag": "span",
+            "attributes": {},
+            "text": "»",
+            "resolvedUrl": null
+          }
+        ],
+        "actualContractParserAttempt": {
+          "accepted": false,
+          "error": "Ping HTML mode requires its exact supplier/source binding"
+        },
+        "proposedContextLayoutReplay": {
+          "accepted": false,
+          "error": "Unknown Ping page role"
+        }
+      }
+    },
+    "retainedPriorPageBodies": {
+      "1": "d06c171a9aa6c5150e47355692dbdecdaacc544a15ce7fd01bbc6812883007be",
+      "2": "277c8d143f01e294d926ca6f85eb3c9874b08107721386a69feeaf59107372e3"
+    },
+    "distinctCardsAcrossPages1_2_3_25": 32,
+    "missingSequentialPages": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ],
+    "terminalCandidate": 25,
+    "fullTraversalProved": false,
+    "layoutReplaySourceOverride": {
+      "kind": "html_index",
+      "url": "https://press.pingidentity.com/news-releases",
+      "htmlCompleteness": "ping-release-pagination-v1",
+      "scope": "In-memory proposed adapter context only; actual source remains candidate official_discovery root and is not activated or qualified."
+    }
+  },
+  "indexes": {
+    "delinea": {
+      "targetId": "delinea-news-index",
+      "cards": [
+        {
+          "url": "https://delinea.com/news/delinea-fastpath-launches-mcp-server-for-ai-powered-access-governance-and-audit-readiness",
+          "title": "Delinea Fastpath Launches MCP Server for AI-Powered Access Governance and Audit Readiness",
+          "indexDate": null,
+          "literalDate": null
+        },
+        {
+          "url": "https://delinea.com/news/2026-identity-security-report-the-ai-enforcement-gap",
+          "title": "Delinea Report Finds 87% of Organizations Saw an AI Tool Access Sensitive Data Beyond Its Scope in the Past Year",
+          "indexDate": null,
+          "literalDate": null
+        },
+        {
+          "url": "https://delinea.com/news/delinea-appoints-timothy-regan-as-cfo",
+          "title": "Delinea Appoints Timothy Regan as Chief Financial Officer",
+          "indexDate": null,
+          "literalDate": null
+        },
+        {
+          "url": "https://delinea.com/news/delinea-named-a-winner-of-the-united-states-top-workplaces-2026-award",
+          "title": "Delinea Named a Winner of the United States Top Workplaces 2026 Award",
+          "indexDate": null,
+          "literalDate": null
+        },
+        {
+          "url": "https://delinea.com/news/delinea-joins-anthropics-project-glasswing",
+          "title": "Delinea Joins Anthropic's Project Glasswing",
+          "indexDate": null,
+          "literalDate": null
+        },
+        {
+          "url": "https://delinea.com/news/delinea-delivers-runtime-authorization-for-ai-agents",
+          "title": "Delinea Delivers Runtime Authorization for AI Agents, the Only Platform to Enforce Policy on Actions Before They Execute",
+          "indexDate": null,
+          "literalDate": null
+        },
+        {
+          "url": "https://delinea.com/news/delinea-launches-new-partner-program",
+          "title": "Delinea Launches New Partner Program to Drive Partner Profitability and Scale Growth",
+          "indexDate": null,
+          "literalDate": null
+        },
+        {
+          "url": "https://delinea.com/news/delinea-achieves-fedramp-high-authorization-for-secret-server",
+          "title": "Delinea Achieves FedRAMP High Authorization for Secret Server",
+          "indexDate": null,
+          "literalDate": null
+        },
+        {
+          "url": "https://delinea.com/news/delinea-named-a-growth-and-innovation-leader-in-frost-radar-for-pam-2026",
+          "title": "Delinea Named a Growth and Innovation Leader in Frost Radar™: Privileged Access Management 2026",
+          "indexDate": null,
+          "literalDate": null
+        },
+        {
+          "url": "https://delinea.com/news/axios-names-delinea-a-winner-of-the-greater-bay-area-top-workplaces-2026-award",
+          "title": "Axios Names Delinea a Winner of the Greater Bay Area Top Workplaces 2026 Award",
+          "indexDate": null,
+          "literalDate": null
+        },
+        {
+          "url": "https://delinea.com/news/delinea-integrates-with-cyera-to-prioritize-data-aware-identity-security-in-the-ai-era",
+          "title": "Delinea Integrates with Cyera to Prioritize Data-Aware ​​​​Identity Security in the AI Era",
+          "indexDate": null,
+          "literalDate": null
+        },
+        {
+          "url": "https://delinea.com/news/delinea-an-overall-leader-2026-kuppingercole-leadership-compass-for-pam",
+          "title": "Delinea Recognized as an Overall Leader in the 2026 KuppingerCole Leadership Compass™ for Privileged Access Management",
+          "indexDate": null,
+          "literalDate": null
+        }
+      ],
+      "pagination": [
+        {
+          "tag": "a",
+          "attributes": {
+            "class": "blog-pagination__link blog-pagination__prev-link blog-pagination__prev-link--disabled"
+          },
+          "text": "Prev",
+          "resolvedUrl": null
+        },
+        {
+          "tag": "span",
+          "attributes": {
+            "class": "blog-pagination__link-text"
+          },
+          "text": "Prev",
+          "resolvedUrl": null
+        },
+        {
+          "tag": "a",
+          "attributes": {
+            "class": "blog-pagination__link blog-pagination__number-link blog-pagination__link--active",
+            "aria-label": "Go to Page 1",
+            "aria-current": "true",
+            "href": "https://delinea.com/news"
+          },
+          "text": "1",
+          "resolvedUrl": "https://delinea.com/news"
+        },
+        {
+          "tag": "a",
+          "attributes": {
+            "class": "blog-pagination__link blog-pagination__number-link ",
+            "aria-label": "Go to Page 2",
+            "href": "https://delinea.com/news/page/2"
+          },
+          "text": "2",
+          "resolvedUrl": "https://delinea.com/news/page/2"
+        },
+        {
+          "tag": "a",
+          "attributes": {
+            "class": "blog-pagination__link blog-pagination__number-link ",
+            "aria-label": "Go to Page 3",
+            "href": "https://delinea.com/news/page/3"
+          },
+          "text": "3",
+          "resolvedUrl": "https://delinea.com/news/page/3"
+        },
+        {
+          "tag": "a",
+          "attributes": {
+            "class": "blog-pagination__link blog-pagination__number-link ",
+            "aria-label": "Go to Page 4",
+            "href": "https://delinea.com/news/page/4"
+          },
+          "text": "4",
+          "resolvedUrl": "https://delinea.com/news/page/4"
+        },
+        {
+          "tag": "a",
+          "attributes": {
+            "class": "blog-pagination__link blog-pagination__number-link ",
+            "aria-label": "Go to Page 5",
+            "href": "https://delinea.com/news/page/5"
+          },
+          "text": "5",
+          "resolvedUrl": "https://delinea.com/news/page/5"
+        },
+        {
+          "tag": "a",
+          "attributes": {
+            "class": "blog-pagination__link blog-pagination__next-link ",
+            "href": "https://delinea.com/news/page/2"
+          },
+          "text": "Next",
+          "resolvedUrl": "https://delinea.com/news/page/2"
+        },
+        {
+          "tag": "span",
+          "attributes": {
+            "class": "blog-pagination__link-text"
+          },
+          "text": "Next",
+          "resolvedUrl": null
+        }
+      ],
+      "headLinks": [
+        {
+          "attributes": {
+            "rel": "next",
+            "href": "https://delinea.com/news/page/2"
+          }
+        },
+        {
+          "attributes": {
+            "rel": "alternate",
+            "type": "application/rss+xml",
+            "href": "https://delinea.com/news/rss.xml"
+          }
+        },
+        {
+          "attributes": {
+            "rel": "canonical",
+            "href": "https://delinea.com/news"
+          }
+        }
+      ],
+      "terminalProved": false
+    },
+    "sonatype": {
+      "targetId": "sonatype-press-index",
+      "cards": [
+        {
+          "url": "https://www.sonatype.com/press-releases/sonatype-unveils-nexus-repository-pro-plus",
+          "title": "Sonatype Unveils Nexus Repository Pro+ to Stop Malicious Components Before Developers or AI Agents Pull Them Into Builds",
+          "indexDate": "2026-10-14",
+          "literalDate": "October 14, 2026"
+        },
+        {
+          "url": "https://www.sonatype.com/press-releases/automating-fixes-in-ai-driven-development",
+          "title": "Sonatype Moves Control Upstream and Automates Fixes in AI-Driven Software Development",
+          "indexDate": "2026-08-18",
+          "literalDate": "August 18, 2026"
+        },
+        {
+          "url": "https://www.sonatype.com/press-releases/sonatype-research-labs-marks-15-years-of-intelligence",
+          "title": "Sonatype Research Labs Marks 15 Years of Software Supply Chain Intelligence",
+          "indexDate": "2026-07-14",
+          "literalDate": "July 14, 2026"
+        },
+        {
+          "url": "https://www.sonatype.com/press-releases/sonatype-named-a-leader-in-the-2026-gartner-magic-quadrant",
+          "title": "Sonatype Named a Leader in the 2026 Gartner® Magic Quadrant™ for Software Supply Chain Security",
+          "indexDate": "2026-06-18",
+          "literalDate": "June 18, 2026"
+        },
+        {
+          "url": "https://www.sonatype.com/press-releases/sonatype-strengthens-leadership-team-for-ai-driven-growth",
+          "title": "Sonatype Names Three Industry Veterans to Executive Team to Lead the Next Chapter of Agentic Development",
+          "indexDate": "2026-06-09",
+          "literalDate": "June 9, 2026"
+        },
+        {
+          "url": "https://www.sonatype.com/press-releases/sonatype-firewall-extends-malicious-package-protection",
+          "title": "Sonatype Firewall Extends Malicious Package Protection to Any Repository",
+          "indexDate": "2026-05-27",
+          "literalDate": "May 27, 2026"
+        },
+        {
+          "url": "https://www.sonatype.com/press-releases/sonatype-and-package-registry-leaders-unite",
+          "title": "Sonatype and Package Registry Leaders Unite to Address Open Source Sustainability Crisis",
+          "indexDate": "2026-05-06",
+          "literalDate": "May 6, 2026"
+        },
+        {
+          "url": "https://www.sonatype.com/press-releases/sonatype-q1-2026-open-source-malware-index",
+          "title": "Sonatype Releases Q1 2026 Open Source Malware Index: Trust Abuse Most Successful Attack Vector",
+          "indexDate": "2026-04-14",
+          "literalDate": "April 14, 2026"
+        },
+        {
+          "url": "https://www.sonatype.com/press-releases/sonatype-research-on-ai-coding-safety",
+          "title": "Sonatype Research Finds AI Coding Safety Gains Rely on Real-Time Software Intelligence, Not Just Larger Models",
+          "indexDate": "2026-03-24",
+          "literalDate": "March 24, 2026"
+        },
+        {
+          "url": "https://www.sonatype.com/press-releases/sonatype-research-reveals-open-malware-grows-75-percent",
+          "title": "Sonatype Research Reveals OSS Malware Grows 75% as Yearly Open Source Downloads Surpass 9.8 Trillion",
+          "indexDate": "2026-01-28",
+          "literalDate": "January 28, 2026"
+        },
+        {
+          "url": "https://www.sonatype.com/press-releases/introducing-guide-for-secure-agentic-development",
+          "title": "Sonatype Introduces Guide, the Intelligent Solution for Secure Agentic Development",
+          "indexDate": "2025-12-09",
+          "literalDate": "December 9, 2025"
+        },
+        {
+          "url": "https://www.sonatype.com/press-releases/sonatype-intelligence-report-cve-crisis",
+          "title": "Sonatype Intelligence Reveals CVE Program Leaves Majority of Vulnerabilities Unscored",
+          "indexDate": "2025-11-20",
+          "literalDate": "November 20, 2025"
+        },
+        {
+          "url": "https://www.sonatype.com/press-releases/sonatype-unveils-nexus-one-platform",
+          "title": "Sonatype Unveils Nexus One: An AI-Native DevSecOps Platform to Secure and Accelerate Software Innovation",
+          "indexDate": "2025-11-19",
+          "literalDate": "November 19, 2025"
+        },
+        {
+          "url": "https://www.sonatype.com/press-releases/grand-opening-of-india-innovation-hub",
+          "title": "Sonatype Celebrates Grand Opening of India Innovation Hub in Hyderabad",
+          "indexDate": "2025-11-10",
+          "literalDate": "November 10, 2025"
+        },
+        {
+          "url": "https://www.sonatype.com/press-releases/sonatype-announces-2025-elevate-award-winners",
+          "title": "Sonatype Announces 2025 Elevate Award Winners & Finalists",
+          "indexDate": "2025-10-20",
+          "literalDate": "October 20, 2025"
+        },
+        {
+          "url": "https://www.sonatype.com/press-releases/open-source-malware-index-q3-2025",
+          "title": "Open Source Malware Surges 140% in Q3 as Attackers Target Data and Trusted Dependencies",
+          "indexDate": "2025-10-15",
+          "literalDate": "October 15, 2025"
+        }
+      ],
+      "pagination": [
+        {
+          "tag": "a",
+          "attributes": {
+            "class": "btn btn-secondary",
+            "href": "/press-releases?page=0#resource-grid"
+          },
+          "text": "Prev",
+          "resolvedUrl": "https://www.sonatype.com/press-releases?page=0#resource-grid"
+        },
+        {
+          "tag": "a",
+          "attributes": {
+            "class": "pagination-link current-page",
+            "href": "/press-releases?page=1"
+          },
+          "text": "1",
+          "resolvedUrl": "https://www.sonatype.com/press-releases?page=1"
+        },
+        {
+          "tag": "a",
+          "attributes": {
+            "class": "pagination-link",
+            "href": "/press-releases?page=2"
+          },
+          "text": "2",
+          "resolvedUrl": "https://www.sonatype.com/press-releases?page=2"
+        },
+        {
+          "tag": "a",
+          "attributes": {
+            "class": "pagination-link",
+            "href": "/press-releases?page=3"
+          },
+          "text": "3",
+          "resolvedUrl": "https://www.sonatype.com/press-releases?page=3"
+        },
+        {
+          "tag": "a",
+          "attributes": {
+            "class": "pagination-link",
+            "href": "/press-releases?page=13"
+          },
+          "text": "13",
+          "resolvedUrl": "https://www.sonatype.com/press-releases?page=13"
+        },
+        {
+          "tag": "a",
+          "attributes": {
+            "class": "btn btn-secondary",
+            "href": "/press-releases?page=2"
+          },
+          "text": "Next",
+          "resolvedUrl": "https://www.sonatype.com/press-releases?page=2"
+        }
+      ],
+      "headLinks": [
+        {
+          "attributes": {
+            "rel": "alternate",
+            "type": "application/rss+xml",
+            "href": "https://www.sonatype.com/press-releases/rss.xml"
+          }
+        },
+        {
+          "attributes": {
+            "rel": "canonical",
+            "href": "https://www.sonatype.com/press-releases"
+          }
+        }
+      ],
+      "terminalProved": false
+    }
+  },
+  "retainedRssComparison": {
+    "delinea": {
+      "body": {
+        "key": "objects/74d9fae664b325629a04a64078fee6c350b48ea548e4c23f5f4e0b9fca895160",
+        "sha256": "74d9fae664b325629a04a64078fee6c350b48ea548e4c23f5f4e0b9fca895160",
+        "bytes": 28691
+      },
+      "rssItems": 10,
+      "htmlItems": 12,
+      "exactOrderedUrlPrefix": true,
+      "titleMismatchCount": 5,
+      "items": [
+        {
+          "position": 1,
+          "rssUrl": "https://delinea.com/news/delinea-fastpath-launches-mcp-server-for-ai-powered-access-governance-and-audit-readiness",
+          "rssTitle": "Delinea Fastpath Launches MCP Server for AI-Powered Access Governance and Audit Readiness",
+          "rssPubDate": "Wed, 21 Oct 2026 12:00:02 GMT",
+          "rssDate": "2026-10-21",
+          "htmlTitle": "Delinea Fastpath Launches MCP Server for AI-Powered Access Governance and Audit Readiness",
+          "urlMatches": true,
+          "titleMatches": true,
+          "indexDateMatches": null
+        },
+        {
+          "position": 2,
+          "rssUrl": "https://delinea.com/news/2026-identity-security-report-the-ai-enforcement-gap",
+          "rssTitle": "2026 Identity Security Report: The AI Enforcement Gap",
+          "rssPubDate": "Tue, 29 Sep 2026 11:59:59 GMT",
+          "rssDate": "2026-09-29",
+          "htmlTitle": "Delinea Report Finds 87% of Organizations Saw an AI Tool Access Sensitive Data Beyond Its Scope in the Past Year",
+          "urlMatches": true,
+          "titleMatches": false,
+          "indexDateMatches": null
+        },
+        {
+          "position": 3,
+          "rssUrl": "https://delinea.com/news/delinea-appoints-timothy-regan-as-cfo",
+          "rssTitle": "Delinea Appoints Timothy Regan as Chief Financial Officer",
+          "rssPubDate": "Wed, 23 Sep 2026 13:00:03 GMT",
+          "rssDate": "2026-09-23",
+          "htmlTitle": "Delinea Appoints Timothy Regan as Chief Financial Officer",
+          "urlMatches": true,
+          "titleMatches": true,
+          "indexDateMatches": null
+        },
+        {
+          "position": 4,
+          "rssUrl": "https://delinea.com/news/delinea-named-a-winner-of-the-united-states-top-workplaces-2026-award",
+          "rssTitle": "Delinea Named a Winner of the United States Top Workplaces 2026 Award",
+          "rssPubDate": "Tue, 22 Sep 2026 12:00:01 GMT",
+          "rssDate": "2026-09-22",
+          "htmlTitle": "Delinea Named a Winner of the United States Top Workplaces 2026 Award",
+          "urlMatches": true,
+          "titleMatches": true,
+          "indexDateMatches": null
+        },
+        {
+          "position": 5,
+          "rssUrl": "https://delinea.com/news/delinea-joins-anthropics-project-glasswing",
+          "rssTitle": "Delinea Joins Anthropic's Project Glasswing",
+          "rssPubDate": "Thu, 17 Sep 2026 12:00:00 GMT",
+          "rssDate": "2026-09-17",
+          "htmlTitle": "Delinea Joins Anthropic's Project Glasswing",
+          "urlMatches": true,
+          "titleMatches": true,
+          "indexDateMatches": null
+        },
+        {
+          "position": 6,
+          "rssUrl": "https://delinea.com/news/delinea-delivers-runtime-authorization-for-ai-agents",
+          "rssTitle": "Delinea Delivers Runtime Authorization for AI Agents",
+          "rssPubDate": "Wed, 29 Jul 2026 12:00:02 GMT",
+          "rssDate": "2026-07-29",
+          "htmlTitle": "Delinea Delivers Runtime Authorization for AI Agents, the Only Platform to Enforce Policy on Actions Before They Execute",
+          "urlMatches": true,
+          "titleMatches": false,
+          "indexDateMatches": null
+        },
+        {
+          "position": 7,
+          "rssUrl": "https://delinea.com/news/delinea-launches-new-partner-program",
+          "rssTitle": "Delinea Launches New Partner Program",
+          "rssPubDate": "Wed, 15 Jul 2026 11:05:52 GMT",
+          "rssDate": "2026-07-15",
+          "htmlTitle": "Delinea Launches New Partner Program to Drive Partner Profitability and Scale Growth",
+          "urlMatches": true,
+          "titleMatches": false,
+          "indexDateMatches": null
+        },
+        {
+          "position": 8,
+          "rssUrl": "https://delinea.com/news/delinea-achieves-fedramp-high-authorization-for-secret-server",
+          "rssTitle": "Delinea Achieves FedRAMP High Authorization for Secret Server",
+          "rssPubDate": "Wed, 08 Jul 2026 12:00:00 GMT",
+          "rssDate": "2026-07-08",
+          "htmlTitle": "Delinea Achieves FedRAMP High Authorization for Secret Server",
+          "urlMatches": true,
+          "titleMatches": true,
+          "indexDateMatches": null
+        },
+        {
+          "position": 9,
+          "rssUrl": "https://delinea.com/news/delinea-named-a-growth-and-innovation-leader-in-frost-radar-for-pam-2026",
+          "rssTitle": "Delinea Named a Growth & Innovation Leader in Frost Radar for PAM 2026",
+          "rssPubDate": "Wed, 17 Jun 2026 12:00:00 GMT",
+          "rssDate": "2026-06-17",
+          "htmlTitle": "Delinea Named a Growth and Innovation Leader in Frost Radar™: Privileged Access Management 2026",
+          "urlMatches": true,
+          "titleMatches": false,
+          "indexDateMatches": null
+        },
+        {
+          "position": 10,
+          "rssUrl": "https://delinea.com/news/axios-names-delinea-a-winner-of-the-greater-bay-area-top-workplaces-2026-award",
+          "rssTitle": "Delinea an Axios Winner of Greater Bay Area Top Workplaces 2026 Award",
+          "rssPubDate": "Tue, 16 Jun 2026 12:00:01 GMT",
+          "rssDate": "2026-06-16",
+          "htmlTitle": "Axios Names Delinea a Winner of the Greater Bay Area Top Workplaces 2026 Award",
+          "urlMatches": true,
+          "titleMatches": false,
+          "indexDateMatches": null
+        }
+      ],
+      "scope": "RSS metadata retained separately; dates and titles are not silently substituted into HTML or full articles."
+    },
+    "sonatype": {
+      "body": {
+        "key": "objects/defaacb0b1fc34da75566f1067c9bff22aeca96caa38fbc60010ba554bbf9e5f",
+        "sha256": "defaacb0b1fc34da75566f1067c9bff22aeca96caa38fbc60010ba554bbf9e5f",
+        "bytes": 18997
+      },
+      "rssItems": 10,
+      "htmlItems": 16,
+      "exactOrderedUrlPrefix": true,
+      "titleMismatchCount": 10,
+      "items": [
+        {
+          "position": 1,
+          "rssUrl": "https://www.sonatype.com/press-releases/sonatype-unveils-nexus-repository-pro-plus",
+          "rssTitle": "Sonatype Unveils Nexus Repository Pro+ to Stop Malicious Components",
+          "rssPubDate": "Wed, 14 Oct 2026 10:00:00 GMT",
+          "rssDate": "2026-10-14",
+          "htmlTitle": "Sonatype Unveils Nexus Repository Pro+ to Stop Malicious Components Before Developers or AI Agents Pull Them Into Builds",
+          "urlMatches": true,
+          "titleMatches": false,
+          "indexDateMatches": true
+        },
+        {
+          "position": 2,
+          "rssUrl": "https://www.sonatype.com/press-releases/automating-fixes-in-ai-driven-development",
+          "rssTitle": "Sonatype Automates Fixes in AI-Driven Software Development",
+          "rssPubDate": "Tue, 18 Aug 2026 10:00:02 GMT",
+          "rssDate": "2026-08-18",
+          "htmlTitle": "Sonatype Moves Control Upstream and Automates Fixes in AI-Driven Software Development",
+          "urlMatches": true,
+          "titleMatches": false,
+          "indexDateMatches": true
+        },
+        {
+          "position": 3,
+          "rssUrl": "https://www.sonatype.com/press-releases/sonatype-research-labs-marks-15-years-of-intelligence",
+          "rssTitle": "Sonatype Research Labs Marks 15 Years of Open Source Intelligence",
+          "rssPubDate": "Tue, 14 Jul 2026 10:00:00 GMT",
+          "rssDate": "2026-07-14",
+          "htmlTitle": "Sonatype Research Labs Marks 15 Years of Software Supply Chain Intelligence",
+          "urlMatches": true,
+          "titleMatches": false,
+          "indexDateMatches": true
+        },
+        {
+          "position": 4,
+          "rssUrl": "https://www.sonatype.com/press-releases/sonatype-named-a-leader-in-the-2026-gartner-magic-quadrant",
+          "rssTitle": "Sonatype Named a Leader in the 2026 Gartner® Magic Quadrant™",
+          "rssPubDate": "Thu, 18 Jun 2026 17:32:08 GMT",
+          "rssDate": "2026-06-18",
+          "htmlTitle": "Sonatype Named a Leader in the 2026 Gartner® Magic Quadrant™ for Software Supply Chain Security",
+          "urlMatches": true,
+          "titleMatches": false,
+          "indexDateMatches": true
+        },
+        {
+          "position": 5,
+          "rssUrl": "https://www.sonatype.com/press-releases/sonatype-strengthens-leadership-team-for-ai-driven-growth",
+          "rssTitle": "Sonatype Strengthens Leadership Team for AI-Driven Growth",
+          "rssPubDate": "Tue, 09 Jun 2026 10:00:02 GMT",
+          "rssDate": "2026-06-09",
+          "htmlTitle": "Sonatype Names Three Industry Veterans to Executive Team to Lead the Next Chapter of Agentic Development",
+          "urlMatches": true,
+          "titleMatches": false,
+          "indexDateMatches": true
+        },
+        {
+          "position": 6,
+          "rssUrl": "https://www.sonatype.com/press-releases/sonatype-firewall-extends-malicious-package-protection",
+          "rssTitle": "Sonatype Firewall Extends Malicious Package Protection",
+          "rssPubDate": "Wed, 27 May 2026 10:00:00 GMT",
+          "rssDate": "2026-05-27",
+          "htmlTitle": "Sonatype Firewall Extends Malicious Package Protection to Any Repository",
+          "urlMatches": true,
+          "titleMatches": false,
+          "indexDateMatches": true
+        },
+        {
+          "position": 7,
+          "rssUrl": "https://www.sonatype.com/press-releases/sonatype-and-package-registry-leaders-unite",
+          "rssTitle": "Sonatype and Package Registry Leaders Unite on OS Sustainability",
+          "rssPubDate": "Wed, 06 May 2026 10:00:00 GMT",
+          "rssDate": "2026-05-06",
+          "htmlTitle": "Sonatype and Package Registry Leaders Unite to Address Open Source Sustainability Crisis",
+          "urlMatches": true,
+          "titleMatches": false,
+          "indexDateMatches": true
+        },
+        {
+          "position": 8,
+          "rssUrl": "https://www.sonatype.com/press-releases/sonatype-q1-2026-open-source-malware-index",
+          "rssTitle": "Sonatype Releases Q1 2026 Open Source Malware Index",
+          "rssPubDate": "Tue, 14 Apr 2026 10:00:00 GMT",
+          "rssDate": "2026-04-14",
+          "htmlTitle": "Sonatype Releases Q1 2026 Open Source Malware Index: Trust Abuse Most Successful Attack Vector",
+          "urlMatches": true,
+          "titleMatches": false,
+          "indexDateMatches": true
+        },
+        {
+          "position": 9,
+          "rssUrl": "https://www.sonatype.com/press-releases/sonatype-research-on-ai-coding-safety",
+          "rssTitle": "AI Grounded in Intelligence Delivers Safer Outcomes | Sonatype",
+          "rssPubDate": "Tue, 24 Mar 2026 12:00:03 GMT",
+          "rssDate": "2026-03-24",
+          "htmlTitle": "Sonatype Research Finds AI Coding Safety Gains Rely on Real-Time Software Intelligence, Not Just Larger Models",
+          "urlMatches": true,
+          "titleMatches": false,
+          "indexDateMatches": true
+        },
+        {
+          "position": 10,
+          "rssUrl": "https://www.sonatype.com/press-releases/sonatype-research-reveals-open-malware-grows-75-percent",
+          "rssTitle": "Sonatype Research Reveals Open Source Malware Grows 75%",
+          "rssPubDate": "Wed, 28 Jan 2026 11:00:00 GMT",
+          "rssDate": "2026-01-28",
+          "htmlTitle": "Sonatype Research Reveals OSS Malware Grows 75% as Yearly Open Source Downloads Surpass 9.8 Trillion",
+          "urlMatches": true,
+          "titleMatches": false,
+          "indexDateMatches": true
+        }
+      ],
+      "scope": "RSS metadata retained separately; dates and titles are not silently substituted into HTML or full articles."
+    }
+  },
+  "fullArticles": [
+    {
+      "targetId": "delinea-current-1",
+      "canonical": "https://delinea.com/news/delinea-fastpath-launches-mcp-server-for-ai-powered-access-governance-and-audit-readiness",
+      "h1": "Delinea Fastpath Launches MCP Server for AI-Powered Access Governance and Audit Readiness",
+      "matchesHtmlIndexTitle": true,
+      "rssTitle": "Delinea Fastpath Launches MCP Server for AI-Powered Access Governance and Audit Readiness",
+      "visibleDatelineExcerpt": "SAN FRANCISCO – October 21, 2026 – Delinea , the identity security platform that continuously controls what AI agents, humans, and machines can do and for how long, today announced Delinea Fastpath MCP Server, a new capability that connects access governance data to the AI assistants teams already use. Using the Model Context Protocol (MCP), finance, IT, audit, and compliance teams can ask natural-language questions ",
+      "visibleDatelineCalendarDay": "2026-10-21",
+      "genericPublished": null,
+      "dateScope": "Publisher dateline observed in primary article text; no claim/event review or effective-date admission."
+    },
+    {
+      "targetId": "delinea-current-2",
+      "canonical": "https://delinea.com/news/2026-identity-security-report-the-ai-enforcement-gap",
+      "h1": "Delinea Report Finds 87% of Organizations Saw an AI Tool Access Sensitive Data Beyond Its Scope in the Past Year",
+      "matchesHtmlIndexTitle": true,
+      "rssTitle": "2026 Identity Security Report: The AI Enforcement Gap",
+      "visibleDatelineExcerpt": "SAN FRANCISCO – September 29, 2026 – Delinea , the identity security platform that continuously controls what AI agents, humans and machines can do and for how long, today published new research examining where AI governance breaks down in practice . According to the report, 2026 Identity Security Report: The AI Enforcement Gap, 87% of IT leaders say an AI tool or agent accessed sensitive data beyond its intended sco",
+      "visibleDatelineCalendarDay": "2026-09-29",
+      "genericPublished": null,
+      "dateScope": "Publisher dateline observed in primary article text; no claim/event review or effective-date admission."
+    },
+    {
+      "targetId": "sonatype-current-1",
+      "canonical": "https://www.sonatype.com/press-releases/sonatype-unveils-nexus-repository-pro-plus",
+      "h1": "Sonatype Unveils Nexus Repository Pro+ to Stop Malicious Components Before Developers or AI Agents Pull Them Into Builds",
+      "matchesHtmlIndexTitle": true,
+      "rssTitle": "Sonatype Unveils Nexus Repository Pro+ to Stop Malicious Components",
+      "visibleDatelineExcerpt": "Fulton, Md. – October 14, 2026 – Sonatype ® , the company helping enterprises build with confidence in the AI era, today announced Nexus Repository Pro+, which stops malicious code where it enters, not after it’s already inside. By bringing Sonatype Repository Firewall , the company’s malicious code protection and policy enforcement product, inside the repository, Nexus Repository Pro+ screens every open source packa",
+      "visibleDatelineCalendarDay": "2026-10-14",
+      "genericPublished": null,
+      "dateScope": "Publisher dateline observed in primary article text; no claim/event review or effective-date admission."
+    }
+  ],
+  "minimumEvidencedNextRequests": [
+    {
+      "id": "ping-page-4",
+      "url": "https://press.pingidentity.com/news-releases?o=30",
+      "disclosedBy": "ping-page-3",
+      "literalAnchors": [
+        {
+          "attributes": {
+            "aria-label": "Show page 4",
+            "href": "https://press.pingidentity.com/news-releases?o=30"
+          },
+          "text": "4"
+        },
+        {
+          "attributes": {
+            "aria-label": "Show next page",
+            "href": "https://press.pingidentity.com/news-releases?o=30"
+          },
+          "text": "»"
+        }
+      ],
+      "purpose": "Probe sequential/terminal pagination structure only; no source qualification, intake or semantic credit."
+    },
+    {
+      "id": "ping-page-5",
+      "url": "https://press.pingidentity.com/news-releases?o=40",
+      "disclosedBy": "ping-page-3",
+      "literalAnchors": [
+        {
+          "attributes": {
+            "aria-label": "Show page 5",
+            "href": "https://press.pingidentity.com/news-releases?o=40"
+          },
+          "text": "5"
+        }
+      ],
+      "purpose": "Probe sequential/terminal pagination structure only; no source qualification, intake or semantic credit."
+    },
+    {
+      "id": "ping-page-6",
+      "url": "https://press.pingidentity.com/news-releases?o=50",
+      "disclosedBy": "ping-page-3",
+      "literalAnchors": [
+        {
+          "attributes": {
+            "aria-label": "Show page 6",
+            "href": "https://press.pingidentity.com/news-releases?o=50"
+          },
+          "text": "6"
+        }
+      ],
+      "purpose": "Probe sequential/terminal pagination structure only; no source qualification, intake or semantic credit."
+    },
+    {
+      "id": "delinea-news-page-2",
+      "url": "https://delinea.com/news/page/2",
+      "disclosedBy": "delinea-news-index",
+      "literalAnchors": [
+        {
+          "attributes": {
+            "class": "blog-pagination__link blog-pagination__number-link ",
+            "aria-label": "Go to Page 2",
+            "href": "https://delinea.com/news/page/2"
+          },
+          "text": "2"
+        },
+        {
+          "attributes": {
+            "class": "blog-pagination__link blog-pagination__next-link ",
+            "href": "https://delinea.com/news/page/2"
+          },
+          "text": "Next"
+        }
+      ],
+      "purpose": "Probe sequential/terminal pagination structure only; no source qualification, intake or semantic credit."
+    },
+    {
+      "id": "delinea-news-page-5",
+      "url": "https://delinea.com/news/page/5",
+      "disclosedBy": "delinea-news-index",
+      "literalAnchors": [
+        {
+          "attributes": {
+            "class": "blog-pagination__link blog-pagination__number-link ",
+            "aria-label": "Go to Page 5",
+            "href": "https://delinea.com/news/page/5"
+          },
+          "text": "5"
+        }
+      ],
+      "purpose": "Probe sequential/terminal pagination structure only; no source qualification, intake or semantic credit."
+    },
+    {
+      "id": "sonatype-press-page-2",
+      "url": "https://www.sonatype.com/press-releases?page=2",
+      "disclosedBy": "sonatype-press-index",
+      "literalAnchors": [
+        {
+          "attributes": {
+            "class": "pagination-link",
+            "href": "/press-releases?page=2"
+          },
+          "text": "2"
+        },
+        {
+          "attributes": {
+            "class": "btn btn-secondary",
+            "href": "/press-releases?page=2"
+          },
+          "text": "Next"
+        }
+      ],
+      "purpose": "Probe sequential/terminal pagination structure only; no source qualification, intake or semantic credit."
+    },
+    {
+      "id": "sonatype-press-page-13",
+      "url": "https://www.sonatype.com/press-releases?page=13",
+      "disclosedBy": "sonatype-press-index",
+      "literalAnchors": [
+        {
+          "attributes": {
+            "class": "pagination-link",
+            "href": "/press-releases?page=13"
+          },
+          "text": "13"
+        }
+      ],
+      "purpose": "Probe sequential/terminal pagination structure only; no source qualification, intake or semantic credit."
+    }
+  ],
+  "proposedNextSevenPlan": {
+    "schemaVersion": 1,
+    "marketSha256": "79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60",
+    "maxRequests": 7,
+    "targets": [
+      {
+        "id": "ping-page-4",
+        "sourceId": "ping-identity:official:1",
+        "url": "https://press.pingidentity.com/news-releases?o=30",
+        "expectedFormat": "html",
+        "proof": {
+          "type": "qualification_observation",
+          "record": {
+            "key": "ci/source-probe-runs/40066513321-1.json",
+            "sha256": "4ef4905070ed2043b093aad72990fe0d45a73f3682d0d3832e0ac2fa966e6ee2",
+            "bytes": 277064
+          },
+          "priorTargetId": "ping-page-3",
+          "priorTargetIndex": 0,
+          "priorTargetSha256": "b18f4d4f63471592b6f802964ddf9aaed931d1cde744a9863a2c70495c9d06bc",
+          "priorPlanRawSha256": "6dc248c7a5fee6f96f872d97d87241a70de98bf7524298e9e7108951bbf6685d",
+          "priorPlanCanonicalSha256": "eccc8cd58af1ebea1bd0679973ba8b0a0d3bf37cbe47ba06b94a084faeae825e",
+          "priorPlanReference": {
+            "bytes": 66126,
+            "key": "objects/6dc248c7a5fee6f96f872d97d87241a70de98bf7524298e9e7108951bbf6685d",
+            "sha256": "6dc248c7a5fee6f96f872d97d87241a70de98bf7524298e9e7108951bbf6685d"
+          },
+          "observation": {
+            "bytes": 489,
+            "key": "objects/1f50d77a0796416ebf09d2d7fd92ba873172afb3b53dcb1da7cfe5f586289c7e",
+            "sha256": "1f50d77a0796416ebf09d2d7fd92ba873172afb3b53dcb1da7cfe5f586289c7e"
+          },
+          "body": {
+            "bytes": 99023,
+            "key": "objects/a65804e00578b903d8bc47768a6f3543622ce895904d5a32d66851197c9fd591",
+            "sha256": "a65804e00578b903d8bc47768a6f3543622ce895904d5a32d66851197c9fd591"
+          },
+          "fetchedAt": "2026-10-24T05:33:09.399894Z"
+        }
+      },
+      {
+        "id": "ping-page-5",
+        "sourceId": "ping-identity:official:1",
+        "url": "https://press.pingidentity.com/news-releases?o=40",
+        "expectedFormat": "html",
+        "proof": {
+          "type": "qualification_observation",
+          "record": {
+            "key": "ci/source-probe-runs/40066513321-1.json",
+            "sha256": "4ef4905070ed2043b093aad72990fe0d45a73f3682d0d3832e0ac2fa966e6ee2",
+            "bytes": 277064
+          },
+          "priorTargetId": "ping-page-3",
+          "priorTargetIndex": 0,
+          "priorTargetSha256": "b18f4d4f63471592b6f802964ddf9aaed931d1cde744a9863a2c70495c9d06bc",
+          "priorPlanRawSha256": "6dc248c7a5fee6f96f872d97d87241a70de98bf7524298e9e7108951bbf6685d",
+          "priorPlanCanonicalSha256": "eccc8cd58af1ebea1bd0679973ba8b0a0d3bf37cbe47ba06b94a084faeae825e",
+          "priorPlanReference": {
+            "bytes": 66126,
+            "key": "objects/6dc248c7a5fee6f96f872d97d87241a70de98bf7524298e9e7108951bbf6685d",
+            "sha256": "6dc248c7a5fee6f96f872d97d87241a70de98bf7524298e9e7108951bbf6685d"
+          },
+          "observation": {
+            "bytes": 489,
+            "key": "objects/1f50d77a0796416ebf09d2d7fd92ba873172afb3b53dcb1da7cfe5f586289c7e",
+            "sha256": "1f50d77a0796416ebf09d2d7fd92ba873172afb3b53dcb1da7cfe5f586289c7e"
+          },
+          "body": {
+            "bytes": 99023,
+            "key": "objects/a65804e00578b903d8bc47768a6f3543622ce895904d5a32d66851197c9fd591",
+            "sha256": "a65804e00578b903d8bc47768a6f3543622ce895904d5a32d66851197c9fd591"
+          },
+          "fetchedAt": "2026-10-24T05:33:09.399894Z"
+        }
+      },
+      {
+        "id": "ping-page-6",
+        "sourceId": "ping-identity:official:1",
+        "url": "https://press.pingidentity.com/news-releases?o=50",
+        "expectedFormat": "html",
+        "proof": {
+          "type": "qualification_observation",
+          "record": {
+            "key": "ci/source-probe-runs/40066513321-1.json",
+            "sha256": "4ef4905070ed2043b093aad72990fe0d45a73f3682d0d3832e0ac2fa966e6ee2",
+            "bytes": 277064
+          },
+          "priorTargetId": "ping-page-3",
+          "priorTargetIndex": 0,
+          "priorTargetSha256": "b18f4d4f63471592b6f802964ddf9aaed931d1cde744a9863a2c70495c9d06bc",
+          "priorPlanRawSha256": "6dc248c7a5fee6f96f872d97d87241a70de98bf7524298e9e7108951bbf6685d",
+          "priorPlanCanonicalSha256": "eccc8cd58af1ebea1bd0679973ba8b0a0d3bf37cbe47ba06b94a084faeae825e",
+          "priorPlanReference": {
+            "bytes": 66126,
+            "key": "objects/6dc248c7a5fee6f96f872d97d87241a70de98bf7524298e9e7108951bbf6685d",
+            "sha256": "6dc248c7a5fee6f96f872d97d87241a70de98bf7524298e9e7108951bbf6685d"
+          },
+          "observation": {
+            "bytes": 489,
+            "key": "objects/1f50d77a0796416ebf09d2d7fd92ba873172afb3b53dcb1da7cfe5f586289c7e",
+            "sha256": "1f50d77a0796416ebf09d2d7fd92ba873172afb3b53dcb1da7cfe5f586289c7e"
+          },
+          "body": {
+            "bytes": 99023,
+            "key": "objects/a65804e00578b903d8bc47768a6f3543622ce895904d5a32d66851197c9fd591",
+            "sha256": "a65804e00578b903d8bc47768a6f3543622ce895904d5a32d66851197c9fd591"
+          },
+          "fetchedAt": "2026-10-24T05:33:09.399894Z"
+        }
+      },
+      {
+        "id": "delinea-news-page-2",
+        "sourceId": "delinea:official:1",
+        "url": "https://delinea.com/news/page/2",
+        "expectedFormat": "html",
+        "proof": {
+          "type": "qualification_observation",
+          "record": {
+            "key": "ci/source-probe-runs/40066513321-1.json",
+            "sha256": "4ef4905070ed2043b093aad72990fe0d45a73f3682d0d3832e0ac2fa966e6ee2",
+            "bytes": 277064
+          },
+          "priorTargetId": "delinea-news-index",
+          "priorTargetIndex": 2,
+          "priorTargetSha256": "03462ec1b1733aaf75a99048dffc1b77dc0249816578551cbdec5946300568b1",
+          "priorPlanRawSha256": "6dc248c7a5fee6f96f872d97d87241a70de98bf7524298e9e7108951bbf6685d",
+          "priorPlanCanonicalSha256": "eccc8cd58af1ebea1bd0679973ba8b0a0d3bf37cbe47ba06b94a084faeae825e",
+          "priorPlanReference": {
+            "bytes": 66126,
+            "key": "objects/6dc248c7a5fee6f96f872d97d87241a70de98bf7524298e9e7108951bbf6685d",
+            "sha256": "6dc248c7a5fee6f96f872d97d87241a70de98bf7524298e9e7108951bbf6685d"
+          },
+          "observation": {
+            "bytes": 440,
+            "key": "objects/02b4b3a4fcc9c0a0661588383e4860a06ed9780cdd2f751577fcebae60b00d9b",
+            "sha256": "02b4b3a4fcc9c0a0661588383e4860a06ed9780cdd2f751577fcebae60b00d9b"
+          },
+          "body": {
+            "bytes": 144789,
+            "key": "objects/c41039c12fb7c69bb2beb0a5c2d58c3a01b743c5d2a5523fa5cd92879ab5fe49",
+            "sha256": "c41039c12fb7c69bb2beb0a5c2d58c3a01b743c5d2a5523fa5cd92879ab5fe49"
+          },
+          "fetchedAt": "2026-10-24T05:33:10.227425Z"
+        }
+      },
+      {
+        "id": "delinea-news-page-5",
+        "sourceId": "delinea:official:1",
+        "url": "https://delinea.com/news/page/5",
+        "expectedFormat": "html",
+        "proof": {
+          "type": "qualification_observation",
+          "record": {
+            "key": "ci/source-probe-runs/40066513321-1.json",
+            "sha256": "4ef4905070ed2043b093aad72990fe0d45a73f3682d0d3832e0ac2fa966e6ee2",
+            "bytes": 277064
+          },
+          "priorTargetId": "delinea-news-index",
+          "priorTargetIndex": 2,
+          "priorTargetSha256": "03462ec1b1733aaf75a99048dffc1b77dc0249816578551cbdec5946300568b1",
+          "priorPlanRawSha256": "6dc248c7a5fee6f96f872d97d87241a70de98bf7524298e9e7108951bbf6685d",
+          "priorPlanCanonicalSha256": "eccc8cd58af1ebea1bd0679973ba8b0a0d3bf37cbe47ba06b94a084faeae825e",
+          "priorPlanReference": {
+            "bytes": 66126,
+            "key": "objects/6dc248c7a5fee6f96f872d97d87241a70de98bf7524298e9e7108951bbf6685d",
+            "sha256": "6dc248c7a5fee6f96f872d97d87241a70de98bf7524298e9e7108951bbf6685d"
+          },
+          "observation": {
+            "bytes": 440,
+            "key": "objects/02b4b3a4fcc9c0a0661588383e4860a06ed9780cdd2f751577fcebae60b00d9b",
+            "sha256": "02b4b3a4fcc9c0a0661588383e4860a06ed9780cdd2f751577fcebae60b00d9b"
+          },
+          "body": {
+            "bytes": 144789,
+            "key": "objects/c41039c12fb7c69bb2beb0a5c2d58c3a01b743c5d2a5523fa5cd92879ab5fe49",
+            "sha256": "c41039c12fb7c69bb2beb0a5c2d58c3a01b743c5d2a5523fa5cd92879ab5fe49"
+          },
+          "fetchedAt": "2026-10-24T05:33:10.227425Z"
+        }
+      },
+      {
+        "id": "sonatype-press-page-2",
+        "sourceId": "sonatype:official:1",
+        "url": "https://www.sonatype.com/press-releases?page=2",
+        "expectedFormat": "html",
+        "proof": {
+          "type": "qualification_observation",
+          "record": {
+            "key": "ci/source-probe-runs/40066513321-1.json",
+            "sha256": "4ef4905070ed2043b093aad72990fe0d45a73f3682d0d3832e0ac2fa966e6ee2",
+            "bytes": 277064
+          },
+          "priorTargetId": "sonatype-press-index",
+          "priorTargetIndex": 3,
+          "priorTargetSha256": "0c9ec7b04c8b6fc2cacf7bdcf3e8e532760b4c96300be3466046e00b0e540e2b",
+          "priorPlanRawSha256": "6dc248c7a5fee6f96f872d97d87241a70de98bf7524298e9e7108951bbf6685d",
+          "priorPlanCanonicalSha256": "eccc8cd58af1ebea1bd0679973ba8b0a0d3bf37cbe47ba06b94a084faeae825e",
+          "priorPlanReference": {
+            "bytes": 66126,
+            "key": "objects/6dc248c7a5fee6f96f872d97d87241a70de98bf7524298e9e7108951bbf6685d",
+            "sha256": "6dc248c7a5fee6f96f872d97d87241a70de98bf7524298e9e7108951bbf6685d"
+          },
+          "observation": {
+            "bytes": 504,
+            "key": "objects/154b1e7e0330086229048ffaf87796ce51c1e5e70d94d42a3d140fba71adfeea",
+            "sha256": "154b1e7e0330086229048ffaf87796ce51c1e5e70d94d42a3d140fba71adfeea"
+          },
+          "body": {
+            "bytes": 138958,
+            "key": "objects/016390f2bb69053739461f57624864d8567ec72cd84f2808a80d6760e33b1d30",
+            "sha256": "016390f2bb69053739461f57624864d8567ec72cd84f2808a80d6760e33b1d30"
+          },
+          "fetchedAt": "2026-10-24T05:33:10.312608Z"
+        }
+      },
+      {
+        "id": "sonatype-press-page-13",
+        "sourceId": "sonatype:official:1",
+        "url": "https://www.sonatype.com/press-releases?page=13",
+        "expectedFormat": "html",
+        "proof": {
+          "type": "qualification_observation",
+          "record": {
+            "key": "ci/source-probe-runs/40066513321-1.json",
+            "sha256": "4ef4905070ed2043b093aad72990fe0d45a73f3682d0d3832e0ac2fa966e6ee2",
+            "bytes": 277064
+          },
+          "priorTargetId": "sonatype-press-index",
+          "priorTargetIndex": 3,
+          "priorTargetSha256": "0c9ec7b04c8b6fc2cacf7bdcf3e8e532760b4c96300be3466046e00b0e540e2b",
+          "priorPlanRawSha256": "6dc248c7a5fee6f96f872d97d87241a70de98bf7524298e9e7108951bbf6685d",
+          "priorPlanCanonicalSha256": "eccc8cd58af1ebea1bd0679973ba8b0a0d3bf37cbe47ba06b94a084faeae825e",
+          "priorPlanReference": {
+            "bytes": 66126,
+            "key": "objects/6dc248c7a5fee6f96f872d97d87241a70de98bf7524298e9e7108951bbf6685d",
+            "sha256": "6dc248c7a5fee6f96f872d97d87241a70de98bf7524298e9e7108951bbf6685d"
+          },
+          "observation": {
+            "bytes": 504,
+            "key": "objects/154b1e7e0330086229048ffaf87796ce51c1e5e70d94d42a3d140fba71adfeea",
+            "sha256": "154b1e7e0330086229048ffaf87796ce51c1e5e70d94d42a3d140fba71adfeea"
+          },
+          "body": {
+            "bytes": 138958,
+            "key": "objects/016390f2bb69053739461f57624864d8567ec72cd84f2808a80d6760e33b1d30",
+            "sha256": "016390f2bb69053739461f57624864d8567ec72cd84f2808a80d6760e33b1d30"
+          },
+          "fetchedAt": "2026-10-24T05:33:10.312608Z"
+        }
+      }
+    ]
+  },
+  "proposedPlanPureValidation": {
+    "passed": true,
+    "rawSha256": "62385a674edf896b479dc4fb9330e3e269afcbdc0b6715dd44f9b18608adbf4f",
+    "canonicalSha256": "42bf79e9e0a7f8907dc47b50836ec0e826c3a7ec81c028b9ba72e3da42d98356",
+    "targetCount": 7,
+    "literalRecognitions": [
+      "html_link_feed_or_canonical",
+      "html_link_feed_or_canonical",
+      "html_link_feed_or_canonical",
+      "html_link_feed_or_canonical",
+      "html_link_feed_or_canonical",
+      "html_link_feed_or_canonical",
+      "html_link_feed_or_canonical"
+    ],
+    "dispatchOrStateWrite": false,
+    "scope": "Exact proposed plan validated entirely in memory with read-only authenticated archive get adapter; no committed plan, source declaration or runtime change."
+  },
+  "remainingWork": {
+    "ping": "21 intermediate pages4..24 remain absent.25 is an observed terminal layout, not a completed traversal. Existing adapter fails Unknown Ping page role for25 and discovery also holds PING_TERMINAL_LAYOUT_UNPROVED.",
+    "delinea": "Only HTMLpage1 is retained. Page5 is a window link, not a proved last page.12 undated cards; 10RSSitems do not prove archive completeness. Full articles establish two datelines, not all history/facts.",
+    "sonatype": "Only HTMLpage1 retained;13 is an advertised terminal candidate.16 dated cards;10RSSitems truncated. Ignore root Prev?page=0#resource-grid, never turn it into a permitted request."
+  },
+  "minimumAdapterProposal": {
+    "ping": "Extend exact existing Ping mode for wd_page_start→page1 and disabled-span next only at independently established final page after sequential traversal; preserve limits, duplicate/date/host/canonical checks; no hardcoded25 or jump-to-last completeness.",
+    "delinea": "Source-bound HTML pagination mode;12card title-anchor extraction, unknown card dates, identical head/class next agreement, numeric active-page/window validation and sequential traversal. Use full primary article dateline parser only as explicit date provenance.",
+    "sonatype": "Source-bound query pagination mode;16cardtitle/link/date extraction, literal Next numeric agreement, canonical root/current page matching, strict full-month date parse, explicit disabled terminal; invalid Prev0 ignored only under exact initial layout."
+  },
+  "dependencies": [
+    "Keep all three sources candidate until dedicated adapter, complete traversal, original-body date/canonical validation and fresh normal leased evidence pass; row additions alone cannot bypass SOURCE_BINDING_UNVERIFIED.",
+    "Proposed seven-target plan is valid only for current policy79cdd. Any source adapter/registration/registry contract change requires atomic diagnostic-plan/proof policy migration; the D112-only bridge cannot authorize substantive changes.",
+    "A changed market contract also requires correction outer stamp/projection verification with all six existing group reviews unchanged or separately reviewed; do not repeat stale plan/stamp activation.",
+    "No model review, parent/product fact, source qualification, intake pass or recurring scheduled-run credit derives from these diagnostics."
+  ],
+  "guards": {
+    "readOnlyAuditHook": true,
+    "writeNetworkSubprocessDenialsEnabled": true,
+    "deniedAttempts": [],
+    "bundleBytesContentAndMtimeUnchanged": true,
+    "selectedArchiveBytesContentAndMtimeUnchanged": true,
+    "archiveWrites": 0,
+    "stateWrites": 0,
+    "networkRequests": 0,
+    "modelCalls": 0
+  },
+  "codePins": [
+    {
+      "path": "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/discovery.py",
+      "sha256": "c354f3368b15e7a8aab6b357d4f11c238f436bfb1af8430bc7282a80b203e6e2",
+      "bytes": 41000
+    },
+    {
+      "path": "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/onboarding.py",
+      "sha256": "1f76daefe9b2d6a8e2a18b87f01b2742a0cc094ba18b47919d5c7b3ef98d874e",
+      "bytes": 38323
+    },
+    {
+      "path": "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/documents.py",
+      "sha256": "4e3dbd2dbc6409bd8b8be660cf2b673601ca1c3bc90325fc4fbf6cceddc9b69f",
+      "bytes": 3282
+    },
+    {
+      "path": "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/separation.py",
+      "sha256": "b2c225fef1bb704701441a611ea921e325a5a28e6ac00fcdb2b4d7273413e629",
+      "bytes": 4644
+    },
+    {
+      "path": "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/contracts.py",
+      "sha256": "be2450c82f89a3905c2469da4fd44037cd27d226b264eda741f762cf3269102c",
+      "bytes": 7939
+    }
+  ],
+  "currentCandidateBindings": [
+    {
+      "id": "delinea:official:1",
+      "supplierId": "delinea",
+      "kind": "official_discovery",
+      "url": "https://delinea.com/",
+      "allowedHosts": [
+        "delinea.com"
+      ],
+      "registration": "candidate",
+      "required": true,
+      "maxPages": 60,
+      "scopePrefixes": [
+        "/news",
+        "/press",
+        "/blog",
+        "/company",
+        "/investor",
+        "/resources"
+      ],
+      "seedEvidenceUrls": [
+        "https://delinea.com/news/delinea-strongdm-to-unite-redefine-identity-security-for-the-ai-era",
+        "https://delinea.com/news/thycotic-and-centrify-merge-to-become-a-leading-cloud-privileged-identity-security-vendor"
+      ],
+      "family": "official_announcements"
+    },
+    {
+      "id": "ping-identity:official:1",
+      "supplierId": "ping-identity",
+      "kind": "official_discovery",
+      "url": "https://press.pingidentity.com/",
+      "allowedHosts": [
+        "press.pingidentity.com"
+      ],
+      "registration": "candidate",
+      "required": true,
+      "maxPages": 60,
+      "scopePrefixes": [
+        "/news",
+        "/press",
+        "/blog",
+        "/company",
+        "/investor",
+        "/resources"
+      ],
+      "seedEvidenceUrls": [
+        "https://press.pingidentity.com/2024-11-14-Ping-Identity-Surpasses-30-Annual-Growth-in-SaaS-Revenue-and-Approaches-800M-ARR-as-an-Enterprise-Identity-Market-Leader",
+        "https://press.pingidentity.com/2022-10-18-Thoma-Bravo-Completes-Acquisition-of-Ping-Identity"
+      ],
+      "family": "official_announcements"
+    },
+    {
+      "id": "sonatype:official:1",
+      "supplierId": "sonatype",
+      "kind": "official_discovery",
+      "url": "https://www.sonatype.com/",
+      "allowedHosts": [
+        "www.sonatype.com"
+      ],
+      "registration": "candidate",
+      "required": true,
+      "maxPages": 60,
+      "scopePrefixes": [
+        "/news",
+        "/press",
+        "/blog",
+        "/company",
+        "/investor",
+        "/resources"
+      ],
+      "seedEvidenceUrls": [
+        "https://www.sonatype.com/press-releases/vista-acquires-majority-interest-in-sonatype",
+        "https://www.sonatype.com/press-releases/sonatype-strengthens-leadership-team-for-ai-driven-growth"
+      ],
+      "family": "official_announcements"
+    }
+  ],
+  "reviewSha256": "31234b7158d114c10332086c81f3ebc06cc86e09142a7e94fb4efacb022c23e9"
+}

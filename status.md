@@ -93,11 +93,13 @@ reservations; its explicit-only D-112 bridge repair passed independent review an
 
 Fresh responses still leave Ping pages 4–24, Delinea pagination and Sonatype pagination incomplete.
 The next seven literal targets are Ping pages 4–6, Delinea pages 2/5 and Sonatype pages 2/13.
-Their bounded flat-proof request plan is implemented locally and awaits independent review,
-preview/main activation and a new actual leased diagnostic. Do not dispatch over a pending genuine
+Their bounded flat-proof request plan passes independent replay and five tampering checks;
+full application checks pass. It awaits preview/main activation and a new actual leased diagnostic.
+Do not dispatch over a pending genuine
 scheduled collector. No qualification, admission or coverage follows from a parser or plan alone.
 [Response review](docs/active/daily-pipeline/accuracy/followup-seven-target-response-review-2026-10-24.md) ·
 [Request plan](docs/active/daily-pipeline/accuracy/followup-seven-target-request-plan-implementation-2026-10-24.md).
+[Independent review](docs/active/daily-pipeline/accuracy/followup-seven-target-request-plan-independent-review-2026-10-24.md).
 
 Four neutral parent-issuer bindings have a reviewed proposal under ignored `.ctx/`. Archived
 relationship proof is adequate; actual fresh qualification still needs an explicit bounded SEC

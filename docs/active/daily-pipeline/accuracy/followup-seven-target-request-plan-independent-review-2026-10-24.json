@@ -1,0 +1,658 @@
+{
+  "schemaVersion": 1,
+  "kind": "followup_seven_target_request_plan_independent_review",
+  "reviewedAt": "2026-10-24T06:07:12.764986Z",
+  "verdict": "clean_with_limits",
+  "findings": [],
+  "plan": {
+    "path": "contracts/source-qualification-probes.json",
+    "bytes": 11388,
+    "rawSha256": "62385a674edf896b479dc4fb9330e3e269afcbdc0b6715dd44f9b18608adbf4f",
+    "canonicalSha256": "42bf79e9e0a7f8907dc47b50836ec0e826c3a7ec81c028b9ba72e3da42d98356",
+    "marketSha256": "79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60",
+    "maxExplicitRequests": 7,
+    "equalsReviewedProposal": true,
+    "reviewProposalPath": "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/followup-seven-target-response-review-2026-10-24.json",
+    "reviewProposalRawSha256": "7b80d2b042f05838ccf082b12e51f271a9e8286335a55ba0e793c01b9b6ca1ce",
+    "reviewProposalCanonicalReceipt": "31234b7158d114c10332086c81f3ebc06cc86e09142a7e94fb4efacb022c23e9"
+  },
+  "archive": {
+    "root": "/var/tmp/smp-followup-probe-20261024/archive-20f8f6ee/jessepike-sec-market-20f8f6ee9b8113aea994d4251197221a6f64a005",
+    "manifestSha256": "962f925f60c19aa47c368c80c80d80ad6680b736223e2ceab76e071198586d37",
+    "manifestFiles": 34962,
+    "authenticationReusedFromIndependentAudit": {
+      "path": "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/actual-new-policy-private-transition-2026-10-24.json",
+      "rawSha256": "1a7c86dea1e785ba98770b7349f459197e06497fad978cb5548b304ef22723b6",
+      "auditSha256": "d06762473ef2d7390ed58580b1e87d9820b2dd8b432dbdf82fea6d66938e3fbb"
+    },
+    "referencedFilesIndependentlyMatchedManifest": 16,
+    "references": [
+      {
+        "key": "ci/source-probe-runs/40066513321-1.json",
+        "sha256": "4ef4905070ed2043b093aad72990fe0d45a73f3682d0d3832e0ac2fa966e6ee2",
+        "bytes": 277064
+      },
+      {
+        "bytes": 66126,
+        "key": "objects/6dc248c7a5fee6f96f872d97d87241a70de98bf7524298e9e7108951bbf6685d",
+        "sha256": "6dc248c7a5fee6f96f872d97d87241a70de98bf7524298e9e7108951bbf6685d"
+      },
+      {
+        "bytes": 489,
+        "key": "objects/1f50d77a0796416ebf09d2d7fd92ba873172afb3b53dcb1da7cfe5f586289c7e",
+        "sha256": "1f50d77a0796416ebf09d2d7fd92ba873172afb3b53dcb1da7cfe5f586289c7e"
+      },
+      {
+        "bytes": 99023,
+        "key": "objects/a65804e00578b903d8bc47768a6f3543622ce895904d5a32d66851197c9fd591",
+        "sha256": "a65804e00578b903d8bc47768a6f3543622ce895904d5a32d66851197c9fd591"
+      },
+      {
+        "bytes": 491,
+        "key": "objects/178d283473a44b4270a34f42be7a2c71c07e5985ca380c8b8a7540cfb0838784",
+        "sha256": "178d283473a44b4270a34f42be7a2c71c07e5985ca380c8b8a7540cfb0838784"
+      },
+      {
+        "bytes": 96028,
+        "key": "objects/f51960d7ea48f451e533fb82cf5e31084eea6c77e69ab9b071dfeca47d5a61d0",
+        "sha256": "f51960d7ea48f451e533fb82cf5e31084eea6c77e69ab9b071dfeca47d5a61d0"
+      },
+      {
+        "bytes": 440,
+        "key": "objects/02b4b3a4fcc9c0a0661588383e4860a06ed9780cdd2f751577fcebae60b00d9b",
+        "sha256": "02b4b3a4fcc9c0a0661588383e4860a06ed9780cdd2f751577fcebae60b00d9b"
+      },
+      {
+        "bytes": 144789,
+        "key": "objects/c41039c12fb7c69bb2beb0a5c2d58c3a01b743c5d2a5523fa5cd92879ab5fe49",
+        "sha256": "c41039c12fb7c69bb2beb0a5c2d58c3a01b743c5d2a5523fa5cd92879ab5fe49"
+      },
+      {
+        "bytes": 504,
+        "key": "objects/154b1e7e0330086229048ffaf87796ce51c1e5e70d94d42a3d140fba71adfeea",
+        "sha256": "154b1e7e0330086229048ffaf87796ce51c1e5e70d94d42a3d140fba71adfeea"
+      },
+      {
+        "bytes": 138958,
+        "key": "objects/016390f2bb69053739461f57624864d8567ec72cd84f2808a80d6760e33b1d30",
+        "sha256": "016390f2bb69053739461f57624864d8567ec72cd84f2808a80d6760e33b1d30"
+      },
+      {
+        "bytes": 620,
+        "key": "objects/b6f5d583b06fe5609fffd6715f68678140ccecd42971bfa1627f3f9ef03628eb",
+        "sha256": "b6f5d583b06fe5609fffd6715f68678140ccecd42971bfa1627f3f9ef03628eb"
+      },
+      {
+        "bytes": 119417,
+        "key": "objects/4072d8f8b018edc36ec31199df49e8ebbf88ee31aeddbeef6e250384dcddcca1",
+        "sha256": "4072d8f8b018edc36ec31199df49e8ebbf88ee31aeddbeef6e250384dcddcca1"
+      },
+      {
+        "bytes": 546,
+        "key": "objects/852983ed300e73d9899dab980c1ba7ad7a35fb2dcd2e7e19146633091cb67054",
+        "sha256": "852983ed300e73d9899dab980c1ba7ad7a35fb2dcd2e7e19146633091cb67054"
+      },
+      {
+        "bytes": 117325,
+        "key": "objects/57b608f9920d1a7a83026da8b361f8e48fc4786c1744e3c80e7e74aeda7097ba",
+        "sha256": "57b608f9920d1a7a83026da8b361f8e48fc4786c1744e3c80e7e74aeda7097ba"
+      },
+      {
+        "bytes": 592,
+        "key": "objects/6323895cff1f9989105490b66b9c5b7b9fc09a780a0a1789e3523dc9781f8b3a",
+        "sha256": "6323895cff1f9989105490b66b9c5b7b9fc09a780a0a1789e3523dc9781f8b3a"
+      },
+      {
+        "bytes": 117339,
+        "key": "objects/9dd5e6a68bec1a8ee167393efe19b85cb0924c0147f323178b8774ce862961b9",
+        "sha256": "9dd5e6a68bec1a8ee167393efe19b85cb0924c0147f323178b8774ce862961b9"
+      }
+    ],
+    "before": {
+      "files": 34966,
+      "contentSha256": "5e954ffb79ed7c34d201e20b1d884791ca9d5a72ea4e83f4ce81c91d69a4b462",
+      "fileMtimeSha256": "f81fa506b0cffc4a65a527ef9c97a7d0293f71e5951002c8574753a8d33014f5",
+      "directories": 1307,
+      "directoryMtimeSha256": "2ca560d3100a68e04544626f293ae7c0d77ac7fbe7599750565605a52c1254fb"
+    },
+    "after": {
+      "files": 34966,
+      "contentSha256": "5e954ffb79ed7c34d201e20b1d884791ca9d5a72ea4e83f4ce81c91d69a4b462",
+      "fileMtimeSha256": "f81fa506b0cffc4a65a527ef9c97a7d0293f71e5951002c8574753a8d33014f5",
+      "directories": 1307,
+      "directoryMtimeSha256": "2ca560d3100a68e04544626f293ae7c0d77ac7fbe7599750565605a52c1254fb"
+    },
+    "unchanged": true
+  },
+  "originalDiagnostic": {
+    "githubRunId": "40066513321",
+    "attempt": 1,
+    "appRevision": "7e17e22a1ba2c88db5cb4ab2012b752cfd55da2c",
+    "record": {
+      "key": "ci/source-probe-runs/40066513321-1.json",
+      "sha256": "4ef4905070ed2043b093aad72990fe0d45a73f3682d0d3832e0ac2fa966e6ee2",
+      "bytes": 277064
+    },
+    "apiFallback": false,
+    "executionCompleted": true,
+    "publication": {
+      "published": false,
+      "reason": "SOURCE_PROBE_DIAGNOSTIC_ONLY"
+    },
+    "originalReservationContext": {
+      "budgetDay": "2026-10-24",
+      "contractSha256": "79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60",
+      "currentBudget": {
+        "calls": 80,
+        "documents": 40,
+        "fetches": 765
+      },
+      "fetchLimit": 5500,
+      "initialBudget": {
+        "calls": 80,
+        "documents": 40,
+        "fetches": 641
+      },
+      "maximumRuntimeSeconds": 1200,
+      "probeFetchReservations": 124,
+      "reservationDenials": {},
+      "startedAt": "2026-10-24T05:32:35.220759Z"
+    },
+    "all124ConsecutiveChargesReconstructed": true,
+    "explicitCharges": [
+      759,
+      760,
+      761,
+      762,
+      763,
+      764,
+      765
+    ],
+    "sevenOriginalResults": [
+      {
+        "targetId": "ping-page-3",
+        "rowSha256": "b18f4d4f63471592b6f802964ddf9aaed931d1cde744a9863a2c70495c9d06bc",
+        "url": "https://press.pingidentity.com/news-releases?o=20",
+        "sourceId": "ping-identity:official:1",
+        "observation": {
+          "bytes": 489,
+          "key": "objects/1f50d77a0796416ebf09d2d7fd92ba873172afb3b53dcb1da7cfe5f586289c7e",
+          "sha256": "1f50d77a0796416ebf09d2d7fd92ba873172afb3b53dcb1da7cfe5f586289c7e"
+        },
+        "body": {
+          "bytes": 99023,
+          "key": "objects/a65804e00578b903d8bc47768a6f3543622ce895904d5a32d66851197c9fd591",
+          "sha256": "a65804e00578b903d8bc47768a6f3543622ce895904d5a32d66851197c9fd591"
+        },
+        "fetchedAt": "2026-10-24T05:33:09.399894Z",
+        "charge": {
+          "budgetDay": "2026-10-24",
+          "chargedFetchCount": 759,
+          "fetchLimit": 5500
+        }
+      },
+      {
+        "targetId": "ping-advertised-last",
+        "rowSha256": "e4850426bc162bc7cb9b43bebbad5d0a011b72e215af0b5b5532b0f6f7b11ce7",
+        "url": "https://press.pingidentity.com/news-releases?o=240",
+        "sourceId": "ping-identity:official:1",
+        "observation": {
+          "bytes": 491,
+          "key": "objects/178d283473a44b4270a34f42be7a2c71c07e5985ca380c8b8a7540cfb0838784",
+          "sha256": "178d283473a44b4270a34f42be7a2c71c07e5985ca380c8b8a7540cfb0838784"
+        },
+        "body": {
+          "bytes": 96028,
+          "key": "objects/f51960d7ea48f451e533fb82cf5e31084eea6c77e69ab9b071dfeca47d5a61d0",
+          "sha256": "f51960d7ea48f451e533fb82cf5e31084eea6c77e69ab9b071dfeca47d5a61d0"
+        },
+        "fetchedAt": "2026-10-24T05:33:10.149572Z",
+        "charge": {
+          "budgetDay": "2026-10-24",
+          "chargedFetchCount": 760,
+          "fetchLimit": 5500
+        }
+      },
+      {
+        "targetId": "delinea-news-index",
+        "rowSha256": "03462ec1b1733aaf75a99048dffc1b77dc0249816578551cbdec5946300568b1",
+        "url": "https://delinea.com/news",
+        "sourceId": "delinea:official:1",
+        "observation": {
+          "bytes": 440,
+          "key": "objects/02b4b3a4fcc9c0a0661588383e4860a06ed9780cdd2f751577fcebae60b00d9b",
+          "sha256": "02b4b3a4fcc9c0a0661588383e4860a06ed9780cdd2f751577fcebae60b00d9b"
+        },
+        "body": {
+          "bytes": 144789,
+          "key": "objects/c41039c12fb7c69bb2beb0a5c2d58c3a01b743c5d2a5523fa5cd92879ab5fe49",
+          "sha256": "c41039c12fb7c69bb2beb0a5c2d58c3a01b743c5d2a5523fa5cd92879ab5fe49"
+        },
+        "fetchedAt": "2026-10-24T05:33:10.227425Z",
+        "charge": {
+          "budgetDay": "2026-10-24",
+          "chargedFetchCount": 761,
+          "fetchLimit": 5500
+        }
+      },
+      {
+        "targetId": "sonatype-press-index",
+        "rowSha256": "0c9ec7b04c8b6fc2cacf7bdcf3e8e532760b4c96300be3466046e00b0e540e2b",
+        "url": "https://www.sonatype.com/press-releases",
+        "sourceId": "sonatype:official:1",
+        "observation": {
+          "bytes": 504,
+          "key": "objects/154b1e7e0330086229048ffaf87796ce51c1e5e70d94d42a3d140fba71adfeea",
+          "sha256": "154b1e7e0330086229048ffaf87796ce51c1e5e70d94d42a3d140fba71adfeea"
+        },
+        "body": {
+          "bytes": 138958,
+          "key": "objects/016390f2bb69053739461f57624864d8567ec72cd84f2808a80d6760e33b1d30",
+          "sha256": "016390f2bb69053739461f57624864d8567ec72cd84f2808a80d6760e33b1d30"
+        },
+        "fetchedAt": "2026-10-24T05:33:10.312608Z",
+        "charge": {
+          "budgetDay": "2026-10-24",
+          "chargedFetchCount": 762,
+          "fetchLimit": 5500
+        }
+      },
+      {
+        "targetId": "delinea-current-1",
+        "rowSha256": "a4c9e9d6bdb4d9f396833177d79531869ff579d9ac331212238e655337026889",
+        "url": "https://delinea.com/news/delinea-fastpath-launches-mcp-server-for-ai-powered-access-governance-and-audit-readiness",
+        "sourceId": "delinea:official:1",
+        "observation": {
+          "bytes": 620,
+          "key": "objects/b6f5d583b06fe5609fffd6715f68678140ccecd42971bfa1627f3f9ef03628eb",
+          "sha256": "b6f5d583b06fe5609fffd6715f68678140ccecd42971bfa1627f3f9ef03628eb"
+        },
+        "body": {
+          "bytes": 119417,
+          "key": "objects/4072d8f8b018edc36ec31199df49e8ebbf88ee31aeddbeef6e250384dcddcca1",
+          "sha256": "4072d8f8b018edc36ec31199df49e8ebbf88ee31aeddbeef6e250384dcddcca1"
+        },
+        "fetchedAt": "2026-10-24T05:33:10.693423Z",
+        "charge": {
+          "budgetDay": "2026-10-24",
+          "chargedFetchCount": 763,
+          "fetchLimit": 5500
+        }
+      },
+      {
+        "targetId": "delinea-current-2",
+        "rowSha256": "fc1fb399a37d3709ec041af5af619fd3a4f46f2ee219e97e623e0a0183ef20d1",
+        "url": "https://delinea.com/news/2026-identity-security-report-the-ai-enforcement-gap",
+        "sourceId": "delinea:official:1",
+        "observation": {
+          "bytes": 546,
+          "key": "objects/852983ed300e73d9899dab980c1ba7ad7a35fb2dcd2e7e19146633091cb67054",
+          "sha256": "852983ed300e73d9899dab980c1ba7ad7a35fb2dcd2e7e19146633091cb67054"
+        },
+        "body": {
+          "bytes": 117325,
+          "key": "objects/57b608f9920d1a7a83026da8b361f8e48fc4786c1744e3c80e7e74aeda7097ba",
+          "sha256": "57b608f9920d1a7a83026da8b361f8e48fc4786c1744e3c80e7e74aeda7097ba"
+        },
+        "fetchedAt": "2026-10-24T05:33:10.953899Z",
+        "charge": {
+          "budgetDay": "2026-10-24",
+          "chargedFetchCount": 764,
+          "fetchLimit": 5500
+        }
+      },
+      {
+        "targetId": "sonatype-current-1",
+        "rowSha256": "40786385db463bcbe72eb952fb6869aa23ea5ed6681a52f79f3707fa36748762",
+        "url": "https://www.sonatype.com/press-releases/sonatype-unveils-nexus-repository-pro-plus",
+        "sourceId": "sonatype:official:1",
+        "observation": {
+          "bytes": 592,
+          "key": "objects/6323895cff1f9989105490b66b9c5b7b9fc09a780a0a1789e3523dc9781f8b3a",
+          "sha256": "6323895cff1f9989105490b66b9c5b7b9fc09a780a0a1789e3523dc9781f8b3a"
+        },
+        "body": {
+          "bytes": 117339,
+          "key": "objects/9dd5e6a68bec1a8ee167393efe19b85cb0924c0147f323178b8774ce862961b9",
+          "sha256": "9dd5e6a68bec1a8ee167393efe19b85cb0924c0147f323178b8774ce862961b9"
+        },
+        "fetchedAt": "2026-10-24T05:33:11.050765Z",
+        "charge": {
+          "budgetDay": "2026-10-24",
+          "chargedFetchCount": 765,
+          "fetchLimit": 5500
+        }
+      }
+    ]
+  },
+  "targets": [
+    {
+      "targetId": "ping-page-4",
+      "sourceId": "ping-identity:official:1",
+      "url": "https://press.pingidentity.com/news-releases?o=30",
+      "expectedFormat": "html",
+      "literalRecognition": "html_link_feed_or_canonical",
+      "literalAnchor": "<a aria-label=\"Show page 4\" href=\"https://press.pingidentity.com/news-releases?o=30\">",
+      "disclosingUrl": "https://press.pingidentity.com/news-releases?o=20",
+      "originalObservation": {
+        "bytes": 489,
+        "key": "objects/1f50d77a0796416ebf09d2d7fd92ba873172afb3b53dcb1da7cfe5f586289c7e",
+        "sha256": "1f50d77a0796416ebf09d2d7fd92ba873172afb3b53dcb1da7cfe5f586289c7e"
+      },
+      "originalBody": {
+        "bytes": 99023,
+        "key": "objects/a65804e00578b903d8bc47768a6f3543622ce895904d5a32d66851197c9fd591",
+        "sha256": "a65804e00578b903d8bc47768a6f3543622ce895904d5a32d66851197c9fd591"
+      },
+      "originalFetchedAt": "2026-10-24T05:33:09.399894Z",
+      "priorTargetId": "ping-page-3",
+      "priorTargetIndex": 0,
+      "priorTargetSha256": "b18f4d4f63471592b6f802964ddf9aaed931d1cde744a9863a2c70495c9d06bc",
+      "originalCharge": {
+        "budgetDay": "2026-10-24",
+        "chargedFetchCount": 759,
+        "fetchLimit": 5500
+      },
+      "priorPlanReference": {
+        "bytes": 66126,
+        "key": "objects/6dc248c7a5fee6f96f872d97d87241a70de98bf7524298e9e7108951bbf6685d",
+        "sha256": "6dc248c7a5fee6f96f872d97d87241a70de98bf7524298e9e7108951bbf6685d"
+      }
+    },
+    {
+      "targetId": "ping-page-5",
+      "sourceId": "ping-identity:official:1",
+      "url": "https://press.pingidentity.com/news-releases?o=40",
+      "expectedFormat": "html",
+      "literalRecognition": "html_link_feed_or_canonical",
+      "literalAnchor": "<a aria-label=\"Show page 5\" href=\"https://press.pingidentity.com/news-releases?o=40\">",
+      "disclosingUrl": "https://press.pingidentity.com/news-releases?o=20",
+      "originalObservation": {
+        "bytes": 489,
+        "key": "objects/1f50d77a0796416ebf09d2d7fd92ba873172afb3b53dcb1da7cfe5f586289c7e",
+        "sha256": "1f50d77a0796416ebf09d2d7fd92ba873172afb3b53dcb1da7cfe5f586289c7e"
+      },
+      "originalBody": {
+        "bytes": 99023,
+        "key": "objects/a65804e00578b903d8bc47768a6f3543622ce895904d5a32d66851197c9fd591",
+        "sha256": "a65804e00578b903d8bc47768a6f3543622ce895904d5a32d66851197c9fd591"
+      },
+      "originalFetchedAt": "2026-10-24T05:33:09.399894Z",
+      "priorTargetId": "ping-page-3",
+      "priorTargetIndex": 0,
+      "priorTargetSha256": "b18f4d4f63471592b6f802964ddf9aaed931d1cde744a9863a2c70495c9d06bc",
+      "originalCharge": {
+        "budgetDay": "2026-10-24",
+        "chargedFetchCount": 759,
+        "fetchLimit": 5500
+      },
+      "priorPlanReference": {
+        "bytes": 66126,
+        "key": "objects/6dc248c7a5fee6f96f872d97d87241a70de98bf7524298e9e7108951bbf6685d",
+        "sha256": "6dc248c7a5fee6f96f872d97d87241a70de98bf7524298e9e7108951bbf6685d"
+      }
+    },
+    {
+      "targetId": "ping-page-6",
+      "sourceId": "ping-identity:official:1",
+      "url": "https://press.pingidentity.com/news-releases?o=50",
+      "expectedFormat": "html",
+      "literalRecognition": "html_link_feed_or_canonical",
+      "literalAnchor": "<a aria-label=\"Show page 6\" href=\"https://press.pingidentity.com/news-releases?o=50\">",
+      "disclosingUrl": "https://press.pingidentity.com/news-releases?o=20",
+      "originalObservation": {
+        "bytes": 489,
+        "key": "objects/1f50d77a0796416ebf09d2d7fd92ba873172afb3b53dcb1da7cfe5f586289c7e",
+        "sha256": "1f50d77a0796416ebf09d2d7fd92ba873172afb3b53dcb1da7cfe5f586289c7e"
+      },
+      "originalBody": {
+        "bytes": 99023,
+        "key": "objects/a65804e00578b903d8bc47768a6f3543622ce895904d5a32d66851197c9fd591",
+        "sha256": "a65804e00578b903d8bc47768a6f3543622ce895904d5a32d66851197c9fd591"
+      },
+      "originalFetchedAt": "2026-10-24T05:33:09.399894Z",
+      "priorTargetId": "ping-page-3",
+      "priorTargetIndex": 0,
+      "priorTargetSha256": "b18f4d4f63471592b6f802964ddf9aaed931d1cde744a9863a2c70495c9d06bc",
+      "originalCharge": {
+        "budgetDay": "2026-10-24",
+        "chargedFetchCount": 759,
+        "fetchLimit": 5500
+      },
+      "priorPlanReference": {
+        "bytes": 66126,
+        "key": "objects/6dc248c7a5fee6f96f872d97d87241a70de98bf7524298e9e7108951bbf6685d",
+        "sha256": "6dc248c7a5fee6f96f872d97d87241a70de98bf7524298e9e7108951bbf6685d"
+      }
+    },
+    {
+      "targetId": "delinea-news-page-2",
+      "sourceId": "delinea:official:1",
+      "url": "https://delinea.com/news/page/2",
+      "expectedFormat": "html",
+      "literalRecognition": "html_link_feed_or_canonical",
+      "literalAnchor": "<a class=\"blog-pagination__link blog-pagination__number-link \" aria-label=\"Go to Page 2\" href=\"https://delinea.com/news/page/2\">",
+      "disclosingUrl": "https://delinea.com/news",
+      "originalObservation": {
+        "bytes": 440,
+        "key": "objects/02b4b3a4fcc9c0a0661588383e4860a06ed9780cdd2f751577fcebae60b00d9b",
+        "sha256": "02b4b3a4fcc9c0a0661588383e4860a06ed9780cdd2f751577fcebae60b00d9b"
+      },
+      "originalBody": {
+        "bytes": 144789,
+        "key": "objects/c41039c12fb7c69bb2beb0a5c2d58c3a01b743c5d2a5523fa5cd92879ab5fe49",
+        "sha256": "c41039c12fb7c69bb2beb0a5c2d58c3a01b743c5d2a5523fa5cd92879ab5fe49"
+      },
+      "originalFetchedAt": "2026-10-24T05:33:10.227425Z",
+      "priorTargetId": "delinea-news-index",
+      "priorTargetIndex": 2,
+      "priorTargetSha256": "03462ec1b1733aaf75a99048dffc1b77dc0249816578551cbdec5946300568b1",
+      "originalCharge": {
+        "budgetDay": "2026-10-24",
+        "chargedFetchCount": 761,
+        "fetchLimit": 5500
+      },
+      "priorPlanReference": {
+        "bytes": 66126,
+        "key": "objects/6dc248c7a5fee6f96f872d97d87241a70de98bf7524298e9e7108951bbf6685d",
+        "sha256": "6dc248c7a5fee6f96f872d97d87241a70de98bf7524298e9e7108951bbf6685d"
+      }
+    },
+    {
+      "targetId": "delinea-news-page-5",
+      "sourceId": "delinea:official:1",
+      "url": "https://delinea.com/news/page/5",
+      "expectedFormat": "html",
+      "literalRecognition": "html_link_feed_or_canonical",
+      "literalAnchor": "<a class=\"blog-pagination__link blog-pagination__number-link \" aria-label=\"Go to Page 5\" href=\"https://delinea.com/news/page/5\">",
+      "disclosingUrl": "https://delinea.com/news",
+      "originalObservation": {
+        "bytes": 440,
+        "key": "objects/02b4b3a4fcc9c0a0661588383e4860a06ed9780cdd2f751577fcebae60b00d9b",
+        "sha256": "02b4b3a4fcc9c0a0661588383e4860a06ed9780cdd2f751577fcebae60b00d9b"
+      },
+      "originalBody": {
+        "bytes": 144789,
+        "key": "objects/c41039c12fb7c69bb2beb0a5c2d58c3a01b743c5d2a5523fa5cd92879ab5fe49",
+        "sha256": "c41039c12fb7c69bb2beb0a5c2d58c3a01b743c5d2a5523fa5cd92879ab5fe49"
+      },
+      "originalFetchedAt": "2026-10-24T05:33:10.227425Z",
+      "priorTargetId": "delinea-news-index",
+      "priorTargetIndex": 2,
+      "priorTargetSha256": "03462ec1b1733aaf75a99048dffc1b77dc0249816578551cbdec5946300568b1",
+      "originalCharge": {
+        "budgetDay": "2026-10-24",
+        "chargedFetchCount": 761,
+        "fetchLimit": 5500
+      },
+      "priorPlanReference": {
+        "bytes": 66126,
+        "key": "objects/6dc248c7a5fee6f96f872d97d87241a70de98bf7524298e9e7108951bbf6685d",
+        "sha256": "6dc248c7a5fee6f96f872d97d87241a70de98bf7524298e9e7108951bbf6685d"
+      }
+    },
+    {
+      "targetId": "sonatype-press-page-2",
+      "sourceId": "sonatype:official:1",
+      "url": "https://www.sonatype.com/press-releases?page=2",
+      "expectedFormat": "html",
+      "literalRecognition": "html_link_feed_or_canonical",
+      "literalAnchor": "<a class=\"pagination-link\" href=\"/press-releases?page=2\">",
+      "disclosingUrl": "https://www.sonatype.com/press-releases",
+      "originalObservation": {
+        "bytes": 504,
+        "key": "objects/154b1e7e0330086229048ffaf87796ce51c1e5e70d94d42a3d140fba71adfeea",
+        "sha256": "154b1e7e0330086229048ffaf87796ce51c1e5e70d94d42a3d140fba71adfeea"
+      },
+      "originalBody": {
+        "bytes": 138958,
+        "key": "objects/016390f2bb69053739461f57624864d8567ec72cd84f2808a80d6760e33b1d30",
+        "sha256": "016390f2bb69053739461f57624864d8567ec72cd84f2808a80d6760e33b1d30"
+      },
+      "originalFetchedAt": "2026-10-24T05:33:10.312608Z",
+      "priorTargetId": "sonatype-press-index",
+      "priorTargetIndex": 3,
+      "priorTargetSha256": "0c9ec7b04c8b6fc2cacf7bdcf3e8e532760b4c96300be3466046e00b0e540e2b",
+      "originalCharge": {
+        "budgetDay": "2026-10-24",
+        "chargedFetchCount": 762,
+        "fetchLimit": 5500
+      },
+      "priorPlanReference": {
+        "bytes": 66126,
+        "key": "objects/6dc248c7a5fee6f96f872d97d87241a70de98bf7524298e9e7108951bbf6685d",
+        "sha256": "6dc248c7a5fee6f96f872d97d87241a70de98bf7524298e9e7108951bbf6685d"
+      }
+    },
+    {
+      "targetId": "sonatype-press-page-13",
+      "sourceId": "sonatype:official:1",
+      "url": "https://www.sonatype.com/press-releases?page=13",
+      "expectedFormat": "html",
+      "literalRecognition": "html_link_feed_or_canonical",
+      "literalAnchor": "<a class=\"pagination-link\" href=\"/press-releases?page=13\">",
+      "disclosingUrl": "https://www.sonatype.com/press-releases",
+      "originalObservation": {
+        "bytes": 504,
+        "key": "objects/154b1e7e0330086229048ffaf87796ce51c1e5e70d94d42a3d140fba71adfeea",
+        "sha256": "154b1e7e0330086229048ffaf87796ce51c1e5e70d94d42a3d140fba71adfeea"
+      },
+      "originalBody": {
+        "bytes": 138958,
+        "key": "objects/016390f2bb69053739461f57624864d8567ec72cd84f2808a80d6760e33b1d30",
+        "sha256": "016390f2bb69053739461f57624864d8567ec72cd84f2808a80d6760e33b1d30"
+      },
+      "originalFetchedAt": "2026-10-24T05:33:10.312608Z",
+      "priorTargetId": "sonatype-press-index",
+      "priorTargetIndex": 3,
+      "priorTargetSha256": "0c9ec7b04c8b6fc2cacf7bdcf3e8e532760b4c96300be3466046e00b0e540e2b",
+      "originalCharge": {
+        "budgetDay": "2026-10-24",
+        "chargedFetchCount": 762,
+        "fetchLimit": 5500
+      },
+      "priorPlanReference": {
+        "bytes": 66126,
+        "key": "objects/6dc248c7a5fee6f96f872d97d87241a70de98bf7524298e9e7108951bbf6685d",
+        "sha256": "6dc248c7a5fee6f96f872d97d87241a70de98bf7524298e9e7108951bbf6685d"
+      }
+    }
+  ],
+  "negativeCases": [
+    {
+      "case": "wrong current root policy",
+      "result": "rejected",
+      "reason": "QUALIFICATION_PLAN_SHAPE_OR_POLICY_INVALID",
+      "sourceRequests": 0,
+      "stateWrites": 0
+    },
+    {
+      "case": "unadvertised final target",
+      "result": "rejected",
+      "reason": "QUALIFICATION_TARGET_NOT_LITERAL_IN_PROOF",
+      "sourceRequests": 0,
+      "stateWrites": 0
+    },
+    {
+      "case": "body/observation join tampered",
+      "result": "rejected",
+      "reason": "QUALIFICATION_OBSERVATION_BODY_OR_TIME_DIFFERS",
+      "sourceRequests": 0,
+      "stateWrites": 0
+    },
+    {
+      "case": "rehashed paid-fallback historical execution",
+      "result": "rejected",
+      "reason": "QUALIFICATION_PRIOR_RUN_NOT_COMPLETED_DIAGNOSTIC",
+      "sourceRequests": 0,
+      "stateWrites": 0
+    },
+    {
+      "case": "rehashed row duplicates an existing charged request",
+      "result": "rejected",
+      "reason": "QUALIFICATION_PRIOR_UNRESERVED_OR_DUPLICATE_CHARGE",
+      "sourceRequests": 0,
+      "stateWrites": 0
+    }
+  ],
+  "executionBoundary": {
+    "pureValidationOnly": true,
+    "candidatesRemainUnqualified": true,
+    "requiredTasks": 557,
+    "sourceBindingsChanged": false,
+    "runtimeChangedByPlan": false,
+    "historicalDescriptorsAdded": false,
+    "rawPlanNestedCopiesAdded": false,
+    "currentPolicyFutureReservationsRequired": true,
+    "leaseEscrowUtcDeadlineCASRequired": true,
+    "explicitRequestLogicalCap": 7,
+    "wholeWorkflowAlsoRunsExistingGenericDiagnostics": true,
+    "wholeWorkflowCostIsNotSeven": true,
+    "logicalRequestsNotWireAttemptAccounting": true,
+    "redirectBlockedMalformedResponsesStayChargedAndNonQualifying": true,
+    "noModelGateQualificationAdmissionCredit": true
+  },
+  "codePins": [
+    {
+      "path": "web/scripts/pipeline/onboarding.py",
+      "sha256": "e309594b4b29e7e96a4a5f69c4caa6529851a7c2e203fe49031d17ed8ad02dab"
+    },
+    {
+      "path": "ops/ci/collect.py",
+      "sha256": "b9c67f63ea1181b32df1128a9666dd97f58fa8b97f7a40e041031ba78b9d60fa"
+    },
+    {
+      "path": "web/scripts/pipeline/discovery.py",
+      "sha256": "c354f3368b15e7a8aab6b357d4f11c238f436bfb1af8430bc7282a80b203e6e2"
+    },
+    {
+      "path": "web/scripts/pipeline/contracts.py",
+      "sha256": "be2450c82f89a3905c2469da4fd44037cd27d226b264eda741f762cf3269102c"
+    },
+    {
+      "path": "contracts/market.json",
+      "sha256": "5b2b52dc2d17709f562b64ad6cb435086971ff8a6ccb9ce2fe95296a1ce1a7ff"
+    }
+  ],
+  "guards": {
+    "deniedAttempts": [],
+    "actualSourceRequests": 0,
+    "actualModelCalls": 0,
+    "actualStateWrites": 0,
+    "actualArchiveWrites": 0,
+    "gateCalls": 0,
+    "publicationCalls": 0,
+    "qualificationCredit": 0,
+    "coverageCredit": 0,
+    "semanticAdmission": false,
+    "onlyWrites": "two assigned independent-review documents"
+  },
+  "limits": [
+    "This proves committed request allowlist provenance and compatibility only; the seven future responses are unobserved.",
+    "Ping4/5/6, Delinea2/5 and Sonatype2/13 are diagnostic samples, not full sequential traversal or proved terminal completeness.",
+    "Current source/adapter registrations remain unchanged official_discovery candidates.",
+    "New execution must make real charged requests through the existing lease; old fetchedAt values are preserved, not renewed.",
+    "A future substantive market/source change needs a separately justified plan/proof migration; the D112-only bridge cannot authorize it."
+  ],
+  "reviewSha256": "ee772c48e64c2d57629526e1e15d1b44d5dee0c378cf95031ff4b11afa2a8ccb"
+}
