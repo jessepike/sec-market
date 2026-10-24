@@ -44,6 +44,13 @@ six September 24 hints age out of the current lane, making a sealed collection p
 differ. Repair that comparison using the original authenticated receipt context, while deriving
 current classifications and enforcing source/fact freshness at gate time. Require targeted
 cross-midnight tests and exact archive replay before promoting the repair.
+The narrow repair now passes five targeted and 755 total operational tests, full web checks,
+independent review and sealed actual-archive reconstruction at all three October 25 publisher
+times. Original evidence dates, four ordinary facts and 33 queue entries remain unchanged.
+[Repair and replay](docs/active/daily-pipeline/accuracy/next-scheduled-publication-preflight-2026-10-24.md).
+The [remaining 25 candidates](docs/active/daily-pipeline/accuracy/remaining-candidate-qualification-batch-spec-2026-10-24.md)
+now have exact next actions; Orca's reviewed 61-request diagnostic remains dormant pending
+dispatch integration and actual proof. No new source credit follows from its offline tests.
 The [current evidence-bound scorecard](docs/active/daily-pipeline/evaluations/2026-10-24/html-activation-current-scorecard.md)
 records those separate measures and preserves the old benchmark reports.
 

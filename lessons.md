@@ -1,5 +1,7 @@
 # Lessons
 
+- [new:2026-10-24] Authenticate a saved processing partition at its original sealed receipt time. Recomputing its rolling date window at a later gate time can reject unchanged evidence after midnight. Derive current freshness separately, and bind the whole original receipt and immutable attempt before using its clock.
+
 ## 2026-10-24 · Separate measures keep their own evidence
 
 - [new:2026-10-24] Valid historical review and current revalidation are different states. Known

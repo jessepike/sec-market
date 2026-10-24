@@ -1,0 +1,82 @@
+# Next scheduled publication preflight
+
+Status: a concrete cross-midnight reconciliation bug was reproduced against the frozen actual archive. Root authorized its narrow validation/test repair after this finding. Publication, source collection, budget reset and workflow dispatch are outside this unit.
+
+## Answer and recommendation
+
+The frozen H collection remains within its original freshness window at the 25 October 00:23 UTC publisher timer. The next-day gate and publication allowances arise naturally from the new UTC date. However, unmodified reconciliation rejects its sealed processing manifest after midnight because it recomputes the original 30-day scheduling partitions at the gate's later date. Repair that original-proof comparison, preserve current-time freshness evaluation, then let the normal publisher timer run. No new source request, policy change, synthetic collection or relaxed gate is needed for that defect.
+
+Keep automatic rollback acceptance date-closed. The current code intentionally limits its automatic acceptance to 23 October. If an explicit new-release rollback verification is wanted after the next publication, the existing manually dispatched `expected_release` path supports the exact accepted release without a code change. The successful manual acceptance run `40051385049` on 24 October is existing evidence for that path. This preflight authorizes no dispatch or production alias change.
+
+## Frozen evidence
+
+Main application revision is `1ed94479ca2b4e44a5009bf83f47d306e75be0aa`. Actual manual collection `40120612027` produced normal run `2c57fb25697bfc4b40df574890334adfa1d6d0df610837e12aa3a71e22515523` under policy `8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db`.
+
+The frozen archive is `b78bd35bb531ed49480ce1557780d3b2d9a522a2`, manifest `3971ae961442d6a18c5ed145c64660d68190d91f470acf27b74c3d136f6d6849`. Its VM evidence root is `/var/tmp/smp-html-collection-40120612027-20261024/extracted/jessepike-sec-market-b78bd35bb531ed49480ce1557780d3b2d9a522a2`. The raw coverage reference is `objects/4780f1b69db3d5b7fef1d599ce88819d80fe84fbf5d002f1f21ff00b64672180`, 1,100,518 bytes, checked at `2026-10-24T18:32:56.227836Z`. Its snapshot records `validUntil=2026-10-26T00:29:16.957017+00:00`.
+
+At 00:23 UTC on 25 October the raw coverage age is about 5.835 hours, within the unchanged 30-hour limit. Freshness must still be independently checked against each actual transport and source observation at gate time. The later snapshot/coverage check timestamp cannot renew an old source observation.
+
+The frozen production head is accepted daily release `19fde803d09aa544672183769c257e37faf727b75e1914955f54f3c5fb126941`, sequence 3, application `26181a2d4eb0aad1bd751cda70ab8e65142d2813`; it is not a `legacyBaseline`. `initial_collection_ready` therefore returns true without demanding a new same-day scheduled collection. That initial-cutover requirement applies only to a legacy baseline. The normal scheduled publisher can consume this manual collection, while the manual collection itself proves no scheduled execution.
+
+The current production manifest binds another collection receipt. Consequently `EXACT_COLLECTION_AND_CODE_ALREADY_ACKNOWLEDGED` does not match the frozen H collection/code pair. The next publisher must obtain a new exact gate artifact; existing older gate receipts cannot establish the new code/policy/archive binding.
+
+## Demonstrated midnight blocker
+
+Read-only replay of `reconcile(plan, actual_receipts, H, '2026-10-25T00:23:00Z', store)` raises `Separated processing partition proof differs` in `validation.py`. This is an actual frozen-input counterexample, not a predicted network failure.
+
+The engine seals the processing manifest after recording the receipt's completion. Reconciliation currently calls `separated_details` using its later `now` and compares that entire result to the original manifest. `selection.date_partitions` calculates a rolling 30-day scheduling cutoff. At midnight the cutoff advances from 24 to 25 September. Six archived scheduling hints dated 24 September legitimately move from the current scheduling lane to the historical lane, while the immutable collection-time manifest correctly retains its original lane.
+
+| Source and authenticated attempt | URLs whose scheduling lane changes |
+| --- | --- |
+| `upwind:official:1`, `4495525a9865491f0ee7b977841d94f7d542d598f22a0e422e726b61ca215c59` | `/feed/introducing-the-new-configurations-experience-in-upwind`; `/feed/threat-post/cve-2026-54745-kubeflow-pipelines-frontend-unauthenticated-ssrf-via-_proxy-route-enables-access-to-internal-services`; `/feed/threat-post/cve-2026-87902-wordpress-page-template-resolution-path-traversal-enables-local-php-include-and-potential-rce`; `/feed/threat-post/cve-2026-93577-cve-2026-89078-gitlab-ce-ee-ci-cd-regex-parsing-flaws-enable-authenticated-server-side-rce`; `/feed/threat-post/cve-2026-95519-rpm-macro-expansion-in-manifest-entries-allows-command-injection-and-code-execution`. |
+| `arctic-wolf:official:1`, `ef55e31ccb43f187dd2a21e2768f30f48ee3abb6f3de1f87c98a3a412682f3bb` | `/resources/blog/psychedelic-stealer-fake-clickfix-captcha-targets-ukraine/`. |
+
+These are original sitemap/index scheduling hints, not independently verified publication dates. No fact, held claim, body, source context or review changes at this calendar boundary.
+
+## Exact minimal repair
+
+In `validation.reconcile`, retain independent `verify_receipt` at the actual gate/check time. Authenticate the entire received receipt against its existing content-addressed receipt-integrity object and require the immutable attempt metadata to equal that same sealed object. Verify the archived processing manifest against a separately reconstructed `separated_details` result using that sealed original receipt, `HistoricalStoreView` and the original `completedAt`. This preserves the original transport context even if later observations exist. Require the exact existing schema/source/run/full partition equality; no field is dropped or accepted from a copied flag. Independently reconstruct the current evaluation at `now` on the full current store for intake, processing/history summaries and time-dependent scheduling labels. Never replace `now` globally with the old completion time.
+
+Keep source/observation/transport freshness, current fact validation, latest failed or ambiguous transport checks, policy/source/supplier/alias context, original proof joins and all age limits at their existing current-time boundaries. A new timestamp inserted into the receipt must fail its immutable anchoring. A changed processing manifest must still fail its original-time equality. Current evaluation may classify old scheduling work as historical without marking it reviewed, accepted or freshly checked.
+
+The fix changes application code only. H, all original receipts and source dates remain unchanged. The publisher will need a gate running the repaired main revision and testing that exact repaired code/H/data/artifact pair. A genuine earlier H collection is not invalid merely because an unrelated application validation repair has a newer revision: the normal gate reconstructs the original run and verifies its current policy/proof independently. It must not forge a collector receipt, update its application revision or create a scheduled clock. Freeze the repaired application revision before its gate; dispatch selection rejects a different main head.
+
+Tests must cover a dated hint exactly on the original 30-day boundary before midnight, successful original-proof replay after midnight with current scheduling labels, unchanged source/fact times, altered sealed partitions, altered original completion time, current stale transport and changed source/policy context. Repeat the real b78 cross-UTC replay under a read-only store and archive write/network/subprocess denial. Preserve archive content, file/directory mtimes and original heads. No runtime change outside `validation.py` is part of this repair.
+
+## Natural allowances and gate requirements
+
+The frozen 24 October source ledger is 1,926 fetches, 80 calls and 40 documents. Its gate attempts and publication attempts are both two. The 25 October gate/publication heads are absent. `release_daily` reserves a gate against `datetime.now(timezone.utc).date()`, and `publish` reserves publication against the newly prepared manifest's UTC date. Those new keys create the unchanged two-attempt daily allowances naturally; no old counter is cleared. A publisher consumes no model/source allowance. Normal source-budget rollover happens only through the ordinary collector's existing date-bound ledger.
+
+The publisher checkpoints the exact archive before dispatching the main independent gate and reserves its gate attempt before dispatch. The new gate must reconstruct the exact current policy, raw run/attempt receipts and collector continuity, reproject six original correction groups, certify all 80 SEC claims from still-fresh archived SEC bodies and execute the application checks. GitHub workflow identity, main revision, artifact digest, exact snapshot/build/coverage hashes and source archive commit/manifest must all match. Existing gate artifacts are not automatically reused; only an already acknowledged exact collection/code release is skipped.
+
+New correction groups use the actual gate publication day and cannot cross that UTC day during first promotion or crash recovery. Previously published groups retain original public dates and do not expire merely because the day changes. The six admissions still replay under their original review contexts; first publication on 25 October does not justify retimestamping their source observations or admission times.
+
+Expected non-bug stops include a busy or abandoned lease, changed main revision, archive compare-and-swap conflict, failed workflow setup/tests, unavailable/expired gate artifact, pending correction admission, missing collector continuity, exhausted next-day gate/publication attempts, missing/expired SEC source check, unsupported fact change, competing production path or unavailable publisher credentials/acknowledgement. A delayed gate beyond original source expiry must fail conservatively or publish only the independently eligible coverage permitted by policy; it cannot renew source ages. The recorded coverage is degraded and `allowDegradedCoverage` permits it; incomplete review is not transformed into all-current-claims-reviewed.
+
+## Rollback callback versus ordinary recovery
+
+The automatic acceptance callback is intentionally separate from ordinary publication failure recovery. Its preflight and `execute(upstream_run=...)` both refuse dates other than `2026-10-23`; 25 October returns `DRILL_AUTOMATIC_ACCEPTANCE_DATE_EXPIRED` before any remote lookup. It also requires a real successful private-main scheduled publisher, no queued/running collector, an actual same-day scheduled collector under the current policy, no prior automatic drill marker, an accepted release matching that publisher revision and a scheduled clock for the exact accepted run/policy. The frozen manual H receipt cannot substitute for that clock. This expired one-time path should not be described as the next timer's automatic rollback proof.
+
+Ordinary publication rollback remains enabled on every publication failure: `publish` retains the prior immutable deployment and rolls back/acknowledges it if promotion verification fails; crash recovery also verifies or restores its journaled parent. These paths do not use the expired automatic-acceptance date.
+
+For a deliberately approved post-publication drill, manual workflow input `expected_release` selects the exact current accepted nonlegacy release. That path has no acceptance-date restriction, same-day scheduled-source requirement or automatic-target skip. It independently verifies the stored manifest address, retained parent, exact main gate provenance and artifact bytes, ready immutable production deployments, controlled production paths, current live/static acknowledgement and retained parent. It archives intent before alias changes, verifies the retained parent, restores the accepted immutable current deployment in `finally`, verifies restored bytes and records success only if the production head is unchanged. The old automatic drill marker does not disable a new manual exact-release verification. No code change is recommended for that purpose.
+
+## Verification record
+
+The authorized runtime repair is confined to `web/scripts/pipeline/validation.py`. The new `ops/ci/test_midnight_partition_replay.py` has five meaningful cases: exact original 30-day boundary replay through full snapshot reconstruction, changed sealed partition or completion clock, changed full caller receipt/immutable attempt, expired current transport and later failed transport/current policy change. All five pass. The expired case specifically asserts `Retained latest transport is stale or future` after 30 hours, rather than accepting an unrelated error as proof of freshness enforcement. The existing 25 separation tests and 46 rollback/correction/publisher/continuity tests also pass in the VM.
+
+Actual frozen b78 replay at `2026-10-25T00:23:00Z` now completes `reconcile → collector_continuity → build_snapshot`, preserving 264/557 source checks, all four ordinary fact references and the 33-entry queue. Current processing remains 23 reviewed/10,632 pending/5 held/1 changed/291 unknown scheduling dates across 10,655 inventory documents. Historical review remains 24 reviewed/10,631 pending/5 held. The candidate snapshot address is `6feec3970cb598b8edf8cea93b4af3d51eb903dc5ba7bbfb2b767fc8d6eff846`; original `lastCollectionAt=2026-10-24T18:32:51.588317Z` and `validUntil=2026-10-26T00:29:16.957017+00:00` are unchanged. This is an offline future-time reconstruction, not an actual scheduled run, gate, publication or fresh observation.
+
+The exact VM replay command is `PYTHONDONTWRITEBYTECODE=1 python3 .ctx/replay_next_publication_midnight.py` from `/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022`. The ignored scratch harness uses the actual b78 archive, verifies reference hashes/lengths, denies filesystem writes/network/subprocess operations globally and allows only in-memory candidate-object construction. It completed full reconstruction at all three times:
+
+| Offline evaluation time | Raw coverage age | Reconstructed snapshot SHA-256 |
+| --- | ---: | --- |
+| `2026-10-25T00:23:00Z` | 5.834381 hours | `6feec3970cb598b8edf8cea93b4af3d51eb903dc5ba7bbfb2b767fc8d6eff846` |
+| `2026-10-25T06:23:00Z` | 11.834381 hours | `b93b6872127b3b4e3e6439596cc0390beb28c66e946b5ac3c6ccfb32576b6799` |
+| `2026-10-25T16:23:00Z` | 21.834381 hours | `089ea80ecfc106a3b112281b044f96ec22e58a587d43eab03e0c94afe476e87e` |
+
+All three preserve the exact counts, original facts, queue, last collection time and source validity limit stated above. The derived snapshot check/evaluation times differ appropriately; no source observation, fact or review date is renewed. Every reconstruction uses the same original receipt and sealed manifest bytes.
+
+Before/after archive equality passed for 40,921 files and 1,904 directories. The canonical sorted file triple list `[relativePath, bytes, rawSha256]` hashes to `c148b66788ca89701b075f59af8e8ecc8301fac8a673e9f1586fa00393e39c8a`. The file-mtime digest is `41afa5b58bf402a96da392552113918a9055fbdaa37749a799423528b9d49a14`; the directory-mtime digest is `0d09fc1fd0fd80ec691efb26c61f624330f7a22f8938de492403eb487e47779a`. Those exact seals were unchanged after all three full gate-data reconstructions. Filesystem writes, source requests, model calls and network operations were zero.
+
+Final focused verification is 76 passed tests: five new midnight cases, 25 existing separation cases and 46 existing rollback/correction/publisher/continuity cases. The repaired runtime raw hash is `38b19ad77aff48ba971589add57a9c1b01d505ca49d3c4738bb447007cd71b08`; the targeted test raw hash is `5221f005f7dc12a956845b8b3673ec370be28e14ce4b331fa6c53b1ff440ef81`. Root owns the full integration checks, atomic commit and exact new main revision. The actual collector receipt remains bound to its truthful original `1ed94479…` revision; this validator-only repair requires no forged collector rebinding or fresh ordinary collection before the new exact-code gate. No future publisher, scheduled collection or rollback receipt is claimed.

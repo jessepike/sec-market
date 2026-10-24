@@ -230,11 +230,27 @@ def reconcile(plan, receipts, contract, now, store):
         repaired_audit = bounded(source, contract) and verify_receipt(receipt, plan, contract, source, now, store)
         details = None
         if separated(contract) and repaired_audit:
-            from retained_audit import separated_details
+            from retained_audit import HistoricalStoreView, separated_details
+            # The immutable partition describes the original attempt. Its
+            # scheduling window must not move when the release gate runs later.
+            seal = store.read('receipt-integrity/' + receipt['runId'] + '/' + receipt['taskId'] +
+                              '/' + receipt['attemptId'] + '.json')
+            require(seal is not None, 'Original processing receipt seal missing')
+            original = __import__('json').loads(store.get(seal))
+            require(all(original.get(key) == receipt.get(key) for key in
+                        ('runId', 'taskId', 'attemptId', 'sourceId', 'completedAt')),
+                    'Original processing receipt clock differs')
+            require(original == receipt and store.read('runs/' + receipt['runId'] + '/attempts/' +
+                    receipt['attemptId'] + '.json') == original,
+                    'Separated processing partition proof differs from original sealed receipt')
+            historical = HistoricalStoreView(store, original)
+            original_details = separated_details(original, contract, source, original['completedAt'], historical)
+            # Current transport/source/fact freshness and evaluated labels still
+            # use the real verification time and the complete current store.
             details = separated_details(receipt, contract, source, now, store)
             partitions = __import__('json').loads(store.get(receipt['processingManifest']))
             require(partitions == {'schemaVersion': 2, 'sourceId': source['id'], 'runId': receipt['runId'],
-                                   **details['partitions']}, 'Separated processing partition proof differs')
+                                   **original_details['partitions']}, 'Separated processing partition proof differs')
         if _neutral_filing_source(source):
             _reject_filing_semantics(receipt)
         if source and source["kind"] == "sec_index":

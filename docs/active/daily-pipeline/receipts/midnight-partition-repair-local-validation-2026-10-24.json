@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "kind": "local-integration-validation",
+  "checks": {
+    "operational": {
+      "passed": 755
+    },
+    "data": {
+      "passed": 373
+    },
+    "pipeline": {
+      "passed": 115
+    },
+    "browser": {
+      "passed": 42,
+      "skipped": 1
+    },
+    "lint": "passed",
+    "build": "passed",
+    "dist": "passed"
+  },
+  "sourcePins": [
+    {
+      "path": "web/scripts/pipeline/validation.py",
+      "sha256": "38b19ad77aff48ba971589add57a9c1b01d505ca49d3c4738bb447007cd71b08",
+      "bytes": 38753
+    },
+    {
+      "path": "ops/ci/test_midnight_partition_replay.py",
+      "sha256": "5221f005f7dc12a956845b8b3673ec370be28e14ce4b331fa6c53b1ff440ef81",
+      "bytes": 6383
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/next-scheduled-publication-preflight-2026-10-24.md",
+      "sha256": "ee884abbee06235d2a6f3fe792bb59a2a93edea6d7c35696a8806d632bb8e110",
+      "bytes": 16466
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/separated-partition-midnight-independent-review-2026-10-24.md",
+      "sha256": "35914373998159a6627012388191c5c91dbadf55f454dc4303bf86aa63c74b04",
+      "bytes": 4707
+    },
+    {
+      "path": "docs/active/daily-pipeline/receipts/midnight-partition-repair-visual-2026-10-24.json",
+      "sha256": "5854dbd012725c00bd40a95004e47ac89d3dddcd41f5f41f8b3b3c183966ba94",
+      "bytes": 2616
+    }
+  ],
+  "logPins": [
+    {
+      "path": "/var/tmp/smp-midnight-final-ops-20261024.log",
+      "sha256": "08f4028153e4a2bd0e6c2e78bf64b8b9991459847f2dd674bf2b2d71c2b901f0",
+      "bytes": 141474
+    },
+    {
+      "path": "/var/tmp/smp-midnight-final-web-20261024.log",
+      "sha256": "c8efb8b391f2fefeac3e3d8a63092383efc3d024bd6eb70a39a6069ab3dbb26e",
+      "bytes": 126034
+    }
+  ],
+  "sourceRequests": 0,
+  "modelCalls": 0,
+  "gateUses": 0,
+  "scheduledRunProof": false,
+  "productionPublicationProof": false,
+  "unchangedPolicySha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db"
+}
