@@ -33,9 +33,9 @@ is unknown after its sitemap changed and requires revalidation. All 32 prior hol
 with one additional revalidation entry. The exact [74-company overview and 557-row ledger](docs/active/daily-pipeline/evaluations/2026-10-24/current-source-coverage.md)
 and [actual collection audit](docs/active/daily-pipeline/accuracy/html-source-activation-actual-collection-review-2026-10-24.md)
 are the current private coverage references. Manual execution supplies no current-policy timer
-proof or publication. Main stays `1ed94479` for the next natural publisher allowance. The late
+proof or publication. Main includes the reviewed midnight repair and leased diagnostic route. The late
 scheduled publisher `40122602778` also failed with `DAILY_GATE_BUDGET_EXHAUSTED`; issue 12
-updated at 18:55 UTC. October 24 usage is 1,926/5,500 fetches, 80/80 models, 40/40 documents,
+updated at 18:55 UTC. October 24 usage is 1,953/5,500 fetches, 80/80 models, 40/40 documents,
 and 2/2 publication attempts. No reset, refund or paid fallback. Next allowance is 00:00 UTC
 October 25; publisher retry is scheduled 00:23 UTC, collector 05:17 UTC. Actual production
 update and current-policy scheduled collection remain required.
@@ -49,13 +49,15 @@ independent review and sealed actual-archive reconstruction at all three October
 times. Original evidence dates, four ordinary facts and 33 queue entries remain unchanged.
 [Repair and replay](docs/active/daily-pipeline/accuracy/next-scheduled-publication-preflight-2026-10-24.md).
 The [remaining 25 candidates](docs/active/daily-pipeline/accuracy/remaining-candidate-qualification-batch-spec-2026-10-24.md)
-now have exact next actions; Orca's reviewed 61-request diagnostic remains dormant pending
-dispatch integration and actual proof. No new source credit follows from its offline tests.
-The Orca-only route is now locally integrated under unchanged H: 766 total operational tests,
-full web checks, independent review and zero-write actual-archive preflight pass. Obtain preview
-CI, deliberately promote, dispatch only the capped diagnostic, verify its actual archive, then
-restore exact disabled plan `ad1c5cc2…` and freeze main for the natural publisher. Source
-activation remains a later closed policy transition after actual current production proof.
+now have exact next actions. Orca's leased diagnostic is promoted under unchanged H with
+766 operational tests, full web checks and independent review passing. Actual run `40126516584`
+retained 90 leads from 26 successful pages, then stopped at HTTP 302 on page 27 after 27 charged
+requests. Its archive verifies completely and replays without writes. The redirect destination
+was not retained, so completeness and source qualification remain unproved. Restore exact
+disabled plan `ad1c5cc2…`, add bounded diagnostic redirect metadata without changing normal
+transport policy, and obtain one capped actual follow-up before the final publisher freeze.
+Source activation remains a later closed policy transition after current production proof.
+[Actual diagnostic audit](docs/active/daily-pipeline/accuracy/orca-actual-leased-source-review-2026-10-24.md).
 [Integration handoff](docs/active/daily-pipeline/accuracy/orca-leased-diagnostic-integration-handoff-2026-10-24.md).
 The [current evidence-bound scorecard](docs/active/daily-pipeline/evaluations/2026-10-24/html-activation-current-scorecard.md)
 records those separate measures and preserves the old benchmark reports.

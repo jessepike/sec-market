@@ -14,7 +14,7 @@ daily intake, document processing and historical review while preserving all 74 
 
 ## Actual production
 
-Live probe at 18:58 UTC October 24 still returns certified app `26181a2d`, release
+Live probe at 20:03 UTC October 24 still returns certified app `26181a2d`, release
 `19fde803…26941`, sequence 3, Vercel `dpl_9KqhU2bnfcmaQyYg73ZB1tXT9WBV` READY.
 Varonis and all six corrections remain live. The original combined report remains 244/557,
 source checked October 24 at 00:38:18.807979 UTC. Publisher `40050633432`, gate `40050850177`
@@ -23,18 +23,15 @@ The five known contradictions were resolved against this release. General precis
 reader value and sustained operation remain unmeasured.
 [Publication receipts](docs/active/daily-pipeline/renewal-verification-2026-10-24.md).
 
-Main and preview are `3e3bf9e9`; the reviewed midnight repair is promoted. The gate had
+Main and preview are `53920fcb`; the reviewed midnight repair and bounded Orca route are promoted. The gate had
 incorrectly compared collection-time sealed date partitions with gate-time classifications.
 The repair verifies the complete original sealed receipt at its original time and evaluates
 current freshness separately. Actual archive reconstruction now passes all three October 25
 publisher times without changing source dates, facts, review holds or archive bytes/mtimes.
-All 755 operational and full web checks pass; independent review passes. Preview web
-`40124646702` and archive canary `40124646775` passed. Preview deployment
-`dpl_851fA8CqvuVHgnLJnvjcWobmUQXJ` is READY and matches the reviewed local pixels at 1440/390.
-Main web `40124904455` passed. Earlier preview web
-`40120307659` and main web `40120612557` passed. Preview `dpl_4Ggdsc2VCrnKoNbVLrFTtb34k7Ds`
-is READY. The acknowledgement repair changes no web source; reviewed desktop/phone renders
-remain identical. Main Git builds intentionally do not publish; only the exact-artifact
+All 766 operational and full web checks pass; independent review passes. Preview web
+`40125881033`, archive canary `40125880948` and main web `40126156223` passed. Preview deployment
+`dpl_GX1q5BE6pmtpzGJbCBaNztyt5bHR` is READY and matches reviewed local pixels at 1440/390.
+Main Git builds intentionally do not publish; only the exact-artifact
 publisher changes production. Evidence-only updates may advance preview while main stays fixed.
 
 ## Current actual collection
@@ -74,7 +71,7 @@ The current three-feed activation still needs its own actual scheduled run; manu
 and successful skipped callbacks supply no timer or publication proof.
 [Scheduled-run review](docs/active/daily-pipeline/accuracy/new-policy-actual-scheduled-run-review-2026-10-24.md).
 
-October 24 UTC usage is **1,926 fetches / 80 model calls / 40 documents**; 3,574 fetches remain,
+October 24 UTC usage is **1,953 fetches / 80 model calls / 40 documents**; 3,547 fetches remain,
 with no model/document allowance. Both publication/gate attempts remain charged (2/2).
 No resets, refunds, purchases or paid fallback. Scheduled publishers `40089243152` and
 `40122602778` failed with `DAILY_GATE_BUDGET_EXHAUSTED`; assigned issue 12 remains open,
@@ -94,15 +91,21 @@ Finish qualification of the 25 candidate feeds and 254 missing-family bindings, 
 mislinked card needs primary-content review; its index date is not an article date. Four
 neutral parent-issuer bindings have a reviewed dormant adapter/proposal; current qualification
 and a closed provenance transition remain pending. No owner source decision is currently needed.
-The next 25-candidate qualification batch is mapped individually; Orca has a reviewed dormant
-61-request diagnostic with 115 focused tests, including its actual retained-body replay.
-It is not routed or activated and supplies no current coverage.
+The next 25-candidate qualification batch is mapped individually. Orca's bounded diagnostic
+is routed through the existing leased runner and supplies no current coverage.
 [Next candidate batch](docs/active/daily-pipeline/accuracy/remaining-candidate-qualification-batch-spec-2026-10-24.md).
-The next Orca diagnostic is locally integrated into the existing manual leased source-probe
+The next Orca diagnostic is integrated into the existing manual leased source-probe
 path under unchanged H, capped at 61 fetches with zero model/document/gate work. All 766
 operational, 373 data, 115 pipeline and 42 browser checks pass (one fixture skip), plus independent
 review and exact actual-archive preflight. Current desktop/phone pixels are unchanged.
-Its actual proof and disabled-plan restoration remain pending; no new qualification credit is claimed.
+Actual manual `source_probe` run `40126516584` completed at 19:47 UTC on main `53920fcb`.
+It charged 27 fetches, retained 90 leads from 26 index pages, then failed on page 27 with
+HTTP 302. The stored response has no redirect destination, so the source remains unqualified.
+Full archive verification and historical replay pass with zero writes; all earlier evidence,
+normal-run and production heads remain intact. The exact disabled plan `ad1c5cc2…` is restored
+in this change. A narrowly scoped follow-up will retain bounded redirect metadata before
+one further capped diagnostic. No model, document, coverage or publication credit was used.
+[Actual Orca audit](docs/active/daily-pipeline/accuracy/orca-actual-leased-source-review-2026-10-24.md).
 [Leased diagnostic handoff](docs/active/daily-pipeline/accuracy/orca-leased-diagnostic-integration-handoff-2026-10-24.md).
 Freeze the final reviewed main before the next publisher. Current-policy scheduled collection
 and actual production update remain required.

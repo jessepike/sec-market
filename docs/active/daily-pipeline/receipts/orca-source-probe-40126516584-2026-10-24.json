@@ -1,0 +1,1444 @@
+{
+  "schemaVersion": 1,
+  "checkpointProfile": "source_probe",
+  "githubRunId": "40126516584",
+  "githubRunAttempt": 1,
+  "githubEventName": "workflow_dispatch",
+  "githubRef": "refs/heads/main",
+  "appRevision": "53920fcb7312d593c1eff307a6ff5ae5393b3a9e",
+  "contractSha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+  "diagnostic": {
+    "schemaVersion": 1,
+    "operation": "bounded_orca_qualification",
+    "contractSha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+    "planRawSha256": "93257fbffe11598ffff5ee7b890fdd0e992d59d4b276d0ad09aa8ddfe56f7d98",
+    "planCanonicalSha256": "93257fbffe11598ffff5ee7b890fdd0e992d59d4b276d0ad09aa8ddfe56f7d98",
+    "planReference": {
+      "key": "objects/93257fbffe11598ffff5ee7b890fdd0e992d59d4b276d0ad09aa8ddfe56f7d98",
+      "sha256": "93257fbffe11598ffff5ee7b890fdd0e992d59d4b276d0ad09aa8ddfe56f7d98",
+      "bytes": 1040
+    },
+    "sourceId": "orca:official:1",
+    "supplierId": "orca",
+    "originalSourceSha256": "11dc1755e9febe013fbc5d35a636afc948432251f6186cf62ce3effcb5cac4cf",
+    "proposedAdapterSha256": "6b64c7c761c899e28297fe3e8bf18784dbf6da9dcb88f2d2d7ccab1671c963b2",
+    "startedAt": "2026-10-24T19:46:41.130076Z",
+    "requests": [
+      {
+        "kind": "index",
+        "url": "https://orca.security/resources/news/",
+        "reservation": {
+          "budgetDay": "2026-10-24",
+          "fetchLimit": 5500,
+          "chargedFetchCount": 1927
+        },
+        "observation": {
+          "key": "objects/c2c866e077b14d5d20ca8e96e29cc98a65607c65d4b12b52800d602104b68dfa",
+          "sha256": "c2c866e077b14d5d20ca8e96e29cc98a65607c65d4b12b52800d602104b68dfa",
+          "bytes": 374
+        },
+        "responseCheckedAt": "2026-10-24T19:47:01.218048Z",
+        "transportError": null,
+        "denial": null
+      },
+      {
+        "kind": "index",
+        "url": "https://orca.security/resources/news/page/2/",
+        "reservation": {
+          "budgetDay": "2026-10-24",
+          "fetchLimit": 5500,
+          "chargedFetchCount": 1928
+        },
+        "observation": {
+          "key": "objects/578253e225fa9711d2aba07d1ebf71e4f68d83faba0a3a3d8589f6052a518762",
+          "sha256": "578253e225fa9711d2aba07d1ebf71e4f68d83faba0a3a3d8589f6052a518762",
+          "bytes": 381
+        },
+        "responseCheckedAt": "2026-10-24T19:47:01.505546Z",
+        "transportError": null,
+        "denial": null
+      },
+      {
+        "kind": "index",
+        "url": "https://orca.security/resources/news/page/3/",
+        "reservation": {
+          "budgetDay": "2026-10-24",
+          "fetchLimit": 5500,
+          "chargedFetchCount": 1929
+        },
+        "observation": {
+          "key": "objects/6c7ae772d1ab5631e80f15349e60b48f4feb72cc071865f70b44bfc73916fbc9",
+          "sha256": "6c7ae772d1ab5631e80f15349e60b48f4feb72cc071865f70b44bfc73916fbc9",
+          "bytes": 381
+        },
+        "responseCheckedAt": "2026-10-24T19:47:01.833421Z",
+        "transportError": null,
+        "denial": null
+      },
+      {
+        "kind": "index",
+        "url": "https://orca.security/resources/news/page/4/",
+        "reservation": {
+          "budgetDay": "2026-10-24",
+          "fetchLimit": 5500,
+          "chargedFetchCount": 1930
+        },
+        "observation": {
+          "key": "objects/592aca0fb71af5cdefd00b4812d69c350fea968b8ad04f38ebec6a5a130eb17c",
+          "sha256": "592aca0fb71af5cdefd00b4812d69c350fea968b8ad04f38ebec6a5a130eb17c",
+          "bytes": 381
+        },
+        "responseCheckedAt": "2026-10-24T19:47:02.132403Z",
+        "transportError": null,
+        "denial": null
+      },
+      {
+        "kind": "index",
+        "url": "https://orca.security/resources/news/page/5/",
+        "reservation": {
+          "budgetDay": "2026-10-24",
+          "fetchLimit": 5500,
+          "chargedFetchCount": 1931
+        },
+        "observation": {
+          "key": "objects/2a23b9d48f9e9b1ff613cf753065301bc5b6b9c9c825668ebb1728ecb0829da6",
+          "sha256": "2a23b9d48f9e9b1ff613cf753065301bc5b6b9c9c825668ebb1728ecb0829da6",
+          "bytes": 381
+        },
+        "responseCheckedAt": "2026-10-24T19:47:02.446961Z",
+        "transportError": null,
+        "denial": null
+      },
+      {
+        "kind": "index",
+        "url": "https://orca.security/resources/news/page/6/",
+        "reservation": {
+          "budgetDay": "2026-10-24",
+          "fetchLimit": 5500,
+          "chargedFetchCount": 1932
+        },
+        "observation": {
+          "key": "objects/2f020564dce5f3ee2ad41355d6e193c799b97a67435b69c186e4806480ce4bf2",
+          "sha256": "2f020564dce5f3ee2ad41355d6e193c799b97a67435b69c186e4806480ce4bf2",
+          "bytes": 381
+        },
+        "responseCheckedAt": "2026-10-24T19:47:02.713766Z",
+        "transportError": null,
+        "denial": null
+      },
+      {
+        "kind": "index",
+        "url": "https://orca.security/resources/news/page/7/",
+        "reservation": {
+          "budgetDay": "2026-10-24",
+          "fetchLimit": 5500,
+          "chargedFetchCount": 1933
+        },
+        "observation": {
+          "key": "objects/b0e7a0eba7d8eb3c4777c084e874e3593e572e61477442b45f100a6009820996",
+          "sha256": "b0e7a0eba7d8eb3c4777c084e874e3593e572e61477442b45f100a6009820996",
+          "bytes": 381
+        },
+        "responseCheckedAt": "2026-10-24T19:47:03.035952Z",
+        "transportError": null,
+        "denial": null
+      },
+      {
+        "kind": "index",
+        "url": "https://orca.security/resources/news/page/8/",
+        "reservation": {
+          "budgetDay": "2026-10-24",
+          "fetchLimit": 5500,
+          "chargedFetchCount": 1934
+        },
+        "observation": {
+          "key": "objects/7589b1b8b7e9f011bb68bcb0283112fc623a0724a0043391ddf60fdebb680cc7",
+          "sha256": "7589b1b8b7e9f011bb68bcb0283112fc623a0724a0043391ddf60fdebb680cc7",
+          "bytes": 381
+        },
+        "responseCheckedAt": "2026-10-24T19:47:03.353728Z",
+        "transportError": null,
+        "denial": null
+      },
+      {
+        "kind": "index",
+        "url": "https://orca.security/resources/news/page/9/",
+        "reservation": {
+          "budgetDay": "2026-10-24",
+          "fetchLimit": 5500,
+          "chargedFetchCount": 1935
+        },
+        "observation": {
+          "key": "objects/a9785a7fc53b8b243688c41d7a7bd1d5dcfcacc3240385dd1c0460a44c1031a4",
+          "sha256": "a9785a7fc53b8b243688c41d7a7bd1d5dcfcacc3240385dd1c0460a44c1031a4",
+          "bytes": 381
+        },
+        "responseCheckedAt": "2026-10-24T19:47:03.650287Z",
+        "transportError": null,
+        "denial": null
+      },
+      {
+        "kind": "index",
+        "url": "https://orca.security/resources/news/page/10/",
+        "reservation": {
+          "budgetDay": "2026-10-24",
+          "fetchLimit": 5500,
+          "chargedFetchCount": 1936
+        },
+        "observation": {
+          "key": "objects/44738b927a86554d7cc82c7d606c0664920c553c3f8c4d540b23e2d6be53fde8",
+          "sha256": "44738b927a86554d7cc82c7d606c0664920c553c3f8c4d540b23e2d6be53fde8",
+          "bytes": 382
+        },
+        "responseCheckedAt": "2026-10-24T19:47:03.928457Z",
+        "transportError": null,
+        "denial": null
+      },
+      {
+        "kind": "index",
+        "url": "https://orca.security/resources/news/page/11/",
+        "reservation": {
+          "budgetDay": "2026-10-24",
+          "fetchLimit": 5500,
+          "chargedFetchCount": 1937
+        },
+        "observation": {
+          "key": "objects/af7a54135a60d6a6f1730d180d09090a500453eb82803308de8fd9d68337c19a",
+          "sha256": "af7a54135a60d6a6f1730d180d09090a500453eb82803308de8fd9d68337c19a",
+          "bytes": 382
+        },
+        "responseCheckedAt": "2026-10-24T19:47:04.243308Z",
+        "transportError": null,
+        "denial": null
+      },
+      {
+        "kind": "index",
+        "url": "https://orca.security/resources/news/page/12/",
+        "reservation": {
+          "budgetDay": "2026-10-24",
+          "fetchLimit": 5500,
+          "chargedFetchCount": 1938
+        },
+        "observation": {
+          "key": "objects/e9e7b507d3311e44b25c0df20cd4f0a0c2e5e4c77a878a57a45153f3ed9c72f0",
+          "sha256": "e9e7b507d3311e44b25c0df20cd4f0a0c2e5e4c77a878a57a45153f3ed9c72f0",
+          "bytes": 382
+        },
+        "responseCheckedAt": "2026-10-24T19:47:04.526598Z",
+        "transportError": null,
+        "denial": null
+      },
+      {
+        "kind": "index",
+        "url": "https://orca.security/resources/news/page/13/",
+        "reservation": {
+          "budgetDay": "2026-10-24",
+          "fetchLimit": 5500,
+          "chargedFetchCount": 1939
+        },
+        "observation": {
+          "key": "objects/3fb21c2eea8e370b0826150145dacf4b5fa2be4881ea36704e128a68a8fb1114",
+          "sha256": "3fb21c2eea8e370b0826150145dacf4b5fa2be4881ea36704e128a68a8fb1114",
+          "bytes": 382
+        },
+        "responseCheckedAt": "2026-10-24T19:47:04.866003Z",
+        "transportError": null,
+        "denial": null
+      },
+      {
+        "kind": "index",
+        "url": "https://orca.security/resources/news/page/14/",
+        "reservation": {
+          "budgetDay": "2026-10-24",
+          "fetchLimit": 5500,
+          "chargedFetchCount": 1940
+        },
+        "observation": {
+          "key": "objects/a4124cd68fadbc8478803c84fc5189b949d65eae5cca9bcc6a770f85a54264d6",
+          "sha256": "a4124cd68fadbc8478803c84fc5189b949d65eae5cca9bcc6a770f85a54264d6",
+          "bytes": 382
+        },
+        "responseCheckedAt": "2026-10-24T19:47:05.127446Z",
+        "transportError": null,
+        "denial": null
+      },
+      {
+        "kind": "index",
+        "url": "https://orca.security/resources/news/page/15/",
+        "reservation": {
+          "budgetDay": "2026-10-24",
+          "fetchLimit": 5500,
+          "chargedFetchCount": 1941
+        },
+        "observation": {
+          "key": "objects/bcf19532b93288338e30b420d0903d6f8385a734f9966e96b586be9616dcdfe8",
+          "sha256": "bcf19532b93288338e30b420d0903d6f8385a734f9966e96b586be9616dcdfe8",
+          "bytes": 382
+        },
+        "responseCheckedAt": "2026-10-24T19:47:05.428397Z",
+        "transportError": null,
+        "denial": null
+      },
+      {
+        "kind": "index",
+        "url": "https://orca.security/resources/news/page/16/",
+        "reservation": {
+          "budgetDay": "2026-10-24",
+          "fetchLimit": 5500,
+          "chargedFetchCount": 1942
+        },
+        "observation": {
+          "key": "objects/a254a5f30e5b4b8c68313f924f02117c7d0a3e8512cf5f4af693d2bda06aa310",
+          "sha256": "a254a5f30e5b4b8c68313f924f02117c7d0a3e8512cf5f4af693d2bda06aa310",
+          "bytes": 382
+        },
+        "responseCheckedAt": "2026-10-24T19:47:06.116622Z",
+        "transportError": null,
+        "denial": null
+      },
+      {
+        "kind": "index",
+        "url": "https://orca.security/resources/news/page/17/",
+        "reservation": {
+          "budgetDay": "2026-10-24",
+          "fetchLimit": 5500,
+          "chargedFetchCount": 1943
+        },
+        "observation": {
+          "key": "objects/572ae437f408cfcce9419edd4d290da8e10a88e1e1615616d4aa2445f0482611",
+          "sha256": "572ae437f408cfcce9419edd4d290da8e10a88e1e1615616d4aa2445f0482611",
+          "bytes": 382
+        },
+        "responseCheckedAt": "2026-10-24T19:47:06.311568Z",
+        "transportError": null,
+        "denial": null
+      },
+      {
+        "kind": "index",
+        "url": "https://orca.security/resources/news/page/18/",
+        "reservation": {
+          "budgetDay": "2026-10-24",
+          "fetchLimit": 5500,
+          "chargedFetchCount": 1944
+        },
+        "observation": {
+          "key": "objects/56237b46bf1d28cb5654466a0bc6e00c2cd179272e2693d6a4abd85ad53fc9f4",
+          "sha256": "56237b46bf1d28cb5654466a0bc6e00c2cd179272e2693d6a4abd85ad53fc9f4",
+          "bytes": 382
+        },
+        "responseCheckedAt": "2026-10-24T19:47:06.640424Z",
+        "transportError": null,
+        "denial": null
+      },
+      {
+        "kind": "index",
+        "url": "https://orca.security/resources/news/page/19/",
+        "reservation": {
+          "budgetDay": "2026-10-24",
+          "fetchLimit": 5500,
+          "chargedFetchCount": 1945
+        },
+        "observation": {
+          "key": "objects/680024906189c98344cc11fae5c4dc63e50c98d98eb4c176437fd792561907bd",
+          "sha256": "680024906189c98344cc11fae5c4dc63e50c98d98eb4c176437fd792561907bd",
+          "bytes": 382
+        },
+        "responseCheckedAt": "2026-10-24T19:47:06.904896Z",
+        "transportError": null,
+        "denial": null
+      },
+      {
+        "kind": "index",
+        "url": "https://orca.security/resources/news/page/20/",
+        "reservation": {
+          "budgetDay": "2026-10-24",
+          "fetchLimit": 5500,
+          "chargedFetchCount": 1946
+        },
+        "observation": {
+          "key": "objects/d39d7b7147572ab940f38009e93837aefae129f907c0b84c42a0e75d7d9ee24c",
+          "sha256": "d39d7b7147572ab940f38009e93837aefae129f907c0b84c42a0e75d7d9ee24c",
+          "bytes": 382
+        },
+        "responseCheckedAt": "2026-10-24T19:47:07.206198Z",
+        "transportError": null,
+        "denial": null
+      },
+      {
+        "kind": "index",
+        "url": "https://orca.security/resources/news/page/21/",
+        "reservation": {
+          "budgetDay": "2026-10-24",
+          "fetchLimit": 5500,
+          "chargedFetchCount": 1947
+        },
+        "observation": {
+          "key": "objects/361b76ce9b282a57633818547756539131d85bdbef41d3587550430bab800fb0",
+          "sha256": "361b76ce9b282a57633818547756539131d85bdbef41d3587550430bab800fb0",
+          "bytes": 382
+        },
+        "responseCheckedAt": "2026-10-24T19:47:07.518483Z",
+        "transportError": null,
+        "denial": null
+      },
+      {
+        "kind": "index",
+        "url": "https://orca.security/resources/news/page/22/",
+        "reservation": {
+          "budgetDay": "2026-10-24",
+          "fetchLimit": 5500,
+          "chargedFetchCount": 1948
+        },
+        "observation": {
+          "key": "objects/05ffd9b2bbc36e32a23b44a017c11d0ca156faba656b8540e430f1d227b47ac0",
+          "sha256": "05ffd9b2bbc36e32a23b44a017c11d0ca156faba656b8540e430f1d227b47ac0",
+          "bytes": 382
+        },
+        "responseCheckedAt": "2026-10-24T19:47:07.853571Z",
+        "transportError": null,
+        "denial": null
+      },
+      {
+        "kind": "index",
+        "url": "https://orca.security/resources/news/page/23/",
+        "reservation": {
+          "budgetDay": "2026-10-24",
+          "fetchLimit": 5500,
+          "chargedFetchCount": 1949
+        },
+        "observation": {
+          "key": "objects/513015edb0f979787028d91ebe751c08498be233d18996e281020273aab6b50c",
+          "sha256": "513015edb0f979787028d91ebe751c08498be233d18996e281020273aab6b50c",
+          "bytes": 382
+        },
+        "responseCheckedAt": "2026-10-24T19:47:08.136735Z",
+        "transportError": null,
+        "denial": null
+      },
+      {
+        "kind": "index",
+        "url": "https://orca.security/resources/news/page/24/",
+        "reservation": {
+          "budgetDay": "2026-10-24",
+          "fetchLimit": 5500,
+          "chargedFetchCount": 1950
+        },
+        "observation": {
+          "key": "objects/2d0a513f785bb31f2c22d7ab2bf7381f289f3df177ae497c101dd706fc6183ca",
+          "sha256": "2d0a513f785bb31f2c22d7ab2bf7381f289f3df177ae497c101dd706fc6183ca",
+          "bytes": 382
+        },
+        "responseCheckedAt": "2026-10-24T19:47:08.396611Z",
+        "transportError": null,
+        "denial": null
+      },
+      {
+        "kind": "index",
+        "url": "https://orca.security/resources/news/page/25/",
+        "reservation": {
+          "budgetDay": "2026-10-24",
+          "fetchLimit": 5500,
+          "chargedFetchCount": 1951
+        },
+        "observation": {
+          "key": "objects/13bbb520005cb2a493345549a1d8d25ff74cced9b1cead44ca4ee5f3f03524d9",
+          "sha256": "13bbb520005cb2a493345549a1d8d25ff74cced9b1cead44ca4ee5f3f03524d9",
+          "bytes": 382
+        },
+        "responseCheckedAt": "2026-10-24T19:47:08.750420Z",
+        "transportError": null,
+        "denial": null
+      },
+      {
+        "kind": "index",
+        "url": "https://orca.security/resources/news/page/26/",
+        "reservation": {
+          "budgetDay": "2026-10-24",
+          "fetchLimit": 5500,
+          "chargedFetchCount": 1952
+        },
+        "observation": {
+          "key": "objects/b3cb7430267260e30867a39c3b8a143f6b8d41f431f852fa764fcaa59f474901",
+          "sha256": "b3cb7430267260e30867a39c3b8a143f6b8d41f431f852fa764fcaa59f474901",
+          "bytes": 382
+        },
+        "responseCheckedAt": "2026-10-24T19:47:09.006398Z",
+        "transportError": null,
+        "denial": null
+      },
+      {
+        "kind": "index",
+        "url": "https://orca.security/resources/news/page/27/",
+        "reservation": {
+          "budgetDay": "2026-10-24",
+          "fetchLimit": 5500,
+          "chargedFetchCount": 1953
+        },
+        "observation": {
+          "key": "objects/2152210e10fd7b5bc4216a2194893ac367d1d427bcee5d0084d770224cb0418e",
+          "sha256": "2152210e10fd7b5bc4216a2194893ac367d1d427bcee5d0084d770224cb0418e",
+          "bytes": 382
+        },
+        "responseCheckedAt": "2026-10-24T19:47:09.869584Z",
+        "transportError": null,
+        "denial": null
+      }
+    ],
+    "completionDenials": [],
+    "qualified": false,
+    "semanticAdmission": false,
+    "coverageCredit": false,
+    "facts": [],
+    "newFactIds": [],
+    "heldClaims": [],
+    "documentValidations": [],
+    "modelCalls": 0,
+    "documentsProcessed": 0,
+    "gateUses": 0,
+    "sourceChecksCredited": 0,
+    "qualifiedSources": 0,
+    "checkedAt": "2026-10-24T19:47:13.652615Z",
+    "completionDenial": null,
+    "reservationContext": {
+      "budgetDay": "2026-10-24",
+      "contractSha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+      "fetchLimit": 5500,
+      "maximumRuntimeSeconds": 1200,
+      "startedAt": "2026-10-24T19:46:41.130076Z",
+      "initialBudget": {
+        "calls": 80,
+        "documents": 40,
+        "fetches": 1926
+      },
+      "probeFetchReservations": 27,
+      "reservationDenials": {},
+      "currentBudget": {
+        "calls": 80,
+        "documents": 40,
+        "fetches": 1953
+      }
+    },
+    "budgetDenied": false,
+    "executionCompleted": true,
+    "pages": [
+      {
+        "url": "https://orca.security/resources/news/",
+        "observation": {
+          "key": "objects/c2c866e077b14d5d20ca8e96e29cc98a65607c65d4b12b52800d602104b68dfa",
+          "sha256": "c2c866e077b14d5d20ca8e96e29cc98a65607c65d4b12b52800d602104b68dfa",
+          "bytes": 374
+        },
+        "parsed": {
+          "currentPage": 1,
+          "highestPage": 41,
+          "items": [
+            "https://orca.security/resources/press-releases/orca-partner-success-platform-launch/",
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/"
+          ],
+          "dates": {
+            "https://orca.security/resources/press-releases/orca-partner-success-platform-launch/": "2026-09-16",
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/": "2026-07-29"
+          },
+          "next": "https://orca.security/resources/news/page/2/",
+          "terminalProved": false
+        }
+      },
+      {
+        "url": "https://orca.security/resources/news/page/2/",
+        "observation": {
+          "key": "objects/578253e225fa9711d2aba07d1ebf71e4f68d83faba0a3a3d8589f6052a518762",
+          "sha256": "578253e225fa9711d2aba07d1ebf71e4f68d83faba0a3a3d8589f6052a518762",
+          "bytes": 381
+        },
+        "parsed": {
+          "currentPage": 2,
+          "highestPage": 41,
+          "items": [
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/",
+            "https://orca.security/resources/press-releases/orca-security-japanese-localization/"
+          ],
+          "dates": {
+            "https://orca.security/resources/press-releases/orca-security-japanese-localization/": "2026-09-01",
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/": "2026-07-29"
+          },
+          "next": "https://orca.security/resources/news/page/3/",
+          "terminalProved": false
+        }
+      },
+      {
+        "url": "https://orca.security/resources/news/page/3/",
+        "observation": {
+          "key": "objects/6c7ae772d1ab5631e80f15349e60b48f4feb72cc071865f70b44bfc73916fbc9",
+          "sha256": "6c7ae772d1ab5631e80f15349e60b48f4feb72cc071865f70b44bfc73916fbc9",
+          "bytes": 381
+        },
+        "parsed": {
+          "currentPage": 3,
+          "highestPage": 41,
+          "items": [
+            "https://orca.security/resources/press-releases/orca-security-claude-compliance-api-integration/",
+            "https://orca.security/resources/press-releases/orca-security-expands-emea-channel-strategy-with-qbs-distribution-partnership/",
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/"
+          ],
+          "dates": {
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/": "2026-07-29",
+            "https://orca.security/resources/press-releases/orca-security-expands-emea-channel-strategy-with-qbs-distribution-partnership/": "2026-07-28",
+            "https://orca.security/resources/press-releases/orca-security-claude-compliance-api-integration/": "2026-07-21"
+          },
+          "next": "https://orca.security/resources/news/page/4/",
+          "terminalProved": false
+        }
+      },
+      {
+        "url": "https://orca.security/resources/news/page/4/",
+        "observation": {
+          "key": "objects/592aca0fb71af5cdefd00b4812d69c350fea968b8ad04f38ebec6a5a130eb17c",
+          "sha256": "592aca0fb71af5cdefd00b4812d69c350fea968b8ad04f38ebec6a5a130eb17c",
+          "bytes": 381
+        },
+        "parsed": {
+          "currentPage": 4,
+          "highestPage": 41,
+          "items": [
+            "https://orca.security/resources/press-releases/2026-state-of-ai-security-report/",
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/",
+            "https://orca.security/resources/press-releases/orca-security-rising-in-cyber-2026/",
+            "https://orca.security/resources/press-releases/orca-security-td-synnex-partnership/"
+          ],
+          "dates": {
+            "https://orca.security/resources/press-releases/2026-state-of-ai-security-report/": "2026-07-09",
+            "https://orca.security/resources/press-releases/orca-security-rising-in-cyber-2026/": "2026-05-12",
+            "https://orca.security/resources/press-releases/orca-security-td-synnex-partnership/": "2026-04-13",
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/": "2026-07-29"
+          },
+          "next": "https://orca.security/resources/news/page/5/",
+          "terminalProved": false
+        }
+      },
+      {
+        "url": "https://orca.security/resources/news/page/5/",
+        "observation": {
+          "key": "objects/2a23b9d48f9e9b1ff613cf753065301bc5b6b9c9c825668ebb1728ecb0829da6",
+          "sha256": "2a23b9d48f9e9b1ff613cf753065301bc5b6b9c9c825668ebb1728ecb0829da6",
+          "bytes": 381
+        },
+        "parsed": {
+          "currentPage": 5,
+          "highestPage": 41,
+          "items": [
+            "https://orca.security/resources/press-releases/ai-credential-leaks-log4shell-exposure-report/",
+            "https://orca.security/resources/press-releases/aws-strategic-collaboration-ai-cloud-security/",
+            "https://orca.security/resources/press-releases/orca-advances-ai-first-cloud-defense/",
+            "https://orca.security/resources/press-releases/orca-security-appoints-rachel-nislick-cmo/",
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/"
+          ],
+          "dates": {
+            "https://orca.security/resources/press-releases/ai-credential-leaks-log4shell-exposure-report/": "2026-04-07",
+            "https://orca.security/resources/press-releases/orca-advances-ai-first-cloud-defense/": "2026-03-16",
+            "https://orca.security/resources/press-releases/aws-strategic-collaboration-ai-cloud-security/": "2026-03-11",
+            "https://orca.security/resources/press-releases/orca-security-appoints-rachel-nislick-cmo/": "2026-03-09",
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/": "2026-07-29"
+          },
+          "next": "https://orca.security/resources/news/page/6/",
+          "terminalProved": false
+        }
+      },
+      {
+        "url": "https://orca.security/resources/news/page/6/",
+        "observation": {
+          "key": "objects/2f020564dce5f3ee2ad41355d6e193c799b97a67435b69c186e4806480ce4bf2",
+          "sha256": "2f020564dce5f3ee2ad41355d6e193c799b97a67435b69c186e4806480ce4bf2",
+          "bytes": 381
+        },
+        "parsed": {
+          "currentPage": 6,
+          "highestPage": 41,
+          "items": [
+            "https://orca.security/resources/press-releases/orca-irap-protected-assessment-australia/",
+            "https://orca.security/resources/press-releases/orca-runtime-protection-hybrid-private-cloud/",
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/",
+            "https://orca.security/resources/press-releases/orca-security-names-gera-dorfman-chief-product-officer/",
+            "https://orca.security/resources/press-releases/orca-security-oracle-cloud-marketplace/",
+            "https://orca.security/resources/press-releases/orca-security-zscaler-partnership-expansion/"
+          ],
+          "dates": {
+            "https://orca.security/resources/press-releases/orca-security-zscaler-partnership-expansion/": "2025-12-02",
+            "https://orca.security/resources/press-releases/orca-security-names-gera-dorfman-chief-product-officer/": "2025-12-01",
+            "https://orca.security/resources/press-releases/orca-security-oracle-cloud-marketplace/": "2025-11-19",
+            "https://orca.security/resources/press-releases/orca-irap-protected-assessment-australia/": "2025-08-12",
+            "https://orca.security/resources/press-releases/orca-runtime-protection-hybrid-private-cloud/": "2025-07-30",
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/": "2026-07-29"
+          },
+          "next": "https://orca.security/resources/news/page/7/",
+          "terminalProved": false
+        }
+      },
+      {
+        "url": "https://orca.security/resources/news/page/7/",
+        "observation": {
+          "key": "objects/b0e7a0eba7d8eb3c4777c084e874e3593e572e61477442b45f100a6009820996",
+          "sha256": "b0e7a0eba7d8eb3c4777c084e874e3593e572e61477442b45f100a6009820996",
+          "bytes": 381
+        },
+        "parsed": {
+          "currentPage": 7,
+          "highestPage": 41,
+          "items": [
+            "https://orca.security/resources/press-releases/orca-ai-chatbot-ai-spm-detections/",
+            "https://orca.security/resources/press-releases/orca-aws-security-hub-cloud-risk-visibility/",
+            "https://orca.security/resources/press-releases/orca-security-2025-infrared-100-recognition/",
+            "https://orca.security/resources/press-releases/orca-security-ai-vulnerabilities-cloud-report/",
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/",
+            "https://orca.security/resources/press-releases/orca-security-notable-capital-cyber-2025/"
+          ],
+          "dates": {
+            "https://orca.security/resources/press-releases/orca-ai-chatbot-ai-spm-detections/": "2025-06-11",
+            "https://orca.security/resources/press-releases/orca-security-2025-infrared-100-recognition/": "2025-06-10",
+            "https://orca.security/resources/press-releases/orca-security-ai-vulnerabilities-cloud-report/": "2025-06-05",
+            "https://orca.security/resources/press-releases/orca-security-notable-capital-cyber-2025/": "2025-06-04",
+            "https://orca.security/resources/press-releases/orca-aws-security-hub-cloud-risk-visibility/": "2025-05-21",
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/": "2026-07-29"
+          },
+          "next": "https://orca.security/resources/news/page/8/",
+          "terminalProved": false
+        }
+      },
+      {
+        "url": "https://orca.security/resources/news/page/8/",
+        "observation": {
+          "key": "objects/7589b1b8b7e9f011bb68bcb0283112fc623a0724a0043391ddf60fdebb680cc7",
+          "sha256": "7589b1b8b7e9f011bb68bcb0283112fc623a0724a0043391ddf60fdebb680cc7",
+          "bytes": 381
+        },
+        "parsed": {
+          "currentPage": 8,
+          "highestPage": 41,
+          "items": [
+            "https://orca.security/resources/press-releases/orca-bitbucket-app-simplifies-application-security/",
+            "https://orca.security/resources/press-releases/orca-cloud-security-universal-access-gen-ai-anthropic-model-context/",
+            "https://orca.security/resources/press-releases/orca-security-140-percent-growth-latin-america/",
+            "https://orca.security/resources/press-releases/orca-security-acquires-opus-ai-cloud-remediation/",
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/",
+            "https://orca.security/resources/press-releases/orca-security-monday-streamline-security-remediation/",
+            "https://orca.security/resources/press-releases/orca-security-reduce-vulnerabilities-agentless-analysis/",
+            "https://orca.security/resources/press-releases/orca-security-usage-soars-320-yoy-developer-growth/"
+          ],
+          "dates": {
+            "https://orca.security/resources/press-releases/orca-security-acquires-opus-ai-cloud-remediation/": "2025-05-13",
+            "https://orca.security/resources/press-releases/orca-security-reduce-vulnerabilities-agentless-analysis/": "2025-04-22",
+            "https://orca.security/resources/press-releases/orca-security-140-percent-growth-latin-america/": "2025-04-17",
+            "https://orca.security/resources/press-releases/orca-bitbucket-app-simplifies-application-security/": "2025-04-10",
+            "https://orca.security/resources/press-releases/orca-cloud-security-universal-access-gen-ai-anthropic-model-context/": "2025-04-03",
+            "https://orca.security/resources/press-releases/orca-security-monday-streamline-security-remediation/": "2025-03-06",
+            "https://orca.security/resources/press-releases/orca-security-usage-soars-320-yoy-developer-growth/": "2025-03-03",
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/": "2026-07-29"
+          },
+          "next": "https://orca.security/resources/news/page/9/",
+          "terminalProved": false
+        }
+      },
+      {
+        "url": "https://orca.security/resources/news/page/9/",
+        "observation": {
+          "key": "objects/a9785a7fc53b8b243688c41d7a7bd1d5dcfcacc3240385dd1c0460a44c1031a4",
+          "sha256": "a9785a7fc53b8b243688c41d7a7bd1d5dcfcacc3240385dd1c0460a44c1031a4",
+          "bytes": 381
+        },
+        "parsed": {
+          "currentPage": 9,
+          "highestPage": 41,
+          "items": [
+            "https://orca.security/resources/press-releases/cloud-native-appsec-protection-revolutionizing-security/",
+            "https://orca.security/resources/press-releases/orca-security-adds-support-for-snowflake-to-significantly-bolster-data-security-posture-management-dspm-for-customers/",
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/",
+            "https://orca.security/resources/press-releases/orca-security-fedramp-authorization-cloud-security/",
+            "https://orca.security/resources/press-releases/orca-security-hypergrowth-india-partner-strategy-ai-cloud-security/",
+            "https://orca.security/resources/press-releases/orca-security-privacy-cost-savings/",
+            "https://orca.security/resources/press-releases/orca-security-unveils-orca-sensor/"
+          ],
+          "dates": {
+            "https://orca.security/resources/press-releases/orca-security-fedramp-authorization-cloud-security/": "2025-02-12",
+            "https://orca.security/resources/press-releases/cloud-native-appsec-protection-revolutionizing-security/": "2025-02-04",
+            "https://orca.security/resources/press-releases/orca-security-privacy-cost-savings/": "2025-01-22",
+            "https://orca.security/resources/press-releases/orca-security-unveils-orca-sensor/": "2025-01-15",
+            "https://orca.security/resources/press-releases/orca-security-hypergrowth-india-partner-strategy-ai-cloud-security/": "2025-01-08",
+            "https://orca.security/resources/press-releases/orca-security-adds-support-for-snowflake-to-significantly-bolster-data-security-posture-management-dspm-for-customers/": "2024-12-10",
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/": "2026-07-29"
+          },
+          "next": "https://orca.security/resources/news/page/10/",
+          "terminalProved": false
+        }
+      },
+      {
+        "url": "https://orca.security/resources/news/page/10/",
+        "observation": {
+          "key": "objects/44738b927a86554d7cc82c7d606c0664920c553c3f8c4d540b23e2d6be53fde8",
+          "sha256": "44738b927a86554d7cc82c7d606c0664920c553c3f8c4d540b23e2d6be53fde8",
+          "bytes": 382
+        },
+        "parsed": {
+          "currentPage": 10,
+          "highestPage": 41,
+          "items": [
+            "https://orca.security/resources/press-releases/orca-security-expands-across-australia-new-zealand-partner-first-strategy-demand-cloud-security-grows/",
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/",
+            "https://orca.security/resources/press-releases/orca-state-ai-security-report-reveals-majority-companies-deploying-ai-without-regard-security/",
+            "https://orca.security/resources/press-releases/snyk-orca-security-forge-strategic-partnership-strengthening-holistic-application-security/"
+          ],
+          "dates": {
+            "https://orca.security/resources/press-releases/orca-security-expands-across-australia-new-zealand-partner-first-strategy-demand-cloud-security-grows/": "2024-10-15",
+            "https://orca.security/resources/press-releases/orca-state-ai-security-report-reveals-majority-companies-deploying-ai-without-regard-security/": "2024-09-18",
+            "https://orca.security/resources/press-releases/snyk-orca-security-forge-strategic-partnership-strengthening-holistic-application-security/": "2024-09-11",
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/": "2026-07-29"
+          },
+          "next": "https://orca.security/resources/news/page/11/",
+          "terminalProved": false
+        }
+      },
+      {
+        "url": "https://orca.security/resources/news/page/11/",
+        "observation": {
+          "key": "objects/af7a54135a60d6a6f1730d180d09090a500453eb82803308de8fd9d68337c19a",
+          "sha256": "af7a54135a60d6a6f1730d180d09090a500453eb82803308de8fd9d68337c19a",
+          "bytes": 382
+        },
+        "parsed": {
+          "currentPage": 11,
+          "highestPage": 41,
+          "items": [
+            "https://orca.security/resources/press-releases/coalfire-selects-orca-security-as-a-preferred-partner-for-cloud-risk-assessments/",
+            "https://orca.security/resources/press-releases/orca-security-achieves-stateramp-authorization/",
+            "https://orca.security/resources/press-releases/orca-security-appoints-former-zscaler-and-dell-technologies-channel-leader-john-tavares-to-advance-partner-first-business-model/",
+            "https://orca.security/resources/press-releases/orca-security-expands-cloud-threat-detection-response-capabilities-enable-security-teams-level-speed-performance-threat-investigations/",
+            "https://orca.security/resources/press-releases/orca-security-expands-global-footprint-launch-brazil-data-center/",
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/"
+          ],
+          "dates": {
+            "https://orca.security/resources/press-releases/coalfire-selects-orca-security-as-a-preferred-partner-for-cloud-risk-assessments/": "2024-08-20",
+            "https://orca.security/resources/press-releases/orca-security-expands-cloud-threat-detection-response-capabilities-enable-security-teams-level-speed-performance-threat-investigations/": "2024-08-05",
+            "https://orca.security/resources/press-releases/orca-security-expands-global-footprint-launch-brazil-data-center/": "2024-08-01",
+            "https://orca.security/resources/press-releases/orca-security-achieves-stateramp-authorization/": "2024-07-17",
+            "https://orca.security/resources/press-releases/orca-security-appoints-former-zscaler-and-dell-technologies-channel-leader-john-tavares-to-advance-partner-first-business-model/": "2024-07-09",
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/": "2026-07-29"
+          },
+          "next": "https://orca.security/resources/news/page/12/",
+          "terminalProved": false
+        }
+      },
+      {
+        "url": "https://orca.security/resources/news/page/12/",
+        "observation": {
+          "key": "objects/e9e7b507d3311e44b25c0df20cd4f0a0c2e5e4c77a878a57a45153f3ed9c72f0",
+          "sha256": "e9e7b507d3311e44b25c0df20cd4f0a0c2e5e4c77a878a57a45153f3ed9c72f0",
+          "bytes": 382
+        },
+        "parsed": {
+          "currentPage": 12,
+          "highestPage": 41,
+          "items": [
+            "https://orca.security/resources/press-releases/aqua-security-and-orca-security-partner-to-address-joint-customer-need-for-best-in-class-cloud-native-security/",
+            "https://orca.security/resources/press-releases/orca-security-adds-source-code-posture-management-capabilities-delivering-visibility-for-the-entire-cloud-lifecycle/",
+            "https://orca.security/resources/press-releases/orca-security-expands-across-europe-with-partner-first-strategy-as-awareness-of-and-demand-for-cloud-security-grows/",
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/",
+            "https://orca.security/resources/press-releases/orca-security-named-to-notable-capitals-rising-in-cyber-2024/",
+            "https://orca.security/resources/press-releases/orca-security-named-to-redpoint-2024-infrared-100-for-second-consecutive-year/"
+          ],
+          "dates": {
+            "https://orca.security/resources/press-releases/orca-security-adds-source-code-posture-management-capabilities-delivering-visibility-for-the-entire-cloud-lifecycle/": "2024-06-25",
+            "https://orca.security/resources/press-releases/orca-security-named-to-redpoint-2024-infrared-100-for-second-consecutive-year/": "2024-06-18",
+            "https://orca.security/resources/press-releases/orca-security-named-to-notable-capitals-rising-in-cyber-2024/": "2024-06-04",
+            "https://orca.security/resources/press-releases/orca-security-expands-across-europe-with-partner-first-strategy-as-awareness-of-and-demand-for-cloud-security-grows/": "2024-05-15",
+            "https://orca.security/resources/press-releases/aqua-security-and-orca-security-partner-to-address-joint-customer-need-for-best-in-class-cloud-native-security/": "2024-04-30",
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/": "2026-07-29"
+          },
+          "next": "https://orca.security/resources/news/page/13/",
+          "terminalProved": false
+        }
+      },
+      {
+        "url": "https://orca.security/resources/news/page/13/",
+        "observation": {
+          "key": "objects/3fb21c2eea8e370b0826150145dacf4b5fa2be4881ea36704e128a68a8fb1114",
+          "sha256": "3fb21c2eea8e370b0826150145dacf4b5fa2be4881ea36704e128a68a8fb1114",
+          "bytes": 382
+        },
+        "parsed": {
+          "currentPage": 13,
+          "highestPage": 41,
+          "items": [
+            "https://orca.security/resources/press-releases/orca-security-adds-ai-security-to-cloud-security-platform/",
+            "https://orca.security/resources/press-releases/orca-security-and-carahsoft-partner-to-bring-orcas-cloud-security-solutions-to-the-public-sector/",
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/",
+            "https://orca.security/resources/press-releases/orca-security-launches-cloud-digital-forensics-and-incident-response-service-to-empower-rapid-investigation-of-cloud-incidents/",
+            "https://orca.security/resources/press-releases/orca-security-named-google-cloud-generative-ai-partner/",
+            "https://orca.security/resources/press-releases/orca-security-recognized-on-the-first-ever-crn-ai-100-list/"
+          ],
+          "dates": {
+            "https://orca.security/resources/press-releases/orca-security-launches-cloud-digital-forensics-and-incident-response-service-to-empower-rapid-investigation-of-cloud-incidents/": "2024-04-29",
+            "https://orca.security/resources/press-releases/orca-security-recognized-on-the-first-ever-crn-ai-100-list/": "2024-04-09",
+            "https://orca.security/resources/press-releases/orca-security-named-google-cloud-generative-ai-partner/": "2024-04-08",
+            "https://orca.security/resources/press-releases/orca-security-and-carahsoft-partner-to-bring-orcas-cloud-security-solutions-to-the-public-sector/": "2024-03-28",
+            "https://orca.security/resources/press-releases/orca-security-adds-ai-security-to-cloud-security-platform/": "2024-03-19",
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/": "2026-07-29"
+          },
+          "next": "https://orca.security/resources/news/page/14/",
+          "terminalProved": false
+        }
+      },
+      {
+        "url": "https://orca.security/resources/news/page/14/",
+        "observation": {
+          "key": "objects/a4124cd68fadbc8478803c84fc5189b949d65eae5cca9bcc6a770f85a54264d6",
+          "sha256": "a4124cd68fadbc8478803c84fc5189b949d65eae5cca9bcc6a770f85a54264d6",
+          "bytes": 382
+        },
+        "parsed": {
+          "currentPage": 14,
+          "highestPage": 41,
+          "items": [
+            "https://orca.security/resources/press-releases/orca-security-appoints-raf-chiodo-as-chief-revenue-officer/",
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/",
+            "https://orca.security/resources/press-releases/state-of-cloud-security-2024-report/"
+          ],
+          "dates": {
+            "https://orca.security/resources/press-releases/state-of-cloud-security-2024-report/": "2024-02-27",
+            "https://orca.security/resources/press-releases/orca-security-appoints-raf-chiodo-as-chief-revenue-officer/": "2024-01-10",
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/": "2026-07-29"
+          },
+          "next": "https://orca.security/resources/news/page/15/",
+          "terminalProved": false
+        }
+      },
+      {
+        "url": "https://orca.security/resources/news/page/15/",
+        "observation": {
+          "key": "objects/bcf19532b93288338e30b420d0903d6f8385a734f9966e96b586be9616dcdfe8",
+          "sha256": "bcf19532b93288338e30b420d0903d6f8385a734f9966e96b586be9616dcdfe8",
+          "bytes": 382
+        },
+        "parsed": {
+          "currentPage": 15,
+          "highestPage": 41,
+          "items": [
+            "https://orca.security/resources/press-releases/orca-aws-built-in-competency/",
+            "https://orca.security/resources/press-releases/orca-security-appoints-oded-edri-chief-financial-officer/",
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/",
+            "https://orca.security/resources/press-releases/orca-security-generative-ai-integration-amazon-bedrock/",
+            "https://orca.security/resources/press-releases/orca-security-google-cloud-vertex-ai-integration/",
+            "https://orca.security/resources/press-releases/orca-security-strengthen-visibility-google-cloud/"
+          ],
+          "dates": {
+            "https://orca.security/resources/press-releases/orca-aws-built-in-competency/": "2023-11-30",
+            "https://orca.security/resources/press-releases/orca-security-google-cloud-vertex-ai-integration/": "2023-11-08",
+            "https://orca.security/resources/press-releases/orca-security-generative-ai-integration-amazon-bedrock/": "2023-11-01",
+            "https://orca.security/resources/press-releases/orca-security-strengthen-visibility-google-cloud/": "2023-10-19",
+            "https://orca.security/resources/press-releases/orca-security-appoints-oded-edri-chief-financial-officer/": "2023-10-05",
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/": "2026-07-29"
+          },
+          "next": "https://orca.security/resources/news/page/16/",
+          "terminalProved": false
+        }
+      },
+      {
+        "url": "https://orca.security/resources/news/page/16/",
+        "observation": {
+          "key": "objects/a254a5f30e5b4b8c68313f924f02117c7d0a3e8512cf5f4af693d2bda06aa310",
+          "sha256": "a254a5f30e5b4b8c68313f924f02117c7d0a3e8512cf5f4af693d2bda06aa310",
+          "bytes": 382
+        },
+        "parsed": {
+          "currentPage": 16,
+          "highestPage": 41,
+          "items": [
+            "https://orca.security/resources/press-releases/gigaom-orca-leadership-cloud-security-posture-management/",
+            "https://orca.security/resources/press-releases/orca-security-delivers-first-ai-driven-cloud-asset-search-to-further-enable-cloud-security-democratization/",
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/"
+          ],
+          "dates": {
+            "https://orca.security/resources/press-releases/orca-security-delivers-first-ai-driven-cloud-asset-search-to-further-enable-cloud-security-democratization/": "2023-09-07",
+            "https://orca.security/resources/press-releases/gigaom-orca-leadership-cloud-security-posture-management/": "2023-08-14",
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/": "2026-07-29"
+          },
+          "next": "https://orca.security/resources/news/page/17/",
+          "terminalProved": false
+        }
+      },
+      {
+        "url": "https://orca.security/resources/news/page/17/",
+        "observation": {
+          "key": "objects/572ae437f408cfcce9419edd4d290da8e10a88e1e1615616d4aa2445f0482611",
+          "sha256": "572ae437f408cfcce9419edd4d290da8e10a88e1e1615616d4aa2445f0482611",
+          "bytes": 382
+        },
+        "parsed": {
+          "currentPage": 17,
+          "highestPage": 41,
+          "items": [
+            "https://orca.security/resources/press-releases/orca-security-2023-forbes-cloud-100/",
+            "https://orca.security/resources/press-releases/orca-security-cis-benchmarks-certification-24-cloud-frameworks/",
+            "https://orca.security/resources/press-releases/orca-security-expands-partnership-with-google-cloud-to-comprehensively-secure-organizations-cloud-estates/",
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/",
+            "https://orca.security/resources/press-releases/orca-security-named-to-inaugural-redpoint-infrared-100-list/"
+          ],
+          "dates": {
+            "https://orca.security/resources/press-releases/orca-security-2023-forbes-cloud-100/": "2023-08-08",
+            "https://orca.security/resources/press-releases/orca-security-cis-benchmarks-certification-24-cloud-frameworks/": "2023-08-01",
+            "https://orca.security/resources/press-releases/orca-security-named-to-inaugural-redpoint-infrared-100-list/": "2023-07-17",
+            "https://orca.security/resources/press-releases/orca-security-expands-partnership-with-google-cloud-to-comprehensively-secure-organizations-cloud-estates/": "2023-06-21",
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/": "2026-07-29"
+          },
+          "next": "https://orca.security/resources/news/page/18/",
+          "terminalProved": false
+        }
+      },
+      {
+        "url": "https://orca.security/resources/news/page/18/",
+        "observation": {
+          "key": "objects/56237b46bf1d28cb5654466a0bc6e00c2cd179272e2693d6a4abd85ad53fc9f4",
+          "sha256": "56237b46bf1d28cb5654466a0bc6e00c2cd179272e2693d6a4abd85ad53fc9f4",
+          "bytes": 382
+        },
+        "parsed": {
+          "currentPage": 18,
+          "highestPage": 41,
+          "items": [
+            "https://orca.security/resources/press-releases/introducing-james-love/",
+            "https://orca.security/resources/press-releases/orca-security-2023-honeypotting-in-the-cloud-report/",
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/",
+            "https://orca.security/resources/press-releases/orca-security-first-cnapp-integrate-with-microsoft-azure-openai-gpt-4/",
+            "https://orca.security/resources/press-releases/orca-security-named-2023-cnbc-disruptor-50-list/"
+          ],
+          "dates": {
+            "https://orca.security/resources/press-releases/orca-security-2023-honeypotting-in-the-cloud-report/": "2023-06-20",
+            "https://orca.security/resources/press-releases/orca-security-named-2023-cnbc-disruptor-50-list/": "2023-05-15",
+            "https://orca.security/resources/press-releases/orca-security-first-cnapp-integrate-with-microsoft-azure-openai-gpt-4/": "2023-05-04",
+            "https://orca.security/resources/press-releases/introducing-james-love/": "2023-04-10",
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/": "2026-07-29"
+          },
+          "next": "https://orca.security/resources/news/page/19/",
+          "terminalProved": false
+        }
+      },
+      {
+        "url": "https://orca.security/resources/news/page/19/",
+        "observation": {
+          "key": "objects/680024906189c98344cc11fae5c4dc63e50c98d98eb4c176437fd792561907bd",
+          "sha256": "680024906189c98344cc11fae5c4dc63e50c98d98eb4c176437fd792561907bd",
+          "bytes": 382
+        },
+        "parsed": {
+          "currentPage": 19,
+          "highestPage": 41,
+          "items": [
+            "https://orca.security/resources/press-releases/orca-security-appoints-co-founder-gil-geron-as-ceo/",
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/",
+            "https://orca.security/resources/press-releases/orca-security-first-cnapp-launch-cloud-to-dev-capabilities/",
+            "https://orca.security/resources/press-releases/orca-security-recognized-by-forbes-as-one-of-americas-best-startup-employers-in-2023/"
+          ],
+          "dates": {
+            "https://orca.security/resources/press-releases/orca-security-first-cnapp-launch-cloud-to-dev-capabilities/": "2023-04-05",
+            "https://orca.security/resources/press-releases/orca-security-appoints-co-founder-gil-geron-as-ceo/": "2023-03-22",
+            "https://orca.security/resources/press-releases/orca-security-recognized-by-forbes-as-one-of-americas-best-startup-employers-in-2023/": "2023-03-07",
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/": "2026-07-29"
+          },
+          "next": "https://orca.security/resources/news/page/20/",
+          "terminalProved": false
+        }
+      },
+      {
+        "url": "https://orca.security/resources/news/page/20/",
+        "observation": {
+          "key": "objects/d39d7b7147572ab940f38009e93837aefae129f907c0b84c42a0e75d7d9ee24c",
+          "sha256": "d39d7b7147572ab940f38009e93837aefae129f907c0b84c42a0e75d7d9ee24c",
+          "bytes": 382
+        },
+        "parsed": {
+          "currentPage": 20,
+          "highestPage": 41,
+          "items": [
+            "https://orca.security/resources/press-releases/orca-launches-new-cloud-cost-optimization-capabilities/",
+            "https://orca.security/resources/press-releases/orca-security-2022-regional-and-global-aws-partner-award/",
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/",
+            "https://orca.security/resources/press-releases/orca-security-offers-best-in-class-approach-to-secure-cloud-native-applications-expanding-with-threatoptixs-agent-based-runtime-protection/",
+            "https://orca.security/resources/press-releases/orca-security-orca-security-launches-full-data-cloud-posture-management/"
+          ],
+          "dates": {
+            "https://orca.security/resources/press-releases/orca-security-orca-security-launches-full-data-cloud-posture-management/": "2023-02-28",
+            "https://orca.security/resources/press-releases/orca-security-offers-best-in-class-approach-to-secure-cloud-native-applications-expanding-with-threatoptixs-agent-based-runtime-protection/": "2023-02-21",
+            "https://orca.security/resources/press-releases/orca-launches-new-cloud-cost-optimization-capabilities/": "2023-02-16",
+            "https://orca.security/resources/press-releases/orca-security-2022-regional-and-global-aws-partner-award/": "2022-11-28",
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/": "2026-07-29"
+          },
+          "next": "https://orca.security/resources/news/page/21/",
+          "terminalProved": false
+        }
+      },
+      {
+        "url": "https://orca.security/resources/news/page/21/",
+        "observation": {
+          "key": "objects/361b76ce9b282a57633818547756539131d85bdbef41d3587550430bab800fb0",
+          "sha256": "361b76ce9b282a57633818547756539131d85bdbef41d3587550430bab800fb0",
+          "bytes": 382
+        },
+        "parsed": {
+          "currentPage": 21,
+          "highestPage": 41,
+          "items": [
+            "https://orca.security/resources/press-releases/fedramp-platform-us-government-cloud-estates/",
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/",
+            "https://orca.security/resources/press-releases/orca-security-innovation-patent-grant-sidescanning-technology/",
+            "https://orca.security/resources/press-releases/orca-security-powered-by-snowflake-brings-context-rich-cloud-security-to-the-data-cloud/"
+          ],
+          "dates": {
+            "https://orca.security/resources/press-releases/orca-security-innovation-patent-grant-sidescanning-technology/": "2022-11-10",
+            "https://orca.security/resources/press-releases/orca-security-powered-by-snowflake-brings-context-rich-cloud-security-to-the-data-cloud/": "2022-11-10",
+            "https://orca.security/resources/press-releases/fedramp-platform-us-government-cloud-estates/": "2022-10-27",
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/": "2026-07-29"
+          },
+          "next": "https://orca.security/resources/news/page/22/",
+          "terminalProved": false
+        }
+      },
+      {
+        "url": "https://orca.security/resources/news/page/22/",
+        "observation": {
+          "key": "objects/05ffd9b2bbc36e32a23b44a017c11d0ca156faba656b8540e430f1d227b47ac0",
+          "sha256": "05ffd9b2bbc36e32a23b44a017c11d0ca156faba656b8540e430f1d227b47ac0",
+          "bytes": 382
+        },
+        "parsed": {
+          "currentPage": 22,
+          "highestPage": 41,
+          "items": [
+            "https://orca.security/resources/press-releases/orca-security-adds-agentless-cloud-detection-and-response/",
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/",
+            "https://orca.security/resources/press-releases/orca-security-first-agentless-api-security-solution-for-multi-cloud-environments/",
+            "https://orca.security/resources/press-releases/orca-security-report-finds-cloud-security-gaps-expose-business-critical-assets/",
+            "https://orca.security/resources/press-releases/orca-security-wins-2022-sc-trust-award-best-cspm-solution/"
+          ],
+          "dates": {
+            "https://orca.security/resources/press-releases/orca-security-first-agentless-api-security-solution-for-multi-cloud-environments/": "2022-10-18",
+            "https://orca.security/resources/press-releases/orca-security-report-finds-cloud-security-gaps-expose-business-critical-assets/": "2022-09-13",
+            "https://orca.security/resources/press-releases/orca-security-wins-2022-sc-trust-award-best-cspm-solution/": "2022-08-22",
+            "https://orca.security/resources/press-releases/orca-security-adds-agentless-cloud-detection-and-response/": "2022-07-19",
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/": "2026-07-29"
+          },
+          "next": "https://orca.security/resources/news/page/23/",
+          "terminalProved": false
+        }
+      },
+      {
+        "url": "https://orca.security/resources/news/page/23/",
+        "observation": {
+          "key": "objects/513015edb0f979787028d91ebe751c08498be233d18996e281020273aab6b50c",
+          "sha256": "513015edb0f979787028d91ebe751c08498be233d18996e281020273aab6b50c",
+          "bytes": 382
+        },
+        "parsed": {
+          "currentPage": 23,
+          "highestPage": 41,
+          "items": [
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/",
+            "https://orca.security/resources/press-releases/orca-security-unveils-industrys-first-context-aware-shift-left-security/"
+          ],
+          "dates": {
+            "https://orca.security/resources/press-releases/orca-security-unveils-industrys-first-context-aware-shift-left-security/": "2022-05-11",
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/": "2026-07-29"
+          },
+          "next": "https://orca.security/resources/news/page/24/",
+          "terminalProved": false
+        }
+      },
+      {
+        "url": "https://orca.security/resources/news/page/24/",
+        "observation": {
+          "key": "objects/2d0a513f785bb31f2c22d7ab2bf7381f289f3df177ae497c101dd706fc6183ca",
+          "sha256": "2d0a513f785bb31f2c22d7ab2bf7381f289f3df177ae497c101dd706fc6183ca",
+          "bytes": 382
+        },
+        "parsed": {
+          "currentPage": 24,
+          "highestPage": 41,
+          "items": [
+            "https://orca.security/resources/press-releases/2022-alert-fatigue-report/",
+            "https://orca.security/resources/press-releases/attack-path-analysis-and-business-impact-score/",
+            "https://orca.security/resources/press-releases/orca-platform-expanded-ciem-multi-cloud-security-score/",
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/",
+            "https://orca.security/resources/press-releases/orca-security-platform-microsoft-azure-marketplace/"
+          ],
+          "dates": {
+            "https://orca.security/resources/press-releases/attack-path-analysis-and-business-impact-score/": "2022-03-31",
+            "https://orca.security/resources/press-releases/2022-alert-fatigue-report/": "2022-03-15",
+            "https://orca.security/resources/press-releases/orca-security-platform-microsoft-azure-marketplace/": "2022-02-24",
+            "https://orca.security/resources/press-releases/orca-platform-expanded-ciem-multi-cloud-security-score/": "2022-02-10",
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/": "2026-07-29"
+          },
+          "next": "https://orca.security/resources/news/page/25/",
+          "terminalProved": false
+        }
+      },
+      {
+        "url": "https://orca.security/resources/news/page/25/",
+        "observation": {
+          "key": "objects/13bbb520005cb2a493345549a1d8d25ff74cced9b1cead44ca4ee5f3f03524d9",
+          "sha256": "13bbb520005cb2a493345549a1d8d25ff74cced9b1cead44ca4ee5f3f03524d9",
+          "bytes": 382
+        },
+        "parsed": {
+          "currentPage": 25,
+          "highestPage": 41,
+          "items": [
+            "https://orca.security/resources/press-releases/cloud-security-risks-encyclopedia-best-practices/",
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/"
+          ],
+          "dates": {
+            "https://orca.security/resources/press-releases/cloud-security-risks-encyclopedia-best-practices/": "2022-02-02",
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/": "2026-07-29"
+          },
+          "next": "https://orca.security/resources/news/page/26/",
+          "terminalProved": false
+        }
+      },
+      {
+        "url": "https://orca.security/resources/news/page/26/",
+        "observation": {
+          "key": "objects/b3cb7430267260e30867a39c3b8a143f6b8d41f431f852fa764fcaa59f474901",
+          "sha256": "b3cb7430267260e30867a39c3b8a143f6b8d41f431f852fa764fcaa59f474901",
+          "bytes": 382
+        },
+        "parsed": {
+          "currentPage": 26,
+          "highestPage": 41,
+          "items": [
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/"
+          ],
+          "dates": {
+            "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/": "2026-07-29"
+          },
+          "next": "https://orca.security/resources/news/page/27/",
+          "terminalProved": false
+        }
+      },
+      {
+        "url": "https://orca.security/resources/news/page/27/",
+        "observation": {
+          "key": "objects/2152210e10fd7b5bc4216a2194893ac367d1d427bcee5d0084d770224cb0418e",
+          "sha256": "2152210e10fd7b5bc4216a2194893ac367d1d427bcee5d0084d770224cb0418e",
+          "bytes": 382
+        },
+        "parsed": {
+          "error": "ORCA_RESPONSE_INCOMPLETE"
+        }
+      }
+    ],
+    "inventory": {
+      "items": [
+        "https://orca.security/resources/press-releases/2022-alert-fatigue-report/",
+        "https://orca.security/resources/press-releases/2026-state-of-ai-security-report/",
+        "https://orca.security/resources/press-releases/ai-credential-leaks-log4shell-exposure-report/",
+        "https://orca.security/resources/press-releases/aqua-security-and-orca-security-partner-to-address-joint-customer-need-for-best-in-class-cloud-native-security/",
+        "https://orca.security/resources/press-releases/attack-path-analysis-and-business-impact-score/",
+        "https://orca.security/resources/press-releases/aws-strategic-collaboration-ai-cloud-security/",
+        "https://orca.security/resources/press-releases/cloud-native-appsec-protection-revolutionizing-security/",
+        "https://orca.security/resources/press-releases/cloud-security-risks-encyclopedia-best-practices/",
+        "https://orca.security/resources/press-releases/coalfire-selects-orca-security-as-a-preferred-partner-for-cloud-risk-assessments/",
+        "https://orca.security/resources/press-releases/fedramp-platform-us-government-cloud-estates/",
+        "https://orca.security/resources/press-releases/gigaom-orca-leadership-cloud-security-posture-management/",
+        "https://orca.security/resources/press-releases/introducing-james-love/",
+        "https://orca.security/resources/press-releases/orca-advances-ai-first-cloud-defense/",
+        "https://orca.security/resources/press-releases/orca-ai-chatbot-ai-spm-detections/",
+        "https://orca.security/resources/press-releases/orca-aws-built-in-competency/",
+        "https://orca.security/resources/press-releases/orca-aws-security-hub-cloud-risk-visibility/",
+        "https://orca.security/resources/press-releases/orca-bitbucket-app-simplifies-application-security/",
+        "https://orca.security/resources/press-releases/orca-cloud-security-universal-access-gen-ai-anthropic-model-context/",
+        "https://orca.security/resources/press-releases/orca-irap-protected-assessment-australia/",
+        "https://orca.security/resources/press-releases/orca-launches-new-cloud-cost-optimization-capabilities/",
+        "https://orca.security/resources/press-releases/orca-partner-success-platform-launch/",
+        "https://orca.security/resources/press-releases/orca-platform-expanded-ciem-multi-cloud-security-score/",
+        "https://orca.security/resources/press-releases/orca-runtime-protection-hybrid-private-cloud/",
+        "https://orca.security/resources/press-releases/orca-security-140-percent-growth-latin-america/",
+        "https://orca.security/resources/press-releases/orca-security-2022-regional-and-global-aws-partner-award/",
+        "https://orca.security/resources/press-releases/orca-security-2023-forbes-cloud-100/",
+        "https://orca.security/resources/press-releases/orca-security-2023-honeypotting-in-the-cloud-report/",
+        "https://orca.security/resources/press-releases/orca-security-2025-infrared-100-recognition/",
+        "https://orca.security/resources/press-releases/orca-security-achieves-stateramp-authorization/",
+        "https://orca.security/resources/press-releases/orca-security-acquires-opus-ai-cloud-remediation/",
+        "https://orca.security/resources/press-releases/orca-security-adds-agentless-cloud-detection-and-response/",
+        "https://orca.security/resources/press-releases/orca-security-adds-ai-security-to-cloud-security-platform/",
+        "https://orca.security/resources/press-releases/orca-security-adds-source-code-posture-management-capabilities-delivering-visibility-for-the-entire-cloud-lifecycle/",
+        "https://orca.security/resources/press-releases/orca-security-adds-support-for-snowflake-to-significantly-bolster-data-security-posture-management-dspm-for-customers/",
+        "https://orca.security/resources/press-releases/orca-security-ai-vulnerabilities-cloud-report/",
+        "https://orca.security/resources/press-releases/orca-security-and-carahsoft-partner-to-bring-orcas-cloud-security-solutions-to-the-public-sector/",
+        "https://orca.security/resources/press-releases/orca-security-appoints-co-founder-gil-geron-as-ceo/",
+        "https://orca.security/resources/press-releases/orca-security-appoints-former-zscaler-and-dell-technologies-channel-leader-john-tavares-to-advance-partner-first-business-model/",
+        "https://orca.security/resources/press-releases/orca-security-appoints-oded-edri-chief-financial-officer/",
+        "https://orca.security/resources/press-releases/orca-security-appoints-rachel-nislick-cmo/",
+        "https://orca.security/resources/press-releases/orca-security-appoints-raf-chiodo-as-chief-revenue-officer/",
+        "https://orca.security/resources/press-releases/orca-security-cis-benchmarks-certification-24-cloud-frameworks/",
+        "https://orca.security/resources/press-releases/orca-security-claude-compliance-api-integration/",
+        "https://orca.security/resources/press-releases/orca-security-delivers-first-ai-driven-cloud-asset-search-to-further-enable-cloud-security-democratization/",
+        "https://orca.security/resources/press-releases/orca-security-expands-across-australia-new-zealand-partner-first-strategy-demand-cloud-security-grows/",
+        "https://orca.security/resources/press-releases/orca-security-expands-across-europe-with-partner-first-strategy-as-awareness-of-and-demand-for-cloud-security-grows/",
+        "https://orca.security/resources/press-releases/orca-security-expands-cloud-threat-detection-response-capabilities-enable-security-teams-level-speed-performance-threat-investigations/",
+        "https://orca.security/resources/press-releases/orca-security-expands-emea-channel-strategy-with-qbs-distribution-partnership/",
+        "https://orca.security/resources/press-releases/orca-security-expands-global-footprint-launch-brazil-data-center/",
+        "https://orca.security/resources/press-releases/orca-security-expands-partnership-with-google-cloud-to-comprehensively-secure-organizations-cloud-estates/",
+        "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/",
+        "https://orca.security/resources/press-releases/orca-security-fedramp-authorization-cloud-security/",
+        "https://orca.security/resources/press-releases/orca-security-first-agentless-api-security-solution-for-multi-cloud-environments/",
+        "https://orca.security/resources/press-releases/orca-security-first-cnapp-integrate-with-microsoft-azure-openai-gpt-4/",
+        "https://orca.security/resources/press-releases/orca-security-first-cnapp-launch-cloud-to-dev-capabilities/",
+        "https://orca.security/resources/press-releases/orca-security-generative-ai-integration-amazon-bedrock/",
+        "https://orca.security/resources/press-releases/orca-security-google-cloud-vertex-ai-integration/",
+        "https://orca.security/resources/press-releases/orca-security-hypergrowth-india-partner-strategy-ai-cloud-security/",
+        "https://orca.security/resources/press-releases/orca-security-innovation-patent-grant-sidescanning-technology/",
+        "https://orca.security/resources/press-releases/orca-security-japanese-localization/",
+        "https://orca.security/resources/press-releases/orca-security-launches-cloud-digital-forensics-and-incident-response-service-to-empower-rapid-investigation-of-cloud-incidents/",
+        "https://orca.security/resources/press-releases/orca-security-monday-streamline-security-remediation/",
+        "https://orca.security/resources/press-releases/orca-security-named-2023-cnbc-disruptor-50-list/",
+        "https://orca.security/resources/press-releases/orca-security-named-google-cloud-generative-ai-partner/",
+        "https://orca.security/resources/press-releases/orca-security-named-to-inaugural-redpoint-infrared-100-list/",
+        "https://orca.security/resources/press-releases/orca-security-named-to-notable-capitals-rising-in-cyber-2024/",
+        "https://orca.security/resources/press-releases/orca-security-named-to-redpoint-2024-infrared-100-for-second-consecutive-year/",
+        "https://orca.security/resources/press-releases/orca-security-names-gera-dorfman-chief-product-officer/",
+        "https://orca.security/resources/press-releases/orca-security-notable-capital-cyber-2025/",
+        "https://orca.security/resources/press-releases/orca-security-offers-best-in-class-approach-to-secure-cloud-native-applications-expanding-with-threatoptixs-agent-based-runtime-protection/",
+        "https://orca.security/resources/press-releases/orca-security-oracle-cloud-marketplace/",
+        "https://orca.security/resources/press-releases/orca-security-orca-security-launches-full-data-cloud-posture-management/",
+        "https://orca.security/resources/press-releases/orca-security-platform-microsoft-azure-marketplace/",
+        "https://orca.security/resources/press-releases/orca-security-powered-by-snowflake-brings-context-rich-cloud-security-to-the-data-cloud/",
+        "https://orca.security/resources/press-releases/orca-security-privacy-cost-savings/",
+        "https://orca.security/resources/press-releases/orca-security-recognized-by-forbes-as-one-of-americas-best-startup-employers-in-2023/",
+        "https://orca.security/resources/press-releases/orca-security-recognized-on-the-first-ever-crn-ai-100-list/",
+        "https://orca.security/resources/press-releases/orca-security-reduce-vulnerabilities-agentless-analysis/",
+        "https://orca.security/resources/press-releases/orca-security-report-finds-cloud-security-gaps-expose-business-critical-assets/",
+        "https://orca.security/resources/press-releases/orca-security-rising-in-cyber-2026/",
+        "https://orca.security/resources/press-releases/orca-security-strengthen-visibility-google-cloud/",
+        "https://orca.security/resources/press-releases/orca-security-td-synnex-partnership/",
+        "https://orca.security/resources/press-releases/orca-security-unveils-industrys-first-context-aware-shift-left-security/",
+        "https://orca.security/resources/press-releases/orca-security-unveils-orca-sensor/",
+        "https://orca.security/resources/press-releases/orca-security-usage-soars-320-yoy-developer-growth/",
+        "https://orca.security/resources/press-releases/orca-security-wins-2022-sc-trust-award-best-cspm-solution/",
+        "https://orca.security/resources/press-releases/orca-security-zscaler-partnership-expansion/",
+        "https://orca.security/resources/press-releases/orca-state-ai-security-report-reveals-majority-companies-deploying-ai-without-regard-security/",
+        "https://orca.security/resources/press-releases/snyk-orca-security-forge-strategic-partnership-strengthening-holistic-application-security/",
+        "https://orca.security/resources/press-releases/state-of-cloud-security-2024-report/"
+      ],
+      "dates": {
+        "https://orca.security/resources/press-releases/orca-partner-success-platform-launch/": "2026-09-16",
+        "https://orca.security/resources/press-releases/orca-security-extends-its-platform-to-the-new-generation-of-ai-builders/": "2026-07-29",
+        "https://orca.security/resources/press-releases/orca-security-japanese-localization/": "2026-09-01",
+        "https://orca.security/resources/press-releases/orca-security-expands-emea-channel-strategy-with-qbs-distribution-partnership/": "2026-07-28",
+        "https://orca.security/resources/press-releases/orca-security-claude-compliance-api-integration/": "2026-07-21",
+        "https://orca.security/resources/press-releases/2026-state-of-ai-security-report/": "2026-07-09",
+        "https://orca.security/resources/press-releases/orca-security-rising-in-cyber-2026/": "2026-05-12",
+        "https://orca.security/resources/press-releases/orca-security-td-synnex-partnership/": "2026-04-13",
+        "https://orca.security/resources/press-releases/ai-credential-leaks-log4shell-exposure-report/": "2026-04-07",
+        "https://orca.security/resources/press-releases/orca-advances-ai-first-cloud-defense/": "2026-03-16",
+        "https://orca.security/resources/press-releases/aws-strategic-collaboration-ai-cloud-security/": "2026-03-11",
+        "https://orca.security/resources/press-releases/orca-security-appoints-rachel-nislick-cmo/": "2026-03-09",
+        "https://orca.security/resources/press-releases/orca-security-zscaler-partnership-expansion/": "2025-12-02",
+        "https://orca.security/resources/press-releases/orca-security-names-gera-dorfman-chief-product-officer/": "2025-12-01",
+        "https://orca.security/resources/press-releases/orca-security-oracle-cloud-marketplace/": "2025-11-19",
+        "https://orca.security/resources/press-releases/orca-irap-protected-assessment-australia/": "2025-08-12",
+        "https://orca.security/resources/press-releases/orca-runtime-protection-hybrid-private-cloud/": "2025-07-30",
+        "https://orca.security/resources/press-releases/orca-ai-chatbot-ai-spm-detections/": "2025-06-11",
+        "https://orca.security/resources/press-releases/orca-security-2025-infrared-100-recognition/": "2025-06-10",
+        "https://orca.security/resources/press-releases/orca-security-ai-vulnerabilities-cloud-report/": "2025-06-05",
+        "https://orca.security/resources/press-releases/orca-security-notable-capital-cyber-2025/": "2025-06-04",
+        "https://orca.security/resources/press-releases/orca-aws-security-hub-cloud-risk-visibility/": "2025-05-21",
+        "https://orca.security/resources/press-releases/orca-security-acquires-opus-ai-cloud-remediation/": "2025-05-13",
+        "https://orca.security/resources/press-releases/orca-security-reduce-vulnerabilities-agentless-analysis/": "2025-04-22",
+        "https://orca.security/resources/press-releases/orca-security-140-percent-growth-latin-america/": "2025-04-17",
+        "https://orca.security/resources/press-releases/orca-bitbucket-app-simplifies-application-security/": "2025-04-10",
+        "https://orca.security/resources/press-releases/orca-cloud-security-universal-access-gen-ai-anthropic-model-context/": "2025-04-03",
+        "https://orca.security/resources/press-releases/orca-security-monday-streamline-security-remediation/": "2025-03-06",
+        "https://orca.security/resources/press-releases/orca-security-usage-soars-320-yoy-developer-growth/": "2025-03-03",
+        "https://orca.security/resources/press-releases/orca-security-fedramp-authorization-cloud-security/": "2025-02-12",
+        "https://orca.security/resources/press-releases/cloud-native-appsec-protection-revolutionizing-security/": "2025-02-04",
+        "https://orca.security/resources/press-releases/orca-security-privacy-cost-savings/": "2025-01-22",
+        "https://orca.security/resources/press-releases/orca-security-unveils-orca-sensor/": "2025-01-15",
+        "https://orca.security/resources/press-releases/orca-security-hypergrowth-india-partner-strategy-ai-cloud-security/": "2025-01-08",
+        "https://orca.security/resources/press-releases/orca-security-adds-support-for-snowflake-to-significantly-bolster-data-security-posture-management-dspm-for-customers/": "2024-12-10",
+        "https://orca.security/resources/press-releases/orca-security-expands-across-australia-new-zealand-partner-first-strategy-demand-cloud-security-grows/": "2024-10-15",
+        "https://orca.security/resources/press-releases/orca-state-ai-security-report-reveals-majority-companies-deploying-ai-without-regard-security/": "2024-09-18",
+        "https://orca.security/resources/press-releases/snyk-orca-security-forge-strategic-partnership-strengthening-holistic-application-security/": "2024-09-11",
+        "https://orca.security/resources/press-releases/coalfire-selects-orca-security-as-a-preferred-partner-for-cloud-risk-assessments/": "2024-08-20",
+        "https://orca.security/resources/press-releases/orca-security-expands-cloud-threat-detection-response-capabilities-enable-security-teams-level-speed-performance-threat-investigations/": "2024-08-05",
+        "https://orca.security/resources/press-releases/orca-security-expands-global-footprint-launch-brazil-data-center/": "2024-08-01",
+        "https://orca.security/resources/press-releases/orca-security-achieves-stateramp-authorization/": "2024-07-17",
+        "https://orca.security/resources/press-releases/orca-security-appoints-former-zscaler-and-dell-technologies-channel-leader-john-tavares-to-advance-partner-first-business-model/": "2024-07-09",
+        "https://orca.security/resources/press-releases/orca-security-adds-source-code-posture-management-capabilities-delivering-visibility-for-the-entire-cloud-lifecycle/": "2024-06-25",
+        "https://orca.security/resources/press-releases/orca-security-named-to-redpoint-2024-infrared-100-for-second-consecutive-year/": "2024-06-18",
+        "https://orca.security/resources/press-releases/orca-security-named-to-notable-capitals-rising-in-cyber-2024/": "2024-06-04",
+        "https://orca.security/resources/press-releases/orca-security-expands-across-europe-with-partner-first-strategy-as-awareness-of-and-demand-for-cloud-security-grows/": "2024-05-15",
+        "https://orca.security/resources/press-releases/aqua-security-and-orca-security-partner-to-address-joint-customer-need-for-best-in-class-cloud-native-security/": "2024-04-30",
+        "https://orca.security/resources/press-releases/orca-security-launches-cloud-digital-forensics-and-incident-response-service-to-empower-rapid-investigation-of-cloud-incidents/": "2024-04-29",
+        "https://orca.security/resources/press-releases/orca-security-recognized-on-the-first-ever-crn-ai-100-list/": "2024-04-09",
+        "https://orca.security/resources/press-releases/orca-security-named-google-cloud-generative-ai-partner/": "2024-04-08",
+        "https://orca.security/resources/press-releases/orca-security-and-carahsoft-partner-to-bring-orcas-cloud-security-solutions-to-the-public-sector/": "2024-03-28",
+        "https://orca.security/resources/press-releases/orca-security-adds-ai-security-to-cloud-security-platform/": "2024-03-19",
+        "https://orca.security/resources/press-releases/state-of-cloud-security-2024-report/": "2024-02-27",
+        "https://orca.security/resources/press-releases/orca-security-appoints-raf-chiodo-as-chief-revenue-officer/": "2024-01-10",
+        "https://orca.security/resources/press-releases/orca-aws-built-in-competency/": "2023-11-30",
+        "https://orca.security/resources/press-releases/orca-security-google-cloud-vertex-ai-integration/": "2023-11-08",
+        "https://orca.security/resources/press-releases/orca-security-generative-ai-integration-amazon-bedrock/": "2023-11-01",
+        "https://orca.security/resources/press-releases/orca-security-strengthen-visibility-google-cloud/": "2023-10-19",
+        "https://orca.security/resources/press-releases/orca-security-appoints-oded-edri-chief-financial-officer/": "2023-10-05",
+        "https://orca.security/resources/press-releases/orca-security-delivers-first-ai-driven-cloud-asset-search-to-further-enable-cloud-security-democratization/": "2023-09-07",
+        "https://orca.security/resources/press-releases/gigaom-orca-leadership-cloud-security-posture-management/": "2023-08-14",
+        "https://orca.security/resources/press-releases/orca-security-2023-forbes-cloud-100/": "2023-08-08",
+        "https://orca.security/resources/press-releases/orca-security-cis-benchmarks-certification-24-cloud-frameworks/": "2023-08-01",
+        "https://orca.security/resources/press-releases/orca-security-named-to-inaugural-redpoint-infrared-100-list/": "2023-07-17",
+        "https://orca.security/resources/press-releases/orca-security-expands-partnership-with-google-cloud-to-comprehensively-secure-organizations-cloud-estates/": "2023-06-21",
+        "https://orca.security/resources/press-releases/orca-security-2023-honeypotting-in-the-cloud-report/": "2023-06-20",
+        "https://orca.security/resources/press-releases/orca-security-named-2023-cnbc-disruptor-50-list/": "2023-05-15",
+        "https://orca.security/resources/press-releases/orca-security-first-cnapp-integrate-with-microsoft-azure-openai-gpt-4/": "2023-05-04",
+        "https://orca.security/resources/press-releases/introducing-james-love/": "2023-04-10",
+        "https://orca.security/resources/press-releases/orca-security-first-cnapp-launch-cloud-to-dev-capabilities/": "2023-04-05",
+        "https://orca.security/resources/press-releases/orca-security-appoints-co-founder-gil-geron-as-ceo/": "2023-03-22",
+        "https://orca.security/resources/press-releases/orca-security-recognized-by-forbes-as-one-of-americas-best-startup-employers-in-2023/": "2023-03-07",
+        "https://orca.security/resources/press-releases/orca-security-orca-security-launches-full-data-cloud-posture-management/": "2023-02-28",
+        "https://orca.security/resources/press-releases/orca-security-offers-best-in-class-approach-to-secure-cloud-native-applications-expanding-with-threatoptixs-agent-based-runtime-protection/": "2023-02-21",
+        "https://orca.security/resources/press-releases/orca-launches-new-cloud-cost-optimization-capabilities/": "2023-02-16",
+        "https://orca.security/resources/press-releases/orca-security-2022-regional-and-global-aws-partner-award/": "2022-11-28",
+        "https://orca.security/resources/press-releases/orca-security-innovation-patent-grant-sidescanning-technology/": "2022-11-10",
+        "https://orca.security/resources/press-releases/orca-security-powered-by-snowflake-brings-context-rich-cloud-security-to-the-data-cloud/": "2022-11-10",
+        "https://orca.security/resources/press-releases/fedramp-platform-us-government-cloud-estates/": "2022-10-27",
+        "https://orca.security/resources/press-releases/orca-security-first-agentless-api-security-solution-for-multi-cloud-environments/": "2022-10-18",
+        "https://orca.security/resources/press-releases/orca-security-report-finds-cloud-security-gaps-expose-business-critical-assets/": "2022-09-13",
+        "https://orca.security/resources/press-releases/orca-security-wins-2022-sc-trust-award-best-cspm-solution/": "2022-08-22",
+        "https://orca.security/resources/press-releases/orca-security-adds-agentless-cloud-detection-and-response/": "2022-07-19",
+        "https://orca.security/resources/press-releases/orca-security-unveils-industrys-first-context-aware-shift-left-security/": "2022-05-11",
+        "https://orca.security/resources/press-releases/attack-path-analysis-and-business-impact-score/": "2022-03-31",
+        "https://orca.security/resources/press-releases/2022-alert-fatigue-report/": "2022-03-15",
+        "https://orca.security/resources/press-releases/orca-security-platform-microsoft-azure-marketplace/": "2022-02-24",
+        "https://orca.security/resources/press-releases/orca-platform-expanded-ciem-multi-cloud-security-score/": "2022-02-10",
+        "https://orca.security/resources/press-releases/cloud-security-risks-encyclopedia-best-practices/": "2022-02-02"
+      }
+    },
+    "primarySample": null,
+    "indexComplete": false,
+    "evidenceComplete": false,
+    "reason": "ORCA_RESPONSE_INCOMPLETE"
+  },
+  "executionCompleted": true,
+  "outcome": "completed_diagnostic",
+  "modelCalls": 0,
+  "apiFallback": false,
+  "semanticAdmission": false,
+  "coverageCredit": false,
+  "sourceChecksCredited": 0,
+  "qualifiedSources": 0,
+  "publication": {
+    "published": false,
+    "reason": "SOURCE_PROBE_DIAGNOSTIC_ONLY"
+  },
+  "archive": {
+    "commit": "3dcd8798c2e5261ded4dd8afea348168ce2224af",
+    "parentCommit": "4af7a77efc32afcdfc2c32c6f81b5ad38c1471e4",
+    "manifestSha256": "34c98107d3b35af79da17fbce9874e043bb18c326b9b34083904d8d91e0e934e",
+    "files": 41005,
+    "ref": "refs/archive/market-evidence"
+  }
+}
