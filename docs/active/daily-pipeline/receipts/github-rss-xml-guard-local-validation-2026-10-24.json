@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "unit": "safe-xml-declaration-guard-and-seven-endpoint-diagnostic",
+  "checkedAt": "2026-10-24T20:45:07.257852+00:00",
+  "baseRevision": "1bf6324ffa94cbb5265c5eb5b4f966abcdc395c3",
+  "files": {
+    "web/scripts/pipeline/discovery.py": "2611635de944f025e848d8a7b15dfff2a328ac67a11a122a774eb46b2e1e7f68",
+    "ops/ci/test_xml_doctype_guard.py": "92835e6fa3b6e4bd4d510a84e4f62a12ae03a1816e4ce10330ed4cb4a1cdf887",
+    "contracts/source-qualification-probes.json": "98b110fe4fd1beb898ff7ccaa190a3e4eb6dcb61e1da3ed5a5d72151bddd2ce4",
+    "contracts/market.json": "24221c946781559c0ff3626e4e479c4647da915d0f2d7559ea88046982532c3c",
+    "web/scripts/pipeline/source_qualification_origin.py": "955ddadd22585672f677b533a6478034cb8048a0ec71faea37af0bfa74469bc6",
+    "ops/ci/html_qualification_seed.py": "68c66beda7c00e65361c90e7bc30efffc2e19a41804ae76ebffd40914d9236e4"
+  },
+  "tests": {
+    "operational": 800,
+    "newXMLGuardTests": 20,
+    "combinedFocused": 50,
+    "independentExtraSecurityChecks": 12,
+    "webCommand": "npm test",
+    "lint": "pass",
+    "data": 373,
+    "pipeline": 115,
+    "browserPassed": 42,
+    "browserSkipped": 1,
+    "build": "pass",
+    "distribution": "pass"
+  },
+  "logs": {
+    "/var/tmp/smp-xml-seven-final-ops-20261024.log": "a3b76ef0c3c104294cdc66733630b530336a3e8bdb91a04f7f8bb85df7659bdc",
+    "/var/tmp/smp-xml-guard-web-20261024.log": "360e3fa75e0878506d02767aafc2f15f823da7550ff48e4d01801f4e13274b39"
+  },
+  "retainedReplay": {
+    "receipt": "docs/active/daily-pipeline/accuracy/github-rss-xml-guard-actual-retained-replay-2026-10-24.json",
+    "sha256": "ef9d6e3b0958d2fde13d5fcd3f78cbe0d178cdcd3847e71311cc99f1fe61e465",
+    "oldHReports": 5,
+    "oldOrigins": 3,
+    "seedPayloads": 7,
+    "newSourceRequests": 0,
+    "qualifiedSources": 0,
+    "archiveMutations": 0,
+    "nextSnapshotSha256": "6feec3970cb598b8edf8cea93b4af3d51eb903dc5ba7bbfb2b767fc8d6eff846"
+  },
+  "visual": {
+    "production-1440": {
+      "beforeSha256": "8651f15011d8a0518a5e4f96a43d693c014ea1d33a041f1586e830a088cce1ad",
+      "afterSha256": "8651f15011d8a0518a5e4f96a43d693c014ea1d33a041f1586e830a088cce1ad",
+      "size": [
+        1440,
+        8359
+      ],
+      "identicalPixels": true,
+      "renderedAndViewed": true
+    },
+    "production-390": {
+      "beforeSha256": "0c81367ea5540676b295a8ba96173ef98e5e9c41993a3dac9392166ae2af10d9",
+      "afterSha256": "0c81367ea5540676b295a8ba96173ef98e5e9c41993a3dac9392166ae2af10d9",
+      "size": [
+        390,
+        7714
+      ],
+      "identicalPixels": true,
+      "renderedAndViewed": true
+    },
+    "local-1440": {
+      "beforeSha256": "b044622ff53e695fee8334a95746b932c0df81ff6e26ecb810bfd9228765cdd9",
+      "afterSha256": "b044622ff53e695fee8334a95746b932c0df81ff6e26ecb810bfd9228765cdd9",
+      "size": [
+        1440,
+        8379
+      ],
+      "identicalPixels": true,
+      "renderedAndViewed": true
+    },
+    "local-390": {
+      "beforeSha256": "7dc872da46a4cf5e2eb765df88e1ae28e34eb70f8d5c38b19835bab09afcd3df",
+      "afterSha256": "7dc872da46a4cf5e2eb765df88e1ae28e34eb70f8d5c38b19835bab09afcd3df",
+      "size": [
+        390,
+        7749
+      ],
+      "identicalPixels": true,
+      "renderedAndViewed": true
+    }
+  },
+  "selectedPlan": {
+    "sha256": "98b110fe4fd1beb898ff7ccaa190a3e4eb6dcb61e1da3ed5a5d72151bddd2ce4",
+    "explicitTargets": 7,
+    "genericCandidateSources": 25,
+    "wholeOperationMaximumLogicalReservations": 257,
+    "fetchesBefore": 1980,
+    "worstCaseFetchesAfter": 2237,
+    "limit": 5500,
+    "models": 0,
+    "documents": 0,
+    "qualificationCredit": false,
+    "actualNewRun": false
+  },
+  "productionChanged": false
+}

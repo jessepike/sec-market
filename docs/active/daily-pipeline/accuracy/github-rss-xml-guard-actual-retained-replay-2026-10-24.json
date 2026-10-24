@@ -1,0 +1,272 @@
+{
+  "archive": {
+    "after": {
+      "contentSha256": "eab114a22d66d2f8b5f5b0baa51e27092f391da999dcef331f7b0a106b86e405",
+      "directories": 1906,
+      "directoryMtimeSha256": "52d929d497e5266f25e7b5b7686cb87c482e85ddd022fbaceb2a6a08a43fabf6",
+      "fileMtimeSha256": "6cf088ea5f5d35a3af4c3e0d4043010102e5651e7bc35d0dc8600447cef48661",
+      "files": 41009
+    },
+    "before": {
+      "contentSha256": "eab114a22d66d2f8b5f5b0baa51e27092f391da999dcef331f7b0a106b86e405",
+      "directories": 1906,
+      "directoryMtimeSha256": "52d929d497e5266f25e7b5b7686cb87c482e85ddd022fbaceb2a6a08a43fabf6",
+      "fileMtimeSha256": "6cf088ea5f5d35a3af4c3e0d4043010102e5651e7bc35d0dc8600447cef48661",
+      "files": 41009
+    },
+    "entries": 41005,
+    "manifestSha256": "34c98107d3b35af79da17fbce9874e043bb18c326b9b34083904d8d91e0e934e",
+    "root": "/var/tmp/smp-orca-40126516584-20261024/extracted/jessepike-sec-market-3dcd8798c2e5261ded4dd8afea348168ce2224af"
+  },
+  "archiveWrites": 0,
+  "codePins": [
+    {
+      "path": "web/scripts/pipeline/discovery.py",
+      "sha256": "2611635de944f025e848d8a7b15dfff2a328ac67a11a122a774eb46b2e1e7f68"
+    },
+    {
+      "path": "ops/ci/test_xml_doctype_guard.py",
+      "sha256": "92835e6fa3b6e4bd4d510a84e4f62a12ae03a1816e4ce10330ed4cb4a1cdf887"
+    }
+  ],
+  "contractSha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+  "coverageCredit": false,
+  "guardAttempts": [],
+  "kind": "xml_doctype_guard_actual_retained_replay",
+  "modelCalls": 0,
+  "oldAndNewExactEquivalent": true,
+  "retainedReplay": {
+    "boundedOriginalReports": [
+      {
+        "reportSha256": "d981d48a7e1cb8ea36124cd067f22073057c7ba3bddaa8f2fbedc019af0a49d4",
+        "runId": "40075237236"
+      },
+      {
+        "reportSha256": "320867074dadfa52e200763fc4d5c7c45a87132d5245a18d8bd2b54d4f5e1279",
+        "runId": "40079036392"
+      },
+      {
+        "reportSha256": "cf85cbb2ceef9f56c4035a383a81098e4d1687372fbf5d1b5a4d4fb06680e462",
+        "runId": "40072784799"
+      },
+      {
+        "reportSha256": "cfbd79f3814f498b91b3c3f67272dc88b14fee09b23f164f587a13b507dd683b",
+        "runId": "40077375424"
+      },
+      {
+        "reportSha256": "6de16a9a56cd44f084fd8b764c2d13890b7951401ecf12e6aab7c06f515845b8",
+        "runId": "40116695719"
+      }
+    ],
+    "normal": {
+      "asOf": "2026-10-25T00:23:00Z",
+      "historicalReview": {
+        "complete": false,
+        "heldDocuments": 5,
+        "inventoryDocuments": 10655,
+        "pendingDocuments": 10631,
+        "reviewedDocuments": 24
+      },
+      "lastCollectionAt": "2026-10-24T18:32:51.588317Z",
+      "ordinaryFactReferences": {
+        "25ad58497c688cec625d9b41b59bfcbd5cbe7a11dfa169e76e81ead80ca2631f": {
+          "bytes": 1285,
+          "key": "objects/876caeb08e375865efd8085bc90f9928d7e93df4e21b65fdad051633a510c2a5",
+          "sha256": "876caeb08e375865efd8085bc90f9928d7e93df4e21b65fdad051633a510c2a5"
+        },
+        "48c2b85499f6e46da476448ecea72f936ecee074d5901b02d864f63f9c680b54": {
+          "bytes": 1180,
+          "key": "objects/272f902847b19bc166683a87d9d898f34fa3ce568d8a84ff59af4d6d4fb96f7e",
+          "sha256": "272f902847b19bc166683a87d9d898f34fa3ce568d8a84ff59af4d6d4fb96f7e"
+        },
+        "c6468f56aafa58be43109ecb73e2ddc3f4b0976a75dae95a56dce7320581a8a5": {
+          "bytes": 1479,
+          "key": "objects/3491eb348cec47a93d500ae8c60b47afa5424596243989446df0cd3733af0873",
+          "sha256": "3491eb348cec47a93d500ae8c60b47afa5424596243989446df0cd3733af0873"
+        },
+        "f8aa54302ab84ba6d64e93923915b30316fe8be691813ec3aca43423f214d1da": {
+          "bytes": 1300,
+          "key": "objects/e726af8df4c20ca6bb7570c7313b83c3641255fafae2b3af7c17a5c05e250199",
+          "sha256": "e726af8df4c20ca6bb7570c7313b83c3641255fafae2b3af7c17a5c05e250199"
+        }
+      },
+      "processing": {
+        "changedDocuments": 1,
+        "complete": false,
+        "heldDocuments": 5,
+        "inventoryDocuments": 10655,
+        "pendingDocuments": 10632,
+        "reviewedDocuments": 23,
+        "unknownDateDocuments": 291
+      },
+      "requiredTasks": 557,
+      "reviewQueueEntries": 33,
+      "reviewQueueSha256": "cfa0dd7730721f0e3d39c45be973ec1569ce9fff653350a86b6d4c9a617a4948",
+      "runId": "2c57fb25697bfc4b40df574890334adfa1d6d0df610837e12aa3a71e22515523",
+      "snapshotSha256": "6feec3970cb598b8edf8cea93b4af3d51eb903dc5ba7bbfb2b767fc8d6eff846",
+      "successfulTasks": 264,
+      "validUntil": "2026-10-26T00:29:16.957017+00:00"
+    },
+    "origins": [
+      {
+        "completedAt": "2026-10-24T17:38:02.691908Z",
+        "documents": 242,
+        "resolvedSha256": "ca691510b6ac46135b575624e34a38105a42dfaa9c4b706ed6e8b1efbe35836a",
+        "sourceId": "ping-identity:official:1"
+      },
+      {
+        "completedAt": "2026-10-24T17:38:02.691908Z",
+        "documents": 290,
+        "resolvedSha256": "9be61bed22e20695a103da02d7d4f0731fb22137caf6dac49312cf7ca688e6a6",
+        "sourceId": "delinea:official:1"
+      },
+      {
+        "completedAt": "2026-10-24T17:38:02.691908Z",
+        "documents": 205,
+        "resolvedSha256": "222fd91e9062e8fc496f14a809d764e72ab31bd44ca87d94d8630a630aa6be33",
+        "sourceId": "sonatype:official:1"
+      }
+    ],
+    "seed": {
+      "files": [
+        {
+          "bytes": 204449,
+          "key": "contracts/8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db.json",
+          "sha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db"
+        },
+        {
+          "bytes": 28411,
+          "key": "objects/0a4c4ff4dd5b7b98aff24dc388ad4a95cca214f0bb9950094b089d599763573b",
+          "sha256": "0a4c4ff4dd5b7b98aff24dc388ad4a95cca214f0bb9950094b089d599763573b"
+        },
+        {
+          "bytes": 1085815,
+          "key": "objects/720f42ac3dffc4527140f61cea739e556321ed9ee19b4f7f0f189e4ed69afc7b",
+          "sha256": "720f42ac3dffc4527140f61cea739e556321ed9ee19b4f7f0f189e4ed69afc7b"
+        },
+        {
+          "bytes": 7591,
+          "key": "objects/a08e0148be17108b185a7d82d9408a0e569bc7ce460ff8842f2eddd0db73a5a7",
+          "sha256": "a08e0148be17108b185a7d82d9408a0e569bc7ce460ff8842f2eddd0db73a5a7"
+        },
+        {
+          "bytes": 7599,
+          "key": "objects/e0a1bbfeaaff1ed8e05fdc45810f244101c8df649db6473e2d552d1cba42fffb",
+          "sha256": "e0a1bbfeaaff1ed8e05fdc45810f244101c8df649db6473e2d552d1cba42fffb"
+        },
+        {
+          "bytes": 1623,
+          "key": "objects/e9fd173e0c6121e95456bfb7d3614374d8bd397428cf7b2865161a48f574b4d1",
+          "sha256": "e9fd173e0c6121e95456bfb7d3614374d8bd397428cf7b2865161a48f574b4d1"
+        },
+        {
+          "bytes": 171,
+          "key": "source-qualification-transitions/8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db.json",
+          "sha256": "269606aefb5407e08e9d00c8a05281f702bd44059c6d157899033608d157ac21"
+        }
+      ],
+      "inventories": {
+        "delinea:official:1": {
+          "completedAt": "2026-10-24T17:38:02.691908Z",
+          "documents": 290,
+          "itemsSha256": "92117424b5448fb56ad9c00ff27a56cb58649ef19a8684cf6b7bdf2066b13f93"
+        },
+        "ping-identity:official:1": {
+          "completedAt": "2026-10-24T17:38:02.691908Z",
+          "documents": 242,
+          "itemsSha256": "226af03e5ebf611596fa18746e7b90b8562f5f741e33c96bdd8459d6e090589a"
+        },
+        "sonatype:official:1": {
+          "completedAt": "2026-10-24T17:38:02.691908Z",
+          "documents": 205,
+          "itemsSha256": "01c30b57b2240972d239e58b4af4dc893532ff23f33edc69867cc8f32ce4b8ad"
+        }
+      },
+      "manifestSha256": "468acb882c44a1f75122b39b55a767e343361486eebe5269d1071bc8ae3666ba",
+      "preservation": {
+        "factReferences": 52,
+        "factReferencesSha256": "e4b05dbaf842a383ab729a762117e49f4aba8bc4d17407d22ce436a8ec164c2c",
+        "inventoryPairs": 26969,
+        "inventoryPairsSha256": "4688bc87cb44b3d52bf2042b837bfda10d83f7edfbb9c1340256f16315703fcd",
+        "protectedReferencesSha256": "9364f3b52165459c2b4a4b28dc130a820e55b886b9df6a07f58feb5b810fce36",
+        "retainedBindings": 24,
+        "retainedBindingsSha256": "d67d3eda48ae4606aadc3fc6bf260f0c99c8e765782d7c9fe77d04a7928f148c",
+        "retainedInventoryPairs": 9914,
+        "retainedInventoryPairsSha256": "105fd717e7e5dc14543daca8704c792c01f166ade5d688e4d0da59dcd9371b45",
+        "reviewQueueEntries": 32,
+        "reviewQueueSha256": "e83deaa4f0d454ccfa391118c5d0e86ec7881ba3f87a5efef81cf3b0dc93dfe7",
+        "snapshotSha256": "d603dd383f0654e85f54b1e5706e4d4fbf70a27a355fb32ab3610f7f7dfd0052"
+      }
+    }
+  },
+  "reviewTimePlan": {
+    "operation": "disabled_qualification_probe",
+    "scope": "Review-time configuration only; a later approved plan replacement is separate.",
+    "sha256": "ad1c5cc234fe4fa69cbceb5370ac74825a37dc80b08528ca908d14b1352e53b4"
+  },
+  "rss": {
+    "body": {
+      "bytes": 1271295,
+      "key": "objects/251d0a6b45ff8e4a1a40eba63b66781a7cfefbe6c1dd1151b2a1daae57107379",
+      "sha256": "251d0a6b45ff8e4a1a40eba63b66781a7cfefbe6c1dd1151b2a1daae57107379"
+    },
+    "channelLastBuildDate": "Thu, 22 Oct 2026 17:21:32 +0000",
+    "observation": {
+      "bytes": 487,
+      "key": "objects/23df935fbf8eaf2d7e31eb773622e1fd3601bc54e6bd5930969d8112ded39c3b",
+      "sha256": "23df935fbf8eaf2d7e31eb773622e1fd3601bc54e6bd5930969d8112ded39c3b"
+    },
+    "originalItemDates": [
+      "Thu, 22 Oct 2026 17:21:30 +0000",
+      "Wed, 21 Oct 2026 16:00:00 +0000",
+      "Tue, 20 Oct 2026 16:05:03 +0000",
+      "Mon, 19 Oct 2026 18:47:22 +0000",
+      "Thu, 15 Oct 2026 19:39:27 +0000",
+      "Thu, 15 Oct 2026 18:00:00 +0000",
+      "Wed, 14 Oct 2026 20:01:35 +0000",
+      "Wed, 14 Oct 2026 19:11:33 +0000",
+      "Tue, 13 Oct 2026 17:56:33 +0000",
+      "Mon, 12 Oct 2026 17:43:59 +0000"
+    ],
+    "originalObservation": {
+      "body": {
+        "bytes": 1271295,
+        "key": "objects/251d0a6b45ff8e4a1a40eba63b66781a7cfefbe6c1dd1151b2a1daae57107379",
+        "sha256": "251d0a6b45ff8e4a1a40eba63b66781a7cfefbe6c1dd1151b2a1daae57107379"
+      },
+      "contentType": "application/rss+xml; charset=UTF-8",
+      "etag": "\"3f2325d1909bc87f1a30093da989b9e1\"",
+      "fetchedAt": "2026-10-24T06:17:55.346340Z",
+      "finalUrl": "https://github.blog/feed/",
+      "httpStatus": 200,
+      "lastModified": "Sat, 24 Oct 2026 00:58:28 GMT",
+      "requestedUrl": "https://github.blog/feed/",
+      "status": "fetched"
+    },
+    "result": {
+      "indexes": [],
+      "kind": "rss",
+      "links": [
+        "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-how-to-teach-copilot-about-your-codebase/",
+        "https://github.blog/ai-and-ml/github-copilot/how-3-java-champions-are-using-github-copilot-for-increased-productivity/",
+        "https://github.blog/ai-and-ml/github-copilot/how-to-continue-a-github-copilot-app-session-in-vs-code/",
+        "https://github.blog/ai-and-ml/githubs-model-for-secret-detection-finding-more-secrets-with-less-noise/",
+        "https://github.blog/engineering/architecture-optimization/from-2500-requests-to-24-rebuilding-star-history-without-the-stargazers/",
+        "https://github.blog/engineering/architecture-optimization/the-bridge-to-agent-scale-git-infrastructure/",
+        "https://github.blog/engineering/platform-security/staying-evergreen-how-we-automated-secure-access-and-repo-hygiene-in-a-shared-org/",
+        "https://github.blog/news-insights/company-news/github-availability-report-september-2026/",
+        "https://github.blog/news-insights/company-news/the-next-developer-interface-is-ambient-intelligence/",
+        "https://github.blog/security/how-bug-bounty-sharpens-one-researchers-security-skills/"
+      ],
+      "modified": {}
+    },
+    "sourceCredit": false
+  },
+  "sourceRequests": 0,
+  "testResults": {
+    "allPassed": true,
+    "focusedTests": 50,
+    "fullOperationsTests": 800,
+    "newPortableTests": 20
+  }
+}

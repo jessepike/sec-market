@@ -9,188 +9,63 @@ stands. New items continue from SEC-075.
 
 ### SEC-072 · Make the current site consistently accurate, fresh and durable
 
-This is the current priority. Keep the full 557-obligation inventory visible while repairing the
-operation of existing sources before expanding collection or adding search. Fix repeated checks
-that erase valid successes, duplicate transport, publication/collector queue discontinuity and
-source-specific extraction errors. Retain unresolved work and require evidence-bound resolution.
-Track exact source ages, known release checks, data continuity, scheduled operation and recovery
-with the [evaluation rubric](docs/active/daily-pipeline/evaluation-rubric.md) and reproducible
-[baseline scorecard](docs/active/daily-pipeline/evaluations/2026-10-23/live-baseline.md).
+This is the current priority under D-110, D-111 and D-112. Activation and verification are
+approved. Preserve all 74 suppliers, 557 obligations, historical URLs, original source dates,
+charged allowances, six admitted corrections and every earlier review hold. Search (SEC-073)
+and company-type navigation (SEC-074) follow reliable operation.
 
-Actual October 24 collection and independently gated publication raised live coverage to 244/557.
-Candidate fixes and archived replays grant no additional current credit. October 23's charged collection and gate limits
-remain unchanged. Generic claim accuracy and eligible-event recall require a fixed reviewed
-benchmark; passing the existing tests does not estimate those error rates. Reader value remains
-unmeasured: the owner reports no real use yet.
+| Current measure | Actual evidence |
+|---|---|
+| Public release | App 26181a2d, sequence 3, release 19fde803; old combined measure 244/557. Varonis and six corrections are live. |
+| Current daily intake | Manual collector 40120612027: 264/557 under policy H; actual current-policy scheduled collection and publication remain pending. |
+| Processing | 23/10,655 reviewed; 10,632 pending; 5 held, 1 changed, 291 unknown dates. |
+| Historical review | 24/10,655 reviewed; 10,631 pending; 5 held. |
+| Known contradictions | Five-record remediation is 5/5 resolved in the accepted public release; this is not a general precision/recall estimate. |
+| Reader value and sustained operation | Unmeasured. The owner reports no useful real use yet. |
 
-D-112 now has an actual current-policy manual collection at **264/557**, with **293 gaps**:
-254 missing bindings, 25 candidate feeds, nine HTTP 403s, four HTTP 429s and one unsafe redirect.
-The three newly activated Ping/Delinea/Sonatype indexes pass intake. Their 737 leads still need
-processing. Collector `40120612027` and current-policy archive canary `40121717778` passed;
-the archive preserves every earlier path and changes no immutable evidence. Processing is
-23/10,655 currently reviewed; historical review retains 24/10,655. Upwind's current page body
-is unknown after its sitemap changed and requires revalidation. All 32 prior holds survive,
-with one additional revalidation entry. The exact [74-company overview and 557-row ledger](docs/active/daily-pipeline/evaluations/2026-10-24/current-source-coverage.md)
-and [actual collection audit](docs/active/daily-pipeline/accuracy/html-source-activation-actual-collection-review-2026-10-24.md)
-are the current private coverage references. Manual execution supplies no current-policy timer
-proof or publication. Main includes the reviewed midnight repair and leased diagnostic route. The late
-scheduled publisher `40122602778` also failed with `DAILY_GATE_BUDGET_EXHAUSTED`; issue 12
-updated at 18:55 UTC. October 24 usage is 1,953/5,500 fetches, 80/80 models, 40/40 documents,
-and 2/2 publication attempts. No reset, refund or paid fallback. Next allowance is 00:00 UTC
-October 25; publisher retry is scheduled 00:23 UTC, collector 05:17 UTC. Actual production
-update and current-policy scheduled collection remain required.
-The actual archive's next-midnight gate replay exposed a date-partition validation defect:
-six September 24 hints age out of the current lane, making a sealed collection proof falsely
-differ. Repair that comparison using the original authenticated receipt context, while deriving
-current classifications and enforcing source/fact freshness at gate time. Require targeted
-cross-midnight tests and exact archive replay before promoting the repair.
-The narrow repair now passes five targeted and 755 total operational tests, full web checks,
-independent review and sealed actual-archive reconstruction at all three October 25 publisher
-times. Original evidence dates, four ordinary facts and 33 queue entries remain unchanged.
-[Repair and replay](docs/active/daily-pipeline/accuracy/next-scheduled-publication-preflight-2026-10-24.md).
-The [remaining 25 candidates](docs/active/daily-pipeline/accuracy/remaining-candidate-qualification-batch-spec-2026-10-24.md)
-now have exact next actions. Orca's leased diagnostic is promoted under unchanged H with
-766 operational tests, full web checks and independent review passing. Actual run `40126516584`
-retained 90 leads from 26 successful pages, then stopped at HTTP 302 on page 27 after 27 charged
-requests. Its archive verifies completely and replays without writes. The redirect destination
-was not retained, so completeness and source qualification remain unproved. Exact disabled
-plan `ad1c5cc2…` is restored on main. The bounded redirect observation repair now passes
-780 operational tests, full web checks and independent review without changing normal
-transport policy. The exact original `93257fbf…` plan is selected for one capped actual follow-up
-after CI/promotion; authenticate its result, restore disabled `ad1…`, then freeze main.
-Source activation remains a later closed policy transition after current production proof.
-[Actual diagnostic audit](docs/active/daily-pipeline/accuracy/orca-actual-leased-source-review-2026-10-24.md).
-[Integration handoff](docs/active/daily-pipeline/accuracy/orca-leased-diagnostic-integration-handoff-2026-10-24.md).
-The [current evidence-bound scorecard](docs/active/daily-pipeline/evaluations/2026-10-24/html-activation-current-scorecard.md)
-records those separate measures and preserves the old benchmark reports.
+The 293 intake gaps have separate next actions:
 
-The preceding D-112 policy has actual manual and scheduled private receipts: 261/557 daily-intake checks, with 296 gaps,
-24/9,914 reviewed documents and all 32 review holds preserved. Its matching archive canary passes.
-This new measure does not rewrite the live old-policy 244/557 report. Genuine scheduled run
-`40082520067` completed on October 24 from main `4b5e5ec1`; its full archive/receipt review passes.
-Original evidence dates and the shared run ID remain intact; it did not newly fetch
-all 261 successful tasks. New-policy production remains pending. Publisher callback `40083080190`
-and scheduled publisher `40089243152` failed with `DAILY_GATE_BUDGET_EXHAUSTED`; assigned
-issue 12 records the alert. Both daily gate attempts remain charged. The next literal
-pagination batch actually completed in diagnostic `40069462824`: seven HTTP 200 responses,
-125 charged requests, zero models and zero qualification credit. All 35,148 archive files verify
-with unchanged earlier immutable evidence and protected collection/production heads.
-[New-policy observation](docs/active/daily-pipeline/evaluations/2026-10-24/new-policy-manual-observation.md).
+| Gap | Count | Required work |
+|---|---:|---|
+| Missing family bindings | 254 | Qualify literal primary endpoints; the [full obligation queue](docs/active/daily-pipeline/accuracy/coverage-qualification-status-2026-10-23.md) preserves every missing task. Four neutral parent-issuer proposals remain dormant until current source proof and a closed transition pass. |
+| Candidate sources | 25 | Complete source-specific pagination, entity/date boundaries and a readable primary sample. [Exact source actions](docs/active/daily-pipeline/accuracy/remaining-candidate-qualification-batch-spec-2026-10-24.md). |
+| Access failures | 14 | Recover 9 HTTP 403, 4 HTTP 429 and 1 unsafe redirect without bypassing source or host policy. |
 
-The [bounded candidate traversal proposal](docs/active/daily-pipeline/accuracy/bounded-candidate-qualification-next-step-2026-10-24.md)
-replaces repeated generic probe overhead with one complete source-bound walk; its 183-request
-ceiling grants no current coverage. The [four neutral filing bindings proposal](docs/active/daily-pipeline/accuracy/four-neutral-regulatory-bindings-spec-2026-10-24.md)
-is retained for a coordinated registry/diagnostic/correction-stamp transition after actual source
-proof. Candidate source declarations stay unqualified while their bounded paths are implemented
-and independently reviewed. No owner source decision is currently required. All earlier bounded
-V1–V4 actual reports and inventories remain exact. Reviewed V5 adds Delinea's observed positive
-terminal and preserves one mislinked Sonatype card URI as a raw, unreviewed processing lead.
-Obtain its complete actual walk and independently review a closed registration/inventory
-transition before source activation. The Sonatype card's title/date-to-destination identity still
-needs its exact primary response; an index scheduling date or URL exception supplies no article
-or factual validation.
+Ping Identity, Delinea and Sonatype now pass actual intake; their 737 leads remain pending
+processing. Upwind needs primary-page revalidation after a later sitemap change; its current
+body is unknown. All 32 earlier review holds persist, with that 33rd revalidation entry.
+The exact Sonatype mislinked card still needs primary-content review.
 
-The [actual V5 review](docs/active/daily-pipeline/accuracy/bounded-traversal-v5-actual-response-review-2026-10-24.md)
-now proves complete walks for Ping Identity (242 URLs), Delinea (290) and Sonatype (205).
-All earlier accepted card leads and all retained XML article leads survive. The exact Sonatype
-mislinked card remains pending primary-content review. The closed three-source activation,
-actual collection and strict archive canary now pass; independently gated publication remains
-pending. Current intake credit comes from the actual collector receipt, never the diagnostic.
-The remaining 25 unqualified bindings, 254 missing-family obligations, 14 access failures and
-10,631 pending historical reviews remain agent-owned work. Update counts only from actual receipts.
+Orca diagnostic 40129367275 authenticates 26 successful index responses and 90 leads, then five
+HTTP 302 responses redirecting page 27 to itself. It charged 27 fetch reservations and earns zero
+qualification or coverage credit. Seek an alternate complete official index or source-owned
+pagination evidence; do not treat the self-redirect as terminal. [Actual audit](docs/active/daily-pipeline/accuracy/orca-redirect-actual-source-review-2026-10-24.md).
+Restore exact disabled plan ad1 after each diagnostic. A [seven-endpoint batch](docs/active/daily-pipeline/accuracy/schema1-seven-source-endpoint-preflight-2026-10-24.md)
+can use the existing runner under unchanged H, bounded at 257 logical fetch reservations including
+its unavoidable 25-source generic discovery. The exact plan 98b110fe… is independently reviewed
+and selected for one actual diagnostic after CI/promotion; restore disabled ad1 afterward.
+The retained GitHub RSS parser false positive is repaired with a parser-level declaration guard:
+800 operational and all web checks pass, with old H reports, origins, seeds and the next snapshot
+unchanged. Real DTD/entity input remains rejected. Qualification and current coverage stay separate.
 
-The authenticated [current five-record remediation observation](docs/active/daily-pipeline/accuracy/current-correction-resolution-observation-2026-10-24.md)
-reports 5/5 resolved against the actual gated production release. The frozen 177-record audit
-retains its original results; current precision, recall and sustained operation remain unmeasured.
+The next required operational receipts are the actual 00:23 UTC October 25 publisher and 05:17 UTC
+collector, plus controlled rollback/restoration of the new accepted release. Preserve the final
+reviewed main while those run. The midnight partition repair passes actual-archive reconstruction
+at all three publisher times without renewing evidence. Manual diagnostics and successful skipped
+callbacks are not scheduled collection or publication proof.
 
-The [October 24 executable scorecard](docs/active/daily-pipeline/evaluations/2026-10-24/operational-scorecard.md)
-pins the original raw collection time and exact repaired gate/publication/rollback receipts.
-Manual runs supply no scheduled-attempt denominator. The reviewed next-seven-request candidate
-and Ping parser retain incomplete history, consume no requests during offline proof, and grant no
-new coverage. Future diagnostic plans use content-addressed prior-plan references to remain bounded.
-The [retained-audit proposal](docs/active/daily-pipeline/accuracy/retained-audit-rebinding-spec-2026-10-24.md)
-finds replayable proof for 24 completed pages; 9,890 due URLs and all 17 historical tasks remain open.
-Preserve independent retained-proof replay before clearing any completeness hold.
+October 24 usage is 1,980/5,500 fetch reservations, 80/80 models, 40/40 documents and 2/2 gate attempts.
+The next natural allowance starts 00:00 UTC October 25. Assigned issue 12 records publisher budget
+failure; issue 10 retains coverage/history gaps. Verify issue 12 recovery after actual publication.
+No owner source decision is currently required. No refund, reset, purchase or paid fallback.
 
-Retained-proof rebinding is now implemented and independently reviewed: 24 historical checks
-replay over the unchanged 9,914 source/URL inventory, with 9,890 due and all 17 tasks incomplete
-under the old rule. The capacity audit proves the old whole-history freshness requirement cannot
-be sustained within the fixed fetch allowance. The owner accepted D-112 to separate daily intake,
-fact processing and historical review. The versioned policy, reader labels, monitor/scorecard
-support and semantic-policy compatibility are implemented and independently tested locally.
-The actual new-policy scheduled collection archive review passes; obtain publication proof.
-Keep old 121/557 and 244/557 reports under their original definitions; do not count a fresh index
-as complete event coverage or renew old evidence dates. No owner policy choice remains pending.
+Use the [74-company overview and 557-row CSV](docs/active/daily-pipeline/evaluations/2026-10-24/current-source-coverage.md),
+[evaluation rubric](docs/active/daily-pipeline/evaluation-rubric.md) and [bound scorecard](docs/active/daily-pipeline/evaluations/2026-10-24/html-activation-current-scorecard.md).
+Keep daily intake, document review, historical review, accuracy and value separate. Earlier
+investigation detail remains in the linked source audits and [the frozen earlier queue](https://github.com/jessepike/sec-market/blob/1bf6324ffa94cbb5265c5eb5b4f966abcdc395c3/BACKLOG.md).
 
-The [fixed existing-record review](docs/active/daily-pipeline/accuracy/current-record-review-2026-10-23.md)
-now covers 97 hand events and 80 supplier fields. Five directly contradicting records and a related
-ambiguous funding field now have actual reviewed, gated corrections retained in current release
-`19fde803d09aa544672183769c257e37faf727b75e1914955f54f3c5fb126941`.
-The separate dated ledger preserves immutable originals, actual independent review chains,
-runtime export checks and publication-date bindings. The scoped Xage source-class correction is
-also live and grants no financial certification. Synthetic tests and source-byte checks alone
-do not admit corrections. Preserve
-raw history and existing owner-approved issue corrections; reject unreviewed static edits. Resolve
-the remaining support/date/provenance gaps without treating them all as false. Known contradictions
-must stay visible separately from passing release tests and current source coverage. Preserve the
-frozen audit as a historical benchmark; measure current remediation in a separate bound observation.
-The next accounting repair removes already-checked pages from pending work while keeping source
-completeness held until their prior evidence is rebound. Qualify the exact Ping/Delinea/Sonatype
-feeds with actual leased responses before registration. Investigate bounded, replayable no-entity
-screening for broad shared-publisher history; fix the evidenced Sophos alias before relying on that
-exclusion. Neither URL priority nor a missing name in an unchecked page proves irrelevance.
-
-The [candidate registration audit](docs/active/daily-pipeline/accuracy/candidate-registration-audit-2026-10-23.md)
-inspected all 28 unverified bindings against 39 retained primary bodies. It found 27 disclosed
-endpoint leads and no complete discovery traversal; all 28 remain gaps. The demonstrated
-Orca pagination/card extraction and Barracuda compressed newsroom-shell repairs are implemented
-and tested against retained bytes, with incomplete traversal still reported as a gap.
-After allowance renewal, qualify the advertised supplier-specific Delinea, Ping Identity and
-Sonatype feeds first, then the remaining documented endpoints. These are agent-owned actions;
-none currently requires an owner source or factual judgment. They do not add source families.
-Qualification diagnostics now use the existing collector workflow's manual `source_probe` mode:
-verified archive restore, shared remote lease, acknowledged fetch-only escrow and final archive CAS.
-Standalone live onboarding is closed. Retain actual UTC-day charges and zero qualification credit.
-
-The [22-obligation filing audit](docs/active/daily-pipeline/accuracy/regulatory-gap-audit-2026-10-23.md)
-supports four historical CrowdStrike/Palo Alto parent-source proposals and leaves 18 awaiting
-further proof. A neutral issuer-index adapter and foreign-form document retention are implemented
-without activating registrations. Validate the exact parent/product relationships and fresh index
-responses before replacing any missing binding. Parent filing checks cannot supply product revenue,
-events or a new certified tier; all 22 obligations remain open pending proper collection.
-
-The issuer-bound filing-document extension now independently verifies full index selection,
-original body/text bindings and current immutable anchors with no semantic output. All 29 eligible
-historical CrowdStrike/Palo Alto bodies are retained and readable; this supplies no current credit.
-The actual ReliaQuest empty-HTML-attribute crash is repaired and replayed against unchanged bytes.
-
-All missing reporting/distribution and official/investor tasks now have separate retained-evidence
-audits, preserving the 254 missing-family denominator. Qualify family-relevant literal endpoints
-under the shared charged allowance; historical articles and broad portfolio sites remain leads.
-The [qualification queue](docs/active/daily-pipeline/accuracy/coverage-qualification-status-2026-10-23.md)
-maps all 254 missing tasks to exact evidence and next actions, with the 28 candidates and 154
-technical failures separately retained. It adds no successful check or source freshness.
-The [Xage source-classification repair](docs/active/daily-pipeline/accuracy/actual-correction-admissions-2026-10-24.md)
-is independently admitted and live through the typed publisher-disclosure operation. Preserve all
-six admitted groups, original review hashes and financial-primary guards. The latest actual manual
-monitor `40051997369` delivered `HELD_CLAIMS_32` and independent coverage-gap reasons to assigned
-issue 10; verify the next scheduled monitor separately. These investigations require no owner judgment now.
-The generic article path now decodes bounded gzip before extraction and verification, binds its
-decoded model input, and rejects affected legacy caches and partial receipts. Candidate HTML and
-robots probes use the same bounded decoder. The integrated candidate passes 476 operational,
-353 data, 115 pipeline and 43 browser tests; the actual monitor passed its 15 tests.
-The retained Barracuda parser replay
-preserves the shell's incomplete result and original evidence; citation tasks themselves remain
-transport-only. The exact existing fonts now ship locally; same-data replay preserves all pixels
-at desktop and phone widths. Obtain actual preview CI receipts before normal collection.
-All [five blocked citations](docs/active/daily-pipeline/accuracy/blocked-citation-audit-2026-10-23.md)
-retain their failures: three have only expired historical successes and two have no successful body.
-The hosting canary is now read-only: actual run `40037406532` verified the unchanged archive with
-zero market requests. Its former unreserved SEC probes remain visible in the historical receipts.
-
-**Authorization:** owner request on October 23 to fix coverage within existing limits, set an active
-goal and track durability/accuracy/value; clarified priority is current operation before expansion.
-[Recovery plan](docs/active/daily-pipeline/coverage-recovery-plan-2026-10-23.md).
+**Authorization:** the owner's October 23 coverage goal and reliability-first clarification;
+D-110 through D-112 and the [recovery plan](docs/active/daily-pipeline/coverage-recovery-plan-2026-10-23.md).
 
 ### SEC-060 · Email workstream
 
@@ -231,10 +106,10 @@ The owner has not set the acceptance duration (previous recommendation: 30 days)
 Sequence this after SEC-072's current-operation fixes and runtime proof. Keep its gaps visible now.
 
 Bounded daily collection for all 74 existing suppliers is authorized and implemented. The latest
-actual new-policy scheduled source run reports 261/557 daily-intake tasks; its full archive review
-passes. The old 121/557 report keeps its original combined definition. Current intake gaps
-are 254 missing family bindings, 28 unqualified candidates, nine HTTP 403s, four HTTP 429s and one
-unsafe redirect. All 32 claim-review holds remain separate. Resolve source registration, blocks, dated evidence,
+actual current-policy manual source run reports 264/557 daily-intake tasks; its full archive review
+passes. Its actual scheduled run and publication remain pending. The old 121/557 report keeps its original combined definition. Current intake gaps
+are 254 missing family bindings, 25 unqualified candidates, nine HTTP 403s, four HTTP 429s and one
+unsafe redirect. All 32 earlier claim-review holds and one new revalidation entry remain separate. Resolve source registration, blocks, dated evidence,
 typed ownership/financial adapters and retained historical audits within existing budgets. Keep
 task and field ages visible and leave unsupported or unchecked facts held. General partial coverage
 can accompany individually verified facts; the complete SEC certification requirement remains.

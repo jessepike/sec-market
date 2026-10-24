@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "observation": "actual bounded Orca source diagnostic; incomplete",
+  "github": {
+    "runId": 40129367275,
+    "attempt": 1,
+    "event": "workflow_dispatch",
+    "ref": "refs/heads/main",
+    "appRevision": "1bf6324ffa94cbb5265c5eb5b4f966abcdc395c3",
+    "conclusion": "success",
+    "startedAt": "2026-10-24T20:24:29.700345Z",
+    "checkedAt": "2026-10-24T20:24:58.778413Z",
+    "runUrl": "https://github.com/jessepike/sec-market/actions/runs/40129367275",
+    "ordinaryCollectionSteps": "skipped; bounded source-probe operation ran"
+  },
+  "artifact": {
+    "name": "source-probe-receipt",
+    "id": 12573851928,
+    "bytes": 9496,
+    "transportSha256": "98c8a3619be5286e3ea7faaf57199346984f3751617fc0cbfa2cfb455b2701ab",
+    "receiptPath": "docs/active/daily-pipeline/receipts/orca-redirect-source-probe-40129367275-2026-10-24.json",
+    "receiptSha256": "eddb13dc2f7671fb384d1a57e38fac3213dcd976e836611cc03f6de953f48817"
+  },
+  "binding": {
+    "policyH": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+    "sourceId": "orca:official:1",
+    "originalSourceSha256": "11dc1755e9febe013fbc5d35a636afc948432251f6186cf62ce3effcb5cac4cf",
+    "proposedAdapterSha256": "6b64c7c761c899e28297fe3e8bf18784dbf6da9dcb88f2d2d7ccab1671c963b2",
+    "originalRawPlan": {
+      "objectKey": "objects/93257fbffe11598ffff5ee7b890fdd0e992d59d4b276d0ad09aa8ddfe56f7d98",
+      "sha256": "93257fbffe11598ffff5ee7b890fdd0e992d59d4b276d0ad09aa8ddfe56f7d98",
+      "bytes": 1040,
+      "label": "exact original plan hash; 9325 is a hash prefix, not the byte length"
+    },
+    "currentDisabledPlanSha256": "ad1c5cc234fe4fa69cbceb5370ac74825a37dc80b08528ca908d14b1352e53b4"
+  },
+  "result": {
+    "requests": 27,
+    "http200IndexRequests": 26,
+    "leads": 90,
+    "firstChargedFetch": 1954,
+    "lastChargedFetch": 1980,
+    "dailyFetchCounterBefore": 1953,
+    "dailyFetchCounterAfter": 1980,
+    "firstFetchedAt": "2026-10-24T20:24:47.180775Z",
+    "lastFetchedAt": "2026-10-24T20:24:55.752400Z",
+    "indexComplete": false,
+    "evidenceComplete": false,
+    "reason": "ORCA_RESPONSE_INCOMPLETE",
+    "primarySampleCount": 0,
+    "modelCalls": 0,
+    "sourceChecksCredited": 0,
+    "qualificationCredited": false,
+    "coverageCredited": false,
+    "semanticAdmission": false,
+    "published": false,
+    "publicationReason": "SOURCE_PROBE_DIAGNOSTIC_ONLY"
+  },
+  "lastRequest": {
+    "url": "https://orca.security/resources/news/page/27/",
+    "rawObservationKey": "objects/ba6d9471c491b31fc3d1321eccec4e7c65a9f467abeac89fef60a4e065be4d3b",
+    "rawObservationSha256": "ba6d9471c491b31fc3d1321eccec4e7c65a9f467abeac89fef60a4e065be4d3b",
+    "rawObservationBytes": 2585,
+    "status": "failed",
+    "httpStatus": 302,
+    "errorCode": "HTTP_302",
+    "finalUrl": null,
+    "body": null,
+    "redirectDiagnosticCount": 5,
+    "redirectResponseUrlEqualsRequested": true,
+    "rawLocationEqualsRequested": true,
+    "proposedTargetEqualsRequested": true,
+    "interpretation": "repeated self-redirect failure; no terminality or destination is proved"
+  },
+  "archive": {
+    "extractedVmPath": "/var/tmp/smp-orca-redirect-40129367275-20261024/extracted/jessepike-sec-market-3511f25b6f7ebb6dad8dbb0d3d8121ed2dd92886",
+    "commit": "3511f25b6f7ebb6dad8dbb0d3d8121ed2dd92886",
+    "parentCommit": "210c53a6c5eaee18b5b8389049bfc92634033b25",
+    "manifestSha256": "63f6a19b51d38e4a3f809859d2a8cd77bd250affad5ee2c95898b325d47ac205",
+    "manifestFileCount": 41066,
+    "verifiedManifestEntries": 41066,
+    "parentManifest": {
+      "files": 41008,
+      "rawSha256": "310ab45758532d38736a7d3d60a42280a9f1de79cf2001604e07951e92d17253",
+      "gitBlobSha1": "2ec4563a7b4b2b6d02781c0d6671576eccc72d4c",
+      "missingParentPaths": 0,
+      "addedPaths": 58,
+      "changedSharedPaths": [
+        "state/heads/budget-2026-10-24.json",
+        "state/heads/cloud-lease.json"
+      ]
+    },
+    "previousActualArchive": {
+      "commit": "3dcd8798c2e5261ded4dd8afea348168ce2224af",
+      "files": 41005,
+      "manifestSha256": "34c98107d3b35af79da17fbce9874e043bb18c326b9b34083904d8d91e0e934e",
+      "missingPriorPaths": 0,
+      "addedPaths": 61,
+      "changedSharedPaths": [
+        "state/heads/budget-2026-10-24.json",
+        "state/heads/cloud-lease.json"
+      ]
+    },
+    "replay": {
+      "function": "orca_qualification.replay_diagnostic",
+      "usesImmutableOriginalPlanReference": true,
+      "currentPlanIsExplicitlyDisabled": true,
+      "replayedRequests": 27,
+      "replayedLeads": 90,
+      "replayedIncomplete": true,
+      "memoryStoreMutations": 0
+    },
+    "beforeAfterSeal": {
+      "filesIncludingManifest": 41070,
+      "directories": 1907,
+      "contentFingerprintSha256": "04ffc89e329c8af04b0d97406e46c67927a25a1c417ae5fcaba6faa505e174b3",
+      "fileMtimeFingerprintSha256": "20ec30fa1264500339cae0d498dba74f2065d0ec3b2c8f637f569a5750091c18",
+      "directoryMtimeFingerprintSha256": "069a477bc005958c40563c5db0b0b4223e96ad08f7252754539e4e359207c424",
+      "unchanged": true
+    }
+  },
+  "continuity": {
+    "latestNormalReceiptKey": "objects/4780f1b69db3d5b7fef1d599ce88819d80fe84fbf5d002f1f21ff00b64672180",
+    "latestNormalReceiptSha256": "4780f1b69db3d5b7fef1d599ce88819d80fe84fbf5d002f1f21ff00b64672180",
+    "latestNormalCheckedAt": "2026-10-24T18:32:56.227836Z",
+    "latestNormalCoverage": {
+      "successfulDailyIntakeChecks": 264,
+      "requiredDailyIntakeChecks": 557,
+      "meaning": "daily intake obligations, not suppliers or source IDs",
+      "policyH": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db"
+    },
+    "snapshotCheckedAt": "2026-10-24T18:35:31.770463Z",
+    "snapshotFactProvenanceCount": 4,
+    "snapshotReviewQueueCount": 33,
+    "productionReleaseId": "19fde803d09aa544672183769c257e37faf727b75e1914955f54f3c5fb126941",
+    "productionSequence": 3
+  },
+  "limitations": [
+    "The diagnostic does not establish a complete Orca index or terminal page.",
+    "No primary article was fetched or semantically reviewed.",
+    "The current normal collection remains 264/557; this diagnostic did not refresh it.",
+    "The response does not expose a different redirect destination, so no destination is inferred."
+  ]
+}

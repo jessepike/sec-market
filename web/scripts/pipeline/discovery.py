@@ -943,8 +943,10 @@ def scoped(url, source):
 
 def xml_links(body, base):
     body = decoded_discovery_body(body)
-    require(b"<!DOCTYPE" not in body.upper() and b"<!ENTITY" not in body.upper(), "XML entity declarations prohibited")
-    root = ET.fromstring(body)
+    class NoDoctypeTreeBuilder(ET.TreeBuilder):
+        def doctype(self, name, pubid, system):
+            require(False, "XML entity declarations prohibited")
+    root = ET.fromstring(body, parser=ET.XMLParser(target=NoDoctypeTreeBuilder()))
     kind = root.tag.rsplit("}", 1)[-1]
     links, indexes, modified = [], [], {}
     if kind in ("urlset", "sitemapindex"):

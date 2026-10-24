@@ -1,0 +1,425 @@
+{
+  "schemaVersion": 1,
+  "kind": "schema1_seven_source_endpoint_preflight",
+  "status": "proposed_plan_only_not_installed_or_dispatched",
+  "policy": {
+    "canonicalSha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+    "rawSha256": "24221c946781559c0ff3626e4e479c4647da915d0f2d7559ea88046982532c3c",
+    "unchanged": true
+  },
+  "archive": {
+    "commit": "b78bd35bb531ed49480ce1557780d3b2d9a522a2",
+    "manifestSha256": "3971ae961442d6a18c5ed145c64660d68190d91f470acf27b74c3d136f6d6849",
+    "root": "/var/tmp/smp-html-collection-40120612027-20261024/extracted/jessepike-sec-market-b78bd35bb531ed49480ce1557780d3b2d9a522a2",
+    "authentication": "previously fully authenticated archive; this preflight checks exact retained proof bytes"
+  },
+  "plan": {
+    "schemaVersion": 1,
+    "marketSha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+    "maxRequests": 7,
+    "targets": [
+      {
+        "id": "next-trend-micro-1",
+        "sourceId": "trend-micro:official:1",
+        "url": "https://newsroom.trendmicro.com/rss?rsspage=20295",
+        "expectedFormat": "rss",
+        "proof": {
+          "type": "source_observation",
+          "record": {
+            "key": "observations/a469145710c0baffff571d6f56b0ba7a3dc806114cceeb2ec4921ffc9dafdb11.json",
+            "sha256": "285d673919f9bcfd5886f062b999772e32d103ec4455862ae5c41766646f921d",
+            "bytes": 702
+          },
+          "body": {
+            "bytes": 405366,
+            "key": "objects/f22dbfeaf755a51c99e8a3a973add94ed94dd6f0405cffc9fa3226b571ac5f53",
+            "sha256": "f22dbfeaf755a51c99e8a3a973add94ed94dd6f0405cffc9fa3226b571ac5f53"
+          },
+          "fetchedAt": "2026-10-23T04:14:54.588681Z"
+        }
+      },
+      {
+        "id": "next-trustwave-1",
+        "sourceId": "trustwave:official:1",
+        "url": "https://www.levelblue.com/newsroom/press-releases/rss.xml",
+        "expectedFormat": "rss",
+        "proof": {
+          "type": "source_observation",
+          "record": {
+            "key": "observations/18e4527a442c56787cba05e2b9addcc9f25696f487135903bb33dbaf302d1e28.json",
+            "sha256": "3c6e2e1d2aa873277933f205d942d5b98a8c71dd5aa6d236d235d5d03094ab8b",
+            "bytes": 833
+          },
+          "body": {
+            "bytes": 70732,
+            "key": "objects/56b10c4d252dd01f6bc5c6bc763d4d9f88d171e9f01a0b8d0851e90eb5d612b3",
+            "sha256": "56b10c4d252dd01f6bc5c6bc763d4d9f88d171e9f01a0b8d0851e90eb5d612b3"
+          },
+          "fetchedAt": "2026-10-23T04:14:52.443297Z"
+        }
+      },
+      {
+        "id": "next-checkpoint-email-1",
+        "sourceId": "checkpoint-email:official:1",
+        "url": "https://blog.checkpoint.com/feed/",
+        "expectedFormat": "rss",
+        "proof": {
+          "type": "source_observation",
+          "record": {
+            "key": "observations/50ec3d4e779961d2ceb6a2d8f1f8143b417831aa62922ccf0a3aa344e5efbca8.json",
+            "sha256": "4a128cab32725348a5584148a6d09bfb2d2bf8fb46a1c0ef32bb0526b4115526",
+            "bytes": 796
+          },
+          "body": {
+            "bytes": 112616,
+            "key": "objects/6d69cece87900607c32dd7c45af871362581f9c8542a94a0d6cb90cd1c32222a",
+            "sha256": "6d69cece87900607c32dd7c45af871362581f9c8542a94a0d6cb90cd1c32222a"
+          },
+          "fetchedAt": "2026-10-20T21:21:30.910132Z"
+        }
+      },
+      {
+        "id": "next-aqua-2",
+        "sourceId": "aqua:official:2",
+        "url": "https://www.prnewswire.com/news/aqua-security/",
+        "expectedFormat": "html",
+        "proof": {
+          "type": "source_observation",
+          "record": {
+            "key": "observations/e24720dfa44507d940f32466510b95493f8765e93123960c31b3ecbd93869212.json",
+            "sha256": "c7e7333dea766f094a29dd83c20b5e7f0429a05c04f839fa3fb5210873713fc8",
+            "bytes": 784
+          },
+          "body": {
+            "bytes": 205885,
+            "key": "objects/222e0e2f867e72220a4f2cf699cb03251fc3a54050170dda19801220b4954008",
+            "sha256": "222e0e2f867e72220a4f2cf699cb03251fc3a54050170dda19801220b4954008"
+          },
+          "fetchedAt": "2026-10-20T21:12:01.289388Z"
+        }
+      },
+      {
+        "id": "next-jfrog-1",
+        "sourceId": "jfrog:official:1",
+        "url": "https://investors.jfrog.com/news/default.aspx",
+        "expectedFormat": "html",
+        "proof": {
+          "type": "source_observation",
+          "record": {
+            "key": "observations/0f9ed40d38d1aa5018d59bd08ed43e78f211775777de01ead66034b5adebae60.json",
+            "sha256": "4afd0e9a54481903324ce4b985211314687cc125f4c1eb27b152c184832af691",
+            "bytes": 701
+          },
+          "body": {
+            "bytes": 415271,
+            "key": "objects/d4b3f869f367be9e1195f49b15e6474a103ea45956cc5119dcdad6cbbfc7d2fc",
+            "sha256": "d4b3f869f367be9e1195f49b15e6474a103ea45956cc5119dcdad6cbbfc7d2fc"
+          },
+          "fetchedAt": "2026-10-23T04:15:09.384404Z"
+        }
+      },
+      {
+        "id": "next-rapid7-1",
+        "sourceId": "rapid7:official:1",
+        "url": "https://investors.rapid7.com/news/default.aspx",
+        "expectedFormat": "html",
+        "proof": {
+          "type": "source_observation",
+          "record": {
+            "key": "observations/9f0ecf23e984c7bbb1e3a7a22cf192f6adeefae468e89abe90f3f8cf5707fc5d.json",
+            "sha256": "f6e9dabf68eb514cf7c2688e35eaaf1bc8b58f691e5449c4548a0793b427991d",
+            "bytes": 840
+          },
+          "body": {
+            "bytes": 86808,
+            "key": "objects/911cb36056eee61f355544d6323172db4650f6d0febbb20264c0fdfa79cac731",
+            "sha256": "911cb36056eee61f355544d6323172db4650f6d0febbb20264c0fdfa79cac731"
+          },
+          "fetchedAt": "2026-10-23T04:15:06.208761Z"
+        }
+      },
+      {
+        "id": "next-rubrik-1",
+        "sourceId": "rubrik:official:1",
+        "url": "https://ir.rubrik.com/news-events/press-releases/default.aspx",
+        "expectedFormat": "html",
+        "proof": {
+          "type": "source_observation",
+          "record": {
+            "key": "observations/0436baf377955181e6f43f9825470f7dd39652842a333155407122bf187d84ad.json",
+            "sha256": "f78b5f9b8a71e29d8c1ec8f701a209ff46eb6ef3e99cf10582aa2a6a7fe3ba04",
+            "bytes": 752
+          },
+          "body": {
+            "bytes": 57941,
+            "key": "objects/710d5be834f1c10951fabe47f1b71459efd1a426247346b4e71c8fe2e6cfbbb6",
+            "sha256": "710d5be834f1c10951fabe47f1b71459efd1a426247346b4e71c8fe2e6cfbbb6"
+          },
+          "fetchedAt": "2026-10-23T04:14:57.340319Z"
+        }
+      }
+    ]
+  },
+  "planRawSha256": "98b110fe4fd1beb898ff7ccaa190a3e4eb6dcb61e1da3ed5a5d72151bddd2ce4",
+  "planCanonicalSha256": "98b110fe4fd1beb898ff7ccaa190a3e4eb6dcb61e1da3ed5a5d72151bddd2ce4",
+  "planBytes": 4256,
+  "selectedTargets": [
+    {
+      "title": "Trend Micro newsroom RSS",
+      "sourceId": "trend-micro:official:1",
+      "sourceSha256": "aadb8074933f1e8f5f5f2f495aa910d5c1b21be9e03f24eb6543ee30087f53f1",
+      "originalVerifiedSourceId": "trend-micro:citation:TR-trend-1",
+      "url": "https://newsroom.trendmicro.com/rss?rsspage=20295",
+      "proof": {
+        "type": "source_observation",
+        "record": {
+          "key": "observations/a469145710c0baffff571d6f56b0ba7a3dc806114cceeb2ec4921ffc9dafdb11.json",
+          "sha256": "285d673919f9bcfd5886f062b999772e32d103ec4455862ae5c41766646f921d",
+          "bytes": 702
+        },
+        "body": {
+          "bytes": 405366,
+          "key": "objects/f22dbfeaf755a51c99e8a3a973add94ed94dd6f0405cffc9fa3226b571ac5f53",
+          "sha256": "f22dbfeaf755a51c99e8a3a973add94ed94dd6f0405cffc9fa3226b571ac5f53"
+        },
+        "fetchedAt": "2026-10-23T04:14:54.588681Z"
+      },
+      "literalRecognition": "html_link_feed_or_canonical"
+    },
+    {
+      "title": "LevelBlue press-release RSS for the Trustwave relationship",
+      "sourceId": "trustwave:official:1",
+      "sourceSha256": "1f87c043b815700b281690c5740a607cb8955b3695b7d92a7743c06b56b7fd37",
+      "originalVerifiedSourceId": "trustwave:citation:TR-trustwave-1",
+      "url": "https://www.levelblue.com/newsroom/press-releases/rss.xml",
+      "proof": {
+        "type": "source_observation",
+        "record": {
+          "key": "observations/18e4527a442c56787cba05e2b9addcc9f25696f487135903bb33dbaf302d1e28.json",
+          "sha256": "3c6e2e1d2aa873277933f205d942d5b98a8c71dd5aa6d236d235d5d03094ab8b",
+          "bytes": 833
+        },
+        "body": {
+          "bytes": 70732,
+          "key": "objects/56b10c4d252dd01f6bc5c6bc763d4d9f88d171e9f01a0b8d0851e90eb5d612b3",
+          "sha256": "56b10c4d252dd01f6bc5c6bc763d4d9f88d171e9f01a0b8d0851e90eb5d612b3"
+        },
+        "fetchedAt": "2026-10-23T04:14:52.443297Z"
+      },
+      "literalRecognition": "html_link_feed_or_canonical"
+    },
+    {
+      "title": "Check Point blog RSS for the Email Security segment",
+      "sourceId": "checkpoint-email:official:1",
+      "sourceSha256": "cac1a844fca18a31657af467872f19eda11ed1680c11bca6c7d6c376f82d7fc5",
+      "originalVerifiedSourceId": "checkpoint-email:citation:TR-checkpoint-email-2",
+      "url": "https://blog.checkpoint.com/feed/",
+      "proof": {
+        "type": "source_observation",
+        "record": {
+          "key": "observations/50ec3d4e779961d2ceb6a2d8f1f8143b417831aa62922ccf0a3aa344e5efbca8.json",
+          "sha256": "4a128cab32725348a5584148a6d09bfb2d2bf8fb46a1c0ef32bb0526b4115526",
+          "bytes": 796
+        },
+        "body": {
+          "bytes": 112616,
+          "key": "objects/6d69cece87900607c32dd7c45af871362581f9c8542a94a0d6cb90cd1c32222a",
+          "sha256": "6d69cece87900607c32dd7c45af871362581f9c8542a94a0d6cb90cd1c32222a"
+        },
+        "fetchedAt": "2026-10-20T21:21:30.910132Z"
+      },
+      "literalRecognition": "html_link_feed_or_canonical"
+    },
+    {
+      "title": "Aqua Security PR Newswire issuer index",
+      "sourceId": "aqua:official:2",
+      "sourceSha256": "a60ed03f55920ca3ab3289860d48911ee839e5a27e7225bfa4191ba000206f82",
+      "originalVerifiedSourceId": "aqua:citation:TR-aqua-4",
+      "url": "https://www.prnewswire.com/news/aqua-security/",
+      "proof": {
+        "type": "source_observation",
+        "record": {
+          "key": "observations/e24720dfa44507d940f32466510b95493f8765e93123960c31b3ecbd93869212.json",
+          "sha256": "c7e7333dea766f094a29dd83c20b5e7f0429a05c04f839fa3fb5210873713fc8",
+          "bytes": 784
+        },
+        "body": {
+          "bytes": 205885,
+          "key": "objects/222e0e2f867e72220a4f2cf699cb03251fc3a54050170dda19801220b4954008",
+          "sha256": "222e0e2f867e72220a4f2cf699cb03251fc3a54050170dda19801220b4954008"
+        },
+        "fetchedAt": "2026-10-20T21:12:01.289388Z"
+      },
+      "literalRecognition": "html_link_feed_or_canonical"
+    },
+    {
+      "title": "JFrog investor news index",
+      "sourceId": "jfrog:official:1",
+      "sourceSha256": "1e8d43d1828092f65a14bf90b7a5e222d2e4e8e12bccaab23c2a7052f0da7bff",
+      "originalVerifiedSourceId": "jfrog:citation:TR-jfrog-1",
+      "url": "https://investors.jfrog.com/news/default.aspx",
+      "proof": {
+        "type": "source_observation",
+        "record": {
+          "key": "observations/0f9ed40d38d1aa5018d59bd08ed43e78f211775777de01ead66034b5adebae60.json",
+          "sha256": "4afd0e9a54481903324ce4b985211314687cc125f4c1eb27b152c184832af691",
+          "bytes": 701
+        },
+        "body": {
+          "bytes": 415271,
+          "key": "objects/d4b3f869f367be9e1195f49b15e6474a103ea45956cc5119dcdad6cbbfc7d2fc",
+          "sha256": "d4b3f869f367be9e1195f49b15e6474a103ea45956cc5119dcdad6cbbfc7d2fc"
+        },
+        "fetchedAt": "2026-10-23T04:15:09.384404Z"
+      },
+      "literalRecognition": "html_link_feed_or_canonical"
+    },
+    {
+      "title": "Rapid7 investor news index",
+      "sourceId": "rapid7:official:1",
+      "sourceSha256": "05a6202088ab48d007b5969e9230844aa716749d7b9442d145953a51446209b5",
+      "originalVerifiedSourceId": "rapid7:citation:TR-rapid7-3",
+      "url": "https://investors.rapid7.com/news/default.aspx",
+      "proof": {
+        "type": "source_observation",
+        "record": {
+          "key": "observations/9f0ecf23e984c7bbb1e3a7a22cf192f6adeefae468e89abe90f3f8cf5707fc5d.json",
+          "sha256": "f6e9dabf68eb514cf7c2688e35eaaf1bc8b58f691e5449c4548a0793b427991d",
+          "bytes": 840
+        },
+        "body": {
+          "bytes": 86808,
+          "key": "objects/911cb36056eee61f355544d6323172db4650f6d0febbb20264c0fdfa79cac731",
+          "sha256": "911cb36056eee61f355544d6323172db4650f6d0febbb20264c0fdfa79cac731"
+        },
+        "fetchedAt": "2026-10-23T04:15:06.208761Z"
+      },
+      "literalRecognition": "html_link_feed_or_canonical"
+    },
+    {
+      "title": "Rubrik investor press-release index",
+      "sourceId": "rubrik:official:1",
+      "sourceSha256": "3bdfd09fadc261c1d2b09e84499e76983278f527b1c99e06e8d181d5ad56cab0",
+      "originalVerifiedSourceId": "rubrik:citation:TR-rubrik-3",
+      "url": "https://ir.rubrik.com/news-events/press-releases/default.aspx",
+      "proof": {
+        "type": "source_observation",
+        "record": {
+          "key": "observations/0436baf377955181e6f43f9825470f7dd39652842a333155407122bf187d84ad.json",
+          "sha256": "f78b5f9b8a71e29d8c1ec8f701a209ff46eb6ef3e99cf10582aa2a6a7fe3ba04",
+          "bytes": 752
+        },
+        "body": {
+          "bytes": 57941,
+          "key": "objects/710d5be834f1c10951fabe47f1b71459efd1a426247346b4e71c8fe2e6cfbbb6",
+          "sha256": "710d5be834f1c10951fabe47f1b71459efd1a426247346b4e71c8fe2e6cfbbb6"
+        },
+        "fetchedAt": "2026-10-23T04:14:57.340319Z"
+      },
+      "literalRecognition": "html_link_feed_or_canonical"
+    }
+  ],
+  "preflight": {
+    "validator": "onboarding.validate_qualification_probe_plan",
+    "passed": true,
+    "literalRecognitions": [
+      "html_link_feed_or_canonical",
+      "html_link_feed_or_canonical",
+      "html_link_feed_or_canonical",
+      "html_link_feed_or_canonical",
+      "html_link_feed_or_canonical",
+      "html_link_feed_or_canonical",
+      "html_link_feed_or_canonical"
+    ],
+    "proofFilesChecked": 46,
+    "proofFileHashSizeMtimeSealsUnchanged": true,
+    "memoryStoreMutations": 0,
+    "missingObjectOverlays": 0,
+    "sourceRequests": 0
+  },
+  "requestBound": {
+    "explicitTargetsRequired": 7,
+    "maximumExplicitLogicalReservations": 7,
+    "currentCandidateSources": 25,
+    "maximumGenericLogicalReservationsPerSource": 10,
+    "maximumGenericLogicalReservations": 250,
+    "maximumWholeInvocationLogicalReservations": 257,
+    "genericFanoutSuppressibleByExistingSchema1Plan": false,
+    "dailyFetchCap": 5500,
+    "actualUsageReportedByParent": 1980,
+    "remainingBefore": 3520,
+    "maximumUsageAfter": 2237,
+    "minimumRemainingAfter": 3263,
+    "wireAttemptsAreNotLogicalReservations": true,
+    "runtimeDayDenialsRetainPartialEvidence": true
+  },
+  "proofPolicyBoundary": {
+    "allSelectedUse": "source_observation",
+    "sameSupplierAndExactVerifiedCitationUrlRequired": true,
+    "oldObservationTimesPreserved": true,
+    "oldDiagnosticProofsNotUsed": true,
+    "d112OnlyBridgeDoesNotAuthorizeHActivationDelta": true
+  },
+  "originalAuditEndpointEligibility": {
+    "eligible": 22,
+    "totalCurrentCandidates": 25,
+    "ineligible": [
+      {
+        "sourceId": "barracuda:official:1",
+        "endpoint": "https://www.barracuda.com/content/barracuda-corp/us/en/company/news/jcr:content/root/container/container/news_room.news_room.json",
+        "eligible": false,
+        "reasons": [
+          "NOT_A_RECOGNIZED_LITERAL_LINK"
+        ]
+      },
+      {
+        "sourceId": "checkpoint-email:official:2",
+        "endpoint": "https://www.checkpoint.com/press-releases/",
+        "eligible": false,
+        "reasons": [
+          "ORIGINAL_SOURCE_JOIN_FAILS"
+        ]
+      },
+      {
+        "sourceId": "sysdig:official:1",
+        "endpoint": null,
+        "eligible": false,
+        "reasons": [
+          "NO_RETAINED_LITERAL_ENDPOINT"
+        ]
+      }
+    ],
+    "scope": "only existing original candidate-audit endpoint/body pairs; not an exhaustive search for new alternate sources"
+  },
+  "githubExcluded": {
+    "reason": "already retained actual RSS bytes hit whole-byte XML declaration guard; new request is not required to diagnose it",
+    "body": {
+      "key": "objects/251d0a6b45ff8e4a1a40eba63b66781a7cfefbe6c1dd1151b2a1daae57107379",
+      "sha256": "251d0a6b45ff8e4a1a40eba63b66781a7cfefbe6c1dd1151b2a1daae57107379",
+      "bytes": 1271295
+    },
+    "latestInspectedOriginalFetchedAt": "2026-10-24T06:17:55.346340Z",
+    "doctypeOffset": 2255,
+    "doctypeContext": "content:encoded CDATA containing an HTML DOCTYPE",
+    "currentParserError": "XML entity declarations prohibited",
+    "qualificationClaimed": false
+  },
+  "HHtmlCompatibility": {
+    "rawDiscoveryModuleSha256PinnedByAuthorityOrSeed": false,
+    "authorityStillRequiresExactWholePolicySourceAdapterRevisionOriginalPlanAndExternalEvidence": true,
+    "allOriginalReportsAndThreeHtmlInventoriesMustReplayExactlyAfterAnyScannerChange": true,
+    "seedOrAuthorityEditsNeededForBehaviorPreservingXmlOnlyChange": false,
+    "newAppRevisionStillSubjectToExistingPublisherGate": true,
+    "basis": "read-only static code review; no scanner change or post-change acceptance performed here"
+  },
+  "newUsage": {
+    "sourceRequests": 0,
+    "modelCalls": 0,
+    "documentReservations": 0,
+    "gateUses": 0,
+    "qualifiedSources": 0,
+    "sourceChecksCredited": 0,
+    "coverageCredit": false,
+    "semanticAdmission": false
+  }
+}
