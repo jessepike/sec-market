@@ -12,7 +12,7 @@ import xml.etree.ElementTree as ET
 from urllib.parse import urljoin, urlsplit
 from urllib.robotparser import RobotFileParser
 
-from contracts import digest, instant, require, utcnow, valid_hash
+from contracts import digest, instant, require, utcnow, valid_hash, validate_contract
 from discovery import Page, decoded_discovery_body, xml_links
 
 
@@ -121,6 +121,55 @@ def _qualification_reference(store, reference, pattern):
     if reference['key'].startswith('objects/'):
         require(reference['key'] == 'objects/' + reference['sha256'], 'QUALIFICATION_OBJECT_ADDRESS_INVALID')
     return store.get(reference)
+
+
+def _qualification_proof_policy(recorded, proof, source, contract, store):
+    """Read original evidence under its policy; allow only the exact D-112 transition."""
+    current_hash = digest(contract)
+    descriptor = proof.get('historicalPolicyBridge')
+    if recorded.get('contractSha256') == current_hash:
+        require('historicalPolicyBridge' not in proof, 'QUALIFICATION_UNNECESSARY_HISTORICAL_POLICY_BRIDGE')
+        return contract, source
+    require(proof['type'] == 'qualification_observation', 'QUALIFICATION_HISTORICAL_EXPLICIT_PROOF_REQUIRED')
+    require(isinstance(descriptor, dict) and set(descriptor) == {
+            'schemaVersion', 'transition', 'originalContract', 'originalContractSha256',
+            'currentContractSha256', 'semanticContextSha256'} and
+            type(descriptor['schemaVersion']) is int and descriptor['schemaVersion'] == 1 and
+            descriptor['transition'] == 'd112-intake-history-separation' and
+            valid_hash(descriptor['originalContractSha256']) and
+            descriptor['originalContractSha256'] == recorded.get('contractSha256') and
+            descriptor['currentContractSha256'] == current_hash,
+            'QUALIFICATION_HISTORICAL_POLICY_BRIDGE_REQUIRED_OR_INVALID')
+    reference = descriptor['originalContract']
+    require(isinstance(reference, dict) and reference.get('key') ==
+            'contracts/' + descriptor['originalContractSha256'] + '.json' and
+            reference.get('sha256') == descriptor['originalContractSha256'] and
+            type(reference.get('bytes')) is int and 0 < reference['bytes'] <= 1_000_000,
+            'QUALIFICATION_ORIGINAL_CONTRACT_REFERENCE_INVALID')
+    raw = _qualification_reference(store, reference, r'contracts/[a-f0-9]{64}\.json')
+    original = json.loads(raw)
+    require(isinstance(original, dict) and digest(original) == descriptor['originalContractSha256'],
+            'QUALIFICATION_ORIGINAL_CONTRACT_CANONICAL_HASH_DIFFERS')
+    validate_contract(original)
+    validate_contract(contract)
+    require(original['version'] == 'market-daily-v1' and contract['version'] == 'market-daily-v2' and
+            original.get('collection', {}).get('mode') == 'delta_with_retained_audit' and
+            contract.get('collection', {}).get('mode') == 'daily_intake_with_separate_history',
+            'QUALIFICATION_D112_TRANSITION_INVALID')
+    old_policy, current_policy = copy.deepcopy(original), copy.deepcopy(contract)
+    for policy in (old_policy, current_policy):
+        policy.pop('version')
+        policy['collection'].pop('mode')
+    require(digest(old_policy) == digest(current_policy), 'QUALIFICATION_D112_SUBSTANTIVE_POLICY_CHANGE')
+    from separation import bridge
+    derived = bridge(original, contract, source['id'])
+    require(all(descriptor[key] == derived[key] for key in
+                ('originalContractSha256', 'currentContractSha256', 'semanticContextSha256')),
+            'QUALIFICATION_HISTORICAL_SOURCE_CONTEXT_DIFFERS')
+    original_source = next(s for s in original['sources'] if s['id'] == source['id'])
+    require(original_source == source and original_source['registration'] == 'candidate',
+            'QUALIFICATION_HISTORICAL_SOURCE_BINDING_DIFFERS')
+    return original, original_source
 
 
 def _qualification_explicit_observation(recorded, proof, source, contract, store):
@@ -260,7 +309,7 @@ def validate_qualification_probe_plan(contract, store, path):
             and isinstance(plan['targets'], list) and len(plan['targets']) == 7,
             'QUALIFICATION_PLAN_SHAPE_OR_POLICY_INVALID')
     sources = {s['id']: s for s in contract['sources']}
-    identifiers, urls, validated = set(), set(), []
+    identifiers, urls, validated, historical_bridges = set(), set(), [], []
     for target in plan['targets']:
         require(isinstance(target, dict) and set(target) == {'id', 'sourceId', 'url', 'expectedFormat', 'proof'}
                 and isinstance(target['id'], str) and re.fullmatch(r'[a-z][a-z0-9-]{0,79}', target['id'])
@@ -278,6 +327,8 @@ def validate_qualification_probe_plan(contract, store, path):
         fields = {'type', 'record', 'body', 'fetchedAt'}
         if proof['type'] != 'source_observation':
             fields.add('observation')
+            if 'historicalPolicyBridge' in proof:
+                fields.add('historicalPolicyBridge')
         if proof['type'] == 'qualification_observation':
             fields.update(('priorTargetId','priorTargetIndex','priorTargetSha256',
                            'priorPlanRawSha256','priorPlanCanonicalSha256'))
@@ -295,8 +346,10 @@ def validate_qualification_probe_plan(contract, store, path):
                     and observation.get('requestedUrl') == original['url'], 'QUALIFICATION_SOURCE_BINDING_DIFFERS')
         else:
             recorded = json.loads(_qualification_reference(store, proof['record'], r'ci/source-probe-runs/[0-9]+-[0-9]+\.json'))
-            require(isinstance(recorded, dict) and recorded.get('checkpointProfile') == 'source_probe'
-                    and recorded.get('contractSha256') == digest(contract)
+            require(isinstance(recorded, dict), 'QUALIFICATION_DIAGNOSTIC_PROVENANCE_INVALID')
+            proof_contract, proof_source = _qualification_proof_policy(recorded, proof, source, contract, store)
+            require(recorded.get('checkpointProfile') == 'source_probe'
+                    and recorded.get('contractSha256') == digest(proof_contract)
                     and all(type(recorded.get(k)) is int and recorded[k] == 0
                             for k in ('modelCalls', 'sourceChecksCredited', 'qualifiedSources'))
                     and recorded.get('semanticAdmission') is False and recorded.get('coverageCredit') is False
@@ -305,9 +358,12 @@ def validate_qualification_probe_plan(contract, store, path):
                     'QUALIFICATION_DIAGNOSTIC_PROVENANCE_INVALID')
             diagnostic = recorded.get('diagnostic', {})
             if proof['type'] == 'qualification_observation':
-                observation = _qualification_explicit_observation(recorded, proof, source, contract, store)
+                observation = _qualification_explicit_observation(recorded, proof, proof_source, proof_contract, store)
             else:
-                observation = _qualification_generic_observation(diagnostic, proof, source, store)
+                observation = _qualification_generic_observation(diagnostic, proof, proof_source, store)
+            if 'historicalPolicyBridge' in proof:
+                historical_bridges.append({'targetId': target['id'], 'record': copy.deepcopy(proof['record']),
+                                          'historicalPolicyBridge': copy.deepcopy(proof['historicalPolicyBridge'])})
         require(isinstance(observation, dict) and observation.get('status') == 'fetched'
                 and observation.get('httpStatus') == 200 and observation.get('body') == proof['body']
                 and observation.get('fetchedAt') == proof['fetchedAt'], 'QUALIFICATION_OBSERVATION_BODY_OR_TIME_DIFFERS')
@@ -338,8 +394,11 @@ def validate_qualification_probe_plan(contract, store, path):
             recognition = 'html_link_feed_or_canonical'
         require(url in literal_urls, 'QUALIFICATION_TARGET_NOT_LITERAL_IN_PROOF')
         validated.append({**copy.deepcopy(target), 'literalRecognition': recognition})
-    return {'rawSha256': digest(raw), 'canonicalSha256': digest(plan), 'path': str(path),
-            'marketSha256': digest(contract), 'maxRequests': 7, 'plan': plan, 'targets': validated}
+    result = {'rawSha256': digest(raw), 'canonicalSha256': digest(plan), 'path': str(path),
+              'marketSha256': digest(contract), 'maxRequests': 7, 'plan': plan, 'targets': validated}
+    if historical_bridges:
+        result['historicalPolicyBridges'] = historical_bridges
+    return result
 
 
 def _qualification_generic_observation(diagnostic, proof, source, store):

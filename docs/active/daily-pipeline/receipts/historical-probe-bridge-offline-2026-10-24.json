@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "kind": "historical_probe_bridge_candidate_offline_acceptance",
+  "fullOpsTests": {
+    "passed": 561,
+    "log": "/var/tmp/smp-probe-bridge-final-ops-20261024.log"
+  },
+  "web": {
+    "dataPassed": 368,
+    "pipelinePassed": 115,
+    "browserPassed": 42,
+    "browserSkipped": 1,
+    "skipReason": "Uncollected fixture has no freshness deadline.",
+    "lintAndBuildPassed": true,
+    "log": "/var/tmp/smp-probe-bridge-final-web-20261024.log"
+  },
+  "monitorTestsPassed": 20,
+  "visualReview": {
+    "widths": [
+      1440,
+      390
+    ],
+    "allFourFullPagesRenderedAndInspected": true,
+    "pixelIdenticalToPreviousPreviewAtBothWidths": true,
+    "visibleChange": false,
+    "dataBoundary": "The local candidate and previous preview use the same uncollected fixture. Production retains original-policy 244/557 with all six correction groups. The fixture is not production data."
+  },
+  "filePins": {
+    "probe-bridge-production-1440.png": {
+      "sha256": "8651f15011d8a0518a5e4f96a43d693c014ea1d33a041f1586e830a088cce1ad",
+      "bytes": 996984
+    },
+    "probe-bridge-production-390.png": {
+      "sha256": "0c81367ea5540676b295a8ba96173ef98e5e9c41993a3dac9392166ae2af10d9",
+      "bytes": 437240
+    },
+    "probe-bridge-local-1440.png": {
+      "sha256": "b044622ff53e695fee8334a95746b932c0df81ff6e26ecb810bfd9228765cdd9",
+      "bytes": 989395
+    },
+    "probe-bridge-local-390.png": {
+      "sha256": "7dc872da46a4cf5e2eb765df88e1ae28e34eb70f8d5c38b19835bab09afcd3df",
+      "bytes": 436460
+    }
+  },
+  "limits": "No live source/model requests, archive mutations, budget changes or production credit during these offline checks."
+}

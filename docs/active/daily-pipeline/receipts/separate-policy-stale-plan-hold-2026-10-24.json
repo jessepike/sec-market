@@ -92,5 +92,19 @@
       "sha256": "669ab75f9204ab954f91975d7b9303a064b3cfa7f30ec15d93200507c19aa6f7",
       "bytes": 131
     }
-  }
+  },
+  "diagnosticCallbacks": [
+    {
+      "githubRunId": 40064833771,
+      "conclusion": "success",
+      "publishJob": "skipped",
+      "publicationAttempted": false
+    },
+    {
+      "githubRunId": 40064847624,
+      "conclusion": "success",
+      "rollbackAndRestoreJob": "skipped",
+      "rollbackAttempted": false
+    }
+  ]
 }

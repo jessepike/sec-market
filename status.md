@@ -79,7 +79,13 @@ public receipt; do not call manual dispatch or an offline replay scheduled proof
 Manual fetch-only diagnostic `40064649402` failed before any request or new reservation because
 its plan and nested proofs still pin the old policy. The authenticated archive diff contains only
 lease/checkpoint/failure records, no observation or budget changes; the lease is released. Keep
-that guard and implement an explicit historical policy bridge before retry.
+that guard. A reviewed candidate bridge now authenticates the full old contract and permits only
+the exact two-field D-112 transition for fully charged explicit proof. All seven real targets
+validate without changing old evidence; 561 operational, 115 pipeline, 368 data, 42 browser and
+20 monitor tests pass, with one appropriate browser skip. Both-width renders are pixel-identical
+to the previous preview. The repaired plan still needs main activation before retry.
+[Bridge implementation](docs/active/daily-pipeline/accuracy/historical-probe-policy-bridge-implementation-2026-10-24.md) ·
+[Offline integrated checks](docs/active/daily-pipeline/receipts/historical-probe-bridge-offline-2026-10-24.json).
 [Actual diagnostic hold](docs/active/daily-pipeline/receipts/separate-policy-stale-plan-hold-2026-10-24.json).
 
 After scheduled collection and the reviewed proof migration, use the leased fetch-only diagnostic
@@ -91,8 +97,11 @@ qualification, model review or coverage credit. Previously observed RSS feeds we
 
 There are 32 preserved review holds and four quarantined older-policy facts. Source qualification,
 existing missing bindings and current fact review remain work, not automatic owner questions.
-Monitor `40051997369` delivered assigned issue 10 for incomplete coverage and held claims; publisher
-issue 11 closed after repair. Actual new-policy scheduled durability and publication remain
+Actual scheduled monitor `40064680975` passed 19 monitor tests and updated assigned issue 10 at
+05:02 UTC for the genuine contract/collection/publication transition and preserved 32 holds.
+Its invalid-receipt measure label has a reviewed candidate repair; the alarm itself is correct.
+[Scheduled monitor receipt](docs/active/daily-pipeline/receipts/separate-policy-scheduled-monitor-2026-10-24.json).
+Publisher issue 11 closed after the earlier repair. Actual new-policy scheduled collection durability and publication remain
 unmeasured. The executable rubric keeps coverage, accuracy, release verification and reader value
 separate. [Evaluation rubric](docs/active/daily-pipeline/evaluation-rubric.md) ·
 [Original-policy reproducible scorecard](docs/active/daily-pipeline/evaluations/2026-10-24/operational-scorecard.md).

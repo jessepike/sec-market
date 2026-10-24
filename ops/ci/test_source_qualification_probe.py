@@ -13,6 +13,7 @@ from contracts import canonical, digest
 from onboarding import (PersistentProbeBudget, _probe_qualification_targets,
                         probe_sources, validate_qualification_probe_plan)
 from storage import LocalStore
+from separation import bridge, MODE
 
 
 def file_reference(store, key):
@@ -173,6 +174,211 @@ class SourceQualificationProbeTests(unittest.TestCase):
                           'proof':copy.deepcopy(proof)} for i,u in enumerate(next_urls)]}
         self.write(plan)
         return plan,record,key
+
+    def historical_followup(self, *, explicit=True):
+        self.store=LocalStore(Path(self.temp.name)/'historical-state')
+        self.policy.update(version='market-daily-v1',
+            collection={'mode':'delta_with_retained_audit','currentWindowDays':30,
+                        'maxDocumentsPerSource':2,'maxAuditDocumentsPerSource':1},
+            model={'provider':'codex_subscription','allowApiBilling':False,'maxDocumentsPerRun':40,
+                   'maxCallsPerRun':80,'maxDocumentChars':30000,'timeoutSeconds':5},
+            publication={'enabled':False,'allowDegradedCoverage':True},
+            suppliers=[{'id':'synthetic-0','name':'Fictional Supplier','kind':'private','aliases':[],
+                        'sourceIds':['synthetic-0'],'requiredFamilies':['official_announcements'],
+                        'requiredCategories':['funding_valuation']}])
+        self.policy['schedule'].update(intervalHours=24,overdueHours=30,reconcileEveryRun=True,maxWorkers=1)
+        seed_qualification_plan(self.store,self.policy,self.path)
+        if explicit:
+            plan,record,key=self.explicit_followup(modern=True)
+        else:
+            plan=json.loads(self.path.read_bytes());key='ci/source-probe-runs/901-1.json'
+            record=self.store.read(key)
+        original=copy.deepcopy(self.policy);old_hash=digest(original)
+        self.store.write_once('contracts/'+old_hash+'.json',original)
+        self.policy['version']='market-daily-v2';self.policy['collection']['mode']=MODE
+        plan['marketSha256']=digest(self.policy)
+        for target in plan['targets']:
+            derived=bridge(original,self.policy,target['sourceId'])
+            target['proof']['historicalPolicyBridge']={
+                'schemaVersion':1,'transition':'d112-intake-history-separation',
+                'originalContract':file_reference(self.store,'contracts/'+old_hash+'.json'),
+                **{k:derived[k] for k in ('originalContractSha256','currentContractSha256','semanticContextSha256')}}
+        self.write(plan)
+        return plan,record,key,original
+
+    def test_historical_policy_is_explicit_and_all_old_proofs_counters_and_times_stay_exact(self):
+        plan,record,key,original=self.historical_followup()
+        before=retained_files(self.store);result=self.validate()
+        self.assertEqual(retained_files(self.store),before)
+        self.assertEqual(self.store.read(key),record)
+        self.assertEqual(result['marketSha256'],digest(self.policy))
+        self.assertEqual(len(result['historicalPolicyBridges']),7)
+        self.assertEqual(record['contractSha256'],digest(original))
+        self.assertEqual(record['diagnostic']['qualification']['plan']['marketSha256'],digest(original))
+        self.assertEqual(record['diagnostic']['reservationContext']['contractSha256'],digest(original))
+        self.assertEqual(record['diagnostic']['reservationContext']['currentBudget'],
+                         {'calls':80,'documents':40,'fetches':17})
+        for target in result['targets']:
+            self.assertEqual(target['proof'],plan['targets'][result['targets'].index(target)]['proof'])
+        old_root=copy.deepcopy(plan);old_root['marketSha256']=digest(original);self.write(old_root)
+        with self.assertRaisesRegex(ValueError,'PLAN_SHAPE_OR_POLICY'):self.validate()
+        top_only=copy.deepcopy(plan)
+        for target in top_only['targets']:target['proof'].pop('historicalPolicyBridge')
+        self.write(top_only)
+        with self.assertRaisesRegex(ValueError,'HISTORICAL_POLICY_BRIDGE'):self.validate()
+        self.write(plan);self.policy=original
+        same_policy=copy.deepcopy(plan);same_policy['marketSha256']=digest(original);self.write(same_policy)
+        with self.assertRaisesRegex(ValueError,'UNNECESSARY_HISTORICAL'):self.validate()
+
+    def test_historical_bridge_rejects_contract_and_descriptor_tampering_before_any_write_or_request(self):
+        plan,_record,_key,_original=self.historical_followup()
+        mutations={
+            'missing bridge':lambda b:b.pop('historicalPolicyBridge'),
+            'null bridge':lambda b:b.update(historicalPolicyBridge=None),
+            'unknown field':lambda b:b['historicalPolicyBridge'].update(acceptLegacy=True),
+            'boolean schema':lambda b:b['historicalPolicyBridge'].update(schemaVersion=True),
+            'unknown transition':lambda b:b['historicalPolicyBridge'].update(transition='any-policy'),
+            'wrong current':lambda b:b['historicalPolicyBridge'].update(currentContractSha256='b'*64),
+            'wrong original':lambda b:b['historicalPolicyBridge'].update(originalContractSha256='b'*64),
+            'other context':lambda b:b['historicalPolicyBridge'].update(semanticContextSha256='b'*64),
+            'wrong path':lambda b:b['historicalPolicyBridge']['originalContract'].update(key='objects/'+'b'*64),
+            'wrong size':lambda b:b['historicalPolicyBridge']['originalContract'].update(bytes=1),
+            'oversized':lambda b:b['historicalPolicyBridge']['originalContract'].update(bytes=1_000_001),
+            'wrong raw hash':lambda b:b['historicalPolicyBridge']['originalContract'].update(sha256='b'*64),
+        }
+        for name,mutate in mutations.items():
+            candidate=copy.deepcopy(plan);mutate(candidate['targets'][-1]['proof']);self.write(candidate)
+            fetcher=Responses(self.store);budget=self.budget();before=retained_files(self.store)
+            with self.subTest(name=name),patch.object(self.store,'put') as put,self.assertRaises(ValueError):
+                probe_sources(self.policy,self.store,fetcher,reservation_context=budget,qualification_plan_path=self.path)
+            put.assert_not_called();self.assertEqual(fetcher.calls,[]);self.assertEqual(budget.reservations,0)
+            self.assertEqual(retained_files(self.store),before)
+        self.write(plan);ref=plan['targets'][0]['proof']['historicalPolicyBridge']['originalContract']
+        path=self.store.root/ref['key'];raw=path.read_bytes();path.write_bytes(b'{}')
+        with self.assertRaisesRegex(ValueError,'integrity'):self.validate()
+        path.write_bytes(raw);path.unlink()
+        with self.assertRaises(FileNotFoundError):self.validate()
+
+    def test_historical_bridge_rejects_every_substantive_policy_change_including_unrelated_registry(self):
+        plan,_record,_key,original=self.historical_followup();current=copy.deepcopy(self.policy)
+        def unrelated(policy):
+            policy['sources'].append({**policy['sources'][0],'id':'unrelated','supplierId':'unrelated'})
+            policy['suppliers'].append({**policy['suppliers'][0],'id':'unrelated','sourceIds':['unrelated']})
+        mutations={
+            'fetch limit':lambda p:p['schedule'].update(maxFetchesPerRun=5499),
+            'runtime':lambda p:p['schedule'].update(maxRuntimeSeconds=7000),
+            'freshness':lambda p:p['schedule'].update(overdueHours=31),
+            'model calls':lambda p:p['model'].update(maxCallsPerRun=79),
+            'numeric type change':lambda p:p['model'].update(maxCallsPerRun=80.0),
+            'boolean schema':lambda p:p.update(schemaVersion=True),
+            'source numeric type change':lambda p:p['sources'][0].update(maxPages=2.0),
+            'documents':lambda p:p['model'].update(maxDocumentsPerRun=39),
+            'model input':lambda p:p['model'].update(maxDocumentChars=29999),
+            'publisher':lambda p:p['publication'].update(enabled=True),
+            'source path':lambda p:p['sources'][0].update(url='https://example.invalid/different'),
+            'source hosts':lambda p:p['sources'][0]['allowedHosts'].append('other.invalid'),
+            'source class':lambda p:p['sources'][0].update(sourceClass='INDEPENDENT'),
+            'source family':lambda p:p['sources'][0].update(family='investor_acquirer'),
+            'source registration':lambda p:p['sources'][0].update(registration='verified'),
+            'supplier alias':lambda p:p['suppliers'][0]['aliases'].append('Other Name'),
+            'supplier category':lambda p:p['suppliers'][0]['requiredCategories'].append('leadership'),
+            'unrelated source':unrelated,
+            'version':lambda p:p.update(version='market-daily-v3'),
+            'mode reversal':lambda p:p['collection'].update(mode='delta_with_retained_audit'),
+        }
+        for name,mutate in mutations.items():
+            self.policy=copy.deepcopy(current);mutate(self.policy);candidate=copy.deepcopy(plan)
+            candidate['marketSha256']=digest(self.policy)
+            for target in candidate['targets']:
+                target['proof']['historicalPolicyBridge']['currentContractSha256']=digest(self.policy)
+                try:
+                    derived=bridge(original,self.policy,target['sourceId'])
+                    target['proof']['historicalPolicyBridge']['semanticContextSha256']=derived['semanticContextSha256']
+                except ValueError:
+                    pass
+            self.write(candidate)
+            with self.subTest(name=name),self.assertRaises(ValueError):self.validate()
+            if name=='unrelated source':
+                self.assertEqual(bridge(original,self.policy,'synthetic-0')['semanticContextSha256'],
+                                 plan['targets'][0]['proof']['historicalPolicyBridge']['semanticContextSha256'])
+        self.policy=current
+
+    def test_historical_generic_proof_cannot_bridge_even_when_rehashed_and_failed(self):
+        plan,record,key,_original=self.historical_followup(explicit=False)
+        with self.assertRaisesRegex(ValueError,'HISTORICAL_EXPLICIT_PROOF_REQUIRED'):self.validate()
+        record.update(executionCompleted=False,outcome='failed',apiFallback=True,publication={'published':True})
+        record['diagnostic'].update(contractSha256='f'*64,executionCompleted=False,
+            reservationContext={'contractSha256':'f'*64,'initialBudget':{'fetches':100},'currentBudget':{'fetches':100}})
+        (self.store.root/key).write_bytes(canonical(record))
+        for target in plan['targets']:target['proof']['record']=file_reference(self.store,key)
+        self.write(plan);fetcher=Responses(self.store);budget=self.budget();before=retained_files(self.store)
+        with patch.object(self.store,'put') as put,self.assertRaisesRegex(ValueError,'HISTORICAL_EXPLICIT_PROOF_REQUIRED'):
+            probe_sources(self.policy,self.store,fetcher,reservation_context=budget,qualification_plan_path=self.path)
+        put.assert_not_called();self.assertEqual(fetcher.calls,[]);self.assertEqual(budget.reservations,0)
+        self.assertEqual(retained_files(self.store),before)
+
+    def test_historical_bridge_does_not_relax_old_record_plan_row_reservation_or_time_checks(self):
+        plan,record,key,original=self.historical_followup()
+        mutations=[lambda r:r['diagnostic'].update(contractSha256=digest(self.policy)),
+                   lambda r:r['diagnostic']['reservationContext'].update(contractSha256=digest(self.policy)),
+                   lambda r:r['diagnostic']['qualification']['plan'].update(marketSha256=digest(self.policy)),
+                   lambda r:r['diagnostic']['reservationContext']['currentBudget'].update(calls=81),
+                   lambda r:r['diagnostic']['qualification']['targets'][0]['reservation'].update(chargedFetchCount=12),
+                   lambda r:r['diagnostic']['qualification']['targets'][0].update(qualified=True),
+                   lambda r:r['diagnostic']['qualification']['targets'][0].update(reason='HTTP_403'),
+                   lambda r:r['diagnostic']['qualification']['targets'].reverse(),
+                   lambda r:r['diagnostic']['reservationContext'].update(startedAt='2026-10-22T23:59:00Z'),
+                   lambda r:r.update(apiFallback=True),lambda r:r.update(executionCompleted=False)]
+        for mutate in mutations:
+            changed=copy.deepcopy(record);mutate(changed)
+            (self.store.root/key).write_bytes(canonical(changed));candidate=copy.deepcopy(plan)
+            for target in candidate['targets']:
+                target['proof']['record']=file_reference(self.store,key)
+                target['proof']['priorTargetSha256']=digest(changed['diagnostic']['qualification']['targets'][0])
+            self.write(candidate)
+            with self.subTest(mutation=mutate),self.assertRaises(ValueError):self.validate()
+        self.assertEqual(digest(original),plan['targets'][0]['proof']['historicalPolicyBridge']['originalContractSha256'])
+
+    def test_historical_bridge_generations_use_current_reservations_and_flat_plan_references(self):
+        _plan,record,old_key,original=self.historical_followup()
+        original_bytes=(self.store.root/old_key).read_bytes();sizes=[]
+        for generation in range(6):
+            next_urls=['https://example.invalid/bridged-generation-'+str(generation)+'-'+str(i) for i in range(7)]
+            body=('<html><body>'+''.join('<a href="'+u+'">Next literal</a>' for u in next_urls)+'</body></html>').encode()
+            result=probe_sources(self.policy,self.store,Responses(self.store,[body]*30),reservation_context=self.budget(),
+                                 qualification_plan_path=self.path)
+            self.assertEqual(result['contractSha256'],digest(self.policy))
+            self.assertEqual(result['reservationContext']['contractSha256'],digest(self.policy))
+            self.assertEqual(result['reservationContext']['currentBudget']['calls'],80)
+            self.assertEqual(result['reservationContext']['currentBudget']['documents'],40)
+            self.assertEqual(result['sourceChecksCredited'],0);self.assertFalse(result['coverageCredit'])
+            if generation==0:
+                self.assertEqual(len(result['qualification']['plan']['historicalPolicyBridges']),7)
+            else:
+                self.assertNotIn('historicalPolicyBridges',result['qualification']['plan'])
+            prior=result['qualification']['plan'];row=result['qualification']['targets'][0]
+            observation=json.loads(self.store.get(row['observation']));run_id=str(2000+generation)
+            key='ci/source-probe-runs/'+run_id+'-1.json'
+            current_record={'checkpointProfile':'source_probe','contractSha256':digest(self.policy),'appRevision':'a'*40,
+                'executionCompleted':True,'outcome':'completed_diagnostic','apiFallback':False,
+                'publication':{'published':False,'reason':'SOURCE_PROBE_DIAGNOSTIC_ONLY'},'modelCalls':0,
+                'sourceChecksCredited':0,'qualifiedSources':0,'semanticAdmission':False,'coverageCredit':False,
+                'githubEventName':'workflow_dispatch','githubRef':'refs/heads/main','githubRunId':run_id,
+                'githubRunAttempt':1,'diagnostic':result}
+            self.store.write_once(key,current_record)
+            proof={'type':'qualification_observation','record':file_reference(self.store,key),
+                'priorTargetId':row['targetId'],'priorTargetIndex':0,'priorTargetSha256':digest(row),
+                'priorPlanReference':prior['rawPlanReference'],'priorPlanRawSha256':prior['rawSha256'],
+                'priorPlanCanonicalSha256':prior['canonicalSha256'],'observation':row['observation'],
+                'body':observation['body'],'fetchedAt':observation['fetchedAt']}
+            current_plan={'schemaVersion':1,'marketSha256':digest(self.policy),'maxRequests':7,
+                'targets':[{'id':'bridged-'+str(generation)+'-'+str(i),'sourceId':self.policy['sources'][0]['id'],
+                            'url':u,'expectedFormat':'html','proof':copy.deepcopy(proof)} for i,u in enumerate(next_urls)]}
+            self.write(current_plan);self.validate();sizes.append(len(self.path.read_bytes()))
+            self.assertTrue(all('historicalPolicyBridge' not in t['proof'] and 'priorPlanRaw' not in t['proof']
+                                for t in current_plan['targets']))
+            self.assertEqual((self.store.root/old_key).read_bytes(),original_bytes)
+        self.assertLess(max(sizes),20_000);self.assertLess(max(sizes)-min(sizes),1_000)
 
     def test_actual_execution_retains_exact_raw_plan_once_and_pure_validation_stays_read_only(self):
         raw=self.path.read_bytes();before=retained_files(self.store)

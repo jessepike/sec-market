@@ -1,0 +1,375 @@
+{
+  "schemaVersion": 1,
+  "kind": "d112_historical_probe_policy_bridge_read_only_validation",
+  "evaluatedAt": "2026-10-24T05:17:04.416339Z",
+  "archive": {
+    "root": "/var/tmp/smp-renewal-20261024/archive-9c8737cb/jessepike-sec-market-9c8737cb4213f149f788b7ef1414921b8951bf0e",
+    "manifestSha256": "cd9d84c67a70f11b72eeba25a012e3402a88b2d5a9c692f145c225b0a2c3418a",
+    "manifestFiles": 31075,
+    "before": {
+      "files": 31079,
+      "contentSha256": "cc1862a947ef7b54017c86a1c653c3a03298271a816f0ff982ccbce6c6d45309",
+      "fileMtimeSha256": "a6ac93a7720f819bbf25bc66073ce03295759e9d7d208a33915d63e55d7f642a",
+      "directories": 738,
+      "directoryMtimeSha256": "36bd1a13a1885c95303ecccb789f5573a537316dc1ae5bd0560ef996c90c2434"
+    },
+    "after": {
+      "files": 31079,
+      "contentSha256": "cc1862a947ef7b54017c86a1c653c3a03298271a816f0ff982ccbce6c6d45309",
+      "fileMtimeSha256": "a6ac93a7720f819bbf25bc66073ce03295759e9d7d208a33915d63e55d7f642a",
+      "directories": 738,
+      "directoryMtimeSha256": "36bd1a13a1885c95303ecccb789f5573a537316dc1ae5bd0560ef996c90c2434"
+    },
+    "contentAndMtimesUnchanged": true
+  },
+  "currentPolicySha256": "79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60",
+  "originalPolicySha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+  "permittedChangedPaths": [
+    "/version",
+    "/collection/mode"
+  ],
+  "currentPlan": {
+    "rawSha256": "6dc248c7a5fee6f96f872d97d87241a70de98bf7524298e9e7108951bbf6685d",
+    "canonicalSha256": "eccc8cd58af1ebea1bd0679973ba8b0a0d3bf37cbe47ba06b94a084faeae825e",
+    "marketSha256": "79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60",
+    "targets": 7
+  },
+  "originalPlan": {
+    "reconstructedRawSha256": "4aaa2f35c9804184dae97f0a461f48f506aeeb10d5f82ae93e339151276c05ef",
+    "canonicalSha256": "b2abf80563c2e3b36a542c9a15654b0e81f0842dca49ff6d48892f506d46f647",
+    "allOriginalProofFieldsUnchanged": true
+  },
+  "targets": [
+    {
+      "targetId": "ping-page-3",
+      "sourceId": "ping-identity:official:1",
+      "url": "https://press.pingidentity.com/news-releases?o=20",
+      "literalRecognition": "html_link_feed_or_canonical",
+      "proofRecord": {
+        "key": "ci/source-probe-runs/40049636626-1.json",
+        "sha256": "062864ce984d76a23f70673b1f10140b334b27f2cb024a9f22dabe2872dcac7d",
+        "bytes": 97577
+      },
+      "originalFetchedAt": "2026-10-24T01:26:56.036210Z",
+      "originalBody": {
+        "bytes": 99084,
+        "key": "objects/277c8d143f01e294d926ca6f85eb3c9874b08107721386a69feeaf59107372e3",
+        "sha256": "277c8d143f01e294d926ca6f85eb3c9874b08107721386a69feeaf59107372e3"
+      },
+      "originalPriorPlanRawSha256": "163e439adf2d383d9aa47d7a8c3a00ba4d75e31149a20b012c2a8772211496cf",
+      "originalPriorPlanCanonicalSha256": "f66db4b9a9f97542136c000f1c660036de38b5a77fbd0dcb3ea958edc54f04ba",
+      "historicalPolicyBridge": {
+        "schemaVersion": 1,
+        "transition": "d112-intake-history-separation",
+        "originalContract": {
+          "key": "contracts/de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe.json",
+          "sha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+          "bytes": 200737
+        },
+        "originalContractSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+        "currentContractSha256": "79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60",
+        "semanticContextSha256": "841fede849ffbaf7b14d35ee36719970eb5ce62ece0a2b12a9dc7c62a2bf008f"
+      },
+      "originalBudgetDay": "2026-10-24",
+      "originalInitialBudget": {
+        "calls": 80,
+        "documents": 40,
+        "fetches": 516
+      },
+      "originalCurrentBudget": {
+        "calls": 80,
+        "documents": 40,
+        "fetches": 641
+      }
+    },
+    {
+      "targetId": "ping-advertised-last",
+      "sourceId": "ping-identity:official:1",
+      "url": "https://press.pingidentity.com/news-releases?o=240",
+      "literalRecognition": "html_link_feed_or_canonical",
+      "proofRecord": {
+        "key": "ci/source-probe-runs/40049636626-1.json",
+        "sha256": "062864ce984d76a23f70673b1f10140b334b27f2cb024a9f22dabe2872dcac7d",
+        "bytes": 97577
+      },
+      "originalFetchedAt": "2026-10-24T01:26:56.036210Z",
+      "originalBody": {
+        "bytes": 99084,
+        "key": "objects/277c8d143f01e294d926ca6f85eb3c9874b08107721386a69feeaf59107372e3",
+        "sha256": "277c8d143f01e294d926ca6f85eb3c9874b08107721386a69feeaf59107372e3"
+      },
+      "originalPriorPlanRawSha256": "163e439adf2d383d9aa47d7a8c3a00ba4d75e31149a20b012c2a8772211496cf",
+      "originalPriorPlanCanonicalSha256": "f66db4b9a9f97542136c000f1c660036de38b5a77fbd0dcb3ea958edc54f04ba",
+      "historicalPolicyBridge": {
+        "schemaVersion": 1,
+        "transition": "d112-intake-history-separation",
+        "originalContract": {
+          "key": "contracts/de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe.json",
+          "sha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+          "bytes": 200737
+        },
+        "originalContractSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+        "currentContractSha256": "79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60",
+        "semanticContextSha256": "841fede849ffbaf7b14d35ee36719970eb5ce62ece0a2b12a9dc7c62a2bf008f"
+      },
+      "originalBudgetDay": "2026-10-24",
+      "originalInitialBudget": {
+        "calls": 80,
+        "documents": 40,
+        "fetches": 516
+      },
+      "originalCurrentBudget": {
+        "calls": 80,
+        "documents": 40,
+        "fetches": 641
+      }
+    },
+    {
+      "targetId": "delinea-news-index",
+      "sourceId": "delinea:official:1",
+      "url": "https://delinea.com/news",
+      "literalRecognition": "source_bound_rss_channel_link",
+      "proofRecord": {
+        "key": "ci/source-probe-runs/40049636626-1.json",
+        "sha256": "062864ce984d76a23f70673b1f10140b334b27f2cb024a9f22dabe2872dcac7d",
+        "bytes": 97577
+      },
+      "originalFetchedAt": "2026-10-24T01:26:57.325781Z",
+      "originalBody": {
+        "bytes": 28691,
+        "key": "objects/74d9fae664b325629a04a64078fee6c350b48ea548e4c23f5f4e0b9fca895160",
+        "sha256": "74d9fae664b325629a04a64078fee6c350b48ea548e4c23f5f4e0b9fca895160"
+      },
+      "originalPriorPlanRawSha256": "163e439adf2d383d9aa47d7a8c3a00ba4d75e31149a20b012c2a8772211496cf",
+      "originalPriorPlanCanonicalSha256": "f66db4b9a9f97542136c000f1c660036de38b5a77fbd0dcb3ea958edc54f04ba",
+      "historicalPolicyBridge": {
+        "schemaVersion": 1,
+        "transition": "d112-intake-history-separation",
+        "originalContract": {
+          "key": "contracts/de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe.json",
+          "sha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+          "bytes": 200737
+        },
+        "originalContractSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+        "currentContractSha256": "79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60",
+        "semanticContextSha256": "866271eaf5cb1f232d21ea0bcd6142c05509eb1c8998ddd73ec2a4f88299f4ce"
+      },
+      "originalBudgetDay": "2026-10-24",
+      "originalInitialBudget": {
+        "calls": 80,
+        "documents": 40,
+        "fetches": 516
+      },
+      "originalCurrentBudget": {
+        "calls": 80,
+        "documents": 40,
+        "fetches": 641
+      }
+    },
+    {
+      "targetId": "sonatype-press-index",
+      "sourceId": "sonatype:official:1",
+      "url": "https://www.sonatype.com/press-releases",
+      "literalRecognition": "source_bound_rss_channel_link",
+      "proofRecord": {
+        "key": "ci/source-probe-runs/40049636626-1.json",
+        "sha256": "062864ce984d76a23f70673b1f10140b334b27f2cb024a9f22dabe2872dcac7d",
+        "bytes": 97577
+      },
+      "originalFetchedAt": "2026-10-24T01:26:57.481593Z",
+      "originalBody": {
+        "bytes": 18997,
+        "key": "objects/defaacb0b1fc34da75566f1067c9bff22aeca96caa38fbc60010ba554bbf9e5f",
+        "sha256": "defaacb0b1fc34da75566f1067c9bff22aeca96caa38fbc60010ba554bbf9e5f"
+      },
+      "originalPriorPlanRawSha256": "163e439adf2d383d9aa47d7a8c3a00ba4d75e31149a20b012c2a8772211496cf",
+      "originalPriorPlanCanonicalSha256": "f66db4b9a9f97542136c000f1c660036de38b5a77fbd0dcb3ea958edc54f04ba",
+      "historicalPolicyBridge": {
+        "schemaVersion": 1,
+        "transition": "d112-intake-history-separation",
+        "originalContract": {
+          "key": "contracts/de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe.json",
+          "sha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+          "bytes": 200737
+        },
+        "originalContractSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+        "currentContractSha256": "79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60",
+        "semanticContextSha256": "1856d455d96e6c881662b06bab7dcbaaeccf2885f02f8dd840faddc81a545ea5"
+      },
+      "originalBudgetDay": "2026-10-24",
+      "originalInitialBudget": {
+        "calls": 80,
+        "documents": 40,
+        "fetches": 516
+      },
+      "originalCurrentBudget": {
+        "calls": 80,
+        "documents": 40,
+        "fetches": 641
+      }
+    },
+    {
+      "targetId": "delinea-current-1",
+      "sourceId": "delinea:official:1",
+      "url": "https://delinea.com/news/delinea-fastpath-launches-mcp-server-for-ai-powered-access-governance-and-audit-readiness",
+      "literalRecognition": "rss_or_atom_item_link",
+      "proofRecord": {
+        "key": "ci/source-probe-runs/40049636626-1.json",
+        "sha256": "062864ce984d76a23f70673b1f10140b334b27f2cb024a9f22dabe2872dcac7d",
+        "bytes": 97577
+      },
+      "originalFetchedAt": "2026-10-24T01:26:57.325781Z",
+      "originalBody": {
+        "bytes": 28691,
+        "key": "objects/74d9fae664b325629a04a64078fee6c350b48ea548e4c23f5f4e0b9fca895160",
+        "sha256": "74d9fae664b325629a04a64078fee6c350b48ea548e4c23f5f4e0b9fca895160"
+      },
+      "originalPriorPlanRawSha256": "163e439adf2d383d9aa47d7a8c3a00ba4d75e31149a20b012c2a8772211496cf",
+      "originalPriorPlanCanonicalSha256": "f66db4b9a9f97542136c000f1c660036de38b5a77fbd0dcb3ea958edc54f04ba",
+      "historicalPolicyBridge": {
+        "schemaVersion": 1,
+        "transition": "d112-intake-history-separation",
+        "originalContract": {
+          "key": "contracts/de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe.json",
+          "sha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+          "bytes": 200737
+        },
+        "originalContractSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+        "currentContractSha256": "79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60",
+        "semanticContextSha256": "866271eaf5cb1f232d21ea0bcd6142c05509eb1c8998ddd73ec2a4f88299f4ce"
+      },
+      "originalBudgetDay": "2026-10-24",
+      "originalInitialBudget": {
+        "calls": 80,
+        "documents": 40,
+        "fetches": 516
+      },
+      "originalCurrentBudget": {
+        "calls": 80,
+        "documents": 40,
+        "fetches": 641
+      }
+    },
+    {
+      "targetId": "delinea-current-2",
+      "sourceId": "delinea:official:1",
+      "url": "https://delinea.com/news/2026-identity-security-report-the-ai-enforcement-gap",
+      "literalRecognition": "rss_or_atom_item_link",
+      "proofRecord": {
+        "key": "ci/source-probe-runs/40049636626-1.json",
+        "sha256": "062864ce984d76a23f70673b1f10140b334b27f2cb024a9f22dabe2872dcac7d",
+        "bytes": 97577
+      },
+      "originalFetchedAt": "2026-10-24T01:26:57.325781Z",
+      "originalBody": {
+        "bytes": 28691,
+        "key": "objects/74d9fae664b325629a04a64078fee6c350b48ea548e4c23f5f4e0b9fca895160",
+        "sha256": "74d9fae664b325629a04a64078fee6c350b48ea548e4c23f5f4e0b9fca895160"
+      },
+      "originalPriorPlanRawSha256": "163e439adf2d383d9aa47d7a8c3a00ba4d75e31149a20b012c2a8772211496cf",
+      "originalPriorPlanCanonicalSha256": "f66db4b9a9f97542136c000f1c660036de38b5a77fbd0dcb3ea958edc54f04ba",
+      "historicalPolicyBridge": {
+        "schemaVersion": 1,
+        "transition": "d112-intake-history-separation",
+        "originalContract": {
+          "key": "contracts/de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe.json",
+          "sha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+          "bytes": 200737
+        },
+        "originalContractSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+        "currentContractSha256": "79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60",
+        "semanticContextSha256": "866271eaf5cb1f232d21ea0bcd6142c05509eb1c8998ddd73ec2a4f88299f4ce"
+      },
+      "originalBudgetDay": "2026-10-24",
+      "originalInitialBudget": {
+        "calls": 80,
+        "documents": 40,
+        "fetches": 516
+      },
+      "originalCurrentBudget": {
+        "calls": 80,
+        "documents": 40,
+        "fetches": 641
+      }
+    },
+    {
+      "targetId": "sonatype-current-1",
+      "sourceId": "sonatype:official:1",
+      "url": "https://www.sonatype.com/press-releases/sonatype-unveils-nexus-repository-pro-plus",
+      "literalRecognition": "rss_or_atom_item_link",
+      "proofRecord": {
+        "key": "ci/source-probe-runs/40049636626-1.json",
+        "sha256": "062864ce984d76a23f70673b1f10140b334b27f2cb024a9f22dabe2872dcac7d",
+        "bytes": 97577
+      },
+      "originalFetchedAt": "2026-10-24T01:26:57.481593Z",
+      "originalBody": {
+        "bytes": 18997,
+        "key": "objects/defaacb0b1fc34da75566f1067c9bff22aeca96caa38fbc60010ba554bbf9e5f",
+        "sha256": "defaacb0b1fc34da75566f1067c9bff22aeca96caa38fbc60010ba554bbf9e5f"
+      },
+      "originalPriorPlanRawSha256": "163e439adf2d383d9aa47d7a8c3a00ba4d75e31149a20b012c2a8772211496cf",
+      "originalPriorPlanCanonicalSha256": "f66db4b9a9f97542136c000f1c660036de38b5a77fbd0dcb3ea958edc54f04ba",
+      "historicalPolicyBridge": {
+        "schemaVersion": 1,
+        "transition": "d112-intake-history-separation",
+        "originalContract": {
+          "key": "contracts/de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe.json",
+          "sha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+          "bytes": 200737
+        },
+        "originalContractSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+        "currentContractSha256": "79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60",
+        "semanticContextSha256": "1856d455d96e6c881662b06bab7dcbaaeccf2885f02f8dd840faddc81a545ea5"
+      },
+      "originalBudgetDay": "2026-10-24",
+      "originalInitialBudget": {
+        "calls": 80,
+        "documents": 40,
+        "fetches": 516
+      },
+      "originalCurrentBudget": {
+        "calls": 80,
+        "documents": 40,
+        "fetches": 641
+      }
+    }
+  ],
+  "guards": {
+    "networkModelsSubprocessAndDiskMutationsDenied": true,
+    "deniedAttempts": [],
+    "actualSourceRequests": 0,
+    "actualModelCalls": 0,
+    "actualStateWrites": 0,
+    "actualArchiveWrites": 0,
+    "actualPublicationCalls": 0,
+    "qualifiedSources": 0,
+    "sourceChecksCredited": 0,
+    "coverageCredit": false,
+    "semanticAdmission": false
+  },
+  "codePins": [
+    {
+      "path": "web/scripts/pipeline/onboarding.py",
+      "sha256": "1f76daefe9b2d6a8e2a18b87f01b2742a0cc094ba18b47919d5c7b3ef98d874e"
+    },
+    {
+      "path": "web/scripts/pipeline/separation.py",
+      "sha256": "b2c225fef1bb704701441a611ea921e325a5a28e6ac00fcdb2b4d7273413e629"
+    },
+    {
+      "path": "contracts/market.json",
+      "sha256": "5b2b52dc2d17709f562b64ad6cb435086971ff8a6ccb9ce2fe95296a1ce1a7ff"
+    },
+    {
+      "path": "contracts/source-qualification-probes.json",
+      "sha256": "6dc248c7a5fee6f96f872d97d87241a70de98bf7524298e9e7108951bbf6685d"
+    },
+    {
+      "path": "ops/ci/test_source_qualification_probe.py",
+      "sha256": "880102dda5dd9110f203c5e4682691e7c83101e8faf06b7840c2150bfbe41ca5"
+    }
+  ],
+  "historicalBridgeProofVariant": "qualification_observation",
+  "wholePolicyComparison": "canonical_hash_equality"
+}

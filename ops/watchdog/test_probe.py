@@ -270,6 +270,26 @@ class SeparateCoverageTests(unittest.TestCase):
         self.assertNotIn('PROCESSING_PENDING_1', reasons)
         self.assertEqual(details['historicalReview']['pendingDocuments'], 1)
 
+    def test_transition_does_not_relabel_legacy_or_invalid_observations(self):
+        root = Path(__file__).resolve().parents[2]
+        legacy = json.loads((root / 'docs/active/daily-pipeline/evaluations/2026-10-24/operational-inputs/coverage.json').read_text())
+        self.assertEqual((legacy['successfulTasks'], legacy['requiredTasks']), (244, 557))
+        uncollected = copy.deepcopy(self.coverage)
+        uncollected['intake'].update(evaluated=False, status='uncollected')
+        invalid = copy.deepcopy(self.coverage)
+        invalid['historicalReview']['pendingDocuments'] += 1
+        for observed in (legacy, uncollected, invalid):
+            with self.subTest(schema=observed.get('schemaVersion')):
+                before = copy.deepcopy(observed)
+                reasons, details = probe.separate_health(self.contract, observed)
+                self.assertIn('SEPARATE_COVERAGE_INVALID_OR_UNCOLLECTED', reasons)
+                self.assertNotIn('coverageMeasure', details)
+                self.assertEqual(details['expectedCoverageMeasure'], 'daily_source_intake_v2')
+                self.assertEqual(observed, before)
+        reasons, details = probe.separate_health(self.contract, self.coverage)
+        self.assertNotIn('SEPARATE_COVERAGE_INVALID_OR_UNCOLLECTED', reasons)
+        self.assertEqual(details['coverageMeasure'], 'daily_source_intake_v2')
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -105,7 +105,7 @@ def separate_health(contract, coverage, public=False):
         if historical['pendingDocuments']: reasons.append('HISTORICAL_REVIEW_PENDING_' + str(historical['pendingDocuments']))
         return reasons, {'coverageMeasure': measure, **summaries}
     except (ValueError, KeyError, TypeError):
-        return ['SEPARATE_COVERAGE_INVALID_OR_UNCOLLECTED'], {'coverageMeasure': 'daily_source_intake_v2'}
+        return ['SEPARATE_COVERAGE_INVALID_OR_UNCOLLECTED'], {'expectedCoverageMeasure': 'daily_source_intake_v2'}
 
 
 def api(path, raw=False):

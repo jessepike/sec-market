@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "run": {
+    "conclusion": "failure",
+    "createdAt": "2026-10-24T05:02:13Z",
+    "databaseId": 40064680975,
+    "event": "schedule",
+    "headSha": "7622bf6134f32282b58357979f59dfc9c718c730",
+    "status": "completed",
+    "updatedAt": "2026-10-24T05:02:33Z",
+    "url": "https://github.com/jessepike/sec-market/actions/runs/40064680975"
+  },
+  "executedMonitorTests": 19,
+  "monitorTestsPassed": true,
+  "healthy": false,
+  "alertDelivered": true,
+  "issue": {
+    "number": 10,
+    "title": "Daily pipeline needs attention",
+    "state": "open",
+    "updated_at": "2026-10-24T05:02:31Z",
+    "html_url": "https://github.com/jessepike/sec-market/issues/10",
+    "body": "The independent daily pipeline probe needs attention.\n\nChecked: 2026-10-24T05:02:22.377974Z\n\nReasons: SCHEDULED_COLLECTION_RECEIPT_DIFFERS, COVERAGE_CONTRACT_DIFFERS, SEPARATE_COVERAGE_INVALID_OR_UNCOLLECTED, CORRECTION_COLLECTION_POLICY_OR_RUN_DIFFERS, PUBLIC_SEPARATE_COVERAGE_INVALID_OR_UNCOLLECTED, COLLECTION_HAS_NOT_REACHED_PRODUCTION, PUBLIC_COVERAGE_INCOMPLETE_OR_OVERDUE, HELD_CLAIMS_32\n\nNo missing check is counted as fresh. Inspect the daily coverage receipt and the private refs/archive/market-evidence ref.\n\n[Daily coverage](https://securitymarketpulse.com/daily-coverage.json)"
+  },
+  "observationBoundary": "Actual timer and GitHub issue delivery verified; old-policy source/public reports correctly remain unhealthy during new-policy transition. No new collection or public data credit.",
+  "reportingDefect": "Failure fallback incorrectly labeled old observed 244/557 coverage daily_source_intake_v2. Candidate now records expectedCoverageMeasure and withholds the observed measure on invalid receipts. All 20 focused tests pass; activation remains pending.",
+  "filePins": {
+    "separate-policy-scheduled-monitor-log.txt": {
+      "sha256": "006f5c114eb756b66ac309c3e75d5547043802eec8f88ac7d4c8a6dc9dfac3c2",
+      "bytes": 12008
+    },
+    "separate-policy-scheduled-monitor-run.json": {
+      "sha256": "b31f1d6c6a2c75298e2122499119804d963ee85aef25756c37de7ed472f2fee1",
+      "bytes": 286
+    },
+    "separate-policy-scheduled-monitor-issue.json": {
+      "sha256": "8ef2ea0d57d06d7b4d2c19b2fdf3ec35334c115950662f197dbb46c2aadef9e1",
+      "bytes": 4945
+    }
+  }
+}

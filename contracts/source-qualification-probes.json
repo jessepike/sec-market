@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "marketSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+  "marketSha256": "79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60",
   "maxRequests": 7,
   "targets": [
     {
@@ -31,7 +31,19 @@
           "key": "objects/277c8d143f01e294d926ca6f85eb3c9874b08107721386a69feeaf59107372e3",
           "sha256": "277c8d143f01e294d926ca6f85eb3c9874b08107721386a69feeaf59107372e3"
         },
-        "fetchedAt": "2026-10-24T01:26:56.036210Z"
+        "fetchedAt": "2026-10-24T01:26:56.036210Z",
+        "historicalPolicyBridge": {
+          "schemaVersion": 1,
+          "transition": "d112-intake-history-separation",
+          "originalContract": {
+            "key": "contracts/de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe.json",
+            "sha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+            "bytes": 200737
+          },
+          "originalContractSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+          "currentContractSha256": "79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60",
+          "semanticContextSha256": "841fede849ffbaf7b14d35ee36719970eb5ce62ece0a2b12a9dc7c62a2bf008f"
+        }
       }
     },
     {
@@ -62,7 +74,19 @@
           "key": "objects/277c8d143f01e294d926ca6f85eb3c9874b08107721386a69feeaf59107372e3",
           "sha256": "277c8d143f01e294d926ca6f85eb3c9874b08107721386a69feeaf59107372e3"
         },
-        "fetchedAt": "2026-10-24T01:26:56.036210Z"
+        "fetchedAt": "2026-10-24T01:26:56.036210Z",
+        "historicalPolicyBridge": {
+          "schemaVersion": 1,
+          "transition": "d112-intake-history-separation",
+          "originalContract": {
+            "key": "contracts/de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe.json",
+            "sha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+            "bytes": 200737
+          },
+          "originalContractSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+          "currentContractSha256": "79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60",
+          "semanticContextSha256": "841fede849ffbaf7b14d35ee36719970eb5ce62ece0a2b12a9dc7c62a2bf008f"
+        }
       }
     },
     {
@@ -93,7 +117,19 @@
           "key": "objects/74d9fae664b325629a04a64078fee6c350b48ea548e4c23f5f4e0b9fca895160",
           "sha256": "74d9fae664b325629a04a64078fee6c350b48ea548e4c23f5f4e0b9fca895160"
         },
-        "fetchedAt": "2026-10-24T01:26:57.325781Z"
+        "fetchedAt": "2026-10-24T01:26:57.325781Z",
+        "historicalPolicyBridge": {
+          "schemaVersion": 1,
+          "transition": "d112-intake-history-separation",
+          "originalContract": {
+            "key": "contracts/de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe.json",
+            "sha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+            "bytes": 200737
+          },
+          "originalContractSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+          "currentContractSha256": "79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60",
+          "semanticContextSha256": "866271eaf5cb1f232d21ea0bcd6142c05509eb1c8998ddd73ec2a4f88299f4ce"
+        }
       }
     },
     {
@@ -124,7 +160,19 @@
           "key": "objects/defaacb0b1fc34da75566f1067c9bff22aeca96caa38fbc60010ba554bbf9e5f",
           "sha256": "defaacb0b1fc34da75566f1067c9bff22aeca96caa38fbc60010ba554bbf9e5f"
         },
-        "fetchedAt": "2026-10-24T01:26:57.481593Z"
+        "fetchedAt": "2026-10-24T01:26:57.481593Z",
+        "historicalPolicyBridge": {
+          "schemaVersion": 1,
+          "transition": "d112-intake-history-separation",
+          "originalContract": {
+            "key": "contracts/de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe.json",
+            "sha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+            "bytes": 200737
+          },
+          "originalContractSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+          "currentContractSha256": "79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60",
+          "semanticContextSha256": "1856d455d96e6c881662b06bab7dcbaaeccf2885f02f8dd840faddc81a545ea5"
+        }
       }
     },
     {
@@ -155,7 +203,19 @@
           "key": "objects/74d9fae664b325629a04a64078fee6c350b48ea548e4c23f5f4e0b9fca895160",
           "sha256": "74d9fae664b325629a04a64078fee6c350b48ea548e4c23f5f4e0b9fca895160"
         },
-        "fetchedAt": "2026-10-24T01:26:57.325781Z"
+        "fetchedAt": "2026-10-24T01:26:57.325781Z",
+        "historicalPolicyBridge": {
+          "schemaVersion": 1,
+          "transition": "d112-intake-history-separation",
+          "originalContract": {
+            "key": "contracts/de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe.json",
+            "sha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+            "bytes": 200737
+          },
+          "originalContractSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+          "currentContractSha256": "79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60",
+          "semanticContextSha256": "866271eaf5cb1f232d21ea0bcd6142c05509eb1c8998ddd73ec2a4f88299f4ce"
+        }
       }
     },
     {
@@ -186,7 +246,19 @@
           "key": "objects/74d9fae664b325629a04a64078fee6c350b48ea548e4c23f5f4e0b9fca895160",
           "sha256": "74d9fae664b325629a04a64078fee6c350b48ea548e4c23f5f4e0b9fca895160"
         },
-        "fetchedAt": "2026-10-24T01:26:57.325781Z"
+        "fetchedAt": "2026-10-24T01:26:57.325781Z",
+        "historicalPolicyBridge": {
+          "schemaVersion": 1,
+          "transition": "d112-intake-history-separation",
+          "originalContract": {
+            "key": "contracts/de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe.json",
+            "sha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+            "bytes": 200737
+          },
+          "originalContractSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+          "currentContractSha256": "79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60",
+          "semanticContextSha256": "866271eaf5cb1f232d21ea0bcd6142c05509eb1c8998ddd73ec2a4f88299f4ce"
+        }
       }
     },
     {
@@ -217,7 +289,19 @@
           "key": "objects/defaacb0b1fc34da75566f1067c9bff22aeca96caa38fbc60010ba554bbf9e5f",
           "sha256": "defaacb0b1fc34da75566f1067c9bff22aeca96caa38fbc60010ba554bbf9e5f"
         },
-        "fetchedAt": "2026-10-24T01:26:57.481593Z"
+        "fetchedAt": "2026-10-24T01:26:57.481593Z",
+        "historicalPolicyBridge": {
+          "schemaVersion": 1,
+          "transition": "d112-intake-history-separation",
+          "originalContract": {
+            "key": "contracts/de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe.json",
+            "sha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+            "bytes": 200737
+          },
+          "originalContractSha256": "de1932f7698d6b5ec86c23da52e77b1440c34d368e101c2aaabcbae6b39abfbe",
+          "currentContractSha256": "79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60",
+          "semanticContextSha256": "1856d455d96e6c881662b06bab7dcbaaeccf2885f02f8dd840faddc81a545ea5"
+        }
       }
     }
   ]
