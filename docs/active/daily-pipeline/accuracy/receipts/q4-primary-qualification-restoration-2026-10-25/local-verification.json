@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "kind": "local_disabled_plan_restoration_validation",
+  "actualPrimaryRunId": 40188161705,
+  "actualPrimaryOutcome": "both samples held: canonical links absent; no qualification or coverage credit",
+  "disabledPlan": {
+    "bytes": 173,
+    "sha256": "ad1c5cc234fe4fa69cbceb5370ac74825a37dc80b08528ca908d14b1352e53b4"
+  },
+  "tests": 69,
+  "failures": 0,
+  "skips": 0,
+  "rawLog": {
+    "sha256": "1df0e90a95742a32ddb66516873321da7b029cde62f0b1ed1436a05cbd3ca8a0",
+    "bytes": 12630
+  },
+  "gzipLog": {
+    "file": "restoration-tests.log.gz",
+    "sha256": "6de580c5721afab45681de46a82e4540a1d526ca59c3778e5236ddb770266533",
+    "bytes": 2344,
+    "byteExactRoundtrip": true
+  },
+  "sharedArchiveWrites": 0,
+  "sourceRequests": 0,
+  "remoteRestorationVerified": false
+}

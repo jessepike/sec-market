@@ -172,3 +172,11 @@ unqualified with zero coverage credit. Tests use fictional fetchers and temporar
   date extractor can silently discard malformed values and make a conflicting primary sample
   look undated. Preserve supplied values before validation, including whitespace around JSON-LD
   MIME declarations; allow genuine absence while holding malformed or conflicting dates.
+
+- Untracked files do not enter an ordinary git diff whitespace check. Stage the completed unit
+  before checking its full patch, and stop the commit when that check fails.
+
+- The actual Q4 Evergreen detail pages omit canonical links and use a generic H1. Their exact
+  Open Graph URL/title, nested article heading, visible date and readable article container are
+  separate source-template evidence. Preserve the original generic-shape hold while reviewing a
+  versioned narrow proof; do not refetch unchanged pages or relax the generic helper.

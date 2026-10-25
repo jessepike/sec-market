@@ -10,7 +10,7 @@ import q4_primary_qualification as q
 A=R/'docs/active/daily-pipeline/accuracy'
 D=A/'receipts/q4-primary-qualification-operational-selection-independent-review-2026-10-25';D.mkdir(parents=True,exist_ok=True)
 review=json.loads((A/'q4-primary-qualification-independent-review-2026-10-25.json').read_bytes())
-oldtest=subprocess.run(['git','-C',str(R),'show','HEAD:ops/ci/test_q4_primary_qualification.py'],check=True,stdout=subprocess.PIPE).stdout
+oldtest=subprocess.run(['git','-C',str(R),'show','5b7e8f50:ops/ci/test_q4_primary_qualification.py'],check=True,stdout=subprocess.PIPE).stdout
 newtest=(R/'ops/ci/test_q4_primary_qualification.py').read_bytes()
 assert oldtest.endswith(b'\n\n\n') and newtest==oldtest[:-2]
 assert digest(newtest)=='0ae3925c6f9529f2f3654a055f219a30c8141b5286759c341e9394c2ab61ea24'
@@ -20,7 +20,7 @@ for name in ['contracts/market.json','contracts/factual-corrections.json','web/s
  assert digest((R/name).read_bytes())==review['preservedFiles'][name]['sha256']
 active=R/'contracts/source-qualification-probes.json';raw=active.read_bytes();dormant=(A/'q4-primary-qualification-plan-2026-10-25.json').read_bytes()
 assert raw==dormant and len(raw)==4211 and digest(raw)=='3a25e8e262b51fbf6f872c8655b25c9d255cf52b32ca0e9c4afa73d78893fbd4' and digest(json.loads(raw))=='3b7fc7c4de41c68471d4343f103e7e5ee705e5a4a51f760f5387e34a49a660ee'
-oldactive=subprocess.run(['git','-C',str(R),'show','HEAD:contracts/source-qualification-probes.json'],check=True,stdout=subprocess.PIPE).stdout
+oldactive=subprocess.run(['git','-C',str(R),'show','5b7e8f50:contracts/source-qualification-probes.json'],check=True,stdout=subprocess.PIPE).stdout
 assert digest(oldactive)=='ad1c5cc234fe4fa69cbceb5370ac74825a37dc80b08528ca908d14b1352e53b4'
 seals={}
 def seal(p):

@@ -39,7 +39,7 @@ original facts/dates, six admissions and old holds pass the authenticated replay
 | History | 41/10,655 reviewed; 10,614 pending; 11 held. |
 | Continuity | Four fact references and all 37 old held rows preserved; one additional HiddenLayer candidate lacks a fact date. Queue 38. No new accepted facts/events. |
 | Actual source clocks | New full/304 observations and separate immutable rechecks derive private expiry October 26 at 15:55:27.307096 UTC. Original logical-plan and evidence dates remain. |
-| October 25 ledger | 867/5,500 fetches, 80/80 model calls, 38/40 documents; gates 2/2. The diagnostic charged exactly two fetches; no reset or paid fallback. |
+| October 25 ledger | 869/5,500 fetches, 80/80 model calls, 38/40 documents; gates 2/2. The data and article diagnostics each charged two fetches; no reset or paid fallback. |
 
 Those 264 passes comprise 196 existing-citation checks, 48 SEC checks, 17 official-announcement
 checks and three investor/acquirer checks. Broader source coverage remains incomplete.
@@ -55,11 +55,11 @@ the next daily collector; that cannot establish another timer execution.
 
 ## Current source work
 
-Reviewed main is closure 118e4882 with exact disabled ad1. Preview web 40185298950 and main
-web 40185476864 pass; preview dpl_BmTzFF4dRCXwbnsyuWvFv8RT5RcN is READY, main Git build
-dpl_87Zuaor1hVohRAWFPsZUrMrx18MQ is CANCELED. Main Git builds and automatic production-domain
-assignment remain closed. A main push does not publish.
-[Promotion proof](docs/active/daily-pipeline/accuracy/q4-initial-data-reviewed-code-promotion-2026-10-25.md).
+Reviewed main is b7c7841a. Preview web 40187747470, canary 40187747473 and main web
+40187990840 pass. Preview dpl_9eGyR6hqXeU8ZEK3hSPPJYLMK8LD is READY; main Git build
+dpl_PHi9JbqbWppKhPnep9oVi1AeKus4 is CANCELED. Automatic production-domain assignment
+remains closed. This push did not publish. Local closure restores exact disabled ad1;
+its remote preview/main promotion and closure verification remain pending.
 
 Actual six-script diagnostic 40179255547 captured JFrog/Rapid7/Rubrik controllers and preserved
 all earlier evidence. Their static inspection supports two exact JFrog/Rapid7 data GETs.
@@ -69,8 +69,8 @@ passed on main ab6a7c68. Its [actual audit](docs/active/daily-pipeline/accuracy/
 verifies all 48,045 entries of d6606a4f, the full report and six admissions. JFrog returned
 206 records and Rapid7 323; literal dates have no timezone. All normal heads, facts, 38 holds
 and expiry remain exact. Actual callbacks skipped publication and rollback. Qualification
-and coverage credit remain zero. Exact disabled ad1 is verified remotely on main 118e4882;
-45 focused restoration/lease/report checks pass. Public receipt remains byte-exact.
+and coverage credit remain zero. Its disabled ad1 closure was verified on main 118e4882;
+45 focused checks passed. This is the preceding data-capture closure, not the later article run.
 [Closure verification](docs/active/daily-pipeline/accuracy/receipts/q4-initial-data-disabled-restoration-2026-10-25/verification.json)
 retains both passing CI receipts, exact remote ad1 and the ignored main Git deployment.
 [Execution specification](docs/active/daily-pipeline/accuracy/q4-initial-data-operational-activation-spec-2026-10-25.md).
@@ -86,11 +86,14 @@ now has its dormant single-response parser and two exact financial primary sampl
 implementation review passes with no open findings after two date-metadata fixes. Final operational
 checks pass 909/909, focused route checks 126/126, and the full application checks pass with one
 existing browser skip. Both rendered widths remain byte-exact to the preceding local build.
-The dormant build is committed as 5b7e8f50. H remains unchanged. The separate operational
-selection copies the exact 4,211-byte plan, raw hash 3a25e8e2 and canonical hash 3b7fc7c4,
-for two article requests. Remote main still has disabled ad1 until reviewed promotion. Actual
-samples, archived proof and normal-source activation remain. A subsequent test-file cleanup
-removes only two trailing blank lines; historical reviewed code/log pins remain unchanged.
+Actual article run 40188161705 passed execution on b7c7841a, completing at 11:20:57 UTC.
+Both exact pages returned HTTP 200 HTML, but qualification accepted zero: both omit canonical
+links and have generic H1 “News Details”. Original holds remain exact. Its independent audit
+authenticates all 48,057 entries of d2efafcb, manifest bb1c3da1…383e4d, complete report replay,
+six admissions, all 39,438 preceding immutable entries and 8,605 normal heads. Charges rose
+867→869 only; facts, 38 holds and private/public expiry remain unchanged. No retry or credit.
+The retained pages are under source-specific template review. Normal-source integration is
+blocked pending accepted primary proof. Exact local ad1 restoration passes 69 focused checks.
 
 ## Remaining acceptance
 
