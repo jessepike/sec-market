@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "scope": "Exact dormant seven-target independent review. No runtime execution or source requests.",
+  "files": {
+    "independent-validation.json": {
+      "sha256": "f0435e759d4075a9796e67c5bb802ca75cf648503eb5f9458fd033900195d0aa",
+      "bytes": 104742
+    },
+    "independent_replay.py": {
+      "sha256": "a18077008be867d5d09cfc3d037a45fa6984a288140b96c3b054636a986228bd",
+      "bytes": 20185
+    }
+  }
+}

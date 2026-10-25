@@ -101,7 +101,10 @@ disabled-plan restoration is verified on main d0e408cb with preview web401921638
 canary40192163902 and main web40192406292 passing, preview READY/main Git ignored and all four
 public files byte-exact. No coverage credit follows from these captures. Torq's literal loadmore
 controller and Zenity's27-of48 initial posts prove remaining pagination work. The next bounded
-listing/pagination capture is being reviewed; retain existing Cyera/Torq primary bodies and dates.
+listing/pagination capture, ac7393c6, passes full preflight and independent review (34 rejected
+mutations, legal repeated-source/order cases, complete prior-report replay). Exact local selection
+is complete; preview/main and one actual capture remain. Retain existing Cyera/Torq primary bodies
+and dates. Its whole-operation bound includes all25 generic probes:257 logical requests.
 No owner source decision is currently required.
 
 Use the [evaluation rubric](docs/active/daily-pipeline/evaluation-rubric.md) and keep the original
