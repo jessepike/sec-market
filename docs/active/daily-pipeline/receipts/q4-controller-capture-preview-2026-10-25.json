@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-25 08:18:46 UTC",
+  "kind": "dormant_q4_capture_preview",
+  "previewRevision": "496107885f28be27cb9412d4af823e1070869224",
+  "githubRuns": [
+    {
+      "conclusion": "success",
+      "databaseId": 40175785384,
+      "event": "push",
+      "headSha": "496107885f28be27cb9412d4af823e1070869224",
+      "status": "completed",
+      "url": "https://github.com/jessepike/sec-market/actions/runs/40175785384"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 40175785297,
+      "event": "push",
+      "headSha": "496107885f28be27cb9412d4af823e1070869224",
+      "status": "completed",
+      "url": "https://github.com/jessepike/sec-market/actions/runs/40175785297"
+    }
+  ],
+  "deployment": {
+    "id": "dpl_69eizZqscVnQjoFHeT3sViWyJat8",
+    "state": "READY",
+    "url": "https://security-market-pulse-cjhwjg60n-pikeholdings.vercel.app",
+    "metadataSource": "Actual Vercel list_deployments tool response observed by root"
+  },
+  "appReceipt": {
+    "allowed": true,
+    "releaseKind": "certified",
+    "dataUpdated": true,
+    "certifiedAt": "2026-10-21T04:45:33.748Z",
+    "contractVersion": "smp-certified-v2",
+    "rootView": "tracker",
+    "appRevision": "496107885f28be27cb9412d4af823e1070869224",
+    "appBuiltAt": "2026-10-25T08:14:03.869Z",
+    "dailyRunId": "334f0f2ef3ed1d957189585ee36fcf6d9934bae9b626febf1cde661657c7b058",
+    "dailySnapshotSha256": "e1945874cb3f2cb661bf67671ec2bd760ae363761e21f85e3ea8d044afd91384",
+    "dailyContractSha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+    "dailyCoverageComplete": false,
+    "dailyCoverageMeasure": "daily_source_intake_v2",
+    "dailyIntakeComplete": false,
+    "dailyProcessingComplete": false,
+    "dailyHistoricalReviewComplete": false
+  },
+  "mainRemains": "6d5e87feba4ffbc75e50f35cb564cb8fd91708ca",
+  "operationalPlan": "disabled",
+  "actualControllerCaptures": 0,
+  "qualifiedSources": 0,
+  "sourceChecksCredited": 0,
+  "productionCredit": false,
+  "scheduledCredit": false,
+  "limitation": "Uncollected preview fixture must never publish; real controller bytes and source qualification remain pending."
+}

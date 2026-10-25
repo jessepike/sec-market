@@ -80,6 +80,9 @@ All 858 operational and 534 executed application tests pass, with one existing f
 The [implementation](docs/active/daily-pipeline/accuracy/q4-controller-capture-implementation-2026-10-25.md)
 and [review](docs/active/daily-pipeline/accuracy/q4-controller-capture-independent-review-2026-10-25.md)
 retain proof. It stays dormant; actual script capture and all three qualifications remain pending.
+Preview 49610788 passed web 40175785384 and canary 40175785297; Vercel
+dpl_69eizZqscVnQjoFHeT3sViWyJat8 is READY with the exact app revision.
+[Preview receipt](docs/active/daily-pipeline/receipts/q4-controller-capture-preview-2026-10-25.json).
 No new request, source registration, allowance change or qualification credit.
 
 ## Prior receipts and remaining acceptance
@@ -110,6 +113,12 @@ also needs its own forced-timer validation after release.
 Issue 12 is closed after actual publication; issue 10 retains coverage, processing/history and
 scheduled-operation gaps. Owner GitHub inbox delivery for issues 10/12/13 is proven; phone/email
 delivery is not.
+Manual monitor 40175735011 refreshed issue 10 at 08:13:14 UTC after 20 guard tests passed.
+It exposed a real monitor defect: the accepted 1,337,257-byte coverage file exceeds its 1 MB
+HTTP reader. Exact-main replay reaches that rejection only after gate authority, deployment
+acknowledgement and app pairing pass. A [narrow inventory-bound reader repair](docs/active/daily-pipeline/accuracy/coverage-monitor-inventory-bound-read-spec-2026-10-25.md)
+is in progress on future preview. The actual public expiry stays future; combined incomplete-or-
+overdue reasons do not establish current public expiry. Keep the incomplete coverage alarms.
 The [557-row ledger](docs/active/daily-pipeline/evaluations/2026-10-24/current-source-coverage.md)
 and [evaluation rubric](docs/active/daily-pipeline/evaluation-rubric.md) keep the measures separate.
 The [October 25 scorecard](docs/active/daily-pipeline/evaluations/2026-10-25/recovery-observation.md)

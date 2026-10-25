@@ -128,6 +128,9 @@ Its separate diagnostic operation is implemented for future preview. All 858 ope
 18 focused, 8 older-route checks and 33 additional rejections, with all six old admissions exact;
 same-data renders are pixel-identical. See the [implementation](docs/active/daily-pipeline/accuracy/q4-controller-capture-implementation-2026-10-25.md)
 and [independent review](docs/active/daily-pipeline/accuracy/q4-controller-capture-independent-review-2026-10-25.md).
+Preview 49610788 passed web 40175785384 and canary 40175785297, with Vercel
+dpl_69eizZqscVnQjoFHeT3sViWyJat8 READY and its exact app receipt retained in the
+[preview evidence](docs/active/daily-pipeline/receipts/q4-controller-capture-preview-2026-10-25.json).
 The exact parent HTML and charged proof join pass offline; the six JavaScript bodies remain unfetched. Capturing them
 later earns no qualification or coverage credit until actual record/date/paging proof is complete.
 Keep the operational plan disabled and current main fixed during timer acceptance.
@@ -135,6 +138,13 @@ Keep the operational plan disabled and current main fixed during timer acceptanc
 The [October 25 recovery scorecard](docs/active/daily-pipeline/evaluations/2026-10-25/recovery-observation.md)
 pins the actual source receipt, gate, publication and rollback. It keeps coverage and historical
 review failures separate from successful manual recovery and unmeasured timer/accuracy/value.
+
+Repair the [accepted-coverage monitor reader](docs/active/daily-pipeline/accuracy/coverage-monitor-inventory-bound-read-spec-2026-10-25.md).
+Actual manual monitor 40175735011 passed 20 guard tests and updated issue 10, then failed
+publication inspection because the authenticated 1,337,257-byte coverage file exceeds its 1 MB
+reader. Gate authority, acknowledgement and app pairing pass in exact-main replay. Use the
+accepted inventory's exact size/hash for this URL while retaining other limits and all genuine
+coverage/review/timer alarms. Implementation/review and a repaired actual read remain pending.
 
 Actual monitor 40165077942 updated assigned issue 10 at 05:19 UTC October 25, after starting
 four hours 37 minutes past its timer. At 06:39 UTC the collector's 05:17 timer had still emitted
