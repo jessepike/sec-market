@@ -90,10 +90,12 @@ accepted-zero result. The [ordinary JFrog/Rapid7 integration](docs/active/daily-
 is integrated locally under exact policy J, 47b9f226…66593a, with its zero-request disabled plan
 ef9ee1ba. Independent implementation review passes 106 checks. After a test-only historical-H
 fixture repair, the actual selected-J finish path passes 14 focused, two JavaScript and all
-935 operational tests; full application/80 SEC checks and both render widths pass. The separate
+935 operational tests; full application/80 SEC checks and both render widths pass. Independent
+test-delta review also passes, including a separate current-archive authentication. The separate
 postcopy proof preserves all 48,420 current archive entries, all 8,605 ordinary heads, four fact
 references, six admissions and 38 holds. Original sealed evidence remains unchanged. Preview/main
-activation, actual ordinary J collection and later genuine timer/publication receipts remain required.
+activation is advancing from preview 8ad3881a; actual ordinary J collection and later genuine
+timer/publication receipts remain required.
 
 The accepted [PR Newswire parser build](docs/active/daily-pipeline/accuracy/prnewswire-dated-window-parser-build-spec-2026-10-25.md)
 uses retained Cato/Chainguard pages in a separate isolated offline unit. It separates the daily

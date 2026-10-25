@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "verdict": "PASS",
+  "acknowledgedArchive": "9e4a9806fdcc1b7cd6f91314b8b4ff4bb4ef2174",
+  "archiveRoot": "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted",
+  "manifestSha256": "148842177a7e7d9a5fd5c2ea4574576264a957b41958ee4cdf5effa80ea029c2",
+  "manifestBytes": 10012399,
+  "entries": 48420,
+  "cachedBaseline": "9deb0c9ce9fe34999da0cf13bb023dfdfecc15c8",
+  "cachedIdentityReceiptSha256": "ca73c500d9e7b66135945ab56034563c01a788caa66efbaf2f9962bdf16fd720",
+  "previouslyAuthenticatedIdenticalHardlinks": 48243,
+  "deltaEntriesHashVerified": 177,
+  "canonicalHeadScope": {
+    "directory": "state/heads/*.json",
+    "except": [
+      "state/heads/budget-2026-10-25.json",
+      "state/heads/cloud-lease.json"
+    ],
+    "count": 8605,
+    "sha256": "490b7e470a9cdbd9b767664741644094bfdb1c5edd5a1e9d8ea8633b129032cd",
+    "allByteExactAgainst9deb": true
+  },
+  "changedOldEntryKeys": [
+    "state/heads/budget-2026-10-25.json",
+    "state/heads/cloud-lease.json"
+  ],
+  "newEntryCount": 175,
+  "currentActualBudgetUnchanged": {
+    "calls": 80,
+    "documents": 38,
+    "fetches": 1101
+  },
+  "factReferences": 4,
+  "heldRows": 38,
+  "privateSourceExpiryUnchanged": "2026-10-26T15:55:27.307096+00:00",
+  "all48420FileIdentitiesUnchangedAfter": true,
+  "sourceRequests": 0,
+  "modelRequests": 0,
+  "archiveWrites": 0,
+  "budgetWrites": 0
+}

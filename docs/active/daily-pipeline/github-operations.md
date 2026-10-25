@@ -127,9 +127,12 @@ a temporary empty store or a separate restored clone to spend outside the shared
 - Execution alerts #8/#9 recovered. Scheduled monitor `39950995198` keeps assigned issue #10 open
   for incomplete coverage and 28 held review items. See [activation receipts](activation-2026-10-23.md).
 
-The current day used both gate/publication attempts and the full conservative collection allowance.
-Keep main on the accepted production revision for the rest of that UTC day. Documentation updates
-stay on preview; temporary acceptance-trigger cleanup joins a later ordinary code promotion.
+October 23 used both gate/publication attempts and its conservative collection allowance. Preserve
+that historical outcome. Current allowances come from the acknowledged UTC-day ledger. The
+[reviewed October 25 promotion decision](accuracy/main-code-promotion-before-next-gate-decision-review-2026-10-25.md)
+allows reviewed collector repairs and bounded diagnostics through preview/main while production
+waits for its separate gate. Vercel Git production builds and automatic domain assignment remain
+closed. A later main revision needs its own code-bound gate; never reset or refund an allowance.
 
 Full source coverage and a sustained run of clean days remain distinct acceptance work. Do not
 describe partial coverage, one successful release or an installed schedule as sustained operation.
