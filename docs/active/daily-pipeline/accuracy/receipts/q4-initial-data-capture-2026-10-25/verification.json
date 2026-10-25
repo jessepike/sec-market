@@ -1,0 +1,302 @@
+{
+  "schemaVersion": 1,
+  "verdict": "PASS_DORMANT_REVIEWED_IMPLEMENTATION",
+  "governingSpecification": {
+    "sha256": "3817e085ab4e765cb7609ed9ceba7e49827cb3b28a4f6cc70de7612593969ef9",
+    "bytes": 6774
+  },
+  "changedCodeAndDormantPlan": {
+    "web/scripts/pipeline/q4_initial_data_capture.py": {
+      "sha256": "87ded82d37b5c51a121b769eaa084ad20bc691ca16a25929d13e7b004a99f8be",
+      "bytes": 20597
+    },
+    "ops/ci/collect.py": {
+      "sha256": "928e082f5b633a973a6ad7704ab70ecc150d5f2dbbd5aa448e3e03d9a4a3592b",
+      "bytes": 26016
+    },
+    "ops/ci/test_q4_initial_data_capture.py": {
+      "sha256": "8a97c12233f34c8fa6e333a321437f989c8286785b9a1dc49e0223ebb7e914e0",
+      "bytes": 22432
+    },
+    "docs/active/daily-pipeline/accuracy/q4-initial-data-capture-plan-2026-10-25.json": {
+      "sha256": "a316e39658c2e9b5872adeb6008ef138618c8b20a080ca78ee458bd3e51f0ddc",
+      "bytes": 6974
+    }
+  },
+  "planCanonicalSha256": "5ec3a0fc8588e64af13f8caeec32f3c4327f3b60c2526123ff49b41d219a8dae",
+  "activeOperationalPlan": {
+    "path": "contracts/source-qualification-probes.json",
+    "sha256": "ad1c5cc234fe4fa69cbceb5370ac74825a37dc80b08528ca908d14b1352e53b4",
+    "bytes": 173,
+    "disabled": true
+  },
+  "realParentProof": {
+    "archiveCommit": "9634b916c15b18f38605a168f7642de764670aab",
+    "manifestSha256": "600e58564c989206856ba48795bf4ce9f6fbbf73a604e806594e95327b53203a",
+    "inputSeals": 69,
+    "manifestAndInspectionAlsoSealed": true,
+    "sixOldAdmissionReplays": 6,
+    "allOriginalInputsUnchanged": true,
+    "protectedFiles": 26,
+    "protectedFilesUnchanged": true,
+    "proofReceipt": {
+      "sha256": "c6039df6afefd0200263af5763d056da1ad75d0b27cbb456cf3fe380cf44bfa8",
+      "bytes": 32387
+    }
+  },
+  "tests": {
+    "newFocusedPassed": 19,
+    "focusedIncludingOldRoutesPassed": 74,
+    "operationalPassed": 877,
+    "watchdogPassed": 36,
+    "pythonSkips": 0,
+    "applicationDataPassed": 377,
+    "applicationPipelinePassed": 115,
+    "applicationBrowserPassed": 42,
+    "applicationExistingBrowserSkip": 1,
+    "lintErrors": 0,
+    "preExistingLintWarnings": 1,
+    "gatedBuildPassed": true
+  },
+  "independentReview": {
+    "verdict": "PASS",
+    "passes": 2,
+    "openMaterialFindings": 0,
+    "tests": 22,
+    "planMutationsRejected": 244,
+    "reportMutationsRejected": 16,
+    "sixOldAdmissionsReplayed": true,
+    "unchangedSeals": 76,
+    "markdown": {
+      "sha256": "f6ba90d9d4f279191bf3fad66ec2fa090d9c0983284d82e62ebd0f9ee6c7d24e",
+      "bytes": 8927
+    },
+    "json": {
+      "sha256": "b8cfd502c581f26c837b739832ad9690e29df121b6fdb4e0e0747622f9aa2389",
+      "bytes": 35968
+    }
+  },
+  "render": {
+    "scope": "Full-page current production/current local screenshots; same-data local comparison to preceding reviewed Q4 preview. Application code/data unchanged.",
+    "captures": [
+      {
+        "width": 1440,
+        "localPath": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-initial-data-local-1440.png",
+        "localSha256": "b044622ff53e695fee8334a95746b932c0df81ff6e26ecb810bfd9228765cdd9",
+        "localSize": [
+          1440,
+          8379
+        ],
+        "priorLocalPath": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-controller-local-1440.png",
+        "priorLocalSha256": "b044622ff53e695fee8334a95746b932c0df81ff6e26ecb810bfd9228765cdd9",
+        "priorLocalSize": [
+          1440,
+          8379
+        ],
+        "pixelDifferenceBoundingBox": null,
+        "pixelsIdentical": true,
+        "productionPath": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-initial-data-production-1440.png",
+        "productionSha256": "5d04b34e2ffb5f520d45a06487e9ef7eb4ae671eb4cf7dce86626a2ffd1a6267",
+        "productionSize": [
+          1440,
+          8358
+        ]
+      },
+      {
+        "width": 390,
+        "localPath": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-initial-data-local-390.png",
+        "localSha256": "7dc872da46a4cf5e2eb765df88e1ae28e34eb70f8d5c38b19835bab09afcd3df",
+        "localSize": [
+          390,
+          7749
+        ],
+        "priorLocalPath": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-controller-local-390.png",
+        "priorLocalSha256": "7dc872da46a4cf5e2eb765df88e1ae28e34eb70f8d5c38b19835bab09afcd3df",
+        "priorLocalSize": [
+          390,
+          7749
+        ],
+        "pixelDifferenceBoundingBox": null,
+        "pixelsIdentical": true,
+        "productionPath": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-initial-data-production-390.png",
+        "productionSha256": "6da1a1dd0d2591dedb6bef743460ce9659853c84ff3539a59308c5e0cf347b75",
+        "productionSize": [
+          390,
+          7611
+        ]
+      }
+    ],
+    "allLocalPixelsIdentical": true,
+    "allFourImagesViewed": true,
+    "ownRenderServerStopped": true,
+    "ownPort": 18819
+  },
+  "retainedOriginalLogs": {
+    "focused-tests": {
+      "command": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "-v",
+        "test_q4_initial_data_capture",
+        "test_q4_controller_capture",
+        "test_leased_source_probe",
+        "test_leased_orca_probe",
+        "test_disabled_qualification_plan"
+      ],
+      "cwd": "/Users/jessepike/code/projects/sec-market-finish-20261022/ops/ci",
+      "exitCode": 0,
+      "pythonTestSummaries": [
+        {
+          "tests": 74,
+          "seconds": 2.354
+        }
+      ],
+      "rawSha256": "b1cc3e8982ed03f57013b8919c831d2c4c9da26b92cfda274c727b328ee1b694",
+      "rawBytes": 13770,
+      "rawLineCount": 79,
+      "gzipSha256": "3ee986a1ec47ed91625c59faddc3f833d360f4a8774700d7a9b5f55f187f806a",
+      "gzipBytes": 2436,
+      "retainedFile": "focused-tests.log.gz",
+      "byteExactRoundTrip": true,
+      "gzipMtime": 0,
+      "gzipEmbeddedFilename": ""
+    },
+    "full-ops-tests": {
+      "command": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "ops/ci",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "cwd": "/Users/jessepike/code/projects/sec-market-finish-20261022",
+      "exitCode": 0,
+      "pythonTestSummaries": [
+        {
+          "tests": 877,
+          "seconds": 20.738
+        }
+      ],
+      "rawSha256": "c17e4aa05c8710c2b109844e12ab813cdd5306a8206c29abdfeb92d009228e6c",
+      "rawBytes": 163375,
+      "rawLineCount": 882,
+      "gzipSha256": "73def7ddb7250579a5d97102c6f6f8670a9ef671acc92979e54bb1e0edaf8c38",
+      "gzipBytes": 24534,
+      "retainedFile": "full-ops-tests.log.gz",
+      "byteExactRoundTrip": true,
+      "gzipMtime": 0,
+      "gzipEmbeddedFilename": ""
+    },
+    "full-web-tests": {
+      "command": [
+        "npm",
+        "test"
+      ],
+      "cwd": "/Users/jessepike/code/projects/sec-market-finish-20261022/web",
+      "exitCode": 0,
+      "pythonTestSummaries": [
+        {
+          "tests": 115,
+          "seconds": 1.092
+        }
+      ],
+      "rawSha256": "b968caafb90dd42fca47f49f4b8d5d458e00bfc504f1b17da8a3702e8282f618",
+      "rawBytes": 126993,
+      "rawLineCount": 2998,
+      "gzipSha256": "aa6b79be5542707db60b083b52c78d2ed5d195a14fbc588bfc81fc060bc5ebc2",
+      "gzipBytes": 25472,
+      "retainedFile": "full-web-tests.log.gz",
+      "byteExactRoundTrip": true,
+      "gzipMtime": 0,
+      "gzipEmbeddedFilename": ""
+    },
+    "watchdog-tests": {
+      "command": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "ops/watchdog",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "exitCode": 0,
+      "rawSha256": "4bf974d273ebe9aa3798e4a9baac1f741254fec86e4834129c4b33642eb64a0f",
+      "rawBytes": 6471,
+      "rawLineCount": 41,
+      "gzipSha256": "d696cbddc4fbe115114af12db71ae760bee79fcbc6f58c225719170275e6eef9",
+      "gzipBytes": 1398,
+      "retainedFile": "watchdog-tests.log.gz",
+      "byteExactRoundTrip": true,
+      "gzipMtime": 0,
+      "gzipEmbeddedFilename": ""
+    },
+    "production-render": {
+      "command": [
+        "node",
+        "scripts/shot.mjs",
+        "https://securitymarketpulse.com/",
+        "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-initial-data-production"
+      ],
+      "exitCode": 0,
+      "rawSha256": "7d6b0d46248f388b5726057c7c707b35478f0adbfe1c239573314bb46ddc79aa",
+      "rawBytes": 384,
+      "rawLineCount": 2,
+      "gzipSha256": "4846e129931fd67c329469ed70bc63f8eb35748416b75ade70a56a959053acce",
+      "gzipBytes": 193,
+      "retainedFile": "production-render.log.gz",
+      "byteExactRoundTrip": true,
+      "gzipMtime": 0,
+      "gzipEmbeddedFilename": ""
+    },
+    "local-render": {
+      "command": [
+        "node",
+        "scripts/shot.mjs",
+        "http://127.0.0.1:18819/",
+        "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-initial-data-local"
+      ],
+      "exitCode": 0,
+      "rawSha256": "69fab8ac622870ab99bb60a85260566d991045e7d65a043a8d8aa79eb501d69c",
+      "rawBytes": 356,
+      "rawLineCount": 2,
+      "gzipSha256": "a1ce4dbc8c249ea48bd7f959c0608ce3213e461486674dfb8002d3286de25c23",
+      "gzipBytes": 189,
+      "retainedFile": "local-render.log.gz",
+      "byteExactRoundTrip": true,
+      "gzipMtime": 0,
+      "gzipEmbeddedFilename": ""
+    }
+  },
+  "limits": [
+    "Dormant exact two-target operation only; active plan remains disabled ad1.",
+    "No actual initial API response, wire request or source qualification proof is claimed.",
+    "Service-error JSON may be captured for review and grants no data or completeness credit.",
+    "The existing parser may accept duplicate known plan keys only when the parsed canonical tuple remains identical; raw-plan hash separately binds submitted bytes.",
+    "Parent owns later activation, preview/main checks, actual request dispatch and returned-data review."
+  ],
+  "implementationActions": {
+    "primarySourceRequests": 0,
+    "modelRequests": 0,
+    "reservations": 0,
+    "sourceRegistrations": 0,
+    "qualificationCredit": false,
+    "coverageCredit": false,
+    "archiveWrites": 0,
+    "commits": 0,
+    "pushes": 0,
+    "dispatches": 0,
+    "promotions": 0,
+    "executedJavaScript": false
+  }
+}

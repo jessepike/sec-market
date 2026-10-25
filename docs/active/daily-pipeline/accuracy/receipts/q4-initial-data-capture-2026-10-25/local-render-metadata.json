@@ -1,0 +1,18 @@
+{
+  "command": [
+    "node",
+    "scripts/shot.mjs",
+    "http://127.0.0.1:18819/",
+    "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-initial-data-local"
+  ],
+  "exitCode": 0,
+  "rawSha256": "69fab8ac622870ab99bb60a85260566d991045e7d65a043a8d8aa79eb501d69c",
+  "rawBytes": 356,
+  "rawLineCount": 2,
+  "gzipSha256": "a1ce4dbc8c249ea48bd7f959c0608ce3213e461486674dfb8002d3286de25c23",
+  "gzipBytes": 189,
+  "retainedFile": "local-render.log.gz",
+  "byteExactRoundTrip": true,
+  "gzipMtime": 0,
+  "gzipEmbeddedFilename": ""
+}

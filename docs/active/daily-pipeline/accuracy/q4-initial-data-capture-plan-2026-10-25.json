@@ -1,0 +1,153 @@
+{
+  "schemaVersion": 2,
+  "operation": "bounded_q4_initial_data_capture",
+  "marketSha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+  "maxRequests": 2,
+  "inspection": {
+    "path": "docs/active/daily-pipeline/accuracy/q4-controller-actual-code-next-requests-2026-10-25.json",
+    "sha256": "0542a4c9ae1b3468cd8ebe72ee7e2987e7ada34d510f46316a194b46e8754937",
+    "bytes": 37902
+  },
+  "captureProof": {
+    "githubRunId": "40179255547",
+    "githubRunAttempt": 1,
+    "githubEventName": "workflow_dispatch",
+    "githubRef": "refs/heads/main",
+    "appRevision": "99617db0f0ef4c70bb6f0b563cac9a40c50e0385",
+    "archive": {
+      "commit": "9634b916c15b18f38605a168f7642de764670aab",
+      "manifestSha256": "600e58564c989206856ba48795bf4ce9f6fbbf73a604e806594e95327b53203a",
+      "manifestBytes": 9326098,
+      "manifestGitBlobSha": "f53c21d0d576a8ebba3f57da5173d2b7ef8dec69"
+    },
+    "record": {
+      "key": "ci/source-probe-runs/40179255547-1.json",
+      "sha256": "0e5a08ff0c64750dcb441e640fc1dae0926a2cf5ab674920e48058bfd7da02d7",
+      "bytes": 10301
+    },
+    "plan": {
+      "bytes": 5643,
+      "key": "objects/007f1f940d48727da9a921d0c1138f27e5249870dd5ed6aaa3da3e844582ba91",
+      "sha256": "007f1f940d48727da9a921d0c1138f27e5249870dd5ed6aaa3da3e844582ba91"
+    },
+    "planCanonicalSha256": "e787c1c94704dd3a21ff4e71ffaf35dac1ac18f9d3ea2b0a7e16690da3561600"
+  },
+  "sources": [
+    {
+      "sourceId": "jfrog:official:1",
+      "supplierId": "jfrog",
+      "originalSourceSha256": "1e8d43d1828092f65a14bf90b7a5e222d2e4e8e12bccaab23c2a7052f0da7bff",
+      "htmlProof": {
+        "type": "qualification_observation",
+        "record": {
+          "key": "ci/source-probe-runs/40131875060-1.json",
+          "sha256": "90f8b45b299dd868fd558d1218fd1e0bcc0fda59c46d9f9a779352d461596aee",
+          "bytes": 90157
+        },
+        "priorTargetId": "next-jfrog-1",
+        "priorTargetIndex": 4,
+        "priorTargetSha256": "4e1e2dc1db22afa1da23d0d8d7362d2644d51ba58c9eae0a8248784ec00e429f",
+        "priorPlanRawSha256": "98b110fe4fd1beb898ff7ccaa190a3e4eb6dcb61e1da3ed5a5d72151bddd2ce4",
+        "priorPlanCanonicalSha256": "98b110fe4fd1beb898ff7ccaa190a3e4eb6dcb61e1da3ed5a5d72151bddd2ce4",
+        "priorPlanReference": {
+          "bytes": 4256,
+          "key": "objects/98b110fe4fd1beb898ff7ccaa190a3e4eb6dcb61e1da3ed5a5d72151bddd2ce4",
+          "sha256": "98b110fe4fd1beb898ff7ccaa190a3e4eb6dcb61e1da3ed5a5d72151bddd2ce4"
+        },
+        "observation": {
+          "bytes": 489,
+          "key": "objects/97356357732c1f91c9b3fa5485fa4b50a0c83e752abf5caf6e6d0d043731b1bf",
+          "sha256": "97356357732c1f91c9b3fa5485fa4b50a0c83e752abf5caf6e6d0d043731b1bf"
+        },
+        "body": {
+          "bytes": 114902,
+          "key": "objects/ead58a93ed20878e2ffb83512b3e8b52c08d878b3dff19e8d95a1162630ef20d",
+          "sha256": "ead58a93ed20878e2ffb83512b3e8b52c08d878b3dff19e8d95a1162630ef20d"
+        },
+        "fetchedAt": "2026-10-24T20:58:21.814627Z"
+      },
+      "controllerProof": {
+        "resultIndex": 0,
+        "observation": {
+          "bytes": 417,
+          "key": "objects/fe5378f490169d6b0b96f04c0d4f8800652d82b177645ea96307c2427a795bcd",
+          "sha256": "fe5378f490169d6b0b96f04c0d4f8800652d82b177645ea96307c2427a795bcd"
+        },
+        "rawObservation": {
+          "bytes": 585,
+          "key": "objects/9e1d35bf0726eaae6f295d26fc42e6530706ccea24b64843934c710276d96ffb",
+          "sha256": "9e1d35bf0726eaae6f295d26fc42e6530706ccea24b64843934c710276d96ffb"
+        },
+        "body": {
+          "bytes": 25534,
+          "key": "objects/2ce36889709b0c9ff34e2b657d5abe0600009604d7e5407d41198f9a9c72d5e7",
+          "sha256": "2ce36889709b0c9ff34e2b657d5abe0600009604d7e5407d41198f9a9c72d5e7"
+        },
+        "fetchedAt": "2026-10-25T09:09:54.344075Z"
+      },
+      "request": {
+        "method": "GET",
+        "url": "https://investors.jfrog.com/feed/PressRelease.svc/GetPressReleaseList?LanguageId=1&bodyType=0&pressReleaseDateFilter=3&categoryId=00000000-0000-0000-0000-000000000000&pageSize=-1&pageNumber=0&tagList=&includeTags=true&year=-1&excludeSelection=1",
+        "body": null
+      }
+    },
+    {
+      "sourceId": "rapid7:official:1",
+      "supplierId": "rapid7",
+      "originalSourceSha256": "05a6202088ab48d007b5969e9230844aa716749d7b9442d145953a51446209b5",
+      "htmlProof": {
+        "type": "qualification_observation",
+        "record": {
+          "key": "ci/source-probe-runs/40131875060-1.json",
+          "sha256": "90f8b45b299dd868fd558d1218fd1e0bcc0fda59c46d9f9a779352d461596aee",
+          "bytes": 90157
+        },
+        "priorTargetId": "next-rapid7-1",
+        "priorTargetIndex": 5,
+        "priorTargetSha256": "01ff363aba40a620d80297d42317d31f39bf208503658c653e609448448d511a",
+        "priorPlanRawSha256": "98b110fe4fd1beb898ff7ccaa190a3e4eb6dcb61e1da3ed5a5d72151bddd2ce4",
+        "priorPlanCanonicalSha256": "98b110fe4fd1beb898ff7ccaa190a3e4eb6dcb61e1da3ed5a5d72151bddd2ce4",
+        "priorPlanReference": {
+          "bytes": 4256,
+          "key": "objects/98b110fe4fd1beb898ff7ccaa190a3e4eb6dcb61e1da3ed5a5d72151bddd2ce4",
+          "sha256": "98b110fe4fd1beb898ff7ccaa190a3e4eb6dcb61e1da3ed5a5d72151bddd2ce4"
+        },
+        "observation": {
+          "bytes": 490,
+          "key": "objects/1d242084cb70aff581e42156c01f3a78a136cfd6bdfce16235fc67c2b379db12",
+          "sha256": "1d242084cb70aff581e42156c01f3a78a136cfd6bdfce16235fc67c2b379db12"
+        },
+        "body": {
+          "bytes": 90652,
+          "key": "objects/9ece5b105eb693076ea90ace3310c9cfbae7747b4e32faca80d9208dd1776479",
+          "sha256": "9ece5b105eb693076ea90ace3310c9cfbae7747b4e32faca80d9208dd1776479"
+        },
+        "fetchedAt": "2026-10-24T20:58:21.972999Z"
+      },
+      "controllerProof": {
+        "resultIndex": 2,
+        "observation": {
+          "bytes": 419,
+          "key": "objects/1c4e41969ed7ff0b0fcd3c3bc86e2587be8e689ac88b8a19a6178efd71edfaec",
+          "sha256": "1c4e41969ed7ff0b0fcd3c3bc86e2587be8e689ac88b8a19a6178efd71edfaec"
+        },
+        "rawObservation": {
+          "bytes": 587,
+          "key": "objects/aee00b13d297ac7f92846935e591b30703dd7b33f704e33f26528bd602359d09",
+          "sha256": "aee00b13d297ac7f92846935e591b30703dd7b33f704e33f26528bd602359d09"
+        },
+        "body": {
+          "bytes": 25534,
+          "key": "objects/2ce36889709b0c9ff34e2b657d5abe0600009604d7e5407d41198f9a9c72d5e7",
+          "sha256": "2ce36889709b0c9ff34e2b657d5abe0600009604d7e5407d41198f9a9c72d5e7"
+        },
+        "fetchedAt": "2026-10-25T09:09:54.775895Z"
+      },
+      "request": {
+        "method": "GET",
+        "url": "https://investors.rapid7.com/feed/PressRelease.svc/GetPressReleaseList?LanguageId=1&bodyType=0&pressReleaseDateFilter=3&categoryId=1cb807d2-208f-4bc3-9133-6a9ad45ac3b0&pageSize=-1&pageNumber=0&tagList=&includeTags=true&year=-1&excludeSelection=1",
+        "body": null
+      }
+    }
+  ]
+}

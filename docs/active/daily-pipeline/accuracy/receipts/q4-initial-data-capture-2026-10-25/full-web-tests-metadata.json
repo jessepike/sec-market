@@ -1,0 +1,23 @@
+{
+  "command": [
+    "npm",
+    "test"
+  ],
+  "cwd": "/Users/jessepike/code/projects/sec-market-finish-20261022/web",
+  "exitCode": 0,
+  "pythonTestSummaries": [
+    {
+      "tests": 115,
+      "seconds": 1.092
+    }
+  ],
+  "rawSha256": "b968caafb90dd42fca47f49f4b8d5d458e00bfc504f1b17da8a3702e8282f618",
+  "rawBytes": 126993,
+  "rawLineCount": 2998,
+  "gzipSha256": "aa6b79be5542707db60b083b52c78d2ed5d195a14fbc588bfc81fc060bc5ebc2",
+  "gzipBytes": 25472,
+  "retainedFile": "full-web-tests.log.gz",
+  "byteExactRoundTrip": true,
+  "gzipMtime": 0,
+  "gzipEmbeddedFilename": ""
+}

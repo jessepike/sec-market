@@ -70,7 +70,10 @@ The optional S1 rule activates no new correction group or old admission change.
 The [literal controller inspection](docs/active/daily-pipeline/accuracy/q4-controller-actual-code-next-requests-2026-10-25.md)
 supports two exact initial-data GET targets for JFrog and Rapid7. Their
 [closed diagnostic implementation](docs/active/daily-pipeline/accuracy/q4-initial-data-diagnostic-spec-2026-10-25.md)
-is in progress locally; its plan stays dormant and no data response has been fetched. Rubrik
+has passed independent review with no open material findings, 877 operational tests and full
+application checks. Both screen widths remain pixel-identical. Its plan stays dormant and no
+data response has been fetched. The exact two-request operational selection is specified in
+[the activation plan](docs/active/daily-pipeline/accuracy/q4-initial-data-operational-activation-spec-2026-10-25.md). Rubrik
 still lacks the .news controller join. Neither its host nor an API route may be guessed.
 
 ## Remaining acceptance and gaps

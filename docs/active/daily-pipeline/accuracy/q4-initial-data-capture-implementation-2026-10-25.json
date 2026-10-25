@@ -1,0 +1,134 @@
+{
+  "schemaVersion": 1,
+  "verdict": "PASS_DORMANT_REVIEWED_IMPLEMENTATION",
+  "implementationDocument": {
+    "sha256": "1520f6f428dc76e78fbf6e97583902f75da71f8c79f314505c4174761c666199",
+    "bytes": 7782
+  },
+  "verificationReceipt": {
+    "sha256": "ad762b1dda7309ac93c382a2a8d30e9fa16220798489e23edec80a7eba11955c",
+    "bytes": 10403
+  },
+  "changedCodeAndDormantPlan": {
+    "web/scripts/pipeline/q4_initial_data_capture.py": {
+      "sha256": "87ded82d37b5c51a121b769eaa084ad20bc691ca16a25929d13e7b004a99f8be",
+      "bytes": 20597
+    },
+    "ops/ci/collect.py": {
+      "sha256": "928e082f5b633a973a6ad7704ab70ecc150d5f2dbbd5aa448e3e03d9a4a3592b",
+      "bytes": 26016
+    },
+    "ops/ci/test_q4_initial_data_capture.py": {
+      "sha256": "8a97c12233f34c8fa6e333a321437f989c8286785b9a1dc49e0223ebb7e914e0",
+      "bytes": 22432
+    },
+    "docs/active/daily-pipeline/accuracy/q4-initial-data-capture-plan-2026-10-25.json": {
+      "sha256": "a316e39658c2e9b5872adeb6008ef138618c8b20a080ca78ee458bd3e51f0ddc",
+      "bytes": 6974
+    }
+  },
+  "tests": {
+    "newFocusedPassed": 19,
+    "focusedIncludingOldRoutesPassed": 74,
+    "operationalPassed": 877,
+    "watchdogPassed": 36,
+    "pythonSkips": 0,
+    "applicationDataPassed": 377,
+    "applicationPipelinePassed": 115,
+    "applicationBrowserPassed": 42,
+    "applicationExistingBrowserSkip": 1,
+    "lintErrors": 0,
+    "preExistingLintWarnings": 1,
+    "gatedBuildPassed": true
+  },
+  "independentReview": {
+    "verdict": "PASS",
+    "passes": 2,
+    "openMaterialFindings": 0,
+    "tests": 22,
+    "planMutationsRejected": 244,
+    "reportMutationsRejected": 16,
+    "sixOldAdmissionsReplayed": true,
+    "unchangedSeals": 76,
+    "markdown": {
+      "sha256": "f6ba90d9d4f279191bf3fad66ec2fa090d9c0983284d82e62ebd0f9ee6c7d24e",
+      "bytes": 8927
+    },
+    "json": {
+      "sha256": "b8cfd502c581f26c837b739832ad9690e29df121b6fdb4e0e0747622f9aa2389",
+      "bytes": 35968
+    }
+  },
+  "activeOperationalPlan": {
+    "path": "contracts/source-qualification-probes.json",
+    "sha256": "ad1c5cc234fe4fa69cbceb5370ac74825a37dc80b08528ca908d14b1352e53b4",
+    "bytes": 173,
+    "disabled": true
+  },
+  "allOriginalInputsUnchanged": true,
+  "allLocalPixelsIdentical": true,
+  "actualInitialDataResponsesCaptured": 0,
+  "qualificationCredit": false,
+  "receiptInventory": {
+    "actual-parent-preflight-and-admissions.json": {
+      "sha256": "c6039df6afefd0200263af5763d056da1ad75d0b27cbb456cf3fe380cf44bfa8",
+      "bytes": 32387
+    },
+    "focused-tests-metadata.json": {
+      "sha256": "a28987f4cca8d6c649b9ecec5771f12f03e8bf0c7a55c593ea34b762998ac045",
+      "bytes": 786
+    },
+    "focused-tests.log.gz": {
+      "sha256": "3ee986a1ec47ed91625c59faddc3f833d360f4a8774700d7a9b5f55f187f806a",
+      "bytes": 2436
+    },
+    "full-ops-tests-metadata.json": {
+      "sha256": "20494f9ca3855daf7a13099d2005191a8ac3718ed9822c52476e86eacf9d0884",
+      "bytes": 680
+    },
+    "full-ops-tests.log.gz": {
+      "sha256": "73def7ddb7250579a5d97102c6f6f8670a9ef671acc92979e54bb1e0edaf8c38",
+      "bytes": 24534
+    },
+    "full-web-tests-metadata.json": {
+      "sha256": "abec03a41f155530a6935fac0e6e90387d70a3b7ab0a407091cd45cba4647e5b",
+      "bytes": 579
+    },
+    "full-web-tests.log.gz": {
+      "sha256": "aa6b79be5542707db60b083b52c78d2ed5d195a14fbc588bfc81fc060bc5ebc2",
+      "bytes": 25472
+    },
+    "local-render-metadata.json": {
+      "sha256": "e138d17d3f5d36e455e650a2c5d2b7829e79487d5af4f9970ece727bf1475cf8",
+      "bytes": 572
+    },
+    "local-render.log.gz": {
+      "sha256": "a1ce4dbc8c249ea48bd7f959c0608ce3213e461486674dfb8002d3286de25c23",
+      "bytes": 189
+    },
+    "production-render-metadata.json": {
+      "sha256": "6fa37256b5b0a132623ea7611798a3746b67f8b13a58eb980a44a2653e1cc088",
+      "bytes": 591
+    },
+    "production-render.log.gz": {
+      "sha256": "4846e129931fd67c329469ed70bc63f8eb35748416b75ade70a56a959053acce",
+      "bytes": 193
+    },
+    "render-comparison.json": {
+      "sha256": "fcdb226418c9cea1c2cd08d238331328f5bed1eb389323cd1d327679d8d0fca4",
+      "bytes": 2270
+    },
+    "verification.json": {
+      "sha256": "ad762b1dda7309ac93c382a2a8d30e9fa16220798489e23edec80a7eba11955c",
+      "bytes": 10403
+    },
+    "watchdog-tests-metadata.json": {
+      "sha256": "4765df4a122df6cabb227867e72c77bdd6b98c5892af15526812428f40772722",
+      "bytes": 524
+    },
+    "watchdog-tests.log.gz": {
+      "sha256": "d696cbddc4fbe115114af12db71ae760bee79fcbc6f58c225719170275e6eef9",
+      "bytes": 1398
+    }
+  }
+}

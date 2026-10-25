@@ -1,0 +1,18 @@
+{
+  "command": [
+    "node",
+    "scripts/shot.mjs",
+    "https://securitymarketpulse.com/",
+    "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-initial-data-production"
+  ],
+  "exitCode": 0,
+  "rawSha256": "7d6b0d46248f388b5726057c7c707b35478f0adbfe1c239573314bb46ddc79aa",
+  "rawBytes": 384,
+  "rawLineCount": 2,
+  "gzipSha256": "4846e129931fd67c329469ed70bc63f8eb35748416b75ade70a56a959053acce",
+  "gzipBytes": 193,
+  "retainedFile": "production-render.log.gz",
+  "byteExactRoundTrip": true,
+  "gzipMtime": 0,
+  "gzipEmbeddedFilename": ""
+}
