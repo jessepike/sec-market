@@ -1,0 +1,1230 @@
+{
+  "scope": "Exact requestedUrl matches against same-host/issuer primary detail links literally present in seven retained HTML bodies; normal observation JSON and small immutable object JSON inspected read-only. Not an exhaustive semantic primary-shape acceptance.",
+  "literalDetailUrls": 119,
+  "metadataFilesInspected": 18867,
+  "matches": [
+    {
+      "key": "state/observations/02cb030deb8d0f506791c647262045eceb1a66c483b6a03cbb1dcb32ea4ef9f4.json",
+      "sourceIdsForLiteralLead": [
+        "cyera:official:1"
+      ],
+      "record": {
+        "body": {
+          "bytes": 268012,
+          "key": "objects/c64b78abd574277371384c267ea857fb403cf5869024e7151fc50667988b89f2",
+          "sha256": "c64b78abd574277371384c267ea857fb403cf5869024e7151fc50667988b89f2"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-24T18:29:42.932953Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "httpStatus": 200,
+        "lastModified": "Sat, 24 Oct 2026 06:15:27 GMT",
+        "observationId": "02cb030deb8d0f506791c647262045eceb1a66c483b6a03cbb1dcb32ea4ef9f4",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "sourceId": "cyera:citation:TR-cyera-1",
+        "status": "fetched",
+        "transportId": "29c05a33fcaec6bcee328f4ec06b2ada08f61c25bec7f5da2fad71c0b3cb511e",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/07988a0cf440b7f6a3b12d1cfbb1485d9ca292c5758fd5f2532d13dd82413b94.json",
+      "sourceIdsForLiteralLead": [
+        "cyera:official:1"
+      ],
+      "record": {
+        "body": {
+          "bytes": 267390,
+          "key": "objects/c7e1d3f5c6833dc9ed4633528dfd78a6c4b44996ffa183e6be5692d5d48ad117",
+          "sha256": "c7e1d3f5c6833dc9ed4633528dfd78a6c4b44996ffa183e6be5692d5d48ad117"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-23T11:34:10.678781Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "httpStatus": 304,
+        "lastModified": "Fri, 23 Oct 2026 04:14:44 GMT",
+        "observationId": "07988a0cf440b7f6a3b12d1cfbb1485d9ca292c5758fd5f2532d13dd82413b94",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "reusesObservationId": "7676839a6e2c37a5670a6b74f6956e8283a4a350d6e1b5756e78550d15e2e1ef",
+        "sourceId": "cyera:citation:TR-cyera-1",
+        "status": "not_modified"
+      }
+    },
+    {
+      "key": "state/observations/0c0a1a9655b4e004da940057efb5c1c2997dce0f1ca872a40cb929f4038f64b4.json",
+      "sourceIdsForLiteralLead": [
+        "torq:official:1"
+      ],
+      "record": {
+        "body": {
+          "bytes": 92383,
+          "key": "objects/70d09a52c27694f39fbd0d4a4547091109156a2c829c583ab1f504d36951dc14",
+          "sha256": "70d09a52c27694f39fbd0d4a4547091109156a2c829c583ab1f504d36951dc14"
+        },
+        "contentType": "text/html; charset=UTF-8",
+        "etag": null,
+        "fetchedAt": "2026-10-20T21:12:02.720916Z",
+        "finalUrl": "https://torq.io/news/torq-acquires-jit/",
+        "httpStatus": 200,
+        "lastModified": null,
+        "observationId": "0c0a1a9655b4e004da940057efb5c1c2997dce0f1ca872a40cb929f4038f64b4",
+        "requestedUrl": "https://torq.io/news/torq-acquires-jit/",
+        "sourceId": "torq:citation:TR-torq-2",
+        "status": "fetched"
+      }
+    },
+    {
+      "key": "state/observations/13231bd41f7706664c6f490fbfc77ecf470c8009828f42ed7d14a4e6904ff7d0.json",
+      "sourceIdsForLiteralLead": [
+        "torq:official:1"
+      ],
+      "record": {
+        "body": {
+          "bytes": 95697,
+          "key": "objects/066238d5c02c5a0c1d29c5b72d95194003e7f58ab8a9a80fc13c2e0075348fda",
+          "sha256": "066238d5c02c5a0c1d29c5b72d95194003e7f58ab8a9a80fc13c2e0075348fda"
+        },
+        "contentType": "text/html; charset=UTF-8",
+        "etag": null,
+        "fetchedAt": "2026-10-24T18:30:13.195867Z",
+        "finalUrl": "https://torq.io/news/torq-seriesd/",
+        "httpStatus": 200,
+        "lastModified": null,
+        "observationId": "13231bd41f7706664c6f490fbfc77ecf470c8009828f42ed7d14a4e6904ff7d0",
+        "requestedUrl": "https://torq.io/news/torq-seriesd/",
+        "sourceId": "torq:citation:TR-torq-1",
+        "status": "fetched",
+        "transportId": "8f750900c9cfca93dbcec5e6f4a3130b7ba2fa624838481cab1fffeb66adfc9a",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/253c200aecf280487e4e2196c98d91549e502109a83b5385431506f22b94cd7c.json",
+      "sourceIdsForLiteralLead": [
+        "cyera:official:1"
+      ],
+      "record": {
+        "body": {
+          "bytes": 265364,
+          "key": "objects/67c63b68b1626c5e53099452cb5e125960802aa27895e5925af87e0b058e3111",
+          "sha256": "67c63b68b1626c5e53099452cb5e125960802aa27895e5925af87e0b058e3111"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-24T18:29:50.137569Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+        "httpStatus": 200,
+        "lastModified": "Fri, 23 Oct 2026 23:54:15 GMT",
+        "observationId": "253c200aecf280487e4e2196c98d91549e502109a83b5385431506f22b94cd7c",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+        "sourceId": "cyera:citation:TR-cyera-2",
+        "status": "fetched",
+        "transportId": "21d346b305c27c500d24c6ddd8e30291d572829a279ad3d5ba77dd761d7c0af0",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/2784b84793f7dfbb1415873576130ba12fd38c1410aa435ba719a1f43c94a18d.json",
+      "sourceIdsForLiteralLead": [
+        "cyera:official:1"
+      ],
+      "record": {
+        "body": {
+          "bytes": 268012,
+          "key": "objects/c64b78abd574277371384c267ea857fb403cf5869024e7151fc50667988b89f2",
+          "sha256": "c64b78abd574277371384c267ea857fb403cf5869024e7151fc50667988b89f2"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-25T06:46:03.175955Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "httpStatus": 304,
+        "lastModified": "Sat, 24 Oct 2026 06:15:27 GMT",
+        "observationId": "2784b84793f7dfbb1415873576130ba12fd38c1410aa435ba719a1f43c94a18d",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "reusesObservationId": "02cb030deb8d0f506791c647262045eceb1a66c483b6a03cbb1dcb32ea4ef9f4",
+        "sourceId": "cyera:citation:TR-cyera-1",
+        "status": "not_modified",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/2958493750b22380863114ec2adbc4ba38f73d8e3498892c2a31875b4258eeb7.json",
+      "sourceIdsForLiteralLead": [
+        "torq:official:1"
+      ],
+      "record": {
+        "body": {
+          "bytes": 91835,
+          "key": "objects/27c3b2719d80607c98d0cc4d5aba1ef5e23a315cb5726e2e1eb35a983559fa42",
+          "sha256": "27c3b2719d80607c98d0cc4d5aba1ef5e23a315cb5726e2e1eb35a983559fa42"
+        },
+        "contentType": "text/html; charset=UTF-8",
+        "etag": null,
+        "fetchedAt": "2026-10-23T04:15:09.216495Z",
+        "finalUrl": "https://torq.io/news/torq-acquires-jit/",
+        "httpStatus": 200,
+        "lastModified": null,
+        "observationId": "2958493750b22380863114ec2adbc4ba38f73d8e3498892c2a31875b4258eeb7",
+        "requestedUrl": "https://torq.io/news/torq-acquires-jit/",
+        "sourceId": "torq:citation:TR-torq-2",
+        "status": "fetched"
+      }
+    },
+    {
+      "key": "state/observations/2a0237499451a5f4bd833b4d8c19a0e8d6b804a727c0e027c188e466df56fca7.json",
+      "sourceIdsForLiteralLead": [
+        "cyera:official:1"
+      ],
+      "record": {
+        "body": {
+          "bytes": 267390,
+          "key": "objects/3a4fe9a290c708cf18abcf9419ed381be2f0cacc9319caf4f5e11214cfc70864",
+          "sha256": "3a4fe9a290c708cf18abcf9419ed381be2f0cacc9319caf4f5e11214cfc70864"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-22T01:11:58.056883Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "httpStatus": 200,
+        "lastModified": "Wed, 21 Oct 2026 19:22:59 GMT",
+        "observationId": "2a0237499451a5f4bd833b4d8c19a0e8d6b804a727c0e027c188e466df56fca7",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "sourceId": "cyera:citation:TR-cyera-1",
+        "status": "fetched"
+      }
+    },
+    {
+      "key": "state/observations/2d390cd9719f51d6f7724ec4ed5212c56ca63a6485acce0adc737656b0896879.json",
+      "sourceIdsForLiteralLead": [
+        "torq:official:1"
+      ],
+      "record": {
+        "body": {
+          "bytes": 91807,
+          "key": "objects/8d62271cbd6e5a933d8e2d79ea1a3f0454ac158ea37e44fb3a2479c27084ade3",
+          "sha256": "8d62271cbd6e5a933d8e2d79ea1a3f0454ac158ea37e44fb3a2479c27084ade3"
+        },
+        "contentType": "text/html; charset=UTF-8",
+        "etag": null,
+        "fetchedAt": "2026-10-25T09:56:20.942046Z",
+        "finalUrl": "https://torq.io/news/torq-acquires-jit/",
+        "httpStatus": 200,
+        "lastModified": null,
+        "observationId": "2d390cd9719f51d6f7724ec4ed5212c56ca63a6485acce0adc737656b0896879",
+        "requestedUrl": "https://torq.io/news/torq-acquires-jit/",
+        "sourceId": "torq:citation:TR-torq-2",
+        "status": "fetched",
+        "transportId": "687c6b88bf3cbda4275c6d41d7a5419756a1eb7ad2ddd610a84f2ee61a5fa088",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/3fb2300a948ed7fd028d2af9ccfe937fd91b33acd8ab9ca39a1906983fcdcc1c.json",
+      "sourceIdsForLiteralLead": [
+        "cyera:official:1"
+      ],
+      "record": {
+        "body": {
+          "bytes": 264742,
+          "key": "objects/651da1d036563ce302610c41dd2f62ca9b58e769cf7c1157ea7304285a45a9f8",
+          "sha256": "651da1d036563ce302610c41dd2f62ca9b58e769cf7c1157ea7304285a45a9f8"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-23T04:14:51.233144Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+        "httpStatus": 200,
+        "lastModified": "Fri, 23 Oct 2026 02:00:46 GMT",
+        "observationId": "3fb2300a948ed7fd028d2af9ccfe937fd91b33acd8ab9ca39a1906983fcdcc1c",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+        "sourceId": "cyera:citation:TR-cyera-2",
+        "status": "fetched"
+      }
+    },
+    {
+      "key": "state/observations/4880f86d0e86109acb01bf9cb056d689785309f8d101b2570b403e5ad506ba9f.json",
+      "sourceIdsForLiteralLead": [
+        "torq:official:1"
+      ],
+      "record": {
+        "body": {
+          "bytes": 95725,
+          "key": "objects/da004e0a404beb97ed38231d0bac53f2cb9d09feb7192c91f7edd0d5a55091ac",
+          "sha256": "da004e0a404beb97ed38231d0bac53f2cb9d09feb7192c91f7edd0d5a55091ac"
+        },
+        "contentType": "text/html; charset=UTF-8",
+        "etag": null,
+        "fetchedAt": "2026-10-23T11:34:05.860071Z",
+        "finalUrl": "https://torq.io/news/torq-seriesd/",
+        "httpStatus": 200,
+        "lastModified": null,
+        "observationId": "4880f86d0e86109acb01bf9cb056d689785309f8d101b2570b403e5ad506ba9f",
+        "requestedUrl": "https://torq.io/news/torq-seriesd/",
+        "sourceId": "torq:citation:TR-torq-1",
+        "status": "fetched"
+      }
+    },
+    {
+      "key": "state/observations/54051580f2dbddff56c19e11094bc3524fbc41afcacedb9947cfbb6a0738a111.json",
+      "sourceIdsForLiteralLead": [
+        "cyera:official:1"
+      ],
+      "record": {
+        "body": {
+          "bytes": 267390,
+          "key": "objects/4b49e5ae2cd5a432490f93de319d96b21bf74f823141168a37b15b2df93cb3d7",
+          "sha256": "4b49e5ae2cd5a432490f93de319d96b21bf74f823141168a37b15b2df93cb3d7"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-20T21:41:22.179780Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "httpStatus": 200,
+        "lastModified": "Fri, 16 Oct 2026 21:23:07 GMT",
+        "observationId": "54051580f2dbddff56c19e11094bc3524fbc41afcacedb9947cfbb6a0738a111",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "sourceId": "cyera:citation:TR-cyera-1",
+        "status": "fetched"
+      }
+    },
+    {
+      "key": "state/observations/57b461f9d9b6720deac940e569bb687186193ba0e363703f9f5e074df2752197.json",
+      "sourceIdsForLiteralLead": [
+        "cyera:official:1"
+      ],
+      "record": {
+        "body": {
+          "bytes": 267390,
+          "key": "objects/4b49e5ae2cd5a432490f93de319d96b21bf74f823141168a37b15b2df93cb3d7",
+          "sha256": "4b49e5ae2cd5a432490f93de319d96b21bf74f823141168a37b15b2df93cb3d7"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-20T21:21:30.573654Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "httpStatus": 304,
+        "lastModified": "Fri, 16 Oct 2026 20:17:55 GMT",
+        "observationId": "57b461f9d9b6720deac940e569bb687186193ba0e363703f9f5e074df2752197",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "reusesObservationId": "d3d035a49172f544bcb0e8504da1947290969625a640ec1ecad88e0a9186ce71",
+        "sourceId": "cyera:citation:TR-cyera-1",
+        "status": "not_modified"
+      }
+    },
+    {
+      "key": "state/observations/5ee8efde4c0d299ff3b44c26a640c80f00e83c387e89378d5f5249c54eee39da.json",
+      "sourceIdsForLiteralLead": [
+        "torq:official:1"
+      ],
+      "record": {
+        "body": {
+          "bytes": 95697,
+          "key": "objects/6102e974c1f0cd67b6e57208a80e3bc504a1d51660366263e9243449942a9fa2",
+          "sha256": "6102e974c1f0cd67b6e57208a80e3bc504a1d51660366263e9243449942a9fa2"
+        },
+        "contentType": "text/html; charset=UTF-8",
+        "etag": null,
+        "fetchedAt": "2026-10-25T06:46:05.131596Z",
+        "finalUrl": "https://torq.io/news/torq-seriesd/",
+        "httpStatus": 200,
+        "lastModified": null,
+        "observationId": "5ee8efde4c0d299ff3b44c26a640c80f00e83c387e89378d5f5249c54eee39da",
+        "requestedUrl": "https://torq.io/news/torq-seriesd/",
+        "sourceId": "torq:citation:TR-torq-1",
+        "status": "fetched",
+        "transportId": "799e18bfcb5258bc987955ddfa7b5729cd3c53eab527806560b5666584f8eb3d",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/5fadc9af5cd787c78d6cab50ea0a4fa78846dd2077c0df604f5e546ad7bddb7b.json",
+      "sourceIdsForLiteralLead": [
+        "cyera:official:1"
+      ],
+      "record": {
+        "body": {
+          "bytes": 264742,
+          "key": "objects/6d40b80360b3c3913758660a2ed0069a52006e69a8a8bd1942ea625b3acb31fe",
+          "sha256": "6d40b80360b3c3913758660a2ed0069a52006e69a8a8bd1942ea625b3acb31fe"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-20T21:11:33.139142Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+        "httpStatus": 200,
+        "lastModified": "Fri, 16 Oct 2026 20:20:16 GMT",
+        "observationId": "5fadc9af5cd787c78d6cab50ea0a4fa78846dd2077c0df604f5e546ad7bddb7b",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+        "sourceId": "cyera:citation:TR-cyera-2",
+        "status": "fetched"
+      }
+    },
+    {
+      "key": "state/observations/6144921b3ca4ed0ac5e43db21766f74b017149bd6c396b0c5d3a132ea6e04dc8.json",
+      "sourceIdsForLiteralLead": [
+        "cyera:official:1"
+      ],
+      "record": {
+        "body": {
+          "bytes": 265364,
+          "key": "objects/67c63b68b1626c5e53099452cb5e125960802aa27895e5925af87e0b058e3111",
+          "sha256": "67c63b68b1626c5e53099452cb5e125960802aa27895e5925af87e0b058e3111"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-24T05:39:23.673750Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+        "httpStatus": 304,
+        "lastModified": "Fri, 23 Oct 2026 22:59:01 GMT",
+        "observationId": "6144921b3ca4ed0ac5e43db21766f74b017149bd6c396b0c5d3a132ea6e04dc8",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+        "reusesObservationId": "fdbb61b847f334ce96a576dc8a7f14abd0695533459e886bfc9d0f5a7b5a33a7",
+        "sourceId": "cyera:citation:TR-cyera-2",
+        "status": "not_modified",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/61e2d572a825e0a120f34030e4139ebd21b2c5aff587b618e464f90b89e3e66b.json",
+      "sourceIdsForLiteralLead": [
+        "cyera:official:1"
+      ],
+      "record": {
+        "body": {
+          "bytes": 265364,
+          "key": "objects/67c63b68b1626c5e53099452cb5e125960802aa27895e5925af87e0b058e3111",
+          "sha256": "67c63b68b1626c5e53099452cb5e125960802aa27895e5925af87e0b058e3111"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-25T09:56:04.509202Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+        "httpStatus": 200,
+        "lastModified": "Sat, 24 Oct 2026 16:30:23 GMT",
+        "observationId": "61e2d572a825e0a120f34030e4139ebd21b2c5aff587b618e464f90b89e3e66b",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+        "sourceId": "cyera:citation:TR-cyera-2",
+        "status": "fetched",
+        "transportId": "e37c2f326755caeee805ff6e4b1a613b12a714d21877534637eb604fc9dd3f51",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/6419c428dd2644d6dc3eccc3617c35fcd6570dd899d6ed07b9fd0c9aa7767231.json",
+      "sourceIdsForLiteralLead": [
+        "cyera:official:1"
+      ],
+      "record": {
+        "body": {
+          "bytes": 264742,
+          "key": "objects/6d40b80360b3c3913758660a2ed0069a52006e69a8a8bd1942ea625b3acb31fe",
+          "sha256": "6d40b80360b3c3913758660a2ed0069a52006e69a8a8bd1942ea625b3acb31fe"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-20T21:41:21.849364Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+        "httpStatus": 200,
+        "lastModified": "Fri, 16 Oct 2026 20:24:18 GMT",
+        "observationId": "6419c428dd2644d6dc3eccc3617c35fcd6570dd899d6ed07b9fd0c9aa7767231",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+        "sourceId": "cyera:citation:TR-cyera-2",
+        "status": "fetched"
+      }
+    },
+    {
+      "key": "state/observations/6528aa461491afe7dd764503d33ee7cebe1ea907e9ca42db9198cb131fe24f4b.json",
+      "sourceIdsForLiteralLead": [
+        "torq:official:1"
+      ],
+      "record": {
+        "body": {
+          "bytes": 91835,
+          "key": "objects/cc9a8c81e9fd06fe2d65cdbba0508d79cbd30c6e7d1d664919d5e27a26f3d902",
+          "sha256": "cc9a8c81e9fd06fe2d65cdbba0508d79cbd30c6e7d1d664919d5e27a26f3d902"
+        },
+        "contentType": "text/html; charset=UTF-8",
+        "etag": null,
+        "fetchedAt": "2026-10-22T01:11:41.817282Z",
+        "finalUrl": "https://torq.io/news/torq-acquires-jit/",
+        "httpStatus": 200,
+        "lastModified": null,
+        "observationId": "6528aa461491afe7dd764503d33ee7cebe1ea907e9ca42db9198cb131fe24f4b",
+        "requestedUrl": "https://torq.io/news/torq-acquires-jit/",
+        "sourceId": "torq:citation:TR-torq-2",
+        "status": "fetched"
+      }
+    },
+    {
+      "key": "state/observations/6b739bde18ed015ca48c58b30214e7264dd9cf60cbe4568a33c6fdb42ef00ed3.json",
+      "sourceIdsForLiteralLead": [
+        "cyera:official:1"
+      ],
+      "record": {
+        "body": {
+          "bytes": 264742,
+          "key": "objects/9d1c6c7fc0b5ca8f6d889ea8dfaa5e1ae59200f7f139c1cfe8bebeff6335b954",
+          "sha256": "9d1c6c7fc0b5ca8f6d889ea8dfaa5e1ae59200f7f139c1cfe8bebeff6335b954"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-22T01:11:51.709942Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+        "httpStatus": 200,
+        "lastModified": "Wed, 21 Oct 2026 18:52:22 GMT",
+        "observationId": "6b739bde18ed015ca48c58b30214e7264dd9cf60cbe4568a33c6fdb42ef00ed3",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+        "sourceId": "cyera:citation:TR-cyera-2",
+        "status": "fetched"
+      }
+    },
+    {
+      "key": "state/observations/7676839a6e2c37a5670a6b74f6956e8283a4a350d6e1b5756e78550d15e2e1ef.json",
+      "sourceIdsForLiteralLead": [
+        "cyera:official:1"
+      ],
+      "record": {
+        "body": {
+          "bytes": 267390,
+          "key": "objects/c7e1d3f5c6833dc9ed4633528dfd78a6c4b44996ffa183e6be5692d5d48ad117",
+          "sha256": "c7e1d3f5c6833dc9ed4633528dfd78a6c4b44996ffa183e6be5692d5d48ad117"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-23T04:14:44.342902Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "httpStatus": 200,
+        "lastModified": "Fri, 23 Oct 2026 04:14:44 GMT",
+        "observationId": "7676839a6e2c37a5670a6b74f6956e8283a4a350d6e1b5756e78550d15e2e1ef",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "sourceId": "cyera:citation:TR-cyera-1",
+        "status": "fetched"
+      }
+    },
+    {
+      "key": "state/observations/7acc656a7e99cefc234e19987f4183401a9e1d15ff2c1d58edafaa62f2371051.json",
+      "sourceIdsForLiteralLead": [
+        "torq:official:1"
+      ],
+      "record": {
+        "body": {
+          "bytes": 95697,
+          "key": "objects/36252ce506a9da38ece439d037726124d1eda36f215349401d9084d45513be5e",
+          "sha256": "36252ce506a9da38ece439d037726124d1eda36f215349401d9084d45513be5e"
+        },
+        "contentType": "text/html; charset=UTF-8",
+        "etag": null,
+        "fetchedAt": "2026-10-25T09:56:03.733474Z",
+        "finalUrl": "https://torq.io/news/torq-seriesd/",
+        "httpStatus": 200,
+        "lastModified": null,
+        "observationId": "7acc656a7e99cefc234e19987f4183401a9e1d15ff2c1d58edafaa62f2371051",
+        "requestedUrl": "https://torq.io/news/torq-seriesd/",
+        "sourceId": "torq:citation:TR-torq-1",
+        "status": "fetched",
+        "transportId": "2cdfabc60cdca67389c927777e5beea817a9b94e6587914c29ef0daa26269e6d",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/7deb02c90922eb763434bfd0223d91e140927c72c3feb5d6a46dd7064f7390d9.json",
+      "sourceIdsForLiteralLead": [
+        "torq:official:1"
+      ],
+      "record": {
+        "body": {
+          "bytes": 96536,
+          "key": "objects/9b31e8c79f91957841d6c710b5c30cd729557a46be6d915136ca8f221310ffc6",
+          "sha256": "9b31e8c79f91957841d6c710b5c30cd729557a46be6d915136ca8f221310ffc6"
+        },
+        "contentType": "text/html; charset=UTF-8",
+        "etag": null,
+        "fetchedAt": "2026-10-20T21:22:11.218975Z",
+        "finalUrl": "https://torq.io/news/torq-seriesd/",
+        "httpStatus": 200,
+        "lastModified": null,
+        "observationId": "7deb02c90922eb763434bfd0223d91e140927c72c3feb5d6a46dd7064f7390d9",
+        "requestedUrl": "https://torq.io/news/torq-seriesd/",
+        "sourceId": "torq:citation:TR-torq-1",
+        "status": "fetched"
+      }
+    },
+    {
+      "key": "state/observations/7fcb64d99dfae0e6bc8e70f19e7a1f596479383e7b022353accd77d70763f89e.json",
+      "sourceIdsForLiteralLead": [
+        "torq:official:1"
+      ],
+      "record": {
+        "body": {
+          "bytes": 92646,
+          "key": "objects/e7c2edc1ed8b419c0b93d86feb4613c5e8aceaa4097d22c483e62654743df5a1",
+          "sha256": "e7c2edc1ed8b419c0b93d86feb4613c5e8aceaa4097d22c483e62654743df5a1"
+        },
+        "contentType": "text/html; charset=UTF-8",
+        "etag": null,
+        "fetchedAt": "2026-10-20T21:21:33.649372Z",
+        "finalUrl": "https://torq.io/news/torq-acquires-jit/",
+        "httpStatus": 200,
+        "lastModified": null,
+        "observationId": "7fcb64d99dfae0e6bc8e70f19e7a1f596479383e7b022353accd77d70763f89e",
+        "requestedUrl": "https://torq.io/news/torq-acquires-jit/",
+        "sourceId": "torq:citation:TR-torq-2",
+        "status": "fetched"
+      }
+    },
+    {
+      "key": "state/observations/8b61826d34c5199a607a31cdbbb61f8980a789494987f761a6d728044a411308.json",
+      "sourceIdsForLiteralLead": [
+        "torq:official:1"
+      ],
+      "record": {
+        "body": {
+          "bytes": 92383,
+          "key": "objects/1872a22a4f480c12b7ffa1771e65c2008ce78d09e00703c8951fc54dce680023",
+          "sha256": "1872a22a4f480c12b7ffa1771e65c2008ce78d09e00703c8951fc54dce680023"
+        },
+        "contentType": "text/html; charset=UTF-8",
+        "etag": null,
+        "fetchedAt": "2026-10-20T21:41:15.945490Z",
+        "finalUrl": "https://torq.io/news/torq-acquires-jit/",
+        "httpStatus": 200,
+        "lastModified": null,
+        "observationId": "8b61826d34c5199a607a31cdbbb61f8980a789494987f761a6d728044a411308",
+        "requestedUrl": "https://torq.io/news/torq-acquires-jit/",
+        "sourceId": "torq:citation:TR-torq-2",
+        "status": "fetched"
+      }
+    },
+    {
+      "key": "state/observations/8c5dec68d3c6506efa09c4e1ba40ee4d32fb2fc8c218fd1c7dc74e67b80c23dc.json",
+      "sourceIdsForLiteralLead": [
+        "cyera:official:1"
+      ],
+      "record": {
+        "body": {
+          "bytes": 268012,
+          "key": "objects/c64b78abd574277371384c267ea857fb403cf5869024e7151fc50667988b89f2",
+          "sha256": "c64b78abd574277371384c267ea857fb403cf5869024e7151fc50667988b89f2"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-24T00:05:51.825171Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "httpStatus": 200,
+        "lastModified": "Fri, 23 Oct 2026 23:51:26 GMT",
+        "observationId": "8c5dec68d3c6506efa09c4e1ba40ee4d32fb2fc8c218fd1c7dc74e67b80c23dc",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "sourceId": "cyera:citation:TR-cyera-1",
+        "status": "fetched",
+        "transportId": "291b7f5b0cc8c9e1b73b97b6c52607cd06f9dfd48f64faf5aea2b710a132c270",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/977e083dbc6e13ed42efa674f2e0f689be2e659ad7a1db89fff6033143f3d83b.json",
+      "sourceIdsForLiteralLead": [
+        "torq:official:1"
+      ],
+      "record": {
+        "body": {
+          "bytes": 92070,
+          "key": "objects/81654043cad0db23aee9d4adcfe897c55c76153719454fcf926f4be77c518eb8",
+          "sha256": "81654043cad0db23aee9d4adcfe897c55c76153719454fcf926f4be77c518eb8"
+        },
+        "contentType": "text/html; charset=UTF-8",
+        "etag": null,
+        "fetchedAt": "2026-10-24T05:39:19.857385Z",
+        "finalUrl": "https://torq.io/news/torq-acquires-jit/",
+        "httpStatus": 200,
+        "lastModified": null,
+        "observationId": "977e083dbc6e13ed42efa674f2e0f689be2e659ad7a1db89fff6033143f3d83b",
+        "requestedUrl": "https://torq.io/news/torq-acquires-jit/",
+        "sourceId": "torq:citation:TR-torq-2",
+        "status": "fetched",
+        "transportId": "92cd4d23155c40443638ddf635964336b87d59105ca488419e49306172e7c65d",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/9852fc5e2b125d6a2134989503fc853b0a5952830cadbd3bcdd21fd2b38b21d5.json",
+      "sourceIdsForLiteralLead": [
+        "cyera:official:1"
+      ],
+      "record": {
+        "body": {
+          "bytes": 268012,
+          "key": "objects/c64b78abd574277371384c267ea857fb403cf5869024e7151fc50667988b89f2",
+          "sha256": "c64b78abd574277371384c267ea857fb403cf5869024e7151fc50667988b89f2"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-24T05:39:41.692982Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "httpStatus": 304,
+        "lastModified": "Fri, 23 Oct 2026 23:51:26 GMT",
+        "observationId": "9852fc5e2b125d6a2134989503fc853b0a5952830cadbd3bcdd21fd2b38b21d5",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "reusesObservationId": "8c5dec68d3c6506efa09c4e1ba40ee4d32fb2fc8c218fd1c7dc74e67b80c23dc",
+        "sourceId": "cyera:citation:TR-cyera-1",
+        "status": "not_modified",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/adbfc548bb24a191278763fb5f81352dcc69eb2f45dd135c2459212ee879c78e.json",
+      "sourceIdsForLiteralLead": [
+        "torq:official:1"
+      ],
+      "record": {
+        "body": {
+          "bytes": 95725,
+          "key": "objects/0a9885e93a4f92bd01df2b53ca827f046445fed49c5e2540b2d123e872b24696",
+          "sha256": "0a9885e93a4f92bd01df2b53ca827f046445fed49c5e2540b2d123e872b24696"
+        },
+        "contentType": "text/html; charset=UTF-8",
+        "etag": null,
+        "fetchedAt": "2026-10-22T01:11:26.466911Z",
+        "finalUrl": "https://torq.io/news/torq-seriesd/",
+        "httpStatus": 200,
+        "lastModified": null,
+        "observationId": "adbfc548bb24a191278763fb5f81352dcc69eb2f45dd135c2459212ee879c78e",
+        "requestedUrl": "https://torq.io/news/torq-seriesd/",
+        "sourceId": "torq:citation:TR-torq-1",
+        "status": "fetched"
+      }
+    },
+    {
+      "key": "state/observations/ae0831a3499c6ede4fa09d68188e7775e6dfca01b16f77b702ea9d213b576d08.json",
+      "sourceIdsForLiteralLead": [
+        "torq:official:1"
+      ],
+      "record": {
+        "body": {
+          "bytes": 91807,
+          "key": "objects/3ac4e26cf6dd24e2468ab4158a345727467a9317541e03f5d03040d313dcf870",
+          "sha256": "3ac4e26cf6dd24e2468ab4158a345727467a9317541e03f5d03040d313dcf870"
+        },
+        "contentType": "text/html; charset=UTF-8",
+        "etag": null,
+        "fetchedAt": "2026-10-25T06:46:22.663308Z",
+        "finalUrl": "https://torq.io/news/torq-acquires-jit/",
+        "httpStatus": 200,
+        "lastModified": null,
+        "observationId": "ae0831a3499c6ede4fa09d68188e7775e6dfca01b16f77b702ea9d213b576d08",
+        "requestedUrl": "https://torq.io/news/torq-acquires-jit/",
+        "sourceId": "torq:citation:TR-torq-2",
+        "status": "fetched",
+        "transportId": "0c5f7d4e0917329f68d83f0c7152c77ef1cb6909a2b1e8c9ab97c5f326ef6055",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/c340c76df49a6e93013e9552ec6a5a6de7331e6be78dcc7f015965e3ed27b259.json",
+      "sourceIdsForLiteralLead": [
+        "cyera:official:1"
+      ],
+      "record": {
+        "body": {
+          "bytes": 265364,
+          "key": "objects/67c63b68b1626c5e53099452cb5e125960802aa27895e5925af87e0b058e3111",
+          "sha256": "67c63b68b1626c5e53099452cb5e125960802aa27895e5925af87e0b058e3111"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-25T06:46:05.873081Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+        "httpStatus": 304,
+        "lastModified": "Fri, 23 Oct 2026 23:54:15 GMT",
+        "observationId": "c340c76df49a6e93013e9552ec6a5a6de7331e6be78dcc7f015965e3ed27b259",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+        "reusesObservationId": "253c200aecf280487e4e2196c98d91549e502109a83b5385431506f22b94cd7c",
+        "sourceId": "cyera:citation:TR-cyera-2",
+        "status": "not_modified",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/cfebd85f8567c7537550efd7e8026d49c5a83eda23f8fbf77a71f19486c1f4a7.json",
+      "sourceIdsForLiteralLead": [
+        "torq:official:1"
+      ],
+      "record": {
+        "body": {
+          "bytes": 95725,
+          "key": "objects/10261f19ad91e17ee7cc7a3747cdf9e9102b53cf38885d50f2f478cb38f0465f",
+          "sha256": "10261f19ad91e17ee7cc7a3747cdf9e9102b53cf38885d50f2f478cb38f0465f"
+        },
+        "contentType": "text/html; charset=UTF-8",
+        "etag": null,
+        "fetchedAt": "2026-10-23T04:14:39.398615Z",
+        "finalUrl": "https://torq.io/news/torq-seriesd/",
+        "httpStatus": 200,
+        "lastModified": null,
+        "observationId": "cfebd85f8567c7537550efd7e8026d49c5a83eda23f8fbf77a71f19486c1f4a7",
+        "requestedUrl": "https://torq.io/news/torq-seriesd/",
+        "sourceId": "torq:citation:TR-torq-1",
+        "status": "fetched"
+      }
+    },
+    {
+      "key": "state/observations/d3d035a49172f544bcb0e8504da1947290969625a640ec1ecad88e0a9186ce71.json",
+      "sourceIdsForLiteralLead": [
+        "cyera:official:1"
+      ],
+      "record": {
+        "body": {
+          "bytes": 267390,
+          "key": "objects/4b49e5ae2cd5a432490f93de319d96b21bf74f823141168a37b15b2df93cb3d7",
+          "sha256": "4b49e5ae2cd5a432490f93de319d96b21bf74f823141168a37b15b2df93cb3d7"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-20T21:11:45.828778Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "httpStatus": 200,
+        "lastModified": "Fri, 16 Oct 2026 20:17:55 GMT",
+        "observationId": "d3d035a49172f544bcb0e8504da1947290969625a640ec1ecad88e0a9186ce71",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "sourceId": "cyera:citation:TR-cyera-1",
+        "status": "fetched"
+      }
+    },
+    {
+      "key": "state/observations/e093d30012f13f5403bd5d9e3f14bc5421ecc3a1714352fd7a2b3e44224580b2.json",
+      "sourceIdsForLiteralLead": [
+        "cyera:official:1"
+      ],
+      "record": {
+        "body": {
+          "bytes": 268012,
+          "key": "objects/c64b78abd574277371384c267ea857fb403cf5869024e7151fc50667988b89f2",
+          "sha256": "c64b78abd574277371384c267ea857fb403cf5869024e7151fc50667988b89f2"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-25T09:56:01.792304Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "httpStatus": 304,
+        "lastModified": "Sat, 24 Oct 2026 06:15:27 GMT",
+        "observationId": "e093d30012f13f5403bd5d9e3f14bc5421ecc3a1714352fd7a2b3e44224580b2",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "reusesObservationId": "2784b84793f7dfbb1415873576130ba12fd38c1410aa435ba719a1f43c94a18d",
+        "sourceId": "cyera:citation:TR-cyera-1",
+        "status": "not_modified",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/e21a95310c38ea58bcc2ac2c9dccfc91ccdd715c074c69061a1a4663c386fcad.json",
+      "sourceIdsForLiteralLead": [
+        "torq:official:1"
+      ],
+      "record": {
+        "body": {
+          "bytes": 96273,
+          "key": "objects/b4ba22efb60785f15142dd57fdb986c7499065a84e2203305c6b7fe124594bd8",
+          "sha256": "b4ba22efb60785f15142dd57fdb986c7499065a84e2203305c6b7fe124594bd8"
+        },
+        "contentType": "text/html; charset=UTF-8",
+        "etag": null,
+        "fetchedAt": "2026-10-20T21:41:51.605673Z",
+        "finalUrl": "https://torq.io/news/torq-seriesd/",
+        "httpStatus": 200,
+        "lastModified": null,
+        "observationId": "e21a95310c38ea58bcc2ac2c9dccfc91ccdd715c074c69061a1a4663c386fcad",
+        "requestedUrl": "https://torq.io/news/torq-seriesd/",
+        "sourceId": "torq:citation:TR-torq-1",
+        "status": "fetched"
+      }
+    },
+    {
+      "key": "state/observations/ee3bc63a4ef0127ccc78ca768d77eba19cb67713c8fc49a41dbac667c3ed9d54.json",
+      "sourceIdsForLiteralLead": [
+        "torq:official:1"
+      ],
+      "record": {
+        "body": {
+          "bytes": 96273,
+          "key": "objects/8080ef0c8f84790f7a525dfe1af0397c972d9e9f2d6a6fc35cbfe2a79e4a55ad",
+          "sha256": "8080ef0c8f84790f7a525dfe1af0397c972d9e9f2d6a6fc35cbfe2a79e4a55ad"
+        },
+        "contentType": "text/html; charset=UTF-8",
+        "etag": null,
+        "fetchedAt": "2026-10-20T21:11:35.505265Z",
+        "finalUrl": "https://torq.io/news/torq-seriesd/",
+        "httpStatus": 200,
+        "lastModified": null,
+        "observationId": "ee3bc63a4ef0127ccc78ca768d77eba19cb67713c8fc49a41dbac667c3ed9d54",
+        "requestedUrl": "https://torq.io/news/torq-seriesd/",
+        "sourceId": "torq:citation:TR-torq-1",
+        "status": "fetched"
+      }
+    },
+    {
+      "key": "state/observations/f2412b2bb5a8bbcb761342c3846031a0a989abfd669eb1002e285535f8343ce4.json",
+      "sourceIdsForLiteralLead": [
+        "cyera:official:1"
+      ],
+      "record": {
+        "body": {
+          "bytes": 264742,
+          "key": "objects/6d40b80360b3c3913758660a2ed0069a52006e69a8a8bd1942ea625b3acb31fe",
+          "sha256": "6d40b80360b3c3913758660a2ed0069a52006e69a8a8bd1942ea625b3acb31fe"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-20T21:22:18.845391Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+        "httpStatus": 304,
+        "lastModified": "Fri, 16 Oct 2026 20:20:16 GMT",
+        "observationId": "f2412b2bb5a8bbcb761342c3846031a0a989abfd669eb1002e285535f8343ce4",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+        "reusesObservationId": "5fadc9af5cd787c78d6cab50ea0a4fa78846dd2077c0df604f5e546ad7bddb7b",
+        "sourceId": "cyera:citation:TR-cyera-2",
+        "status": "not_modified"
+      }
+    },
+    {
+      "key": "state/observations/f251958f210214f403c3aa625691657f641c90fc31579a72224150e5d0e0723a.json",
+      "sourceIdsForLiteralLead": [
+        "torq:official:1"
+      ],
+      "record": {
+        "body": {
+          "bytes": 95697,
+          "key": "objects/1b1e6da6f9b333fc902bca9daaf6d9eb5f6d41e7083c58848a4fcc2b3b226f88",
+          "sha256": "1b1e6da6f9b333fc902bca9daaf6d9eb5f6d41e7083c58848a4fcc2b3b226f88"
+        },
+        "contentType": "text/html; charset=UTF-8",
+        "etag": null,
+        "fetchedAt": "2026-10-24T00:05:33.428349Z",
+        "finalUrl": "https://torq.io/news/torq-seriesd/",
+        "httpStatus": 200,
+        "lastModified": null,
+        "observationId": "f251958f210214f403c3aa625691657f641c90fc31579a72224150e5d0e0723a",
+        "requestedUrl": "https://torq.io/news/torq-seriesd/",
+        "sourceId": "torq:citation:TR-torq-1",
+        "status": "fetched",
+        "transportId": "e3871a9478e822408c4866dafbde26131a9e8900ff8af4f9496c79ff731b446b",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/f2bc60150d75e7c345b91502dc1484623c2d187eb3431cfbb27c3b23fb41c955.json",
+      "sourceIdsForLiteralLead": [
+        "torq:official:1"
+      ],
+      "record": {
+        "body": {
+          "bytes": 91807,
+          "key": "objects/36b58b84b7355a0ca4b9abc977021ffde5a96db7fa22d014bd871897781e66fb",
+          "sha256": "36b58b84b7355a0ca4b9abc977021ffde5a96db7fa22d014bd871897781e66fb"
+        },
+        "contentType": "text/html; charset=UTF-8",
+        "etag": null,
+        "fetchedAt": "2026-10-24T00:05:32.955282Z",
+        "finalUrl": "https://torq.io/news/torq-acquires-jit/",
+        "httpStatus": 200,
+        "lastModified": null,
+        "observationId": "f2bc60150d75e7c345b91502dc1484623c2d187eb3431cfbb27c3b23fb41c955",
+        "requestedUrl": "https://torq.io/news/torq-acquires-jit/",
+        "sourceId": "torq:citation:TR-torq-2",
+        "status": "fetched",
+        "transportId": "7f6aa320e833c77229570e71cb0b13ef68d345d415f9e4012c830dfec11232ac",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/f4dc742bd1230979ec00ef3bc3e7851a5c943548fd643d976c409f0adb3e34e4.json",
+      "sourceIdsForLiteralLead": [
+        "torq:official:1"
+      ],
+      "record": {
+        "body": {
+          "bytes": 95697,
+          "key": "objects/9d9cd963659b8be88888ce2d2240911c1525f6c2c53b4ae00d5dc87ae5e5c00c",
+          "sha256": "9d9cd963659b8be88888ce2d2240911c1525f6c2c53b4ae00d5dc87ae5e5c00c"
+        },
+        "contentType": "text/html; charset=UTF-8",
+        "etag": null,
+        "fetchedAt": "2026-10-24T05:39:47.334984Z",
+        "finalUrl": "https://torq.io/news/torq-seriesd/",
+        "httpStatus": 200,
+        "lastModified": null,
+        "observationId": "f4dc742bd1230979ec00ef3bc3e7851a5c943548fd643d976c409f0adb3e34e4",
+        "requestedUrl": "https://torq.io/news/torq-seriesd/",
+        "sourceId": "torq:citation:TR-torq-1",
+        "status": "fetched",
+        "transportId": "3d4ae10585e69d21d6c9d5cca2c00dad50c5ff168c6c258b6d633cedc62f69e6",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/f7957e6ee3a45cec2714cb954cd8a09639a382267c32237c58b7c0d2a2e13b52.json",
+      "sourceIdsForLiteralLead": [
+        "torq:official:1"
+      ],
+      "record": {
+        "body": {
+          "bytes": 91807,
+          "key": "objects/ee2289fb3c00d065651a6d07aede6581455c77748cd1e44243a44792986afcdb",
+          "sha256": "ee2289fb3c00d065651a6d07aede6581455c77748cd1e44243a44792986afcdb"
+        },
+        "contentType": "text/html; charset=UTF-8",
+        "etag": null,
+        "fetchedAt": "2026-10-24T18:29:52.425179Z",
+        "finalUrl": "https://torq.io/news/torq-acquires-jit/",
+        "httpStatus": 200,
+        "lastModified": null,
+        "observationId": "f7957e6ee3a45cec2714cb954cd8a09639a382267c32237c58b7c0d2a2e13b52",
+        "requestedUrl": "https://torq.io/news/torq-acquires-jit/",
+        "sourceId": "torq:citation:TR-torq-2",
+        "status": "fetched",
+        "transportId": "15e6e28aae6193e1e92d3ce1890c4f3c152d3777726113d535599a4c6a0feb08",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/fdbb61b847f334ce96a576dc8a7f14abd0695533459e886bfc9d0f5a7b5a33a7.json",
+      "sourceIdsForLiteralLead": [
+        "cyera:official:1"
+      ],
+      "record": {
+        "body": {
+          "bytes": 265364,
+          "key": "objects/67c63b68b1626c5e53099452cb5e125960802aa27895e5925af87e0b058e3111",
+          "sha256": "67c63b68b1626c5e53099452cb5e125960802aa27895e5925af87e0b058e3111"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-24T00:05:57.498741Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+        "httpStatus": 200,
+        "lastModified": "Fri, 23 Oct 2026 22:59:01 GMT",
+        "observationId": "fdbb61b847f334ce96a576dc8a7f14abd0695533459e886bfc9d0f5a7b5a33a7",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+        "sourceId": "cyera:citation:TR-cyera-2",
+        "status": "fetched",
+        "transportId": "1860d7dbfd499f46c572daa9528cfe93d90ac22fa3c84a953b2fd503e55f46cf",
+        "transportReused": false
+      }
+    }
+  ],
+  "matchedInputSeals": {
+    "state/observations/02cb030deb8d0f506791c647262045eceb1a66c483b6a03cbb1dcb32ea4ef9f4.json": {
+      "sha256": "6e9d6f435d0002cd5591f888f1afba999a50fd817b18f3207672816d023265ce",
+      "bytes": 911,
+      "mtimeNs": 1792922969521954594
+    },
+    "state/observations/07988a0cf440b7f6a3b12d1cfbb1485d9ca292c5758fd5f2532d13dd82413b94.json": {
+      "sha256": "c78ca607f785d1e23867bff9ff946533fadccee84205306326129d9dff36b220",
+      "bytes": 900,
+      "mtimeNs": 1792922969534953318
+    },
+    "state/observations/0c0a1a9655b4e004da940057efb5c1c2997dce0f1ca872a40cb929f4038f64b4.json": {
+      "sha256": "06e8874b3acfaff5ea541e5e9e2769d4ad39b2a28ea8709d335c8b03a963bd35",
+      "bytes": 562,
+      "mtimeNs": 1792922969542570762
+    },
+    "state/observations/13231bd41f7706664c6f490fbfc77ecf470c8009828f42ed7d14a4e6904ff7d0.json": {
+      "sha256": "e969409d8c30da11e5cbe7a5eb3cb97036c54a278362ffe7865a76ae7e4d360a",
+      "bytes": 657,
+      "mtimeNs": 1792922969552921700
+    },
+    "state/observations/253c200aecf280487e4e2196c98d91549e502109a83b5385431506f22b94cd7c.json": {
+      "sha256": "f12a9804a7d92318f2a40e823b7666dff82420938146557cf6eab4fde05c0318",
+      "bytes": 783,
+      "mtimeNs": 1792922969578535858
+    },
+    "state/observations/2784b84793f7dfbb1415873576130ba12fd38c1410aa435ba719a1f43c94a18d.json": {
+      "sha256": "6935f0e812e43ed9208408f5b20c96ef6100c9a9711d775a620a6c46e3e759d3",
+      "bytes": 924,
+      "mtimeNs": 1792922969582050018
+    },
+    "state/observations/2958493750b22380863114ec2adbc4ba38f73d8e3498892c2a31875b4258eeb7.json": {
+      "sha256": "2ad9c6dd87dde83f68b78b4de8abed0a5297c74ead99561136197fe7c1d37762",
+      "bytes": 562,
+      "mtimeNs": 1792922969584181472
+    },
+    "state/observations/2a0237499451a5f4bd833b4d8c19a0e8d6b804a727c0e027c188e466df56fca7.json": {
+      "sha256": "dec63ecbcf9ba5c5ccc9b2db971ca4d1e6294605e6b33979db0ef97638ec02cf",
+      "bytes": 806,
+      "mtimeNs": 1792922969585137470
+    },
+    "state/observations/2d390cd9719f51d6f7724ec4ed5212c56ca63a6485acce0adc737656b0896879.json": {
+      "sha256": "e455b171dad53cd8f76ab12e254ea5c15f0bfd618148b12fb37a882060bf6acd",
+      "bytes": 667,
+      "mtimeNs": 1792922969590250460
+    },
+    "state/observations/3fb2300a948ed7fd028d2af9ccfe937fd91b33acd8ab9ca39a1906983fcdcc1c.json": {
+      "sha256": "47a5e5f19330b16270b9a2eea32c6668cd9535055ac61bd4ef3d6a09fe0f929f",
+      "bytes": 678,
+      "mtimeNs": 1792922969616332951
+    },
+    "state/observations/4880f86d0e86109acb01bf9cb056d689785309f8d101b2570b403e5ad506ba9f.json": {
+      "sha256": "6123fcce82831faae1c0e11e20e2a65ea5da061b87827eb82b769a57ddf8d53b",
+      "bytes": 552,
+      "mtimeNs": 1792922969628668426
+    },
+    "state/observations/54051580f2dbddff56c19e11094bc3524fbc41afcacedb9947cfbb6a0738a111.json": {
+      "sha256": "7a7f057556820b9a6aa9fa049d9a49b07dce99ccb7a4ceb456b68e64ea1dd413",
+      "bytes": 806,
+      "mtimeNs": 1792922969647067765
+    },
+    "state/observations/57b461f9d9b6720deac940e569bb687186193ba0e363703f9f5e074df2752197.json": {
+      "sha256": "ff53275a7088a65e955fd13bce1fefebb9b66d6f90394fa542e188e136de5755",
+      "bytes": 900,
+      "mtimeNs": 1792922969652414005
+    },
+    "state/observations/5ee8efde4c0d299ff3b44c26a640c80f00e83c387e89378d5f5249c54eee39da.json": {
+      "sha256": "89b0cfcd6c33bcb0a1502d9dabcd19622948b1d3634d5bf01e6073beca91761a",
+      "bytes": 657,
+      "mtimeNs": 1792922969662266402
+    },
+    "state/observations/5fadc9af5cd787c78d6cab50ea0a4fa78846dd2077c0df604f5e546ad7bddb7b.json": {
+      "sha256": "9de57a18f2e934239946f3b09f325e173e70200419aaa8b941eb209ae433828d",
+      "bytes": 678,
+      "mtimeNs": 1792922969663543483
+    },
+    "state/observations/6144921b3ca4ed0ac5e43db21766f74b017149bd6c396b0c5d3a132ea6e04dc8.json": {
+      "sha256": "bae8eec8631d233d7d176f23264b1a92dcc60f78a98df3811f265404334e72ec",
+      "bytes": 796,
+      "mtimeNs": 1792922969665857853
+    },
+    "state/observations/61e2d572a825e0a120f34030e4139ebd21b2c5aff587b618e464f90b89e3e66b.json": {
+      "sha256": "aee6b6f3e88e8d96675a645fe0b3a5d6bbffbea41672c66126183285b1ddd172",
+      "bytes": 783,
+      "mtimeNs": 1792922969666998101
+    },
+    "state/observations/6419c428dd2644d6dc3eccc3617c35fcd6570dd899d6ed07b9fd0c9aa7767231.json": {
+      "sha256": "921386c762004ee2728aa100bdc21111ccff074b517e63bcc0fc505bf274b30e",
+      "bytes": 678,
+      "mtimeNs": 1792922969670170928
+    },
+    "state/observations/6528aa461491afe7dd764503d33ee7cebe1ea907e9ca42db9198cb131fe24f4b.json": {
+      "sha256": "e41e26121733507332ef98e21f1d598c8730118466fa80d8b71c8a6999fcc51d",
+      "bytes": 562,
+      "mtimeNs": 1792922969671483259
+    },
+    "state/observations/6b739bde18ed015ca48c58b30214e7264dd9cf60cbe4568a33c6fdb42ef00ed3.json": {
+      "sha256": "8e4d6c2449b846b5cdb28a0a933ff88732c9d9f5cf44d9664aa283e2fcfff8fd",
+      "bytes": 678,
+      "mtimeNs": 1792922969679986951
+    },
+    "state/observations/7676839a6e2c37a5670a6b74f6956e8283a4a350d6e1b5756e78550d15e2e1ef.json": {
+      "sha256": "ae0c9e4bdbf62b57ce49f1ffeee260b78cb67ddcb4c0c3e9e261570cad57b0b1",
+      "bytes": 806,
+      "mtimeNs": 1792922969696065544
+    },
+    "state/observations/7acc656a7e99cefc234e19987f4183401a9e1d15ff2c1d58edafaa62f2371051.json": {
+      "sha256": "6d61c5daa4bbc7de9eedf7f901c56d9dcbf11dc0bde861400e902ab945775e87",
+      "bytes": 657,
+      "mtimeNs": 1792922969702792448
+    },
+    "state/observations/7deb02c90922eb763434bfd0223d91e140927c72c3feb5d6a46dd7064f7390d9.json": {
+      "sha256": "c9f05be395c0ef78ae84589d871d6c07f63229f4d22133fab17ae69d7c2be586",
+      "bytes": 552,
+      "mtimeNs": 1792922969707211481
+    },
+    "state/observations/7fcb64d99dfae0e6bc8e70f19e7a1f596479383e7b022353accd77d70763f89e.json": {
+      "sha256": "dd1e6713dfbbd3ef1f69666737ffb6a93c7e03616d4ac50372e85b60c152f817",
+      "bytes": 562,
+      "mtimeNs": 1792922969709587934
+    },
+    "state/observations/8b61826d34c5199a607a31cdbbb61f8980a789494987f761a6d728044a411308.json": {
+      "sha256": "88d027c114a6954f38a0f2ffed2d6cdd9ce06be60ac0627994c85e4965837ad8",
+      "bytes": 562,
+      "mtimeNs": 1792922969725723028
+    },
+    "state/observations/8c5dec68d3c6506efa09c4e1ba40ee4d32fb2fc8c218fd1c7dc74e67b80c23dc.json": {
+      "sha256": "6da45d44e747cfb3a754c0398f927a86741b0b7133ba71ceeae78c26498b7c80",
+      "bytes": 911,
+      "mtimeNs": 1792922969726889900
+    },
+    "state/observations/977e083dbc6e13ed42efa674f2e0f689be2e659ad7a1db89fff6033143f3d83b.json": {
+      "sha256": "c94972567dd416af962f7dbb5e1779d14d098076314f4a64b7c0b55e1f7792c7",
+      "bytes": 667,
+      "mtimeNs": 1792922969742259870
+    },
+    "state/observations/9852fc5e2b125d6a2134989503fc853b0a5952830cadbd3bcdd21fd2b38b21d5.json": {
+      "sha256": "deae509fe76e307536a23b1651a6654f2367a9b1e3fa7035eefdf39085a917be",
+      "bytes": 924,
+      "mtimeNs": 1792922969743183452
+    },
+    "state/observations/adbfc548bb24a191278763fb5f81352dcc69eb2f45dd135c2459212ee879c78e.json": {
+      "sha256": "c1cdb799237781ac36ab58ef66757fc5c5255dc24aebc8d736762fa1ef3e0c71",
+      "bytes": 552,
+      "mtimeNs": 1792922969775042306
+    },
+    "state/observations/ae0831a3499c6ede4fa09d68188e7775e6dfca01b16f77b702ea9d213b576d08.json": {
+      "sha256": "f7de3fd887c2cb367af69dcd693fe0adcc1d01a131a15b940ff7053647196513",
+      "bytes": 667,
+      "mtimeNs": 1792922969775465680
+    },
+    "state/observations/c340c76df49a6e93013e9552ec6a5a6de7331e6be78dcc7f015965e3ed27b259.json": {
+      "sha256": "cba9c00e93706cd96619449a6f6fb30f14f1699cca6b7d269ccdfc2ee1fcc3c6",
+      "bytes": 796,
+      "mtimeNs": 1792922969806865452
+    },
+    "state/observations/cfebd85f8567c7537550efd7e8026d49c5a83eda23f8fbf77a71f19486c1f4a7.json": {
+      "sha256": "b36a7d5816d5b4cefe9d341b94abe617c346e2c60520dec8035dbff8a3b008f2",
+      "bytes": 552,
+      "mtimeNs": 1792922969823979085
+    },
+    "state/observations/d3d035a49172f544bcb0e8504da1947290969625a640ec1ecad88e0a9186ce71.json": {
+      "sha256": "6588450762662729c5b271f998988775e584f22aa6367f2c02eb20b3c02cdc2a",
+      "bytes": 806,
+      "mtimeNs": 1792922969830026156
+    },
+    "state/observations/e093d30012f13f5403bd5d9e3f14bc5421ecc3a1714352fd7a2b3e44224580b2.json": {
+      "sha256": "fa323317fe08de389751667f4277a0717302f946d76a9325ba203545e14a6de3",
+      "bytes": 924,
+      "mtimeNs": 1792922969848069496
+    },
+    "state/observations/e21a95310c38ea58bcc2ac2c9dccfc91ccdd715c074c69061a1a4663c386fcad.json": {
+      "sha256": "3feb999cdea0fd0aee97d302ca72018f3020082582bdf8b69826083ef228047c",
+      "bytes": 552,
+      "mtimeNs": 1792922969850518074
+    },
+    "state/observations/ee3bc63a4ef0127ccc78ca768d77eba19cb67713c8fc49a41dbac667c3ed9d54.json": {
+      "sha256": "4a89d7472d06e98aae87f8fe45efd03b5737efbf65a3b4f58abf0a404c1de47b",
+      "bytes": 552,
+      "mtimeNs": 1792922969867173750
+    },
+    "state/observations/f2412b2bb5a8bbcb761342c3846031a0a989abfd669eb1002e285535f8343ce4.json": {
+      "sha256": "28739f7c11f8a0c7c6f5e78dc129d320cca375f8955c27fee849098d47ce11ea",
+      "bytes": 772,
+      "mtimeNs": 1792922969872552448
+    },
+    "state/observations/f251958f210214f403c3aa625691657f641c90fc31579a72224150e5d0e0723a.json": {
+      "sha256": "67e6453cdbf70ced80cf6315462f5dd17af707c9b37ae9796eea1cd9e36c4c89",
+      "bytes": 657,
+      "mtimeNs": 1792922969872646114
+    },
+    "state/observations/f2bc60150d75e7c345b91502dc1484623c2d187eb3431cfbb27c3b23fb41c955.json": {
+      "sha256": "6ad9c1601f9097249d012901b45d28f6c5a47fa3e65d5158d8a8ec5b8d251be7",
+      "bytes": 667,
+      "mtimeNs": 1792922969873255905
+    },
+    "state/observations/f4dc742bd1230979ec00ef3bc3e7851a5c943548fd643d976c409f0adb3e34e4.json": {
+      "sha256": "148368a0f17170675a15a778b52b28b080555d3dcd9e9ed0d94c6ea06ff28914",
+      "bytes": 657,
+      "mtimeNs": 1792922969876288899
+    },
+    "state/observations/f7957e6ee3a45cec2714cb954cd8a09639a382267c32237c58b7c0d2a2e13b52.json": {
+      "sha256": "b6b416225b5358f5859d2bee18118979ef1b5cd97bab8b141a52d44244d06217",
+      "bytes": 667,
+      "mtimeNs": 1792922969880630682
+    },
+    "state/observations/fdbb61b847f334ce96a576dc8a7f14abd0695533459e886bfc9d0f5a7b5a33a7.json": {
+      "sha256": "521483951cf96c1a956a419e227dc7abc4ca3f97566c85179a53b58e0a8240d3",
+      "bytes": 783,
+      "mtimeNs": 1792922969889409207
+    }
+  },
+  "sourceRequests": 0,
+  "modelCalls": 0
+}

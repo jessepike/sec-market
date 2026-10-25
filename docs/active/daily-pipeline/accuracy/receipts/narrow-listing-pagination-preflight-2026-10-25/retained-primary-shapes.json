@@ -1,0 +1,91 @@
+{
+  "scope": "Existing pure primary-shape guard on latest retained full200 for exact links in newly captured index, no qualification/admission/date renewal. Current304 reuse remains a separate original200 chain.",
+  "results": [
+    {
+      "recordKey": "state/observations/02cb030deb8d0f506791c647262045eceb1a66c483b6a03cbb1dcb32ea4ef9f4.json",
+      "sourceId": "cyera:citation:TR-cyera-1",
+      "requestedUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+      "finalUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+      "fetchedAt": "2026-10-24T18:29:42.932953Z",
+      "body": {
+        "bytes": 268012,
+        "key": "objects/c64b78abd574277371384c267ea857fb403cf5869024e7151fc50667988b89f2",
+        "sha256": "c64b78abd574277371384c267ea857fb403cf5869024e7151fc50667988b89f2"
+      },
+      "originIsOriginal200": true,
+      "existingPrimaryShape": {
+        "canonical": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "heading": "Cyera Announces $400 Million Investment from Goldman Sachs to Build the Trust Layer for the Agentic Enterprise",
+        "readableCharacters": 9775,
+        "dateMetadata": [],
+        "dateMetadataState": "unknown"
+      },
+      "shapePass": true
+    },
+    {
+      "recordKey": "state/observations/2d390cd9719f51d6f7724ec4ed5212c56ca63a6485acce0adc737656b0896879.json",
+      "sourceId": "torq:citation:TR-torq-2",
+      "requestedUrl": "https://torq.io/news/torq-acquires-jit/",
+      "finalUrl": "https://torq.io/news/torq-acquires-jit/",
+      "fetchedAt": "2026-10-25T09:56:20.942046Z",
+      "body": {
+        "bytes": 91807,
+        "key": "objects/8d62271cbd6e5a933d8e2d79ea1a3f0454ac158ea37e44fb3a2479c27084ade3",
+        "sha256": "8d62271cbd6e5a933d8e2d79ea1a3f0454ac158ea37e44fb3a2479c27084ade3"
+      },
+      "originIsOriginal200": true,
+      "existingPrimaryShape": {
+        "canonical": "https://torq.io/news/torq-acquires-jit/",
+        "heading": "Torq Acquires Jit to Unleash the First Enterprise AI SOC Context Graph\u2014and Rewrite the Future of SecOps",
+        "readableCharacters": 5144,
+        "dateMetadata": [],
+        "dateMetadataState": "unknown"
+      },
+      "shapePass": true
+    },
+    {
+      "recordKey": "state/observations/7acc656a7e99cefc234e19987f4183401a9e1d15ff2c1d58edafaa62f2371051.json",
+      "sourceId": "torq:citation:TR-torq-1",
+      "requestedUrl": "https://torq.io/news/torq-seriesd/",
+      "finalUrl": "https://torq.io/news/torq-seriesd/",
+      "fetchedAt": "2026-10-25T09:56:03.733474Z",
+      "body": {
+        "bytes": 95697,
+        "key": "objects/36252ce506a9da38ece439d037726124d1eda36f215349401d9084d45513be5e",
+        "sha256": "36252ce506a9da38ece439d037726124d1eda36f215349401d9084d45513be5e"
+      },
+      "originIsOriginal200": true,
+      "existingPrimaryShape": {
+        "canonical": "https://torq.io/news/torq-seriesd/",
+        "heading": "Torq Secures $140M Series D at $1.2B Valuation to Lead the AI SOC and Agentic AI Era",
+        "readableCharacters": 7645,
+        "dateMetadata": [],
+        "dateMetadataState": "unknown"
+      },
+      "shapePass": true
+    },
+    {
+      "recordKey": "state/observations/61e2d572a825e0a120f34030e4139ebd21b2c5aff587b618e464f90b89e3e66b.json",
+      "sourceId": "cyera:citation:TR-cyera-2",
+      "requestedUrl": "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+      "finalUrl": "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+      "fetchedAt": "2026-10-25T09:56:04.509202Z",
+      "body": {
+        "bytes": 265364,
+        "key": "objects/67c63b68b1626c5e53099452cb5e125960802aa27895e5925af87e0b058e3111",
+        "sha256": "67c63b68b1626c5e53099452cb5e125960802aa27895e5925af87e0b058e3111"
+      },
+      "originIsOriginal200": true,
+      "existingPrimaryShape": {
+        "canonical": "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+        "heading": "Cyera Completes Acquisition of Oasis Security",
+        "readableCharacters": 8227,
+        "dateMetadata": [],
+        "dateMetadataState": "unknown"
+      },
+      "shapePass": true
+    }
+  ],
+  "sourceRequests": 0,
+  "modelCalls": 0
+}

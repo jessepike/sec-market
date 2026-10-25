@@ -1,0 +1,58 @@
+{
+  "scope": "Static exact retained body data only; no JS execution or generic Flight parser/runtime source authority.",
+  "torq": {
+    "body": {
+      "bytes": 1043048,
+      "key": "objects/4bb025aa0cb672b6e3fff05f29d46b1deb103d8a06fd0c905ee9c799648f1599",
+      "sha256": "4bb025aa0cb672b6e3fff05f29d46b1deb103d8a06fd0c905ee9c799648f1599"
+    },
+    "fetchedAt": "2026-10-25T11:59:11.590133Z",
+    "articleCount": 521,
+    "resourceTypeCounts": {
+      "press-release": 30,
+      "news-coverage": 491
+    },
+    "literalController": "https://torq.io/wp-content/themes/elxr/js/loadmore.js?ver=1.8.58",
+    "inlineConfig": {
+      "ajax_object.ajaxurl": "https://torq.io/wp-admin/admin-ajax.php",
+      "site.domain": "torq.io",
+      "site.page_slug": "news"
+    },
+    "claim": "Server continuation remains unknown;521 raw tiles are not terminal proof."
+  },
+  "zenity": {
+    "body": {
+      "bytes": 989148,
+      "key": "objects/d4275050e4ec5f96a70dbe458c3233a9e0ded02830ec771fcc7c31c8eb02ea21",
+      "sha256": "d4275050e4ec5f96a70dbe458c3233a9e0ded02830ec771fcc7c31c8eb02ea21"
+    },
+    "fetchedAt": "2026-10-25T11:59:12.507779Z",
+    "literalChunkDataDecoding": "Decode JSON arguments of self.__next_f.push as data; concatenate kind1 string payloads; decode model5 JSON; exact model5/0/props/children/1/props/children/1/props/children component.",
+    "component": [
+      "$",
+      "$L12",
+      null
+    ],
+    "initialPosts": 27,
+    "postsPerPage": 27,
+    "totalPosts": 48,
+    "categorySlug": "press-releases",
+    "firstPostIsLocalReference": "$5:0:props:children:0:props:children:props:children:1:props:post",
+    "controllerImport": [
+      617923,
+      [
+        "/_next/static/immutable/chunks/0mmhti0l07vid.js",
+        "/_next/static/immutable/chunks/1igaivsu_bnw4.js",
+        "/_next/static/immutable/chunks/1h6gle_2k_51y.js",
+        "/_next/static/immutable/chunks/28t8kf6ui_679.js",
+        "/_next/static/immutable/chunks/1cfamv5_tu-j_.js",
+        "/_next/static/immutable/chunks/16s2_w4n6_8su.js",
+        "/_next/static/immutable/chunks/0vc-h3qewdvsi.js",
+        "/_next/static/immutable/chunks/2sng5ztbjph2a.js",
+        "/_next/static/immutable/chunks/3d4ex24g-asdt.js"
+      ],
+      "default"
+    ],
+    "claim": "27 provided versus48 declared; do not infer exact next request or claim all48 records observed."
+  }
+}

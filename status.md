@@ -102,6 +102,11 @@ is READY; main Git dpl_HZ7AuQyspRDXMbXRk2vbTgX2yX4p is CANCELED. All four public
 remain byte-exact to the authenticated accepted release; lease is released and ledger unchanged.
 [Closure proof](docs/active/daily-pipeline/accuracy/receipts/seven-newsroom-disabled-restoration-2026-10-25/verification.json).
 No owner source decision is currently required.
+The next [dormant listing/pagination plan](docs/active/daily-pipeline/accuracy/narrow-listing-pagination-build-spec-2026-10-25.md)
+is ac7393c6: Abnormal/Cyera press lists, Cato pages 2–5 and Chainguard page 2. Full existing
+validator and 21 negative cases pass; independent review precedes selection. Its bound remains
+257 requests including generic probes. Retained Cyera/Torq primary pages can be reused; Torq's
+controller and Zenity's 27/48 initial-post configuration still need continuation proof.
 The [next Q4 build specification](docs/active/daily-pipeline/accuracy/q4-single-response-qualification-build-spec-2026-10-25.md)
 now has its dormant single-response parser and two exact financial primary samples. Independent
 implementation review passes with no open findings after two date-metadata fixes. Final operational

@@ -1,0 +1,579 @@
+{
+  "schemaVersion": 1,
+  "verdict": "PASS",
+  "actualParentRunId": 40190857026,
+  "archiveCommit": "9deb0c9ce9fe34999da0cf13bb023dfdfecc15c8",
+  "manifest": {
+    "sha256": "8da12977648ce0f6ed62f16de0b52c2257977f41404145adbecb363069e037e1",
+    "bytes": 9979636,
+    "mtimeNs": 1792929891173626133
+  },
+  "plans": {
+    "recommended": {
+      "rawSha256": "ac7393c6fc28d97826916462b0b56ca5fcd7a27521bb838de8df19542b494711",
+      "canonicalSha256": "ac7393c6fc28d97826916462b0b56ca5fcd7a27521bb838de8df19542b494711",
+      "bytes": 8977,
+      "literalRecognitionByTarget": [
+        [
+          "abnormal-press-list",
+          "html_link_feed_or_canonical"
+        ],
+        [
+          "cyera-press-list",
+          "html_link_feed_or_canonical"
+        ],
+        [
+          "cato-page-2",
+          "html_link_feed_or_canonical"
+        ],
+        [
+          "cato-page-3",
+          "html_link_feed_or_canonical"
+        ],
+        [
+          "cato-page-4",
+          "html_link_feed_or_canonical"
+        ],
+        [
+          "cato-page-5",
+          "html_link_feed_or_canonical"
+        ],
+        [
+          "chainguard-page-2",
+          "html_link_feed_or_canonical"
+        ]
+      ]
+    },
+    "veracode_alternative": {
+      "rawSha256": "b5b106de14cad9f9d67ace93ba8367f35f7e74de2d36b08b921a25b469ad7d5c",
+      "canonicalSha256": "b5b106de14cad9f9d67ace93ba8367f35f7e74de2d36b08b921a25b469ad7d5c",
+      "bytes": 8964,
+      "literalRecognitionByTarget": [
+        [
+          "veracode-press-list",
+          "html_link_feed_or_canonical"
+        ],
+        [
+          "cyera-press-list",
+          "html_link_feed_or_canonical"
+        ],
+        [
+          "cato-page-2",
+          "html_link_feed_or_canonical"
+        ],
+        [
+          "cato-page-3",
+          "html_link_feed_or_canonical"
+        ],
+        [
+          "cato-page-4",
+          "html_link_feed_or_canonical"
+        ],
+        [
+          "cato-page-5",
+          "html_link_feed_or_canonical"
+        ],
+        [
+          "chainguard-page-2",
+          "html_link_feed_or_canonical"
+        ]
+      ]
+    }
+  },
+  "negativeCases": [
+    {
+      "case": "top_extra",
+      "rejected": true,
+      "reason": "QUALIFICATION_PLAN_SHAPE_OR_POLICY_INVALID"
+    },
+    {
+      "case": "six_targets",
+      "rejected": true,
+      "reason": "QUALIFICATION_PLAN_SHAPE_OR_POLICY_INVALID"
+    },
+    {
+      "case": "max6",
+      "rejected": true,
+      "reason": "QUALIFICATION_PLAN_SHAPE_OR_POLICY_INVALID"
+    },
+    {
+      "case": "target_extra",
+      "rejected": true,
+      "reason": "QUALIFICATION_TARGET_INVALID"
+    },
+    {
+      "case": "duplicate_id",
+      "rejected": true,
+      "reason": "QUALIFICATION_TARGET_INVALID"
+    },
+    {
+      "case": "duplicate_url",
+      "rejected": true,
+      "reason": "QUALIFICATION_URL_HOST_INVALID"
+    },
+    {
+      "case": "proof_extra",
+      "rejected": true,
+      "reason": "QUALIFICATION_PROOF_SHAPE_INVALID"
+    },
+    {
+      "case": "date_rebase",
+      "rejected": true,
+      "reason": "QUALIFICATION_PRIOR_REQUEST_OR_RESERVATION_TIME_DIFFERS"
+    },
+    {
+      "case": "prior_row_index",
+      "rejected": true,
+      "reason": "QUALIFICATION_PRIOR_EXPLICIT_ROW_DIFFERS_OR_FAILED"
+    },
+    {
+      "case": "prior_row_hash",
+      "rejected": true,
+      "reason": "QUALIFICATION_PRIOR_EXPLICIT_ROW_DIFFERS_OR_FAILED"
+    },
+    {
+      "case": "prior_plan_hash",
+      "rejected": true,
+      "reason": "QUALIFICATION_PRIOR_PLAN_HASH_OR_POLICY_DIFFERS"
+    },
+    {
+      "case": "record_hash",
+      "rejected": true,
+      "reason": "REFERENCE_DIFFERS"
+    },
+    {
+      "case": "body_bytes",
+      "rejected": true,
+      "reason": "QUALIFICATION_OBSERVATION_BODY_OR_TIME_DIFFERS"
+    },
+    {
+      "case": "observation_hash",
+      "rejected": true,
+      "reason": "QUALIFICATION_PRIOR_EXPLICIT_ROW_DIFFERS_OR_FAILED"
+    },
+    {
+      "case": "undisclosed_page6",
+      "rejected": true,
+      "reason": "QUALIFICATION_TARGET_NOT_LITERAL_IN_PROOF"
+    },
+    {
+      "case": "changed_page_size",
+      "rejected": true,
+      "reason": "QUALIFICATION_TARGET_NOT_LITERAL_IN_PROOF"
+    },
+    {
+      "case": "fragment",
+      "rejected": true,
+      "reason": "QUALIFICATION_URL_HOST_INVALID"
+    },
+    {
+      "case": "http",
+      "rejected": true,
+      "reason": "QUALIFICATION_URL_HOST_INVALID"
+    },
+    {
+      "case": "www_alias",
+      "rejected": true,
+      "reason": "QUALIFICATION_URL_HOST_INVALID"
+    },
+    {
+      "case": "source_crossbind",
+      "rejected": true,
+      "reason": "QUALIFICATION_URL_HOST_INVALID"
+    },
+    {
+      "case": "script_attribute_not_supported_by_existing_Page",
+      "rejected": true,
+      "reason": "QUALIFICATION_TARGET_NOT_LITERAL_IN_PROOF"
+    }
+  ],
+  "negativeCount": 21,
+  "normalSourceCredit": 0,
+  "socketDenied": true,
+  "LocalStoreInitializationDenied": true,
+  "archiveInputSeals": {
+    "/var/tmp/smp-next-seven-actual-40190857026-20261025/extracted/state/ci/source-probe-runs/40190857026-1.json": {
+      "sha256": "29a164eeceecc2c1796b02c536c9b8ce91f02d1497a09544731f627698992766",
+      "bytes": 89630,
+      "mtimeNs": 1792929929092068343
+    },
+    "/var/tmp/smp-next-seven-actual-40190857026-20261025/extracted/state/objects/e5b20a33693513e7e40a35f63aab0c9a51bf48e5137c0e69c03eff999816a78d": {
+      "sha256": "e5b20a33693513e7e40a35f63aab0c9a51bf48e5137c0e69c03eff999816a78d",
+      "bytes": 421,
+      "mtimeNs": 1792929929127651280
+    },
+    "/var/tmp/smp-next-seven-actual-40190857026-20261025/extracted/state/objects/5cb53ea382bafc5bbe43102922c671130505872eb566b78bf44ac0d9c6cc4c85": {
+      "sha256": "5cb53ea382bafc5bbe43102922c671130505872eb566b78bf44ac0d9c6cc4c85",
+      "bytes": 452,
+      "mtimeNs": 1792929929110647144
+    },
+    "/var/tmp/smp-next-seven-actual-40190857026-20261025/extracted/state/objects/c4cd629884921ecdfc382472fb2b7286d3bc802b686eab10a17cab238d95dfd0": {
+      "sha256": "c4cd629884921ecdfc382472fb2b7286d3bc802b686eab10a17cab238d95dfd0",
+      "bytes": 483,
+      "mtimeNs": 1792929929122613831
+    },
+    "/var/tmp/smp-next-seven-actual-40190857026-20261025/extracted/state/objects/60cea72a480a869927aa1a433298002dfa3b9039de8be0a8e56a4f72a355e008": {
+      "sha256": "60cea72a480a869927aa1a433298002dfa3b9039de8be0a8e56a4f72a355e008",
+      "bytes": 477,
+      "mtimeNs": 1792929929111089226
+    },
+    "/var/tmp/smp-next-seven-actual-40190857026-20261025/extracted/state/objects/8bcbf427b4bce86ed617441f54d6ca05837a1e558593e62d2505879ad593fbb4": {
+      "sha256": "8bcbf427b4bce86ed617441f54d6ca05837a1e558593e62d2505879ad593fbb4",
+      "bytes": 433,
+      "mtimeNs": 1792929929115419635
+    },
+    "/var/tmp/smp-next-seven-actual-40190857026-20261025/extracted/state/objects/3077d93ede8a9fe82302a6b851af61d8666f1c11cea433eed0f2725086c85fc2": {
+      "sha256": "3077d93ede8a9fe82302a6b851af61d8666f1c11cea433eed0f2725086c85fc2",
+      "bytes": 4162,
+      "mtimeNs": 1792929929103832281
+    },
+    "/var/tmp/smp-next-seven-actual-40190857026-20261025/extracted/state/objects/72297aca08e3f340a5fe60795fc0dff962faff8d32085bd7ba99459ce930436a": {
+      "sha256": "72297aca08e3f340a5fe60795fc0dff962faff8d32085bd7ba99459ce930436a",
+      "bytes": 642600,
+      "mtimeNs": 1792929929113151889
+    },
+    "/var/tmp/smp-next-seven-actual-40190857026-20261025/extracted/state/objects/80317757055e777a6158275017a050a098ef5061a050be929da58e1b3a94542d": {
+      "sha256": "80317757055e777a6158275017a050a098ef5061a050be929da58e1b3a94542d",
+      "bytes": 275623,
+      "mtimeNs": 1792929929114736053
+    },
+    "/var/tmp/smp-next-seven-actual-40190857026-20261025/extracted/state/objects/b061ee4f5831e2f53cb4b2f19708f225160a6a932ee6c18f93b5d15fb5edb7a8": {
+      "sha256": "b061ee4f5831e2f53cb4b2f19708f225160a6a932ee6c18f93b5d15fb5edb7a8",
+      "bytes": 225773,
+      "mtimeNs": 1792929929121554541
+    },
+    "/var/tmp/smp-next-seven-actual-40190857026-20261025/extracted/state/objects/eebdec361111f3a6c7d53ec34f0c9a314e7e2a8fce74086ea0bb7dd409e68c0f": {
+      "sha256": "eebdec361111f3a6c7d53ec34f0c9a314e7e2a8fce74086ea0bb7dd409e68c0f",
+      "bytes": 243971,
+      "mtimeNs": 1792929929128255196
+    },
+    "/var/tmp/smp-next-seven-actual-40190857026-20261025/extracted/state/objects/0c8c6af7ee951e22fadf9e3eea36d35f1eb4ad59aa60307a1ccc13342260f435": {
+      "sha256": "0c8c6af7ee951e22fadf9e3eea36d35f1eb4ad59aa60307a1ccc13342260f435",
+      "bytes": 475003,
+      "mtimeNs": 1792929929097133293
+    },
+    "/var/tmp/smp-next-seven-actual-40190857026-20261025/extracted/state/objects/233d9ce8b1172658d0444bd809b6c896735c1789619d166d23a6faf9099f4ef0": {
+      "sha256": "233d9ce8b1172658d0444bd809b6c896735c1789619d166d23a6faf9099f4ef0",
+      "bytes": 408,
+      "mtimeNs": 1792929929101065827
+    },
+    "/var/tmp/smp-next-seven-actual-40190857026-20261025/extracted/state/objects/4bb025aa0cb672b6e3fff05f29d46b1deb103d8a06fd0c905ee9c799648f1599": {
+      "sha256": "4bb025aa0cb672b6e3fff05f29d46b1deb103d8a06fd0c905ee9c799648f1599",
+      "bytes": 1043048,
+      "mtimeNs": 1792929929109236521
+    },
+    "/var/tmp/smp-next-seven-actual-40190857026-20261025/extracted/state/observations/02cb030deb8d0f506791c647262045eceb1a66c483b6a03cbb1dcb32ea4ef9f4.json": {
+      "sha256": "6e9d6f435d0002cd5591f888f1afba999a50fd817b18f3207672816d023265ce",
+      "bytes": 911,
+      "mtimeNs": 1792922969521954594
+    },
+    "/var/tmp/smp-next-seven-actual-40190857026-20261025/extracted/state/objects/c64b78abd574277371384c267ea857fb403cf5869024e7151fc50667988b89f2": {
+      "sha256": "c64b78abd574277371384c267ea857fb403cf5869024e7151fc50667988b89f2",
+      "bytes": 268012,
+      "mtimeNs": 1792922968790571820
+    },
+    "/var/tmp/smp-next-seven-actual-40190857026-20261025/extracted/state/observations/2d390cd9719f51d6f7724ec4ed5212c56ca63a6485acce0adc737656b0896879.json": {
+      "sha256": "e455b171dad53cd8f76ab12e254ea5c15f0bfd618148b12fb37a882060bf6acd",
+      "bytes": 667,
+      "mtimeNs": 1792922969590250460
+    },
+    "/var/tmp/smp-next-seven-actual-40190857026-20261025/extracted/state/objects/8d62271cbd6e5a933d8e2d79ea1a3f0454ac158ea37e44fb3a2479c27084ade3": {
+      "sha256": "8d62271cbd6e5a933d8e2d79ea1a3f0454ac158ea37e44fb3a2479c27084ade3",
+      "bytes": 91807,
+      "mtimeNs": 1792922968086915659
+    },
+    "/var/tmp/smp-next-seven-actual-40190857026-20261025/extracted/state/observations/7acc656a7e99cefc234e19987f4183401a9e1d15ff2c1d58edafaa62f2371051.json": {
+      "sha256": "6d61c5daa4bbc7de9eedf7f901c56d9dcbf11dc0bde861400e902ab945775e87",
+      "bytes": 657,
+      "mtimeNs": 1792922969702792448
+    },
+    "/var/tmp/smp-next-seven-actual-40190857026-20261025/extracted/state/objects/36252ce506a9da38ece439d037726124d1eda36f215349401d9084d45513be5e": {
+      "sha256": "36252ce506a9da38ece439d037726124d1eda36f215349401d9084d45513be5e",
+      "bytes": 95697,
+      "mtimeNs": 1792922967022084289
+    },
+    "/var/tmp/smp-next-seven-actual-40190857026-20261025/extracted/state/observations/61e2d572a825e0a120f34030e4139ebd21b2c5aff587b618e464f90b89e3e66b.json": {
+      "sha256": "aee6b6f3e88e8d96675a645fe0b3a5d6bbffbea41672c66126183285b1ddd172",
+      "bytes": 783,
+      "mtimeNs": 1792922969666998101
+    },
+    "/var/tmp/smp-next-seven-actual-40190857026-20261025/extracted/state/objects/67c63b68b1626c5e53099452cb5e125960802aa27895e5925af87e0b058e3111": {
+      "sha256": "67c63b68b1626c5e53099452cb5e125960802aa27895e5925af87e0b058e3111",
+      "bytes": 265364,
+      "mtimeNs": 1792922967639452995
+    },
+    "/var/tmp/smp-next-seven-actual-40190857026-20261025/extracted/state/observations/e093d30012f13f5403bd5d9e3f14bc5421ecc3a1714352fd7a2b3e44224580b2.json": {
+      "sha256": "fa323317fe08de389751667f4277a0717302f946d76a9325ba203545e14a6de3",
+      "bytes": 924,
+      "mtimeNs": 1792922969848069496
+    },
+    "/var/tmp/smp-next-seven-actual-40190857026-20261025/extracted/state/observations/2784b84793f7dfbb1415873576130ba12fd38c1410aa435ba719a1f43c94a18d.json": {
+      "sha256": "6935f0e812e43ed9208408f5b20c96ef6100c9a9711d775a620a6c46e3e759d3",
+      "bytes": 924,
+      "mtimeNs": 1792922969582050018
+    }
+  },
+  "allSealsUnchanged": true,
+  "retainedPrimaryShapes": [
+    {
+      "recordKey": "observations/02cb030deb8d0f506791c647262045eceb1a66c483b6a03cbb1dcb32ea4ef9f4.json",
+      "sourceId": "cyera:citation:TR-cyera-1",
+      "fetchedAt": "2026-10-24T18:29:42.932953Z",
+      "body": {
+        "bytes": 268012,
+        "key": "objects/c64b78abd574277371384c267ea857fb403cf5869024e7151fc50667988b89f2",
+        "sha256": "c64b78abd574277371384c267ea857fb403cf5869024e7151fc50667988b89f2"
+      },
+      "shape": {
+        "canonical": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "heading": "Cyera Announces $400 Million Investment from Goldman Sachs to Build the Trust Layer for the Agentic Enterprise",
+        "readableCharacters": 9775,
+        "dateMetadata": [],
+        "dateMetadataState": "unknown"
+      }
+    },
+    {
+      "recordKey": "observations/2d390cd9719f51d6f7724ec4ed5212c56ca63a6485acce0adc737656b0896879.json",
+      "sourceId": "torq:citation:TR-torq-2",
+      "fetchedAt": "2026-10-25T09:56:20.942046Z",
+      "body": {
+        "bytes": 91807,
+        "key": "objects/8d62271cbd6e5a933d8e2d79ea1a3f0454ac158ea37e44fb3a2479c27084ade3",
+        "sha256": "8d62271cbd6e5a933d8e2d79ea1a3f0454ac158ea37e44fb3a2479c27084ade3"
+      },
+      "shape": {
+        "canonical": "https://torq.io/news/torq-acquires-jit/",
+        "heading": "Torq Acquires Jit to Unleash the First Enterprise AI SOC Context Graph\u2014and Rewrite the Future of SecOps",
+        "readableCharacters": 5144,
+        "dateMetadata": [],
+        "dateMetadataState": "unknown"
+      }
+    },
+    {
+      "recordKey": "observations/7acc656a7e99cefc234e19987f4183401a9e1d15ff2c1d58edafaa62f2371051.json",
+      "sourceId": "torq:citation:TR-torq-1",
+      "fetchedAt": "2026-10-25T09:56:03.733474Z",
+      "body": {
+        "bytes": 95697,
+        "key": "objects/36252ce506a9da38ece439d037726124d1eda36f215349401d9084d45513be5e",
+        "sha256": "36252ce506a9da38ece439d037726124d1eda36f215349401d9084d45513be5e"
+      },
+      "shape": {
+        "canonical": "https://torq.io/news/torq-seriesd/",
+        "heading": "Torq Secures $140M Series D at $1.2B Valuation to Lead the AI SOC and Agentic AI Era",
+        "readableCharacters": 7645,
+        "dateMetadata": [],
+        "dateMetadataState": "unknown"
+      }
+    },
+    {
+      "recordKey": "observations/61e2d572a825e0a120f34030e4139ebd21b2c5aff587b618e464f90b89e3e66b.json",
+      "sourceId": "cyera:citation:TR-cyera-2",
+      "fetchedAt": "2026-10-25T09:56:04.509202Z",
+      "body": {
+        "bytes": 265364,
+        "key": "objects/67c63b68b1626c5e53099452cb5e125960802aa27895e5925af87e0b058e3111",
+        "sha256": "67c63b68b1626c5e53099452cb5e125960802aa27895e5925af87e0b058e3111"
+      },
+      "shape": {
+        "canonical": "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+        "heading": "Cyera Completes Acquisition of Oasis Security",
+        "readableCharacters": 8227,
+        "dateMetadata": [],
+        "dateMetadataState": "unknown"
+      }
+    }
+  ],
+  "cyeraActual304ReuseChain": [
+    {
+      "body": {
+        "bytes": 268012,
+        "key": "objects/c64b78abd574277371384c267ea857fb403cf5869024e7151fc50667988b89f2",
+        "sha256": "c64b78abd574277371384c267ea857fb403cf5869024e7151fc50667988b89f2"
+      },
+      "contentType": "text/html; charset=utf-8",
+      "etag": null,
+      "fetchedAt": "2026-10-25T09:56:01.792304Z",
+      "finalUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+      "httpStatus": 304,
+      "lastModified": "Sat, 24 Oct 2026 06:15:27 GMT",
+      "observationId": "e093d30012f13f5403bd5d9e3f14bc5421ecc3a1714352fd7a2b3e44224580b2",
+      "requestedUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+      "reusesObservationId": "2784b84793f7dfbb1415873576130ba12fd38c1410aa435ba719a1f43c94a18d",
+      "sourceId": "cyera:citation:TR-cyera-1",
+      "status": "not_modified",
+      "transportReused": false
+    },
+    {
+      "body": {
+        "bytes": 268012,
+        "key": "objects/c64b78abd574277371384c267ea857fb403cf5869024e7151fc50667988b89f2",
+        "sha256": "c64b78abd574277371384c267ea857fb403cf5869024e7151fc50667988b89f2"
+      },
+      "contentType": "text/html; charset=utf-8",
+      "etag": null,
+      "fetchedAt": "2026-10-25T06:46:03.175955Z",
+      "finalUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+      "httpStatus": 304,
+      "lastModified": "Sat, 24 Oct 2026 06:15:27 GMT",
+      "observationId": "2784b84793f7dfbb1415873576130ba12fd38c1410aa435ba719a1f43c94a18d",
+      "requestedUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+      "reusesObservationId": "02cb030deb8d0f506791c647262045eceb1a66c483b6a03cbb1dcb32ea4ef9f4",
+      "sourceId": "cyera:citation:TR-cyera-1",
+      "status": "not_modified",
+      "transportReused": false
+    },
+    {
+      "body": {
+        "bytes": 268012,
+        "key": "objects/c64b78abd574277371384c267ea857fb403cf5869024e7151fc50667988b89f2",
+        "sha256": "c64b78abd574277371384c267ea857fb403cf5869024e7151fc50667988b89f2"
+      },
+      "contentType": "text/html; charset=utf-8",
+      "etag": null,
+      "fetchedAt": "2026-10-24T18:29:42.932953Z",
+      "finalUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+      "httpStatus": 200,
+      "lastModified": "Sat, 24 Oct 2026 06:15:27 GMT",
+      "observationId": "02cb030deb8d0f506791c647262045eceb1a66c483b6a03cbb1dcb32ea4ef9f4",
+      "requestedUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+      "sourceId": "cyera:citation:TR-cyera-1",
+      "status": "fetched",
+      "transportId": "29c05a33fcaec6bcee328f4ec06b2ada08f61c25bec7f5da2fad71c0b3cb511e",
+      "transportReused": false
+    }
+  ],
+  "newSourceRequests": 0,
+  "newModelCalls": 0,
+  "sharedArchiveWrites": 0,
+  "runtimeWrites": 0,
+  "operationChanges": 0,
+  "retainedDetailSearch": {
+    "literalUrls": 119,
+    "metadataFilesInspected": 18867,
+    "matches": 42,
+    "distinctMatchedDetailUrls": 4,
+    "limits": "Exact same-host/issuer literal URL matches only; metadata/small-object scan does not certify all archived primary semantics."
+  },
+  "controllerPartialEvidence": {
+    "scope": "Static exact retained body data only; no JS execution or generic Flight parser/runtime source authority.",
+    "torq": {
+      "body": {
+        "bytes": 1043048,
+        "key": "objects/4bb025aa0cb672b6e3fff05f29d46b1deb103d8a06fd0c905ee9c799648f1599",
+        "sha256": "4bb025aa0cb672b6e3fff05f29d46b1deb103d8a06fd0c905ee9c799648f1599"
+      },
+      "fetchedAt": "2026-10-25T11:59:11.590133Z",
+      "articleCount": 521,
+      "resourceTypeCounts": {
+        "press-release": 30,
+        "news-coverage": 491
+      },
+      "literalController": "https://torq.io/wp-content/themes/elxr/js/loadmore.js?ver=1.8.58",
+      "inlineConfig": {
+        "ajax_object.ajaxurl": "https://torq.io/wp-admin/admin-ajax.php",
+        "site.domain": "torq.io",
+        "site.page_slug": "news"
+      },
+      "claim": "Server continuation remains unknown;521 raw tiles are not terminal proof."
+    },
+    "zenity": {
+      "body": {
+        "bytes": 989148,
+        "key": "objects/d4275050e4ec5f96a70dbe458c3233a9e0ded02830ec771fcc7c31c8eb02ea21",
+        "sha256": "d4275050e4ec5f96a70dbe458c3233a9e0ded02830ec771fcc7c31c8eb02ea21"
+      },
+      "fetchedAt": "2026-10-25T11:59:12.507779Z",
+      "literalChunkDataDecoding": "Decode JSON arguments of self.__next_f.push as data; concatenate kind1 string payloads; decode model5 JSON; exact model5/0/props/children/1/props/children/1/props/children component.",
+      "component": [
+        "$",
+        "$L12",
+        null
+      ],
+      "initialPosts": 27,
+      "postsPerPage": 27,
+      "totalPosts": 48,
+      "categorySlug": "press-releases",
+      "firstPostIsLocalReference": "$5:0:props:children:0:props:children:props:children:1:props:post",
+      "controllerImport": [
+        617923,
+        [
+          "/_next/static/immutable/chunks/0mmhti0l07vid.js",
+          "/_next/static/immutable/chunks/1igaivsu_bnw4.js",
+          "/_next/static/immutable/chunks/1h6gle_2k_51y.js",
+          "/_next/static/immutable/chunks/28t8kf6ui_679.js",
+          "/_next/static/immutable/chunks/1cfamv5_tu-j_.js",
+          "/_next/static/immutable/chunks/16s2_w4n6_8su.js",
+          "/_next/static/immutable/chunks/0vc-h3qewdvsi.js",
+          "/_next/static/immutable/chunks/2sng5ztbjph2a.js",
+          "/_next/static/immutable/chunks/3d4ex24g-asdt.js"
+        ],
+        "default"
+      ],
+      "claim": "27 provided versus48 declared; do not infer exact next request or claim all48 records observed."
+    }
+  },
+  "wholeOperationBound": 257,
+  "previousActualGenericCost": 109,
+  "codePins": {
+    "web/scripts/pipeline/onboarding.py": {
+      "sha256": "f15e008c081f0b9c48e53ab0b4c4388798d2bd54aaade904188b40305aa6bb69",
+      "bytes": 112821
+    },
+    "web/scripts/pipeline/discovery.py": {
+      "sha256": "2611635de944f025e848d8a7b15dfff2a328ac67a11a122a774eb46b2e1e7f68",
+      "bytes": 70911
+    },
+    "web/scripts/pipeline/storage.py": {
+      "sha256": "66ce4736cc1f5fb50998d1e59067904e6145a8195fa1c1fd27415e8cf93f00a5",
+      "bytes": 5379
+    },
+    "web/scripts/pipeline/contracts.py": {
+      "sha256": "7a9dbf1c4a59391f79519b2aefe688ec572733e2223fd99fa352688b8d1c2d89",
+      "bytes": 10994
+    },
+    "contracts/market.json": {
+      "sha256": "24221c946781559c0ff3626e4e479c4647da915d0f2d7559ea88046982532c3c",
+      "bytes": 284062
+    }
+  },
+  "receiptFiles": {
+    "build_validate_next_plan.py": {
+      "sha256": "c20b8f22de714b096740178b2a5985e0face649ba5a17c9e7490dad310ba83db",
+      "bytes": 7495
+    },
+    "controller-partial-evidence.json": {
+      "sha256": "cfca38b41344297141b007ed013fa86eab9adc0061a4fad89be54fb1e7ea0fdb",
+      "bytes": 2357
+    },
+    "literal-detail-url-inventory.json": {
+      "sha256": "4ebff1c8a6018cf7ff2fa917a7ed694a8ba1cf3fc4a78b18d54d4d7b07425bae",
+      "bytes": 17011
+    },
+    "preflight-log-metadata.json": {
+      "sha256": "ebe2620ba1228c9f8abbddcbf427a237ccfee81ac241ed7b28108b670c1f0be2",
+      "bytes": 239
+    },
+    "preflight.log.gz": {
+      "sha256": "e4c91a5a3bc98f4c3f9586905c898bc28f88e1c08eaeff3e8c4c9c8df57a450f",
+      "bytes": 303
+    },
+    "retained-primary-search.json": {
+      "sha256": "11c842423ad1f3a54fae39bcb5c0c7d782b1b457b8e866e8f79addc0ff279551",
+      "bytes": 56404
+    },
+    "retained-primary-shapes.json": {
+      "sha256": "f01f20129ba424133ff35769ba83e73b2a1844573d255416de619bafdaa09daf",
+      "bytes": 4504
+    },
+    "reviewed-plan.json": {
+      "sha256": "ac7393c6fc28d97826916462b0b56ca5fcd7a27521bb838de8df19542b494711",
+      "bytes": 8977
+    },
+    "unselected-veracode-alternative-plan.json": {
+      "sha256": "b5b106de14cad9f9d67ace93ba8367f35f7e74de2d36b08b921a25b469ad7d5c",
+      "bytes": 8964
+    }
+  },
+  "operationalSelectionPerformed": false
+}
