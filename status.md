@@ -86,8 +86,11 @@ now has its dormant single-response parser and two exact financial primary sampl
 implementation review passes with no open findings after two date-metadata fixes. Final operational
 checks pass 909/909, focused route checks 126/126, and the full application checks pass with one
 existing browser skip. Both rendered widths remain byte-exact to the preceding local build.
-H and disabled ad1 remain unchanged. The separate operational specification selects only two
-article requests after exact selection review; actual samples and normal-source activation remain.
+The dormant build is committed as 5b7e8f50. H remains unchanged. The separate operational
+selection copies the exact 4,211-byte plan, raw hash 3a25e8e2 and canonical hash 3b7fc7c4,
+for two article requests. Remote main still has disabled ad1 until reviewed promotion. Actual
+samples, archived proof and normal-source activation remain. A subsequent test-file cleanup
+removes only two trailing blank lines; historical reviewed code/log pins remain unchanged.
 
 ## Remaining acceptance
 

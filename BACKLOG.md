@@ -72,8 +72,9 @@ byte-exact. The next dormant [Q4 qualification build](docs/active/daily-pipeline
 has the strict parser and two financial primary samples, preserving H and ad1. Independent
 implementation review passes with no open findings; final 909 operational and 126 focused route
 checks pass, full application checks pass, and both local render widths are unchanged.
-Next are exact selection review and the actual two requests, then a separate inventory-only
-origin/policy transition and fresh normal intake if actual proof passes.
+Dormant build 5b7e8f50 is committed. Exact operational selection is prepared locally; next are
+selection review, guarded promotion and the actual two requests, then a separate inventory-only
+origin/policy transition and fresh normal intake if actual proof passes. Remote main remains ad1.
 Neither captured JSON nor request sentinels establish complete window/pagination or qualification.
 [Execution specification](docs/active/daily-pipeline/accuracy/q4-initial-data-operational-activation-spec-2026-10-25.md).
 
