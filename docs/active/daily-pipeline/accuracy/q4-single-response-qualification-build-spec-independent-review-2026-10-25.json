@@ -1,0 +1,404 @@
+{
+  "schemaVersion": 1,
+  "reviewType": "independent_design_review_only",
+  "verdict": "PASS",
+  "reviewedSpec": {
+    "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/q4-single-response-qualification-build-spec-2026-10-25.md",
+    "sha256": "3636bfccc2921e350916d9c15e9e2cb181ee6261c83ab15457bc3942695cadae",
+    "bytes": 7382
+  },
+  "blockingFindings": [],
+  "nonblockingFindings": [],
+  "checks": [
+    {
+      "area": "D-112 declared stream",
+      "result": "PASS",
+      "evidence": "Complete original source-specific HTML/client graph, local year derivation and DOM pagination combine with actual full arrays, seeds and older boundary. No whole-market completeness or sentinel-only proof follows."
+    },
+    {
+      "area": "Actual arrays and row selection",
+      "result": "PASS",
+      "evidence": "All206 JFrog and323 Rapid7 rows parse, have distinct WorkflowIds/resolved same-host URLs, descend by literal date and contain seeds. Row2 is the pinned financial scheduling release in both arrays; newest row0 product/research is not required."
+    },
+    {
+      "area": "Date and boundary handling",
+      "result": "PASS",
+      "evidence": "Literal naive dates are retained without timezone assignment. Original calendar window has3/4 records and known older rows. Specification retains boundary uncertainty and permits unknown primary metadata; no new zoned-date prerequisite."
+    },
+    {
+      "area": "Whole provenance before action",
+      "result": "PASS",
+      "evidence": "New operation must replay actual initial-data outer event/main/run/attempt, archive, original raw/canonical plan, original controller graph, wrappers/body and exact row joins before any write/reservation/transport."
+    },
+    {
+      "area": "Closed parser",
+      "result": "PASS",
+      "evidence": "Every object is parsed before deduplication. Errors, continuations, malformed envelopes, unsafe/conflicting identities, impossible dates and ordering regressions fail closed; all historical URLs/date strings remain retained."
+    },
+    {
+      "area": "Two-sample transport",
+      "result": "PASS",
+      "evidence": "Only the exact two row2 primary URLs, GET/no body/12-second timeout/2MB cap, shared lease and fetch-only charged guards. No fanout/PDF/model or global Fetcher change."
+    },
+    {
+      "area": "Operational isolation",
+      "result": "PASS",
+      "evidence": "Parser and separate dormant operation only. H and disabled ad1 stay unchanged; qualifiedSources/sourceChecksCredited0, no facts/admission/coverage. Distinct inventory-only origin and exact two-source H successor remain later work, preserving old origin allowlist."
+    },
+    {
+      "area": "Build acceptance",
+      "result": "PASS",
+      "evidence": "Required focused/full checks, wrong-proof/tamper/failure tests, sealed socket-denied replay, all old routes/admissions and baseline preservation are explicit. Independent review precedes operational selection."
+    }
+  ],
+  "actualEvidenceVerification": {
+    "archiveCommit": "d6606a4f5dd1e1afc5f16dea6d91bc422347f8aa",
+    "manifestSha256": "40873bfd2dca9836b58ac325a3afb32919fb463b2082752cb72fc785a2d7239d",
+    "manifestBytes": 9941943,
+    "manifestEntries": 48045,
+    "wholeArchiveAuthenticationAuthority": "Accepted actual source review; this design review rechecked consumed manifest-bound source bodies, observation wrappers, original HTML and literal client/pager spans. It does not claim a second full archive audit.",
+    "sources": [
+      {
+        "sourceId": "jfrog:official:1",
+        "sourceSha256": "1e8d43d1828092f65a14bf90b7a5e222d2e4e8e12bccaab23c2a7052f0da7bff",
+        "requestedUrl": "https://investors.jfrog.com/feed/PressRelease.svc/GetPressReleaseList?LanguageId=1&bodyType=0&pressReleaseDateFilter=3&categoryId=00000000-0000-0000-0000-000000000000&pageSize=-1&pageNumber=0&tagList=&includeTags=true&year=-1&excludeSelection=1",
+        "wrapper": {
+          "key": "objects/970b6a1c1bb9af279293992f4cc225f40292e9060ec43b1673cd37f7d0d53068",
+          "sha256": "970b6a1c1bb9af279293992f4cc225f40292e9060ec43b1673cd37f7d0d53068",
+          "bytes": 581
+        },
+        "rawObservationReference": {
+          "bytes": 894,
+          "key": "objects/c4c7917361aa6d164b18a975803acdd64a1ab5e64e8b1911c6ea4682d626e412",
+          "sha256": "c4c7917361aa6d164b18a975803acdd64a1ab5e64e8b1911c6ea4682d626e412"
+        },
+        "body": {
+          "bytes": 282783,
+          "key": "objects/f7d84b288a6665280f4b8ade996b0bf64fe9c3fa0ea7a8a15b1adfb0826ccc19",
+          "sha256": "f7d84b288a6665280f4b8ade996b0bf64fe9c3fa0ea7a8a15b1adfb0826ccc19"
+        },
+        "recordCount": 206,
+        "allRowsParsed": true,
+        "uniqueWorkflowIdsAndResolvedUrls": true,
+        "descendingLiteralDates": true,
+        "timezoneAssigned": false,
+        "newestLiteral": "10/21/2026 03:00:00",
+        "oldestLiteral": "09/16/2020 02:13:00",
+        "originalCalendarCutoff": "2026-09-25",
+        "currentWindowIndices": [
+          0,
+          1,
+          2
+        ],
+        "seedUrls": [
+          "https://investors.jfrog.com/news/news-details/2026/JFrog-Announces-Second-Quarter-2026-Results/default.aspx"
+        ],
+        "seedsPresent": true,
+        "sample": {
+          "rowIndex": 2,
+          "WorkflowId": "717ce770-88db-49b1-a63a-071d28989c99",
+          "PressReleaseId": 1907,
+          "title": "JFrog Announces Timing of Third Quarter 2026 Financial Results",
+          "literalDate": "10/14/2026 16:05:00",
+          "url": "https://investors.jfrog.com/news/news-details/2026/JFrog-Announces-Timing-of-Third-Quarter-2026-Financial-Results/default.aspx"
+        },
+        "primarySampleFetchedByReview": false
+      },
+      {
+        "sourceId": "rapid7:official:1",
+        "sourceSha256": "05a6202088ab48d007b5969e9230844aa716749d7b9442d145953a51446209b5",
+        "requestedUrl": "https://investors.rapid7.com/feed/PressRelease.svc/GetPressReleaseList?LanguageId=1&bodyType=0&pressReleaseDateFilter=3&categoryId=1cb807d2-208f-4bc3-9133-6a9ad45ac3b0&pageSize=-1&pageNumber=0&tagList=&includeTags=true&year=-1&excludeSelection=1",
+        "wrapper": {
+          "key": "objects/cfa2ffb8c2e6b21f2b39664dc1a700373908e75a4c04f6c791a63a351c2025cf",
+          "sha256": "cfa2ffb8c2e6b21f2b39664dc1a700373908e75a4c04f6c791a63a351c2025cf",
+          "bytes": 583
+        },
+        "rawObservationReference": {
+          "bytes": 896,
+          "key": "objects/d85d1550a60d97703907714c25ef743afafae1719d947d3c82dcd1ff4658724a",
+          "sha256": "d85d1550a60d97703907714c25ef743afafae1719d947d3c82dcd1ff4658724a"
+        },
+        "body": {
+          "bytes": 414550,
+          "key": "objects/cf3c57d1c2080d65656e9f291eca371aefd99909476d413bb5c90155bc742db8",
+          "sha256": "cf3c57d1c2080d65656e9f291eca371aefd99909476d413bb5c90155bc742db8"
+        },
+        "recordCount": 323,
+        "allRowsParsed": true,
+        "uniqueWorkflowIdsAndResolvedUrls": true,
+        "descendingLiteralDates": true,
+        "timezoneAssigned": false,
+        "newestLiteral": "10/21/2026 09:00:00",
+        "oldestLiteral": "07/06/2015 00:00:00",
+        "originalCalendarCutoff": "2026-09-25",
+        "currentWindowIndices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "seedUrls": [
+          "https://investors.rapid7.com/news/news-details/2026/Rapid7-Appoints-Wael-Mohamed-Chief-Executive-Officer-Corey-Thomas-to-Become-Executive-Chairman/default.aspx"
+        ],
+        "seedsPresent": true,
+        "sample": {
+          "rowIndex": 2,
+          "WorkflowId": "c4a988fc-6aab-42ee-a2af-4fb57a7ed054",
+          "PressReleaseId": 1814,
+          "title": "Rapid7 to Report Third Quarter 2026 Financial Results on November 4",
+          "literalDate": "10/14/2026 16:05:00",
+          "url": "https://investors.rapid7.com/news/news-details/2026/Rapid7-to-Report-Third-Quarter-2026-Financial-Results-on-November-4/default.aspx"
+        },
+        "primarySampleFetchedByReview": false
+      }
+    ],
+    "validatedGraphSpans": [
+      {
+        "kind": "api",
+        "name": "baseOptions",
+        "offset": 5,
+        "bytes": 1030
+      },
+      {
+        "kind": "api",
+        "name": "publicBranch",
+        "offset": 3686,
+        "bytes": 108
+      },
+      {
+        "kind": "api",
+        "name": "initialYearRequest",
+        "offset": 5667,
+        "bytes": 496
+      },
+      {
+        "kind": "api",
+        "name": "language",
+        "offset": 6643,
+        "bytes": 348
+      },
+      {
+        "kind": "api",
+        "name": "transport",
+        "offset": 6991,
+        "bytes": 289
+      },
+      {
+        "kind": "api",
+        "name": "requestParams",
+        "offset": 7778,
+        "bytes": 660
+      },
+      {
+        "kind": "api",
+        "name": "newsContentType",
+        "offset": 20638,
+        "bytes": 1162
+      },
+      {
+        "kind": "api",
+        "name": "newsDefaults",
+        "offset": 25118,
+        "bytes": 184
+      },
+      {
+        "kind": "pager",
+        "name": "draw",
+        "offset": 1461,
+        "bytes": 831
+      },
+      {
+        "kind": "pager",
+        "name": "slice",
+        "offset": 3428,
+        "bytes": 196
+      },
+      {
+        "kind": "html",
+        "sourceId": "jfrog:official:1",
+        "name": "publicFunction",
+        "offset": 5799,
+        "bytes": 37
+      },
+      {
+        "kind": "html",
+        "sourceId": "jfrog:official:1",
+        "name": "languageFunction",
+        "offset": 5883,
+        "bytes": 39
+      },
+      {
+        "kind": "html",
+        "sourceId": "jfrog:official:1",
+        "name": "widgetCall",
+        "offset": 56217,
+        "bytes": 1165
+      },
+      {
+        "kind": "html",
+        "sourceId": "jfrog:official:1",
+        "name": "pagerConfig",
+        "offset": 57738,
+        "bytes": 210
+      },
+      {
+        "kind": "html",
+        "sourceId": "rapid7:official:1",
+        "name": "publicFunction",
+        "offset": 8105,
+        "bytes": 37
+      },
+      {
+        "kind": "html",
+        "sourceId": "rapid7:official:1",
+        "name": "languageFunction",
+        "offset": 8189,
+        "bytes": 39
+      },
+      {
+        "kind": "html",
+        "sourceId": "rapid7:official:1",
+        "name": "widgetCall",
+        "offset": 40568,
+        "bytes": 1159
+      },
+      {
+        "kind": "html",
+        "sourceId": "rapid7:official:1",
+        "name": "pagerConfig",
+        "offset": 42083,
+        "bytes": 210
+      }
+    ],
+    "clientBridgeVerified": true,
+    "mappingOverFullResultArrayVerified": true,
+    "allInputSealsUnchanged": true
+  },
+  "inputSeals": {
+    "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/q4-single-response-qualification-build-spec-2026-10-25.md": {
+      "sha256": "3636bfccc2921e350916d9c15e9e2cb181ee6261c83ab15457bc3942695cadae",
+      "bytes": 7382,
+      "mtimeNs": 1792924728132897993
+    },
+    "/Users/jessepike/code/projects/sec-market-finish-20261022/decisions.md": {
+      "sha256": "f39e14870bb34d8a775aeb0251b2890f70cd724496f45e310fb9811ca1428b01",
+      "bytes": 124726,
+      "mtimeNs": 1792817884150066615
+    },
+    "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/q4-initial-data-capture-actual-source-review-2026-10-25.json": {
+      "sha256": "e5b4b799d36e984a3cbad88ea4e618de7a5060be2546aed9f1494af671dc2a24",
+      "bytes": 32449,
+      "mtimeNs": 1792924589806394844
+    },
+    "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/q4-controller-actual-code-next-requests-2026-10-25.json": {
+      "sha256": "0542a4c9ae1b3468cd8ebe72ee7e2987e7ada34d510f46316a194b46e8754937",
+      "bytes": 37902,
+      "mtimeNs": 1792920453206407348
+    },
+    "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/current-candidate-source-queue-2026-10-25.json": {
+      "sha256": "bf6e249eef64f6b329a08fd0d685b3574559c79af74a6c86abad058c7fa64f99",
+      "bytes": 823029,
+      "mtimeNs": 1792924589806181136
+    },
+    "/Users/jessepike/code/projects/sec-market-finish-20261022/contracts/market.json": {
+      "sha256": "24221c946781559c0ff3626e4e479c4647da915d0f2d7559ea88046982532c3c",
+      "bytes": 284062,
+      "mtimeNs": 1792865573453423141
+    },
+    "/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/q4_initial_data_capture.py": {
+      "sha256": "87ded82d37b5c51a121b769eaa084ad20bc691ca16a25929d13e7b004a99f8be",
+      "bytes": 20597,
+      "mtimeNs": 1792923286487855396
+    },
+    "/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/q4_controller_capture.py": {
+      "sha256": "8720cd8bed0c533201c24565ca28b23198f99f8a352213e07774f6f05f15ffb3",
+      "bytes": 23612,
+      "mtimeNs": 1792919139082249242
+    },
+    "/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/onboarding.py": {
+      "sha256": "f15e008c081f0b9c48e53ab0b4c4388798d2bd54aaade904188b40305aa6bb69",
+      "bytes": 112821,
+      "mtimeNs": 1792863209004844673
+    },
+    "/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/source_qualification_origin.py": {
+      "sha256": "955ddadd22585672f677b533a6478034cb8048a0ec71faea37af0bfa74469bc6",
+      "bytes": 41012,
+      "mtimeNs": 1792865573469511064
+    },
+    "/var/tmp/smp-q4-initial-data-actual-40184027106-20261025/extracted/archive-manifest.json": {
+      "sha256": "40873bfd2dca9836b58ac325a3afb32919fb463b2082752cb72fc785a2d7239d",
+      "bytes": 9941943,
+      "mtimeNs": 1792923772719971918
+    },
+    "/var/tmp/smp-q4-initial-data-actual-40184027106-20261025/extracted/state/objects/970b6a1c1bb9af279293992f4cc225f40292e9060ec43b1673cd37f7d0d53068": {
+      "sha256": "970b6a1c1bb9af279293992f4cc225f40292e9060ec43b1673cd37f7d0d53068",
+      "bytes": 581,
+      "mtimeNs": 1792923784898735933
+    },
+    "/var/tmp/smp-q4-initial-data-actual-40184027106-20261025/extracted/state/objects/c4c7917361aa6d164b18a975803acdd64a1ab5e64e8b1911c6ea4682d626e412": {
+      "sha256": "c4c7917361aa6d164b18a975803acdd64a1ab5e64e8b1911c6ea4682d626e412",
+      "bytes": 894,
+      "mtimeNs": 1792923784928735874
+    },
+    "/var/tmp/smp-q4-initial-data-actual-40184027106-20261025/extracted/state/objects/f7d84b288a6665280f4b8ade996b0bf64fe9c3fa0ea7a8a15b1adfb0826ccc19": {
+      "sha256": "f7d84b288a6665280f4b8ade996b0bf64fe9c3fa0ea7a8a15b1adfb0826ccc19",
+      "bytes": 282783,
+      "mtimeNs": 1792923785068735598
+    },
+    "/var/tmp/smp-q4-initial-data-actual-40184027106-20261025/extracted/state/objects/cfa2ffb8c2e6b21f2b39664dc1a700373908e75a4c04f6c791a63a351c2025cf": {
+      "sha256": "cfa2ffb8c2e6b21f2b39664dc1a700373908e75a4c04f6c791a63a351c2025cf",
+      "bytes": 583,
+      "mtimeNs": 1792923784883735962
+    },
+    "/var/tmp/smp-q4-initial-data-actual-40184027106-20261025/extracted/state/objects/d85d1550a60d97703907714c25ef743afafae1719d947d3c82dcd1ff4658724a": {
+      "sha256": "d85d1550a60d97703907714c25ef743afafae1719d947d3c82dcd1ff4658724a",
+      "bytes": 896,
+      "mtimeNs": 1792923784883735962
+    },
+    "/var/tmp/smp-q4-initial-data-actual-40184027106-20261025/extracted/state/objects/cf3c57d1c2080d65656e9f291eca371aefd99909476d413bb5c90155bc742db8": {
+      "sha256": "cf3c57d1c2080d65656e9f291eca371aefd99909476d413bb5c90155bc742db8",
+      "bytes": 414550,
+      "mtimeNs": 1792923785495734757
+    },
+    "/var/tmp/smp-q4-initial-data-actual-40184027106-20261025/extracted/state/objects/2ce36889709b0c9ff34e2b657d5abe0600009604d7e5407d41198f9a9c72d5e7": {
+      "sha256": "2ce36889709b0c9ff34e2b657d5abe0600009604d7e5407d41198f9a9c72d5e7",
+      "bytes": 25534,
+      "mtimeNs": 1792922966907589847
+    },
+    "/var/tmp/smp-q4-initial-data-actual-40184027106-20261025/extracted/state/objects/4e9d26dabe182ce0694a7e892892b5dc24a502cf14ee1b251542c9b920796a79": {
+      "sha256": "4e9d26dabe182ce0694a7e892892b5dc24a502cf14ee1b251542c9b920796a79",
+      "bytes": 7642,
+      "mtimeNs": 1792922967326650484
+    },
+    "/var/tmp/smp-q4-initial-data-actual-40184027106-20261025/extracted/state/objects/ead58a93ed20878e2ffb83512b3e8b52c08d878b3dff19e8d95a1162630ef20d": {
+      "sha256": "ead58a93ed20878e2ffb83512b3e8b52c08d878b3dff19e8d95a1162630ef20d",
+      "bytes": 114902,
+      "mtimeNs": 1792922969265398181
+    },
+    "/var/tmp/smp-q4-initial-data-actual-40184027106-20261025/extracted/state/objects/9ece5b105eb693076ea90ace3310c9cfbae7747b4e32faca80d9208dd1776479": {
+      "sha256": "9ece5b105eb693076ea90ace3310c9cfbae7747b4e32faca80d9208dd1776479",
+      "bytes": 90652,
+      "mtimeNs": 1792922968296872205
+    }
+  },
+  "limits": {
+    "codeImplementationReviewed": false,
+    "applicationOrOperationalTestsRun": 0,
+    "primarySamplesAlreadyFetched": false,
+    "networkRequests": 0,
+    "sourceRequests": 0,
+    "modelRequests": 0,
+    "archiveWrites": 0,
+    "LocalStoreConstructed": false,
+    "activeHChanged": false,
+    "activePlanChanged": false,
+    "registrationCredit": 0,
+    "coverageCredit": false,
+    "semanticAdmission": false,
+    "newFacts": [],
+    "publicationCredit": false,
+    "futureActualNormalIntakeRequired": true
+  },
+  "recommendation": "Proceed with the specified dormant parser and separate two-sample operation. Preserve the exact scopes and zero-credit boundaries; implementation and actual operation need their own subsequent evidence.",
+  "reviewedAt": "2026-10-25T10:42:13.686733+00:00"
+}

@@ -50,7 +50,7 @@ The reviewed source operation path supersedes the old agent-authored main freeze
 allows collector fixes and bounded diagnostics through preview/main while accepted production
 waits for its separate gate. Vercel Git production builds remain ignored and automatic
 production-domain assignment disabled. Main now ab6a7c68 passed preview 40182229971 and
-main 40183973802; preview is READY and its main Git production build CANCELED.
+main 40183973802; preview was READY and its main Git production build CANCELED.
 [Promotion proof](docs/active/daily-pipeline/accuracy/q4-initial-data-reviewed-code-promotion-2026-10-25.md).
 
 Actual diagnostic 40179255547 captured all six literally disclosed JFrog/Rapid7/Rubrik scripts
@@ -61,8 +61,11 @@ operational and full application checks; both screen widths are unchanged. Actua
 two-request diagnostic 40184027106 passed on main ab6a7c68. Its [actual audit](docs/active/daily-pipeline/accuracy/q4-initial-data-capture-actual-source-review-2026-10-25.md)
 verifies all 48,045 entries, full report, six admissions and preservation of normal heads/facts/38 holds.
 JFrog returned 206 records and Rapid7 323; both need the exact primary samples and a closed
-single-response index mode. Local disabled ad1 restoration and 45 focused checks pass;
-finish the preview/main closure promotion.
+single-response index mode. Exact disabled ad1 is restored remotely on main 118e4882.
+Closure preview 40185298950 and main 40185476864 pass, Vercel preview is READY and its main
+Git production build CANCELED. All 45 focused restoration checks pass; public receipt stays
+byte-exact. The next dormant [Q4 qualification build](docs/active/daily-pipeline/accuracy/q4-single-response-qualification-build-spec-2026-10-25.md)
+prepares the strict parser and two financial primary samples, preserving H and ad1.
 Neither captured JSON nor request sentinels establish complete window/pagination or qualification.
 [Execution specification](docs/active/daily-pipeline/accuracy/q4-initial-data-operational-activation-spec-2026-10-25.md).
 

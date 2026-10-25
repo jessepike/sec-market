@@ -1,0 +1,75 @@
+{
+  "mainRevision": "118e4882e8e716295c400eb7d7c148ec0eaae5a1",
+  "previewCi": 40185298950,
+  "mainCi": 40185476864,
+  "remoteDisabledPlanExact": true,
+  "mainGitProductionBuildCanceled": true,
+  "acceptedPublicReleaseUnchanged": true,
+  "restorationChecksPassed": 45,
+  "newSourceOrModelRequests": 0,
+  "newGateAttempts": 0,
+  "actualDiagnosticRun": 40184027106,
+  "finalBudget": {
+    "fetches": 867,
+    "calls": 80,
+    "documents": 38,
+    "gates": 2
+  },
+  "files": [
+    {
+      "path": "archive-ref.json",
+      "bytes": 381,
+      "sha256": "168c79fbb9831a5b19dbef351cab7f51fd672f194451fc45030aa74b8d855ae8"
+    },
+    {
+      "path": "disabled-restoration-tests-with-path.log.gz",
+      "bytes": 1674,
+      "sha256": "a84da13f7035bd4d7d2d0fea1dff7b414f75068418fb0393cab2d8cee388873e"
+    },
+    {
+      "path": "disabled-restoration-tests.log.gz",
+      "bytes": 1292,
+      "sha256": "7584dc41d84efe8f28de4e48d7c212147224a2d6d0c85736c975ace96df248dc"
+    },
+    {
+      "path": "final-budget.json",
+      "bytes": 41,
+      "sha256": "76306824baac89f421da13aa8e592782842329661912680d49798ea5e11e3508"
+    },
+    {
+      "path": "local-restoration-checks.json",
+      "bytes": 1263,
+      "sha256": "43449056405f5ab03d990d759a16b870295ac169f16cb4455046fe40412c61fa"
+    },
+    {
+      "path": "main-ref.json",
+      "bytes": 338,
+      "sha256": "f7d710562048100b0de9ae8c366eebd6da1c7434c65b971563dc123244ec631e"
+    },
+    {
+      "path": "main-web-run.json",
+      "bytes": 12370,
+      "sha256": "74a447b4d7231c6625728bcc1ff4d705ac3a72883779434d6e5ce4dd4e46dae7"
+    },
+    {
+      "path": "preview-web-run.json",
+      "bytes": 12373,
+      "sha256": "e4762d0dc845432858a1f8bf0b0ec2b8ccd919225a0adbb47b4bb8b5c324f06c"
+    },
+    {
+      "path": "public-deployment-receipt.json",
+      "bytes": 1103,
+      "sha256": "5ef1302f26813f928931c6b9085bbd985a95fe10fb8e992d7c3d64415bb87d28"
+    },
+    {
+      "path": "remote-disabled-plan.json",
+      "bytes": 173,
+      "sha256": "ad1c5cc234fe4fa69cbceb5370ac74825a37dc80b08528ca908d14b1352e53b4"
+    },
+    {
+      "path": "vercel-deployments.json",
+      "bytes": 2283,
+      "sha256": "4a024f1d5427872969f20c7248b720b5f558b8c92001d7f8432eeaaa3001a93d"
+    }
+  ]
+}

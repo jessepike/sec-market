@@ -52,9 +52,9 @@ the next daily collector; that cannot establish another timer execution.
 
 ## Current source work
 
-Reviewed main and preview are ab6a7c68. Preview web 40182229971 and main web 40183973802 pass;
-preview dpl_HfKxvgvXvd4r3GppdoLFdtv3CPVe is READY, main Git production build
-dpl_Bbmz7sitkanMUucGxrdRxutKwAkG is CANCELED. Main Git builds and automatic production-domain
+Reviewed main is closure 118e4882 with exact disabled ad1. Preview web 40185298950 and main
+web 40185476864 pass; preview dpl_BmTzFF4dRCXwbnsyuWvFv8RT5RcN is READY, main Git build
+dpl_87Zuaor1hVohRAWFPsZUrMrx18MQ is CANCELED. Main Git builds and automatic production-domain
 assignment remain closed. A main push does not publish.
 [Promotion proof](docs/active/daily-pipeline/accuracy/q4-initial-data-reviewed-code-promotion-2026-10-25.md).
 
@@ -66,8 +66,10 @@ passed on main ab6a7c68. Its [actual audit](docs/active/daily-pipeline/accuracy/
 verifies all 48,045 entries of d6606a4f, the full report and six admissions. JFrog returned
 206 records and Rapid7 323; literal dates have no timezone. All normal heads, facts, 38 holds
 and expiry remain exact. Actual callbacks skipped publication and rollback. Qualification
-and coverage credit remain zero. Exact disabled ad1 is restored in this closure candidate;
-45 focused restoration/lease/report checks pass. Preview/main closure promotion is next.
+and coverage credit remain zero. Exact disabled ad1 is verified remotely on main 118e4882;
+45 focused restoration/lease/report checks pass. Public receipt remains byte-exact.
+[Closure verification](docs/active/daily-pipeline/accuracy/receipts/q4-initial-data-disabled-restoration-2026-10-25/verification.json)
+retains both passing CI receipts, exact remote ad1 and the ignored main Git deployment.
 [Execution specification](docs/active/daily-pipeline/accuracy/q4-initial-data-operational-activation-spec-2026-10-25.md).
 
 The [current 25-source queue](docs/active/daily-pipeline/accuracy/current-candidate-source-queue-2026-10-25.md)
@@ -76,6 +78,10 @@ pagination/terminal and primary-sample proof remains explicit. Rubrik still lack
 .news controller join; do not invent a route. Three rolling feeds remain incomplete, Orca's
 page 27 self-redirect proves no terminal, and the next seven-index plan stays dormant with
 a 257-request whole-operation bound. No owner source decision is currently required.
+The [next Q4 build specification](docs/active/daily-pipeline/accuracy/q4-single-response-qualification-build-spec-2026-10-25.md)
+prepares a dormant single-response parser and two exact financial primary samples. Independent
+design review passes with no findings; the bounded implementation is next. H and disabled ad1
+remain unchanged during that build.
 
 ## Remaining acceptance
 
