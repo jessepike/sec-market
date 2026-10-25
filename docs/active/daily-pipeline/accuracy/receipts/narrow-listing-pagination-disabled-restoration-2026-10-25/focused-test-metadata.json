@@ -1,0 +1,26 @@
+{
+  "verdict": "PASS",
+  "focusedTests": 37,
+  "skips": 0,
+  "correctedCommand": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=web/scripts/pipeline:ops/ci python3 -m unittest -v test_disabled_qualification_plan test_leased_source_probe test_leased_orca_probe",
+  "initialInvocationError": "Reviewer initially used two nonexistent module names. Initial ImportError log retained separately; no code repair. Corrected discovered existing module names pass.",
+  "logs": [
+    {
+      "file": "restoration-focused.log.gz",
+      "rawSha256": "3883104c2e37afc3270aeb3623f6228a0356dec12700eef7863155aa97b54853",
+      "rawBytes": 1415,
+      "gzipSha256": "58e1a8e4a047f35dfb6f4d9299d826ad699812cd5235e89ad1e3e41595185f4e",
+      "gzipBytes": 339,
+      "byteExactRoundTrip": true
+    },
+    {
+      "file": "restoration-focused-corrected.log.gz",
+      "rawSha256": "7bc29070325f33d7cb56edd581d1eb45635280e3c964c0387c55a37c04ac61aa",
+      "rawBytes": 6823,
+      "gzipSha256": "b070c132f27a8963e887383f463261643c491518aeec3211467359eba335bb8c",
+      "gzipBytes": 1275,
+      "byteExactRoundTrip": true
+    }
+  ],
+  "restoredPlanSha256": "ad1c5cc234fe4fa69cbceb5370ac74825a37dc80b08528ca908d14b1352e53b4"
+}

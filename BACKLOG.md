@@ -23,7 +23,7 @@ navigation SEC-074 follow reliable current operation.
 | Private review queue | All 37 preceding held identities persist. New HiddenLayer funding candidate lacks a fact date; total 38. No new accepted facts/events. |
 | Private freshness | Actual full/304 observations and immutable rechecks derive expiry October 26 at 15:55:27.307096 UTC. This does not renew public freshness. |
 | Automatic publication | Actual callback 40183462577 and genuine scheduled publisher 40190348786 failed DAILY_GATE_BUDGET_EXHAUSTED; gates remain 2/2, no third gate/new release. Assigned issue 14 updated 11:51:44. Both callback drills skipped. |
-| Current allowances |985/5,500 fetches, 80/80 calls, 38/40 documents, gates 2/2. The seven-source diagnostic charged 116 requests. |
+| Latest actual receipt |1,101/5,500 fetches, 80/80 calls, 38/40 documents, gates 2/2. The listing capture charged 116 requests; full new archive audit is closing. |
 | Reader value, sustained operation and general accuracy | Unmeasured. The owner reports no useful real use yet. Five repaired benchmark contradictions do not establish general precision/recall. |
 
 The audited 264 passes comprise 196 citation-integrity checks, 48 SEC checks, 17 official-
@@ -113,8 +113,10 @@ controller and Zenity's27-of48 initial posts prove remaining pagination work. Th
 listing/pagination capture, ac7393c6, passes full preflight and independent review (34 rejected
 mutations, legal repeated-source/order cases, complete prior-report replay). Exact local selection
 is verified on main 5debbd9e with preview web 40193430884/main 40193694591 passing, Vercel preview
-READY/main Git ignored. Actual capture 40193925490 is running from verified 9deb/985 baseline;
-responses, charges, full audit and disabled-plan closure remain pending. Retain existing Cyera/Torq
+READY/main Git ignored. Actual capture 40193925490 completed successfully from verified 9deb/985
+baseline with 116 requests, reaching 1,101 fetches. Full acknowledged 9e4a9806 archive and returned-
+page audit are closing. Exact disabled ad1 is restored locally with 37 focused tests passing;
+reviewed remote closure follows. Retain existing Cyera/Torq
 primary bodies and dates. Its whole-operation bound includes all 25 generic probes: 257 logical requests.
 No owner source decision is currently required.
 

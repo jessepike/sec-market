@@ -37,7 +37,7 @@ passed under policy H, 8b44bcbe…b445db, on main 71c39356. It started at 09:50:
 | Processing/history |40/41 of 10,655 reviewed; 10,615/10,614 pending; 11 held documents, 1 changed, 291 unknown dates. |
 | Continuity |Four fact references and all 37 old holds preserved; one new HiddenLayer missing-date hold makes queue 38. No new accepted facts/events. |
 | Source expiry |October 26 at 15:55:27.307096 UTC, separate from public expiry. |
-| Settled October 25 ledger |985/5,500 fetches, 80/80 model calls, 38/40 documents, gates 2/2; lease released. |
+| Latest diagnostic receipt |1,101/5,500 fetches, 80/80 model calls, 38/40 documents, gates 2/2. Full new archive audit is closing. |
 
 The 264 intake passes comprise 196 citation checks, 48 SEC checks, 17 official announcements and
 three investor/acquirer checks. These measure declared source intake, not general event recall.
@@ -69,8 +69,11 @@ The next [listing/pagination plan](docs/active/daily-pipeline/accuracy/narrow-li
 ac7393c6, covers Abnormal/Cyera press lists, Cato pages 2–5 and Chainguard page 2. Existing full
 validator/preflight and independent review pass; exact selection is on main 5debbd9e. Preview web
 40193430884 and main web 40193694591 pass; Vercel preview is READY/main Git ignored.
-Actual single capture 40193925490 started at 12:37:24 UTC from verified 9deb/985 baseline and is
-running. Returned pages, charges, full audit and disabled-plan restoration remain pending.
+Actual single capture 40193925490 completed successfully at 12:43:06 UTC from verified 9deb/985
+baseline. Its receipt records 116 charges, reaching 1,101 fetches, with calls/documents unchanged.
+Acknowledgement 9e4a9806 has 48,420 entries; its full authentication, cold page review and report
+replay are closing. Exact disabled ad1 is restored locally; 37 focused tests pass with no skips.
+Reviewed remote disabled-plan closure follows. No source qualification credit is claimed.
 Its whole-operation bound remains 257 requests including
 all 25 generic probes. Reuse retained Cyera/Torq primary bodies. Torq's disclosed loading controller
 and Zenity's 27-initial/48-declared posts still require continuation proof.
