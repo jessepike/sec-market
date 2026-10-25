@@ -1,0 +1,36 @@
+{
+  "kind": "future-preview-validation",
+  "observedAt": "2026-10-25T02:10:03Z",
+  "appRevision": "da39b15386418ee63d6df307dabd5a961854d0fc",
+  "mainHeldAt": "6d5e87feba4ffbc75e50f35cb564cb8fd91708ca",
+  "runs": [
+    {
+      "conclusion": "success",
+      "databaseId": 40153195491,
+      "event": "push",
+      "headSha": "da39b15386418ee63d6df307dabd5a961854d0fc",
+      "status": "completed",
+      "url": "https://github.com/jessepike/sec-market/actions/runs/40153195491"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 40153195515,
+      "event": "push",
+      "headSha": "da39b15386418ee63d6df307dabd5a961854d0fc",
+      "status": "completed",
+      "url": "https://github.com/jessepike/sec-market/actions/runs/40153195515"
+    }
+  ],
+  "deployment": {
+    "id": "dpl_PFMWkL97SEgcXiC2Vy5nfQEWiEBu",
+    "state": "READY",
+    "url": "https://security-market-pulse-6o8op0fw7-pikeholdings.vercel.app"
+  },
+  "limits": {
+    "actualScheduledRun": false,
+    "productionUpdate": false,
+    "sourceQualification": false,
+    "independentCorrectionAdmission": false,
+    "fixtureMustNeverPublish": true
+  }
+}

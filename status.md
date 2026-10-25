@@ -67,6 +67,8 @@ exact SEC request/final issuer-directory spelling is handled by the reviewed pre
 transport repair. All 828 operational checks and 534 executed application tests pass, with one
 existing fixture skip. Independent review rejected 71 additional mutations; all six old admissions
 replay unchanged. The 1440/390 local renders match the preceding preview pixel for pixel.
+Preview da39b153 passed web 40153195515 and archive canary 40153195491;
+Vercel dpl_PFMWkL97SEgcXiC2Vy5nfQEWiEBu is READY. Its fixture must never publish.
 All proposals stay outside the operational correction contract during current-H acceptance.
 
 ## Sources, alerts and next receipts
