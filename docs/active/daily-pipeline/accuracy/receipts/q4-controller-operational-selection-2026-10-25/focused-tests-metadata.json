@@ -1,0 +1,27 @@
+{
+  "command": [
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "-v",
+    "test_q4_controller_capture",
+    "test_leased_source_probe",
+    "test_leased_orca_probe",
+    "test_disabled_qualification_plan"
+  ],
+  "cwd": "/Users/jessepike/code/projects/sec-market-finish-20261022/ops/ci",
+  "exitCode": 0,
+  "tests": 55,
+  "seconds": 1.327,
+  "skipped": 0,
+  "rawSha256": "0d4d5c3d16f62770545d59f753bce471feedc8b1699d18f6b62b63e5dafaa064",
+  "rawBytes": 10215,
+  "rawLineCount": 60,
+  "retainedFile": "focused-tests.log.gz",
+  "gzipSha256": "2d3b69af500512e53265f1afb2640444f40013ab32f884d3fa470a70ad758e6f",
+  "gzipBytes": 1895,
+  "byteExactRoundTrip": true,
+  "gzipMtime": 0,
+  "gzipEmbeddedFilename": ""
+}

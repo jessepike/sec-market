@@ -1,0 +1,17 @@
+{
+  "observationKind": "read_only_dashboard_accessibility",
+  "observedOnUtcDate": "2026-10-25",
+  "project": "pikeholdings/security-market-pulse",
+  "buildSettingsUrl": "https://vercel.com/pikeholdings/security-market-pulse/settings/build-and-deployment",
+  "ignoredBuildBehavior": "Custom",
+  "ignoredBuildCommand": "test \"$VERCEL_GIT_COMMIT_REF\" = main || test \"$VERCEL_GIT_COMMIT_REF\" = data/archive",
+  "productionSettingsUrl": "https://vercel.com/pikeholdings/security-market-pulse/settings/environments/production",
+  "productionBranch": "main",
+  "autoAssignCustomProductionDomainsCheckboxValue": 0,
+  "productionAssignmentNotice": "Production deployments will need to be manually promoted.",
+  "saveButtonsDisabled": true,
+  "settingsChanged": false,
+  "secretsRevealed": false,
+  "apiFieldValuesClaimed": false,
+  "limits": "These are directly observed dashboard controls, not a raw project API response. Actual publisher and rollback verification separately exercised the matching API invariants."
+}

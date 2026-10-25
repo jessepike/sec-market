@@ -45,7 +45,20 @@ and all 254 missing bindings remain unchanged. Diagnostics stay exact disabled a
 [next seven-source preflight](docs/active/daily-pipeline/accuracy/next-seven-newsroom-review-preflight-2026-10-25.md)
 earns no qualification credit and retains its 257-request whole-operation bound.
 
-## Future preview work; main stays held
+## Reviewed code and next source operation
+
+The [operational activation specification](docs/active/daily-pipeline/accuracy/q4-controller-operational-activation-spec-2026-10-25.md)
+and [decision review](docs/active/daily-pipeline/accuracy/main-code-promotion-before-next-gate-decision-review-2026-10-25.md)
+supersede the earlier agent-authored main freeze. Advance reviewed code and the exact six-script
+diagnostic plan through preview and main after its preflight/review/CI, then execute one leased
+diagnostic. Production stays on its accepted artifact until the ordinary publisher passes an
+available gate. Current Vercel dashboard controls confirm ignored main/archive Git builds and
+disabled automatic domain assignment. No schedule, source contract or allowance changes.
+Today's publisher may truthfully report exhausted gate capacity; do not retry or refund it.
+The next actual timer must be audited at the revision it truly executes.
+The exact six-script selection passes real retained-parent preflight, 55 focused, 858 operational
+and 36 watchdog tests. Independent activation review passes with all six old admissions unchanged.
+Actual controller capture remains pending; the selected plan will return to disabled ad1 afterward.
 
 The [scheduled-source specification](docs/active/daily-pipeline/accuracy/scheduled-source-freshness-cycle-spec-2026-10-25.md)
 and [implementation](docs/active/daily-pipeline/accuracy/scheduled-source-freshness-cycle-implementation-2026-10-25.md)
@@ -60,18 +73,18 @@ The [cadence review](docs/active/daily-pipeline/accuracy/same-day-manual-and-sch
 keeps earlier-policy same-day reuse separate from H and from the actual public expiry. A cold forced
 cycle writes no saved-download pointer; a later ordinary retry with unfinished semantic work can
 spend additional conditional fetches. Preserve that cost and test actual repaired-timer clocks after
-reviewed promotion with an available code-bound gate. Preview contains the reviewed repair
+reviewed promotion; public delivery separately requires an available code-bound gate. Preview contains the reviewed repair
 de2059ab and verified application revision 4ae86e2b; later commits retain evidence only. Web 40172455392 and canary
 40172455446 passed on 4ae86e2b; its Vercel dpl_7qy95vbv6wrmURM8SabrCyViioJk is READY and
 its actual app receipt matches that application revision. The
 [preview receipt](docs/active/daily-pipeline/receipts/scheduled-source-freshness-preview-2026-10-25.json)
-keeps its uncollected fixture outside publication. Main remains 6d5e87fe during current acceptance.
+keeps its uncollected fixture outside publication. Main's next move follows the reviewed source-operation plan above.
 
 Earlier future-preview work remains separate: the [diagnostic response repair](docs/active/daily-pipeline/accuracy/diagnostic-unexpected-http-status-independent-review-2026-10-25.md),
 [exact SentinelOne transport review](docs/active/daily-pipeline/accuracy/s1-exact-filing-transport-independent-review-2026-10-25.md)
 and [remaining-record correction queue](docs/active/daily-pipeline/accuracy/remaining-record-qualification-status-2026-10-25.md).
 Their fixtures must never publish. All proposed corrections remain outside the operational contract
-until independent admission and normal publication can proceed after current acceptance.
+until independent admission and normal publication can proceed within the existing gate allowance.
 The [bounded Q4 controller capture](docs/active/daily-pipeline/accuracy/q4-controller-diagnostic-spec-2026-10-25.md)
 is implemented for six scripts literally disclosed by the three existing candidate newsrooms.
 All 858 operational and 534 executed application tests pass, with one existing fixture skip;

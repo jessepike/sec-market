@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "verdict": "local_selection_pass_review_required_before_external_execution",
+  "scope": "Exact existing diagnostic selection only; actual source proof remains zero.",
+  "contract": {
+    "path": "contracts/source-qualification-probes.json",
+    "sha256": "007f1f940d48727da9a921d0c1138f27e5249870dd5ed6aaa3da3e844582ba91",
+    "bytes": 5643,
+    "canonicalSha256": "e787c1c94704dd3a21ff4e71ffaf35dac1ac18f9d3ea2b0a7e16690da3561600",
+    "matchesDormantBytes": true,
+    "maxRequests": 6
+  },
+  "governingSpecification": {
+    "sha256": "a3ea067f3cc1399ec89bd254dd37b7ea34472f9f6a6585addd2c8363880ac3f5",
+    "bytes": 4685
+  },
+  "implementationDocument": {
+    "sha256": "538be0aa7e7a6b7b4f7dba257f154aeaafbe70bcfc85ed5fb7e9345220028c46",
+    "bytes": 4014
+  },
+  "tests": {
+    "focused-tests": {
+      "command": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "-v",
+        "test_q4_controller_capture",
+        "test_leased_source_probe",
+        "test_leased_orca_probe",
+        "test_disabled_qualification_plan"
+      ],
+      "cwd": "/Users/jessepike/code/projects/sec-market-finish-20261022/ops/ci",
+      "exitCode": 0,
+      "tests": 55,
+      "seconds": 1.327,
+      "skipped": 0,
+      "rawSha256": "0d4d5c3d16f62770545d59f753bce471feedc8b1699d18f6b62b63e5dafaa064",
+      "rawBytes": 10215,
+      "rawLineCount": 60,
+      "retainedFile": "focused-tests.log.gz",
+      "gzipSha256": "2d3b69af500512e53265f1afb2640444f40013ab32f884d3fa470a70ad758e6f",
+      "gzipBytes": 1895,
+      "byteExactRoundTrip": true,
+      "gzipMtime": 0,
+      "gzipEmbeddedFilename": ""
+    },
+    "operational-tests": {
+      "command": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "ops/ci",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "cwd": "/Users/jessepike/code/projects/sec-market-finish-20261022",
+      "exitCode": 0,
+      "tests": 858,
+      "seconds": 19.371,
+      "skipped": 0,
+      "rawSha256": "c762366b84cd22930b28e0633a54f57eb214dff384cd2421cace07d34e4e4226",
+      "rawBytes": 159820,
+      "rawLineCount": 863,
+      "retainedFile": "operational-tests.log.gz",
+      "gzipSha256": "0b3f8112ff8ef350eeb848df5b9dbc0b037d7d80088c9f742e4c408bd8415906",
+      "gzipBytes": 24031,
+      "byteExactRoundTrip": true,
+      "gzipMtime": 0,
+      "gzipEmbeddedFilename": ""
+    },
+    "watchdog-tests": {
+      "command": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "ops/watchdog",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "cwd": "/Users/jessepike/code/projects/sec-market-finish-20261022",
+      "exitCode": 0,
+      "tests": 36,
+      "seconds": 0.721,
+      "skipped": 0,
+      "rawSha256": "ff5fb8008a08b7c3a47b8b2d12dfbe0a4bc905e66fb209da8feb424a9681675f",
+      "rawBytes": 6471,
+      "rawLineCount": 41,
+      "retainedFile": "watchdog-tests.log.gz",
+      "gzipSha256": "b9b811c63b5ecff405c9a97d6ff91333e5457757a9108c6da6fa2569f6db4427",
+      "gzipBytes": 1398,
+      "byteExactRoundTrip": true,
+      "gzipMtime": 0,
+      "gzipEmbeddedFilename": ""
+    }
+  },
+  "preservation": {
+    "frozenInputsPlusManifest": 9,
+    "allFrozenBytesSizeMtimeUnchanged": true,
+    "protectedFiles": 29,
+    "allProtectedFilesUnchanged": true,
+    "noCodeChanges": true,
+    "newFixturesFetched": 0,
+    "actualSourceRequests": 0,
+    "modelCalls": 0,
+    "reservations": 0,
+    "dispatches": 0,
+    "commits": 0,
+    "pushes": 0,
+    "mainChanges": 0,
+    "archiveWrites": 0,
+    "qualificationCredit": false
+  },
+  "receiptInventory": {
+    "focused-tests-metadata.json": {
+      "sha256": "670266b0a06f8d24f064862d5d5440f4f15922634a126e49ce43eb822f134bd0",
+      "bytes": 715
+    },
+    "focused-tests.log.gz": {
+      "sha256": "2d3b69af500512e53265f1afb2640444f40013ab32f884d3fa470a70ad758e6f",
+      "bytes": 1895
+    },
+    "operational-tests-metadata.json": {
+      "sha256": "14b6923ecfd1bb3fb6517795dfd275aed280d41bf723397cba30cc341bbe4fe9",
+      "bytes": 648
+    },
+    "operational-tests.log.gz": {
+      "sha256": "0b3f8112ff8ef350eeb848df5b9dbc0b037d7d80088c9f742e4c408bd8415906",
+      "bytes": 24031
+    },
+    "selection-validation.json": {
+      "sha256": "58a01c6c341ce48e3c10d09e5249bf77ef6d96094ea4e85b20a09501bd5adf8b",
+      "bytes": 13319
+    },
+    "watchdog-tests-metadata.json": {
+      "sha256": "76547646a579f80700e2e492a70a09c0d72618dc0bdc55aa6996f0463b3eff95",
+      "bytes": 645
+    },
+    "watchdog-tests.log.gz": {
+      "sha256": "b9b811c63b5ecff405c9a97d6ff91333e5457757a9108c6da6fa2569f6db4427",
+      "bytes": 1398
+    }
+  },
+  "limits": [
+    "Parent owns independent review completion and external commit/push/promotion/single diagnostic execution.",
+    "Full web checks and 1440/390 renders on unchanged revision49610788 remain separate prior evidence.",
+    "Actual scheduled collection, publication and source qualification require their own receipts.",
+    "Exact disabled ad1 contract must be restored after the diagnostic under the governing specification."
+  ]
+}

@@ -14,6 +14,14 @@ approved. Preserve all 74 suppliers, 557 obligations, historical URLs, original 
 charged allowances, six admitted corrections and every earlier review hold. Search (SEC-073)
 and company-type navigation (SEC-074) follow reliable operation.
 
+The [six-script operational activation](docs/active/daily-pipeline/accuracy/q4-controller-operational-activation-spec-2026-10-25.md)
+supersedes the earlier agent-authored main freeze. Independent
+[decision review](docs/active/daily-pipeline/accuracy/main-code-promotion-before-next-gate-decision-review-2026-10-25.md)
+confirms reviewed collector code and diagnostics can advance while accepted production waits
+for its separate exact-code gate. Select the exact reviewed plan, complete preflight/review/CI,
+promote through preview/main, execute once under the shared lease, audit actual bodies and restore
+disabled ad1. Preserve all spent gate attempts; a publisher's budget alert must remain truthful.
+
 | Current measure | Actual evidence |
 |---|---|
 | Public release | App 6d5e87fe, release fc8bf098, sequence 4, snapshot 8ba13011. Vercel dpl_GFKc3mfpR6CSeZt7u62B5LVBqQjv is READY; all 53 files per host match, 106 exact comparisons. |
@@ -50,7 +58,8 @@ ran under unchanged H in actual diagnostic 40131875060, completing at 20:59:04 U
 115 logical fetch reservations within the reviewed 257 maximum, including generic discovery.
 Five explicit endpoint bodies were retained. Trend Micro returned HTML at the advertised RSS
 endpoint; Check Point failed without a retained explicit status/body. No candidate was qualified
-or credited. Restore exact disabled ad1 after the actual archive audit, then freeze main.
+or credited. Restore exact disabled ad1 after the actual archive audit; the next operation follows
+the reviewed activation above.
 [Actual batch audit](docs/active/daily-pipeline/accuracy/seven-source-endpoint-actual-review-2026-10-24.md)
 verifies every archive entry and next-day normal replay. The current queue records new literal
 Trend Micro, Aqua and Q4 controller leads, with their original dates and unresolved proof requirements.
@@ -74,7 +83,7 @@ Earlier manual publisher 40147731858 and gate 40148005688 failed when prior-day 
 to publication-day task IDs. That attempt remains charged. The reviewed cross-day repair preserves
 the original plan's IDs and source clocks. [Prior repair review](docs/active/daily-pipeline/accuracy/cross-day-public-source-inventory-fix-independent-review-2026-10-25.md).
 Repair 6d5e87fe reached main after preview 40149549356, archive canary 40149549391 and main
-40149786951 passed. The publisher was re-enabled. Preserve main during current acceptance;
+40149786951 passed. The publisher was re-enabled. Preserve the accepted production artifact;
 manual diagnostics and skipped callbacks remain separate. Collector 40120612027 remains an
 October 24 prior receipt, not the current private intake.
 
@@ -92,8 +101,8 @@ fanout; responses, pagination, date windows and primary samples remain unobserve
 plan remains disabled. A [preview-only diagnostic repair](docs/active/daily-pipeline/accuracy/diagnostic-unexpected-http-status-independent-review-2026-10-25.md)
 now retains unexpected opened HTTP status/body evidence without successful proof or credit.
 All 818 operational and 530 executed application checks pass (one fixture skip); 1440/390 renders
-are pixel-identical to the prior preview. Keep main fixed for current-H scheduled/public acceptance
-before promoting this follow-up or activating the next reviewed diagnostic. The prior Check Point
+are pixel-identical to the prior preview. Advance this reviewed follow-up through the approved
+source-operation route above, preserving separate scheduled/public acceptance. The prior Check Point
 numeric status remains unknown.
 
 The future scheduled-source repair has a [specification](docs/active/daily-pipeline/accuracy/scheduled-source-freshness-cycle-spec-2026-10-25.md),
@@ -106,8 +115,8 @@ fixture skip; independent checks passed 12 focused, 6 existing and 7 extra scena
 and verified application revision 4ae86e2b; later commits retain evidence only. Web 40172455392 and canary 40172455446 passed
 on 4ae86e2b, whose Vercel dpl_7qy95vbv6wrmURM8SabrCyViioJk is READY with its exact app
 receipt. The [preview receipt](docs/active/daily-pipeline/receipts/scheduled-source-freshness-preview-2026-10-25.json)
-grants no repaired-runtime proof; the uncollected fixture must never publish and main stays 6d5e87fe.
-After reviewed promotion and an available code-bound gate, audit the repaired revision's actual
+grants no repaired-runtime proof; the uncollected fixture must never publish.
+After reviewed code promotion, audit the repaired revision's actual
 genuine timer receipts. That forced-timer validation is pending. The [cadence review](docs/active/daily-pipeline/accuracy/same-day-manual-and-scheduled-source-cadence-review-2026-10-25.md)
 keeps older-policy reuse separate from H. A cold forced cycle writes no immutable replay pointer;
 an ordinary retry with unfinished semantic work may spend additional conditional fetches. Retain
@@ -133,7 +142,7 @@ dpl_69eizZqscVnQjoFHeT3sViWyJat8 READY and its exact app receipt retained in the
 [preview evidence](docs/active/daily-pipeline/receipts/q4-controller-capture-preview-2026-10-25.json).
 The exact parent HTML and charged proof join pass offline; the six JavaScript bodies remain unfetched. Capturing them
 later earns no qualification or coverage credit until actual record/date/paging proof is complete.
-Keep the operational plan disabled and current main fixed during timer acceptance.
+Select this exact plan only for the reviewed single leased operation above, then restore disabled ad1.
 
 The [October 25 recovery scorecard](docs/active/daily-pipeline/evaluations/2026-10-25/recovery-observation.md)
 pins the actual source receipt, gate, publication and rollback. It keeps coverage and historical

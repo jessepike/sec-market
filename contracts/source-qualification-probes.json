@@ -1,1 +1,122 @@
-{"marketSha256":"8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db","maxRequests":0,"operation":"disabled_qualification_probe","schemaVersion":2,"sources":[]}
+{
+  "schemaVersion": 2,
+  "operation": "bounded_q4_controller_capture",
+  "marketSha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+  "maxRequests": 6,
+  "sources": [
+    {
+      "sourceId": "jfrog:official:1",
+      "supplierId": "jfrog",
+      "originalSourceSha256": "1e8d43d1828092f65a14bf90b7a5e222d2e4e8e12bccaab23c2a7052f0da7bff",
+      "parentProof": {
+        "type": "qualification_observation",
+        "record": {
+          "key": "ci/source-probe-runs/40131875060-1.json",
+          "sha256": "90f8b45b299dd868fd558d1218fd1e0bcc0fda59c46d9f9a779352d461596aee",
+          "bytes": 90157
+        },
+        "priorTargetId": "next-jfrog-1",
+        "priorTargetIndex": 4,
+        "priorTargetSha256": "4e1e2dc1db22afa1da23d0d8d7362d2644d51ba58c9eae0a8248784ec00e429f",
+        "priorPlanRawSha256": "98b110fe4fd1beb898ff7ccaa190a3e4eb6dcb61e1da3ed5a5d72151bddd2ce4",
+        "priorPlanCanonicalSha256": "98b110fe4fd1beb898ff7ccaa190a3e4eb6dcb61e1da3ed5a5d72151bddd2ce4",
+        "priorPlanReference": {
+          "bytes": 4256,
+          "key": "objects/98b110fe4fd1beb898ff7ccaa190a3e4eb6dcb61e1da3ed5a5d72151bddd2ce4",
+          "sha256": "98b110fe4fd1beb898ff7ccaa190a3e4eb6dcb61e1da3ed5a5d72151bddd2ce4"
+        },
+        "observation": {
+          "bytes": 489,
+          "key": "objects/97356357732c1f91c9b3fa5485fa4b50a0c83e752abf5caf6e6d0d043731b1bf",
+          "sha256": "97356357732c1f91c9b3fa5485fa4b50a0c83e752abf5caf6e6d0d043731b1bf"
+        },
+        "body": {
+          "bytes": 114902,
+          "key": "objects/ead58a93ed20878e2ffb83512b3e8b52c08d878b3dff19e8d95a1162630ef20d",
+          "sha256": "ead58a93ed20878e2ffb83512b3e8b52c08d878b3dff19e8d95a1162630ef20d"
+        },
+        "fetchedAt": "2026-10-24T20:58:21.814627Z"
+      },
+      "targets": [
+        "https://investors.jfrog.com/js/module/widgets/dist/latest/evergreen.q4Api.min.js",
+        "https://investors.jfrog.com/js/module/widgets/dist/latest/evergreen.q4Pager.min.js"
+      ]
+    },
+    {
+      "sourceId": "rapid7:official:1",
+      "supplierId": "rapid7",
+      "originalSourceSha256": "05a6202088ab48d007b5969e9230844aa716749d7b9442d145953a51446209b5",
+      "parentProof": {
+        "type": "qualification_observation",
+        "record": {
+          "key": "ci/source-probe-runs/40131875060-1.json",
+          "sha256": "90f8b45b299dd868fd558d1218fd1e0bcc0fda59c46d9f9a779352d461596aee",
+          "bytes": 90157
+        },
+        "priorTargetId": "next-rapid7-1",
+        "priorTargetIndex": 5,
+        "priorTargetSha256": "01ff363aba40a620d80297d42317d31f39bf208503658c653e609448448d511a",
+        "priorPlanRawSha256": "98b110fe4fd1beb898ff7ccaa190a3e4eb6dcb61e1da3ed5a5d72151bddd2ce4",
+        "priorPlanCanonicalSha256": "98b110fe4fd1beb898ff7ccaa190a3e4eb6dcb61e1da3ed5a5d72151bddd2ce4",
+        "priorPlanReference": {
+          "bytes": 4256,
+          "key": "objects/98b110fe4fd1beb898ff7ccaa190a3e4eb6dcb61e1da3ed5a5d72151bddd2ce4",
+          "sha256": "98b110fe4fd1beb898ff7ccaa190a3e4eb6dcb61e1da3ed5a5d72151bddd2ce4"
+        },
+        "observation": {
+          "bytes": 490,
+          "key": "objects/1d242084cb70aff581e42156c01f3a78a136cfd6bdfce16235fc67c2b379db12",
+          "sha256": "1d242084cb70aff581e42156c01f3a78a136cfd6bdfce16235fc67c2b379db12"
+        },
+        "body": {
+          "bytes": 90652,
+          "key": "objects/9ece5b105eb693076ea90ace3310c9cfbae7747b4e32faca80d9208dd1776479",
+          "sha256": "9ece5b105eb693076ea90ace3310c9cfbae7747b4e32faca80d9208dd1776479"
+        },
+        "fetchedAt": "2026-10-24T20:58:21.972999Z"
+      },
+      "targets": [
+        "https://investors.rapid7.com/js/module/widgets/dist/latest/evergreen.q4Api.min.js",
+        "https://investors.rapid7.com/js/module/widgets/dist/latest/evergreen.q4Pager.min.js"
+      ]
+    },
+    {
+      "sourceId": "rubrik:official:1",
+      "supplierId": "rubrik",
+      "originalSourceSha256": "3bdfd09fadc261c1d2b09e84499e76983278f527b1c99e06e8d181d5ad56cab0",
+      "parentProof": {
+        "type": "qualification_observation",
+        "record": {
+          "key": "ci/source-probe-runs/40131875060-1.json",
+          "sha256": "90f8b45b299dd868fd558d1218fd1e0bcc0fda59c46d9f9a779352d461596aee",
+          "bytes": 90157
+        },
+        "priorTargetId": "next-rubrik-1",
+        "priorTargetIndex": 6,
+        "priorTargetSha256": "c92b54eb936519cacd09bb8be2cb0940ea492e705274e1d665ed0025b3b6a6ff",
+        "priorPlanRawSha256": "98b110fe4fd1beb898ff7ccaa190a3e4eb6dcb61e1da3ed5a5d72151bddd2ce4",
+        "priorPlanCanonicalSha256": "98b110fe4fd1beb898ff7ccaa190a3e4eb6dcb61e1da3ed5a5d72151bddd2ce4",
+        "priorPlanReference": {
+          "bytes": 4256,
+          "key": "objects/98b110fe4fd1beb898ff7ccaa190a3e4eb6dcb61e1da3ed5a5d72151bddd2ce4",
+          "sha256": "98b110fe4fd1beb898ff7ccaa190a3e4eb6dcb61e1da3ed5a5d72151bddd2ce4"
+        },
+        "observation": {
+          "bytes": 520,
+          "key": "objects/d6d8aaf368b4cb48ff4d6e1cc5b4f93500ae2ac093a7d75b9c82927e48bd6be1",
+          "sha256": "d6d8aaf368b4cb48ff4d6e1cc5b4f93500ae2ac093a7d75b9c82927e48bd6be1"
+        },
+        "body": {
+          "bytes": 42385,
+          "key": "objects/c5a34d9cf87cd3e52f567fdf8883ca60e33f7e28a8923bc006469e91cd883a17",
+          "sha256": "c5a34d9cf87cd3e52f567fdf8883ca60e33f7e28a8923bc006469e91cd883a17"
+        },
+        "fetchedAt": "2026-10-24T20:58:22.127737Z"
+      },
+      "targets": [
+        "https://ir.rubrik.com/js/module/widgets/dist/latest/evergreen.q4Api.min.js",
+        "https://ir.rubrik.com/js/module/widgets/dist/latest/evergreen.q4Pager.min.js"
+      ]
+    }
+  ]
+}

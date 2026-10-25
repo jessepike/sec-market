@@ -1,0 +1,28 @@
+{
+  "command": [
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "ops/ci",
+    "-p",
+    "test_*.py",
+    "-v"
+  ],
+  "cwd": "/Users/jessepike/code/projects/sec-market-finish-20261022",
+  "exitCode": 0,
+  "tests": 858,
+  "seconds": 19.371,
+  "skipped": 0,
+  "rawSha256": "c762366b84cd22930b28e0633a54f57eb214dff384cd2421cace07d34e4e4226",
+  "rawBytes": 159820,
+  "rawLineCount": 863,
+  "retainedFile": "operational-tests.log.gz",
+  "gzipSha256": "0b3f8112ff8ef350eeb848df5b9dbc0b037d7d80088c9f742e4c408bd8415906",
+  "gzipBytes": 24031,
+  "byteExactRoundTrip": true,
+  "gzipMtime": 0,
+  "gzipEmbeddedFilename": ""
+}

@@ -1,0 +1,28 @@
+{
+  "command": [
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "ops/watchdog",
+    "-p",
+    "test_*.py",
+    "-v"
+  ],
+  "cwd": "/Users/jessepike/code/projects/sec-market-finish-20261022",
+  "exitCode": 0,
+  "tests": 36,
+  "seconds": 0.721,
+  "skipped": 0,
+  "rawSha256": "ff5fb8008a08b7c3a47b8b2d12dfbe0a4bc905e66fb209da8feb424a9681675f",
+  "rawBytes": 6471,
+  "rawLineCount": 41,
+  "retainedFile": "watchdog-tests.log.gz",
+  "gzipSha256": "b9b811c63b5ecff405c9a97d6ff91333e5457757a9108c6da6fa2569f6db4427",
+  "gzipBytes": 1398,
+  "byteExactRoundTrip": true,
+  "gzipMtime": 0,
+  "gzipEmbeddedFilename": ""
+}

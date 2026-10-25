@@ -1,0 +1,277 @@
+{
+  "scope": "Offline exact operational selection; no transport or execution.",
+  "previousDisabledRawSha256": "ad1c5cc234fe4fa69cbceb5370ac74825a37dc80b08528ca908d14b1352e53b4",
+  "selectedRawSha256": "007f1f940d48727da9a921d0c1138f27e5249870dd5ed6aaa3da3e844582ba91",
+  "selectedCanonicalSha256": "e787c1c94704dd3a21ff4e71ffaf35dac1ac18f9d3ea2b0a7e16690da3561600",
+  "selectedBytes": 5643,
+  "selectedMatchesDormantBytes": true,
+  "maxRequests": 6,
+  "sources": [
+    {
+      "sourceId": "jfrog:official:1",
+      "supplierId": "jfrog",
+      "targets": [
+        "https://investors.jfrog.com/js/module/widgets/dist/latest/evergreen.q4Api.min.js",
+        "https://investors.jfrog.com/js/module/widgets/dist/latest/evergreen.q4Pager.min.js"
+      ]
+    },
+    {
+      "sourceId": "rapid7:official:1",
+      "supplierId": "rapid7",
+      "targets": [
+        "https://investors.rapid7.com/js/module/widgets/dist/latest/evergreen.q4Api.min.js",
+        "https://investors.rapid7.com/js/module/widgets/dist/latest/evergreen.q4Pager.min.js"
+      ]
+    },
+    {
+      "sourceId": "rubrik:official:1",
+      "supplierId": "rubrik",
+      "targets": [
+        "https://ir.rubrik.com/js/module/widgets/dist/latest/evergreen.q4Api.min.js",
+        "https://ir.rubrik.com/js/module/widgets/dist/latest/evergreen.q4Pager.min.js"
+      ]
+    }
+  ],
+  "actualParentProofValidationPassed": true,
+  "archiveManifest": {
+    "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/archive-manifest.json",
+    "sha256": "895213b31bb9f75814acc9484cad9aabd3719e07ddd72c621275a9b2568a1e5c",
+    "bytes": 8433031,
+    "mtimeNs": 1792875521000000000
+  },
+  "inputSeals": [
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/ci/source-probe-runs/40131875060-1.json",
+      "sha256": "90f8b45b299dd868fd558d1218fd1e0bcc0fda59c46d9f9a779352d461596aee",
+      "bytes": 90157,
+      "mtimeNs": 1792875521000000000
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/1d242084cb70aff581e42156c01f3a78a136cfd6bdfce16235fc67c2b379db12",
+      "sha256": "1d242084cb70aff581e42156c01f3a78a136cfd6bdfce16235fc67c2b379db12",
+      "bytes": 490,
+      "mtimeNs": 1792875521000000000
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/97356357732c1f91c9b3fa5485fa4b50a0c83e752abf5caf6e6d0d043731b1bf",
+      "sha256": "97356357732c1f91c9b3fa5485fa4b50a0c83e752abf5caf6e6d0d043731b1bf",
+      "bytes": 489,
+      "mtimeNs": 1792875521000000000
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/98b110fe4fd1beb898ff7ccaa190a3e4eb6dcb61e1da3ed5a5d72151bddd2ce4",
+      "sha256": "98b110fe4fd1beb898ff7ccaa190a3e4eb6dcb61e1da3ed5a5d72151bddd2ce4",
+      "bytes": 4256,
+      "mtimeNs": 1792875521000000000
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/9ece5b105eb693076ea90ace3310c9cfbae7747b4e32faca80d9208dd1776479",
+      "sha256": "9ece5b105eb693076ea90ace3310c9cfbae7747b4e32faca80d9208dd1776479",
+      "bytes": 90652,
+      "mtimeNs": 1792875521000000000
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/c5a34d9cf87cd3e52f567fdf8883ca60e33f7e28a8923bc006469e91cd883a17",
+      "sha256": "c5a34d9cf87cd3e52f567fdf8883ca60e33f7e28a8923bc006469e91cd883a17",
+      "bytes": 42385,
+      "mtimeNs": 1792875521000000000
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/d6d8aaf368b4cb48ff4d6e1cc5b4f93500ae2ac093a7d75b9c82927e48bd6be1",
+      "sha256": "d6d8aaf368b4cb48ff4d6e1cc5b4f93500ae2ac093a7d75b9c82927e48bd6be1",
+      "bytes": 520,
+      "mtimeNs": 1792875521000000000
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/ead58a93ed20878e2ffb83512b3e8b52c08d878b3dff19e8d95a1162630ef20d",
+      "sha256": "ead58a93ed20878e2ffb83512b3e8b52c08d878b3dff19e8d95a1162630ef20d",
+      "bytes": 114902,
+      "mtimeNs": 1792875521000000000
+    }
+  ],
+  "inputCount": 8,
+  "inputsUnchanged": true,
+  "protectedFiles": {
+    "contracts/market.json": {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/contracts/market.json",
+      "sha256": "24221c946781559c0ff3626e4e479c4647da915d0f2d7559ea88046982532c3c",
+      "bytes": 284062,
+      "mtimeNs": 1792865573453423141
+    },
+    "contracts/factual-corrections.json": {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/contracts/factual-corrections.json",
+      "sha256": "9c9fbe0d3d40ece11e1407ce9460086c732f62da88d3b0f220ab9d6f8757da00",
+      "bytes": 32004,
+      "mtimeNs": 1792802031150005119
+    },
+    "contracts/factual-baseline.json": {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/contracts/factual-baseline.json",
+      "sha256": "ab3bca0e49a38495d310021857ee2c1a3ca6ebe7979593d1e8b36437cb2a294e",
+      "bytes": 35212,
+      "mtimeNs": 1792800049462000200
+    },
+    "web/scripts/pipeline/q4_controller_capture.py": {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/q4_controller_capture.py",
+      "sha256": "8720cd8bed0c533201c24565ca28b23198f99f8a352213e07774f6f05f15ffb3",
+      "bytes": 23612,
+      "mtimeNs": 1792915463499557891
+    },
+    "web/scripts/pipeline/engine.py": {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/engine.py",
+      "sha256": "e471f18006a4899406510cdede42829476ba1945b58c420c61f6edce767a7e19",
+      "bytes": 54002,
+      "mtimeNs": 1792911217473006749
+    },
+    "web/scripts/pipeline/fetcher.py": {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/fetcher.py",
+      "sha256": "82084e87bb41687fec8ebfc969cf0a37294e04312a47a27993f5c359a585adce",
+      "bytes": 10828,
+      "mtimeNs": 1792891635695075504
+    },
+    "web/scripts/pipeline/onboarding.py": {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/onboarding.py",
+      "sha256": "f15e008c081f0b9c48e53ab0b4c4388798d2bd54aaade904188b40305aa6bb69",
+      "bytes": 112821,
+      "mtimeNs": 1792863209004844673
+    },
+    "web/scripts/pipeline/provenance.py": {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/provenance.py",
+      "sha256": "7325f346b34fad9bbb306ad52ad847ff76f98d9d92e83b361912063b682805dd",
+      "bytes": 2597,
+      "mtimeNs": 1792800049824640707
+    },
+    "web/scripts/pipeline/publication.py": {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/publication.py",
+      "sha256": "6497c6fbf8494638a79a9b00afa4b18f50d67598fa635c273d82d1553c8ffe84",
+      "bytes": 11899,
+      "mtimeNs": 1792800049824785790
+    },
+    "web/scripts/pipeline/corrections.py": {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/corrections.py",
+      "sha256": "d742a91d4d23da5db3b426afcef76a80971c47dd54f8e4312065a6994f87b11f",
+      "bytes": 44838,
+      "mtimeNs": 1792893593391233408
+    },
+    "ops/ci/collect.py": {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/ops/ci/collect.py",
+      "sha256": "87565d7855266777297fb7de11e94756ffbf9e1b38bbb4f92be2f6f0a557d007",
+      "bytes": 25614,
+      "mtimeNs": 1792915013026237286
+    },
+    "ops/ci/test_q4_controller_capture.py": {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/ops/ci/test_q4_controller_capture.py",
+      "sha256": "d7cd0ba331ba8206daec855db742ad91e1fca6e475eec33dd656ad39d6942aa7",
+      "bytes": 25562,
+      "mtimeNs": 1792915463503930335
+    },
+    "ops/watchdog/probe.py": {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/ops/watchdog/probe.py",
+      "sha256": "0b9793222a04511ee0b670bb4a3131ec5cd9662f33dd111a0d319797d3b80ac3",
+      "bytes": 27504,
+      "mtimeNs": 1792917565961666998
+    },
+    "ops/watchdog/test_probe.py": {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/ops/watchdog/test_probe.py",
+      "sha256": "24ae33093032fb59b87211af68a94c13a8802202b626159e60ee5b764e529aeb",
+      "bytes": 18208,
+      "mtimeNs": 1792917099959655657
+    },
+    "ops/watchdog/test_coverage_reader.py": {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/ops/watchdog/test_coverage_reader.py",
+      "sha256": "75b80f03d1010ee4b5db2fdaf14bde017662842b267cd08a78071dcdc481e70f",
+      "bytes": 20677,
+      "mtimeNs": 1792917565967621113
+    },
+    "web/src/data/tracker/factualCorrectionPolicy.json": {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/web/src/data/tracker/factualCorrectionPolicy.json",
+      "sha256": "7319ece4c5c4f6c7d515fb9ef7ff13211daf38e041948edd26732e9ccfa2dbc7",
+      "bytes": 1721,
+      "mtimeNs": 1792865573474431887
+    },
+    "web/src/data/tracker/originals.json": {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/web/src/data/tracker/originals.json",
+      "sha256": "7d164cb81003db0a66eccbb25c2e8605e33b853b9a6e20cb2c6900794822b4a3",
+      "bytes": 381034,
+      "mtimeNs": 1792800049834720322
+    },
+    ".github/workflows/certified-refresh.yml": {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/.github/workflows/certified-refresh.yml",
+      "sha256": "c7ed787713c4eff39e03ab372a707221aab6b3876ccbaaab1da74491397c4323",
+      "bytes": 7214,
+      "mtimeNs": 1792800049459292244
+    },
+    ".github/workflows/freshness.yml": {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/.github/workflows/freshness.yml",
+      "sha256": "3cd45a810ce4a5320bd9404dff6d9fba58d948988031aac4b0dd997f90c796ef",
+      "bytes": 7101,
+      "mtimeNs": 1792800049459420452
+    },
+    ".github/workflows/market-release-gate.yml": {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/.github/workflows/market-release-gate.yml",
+      "sha256": "a93ccaeaff862f6dd4ab54179ed030d2d613a3cf575e6e4975395ca744d68708",
+      "bytes": 5307,
+      "mtimeNs": 1792800049459504994
+    },
+    ".github/workflows/production-rollback-drill.yml": {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/.github/workflows/production-rollback-drill.yml",
+      "sha256": "6288d2bcb631edc3eb05f611124d9e7b4a1166c9ef51a15cdb1fd229822d0bd4",
+      "bytes": 4124,
+      "mtimeNs": 1792800049459762619
+    },
+    ".github/workflows/promote.yml": {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/.github/workflows/promote.yml",
+      "sha256": "3ee866caf65eb9f6609dc5877ce629ee6e8a440b231a02cfef4cce15bb40d77e",
+      "bytes": 10433,
+      "mtimeNs": 1792800049459942910
+    },
+    ".github/workflows/subscription-account-bootstrap.yml": {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/.github/workflows/subscription-account-bootstrap.yml",
+      "sha256": "baa5a8c8d0fa4fff221437b945220469f0708494d9dad2e821c2e6438dca6ffd",
+      "bytes": 2022,
+      "mtimeNs": 1792800049460001660
+    },
+    ".github/workflows/subscription-account-probe.yml": {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/.github/workflows/subscription-account-probe.yml",
+      "sha256": "5729c1884da220f99665427c298356580c64306ed15067681a30c5b46fc99e74",
+      "bytes": 1918,
+      "mtimeNs": 1792800049460056827
+    },
+    ".github/workflows/subscription-collector.yml": {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/.github/workflows/subscription-collector.yml",
+      "sha256": "268fb316bd00670fc76d6a464c449d5e3f3d9e03a083680e2fab813d3daa4fe0",
+      "bytes": 5406,
+      "mtimeNs": 1792800049460282493
+    },
+    ".github/workflows/subscription-publisher-probe.yml": {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/.github/workflows/subscription-publisher-probe.yml",
+      "sha256": "66fdaad150fae1c08a469e22d174d5aa1c33ec177dbc0124d10c587e4b3ea7f5",
+      "bytes": 2920,
+      "mtimeNs": 1792800049460378201
+    },
+    ".github/workflows/subscription-publisher.yml": {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/.github/workflows/subscription-publisher.yml",
+      "sha256": "b6eb167cf43aab8624dd69eaabfe9900a4c192789cef4c286cdb477c0b897b7b",
+      "bytes": 3870,
+      "mtimeNs": 1792819794058163942
+    },
+    ".github/workflows/subscription-runtime-canary.yml": {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/.github/workflows/subscription-runtime-canary.yml",
+      "sha256": "1af4f54a8bd156fad88d32eea23257362ac725d6208da73a6044fc721c999717",
+      "bytes": 1676,
+      "mtimeNs": 1792800049460651868
+    },
+    ".github/workflows/web.yml": {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/.github/workflows/web.yml",
+      "sha256": "8afd1f77a539afbea9bbd3cda3da7ac9903d8c9dcbec955fe259107ba81aac0d",
+      "bytes": 2352,
+      "mtimeNs": 1792800049460774909
+    }
+  },
+  "protectedFilesUnchanged": true,
+  "socketDenied": true,
+  "frozenLocalStoreInitializationDenied": true,
+  "actualSourceRequests": 0,
+  "modelCalls": 0,
+  "fetchReservations": 0,
+  "qualificationCredit": false
+}
