@@ -36,7 +36,8 @@ Both failure and recovery evidence remain retained.
 
 ## Reviewed main and actual source diagnostic
 
-Main advanced through reviewed preview to 99617db0f0ef4c70bb6f0b563cac9a40c50e0385.
+Reviewed collector code advanced through preview at 99617db0; main is now the closure revision
+71c39356b902f3b7eff57370c79b1846129980af with the exact disabled ad1 diagnostic plan.
 Preview web 40178989663 and main web 40179232874 passed. Vercel preview is READY; the main
 Git production deployment was CANCELED by the existing ignored-build control. Public release
 bytes stayed unchanged. Current dashboard reads confirm ignored main/archive builds and disabled
@@ -56,12 +57,21 @@ counters are unchanged. [Actual audit](docs/active/daily-pipeline/accuracy/q4-co
 authenticates archive 9634b916 and all 45,307 entries, preserves all 36,680 baseline immutable
 entries and 8,605 normal head entries, and replays all six admissions. All three remain candidates;
 there is zero source qualification, coverage, fact or scheduled-execution credit. The local
-operational plan is restored to exact disabled ad1; its preview/main closure is next.
+operational plan is restored to exact disabled ad1 on main 71c39356 after preview CI 40180521280
+passed. The main Git production build remains ignored; the accepted public release is unchanged.
+Main web CI 40180726049 also passed. The
+[closure receipt](docs/active/daily-pipeline/receipts/q4-controller-disabled-restoration-2026-10-25/verification.json)
+verifies the exact remote disabled bytes, both CI runs and the canceled Git production build.
 
 The reviewed main includes genuine-daily conditional transport refresh, diagnostic failure
 metadata, exact optional SentinelOne transport and the monitor repair. The existing application
 renders at 1440/390 are unchanged. The uncollected preview fixture must never publish.
 The optional S1 rule activates no new correction group or old admission change.
+The [literal controller inspection](docs/active/daily-pipeline/accuracy/q4-controller-actual-code-next-requests-2026-10-25.md)
+supports two exact initial-data GET targets for JFrog and Rapid7. Their
+[closed diagnostic implementation](docs/active/daily-pipeline/accuracy/q4-initial-data-diagnostic-spec-2026-10-25.md)
+is in progress locally; its plan stays dormant and no data response has been fetched. Rubrik
+still lacks the .news controller join. Neither its host nor an API route may be guessed.
 
 ## Remaining acceptance and gaps
 

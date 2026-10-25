@@ -1,0 +1,54 @@
+{
+  "result": {
+    "deployments": {
+      "pagination": {
+        "count": 2,
+        "prev": 1792920460042
+      },
+      "deployments": [
+        {
+          "id": "dpl_GZ7MrNae8A1h39o3ToZA3PHhGhZp",
+          "name": "security-market-pulse",
+          "url": "security-market-pulse-gukefovw3-pikeholdings.vercel.app",
+          "created": 1792920460042,
+          "state": "CANCELED",
+          "target": "production",
+          "creator": {
+            "uid": "um6xyC6srGbNQRAR3KB77kfs",
+            "username": "jessepike"
+          },
+          "meta": {
+            "githubCommitRef": "main",
+            "githubCommitSha": "71c39356b902f3b7eff57370c79b1846129980af",
+            "githubCommitMessage": "chore(qualification): close verified six-controller capture and retain next-request proof",
+            "githubRepo": "sec-market",
+            "githubOrg": "jessepike"
+          },
+          "inspectorUrl": "https://vercel.com/pikeholdings/security-market-pulse/GZ7MrNae8A1h39o3ToZA3PHhGhZp",
+          "isRollbackCandidate": false
+        },
+        {
+          "id": "dpl_G8Z7Qfd8Zryhoa1rMiPBR2ndAG2F",
+          "name": "security-market-pulse",
+          "url": "security-market-pulse-3bluggia8-pikeholdings.vercel.app",
+          "created": 1792920279962,
+          "state": "READY",
+          "target": null,
+          "creator": {
+            "uid": "um6xyC6srGbNQRAR3KB77kfs",
+            "username": "jessepike"
+          },
+          "meta": {
+            "githubCommitRef": "preview",
+            "githubCommitSha": "71c39356b902f3b7eff57370c79b1846129980af",
+            "githubCommitMessage": "chore(qualification): close verified six-controller capture and retain next-request proof",
+            "githubRepo": "sec-market",
+            "githubOrg": "jessepike"
+          },
+          "inspectorUrl": "https://vercel.com/pikeholdings/security-market-pulse/G8Z7Qfd8Zryhoa1rMiPBR2ndAG2F",
+          "isRollbackCandidate": false
+        }
+      ]
+    }
+  }
+}

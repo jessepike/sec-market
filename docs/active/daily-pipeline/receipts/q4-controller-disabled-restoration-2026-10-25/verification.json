@@ -1,0 +1,42 @@
+{
+  "mainRevision": "71c39356b902f3b7eff57370c79b1846129980af",
+  "previewCi": 40180521280,
+  "mainCi": 40180726049,
+  "disabledPlanExact": true,
+  "mainGitProductionBuildCanceled": true,
+  "acceptedPublicReleaseUnchanged": true,
+  "newGateAttempts": 0,
+  "newSourceRequests": 0,
+  "files": [
+    {
+      "path": "main-ref.json",
+      "sha256": "4eef63531bf0c40f3c9f18bddd8491dc59ba4d5b06f3541c592cfe5fa5f1c06d",
+      "bytes": 338
+    },
+    {
+      "path": "main-web-run.json",
+      "sha256": "bc7dace26be667768a913570373742126a4a90ea67df7f30acd607876f678155",
+      "bytes": 12372
+    },
+    {
+      "path": "preview-web-run.json",
+      "sha256": "e89134fe4f8c709af02f4bbe0981fbdb2d87a5520cdfda145879acf065967525",
+      "bytes": 12375
+    },
+    {
+      "path": "public-deployment-receipt.json",
+      "sha256": "5ef1302f26813f928931c6b9085bbd985a95fe10fb8e992d7c3d64415bb87d28",
+      "bytes": 1103
+    },
+    {
+      "path": "remote-disabled-plan.json",
+      "sha256": "ad1c5cc234fe4fa69cbceb5370ac74825a37dc80b08528ca908d14b1352e53b4",
+      "bytes": 173
+    },
+    {
+      "path": "vercel-deployments.json",
+      "sha256": "a6cb2a475d5f2fe4ea11b39c7a75eb48374bca39c0950ae1f6e6322ced2c87f6",
+      "bytes": 1982
+    }
+  ]
+}

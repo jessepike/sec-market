@@ -21,7 +21,8 @@ confirms reviewed collector code and diagnostics can advance while accepted prod
 for its separate exact-code gate. Select the exact reviewed plan, complete preflight/review/CI,
 promote through preview/main, execute once under the shared lease, audit actual bodies and restore
 disabled ad1. This actual capture has now passed as 40179255547 on reviewed main 99617db0;
-all six scripts are retained. The local disabled plan is restored; preview/main closure is next.
+all six scripts are retained. Disabled ad1 is restored on main 71c39356 after preview CI
+40180521280 passed; public fc8b is unchanged.
 Preserve all spent gate attempts; a publisher's budget alert must remain truthful.
 
 | Current measure | Actual evidence |
@@ -148,8 +149,13 @@ authenticates all 45,307 archive entries and preserves every baseline immutable 
 head, admission, fact reference and held identity. Main and preview CI passed on 99617db0;
 Vercel ignored its Git production build and accepted public fc8b stayed unchanged.
 Current-window records, pagination/terminal and primary samples remain unproved; all three
-sources still earn zero qualification credit. The exact disabled ad1 plan is restored locally;
-reviewed preview/main restoration is next. Inspect literal controller code before any next request.
+sources still earn zero qualification credit. The exact disabled ad1 plan is restored on main
+71c39356 after preview CI 40180521280 passed. The
+[literal controller inspection](docs/active/daily-pipeline/accuracy/q4-controller-actual-code-next-requests-2026-10-25.md)
+establishes two exact data GET targets for JFrog/Rapid7; the
+[closed two-request diagnostic](docs/active/daily-pipeline/accuracy/q4-initial-data-diagnostic-spec-2026-10-25.md)
+is being implemented locally with its plan dormant. No API response is observed yet.
+Rubrik still lacks its .news implementation proof and remains excluded from that operation.
 
 The [October 25 recovery scorecard](docs/active/daily-pipeline/evaluations/2026-10-25/recovery-observation.md)
 pins the actual source receipt, gate, publication and rollback. It keeps coverage and historical
