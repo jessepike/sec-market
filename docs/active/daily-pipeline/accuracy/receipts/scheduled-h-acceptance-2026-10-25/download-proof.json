@@ -1,0 +1,20 @@
+{
+  "archiveAck": {
+    "commit": "310082e9402e62b8466feea6f0b0f7d7090b7797",
+    "parentCommit": "4feceab5909c72b5367d6152913bca2d1e5ea8fe",
+    "manifestSha256": "69882c245247a2f8dcfe7e5bb0999d7668e890c16b928912f3fd31ef567cd16a",
+    "files": 48030,
+    "ref": "refs/archive/market-evidence"
+  },
+  "gitCommit": "310082e9402e62b8466feea6f0b0f7d7090b7797",
+  "gitParentCommits": [
+    "4feceab5909c72b5367d6152913bca2d1e5ea8fe"
+  ],
+  "manifestGitBlobSha1": "835d01f482ad1f59b4014f55b7adce64aece7e82",
+  "manifestSha256": "69882c245247a2f8dcfe7e5bb0999d7668e890c16b928912f3fd31ef567cd16a",
+  "manifestBytes": 9938790,
+  "manifestEntries": 48030,
+  "archiveTarSha256": "786b2c9e5d647560bd4e8fe5b884ab652663a1a898cc8dc821efbe5a68891ded",
+  "allManifestEntriesVerified": true,
+  "extractedRoot": "/var/tmp/smp-scheduled-h-acceptance-40182324149-20261025/extracted"
+}

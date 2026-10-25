@@ -1,0 +1,29 @@
+{
+  "repoRoot": "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022",
+  "archiveRoot": "/var/tmp/smp-q4-initial-data-actual-40184027106-20261025/extracted",
+  "baselineRoot": "/var/tmp/smp-scheduled-h-acceptance-40182324149-20261025/post-callback-extracted",
+  "baselineManifestSha256": "8f7ae5e95610aba19ff68be30053bd4e0703a288b9482d0b9118f61cbf85350d",
+  "baselineCommit": "6708f37f73822d411d5ec771b307cd829c22e31d",
+  "ancestralRoot": "/var/tmp/smp-q4-controller-actual-20261025/extracted",
+  "ancestralManifestSha256": "600e58564c989206856ba48795bf4ce9f6fbbf73a604e806594e95327b53203a",
+  "ancestralCommit": "9634b916c15b18f38605a168f7642de764670aab",
+  "outputDirectory": "/var/tmp/smp-q4-initial-data-actual-40184027106-20261025/proof",
+  "runId": 40184027106,
+  "appRevision": "ab6a7c68f5d8deeb3dfbe56f2ad32dfa71577bc4",
+  "runMetadata": "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/q4-initial-data-capture-actual-2026-10-25/run-final.json",
+  "artifactMetadata": "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/q4-initial-data-capture-actual-2026-10-25/artifact-metadata.json",
+  "artifactZip": "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/q4-initial-data-capture-actual-2026-10-25/source-probe-artifact.zip",
+  "receipt": "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/q4-initial-data-capture-actual-2026-10-25/source-probe-receipt.json",
+  "ackCommitMetadata": "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/q4-initial-data-capture-actual-2026-10-25/archive-commit.json",
+  "ackRootTreeMetadata": "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/q4-initial-data-capture-actual-2026-10-25/archive-root-tree.json",
+  "bootstrapCommitMetadata": "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/q4-initial-data-capture-actual-2026-10-25/bootstrap-commit.json",
+  "escrowCommitMetadata": "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/q4-initial-data-capture-actual-2026-10-25/escrow-commit.json",
+  "escrowBudgetMetadata": "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/q4-initial-data-capture-actual-2026-10-25/escrow-budget.json",
+  "expectedCodePins": {
+    "web/scripts/pipeline/q4_initial_data_capture.py": "87ded82d37b5c51a121b769eaa084ad20bc691ca16a25929d13e7b004a99f8be",
+    "ops/ci/collect.py": "928e082f5b633a973a6ad7704ab70ecc150d5f2dbbd5aa448e3e03d9a4a3592b",
+    "web/scripts/pipeline/q4_controller_capture.py": "8720cd8bed0c533201c24565ca28b23198f99f8a352213e07774f6f05f15ffb3",
+    "contracts/market.json": "24221c946781559c0ff3626e4e479c4647da915d0f2d7559ea88046982532c3c",
+    "contracts/factual-corrections.json": "9c9fbe0d3d40ece11e1407ce9460086c732f62da88d3b0f220ab9d6f8757da00"
+  }
+}

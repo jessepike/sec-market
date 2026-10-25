@@ -1,0 +1,169 @@
+{
+  "schemaVersion": 1,
+  "checkpointProfile": "source_probe",
+  "githubRunId": "40184027106",
+  "githubRunAttempt": 1,
+  "githubEventName": "workflow_dispatch",
+  "githubRef": "refs/heads/main",
+  "appRevision": "ab6a7c68f5d8deeb3dfbe56f2ad32dfa71577bc4",
+  "contractSha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+  "diagnostic": {
+    "schemaVersion": 1,
+    "operation": "bounded_q4_initial_data_capture",
+    "contractSha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+    "planRawSha256": "a316e39658c2e9b5872adeb6008ef138618c8b20a080ca78ee458bd3e51f0ddc",
+    "planCanonicalSha256": "5ec3a0fc8588e64af13f8caeec32f3c4327f3b60c2526123ff49b41d219a8dae",
+    "planReference": {
+      "key": "objects/a316e39658c2e9b5872adeb6008ef138618c8b20a080ca78ee458bd3e51f0ddc",
+      "sha256": "a316e39658c2e9b5872adeb6008ef138618c8b20a080ca78ee458bd3e51f0ddc",
+      "bytes": 6974
+    },
+    "startedAt": "2026-10-25T10:18:54.482061Z",
+    "requests": [
+      {
+        "sourceId": "jfrog:official:1",
+        "url": "https://investors.jfrog.com/feed/PressRelease.svc/GetPressReleaseList?LanguageId=1&bodyType=0&pressReleaseDateFilter=3&categoryId=00000000-0000-0000-0000-000000000000&pageSize=-1&pageNumber=0&tagList=&includeTags=true&year=-1&excludeSelection=1",
+        "requestedAt": "2026-10-25T10:19:16.943628Z",
+        "reservation": {
+          "budgetDay": "2026-10-25",
+          "fetchLimit": 5500,
+          "chargedFetchCount": 866
+        },
+        "observation": {
+          "key": "objects/970b6a1c1bb9af279293992f4cc225f40292e9060ec43b1673cd37f7d0d53068",
+          "sha256": "970b6a1c1bb9af279293992f4cc225f40292e9060ec43b1673cd37f7d0d53068",
+          "bytes": 581
+        },
+        "responseCheckedAt": "2026-10-25T10:19:17.169618Z",
+        "transportError": null,
+        "denial": null
+      },
+      {
+        "sourceId": "rapid7:official:1",
+        "url": "https://investors.rapid7.com/feed/PressRelease.svc/GetPressReleaseList?LanguageId=1&bodyType=0&pressReleaseDateFilter=3&categoryId=1cb807d2-208f-4bc3-9133-6a9ad45ac3b0&pageSize=-1&pageNumber=0&tagList=&includeTags=true&year=-1&excludeSelection=1",
+        "requestedAt": "2026-10-25T10:19:17.171725Z",
+        "reservation": {
+          "budgetDay": "2026-10-25",
+          "fetchLimit": 5500,
+          "chargedFetchCount": 867
+        },
+        "observation": {
+          "key": "objects/cfa2ffb8c2e6b21f2b39664dc1a700373908e75a4c04f6c791a63a351c2025cf",
+          "sha256": "cfa2ffb8c2e6b21f2b39664dc1a700373908e75a4c04f6c791a63a351c2025cf",
+          "bytes": 583
+        },
+        "responseCheckedAt": "2026-10-25T10:19:17.495168Z",
+        "transportError": null,
+        "denial": null
+      }
+    ],
+    "completionDenials": [],
+    "qualified": false,
+    "semanticAdmission": false,
+    "coverageCredit": false,
+    "facts": [],
+    "qualifiedSources": 0,
+    "sourceChecksCredited": 0,
+    "modelCalls": 0,
+    "checkedAt": "2026-10-25T10:19:17.801039Z",
+    "reservationContext": {
+      "budgetDay": "2026-10-25",
+      "contractSha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+      "fetchLimit": 5500,
+      "maximumRuntimeSeconds": 1200,
+      "startedAt": "2026-10-25T10:18:54.482061Z",
+      "initialBudget": {
+        "calls": 80,
+        "documents": 38,
+        "fetches": 865
+      },
+      "probeFetchReservations": 2,
+      "reservationDenials": {},
+      "currentBudget": {
+        "calls": 80,
+        "documents": 38,
+        "fetches": 867
+      }
+    },
+    "budgetDenied": false,
+    "executionCompleted": true,
+    "results": [
+      {
+        "sourceId": "jfrog:official:1",
+        "requestedUrl": "https://investors.jfrog.com/feed/PressRelease.svc/GetPressReleaseList?LanguageId=1&bodyType=0&pressReleaseDateFilter=3&categoryId=00000000-0000-0000-0000-000000000000&pageSize=-1&pageNumber=0&tagList=&includeTags=true&year=-1&excludeSelection=1",
+        "observation": {
+          "key": "objects/970b6a1c1bb9af279293992f4cc225f40292e9060ec43b1673cd37f7d0d53068",
+          "sha256": "970b6a1c1bb9af279293992f4cc225f40292e9060ec43b1673cd37f7d0d53068",
+          "bytes": 581
+        },
+        "captured": true,
+        "finalUrl": "https://investors.jfrog.com/feed/PressRelease.svc/GetPressReleaseList?LanguageId=1&bodyType=0&pressReleaseDateFilter=3&categoryId=00000000-0000-0000-0000-000000000000&pageSize=-1&pageNumber=0&tagList=&includeTags=true&year=-1&excludeSelection=1",
+        "fetchedAt": "2026-10-25T10:19:17.166772Z",
+        "httpStatus": 200,
+        "contentType": "application/json; charset=utf-8",
+        "body": {
+          "bytes": 282783,
+          "key": "objects/f7d84b288a6665280f4b8ade996b0bf64fe9c3fa0ea7a8a15b1adfb0826ccc19",
+          "sha256": "f7d84b288a6665280f4b8ade996b0bf64fe9c3fa0ea7a8a15b1adfb0826ccc19"
+        },
+        "reason": "JSON_CAPTURED_REVIEW_REQUIRED",
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "facts": [],
+        "qualifiedSources": 0,
+        "sourceChecksCredited": 0,
+        "modelCalls": 0
+      },
+      {
+        "sourceId": "rapid7:official:1",
+        "requestedUrl": "https://investors.rapid7.com/feed/PressRelease.svc/GetPressReleaseList?LanguageId=1&bodyType=0&pressReleaseDateFilter=3&categoryId=1cb807d2-208f-4bc3-9133-6a9ad45ac3b0&pageSize=-1&pageNumber=0&tagList=&includeTags=true&year=-1&excludeSelection=1",
+        "observation": {
+          "key": "objects/cfa2ffb8c2e6b21f2b39664dc1a700373908e75a4c04f6c791a63a351c2025cf",
+          "sha256": "cfa2ffb8c2e6b21f2b39664dc1a700373908e75a4c04f6c791a63a351c2025cf",
+          "bytes": 583
+        },
+        "captured": true,
+        "finalUrl": "https://investors.rapid7.com/feed/PressRelease.svc/GetPressReleaseList?LanguageId=1&bodyType=0&pressReleaseDateFilter=3&categoryId=1cb807d2-208f-4bc3-9133-6a9ad45ac3b0&pageSize=-1&pageNumber=0&tagList=&includeTags=true&year=-1&excludeSelection=1",
+        "fetchedAt": "2026-10-25T10:19:17.492289Z",
+        "httpStatus": 200,
+        "contentType": "application/json; charset=utf-8",
+        "body": {
+          "bytes": 414550,
+          "key": "objects/cf3c57d1c2080d65656e9f291eca371aefd99909476d413bb5c90155bc742db8",
+          "sha256": "cf3c57d1c2080d65656e9f291eca371aefd99909476d413bb5c90155bc742db8"
+        },
+        "reason": "JSON_CAPTURED_REVIEW_REQUIRED",
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "facts": [],
+        "qualifiedSources": 0,
+        "sourceChecksCredited": 0,
+        "modelCalls": 0
+      }
+    ],
+    "capturedResponses": 2,
+    "captureComplete": true
+  },
+  "executionCompleted": true,
+  "outcome": "completed_diagnostic",
+  "modelCalls": 0,
+  "apiFallback": false,
+  "semanticAdmission": false,
+  "coverageCredit": false,
+  "sourceChecksCredited": 0,
+  "qualifiedSources": 0,
+  "publication": {
+    "published": false,
+    "reason": "SOURCE_PROBE_DIAGNOSTIC_ONLY"
+  },
+  "facts": [],
+  "archive": {
+    "commit": "d6606a4f5dd1e1afc5f16dea6d91bc422347f8aa",
+    "parentCommit": "531728e140108669f9b04d20784c9ca74f8463cb",
+    "manifestSha256": "40873bfd2dca9836b58ac325a3afb32919fb463b2082752cb72fc785a2d7239d",
+    "files": 48045,
+    "ref": "refs/archive/market-evidence"
+  }
+}

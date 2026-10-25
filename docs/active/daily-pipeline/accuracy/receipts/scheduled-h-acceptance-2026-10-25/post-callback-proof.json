@@ -1,0 +1,32 @@
+{
+  "actualCallbackRunId": "40183462577",
+  "callbackConclusion": "failure",
+  "callbackReceipt": {
+    "published": false,
+    "reason": "DAILY_GATE_BUDGET_EXHAUSTED",
+    "errorType": "ContractError"
+  },
+  "baselineCollectorCommit": "310082e9402e62b8466feea6f0b0f7d7090b7797",
+  "archiveCommit": "6708f37f73822d411d5ec771b307cd829c22e31d",
+  "gitParentCommits": [
+    "21e9cf9bbc833c91c237faa3dde263aa6873778c"
+  ],
+  "manifestSha256": "8f7ae5e95610aba19ff68be30053bd4e0703a288b9482d0b9118f61cbf85350d",
+  "manifestGitBlobSha1": "0e4477a098f0a6eb6a268d844e12882dacf3bc88",
+  "manifestBytes": 9939558,
+  "manifestEntries": 48033,
+  "missingEntries": [],
+  "changedEntries": [
+    "state/heads/cloud-governance.json",
+    "state/heads/cloud-lease.json",
+    "state/heads/worker-heartbeat.json"
+  ],
+  "addedEntries": [
+    "state/cloud/sessions/2fe557c42e4a5865c09ab224b6ffe9691d910ee784cb0971a0bc0c01bfcf6148/2cc1fcc02bd623dee2998426a67c80a92d72d70e79cce85fdc571bc7005237f6.json",
+    "state/cloud/sessions/2fe557c42e4a5865c09ab224b6ffe9691d910ee784cb0971a0bc0c01bfcf6148/74e09271be226742d45b4a87570d35cb32263326362de98388547f1ec0c95877.json",
+    "state/cloud/sessions/2fe557c42e4a5865c09ab224b6ffe9691d910ee784cb0971a0bc0c01bfcf6148/b3b62fd2a8c854b589765c75ddeae90c8adead897e38792cc0943bd9a976c4e0.json"
+  ],
+  "allManifestEntriesVerified": true,
+  "extractedRoot": "/var/tmp/smp-scheduled-h-acceptance-40182324149-20261025/post-callback-extracted",
+  "materialization": "Unchanged immutable bytes hardlinked from authenticated collector archive; changed and new bytes retrieved from exact Git commit and independently hash checked. No source archive writes."
+}

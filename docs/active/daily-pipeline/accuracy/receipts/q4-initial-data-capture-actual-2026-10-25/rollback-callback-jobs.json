@@ -1,0 +1,53 @@
+{
+  "jobs": [
+    {
+      "id": 121141870080,
+      "name": "preflight",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 40184352939,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run if [ \"$EVENT_NAME\" = workflow_dispatch ]; then",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        }
+      ]
+    },
+    {
+      "id": 121141913724,
+      "name": "rollback-and-restore",
+      "status": "completed",
+      "conclusion": "skipped",
+      "run_id": 40184352939,
+      "logs_url": null,
+      "steps": null
+    }
+  ]
+}

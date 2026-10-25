@@ -1,0 +1,72 @@
+[
+  {
+    "bytes": 159,
+    "key": "state/ci/budget-escrows/3831a04cc39aa52feebb1cac7cbcaed35bead4c831d4b475876d1d6788e56752.json",
+    "sha256": "c83b05a840b7a5476c80a96127265a852071270b6baf935134c6986c7f61708b"
+  },
+  {
+    "bytes": 5974,
+    "key": "state/ci/source-probe-checkpoints/3831a04cc39aa52feebb1cac7cbcaed35bead4c831d4b475876d1d6788e56752/0cf016af93971391b7bf34cf14f12e4d05fe0e56fbbee946edee56638fa66698.json",
+    "sha256": "0cf016af93971391b7bf34cf14f12e4d05fe0e56fbbee946edee56638fa66698"
+  },
+  {
+    "bytes": 383,
+    "key": "state/ci/source-probe-checkpoints/3831a04cc39aa52feebb1cac7cbcaed35bead4c831d4b475876d1d6788e56752/20eb1a5e488ae3e3068600feb21d4254314dd204e749c90c29f9be598fd259a7.json",
+    "sha256": "20eb1a5e488ae3e3068600feb21d4254314dd204e749c90c29f9be598fd259a7"
+  },
+  {
+    "bytes": 468,
+    "key": "state/ci/source-probe-checkpoints/3831a04cc39aa52feebb1cac7cbcaed35bead4c831d4b475876d1d6788e56752/9e55852fcc1d434af8233550445d4ae40aadd7ebd7e1544edf133ec783cd9933.json",
+    "sha256": "9e55852fcc1d434af8233550445d4ae40aadd7ebd7e1544edf133ec783cd9933"
+  },
+  {
+    "bytes": 5673,
+    "key": "state/ci/source-probe-runs/40184027106-1.json",
+    "sha256": "8653b61d296ee89d411853ed34190d6b7b119d9184dcd7b20b93a3faa413945f"
+  },
+  {
+    "bytes": 41,
+    "key": "state/heads/budget-2026-10-25.json",
+    "sha256": "76306824baac89f421da13aa8e592782842329661912680d49798ea5e11e3508"
+  },
+  {
+    "bytes": 300,
+    "key": "state/heads/cloud-lease.json",
+    "sha256": "56f238e16c6edbc099be45aefe56487c51492916b5f68b1042d3904b288a015e"
+  },
+  {
+    "bytes": 581,
+    "key": "state/objects/970b6a1c1bb9af279293992f4cc225f40292e9060ec43b1673cd37f7d0d53068",
+    "sha256": "970b6a1c1bb9af279293992f4cc225f40292e9060ec43b1673cd37f7d0d53068"
+  },
+  {
+    "bytes": 6974,
+    "key": "state/objects/a316e39658c2e9b5872adeb6008ef138618c8b20a080ca78ee458bd3e51f0ddc",
+    "sha256": "a316e39658c2e9b5872adeb6008ef138618c8b20a080ca78ee458bd3e51f0ddc"
+  },
+  {
+    "bytes": 894,
+    "key": "state/objects/c4c7917361aa6d164b18a975803acdd64a1ab5e64e8b1911c6ea4682d626e412",
+    "sha256": "c4c7917361aa6d164b18a975803acdd64a1ab5e64e8b1911c6ea4682d626e412"
+  },
+  {
+    "bytes": 414550,
+    "key": "state/objects/cf3c57d1c2080d65656e9f291eca371aefd99909476d413bb5c90155bc742db8",
+    "sha256": "cf3c57d1c2080d65656e9f291eca371aefd99909476d413bb5c90155bc742db8"
+  },
+  {
+    "bytes": 583,
+    "key": "state/objects/cfa2ffb8c2e6b21f2b39664dc1a700373908e75a4c04f6c791a63a351c2025cf",
+    "sha256": "cfa2ffb8c2e6b21f2b39664dc1a700373908e75a4c04f6c791a63a351c2025cf"
+  },
+  {
+    "bytes": 896,
+    "key": "state/objects/d85d1550a60d97703907714c25ef743afafae1719d947d3c82dcd1ff4658724a",
+    "sha256": "d85d1550a60d97703907714c25ef743afafae1719d947d3c82dcd1ff4658724a"
+  },
+  {
+    "bytes": 282783,
+    "key": "state/objects/f7d84b288a6665280f4b8ade996b0bf64fe9c3fa0ea7a8a15b1adfb0826ccc19",
+    "sha256": "f7d84b288a6665280f4b8ade996b0bf64fe9c3fa0ea7a8a15b1adfb0826ccc19"
+  }
+]

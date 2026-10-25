@@ -1,0 +1,157 @@
+{
+  "inspection": "Read-only data parse of the two actual retained bodies; no JavaScript execution or new HTTP requests.",
+  "sources": [
+    {
+      "sourceId": "jfrog:official:1",
+      "body": {
+        "key": "objects/f7d84b288a6665280f4b8ade996b0bf64fe9c3fa0ea7a8a15b1adfb0826ccc19",
+        "sha256": "f7d84b288a6665280f4b8ade996b0bf64fe9c3fa0ea7a8a15b1adfb0826ccc19",
+        "bytes": 282783
+      },
+      "topLevelKeys": [
+        "GetPressReleaseListResult"
+      ],
+      "resultField": "GetPressReleaseListResult",
+      "observedListRecords": 206,
+      "totalRecordsFieldPresent": false,
+      "pagingOrTerminalFieldPresent": false,
+      "topLevelErrorFieldPresent": false,
+      "newestDateLiteral": "10/21/2026 03:00:00",
+      "oldestDateLiteral": "09/16/2020 02:13:00",
+      "datesCarryTimezone": false,
+      "dateInterpretation": "Stored literal source date; no UTC conversion or new source date assigned.",
+      "allDatesParseUnderLiteralFormat": true,
+      "returnedOrderDescendingByLiteralDate": true,
+      "nullBodyRecords": 206,
+      "blankDetailLinks": 0,
+      "duplicateWorkflowIds": 0,
+      "topFiveLeads": [
+        {
+          "Headline": "JFrog Closes the Shadow AI Blind Spot: Unveils AI-SEC to Control Every AI Agent, Skill, and Model, from Developer to Production",
+          "PressReleaseDate": "10/21/2026 03:00:00",
+          "LinkToDetailPage": "/news/news-details/2026/JFrog-Closes-the-Shadow-AI-Blind-Spot-Unveils-AI-SEC-to-Control-Every-AI-Agent-Skill-and-Model-from-Developer-to-Production/default.aspx",
+          "DocumentPath": "https://s21.q4cdn.com/528621000/files/doc_news/JFrog-Closes-the-Shadow-AI-Blind-Spot-Unveils-AI-SEC-to-Control-Every-AI-Agent-Skill-and-Model-from-Developer-to-Production-2026.pdf",
+          "PressReleaseId": 1908,
+          "WorkflowId": "e16ed9b4-d22f-4dc3-ab58-8dff80239b66",
+          "resolvedDetailLead": "https://investors.jfrog.com/news/news-details/2026/JFrog-Closes-the-Shadow-AI-Blind-Spot-Unveils-AI-SEC-to-Control-Every-AI-Agent-Skill-and-Model-from-Developer-to-Production/default.aspx"
+        },
+        {
+          "Headline": "JFrog Ends the Audit Scramble: Delivers New DevGovOps Capabilities with Signed Compliance Evidence for Every Release, Without Slowing Development",
+          "PressReleaseDate": "10/21/2026 03:00:00",
+          "LinkToDetailPage": "/news/news-details/2026/JFrog-Ends-the-Audit-Scramble-Delivers-New-DevGovOps-Capabilities-with-Signed-Compliance-Evidence-for-Every-Release-Without-Slowing-Development/default.aspx",
+          "DocumentPath": "https://s21.q4cdn.com/528621000/files/doc_news/JFrog-Ends-the-Audit-Scramble-Delivers-New-DevGovOps-Capabilities-with-Signed-Compliance-Evidence-for-Every-Release-Without-Slowing-D-EX1RZ.pdf",
+          "PressReleaseId": 1909,
+          "WorkflowId": "9c847b3a-c087-4e8b-b9fc-9640e4827003",
+          "resolvedDetailLead": "https://investors.jfrog.com/news/news-details/2026/JFrog-Ends-the-Audit-Scramble-Delivers-New-DevGovOps-Capabilities-with-Signed-Compliance-Evidence-for-Every-Release-Without-Slowing-Development/default.aspx"
+        },
+        {
+          "Headline": "JFrog Announces Timing of Third Quarter 2026 Financial Results",
+          "PressReleaseDate": "10/14/2026 16:05:00",
+          "LinkToDetailPage": "/news/news-details/2026/JFrog-Announces-Timing-of-Third-Quarter-2026-Financial-Results/default.aspx",
+          "DocumentPath": "https://s21.q4cdn.com/528621000/files/doc_news/JFrog-Announces-Timing-of-Third-Quarter-2026-Financial-Results-2026.pdf",
+          "PressReleaseId": 1907,
+          "WorkflowId": "717ce770-88db-49b1-a63a-071d28989c99",
+          "resolvedDetailLead": "https://investors.jfrog.com/news/news-details/2026/JFrog-Announces-Timing-of-Third-Quarter-2026-Financial-Results/default.aspx"
+        },
+        {
+          "Headline": "JFrog Partners with Wiz to Close the Gap on AI-Era Threats, Keeping Global Businesses Secure",
+          "PressReleaseDate": "09/02/2026 08:30:00",
+          "LinkToDetailPage": "/news/news-details/2026/JFrog-Partners-with-Wiz-to-Close-the-Gap-on-AI-Era-Threats-Keeping-Global-Businesses-Secure/default.aspx",
+          "DocumentPath": "https://s21.q4cdn.com/528621000/files/doc_news/2026/09/FINAL_JFrog-Wiz-Trusted-Runtime.pdf",
+          "PressReleaseId": 1905,
+          "WorkflowId": "d2315a33-b76c-404f-8cf7-2de61d722380",
+          "resolvedDetailLead": "https://investors.jfrog.com/news/news-details/2026/JFrog-Partners-with-Wiz-to-Close-the-Gap-on-AI-Era-Threats-Keeping-Global-Businesses-Secure/default.aspx"
+        },
+        {
+          "Headline": "JFrog Delivers DevGovOps at Scale: Continuous Compliance for the AI-Era Software Supply Chain",
+          "PressReleaseDate": "09/02/2026 08:30:00",
+          "LinkToDetailPage": "/news/news-details/2026/JFrog-Delivers-DevGovOps-at-Scale-Continuous-Compliance-for-the-AI-Era-Software-Supply-Chain/default.aspx",
+          "DocumentPath": "https://s21.q4cdn.com/528621000/files/doc_news/2026/09/FINAL_JFrog-Continous-Compliance-at-Scale-PR.pdf",
+          "PressReleaseId": 1904,
+          "WorkflowId": "66b87ce8-913a-45cb-8806-4874bee7b6ee",
+          "resolvedDetailLead": "https://investors.jfrog.com/news/news-details/2026/JFrog-Delivers-DevGovOps-at-Scale-Continuous-Compliance-for-the-AI-Era-Software-Supply-Chain/default.aspx"
+        }
+      ],
+      "detailLeadsFetched": false,
+      "completeWindowProven": false,
+      "qualificationCredit": false
+    },
+    {
+      "sourceId": "rapid7:official:1",
+      "body": {
+        "key": "objects/cf3c57d1c2080d65656e9f291eca371aefd99909476d413bb5c90155bc742db8",
+        "sha256": "cf3c57d1c2080d65656e9f291eca371aefd99909476d413bb5c90155bc742db8",
+        "bytes": 414550
+      },
+      "topLevelKeys": [
+        "GetPressReleaseListResult"
+      ],
+      "resultField": "GetPressReleaseListResult",
+      "observedListRecords": 323,
+      "totalRecordsFieldPresent": false,
+      "pagingOrTerminalFieldPresent": false,
+      "topLevelErrorFieldPresent": false,
+      "newestDateLiteral": "10/21/2026 09:00:00",
+      "oldestDateLiteral": "07/06/2015 00:00:00",
+      "datesCarryTimezone": false,
+      "dateInterpretation": "Stored literal source date; no UTC conversion or new source date assigned.",
+      "allDatesParseUnderLiteralFormat": true,
+      "returnedOrderDescendingByLiteralDate": true,
+      "nullBodyRecords": 323,
+      "blankDetailLinks": 0,
+      "duplicateWorkflowIds": 0,
+      "topFiveLeads": [
+        {
+          "Headline": "Rapid7 Report: Human Operators Still Drive Most of Tracked Cyberattacks, but Exploitation Windows Are Narrow",
+          "PressReleaseDate": "10/21/2026 09:00:00",
+          "LinkToDetailPage": "/news/news-details/2026/Rapid7-Report-Human-Operators-Still-Drive-Most-of-Tracked-Cyberattacks-but-Exploitation-Windows-Are-Narrow/default.aspx",
+          "DocumentPath": "https://s29.q4cdn.com/157304370/files/doc_news/Rapid7-Report-Human-Operators-Still-Drive-Most-of-Tracked-Cyberattacks-but-Exploitation-Windows-Are-Narrow-2026.pdf",
+          "PressReleaseId": 1816,
+          "WorkflowId": "cdd87e3c-3b77-46ea-8615-cb52d94596a4",
+          "resolvedDetailLead": "https://investors.rapid7.com/news/news-details/2026/Rapid7-Report-Human-Operators-Still-Drive-Most-of-Tracked-Cyberattacks-but-Exploitation-Windows-Are-Narrow/default.aspx"
+        },
+        {
+          "Headline": "Rapid7 Reports Inducement Grants under Nasdaq Listing Rule 5635(c)(4)",
+          "PressReleaseDate": "10/20/2026 16:05:00",
+          "LinkToDetailPage": "/news/news-details/2026/Rapid7-Reports-Inducement-Grants-under-Nasdaq-Listing-Rule-5635c4-3ee236f2c/default.aspx",
+          "DocumentPath": "https://s29.q4cdn.com/157304370/files/doc_news/Rapid7-Reports-Inducement-Grants-under-Nasdaq-Listing-Rule-5635c4-3ee236f2c-2026.pdf",
+          "PressReleaseId": 1815,
+          "WorkflowId": "3faa9d7e-40e7-49d5-8bfa-8e7344f98e45",
+          "resolvedDetailLead": "https://investors.rapid7.com/news/news-details/2026/Rapid7-Reports-Inducement-Grants-under-Nasdaq-Listing-Rule-5635c4-3ee236f2c/default.aspx"
+        },
+        {
+          "Headline": "Rapid7 to Report Third Quarter 2026 Financial Results on November 4",
+          "PressReleaseDate": "10/14/2026 16:05:00",
+          "LinkToDetailPage": "/news/news-details/2026/Rapid7-to-Report-Third-Quarter-2026-Financial-Results-on-November-4/default.aspx",
+          "DocumentPath": "https://s29.q4cdn.com/157304370/files/doc_news/Rapid7-to-Report-Third-Quarter-2026-Financial-Results-on-November-4-2026.pdf",
+          "PressReleaseId": 1814,
+          "WorkflowId": "c4a988fc-6aab-42ee-a2af-4fb57a7ed054",
+          "resolvedDetailLead": "https://investors.rapid7.com/news/news-details/2026/Rapid7-to-Report-Third-Quarter-2026-Financial-Results-on-November-4/default.aspx"
+        },
+        {
+          "Headline": "Rapid7 Launches Rapid7 Intelligence to Harness Threat Data Against Attackers",
+          "PressReleaseDate": "10/02/2026 09:00:00",
+          "LinkToDetailPage": "/news/news-details/2026/Rapid7-Launches-Rapid7-Intelligence-to-Harness-Threat-Data-Against-Attackers/default.aspx",
+          "DocumentPath": "https://s29.q4cdn.com/157304370/files/doc_news/Rapid7-Launches-Rapid7-Intelligence-to-Harness-Threat-Data-Against-Attackers-2026.pdf",
+          "PressReleaseId": 1813,
+          "WorkflowId": "b71c2e67-16bb-4d15-ad36-11382090ed68",
+          "resolvedDetailLead": "https://investors.rapid7.com/news/news-details/2026/Rapid7-Launches-Rapid7-Intelligence-to-Harness-Threat-Data-Against-Attackers/default.aspx"
+        },
+        {
+          "Headline": "Rapid7 Reports Inducement Grants under Nasdaq Listing Rule 5635(c)(4)",
+          "PressReleaseDate": "09/17/2026 16:05:00",
+          "LinkToDetailPage": "/news/news-details/2026/Rapid7-Reports-Inducement-Grants-under-Nasdaq-Listing-Rule-5635c4-808734891/default.aspx",
+          "DocumentPath": "https://s29.q4cdn.com/157304370/files/doc_news/Rapid7-Reports-Inducement-Grants-under-Nasdaq-Listing-Rule-5635c4-808734891-2026.pdf",
+          "PressReleaseId": 1812,
+          "WorkflowId": "c16798b6-bd11-498d-824a-05d5c7d42441",
+          "resolvedDetailLead": "https://investors.rapid7.com/news/news-details/2026/Rapid7-Reports-Inducement-Grants-under-Nasdaq-Listing-Rule-5635c4-808734891/default.aspx"
+        }
+      ],
+      "detailLeadsFetched": false,
+      "completeWindowProven": false,
+      "qualificationCredit": false
+    }
+  ],
+  "limits": "The response lists do not provide TotalRecords or explicit paging/terminal fields. Record counts describe these bodies only. Primary detail leads remain uncollected; all Body fields are null.",
+  "recommendedNextStep": "Use the returned exact same-host primary detail leads as inputs to a separate scoped qualification design; do not infer complete source traversal from pageSize=-1."
+}

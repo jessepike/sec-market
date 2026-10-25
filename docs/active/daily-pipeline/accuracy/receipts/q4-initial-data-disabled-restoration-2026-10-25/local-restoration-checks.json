@@ -1,0 +1,29 @@
+{
+  "scope": "Exact disabled-plan restoration after actual run40184027106; no source/model requests or reservations",
+  "disabledPlan": {
+    "bytes": 173,
+    "sha256": "ad1c5cc234fe4fa69cbceb5370ac74825a37dc80b08528ca908d14b1352e53b4"
+  },
+  "initialInvocationFailure": "Missing ops/ci on PYTHONPATH prevented leased-test import; no code defect or code change",
+  "correctedInvocation": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=ops/ci:web/scripts/pipeline python3 -m unittest ops.ci.test_disabled_qualification_plan ops.ci.test_leased_source_probe ops.ci.test_q4_initial_data_capture -v",
+  "passed": 45,
+  "skipped": 0,
+  "logs": [
+    {
+      "path": "disabled-restoration-tests.log.gz",
+      "exitCode": 1,
+      "rawBytes": 5410,
+      "rawSha256": "f127457316a57ae9c3120fe6df44e6ee4fd8eb47d7b8036bd1db1a8cbf6f06df",
+      "gzipBytes": 1292,
+      "gzipSha256": "7584dc41d84efe8f28de4e48d7c212147224a2d6d0c85736c975ace96df248dc"
+    },
+    {
+      "path": "disabled-restoration-tests-with-path.log.gz",
+      "exitCode": 0,
+      "rawBytes": 8826,
+      "rawSha256": "612fc532478667e4e377aa8dfedd1cae056a5db6209a09350680595baea1e235",
+      "gzipBytes": 1674,
+      "gzipSha256": "a84da13f7035bd4d7d2d0fea1dff7b414f75068418fb0393cab2d8cee388873e"
+    }
+  ]
+}

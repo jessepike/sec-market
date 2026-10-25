@@ -1,0 +1,23 @@
+{
+  "id": 12595570261,
+  "node_id": "MDg6QXJ0aWZhY3QxMjU5NTU3MDI2MQ==",
+  "name": "subscription-collection-receipt",
+  "size_in_bytes": 12376,
+  "url": "https://api.github.com/repos/jessepike/sec-market/actions/artifacts/12595570261",
+  "archive_download_url": "https://api.github.com/repos/jessepike/sec-market/actions/artifacts/12595570261/zip",
+  "expired": false,
+  "digest": "sha256:46d73e27274f45a2d2f3afcb0472b1bd57446947ff576a64527c56c88769578e",
+  "created_at": "2026-10-25T10:06:58Z",
+  "updated_at": "2026-10-25T10:06:58Z",
+  "expires_at": "2026-11-08T10:06:57Z",
+  "workflow_run": {
+    "id": 40182324149,
+    "repository_id": 1335546492,
+    "head_repository_id": 1335546492,
+    "head_branch": "main",
+    "head_sha": "71c39356b902f3b7eff57370c79b1846129980af"
+  },
+  "zipSha256": "46d73e27274f45a2d2f3afcb0472b1bd57446947ff576a64527c56c88769578e",
+  "rawReceiptSha256": "d437f9b93054396423973c3a5b22dd5c1dc24060f2a4152ca2adf3120bec4289",
+  "rawReceiptBytes": 25481
+}

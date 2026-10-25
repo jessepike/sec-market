@@ -1,0 +1,26 @@
+{
+  "file": "collection-job.log.gz",
+  "raw": {
+    "sha256": "a86ce7114673373998e63250c5590cbfd6f05a625be741ed5c84f9b2b3e07b9c",
+    "bytes": 226623
+  },
+  "gzip": {
+    "sha256": "55f247bc1be44bccb8a1ec7a8d76d559ddb0d5009161c1d36280fd296bf18715",
+    "bytes": 40417
+  },
+  "rawLineCount": 1342,
+  "byteExactRoundTrip": true,
+  "gzipMtime": 0,
+  "gzipEmbeddedFilename": "",
+  "actualTestSummary": {
+    "discovered": 877,
+    "skipped": 23,
+    "executed": 854,
+    "conclusion": "OK",
+    "elapsedSeconds": 67.534
+  },
+  "summaryLiteral": [
+    "Ran 877 tests in 67.534s",
+    "OK (skipped=23)"
+  ]
+}

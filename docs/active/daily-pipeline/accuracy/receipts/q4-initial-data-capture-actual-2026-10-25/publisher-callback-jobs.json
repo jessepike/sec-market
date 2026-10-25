@@ -1,0 +1,53 @@
+{
+  "jobs": [
+    {
+      "id": 121141809756,
+      "name": "callback-preflight",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 40184332299,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Run python3 - <<'PY'",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        }
+      ]
+    },
+    {
+      "id": 121141860170,
+      "name": "publish",
+      "status": "completed",
+      "conclusion": "skipped",
+      "run_id": 40184332299,
+      "logs_url": null,
+      "steps": null
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\n  \"result\": {\n    \"deployments\": {\n      \"pagination\": {\n        \"count\": 1,\n        \"prev\": 1792921765825\n      },\n      \"deployments\": [\n        {\n          \"id\": \"dpl_HfKxvgvXvd4r3GppdoLFdtv3CPVe\",\n          \"name\": \"security-market-pulse\",\n          \"url\": \"security-market-pulse-q504ajqti-pikeholdings.vercel.app\",\n          \"created\": 1792921765825,\n          \"state\": \"READY\",\n          \"target\": null,\n          \"creator\": {\n            \"uid\": \"um6xyC6srGbNQRAR3KB77kfs\",\n            \"username\": \"jessepike\"\n          },\n          \"meta\": {\n            \"githubCommitRef\": \"preview\",\n            \"githubCommitSha\": \"ab6a7c68f5d8deeb3dfbe56f2ad32dfa71577bc4\",\n            \"githubCommitMessage\": \"chore(qualification): select reviewed two-request newsroom data capture\",\n            \"githubRepo\": \"sec-market\",\n            \"githubOrg\": \"jessepike\"\n          },\n          \"inspectorUrl\": \"https://vercel.com/pikeholdings/security-market-pulse/HfKxvgvXvd4r3GppdoLFdtv3CPVe\",\n          \"isRollbackCandidate\": false\n        }\n      ]\n    }\n  }\n}"
+    }
+  ],
+  "structuredContent": null,
+  "isError": false
+}

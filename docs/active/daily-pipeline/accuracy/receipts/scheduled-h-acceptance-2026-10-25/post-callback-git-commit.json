@@ -1,0 +1,35 @@
+{
+  "sha": "6708f37f73822d411d5ec771b307cd829c22e31d",
+  "node_id": "C_kwDOT5rSfNoAKDY3MDhmMzdmNzM4MjJkNDExZDVlYzc3MWIzMDdjZDgyOWMyMmUzMWQ",
+  "url": "https://api.github.com/repos/jessepike/sec-market/git/commits/6708f37f73822d411d5ec771b307cd829c22e31d",
+  "html_url": "https://github.com/jessepike/sec-market/commit/6708f37f73822d411d5ec771b307cd829c22e31d",
+  "author": {
+    "name": "Jesse Pike",
+    "email": "jesse@keatingpike.com",
+    "date": "2026-10-25T10:12:13Z"
+  },
+  "committer": {
+    "name": "Jesse Pike",
+    "email": "jesse@keatingpike.com",
+    "date": "2026-10-25T10:12:13Z"
+  },
+  "tree": {
+    "sha": "55034fb61f15a19871e20553d3f712ad6430827e",
+    "url": "https://api.github.com/repos/jessepike/sec-market/git/trees/55034fb61f15a19871e20553d3f712ad6430827e"
+  },
+  "message": "data(archive): retain evidence 8f7ae5e95610aba19ff68be30053bd4e0703a288b9482d0b9118f61cbf85350d",
+  "parents": [
+    {
+      "sha": "21e9cf9bbc833c91c237faa3dde263aa6873778c",
+      "url": "https://api.github.com/repos/jessepike/sec-market/git/commits/21e9cf9bbc833c91c237faa3dde263aa6873778c",
+      "html_url": "https://github.com/jessepike/sec-market/commit/21e9cf9bbc833c91c237faa3dde263aa6873778c"
+    }
+  ],
+  "verification": {
+    "verified": false,
+    "reason": "unsigned",
+    "signature": null,
+    "payload": null,
+    "verified_at": null
+  }
+}

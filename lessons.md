@@ -1,5 +1,8 @@
 # Lessons
 
+- [new:2026-10-25] A genuine same-day scheduled collection can keep the original logical plan and task IDs while producing new full/304 observations and immutable rechecks. Authenticate the actual GitHub event/revision and source clocks; do not rebase the old plan date to make the timer appear new.
+- [new:2026-10-25] Failure alerts look for an existing open issue by title. After a recovered issue closes, the next failure creates a new assigned issue: publisher failure 40183462577 created issue 14 while issue 12 stayed closed. Check the actual open title, run link and assignment before concluding that alert delivery failed.
+
 - [new:2026-10-24] Authenticate a saved processing partition at its original sealed receipt time. Recomputing its rolling date window at a later gate time can reject unchanged evidence after midnight. Derive current freshness separately, and bind the whole original receipt and immutable attempt before using its clock.
 
 ## 2026-10-24 · Separate measures keep their own evidence

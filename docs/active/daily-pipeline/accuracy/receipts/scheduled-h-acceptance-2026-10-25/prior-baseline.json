@@ -1,0 +1,22 @@
+{
+  "root": "/var/tmp/smp-q4-controller-actual-20261025/extracted",
+  "commit": "9634b916c15b18f38605a168f7642de764670aab",
+  "manifestSha256": "600e58564c989206856ba48795bf4ce9f6fbbf73a604e806594e95327b53203a",
+  "manifestBytes": 9326098,
+  "manifestEntries": 45307,
+  "seal": {
+    "files": 45311,
+    "directories": 2479,
+    "contentSha256": "896147158879b2ccdf82881e1b487171dd9cd92f7f01bb6b5f824997da9b04b4",
+    "fileMtimeSha256": "dbddd225c46db25f615e12e0584260ec915c3a9af0e0e6f029fdd31aa91fb90d",
+    "directoryMtimeSha256": "9fc7bbd5a780e476bb1d124cc4195adecedd722c9fff500936277f3b29692616"
+  },
+  "budget": {
+    "calls": 72,
+    "documents": 33,
+    "fetches": 450
+  },
+  "gateBudget": {
+    "attempts": 2
+  }
+}

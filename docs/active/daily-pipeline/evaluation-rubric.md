@@ -70,6 +70,15 @@ continuity checks pass. Genuine timer evidence on this revision, sustained opera
 claim precision/recall and reader value remain unmeasured. The actual source-bound expiry
 stays distinct from the evaluator's collection-receipt age. The prior overdue window is retained.
 
+Later that day, [genuine scheduled run 40182324149](accuracy/scheduled-h-acceptance-2026-10-25.md)
+passed its exact-H source and continuity audit on main 71c39356. GitHub started it 4h33m43s late.
+Intake remains 264/557; processing/history reached 40/41 of 10,655 and the hold queue reached 38.
+This supplies one genuine repaired-code timer receipt. Automatic publisher 40183462577 failed
+at the unchanged daily gate allowance and created assigned issue 14; no new public release followed.
+The private snapshot expiry and actual public expiry remain separate. Preserve the earlier
+recovery evaluation at its original time rather than substituting this later source receipt.
+Multi-day durability, general precision/recall and reader value remain unmeasured.
+
 The separate [authenticated current-remediation observation](accuracy/current-correction-resolution-observation-2026-10-24.md)
 records all five mapped contradictions resolved around 04:01 UTC on October 24. It binds the
 original accepted reviews and reservations, exact gate/publisher evidence and live static bytes.

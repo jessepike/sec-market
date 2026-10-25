@@ -1,0 +1,45 @@
+{
+  "sha": "55034fb61f15a19871e20553d3f712ad6430827e",
+  "url": "https://api.github.com/repos/jessepike/sec-market/git/trees/55034fb61f15a19871e20553d3f712ad6430827e",
+  "tree": [
+    {
+      "path": ".gitattributes",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "00cd6911822d9c0cf7aa8788bce3f4419f16bcaf",
+      "size": 22,
+      "url": "https://api.github.com/repos/jessepike/sec-market/git/blobs/00cd6911822d9c0cf7aa8788bce3f4419f16bcaf"
+    },
+    {
+      "path": "archive-manifest.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "0e4477a098f0a6eb6a268d844e12882dacf3bc88",
+      "size": 9939558,
+      "url": "https://api.github.com/repos/jessepike/sec-market/git/blobs/0e4477a098f0a6eb6a268d844e12882dacf3bc88"
+    },
+    {
+      "path": "state",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "15b8e7226c30ab6f2814b35040e5776ec39babf9",
+      "url": "https://api.github.com/repos/jessepike/sec-market/git/trees/15b8e7226c30ab6f2814b35040e5776ec39babf9"
+    },
+    {
+      "path": "vercel.json",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "d11e84f6483844ceb42a052db23925791edfaf87",
+      "size": 35,
+      "url": "https://api.github.com/repos/jessepike/sec-market/git/blobs/d11e84f6483844ceb42a052db23925791edfaf87"
+    },
+    {
+      "path": "web",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "b8b62cad62b64938c967c14b0b1ff420905056a7",
+      "url": "https://api.github.com/repos/jessepike/sec-market/git/trees/b8b62cad62b64938c967c14b0b1ff420905056a7"
+    }
+  ],
+  "truncated": false
+}

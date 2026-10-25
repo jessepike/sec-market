@@ -10,199 +10,78 @@ stands. New items continue from SEC-075.
 ### SEC-072 · Make the current site consistently accurate, fresh and durable
 
 This is the current priority under D-110, D-111 and D-112. Activation and verification are
-approved. Preserve all 74 suppliers, 557 obligations, historical URLs, original source dates,
-charged allowances, six admitted corrections and every earlier review hold. Search (SEC-073)
-and company-type navigation (SEC-074) follow reliable operation.
+already approved. Preserve all 74 suppliers, 557 obligations, historical URLs, original dates,
+charged allowances, six admissions and every hold. Search SEC-073 and ownership/funding/stage
+navigation SEC-074 follow reliable current operation.
 
-The [six-script operational activation](docs/active/daily-pipeline/accuracy/q4-controller-operational-activation-spec-2026-10-25.md)
-supersedes the earlier agent-authored main freeze. Independent
-[decision review](docs/active/daily-pipeline/accuracy/main-code-promotion-before-next-gate-decision-review-2026-10-25.md)
-confirms reviewed collector code and diagnostics can advance while accepted production waits
-for its separate exact-code gate. Select the exact reviewed plan, complete preflight/review/CI,
-promote through preview/main, execute once under the shared lease, audit actual bodies and restore
-disabled ad1. This actual capture has now passed as 40179255547 on reviewed main 99617db0;
-all six scripts are retained. Disabled ad1 is restored on main 71c39356 after preview CI
-40180521280 passed; public fc8b is unchanged.
-Preserve all spent gate attempts; a publisher's budget alert must remain truthful.
-
-| Current measure | Actual evidence |
+| Measure | Actual evidence |
 |---|---|
-| Public release | App 6d5e87fe, release fc8bf098, sequence 4, snapshot 8ba13011. Vercel dpl_GFKc3mfpR6CSeZt7u62B5LVBqQjv is READY; all 53 files per host match, 106 exact comparisons. |
-| Current public data | D-112 intake 264/557; processing 38 and history 39 of 10,655; 10 held documents, queue 37. Source expiry October 26 at 12:45:29.479727 UTC. Varonis and six corrections remain live. |
-| Current daily intake | Manual normal collector 40169973257 passed on main 6d5e87fe under policy H: 264/557; source expiry October 26 at 12:45:29 UTC. Genuine H scheduled collection remains unproved. |
-| Processing | 38/10,655 reviewed; 10,617 pending; 10 held, 1 changed, 291 unknown dates. |
-| Historical review | 39/10,655 reviewed; 10,616 pending; 10 held. |
-| Review queue | 37 entries; all 33 earlier held identities persist, with four additional identities. |
-| Publication recovery | Manual publisher 40172130763 and gate 40172376435 passed on exact main 6d5e87fe; public freshness recovered. Issue 12 closed at 07:28:33 UTC. |
-| Current drill | Manual drill 40173134585 passed: retained baseline 19fde803 exercised and current fc8bf098 restored, with all 106 final host-file comparisons exact. |
-| Known contradictions | Five-record remediation is 5/5 resolved in the accepted public release; this is not a general precision/recall estimate. |
-| Reader value and sustained operation | Unmeasured. The owner reports no useful real use yet. |
+| Public release | App 6d5e87fe, release fc8bf098, sequence 4, snapshot 8ba13011. Manual publisher 40172130763 and gate 40172376435 passed; manual drill 40173134585 restored the release with 106 exact host-file comparisons. |
+| Current public data | Intake 264/557; processing 38/history 39 of 10,655, held 10, queue 37. Public expiry October 26 at 12:45:29.479727 UTC. Varonis and six corrections remain live. |
+| Genuine scheduled collection | Actual 40182324149 passed on main 71c39356 under H. GitHub started 4 hours 33 minutes 43 seconds late. All 48,030 archive entries, 557 tasks, old facts/dates/holds and six admissions replay correctly. |
+| Current private processing/history | Processing 40/10,655, pending 10,615; history 41/10,655, pending 10,614; held 11, changed 1, unknown dates 291. |
+| Private review queue | All 37 preceding held identities persist. New HiddenLayer funding candidate lacks a fact date; total 38. No new accepted facts/events. |
+| Private freshness | Actual full/304 observations and immutable rechecks derive expiry October 26 at 15:55:27.307096 UTC. This does not renew public freshness. |
+| Automatic publication | Actual callback 40183462577 failed DAILY_GATE_BUDGET_EXHAUSTED; gates remain 2/2, no third gate or new release. Assigned failure issue 14 is open. Callback drill 40183832621 skipped. |
+| Current allowances |867/5,500 fetches, 80/80 calls, 38/40 documents, gates 2/2. The actual two-request diagnostic charged exactly two additional fetches. |
+| Reader value, sustained operation and general accuracy | Unmeasured. The owner reports no useful real use yet. Five repaired benchmark contradictions do not establish general precision/recall. |
 
-The 293 intake gaps have separate next actions:
+[Scheduled audit](docs/active/daily-pipeline/accuracy/scheduled-h-acceptance-2026-10-25.md),
+[manual publication](docs/active/daily-pipeline/accuracy/manual-freshness-publication-2026-10-25.md),
+[rollback proof](docs/active/daily-pipeline/accuracy/recovery-rollback-restoration-2026-10-25.md).
+Preserve the earlier overdue window: public expiry was 06:05:06 and observed overdue at 06:39.
+Later recovery does not establish uninterrupted freshness.
 
-| Gap | Count | Required work |
-|---|---:|---|
-| Missing family bindings | 254 | Qualify literal primary endpoints; the [full obligation queue](docs/active/daily-pipeline/accuracy/coverage-qualification-status-2026-10-23.md) preserves every missing task. Four neutral parent-issuer proposals remain dormant until current source proof and a closed transition pass. |
-| Candidate sources | 25 | Complete source-specific pagination, entity/date boundaries and a readable primary sample. [Current exact source queue](docs/active/daily-pipeline/accuracy/current-candidate-source-queue-2026-10-24.md). |
-| Access failures | 14 | Recover 9 HTTP 403, 4 HTTP 429 and 1 unsafe redirect without bypassing source or host policy. |
+Remaining work is explicit:
 
-Ping Identity, Delinea and Sonatype pass actual intake; their inventories remain incompletely
-reviewed. Upwind primary-document revalidation and the exact Sonatype mislinked card still need
-primary-content review. All 33 earlier hold identities persist; four new identities concern
-HiddenLayer, Delinea and eSentire dates, and ReliaQuest source identity. Seven Aqua identities
-now reference newer unsuccessful reviews; their original held receipts remain intact.
+| Gap or acceptance | Count/state | Next action |
+|---|---|---|
+| Missing source-family bindings |254| Qualify exact primary, reporting and distribution endpoints in the [557-row roster](docs/active/daily-pipeline/evaluations/2026-10-24/current-source-coverage.md). Keep every missing obligation in the denominator. |
+| Candidate sources |25| Finish each source's scope, current-window, pagination/terminal and readable primary sample. The [current exact queue](docs/active/daily-pipeline/accuracy/current-candidate-source-queue-2026-10-25.md) joins scheduled task IDs and original full/304 clocks. |
+| Access failures |14| Resolve 9 HTTP 403, 4 HTTP 429 and 1 unsafe redirect within source/host policy; retained denials stay visible. |
+| Current and historical review |10,615/10,614 pending| Preserve all URLs/dates/holds. Ping Identity, Delinea and Sonatype pass intake but have unfinished history. Upwind revalidation and the exact Sonatype mislinked card still need primary review. Seven Aqua failed revalidations retain their earlier held receipts. |
+| Automatic exact-artifact publication |Pending| Observe the next ordinary publisher with naturally renewed UTC allowance, its independent exact-main gate, actual accepted artifact and production bytes. Do not manually retry, refund, reset or buy capacity. |
+| Repaired scheduled-main monitor |Pending| Observe an actual timer on the repaired main code. Manual preview 40177951978 passed 36 runner checks and reported real backlog reasons without the old byte-limit exception. Issue 10 retains coverage gaps. |
+| Sustained operation and value |Unmeasured| Retain dated expected/actual schedules, quiet/failure/recovery events and public receipts. Do not invent a clean-day rate or claim useful reader decisions. |
+| Remaining record corrections |Pending| Keep the [nine atomic groups](docs/active/daily-pipeline/accuracy/remaining-record-qualification-status-2026-10-25.md) outside the active contract until independent admission and publication. This includes unsupported Varonis workforce/date wording and SentinelOne's planned workforce action. Preserve WitnessAI's metric-date uncertainty. |
 
-Orca diagnostic 40129367275 authenticates 26 successful index responses and 90 leads, then five
-HTTP 302 responses redirecting page 27 to itself. It charged 27 fetch reservations and earns zero
-qualification or coverage credit. Seek an alternate complete official index or source-owned
-pagination evidence; do not treat the self-redirect as terminal. [Actual audit](docs/active/daily-pipeline/accuracy/orca-redirect-actual-source-review-2026-10-24.md).
-Restore exact disabled plan ad1 after each diagnostic. A [seven-endpoint batch](docs/active/daily-pipeline/accuracy/schema1-seven-source-endpoint-preflight-2026-10-24.md)
-ran under unchanged H in actual diagnostic 40131875060, completing at 20:59:04 UTC. It charged
-115 logical fetch reservations within the reviewed 257 maximum, including generic discovery.
-Five explicit endpoint bodies were retained. Trend Micro returned HTML at the advertised RSS
-endpoint; Check Point failed without a retained explicit status/body. No candidate was qualified
-or credited. Restore exact disabled ad1 after the actual archive audit; the next operation follows
-the reviewed activation above.
-[Actual batch audit](docs/active/daily-pipeline/accuracy/seven-source-endpoint-actual-review-2026-10-24.md)
-verifies every archive entry and next-day normal replay. The current queue records new literal
-Trend Micro, Aqua and Q4 controller leads, with their original dates and unresolved proof requirements.
-The retained GitHub RSS parser false positive is repaired with a parser-level declaration guard:
-800 operational and all web checks pass, with old H reports, origins, seeds and the next snapshot
-unchanged. Real DTD/entity input remains rejected. Qualification and current coverage stay separate.
+The reviewed source operation path supersedes the old agent-authored main freeze.
+[Independent decision](docs/active/daily-pipeline/accuracy/main-code-promotion-before-next-gate-decision-review-2026-10-25.md)
+allows collector fixes and bounded diagnostics through preview/main while accepted production
+waits for its separate gate. Vercel Git production builds remain ignored and automatic
+production-domain assignment disabled. Main now ab6a7c68 passed preview 40182229971 and
+main 40183973802; preview is READY and its main Git production build CANCELED.
+[Promotion proof](docs/active/daily-pipeline/accuracy/q4-initial-data-reviewed-code-promotion-2026-10-25.md).
 
-The current [manual recovery audit](docs/active/daily-pipeline/accuracy/manual-freshness-recovery-40169973257-2026-10-25.md)
-authenticates collector 40169973257 and archive a50c594f, with all 45,259 entries checked. Exact
-reconciliation and continuity pass; the four fact references, old event/evidence dates and six
-admissions remain exact. This is workflow_dispatch proof. The [isolated exact-main rehearsal](docs/active/daily-pipeline/accuracy/manual-freshness-recovery-local-rehearsal-2026-10-25.md)
-passed 531 release tests, the actual public-source validator and 805 operational tests without an
-external gate attempt. Manual publisher 40172130763 and gate 40172376435 subsequently passed
-on exact main 6d5e87fe. The [actual publication review](docs/active/daily-pipeline/accuracy/manual-freshness-publication-2026-10-25.md)
-records release fc8bf098, sequence 4, snapshot 8ba13011 and all 106 exact host-file comparisons.
-Manual drill 40173134585 passed against that expected release; its authenticated baseline,
-restoration and unchanged-state proof are in the [actual drill review](docs/active/daily-pipeline/accuracy/recovery-rollback-restoration-2026-10-25.md).
-Genuine H scheduled collection and automatic publication still need actual receipts.
+Actual diagnostic 40179255547 captured all six literally disclosed JFrog/Rapid7/Rubrik scripts
+with zero qualification credit. [Its audit](docs/active/daily-pipeline/accuracy/q4-controller-capture-actual-source-review-2026-10-25.md)
+and [static inspection](docs/active/daily-pipeline/accuracy/q4-controller-actual-code-next-requests-2026-10-25.md)
+support two exact JFrog/Rapid7 data GETs. The independently reviewed implementation passes 877
+operational and full application checks; both screen widths are unchanged. Actual manual
+two-request diagnostic 40184027106 passed on main ab6a7c68. Its [actual audit](docs/active/daily-pipeline/accuracy/q4-initial-data-capture-actual-source-review-2026-10-25.md)
+verifies all 48,045 entries, full report, six admissions and preservation of normal heads/facts/38 holds.
+JFrog returned 206 records and Rapid7 323; both need the exact primary samples and a closed
+single-response index mode. Local disabled ad1 restoration and 45 focused checks pass;
+finish the preview/main closure promotion.
+Neither captured JSON nor request sentinels establish complete window/pagination or qualification.
+[Execution specification](docs/active/daily-pipeline/accuracy/q4-initial-data-operational-activation-spec-2026-10-25.md).
 
-Earlier manual publisher 40147731858 and gate 40148005688 failed when prior-day receipts joined
-to publication-day task IDs. That attempt remains charged. The reviewed cross-day repair preserves
-the original plan's IDs and source clocks. [Prior repair review](docs/active/daily-pipeline/accuracy/cross-day-public-source-inventory-fix-independent-review-2026-10-25.md).
-Repair 6d5e87fe reached main after preview 40149549356, archive canary 40149549391 and main
-40149786951 passed. The publisher was re-enabled. Preserve the accepted production artifact;
-manual diagnostics and skipped callbacks remain separate. Collector 40120612027 remains an
-October 24 prior receipt, not the current private intake.
+Rubrik remains excluded until its separate .news controller is proved. The [three-feed audit](docs/active/daily-pipeline/accuracy/retained-rss-scope-and-window-review-2026-10-25.md)
+requires Check Point's Email Security category archive, GitHub's full Advanced Security subject
+scope including secret scanning, and LevelBlue's complete archive/Trustwave relationship.
+Keep original dates and the Check Point publication-time disagreement. Orca's 26 pages/90 leads
+and page 27 self-redirect still prove no terminal or sample.
+The [next seven-index plan](docs/active/daily-pipeline/accuracy/next-seven-newsroom-review-preflight-2026-10-25.md)
+for Abnormal, Cyera, Torq, Veracode, Zenity, Cato and Chainguard stays dormant. Its real preflight
+passes and whole-operation bound is 257 logical fetches; no actual responses or qualification.
+No owner source decision is currently required.
 
-The [three retained-feed item audit](docs/active/daily-pipeline/accuracy/retained-rss-scope-and-window-review-2026-10-25.md)
-adds exact dates/subjects for 30 items and known primary samples. None qualifies. Check Point needs
-its disclosed Email Security category archive and a scoped business-announcement rule; GitHub's
-secret-scanning content must not be lost by an exact product-name-only filter; LevelBlue needs its
-complete press archive and an explicit Trustwave relationship. Preserve the Check Point publication
-time disagreement and every original source date. These sources remain in the same 25-source queue.
+Use the [evaluation rubric](docs/active/daily-pipeline/evaluation-rubric.md) and keep the original
+dated scorecards unchanged. Old 121/557 combined coverage is not comparable to 264/557 intake.
+GitHub issue delivery is proven; phone/email delivery remains unmeasured.
+Preserve the original dirty sec-market checkout. No PR, purchase, paid API fallback or Codex Cloud dependency.
 
-The [next seven-index full preflight](docs/active/daily-pipeline/accuracy/next-seven-newsroom-review-preflight-2026-10-25.md)
-passes the actual unchanged schema-1 validator for Abnormal, Cyera, Torq, Veracode, Zenity, Cato
-and Chainguard. The dormant plan has a 257-logical-fetch whole-operation ceiling including generic
-fanout; responses, pagination, date windows and primary samples remain unobserved. The operational
-plan remains disabled. A [preview-only diagnostic repair](docs/active/daily-pipeline/accuracy/diagnostic-unexpected-http-status-independent-review-2026-10-25.md)
-now retains unexpected opened HTTP status/body evidence without successful proof or credit.
-All 818 operational and 530 executed application checks pass (one fixture skip); 1440/390 renders
-are pixel-identical to the prior preview. Advance this reviewed follow-up through the approved
-source-operation route above, preserving separate scheduled/public acceptance. The prior Check Point
-numeric status remains unknown.
-
-The future scheduled-source repair has a [specification](docs/active/daily-pipeline/accuracy/scheduled-source-freshness-cycle-spec-2026-10-25.md),
-[implementation](docs/active/daily-pipeline/accuracy/scheduled-source-freshness-cycle-implementation-2026-10-25.md)
-and passing [independent review](docs/active/daily-pipeline/accuracy/scheduled-source-freshness-cycle-independent-review-2026-10-25.md).
-It forces real conditional transport past both receipt and saved-download reuse only for the genuine
-main 05:17 daily timer. All 840 operational and 534 executed application tests pass, with one existing
-fixture skip; independent checks passed 12 focused, 6 existing and 7 extra scenarios. Same-data
-1440/390 renders have zero changed pixels. Preview contains reviewed repair de2059ab
-and verified application revision 4ae86e2b; later commits retain evidence only. Web 40172455392 and canary 40172455446 passed
-on 4ae86e2b, whose Vercel dpl_7qy95vbv6wrmURM8SabrCyViioJk is READY with its exact app
-receipt. The [preview receipt](docs/active/daily-pipeline/receipts/scheduled-source-freshness-preview-2026-10-25.json)
-grants no repaired-runtime proof; the uncollected fixture must never publish.
-After reviewed code promotion, audit the repaired revision's actual
-genuine timer receipts. That forced-timer validation is pending. The [cadence review](docs/active/daily-pipeline/accuracy/same-day-manual-and-scheduled-source-cadence-review-2026-10-25.md)
-keeps older-policy reuse separate from H. A cold forced cycle writes no immutable replay pointer;
-an ordinary retry with unfinished semantic work may spend additional conditional fetches. Retain
-that cost, original clocks and allowances. No zero-fetch cold retry or repaired-runtime credit is claimed.
-
-October 24 usage ended at 2,095/5,500 fetch reservations, 80/80 model calls, 40/40 documents and
-2/2 gates. Current October 25 collection usage is 450/5,500 fetches, 72/80 model calls and 33/40
-documents. Both October 25 gate attempts are spent; second gate 40172376435 passed under
-publisher 40172130763. Collector cadence remains 05:17 UTC and publisher cadence 06:23/16:23
-UTC. Issue 12 closed at 07:28:33 UTC after real publication; issue 10 retains coverage/history and
-scheduled-operation gaps. Manual drill 40173134585 passed without another gate attempt.
-No owner source decision is currently required. No refund, reset, purchase or paid fallback.
-
-Unblock the existing JFrog, Rapid7 and Rubrik candidates through the
-[six-controller capture specification](docs/active/daily-pipeline/accuracy/q4-controller-diagnostic-spec-2026-10-25.md).
-Its separate diagnostic operation is implemented for future preview. All 858 operational and
-534 executed application tests pass, with one existing fixture skip. Independent review passes
-18 focused, 8 older-route checks and 33 additional rejections, with all six old admissions exact;
-same-data renders are pixel-identical. See the [implementation](docs/active/daily-pipeline/accuracy/q4-controller-capture-implementation-2026-10-25.md)
-and [independent review](docs/active/daily-pipeline/accuracy/q4-controller-capture-independent-review-2026-10-25.md).
-Preview 49610788 passed web 40175785384 and canary 40175785297, with Vercel
-dpl_69eizZqscVnQjoFHeT3sViWyJat8 READY and its exact app receipt retained in the
-[preview evidence](docs/active/daily-pipeline/receipts/q4-controller-capture-preview-2026-10-25.json).
-Actual main diagnostic 40179255547 captured all six scripts under exact plan 007f, charging
-six fetches and no model/document/gate use. Its [actual source audit](docs/active/daily-pipeline/accuracy/q4-controller-capture-actual-source-review-2026-10-25.md)
-authenticates all 45,307 archive entries and preserves every baseline immutable entry, normal
-head, admission, fact reference and held identity. Main and preview CI passed on 99617db0;
-Vercel ignored its Git production build and accepted public fc8b stayed unchanged.
-Current-window records, pagination/terminal and primary samples remain unproved; all three
-sources still earn zero qualification credit. The exact disabled ad1 plan is restored on main
-71c39356 after preview CI 40180521280 passed. The
-[literal controller inspection](docs/active/daily-pipeline/accuracy/q4-controller-actual-code-next-requests-2026-10-25.md)
-establishes two exact data GET targets for JFrog/Rapid7; the
-[closed two-request diagnostic](docs/active/daily-pipeline/accuracy/q4-initial-data-diagnostic-spec-2026-10-25.md)
-passed independent review with zero open material findings, 877 operational tests and the full
-application checks. Both screen widths remain unchanged. Dormant implementation 413611c4 passed
-preview web 40181890668; Vercel dpl_CjiDfWMpisDT9nZbMKKAmQZ9Z1XL is READY.
-The [exact operational selection](docs/active/daily-pipeline/accuracy/q4-initial-data-operational-activation-spec-2026-10-25.md)
-is being validated before its one actual main diagnostic. No API response is observed yet.
-Rubrik still lacks its .news implementation proof and remains excluded from that operation.
-
-The [October 25 recovery scorecard](docs/active/daily-pipeline/evaluations/2026-10-25/recovery-observation.md)
-pins the actual source receipt, gate, publication and rollback. It keeps coverage and historical
-review failures separate from successful manual recovery and unmeasured timer/accuracy/value.
-
-Repair the [accepted-coverage monitor reader](docs/active/daily-pipeline/accuracy/coverage-monitor-inventory-bound-read-spec-2026-10-25.md).
-Actual manual monitor 40175735011 passed 20 guard tests and updated issue 10, then failed
-publication inspection because the authenticated 1,337,257-byte coverage file exceeds its 1 MB
-reader. Gate authority, acknowledgement and app pairing pass in exact-main replay. Use the
-accepted inventory's exact size/hash for this URL while retaining other limits and all genuine
-coverage/review/timer alarms. The combined repair passes 36 watchdog and 858 operational tests;
-independent review passes 31 reader and 27 original-plan mutations with no open material findings.
-It also binds cross-midnight coverage to its authenticated original plan. See the
-[review](docs/active/daily-pipeline/accuracy/coverage-monitor-inventory-bound-read-independent-review-2026-10-25.md).
-Actual manual preview monitor 40177951978 ran repair 05965a71: 36 runner tests pass and the
-generic probe exception is absent. It reaches the exact public backlog/HELD_CLAIMS_37 reasons
-and updated issue 10 at 08:46:50 UTC. The workflow correctly remains red for real gaps.
-[Actual run evidence](docs/active/daily-pipeline/accuracy/coverage-monitor-preview-actual-run-2026-10-25.md)
-retains unchanged public bytes and archive ref. Repaired scheduled-main monitoring remains pending.
-
-Actual monitor 40165077942 updated assigned issue 10 at 05:19 UTC October 25, after starting
-four hours 37 minutes past its timer. At 06:39 UTC the collector's 05:17 timer had still emitted
-no run, production remained release 19fde803 and its actual validUntil 06:05:06 UTC had passed.
-Continuous freshness failed that bootstrap window. Actual manual publication has now recovered
-public freshness, with expiry October 26 at 12:45:29 UTC. Preserve both the failure and recovery
-receipts. The earlier 06:38 estimate was wrong: validUntil comes from source evidence, not
-lastCollectionAt plus the allowance. Manual recovery does not establish uninterrupted operation.
-
-The [remaining published-record qualifier queue](docs/active/daily-pipeline/accuracy/remaining-record-qualification-status-2026-10-25.md)
-tracks ten supported wording candidates and one unsupported Varonis workforce claim, including
-full literal event groups and metric companion evidence. Independent admission and publication
-remain required. SentinelOne's exact SEC filing transport repair passes independent review and
-828 operational/534 executed application checks on the future preview; the six old admissions
-remain unchanged. Preserve WitnessAI's metric-date uncertainty. Keep these future groups outside the
-operational contract until the current scheduled/public acceptance completes; a pending group
-would hold publication. These proposals earn no coverage or accuracy completion credit.
-
-Use the [74-company overview and 557-row CSV](docs/active/daily-pipeline/evaluations/2026-10-24/current-source-coverage.md),
-[evaluation rubric](docs/active/daily-pipeline/evaluation-rubric.md) and [bound scorecard](docs/active/daily-pipeline/evaluations/2026-10-24/html-activation-current-scorecard.md).
-Keep daily intake, document review, historical review, accuracy and value separate. Earlier
-investigation detail remains in the linked source audits and [the frozen earlier queue](https://github.com/jessepike/sec-market/blob/1bf6324ffa94cbb5265c5eb5b4f966abcdc395c3/BACKLOG.md).
-
-**Authorization:** the owner's October 23 coverage goal and reliability-first clarification;
+**Authorization:** the owner's continuing reliability/source-qualification instruction;
 D-110 through D-112 and the [recovery plan](docs/active/daily-pipeline/coverage-recovery-plan-2026-10-23.md).
 
 ### SEC-060 · Email workstream
@@ -235,7 +114,10 @@ and execution alerts. October 23's actual scheduled collection, callback publica
 controlled rollback/restoration and independent monitoring now have receipts. A regular publisher
 also proved no-op recovery, and a repeat scheduled collector proved honest source reuse. This is
 the first completed activation cycle; sustained operation is still unproved and no multi-day
-clean count is claimed. Execution issues 8/9 closed; issue 10 retains explicit coverage gaps.
+clean count is claimed. Execution issues 8/9 closed; issue 10 retains explicit coverage gaps. The October 25 genuine H
+scheduled audit40182324149 now passes; its automatic publisher 40183462577 failed the unchanged
+gate allowance and created assigned issue 14. Automatic H publication and repaired scheduled-main
+monitoring still need successful actual receipts.
 The owner has not set the acceptance duration (previous recommendation: 30 days).
 **Authorization:** D-104 through D-110; [current activation record](docs/active/daily-pipeline/activation-2026-10-23.md).
 
@@ -243,12 +125,13 @@ The owner has not set the acceptance duration (previous recommendation: 30 days)
 
 Sequence this after SEC-072's current-operation fixes and runtime proof. Keep its gaps visible now.
 
-Bounded daily collection for all 74 existing suppliers is authorized and implemented. Latest manual
-normal collector 40169973257 reports 264/557 under H, with a fully authenticated archive and exact
-replay. Manual publication 40172130763 passed and public intake now also reports 264/557;
-genuine H scheduled collection and automatic publication remain unproved. The old 121/557 report keeps its original combined definition. Current intake gaps
-remain 254 missing family bindings, 25 unqualified candidates, nine HTTP 403s, four HTTP 429s and
-one unsafe redirect. The 37-entry review queue retains all 33 prior identities and four new holds.
+Bounded daily collection for all 74 existing suppliers is authorized and implemented. Genuine
+scheduled collector 40182324149 passed 264/557 under H with a fully authenticated archive and
+exact replay. Public intake also remains264/557 from the earlier manual recovery release;
+automatic H publication remains pending after actual daily-gate exhaustion. Current private
+queue 38 retains all 37 preceding holds and one additional missing-date HiddenLayer candidate.
+The293 gaps remain 254 missing bindings,25 unqualified candidates,9 HTTP 403, 4 HTTP 429 and 1 unsafe
+redirect. Old 121/557 keeps its original combined definition.
 Resolve source registration, blocks, dated evidence, typed ownership/financial adapters and retained
 historical audits within existing budgets. Keep
 task and field ages visible and leave unsupported or unchecked facts held. General partial coverage

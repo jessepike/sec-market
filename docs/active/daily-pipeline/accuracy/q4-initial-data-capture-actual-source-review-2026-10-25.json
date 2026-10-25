@@ -1,0 +1,646 @@
+{
+  "schemaVersion": 1,
+  "result": "PASS_ACTUAL_DIAGNOSTIC_CAPTURE_ONLY",
+  "actualRunId": 40184027106,
+  "githubRunUrl": "https://github.com/jessepike/sec-market/actions/runs/40184027106",
+  "event": "workflow_dispatch",
+  "appRevision": "ab6a7c68f5d8deeb3dfbe56f2ad32dfa71577bc4",
+  "actualTerminalConclusion": "success",
+  "actualTerminalAt": "2026-10-25T10:19:59Z",
+  "reportStartedAt": "2026-10-25T10:18:54.482061Z",
+  "reportCheckedAt": "2026-10-25T10:19:17.801039Z",
+  "artifact": {
+    "id": 12595119064,
+    "name": "source-probe-receipt",
+    "size_in_bytes": 1934,
+    "url": "https://api.github.com/repos/jessepike/sec-market/actions/artifacts/12595119064",
+    "archive_download_url": "https://api.github.com/repos/jessepike/sec-market/actions/artifacts/12595119064/zip",
+    "expired": false,
+    "created_at": "2026-10-25T10:19:41Z",
+    "expires_at": "2026-11-08T10:19:40Z",
+    "updated_at": "2026-10-25T10:19:41Z",
+    "digest": "sha256:ff0706e1e6c8c759364012b802a937f0a90a2e2089b95ef7d8251ed74741866f",
+    "workflow_run": {
+      "id": 40184027106,
+      "repository_id": 1335546492,
+      "head_repository_id": 1335546492,
+      "head_branch": "main",
+      "head_sha": "ab6a7c68f5d8deeb3dfbe56f2ad32dfa71577bc4"
+    }
+  },
+  "archive": {
+    "commit": "d6606a4f5dd1e1afc5f16dea6d91bc422347f8aa",
+    "parentCommit": "531728e140108669f9b04d20784c9ca74f8463cb",
+    "manifestSha256": "40873bfd2dca9836b58ac325a3afb32919fb463b2082752cb72fc785a2d7239d",
+    "files": 48045,
+    "ref": "refs/archive/market-evidence"
+  },
+  "archiveManifest": {
+    "sha256": "40873bfd2dca9836b58ac325a3afb32919fb463b2082752cb72fc785a2d7239d",
+    "bytes": 9941943,
+    "gitBlobSha1": "48e46986a0ea5117dddd983ba64a6c646c8d98a9",
+    "entriesVerified": 48045,
+    "readOnlyVmPath": "/var/tmp/smp-q4-initial-data-actual-40184027106-20261025/extracted",
+    "materialization": "48,031 unchanged files reused from authenticated 6708 through hardlinks; 14 new/changed files retrieved at acknowledged exact commit, then all 48,045 manifest entries checked for SHA256/size. Destination changed files unlinked before writes; frozen baseline bytes and file mtimes preserved. No LocalStore initialized on frozen archives."
+  },
+  "baseline": {
+    "commit": "6708f37f73822d411d5ec771b307cd829c22e31d",
+    "manifest": {
+      "sha256": "8f7ae5e95610aba19ff68be30053bd4e0703a288b9482d0b9118f61cbf85350d",
+      "bytes": 9939558,
+      "mtimeNs": 1792923221404274156
+    },
+    "entries": 48033,
+    "immutableEntriesPreserved": 39426,
+    "unchangedNormalHeads": 8605,
+    "changedEntries": [
+      "state/heads/budget-2026-10-25.json",
+      "state/heads/cloud-lease.json"
+    ],
+    "newEntries": [
+      "state/ci/budget-escrows/3831a04cc39aa52feebb1cac7cbcaed35bead4c831d4b475876d1d6788e56752.json",
+      "state/ci/source-probe-checkpoints/3831a04cc39aa52feebb1cac7cbcaed35bead4c831d4b475876d1d6788e56752/0cf016af93971391b7bf34cf14f12e4d05fe0e56fbbee946edee56638fa66698.json",
+      "state/ci/source-probe-checkpoints/3831a04cc39aa52feebb1cac7cbcaed35bead4c831d4b475876d1d6788e56752/20eb1a5e488ae3e3068600feb21d4254314dd204e749c90c29f9be598fd259a7.json",
+      "state/ci/source-probe-checkpoints/3831a04cc39aa52feebb1cac7cbcaed35bead4c831d4b475876d1d6788e56752/9e55852fcc1d434af8233550445d4ae40aadd7ebd7e1544edf133ec783cd9933.json",
+      "state/ci/source-probe-runs/40184027106-1.json",
+      "state/objects/970b6a1c1bb9af279293992f4cc225f40292e9060ec43b1673cd37f7d0d53068",
+      "state/objects/a316e39658c2e9b5872adeb6008ef138618c8b20a080ca78ee458bd3e51f0ddc",
+      "state/objects/c4c7917361aa6d164b18a975803acdd64a1ab5e64e8b1911c6ea4682d626e412",
+      "state/objects/cf3c57d1c2080d65656e9f291eca371aefd99909476d413bb5c90155bc742db8",
+      "state/objects/cfa2ffb8c2e6b21f2b39664dc1a700373908e75a4c04f6c791a63a351c2025cf",
+      "state/objects/d85d1550a60d97703907714c25ef743afafae1719d947d3c82dcd1ff4658724a",
+      "state/objects/f7d84b288a6665280f4b8ade996b0bf64fe9c3fa0ea7a8a15b1adfb0826ccc19"
+    ]
+  },
+  "ancestral9634": {
+    "commit": "9634b916c15b18f38605a168f7642de764670aab",
+    "manifest": {
+      "sha256": "600e58564c989206856ba48795bf4ce9f6fbbf73a604e806594e95327b53203a",
+      "bytes": 9326098,
+      "mtimeNs": 1792919638759104637
+    },
+    "immutableEntriesPreserved": 36700
+  },
+  "reportReplay": {
+    "captureComplete": true,
+    "capturedResponses": 2,
+    "qualified": false,
+    "semanticAdmission": false,
+    "coverageCredit": false,
+    "facts": [],
+    "qualifiedSources": 0,
+    "sourceChecksCredited": 0,
+    "modelCalls": 0
+  },
+  "requestResults": [
+    {
+      "sourceId": "jfrog:official:1",
+      "requestedUrl": "https://investors.jfrog.com/feed/PressRelease.svc/GetPressReleaseList?LanguageId=1&bodyType=0&pressReleaseDateFilter=3&categoryId=00000000-0000-0000-0000-000000000000&pageSize=-1&pageNumber=0&tagList=&includeTags=true&year=-1&excludeSelection=1",
+      "requestedAt": "2026-10-25T10:19:16.943628Z",
+      "responseCheckedAt": "2026-10-25T10:19:17.169618Z",
+      "observationWrapper": {
+        "key": "objects/970b6a1c1bb9af279293992f4cc225f40292e9060ec43b1673cd37f7d0d53068",
+        "sha256": "970b6a1c1bb9af279293992f4cc225f40292e9060ec43b1673cd37f7d0d53068",
+        "bytes": 581
+      },
+      "rawObservation": {
+        "body": {
+          "bytes": 282783,
+          "key": "objects/f7d84b288a6665280f4b8ade996b0bf64fe9c3fa0ea7a8a15b1adfb0826ccc19",
+          "sha256": "f7d84b288a6665280f4b8ade996b0bf64fe9c3fa0ea7a8a15b1adfb0826ccc19"
+        },
+        "contentType": "application/json; charset=utf-8",
+        "etag": "\"7297f9bf17701f3a0b2f0810b3eb0be2\"",
+        "fetchedAt": "2026-10-25T10:19:17.166772Z",
+        "finalUrl": "https://investors.jfrog.com/feed/PressRelease.svc/GetPressReleaseList?LanguageId=1&bodyType=0&pressReleaseDateFilter=3&categoryId=00000000-0000-0000-0000-000000000000&pageSize=-1&pageNumber=0&tagList=&includeTags=true&year=-1&excludeSelection=1",
+        "httpStatus": 200,
+        "lastModified": null,
+        "requestedUrl": "https://investors.jfrog.com/feed/PressRelease.svc/GetPressReleaseList?LanguageId=1&bodyType=0&pressReleaseDateFilter=3&categoryId=00000000-0000-0000-0000-000000000000&pageSize=-1&pageNumber=0&tagList=&includeTags=true&year=-1&excludeSelection=1",
+        "status": "fetched"
+      },
+      "finalUrl": "https://investors.jfrog.com/feed/PressRelease.svc/GetPressReleaseList?LanguageId=1&bodyType=0&pressReleaseDateFilter=3&categoryId=00000000-0000-0000-0000-000000000000&pageSize=-1&pageNumber=0&tagList=&includeTags=true&year=-1&excludeSelection=1",
+      "fetchedAt": "2026-10-25T10:19:17.166772Z",
+      "httpStatus": 200,
+      "contentType": "application/json; charset=utf-8",
+      "body": {
+        "bytes": 282783,
+        "key": "objects/f7d84b288a6665280f4b8ade996b0bf64fe9c3fa0ea7a8a15b1adfb0826ccc19",
+        "sha256": "f7d84b288a6665280f4b8ade996b0bf64fe9c3fa0ea7a8a15b1adfb0826ccc19"
+      },
+      "captured": true,
+      "classificationReason": "JSON_CAPTURED_REVIEW_REQUIRED",
+      "transportError": null,
+      "denial": null,
+      "reservation": {
+        "budgetDay": "2026-10-25",
+        "fetchLimit": 5500,
+        "chargedFetchCount": 866
+      },
+      "retainedKnownBody": {
+        "file": "response-0-body.bin.gz",
+        "rawSha256": "f7d84b288a6665280f4b8ade996b0bf64fe9c3fa0ea7a8a15b1adfb0826ccc19",
+        "rawBytes": 282783,
+        "gzipSha256": "0d3133b81841ebb73c53b1e5f70f9b31e999f5f2fdd61df53ac4bb4ee278331e",
+        "gzipBytes": 33007,
+        "byteExactRoundTrip": true,
+        "gzipMtime": 0,
+        "gzipEmbeddedFilename": ""
+      }
+    },
+    {
+      "sourceId": "rapid7:official:1",
+      "requestedUrl": "https://investors.rapid7.com/feed/PressRelease.svc/GetPressReleaseList?LanguageId=1&bodyType=0&pressReleaseDateFilter=3&categoryId=1cb807d2-208f-4bc3-9133-6a9ad45ac3b0&pageSize=-1&pageNumber=0&tagList=&includeTags=true&year=-1&excludeSelection=1",
+      "requestedAt": "2026-10-25T10:19:17.171725Z",
+      "responseCheckedAt": "2026-10-25T10:19:17.495168Z",
+      "observationWrapper": {
+        "key": "objects/cfa2ffb8c2e6b21f2b39664dc1a700373908e75a4c04f6c791a63a351c2025cf",
+        "sha256": "cfa2ffb8c2e6b21f2b39664dc1a700373908e75a4c04f6c791a63a351c2025cf",
+        "bytes": 583
+      },
+      "rawObservation": {
+        "body": {
+          "bytes": 414550,
+          "key": "objects/cf3c57d1c2080d65656e9f291eca371aefd99909476d413bb5c90155bc742db8",
+          "sha256": "cf3c57d1c2080d65656e9f291eca371aefd99909476d413bb5c90155bc742db8"
+        },
+        "contentType": "application/json; charset=utf-8",
+        "etag": "\"fcd785ce31f876478680bf9a9aa85f5a\"",
+        "fetchedAt": "2026-10-25T10:19:17.492289Z",
+        "finalUrl": "https://investors.rapid7.com/feed/PressRelease.svc/GetPressReleaseList?LanguageId=1&bodyType=0&pressReleaseDateFilter=3&categoryId=1cb807d2-208f-4bc3-9133-6a9ad45ac3b0&pageSize=-1&pageNumber=0&tagList=&includeTags=true&year=-1&excludeSelection=1",
+        "httpStatus": 200,
+        "lastModified": null,
+        "requestedUrl": "https://investors.rapid7.com/feed/PressRelease.svc/GetPressReleaseList?LanguageId=1&bodyType=0&pressReleaseDateFilter=3&categoryId=1cb807d2-208f-4bc3-9133-6a9ad45ac3b0&pageSize=-1&pageNumber=0&tagList=&includeTags=true&year=-1&excludeSelection=1",
+        "status": "fetched"
+      },
+      "finalUrl": "https://investors.rapid7.com/feed/PressRelease.svc/GetPressReleaseList?LanguageId=1&bodyType=0&pressReleaseDateFilter=3&categoryId=1cb807d2-208f-4bc3-9133-6a9ad45ac3b0&pageSize=-1&pageNumber=0&tagList=&includeTags=true&year=-1&excludeSelection=1",
+      "fetchedAt": "2026-10-25T10:19:17.492289Z",
+      "httpStatus": 200,
+      "contentType": "application/json; charset=utf-8",
+      "body": {
+        "bytes": 414550,
+        "key": "objects/cf3c57d1c2080d65656e9f291eca371aefd99909476d413bb5c90155bc742db8",
+        "sha256": "cf3c57d1c2080d65656e9f291eca371aefd99909476d413bb5c90155bc742db8"
+      },
+      "captured": true,
+      "classificationReason": "JSON_CAPTURED_REVIEW_REQUIRED",
+      "transportError": null,
+      "denial": null,
+      "reservation": {
+        "budgetDay": "2026-10-25",
+        "fetchLimit": 5500,
+        "chargedFetchCount": 867
+      },
+      "retainedKnownBody": {
+        "file": "response-1-body.bin.gz",
+        "rawSha256": "cf3c57d1c2080d65656e9f291eca371aefd99909476d413bb5c90155bc742db8",
+        "rawBytes": 414550,
+        "gzipSha256": "754116a6fb33916afd26ef8fc643e996375da31039cbcd96ee9bfbc6d7cc7f75",
+        "gzipBytes": 34342,
+        "byteExactRoundTrip": true,
+        "gzipMtime": 0,
+        "gzipEmbeddedFilename": ""
+      }
+    }
+  ],
+  "startingBudget": {
+    "calls": 80,
+    "documents": 38,
+    "fetches": 865
+  },
+  "finalBudget": {
+    "calls": 80,
+    "documents": 38,
+    "fetches": 867
+  },
+  "actualFetchCharges": 2,
+  "actualDayGateBudget": {
+    "attempts": 2
+  },
+  "escrow": {
+    "before": {
+      "calls": 80,
+      "documents": 38,
+      "fetches": 865
+    },
+    "ceiling": {
+      "calls": 80,
+      "documents": 38,
+      "fetches": 5500
+    },
+    "day": "2026-10-25",
+    "sessionId": "github-40184027106-1"
+  },
+  "releasedLease": {
+    "checkpointProfile": "source_probe",
+    "expiresAt": "2026-10-25T13:18:30.158910Z",
+    "releasedAt": "2026-10-25T10:19:17.929709Z",
+    "role": "collector",
+    "sessionId": "github-40184027106-1",
+    "sessionSha256": "efeddd728303ca7b81a3e2ae8e0787e39a019098aedf71612f192f1254870a61",
+    "startedAt": "2026-10-25T10:18:30.158910Z"
+  },
+  "preservedSnapshot": {
+    "snapshotSha256": "35f75a9235129b577a134b4150884e8438d80898335873c1b402c35ea34eafed",
+    "checkedAt": "2026-10-25T10:04:00.960405Z",
+    "sourceRunId": "d1b5cbbf41ba2d8dfcb05a7ff2a2b00b7faada68dcaf3224ad4c7702b2d63b22",
+    "factReferences": 4,
+    "heldQueueEntries": 38,
+    "events": 8,
+    "evidence": 8,
+    "intake": {
+      "successfulTasks": 264,
+      "requiredTasks": 557,
+      "complete": false
+    },
+    "processing": {
+      "changedDocuments": 1,
+      "complete": false,
+      "heldDocuments": 11,
+      "inventoryDocuments": 10655,
+      "pendingDocuments": 10615,
+      "reviewedDocuments": 40,
+      "unknownDateDocuments": 291
+    },
+    "historicalReview": {
+      "complete": false,
+      "heldDocuments": 11,
+      "inventoryDocuments": 10655,
+      "pendingDocuments": 10614,
+      "reviewedDocuments": 41
+    },
+    "sourceValidUntil": "2026-10-26T15:55:27.307096+00:00",
+    "allFieldsByteIdenticalToImmediateBaseline": true
+  },
+  "preservedProductionHead": {
+    "deploymentId": "https://security-market-pulse-fqk0jyft3-pikeholdings.vercel.app",
+    "releaseId": "fc8bf0984dbeacbe79519574911837d8b638f42215f6547e31ae8968b29951e4",
+    "sequence": 4
+  },
+  "productionObservationLimit": "This audit proves the archived production head is unchanged from immediate baseline. Root owns separate live public byte checks. No new gate or deployment was executed by this diagnostic.",
+  "admissions": [
+    {
+      "groupId": "FC-20261023-checkpoint-sase",
+      "policySha256": "36bc23722c1131f94ab3c2db1c553505539987aa55738cfa9bb72dfa3871ad6f",
+      "admission": {
+        "bytes": 1522,
+        "key": "objects/1bcaa2ca22fcb4c24597fc477c406abddf9ddb20853a4d290c79322bee46afa9",
+        "sha256": "1bcaa2ca22fcb4c24597fc477c406abddf9ddb20853a4d290c79322bee46afa9"
+      }
+    },
+    {
+      "groupId": "FC-20261023-optiv",
+      "policySha256": "4f9e7feb90232a3aafe2cd84265c2e8202c9e009229e7592c5ab87373f64bcf5",
+      "admission": {
+        "bytes": 1014,
+        "key": "objects/580099157608b61895574d2b136c93a940109f82d0a33459388a83f46fbc7bf2",
+        "sha256": "580099157608b61895574d2b136c93a940109f82d0a33459388a83f46fbc7bf2"
+      }
+    },
+    {
+      "groupId": "FC-20261023-splunk",
+      "policySha256": "270b7c7a1f7180b3fef2896b7633a87bf0667b9f4a3c75593fa72b959ecb87f6",
+      "admission": {
+        "bytes": 988,
+        "key": "objects/a42addfcd5043dceffcd259fc8bdac7486b012400fae4b82ce0e5b00968e18af",
+        "sha256": "a42addfcd5043dceffcd259fc8bdac7486b012400fae4b82ce0e5b00968e18af"
+      }
+    },
+    {
+      "groupId": "FC-20261023-zscaler",
+      "policySha256": "dc8522069fc87cbf0371e0ea29ec80fbf647c1dd7ce816e02a7fb4a94b35a390",
+      "admission": {
+        "bytes": 1460,
+        "key": "objects/f255c470cc078e1d44399f7e2027134b466f23cc5939437d196bef9d7aa04e4b",
+        "sha256": "f255c470cc078e1d44399f7e2027134b466f23cc5939437d196bef9d7aa04e4b"
+      }
+    },
+    {
+      "groupId": "FC-20261023-expel",
+      "policySha256": "d1ea72b754450e603d89092cc38d9fa81d165575af2a36745e5938220fd82087",
+      "admission": {
+        "bytes": 1493,
+        "key": "objects/b120ca46429f8e52a09d4fce293c14ddb08319212b2b9a8e0f10b39661deed4c",
+        "sha256": "b120ca46429f8e52a09d4fce293c14ddb08319212b2b9a8e0f10b39661deed4c"
+      }
+    },
+    {
+      "groupId": "XAGE-SOURCE-CLASS-20261023",
+      "policySha256": "c01560dba484aa5aa5696c8bfe5b44acefc6337ee1cebe0cd96751849e15646a",
+      "admission": {
+        "bytes": 1340,
+        "key": "objects/ec322362de6fb9e4e20cea0c9ed825990a01bf0c41d5b32662ab6131914f6c98",
+        "sha256": "ec322362de6fb9e4e20cea0c9ed825990a01bf0c41d5b32662ab6131914f6c98"
+      }
+    }
+  ],
+  "admissionReplayNetworkDenied": true,
+  "frozenLocalStoreInitializationDenied": true,
+  "inputSealsUnchanged": true,
+  "actualConsumedInputSeals": 77,
+  "baselineConsumedInputSeals": 3,
+  "actualRunnerTests": {
+    "discovered": 877,
+    "skipped": 23,
+    "executed": 854,
+    "conclusion": "OK",
+    "elapsedSeconds": 67.534
+  },
+  "manualCallbacks": {
+    "publisher": {
+      "runId": 40184332299,
+      "preflight": "success",
+      "publish": "skipped"
+    },
+    "rollback": {
+      "runId": 40184352939,
+      "preflight": "success",
+      "rollbackAndRestore": "skipped"
+    }
+  },
+  "coldJsonInspection": {
+    "inspection": "Read-only data parse of the two actual retained bodies; no JavaScript execution or new HTTP requests.",
+    "sources": [
+      {
+        "sourceId": "jfrog:official:1",
+        "body": {
+          "key": "objects/f7d84b288a6665280f4b8ade996b0bf64fe9c3fa0ea7a8a15b1adfb0826ccc19",
+          "sha256": "f7d84b288a6665280f4b8ade996b0bf64fe9c3fa0ea7a8a15b1adfb0826ccc19",
+          "bytes": 282783
+        },
+        "topLevelKeys": [
+          "GetPressReleaseListResult"
+        ],
+        "resultField": "GetPressReleaseListResult",
+        "observedListRecords": 206,
+        "totalRecordsFieldPresent": false,
+        "pagingOrTerminalFieldPresent": false,
+        "topLevelErrorFieldPresent": false,
+        "newestDateLiteral": "10/21/2026 03:00:00",
+        "oldestDateLiteral": "09/16/2020 02:13:00",
+        "datesCarryTimezone": false,
+        "dateInterpretation": "Stored literal source date; no UTC conversion or new source date assigned.",
+        "allDatesParseUnderLiteralFormat": true,
+        "returnedOrderDescendingByLiteralDate": true,
+        "nullBodyRecords": 206,
+        "blankDetailLinks": 0,
+        "duplicateWorkflowIds": 0,
+        "topFiveLeads": [
+          {
+            "Headline": "JFrog Closes the Shadow AI Blind Spot: Unveils AI-SEC to Control Every AI Agent, Skill, and Model, from Developer to Production",
+            "PressReleaseDate": "10/21/2026 03:00:00",
+            "LinkToDetailPage": "/news/news-details/2026/JFrog-Closes-the-Shadow-AI-Blind-Spot-Unveils-AI-SEC-to-Control-Every-AI-Agent-Skill-and-Model-from-Developer-to-Production/default.aspx",
+            "DocumentPath": "https://s21.q4cdn.com/528621000/files/doc_news/JFrog-Closes-the-Shadow-AI-Blind-Spot-Unveils-AI-SEC-to-Control-Every-AI-Agent-Skill-and-Model-from-Developer-to-Production-2026.pdf",
+            "PressReleaseId": 1908,
+            "WorkflowId": "e16ed9b4-d22f-4dc3-ab58-8dff80239b66",
+            "resolvedDetailLead": "https://investors.jfrog.com/news/news-details/2026/JFrog-Closes-the-Shadow-AI-Blind-Spot-Unveils-AI-SEC-to-Control-Every-AI-Agent-Skill-and-Model-from-Developer-to-Production/default.aspx"
+          },
+          {
+            "Headline": "JFrog Ends the Audit Scramble: Delivers New DevGovOps Capabilities with Signed Compliance Evidence for Every Release, Without Slowing Development",
+            "PressReleaseDate": "10/21/2026 03:00:00",
+            "LinkToDetailPage": "/news/news-details/2026/JFrog-Ends-the-Audit-Scramble-Delivers-New-DevGovOps-Capabilities-with-Signed-Compliance-Evidence-for-Every-Release-Without-Slowing-Development/default.aspx",
+            "DocumentPath": "https://s21.q4cdn.com/528621000/files/doc_news/JFrog-Ends-the-Audit-Scramble-Delivers-New-DevGovOps-Capabilities-with-Signed-Compliance-Evidence-for-Every-Release-Without-Slowing-D-EX1RZ.pdf",
+            "PressReleaseId": 1909,
+            "WorkflowId": "9c847b3a-c087-4e8b-b9fc-9640e4827003",
+            "resolvedDetailLead": "https://investors.jfrog.com/news/news-details/2026/JFrog-Ends-the-Audit-Scramble-Delivers-New-DevGovOps-Capabilities-with-Signed-Compliance-Evidence-for-Every-Release-Without-Slowing-Development/default.aspx"
+          },
+          {
+            "Headline": "JFrog Announces Timing of Third Quarter 2026 Financial Results",
+            "PressReleaseDate": "10/14/2026 16:05:00",
+            "LinkToDetailPage": "/news/news-details/2026/JFrog-Announces-Timing-of-Third-Quarter-2026-Financial-Results/default.aspx",
+            "DocumentPath": "https://s21.q4cdn.com/528621000/files/doc_news/JFrog-Announces-Timing-of-Third-Quarter-2026-Financial-Results-2026.pdf",
+            "PressReleaseId": 1907,
+            "WorkflowId": "717ce770-88db-49b1-a63a-071d28989c99",
+            "resolvedDetailLead": "https://investors.jfrog.com/news/news-details/2026/JFrog-Announces-Timing-of-Third-Quarter-2026-Financial-Results/default.aspx"
+          },
+          {
+            "Headline": "JFrog Partners with Wiz to Close the Gap on AI-Era Threats, Keeping Global Businesses Secure",
+            "PressReleaseDate": "09/02/2026 08:30:00",
+            "LinkToDetailPage": "/news/news-details/2026/JFrog-Partners-with-Wiz-to-Close-the-Gap-on-AI-Era-Threats-Keeping-Global-Businesses-Secure/default.aspx",
+            "DocumentPath": "https://s21.q4cdn.com/528621000/files/doc_news/2026/09/FINAL_JFrog-Wiz-Trusted-Runtime.pdf",
+            "PressReleaseId": 1905,
+            "WorkflowId": "d2315a33-b76c-404f-8cf7-2de61d722380",
+            "resolvedDetailLead": "https://investors.jfrog.com/news/news-details/2026/JFrog-Partners-with-Wiz-to-Close-the-Gap-on-AI-Era-Threats-Keeping-Global-Businesses-Secure/default.aspx"
+          },
+          {
+            "Headline": "JFrog Delivers DevGovOps at Scale: Continuous Compliance for the AI-Era Software Supply Chain",
+            "PressReleaseDate": "09/02/2026 08:30:00",
+            "LinkToDetailPage": "/news/news-details/2026/JFrog-Delivers-DevGovOps-at-Scale-Continuous-Compliance-for-the-AI-Era-Software-Supply-Chain/default.aspx",
+            "DocumentPath": "https://s21.q4cdn.com/528621000/files/doc_news/2026/09/FINAL_JFrog-Continous-Compliance-at-Scale-PR.pdf",
+            "PressReleaseId": 1904,
+            "WorkflowId": "66b87ce8-913a-45cb-8806-4874bee7b6ee",
+            "resolvedDetailLead": "https://investors.jfrog.com/news/news-details/2026/JFrog-Delivers-DevGovOps-at-Scale-Continuous-Compliance-for-the-AI-Era-Software-Supply-Chain/default.aspx"
+          }
+        ],
+        "detailLeadsFetched": false,
+        "completeWindowProven": false,
+        "qualificationCredit": false
+      },
+      {
+        "sourceId": "rapid7:official:1",
+        "body": {
+          "key": "objects/cf3c57d1c2080d65656e9f291eca371aefd99909476d413bb5c90155bc742db8",
+          "sha256": "cf3c57d1c2080d65656e9f291eca371aefd99909476d413bb5c90155bc742db8",
+          "bytes": 414550
+        },
+        "topLevelKeys": [
+          "GetPressReleaseListResult"
+        ],
+        "resultField": "GetPressReleaseListResult",
+        "observedListRecords": 323,
+        "totalRecordsFieldPresent": false,
+        "pagingOrTerminalFieldPresent": false,
+        "topLevelErrorFieldPresent": false,
+        "newestDateLiteral": "10/21/2026 09:00:00",
+        "oldestDateLiteral": "07/06/2015 00:00:00",
+        "datesCarryTimezone": false,
+        "dateInterpretation": "Stored literal source date; no UTC conversion or new source date assigned.",
+        "allDatesParseUnderLiteralFormat": true,
+        "returnedOrderDescendingByLiteralDate": true,
+        "nullBodyRecords": 323,
+        "blankDetailLinks": 0,
+        "duplicateWorkflowIds": 0,
+        "topFiveLeads": [
+          {
+            "Headline": "Rapid7 Report: Human Operators Still Drive Most of Tracked Cyberattacks, but Exploitation Windows Are Narrow",
+            "PressReleaseDate": "10/21/2026 09:00:00",
+            "LinkToDetailPage": "/news/news-details/2026/Rapid7-Report-Human-Operators-Still-Drive-Most-of-Tracked-Cyberattacks-but-Exploitation-Windows-Are-Narrow/default.aspx",
+            "DocumentPath": "https://s29.q4cdn.com/157304370/files/doc_news/Rapid7-Report-Human-Operators-Still-Drive-Most-of-Tracked-Cyberattacks-but-Exploitation-Windows-Are-Narrow-2026.pdf",
+            "PressReleaseId": 1816,
+            "WorkflowId": "cdd87e3c-3b77-46ea-8615-cb52d94596a4",
+            "resolvedDetailLead": "https://investors.rapid7.com/news/news-details/2026/Rapid7-Report-Human-Operators-Still-Drive-Most-of-Tracked-Cyberattacks-but-Exploitation-Windows-Are-Narrow/default.aspx"
+          },
+          {
+            "Headline": "Rapid7 Reports Inducement Grants under Nasdaq Listing Rule 5635(c)(4)",
+            "PressReleaseDate": "10/20/2026 16:05:00",
+            "LinkToDetailPage": "/news/news-details/2026/Rapid7-Reports-Inducement-Grants-under-Nasdaq-Listing-Rule-5635c4-3ee236f2c/default.aspx",
+            "DocumentPath": "https://s29.q4cdn.com/157304370/files/doc_news/Rapid7-Reports-Inducement-Grants-under-Nasdaq-Listing-Rule-5635c4-3ee236f2c-2026.pdf",
+            "PressReleaseId": 1815,
+            "WorkflowId": "3faa9d7e-40e7-49d5-8bfa-8e7344f98e45",
+            "resolvedDetailLead": "https://investors.rapid7.com/news/news-details/2026/Rapid7-Reports-Inducement-Grants-under-Nasdaq-Listing-Rule-5635c4-3ee236f2c/default.aspx"
+          },
+          {
+            "Headline": "Rapid7 to Report Third Quarter 2026 Financial Results on November 4",
+            "PressReleaseDate": "10/14/2026 16:05:00",
+            "LinkToDetailPage": "/news/news-details/2026/Rapid7-to-Report-Third-Quarter-2026-Financial-Results-on-November-4/default.aspx",
+            "DocumentPath": "https://s29.q4cdn.com/157304370/files/doc_news/Rapid7-to-Report-Third-Quarter-2026-Financial-Results-on-November-4-2026.pdf",
+            "PressReleaseId": 1814,
+            "WorkflowId": "c4a988fc-6aab-42ee-a2af-4fb57a7ed054",
+            "resolvedDetailLead": "https://investors.rapid7.com/news/news-details/2026/Rapid7-to-Report-Third-Quarter-2026-Financial-Results-on-November-4/default.aspx"
+          },
+          {
+            "Headline": "Rapid7 Launches Rapid7 Intelligence to Harness Threat Data Against Attackers",
+            "PressReleaseDate": "10/02/2026 09:00:00",
+            "LinkToDetailPage": "/news/news-details/2026/Rapid7-Launches-Rapid7-Intelligence-to-Harness-Threat-Data-Against-Attackers/default.aspx",
+            "DocumentPath": "https://s29.q4cdn.com/157304370/files/doc_news/Rapid7-Launches-Rapid7-Intelligence-to-Harness-Threat-Data-Against-Attackers-2026.pdf",
+            "PressReleaseId": 1813,
+            "WorkflowId": "b71c2e67-16bb-4d15-ad36-11382090ed68",
+            "resolvedDetailLead": "https://investors.rapid7.com/news/news-details/2026/Rapid7-Launches-Rapid7-Intelligence-to-Harness-Threat-Data-Against-Attackers/default.aspx"
+          },
+          {
+            "Headline": "Rapid7 Reports Inducement Grants under Nasdaq Listing Rule 5635(c)(4)",
+            "PressReleaseDate": "09/17/2026 16:05:00",
+            "LinkToDetailPage": "/news/news-details/2026/Rapid7-Reports-Inducement-Grants-under-Nasdaq-Listing-Rule-5635c4-808734891/default.aspx",
+            "DocumentPath": "https://s29.q4cdn.com/157304370/files/doc_news/Rapid7-Reports-Inducement-Grants-under-Nasdaq-Listing-Rule-5635c4-808734891-2026.pdf",
+            "PressReleaseId": 1812,
+            "WorkflowId": "c16798b6-bd11-498d-824a-05d5c7d42441",
+            "resolvedDetailLead": "https://investors.rapid7.com/news/news-details/2026/Rapid7-Reports-Inducement-Grants-under-Nasdaq-Listing-Rule-5635c4-808734891/default.aspx"
+          }
+        ],
+        "detailLeadsFetched": false,
+        "completeWindowProven": false,
+        "qualificationCredit": false
+      }
+    ],
+    "limits": "The response lists do not provide TotalRecords or explicit paging/terminal fields. Record counts describe these bodies only. Primary detail leads remain uncollected; all Body fields are null.",
+    "recommendedNextStep": "Use the returned exact same-host primary detail leads as inputs to a separate scoped qualification design; do not infer complete source traversal from pageSize=-1."
+  },
+  "replayCodePins": {
+    "web/scripts/pipeline/q4_initial_data_capture.py": "87ded82d37b5c51a121b769eaa084ad20bc691ca16a25929d13e7b004a99f8be",
+    "ops/ci/collect.py": "928e082f5b633a973a6ad7704ab70ecc150d5f2dbbd5aa448e3e03d9a4a3592b",
+    "web/scripts/pipeline/q4_controller_capture.py": "8720cd8bed0c533201c24565ca28b23198f99f8a352213e07774f6f05f15ffb3",
+    "contracts/market.json": "24221c946781559c0ff3626e4e479c4647da915d0f2d7559ea88046982532c3c",
+    "contracts/factual-corrections.json": "9c9fbe0d3d40ece11e1407ce9460086c732f62da88d3b0f220ab9d6f8757da00"
+  },
+  "archivedActivePlanSha256": "a316e39658c2e9b5872adeb6008ef138618c8b20a080ca78ee458bd3e51f0ddc",
+  "planCanonicalSha256": "5ec3a0fc8588e64af13f8caeec32f3c4327f3b60c2526123ff49b41d219a8dae",
+  "currentWorkingPlanSha256AtHandback": "ad1c5cc234fe4fa69cbceb5370ac74825a37dc80b08528ca908d14b1352e53b4",
+  "currentWorkingPlanSeparateFromArchivedReport": true,
+  "qualificationCredit": false,
+  "coverageCredit": false,
+  "semanticAdmission": false,
+  "newFacts": [],
+  "newModelCalls": 0,
+  "verifierSourceRequests": 0,
+  "verifierArchiveWrites": 0,
+  "executedJavaScript": false,
+  "limits": [
+    "The two successful JSON captures do not qualify either source or establish a complete source window.",
+    "No TotalRecords, paging token, or explicit terminal field appears in either returned envelope.",
+    "All 529 returned Body fields are null; primary detail pages and linked PDFs remain uncollected.",
+    "Literal source date fields have no timezone; no UTC conversion or new source date was assigned.",
+    "The real scheduled collector and its gate-exhausted automatic publisher are separate completed operations. Their source clocks and 38-item held queue remain unchanged here."
+  ],
+  "receiptDirectory": "docs/active/daily-pipeline/accuracy/receipts/q4-initial-data-capture-actual-2026-10-25",
+  "receiptInventory": {
+    "actual-diagnostic-audit.json": {
+      "sha256": "f6d39334462c8f2dfa8ebf49439451969e5c3ed8b863b504b666821ca81f5033",
+      "bytes": 37615
+    },
+    "archive-commit.json": {
+      "sha256": "15a906ad88b9a7b1b560a5f4190e6f3efeda49ce7a828e1e14bd30bd4c708696",
+      "bytes": 1357
+    },
+    "archive-root-tree.json": {
+      "sha256": "b6187833c18f32d45b63cf6fd09da7a69e96583e4ff14e55bef26a9c9fe4a886",
+      "bytes": 1570
+    },
+    "artifact-metadata.json": {
+      "sha256": "ac04c61966b7ba3ce3d63a1b7269d97ded466d3e0dab1f26b2604c6829224781",
+      "bytes": 642
+    },
+    "audit-config.json": {
+      "sha256": "a7ce00cd289880520e67976813fc03d7686dadf3f1c8565eeb69c21170e64ed3",
+      "bytes": 3211
+    },
+    "audit_actual.py": {
+      "sha256": "68bdf739ccdffc377699edba258c23192b50756e97a8c8ece71c645f6c2ed849",
+      "bytes": 17784
+    },
+    "bootstrap-commit.json": {
+      "sha256": "eb09463d9f017ba8d99d5216e34acb1ac26fc1ebc7181ec7cf51ab98ed06d0a9",
+      "bytes": 1357
+    },
+    "callback-runs.json": {
+      "sha256": "d9fefb0d62d276c235026d4be223b38f6a608aae7c53ab73d71edcd25f66a3c7",
+      "bytes": 73012
+    },
+    "cold-json-inspection.json": {
+      "sha256": "5d32757464b4f44d623a43b95498f6e51e8f86df69038441b20fe81ca4979d1e",
+      "bytes": 10873
+    },
+    "collection-job.log.gz": {
+      "sha256": "55f247bc1be44bccb8a1ec7a8d76d559ddb0d5009161c1d36280fd296bf18715",
+      "bytes": 40417
+    },
+    "escrow-budget.json": {
+      "sha256": "b156b4fad4e8dde7763728d5fa69d8f52b1e208349b042d3332ad081b2b7ee2a",
+      "bytes": 330
+    },
+    "escrow-commit.json": {
+      "sha256": "0424f058ebc4925ce41bf61eb218e82e4e063977a5201c4438c01850855d30d3",
+      "bytes": 1357
+    },
+    "jobs-final.json": {
+      "sha256": "26867a6ac8d6aa2c6a6e7298a638940f133b7f0df28412f26813027cbb11891b",
+      "bytes": 2470
+    },
+    "jobs-initial.json": {
+      "sha256": "08c5fb5620a1ccb1338c6a3efafdff306a4ffa79443401c2f7d84dcb58d70ed0",
+      "bytes": 2335
+    },
+    "log-retention.json": {
+      "sha256": "4dab492bfde590b3b53ea81dc82b1830d516ec2b9af0246498d3dc0b563034e1",
+      "bytes": 603
+    },
+    "needed.json": {
+      "sha256": "61f51953ade333807fcba82a0bcdb429726fb194f0825cf2199e32fee242c11c",
+      "bytes": 2983
+    },
+    "prepare_overlay.py": {
+      "sha256": "a3ae892fae6b83845ac2ff34483bfd1147516d1f75eeb6ba46a06028b364fbfa",
+      "bytes": 2169
+    },
+    "publisher-callback-jobs.json": {
+      "sha256": "b8bcf80cb6a89418bc3c4b25b6712d100a6519982a1192b5895de80703830fad",
+      "bytes": 1262
+    },
+    "response-0-body.bin.gz": {
+      "sha256": "0d3133b81841ebb73c53b1e5f70f9b31e999f5f2fdd61df53ac4bb4ee278331e",
+      "bytes": 33007
+    },
+    "response-1-body.bin.gz": {
+      "sha256": "754116a6fb33916afd26ef8fc643e996375da31039cbcd96ee9bfbc6d7cc7f75",
+      "bytes": 34342
+    },
+    "rollback-callback-jobs.json": {
+      "sha256": "f4d7b679d73f2631adfff7b474c21ca25862fd869eba9f09781553103b68c8cf",
+      "bytes": 1298
+    },
+    "run-final.json": {
+      "sha256": "ccce92f47e11ca40fbfdcde73960f65dd4170b0ddd93c6d56df9b7d065621065",
+      "bytes": 12371
+    },
+    "run-initial.json": {
+      "sha256": "9918de23c4a0b38ab48d88a0a470a74be5f2e5cd172ff195d368eaba0fa174da",
+      "bytes": 12368
+    },
+    "source-probe-artifact.zip": {
+      "sha256": "ff0706e1e6c8c759364012b802a937f0a90a2e2089b95ef7d8251ed74741866f",
+      "bytes": 1934
+    },
+    "source-probe-receipt.json": {
+      "sha256": "ac208c9a10b8d3ab9bde780873ee91aee296cb46236fa96b8a63d7a66734ebd6",
+      "bytes": 7307
+    }
+  }
+}
