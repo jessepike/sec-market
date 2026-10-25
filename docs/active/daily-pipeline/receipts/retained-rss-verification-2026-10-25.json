@@ -1,0 +1,36 @@
+{
+  "tests": [
+    {
+      "sourceId": "checkpoint-email:official:1",
+      "rssUniqueLinks": 10,
+      "rssUniqueGuids": 10,
+      "zonedPublicationDates": 10,
+      "datesNonincreasing": true,
+      "continuationLinks": 0,
+      "candidateGuardReason": "SOURCE_BINDING_UNVERIFIED"
+    },
+    {
+      "sourceId": "github-advanced-security:official:1",
+      "rssUniqueLinks": 10,
+      "rssUniqueGuids": 10,
+      "zonedPublicationDates": 10,
+      "datesNonincreasing": true,
+      "continuationLinks": 0,
+      "candidateGuardReason": "SOURCE_BINDING_UNVERIFIED"
+    },
+    {
+      "sourceId": "trustwave:official:1",
+      "rssUniqueLinks": 10,
+      "rssUniqueGuids": 10,
+      "zonedPublicationDates": 10,
+      "datesNonincreasing": true,
+      "continuationLinks": 0,
+      "candidateGuardReason": "SOURCE_BINDING_UNVERIFIED"
+    }
+  ],
+  "consultedFiles": 17103,
+  "archiveFiles": 17095,
+  "beforeAfterChanges": [],
+  "sealSha256": "dc745c518c5c4210e6dfa4ce5ea4cbfa58e8b3a65e00dd704a434738bfd37d45",
+  "sealBytes": 5014648
+}

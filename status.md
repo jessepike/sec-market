@@ -44,9 +44,12 @@ updates visible. [Repair and review](docs/active/daily-pipeline/accuracy/cross-d
 [Full rehearsal receipt](docs/active/daily-pipeline/receipts/cross-day-local-rehearsal-2026-10-25/manifest.json).
 [Actual failed publication](docs/active/daily-pipeline/accuracy/manual-h-publication-actual-review-2026-10-25.md).
 
-Publisher workflow 393693283 was temporarily disabled at 00:55 UTC while repairing the defect.
-Promote this reviewed repair through preview, re-enable the publisher immediately afterward and
-verify its actual active state. The collector stays active. No reset/refund or extra schedule.
+Repair 6d5e87fe reached main at 01:13 UTC after preview web 40149549356 and archive canary
+40149549391 passed; Vercel preview dpl_3UZVNP2z7gdGtWHBZN2jpkcqc5vM is READY. The promotion
+guard passed all 80 SEC figures. Publisher workflow 393693283 was re-enabled immediately after
+promotion and its actual state is active. The collector remains active. Main web 40149786951
+passed. No additional publisher/collection dispatch, reset/refund or extra schedule.
+[Re-enable receipt](docs/active/daily-pipeline/receipts/publisher-reenabled-after-midnight-repair-2026-10-25.json).
 
 ## Sources, alerts and next receipts
 
@@ -55,7 +58,10 @@ then five redirects from page 27 to itself. Actual seven-endpoint diagnostic 401
 five explicit bodies, charged 115 logical requests and qualified no source. The actual archive
 ac0260ed authenticates all 41,245 entries. The [exact 25-source queue](docs/active/daily-pipeline/accuracy/current-candidate-source-queue-2026-10-24.md)
 records proof gaps and literal next actions; no owner source decision is needed. All 254 missing
-bindings remain in the obligation queue. October 24 source usage ended at 2,095/5,500 fetches,
+bindings remain in the obligation queue. A [retained-feed scope audit](docs/active/daily-pipeline/accuracy/retained-rss-scope-and-window-review-2026-10-25.md)
+now records all 30 exact items, known primary samples, subject/date conflicts and narrower archive
+leads for GitHub, Check Point Email Security and Trustwave. None earns new qualification credit.
+October 24 source usage ended at 2,095/5,500 fetches,
 80/80 model calls and 40/40 documents. No new spending or API billing fallback.
 
 Actual scheduled collector 40082520067 passed under preceding policy 79cdd19b at 09:43 UTC,

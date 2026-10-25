@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "kind": "publisher-reenabled-after-reviewed-repair",
+  "observedAt": "2026-10-25T01:14:20Z",
+  "workflow": {
+    "id": 393693283,
+    "path": ".github/workflows/subscription-publisher.yml",
+    "state": "active"
+  },
+  "pausedAt": "2026-10-25T00:55:43Z",
+  "repairedMain": "6d5e87feba4ffbc75e50f35cb564cb8fd91708ca",
+  "previewWebRun": 40149549356,
+  "previewCanaryRun": 40149549391,
+  "sourceCollectionDispatched": false,
+  "publisherDispatched": false,
+  "gateAttemptsReset": false,
+  "productionStillRelease": "19fde803d09aa544672183769c257e37faf727b75e1914955f54f3c5fb126941"
+}

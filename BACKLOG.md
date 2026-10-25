@@ -60,8 +60,16 @@ IDs attached to prior-day receipts. Production is unchanged. The one-line public
 preserves original task IDs and freshness dates; its actual-archive complete local release rehearsal
 passes 531 tests, with 805 operational tests passing. Independent review is clean. This supersedes
 the earlier aggregate-only replay as release evidence. [Repair review](docs/active/daily-pipeline/accuracy/cross-day-public-source-inventory-fix-independent-review-2026-10-25.md).
-Promote through preview, re-enable the temporarily paused publisher and preserve reviewed main
-during real scheduled acceptance. Manual diagnostics and skipped callbacks remain separate.
+Repair 6d5e87fe is promoted; preview web 40149549356, archive canary 40149549391 and main web
+40149786951 passed. The publisher is active again. Preserve main during real scheduled acceptance.
+Manual diagnostics and skipped callbacks remain separate.
+
+The [three retained-feed item audit](docs/active/daily-pipeline/accuracy/retained-rss-scope-and-window-review-2026-10-25.md)
+adds exact dates/subjects for 30 items and known primary samples. None qualifies. Check Point needs
+its disclosed Email Security category archive and a scoped business-announcement rule; GitHub's
+secret-scanning content must not be lost by an exact product-name-only filter; LevelBlue needs its
+complete press archive and an explicit Trustwave relationship. Preserve the Check Point publication
+time disagreement and every original source date. These sources remain in the same 25-source queue.
 
 October 24 usage ended at 2,095/5,500 fetch reservations, 80/80 models, 40/40 documents and 2/2 gates.
 October 25 has one of two gate attempts charged; one remains. Collector timer: 05:17 UTC, publisher:
