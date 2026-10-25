@@ -1,0 +1,127 @@
+{
+  "activeOrQueuedWriters": [],
+  "actualPublicationVerified": true,
+  "allOriginalDatesSourceClocksAndEvidencePreserved": true,
+  "appRevision": "6d5e87feba4ffbc75e50f35cb564cb8fd91708ca",
+  "archiveCommit": "f96c3bbf27ca98805dd0a6d99d1c7aa7ac27aa30",
+  "archiveManifestSha256": "3eb885833fabf8c7ce4e4219908e306e184c054b739762b15203c11ec1d5a81b",
+  "artifactSha256": "0c645ba2977c3e7e3df04a99d2d677ed5e7149b8608d3b472af0ea0b0c810c36",
+  "checkedAt": "2026-10-25T07:31:04.407756Z",
+  "collectionReceiptSha256": "f2486a623d93da011eaaf11926e09d6ce1533dab26d4a8f2fa2875a95a84d0b6",
+  "correctionGroups": 6,
+  "correctionRowsAndAdmissionsExact": true,
+  "coverage": {
+    "historicalReview": {
+      "complete": false,
+      "heldDocuments": 10,
+      "inventoryDocuments": 10655,
+      "pendingDocuments": 10616,
+      "reviewedDocuments": 39
+    },
+    "intake": {
+      "checked": 264,
+      "required": 557
+    },
+    "processing": {
+      "changedDocuments": 1,
+      "complete": false,
+      "heldDocuments": 10,
+      "inventoryDocuments": 10655,
+      "pendingDocuments": 10617,
+      "reviewedDocuments": 38,
+      "unknownDateDocuments": 291
+    },
+    "validUntil": "2026-10-26T12:45:29.479727+00:00"
+  },
+  "currentEvents": 4,
+  "deployment": {
+    "alias": [
+      "security-market-pulse-pikeholdings.vercel.app"
+    ],
+    "aliasError": null,
+    "buildingAt": 1792913241229,
+    "createdAt": 1792913240357,
+    "creator": {
+      "uid": "um6xyC6srGbNQRAR3KB77kfs",
+      "username": "jessepike"
+    },
+    "id": "dpl_GFKc3mfpR6CSeZt7u62B5LVBqQjv",
+    "meta": {},
+    "name": "security-market-pulse",
+    "project": {
+      "framework": "vite",
+      "id": "prj_g8sZPXo81XT2Xopa1oLrsbYjTehV",
+      "name": "security-market-pulse"
+    },
+    "ready": 1792913242575,
+    "readyState": "READY",
+    "regions": [
+      "iad1"
+    ],
+    "source": "cli",
+    "state": "READY",
+    "target": "production",
+    "type": "LAMBDAS",
+    "url": "security-market-pulse-fqk0jyft3-pikeholdings.vercel.app"
+  },
+  "event": "workflow_dispatch",
+  "factProvenanceReferences": 4,
+  "gateArtifactId": 12590843044,
+  "gateBudget": {
+    "attempts": 2
+  },
+  "gateExecutedTests": 531,
+  "gateInputArchiveCommit": "c19d505b5ea723e64827e604cca6e09ee05a9879",
+  "gateRunId": 40172376435,
+  "githubArtifactDigest": "sha256:ef628abef50d32f88c9c8dec0a04099f74b84a5fa7d954f1d22d7e8931d6b3d4",
+  "issue12": {
+    "closedAt": "2026-10-25T07:28:33Z",
+    "state": "closed",
+    "url": "https://github.com/jessepike/sec-market/issues/12"
+  },
+  "pendingHistoricalEvents": 4,
+  "publicHost": "https://securitymarketpulse.com",
+  "publisherConclusion": "success",
+  "publisherRunId": 40172130763,
+  "publisherStatus": "completed",
+  "realTimerProof": false,
+  "releaseId": "fc8bf0984dbeacbe79519574911837d8b638f42215f6547e31ae8968b29951e4",
+  "reviewQueueEntries": 37,
+  "sequence": 4,
+  "snapshotSha256": "8ba13011b9d29b875082a551800d57e265238fd7ffd649ff7b99f7072ab25a89",
+  "sourceBudget": {
+    "calls": 72,
+    "documents": 33,
+    "fetches": 444
+  },
+  "staticFileProof": {
+    "allBytesExact": true,
+    "artifactStaticFiles": 52,
+    "hosts": 2,
+    "verifiedRequests": 106,
+    "withDetachedReceipt": 53
+  },
+  "verifierDispatches": 0,
+  "verifierMutations": 0,
+  "verifierSourceOrModelRequests": 0,
+  "evidenceCapturedBeforeSeparateManualDrill": true,
+  "manualDrillIsSeparate": true,
+  "gateInputBudgetBeforeReservation": {
+    "attempts": 1
+  },
+  "gateBudgetRemaining": 0,
+  "publisherArtifact": {
+    "id": 12591016676,
+    "sha256": "84f9ac4e12a5a3ea9ed4a5ec4fd9ee32b47ec3ca3ec6cd5236ab0a5d475fa799",
+    "bytes": 600
+  },
+  "sourceArchivePhysicalWritesByVerifier": 0,
+  "rawArtifactStorage": "/var/tmp/smp-manual-freshness-publication-40172130763-20261025",
+  "activeRunCountAtCapture": 0,
+  "queuedRunCountAtCapture": 0,
+  "gateLogCountsDerived": {
+    "data": 373,
+    "pipeline": 115,
+    "browser": 43
+  }
+}

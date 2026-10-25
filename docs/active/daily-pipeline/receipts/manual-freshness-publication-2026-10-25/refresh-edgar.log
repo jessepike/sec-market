@@ -1,0 +1,23 @@
+
+> security-market-pulse@0.0.0 refresh:edgar
+> tsx --tsconfig tsconfig.app.json scripts/edgar-refresh.ts
+
+ok    crwd         RevenueFromContractWithCustomerIncludingAssessedTax — 8 quarters
+ok    zscaler      RevenueFromContractWithCustomerExcludingAssessedTax — 8 quarters
+ok    panw         RevenueFromContractWithCustomerExcludingAssessedTax — 8 quarters
+ok    fortinet     RevenueFromContractWithCustomerExcludingAssessedTax — 8 quarters
+ok    cloudflare   RevenueFromContractWithCustomerExcludingAssessedTax — 8 quarters
+ok    okta         RevenueFromContractWithCustomerExcludingAssessedTax — 8 quarters
+ok    sailpoint    RevenueFromContractWithCustomerExcludingAssessedTax — 8 quarters
+ok    s1           RevenueFromContractWithCustomerExcludingAssessedTax — 8 quarters
+ok    rubrik       RevenueFromContractWithCustomerExcludingAssessedTax — 8 quarters
+ok    varonis      RevenueFromContractWithCustomerIncludingAssessedTax — 8 quarters
+ok    netskope     RevenueFromContractWithCustomerExcludingAssessedTax — 7 quarters
+ok    tenable      RevenueFromContractWithCustomerExcludingAssessedTax — 8 quarters
+ok    qualys       RevenueFromContractWithCustomerExcludingAssessedTax — 8 quarters
+ok    rapid7       RevenueFromContractWithCustomerExcludingAssessedTax — 8 quarters
+ok    commvault    RevenueFromContractWithCustomerExcludingAssessedTax — 8 quarters
+ok    jfrog        RevenueFromContractWithCustomerExcludingAssessedTax — 8 quarters
+
+wrote /home/runner/work/sec-market/sec-market/application/web/src/data/generated/edgarFacts.json
+16 ok, 0 failed, 4 unsupported by design

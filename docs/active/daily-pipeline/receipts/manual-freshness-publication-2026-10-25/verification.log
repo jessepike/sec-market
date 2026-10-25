@@ -1,0 +1,45 @@
+{
+  "actualPublicationVerified": true,
+  "publisherStatus": "completed",
+  "publisherConclusion": "success",
+  "releaseId": "fc8bf0984dbeacbe79519574911837d8b638f42215f6547e31ae8968b29951e4",
+  "staticFileProof": {
+    "artifactStaticFiles": 52,
+    "withDetachedReceipt": 53,
+    "hosts": 2,
+    "verifiedRequests": 106,
+    "allBytesExact": true
+  },
+  "coverage": {
+    "intake": {
+      "checked": 264,
+      "required": 557
+    },
+    "processing": {
+      "complete": false,
+      "inventoryDocuments": 10655,
+      "reviewedDocuments": 38,
+      "pendingDocuments": 10617,
+      "heldDocuments": 10,
+      "changedDocuments": 1,
+      "unknownDateDocuments": 291
+    },
+    "historicalReview": {
+      "complete": false,
+      "inventoryDocuments": 10655,
+      "reviewedDocuments": 39,
+      "pendingDocuments": 10616,
+      "heldDocuments": 10
+    },
+    "validUntil": "2026-10-26T12:45:29.479727+00:00"
+  },
+  "issue12": {
+    "state": "closed",
+    "closedAt": "2026-10-25T07:28:33Z",
+    "url": "https://github.com/jessepike/sec-market/issues/12"
+  },
+  "gateBudget": {
+    "attempts": 2
+  },
+  "activeOrQueuedWriters": []
+}
