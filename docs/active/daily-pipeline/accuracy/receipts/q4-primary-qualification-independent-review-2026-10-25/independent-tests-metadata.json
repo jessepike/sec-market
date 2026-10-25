@@ -1,0 +1,16 @@
+{
+  "command": "orb run -m dev env PYTHONDONTWRITEBYTECODE=1 python3 -B /var/tmp/smp-q4-primary-independent-tests-20261025.py",
+  "tests": 15,
+  "failures": 0,
+  "skips": 0,
+  "exitCode": 0,
+  "rawLog": {
+    "sha256": "8b0c6bdd18345f98514396fc62f0351f29b1bed7b4e5f70a3cacc735425e3b02",
+    "bytes": 1508
+  },
+  "gzip": {
+    "sha256": "42275debe25ba7a7baca42968d19f62e55e09eeafd30ae03332b93a2507e88a6",
+    "bytes": 412
+  },
+  "byteExactRoundTrip": true
+}

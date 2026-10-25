@@ -1,0 +1,57 @@
+{
+  "fullPage": true,
+  "localUrl": "http://127.0.0.1:18820/",
+  "productionUrl": "https://securitymarketpulse.com/",
+  "sameDataPriorLocalComparison": [
+    {
+      "width": 1440,
+      "previous": "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-initial-data-local-1440.png",
+      "current": "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-primary-local-1440.png",
+      "dimensions": [
+        1440,
+        8379
+      ],
+      "differentPixels": 0,
+      "pixelIdentical": true,
+      "previousSha256": "b044622ff53e695fee8334a95746b932c0df81ff6e26ecb810bfd9228765cdd9",
+      "currentSha256": "b044622ff53e695fee8334a95746b932c0df81ff6e26ecb810bfd9228765cdd9"
+    },
+    {
+      "width": 390,
+      "previous": "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-initial-data-local-390.png",
+      "current": "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-primary-local-390.png",
+      "dimensions": [
+        390,
+        7749
+      ],
+      "differentPixels": 0,
+      "pixelIdentical": true,
+      "previousSha256": "7dc872da46a4cf5e2eb765df88e1ae28e34eb70f8d5c38b19835bab09afcd3df",
+      "currentSha256": "7dc872da46a4cf5e2eb765df88e1ae28e34eb70f8d5c38b19835bab09afcd3df"
+    }
+  ],
+  "productionImages": [
+    {
+      "kind": "production",
+      "width": 1440,
+      "path": "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-primary-production-1440.png",
+      "dimensions": [
+        1440,
+        8358
+      ],
+      "sha256": "5d04b34e2ffb5f520d45a06487e9ef7eb4ae671eb4cf7dce86626a2ffd1a6267",
+      "bytes": 986229
+    },
+    {
+      "kind": "production",
+      "width": 390,
+      "path": "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-primary-production-390.png",
+      "dimensions": [
+        390,
+        7611
+      ],
+      "sha256": "6da1a1dd0d2591dedb6bef743460ce9659853c84ff3539a59308c5e0cf347b75",
+      "bytes": 418882
+    }
+  ]
+}

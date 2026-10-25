@@ -41,6 +41,9 @@ original facts/dates, six admissions and old holds pass the authenticated replay
 | Actual source clocks | New full/304 observations and separate immutable rechecks derive private expiry October 26 at 15:55:27.307096 UTC. Original logical-plan and evidence dates remain. |
 | October 25 ledger | 867/5,500 fetches, 80/80 model calls, 38/40 documents; gates 2/2. The diagnostic charged exactly two fetches; no reset or paid fallback. |
 
+Those 264 passes comprise 196 existing-citation checks, 48 SEC checks, 17 official-announcement
+checks and three investor/acquirer checks. Broader source coverage remains incomplete.
+
 Collector acknowledgement is 310082e9, manifest 69882c24…cd16a. Automatic publisher
 40183462577 actually failed with DAILY_GATE_BUDGET_EXHAUSTED, without a third gate or public
 change. Assigned [issue 14](https://github.com/jessepike/sec-market/issues/14) records that failure;
@@ -79,9 +82,12 @@ pagination/terminal and primary-sample proof remains explicit. Rubrik still lack
 page 27 self-redirect proves no terminal, and the next seven-index plan stays dormant with
 a 257-request whole-operation bound. No owner source decision is currently required.
 The [next Q4 build specification](docs/active/daily-pipeline/accuracy/q4-single-response-qualification-build-spec-2026-10-25.md)
-prepares a dormant single-response parser and two exact financial primary samples. Independent
-design review passes with no findings; the bounded implementation is next. H and disabled ad1
-remain unchanged during that build.
+now has its dormant single-response parser and two exact financial primary samples. Independent
+implementation review passes with no open findings after two date-metadata fixes. Final operational
+checks pass 909/909, focused route checks 126/126, and the full application checks pass with one
+existing browser skip. Both rendered widths remain byte-exact to the preceding local build.
+H and disabled ad1 remain unchanged. The separate operational specification selects only two
+article requests after exact selection review; actual samples and normal-source activation remain.
 
 ## Remaining acceptance
 

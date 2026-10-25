@@ -1,0 +1,505 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS_DORMANT_BUILD_ONLY",
+  "runtime": "OrbStack dev only",
+  "governingSpec": {
+    "sha256": "3636bfccc2921e350916d9c15e9e2cb181ee6261c83ab15457bc3942695cadae",
+    "bytes": 7382
+  },
+  "codeAndPlanPins": {
+    "web/scripts/pipeline/q4_press_list.py": {
+      "sha256": "f1acf87f53b0b8c5ed9e5b3a181b7832a197f7276a9434a229d29317e7987594",
+      "bytes": 5690
+    },
+    "web/scripts/pipeline/q4_primary_qualification.py": {
+      "sha256": "cfb164c4c0a19bd890d4522547351bc55a1dc3697d8df5b48af4ead460457235",
+      "bytes": 26458
+    },
+    "ops/ci/test_q4_press_list.py": {
+      "sha256": "aa4492b0498ebdf0e59e91bb787076a6ed1c786f903fd4767c4d23aeea5256f4",
+      "bytes": 10150
+    },
+    "ops/ci/test_q4_primary_qualification.py": {
+      "sha256": "7462fd77ea6c35004170acb2af0f670c7be63df313fb3f4956f76f997117b986",
+      "bytes": 27482
+    },
+    "ops/ci/collect.py": {
+      "sha256": "044a560af19cc1e7a6fec9d87cc8461831dab491f7c42d3dd1d789c9bc3fe6d1",
+      "bytes": 26316
+    },
+    "docs/active/daily-pipeline/accuracy/q4-primary-qualification-plan-2026-10-25.json": {
+      "sha256": "3a25e8e262b51fbf6f872c8655b25c9d255cf52b32ca0e9c4afa73d78893fbd4",
+      "bytes": 4211
+    }
+  },
+  "canonicalPlanSha256": "3b7fc7c4de41c68471d4343f103e7e5ee705e5a4a51f760f5387e34a49a660ee",
+  "protectedPins": {
+    "contracts/market.json": {
+      "sha256": "24221c946781559c0ff3626e4e479c4647da915d0f2d7559ea88046982532c3c",
+      "bytes": 284062,
+      "equalToHead": true
+    },
+    "contracts/source-qualification-probes.json": {
+      "sha256": "ad1c5cc234fe4fa69cbceb5370ac74825a37dc80b08528ca908d14b1352e53b4",
+      "bytes": 173,
+      "equalToHead": true
+    },
+    "contracts/factual-corrections.json": {
+      "sha256": "9c9fbe0d3d40ece11e1407ce9460086c732f62da88d3b0f220ab9d6f8757da00",
+      "bytes": 32004,
+      "equalToHead": true
+    },
+    "web/src/data/tracker/factualCorrectionPolicy.json": {
+      "sha256": "7319ece4c5c4f6c7d515fb9ef7ff13211daf38e041948edd26732e9ccfa2dbc7",
+      "bytes": 1721,
+      "equalToHead": true
+    },
+    "web/scripts/pipeline/engine.py": {
+      "sha256": "e471f18006a4899406510cdede42829476ba1945b58c420c61f6edce767a7e19",
+      "bytes": 54002,
+      "equalToHead": true
+    },
+    "web/scripts/pipeline/onboarding.py": {
+      "sha256": "f15e008c081f0b9c48e53ab0b4c4388798d2bd54aaade904188b40305aa6bb69",
+      "bytes": 112821,
+      "equalToHead": true
+    },
+    "web/scripts/pipeline/discovery.py": {
+      "sha256": "2611635de944f025e848d8a7b15dfff2a328ac67a11a122a774eb46b2e1e7f68",
+      "bytes": 70911,
+      "equalToHead": true
+    },
+    "web/scripts/pipeline/contracts.py": {
+      "sha256": "7a9dbf1c4a59391f79519b2aefe688ec572733e2223fd99fa352688b8d1c2d89",
+      "bytes": 10994,
+      "equalToHead": true
+    },
+    "web/scripts/pipeline/source_qualification_origin.py": {
+      "sha256": "955ddadd22585672f677b533a6478034cb8048a0ec71faea37af0bfa74469bc6",
+      "bytes": 41012,
+      "equalToHead": true
+    },
+    "web/scripts/pipeline/q4_controller_capture.py": {
+      "sha256": "8720cd8bed0c533201c24565ca28b23198f99f8a352213e07774f6f05f15ffb3",
+      "bytes": 23612,
+      "equalToHead": true
+    },
+    "web/scripts/pipeline/q4_initial_data_capture.py": {
+      "sha256": "87ded82d37b5c51a121b769eaa084ad20bc691ca16a25929d13e7b004a99f8be",
+      "bytes": 20597,
+      "equalToHead": true
+    },
+    "web/scripts/pipeline/corrections.py": {
+      "sha256": "d742a91d4d23da5db3b426afcef76a80971c47dd54f8e4312065a6994f87b11f",
+      "bytes": 44838,
+      "equalToHead": true
+    },
+    "web/scripts/verify-factual-corrections.mjs": {
+      "sha256": "386093e726ccf9c2bdbe0b9115885ad74360e2c7cd81577554f335e9ee4f2f06",
+      "bytes": 19275,
+      "equalToHead": true
+    },
+    "ops/watchdog/probe.py": {
+      "sha256": "0b9793222a04511ee0b670bb4a3131ec5cd9662f33dd111a0d319797d3b80ac3",
+      "bytes": 27504,
+      "equalToHead": true
+    },
+    ".github/workflows/certified-refresh.yml": {
+      "sha256": "c7ed787713c4eff39e03ab372a707221aab6b3876ccbaaab1da74491397c4323",
+      "bytes": 7214,
+      "equalToHead": true
+    },
+    ".github/workflows/freshness.yml": {
+      "sha256": "3cd45a810ce4a5320bd9404dff6d9fba58d948988031aac4b0dd997f90c796ef",
+      "bytes": 7101,
+      "equalToHead": true
+    },
+    ".github/workflows/market-release-gate.yml": {
+      "sha256": "a93ccaeaff862f6dd4ab54179ed030d2d613a3cf575e6e4975395ca744d68708",
+      "bytes": 5307,
+      "equalToHead": true
+    },
+    ".github/workflows/production-rollback-drill.yml": {
+      "sha256": "6288d2bcb631edc3eb05f611124d9e7b4a1166c9ef51a15cdb1fd229822d0bd4",
+      "bytes": 4124,
+      "equalToHead": true
+    },
+    ".github/workflows/promote.yml": {
+      "sha256": "3ee866caf65eb9f6609dc5877ce629ee6e8a440b231a02cfef4cce15bb40d77e",
+      "bytes": 10433,
+      "equalToHead": true
+    },
+    ".github/workflows/subscription-account-bootstrap.yml": {
+      "sha256": "baa5a8c8d0fa4fff221437b945220469f0708494d9dad2e821c2e6438dca6ffd",
+      "bytes": 2022,
+      "equalToHead": true
+    },
+    ".github/workflows/subscription-account-probe.yml": {
+      "sha256": "5729c1884da220f99665427c298356580c64306ed15067681a30c5b46fc99e74",
+      "bytes": 1918,
+      "equalToHead": true
+    },
+    ".github/workflows/subscription-collector.yml": {
+      "sha256": "268fb316bd00670fc76d6a464c449d5e3f3d9e03a083680e2fab813d3daa4fe0",
+      "bytes": 5406,
+      "equalToHead": true
+    },
+    ".github/workflows/subscription-publisher-probe.yml": {
+      "sha256": "66fdaad150fae1c08a469e22d174d5aa1c33ec177dbc0124d10c587e4b3ea7f5",
+      "bytes": 2920,
+      "equalToHead": true
+    },
+    ".github/workflows/subscription-publisher.yml": {
+      "sha256": "b6eb167cf43aab8624dd69eaabfe9900a4c192789cef4c286cdb477c0b897b7b",
+      "bytes": 3870,
+      "equalToHead": true
+    },
+    ".github/workflows/subscription-runtime-canary.yml": {
+      "sha256": "1af4f54a8bd156fad88d32eea23257362ac725d6208da73a6044fc721c999717",
+      "bytes": 1676,
+      "equalToHead": true
+    },
+    ".github/workflows/web.yml": {
+      "sha256": "8afd1f77a539afbea9bbd3cda3da7ac9903d8c9dcbec955fe259107ba81aac0d",
+      "bytes": 2352,
+      "equalToHead": true
+    }
+  },
+  "checks": {
+    "focusedNew": {
+      "parser": 11,
+      "primaryOperation": 21,
+      "total": 32,
+      "skips": 0
+    },
+    "focusedWithOldRoutes": {
+      "tests": 126,
+      "skips": 0,
+      "elapsedSeconds": 4.288
+    },
+    "fullOperational": {
+      "tests": 909,
+      "skips": 0,
+      "elapsedSeconds": 22.02
+    },
+    "fullApplication": {
+      "dataTests": 377,
+      "pipelineTests": 115,
+      "browserPassed": 42,
+      "browserExistingFixtureSkipped": 1,
+      "lintErrors": 0,
+      "preexistingLintWarnings": 1,
+      "build": "pass"
+    },
+    "gitDiffCheck": "pass",
+    "finalMetadataFixAdversarialCoverage": "Covered in final 909 ops and126 focused suites; independent 15-case suite is attributed to the separate reviewer."
+  },
+  "commands": {
+    "fullOps": "orb run -m dev python3 -B -m unittest discover -s ops/ci -p test_*.py -v",
+    "focused": "orb run -m dev env PYTHONPATH=ops/ci:web/scripts/pipeline python3 -B -m unittest -v test_q4_press_list test_q4_primary_qualification test_q4_controller_capture test_q4_initial_data_capture test_leased_source_probe test_leased_orca_probe test_disabled_qualification_plan test_onboarding_budget",
+    "application": "orb run -m dev npm test --prefix web",
+    "actualReplay": "orb run -m dev python3 -B /var/tmp/smp-q4-primary-build-20261025/verify_actual_inputs.py"
+  },
+  "actualEvidence": {
+    "archiveCommit": "d6606a4f5dd1e1afc5f16dea6d91bc422347f8aa",
+    "manifestSha256": "40873bfd2dca9836b58ac325a3afb32919fb463b2082752cb72fc785a2d7239d",
+    "inputSeals": 76,
+    "sealsUnchanged": true,
+    "sourceRecords": [
+      206,
+      323
+    ],
+    "sourceCurrentWindowRecords": [
+      3,
+      4
+    ],
+    "originalAsOf": [
+      "2026-10-25T10:19:17.801039Z",
+      "2026-10-25T10:19:17.801039Z"
+    ],
+    "sixAdmissions": [
+      {
+        "groupId": "FC-20261023-checkpoint-sase",
+        "groupPolicySha256": "36bc23722c1131f94ab3c2db1c553505539987aa55738cfa9bb72dfa3871ad6f",
+        "admission": {
+          "bytes": 1522,
+          "key": "objects/1bcaa2ca22fcb4c24597fc477c406abddf9ddb20853a4d290c79322bee46afa9",
+          "sha256": "1bcaa2ca22fcb4c24597fc477c406abddf9ddb20853a4d290c79322bee46afa9"
+        }
+      },
+      {
+        "groupId": "FC-20261023-optiv",
+        "groupPolicySha256": "4f9e7feb90232a3aafe2cd84265c2e8202c9e009229e7592c5ab87373f64bcf5",
+        "admission": {
+          "bytes": 1014,
+          "key": "objects/580099157608b61895574d2b136c93a940109f82d0a33459388a83f46fbc7bf2",
+          "sha256": "580099157608b61895574d2b136c93a940109f82d0a33459388a83f46fbc7bf2"
+        }
+      },
+      {
+        "groupId": "FC-20261023-splunk",
+        "groupPolicySha256": "270b7c7a1f7180b3fef2896b7633a87bf0667b9f4a3c75593fa72b959ecb87f6",
+        "admission": {
+          "bytes": 988,
+          "key": "objects/a42addfcd5043dceffcd259fc8bdac7486b012400fae4b82ce0e5b00968e18af",
+          "sha256": "a42addfcd5043dceffcd259fc8bdac7486b012400fae4b82ce0e5b00968e18af"
+        }
+      },
+      {
+        "groupId": "FC-20261023-zscaler",
+        "groupPolicySha256": "dc8522069fc87cbf0371e0ea29ec80fbf647c1dd7ce816e02a7fb4a94b35a390",
+        "admission": {
+          "bytes": 1460,
+          "key": "objects/f255c470cc078e1d44399f7e2027134b466f23cc5939437d196bef9d7aa04e4b",
+          "sha256": "f255c470cc078e1d44399f7e2027134b466f23cc5939437d196bef9d7aa04e4b"
+        }
+      },
+      {
+        "groupId": "FC-20261023-expel",
+        "groupPolicySha256": "d1ea72b754450e603d89092cc38d9fa81d165575af2a36745e5938220fd82087",
+        "admission": {
+          "bytes": 1493,
+          "key": "objects/b120ca46429f8e52a09d4fce293c14ddb08319212b2b9a8e0f10b39661deed4c",
+          "sha256": "b120ca46429f8e52a09d4fce293c14ddb08319212b2b9a8e0f10b39661deed4c"
+        }
+      },
+      {
+        "groupId": "XAGE-SOURCE-CLASS-20261023",
+        "groupPolicySha256": "c01560dba484aa5aa5696c8bfe5b44acefc6337ee1cebe0cd96751849e15646a",
+        "admission": {
+          "bytes": 1340,
+          "key": "objects/ec322362de6fb9e4e20cea0c9ed825990a01bf0c41d5b32662ab6131914f6c98",
+          "sha256": "ec322362de6fb9e4e20cea0c9ed825990a01bf0c41d5b32662ab6131914f6c98"
+        }
+      }
+    ],
+    "baseline": {
+      "budget": {
+        "calls": 80,
+        "documents": 38,
+        "fetches": 867
+      },
+      "gates": {
+        "attempts": 2
+      },
+      "factReferences": 4,
+      "heldQueue": 38,
+      "sourceValidUntil": "2026-10-26T15:55:27.307096+00:00",
+      "production": {
+        "deploymentId": "https://security-market-pulse-fqk0jyft3-pikeholdings.vercel.app",
+        "releaseId": "fc8bf0984dbeacbe79519574911837d8b638f42215f6547e31ae8968b29951e4",
+        "sequence": 4
+      }
+    },
+    "networkDenied": true,
+    "frozenLocalStoreInitializationDenied": true,
+    "actualPrimarySamplesCaptured": 0
+  },
+  "renders": {
+    "fullPage": true,
+    "localUrl": "http://127.0.0.1:18820/",
+    "productionUrl": "https://securitymarketpulse.com/",
+    "sameDataPriorLocalComparison": [
+      {
+        "width": 1440,
+        "previous": "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-initial-data-local-1440.png",
+        "current": "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-primary-local-1440.png",
+        "dimensions": [
+          1440,
+          8379
+        ],
+        "differentPixels": 0,
+        "pixelIdentical": true,
+        "previousSha256": "b044622ff53e695fee8334a95746b932c0df81ff6e26ecb810bfd9228765cdd9",
+        "currentSha256": "b044622ff53e695fee8334a95746b932c0df81ff6e26ecb810bfd9228765cdd9"
+      },
+      {
+        "width": 390,
+        "previous": "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-initial-data-local-390.png",
+        "current": "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-primary-local-390.png",
+        "dimensions": [
+          390,
+          7749
+        ],
+        "differentPixels": 0,
+        "pixelIdentical": true,
+        "previousSha256": "7dc872da46a4cf5e2eb765df88e1ae28e34eb70f8d5c38b19835bab09afcd3df",
+        "currentSha256": "7dc872da46a4cf5e2eb765df88e1ae28e34eb70f8d5c38b19835bab09afcd3df"
+      }
+    ],
+    "productionImages": [
+      {
+        "kind": "production",
+        "width": 1440,
+        "path": "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-primary-production-1440.png",
+        "dimensions": [
+          1440,
+          8358
+        ],
+        "sha256": "5d04b34e2ffb5f520d45a06487e9ef7eb4ae671eb4cf7dce86626a2ffd1a6267",
+        "bytes": 986229
+      },
+      {
+        "kind": "production",
+        "width": 390,
+        "path": "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-primary-production-390.png",
+        "dimensions": [
+          390,
+          7611
+        ],
+        "sha256": "6da1a1dd0d2591dedb6bef743460ce9659853c84ff3539a59308c5e0cf347b75",
+        "bytes": 418882
+      }
+    ]
+  },
+  "imagesViewedByWorker": true,
+  "imagesViewedByRoot": true,
+  "visualFinding": "No visible change from this build. Current local images are byte/pixel identical to previous same-data local images. Production uses a different pre-existing data fixture and is not claimed identical to local.",
+  "localServerPort": 18820,
+  "localServerStopped": true,
+  "sourceRequests": 0,
+  "modelRequests": 0,
+  "qualificationCredit": false,
+  "semanticAdmission": false,
+  "coverageCredit": false,
+  "facts": [],
+  "normalRegistrationChanged": false,
+  "operationalPlanStillDisabled": true,
+  "independentReview": {
+    "verdict": "PASS",
+    "openFindings": 0,
+    "independentCases": 15,
+    "totalSeals": 88,
+    "archiveInputs": 68,
+    "references": {
+      "q4-primary-qualification-independent-review-2026-10-25.md": {
+        "sha256": "11ab6f34c2b054c9b6e2783955fba9a07bf64a23512539637c0ce582802c0925",
+        "bytes": 8893
+      },
+      "q4-primary-qualification-independent-review-2026-10-25.json": {
+        "sha256": "0906e5d173507af69201887bfee11f1a6efbaceefc21b883de84fc6a755738e7",
+        "bytes": 37771
+      }
+    }
+  },
+  "laterActivationSpec": {
+    "path": "docs/active/daily-pipeline/accuracy/q4-primary-qualification-operational-activation-spec-2026-10-25.md",
+    "sha256": "110439cbf059b6f938c5ee9da978f8c5190d96aae888c8682e53f82cfa938fb6",
+    "bytes": 4495,
+    "appliedByThisBuild": false
+  },
+  "logs": {
+    "full-ops-tests.log": {
+      "file": "full-ops-tests.log.gz",
+      "raw": {
+        "sha256": "c7bcccce02d8da17c4ad9fa17e02f294ce1a1eb13e5901f8bd014e508d64aa2d",
+        "bytes": 169182
+      },
+      "rawLineCount": 914,
+      "gzip": {
+        "sha256": "63ea0fbc2c6e4bf0d5b39fd23747ee9e52d69e1a06e86a414d8b67924a8c64bb",
+        "bytes": 25250
+      },
+      "byteExactRoundTrip": true,
+      "gzipMtime": 0,
+      "gzipEmbeddedFilename": ""
+    },
+    "focused-old-routes.log": {
+      "file": "focused-old-routes.log.gz",
+      "raw": {
+        "sha256": "015efc89232d070f588b247a376dbf287535ad0981b12a316ba916f490c0d62f",
+        "bytes": 23356
+      },
+      "rawLineCount": 131,
+      "gzip": {
+        "sha256": "00e9b3b5957d875eca36001eb324213ab1ff0414024268c2fbbf2f133d9d6d1a",
+        "bytes": 3769
+      },
+      "byteExactRoundTrip": true,
+      "gzipMtime": 0,
+      "gzipEmbeddedFilename": ""
+    },
+    "full-web-tests.log": {
+      "file": "full-web-tests.log.gz",
+      "raw": {
+        "sha256": "d0c02bb24ed50c3338b8a4bf097b287846deffbdf60dad9492b6f25896d7a1dc",
+        "bytes": 127015
+      },
+      "rawLineCount": 2998,
+      "gzip": {
+        "sha256": "5fc9675285205830dae5dbf6063ccec0de28f61ad72cea4f848d9de1f3ba0863",
+        "bytes": 25480
+      },
+      "byteExactRoundTrip": true,
+      "gzipMtime": 0,
+      "gzipEmbeddedFilename": ""
+    },
+    "production-shots.log": {
+      "file": "production-shots.log.gz",
+      "raw": {
+        "sha256": "15f9457f0df8a5ad5df87be25befab175aa98cd4c9878e113f5cd6d89f952cbc",
+        "bytes": 374
+      },
+      "rawLineCount": 2,
+      "gzip": {
+        "sha256": "a7aa6340f543367e6f6d55db9bd26395243519fca182ef0a2ec0fcc2553f0b4e",
+        "bytes": 190
+      },
+      "byteExactRoundTrip": true,
+      "gzipMtime": 0,
+      "gzipEmbeddedFilename": ""
+    },
+    "local-shots.log": {
+      "file": "local-shots.log.gz",
+      "raw": {
+        "sha256": "393ba520842953f818d737f2c11f6ba05a6df16a9195af4f3138be6221275367",
+        "bytes": 346
+      },
+      "rawLineCount": 2,
+      "gzip": {
+        "sha256": "0b13fc27a1193ba5aa2ac5e9b559b097e0d88db6c185a126b7db0fd69487f7b9",
+        "bytes": 185
+      },
+      "byteExactRoundTrip": true,
+      "gzipMtime": 0,
+      "gzipEmbeddedFilename": ""
+    },
+    "actual-readonly-replay.log": {
+      "file": "actual-readonly-replay.log.gz",
+      "raw": {
+        "sha256": "b46d010b3a86f5553ffd80aee3f0f87916161de9afe2fddc3e8073fbf4a7c4dc",
+        "bytes": 129
+      },
+      "rawLineCount": 1,
+      "gzip": {
+        "sha256": "78f312b19d46c77538afda768da3082e7f2f3b7cccc3b6e45158d5215f6ff379",
+        "bytes": 125
+      },
+      "byteExactRoundTrip": true,
+      "gzipMtime": 0,
+      "gzipEmbeddedFilename": ""
+    }
+  },
+  "references": {
+    "q4-single-response-qualification-build-spec-2026-10-25.md": {
+      "sha256": "3636bfccc2921e350916d9c15e9e2cb181ee6261c83ab15457bc3942695cadae",
+      "bytes": 7382
+    },
+    "q4-single-response-qualification-build-spec-independent-review-2026-10-25.md": {
+      "sha256": "eef43be4f2cfaf24a66ffb500dc95e7f356faff8569e95ef2001e78e21c9a582",
+      "bytes": 4039
+    },
+    "q4-primary-qualification-independent-review-2026-10-25.md": {
+      "sha256": "11ab6f34c2b054c9b6e2783955fba9a07bf64a23512539637c0ce582802c0925",
+      "bytes": 8893
+    },
+    "q4-primary-qualification-independent-review-2026-10-25.json": {
+      "sha256": "0906e5d173507af69201887bfee11f1a6efbaceefc21b883de84fc6a755738e7",
+      "bytes": 37771
+    },
+    "q4-primary-qualification-operational-activation-spec-2026-10-25.md": {
+      "sha256": "110439cbf059b6f938c5ee9da978f8c5190d96aae888c8682e53f82cfa938fb6",
+      "bytes": 4495
+    }
+  }
+}

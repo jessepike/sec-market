@@ -241,7 +241,7 @@ def execute_source_probe(root, state, session, contract, maximum_seconds):
         require(0 < len(qualification_raw) <= 1_000_000, 'QUALIFICATION_PLAN_SIZE_INVALID')
         selected_plan = json.loads(qualification_raw)
         selected_q4 = isinstance(selected_plan, dict) and selected_plan.get('operation') in (
-            'bounded_q4_controller_capture', 'bounded_q4_initial_data_capture')
+            'bounded_q4_controller_capture', 'bounded_q4_initial_data_capture', 'bounded_q4_primary_qualification')
         orca = None
         q4 = None
         if isinstance(selected_plan, dict) and selected_plan.get('operation') == 'bounded_orca_qualification':
@@ -252,6 +252,9 @@ def execute_source_probe(root, state, session, contract, maximum_seconds):
             q4_plan = q4.validate_plan(contract, state, qualification_raw, qualification_plan)
         elif isinstance(selected_plan, dict) and selected_plan.get('operation') == 'bounded_q4_initial_data_capture':
             import q4_initial_data_capture as q4
+            q4_plan = q4.validate_plan(contract, state, qualification_raw, qualification_plan)
+        elif isinstance(selected_plan, dict) and selected_plan.get('operation') == 'bounded_q4_primary_qualification':
+            import q4_primary_qualification as q4
             q4_plan = q4.validate_plan(contract, state, qualification_raw, qualification_plan)
         else:
             validate_qualification_probe_plan(contract, state, qualification_plan)

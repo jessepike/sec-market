@@ -26,6 +26,10 @@ navigation SEC-074 follow reliable current operation.
 | Current allowances |867/5,500 fetches, 80/80 calls, 38/40 documents, gates 2/2. The actual two-request diagnostic charged exactly two additional fetches. |
 | Reader value, sustained operation and general accuracy | Unmeasured. The owner reports no useful real use yet. Five repaired benchmark contradictions do not establish general precision/recall. |
 
+The audited 264 passes comprise 196 citation-integrity checks, 48 SEC checks, 17 official-
+announcement checks and three investor/acquirer checks. This composition matters when assessing
+the breadth of recurring market coverage.
+
 [Scheduled audit](docs/active/daily-pipeline/accuracy/scheduled-h-acceptance-2026-10-25.md),
 [manual publication](docs/active/daily-pipeline/accuracy/manual-freshness-publication-2026-10-25.md),
 [rollback proof](docs/active/daily-pipeline/accuracy/recovery-rollback-restoration-2026-10-25.md).
@@ -65,7 +69,11 @@ single-response index mode. Exact disabled ad1 is restored remotely on main 118e
 Closure preview 40185298950 and main 40185476864 pass, Vercel preview is READY and its main
 Git production build CANCELED. All 45 focused restoration checks pass; public receipt stays
 byte-exact. The next dormant [Q4 qualification build](docs/active/daily-pipeline/accuracy/q4-single-response-qualification-build-spec-2026-10-25.md)
-prepares the strict parser and two financial primary samples, preserving H and ad1.
+has the strict parser and two financial primary samples, preserving H and ad1. Independent
+implementation review passes with no open findings; final 909 operational and 126 focused route
+checks pass, full application checks pass, and both local render widths are unchanged.
+Next are exact selection review and the actual two requests, then a separate inventory-only
+origin/policy transition and fresh normal intake if actual proof passes.
 Neither captured JSON nor request sentinels establish complete window/pagination or qualification.
 [Execution specification](docs/active/daily-pipeline/accuracy/q4-initial-data-operational-activation-spec-2026-10-25.md).
 
