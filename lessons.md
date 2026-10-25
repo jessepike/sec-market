@@ -130,3 +130,18 @@ unqualified with zero coverage credit. Tests use fictional fetchers and temporar
 - SentinelOne's retained SEC filing requests a padded issuer directory and ends at the unpadded directory. One explicit source/evidence/body attestation can bind that actual identity while all other URL spellings remain rejected. Bind the rule only to the using group's review policy so older admissions keep their original hashes. Replay conditional-response provenance with actual observation times; a newer 304 is not a new full download.
 
 - Read the live coverage receipt's actual validUntil before reporting a freshness cutoff. lastCollectionAt plus 30 hours can be later than the expiry derived from the oldest supporting observation. The October 25 public receipt expired at 06:05:06 UTC; the earlier 06:38 estimate was wrong. A later governance check does not renew either source clock.
+
+## 2026-10-25 · Scheduled freshness and retry costs
+
+- A distinct scheduled freshness check must bypass both successful task-receipt reuse and saved
+  run-download reuse. Route that override only from the exact genuine main daily timer. Keep
+  ordinary retry clocks, semantic caches, conditional 304 provenance and real SEC anchors intact.
+  A scheduled runner succeeding does not prove a new source check; inspect its actual observations.
+- A cold forced cycle can leave no immutable replay pointer. If semantic work is unfinished, an
+  ordinary retry can need additional conditional transport. Charge those requests normally; do not
+  promise a zero-fetch retry, overwrite the pointer or refund an exhausted allowance.
+- Read fetch, model-call and document counters independently from their archived heads. Extraction
+  and validation can stop at different stages; model-call arithmetic cannot establish document use.
+- Preserve held identities and their original receipts when later checks repeat the same rejection.
+  A changed current receipt pointer is neither an exact-row preservation claim nor a resolved hold.
+  Compare identities and original immutable bytes separately, and keep genuinely new holds visible.

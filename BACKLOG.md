@@ -16,10 +16,12 @@ and company-type navigation (SEC-074) follow reliable operation.
 
 | Current measure | Actual evidence |
 |---|---|
-| Public release | App 26181a2d, sequence 3, release 19fde803; old combined measure 244/557. Varonis and six corrections are live. |
-| Current daily intake | Manual collector 40120612027: 264/557 under policy H; actual current-policy scheduled collection and publication remain pending. |
-| Processing | 23/10,655 reviewed; 10,632 pending; 5 held, 1 changed, 291 unknown dates. |
-| Historical review | 24/10,655 reviewed; 10,631 pending; 5 held. |
+| Public release | App 26181a2d, sequence 3, release 19fde803; old combined measure 244/557. Varonis and six corrections remain live. Source validUntil was October 25 at 06:05:06 UTC; production is overdue. |
+| Current daily intake | Manual normal collector 40169973257 passed on main 6d5e87fe under policy H: 264/557; source expiry October 26 at 12:45:29 UTC. Genuine H scheduled collection remains unproved. |
+| Processing | 38/10,655 reviewed; 10,617 pending; 10 held, 1 changed, 291 unknown dates. |
+| Historical review | 39/10,655 reviewed; 10,616 pending; 10 held. |
+| Review queue | 37 entries; all 33 earlier held identities persist, with four additional identities. |
+| Publication recovery | Manual publisher 40172130763 and second external gate 40172376435 are running on exact main 6d5e87fe. No new production or public freshness recovery is established. |
 | Known contradictions | Five-record remediation is 5/5 resolved in the accepted public release; this is not a general precision/recall estimate. |
 | Reader value and sustained operation | Unmeasured. The owner reports no useful real use yet. |
 
@@ -31,10 +33,11 @@ The 293 intake gaps have separate next actions:
 | Candidate sources | 25 | Complete source-specific pagination, entity/date boundaries and a readable primary sample. [Current exact source queue](docs/active/daily-pipeline/accuracy/current-candidate-source-queue-2026-10-24.md). |
 | Access failures | 14 | Recover 9 HTTP 403, 4 HTTP 429 and 1 unsafe redirect without bypassing source or host policy. |
 
-Ping Identity, Delinea and Sonatype now pass actual intake; their 737 leads remain pending
-processing. Upwind needs primary-page revalidation after a later sitemap change; its current
-body is unknown. All 32 earlier review holds persist, with that 33rd revalidation entry.
-The exact Sonatype mislinked card still needs primary-content review.
+Ping Identity, Delinea and Sonatype pass actual intake; their inventories remain incompletely
+reviewed. Upwind primary-document revalidation and the exact Sonatype mislinked card still need
+primary-content review. All 33 earlier hold identities persist; four new identities concern
+HiddenLayer, Delinea and eSentire dates, and ReliaQuest source identity. Seven Aqua identities
+now reference newer unsuccessful reviews; their original held receipts remain intact.
 
 Orca diagnostic 40129367275 authenticates 26 successful index responses and 90 leads, then five
 HTTP 302 responses redirecting page 27 to itself. It charged 27 fetch reservations and earns zero
@@ -53,16 +56,23 @@ The retained GitHub RSS parser false positive is repaired with a parser-level de
 800 operational and all web checks pass, with old H reports, origins, seeds and the next snapshot
 unchanged. Real DTD/entity input remains rejected. Qualification and current coverage stay separate.
 
-The next required operational receipts are the actual current-policy scheduled collector, gated
-production update and controlled rollback/restoration. The 00:23 UTC October 25 publisher had not
-emitted by 00:55. Manual publisher 40147731858 failed after gate 40148005688 rejected next-day task
-IDs attached to prior-day receipts. Production is unchanged. The one-line public-inventory repair
-preserves original task IDs and freshness dates; its actual-archive complete local release rehearsal
-passes 531 tests, with 805 operational tests passing. Independent review is clean. This supersedes
-the earlier aggregate-only replay as release evidence. [Repair review](docs/active/daily-pipeline/accuracy/cross-day-public-source-inventory-fix-independent-review-2026-10-25.md).
-Repair 6d5e87fe is promoted; preview web 40149549356, archive canary 40149549391 and main web
-40149786951 passed. The publisher is active again. Preserve main during real scheduled acceptance.
-Manual diagnostics and skipped callbacks remain separate.
+The current [manual recovery audit](docs/active/daily-pipeline/accuracy/manual-freshness-recovery-40169973257-2026-10-25.md)
+authenticates collector 40169973257 and archive a50c594f, with all 45,259 entries checked. Exact
+reconciliation and continuity pass; the four fact references, old event/evidence dates and six
+admissions remain exact. This is workflow_dispatch proof. The [isolated exact-main rehearsal](docs/active/daily-pipeline/accuracy/manual-freshness-recovery-local-rehearsal-2026-10-25.md)
+passed 531 release tests, the actual public-source validator and 805 operational tests without an
+external gate attempt. Manual publisher 40172130763 is running on main 6d5e87fe; its second
+external gate 40172376435 began at 07:20:10 UTC. Gate acceptance, production acknowledgement
+and public bytes remain pending; genuine scheduled operation
+and controlled rollback/restoration still need their own receipts.
+
+Earlier manual publisher 40147731858 and gate 40148005688 failed when prior-day receipts joined
+to publication-day task IDs. That attempt remains charged. The reviewed cross-day repair preserves
+the original plan's IDs and source clocks. [Prior repair review](docs/active/daily-pipeline/accuracy/cross-day-public-source-inventory-fix-independent-review-2026-10-25.md).
+Repair 6d5e87fe reached main after preview 40149549356, archive canary 40149549391 and main
+40149786951 passed. The publisher was re-enabled. Preserve main during current acceptance;
+manual diagnostics and skipped callbacks remain separate. Collector 40120612027 remains an
+October 24 prior receipt, not the current private intake.
 
 The [three retained-feed item audit](docs/active/daily-pipeline/accuracy/retained-rss-scope-and-window-review-2026-10-25.md)
 adds exact dates/subjects for 30 items and known primary samples. None qualifies. Check Point needs
@@ -82,10 +92,27 @@ are pixel-identical to the prior preview. Keep main fixed for current-H schedule
 before promoting this follow-up or activating the next reviewed diagnostic. The prior Check Point
 numeric status remains unknown.
 
-October 24 usage ended at 2,095/5,500 fetch reservations, 80/80 models, 40/40 documents and 2/2 gates.
-October 25 has one of two gate attempts charged; one remains. Collector timer: 05:17 UTC, publisher:
-06:23/16:23 UTC. Assigned issue 12 retains publication failure; issue 10 retains coverage/history
-gaps. Verify issue 12 recovery after actual publication.
+The future scheduled-source repair has a [specification](docs/active/daily-pipeline/accuracy/scheduled-source-freshness-cycle-spec-2026-10-25.md),
+[implementation](docs/active/daily-pipeline/accuracy/scheduled-source-freshness-cycle-implementation-2026-10-25.md)
+and passing [independent review](docs/active/daily-pipeline/accuracy/scheduled-source-freshness-cycle-independent-review-2026-10-25.md).
+It forces real conditional transport past both receipt and saved-download reuse only for the genuine
+main 05:17 daily timer. All 840 operational and 534 executed application tests pass, with one existing
+fixture skip; independent checks passed 12 focused, 6 existing and 7 extra scenarios. Same-data
+1440/390 renders have zero changed pixels. Future-preview commit de2059ab awaits its preview
+push; these checks grant no repaired-runtime proof, and main remains 6d5e87fe.
+After reviewed promotion and an available code-bound gate, audit the repaired revision's actual
+genuine timer receipts. That forced-timer validation is pending. The [cadence review](docs/active/daily-pipeline/accuracy/same-day-manual-and-scheduled-source-cadence-review-2026-10-25.md)
+keeps older-policy reuse separate from H. A cold forced cycle writes no immutable replay pointer;
+an ordinary retry with unfinished semantic work may spend additional conditional fetches. Retain
+that cost, original clocks and allowances. No zero-fetch cold retry or repaired-runtime credit is claimed.
+
+October 24 usage ended at 2,095/5,500 fetch reservations, 80/80 model calls, 40/40 documents and
+2/2 gates. Current October 25 collection usage is 444/5,500 fetches, 72/80 model calls and 33/40
+documents. Both October 25 gate attempts are now reserved: second gate 40172376435 began
+at 07:20:10 UTC under publisher 40172130763 and remains in progress. Its outcome is pending.
+Collector cadence remains
+05:17 UTC and publisher cadence 06:23/16:23 UTC. Assigned issue 12 retains publication failure;
+issue 10 retains coverage/history gaps. Verify issue 12 recovery after actual publication.
 No owner source decision is currently required. No refund, reset, purchase or paid fallback.
 
 Actual monitor 40165077942 updated assigned issue 10 at 05:19 UTC October 25, after starting
@@ -150,12 +177,14 @@ The owner has not set the acceptance duration (previous recommendation: 30 days)
 
 Sequence this after SEC-072's current-operation fixes and runtime proof. Keep its gaps visible now.
 
-Bounded daily collection for all 74 existing suppliers is authorized and implemented. The latest
-actual current-policy manual source run reports 264/557 daily-intake tasks; its full archive review
-passes. Its actual scheduled run and publication remain pending. The old 121/557 report keeps its original combined definition. Current intake gaps
-are 254 missing family bindings, 25 unqualified candidates, nine HTTP 403s, four HTTP 429s and one
-unsafe redirect. All 32 earlier claim-review holds and one new revalidation entry remain separate. Resolve source registration, blocks, dated evidence,
-typed ownership/financial adapters and retained historical audits within existing budgets. Keep
+Bounded daily collection for all 74 existing suppliers is authorized and implemented. Latest manual
+normal collector 40169973257 reports 264/557 under H, with a fully authenticated archive and exact
+replay. Manual publication is running; genuine H scheduled collection and automatic publication
+remain unproved. The old 121/557 report keeps its original combined definition. Current intake gaps
+remain 254 missing family bindings, 25 unqualified candidates, nine HTTP 403s, four HTTP 429s and
+one unsafe redirect. The 37-entry review queue retains all 33 prior identities and four new holds.
+Resolve source registration, blocks, dated evidence, typed ownership/financial adapters and retained
+historical audits within existing budgets. Keep
 task and field ages visible and leave unsupported or unchecked facts held. General partial coverage
 can accompany individually verified facts; the complete SEC certification requirement remains.
 No supplier expansion is authorized by this work.
