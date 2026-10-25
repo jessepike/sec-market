@@ -56,7 +56,7 @@ class CaptureTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory(); self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name); self.store = LocalStore(self.root / 'state'); self.clock = Clock()
-        self.contract = json.loads((ROOT / 'contracts/market.json').read_bytes())
+        self.contract = json.loads((ROOT / 'contracts/html-qualification-seeds/8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db/contracts__8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db.json').read_bytes())
         self.raw = PLAN.read_bytes(); self.plan = json.loads(self.raw); self.path = self.root / 'plan.json'
         self.path.write_bytes(self.raw)
         # Transport units isolate the new operation; actual-proof tests below do not bypass this helper.
@@ -334,7 +334,7 @@ class CaptureTests(unittest.TestCase):
 class ActualProofTests(unittest.TestCase):
     def setUp(self):
         self.store = ReadOnlyD660(); self.addCleanup(self.store.assert_unchanged, self)
-        self.contract = json.loads((ROOT / 'contracts/market.json').read_bytes()); self.raw = PLAN.read_bytes()
+        self.contract = json.loads((ROOT / 'contracts/html-qualification-seeds/8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db/contracts__8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db.json').read_bytes()); self.raw = PLAN.read_bytes()
         self.plan = json.loads(self.raw)
     def test_whole_actual_report_graph_row_two_and_original_window_replay_read_only(self):
         with patch.object(LocalStore, '__init__', side_effect=AssertionError('No frozen LocalStore')), \

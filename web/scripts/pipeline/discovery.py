@@ -9,7 +9,7 @@ import xml.etree.ElementTree as ET
 from html.parser import HTMLParser
 from urllib.parse import urljoin, urlsplit
 
-from contracts import require, instant, utcnow
+from contracts import digest, require, instant, utcnow
 from regulatory import SEC_FILING_FORMS
 
 
@@ -975,10 +975,50 @@ def xml_links(body, base):
     return {"kind": kind, "links": sorted(set(links)), "indexes": sorted(set(indexes)), "modified": modified}
 
 
+def discover_q4_press_list(source, request):
+    """One source-bound finite JSON response, with ordinary transport provenance."""
+    from q4_qualification_origin import validate_source
+    from q4_press_list import parse_press_list
+    validate_source(source)
+    observations = []
+    try:
+        observed, body = request(source['url'])
+        observations.append(observed)
+        require(observed.get('requestedUrl') == observed.get('finalUrl') == source['url'] and
+                observed.get('sourceId') == source['id'], 'Q4_INDEX_TRANSPORT_IDENTITY_DIFFERS')
+        require((observed.get('status') == 'fetched' and type(observed.get('httpStatus')) is int and
+                 observed['httpStatus'] == 200) or
+                (observed.get('status') == 'not_modified' and type(observed.get('httpStatus')) is int and
+                 observed['httpStatus'] == 304 and isinstance(observed.get('reusesObservationId'), str) and
+                 bool(observed['reusesObservationId'])), 'Q4_INDEX_TRANSPORT_NOT_SUCCESSFUL')
+        require(isinstance(observed.get('contentType'), str) and re.fullmatch(
+                r'application/json(?:\s*;\s*charset\s*=\s*(?:utf-8|"utf-8"))?\s*',
+                observed['contentType'], re.I), 'Q4_INDEX_JSON_MIME_DIFFERS')
+        ref = observed.get('body')
+        require(type(ref) is dict and set(ref) == {'key', 'sha256', 'bytes'} and
+                type(ref['bytes']) is int and 0 < ref['bytes'] <= 2_000_000 and
+                ref['key'] == 'objects/' + ref['sha256'] and type(body) is bytes and
+                len(body) == ref['bytes'] and digest(body) == ref['sha256'], 'Q4_INDEX_BODY_INTEGRITY_DIFFERS')
+        instant(observed.get('fetchedAt'))
+        parsed = parse_press_list(body, source['id'], observed['fetchedAt'])
+        return {'complete': True, 'items': parsed['items'], 'itemDates': parsed['itemDates'],
+                'itemModified': parsed['itemModified'], 'observations': observations, 'reason': None,
+                'originalDateStrings': parsed['originalDateStrings'], 'timezone': parsed['timezone'],
+                'sourceDateAnomalies': parsed['sourceDateAnomalies'],
+                'undeterminedWindowItems': parsed['undeterminedWindowItems'],
+                'boundaryAmbiguousItems': parsed['boundaryAmbiguousItems'],
+                'currentWindowQuiet': parsed['currentWindowQuiet']}
+    except (ValueError, KeyError, TypeError, OSError, UnicodeError) as error:
+        return {'complete': False, 'items': [], 'itemDates': {}, 'itemModified': {},
+                'observations': observations, 'reason': 'Q4_INDEX_INCOMPLETE:' + str(error)[:160]}
+
+
 def discover(source, request):
     """request(url) archives every response and returns an observation plus bytes."""
     if source["registration"] != "verified":
         return {"complete": False, "items": [], "observations": [], "reason": "SOURCE_BINDING_UNVERIFIED"}
+    if source['kind'] == 'q4_press_list':
+        return discover_q4_press_list(source, request)
     if source["kind"] == "sec_index" or source["kind"] == "sec_documents" and 'regulatoryIssuer' in source:
         return discover_regulatory_index(source, request)
     queue, seen, items, observations, item_dates, item_modified = [source["url"]], set(), set(), [], {}, {}

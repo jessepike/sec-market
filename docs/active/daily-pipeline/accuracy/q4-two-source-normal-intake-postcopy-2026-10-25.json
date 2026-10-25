@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "status": "postcopy_checks_pass_independent_test_delta_archived_separately",
+  "J": "47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a",
+  "verification": {
+    "path": "docs/active/daily-pipeline/accuracy/receipts/q4-two-source-normal-intake-postcopy-2026-10-25/postcopy-verification.json",
+    "sha256": "db3fed5ca5fba1e7d6155ce00e14d5a1fef78ac2227ad104c9793b861dc63c66",
+    "bytes": 26018
+  },
+  "latestActualPreflight": {
+    "path": "docs/active/daily-pipeline/accuracy/receipts/q4-two-source-normal-intake-postcopy-2026-10-25/latest-actual-preflight.json",
+    "sha256": "a811146777d5c674307ad49af34468d2fdaa607f62ba6fe504eedddd26fb77b1",
+    "bytes": 349470
+  },
+  "headSelectionSupplement": {
+    "path": "docs/active/daily-pipeline/accuracy/receipts/q4-two-source-normal-intake-postcopy-2026-10-25/head-selection-supplement.json",
+    "sha256": "5f489498a0d5ea99bd4e73f5eeadcda14ab37eace055e18e18457844cf7394d7",
+    "bytes": 2711
+  },
+  "testDelta": {
+    "path": "ops/ci/test_q4_normal_intake.py",
+    "oldSha256": "8cd91a00d1bd5a714ec81aa06b4b428edb58bf83a3ac20a7373f1b67ccb832a9",
+    "newSha256": "c6bcd4939a10d4fe38d7bf350a4f30df8e0bd7c288ea2d78c5b7e1b314c197f1",
+    "initialFailure": "14 tests executed with one fixture failure after selecting J; source runtime remained correct.",
+    "fix": "Historical ad1H173byte/SHA-pinned temporary fixture rejects under J; actual active J-disabled plan validates zero.",
+    "bothWorktreeTestFilesByteExact": true
+  },
+  "checks": {
+    "focusedPython": {
+      "passed": 14,
+      "failed": 0
+    },
+    "focusedJS": {
+      "passed": 2,
+      "failed": 0
+    },
+    "fullOps": {
+      "passed": 935,
+      "failed": 0
+    },
+    "fullApplicationRepeated": false,
+    "previousFullApplicationStillApplicable": "Runtime/package/application bytes remain the independently reviewed exact bytes."
+  },
+  "activePlan": {
+    "beforeSha256": "ad1c5cc234fe4fa69cbceb5370ac74825a37dc80b08528ca908d14b1352e53b4",
+    "afterSha256": "ef9ee1bab6cfe6202b62e8d5605393f045d11fd64bd42ea1bcea769de15c8a01",
+    "exactProposedBytes": true
+  },
+  "implementationReview": {
+    "verdict": "PASS",
+    "md": {
+      "path": "docs/active/daily-pipeline/accuracy/q4-two-source-normal-intake-implementation-independent-review-2026-10-25.md",
+      "sha256": "4ac09668641909ede89dd2f4a04ed823765436025b91b4de7262300243ee3c7d",
+      "bytes": 6399
+    },
+    "json": {
+      "path": "docs/active/daily-pipeline/accuracy/q4-two-source-normal-intake-implementation-independent-review-2026-10-25.json",
+      "sha256": "292559f18fb0c8e5556f621823395e5634b86ee91bd1d6dd7d280b582446c734",
+      "bytes": 24305
+    }
+  },
+  "originalSealedWorkerMetadataUnchanged": true,
+  "sourceRequests": 0,
+  "modelRequests": 0,
+  "realStateWrites": 0,
+  "quotaReservations": 0,
+  "commits": 0,
+  "pushes": 0,
+  "dispatches": 0,
+  "actualJCollectionAndPublication": "pending",
+  "independentDeltaAtInitialPostcopyReceipt": "pending; root retains subsequent independent supplement separately",
+  "headPredicates": {
+    "narrowPrefixSubset": {
+      "directory": "state/heads/*.json",
+      "basenameStartsWith": [
+        "latest-run.",
+        "dailySnapshot.",
+        "production.",
+        "source-",
+        "task-",
+        "audit-",
+        "download-"
+      ],
+      "count": 8588,
+      "sha256": "833b14d81b281f3e5a08cb3f068a55a87b77561fa935e2da4a0e9ae04138f7fc"
+    },
+    "fullCanonicalAuditorSet": {
+      "directory": "state/heads/*.json",
+      "except": [
+        "state/heads/budget-2026-10-25.json",
+        "state/heads/cloud-lease.json"
+      ],
+      "count": 8605,
+      "sha256": "490b7e470a9cdbd9b767664741644094bfdb1c5edd5a1e9d8ea8633b129032cd",
+      "allByteExactFrom9deb": true
+    }
+  },
+  "authenticHTMLWhitespace": {
+    "ownerDecision": "Root retains expected whitespace diagnostics and scopes diff --check to exclude only these five immutable paths; no normalization or attributes.",
+    "files": {
+      "contracts/q4-qualification-seeds/47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a/objects__9ece5b105eb693076ea90ace3310c9cfbae7747b4e32faca80d9208dd1776479": {
+        "sha256": "9ece5b105eb693076ea90ace3310c9cfbae7747b4e32faca80d9208dd1776479",
+        "bytes": 90652
+      },
+      "contracts/q4-qualification-seeds/47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a/objects__c14d01410488c758b6702738c99e6f55e2d1365b84ad0b2d932cf5433cde323a": {
+        "sha256": "c14d01410488c758b6702738c99e6f55e2d1365b84ad0b2d932cf5433cde323a",
+        "bytes": 105675
+      },
+      "contracts/q4-qualification-seeds/47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a/objects__c5a34d9cf87cd3e52f567fdf8883ca60e33f7e28a8923bc006469e91cd883a17": {
+        "sha256": "c5a34d9cf87cd3e52f567fdf8883ca60e33f7e28a8923bc006469e91cd883a17",
+        "bytes": 42385
+      },
+      "contracts/q4-qualification-seeds/47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a/objects__ead58a93ed20878e2ffb83512b3e8b52c08d878b3dff19e8d95a1162630ef20d": {
+        "sha256": "ead58a93ed20878e2ffb83512b3e8b52c08d878b3dff19e8d95a1162630ef20d",
+        "bytes": 114902
+      },
+      "contracts/q4-qualification-seeds/47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a/objects__fffa3d952d9f0a4242fffb3a8bbaab42ca9f7ad938ed73582bf3e8d93580114e": {
+        "sha256": "fffa3d952d9f0a4242fffb3a8bbaab42ca9f7ad938ed73582bf3e8d93580114e",
+        "bytes": 80272
+      }
+    }
+  }
+}

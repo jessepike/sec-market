@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 2,
+  "operation": "bounded_q4_primary_qualification",
+  "marketSha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+  "maxRequests": 2,
+  "initialDataProof": {
+    "githubRunId": "40184027106",
+    "githubRunAttempt": 1,
+    "githubEventName": "workflow_dispatch",
+    "githubRef": "refs/heads/main",
+    "appRevision": "ab6a7c68f5d8deeb3dfbe56f2ad32dfa71577bc4",
+    "record": {
+      "key": "ci/source-probe-runs/40184027106-1.json",
+      "sha256": "8653b61d296ee89d411853ed34190d6b7b119d9184dcd7b20b93a3faa413945f",
+      "bytes": 5673
+    },
+    "plan": {
+      "bytes": 6974,
+      "key": "objects/a316e39658c2e9b5872adeb6008ef138618c8b20a080ca78ee458bd3e51f0ddc",
+      "sha256": "a316e39658c2e9b5872adeb6008ef138618c8b20a080ca78ee458bd3e51f0ddc"
+    },
+    "planCanonicalSha256": "5ec3a0fc8588e64af13f8caeec32f3c4327f3b60c2526123ff49b41d219a8dae",
+    "archive": {
+      "commit": "d6606a4f5dd1e1afc5f16dea6d91bc422347f8aa",
+      "manifestSha256": "40873bfd2dca9836b58ac325a3afb32919fb463b2082752cb72fc785a2d7239d",
+      "manifestBytes": 9941943
+    }
+  },
+  "sources": [
+    {
+      "sourceId": "jfrog:official:1",
+      "supplierId": "jfrog",
+      "originalSourceSha256": "1e8d43d1828092f65a14bf90b7a5e222d2e4e8e12bccaab23c2a7052f0da7bff",
+      "resultIndex": 0,
+      "observation": {
+        "bytes": 581,
+        "key": "objects/970b6a1c1bb9af279293992f4cc225f40292e9060ec43b1673cd37f7d0d53068",
+        "sha256": "970b6a1c1bb9af279293992f4cc225f40292e9060ec43b1673cd37f7d0d53068"
+      },
+      "rawObservation": {
+        "bytes": 894,
+        "key": "objects/c4c7917361aa6d164b18a975803acdd64a1ab5e64e8b1911c6ea4682d626e412",
+        "sha256": "c4c7917361aa6d164b18a975803acdd64a1ab5e64e8b1911c6ea4682d626e412"
+      },
+      "body": {
+        "bytes": 282783,
+        "key": "objects/f7d84b288a6665280f4b8ade996b0bf64fe9c3fa0ea7a8a15b1adfb0826ccc19",
+        "sha256": "f7d84b288a6665280f4b8ade996b0bf64fe9c3fa0ea7a8a15b1adfb0826ccc19"
+      },
+      "fetchedAt": "2026-10-25T10:19:17.166772Z",
+      "sample": {
+        "rowIndex": 2,
+        "recordSha256": "b9a2d2e2000c8d5d8794b49e6b3d0552055ab4051c96c89fe20a027709297949",
+        "pressReleaseId": 1907,
+        "workflowId": "717ce770-88db-49b1-a63a-071d28989c99",
+        "title": "JFrog Announces Timing of Third Quarter 2026 Financial Results",
+        "dateLiteral": "10/14/2026 16:05:00",
+        "request": {
+          "method": "GET",
+          "url": "https://investors.jfrog.com/news/news-details/2026/JFrog-Announces-Timing-of-Third-Quarter-2026-Financial-Results/default.aspx",
+          "body": null
+        }
+      }
+    },
+    {
+      "sourceId": "rapid7:official:1",
+      "supplierId": "rapid7",
+      "originalSourceSha256": "05a6202088ab48d007b5969e9230844aa716749d7b9442d145953a51446209b5",
+      "resultIndex": 1,
+      "observation": {
+        "bytes": 583,
+        "key": "objects/cfa2ffb8c2e6b21f2b39664dc1a700373908e75a4c04f6c791a63a351c2025cf",
+        "sha256": "cfa2ffb8c2e6b21f2b39664dc1a700373908e75a4c04f6c791a63a351c2025cf"
+      },
+      "rawObservation": {
+        "bytes": 896,
+        "key": "objects/d85d1550a60d97703907714c25ef743afafae1719d947d3c82dcd1ff4658724a",
+        "sha256": "d85d1550a60d97703907714c25ef743afafae1719d947d3c82dcd1ff4658724a"
+      },
+      "body": {
+        "bytes": 414550,
+        "key": "objects/cf3c57d1c2080d65656e9f291eca371aefd99909476d413bb5c90155bc742db8",
+        "sha256": "cf3c57d1c2080d65656e9f291eca371aefd99909476d413bb5c90155bc742db8"
+      },
+      "fetchedAt": "2026-10-25T10:19:17.492289Z",
+      "sample": {
+        "rowIndex": 2,
+        "recordSha256": "68f92eeb69a75ed608462310b72798f7efa0c8f9a1118d28712b3cce9716d8f5",
+        "pressReleaseId": 1814,
+        "workflowId": "c4a988fc-6aab-42ee-a2af-4fb57a7ed054",
+        "title": "Rapid7 to Report Third Quarter 2026 Financial Results on November 4",
+        "dateLiteral": "10/14/2026 16:05:00",
+        "request": {
+          "method": "GET",
+          "url": "https://investors.rapid7.com/news/news-details/2026/Rapid7-to-Report-Third-Quarter-2026-Financial-Results-on-November-4/default.aspx",
+          "body": null
+        }
+      }
+    }
+  ]
+}

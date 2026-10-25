@@ -1,0 +1,29 @@
+{
+  "J": "47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a",
+  "H": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+  "expectedJCanonicalSha256": "47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a",
+  "expectedBaselineSha256": "b6702582be2432a3108c46ec59b05de680adad59684aedd2ee40d4efec10d8f5",
+  "policyMutationNames": [
+    "extra",
+    "source_order",
+    "supplier_order",
+    "other_source_extra",
+    "model_budget",
+    "collection_window",
+    "source_bool",
+    "new_host",
+    "second_origin",
+    "version",
+    "family",
+    "origin_extra"
+  ],
+  "baselineMutationNames": [
+    "new_checked_at",
+    "intake_credit",
+    "new_expiry",
+    "old_history_date",
+    "drop_old_chain",
+    "old_registration",
+    "processing_credit"
+  ]
+}

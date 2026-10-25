@@ -1,0 +1,11 @@
+PASS J01_J03_J07_full_55_file_graph_exact_pair
+PASS J04_old_three_H_validators_and_inventory_exact
+PASS J06_new_origins_529_full_rows_no_current_credit
+PASS J05_historical_H_fixture_and_live_plan_separate
+PASS J12_six_admissions_exact_no_calls_no_reservations
+PASS J10_J11_independent_Python_baseline_projection_and_zero_credit
+PASS J08_J09_real_J_lease_full_import_idempotence_and_ack
+PASS J13_J14_J20_J21_real_ordinary_200_304_and_real_zero_call_guard
+PASS J15_J16_J17_J18_J19_transport_malformed_dates_quiet_variable_length
+PASS J22_ordinary_caps_deadline_and_retry_distinction
+{"results": 10, "negativeCases": 62, "inputSeals": 21321, "report": "/var/tmp/smp-q4-exact-j-independent-20261025/python-review.json"}

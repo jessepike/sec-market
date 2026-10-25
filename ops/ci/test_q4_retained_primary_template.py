@@ -50,7 +50,7 @@ class ReadOnlyActual:
 
 class ClosedDescriptorTests(unittest.TestCase):
     def setUp(self):
-        self.contract = json.loads((ROOT / "contracts/market.json").read_bytes())
+        self.contract = json.loads((ROOT / "contracts/html-qualification-seeds/8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db/contracts__8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db.json").read_bytes())
         self.raw = DESCRIPTOR.read_bytes()
         self.descriptor = json.loads(self.raw)
     def test_every_descriptor_field_substitution_rejects_before_any_store_read(self):
@@ -95,7 +95,7 @@ class ActualProofTests(unittest.TestCase):
         self.store = ReadOnlyActual()
         self.raw = DESCRIPTOR.read_bytes()
         self.descriptor = json.loads(self.raw)
-        self.contract = json.loads((ROOT / "contracts/market.json").read_bytes())
+        self.contract = json.loads((ROOT / "contracts/html-qualification-seeds/8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db/contracts__8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db.json").read_bytes())
         self.network = patch.object(socket.socket, "connect", side_effect=AssertionError("NO_NETWORK"))
         self.local = patch.object(LocalStore, "__init__", side_effect=AssertionError("NO_FROZEN_LOCALSTORE"))
         self.network.start(); self.local.start()

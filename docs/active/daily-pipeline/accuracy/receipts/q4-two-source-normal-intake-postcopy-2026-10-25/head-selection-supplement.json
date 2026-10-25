@@ -1,0 +1,48 @@
+{
+  "firstPredicate": {
+    "directory": "state/heads/*.json",
+    "basenameStartsWith": [
+      "latest-run.",
+      "dailySnapshot.",
+      "production.",
+      "source-",
+      "task-",
+      "audit-",
+      "download-"
+    ],
+    "count": 8588,
+    "sha256": "833b14d81b281f3e5a08cb3f068a55a87b77561fa935e2da4a0e9ae04138f7fc"
+  },
+  "canonicalAuditorPredicate": {
+    "directory": "state/heads/*.json",
+    "except": [
+      "state/heads/budget-2026-10-25.json",
+      "state/heads/cloud-lease.json"
+    ],
+    "count": 8605,
+    "sha256": "490b7e470a9cdbd9b767664741644094bfdb1c5edd5a1e9d8ea8633b129032cd",
+    "allByteExactFrom9deb": true
+  },
+  "extra17CanonicalHeadsOmittedByFirstPredicate": {
+    "state/heads/budget-2026-10-20.json": "ac0f024ceb51d5a78bfacb7f864dd9cebe9f52c6ac991aef231b1ad43497cd8d",
+    "state/heads/budget-2026-10-21.json": "d6ab59d421b7942a9cdd03150c32624dea3fbfadbdcb3d337ae8b81d7b57aff9",
+    "state/heads/budget-2026-10-22.json": "3b4b1562edbd6ae2c7cc99d9c02b1b648dbe13378069f44138fae4cfd307f05b",
+    "state/heads/budget-2026-10-23.json": "b1e02511ea7edf3733936711ede656f4e61c4b194e7bde4dccac58e95f94dafb",
+    "state/heads/budget-2026-10-24.json": "3584cb95ccc4050dbb1c82415385f6d10f8c96bd855f68fb13538dffbe5af4f5",
+    "state/heads/cloud-collector.json": "eb46d9df9bf390e6799ee0a5ce2eb5abeafcc1760bc52d3030ce86a190b5dd5b",
+    "state/heads/cloud-governance.json": "988f9f99d0865446c32620b7fcb52f2ffc2f0077e421bb5d743d92ffed324788",
+    "state/heads/cloud-snapshot.json": "c71da6d4d52bc94aa560e8425f8bf0b913b9e0e1fba8fb45b77ff3deacb58a00",
+    "state/heads/correction-collection.json": "5d403f2e93db0fd06fe65492276aa175ca2711487771ec04258128280f328c0f",
+    "state/heads/gate-budget-2026-10-23.json": "5452defb75897ca4711b2b086a2efa1ff79112b00a583b24de108522855d8a54",
+    "state/heads/gate-budget-2026-10-24.json": "5452defb75897ca4711b2b086a2efa1ff79112b00a583b24de108522855d8a54",
+    "state/heads/gate-budget-2026-10-25.json": "5452defb75897ca4711b2b086a2efa1ff79112b00a583b24de108522855d8a54",
+    "state/heads/publication-budget-2026-10-23.json": "c07950e922750023584ee34e56839558606e7165908f7f8ffa415a7e7dbf94ae",
+    "state/heads/publication-budget-2026-10-24.json": "578c4c0b48b4182a2f7cc09b8c422b9038ff37d2e159948ab071696214fdd471",
+    "state/heads/publication-budget-2026-10-25.json": "0a9f7c3ee944ec0bac5689123a56bd646dbacd67ba4082822ba898ee71ac4d02",
+    "state/heads/rollback-drill.json": "49df4c79c430f2c8523188a485a3c27b010d084da9e3826c55c896a5fdc4f9f9",
+    "state/heads/worker-heartbeat.json": "d09acd8ec5a1c7d268c71e074ae5d458b4bb924d3f5eefed8564c9d329a210b0"
+  },
+  "historical8588PreflightUnchanged": true,
+  "sourceRequests": 0,
+  "archiveWrites": 0
+}

@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 1,
+  "kind": "q4_retained_primary_template_v1",
+  "marketSha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+  "actualProof": {
+    "githubRunId": "40188161705",
+    "githubRunAttempt": 1,
+    "githubEventName": "workflow_dispatch",
+    "githubRef": "refs/heads/main",
+    "appRevision": "b7c7841ab36c4cf04646978493ce74e1e542a2b9",
+    "record": {
+      "key": "ci/source-probe-runs/40188161705-1.json",
+      "sha256": "093fba7150d21255af66a563207b3c3f0490bae36873376203c43d5415be6897",
+      "bytes": 713736
+    },
+    "artifact": {
+      "id": 12597132303,
+      "digest": "sha256:2fd5b94683ea1473171d14bb9241364d9735ac8dbcb69b79c4cab2ad65e1d008",
+      "size_in_bytes": 134691
+    },
+    "archive": {
+      "commit": "d2efafcb8a68d7330e4b700613b29f18b9892346",
+      "manifestSha256": "bb1c3da1399e89341badf80bba8642d7892f32ce2030bd57fc1d4c165e383e4d",
+      "manifestBytes": 9944331
+    },
+    "plan": {
+      "bytes": 4211,
+      "key": "objects/3a25e8e262b51fbf6f872c8655b25c9d255cf52b32ca0e9c4afa73d78893fbd4",
+      "sha256": "3a25e8e262b51fbf6f872c8655b25c9d255cf52b32ca0e9c4afa73d78893fbd4"
+    },
+    "planCanonicalSha256": "3b7fc7c4de41c68471d4343f103e7e5ee705e5a4a51f760f5387e34a49a660ee",
+    "audit": {
+      "path": "docs/active/daily-pipeline/accuracy/q4-primary-qualification-actual-source-review-2026-10-25.json",
+      "sha256": "3f133bc05fc7e3964dd3e0717b9a9cd0a3c859b0472b57bb00e6cd80615378bf",
+      "bytes": 53594
+    }
+  },
+  "sources": [
+    {
+      "sourceId": "jfrog:official:1",
+      "resultIndex": 0,
+      "url": "https://investors.jfrog.com/news/news-details/2026/JFrog-Announces-Timing-of-Third-Quarter-2026-Financial-Results/default.aspx",
+      "observation": {
+        "bytes": 463,
+        "key": "objects/426bf440e12d1dc6671e833325ade4f1bfa4baf1598ffcbadc1f3ad489fb06ba",
+        "sha256": "426bf440e12d1dc6671e833325ade4f1bfa4baf1598ffcbadc1f3ad489fb06ba"
+      },
+      "rawObservation": {
+        "bytes": 617,
+        "key": "objects/1bee78d58f3ffa9114b9b3ece9d885786fa065ff85afb88ed46931c77f9ecb25",
+        "sha256": "1bee78d58f3ffa9114b9b3ece9d885786fa065ff85afb88ed46931c77f9ecb25"
+      },
+      "body": {
+        "bytes": 105675,
+        "key": "objects/c14d01410488c758b6702738c99e6f55e2d1365b84ad0b2d932cf5433cde323a",
+        "sha256": "c14d01410488c758b6702738c99e6f55e2d1365b84ad0b2d932cf5433cde323a"
+      },
+      "fetchedAt": "2026-10-25T11:20:10.702332Z",
+      "sample": {
+        "rowIndex": 2,
+        "recordSha256": "b9a2d2e2000c8d5d8794b49e6b3d0552055ab4051c96c89fe20a027709297949",
+        "pressReleaseId": 1907,
+        "workflowId": "717ce770-88db-49b1-a63a-071d28989c99",
+        "title": "JFrog Announces Timing of Third Quarter 2026 Financial Results",
+        "dateLiteral": "10/14/2026 16:05:00",
+        "request": {
+          "method": "GET",
+          "url": "https://investors.jfrog.com/news/news-details/2026/JFrog-Announces-Timing-of-Third-Quarter-2026-Financial-Results/default.aspx",
+          "body": null
+        }
+      },
+      "template": {
+        "moduleId": "_ctrl0_ctl23_divModuleContainer",
+        "moduleWorkflowId": "97bb90f4-1a4c-4725-99fc-4c37729cebbb",
+        "itemId": "_ctrl0_ctl23_divNewsDetailsItemContainer",
+        "headlineWrapperId": "_ctrl0_ctl23_divNewsDetailsHeadline",
+        "headlineId": "_ctrl0_ctl23_lblModuleDetailTitle",
+        "headlineSpanId": "_ctrl0_ctl23_spanNewsDetailsTitle",
+        "dateWrapperId": "_ctrl0_ctl23_divNewsDetailsDateTime",
+        "dateId": "_ctrl0_ctl23_spanDate",
+        "timeId": "_ctrl0_ctl23_spanTime",
+        "bodyId": "_ctrl0_ctl23_divBody",
+        "titlePrefix": "Jfrog Ltd. - ",
+        "issuer": "JFrog",
+        "sourceMarker": "Source: JFrog Ltd.",
+        "jsonLdRequired": true
+      }
+    },
+    {
+      "sourceId": "rapid7:official:1",
+      "resultIndex": 1,
+      "url": "https://investors.rapid7.com/news/news-details/2026/Rapid7-to-Report-Third-Quarter-2026-Financial-Results-on-November-4/default.aspx",
+      "observation": {
+        "bytes": 470,
+        "key": "objects/22a94cdb27a0227411512ba5168a727090e2de85fb941f79adf03c64d3aae30e",
+        "sha256": "22a94cdb27a0227411512ba5168a727090e2de85fb941f79adf03c64d3aae30e"
+      },
+      "rawObservation": {
+        "bytes": 628,
+        "key": "objects/3f5ad49770d744dc1fda921aaffaf1b6ba5b6ba1f5ef4d1b12f3b298ff230e07",
+        "sha256": "3f5ad49770d744dc1fda921aaffaf1b6ba5b6ba1f5ef4d1b12f3b298ff230e07"
+      },
+      "body": {
+        "bytes": 80272,
+        "key": "objects/fffa3d952d9f0a4242fffb3a8bbaab42ca9f7ad938ed73582bf3e8d93580114e",
+        "sha256": "fffa3d952d9f0a4242fffb3a8bbaab42ca9f7ad938ed73582bf3e8d93580114e"
+      },
+      "fetchedAt": "2026-10-25T11:20:10.954360Z",
+      "sample": {
+        "rowIndex": 2,
+        "recordSha256": "68f92eeb69a75ed608462310b72798f7efa0c8f9a1118d28712b3cce9716d8f5",
+        "pressReleaseId": 1814,
+        "workflowId": "c4a988fc-6aab-42ee-a2af-4fb57a7ed054",
+        "title": "Rapid7 to Report Third Quarter 2026 Financial Results on November 4",
+        "dateLiteral": "10/14/2026 16:05:00",
+        "request": {
+          "method": "GET",
+          "url": "https://investors.rapid7.com/news/news-details/2026/Rapid7-to-Report-Third-Quarter-2026-Financial-Results-on-November-4/default.aspx",
+          "body": null
+        }
+      },
+      "template": {
+        "moduleId": "_ctrl0_ctl54_divModuleContainer",
+        "moduleWorkflowId": "c6353ac5-12c6-4da0-9cfb-44da659afe02",
+        "itemId": "_ctrl0_ctl54_divNewsDetailsItemContainer",
+        "headlineWrapperId": "_ctrl0_ctl54_divNewsDetailsHeadline",
+        "headlineId": "_ctrl0_ctl54_lblModuleDetailTitle",
+        "headlineSpanId": "_ctrl0_ctl54_spanNewsDetailsTitle",
+        "dateWrapperId": "_ctrl0_ctl54_divNewsDetailsDateTime",
+        "dateId": "_ctrl0_ctl54_spanDate",
+        "timeId": "_ctrl0_ctl54_spanTime",
+        "bodyId": "_ctrl0_ctl54_divBody",
+        "titlePrefix": "Rapid7 - ",
+        "issuer": "Rapid7",
+        "sourceMarker": "Source: Rapid7",
+        "jsonLdRequired": false
+      }
+    }
+  ]
+}

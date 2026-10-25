@@ -69,7 +69,10 @@ def validate_contract(contract):
         require(type(source["required"]) is bool, "Source requirement must be boolean")
         require(source["supplierId"] in supplier_ids, "Orphan source binding")
         require(source["registration"] in ("verified", "candidate"), "Unknown source registration")
-        require(source["kind"] in ("sec_facts", "sec_submissions", "sec_documents", "sec_index", "official_discovery", "rss", "sitemap", "html_index", "citation"), "Unknown collector kind")
+        require(source["kind"] in ("sec_facts", "sec_submissions", "sec_documents", "sec_index", "official_discovery", "rss", "sitemap", "html_index", "q4_press_list", "citation"), "Unknown collector kind")
+        if source['kind'] == 'q4_press_list':
+            from q4_qualification_origin import validate_source
+            validate_source(source)
         require(bool(source.get("family")), "Source family required")
         url = urlsplit(source["url"])
         require(url.scheme == "https" and not url.username and not url.password and url.port in (None, 443), "Unsafe source URL")

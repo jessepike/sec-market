@@ -38,6 +38,13 @@ Later recovery does not establish uninterrupted freshness.
 
 Remaining work is explicit:
 
+JFrog/Rapid7's exact J integration is now local, with independent implementation review passing
+106 checks and the selected-J finish path passing all 935 operational tests. The new disabled
+plan, seed and zero-credit baseline preserve all previous evidence. Actual ordinary J collection
+is still pending; do not subtract two candidates or add intake credit before that receipt.
+The separate retained Cato/Chainguard PR Newswire parser build is specified and accepted for
+offline work, without caller, source-family, registry, policy or production changes.
+
 | Gap or acceptance | Count/state | Next action |
 |---|---|---|
 | Missing source-family bindings |254| Qualify exact primary, reporting and distribution endpoints in the [557-row roster](docs/active/daily-pipeline/evaluations/2026-10-24/current-source-coverage.md). Keep every missing obligation in the denominator. |

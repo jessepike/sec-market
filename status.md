@@ -87,9 +87,17 @@ The separate [retained-Q4-template proof](docs/active/daily-pipeline/accuracy/q4
 is accepted and committed 7a1aee7b: 921 local operational tests, full application checks and independent
 review pass; both render widths are unchanged. It preserves original run 40188161705's truthful
 accepted-zero result. The [ordinary JFrog/Rapid7 integration](docs/active/daily-pipeline/accuracy/q4-two-source-normal-intake-integration-spec-2026-10-25.md)
-is built in an isolated worktree: 935 operational tests, full application/80 SEC checks and both
-render widths pass. Independent implementation review is closing. Exact successor activation,
-ordinary collection and later genuine timer/publication receipts remain required.
+is integrated locally under exact policy J, 47b9f226…66593a, with its zero-request disabled plan
+ef9ee1ba. Independent implementation review passes 106 checks. After a test-only historical-H
+fixture repair, the actual selected-J finish path passes 14 focused, two JavaScript and all
+935 operational tests; full application/80 SEC checks and both render widths pass. The separate
+postcopy proof preserves all 48,420 current archive entries, all 8,605 ordinary heads, four fact
+references, six admissions and 38 holds. Original sealed evidence remains unchanged. Preview/main
+activation, actual ordinary J collection and later genuine timer/publication receipts remain required.
+
+The accepted [PR Newswire parser build](docs/active/daily-pipeline/accuracy/prnewswire-dated-window-parser-build-spec-2026-10-25.md)
+uses retained Cato/Chainguard pages in a separate isolated offline unit. It separates the daily
+ordered window from unknown older history and gives no operational qualification or freshness credit.
 
 ## Remaining work and checkout boundary
 

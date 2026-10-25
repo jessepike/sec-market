@@ -1306,9 +1306,9 @@
       ],
       "family": "official_announcements",
       "id": "jfrog:official:1",
-      "kind": "official_discovery",
+      "kind": "q4_press_list",
       "maxPages": 60,
-      "registration": "candidate",
+      "registration": "verified",
       "required": true,
       "scopePrefixes": [
         "/news",
@@ -1322,7 +1322,34 @@
         "https://investors.jfrog.com/news/news-details/2026/JFrog-Announces-Second-Quarter-2026-Results/default.aspx"
       ],
       "supplierId": "jfrog",
-      "url": "https://investors.jfrog.com/"
+      "url": "https://investors.jfrog.com/feed/PressRelease.svc/GetPressReleaseList?LanguageId=1&bodyType=0&pressReleaseDateFilter=3&categoryId=00000000-0000-0000-0000-000000000000&pageSize=-1&pageNumber=0&tagList=&includeTags=true&year=-1&excludeSelection=1",
+      "qualificationOrigin": {
+        "schemaVersion": 1,
+        "kind": "bounded_q4_press_qualification",
+        "originalContract": {
+          "key": "contracts/8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db.json",
+          "sha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+          "bytes": 204449
+        },
+        "descriptor": {
+          "key": "objects/0223ae2af8878aecf73b5b6a5665d7840d592e7e299470e44bd31cedf7a12c1b",
+          "sha256": "0223ae2af8878aecf73b5b6a5665d7840d592e7e299470e44bd31cedf7a12c1b",
+          "bytes": 6105
+        },
+        "proof": {
+          "key": "objects/eb82ff6f74ffd0461a74cc6590e3cb1ef52adae2be698f4421b904c79d25d714",
+          "sha256": "eb82ff6f74ffd0461a74cc6590e3cb1ef52adae2be698f4421b904c79d25d714",
+          "bytes": 7571
+        },
+        "sourceResultIndex": 0,
+        "originalSourceSha256": "1e8d43d1828092f65a14bf90b7a5e222d2e4e8e12bccaab23c2a7052f0da7bff",
+        "adapterSha256": "1806af8e93712f07da5a28bf590ecdce8f2b352c63559a2d0a46d90afcb01744",
+        "inventoryManifest": {
+          "key": "objects/db6cb99b0b9be266702686a607108080c0d77cca06340a624bba3e7fbc17a1f4",
+          "sha256": "db6cb99b0b9be266702686a607108080c0d77cca06340a624bba3e7fbc17a1f4",
+          "bytes": 30669
+        }
+      }
     },
     {
       "allowedHosts": [
@@ -1848,9 +1875,9 @@
       ],
       "family": "official_announcements",
       "id": "rapid7:official:1",
-      "kind": "official_discovery",
+      "kind": "q4_press_list",
       "maxPages": 60,
-      "registration": "candidate",
+      "registration": "verified",
       "required": true,
       "scopePrefixes": [
         "/news",
@@ -1864,7 +1891,34 @@
         "https://investors.rapid7.com/news/news-details/2026/Rapid7-Appoints-Wael-Mohamed-Chief-Executive-Officer-Corey-Thomas-to-Become-Executive-Chairman/default.aspx"
       ],
       "supplierId": "rapid7",
-      "url": "https://investors.rapid7.com/"
+      "url": "https://investors.rapid7.com/feed/PressRelease.svc/GetPressReleaseList?LanguageId=1&bodyType=0&pressReleaseDateFilter=3&categoryId=1cb807d2-208f-4bc3-9133-6a9ad45ac3b0&pageSize=-1&pageNumber=0&tagList=&includeTags=true&year=-1&excludeSelection=1",
+      "qualificationOrigin": {
+        "schemaVersion": 1,
+        "kind": "bounded_q4_press_qualification",
+        "originalContract": {
+          "key": "contracts/8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db.json",
+          "sha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+          "bytes": 204449
+        },
+        "descriptor": {
+          "key": "objects/0223ae2af8878aecf73b5b6a5665d7840d592e7e299470e44bd31cedf7a12c1b",
+          "sha256": "0223ae2af8878aecf73b5b6a5665d7840d592e7e299470e44bd31cedf7a12c1b",
+          "bytes": 6105
+        },
+        "proof": {
+          "key": "objects/eb82ff6f74ffd0461a74cc6590e3cb1ef52adae2be698f4421b904c79d25d714",
+          "sha256": "eb82ff6f74ffd0461a74cc6590e3cb1ef52adae2be698f4421b904c79d25d714",
+          "bytes": 7571
+        },
+        "sourceResultIndex": 1,
+        "originalSourceSha256": "05a6202088ab48d007b5969e9230844aa716749d7b9442d145953a51446209b5",
+        "adapterSha256": "e33f08be7a81675ce1d8c925dd78d5165ac6b87eaf3ad71f1264856744f27cf3",
+        "inventoryManifest": {
+          "key": "objects/ac5b63569ed84b28053cc4f7cbda1c09abcb11866be40ba8e02f984ed21dcc25",
+          "sha256": "ac5b63569ed84b28053cc4f7cbda1c09abcb11866be40ba8e02f984ed21dcc25",
+          "bytes": 49495
+        }
+      }
     },
     {
       "allowedHosts": [

@@ -385,13 +385,22 @@ def _transition(store, ref, contract):
 
 
 def is_qualification_predecessor(origin):
-    return isinstance(origin, dict) and origin.get('kind') == PREDECESSOR_KIND
+    from q4_qualification_origin import PREDECESSOR_KIND as Q4_PREDECESSOR_KIND
+    return isinstance(origin, dict) and origin.get('kind') in (PREDECESSOR_KIND, Q4_PREDECESSOR_KIND)
 
 
 def qualification_predecessors(contract, source_id, store, before_time=None):
     source = next((s for s in contract['sources'] if s['id'] == source_id), None)
     if not source or 'qualificationOrigin' not in source:
         return []
+    import q4_qualification_origin as q4
+    if q4.is_successor(contract):
+        if source_id in q4.SOURCE_IDS:
+            return q4.predecessors(contract, source_id, store, before_time)
+        # One positively pinned inverse only. The original H validator and
+        # original three-source transition remain the authority for HTML.
+        original = q4.inverse_policy(contract, store)
+        return qualification_predecessors(original, source_id, store, before_time)
     transition = store.read('source-qualification-transitions/' + digest(contract) + '.json')
     require(transition is not None, 'QUALIFICATION_TRANSITION_REFERENCE_MISSING')
     origin = {'kind': PREDECESSOR_KIND, 'sourceId': source_id,
@@ -542,6 +551,12 @@ def _required_inventory_hints(store, baseline, source_id, completed, authority, 
 
 
 def resolve_inventory_origin(origin, contract, source_id, store, before_time=None):
+    import q4_qualification_origin as q4
+    if q4.is_successor(contract):
+        if isinstance(origin, dict) and origin.get('kind') == q4.PREDECESSOR_KIND:
+            return q4.resolve(origin, contract, source_id, store, before_time)
+        original = q4.inverse_policy(contract, store)
+        return resolve_inventory_origin(origin, original, source_id, store, before_time)
     require(type(origin) is dict and set(origin) == {'kind', 'sourceId', 'qualificationOrigin', 'transition'} and
             origin['kind'] == PREDECESSOR_KIND and origin['sourceId'] == source_id,
             'QUALIFICATION_PREDECESSOR_SCHEMA_INVALID')

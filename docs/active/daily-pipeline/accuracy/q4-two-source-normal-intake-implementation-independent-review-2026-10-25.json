@@ -1,0 +1,467 @@
+{
+  "schemaVersion": 1,
+  "verdict": "PASS",
+  "findings": [],
+  "reviewedWorktree": "/Users/jessepike/.codex/worktrees/q4-normal-intake/sec-market",
+  "base": "7a1aee7b0f3e28ba34cfc882a06a7487d70cb252",
+  "H": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+  "J": "47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a",
+  "completeIndependentSourceOrigins": [
+    {
+      "sourceId": "jfrog:official:1",
+      "sourceIndex": 34,
+      "originalSourceSha256": "1e8d43d1828092f65a14bf90b7a5e222d2e4e8e12bccaab23c2a7052f0da7bff",
+      "adapterSha256": "1806af8e93712f07da5a28bf590ecdce8f2b352c63559a2d0a46d90afcb01744",
+      "inventoryManifest": {
+        "key": "objects/db6cb99b0b9be266702686a607108080c0d77cca06340a624bba3e7fbc17a1f4",
+        "sha256": "db6cb99b0b9be266702686a607108080c0d77cca06340a624bba3e7fbc17a1f4",
+        "bytes": 30669
+      },
+      "documents": 206
+    },
+    {
+      "sourceId": "rapid7:official:1",
+      "sourceIndex": 52,
+      "originalSourceSha256": "05a6202088ab48d007b5969e9230844aa716749d7b9442d145953a51446209b5",
+      "adapterSha256": "e33f08be7a81675ce1d8c925dd78d5165ac6b87eaf3ad71f1264856744f27cf3",
+      "inventoryManifest": {
+        "key": "objects/ac5b63569ed84b28053cc4f7cbda1c09abcb11866be40ba8e02f984ed21dcc25",
+        "sha256": "ac5b63569ed84b28053cc4f7cbda1c09abcb11866be40ba8e02f984ed21dcc25",
+        "bytes": 49495
+      },
+      "documents": 323
+    }
+  ],
+  "seed": {
+    "manifest": {
+      "path": "contracts/q4-qualification-seeds/47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a/seed.json",
+      "sha256": "4423bc092868d3774b4e52b22299a97efdc13ab009d1297cc6c33fe354ba842b",
+      "bytes": 21926
+    },
+    "files": 55,
+    "payloadBytes": 4742948
+  },
+  "independentResults": {
+    "pythonResultGroups": 10,
+    "pythonRejectionAndGuardChecks": 62,
+    "javascriptMutationChecks": 27,
+    "additionalLeaseImportRejections": 17,
+    "totalRejectionAndGuardChecks": 106,
+    "leaseInterruptedImportRetry": {
+      "partialWrites": 10,
+      "finalImmutableFiles": 55,
+      "coverageCredit": false
+    },
+    "normalBudget": {
+      "cycles": 2,
+      "wire": [
+        {
+          "phase": 0,
+          "url": "https://investors.jfrog.com/feed/PressRelease.svc/GetPressReleaseList?LanguageId=1&bodyType=0&pressReleaseDateFilter=3&categoryId=00000000-0000-0000-0000-000000000000&pageSize=-1&pageNumber=0&tagList=&includeTags=true&year=-1&excludeSelection=1",
+          "headers": {
+            "User-agent": "SecurityMarketPulse research jesse@keatingpike.com",
+            "Accept": "application/json, application/xml, text/xml, text/html"
+          }
+        },
+        {
+          "phase": 0,
+          "url": "https://investors.jfrog.com/news/news-details/2026/JFrog-Ends-the-Audit-Scramble-Delivers-New-DevGovOps-Capabilities-with-Signed-Compliance-Evidence-for-Every-Release-Without-Slowing-Development/default.aspx",
+          "headers": {
+            "User-agent": "SecurityMarketPulse research jesse@keatingpike.com",
+            "Accept": "application/json, application/xml, text/xml, text/html"
+          }
+        },
+        {
+          "phase": 0,
+          "url": "https://investors.rapid7.com/feed/PressRelease.svc/GetPressReleaseList?LanguageId=1&bodyType=0&pressReleaseDateFilter=3&categoryId=1cb807d2-208f-4bc3-9133-6a9ad45ac3b0&pageSize=-1&pageNumber=0&tagList=&includeTags=true&year=-1&excludeSelection=1",
+          "headers": {
+            "User-agent": "SecurityMarketPulse research jesse@keatingpike.com",
+            "Accept": "application/json, application/xml, text/xml, text/html"
+          }
+        },
+        {
+          "phase": 1,
+          "url": "https://investors.jfrog.com/feed/PressRelease.svc/GetPressReleaseList?LanguageId=1&bodyType=0&pressReleaseDateFilter=3&categoryId=00000000-0000-0000-0000-000000000000&pageSize=-1&pageNumber=0&tagList=&includeTags=true&year=-1&excludeSelection=1",
+          "headers": {
+            "User-agent": "SecurityMarketPulse research jesse@keatingpike.com",
+            "Accept": "application/json, application/xml, text/xml, text/html",
+            "If-none-match": "\"reviewer-f7d84b288a66\""
+          }
+        },
+        {
+          "phase": 1,
+          "url": "https://investors.jfrog.com/news/news-details/2026/JFrog-Ends-the-Audit-Scramble-Delivers-New-DevGovOps-Capabilities-with-Signed-Compliance-Evidence-for-Every-Release-Without-Slowing-Development/default.aspx",
+          "headers": {
+            "User-agent": "SecurityMarketPulse research jesse@keatingpike.com",
+            "Accept": "application/json, application/xml, text/xml, text/html",
+            "If-none-match": "\"reviewer-cce97730ed49\""
+          }
+        },
+        {
+          "phase": 1,
+          "url": "https://investors.rapid7.com/feed/PressRelease.svc/GetPressReleaseList?LanguageId=1&bodyType=0&pressReleaseDateFilter=3&categoryId=1cb807d2-208f-4bc3-9133-6a9ad45ac3b0&pageSize=-1&pageNumber=0&tagList=&includeTags=true&year=-1&excludeSelection=1",
+          "headers": {
+            "User-agent": "SecurityMarketPulse research jesse@keatingpike.com",
+            "Accept": "application/json, application/xml, text/xml, text/html",
+            "If-none-match": "\"reviewer-cf3c57d1c208\""
+          }
+        }
+      ],
+      "countsBefore": {
+        "fetches": 985,
+        "calls": 80,
+        "documents": 38
+      },
+      "countsAfter": {
+        "calls": 80,
+        "documents": 39,
+        "fetches": 991
+      },
+      "agentCalls": 0,
+      "loginStatusChecks": 2,
+      "normalObservations": [
+        {
+          "sourceId": "jfrog:official:1",
+          "full200": {
+            "body": {
+              "bytes": 282783,
+              "key": "objects/f7d84b288a6665280f4b8ade996b0bf64fe9c3fa0ea7a8a15b1adfb0826ccc19",
+              "sha256": "f7d84b288a6665280f4b8ade996b0bf64fe9c3fa0ea7a8a15b1adfb0826ccc19"
+            },
+            "contentType": "application/json",
+            "etag": "\"reviewer-f7d84b288a66\"",
+            "fetchedAt": "2026-10-25T12:30:00Z",
+            "finalUrl": "https://investors.jfrog.com/feed/PressRelease.svc/GetPressReleaseList?LanguageId=1&bodyType=0&pressReleaseDateFilter=3&categoryId=00000000-0000-0000-0000-000000000000&pageSize=-1&pageNumber=0&tagList=&includeTags=true&year=-1&excludeSelection=1",
+            "httpStatus": 200,
+            "lastModified": null,
+            "observationId": "506e8e3c794284146d790d89790b8e1a0334066f42b4a0381301df5682d665c3",
+            "requestedUrl": "https://investors.jfrog.com/feed/PressRelease.svc/GetPressReleaseList?LanguageId=1&bodyType=0&pressReleaseDateFilter=3&categoryId=00000000-0000-0000-0000-000000000000&pageSize=-1&pageNumber=0&tagList=&includeTags=true&year=-1&excludeSelection=1",
+            "sourceId": "jfrog:official:1",
+            "status": "fetched",
+            "transportId": "41579c03182a362c3653e0378be1b3f1c81f8d22c869d81ad994d3aa916354a4",
+            "transportReused": false
+          },
+          "conditional304": {
+            "body": {
+              "bytes": 282783,
+              "key": "objects/f7d84b288a6665280f4b8ade996b0bf64fe9c3fa0ea7a8a15b1adfb0826ccc19",
+              "sha256": "f7d84b288a6665280f4b8ade996b0bf64fe9c3fa0ea7a8a15b1adfb0826ccc19"
+            },
+            "contentType": "application/json",
+            "etag": "\"reviewer-f7d84b288a66\"",
+            "fetchedAt": "2026-10-25T13:30:00Z",
+            "finalUrl": "https://investors.jfrog.com/feed/PressRelease.svc/GetPressReleaseList?LanguageId=1&bodyType=0&pressReleaseDateFilter=3&categoryId=00000000-0000-0000-0000-000000000000&pageSize=-1&pageNumber=0&tagList=&includeTags=true&year=-1&excludeSelection=1",
+            "httpStatus": 304,
+            "lastModified": null,
+            "observationId": "8c0bdba3d6d291af03bade05545d4a39183d53da27511aff52aad3c52fd0d09d",
+            "requestedUrl": "https://investors.jfrog.com/feed/PressRelease.svc/GetPressReleaseList?LanguageId=1&bodyType=0&pressReleaseDateFilter=3&categoryId=00000000-0000-0000-0000-000000000000&pageSize=-1&pageNumber=0&tagList=&includeTags=true&year=-1&excludeSelection=1",
+            "reusesObservationId": "506e8e3c794284146d790d89790b8e1a0334066f42b4a0381301df5682d665c3",
+            "sourceId": "jfrog:official:1",
+            "status": "not_modified",
+            "transportReused": false
+          }
+        },
+        {
+          "sourceId": "rapid7:official:1",
+          "full200": {
+            "body": {
+              "bytes": 414550,
+              "key": "objects/cf3c57d1c2080d65656e9f291eca371aefd99909476d413bb5c90155bc742db8",
+              "sha256": "cf3c57d1c2080d65656e9f291eca371aefd99909476d413bb5c90155bc742db8"
+            },
+            "contentType": "application/json",
+            "etag": "\"reviewer-cf3c57d1c208\"",
+            "fetchedAt": "2026-10-25T12:30:00Z",
+            "finalUrl": "https://investors.rapid7.com/feed/PressRelease.svc/GetPressReleaseList?LanguageId=1&bodyType=0&pressReleaseDateFilter=3&categoryId=1cb807d2-208f-4bc3-9133-6a9ad45ac3b0&pageSize=-1&pageNumber=0&tagList=&includeTags=true&year=-1&excludeSelection=1",
+            "httpStatus": 200,
+            "lastModified": null,
+            "observationId": "2b81fa3ce6bee391406cb2df15b9628405e6e0d32ea19ef659b950803d31abdf",
+            "requestedUrl": "https://investors.rapid7.com/feed/PressRelease.svc/GetPressReleaseList?LanguageId=1&bodyType=0&pressReleaseDateFilter=3&categoryId=1cb807d2-208f-4bc3-9133-6a9ad45ac3b0&pageSize=-1&pageNumber=0&tagList=&includeTags=true&year=-1&excludeSelection=1",
+            "sourceId": "rapid7:official:1",
+            "status": "fetched",
+            "transportId": "40f4170624a00770de37aee50064bdb2c5ae917e6d8104e80e0bae5e6ea6f85c",
+            "transportReused": false
+          },
+          "conditional304": {
+            "body": {
+              "bytes": 414550,
+              "key": "objects/cf3c57d1c2080d65656e9f291eca371aefd99909476d413bb5c90155bc742db8",
+              "sha256": "cf3c57d1c2080d65656e9f291eca371aefd99909476d413bb5c90155bc742db8"
+            },
+            "contentType": "application/json",
+            "etag": "\"reviewer-cf3c57d1c208\"",
+            "fetchedAt": "2026-10-25T13:30:00Z",
+            "finalUrl": "https://investors.rapid7.com/feed/PressRelease.svc/GetPressReleaseList?LanguageId=1&bodyType=0&pressReleaseDateFilter=3&categoryId=1cb807d2-208f-4bc3-9133-6a9ad45ac3b0&pageSize=-1&pageNumber=0&tagList=&includeTags=true&year=-1&excludeSelection=1",
+            "httpStatus": 304,
+            "lastModified": null,
+            "observationId": "ccd7233788999047e6d0ac61dc10d5be887aa5c0638a94f0dc820ba47056f96f",
+            "requestedUrl": "https://investors.rapid7.com/feed/PressRelease.svc/GetPressReleaseList?LanguageId=1&bodyType=0&pressReleaseDateFilter=3&categoryId=1cb807d2-208f-4bc3-9133-6a9ad45ac3b0&pageSize=-1&pageNumber=0&tagList=&includeTags=true&year=-1&excludeSelection=1",
+            "reusesObservationId": "2b81fa3ce6bee391406cb2df15b9628405e6e0d32ea19ef659b950803d31abdf",
+            "sourceId": "rapid7:official:1",
+            "status": "not_modified",
+            "transportReused": false
+          }
+        }
+      ],
+      "factsPreserved": 4,
+      "holdsPreserved": 38
+    },
+    "ordinaryRetry": {
+      "logicalReservations": 1,
+      "syntheticWireAttempts": 3,
+      "quotaDenials": 3,
+      "deadlineDenials": 1
+    },
+    "globalCorrectionStamp": "268fcf84990a60622c8394553e7d7296010eab7a49c37d9857c7a15308cddaf9"
+  },
+  "caseCoverage": {
+    "J01": "Independent complete H-to-J reconstruction and inverse, 557 obligations.",
+    "J02": "Python/JavaScript whole-policy and type/order mutations reject.",
+    "J03": "Actual accepted descriptor/proof pins and complete original graph replay.",
+    "J04": "Old three origins and original H resolver outputs are canonical-byte identical under J.",
+    "J05": "Historical H fixtures remain fixed; operational H plan rejects under J.",
+    "J06": "Both new origins replay all 529 records as inventory only; original held report stays immutable.",
+    "J07": "All 55 package payloads hash-check; fixed old H seed replay, existing-byte/path rejection.",
+    "J08": "Real J context/require_lease/import code; synthetic remote ack, wrong identity/owner/expiry/race reject.",
+    "J09": "Two unmocked valid imports, idempotence; post-preflight interruption after ten writes retries to 55.",
+    "J10": "Independent Python/JavaScript full zero-credit baseline reconstruction and whole prior chain.",
+    "J11": "Honestly resealed forged credit/time/history mutations reject in both languages.",
+    "J12": "All six actual admissions and group policy hashes replay without model or reservation.",
+    "J13": "Ordinary Pipeline and real Fetcher full 200 with 206/323 actual arrays; variable-length 205 discovery.",
+    "J14": "Ordinary conditional requests return genuine synthetic 304 with prior 200 IDs/body and newer check clock.",
+    "J15": "Status/MIME/body/source/URL failure checks remain incomplete; frozen and origin evidence persists.",
+    "J16": "Original observation clock wins over a later verifier clock; genuine later 304 has its own new check.",
+    "J17": "Middle-row malformed, duplicate, order, unsafe/date and extra/continuation envelopes reject; old parser remains exact.",
+    "J18": "Only valid nonempty older-only data is quiet; empty and future uncertainty do not assert quiet.",
+    "J19": "Written dates and unknown timezone remain; today/next-day/far-future boundaries/anomalies stay visible.",
+    "J20": "Normal returned retained inventories contain every Q4 origin row; frozen four refs/38 holds and old dates remain exact.",
+    "J21": "Real SubscriptionAgent/GuardedRunner at 80 calls/38 docs: two cycles total six fetches, zero model calls, 39 docs.",
+    "J22": "Real quota/deadline denial and 1 logical/3 physical retry test; generic cancellation/day paths are unchanged and covered by retained full suite.",
+    "J23": "Eleven protected core modules byte-match base7a1aee7b; stable handback files and frozen archive identities stay exact.",
+    "J24": "Retained worker full suites/SEC80/render receipts authenticated; live J activation, scheduling and publication remain unexercised."
+  },
+  "workerEvidenceAttribution": {
+    "verification": {
+      "path": "/mnt/mac/Users/jessepike/.codex/worktrees/q4-normal-intake/sec-market/docs/active/daily-pipeline/accuracy/receipts/q4-two-source-normal-intake-2026-10-25/verification.json",
+      "sha256": "79ce23bb08ab202534489f3f5610f744181c54b409cd7c185641e6ee3ac4c156",
+      "bytes": 32993,
+      "mtimeNs": 1792932747471410154
+    },
+    "suiteChecks": {
+      "ops": {
+        "passed": 935,
+        "failed": 0
+      },
+      "webData": {
+        "passed": 379,
+        "failed": 0
+      },
+      "webPipeline": {
+        "passed": 115,
+        "failed": 0
+      },
+      "browser": {
+        "passed": 42,
+        "skipped": 1,
+        "failed": 0
+      },
+      "secClaims": {
+        "required": 80,
+        "verified": 80,
+        "blockers": 0,
+        "drift": 0
+      },
+      "newFocusedPython": {
+        "passed": 14,
+        "failed": 0
+      },
+      "newJS": {
+        "passed": 2,
+        "failed": 0
+      },
+      "gitDiffCheck": "pass"
+    },
+    "logs": {
+      "full-ops-final.log": {
+        "compressed": {
+          "sha256": "90ad7e4004c25bb2393f6a4b1ac2b510bb002c0f69140e721e0c2075cca8cc6c",
+          "bytes": 26022,
+          "mtimeNs": 1792932618133363083
+        },
+        "rawSha256": "e60c3b9821b98a1c509c9fc0589ee64ec26f4bb6e2881131cac2a18ed54be10f",
+        "rawBytes": 174127
+      },
+      "full-web-first.log": {
+        "compressed": {
+          "sha256": "5944c32c9da30272a182d8feb7ff45b14ab3b0effc4a9fa1ec507eb59e3ffae9",
+          "bytes": 25595,
+          "mtimeNs": 1792932618137755203
+        },
+        "rawSha256": "eb6c8fc14f291fed80e98c120d3d379fb48926e8c7ff8f036b2a6384fffaddd1",
+        "rawBytes": 127464
+      },
+      "focused-fourth.log": {
+        "compressed": {
+          "sha256": "956240fa7e56940ee8fe6127cbf0bee874dd4902e087cd12220bb2f2f686ee1e",
+          "bytes": 692,
+          "mtimeNs": 1792932618138199119
+        },
+        "rawSha256": "fb87aea6dd82258465c4227feb1d371658b3637ed556d52a2ac202a59d227341",
+        "rawBytes": 2756
+      },
+      "render-production.log": {
+        "compressed": {
+          "sha256": "4c495f7b48dc0ce2ba48029e8b61ddee8ddd8de3c9b9f5a4101e2807b76114aa",
+          "bytes": 194,
+          "mtimeNs": 1792932618138426327
+        },
+        "rawSha256": "e82feb8bbd11476711db75a6446736c7faa6580a18b38d4993ffb69597b83d08",
+        "rawBytes": 386
+      },
+      "render-local.log": {
+        "compressed": {
+          "sha256": "35fe22b3c7b7a563c52997474bd1c67b829a10e710abd252cb32a16e5b75e111",
+          "bytes": 189,
+          "mtimeNs": 1792932618138596035
+        },
+        "rawSha256": "c51b835cd4048f250c8b626705c5d0dc1a46a8a779fa43e95a9a6fdae5be97ac",
+        "rawBytes": 358
+      }
+    },
+    "actualReplay": {
+      "path": "/mnt/mac/Users/jessepike/.codex/worktrees/q4-normal-intake/sec-market/docs/active/daily-pipeline/accuracy/receipts/q4-two-source-normal-intake-2026-10-25/actual-readonly-replay.json",
+      "sha256": "c5105f50b544f0f16b8a60e9844bc620684b200cfcbe5a1808450eb3a6d6066b",
+      "bytes": 467754,
+      "mtimeNs": 1792932618139328284
+    },
+    "renderPairs": [
+      {
+        "kind": "production",
+        "width": 1440,
+        "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-normal-intake-production-1440.png",
+        "priorPath": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-retained-template-production-1440.png",
+        "sha256": "5d04b34e2ffb5f520d45a06487e9ef7eb4ae671eb4cf7dce86626a2ffd1a6267",
+        "bytes": 986229,
+        "dimensions": [
+          1440,
+          8358
+        ],
+        "byteIdentical": true,
+        "viewAttribution": "Root separately reported viewing all four new images."
+      },
+      {
+        "kind": "local",
+        "width": 1440,
+        "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-normal-intake-local-1440.png",
+        "priorPath": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-retained-template-local-1440.png",
+        "sha256": "b044622ff53e695fee8334a95746b932c0df81ff6e26ecb810bfd9228765cdd9",
+        "bytes": 989395,
+        "dimensions": [
+          1440,
+          8379
+        ],
+        "byteIdentical": true,
+        "viewAttribution": "Root separately reported viewing all four new images."
+      },
+      {
+        "kind": "production",
+        "width": 390,
+        "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-normal-intake-production-390.png",
+        "priorPath": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-retained-template-production-390.png",
+        "sha256": "6da1a1dd0d2591dedb6bef743460ce9659853c84ff3539a59308c5e0cf347b75",
+        "bytes": 418882,
+        "dimensions": [
+          390,
+          7611
+        ],
+        "byteIdentical": true,
+        "viewAttribution": "Root separately reported viewing all four new images."
+      },
+      {
+        "kind": "local",
+        "width": 390,
+        "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-normal-intake-local-390.png",
+        "priorPath": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-retained-template-local-390.png",
+        "sha256": "7dc872da46a4cf5e2eb765df88e1ae28e34eb70f8d5c38b19835bab09afcd3df",
+        "bytes": 436460,
+        "dimensions": [
+          390,
+          7749
+        ],
+        "byteIdentical": true,
+        "viewAttribution": "Root separately reported viewing all four new images."
+      }
+    ],
+    "fullSuitesRerunByReviewer": false
+  },
+  "protectedCodeUnchanged": {
+    "web/scripts/pipeline/engine.py": "e471f18006a4899406510cdede42829476ba1945b58c420c61f6edce767a7e19",
+    "web/scripts/pipeline/agents.py": "4891387bca57821ff3f65e2f07b353d53ceab9b757ddc183cf7eb1ac9a908bdc",
+    "web/scripts/pipeline/validation.py": "38b19ad77aff48ba971589add57a9c1b01d505ca49d3c4738bb447007cd71b08",
+    "web/scripts/pipeline/retained_audit.py": "b9489df36d77dea130e3b1caadee2356309ff2b4a60c4a949249a28ab74ba7ef",
+    "web/scripts/pipeline/selection.py": "1f2cb4e6101c6e119be359e5ea011b810dc4e4e35b57bfde324c0ec81cdd9f93",
+    "web/scripts/pipeline/separation.py": "b2c225fef1bb704701441a611ea921e325a5a28e6ac00fcdb2b4d7273413e629",
+    "web/scripts/pipeline/documents.py": "4e3dbd2dbc6409bd8b8be660cf2b673601ca1c3bc90325fc4fbf6cceddc9b69f",
+    "web/scripts/pipeline/q4_press_list.py": "f1acf87f53b0b8c5ed9e5b3a181b7832a197f7276a9434a229d29317e7987594",
+    "web/scripts/pipeline/q4_retained_primary_template.py": "ac277f7522641e501def1f2613ec5ae7fce07cc148ceaa739483ac611d88669c",
+    "web/scripts/pipeline/q4_primary_qualification.py": "cfb164c4c0a19bd890d4522547351bc55a1dc3697d8df5b48af4ead460457235",
+    "ops/ci/html_qualification_seed.py": "68c66beda7c00e65361c90e7bc30efffc2e19a41804ae76ebffd40914d9236e4"
+  },
+  "authenticatedArchiveReuse": {
+    "commit": "9deb0c9ce9fe34999da0cf13bb023dfdfecc15c8",
+    "manifestSha256": "8da12977648ce0f6ed62f16de0b52c2257977f41404145adbecb363069e037e1",
+    "entries": 48245,
+    "identityReceipt": {
+      "path": "/var/tmp/smp-narrow-pagination-independent-20261025/authenticated-archive-file-identities.json",
+      "sha256": "ca73c500d9e7b66135945ab56034563c01a788caa66efbaf2f9962bdf16fd720",
+      "bytes": 8821965,
+      "mtimeNs": 1792931332121378679
+    },
+    "allFileIdentitiesUnchanged": true
+  },
+  "inputSealSummary": {
+    "mainReviewConsultedFiles": 21321,
+    "allByteSizeMtimeSealsUnchanged": true,
+    "all48245FrozenFileIdentitiesUnchanged": true,
+    "fullHashReusedFromPreviouslyAuthenticatedReceipt": true
+  },
+  "completeSealReceipts": {
+    "python-review.json": {
+      "rawSha256": "50635e37ba81c7b71c97885f97b7decd41b694ead2ad2cb2282c7387ede199d2",
+      "rawBytes": 6985762,
+      "gzipFile": "python-review.json.gz",
+      "gzipSha256": "857f8c60fa79999c76dc6f8fd70965639160a9531527fecfb5b4bd5b18665577",
+      "gzipBytes": 1731741,
+      "lossless": true
+    },
+    "lease-edge-review.json": {
+      "rawSha256": "3ea4a6ae46e9f5be733e18ce0fd2e35b5292019b1ca950288d132640507f405a",
+      "rawBytes": 453300,
+      "gzipFile": "lease-edge-review.json.gz",
+      "gzipSha256": "0d2b207540d492fd57b634291b20e46905e27852b6639ae596db919cb262de94",
+      "gzipBytes": 94267,
+      "lossless": true
+    }
+  },
+  "receiptIndex": {
+    "sha256": "1c2846aefe3505cea4d86275ce2d36470639cc549159a1289179daf991104870",
+    "bytes": 1578
+  },
+  "limits": [
+    "No actual J collection, import acknowledgement, scheduled run or publication occurred in this review.",
+    "Source transport, login status and remote acknowledgement are synthetic fixtures; real parser, Fetcher, ordinary Pipeline task, guards, importer and lease checks execute.",
+    "The 985/80/38 ledger is the frozen test fixture, not current activation capacity. Root must use the actual immediate activation ledger and archive.",
+    "The six-fetch ceiling is incremental logical work for two sources, not all other obligations or physical retry attempts.",
+    "The H operational plan still in the worker base must not land with J. Root must select the reviewed exact disabled-J plan.",
+    "Generic engine, Page, model, semantic-context, cancellation and day controls were not modified; their full-suite results are retained worker evidence.",
+    "The worker has a queued documentation-only correction of the literal replay command; this review retains the exact tested prior metadata."
+  ],
+  "reviewerSourceRequests": 0,
+  "reviewerModelCalls": 0,
+  "reviewerRealArchiveSessionBudgetWrites": 0,
+  "reviewerRepoWrites": 0,
+  "qualificationCredit": false,
+  "freshnessCredit": false,
+  "publicationCredit": false,
+  "nextDecision": "Accept the implementation for root integration and separately guarded J activation; require actual J ordinary intake and future scheduled/public receipts before granting operational credit."
+}

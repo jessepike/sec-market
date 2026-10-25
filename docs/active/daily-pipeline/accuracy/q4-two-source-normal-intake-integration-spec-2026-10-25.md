@@ -1,13 +1,18 @@
 # Qualify JFrog and Rapid7 for ordinary daily intake
 
 October 25, 2026. Implementation scope under the continuing source-qualification instruction.
-This build is currently blocked pending accepted versioned retained-template proof. Operation 40188161705 on
-b7c7841ab36c4cf04646978493ce74e1e542a2b9 completed two successful HTTP captures, but accepted
-neither sample: both omit canonical links and use a generic H1. Its independently replayed
-report retains those holds exactly. A separately reviewed source-specific primary proof is
-required before implementation starts; do not change the historical result or retry the GETs
-merely to reclassify the same bodies. This document grants no activation or qualification
-credit. Root owns operational selection and remote execution.
+The retained-template prerequisite is accepted as committed in
+7a1aee7b0f3e28ba34cfc882a06a7487d70cb252. Its independently reviewed module is SHA256
+ac277f7522641e501def1f2613ec5ae7fce07cc148ceaa739483ac611d88669c, descriptor raw SHA256
+0223ae2af8878aecf73b5b6a5665d7840d592e7e299470e44bd31cedf7a12c1b, and derived proof canonical
+SHA256 eb82ff6f74ffd0461a74cc6590e3cb1ef52adae2be698f4421b904c79d25d714.
+Independent implementation review passed with no open findings (review MD SHA256
+0e3f79bc948b1e3ecfd3aa1bc7cf3dfce4a6b96709cd4b4d328cb5a3b9748d97).
+Actual operation 40188161705 on b7c7841ab36c4cf04646978493ce74e1e542a2b9 retains its original
+acceptedSamples=0 and proposalEvidenceComplete=false. The separate versioned proof accepts the
+two exact retained templates as proposal evidence without changing that result or granting
+operational credit. No retry GET is required. This isolated build implements the reviewed normal
+integration; root owns operational selection, promotion and remote execution.
 
 ## Exact policy boundary
 
