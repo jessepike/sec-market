@@ -1,0 +1,99 @@
+{
+  "actualDiagnosticRun": 40190857026,
+  "archiveCommit": "9deb0c9ce9fe34999da0cf13bb023dfdfecc15c8",
+  "ci": {
+    "main-web": {
+      "conclusion": "success",
+      "event": "push",
+      "id": 40192406292
+    },
+    "preview-web": {
+      "conclusion": "success",
+      "event": "push",
+      "id": 40192163849
+    },
+    "runtime-canary": {
+      "conclusion": "success",
+      "event": "push",
+      "id": 40192163902
+    }
+  },
+  "disabledPlanSha256": "ad1c5cc234fe4fa69cbceb5370ac74825a37dc80b08528ca908d14b1352e53b4",
+  "files": {
+    "README.md": {
+      "bytes": 842,
+      "sha256": "dec06276255f7a7bd1af2a3546ca659bc9012714ff5ff323ff65da1fd4178888"
+    },
+    "archive-ref.json": {
+      "bytes": 381,
+      "sha256": "353b4a13995da96c2722fdba6e58f013dee44c5c780268eaf91744dbd76f1780"
+    },
+    "budget.json": {
+      "bytes": 41,
+      "sha256": "17c0b4195b89773cb7b657824e19dbf4ca10813a2a1d431607b9a8964b628eec"
+    },
+    "disabled-plan.json": {
+      "bytes": 173,
+      "sha256": "ad1c5cc234fe4fa69cbceb5370ac74825a37dc80b08528ca908d14b1352e53b4"
+    },
+    "focused-restoration-tests.log.gz": {
+      "bytes": 1043,
+      "sha256": "2f2808276e0c9373d7b97ef15dac6532612393c32e267ee57ad066b5ebcf4289"
+    },
+    "gate-budget.json": {
+      "bytes": 14,
+      "sha256": "5452defb75897ca4711b2b086a2efa1ff79112b00a583b24de108522855d8a54"
+    },
+    "lease.json": {
+      "bytes": 300,
+      "sha256": "954dac83bf95ea9ccff68b28d8c2304ae694143347b5c6adb7bce052ec5a6130"
+    },
+    "main-ref.json": {
+      "bytes": 338,
+      "sha256": "c8bbb3ef0e4c6799bc5dfaa53063c452e2edcf0e5bc7363095092e6a950e9dbe"
+    },
+    "main-web.json": {
+      "bytes": 12716,
+      "sha256": "256204d9306bb0cab829ef9e87bfaa966b6f10b215bf756e5d8d6ba309673cb3"
+    },
+    "preview-web.json": {
+      "bytes": 12719,
+      "sha256": "659a17df3ce6c0b5016e2f027864ffa446e80312b951422d8ce706a63033ef8e"
+    },
+    "public-checks.json": {
+      "bytes": 1140,
+      "sha256": "887304210434b1d15b8b5128a4df0e1c49493748b4ee86c1aaf6e4a52bea0d36"
+    },
+    "remote-disabled-plan.json": {
+      "bytes": 173,
+      "sha256": "ad1c5cc234fe4fa69cbceb5370ac74825a37dc80b08528ca908d14b1352e53b4"
+    },
+    "restoration.json": {
+      "bytes": 1752,
+      "sha256": "e44fea349ed3e8cc4220d756131578d82c4d78b7bcd2c8a67d473939de35c2ef"
+    },
+    "runtime-canary.json": {
+      "bytes": 12766,
+      "sha256": "10865c225e01b5a9d4f1e6926583c1d3c2955f1864b7287378cf9db4b6535fb5"
+    },
+    "vercel-deployments.json": {
+      "bytes": 2407,
+      "sha256": "c0f4e23bd557c1fa134ab88d4cb1e908b969d1469c70dc7f2adbacece6b89288"
+    }
+  },
+  "leaseReleased": true,
+  "publicFilesByteExact": true,
+  "publicReleaseId": "fc8bf0984dbeacbe79519574911837d8b638f42215f6547e31ae8968b29951e4",
+  "publicationCredit": false,
+  "qualificationCredit": false,
+  "reviewedMain": "d0e408cbb2e0cf939cc53f04bfd88ff0f33d87b6",
+  "schemaVersion": 1,
+  "settledLedger": {
+    "calls": 80,
+    "documents": 38,
+    "fetches": 985,
+    "gates": 2
+  },
+  "verdict": "PASS_CLOSURE_AND_UNCHANGED_PRODUCTION",
+  "verifiedAt": "2026-10-25T12:20:08.377250+00:00"
+}

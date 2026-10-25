@@ -1,0 +1,33 @@
+{
+  "actualAppRevision": "6d5e87feba4ffbc75e50f35cb564cb8fd91708ca",
+  "actualReleaseId": "fc8bf0984dbeacbe79519574911837d8b638f42215f6547e31ae8968b29951e4",
+  "baseline": "../scheduled-publisher-attempt-2026-10-25",
+  "files": [
+    {
+      "byteExactToAuthenticatedPriorPublicFile": true,
+      "bytes": 1103,
+      "name": "deployment-receipt",
+      "sha256": "5ef1302f26813f928931c6b9085bbd985a95fe10fb8e992d7c3d64415bb87d28"
+    },
+    {
+      "byteExactToAuthenticatedPriorPublicFile": true,
+      "bytes": 1636,
+      "name": "app-release",
+      "sha256": "1c2f50a1e7600c1802b1e60efc02df7c266201d0bd3146e940d97811d0346055"
+    },
+    {
+      "byteExactToAuthenticatedPriorPublicFile": true,
+      "bytes": 1337257,
+      "name": "daily-coverage",
+      "sha256": "ac8068379c6c79760331711bfb7bb6387fbc639f9ab6f921713502c6982d47fc"
+    },
+    {
+      "byteExactToAuthenticatedPriorPublicFile": true,
+      "bytes": 27410,
+      "name": "factual-corrections",
+      "sha256": "1dcdfc2bfd3b1f02b44e299421f67c939dc48ca4bf7cfbc712ea53cac0e859cf"
+    }
+  ],
+  "newPublication": false,
+  "verifiedAt": "2026-10-25T12:20:08.375263+00:00"
+}

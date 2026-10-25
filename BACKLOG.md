@@ -97,7 +97,11 @@ web checks, Vercel preview READY/main Git ignored. Actual diagnostic 40190857026
 496ad86a/869 baseline: 116 requests against its 257 whole-operation bound, all seven explicit
 targets HTTP 200 HTML. Full authenticated 48,245-entry archive and offline replay pass; facts,
 six admissions, 38 holds and expiry remain exact. Listing and pagination leads need qualification;
-disabled-plan restoration is closing. No coverage credit follows from these captures.
+disabled-plan restoration is verified on main d0e408cb with preview web40192163849,
+canary40192163902 and main web40192406292 passing, preview READY/main Git ignored and all four
+public files byte-exact. No coverage credit follows from these captures. Torq's literal loadmore
+controller and Zenity's27-of48 initial posts prove remaining pagination work. The next bounded
+listing/pagination capture is being reviewed; retain existing Cyera/Torq primary bodies and dates.
 No owner source decision is currently required.
 
 Use the [evaluation rubric](docs/active/daily-pipeline/evaluation-rubric.md) and keep the original

@@ -180,3 +180,8 @@ unqualified with zero coverage credit. Tests use fictional fetchers and temporar
   Open Graph URL/title, nested article heading, visible date and readable article container are
   separate source-template evidence. Preserve the original generic-shape hold while reviewing a
   versioned narrow proof; do not refetch unchanged pages or relax the generic helper.
+
+- A GitHub raw Contents response can differ from an archived binary object's manifest bytes.
+  Retrieve the exact Git blob's base64 representation and verify its Git hash, decoded length
+  and manifest SHA-256 before using it. Record the differing raw representation; do not retry
+  the market source or weaken the archive check.

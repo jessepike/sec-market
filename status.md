@@ -96,7 +96,11 @@ It charged 116 requests: 109 generic reservations and seven explicit targets. Ac
 9deb0c9c has 48,245 authenticated entries; only budget/released-lease heads changed. Six admissions,
 four facts, 38 holds, normal heads and expiry remain exact. Independent full offline replay passes.
 Listing/pagination leads remain unqualified. Exact disabled-plan ad1 restoration passes 27 focused
-checks; reviewed preview/main closure and live verification follow this completed local unit.
+checks and is verified remotely on main d0e408cb. Preview web 40192163849, runtime canary
+40192163902 and main web 40192406292 pass. Preview Vercel dpl_EZeytCio8T5AZ3WzWJnwNUDegrJw
+is READY; main Git dpl_HZ7AuQyspRDXMbXRk2vbTgX2yX4p is CANCELED. All four public files
+remain byte-exact to the authenticated accepted release; lease is released and ledger unchanged.
+[Closure proof](docs/active/daily-pipeline/accuracy/receipts/seven-newsroom-disabled-restoration-2026-10-25/verification.json).
 No owner source decision is currently required.
 The [next Q4 build specification](docs/active/daily-pipeline/accuracy/q4-single-response-qualification-build-spec-2026-10-25.md)
 now has its dormant single-response parser and two exact financial primary samples. Independent

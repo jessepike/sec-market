@@ -1,0 +1,54 @@
+{
+  "result": {
+    "deployments": {
+      "pagination": {
+        "count": 2,
+        "prev": 1792930608041
+      },
+      "deployments": [
+        {
+          "id": "dpl_HZ7AuQyspRDXMbXRk2vbTgX2yX4p",
+          "name": "security-market-pulse",
+          "url": "security-market-pulse-q3qcb5n50-pikeholdings.vercel.app",
+          "created": 1792930608041,
+          "state": "CANCELED",
+          "target": "production",
+          "creator": {
+            "uid": "um6xyC6srGbNQRAR3KB77kfs",
+            "username": "jessepike"
+          },
+          "meta": {
+            "githubCommitRef": "main",
+            "githubCommitSha": "d0e408cbb2e0cf939cc53f04bfd88ff0f33d87b6",
+            "githubCommitMessage": "chore(qualification): close seven-source capture and retain timer evidence\n\nRestore exact disabled ad1 after actual40190857026 and its complete authenticated replay; preserve all facts, admissions, holds and source clocks. Retain genuine scheduled monitor behavior and scheduled publisher budget f...",
+            "githubRepo": "sec-market",
+            "githubOrg": "jessepike"
+          },
+          "inspectorUrl": "https://vercel.com/pikeholdings/security-market-pulse/HZ7AuQyspRDXMbXRk2vbTgX2yX4p",
+          "isRollbackCandidate": false
+        },
+        {
+          "id": "dpl_EZeytCio8T5AZ3WzWJnwNUDegrJw",
+          "name": "security-market-pulse",
+          "url": "security-market-pulse-79jc75x5d-pikeholdings.vercel.app",
+          "created": 1792930407326,
+          "state": "READY",
+          "target": null,
+          "creator": {
+            "uid": "um6xyC6srGbNQRAR3KB77kfs",
+            "username": "jessepike"
+          },
+          "meta": {
+            "githubCommitRef": "preview",
+            "githubCommitSha": "d0e408cbb2e0cf939cc53f04bfd88ff0f33d87b6",
+            "githubCommitMessage": "chore(qualification): close seven-source capture and retain timer evidence\n\nRestore exact disabled ad1 after actual40190857026 and its complete authenticated replay; preserve all facts, admissions, holds and source clocks. Retain genuine scheduled monitor behavior and scheduled publisher budget f...",
+            "githubRepo": "sec-market",
+            "githubOrg": "jessepike"
+          },
+          "inspectorUrl": "https://vercel.com/pikeholdings/security-market-pulse/EZeytCio8T5AZ3WzWJnwNUDegrJw",
+          "isRollbackCandidate": false
+        }
+      ]
+    }
+  }
+}
