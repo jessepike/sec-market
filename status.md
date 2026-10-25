@@ -68,6 +68,10 @@ records proof gaps and literal next actions; no owner source decision is needed.
 bindings remain in the obligation queue. A [retained-feed scope audit](docs/active/daily-pipeline/accuracy/retained-rss-scope-and-window-review-2026-10-25.md)
 now records all 30 exact items, known primary samples, subject/date conflicts and narrower archive
 leads for GitHub, Check Point Email Security and Trustwave. None earns new qualification credit.
+The [next seven-index full preflight](docs/active/daily-pipeline/accuracy/next-seven-newsroom-review-preflight-2026-10-25.md)
+passes unchanged schema-1 validation for Abnormal, Cyera, Torq, Veracode, Zenity, Cato and
+Chainguard. Its dormant plan stays under accuracy; the whole-operation maximum is 257 logical
+fetches including generic fanout. Actual requests and completeness remain unobserved.
 October 24 source usage ended at 2,095/5,500 fetches,
 80/80 model calls and 40/40 documents. No new spending or API billing fallback.
 

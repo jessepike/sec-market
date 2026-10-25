@@ -71,6 +71,17 @@ secret-scanning content must not be lost by an exact product-name-only filter; L
 complete press archive and an explicit Trustwave relationship. Preserve the Check Point publication
 time disagreement and every original source date. These sources remain in the same 25-source queue.
 
+The [next seven-index full preflight](docs/active/daily-pipeline/accuracy/next-seven-newsroom-review-preflight-2026-10-25.md)
+passes the actual unchanged schema-1 validator for Abnormal, Cyera, Torq, Veracode, Zenity, Cato
+and Chainguard. The dormant plan has a 257-logical-fetch whole-operation ceiling including generic
+fanout; responses, pagination, date windows and primary samples remain unobserved. The operational
+plan remains disabled. A [preview-only diagnostic repair](docs/active/daily-pipeline/accuracy/diagnostic-unexpected-http-status-independent-review-2026-10-25.md)
+now retains unexpected opened HTTP status/body evidence without successful proof or credit.
+All 818 operational and 530 executed application checks pass (one fixture skip); 1440/390 renders
+are pixel-identical to the prior preview. Keep main fixed for current-H scheduled/public acceptance
+before promoting this follow-up or activating the next reviewed diagnostic. The prior Check Point
+numeric status remains unknown.
+
 October 24 usage ended at 2,095/5,500 fetch reservations, 80/80 models, 40/40 documents and 2/2 gates.
 October 25 has one of two gate attempts charged; one remains. Collector timer: 05:17 UTC, publisher:
 06:23/16:23 UTC. Assigned issue 12 retains publication failure; issue 10 retains coverage/history
