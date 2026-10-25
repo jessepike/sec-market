@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "result": "PASS",
+  "changedFiles": {
+    "web/scripts/pipeline/q4_retained_primary_template.py": {
+      "sha256": "ac277f7522641e501def1f2613ec5ae7fce07cc148ceaa739483ac611d88669c",
+      "bytes": 15263
+    },
+    "ops/ci/test_q4_retained_primary_template.py": {
+      "sha256": "1b23b760d127cccbfd698d11284d49e62e1e89f4fb12b2641039b257712da01d",
+      "bytes": 10960
+    },
+    "docs/active/daily-pipeline/accuracy/q4-retained-primary-template-descriptor-2026-10-25.json": {
+      "sha256": "0223ae2af8878aecf73b5b6a5665d7840d592e7e299470e44bd31cedf7a12c1b",
+      "bytes": 6105
+    }
+  },
+  "descriptorCanonicalSha256": "f0a341f3d8d95703a70da67970ee65b4af794789076f84dd6c48c7494dd9aa93",
+  "tests": {
+    "outsideBeforeCopy": {
+      "unchangedOps": 909,
+      "focusedOutside": 12,
+      "placementOverrideOnly": true
+    },
+    "finalRepositoryPaths": {
+      "focused": 12,
+      "fullCombinedOps": 921,
+      "skips": 0,
+      "failures": 0,
+      "placementOverride": false
+    },
+    "application": {
+      "data": 377,
+      "pipeline": 115,
+      "browserPassed": 42,
+      "browserExistingSkipped": 1,
+      "lintErrors": 0,
+      "lintExistingWarnings": 1,
+      "fullBuildPassed": true,
+      "timing": "During outside-only preparation, unchanged frontend. New module is not imported by web runtime."
+    }
+  },
+  "originalAcceptedSamples": 0,
+  "derivedProposalEvidenceComplete": true,
+  "operationalAuthority": false,
+  "actualInputSeals": 85,
+  "originalAdmissions": 6,
+  "heldQueueEntries": 38,
+  "factReferences": 4,
+  "sourceValidUntil": "2026-10-26T15:55:27.307096+00:00",
+  "verification": {
+    "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/q4-retained-primary-template-implementation-2026-10-25/verification.json",
+    "sha256": "ecc4b6fec578b4db8617c4ef4f4627cc813feceb4fea5afaa7dd3fa64b34f414",
+    "bytes": 20545
+  },
+  "independentReview": {
+    "md": {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/q4-retained-primary-template-implementation-independent-review-2026-10-25.md",
+      "sha256": "0e3f79bc948b1e3ecfd3aa1bc7cf3dfce4a6b96709cd4b4d328cb5a3b9748d97",
+      "bytes": 5407
+    },
+    "json": {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/q4-retained-primary-template-implementation-independent-review-2026-10-25.json",
+      "sha256": "df98bafbeffe78b6900fed712a5f6d990d0a75af5a18930b51458ee3bd9adbe4",
+      "bytes": 12887
+    },
+    "result": "PASS",
+    "openFindings": 0,
+    "passes": 2,
+    "independentFocusedTests": 10,
+    "independentPhaseArchiveSeals": 79,
+    "independentOtherFileSeals": 17,
+    "finalRepositoryPathReplay": true
+  },
+  "writesStopped": true,
+  "externalSealedInputs": 7
+}

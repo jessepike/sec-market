@@ -1,0 +1,446 @@
+{
+  "schemaVersion": 1,
+  "result": "PASS",
+  "scope": "Dormant offline retained-sample proposal proof only. No runtime route or source authority added.",
+  "changedFiles": {
+    "web/scripts/pipeline/q4_retained_primary_template.py": {
+      "sha256": "ac277f7522641e501def1f2613ec5ae7fce07cc148ceaa739483ac611d88669c",
+      "bytes": 15263
+    },
+    "ops/ci/test_q4_retained_primary_template.py": {
+      "sha256": "1b23b760d127cccbfd698d11284d49e62e1e89f4fb12b2641039b257712da01d",
+      "bytes": 10960
+    },
+    "docs/active/daily-pipeline/accuracy/q4-retained-primary-template-descriptor-2026-10-25.json": {
+      "sha256": "0223ae2af8878aecf73b5b6a5665d7840d592e7e299470e44bd31cedf7a12c1b",
+      "bytes": 6105
+    }
+  },
+  "descriptorCanonicalSha256": "f0a341f3d8d95703a70da67970ee65b4af794789076f84dd6c48c7494dd9aa93",
+  "actualRunId": "40188161705",
+  "acknowledgedArchive": "d2efafcb8a68d7330e4b700613b29f18b9892346",
+  "actualManifestSha256": "bb1c3da1399e89341badf80bba8642d7892f32ce2030bd57fc1d4c165e383e4d",
+  "originalReportAcceptedSamples": 0,
+  "originalReportProposalEvidenceComplete": false,
+  "derivedProposalEvidenceComplete": true,
+  "qualifiedSources": 0,
+  "sourceChecksCredited": 0,
+  "modelCalls": 0,
+  "facts": [],
+  "semanticAdmission": false,
+  "coverageCredit": false,
+  "operationalIntake": false,
+  "tests": {
+    "outsideBeforeCopy": {
+      "unchangedOps": 909,
+      "focusedOutside": 12,
+      "placementOverrideOnly": true
+    },
+    "finalRepositoryPaths": {
+      "focused": 12,
+      "fullCombinedOps": 921,
+      "skips": 0,
+      "failures": 0,
+      "placementOverride": false
+    },
+    "application": {
+      "data": 377,
+      "pipeline": 115,
+      "browserPassed": 42,
+      "browserExistingSkipped": 1,
+      "lintErrors": 0,
+      "lintExistingWarnings": 1,
+      "fullBuildPassed": true,
+      "timing": "During outside-only preparation, unchanged frontend. New module is not imported by web runtime."
+    }
+  },
+  "actualReadOnlyReplay": {
+    "inputSeals": 85,
+    "admissions": [
+      {
+        "groupId": "FC-20261023-checkpoint-sase",
+        "policySha256": "36bc23722c1131f94ab3c2db1c553505539987aa55738cfa9bb72dfa3871ad6f",
+        "admission": {
+          "bytes": 1522,
+          "key": "objects/1bcaa2ca22fcb4c24597fc477c406abddf9ddb20853a4d290c79322bee46afa9",
+          "sha256": "1bcaa2ca22fcb4c24597fc477c406abddf9ddb20853a4d290c79322bee46afa9"
+        }
+      },
+      {
+        "groupId": "FC-20261023-optiv",
+        "policySha256": "4f9e7feb90232a3aafe2cd84265c2e8202c9e009229e7592c5ab87373f64bcf5",
+        "admission": {
+          "bytes": 1014,
+          "key": "objects/580099157608b61895574d2b136c93a940109f82d0a33459388a83f46fbc7bf2",
+          "sha256": "580099157608b61895574d2b136c93a940109f82d0a33459388a83f46fbc7bf2"
+        }
+      },
+      {
+        "groupId": "FC-20261023-splunk",
+        "policySha256": "270b7c7a1f7180b3fef2896b7633a87bf0667b9f4a3c75593fa72b959ecb87f6",
+        "admission": {
+          "bytes": 988,
+          "key": "objects/a42addfcd5043dceffcd259fc8bdac7486b012400fae4b82ce0e5b00968e18af",
+          "sha256": "a42addfcd5043dceffcd259fc8bdac7486b012400fae4b82ce0e5b00968e18af"
+        }
+      },
+      {
+        "groupId": "FC-20261023-zscaler",
+        "policySha256": "dc8522069fc87cbf0371e0ea29ec80fbf647c1dd7ce816e02a7fb4a94b35a390",
+        "admission": {
+          "bytes": 1460,
+          "key": "objects/f255c470cc078e1d44399f7e2027134b466f23cc5939437d196bef9d7aa04e4b",
+          "sha256": "f255c470cc078e1d44399f7e2027134b466f23cc5939437d196bef9d7aa04e4b"
+        }
+      },
+      {
+        "groupId": "FC-20261023-expel",
+        "policySha256": "d1ea72b754450e603d89092cc38d9fa81d165575af2a36745e5938220fd82087",
+        "admission": {
+          "bytes": 1493,
+          "key": "objects/b120ca46429f8e52a09d4fce293c14ddb08319212b2b9a8e0f10b39661deed4c",
+          "sha256": "b120ca46429f8e52a09d4fce293c14ddb08319212b2b9a8e0f10b39661deed4c"
+        }
+      },
+      {
+        "groupId": "XAGE-SOURCE-CLASS-20261023",
+        "policySha256": "c01560dba484aa5aa5696c8bfe5b44acefc6337ee1cebe0cd96751849e15646a",
+        "admission": {
+          "bytes": 1340,
+          "key": "objects/ec322362de6fb9e4e20cea0c9ed825990a01bf0c41d5b32662ab6131914f6c98",
+          "sha256": "ec322362de6fb9e4e20cea0c9ed825990a01bf0c41d5b32662ab6131914f6c98"
+        }
+      }
+    ],
+    "heldQueueEntries": 38,
+    "factReferences": {
+      "25ad58497c688cec625d9b41b59bfcbd5cbe7a11dfa169e76e81ead80ca2631f": {
+        "bytes": 1285,
+        "key": "objects/876caeb08e375865efd8085bc90f9928d7e93df4e21b65fdad051633a510c2a5",
+        "sha256": "876caeb08e375865efd8085bc90f9928d7e93df4e21b65fdad051633a510c2a5"
+      },
+      "48c2b85499f6e46da476448ecea72f936ecee074d5901b02d864f63f9c680b54": {
+        "bytes": 1180,
+        "key": "objects/272f902847b19bc166683a87d9d898f34fa3ce568d8a84ff59af4d6d4fb96f7e",
+        "sha256": "272f902847b19bc166683a87d9d898f34fa3ce568d8a84ff59af4d6d4fb96f7e"
+      },
+      "c6468f56aafa58be43109ecb73e2ddc3f4b0976a75dae95a56dce7320581a8a5": {
+        "bytes": 1479,
+        "key": "objects/3491eb348cec47a93d500ae8c60b47afa5424596243989446df0cd3733af0873",
+        "sha256": "3491eb348cec47a93d500ae8c60b47afa5424596243989446df0cd3733af0873"
+      },
+      "f8aa54302ab84ba6d64e93923915b30316fe8be691813ec3aca43423f214d1da": {
+        "bytes": 1300,
+        "key": "objects/e726af8df4c20ca6bb7570c7313b83c3641255fafae2b3af7c17a5c05e250199",
+        "sha256": "e726af8df4c20ca6bb7570c7313b83c3641255fafae2b3af7c17a5c05e250199"
+      }
+    },
+    "sourceValidUntil": "2026-10-26T15:55:27.307096+00:00",
+    "preservedHeads": {
+      "heads/latest-run.json": "f7709a9db99a0c4c6cb4858020bc3f99769f0d5e61dbb95e351efaf1237a2bd0",
+      "heads/dailySnapshot.json": "c71da6d4d52bc94aa560e8425f8bf0b913b9e0e1fba8fb45b77ff3deacb58a00",
+      "heads/production.json": "eeacc6111b7f10171a3bf7342410b4e0eae529b24b14b63ebe643f0967c0e871",
+      "heads/budget-2026-10-25.json": "ebceff60e008b7b7d6df135efb82212a70a714fb9f828a8cfaead0ec2862dc00",
+      "heads/gate-budget-2026-10-25.json": "5452defb75897ca4711b2b086a2efa1ff79112b00a583b24de108522855d8a54"
+    },
+    "socketsDenied": true,
+    "frozenLocalStoreConstructorDenied": true,
+    "sourceRequests": 0,
+    "modelRequests": 0,
+    "archiveWrites": 0,
+    "javascriptExecuted": false,
+    "externalInputSeals": {
+      "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/contracts/market.json": {
+        "sha256": "24221c946781559c0ff3626e4e479c4647da915d0f2d7559ea88046982532c3c",
+        "bytes": 284062,
+        "mtimeNs": 1792865573453423141
+      },
+      "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/contracts/factual-corrections.json": {
+        "sha256": "9c9fbe0d3d40ece11e1407ce9460086c732f62da88d3b0f220ab9d6f8757da00",
+        "bytes": 32004,
+        "mtimeNs": 1792802031150005119
+      },
+      "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/web/src/data/tracker/factualCorrectionPolicy.json": {
+        "sha256": "7319ece4c5c4f6c7d515fb9ef7ff13211daf38e041948edd26732e9ccfa2dbc7",
+        "bytes": 1721,
+        "mtimeNs": 1792865573474431887
+      },
+      "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/q4-retained-primary-template-descriptor-2026-10-25.json": {
+        "sha256": "0223ae2af8878aecf73b5b6a5665d7840d592e7e299470e44bd31cedf7a12c1b",
+        "bytes": 6105,
+        "mtimeNs": 1792929319351764813
+      },
+      "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/q4-initial-data-capture-actual-source-review-2026-10-25.json": {
+        "sha256": "e5b4b799d36e984a3cbad88ea4e618de7a5060be2546aed9f1494af671dc2a24",
+        "bytes": 32449,
+        "mtimeNs": 1792924589806394844
+      },
+      "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/q4-controller-actual-code-next-requests-2026-10-25.json": {
+        "sha256": "0542a4c9ae1b3468cd8ebe72ee7e2987e7ada34d510f46316a194b46e8754937",
+        "bytes": 37902,
+        "mtimeNs": 1792920453206407348
+      },
+      "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/q4-primary-qualification-actual-source-review-2026-10-25.json": {
+        "sha256": "3f133bc05fc7e3964dd3e0717b9a9cd0a3c859b0472b57bb00e6cd80615378bf",
+        "bytes": 53594,
+        "mtimeNs": 1792929220651290304
+      }
+    },
+    "externalSealedInputs": 7
+  },
+  "protectedCodeBefore": {
+    "contracts/market.json": "24221c946781559c0ff3626e4e479c4647da915d0f2d7559ea88046982532c3c",
+    "contracts/source-qualification-probes.json": "3077d93ede8a9fe82302a6b851af61d8666f1c11cea433eed0f2725086c85fc2",
+    "web/scripts/pipeline/q4_primary_qualification.py": "cfb164c4c0a19bd890d4522547351bc55a1dc3697d8df5b48af4ead460457235",
+    "web/scripts/pipeline/q4_press_list.py": "f1acf87f53b0b8c5ed9e5b3a181b7832a197f7276a9434a229d29317e7987594",
+    "web/scripts/pipeline/q4_initial_data_capture.py": "87ded82d37b5c51a121b769eaa084ad20bc691ca16a25929d13e7b004a99f8be",
+    "web/scripts/pipeline/q4_controller_capture.py": "8720cd8bed0c533201c24565ca28b23198f99f8a352213e07774f6f05f15ffb3",
+    "web/scripts/pipeline/onboarding.py": "f15e008c081f0b9c48e53ab0b4c4388798d2bd54aaade904188b40305aa6bb69",
+    "web/scripts/pipeline/discovery.py": "2611635de944f025e848d8a7b15dfff2a328ac67a11a122a774eb46b2e1e7f68",
+    "web/scripts/pipeline/documents.py": "4e3dbd2dbc6409bd8b8be660cf2b673601ca1c3bc90325fc4fbf6cceddc9b69f",
+    "web/scripts/pipeline/source_qualification_origin.py": "955ddadd22585672f677b533a6478034cb8048a0ec71faea37af0bfa74469bc6",
+    "web/scripts/pipeline/engine.py": "e471f18006a4899406510cdede42829476ba1945b58c420c61f6edce767a7e19",
+    "ops/ci/collect.py": "044a560af19cc1e7a6fec9d87cc8461831dab491f7c42d3dd1d789c9bc3fe6d1",
+    "contracts/factual-corrections.json": "9c9fbe0d3d40ece11e1407ce9460086c732f62da88d3b0f220ab9d6f8757da00",
+    "web/src/data/tracker/factualCorrectionPolicy.json": "7319ece4c5c4f6c7d515fb9ef7ff13211daf38e041948edd26732e9ccfa2dbc7"
+  },
+  "protectedCodeAfter": {
+    "contracts/market.json": "24221c946781559c0ff3626e4e479c4647da915d0f2d7559ea88046982532c3c",
+    "contracts/source-qualification-probes.json": "3077d93ede8a9fe82302a6b851af61d8666f1c11cea433eed0f2725086c85fc2",
+    "web/scripts/pipeline/q4_primary_qualification.py": "cfb164c4c0a19bd890d4522547351bc55a1dc3697d8df5b48af4ead460457235",
+    "web/scripts/pipeline/q4_press_list.py": "f1acf87f53b0b8c5ed9e5b3a181b7832a197f7276a9434a229d29317e7987594",
+    "web/scripts/pipeline/q4_initial_data_capture.py": "87ded82d37b5c51a121b769eaa084ad20bc691ca16a25929d13e7b004a99f8be",
+    "web/scripts/pipeline/q4_controller_capture.py": "8720cd8bed0c533201c24565ca28b23198f99f8a352213e07774f6f05f15ffb3",
+    "web/scripts/pipeline/onboarding.py": "f15e008c081f0b9c48e53ab0b4c4388798d2bd54aaade904188b40305aa6bb69",
+    "web/scripts/pipeline/discovery.py": "2611635de944f025e848d8a7b15dfff2a328ac67a11a122a774eb46b2e1e7f68",
+    "web/scripts/pipeline/documents.py": "4e3dbd2dbc6409bd8b8be660cf2b673601ca1c3bc90325fc4fbf6cceddc9b69f",
+    "web/scripts/pipeline/source_qualification_origin.py": "955ddadd22585672f677b533a6478034cb8048a0ec71faea37af0bfa74469bc6",
+    "web/scripts/pipeline/engine.py": "e471f18006a4899406510cdede42829476ba1945b58c420c61f6edce767a7e19",
+    "ops/ci/collect.py": "044a560af19cc1e7a6fec9d87cc8461831dab491f7c42d3dd1d789c9bc3fe6d1",
+    "contracts/factual-corrections.json": "9c9fbe0d3d40ece11e1407ce9460086c732f62da88d3b0f220ab9d6f8757da00",
+    "web/src/data/tracker/factualCorrectionPolicy.json": "7319ece4c5c4f6c7d515fb9ef7ff13211daf38e041948edd26732e9ccfa2dbc7"
+  },
+  "rootOwnedOperationalPlanUnchangedDuringWorkerBuild": true,
+  "logs": [
+    {
+      "file": "full-ops-tests.log.gz",
+      "rawSha256": "2fd2918adc9368f70f8b778ab6a36ce6dfffdfaf789bfd41d0ec25de61278198",
+      "rawBytes": 169182,
+      "rawLines": 914,
+      "gzipSha256": "f005ef15bc2ac52e637bb889f334c6386f8e7bed13e35e49de69d1df32541fb2",
+      "gzipBytes": 25250,
+      "gzipMtime": 0,
+      "embeddedFilename": "",
+      "byteExactRoundTrip": true
+    },
+    {
+      "file": "focused-outside-tests.log.gz",
+      "rawSha256": "1d95238f35d4beb38cdc274c82f62dea9da0b919a2db0357d85cb77d23b4037c",
+      "rawBytes": 2388,
+      "rawLines": 17,
+      "gzipSha256": "8e51ed0771f797b8c4ef8105da295d25f8a82517fa2f7424542f134db80a3f2e",
+      "gzipBytes": 553,
+      "gzipMtime": 0,
+      "embeddedFilename": "",
+      "byteExactRoundTrip": true
+    },
+    {
+      "file": "full-combined-ops-tests.log.gz",
+      "rawSha256": "ce6718a0d3b816d22bb0d888c3a633e4a02e53ab4346257b9c7b56e804a22c4c",
+      "rawBytes": 171471,
+      "rawLines": 926,
+      "gzipSha256": "ab28e5d59689f3d357bd7129b9e9b14455abc4fa70d776da903e0b78bd11940c",
+      "gzipBytes": 25589,
+      "gzipMtime": 0,
+      "embeddedFilename": "",
+      "byteExactRoundTrip": true
+    },
+    {
+      "file": "focused-repository-tests.log.gz",
+      "rawSha256": "fd27e1d2596a7df5f045152d111aeb3927fc00e9c72d7cae00569d0354c6e3a3",
+      "rawBytes": 2388,
+      "rawLines": 17,
+      "gzipSha256": "a074ba733bf6198136a11f4617190fa1adbd5088cb91b3ab9eda68405e30e14c",
+      "gzipBytes": 553,
+      "gzipMtime": 0,
+      "embeddedFilename": "",
+      "byteExactRoundTrip": true
+    },
+    {
+      "file": "full-web-tests.log.gz",
+      "rawSha256": "a9d072fc05c9849163b3b8181f9241c118cdd95ab098b12aa007aef05dce94f1",
+      "rawBytes": 126994,
+      "rawLines": 2996,
+      "gzipSha256": "6a782b475238e4d5a21de0544b068e7c5b5cf9a5dd02fa97d477144a70526a77",
+      "gzipBytes": 25451,
+      "gzipMtime": 0,
+      "embeddedFilename": "",
+      "byteExactRoundTrip": true
+    },
+    {
+      "file": "actual-readonly-replay.log.gz",
+      "rawSha256": "1fa8cd17e8a4edb96b75e4d82787475fdeb74b732456353e567401d35772f32e",
+      "rawBytes": 158,
+      "rawLines": 1,
+      "gzipSha256": "096e1977212d0018c281d59c406d51dc3ba20c2d7d9c21fe82bb4d0897ef805a",
+      "gzipBytes": 141,
+      "gzipMtime": 0,
+      "embeddedFilename": "",
+      "byteExactRoundTrip": true
+    },
+    {
+      "file": "production-renders.log.gz",
+      "rawSha256": "6b53ed409478ffa9f0607bedbc6fd0cff60ecc681903e0322362a6edecb2daa8",
+      "rawBytes": 394,
+      "rawLines": 2,
+      "gzipSha256": "c736fba28a40f42c8ec89caffdad63e62019e0a4154f2926122b1118e93bdf04",
+      "gzipBytes": 198,
+      "gzipMtime": 0,
+      "embeddedFilename": "",
+      "byteExactRoundTrip": true
+    },
+    {
+      "file": "local-renders.log.gz",
+      "rawSha256": "ccffad5693f5b3b735c353dcd32c7d6a6514f42dd3ed3aeb6fcf72c0b0b739f4",
+      "rawBytes": 366,
+      "rawLines": 2,
+      "gzipSha256": "6baa469f792e21909540d70502b6a8929f7b241310bb4e017ae3590b726fd1af",
+      "gzipBytes": 193,
+      "gzipMtime": 0,
+      "embeddedFilename": "",
+      "byteExactRoundTrip": true
+    }
+  ],
+  "renders": {
+    "renders": [
+      {
+        "surface": "production",
+        "width": 1440,
+        "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-retained-template-production-1440.png",
+        "sha256": "5d04b34e2ffb5f520d45a06487e9ef7eb4ae671eb4cf7dce86626a2ffd1a6267",
+        "size": [
+          1440,
+          8358
+        ],
+        "priorPath": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-primary-production-1440.png",
+        "priorSha256": "5d04b34e2ffb5f520d45a06487e9ef7eb4ae671eb4cf7dce86626a2ffd1a6267",
+        "byteExactPrior": true,
+        "pixelExactPrior": true
+      },
+      {
+        "surface": "production",
+        "width": 390,
+        "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-retained-template-production-390.png",
+        "sha256": "6da1a1dd0d2591dedb6bef743460ce9659853c84ff3539a59308c5e0cf347b75",
+        "size": [
+          390,
+          7611
+        ],
+        "priorPath": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-primary-production-390.png",
+        "priorSha256": "6da1a1dd0d2591dedb6bef743460ce9659853c84ff3539a59308c5e0cf347b75",
+        "byteExactPrior": true,
+        "pixelExactPrior": true
+      },
+      {
+        "surface": "local",
+        "width": 1440,
+        "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-retained-template-local-1440.png",
+        "sha256": "b044622ff53e695fee8334a95746b932c0df81ff6e26ecb810bfd9228765cdd9",
+        "size": [
+          1440,
+          8379
+        ],
+        "priorPath": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-primary-local-1440.png",
+        "priorSha256": "b044622ff53e695fee8334a95746b932c0df81ff6e26ecb810bfd9228765cdd9",
+        "byteExactPrior": true,
+        "pixelExactPrior": true
+      },
+      {
+        "surface": "local",
+        "width": 390,
+        "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-retained-template-local-390.png",
+        "sha256": "7dc872da46a4cf5e2eb765df88e1ae28e34eb70f8d5c38b19835bab09afcd3df",
+        "size": [
+          390,
+          7749
+        ],
+        "priorPath": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-primary-local-390.png",
+        "priorSha256": "7dc872da46a4cf5e2eb765df88e1ae28e34eb70f8d5c38b19835bab09afcd3df",
+        "byteExactPrior": true,
+        "pixelExactPrior": true
+      }
+    ],
+    "viewedAllFour": true,
+    "localVersusProduction": "Existing fixture data differs: local29/11/19/11/12/42 versus production29/11/19/10/11/44 and different event list. No UI code changed."
+  },
+  "independentReview": {
+    "md": {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/q4-retained-primary-template-implementation-independent-review-2026-10-25.md",
+      "sha256": "0e3f79bc948b1e3ecfd3aa1bc7cf3dfce4a6b96709cd4b4d328cb5a3b9748d97",
+      "bytes": 5407
+    },
+    "json": {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/q4-retained-primary-template-implementation-independent-review-2026-10-25.json",
+      "sha256": "df98bafbeffe78b6900fed712a5f6d990d0a75af5a18930b51458ee3bd9adbe4",
+      "bytes": 12887
+    },
+    "result": "PASS",
+    "openFindings": 0,
+    "passes": 2,
+    "independentFocusedTests": 10,
+    "independentPhaseArchiveSeals": 79,
+    "independentOtherFileSeals": 17,
+    "finalRepositoryPathReplay": true
+  },
+  "receiptFiles": {
+    "actual-readonly-replay.json": {
+      "sha256": "c4ff2cf342e975dcdfdff6521f19e421fbf8961d396004d1ecd1065cf88768a0",
+      "bytes": 39921
+    },
+    "verify_actual_inputs.py": {
+      "sha256": "a31235a28f11f1fb1399467796feb60befff3d7fb2016dcf31cacd81c268147c",
+      "bytes": 4550
+    },
+    "focused-repository-tests.log.gz": {
+      "sha256": "a074ba733bf6198136a11f4617190fa1adbd5088cb91b3ab9eda68405e30e14c",
+      "bytes": 553
+    },
+    "derived-report.json": {
+      "sha256": "efbefa000ae37b94af0e566aa9ddf97188db9b90673ad29b94a7033737477558",
+      "bytes": 9334
+    },
+    "full-combined-ops-tests.log.gz": {
+      "sha256": "ab28e5d59689f3d357bd7129b9e9b14455abc4fa70d776da903e0b78bd11940c",
+      "bytes": 25589
+    },
+    "full-ops-tests.log.gz": {
+      "sha256": "f005ef15bc2ac52e637bb889f334c6386f8e7bed13e35e49de69d1df32541fb2",
+      "bytes": 25250
+    },
+    "full-web-tests.log.gz": {
+      "sha256": "6a782b475238e4d5a21de0544b068e7c5b5cf9a5dd02fa97d477144a70526a77",
+      "bytes": 25451
+    },
+    "local-renders.log.gz": {
+      "sha256": "6baa469f792e21909540d70502b6a8929f7b241310bb4e017ae3590b726fd1af",
+      "bytes": 193
+    },
+    "production-renders.log.gz": {
+      "sha256": "c736fba28a40f42c8ec89caffdad63e62019e0a4154f2926122b1118e93bdf04",
+      "bytes": 198
+    },
+    "render-comparison.json": {
+      "sha256": "e1242cd4e83ee65b5a24835f95694252a0e3971acd5735662d7c9dc9b64c4826",
+      "bytes": 2682
+    },
+    "focused-outside-tests.log.gz": {
+      "sha256": "8e51ed0771f797b8c4ef8105da295d25f8a82517fa2f7424542f134db80a3f2e",
+      "bytes": 553
+    },
+    "actual-readonly-replay.log.gz": {
+      "sha256": "096e1977212d0018c281d59c406d51dc3ba20c2d7d9c21fe82bb4d0897ef805a",
+      "bytes": 141
+    }
+  },
+  "finalProtectedCodeRecheck": "All14 exact at final worker handback; operational plan remains root-owned."
+}

@@ -1,0 +1,62 @@
+{
+  "renders": [
+    {
+      "surface": "production",
+      "width": 1440,
+      "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-retained-template-production-1440.png",
+      "sha256": "5d04b34e2ffb5f520d45a06487e9ef7eb4ae671eb4cf7dce86626a2ffd1a6267",
+      "size": [
+        1440,
+        8358
+      ],
+      "priorPath": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-primary-production-1440.png",
+      "priorSha256": "5d04b34e2ffb5f520d45a06487e9ef7eb4ae671eb4cf7dce86626a2ffd1a6267",
+      "byteExactPrior": true,
+      "pixelExactPrior": true
+    },
+    {
+      "surface": "production",
+      "width": 390,
+      "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-retained-template-production-390.png",
+      "sha256": "6da1a1dd0d2591dedb6bef743460ce9659853c84ff3539a59308c5e0cf347b75",
+      "size": [
+        390,
+        7611
+      ],
+      "priorPath": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-primary-production-390.png",
+      "priorSha256": "6da1a1dd0d2591dedb6bef743460ce9659853c84ff3539a59308c5e0cf347b75",
+      "byteExactPrior": true,
+      "pixelExactPrior": true
+    },
+    {
+      "surface": "local",
+      "width": 1440,
+      "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-retained-template-local-1440.png",
+      "sha256": "b044622ff53e695fee8334a95746b932c0df81ff6e26ecb810bfd9228765cdd9",
+      "size": [
+        1440,
+        8379
+      ],
+      "priorPath": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-primary-local-1440.png",
+      "priorSha256": "b044622ff53e695fee8334a95746b932c0df81ff6e26ecb810bfd9228765cdd9",
+      "byteExactPrior": true,
+      "pixelExactPrior": true
+    },
+    {
+      "surface": "local",
+      "width": 390,
+      "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-retained-template-local-390.png",
+      "sha256": "7dc872da46a4cf5e2eb765df88e1ae28e34eb70f8d5c38b19835bab09afcd3df",
+      "size": [
+        390,
+        7749
+      ],
+      "priorPath": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-primary-local-390.png",
+      "priorSha256": "7dc872da46a4cf5e2eb765df88e1ae28e34eb70f8d5c38b19835bab09afcd3df",
+      "byteExactPrior": true,
+      "pixelExactPrior": true
+    }
+  ],
+  "viewedAllFour": true,
+  "localVersusProduction": "Existing fixture data differs: local29/11/19/11/12/42 versus production29/11/19/10/11/44 and different event list. No UI code changed."
+}

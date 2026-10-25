@@ -1,0 +1,330 @@
+{
+  "schemaVersion": 1,
+  "verdict": "PASS",
+  "openFindings": 0,
+  "reviewPasses": 2,
+  "scope": "Exact-two-retained-body proposal proof only; final repository path independently replayed.",
+  "buildSpec": {
+    "path": "docs/active/daily-pipeline/accuracy/q4-retained-primary-template-build-spec-2026-10-25.md",
+    "sha256": "27b3c668df170353ec311c5a2780d8e74d492bdf44619372b33bbca6ab300cb6"
+  },
+  "reviewedFiles": {
+    "web/scripts/pipeline/q4_retained_primary_template.py": {
+      "sha256": "ac277f7522641e501def1f2613ec5ae7fce07cc148ceaa739483ac611d88669c",
+      "bytes": 15263
+    },
+    "ops/ci/test_q4_retained_primary_template.py": {
+      "sha256": "1b23b760d127cccbfd698d11284d49e62e1e89f4fb12b2641039b257712da01d",
+      "bytes": 10960
+    },
+    "docs/active/daily-pipeline/accuracy/q4-retained-primary-template-descriptor-2026-10-25.json": {
+      "sha256": "0223ae2af8878aecf73b5b6a5665d7840d592e7e299470e44bd31cedf7a12c1b",
+      "bytes": 6105
+    }
+  },
+  "descriptorCanonicalSha256": "f0a341f3d8d95703a70da67970ee65b4af794789076f84dd6c48c7494dd9aa93",
+  "independentTests": {
+    "prototype": {
+      "tests": 10,
+      "skips": 0,
+      "placementOverride": "module.REPO only",
+      "logicPatched": false
+    },
+    "finalRepositoryPaths": {
+      "tests": 10,
+      "skips": 0,
+      "placementOverride": null,
+      "logicPatched": false
+    },
+    "descriptorLeafMutationsRejectedPerPhase": 96,
+    "archiveInputSealsPerPhase": 79,
+    "otherFileSealsPerPhase": 17,
+    "allSealsUnchanged": true
+  },
+  "reviewerAssertionCorrection": {
+    "implementationFinding": false,
+    "detail": "Initial reviewer-only assertion rejected any inert descendant, including JFrog's style element. Existing IndexNode.text already excludes its content. Corrected assertion checks no hidden/unsupported inert article text and verifies style/script/template/noscript contribute empty text. Implementation bytes did not change; initial failure evidence retained."
+  },
+  "derivedProof": {
+    "rawSha256": "efbefa000ae37b94af0e566aa9ddf97188db9b90673ad29b94a7033737477558",
+    "canonicalSha256": "eb82ff6f74ffd0461a74cc6590e3cb1ef52adae2be698f4421b904c79d25d714",
+    "bytes": 9334,
+    "proposalEvidenceComplete": true,
+    "originalReportAcceptedSamples": 0,
+    "originalReportProposalEvidenceComplete": false,
+    "qualifiedSources": 0,
+    "sourceChecksCredited": 0,
+    "modelCalls": 0,
+    "facts": [],
+    "semanticAdmission": false,
+    "coverageCredit": false,
+    "operationalIntake": false
+  },
+  "actualFrozenArchive": {
+    "commit": "d2efafcb8a68d7330e4b700613b29f18b9892346",
+    "manifestSha256": "bb1c3da1399e89341badf80bba8642d7892f32ce2030bd57fc1d4c165e383e4d",
+    "scope": "Original immutable primary capture. This is not asserted to be the newest account head after subsequent runs."
+  },
+  "preservation": {
+    "sixAdmissions": true,
+    "factReferences": 4,
+    "holdRows": 38,
+    "frozenBudget": {
+      "fetches": 869,
+      "calls": 80,
+      "documents": 38,
+      "gates": 2
+    },
+    "sourceExpiry": "2026-10-26T15:55:27.307096+00:00",
+    "currentPolicyAndOperationalPlanNotChangedByReview": true
+  },
+  "workerEvidence": {
+    "attribution": "Implementation worker; full suites were not duplicated by independent reviewer.",
+    "tests": {
+      "outsideBeforeCopy": {
+        "unchangedOps": 909,
+        "focusedOutside": 12,
+        "placementOverrideOnly": true
+      },
+      "finalRepositoryPaths": {
+        "focused": 12,
+        "fullCombinedOps": 921,
+        "skips": 0,
+        "failures": 0,
+        "placementOverride": false
+      },
+      "application": {
+        "data": 377,
+        "pipeline": 115,
+        "browserPassed": 42,
+        "browserExistingSkipped": 1,
+        "lintErrors": 0,
+        "lintExistingWarnings": 1,
+        "fullBuildPassed": true,
+        "timing": "During outside-only preparation, unchanged frontend. New module is not imported by web runtime."
+      }
+    },
+    "logs": [
+      {
+        "file": "full-ops-tests.log.gz",
+        "rawSha256": "2fd2918adc9368f70f8b778ab6a36ce6dfffdfaf789bfd41d0ec25de61278198",
+        "rawBytes": 169182,
+        "rawLines": 914,
+        "gzipSha256": "f005ef15bc2ac52e637bb889f334c6386f8e7bed13e35e49de69d1df32541fb2",
+        "gzipBytes": 25250,
+        "gzipMtime": 0,
+        "embeddedFilename": "",
+        "byteExactRoundTrip": true
+      },
+      {
+        "file": "focused-outside-tests.log.gz",
+        "rawSha256": "1d95238f35d4beb38cdc274c82f62dea9da0b919a2db0357d85cb77d23b4037c",
+        "rawBytes": 2388,
+        "rawLines": 17,
+        "gzipSha256": "8e51ed0771f797b8c4ef8105da295d25f8a82517fa2f7424542f134db80a3f2e",
+        "gzipBytes": 553,
+        "gzipMtime": 0,
+        "embeddedFilename": "",
+        "byteExactRoundTrip": true
+      },
+      {
+        "file": "full-combined-ops-tests.log.gz",
+        "rawSha256": "ce6718a0d3b816d22bb0d888c3a633e4a02e53ab4346257b9c7b56e804a22c4c",
+        "rawBytes": 171471,
+        "rawLines": 926,
+        "gzipSha256": "ab28e5d59689f3d357bd7129b9e9b14455abc4fa70d776da903e0b78bd11940c",
+        "gzipBytes": 25589,
+        "gzipMtime": 0,
+        "embeddedFilename": "",
+        "byteExactRoundTrip": true
+      },
+      {
+        "file": "focused-repository-tests.log.gz",
+        "rawSha256": "fd27e1d2596a7df5f045152d111aeb3927fc00e9c72d7cae00569d0354c6e3a3",
+        "rawBytes": 2388,
+        "rawLines": 17,
+        "gzipSha256": "a074ba733bf6198136a11f4617190fa1adbd5088cb91b3ab9eda68405e30e14c",
+        "gzipBytes": 553,
+        "gzipMtime": 0,
+        "embeddedFilename": "",
+        "byteExactRoundTrip": true
+      },
+      {
+        "file": "full-web-tests.log.gz",
+        "rawSha256": "a9d072fc05c9849163b3b8181f9241c118cdd95ab098b12aa007aef05dce94f1",
+        "rawBytes": 126994,
+        "rawLines": 2996,
+        "gzipSha256": "6a782b475238e4d5a21de0544b068e7c5b5cf9a5dd02fa97d477144a70526a77",
+        "gzipBytes": 25451,
+        "gzipMtime": 0,
+        "embeddedFilename": "",
+        "byteExactRoundTrip": true
+      },
+      {
+        "file": "actual-readonly-replay.log.gz",
+        "rawSha256": "1fa8cd17e8a4edb96b75e4d82787475fdeb74b732456353e567401d35772f32e",
+        "rawBytes": 158,
+        "rawLines": 1,
+        "gzipSha256": "096e1977212d0018c281d59c406d51dc3ba20c2d7d9c21fe82bb4d0897ef805a",
+        "gzipBytes": 141,
+        "gzipMtime": 0,
+        "embeddedFilename": "",
+        "byteExactRoundTrip": true
+      },
+      {
+        "file": "production-renders.log.gz",
+        "rawSha256": "6b53ed409478ffa9f0607bedbc6fd0cff60ecc681903e0322362a6edecb2daa8",
+        "rawBytes": 394,
+        "rawLines": 2,
+        "gzipSha256": "c736fba28a40f42c8ec89caffdad63e62019e0a4154f2926122b1118e93bdf04",
+        "gzipBytes": 198,
+        "gzipMtime": 0,
+        "embeddedFilename": "",
+        "byteExactRoundTrip": true
+      },
+      {
+        "file": "local-renders.log.gz",
+        "rawSha256": "ccffad5693f5b3b735c353dcd32c7d6a6514f42dd3ed3aeb6fcf72c0b0b739f4",
+        "rawBytes": 366,
+        "rawLines": 2,
+        "gzipSha256": "6baa469f792e21909540d70502b6a8929f7b241310bb4e017ae3590b726fd1af",
+        "gzipBytes": 193,
+        "gzipMtime": 0,
+        "embeddedFilename": "",
+        "byteExactRoundTrip": true
+      }
+    ],
+    "immutableReceiptPins": {
+      "full-combined-ops-tests.log.gz": {
+        "sha256": "ab28e5d59689f3d357bd7129b9e9b14455abc4fa70d776da903e0b78bd11940c",
+        "bytes": 25589
+      },
+      "focused-repository-tests.log.gz": {
+        "sha256": "a074ba733bf6198136a11f4617190fa1adbd5088cb91b3ab9eda68405e30e14c",
+        "bytes": 553
+      },
+      "full-web-tests.log.gz": {
+        "sha256": "6a782b475238e4d5a21de0544b068e7c5b5cf9a5dd02fa97d477144a70526a77",
+        "bytes": 25451
+      },
+      "render-comparison.json": {
+        "sha256": "e1242cd4e83ee65b5a24835f95694252a0e3971acd5735662d7c9dc9b64c4826",
+        "bytes": 2682
+      },
+      "actual-readonly-replay.json": {
+        "sha256": "c4ff2cf342e975dcdfdff6521f19e421fbf8961d396004d1ecd1065cf88768a0",
+        "bytes": 39921
+      },
+      "derived-report.json": {
+        "sha256": "efbefa000ae37b94af0e566aa9ddf97188db9b90673ad29b94a7033737477558",
+        "bytes": 9334
+      }
+    },
+    "renders": {
+      "renders": [
+        {
+          "surface": "production",
+          "width": 1440,
+          "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-retained-template-production-1440.png",
+          "sha256": "5d04b34e2ffb5f520d45a06487e9ef7eb4ae671eb4cf7dce86626a2ffd1a6267",
+          "size": [
+            1440,
+            8358
+          ],
+          "priorPath": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-primary-production-1440.png",
+          "priorSha256": "5d04b34e2ffb5f520d45a06487e9ef7eb4ae671eb4cf7dce86626a2ffd1a6267",
+          "byteExactPrior": true,
+          "pixelExactPrior": true
+        },
+        {
+          "surface": "production",
+          "width": 390,
+          "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-retained-template-production-390.png",
+          "sha256": "6da1a1dd0d2591dedb6bef743460ce9659853c84ff3539a59308c5e0cf347b75",
+          "size": [
+            390,
+            7611
+          ],
+          "priorPath": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-primary-production-390.png",
+          "priorSha256": "6da1a1dd0d2591dedb6bef743460ce9659853c84ff3539a59308c5e0cf347b75",
+          "byteExactPrior": true,
+          "pixelExactPrior": true
+        },
+        {
+          "surface": "local",
+          "width": 1440,
+          "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-retained-template-local-1440.png",
+          "sha256": "b044622ff53e695fee8334a95746b932c0df81ff6e26ecb810bfd9228765cdd9",
+          "size": [
+            1440,
+            8379
+          ],
+          "priorPath": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-primary-local-1440.png",
+          "priorSha256": "b044622ff53e695fee8334a95746b932c0df81ff6e26ecb810bfd9228765cdd9",
+          "byteExactPrior": true,
+          "pixelExactPrior": true
+        },
+        {
+          "surface": "local",
+          "width": 390,
+          "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-retained-template-local-390.png",
+          "sha256": "7dc872da46a4cf5e2eb765df88e1ae28e34eb70f8d5c38b19835bab09afcd3df",
+          "size": [
+            390,
+            7749
+          ],
+          "priorPath": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-primary-local-390.png",
+          "priorSha256": "7dc872da46a4cf5e2eb765df88e1ae28e34eb70f8d5c38b19835bab09afcd3df",
+          "byteExactPrior": true,
+          "pixelExactPrior": true
+        }
+      ],
+      "viewedAllFour": true,
+      "localVersusProduction": "Existing fixture data differs: local29/11/19/11/12/42 versus production29/11/19/10/11/44 and different event list. No UI code changed."
+    }
+  },
+  "receiptFiles": {
+    "independent_tests.py": {
+      "sha256": "67b8abcc85a580d383459f4a1a263ea169051bcb6b462e3a411c7acbeb58d770",
+      "bytes": 11212
+    },
+    "independently-derived-proof.json": {
+      "sha256": "efbefa000ae37b94af0e566aa9ddf97188db9b90673ad29b94a7033737477558",
+      "bytes": 9334
+    },
+    "prototype-result.json": {
+      "sha256": "8edb6b4ccd3ec56e8d88ca4a130c404be9c97b7f3b748a6cdaa52397fb82e20d",
+      "bytes": 29913
+    },
+    "initial-reviewer-assertion-prototype-result.json": {
+      "sha256": "6a66c1b4deee60fd40021c207f7971b0fc785234d4c66e7d67bbe6b6668083ed",
+      "bytes": 29913
+    },
+    "prototype-tests.log.gz": {
+      "sha256": "e51ac930f77f1675eaa531bf21d416e33e442464bcaa51da153b7a68d8db8fe6",
+      "bytes": 419
+    },
+    "initial-reviewer-assertion-prototype-tests.log.gz": {
+      "sha256": "c74f318e2ee6c9989b01ed6ec58c19f3067fd104c2112fdbfa43d19d2e013c44",
+      "bytes": 688
+    },
+    "post-copy-tests.log.gz": {
+      "sha256": "956b99ecb9503ec84525b2b92184654a6e0c45b1f1110642016260f54535b3d1",
+      "bytes": 419
+    },
+    "post-copy-result.json": {
+      "sha256": "88eb743aeb77b742cef0326a2a10e150cbf3f3b0570ffc2fd7618a6b662ee4e3",
+      "bytes": 30008
+    }
+  },
+  "limitations": [
+    "No source registration, H successor, origin/seed authority, ordinary intake or publication is supplied.",
+    "Exact body pins restrict this verifier to the two original actual bodies. It is not a generic future-page parser.",
+    "New derived proposal success does not rewrite the original primary report or renew any source clock."
+  ],
+  "sourceRequests": 0,
+  "modelCalls": 0,
+  "actualArchiveWrites": 0,
+  "actualRuntimeStateWrites": 0,
+  "executedJavaScript": false
+}

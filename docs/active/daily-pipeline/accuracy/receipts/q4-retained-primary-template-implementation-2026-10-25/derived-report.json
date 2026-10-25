@@ -1,0 +1,208 @@
+{
+  "schemaVersion": 1,
+  "kind": "q4_retained_primary_template_v1",
+  "descriptorRawSha256": "0223ae2af8878aecf73b5b6a5665d7840d592e7e299470e44bd31cedf7a12c1b",
+  "descriptorCanonicalSha256": "f0a341f3d8d95703a70da67970ee65b4af794789076f84dd6c48c7494dd9aa93",
+  "contractSha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+  "actualProof": {
+    "githubRunId": "40188161705",
+    "githubRunAttempt": 1,
+    "githubEventName": "workflow_dispatch",
+    "githubRef": "refs/heads/main",
+    "appRevision": "b7c7841ab36c4cf04646978493ce74e1e542a2b9",
+    "record": {
+      "key": "ci/source-probe-runs/40188161705-1.json",
+      "sha256": "093fba7150d21255af66a563207b3c3f0490bae36873376203c43d5415be6897",
+      "bytes": 713736
+    },
+    "artifact": {
+      "id": 12597132303,
+      "digest": "sha256:2fd5b94683ea1473171d14bb9241364d9735ac8dbcb69b79c4cab2ad65e1d008",
+      "size_in_bytes": 134691
+    },
+    "archive": {
+      "commit": "d2efafcb8a68d7330e4b700613b29f18b9892346",
+      "manifestSha256": "bb1c3da1399e89341badf80bba8642d7892f32ce2030bd57fc1d4c165e383e4d",
+      "manifestBytes": 9944331
+    },
+    "plan": {
+      "bytes": 4211,
+      "key": "objects/3a25e8e262b51fbf6f872c8655b25c9d255cf52b32ca0e9c4afa73d78893fbd4",
+      "sha256": "3a25e8e262b51fbf6f872c8655b25c9d255cf52b32ca0e9c4afa73d78893fbd4"
+    },
+    "planCanonicalSha256": "3b7fc7c4de41c68471d4343f103e7e5ee705e5a4a51f760f5387e34a49a660ee",
+    "audit": {
+      "path": "docs/active/daily-pipeline/accuracy/q4-primary-qualification-actual-source-review-2026-10-25.json",
+      "sha256": "3f133bc05fc7e3964dd3e0717b9a9cd0a3c859b0472b57bb00e6cd80615378bf",
+      "bytes": 53594
+    }
+  },
+  "originalReportAcceptedSamples": 0,
+  "originalReportProposalEvidenceComplete": false,
+  "originalCheckedAt": "2026-10-25T11:20:11.500772Z",
+  "streams": [
+    {
+      "sourceId": "jfrog:official:1",
+      "streamSha256": "3ce5e2c64facbaa1dbd124977a0468e9e6516fe943e7819d99bdb0607a2072c2",
+      "records": 206,
+      "currentWindowRecords": 3,
+      "initialBody": {
+        "bytes": 282783,
+        "key": "objects/f7d84b288a6665280f4b8ade996b0bf64fe9c3fa0ea7a8a15b1adfb0826ccc19",
+        "sha256": "f7d84b288a6665280f4b8ade996b0bf64fe9c3fa0ea7a8a15b1adfb0826ccc19"
+      },
+      "initialObservation": {
+        "bytes": 581,
+        "key": "objects/970b6a1c1bb9af279293992f4cc225f40292e9060ec43b1673cd37f7d0d53068",
+        "sha256": "970b6a1c1bb9af279293992f4cc225f40292e9060ec43b1673cd37f7d0d53068"
+      },
+      "asOf": "2026-10-25T10:19:17.801039Z",
+      "windowStart": "2026-09-25",
+      "windowEnd": "2026-10-25",
+      "timezone": null,
+      "declaredStreamComplete": true
+    },
+    {
+      "sourceId": "rapid7:official:1",
+      "streamSha256": "018293dd0dba25cd49fb7fb12935d5582606b42c06490afd229ba41d287beff0",
+      "records": 323,
+      "currentWindowRecords": 4,
+      "initialBody": {
+        "bytes": 414550,
+        "key": "objects/cf3c57d1c2080d65656e9f291eca371aefd99909476d413bb5c90155bc742db8",
+        "sha256": "cf3c57d1c2080d65656e9f291eca371aefd99909476d413bb5c90155bc742db8"
+      },
+      "initialObservation": {
+        "bytes": 583,
+        "key": "objects/cfa2ffb8c2e6b21f2b39664dc1a700373908e75a4c04f6c791a63a351c2025cf",
+        "sha256": "cfa2ffb8c2e6b21f2b39664dc1a700373908e75a4c04f6c791a63a351c2025cf"
+      },
+      "asOf": "2026-10-25T10:19:17.801039Z",
+      "windowStart": "2026-09-25",
+      "windowEnd": "2026-10-25",
+      "timezone": null,
+      "declaredStreamComplete": true
+    }
+  ],
+  "retainedSamples": [
+    {
+      "sourceId": "jfrog:official:1",
+      "url": "https://investors.jfrog.com/news/news-details/2026/JFrog-Announces-Timing-of-Third-Quarter-2026-Financial-Results/default.aspx",
+      "body": {
+        "bytes": 105675,
+        "key": "objects/c14d01410488c758b6702738c99e6f55e2d1365b84ad0b2d932cf5433cde323a",
+        "sha256": "c14d01410488c758b6702738c99e6f55e2d1365b84ad0b2d932cf5433cde323a"
+      },
+      "observation": {
+        "bytes": 463,
+        "key": "objects/426bf440e12d1dc6671e833325ade4f1bfa4baf1598ffcbadc1f3ad489fb06ba",
+        "sha256": "426bf440e12d1dc6671e833325ade4f1bfa4baf1598ffcbadc1f3ad489fb06ba"
+      },
+      "sourceRowSha256": "b9a2d2e2000c8d5d8794b49e6b3d0552055ab4051c96c89fe20a027709297949",
+      "fetchedAt": "2026-10-25T11:20:10.702332Z",
+      "primaryShape": {
+        "canonical": null,
+        "identityProof": "source_bound_response_and_og_url",
+        "heading": "JFrog Announces Timing of Third Quarter 2026 Financial Results",
+        "genericH1": "News Details",
+        "documentTitle": "Jfrog Ltd. - JFrog Announces Timing of Third Quarter 2026 Financial Results",
+        "ogTitle": "JFrog Announces Timing of Third Quarter 2026 Financial Results",
+        "ogUrl": "https://investors.jfrog.com/news/news-details/2026/JFrog-Announces-Timing-of-Third-Quarter-2026-Financial-Results/default.aspx",
+        "structuralIds": {
+          "moduleId": "_ctrl0_ctl23_divModuleContainer",
+          "moduleWorkflowId": "97bb90f4-1a4c-4725-99fc-4c37729cebbb",
+          "itemId": "_ctrl0_ctl23_divNewsDetailsItemContainer",
+          "headlineWrapperId": "_ctrl0_ctl23_divNewsDetailsHeadline",
+          "headlineId": "_ctrl0_ctl23_lblModuleDetailTitle",
+          "headlineSpanId": "_ctrl0_ctl23_spanNewsDetailsTitle",
+          "dateWrapperId": "_ctrl0_ctl23_divNewsDetailsDateTime",
+          "dateId": "_ctrl0_ctl23_spanDate",
+          "timeId": "_ctrl0_ctl23_spanTime",
+          "bodyId": "_ctrl0_ctl23_divBody"
+        },
+        "readableCharacters": 1770,
+        "readableSha256": "f8ec8c259a58dd9a74c9bae9a11be5abfeddf58f06aea3b2263834bf4a29e19d",
+        "displayedDate": "October 14, 2026",
+        "displayedCalendarDay": "2026-10-14",
+        "indexDateLiteral": "10/14/2026 16:05:00",
+        "indexTimezone": null,
+        "dateMetadata": [
+          {
+            "kind": "jsonld_published",
+            "value": "2026-10-14T15:05:00Z"
+          }
+        ],
+        "dateMetadataState": "present",
+        "jsonLdIdentity": [
+          {
+            "@type": "NewsArticle",
+            "headline": "JFrog Announces Timing of Third Quarter 2026 Financial Results",
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "https://investors.jfrog.com/news/news-details/2026/JFrog-Announces-Timing-of-Third-Quarter-2026-Financial-Results/default.aspx"
+            },
+            "datePublished": "2026-10-14T15:05:00Z",
+            "dateModified": "2026-10-14T15:05:00Z"
+          }
+        ],
+        "publicationComparison": "written_calendar_day"
+      }
+    },
+    {
+      "sourceId": "rapid7:official:1",
+      "url": "https://investors.rapid7.com/news/news-details/2026/Rapid7-to-Report-Third-Quarter-2026-Financial-Results-on-November-4/default.aspx",
+      "body": {
+        "bytes": 80272,
+        "key": "objects/fffa3d952d9f0a4242fffb3a8bbaab42ca9f7ad938ed73582bf3e8d93580114e",
+        "sha256": "fffa3d952d9f0a4242fffb3a8bbaab42ca9f7ad938ed73582bf3e8d93580114e"
+      },
+      "observation": {
+        "bytes": 470,
+        "key": "objects/22a94cdb27a0227411512ba5168a727090e2de85fb941f79adf03c64d3aae30e",
+        "sha256": "22a94cdb27a0227411512ba5168a727090e2de85fb941f79adf03c64d3aae30e"
+      },
+      "sourceRowSha256": "68f92eeb69a75ed608462310b72798f7efa0c8f9a1118d28712b3cce9716d8f5",
+      "fetchedAt": "2026-10-25T11:20:10.954360Z",
+      "primaryShape": {
+        "canonical": null,
+        "identityProof": "source_bound_response_and_og_url",
+        "heading": "Rapid7 to Report Third Quarter 2026 Financial Results on November 4",
+        "genericH1": "News Details",
+        "documentTitle": "Rapid7 - Rapid7 to Report Third Quarter 2026 Financial Results on November 4",
+        "ogTitle": "Rapid7 to Report Third Quarter 2026 Financial Results on November 4",
+        "ogUrl": "https://investors.rapid7.com/news/news-details/2026/Rapid7-to-Report-Third-Quarter-2026-Financial-Results-on-November-4/default.aspx",
+        "structuralIds": {
+          "moduleId": "_ctrl0_ctl54_divModuleContainer",
+          "moduleWorkflowId": "c6353ac5-12c6-4da0-9cfb-44da659afe02",
+          "itemId": "_ctrl0_ctl54_divNewsDetailsItemContainer",
+          "headlineWrapperId": "_ctrl0_ctl54_divNewsDetailsHeadline",
+          "headlineId": "_ctrl0_ctl54_lblModuleDetailTitle",
+          "headlineSpanId": "_ctrl0_ctl54_spanNewsDetailsTitle",
+          "dateWrapperId": "_ctrl0_ctl54_divNewsDetailsDateTime",
+          "dateId": "_ctrl0_ctl54_spanDate",
+          "timeId": "_ctrl0_ctl54_spanTime",
+          "bodyId": "_ctrl0_ctl54_divBody"
+        },
+        "readableCharacters": 1577,
+        "readableSha256": "c1ba8aba730311614e7002f19d32056b9c502df4ffc9802a8fa87356a2bb1176",
+        "displayedDate": "October 14, 2026",
+        "displayedCalendarDay": "2026-10-14",
+        "indexDateLiteral": "10/14/2026 16:05:00",
+        "indexTimezone": null,
+        "dateMetadata": [],
+        "dateMetadataState": "unknown",
+        "jsonLdIdentity": [],
+        "publicationComparison": "written_calendar_day"
+      }
+    }
+  ],
+  "proposalEvidenceComplete": true,
+  "qualified": false,
+  "qualifiedSources": 0,
+  "sourceChecksCredited": 0,
+  "modelCalls": 0,
+  "facts": [],
+  "semanticAdmission": false,
+  "coverageCredit": false,
+  "operationalIntake": false
+}
