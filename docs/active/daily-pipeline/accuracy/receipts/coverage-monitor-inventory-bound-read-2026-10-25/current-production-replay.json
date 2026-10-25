@@ -1,0 +1,101 @@
+{
+  "scope": "Socket-denied offline current-production replay with real GitHubAuthority and retained authenticated gate/API/HTTP inputs. Combined reasons preserve original manual-monitor collection diagnosis; this is not a new Actions run.",
+  "oldReader": {
+    "type": "ValueError",
+    "message": "Production health receipt exceeds byte budget",
+    "readBytes": [
+      1000001
+    ]
+  },
+  "newPublicationInspection": {
+    "healthy": false,
+    "checkedAt": "2026-10-25T08:13:04.369084Z",
+    "runId": "d1b5cbbf41ba2d8dfcb05a7ff2a2b00b7faada68dcaf3224ad4c7702b2d63b22",
+    "reasons": [
+      "OVERDUE_OR_INCOMPLETE_COVERAGE",
+      "DAILY_INTAKE_INCOMPLETE",
+      "PROCESSING_PENDING_10617",
+      "PROCESSING_HELD_10",
+      "HISTORICAL_REVIEW_PENDING_10616",
+      "PUBLIC_DAILY_INTAKE_INCOMPLETE",
+      "PUBLIC_PROCESSING_PENDING_10617",
+      "PUBLIC_PROCESSING_HELD_10",
+      "PUBLIC_HISTORICAL_REVIEW_PENDING_10616",
+      "PUBLIC_COVERAGE_INCOMPLETE_OR_OVERDUE",
+      "HELD_CLAIMS_37"
+    ],
+    "coverageMeasure": "daily_source_intake_v2",
+    "processing": {
+      "changedDocuments": 1,
+      "complete": false,
+      "heldDocuments": 10,
+      "inventoryDocuments": 10655,
+      "pendingDocuments": 10617,
+      "reviewedDocuments": 38,
+      "unknownDateDocuments": 291
+    },
+    "historicalReview": {
+      "complete": false,
+      "heldDocuments": 10,
+      "inventoryDocuments": 10655,
+      "pendingDocuments": 10616,
+      "reviewedDocuments": 39
+    }
+  },
+  "combinedWithActualCollectionReasons": [
+    "SCHEDULED_COLLECTION_RECEIPT_DIFFERS",
+    "OVERDUE_OR_INCOMPLETE_COVERAGE",
+    "DAILY_INTAKE_INCOMPLETE",
+    "PROCESSING_PENDING_10617",
+    "PROCESSING_HELD_10",
+    "HISTORICAL_REVIEW_PENDING_10616",
+    "PUBLIC_DAILY_INTAKE_INCOMPLETE",
+    "PUBLIC_PROCESSING_PENDING_10617",
+    "PUBLIC_PROCESSING_HELD_10",
+    "PUBLIC_HISTORICAL_REVIEW_PENDING_10616",
+    "PUBLIC_COVERAGE_INCOMPLETE_OR_OVERDUE",
+    "HELD_CLAIMS_37"
+  ],
+  "authorityApiFixtures": [
+    "repos/jessepike/sec-market/actions/runs/40172376435",
+    "repos/jessepike/sec-market/actions/artifacts/12590843044",
+    "repos/jessepike/sec-market/actions/artifacts/12590843044/zip"
+  ],
+  "readerEvents": [
+    "authority_verified",
+    [
+      "read",
+      "https://securitymarketpulse.com/deployment-receipt.json",
+      [
+        1000001
+      ]
+    ],
+    [
+      "read",
+      "https://securitymarketpulse.com/app-release.json",
+      [
+        1000001
+      ]
+    ],
+    [
+      "read",
+      "https://securitymarketpulse.com/daily-coverage.json",
+      [
+        1337258
+      ]
+    ],
+    [
+      "read",
+      "https://securitymarketpulse.com/factual-corrections.json",
+      [
+        1000001
+      ]
+    ]
+  ],
+  "publicCoverageSha256": "ac8068379c6c79760331711bfb7bb6387fbc639f9ab6f921713502c6982d47fc",
+  "publicCoverageBytes": 1337257,
+  "allSourceClocksUnchanged": true,
+  "validUntil": "2026-10-26T12:45:29.479727+00:00",
+  "rawCurrentReceiptCheckedAt": "2026-10-25T06:53:46.343333Z",
+  "originalPlanScheduledAt": "2026-10-25T06:45:06.019050Z"
+}

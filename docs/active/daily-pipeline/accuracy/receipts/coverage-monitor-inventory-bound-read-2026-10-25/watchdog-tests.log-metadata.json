@@ -1,0 +1,26 @@
+{
+  "command": [
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "ops/watchdog",
+    "-p",
+    "test_*.py",
+    "-v"
+  ],
+  "exitCode": 0,
+  "tests": 36,
+  "rawSha256": "c579c0d5249f89723f49a2a8b9e5da4f6f08eb55180ba04d2e9608c335af9498",
+  "rawBytes": 6471,
+  "rawLineCount": 41,
+  "rawLfCount": 41,
+  "retainedFile": "watchdog-tests.log.gz",
+  "gzipSha256": "bc3f38213b4f7e22ab255a720de52763f61fc9109a2be9db8eabbf395c939e57",
+  "gzipBytes": 1398,
+  "byteExactRoundTrip": true,
+  "gzipMtime": 0,
+  "gzipEmbeddedFilename": ""
+}

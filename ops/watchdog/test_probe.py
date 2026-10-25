@@ -225,6 +225,7 @@ class SeparateCoverageTests(unittest.TestCase):
         good = {self.checked['taskId']}
         gaps = sorted({task['taskId'] for task in required} - good)
         coverage = dict(schemaVersion=2, measure='daily_source_intake_v2', checkedAt='2026-10-23T04:00:00Z',
+                        contractSha256=probe.digest(self.contract), inventorySha256=self.plan['inventorySha256'],
                         runId=self.plan['runId'], successfulTasks=1, requiredTasks=len(required),
                         complete=False, gapTaskIds=gaps,
                         intake=dict(measure='daily_source_intake_v2', evaluated=True, status='collected', successfulTasks=1,
@@ -244,27 +245,27 @@ class SeparateCoverageTests(unittest.TestCase):
         for row in public['tasks']:
             if row['sourceId'] is None:
                 row['sourceId'] = ''
-        reasons, _ = probe.separate_health(self.contract, public, public=True)
+        reasons, _ = probe.separate_health(self.contract, public, public=True, plan=self.plan)
         self.assertNotIn('SEPARATE_COVERAGE_INVALID_OR_UNCOLLECTED', reasons)
 
     def test_raw_discovery_cannot_disagree_with_checked_intake(self):
         receipt = next(item for item in self.coverage['receipts'] if item['taskId'] == self.checked['taskId'])
         receipt['discoveryComplete'] = False
-        reasons, _ = probe.separate_health(self.contract, self.coverage)
+        reasons, _ = probe.separate_health(self.contract, self.coverage, plan=self.plan)
         self.assertIn('SEPARATE_COVERAGE_INVALID_OR_UNCOLLECTED', reasons)
 
     def test_failed_intake_can_retain_partial_or_ineligible_observations(self):
         task = next(row for row in self.coverage['tasks'] if row['intakeOutcome'] != 'checked')
         receipt = next(item for item in self.coverage['receipts'] if item['taskId'] == task['taskId'])
         receipt['observationIds'] = ['partial-page']
-        reasons, _ = probe.separate_health(self.contract, self.coverage)
+        reasons, _ = probe.separate_health(self.contract, self.coverage, plan=self.plan)
         self.assertNotIn('SEPARATE_COVERAGE_INVALID_OR_UNCOLLECTED', reasons)
         receipt['discoveryComplete'] = True  # complete but possibly stale or otherwise ineligible
-        reasons, _ = probe.separate_health(self.contract, self.coverage)
+        reasons, _ = probe.separate_health(self.contract, self.coverage, plan=self.plan)
         self.assertNotIn('SEPARATE_COVERAGE_INVALID_OR_UNCOLLECTED', reasons)
 
     def test_historical_backlog_is_reported_separately_from_fresh_intake(self):
-        reasons, details = probe.separate_health(self.contract, self.coverage)
+        reasons, details = probe.separate_health(self.contract, self.coverage, plan=self.plan)
         self.assertIn('HISTORICAL_REVIEW_PENDING_1', reasons)
         self.assertIn('DAILY_INTAKE_INCOMPLETE', reasons)
         self.assertNotIn('PROCESSING_PENDING_1', reasons)
@@ -281,12 +282,12 @@ class SeparateCoverageTests(unittest.TestCase):
         for observed in (legacy, uncollected, invalid):
             with self.subTest(schema=observed.get('schemaVersion')):
                 before = copy.deepcopy(observed)
-                reasons, details = probe.separate_health(self.contract, observed)
+                reasons, details = probe.separate_health(self.contract, observed, plan=self.plan)
                 self.assertIn('SEPARATE_COVERAGE_INVALID_OR_UNCOLLECTED', reasons)
                 self.assertNotIn('coverageMeasure', details)
                 self.assertEqual(details['expectedCoverageMeasure'], 'daily_source_intake_v2')
                 self.assertEqual(observed, before)
-        reasons, details = probe.separate_health(self.contract, self.coverage)
+        reasons, details = probe.separate_health(self.contract, self.coverage, plan=self.plan)
         self.assertNotIn('SEPARATE_COVERAGE_INVALID_OR_UNCOLLECTED', reasons)
         self.assertEqual(details['coverageMeasure'], 'daily_source_intake_v2')
 

@@ -1,0 +1,433 @@
+{
+  "schemaVersion": 1,
+  "verdict": "pass_future_preview_only",
+  "reviewPasses": 2,
+  "openMaterialFindings": 0,
+  "scope": [
+    "inventory-bound exact coverage read",
+    "original archived plan identity for raw and public separate-health"
+  ],
+  "focusedTests": {
+    "passed": 36,
+    "skipped": 0,
+    "command": "orb run -m dev env PYTHONDONTWRITEBYTECODE=1 python3 -B -m unittest discover -s ops/watchdog -p 'test_*.py' -v"
+  },
+  "independentReaderMutationRejections": 31,
+  "independentOriginalPlanMutationRejections": 27,
+  "actualRunId": 40175735011,
+  "actualMonitorClock": "2026-10-25T08:13:04.369084Z",
+  "acceptedReleaseId": "fc8bf0984dbeacbe79519574911837d8b638f42215f6547e31ae8968b29951e4",
+  "publicCoverage": {
+    "sha256": "ac8068379c6c79760331711bfb7bb6387fbc639f9ab6f921713502c6982d47fc",
+    "bytes": 1337257,
+    "checkedAt": "2026-10-25T07:22:36.704704Z",
+    "validUntil": "2026-10-26T12:45:29.479727+00:00"
+  },
+  "acceptedInventory": {
+    "bytes": 9441,
+    "key": "objects/0c645ba2977c3e7e3df04a99d2d677ed5e7149b8608d3b472af0ea0b0c810c36",
+    "sha256": "0c645ba2977c3e7e3df04a99d2d677ed5e7149b8608d3b472af0ea0b0c810c36"
+  },
+  "crossDay": {
+    "evidenceType": "local retained full-gate rehearsal, never actual production or timer acceptance",
+    "sourceOriginalRaw": {
+      "bytes": 1100518,
+      "key": "objects/4780f1b69db3d5b7fef1d599ce88819d80fe84fbf5d002f1f21ff00b64672180",
+      "sha256": "4780f1b69db3d5b7fef1d599ce88819d80fe84fbf5d002f1f21ff00b64672180"
+    },
+    "sourceOriginalCheckedAt": "2026-10-24T18:32:56.227836Z",
+    "originalPlan": {
+      "sha256": "52f5875609394b7aa52c793fe133c1d10a970f64cc57cff69fe89f21342e30c3",
+      "bytes": 104866,
+      "scheduledAt": "2026-10-24T18:28:54.713214Z",
+      "runId": "2c57fb25697bfc4b40df574890334adfa1d6d0df610837e12aa3a71e22515523",
+      "inventorySha256": "aeea6e8fadb530e67ade88b41ed83886a9fea5360dae15d7a2ffb1acd97148ba"
+    },
+    "gateRebuiltRawCheckedAt": "2026-10-25T00:59:59.916017Z",
+    "gateRebuiltPublic": {
+      "sha256": "56b42229af9d56a739791e72faeda61ebd7c54122a729a5fabc14364b54b8c14",
+      "bytes": 1337255,
+      "checkedAt": "2026-10-25T01:00:34.491456Z"
+    },
+    "specificReasons": [
+      "DAILY_INTAKE_INCOMPLETE",
+      "PROCESSING_PENDING_10632",
+      "PROCESSING_HELD_5",
+      "HISTORICAL_REVIEW_PENDING_10631"
+    ],
+    "clocksChanged": false
+  },
+  "completePublicationReplay": {
+    "realGitHubAuthorityVerifierWithRetainedAPIFixtures": true,
+    "actualResponseReaderWithBoundedFakeOpener": true,
+    "healthy": false,
+    "reasons": [
+      "OVERDUE_OR_INCOMPLETE_COVERAGE",
+      "DAILY_INTAKE_INCOMPLETE",
+      "PROCESSING_PENDING_10617",
+      "PROCESSING_HELD_10",
+      "HISTORICAL_REVIEW_PENDING_10616",
+      "PUBLIC_DAILY_INTAKE_INCOMPLETE",
+      "PUBLIC_PROCESSING_PENDING_10617",
+      "PUBLIC_PROCESSING_HELD_10",
+      "PUBLIC_HISTORICAL_REVIEW_PENDING_10616",
+      "PUBLIC_COVERAGE_INCOMPLETE_OR_OVERDUE",
+      "HELD_CLAIMS_37"
+    ],
+    "coverageReadBytes": 1337258,
+    "otherReadBytes": 1000001,
+    "genericProbeFailure": false
+  },
+  "routingEvidenceLimit": "Older2c H public uses retained rehearsal bytes and actual original plan; fixture isolates routing and does not attest an actually accepted older H production release. Actual19fde/be3 is old policy de1932/schema1 and is correctly rejected under current H.",
+  "preservation": {
+    "networkDenied": true,
+    "actualSourceRequests": 0,
+    "actualModelRequests": 0,
+    "actualBudgetReservations": 0,
+    "archiveWrites": 0,
+    "mainChanges": 0,
+    "newCoverageOrTimerCredit": false,
+    "allConsultedUnchanged": true
+  },
+  "filePins": {
+    "ops/watchdog/probe.py": {
+      "sha256": "0b9793222a04511ee0b670bb4a3131ec5cd9662f33dd111a0d319797d3b80ac3",
+      "bytes": 27504
+    },
+    "ops/watchdog/test_probe.py": {
+      "sha256": "24ae33093032fb59b87211af68a94c13a8802202b626159e60ee5b764e529aeb",
+      "bytes": 18208
+    },
+    "ops/watchdog/test_coverage_reader.py": {
+      "sha256": "75b80f03d1010ee4b5db2fdaf14bde017662842b267cd08a78071dcdc481e70f",
+      "bytes": 20677
+    },
+    "docs/active/daily-pipeline/accuracy/coverage-monitor-inventory-bound-read-spec-2026-10-25.md": {
+      "sha256": "5027f5832800fc28bfc1b418d1bc762fe62619baace4f7722995cd9d510a57d3",
+      "bytes": 4707
+    },
+    "docs/active/daily-pipeline/accuracy/coverage-monitor-original-plan-spec-2026-10-25.md": {
+      "sha256": "39267d5bdb052a75d022aa371c4a3e909e7fb9f54335322dae9bda0138826729",
+      "bytes": 4243
+    },
+    "web/scripts/pipeline/engine.py": {
+      "sha256": "e471f18006a4899406510cdede42829476ba1945b58c420c61f6edce767a7e19",
+      "bytes": 54002
+    },
+    "web/scripts/pipeline/fetcher.py": {
+      "sha256": "82084e87bb41687fec8ebfc969cf0a37294e04312a47a27993f5c359a585adce",
+      "bytes": 10828
+    },
+    "web/scripts/pipeline/corrections.py": {
+      "sha256": "d742a91d4d23da5db3b426afcef76a80971c47dd54f8e4312065a6994f87b11f",
+      "bytes": 44838
+    },
+    "web/scripts/pipeline/provenance.py": {
+      "sha256": "7325f346b34fad9bbb306ad52ad847ff76f98d9d92e83b361912063b682805dd",
+      "bytes": 2597
+    },
+    "web/scripts/pipeline/publication.py": {
+      "sha256": "6497c6fbf8494638a79a9b00afa4b18f50d67598fa635c273d82d1553c8ffe84",
+      "bytes": 11899
+    },
+    "contracts/market.json": {
+      "sha256": "24221c946781559c0ff3626e4e479c4647da915d0f2d7559ea88046982532c3c",
+      "bytes": 284062
+    },
+    "contracts/source-qualification-probes.json": {
+      "sha256": "ad1c5cc234fe4fa69cbceb5370ac74825a37dc80b08528ca908d14b1352e53b4",
+      "bytes": 173
+    },
+    "contracts/factual-corrections.json": {
+      "sha256": "9c9fbe0d3d40ece11e1407ce9460086c732f62da88d3b0f220ab9d6f8757da00",
+      "bytes": 32004
+    },
+    "contracts/factual-baseline.json": {
+      "sha256": "ab3bca0e49a38495d310021857ee2c1a3ca6ebe7979593d1e8b36437cb2a294e",
+      "bytes": 35212
+    },
+    "web/src/data/tracker/factualCorrectionPolicy.json": {
+      "sha256": "7319ece4c5c4f6c7d515fb9ef7ff13211daf38e041948edd26732e9ccfa2dbc7",
+      "bytes": 1721
+    },
+    "web/src/data/tracker/originals.json": {
+      "sha256": "7d164cb81003db0a66eccbb25c2e8605e33b853b9a6e20cb2c6900794822b4a3",
+      "bytes": 381034
+    },
+    ".github/workflows/freshness.yml": {
+      "sha256": "3cd45a810ce4a5320bd9404dff6d9fba58d948988031aac4b0dd997f90c796ef",
+      "bytes": 7101
+    },
+    ".github/workflows/subscription-collector.yml": {
+      "sha256": "268fb316bd00670fc76d6a464c449d5e3f3d9e03a083680e2fab813d3daa4fe0",
+      "bytes": 5406
+    },
+    "ops/watchdog/worker.mjs": {
+      "sha256": "0993eb0cc8d4c0ad5a4da84d4cd059c3e22ccd86ff8a071cfae3148d9c996883",
+      "bytes": 3697
+    },
+    "ops/watchdog/wrangler.jsonc": {
+      "sha256": "b7f94fa18b223da05dfa3ae5cd9adf2dc064d507797a016b65ef6a53a46bfbce",
+      "bytes": 243
+    }
+  },
+  "consultedFiles": [
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/coverage-monitor-inventory-bound-read-2026-10-25/cross-day-gate-rebuilt-release-input.json.gz",
+      "sha256": "205e4e1b32fd2b01cde73a15b21f2ab711128eb69fd47cc14abc089aec7a901a",
+      "bytes": 221353,
+      "mtimeNs": 1792917153766335173
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/coverage-monitor-inventory-bound-read-2026-10-25/cross-day-original-plan.json.gz",
+      "sha256": "c8a0f06f2d163ebc63429896a07b6343c75db67eb4f609555089fdebb1b385cc",
+      "bytes": 28383,
+      "mtimeNs": 1792917153712109840
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/coverage-monitor-inventory-bound-read-2026-10-25/cross-day-rebuilt-artifact-inventory.json.gz",
+      "sha256": "d89238a1652e1a555f820e52c934511dd74d180dfe6d23504eaf949ac65dde2d",
+      "bytes": 3086,
+      "mtimeNs": 1792917153788786055
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/coverage-monitor-inventory-bound-read-2026-10-25/cross-day-rebuilt-public-coverage.json.gz",
+      "sha256": "922e75d960b358ea7a0a1e9cd25d6281d2ccd651b3a0bf491719b762e1cd7530",
+      "bytes": 106231,
+      "mtimeNs": 1792917153788057557
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/coverage-monitor-inventory-bound-read-2026-10-25/cross-day-source-original-coverage.json.gz",
+      "sha256": "30a1eebb86b11c8aa45a023e168940a7cfe8e62cd39c21e41e09e1a77958a6fc",
+      "bytes": 220107,
+      "mtimeNs": 1792917153726056735
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/coverage-monitor-inventory-bound-read-2026-10-25/current-accepted-factual-corrections.json.gz",
+      "sha256": "f28488111a8dfe6d650209458b0859c7eec5e58528bf031851f48b38dc5502f8",
+      "bytes": 6522,
+      "mtimeNs": 1792917385068981966
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/coverage-monitor-inventory-bound-read-2026-10-25/current-original-coverage.json.gz",
+      "sha256": "241d0fdf0f006d6eda85b71fcd00237dd47fd764330a8767c2591a134f702294",
+      "bytes": 230662,
+      "mtimeNs": 1792917153742694626
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/coverage-monitor-inventory-bound-read-2026-10-25/current-original-plan.json.gz",
+      "sha256": "3b41b991089302e6627569d94177dbd32aa40a273991c44b785c330f1c97fda2",
+      "bytes": 28372,
+      "mtimeNs": 1792917153728331398
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/coverage-monitor-inventory-bound-read-2026-10-25/current-original-snapshot.json.gz",
+      "sha256": "ecb5c73206d1174e1ebea62f8e28e3d1249f6f61150063f531b82a7aa416e91a",
+      "bytes": 102929,
+      "mtimeNs": 1792917153752513361
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/recovery-monitor-2026-10-25/accepted-artifact-inventory.json",
+      "sha256": "0c645ba2977c3e7e3df04a99d2d677ed5e7149b8608d3b472af0ea0b0c810c36",
+      "bytes": 9441,
+      "mtimeNs": 1792916560105265167
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/recovery-monitor-2026-10-25/actual-monitor-result.json",
+      "sha256": "46c07ecd4d4101ac161e1162c0b931692603b75fbffcbcd87bdb1bbf801547e9",
+      "bytes": 1271,
+      "mtimeNs": 1792916560108256412
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/recovery-monitor-2026-10-25/archive-ref.json",
+      "sha256": "5342f71e284fa54cc8c8ef5f921ca8bca2eccf7780be01a94a69262fc7356c89",
+      "bytes": 381,
+      "mtimeNs": 1792916289160900927
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/recovery-monitor-2026-10-25/exact-main-cause-replay.json",
+      "sha256": "52fc986aaa6252e1f05830883fe25af9c0fc96c81048db9fc1643fa236419561",
+      "bytes": 6140,
+      "mtimeNs": 1792916560138763574
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/recovery-monitor-2026-10-25/gate-artifact-metadata.json",
+      "sha256": "d591c521a94aeefcff5d566beee849dee3cf78d26f9c6a0088f48227c6611d8c",
+      "bytes": 686,
+      "mtimeNs": 1792916264118956349
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/recovery-monitor-2026-10-25/gate-receipt.json",
+      "sha256": "40291f136abb0b5c26b50a4c473c62789a18bc1c36241d42160907905fc17a8b",
+      "bytes": 1962,
+      "mtimeNs": 1792916289161636060
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/recovery-monitor-2026-10-25/gate-run.json",
+      "sha256": "c443c77a0579875c4d9bf6ef6221b26722ec037a1ea7cb8790f5f411fee66a42",
+      "bytes": 13009,
+      "mtimeNs": 1792916289161832979
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/recovery-monitor-2026-10-25/latest.json",
+      "sha256": "eda04d7134f37c64429138b5f5fe75d100975304e02a2e1a47296237f9f6f5f9",
+      "bytes": 261,
+      "mtimeNs": 1792916289161193847
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/recovery-monitor-2026-10-25/production.json",
+      "sha256": "eeacc6111b7f10171a3bf7342410b4e0eae529b24b14b63ebe643f0967c0e871",
+      "bytes": 174,
+      "mtimeNs": 1792916289161327223
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/recovery-monitor-2026-10-25/public-app-release.json.gz",
+      "sha256": "0441494c8dc47c5a6a653cc084c9c892f4714764c7a2c594c919b075e9376655",
+      "bytes": 770,
+      "mtimeNs": 1792916289691036165
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/recovery-monitor-2026-10-25/public-daily-coverage.json.gz",
+      "sha256": "7caee74bd2407f5ac094a5cadb141f56c8dd9e64fa9ad0b4dd497fe638677c12",
+      "bytes": 106425,
+      "mtimeNs": 1792916290099491166
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/recovery-monitor-2026-10-25/public-deployment-receipt.json.gz",
+      "sha256": "99ddebc084acf2e634f97708d8bbb0081ad4b7273d08c307f4cfedf059ef78df",
+      "bytes": 626,
+      "mtimeNs": 1792916289495301612
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/recovery-monitor-2026-10-25/public-health-receipt-captures.json",
+      "sha256": "2a30e748b54604fb8f9a73ae78b5a7deaa5f1372c30698510a344442da1f295e",
+      "bytes": 5687,
+      "mtimeNs": 1792916290100843679
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/recovery-monitor-2026-10-25/release.json",
+      "sha256": "56bf863d8237f8d485a6edad220f57dc03f0f4279a02101edd78d6e0ed8432ce",
+      "bytes": 5950,
+      "mtimeNs": 1792916289161501850
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/recovery-monitor-2026-10-25/worker-heartbeat.json",
+      "sha256": "8dbc6e568fa8081bfb8456f4d74c9cb737a3277cbba6f1a49b7e7898b8a49f4a",
+      "bytes": 342,
+      "mtimeNs": 1792916289161044679
+    },
+    {
+      "path": "/var/tmp/smp-cross-day-full-gate-40148005688-20261025/gate-output/build.zip",
+      "sha256": "a7d44e7f7e0dafcab36dbc929d92142736f693b6a0e3aeb981bcc3bd06770c5d",
+      "bytes": 1189931,
+      "mtimeNs": 1792890119946773119
+    },
+    {
+      "path": "/var/tmp/smp-cross-day-full-gate-40148005688-20261025/gate-output/gate-receipt.json",
+      "sha256": "a93bb3869152f155d0f497dd489b0c5fa20b8fc6ce5b4aa2f969243ab90f574d",
+      "bytes": 1921,
+      "mtimeNs": 1792890119946302664
+    },
+    {
+      "path": "/var/tmp/smp-cross-day-full-gate-40148005688-20261025/gate-output/release-input.json",
+      "sha256": "bae92100e98b4431d8084f0911fa420f240849f6e7eff4565a361ac4199fed7e",
+      "bytes": 1103910,
+      "mtimeNs": 1792890119954218946
+    },
+    {
+      "path": "/var/tmp/smp-manual-freshness-publication-40172130763-20261025/build.zip",
+      "sha256": "f8b19327b253c1c61dbea9bfbf3f0d91e94893113cc9a6d4e7c83cf0577c797c",
+      "bytes": 1190629,
+      "mtimeNs": 1792913281282565756
+    },
+    {
+      "path": "/var/tmp/smp-manual-freshness-publication-40172130763-20261025/gate-artifact.zip",
+      "sha256": "ef628abef50d32f88c9c8dec0a04099f74b84a5fa7d954f1d22d7e8931d6b3d4",
+      "bytes": 1557724,
+      "mtimeNs": 1792913265337287003
+    },
+    {
+      "path": "/var/tmp/smp-manual-freshness-recovery-40169973257-20261025/extracted/archive-manifest.json",
+      "sha256": "540bb0449b922b0ea69ab3a088d35b0f3bc8926243a8d5c817ab93c2659abd8e",
+      "bytes": 9316327,
+      "mtimeNs": 1792911866934145598
+    },
+    {
+      "path": "/var/tmp/smp-manual-freshness-recovery-40169973257-20261025/extracted/state/heads/dailySnapshot.json",
+      "sha256": "ae75279b62c84bbd072748c7b228aaef5d908dfc5c87c856a7e0b1a173b94563",
+      "bytes": 1087146,
+      "mtimeNs": 1792911866995701191
+    },
+    {
+      "path": "/var/tmp/smp-manual-freshness-recovery-40169973257-20261025/extracted/state/objects/f2486a623d93da011eaaf11926e09d6ce1533dab26d4a8f2fa2875a95a84d0b6",
+      "sha256": "f2486a623d93da011eaaf11926e09d6ce1533dab26d4a8f2fa2875a95a84d0b6",
+      "bytes": 1133221,
+      "mtimeNs": 1792911870202042599
+    },
+    {
+      "path": "/var/tmp/smp-manual-freshness-recovery-40169973257-20261025/extracted/state/runs/d1b5cbbf41ba2d8dfcb05a7ff2a2b00b7faada68dcaf3224ad4c7702b2d63b22/plan.json",
+      "sha256": "0470e19e732f7c8d5bef1fd434a4e1798bdb61f9bf28285199102eda021eb429",
+      "bytes": 104866,
+      "mtimeNs": 1792911871084738614
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/archive-manifest.json",
+      "sha256": "895213b31bb9f75814acc9484cad9aabd3719e07ddd72c621275a9b2568a1e5c",
+      "bytes": 8433031,
+      "mtimeNs": 1792875521000000000
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/heads/latest-run.json",
+      "sha256": "6c5369f2ec96a88d8e93bd40922c9f4ee728f2194c3093c8b70a01ae5dc9a254",
+      "bytes": 261,
+      "mtimeNs": 1792875521000000000
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/heads/production.json",
+      "sha256": "ae231d7b4c69d55dee628041b1b7fc09ab5e0c1d55809541e8f5d7830b410739",
+      "bytes": 174,
+      "mtimeNs": 1792875521000000000
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/4780f1b69db3d5b7fef1d599ce88819d80fe84fbf5d002f1f21ff00b64672180",
+      "sha256": "4780f1b69db3d5b7fef1d599ce88819d80fe84fbf5d002f1f21ff00b64672180",
+      "bytes": 1100518,
+      "mtimeNs": 1792875521000000000
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/b315b8dddda5c9cbb3850fb59a98150f45dcec2ec9b84729c6cea5870875c34d",
+      "sha256": "b315b8dddda5c9cbb3850fb59a98150f45dcec2ec9b84729c6cea5870875c34d",
+      "bytes": 1085147,
+      "mtimeNs": 1792875521000000000
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/releases/19fde803d09aa544672183769c257e37faf727b75e1914955f54f3c5fb126941.json",
+      "sha256": "d02186fd62dd95d05a509dff5d0f392eb2937774cfe592b86b1316ab759601f6",
+      "bytes": 5949,
+      "mtimeNs": 1792875521000000000
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/runs/2c57fb25697bfc4b40df574890334adfa1d6d0df610837e12aa3a71e22515523/plan.json",
+      "sha256": "52f5875609394b7aa52c793fe133c1d10a970f64cc57cff69fe89f21342e30c3",
+      "bytes": 104866,
+      "mtimeNs": 1792875521000000000
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/runs/be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd/plan.json",
+      "sha256": "8a31d4c23a65cc17b2f5abd94fdc8fc480125e63f9559cd031dc65455456821b",
+      "bytes": 104866,
+      "mtimeNs": 1792875521000000000
+    }
+  ],
+  "consultedFilesSeal": "93c917984f13107b4a421758614f6e1ac8ab269b9e304de495714f65165553c6",
+  "fullOperationalSuite": {
+    "owner": "implementation worker",
+    "rootVerifiedFinalPinsMatchReview": true,
+    "passed": 858,
+    "seconds": 19.192,
+    "rawLogSha256": "04d821c12afed968145dc860f547fa04e67fc2231de45e23912dc1d4a4b718e4",
+    "rawLogBytes": 159820,
+    "gzipLogSha256": "f4cf38d58deaeea53ebd5f37d38d2767ba10b8f908f202042deea9997cb576da",
+    "reviewerDidNotDuplicate": true
+  }
+}

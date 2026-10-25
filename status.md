@@ -117,8 +117,13 @@ Manual monitor 40175735011 refreshed issue 10 at 08:13:14 UTC after 20 guard tes
 It exposed a real monitor defect: the accepted 1,337,257-byte coverage file exceeds its 1 MB
 HTTP reader. Exact-main replay reaches that rejection only after gate authority, deployment
 acknowledgement and app pairing pass. A [narrow inventory-bound reader repair](docs/active/daily-pipeline/accuracy/coverage-monitor-inventory-bound-read-spec-2026-10-25.md)
-is in progress on future preview. The actual public expiry stays future; combined incomplete-or-
-overdue reasons do not establish current public expiry. Keep the incomplete coverage alarms.
+now passes 36 watchdog tests and all 858 operational tests. Independent review passes 31 reader
+and 27 original-plan rejection cases with no open material findings. It also fixes a retained
+cross-midnight monitor error by checking each receipt against its authenticated original plan.
+The [combined review](docs/active/daily-pipeline/accuracy/coverage-monitor-inventory-bound-read-independent-review-2026-10-25.md)
+preserves actual source dates and all backlog/timer alarms. This repair remains on future preview;
+an actual repaired monitor run is next. The actual public expiry stays future; combined incomplete-or-
+overdue reasons do not establish current public expiry. No source qualification credit follows.
 The [557-row ledger](docs/active/daily-pipeline/evaluations/2026-10-24/current-source-coverage.md)
 and [evaluation rubric](docs/active/daily-pipeline/evaluation-rubric.md) keep the measures separate.
 The [October 25 scorecard](docs/active/daily-pipeline/evaluations/2026-10-25/recovery-observation.md)

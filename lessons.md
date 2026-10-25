@@ -145,3 +145,12 @@ unqualified with zero coverage credit. Tests use fictional fetchers and temporar
 - Preserve held identities and their original receipts when later checks repeat the same rejection.
   A changed current receipt pointer is neither an exact-row preservation claim nor a resolved hold.
   Compare identities and original immutable bytes separately, and keep genuinely new holds visible.
+
+## 2026-10-25 · Monitor accepted bytes and original collection identities
+
+- A valid published coverage file can exceed a generic receipt limit. Authenticate the accepted
+  gate artifact inventory first, then permit only that exact coverage URL's expected size and hash
+  within a fixed ceiling. Keep other receipt limits unchanged and check raw bytes before parsing.
+- A monitor must reconstruct task identities from the authenticated original collection plan.
+  Publication or validation across midnight must not change the task day, hide pending-work alarms
+  or refresh source dates. Check current private and accepted public plans separately.

@@ -1,0 +1,26 @@
+{
+  "command": [
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "ops/ci",
+    "-p",
+    "test_*.py",
+    "-v"
+  ],
+  "exitCode": 0,
+  "tests": 858,
+  "rawSha256": "04d821c12afed968145dc860f547fa04e67fc2231de45e23912dc1d4a4b718e4",
+  "rawBytes": 159820,
+  "rawLineCount": 863,
+  "rawLfCount": 863,
+  "retainedFile": "operational-tests.log.gz",
+  "gzipSha256": "f4cf38d58deaeea53ebd5f37d38d2767ba10b8f908f202042deea9997cb576da",
+  "gzipBytes": 24031,
+  "byteExactRoundTrip": true,
+  "gzipMtime": 0,
+  "gzipEmbeddedFilename": ""
+}

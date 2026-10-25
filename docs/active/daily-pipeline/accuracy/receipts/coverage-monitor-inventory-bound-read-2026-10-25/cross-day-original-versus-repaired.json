@@ -1,0 +1,64 @@
+{
+  "scope": "Retained real source-original versus gate-rebuilt/local-public rehearsal coverage; no production or scheduled acceptance claim",
+  "originalPlanSha256": "52f5875609394b7aa52c793fe133c1d10a970f64cc57cff69fe89f21342e30c3",
+  "originalPlanScheduledAt": "2026-10-24T18:28:54.713214Z",
+  "cases": [
+    {
+      "inputKind": "source-original raw",
+      "checkedAt": "2026-10-24T18:32:56.227836Z",
+      "runId": "2c57fb25697bfc4b40df574890334adfa1d6d0df610837e12aa3a71e22515523",
+      "oldReasons": [
+        "DAILY_INTAKE_INCOMPLETE",
+        "PROCESSING_PENDING_10632",
+        "PROCESSING_HELD_5",
+        "HISTORICAL_REVIEW_PENDING_10631"
+      ],
+      "repairedReasons": [
+        "DAILY_INTAKE_INCOMPLETE",
+        "PROCESSING_PENDING_10632",
+        "PROCESSING_HELD_5",
+        "HISTORICAL_REVIEW_PENDING_10631"
+      ],
+      "originalPlanReads": [
+        "runs/2c57fb25697bfc4b40df574890334adfa1d6d0df610837e12aa3a71e22515523/plan.json"
+      ],
+      "coverageUnchanged": true
+    },
+    {
+      "inputKind": "gate-rebuilt raw from retained local rehearsal",
+      "checkedAt": "2026-10-25T00:59:59.916017Z",
+      "runId": "2c57fb25697bfc4b40df574890334adfa1d6d0df610837e12aa3a71e22515523",
+      "oldReasons": [
+        "SEPARATE_COVERAGE_INVALID_OR_UNCOLLECTED"
+      ],
+      "repairedReasons": [
+        "DAILY_INTAKE_INCOMPLETE",
+        "PROCESSING_PENDING_10632",
+        "PROCESSING_HELD_5",
+        "HISTORICAL_REVIEW_PENDING_10631"
+      ],
+      "originalPlanReads": [
+        "runs/2c57fb25697bfc4b40df574890334adfa1d6d0df610837e12aa3a71e22515523/plan.json"
+      ],
+      "coverageUnchanged": true
+    },
+    {
+      "inputKind": "rebuilt public from retained local rehearsal",
+      "checkedAt": "2026-10-25T01:00:34.491456Z",
+      "runId": "2c57fb25697bfc4b40df574890334adfa1d6d0df610837e12aa3a71e22515523",
+      "oldReasons": [
+        "SEPARATE_COVERAGE_INVALID_OR_UNCOLLECTED"
+      ],
+      "repairedReasons": [
+        "DAILY_INTAKE_INCOMPLETE",
+        "PROCESSING_PENDING_10632",
+        "PROCESSING_HELD_5",
+        "HISTORICAL_REVIEW_PENDING_10631"
+      ],
+      "originalPlanReads": [
+        "runs/2c57fb25697bfc4b40df574890334adfa1d6d0df610837e12aa3a71e22515523/plan.json"
+      ],
+      "coverageUnchanged": true
+    }
+  ]
+}

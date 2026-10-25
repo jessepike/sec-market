@@ -14,15 +14,36 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "web/scripts/pipeline"))
-from contracts import canonical, digest, instant, plan_run, utcnow
+from contracts import canonical, digest, instant, plan_run, require, utcnow, valid_hash
 from publication import health, verify_acknowledgement
 from provenance import GitHubAuthority
 
 REPO = "jessepike/sec-market"
 TITLE = "Daily pipeline needs attention"
+PUBLIC_COVERAGE_URL = "https://securitymarketpulse.com/daily-coverage.json"
+PUBLIC_COVERAGE_PATH = "static/daily-coverage.json"
+DEFAULT_PUBLIC_BYTES = 1_000_000
+MAX_COVERAGE_BYTES = 40_000_000
 
 
-def separate_health(contract, coverage, public=False):
+def _original_plan(contract, coverage, read_archive=None, plan=None):
+    require(type(coverage) is dict and valid_hash(coverage.get("runId")), "COVERAGE_RUN_ID_INVALID")
+    if read_archive is not None:
+        plan = read_archive("runs/" + coverage["runId"] + "/plan.json")
+    require(type(plan) is dict and isinstance(plan.get("scheduledAt"), str)
+            and (plan.get("previousRunId") is None or valid_hash(plan["previousRunId"])),
+            "ORIGINAL_COVERAGE_PLAN_REQUIRED")
+    reconstructed = plan_run(contract, plan["scheduledAt"], plan.get("previousRunId"))
+    require(digest(plan) == digest(reconstructed) and coverage["runId"] == plan["runId"]
+            and coverage.get("contractSha256") == plan["contractSha256"]
+            and coverage.get("inventorySha256") == plan["inventorySha256"]
+            and instant(plan["scheduledAt"]) <= instant(coverage["checkedAt"])
+            and ("scheduledAt" not in coverage or coverage["scheduledAt"] == plan["scheduledAt"]),
+            "ORIGINAL_COVERAGE_PLAN_BINDING_DIFFERS")
+    return plan
+
+
+def separate_health(contract, coverage, public=False, *, read_archive=None, plan=None):
     """Keep intake alarms and document backlog visible under the accepted policy."""
     if contract.get('collection', {}).get('mode') != 'daily_intake_with_separate_history':
         return [], {}
@@ -49,7 +70,8 @@ def separate_health(contract, coverage, public=False):
                 'Separate task outcome differs')
         require(isinstance(coverage['gapTaskIds'], list)
                 and len(coverage['gapTaskIds']) == len(set(coverage['gapTaskIds'])), 'Separate task gaps are invalid')
-        expected = {task['taskId']: task for task in plan_run(contract, coverage['checkedAt'])['tasks']}
+        original = _original_plan(contract, coverage, read_archive, plan)
+        expected = {task['taskId']: task for task in original['tasks']}
         require(set(expected) == {row['taskId'] for row in rows}, 'Separate planned inventory differs')
         required = {task['taskId'] for task in expected.values() if task['required']}
         good = good_all & required
@@ -104,7 +126,7 @@ def separate_health(contract, coverage, public=False):
         historical = summaries['historicalReview']
         if historical['pendingDocuments']: reasons.append('HISTORICAL_REVIEW_PENDING_' + str(historical['pendingDocuments']))
         return reasons, {'coverageMeasure': measure, **summaries}
-    except (ValueError, KeyError, TypeError):
+    except (ValueError, KeyError, TypeError, OSError, subprocess.SubprocessError):
         return ['SEPARATE_COVERAGE_INVALID_OR_UNCOLLECTED'], {'expectedCoverageMeasure': 'daily_source_intake_v2'}
 
 
@@ -120,14 +142,72 @@ def api(path, raw=False):
     return result.stdout if raw else json.loads(result.stdout)
 
 
-def get_json(url):
+def _coverage_entry(entry):
+    require(type(entry) is dict and set(entry) == {"path", "sha256", "bytes"}
+            and entry["path"] == PUBLIC_COVERAGE_PATH and valid_hash(entry["sha256"])
+            and type(entry["bytes"]) is int and 0 < entry["bytes"] <= MAX_COVERAGE_BYTES,
+            "ACCEPTED_COVERAGE_ENTRY_INVALID")
+    return entry
+
+
+def _accepted_release(production, manifest, contract):
+    require(type(manifest) is dict and valid_hash(production.get("releaseId"))
+            and production["releaseId"] == manifest.get("releaseId")
+            == digest({k: v for k, v in manifest.items() if k != "releaseId"})
+            and type(manifest.get("schemaVersion")) is int and manifest["schemaVersion"] == 1
+            and type(production.get("sequence")) is int and production["sequence"] > 0
+            and type(manifest.get("sequence")) is int and manifest["sequence"] == production["sequence"]
+            and manifest.get("contractSha256") == digest(contract), "ACCEPTED_RELEASE_BINDING_DIFFERS")
+    provenance = manifest.get("testProvenance")
+    require(type(provenance) is dict and set(provenance) == {"githubRunId", "githubArtifactId"}
+            and all(type(value) is int and value > 0 for value in provenance.values())
+            and valid_hash(manifest.get("testReceiptSha256"))
+            and type(manifest.get("snapshot")) is dict and valid_hash(manifest["snapshot"].get("sha256")),
+            "ACCEPTED_RELEASE_PROVENANCE_INVALID")
+
+
+def _accepted_coverage_inventory(manifest, test, read_archive):
+    """Use only the exact inventory committed by the already verified gate."""
+    artifact, provenance = manifest.get("artifact"), manifest.get("testProvenance")
+    require(type(test) is dict and type(artifact) is dict and valid_hash(artifact.get("sha256"))
+            and type(provenance) is dict and set(provenance) == {"githubRunId", "githubArtifactId"}
+            and all(type(provenance[k]) is int and provenance[k] > 0 and test.get(k) == provenance[k]
+                    for k in provenance)
+            and test.get("artifactSha256") == artifact["sha256"]
+            and test.get("appRevision") == manifest.get("appRevision")
+            and test.get("snapshotSha256") == manifest.get("snapshot", {}).get("sha256")
+            and test.get("runId") == manifest.get("runId")
+            and test.get("contractSha256") == manifest.get("contractSha256"),
+            "ACCEPTED_GATE_ARTIFACT_BINDING_DIFFERS")
+    reference = artifact.get("inventory")
+    require(type(reference) is dict and set(reference) == {"key", "sha256", "bytes"}
+            and valid_hash(reference["sha256"]) and reference["sha256"] == artifact["sha256"]
+            and reference["key"] == "objects/" + reference["sha256"]
+            and type(reference["bytes"]) is int and 0 < reference["bytes"] <= MAX_COVERAGE_BYTES,
+            "ACCEPTED_ARTIFACT_INVENTORY_REFERENCE_INVALID")
+    inventory = read_archive(reference["key"], reference=reference)
+    raw = canonical(inventory)
+    require(type(inventory) is list and len(raw) == reference["bytes"]
+            and digest(raw) == reference["sha256"], "ACCEPTED_ARTIFACT_INVENTORY_DIFFERS")
+    matches = [entry for entry in inventory if type(entry) is dict and entry.get("path") == PUBLIC_COVERAGE_PATH]
+    require(len(matches) == 1, "ACCEPTED_COVERAGE_ENTRY_MISSING_OR_DUPLICATED")
+    return _coverage_entry(matches[0])
+
+
+def get_json(url, *, expected=None):
+    limit = DEFAULT_PUBLIC_BYTES
+    if expected is not None:
+        require(url == PUBLIC_COVERAGE_URL, "COVERAGE_BOUND_FOR_OTHER_RECEIPT_FORBIDDEN")
+        limit = _coverage_entry(expected)["bytes"]
     request = urllib.request.Request(url, headers={"Cache-Control": "no-cache"})
     with urllib.request.urlopen(request, timeout=25) as response:
         if response.status != 200 or response.url != url:
             raise ValueError("Production health receipt failed or redirected")
-        body = response.read(1_000_001)
-        if len(body) > 1_000_000:
+        body = response.read(limit + 1)
+        if len(body) > limit:
             raise ValueError("Production health receipt exceeds byte budget")
+        if expected is not None and (len(body) != expected["bytes"] or digest(body) != expected["sha256"]):
+            raise ValueError("Production coverage differs from accepted artifact bytes")
         return json.loads(body)
 
 
@@ -177,7 +257,7 @@ def inspect_collection(contract, read_archive, now, authority):
     state = health(coverage, now, contract["schedule"]["overdueHours"], digest(contract))
     if not state["healthy"]:
         problems.append(state["reason"])
-    separate_problems, details = separate_health(contract, coverage)
+    separate_problems, details = separate_health(contract, coverage, read_archive=read_archive)
     problems.extend(separate_problems)
     return {"healthy": not problems, "checkedAt": now, "runId": coverage["runId"],
             "reasons": problems, "publicationEnabled": contract["publication"]["enabled"],
@@ -213,7 +293,7 @@ def inspect(contract, read_archive, get_live, now, authority=None):
     status = health(coverage, now, contract["schedule"]["overdueHours"], digest(contract))
     if not status["healthy"]:
         problems.append(status["reason"])
-    separate_problems, details = separate_health(contract, coverage)
+    separate_problems, details = separate_health(contract, coverage, read_archive=read_archive)
     problems.extend(separate_problems)
     expected = plan_run(contract, coverage["checkedAt"])
     if coverage["supplierCount"] != len(contract["suppliers"]) or coverage["requiredTasks"] != sum(t["required"] for t in expected["tasks"]):
@@ -246,11 +326,13 @@ def inspect(contract, read_archive, get_live, now, authority=None):
         return {"healthy": False, "checkedAt": now, "runId": coverage["runId"], "reasons": problems}
     saved = read_archive(f"releases/{production['releaseId']}.json")
     manifest = saved["manifest"]
+    expected_coverage = None
     if authority:
+        _accepted_release(production, manifest, contract)
         test = read_archive(f"gate-receipts/{manifest['testProvenance']['githubRunId']}.json")
-        if digest(test) != manifest["testReceiptSha256"]:
-            problems.append("RELEASE_TEST_RECEIPT_DIFFERS")
-        authority.verify_test_receipt(test, manifest["artifact"])
+        require(type(test) is dict and digest(test) == manifest["testReceiptSha256"], "RELEASE_TEST_RECEIPT_DIFFERS")
+        require(authority.verify_test_receipt(test, manifest["artifact"]) is True, "ACCEPTED_GATE_AUTHORITY_REQUIRED")
+        expected_coverage = _accepted_coverage_inventory(manifest, test, read_archive)
     live = get_live("https://securitymarketpulse.com/deployment-receipt.json")
     try:
         verify_acknowledgement(manifest, live)
@@ -259,8 +341,11 @@ def inspect(contract, read_archive, get_live, now, authority=None):
     app = get_live("https://securitymarketpulse.com/app-release.json")
     if app.get("appRevision") != manifest["appRevision"] or app.get("dailySnapshotSha256") != manifest["snapshot"]["sha256"]:
         problems.append("DEPLOYED_APPLICATION_DATA_PAIR_DIFFERS")
-    public = get_live("https://securitymarketpulse.com/daily-coverage.json")
-    public_problems, _ = separate_health(contract, public, public=True)
+    public = (get_live(PUBLIC_COVERAGE_URL, expected=expected_coverage) if expected_coverage is not None
+              else get_live(PUBLIC_COVERAGE_URL))
+    if authority:
+        require(public.get("runId") == manifest.get("runId"), "ACCEPTED_PUBLIC_COVERAGE_RUN_DIFFERS")
+    public_problems, _ = separate_health(contract, public, public=True, read_archive=read_archive)
     problems.extend('PUBLIC_' + reason for reason in public_problems)
     if public.get("runId") != coverage["runId"] or public.get("contractSha256") != digest(contract):
         problems.append("COLLECTION_HAS_NOT_REACHED_PRODUCTION")
