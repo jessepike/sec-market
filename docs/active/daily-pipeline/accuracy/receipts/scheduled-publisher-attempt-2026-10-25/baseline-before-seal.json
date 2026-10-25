@@ -1,0 +1,10 @@
+{
+  "root": "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted",
+  "seal": {
+    "files": 48058,
+    "directories": 2482,
+    "contentSha256": "196a0fcf71a4290bd1336a52989507cc5eb58ae21930638317213a6c6ac19392",
+    "fileMtimeSha256": "62fc398874dadcb73475bfb9ed0afe44c037b3b5080fa51cf9b456c3a3ed4662",
+    "directoryMtimeSha256": "d9b7c0b443ff6fc3417e990335902b5025783dda1ba05f931de735264d44f2d5"
+  }
+}

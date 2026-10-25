@@ -1,0 +1,26 @@
+[
+  {
+    "key": "state/objects/2c1b2a3a23d4a77b03d9d9b272da875657aa7944dd459af6da1b6d605d8c6ffc",
+    "rawApiResponseSha256": "65ea18c22debc1dcf2e35a89eec95cecf10131d836c995ba730d4b41b154ddf6",
+    "rawApiResponseBytes": 1045581,
+    "manifest": {
+      "bytes": 1045585,
+      "key": "state/objects/2c1b2a3a23d4a77b03d9d9b272da875657aa7944dd459af6da1b6d605d8c6ffc",
+      "sha256": "2c1b2a3a23d4a77b03d9d9b272da875657aa7944dd459af6da1b6d605d8c6ffc"
+    },
+    "authenticatedGitBlobSha1": "c34b8a76a1cd797b391c96dfb10afa19914c78ad",
+    "method": "GitHub contents raw representation did not preserve exact bytes; git/blobs base64 decoded bytes matched manifest and Git blob. No market-source retry."
+  },
+  {
+    "key": "state/objects/f5fe5b8796bd00066622dd60bd247215a49e07f9e91d9f150f20617032e05dce",
+    "rawApiResponseSha256": "2ed14e989ab2d546fe9a21b227e6a2f52ba815259eef1aa8c81a5510fe85826f",
+    "rawApiResponseBytes": 286053,
+    "manifest": {
+      "bytes": 286057,
+      "key": "state/objects/f5fe5b8796bd00066622dd60bd247215a49e07f9e91d9f150f20617032e05dce",
+      "sha256": "f5fe5b8796bd00066622dd60bd247215a49e07f9e91d9f150f20617032e05dce"
+    },
+    "authenticatedGitBlobSha1": "e298315748e7058b1933a6305b7ac809fab281ae",
+    "method": "GitHub contents raw representation did not preserve exact bytes; git/blobs base64 decoded bytes matched manifest and Git blob. No market-source retry."
+  }
+]

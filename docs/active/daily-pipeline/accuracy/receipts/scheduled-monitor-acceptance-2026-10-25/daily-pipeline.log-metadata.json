@@ -1,0 +1,8 @@
+{
+  "jobId": 121162260266,
+  "rawBytes": 26444,
+  "rawSha256": "33d44598417700ba47c386b053bbd978fd9aadbaa3c70fac1cff82e1ee3ec3ff",
+  "gzipBytes": 5998,
+  "gzipSha256": "387e6eaab6b8e6767f18987194be61df02add837332ba17c83ed85ba78cb5c6f",
+  "roundTripExact": true
+}

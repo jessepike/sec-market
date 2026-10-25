@@ -1,0 +1,1099 @@
+{
+  "schemaVersion": 1,
+  "verdict": "PASS",
+  "scope": "Actual bounded source discovery; zero qualification/admission/publication credit.",
+  "actualRun": {
+    "id": 40190857026,
+    "appRevision": "bd38e818f4aa7d2bae2169178a02047d252b260c",
+    "event": "workflow_dispatch",
+    "branch": "main",
+    "createdAt": "2026-10-25T11:54:59Z",
+    "completedAt": "2026-10-25T12:00:02Z",
+    "conclusion": "success"
+  },
+  "artifact": {
+    "id": 12598281472,
+    "sha256": "887b847b2baceaa0aece585b28197789c433bc59fb400ce4ce6240544ffed369",
+    "bytes": 14766
+  },
+  "acknowledgedArchive": {
+    "commit": "9deb0c9ce9fe34999da0cf13bb023dfdfecc15c8",
+    "parentCommit": "518f6102ed3027c7bd0da9d9dbdf4ffa04c97c16",
+    "manifestSha256": "8da12977648ce0f6ed62f16de0b52c2257977f41404145adbecb363069e037e1",
+    "files": 48245,
+    "ref": "refs/archive/market-evidence"
+  },
+  "manifest": {
+    "sha256": "8da12977648ce0f6ed62f16de0b52c2257977f41404145adbecb363069e037e1",
+    "bytes": 9979636,
+    "mtimeNs": 1792929891173626133
+  },
+  "manifestGitBlobSha1": "719e3ac94868d3eb8c905a4119b65eff9577aacf",
+  "frozenExtractedRoot": "/var/tmp/smp-next-seven-actual-40190857026-20261025/extracted",
+  "authentication": {
+    "baselineCommit": "496ad86ade09969edab9d79d96f24bbab0a8e3e0",
+    "baselineManifest": {
+      "sha256": "a4cf620a0c8b2f66a8031ecc05c0f7a23be979a9572a41e03eada8b4137d1018",
+      "bytes": 9945099,
+      "mtimeNs": 1792929161131419551
+    },
+    "baselineFullAudit": {
+      "path": "/var/tmp/smp-scheduled-monitor-acceptance-20261025/scheduled-publisher-40190348786/publisher-audit.json",
+      "sha256": "be869399f30fc42d411b4545d35655d158d19d7a32e2cec53a047e5813c73708",
+      "bytes": 8310,
+      "mtimeNs": 1792929335157674848
+    },
+    "allEntriesVerified": 48245,
+    "reusedEntries": 48058,
+    "deltaHashesVerified": 187,
+    "method": "Equal entries reuse authenticated496 baseline bytes with exact shared device/inode/size/mtime checks; all187delta bytes and every content address authenticated; complete file inventory exact. No frozen baseline writes.",
+    "rawApiByteRecovery": [
+      {
+        "key": "state/objects/2c1b2a3a23d4a77b03d9d9b272da875657aa7944dd459af6da1b6d605d8c6ffc",
+        "rawApiResponseSha256": "65ea18c22debc1dcf2e35a89eec95cecf10131d836c995ba730d4b41b154ddf6",
+        "rawApiResponseBytes": 1045581,
+        "manifest": {
+          "bytes": 1045585,
+          "key": "state/objects/2c1b2a3a23d4a77b03d9d9b272da875657aa7944dd459af6da1b6d605d8c6ffc",
+          "sha256": "2c1b2a3a23d4a77b03d9d9b272da875657aa7944dd459af6da1b6d605d8c6ffc"
+        },
+        "authenticatedGitBlobSha1": "c34b8a76a1cd797b391c96dfb10afa19914c78ad",
+        "method": "GitHub contents raw representation did not preserve exact bytes; git/blobs base64 decoded bytes matched manifest and Git blob. No market-source retry."
+      },
+      {
+        "key": "state/objects/f5fe5b8796bd00066622dd60bd247215a49e07f9e91d9f150f20617032e05dce",
+        "rawApiResponseSha256": "2ed14e989ab2d546fe9a21b227e6a2f52ba815259eef1aa8c81a5510fe85826f",
+        "rawApiResponseBytes": 286053,
+        "manifest": {
+          "bytes": 286057,
+          "key": "state/objects/f5fe5b8796bd00066622dd60bd247215a49e07f9e91d9f150f20617032e05dce",
+          "sha256": "f5fe5b8796bd00066622dd60bd247215a49e07f9e91d9f150f20617032e05dce"
+        },
+        "authenticatedGitBlobSha1": "e298315748e7058b1933a6305b7ac809fab281ae",
+        "method": "GitHub contents raw representation did not preserve exact bytes; git/blobs base64 decoded bytes matched manifest and Git blob. No market-source retry."
+      }
+    ]
+  },
+  "replay": {
+    "passed": true,
+    "productionLogicUnmodified": true,
+    "adapters": "read-only write validation, frozen actual fetch observations/reservations/clocks, sequential scheduling; sole output path relocated back before exact comparison",
+    "networkDenied": true,
+    "LocalStoreConstructionDenied": true
+  },
+  "charges": {
+    "initial": {
+      "calls": 80,
+      "documents": 38,
+      "fetches": 869
+    },
+    "final": {
+      "calls": 80,
+      "documents": 38,
+      "fetches": 985
+    },
+    "genericReservations": 109,
+    "explicitReservations": 7,
+    "wholeOperationReservations": 116,
+    "wholeOperationUpperBound": 257,
+    "reservationCounters": "Every integer870through985 exactly once; no denial, unknown reservation or reset. This bounds logical reservations, not physical transport retry attempts.",
+    "gatesUnchanged": true
+  },
+  "genericObservationStatusCounts": {
+    "200": 97,
+    "404": 6,
+    "403": 2,
+    "202": 2,
+    "406": 1,
+    "unknown": 1
+  },
+  "unknownObservation": {
+    "sourceId": "sysdig:official:1",
+    "reason": "ContractError",
+    "charged": true,
+    "httpStatus": null,
+    "finalUrl": null,
+    "body": null,
+    "limit": "No retained observation; do not infer a particular HTTP response."
+  },
+  "explicitReached": 7,
+  "explicitUnreached": 0,
+  "explicitHTTP200": 7,
+  "explicitResults": [
+    {
+      "target": {
+        "targetId": "abnormal-security-index",
+        "sourceId": "abnormal-security:official:1",
+        "url": "https://abnormal.ai/newsroom",
+        "expectedFormat": "html",
+        "proof": {
+          "body": {
+            "bytes": 307169,
+            "key": "objects/6b802c5d5907fc0b8f4f969b218ea420eab2c54ca56dc9dd080cdd888270afa5",
+            "sha256": "6b802c5d5907fc0b8f4f969b218ea420eab2c54ca56dc9dd080cdd888270afa5"
+          },
+          "fetchedAt": "2026-10-23T11:34:08.225870Z",
+          "record": {
+            "bytes": 632,
+            "key": "observations/dda855ec5afccc7a0ccaf17062e053e9b8e20a2774f2f13bfb0f1bed04c5ac95.json",
+            "sha256": "7c4231cfd6ece3e0d929a2a7d59314affefc891cd3ef5d89fa59666cfa5ab2f6"
+          },
+          "type": "source_observation"
+        },
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "sourceChecksCredited": 0,
+        "qualifiedSources": 0,
+        "modelCalls": 0,
+        "facts": [],
+        "reservation": {
+          "budgetDay": "2026-10-25",
+          "fetchLimit": 5500,
+          "chargedFetchCount": 979
+        },
+        "observation": {
+          "key": "objects/e5b20a33693513e7e40a35f63aab0c9a51bf48e5137c0e69c03eff999816a78d",
+          "sha256": "e5b20a33693513e7e40a35f63aab0c9a51bf48e5137c0e69c03eff999816a78d",
+          "bytes": 421
+        },
+        "budgetDenied": false,
+        "format": "html",
+        "canonicals": [
+          "https://www.abnormal.ai/newsroom"
+        ],
+        "advertisedFeeds": [],
+        "reason": "RESPONSE_RETAINED_SCOPE_AND_HISTORY_REVIEW_REQUIRED"
+      },
+      "actualObservation": {
+        "body": {
+          "bytes": 642600,
+          "key": "objects/72297aca08e3f340a5fe60795fc0dff962faff8d32085bd7ba99459ce930436a",
+          "sha256": "72297aca08e3f340a5fe60795fc0dff962faff8d32085bd7ba99459ce930436a"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-25T11:59:11.107815Z",
+        "finalUrl": "https://abnormal.ai/newsroom",
+        "httpStatus": 200,
+        "lastModified": null,
+        "requestedUrl": "https://abnormal.ai/newsroom",
+        "status": "fetched"
+      },
+      "bodyPath": "/var/tmp/smp-next-seven-actual-40190857026-20261025/extracted/state/objects/72297aca08e3f340a5fe60795fc0dff962faff8d32085bd7ba99459ce930436a",
+      "bodyGzip": {
+        "file": "abnormal-security-index-body.html.gz",
+        "sha256": "9e9032c75fbcd2595921efc9bd4fd06eb82c3437793736db2c87ea00b5b1da0a",
+        "bytes": 146965,
+        "rawSha256": "72297aca08e3f340a5fe60795fc0dff962faff8d32085bd7ba99459ce930436a",
+        "rawBytes": 642600,
+        "byteExactRoundTrip": true
+      },
+      "inspectionLimit": "Static literal attribute and text inventory only; no script execution, active-DOM or terminal-completeness claim. Existing IndexMarkup can omit links outside its recognized tree.",
+      "qualificationCredit": false
+    },
+    {
+      "target": {
+        "targetId": "cyera-index",
+        "sourceId": "cyera:official:1",
+        "url": "https://www.cyera.com/newsroom",
+        "expectedFormat": "html",
+        "proof": {
+          "body": {
+            "bytes": 267390,
+            "key": "objects/c7e1d3f5c6833dc9ed4633528dfd78a6c4b44996ffa183e6be5692d5d48ad117",
+            "sha256": "c7e1d3f5c6833dc9ed4633528dfd78a6c4b44996ffa183e6be5692d5d48ad117"
+          },
+          "fetchedAt": "2026-10-23T04:14:44.342902Z",
+          "record": {
+            "bytes": 806,
+            "key": "observations/7676839a6e2c37a5670a6b74f6956e8283a4a350d6e1b5756e78550d15e2e1ef.json",
+            "sha256": "ae0c9e4bdbf62b57ce49f1ffeee260b78cb67ddcb4c0c3e9e261570cad57b0b1"
+          },
+          "type": "source_observation"
+        },
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "sourceChecksCredited": 0,
+        "qualifiedSources": 0,
+        "modelCalls": 0,
+        "facts": [],
+        "reservation": {
+          "budgetDay": "2026-10-25",
+          "fetchLimit": 5500,
+          "chargedFetchCount": 980
+        },
+        "observation": {
+          "key": "objects/5cb53ea382bafc5bbe43102922c671130505872eb566b78bf44ac0d9c6cc4c85",
+          "sha256": "5cb53ea382bafc5bbe43102922c671130505872eb566b78bf44ac0d9c6cc4c85",
+          "bytes": 452
+        },
+        "budgetDenied": false,
+        "format": "html",
+        "canonicals": [
+          "https://www.cyera.com/newsroom"
+        ],
+        "advertisedFeeds": [],
+        "reason": "RESPONSE_RETAINED_SCOPE_AND_HISTORY_REVIEW_REQUIRED"
+      },
+      "actualObservation": {
+        "body": {
+          "bytes": 275623,
+          "key": "objects/80317757055e777a6158275017a050a098ef5061a050be929da58e1b3a94542d",
+          "sha256": "80317757055e777a6158275017a050a098ef5061a050be929da58e1b3a94542d"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-25T11:59:11.295610Z",
+        "finalUrl": "https://www.cyera.com/newsroom",
+        "httpStatus": 200,
+        "lastModified": "Sat, 24 Oct 2026 20:03:50 GMT",
+        "requestedUrl": "https://www.cyera.com/newsroom",
+        "status": "fetched"
+      },
+      "bodyPath": "/var/tmp/smp-next-seven-actual-40190857026-20261025/extracted/state/objects/80317757055e777a6158275017a050a098ef5061a050be929da58e1b3a94542d",
+      "bodyGzip": {
+        "file": "cyera-index-body.html.gz",
+        "sha256": "b0bb8a69da0da1170c9fdb6c8d7e9e7e976f1f49b958efdd177e417588f00bcf",
+        "bytes": 40602,
+        "rawSha256": "80317757055e777a6158275017a050a098ef5061a050be929da58e1b3a94542d",
+        "rawBytes": 275623,
+        "byteExactRoundTrip": true
+      },
+      "inspectionLimit": "Static literal attribute and text inventory only; no script execution, active-DOM or terminal-completeness claim. Existing IndexMarkup can omit links outside its recognized tree.",
+      "qualificationCredit": false
+    },
+    {
+      "target": {
+        "targetId": "torq-index",
+        "sourceId": "torq:official:1",
+        "url": "https://torq.io/news/",
+        "expectedFormat": "html",
+        "proof": {
+          "body": {
+            "bytes": 95725,
+            "key": "objects/da004e0a404beb97ed38231d0bac53f2cb9d09feb7192c91f7edd0d5a55091ac",
+            "sha256": "da004e0a404beb97ed38231d0bac53f2cb9d09feb7192c91f7edd0d5a55091ac"
+          },
+          "fetchedAt": "2026-10-23T11:34:05.860071Z",
+          "record": {
+            "bytes": 552,
+            "key": "observations/4880f86d0e86109acb01bf9cb056d689785309f8d101b2570b403e5ad506ba9f.json",
+            "sha256": "6123fcce82831faae1c0e11e20e2a65ea5da061b87827eb82b769a57ddf8d53b"
+          },
+          "type": "source_observation"
+        },
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "sourceChecksCredited": 0,
+        "qualifiedSources": 0,
+        "modelCalls": 0,
+        "facts": [],
+        "reservation": {
+          "budgetDay": "2026-10-25",
+          "fetchLimit": 5500,
+          "chargedFetchCount": 981
+        },
+        "observation": {
+          "key": "objects/233d9ce8b1172658d0444bd809b6c896735c1789619d166d23a6faf9099f4ef0",
+          "sha256": "233d9ce8b1172658d0444bd809b6c896735c1789619d166d23a6faf9099f4ef0",
+          "bytes": 408
+        },
+        "budgetDenied": false,
+        "format": "html",
+        "canonicals": [
+          "https://torq.io/news/"
+        ],
+        "advertisedFeeds": [],
+        "reason": "RESPONSE_RETAINED_SCOPE_AND_HISTORY_REVIEW_REQUIRED"
+      },
+      "actualObservation": {
+        "body": {
+          "bytes": 1043048,
+          "key": "objects/4bb025aa0cb672b6e3fff05f29d46b1deb103d8a06fd0c905ee9c799648f1599",
+          "sha256": "4bb025aa0cb672b6e3fff05f29d46b1deb103d8a06fd0c905ee9c799648f1599"
+        },
+        "contentType": "text/html; charset=UTF-8",
+        "etag": null,
+        "fetchedAt": "2026-10-25T11:59:11.590133Z",
+        "finalUrl": "https://torq.io/news/",
+        "httpStatus": 200,
+        "lastModified": null,
+        "requestedUrl": "https://torq.io/news/",
+        "status": "fetched"
+      },
+      "bodyPath": "/var/tmp/smp-next-seven-actual-40190857026-20261025/extracted/state/objects/4bb025aa0cb672b6e3fff05f29d46b1deb103d8a06fd0c905ee9c799648f1599",
+      "bodyGzip": {
+        "file": "torq-index-body.html.gz",
+        "sha256": "e09d693fe6f2eb93b8df720a7a7ddd66e8f78b5cf9f4b0bd39c5ae1c788de2f5",
+        "bytes": 79514,
+        "rawSha256": "4bb025aa0cb672b6e3fff05f29d46b1deb103d8a06fd0c905ee9c799648f1599",
+        "rawBytes": 1043048,
+        "byteExactRoundTrip": true
+      },
+      "inspectionLimit": "Static literal attribute and text inventory only; no script execution, active-DOM or terminal-completeness claim. Existing IndexMarkup can omit links outside its recognized tree.",
+      "qualificationCredit": false
+    },
+    {
+      "target": {
+        "targetId": "veracode-index",
+        "sourceId": "veracode:official:1",
+        "url": "https://www.veracode.com/newsroom/",
+        "expectedFormat": "html",
+        "proof": {
+          "body": {
+            "bytes": 461501,
+            "key": "objects/7866723f913f5850dd23acadbc13050c497f74f76b98ab308ea500467e18da78",
+            "sha256": "7866723f913f5850dd23acadbc13050c497f74f76b98ab308ea500467e18da78"
+          },
+          "fetchedAt": "2026-10-23T04:15:08.094969Z",
+          "record": {
+            "bytes": 693,
+            "key": "observations/3c10d6a7037d92c6c3cba50c9119506e42fb156cc2ad096f612eabc99028647f.json",
+            "sha256": "c1c2f9ae3e7a16c641860f4213e5b34820f3a8240dc20739dd6a57c939cb47b1"
+          },
+          "type": "source_observation"
+        },
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "sourceChecksCredited": 0,
+        "qualifiedSources": 0,
+        "modelCalls": 0,
+        "facts": [],
+        "reservation": {
+          "budgetDay": "2026-10-25",
+          "fetchLimit": 5500,
+          "chargedFetchCount": 982
+        },
+        "observation": {
+          "key": "objects/8bcbf427b4bce86ed617441f54d6ca05837a1e558593e62d2505879ad593fbb4",
+          "sha256": "8bcbf427b4bce86ed617441f54d6ca05837a1e558593e62d2505879ad593fbb4",
+          "bytes": 433
+        },
+        "budgetDenied": false,
+        "format": "html",
+        "canonicals": [
+          "https://www.veracode.com/newsroom/"
+        ],
+        "advertisedFeeds": [],
+        "reason": "RESPONSE_RETAINED_SCOPE_AND_HISTORY_REVIEW_REQUIRED"
+      },
+      "actualObservation": {
+        "body": {
+          "bytes": 475003,
+          "key": "objects/0c8c6af7ee951e22fadf9e3eea36d35f1eb4ad59aa60307a1ccc13342260f435",
+          "sha256": "0c8c6af7ee951e22fadf9e3eea36d35f1eb4ad59aa60307a1ccc13342260f435"
+        },
+        "contentType": "text/html; charset=UTF-8",
+        "etag": null,
+        "fetchedAt": "2026-10-25T11:59:11.898971Z",
+        "finalUrl": "https://www.veracode.com/newsroom/",
+        "httpStatus": 200,
+        "lastModified": null,
+        "requestedUrl": "https://www.veracode.com/newsroom/",
+        "status": "fetched"
+      },
+      "bodyPath": "/var/tmp/smp-next-seven-actual-40190857026-20261025/extracted/state/objects/0c8c6af7ee951e22fadf9e3eea36d35f1eb4ad59aa60307a1ccc13342260f435",
+      "bodyGzip": {
+        "file": "veracode-index-body.html.gz",
+        "sha256": "70f1e5318fe0be37b0c1af9dd6473010a6e92d8d193897d74e2cd7cf91541f06",
+        "bytes": 59393,
+        "rawSha256": "0c8c6af7ee951e22fadf9e3eea36d35f1eb4ad59aa60307a1ccc13342260f435",
+        "rawBytes": 475003,
+        "byteExactRoundTrip": true
+      },
+      "inspectionLimit": "Static literal attribute and text inventory only; no script execution, active-DOM or terminal-completeness claim. Existing IndexMarkup can omit links outside its recognized tree.",
+      "qualificationCredit": false
+    },
+    {
+      "target": {
+        "targetId": "zenity-index",
+        "sourceId": "zenity:official:1",
+        "url": "https://zenity.io/company/newsroom/press-releases",
+        "expectedFormat": "html",
+        "proof": {
+          "body": {
+            "bytes": 916389,
+            "key": "objects/7ebb99ca7e35037dd1b5c0841df2f4082e63edc9eda6d33e3adc870bd6f9cbcd",
+            "sha256": "7ebb99ca7e35037dd1b5c0841df2f4082e63edc9eda6d33e3adc870bd6f9cbcd"
+          },
+          "fetchedAt": "2026-10-23T04:14:53.638385Z",
+          "record": {
+            "bytes": 726,
+            "key": "observations/d9a84775382ee3561744c8d8d8009cdf810f087e877a4d7512252efed94f048a.json",
+            "sha256": "69f8cc931d6e01452bcdeb1e55aca1e845f9b03845d788b88f9870ea1b1df1cf"
+          },
+          "type": "source_observation"
+        },
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "sourceChecksCredited": 0,
+        "qualifiedSources": 0,
+        "modelCalls": 0,
+        "facts": [],
+        "reservation": {
+          "budgetDay": "2026-10-25",
+          "fetchLimit": 5500,
+          "chargedFetchCount": 983
+        },
+        "observation": {
+          "key": "objects/fc9f76add04d1fc51623220de119f50cd376e807306f26a9f728235e3065bfad",
+          "sha256": "fc9f76add04d1fc51623220de119f50cd376e807306f26a9f728235e3065bfad",
+          "bytes": 479
+        },
+        "budgetDenied": false,
+        "format": "html",
+        "canonicals": [
+          "https://zenity.io/company/newsroom/press-releases"
+        ],
+        "advertisedFeeds": [],
+        "reason": "RESPONSE_RETAINED_SCOPE_AND_HISTORY_REVIEW_REQUIRED"
+      },
+      "actualObservation": {
+        "body": {
+          "bytes": 989148,
+          "key": "objects/d4275050e4ec5f96a70dbe458c3233a9e0ded02830ec771fcc7c31c8eb02ea21",
+          "sha256": "d4275050e4ec5f96a70dbe458c3233a9e0ded02830ec771fcc7c31c8eb02ea21"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": "\"a92gnplxxfl6rn\"",
+        "fetchedAt": "2026-10-25T11:59:12.507779Z",
+        "finalUrl": "https://zenity.io/company/newsroom/press-releases",
+        "httpStatus": 200,
+        "lastModified": null,
+        "requestedUrl": "https://zenity.io/company/newsroom/press-releases",
+        "status": "fetched"
+      },
+      "bodyPath": "/var/tmp/smp-next-seven-actual-40190857026-20261025/extracted/state/objects/d4275050e4ec5f96a70dbe458c3233a9e0ded02830ec771fcc7c31c8eb02ea21",
+      "bodyGzip": {
+        "file": "zenity-index-body.html.gz",
+        "sha256": "4af749eddbf2ef8a63d7cf6534611e740fc694d4f85ee6e420b8331efd573ae4",
+        "bytes": 249760,
+        "rawSha256": "d4275050e4ec5f96a70dbe458c3233a9e0ded02830ec771fcc7c31c8eb02ea21",
+        "rawBytes": 989148,
+        "byteExactRoundTrip": true
+      },
+      "inspectionLimit": "Static literal attribute and text inventory only; no script execution, active-DOM or terminal-completeness claim. Existing IndexMarkup can omit links outside its recognized tree.",
+      "qualificationCredit": false
+    },
+    {
+      "target": {
+        "targetId": "cato-index",
+        "sourceId": "cato:official:1",
+        "url": "https://www.prnewswire.com/news/cato-networks/",
+        "expectedFormat": "html",
+        "proof": {
+          "body": {
+            "bytes": 218188,
+            "key": "objects/c389766a7bf74f990f0ac569f8c50f54f9f5c29ca21c11399564301ef16d4180",
+            "sha256": "c389766a7bf74f990f0ac569f8c50f54f9f5c29ca21c11399564301ef16d4180"
+          },
+          "fetchedAt": "2026-10-20T21:11:45.910004Z",
+          "record": {
+            "bytes": 768,
+            "key": "observations/e8c1b77097e564528d69691dfb266ff243a890231d314bd3711a4af7c6d44952.json",
+            "sha256": "a2928fd2d92fd577cadd90f6773d3243d9b204398cdd320aba0669bd56a019be"
+          },
+          "type": "source_observation"
+        },
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "sourceChecksCredited": 0,
+        "qualifiedSources": 0,
+        "modelCalls": 0,
+        "facts": [],
+        "reservation": {
+          "budgetDay": "2026-10-25",
+          "fetchLimit": 5500,
+          "chargedFetchCount": 984
+        },
+        "observation": {
+          "key": "objects/c4cd629884921ecdfc382472fb2b7286d3bc802b686eab10a17cab238d95dfd0",
+          "sha256": "c4cd629884921ecdfc382472fb2b7286d3bc802b686eab10a17cab238d95dfd0",
+          "bytes": 483
+        },
+        "budgetDenied": false,
+        "format": "html",
+        "canonicals": [
+          "https://www.prnewswire.com/news/cato-networks/"
+        ],
+        "advertisedFeeds": [],
+        "reason": "RESPONSE_RETAINED_SCOPE_AND_HISTORY_REVIEW_REQUIRED"
+      },
+      "actualObservation": {
+        "body": {
+          "bytes": 225773,
+          "key": "objects/b061ee4f5831e2f53cb4b2f19708f225160a6a932ee6c18f93b5d15fb5edb7a8",
+          "sha256": "b061ee4f5831e2f53cb4b2f19708f225160a6a932ee6c18f93b5d15fb5edb7a8"
+        },
+        "contentType": "text/html;charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-25T11:59:13.911738Z",
+        "finalUrl": "https://www.prnewswire.com/news/cato-networks/",
+        "httpStatus": 200,
+        "lastModified": "Sun, 25 Oct 2026 11:59:13 GMT",
+        "requestedUrl": "https://www.prnewswire.com/news/cato-networks/",
+        "status": "fetched"
+      },
+      "bodyPath": "/var/tmp/smp-next-seven-actual-40190857026-20261025/extracted/state/objects/b061ee4f5831e2f53cb4b2f19708f225160a6a932ee6c18f93b5d15fb5edb7a8",
+      "bodyGzip": {
+        "file": "cato-index-body.html.gz",
+        "sha256": "8546f06a90a61d27ceec174f5afa800be78498ad6f7e45e5261d4b920df3e1c5",
+        "bytes": 26132,
+        "rawSha256": "b061ee4f5831e2f53cb4b2f19708f225160a6a932ee6c18f93b5d15fb5edb7a8",
+        "rawBytes": 225773,
+        "byteExactRoundTrip": true
+      },
+      "inspectionLimit": "Static literal attribute and text inventory only; no script execution, active-DOM or terminal-completeness claim. Existing IndexMarkup can omit links outside its recognized tree.",
+      "qualificationCredit": false
+    },
+    {
+      "target": {
+        "targetId": "chainguard-index",
+        "sourceId": "chainguard:official:1",
+        "url": "https://www.prnewswire.com/news/chainguard/",
+        "expectedFormat": "html",
+        "proof": {
+          "body": {
+            "bytes": 219070,
+            "key": "objects/7d8b539bddfc8d8fb62460541f1b04ce1f309277595a4482d535a9c942f4c282",
+            "sha256": "7d8b539bddfc8d8fb62460541f1b04ce1f309277595a4482d535a9c942f4c282"
+          },
+          "fetchedAt": "2026-10-20T21:11:55.287485Z",
+          "record": {
+            "bytes": 884,
+            "key": "observations/dac3117dee2ff9d43ccd71e5d727d1c120355883f400b8101062737b0630bbde.json",
+            "sha256": "b2bd041602ee65c5fdf7afc7e49f584f2b2af3333e7ec06825e572624917ce94"
+          },
+          "type": "source_observation"
+        },
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "sourceChecksCredited": 0,
+        "qualifiedSources": 0,
+        "modelCalls": 0,
+        "facts": [],
+        "reservation": {
+          "budgetDay": "2026-10-25",
+          "fetchLimit": 5500,
+          "chargedFetchCount": 985
+        },
+        "observation": {
+          "key": "objects/60cea72a480a869927aa1a433298002dfa3b9039de8be0a8e56a4f72a355e008",
+          "sha256": "60cea72a480a869927aa1a433298002dfa3b9039de8be0a8e56a4f72a355e008",
+          "bytes": 477
+        },
+        "budgetDenied": false,
+        "format": "html",
+        "canonicals": [
+          "https://www.prnewswire.com/news/chainguard/"
+        ],
+        "advertisedFeeds": [],
+        "reason": "RESPONSE_RETAINED_SCOPE_AND_HISTORY_REVIEW_REQUIRED"
+      },
+      "actualObservation": {
+        "body": {
+          "bytes": 243971,
+          "key": "objects/eebdec361111f3a6c7d53ec34f0c9a314e7e2a8fce74086ea0bb7dd409e68c0f",
+          "sha256": "eebdec361111f3a6c7d53ec34f0c9a314e7e2a8fce74086ea0bb7dd409e68c0f"
+        },
+        "contentType": "text/html;charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-25T11:59:15.734685Z",
+        "finalUrl": "https://www.prnewswire.com/news/chainguard/",
+        "httpStatus": 200,
+        "lastModified": "Sun, 25 Oct 2026 11:59:15 GMT",
+        "requestedUrl": "https://www.prnewswire.com/news/chainguard/",
+        "status": "fetched"
+      },
+      "bodyPath": "/var/tmp/smp-next-seven-actual-40190857026-20261025/extracted/state/objects/eebdec361111f3a6c7d53ec34f0c9a314e7e2a8fce74086ea0bb7dd409e68c0f",
+      "bodyGzip": {
+        "file": "chainguard-index-body.html.gz",
+        "sha256": "f4391da0c8b8678c0885af8a06d584ef8617075b170b5a15388b5f26b5e59dd0",
+        "bytes": 26657,
+        "rawSha256": "eebdec361111f3a6c7d53ec34f0c9a314e7e2a8fce74086ea0bb7dd409e68c0f",
+        "rawBytes": 243971,
+        "byteExactRoundTrip": true
+      },
+      "inspectionLimit": "Static literal attribute and text inventory only; no script execution, active-DOM or terminal-completeness claim. Existing IndexMarkup can omit links outside its recognized tree.",
+      "qualificationCredit": false
+    }
+  ],
+  "preservation": {
+    "immutableBaselineEntries": 39453,
+    "normalHeads": 8605,
+    "changedBaselineEntries": [
+      "state/heads/budget-2026-10-25.json",
+      "state/heads/cloud-lease.json"
+    ],
+    "oldFactReferences": 4,
+    "holdRows": 38,
+    "sixAdmissions": [
+      {
+        "groupId": "FC-20261023-checkpoint-sase",
+        "reviewPolicySha256": "36bc23722c1131f94ab3c2db1c553505539987aa55738cfa9bb72dfa3871ad6f",
+        "admission": {
+          "bytes": 1522,
+          "key": "objects/1bcaa2ca22fcb4c24597fc477c406abddf9ddb20853a4d290c79322bee46afa9",
+          "sha256": "1bcaa2ca22fcb4c24597fc477c406abddf9ddb20853a4d290c79322bee46afa9"
+        }
+      },
+      {
+        "groupId": "FC-20261023-optiv",
+        "reviewPolicySha256": "4f9e7feb90232a3aafe2cd84265c2e8202c9e009229e7592c5ab87373f64bcf5",
+        "admission": {
+          "bytes": 1014,
+          "key": "objects/580099157608b61895574d2b136c93a940109f82d0a33459388a83f46fbc7bf2",
+          "sha256": "580099157608b61895574d2b136c93a940109f82d0a33459388a83f46fbc7bf2"
+        }
+      },
+      {
+        "groupId": "FC-20261023-splunk",
+        "reviewPolicySha256": "270b7c7a1f7180b3fef2896b7633a87bf0667b9f4a3c75593fa72b959ecb87f6",
+        "admission": {
+          "bytes": 988,
+          "key": "objects/a42addfcd5043dceffcd259fc8bdac7486b012400fae4b82ce0e5b00968e18af",
+          "sha256": "a42addfcd5043dceffcd259fc8bdac7486b012400fae4b82ce0e5b00968e18af"
+        }
+      },
+      {
+        "groupId": "FC-20261023-zscaler",
+        "reviewPolicySha256": "dc8522069fc87cbf0371e0ea29ec80fbf647c1dd7ce816e02a7fb4a94b35a390",
+        "admission": {
+          "bytes": 1460,
+          "key": "objects/f255c470cc078e1d44399f7e2027134b466f23cc5939437d196bef9d7aa04e4b",
+          "sha256": "f255c470cc078e1d44399f7e2027134b466f23cc5939437d196bef9d7aa04e4b"
+        }
+      },
+      {
+        "groupId": "FC-20261023-expel",
+        "reviewPolicySha256": "d1ea72b754450e603d89092cc38d9fa81d165575af2a36745e5938220fd82087",
+        "admission": {
+          "bytes": 1493,
+          "key": "objects/b120ca46429f8e52a09d4fce293c14ddb08319212b2b9a8e0f10b39661deed4c",
+          "sha256": "b120ca46429f8e52a09d4fce293c14ddb08319212b2b9a8e0f10b39661deed4c"
+        }
+      },
+      {
+        "groupId": "XAGE-SOURCE-CLASS-20261023",
+        "reviewPolicySha256": "c01560dba484aa5aa5696c8bfe5b44acefc6337ee1cebe0cd96751849e15646a",
+        "admission": {
+          "bytes": 1340,
+          "key": "objects/ec322362de6fb9e4e20cea0c9ed825990a01bf0c41d5b32662ab6131914f6c98",
+          "sha256": "ec322362de6fb9e4e20cea0c9ed825990a01bf0c41d5b32662ab6131914f6c98"
+        }
+      }
+    ],
+    "sourceExpiry": "2026-10-26T15:55:27.307096+00:00",
+    "sourceClockOrPublicExpiryRenewed": false,
+    "allConsultedArchiveSealsUnchanged": true,
+    "consultedArchiveInputs": 274,
+    "leaseReleased": true
+  },
+  "callbacks": [
+    {
+      "id": 40191202723,
+      "name": "daily exact-artifact publisher",
+      "event": "workflow_run",
+      "conclusion": "success",
+      "headSha": "bd38e818f4aa7d2bae2169178a02047d252b260c",
+      "jobs": [
+        {
+          "name": "callback-preflight",
+          "conclusion": "success"
+        },
+        {
+          "name": "publish",
+          "conclusion": "skipped"
+        }
+      ]
+    },
+    {
+      "id": 40191222934,
+      "name": "controlled production rollback acceptance",
+      "event": "workflow_run",
+      "conclusion": "success",
+      "headSha": "bd38e818f4aa7d2bae2169178a02047d252b260c",
+      "jobs": [
+        {
+          "name": "preflight",
+          "conclusion": "success"
+        },
+        {
+          "name": "rollback-and-restore",
+          "conclusion": "skipped"
+        }
+      ]
+    }
+  ],
+  "coldInspection": {
+    "file": "cold-index-inspection.json",
+    "executedJavaScript": false,
+    "parserScope": "Static text/attribute inventory, no active DOM/completeness claim",
+    "nextProofByTarget": {
+      "abnormal-security-index": {
+        "scope": "Mixed newsroom, a distinct Press Releases section. Canonical advertises www.abnormal.ai while actual request/final remain abnormal.ai; no equivalence authority inferred.",
+        "literalNextIndex": "https://abnormal.ai/newsroom/press-releases",
+        "primaryLead": "https://abnormal.ai/newsroom/press-releases/abnormal-ai-achieves-the-aws-ai-competency-for-generative-ai",
+        "writtenDate": "Oct 14, 2026",
+        "missing": "Full press-release index/current-window and terminal proof, exact primary shape and ordinary registered adapter; no primary sample fetched by this diagnostic.",
+        "body": {
+          "bytes": 642600,
+          "key": "objects/72297aca08e3f340a5fe60795fc0dff962faff8d32085bd7ba99459ce930436a",
+          "sha256": "72297aca08e3f340a5fe60795fc0dff962faff8d32085bd7ba99459ce930436a"
+        },
+        "fetchedAt": "2026-10-25T11:59:11.107815Z",
+        "timezone": "Written date only; timezone unknown",
+        "literalReferenceEvidence": [
+          {
+            "tag": "a",
+            "attribute": "href",
+            "value": "/newsroom/press-releases",
+            "line": 210,
+            "column": 117657
+          }
+        ]
+      },
+      "cyera-index": {
+        "scope": "Mixed external coverage and three featured company press-release cards.",
+        "literalNextIndex": "https://www.cyera.com/newsroom/press-releases",
+        "primaryLead": "https://www.cyera.com/press-releases/cyeras-ai-security-platform-is-now-available-in-claude-marketplace",
+        "writtenDate": "Oct 16, 2026",
+        "missing": "See All listing/current-window and terminal proof, exact primary shape and ordinary registered adapter.",
+        "body": {
+          "bytes": 275623,
+          "key": "objects/80317757055e777a6158275017a050a098ef5061a050be929da58e1b3a94542d",
+          "sha256": "80317757055e777a6158275017a050a098ef5061a050be929da58e1b3a94542d"
+        },
+        "fetchedAt": "2026-10-25T11:59:11.295610Z",
+        "timezone": "Written date only; timezone unknown",
+        "literalReferenceEvidence": [
+          {
+            "tag": "a",
+            "attribute": "href",
+            "value": "/newsroom/press-releases",
+            "line": 1592,
+            "column": 11958
+          }
+        ]
+      },
+      "torq-index": {
+        "scope": "In the News mixes external coverage and same-host company releases; dated old rows extend into2022.",
+        "literalNextIndex": null,
+        "primaryLead": "https://torq.io/news/torq-rev-advantage/",
+        "writtenDate": "October 9, 2026",
+        "missing": "Exact official-item scope/date/container extraction, declared-window and complete traversal proof, primary shape and ordinary registered adapter. Absence of an extracted continuation alone does not prove terminality.",
+        "body": {
+          "bytes": 1043048,
+          "key": "objects/4bb025aa0cb672b6e3fff05f29d46b1deb103d8a06fd0c905ee9c799648f1599",
+          "sha256": "4bb025aa0cb672b6e3fff05f29d46b1deb103d8a06fd0c905ee9c799648f1599"
+        },
+        "fetchedAt": "2026-10-25T11:59:11.590133Z",
+        "timezone": "Written date only; timezone unknown",
+        "literalReferenceEvidence": []
+      },
+      "veracode-index": {
+        "scope": "Mixed newsroom, featured external stories and a separate literal Press releases link.",
+        "literalNextIndex": "https://www.veracode.com/newsroom/press-release/",
+        "primaryLead": null,
+        "writtenDate": null,
+        "missing": "Disclosed press-release index/current-window/continuation evidence and primary sample. Existing IndexMarkup omits some literal links; static attribute inventory retains the exact disclosed link without a generic parser change.",
+        "body": {
+          "bytes": 475003,
+          "key": "objects/0c8c6af7ee951e22fadf9e3eea36d35f1eb4ad59aa60307a1ccc13342260f435",
+          "sha256": "0c8c6af7ee951e22fadf9e3eea36d35f1eb4ad59aa60307a1ccc13342260f435"
+        },
+        "fetchedAt": "2026-10-25T11:59:11.898971Z",
+        "timezone": "Written date only; timezone unknown",
+        "literalReferenceEvidence": [
+          {
+            "tag": "a",
+            "attribute": "href",
+            "value": "https://www.veracode.com/newsroom/press-release/",
+            "line": 836,
+            "column": 260
+          }
+        ]
+      },
+      "zenity-index": {
+        "scope": "Company Press Releases, duplicate featured/listed lead. Dated rows reachOct2025.",
+        "literalNextIndex": null,
+        "primaryLead": "https://zenity.io/press-release/zenity-labs-discloses-agentcorruption-a-chain-of-aws-agentcore-flaws",
+        "writtenDate": "Oct 08, 2026",
+        "missing": "Exact deduped source-specific parser and declared-window/terminal proof, primary shape and ordinary registered adapter. Raw page alone earns no normal-source credit.",
+        "body": {
+          "bytes": 989148,
+          "key": "objects/d4275050e4ec5f96a70dbe458c3233a9e0ded02830ec771fcc7c31c8eb02ea21",
+          "sha256": "d4275050e4ec5f96a70dbe458c3233a9e0ded02830ec771fcc7c31c8eb02ea21"
+        },
+        "fetchedAt": "2026-10-25T11:59:12.507779Z",
+        "timezone": "Written date only; timezone unknown",
+        "literalReferenceEvidence": []
+      },
+      "cato-index": {
+        "scope": "PR Newswire issuer distribution listing News from Cato Networks;25 article links on this page.",
+        "literalNextPages": [
+          "https://www.prnewswire.com/news/cato-networks/?page=2&pagesize=25",
+          "https://www.prnewswire.com/news/cato-networks/?page=3&pagesize=25",
+          "https://www.prnewswire.com/news/cato-networks/?page=4&pagesize=25",
+          "https://www.prnewswire.com/news/cato-networks/?page=5&pagesize=25"
+        ],
+        "primaryLead": "https://www.prnewswire.com/news-releases/cato-networks-appoints-former-palo-alto--netskope-executive-chad-gardner-as-chief-revenue-officer-302898809.html",
+        "writtenDate": "Oct 07, 2026, 16:03 ET",
+        "missing": "Issuer-bound date/parser/current-window proof, literally disclosed pagination traversal/terminal evidence, primary sample and ordinary registered adapter. Correction headline must be retained.",
+        "body": {
+          "bytes": 225773,
+          "key": "objects/b061ee4f5831e2f53cb4b2f19708f225160a6a932ee6c18f93b5d15fb5edb7a8",
+          "sha256": "b061ee4f5831e2f53cb4b2f19708f225160a6a932ee6c18f93b5d15fb5edb7a8"
+        },
+        "fetchedAt": "2026-10-25T11:59:13.911738Z",
+        "timezone": "Literal ET retained; no UTC-offset or calendar conversion inferred",
+        "literalReferenceEvidence": [
+          {
+            "tag": "a",
+            "attribute": "href",
+            "value": "?page=2&pagesize=25",
+            "line": 3287,
+            "column": 52
+          },
+          {
+            "tag": "a",
+            "attribute": "href",
+            "value": "?page=3&pagesize=25",
+            "line": 3292,
+            "column": 52
+          },
+          {
+            "tag": "a",
+            "attribute": "href",
+            "value": "?page=4&pagesize=25",
+            "line": 3297,
+            "column": 52
+          },
+          {
+            "tag": "a",
+            "attribute": "href",
+            "value": "?page=5&pagesize=25",
+            "line": 3302,
+            "column": 52
+          },
+          {
+            "tag": "a",
+            "attribute": "href",
+            "value": "?page=2&pagesize=25",
+            "line": 3306,
+            "column": 48
+          }
+        ]
+      },
+      "chainguard-index": {
+        "scope": "PR Newswire issuer distribution listing News from Chainguard;25 article links on this page.",
+        "literalNextPages": [
+          "https://www.prnewswire.com/news/chainguard/?page=2&pagesize=25"
+        ],
+        "primaryLead": "https://www.prnewswire.com/news-releases/introducing-chainguard-checks-reinventing-continuous-integration-for-the-agentic-era-302907718.html",
+        "writtenDate": "Oct 14, 2026, 01:00 ET",
+        "missing": "Issuer-bound date/parser/current-window proof, literal second-page/terminal evidence, primary sample and ordinary registered adapter.",
+        "body": {
+          "bytes": 243971,
+          "key": "objects/eebdec361111f3a6c7d53ec34f0c9a314e7e2a8fce74086ea0bb7dd409e68c0f",
+          "sha256": "eebdec361111f3a6c7d53ec34f0c9a314e7e2a8fce74086ea0bb7dd409e68c0f"
+        },
+        "fetchedAt": "2026-10-25T11:59:15.734685Z",
+        "timezone": "Literal ET retained; no UTC-offset or calendar conversion inferred",
+        "literalReferenceEvidence": [
+          {
+            "tag": "a",
+            "attribute": "href",
+            "value": "?page=2&pagesize=25",
+            "line": 3496,
+            "column": 52
+          },
+          {
+            "tag": "a",
+            "attribute": "href",
+            "value": "?page=2&pagesize=25",
+            "line": 3500,
+            "column": 48
+          }
+        ]
+      }
+    }
+  },
+  "currentOperationalPlan": "This report binds archived3077 plan; root independently restores disabledad1. No assumption that the active plan still equals the archived plan.",
+  "credit": {
+    "qualifiedSources": 0,
+    "sourceChecksCredited": 0,
+    "coverageCredit": false,
+    "semanticAdmission": false,
+    "factsAdded": 0,
+    "modelCalls": 0,
+    "published": false
+  },
+  "reviewer": {
+    "sourceRequests": 0,
+    "modelRequests": 0,
+    "sharedArchiveWrites": 0,
+    "runtimeStateWrites": 0
+  },
+  "receiptFiles": {
+    "2c1b2a3a23d4a77b03d9d9b272da875657aa7944dd459af6da1b6d605d8c6ffc-blob-response.json.gz": {
+      "sha256": "4b0d0680a66a5fa310e776ad12e4a9e9ecb0d68f0c15693d1d4662c03d179da4",
+      "bytes": 441907
+    },
+    "2c1b2a3a23d4a77b03d9d9b272da875657aa7944dd459af6da1b6d605d8c6ffc-metadata.json": {
+      "sha256": "c7a0137bb0271287d82609955f23e369079bbdf53539d05ae8269de8f7b1bd16",
+      "bytes": 1442060
+    },
+    "2c1b2a3a23d4a77b03d9d9b272da875657aa7944dd459af6da1b6d605d8c6ffc-raw-api-response.bin.gz": {
+      "sha256": "e9f2b638ec3a7760014311d1506b849c9affb8fd286489320321b6e45ef73e62",
+      "bytes": 226693
+    },
+    "abnormal-security-index-body.html.gz": {
+      "sha256": "9e9032c75fbcd2595921efc9bd4fd06eb82c3437793736db2c87ea00b5b1da0a",
+      "bytes": 146965
+    },
+    "ack-commit.json": {
+      "sha256": "b7f49252aaaaad3be23c8879cb6136b0cd53cf70e9c4db3831883b7c7f08fbfd",
+      "bytes": 1188
+    },
+    "ack-tree.json": {
+      "sha256": "c2616dc7d56f9b00cc5a745f64ec8ba205968a4d22ad1e46cccf58a8eaee3eb8",
+      "bytes": 1275
+    },
+    "actual-diagnostic-audit.json": {
+      "sha256": "de4fa6b6945d9cf4d0af3b5b984fccbda39953a293d6523434a4f93c3124a0fd",
+      "bytes": 254032
+    },
+    "archive-manifest.json.gz": {
+      "sha256": "f5e0e27dd2bd783e1d8933074670b5ac481d9d66e8c582c3e615a929bbc7a75d",
+      "bytes": 3440208
+    },
+    "artifact.json": {
+      "sha256": "8c7125981f1d2d3b3de4f67d871360f1dcdd780a6efea3c0fb7dc626325a1a8a",
+      "bytes": 687
+    },
+    "audit-final.log.gz": {
+      "sha256": "76f72a6892098d7e9ae50836418453f12b4d46fb8c708e59e7f2e103795c7583",
+      "bytes": 182
+    },
+    "audit_actual_seven.py": {
+      "sha256": "2ebedc69cfa425506c970d41cd31e4f20eb584a07cbf55e9a28ccabffba6b1b7",
+      "bytes": 17824
+    },
+    "baseline-reuse-proof.json.gz": {
+      "sha256": "fdd8c391834468ba9cc5c352f4006271e13fddb3bee8975712403a2e00fbd6ee",
+      "bytes": 2569009
+    },
+    "bootstrap-commit.json": {
+      "sha256": "a18433fbba4e40ae56853f27dfcc781d9db8677fa4fe6ee63882b3224d939f78",
+      "bytes": 1188
+    },
+    "cato-index-body.html.gz": {
+      "sha256": "8546f06a90a61d27ceec174f5afa800be78498ad6f7e45e5261d4b920df3e1c5",
+      "bytes": 26132
+    },
+    "chainguard-index-body.html.gz": {
+      "sha256": "f4391da0c8b8678c0885af8a06d584ef8617075b170b5a15388b5f26b5e59dd0",
+      "bytes": 26657
+    },
+    "cold-index-inspection.json": {
+      "sha256": "f11ec12f2731fdc98078b952d0c7ef3d98973051683f95c33bf01b4007138bf8",
+      "bytes": 1048211
+    },
+    "compression-metadata.json": {
+      "sha256": "f2865c2ac1b645a10ee1646206d69d5ad5e39da730ce08b01eed73c45ce0ae59",
+      "bytes": 3233
+    },
+    "cyera-index-body.html.gz": {
+      "sha256": "b0bb8a69da0da1170c9fdb6c8d7e9e7e976f1f49b958efdd177e417588f00bcf",
+      "bytes": 40602
+    },
+    "escrow-budget.json": {
+      "sha256": "27ead7b4ab0d2378a1e6550ef5b425f5d8e14fc46a2537a6ef8bd7b415d91117",
+      "bytes": 1219
+    },
+    "escrow-commit.json": {
+      "sha256": "c053c277a278382ecdc8f530a064cdcfe88d5fdb53aa94732671f74223da4875",
+      "bytes": 1188
+    },
+    "f5fe5b8796bd00066622dd60bd247215a49e07f9e91d9f150f20617032e05dce-blob-response.json.gz": {
+      "sha256": "3fb953fe5278e9bd2b3661f403cab49c3dba85dda564c478bc3a44f2c43f2664",
+      "bytes": 105511
+    },
+    "f5fe5b8796bd00066622dd60bd247215a49e07f9e91d9f150f20617032e05dce-metadata.json": {
+      "sha256": "a07d152b553331898f0bace5872452a257fe7c88cc35c0c1c55010a7f09b2865",
+      "bytes": 395597
+    },
+    "f5fe5b8796bd00066622dd60bd247215a49e07f9e91d9f150f20617032e05dce-raw-api-response.bin.gz": {
+      "sha256": "1c88dddf9e3d26cf34eb2a453b41c899cfd4626f672b24a264a91477118d6834",
+      "bytes": 44625
+    },
+    "finalize_evidence.py": {
+      "sha256": "638ff11079650477f41182ff3f1edd4ad3e29f1b7ee063c4e815d1ada6ecff63",
+      "bytes": 10968
+    },
+    "publisher-callback-jobs.json": {
+      "sha256": "afc515a0d574db6b6d382d95e85b437e7cb65139bcf7e12f75b2e83fb9eddc24",
+      "bytes": 2688
+    },
+    "publisher-callback.json": {
+      "sha256": "a9782e7974c6ca41f41197bcf90cffa5d0efcd4c110ac66f1ff5b79c3ec5d50c",
+      "bytes": 12732
+    },
+    "publisher-callback.log.gz": {
+      "sha256": "73adcc4a728efbb523f097d706a75a01a7121c796f3e92c2bcc8fc03d34f571d",
+      "bytes": 3764
+    },
+    "raw-api-byte-recovery.json": {
+      "sha256": "0f7d1a811e5cd07086425ee387e9891455d652a9abf4b1ebb7aab19fdbe7eff3",
+      "bytes": 1409
+    },
+    "receipt.json": {
+      "sha256": "ad8f111abcfbce1ff1c8667bb621b35e3b204d00e9cf31c265097de5dcdf2159",
+      "bytes": 134453
+    },
+    "rollback-callback-jobs.json": {
+      "sha256": "4f70f57c0979d3eb0bca1cfd42445db8df8673e426bb1a619d007859612d9f89",
+      "bytes": 2746
+    },
+    "rollback-callback.json": {
+      "sha256": "74b97c15ef214bdf7e33945808c2e365351bf5244e70ac0bb0bbc335ea180797",
+      "bytes": 12757
+    },
+    "rollback-callback.log.gz": {
+      "sha256": "d795ffa712646722c0bbf5be95eb63181e72481cb391e1208ebac0045c4831ce",
+      "bytes": 3875
+    },
+    "run.json": {
+      "sha256": "36c16f691ee616b2f58ea7ff67d2e02acd790195ed89373de3e903e28ee4df65",
+      "bytes": 12737
+    },
+    "run.log.gz": {
+      "sha256": "850f29a1d8f6fca0c148ca1c0f9761377cda3cff6511d1bd322e46f15b6aac2f",
+      "bytes": 80157
+    },
+    "source-probe-artifact.zip": {
+      "sha256": "887b847b2baceaa0aece585b28197789c433bc59fb400ce4ce6240544ffed369",
+      "bytes": 14766
+    },
+    "torq-index-body.html.gz": {
+      "sha256": "e09d693fe6f2eb93b8df720a7a7ddd66e8f78b5cf9f4b0bd39c5ae1c788de2f5",
+      "bytes": 79514
+    },
+    "veracode-index-body.html.gz": {
+      "sha256": "70f1e5318fe0be37b0c1af9dd6473010a6e92d8d193897d74e2cd7cf91541f06",
+      "bytes": 59393
+    },
+    "zenity-index-body.html.gz": {
+      "sha256": "4af749eddbf2ef8a63d7cf6534611e740fc694d4f85ee6e420b8331efd573ae4",
+      "bytes": 249760
+    }
+  }
+}

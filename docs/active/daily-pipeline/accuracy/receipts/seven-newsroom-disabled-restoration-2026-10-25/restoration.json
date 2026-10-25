@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "result": "PASS",
+  "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/contracts/source-qualification-probes.json",
+  "sourceCommit": "900a51f9875838417dfd3a189457595ba19d578f",
+  "gitSourcePath": "contracts/source-qualification-probes.json",
+  "before": {
+    "sha256": "3077d93ede8a9fe82302a6b851af61d8666f1c11cea433eed0f2725086c85fc2",
+    "bytes": 4162
+  },
+  "after": {
+    "sha256": "ad1c5cc234fe4fa69cbceb5370ac74825a37dc80b08528ca908d14b1352e53b4",
+    "bytes": 173
+  },
+  "sourceAndRestoredByteExact": true,
+  "canonicalSha256": "ad1c5cc234fe4fa69cbceb5370ac74825a37dc80b08528ca908d14b1352e53b4",
+  "operation": "disabled_qualification_probe",
+  "maxRequests": 0,
+  "sources": [],
+  "marketRawSha256": "24221c946781559c0ff3626e4e479c4647da915d0f2d7559ea88046982532c3c",
+  "marketCanonicalSha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+  "sourceRequests": 0,
+  "modelRequests": 0,
+  "stateWrites": 0,
+  "staged": false,
+  "committed": false,
+  "pushed": false,
+  "focusedTests": {
+    "passed": 27,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "modules": [
+      "test_disabled_qualification_plan",
+      "test_leased_orca_probe",
+      "test_q4_retained_primary_template"
+    ],
+    "socketsDenied": true,
+    "actualFrozenArchiveUnmodified": true
+  },
+  "log": {
+    "file": "focused-restoration-tests.log.gz",
+    "rawSha256": "9c0b7abfe8a59b766a15c50df48ed672e50421a33821b1be88a7d8e0714ef328",
+    "rawBytes": 5059,
+    "rawLines": 32,
+    "gzipSha256": "2f2808276e0c9373d7b97ef15dac6532612393c32e267ee57ad066b5ebcf4289",
+    "gzipBytes": 1043,
+    "gzipMtime": 0,
+    "embeddedFilename": "",
+    "byteExactRoundTrip": true
+  },
+  "writesStopped": true
+}

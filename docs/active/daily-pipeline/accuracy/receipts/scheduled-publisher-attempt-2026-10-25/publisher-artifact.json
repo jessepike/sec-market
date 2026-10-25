@@ -1,0 +1,23 @@
+{
+  "id": 12597771418,
+  "node_id": "MDg6QXJ0aWZhY3QxMjU5Nzc3MTQxOA==",
+  "name": "daily-publication-receipt",
+  "size_in_bytes": 254,
+  "url": "https://api.github.com/repos/jessepike/sec-market/actions/artifacts/12597771418",
+  "archive_download_url": "https://api.github.com/repos/jessepike/sec-market/actions/artifacts/12597771418/zip",
+  "expired": false,
+  "digest": "sha256:cf3fdb4e8e3daf0f98de792b56824b13cefdde16ed8afc035250ae9b20b17957",
+  "created_at": "2026-10-25T11:51:42Z",
+  "updated_at": "2026-10-25T11:51:42Z",
+  "expires_at": "2026-11-08T11:51:42Z",
+  "workflow_run": {
+    "id": 40190348786,
+    "repository_id": 1335546492,
+    "head_repository_id": 1335546492,
+    "head_branch": "main",
+    "head_sha": "900a51f9875838417dfd3a189457595ba19d578f"
+  },
+  "zipSha256": "cf3fdb4e8e3daf0f98de792b56824b13cefdde16ed8afc035250ae9b20b17957",
+  "rawReceiptSha256": "f5925dd790f7a0ae8c349c3168600b6d930e51f817fe2d06c1b3c0cb41dac1b0",
+  "rawReceiptBytes": 100
+}

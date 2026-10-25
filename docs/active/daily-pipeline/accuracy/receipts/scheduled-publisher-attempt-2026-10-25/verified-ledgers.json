@@ -1,0 +1,22 @@
+{
+  "heads/cloud-lease.json": {
+    "expiresAt": "2026-10-25T14:50:51.726281Z",
+    "releasedAt": "2026-10-25T11:51:27.283082Z",
+    "role": "governance",
+    "sessionId": "github-publisher-40190348786-1",
+    "startedAt": "2026-10-25T11:50:51.726281Z"
+  },
+  "heads/budget-2026-10-25.json": {
+    "calls": 80,
+    "documents": 38,
+    "fetches": 869
+  },
+  "heads/gate-budget-2026-10-25.json": {
+    "attempts": 2
+  },
+  "heads/production.json": {
+    "deploymentId": "https://security-market-pulse-fqk0jyft3-pikeholdings.vercel.app",
+    "releaseId": "fc8bf0984dbeacbe79519574911837d8b638f42215f6547e31ae8968b29951e4",
+    "sequence": 4
+  }
+}

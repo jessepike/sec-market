@@ -113,3 +113,34 @@ without it the evaluator reports unmeasured. The first-cycle rollback result rem
 Coverage tables expose all 557 obligations by reason, source family, supplier and domain, along
 with 275 verified registrations, 28 candidates and 254 missing bindings. Those registration
 counts do not reduce the full denominator or imply successful checks. Domain counts may overlap.
+
+## October 25 later timer evidence
+
+The registration counts immediately above describe the earlier policy. Current H has 278 verified
+and 25 candidate bindings, with 254 missing obligations retained. Its 264/557 successful tasks comprise
+196 citation-integrity, 48 SEC, 17 official-announcement and three investor/acquirer checks. This remains
+partial coverage; it does not measure event recall or general factual precision.
+
+Actual genuine scheduled collector 40182324149 passed with new source observations, preserved
+facts/admissions/holds and an authenticated complete archive. Actual scheduled publisher 40190348786
+subsequently failed at the unchanged two-attempt gate allowance and updated assigned issue 14.
+The [scheduled-publisher audit](accuracy/scheduled-publisher-attempt-2026-10-25.md) verifies released
+lease, unchanged 869/80/38/gates 2, normal-state continuity and four byte-exact public files.
+This adds unattended execution and failure-alert evidence. It supplies no successful automatic
+publication, new public freshness, multi-day availability rate or measured reader value. Keep the
+earlier manual recovery/publication scorecard and its original inputs intact.
+
+Actual [repaired scheduled monitor 40191154739](accuracy/scheduled-monitor-acceptance-2026-10-25.md)
+ran on main bd38e818 at 11:59 UTC. Its 36 actual
+runner tests and exact-main offline replay pass. The accepted public coverage bytes and original
+collection-plan binding pass; neither former reader nor schedule-matching error recurred. Its
+actual failure correctly reports coverage, review and held-claim gaps plus the publisher failure,
+and updates issue 10. This supplies one genuine monitor receipt, not a healthy-state verdict.
+
+Later diagnostic 40190857026 authenticated all 48,245 archive entries and replayed its full result.
+Its 116 requests include all seven explicit HTTP 200 captures. The settled ledger is 985 fetches,
+80 calls, 38 documents and two gates; six admissions, four facts, 38 holds and source expiry stay
+exact. These observations provide source-qualification inputs without adding intake or public
+freshness credit. The separate accepted retained-Q4-template proof remains dormant and supplies
+no operational credit. General accuracy, event recall, reader value and multi-day durability
+remain unmeasured.

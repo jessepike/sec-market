@@ -39,7 +39,7 @@ original facts/dates, six admissions and old holds pass the authenticated replay
 | History | 41/10,655 reviewed; 10,614 pending; 11 held. |
 | Continuity | Four fact references and all 37 old held rows preserved; one additional HiddenLayer candidate lacks a fact date. Queue 38. No new accepted facts/events. |
 | Actual source clocks | New full/304 observations and separate immutable rechecks derive private expiry October 26 at 15:55:27.307096 UTC. Original logical-plan and evidence dates remain. |
-| October 25 ledger | 869/5,500 fetches, 80/80 model calls, 38/40 documents; gates 2/2. The data and article diagnostics each charged two fetches; no reset or paid fallback. |
+| October 25 ledger | 985/5,500 fetches, 80/80 model calls, 38/40 documents; gates 2/2. The later seven-source diagnostic charged 116 requests; no reset or paid fallback. |
 
 Those 264 passes comprise 196 existing-citation checks, 48 SEC checks, 17 official-announcement
 checks and three investor/acquirer checks. Broader source coverage remains incomplete.
@@ -53,9 +53,15 @@ Automatic publication remains unproved. Wait for ordinary next-UTC capacity; do 
 retry a gate or publisher. The next publisher may use still-fresh retained collection before
 the next daily collector; that cannot establish another timer execution.
 
+Actual [scheduled publisher 40190348786](docs/active/daily-pipeline/accuracy/scheduled-publisher-attempt-2026-10-25.md)
+also failed DAILY_GATE_BUDGET_EXHAUSTED on main 900a51f9. Its authenticated 496ad86a poststate
+has 48,060 entries; only three governance heads/three session records changed. Lease released,
+869/80/38/gates 2 unchanged; four public files remain exact. Issue 14 updated at 11:51:44 UTC.
+This proves unattended failure reporting, not successful automatic publication.
+
 ## Current source work
 
-Reviewed main 900a51f9 restores exact disabled ad1 remotely. Closure preview web 40188932479
+The preceding main 900a51f9 restored exact disabled ad1 remotely. Closure preview web 40188932479
 and main web 40189180649 pass. Preview dpl_7PwRGz8EsZphVp17a8wj19wmr633 is READY; main
 Git build dpl_Bd4iXsMGpF6iPpmbuF6gKEBv1jRN is CANCELED. Public receipt remains byte-exact.
 The preceding sample selection b7c7841a passed preview web 40187747470/canary 40187747473
@@ -80,9 +86,17 @@ The [current 25-source queue](docs/active/daily-pipeline/accuracy/current-candid
 joins actual scheduled task IDs and full/304 clocks. Each missing scope, date-window,
 pagination/terminal and primary-sample proof remains explicit. Rubrik still lacks its legacy
 .news controller join; do not invent a route. Three rolling feeds remain incomplete, Orca's
-page 27 self-redirect proves no terminal. The next seven-index plan is selected locally for
-independent operational review, with a 257-request whole-operation bound including all 25
-generic candidate probes. Remote main remains ad1; no seven-target requests have run.
+page 27 self-redirect proves no terminal. Reviewed main bd38e818 now selects the exact seven-
+target plan 3077d93e, with a 257-request whole-operation bound including all 25 generic probes.
+Preview web 40190348231/main 40190772532 pass; Vercel preview READY/main Git ignored.
+[Actual single diagnostic 40190857026](docs/active/daily-pipeline/accuracy/next-seven-newsroom-actual-source-review-2026-10-25.md)
+completed successfully at 12:00:02 UTC from authenticated
+496ad86a/869 baseline. All seven explicit targets returned HTTP 200 HTML at their exact final URLs.
+It charged 116 requests: 109 generic reservations and seven explicit targets. Acknowledgement
+9deb0c9c has 48,245 authenticated entries; only budget/released-lease heads changed. Six admissions,
+four facts, 38 holds, normal heads and expiry remain exact. Independent full offline replay passes.
+Listing/pagination leads remain unqualified. Exact disabled-plan ad1 restoration passes 27 focused
+checks; reviewed preview/main closure and live verification follow this completed local unit.
 No owner source decision is currently required.
 The [next Q4 build specification](docs/active/daily-pipeline/accuracy/q4-single-response-qualification-build-spec-2026-10-25.md)
 now has its dormant single-response parser and two exact financial primary samples. Independent
@@ -98,17 +112,24 @@ six admissions, all 39,438 preceding immutable entries and 8,605 normal heads. C
 867→869 only; facts, 38 holds and private/public expiry remain unchanged. No retry or credit.
 Their [cold source-template review](docs/active/daily-pipeline/accuracy/q4-primary-retained-template-source-review-2026-10-25.md)
 finds exact OG URL/title and same-item article H3/date/readable body; JFrog also has matching
-NewsArticle metadata. A versioned offline proof is under independent design review; the original
-held result remains exact. Independent design review accepts the minimal exact-two-body offline
-attestation; implementation preparation stays outside the checkout until the seven-target
-operational promotion is complete. Normal-source integration stays blocked pending accepted proof.
+NewsArticle metadata. The versioned offline proof now passes independent final-path review and
+921 operational tests plus full application checks. Both render widths are unchanged. It derives
+two complete proposal samples while preserving the old accepted-zero result and all zero operational
+credit fields. Reviewed dormant proof is committed as 7a1aee7b. Normal-source integration is now
+building in an isolated worktree under its accepted design; it still needs exact policy/package
+review, fresh ordinary intake and later scheduled/public receipts.
 Exact ad1 restoration passes 69 focused checks and both remote closure checks.
 
 ## Remaining acceptance
 
 The repaired monitor is on main. Actual manual preview monitor40177951978 passed 36 runner
 checks and reported real coverage/history/held gaps without its former byte-limit exception.
-Genuine repaired scheduled-main monitoring remains pending. Issue 10 retains coverage gaps;
+[Genuine repaired scheduled monitor 40191154739](docs/active/daily-pipeline/accuracy/scheduled-monitor-acceptance-2026-10-25.md)
+ran on main bd38e818 at 11:59:34 UTC.
+All 36 runner tests and exact-main offline replay pass; the accepted 1,337,257-byte public reader
+and original-plan binding work. The actual workflow correctly fails on real coverage/review/held
+gaps and the publisher failure, updating issue 10. No reader or schedule-matching error recurred.
+Issue 10 retains coverage gaps;
 GitHub issue delivery is proven, phone/email delivery unmeasured. One passing scheduled cycle
 does not prove sustained operation. General claim precision/recall and reader value remain unmeasured.
 [Evaluation rubric](docs/active/daily-pipeline/evaluation-rubric.md).

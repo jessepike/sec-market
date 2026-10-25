@@ -22,8 +22,8 @@ navigation SEC-074 follow reliable current operation.
 | Current private processing/history | Processing 40/10,655, pending 10,615; history 41/10,655, pending 10,614; held 11, changed 1, unknown dates 291. |
 | Private review queue | All 37 preceding held identities persist. New HiddenLayer funding candidate lacks a fact date; total 38. No new accepted facts/events. |
 | Private freshness | Actual full/304 observations and immutable rechecks derive expiry October 26 at 15:55:27.307096 UTC. This does not renew public freshness. |
-| Automatic publication | Actual callback 40183462577 failed DAILY_GATE_BUDGET_EXHAUSTED; gates remain 2/2, no third gate or new release. Assigned failure issue 14 is open. Callback drill 40183832621 skipped. |
-| Current allowances |869/5,500 fetches, 80/80 calls, 38/40 documents, gates 2/2. Data and article diagnostics each charged two fetches. |
+| Automatic publication | Actual callback 40183462577 and genuine scheduled publisher 40190348786 failed DAILY_GATE_BUDGET_EXHAUSTED; gates remain 2/2, no third gate/new release. Assigned issue 14 updated 11:51:44. Both callback drills skipped. |
+| Current allowances |985/5,500 fetches, 80/80 calls, 38/40 documents, gates 2/2. The seven-source diagnostic charged 116 requests. |
 | Reader value, sustained operation and general accuracy | Unmeasured. The owner reports no useful real use yet. Five repaired benchmark contradictions do not establish general precision/recall. |
 
 The audited 264 passes comprise 196 citation-integrity checks, 48 SEC checks, 17 official-
@@ -91,9 +91,13 @@ scope including secret scanning, and LevelBlue's complete archive/Trustwave rela
 Keep original dates and the Check Point publication-time disagreement. Orca's 26 pages/90 leads
 and page 27 self-redirect still prove no terminal or sample.
 The [next seven-index plan](docs/active/daily-pipeline/accuracy/next-seven-newsroom-review-preflight-2026-10-25.md)
-for Abnormal, Cyera, Torq, Veracode, Zenity, Cato and Chainguard is selected locally for independent
-operational review. Its whole-operation bound includes 25 generic candidate probes: 257 logical
-fetches. Remote main remains ad1; no actual seven-target responses or qualification yet.
+for Abnormal, Cyera, Torq, Veracode, Zenity, Cato and Chainguard passed independent selection
+review: 78 focused tests, 15 mutations rejected. Exact main bd38e818 plan 3077d93e passed preview/main
+web checks, Vercel preview READY/main Git ignored. Actual diagnostic 40190857026 completed from
+496ad86a/869 baseline: 116 requests against its 257 whole-operation bound, all seven explicit
+targets HTTP 200 HTML. Full authenticated 48,245-entry archive and offline replay pass; facts,
+six admissions, 38 holds and expiry remain exact. Listing and pagination leads need qualification;
+disabled-plan restoration is closing. No coverage credit follows from these captures.
 No owner source decision is currently required.
 
 Use the [evaluation rubric](docs/active/daily-pipeline/evaluation-rubric.md) and keep the original
@@ -136,8 +140,10 @@ also proved no-op recovery, and a repeat scheduled collector proved honest sourc
 the first completed activation cycle; sustained operation is still unproved and no multi-day
 clean count is claimed. Execution issues 8/9 closed; issue 10 retains explicit coverage gaps. The October 25 genuine H
 scheduled audit40182324149 now passes; its automatic publisher 40183462577 failed the unchanged
-gate allowance and created assigned issue 14. Automatic H publication and repaired scheduled-main
-monitoring still need successful actual receipts.
+gate allowance and created assigned issue 14. Later scheduled publisher40190348786 failed the same
+limit. Genuine repaired scheduled monitor40191154739 passed its36 runner tests and exact-main replay,
+then correctly failed on actual coverage/review/publisher gaps and updated issue10. The public-byte
+reader and original-plan binding are accepted. Successful automatic H publication remains pending.
 The owner has not set the acceptance duration (previous recommendation: 30 days).
 **Authorization:** D-104 through D-110; [current activation record](docs/active/daily-pipeline/activation-2026-10-23.md).
 
