@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "kind": "independent_scheduled_source_freshness_cycle_review",
+  "date": "2026-10-25",
+  "verdict": "pass_for_future_preview_change",
+  "reviewPasses": 2,
+  "materialFindings": [],
+  "minorFindings": [],
+  "frozenMain": "6d5e87feba4ffbc75e50f35cb564cb8fd91708ca",
+  "actualRecoveryRunUnchanged": "40169973257",
+  "reviewedFileSha256": {
+    "web/scripts/pipeline/engine.py": "e471f18006a4899406510cdede42829476ba1945b58c420c61f6edce767a7e19",
+    "ops/ci/collect.py": "d27a676d6adc50faa7004f109a5507fa2d441627f4709b65ba8de855b4f5a7d5",
+    "ops/ci/test_scheduled_source_freshness.py": "84c7fe20666cbaa173173d7dbc98ac5e5a3072eef71a86f6fc31955a45147523",
+    "docs/active/daily-pipeline/accuracy/scheduled-source-freshness-cycle-spec-2026-10-25.md": "acfa65a63af35b77b5e794f795e4232e132a9633a400519739c7211727362ef1",
+    "docs/active/daily-pipeline/accuracy/same-day-manual-and-scheduled-source-cadence-review-2026-10-25.md": "f9ff71617c886c21ad89b13103fb5e83469ca4a86c6053d7b668669c0559073c"
+  },
+  "protectedFileSha256": {
+    "contracts/market.json": "24221c946781559c0ff3626e4e479c4647da915d0f2d7559ea88046982532c3c",
+    "contracts/source-qualification-probes.json": "ad1c5cc234fe4fa69cbceb5370ac74825a37dc80b08528ca908d14b1352e53b4",
+    "contracts/factual-corrections.json": "9c9fbe0d3d40ece11e1407ce9460086c732f62da88d3b0f220ab9d6f8757da00",
+    "contracts/factual-baseline.json": "ab3bca0e49a38495d310021857ee2c1a3ca6ebe7979593d1e8b36437cb2a294e",
+    "web/src/data/tracker/factualCorrectionPolicy.json": "7319ece4c5c4f6c7d515fb9ef7ff13211daf38e041948edd26732e9ccfa2dbc7",
+    "web/src/data/tracker/originals.json": "7d164cb81003db0a66eccbb25c2e8605e33b853b9a6e20cb2c6900794822b4a3",
+    ".github/workflows/subscription-collector.yml": "268fb316bd00670fc76d6a464c449d5e3f3d9e03a083680e2fab813d3daa4fe0",
+    "web/scripts/pipeline/corrections.py": "d742a91d4d23da5db3b426afcef76a80971c47dd54f8e4312065a6994f87b11f",
+    "web/scripts/pipeline/fetcher.py": "82084e87bb41687fec8ebfc969cf0a37294e04312a47a27993f5c359a585adce"
+  },
+  "checks": {
+    "newFocusedTestsPassed": 12,
+    "selectedExistingRegressionsPassed": 6,
+    "independentIsolatedScenariosPassed": 7,
+    "testsSkipped": 0,
+    "existingAdmissionPoliciesUnchanged": 6,
+    "actualExistingAdmissionsReplayedUnchanged": 6,
+    "consultedArchiveFiles": 36,
+    "consultedArchiveHashSizeMtimeUnchanged": true,
+    "consultedArchiveTouchedFileSealSha256": "488a889eed1b93db07739ce265d77c27295deb62eae9521527789ba96de3ccf0",
+    "wholeArchiveReauthenticatedThisReview": false,
+    "exactNormalTimerSelection": true,
+    "forcedImmutablePointerReadsSuppressed": true,
+    "forcedImmutablePointerWritesSuppressed": true,
+    "ordinaryConditionalTransportUnchanged": true,
+    "currentInvocationSharingPreserved": true,
+    "currentSecAnchorRequirementPreserved": true,
+    "existingLastGoodRetryPolicyPreserved": true,
+    "clockRebasingIntroduced": false,
+    "semanticCachePreserved": true
+  },
+  "knownLimits": [
+    "A normal retry after failed forced transport may reuse an earlier valid sealed success with its original clock under the existing last-good policy.",
+    "A cold forced cycle has no immutable download pointer; semantic-pending work can require additional budgeted conditional transport on a later ordinary retry.",
+    "Actual repaired timer behavior and public acceptance remain unobserved."
+  ],
+  "reviewUsage": {
+    "sourceRequests": 0,
+    "modelCalls": 0,
+    "actualArchiveWrites": 0,
+    "actualBudgetReservations": 0,
+    "dispatches": 0,
+    "newAdmissions": 0,
+    "operationalChanges": 0,
+    "publication": false,
+    "syntheticTemporaryStoreWritesOnly": true
+  }
+}

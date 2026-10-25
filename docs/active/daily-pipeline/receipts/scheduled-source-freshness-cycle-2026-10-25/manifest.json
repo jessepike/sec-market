@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "kind": "local_preview_freshness_repair_evidence_retention",
+  "mainRevisionUnchangedAsRecorded": "6d5e87feba4ffbc75e50f35cb564cb8fd91708ca",
+  "operationalTestsPassed": 840,
+  "webTests": {
+    "dataPassed": 377,
+    "pipelinePassed": 115,
+    "browserPassed": 42,
+    "browserSkipped": 1,
+    "lintAndBuildPassed": true
+  },
+  "visibleChange": false,
+  "pixelChangedAt1440": 0,
+  "pixelChangedAt390": 0,
+  "files": [
+    {
+      "path": "file-seals.json",
+      "sha256": "348a05494cd22bbbd06f2323691514fe991b1c18b82b6406eb11a3ad63eadb54",
+      "bytes": 2980
+    },
+    {
+      "path": "operational-tests.log.gz",
+      "sha256": "207d58d3376033f2e6240a5d4c886d82138ec395e60794aa4bc9697520218a2b",
+      "bytes": 62,
+      "encoding": "gzip",
+      "uncompressedSha256": "ea637f9617b908640a0c085d396b8fff29acca1d24f14ecf90459e4c1be573de",
+      "uncompressedBytes": 941
+    },
+    {
+      "path": "source-file-seals.json",
+      "sha256": "a8ed28dd6f709ff6a6f59c977d3acaf2fb48d0432c7880b01c051a7c2cc6a8b2",
+      "bytes": 1958
+    },
+    {
+      "path": "validation.json",
+      "sha256": "0b258a32e2ae88e66fb1c012fe088c01a18aea6f94408a0049ff90e426bbc104",
+      "bytes": 11788
+    },
+    {
+      "path": "visual-comparison.json",
+      "sha256": "cb7b0536f7c4c91abe3b8d0b9eadeea3ff362946d5ba957cc31e6adbfdc5120f",
+      "bytes": 1700
+    },
+    {
+      "path": "web-tests.log.gz",
+      "sha256": "0b1f95b642989fec7e22faab1f5346c5c443c5878156e2fb687d76c936231d44",
+      "bytes": 25482,
+      "encoding": "gzip",
+      "uncompressedSha256": "6109a30a5cc9cd6ccf9ae6474365943a1ea3579078c320a674b72f44db0bd1fa",
+      "uncompressedBytes": 127011
+    }
+  ],
+  "sourceScreenshotFilesRetainedExternally": true,
+  "allCopiedAndCompressedHashesVerified": true,
+  "protectedAndReviewedCodePinsVerified": true,
+  "actualTimerValidation": false,
+  "production": false,
+  "limitations": [
+    "Retains existing local logs and screenshots; no test or browser capture was rerun.",
+    "Standard unittest output is a complete progress/summary log, not verbose per-test output.",
+    "Referenced PNGs remain at their sealed external absolute paths, matching the preceding S1 receipt pattern.",
+    "A cold forced cycle deliberately writes no run-download pointer. If its transport succeeds but semantic work is pending, a later ordinary retry can need additional conditional transport. The independent two-URL fixture spent two additional fetch reservations and completed, without an immutable-object collision or invented source time. Successful tasks in a cold partial cycle were reused while the failed task alone retried. This bounded cost is consistent with the explicit read/write suppression; it does not promise zero-fetch resumption or extend the existing last-good policy."
+  ]
+}

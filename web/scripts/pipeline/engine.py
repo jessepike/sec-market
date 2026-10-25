@@ -151,7 +151,7 @@ class Pipeline:
                     retained_observation = observations[url]
                     return retained_observation, self.store.get(retained_observation['body']) if retained_observation.get('body') else b''
                 run_download = f"runs/{plan['runId']}/downloads/{digest({'source': source['id'], 'url': url})}.json"
-                retained = self.store.read(run_download) if self.replay else None
+                retained = self.store.read(run_download) if self.replay and not self.force_refresh else None
                 if retained:
                     old_observation = self.store.read(f"observations/{retained['observationId']}.json")
                     age = (instant(self.clock()) - instant(old_observation["fetchedAt"])).total_seconds()/3600
@@ -179,7 +179,9 @@ class Pipeline:
                     self.audit_index.register_observation(observation)
                 if observation["status"] in ("fetched", "not_modified"):
                     self.store.compare_and_swap(download_name, download_head, observation)
-                    if self.replay:
+                    # Forced cycles retain their new observations/receipts without
+                    # replacing an earlier retry's immutable download pointer.
+                    if self.replay and not self.force_refresh:
                         self.store.write_once(run_download, {"observationId": observation["observationId"]})
                 if source["kind"] == "sec_documents" and url.startswith("https://www.sec.gov/Archives/") and observation["status"] == "fetched":
                     self.store.write_once(cache_key, observation)

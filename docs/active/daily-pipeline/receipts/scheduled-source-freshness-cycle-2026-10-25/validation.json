@@ -1,0 +1,226 @@
+{
+  "schemaVersion": 1,
+  "kind": "retained_local_validation_evidence_only",
+  "originalOperationalLog": {
+    "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/scheduled-freshness-ops-tests.log",
+    "sha256": "ea637f9617b908640a0c085d396b8fff29acca1d24f14ecf90459e4c1be573de",
+    "bytes": 941,
+    "suiteTestsPassed": 840,
+    "completeOutput": "standard unittest progress and summary"
+  },
+  "originalWebLog": {
+    "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/scheduled-freshness-web-tests.log",
+    "sha256": "6109a30a5cc9cd6ccf9ae6474365943a1ea3579078c320a674b72f44db0bd1fa",
+    "bytes": 127011,
+    "dataTestsPassed": 377,
+    "pipelineTestsPassed": 115,
+    "browserTestsPassed": 42,
+    "browserTestsSkipped": 1,
+    "lintBuildAndDistChecksPassed": true
+  },
+  "pixelComparison": [
+    {
+      "width": 1440,
+      "dimensions": [
+        1440,
+        8379
+      ],
+      "currentPath": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/scheduled-freshness-local-1440.png",
+      "priorPath": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/s1-transport-local-1440.png",
+      "currentSha256": "b044622ff53e695fee8334a95746b932c0df81ff6e26ecb810bfd9228765cdd9",
+      "priorSha256": "b044622ff53e695fee8334a95746b932c0df81ff6e26ecb810bfd9228765cdd9",
+      "fileBytesIdentical": true,
+      "changedPixels": 0,
+      "validationMethod": "Exact PNG file byte equality and independently read IHDR dimensions"
+    },
+    {
+      "width": 390,
+      "dimensions": [
+        390,
+        7749
+      ],
+      "currentPath": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/scheduled-freshness-local-390.png",
+      "priorPath": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/s1-transport-local-390.png",
+      "currentSha256": "7dc872da46a4cf5e2eb765df88e1ae28e34eb70f8d5c38b19835bab09afcd3df",
+      "priorSha256": "7dc872da46a4cf5e2eb765df88e1ae28e34eb70f8d5c38b19835bab09afcd3df",
+      "fileBytesIdentical": true,
+      "changedPixels": 0,
+      "validationMethod": "Exact PNG file byte equality and independently read IHDR dimensions"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/scheduled-freshness-production-1440.png",
+      "bytes": 997349,
+      "sha256": "dcade7832994d8bb9ac83cce9a47c13cf6304b8a3d0d8506d5fa1534ae253588",
+      "width": 1440,
+      "height": 8359,
+      "mtimeNs": 1792911469801110296
+    },
+    {
+      "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/scheduled-freshness-local-1440.png",
+      "bytes": 989395,
+      "sha256": "b044622ff53e695fee8334a95746b932c0df81ff6e26ecb810bfd9228765cdd9",
+      "width": 1440,
+      "height": 8379,
+      "mtimeNs": 1792911469510954865
+    },
+    {
+      "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/scheduled-freshness-production-390.png",
+      "bytes": 437568,
+      "sha256": "039e8e356999c5b645d378c635e8c813db4d227f3f793b8e5e1ad833ad9a94b3",
+      "width": 390,
+      "height": 7714,
+      "mtimeNs": 1792911473542254525
+    },
+    {
+      "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/scheduled-freshness-local-390.png",
+      "bytes": 436460,
+      "sha256": "7dc872da46a4cf5e2eb765df88e1ae28e34eb70f8d5c38b19835bab09afcd3df",
+      "width": 390,
+      "height": 7749,
+      "mtimeNs": 1792911472792703183
+    }
+  ],
+  "sourceInputsAndScreenshotsPreserved": true,
+  "protectedInputsPreserved": true,
+  "reviewedCodePreserved": true,
+  "sourceInputHashSizeMtimeBefore": {
+    "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/scheduled-freshness-ops-tests.log": {
+      "sha256": "ea637f9617b908640a0c085d396b8fff29acca1d24f14ecf90459e4c1be573de",
+      "bytes": 941,
+      "mtimeNs": 1792911544960092401
+    },
+    "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/scheduled-freshness-web-tests.log": {
+      "sha256": "6109a30a5cc9cd6ccf9ae6474365943a1ea3579078c320a674b72f44db0bd1fa",
+      "bytes": 127011,
+      "mtimeNs": 1792911544960357067
+    },
+    "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/scheduled-freshness-visual-comparison.json": {
+      "sha256": "cb7b0536f7c4c91abe3b8d0b9eadeea3ff362946d5ba957cc31e6adbfdc5120f",
+      "bytes": 1700,
+      "mtimeNs": 1792911544959925652
+    },
+    "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/scheduled-freshness-file-seals.json": {
+      "sha256": "a8ed28dd6f709ff6a6f59c977d3acaf2fb48d0432c7880b01c051a7c2cc6a8b2",
+      "bytes": 1958,
+      "mtimeNs": 1792911632362656762
+    },
+    "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/scheduled-source-freshness-cycle-independent-review-2026-10-25.md": {
+      "sha256": "e120f16cc4c296c0253a4ae52ace85b41b8cd3883ca94581a0ab2cf8cc546776",
+      "bytes": 7535,
+      "mtimeNs": 1792911785437748946
+    },
+    "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/scheduled-source-freshness-cycle-independent-review-2026-10-25.json": {
+      "sha256": "79a4152f4dd723ee3438bca00164dce5a5896fcd2dcc826b898680dc02dbfd97",
+      "bytes": 3688,
+      "mtimeNs": 1792911785438062403
+    },
+    "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/scheduled-freshness-production-1440.png": {
+      "sha256": "dcade7832994d8bb9ac83cce9a47c13cf6304b8a3d0d8506d5fa1534ae253588",
+      "bytes": 997349,
+      "mtimeNs": 1792911469801110296
+    },
+    "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/scheduled-freshness-local-1440.png": {
+      "sha256": "b044622ff53e695fee8334a95746b932c0df81ff6e26ecb810bfd9228765cdd9",
+      "bytes": 989395,
+      "mtimeNs": 1792911469510954865
+    },
+    "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/scheduled-freshness-production-390.png": {
+      "sha256": "039e8e356999c5b645d378c635e8c813db4d227f3f793b8e5e1ad833ad9a94b3",
+      "bytes": 437568,
+      "mtimeNs": 1792911473542254525
+    },
+    "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/scheduled-freshness-local-390.png": {
+      "sha256": "7dc872da46a4cf5e2eb765df88e1ae28e34eb70f8d5c38b19835bab09afcd3df",
+      "bytes": 436460,
+      "mtimeNs": 1792911472792703183
+    },
+    "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/s1-transport-local-1440.png": {
+      "sha256": "b044622ff53e695fee8334a95746b932c0df81ff6e26ecb810bfd9228765cdd9",
+      "bytes": 989395,
+      "mtimeNs": 1792893805022572930
+    },
+    "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/s1-transport-local-390.png": {
+      "sha256": "7dc872da46a4cf5e2eb765df88e1ae28e34eb70f8d5c38b19835bab09afcd3df",
+      "bytes": 436460,
+      "mtimeNs": 1792893808325789543
+    }
+  },
+  "sourceInputHashSizeMtimeAfter": {
+    "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/scheduled-freshness-ops-tests.log": {
+      "sha256": "ea637f9617b908640a0c085d396b8fff29acca1d24f14ecf90459e4c1be573de",
+      "bytes": 941,
+      "mtimeNs": 1792911544960092401
+    },
+    "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/scheduled-freshness-web-tests.log": {
+      "sha256": "6109a30a5cc9cd6ccf9ae6474365943a1ea3579078c320a674b72f44db0bd1fa",
+      "bytes": 127011,
+      "mtimeNs": 1792911544960357067
+    },
+    "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/scheduled-freshness-visual-comparison.json": {
+      "sha256": "cb7b0536f7c4c91abe3b8d0b9eadeea3ff362946d5ba957cc31e6adbfdc5120f",
+      "bytes": 1700,
+      "mtimeNs": 1792911544959925652
+    },
+    "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/scheduled-freshness-file-seals.json": {
+      "sha256": "a8ed28dd6f709ff6a6f59c977d3acaf2fb48d0432c7880b01c051a7c2cc6a8b2",
+      "bytes": 1958,
+      "mtimeNs": 1792911632362656762
+    },
+    "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/scheduled-source-freshness-cycle-independent-review-2026-10-25.md": {
+      "sha256": "e120f16cc4c296c0253a4ae52ace85b41b8cd3883ca94581a0ab2cf8cc546776",
+      "bytes": 7535,
+      "mtimeNs": 1792911785437748946
+    },
+    "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/scheduled-source-freshness-cycle-independent-review-2026-10-25.json": {
+      "sha256": "79a4152f4dd723ee3438bca00164dce5a5896fcd2dcc826b898680dc02dbfd97",
+      "bytes": 3688,
+      "mtimeNs": 1792911785438062403
+    },
+    "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/scheduled-freshness-production-1440.png": {
+      "sha256": "dcade7832994d8bb9ac83cce9a47c13cf6304b8a3d0d8506d5fa1534ae253588",
+      "bytes": 997349,
+      "mtimeNs": 1792911469801110296
+    },
+    "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/scheduled-freshness-local-1440.png": {
+      "sha256": "b044622ff53e695fee8334a95746b932c0df81ff6e26ecb810bfd9228765cdd9",
+      "bytes": 989395,
+      "mtimeNs": 1792911469510954865
+    },
+    "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/scheduled-freshness-production-390.png": {
+      "sha256": "039e8e356999c5b645d378c635e8c813db4d227f3f793b8e5e1ad833ad9a94b3",
+      "bytes": 437568,
+      "mtimeNs": 1792911473542254525
+    },
+    "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/scheduled-freshness-local-390.png": {
+      "sha256": "7dc872da46a4cf5e2eb765df88e1ae28e34eb70f8d5c38b19835bab09afcd3df",
+      "bytes": 436460,
+      "mtimeNs": 1792911472792703183
+    },
+    "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/s1-transport-local-1440.png": {
+      "sha256": "b044622ff53e695fee8334a95746b932c0df81ff6e26ecb810bfd9228765cdd9",
+      "bytes": 989395,
+      "mtimeNs": 1792893805022572930
+    },
+    "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/s1-transport-local-390.png": {
+      "sha256": "7dc872da46a4cf5e2eb765df88e1ae28e34eb70f8d5c38b19835bab09afcd3df",
+      "bytes": 436460,
+      "mtimeNs": 1792893808325789543
+    }
+  },
+  "coldForcedRetryLimitation": "A cold forced cycle deliberately writes no run-download pointer. If its transport succeeds but semantic work is pending, a later ordinary retry can need additional conditional transport. The independent two-URL fixture spent two additional fetch reservations and completed, without an immutable-object collision or invented source time. Successful tasks in a cold partial cycle were reused while the failed task alone retried. This bounded cost is consistent with the explicit read/write suppression; it does not promise zero-fetch resumption or extend the existing last-good policy.",
+  "actualTimerValidation": false,
+  "actualCollectionCredit": false,
+  "publication": false,
+  "retentionUsage": {
+    "newSourceRequests": 0,
+    "modelRequests": 0,
+    "testReruns": 0,
+    "actualArchiveWrites": 0,
+    "admissions": 0,
+    "dispatches": 0,
+    "commits": 0,
+    "pushes": 0
+  }
+}

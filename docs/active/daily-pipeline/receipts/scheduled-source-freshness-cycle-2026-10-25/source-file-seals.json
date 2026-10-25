@@ -1,0 +1,47 @@
+{
+  "kind": "scheduled-source-freshness-file-seals",
+  "changedFiles": [
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/engine.py",
+      "sha256": "e471f18006a4899406510cdede42829476ba1945b58c420c61f6edce767a7e19",
+      "bytes": 54002
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/ops/ci/collect.py",
+      "sha256": "d27a676d6adc50faa7004f109a5507fa2d441627f4709b65ba8de855b4f5a7d5",
+      "bytes": 24796
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/ops/ci/test_scheduled_source_freshness.py",
+      "sha256": "84c7fe20666cbaa173173d7dbc98ac5e5a3072eef71a86f6fc31955a45147523",
+      "bytes": 19524
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/scheduled-source-freshness-cycle-implementation-2026-10-25.md",
+      "sha256": "6749ab4bb17e4a4758fb64c9e77129534f46e887f1c605fc6fe9b606eb339b06",
+      "bytes": 5147
+    }
+  ],
+  "protectedInputs": [
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/contracts/market.json",
+      "sha256": "24221c946781559c0ff3626e4e479c4647da915d0f2d7559ea88046982532c3c",
+      "bytes": 284062,
+      "matchesCommittedHead": true
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/contracts/factual-corrections.json",
+      "sha256": "9c9fbe0d3d40ece11e1407ce9460086c732f62da88d3b0f220ab9d6f8757da00",
+      "bytes": 32004,
+      "matchesCommittedHead": true
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/web/src/data/tracker/factualCorrectionPolicy.json",
+      "sha256": "7319ece4c5c4f6c7d515fb9ef7ff13211daf38e041948edd26732e9ccfa2dbc7",
+      "bytes": 1721,
+      "matchesCommittedHead": true
+    }
+  ],
+  "mainRevision": "6d5e87feba4ffbc75e50f35cb564cb8fd91708ca",
+  "actualNewTimerValidation": false
+}

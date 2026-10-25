@@ -1,0 +1,56 @@
+{
+  "kind": "scheduled-source-freshness-cycle-visual-comparison",
+  "visibleChange": false,
+  "localUrl": "http://127.0.0.1:18815/",
+  "productionUrl": "https://securitymarketpulse.com/",
+  "localAgainstS1Preview": [
+    {
+      "width": 1440,
+      "priorDimensions": [
+        1440,
+        8379
+      ],
+      "currentDimensions": [
+        1440,
+        8379
+      ],
+      "changedPixels": 0,
+      "pixelIdentical": true
+    },
+    {
+      "width": 390,
+      "priorDimensions": [
+        390,
+        7749
+      ],
+      "currentDimensions": [
+        390,
+        7749
+      ],
+      "changedPixels": 0,
+      "pixelIdentical": true
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/scheduled-freshness-production-1440.png",
+      "bytes": 997349,
+      "sha256": "dcade7832994d8bb9ac83cce9a47c13cf6304b8a3d0d8506d5fa1534ae253588"
+    },
+    {
+      "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/scheduled-freshness-local-1440.png",
+      "bytes": 989395,
+      "sha256": "b044622ff53e695fee8334a95746b932c0df81ff6e26ecb810bfd9228765cdd9"
+    },
+    {
+      "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/scheduled-freshness-production-390.png",
+      "bytes": 437568,
+      "sha256": "039e8e356999c5b645d378c635e8c813db4d227f3f793b8e5e1ad833ad9a94b3"
+    },
+    {
+      "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/scheduled-freshness-local-390.png",
+      "bytes": 436460,
+      "sha256": "7dc872da46a4cf5e2eb765df88e1ae28e34eb70f8d5c38b19835bab09afcd3df"
+    }
+  ]
+}

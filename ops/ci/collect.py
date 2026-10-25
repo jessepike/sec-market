@@ -82,6 +82,15 @@ def correction_work(repo, state, contract, agent):
     return process
 
 
+def scheduled_source_refresh():
+    """Only the normal trusted daily main timer starts a forced transport cycle."""
+    return (os.environ.get('GITHUB_ACTIONS') == 'true'
+            and os.environ.get('GITHUB_REPOSITORY') == PROJECT
+            and os.environ.get('GITHUB_EVENT_NAME') == 'schedule'
+            and os.environ.get('GITHUB_REF') == 'refs/heads/main'
+            and os.environ.get('SMP_EVENT_SCHEDULE') == '17 5 * * *')
+
+
 def escrow_budgets(root, state, session, contract, at):
     """Reserve remaining capacity remotely; a killed runner cannot reset it.
 
@@ -341,7 +350,7 @@ def execute(root, maximum_seconds=1200, publisher_config=None, *, source_probe=F
         # All restored checkpoints and daily budgets exist before model work.
         scheduled_at = utcnow()
         escrow_budgets(root, state, session, contract, scheduled_at)
-        collected = collector.run(scheduled_at, replay=work is not None)
+        collected = collector.run(scheduled_at, replay=work is not None, force_refresh=scheduled_source_refresh())
         session_runtime.checkpoint(root, state, session, "collection", session_runtime.summary(state))
         plan = state.read(f"runs/{collected['runId']}/plan.json")
         receipts = []
