@@ -55,8 +55,11 @@ The [cadence review](docs/active/daily-pipeline/accuracy/same-day-manual-and-sch
 keeps earlier-policy same-day reuse separate from H and from the actual public expiry. A cold forced
 cycle writes no saved-download pointer; a later ordinary retry with unfinished semantic work can
 spend additional conditional fetches. Preserve that cost and test actual repaired-timer clocks after
-reviewed promotion with an available code-bound gate. Future-preview commit de2059ab awaits its preview push;
-main remains 6d5e87fe during current acceptance.
+reviewed promotion with an available code-bound gate. Preview 4ae86e2b contains repair de2059ab;
+web 40172455392 and canary 40172455446 passed. Vercel dpl_7qy95vbv6wrmURM8SabrCyViioJk
+is READY and its actual app receipt matches that preview revision. The
+[preview receipt](docs/active/daily-pipeline/receipts/scheduled-source-freshness-preview-2026-10-25.json)
+keeps its uncollected fixture outside publication. Main remains 6d5e87fe during current acceptance.
 
 Earlier future-preview work remains separate: the [diagnostic response repair](docs/active/daily-pipeline/accuracy/diagnostic-unexpected-http-status-independent-review-2026-10-25.md),
 [exact SentinelOne transport review](docs/active/daily-pipeline/accuracy/s1-exact-filing-transport-independent-review-2026-10-25.md)

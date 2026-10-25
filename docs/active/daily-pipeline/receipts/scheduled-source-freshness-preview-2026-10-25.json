@@ -1,0 +1,334 @@
+{
+  "schemaVersion": 1,
+  "kind": "actual-future-preview-ci-and-release-metadata",
+  "observedAt": "2026-10-25T07:26:08.295244Z",
+  "ciRuns": [
+    {
+      "source": "actual gh run view response through Mac gh bridge",
+      "observedAt": "2026-10-25T07:26:06.276045Z",
+      "commandArguments": [
+        "mac",
+        "gh",
+        "run",
+        "view",
+        "40172455392",
+        "--repo",
+        "jessepike/sec-market",
+        "--json",
+        "databaseId,name,event,headSha,headBranch,status,conclusion,createdAt,updatedAt,url,jobs"
+      ],
+      "rawResponseSha256": "30a9845e291525f0d0935d12345a08492d21df71888069608405980234de1180",
+      "rawResponseBytes": 2409,
+      "metadata": {
+        "conclusion": "success",
+        "createdAt": "2026-10-25T07:21:24Z",
+        "databaseId": 40172455392,
+        "event": "push",
+        "headBranch": "preview",
+        "headSha": "4ae86e2bcef421ce0363f3046cd178dd17b8c849",
+        "jobs": [
+          {
+            "completedAt": "2026-10-25T07:23:54Z",
+            "conclusion": "success",
+            "databaseId": 121105990092,
+            "name": "test",
+            "startedAt": "2026-10-25T07:21:26Z",
+            "status": "completed",
+            "steps": [
+              {
+                "completedAt": "2026-10-25T07:21:29Z",
+                "conclusion": "success",
+                "name": "Set up job",
+                "number": 1,
+                "startedAt": "2026-10-25T07:21:27Z",
+                "status": "completed"
+              },
+              {
+                "completedAt": "2026-10-25T07:21:33Z",
+                "conclusion": "success",
+                "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+                "number": 2,
+                "startedAt": "2026-10-25T07:21:29Z",
+                "status": "completed"
+              },
+              {
+                "completedAt": "2026-10-25T07:21:35Z",
+                "conclusion": "success",
+                "name": "Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+                "number": 3,
+                "startedAt": "2026-10-25T07:21:33Z",
+                "status": "completed"
+              },
+              {
+                "completedAt": "2026-10-25T07:21:39Z",
+                "conclusion": "success",
+                "name": "Run npm ci",
+                "number": 4,
+                "startedAt": "2026-10-25T07:21:35Z",
+                "status": "completed"
+              },
+              {
+                "completedAt": "2026-10-25T07:23:31Z",
+                "conclusion": "success",
+                "name": "Run npm test",
+                "number": 5,
+                "startedAt": "2026-10-25T07:21:39Z",
+                "status": "completed"
+              },
+              {
+                "completedAt": "2026-10-25T07:23:51Z",
+                "conclusion": "success",
+                "name": "Capture production and the tested build at both review widths",
+                "number": 6,
+                "startedAt": "2026-10-25T07:23:31Z",
+                "status": "completed"
+              },
+              {
+                "completedAt": "2026-10-25T07:23:52Z",
+                "conclusion": "success",
+                "name": "Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9",
+                "number": 7,
+                "startedAt": "2026-10-25T07:23:51Z",
+                "status": "completed"
+              },
+              {
+                "completedAt": "2026-10-25T07:23:53Z",
+                "conclusion": "success",
+                "name": "Post Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+                "number": 13,
+                "startedAt": "2026-10-25T07:23:52Z",
+                "status": "completed"
+              },
+              {
+                "completedAt": "2026-10-25T07:23:53Z",
+                "conclusion": "success",
+                "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+                "number": 14,
+                "startedAt": "2026-10-25T07:23:53Z",
+                "status": "completed"
+              },
+              {
+                "completedAt": "2026-10-25T07:23:53Z",
+                "conclusion": "success",
+                "name": "Complete job",
+                "number": 15,
+                "startedAt": "2026-10-25T07:23:53Z",
+                "status": "completed"
+              }
+            ],
+            "url": "https://github.com/jessepike/sec-market/actions/runs/40172455392/job/121105990092"
+          }
+        ],
+        "name": "web",
+        "status": "completed",
+        "updatedAt": "2026-10-25T07:23:55Z",
+        "url": "https://github.com/jessepike/sec-market/actions/runs/40172455392"
+      }
+    },
+    {
+      "source": "actual gh run view response through Mac gh bridge",
+      "observedAt": "2026-10-25T07:26:07.222456Z",
+      "commandArguments": [
+        "mac",
+        "gh",
+        "run",
+        "view",
+        "40172455446",
+        "--repo",
+        "jessepike/sec-market",
+        "--json",
+        "databaseId,name,event,headSha,headBranch,status,conclusion,createdAt,updatedAt,url,jobs"
+      ],
+      "rawResponseSha256": "dd0717f911d4563eb984163994b2eecf2ed451ad75e3cbc3824d762eb2f7107b",
+      "rawResponseBytes": 2345,
+      "metadata": {
+        "conclusion": "success",
+        "createdAt": "2026-10-25T07:21:24Z",
+        "databaseId": 40172455446,
+        "event": "push",
+        "headBranch": "preview",
+        "headSha": "4ae86e2bcef421ce0363f3046cd178dd17b8c849",
+        "jobs": [
+          {
+            "completedAt": "2026-10-25T07:23:30Z",
+            "conclusion": "success",
+            "databaseId": 121105990175,
+            "name": "private-runner-proof",
+            "startedAt": "2026-10-25T07:21:27Z",
+            "status": "completed",
+            "steps": [
+              {
+                "completedAt": "2026-10-25T07:21:30Z",
+                "conclusion": "success",
+                "name": "Set up job",
+                "number": 1,
+                "startedAt": "2026-10-25T07:21:28Z",
+                "status": "completed"
+              },
+              {
+                "completedAt": "2026-10-25T07:21:35Z",
+                "conclusion": "success",
+                "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+                "number": 2,
+                "startedAt": "2026-10-25T07:21:30Z",
+                "status": "completed"
+              },
+              {
+                "completedAt": "2026-10-25T07:21:36Z",
+                "conclusion": "success",
+                "name": "Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+                "number": 3,
+                "startedAt": "2026-10-25T07:21:35Z",
+                "status": "completed"
+              },
+              {
+                "completedAt": "2026-10-25T07:22:44Z",
+                "conclusion": "success",
+                "name": "Verify credential persistence helper using fictional data",
+                "number": 4,
+                "startedAt": "2026-10-25T07:21:36Z",
+                "status": "completed"
+              },
+              {
+                "completedAt": "2026-10-25T07:23:21Z",
+                "conclusion": "success",
+                "name": "Verify archived evidence integrity from the private GitHub runner without source requests",
+                "number": 5,
+                "startedAt": "2026-10-25T07:22:44Z",
+                "status": "completed"
+              },
+              {
+                "completedAt": "2026-10-25T07:23:23Z",
+                "conclusion": "success",
+                "name": "Retain bounded nonsecret runtime receipt",
+                "number": 6,
+                "startedAt": "2026-10-25T07:23:21Z",
+                "status": "completed"
+              },
+              {
+                "completedAt": "2026-10-25T07:23:23Z",
+                "conclusion": "success",
+                "name": "Post Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+                "number": 11,
+                "startedAt": "2026-10-25T07:23:23Z",
+                "status": "completed"
+              },
+              {
+                "completedAt": "2026-10-25T07:23:23Z",
+                "conclusion": "success",
+                "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+                "number": 12,
+                "startedAt": "2026-10-25T07:23:23Z",
+                "status": "completed"
+              },
+              {
+                "completedAt": "2026-10-25T07:23:23Z",
+                "conclusion": "success",
+                "name": "Complete job",
+                "number": 13,
+                "startedAt": "2026-10-25T07:23:23Z",
+                "status": "completed"
+              }
+            ],
+            "url": "https://github.com/jessepike/sec-market/actions/runs/40172455446/job/121105990175"
+          }
+        ],
+        "name": "subscription runtime canary",
+        "status": "completed",
+        "updatedAt": "2026-10-25T07:23:31Z",
+        "url": "https://github.com/jessepike/sec-market/actions/runs/40172455446"
+      }
+    }
+  ],
+  "remoteBranches": {
+    "preview": {
+      "source": "actual GitHub branch API response through Mac gh bridge",
+      "observedAt": "2026-10-25T07:26:07.583739Z",
+      "name": "preview",
+      "sha": "4ae86e2bcef421ce0363f3046cd178dd17b8c849",
+      "protected": false,
+      "rawResponseSha256": "39fc202ad1ef72f3e18fe486af38172c717e8ba94f08883085fd15eb949e1197",
+      "rawResponseBytes": 3734
+    },
+    "main": {
+      "source": "actual GitHub branch API response through Mac gh bridge",
+      "observedAt": "2026-10-25T07:26:07.979292Z",
+      "name": "main",
+      "sha": "6d5e87feba4ffbc75e50f35cb564cb8fd91708ca",
+      "protected": false,
+      "rawResponseSha256": "5f16f16216d05bbe55c821736714cf32a00d4790ecaada2a6d1c2be2ec3112e2",
+      "rawResponseBytes": 4053
+    }
+  },
+  "vercelDeployment": {
+    "source": "root-observed Vercel tool metadata supplied in the parent task",
+    "independentlyQueriedByThisWorker": false,
+    "state": "READY",
+    "deploymentId": "dpl_7qy95vbv6wrmURM8SabrCyViioJk",
+    "inspectorUrl": "https://vercel.com/pikeholdings/security-market-pulse/7qy95vbv6wrmURM8SabrCyViioJk",
+    "deploymentUrl": "https://security-market-pulse-fit81hka2-pikeholdings.vercel.app"
+  },
+  "actualPreviewAppRelease": {
+    "source": "actual curl response in OrbStack dev VM",
+    "observedAt": "2026-10-25T07:26:08.295280Z",
+    "url": "https://security-market-pulse-fit81hka2-pikeholdings.vercel.app/app-release.json",
+    "effectiveUrl": "https://security-market-pulse-fit81hka2-pikeholdings.vercel.app/app-release.json",
+    "httpStatus": 200,
+    "commandArguments": [
+      "curl",
+      "--fail",
+      "--silent",
+      "--show-error",
+      "--location",
+      "--max-time",
+      "45",
+      "--write-out",
+      "\n%{http_code}\n%{url_effective}",
+      "https://security-market-pulse-fit81hka2-pikeholdings.vercel.app/app-release.json"
+    ],
+    "bodySha256": "00b5a7de99a38aa26be57df41dc33bc1f8f5a7e304122eba9cba96e22fd13fe2",
+    "bodyBytes": 757,
+    "rawBodyUtf8": "{\n  \"allowed\": true,\n  \"releaseKind\": \"certified\",\n  \"dataUpdated\": true,\n  \"certifiedAt\": \"2026-10-21T04:45:33.748Z\",\n  \"contractVersion\": \"smp-certified-v2\",\n  \"rootView\": \"tracker\",\n  \"appRevision\": \"4ae86e2bcef421ce0363f3046cd178dd17b8c849\",\n  \"appBuiltAt\": \"2026-10-25T07:21:48.285Z\",\n  \"dailyRunId\": \"334f0f2ef3ed1d957189585ee36fcf6d9934bae9b626febf1cde661657c7b058\",\n  \"dailySnapshotSha256\": \"e1945874cb3f2cb661bf67671ec2bd760ae363761e21f85e3ea8d044afd91384\",\n  \"dailyContractSha256\": \"8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db\",\n  \"dailyCoverageComplete\": false,\n  \"dailyCoverageMeasure\": \"daily_source_intake_v2\",\n  \"dailyIntakeComplete\": false,\n  \"dailyProcessingComplete\": false,\n  \"dailyHistoricalReviewComplete\": false\n}\n",
+    "json": {
+      "allowed": true,
+      "releaseKind": "certified",
+      "dataUpdated": true,
+      "certifiedAt": "2026-10-21T04:45:33.748Z",
+      "contractVersion": "smp-certified-v2",
+      "rootView": "tracker",
+      "appRevision": "4ae86e2bcef421ce0363f3046cd178dd17b8c849",
+      "appBuiltAt": "2026-10-25T07:21:48.285Z",
+      "dailyRunId": "334f0f2ef3ed1d957189585ee36fcf6d9934bae9b626febf1cde661657c7b058",
+      "dailySnapshotSha256": "e1945874cb3f2cb661bf67671ec2bd760ae363761e21f85e3ea8d044afd91384",
+      "dailyContractSha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+      "dailyCoverageComplete": false,
+      "dailyCoverageMeasure": "daily_source_intake_v2",
+      "dailyIntakeComplete": false,
+      "dailyProcessingComplete": false,
+      "dailyHistoricalReviewComplete": false
+    },
+    "appRevisionMatchesObservedRemotePreview": true
+  },
+  "scope": {
+    "futurePreviewOnly": true,
+    "uncollectedFixture": true,
+    "fixtureMustNeverPublishToProduction": true,
+    "allowedOrCertifiedFieldsDoNotGrantPublicationAuthority": true,
+    "actualScheduledTimerCredit": false,
+    "actualNormalCollectionCredit": false,
+    "productionCredit": false,
+    "mainUnchangedAndObserved": "6d5e87feba4ffbc75e50f35cb564cb8fd91708ca",
+    "statusOrBacklogEdits": false,
+    "gitCommitOrPushByWorker": false,
+    "dispatchesByWorker": 0,
+    "sourcePolicyOrBudgetMutation": false
+  },
+  "checks": {
+    "bothActualCiRunsSucceededOnExactPreview": true,
+    "remotePreviewShaMatchesAssigned": true,
+    "remoteMainShaMatchesFrozenMain": true,
+    "previewHttp200": true,
+    "actualAppRevisionMatchesExactPreview": true,
+    "vercelReadyProvenanceExplicitlyRootObserved": true
+  }
+}

@@ -98,8 +98,10 @@ and passing [independent review](docs/active/daily-pipeline/accuracy/scheduled-s
 It forces real conditional transport past both receipt and saved-download reuse only for the genuine
 main 05:17 daily timer. All 840 operational and 534 executed application tests pass, with one existing
 fixture skip; independent checks passed 12 focused, 6 existing and 7 extra scenarios. Same-data
-1440/390 renders have zero changed pixels. Future-preview commit de2059ab awaits its preview
-push; these checks grant no repaired-runtime proof, and main remains 6d5e87fe.
+1440/390 renders have zero changed pixels. Preview 4ae86e2b contains repair de2059ab;
+web 40172455392 and canary 40172455446 passed, and Vercel dpl_7qy95vbv6wrmURM8SabrCyViioJk
+is READY with its exact app receipt. The [preview receipt](docs/active/daily-pipeline/receipts/scheduled-source-freshness-preview-2026-10-25.json)
+grants no repaired-runtime proof; the uncollected fixture must never publish and main stays 6d5e87fe.
 After reviewed promotion and an available code-bound gate, audit the repaired revision's actual
 genuine timer receipts. That forced-timer validation is pending. The [cadence review](docs/active/daily-pipeline/accuracy/same-day-manual-and-scheduled-source-cadence-review-2026-10-25.md)
 keeps older-policy reuse separate from H. A cold forced cycle writes no immutable replay pointer;
