@@ -1,0 +1,70 @@
+{
+  "scope": "offline read/get only; no LocalStore initialization, transport, reservation or qualification",
+  "archive": "/var/tmp/smp-seven-source-40131875060-20261024/extracted",
+  "archiveManifestSha256": "895213b31bb9f75814acc9484cad9aabd3719e07ddd72c621275a9b2568a1e5c",
+  "originalRunId": "40131875060",
+  "parentProofsValidated": 3,
+  "literalScriptTargets": 6,
+  "planRawSha256": "007f1f940d48727da9a921d0c1138f27e5249870dd5ed6aaa3da3e844582ba91",
+  "planCanonicalSha256": "e787c1c94704dd3a21ff4e71ffaf35dac1ac18f9d3ea2b0a7e16690da3561600",
+  "consultedOriginalFiles": [
+    {
+      "key": "state/ci/source-probe-runs/40131875060-1.json",
+      "sha256": "90f8b45b299dd868fd558d1218fd1e0bcc0fda59c46d9f9a779352d461596aee",
+      "bytes": 90157,
+      "mtimeNs": 1792875521000000000,
+      "unchanged": true
+    },
+    {
+      "key": "state/objects/1d242084cb70aff581e42156c01f3a78a136cfd6bdfce16235fc67c2b379db12",
+      "sha256": "1d242084cb70aff581e42156c01f3a78a136cfd6bdfce16235fc67c2b379db12",
+      "bytes": 490,
+      "mtimeNs": 1792875521000000000,
+      "unchanged": true
+    },
+    {
+      "key": "state/objects/97356357732c1f91c9b3fa5485fa4b50a0c83e752abf5caf6e6d0d043731b1bf",
+      "sha256": "97356357732c1f91c9b3fa5485fa4b50a0c83e752abf5caf6e6d0d043731b1bf",
+      "bytes": 489,
+      "mtimeNs": 1792875521000000000,
+      "unchanged": true
+    },
+    {
+      "key": "state/objects/98b110fe4fd1beb898ff7ccaa190a3e4eb6dcb61e1da3ed5a5d72151bddd2ce4",
+      "sha256": "98b110fe4fd1beb898ff7ccaa190a3e4eb6dcb61e1da3ed5a5d72151bddd2ce4",
+      "bytes": 4256,
+      "mtimeNs": 1792875521000000000,
+      "unchanged": true
+    },
+    {
+      "key": "state/objects/9ece5b105eb693076ea90ace3310c9cfbae7747b4e32faca80d9208dd1776479",
+      "sha256": "9ece5b105eb693076ea90ace3310c9cfbae7747b4e32faca80d9208dd1776479",
+      "bytes": 90652,
+      "mtimeNs": 1792875521000000000,
+      "unchanged": true
+    },
+    {
+      "key": "state/objects/c5a34d9cf87cd3e52f567fdf8883ca60e33f7e28a8923bc006469e91cd883a17",
+      "sha256": "c5a34d9cf87cd3e52f567fdf8883ca60e33f7e28a8923bc006469e91cd883a17",
+      "bytes": 42385,
+      "mtimeNs": 1792875521000000000,
+      "unchanged": true
+    },
+    {
+      "key": "state/objects/d6d8aaf368b4cb48ff4d6e1cc5b4f93500ae2ac093a7d75b9c82927e48bd6be1",
+      "sha256": "d6d8aaf368b4cb48ff4d6e1cc5b4f93500ae2ac093a7d75b9c82927e48bd6be1",
+      "bytes": 520,
+      "mtimeNs": 1792875521000000000,
+      "unchanged": true
+    },
+    {
+      "key": "state/objects/ead58a93ed20878e2ffb83512b3e8b52c08d878b3dff19e8d95a1162630ef20d",
+      "sha256": "ead58a93ed20878e2ffb83512b3e8b52c08d878b3dff19e8d95a1162630ef20d",
+      "bytes": 114902,
+      "mtimeNs": 1792875521000000000,
+      "unchanged": true
+    }
+  ],
+  "originalsUnchanged": true,
+  "actualControllerBodiesCaptured": 0
+}

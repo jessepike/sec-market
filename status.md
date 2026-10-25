@@ -73,8 +73,14 @@ and [remaining-record correction queue](docs/active/daily-pipeline/accuracy/rema
 Their fixtures must never publish. All proposed corrections remain outside the operational contract
 until independent admission and normal publication can proceed after current acceptance.
 The [bounded Q4 controller capture](docs/active/daily-pipeline/accuracy/q4-controller-diagnostic-spec-2026-10-25.md)
-is now being implemented for six scripts literally disclosed by the three existing candidate
-newsrooms. It stays dormant; no new request, source registration or qualification credit.
+is implemented for six scripts literally disclosed by the three existing candidate newsrooms.
+All 858 operational and 534 executed application tests pass, with one existing fixture skip;
+1440/390 local renders exactly match the prior preview. Independent review passed 18 focused,
+8 older-route checks and 33 additional rejection cases; all six old admissions replay unchanged.
+The [implementation](docs/active/daily-pipeline/accuracy/q4-controller-capture-implementation-2026-10-25.md)
+and [review](docs/active/daily-pipeline/accuracy/q4-controller-capture-independent-review-2026-10-25.md)
+retain proof. It stays dormant; actual script capture and all three qualifications remain pending.
+No new request, source registration, allowance change or qualification credit.
 
 ## Prior receipts and remaining acceptance
 

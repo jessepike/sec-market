@@ -1,0 +1,45 @@
+{
+  "scope": "Full-page screenshots captured with shot.mjs; all four inspected. Local Q4 build compared with prior scheduled-freshness local build. Production has the accepted newer collector data. No visible application change from this patch.",
+  "captures": [
+    {
+      "width": 1440,
+      "localPath": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-controller-local-1440.png",
+      "localSize": [
+        1440,
+        8379
+      ],
+      "localSha256": "b044622ff53e695fee8334a95746b932c0df81ff6e26ecb810bfd9228765cdd9",
+      "priorLocalPath": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/scheduled-freshness-local-1440.png",
+      "priorLocalSha256": "b044622ff53e695fee8334a95746b932c0df81ff6e26ecb810bfd9228765cdd9",
+      "pixelDifferenceBoundingBox": null,
+      "pixelsIdentical": true,
+      "productionPath": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-controller-production-1440.png",
+      "productionSize": [
+        1440,
+        8358
+      ],
+      "productionSha256": "5d04b34e2ffb5f520d45a06487e9ef7eb4ae671eb4cf7dce86626a2ffd1a6267"
+    },
+    {
+      "width": 390,
+      "localPath": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-controller-local-390.png",
+      "localSize": [
+        390,
+        7749
+      ],
+      "localSha256": "7dc872da46a4cf5e2eb765df88e1ae28e34eb70f8d5c38b19835bab09afcd3df",
+      "priorLocalPath": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/scheduled-freshness-local-390.png",
+      "priorLocalSha256": "7dc872da46a4cf5e2eb765df88e1ae28e34eb70f8d5c38b19835bab09afcd3df",
+      "pixelDifferenceBoundingBox": null,
+      "pixelsIdentical": true,
+      "productionPath": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-controller-production-390.png",
+      "productionSize": [
+        390,
+        7611
+      ],
+      "productionSha256": "6da1a1dd0d2591dedb6bef743460ce9659853c84ff3539a59308c5e0cf347b75"
+    }
+  ],
+  "allLocalPixelsIdentical": true,
+  "finalBuildLocalCaptureRechecked": true
+}

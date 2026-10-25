@@ -234,15 +234,21 @@ def execute_source_probe(root, state, session, contract, maximum_seconds):
     session_runtime.require_source_probe_context(session['sessionId'])
     cancelled = False
     previous_signals = {}
+    selected_q4 = False
     try:
         qualification_plan = REPO / 'contracts/source-qualification-probes.json'
         qualification_raw = qualification_plan.read_bytes()
         require(0 < len(qualification_raw) <= 1_000_000, 'QUALIFICATION_PLAN_SIZE_INVALID')
         selected_plan = json.loads(qualification_raw)
+        selected_q4 = isinstance(selected_plan, dict) and selected_plan.get('operation') == 'bounded_q4_controller_capture'
         orca = None
+        q4 = None
         if isinstance(selected_plan, dict) and selected_plan.get('operation') == 'bounded_orca_qualification':
             import orca_qualification as orca
             orca_plan = orca.validate_plan(contract, state, qualification_raw, qualification_plan)
+        elif selected_q4:
+            import q4_controller_capture as q4
+            q4_plan = q4.validate_plan(contract, state, qualification_raw, qualification_plan)
         else:
             validate_qualification_probe_plan(contract, state, qualification_plan)
         # This exact day is escrowed. A midnight crossing during the remote
@@ -257,7 +263,11 @@ def execute_source_probe(root, state, session, contract, maximum_seconds):
         for signum in previous_signals:
             signal.signal(signum, stop)
         escrow_budgets(root, state, session, contract, budget.started_at)
-        if orca is not None:
+        if q4 is not None:
+            report = q4.execute(contract, state, Fetcher(state, timeout=12, max_bytes=q4.MAX_BODY_BYTES,
+                redirect_diagnostics=True, unexpected_status_diagnostics=True), budget, q4_plan)
+            report = q4.finalize_report(contract, state, qualification_raw, report, budget)
+        elif orca is not None:
             report = orca.execute(contract, state, Fetcher(state, timeout=12, redirect_diagnostics=True), budget, orca_plan)
             # Reconstruct readiness and retain repeated module/caller denials.
             report = orca.finalize_report(contract, state, qualification_raw, report, budget)
@@ -283,6 +293,8 @@ def execute_source_probe(root, state, session, contract, maximum_seconds):
                   'modelCalls': 0, 'apiFallback': False, 'semanticAdmission': False,
                   'coverageCredit': False, 'sourceChecksCredited': 0, 'qualifiedSources': 0,
                   'publication': {'published': False, 'reason': 'SOURCE_PROBE_DIAGNOSTIC_ONLY'}}
+        if selected_q4:
+            result['facts'] = []
         state.write_once(f"ci/source-probe-runs/{result['githubRunId']}-{result['githubRunAttempt']}.json", result)
         result['archive'] = session_runtime.checkpoint(root, state, session, 'finish', result, finish=True)['archive']
         return result
@@ -291,6 +303,8 @@ def execute_source_probe(root, state, session, contract, maximum_seconds):
                   'executionCompleted': False, 'outcome': 'failed', 'modelCalls': 0,
                   'semanticAdmission': False, 'coverageCredit': False,
                   'publication': {'published': False, 'reason': 'SOURCE_PROBE_DIAGNOSTIC_ONLY'}}
+        if selected_q4:
+            failed.update(qualifiedSources=0, sourceChecksCredited=0, facts=[])
         state.write_once(f"ci/source-probe-failures/{digest(session['sessionId'])}/{digest(failed)}.json", failed)
         lease = state.read('heads/cloud-lease.json')
         if lease and not lease.get('releasedAt'):

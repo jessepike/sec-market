@@ -123,8 +123,12 @@ No owner source decision is currently required. No refund, reset, purchase or pa
 
 Unblock the existing JFrog, Rapid7 and Rubrik candidates through the
 [six-controller capture specification](docs/active/daily-pipeline/accuracy/q4-controller-diagnostic-spec-2026-10-25.md).
-Its separate diagnostic operation is being implemented on future preview. The exact parent HTML
-and charged proof join pass offline; the six JavaScript bodies remain unfetched. Capturing them
+Its separate diagnostic operation is implemented for future preview. All 858 operational and
+534 executed application tests pass, with one existing fixture skip. Independent review passes
+18 focused, 8 older-route checks and 33 additional rejections, with all six old admissions exact;
+same-data renders are pixel-identical. See the [implementation](docs/active/daily-pipeline/accuracy/q4-controller-capture-implementation-2026-10-25.md)
+and [independent review](docs/active/daily-pipeline/accuracy/q4-controller-capture-independent-review-2026-10-25.md).
+The exact parent HTML and charged proof join pass offline; the six JavaScript bodies remain unfetched. Capturing them
 later earns no qualification or coverage credit until actual record/date/paging proof is complete.
 Keep the operational plan disabled and current main fixed during timer acceptance.
 

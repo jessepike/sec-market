@@ -1,0 +1,124 @@
+{
+  "scope": "Offline implementation verification; no activation or actual controller bodies",
+  "changedCodeAndPlanSha256": {
+    "web/scripts/pipeline/q4_controller_capture.py": "8720cd8bed0c533201c24565ca28b23198f99f8a352213e07774f6f05f15ffb3",
+    "ops/ci/test_q4_controller_capture.py": "d7cd0ba331ba8206daec855db742ad91e1fca6e475eec33dd656ad39d6942aa7",
+    "ops/ci/collect.py": "87565d7855266777297fb7de11e94756ffbf9e1b38bbb4f92be2f6f0a557d007",
+    "docs/active/daily-pipeline/accuracy/q4-controller-capture-plan-2026-10-25.json": "007f1f940d48727da9a921d0c1138f27e5249870dd5ed6aaa3da3e844582ba91"
+  },
+  "protectedSha256": {
+    "web/scripts/pipeline/engine.py": "e471f18006a4899406510cdede42829476ba1945b58c420c61f6edce767a7e19",
+    "contracts/source-qualification-probes.json": "ad1c5cc234fe4fa69cbceb5370ac74825a37dc80b08528ca908d14b1352e53b4",
+    "contracts/market.json": "24221c946781559c0ff3626e4e479c4647da915d0f2d7559ea88046982532c3c",
+    "contracts/factual-corrections.json": "9c9fbe0d3d40ece11e1407ce9460086c732f62da88d3b0f220ab9d6f8757da00",
+    "web/src/data/tracker/factualCorrectionPolicy.json": "7319ece4c5c4f6c7d515fb9ef7ff13211daf38e041948edd26732e9ccfa2dbc7"
+  },
+  "scheduledFreshnessSelectorExact": true,
+  "scheduledFreshnessSelectorSha256": "c36a32597bdf5075a5bd2f2700ab5488dfb3faad8a529c3afcc85c843bd46f5d",
+  "tests": {
+    "focusedPassed": 18,
+    "operationalPassed": 858,
+    "dataPassed": 377,
+    "pipelinePassed": 115,
+    "browserPassed": 42,
+    "browserExistingSkip": 1,
+    "lintPassed": true,
+    "gatedBuildPassed": true
+  },
+  "noPrimarySourceRequests": true,
+  "actualControllerBodiesCaptured": 0,
+  "noDispatch": true,
+  "noCommitOrPush": true,
+  "allLocalPixelsIdentical": true,
+  "testLogSha256": {
+    "focused-tests.log": "9663355f5a60b5e9c33f3f45284fddc7d368fa4291f3abc7b9eaf14703735d6c",
+    "full-ops-tests.log": "83b58eb8eabd707847a4b128475aa14a833c7a67de92debf2d4a01a2621c555f",
+    "full-web-tests.log": "a72800c6365cab54d3bf28699cb8a070519dbe25e4c26bff5c3741a56d8f6d03"
+  },
+  "independentReview": {
+    "verdict": "pass for dormant future preview",
+    "openMaterialFindings": 0,
+    "resolvedMaterialFindings": 3,
+    "focusedTestsPassed": 18,
+    "oldRouteTestsPassed": 8,
+    "additionalMutationsRejected": 33,
+    "unpatchedActualParentCaptureFinalizeReplayPassed": true,
+    "allSixActualAdmissionsReplayed": true,
+    "archiveInputsPreserved": 44,
+    "reviewSha256": {
+      "q4-controller-capture-independent-review-2026-10-25.md": "3e2dd5123e4e55a56f9a6c238ef69163fc0b22d77b046f214a3d58869a09964e",
+      "q4-controller-capture-independent-review-2026-10-25.json": "8c81522d750558baed68d681a42bc25102d82cb00fdc89fb060f7ba423422431"
+    }
+  },
+  "implementationHandbackSha256": "bffdf8225fed003e03a062f0de1653f29eec2b3f79811fd49a580f13e1551fdf",
+  "ownRenderServerStopped": true,
+  "testLogSha256Meaning": "SHA256 of original raw test-log bytes; recover using retainedLogArtifacts entries and gzip decompression.",
+  "retainedLogArtifacts": {
+    "format": "gzip",
+    "compressionLevel": 9,
+    "mtime": 0,
+    "embeddedFilename": "",
+    "headerOs": 255,
+    "rawLogsArePrimaryEvidence": true,
+    "rawLineCountMethod": "len(raw.splitlines())",
+    "allFiveByteExactRoundTrips": true,
+    "allFiveDeterministicRecompressions": true,
+    "files": {
+      "focused-tests.log": {
+        "retainedFile": "focused-tests.log.gz",
+        "rawSha256": "9663355f5a60b5e9c33f3f45284fddc7d368fa4291f3abc7b9eaf14703735d6c",
+        "rawBytes": 3491,
+        "rawLineCount": 23,
+        "rawLfCount": 23,
+        "gzipSha256": "db4a006a5addb1cadbdf548e261e0a81845b77af50e9097b37c079c3e153ff34",
+        "gzipBytes": 812,
+        "byteExactRoundTrip": true,
+        "deterministicRecompressionVerified": true
+      },
+      "full-ops-tests.log": {
+        "retainedFile": "full-ops-tests.log.gz",
+        "rawSha256": "83b58eb8eabd707847a4b128475aa14a833c7a67de92debf2d4a01a2621c555f",
+        "rawBytes": 159820,
+        "rawLineCount": 863,
+        "rawLfCount": 863,
+        "gzipSha256": "3633e14ad5707ca95bdda4ac902eaeed1ad85b62c38eb40328aa427cce3146bd",
+        "gzipBytes": 24030,
+        "byteExactRoundTrip": true,
+        "deterministicRecompressionVerified": true
+      },
+      "full-web-tests.log": {
+        "retainedFile": "full-web-tests.log.gz",
+        "rawSha256": "a72800c6365cab54d3bf28699cb8a070519dbe25e4c26bff5c3741a56d8f6d03",
+        "rawBytes": 126996,
+        "rawLineCount": 2998,
+        "rawLfCount": 2996,
+        "gzipSha256": "2b9487ca6d1b91eb9e08f054f255fb415c79a0e366f924623270ae780f3b18fd",
+        "gzipBytes": 25424,
+        "byteExactRoundTrip": true,
+        "deterministicRecompressionVerified": true
+      },
+      "local-render.log": {
+        "retainedFile": "local-render.log.gz",
+        "rawSha256": "ccb96707b106530a283db2e5cacdea5ccaef0f079502f420e10bcf176db8a9fc",
+        "rawBytes": 352,
+        "rawLineCount": 2,
+        "rawLfCount": 2,
+        "gzipSha256": "ec1145a817905e3ad63a35a1f8656fddd9f6e9d8a0804cd3fe498a584e0852b4",
+        "gzipBytes": 187,
+        "byteExactRoundTrip": true,
+        "deterministicRecompressionVerified": true
+      },
+      "production-render.log": {
+        "retainedFile": "production-render.log.gz",
+        "rawSha256": "e3aeccb8b11188b2b5959fef4c3a23bf9e2f8befb33a1d3d9d7c3344b8f94943",
+        "rawBytes": 380,
+        "rawLineCount": 2,
+        "rawLfCount": 2,
+        "gzipSha256": "b5a69e3bafb6e56410245b54db0dba160c3090f02ec73cf0ceedbda3c2dacba3",
+        "gzipBytes": 191,
+        "byteExactRoundTrip": true,
+        "deterministicRecompressionVerified": true
+      }
+    }
+  }
+}
