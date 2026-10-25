@@ -1,0 +1,13 @@
+{
+  "id": 40151037023,
+  "run_attempt": 1,
+  "event": "push",
+  "status": "completed",
+  "conclusion": "success",
+  "head_sha": "a87a01d63d50eda2e18b5ee051c649fdb18c9456",
+  "head_branch": "preview",
+  "created_at": "2026-10-25T01:32:34Z",
+  "updated_at": "2026-10-25T01:34:33Z",
+  "path": ".github/workflows/subscription-runtime-canary.yml",
+  "html_url": "https://github.com/jessepike/sec-market/actions/runs/40151037023"
+}

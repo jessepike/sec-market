@@ -56,6 +56,8 @@ retains failed opened HTTP responses only in opted-in schema-1 diagnostics. All 
 tests and 530 executed application tests pass (one appropriate fixture skip). Independent origin
 replay preserves the three qualified inventories and all 41,249 archive files. Full/first-screen
 1440/390 renders exactly match the prior preview. The old Check Point status stays unknown.
+Preview a87a01d6 passed web 40151036997 and archive canary 40151037023; Vercel
+dpl_5hsHPnXUEDQZrTYv8xW3NzGBwKK1 is READY. Its uncollected fixture must never publish.
 Keep this patch off main until the assigned actual H scheduled/public acceptance.
 
 ## Sources, alerts and next receipts
