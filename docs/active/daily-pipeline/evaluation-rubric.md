@@ -63,6 +63,13 @@ reports and actual public-release evidence alongside this new private-policy obs
 
 ## Trust and further evaluation
 
+The October 25 [recovery observation](evaluations/2026-10-25/recovery-observation.md) applies
+the same evaluator to actual recovery release fc8bf098: intake 264/557, processing 38/10,655
+and history 39/10,655. Known release checks, publication, rollback/restoration and explicit
+continuity checks pass. Genuine timer evidence on this revision, sustained operation, general
+claim precision/recall and reader value remain unmeasured. The actual source-bound expiry
+stays distinct from the evaluator's collection-receipt age. The prior overdue window is retained.
+
 The separate [authenticated current-remediation observation](accuracy/current-correction-resolution-observation-2026-10-24.md)
 records all five mapped contradictions resolved around 04:01 UTC on October 24. It binds the
 original accepted reviews and reservations, exact gate/publisher evidence and live static bytes.

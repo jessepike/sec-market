@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "evaluatedAt": "2026-10-25T07:52:32.605468Z",
+  "appRevision": "6d5e87feba4ffbc75e50f35cb564cb8fd91708ca",
+  "inputs": {
+    "contract": {
+      "path": "inputs/contract.json",
+      "sha256": "24221c946781559c0ff3626e4e479c4647da915d0f2d7559ea88046982532c3c"
+    },
+    "coverage": {
+      "path": "inputs/coverage.json",
+      "sha256": "f2486a623d93da011eaaf11926e09d6ce1533dab26d4a8f2fa2875a95a84d0b6"
+    },
+    "collection": {
+      "path": "../../receipts/manual-freshness-recovery-40169973257-2026-10-25.json",
+      "sha256": "e0f7047d1d79508a51a18ac3bb0ce5a50adf8d761ee0709bebdfe931943ccf32"
+    },
+    "gate": {
+      "path": "../../receipts/manual-freshness-publication-2026-10-25/gate-receipt.json",
+      "sha256": "f2b6718144b4aea15be01990fc7d6f7777e85e4c1e2f0128e492534225418b2c"
+    },
+    "publication": {
+      "path": "../../receipts/manual-freshness-publication-2026-10-25/publication-receipt.json",
+      "sha256": "b4c1fd7aec6556d95aac69ff7df611bc8458f2bbfef487b4ccabec6538e0e696"
+    },
+    "rollback": {
+      "path": "../../receipts/recovery-rollback-restoration-2026-10-25/drill-receipt.json",
+      "sha256": "9516b9ca8afd13db4f8604c0e208436113e3d65771b81a1472c4058df303f5d3"
+    },
+    "continuity": {
+      "path": "inputs/continuity.json",
+      "sha256": "9d652656fedb6edcec1f8db44489f35b83e2edf20ebd60b95bbb92fee2ac2cba"
+    }
+  }
+}

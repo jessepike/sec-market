@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "runId": "d1b5cbbf41ba2d8dfcb05a7ff2a2b00b7faada68dcaf3224ad4c7702b2d63b22",
+  "appRevision": "6d5e87feba4ffbc75e50f35cb564cb8fd91708ca",
+  "checkedAt": "2026-10-25T07:31:04.407756Z",
+  "contractSha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+  "sourceSnapshotSha256": "995315213ae6519f3578d44bef37d0075559e1aa95eaaeadb2c82de281188572",
+  "publishedSnapshotSha256": "8ba13011b9d29b875082a551800d57e265238fd7ffd649ff7b99f7072ab25a89",
+  "sourceEvidencePins": {
+    "collection": {
+      "path": "../../receipts/manual-freshness-recovery-40169973257-2026-10-25.json",
+      "sha256": "e0f7047d1d79508a51a18ac3bb0ce5a50adf8d761ee0709bebdfe931943ccf32"
+    },
+    "authenticatedPublicationVerification": {
+      "path": "../../receipts/manual-freshness-publication-2026-10-25/verification-summary.json",
+      "sha256": "582baf6119f5f3c882a09e849311e81212f121c758054aca3ada7a4935206169"
+    }
+  },
+  "measures": [
+    {
+      "id": "review_queue",
+      "expected": 37,
+      "retained": 37,
+      "passed": true
+    },
+    {
+      "id": "fact_provenance",
+      "expected": 4,
+      "retained": 4,
+      "passed": true
+    },
+    {
+      "id": "current_or_quarantined_events",
+      "expected": 8,
+      "retained": 8,
+      "passed": true
+    },
+    {
+      "id": "accepted_correction_groups",
+      "expected": 6,
+      "retained": 6,
+      "passed": true
+    }
+  ],
+  "limitations": [
+    "Derived from the authenticated publication verifier, whose actual bytes, dates, source clocks, admissions and current/quarantined partition checks are pinned. This scorecard does not repeat that verifier or authenticate source bodies itself.",
+    "Four historical events remain pending, not accepted current-policy facts. This is durable retention, not publication eligibility."
+  ]
+}
