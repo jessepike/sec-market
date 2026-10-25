@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "capturedAtUtc": "2026-10-25T07:29:00Z",
+  "captureTimePrecision": "minute, before the controlled rollback drill",
+  "url": "https://securitymarketpulse.com/",
+  "releaseId": "fc8bf0984dbeacbe79519574911837d8b638f42215f6547e31ae8968b29951e4",
+  "appRevision": "6d5e87feba4ffbc75e50f35cb564cb8fd91708ca",
+  "command": "node scripts/shot.mjs https://securitymarketpulse.com/ <output-prefix>",
+  "executionEnvironment": "OrbStack dev",
+  "reviewedByRoot": true,
+  "observed": "The existing desktop and mobile layouts remain intact. The header now displays daily intake separately from document processing and historical review. Current data changes are visible. All sections remain present. This inspection does not establish source completeness or recurring operation.",
+  "images": [
+    {
+      "width": 1440,
+      "height": 8358,
+      "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/recovery-production-1440.png",
+      "sha256": "5d04b34e2ffb5f520d45a06487e9ef7eb4ae671eb4cf7dce86626a2ffd1a6267"
+    },
+    {
+      "width": 390,
+      "height": 7611,
+      "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/recovery-production-390.png",
+      "sha256": "6da1a1dd0d2591dedb6bef743460ce9659853c84ff3539a59308c5e0cf347b75"
+    }
+  ]
+}

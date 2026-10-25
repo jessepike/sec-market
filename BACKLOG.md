@@ -23,7 +23,7 @@ and company-type navigation (SEC-074) follow reliable operation.
 | Historical review | 39/10,655 reviewed; 10,616 pending; 10 held. |
 | Review queue | 37 entries; all 33 earlier held identities persist, with four additional identities. |
 | Publication recovery | Manual publisher 40172130763 and gate 40172376435 passed on exact main 6d5e87fe; public freshness recovered. Issue 12 closed at 07:28:33 UTC. |
-| Current drill | Manual drill 40173134585 is running on exact main 6d5e87fe against expected release fc8bf098; outcome pending. |
+| Current drill | Manual drill 40173134585 passed: retained baseline 19fde803 exercised and current fc8bf098 restored, with all 106 final host-file comparisons exact. |
 | Known contradictions | Five-record remediation is 5/5 resolved in the accepted public release; this is not a general precision/recall estimate. |
 | Reader value and sustained operation | Unmeasured. The owner reports no useful real use yet. |
 
@@ -66,7 +66,8 @@ passed 531 release tests, the actual public-source validator and 805 operational
 external gate attempt. Manual publisher 40172130763 and gate 40172376435 subsequently passed
 on exact main 6d5e87fe. The [actual publication review](docs/active/daily-pipeline/accuracy/manual-freshness-publication-2026-10-25.md)
 records release fc8bf098, sequence 4, snapshot 8ba13011 and all 106 exact host-file comparisons.
-Manual drill 40173134585 is running against that expected release; its result remains pending.
+Manual drill 40173134585 passed against that expected release; its authenticated baseline,
+restoration and unchanged-state proof are in the [actual drill review](docs/active/daily-pipeline/accuracy/recovery-rollback-restoration-2026-10-25.md).
 Genuine H scheduled collection and automatic publication still need actual receipts.
 
 Earlier manual publisher 40147731858 and gate 40148005688 failed when prior-day receipts joined
@@ -101,8 +102,8 @@ and passing [independent review](docs/active/daily-pipeline/accuracy/scheduled-s
 It forces real conditional transport past both receipt and saved-download reuse only for the genuine
 main 05:17 daily timer. All 840 operational and 534 executed application tests pass, with one existing
 fixture skip; independent checks passed 12 focused, 6 existing and 7 extra scenarios. Same-data
-1440/390 renders have zero changed pixels. Current preview 06946a03 contains the reviewed
-repair and verified application revision 4ae86e2b. Web 40172455392 and canary 40172455446 passed
+1440/390 renders have zero changed pixels. Preview contains reviewed repair de2059ab
+and verified application revision 4ae86e2b; later commits retain evidence only. Web 40172455392 and canary 40172455446 passed
 on 4ae86e2b, whose Vercel dpl_7qy95vbv6wrmURM8SabrCyViioJk is READY with its exact app
 receipt. The [preview receipt](docs/active/daily-pipeline/receipts/scheduled-source-freshness-preview-2026-10-25.json)
 grants no repaired-runtime proof; the uncollected fixture must never publish and main stays 6d5e87fe.
@@ -117,7 +118,7 @@ October 24 usage ended at 2,095/5,500 fetch reservations, 80/80 model calls, 40/
 documents. Both October 25 gate attempts are spent; second gate 40172376435 passed under
 publisher 40172130763. Collector cadence remains 05:17 UTC and publisher cadence 06:23/16:23
 UTC. Issue 12 closed at 07:28:33 UTC after real publication; issue 10 retains coverage/history and
-scheduled-operation gaps. Manual drill 40173134585 outcome remains pending.
+scheduled-operation gaps. Manual drill 40173134585 passed without another gate attempt.
 No owner source decision is currently required. No refund, reset, purchase or paid fallback.
 
 Actual monitor 40165077942 updated assigned issue 10 at 05:19 UTC October 25, after starting

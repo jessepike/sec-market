@@ -25,7 +25,7 @@ remain queued as SEC-073/074.
 | Review queue | 37 entries. All 33 earlier identities persist: 26 exact rows and 7 Aqua identities with newer held receipts; their original receipts remain. Four new holds concern HiddenLayer, Delinea and eSentire dates, and ReliaQuest source identity. |
 | October 25 allowances | 444/5,500 fetches, 72/80 model calls and 33/40 documents. Both gate attempts are spent, including successful gate 40172376435. No refund, reset or paid fallback. |
 | Publication recovery | Manual publisher 40172130763 and external gate 40172376435 passed on exact main 6d5e87fe. Release fc8bf098 restored public freshness; issue 12 closed at 07:28:33 UTC. Actual H scheduled collection and automatic publication remain unproved. |
-| Current drill | Manual drill 40173134585 is running on exact main 6d5e87fe, expecting release fc8bf098. No result is established yet. |
+| Current drill | Manual drill 40173134585 passed: retained baseline 19fde803 exercised, current fc8bf098 restored, journal passed at 07:37:39 UTC. All 53 files match both hosts again: 106 exact comparisons. Source/gate counters and admissions are unchanged. |
 
 The [recovery audit](docs/active/daily-pipeline/accuracy/manual-freshness-recovery-40169973257-2026-10-25.md)
 authenticates archive a50c594f and all 45,259 entries. Exact reconciliation and collector continuity
@@ -60,8 +60,8 @@ The [cadence review](docs/active/daily-pipeline/accuracy/same-day-manual-and-sch
 keeps earlier-policy same-day reuse separate from H and from the actual public expiry. A cold forced
 cycle writes no saved-download pointer; a later ordinary retry with unfinished semantic work can
 spend additional conditional fetches. Preserve that cost and test actual repaired-timer clocks after
-reviewed promotion with an available code-bound gate. Current preview 06946a03 contains the
-reviewed repair and the verified application revision 4ae86e2b. Web 40172455392 and canary
+reviewed promotion with an available code-bound gate. Preview contains the reviewed repair
+de2059ab and verified application revision 4ae86e2b; later commits retain evidence only. Web 40172455392 and canary
 40172455446 passed on 4ae86e2b; its Vercel dpl_7qy95vbv6wrmURM8SabrCyViioJk is READY and
 its actual app receipt matches that application revision. The
 [preview receipt](docs/active/daily-pipeline/receipts/scheduled-source-freshness-preview-2026-10-25.json)
@@ -93,8 +93,11 @@ retain the historical public 06:05 expiry and overdue episode; the former 06:38 
 Manual publication has now restored freshness with real source evidence. The bootstrap freshness
 failure remains part of the record; later recovery does not establish continuous operation.
 
-Next evidence: running drill 40173134585 outcome and genuine H scheduled collection/automatic
-publication. The future repaired revision also needs its own forced-timer validation after release.
+The [actual drill review](docs/active/daily-pipeline/accuracy/recovery-rollback-restoration-2026-10-25.md)
+retains the baseline/restoration journal and final every-file proof. Root inspected the live release
+at both widths; [render receipt](docs/active/daily-pipeline/receipts/recovery-production-renders-2026-10-25.json).
+Next evidence: genuine H scheduled collection/automatic publication. The future repaired revision
+also needs its own forced-timer validation after release.
 Issue 12 is closed after actual publication; issue 10 retains coverage, processing/history and
 scheduled-operation gaps. Owner GitHub inbox delivery for issues 10/12/13 is proven; phone/email
 delivery is not.

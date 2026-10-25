@@ -1,0 +1,30 @@
+{
+  "actualDrillVerified": true,
+  "releaseId": "fc8bf0984dbeacbe79519574911837d8b638f42215f6547e31ae8968b29951e4",
+  "sequence": 4,
+  "journalCompletedAt": "2026-10-25T07:37:39.753529Z",
+  "staticFileProof": {
+    "artifactStaticFiles": 52,
+    "withDetachedReceipt": 53,
+    "hosts": 2,
+    "verifiedRequests": 106,
+    "allBytesExact": true
+  },
+  "gateBudget": {
+    "attempts": 2,
+    "limit": 2,
+    "remaining": 0
+  },
+  "sourceBudget": {
+    "calls": 72,
+    "documents": 33,
+    "fetches": 444
+  },
+  "allSourceObjectsObservationsFactsAdmissionsUnchanged": true,
+  "issue12": {
+    "state": "closed",
+    "closedAt": "2026-10-25T07:28:33Z"
+  },
+  "activeRuns": 0,
+  "queuedRuns": 0
+}

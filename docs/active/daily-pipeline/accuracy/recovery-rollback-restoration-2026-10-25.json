@@ -1,0 +1,313 @@
+{
+  "checkedAt": "2026-10-25T07:42:36.086526Z",
+  "actualDrillVerified": true,
+  "drillRunId": 40173134585,
+  "event": "workflow_dispatch",
+  "realTimerProof": false,
+  "appRevision": "6d5e87feba4ffbc75e50f35cb564cb8fd91708ca",
+  "drillId": "2e55137fa20f550532be2f57dd3cf78c2621ae44ce516f09d78fc285a121bb31",
+  "releaseId": "fc8bf0984dbeacbe79519574911837d8b638f42215f6547e31ae8968b29951e4",
+  "sequence": 4,
+  "baseline": {
+    "deploymentId": "https://security-market-pulse-pjtpkd3hl-pikeholdings.vercel.app",
+    "releaseId": "19fde803d09aa544672183769c257e37faf727b75e1914955f54f3c5fb126941",
+    "sequence": 3
+  },
+  "current": {
+    "deploymentId": "https://security-market-pulse-fqk0jyft3-pikeholdings.vercel.app",
+    "releaseId": "fc8bf0984dbeacbe79519574911837d8b638f42215f6547e31ae8968b29951e4",
+    "sequence": 4
+  },
+  "journalCompletedAt": "2026-10-25T07:37:39.753529Z",
+  "phases": [
+    {
+      "phase": "intent_archived",
+      "checkedAt": "2026-10-25T07:36:03.463518Z",
+      "baselineBytesVerified": false,
+      "currentBytesVerified": false
+    },
+    {
+      "phase": "baseline_acknowledged",
+      "checkedAt": "2026-10-25T07:36:37.638189Z",
+      "baselineBytesVerified": true,
+      "currentBytesVerified": false
+    },
+    {
+      "phase": "current_restored",
+      "checkedAt": "2026-10-25T07:37:18.603441Z",
+      "baselineBytesVerified": true,
+      "currentBytesVerified": true
+    },
+    {
+      "phase": "passed",
+      "checkedAt": "2026-10-25T07:37:39.753543Z",
+      "baselineBytesVerified": true,
+      "currentBytesVerified": true
+    }
+  ],
+  "archive": {
+    "commit": "b08469e082606def8ef37d9bfeb1cc9609f48176",
+    "parentCommit": "76df185e241a47498142c0c84e650a92186eacaa",
+    "manifestSha256": "cb320933a9e384e87e9ba9dda631df4cfefa6cb441521b76e3b36ebeaaadd754",
+    "files": 45287,
+    "ref": "refs/archive/market-evidence"
+  },
+  "staticFileProof": {
+    "artifactStaticFiles": 52,
+    "withDetachedReceipt": 53,
+    "hosts": 2,
+    "verifiedRequests": 106,
+    "allBytesExact": true
+  },
+  "vercelDeployment": {
+    "id": "dpl_GFKc3mfpR6CSeZt7u62B5LVBqQjv",
+    "name": "security-market-pulse",
+    "url": "security-market-pulse-fqk0jyft3-pikeholdings.vercel.app",
+    "type": "LAMBDAS",
+    "state": "READY",
+    "createdAt": 1792913240357,
+    "creator": {
+      "uid": "um6xyC6srGbNQRAR3KB77kfs",
+      "username": "jessepike"
+    },
+    "project": {
+      "id": "prj_g8sZPXo81XT2Xopa1oLrsbYjTehV",
+      "name": "security-market-pulse",
+      "framework": "vite"
+    },
+    "meta": {},
+    "alias": [
+      "security-market-pulse-pikeholdings.vercel.app"
+    ],
+    "target": "production",
+    "regions": [
+      "iad1"
+    ],
+    "buildingAt": 1792913241229,
+    "ready": 1792913242575,
+    "readyState": "READY",
+    "source": "cli",
+    "aliasError": null
+  },
+  "gateBudget": {
+    "attempts": 2,
+    "limit": 2,
+    "remaining": 0
+  },
+  "sourceBudget": {
+    "calls": 72,
+    "documents": 33,
+    "fetches": 444
+  },
+  "unchangedStateTrees": [
+    {
+      "name": "binding-proposals",
+      "gitTreeSha": "f911d6edcee5e3d73ceb316bc344b5a0ed8ea5f4",
+      "unchanged": true
+    },
+    {
+      "name": "candidate-reviews",
+      "gitTreeSha": "926fa693d5236c1b7ee67cc384746a807e972f72",
+      "unchanged": true
+    },
+    {
+      "name": "contracts",
+      "gitTreeSha": "8d8b6f0a3b282fdd0bb9bcd715174b0bca167ad6",
+      "unchanged": true
+    },
+    {
+      "name": "correction-admissions",
+      "gitTreeSha": "3d91c0dff2a60f069d9a2c28aa4d5d7f4fe33878",
+      "unchanged": true
+    },
+    {
+      "name": "correction-attempts",
+      "gitTreeSha": "546e5862a5b1fba4240081dbce8006c9b7cbb896",
+      "unchanged": true
+    },
+    {
+      "name": "correction-document-reservations",
+      "gitTreeSha": "1c5b57e803259c72dc913d4baa9ba555021b31e0",
+      "unchanged": true
+    },
+    {
+      "name": "deployment-attempts",
+      "gitTreeSha": "c17425157597fb489e88250c6bff6e63b173a3d7",
+      "unchanged": true
+    },
+    {
+      "name": "document-extractions",
+      "gitTreeSha": "86b33630732c6568e3f7c2e23b12b831b4ce49d3",
+      "unchanged": true
+    },
+    {
+      "name": "document-reservations",
+      "gitTreeSha": "505f9a5d74a87c20007a5112bee5087488efb5b0",
+      "unchanged": true
+    },
+    {
+      "name": "document-validation",
+      "gitTreeSha": "1f4c8e930e42949ed639d4f01777a5b32b254f65",
+      "unchanged": true
+    },
+    {
+      "name": "downloads",
+      "gitTreeSha": "9933594dbc76d5c1825ff7b17b6bdb87ba8e3e5f",
+      "unchanged": true
+    },
+    {
+      "name": "fact-observations",
+      "gitTreeSha": "0942006bde78e0746adab513255aed3d07b36183",
+      "unchanged": true
+    },
+    {
+      "name": "facts",
+      "gitTreeSha": "9abd62a29e913da943cd02d77761d60faefde68a",
+      "unchanged": true
+    },
+    {
+      "name": "gate-receipts",
+      "gitTreeSha": "04408333cce8d0c991f61ddd0c441dddc129c898",
+      "unchanged": true
+    },
+    {
+      "name": "gate-requests",
+      "gitTreeSha": "b37e8a169cab738197305a273066681ebad89297",
+      "unchanged": true
+    },
+    {
+      "name": "maintenance",
+      "gitTreeSha": "9a393f29de1746c76840f51b234e6ee4bd5f3c1c",
+      "unchanged": true
+    },
+    {
+      "name": "management-checks",
+      "gitTreeSha": "439a7650d462a834b1f9f0a070d3f81ec5768102",
+      "unchanged": true
+    },
+    {
+      "name": "native",
+      "gitTreeSha": "a0d65480e3bc064b9763a3dd164b99b64ed12290",
+      "unchanged": true
+    },
+    {
+      "name": "native-canaries",
+      "gitTreeSha": "a2092581854b42f8c6f76fdee749efa7b9a97f84",
+      "unchanged": true
+    },
+    {
+      "name": "objects",
+      "gitTreeSha": "fdd8ab2a18637d7d80282fb198a1668e54d85888",
+      "unchanged": true
+    },
+    {
+      "name": "observations",
+      "gitTreeSha": "1e8c2a3610650d1720148f2520221bfbdca3b292",
+      "unchanged": true
+    },
+    {
+      "name": "pilots",
+      "gitTreeSha": "f99781aee70a544d24c9f9ca5f0361440ecaceef",
+      "unchanged": true
+    },
+    {
+      "name": "production-baselines",
+      "gitTreeSha": "97d745c449d6e59705fae188b0cef9726afd7407",
+      "unchanged": true
+    },
+    {
+      "name": "receipt-integrity",
+      "gitTreeSha": "550a01cadaa8a923d3b9fd8e5ded1dd6c661a669",
+      "unchanged": true
+    },
+    {
+      "name": "release-attempts",
+      "gitTreeSha": "1aeac7776a9a37d28db337f0d76246bfc4b7b20b",
+      "unchanged": true
+    },
+    {
+      "name": "releases",
+      "gitTreeSha": "e6dfb3d4f3f57dc7c5421dd151b141d5eeb54f82",
+      "unchanged": true
+    },
+    {
+      "name": "runs",
+      "gitTreeSha": "1c7b0af44bb6727d8cf4a865a54bb0e8ddfd35b1",
+      "unchanged": true
+    },
+    {
+      "name": "source-probes",
+      "gitTreeSha": "d977520ccc40ef17d387d301386fcc7776ebf857",
+      "unchanged": true
+    },
+    {
+      "name": "source-qualification-transitions",
+      "gitTreeSha": "13230ff03aa1313134eba847f84690377d13917e",
+      "unchanged": true
+    },
+    {
+      "name": "staging-probes",
+      "gitTreeSha": "8bfcd6b8e75eb6443e2618614f66a42b4081a71c",
+      "unchanged": true
+    },
+    {
+      "name": "staging-results",
+      "gitTreeSha": "e73fe3618105bf766d5187d3e136a1cd7e757415",
+      "unchanged": true
+    },
+    {
+      "name": "staging-retests",
+      "gitTreeSha": "e0f05f9040337d46b08e385e079b55232344a5f5",
+      "unchanged": true
+    },
+    {
+      "name": "staging-tests",
+      "gitTreeSha": "0ce6c356fbc5d3c7a97af037958464070be55c86",
+      "unchanged": true
+    },
+    {
+      "name": "verifications",
+      "gitTreeSha": "d83f6cf781ba810c0fdb7cc1b4288ad098ae1890",
+      "unchanged": true
+    }
+  ],
+  "changedStateTrees": [
+    "ci",
+    "cloud",
+    "heads",
+    "rollback-drills"
+  ],
+  "dailySnapshotGitBlobSha": "37036743682decca78aa6a0653d3f5c41605b176",
+  "correctionOutcomeGitBlobSha": "8c7a2c1a25b7223d9ad4ebb3b93f7421a56ed66d",
+  "reviewQueueEntries": 37,
+  "factProvenanceReferences": 4,
+  "currentEvents": 4,
+  "historicalEventsPending": 4,
+  "correctionGroups": 6,
+  "allSourceObjectsObservationsFactsAdmissionsUnchanged": true,
+  "sourceExpiry": "2026-10-26T12:45:29.479727+00:00",
+  "issue12": {
+    "state": "closed",
+    "closedAt": "2026-10-25T07:28:33Z"
+  },
+  "failureAlertStep": {
+    "conclusion": "skipped"
+  },
+  "activeRuns": 0,
+  "queuedRuns": 0,
+  "verifierMutations": 0,
+  "verifierDispatches": 0,
+  "verifierSourceOrModelRequests": 0,
+  "testsRepeatedByVerifier": 0,
+  "retainedBaselineManifestHashVerified": true,
+  "journalHeadEqualsCompletedReceipt": true,
+  "acceptanceRecordEqualsActualReceipt": true,
+  "baselineAppRevision": "26181a2d4eb0aad1bd751cda70ab8e65142d2813",
+  "baselineArtifactSha256": "4e8e8e7833f9dd574b1d4e7fc333bf6e5212481a3926f0e7a98a84e66368eaef",
+  "drillArtifact": {
+    "id": 12591675214,
+    "sha256": "1bd03981b975d45fffaa6676d9f370bf80ec122401089dab217af18f8515263f",
+    "bytes": 763
+  },
+  "verificationLog": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/receipts/recovery-rollback-restoration-2026-10-25/verification.log"
+}
