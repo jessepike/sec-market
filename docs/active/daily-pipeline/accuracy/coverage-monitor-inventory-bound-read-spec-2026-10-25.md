@@ -23,7 +23,10 @@ overdue reason does not establish an expired public source.
 Change only the watchdog reader and its meaningful regressions. After the existing accepted
 release and gate authority checks, retrieve the artifact inventory through its existing archived
 reference, verifying that reference and its canonical inventory hash against the accepted
-artifact identity. Validate a single unambiguous `daily-coverage.json` entry with a strict
+artifact identity. Bind the production head to the release record and its self-hashed manifest,
+and require the verified gate's artifact identity before trusting the inventory. The accepted
+inventory's exact path is `static/daily-coverage.json`, served at `/daily-coverage.json`.
+Validate that single unambiguous exact-path entry with a strict
 positive integer byte count and valid raw SHA-256. Reject missing/duplicate entries, malformed
 references, boolean/negative/oversized counts, bad hashes and inconsistent artifact identities.
 Do not borrow an inventory from preview, another release, an untrusted live header or an agent.

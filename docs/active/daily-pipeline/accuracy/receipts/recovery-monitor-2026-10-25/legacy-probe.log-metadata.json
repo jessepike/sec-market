@@ -1,0 +1,14 @@
+{
+  "endpoint": "repos/jessepike/sec-market/actions/jobs/121115892855/logs",
+  "jobId": 121115892855,
+  "rawSha256": "1073e01bc6301493b7497c65c58ba0c4342aebd55655c7f50ba3877ca5d2162d",
+  "rawBytes": 23274,
+  "rawLineCount": 257,
+  "rawLfCount": 257,
+  "gzipSha256": "32ddcf1088767ee78e53716a16a5e140f7f65f156c401a8334b8a1fa29453422",
+  "gzipBytes": 5617,
+  "retainedFile": "legacy-probe.log.gz",
+  "byteExactRoundTrip": true,
+  "gzipMtime": 0,
+  "gzipEmbeddedFilename": ""
+}

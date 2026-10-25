@@ -1,0 +1,285 @@
+{
+  "scope": "Actual manual monitor verification and offline exact-main cause diagnosis; no repair or activation",
+  "verdict": "expected partial-work and timer alarms plus confirmed monitor coverage-byte-limit defect",
+  "actualRun": {
+    "id": 40175735011,
+    "url": "https://github.com/jessepike/sec-market/actions/runs/40175735011",
+    "event": "workflow_dispatch",
+    "headSha": "6d5e87feba4ffbc75e50f35cb564cb8fd91708ca",
+    "status": "completed",
+    "conclusion": "failure",
+    "createdAt": "2026-10-25T08:12:52Z",
+    "updatedAt": "2026-10-25T08:13:17Z",
+    "guardTestsPassed": 20,
+    "guardTestsFailed": 0
+  },
+  "actualResult": {
+    "healthy": false,
+    "checkedAt": "2026-10-25T08:13:04.369084Z",
+    "runId": "d1b5cbbf41ba2d8dfcb05a7ff2a2b00b7faada68dcaf3224ad4c7702b2d63b22",
+    "reasons": [
+      "SCHEDULED_COLLECTION_RECEIPT_DIFFERS",
+      "OVERDUE_OR_INCOMPLETE_COVERAGE",
+      "DAILY_INTAKE_INCOMPLETE",
+      "PROCESSING_PENDING_10617",
+      "PROCESSING_HELD_10",
+      "HISTORICAL_REVIEW_PENDING_10616",
+      "INDEPENDENT_PROBE_FAILED",
+      "ValueError"
+    ],
+    "publicationEnabled": true,
+    "scheduledRunUrl": "https://github.com/jessepike/sec-market/actions/runs/40082520067",
+    "successfulTasks": 264,
+    "requiredTasks": 557,
+    "coverageMeasure": "daily_source_intake_v2",
+    "processing": {
+      "changedDocuments": 1,
+      "complete": false,
+      "heldDocuments": 10,
+      "inventoryDocuments": 10655,
+      "pendingDocuments": 10617,
+      "reviewedDocuments": 38,
+      "unknownDateDocuments": 291
+    },
+    "historicalReview": {
+      "complete": false,
+      "heldDocuments": 10,
+      "inventoryDocuments": 10655,
+      "pendingDocuments": 10616,
+      "reviewedDocuments": 39
+    },
+    "notification": {
+      "delivery": "github_issue_updated",
+      "url": "https://github.com/jessepike/sec-market/issues/10",
+      "number": 10,
+      "state": "open",
+      "notificationTransport": "GitHub account notification settings"
+    }
+  },
+  "issue10": {
+    "url": "https://github.com/jessepike/sec-market/issues/10",
+    "state": "open",
+    "updatedAt": "2026-10-25T08:13:14Z",
+    "body": "The independent daily pipeline probe needs attention.\n\nChecked: 2026-10-25T08:13:04.369084Z\n\nReasons: SCHEDULED_COLLECTION_RECEIPT_DIFFERS, OVERDUE_OR_INCOMPLETE_COVERAGE, DAILY_INTAKE_INCOMPLETE, PROCESSING_PENDING_10617, PROCESSING_HELD_10, HISTORICAL_REVIEW_PENDING_10616, INDEPENDENT_PROBE_FAILED, ValueError\n\nNo missing check is counted as fresh. Inspect the daily coverage receipt and the private refs/archive/market-evidence ref.\n\n[Daily coverage](https://securitymarketpulse.com/daily-coverage.json)",
+    "finalBodyAndTimestampUnchanged": true,
+    "phoneOrEmailDeliveryObserved": false
+  },
+  "expectedReasons": [
+    "SCHEDULED_COLLECTION_RECEIPT_DIFFERS",
+    "OVERDUE_OR_INCOMPLETE_COVERAGE",
+    "DAILY_INTAKE_INCOMPLETE",
+    "PROCESSING_PENDING_10617",
+    "PROCESSING_HELD_10",
+    "HISTORICAL_REVIEW_PENDING_10616"
+  ],
+  "monitorFailureReasons": [
+    "INDEPENDENT_PROBE_FAILED",
+    "ValueError"
+  ],
+  "scheduledReceipt": {
+    "runId": 40082520067,
+    "event": "schedule",
+    "headSha": "4b5e5ec1669ddad052c6320ddf4a4dffdb9c1f5e",
+    "contractSha256": "79cdd19b962ee3adbb5d9e1a43cbc389b3c9196a6c0a2105ea455c8bd70f9f60",
+    "currentHReceipt": false
+  },
+  "actualPublic": {
+    "releaseId": "fc8bf0984dbeacbe79519574911837d8b638f42215f6547e31ae8968b29951e4",
+    "sequence": 4,
+    "appRevision": "6d5e87feba4ffbc75e50f35cb564cb8fd91708ca",
+    "snapshotSha256": "8ba13011b9d29b875082a551800d57e265238fd7ffd649ff7b99f7072ab25a89",
+    "validUntil": "2026-10-26T12:45:29.479727+00:00",
+    "overdueAtMonitorCheck": false,
+    "coverageBytes": 1337257,
+    "coverageRawSha256": "ac8068379c6c79760331711bfb7bb6387fbc639f9ab6f921713502c6982d47fc",
+    "matchesAcceptedArtifact": true
+  },
+  "workerHeartbeat": {
+    "fresh": true,
+    "phases": {
+      "finish": 0
+    },
+    "actualWorkerPhaseFailureReported": false
+  },
+  "confirmedCause": {
+    "originalRunLoggedOnly": "ValueError",
+    "offlineReproducedMessage": "Production health receipt exceeds byte budget",
+    "failedAt": "ops/watchdog/probe.py:130",
+    "calledAt": "ops/watchdog/probe.py:262",
+    "exactUnmodifiedMain": true,
+    "authorityVerifiedBeforeFailure": true,
+    "deploymentAcknowledgementAndAppPairPassed": true,
+    "readRequestedBytes": 1000001,
+    "actualResponseBytes": 1337257,
+    "socketDeniedOfflineReplay": true,
+    "artifactInventorySha256": "0c645ba2977c3e7e3df04a99d2d677ed5e7149b8608d3b472af0ea0b0c810c36",
+    "artifactInventoryBytes": 9441
+  },
+  "noCodeRepair": true,
+  "noSourceModelAccountGateOrDispatch": true,
+  "noCommitPushIssueOrArchiveWrite": true,
+  "actualArchiveRef": "b08469e082606def8ef37d9bfeb1cc9609f48176",
+  "manualIsNotScheduledProof": true,
+  "rawLogRetention": [
+    {
+      "endpoint": "repos/jessepike/sec-market/actions/jobs/121115892994/logs",
+      "jobId": 121115892994,
+      "rawSha256": "daf19b563f937f587815c3769e53c69d2915e2daba7d3875d78984d28cde75b9",
+      "rawBytes": 22718,
+      "rawLineCount": 251,
+      "rawLfCount": 251,
+      "gzipSha256": "06e6a7fc73cc0c779dc9642345dc8a1dfb39d182f26c18da46b9d6b9a65c8969",
+      "gzipBytes": 5260,
+      "retainedFile": "daily-pipeline.log.gz",
+      "byteExactRoundTrip": true,
+      "gzipMtime": 0,
+      "gzipEmbeddedFilename": ""
+    },
+    {
+      "endpoint": "repos/jessepike/sec-market/actions/jobs/121115892855/logs",
+      "jobId": 121115892855,
+      "rawSha256": "1073e01bc6301493b7497c65c58ba0c4342aebd55655c7f50ba3877ca5d2162d",
+      "rawBytes": 23274,
+      "rawLineCount": 257,
+      "rawLfCount": 257,
+      "gzipSha256": "32ddcf1088767ee78e53716a16a5e140f7f65f156c401a8334b8a1fa29453422",
+      "gzipBytes": 5617,
+      "retainedFile": "legacy-probe.log.gz",
+      "byteExactRoundTrip": true,
+      "gzipMtime": 0,
+      "gzipEmbeddedFilename": ""
+    }
+  ],
+  "retainedFiles": [
+    {
+      "file": "accepted-artifact-inventory.json",
+      "sha256": "0c645ba2977c3e7e3df04a99d2d677ed5e7149b8608d3b472af0ea0b0c810c36",
+      "bytes": 9441
+    },
+    {
+      "file": "actual-monitor-result.json",
+      "sha256": "46c07ecd4d4101ac161e1162c0b931692603b75fbffcbcd87bdb1bbf801547e9",
+      "bytes": 1271
+    },
+    {
+      "file": "archive-ref.json",
+      "sha256": "5342f71e284fa54cc8c8ef5f921ca8bca2eccf7780be01a94a69262fc7356c89",
+      "bytes": 381
+    },
+    {
+      "file": "daily-pipeline.log-metadata.json",
+      "sha256": "cb1b6fe23bc318adb2b10f311f94fae1c35f86a65801304b530f6c55baf63fb2",
+      "bytes": 477
+    },
+    {
+      "file": "daily-pipeline.log.gz",
+      "sha256": "06e6a7fc73cc0c779dc9642345dc8a1dfb39d182f26c18da46b9d6b9a65c8969",
+      "bytes": 5260
+    },
+    {
+      "file": "exact-main-cause-replay.json",
+      "sha256": "52fc986aaa6252e1f05830883fe25af9c0fc96c81048db9fc1643fa236419561",
+      "bytes": 6140
+    },
+    {
+      "file": "gate-artifact-metadata.json",
+      "sha256": "d591c521a94aeefcff5d566beee849dee3cf78d26f9c6a0088f48227c6611d8c",
+      "bytes": 686
+    },
+    {
+      "file": "gate-receipt.json",
+      "sha256": "40291f136abb0b5c26b50a4c473c62789a18bc1c36241d42160907905fc17a8b",
+      "bytes": 1962
+    },
+    {
+      "file": "gate-run.json",
+      "sha256": "c443c77a0579875c4d9bf6ef6221b26722ec037a1ea7cb8790f5f411fee66a42",
+      "bytes": 13009
+    },
+    {
+      "file": "github-issue-10-final.json",
+      "sha256": "d3a3545dfa9fee6e7e98172f8b41c927dd992e0f1a9663e1e96ba566b56d8081",
+      "bytes": 1461
+    },
+    {
+      "file": "github-issue-10.json",
+      "sha256": "d3a3545dfa9fee6e7e98172f8b41c927dd992e0f1a9663e1e96ba566b56d8081",
+      "bytes": 1461
+    },
+    {
+      "file": "github-jobs.json",
+      "sha256": "c8c96bc7fa4ffff8a3b43b0c332d208aad8d29162b40dd6b15019e1d60113ccb",
+      "bytes": 1406
+    },
+    {
+      "file": "github-run.json",
+      "sha256": "88268da3b89665795fb8b01003c86c8cf09c012339023e300addef8b757c4a0d",
+      "bytes": 12656
+    },
+    {
+      "file": "latest.json",
+      "sha256": "eda04d7134f37c64429138b5f5fe75d100975304e02a2e1a47296237f9f6f5f9",
+      "bytes": 261
+    },
+    {
+      "file": "legacy-probe.log-metadata.json",
+      "sha256": "c1477482316165b1e413cc100ca98a0fddcff613551475b8799bb75fe1f6094d",
+      "bytes": 475
+    },
+    {
+      "file": "legacy-probe.log.gz",
+      "sha256": "32ddcf1088767ee78e53716a16a5e140f7f65f156c401a8334b8a1fa29453422",
+      "bytes": 5617
+    },
+    {
+      "file": "production.json",
+      "sha256": "eeacc6111b7f10171a3bf7342410b4e0eae529b24b14b63ebe643f0967c0e871",
+      "bytes": 174
+    },
+    {
+      "file": "public-app-release.json.gz",
+      "sha256": "0441494c8dc47c5a6a653cc084c9c892f4714764c7a2c594c919b075e9376655",
+      "bytes": 770
+    },
+    {
+      "file": "public-daily-coverage.json.gz",
+      "sha256": "7caee74bd2407f5ac094a5cadb141f56c8dd9e64fa9ad0b4dd497fe638677c12",
+      "bytes": 106425
+    },
+    {
+      "file": "public-deployment-receipt.json.gz",
+      "sha256": "99ddebc084acf2e634f97708d8bbb0081ad4b7273d08c307f4cfedf059ef78df",
+      "bytes": 626
+    },
+    {
+      "file": "public-health-receipt-captures.json",
+      "sha256": "2a30e748b54604fb8f9a73ae78b5a7deaa5f1372c30698510a344442da1f295e",
+      "bytes": 5687
+    },
+    {
+      "file": "release.json",
+      "sha256": "56bf863d8237f8d485a6edad220f57dc03f0f4279a02101edd78d6e0ed8432ce",
+      "bytes": 5950
+    },
+    {
+      "file": "replay-cause.py",
+      "sha256": "9c9644b40b025f17c24b5e6744f11592b3205d1b88709c8b18108925b2862152",
+      "bytes": 8487
+    },
+    {
+      "file": "scheduled-collection-receipt.json",
+      "sha256": "4cde93f31fc6c5b8aa0ca1b4702ad6a612a859372c2ef2c111b79f2bd1588c5c",
+      "bytes": 22417
+    },
+    {
+      "file": "scheduled-collection-run.json",
+      "sha256": "5a155ae60ee5206143c05dec54b26d5d531519855eb5a4618f5587f19d8e50d8",
+      "bytes": 12358
+    },
+    {
+      "file": "worker-heartbeat.json",
+      "sha256": "8dbc6e568fa8081bfb8456f4d74c9cb737a3277cbba6f1a49b7e7898b8a49f4a",
+      "bytes": 342
+    }
+  ]
+}

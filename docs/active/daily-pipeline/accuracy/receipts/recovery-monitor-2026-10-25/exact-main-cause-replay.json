@@ -1,0 +1,153 @@
+{
+  "scope": "Offline deterministic reproduction with exact unmodified main6d source and actual retained inputs; no new probe, notify, source/model/gate or archive mutation",
+  "appRevision": "6d5e87feba4ffbc75e50f35cb564cb8fd91708ca",
+  "archiveCommit": "b08469e082606def8ef37d9bfeb1cc9609f48176",
+  "actualRunId": 40175735011,
+  "actualRunOnlyLoggedExceptionType": "ValueError",
+  "reproducedException": {
+    "type": "ValueError",
+    "message": "Production health receipt exceeds byte budget",
+    "traceback": "Traceback (most recent call last):\n  File \"/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/recovery-monitor-2026-10-25/replay-cause.py\", line 105, in <module>\n    probe.inspect(contract,read_archive,get_live,actual_result['checkedAt'],Authority(runner=runner))\n  File \"/var/tmp/smp-recovery-monitor-40175735011-20261025/app/ops/watchdog/probe.py\", line 262, in inspect\n    public = get_live(\"https://securitymarketpulse.com/daily-coverage.json\")\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/recovery-monitor-2026-10-25/replay-cause.py\", line 93, in get_live\n    return probe.get_json(url)\n           ^^^^^^^^^^^^^^^^^^^\n  File \"/var/tmp/smp-recovery-monitor-40175735011-20261025/app/ops/watchdog/probe.py\", line 130, in get_json\n    raise ValueError(\"Production health receipt exceeds byte budget\")\nValueError: Production health receipt exceeds byte budget\n"
+  },
+  "authorityVerifiedBeforeFailure": true,
+  "earlierPublicAcknowledgementAndAppPairPassed": true,
+  "publicCoverageArtifactEntry": {
+    "path": "static/daily-coverage.json",
+    "sha256": "ac8068379c6c79760331711bfb7bb6387fbc639f9ab6f921713502c6982d47fc",
+    "bytes": 1337257
+  },
+  "artifactInventorySha256": "0c645ba2977c3e7e3df04a99d2d677ed5e7149b8608d3b472af0ea0b0c810c36",
+  "artifactInventoryBytes": 9441,
+  "rawPublicCoverageCanonicalSha256": "aa39a3bd14a2ae37e140cd78f7186c51a04bb87f89d079812ef31cbdba041f76",
+  "validUntil": "2026-10-26T12:45:29.479727+00:00",
+  "actualMonitorCheckedAt": "2026-10-25T08:13:04.369084Z",
+  "publicOverdueAtActualMonitor": false,
+  "heartbeatPhases": {
+    "finish": 0
+  },
+  "heartbeatFreshAtActualMonitor": true,
+  "actualHealthReasons": [
+    "SCHEDULED_COLLECTION_RECEIPT_DIFFERS",
+    "OVERDUE_OR_INCOMPLETE_COVERAGE",
+    "DAILY_INTAKE_INCOMPLETE",
+    "PROCESSING_PENDING_10617",
+    "PROCESSING_HELD_10",
+    "HISTORICAL_REVIEW_PENDING_10616",
+    "INDEPENDENT_PROBE_FAILED",
+    "ValueError"
+  ],
+  "trace": [
+    {
+      "phase": "archive_read",
+      "key": "heads/latest-run.json"
+    },
+    {
+      "phase": "archive_read",
+      "key": "objects/f2486a623d93da011eaaf11926e09d6ce1533dab26d4a8f2fa2875a95a84d0b6"
+    },
+    {
+      "phase": "archive_read",
+      "key": "heads/worker-heartbeat.json"
+    },
+    {
+      "phase": "archive_read",
+      "key": "heads/production.json"
+    },
+    {
+      "phase": "archive_read",
+      "key": "releases/fc8bf0984dbeacbe79519574911837d8b638f42215f6547e31ae8968b29951e4.json"
+    },
+    {
+      "phase": "archive_read",
+      "key": "gate-receipts/40172376435.json"
+    },
+    {
+      "phase": "authority_verify_start"
+    },
+    {
+      "phase": "authority_api_fixture",
+      "path": "repos/jessepike/sec-market/actions/runs/40172376435"
+    },
+    {
+      "phase": "authority_api_fixture",
+      "path": "repos/jessepike/sec-market/actions/artifacts/12590843044"
+    },
+    {
+      "phase": "authority_api_fixture",
+      "path": "repos/jessepike/sec-market/actions/artifacts/12590843044/zip"
+    },
+    {
+      "phase": "authority_verify_pass"
+    },
+    {
+      "phase": "get_live",
+      "url": "https://securitymarketpulse.com/deployment-receipt.json"
+    },
+    {
+      "phase": "get_json_urlopen_fixture",
+      "url": "https://securitymarketpulse.com/deployment-receipt.json",
+      "httpStatus": 200
+    },
+    {
+      "phase": "response_read",
+      "url": "https://securitymarketpulse.com/deployment-receipt.json",
+      "requestedBytes": 1000001,
+      "returnedBytes": 1103,
+      "actualFullBodyBytes": 1103
+    },
+    {
+      "phase": "get_live",
+      "url": "https://securitymarketpulse.com/app-release.json"
+    },
+    {
+      "phase": "get_json_urlopen_fixture",
+      "url": "https://securitymarketpulse.com/app-release.json",
+      "httpStatus": 200
+    },
+    {
+      "phase": "response_read",
+      "url": "https://securitymarketpulse.com/app-release.json",
+      "requestedBytes": 1000001,
+      "returnedBytes": 1636,
+      "actualFullBodyBytes": 1636
+    },
+    {
+      "phase": "get_live",
+      "url": "https://securitymarketpulse.com/daily-coverage.json"
+    },
+    {
+      "phase": "get_json_urlopen_fixture",
+      "url": "https://securitymarketpulse.com/daily-coverage.json",
+      "httpStatus": 200
+    },
+    {
+      "phase": "response_read",
+      "url": "https://securitymarketpulse.com/daily-coverage.json",
+      "requestedBytes": 1000001,
+      "returnedBytes": 1000001,
+      "actualFullBodyBytes": 1337257
+    }
+  ],
+  "frozenInputSeals": [
+    {
+      "key": "archive-manifest.json",
+      "sha256": "540bb0449b922b0ea69ab3a088d35b0f3bc8926243a8d5c817ab93c2659abd8e",
+      "bytes": 9316327,
+      "mtimeNs": 1792911866934145598,
+      "unchanged": true
+    },
+    {
+      "key": "state/objects/f2486a623d93da011eaaf11926e09d6ce1533dab26d4a8f2fa2875a95a84d0b6",
+      "sha256": "f2486a623d93da011eaaf11926e09d6ce1533dab26d4a8f2fa2875a95a84d0b6",
+      "bytes": 1133221,
+      "mtimeNs": 1792911870202042599,
+      "unchanged": true
+    }
+  ],
+  "sourcePins": {
+    "ops/watchdog/probe.py": "76fb0522a5ce29538c73e7e3096fb71f8df044281dde6bf72ebb2f85ae391893",
+    "web/scripts/pipeline/provenance.py": "7325f346b34fad9bbb306ad52ad847ff76f98d9d92e83b361912063b682805dd",
+    "web/scripts/pipeline/publication.py": "6497c6fbf8494638a79a9b00afa4b18f50d67598fa635c273d82d1553c8ffe84",
+    "contracts/market.json": "24221c946781559c0ff3626e4e479c4647da915d0f2d7559ea88046982532c3c"
+  }
+}
