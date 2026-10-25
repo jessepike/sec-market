@@ -128,3 +128,5 @@ unqualified with zero coverage credit. Tests use fictional fetchers and temporar
 ## 2026-10-25 · One filing redirect does not justify general URL normalization
 
 - SentinelOne's retained SEC filing requests a padded issuer directory and ends at the unpadded directory. One explicit source/evidence/body attestation can bind that actual identity while all other URL spellings remain rejected. Bind the rule only to the using group's review policy so older admissions keep their original hashes. Replay conditional-response provenance with actual observation times; a newer 304 is not a new full download.
+
+- Read the live coverage receipt's actual validUntil before reporting a freshness cutoff. lastCollectionAt plus 30 hours can be later than the expiry derived from the oldest supporting observation. The October 25 public receipt expired at 06:05:06 UTC; the earlier 06:38 estimate was wrong. A later governance check does not renew either source clock.

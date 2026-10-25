@@ -91,7 +91,7 @@ October 24 source usage ended at 2,095/5,500 fetches,
 Actual scheduled collector 40082520067 passed under preceding policy 79cdd19b at 09:43 UTC,
 over four hours after its 05:17 timer. Current-H timer proof is still pending. The 00:23 October 25
 publisher had emitted no run by 00:55 UTC. Next collector timer: 05:17 UTC; publisher timers:
-06:23 and 16:23 UTC. GitHub can delay them. Old public source expiry: 06:38:18 UTC October 25;
+06:23 and 16:23 UTC. GitHub can delay them. Actual old public validUntil: 06:05:06.295968 UTC October 25;
 private source expiry: 00:29:16 UTC October 26. Keep reviewed main fixed during acceptance.
 
 Verify actual scheduled collection, gated public bytes, issue 12 recovery and controlled
@@ -103,6 +103,12 @@ four hours 37 minutes after its 00:41 timer. Its 20 guard tests passed; the live
 remained unhealthy and updated assigned issue 10 at 05:19:16 UTC with current coverage,
 processing/history and pending scheduled/publication evidence. This proves this monitor execution
 and issue update only. The 05:17 collector had not appeared by 05:22 UTC; no new release or drill.
+At 06:39:14 UTC, the live coverage and deployment receipts still identify release 19fde803,
+old combined 244/557, and validUntil 06:05:06.295968 UTC. Production is overdue; current-policy
+scheduled collection and public update remain unproved. The earlier 06:38 cutoff was incorrect:
+it used lastCollectionAt plus 30 hours instead of the actual source-bound validUntil. Preserve
+the [live coverage receipt](docs/active/daily-pipeline/receipts/overdue-production-coverage-2026-10-25-0639.json)
+and [live acknowledgement](docs/active/daily-pipeline/receipts/overdue-production-ack-2026-10-25-0639.json).
 The [557-row ledger](docs/active/daily-pipeline/evaluations/2026-10-24/current-source-coverage.md)
 and [evaluation rubric](docs/active/daily-pipeline/evaluation-rubric.md) keep the measures separate.
 

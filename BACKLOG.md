@@ -88,6 +88,13 @@ October 25 has one of two gate attempts charged; one remains. Collector timer: 0
 gaps. Verify issue 12 recovery after actual publication.
 No owner source decision is currently required. No refund, reset, purchase or paid fallback.
 
+Actual monitor 40165077942 updated assigned issue 10 at 05:19 UTC October 25, after starting
+four hours 37 minutes past its timer. At 06:39 UTC the collector's 05:17 timer had still emitted
+no run, production remained release 19fde803 and its actual validUntil 06:05:06 UTC had passed.
+Continuous freshness has therefore failed this bootstrap window. Correct the earlier 06:38
+estimate: validUntil comes from source evidence, not lastCollectionAt plus the allowance.
+Keep the actual overdue coverage/acknowledgement receipts and verify recovery from real output.
+
 The [remaining published-record qualifier queue](docs/active/daily-pipeline/accuracy/remaining-record-qualification-status-2026-10-25.md)
 tracks ten supported wording candidates and one unsupported Varonis workforce claim, including
 full literal event groups and metric companion evidence. Independent admission and publication
