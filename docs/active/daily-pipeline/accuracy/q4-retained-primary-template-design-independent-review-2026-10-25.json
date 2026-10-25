@@ -1,0 +1,225 @@
+{
+  "schemaVersion": 1,
+  "kind": "independent_retained_template_design_review",
+  "reviewedAt": "2026-10-25T11:36:05.531611+00:00",
+  "verdict": "PASS",
+  "blockingFindings": [],
+  "requiredDesignChanges": [],
+  "reviewedSpec": {
+    "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/.ctx/q4-retained-template-20261025/build-spec.md",
+    "sha256": "a97a22c7b76a59d32b8f98ea97af9505d6d0390b6ef79c07b5071f668e7b1eb9",
+    "bytes": 6774
+  },
+  "coldInspection": {
+    "markdownSha256": "f7786cf60e9e85952cd1c3b2d5d3a3a693d66fd18cd8c263898b9d4fddea41c3",
+    "jsonSha256": "03a6afe99ee557cd1cf0835d70c57f2cd210729e407b87d5c8a3a99718ddb19e",
+    "jsonFileSha256": "978054a7804b1822cdd5eb1645257a4810fa6bc474591bc1f158cfb575f33f3c"
+  },
+  "authenticatedActualBasis": {
+    "runId": "40188161705",
+    "event": "workflow_dispatch",
+    "revision": "b7c7841ab36c4cf04646978493ce74e1e542a2b9",
+    "archive": {
+      "commit": "d2efafcb8a68d7330e4b700613b29f18b9892346",
+      "parentCommit": "c0352fded2fe0a3ba0b60daf0bf46a33895bbd45",
+      "manifestSha256": "bb1c3da1399e89341badf80bba8642d7892f32ce2030bd57fc1d4c165e383e4d",
+      "files": 48057,
+      "ref": "refs/archive/market-evidence"
+    },
+    "originalAcceptedSamples": 0,
+    "originalProposalEvidenceComplete": false,
+    "originalPlanRawSha256": "3a25e8e262b51fbf6f872c8655b25c9d255cf52b32ca0e9c4afa73d78893fbd4",
+    "originalPlanCanonicalSha256": "3b7fc7c4de41c68471d4343f103e7e5ee705e5a4a51f760f5387e34a49a660ee"
+  },
+  "independentlyRecheckedSources": [
+    {
+      "sourceId": "jfrog:official:1",
+      "body": {
+        "bytes": 105675,
+        "key": "objects/c14d01410488c758b6702738c99e6f55e2d1365b84ad0b2d932cf5433cde323a",
+        "sha256": "c14d01410488c758b6702738c99e6f55e2d1365b84ad0b2d932cf5433cde323a"
+      },
+      "wrapper": {
+        "bytes": 463,
+        "key": "objects/426bf440e12d1dc6671e833325ade4f1bfa4baf1598ffcbadc1f3ad489fb06ba",
+        "sha256": "426bf440e12d1dc6671e833325ade4f1bfa4baf1598ffcbadc1f3ad489fb06ba"
+      },
+      "rawObservation": {
+        "bytes": 617,
+        "key": "objects/1bee78d58f3ffa9114b9b3ece9d885786fa065ff85afb88ed46931c77f9ecb25",
+        "sha256": "1bee78d58f3ffa9114b9b3ece9d885786fa065ff85afb88ed46931c77f9ecb25"
+      },
+      "originalHeldReason": "ContractError:BOUNDED_CANDIDATE_PRIMARY_CANONICAL_DIFFERS",
+      "originalApiRowSha256": "b9a2d2e2000c8d5d8794b49e6b3d0552055ab4051c96c89fe20a027709297949",
+      "sourceRowAndTransportBodyJoins": true,
+      "sameContainerClosedModuleItemHeadingBodyDate": true,
+      "headIdentityMatches": true,
+      "canonical": null,
+      "genericH1": "News Details",
+      "displayedCalendarDay": "2026-10-14",
+      "indexDateLiteral": "10/14/2026 16:05:00",
+      "indexTimezone": null,
+      "machinePublication": {
+        "state": "present",
+        "datePublished": "2026-10-14T15:05:00Z",
+        "dateModified": "2026-10-14T15:05:00Z"
+      },
+      "noIndexTimezoneInferred": true
+    },
+    {
+      "sourceId": "rapid7:official:1",
+      "body": {
+        "bytes": 80272,
+        "key": "objects/fffa3d952d9f0a4242fffb3a8bbaab42ca9f7ad938ed73582bf3e8d93580114e",
+        "sha256": "fffa3d952d9f0a4242fffb3a8bbaab42ca9f7ad938ed73582bf3e8d93580114e"
+      },
+      "wrapper": {
+        "bytes": 470,
+        "key": "objects/22a94cdb27a0227411512ba5168a727090e2de85fb941f79adf03c64d3aae30e",
+        "sha256": "22a94cdb27a0227411512ba5168a727090e2de85fb941f79adf03c64d3aae30e"
+      },
+      "rawObservation": {
+        "bytes": 628,
+        "key": "objects/3f5ad49770d744dc1fda921aaffaf1b6ba5b6ba1f5ef4d1b12f3b298ff230e07",
+        "sha256": "3f5ad49770d744dc1fda921aaffaf1b6ba5b6ba1f5ef4d1b12f3b298ff230e07"
+      },
+      "originalHeldReason": "ContractError:BOUNDED_CANDIDATE_PRIMARY_CANONICAL_DIFFERS",
+      "originalApiRowSha256": "68f92eeb69a75ed608462310b72798f7efa0c8f9a1118d28712b3cce9716d8f5",
+      "sourceRowAndTransportBodyJoins": true,
+      "sameContainerClosedModuleItemHeadingBodyDate": true,
+      "headIdentityMatches": true,
+      "canonical": null,
+      "genericH1": "News Details",
+      "displayedCalendarDay": "2026-10-14",
+      "indexDateLiteral": "10/14/2026 16:05:00",
+      "indexTimezone": null,
+      "machinePublication": {
+        "state": "unknown",
+        "observedJsonLdObjects": 0
+      },
+      "noIndexTimezoneInferred": true
+    }
+  ],
+  "minimumRobustImplementation": {
+    "scope": "Exact retained two-body attestation and replay, with a small source-specific finding extractor. No general DOM framework or future arbitrary-HTML acceptance.",
+    "requiredOrder": [
+      "Authenticate the fixed descriptor and full original outer/run/attempt/ref/revision/archive/artifact/report/plan graph.",
+      "Replay the unchanged original held report and all initial-data/controller/row2 stream proofs.",
+      "Match each exact source/body/URL/wrapper/clock before interpretation; reject any body or proof substitution.",
+      "Read the observed identity/container/date literals and supplied JSON-LD from those raw bytes, compare with independently bound row2, and recompute derived findings.",
+      "Preserve the old zero-accepted report, canonical absence, generic H1 and every zero operational-authority field."
+    ],
+    "mutationTestInterpretation": "Altered bytes, DOM ambiguity and metadata substitutions may be rejected by the fixed body hash before extraction. Tests must not weaken descriptor pins merely to manufacture reachable generic-parser branches. The exact original accepted bodies still require positive finding recomputation.",
+    "reuse": "Reuse the reviewed cold inspection’s observed source-specific IDs and literal spans plus existing pure metadata/parser helpers where useful; do not trust cached cold shape flags as the new proof."
+  },
+  "metadataGuards": {
+    "JFrog": "Parse the one actual NewsArticle JSON-LD object and compare supplied headline/mainEntityOfPage/datePublished/dateModified; preserve Z and written calendar day. Existing publication reader alone does not validate all these identity/dateModified fields.",
+    "Rapid7": "Preserve actual missing machine metadata as unknown. An empty, malformed, non-string or contradictory supplied field must never be recast as absence.",
+    "boundary": "Compare the displayed/index written calendar day only; retain API time and unknown timezone independently."
+  },
+  "operationalBoundary": {
+    "newSourceRequests": 0,
+    "modelRequests": 0,
+    "archiveWrites": 0,
+    "leaseOrBudgetMutations": 0,
+    "LocalStoreConstructed": false,
+    "JavaScriptExecuted": false,
+    "oldReportRewritten": false,
+    "genericHelperChanged": false,
+    "qualificationCredit": false,
+    "semanticAdmission": false,
+    "coverageCredit": false,
+    "activationCredit": false,
+    "implementationReviewed": false,
+    "implementationTestsRun": 0
+  },
+  "inputSeals": {
+    "/Users/jessepike/code/projects/sec-market-finish-20261022/.ctx/q4-retained-template-20261025/build-spec.md": {
+      "sha256": "a97a22c7b76a59d32b8f98ea97af9505d6d0390b6ef79c07b5071f668e7b1eb9",
+      "bytes": 6774,
+      "mtimeNs": 1792927838363922209
+    },
+    "/var/tmp/smp-q4-primary-template-review-20261025.md": {
+      "sha256": "f7786cf60e9e85952cd1c3b2d5d3a3a693d66fd18cd8c263898b9d4fddea41c3",
+      "bytes": 7857,
+      "mtimeNs": 1792927669874137714
+    },
+    "/var/tmp/smp-q4-primary-template-review-20261025.json": {
+      "sha256": "978054a7804b1822cdd5eb1645257a4810fa6bc474591bc1f158cfb575f33f3c",
+      "bytes": 15427,
+      "mtimeNs": 1792927585541539928
+    },
+    "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/q4-primary-qualification-actual-source-review-2026-10-25.json": {
+      "sha256": "3f133bc05fc7e3964dd3e0717b9a9cd0a3c859b0472b57bb00e6cd80615378bf",
+      "bytes": 53594,
+      "mtimeNs": 1792927885370693981
+    },
+    "/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/q4_primary_qualification.py": {
+      "sha256": "cfb164c4c0a19bd890d4522547351bc55a1dc3697d8df5b48af4ead460457235",
+      "bytes": 26458,
+      "mtimeNs": 1792926832940715980
+    },
+    "/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/discovery.py": {
+      "sha256": "2611635de944f025e848d8a7b15dfff2a328ac67a11a122a774eb46b2e1e7f68",
+      "bytes": 70911,
+      "mtimeNs": 1792875045592176818
+    },
+    "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/archive-manifest.json": {
+      "sha256": "bb1c3da1399e89341badf80bba8642d7892f32ce2030bd57fc1d4c165e383e4d",
+      "bytes": 9944331,
+      "mtimeNs": 1792927298568557157
+    },
+    "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/ci/source-probe-runs/40188161705-1.json": {
+      "sha256": "093fba7150d21255af66a563207b3c3f0490bae36873376203c43d5415be6897",
+      "bytes": 713736,
+      "mtimeNs": 1792927333776130385
+    },
+    "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/3a25e8e262b51fbf6f872c8655b25c9d255cf52b32ca0e9c4afa73d78893fbd4": {
+      "sha256": "3a25e8e262b51fbf6f872c8655b25c9d255cf52b32ca0e9c4afa73d78893fbd4",
+      "bytes": 4211,
+      "mtimeNs": 1792927333778145923
+    },
+    "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/c14d01410488c758b6702738c99e6f55e2d1365b84ad0b2d932cf5433cde323a": {
+      "sha256": "c14d01410488c758b6702738c99e6f55e2d1365b84ad0b2d932cf5433cde323a",
+      "bytes": 105675,
+      "mtimeNs": 1792927333779227421
+    },
+    "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/426bf440e12d1dc6671e833325ade4f1bfa4baf1598ffcbadc1f3ad489fb06ba": {
+      "sha256": "426bf440e12d1dc6671e833325ade4f1bfa4baf1598ffcbadc1f3ad489fb06ba",
+      "bytes": 463,
+      "mtimeNs": 1792927333778690547
+    },
+    "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/1bee78d58f3ffa9114b9b3ece9d885786fa065ff85afb88ed46931c77f9ecb25": {
+      "sha256": "1bee78d58f3ffa9114b9b3ece9d885786fa065ff85afb88ed46931c77f9ecb25",
+      "bytes": 617,
+      "mtimeNs": 1792927333777551882
+    },
+    "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/f7d84b288a6665280f4b8ade996b0bf64fe9c3fa0ea7a8a15b1adfb0826ccc19": {
+      "sha256": "f7d84b288a6665280f4b8ade996b0bf64fe9c3fa0ea7a8a15b1adfb0826ccc19",
+      "bytes": 282783,
+      "mtimeNs": 1792923785068735598
+    },
+    "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/fffa3d952d9f0a4242fffb3a8bbaab42ca9f7ad938ed73582bf3e8d93580114e": {
+      "sha256": "fffa3d952d9f0a4242fffb3a8bbaab42ca9f7ad938ed73582bf3e8d93580114e",
+      "bytes": 80272,
+      "mtimeNs": 1792927333779835836
+    },
+    "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/22a94cdb27a0227411512ba5168a727090e2de85fb941f79adf03c64d3aae30e": {
+      "sha256": "22a94cdb27a0227411512ba5168a727090e2de85fb941f79adf03c64d3aae30e",
+      "bytes": 470,
+      "mtimeNs": 1792927333777849673
+    },
+    "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/3f5ad49770d744dc1fda921aaffaf1b6ba5b6ba1f5ef4d1b12f3b298ff230e07": {
+      "sha256": "3f5ad49770d744dc1fda921aaffaf1b6ba5b6ba1f5ef4d1b12f3b298ff230e07",
+      "bytes": 628,
+      "mtimeNs": 1792927333778403631
+    },
+    "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/cf3c57d1c2080d65656e9f291eca371aefd99909476d413bb5c90155bc742db8": {
+      "sha256": "cf3c57d1c2080d65656e9f291eca371aefd99909476d413bb5c90155bc742db8",
+      "bytes": 414550,
+      "mtimeNs": 1792923785495734757
+    }
+  },
+  "allConsultedInputsUnchanged": true,
+  "recommendation": "Proceed with the smallest exact retained-body attestation consistent with the draft. No additional GET, owner decision, generic DOM engine or normal-policy integration is needed for this offline unit; independent implementation/actual-proof review remains required."
+}

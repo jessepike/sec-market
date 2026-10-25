@@ -91,8 +91,9 @@ scope including secret scanning, and LevelBlue's complete archive/Trustwave rela
 Keep original dates and the Check Point publication-time disagreement. Orca's 26 pages/90 leads
 and page 27 self-redirect still prove no terminal or sample.
 The [next seven-index plan](docs/active/daily-pipeline/accuracy/next-seven-newsroom-review-preflight-2026-10-25.md)
-for Abnormal, Cyera, Torq, Veracode, Zenity, Cato and Chainguard stays dormant. Its real preflight
-passes and whole-operation bound is 257 logical fetches; no actual responses or qualification.
+for Abnormal, Cyera, Torq, Veracode, Zenity, Cato and Chainguard is selected locally for independent
+operational review. Its whole-operation bound includes 25 generic candidate probes: 257 logical
+fetches. Remote main remains ad1; no actual seven-target responses or qualification yet.
 No owner source decision is currently required.
 
 Use the [evaluation rubric](docs/active/daily-pipeline/evaluation-rubric.md) and keep the original

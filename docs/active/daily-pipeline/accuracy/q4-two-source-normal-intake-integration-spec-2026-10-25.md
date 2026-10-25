@@ -1,7 +1,7 @@
 # Qualify JFrog and Rapid7 for ordinary daily intake
 
 October 25, 2026. Implementation scope under the continuing source-qualification instruction.
-This build is currently blocked by the actual primary-template hold. Operation 40188161705 on
+This build is currently blocked pending accepted versioned retained-template proof. Operation 40188161705 on
 b7c7841ab36c4cf04646978493ce74e1e542a2b9 completed two successful HTTP captures, but accepted
 neither sample: both omit canonical links and use a generic H1. Its independently replayed
 report retains those holds exactly. A separately reviewed source-specific primary proof is
@@ -12,17 +12,19 @@ credit. Root owns operational selection and remote execution.
 ## Exact policy boundary
 
 Start from H, canonical 8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db.
-Construct one exact successor, J, with only its version and the two existing source rows
+Construct one exact successor, J, with only the two existing source rows
 jfrog:official:1 and rapid7:official:1 changed. Use a closed q4_press_list discovery kind, exact
 source-specific API URL from the verified proof, verified registration and a distinct typed
 inventory-only qualification origin. Preserve positions, IDs, supplier records, families, seeds,
-scope, all other declarations, 557 obligations, collection mode and every limit. Derive and pin
+scope, version market-daily-v2, all other declarations, 557 obligations, collection mode and every limit. Derive and pin
 the resulting whole-policy hash after assembling real proof. No supplier or obligation is added.
 
 Bind original H bytes, full primary run/attempt/event/main revision, original raw and canonical
 plans, initial-data archive d6606a4f and its manifest, actual primary artifact/acknowledgement,
 source-specific result hashes and all required immutable inputs. Replay the complete primary
-and original initial-data/controller graph. Establish both forward H→J and inverse J→H equality
+and original initial-data/controller graph, preserving the old primary verifier's acceptedSamples=0
+and proposalEvidenceComplete=false. Consume the separate independently accepted retained-template
+proof; never require or rewrite an original proposal-success flag. Establish both forward H→J and inverse J→H equality
 over the entire policy, preserving JSON types and array order. Reject every unlisted pair,
 extra field, extra source change, reordered row and altered origin. Keep authority in a fixed
 positive registry populated only with externally authenticated real pins.

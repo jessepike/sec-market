@@ -80,8 +80,10 @@ The [current 25-source queue](docs/active/daily-pipeline/accuracy/current-candid
 joins actual scheduled task IDs and full/304 clocks. Each missing scope, date-window,
 pagination/terminal and primary-sample proof remains explicit. Rubrik still lacks its legacy
 .news controller join; do not invent a route. Three rolling feeds remain incomplete, Orca's
-page 27 self-redirect proves no terminal, and the next seven-index plan stays dormant with
-a 257-request whole-operation bound. No owner source decision is currently required.
+page 27 self-redirect proves no terminal. The next seven-index plan is selected locally for
+independent operational review, with a 257-request whole-operation bound including all 25
+generic candidate probes. Remote main remains ad1; no seven-target requests have run.
+No owner source decision is currently required.
 The [next Q4 build specification](docs/active/daily-pipeline/accuracy/q4-single-response-qualification-build-spec-2026-10-25.md)
 now has its dormant single-response parser and two exact financial primary samples. Independent
 implementation review passes with no open findings after two date-metadata fixes. Final operational
@@ -97,7 +99,9 @@ six admissions, all 39,438 preceding immutable entries and 8,605 normal heads. C
 Their [cold source-template review](docs/active/daily-pipeline/accuracy/q4-primary-retained-template-source-review-2026-10-25.md)
 finds exact OG URL/title and same-item article H3/date/readable body; JFrog also has matching
 NewsArticle metadata. A versioned offline proof is under independent design review; the original
-held result remains exact. Normal-source integration stays blocked pending accepted proof.
+held result remains exact. Independent design review accepts the minimal exact-two-body offline
+attestation; implementation preparation stays outside the checkout until the seven-target
+operational promotion is complete. Normal-source integration stays blocked pending accepted proof.
 Exact ad1 restoration passes 69 focused checks and both remote closure checks.
 
 ## Remaining acceptance

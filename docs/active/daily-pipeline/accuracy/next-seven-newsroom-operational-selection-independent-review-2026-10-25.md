@@ -1,0 +1,25 @@
+# Seven-target operational selection review
+
+October 25, 2026. **PASS**, no open findings. The active schema-1 plan is byte-identical to the reviewed dormant plan. I recommend proceeding through the activation specification's CI, guarded promotion and immediate actual-run preflight. This review performs no dispatch or source request.
+
+The governing specification is `/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/next-seven-newsroom-operational-activation-spec-2026-10-25.md`. Active `/Users/jessepike/code/projects/sec-market-finish-20261022/contracts/source-qualification-probes.json` and dormant `/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/next-seven-newsroom-review-plan-2026-10-25.json` are exactly 4,162 bytes. Both raw and canonical SHA-256 are 3077d93ede8a9fe82302a6b851af61d8666f1c11cea433eed0f2725086c85fc2.
+
+The unchanged full `validate_qualification_probe_plan` at onboarding.py:336/:456 passes against acknowledged actual d2efafcb8a68d7330e4b700613b29f18b9892346, manifest bb1c3da1399e89341badf80bba8642d7892f32ce2030bd57fc1d4c165e383e4d. The read/get-only adapter ran with sockets and frozen-archive LocalStore construction denied. All seven candidate/source/supplier/allowed-host joins, original verified primary observations, body hashes, original fetchedAt values and literal links pass. Proof dates remain their actual October 20/23 dates; they are disclosure evidence and supply no current transport freshness or qualification credit.
+
+The seven explicit targets are Abnormal, Cyera, Torq, Veracode, Zenity, Cato and Chainguard. Their exact URLs, original records, bodies and clocks are retained in the companion JSON. No unsupported format, extra field, missing cardinality, changed timestamp, unknown source or fragment variant is selected. Fifteen adversarial actual-plan mutations reject under the existing validator.
+
+## Whole-operation bound
+
+The unchanged generic caller still probes all 25 candidate sources under H. There are no candidate SEC pairs in this policy. Each generic probe permits one root, one robots request and at most eight deduplicated discovered endpoints: 25 × 10 = 250 logical fetch reservations. Seven explicit targets add at most seven, for a whole-operation bound of **257 logical reservations**. Relevant paths are onboarding.py:1535, :1554–:1616 and `_probe_qualification_targets` at :582. This is not a seven-request-only operation. Ordinary wire retries remain unchanged; this bound does not assert a physical wire count.
+
+Actual-day allowance, the 1,200-second operation deadline, cancellation, UTC-day guards, per-source transport failure, allowed hosts and robots rules can reduce reached work. A denied pre-transport attempt stays charged when its reservation was already written. The caller's final in-flight guard still prevents a late completed response from becoming successful completion. The last authenticated ledger is 869 fetches, 80 calls, 38 documents and two gates; it must be reread immediately before dispatch. No allowance reset or increase follows from the bound.
+
+## Preservation and focused checks
+
+H remains raw SHA-256 24221c946781559c0ff3626e4e479c4647da915d0f2d7559ea88046982532c3c, canonical 8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db. The denominator remains 557. All six original admission and per-group policy hashes replay unchanged at the explicit historical test clock. Four fact references, 38 held rows, the original source expiry and the 869/80/38/gates-two ledger remain exact. No normal head, inventory, semantic approval, document/model counter or source registration changes in this review.
+
+Seventy-eight focused generic-probe, shared-lease, disabled-plan and budget tests passed with zero skips in OrbStack. All 57 consumed archive inputs and 18 repository/manifest file seals retained bytes, sizes and nanosecond mtimes. The companion JSON retains the full proof joins, seals, six admission references and original raw/gzip test-log hashes. Reproducible script and deterministic gzip log are under `/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/next-seven-newsroom-operational-selection-independent-review-2026-10-25/`.
+
+Existing full operational/application/render evidence applies to the unchanged runtime. This review does not repeat those suites. It proves the exact local selection; root still checks remote main/plan, actual ledger/archive, released lease, queued/running writers and current public receipt before one real source_probe dispatch. Actual responses, reached/unreached targets, charges, callback outcomes, archive continuity and later disabled-ad1 restoration require their separate receipts. Capturing a page alone earns no scope/window/pagination/sample qualification, source-check credit, fact admission or public refresh.
+
+Only these owned review files and receipts were written. No source/model request, actual runtime/budget/archive mutation, code/plan edit, commit, push or dispatch occurred.

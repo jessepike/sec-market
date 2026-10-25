@@ -1,0 +1,213 @@
+{
+  "schemaVersion": 1,
+  "verdict": "PASS_CONDITIONAL_DESIGN_ONLY",
+  "openDesignFindings": 0,
+  "implementationAuthorized": false,
+  "activationAuthorizedByReview": false,
+  "recommendation": "Use the exact two-row H-to-J transition, distinct inventory-only Q4 origin, exact inverse dispatch for old H origins, separate seed/migration authorities, and existing ordinary transport. Finish independent retained-template proof first.",
+  "reviewedProposal": {
+    "sha256": "fd1a539548f788321197ccc559f1bfee2dafe01b79eed684d4920eff66c30147",
+    "bytes": 13458,
+    "status": "Historical conditional proposal; use current project spec for the two resolved corrections."
+  },
+  "resolvedDesignFindings": [
+    {
+      "id": "D1",
+      "finding": "A version bump would fail verify-daily.mjs:31 and is unnecessary for a closed policy successor.",
+      "resolution": "Project spec now preserves market-daily-v2 and changes exactly the two source rows.",
+      "state": "resolved_in_current_project_spec"
+    },
+    {
+      "id": "D2",
+      "finding": "Existing primary verifier faithfully returns acceptedSamples=0/proposalEvidenceComplete=false; it cannot supply a completed-primary-report prerequisite.",
+      "resolution": "Project spec now requires a distinct independently accepted retained-template proof while preserving/replaying the original held report.",
+      "state": "resolved_in_current_project_spec"
+    }
+  ],
+  "blockingEvidenceDependencies": [
+    "Independent versioned retained-template proof over authenticated actual d2ef sample bodies, preserving original report holds; no new fetch needed to review the observed template.",
+    "Concrete whole J policy hash, exact H/J forward/inverse transition, positive source-origin/seed/baseline authority and immutable package pins; cannot be chosen from synthetic or self-authored metadata.",
+    "Independent implementation/package mutation and preservation review, including old three HTML origins and all six unchanged admissions.",
+    "Later actual ordinary source intake with authentic 200 or genuine 304 reuse chain, actual-day budget/lease continuity, then separately allowed scheduled/publication evidence."
+  ],
+  "resourceBound": {
+    "immutableProofAndSeedSourceRequests": 0,
+    "immutableProofAndSeedModelCalls": 0,
+    "incrementalIndexLogicalRequests": 2,
+    "incrementalSelectedBodyLogicalRequestsUpperBound": 4,
+    "incrementalLogicalFetchUpperBound": 6,
+    "physicalWireAttemptsNotClaimed": true,
+    "maxSelectedDocumentsPerSource": 2,
+    "maxSelectedDocumentsTwoSources": 4,
+    "maxCallsPerUncachedDocument": 16,
+    "maxCallsFourDocuments": 64,
+    "globalCallCeiling": 80,
+    "globalDocumentCeiling": 40,
+    "currentLedgerIsHistoricalAndMustBeReread": {
+      "fetches": 869,
+      "calls": 80,
+      "documents": 38,
+      "gates": 2
+    },
+    "zeroCallCapacityCanStillSpendFetchAndDocumentReservations": true
+  },
+  "correctionGroupSourceDependencies": {
+    "FC-20261023-checkpoint-sase": [
+      "checkpoint-sase:citation:TR-checkpoint-4",
+      "checkpoint-sase:citation:TR-checkpoint-5"
+    ],
+    "FC-20261023-optiv": [
+      "optiv:citation:TR-optiv-3"
+    ],
+    "FC-20261023-splunk": [
+      "splunk:citation:TR-splunk-2"
+    ],
+    "FC-20261023-zscaler": [
+      "zscaler:citation:TR-zscaler-4",
+      "zscaler:citation:TR-zscaler-6"
+    ],
+    "FC-20261023-expel": [
+      "expel:citation:TR-expel-1",
+      "expel:citation:TR-expel-2"
+    ],
+    "XAGE-SOURCE-CLASS-20261023": [
+      "xage:citation:TR-xage-1"
+    ]
+  },
+  "minimalSurfaces": {
+    "origin": "New Q4 origin plus bounded existing dispatcher; no generic transitive bridge.",
+    "seed": "Separate exact-J pure package preflight and actual-J leased import/checkpoint; old H validator uses reconstructed H in read-only overlay.",
+    "discovery": "One exact API request through ordinary callback; parser uses each actual observation clock, including new 304 check clock with separate original full-body chain.",
+    "baseline": "Separate closed H-to-J zero-credit migration retaining entire existing older-to-H superseded chain, with independent Python/JS inversion.",
+    "corrections": "Only outer whole-policy stamp changes; six dependency-bound review/admission policies remain exact.",
+    "engine": "Existing bounded intake/history and selection paths suffice; no generic engine/Page/model relaxation identified."
+  },
+  "sourcePointers": {
+    "oldHtmlOriginAuthority": "web/scripts/pipeline/source_qualification_origin.py:298,339,391,544",
+    "retainedInventoryInterface": "web/scripts/pipeline/retained_audit.py:442,567,828",
+    "oldHtmlSeed": "ops/ci/html_qualification_seed.py:145,212,232",
+    "ordinaryDiscoveryAndCache": "web/scripts/pipeline/discovery.py:978;web/scripts/pipeline/engine.py:146-198;web/scripts/pipeline/fetcher.py:139-175",
+    "dateHints": "web/scripts/pipeline/selection.py:9,47",
+    "zeroCallCost": "web/scripts/pipeline/engine.py:67,252,319-345,463;web/scripts/pipeline/agents.py:61,105",
+    "baseline": "web/scripts/pipeline/daily_baseline_migration.mjs:146,171,217;web/scripts/verify-daily.mjs:31,65",
+    "correctionPolicies": "web/scripts/pipeline/corrections.py:126;web/scripts/verify-factual-corrections.mjs:97,146"
+  },
+  "consultedFileSeals": {
+    "/var/tmp/smp-q4-normal-intake-design-20261025.md": {
+      "sha256": "fd1a539548f788321197ccc559f1bfee2dafe01b79eed684d4920eff66c30147",
+      "bytes": 13458,
+      "mtimeNs": 1792927174172803095
+    },
+    "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/q4-two-source-normal-intake-integration-spec-2026-10-25.md": {
+      "sha256": "e4d03c698dab7f9609561e447c2476139608698d687b2b4fbb1c6c8204ad0869",
+      "bytes": 8665,
+      "mtimeNs": 1792928262146978638
+    },
+    "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/q4-primary-qualification-actual-source-review-2026-10-25.json": {
+      "sha256": "3f133bc05fc7e3964dd3e0717b9a9cd0a3c859b0472b57bb00e6cd80615378bf",
+      "bytes": 53594,
+      "mtimeNs": 1792927885370693981
+    },
+    "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/source_qualification_origin.py": {
+      "sha256": "955ddadd22585672f677b533a6478034cb8048a0ec71faea37af0bfa74469bc6",
+      "bytes": 41012,
+      "mtimeNs": 1792865573469511064
+    },
+    "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/ops/ci/html_qualification_seed.py": {
+      "sha256": "68c66beda7c00e65361c90e7bc30efffc2e19a41804ae76ebffd40914d9236e4",
+      "bytes": 15844,
+      "mtimeNs": 1792866309301391352
+    },
+    "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/contracts.py": {
+      "sha256": "7a9dbf1c4a59391f79519b2aefe688ec572733e2223fd99fa352688b8d1c2d89",
+      "bytes": 10994,
+      "mtimeNs": 1792863209003882260
+    },
+    "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/discovery.py": {
+      "sha256": "2611635de944f025e848d8a7b15dfff2a328ac67a11a122a774eb46b2e1e7f68",
+      "bytes": 70911,
+      "mtimeNs": 1792875045592176818
+    },
+    "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/retained_audit.py": {
+      "sha256": "b9489df36d77dea130e3b1caadee2356309ff2b4a60c4a949249a28ab74ba7ef",
+      "bytes": 62011,
+      "mtimeNs": 1792827765731766890
+    },
+    "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/selection.py": {
+      "sha256": "1f2cb4e6101c6e119be359e5ea011b810dc4e4e35b57bfde324c0ec81cdd9f93",
+      "bytes": 4225,
+      "mtimeNs": 1792817884173290289
+    },
+    "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/separation.py": {
+      "sha256": "b2c225fef1bb704701441a611ea921e325a5a28e6ac00fcdb2b4d7273413e629",
+      "bytes": 4644,
+      "mtimeNs": 1792817884173457540
+    },
+    "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/engine.py": {
+      "sha256": "e471f18006a4899406510cdede42829476ba1945b58c420c61f6edce767a7e19",
+      "bytes": 54002,
+      "mtimeNs": 1792919139081836951
+    },
+    "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/agents.py": {
+      "sha256": "4891387bca57821ff3f65e2f07b353d53ceab9b757ddc183cf7eb1ac9a908bdc",
+      "bytes": 14136,
+      "mtimeNs": 1792800049821703793
+    },
+    "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/ops/ci/collect.py": {
+      "sha256": "044a560af19cc1e7a6fec9d87cc8461831dab491f7c42d3dd1d789c9bc3fe6d1",
+      "bytes": 26316,
+      "mtimeNs": 1792926832939554273
+    },
+    "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/ops/ci/bootstrap.py": {
+      "sha256": "e52e3338948dc7c2c5c63f30ed01cd929377a141b7577c91238440f80553bfdb",
+      "bytes": 10100,
+      "mtimeNs": 1792800049803557270
+    },
+    "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/daily_baseline_migration.mjs": {
+      "sha256": "a199f498783a1373af501c47e31ed1edc812441b0117654cd7e65513467e92c5",
+      "bytes": 15772,
+      "mtimeNs": 1792865573469386814
+    },
+    "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/verify-daily.mjs": {
+      "sha256": "553a53b78118ddb593779c505ea3c57638948e59b29180f37a854eefcf284276",
+      "bytes": 11358,
+      "mtimeNs": 1792865573469647980
+    },
+    "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/corrections.py": {
+      "sha256": "d742a91d4d23da5db3b426afcef76a80971c47dd54f8e4312065a6994f87b11f",
+      "bytes": 44838,
+      "mtimeNs": 1792919139081579451
+    },
+    "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/verify-factual-corrections.mjs": {
+      "sha256": "386093e726ccf9c2bdbe0b9115885ad74360e2c7cd81577554f335e9ee4f2f06",
+      "bytes": 19275,
+      "mtimeNs": 1792919139088074233
+    },
+    "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/contracts/market.json": {
+      "sha256": "24221c946781559c0ff3626e4e479c4647da915d0f2d7559ea88046982532c3c",
+      "bytes": 284062,
+      "mtimeNs": 1792865573453423141
+    },
+    "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/contracts/source-qualification-probes.json": {
+      "sha256": "3077d93ede8a9fe82302a6b851af61d8666f1c11cea433eed0f2725086c85fc2",
+      "bytes": 4162,
+      "mtimeNs": 1792928422351528183
+    },
+    "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/contracts/factual-corrections.json": {
+      "sha256": "9c9fbe0d3d40ece11e1407ce9460086c732f62da88d3b0f220ab9d6f8757da00",
+      "bytes": 32004,
+      "mtimeNs": 1792802031150005119
+    },
+    "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/web/src/data/tracker/factualCorrectionPolicy.json": {
+      "sha256": "7319ece4c5c4f6c7d515fb9ef7ff13211daf38e041948edd26732e9ccfa2dbc7",
+      "bytes": 1721,
+      "mtimeNs": 1792865573474431887
+    }
+  },
+  "allConsultedFilesUnchanged": true,
+  "sourceRequests": 0,
+  "modelCalls": 0,
+  "archiveMutations": 0,
+  "runtimeStateWrites": 0,
+  "repositoryEdits": 0
+}
