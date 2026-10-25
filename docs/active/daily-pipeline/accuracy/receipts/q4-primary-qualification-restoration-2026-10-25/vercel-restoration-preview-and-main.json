@@ -1,0 +1,54 @@
+{
+  "result": {
+    "deployments": {
+      "pagination": {
+        "count": 2,
+        "prev": 1792927851528
+      },
+      "deployments": [
+        {
+          "id": "dpl_Bd4iXsMGpF6iPpmbuF6gKEBv1jRN",
+          "name": "security-market-pulse",
+          "url": "security-market-pulse-gjx5ymxx1-pikeholdings.vercel.app",
+          "created": 1792927851528,
+          "state": "CANCELED",
+          "target": "production",
+          "creator": {
+            "uid": "um6xyC6srGbNQRAR3KB77kfs",
+            "username": "jessepike"
+          },
+          "meta": {
+            "githubCommitRef": "main",
+            "githubCommitSha": "900a51f9875838417dfd3a189457595ba19d578f",
+            "githubCommitMessage": "chore(qualification): close held primary capture and restore disabled plan\n\nActual run 40188161705 captured both pages but accepted zero samples. Preserve original holds and 867-to-869 fetch charges. Restore exact disabled ad1; 69 focused checks pass. Retained source-specific template review rema...",
+            "githubRepo": "sec-market",
+            "githubOrg": "jessepike"
+          },
+          "inspectorUrl": "https://vercel.com/pikeholdings/security-market-pulse/Bd4iXsMGpF6iPpmbuF6gKEBv1jRN",
+          "isRollbackCandidate": false
+        },
+        {
+          "id": "dpl_7PwRGz8EsZphVp17a8wj19wmr633",
+          "name": "security-market-pulse",
+          "url": "security-market-pulse-gkml016sa-pikeholdings.vercel.app",
+          "created": 1792927644114,
+          "state": "READY",
+          "target": null,
+          "creator": {
+            "uid": "um6xyC6srGbNQRAR3KB77kfs",
+            "username": "jessepike"
+          },
+          "meta": {
+            "githubCommitRef": "preview",
+            "githubCommitSha": "900a51f9875838417dfd3a189457595ba19d578f",
+            "githubCommitMessage": "chore(qualification): close held primary capture and restore disabled plan\n\nActual run 40188161705 captured both pages but accepted zero samples. Preserve original holds and 867-to-869 fetch charges. Restore exact disabled ad1; 69 focused checks pass. Retained source-specific template review rema...",
+            "githubRepo": "sec-market",
+            "githubOrg": "jessepike"
+          },
+          "inspectorUrl": "https://vercel.com/pikeholdings/security-market-pulse/7PwRGz8EsZphVp17a8wj19wmr633",
+          "isRollbackCandidate": false
+        }
+      ]
+    }
+  }
+}

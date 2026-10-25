@@ -1,0 +1,30 @@
+{
+  "collection-job.log": {
+    "rawSha256": "46f8988275b4a1d467d91aece5b3bb7deffb91b01950bd2b6a4b383566d475d1",
+    "rawBytes": 1346689,
+    "gzipSha256": "b3dca8f2a5281a8b8f28151e0d7e75eed521e3459b36faebe65c4e029034cfef",
+    "gzipBytes": 226727,
+    "byteExactRoundTrip": true
+  },
+  "publisher-callback-preflight.log": {
+    "rawSha256": "898845c7fef410086513ecda2711a98dc8b9ff3973f822d0a57c8951dede3cb6",
+    "rawBytes": 15649,
+    "gzipSha256": "b7ba7360c142c884193906dfd543ace187aaf7cc56c3ba87aa7d6bb3508f9d76",
+    "gzipBytes": 3584,
+    "byteExactRoundTrip": true
+  },
+  "rollback-callback-preflight.log": {
+    "rawSha256": "5f3c77758aee266996a1252fee0f4bdaf4dbb6b5e4956d1b16087d62c96b42c3",
+    "rawBytes": 16071,
+    "gzipSha256": "ad70441a6b3dcc3f16bf950255f7065116bbecc352ec302787667957e15d7e3d",
+    "gzipBytes": 3668,
+    "byteExactRoundTrip": true
+  },
+  "baseline-reuse-proof.json": {
+    "rawSha256": "264bf98204c81a8331c126957d244b51b954c3d69a104250222078f2ce2402ec",
+    "rawBytes": 10859749,
+    "gzipSha256": "1d7af79c189391821308285e5ae47e58b21d19f184f8c824bfd77610774a0288",
+    "gzipBytes": 2543187,
+    "byteExactRoundTrip": true
+  }
+}

@@ -77,8 +77,11 @@ completed two exact HTTP 200 captures, but both lack canonical links and use gen
 Accepted samples remain zero. The full 48,057-entry acknowledged archive and report replay pass;
 charges867→869, admissions/facts/38 holds/expiry unchanged. Review actual template bytes without
 retrying requests or rewriting the original held result. Normal Q4 activation stays blocked.
-Local exact ad1 restoration passes69 checks; remote closure remains next. Later inventory-only
-origin/policy transition and fresh normal intake require accepted source-specific primary proof.
+Exact ad1 restoration passes69 checks and is verified remotely on main900a51f9. Closure preview
+40188932479/main40189180649 pass, Vercel preview READY/main Git ignored, public receipt exact.
+The [cold template evidence](docs/active/daily-pipeline/accuracy/q4-primary-retained-template-source-review-2026-10-25.md)
+supports a separately reviewed offline proof without another GET; original holds stay exact.
+Later inventory-only origin/policy transition and fresh normal intake require accepted proof.
 Neither captured JSON nor request sentinels establish complete window/pagination or qualification.
 [Execution specification](docs/active/daily-pipeline/accuracy/q4-initial-data-operational-activation-spec-2026-10-25.md).
 

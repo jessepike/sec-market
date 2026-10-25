@@ -1,0 +1,133 @@
+[
+  {
+    "sourceId": "jfrog:official:1",
+    "bodyPath": "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/c14d01410488c758b6702738c99e6f55e2d1365b84ad0b2d932cf5433cde323a",
+    "bodySha256": "c14d01410488c758b6702738c99e6f55e2d1365b84ad0b2d932cf5433cde323a",
+    "bodyBytes": 105675,
+    "canonicalLinks": [],
+    "headings": [
+      "News Details"
+    ],
+    "titles": [
+      "Jfrog Ltd. - JFrog Announces Timing of Third Quarter 2026 Financial Results"
+    ],
+    "dateMetadataMarkup": [],
+    "headingsH2H3": [
+      {
+        "tag": "h3",
+        "text": "JFrog Announces Timing of Third Quarter 2026 Financial Results",
+        "attrs": {
+          "id": "_ctrl0_ctl23_lblModuleDetailTitle",
+          "class": "evergreen-item-detail-title evergreen-news-title"
+        }
+      }
+    ],
+    "scopedDateMarkup": [],
+    "openGraph": [
+      {
+        "content": "JFrog Announces Timing of Third Quarter 2026 Financial Results",
+        "property": "og:title"
+      },
+      {
+        "name": "description",
+        "content": "JFrog Ltd (Nasdaq: FROG), the Liquid Software company and creators of the JFrog Software Supply Chain Platform , the system of record for software artifacts, binaries, and AI assets, today announced it will report financial results for the third quarter 2026 on Thursday, November 5, 2026, following the market close. JFrog will host a conference call to discuss the results at 2:00 p.m. PT on the same day. Event : JFrog\u2019s Third Quarter 2026 Financial Results Conference Call Date : Thursday, November 5, 2026 Time : 2:00 p.m. PT (5:00 p.m. ET) Webcast registration link : https://investors.jfrog.com/events-and-presentations/events/default.aspx About JFrog JFrog Ltd. (Nasdaq: FROG), the creators of the unified DevOps, DevSecOps, DevGovOps and MLOps platform, is on a mission to create a world of software delivered without friction from development to production. Driven by a \u201cLiquid Software\u201d vision, the JFrog Platform is a software supply chain system of record that is",
+        "property": "og:description"
+      },
+      {
+        "content": "website",
+        "property": "og:type"
+      },
+      {
+        "content": "https://investors.jfrog.com/news/news-details/2026/JFrog-Announces-Timing-of-Third-Quarter-2026-Financial-Results/default.aspx",
+        "property": "og:url"
+      }
+    ],
+    "dateLikeElements": [
+      {
+        "tag": "div",
+        "attrs": {
+          "id": "_ctrl0_ctl23_divNewsDetailsDateTime",
+          "class": "evergreen-item-date-time evergreen-news-date-time evergreen-data-left"
+        },
+        "text": "October 14, 2026"
+      },
+      {
+        "tag": "span",
+        "attrs": {
+          "id": "_ctrl0_ctl23_spanDate",
+          "class": "evergreen-news-date-text"
+        },
+        "text": "October 14, 2026"
+      },
+      {
+        "tag": "span",
+        "attrs": {
+          "class": "bw-dateline-wrapper"
+        },
+        "text": "SUNNYVALE, Calif.--(BUSINESS WIRE)--"
+      }
+    ]
+  },
+  {
+    "sourceId": "rapid7:official:1",
+    "bodyPath": "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/fffa3d952d9f0a4242fffb3a8bbaab42ca9f7ad938ed73582bf3e8d93580114e",
+    "bodySha256": "fffa3d952d9f0a4242fffb3a8bbaab42ca9f7ad938ed73582bf3e8d93580114e",
+    "bodyBytes": 80272,
+    "canonicalLinks": [],
+    "headings": [
+      "News Details"
+    ],
+    "titles": [
+      "Rapid7 - Rapid7 to Report Third Quarter 2026 Financial Results on November 4"
+    ],
+    "dateMetadataMarkup": [],
+    "headingsH2H3": [
+      {
+        "tag": "h3",
+        "text": "Rapid7 to Report Third Quarter 2026 Financial Results on November 4",
+        "attrs": {
+          "id": "_ctrl0_ctl54_lblModuleDetailTitle",
+          "class": "evergreen-item-detail-title evergreen-news-title"
+        }
+      }
+    ],
+    "scopedDateMarkup": [],
+    "openGraph": [
+      {
+        "content": "Rapid7 to Report Third Quarter 2026 Financial Results on November 4",
+        "property": "og:title"
+      },
+      {
+        "name": "description",
+        "content": "BOSTON, Oct. 14, 2026 (GLOBE NEWSWIRE) - Rapid7, Inc. (NASDAQ: RPD), a global leader in AI-powered managed cybersecurity operations, today announced that the company will release its third quarter 2026 financial results on Wednesday, November 4, 2026, after the financial markets close. The company will host a conference call that same day to discuss its results and business outlook at 4:30 p.m. Eastern Time. To register for the live event please visit: https://q3-2026-rapid7-earnings-call.open-exchange.net/ A live webcast of the conference call and the financial results press release will be accessible from the Rapid7 investor relations website at https://investors.rapid7.com . A webcast replay of the call will be available at https://investors.rapid7.com . About Rapid7 Rapid7, Inc. (NASDAQ: RPD) is a global leader in AI-powered managed cybersecurity operations, trusted to advance organizations\u2019 cyber resilience. Open and extensible, the Rapid7 Command Platform integrates security",
+        "property": "og:description"
+      },
+      {
+        "content": "website",
+        "property": "og:type"
+      },
+      {
+        "content": "https://investors.rapid7.com/news/news-details/2026/Rapid7-to-Report-Third-Quarter-2026-Financial-Results-on-November-4/default.aspx",
+        "property": "og:url"
+      }
+    ],
+    "dateLikeElements": [
+      {
+        "tag": "div",
+        "attrs": {
+          "id": "_ctrl0_ctl54_divNewsDetailsDateTime",
+          "class": "evergreen-item-date-time evergreen-news-date-time evergreen-data-left"
+        },
+        "text": "October 14, 2026"
+      },
+      {
+        "tag": "span",
+        "attrs": {
+          "id": "_ctrl0_ctl54_spanDate",
+          "class": "evergreen-news-date-text"
+        },
+        "text": "October 14, 2026"
+      }
+    ]
+  }
+]

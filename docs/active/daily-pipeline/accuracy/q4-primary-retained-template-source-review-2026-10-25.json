@@ -1,0 +1,375 @@
+{
+  "schemaVersion": 1,
+  "status": "recommend_versioned_retained_sample_proof",
+  "scope": "cold retained-byte inspection only; no implementation or qualification",
+  "actualRun": {
+    "githubRunId": "40188161705",
+    "githubRunAttempt": 1,
+    "githubRef": "refs/heads/main",
+    "githubEventName": "workflow_dispatch",
+    "appRevision": "b7c7841ab36c4cf04646978493ce74e1e542a2b9",
+    "contractSha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db"
+  },
+  "manifest": {
+    "sha256": "bb1c3da1399e89341badf80bba8642d7892f32ce2030bd57fc1d4c165e383e4d",
+    "bytes": 9944331,
+    "listedEntries": 48057,
+    "scope": "consulted files authenticated against manifest; complete archive authentication belongs to root audit"
+  },
+  "originalReport": {
+    "checkedAt": "2026-10-25T11:20:11.500772Z",
+    "planRawSha256": "3a25e8e262b51fbf6f872c8655b25c9d255cf52b32ca0e9c4afa73d78893fbd4",
+    "planCanonicalSha256": "3b7fc7c4de41c68471d4343f103e7e5ee705e5a4a51f760f5387e34a49a660ee",
+    "acceptedSamples": 0,
+    "proposalEvidenceComplete": false,
+    "qualifiedSources": 0,
+    "sourceChecksCredited": 0,
+    "modelCalls": 0,
+    "facts": [],
+    "semanticAdmission": false,
+    "coverageCredit": false
+  },
+  "findings": [
+    {
+      "sourceId": "jfrog:official:1",
+      "body": {
+        "bytes": 105675,
+        "key": "objects/c14d01410488c758b6702738c99e6f55e2d1365b84ad0b2d932cf5433cde323a",
+        "sha256": "c14d01410488c758b6702738c99e6f55e2d1365b84ad0b2d932cf5433cde323a"
+      },
+      "observation": {
+        "bytes": 463,
+        "key": "objects/426bf440e12d1dc6671e833325ade4f1bfa4baf1598ffcbadc1f3ad489fb06ba",
+        "sha256": "426bf440e12d1dc6671e833325ade4f1bfa4baf1598ffcbadc1f3ad489fb06ba"
+      },
+      "rawObservation": {
+        "bytes": 617,
+        "key": "objects/1bee78d58f3ffa9114b9b3ece9d885786fa065ff85afb88ed46931c77f9ecb25",
+        "sha256": "1bee78d58f3ffa9114b9b3ece9d885786fa065ff85afb88ed46931c77f9ecb25"
+      },
+      "actualTransport": {
+        "status": "fetched",
+        "httpStatus": 200,
+        "requestedUrl": "https://investors.jfrog.com/news/news-details/2026/JFrog-Announces-Timing-of-Third-Quarter-2026-Financial-Results/default.aspx",
+        "finalUrl": "https://investors.jfrog.com/news/news-details/2026/JFrog-Announces-Timing-of-Third-Quarter-2026-Financial-Results/default.aspx",
+        "fetchedAt": "2026-10-25T11:20:10.702332Z",
+        "contentType": "text/html; charset=utf-8"
+      },
+      "originalHeldReason": "ContractError:BOUNDED_CANDIDATE_PRIMARY_CANONICAL_DIFFERS",
+      "apiBodySha256": "f7d84b288a6665280f4b8ade996b0bf64fe9c3fa0ea7a8a15b1adfb0826ccc19",
+      "apiRowIndex": 2,
+      "apiRowCanonicalSha256": "b9a2d2e2000c8d5d8794b49e6b3d0552055ab4051c96c89fe20a027709297949",
+      "apiRowDateLiteral": "10/14/2026 16:05:00",
+      "documentTitle": "Jfrog Ltd. - JFrog Announces Timing of Third Quarter 2026 Financial Results",
+      "issuerPrefix": "Jfrog Ltd. - ",
+      "h1": [
+        "News Details"
+      ],
+      "canonicals": [],
+      "baseCount": 0,
+      "ogTitle": [
+        "JFrog Announces Timing of Third Quarter 2026 Financial Results"
+      ],
+      "ogUrl": [
+        "https://investors.jfrog.com/news/news-details/2026/JFrog-Announces-Timing-of-Third-Quarter-2026-Financial-Results/default.aspx"
+      ],
+      "module": {
+        "id": "_ctrl0_ctl23_divModuleContainer",
+        "class": "evergreen evergreen-news-details",
+        "data-workflow-id": "97bb90f4-1a4c-4725-99fc-4c37729cebbb"
+      },
+      "container": {
+        "id": "_ctrl0_ctl23_divNewsDetailsItemContainer",
+        "class": "evergreen-item evergreen-news-details-item evergreen-item-container "
+      },
+      "heading": {
+        "tag": "h3",
+        "attrs": {
+          "id": "_ctrl0_ctl23_lblModuleDetailTitle",
+          "class": "evergreen-item-detail-title evergreen-news-title"
+        },
+        "text": "JFrog Announces Timing of Third Quarter 2026 Financial Results"
+      },
+      "visibleDate": {
+        "attrs": {
+          "id": "_ctrl0_ctl23_spanDate",
+          "class": "evergreen-news-date-text"
+        },
+        "literal": "October 14, 2026",
+        "calendarDay": "2026-10-14",
+        "timezone": null
+      },
+      "articleBody": {
+        "attrs": {
+          "id": "_ctrl0_ctl23_divBody",
+          "class": "evergreen-news-body"
+        },
+        "readableCharacters": 1770,
+        "paragraphCount": 6,
+        "openingParagraph": "SUNNYVALE, Calif.--(BUSINESS WIRE)-- JFrog Ltd (Nasdaq: FROG), the Liquid Software company and creators of the JFrog Software Supply Chain Platform , the system of record for software artifacts, binaries, and AI assets, today announced it will report financial results for the third quarter 2026 on Thursday, November 5, 2026, following the market close. JFrog will host a conference call to discuss the results at 2:00 p.m. PT on the same day.",
+        "ending": "ontact: JFrog Investor Relations, [email protected] Source: JFrog Ltd.",
+        "linkCount": 6,
+        "linkHosts": [
+          "",
+          "cts.businesswire.com"
+        ]
+      },
+      "backLinks": [
+        {
+          "href": "https://investors.jfrog.com/news/default.aspx",
+          "text": "View All News"
+        },
+        {
+          "href": "https://investors.jfrog.com/news/default.aspx",
+          "text": "View All News"
+        }
+      ],
+      "jsonLd": [
+        {
+          "@type": "NewsArticle",
+          "headline": "JFrog Announces Timing of Third Quarter 2026 Financial Results",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://investors.jfrog.com/news/news-details/2026/JFrog-Announces-Timing-of-Third-Quarter-2026-Financial-Results/default.aspx"
+          },
+          "datePublished": "2026-10-14T15:05:00Z",
+          "dateModified": "2026-10-14T15:05:00Z"
+        }
+      ],
+      "coldTemplateAssertionsPassed": true
+    },
+    {
+      "sourceId": "rapid7:official:1",
+      "body": {
+        "bytes": 80272,
+        "key": "objects/fffa3d952d9f0a4242fffb3a8bbaab42ca9f7ad938ed73582bf3e8d93580114e",
+        "sha256": "fffa3d952d9f0a4242fffb3a8bbaab42ca9f7ad938ed73582bf3e8d93580114e"
+      },
+      "observation": {
+        "bytes": 470,
+        "key": "objects/22a94cdb27a0227411512ba5168a727090e2de85fb941f79adf03c64d3aae30e",
+        "sha256": "22a94cdb27a0227411512ba5168a727090e2de85fb941f79adf03c64d3aae30e"
+      },
+      "rawObservation": {
+        "bytes": 628,
+        "key": "objects/3f5ad49770d744dc1fda921aaffaf1b6ba5b6ba1f5ef4d1b12f3b298ff230e07",
+        "sha256": "3f5ad49770d744dc1fda921aaffaf1b6ba5b6ba1f5ef4d1b12f3b298ff230e07"
+      },
+      "actualTransport": {
+        "status": "fetched",
+        "httpStatus": 200,
+        "requestedUrl": "https://investors.rapid7.com/news/news-details/2026/Rapid7-to-Report-Third-Quarter-2026-Financial-Results-on-November-4/default.aspx",
+        "finalUrl": "https://investors.rapid7.com/news/news-details/2026/Rapid7-to-Report-Third-Quarter-2026-Financial-Results-on-November-4/default.aspx",
+        "fetchedAt": "2026-10-25T11:20:10.954360Z",
+        "contentType": "text/html; charset=utf-8"
+      },
+      "originalHeldReason": "ContractError:BOUNDED_CANDIDATE_PRIMARY_CANONICAL_DIFFERS",
+      "apiBodySha256": "cf3c57d1c2080d65656e9f291eca371aefd99909476d413bb5c90155bc742db8",
+      "apiRowIndex": 2,
+      "apiRowCanonicalSha256": "68f92eeb69a75ed608462310b72798f7efa0c8f9a1118d28712b3cce9716d8f5",
+      "apiRowDateLiteral": "10/14/2026 16:05:00",
+      "documentTitle": "Rapid7 - Rapid7 to Report Third Quarter 2026 Financial Results on November 4",
+      "issuerPrefix": "Rapid7 - ",
+      "h1": [
+        "News Details"
+      ],
+      "canonicals": [],
+      "baseCount": 0,
+      "ogTitle": [
+        "Rapid7 to Report Third Quarter 2026 Financial Results on November 4"
+      ],
+      "ogUrl": [
+        "https://investors.rapid7.com/news/news-details/2026/Rapid7-to-Report-Third-Quarter-2026-Financial-Results-on-November-4/default.aspx"
+      ],
+      "module": {
+        "id": "_ctrl0_ctl54_divModuleContainer",
+        "class": "evergreen evergreen-news-details  module-news-details",
+        "data-workflow-id": "c6353ac5-12c6-4da0-9cfb-44da659afe02"
+      },
+      "container": {
+        "id": "_ctrl0_ctl54_divNewsDetailsItemContainer",
+        "class": "evergreen-item evergreen-news-details-item evergreen-item-container "
+      },
+      "heading": {
+        "tag": "h3",
+        "attrs": {
+          "id": "_ctrl0_ctl54_lblModuleDetailTitle",
+          "class": "evergreen-item-detail-title evergreen-news-title"
+        },
+        "text": "Rapid7 to Report Third Quarter 2026 Financial Results on November 4"
+      },
+      "visibleDate": {
+        "attrs": {
+          "id": "_ctrl0_ctl54_spanDate",
+          "class": "evergreen-news-date-text"
+        },
+        "literal": "October 14, 2026",
+        "calendarDay": "2026-10-14",
+        "timezone": null
+      },
+      "articleBody": {
+        "attrs": {
+          "id": "_ctrl0_ctl54_divBody",
+          "class": "evergreen-news-body"
+        },
+        "readableCharacters": 1577,
+        "paragraphCount": 7,
+        "openingParagraph": "BOSTON, Oct. 14, 2026 (GLOBE NEWSWIRE) -- Rapid7, Inc. (NASDAQ: RPD), a global leader in AI-powered managed cybersecurity operations, today announced that the company will release its third quarter 2026 financial results on Wednesday, November 4, 2026, after the financial markets close.",
+        "ending": " Rapid7 Press Contact: [email protected] (857) 216-7804 Source: Rapid7",
+        "linkCount": 11,
+        "linkHosts": [
+          "www.globenewswire.com"
+        ]
+      },
+      "backLinks": [
+        {
+          "href": "https://investors.rapid7.com/news/default.aspx",
+          "text": "View All News"
+        },
+        {
+          "href": "https://investors.rapid7.com/news/default.aspx",
+          "text": "View All News"
+        }
+      ],
+      "jsonLd": [],
+      "coldTemplateAssertionsPassed": true
+    }
+  ],
+  "inputSeals": {
+    "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/archive-manifest.json": {
+      "before": {
+        "sha256": "bb1c3da1399e89341badf80bba8642d7892f32ce2030bd57fc1d4c165e383e4d",
+        "bytes": 9944331,
+        "mtimeNs": 1792927298568557157
+      },
+      "after": {
+        "sha256": "bb1c3da1399e89341badf80bba8642d7892f32ce2030bd57fc1d4c165e383e4d",
+        "bytes": 9944331,
+        "mtimeNs": 1792927298568557157
+      },
+      "unchanged": true
+    },
+    "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/ci/source-probe-runs/40188161705-1.json": {
+      "before": {
+        "sha256": "093fba7150d21255af66a563207b3c3f0490bae36873376203c43d5415be6897",
+        "bytes": 713736,
+        "mtimeNs": 1792927333776130385
+      },
+      "after": {
+        "sha256": "093fba7150d21255af66a563207b3c3f0490bae36873376203c43d5415be6897",
+        "bytes": 713736,
+        "mtimeNs": 1792927333776130385
+      },
+      "unchanged": true
+    },
+    "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/c14d01410488c758b6702738c99e6f55e2d1365b84ad0b2d932cf5433cde323a": {
+      "before": {
+        "sha256": "c14d01410488c758b6702738c99e6f55e2d1365b84ad0b2d932cf5433cde323a",
+        "bytes": 105675,
+        "mtimeNs": 1792927333779227421
+      },
+      "after": {
+        "sha256": "c14d01410488c758b6702738c99e6f55e2d1365b84ad0b2d932cf5433cde323a",
+        "bytes": 105675,
+        "mtimeNs": 1792927333779227421
+      },
+      "unchanged": true
+    },
+    "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/f7d84b288a6665280f4b8ade996b0bf64fe9c3fa0ea7a8a15b1adfb0826ccc19": {
+      "before": {
+        "sha256": "f7d84b288a6665280f4b8ade996b0bf64fe9c3fa0ea7a8a15b1adfb0826ccc19",
+        "bytes": 282783,
+        "mtimeNs": 1792923785068735598
+      },
+      "after": {
+        "sha256": "f7d84b288a6665280f4b8ade996b0bf64fe9c3fa0ea7a8a15b1adfb0826ccc19",
+        "bytes": 282783,
+        "mtimeNs": 1792923785068735598
+      },
+      "unchanged": true
+    },
+    "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/426bf440e12d1dc6671e833325ade4f1bfa4baf1598ffcbadc1f3ad489fb06ba": {
+      "before": {
+        "sha256": "426bf440e12d1dc6671e833325ade4f1bfa4baf1598ffcbadc1f3ad489fb06ba",
+        "bytes": 463,
+        "mtimeNs": 1792927333778690547
+      },
+      "after": {
+        "sha256": "426bf440e12d1dc6671e833325ade4f1bfa4baf1598ffcbadc1f3ad489fb06ba",
+        "bytes": 463,
+        "mtimeNs": 1792927333778690547
+      },
+      "unchanged": true
+    },
+    "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/1bee78d58f3ffa9114b9b3ece9d885786fa065ff85afb88ed46931c77f9ecb25": {
+      "before": {
+        "sha256": "1bee78d58f3ffa9114b9b3ece9d885786fa065ff85afb88ed46931c77f9ecb25",
+        "bytes": 617,
+        "mtimeNs": 1792927333777551882
+      },
+      "after": {
+        "sha256": "1bee78d58f3ffa9114b9b3ece9d885786fa065ff85afb88ed46931c77f9ecb25",
+        "bytes": 617,
+        "mtimeNs": 1792927333777551882
+      },
+      "unchanged": true
+    },
+    "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/fffa3d952d9f0a4242fffb3a8bbaab42ca9f7ad938ed73582bf3e8d93580114e": {
+      "before": {
+        "sha256": "fffa3d952d9f0a4242fffb3a8bbaab42ca9f7ad938ed73582bf3e8d93580114e",
+        "bytes": 80272,
+        "mtimeNs": 1792927333779835836
+      },
+      "after": {
+        "sha256": "fffa3d952d9f0a4242fffb3a8bbaab42ca9f7ad938ed73582bf3e8d93580114e",
+        "bytes": 80272,
+        "mtimeNs": 1792927333779835836
+      },
+      "unchanged": true
+    },
+    "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/cf3c57d1c2080d65656e9f291eca371aefd99909476d413bb5c90155bc742db8": {
+      "before": {
+        "sha256": "cf3c57d1c2080d65656e9f291eca371aefd99909476d413bb5c90155bc742db8",
+        "bytes": 414550,
+        "mtimeNs": 1792923785495734757
+      },
+      "after": {
+        "sha256": "cf3c57d1c2080d65656e9f291eca371aefd99909476d413bb5c90155bc742db8",
+        "bytes": 414550,
+        "mtimeNs": 1792923785495734757
+      },
+      "unchanged": true
+    },
+    "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/22a94cdb27a0227411512ba5168a727090e2de85fb941f79adf03c64d3aae30e": {
+      "before": {
+        "sha256": "22a94cdb27a0227411512ba5168a727090e2de85fb941f79adf03c64d3aae30e",
+        "bytes": 470,
+        "mtimeNs": 1792927333777849673
+      },
+      "after": {
+        "sha256": "22a94cdb27a0227411512ba5168a727090e2de85fb941f79adf03c64d3aae30e",
+        "bytes": 470,
+        "mtimeNs": 1792927333777849673
+      },
+      "unchanged": true
+    },
+    "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/3f5ad49770d744dc1fda921aaffaf1b6ba5b6ba1f5ef4d1b12f3b298ff230e07": {
+      "before": {
+        "sha256": "3f5ad49770d744dc1fda921aaffaf1b6ba5b6ba1f5ef4d1b12f3b298ff230e07",
+        "bytes": 628,
+        "mtimeNs": 1792927333778403631
+      },
+      "after": {
+        "sha256": "3f5ad49770d744dc1fda921aaffaf1b6ba5b6ba1f5ef4d1b12f3b298ff230e07",
+        "bytes": 628,
+        "mtimeNs": 1792927333778403631
+      },
+      "unchanged": true
+    }
+  },
+  "newRequests": 0,
+  "javascriptExecuted": false,
+  "localStoreInitialized": false,
+  "operationalCredit": false,
+  "normalIntegrationImplemented": false
+}

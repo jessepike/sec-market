@@ -55,11 +55,12 @@ the next daily collector; that cannot establish another timer execution.
 
 ## Current source work
 
-Reviewed main is b7c7841a. Preview web 40187747470, canary 40187747473 and main web
-40187990840 pass. Preview dpl_9eGyR6hqXeU8ZEK3hSPPJYLMK8LD is READY; main Git build
-dpl_PHi9JbqbWppKhPnep9oVi1AeKus4 is CANCELED. Automatic production-domain assignment
-remains closed. This push did not publish. Local closure restores exact disabled ad1;
-its remote preview/main promotion and closure verification remain pending.
+Reviewed main 900a51f9 restores exact disabled ad1 remotely. Closure preview web 40188932479
+and main web 40189180649 pass. Preview dpl_7PwRGz8EsZphVp17a8wj19wmr633 is READY; main
+Git build dpl_Bd4iXsMGpF6iPpmbuF6gKEBv1jRN is CANCELED. Public receipt remains byte-exact.
+The preceding sample selection b7c7841a passed preview web 40187747470/canary 40187747473
+and main web 40187990840. These code moves did not publish.
+[Closure proof](docs/active/daily-pipeline/accuracy/receipts/q4-primary-qualification-restoration-2026-10-25/verification.json).
 
 Actual six-script diagnostic 40179255547 captured JFrog/Rapid7/Rubrik controllers and preserved
 all earlier evidence. Their static inspection supports two exact JFrog/Rapid7 data GETs.
@@ -86,14 +87,18 @@ now has its dormant single-response parser and two exact financial primary sampl
 implementation review passes with no open findings after two date-metadata fixes. Final operational
 checks pass 909/909, focused route checks 126/126, and the full application checks pass with one
 existing browser skip. Both rendered widths remain byte-exact to the preceding local build.
-Actual article run 40188161705 passed execution on b7c7841a, completing at 11:20:57 UTC.
+Actual article run [40188161705](docs/active/daily-pipeline/accuracy/q4-primary-qualification-actual-source-review-2026-10-25.md)
+passed execution on b7c7841a, completing at 11:20:57 UTC.
 Both exact pages returned HTTP 200 HTML, but qualification accepted zero: both omit canonical
 links and have generic H1 “News Details”. Original holds remain exact. Its independent audit
 authenticates all 48,057 entries of d2efafcb, manifest bb1c3da1…383e4d, complete report replay,
 six admissions, all 39,438 preceding immutable entries and 8,605 normal heads. Charges rose
 867→869 only; facts, 38 holds and private/public expiry remain unchanged. No retry or credit.
-The retained pages are under source-specific template review. Normal-source integration is
-blocked pending accepted primary proof. Exact local ad1 restoration passes 69 focused checks.
+Their [cold source-template review](docs/active/daily-pipeline/accuracy/q4-primary-retained-template-source-review-2026-10-25.md)
+finds exact OG URL/title and same-item article H3/date/readable body; JFrog also has matching
+NewsArticle metadata. A versioned offline proof is under independent design review; the original
+held result remains exact. Normal-source integration stays blocked pending accepted proof.
+Exact ad1 restoration passes 69 focused checks and both remote closure checks.
 
 ## Remaining acceptance
 

@@ -1,0 +1,1053 @@
+{
+  "schemaVersion": 1,
+  "result": "PASS_ACTUAL_DIAGNOSTIC_CAPTURE_HELD_NO_QUALIFICATION",
+  "actualRunId": 40188161705,
+  "githubRunUrl": "https://github.com/jessepike/sec-market/actions/runs/40188161705",
+  "event": "workflow_dispatch",
+  "appRevision": "b7c7841ab36c4cf04646978493ce74e1e542a2b9",
+  "actualTerminalConclusion": "success",
+  "actualTerminalAt": "2026-10-25T11:20:57Z",
+  "reportStartedAt": "2026-10-25T11:19:47.413030Z",
+  "reportCheckedAt": "2026-10-25T11:20:11.500772Z",
+  "artifact": {
+    "id": 12597132303,
+    "node_id": "MDg6QXJ0aWZhY3QxMjU5NzEzMjMwMw==",
+    "name": "source-probe-receipt",
+    "size_in_bytes": 134691,
+    "url": "https://api.github.com/repos/jessepike/sec-market/actions/artifacts/12597132303",
+    "archive_download_url": "https://api.github.com/repos/jessepike/sec-market/actions/artifacts/12597132303/zip",
+    "expired": false,
+    "digest": "sha256:2fd5b94683ea1473171d14bb9241364d9735ac8dbcb69b79c4cab2ad65e1d008",
+    "created_at": "2026-10-25T11:20:37Z",
+    "updated_at": "2026-10-25T11:20:37Z",
+    "expires_at": "2026-11-08T11:20:36Z",
+    "workflow_run": {
+      "id": 40188161705,
+      "repository_id": 1335546492,
+      "head_repository_id": 1335546492,
+      "head_branch": "main",
+      "head_sha": "b7c7841ab36c4cf04646978493ce74e1e542a2b9"
+    }
+  },
+  "archive": {
+    "commit": "d2efafcb8a68d7330e4b700613b29f18b9892346",
+    "parentCommit": "c0352fded2fe0a3ba0b60daf0bf46a33895bbd45",
+    "manifestSha256": "bb1c3da1399e89341badf80bba8642d7892f32ce2030bd57fc1d4c165e383e4d",
+    "files": 48057,
+    "ref": "refs/archive/market-evidence"
+  },
+  "archiveManifest": {
+    "sha256": "bb1c3da1399e89341badf80bba8642d7892f32ce2030bd57fc1d4c165e383e4d",
+    "bytes": 9944331,
+    "gitBlobSha1": "374ca4bd46b40967135d0d75a10539e544119828",
+    "entriesAccountedFor": 48057,
+    "previouslyAuthenticatedEntriesReused": 48043,
+    "newOrChangedEntriesHashVerified": 14,
+    "authenticationMethod": "Previously fully authenticated frozen d660 entries reused through equal manifests and exact hardlink/stat continuity; all delta bytes hash-verified.",
+    "readOnlyVmPath": "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted"
+  },
+  "baseline": {
+    "commit": "d6606a4f5dd1e1afc5f16dea6d91bc422347f8aa",
+    "manifest": {
+      "sha256": "40873bfd2dca9836b58ac325a3afb32919fb463b2082752cb72fc785a2d7239d",
+      "bytes": 9941943,
+      "mtimeNs": 1792923772719971918
+    },
+    "fullAuditSha256": "f6d39334462c8f2dfa8ebf49439451969e5c3ed8b863b504b666821ca81f5033",
+    "entries": 48045,
+    "immutableEntriesPreserved": 39438,
+    "unchangedNormalHeads": 8605,
+    "changedEntries": [
+      "state/heads/budget-2026-10-25.json",
+      "state/heads/cloud-lease.json"
+    ],
+    "newEntries": [
+      "state/ci/budget-escrows/9def78ddfb039b6ad27baad8bd56296f01308401b87500114be0d016af4af57b.json",
+      "state/ci/source-probe-checkpoints/9def78ddfb039b6ad27baad8bd56296f01308401b87500114be0d016af4af57b/1d8ad663f989fe56d1e58e922560672569bee1bb5ad43b421b5118b1a0160645.json",
+      "state/ci/source-probe-checkpoints/9def78ddfb039b6ad27baad8bd56296f01308401b87500114be0d016af4af57b/410424a43f30407be4ff99630167e9cff33b225e6602ea21a13d591b51a6eee3.json",
+      "state/ci/source-probe-checkpoints/9def78ddfb039b6ad27baad8bd56296f01308401b87500114be0d016af4af57b/4ccd85e8ee4f001cab9d595b0ec710e8d9d073edbc93134ebf26dafdd6bd3bcc.json",
+      "state/ci/source-probe-runs/40188161705-1.json",
+      "state/objects/1bee78d58f3ffa9114b9b3ece9d885786fa065ff85afb88ed46931c77f9ecb25",
+      "state/objects/22a94cdb27a0227411512ba5168a727090e2de85fb941f79adf03c64d3aae30e",
+      "state/objects/3a25e8e262b51fbf6f872c8655b25c9d255cf52b32ca0e9c4afa73d78893fbd4",
+      "state/objects/3f5ad49770d744dc1fda921aaffaf1b6ba5b6ba1f5ef4d1b12f3b298ff230e07",
+      "state/objects/426bf440e12d1dc6671e833325ade4f1bfa4baf1598ffcbadc1f3ad489fb06ba",
+      "state/objects/c14d01410488c758b6702738c99e6f55e2d1365b84ad0b2d932cf5433cde323a",
+      "state/objects/fffa3d952d9f0a4242fffb3a8bbaab42ca9f7ad938ed73582bf3e8d93580114e"
+    ]
+  },
+  "reportReplay": {
+    "proposalEvidenceComplete": false,
+    "acceptedSamples": 0,
+    "qualified": false,
+    "semanticAdmission": false,
+    "coverageCredit": false,
+    "facts": [],
+    "qualifiedSources": 0,
+    "sourceChecksCredited": 0,
+    "modelCalls": 0
+  },
+  "requestResults": [
+    {
+      "sourceId": "jfrog:official:1",
+      "requestedUrl": "https://investors.jfrog.com/news/news-details/2026/JFrog-Announces-Timing-of-Third-Quarter-2026-Financial-Results/default.aspx",
+      "requestedAt": "2026-10-25T11:20:10.367147Z",
+      "responseCheckedAt": "2026-10-25T11:20:10.705297Z",
+      "observationWrapper": {
+        "key": "objects/426bf440e12d1dc6671e833325ade4f1bfa4baf1598ffcbadc1f3ad489fb06ba",
+        "sha256": "426bf440e12d1dc6671e833325ade4f1bfa4baf1598ffcbadc1f3ad489fb06ba",
+        "bytes": 463
+      },
+      "rawObservation": {
+        "body": {
+          "bytes": 105675,
+          "key": "objects/c14d01410488c758b6702738c99e6f55e2d1365b84ad0b2d932cf5433cde323a",
+          "sha256": "c14d01410488c758b6702738c99e6f55e2d1365b84ad0b2d932cf5433cde323a"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-25T11:20:10.702332Z",
+        "finalUrl": "https://investors.jfrog.com/news/news-details/2026/JFrog-Announces-Timing-of-Third-Quarter-2026-Financial-Results/default.aspx",
+        "httpStatus": 200,
+        "lastModified": null,
+        "requestedUrl": "https://investors.jfrog.com/news/news-details/2026/JFrog-Announces-Timing-of-Third-Quarter-2026-Financial-Results/default.aspx",
+        "status": "fetched"
+      },
+      "finalUrl": "https://investors.jfrog.com/news/news-details/2026/JFrog-Announces-Timing-of-Third-Quarter-2026-Financial-Results/default.aspx",
+      "fetchedAt": "2026-10-25T11:20:10.702332Z",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "body": {
+        "bytes": 105675,
+        "key": "objects/c14d01410488c758b6702738c99e6f55e2d1365b84ad0b2d932cf5433cde323a",
+        "sha256": "c14d01410488c758b6702738c99e6f55e2d1365b84ad0b2d932cf5433cde323a"
+      },
+      "accepted": false,
+      "primaryShape": null,
+      "sourceRow": {
+        "rowIndex": 2,
+        "recordSha256": "b9a2d2e2000c8d5d8794b49e6b3d0552055ab4051c96c89fe20a027709297949",
+        "pressReleaseId": 1907,
+        "workflowId": "717ce770-88db-49b1-a63a-071d28989c99",
+        "title": "JFrog Announces Timing of Third Quarter 2026 Financial Results",
+        "url": "https://investors.jfrog.com/news/news-details/2026/JFrog-Announces-Timing-of-Third-Quarter-2026-Financial-Results/default.aspx",
+        "dateLiteral": "10/14/2026 16:05:00",
+        "calendarDay": "2026-10-14",
+        "timezone": null,
+        "dateAnomaly": null,
+        "boundaryAmbiguous": false
+      },
+      "classificationReason": "ContractError:BOUNDED_CANDIDATE_PRIMARY_CANONICAL_DIFFERS",
+      "transportError": null,
+      "denial": null,
+      "reservation": {
+        "budgetDay": "2026-10-25",
+        "fetchLimit": 5500,
+        "chargedFetchCount": 868
+      },
+      "retainedKnownBody": {
+        "file": "response-0-body.bin.gz",
+        "rawSha256": "c14d01410488c758b6702738c99e6f55e2d1365b84ad0b2d932cf5433cde323a",
+        "rawBytes": 105675,
+        "gzipSha256": "6e9b564e3aef943dc8f607fab0c37e1ff6cbfa804596659420c2b69b1a41fbfe",
+        "gzipBytes": 18427,
+        "byteExactRoundTrip": true,
+        "gzipMtime": 0,
+        "gzipEmbeddedFilename": ""
+      }
+    },
+    {
+      "sourceId": "rapid7:official:1",
+      "requestedUrl": "https://investors.rapid7.com/news/news-details/2026/Rapid7-to-Report-Third-Quarter-2026-Financial-Results-on-November-4/default.aspx",
+      "requestedAt": "2026-10-25T11:20:10.707810Z",
+      "responseCheckedAt": "2026-10-25T11:20:10.957252Z",
+      "observationWrapper": {
+        "key": "objects/22a94cdb27a0227411512ba5168a727090e2de85fb941f79adf03c64d3aae30e",
+        "sha256": "22a94cdb27a0227411512ba5168a727090e2de85fb941f79adf03c64d3aae30e",
+        "bytes": 470
+      },
+      "rawObservation": {
+        "body": {
+          "bytes": 80272,
+          "key": "objects/fffa3d952d9f0a4242fffb3a8bbaab42ca9f7ad938ed73582bf3e8d93580114e",
+          "sha256": "fffa3d952d9f0a4242fffb3a8bbaab42ca9f7ad938ed73582bf3e8d93580114e"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-25T11:20:10.954360Z",
+        "finalUrl": "https://investors.rapid7.com/news/news-details/2026/Rapid7-to-Report-Third-Quarter-2026-Financial-Results-on-November-4/default.aspx",
+        "httpStatus": 200,
+        "lastModified": null,
+        "requestedUrl": "https://investors.rapid7.com/news/news-details/2026/Rapid7-to-Report-Third-Quarter-2026-Financial-Results-on-November-4/default.aspx",
+        "status": "fetched"
+      },
+      "finalUrl": "https://investors.rapid7.com/news/news-details/2026/Rapid7-to-Report-Third-Quarter-2026-Financial-Results-on-November-4/default.aspx",
+      "fetchedAt": "2026-10-25T11:20:10.954360Z",
+      "httpStatus": 200,
+      "contentType": "text/html; charset=utf-8",
+      "body": {
+        "bytes": 80272,
+        "key": "objects/fffa3d952d9f0a4242fffb3a8bbaab42ca9f7ad938ed73582bf3e8d93580114e",
+        "sha256": "fffa3d952d9f0a4242fffb3a8bbaab42ca9f7ad938ed73582bf3e8d93580114e"
+      },
+      "accepted": false,
+      "primaryShape": null,
+      "sourceRow": {
+        "rowIndex": 2,
+        "recordSha256": "68f92eeb69a75ed608462310b72798f7efa0c8f9a1118d28712b3cce9716d8f5",
+        "pressReleaseId": 1814,
+        "workflowId": "c4a988fc-6aab-42ee-a2af-4fb57a7ed054",
+        "title": "Rapid7 to Report Third Quarter 2026 Financial Results on November 4",
+        "url": "https://investors.rapid7.com/news/news-details/2026/Rapid7-to-Report-Third-Quarter-2026-Financial-Results-on-November-4/default.aspx",
+        "dateLiteral": "10/14/2026 16:05:00",
+        "calendarDay": "2026-10-14",
+        "timezone": null,
+        "dateAnomaly": null,
+        "boundaryAmbiguous": false
+      },
+      "classificationReason": "ContractError:BOUNDED_CANDIDATE_PRIMARY_CANONICAL_DIFFERS",
+      "transportError": null,
+      "denial": null,
+      "reservation": {
+        "budgetDay": "2026-10-25",
+        "fetchLimit": 5500,
+        "chargedFetchCount": 869
+      },
+      "retainedKnownBody": {
+        "file": "response-1-body.bin.gz",
+        "rawSha256": "fffa3d952d9f0a4242fffb3a8bbaab42ca9f7ad938ed73582bf3e8d93580114e",
+        "rawBytes": 80272,
+        "gzipSha256": "2ae9e0005910d1db7caee0226049a477ba83a7b8e6a8d0fbcd3ad0410c754cbd",
+        "gzipBytes": 17833,
+        "byteExactRoundTrip": true,
+        "gzipMtime": 0,
+        "gzipEmbeddedFilename": ""
+      }
+    }
+  ],
+  "coldPrimaryInspection": [
+    {
+      "sourceId": "jfrog:official:1",
+      "bodyPath": "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/c14d01410488c758b6702738c99e6f55e2d1365b84ad0b2d932cf5433cde323a",
+      "bodySha256": "c14d01410488c758b6702738c99e6f55e2d1365b84ad0b2d932cf5433cde323a",
+      "bodyBytes": 105675,
+      "canonicalLinks": [],
+      "headings": [
+        "News Details"
+      ],
+      "titles": [
+        "Jfrog Ltd. - JFrog Announces Timing of Third Quarter 2026 Financial Results"
+      ],
+      "dateMetadataMarkup": [],
+      "headingsH2H3": [
+        {
+          "tag": "h3",
+          "text": "JFrog Announces Timing of Third Quarter 2026 Financial Results",
+          "attrs": {
+            "id": "_ctrl0_ctl23_lblModuleDetailTitle",
+            "class": "evergreen-item-detail-title evergreen-news-title"
+          }
+        }
+      ],
+      "scopedDateMarkup": [],
+      "openGraph": [
+        {
+          "content": "JFrog Announces Timing of Third Quarter 2026 Financial Results",
+          "property": "og:title"
+        },
+        {
+          "name": "description",
+          "content": "JFrog Ltd (Nasdaq: FROG), the Liquid Software company and creators of the JFrog Software Supply Chain Platform , the system of record for software artifacts, binaries, and AI assets, today announced it will report financial results for the third quarter 2026 on Thursday, November 5, 2026, following the market close. JFrog will host a conference call to discuss the results at 2:00 p.m. PT on the same day. Event : JFrog\u2019s Third Quarter 2026 Financial Results Conference Call Date : Thursday, November 5, 2026 Time : 2:00 p.m. PT (5:00 p.m. ET) Webcast registration link : https://investors.jfrog.com/events-and-presentations/events/default.aspx About JFrog JFrog Ltd. (Nasdaq: FROG), the creators of the unified DevOps, DevSecOps, DevGovOps and MLOps platform, is on a mission to create a world of software delivered without friction from development to production. Driven by a \u201cLiquid Software\u201d vision, the JFrog Platform is a software supply chain system of record that is",
+          "property": "og:description"
+        },
+        {
+          "content": "website",
+          "property": "og:type"
+        },
+        {
+          "content": "https://investors.jfrog.com/news/news-details/2026/JFrog-Announces-Timing-of-Third-Quarter-2026-Financial-Results/default.aspx",
+          "property": "og:url"
+        }
+      ],
+      "dateLikeElements": [
+        {
+          "tag": "div",
+          "attrs": {
+            "id": "_ctrl0_ctl23_divNewsDetailsDateTime",
+            "class": "evergreen-item-date-time evergreen-news-date-time evergreen-data-left"
+          },
+          "text": "October 14, 2026"
+        },
+        {
+          "tag": "span",
+          "attrs": {
+            "id": "_ctrl0_ctl23_spanDate",
+            "class": "evergreen-news-date-text"
+          },
+          "text": "October 14, 2026"
+        },
+        {
+          "tag": "span",
+          "attrs": {
+            "class": "bw-dateline-wrapper"
+          },
+          "text": "SUNNYVALE, Calif.--(BUSINESS WIRE)--"
+        }
+      ]
+    },
+    {
+      "sourceId": "rapid7:official:1",
+      "bodyPath": "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/fffa3d952d9f0a4242fffb3a8bbaab42ca9f7ad938ed73582bf3e8d93580114e",
+      "bodySha256": "fffa3d952d9f0a4242fffb3a8bbaab42ca9f7ad938ed73582bf3e8d93580114e",
+      "bodyBytes": 80272,
+      "canonicalLinks": [],
+      "headings": [
+        "News Details"
+      ],
+      "titles": [
+        "Rapid7 - Rapid7 to Report Third Quarter 2026 Financial Results on November 4"
+      ],
+      "dateMetadataMarkup": [],
+      "headingsH2H3": [
+        {
+          "tag": "h3",
+          "text": "Rapid7 to Report Third Quarter 2026 Financial Results on November 4",
+          "attrs": {
+            "id": "_ctrl0_ctl54_lblModuleDetailTitle",
+            "class": "evergreen-item-detail-title evergreen-news-title"
+          }
+        }
+      ],
+      "scopedDateMarkup": [],
+      "openGraph": [
+        {
+          "content": "Rapid7 to Report Third Quarter 2026 Financial Results on November 4",
+          "property": "og:title"
+        },
+        {
+          "name": "description",
+          "content": "BOSTON, Oct. 14, 2026 (GLOBE NEWSWIRE) - Rapid7, Inc. (NASDAQ: RPD), a global leader in AI-powered managed cybersecurity operations, today announced that the company will release its third quarter 2026 financial results on Wednesday, November 4, 2026, after the financial markets close. The company will host a conference call that same day to discuss its results and business outlook at 4:30 p.m. Eastern Time. To register for the live event please visit: https://q3-2026-rapid7-earnings-call.open-exchange.net/ A live webcast of the conference call and the financial results press release will be accessible from the Rapid7 investor relations website at https://investors.rapid7.com . A webcast replay of the call will be available at https://investors.rapid7.com . About Rapid7 Rapid7, Inc. (NASDAQ: RPD) is a global leader in AI-powered managed cybersecurity operations, trusted to advance organizations\u2019 cyber resilience. Open and extensible, the Rapid7 Command Platform integrates security",
+          "property": "og:description"
+        },
+        {
+          "content": "website",
+          "property": "og:type"
+        },
+        {
+          "content": "https://investors.rapid7.com/news/news-details/2026/Rapid7-to-Report-Third-Quarter-2026-Financial-Results-on-November-4/default.aspx",
+          "property": "og:url"
+        }
+      ],
+      "dateLikeElements": [
+        {
+          "tag": "div",
+          "attrs": {
+            "id": "_ctrl0_ctl54_divNewsDetailsDateTime",
+            "class": "evergreen-item-date-time evergreen-news-date-time evergreen-data-left"
+          },
+          "text": "October 14, 2026"
+        },
+        {
+          "tag": "span",
+          "attrs": {
+            "id": "_ctrl0_ctl54_spanDate",
+            "class": "evergreen-news-date-text"
+          },
+          "text": "October 14, 2026"
+        }
+      ]
+    }
+  ],
+  "startingBudget": {
+    "calls": 80,
+    "documents": 38,
+    "fetches": 867
+  },
+  "finalBudget": {
+    "calls": 80,
+    "documents": 38,
+    "fetches": 869
+  },
+  "actualDayGateBudget": {
+    "attempts": 2
+  },
+  "actualFetchCharges": 2,
+  "sixOriginalAdmissions": [
+    {
+      "groupId": "FC-20261023-checkpoint-sase",
+      "policySha256": "36bc23722c1131f94ab3c2db1c553505539987aa55738cfa9bb72dfa3871ad6f",
+      "admission": {
+        "bytes": 1522,
+        "key": "objects/1bcaa2ca22fcb4c24597fc477c406abddf9ddb20853a4d290c79322bee46afa9",
+        "sha256": "1bcaa2ca22fcb4c24597fc477c406abddf9ddb20853a4d290c79322bee46afa9"
+      }
+    },
+    {
+      "groupId": "FC-20261023-optiv",
+      "policySha256": "4f9e7feb90232a3aafe2cd84265c2e8202c9e009229e7592c5ab87373f64bcf5",
+      "admission": {
+        "bytes": 1014,
+        "key": "objects/580099157608b61895574d2b136c93a940109f82d0a33459388a83f46fbc7bf2",
+        "sha256": "580099157608b61895574d2b136c93a940109f82d0a33459388a83f46fbc7bf2"
+      }
+    },
+    {
+      "groupId": "FC-20261023-splunk",
+      "policySha256": "270b7c7a1f7180b3fef2896b7633a87bf0667b9f4a3c75593fa72b959ecb87f6",
+      "admission": {
+        "bytes": 988,
+        "key": "objects/a42addfcd5043dceffcd259fc8bdac7486b012400fae4b82ce0e5b00968e18af",
+        "sha256": "a42addfcd5043dceffcd259fc8bdac7486b012400fae4b82ce0e5b00968e18af"
+      }
+    },
+    {
+      "groupId": "FC-20261023-zscaler",
+      "policySha256": "dc8522069fc87cbf0371e0ea29ec80fbf647c1dd7ce816e02a7fb4a94b35a390",
+      "admission": {
+        "bytes": 1460,
+        "key": "objects/f255c470cc078e1d44399f7e2027134b466f23cc5939437d196bef9d7aa04e4b",
+        "sha256": "f255c470cc078e1d44399f7e2027134b466f23cc5939437d196bef9d7aa04e4b"
+      }
+    },
+    {
+      "groupId": "FC-20261023-expel",
+      "policySha256": "d1ea72b754450e603d89092cc38d9fa81d165575af2a36745e5938220fd82087",
+      "admission": {
+        "bytes": 1493,
+        "key": "objects/b120ca46429f8e52a09d4fce293c14ddb08319212b2b9a8e0f10b39661deed4c",
+        "sha256": "b120ca46429f8e52a09d4fce293c14ddb08319212b2b9a8e0f10b39661deed4c"
+      }
+    },
+    {
+      "groupId": "XAGE-SOURCE-CLASS-20261023",
+      "policySha256": "c01560dba484aa5aa5696c8bfe5b44acefc6337ee1cebe0cd96751849e15646a",
+      "admission": {
+        "bytes": 1340,
+        "key": "objects/ec322362de6fb9e4e20cea0c9ed825990a01bf0c41d5b32662ab6131914f6c98",
+        "sha256": "ec322362de6fb9e4e20cea0c9ed825990a01bf0c41d5b32662ab6131914f6c98"
+      }
+    }
+  ],
+  "factReferences": 4,
+  "heldQueueEntries": 38,
+  "sourceValidUntil": "2026-10-26T15:55:27.307096+00:00",
+  "publicExpiryRenewed": false,
+  "originalStreams": [
+    {
+      "sourceId": "jfrog:official:1",
+      "asOf": "2026-10-25T10:19:17.801039Z",
+      "inventoryCount": 206,
+      "currentWindowCount": 3,
+      "originalBody": {
+        "bytes": 282783,
+        "key": "objects/f7d84b288a6665280f4b8ade996b0bf64fe9c3fa0ea7a8a15b1adfb0826ccc19",
+        "sha256": "f7d84b288a6665280f4b8ade996b0bf64fe9c3fa0ea7a8a15b1adfb0826ccc19"
+      },
+      "timezone": null,
+      "datePrecision": "calendar_day"
+    },
+    {
+      "sourceId": "rapid7:official:1",
+      "asOf": "2026-10-25T10:19:17.801039Z",
+      "inventoryCount": 323,
+      "currentWindowCount": 4,
+      "originalBody": {
+        "bytes": 414550,
+        "key": "objects/cf3c57d1c2080d65656e9f291eca371aefd99909476d413bb5c90155bc742db8",
+        "sha256": "cf3c57d1c2080d65656e9f291eca371aefd99909476d413bb5c90155bc742db8"
+      },
+      "timezone": null,
+      "datePrecision": "calendar_day"
+    }
+  ],
+  "sourceRegistrationChanged": false,
+  "qualifiedSources": 0,
+  "sourceChecksCredited": 0,
+  "facts": [],
+  "semanticAdmission": false,
+  "coverageCredit": false,
+  "modelCalls": 0,
+  "actualProposalEvidenceComplete": false,
+  "actualAcceptedSamples": 0,
+  "preservation": {
+    "inputSeals": {
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/3a25e8e262b51fbf6f872c8655b25c9d255cf52b32ca0e9c4afa73d78893fbd4": {
+        "sha256": "3a25e8e262b51fbf6f872c8655b25c9d255cf52b32ca0e9c4afa73d78893fbd4",
+        "bytes": 4211,
+        "mtimeNs": 1792927333778145923
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/ci/source-probe-runs/40184027106-1.json": {
+        "sha256": "8653b61d296ee89d411853ed34190d6b7b119d9184dcd7b20b93a3faa413945f",
+        "bytes": 5673,
+        "mtimeNs": 1792923784912735905
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/a316e39658c2e9b5872adeb6008ef138618c8b20a080ca78ee458bd3e51f0ddc": {
+        "sha256": "a316e39658c2e9b5872adeb6008ef138618c8b20a080ca78ee458bd3e51f0ddc",
+        "bytes": 6974,
+        "mtimeNs": 1792923784877735974
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/ci/source-probe-runs/40179255547-1.json": {
+        "sha256": "0e5a08ff0c64750dcb441e640fc1dae0926a2cf5ab674920e48058bfd7da02d7",
+        "bytes": 10301,
+        "mtimeNs": 1792922965989455023
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/007f1f940d48727da9a921d0c1138f27e5249870dd5ed6aaa3da3e844582ba91": {
+        "sha256": "007f1f940d48727da9a921d0c1138f27e5249870dd5ed6aaa3da3e844582ba91",
+        "bytes": 5643,
+        "mtimeNs": 1792922966330118522
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/ci/source-probe-runs/40131875060-1.json": {
+        "sha256": "90f8b45b299dd868fd558d1218fd1e0bcc0fda59c46d9f9a779352d461596aee",
+        "bytes": 90157,
+        "mtimeNs": 1792922965989384898
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/98b110fe4fd1beb898ff7ccaa190a3e4eb6dcb61e1da3ed5a5d72151bddd2ce4": {
+        "sha256": "98b110fe4fd1beb898ff7ccaa190a3e4eb6dcb61e1da3ed5a5d72151bddd2ce4",
+        "bytes": 4256,
+        "mtimeNs": 1792922968233699496
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/97356357732c1f91c9b3fa5485fa4b50a0c83e752abf5caf6e6d0d043731b1bf": {
+        "sha256": "97356357732c1f91c9b3fa5485fa4b50a0c83e752abf5caf6e6d0d043731b1bf",
+        "bytes": 489,
+        "mtimeNs": 1792922968209658460
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/ead58a93ed20878e2ffb83512b3e8b52c08d878b3dff19e8d95a1162630ef20d": {
+        "sha256": "ead58a93ed20878e2ffb83512b3e8b52c08d878b3dff19e8d95a1162630ef20d",
+        "bytes": 114902,
+        "mtimeNs": 1792922969265398181
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/1d242084cb70aff581e42156c01f3a78a136cfd6bdfce16235fc67c2b379db12": {
+        "sha256": "1d242084cb70aff581e42156c01f3a78a136cfd6bdfce16235fc67c2b379db12",
+        "bytes": 490,
+        "mtimeNs": 1792922966676942675
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/9ece5b105eb693076ea90ace3310c9cfbae7747b4e32faca80d9208dd1776479": {
+        "sha256": "9ece5b105eb693076ea90ace3310c9cfbae7747b4e32faca80d9208dd1776479",
+        "bytes": 90652,
+        "mtimeNs": 1792922968296872205
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/d6d8aaf368b4cb48ff4d6e1cc5b4f93500ae2ac093a7d75b9c82927e48bd6be1": {
+        "sha256": "d6d8aaf368b4cb48ff4d6e1cc5b4f93500ae2ac093a7d75b9c82927e48bd6be1",
+        "bytes": 520,
+        "mtimeNs": 1792922969005868981
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/c5a34d9cf87cd3e52f567fdf8883ca60e33f7e28a8923bc006469e91cd883a17": {
+        "sha256": "c5a34d9cf87cd3e52f567fdf8883ca60e33f7e28a8923bc006469e91cd883a17",
+        "bytes": 42385,
+        "mtimeNs": 1792922968781600380
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/fe5378f490169d6b0b96f04c0d4f8800652d82b177645ea96307c2427a795bcd": {
+        "sha256": "fe5378f490169d6b0b96f04c0d4f8800652d82b177645ea96307c2427a795bcd",
+        "bytes": 417,
+        "mtimeNs": 1792922969495996728
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/9e1d35bf0726eaae6f295d26fc42e6530706ccea24b64843934c710276d96ffb": {
+        "sha256": "9e1d35bf0726eaae6f295d26fc42e6530706ccea24b64843934c710276d96ffb",
+        "bytes": 585,
+        "mtimeNs": 1792922968290035094
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/2ce36889709b0c9ff34e2b657d5abe0600009604d7e5407d41198f9a9c72d5e7": {
+        "sha256": "2ce36889709b0c9ff34e2b657d5abe0600009604d7e5407d41198f9a9c72d5e7",
+        "bytes": 25534,
+        "mtimeNs": 1792922966907589847
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/9dda71231e47594fda6e7e5a12811cafecc32e253c75a11713f68b42a264a755": {
+        "sha256": "9dda71231e47594fda6e7e5a12811cafecc32e253c75a11713f68b42a264a755",
+        "bytes": 419,
+        "mtimeNs": 1792922968286986600
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/2312aaa295844d9ecc2f89ed06e13f5cf0614ee6433d34c869d43b76fbc81260": {
+        "sha256": "2312aaa295844d9ecc2f89ed06e13f5cf0614ee6433d34c869d43b76fbc81260",
+        "bytes": 588,
+        "mtimeNs": 1792922966753083400
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/4e9d26dabe182ce0694a7e892892b5dc24a502cf14ee1b251542c9b920796a79": {
+        "sha256": "4e9d26dabe182ce0694a7e892892b5dc24a502cf14ee1b251542c9b920796a79",
+        "bytes": 7642,
+        "mtimeNs": 1792922967326650484
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/1c4e41969ed7ff0b0fcd3c3bc86e2587be8e689ac88b8a19a6178efd71edfaec": {
+        "sha256": "1c4e41969ed7ff0b0fcd3c3bc86e2587be8e689ac88b8a19a6178efd71edfaec",
+        "bytes": 419,
+        "mtimeNs": 1792922966668683649
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/aee00b13d297ac7f92846935e591b30703dd7b33f704e33f26528bd602359d09": {
+        "sha256": "aee00b13d297ac7f92846935e591b30703dd7b33f704e33f26528bd602359d09",
+        "bytes": 587,
+        "mtimeNs": 1792922968501669512
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/88dcae2e9c56c7c0906dddeb9cf28b292d8f26c3dcd4f57afccd7c5867ad1ac8": {
+        "sha256": "88dcae2e9c56c7c0906dddeb9cf28b292d8f26c3dcd4f57afccd7c5867ad1ac8",
+        "bytes": 421,
+        "mtimeNs": 1792922968031690392
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/fd124459a51b4c68f51ac635734044c0bcbdf5cfd07fe2c073c93feae053cd4c": {
+        "sha256": "fd124459a51b4c68f51ac635734044c0bcbdf5cfd07fe2c073c93feae053cd4c",
+        "bytes": 590,
+        "mtimeNs": 1792922969483561336
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/5dce7d5db11243b6dd5dd893451f4339439de9151633d42b8964a0c5c94f6fae": {
+        "sha256": "5dce7d5db11243b6dd5dd893451f4339439de9151633d42b8964a0c5c94f6fae",
+        "bytes": 412,
+        "mtimeNs": 1792922967525429969
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/709941ea08463fc6d7e636ce28bc5ff9c2e0507512d7f5cb42786a9507ed1e3f": {
+        "sha256": "709941ea08463fc6d7e636ce28bc5ff9c2e0507512d7f5cb42786a9507ed1e3f",
+        "bytes": 571,
+        "mtimeNs": 1792922967726483241
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/2dd85484e3c0581f2e4086ce76dc23b04cd33a53aae190c204762bf85bdecf74": {
+        "sha256": "2dd85484e3c0581f2e4086ce76dc23b04cd33a53aae190c204762bf85bdecf74",
+        "bytes": 414,
+        "mtimeNs": 1792922966921419737
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/b1c8d812f24d171acafd84312bbad8522854ddf357869dd4ad6196ac0e1772f2": {
+        "sha256": "b1c8d812f24d171acafd84312bbad8522854ddf357869dd4ad6196ac0e1772f2",
+        "bytes": 574,
+        "mtimeNs": 1792922968546183341
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/970b6a1c1bb9af279293992f4cc225f40292e9060ec43b1673cd37f7d0d53068": {
+        "sha256": "970b6a1c1bb9af279293992f4cc225f40292e9060ec43b1673cd37f7d0d53068",
+        "bytes": 581,
+        "mtimeNs": 1792923784898735933
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/c4c7917361aa6d164b18a975803acdd64a1ab5e64e8b1911c6ea4682d626e412": {
+        "sha256": "c4c7917361aa6d164b18a975803acdd64a1ab5e64e8b1911c6ea4682d626e412",
+        "bytes": 894,
+        "mtimeNs": 1792923784928735874
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/f7d84b288a6665280f4b8ade996b0bf64fe9c3fa0ea7a8a15b1adfb0826ccc19": {
+        "sha256": "f7d84b288a6665280f4b8ade996b0bf64fe9c3fa0ea7a8a15b1adfb0826ccc19",
+        "bytes": 282783,
+        "mtimeNs": 1792923785068735598
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/cfa2ffb8c2e6b21f2b39664dc1a700373908e75a4c04f6c791a63a351c2025cf": {
+        "sha256": "cfa2ffb8c2e6b21f2b39664dc1a700373908e75a4c04f6c791a63a351c2025cf",
+        "bytes": 583,
+        "mtimeNs": 1792923784883735962
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/d85d1550a60d97703907714c25ef743afafae1719d947d3c82dcd1ff4658724a": {
+        "sha256": "d85d1550a60d97703907714c25ef743afafae1719d947d3c82dcd1ff4658724a",
+        "bytes": 896,
+        "mtimeNs": 1792923784883735962
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/cf3c57d1c2080d65656e9f291eca371aefd99909476d413bb5c90155bc742db8": {
+        "sha256": "cf3c57d1c2080d65656e9f291eca371aefd99909476d413bb5c90155bc742db8",
+        "bytes": 414550,
+        "mtimeNs": 1792923785495734757
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/426bf440e12d1dc6671e833325ade4f1bfa4baf1598ffcbadc1f3ad489fb06ba": {
+        "sha256": "426bf440e12d1dc6671e833325ade4f1bfa4baf1598ffcbadc1f3ad489fb06ba",
+        "bytes": 463,
+        "mtimeNs": 1792927333778690547
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/1bee78d58f3ffa9114b9b3ece9d885786fa065ff85afb88ed46931c77f9ecb25": {
+        "sha256": "1bee78d58f3ffa9114b9b3ece9d885786fa065ff85afb88ed46931c77f9ecb25",
+        "bytes": 617,
+        "mtimeNs": 1792927333777551882
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/c14d01410488c758b6702738c99e6f55e2d1365b84ad0b2d932cf5433cde323a": {
+        "sha256": "c14d01410488c758b6702738c99e6f55e2d1365b84ad0b2d932cf5433cde323a",
+        "bytes": 105675,
+        "mtimeNs": 1792927333779227421
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/22a94cdb27a0227411512ba5168a727090e2de85fb941f79adf03c64d3aae30e": {
+        "sha256": "22a94cdb27a0227411512ba5168a727090e2de85fb941f79adf03c64d3aae30e",
+        "bytes": 470,
+        "mtimeNs": 1792927333777849673
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/3f5ad49770d744dc1fda921aaffaf1b6ba5b6ba1f5ef4d1b12f3b298ff230e07": {
+        "sha256": "3f5ad49770d744dc1fda921aaffaf1b6ba5b6ba1f5ef4d1b12f3b298ff230e07",
+        "bytes": 628,
+        "mtimeNs": 1792927333778403631
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/fffa3d952d9f0a4242fffb3a8bbaab42ca9f7ad938ed73582bf3e8d93580114e": {
+        "sha256": "fffa3d952d9f0a4242fffb3a8bbaab42ca9f7ad938ed73582bf3e8d93580114e",
+        "bytes": 80272,
+        "mtimeNs": 1792927333779835836
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/ci/source-probe-runs/40188161705-1.json": {
+        "sha256": "093fba7150d21255af66a563207b3c3f0490bae36873376203c43d5415be6897",
+        "bytes": 713736,
+        "mtimeNs": 1792927333776130385
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/correction-admissions/36bc23722c1131f94ab3c2db1c553505539987aa55738cfa9bb72dfa3871ad6f/af4a673ac14a090128e97bf328b1639e00eecf1c0b5f11098d07a34be26bba15-b4039088e3c211b2b41054475f790b9d20832b664f401e6fd5ff9e3a16589255.json": {
+        "sha256": "ff899e425f9300cd7778d7a03640383e17e1475beee239170721ddcc27def1ad",
+        "bytes": 225,
+        "mtimeNs": 1792922965998251339
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/1bcaa2ca22fcb4c24597fc477c406abddf9ddb20853a4d290c79322bee46afa9": {
+        "sha256": "1bcaa2ca22fcb4c24597fc477c406abddf9ddb20853a4d290c79322bee46afa9",
+        "bytes": 1522,
+        "mtimeNs": 1792922966662055162
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/observations/823bdeb7978f9445b46cd456181b80329fcb2ced4dd40dac8cae6af492d6da35.json": {
+        "sha256": "eb34ea65f613a87b9249a08931df8ede10c18b25fc208a85cffbccecb49962fb",
+        "bytes": 720,
+        "mtimeNs": 1792922969712744845
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/ad90c231db200ef3ca6909ed9ff62f08b037dd78be7fe85bc8c5011fae488593": {
+        "sha256": "ad90c231db200ef3ca6909ed9ff62f08b037dd78be7fe85bc8c5011fae488593",
+        "bytes": 110102,
+        "mtimeNs": 1792922968485790501
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/observations/265257237110d3c7eada63a363a0a42c72a6fc0d1cf5fa71dceb10d7364d2699.json": {
+        "sha256": "04322c4b677018f882522feacfb54714b5e72e8d30f4168b45a031c79fe6f03e",
+        "bytes": 767,
+        "mtimeNs": 1792922969580214021
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/99fd41f785699aa0fc9fb4ea0baa79249c0953a5391c9aca86f1e5c0adb55b3c": {
+        "sha256": "99fd41f785699aa0fc9fb4ea0baa79249c0953a5391c9aca86f1e5c0adb55b3c",
+        "bytes": 26715,
+        "mtimeNs": 1792922968248306509
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/26950917dcbe5d2b5e862cf329b2adedf27046d94a2269d9e298d9d292bedee0": {
+        "sha256": "26950917dcbe5d2b5e862cf329b2adedf27046d94a2269d9e298d9d292bedee0",
+        "bytes": 428,
+        "mtimeNs": 1792922966794944443
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/correction-admissions/4f9e7feb90232a3aafe2cd84265c2e8202c9e009229e7592c5ab87373f64bcf5/ce48b552db79aa960aed5e08840f28a99ccab313c9d05df874b281cf7eb9c00c-7f5a8b85f2fbf854d9623d561a89c0ded68723742833047d05fb24c7e4342a2b.json": {
+        "sha256": "18ce0bc5862bcc74ad410ab76ff040a20377f0fca574410f8d2a847e1794eb90",
+        "bytes": 215,
+        "mtimeNs": 1792922965998308714
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/580099157608b61895574d2b136c93a940109f82d0a33459388a83f46fbc7bf2": {
+        "sha256": "580099157608b61895574d2b136c93a940109f82d0a33459388a83f46fbc7bf2",
+        "bytes": 1014,
+        "mtimeNs": 1792922967443704671
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/observations/2f4690a9102722bf834b098712e7ce709b9aa1dccc2f3870dfefb83f40cc8426.json": {
+        "sha256": "ffb3457b93cc9d0415aeb0a3d528f2f326e295f0b4efae6140e4193a0fe11a43",
+        "bytes": 757,
+        "mtimeNs": 1792922969592830747
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/1db3ec3b06b80372a401ce680bd0c22f2bfa30facc0676c0ee357584976d6028": {
+        "sha256": "1db3ec3b06b80372a401ce680bd0c22f2bfa30facc0676c0ee357584976d6028",
+        "bytes": 110479,
+        "mtimeNs": 1792922966685001034
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/faf2a5773a4b7eacd806e8a1995bc8719d8a12a2bfb30e0fa5e77db24d1df44c": {
+        "sha256": "faf2a5773a4b7eacd806e8a1995bc8719d8a12a2bfb30e0fa5e77db24d1df44c",
+        "bytes": 428,
+        "mtimeNs": 1792922969454997475
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/correction-admissions/270b7c7a1f7180b3fef2896b7633a87bf0667b9f4a3c75593fa72b959ecb87f6/a397eb20f8a6918f19ef6004ad2107a96066d0b84532ca9f131fd050fec61240-eb165cdbb2d9b4e76d07dbaa0ca217167ced0e492cadd89957aa1ebbce6157f5.json": {
+        "sha256": "33ae8a80c327b0fadc063f4b7c5c888c9f3fdc52a1eb9c2937169c2a0236b063",
+        "bytes": 215,
+        "mtimeNs": 1792922965998139756
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/a42addfcd5043dceffcd259fc8bdac7486b012400fae4b82ce0e5b00968e18af": {
+        "sha256": "a42addfcd5043dceffcd259fc8bdac7486b012400fae4b82ce0e5b00968e18af",
+        "bytes": 988,
+        "mtimeNs": 1792922968382939995
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/observations/ad8b7473392061097411bdbb1b613d8f3880425ca5ec2e6148d81c400ccad883.json": {
+        "sha256": "dd1701caa434d1a6a80a10823dca6b611fd7e74431ba23cca1d0ba4d17c84593",
+        "bytes": 760,
+        "mtimeNs": 1792922969774653932
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/e3de17409d6f8024d2d489ff6163a6249f72e7d5831da2118d9d2e873861dea5": {
+        "sha256": "e3de17409d6f8024d2d489ff6163a6249f72e7d5831da2118d9d2e873861dea5",
+        "bytes": 45244,
+        "mtimeNs": 1792922969153781191
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/f5366dfae77204b65cc05a3f5b6fd65f1c86bcc3edd38da0a342761667dc6887": {
+        "sha256": "f5366dfae77204b65cc05a3f5b6fd65f1c86bcc3edd38da0a342761667dc6887",
+        "bytes": 428,
+        "mtimeNs": 1792922969394987885
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/correction-admissions/dc8522069fc87cbf0371e0ea29ec80fbf647c1dd7ce816e02a7fb4a94b35a390/46f6626eebb75b300b770b6290c38124f02773a93636810d2d84dffbfb0854f3-f0e0f20f00cfc1bf339642dfb9672e159a3bfa1ddacb70549e6a5e2f815bfb7a.json": {
+        "sha256": "6c8bedd8dfbc4cebdc9dd9dd0b511a3e22662a84ea18e39f478cbb69ff038df9",
+        "bytes": 217,
+        "mtimeNs": 1792922965998515755
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/f255c470cc078e1d44399f7e2027134b466f23cc5939437d196bef9d7aa04e4b": {
+        "sha256": "f255c470cc078e1d44399f7e2027134b466f23cc5939437d196bef9d7aa04e4b",
+        "bytes": 1460,
+        "mtimeNs": 1792922969363411447
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/observations/77f7d2dc508eb9c414811e247bfa613cfc32e207793eb0ff76d41921f1091f39.json": {
+        "sha256": "66a54c042036ea0f38623c9647e214d38e216e06f0457e965255828275bff01e",
+        "bytes": 760,
+        "mtimeNs": 1792922969698323498
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/068f33d83f983b8207850ff9af866bf0ac56f7e443e04883fe82efee90b6e6bd": {
+        "sha256": "068f33d83f983b8207850ff9af866bf0ac56f7e443e04883fe82efee90b6e6bd",
+        "bytes": 27835,
+        "mtimeNs": 1792922966414228982
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/observations/ede509be7e95f39b65fcbc5059182768804c3c4081a0bda957dc618249caabae.json": {
+        "sha256": "76ff78782acad6a1d3e2cac57f2e6a833af5e3b6cd19f6aedd102527ed9daca9",
+        "bytes": 760,
+        "mtimeNs": 1792922969866884209
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/bdb9b0f0a56b6625c04b1cfaed33daab6505b97632df199519ee1dd1c117b85d": {
+        "sha256": "bdb9b0f0a56b6625c04b1cfaed33daab6505b97632df199519ee1dd1c117b85d",
+        "bytes": 24581,
+        "mtimeNs": 1792922968689569185
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/0bb8d41ec2edef55c5991aebdd187c573a955c0c30b5c8ef6f44e6c692fba6cc": {
+        "sha256": "0bb8d41ec2edef55c5991aebdd187c573a955c0c30b5c8ef6f44e6c692fba6cc",
+        "bytes": 428,
+        "mtimeNs": 1792922966471824660
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/correction-admissions/d1ea72b754450e603d89092cc38d9fa81d165575af2a36745e5938220fd82087/b02146ce95927f20887ee6a647545e968c2d21db891aa0860ddfe3908b68e1c3-2a9d219a14e673acc89c71ed14b34c61700da6c9ba871edc833fe362c3a6b0da.json": {
+        "sha256": "63ebfc98b0200253d56d4a45edc988d85ca79fcb5fc7943181bbd70299390015",
+        "bytes": 215,
+        "mtimeNs": 1792922965998450922
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/b120ca46429f8e52a09d4fce293c14ddb08319212b2b9a8e0f10b39661deed4c": {
+        "sha256": "b120ca46429f8e52a09d4fce293c14ddb08319212b2b9a8e0f10b39661deed4c",
+        "bytes": 1493,
+        "mtimeNs": 1792922968539907770
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/observations/99eff05e9f94d7a42d92b84a8cbf393dd1f1e45294d409327f24ac96acd57a7d.json": {
+        "sha256": "dd7d13f7a5d0647d8d63e8b3eb2e74f97c33078b165ac0b032235ccac3e73e85",
+        "bytes": 632,
+        "mtimeNs": 1792922969745755780
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/71da4f0b9d823a407f681cd185cc1a75f60e45e6f222faec7963b32b117d71ae": {
+        "sha256": "71da4f0b9d823a407f681cd185cc1a75f60e45e6f222faec7963b32b117d71ae",
+        "bytes": 1294400,
+        "mtimeNs": 1792922967740365005
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/observations/2e88142f05a60df7a25678f19ce3916f29e3aa8eebd5b7eca221c4961e3df852.json": {
+        "sha256": "a123ed2dc6b685d30ca41aaf787fb5fc9d07619a2f32f2b983a9e37964a02199",
+        "bytes": 758,
+        "mtimeNs": 1792922969591949415
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/1ded75f04f3ef7db72c3411ba03d554861d576853a50853b0435b46cca474d68": {
+        "sha256": "1ded75f04f3ef7db72c3411ba03d554861d576853a50853b0435b46cca474d68",
+        "bytes": 1291126,
+        "mtimeNs": 1792922966692280853
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/d70505f6c750763f017bf3aa7ae88e366dfc0ffe2dcd6c47b599b56d59bed70f": {
+        "sha256": "d70505f6c750763f017bf3aa7ae88e366dfc0ffe2dcd6c47b599b56d59bed70f",
+        "bytes": 428,
+        "mtimeNs": 1792922969007574603
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/correction-admissions/c01560dba484aa5aa5696c8bfe5b44acefc6337ee1cebe0cd96751849e15646a/f0060b9e09cdffb77e08797f0fdd49eb9bf931ea4a91685e4f0a4c911fc50abb-a5138d57005644bda2474a10d29a5fa3c27cdd649d9fa8f8a704a04d6e070200.json": {
+        "sha256": "ed5eed1e498243f6c3b605776ba6d90ef0aab04c4091c9e4dbfb1455deaa2f36",
+        "bytes": 224,
+        "mtimeNs": 1792922965998368797
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/ec322362de6fb9e4e20cea0c9ed825990a01bf0c41d5b32662ab6131914f6c98": {
+        "sha256": "ec322362de6fb9e4e20cea0c9ed825990a01bf0c41d5b32662ab6131914f6c98",
+        "bytes": 1340,
+        "mtimeNs": 1792922969286522264
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/observations/3659081ca33f1558ed74ea30327c580c2d1664dcf7429e440758089b872499b6.json": {
+        "sha256": "16a589f98686dfa9371e0dd7602a45e23088a57df302d5d51d908cb5da429fbd",
+        "bytes": 651,
+        "mtimeNs": 1792922969603198768
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/01cf60192caf9038e618e16a67aed61087e163a4aff82a724ca406f56c1e2afc": {
+        "sha256": "01cf60192caf9038e618e16a67aed61087e163a4aff82a724ca406f56c1e2afc",
+        "bytes": 1021859,
+        "mtimeNs": 1792922966348297361
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/5d806d7b4897fa6082cba2ae8b1a496b863ddfbd6af2721d4e1f957d93bfdf46": {
+        "sha256": "5d806d7b4897fa6082cba2ae8b1a496b863ddfbd6af2721d4e1f957d93bfdf46",
+        "bytes": 535,
+        "mtimeNs": 1792922967522360100
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/heads/budget-2026-10-25.json": {
+        "sha256": "ebceff60e008b7b7d6df135efb82212a70a714fb9f828a8cfaead0ec2862dc00",
+        "bytes": 41,
+        "mtimeNs": 1792927333777007092
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/heads/cloud-lease.json": {
+        "sha256": "aa6b33a07af92953363b57dbcdfb0595a0d5d66f4a24c2ff16e87c0da6fcee0d",
+        "bytes": 300,
+        "mtimeNs": 1792927333777304716
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/ci/budget-escrows/9def78ddfb039b6ad27baad8bd56296f01308401b87500114be0d016af4af57b.json": {
+        "sha256": "61d5c216299986d6c0ba221707cf61b7644c69b193ede23849b79c178672f7d9",
+        "bytes": 159,
+        "mtimeNs": 1792927333770088146
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/heads/dailySnapshot.json": {
+        "sha256": "c71da6d4d52bc94aa560e8425f8bf0b913b9e0e1fba8fb45b77ff3deacb58a00",
+        "bytes": 1087363,
+        "mtimeNs": 1792922966033767603
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/876caeb08e375865efd8085bc90f9928d7e93df4e21b65fdad051633a510c2a5": {
+        "sha256": "876caeb08e375865efd8085bc90f9928d7e93df4e21b65fdad051633a510c2a5",
+        "bytes": 1285,
+        "mtimeNs": 1792922968014181760
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/272f902847b19bc166683a87d9d898f34fa3ce568d8a84ff59af4d6d4fb96f7e": {
+        "sha256": "272f902847b19bc166683a87d9d898f34fa3ce568d8a84ff59af4d6d4fb96f7e",
+        "bytes": 1180,
+        "mtimeNs": 1792922966800250349
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/3491eb348cec47a93d500ae8c60b47afa5424596243989446df0cd3733af0873": {
+        "sha256": "3491eb348cec47a93d500ae8c60b47afa5424596243989446df0cd3733af0873",
+        "bytes": 1479,
+        "mtimeNs": 1792922967006406820
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/objects/e726af8df4c20ca6bb7570c7313b83c3641255fafae2b3af7c17a5c05e250199": {
+        "sha256": "e726af8df4c20ca6bb7570c7313b83c3641255fafae2b3af7c17a5c05e250199",
+        "bytes": 1300,
+        "mtimeNs": 1792922969202539679
+      },
+      "/var/tmp/smp-q4-primary-actual-40188161705-20261025/extracted/state/heads/gate-budget-2026-10-25.json": {
+        "sha256": "5452defb75897ca4711b2b086a2efa1ff79112b00a583b24de108522855d8a54",
+        "bytes": 14,
+        "mtimeNs": 1792922966199200695
+      }
+    },
+    "baselineInputSeals": {
+      "/var/tmp/smp-q4-initial-data-actual-40184027106-20261025/extracted/state/heads/budget-2026-10-25.json": {
+        "sha256": "76306824baac89f421da13aa8e592782842329661912680d49798ea5e11e3508",
+        "bytes": 41,
+        "mtimeNs": 1792923785286735169
+      },
+      "/var/tmp/smp-q4-initial-data-actual-40184027106-20261025/extracted/state/heads/dailySnapshot.json": {
+        "sha256": "c71da6d4d52bc94aa560e8425f8bf0b913b9e0e1fba8fb45b77ff3deacb58a00",
+        "bytes": 1087363,
+        "mtimeNs": 1792922966033767603
+      },
+      "/var/tmp/smp-q4-initial-data-actual-40184027106-20261025/extracted/state/heads/gate-budget-2026-10-25.json": {
+        "sha256": "5452defb75897ca4711b2b086a2efa1ff79112b00a583b24de108522855d8a54",
+        "bytes": 14,
+        "mtimeNs": 1792922966199200695
+      }
+    },
+    "inputSealsUnchanged": true,
+    "baselineReuseProofSha256": "264bf98204c81a8331c126957d244b51b954c3d69a104250222078f2ce2402ec"
+  },
+  "callbacks": {
+    "relationshipEvidence": "Subsequent workflow_run callbacks on the same exact app revision; retained API metadata/jobs, without claiming a new publication.",
+    "publisher": {
+      "runId": 40188489494,
+      "conclusion": "success",
+      "publishJob": "skipped"
+    },
+    "rollback": {
+      "runId": 40188506486,
+      "conclusion": "success",
+      "rollbackJob": "skipped",
+      "preflightReason": "DRILL_AUTOMATIC_ACCEPTANCE_DATE_EXPIRED"
+    }
+  },
+  "currentLocalOperationalPlan": {
+    "sha256": "ad1c5cc234fe4fa69cbceb5370ac74825a37dc80b08528ca908d14b1352e53b4",
+    "observationScope": "Local working file only. Root owns disabled-plan remote restoration and closure proof."
+  },
+  "verifierSourceRequests": 0,
+  "verifierModelRequests": 0,
+  "verifierArchiveWrites": 0,
+  "executedJavaScript": false,
+  "retryAuthorized": false,
+  "receiptFiles": {
+    "actual-diagnostic-audit.json": {
+      "sha256": "2a2c89467f478c2946e014551593de989603e356d65fa5ced45c01733b5dfa4a",
+      "bytes": 42478
+    },
+    "archive-commit.json": {
+      "sha256": "7b15553a13e466091a0cb6306680d4738f951e6162539f8d1e6a790ade37e9bb",
+      "bytes": 1188
+    },
+    "archive-root-tree.json": {
+      "sha256": "d3bd3f10b6f6a3426b601d4226fdd66a0326bbd2a439986cb88d159536b4ba68",
+      "bytes": 1275
+    },
+    "artifact-metadata.json": {
+      "sha256": "14d15679bb324574d18e64947f101a86da5fe10ef02e0f249c6cc28bb664bf00",
+      "bytes": 688
+    },
+    "audit-config.json": {
+      "sha256": "93e16786307b1f953ef12c3b6652b19e2b13618fd9a0d002112c921b682ae903",
+      "bytes": 3858
+    },
+    "audit_actual.py": {
+      "sha256": "08e89517e8979f08009e973b0c5b31f2d71027fa85ba055a2f4bcf5b8dd9c4fe",
+      "bytes": 23398
+    },
+    "baseline-reuse-proof.json.gz": {
+      "sha256": "1d7af79c189391821308285e5ae47e58b21d19f184f8c824bfd77610774a0288",
+      "bytes": 2543187
+    },
+    "bootstrap-commit.json": {
+      "sha256": "9c143cddfc36bf7797ccab2925d9f70628306d7d4cc74d4b44a698c5310fe01c",
+      "bytes": 1188
+    },
+    "cold-primary-inspection.json": {
+      "sha256": "ccc491c05d64d5b39d62cc22abeb591346124a4d6f84a18206491adc82a5cc1a",
+      "bytes": 5905
+    },
+    "collection-job.log.gz": {
+      "sha256": "b3dca8f2a5281a8b8f28151e0d7e75eed521e3459b36faebe65c4e029034cfef",
+      "bytes": 226727
+    },
+    "escrow-budget.json": {
+      "sha256": "c156ccd4a694f13b3530f0c0ccbf5c8f7973d10bc1abcc07c479ac03fab97604",
+      "bytes": 1219
+    },
+    "escrow-commit.json": {
+      "sha256": "c7473112b5b465659b5035c26f86bbcbddf46426ecba4a9104da11b8cc02e3b5",
+      "bytes": 1188
+    },
+    "jobs-final.json": {
+      "sha256": "680b6c4584478945ed56e03e2dd589482d8c2a4738ffa99d4a31c034fc063f0e",
+      "bytes": 5449
+    },
+    "log-retention.json": {
+      "sha256": "b0d457c4d41aa9287bd97cc2a7c8feec49c17c5a96bbc572a08f74182f7ef49e",
+      "bytes": 1163
+    },
+    "needed.json": {
+      "sha256": "80e78329a1e919bef8bacc50664820ea6632835cc01f502286adb913d74ca11f",
+      "bytes": 2986
+    },
+    "prepare_overlay.py": {
+      "sha256": "d23247b4ac807946c0d8bd47faf8674f38796397397d09cc9a9bc8b36459af79",
+      "bytes": 4084
+    },
+    "publisher-callback-jobs.json": {
+      "sha256": "18591df3449264d9bf5a56cd85ced19dafb5befcff6b04d993a60252b57d2aa7",
+      "bytes": 2688
+    },
+    "publisher-callback-preflight.log.gz": {
+      "sha256": "b7ba7360c142c884193906dfd543ace187aaf7cc56c3ba87aa7d6bb3508f9d76",
+      "bytes": 3584
+    },
+    "publisher-callback-run.json": {
+      "sha256": "233bf1cb7bbff14063c03ab6927d8a75d5b66d3ef2bf9c119712aa7e11437b8b",
+      "bytes": 12626
+    },
+    "response-0-body.bin.gz": {
+      "sha256": "6e9b564e3aef943dc8f607fab0c37e1ff6cbfa804596659420c2b69b1a41fbfe",
+      "bytes": 18427
+    },
+    "response-1-body.bin.gz": {
+      "sha256": "2ae9e0005910d1db7caee0226049a477ba83a7b8e6a8d0fbcd3ad0410c754cbd",
+      "bytes": 17833
+    },
+    "rollback-callback-jobs.json": {
+      "sha256": "8e2187e5b7c3977f37795622425c604de35a9d134587be55ad5f45ecaba8c255",
+      "bytes": 2746
+    },
+    "rollback-callback-preflight.log.gz": {
+      "sha256": "ad70441a6b3dcc3f16bf950255f7065116bbecc352ec302787667957e15d7e3d",
+      "bytes": 3668
+    },
+    "rollback-callback-run.json": {
+      "sha256": "8f68f9a9ccf6b5d2d7e53c16c661d9c2b315421b88b1bc459949455b9df31d18",
+      "bytes": 12651
+    },
+    "run-final.json": {
+      "sha256": "e9bde298486de77b91701f5d9d1eb18198daf56b34f0d1661997e39ff1de2f9f",
+      "bytes": 12631
+    },
+    "source-probe-artifact.zip": {
+      "sha256": "2fd5b94683ea1473171d14bb9241364d9735ac8dbcb69b79c4cab2ad65e1d008",
+      "bytes": 134691
+    },
+    "source-probe-receipt.json": {
+      "sha256": "07e776a2732a6d4aa92c0be64766c8954c2e0df489a3e214ac924ef55ffa87d1",
+      "bytes": 840132
+    }
+  }
+}
