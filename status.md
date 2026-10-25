@@ -16,21 +16,26 @@ remain queued as SEC-073/074.
 
 | Measure | Actual evidence |
 |---|---|
-| Public release | App 26181a2d, release 19fde803…26941, sequence 3, Vercel dpl_9KqhU2bnfcmaQyYg73ZB1tXT9WBV READY. Old combined coverage 244/557; Varonis and six corrections remain live. Source validUntil was October 25 at 06:05:06.295968 UTC. Production is overdue. |
+| Public release | App 6d5e87fe, release fc8bf098…951e4, sequence 4, snapshot 8ba13011…5a89. Vercel dpl_GFKc3mfpR6CSeZt7u62B5LVBqQjv is READY at host fqk0jyft3. Both hosts matched all 53 files: 106 exact comparisons. |
+| Current public data | D-112 intake 264/557, processing 38/10,655, history 39/10,655, 10 held documents and a 37-entry queue. Source validUntil is October 26 at 12:45:29.479727 UTC. Varonis and all six corrections remain live. |
 | Current private intake | Manual normal collector 40169973257 passed on main 6d5e87fe under policy H (8b44bcbe…b445db): 264/557. Plan started October 25 at 06:45:06 UTC; source expiry is October 26 at 12:45:29.479727 UTC. This workflow_dispatch is not timer proof. |
 | Intake gaps | 254 missing bindings, 25 candidates, 9 HTTP 403, 4 HTTP 429 and 1 unsafe redirect: 293 total. |
 | Processing | 38/10,655 reviewed; 10,617 pending; 10 held, 1 changed, 291 unknown dates. |
 | Historical review | 39/10,655 reviewed; 10,616 pending; 10 held. Original dates remain. |
 | Review queue | 37 entries. All 33 earlier identities persist: 26 exact rows and 7 Aqua identities with newer held receipts; their original receipts remain. Four new holds concern HiddenLayer, Delinea and eSentire dates, and ReliaQuest source identity. |
-| October 25 allowances | 444/5,500 fetches, 72/80 model calls and 33/40 documents. Gate usage is 2/2 reserved. Second gate 40172376435 began at 07:20:10 UTC and remains in progress. No refund, reset or paid fallback. |
-| Publication recovery | Manual publisher 40172130763 and its second external gate 40172376435 are running on exact main 6d5e87fe. No new production acknowledgement or public recovery is established. Actual H scheduled collection and automatic publication remain unproved. |
+| October 25 allowances | 444/5,500 fetches, 72/80 model calls and 33/40 documents. Both gate attempts are spent, including successful gate 40172376435. No refund, reset or paid fallback. |
+| Publication recovery | Manual publisher 40172130763 and external gate 40172376435 passed on exact main 6d5e87fe. Release fc8bf098 restored public freshness; issue 12 closed at 07:28:33 UTC. Actual H scheduled collection and automatic publication remain unproved. |
+| Current drill | Manual drill 40173134585 is running on exact main 6d5e87fe, expecting release fc8bf098. No result is established yet. |
 
 The [recovery audit](docs/active/daily-pipeline/accuracy/manual-freshness-recovery-40169973257-2026-10-25.md)
 authenticates archive a50c594f and all 45,259 entries. Exact reconciliation and collector continuity
 pass; the four fact references, old daily event/evidence dates and all six admission objects remain
 exact. The [isolated exact-main rehearsal](docs/active/daily-pipeline/accuracy/manual-freshness-recovery-local-rehearsal-2026-10-25.md)
-passed 531 release tests, the actual public-source validator and 805 operational tests. These are
-collection and local proofs; the running publisher still needs its real gate and verified public bytes.
+passed 531 release tests, the actual public-source validator and 805 operational tests. The subsequent
+[actual publication review](docs/active/daily-pipeline/accuracy/manual-freshness-publication-2026-10-25.md)
+records successful gate, release acknowledgement and all 106 public-byte comparisons. Exact release:
+`fc8bf0984dbeacbe79519574911837d8b638f42215f6547e31ae8968b29951e4`; exact public snapshot:
+`8ba13011b9d29b875082a551800d57e265238fd7ffd649ff7b99f7072ab25a89`.
 
 Ping Identity, Delinea and Sonatype pass intake; their inventories remain incompletely reviewed.
 Upwind's primary-document revalidation and the Sonatype mislinked card remain held for review.
@@ -55,9 +60,10 @@ The [cadence review](docs/active/daily-pipeline/accuracy/same-day-manual-and-sch
 keeps earlier-policy same-day reuse separate from H and from the actual public expiry. A cold forced
 cycle writes no saved-download pointer; a later ordinary retry with unfinished semantic work can
 spend additional conditional fetches. Preserve that cost and test actual repaired-timer clocks after
-reviewed promotion with an available code-bound gate. Preview 4ae86e2b contains repair de2059ab;
-web 40172455392 and canary 40172455446 passed. Vercel dpl_7qy95vbv6wrmURM8SabrCyViioJk
-is READY and its actual app receipt matches that preview revision. The
+reviewed promotion with an available code-bound gate. Current preview 06946a03 contains the
+reviewed repair and the verified application revision 4ae86e2b. Web 40172455392 and canary
+40172455446 passed on 4ae86e2b; its Vercel dpl_7qy95vbv6wrmURM8SabrCyViioJk is READY and
+its actual app receipt matches that application revision. The
 [preview receipt](docs/active/daily-pipeline/receipts/scheduled-source-freshness-preview-2026-10-25.json)
 keeps its uncollected fixture outside publication. Main remains 6d5e87fe during current acceptance.
 
@@ -69,7 +75,7 @@ until independent admission and normal publication can proceed after current acc
 
 ## Prior receipts and remaining acceptance
 
-Accepted production proof remains publisher 40050633432, gate 40050850177 and rollback/restoration
+Earlier accepted production proof is publisher 40050633432, gate 40050850177 and rollback/restoration
 40051385049, with all 53 files matched on both hosts. Manual publisher 40147731858 and gate
 40148005688 later failed across midnight; [that failure](docs/active/daily-pipeline/accuracy/manual-h-publication-actual-review-2026-10-25.md)
 remains charged. The [cross-day repair](docs/active/daily-pipeline/accuracy/cross-day-public-source-inventory-fix-independent-review-2026-10-25.md)
@@ -83,12 +89,15 @@ Current-H genuine 05:17 execution remains unobserved. Monitor 40165077942 actual
 UTC October 25, 4 hours 37 minutes after its timer, and updated issue 10. It proves monitor
 execution only. The [overdue coverage](docs/active/daily-pipeline/receipts/overdue-production-coverage-2026-10-25-0639.json)
 and [acknowledgement](docs/active/daily-pipeline/receipts/overdue-production-ack-2026-10-25-0639.json)
-prove the public 06:05 expiry; the former 06:38 estimate was wrong. A later check does not renew it.
+retain the historical public 06:05 expiry and overdue episode; the former 06:38 estimate was wrong.
+Manual publication has now restored freshness with real source evidence. The bootstrap freshness
+failure remains part of the record; later recovery does not establish continuous operation.
 
-Next evidence: running publisher outcome and actual public bytes, issue 12 recovery, genuine H
-scheduled collection/automatic publication, then controlled rollback/restoration. Issue 10 retains
-coverage, processing/history and execution gaps; issue 12 retains publication failure until actual
-recovery. Owner GitHub inbox delivery for issues 10/12/13 is proven; phone/email delivery is not.
+Next evidence: running drill 40173134585 outcome and genuine H scheduled collection/automatic
+publication. The future repaired revision also needs its own forced-timer validation after release.
+Issue 12 is closed after actual publication; issue 10 retains coverage, processing/history and
+scheduled-operation gaps. Owner GitHub inbox delivery for issues 10/12/13 is proven; phone/email
+delivery is not.
 The [557-row ledger](docs/active/daily-pipeline/evaluations/2026-10-24/current-source-coverage.md)
 and [evaluation rubric](docs/active/daily-pipeline/evaluation-rubric.md) keep the measures separate.
 

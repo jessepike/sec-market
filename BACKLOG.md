@@ -16,12 +16,14 @@ and company-type navigation (SEC-074) follow reliable operation.
 
 | Current measure | Actual evidence |
 |---|---|
-| Public release | App 26181a2d, sequence 3, release 19fde803; old combined measure 244/557. Varonis and six corrections remain live. Source validUntil was October 25 at 06:05:06 UTC; production is overdue. |
+| Public release | App 6d5e87fe, release fc8bf098, sequence 4, snapshot 8ba13011. Vercel dpl_GFKc3mfpR6CSeZt7u62B5LVBqQjv is READY; all 53 files per host match, 106 exact comparisons. |
+| Current public data | D-112 intake 264/557; processing 38 and history 39 of 10,655; 10 held documents, queue 37. Source expiry October 26 at 12:45:29.479727 UTC. Varonis and six corrections remain live. |
 | Current daily intake | Manual normal collector 40169973257 passed on main 6d5e87fe under policy H: 264/557; source expiry October 26 at 12:45:29 UTC. Genuine H scheduled collection remains unproved. |
 | Processing | 38/10,655 reviewed; 10,617 pending; 10 held, 1 changed, 291 unknown dates. |
 | Historical review | 39/10,655 reviewed; 10,616 pending; 10 held. |
 | Review queue | 37 entries; all 33 earlier held identities persist, with four additional identities. |
-| Publication recovery | Manual publisher 40172130763 and second external gate 40172376435 are running on exact main 6d5e87fe. No new production or public freshness recovery is established. |
+| Publication recovery | Manual publisher 40172130763 and gate 40172376435 passed on exact main 6d5e87fe; public freshness recovered. Issue 12 closed at 07:28:33 UTC. |
+| Current drill | Manual drill 40173134585 is running on exact main 6d5e87fe against expected release fc8bf098; outcome pending. |
 | Known contradictions | Five-record remediation is 5/5 resolved in the accepted public release; this is not a general precision/recall estimate. |
 | Reader value and sustained operation | Unmeasured. The owner reports no useful real use yet. |
 
@@ -61,10 +63,11 @@ authenticates collector 40169973257 and archive a50c594f, with all 45,259 entrie
 reconciliation and continuity pass; the four fact references, old event/evidence dates and six
 admissions remain exact. This is workflow_dispatch proof. The [isolated exact-main rehearsal](docs/active/daily-pipeline/accuracy/manual-freshness-recovery-local-rehearsal-2026-10-25.md)
 passed 531 release tests, the actual public-source validator and 805 operational tests without an
-external gate attempt. Manual publisher 40172130763 is running on main 6d5e87fe; its second
-external gate 40172376435 began at 07:20:10 UTC. Gate acceptance, production acknowledgement
-and public bytes remain pending; genuine scheduled operation
-and controlled rollback/restoration still need their own receipts.
+external gate attempt. Manual publisher 40172130763 and gate 40172376435 subsequently passed
+on exact main 6d5e87fe. The [actual publication review](docs/active/daily-pipeline/accuracy/manual-freshness-publication-2026-10-25.md)
+records release fc8bf098, sequence 4, snapshot 8ba13011 and all 106 exact host-file comparisons.
+Manual drill 40173134585 is running against that expected release; its result remains pending.
+Genuine H scheduled collection and automatic publication still need actual receipts.
 
 Earlier manual publisher 40147731858 and gate 40148005688 failed when prior-day receipts joined
 to publication-day task IDs. That attempt remains charged. The reviewed cross-day repair preserves
@@ -98,9 +101,10 @@ and passing [independent review](docs/active/daily-pipeline/accuracy/scheduled-s
 It forces real conditional transport past both receipt and saved-download reuse only for the genuine
 main 05:17 daily timer. All 840 operational and 534 executed application tests pass, with one existing
 fixture skip; independent checks passed 12 focused, 6 existing and 7 extra scenarios. Same-data
-1440/390 renders have zero changed pixels. Preview 4ae86e2b contains repair de2059ab;
-web 40172455392 and canary 40172455446 passed, and Vercel dpl_7qy95vbv6wrmURM8SabrCyViioJk
-is READY with its exact app receipt. The [preview receipt](docs/active/daily-pipeline/receipts/scheduled-source-freshness-preview-2026-10-25.json)
+1440/390 renders have zero changed pixels. Current preview 06946a03 contains the reviewed
+repair and verified application revision 4ae86e2b. Web 40172455392 and canary 40172455446 passed
+on 4ae86e2b, whose Vercel dpl_7qy95vbv6wrmURM8SabrCyViioJk is READY with its exact app
+receipt. The [preview receipt](docs/active/daily-pipeline/receipts/scheduled-source-freshness-preview-2026-10-25.json)
 grants no repaired-runtime proof; the uncollected fixture must never publish and main stays 6d5e87fe.
 After reviewed promotion and an available code-bound gate, audit the repaired revision's actual
 genuine timer receipts. That forced-timer validation is pending. The [cadence review](docs/active/daily-pipeline/accuracy/same-day-manual-and-scheduled-source-cadence-review-2026-10-25.md)
@@ -110,19 +114,19 @@ that cost, original clocks and allowances. No zero-fetch cold retry or repaired-
 
 October 24 usage ended at 2,095/5,500 fetch reservations, 80/80 model calls, 40/40 documents and
 2/2 gates. Current October 25 collection usage is 444/5,500 fetches, 72/80 model calls and 33/40
-documents. Both October 25 gate attempts are now reserved: second gate 40172376435 began
-at 07:20:10 UTC under publisher 40172130763 and remains in progress. Its outcome is pending.
-Collector cadence remains
-05:17 UTC and publisher cadence 06:23/16:23 UTC. Assigned issue 12 retains publication failure;
-issue 10 retains coverage/history gaps. Verify issue 12 recovery after actual publication.
+documents. Both October 25 gate attempts are spent; second gate 40172376435 passed under
+publisher 40172130763. Collector cadence remains 05:17 UTC and publisher cadence 06:23/16:23
+UTC. Issue 12 closed at 07:28:33 UTC after real publication; issue 10 retains coverage/history and
+scheduled-operation gaps. Manual drill 40173134585 outcome remains pending.
 No owner source decision is currently required. No refund, reset, purchase or paid fallback.
 
 Actual monitor 40165077942 updated assigned issue 10 at 05:19 UTC October 25, after starting
 four hours 37 minutes past its timer. At 06:39 UTC the collector's 05:17 timer had still emitted
 no run, production remained release 19fde803 and its actual validUntil 06:05:06 UTC had passed.
-Continuous freshness has therefore failed this bootstrap window. Correct the earlier 06:38
-estimate: validUntil comes from source evidence, not lastCollectionAt plus the allowance.
-Keep the actual overdue coverage/acknowledgement receipts and verify recovery from real output.
+Continuous freshness failed that bootstrap window. Actual manual publication has now recovered
+public freshness, with expiry October 26 at 12:45:29 UTC. Preserve both the failure and recovery
+receipts. The earlier 06:38 estimate was wrong: validUntil comes from source evidence, not
+lastCollectionAt plus the allowance. Manual recovery does not establish uninterrupted operation.
 
 The [remaining published-record qualifier queue](docs/active/daily-pipeline/accuracy/remaining-record-qualification-status-2026-10-25.md)
 tracks ten supported wording candidates and one unsupported Varonis workforce claim, including
@@ -181,8 +185,8 @@ Sequence this after SEC-072's current-operation fixes and runtime proof. Keep it
 
 Bounded daily collection for all 74 existing suppliers is authorized and implemented. Latest manual
 normal collector 40169973257 reports 264/557 under H, with a fully authenticated archive and exact
-replay. Manual publication is running; genuine H scheduled collection and automatic publication
-remain unproved. The old 121/557 report keeps its original combined definition. Current intake gaps
+replay. Manual publication 40172130763 passed and public intake now also reports 264/557;
+genuine H scheduled collection and automatic publication remain unproved. The old 121/557 report keeps its original combined definition. Current intake gaps
 remain 254 missing family bindings, 25 unqualified candidates, nine HTTP 403s, four HTTP 429s and
 one unsafe redirect. The 37-entry review queue retains all 33 prior identities and four new holds.
 Resolve source registration, blocks, dated evidence, typed ownership/financial adapters and retained
