@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "policySha256": "268fcf84990a60622c8394553e7d7296010eab7a49c37d9857c7a15308cddaf9",
+  "groupIds": [
+    "FC-20261023-checkpoint-sase",
+    "FC-20261023-optiv",
+    "FC-20261023-splunk",
+    "FC-20261023-zscaler",
+    "FC-20261023-expel",
+    "XAGE-SOURCE-CLASS-20261023"
+  ],
+  "targetIds": [
+    "event:EV-checkpoint-2",
+    "evidence:TR-checkpoint-4",
+    "event:EV-optiv-2",
+    "evidence:TR-optiv-3",
+    "event:EV-splunk-1",
+    "evidence:TR-splunk-2",
+    "event:EV-zscaler-2",
+    "evidence:TR-zscaler-4",
+    "supplier:expel:lastRound",
+    "supplier:expel:ownership",
+    "evidence:TR-expel-2",
+    "evidence:TR-xage-1"
+  ],
+  "sourceEvidenceIds": {
+    "FC-20261023-checkpoint-sase": [
+      "TR-checkpoint-4",
+      "TR-checkpoint-5"
+    ],
+    "FC-20261023-optiv": [
+      "TR-optiv-3"
+    ],
+    "FC-20261023-splunk": [
+      "TR-splunk-2"
+    ],
+    "FC-20261023-zscaler": [
+      "TR-zscaler-4",
+      "TR-zscaler-6"
+    ],
+    "FC-20261023-expel": [
+      "TR-expel-1",
+      "TR-expel-2"
+    ],
+    "XAGE-SOURCE-CLASS-20261023": [
+      "TR-xage-1"
+    ]
+  },
+  "reviewPolicySha256ByGroup": {
+    "FC-20261023-checkpoint-sase": "36bc23722c1131f94ab3c2db1c553505539987aa55738cfa9bb72dfa3871ad6f",
+    "FC-20261023-optiv": "4f9e7feb90232a3aafe2cd84265c2e8202c9e009229e7592c5ab87373f64bcf5",
+    "FC-20261023-splunk": "270b7c7a1f7180b3fef2896b7633a87bf0667b9f4a3c75593fa72b959ecb87f6",
+    "FC-20261023-zscaler": "dc8522069fc87cbf0371e0ea29ec80fbf647c1dd7ce816e02a7fb4a94b35a390",
+    "FC-20261023-expel": "d1ea72b754450e603d89092cc38d9fa81d165575af2a36745e5938220fd82087",
+    "XAGE-SOURCE-CLASS-20261023": "c01560dba484aa5aa5696c8bfe5b44acefc6337ee1cebe0cd96751849e15646a"
+  }
+}

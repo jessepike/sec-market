@@ -13,7 +13,11 @@ const canonical = value => Array.isArray(value) ? '[' + value.map(canonical).joi
 const digest = value => createHash('sha256').update(Buffer.isBuffer(value) ? value : canonical(value)).digest('hex')
 const group = read('ops/ci/fixtures/s1-exact-filing-transport.json')
 const market = read('contracts/market.json')
-const requests = read('contracts/factual-corrections.json')
+const historicalRequests = readFileSync(resolve(root, 'ops/ci/fixtures/accepted-six-correction-requests-2026-10-25.json'))
+const historicalStamp = readFileSync(resolve(root, 'ops/ci/fixtures/accepted-six-correction-stamp-J-2026-10-25.json'))
+assert.equal(digest(historicalRequests), '9c9fbe0d3d40ece11e1407ce9460086c732f62da88d3b0f220ab9d6f8757da00')
+assert.equal(digest(historicalStamp), '365058911a182610cde401307fb30cc1855930b7940969440a618441cbbef9b2')
+const requests = JSON.parse(historicalRequests)
 const baseline = requests.baseline.sha256
 const copy = value => structuredClone(value)
 
@@ -25,7 +29,7 @@ function fixture(t) {
     mkdirSync(resolve(file, '..'), { recursive: true })
     writeFileSync(file, JSON.stringify(value, null, 2) + '\n')
   }
-  for (const path of ['contracts/market.json', 'contracts/factual-corrections.json', 'contracts/factual-baseline.json', 'web/src/data/tracker/originals.json']) {
+  for (const path of ['contracts/market.json', 'contracts/factual-baseline.json', 'web/src/data/tracker/originals.json']) {
     const file = resolve(directory, path)
     mkdirSync(resolve(file, '..'), { recursive: true })
     writeFileSync(file, readFileSync(resolve(root, path)))
@@ -55,7 +59,7 @@ function fixture(t) {
 
 test('optional transport builds only with its exact pinned source and keeps six old policies', t => {
   const f = fixture(t)
-  const policy = f.stamp(), old = read('web/src/data/tracker/factualCorrectionPolicy.json')
+  const policy = f.stamp(), old = JSON.parse(historicalStamp)
   assert.equal(f.verify().enabled, false)
   assert.equal(Object.keys(old.reviewPolicySha256ByGroup).length, 6)
   for (const [id, hash] of Object.entries(old.reviewPolicySha256ByGroup)) assert.equal(policy.reviewPolicySha256ByGroup[id], hash)

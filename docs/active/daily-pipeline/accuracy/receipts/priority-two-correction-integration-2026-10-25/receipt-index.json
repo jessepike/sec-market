@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "files": {
+    "actual-source-and-old-admission-readiness.json": {
+      "sha256": "48373e9cee7bd2e78e90eb0fa1f3959bba8521c165a2f8a597b24057801a7d58",
+      "bytes": 79958
+    },
+    "assembly.json": {
+      "sha256": "b36b8766bc59469e2f21c0ffa520d1de5592139d42419c7e4b47b67ed1b12c83",
+      "bytes": 2282
+    },
+    "build.log.gz": {
+      "sha256": "2f69c03c7f1845a5fe46556b410c987def1b302b060cce80de5fca749e3efa54",
+      "bytes": 2996
+    },
+    "focused-tests.log.gz": {
+      "sha256": "2ce793b25795d2e44b43c808a052176046044b1675ac6c7ea663f69ad77e244e",
+      "bytes": 3241
+    },
+    "full-ops-absent.log.gz": {
+      "sha256": "aeb8a19a465e358573b48a9010e81577857be8266a93fadc20ec13687424044c",
+      "bytes": 30403
+    },
+    "full-ops-present.log.gz": {
+      "sha256": "d8d155925b8f9527426b4756a478aeb1633c8f7d459c6b432a3a8c58af2123fb",
+      "bytes": 27114
+    },
+    "hosted-absence-driver.py": {
+      "sha256": "79d235698e6f6bb1e55849eb555c0a6cb6674df1848775d76073717bbb14e3ff",
+      "bytes": 2343
+    },
+    "hosted-absence-full.json": {
+      "sha256": "7b45371a94edc315bc6aa36212ed3b421beb526216b1599f1600777f74d3710f",
+      "bytes": 16611
+    },
+    "initial-test-diagnostic.log.gz": {
+      "sha256": "765447342d5a129c72ba951a880a67407df423b2340a96371488c4a28822d67a",
+      "bytes": 3864
+    },
+    "javascript-policy-parity.json": {
+      "sha256": "fae887ea6421d389dfb30f2409048efd96885c74dac016cda06334b627f68e98",
+      "bytes": 1157
+    },
+    "render-comparison.json": {
+      "sha256": "67ac4d969d0f1e5702d4275939af66ff587640f3818fdc70e6a09968299e3d6e",
+      "bytes": 2800
+    },
+    "render-local.log.gz": {
+      "sha256": "b4a9e038eeb6d7ce1b149a653785ce49be95bfb6fbd4aa2bac2d3e3a6665cad7",
+      "bytes": 191
+    },
+    "render-production.log.gz": {
+      "sha256": "a04c073f7a9d37c6a076aac63e031064c803e95a7a2830fc7bf7247d0640dae5",
+      "bytes": 198
+    },
+    "retain_evidence.py": {
+      "sha256": "03fcb99ffb9f18fe08dc611753bcd88a242894c1dc9bd2d9ebc0679879b675b9",
+      "bytes": 8402
+    },
+    "verification.json": {
+      "sha256": "56b8653e314619189e4302abc22cb0fa2c00ae9ffd69de0f600ce905a0518f7f",
+      "bytes": 8273
+    },
+    "verify_pending_sources.py": {
+      "sha256": "d11bb572721d439e3147d315cb6c73e356e15294015924eb3b7a3e2adeefc883",
+      "bytes": 7824
+    }
+  }
+}

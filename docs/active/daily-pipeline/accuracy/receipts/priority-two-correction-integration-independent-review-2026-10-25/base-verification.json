@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "baseCommit": "2387abb41069f3a74a005468d91e5401d97089ff",
+  "baseGitBlobFilesVerified": 2662,
+  "changedTrackedPaths": [
+    "contracts/factual-corrections.json",
+    "ops/ci/test_prnewswire_retained_window.py",
+    "ops/ci/test_publisher_disclosure_correction.py",
+    "ops/ci/test_q4_initial_data_capture.py",
+    "ops/ci/test_q4_normal_intake.py",
+    "ops/ci/test_q4_primary_qualification.py",
+    "ops/ci/test_s1_exact_filing_transport.py",
+    "web/src/data/tracker/factualCorrectionPolicy.json"
+  ],
+  "exactAll12OverlayPins": {
+    "contracts/factual-corrections.json": {
+      "sha256": "aa2ffd8722f2e82ecbf4ec152485e2334946469627f3fa04845d441695e201ae",
+      "bytes": 43099
+    },
+    "ops/ci/test_prnewswire_retained_window.py": {
+      "sha256": "4a1a6bceec7a95cf78b997d3b5dae6d70f0753f63857528287ea0fa0eaab968c",
+      "bytes": 14825
+    },
+    "ops/ci/test_publisher_disclosure_correction.py": {
+      "sha256": "ae3b58b53fd9e02363494d0eaa1a30891393e463097abfda5f26af2bf3010ea1",
+      "bytes": 29428
+    },
+    "ops/ci/test_q4_initial_data_capture.py": {
+      "sha256": "3802e221d2323b2b8f8561005859610e968b626a9eb1311f8652b85d82c66dff",
+      "bytes": 22764
+    },
+    "ops/ci/test_q4_normal_intake.py": {
+      "sha256": "8c4b747eb0182050ccaeb2c5464ace37989d118216bce8f966f6cd2620a4d588",
+      "bytes": 25658
+    },
+    "ops/ci/test_q4_primary_qualification.py": {
+      "sha256": "b3868abcc7dea85ec73fa606d36158b47cdbb6802c5779c5fc84b9c437f14218",
+      "bytes": 27812
+    },
+    "ops/ci/test_s1_exact_filing_transport.py": {
+      "sha256": "4f42f15e3d442a418ed6f9f890930c19255de9b7e484c629ea1c46740fecb8a4",
+      "bytes": 15306
+    },
+    "web/src/data/tracker/factualCorrectionPolicy.json": {
+      "sha256": "58d93745f554563f61960037b4466de70ae058a9b2295272d530d95f639880aa",
+      "bytes": 2341
+    },
+    "ops/ci/historical_correction_fixtures.py": {
+      "sha256": "4662e080b8dabc1a192d4fdd3df173fb3e222887773f24dbc778737b8022283e",
+      "bytes": 1436
+    },
+    "ops/ci/test_priority_two_corrections.py": {
+      "sha256": "6af52e3ac64a403ed69e60cf52a15df9f75e43ad23861816917135be1700a8ba",
+      "bytes": 13883
+    },
+    "ops/ci/fixtures/accepted-six-correction-requests-2026-10-25.json": {
+      "sha256": "9c9fbe0d3d40ece11e1407ce9460086c732f62da88d3b0f220ab9d6f8757da00",
+      "bytes": 32004
+    },
+    "ops/ci/fixtures/accepted-six-correction-stamp-J-2026-10-25.json": {
+      "sha256": "365058911a182610cde401307fb30cc1855930b7940969440a618441cbbef9b2",
+      "bytes": 1721
+    }
+  },
+  "applicationAndWorktreeMatch": true,
+  "rawGitLsTreeSha256": "c0c06f4a6bbc23706deba2c702350a2acefbbc29736365cabc2c3c0546de37fa",
+  "allOtherRuntimeAndPolicyBaselineBlobsExact": true
+}

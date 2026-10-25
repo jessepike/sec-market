@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "files": {
+    "final-full-web-pass.log.gz": {
+      "sha256": "d36b4743c56d7e952b8fbedae5faccbd7a144ec8cb8a49c2e3ac900a9e765229",
+      "bytes": 25517
+    },
+    "initial-historical-fixture-failure.log.gz": {
+      "sha256": "911d3cc4e7731408741b1e0db5394eb458b17d1dab50186c37fa12b5eed0710a",
+      "bytes": 27989
+    },
+    "retain_web_delta.py": {
+      "sha256": "352b5231bc4740e98404bb6ad2fba7862f8930df2ceca70e2af82c30fb9f3838",
+      "bytes": 3494
+    },
+    "three-test-only.patch": {
+      "sha256": "5ade7450c58d071afcfb8860049fdd9df4816a2c247b703a607a6f91bd54cc39",
+      "bytes": 6523
+    },
+    "verification-addendum.json": {
+      "sha256": "aea9f3754b580b91671c844e18c59c55a1249f42e8a4e1293a23676f7f04064d",
+      "bytes": 3226
+    }
+  }
+}

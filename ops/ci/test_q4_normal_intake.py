@@ -14,6 +14,7 @@ from unittest.mock import patch
 ROOT = Path(__file__).resolve().parents[2]
 sys.path[:0] = [str(ROOT / 'web/scripts/pipeline'), str(ROOT / 'ops/ci')]
 from contracts import canonical, digest, plan_run, validate_contract
+from historical_correction_fixtures import historical_requests, historical_repo
 from discovery import discover
 from fetcher import Fetcher
 from storage import LocalStore
@@ -274,8 +275,9 @@ class ActualArchiveProofTests(unittest.TestCase):
 
     def test_six_correction_admissions_and_group_policies_replay_without_any_work(self):
         from corrections import load_policy, process_corrections, group_review_policy
-        requests = json.loads((ROOT / 'contracts/factual-corrections.json').read_bytes())
-        new = load_policy(ROOT, self.contract)
+        requests = historical_requests()
+        with historical_repo(ROOT) as pinned_repo:
+            new = load_policy(pinned_repo, self.contract)
         old_hash = digest({'marketSha256': digest(self.original), 'requestsSha256': digest(requests),
                            'baselineSha256': requests['baseline']['sha256']})
         self.assertNotEqual(old_hash, new['policySha256'])
@@ -284,8 +286,8 @@ class ActualArchiveProofTests(unittest.TestCase):
         class NoModel:
             def __getattr__(self, name): raise AssertionError('model prohibited')
         def deny(*_a, **_kw): raise AssertionError('reservation prohibited')
-        with patch.object(socket, 'socket', side_effect=AssertionError('network prohibited')):
-            result = process_corrections(ROOT, self.overlay, self.contract, NoModel(), deny, NOW)
+        with historical_repo(ROOT) as pinned_repo, patch.object(socket, 'socket', side_effect=AssertionError('network prohibited')):
+            result = process_corrections(pinned_repo, self.overlay, self.contract, NoModel(), deny, NOW)
         self.assertEqual(len(result['admitted']), 6)
         self.assertEqual(result['pending'], [])
         self.assertEqual(result['attempts'], [])

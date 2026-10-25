@@ -85,12 +85,18 @@ proves no endpoint/host-rule repair. Four 429s belong to Axonius, including repe
 Sysdig's generic ContractError has no proved HTTP status. Bounded failure/redirect/Retry-After
 telemetry and respectful cooldown are next repairs; do not guess aliases or bypass access.
 
-The [two priority correction specification](docs/active/daily-pipeline/accuracy/priority-two-correction-integration-spec-2026-10-25.md)
-is accepted for an isolated pending-request build. It targets Varonis's unsupported workforce/date
-wording and SentinelOne's planned 8%/$25 million action, preserving all old six groups. Minimum
-successful independent review is two calls/two documents/zero correction fetches after natural
-October 26 capacity. No operational packet or new admission is selected yet. Pending groups hold
-publication before gate spending; the reviewed fallback protects freshness without deleting history.
+The [two priority correction build](docs/active/daily-pipeline/accuracy/priority-two-correction-integration-implementation-2026-10-25.md)
+passes independent review. Its eight-request pending inventory is prepared for preview, preserving
+all six old groups/admissions and adding Varonis's unsupported workforce/date repair followed by
+SentinelOne's planned 8%/$25 million repair. All 972 operational checks pass; archive-absent checks
+pass 913 with 59 explicit skips. Full web validation passes 379 data and 115 pipeline checks,
+build/80 SEC claims, and 42 browser checks with one existing fixture skip; four renders are unchanged.
+The separate historical-six web-test delta retains the initial failed fixture run and the final
+passing run. Main selection, actual semantic admission and new production publication remain
+pending. October 25 calls/gates are spent; successful independent review needs at least two calls,
+two documents and zero correction fetches after natural October 26 renewal. Pending groups hold
+publication before gate spending; no freshness fallback is selected by this build. The other seven
+atomic proposals remain outside the active request contract.
 
 ## Remaining work and checkout boundary
 

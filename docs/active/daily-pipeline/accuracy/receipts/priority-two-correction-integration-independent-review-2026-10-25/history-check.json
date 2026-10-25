@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "verdict": "PASS_SYNTHETIC_APPEND_MECHANICS_ONLY",
+  "oldPublicReleaseId": "fc8bf0984dbeacbe79519574911837d8b638f42215f6547e31ae8968b29951e4",
+  "oldSixPublicRowsByteEquivalent": true,
+  "oldSixRowsSha256": [
+    "c345bfcbaad9eddc0e8117932d5383cac716620ff804f3fda3b3cd350fb0c1e3",
+    "01cb24b39c350369f127e0979492940d0517bdb194c28b675b74137d107b4830",
+    "86700a09e452b8472ce3017bff89cdafe86d80ea1ab4429b453e4d6a4a4ebf24",
+    "f547a6b69515231f5a7f435a4533de818dae149d139427137f3f8ade7ab1a2e8",
+    "fb0f82c270dbaab648185f2b3e432e4e9d95f9736a60b33931b16e6d44dfbab1",
+    "dfd2ce0055f2c5eded3d22bdc2164d1f7af5da01304e9bd951ba026c615aca8e"
+  ],
+  "newRowsExactCandidateAndActualHypotheticalDay": true,
+  "rewrittenOldHistoryRejects": true,
+  "syntheticReviewCharges": [
+    [
+      "documents",
+      40
+    ],
+    [
+      "calls",
+      80
+    ],
+    [
+      "documents",
+      40
+    ],
+    [
+      "calls",
+      80
+    ]
+  ],
+  "actualArchiveLedgerUnchanged": {
+    "calls": 80,
+    "documents": 39,
+    "fetches": 1511
+  },
+  "actualNewAdmissions": 0,
+  "sourceRequests": 0,
+  "modelRequests": 0,
+  "realStateWrites": 0
+}

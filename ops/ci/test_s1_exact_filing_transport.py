@@ -15,6 +15,7 @@ import unittest
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "web/scripts/pipeline"))
 from contracts import canonical, digest, instant, require
+from historical_correction_fixtures import historical_requests, historical_stamp
 from corrections import (S1_TRANSPORT, REVIEW_RULES_VERSION, _index, group_review_policy,
                          load_policy, replay_admission, validate_sources)
 
@@ -32,7 +33,7 @@ class TransportPolicyTests(unittest.TestCase):
     def setUp(self):
         self.group = read(FIXTURE)
         self.market = read(ROOT / "contracts/market.json")
-        self.requests = read(ROOT / "contracts/factual-corrections.json")
+        self.requests = historical_requests()
         self.baseline = self.requests["baseline"]["sha256"]
 
     def policy(self, group=None, market=None):
@@ -93,7 +94,7 @@ class TransportPolicyTests(unittest.TestCase):
             requests = copy.deepcopy(self.requests)
             requests["groups"].append(self.group)
             (repo / "contracts/factual-corrections.json").write_bytes(canonical(requests))
-            old = read(ROOT / "web/src/data/tracker/factualCorrectionPolicy.json")
+            old = historical_stamp()
             stamp = {"schemaVersion": 1,
                      "policySha256": digest({"marketSha256": digest(self.market), "requestsSha256": digest(requests), "baselineSha256": self.baseline}),
                      "groupIds": [g["id"] for g in requests["groups"]],

@@ -10,6 +10,7 @@ from unittest.mock import patch
 from test_prnewswire_press_list import ROOT, ACCURACY, ARCHIVE, AS_OF, ReadOnlyActual
 from contracts import canonical, digest, ContractError
 from storage import LocalStore
+from historical_correction_fixtures import historical_requests
 import onboarding
 import prnewswire_retained_window as operation
 
@@ -187,7 +188,7 @@ class RetainedTests(unittest.TestCase):
             self.assertNotEqual(sample['shape']['suppliedJsonLd']['datePublished'],sample['shape']['suppliedJsonLd']['dateModified'])
     def test_six_existing_admissions_facts_holds_budget_and_expiry_remain_exact(self):
         from corrections import _index, group_review_policy, replay_admission
-        requests=json.loads((ROOT/'contracts/factual-corrections.json').read_bytes())
+        requests=historical_requests()
         stamp=json.loads((ROOT/'web/src/data/tracker/factualCorrectionPolicy.json').read_bytes())
         admissions=[]
         for group in requests['groups']:

@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "verdict": "PASS",
+  "findings": [],
+  "reviewedAt": "2026-10-25T14:54:04.295595+00:00",
+  "scope": "Separate three-test historical-six fixture delta only.",
+  "deltaFiles": {
+    "web/tests/factual-correction-build.test.mjs": {
+      "sha256": "a11d0269d25821b342fed3a009653b2a66007a4a8782826820a3f5c2fc0f7949",
+      "bytes": 23929
+    },
+    "web/tests/s1-exact-filing-transport.test.mjs": {
+      "sha256": "20b7baa78be211761e4b7f43b0bf917cd8f8f52907148125cb3c63083809693b",
+      "bytes": 8220
+    },
+    "web/tests/publisher-disclosure-corrections.test.ts": {
+      "sha256": "e66b28f66766207437a3b845f404042966470dd2268001cffac5af38e1f4ff30",
+      "bytes": 12917
+    }
+  },
+  "fixtures": {
+    "requests": {
+      "path": "ops/ci/fixtures/accepted-six-correction-requests-2026-10-25.json",
+      "sha256": "9c9fbe0d3d40ece11e1407ce9460086c732f62da88d3b0f220ab9d6f8757da00",
+      "bytes": 32004
+    },
+    "stamp": {
+      "path": "ops/ci/fixtures/accepted-six-correction-stamp-J-2026-10-25.json",
+      "sha256": "365058911a182610cde401307fb30cc1855930b7940969440a618441cbbef9b2",
+      "bytes": 1721
+    }
+  },
+  "independentSelectedTests": {
+    "command": "cd application/web; ./node_modules/.bin/tsx --tsconfig tsconfig.app.json --test tests/factual-correction-build.test.mjs tests/publisher-disclosure-corrections.test.ts tests/s1-exact-filing-transport.test.mjs",
+    "tests": 43,
+    "passed": 43,
+    "skipped": 0,
+    "failures": 0,
+    "logSha256": "b380ecf3172387c671c9343d2ad87768f2ee0e24e1c682f42d75f863e94b2f05"
+  },
+  "workerFullNpmAuthenticated": {
+    "lintErrors": 0,
+    "preExistingLintWarnings": 1,
+    "data": {
+      "passed": 379,
+      "skipped": 0
+    },
+    "pipeline": {
+      "passed": 115
+    },
+    "build": {
+      "requiredSec": 80,
+      "verifiedSec": 80,
+      "blockers": 0,
+      "drift": 0
+    },
+    "browser": {
+      "passed": 42,
+      "existingFixtureSkips": 1
+    }
+  },
+  "workerLogPinsAuthenticated": {
+    "initial-historical-fixture-failure": {
+      "originalPath": "/var/tmp/smp-priority-two-corrections-20261025/full-web-tests.log",
+      "raw": {
+        "sha256": "3f09865893a3ba20777523c7450c015b78aeb199f0417b7f4fe56c98255c4d4d",
+        "bytes": 174522
+      },
+      "gzipFile": "initial-historical-fixture-failure.log.gz",
+      "gzip": {
+        "sha256": "911d3cc4e7731408741b1e0db5394eb458b17d1dab50186c37fa12b5eed0710a",
+        "bytes": 27989
+      },
+      "roundtripExact": true
+    },
+    "final-full-web-pass": {
+      "originalPath": "/var/tmp/smp-priority-two-corrections-20261025/full-web-tests-final.log",
+      "raw": {
+        "sha256": "9b9eb9f529193f81b10f4bfc9da72c614cffbec094102f908412724dfd5243b6",
+        "bytes": 127420
+      },
+      "gzipFile": "final-full-web-pass.log.gz",
+      "gzip": {
+        "sha256": "d36b4743c56d7e952b8fbedae5faccbd7a144ec8cb8a49c2e3ac900a9e765229",
+        "bytes": 25517
+      },
+      "roundtripExact": true
+    }
+  },
+  "protected": {
+    "original31WorkerPathsAllExact": true,
+    "originalWorkerManifestSha256": "843eaebd5592b85618d93643a7af7af29abf98394e38469447b523a9d6e051fd",
+    "originalIndependentMDJSONExact": true,
+    "baseGitBlobsChecked": 2662,
+    "baseChangedPaths": [
+      "contracts/factual-corrections.json",
+      "ops/ci/test_prnewswire_retained_window.py",
+      "ops/ci/test_publisher_disclosure_correction.py",
+      "ops/ci/test_q4_initial_data_capture.py",
+      "ops/ci/test_q4_normal_intake.py",
+      "ops/ci/test_q4_primary_qualification.py",
+      "ops/ci/test_s1_exact_filing_transport.py",
+      "web/src/data/tracker/factualCorrectionPolicy.json",
+      "web/tests/factual-correction-build.test.mjs",
+      "web/tests/publisher-disclosure-corrections.test.ts",
+      "web/tests/s1-exact-filing-transport.test.mjs"
+    ],
+    "onlyOriginal12PlusNew3Overlay": true,
+    "runtimeOrRequestsOrStampChanges": 0,
+    "assertionWeakening": false,
+    "newSkips": 0
+  },
+  "diagnostics": {
+    "actualInitialNpm": "Ten old-six data-fixture failures stopped initial npm before later stages; original failed raw/gzip log remains retained.",
+    "independentDriver": "Ad-hoc node --import tsx omitted project JSX tsconfig and failed one React render. Exact project tsx --tsconfig runner passes43/43; driver-failure log retained. No product code was changed."
+  },
+  "boundaries": {
+    "sourceRequests": 0,
+    "modelRequests": 0,
+    "newAdmissions": 0,
+    "realStateOrArchiveWrites": 0,
+    "checkoutWrites": 0,
+    "publicationCredit": false
+  },
+  "receiptsRelative": "receipts/priority-two-correction-web-test-delta-independent-review-2026-10-25"
+}

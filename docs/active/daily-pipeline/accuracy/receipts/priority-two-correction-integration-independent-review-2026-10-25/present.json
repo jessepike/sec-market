@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "verdict": "PASS",
+  "mode": "present",
+  "testsRun": 11,
+  "passed": 11,
+  "passedNames": [
+    "test_priority_two_corrections.ActualSourceAndSyntheticMechanicsTests.test_SYNTHETIC_successful_two_group_review_cost_and_order_never_touch_real_state",
+    "test_priority_two_corrections.ActualSourceAndSyntheticMechanicsTests.test_completion_after_source_expiry_cannot_admit_second_group",
+    "test_priority_two_corrections.ActualSourceAndSyntheticMechanicsTests.test_each_actual_source_age_has_inclusive_30h_limit_at_start_and_completion",
+    "test_priority_two_corrections.ActualSourceAndSyntheticMechanicsTests.test_literal_excerpt_and_source_body_clock_mismatches_reject",
+    "test_priority_two_corrections.ActualSourceAndSyntheticMechanicsTests.test_new_J_retains_exact_old_packet_sources_whole_texts_and_200_304_clocks",
+    "test_priority_two_corrections.ActualSourceAndSyntheticMechanicsTests.test_six_old_admissions_replay_without_reservations_before_two_pending_groups",
+    "test_priority_two_corrections.ActualSourceAndSyntheticMechanicsTests.test_synthetic_marker_and_rejected_review_remain_pending_without_gate",
+    "test_priority_two_corrections.PendingPolicyTests.test_exact_packet_append_version_and_current_J_with_immutable_old_six",
+    "test_priority_two_corrections.PendingPolicyTests.test_only_outer_stamp_changes_and_generated_projection_remains_disabled",
+    "test_priority_two_corrections.PendingPolicyTests.test_original_target_source_and_attestation_substitutions_reject",
+    "test_priority_two_corrections.PendingPolicyTests.test_pending_current_inventory_blocks_projection_before_any_gate_or_model"
+  ],
+  "skipped": [],
+  "frozenReadAttempts": [],
+  "additionalChecks": [
+    "actual_six_replayed_without_model_or_reservation",
+    "1_pending_groups_stop_real_release_before_gate",
+    "2_pending_groups_stop_real_release_before_gate"
+  ],
+  "actualCurrentJSourceBodyComparisons": [
+    {
+      "sourceId": "varonis:citation:TR-varonis-2",
+      "bound": {
+        "evidenceId": "TR-varonis-2",
+        "sourceId": "varonis:citation:TR-varonis-2",
+        "url": "https://www.sec.gov/Archives/edgar/data/1361113/000117184325006721/exh_991.htm",
+        "observationId": "2b7e9eef812fb154c5a284ef3c973e9b4c222c883f45b67c6ea5d1b85b8c4737",
+        "body": {
+          "bytes": 223189,
+          "key": "objects/02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6",
+          "sha256": "02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6"
+        },
+        "fetchedAt": "2026-10-25T09:56:21.524634Z"
+      },
+      "latestObserved": {
+        "body": {
+          "bytes": 223189,
+          "key": "objects/02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6",
+          "sha256": "02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6"
+        },
+        "contentType": "text/html",
+        "etag": null,
+        "fetchedAt": "2026-10-25T14:00:47.536406Z",
+        "finalUrl": "https://www.sec.gov/Archives/edgar/data/1361113/000117184325006721/exh_991.htm",
+        "httpStatus": 304,
+        "lastModified": "Tue, 28 Oct 2025 20:10:53 GMT",
+        "observationId": "4516ac3144bbfcb89f469c475f1dd0f882be3c00c2317619f655c9322265ac41",
+        "requestedUrl": "https://www.sec.gov/Archives/edgar/data/1361113/000117184325006721/exh_991.htm",
+        "reusesObservationId": "2b7e9eef812fb154c5a284ef3c973e9b4c222c883f45b67c6ea5d1b85b8c4737",
+        "sourceId": "varonis:citation:TR-varonis-2",
+        "status": "not_modified",
+        "transportReused": false
+      }
+    },
+    {
+      "sourceId": "s1:citation:TR-s1-3",
+      "bound": {
+        "evidenceId": "TR-s1-3",
+        "sourceId": "s1:citation:TR-s1-3",
+        "url": "https://www.sec.gov/Archives/edgar/data/0001583708/000158370826000039/s-20260528.htm",
+        "observationId": "3d339d56e7aaf3790cc6cdb938fa4899b4d7ebff364e64ab606868bda04a8909",
+        "body": {
+          "bytes": 49404,
+          "key": "objects/e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78",
+          "sha256": "e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78"
+        },
+        "fetchedAt": "2026-10-25T09:56:12.797588Z",
+        "transportAttestation": {
+          "schemaVersion": 1,
+          "rulesVersion": "s1-exact-filing-transport-1",
+          "supplierId": "s1",
+          "sourceId": "s1:citation:TR-s1-3",
+          "evidenceId": "TR-s1-3",
+          "requestedUrl": "https://www.sec.gov/Archives/edgar/data/0001583708/000158370826000039/s-20260528.htm",
+          "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/0001583708/000158370826000039/s-20260528.htm",
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/1583708/000158370826000039/s-20260528.htm",
+          "configuredSourceSha256": "805521d2061b61699a39e64403905b99564731550501130c3038b3c442f89298",
+          "evidenceSha256": "26c50e6237d1ac662287a3ed05ab51a304773df643e5f5860cc2b5fbc795ab80",
+          "body": {
+            "key": "objects/e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78",
+            "sha256": "e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78",
+            "bytes": 49404
+          }
+        }
+      },
+      "latestObserved": {
+        "body": {
+          "bytes": 49404,
+          "key": "objects/e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78",
+          "sha256": "e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78"
+        },
+        "contentType": "text/html",
+        "etag": null,
+        "fetchedAt": "2026-10-25T14:00:42.748707Z",
+        "finalUrl": "https://www.sec.gov/Archives/edgar/data/1583708/000158370826000039/s-20260528.htm",
+        "httpStatus": 304,
+        "lastModified": "Thu, 28 May 2026 20:14:10 GMT",
+        "observationId": "f653dacd4d25cb57566e3f2f7707298fc7a3501ae582a134a3bab00cfdb6947d",
+        "requestedUrl": "https://www.sec.gov/Archives/edgar/data/0001583708/000158370826000039/s-20260528.htm",
+        "reusesObservationId": "3d339d56e7aaf3790cc6cdb938fa4899b4d7ebff364e64ab606868bda04a8909",
+        "sourceId": "s1:citation:TR-s1-3",
+        "status": "not_modified",
+        "transportReused": false
+      }
+    }
+  ],
+  "requestsRawSha256": "aa2ffd8722f2e82ecbf4ec152485e2334946469627f3fa04845d441695e201ae",
+  "requestsCanonicalSha256": "722a0c086d5e7c270f74cc01e317284edbe83a4d290e73127b4dcf8dde12eadc",
+  "stampRawSha256": "58d93745f554563f61960037b4466de70ae058a9b2295272d530d95f639880aa",
+  "outerPolicySha256": "1c629249347b9bdacaf4fadf563e1a0ed807b96c0cbb02e3e2492ae00a839e5b",
+  "sourceRequests": 0,
+  "modelRequests": 0,
+  "realAdmissions": 0,
+  "realStateWrites": 0,
+  "checkoutWrites": 0,
+  "syntheticMechanics": "Supplied tests exercise mocked model responses and admissions only in reviewer-owned temporary state; never semantic acceptance."
+}

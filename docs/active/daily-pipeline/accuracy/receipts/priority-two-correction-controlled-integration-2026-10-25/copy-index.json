@@ -1,0 +1,429 @@
+{
+  "schemaVersion": 1,
+  "verdict": "PASS_BYTE_EXACT_CONTROLLED_COPY_PENDING_ONLY",
+  "targetBaseCommit": "6bd3075c80bae7bba56a096cadb116cb379b2d63",
+  "sourceBaseCommit": "2387abb41069f3a74a005468d91e5401d97089ff",
+  "sourceManifest": {
+    "sha256": "843eaebd5592b85618d93643a7af7af29abf98394e38469447b523a9d6e051fd",
+    "bytes": 7116
+  },
+  "copiedFiles": {
+    "contracts/factual-corrections.json": {
+      "sha256": "aa2ffd8722f2e82ecbf4ec152485e2334946469627f3fa04845d441695e201ae",
+      "bytes": 43099,
+      "origin": "reviewed_worker_manifest",
+      "before": {
+        "sha256": "9c9fbe0d3d40ece11e1407ce9460086c732f62da88d3b0f220ab9d6f8757da00",
+        "bytes": 32004,
+        "mtimeNs": 1792802031150005119
+      }
+    },
+    "ops/ci/test_prnewswire_retained_window.py": {
+      "sha256": "4a1a6bceec7a95cf78b997d3b5dae6d70f0753f63857528287ea0fa0eaab968c",
+      "bytes": 14825,
+      "origin": "reviewed_worker_manifest",
+      "before": {
+        "sha256": "f059f6b45732ef935dbed9a30dc6e5e8f38f41dae8a183e8dd6a08019bfd888e",
+        "bytes": 14809,
+        "mtimeNs": 1792936690819885036
+      }
+    },
+    "ops/ci/test_publisher_disclosure_correction.py": {
+      "sha256": "ae3b58b53fd9e02363494d0eaa1a30891393e463097abfda5f26af2bf3010ea1",
+      "bytes": 29428,
+      "origin": "reviewed_worker_manifest",
+      "before": {
+        "sha256": "dfc407ba1ad5ae22bbe782c1d825bb9f180c8844cdf6d0304d348742ae04f8d8",
+        "bytes": 29331,
+        "mtimeNs": 1792817884167847736
+      }
+    },
+    "ops/ci/test_q4_initial_data_capture.py": {
+      "sha256": "3802e221d2323b2b8f8561005859610e968b626a9eb1311f8652b85d82c66dff",
+      "bytes": 22764,
+      "origin": "reviewed_worker_manifest",
+      "before": {
+        "sha256": "20e0b4937fb3a35e82accd192bd52bc06c88552416b7f51fff6dc8cef33d825a",
+        "bytes": 22750,
+        "mtimeNs": 1792936426968932439
+      }
+    },
+    "ops/ci/test_q4_normal_intake.py": {
+      "sha256": "8c4b747eb0182050ccaeb2c5464ace37989d118216bce8f966f6cd2620a4d588",
+      "bytes": 25658,
+      "origin": "reviewed_worker_manifest",
+      "before": {
+        "sha256": "17a916e15a248284a366a4f2f1417cd4ae46a6fb8b112792cd56fbfb3b24eca1",
+        "bytes": 25520,
+        "mtimeNs": 1792936426969138606
+      }
+    },
+    "ops/ci/test_q4_primary_qualification.py": {
+      "sha256": "b3868abcc7dea85ec73fa606d36158b47cdbb6802c5779c5fc84b9c437f14218",
+      "bytes": 27812,
+      "origin": "reviewed_worker_manifest",
+      "before": {
+        "sha256": "bf48260b4388a92786732648d889e0d88182a69c420d47327385e5c52eb58bcb",
+        "bytes": 27798,
+        "mtimeNs": 1792936426969356856
+      }
+    },
+    "ops/ci/test_s1_exact_filing_transport.py": {
+      "sha256": "4f42f15e3d442a418ed6f9f890930c19255de9b7e484c629ea1c46740fecb8a4",
+      "bytes": 15306,
+      "origin": "reviewed_worker_manifest",
+      "before": {
+        "sha256": "a0b04d59fde295e452ac8d1d892f1455d55843510237ef74ce823488a6b81450",
+        "bytes": 15299,
+        "mtimeNs": 1792919139080021454
+      }
+    },
+    "web/src/data/tracker/factualCorrectionPolicy.json": {
+      "sha256": "58d93745f554563f61960037b4466de70ae058a9b2295272d530d95f639880aa",
+      "bytes": 2341,
+      "origin": "reviewed_worker_manifest",
+      "before": {
+        "sha256": "365058911a182610cde401307fb30cc1855930b7940969440a618441cbbef9b2",
+        "bytes": 1721,
+        "mtimeNs": 1792936426998221514
+      }
+    },
+    "ops/ci/historical_correction_fixtures.py": {
+      "sha256": "4662e080b8dabc1a192d4fdd3df173fb3e222887773f24dbc778737b8022283e",
+      "bytes": 1436,
+      "origin": "reviewed_worker_manifest",
+      "before": null
+    },
+    "ops/ci/test_priority_two_corrections.py": {
+      "sha256": "6af52e3ac64a403ed69e60cf52a15df9f75e43ad23861816917135be1700a8ba",
+      "bytes": 13883,
+      "origin": "reviewed_worker_manifest",
+      "before": null
+    },
+    "ops/ci/fixtures/accepted-six-correction-requests-2026-10-25.json": {
+      "sha256": "9c9fbe0d3d40ece11e1407ce9460086c732f62da88d3b0f220ab9d6f8757da00",
+      "bytes": 32004,
+      "origin": "reviewed_worker_manifest",
+      "before": null
+    },
+    "ops/ci/fixtures/accepted-six-correction-stamp-J-2026-10-25.json": {
+      "sha256": "365058911a182610cde401307fb30cc1855930b7940969440a618441cbbef9b2",
+      "bytes": 1721,
+      "origin": "reviewed_worker_manifest",
+      "before": null
+    },
+    "docs/active/daily-pipeline/accuracy/priority-two-correction-integration-implementation-2026-10-25.md": {
+      "sha256": "f1485e0378b070d135cca5b2d8de9dfca470034ec0e680f7df9f3c16eca91079",
+      "bytes": 5895,
+      "origin": "reviewed_worker_manifest",
+      "before": null
+    },
+    "docs/active/daily-pipeline/accuracy/priority-two-correction-integration-implementation-2026-10-25.json": {
+      "sha256": "a2b66c6999e3488ff0bf182f40256cb31078e2f2d9dc7cfb8045a93927cf7bd0",
+      "bytes": 9807,
+      "origin": "reviewed_worker_manifest",
+      "before": null
+    },
+    "docs/active/daily-pipeline/accuracy/receipts/priority-two-correction-integration-2026-10-25/actual-source-and-old-admission-readiness.json": {
+      "sha256": "48373e9cee7bd2e78e90eb0fa1f3959bba8521c165a2f8a597b24057801a7d58",
+      "bytes": 79958,
+      "origin": "reviewed_worker_manifest",
+      "before": null
+    },
+    "docs/active/daily-pipeline/accuracy/receipts/priority-two-correction-integration-2026-10-25/assembly.json": {
+      "sha256": "b36b8766bc59469e2f21c0ffa520d1de5592139d42419c7e4b47b67ed1b12c83",
+      "bytes": 2282,
+      "origin": "reviewed_worker_manifest",
+      "before": null
+    },
+    "docs/active/daily-pipeline/accuracy/receipts/priority-two-correction-integration-2026-10-25/build.log.gz": {
+      "sha256": "2f69c03c7f1845a5fe46556b410c987def1b302b060cce80de5fca749e3efa54",
+      "bytes": 2996,
+      "origin": "reviewed_worker_manifest",
+      "before": null
+    },
+    "docs/active/daily-pipeline/accuracy/receipts/priority-two-correction-integration-2026-10-25/focused-tests.log.gz": {
+      "sha256": "2ce793b25795d2e44b43c808a052176046044b1675ac6c7ea663f69ad77e244e",
+      "bytes": 3241,
+      "origin": "reviewed_worker_manifest",
+      "before": null
+    },
+    "docs/active/daily-pipeline/accuracy/receipts/priority-two-correction-integration-2026-10-25/full-ops-absent.log.gz": {
+      "sha256": "aeb8a19a465e358573b48a9010e81577857be8266a93fadc20ec13687424044c",
+      "bytes": 30403,
+      "origin": "reviewed_worker_manifest",
+      "before": null
+    },
+    "docs/active/daily-pipeline/accuracy/receipts/priority-two-correction-integration-2026-10-25/full-ops-present.log.gz": {
+      "sha256": "d8d155925b8f9527426b4756a478aeb1633c8f7d459c6b432a3a8c58af2123fb",
+      "bytes": 27114,
+      "origin": "reviewed_worker_manifest",
+      "before": null
+    },
+    "docs/active/daily-pipeline/accuracy/receipts/priority-two-correction-integration-2026-10-25/hosted-absence-driver.py": {
+      "sha256": "79d235698e6f6bb1e55849eb555c0a6cb6674df1848775d76073717bbb14e3ff",
+      "bytes": 2343,
+      "origin": "reviewed_worker_manifest",
+      "before": null
+    },
+    "docs/active/daily-pipeline/accuracy/receipts/priority-two-correction-integration-2026-10-25/hosted-absence-full.json": {
+      "sha256": "7b45371a94edc315bc6aa36212ed3b421beb526216b1599f1600777f74d3710f",
+      "bytes": 16611,
+      "origin": "reviewed_worker_manifest",
+      "before": null
+    },
+    "docs/active/daily-pipeline/accuracy/receipts/priority-two-correction-integration-2026-10-25/initial-test-diagnostic.log.gz": {
+      "sha256": "765447342d5a129c72ba951a880a67407df423b2340a96371488c4a28822d67a",
+      "bytes": 3864,
+      "origin": "reviewed_worker_manifest",
+      "before": null
+    },
+    "docs/active/daily-pipeline/accuracy/receipts/priority-two-correction-integration-2026-10-25/javascript-policy-parity.json": {
+      "sha256": "fae887ea6421d389dfb30f2409048efd96885c74dac016cda06334b627f68e98",
+      "bytes": 1157,
+      "origin": "reviewed_worker_manifest",
+      "before": null
+    },
+    "docs/active/daily-pipeline/accuracy/receipts/priority-two-correction-integration-2026-10-25/receipt-index.json": {
+      "sha256": "d6bf4a99c90db2acf8d21c3b281ad77949c7b5dd693a1d4270adfe2d288ed5ff",
+      "bytes": 2348,
+      "origin": "reviewed_worker_manifest",
+      "before": null
+    },
+    "docs/active/daily-pipeline/accuracy/receipts/priority-two-correction-integration-2026-10-25/render-comparison.json": {
+      "sha256": "67ac4d969d0f1e5702d4275939af66ff587640f3818fdc70e6a09968299e3d6e",
+      "bytes": 2800,
+      "origin": "reviewed_worker_manifest",
+      "before": null
+    },
+    "docs/active/daily-pipeline/accuracy/receipts/priority-two-correction-integration-2026-10-25/render-local.log.gz": {
+      "sha256": "b4a9e038eeb6d7ce1b149a653785ce49be95bfb6fbd4aa2bac2d3e3a6665cad7",
+      "bytes": 191,
+      "origin": "reviewed_worker_manifest",
+      "before": null
+    },
+    "docs/active/daily-pipeline/accuracy/receipts/priority-two-correction-integration-2026-10-25/render-production.log.gz": {
+      "sha256": "a04c073f7a9d37c6a076aac63e031064c803e95a7a2830fc7bf7247d0640dae5",
+      "bytes": 198,
+      "origin": "reviewed_worker_manifest",
+      "before": null
+    },
+    "docs/active/daily-pipeline/accuracy/receipts/priority-two-correction-integration-2026-10-25/retain_evidence.py": {
+      "sha256": "03fcb99ffb9f18fe08dc611753bcd88a242894c1dc9bd2d9ebc0679879b675b9",
+      "bytes": 8402,
+      "origin": "reviewed_worker_manifest",
+      "before": null
+    },
+    "docs/active/daily-pipeline/accuracy/receipts/priority-two-correction-integration-2026-10-25/verification.json": {
+      "sha256": "56b8653e314619189e4302abc22cb0fa2c00ae9ffd69de0f600ce905a0518f7f",
+      "bytes": 8273,
+      "origin": "reviewed_worker_manifest",
+      "before": null
+    },
+    "docs/active/daily-pipeline/accuracy/receipts/priority-two-correction-integration-2026-10-25/verify_pending_sources.py": {
+      "sha256": "d11bb572721d439e3147d315cb6c73e356e15294015924eb3b7a3e2adeefc883",
+      "bytes": 7824,
+      "origin": "reviewed_worker_manifest",
+      "before": null
+    },
+    "docs/active/daily-pipeline/accuracy/priority-two-correction-integration-independent-review-2026-10-25.json": {
+      "sha256": "54763777fb2614482edf922323efd1c58671ed630e5d56c19d6f463fbde0ff94",
+      "bytes": 22244,
+      "origin": "sealed_independent_review",
+      "before": null
+    },
+    "docs/active/daily-pipeline/accuracy/priority-two-correction-integration-independent-review-2026-10-25.md": {
+      "sha256": "cb5b34f155ec1a1cee2c0333fae3355a69d1f9e7b09875dd44579172293ea8bb",
+      "bytes": 4437,
+      "origin": "sealed_independent_review",
+      "before": null
+    },
+    "docs/active/daily-pipeline/accuracy/receipts/priority-two-correction-integration-independent-review-2026-10-25/absent.json": {
+      "sha256": "60fb4a28ef5f7497edb80365ca89b94d6d030cfb7c3da4e93ec076f604bf945a",
+      "bytes": 3223,
+      "origin": "sealed_independent_review",
+      "before": null
+    },
+    "docs/active/daily-pipeline/accuracy/receipts/priority-two-correction-integration-independent-review-2026-10-25/absent.log": {
+      "sha256": "4e59fb83f545e029088463b6350a7884807c9dda85b4d7591056b64664c13319",
+      "bytes": 6027,
+      "origin": "sealed_independent_review",
+      "before": null
+    },
+    "docs/active/daily-pipeline/accuracy/receipts/priority-two-correction-integration-independent-review-2026-10-25/base-git-blobs.raw": {
+      "sha256": "c0c06f4a6bbc23706deba2c702350a2acefbbc29736365cabc2c3c0546de37fa",
+      "bytes": 367476,
+      "origin": "sealed_independent_review",
+      "before": null
+    },
+    "docs/active/daily-pipeline/accuracy/receipts/priority-two-correction-integration-independent-review-2026-10-25/base-verification.json": {
+      "sha256": "cc00ed3fdc7a701bff74374720611a8218ba82ff4c0c15d93818cfd310598a0b",
+      "bytes": 2737,
+      "origin": "sealed_independent_review",
+      "before": null
+    },
+    "docs/active/daily-pipeline/accuracy/receipts/priority-two-correction-integration-independent-review-2026-10-25/closure.json": {
+      "sha256": "5c240cf082ba9f61b5023009977e93956459ecaba85a5c11f64f01838eead94b",
+      "bytes": 32125,
+      "origin": "sealed_independent_review",
+      "before": null
+    },
+    "docs/active/daily-pipeline/accuracy/receipts/priority-two-correction-integration-independent-review-2026-10-25/history-check.json": {
+      "sha256": "dd9f26f1e4c9ba15bd714ee408cec11ffe8ab8273451e0a5f0e1bd6876e4e851",
+      "bytes": 1153,
+      "origin": "sealed_independent_review",
+      "before": null
+    },
+    "docs/active/daily-pipeline/accuracy/receipts/priority-two-correction-integration-independent-review-2026-10-25/history-check.log": {
+      "sha256": "149e08a3c2d48eb8d65f637d63e72d0e77f925a1149d7d0cd7da43bf12bc62fe",
+      "bytes": 989,
+      "origin": "sealed_independent_review",
+      "before": null
+    },
+    "docs/active/daily-pipeline/accuracy/receipts/priority-two-correction-integration-independent-review-2026-10-25/history-check.py": {
+      "sha256": "f85d1dcd19855949ef0dc9e94b42aecc4b9667fe241a51a5a02b914cf6e5ebf9",
+      "bytes": 2731,
+      "origin": "sealed_independent_review",
+      "before": null
+    },
+    "docs/active/daily-pipeline/accuracy/receipts/priority-two-correction-integration-independent-review-2026-10-25/index.json": {
+      "sha256": "f14f57d3b85d6d634226654195a1fef8c167715acfb8535fed69023930432ae5",
+      "bytes": 1939,
+      "origin": "sealed_independent_review",
+      "before": null
+    },
+    "docs/active/daily-pipeline/accuracy/receipts/priority-two-correction-integration-independent-review-2026-10-25/initial-driver-error.log": {
+      "sha256": "21f82f9ceb9286620a92e5bfb8bceb0c5f13caac96bd12799aa41fa1288062e6",
+      "bytes": 3185,
+      "origin": "sealed_independent_review",
+      "before": null
+    },
+    "docs/active/daily-pipeline/accuracy/receipts/priority-two-correction-integration-independent-review-2026-10-25/javascript.log": {
+      "sha256": "e3f0d6f19f60c1884cf1ececfcae5430b8568ae760d6de77d170e9383258ae8c",
+      "bytes": 180,
+      "origin": "sealed_independent_review",
+      "before": null
+    },
+    "docs/active/daily-pipeline/accuracy/receipts/priority-two-correction-integration-independent-review-2026-10-25/present.json": {
+      "sha256": "6e0245705dc6804aefb3d46e82aa528da8b3287b8dbef00a0b6e4f35ac9f8474",
+      "bytes": 6869,
+      "origin": "sealed_independent_review",
+      "before": null
+    },
+    "docs/active/daily-pipeline/accuracy/receipts/priority-two-correction-integration-independent-review-2026-10-25/present.log": {
+      "sha256": "268064afcf3e79e72f597bb23222d093306fa5ee4d8ee6b8b4287a41e9403f78",
+      "bytes": 8476,
+      "origin": "sealed_independent_review",
+      "before": null
+    },
+    "docs/active/daily-pipeline/accuracy/receipts/priority-two-correction-integration-independent-review-2026-10-25/review.py": {
+      "sha256": "d1130b78c108091884cd68af5dbd7cbe67595953717ffe48232cccbe015bef9f",
+      "bytes": 5911,
+      "origin": "sealed_independent_review",
+      "before": null
+    },
+    "docs/active/daily-pipeline/accuracy/receipts/priority-two-correction-integration-independent-review-2026-10-25/seal.py": {
+      "sha256": "7960599a674e87484b74b79855076e0cd666666e3ff053b2ccd265041e8f467d",
+      "bytes": 10399,
+      "origin": "sealed_independent_review",
+      "before": null
+    }
+  },
+  "fileCount": 48,
+  "workerFiles": 31,
+  "independentReviewFiles": 17,
+  "originalTrackedFilesChecked": 2702,
+  "unchangedOtherTrackedFiles": 2694,
+  "allOtherTrackedBytesSizeMtimeExact": true,
+  "protectedFilesBeforeAndAfter": {
+    "status.md": {
+      "sha256": "c3b0d2ea5d89cd0cb66b0aa5726cc17580d01777dc7e88ceeacd9e70ec6bf8bd",
+      "bytes": 7745,
+      "mtimeNs": 1792938293619880323
+    },
+    "BACKLOG.md": {
+      "sha256": "2a5b91ba76ef8e2f689d9730bbbd514cdad9be5673caf070e7078b25c96e0878",
+      "bytes": 23636,
+      "mtimeNs": 1792938412731315180
+    },
+    "intent.md": {
+      "sha256": "d5df65215bf3b3d4cd9e4ef3f69df14434e25b0e8277008345fb215453f9d871",
+      "bytes": 17252,
+      "mtimeNs": 1792800049802598063
+    },
+    "AGENTS.md": {
+      "sha256": "6224e1d60ea3b26f48ca0fcacbc9fcc1cbad035416bbe5c4ffe57e8cfb963d07",
+      "bytes": 8418,
+      "mtimeNs": 1792800049461125242
+    },
+    "contracts/market.json": {
+      "sha256": "bb9735d073e41a0a22bdcfd315419c59e8791b82be34bc73ead699530147b3e6",
+      "bytes": 287122,
+      "mtimeNs": 1792936426875241385
+    },
+    "contracts/source-qualification-probes.json": {
+      "sha256": "ef9ee1bab6cfe6202b62e8d5605393f045d11fd64bd42ea1bcea769de15c8a01",
+      "bytes": 173,
+      "mtimeNs": 1792936426894661837
+    },
+    "contracts/factual-baseline.json": {
+      "sha256": "ab3bca0e49a38495d310021857ee2c1a3ca6ebe7979593d1e8b36437cb2a294e",
+      "bytes": 35212,
+      "mtimeNs": 1792800049462000200
+    },
+    "web/src/data/tracker/originals.json": {
+      "sha256": "7d164cb81003db0a66eccbb25c2e8605e33b853b9a6e20cb2c6900794822b4a3",
+      "bytes": 381034,
+      "mtimeNs": 1792800049834720322
+    },
+    "web/src/data/generated/factualCorrections.json": {
+      "sha256": "826c7e5c70f98b5a6cc084c8d2d7f2dc2dd7bf22fcefb2621c4f9f5653761d21",
+      "bytes": 106,
+      "mtimeNs": 1792800049832171033
+    },
+    "web/scripts/pipeline/corrections.py": {
+      "sha256": "d742a91d4d23da5db3b426afcef76a80971c47dd54f8e4312065a6994f87b11f",
+      "bytes": 44838,
+      "mtimeNs": 1792919139081579451
+    },
+    "web/scripts/pipeline/engine.py": {
+      "sha256": "e471f18006a4899406510cdede42829476ba1945b58c420c61f6edce767a7e19",
+      "bytes": 54002,
+      "mtimeNs": 1792919139081836951
+    },
+    "web/scripts/pipeline/fetcher.py": {
+      "sha256": "82084e87bb41687fec8ebfc969cf0a37294e04312a47a27993f5c359a585adce",
+      "bytes": 10828,
+      "mtimeNs": 1792919139082066117
+    },
+    "ops/ci/collect.py": {
+      "sha256": "77f3aaeb56514b538452e39d3eda30358ee1bdbba88b593d4da10ee0d71d04ce",
+      "bytes": 26500,
+      "mtimeNs": 1792936426968106814
+    },
+    "ops/ci/runtime_canary.py": {
+      "sha256": "51ca2dd6891c07702d783b5a48f9dba455735549c4a43d869d2662c8a3d1e026",
+      "bytes": 5642,
+      "mtimeNs": 1792817884166400025
+    },
+    ".github/workflows/subscription-runtime-canary.yml": {
+      "sha256": "1af4f54a8bd156fad88d32eea23257362ac725d6208da73a6044fc721c999717",
+      "bytes": 1676,
+      "mtimeNs": 1792800049460651868
+    }
+  },
+  "ownedSourcesUnchanged": true,
+  "gitHeadUnchanged": true,
+  "sourceJUnchanged": true,
+  "disabledJProbePlanUnchanged": true,
+  "newSemanticAdmissions": 0,
+  "sourceRequests": 0,
+  "modelRequests": 0,
+  "ledgerOrArchiveWrites": 0,
+  "dispatches": 0,
+  "gitMutations": 0,
+  "checksRepeated": false,
+  "checksReused": "Byte-exact reviewed overlay with final 98 affected/972 present/913+59 absent, build80SEC/four renders and independent PASS. No unchanged suite rerun required.",
+  "canaryScope": "Existing hosted canary checks market/archived coverage/plan/attempt integrity, not current correction requests/admission/publication. It performs no source-probe replay.",
+  "remaining": "Root owns commit, preview/main promotion and actual natural-next-UTC review. Pending8 still holds publication before gate reservation."
+}

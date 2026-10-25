@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { describe, it } from 'node:test'
+import { createHash } from 'node:crypto'
 import { createElement } from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { Corrections } from '../src/components/Corrections.tsx'
@@ -11,7 +12,9 @@ import { assertCurrentFacts, expectedCurrentFacts, loadCurrentFactInputs } from 
 
 const read = (relative: string) => JSON.parse(readFileSync(new URL(relative, import.meta.url), 'utf8'))
 const design = read('../../docs/active/daily-pipeline/accuracy/source-classification-admission-design-2026-10-23.json')
-const requests = read('../../contracts/factual-corrections.json')
+const historicalRequests = readFileSync(new URL('../../ops/ci/fixtures/accepted-six-correction-requests-2026-10-25.json', import.meta.url))
+assert.equal(createHash('sha256').update(historicalRequests).digest('hex'), '9c9fbe0d3d40ece11e1407ce9460086c732f62da88d3b0f220ab9d6f8757da00')
+const requests = JSON.parse(historicalRequests.toString('utf8'))
 const policy = read('../src/data/tracker/factualCorrectionPolicy.json')
 const raw = read('../src/data/tracker/originals.json') as FactualCorrectionInventories
 const copy = <T>(value: T): T => structuredClone(value)

@@ -17,6 +17,7 @@ import test_correction_admission as fixtures
 from agents import (SubscriptionAgent, PUBLISHER_DISCLOSURE_SCOPE, PUBLISHER_DISCLOSURE_CHECKS,
                     PUBLISHER_DISCLOSURE_REVIEW_SCHEMA)
 from contracts import canonical, digest
+from historical_correction_fixtures import historical_requests, historical_repo
 from corrections import (PUBLISHER_OPERATION, PUBLISHER_ORIGINAL_SHA256, PUBLISHER_PROPOSED_SHA256,
                          PUBLISHER_LIMITATIONS, PUBLISHER_QUOTES, group_review_policy, load_policy,
                          process_corrections, project_bundle, replay_admission)
@@ -136,7 +137,7 @@ class PublisherDisclosureCorrectionTests(unittest.TestCase):
         self.assertEqual(digest(self.group["targets"][0]["proposedValue"]), PUBLISHER_PROPOSED_SHA256)
 
     def test_historical_baseline_and_exact_three_field_amendment_preserve_accepted_groups(self):
-        requests = json.loads((ROOT / "contracts/factual-corrections.json").read_bytes())
+        requests = historical_requests()
         market = json.loads((ROOT / "contracts/market.json").read_bytes())
         repair = json.loads((ROOT / "docs/active/daily-pipeline/accuracy/failed-correction-review-repair-spec-2026-10-24.json").read_bytes())
         permitted = {"FC-20261023-checkpoint-sase": {"noteTemplate", "reasonCode"},
@@ -176,8 +177,9 @@ class PublisherDisclosureCorrectionTests(unittest.TestCase):
         historical_market = json.loads((ROOT / 'docs/active/daily-pipeline/evaluations/2026-10-24/operational-inputs/contract.json').read_text())
         self.assertEqual(digest({'marketSha256': digest(historical_market), 'requestsSha256': digest(requests),
                                  'baselineSha256': requests['baseline']['sha256']}), repair['proposedGlobalPolicySha256'])
-        self.assertEqual(load_policy(ROOT, market)['policySha256'], digest({'marketSha256': digest(market),
-                         'requestsSha256': digest(requests), 'baselineSha256': requests['baseline']['sha256']}))
+        with historical_repo(ROOT) as pinned_repo:
+            self.assertEqual(load_policy(pinned_repo, market)['policySha256'], digest({'marketSha256': digest(market),
+                             'requestsSha256': digest(requests), 'baselineSha256': requests['baseline']['sha256']}))
 
     def test_same_gate_seal_publication_date_and_history_flow_carries_the_scope(self):
         f = self.f

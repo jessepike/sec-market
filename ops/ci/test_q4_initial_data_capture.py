@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path[:0] = [str(ROOT / 'web/scripts/pipeline'), str(ROOT / 'ops/ci')]
 from contracts import canonical, digest
 from storage import LocalStore
+from historical_correction_fixtures import historical_requests
 from onboarding import PersistentProbeBudget
 import q4_initial_data_capture as data
 
@@ -305,7 +306,7 @@ class ActualProofTests(unittest.TestCase):
 
     def test_all_six_old_admissions_and_hashes_replay_unchanged(self):
         from corrections import _index, group_review_policy, replay_admission
-        requests = json.loads((ROOT / 'contracts/factual-corrections.json').read_bytes())
+        requests = historical_requests()
         stamp = json.loads((ROOT / 'web/src/data/tracker/factualCorrectionPolicy.json').read_bytes())
         for group in requests['groups']:
             policy = group_review_policy(group, self.contract, requests['baseline']['sha256'])

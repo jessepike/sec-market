@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path[:0] = [str(ROOT / 'web/scripts/pipeline'), str(ROOT / 'ops/ci')]
 from contracts import canonical, digest
 from storage import LocalStore
+from historical_correction_fixtures import historical_requests
 from onboarding import PersistentProbeBudget
 import q4_primary_qualification as data
 
@@ -363,7 +364,7 @@ class ActualProofTests(unittest.TestCase):
                 data.validate_plan(self.contract, Changed(), self.raw)
     def test_all_six_old_admission_hashes_and_original_bytes_replay(self):
         from corrections import _index, group_review_policy, replay_admission
-        requests = json.loads((ROOT / 'contracts/factual-corrections.json').read_bytes())
+        requests = historical_requests()
         stamp = json.loads((ROOT / 'web/src/data/tracker/factualCorrectionPolicy.json').read_bytes())
         with patch.object(socket.socket, 'connect', side_effect=AssertionError('No network')):
             for group in requests['groups']:

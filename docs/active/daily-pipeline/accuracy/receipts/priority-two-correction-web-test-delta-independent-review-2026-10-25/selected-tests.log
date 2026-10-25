@@ -1,0 +1,275 @@
+TAP version 13
+# Subtest: build binds every requested before/after and policy without certifying synthetic admission
+ok 1 - build binds every requested before/after and policy without certifying synthetic admission
+  ---
+  duration_ms: 21.468277
+  type: 'test'
+  ...
+# Subtest: disabled build preserves original inventory checks
+ok 2 - disabled build preserves original inventory checks
+  ---
+  duration_ms: 12.581241
+  type: 'test'
+  ...
+# Subtest: build rejects missing groups despite a new file seal
+ok 3 - build rejects missing groups despite a new file seal
+  ---
+  duration_ms: 7.012204
+  type: 'test'
+  ...
+# Subtest: build rejects a changed target even if its JSON seal is recalculated
+ok 4 - build rejects a changed target even if its JSON seal is recalculated
+  ---
+  duration_ms: 7.53937
+  type: 'test'
+  ...
+# Subtest: build rejects wrong review metadata and source-set binding
+ok 5 - build rejects wrong review metadata and source-set binding
+  ---
+  duration_ms: 28.362355
+  type: 'test'
+  ...
+# Subtest: build refuses note changes and fresh date relabeling
+ok 6 - build refuses note changes and fresh date relabeling
+  ---
+  duration_ms: 11.056033
+  type: 'test'
+  ...
+# Subtest: build refuses stale baseline pin or policy stamp
+ok 7 - build refuses stale baseline pin or policy stamp
+  ---
+  duration_ms: 5.563454
+  type: 'test'
+  ...
+# Subtest: unrelated source repair changes global inventory while retaining exact historical admissions
+ok 8 - unrelated source repair changes global inventory while retaining exact historical admissions
+  ---
+  duration_ms: 10.24691
+  type: 'test'
+  ...
+# Subtest: changed relevant registration requires a new group review policy despite a fresh global seal
+ok 9 - changed relevant registration requires a new group review policy despite a fresh global seal
+  ---
+  duration_ms: 15.66203
+  type: 'test'
+  ...
+# Subtest: build independently refuses missing, forged or extra group review policy stamps
+ok 10 - build independently refuses missing, forged or extra group review policy stamps
+  ---
+  duration_ms: 14.935989
+  type: 'test'
+  ...
+# Subtest: global inventory policy cannot substitute for an atomic review policy
+ok 11 - global inventory policy cannot substitute for an atomic review policy
+  ---
+  duration_ms: 5.965996
+  type: 'test'
+  ...
+# Subtest: scoped build proves historical baseline and exact three-field amendment with accepted hashes retained
+ok 12 - scoped build proves historical baseline and exact three-field amendment with accepted hashes retained
+  ---
+  duration_ms: 17.04828
+  type: 'test'
+  ...
+# Subtest: scoped disabled build still verifies exact requested scope and protected metadata
+ok 13 - scoped disabled build still verifies exact requested scope and protected metadata
+  ---
+  duration_ms: 14.873447
+  type: 'test'
+  ...
+# Subtest: scoped build rejects every protected proposed field even with recalculated policy and seal
+ok 14 - scoped build rejects every protected proposed field even with recalculated policy and seal
+  ---
+  duration_ms: 119.367083
+  type: 'test'
+  ...
+# Subtest: scoped build refuses changed history and unsupported target/scope/transition combinations
+ok 15 - scoped build refuses changed history and unsupported target/scope/transition combinations
+  ---
+  duration_ms: 90.292728
+  type: 'test'
+  ...
+# Subtest: scoped build rejects altered source/quote descriptors despite fresh hashes and synthetic acceptance
+ok 16 - scoped build rejects altered source/quote descriptors despite fresh hashes and synthetic acceptance
+  ---
+  duration_ms: 122.664871
+  type: 'test'
+  ...
+# Subtest: scoped public row and admission must each echo only the required narrow scope
+ok 17 - scoped public row and admission must each echo only the required narrow scope
+  ---
+  duration_ms: 41.32922
+  type: 'test'
+  ...
+# Subtest: scoped group remains mandatory and cannot use an ordinary review policy or a stale map
+ok 18 - scoped group remains mandatory and cannot use an ordinary review policy or a stale map
+  ---
+  duration_ms: 40.323471
+  type: 'test'
+  ...
+# Subtest: scoped admission retains its actual initial source window and dated history
+ok 19 - scoped admission retains its actual initial source window and dated history
+  ---
+  duration_ms: 13.003241
+  type: 'test'
+  ...
+# Subtest: publisher class mutation cannot be disguised as an ordinary evidence replacement
+ok 20 - publisher class mutation cannot be disguised as an ordinary evidence replacement
+  ---
+  duration_ms: 8.637868
+  type: 'test'
+  ...
+# Subtest: scoped publisher disclosure projection (synthetic, non-admitting)
+    # Subtest: changes exactly Xage class/limitations and preserves every legacy row and original
+    ok 1 - changes exactly Xage class/limitations and preserves every legacy row and original
+      ---
+      duration_ms: 12.23145
+      type: 'test'
+      ...
+    # Subtest: does not reinterpret the immutable original class as financial proof
+    ok 2 - does not reinterpret the immutable original class as financial proof
+      ---
+      duration_ms: 2.682248
+      type: 'test'
+      ...
+    # Subtest: protects the scoped id value
+    ok 3 - protects the scoped id value
+      ---
+      duration_ms: 2.218499
+      type: 'test'
+      ...
+    # Subtest: protects the scoped title value
+    ok 4 - protects the scoped title value
+      ---
+      duration_ms: 2.342582
+      type: 'test'
+      ...
+    # Subtest: protects the scoped organization value
+    ok 5 - protects the scoped organization value
+      ---
+      duration_ms: 2.073999
+      type: 'test'
+      ...
+    # Subtest: protects the scoped publicationDate value
+    ok 6 - protects the scoped publicationDate value
+      ---
+      duration_ms: 1.623082
+      type: 'test'
+      ...
+    # Subtest: protects the scoped economicPeriod value
+    ok 7 - protects the scoped economicPeriod value
+      ---
+      duration_ms: 1.653832
+      type: 'test'
+      ...
+    # Subtest: protects the scoped canonicalUrl value
+    ok 8 - protects the scoped canonicalUrl value
+      ---
+      duration_ms: 2.037665
+      type: 'test'
+      ...
+    # Subtest: protects the scoped excerpt value
+    ok 9 - protects the scoped excerpt value
+      ---
+      duration_ms: 2.186748
+      type: 'test'
+      ...
+    # Subtest: protects the scoped interpretation value
+    ok 10 - protects the scoped interpretation value
+      ---
+      duration_ms: 2.258332
+      type: 'test'
+      ...
+    # Subtest: protects the scoped conflictingEvidenceIds value
+    ok 11 - protects the scoped conflictingEvidenceIds value
+      ---
+      duration_ms: 2.608582
+      type: 'test'
+      ...
+    # Subtest: protects the scoped artifactLabel value
+    ok 12 - protects the scoped artifactLabel value
+      ---
+      duration_ms: 1.684498
+      type: 'test'
+      ...
+    # Subtest: protects the scoped tags value
+    ok 13 - protects the scoped tags value
+      ---
+      duration_ms: 1.62179
+      type: 'test'
+      ...
+    # Subtest: protects the scoped retrievedAt value
+    ok 14 - protects the scoped retrievedAt value
+      ---
+      duration_ms: 1.720873
+      type: 'test'
+      ...
+    # Subtest: rejects added/deleted metadata, modified before-values, class transitions and arbitrary limitations
+    ok 15 - rejects added/deleted metadata, modified before-values, class transitions and arbitrary limitations
+      ---
+      duration_ms: 13.044908
+      type: 'test'
+      ...
+    # Subtest: rejects missing/unknown/mixed scopes and admission scope substitution
+    ok 16 - rejects missing/unknown/mixed scopes and admission scope substitution
+      ---
+      duration_ms: 15.173531
+      type: 'test'
+      ...
+    # Subtest: keeps ordinary replacement metadata protections and rejects duplicate role targets
+    ok 17 - keeps ordinary replacement metadata protections and rejects duplicate role targets
+      ---
+      duration_ms: 4.969705
+      type: 'test'
+      ...
+    # Subtest: binds runtime exported evidence views and rejects a post-projection class, excerpt or map edit
+    ok 18 - binds runtime exported evidence views and rejects a post-projection class, excerpt or map edit
+      ---
+      duration_ms: 64.592996
+      type: 'test'
+      ...
+    # Subtest: uses the current history/JSON/feed route with narrow scope and exact publisher/class readings
+    ok 19 - uses the current history/JSON/feed route with narrow scope and exact publisher/class readings
+      ---
+      duration_ms: 7.910494
+      type: 'test'
+      ...
+    1..19
+ok 21 - scoped publisher disclosure projection (synthetic, non-admitting)
+  ---
+  duration_ms: 145.315064
+  type: 'suite'
+  ...
+# Subtest: optional transport builds only with its exact pinned source and keeps six old policies
+ok 22 - optional transport builds only with its exact pinned source and keeps six old policies
+  ---
+  duration_ms: 29.766979
+  type: 'test'
+  ...
+# Subtest: Python and JavaScript independently agree on valid and rejected exact transport policies
+ok 23 - Python and JavaScript independently agree on valid and rejected exact transport policies
+  ---
+  duration_ms: 224.773716
+  type: 'test'
+  ...
+# Subtest: build rejects changed immutable evidence despite a recomputed ordinary baseline
+ok 24 - build rejects changed immutable evidence despite a recomputed ordinary baseline
+  ---
+  duration_ms: 24.214733
+  type: 'test'
+  ...
+# Subtest: build rejects an extra attested group field before accepting a fresh stamp
+ok 25 - build rejects an extra attested group field before accepting a fresh stamp
+  ---
+  duration_ms: 11.899992
+  type: 'test'
+  ...
+1..25
+# tests 43
+# suites 1
+# pass 43
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 707.3295

@@ -1,0 +1,24 @@
+test_SYNTHETIC_successful_two_group_review_cost_and_order_never_touch_real_state (test_priority_two_corrections.ActualSourceAndSyntheticMechanicsTests.test_SYNTHETIC_successful_two_group_review_cost_and_order_never_touch_real_state) ... ok
+test_completion_after_source_expiry_cannot_admit_second_group (test_priority_two_corrections.ActualSourceAndSyntheticMechanicsTests.test_completion_after_source_expiry_cannot_admit_second_group) ... ok
+test_each_actual_source_age_has_inclusive_30h_limit_at_start_and_completion (test_priority_two_corrections.ActualSourceAndSyntheticMechanicsTests.test_each_actual_source_age_has_inclusive_30h_limit_at_start_and_completion) ... ok
+test_literal_excerpt_and_source_body_clock_mismatches_reject (test_priority_two_corrections.ActualSourceAndSyntheticMechanicsTests.test_literal_excerpt_and_source_body_clock_mismatches_reject) ... ok
+test_new_J_retains_exact_old_packet_sources_whole_texts_and_200_304_clocks (test_priority_two_corrections.ActualSourceAndSyntheticMechanicsTests.test_new_J_retains_exact_old_packet_sources_whole_texts_and_200_304_clocks) ... ok
+test_six_old_admissions_replay_without_reservations_before_two_pending_groups (test_priority_two_corrections.ActualSourceAndSyntheticMechanicsTests.test_six_old_admissions_replay_without_reservations_before_two_pending_groups) ... ok
+test_synthetic_marker_and_rejected_review_remain_pending_without_gate (test_priority_two_corrections.ActualSourceAndSyntheticMechanicsTests.test_synthetic_marker_and_rejected_review_remain_pending_without_gate) ... ok
+test_exact_packet_append_version_and_current_J_with_immutable_old_six (test_priority_two_corrections.PendingPolicyTests.test_exact_packet_append_version_and_current_J_with_immutable_old_six) ... ok
+test_only_outer_stamp_changes_and_generated_projection_remains_disabled (test_priority_two_corrections.PendingPolicyTests.test_only_outer_stamp_changes_and_generated_projection_remains_disabled) ... ok
+test_original_target_source_and_attestation_substitutions_reject (test_priority_two_corrections.PendingPolicyTests.test_original_target_source_and_attestation_substitutions_reject) ... ok
+test_pending_current_inventory_blocks_projection_before_any_gate_or_model (test_priority_two_corrections.PendingPolicyTests.test_pending_current_inventory_blocks_projection_before_any_gate_or_model) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.965s
+
+OK
+Traceback (most recent call last):
+  File "/var/tmp/smp-priority-two-corrections-independent-20261025/review.py", line 36, in <module>
+    mem=Memory();out=C.process_corrections(A,mem,J,None,lambda *a:(_ for _ in()).throw(AssertionError("NO_RESERVATIONS")),T.NOW,clock=lambda:T.NOW)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/tmp/smp-priority-two-corrections-20261025/application/web/scripts/pipeline/corrections.py", line 597, in process_corrections
+    store.write_once("correction-attempts/" + reference["sha256"] + ".json", reference)
+    ^^^^^^^^^^^^^^^^
+AttributeError: 'Memory' object has no attribute 'write_once'

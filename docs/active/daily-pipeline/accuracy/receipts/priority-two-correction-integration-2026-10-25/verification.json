@@ -1,0 +1,240 @@
+{
+  "schemaVersion": 1,
+  "verdict": "PASS_PENDING_PREPARATION_ONLY",
+  "baseCommit": "2387abb41069f3a74a005468d91e5401d97089ff",
+  "baseTree": "c0ced895ee33e6d6813883e988c2680ce0665e13",
+  "exactOwnedFiles": {
+    "contracts/factual-corrections.json": {
+      "sha256": "aa2ffd8722f2e82ecbf4ec152485e2334946469627f3fa04845d441695e201ae",
+      "bytes": 43099
+    },
+    "ops/ci/test_prnewswire_retained_window.py": {
+      "sha256": "4a1a6bceec7a95cf78b997d3b5dae6d70f0753f63857528287ea0fa0eaab968c",
+      "bytes": 14825
+    },
+    "ops/ci/test_publisher_disclosure_correction.py": {
+      "sha256": "ae3b58b53fd9e02363494d0eaa1a30891393e463097abfda5f26af2bf3010ea1",
+      "bytes": 29428
+    },
+    "ops/ci/test_q4_initial_data_capture.py": {
+      "sha256": "3802e221d2323b2b8f8561005859610e968b626a9eb1311f8652b85d82c66dff",
+      "bytes": 22764
+    },
+    "ops/ci/test_q4_normal_intake.py": {
+      "sha256": "8c4b747eb0182050ccaeb2c5464ace37989d118216bce8f966f6cd2620a4d588",
+      "bytes": 25658
+    },
+    "ops/ci/test_q4_primary_qualification.py": {
+      "sha256": "b3868abcc7dea85ec73fa606d36158b47cdbb6802c5779c5fc84b9c437f14218",
+      "bytes": 27812
+    },
+    "ops/ci/test_s1_exact_filing_transport.py": {
+      "sha256": "4f42f15e3d442a418ed6f9f890930c19255de9b7e484c629ea1c46740fecb8a4",
+      "bytes": 15306
+    },
+    "web/src/data/tracker/factualCorrectionPolicy.json": {
+      "sha256": "58d93745f554563f61960037b4466de70ae058a9b2295272d530d95f639880aa",
+      "bytes": 2341
+    },
+    "ops/ci/historical_correction_fixtures.py": {
+      "sha256": "4662e080b8dabc1a192d4fdd3df173fb3e222887773f24dbc778737b8022283e",
+      "bytes": 1436
+    },
+    "ops/ci/test_priority_two_corrections.py": {
+      "sha256": "6af52e3ac64a403ed69e60cf52a15df9f75e43ad23861816917135be1700a8ba",
+      "bytes": 13883
+    },
+    "ops/ci/fixtures/accepted-six-correction-requests-2026-10-25.json": {
+      "sha256": "9c9fbe0d3d40ece11e1407ce9460086c732f62da88d3b0f220ab9d6f8757da00",
+      "bytes": 32004
+    },
+    "ops/ci/fixtures/accepted-six-correction-stamp-J-2026-10-25.json": {
+      "sha256": "365058911a182610cde401307fb30cc1855930b7940969440a618441cbbef9b2",
+      "bytes": 1721
+    }
+  },
+  "trackedChanges": [
+    "contracts/factual-corrections.json",
+    "ops/ci/test_prnewswire_retained_window.py",
+    "ops/ci/test_publisher_disclosure_correction.py",
+    "ops/ci/test_q4_initial_data_capture.py",
+    "ops/ci/test_q4_normal_intake.py",
+    "ops/ci/test_q4_primary_qualification.py",
+    "ops/ci/test_s1_exact_filing_transport.py",
+    "web/src/data/tracker/factualCorrectionPolicy.json"
+  ],
+  "unchangedOriginalGitBlobs": 2654,
+  "allOtherTrackedBytesExact": true,
+  "oldSixLiteralGroupBlocks": [
+    {
+      "sha256": "41b02068ebd5030e94b6e26e13c6892b682a5ac3c6cbc15b928fc3f60048c4ae",
+      "bytes": 4741
+    },
+    {
+      "sha256": "be575e0af7d90fa6ee5826a2dff2f63bc32fb1cbf4b5ecb094a2766b54e06215",
+      "bytes": 4801
+    },
+    {
+      "sha256": "5a97b03416a0afa40122f80db3b051a9015eddc80408cb7735dcf301face0956",
+      "bytes": 4013
+    },
+    {
+      "sha256": "3d0816dfd540aa23f9647f97ca4d6e2a8cd5d7e0e8cb2fc96ba36b8f07b9f205",
+      "bytes": 5174
+    },
+    {
+      "sha256": "32dbb6fda9c8d58d8ebe626cf7c5938c30017430943d114d6d86d0d285c6c792",
+      "bytes": 6882
+    },
+    {
+      "sha256": "87c1ca62ab72bbaffcb6f2c3e888d3cf4d3e991e8c532b40d7b3f411d67ee5f4",
+      "bytes": 6136
+    }
+  ],
+  "oldSixBlocksByteIdentical": true,
+  "sourceManifestSha256": "13d956802cd881c0d6805c00c0dee48de07bd6615196e69f74fbf4056a710e34",
+  "consultedArchiveSeals": 67,
+  "consultedArchiveBytesSizeMtimeUnchanged": true,
+  "actualLedgerUnchanged": {
+    "calls": 80,
+    "documents": 39,
+    "fetches": 1511
+  },
+  "actualGateLedgerUnchanged": {
+    "attempts": 2
+  },
+  "oldAdmissionsReplayed": 6,
+  "newAdmissions": 0,
+  "sourceRequests": 0,
+  "modelRequests": 0,
+  "sourceWrites": 0,
+  "dispatches": 0,
+  "gitMutations": 0,
+  "validation": {
+    "affected": {
+      "tests": 98,
+      "skips": 0
+    },
+    "fullPresent": {
+      "tests": 972,
+      "skips": 0
+    },
+    "fullAbsent": {
+      "tests": 972,
+      "passed": 913,
+      "skips": 59,
+      "frozenReadAttempts": []
+    },
+    "build": {
+      "requiredSec": 80,
+      "verifiedSec": 80,
+      "blockers": 0,
+      "drift": 0
+    },
+    "renders": {
+      "actualImages": 4,
+      "changedPixelsAgainstPrior": 0
+    },
+    "javascriptPythonPolicyParity": true
+  },
+  "logs": {
+    "focused-tests.log": {
+      "originalPath": "/var/tmp/smp-priority-corrections-focused-20261025.log",
+      "raw": {
+        "sha256": "8abf55e79998f7ade2bfb042fce009e0069cfa59d9a72bbb96392af79d43c2db",
+        "bytes": 19327
+      },
+      "retainedPath": "focused-tests.log.gz",
+      "gzip": {
+        "sha256": "2ce793b25795d2e44b43c808a052176046044b1675ac6c7ea663f69ad77e244e",
+        "bytes": 3241
+      },
+      "roundtripExact": true
+    },
+    "full-ops-present.log": {
+      "originalPath": "/var/tmp/smp-priority-corrections-full-present-20261025.log",
+      "raw": {
+        "sha256": "c188cbc1763aeae892975df0440a7d905fd8d0ecf30f26ee18df9b22b752642c",
+        "bytes": 181145
+      },
+      "retainedPath": "full-ops-present.log.gz",
+      "gzip": {
+        "sha256": "d8d155925b8f9527426b4756a478aeb1633c8f7d459c6b432a3a8c58af2123fb",
+        "bytes": 27114
+      },
+      "roundtripExact": true
+    },
+    "full-ops-absent.log": {
+      "originalPath": "/var/tmp/smp-priority-corrections-full-absent-20261025.log",
+      "raw": {
+        "sha256": "b002b65bcc5637d3812db19c0b7dd75e992041bccc0f0c4bbec5331851ada31c",
+        "bytes": 201490
+      },
+      "retainedPath": "full-ops-absent.log.gz",
+      "gzip": {
+        "sha256": "aeb8a19a465e358573b48a9010e81577857be8266a93fadc20ec13687424044c",
+        "bytes": 30403
+      },
+      "roundtripExact": true
+    },
+    "initial-test-diagnostic.log": {
+      "originalPath": "/var/tmp/smp-priority-corrections-focused-initial-20261025.log",
+      "raw": {
+        "sha256": "aa01ee1cd2e8dfb35c84d742de6054f5d0409c2a15a0e816cfe9d71a64152c88",
+        "bytes": 23054
+      },
+      "retainedPath": "initial-test-diagnostic.log.gz",
+      "gzip": {
+        "sha256": "765447342d5a129c72ba951a880a67407df423b2340a96371488c4a28822d67a",
+        "bytes": 3864
+      },
+      "roundtripExact": true
+    },
+    "build.log": {
+      "originalPath": "/var/tmp/smp-priority-two-corrections-20261025/build.log",
+      "raw": {
+        "sha256": "8429da6f5e021a386248b5f8f5ab80436f998a00743a22d6d444970a47090980",
+        "bytes": 7938
+      },
+      "retainedPath": "build.log.gz",
+      "gzip": {
+        "sha256": "2f69c03c7f1845a5fe46556b410c987def1b302b060cce80de5fca749e3efa54",
+        "bytes": 2996
+      },
+      "roundtripExact": true
+    },
+    "render-production.log": {
+      "originalPath": "/var/tmp/smp-priority-two-corrections-20261025/render-production.log",
+      "raw": {
+        "sha256": "c2cdc058d34e10e4fbf3d30180dfde8fed6446e5123d77ff4ebb865d7a927e98",
+        "bytes": 402
+      },
+      "retainedPath": "render-production.log.gz",
+      "gzip": {
+        "sha256": "a04c073f7a9d37c6a076aac63e031064c803e95a7a2830fc7bf7247d0640dae5",
+        "bytes": 198
+      },
+      "roundtripExact": true
+    },
+    "render-local.log": {
+      "originalPath": "/var/tmp/smp-priority-two-corrections-20261025/render-local.log",
+      "raw": {
+        "sha256": "85e45ffa7291c2ce7e2e6e4bae387af1ffc0e7d3b4372742e392af3708c5b398",
+        "bytes": 374
+      },
+      "retainedPath": "render-local.log.gz",
+      "gzip": {
+        "sha256": "b4a9e038eeb6d7ce1b149a653785ce49be95bfb6fbd4aa2bac2d3e3a6665cad7",
+        "bytes": 191
+      },
+      "roundtripExact": true
+    }
+  },
+  "limits": [
+    "The initial diagnostic log contains corrected test-fixture/UTC-Z mistakes; it is superseded by the final passing logs.",
+    "Hypothetical review clocks and temporary synthetic model results are not semantic admissions.",
+    "Actual independent model review waits for naturally renewed UTC capacity; no fallback is selected.",
+    "Full archive authentication is inherited from the actual J audit; 67 consulted entries and its manifest are independently rechecked.",
+    "Normal collection and publication retain their own charges and guards."
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "verdict": "PASS_FULL_WEB_WITH_HISTORICAL_SIX_TEST_FIXTURES",
+  "deltaFiles": {
+    "web/tests/factual-correction-build.test.mjs": {
+      "sha256": "a11d0269d25821b342fed3a009653b2a66007a4a8782826820a3f5c2fc0f7949",
+      "bytes": 23929
+    },
+    "web/tests/s1-exact-filing-transport.test.mjs": {
+      "sha256": "20b7baa78be211761e4b7f43b0bf917cd8f8f52907148125cb3c63083809693b",
+      "bytes": 8220
+    },
+    "web/tests/publisher-disclosure-corrections.test.ts": {
+      "sha256": "e66b28f66766207437a3b845f404042966470dd2268001cffac5af38e1f4ff30",
+      "bytes": 12917
+    }
+  },
+  "original31WorkerFilesPreservedExact": true,
+  "originalWorkerManifest": {
+    "sha256": "843eaebd5592b85618d93643a7af7af29abf98394e38469447b523a9d6e051fd",
+    "bytes": 7116
+  },
+  "runtimeAndRequestStampChanges": 0,
+  "newSkips": 0,
+  "historicalRequests": {
+    "path": "ops/ci/fixtures/accepted-six-correction-requests-2026-10-25.json",
+    "sha256": "9c9fbe0d3d40ece11e1407ce9460086c732f62da88d3b0f220ab9d6f8757da00",
+    "bytes": 32004
+  },
+  "historicalStamp": {
+    "path": "ops/ci/fixtures/accepted-six-correction-stamp-J-2026-10-25.json",
+    "sha256": "365058911a182610cde401307fb30cc1855930b7940969440a618441cbbef9b2",
+    "bytes": 1721
+  },
+  "validation": {
+    "lintErrors": 0,
+    "preExistingLintWarnings": 1,
+    "data": {
+      "passed": 379,
+      "skipped": 0
+    },
+    "pipeline": {
+      "passed": 115
+    },
+    "build": {
+      "requiredSec": 80,
+      "verifiedSec": 80,
+      "blockers": 0,
+      "drift": 0
+    },
+    "browser": {
+      "passed": 42,
+      "existingFixtureSkips": 1
+    }
+  },
+  "logs": {
+    "initial-historical-fixture-failure": {
+      "originalPath": "/var/tmp/smp-priority-two-corrections-20261025/full-web-tests.log",
+      "raw": {
+        "sha256": "3f09865893a3ba20777523c7450c015b78aeb199f0417b7f4fe56c98255c4d4d",
+        "bytes": 174522
+      },
+      "gzipFile": "initial-historical-fixture-failure.log.gz",
+      "gzip": {
+        "sha256": "911d3cc4e7731408741b1e0db5394eb458b17d1dab50186c37fa12b5eed0710a",
+        "bytes": 27989
+      },
+      "roundtripExact": true
+    },
+    "final-full-web-pass": {
+      "originalPath": "/var/tmp/smp-priority-two-corrections-20261025/full-web-tests-final.log",
+      "raw": {
+        "sha256": "9b9eb9f529193f81b10f4bfc9da72c614cffbec094102f908412724dfd5243b6",
+        "bytes": 127420
+      },
+      "gzipFile": "final-full-web-pass.log.gz",
+      "gzip": {
+        "sha256": "d36b4743c56d7e952b8fbedae5faccbd7a144ec8cb8a49c2e3ac900a9e765229",
+        "bytes": 25517
+      },
+      "roundtripExact": true
+    }
+  },
+  "applicationRoot": "/var/tmp/smp-priority-two-corrections-20261025/application",
+  "overlay": "Original reviewed12-file pending-only overlay plus exactly these3 historical test fixture changes; all production code identical.",
+  "initialFailure": "Ten historical data fixture failures stopped the first npm run before pipeline/build/browser. Existing production guards correctly rejected mismatched synthetic inventories. Original failed log is retained; final full-stage run supersedes it.",
+  "requests": 0,
+  "models": 0,
+  "admissions": 0,
+  "archiveWrites": 0,
+  "publication": false
+}

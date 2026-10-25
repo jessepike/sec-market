@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "verdict": "PASS_BYTE_EXACT_THREE_TEST_DELTA_COPY",
+  "targetHeadUnchanged": "6bd3075c80bae7bba56a096cadb116cb379b2d63",
+  "files": {
+    "web/tests/factual-correction-build.test.mjs": {
+      "sha256": "a11d0269d25821b342fed3a009653b2a66007a4a8782826820a3f5c2fc0f7949",
+      "bytes": 23929,
+      "origin": "reviewed_three_test_delta",
+      "before": {
+        "sha256": "eb9015d3151fb2e954feabaef703549957ac3457c2004c81c5b1afdd6cd360b0",
+        "bytes": 23250,
+        "mtimeNs": 1792817884179292761
+      }
+    },
+    "web/tests/s1-exact-filing-transport.test.mjs": {
+      "sha256": "20b7baa78be211761e4b7f43b0bf917cd8f8f52907148125cb3c63083809693b",
+      "bytes": 8220,
+      "origin": "reviewed_three_test_delta",
+      "before": {
+        "sha256": "be7c2f23767d4799e9dfde2ce509bc045386ecca443e980c09ec0550a83d28ba",
+        "bytes": 7843,
+        "mtimeNs": 1792919139088300358
+      }
+    },
+    "web/tests/publisher-disclosure-corrections.test.ts": {
+      "sha256": "e66b28f66766207437a3b845f404042966470dd2268001cffac5af38e1f4ff30",
+      "bytes": 12917,
+      "origin": "reviewed_three_test_delta",
+      "before": {
+        "sha256": "34569dc1f30edcdb1edab5ca58be482b9ac8eb28f0892ad51eeb251f8f9bb3d4",
+        "bytes": 12593,
+        "mtimeNs": 1792800049838448235
+      }
+    },
+    "docs/active/daily-pipeline/accuracy/receipts/priority-two-correction-web-test-delta-2026-10-25/final-full-web-pass.log.gz": {
+      "sha256": "d36b4743c56d7e952b8fbedae5faccbd7a144ec8cb8a49c2e3ac900a9e765229",
+      "bytes": 25517,
+      "origin": "additive_full_web_receipt",
+      "before": null
+    },
+    "docs/active/daily-pipeline/accuracy/receipts/priority-two-correction-web-test-delta-2026-10-25/initial-historical-fixture-failure.log.gz": {
+      "sha256": "911d3cc4e7731408741b1e0db5394eb458b17d1dab50186c37fa12b5eed0710a",
+      "bytes": 27989,
+      "origin": "additive_full_web_receipt",
+      "before": null
+    },
+    "docs/active/daily-pipeline/accuracy/receipts/priority-two-correction-web-test-delta-2026-10-25/receipt-index.json": {
+      "sha256": "a39de33792d57e7e109e031239de46b2807a1b13c959b5865d7db9026e5d6109",
+      "bytes": 782,
+      "origin": "additive_full_web_receipt",
+      "before": null
+    },
+    "docs/active/daily-pipeline/accuracy/receipts/priority-two-correction-web-test-delta-2026-10-25/retain_web_delta.py": {
+      "sha256": "352b5231bc4740e98404bb6ad2fba7862f8930df2ceca70e2af82c30fb9f3838",
+      "bytes": 3494,
+      "origin": "additive_full_web_receipt",
+      "before": null
+    },
+    "docs/active/daily-pipeline/accuracy/receipts/priority-two-correction-web-test-delta-2026-10-25/three-test-only.patch": {
+      "sha256": "5ade7450c58d071afcfb8860049fdd9df4816a2c247b703a607a6f91bd54cc39",
+      "bytes": 6523,
+      "origin": "additive_full_web_receipt",
+      "before": null
+    },
+    "docs/active/daily-pipeline/accuracy/receipts/priority-two-correction-web-test-delta-2026-10-25/verification-addendum.json": {
+      "sha256": "aea9f3754b580b91671c844e18c59c55a1249f42e8a4e1293a23676f7f04064d",
+      "bytes": 3226,
+      "origin": "additive_full_web_receipt",
+      "before": null
+    },
+    "docs/active/daily-pipeline/accuracy/priority-two-correction-web-test-delta-independent-review-2026-10-25.json": {
+      "sha256": "0b6b1cea39505495d12e578dfe0408222047fe31d0f73997c4515f45db3f9315",
+      "bytes": 4629,
+      "origin": "sealed_independent_delta_review",
+      "before": null
+    },
+    "docs/active/daily-pipeline/accuracy/priority-two-correction-web-test-delta-independent-review-2026-10-25.md": {
+      "sha256": "66240d7794ba3d05ad5620e477c54441541f6e71c1271ac118e7fc3a532165dc",
+      "bytes": 2023,
+      "origin": "sealed_independent_delta_review",
+      "before": null
+    },
+    "docs/active/daily-pipeline/accuracy/receipts/priority-two-correction-web-test-delta-independent-review-2026-10-25/index.json": {
+      "sha256": "f314f7109864f9005a557a5db721c85866356a89e316b1c0bbcf511e5756f521",
+      "bytes": 600,
+      "origin": "sealed_independent_delta_review",
+      "before": null
+    },
+    "docs/active/daily-pipeline/accuracy/receipts/priority-two-correction-web-test-delta-independent-review-2026-10-25/initial-driver-tsconfig-error.log": {
+      "sha256": "7564db87d61a03e16864b73a9d9fba2b3398fb2f43d273e996e651fd46d5cee6",
+      "bytes": 11881,
+      "origin": "sealed_independent_delta_review",
+      "before": null
+    },
+    "docs/active/daily-pipeline/accuracy/receipts/priority-two-correction-web-test-delta-independent-review-2026-10-25/seal.py": {
+      "sha256": "4ab937f29195a25fc83b91eecd87890cc198b0c56c3464bcb10a26016d003cc7",
+      "bytes": 6801,
+      "origin": "sealed_independent_delta_review",
+      "before": null
+    },
+    "docs/active/daily-pipeline/accuracy/receipts/priority-two-correction-web-test-delta-independent-review-2026-10-25/selected-tests.log": {
+      "sha256": "b380ecf3172387c671c9343d2ad87768f2ee0e24e1c682f42d75f863e94b2f05",
+      "bytes": 9658,
+      "origin": "sealed_independent_delta_review",
+      "before": null
+    },
+    "docs/active/daily-pipeline/accuracy/receipts/priority-two-correction-web-test-delta-independent-review-2026-10-25/three-test.diff": {
+      "sha256": "5ade7450c58d071afcfb8860049fdd9df4816a2c247b703a607a6f91bd54cc39",
+      "bytes": 6523,
+      "origin": "sealed_independent_delta_review",
+      "before": null
+    }
+  },
+  "copiedFiles": 16,
+  "workerTestFiles": 3,
+  "workerReceiptFiles": 6,
+  "independentReviewFiles": 7,
+  "original48FilesAndCopyReceiptExact": true,
+  "allOtherTrackedBytesSizeMtimeExact": true,
+  "otherTrackedFilesPreserved": 2699,
+  "authorizedStatusBacklogEditsPreserved": {
+    "status.md": {
+      "sha256": "93be60b8256972254298ecc339b1e5af8a97ecb1afd3df05ebf230805740c1a1",
+      "bytes": 8296,
+      "mtimeNs": 1792939787923544239
+    },
+    "BACKLOG.md": {
+      "sha256": "a4388a5c595250433f593304186e4a345c76297d66b4b0716b183c9e803d7d5f",
+      "bytes": 24023,
+      "mtimeNs": 1792939935710784125
+    }
+  },
+  "requestContractAndStampUnchanged": true,
+  "sourceJAndDisabledPlanUnchanged": true,
+  "productionModuleChanges": 0,
+  "testRunsRepeated": 0,
+  "sourceRequests": 0,
+  "modelRequests": 0,
+  "archiveOrLedgerWrites": 0,
+  "dispatches": 0,
+  "gitMutations": 0,
+  "scope": "Historical-six fixture substitutions only; original assertions remain. Full npm PASS379data115pipeline80SEC42browser+1existing skip; independent selected43PASS0skips. Original operational972/build/render and original review evidence remain sealed."
+}

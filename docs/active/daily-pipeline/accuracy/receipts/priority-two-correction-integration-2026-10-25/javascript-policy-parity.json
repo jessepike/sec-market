@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "validation": {
+    "enabled": false,
+    "policySha256": "1c629249347b9bdacaf4fadf563e1a0ed807b96c0cbb02e3e2492ae00a839e5b",
+    "fileSha256": "826c7e5c70f98b5a6cc084c8d2d7f2dc2dd7bf22fcefb2621c4f9f5653761d21"
+  },
+  "groups": 8,
+  "reviewPolicies": {
+    "FC-20261023-checkpoint-sase": "36bc23722c1131f94ab3c2db1c553505539987aa55738cfa9bb72dfa3871ad6f",
+    "FC-20261023-optiv": "4f9e7feb90232a3aafe2cd84265c2e8202c9e009229e7592c5ab87373f64bcf5",
+    "FC-20261023-splunk": "270b7c7a1f7180b3fef2896b7633a87bf0667b9f4a3c75593fa72b959ecb87f6",
+    "FC-20261023-zscaler": "dc8522069fc87cbf0371e0ea29ec80fbf647c1dd7ce816e02a7fb4a94b35a390",
+    "FC-20261023-expel": "d1ea72b754450e603d89092cc38d9fa81d165575af2a36745e5938220fd82087",
+    "XAGE-SOURCE-CLASS-20261023": "c01560dba484aa5aa5696c8bfe5b44acefc6337ee1cebe0cd96751849e15646a",
+    "FC-PROPOSED-20261025-varonis-event-qualifiers": "dd065bf64256744de931c141f5163ed84259ab443714ccb71155fff9955a42ab",
+    "FC-PROPOSED-20261025-s1-event-qualifiers": "bec04068932539b5e2e29458898ef59cc4ee839832c807874da6ed82933e74a5"
+  },
+  "pendingPreparationOnly": true,
+  "newAdmissions": 0
+}

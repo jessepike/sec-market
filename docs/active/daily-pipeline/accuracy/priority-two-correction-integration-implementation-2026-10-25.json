@@ -1,0 +1,255 @@
+{
+  "schemaVersion": 1,
+  "verdict": "PASS_PENDING_PREPARATION_ONLY",
+  "baseCommit": "2387abb41069f3a74a005468d91e5401d97089ff",
+  "version": "2026-10-25.1",
+  "requests": {
+    "sha256": "aa2ffd8722f2e82ecbf4ec152485e2334946469627f3fa04845d441695e201ae",
+    "bytes": 43099
+  },
+  "requestsCanonicalSha256": "722a0c086d5e7c270f74cc01e317284edbe83a4d290e73127b4dcf8dde12eadc",
+  "outerStamp": {
+    "sha256": "58d93745f554563f61960037b4466de70ae058a9b2295272d530d95f639880aa",
+    "bytes": 2341
+  },
+  "outerPolicySha256": "1c629249347b9bdacaf4fadf563e1a0ed807b96c0cbb02e3e2492ae00a839e5b",
+  "groupsAppended": [
+    {
+      "id": "FC-PROPOSED-20261025-varonis-event-qualifiers",
+      "supplierId": "varonis",
+      "targetIds": [
+        "event:EV-varonis-2",
+        "event:EV-varonis-3",
+        "evidence:TR-varonis-2"
+      ],
+      "reviewPolicySha256": "dd065bf64256744de931c141f5163ed84259ab443714ccb71155fff9955a42ab",
+      "boundObservationId": "2b7e9eef812fb154c5a284ef3c973e9b4c222c883f45b67c6ea5d1b85b8c4737",
+      "boundFetchedAt": "2026-10-25T09:56:21.524634Z",
+      "body": {
+        "bytes": 223189,
+        "key": "objects/02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6",
+        "sha256": "02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6"
+      },
+      "lastPermittedAdmissionAt": "2026-10-26T15:56:21.524634Z"
+    },
+    {
+      "id": "FC-PROPOSED-20261025-s1-event-qualifiers",
+      "supplierId": "s1",
+      "targetIds": [
+        "event:EV-s1-1",
+        "evidence:TR-s1-3"
+      ],
+      "reviewPolicySha256": "bec04068932539b5e2e29458898ef59cc4ee839832c807874da6ed82933e74a5",
+      "boundObservationId": "3d339d56e7aaf3790cc6cdb938fa4899b4d7ebff364e64ab606868bda04a8909",
+      "boundFetchedAt": "2026-10-25T09:56:12.797588Z",
+      "body": {
+        "bytes": 49404,
+        "key": "objects/e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78",
+        "sha256": "e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78"
+      },
+      "lastPermittedAdmissionAt": "2026-10-26T15:56:12.797588Z"
+    }
+  ],
+  "oldSixLiteralBlocksAndReviewPoliciesExact": true,
+  "oldSixActualAdmissionsReplayed": 6,
+  "oldSixPublicRowsDatesAndNotesExact": true,
+  "newActualAdmissions": 0,
+  "sourceJUnchanged": true,
+  "allOtherTrackedBytesExact": true,
+  "unchangedOriginalGitBlobs": 2654,
+  "ownedCodeAndFixtureFiles": {
+    "contracts/factual-corrections.json": {
+      "sha256": "aa2ffd8722f2e82ecbf4ec152485e2334946469627f3fa04845d441695e201ae",
+      "bytes": 43099
+    },
+    "ops/ci/test_prnewswire_retained_window.py": {
+      "sha256": "4a1a6bceec7a95cf78b997d3b5dae6d70f0753f63857528287ea0fa0eaab968c",
+      "bytes": 14825
+    },
+    "ops/ci/test_publisher_disclosure_correction.py": {
+      "sha256": "ae3b58b53fd9e02363494d0eaa1a30891393e463097abfda5f26af2bf3010ea1",
+      "bytes": 29428
+    },
+    "ops/ci/test_q4_initial_data_capture.py": {
+      "sha256": "3802e221d2323b2b8f8561005859610e968b626a9eb1311f8652b85d82c66dff",
+      "bytes": 22764
+    },
+    "ops/ci/test_q4_normal_intake.py": {
+      "sha256": "8c4b747eb0182050ccaeb2c5464ace37989d118216bce8f966f6cd2620a4d588",
+      "bytes": 25658
+    },
+    "ops/ci/test_q4_primary_qualification.py": {
+      "sha256": "b3868abcc7dea85ec73fa606d36158b47cdbb6802c5779c5fc84b9c437f14218",
+      "bytes": 27812
+    },
+    "ops/ci/test_s1_exact_filing_transport.py": {
+      "sha256": "4f42f15e3d442a418ed6f9f890930c19255de9b7e484c629ea1c46740fecb8a4",
+      "bytes": 15306
+    },
+    "web/src/data/tracker/factualCorrectionPolicy.json": {
+      "sha256": "58d93745f554563f61960037b4466de70ae058a9b2295272d530d95f639880aa",
+      "bytes": 2341
+    },
+    "ops/ci/historical_correction_fixtures.py": {
+      "sha256": "4662e080b8dabc1a192d4fdd3df173fb3e222887773f24dbc778737b8022283e",
+      "bytes": 1436
+    },
+    "ops/ci/test_priority_two_corrections.py": {
+      "sha256": "6af52e3ac64a403ed69e60cf52a15df9f75e43ad23861816917135be1700a8ba",
+      "bytes": 13883
+    },
+    "ops/ci/fixtures/accepted-six-correction-requests-2026-10-25.json": {
+      "sha256": "9c9fbe0d3d40ece11e1407ce9460086c732f62da88d3b0f220ab9d6f8757da00",
+      "bytes": 32004
+    },
+    "ops/ci/fixtures/accepted-six-correction-stamp-J-2026-10-25.json": {
+      "sha256": "365058911a182610cde401307fb30cc1855930b7940969440a618441cbbef9b2",
+      "bytes": 1721
+    }
+  },
+  "validation": {
+    "affected": {
+      "tests": 98,
+      "skips": 0
+    },
+    "fullPresent": {
+      "tests": 972,
+      "skips": 0
+    },
+    "fullAbsent": {
+      "tests": 972,
+      "passed": 913,
+      "skips": 59,
+      "frozenReadAttempts": []
+    },
+    "build": {
+      "requiredSec": 80,
+      "verifiedSec": 80,
+      "blockers": 0,
+      "drift": 0
+    },
+    "renders": {
+      "actualImages": 4,
+      "changedPixelsAgainstPrior": 0
+    },
+    "javascriptPythonPolicyParity": true
+  },
+  "receiptFolder": "/mnt/mac/Users/jessepike/.codex/worktrees/priority-corrections/sec-market/docs/active/daily-pipeline/accuracy/receipts/priority-two-correction-integration-2026-10-25",
+  "receiptIndex": {
+    "sha256": "d6bf4a99c90db2acf8d21c3b281ad77949c7b5dd693a1d4270adfe2d288ed5ff",
+    "bytes": 2348
+  },
+  "verification": {
+    "sha256": "56b8653e314619189e4302abc22cb0fa2c00ae9ffd69de0f600ce905a0518f7f",
+    "bytes": 8273
+  },
+  "actualSourceReadiness": {
+    "sha256": "48373e9cee7bd2e78e90eb0fa1f3959bba8521c165a2f8a597b24057801a7d58",
+    "bytes": 79958
+  },
+  "archive": {
+    "commit": "8b3811df40cfdbec9d5ed52252524294566c88e0",
+    "manifestSha256": "13d956802cd881c0d6805c00c0dee48de07bd6615196e69f74fbf4056a710e34",
+    "entries": 52273,
+    "consultedInputs": 67,
+    "consultedBytesSizeMtimeUnchanged": true
+  },
+  "preservedActualLedger": {
+    "calls": 80,
+    "documents": 39,
+    "fetches": 1511
+  },
+  "preservedActualGates": {
+    "attempts": 2
+  },
+  "preservedPrivateSnapshot": {
+    "referenceCount": 4,
+    "reviewQueueRows": 38,
+    "coverageValidUntil": "2026-10-26T20:00:16.075798+00:00"
+  },
+  "actualPublicReleaseId": "fc8bf0984dbeacbe79519574911837d8b638f42215f6547e31ae8968b29951e4",
+  "renderProof": {
+    "schemaVersion": 1,
+    "rows": [
+      {
+        "path": "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/priority-two-corrections-production-1440.png",
+        "sha256": "5d04b34e2ffb5f520d45a06487e9ef7eb4ae671eb4cf7dce86626a2ffd1a6267",
+        "bytes": 986229,
+        "dimensions": [
+          1440,
+          8358
+        ],
+        "priorPath": "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/prn-dated-window-production-1440.png",
+        "priorSha256": "5d04b34e2ffb5f520d45a06487e9ef7eb4ae671eb4cf7dce86626a2ffd1a6267",
+        "changedPixels": 0,
+        "byteIdentical": true
+      },
+      {
+        "path": "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/priority-two-corrections-production-390.png",
+        "sha256": "6da1a1dd0d2591dedb6bef743460ce9659853c84ff3539a59308c5e0cf347b75",
+        "bytes": 418882,
+        "dimensions": [
+          390,
+          7611
+        ],
+        "priorPath": "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/prn-dated-window-production-390.png",
+        "priorSha256": "6da1a1dd0d2591dedb6bef743460ce9659853c84ff3539a59308c5e0cf347b75",
+        "changedPixels": 0,
+        "byteIdentical": true
+      },
+      {
+        "path": "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/priority-two-corrections-local-1440.png",
+        "sha256": "b044622ff53e695fee8334a95746b932c0df81ff6e26ecb810bfd9228765cdd9",
+        "bytes": 989395,
+        "dimensions": [
+          1440,
+          8379
+        ],
+        "priorPath": "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/prn-dated-window-local-1440.png",
+        "priorSha256": "b044622ff53e695fee8334a95746b932c0df81ff6e26ecb810bfd9228765cdd9",
+        "changedPixels": 0,
+        "byteIdentical": true
+      },
+      {
+        "path": "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/priority-two-corrections-local-390.png",
+        "sha256": "7dc872da46a4cf5e2eb765df88e1ae28e34eb70f8d5c38b19835bab09afcd3df",
+        "bytes": 436460,
+        "dimensions": [
+          390,
+          7749
+        ],
+        "priorPath": "/mnt/mac/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/prn-dated-window-local-390.png",
+        "priorSha256": "7dc872da46a4cf5e2eb765df88e1ae28e34eb70f8d5c38b19835bab09afcd3df",
+        "changedPixels": 0,
+        "byteIdentical": true
+      }
+    ],
+    "allComparedPixelsUnchanged": true,
+    "pendingCorrectionsPublic": false,
+    "explanation": "Pending request metadata leaves disabled development correction projection and accepted public rows unchanged. Local versus production retained data fixtures already differed before this build."
+  },
+  "remainingActualSteps": {
+    "independentImplementationReview": "separately owned by remaining_event_qualifiers",
+    "finishIntegration": "root only, after independent review",
+    "actualSemanticReview": "natural October 26 UTC capacity; hypothetical clocks are not admissions",
+    "minimumSuccessfulIncrementalReview": {
+      "calls": 2,
+      "documents": 2,
+      "correctionFetches": 0
+    },
+    "publicationGate": 1,
+    "retryEntitlement": false,
+    "fallbackSelected": false
+  },
+  "authorityLimits": {
+    "realSourceRequests": 0,
+    "realModelRequests": 0,
+    "actualAdmissionWrites": 0,
+    "archiveOrLedgerWrites": 0,
+    "dispatches": 0,
+    "commits": 0,
+    "pushes": 0,
+    "normalRuntimeChanges": 0,
+    "publicFactChanges": 0
+  }
+}
