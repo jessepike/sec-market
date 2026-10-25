@@ -1,0 +1,3179 @@
+{
+  "schemaVersion": 1,
+  "kind": "future_companion_evidence_and_retained_observation_review",
+  "reviewId": "remaining-metric-companion-evidence-2026-10-25",
+  "evaluatedAt": "2026-10-25T01:49:25.989886Z",
+  "scope": "Five original evidence objects; three narrow companion replacements and two unchanged records. No correction policy, runtime, admission or publication mutation.",
+  "supplierTargetIds": [
+    "supplier:abnormal-security:lastRound",
+    "supplier:arctic-wolf:lastRound",
+    "supplier:cato:headlineMetric",
+    "supplier:hiddenlayer:headlineMetric",
+    "supplier:witnessai:headlineMetric"
+  ],
+  "companionReplacementEvidenceIds": [
+    "TR-abnormal-1",
+    "TR-hiddenlayer-1",
+    "TR-witnessai-1"
+  ],
+  "unchangedEvidenceIds": [
+    "TR-arctic-wolf-2",
+    "TR-cato-3"
+  ],
+  "records": [
+    {
+      "supplierTargetId": "supplier:abnormal-security:lastRound",
+      "evidenceTargetId": "evidence:TR-abnormal-1",
+      "finding": "The original excerpt drops total expected proceeds and adds post-money, which is absent from the retained full page. Replace only excerpt and limitations; the correct configured TR-abnormal-1 observation resolves the prior TR2 join prospectively without relabeling or altering the old ledger.",
+      "operation": "replace",
+      "originalFullEvidenceObject": {
+        "id": "TR-abnormal-1",
+        "title": "Abnormal Security Series D Funding",
+        "organization": "Abnormal Security",
+        "publicationDate": "2024-08-06",
+        "economicPeriod": "August 2024",
+        "canonicalUrl": "https://abnormal.ai/newsroom/press-releases/series-d-5b-valuation",
+        "excerpt": "Series D: $250 million at $5.1 billion post-money valuation, led by Wellington Management.",
+        "sourceClass": "IR",
+        "interpretation": "",
+        "limitations": "",
+        "conflictingEvidenceIds": [],
+        "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-abnormal-1",
+        "tags": [
+          "tracker",
+          "email"
+        ],
+        "retrievedAt": "2026-09-25"
+      },
+      "originalEvidenceObjectSha256": "c4470723b7b30ad0d32f6f9b24e6e8760c82cd0614e4258e31c8911e43fb9853",
+      "proposedFullEvidenceObject": {
+        "id": "TR-abnormal-1",
+        "title": "Abnormal Security Series D Funding",
+        "organization": "Abnormal Security",
+        "publicationDate": "2024-08-06",
+        "economicPeriod": "August 2024",
+        "canonicalUrl": "https://abnormal.ai/newsroom/press-releases/series-d-5b-valuation",
+        "excerpt": "total expected proceeds of $250 million at a $5.1 billion valuation.",
+        "sourceClass": "IR",
+        "interpretation": "",
+        "limitations": "The release calls $250 million total expected proceeds and does not specify that $5.1 billion is a post-money valuation. Original publication and retrieval dates are retained.",
+        "conflictingEvidenceIds": [],
+        "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-abnormal-1",
+        "tags": [
+          "tracker",
+          "email"
+        ],
+        "retrievedAt": "2026-09-25"
+      },
+      "proposedEvidenceObjectSha256": "71adcffd6eea6c2aaf59fbd6d1416aede77b56a4845b35ffe66d47254c14b6e9",
+      "changedEvidenceKeys": [
+        "excerpt",
+        "limitations"
+      ],
+      "originalDatesAndProtectedIdentityPreserved": true,
+      "configuredSource": {
+        "allowedHosts": [
+          "abnormal.ai"
+        ],
+        "evidenceId": "TR-abnormal-1",
+        "family": "citation_integrity",
+        "id": "abnormal-security:citation:TR-abnormal-1",
+        "kind": "citation",
+        "maxPages": 1,
+        "registration": "verified",
+        "required": true,
+        "scopePrefixes": [
+          "/"
+        ],
+        "seedEvidenceUrls": [],
+        "supplierId": "abnormal-security",
+        "url": "https://abnormal.ai/newsroom/press-releases/series-d-5b-valuation"
+      },
+      "configuredSourceMatchesArchivePolicyH": true,
+      "originalLedgerProvenanceReference": {
+        "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/supplier-fields-review-2026-10-23.json",
+        "fileSeal": {
+          "sha256": "fa1382462c95f2cff79cc3a5b55131e43cf57324bf0a60507bed44efbe1ca188",
+          "bytes": 318296,
+          "mtimeNs": 1792800049478090683
+        },
+        "recordId": "supplier:abnormal-security:lastRound",
+        "evidenceId": "TR-abnormal-1",
+        "observationId": "f493293a335b5af801350164aecac367d726ae202f109670253f96183ac5548d",
+        "observedSourceId": "abnormal-security:citation:TR-abnormal-2",
+        "body": {
+          "bytes": 305862,
+          "key": "objects/d056bf5f31e82e6782e982028ea2113a7a388e832085338b7f0cc7ffef88418b",
+          "sha256": "d056bf5f31e82e6782e982028ea2113a7a388e832085338b7f0cc7ffef88418b"
+        },
+        "unchanged": true
+      },
+      "allExactSourceUrlObservationRefs": [
+        {
+          "observationId": "cf0533e8e74d60d517b1283826fa900af5008daf466319e65444bc5a1a9d4861",
+          "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/cf0533e8e74d60d517b1283826fa900af5008daf466319e65444bc5a1a9d4861.json",
+          "status": "fetched",
+          "httpStatus": 200,
+          "fetchedAt": "2026-10-20T21:11:34.342769Z",
+          "body": {
+            "bytes": 305863,
+            "key": "objects/6a747da400afb9d2e74bd3f6a8a5d459efbffbde32e5bed607f78e9b6ddaa301",
+            "sha256": "6a747da400afb9d2e74bd3f6a8a5d459efbffbde32e5bed607f78e9b6ddaa301"
+          },
+          "fileSeal": {
+            "sha256": "fecc531cb24680eedd815eeae5116bf88b4ea149aa18dfa0aec516d120d8f4bd",
+            "bytes": 632,
+            "mtimeNs": 1792875521000000000
+          }
+        },
+        {
+          "observationId": "07b3f9e68e98c2301c0c882d81cfcd83682a9122479d8d10c037474df4a7ab80",
+          "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/07b3f9e68e98c2301c0c882d81cfcd83682a9122479d8d10c037474df4a7ab80.json",
+          "status": "fetched",
+          "httpStatus": 200,
+          "fetchedAt": "2026-10-20T21:22:00.915114Z",
+          "body": {
+            "bytes": 305861,
+            "key": "objects/284bf9ea309790c499ab9e1d2b848956f25cb6b7d1dbda23a658d697305dd832",
+            "sha256": "284bf9ea309790c499ab9e1d2b848956f25cb6b7d1dbda23a658d697305dd832"
+          },
+          "fileSeal": {
+            "sha256": "ab9a7b9ebb777c7a2efc8b2c0d3c035d6a8de6d0ed905453aa91ee315ced40f9",
+            "bytes": 632,
+            "mtimeNs": 1792875521000000000
+          }
+        },
+        {
+          "observationId": "afd1d793c463f877a7454a1c46f2e5e10ac609665d98ef879991057a092346ad",
+          "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/afd1d793c463f877a7454a1c46f2e5e10ac609665d98ef879991057a092346ad.json",
+          "status": "fetched",
+          "httpStatus": 200,
+          "fetchedAt": "2026-10-20T21:41:44.776651Z",
+          "body": {
+            "bytes": 305861,
+            "key": "objects/01901afe5c0008e9a321dc909cd38762c9b077f8a498fc4be8ddfcf2b4cbec6c",
+            "sha256": "01901afe5c0008e9a321dc909cd38762c9b077f8a498fc4be8ddfcf2b4cbec6c"
+          },
+          "fileSeal": {
+            "sha256": "909a22a0e254d8a12ac3bee394a9f0ef6eb4173cd25869f07292fa3f0d77a45d",
+            "bytes": 632,
+            "mtimeNs": 1792875521000000000
+          }
+        },
+        {
+          "observationId": "a3556517ef267aedb4a059ce07dff01a83a8460702d4d10edf2f357d368a9e1b",
+          "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/a3556517ef267aedb4a059ce07dff01a83a8460702d4d10edf2f357d368a9e1b.json",
+          "status": "fetched",
+          "httpStatus": 200,
+          "fetchedAt": "2026-10-22T01:11:37.674935Z",
+          "body": {
+            "bytes": 305861,
+            "key": "objects/139d456638720ce1fb0d90494d077d6ea0579a6bdec2813cc89f6364d8d3d254",
+            "sha256": "139d456638720ce1fb0d90494d077d6ea0579a6bdec2813cc89f6364d8d3d254"
+          },
+          "fileSeal": {
+            "sha256": "dd9589b1485e0e735b1026bf1e8e9faf3c968b90da0fa4cb1a8d469706158e1d",
+            "bytes": 632,
+            "mtimeNs": 1792875521000000000
+          }
+        },
+        {
+          "observationId": "1be85c0f41d45c532ce8deb1665e6d2dc815f283befe240be7f46cc981353e05",
+          "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/1be85c0f41d45c532ce8deb1665e6d2dc815f283befe240be7f46cc981353e05.json",
+          "status": "fetched",
+          "httpStatus": 200,
+          "fetchedAt": "2026-10-23T04:14:41.705557Z",
+          "body": {
+            "bytes": 307168,
+            "key": "objects/88d7aeaf00c95513495ad6e99e65fe2fbbfd9b9e4820100c141f2e42369c3bc8",
+            "sha256": "88d7aeaf00c95513495ad6e99e65fe2fbbfd9b9e4820100c141f2e42369c3bc8"
+          },
+          "fileSeal": {
+            "sha256": "b5435272cb2fa99ed2d4b7025979144157bee7102b7edcd85390557b59a89fd1",
+            "bytes": 632,
+            "mtimeNs": 1792875521000000000
+          }
+        },
+        {
+          "observationId": "dda855ec5afccc7a0ccaf17062e053e9b8e20a2774f2f13bfb0f1bed04c5ac95",
+          "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/dda855ec5afccc7a0ccaf17062e053e9b8e20a2774f2f13bfb0f1bed04c5ac95.json",
+          "status": "fetched",
+          "httpStatus": 200,
+          "fetchedAt": "2026-10-23T11:34:08.225870Z",
+          "body": {
+            "bytes": 307169,
+            "key": "objects/6b802c5d5907fc0b8f4f969b218ea420eab2c54ca56dc9dd080cdd888270afa5",
+            "sha256": "6b802c5d5907fc0b8f4f969b218ea420eab2c54ca56dc9dd080cdd888270afa5"
+          },
+          "fileSeal": {
+            "sha256": "7c4231cfd6ece3e0d929a2a7d59314affefc891cd3ef5d89fa59666cfa5ab2f6",
+            "bytes": 632,
+            "mtimeNs": 1792875521000000000
+          }
+        },
+        {
+          "observationId": "9639304241fe59a0532f9677f4809ee8ec25ef69d74a23fb58cfc46a8e70cd90",
+          "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/9639304241fe59a0532f9677f4809ee8ec25ef69d74a23fb58cfc46a8e70cd90.json",
+          "status": "fetched",
+          "httpStatus": 200,
+          "fetchedAt": "2026-10-24T00:05:48.657181Z",
+          "body": {
+            "bytes": 307154,
+            "key": "objects/76bb924b7d65058dc30f8ac8f8023696606624c19a76e03d48903ee993e5835d",
+            "sha256": "76bb924b7d65058dc30f8ac8f8023696606624c19a76e03d48903ee993e5835d"
+          },
+          "fileSeal": {
+            "sha256": "67b896afe94cbb09e15881a0c9ad870822fed86e251033742a3804db0b2adacd",
+            "bytes": 737,
+            "mtimeNs": 1792875521000000000
+          }
+        },
+        {
+          "observationId": "249df2f1c0f044dbc7d6602a8083ea9c8a01f47c9e94511600f968c152dd1ba7",
+          "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/249df2f1c0f044dbc7d6602a8083ea9c8a01f47c9e94511600f968c152dd1ba7.json",
+          "status": "fetched",
+          "httpStatus": 200,
+          "fetchedAt": "2026-10-24T05:39:29.933456Z",
+          "body": {
+            "bytes": 307155,
+            "key": "objects/b288ba200633df3c596dbd9c667be1289cb2b1934c432db4184ed1ae6d2300ee",
+            "sha256": "b288ba200633df3c596dbd9c667be1289cb2b1934c432db4184ed1ae6d2300ee"
+          },
+          "fileSeal": {
+            "sha256": "b7c432087cef5bd8fb48b32f7aa5dd22a407de75acbf01fb9048d390bca0efab",
+            "bytes": 736,
+            "mtimeNs": 1792875521000000000
+          }
+        },
+        {
+          "observationId": "20cc66a14434d8491e3e97ff3a9c4fbe821b0b852b3912e6d5802743d1de2df1",
+          "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/20cc66a14434d8491e3e97ff3a9c4fbe821b0b852b3912e6d5802743d1de2df1.json",
+          "status": "fetched",
+          "httpStatus": 200,
+          "fetchedAt": "2026-10-24T18:29:45.703051Z",
+          "body": {
+            "bytes": 307154,
+            "key": "objects/88d6ac1e84aef9e9ff6965762bffef21d9310352147ebb44c70f252cf456e3b9",
+            "sha256": "88d6ac1e84aef9e9ff6965762bffef21d9310352147ebb44c70f252cf456e3b9"
+          },
+          "fileSeal": {
+            "sha256": "7d81f6cd1202244b7c63c4f48eaf2b7b01b38a79f7aa468550210313d136c5e5",
+            "bytes": 736,
+            "mtimeNs": 1792875521000000000
+          }
+        }
+      ],
+      "newestRetainedFullHttp200": {
+        "observationPath": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/20cc66a14434d8491e3e97ff3a9c4fbe821b0b852b3912e6d5802743d1de2df1.json",
+        "observation": {
+          "body": {
+            "bytes": 307154,
+            "key": "objects/88d6ac1e84aef9e9ff6965762bffef21d9310352147ebb44c70f252cf456e3b9",
+            "sha256": "88d6ac1e84aef9e9ff6965762bffef21d9310352147ebb44c70f252cf456e3b9"
+          },
+          "contentType": "text/html; charset=utf-8",
+          "etag": null,
+          "fetchedAt": "2026-10-24T18:29:45.703051Z",
+          "finalUrl": "https://abnormal.ai/newsroom/press-releases/series-d-5b-valuation",
+          "httpStatus": 200,
+          "lastModified": null,
+          "observationId": "20cc66a14434d8491e3e97ff3a9c4fbe821b0b852b3912e6d5802743d1de2df1",
+          "requestedUrl": "https://abnormal.ai/newsroom/press-releases/series-d-5b-valuation",
+          "sourceId": "abnormal-security:citation:TR-abnormal-1",
+          "status": "fetched",
+          "transportId": "d6d0dc13d742524d580d562e4b52d93ffcbfbff792577848c41ff880330f9aa3",
+          "transportReused": true
+        },
+        "bodyPath": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/88d6ac1e84aef9e9ff6965762bffef21d9310352147ebb44c70f252cf456e3b9",
+        "bodySeal": {
+          "sha256": "88d6ac1e84aef9e9ff6965762bffef21d9310352147ebb44c70f252cf456e3b9",
+          "bytes": 307154,
+          "mtimeNs": 1792875521000000000
+        },
+        "normalizedDocumentSha256": "e42ef57a4e20c1b6210c39528c5502be62e38acf3287f33ea115c787c2547771"
+      },
+      "newestRetainedObservation": {
+        "observationPath": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/20cc66a14434d8491e3e97ff3a9c4fbe821b0b852b3912e6d5802743d1de2df1.json",
+        "observation": {
+          "body": {
+            "bytes": 307154,
+            "key": "objects/88d6ac1e84aef9e9ff6965762bffef21d9310352147ebb44c70f252cf456e3b9",
+            "sha256": "88d6ac1e84aef9e9ff6965762bffef21d9310352147ebb44c70f252cf456e3b9"
+          },
+          "contentType": "text/html; charset=utf-8",
+          "etag": null,
+          "fetchedAt": "2026-10-24T18:29:45.703051Z",
+          "finalUrl": "https://abnormal.ai/newsroom/press-releases/series-d-5b-valuation",
+          "httpStatus": 200,
+          "lastModified": null,
+          "observationId": "20cc66a14434d8491e3e97ff3a9c4fbe821b0b852b3912e6d5802743d1de2df1",
+          "requestedUrl": "https://abnormal.ai/newsroom/press-releases/series-d-5b-valuation",
+          "sourceId": "abnormal-security:citation:TR-abnormal-1",
+          "status": "fetched",
+          "transportId": "d6d0dc13d742524d580d562e4b52d93ffcbfbff792577848c41ff880330f9aa3",
+          "transportReused": true
+        },
+        "bodyPath": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/88d6ac1e84aef9e9ff6965762bffef21d9310352147ebb44c70f252cf456e3b9"
+      },
+      "comparedToOldLedgerBody": {
+        "sameRawBody": false,
+        "sameNormalizedPageText": true,
+        "oldNormalizedPageChars": 9499,
+        "newNormalizedPageChars": 9499,
+        "normalizedTextDifferences": [],
+        "changedBodyAdmitted": false,
+        "latestPageDifferenceHeldForIndependentReview": false
+      },
+      "literalPrimaryExcerpts": [
+        {
+          "decodedLiteral": "total expected proceeds of $250 million at a $5.1 billion valuation.",
+          "rawHtmlLiteral": "total expected proceeds of $250 million at a $5.1 billion valuation.",
+          "rawUtf8ByteOffsets": [
+            101215,
+            154041
+          ],
+          "rawUtf8Bytes": 68,
+          "normalizedWholePageOffsets": [
+            3375
+          ],
+          "verifiedInOldAndNewestFullBody": true,
+          "maxLiteralWords": 11
+        }
+      ],
+      "admissionPrerequisites": {
+        "configuredSourceIdAndCanonicalUrlExact": true,
+        "newestFullHttp200IdentityValid": true,
+        "newestFullHttp200Age": {
+          "evaluatedAt": "2026-10-25T01:49:25.989886Z",
+          "ageHours": 7.327857454166667,
+          "within30HoursAtEvaluation": true,
+          "earliestAllowedAdmissionAt": "2026-10-24T18:29:45.703051Z",
+          "lastAllowedAdmissionAt": "2026-10-26T00:29:45.703051Z",
+          "futureAdmissionMustRecheck": true
+        },
+        "latestObservedStatusAge": {
+          "evaluatedAt": "2026-10-25T01:49:25.989886Z",
+          "ageHours": 7.327857454166667,
+          "within30HoursAtEvaluation": true,
+          "earliestAllowedAdmissionAt": "2026-10-24T18:29:45.703051Z",
+          "lastAllowedAdmissionAt": "2026-10-26T00:29:45.703051Z",
+          "futureAdmissionMustRecheck": true
+        },
+        "latestStatusAcceptedByCurrentNonPublisherSourceRule": true,
+        "latestStatusBodyMatchesNewestFull200": true,
+        "latest304ReuseChain": [],
+        "fullNormalizedDocumentChars": 9499,
+        "documentLimit": 30000,
+        "individualDocumentWithinLimit": true,
+        "allFiveCombinedDocumentCharsPending": 48416,
+        "allFiveInOneGroupWouldFitDocumentLimit": false
+      },
+      "remainingAdmissionBlockers": [
+        "No executable correction group is registered for these targets; no actual independent review/admission has occurred.",
+        "Admission must recheck exact current source/observation/body/time joins and the 0-to-30-hour age window.",
+        "A later source change outside these narrowly supported corrections must remain held pending separate review.",
+        "A future group must pin the new correct TR-abnormal-1 observation; the historical TR2-bound ledger remains unchanged.",
+        "Each correction group must retain its exact supplier ownership and complete primary document within the 30000-character model budget. Combining all five source documents would total 48416 characters and is invalid."
+      ],
+      "dates": {
+        "originalPublicationDate": "2024-08-06",
+        "originalEconomicPeriod": "August 2024",
+        "originalRetrievedAt": "2026-09-25",
+        "newestFullFetchAt": "2026-10-24T18:29:45.703051Z",
+        "newestFullHttpLastModified": null,
+        "latestObservationAt": "2026-10-24T18:29:45.703051Z",
+        "latestHttpLastModified": null,
+        "displayedPublicationAndUpdateDates": [
+          "August 6, 2024"
+        ],
+        "dateMeaning": "Publication, update, transport-modified and fetch times retain their separate meanings. No later timestamp is substituted as an economic endpoint."
+      }
+    },
+    {
+      "supplierTargetId": "supplier:arctic-wolf:lastRound",
+      "evidenceTargetId": "evidence:TR-arctic-wolf-2",
+      "finding": "The original excerpt already names investors without saying they led the round; keep the complete evidence object unchanged. The supplier lead omission remains a separate proposed field correction.",
+      "operation": "unchanged",
+      "originalFullEvidenceObject": {
+        "id": "TR-arctic-wolf-2",
+        "title": "Arctic Wolf Closes Record-breaking Series F with New and Existing Investors",
+        "organization": "Arctic Wolf Networks, Inc.",
+        "publicationDate": "2021-07-13",
+        "economicPeriod": "N/A (funding announcement)",
+        "canonicalUrl": "https://arcticwolf.com/resources/blog/arctic-wolf-closes-record-breaking-series-f-funding/",
+        "excerpt": "...backed by top tier investors, including Viking Global Investors, Owl Rock, a division of Blue Owl Capital and others in our Series F funding round of $150 million. Following this round, the company has achieved a valuation of $4.3 billion.",
+        "sourceClass": "IR",
+        "interpretation": "",
+        "limitations": "AUTO-001 fix pass 4, item 8: this is the most recent funding round found on Arctic Wolf's own site after checking its press-releases index, its full post-sitemap for every 'series'/'funding'/'raises'/'valuation' slug, and a GlobeNewswire organization search; no company-issued source for a later round was found. Company is privately held with no SEC filer CIK.",
+        "conflictingEvidenceIds": [],
+        "artifactLabel": "SEC-MARKET-AUTO-001-COLLECT / TR-arctic-wolf-2",
+        "tags": [
+          "tracker",
+          "managed-security"
+        ],
+        "retrievedAt": "2026-10-02",
+        "retrieval": {
+          "finalUrl": "https://arcticwolf.com/resources/blog/arctic-wolf-closes-record-breaking-series-f-funding/",
+          "sha256": "9e957f78e50ee3a72266382ca364e7cbe8de6fdce135da4a2b43d1ede7c54a5a",
+          "fetchedAt": "2026-10-02T15:30:00Z",
+          "locator": "Body paragraph naming investors, round amount, and resulting valuation"
+        }
+      },
+      "originalEvidenceObjectSha256": "6cfc2b09e20ef80888e37a62ca4b73752cbdb2a607de758cc8dfcbe803303053",
+      "proposedFullEvidenceObject": null,
+      "proposedEvidenceObjectSha256": null,
+      "changedEvidenceKeys": [],
+      "originalDatesAndProtectedIdentityPreserved": true,
+      "configuredSource": {
+        "allowedHosts": [
+          "arcticwolf.com"
+        ],
+        "evidenceId": "TR-arctic-wolf-2",
+        "family": "citation_integrity",
+        "id": "arctic-wolf:citation:TR-arctic-wolf-2",
+        "kind": "citation",
+        "maxPages": 1,
+        "registration": "verified",
+        "required": true,
+        "scopePrefixes": [
+          "/"
+        ],
+        "seedEvidenceUrls": [],
+        "supplierId": "arctic-wolf",
+        "url": "https://arcticwolf.com/resources/blog/arctic-wolf-closes-record-breaking-series-f-funding/"
+      },
+      "configuredSourceMatchesArchivePolicyH": true,
+      "originalLedgerProvenanceReference": {
+        "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/supplier-fields-review-2026-10-23.json",
+        "fileSeal": {
+          "sha256": "fa1382462c95f2cff79cc3a5b55131e43cf57324bf0a60507bed44efbe1ca188",
+          "bytes": 318296,
+          "mtimeNs": 1792800049478090683
+        },
+        "recordId": "supplier:arctic-wolf:lastRound",
+        "evidenceId": "TR-arctic-wolf-2",
+        "observationId": "cddef400fb8964705c0f0f6b6ef735fbf359994ade8ad394b5f5fefd7946fc14",
+        "observedSourceId": "arctic-wolf:citation:TR-arctic-wolf-2",
+        "body": {
+          "bytes": 344875,
+          "key": "objects/b89fc491a80e4dc127941fc921204248c94404688758807c5d1d7b50b33302d2",
+          "sha256": "b89fc491a80e4dc127941fc921204248c94404688758807c5d1d7b50b33302d2"
+        },
+        "unchanged": true
+      },
+      "allExactSourceUrlObservationRefs": [
+        {
+          "observationId": "10bbde39463f168ca2d4c5c361994536ee1eb20353bfc668d5cc9906f260b668",
+          "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/10bbde39463f168ca2d4c5c361994536ee1eb20353bfc668d5cc9906f260b668.json",
+          "status": "fetched",
+          "httpStatus": 200,
+          "fetchedAt": "2026-10-20T21:11:37.406181Z",
+          "body": {
+            "bytes": 344875,
+            "key": "objects/b89fc491a80e4dc127941fc921204248c94404688758807c5d1d7b50b33302d2",
+            "sha256": "b89fc491a80e4dc127941fc921204248c94404688758807c5d1d7b50b33302d2"
+          },
+          "fileSeal": {
+            "sha256": "a5aa49ecbf4020a6eb3ed4b2c3ddc4cd28116d9650423231f1e3cee468e69348",
+            "bytes": 706,
+            "mtimeNs": 1792875521000000000
+          }
+        },
+        {
+          "observationId": "cddef400fb8964705c0f0f6b6ef735fbf359994ade8ad394b5f5fefd7946fc14",
+          "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/cddef400fb8964705c0f0f6b6ef735fbf359994ade8ad394b5f5fefd7946fc14.json",
+          "status": "not_modified",
+          "httpStatus": 304,
+          "fetchedAt": "2026-10-20T21:21:59.438344Z",
+          "body": {
+            "bytes": 344875,
+            "key": "objects/b89fc491a80e4dc127941fc921204248c94404688758807c5d1d7b50b33302d2",
+            "sha256": "b89fc491a80e4dc127941fc921204248c94404688758807c5d1d7b50b33302d2"
+          },
+          "fileSeal": {
+            "sha256": "e4fe5478e2c69e281601d828bd6248bf2598b81613ba306871f8590d5095d864",
+            "bytes": 800,
+            "mtimeNs": 1792875521000000000
+          }
+        },
+        {
+          "observationId": "a5cc2a13b9325b35811516b5418e61c08e2a44c1e23671e0870ee3474bc459b3",
+          "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/a5cc2a13b9325b35811516b5418e61c08e2a44c1e23671e0870ee3474bc459b3.json",
+          "status": "not_modified",
+          "httpStatus": 304,
+          "fetchedAt": "2026-10-20T21:41:18.163906Z",
+          "body": {
+            "bytes": 344875,
+            "key": "objects/b89fc491a80e4dc127941fc921204248c94404688758807c5d1d7b50b33302d2",
+            "sha256": "b89fc491a80e4dc127941fc921204248c94404688758807c5d1d7b50b33302d2"
+          },
+          "fileSeal": {
+            "sha256": "a8aec6af9f591fe8cc823fd0fb43aa0383e6c5ad368df6941daf6e4ed197295d",
+            "bytes": 800,
+            "mtimeNs": 1792875521000000000
+          }
+        },
+        {
+          "observationId": "485744729e62f1f98e55fcf3bbbb6d6dad454be300dc00807ee964feb0dfefc7",
+          "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/485744729e62f1f98e55fcf3bbbb6d6dad454be300dc00807ee964feb0dfefc7.json",
+          "status": "failed",
+          "httpStatus": 502,
+          "fetchedAt": "2026-10-22T01:11:38.804971Z",
+          "body": null,
+          "fileSeal": {
+            "sha256": "76d6765188f8a4544cf016892eff9bb0f56a7fd3e12f6696b8c21e89706c3a0c",
+            "bytes": 343,
+            "mtimeNs": 1792875521000000000
+          }
+        },
+        {
+          "observationId": "08cd9ef98989a6aa8aaf6f63fdf4584647adb9af5c0930a32dd94aec5e8a5748",
+          "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/08cd9ef98989a6aa8aaf6f63fdf4584647adb9af5c0930a32dd94aec5e8a5748.json",
+          "status": "not_modified",
+          "httpStatus": 304,
+          "fetchedAt": "2026-10-23T04:14:54.464718Z",
+          "body": {
+            "bytes": 344875,
+            "key": "objects/b89fc491a80e4dc127941fc921204248c94404688758807c5d1d7b50b33302d2",
+            "sha256": "b89fc491a80e4dc127941fc921204248c94404688758807c5d1d7b50b33302d2"
+          },
+          "fileSeal": {
+            "sha256": "e53535cfb2ab76e978f10ddc405bf7c3a4c577efffaae309ad85b88f36e20d89",
+            "bytes": 800,
+            "mtimeNs": 1792875521000000000
+          }
+        },
+        {
+          "observationId": "9b6cdba00418f914292d3d7f67041dc3e2d5e731707fde069b428878b69863d7",
+          "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/9b6cdba00418f914292d3d7f67041dc3e2d5e731707fde069b428878b69863d7.json",
+          "status": "not_modified",
+          "httpStatus": 304,
+          "fetchedAt": "2026-10-24T00:05:32.020053Z",
+          "body": {
+            "bytes": 344875,
+            "key": "objects/b89fc491a80e4dc127941fc921204248c94404688758807c5d1d7b50b33302d2",
+            "sha256": "b89fc491a80e4dc127941fc921204248c94404688758807c5d1d7b50b33302d2"
+          },
+          "fileSeal": {
+            "sha256": "ff671681ccce8b75d9c353e270e5e9b7ef3469744897cb5c9b4e767a11ac86b1",
+            "bytes": 824,
+            "mtimeNs": 1792875521000000000
+          }
+        },
+        {
+          "observationId": "6bd01aadcc54307ccd7d86ef82ccfbe87ae4c236a12ecd871623f7bc63730e36",
+          "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/6bd01aadcc54307ccd7d86ef82ccfbe87ae4c236a12ecd871623f7bc63730e36.json",
+          "status": "not_modified",
+          "httpStatus": 304,
+          "fetchedAt": "2026-10-24T05:39:37.507628Z",
+          "body": {
+            "bytes": 344875,
+            "key": "objects/b89fc491a80e4dc127941fc921204248c94404688758807c5d1d7b50b33302d2",
+            "sha256": "b89fc491a80e4dc127941fc921204248c94404688758807c5d1d7b50b33302d2"
+          },
+          "fileSeal": {
+            "sha256": "fc193160bc02405e47b6d841556f0748faa0f80c8973ce07b5fa52b00cff144c",
+            "bytes": 824,
+            "mtimeNs": 1792875521000000000
+          }
+        },
+        {
+          "observationId": "95a9f1dec043a641dd87d88495b3b3f2c84e1a404b8d9725f2f21c37d5e967dd",
+          "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/95a9f1dec043a641dd87d88495b3b3f2c84e1a404b8d9725f2f21c37d5e967dd.json",
+          "status": "not_modified",
+          "httpStatus": 304,
+          "fetchedAt": "2026-10-24T18:29:52.977101Z",
+          "body": {
+            "bytes": 344875,
+            "key": "objects/b89fc491a80e4dc127941fc921204248c94404688758807c5d1d7b50b33302d2",
+            "sha256": "b89fc491a80e4dc127941fc921204248c94404688758807c5d1d7b50b33302d2"
+          },
+          "fileSeal": {
+            "sha256": "b3a18137589d150377cf91ccd60677c480c2743e75ef02a3e2f09dcc1bb35e61",
+            "bytes": 824,
+            "mtimeNs": 1792875521000000000
+          }
+        }
+      ],
+      "newestRetainedFullHttp200": {
+        "observationPath": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/10bbde39463f168ca2d4c5c361994536ee1eb20353bfc668d5cc9906f260b668.json",
+        "observation": {
+          "body": {
+            "bytes": 344875,
+            "key": "objects/b89fc491a80e4dc127941fc921204248c94404688758807c5d1d7b50b33302d2",
+            "sha256": "b89fc491a80e4dc127941fc921204248c94404688758807c5d1d7b50b33302d2"
+          },
+          "contentType": "text/html; charset=UTF-8",
+          "etag": null,
+          "fetchedAt": "2026-10-20T21:11:37.406181Z",
+          "finalUrl": "https://arcticwolf.com/resources/blog/arctic-wolf-closes-record-breaking-series-f-funding/",
+          "httpStatus": 200,
+          "lastModified": "Mon, 08 Jan 2024 12:15:02 GMT",
+          "observationId": "10bbde39463f168ca2d4c5c361994536ee1eb20353bfc668d5cc9906f260b668",
+          "requestedUrl": "https://arcticwolf.com/resources/blog/arctic-wolf-closes-record-breaking-series-f-funding/",
+          "sourceId": "arctic-wolf:citation:TR-arctic-wolf-2",
+          "status": "fetched"
+        },
+        "bodyPath": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/b89fc491a80e4dc127941fc921204248c94404688758807c5d1d7b50b33302d2",
+        "bodySeal": {
+          "sha256": "b89fc491a80e4dc127941fc921204248c94404688758807c5d1d7b50b33302d2",
+          "bytes": 344875,
+          "mtimeNs": 1792875521000000000
+        },
+        "normalizedDocumentSha256": "4a84b2c17d923295d9a4e623aaa3c83e89dd4b43e3ddcceb1bbe3496c31159db"
+      },
+      "newestRetainedObservation": {
+        "observationPath": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/95a9f1dec043a641dd87d88495b3b3f2c84e1a404b8d9725f2f21c37d5e967dd.json",
+        "observation": {
+          "body": {
+            "bytes": 344875,
+            "key": "objects/b89fc491a80e4dc127941fc921204248c94404688758807c5d1d7b50b33302d2",
+            "sha256": "b89fc491a80e4dc127941fc921204248c94404688758807c5d1d7b50b33302d2"
+          },
+          "contentType": "text/html; charset=UTF-8",
+          "etag": null,
+          "fetchedAt": "2026-10-24T18:29:52.977101Z",
+          "finalUrl": "https://arcticwolf.com/resources/blog/arctic-wolf-closes-record-breaking-series-f-funding/",
+          "httpStatus": 304,
+          "lastModified": "Mon, 08 Jan 2024 12:15:02 GMT",
+          "observationId": "95a9f1dec043a641dd87d88495b3b3f2c84e1a404b8d9725f2f21c37d5e967dd",
+          "requestedUrl": "https://arcticwolf.com/resources/blog/arctic-wolf-closes-record-breaking-series-f-funding/",
+          "reusesObservationId": "6bd01aadcc54307ccd7d86ef82ccfbe87ae4c236a12ecd871623f7bc63730e36",
+          "sourceId": "arctic-wolf:citation:TR-arctic-wolf-2",
+          "status": "not_modified",
+          "transportReused": false
+        },
+        "bodyPath": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/b89fc491a80e4dc127941fc921204248c94404688758807c5d1d7b50b33302d2"
+      },
+      "comparedToOldLedgerBody": {
+        "sameRawBody": true,
+        "sameNormalizedPageText": true,
+        "oldNormalizedPageChars": 12271,
+        "newNormalizedPageChars": 12271,
+        "normalizedTextDifferences": [],
+        "changedBodyAdmitted": false,
+        "latestPageDifferenceHeldForIndependentReview": false
+      },
+      "literalPrimaryExcerpts": [],
+      "admissionPrerequisites": {
+        "configuredSourceIdAndCanonicalUrlExact": true,
+        "newestFullHttp200IdentityValid": true,
+        "newestFullHttp200Age": {
+          "evaluatedAt": "2026-10-25T01:49:25.989886Z",
+          "ageHours": 100.63016214027778,
+          "within30HoursAtEvaluation": false,
+          "earliestAllowedAdmissionAt": "2026-10-20T21:11:37.406181Z",
+          "lastAllowedAdmissionAt": "2026-10-22T03:11:37.406181Z",
+          "futureAdmissionMustRecheck": true
+        },
+        "latestObservedStatusAge": {
+          "evaluatedAt": "2026-10-25T01:49:25.989886Z",
+          "ageHours": 7.3258368847222215,
+          "within30HoursAtEvaluation": true,
+          "earliestAllowedAdmissionAt": "2026-10-24T18:29:52.977101Z",
+          "lastAllowedAdmissionAt": "2026-10-26T00:29:52.977101Z",
+          "futureAdmissionMustRecheck": true
+        },
+        "latestStatusAcceptedByCurrentNonPublisherSourceRule": true,
+        "latestStatusBodyMatchesNewestFull200": true,
+        "latest304ReuseChain": [
+          {
+            "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/6bd01aadcc54307ccd7d86ef82ccfbe87ae4c236a12ecd871623f7bc63730e36.json",
+            "observation": {
+              "body": {
+                "bytes": 344875,
+                "key": "objects/b89fc491a80e4dc127941fc921204248c94404688758807c5d1d7b50b33302d2",
+                "sha256": "b89fc491a80e4dc127941fc921204248c94404688758807c5d1d7b50b33302d2"
+              },
+              "contentType": "text/html; charset=UTF-8",
+              "etag": null,
+              "fetchedAt": "2026-10-24T05:39:37.507628Z",
+              "finalUrl": "https://arcticwolf.com/resources/blog/arctic-wolf-closes-record-breaking-series-f-funding/",
+              "httpStatus": 304,
+              "lastModified": "Mon, 08 Jan 2024 12:15:02 GMT",
+              "observationId": "6bd01aadcc54307ccd7d86ef82ccfbe87ae4c236a12ecd871623f7bc63730e36",
+              "requestedUrl": "https://arcticwolf.com/resources/blog/arctic-wolf-closes-record-breaking-series-f-funding/",
+              "reusesObservationId": "9b6cdba00418f914292d3d7f67041dc3e2d5e731707fde069b428878b69863d7",
+              "sourceId": "arctic-wolf:citation:TR-arctic-wolf-2",
+              "status": "not_modified",
+              "transportReused": false
+            },
+            "fileSeal": {
+              "sha256": "fc193160bc02405e47b6d841556f0748faa0f80c8973ce07b5fa52b00cff144c",
+              "bytes": 824,
+              "mtimeNs": 1792875521000000000
+            }
+          },
+          {
+            "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/9b6cdba00418f914292d3d7f67041dc3e2d5e731707fde069b428878b69863d7.json",
+            "observation": {
+              "body": {
+                "bytes": 344875,
+                "key": "objects/b89fc491a80e4dc127941fc921204248c94404688758807c5d1d7b50b33302d2",
+                "sha256": "b89fc491a80e4dc127941fc921204248c94404688758807c5d1d7b50b33302d2"
+              },
+              "contentType": "text/html; charset=UTF-8",
+              "etag": null,
+              "fetchedAt": "2026-10-24T00:05:32.020053Z",
+              "finalUrl": "https://arcticwolf.com/resources/blog/arctic-wolf-closes-record-breaking-series-f-funding/",
+              "httpStatus": 304,
+              "lastModified": "Mon, 08 Jan 2024 12:15:02 GMT",
+              "observationId": "9b6cdba00418f914292d3d7f67041dc3e2d5e731707fde069b428878b69863d7",
+              "requestedUrl": "https://arcticwolf.com/resources/blog/arctic-wolf-closes-record-breaking-series-f-funding/",
+              "reusesObservationId": "08cd9ef98989a6aa8aaf6f63fdf4584647adb9af5c0930a32dd94aec5e8a5748",
+              "sourceId": "arctic-wolf:citation:TR-arctic-wolf-2",
+              "status": "not_modified",
+              "transportReused": false
+            },
+            "fileSeal": {
+              "sha256": "ff671681ccce8b75d9c353e270e5e9b7ef3469744897cb5c9b4e767a11ac86b1",
+              "bytes": 824,
+              "mtimeNs": 1792875521000000000
+            }
+          },
+          {
+            "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/08cd9ef98989a6aa8aaf6f63fdf4584647adb9af5c0930a32dd94aec5e8a5748.json",
+            "observation": {
+              "body": {
+                "bytes": 344875,
+                "key": "objects/b89fc491a80e4dc127941fc921204248c94404688758807c5d1d7b50b33302d2",
+                "sha256": "b89fc491a80e4dc127941fc921204248c94404688758807c5d1d7b50b33302d2"
+              },
+              "contentType": "text/html; charset=UTF-8",
+              "etag": null,
+              "fetchedAt": "2026-10-23T04:14:54.464718Z",
+              "finalUrl": "https://arcticwolf.com/resources/blog/arctic-wolf-closes-record-breaking-series-f-funding/",
+              "httpStatus": 304,
+              "lastModified": "Mon, 08 Jan 2024 12:15:02 GMT",
+              "observationId": "08cd9ef98989a6aa8aaf6f63fdf4584647adb9af5c0930a32dd94aec5e8a5748",
+              "requestedUrl": "https://arcticwolf.com/resources/blog/arctic-wolf-closes-record-breaking-series-f-funding/",
+              "reusesObservationId": "a5cc2a13b9325b35811516b5418e61c08e2a44c1e23671e0870ee3474bc459b3",
+              "sourceId": "arctic-wolf:citation:TR-arctic-wolf-2",
+              "status": "not_modified"
+            },
+            "fileSeal": {
+              "sha256": "e53535cfb2ab76e978f10ddc405bf7c3a4c577efffaae309ad85b88f36e20d89",
+              "bytes": 800,
+              "mtimeNs": 1792875521000000000
+            }
+          },
+          {
+            "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/a5cc2a13b9325b35811516b5418e61c08e2a44c1e23671e0870ee3474bc459b3.json",
+            "observation": {
+              "body": {
+                "bytes": 344875,
+                "key": "objects/b89fc491a80e4dc127941fc921204248c94404688758807c5d1d7b50b33302d2",
+                "sha256": "b89fc491a80e4dc127941fc921204248c94404688758807c5d1d7b50b33302d2"
+              },
+              "contentType": "text/html; charset=UTF-8",
+              "etag": null,
+              "fetchedAt": "2026-10-20T21:41:18.163906Z",
+              "finalUrl": "https://arcticwolf.com/resources/blog/arctic-wolf-closes-record-breaking-series-f-funding/",
+              "httpStatus": 304,
+              "lastModified": "Mon, 08 Jan 2024 12:15:02 GMT",
+              "observationId": "a5cc2a13b9325b35811516b5418e61c08e2a44c1e23671e0870ee3474bc459b3",
+              "requestedUrl": "https://arcticwolf.com/resources/blog/arctic-wolf-closes-record-breaking-series-f-funding/",
+              "reusesObservationId": "cddef400fb8964705c0f0f6b6ef735fbf359994ade8ad394b5f5fefd7946fc14",
+              "sourceId": "arctic-wolf:citation:TR-arctic-wolf-2",
+              "status": "not_modified"
+            },
+            "fileSeal": {
+              "sha256": "a8aec6af9f591fe8cc823fd0fb43aa0383e6c5ad368df6941daf6e4ed197295d",
+              "bytes": 800,
+              "mtimeNs": 1792875521000000000
+            }
+          },
+          {
+            "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/cddef400fb8964705c0f0f6b6ef735fbf359994ade8ad394b5f5fefd7946fc14.json",
+            "observation": {
+              "body": {
+                "bytes": 344875,
+                "key": "objects/b89fc491a80e4dc127941fc921204248c94404688758807c5d1d7b50b33302d2",
+                "sha256": "b89fc491a80e4dc127941fc921204248c94404688758807c5d1d7b50b33302d2"
+              },
+              "contentType": "text/html; charset=UTF-8",
+              "etag": null,
+              "fetchedAt": "2026-10-20T21:21:59.438344Z",
+              "finalUrl": "https://arcticwolf.com/resources/blog/arctic-wolf-closes-record-breaking-series-f-funding/",
+              "httpStatus": 304,
+              "lastModified": "Mon, 08 Jan 2024 12:15:02 GMT",
+              "observationId": "cddef400fb8964705c0f0f6b6ef735fbf359994ade8ad394b5f5fefd7946fc14",
+              "requestedUrl": "https://arcticwolf.com/resources/blog/arctic-wolf-closes-record-breaking-series-f-funding/",
+              "reusesObservationId": "10bbde39463f168ca2d4c5c361994536ee1eb20353bfc668d5cc9906f260b668",
+              "sourceId": "arctic-wolf:citation:TR-arctic-wolf-2",
+              "status": "not_modified"
+            },
+            "fileSeal": {
+              "sha256": "e4fe5478e2c69e281601d828bd6248bf2598b81613ba306871f8590d5095d864",
+              "bytes": 800,
+              "mtimeNs": 1792875521000000000
+            }
+          },
+          {
+            "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/10bbde39463f168ca2d4c5c361994536ee1eb20353bfc668d5cc9906f260b668.json",
+            "observation": {
+              "body": {
+                "bytes": 344875,
+                "key": "objects/b89fc491a80e4dc127941fc921204248c94404688758807c5d1d7b50b33302d2",
+                "sha256": "b89fc491a80e4dc127941fc921204248c94404688758807c5d1d7b50b33302d2"
+              },
+              "contentType": "text/html; charset=UTF-8",
+              "etag": null,
+              "fetchedAt": "2026-10-20T21:11:37.406181Z",
+              "finalUrl": "https://arcticwolf.com/resources/blog/arctic-wolf-closes-record-breaking-series-f-funding/",
+              "httpStatus": 200,
+              "lastModified": "Mon, 08 Jan 2024 12:15:02 GMT",
+              "observationId": "10bbde39463f168ca2d4c5c361994536ee1eb20353bfc668d5cc9906f260b668",
+              "requestedUrl": "https://arcticwolf.com/resources/blog/arctic-wolf-closes-record-breaking-series-f-funding/",
+              "sourceId": "arctic-wolf:citation:TR-arctic-wolf-2",
+              "status": "fetched"
+            },
+            "fileSeal": {
+              "sha256": "a5aa49ecbf4020a6eb3ed4b2c3ddc4cd28116d9650423231f1e3cee468e69348",
+              "bytes": 706,
+              "mtimeNs": 1792875521000000000
+            }
+          }
+        ],
+        "fullNormalizedDocumentChars": 12271,
+        "documentLimit": 30000,
+        "individualDocumentWithinLimit": true,
+        "allFiveCombinedDocumentCharsPending": 48416,
+        "allFiveInOneGroupWouldFitDocumentLimit": false
+      },
+      "remainingAdmissionBlockers": [
+        "No executable correction group is registered for these targets; no actual independent review/admission has occurred.",
+        "Admission must recheck exact current source/observation/body/time joins and the 0-to-30-hour age window.",
+        "A later source change outside these narrowly supported corrections must remain held pending separate review.",
+        "Newest full HTTP 200 is older than 30 hours. The newer exact-source HTTP 304 references the same retained full body and satisfies the current non-publisher transport rule at this evaluation; a 200-only workflow would still need a new authorized full fetch.",
+        "Each correction group must retain its exact supplier ownership and complete primary document within the 30000-character model budget. Combining all five source documents would total 48416 characters and is invalid."
+      ],
+      "dates": {
+        "originalPublicationDate": "2021-07-13",
+        "originalEconomicPeriod": "N/A (funding announcement)",
+        "originalRetrievedAt": "2026-10-02",
+        "newestFullFetchAt": "2026-10-20T21:11:37.406181Z",
+        "newestFullHttpLastModified": "Mon, 08 Jan 2024 12:15:02 GMT",
+        "latestObservationAt": "2026-10-24T18:29:52.977101Z",
+        "latestHttpLastModified": "Mon, 08 Jan 2024 12:15:02 GMT",
+        "displayedPublicationAndUpdateDates": [
+          "July 13, 2021"
+        ],
+        "dateMeaning": "Publication, update, transport-modified and fetch times retain their separate meanings. No later timestamp is substituted as an economic endpoint."
+      }
+    },
+    {
+      "supplierTargetId": "supplier:cato:headlineMetric",
+      "evidenceTargetId": "evidence:TR-cato-3",
+      "finding": "The original excerpt already preserves surpassed and 42% YoY; keep the complete evidence object unchanged.",
+      "operation": "unchanged",
+      "originalFullEvidenceObject": {
+        "id": "TR-cato-3",
+        "title": "Cato Networks Exceeds $415M in ARR Fueled by 42% YoY Growth and Enterprise Demand",
+        "organization": "Cato Networks",
+        "publicationDate": "2026-07-27",
+        "economicPeriod": "ARR milestone as of July 27, 2026",
+        "canonicalUrl": "https://www.prnewswire.com/il/news-releases/cato-networks-exceeds-415m-in-arr-fueled-by-42-yoy-growth-and-enterprise-demand-302833667.html",
+        "excerpt": "Cato Networks...announced that it has surpassed $415 million in ARR, with 42% year-over-year (YoY) growth.",
+        "sourceClass": "IR",
+        "interpretation": "",
+        "limitations": "Company-stated, not an audited filing. AUTO-001 fix pass 4, item 1: this record previously cited a later company blog restating the same figure because the originating PR Newswire release could not be fetched that session; it is now cited directly, carrying its own July 27, 2026 publication date instead of the blog's August 2026 repost date. Supersedes TR-cato-2's $350M/2025 figure with this more recent company-stated figure.",
+        "conflictingEvidenceIds": [],
+        "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-cato-3",
+        "tags": [
+          "tracker",
+          "network-sase"
+        ],
+        "retrievedAt": "2026-09-30"
+      },
+      "originalEvidenceObjectSha256": "9196fe273329f5a5f54b9a33921db012700c516c8397bf068b6cc3664443f5a7",
+      "proposedFullEvidenceObject": null,
+      "proposedEvidenceObjectSha256": null,
+      "changedEvidenceKeys": [],
+      "originalDatesAndProtectedIdentityPreserved": true,
+      "configuredSource": {
+        "allowedHosts": [
+          "www.prnewswire.com"
+        ],
+        "evidenceId": "TR-cato-3",
+        "family": "citation_integrity",
+        "id": "cato:citation:TR-cato-3",
+        "kind": "citation",
+        "maxPages": 1,
+        "registration": "verified",
+        "required": true,
+        "scopePrefixes": [
+          "/"
+        ],
+        "seedEvidenceUrls": [],
+        "supplierId": "cato",
+        "url": "https://www.prnewswire.com/il/news-releases/cato-networks-exceeds-415m-in-arr-fueled-by-42-yoy-growth-and-enterprise-demand-302833667.html"
+      },
+      "configuredSourceMatchesArchivePolicyH": true,
+      "originalLedgerProvenanceReference": {
+        "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/supplier-fields-review-2026-10-23.json",
+        "fileSeal": {
+          "sha256": "fa1382462c95f2cff79cc3a5b55131e43cf57324bf0a60507bed44efbe1ca188",
+          "bytes": 318296,
+          "mtimeNs": 1792800049478090683
+        },
+        "recordId": "supplier:cato:headlineMetric",
+        "evidenceId": "TR-cato-3",
+        "observationId": "d30f4df0445bc8f6f5970b9108990e5c23a9c53dcb172040f2136bb89bb61bf6",
+        "observedSourceId": "cato:citation:TR-cato-3",
+        "body": {
+          "bytes": 69624,
+          "key": "objects/ecc2af96e14714f04e5cb5b1c624b43d6e77a8f24aeef539129dd1d0d91bbe53",
+          "sha256": "ecc2af96e14714f04e5cb5b1c624b43d6e77a8f24aeef539129dd1d0d91bbe53"
+        },
+        "unchanged": true
+      },
+      "allExactSourceUrlObservationRefs": [
+        {
+          "observationId": "d30f4df0445bc8f6f5970b9108990e5c23a9c53dcb172040f2136bb89bb61bf6",
+          "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/d30f4df0445bc8f6f5970b9108990e5c23a9c53dcb172040f2136bb89bb61bf6.json",
+          "status": "fetched",
+          "httpStatus": 200,
+          "fetchedAt": "2026-10-20T21:11:27.377818Z",
+          "body": {
+            "bytes": 69624,
+            "key": "objects/ecc2af96e14714f04e5cb5b1c624b43d6e77a8f24aeef539129dd1d0d91bbe53",
+            "sha256": "ecc2af96e14714f04e5cb5b1c624b43d6e77a8f24aeef539129dd1d0d91bbe53"
+          },
+          "fileSeal": {
+            "sha256": "63431ab1757e588f8a53f4cbef6dcdc7ef4ff983248a96695105686696ec1c98",
+            "bytes": 787,
+            "mtimeNs": 1792875521000000000
+          }
+        },
+        {
+          "observationId": "6c6631cdea994d3e3b1b425f8a4076645e07479a043744df6fe821f74b0a7c8f",
+          "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/6c6631cdea994d3e3b1b425f8a4076645e07479a043744df6fe821f74b0a7c8f.json",
+          "status": "not_modified",
+          "httpStatus": 304,
+          "fetchedAt": "2026-10-20T21:22:18.618497Z",
+          "body": {
+            "bytes": 69624,
+            "key": "objects/ecc2af96e14714f04e5cb5b1c624b43d6e77a8f24aeef539129dd1d0d91bbe53",
+            "sha256": "ecc2af96e14714f04e5cb5b1c624b43d6e77a8f24aeef539129dd1d0d91bbe53"
+          },
+          "fileSeal": {
+            "sha256": "29f1fe85ff35b1d23515205c5254dab3c5052a81ad64865e7115903a41945021",
+            "bytes": 881,
+            "mtimeNs": 1792875521000000000
+          }
+        },
+        {
+          "observationId": "55d731214a87fc9eec9dea2436cb5ff8cc13dc63111f548b1996cc2633d5b6d6",
+          "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/55d731214a87fc9eec9dea2436cb5ff8cc13dc63111f548b1996cc2633d5b6d6.json",
+          "status": "fetched",
+          "httpStatus": 200,
+          "fetchedAt": "2026-10-20T21:41:18.084413Z",
+          "body": {
+            "bytes": 69624,
+            "key": "objects/17b735244f28c1029a9b05250ed0fb5aa9c81696b0c4f4667b47617e2543784d",
+            "sha256": "17b735244f28c1029a9b05250ed0fb5aa9c81696b0c4f4667b47617e2543784d"
+          },
+          "fileSeal": {
+            "sha256": "7e47e4fe946e5c835d4070bc5a28c745bf5c85eb9ff79a06a854de26d868654e",
+            "bytes": 787,
+            "mtimeNs": 1792875521000000000
+          }
+        },
+        {
+          "observationId": "b8ddc4350dd6c8d711624beeb1fe5528b23417f6f28bafe9c4271e00f7ef2130",
+          "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/b8ddc4350dd6c8d711624beeb1fe5528b23417f6f28bafe9c4271e00f7ef2130.json",
+          "status": "not_modified",
+          "httpStatus": 304,
+          "fetchedAt": "2026-10-22T01:11:52.847385Z",
+          "body": {
+            "bytes": 69624,
+            "key": "objects/17b735244f28c1029a9b05250ed0fb5aa9c81696b0c4f4667b47617e2543784d",
+            "sha256": "17b735244f28c1029a9b05250ed0fb5aa9c81696b0c4f4667b47617e2543784d"
+          },
+          "fileSeal": {
+            "sha256": "07278c0239b38a58b4cf15c1448185cf4408cd2fc4f41707c36c5f2f40799c7e",
+            "bytes": 881,
+            "mtimeNs": 1792875521000000000
+          }
+        },
+        {
+          "observationId": "4fe3cab6528edd1327b3bbfa0bb71e26fa02998d0ed0063668d6a0a52a4f50f9",
+          "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/4fe3cab6528edd1327b3bbfa0bb71e26fa02998d0ed0063668d6a0a52a4f50f9.json",
+          "status": "not_modified",
+          "httpStatus": 304,
+          "fetchedAt": "2026-10-23T04:14:51.552164Z",
+          "body": {
+            "bytes": 69624,
+            "key": "objects/17b735244f28c1029a9b05250ed0fb5aa9c81696b0c4f4667b47617e2543784d",
+            "sha256": "17b735244f28c1029a9b05250ed0fb5aa9c81696b0c4f4667b47617e2543784d"
+          },
+          "fileSeal": {
+            "sha256": "46bad90c23033e6b402d4c5a4c40a0cba20e2d21f104db77cc693fcccd5bb76e",
+            "bytes": 881,
+            "mtimeNs": 1792875521000000000
+          }
+        },
+        {
+          "observationId": "df443652fe73356387d6cb2dee339016169285ae8a6fb5085347be2bfbf318ac",
+          "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/df443652fe73356387d6cb2dee339016169285ae8a6fb5085347be2bfbf318ac.json",
+          "status": "not_modified",
+          "httpStatus": 304,
+          "fetchedAt": "2026-10-24T00:06:05.528584Z",
+          "body": {
+            "bytes": 69624,
+            "key": "objects/17b735244f28c1029a9b05250ed0fb5aa9c81696b0c4f4667b47617e2543784d",
+            "sha256": "17b735244f28c1029a9b05250ed0fb5aa9c81696b0c4f4667b47617e2543784d"
+          },
+          "fileSeal": {
+            "sha256": "ac66e16229f75f60b2be3cf6d5321caa4ce821a697adf4e40848ea55c896507e",
+            "bytes": 905,
+            "mtimeNs": 1792875521000000000
+          }
+        },
+        {
+          "observationId": "29e8f9be8a7dafc04ffb3418b40b2e552f77936e7e5db7d5df7803e75380486e",
+          "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/29e8f9be8a7dafc04ffb3418b40b2e552f77936e7e5db7d5df7803e75380486e.json",
+          "status": "not_modified",
+          "httpStatus": 304,
+          "fetchedAt": "2026-10-24T05:39:23.937654Z",
+          "body": {
+            "bytes": 69624,
+            "key": "objects/17b735244f28c1029a9b05250ed0fb5aa9c81696b0c4f4667b47617e2543784d",
+            "sha256": "17b735244f28c1029a9b05250ed0fb5aa9c81696b0c4f4667b47617e2543784d"
+          },
+          "fileSeal": {
+            "sha256": "64935c7d2fa8e7717ac140e75a2aee9f56bd2d3939f3d03b46e58b7ac928e11a",
+            "bytes": 905,
+            "mtimeNs": 1792875521000000000
+          }
+        },
+        {
+          "observationId": "7e31b12b0969f0df42b7e93aece84ad0e78c22ec43a8c25f33443a024daf347c",
+          "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/7e31b12b0969f0df42b7e93aece84ad0e78c22ec43a8c25f33443a024daf347c.json",
+          "status": "fetched",
+          "httpStatus": 200,
+          "fetchedAt": "2026-10-24T18:29:53.151136Z",
+          "body": {
+            "bytes": 70562,
+            "key": "objects/12e5fd3e0049dd013cfb5594d13810595769430310647a5beef4adecd1312d9a",
+            "sha256": "12e5fd3e0049dd013cfb5594d13810595769430310647a5beef4adecd1312d9a"
+          },
+          "fileSeal": {
+            "sha256": "ad90f719623fe24929736667cf37effe7b24febe257f7436ccaf2328f32b53dc",
+            "bytes": 892,
+            "mtimeNs": 1792875521000000000
+          }
+        }
+      ],
+      "newestRetainedFullHttp200": {
+        "observationPath": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/7e31b12b0969f0df42b7e93aece84ad0e78c22ec43a8c25f33443a024daf347c.json",
+        "observation": {
+          "body": {
+            "bytes": 70562,
+            "key": "objects/12e5fd3e0049dd013cfb5594d13810595769430310647a5beef4adecd1312d9a",
+            "sha256": "12e5fd3e0049dd013cfb5594d13810595769430310647a5beef4adecd1312d9a"
+          },
+          "contentType": "text/html; charset=UTF-8",
+          "etag": null,
+          "fetchedAt": "2026-10-24T18:29:53.151136Z",
+          "finalUrl": "https://www.prnewswire.com/il/news-releases/cato-networks-exceeds-415m-in-arr-fueled-by-42-yoy-growth-and-enterprise-demand-302833667.html",
+          "httpStatus": 200,
+          "lastModified": "Sat, 24 Oct 2026 08:44:36 GMT",
+          "observationId": "7e31b12b0969f0df42b7e93aece84ad0e78c22ec43a8c25f33443a024daf347c",
+          "requestedUrl": "https://www.prnewswire.com/il/news-releases/cato-networks-exceeds-415m-in-arr-fueled-by-42-yoy-growth-and-enterprise-demand-302833667.html",
+          "sourceId": "cato:citation:TR-cato-3",
+          "status": "fetched",
+          "transportId": "4e5d9a07c5d6d4925e9f83ec968b4d1161520453515261f2e2f1a6ca12df712e",
+          "transportReused": false
+        },
+        "bodyPath": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/12e5fd3e0049dd013cfb5594d13810595769430310647a5beef4adecd1312d9a",
+        "bodySeal": {
+          "sha256": "12e5fd3e0049dd013cfb5594d13810595769430310647a5beef4adecd1312d9a",
+          "bytes": 70562,
+          "mtimeNs": 1792875521000000000
+        },
+        "normalizedDocumentSha256": "dd07635e209bf0b10ac19d5d01e38add8839ce6e32394c5886f0026f248c6f99"
+      },
+      "newestRetainedObservation": {
+        "observationPath": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/7e31b12b0969f0df42b7e93aece84ad0e78c22ec43a8c25f33443a024daf347c.json",
+        "observation": {
+          "body": {
+            "bytes": 70562,
+            "key": "objects/12e5fd3e0049dd013cfb5594d13810595769430310647a5beef4adecd1312d9a",
+            "sha256": "12e5fd3e0049dd013cfb5594d13810595769430310647a5beef4adecd1312d9a"
+          },
+          "contentType": "text/html; charset=UTF-8",
+          "etag": null,
+          "fetchedAt": "2026-10-24T18:29:53.151136Z",
+          "finalUrl": "https://www.prnewswire.com/il/news-releases/cato-networks-exceeds-415m-in-arr-fueled-by-42-yoy-growth-and-enterprise-demand-302833667.html",
+          "httpStatus": 200,
+          "lastModified": "Sat, 24 Oct 2026 08:44:36 GMT",
+          "observationId": "7e31b12b0969f0df42b7e93aece84ad0e78c22ec43a8c25f33443a024daf347c",
+          "requestedUrl": "https://www.prnewswire.com/il/news-releases/cato-networks-exceeds-415m-in-arr-fueled-by-42-yoy-growth-and-enterprise-demand-302833667.html",
+          "sourceId": "cato:citation:TR-cato-3",
+          "status": "fetched",
+          "transportId": "4e5d9a07c5d6d4925e9f83ec968b4d1161520453515261f2e2f1a6ca12df712e",
+          "transportReused": false
+        },
+        "bodyPath": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/12e5fd3e0049dd013cfb5594d13810595769430310647a5beef4adecd1312d9a"
+      },
+      "comparedToOldLedgerBody": {
+        "sameRawBody": false,
+        "sameNormalizedPageText": true,
+        "oldNormalizedPageChars": 7877,
+        "newNormalizedPageChars": 7877,
+        "normalizedTextDifferences": [],
+        "changedBodyAdmitted": false,
+        "latestPageDifferenceHeldForIndependentReview": false
+      },
+      "literalPrimaryExcerpts": [],
+      "admissionPrerequisites": {
+        "configuredSourceIdAndCanonicalUrlExact": true,
+        "newestFullHttp200IdentityValid": true,
+        "newestFullHttp200Age": {
+          "evaluatedAt": "2026-10-25T01:49:25.989886Z",
+          "ageHours": 7.325788541666666,
+          "within30HoursAtEvaluation": true,
+          "earliestAllowedAdmissionAt": "2026-10-24T18:29:53.151136Z",
+          "lastAllowedAdmissionAt": "2026-10-26T00:29:53.151136Z",
+          "futureAdmissionMustRecheck": true
+        },
+        "latestObservedStatusAge": {
+          "evaluatedAt": "2026-10-25T01:49:25.989886Z",
+          "ageHours": 7.325788541666666,
+          "within30HoursAtEvaluation": true,
+          "earliestAllowedAdmissionAt": "2026-10-24T18:29:53.151136Z",
+          "lastAllowedAdmissionAt": "2026-10-26T00:29:53.151136Z",
+          "futureAdmissionMustRecheck": true
+        },
+        "latestStatusAcceptedByCurrentNonPublisherSourceRule": true,
+        "latestStatusBodyMatchesNewestFull200": true,
+        "latest304ReuseChain": [],
+        "fullNormalizedDocumentChars": 7877,
+        "documentLimit": 30000,
+        "individualDocumentWithinLimit": true,
+        "allFiveCombinedDocumentCharsPending": 48416,
+        "allFiveInOneGroupWouldFitDocumentLimit": false
+      },
+      "remainingAdmissionBlockers": [
+        "No executable correction group is registered for these targets; no actual independent review/admission has occurred.",
+        "Admission must recheck exact current source/observation/body/time joins and the 0-to-30-hour age window.",
+        "A later source change outside these narrowly supported corrections must remain held pending separate review.",
+        "Each correction group must retain its exact supplier ownership and complete primary document within the 30000-character model budget. Combining all five source documents would total 48416 characters and is invalid."
+      ],
+      "dates": {
+        "originalPublicationDate": "2026-07-27",
+        "originalEconomicPeriod": "ARR milestone as of July 27, 2026",
+        "originalRetrievedAt": "2026-09-30",
+        "newestFullFetchAt": "2026-10-24T18:29:53.151136Z",
+        "newestFullHttpLastModified": "Sat, 24 Oct 2026 08:44:36 GMT",
+        "latestObservationAt": "2026-10-24T18:29:53.151136Z",
+        "latestHttpLastModified": "Sat, 24 Oct 2026 08:44:36 GMT",
+        "displayedPublicationAndUpdateDates": [
+          "July 27, 2026"
+        ],
+        "dateMeaning": "Publication, update, transport-modified and fetch times retain their separate meanings. No later timestamp is substituted as an economic endpoint."
+      }
+    },
+    {
+      "supplierTargetId": "supplier:hiddenlayer:headlineMetric",
+      "evidenceTargetId": "evidence:TR-hiddenlayer-1",
+      "finding": "The original excerpt adds year-over-year. Use the literal more-than-10x sentence fragment and disclose that exact comparison dates are unspecified; the full funding release remains retained.",
+      "operation": "replace",
+      "originalFullEvidenceObject": {
+        "id": "TR-hiddenlayer-1",
+        "title": "HiddenLayer Raises $100M in Series B Funding to Advance AI Security",
+        "organization": "HiddenLayer, Inc.",
+        "publicationDate": "2026-09-02",
+        "economicPeriod": "N/A (funding announcement)",
+        "canonicalUrl": "https://www.hiddenlayer.com/news/hiddenlayer-100m-series-b-ai-security",
+        "excerpt": "HiddenLayer raised a $100 million Series B round led by Delta-v Capital, with Ten Eleven Ventures, Morgan Stanley, M12, and Booz Allen Ventures participating. The company states ARR 'grew more than 10x year-over-year' with 50+ new platform customers signed (unaudited).",
+        "sourceClass": "OFFICIAL",
+        "interpretation": "",
+        "limitations": "",
+        "conflictingEvidenceIds": [],
+        "artifactLabel": "SEC-MARKET-AUTO-001-FITFIX2 / TR-hiddenlayer-1",
+        "tags": [
+          "tracker",
+          "ai-security"
+        ],
+        "retrievedAt": "2026-09-25"
+      },
+      "originalEvidenceObjectSha256": "17bca1e094e5a4214e906d797f627fc3e471e2c9820598dc62f5552e859d23f8",
+      "proposedFullEvidenceObject": {
+        "id": "TR-hiddenlayer-1",
+        "title": "HiddenLayer Raises $100M in Series B Funding to Advance AI Security",
+        "organization": "HiddenLayer, Inc.",
+        "publicationDate": "2026-09-02",
+        "economicPeriod": "N/A (funding announcement)",
+        "canonicalUrl": "https://www.hiddenlayer.com/news/hiddenlayer-100m-series-b-ai-security",
+        "excerpt": "HiddenLayer's annual recurring revenue grew more than 10x",
+        "sourceClass": "OFFICIAL",
+        "interpretation": "",
+        "limitations": "Company-stated ARR growth in a September 2, 2026 announcement. The source describes a standout year without specifying exact comparison-window dates. Original publication and retrieval dates are retained.",
+        "conflictingEvidenceIds": [],
+        "artifactLabel": "SEC-MARKET-AUTO-001-FITFIX2 / TR-hiddenlayer-1",
+        "tags": [
+          "tracker",
+          "ai-security"
+        ],
+        "retrievedAt": "2026-09-25"
+      },
+      "proposedEvidenceObjectSha256": "68deb0e49c28abb29ad78a0b82e8ebbe36c68c2183e986a79f88f05258fbc2a8",
+      "changedEvidenceKeys": [
+        "excerpt",
+        "limitations"
+      ],
+      "originalDatesAndProtectedIdentityPreserved": true,
+      "configuredSource": {
+        "allowedHosts": [
+          "www.hiddenlayer.com"
+        ],
+        "evidenceId": "TR-hiddenlayer-1",
+        "family": "citation_integrity",
+        "id": "hiddenlayer:citation:TR-hiddenlayer-1",
+        "kind": "citation",
+        "maxPages": 1,
+        "registration": "verified",
+        "required": true,
+        "scopePrefixes": [
+          "/"
+        ],
+        "seedEvidenceUrls": [],
+        "supplierId": "hiddenlayer",
+        "url": "https://www.hiddenlayer.com/news/hiddenlayer-100m-series-b-ai-security"
+      },
+      "configuredSourceMatchesArchivePolicyH": true,
+      "originalLedgerProvenanceReference": {
+        "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/supplier-fields-review-2026-10-23.json",
+        "fileSeal": {
+          "sha256": "fa1382462c95f2cff79cc3a5b55131e43cf57324bf0a60507bed44efbe1ca188",
+          "bytes": 318296,
+          "mtimeNs": 1792800049478090683
+        },
+        "recordId": "supplier:hiddenlayer:headlineMetric",
+        "evidenceId": "TR-hiddenlayer-1",
+        "observationId": "ef7ff25ee6e0c0384707625f60bba2caf07c53453d0ade91c664ffd902287b0f",
+        "observedSourceId": "hiddenlayer:citation:TR-hiddenlayer-1",
+        "body": {
+          "bytes": 212853,
+          "key": "objects/27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718",
+          "sha256": "27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718"
+        },
+        "unchanged": true
+      },
+      "allExactSourceUrlObservationRefs": [
+        {
+          "observationId": "6ca20d44b2e7b3d8f8dec6794b8281de4315e164f11c43768b63047abb4b160c",
+          "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/6ca20d44b2e7b3d8f8dec6794b8281de4315e164f11c43768b63047abb4b160c.json",
+          "status": "fetched",
+          "httpStatus": 200,
+          "fetchedAt": "2026-10-20T21:12:06.040804Z",
+          "body": {
+            "bytes": 212853,
+            "key": "objects/27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718",
+            "sha256": "27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718"
+          },
+          "fileSeal": {
+            "sha256": "31e3218c292f18bd3982ce9375a7717dd0fd5b2f4e6bc5a56ebe7ea3035f421f",
+            "bytes": 666,
+            "mtimeNs": 1792875521000000000
+          }
+        },
+        {
+          "observationId": "dd16ced3982191321b231fe3f8c21575c1921851b51880681c5e6e064d36cd58",
+          "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/dd16ced3982191321b231fe3f8c21575c1921851b51880681c5e6e064d36cd58.json",
+          "status": "not_modified",
+          "httpStatus": 304,
+          "fetchedAt": "2026-10-20T21:21:35.912899Z",
+          "body": {
+            "bytes": 212853,
+            "key": "objects/27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718",
+            "sha256": "27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718"
+          },
+          "fileSeal": {
+            "sha256": "04ea946d55adc10e0b9173f81de3b748db431add641501ff5698cceb98e4f924",
+            "bytes": 760,
+            "mtimeNs": 1792875521000000000
+          }
+        },
+        {
+          "observationId": "ef7ff25ee6e0c0384707625f60bba2caf07c53453d0ade91c664ffd902287b0f",
+          "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/ef7ff25ee6e0c0384707625f60bba2caf07c53453d0ade91c664ffd902287b0f.json",
+          "status": "not_modified",
+          "httpStatus": 304,
+          "fetchedAt": "2026-10-20T21:41:46.485198Z",
+          "body": {
+            "bytes": 212853,
+            "key": "objects/27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718",
+            "sha256": "27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718"
+          },
+          "fileSeal": {
+            "sha256": "0b8a702135d6df7a904bba1e2a4ec63df64b935ffc52fd91571ee45ba5789e54",
+            "bytes": 760,
+            "mtimeNs": 1792875521000000000
+          }
+        },
+        {
+          "observationId": "905859baf6429844c416e28e2ce7c31f4c1b6f234e50f26f23be7572d4edeca2",
+          "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/905859baf6429844c416e28e2ce7c31f4c1b6f234e50f26f23be7572d4edeca2.json",
+          "status": "not_modified",
+          "httpStatus": 304,
+          "fetchedAt": "2026-10-22T01:11:36.681761Z",
+          "body": {
+            "bytes": 212853,
+            "key": "objects/27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718",
+            "sha256": "27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718"
+          },
+          "fileSeal": {
+            "sha256": "131d0df1589f5cd469cc3011109ab05f83aa9a81acbdb7147f25d5f5e07e80e1",
+            "bytes": 760,
+            "mtimeNs": 1792875521000000000
+          }
+        },
+        {
+          "observationId": "b1c545dad95d1dee7516a479fb87a716a68fa74bbd49c29f616fd36d5098ed5d",
+          "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/b1c545dad95d1dee7516a479fb87a716a68fa74bbd49c29f616fd36d5098ed5d.json",
+          "status": "fetched",
+          "httpStatus": 200,
+          "fetchedAt": "2026-10-23T04:14:42.527315Z",
+          "body": {
+            "bytes": 212853,
+            "key": "objects/27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718",
+            "sha256": "27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718"
+          },
+          "fileSeal": {
+            "sha256": "f3c5a48bb7a8dffd8cf2b61519a9177f88893f557b607225276630756ed1a845",
+            "bytes": 666,
+            "mtimeNs": 1792875521000000000
+          }
+        },
+        {
+          "observationId": "9d6e84643599fe17375d6dbe108cc8fcd45edd703ec6bdefeec7857216d8065e",
+          "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/9d6e84643599fe17375d6dbe108cc8fcd45edd703ec6bdefeec7857216d8065e.json",
+          "status": "not_modified",
+          "httpStatus": 304,
+          "fetchedAt": "2026-10-23T11:34:08.926736Z",
+          "body": {
+            "bytes": 212853,
+            "key": "objects/27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718",
+            "sha256": "27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718"
+          },
+          "fileSeal": {
+            "sha256": "9e7a7f4248f92fa59a2b1b1d669153c82f35ee914afca8498da8f7d7704214ce",
+            "bytes": 760,
+            "mtimeNs": 1792875521000000000
+          }
+        },
+        {
+          "observationId": "1b8b99d144b6434c6528b0dc04238c019dac469f456aa24231b6731f4f52b50e",
+          "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/1b8b99d144b6434c6528b0dc04238c019dac469f456aa24231b6731f4f52b50e.json",
+          "status": "not_modified",
+          "httpStatus": 304,
+          "fetchedAt": "2026-10-24T00:05:37.990079Z",
+          "body": {
+            "bytes": 212853,
+            "key": "objects/27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718",
+            "sha256": "27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718"
+          },
+          "fileSeal": {
+            "sha256": "f4ca8bf38dae537620d17154058584a885b1fe7be058ea2ab1c6da6e92ef5bf9",
+            "bytes": 784,
+            "mtimeNs": 1792875521000000000
+          }
+        },
+        {
+          "observationId": "3e6b51bc94287b506b9a9991ea9c247d21273d3af37513d1fde1a1f49882a552",
+          "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/3e6b51bc94287b506b9a9991ea9c247d21273d3af37513d1fde1a1f49882a552.json",
+          "status": "not_modified",
+          "httpStatus": 304,
+          "fetchedAt": "2026-10-24T05:39:46.480229Z",
+          "body": {
+            "bytes": 212853,
+            "key": "objects/27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718",
+            "sha256": "27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718"
+          },
+          "fileSeal": {
+            "sha256": "ef8dd36bfe0c2dec1a71db5b04085a73856e9013e70f2fef179a165b7557ce69",
+            "bytes": 784,
+            "mtimeNs": 1792875521000000000
+          }
+        },
+        {
+          "observationId": "76c834f9f851d1b62996b7be26f44e0a298004993aacc6ab7635927022732fc7",
+          "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/76c834f9f851d1b62996b7be26f44e0a298004993aacc6ab7635927022732fc7.json",
+          "status": "not_modified",
+          "httpStatus": 304,
+          "fetchedAt": "2026-10-24T18:30:05.170203Z",
+          "body": {
+            "bytes": 212853,
+            "key": "objects/27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718",
+            "sha256": "27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718"
+          },
+          "fileSeal": {
+            "sha256": "3237562f15ceecb78eafb4f973cf500b680557ba856e1756b85db01259dd59c8",
+            "bytes": 784,
+            "mtimeNs": 1792875521000000000
+          }
+        }
+      ],
+      "newestRetainedFullHttp200": {
+        "observationPath": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/b1c545dad95d1dee7516a479fb87a716a68fa74bbd49c29f616fd36d5098ed5d.json",
+        "observation": {
+          "body": {
+            "bytes": 212853,
+            "key": "objects/27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718",
+            "sha256": "27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718"
+          },
+          "contentType": "text/html; charset=utf-8",
+          "etag": null,
+          "fetchedAt": "2026-10-23T04:14:42.527315Z",
+          "finalUrl": "https://www.hiddenlayer.com/news/hiddenlayer-100m-series-b-ai-security",
+          "httpStatus": 200,
+          "lastModified": "Tue, 20 Oct 2026 16:05:08 GMT",
+          "observationId": "b1c545dad95d1dee7516a479fb87a716a68fa74bbd49c29f616fd36d5098ed5d",
+          "requestedUrl": "https://www.hiddenlayer.com/news/hiddenlayer-100m-series-b-ai-security",
+          "sourceId": "hiddenlayer:citation:TR-hiddenlayer-1",
+          "status": "fetched"
+        },
+        "bodyPath": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718",
+        "bodySeal": {
+          "sha256": "27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718",
+          "bytes": 212853,
+          "mtimeNs": 1792875521000000000
+        },
+        "normalizedDocumentSha256": "37f24ec7137534007eaa687aabef0dfc1a247a2e3659cb3e79937fb7b4b77b25"
+      },
+      "newestRetainedObservation": {
+        "observationPath": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/76c834f9f851d1b62996b7be26f44e0a298004993aacc6ab7635927022732fc7.json",
+        "observation": {
+          "body": {
+            "bytes": 212853,
+            "key": "objects/27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718",
+            "sha256": "27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718"
+          },
+          "contentType": "text/html; charset=utf-8",
+          "etag": null,
+          "fetchedAt": "2026-10-24T18:30:05.170203Z",
+          "finalUrl": "https://www.hiddenlayer.com/news/hiddenlayer-100m-series-b-ai-security",
+          "httpStatus": 304,
+          "lastModified": "Tue, 20 Oct 2026 16:05:08 GMT",
+          "observationId": "76c834f9f851d1b62996b7be26f44e0a298004993aacc6ab7635927022732fc7",
+          "requestedUrl": "https://www.hiddenlayer.com/news/hiddenlayer-100m-series-b-ai-security",
+          "reusesObservationId": "3e6b51bc94287b506b9a9991ea9c247d21273d3af37513d1fde1a1f49882a552",
+          "sourceId": "hiddenlayer:citation:TR-hiddenlayer-1",
+          "status": "not_modified",
+          "transportReused": false
+        },
+        "bodyPath": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718"
+      },
+      "comparedToOldLedgerBody": {
+        "sameRawBody": true,
+        "sameNormalizedPageText": true,
+        "oldNormalizedPageChars": 11308,
+        "newNormalizedPageChars": 11308,
+        "normalizedTextDifferences": [],
+        "changedBodyAdmitted": false,
+        "latestPageDifferenceHeldForIndependentReview": false
+      },
+      "literalPrimaryExcerpts": [
+        {
+          "decodedLiteral": "HiddenLayer's annual recurring revenue grew more than 10x",
+          "rawHtmlLiteral": "HiddenLayer&#x27;s annual recurring revenue grew more than 10x",
+          "rawUtf8ByteOffsets": [
+            177561
+          ],
+          "rawUtf8Bytes": 62,
+          "normalizedWholePageOffsets": [
+            3968
+          ],
+          "verifiedInOldAndNewestFullBody": true,
+          "maxLiteralWords": 8
+        }
+      ],
+      "admissionPrerequisites": {
+        "configuredSourceIdAndCanonicalUrlExact": true,
+        "newestFullHttp200IdentityValid": true,
+        "newestFullHttp200Age": {
+          "evaluatedAt": "2026-10-25T01:49:25.989886Z",
+          "ageHours": 45.57873960305556,
+          "within30HoursAtEvaluation": false,
+          "earliestAllowedAdmissionAt": "2026-10-23T04:14:42.527315Z",
+          "lastAllowedAdmissionAt": "2026-10-24T10:14:42.527315Z",
+          "futureAdmissionMustRecheck": true
+        },
+        "latestObservedStatusAge": {
+          "evaluatedAt": "2026-10-25T01:49:25.989886Z",
+          "ageHours": 7.322449911944445,
+          "within30HoursAtEvaluation": true,
+          "earliestAllowedAdmissionAt": "2026-10-24T18:30:05.170203Z",
+          "lastAllowedAdmissionAt": "2026-10-26T00:30:05.170203Z",
+          "futureAdmissionMustRecheck": true
+        },
+        "latestStatusAcceptedByCurrentNonPublisherSourceRule": true,
+        "latestStatusBodyMatchesNewestFull200": true,
+        "latest304ReuseChain": [
+          {
+            "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/3e6b51bc94287b506b9a9991ea9c247d21273d3af37513d1fde1a1f49882a552.json",
+            "observation": {
+              "body": {
+                "bytes": 212853,
+                "key": "objects/27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718",
+                "sha256": "27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718"
+              },
+              "contentType": "text/html; charset=utf-8",
+              "etag": null,
+              "fetchedAt": "2026-10-24T05:39:46.480229Z",
+              "finalUrl": "https://www.hiddenlayer.com/news/hiddenlayer-100m-series-b-ai-security",
+              "httpStatus": 304,
+              "lastModified": "Tue, 20 Oct 2026 16:05:08 GMT",
+              "observationId": "3e6b51bc94287b506b9a9991ea9c247d21273d3af37513d1fde1a1f49882a552",
+              "requestedUrl": "https://www.hiddenlayer.com/news/hiddenlayer-100m-series-b-ai-security",
+              "reusesObservationId": "1b8b99d144b6434c6528b0dc04238c019dac469f456aa24231b6731f4f52b50e",
+              "sourceId": "hiddenlayer:citation:TR-hiddenlayer-1",
+              "status": "not_modified",
+              "transportReused": false
+            },
+            "fileSeal": {
+              "sha256": "ef8dd36bfe0c2dec1a71db5b04085a73856e9013e70f2fef179a165b7557ce69",
+              "bytes": 784,
+              "mtimeNs": 1792875521000000000
+            }
+          },
+          {
+            "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/1b8b99d144b6434c6528b0dc04238c019dac469f456aa24231b6731f4f52b50e.json",
+            "observation": {
+              "body": {
+                "bytes": 212853,
+                "key": "objects/27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718",
+                "sha256": "27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718"
+              },
+              "contentType": "text/html; charset=utf-8",
+              "etag": null,
+              "fetchedAt": "2026-10-24T00:05:37.990079Z",
+              "finalUrl": "https://www.hiddenlayer.com/news/hiddenlayer-100m-series-b-ai-security",
+              "httpStatus": 304,
+              "lastModified": "Tue, 20 Oct 2026 16:05:08 GMT",
+              "observationId": "1b8b99d144b6434c6528b0dc04238c019dac469f456aa24231b6731f4f52b50e",
+              "requestedUrl": "https://www.hiddenlayer.com/news/hiddenlayer-100m-series-b-ai-security",
+              "reusesObservationId": "9d6e84643599fe17375d6dbe108cc8fcd45edd703ec6bdefeec7857216d8065e",
+              "sourceId": "hiddenlayer:citation:TR-hiddenlayer-1",
+              "status": "not_modified",
+              "transportReused": false
+            },
+            "fileSeal": {
+              "sha256": "f4ca8bf38dae537620d17154058584a885b1fe7be058ea2ab1c6da6e92ef5bf9",
+              "bytes": 784,
+              "mtimeNs": 1792875521000000000
+            }
+          },
+          {
+            "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/9d6e84643599fe17375d6dbe108cc8fcd45edd703ec6bdefeec7857216d8065e.json",
+            "observation": {
+              "body": {
+                "bytes": 212853,
+                "key": "objects/27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718",
+                "sha256": "27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718"
+              },
+              "contentType": "text/html; charset=utf-8",
+              "etag": null,
+              "fetchedAt": "2026-10-23T11:34:08.926736Z",
+              "finalUrl": "https://www.hiddenlayer.com/news/hiddenlayer-100m-series-b-ai-security",
+              "httpStatus": 304,
+              "lastModified": "Tue, 20 Oct 2026 16:05:08 GMT",
+              "observationId": "9d6e84643599fe17375d6dbe108cc8fcd45edd703ec6bdefeec7857216d8065e",
+              "requestedUrl": "https://www.hiddenlayer.com/news/hiddenlayer-100m-series-b-ai-security",
+              "reusesObservationId": "b1c545dad95d1dee7516a479fb87a716a68fa74bbd49c29f616fd36d5098ed5d",
+              "sourceId": "hiddenlayer:citation:TR-hiddenlayer-1",
+              "status": "not_modified"
+            },
+            "fileSeal": {
+              "sha256": "9e7a7f4248f92fa59a2b1b1d669153c82f35ee914afca8498da8f7d7704214ce",
+              "bytes": 760,
+              "mtimeNs": 1792875521000000000
+            }
+          },
+          {
+            "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/b1c545dad95d1dee7516a479fb87a716a68fa74bbd49c29f616fd36d5098ed5d.json",
+            "observation": {
+              "body": {
+                "bytes": 212853,
+                "key": "objects/27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718",
+                "sha256": "27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718"
+              },
+              "contentType": "text/html; charset=utf-8",
+              "etag": null,
+              "fetchedAt": "2026-10-23T04:14:42.527315Z",
+              "finalUrl": "https://www.hiddenlayer.com/news/hiddenlayer-100m-series-b-ai-security",
+              "httpStatus": 200,
+              "lastModified": "Tue, 20 Oct 2026 16:05:08 GMT",
+              "observationId": "b1c545dad95d1dee7516a479fb87a716a68fa74bbd49c29f616fd36d5098ed5d",
+              "requestedUrl": "https://www.hiddenlayer.com/news/hiddenlayer-100m-series-b-ai-security",
+              "sourceId": "hiddenlayer:citation:TR-hiddenlayer-1",
+              "status": "fetched"
+            },
+            "fileSeal": {
+              "sha256": "f3c5a48bb7a8dffd8cf2b61519a9177f88893f557b607225276630756ed1a845",
+              "bytes": 666,
+              "mtimeNs": 1792875521000000000
+            }
+          }
+        ],
+        "fullNormalizedDocumentChars": 11308,
+        "documentLimit": 30000,
+        "individualDocumentWithinLimit": true,
+        "allFiveCombinedDocumentCharsPending": 48416,
+        "allFiveInOneGroupWouldFitDocumentLimit": false
+      },
+      "remainingAdmissionBlockers": [
+        "No executable correction group is registered for these targets; no actual independent review/admission has occurred.",
+        "Admission must recheck exact current source/observation/body/time joins and the 0-to-30-hour age window.",
+        "A later source change outside these narrowly supported corrections must remain held pending separate review.",
+        "Newest full HTTP 200 is older than 30 hours. The newer exact-source HTTP 304 references the same retained full body and satisfies the current non-publisher transport rule at this evaluation; a 200-only workflow would still need a new authorized full fetch.",
+        "Each correction group must retain its exact supplier ownership and complete primary document within the 30000-character model budget. Combining all five source documents would total 48416 characters and is invalid."
+      ],
+      "dates": {
+        "originalPublicationDate": "2026-09-02",
+        "originalEconomicPeriod": "N/A (funding announcement)",
+        "originalRetrievedAt": "2026-09-25",
+        "newestFullFetchAt": "2026-10-23T04:14:42.527315Z",
+        "newestFullHttpLastModified": "Tue, 20 Oct 2026 16:05:08 GMT",
+        "latestObservationAt": "2026-10-24T18:30:05.170203Z",
+        "latestHttpLastModified": "Tue, 20 Oct 2026 16:05:08 GMT",
+        "displayedPublicationAndUpdateDates": [
+          "September 2, 2026"
+        ],
+        "dateMeaning": "Publication, update, transport-modified and fetch times retain their separate meanings. No later timestamp is substituted as an economic endpoint."
+      }
+    },
+    {
+      "supplierTargetId": "supplier:witnessai:headlineMetric",
+      "evidenceTargetId": "evidence:TR-witnessai-1",
+      "finding": "The original excerpt drops more than. Use the literal qualified relative-period phrase and disclose the January-versus-October vintage uncertainty. Preserve publicationDate, economicPeriod and retrievedAt exactly.",
+      "operation": "replace",
+      "originalFullEvidenceObject": {
+        "id": "TR-witnessai-1",
+        "title": "WitnessAI Raises $58M to Help Enterprises Move Faster with AI Safely",
+        "organization": "WitnessAI",
+        "publicationDate": "2026-01-13",
+        "economicPeriod": "N/A (funding announcement)",
+        "canonicalUrl": "https://witness.ai/blog/witnessai-raises-58m-to-help-enterprises-move-faster-with-ai-safely/",
+        "excerpt": "WitnessAI raised a $58 million strategic funding round led by Sound Ventures, with Fin Capital, Samsung Ventures, Qualcomm Ventures, Forgepoint Capital Partners, Silver Buckshot Ventures, and existing investors Google Ventures and Ballistic Ventures participating. The release states '500% ARR growth — just in the past 12 months' and headcount up 5x (unaudited).",
+        "sourceClass": "OFFICIAL",
+        "interpretation": "",
+        "limitations": "Company blog/press release.",
+        "conflictingEvidenceIds": [],
+        "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-witnessai-1",
+        "tags": [
+          "tracker",
+          "ai-security"
+        ],
+        "retrievedAt": "2026-09-25"
+      },
+      "originalEvidenceObjectSha256": "baa258f76d0b5865e8adcbaf317bb7f30e92e3250855abafad299eefaf211e55",
+      "proposedFullEvidenceObject": {
+        "id": "TR-witnessai-1",
+        "title": "WitnessAI Raises $58M to Help Enterprises Move Faster with AI Safely",
+        "organization": "WitnessAI",
+        "publicationDate": "2026-01-13",
+        "economicPeriod": "N/A (funding announcement)",
+        "canonicalUrl": "https://witness.ai/blog/witnessai-raises-58m-to-help-enterprises-move-faster-with-ai-safely/",
+        "excerpt": "more than 500% ARR growth — just in the past 12 months",
+        "sourceClass": "OFFICIAL",
+        "interpretation": "",
+        "limitations": "Company blog/press release. The retained body displays January 13, 2026 and Last updated: October 14, 2026. The more-than-500% ARR growth sentence describes the past 12 months, without establishing whether it appeared in January or which exact dates bound that period. Neither the update stamp nor the later fetch is an economic endpoint. Original publication and retrieval dates are retained.",
+        "conflictingEvidenceIds": [],
+        "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-witnessai-1",
+        "tags": [
+          "tracker",
+          "ai-security"
+        ],
+        "retrievedAt": "2026-09-25"
+      },
+      "proposedEvidenceObjectSha256": "816fd84efc86ad0bdcfda4e6db3ce90c62518545645b563da3c38d0d0725dbcc",
+      "changedEvidenceKeys": [
+        "excerpt",
+        "limitations"
+      ],
+      "originalDatesAndProtectedIdentityPreserved": true,
+      "configuredSource": {
+        "allowedHosts": [
+          "witness.ai"
+        ],
+        "evidenceId": "TR-witnessai-1",
+        "family": "citation_integrity",
+        "id": "witnessai:citation:TR-witnessai-1",
+        "kind": "citation",
+        "maxPages": 1,
+        "registration": "verified",
+        "required": true,
+        "scopePrefixes": [
+          "/"
+        ],
+        "seedEvidenceUrls": [],
+        "supplierId": "witnessai",
+        "url": "https://witness.ai/blog/witnessai-raises-58m-to-help-enterprises-move-faster-with-ai-safely/"
+      },
+      "configuredSourceMatchesArchivePolicyH": true,
+      "originalLedgerProvenanceReference": {
+        "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/supplier-fields-review-2026-10-23.json",
+        "fileSeal": {
+          "sha256": "fa1382462c95f2cff79cc3a5b55131e43cf57324bf0a60507bed44efbe1ca188",
+          "bytes": 318296,
+          "mtimeNs": 1792800049478090683
+        },
+        "recordId": "supplier:witnessai:headlineMetric",
+        "evidenceId": "TR-witnessai-1",
+        "observationId": "babb1c40926b523cdda80be1e184f41d3658f896de82a94573dce6a72fa66584",
+        "observedSourceId": "witnessai:citation:TR-witnessai-1",
+        "body": {
+          "bytes": 148316,
+          "key": "objects/fb3e2ba4a5112d42b0a74fdd474e8c8f87793ef2c1c03c83c7f9e4e1def4d8b2",
+          "sha256": "fb3e2ba4a5112d42b0a74fdd474e8c8f87793ef2c1c03c83c7f9e4e1def4d8b2"
+        },
+        "unchanged": true
+      },
+      "allExactSourceUrlObservationRefs": [
+        {
+          "observationId": "b4cbda37e5dd19d7ea41cbe4d2d6b27774cc85e7738f84b597df2288dd2a08ae",
+          "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/b4cbda37e5dd19d7ea41cbe4d2d6b27774cc85e7738f84b597df2288dd2a08ae.json",
+          "status": "fetched",
+          "httpStatus": 200,
+          "fetchedAt": "2026-10-20T21:11:57.374040Z",
+          "body": {
+            "bytes": 146249,
+            "key": "objects/932a62a8cc252ec3326bd4ccd6c84d0fa7b9ae49b6c7fe5576467027900b312a",
+            "sha256": "932a62a8cc252ec3326bd4ccd6c84d0fa7b9ae49b6c7fe5576467027900b312a"
+          },
+          "fileSeal": {
+            "sha256": "d1dfb0301d6f9d7a4497d3960c4b7a804d04eb84be08fc27d2162aae9efab55d",
+            "bytes": 706,
+            "mtimeNs": 1792875521000000000
+          }
+        },
+        {
+          "observationId": "178f701d3f0591fec7986c5c7dcc74cfd28b3a96e01e9e6c7ab858686dc99447",
+          "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/178f701d3f0591fec7986c5c7dcc74cfd28b3a96e01e9e6c7ab858686dc99447.json",
+          "status": "fetched",
+          "httpStatus": 200,
+          "fetchedAt": "2026-10-20T21:21:47.516951Z",
+          "body": {
+            "bytes": 146249,
+            "key": "objects/932a62a8cc252ec3326bd4ccd6c84d0fa7b9ae49b6c7fe5576467027900b312a",
+            "sha256": "932a62a8cc252ec3326bd4ccd6c84d0fa7b9ae49b6c7fe5576467027900b312a"
+          },
+          "fileSeal": {
+            "sha256": "3590e1f45c069e539373359564e523b8abc1907d2b32076969b9c8824273cf6f",
+            "bytes": 706,
+            "mtimeNs": 1792875521000000000
+          }
+        },
+        {
+          "observationId": "0ba7a9ee1dc98cebb7d505cc29024d5d6e1e1f5fd12e61f36dda173470e71b8d",
+          "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/0ba7a9ee1dc98cebb7d505cc29024d5d6e1e1f5fd12e61f36dda173470e71b8d.json",
+          "status": "fetched",
+          "httpStatus": 200,
+          "fetchedAt": "2026-10-20T21:41:28.508280Z",
+          "body": {
+            "bytes": 146249,
+            "key": "objects/932a62a8cc252ec3326bd4ccd6c84d0fa7b9ae49b6c7fe5576467027900b312a",
+            "sha256": "932a62a8cc252ec3326bd4ccd6c84d0fa7b9ae49b6c7fe5576467027900b312a"
+          },
+          "fileSeal": {
+            "sha256": "19cb7a1c4d9d63270d06fa6bb8a212103ed31d8b3aef8c94fa11acd53d122f17",
+            "bytes": 706,
+            "mtimeNs": 1792875521000000000
+          }
+        },
+        {
+          "observationId": "77d3332af791e0c2d39b8d0c6842aff12fb90b0cac9dc9048711d8ac628e794e",
+          "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/77d3332af791e0c2d39b8d0c6842aff12fb90b0cac9dc9048711d8ac628e794e.json",
+          "status": "fetched",
+          "httpStatus": 200,
+          "fetchedAt": "2026-10-22T01:11:29.334396Z",
+          "body": {
+            "bytes": 148311,
+            "key": "objects/5a51d5358c663819a9d795bfdb9f3aa86a7214802d191192c22ec3fe04925465",
+            "sha256": "5a51d5358c663819a9d795bfdb9f3aa86a7214802d191192c22ec3fe04925465"
+          },
+          "fileSeal": {
+            "sha256": "47d3421c9405a24ba0fc382f268aa1d090614596da09248129b65ffb0b8b908b",
+            "bytes": 706,
+            "mtimeNs": 1792875521000000000
+          }
+        },
+        {
+          "observationId": "babb1c40926b523cdda80be1e184f41d3658f896de82a94573dce6a72fa66584",
+          "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/babb1c40926b523cdda80be1e184f41d3658f896de82a94573dce6a72fa66584.json",
+          "status": "fetched",
+          "httpStatus": 200,
+          "fetchedAt": "2026-10-23T04:15:07.434579Z",
+          "body": {
+            "bytes": 148316,
+            "key": "objects/fb3e2ba4a5112d42b0a74fdd474e8c8f87793ef2c1c03c83c7f9e4e1def4d8b2",
+            "sha256": "fb3e2ba4a5112d42b0a74fdd474e8c8f87793ef2c1c03c83c7f9e4e1def4d8b2"
+          },
+          "fileSeal": {
+            "sha256": "f046082bfd3a17f2f70483107920ead3c5830d94fd19f68eadc0acc01f10f9de",
+            "bytes": 706,
+            "mtimeNs": 1792875521000000000
+          }
+        },
+        {
+          "observationId": "2dc54d5186ed6ad4157af573cb614f23c15123abf8ceefbb5461853c8c972bf7",
+          "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/2dc54d5186ed6ad4157af573cb614f23c15123abf8ceefbb5461853c8c972bf7.json",
+          "status": "fetched",
+          "httpStatus": 200,
+          "fetchedAt": "2026-10-24T00:05:54.771994Z",
+          "body": {
+            "bytes": 148310,
+            "key": "objects/aa41b33c62cd398724819cbdde7a47d2c49f334bc16bfb57d4848970840aa950",
+            "sha256": "aa41b33c62cd398724819cbdde7a47d2c49f334bc16bfb57d4848970840aa950"
+          },
+          "fileSeal": {
+            "sha256": "d612ffa7b2bad5efb6dd6f4a3c9398260437a4792b80f37526ec1372209a477f",
+            "bytes": 811,
+            "mtimeNs": 1792875521000000000
+          }
+        },
+        {
+          "observationId": "5e9a38151f7f1af3063df63dfe35430a711784a63a0d5f4ae32c446177c78a62",
+          "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/5e9a38151f7f1af3063df63dfe35430a711784a63a0d5f4ae32c446177c78a62.json",
+          "status": "fetched",
+          "httpStatus": 200,
+          "fetchedAt": "2026-10-24T05:39:47.495388Z",
+          "body": {
+            "bytes": 148316,
+            "key": "objects/51baf40cd55b758b0ab20c6a30949bb260c7037d5f5bab34a022c0ec49d87abd",
+            "sha256": "51baf40cd55b758b0ab20c6a30949bb260c7037d5f5bab34a022c0ec49d87abd"
+          },
+          "fileSeal": {
+            "sha256": "7ebc061f87772f389f736ecb32beee73d8581b64a55fab5d6d3721925965512d",
+            "bytes": 811,
+            "mtimeNs": 1792875521000000000
+          }
+        },
+        {
+          "observationId": "47983b13ae72228f140536591b889f77f3b4a2e02ee57bb1e631ad2e38f50a79",
+          "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/47983b13ae72228f140536591b889f77f3b4a2e02ee57bb1e631ad2e38f50a79.json",
+          "status": "fetched",
+          "httpStatus": 200,
+          "fetchedAt": "2026-10-24T18:30:05.057117Z",
+          "body": {
+            "bytes": 148313,
+            "key": "objects/e9b7c2d4fc480397db30f7bdac83c3c2dd70eae6e168baa7d6c2f9fe931c89e0",
+            "sha256": "e9b7c2d4fc480397db30f7bdac83c3c2dd70eae6e168baa7d6c2f9fe931c89e0"
+          },
+          "fileSeal": {
+            "sha256": "149a5a9e40612d953bef87bc3c577e723a4db724288b17e58862f6a0d6ad3ee4",
+            "bytes": 811,
+            "mtimeNs": 1792875521000000000
+          }
+        }
+      ],
+      "newestRetainedFullHttp200": {
+        "observationPath": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/47983b13ae72228f140536591b889f77f3b4a2e02ee57bb1e631ad2e38f50a79.json",
+        "observation": {
+          "body": {
+            "bytes": 148313,
+            "key": "objects/e9b7c2d4fc480397db30f7bdac83c3c2dd70eae6e168baa7d6c2f9fe931c89e0",
+            "sha256": "e9b7c2d4fc480397db30f7bdac83c3c2dd70eae6e168baa7d6c2f9fe931c89e0"
+          },
+          "contentType": "text/html; charset=UTF-8",
+          "etag": null,
+          "fetchedAt": "2026-10-24T18:30:05.057117Z",
+          "finalUrl": "https://witness.ai/blog/witnessai-raises-58m-to-help-enterprises-move-faster-with-ai-safely/",
+          "httpStatus": 200,
+          "lastModified": "Sat, 24 Oct 2026 18:30:05 GMT",
+          "observationId": "47983b13ae72228f140536591b889f77f3b4a2e02ee57bb1e631ad2e38f50a79",
+          "requestedUrl": "https://witness.ai/blog/witnessai-raises-58m-to-help-enterprises-move-faster-with-ai-safely/",
+          "sourceId": "witnessai:citation:TR-witnessai-1",
+          "status": "fetched",
+          "transportId": "2ade76dc052fe2e5b3d64c675d56ee900e34774761906369ec023c8aa6f16626",
+          "transportReused": false
+        },
+        "bodyPath": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/e9b7c2d4fc480397db30f7bdac83c3c2dd70eae6e168baa7d6c2f9fe931c89e0",
+        "bodySeal": {
+          "sha256": "e9b7c2d4fc480397db30f7bdac83c3c2dd70eae6e168baa7d6c2f9fe931c89e0",
+          "bytes": 148313,
+          "mtimeNs": 1792875521000000000
+        },
+        "normalizedDocumentSha256": "7b598d01337df7c7e03fa2baf8dc3ca32e17a852e5bb179dfc70e1f8260f0519"
+      },
+      "newestRetainedObservation": {
+        "observationPath": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/47983b13ae72228f140536591b889f77f3b4a2e02ee57bb1e631ad2e38f50a79.json",
+        "observation": {
+          "body": {
+            "bytes": 148313,
+            "key": "objects/e9b7c2d4fc480397db30f7bdac83c3c2dd70eae6e168baa7d6c2f9fe931c89e0",
+            "sha256": "e9b7c2d4fc480397db30f7bdac83c3c2dd70eae6e168baa7d6c2f9fe931c89e0"
+          },
+          "contentType": "text/html; charset=UTF-8",
+          "etag": null,
+          "fetchedAt": "2026-10-24T18:30:05.057117Z",
+          "finalUrl": "https://witness.ai/blog/witnessai-raises-58m-to-help-enterprises-move-faster-with-ai-safely/",
+          "httpStatus": 200,
+          "lastModified": "Sat, 24 Oct 2026 18:30:05 GMT",
+          "observationId": "47983b13ae72228f140536591b889f77f3b4a2e02ee57bb1e631ad2e38f50a79",
+          "requestedUrl": "https://witness.ai/blog/witnessai-raises-58m-to-help-enterprises-move-faster-with-ai-safely/",
+          "sourceId": "witnessai:citation:TR-witnessai-1",
+          "status": "fetched",
+          "transportId": "2ade76dc052fe2e5b3d64c675d56ee900e34774761906369ec023c8aa6f16626",
+          "transportReused": false
+        },
+        "bodyPath": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/e9b7c2d4fc480397db30f7bdac83c3c2dd70eae6e168baa7d6c2f9fe931c89e0"
+      },
+      "comparedToOldLedgerBody": {
+        "sameRawBody": false,
+        "sameNormalizedPageText": false,
+        "oldNormalizedPageChars": 7464,
+        "newNormalizedPageChars": 7461,
+        "normalizedTextDifferences": [
+          {
+            "operation": "replace",
+            "oldStart": 6499,
+            "oldEnd": 6500,
+            "oldText": "C",
+            "newStart": 6499,
+            "newEnd": 6501,
+            "newText": "Ph",
+            "oldContext": " article Share this article Subscribe to the Blog Company This field is for validation purposes and s",
+            "newContext": " article Share this article Subscribe to the Blog Phone This field is for validation purposes and shou"
+          },
+          {
+            "operation": "delete",
+            "oldStart": 6501,
+            "oldEnd": 6504,
+            "oldText": "mpa",
+            "newStart": 6502,
+            "newEnd": 6502,
+            "newText": "",
+            "oldContext": "rticle Share this article Subscribe to the Blog Company This field is for validation purposes and shoul",
+            "newContext": "ticle Share this article Subscribe to the Blog Phone This field is for validation purposes and shoul"
+          },
+          {
+            "operation": "replace",
+            "oldStart": 6505,
+            "oldEnd": 6506,
+            "oldText": "y",
+            "newStart": 6503,
+            "newEnd": 6504,
+            "newText": "e",
+            "oldContext": "le Share this article Subscribe to the Blog Company This field is for validation purposes and should ",
+            "newContext": "icle Share this article Subscribe to the Blog Phone This field is for validation purposes and should "
+          },
+          {
+            "operation": "replace",
+            "oldStart": 6765,
+            "oldEnd": 6766,
+            "oldText": "I",
+            "newStart": 6763,
+            "newEnd": 6768,
+            "newText": "Comme",
+            "oldContext": "s, webinars, research, and more. Stay in the loop Instagram This field is for validation purposes and",
+            "newContext": "s, webinars, research, and more. Stay in the loop Comments This field is for validation purposes and shou"
+          },
+          {
+            "operation": "insert",
+            "oldStart": 6767,
+            "oldEnd": 6767,
+            "oldText": "",
+            "newStart": 6769,
+            "newEnd": 6770,
+            "newText": "t",
+            "oldContext": " webinars, research, and more. Stay in the loop Instagram This field is for validation purposes and ",
+            "newContext": "inars, research, and more. Stay in the loop Comments This field is for validation purposes and should"
+          },
+          {
+            "operation": "delete",
+            "oldStart": 6768,
+            "oldEnd": 6774,
+            "oldText": "tagram",
+            "newStart": 6771,
+            "newEnd": 6771,
+            "newText": "",
+            "oldContext": "webinars, research, and more. Stay in the loop Instagram This field is for validation purposes and should ",
+            "newContext": "ars, research, and more. Stay in the loop Comments This field is for validation purposes and should "
+          }
+        ],
+        "changedBodyAdmitted": false,
+        "latestPageDifferenceHeldForIndependentReview": true
+      },
+      "literalPrimaryExcerpts": [
+        {
+          "decodedLiteral": "more than 500% ARR growth — just in the past 12 months",
+          "rawHtmlLiteral": "more than 500% ARR growth &mdash; just in the past 12 months",
+          "rawUtf8ByteOffsets": [
+            67284
+          ],
+          "rawUtf8Bytes": 60,
+          "normalizedWholePageOffsets": [
+            4186
+          ],
+          "verifiedInOldAndNewestFullBody": true,
+          "maxLiteralWords": 12
+        }
+      ],
+      "admissionPrerequisites": {
+        "configuredSourceIdAndCanonicalUrlExact": true,
+        "newestFullHttp200IdentityValid": true,
+        "newestFullHttp200Age": {
+          "evaluatedAt": "2026-10-25T01:49:25.989886Z",
+          "ageHours": 7.322481324722222,
+          "within30HoursAtEvaluation": true,
+          "earliestAllowedAdmissionAt": "2026-10-24T18:30:05.057117Z",
+          "lastAllowedAdmissionAt": "2026-10-26T00:30:05.057117Z",
+          "futureAdmissionMustRecheck": true
+        },
+        "latestObservedStatusAge": {
+          "evaluatedAt": "2026-10-25T01:49:25.989886Z",
+          "ageHours": 7.322481324722222,
+          "within30HoursAtEvaluation": true,
+          "earliestAllowedAdmissionAt": "2026-10-24T18:30:05.057117Z",
+          "lastAllowedAdmissionAt": "2026-10-26T00:30:05.057117Z",
+          "futureAdmissionMustRecheck": true
+        },
+        "latestStatusAcceptedByCurrentNonPublisherSourceRule": true,
+        "latestStatusBodyMatchesNewestFull200": true,
+        "latest304ReuseChain": [],
+        "fullNormalizedDocumentChars": 7461,
+        "documentLimit": 30000,
+        "individualDocumentWithinLimit": true,
+        "allFiveCombinedDocumentCharsPending": 48416,
+        "allFiveInOneGroupWouldFitDocumentLimit": false
+      },
+      "remainingAdmissionBlockers": [
+        "No executable correction group is registered for these targets; no actual independent review/admission has occurred.",
+        "Admission must recheck exact current source/observation/body/time joins and the 0-to-30-hour age window.",
+        "A later source change outside these narrowly supported corrections must remain held pending separate review.",
+        "Latest full-page text changes only form-field labels in this comparison. The old and new raw bodies differ; that difference is explicitly held for independent comparative review rather than silently treated as same-body.",
+        "No examined January-version body establishes original metric vintage or exact economic comparison-window dates. A future admission must accept the explicit uncertainty wording without inventing a date.",
+        "Each correction group must retain its exact supplier ownership and complete primary document within the 30000-character model budget. Combining all five source documents would total 48416 characters and is invalid."
+      ],
+      "dates": {
+        "originalPublicationDate": "2026-01-13",
+        "originalEconomicPeriod": "N/A (funding announcement)",
+        "originalRetrievedAt": "2026-09-25",
+        "newestFullFetchAt": "2026-10-24T18:30:05.057117Z",
+        "newestFullHttpLastModified": "Sat, 24 Oct 2026 18:30:05 GMT",
+        "latestObservationAt": "2026-10-24T18:30:05.057117Z",
+        "latestHttpLastModified": "Sat, 24 Oct 2026 18:30:05 GMT",
+        "displayedPublicationAndUpdateDates": [
+          "January 13, 2026",
+          "Last updated: October 14, 2026"
+        ],
+        "dateMeaning": "Publication, update, transport-modified and fetch times retain their separate meanings. No later timestamp is substituted as an economic endpoint."
+      }
+    }
+  ],
+  "earlierProposalFilesByteIdentical": [
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/remaining-metric-qualifier-review-2026-10-25.json",
+      "before": {
+        "sha256": "96c27ad3b34fe243756006587b5e3f92df67118509a0ba8e7d7474e1a4865d84",
+        "bytes": 60030,
+        "mtimeNs": 1792892648521603940
+      },
+      "after": {
+        "sha256": "96c27ad3b34fe243756006587b5e3f92df67118509a0ba8e7d7474e1a4865d84",
+        "bytes": 60030,
+        "mtimeNs": 1792892648521603940
+      }
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/remaining-metric-qualifier-review-2026-10-25.md",
+      "before": {
+        "sha256": "979f3ed3795fb1ecb758397c7b120accb644f2921f9f869f19ab7ce79543c172",
+        "bytes": 4552,
+        "mtimeNs": 1792892648521785356
+      },
+      "after": {
+        "sha256": "979f3ed3795fb1ecb758397c7b120accb644f2921f9f869f19ab7ce79543c172",
+        "bytes": 4552,
+        "mtimeNs": 1792892648521785356
+      }
+    }
+  ],
+  "archive": {
+    "root": "/var/tmp/smp-seven-source-40131875060-20261024/extracted",
+    "manifestSha256": "895213b31bb9f75814acc9484cad9aabd3719e07ddd72c621275a9b2568a1e5c"
+  },
+  "observationSearch": {
+    "predicate": "Exact configured sourceId AND requestedUrl==canonicalUrl AND finalUrl==canonicalUrl. Select maximum (fetchedAt, observationId) among status=fetched/httpStatus=200/body-present. Separately retain newest successful-or-unsuccessful exact-source/URL observation without relabeling.",
+    "beforeInventorySeal": {
+      "files": 9030,
+      "totalBytes": 6670105,
+      "canonicalFileSealInventorySha256": "8c014dd2036806064bfb1d194f1a568b2f0f6aff277f87306dad6947cb52d2f4",
+      "encoding": "SHA-256 of canonical JSON sorted list of {path,sha256,bytes,mtimeNs}; path uses absolute VM archive path."
+    },
+    "afterInventorySeal": {
+      "files": 9030,
+      "totalBytes": 6670105,
+      "canonicalFileSealInventorySha256": "8c014dd2036806064bfb1d194f1a568b2f0f6aff277f87306dad6947cb52d2f4",
+      "encoding": "SHA-256 of canonical JSON sorted list of {path,sha256,bytes,mtimeNs}; path uses absolute VM archive path."
+    },
+    "allScannedObservationFilesHashSizeMtimeUnchanged": true
+  },
+  "consultedRelevantInputSeals": [
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/remaining-metric-qualifier-review-2026-10-25.json",
+      "before": {
+        "sha256": "96c27ad3b34fe243756006587b5e3f92df67118509a0ba8e7d7474e1a4865d84",
+        "bytes": 60030,
+        "mtimeNs": 1792892648521603940
+      },
+      "after": {
+        "sha256": "96c27ad3b34fe243756006587b5e3f92df67118509a0ba8e7d7474e1a4865d84",
+        "bytes": 60030,
+        "mtimeNs": 1792892648521603940
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/remaining-metric-qualifier-review-2026-10-25.md",
+      "before": {
+        "sha256": "979f3ed3795fb1ecb758397c7b120accb644f2921f9f869f19ab7ce79543c172",
+        "bytes": 4552,
+        "mtimeNs": 1792892648521785356
+      },
+      "after": {
+        "sha256": "979f3ed3795fb1ecb758397c7b120accb644f2921f9f869f19ab7ce79543c172",
+        "bytes": 4552,
+        "mtimeNs": 1792892648521785356
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/web/src/data/tracker/originals.json",
+      "before": {
+        "sha256": "7d164cb81003db0a66eccbb25c2e8605e33b853b9a6e20cb2c6900794822b4a3",
+        "bytes": 381034,
+        "mtimeNs": 1792800049834720322
+      },
+      "after": {
+        "sha256": "7d164cb81003db0a66eccbb25c2e8605e33b853b9a6e20cb2c6900794822b4a3",
+        "bytes": 381034,
+        "mtimeNs": 1792800049834720322
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/contracts/market.json",
+      "before": {
+        "sha256": "24221c946781559c0ff3626e4e479c4647da915d0f2d7559ea88046982532c3c",
+        "bytes": 284062,
+        "mtimeNs": 1792865573453423141
+      },
+      "after": {
+        "sha256": "24221c946781559c0ff3626e4e479c4647da915d0f2d7559ea88046982532c3c",
+        "bytes": 284062,
+        "mtimeNs": 1792865573453423141
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/contracts/factual-corrections.json",
+      "before": {
+        "sha256": "9c9fbe0d3d40ece11e1407ce9460086c732f62da88d3b0f220ab9d6f8757da00",
+        "bytes": 32004,
+        "mtimeNs": 1792802031150005119
+      },
+      "after": {
+        "sha256": "9c9fbe0d3d40ece11e1407ce9460086c732f62da88d3b0f220ab9d6f8757da00",
+        "bytes": 32004,
+        "mtimeNs": 1792802031150005119
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/supplier-fields-review-2026-10-23.json",
+      "before": {
+        "sha256": "fa1382462c95f2cff79cc3a5b55131e43cf57324bf0a60507bed44efbe1ca188",
+        "bytes": 318296,
+        "mtimeNs": 1792800049478090683
+      },
+      "after": {
+        "sha256": "fa1382462c95f2cff79cc3a5b55131e43cf57324bf0a60507bed44efbe1ca188",
+        "bytes": 318296,
+        "mtimeNs": 1792800049478090683
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/corrections.py",
+      "before": {
+        "sha256": "d019310bd6c0dcea7e1400e3c63c0d9c3b67ee282f40a1eb4e14f4617d0af13c",
+        "bytes": 39496,
+        "mtimeNs": 1792800049822513834
+      },
+      "after": {
+        "sha256": "d019310bd6c0dcea7e1400e3c63c0d9c3b67ee282f40a1eb4e14f4617d0af13c",
+        "bytes": 39496,
+        "mtimeNs": 1792800049822513834
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/discovery.py",
+      "before": {
+        "sha256": "2611635de944f025e848d8a7b15dfff2a328ac67a11a122a774eb46b2e1e7f68",
+        "bytes": 70911,
+        "mtimeNs": 1792875045592176818
+      },
+      "after": {
+        "sha256": "2611635de944f025e848d8a7b15dfff2a328ac67a11a122a774eb46b2e1e7f68",
+        "bytes": 70911,
+        "mtimeNs": 1792875045592176818
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/contracts.py",
+      "before": {
+        "sha256": "7a9dbf1c4a59391f79519b2aefe688ec572733e2223fd99fa352688b8d1c2d89",
+        "bytes": 10994,
+        "mtimeNs": 1792863209003882260
+      },
+      "after": {
+        "sha256": "7a9dbf1c4a59391f79519b2aefe688ec572733e2223fd99fa352688b8d1c2d89",
+        "bytes": 10994,
+        "mtimeNs": 1792863209003882260
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/contracts/8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db.json",
+      "before": {
+        "sha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+        "bytes": 204449,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+        "bytes": 204449,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/archive-manifest.json",
+      "before": {
+        "sha256": "895213b31bb9f75814acc9484cad9aabd3719e07ddd72c621275a9b2568a1e5c",
+        "bytes": 8433031,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "895213b31bb9f75814acc9484cad9aabd3719e07ddd72c621275a9b2568a1e5c",
+        "bytes": 8433031,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/07b3f9e68e98c2301c0c882d81cfcd83682a9122479d8d10c037474df4a7ab80.json",
+      "before": {
+        "sha256": "ab9a7b9ebb777c7a2efc8b2c0d3c035d6a8de6d0ed905453aa91ee315ced40f9",
+        "bytes": 632,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "ab9a7b9ebb777c7a2efc8b2c0d3c035d6a8de6d0ed905453aa91ee315ced40f9",
+        "bytes": 632,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/08cd9ef98989a6aa8aaf6f63fdf4584647adb9af5c0930a32dd94aec5e8a5748.json",
+      "before": {
+        "sha256": "e53535cfb2ab76e978f10ddc405bf7c3a4c577efffaae309ad85b88f36e20d89",
+        "bytes": 800,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "e53535cfb2ab76e978f10ddc405bf7c3a4c577efffaae309ad85b88f36e20d89",
+        "bytes": 800,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/0ba7a9ee1dc98cebb7d505cc29024d5d6e1e1f5fd12e61f36dda173470e71b8d.json",
+      "before": {
+        "sha256": "19cb7a1c4d9d63270d06fa6bb8a212103ed31d8b3aef8c94fa11acd53d122f17",
+        "bytes": 706,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "19cb7a1c4d9d63270d06fa6bb8a212103ed31d8b3aef8c94fa11acd53d122f17",
+        "bytes": 706,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/10bbde39463f168ca2d4c5c361994536ee1eb20353bfc668d5cc9906f260b668.json",
+      "before": {
+        "sha256": "a5aa49ecbf4020a6eb3ed4b2c3ddc4cd28116d9650423231f1e3cee468e69348",
+        "bytes": 706,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "a5aa49ecbf4020a6eb3ed4b2c3ddc4cd28116d9650423231f1e3cee468e69348",
+        "bytes": 706,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/178f701d3f0591fec7986c5c7dcc74cfd28b3a96e01e9e6c7ab858686dc99447.json",
+      "before": {
+        "sha256": "3590e1f45c069e539373359564e523b8abc1907d2b32076969b9c8824273cf6f",
+        "bytes": 706,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "3590e1f45c069e539373359564e523b8abc1907d2b32076969b9c8824273cf6f",
+        "bytes": 706,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/1b8b99d144b6434c6528b0dc04238c019dac469f456aa24231b6731f4f52b50e.json",
+      "before": {
+        "sha256": "f4ca8bf38dae537620d17154058584a885b1fe7be058ea2ab1c6da6e92ef5bf9",
+        "bytes": 784,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "f4ca8bf38dae537620d17154058584a885b1fe7be058ea2ab1c6da6e92ef5bf9",
+        "bytes": 784,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/1be85c0f41d45c532ce8deb1665e6d2dc815f283befe240be7f46cc981353e05.json",
+      "before": {
+        "sha256": "b5435272cb2fa99ed2d4b7025979144157bee7102b7edcd85390557b59a89fd1",
+        "bytes": 632,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "b5435272cb2fa99ed2d4b7025979144157bee7102b7edcd85390557b59a89fd1",
+        "bytes": 632,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/20cc66a14434d8491e3e97ff3a9c4fbe821b0b852b3912e6d5802743d1de2df1.json",
+      "before": {
+        "sha256": "7d81f6cd1202244b7c63c4f48eaf2b7b01b38a79f7aa468550210313d136c5e5",
+        "bytes": 736,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "7d81f6cd1202244b7c63c4f48eaf2b7b01b38a79f7aa468550210313d136c5e5",
+        "bytes": 736,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/249df2f1c0f044dbc7d6602a8083ea9c8a01f47c9e94511600f968c152dd1ba7.json",
+      "before": {
+        "sha256": "b7c432087cef5bd8fb48b32f7aa5dd22a407de75acbf01fb9048d390bca0efab",
+        "bytes": 736,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "b7c432087cef5bd8fb48b32f7aa5dd22a407de75acbf01fb9048d390bca0efab",
+        "bytes": 736,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/29e8f9be8a7dafc04ffb3418b40b2e552f77936e7e5db7d5df7803e75380486e.json",
+      "before": {
+        "sha256": "64935c7d2fa8e7717ac140e75a2aee9f56bd2d3939f3d03b46e58b7ac928e11a",
+        "bytes": 905,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "64935c7d2fa8e7717ac140e75a2aee9f56bd2d3939f3d03b46e58b7ac928e11a",
+        "bytes": 905,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/2dc54d5186ed6ad4157af573cb614f23c15123abf8ceefbb5461853c8c972bf7.json",
+      "before": {
+        "sha256": "d612ffa7b2bad5efb6dd6f4a3c9398260437a4792b80f37526ec1372209a477f",
+        "bytes": 811,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "d612ffa7b2bad5efb6dd6f4a3c9398260437a4792b80f37526ec1372209a477f",
+        "bytes": 811,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/3e6b51bc94287b506b9a9991ea9c247d21273d3af37513d1fde1a1f49882a552.json",
+      "before": {
+        "sha256": "ef8dd36bfe0c2dec1a71db5b04085a73856e9013e70f2fef179a165b7557ce69",
+        "bytes": 784,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "ef8dd36bfe0c2dec1a71db5b04085a73856e9013e70f2fef179a165b7557ce69",
+        "bytes": 784,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/47983b13ae72228f140536591b889f77f3b4a2e02ee57bb1e631ad2e38f50a79.json",
+      "before": {
+        "sha256": "149a5a9e40612d953bef87bc3c577e723a4db724288b17e58862f6a0d6ad3ee4",
+        "bytes": 811,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "149a5a9e40612d953bef87bc3c577e723a4db724288b17e58862f6a0d6ad3ee4",
+        "bytes": 811,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/485744729e62f1f98e55fcf3bbbb6d6dad454be300dc00807ee964feb0dfefc7.json",
+      "before": {
+        "sha256": "76d6765188f8a4544cf016892eff9bb0f56a7fd3e12f6696b8c21e89706c3a0c",
+        "bytes": 343,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "76d6765188f8a4544cf016892eff9bb0f56a7fd3e12f6696b8c21e89706c3a0c",
+        "bytes": 343,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/4fe3cab6528edd1327b3bbfa0bb71e26fa02998d0ed0063668d6a0a52a4f50f9.json",
+      "before": {
+        "sha256": "46bad90c23033e6b402d4c5a4c40a0cba20e2d21f104db77cc693fcccd5bb76e",
+        "bytes": 881,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "46bad90c23033e6b402d4c5a4c40a0cba20e2d21f104db77cc693fcccd5bb76e",
+        "bytes": 881,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/55d731214a87fc9eec9dea2436cb5ff8cc13dc63111f548b1996cc2633d5b6d6.json",
+      "before": {
+        "sha256": "7e47e4fe946e5c835d4070bc5a28c745bf5c85eb9ff79a06a854de26d868654e",
+        "bytes": 787,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "7e47e4fe946e5c835d4070bc5a28c745bf5c85eb9ff79a06a854de26d868654e",
+        "bytes": 787,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/5e9a38151f7f1af3063df63dfe35430a711784a63a0d5f4ae32c446177c78a62.json",
+      "before": {
+        "sha256": "7ebc061f87772f389f736ecb32beee73d8581b64a55fab5d6d3721925965512d",
+        "bytes": 811,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "7ebc061f87772f389f736ecb32beee73d8581b64a55fab5d6d3721925965512d",
+        "bytes": 811,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/6bd01aadcc54307ccd7d86ef82ccfbe87ae4c236a12ecd871623f7bc63730e36.json",
+      "before": {
+        "sha256": "fc193160bc02405e47b6d841556f0748faa0f80c8973ce07b5fa52b00cff144c",
+        "bytes": 824,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "fc193160bc02405e47b6d841556f0748faa0f80c8973ce07b5fa52b00cff144c",
+        "bytes": 824,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/6c6631cdea994d3e3b1b425f8a4076645e07479a043744df6fe821f74b0a7c8f.json",
+      "before": {
+        "sha256": "29f1fe85ff35b1d23515205c5254dab3c5052a81ad64865e7115903a41945021",
+        "bytes": 881,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "29f1fe85ff35b1d23515205c5254dab3c5052a81ad64865e7115903a41945021",
+        "bytes": 881,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/6ca20d44b2e7b3d8f8dec6794b8281de4315e164f11c43768b63047abb4b160c.json",
+      "before": {
+        "sha256": "31e3218c292f18bd3982ce9375a7717dd0fd5b2f4e6bc5a56ebe7ea3035f421f",
+        "bytes": 666,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "31e3218c292f18bd3982ce9375a7717dd0fd5b2f4e6bc5a56ebe7ea3035f421f",
+        "bytes": 666,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/76c834f9f851d1b62996b7be26f44e0a298004993aacc6ab7635927022732fc7.json",
+      "before": {
+        "sha256": "3237562f15ceecb78eafb4f973cf500b680557ba856e1756b85db01259dd59c8",
+        "bytes": 784,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "3237562f15ceecb78eafb4f973cf500b680557ba856e1756b85db01259dd59c8",
+        "bytes": 784,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/77d3332af791e0c2d39b8d0c6842aff12fb90b0cac9dc9048711d8ac628e794e.json",
+      "before": {
+        "sha256": "47d3421c9405a24ba0fc382f268aa1d090614596da09248129b65ffb0b8b908b",
+        "bytes": 706,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "47d3421c9405a24ba0fc382f268aa1d090614596da09248129b65ffb0b8b908b",
+        "bytes": 706,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/7e31b12b0969f0df42b7e93aece84ad0e78c22ec43a8c25f33443a024daf347c.json",
+      "before": {
+        "sha256": "ad90f719623fe24929736667cf37effe7b24febe257f7436ccaf2328f32b53dc",
+        "bytes": 892,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "ad90f719623fe24929736667cf37effe7b24febe257f7436ccaf2328f32b53dc",
+        "bytes": 892,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/905859baf6429844c416e28e2ce7c31f4c1b6f234e50f26f23be7572d4edeca2.json",
+      "before": {
+        "sha256": "131d0df1589f5cd469cc3011109ab05f83aa9a81acbdb7147f25d5f5e07e80e1",
+        "bytes": 760,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "131d0df1589f5cd469cc3011109ab05f83aa9a81acbdb7147f25d5f5e07e80e1",
+        "bytes": 760,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/95a9f1dec043a641dd87d88495b3b3f2c84e1a404b8d9725f2f21c37d5e967dd.json",
+      "before": {
+        "sha256": "b3a18137589d150377cf91ccd60677c480c2743e75ef02a3e2f09dcc1bb35e61",
+        "bytes": 824,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "b3a18137589d150377cf91ccd60677c480c2743e75ef02a3e2f09dcc1bb35e61",
+        "bytes": 824,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/9639304241fe59a0532f9677f4809ee8ec25ef69d74a23fb58cfc46a8e70cd90.json",
+      "before": {
+        "sha256": "67b896afe94cbb09e15881a0c9ad870822fed86e251033742a3804db0b2adacd",
+        "bytes": 737,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "67b896afe94cbb09e15881a0c9ad870822fed86e251033742a3804db0b2adacd",
+        "bytes": 737,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/9b6cdba00418f914292d3d7f67041dc3e2d5e731707fde069b428878b69863d7.json",
+      "before": {
+        "sha256": "ff671681ccce8b75d9c353e270e5e9b7ef3469744897cb5c9b4e767a11ac86b1",
+        "bytes": 824,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "ff671681ccce8b75d9c353e270e5e9b7ef3469744897cb5c9b4e767a11ac86b1",
+        "bytes": 824,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/9d6e84643599fe17375d6dbe108cc8fcd45edd703ec6bdefeec7857216d8065e.json",
+      "before": {
+        "sha256": "9e7a7f4248f92fa59a2b1b1d669153c82f35ee914afca8498da8f7d7704214ce",
+        "bytes": 760,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "9e7a7f4248f92fa59a2b1b1d669153c82f35ee914afca8498da8f7d7704214ce",
+        "bytes": 760,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/a3556517ef267aedb4a059ce07dff01a83a8460702d4d10edf2f357d368a9e1b.json",
+      "before": {
+        "sha256": "dd9589b1485e0e735b1026bf1e8e9faf3c968b90da0fa4cb1a8d469706158e1d",
+        "bytes": 632,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "dd9589b1485e0e735b1026bf1e8e9faf3c968b90da0fa4cb1a8d469706158e1d",
+        "bytes": 632,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/a5cc2a13b9325b35811516b5418e61c08e2a44c1e23671e0870ee3474bc459b3.json",
+      "before": {
+        "sha256": "a8aec6af9f591fe8cc823fd0fb43aa0383e6c5ad368df6941daf6e4ed197295d",
+        "bytes": 800,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "a8aec6af9f591fe8cc823fd0fb43aa0383e6c5ad368df6941daf6e4ed197295d",
+        "bytes": 800,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/afd1d793c463f877a7454a1c46f2e5e10ac609665d98ef879991057a092346ad.json",
+      "before": {
+        "sha256": "909a22a0e254d8a12ac3bee394a9f0ef6eb4173cd25869f07292fa3f0d77a45d",
+        "bytes": 632,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "909a22a0e254d8a12ac3bee394a9f0ef6eb4173cd25869f07292fa3f0d77a45d",
+        "bytes": 632,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/b1c545dad95d1dee7516a479fb87a716a68fa74bbd49c29f616fd36d5098ed5d.json",
+      "before": {
+        "sha256": "f3c5a48bb7a8dffd8cf2b61519a9177f88893f557b607225276630756ed1a845",
+        "bytes": 666,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "f3c5a48bb7a8dffd8cf2b61519a9177f88893f557b607225276630756ed1a845",
+        "bytes": 666,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/b4cbda37e5dd19d7ea41cbe4d2d6b27774cc85e7738f84b597df2288dd2a08ae.json",
+      "before": {
+        "sha256": "d1dfb0301d6f9d7a4497d3960c4b7a804d04eb84be08fc27d2162aae9efab55d",
+        "bytes": 706,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "d1dfb0301d6f9d7a4497d3960c4b7a804d04eb84be08fc27d2162aae9efab55d",
+        "bytes": 706,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/b8ddc4350dd6c8d711624beeb1fe5528b23417f6f28bafe9c4271e00f7ef2130.json",
+      "before": {
+        "sha256": "07278c0239b38a58b4cf15c1448185cf4408cd2fc4f41707c36c5f2f40799c7e",
+        "bytes": 881,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "07278c0239b38a58b4cf15c1448185cf4408cd2fc4f41707c36c5f2f40799c7e",
+        "bytes": 881,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/babb1c40926b523cdda80be1e184f41d3658f896de82a94573dce6a72fa66584.json",
+      "before": {
+        "sha256": "f046082bfd3a17f2f70483107920ead3c5830d94fd19f68eadc0acc01f10f9de",
+        "bytes": 706,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "f046082bfd3a17f2f70483107920ead3c5830d94fd19f68eadc0acc01f10f9de",
+        "bytes": 706,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/cddef400fb8964705c0f0f6b6ef735fbf359994ade8ad394b5f5fefd7946fc14.json",
+      "before": {
+        "sha256": "e4fe5478e2c69e281601d828bd6248bf2598b81613ba306871f8590d5095d864",
+        "bytes": 800,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "e4fe5478e2c69e281601d828bd6248bf2598b81613ba306871f8590d5095d864",
+        "bytes": 800,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/cf0533e8e74d60d517b1283826fa900af5008daf466319e65444bc5a1a9d4861.json",
+      "before": {
+        "sha256": "fecc531cb24680eedd815eeae5116bf88b4ea149aa18dfa0aec516d120d8f4bd",
+        "bytes": 632,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "fecc531cb24680eedd815eeae5116bf88b4ea149aa18dfa0aec516d120d8f4bd",
+        "bytes": 632,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/d30f4df0445bc8f6f5970b9108990e5c23a9c53dcb172040f2136bb89bb61bf6.json",
+      "before": {
+        "sha256": "63431ab1757e588f8a53f4cbef6dcdc7ef4ff983248a96695105686696ec1c98",
+        "bytes": 787,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "63431ab1757e588f8a53f4cbef6dcdc7ef4ff983248a96695105686696ec1c98",
+        "bytes": 787,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/dd16ced3982191321b231fe3f8c21575c1921851b51880681c5e6e064d36cd58.json",
+      "before": {
+        "sha256": "04ea946d55adc10e0b9173f81de3b748db431add641501ff5698cceb98e4f924",
+        "bytes": 760,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "04ea946d55adc10e0b9173f81de3b748db431add641501ff5698cceb98e4f924",
+        "bytes": 760,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/dda855ec5afccc7a0ccaf17062e053e9b8e20a2774f2f13bfb0f1bed04c5ac95.json",
+      "before": {
+        "sha256": "7c4231cfd6ece3e0d929a2a7d59314affefc891cd3ef5d89fa59666cfa5ab2f6",
+        "bytes": 632,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "7c4231cfd6ece3e0d929a2a7d59314affefc891cd3ef5d89fa59666cfa5ab2f6",
+        "bytes": 632,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/df443652fe73356387d6cb2dee339016169285ae8a6fb5085347be2bfbf318ac.json",
+      "before": {
+        "sha256": "ac66e16229f75f60b2be3cf6d5321caa4ce821a697adf4e40848ea55c896507e",
+        "bytes": 905,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "ac66e16229f75f60b2be3cf6d5321caa4ce821a697adf4e40848ea55c896507e",
+        "bytes": 905,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/ef7ff25ee6e0c0384707625f60bba2caf07c53453d0ade91c664ffd902287b0f.json",
+      "before": {
+        "sha256": "0b8a702135d6df7a904bba1e2a4ec63df64b935ffc52fd91571ee45ba5789e54",
+        "bytes": 760,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "0b8a702135d6df7a904bba1e2a4ec63df64b935ffc52fd91571ee45ba5789e54",
+        "bytes": 760,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/88d6ac1e84aef9e9ff6965762bffef21d9310352147ebb44c70f252cf456e3b9",
+      "before": {
+        "sha256": "88d6ac1e84aef9e9ff6965762bffef21d9310352147ebb44c70f252cf456e3b9",
+        "bytes": 307154,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "88d6ac1e84aef9e9ff6965762bffef21d9310352147ebb44c70f252cf456e3b9",
+        "bytes": 307154,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/d056bf5f31e82e6782e982028ea2113a7a388e832085338b7f0cc7ffef88418b",
+      "before": {
+        "sha256": "d056bf5f31e82e6782e982028ea2113a7a388e832085338b7f0cc7ffef88418b",
+        "bytes": 305862,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "d056bf5f31e82e6782e982028ea2113a7a388e832085338b7f0cc7ffef88418b",
+        "bytes": 305862,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/b89fc491a80e4dc127941fc921204248c94404688758807c5d1d7b50b33302d2",
+      "before": {
+        "sha256": "b89fc491a80e4dc127941fc921204248c94404688758807c5d1d7b50b33302d2",
+        "bytes": 344875,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "b89fc491a80e4dc127941fc921204248c94404688758807c5d1d7b50b33302d2",
+        "bytes": 344875,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/12e5fd3e0049dd013cfb5594d13810595769430310647a5beef4adecd1312d9a",
+      "before": {
+        "sha256": "12e5fd3e0049dd013cfb5594d13810595769430310647a5beef4adecd1312d9a",
+        "bytes": 70562,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "12e5fd3e0049dd013cfb5594d13810595769430310647a5beef4adecd1312d9a",
+        "bytes": 70562,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/ecc2af96e14714f04e5cb5b1c624b43d6e77a8f24aeef539129dd1d0d91bbe53",
+      "before": {
+        "sha256": "ecc2af96e14714f04e5cb5b1c624b43d6e77a8f24aeef539129dd1d0d91bbe53",
+        "bytes": 69624,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "ecc2af96e14714f04e5cb5b1c624b43d6e77a8f24aeef539129dd1d0d91bbe53",
+        "bytes": 69624,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718",
+      "before": {
+        "sha256": "27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718",
+        "bytes": 212853,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718",
+        "bytes": 212853,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/e9b7c2d4fc480397db30f7bdac83c3c2dd70eae6e168baa7d6c2f9fe931c89e0",
+      "before": {
+        "sha256": "e9b7c2d4fc480397db30f7bdac83c3c2dd70eae6e168baa7d6c2f9fe931c89e0",
+        "bytes": 148313,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "e9b7c2d4fc480397db30f7bdac83c3c2dd70eae6e168baa7d6c2f9fe931c89e0",
+        "bytes": 148313,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/fb3e2ba4a5112d42b0a74fdd474e8c8f87793ef2c1c03c83c7f9e4e1def4d8b2",
+      "before": {
+        "sha256": "fb3e2ba4a5112d42b0a74fdd474e8c8f87793ef2c1c03c83c7f9e4e1def4d8b2",
+        "bytes": 148316,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "fb3e2ba4a5112d42b0a74fdd474e8c8f87793ef2c1c03c83c7f9e4e1def4d8b2",
+        "bytes": 148316,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/01901afe5c0008e9a321dc909cd38762c9b077f8a498fc4be8ddfcf2b4cbec6c",
+      "before": {
+        "sha256": "01901afe5c0008e9a321dc909cd38762c9b077f8a498fc4be8ddfcf2b4cbec6c",
+        "bytes": 305861,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "01901afe5c0008e9a321dc909cd38762c9b077f8a498fc4be8ddfcf2b4cbec6c",
+        "bytes": 305861,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/139d456638720ce1fb0d90494d077d6ea0579a6bdec2813cc89f6364d8d3d254",
+      "before": {
+        "sha256": "139d456638720ce1fb0d90494d077d6ea0579a6bdec2813cc89f6364d8d3d254",
+        "bytes": 305861,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "139d456638720ce1fb0d90494d077d6ea0579a6bdec2813cc89f6364d8d3d254",
+        "bytes": 305861,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/17b735244f28c1029a9b05250ed0fb5aa9c81696b0c4f4667b47617e2543784d",
+      "before": {
+        "sha256": "17b735244f28c1029a9b05250ed0fb5aa9c81696b0c4f4667b47617e2543784d",
+        "bytes": 69624,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "17b735244f28c1029a9b05250ed0fb5aa9c81696b0c4f4667b47617e2543784d",
+        "bytes": 69624,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/284bf9ea309790c499ab9e1d2b848956f25cb6b7d1dbda23a658d697305dd832",
+      "before": {
+        "sha256": "284bf9ea309790c499ab9e1d2b848956f25cb6b7d1dbda23a658d697305dd832",
+        "bytes": 305861,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "284bf9ea309790c499ab9e1d2b848956f25cb6b7d1dbda23a658d697305dd832",
+        "bytes": 305861,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/51baf40cd55b758b0ab20c6a30949bb260c7037d5f5bab34a022c0ec49d87abd",
+      "before": {
+        "sha256": "51baf40cd55b758b0ab20c6a30949bb260c7037d5f5bab34a022c0ec49d87abd",
+        "bytes": 148316,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "51baf40cd55b758b0ab20c6a30949bb260c7037d5f5bab34a022c0ec49d87abd",
+        "bytes": 148316,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/5a51d5358c663819a9d795bfdb9f3aa86a7214802d191192c22ec3fe04925465",
+      "before": {
+        "sha256": "5a51d5358c663819a9d795bfdb9f3aa86a7214802d191192c22ec3fe04925465",
+        "bytes": 148311,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "5a51d5358c663819a9d795bfdb9f3aa86a7214802d191192c22ec3fe04925465",
+        "bytes": 148311,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/6a747da400afb9d2e74bd3f6a8a5d459efbffbde32e5bed607f78e9b6ddaa301",
+      "before": {
+        "sha256": "6a747da400afb9d2e74bd3f6a8a5d459efbffbde32e5bed607f78e9b6ddaa301",
+        "bytes": 305863,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "6a747da400afb9d2e74bd3f6a8a5d459efbffbde32e5bed607f78e9b6ddaa301",
+        "bytes": 305863,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/6b802c5d5907fc0b8f4f969b218ea420eab2c54ca56dc9dd080cdd888270afa5",
+      "before": {
+        "sha256": "6b802c5d5907fc0b8f4f969b218ea420eab2c54ca56dc9dd080cdd888270afa5",
+        "bytes": 307169,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "6b802c5d5907fc0b8f4f969b218ea420eab2c54ca56dc9dd080cdd888270afa5",
+        "bytes": 307169,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/76bb924b7d65058dc30f8ac8f8023696606624c19a76e03d48903ee993e5835d",
+      "before": {
+        "sha256": "76bb924b7d65058dc30f8ac8f8023696606624c19a76e03d48903ee993e5835d",
+        "bytes": 307154,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "76bb924b7d65058dc30f8ac8f8023696606624c19a76e03d48903ee993e5835d",
+        "bytes": 307154,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/88d7aeaf00c95513495ad6e99e65fe2fbbfd9b9e4820100c141f2e42369c3bc8",
+      "before": {
+        "sha256": "88d7aeaf00c95513495ad6e99e65fe2fbbfd9b9e4820100c141f2e42369c3bc8",
+        "bytes": 307168,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "88d7aeaf00c95513495ad6e99e65fe2fbbfd9b9e4820100c141f2e42369c3bc8",
+        "bytes": 307168,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/932a62a8cc252ec3326bd4ccd6c84d0fa7b9ae49b6c7fe5576467027900b312a",
+      "before": {
+        "sha256": "932a62a8cc252ec3326bd4ccd6c84d0fa7b9ae49b6c7fe5576467027900b312a",
+        "bytes": 146249,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "932a62a8cc252ec3326bd4ccd6c84d0fa7b9ae49b6c7fe5576467027900b312a",
+        "bytes": 146249,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/aa41b33c62cd398724819cbdde7a47d2c49f334bc16bfb57d4848970840aa950",
+      "before": {
+        "sha256": "aa41b33c62cd398724819cbdde7a47d2c49f334bc16bfb57d4848970840aa950",
+        "bytes": 148310,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "aa41b33c62cd398724819cbdde7a47d2c49f334bc16bfb57d4848970840aa950",
+        "bytes": 148310,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/b288ba200633df3c596dbd9c667be1289cb2b1934c432db4184ed1ae6d2300ee",
+      "before": {
+        "sha256": "b288ba200633df3c596dbd9c667be1289cb2b1934c432db4184ed1ae6d2300ee",
+        "bytes": 307155,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "b288ba200633df3c596dbd9c667be1289cb2b1934c432db4184ed1ae6d2300ee",
+        "bytes": 307155,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeMtimeUnchanged": true
+    }
+  ],
+  "implementationConstraint": "Current corrections.validate_sources requires replacement evidence.excerpt to be a literal substring of the complete normalized primary document. Proposed excerpts meet that constraint. No excerpt-only admission or full-body truncation is proposed.",
+  "pending": "All groups still need proper registration, current exact source joins, independent semantic review and actual admission, then ordinary publication checks. Snapshot age arithmetic gives no future freshness guarantee. Changed raw bodies are distinguished from identical bytes; WitnessAI page-text differences remain held for independent comparative review.",
+  "validation": {
+    "fixedFiveSuppliers": true,
+    "exactThreeEvidenceReplacements": true,
+    "twoCorrectEvidenceObjectsUnchanged": true,
+    "canonicalUrlsSourceClassesOrganizationsRetrievedAtAndPublicationDatesPreserved": true,
+    "allReplacementExcerptsLiteralInOldAndNewestFullDocuments": true,
+    "allMatchedBodyHashesAndBytesChecked": true,
+    "allConsultedInputSealsUnchanged": true,
+    "sourceRequests": 0,
+    "modelRequests": 0,
+    "archiveWrites": 0,
+    "runtimeOrContractWrites": 0,
+    "gitMutations": 0,
+    "admissions": 0,
+    "publicationCredit": 0,
+    "coverageCredit": 0,
+    "freshnessCredit": 0,
+    "allMatchedBodyReferenceChecks": 41,
+    "distinctMatchedBodiesChecked": 20
+  },
+  "groupingConstraint": "Correction groups belong to one supplier and must fit complete normalized source documents within 30000 characters; all five combined are 48416. No multi-supplier group is proposed."
+}

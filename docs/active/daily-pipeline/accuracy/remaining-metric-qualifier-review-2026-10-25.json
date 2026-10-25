@@ -1,0 +1,1293 @@
+{
+  "schemaVersion": 1,
+  "kind": "future_supplier_metric_qualifier_correction_proposal",
+  "reviewId": "remaining-metric-qualifiers-2026-10-25",
+  "evaluatedAt": "2026-10-25T01:44:08.520612Z",
+  "scope": "Exactly five existing supplier fields. Retained primary bytes only. No source requests, model calls, policy registration, admission or publication.",
+  "targetIds": [
+    "supplier:abnormal-security:lastRound",
+    "supplier:arctic-wolf:lastRound",
+    "supplier:cato:headlineMetric",
+    "supplier:hiddenlayer:headlineMetric",
+    "supplier:witnessai:headlineMetric"
+  ],
+  "targetCount": 5,
+  "records": [
+    {
+      "targetId": "supplier:abnormal-security:lastRound",
+      "supplierId": "abnormal-security",
+      "field": "lastRound",
+      "priorVerdict": "insufficient",
+      "originalObject": {
+        "date": "2024-08-06",
+        "stage": "Series D",
+        "amount": "$250 million",
+        "lead": "Wellington Management",
+        "valuation": "$5.1 billion",
+        "evidenceIds": [
+          "TR-abnormal-1"
+        ]
+      },
+      "originalObjectSha256": "5fa58c873a189800765a580c829afbefdd33a062c5a8c12d8faba8ccf9d951e5",
+      "originalSupplierObjectSha256": "c551131319ec680b136f5b81b15a65ee52f7a71bc8b8b8a8b8fdff15c592da3a",
+      "operation": "replace",
+      "proposedFullValue": {
+        "date": "2024-08-06",
+        "stage": "Series D",
+        "amount": "$250 million total expected proceeds",
+        "lead": "Wellington Management",
+        "valuation": "$5.1 billion",
+        "evidenceIds": [
+          "TR-abnormal-1"
+        ]
+      },
+      "proposedFullValueSha256": "76caa2d0a17b81d9f881805021f415a7ff6ffa4ae34bb1af7ab753a4f51ce35e",
+      "changedKeys": [
+        "amount"
+      ],
+      "reason": "Retain the expected-proceeds qualifier; amount, date, stage, named lead and valuation remain as stated in the retained announcement.",
+      "proposalState": "source-supported wording proposal; independent admission and normal publication pending",
+      "originalEvidenceObjects": [
+        {
+          "id": "TR-abnormal-1",
+          "title": "Abnormal Security Series D Funding",
+          "organization": "Abnormal Security",
+          "publicationDate": "2024-08-06",
+          "economicPeriod": "August 2024",
+          "canonicalUrl": "https://abnormal.ai/newsroom/press-releases/series-d-5b-valuation",
+          "excerpt": "Series D: $250 million at $5.1 billion post-money valuation, led by Wellington Management.",
+          "sourceClass": "IR",
+          "interpretation": "",
+          "limitations": "",
+          "conflictingEvidenceIds": [],
+          "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-abnormal-1",
+          "tags": [
+            "tracker",
+            "email"
+          ],
+          "retrievedAt": "2026-09-25"
+        }
+      ],
+      "originalSourceIds": [
+        "abnormal-security:citation:TR-abnormal-1"
+      ],
+      "evidenceIds": [
+        "TR-abnormal-1"
+      ],
+      "boundSource": {
+        "ledgerEvidenceId": "TR-abnormal-1",
+        "ledgerUrl": "https://abnormal.ai/newsroom/press-releases/series-d-5b-valuation",
+        "ledgerOriginalBodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/d056bf5f31e82e6782e982028ea2113a7a388e832085338b7f0cc7ffef88418b",
+        "ledgerOriginalObservationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/f493293a335b5af801350164aecac367d726ae202f109670253f96183ac5548d.json",
+        "observationId": "f493293a335b5af801350164aecac367d726ae202f109670253f96183ac5548d",
+        "observationPath": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/f493293a335b5af801350164aecac367d726ae202f109670253f96183ac5548d.json",
+        "observationFileSeal": {
+          "sha256": "b308b881e3b2927a81209f5811ccc370d7e50287c3d375dbef7654f4da0acf6c",
+          "bytes": 632,
+          "mtimeNs": 1792875521000000000
+        },
+        "observation": {
+          "body": {
+            "bytes": 305862,
+            "key": "objects/d056bf5f31e82e6782e982028ea2113a7a388e832085338b7f0cc7ffef88418b",
+            "sha256": "d056bf5f31e82e6782e982028ea2113a7a388e832085338b7f0cc7ffef88418b"
+          },
+          "contentType": "text/html; charset=utf-8",
+          "etag": null,
+          "fetchedAt": "2026-10-20T21:11:58.717091Z",
+          "finalUrl": "https://abnormal.ai/newsroom/press-releases/series-d-5b-valuation",
+          "httpStatus": 200,
+          "lastModified": null,
+          "observationId": "f493293a335b5af801350164aecac367d726ae202f109670253f96183ac5548d",
+          "requestedUrl": "https://abnormal.ai/newsroom/press-releases/series-d-5b-valuation",
+          "sourceId": "abnormal-security:citation:TR-abnormal-2",
+          "status": "fetched"
+        },
+        "reuseChain": [],
+        "retainedBodyPath": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/d056bf5f31e82e6782e982028ea2113a7a388e832085338b7f0cc7ffef88418b",
+        "body": {
+          "bytes": 305862,
+          "key": "objects/d056bf5f31e82e6782e982028ea2113a7a388e832085338b7f0cc7ffef88418b",
+          "sha256": "d056bf5f31e82e6782e982028ea2113a7a388e832085338b7f0cc7ffef88418b"
+        },
+        "originalBindingSourceIdMatchesObservedSourceId": false,
+        "literalPrimaryExcerpts": [
+          {
+            "literal": "August 6, 2024",
+            "rawUtf8ByteOffsets": [
+              98684,
+              100441,
+              292721,
+              299356
+            ],
+            "utf8Bytes": 14,
+            "allOffsetsVerifiedAgainstRawBytes": true
+          },
+          {
+            "literal": "Series D",
+            "rawUtf8ByteOffsets": [
+              2829,
+              3981,
+              4698,
+              98194,
+              101114,
+              293065,
+              299123,
+              299565,
+              301106,
+              302040
+            ],
+            "utf8Bytes": 8,
+            "allOffsetsVerifiedAgainstRawBytes": true
+          },
+          {
+            "literal": "total expected proceeds of $250 million",
+            "rawUtf8ByteOffsets": [
+              101143,
+              293094
+            ],
+            "utf8Bytes": 39,
+            "allOffsetsVerifiedAgainstRawBytes": true
+          },
+          {
+            "literal": "at a $5.1 billion valuation",
+            "rawUtf8ByteOffsets": [
+              101183,
+              293134
+            ],
+            "utf8Bytes": 27,
+            "allOffsetsVerifiedAgainstRawBytes": true
+          },
+          {
+            "literal": "led by Wellington Management",
+            "rawUtf8ByteOffsets": [
+              101288,
+              293239
+            ],
+            "utf8Bytes": 28,
+            "allOffsetsVerifiedAgainstRawBytes": true
+          }
+        ],
+        "excerptWordCount": 20,
+        "excerptVerification": "Each literal occurs directly in the hash-checked retained raw UTF-8 body at every recorded byte offset. Snippets are separate; they are not joined into an invented sentence."
+      },
+      "retainedDateConflictsAndLimits": [
+        "August 6, 2024 is the announcement dateline; the October 20, 2026 observation is a retained fetch of that announcement, not a new funding date."
+      ],
+      "unresolvedFactsAndAdmissionDependencies": [
+        "The ledger binds target TR-abnormal-1 to an observation whose sourceId is abnormal-security:citation:TR-abnormal-2. The same canonical URL and exact body support the wording, but this proposal does not repair or admit that cross-evidence binding."
+      ],
+      "limitations": [
+        "Historical source statement support only; company-stated and unaudited here.",
+        "No fresh endpoint request, subsequent-event completeness, current ownership or latest-funding-round certification.",
+        "No correction policy entry, independent model review, admission cache, retained historical verdict, coverage count, freshness receipt or public release was changed."
+      ]
+    },
+    {
+      "targetId": "supplier:arctic-wolf:lastRound",
+      "supplierId": "arctic-wolf",
+      "field": "lastRound",
+      "priorVerdict": "insufficient",
+      "originalObject": {
+        "date": "2021-07-13",
+        "stage": "Series F",
+        "amount": "$150 million",
+        "lead": "Viking Global Investors and Owl Rock (a division of Blue Owl Capital)",
+        "valuation": "$4.3 billion",
+        "evidenceIds": [
+          "TR-arctic-wolf-2"
+        ]
+      },
+      "originalObjectSha256": "4ad2e013cace90c0b9572be82346aa027aeccc3d2ccd4d4a42b358b0b11673b0",
+      "originalSupplierObjectSha256": "d17c253d494d0c31fa0d32653940c0b6375381688444f3b1124b987e1cc3d53b",
+      "operation": "replace",
+      "proposedFullValue": {
+        "date": "2021-07-13",
+        "stage": "Series F",
+        "amount": "$150 million",
+        "valuation": "$4.3 billion",
+        "evidenceIds": [
+          "TR-arctic-wolf-2"
+        ]
+      },
+      "proposedFullValueSha256": "fab161bb6ff3d4c569748eac274f403e7c63b80c7a31def676f58e5fbff0f098",
+      "changedKeys": [
+        "lead"
+      ],
+      "reason": "Omit only the unsupported lead designation. The retained company blog identifies Viking and Owl Rock as investors, without assigning round leadership. Other funding details remain.",
+      "proposalState": "source-supported wording proposal; independent admission and normal publication pending",
+      "originalEvidenceObjects": [
+        {
+          "id": "TR-arctic-wolf-2",
+          "title": "Arctic Wolf Closes Record-breaking Series F with New and Existing Investors",
+          "organization": "Arctic Wolf Networks, Inc.",
+          "publicationDate": "2021-07-13",
+          "economicPeriod": "N/A (funding announcement)",
+          "canonicalUrl": "https://arcticwolf.com/resources/blog/arctic-wolf-closes-record-breaking-series-f-funding/",
+          "excerpt": "...backed by top tier investors, including Viking Global Investors, Owl Rock, a division of Blue Owl Capital and others in our Series F funding round of $150 million. Following this round, the company has achieved a valuation of $4.3 billion.",
+          "sourceClass": "IR",
+          "interpretation": "",
+          "limitations": "AUTO-001 fix pass 4, item 8: this is the most recent funding round found on Arctic Wolf's own site after checking its press-releases index, its full post-sitemap for every 'series'/'funding'/'raises'/'valuation' slug, and a GlobeNewswire organization search; no company-issued source for a later round was found. Company is privately held with no SEC filer CIK.",
+          "conflictingEvidenceIds": [],
+          "artifactLabel": "SEC-MARKET-AUTO-001-COLLECT / TR-arctic-wolf-2",
+          "tags": [
+            "tracker",
+            "managed-security"
+          ],
+          "retrievedAt": "2026-10-02",
+          "retrieval": {
+            "finalUrl": "https://arcticwolf.com/resources/blog/arctic-wolf-closes-record-breaking-series-f-funding/",
+            "sha256": "9e957f78e50ee3a72266382ca364e7cbe8de6fdce135da4a2b43d1ede7c54a5a",
+            "fetchedAt": "2026-10-02T15:30:00Z",
+            "locator": "Body paragraph naming investors, round amount, and resulting valuation"
+          }
+        }
+      ],
+      "originalSourceIds": [
+        "arctic-wolf:citation:TR-arctic-wolf-2"
+      ],
+      "evidenceIds": [
+        "TR-arctic-wolf-2"
+      ],
+      "boundSource": {
+        "ledgerEvidenceId": "TR-arctic-wolf-2",
+        "ledgerUrl": "https://arcticwolf.com/resources/blog/arctic-wolf-closes-record-breaking-series-f-funding/",
+        "ledgerOriginalBodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/b89fc491a80e4dc127941fc921204248c94404688758807c5d1d7b50b33302d2",
+        "ledgerOriginalObservationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/cddef400fb8964705c0f0f6b6ef735fbf359994ade8ad394b5f5fefd7946fc14.json",
+        "observationId": "cddef400fb8964705c0f0f6b6ef735fbf359994ade8ad394b5f5fefd7946fc14",
+        "observationPath": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/cddef400fb8964705c0f0f6b6ef735fbf359994ade8ad394b5f5fefd7946fc14.json",
+        "observationFileSeal": {
+          "sha256": "e4fe5478e2c69e281601d828bd6248bf2598b81613ba306871f8590d5095d864",
+          "bytes": 800,
+          "mtimeNs": 1792875521000000000
+        },
+        "observation": {
+          "body": {
+            "bytes": 344875,
+            "key": "objects/b89fc491a80e4dc127941fc921204248c94404688758807c5d1d7b50b33302d2",
+            "sha256": "b89fc491a80e4dc127941fc921204248c94404688758807c5d1d7b50b33302d2"
+          },
+          "contentType": "text/html; charset=UTF-8",
+          "etag": null,
+          "fetchedAt": "2026-10-20T21:21:59.438344Z",
+          "finalUrl": "https://arcticwolf.com/resources/blog/arctic-wolf-closes-record-breaking-series-f-funding/",
+          "httpStatus": 304,
+          "lastModified": "Mon, 08 Jan 2024 12:15:02 GMT",
+          "observationId": "cddef400fb8964705c0f0f6b6ef735fbf359994ade8ad394b5f5fefd7946fc14",
+          "requestedUrl": "https://arcticwolf.com/resources/blog/arctic-wolf-closes-record-breaking-series-f-funding/",
+          "reusesObservationId": "10bbde39463f168ca2d4c5c361994536ee1eb20353bfc668d5cc9906f260b668",
+          "sourceId": "arctic-wolf:citation:TR-arctic-wolf-2",
+          "status": "not_modified"
+        },
+        "reuseChain": [
+          {
+            "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/10bbde39463f168ca2d4c5c361994536ee1eb20353bfc668d5cc9906f260b668.json",
+            "observation": {
+              "body": {
+                "bytes": 344875,
+                "key": "objects/b89fc491a80e4dc127941fc921204248c94404688758807c5d1d7b50b33302d2",
+                "sha256": "b89fc491a80e4dc127941fc921204248c94404688758807c5d1d7b50b33302d2"
+              },
+              "contentType": "text/html; charset=UTF-8",
+              "etag": null,
+              "fetchedAt": "2026-10-20T21:11:37.406181Z",
+              "finalUrl": "https://arcticwolf.com/resources/blog/arctic-wolf-closes-record-breaking-series-f-funding/",
+              "httpStatus": 200,
+              "lastModified": "Mon, 08 Jan 2024 12:15:02 GMT",
+              "observationId": "10bbde39463f168ca2d4c5c361994536ee1eb20353bfc668d5cc9906f260b668",
+              "requestedUrl": "https://arcticwolf.com/resources/blog/arctic-wolf-closes-record-breaking-series-f-funding/",
+              "sourceId": "arctic-wolf:citation:TR-arctic-wolf-2",
+              "status": "fetched"
+            },
+            "fileSeal": {
+              "sha256": "a5aa49ecbf4020a6eb3ed4b2c3ddc4cd28116d9650423231f1e3cee468e69348",
+              "bytes": 706,
+              "mtimeNs": 1792875521000000000
+            }
+          }
+        ],
+        "retainedBodyPath": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/b89fc491a80e4dc127941fc921204248c94404688758807c5d1d7b50b33302d2",
+        "body": {
+          "bytes": 344875,
+          "key": "objects/b89fc491a80e4dc127941fc921204248c94404688758807c5d1d7b50b33302d2",
+          "sha256": "b89fc491a80e4dc127941fc921204248c94404688758807c5d1d7b50b33302d2"
+        },
+        "originalBindingSourceIdMatchesObservedSourceId": true,
+        "literalPrimaryExcerpts": [
+          {
+            "literal": "July 13, 2021",
+            "rawUtf8ByteOffsets": [
+              247977
+            ],
+            "utf8Bytes": 13,
+            "allOffsetsVerifiedAgainstRawBytes": true
+          },
+          {
+            "literal": "including Viking Global Investors, Owl Rock",
+            "rawUtf8ByteOffsets": [
+              260123
+            ],
+            "utf8Bytes": 43,
+            "allOffsetsVerifiedAgainstRawBytes": true
+          },
+          {
+            "literal": "Series F funding round of $150 million",
+            "rawUtf8ByteOffsets": [
+              260217
+            ],
+            "utf8Bytes": 38,
+            "allOffsetsVerifiedAgainstRawBytes": true
+          },
+          {
+            "literal": "valuation of $4.3 billion",
+            "rawUtf8ByteOffsets": [
+              260306
+            ],
+            "utf8Bytes": 25,
+            "allOffsetsVerifiedAgainstRawBytes": true
+          }
+        ],
+        "excerptWordCount": 20,
+        "excerptVerification": "Each literal occurs directly in the hash-checked retained raw UTF-8 body at every recorded byte offset. Snippets are separate; they are not joined into an invented sentence."
+      },
+      "retainedDateConflictsAndLimits": [
+        "The original evidence preserves its October 2, 2026 retrieval object and hash. This review reads the October 20 retained body; it does not establish byte identity with the earlier retrieval hash or that no later funding occurred."
+      ],
+      "unresolvedFactsAndAdmissionDependencies": [],
+      "limitations": [
+        "Historical source statement support only; company-stated and unaudited here.",
+        "No fresh endpoint request, subsequent-event completeness, current ownership or latest-funding-round certification.",
+        "No correction policy entry, independent model review, admission cache, retained historical verdict, coverage count, freshness receipt or public release was changed."
+      ]
+    },
+    {
+      "targetId": "supplier:cato:headlineMetric",
+      "supplierId": "cato",
+      "field": "headlineMetric",
+      "priorVerdict": "insufficient",
+      "originalObject": {
+        "label": "ARR",
+        "value": "$415 million, +42% YoY",
+        "period": "As of Jul 2026 (company-stated milestone)",
+        "evidenceIds": [
+          "TR-cato-3"
+        ]
+      },
+      "originalObjectSha256": "8c0c9180cf4d02d316d355c806cd273d61121ac6d9383962725390108d0d8cc7",
+      "originalSupplierObjectSha256": "6a8c9a2754836b9f4c5c503efd16a0549b753958729315abcb4512f2b2b06e7e",
+      "operation": "replace",
+      "proposedFullValue": {
+        "label": "ARR",
+        "value": "over $415 million, +42% YoY",
+        "period": "Company-stated milestone announced July 27, 2026",
+        "evidenceIds": [
+          "TR-cato-3"
+        ]
+      },
+      "proposedFullValueSha256": "87e5200ae7a00a205c5e1655979c9f4d2241a51581fcb561a7cf90907465c6d9",
+      "changedKeys": [
+        "period",
+        "value"
+      ],
+      "reason": "Restore the surpassed threshold and identify the announcement date. The release describes a milestone; no economic measurement day is newly inferred.",
+      "proposalState": "source-supported wording proposal; independent admission and normal publication pending",
+      "originalEvidenceObjects": [
+        {
+          "id": "TR-cato-3",
+          "title": "Cato Networks Exceeds $415M in ARR Fueled by 42% YoY Growth and Enterprise Demand",
+          "organization": "Cato Networks",
+          "publicationDate": "2026-07-27",
+          "economicPeriod": "ARR milestone as of July 27, 2026",
+          "canonicalUrl": "https://www.prnewswire.com/il/news-releases/cato-networks-exceeds-415m-in-arr-fueled-by-42-yoy-growth-and-enterprise-demand-302833667.html",
+          "excerpt": "Cato Networks...announced that it has surpassed $415 million in ARR, with 42% year-over-year (YoY) growth.",
+          "sourceClass": "IR",
+          "interpretation": "",
+          "limitations": "Company-stated, not an audited filing. AUTO-001 fix pass 4, item 1: this record previously cited a later company blog restating the same figure because the originating PR Newswire release could not be fetched that session; it is now cited directly, carrying its own July 27, 2026 publication date instead of the blog's August 2026 repost date. Supersedes TR-cato-2's $350M/2025 figure with this more recent company-stated figure.",
+          "conflictingEvidenceIds": [],
+          "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-cato-3",
+          "tags": [
+            "tracker",
+            "network-sase"
+          ],
+          "retrievedAt": "2026-09-30"
+        }
+      ],
+      "originalSourceIds": [
+        "cato:citation:TR-cato-3"
+      ],
+      "evidenceIds": [
+        "TR-cato-3"
+      ],
+      "boundSource": {
+        "ledgerEvidenceId": "TR-cato-3",
+        "ledgerUrl": "https://www.prnewswire.com/il/news-releases/cato-networks-exceeds-415m-in-arr-fueled-by-42-yoy-growth-and-enterprise-demand-302833667.html",
+        "ledgerOriginalBodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/ecc2af96e14714f04e5cb5b1c624b43d6e77a8f24aeef539129dd1d0d91bbe53",
+        "ledgerOriginalObservationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/d30f4df0445bc8f6f5970b9108990e5c23a9c53dcb172040f2136bb89bb61bf6.json",
+        "observationId": "d30f4df0445bc8f6f5970b9108990e5c23a9c53dcb172040f2136bb89bb61bf6",
+        "observationPath": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/d30f4df0445bc8f6f5970b9108990e5c23a9c53dcb172040f2136bb89bb61bf6.json",
+        "observationFileSeal": {
+          "sha256": "63431ab1757e588f8a53f4cbef6dcdc7ef4ff983248a96695105686696ec1c98",
+          "bytes": 787,
+          "mtimeNs": 1792875521000000000
+        },
+        "observation": {
+          "body": {
+            "bytes": 69624,
+            "key": "objects/ecc2af96e14714f04e5cb5b1c624b43d6e77a8f24aeef539129dd1d0d91bbe53",
+            "sha256": "ecc2af96e14714f04e5cb5b1c624b43d6e77a8f24aeef539129dd1d0d91bbe53"
+          },
+          "contentType": "text/html; charset=UTF-8",
+          "etag": null,
+          "fetchedAt": "2026-10-20T21:11:27.377818Z",
+          "finalUrl": "https://www.prnewswire.com/il/news-releases/cato-networks-exceeds-415m-in-arr-fueled-by-42-yoy-growth-and-enterprise-demand-302833667.html",
+          "httpStatus": 200,
+          "lastModified": "Sat, 17 Oct 2026 22:47:25 GMT",
+          "observationId": "d30f4df0445bc8f6f5970b9108990e5c23a9c53dcb172040f2136bb89bb61bf6",
+          "requestedUrl": "https://www.prnewswire.com/il/news-releases/cato-networks-exceeds-415m-in-arr-fueled-by-42-yoy-growth-and-enterprise-demand-302833667.html",
+          "sourceId": "cato:citation:TR-cato-3",
+          "status": "fetched"
+        },
+        "reuseChain": [],
+        "retainedBodyPath": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/ecc2af96e14714f04e5cb5b1c624b43d6e77a8f24aeef539129dd1d0d91bbe53",
+        "body": {
+          "bytes": 69624,
+          "key": "objects/ecc2af96e14714f04e5cb5b1c624b43d6e77a8f24aeef539129dd1d0d91bbe53",
+          "sha256": "ecc2af96e14714f04e5cb5b1c624b43d6e77a8f24aeef539129dd1d0d91bbe53"
+        },
+        "originalBindingSourceIdMatchesObservedSourceId": true,
+        "literalPrimaryExcerpts": [
+          {
+            "literal": "July 27, 2026",
+            "rawUtf8ByteOffsets": [
+              2644,
+              32727
+            ],
+            "utf8Bytes": 13,
+            "allOffsetsVerifiedAgainstRawBytes": true
+          },
+          {
+            "literal": "surpassed $415 million in ARR, with 42% year-over-year (YoY) growth",
+            "rawUtf8ByteOffsets": [
+              32964
+            ],
+            "utf8Bytes": 67,
+            "allOffsetsVerifiedAgainstRawBytes": true
+          }
+        ],
+        "excerptWordCount": 13,
+        "excerptVerification": "Each literal occurs directly in the hash-checked retained raw UTF-8 body at every recorded byte offset. Snippets are separate; they are not joined into an invented sentence."
+      },
+      "retainedDateConflictsAndLimits": [
+        "July 27, 2026 is the release dateline. The October 17 HTTP Last-Modified header and October 20 fetch are retained as transport metadata, without moving the announcement or assigning a new economic period."
+      ],
+      "unresolvedFactsAndAdmissionDependencies": [],
+      "limitations": [
+        "Historical source statement support only; company-stated and unaudited here.",
+        "No fresh endpoint request, subsequent-event completeness, current ownership or latest-funding-round certification.",
+        "No correction policy entry, independent model review, admission cache, retained historical verdict, coverage count, freshness receipt or public release was changed."
+      ]
+    },
+    {
+      "targetId": "supplier:hiddenlayer:headlineMetric",
+      "supplierId": "hiddenlayer",
+      "field": "headlineMetric",
+      "priorVerdict": "insufficient",
+      "originalObject": {
+        "label": "ARR growth (company-stated)",
+        "value": "more than 10x year-over-year",
+        "period": "as of 2026-09-02",
+        "evidenceIds": [
+          "TR-hiddenlayer-1"
+        ]
+      },
+      "originalObjectSha256": "3737d25b4a331c86926bc899044c7fe564db97eb386174fd158f317207e8c442",
+      "originalSupplierObjectSha256": "db469ba52b71a9fb7d41c4f8fb89e9c59e86ca4ee49cb3069e182ac53f919971",
+      "operation": "replace",
+      "proposedFullValue": {
+        "label": "ARR growth (company-stated)",
+        "value": "more than 10x",
+        "period": "Reported September 2, 2026 after a standout year; exact comparison period undisclosed",
+        "evidenceIds": [
+          "TR-hiddenlayer-1"
+        ]
+      },
+      "proposedFullValueSha256": "3cb362185cf265af3833ca36c9d9c0658328ee12a7970e39cc8586c6fec65a31",
+      "changedKeys": [
+        "period",
+        "value"
+      ],
+      "reason": "Remove the unsupported year-over-year comparison and distinguish the announcement date from an undisclosed comparison period.",
+      "proposalState": "source-supported wording proposal; independent admission and normal publication pending",
+      "originalEvidenceObjects": [
+        {
+          "id": "TR-hiddenlayer-1",
+          "title": "HiddenLayer Raises $100M in Series B Funding to Advance AI Security",
+          "organization": "HiddenLayer, Inc.",
+          "publicationDate": "2026-09-02",
+          "economicPeriod": "N/A (funding announcement)",
+          "canonicalUrl": "https://www.hiddenlayer.com/news/hiddenlayer-100m-series-b-ai-security",
+          "excerpt": "HiddenLayer raised a $100 million Series B round led by Delta-v Capital, with Ten Eleven Ventures, Morgan Stanley, M12, and Booz Allen Ventures participating. The company states ARR 'grew more than 10x year-over-year' with 50+ new platform customers signed (unaudited).",
+          "sourceClass": "OFFICIAL",
+          "interpretation": "",
+          "limitations": "",
+          "conflictingEvidenceIds": [],
+          "artifactLabel": "SEC-MARKET-AUTO-001-FITFIX2 / TR-hiddenlayer-1",
+          "tags": [
+            "tracker",
+            "ai-security"
+          ],
+          "retrievedAt": "2026-09-25"
+        }
+      ],
+      "originalSourceIds": [
+        "hiddenlayer:citation:TR-hiddenlayer-1"
+      ],
+      "evidenceIds": [
+        "TR-hiddenlayer-1"
+      ],
+      "boundSource": {
+        "ledgerEvidenceId": "TR-hiddenlayer-1",
+        "ledgerUrl": "https://www.hiddenlayer.com/news/hiddenlayer-100m-series-b-ai-security",
+        "ledgerOriginalBodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718",
+        "ledgerOriginalObservationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/ef7ff25ee6e0c0384707625f60bba2caf07c53453d0ade91c664ffd902287b0f.json",
+        "observationId": "ef7ff25ee6e0c0384707625f60bba2caf07c53453d0ade91c664ffd902287b0f",
+        "observationPath": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/ef7ff25ee6e0c0384707625f60bba2caf07c53453d0ade91c664ffd902287b0f.json",
+        "observationFileSeal": {
+          "sha256": "0b8a702135d6df7a904bba1e2a4ec63df64b935ffc52fd91571ee45ba5789e54",
+          "bytes": 760,
+          "mtimeNs": 1792875521000000000
+        },
+        "observation": {
+          "body": {
+            "bytes": 212853,
+            "key": "objects/27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718",
+            "sha256": "27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718"
+          },
+          "contentType": "text/html; charset=utf-8",
+          "etag": null,
+          "fetchedAt": "2026-10-20T21:41:46.485198Z",
+          "finalUrl": "https://www.hiddenlayer.com/news/hiddenlayer-100m-series-b-ai-security",
+          "httpStatus": 304,
+          "lastModified": "Tue, 20 Oct 2026 15:58:58 GMT",
+          "observationId": "ef7ff25ee6e0c0384707625f60bba2caf07c53453d0ade91c664ffd902287b0f",
+          "requestedUrl": "https://www.hiddenlayer.com/news/hiddenlayer-100m-series-b-ai-security",
+          "reusesObservationId": "dd16ced3982191321b231fe3f8c21575c1921851b51880681c5e6e064d36cd58",
+          "sourceId": "hiddenlayer:citation:TR-hiddenlayer-1",
+          "status": "not_modified"
+        },
+        "reuseChain": [
+          {
+            "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/dd16ced3982191321b231fe3f8c21575c1921851b51880681c5e6e064d36cd58.json",
+            "observation": {
+              "body": {
+                "bytes": 212853,
+                "key": "objects/27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718",
+                "sha256": "27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718"
+              },
+              "contentType": "text/html; charset=utf-8",
+              "etag": null,
+              "fetchedAt": "2026-10-20T21:21:35.912899Z",
+              "finalUrl": "https://www.hiddenlayer.com/news/hiddenlayer-100m-series-b-ai-security",
+              "httpStatus": 304,
+              "lastModified": "Tue, 20 Oct 2026 15:58:58 GMT",
+              "observationId": "dd16ced3982191321b231fe3f8c21575c1921851b51880681c5e6e064d36cd58",
+              "requestedUrl": "https://www.hiddenlayer.com/news/hiddenlayer-100m-series-b-ai-security",
+              "reusesObservationId": "6ca20d44b2e7b3d8f8dec6794b8281de4315e164f11c43768b63047abb4b160c",
+              "sourceId": "hiddenlayer:citation:TR-hiddenlayer-1",
+              "status": "not_modified"
+            },
+            "fileSeal": {
+              "sha256": "04ea946d55adc10e0b9173f81de3b748db431add641501ff5698cceb98e4f924",
+              "bytes": 760,
+              "mtimeNs": 1792875521000000000
+            }
+          },
+          {
+            "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/6ca20d44b2e7b3d8f8dec6794b8281de4315e164f11c43768b63047abb4b160c.json",
+            "observation": {
+              "body": {
+                "bytes": 212853,
+                "key": "objects/27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718",
+                "sha256": "27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718"
+              },
+              "contentType": "text/html; charset=utf-8",
+              "etag": null,
+              "fetchedAt": "2026-10-20T21:12:06.040804Z",
+              "finalUrl": "https://www.hiddenlayer.com/news/hiddenlayer-100m-series-b-ai-security",
+              "httpStatus": 200,
+              "lastModified": "Tue, 20 Oct 2026 15:58:58 GMT",
+              "observationId": "6ca20d44b2e7b3d8f8dec6794b8281de4315e164f11c43768b63047abb4b160c",
+              "requestedUrl": "https://www.hiddenlayer.com/news/hiddenlayer-100m-series-b-ai-security",
+              "sourceId": "hiddenlayer:citation:TR-hiddenlayer-1",
+              "status": "fetched"
+            },
+            "fileSeal": {
+              "sha256": "31e3218c292f18bd3982ce9375a7717dd0fd5b2f4e6bc5a56ebe7ea3035f421f",
+              "bytes": 666,
+              "mtimeNs": 1792875521000000000
+            }
+          }
+        ],
+        "retainedBodyPath": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718",
+        "body": {
+          "bytes": 212853,
+          "key": "objects/27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718",
+          "sha256": "27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718"
+        },
+        "originalBindingSourceIdMatchesObservedSourceId": true,
+        "literalPrimaryExcerpts": [
+          {
+            "literal": "September 2, 2026",
+            "rawUtf8ByteOffsets": [
+              176218
+            ],
+            "utf8Bytes": 17,
+            "allOffsetsVerifiedAgainstRawBytes": true
+          },
+          {
+            "literal": "The raise follows a standout year",
+            "rawUtf8ByteOffsets": [
+              177526
+            ],
+            "utf8Bytes": 33,
+            "allOffsetsVerifiedAgainstRawBytes": true
+          },
+          {
+            "literal": "annual recurring revenue grew more than 10x",
+            "rawUtf8ByteOffsets": [
+              177580
+            ],
+            "utf8Bytes": 43,
+            "allOffsetsVerifiedAgainstRawBytes": true
+          }
+        ],
+        "excerptWordCount": 16,
+        "excerptVerification": "Each literal occurs directly in the hash-checked retained raw UTF-8 body at every recorded byte offset. Snippets are separate; they are not joined into an invented sentence."
+      },
+      "retainedDateConflictsAndLimits": [
+        "September 2, 2026 is the release dateline. Neither the October 20 HTTP Last-Modified header nor the October 20 304 observation establishes the ARR comparison window."
+      ],
+      "unresolvedFactsAndAdmissionDependencies": [
+        "Original TR-hiddenlayer-1 excerpt also asserts year-over-year. It is preserved exactly here, and would need a separately scoped evidence-text correction before a coherent publication; this five-supplier-field proposal does not silently change evidence metadata."
+      ],
+      "limitations": [
+        "Historical source statement support only; company-stated and unaudited here.",
+        "No fresh endpoint request, subsequent-event completeness, current ownership or latest-funding-round certification.",
+        "No correction policy entry, independent model review, admission cache, retained historical verdict, coverage count, freshness receipt or public release was changed."
+      ]
+    },
+    {
+      "targetId": "supplier:witnessai:headlineMetric",
+      "supplierId": "witnessai",
+      "field": "headlineMetric",
+      "priorVerdict": "insufficient",
+      "originalObject": {
+        "label": "ARR growth (company-stated)",
+        "value": "500% year-over-year",
+        "period": "as of 2026-01-13",
+        "evidenceIds": [
+          "TR-witnessai-1"
+        ]
+      },
+      "originalObjectSha256": "faa18e450192186a28b1ff0550e3974d75b8581c021fdd2d792cc229a559eb65",
+      "originalSupplierObjectSha256": "0e7af428e1f4d37c3bd8f58e1cff8b68e416b5da7e3edd772bd2a4ff0bcbbabb",
+      "operation": "replace",
+      "proposedFullValue": {
+        "label": "ARR growth (company-stated)",
+        "value": "more than 500% in the past 12 months",
+        "period": "Post dated January 13, 2026, last updated October 14, 2026; metric vintage and comparison-window dates unverified",
+        "evidenceIds": [
+          "TR-witnessai-1"
+        ]
+      },
+      "proposedFullValueSha256": "2bc02a1a0d79b3abb5fbd8ae8275a384d8ac9b0ed6943724e842ee77bedf768b",
+      "changedKeys": [
+        "period",
+        "value"
+      ],
+      "reason": "Restore the more-than qualifier and the source's relative past-12-month description. Expose both article dates and the unverified metric vintage; neither date is assigned as the metric's economic endpoint.",
+      "proposalState": "source-supported wording proposal; independent admission and normal publication pending",
+      "originalEvidenceObjects": [
+        {
+          "id": "TR-witnessai-1",
+          "title": "WitnessAI Raises $58M to Help Enterprises Move Faster with AI Safely",
+          "organization": "WitnessAI",
+          "publicationDate": "2026-01-13",
+          "economicPeriod": "N/A (funding announcement)",
+          "canonicalUrl": "https://witness.ai/blog/witnessai-raises-58m-to-help-enterprises-move-faster-with-ai-safely/",
+          "excerpt": "WitnessAI raised a $58 million strategic funding round led by Sound Ventures, with Fin Capital, Samsung Ventures, Qualcomm Ventures, Forgepoint Capital Partners, Silver Buckshot Ventures, and existing investors Google Ventures and Ballistic Ventures participating. The release states '500% ARR growth — just in the past 12 months' and headcount up 5x (unaudited).",
+          "sourceClass": "OFFICIAL",
+          "interpretation": "",
+          "limitations": "Company blog/press release.",
+          "conflictingEvidenceIds": [],
+          "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-witnessai-1",
+          "tags": [
+            "tracker",
+            "ai-security"
+          ],
+          "retrievedAt": "2026-09-25"
+        }
+      ],
+      "originalSourceIds": [
+        "witnessai:citation:TR-witnessai-1"
+      ],
+      "evidenceIds": [
+        "TR-witnessai-1"
+      ],
+      "boundSource": {
+        "ledgerEvidenceId": "TR-witnessai-1",
+        "ledgerUrl": "https://witness.ai/blog/witnessai-raises-58m-to-help-enterprises-move-faster-with-ai-safely/",
+        "ledgerOriginalBodyPath": "/tmp/smp-coverage-baseline-20261023/state/objects/fb3e2ba4a5112d42b0a74fdd474e8c8f87793ef2c1c03c83c7f9e4e1def4d8b2",
+        "ledgerOriginalObservationPath": "/tmp/smp-coverage-baseline-20261023/state/observations/babb1c40926b523cdda80be1e184f41d3658f896de82a94573dce6a72fa66584.json",
+        "observationId": "babb1c40926b523cdda80be1e184f41d3658f896de82a94573dce6a72fa66584",
+        "observationPath": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/babb1c40926b523cdda80be1e184f41d3658f896de82a94573dce6a72fa66584.json",
+        "observationFileSeal": {
+          "sha256": "f046082bfd3a17f2f70483107920ead3c5830d94fd19f68eadc0acc01f10f9de",
+          "bytes": 706,
+          "mtimeNs": 1792875521000000000
+        },
+        "observation": {
+          "body": {
+            "bytes": 148316,
+            "key": "objects/fb3e2ba4a5112d42b0a74fdd474e8c8f87793ef2c1c03c83c7f9e4e1def4d8b2",
+            "sha256": "fb3e2ba4a5112d42b0a74fdd474e8c8f87793ef2c1c03c83c7f9e4e1def4d8b2"
+          },
+          "contentType": "text/html; charset=UTF-8",
+          "etag": null,
+          "fetchedAt": "2026-10-23T04:15:07.434579Z",
+          "finalUrl": "https://witness.ai/blog/witnessai-raises-58m-to-help-enterprises-move-faster-with-ai-safely/",
+          "httpStatus": 200,
+          "lastModified": "Fri, 23 Oct 2026 04:15:07 GMT",
+          "observationId": "babb1c40926b523cdda80be1e184f41d3658f896de82a94573dce6a72fa66584",
+          "requestedUrl": "https://witness.ai/blog/witnessai-raises-58m-to-help-enterprises-move-faster-with-ai-safely/",
+          "sourceId": "witnessai:citation:TR-witnessai-1",
+          "status": "fetched"
+        },
+        "reuseChain": [],
+        "retainedBodyPath": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/fb3e2ba4a5112d42b0a74fdd474e8c8f87793ef2c1c03c83c7f9e4e1def4d8b2",
+        "body": {
+          "bytes": 148316,
+          "key": "objects/fb3e2ba4a5112d42b0a74fdd474e8c8f87793ef2c1c03c83c7f9e4e1def4d8b2",
+          "sha256": "fb3e2ba4a5112d42b0a74fdd474e8c8f87793ef2c1c03c83c7f9e4e1def4d8b2"
+        },
+        "originalBindingSourceIdMatchesObservedSourceId": true,
+        "literalPrimaryExcerpts": [
+          {
+            "literal": "January 13, 2026",
+            "rawUtf8ByteOffsets": [
+              62313
+            ],
+            "utf8Bytes": 16,
+            "allOffsetsVerifiedAgainstRawBytes": true
+          },
+          {
+            "literal": "Last updated: October 14, 2026",
+            "rawUtf8ByteOffsets": [
+              62359
+            ],
+            "utf8Bytes": 30,
+            "allOffsetsVerifiedAgainstRawBytes": true
+          },
+          {
+            "literal": "more than 500% ARR growth",
+            "rawUtf8ByteOffsets": [
+              67284
+            ],
+            "utf8Bytes": 25,
+            "allOffsetsVerifiedAgainstRawBytes": true
+          },
+          {
+            "literal": "just in the past 12 months",
+            "rawUtf8ByteOffsets": [
+              67318
+            ],
+            "utf8Bytes": 26,
+            "allOffsetsVerifiedAgainstRawBytes": true
+          }
+        ],
+        "excerptWordCount": 19,
+        "excerptVerification": "Each literal occurs directly in the hash-checked retained raw UTF-8 body at every recorded byte offset. Snippets are separate; they are not joined into an invented sentence."
+      },
+      "retainedDateConflictsAndLimits": [
+        "Original publicationDate 2026-01-13 and retrievedAt 2026-09-25 remain unchanged. The retained body displays January 13, 2026 and Last updated: October 14, 2026; observation fetchedAt is 2026-10-23T04:15:07.434579Z and HTTP lastModified is Fri, 23 Oct 2026 04:15:07 GMT. These dates describe distinct events. No retained January version was examined. The metric may have been introduced or changed by the October update; this evidence cannot decide that.",
+        "Past 12 months is relative language in the updated body. The exact comparison endpoints and their anchor date are unresolved; January 13, October 14 and October 23 are not substituted as economic-period endpoints."
+      ],
+      "unresolvedFactsAndAdmissionDependencies": [
+        "Original TR-witnessai-1 excerpt also drops the more-than qualifier. It is preserved exactly here and needs a separately scoped evidence-text correction before coherent publication.",
+        "Original January metric vintage and exact comparison-window dates remain unresolved. Proposed wording discloses those unknowns, rather than selecting an uncertain date."
+      ],
+      "limitations": [
+        "Historical source statement support only; company-stated and unaudited here.",
+        "No fresh endpoint request, subsequent-event completeness, current ownership or latest-funding-round certification.",
+        "No correction policy entry, independent model review, admission cache, retained historical verdict, coverage count, freshness receipt or public release was changed."
+      ]
+    }
+  ],
+  "archive": {
+    "root": "/var/tmp/smp-seven-source-40131875060-20261024/extracted",
+    "reportedCommitPrefix": "ac0260ed",
+    "manifestPath": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/archive-manifest.json",
+    "manifestSha256": "895213b31bb9f75814acc9484cad9aabd3719e07ddd72c621275a9b2568a1e5c",
+    "manifestBytes": 8433031
+  },
+  "hashEncoding": "Object SHA-256 uses UTF-8 JSON, sorted keys, separators comma and colon, ensure_ascii=False, allow_nan=False, matching contracts.canonical. File hashes use unchanged raw bytes.",
+  "consultedInputSeals": [
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/AGENTS.md",
+      "before": {
+        "sha256": "6224e1d60ea3b26f48ca0fcacbc9fcc1cbad035416bbe5c4ffe57e8cfb963d07",
+        "bytes": 8418,
+        "mtimeNs": 1792800049461125242
+      },
+      "after": {
+        "sha256": "6224e1d60ea3b26f48ca0fcacbc9fcc1cbad035416bbe5c4ffe57e8cfb963d07",
+        "bytes": 8418,
+        "mtimeNs": 1792800049461125242
+      },
+      "hashSizeAndMtimeUnchanged": true
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/.claude/rules/constraints.md",
+      "before": {
+        "sha256": "3bbf4894c99f08ec28719c407b0416a443ec99c65e05729d549386d025827ee1",
+        "bytes": 1721,
+        "mtimeNs": 1792800049458972620
+      },
+      "after": {
+        "sha256": "3bbf4894c99f08ec28719c407b0416a443ec99c65e05729d549386d025827ee1",
+        "bytes": 1721,
+        "mtimeNs": 1792800049458972620
+      },
+      "hashSizeAndMtimeUnchanged": true
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/status.md",
+      "before": {
+        "sha256": "c72e932bfe66a8d9fac497e7367ce0788940ae07e0b5f4ff805e17c937fce91b",
+        "bytes": 7390,
+        "mtimeNs": 1792892138446038849
+      },
+      "after": {
+        "sha256": "c72e932bfe66a8d9fac497e7367ce0788940ae07e0b5f4ff805e17c937fce91b",
+        "bytes": 7390,
+        "mtimeNs": 1792892138446038849
+      },
+      "hashSizeAndMtimeUnchanged": true
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/README.md",
+      "before": {
+        "sha256": "e2abc41bf3c7a6c635b69207a67ed0c2eae2fd3c2d5fbc782d9b94c0c409e094",
+        "bytes": 3910,
+        "mtimeNs": 1792819794058338067
+      },
+      "after": {
+        "sha256": "e2abc41bf3c7a6c635b69207a67ed0c2eae2fd3c2d5fbc782d9b94c0c409e094",
+        "bytes": 3910,
+        "mtimeNs": 1792819794058338067
+      },
+      "hashSizeAndMtimeUnchanged": true
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/BACKLOG.md",
+      "before": {
+        "sha256": "4aa485ad087eab3c306e8e5ff58a0446c9eed5f89a6f86693c70991d5937f3e2",
+        "bytes": 16543,
+        "mtimeNs": 1792891950513798488
+      },
+      "after": {
+        "sha256": "4aa485ad087eab3c306e8e5ff58a0446c9eed5f89a6f86693c70991d5937f3e2",
+        "bytes": 16543,
+        "mtimeNs": 1792891950513798488
+      },
+      "hashSizeAndMtimeUnchanged": true
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/lessons.md",
+      "before": {
+        "sha256": "39ca4dbc12b05ecb8e62c3b07feca8895cdbcdeb5fc3f040a311dac622678901",
+        "bytes": 22103,
+        "mtimeNs": 1792890807474842709
+      },
+      "after": {
+        "sha256": "39ca4dbc12b05ecb8e62c3b07feca8895cdbcdeb5fc3f040a311dac622678901",
+        "bytes": 22103,
+        "mtimeNs": 1792890807474842709
+      },
+      "hashSizeAndMtimeUnchanged": true
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/intent.md",
+      "before": {
+        "sha256": "d5df65215bf3b3d4cd9e4ef3f69df14434e25b0e8277008345fb215453f9d871",
+        "bytes": 17252,
+        "mtimeNs": 1792800049802598063
+      },
+      "after": {
+        "sha256": "d5df65215bf3b3d4cd9e4ef3f69df14434e25b0e8277008345fb215453f9d871",
+        "bytes": 17252,
+        "mtimeNs": 1792800049802598063
+      },
+      "hashSizeAndMtimeUnchanged": true
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/decisions.md",
+      "before": {
+        "sha256": "f39e14870bb34d8a775aeb0251b2890f70cd724496f45e310fb9811ca1428b01",
+        "bytes": 124726,
+        "mtimeNs": 1792817884150066615
+      },
+      "after": {
+        "sha256": "f39e14870bb34d8a775aeb0251b2890f70cd724496f45e310fb9811ca1428b01",
+        "bytes": 124726,
+        "mtimeNs": 1792817884150066615
+      },
+      "hashSizeAndMtimeUnchanged": true
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/supplier-fields-review-2026-10-23.json",
+      "before": {
+        "sha256": "fa1382462c95f2cff79cc3a5b55131e43cf57324bf0a60507bed44efbe1ca188",
+        "bytes": 318296,
+        "mtimeNs": 1792800049478090683
+      },
+      "after": {
+        "sha256": "fa1382462c95f2cff79cc3a5b55131e43cf57324bf0a60507bed44efbe1ca188",
+        "bytes": 318296,
+        "mtimeNs": 1792800049478090683
+      },
+      "hashSizeAndMtimeUnchanged": true
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/retained-audit-rebinding-9c-verification-2026-10-24.json",
+      "before": {
+        "sha256": "3e31ce489767414bc0f3c308e80f328bf0ad6d0b0dbbfed76c21fae7f2986ec6",
+        "bytes": 58144,
+        "mtimeNs": 1792817884152878912
+      },
+      "after": {
+        "sha256": "3e31ce489767414bc0f3c308e80f328bf0ad6d0b0dbbfed76c21fae7f2986ec6",
+        "bytes": 58144,
+        "mtimeNs": 1792817884152878912
+      },
+      "hashSizeAndMtimeUnchanged": true
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/source-bindings-2026-10-23.json",
+      "before": {
+        "sha256": "7aa72d2b75a39b10b17f557bd605fd7e5a2bfeef2d0f8f48a7bed302d5e74f76",
+        "bytes": 274939,
+        "mtimeNs": 1792800049476707310
+      },
+      "after": {
+        "sha256": "7aa72d2b75a39b10b17f557bd605fd7e5a2bfeef2d0f8f48a7bed302d5e74f76",
+        "bytes": 274939,
+        "mtimeNs": 1792800049476707310
+      },
+      "hashSizeAndMtimeUnchanged": true
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/web/src/data/tracker/originals.json",
+      "before": {
+        "sha256": "7d164cb81003db0a66eccbb25c2e8605e33b853b9a6e20cb2c6900794822b4a3",
+        "bytes": 381034,
+        "mtimeNs": 1792800049834720322
+      },
+      "after": {
+        "sha256": "7d164cb81003db0a66eccbb25c2e8605e33b853b9a6e20cb2c6900794822b4a3",
+        "bytes": 381034,
+        "mtimeNs": 1792800049834720322
+      },
+      "hashSizeAndMtimeUnchanged": true
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/contracts/factual-corrections.json",
+      "before": {
+        "sha256": "9c9fbe0d3d40ece11e1407ce9460086c732f62da88d3b0f220ab9d6f8757da00",
+        "bytes": 32004,
+        "mtimeNs": 1792802031150005119
+      },
+      "after": {
+        "sha256": "9c9fbe0d3d40ece11e1407ce9460086c732f62da88d3b0f220ab9d6f8757da00",
+        "bytes": 32004,
+        "mtimeNs": 1792802031150005119
+      },
+      "hashSizeAndMtimeUnchanged": true
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/corrections.py",
+      "before": {
+        "sha256": "d019310bd6c0dcea7e1400e3c63c0d9c3b67ee282f40a1eb4e14f4617d0af13c",
+        "bytes": 39496,
+        "mtimeNs": 1792800049822513834
+      },
+      "after": {
+        "sha256": "d019310bd6c0dcea7e1400e3c63c0d9c3b67ee282f40a1eb4e14f4617d0af13c",
+        "bytes": 39496,
+        "mtimeNs": 1792800049822513834
+      },
+      "hashSizeAndMtimeUnchanged": true
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/contracts.py",
+      "before": {
+        "sha256": "7a9dbf1c4a59391f79519b2aefe688ec572733e2223fd99fa352688b8d1c2d89",
+        "bytes": 10994,
+        "mtimeNs": 1792863209003882260
+      },
+      "after": {
+        "sha256": "7a9dbf1c4a59391f79519b2aefe688ec572733e2223fd99fa352688b8d1c2d89",
+        "bytes": 10994,
+        "mtimeNs": 1792863209003882260
+      },
+      "hashSizeAndMtimeUnchanged": true
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/web/src/components/MarketDesk.tsx",
+      "before": {
+        "sha256": "67f52439df3755cd63bffbb170d51c4775692e98fb0023c82573ffe2a87a17f9",
+        "bytes": 21267,
+        "mtimeNs": 1792800049828807870
+      },
+      "after": {
+        "sha256": "67f52439df3755cd63bffbb170d51c4775692e98fb0023c82573ffe2a87a17f9",
+        "bytes": 21267,
+        "mtimeNs": 1792800049828807870
+      },
+      "hashSizeAndMtimeUnchanged": true
+    },
+    {
+      "path": "/Users/jessepike/.claude/rules/plain-language.md",
+      "before": {
+        "sha256": "a2e287bcb506a4f473e2eb3567af49667f03affad78465f51cf7229d0f7cc872",
+        "bytes": 5142,
+        "mtimeNs": 1785897160355124458
+      },
+      "after": {
+        "sha256": "a2e287bcb506a4f473e2eb3567af49667f03affad78465f51cf7229d0f7cc872",
+        "bytes": 5142,
+        "mtimeNs": 1785897160355124458
+      },
+      "hashSizeAndMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/archive-manifest.json",
+      "before": {
+        "sha256": "895213b31bb9f75814acc9484cad9aabd3719e07ddd72c621275a9b2568a1e5c",
+        "bytes": 8433031,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "895213b31bb9f75814acc9484cad9aabd3719e07ddd72c621275a9b2568a1e5c",
+        "bytes": 8433031,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeAndMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/d056bf5f31e82e6782e982028ea2113a7a388e832085338b7f0cc7ffef88418b",
+      "before": {
+        "sha256": "d056bf5f31e82e6782e982028ea2113a7a388e832085338b7f0cc7ffef88418b",
+        "bytes": 305862,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "d056bf5f31e82e6782e982028ea2113a7a388e832085338b7f0cc7ffef88418b",
+        "bytes": 305862,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeAndMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/f493293a335b5af801350164aecac367d726ae202f109670253f96183ac5548d.json",
+      "before": {
+        "sha256": "b308b881e3b2927a81209f5811ccc370d7e50287c3d375dbef7654f4da0acf6c",
+        "bytes": 632,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "b308b881e3b2927a81209f5811ccc370d7e50287c3d375dbef7654f4da0acf6c",
+        "bytes": 632,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeAndMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/b89fc491a80e4dc127941fc921204248c94404688758807c5d1d7b50b33302d2",
+      "before": {
+        "sha256": "b89fc491a80e4dc127941fc921204248c94404688758807c5d1d7b50b33302d2",
+        "bytes": 344875,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "b89fc491a80e4dc127941fc921204248c94404688758807c5d1d7b50b33302d2",
+        "bytes": 344875,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeAndMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/cddef400fb8964705c0f0f6b6ef735fbf359994ade8ad394b5f5fefd7946fc14.json",
+      "before": {
+        "sha256": "e4fe5478e2c69e281601d828bd6248bf2598b81613ba306871f8590d5095d864",
+        "bytes": 800,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "e4fe5478e2c69e281601d828bd6248bf2598b81613ba306871f8590d5095d864",
+        "bytes": 800,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeAndMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/10bbde39463f168ca2d4c5c361994536ee1eb20353bfc668d5cc9906f260b668.json",
+      "before": {
+        "sha256": "a5aa49ecbf4020a6eb3ed4b2c3ddc4cd28116d9650423231f1e3cee468e69348",
+        "bytes": 706,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "a5aa49ecbf4020a6eb3ed4b2c3ddc4cd28116d9650423231f1e3cee468e69348",
+        "bytes": 706,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeAndMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/ecc2af96e14714f04e5cb5b1c624b43d6e77a8f24aeef539129dd1d0d91bbe53",
+      "before": {
+        "sha256": "ecc2af96e14714f04e5cb5b1c624b43d6e77a8f24aeef539129dd1d0d91bbe53",
+        "bytes": 69624,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "ecc2af96e14714f04e5cb5b1c624b43d6e77a8f24aeef539129dd1d0d91bbe53",
+        "bytes": 69624,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeAndMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/d30f4df0445bc8f6f5970b9108990e5c23a9c53dcb172040f2136bb89bb61bf6.json",
+      "before": {
+        "sha256": "63431ab1757e588f8a53f4cbef6dcdc7ef4ff983248a96695105686696ec1c98",
+        "bytes": 787,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "63431ab1757e588f8a53f4cbef6dcdc7ef4ff983248a96695105686696ec1c98",
+        "bytes": 787,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeAndMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718",
+      "before": {
+        "sha256": "27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718",
+        "bytes": 212853,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "27ff1064b8353aed4aebd4add410d826f61506ca5fa00a17803257fcce953718",
+        "bytes": 212853,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeAndMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/ef7ff25ee6e0c0384707625f60bba2caf07c53453d0ade91c664ffd902287b0f.json",
+      "before": {
+        "sha256": "0b8a702135d6df7a904bba1e2a4ec63df64b935ffc52fd91571ee45ba5789e54",
+        "bytes": 760,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "0b8a702135d6df7a904bba1e2a4ec63df64b935ffc52fd91571ee45ba5789e54",
+        "bytes": 760,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeAndMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/dd16ced3982191321b231fe3f8c21575c1921851b51880681c5e6e064d36cd58.json",
+      "before": {
+        "sha256": "04ea946d55adc10e0b9173f81de3b748db431add641501ff5698cceb98e4f924",
+        "bytes": 760,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "04ea946d55adc10e0b9173f81de3b748db431add641501ff5698cceb98e4f924",
+        "bytes": 760,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeAndMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/6ca20d44b2e7b3d8f8dec6794b8281de4315e164f11c43768b63047abb4b160c.json",
+      "before": {
+        "sha256": "31e3218c292f18bd3982ce9375a7717dd0fd5b2f4e6bc5a56ebe7ea3035f421f",
+        "bytes": 666,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "31e3218c292f18bd3982ce9375a7717dd0fd5b2f4e6bc5a56ebe7ea3035f421f",
+        "bytes": 666,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeAndMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/fb3e2ba4a5112d42b0a74fdd474e8c8f87793ef2c1c03c83c7f9e4e1def4d8b2",
+      "before": {
+        "sha256": "fb3e2ba4a5112d42b0a74fdd474e8c8f87793ef2c1c03c83c7f9e4e1def4d8b2",
+        "bytes": 148316,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "fb3e2ba4a5112d42b0a74fdd474e8c8f87793ef2c1c03c83c7f9e4e1def4d8b2",
+        "bytes": 148316,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeAndMtimeUnchanged": true
+    },
+    {
+      "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/babb1c40926b523cdda80be1e184f41d3658f896de82a94573dce6a72fa66584.json",
+      "before": {
+        "sha256": "f046082bfd3a17f2f70483107920ead3c5830d94fd19f68eadc0acc01f10f9de",
+        "bytes": 706,
+        "mtimeNs": 1792875521000000000
+      },
+      "after": {
+        "sha256": "f046082bfd3a17f2f70483107920ead3c5830d94fd19f68eadc0acc01f10f9de",
+        "bytes": 706,
+        "mtimeNs": 1792875521000000000
+      },
+      "hashSizeAndMtimeUnchanged": true
+    }
+  ],
+  "validation": {
+    "exactFixedFiveTargetIds": true,
+    "allOriginalObjectsMatchImmutableOriginalsAndFrozenLedger": true,
+    "allEvidenceIdsRetained": true,
+    "allRawBodyHashesAndSizesMatchObservations": true,
+    "allLiteralPrimaryExcerptsMatchRawByteOffsets": true,
+    "all304ReuseChainsEndInRetainedFetchedObservation": true,
+    "allConsultedInputsHashSizeMtimeUnchanged": true,
+    "noTargetAlreadyInAcceptedCorrectionPolicy": true,
+    "sourceRequests": 0,
+    "modelCalls": 0,
+    "archiveWrites": 0,
+    "runtimeOrContractWrites": 0,
+    "gitMutations": 0
+  },
+  "credit": {
+    "independentAdmission": false,
+    "historicalVerdictChanged": false,
+    "coverageCredit": 0,
+    "freshnessCredit": 0,
+    "publicationCredit": 0
+  },
+  "pending": "A future correction group requires exact source binding, separately scoped evidence-text consistency repairs where identified, actual independent admission, and the ordinary publication path. This document grants none of those states. No activation approval is requested."
+}

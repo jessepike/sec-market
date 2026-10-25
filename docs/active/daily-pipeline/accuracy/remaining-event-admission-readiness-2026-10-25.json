@@ -1,0 +1,2945 @@
+{
+  "schemaVersion": 1,
+  "kind": "conditional-factual-correction-admission-readiness-proposal",
+  "evaluatedAt": "2026-10-25T01:53:48.342019Z",
+  "firstReviewArtifacts": [
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/remaining-event-qualifier-review-2026-10-25.json",
+      "sha256": "4b5a1b777ff77196d8ae5f1600c626bbce37d0d73c06f0a7630a0e76b40c7d2b",
+      "byteIdentical": true
+    },
+    {
+      "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/remaining-event-qualifier-review-2026-10-25.md",
+      "sha256": "16f81608f959332100a8117850c25d35fec012669def96d300d21498a3467d2c",
+      "byteIdentical": true
+    }
+  ],
+  "archive": {
+    "commit": "ac0260ed95c3bf5090b236e42b3a7090a70c3861",
+    "manifestSha256": "895213b31bb9f75814acc9484cad9aabd3719e07ddd72c621275a9b2568a1e5c",
+    "manifestEntries": 41245,
+    "root": "/var/tmp/smp-seven-source-40131875060-20261024/extracted",
+    "allScannedObservationsAndSelectedBodiesHashSizeCheckedAgainstManifest": true
+  },
+  "currentValidation": {
+    "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/corrections.py",
+    "function": "validate_sources",
+    "executedUnchanged": true,
+    "maxDocumentChars": 30000,
+    "rules": "Exact observation/source ID, requested/final canonical URL, body and fetchedAt joins; successful retained status; verification not in future; age 0 to 30 hours; complete decoded document length and block-page checks; aggregate document limit; proposed evidence excerpt must occur literally in the matching complete source text.",
+    "httpDistinction": "Selected receipts are actual fetched/200 or actual not_modified/304. Ordinary validate_sources checks the status field; the special publisher-disclosure scope additionally checks exact status/HTTP pairs. No ordinary rule has changed.",
+    "store": "Read-only read/get adapter, manifest and content-reference verification. No LocalStore constructor, mutable store, admission process or model agent.",
+    "newGroupPolicyActivation": "These exact contract-shaped group objects are proposals. Target schema checks and source identity checks pass; group review-policy hashes are computed. The active correction contract and its global build stamp are unchanged."
+  },
+  "sourceReadiness": [
+    {
+      "evidenceId": "TR-netskope-5",
+      "sourceId": "netskope:citation:TR-netskope-5",
+      "immutableCanonicalUrl": "https://www.sec.gov/Archives/edgar/data/2063196/000119312526255439/ck0002063196-20260603.htm",
+      "selectedNewestRetainedSuccessfulHttpObservation": {
+        "body": {
+          "bytes": 48682,
+          "key": "objects/8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea",
+          "sha256": "8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea"
+        },
+        "contentType": "text/html",
+        "etag": null,
+        "fetchedAt": "2026-10-24T18:29:52.518219Z",
+        "finalUrl": "https://www.sec.gov/Archives/edgar/data/2063196/000119312526255439/ck0002063196-20260603.htm",
+        "httpStatus": 304,
+        "lastModified": "Wed, 03 Jun 2026 20:10:38 GMT",
+        "observationId": "b46a3e6e7a52b607df64e4d7708393dd0e48c4dc9500a170a2420ad8ae0a7989",
+        "requestedUrl": "https://www.sec.gov/Archives/edgar/data/2063196/000119312526255439/ck0002063196-20260603.htm",
+        "reusesObservationId": "f6add4bb1d789d2ff4d5b1dc8f7ad59dae70255f5f1f25744363689e849b110f",
+        "sourceId": "netskope:citation:TR-netskope-5",
+        "status": "not_modified",
+        "transportReused": false
+      },
+      "actual304ReuseNotNewFull200": true,
+      "full200BodyOrigin": {
+        "body": {
+          "bytes": 48682,
+          "key": "objects/8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea",
+          "sha256": "8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea"
+        },
+        "contentType": "text/html",
+        "etag": null,
+        "fetchedAt": "2026-10-20T21:11:54.572314Z",
+        "finalUrl": "https://www.sec.gov/Archives/edgar/data/2063196/000119312526255439/ck0002063196-20260603.htm",
+        "httpStatus": 200,
+        "lastModified": "Wed, 03 Jun 2026 20:10:38 GMT",
+        "observationId": "7749d10c26aa08c7ca08843f9200ac759d7d7a78e262c9dd806f18655edafe8b",
+        "requestedUrl": "https://www.sec.gov/Archives/edgar/data/2063196/000119312526255439/ck0002063196-20260603.htm",
+        "sourceId": "netskope:citation:TR-netskope-5",
+        "status": "fetched"
+      },
+      "observationReuseChain": [
+        {
+          "body": {
+            "bytes": 48682,
+            "key": "objects/8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea",
+            "sha256": "8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea"
+          },
+          "contentType": "text/html",
+          "etag": null,
+          "fetchedAt": "2026-10-24T18:29:52.518219Z",
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/2063196/000119312526255439/ck0002063196-20260603.htm",
+          "httpStatus": 304,
+          "lastModified": "Wed, 03 Jun 2026 20:10:38 GMT",
+          "observationId": "b46a3e6e7a52b607df64e4d7708393dd0e48c4dc9500a170a2420ad8ae0a7989",
+          "requestedUrl": "https://www.sec.gov/Archives/edgar/data/2063196/000119312526255439/ck0002063196-20260603.htm",
+          "reusesObservationId": "f6add4bb1d789d2ff4d5b1dc8f7ad59dae70255f5f1f25744363689e849b110f",
+          "sourceId": "netskope:citation:TR-netskope-5",
+          "status": "not_modified",
+          "transportReused": false
+        },
+        {
+          "body": {
+            "bytes": 48682,
+            "key": "objects/8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea",
+            "sha256": "8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea"
+          },
+          "contentType": "text/html",
+          "etag": null,
+          "fetchedAt": "2026-10-24T05:39:36.253199Z",
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/2063196/000119312526255439/ck0002063196-20260603.htm",
+          "httpStatus": 304,
+          "lastModified": "Wed, 03 Jun 2026 20:10:38 GMT",
+          "observationId": "f6add4bb1d789d2ff4d5b1dc8f7ad59dae70255f5f1f25744363689e849b110f",
+          "requestedUrl": "https://www.sec.gov/Archives/edgar/data/2063196/000119312526255439/ck0002063196-20260603.htm",
+          "reusesObservationId": "f92e8a79eefc2c2e49a0defb181e01415cf5d9418dfccd478cf8b1754a68c13d",
+          "sourceId": "netskope:citation:TR-netskope-5",
+          "status": "not_modified",
+          "transportReused": false
+        },
+        {
+          "body": {
+            "bytes": 48682,
+            "key": "objects/8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea",
+            "sha256": "8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea"
+          },
+          "contentType": "text/html",
+          "etag": null,
+          "fetchedAt": "2026-10-24T00:06:00.468075Z",
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/2063196/000119312526255439/ck0002063196-20260603.htm",
+          "httpStatus": 304,
+          "lastModified": "Wed, 03 Jun 2026 20:10:38 GMT",
+          "observationId": "f92e8a79eefc2c2e49a0defb181e01415cf5d9418dfccd478cf8b1754a68c13d",
+          "requestedUrl": "https://www.sec.gov/Archives/edgar/data/2063196/000119312526255439/ck0002063196-20260603.htm",
+          "reusesObservationId": "321040502e04849e2a2a665bfb51a768afa2285186c4fa5ab7065cf93ecfcff2",
+          "sourceId": "netskope:citation:TR-netskope-5",
+          "status": "not_modified",
+          "transportReused": false
+        },
+        {
+          "body": {
+            "bytes": 48682,
+            "key": "objects/8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea",
+            "sha256": "8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea"
+          },
+          "contentType": "text/html",
+          "etag": null,
+          "fetchedAt": "2026-10-23T11:34:10.383231Z",
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/2063196/000119312526255439/ck0002063196-20260603.htm",
+          "httpStatus": 304,
+          "lastModified": "Wed, 03 Jun 2026 20:10:38 GMT",
+          "observationId": "321040502e04849e2a2a665bfb51a768afa2285186c4fa5ab7065cf93ecfcff2",
+          "requestedUrl": "https://www.sec.gov/Archives/edgar/data/2063196/000119312526255439/ck0002063196-20260603.htm",
+          "reusesObservationId": "785b61bbac276ffce9ef36a3e5cbe6d1d52549fe37e41fec947cb3cfd0230a32",
+          "sourceId": "netskope:citation:TR-netskope-5",
+          "status": "not_modified"
+        },
+        {
+          "body": {
+            "bytes": 48682,
+            "key": "objects/8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea",
+            "sha256": "8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea"
+          },
+          "contentType": "text/html",
+          "etag": null,
+          "fetchedAt": "2026-10-23T04:14:44.144513Z",
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/2063196/000119312526255439/ck0002063196-20260603.htm",
+          "httpStatus": 304,
+          "lastModified": "Wed, 03 Jun 2026 20:10:38 GMT",
+          "observationId": "785b61bbac276ffce9ef36a3e5cbe6d1d52549fe37e41fec947cb3cfd0230a32",
+          "requestedUrl": "https://www.sec.gov/Archives/edgar/data/2063196/000119312526255439/ck0002063196-20260603.htm",
+          "reusesObservationId": "fd2dbb9f013ecaebf782a69aa8e7ba50566b4bb388330e65c0fca629191b70fb",
+          "sourceId": "netskope:citation:TR-netskope-5",
+          "status": "not_modified"
+        },
+        {
+          "body": {
+            "bytes": 48682,
+            "key": "objects/8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea",
+            "sha256": "8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea"
+          },
+          "contentType": "text/html",
+          "etag": null,
+          "fetchedAt": "2026-10-22T01:11:39.594592Z",
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/2063196/000119312526255439/ck0002063196-20260603.htm",
+          "httpStatus": 304,
+          "lastModified": "Wed, 03 Jun 2026 20:10:38 GMT",
+          "observationId": "fd2dbb9f013ecaebf782a69aa8e7ba50566b4bb388330e65c0fca629191b70fb",
+          "requestedUrl": "https://www.sec.gov/Archives/edgar/data/2063196/000119312526255439/ck0002063196-20260603.htm",
+          "reusesObservationId": "45487adb398b0f36b009cad982d2e40bf245034ccfa3cc0c1fb319073a505c90",
+          "sourceId": "netskope:citation:TR-netskope-5",
+          "status": "not_modified"
+        },
+        {
+          "body": {
+            "bytes": 48682,
+            "key": "objects/8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea",
+            "sha256": "8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea"
+          },
+          "contentType": "text/html",
+          "etag": null,
+          "fetchedAt": "2026-10-20T21:41:47.314142Z",
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/2063196/000119312526255439/ck0002063196-20260603.htm",
+          "httpStatus": 304,
+          "lastModified": "Wed, 03 Jun 2026 20:10:38 GMT",
+          "observationId": "45487adb398b0f36b009cad982d2e40bf245034ccfa3cc0c1fb319073a505c90",
+          "requestedUrl": "https://www.sec.gov/Archives/edgar/data/2063196/000119312526255439/ck0002063196-20260603.htm",
+          "reusesObservationId": "10133b3e72830a1ed02bb56a2e781ba61b08f1686b168afd2159efc0a5dc10e2",
+          "sourceId": "netskope:citation:TR-netskope-5",
+          "status": "not_modified"
+        },
+        {
+          "body": {
+            "bytes": 48682,
+            "key": "objects/8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea",
+            "sha256": "8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea"
+          },
+          "contentType": "text/html",
+          "etag": null,
+          "fetchedAt": "2026-10-20T21:21:16.868226Z",
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/2063196/000119312526255439/ck0002063196-20260603.htm",
+          "httpStatus": 304,
+          "lastModified": "Wed, 03 Jun 2026 20:10:38 GMT",
+          "observationId": "10133b3e72830a1ed02bb56a2e781ba61b08f1686b168afd2159efc0a5dc10e2",
+          "requestedUrl": "https://www.sec.gov/Archives/edgar/data/2063196/000119312526255439/ck0002063196-20260603.htm",
+          "reusesObservationId": "7749d10c26aa08c7ca08843f9200ac759d7d7a78e262c9dd806f18655edafe8b",
+          "sourceId": "netskope:citation:TR-netskope-5",
+          "status": "not_modified"
+        },
+        {
+          "body": {
+            "bytes": 48682,
+            "key": "objects/8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea",
+            "sha256": "8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea"
+          },
+          "contentType": "text/html",
+          "etag": null,
+          "fetchedAt": "2026-10-20T21:11:54.572314Z",
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/2063196/000119312526255439/ck0002063196-20260603.htm",
+          "httpStatus": 200,
+          "lastModified": "Wed, 03 Jun 2026 20:10:38 GMT",
+          "observationId": "7749d10c26aa08c7ca08843f9200ac759d7d7a78e262c9dd806f18655edafe8b",
+          "requestedUrl": "https://www.sec.gov/Archives/edgar/data/2063196/000119312526255439/ck0002063196-20260603.htm",
+          "sourceId": "netskope:citation:TR-netskope-5",
+          "status": "fetched"
+        }
+      ],
+      "allExactSourceIdRequestedUrlObservations": [
+        {
+          "observationId": "b46a3e6e7a52b607df64e4d7708393dd0e48c4dc9500a170a2420ad8ae0a7989",
+          "fetchedAt": "2026-10-24T18:29:52.518219Z",
+          "status": "not_modified",
+          "httpStatus": 304,
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/2063196/000119312526255439/ck0002063196-20260603.htm",
+          "body": {
+            "bytes": 48682,
+            "key": "objects/8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea",
+            "sha256": "8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea"
+          }
+        },
+        {
+          "observationId": "f6add4bb1d789d2ff4d5b1dc8f7ad59dae70255f5f1f25744363689e849b110f",
+          "fetchedAt": "2026-10-24T05:39:36.253199Z",
+          "status": "not_modified",
+          "httpStatus": 304,
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/2063196/000119312526255439/ck0002063196-20260603.htm",
+          "body": {
+            "bytes": 48682,
+            "key": "objects/8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea",
+            "sha256": "8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea"
+          }
+        },
+        {
+          "observationId": "f92e8a79eefc2c2e49a0defb181e01415cf5d9418dfccd478cf8b1754a68c13d",
+          "fetchedAt": "2026-10-24T00:06:00.468075Z",
+          "status": "not_modified",
+          "httpStatus": 304,
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/2063196/000119312526255439/ck0002063196-20260603.htm",
+          "body": {
+            "bytes": 48682,
+            "key": "objects/8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea",
+            "sha256": "8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea"
+          }
+        },
+        {
+          "observationId": "321040502e04849e2a2a665bfb51a768afa2285186c4fa5ab7065cf93ecfcff2",
+          "fetchedAt": "2026-10-23T11:34:10.383231Z",
+          "status": "not_modified",
+          "httpStatus": 304,
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/2063196/000119312526255439/ck0002063196-20260603.htm",
+          "body": {
+            "bytes": 48682,
+            "key": "objects/8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea",
+            "sha256": "8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea"
+          }
+        },
+        {
+          "observationId": "785b61bbac276ffce9ef36a3e5cbe6d1d52549fe37e41fec947cb3cfd0230a32",
+          "fetchedAt": "2026-10-23T04:14:44.144513Z",
+          "status": "not_modified",
+          "httpStatus": 304,
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/2063196/000119312526255439/ck0002063196-20260603.htm",
+          "body": {
+            "bytes": 48682,
+            "key": "objects/8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea",
+            "sha256": "8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea"
+          }
+        },
+        {
+          "observationId": "fd2dbb9f013ecaebf782a69aa8e7ba50566b4bb388330e65c0fca629191b70fb",
+          "fetchedAt": "2026-10-22T01:11:39.594592Z",
+          "status": "not_modified",
+          "httpStatus": 304,
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/2063196/000119312526255439/ck0002063196-20260603.htm",
+          "body": {
+            "bytes": 48682,
+            "key": "objects/8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea",
+            "sha256": "8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea"
+          }
+        },
+        {
+          "observationId": "45487adb398b0f36b009cad982d2e40bf245034ccfa3cc0c1fb319073a505c90",
+          "fetchedAt": "2026-10-20T21:41:47.314142Z",
+          "status": "not_modified",
+          "httpStatus": 304,
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/2063196/000119312526255439/ck0002063196-20260603.htm",
+          "body": {
+            "bytes": 48682,
+            "key": "objects/8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea",
+            "sha256": "8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea"
+          }
+        },
+        {
+          "observationId": "10133b3e72830a1ed02bb56a2e781ba61b08f1686b168afd2159efc0a5dc10e2",
+          "fetchedAt": "2026-10-20T21:21:16.868226Z",
+          "status": "not_modified",
+          "httpStatus": 304,
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/2063196/000119312526255439/ck0002063196-20260603.htm",
+          "body": {
+            "bytes": 48682,
+            "key": "objects/8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea",
+            "sha256": "8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea"
+          }
+        },
+        {
+          "observationId": "7749d10c26aa08c7ca08843f9200ac759d7d7a78e262c9dd806f18655edafe8b",
+          "fetchedAt": "2026-10-20T21:11:54.572314Z",
+          "status": "fetched",
+          "httpStatus": 200,
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/2063196/000119312526255439/ck0002063196-20260603.htm",
+          "body": {
+            "bytes": 48682,
+            "key": "objects/8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea",
+            "sha256": "8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea"
+          }
+        }
+      ],
+      "selectedRealAgeSeconds": 26635.8238,
+      "selectedRealAgeHours": 7.398839944444444,
+      "freshnessRuleHours": 30,
+      "expiresAt": "2026-10-26T00:29:52.518219Z",
+      "agePasses": true,
+      "exactFinalCanonicalUrlJoinPasses": true,
+      "anySuccessfulRetainedExactFinalCanonicalJoin": true,
+      "olderReviewSource": {
+        "observationId": "321040502e04849e2a2a665bfb51a768afa2285186c4fa5ab7065cf93ecfcff2",
+        "fetchedAt": "2026-10-23T11:34:10.383231Z",
+        "body": {
+          "key": "objects/8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea",
+          "archiveKey": "state/objects/8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea",
+          "sha256": "8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea",
+          "bytes": 48682,
+          "retainedPath": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea"
+        },
+        "realAgeSecondsNow": 137977.958788
+      },
+      "bodyComparison": {
+        "rawBodyIdentical": true,
+        "wholeNormalizedTextIdentical": true,
+        "olderTextSha256": "5e0fe4e6bbdaf7b22e72296934093a8bb5e7ee25c9dedeee14e0a788a3bc2f5c",
+        "latestTextSha256": "5e0fe4e6bbdaf7b22e72296934093a8bb5e7ee25c9dedeee14e0a788a3bc2f5c",
+        "olderChars": 4898,
+        "latestChars": 4898,
+        "exactTextChanges": [],
+        "articleComparison": null,
+        "allPriorLiteralQuotesRemain": true
+      }
+    },
+    {
+      "evidenceId": "TR-rubrik-3",
+      "sourceId": "rubrik:citation:TR-rubrik-3",
+      "immutableCanonicalUrl": "https://ir.rubrik.com/news-events/press-releases/news-details/2026/Rubrik-Promotes-Jesse-Green-to-Chief-Revenue-Officer/default.aspx",
+      "selectedNewestRetainedSuccessfulHttpObservation": {
+        "body": {
+          "bytes": 56051,
+          "key": "objects/c9413ba4a31f92f9454354039fc0ff2e90b59510fef7dc956998b4eccdc479ab",
+          "sha256": "c9413ba4a31f92f9454354039fc0ff2e90b59510fef7dc956998b4eccdc479ab"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": "\"16421c7f6771bf26488ae1f0fd92cd1f\"",
+        "fetchedAt": "2026-10-24T18:29:40.739122Z",
+        "finalUrl": "https://ir.rubrik.com/news-events/press-releases/news-details/2026/Rubrik-Promotes-Jesse-Green-to-Chief-Revenue-Officer/default.aspx",
+        "httpStatus": 200,
+        "lastModified": null,
+        "observationId": "8fa5264576e4414604ca6292b8ad1a9ec22045365ce14ac98abbe2c9a18326fd",
+        "requestedUrl": "https://ir.rubrik.com/news-events/press-releases/news-details/2026/Rubrik-Promotes-Jesse-Green-to-Chief-Revenue-Officer/default.aspx",
+        "sourceId": "rubrik:citation:TR-rubrik-3",
+        "status": "fetched",
+        "transportId": "06dfa264b16307844427077a9c1c91085d9119be62c336046e9a5efaa6812792",
+        "transportReused": false
+      },
+      "actual304ReuseNotNewFull200": false,
+      "full200BodyOrigin": {
+        "body": {
+          "bytes": 56051,
+          "key": "objects/c9413ba4a31f92f9454354039fc0ff2e90b59510fef7dc956998b4eccdc479ab",
+          "sha256": "c9413ba4a31f92f9454354039fc0ff2e90b59510fef7dc956998b4eccdc479ab"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": "\"16421c7f6771bf26488ae1f0fd92cd1f\"",
+        "fetchedAt": "2026-10-24T18:29:40.739122Z",
+        "finalUrl": "https://ir.rubrik.com/news-events/press-releases/news-details/2026/Rubrik-Promotes-Jesse-Green-to-Chief-Revenue-Officer/default.aspx",
+        "httpStatus": 200,
+        "lastModified": null,
+        "observationId": "8fa5264576e4414604ca6292b8ad1a9ec22045365ce14ac98abbe2c9a18326fd",
+        "requestedUrl": "https://ir.rubrik.com/news-events/press-releases/news-details/2026/Rubrik-Promotes-Jesse-Green-to-Chief-Revenue-Officer/default.aspx",
+        "sourceId": "rubrik:citation:TR-rubrik-3",
+        "status": "fetched",
+        "transportId": "06dfa264b16307844427077a9c1c91085d9119be62c336046e9a5efaa6812792",
+        "transportReused": false
+      },
+      "observationReuseChain": [
+        {
+          "body": {
+            "bytes": 56051,
+            "key": "objects/c9413ba4a31f92f9454354039fc0ff2e90b59510fef7dc956998b4eccdc479ab",
+            "sha256": "c9413ba4a31f92f9454354039fc0ff2e90b59510fef7dc956998b4eccdc479ab"
+          },
+          "contentType": "text/html; charset=utf-8",
+          "etag": "\"16421c7f6771bf26488ae1f0fd92cd1f\"",
+          "fetchedAt": "2026-10-24T18:29:40.739122Z",
+          "finalUrl": "https://ir.rubrik.com/news-events/press-releases/news-details/2026/Rubrik-Promotes-Jesse-Green-to-Chief-Revenue-Officer/default.aspx",
+          "httpStatus": 200,
+          "lastModified": null,
+          "observationId": "8fa5264576e4414604ca6292b8ad1a9ec22045365ce14ac98abbe2c9a18326fd",
+          "requestedUrl": "https://ir.rubrik.com/news-events/press-releases/news-details/2026/Rubrik-Promotes-Jesse-Green-to-Chief-Revenue-Officer/default.aspx",
+          "sourceId": "rubrik:citation:TR-rubrik-3",
+          "status": "fetched",
+          "transportId": "06dfa264b16307844427077a9c1c91085d9119be62c336046e9a5efaa6812792",
+          "transportReused": false
+        }
+      ],
+      "allExactSourceIdRequestedUrlObservations": [
+        {
+          "observationId": "8fa5264576e4414604ca6292b8ad1a9ec22045365ce14ac98abbe2c9a18326fd",
+          "fetchedAt": "2026-10-24T18:29:40.739122Z",
+          "status": "fetched",
+          "httpStatus": 200,
+          "finalUrl": "https://ir.rubrik.com/news-events/press-releases/news-details/2026/Rubrik-Promotes-Jesse-Green-to-Chief-Revenue-Officer/default.aspx",
+          "body": {
+            "bytes": 56051,
+            "key": "objects/c9413ba4a31f92f9454354039fc0ff2e90b59510fef7dc956998b4eccdc479ab",
+            "sha256": "c9413ba4a31f92f9454354039fc0ff2e90b59510fef7dc956998b4eccdc479ab"
+          }
+        },
+        {
+          "observationId": "72382759e814bbc3f2384986ce7d3a95d3622db2553adec760724dbc94f21398",
+          "fetchedAt": "2026-10-24T05:39:34.550573Z",
+          "status": "not_modified",
+          "httpStatus": 304,
+          "finalUrl": "https://ir.rubrik.com/news-events/press-releases/news-details/2026/Rubrik-Promotes-Jesse-Green-to-Chief-Revenue-Officer/default.aspx",
+          "body": {
+            "bytes": 56051,
+            "key": "objects/c626f26a7caf21e8bf25ad48023ed67ecfe3f123fd7a6ee99cb60f802c069e9c",
+            "sha256": "c626f26a7caf21e8bf25ad48023ed67ecfe3f123fd7a6ee99cb60f802c069e9c"
+          }
+        },
+        {
+          "observationId": "a208eb82f90e47d4b1ce4c110c1c61cb31942d1d7995180042abf102bcd71f61",
+          "fetchedAt": "2026-10-24T00:05:46.454215Z",
+          "status": "fetched",
+          "httpStatus": 200,
+          "finalUrl": "https://ir.rubrik.com/news-events/press-releases/news-details/2026/Rubrik-Promotes-Jesse-Green-to-Chief-Revenue-Officer/default.aspx",
+          "body": {
+            "bytes": 56051,
+            "key": "objects/c626f26a7caf21e8bf25ad48023ed67ecfe3f123fd7a6ee99cb60f802c069e9c",
+            "sha256": "c626f26a7caf21e8bf25ad48023ed67ecfe3f123fd7a6ee99cb60f802c069e9c"
+          }
+        },
+        {
+          "observationId": "0436baf377955181e6f43f9825470f7dd39652842a333155407122bf187d84ad",
+          "fetchedAt": "2026-10-23T04:14:57.340319Z",
+          "status": "fetched",
+          "httpStatus": 200,
+          "finalUrl": "https://ir.rubrik.com/news-events/press-releases/news-details/2026/Rubrik-Promotes-Jesse-Green-to-Chief-Revenue-Officer/default.aspx",
+          "body": {
+            "bytes": 57941,
+            "key": "objects/710d5be834f1c10951fabe47f1b71459efd1a426247346b4e71c8fe2e6cfbbb6",
+            "sha256": "710d5be834f1c10951fabe47f1b71459efd1a426247346b4e71c8fe2e6cfbbb6"
+          }
+        },
+        {
+          "observationId": "72fd9e3371f76f33f39fc85b262d43d8a8a5db1bfdf73aa304d73a9e2fb16b89",
+          "fetchedAt": "2026-10-22T01:11:32.072046Z",
+          "status": "fetched",
+          "httpStatus": 200,
+          "finalUrl": "https://ir.rubrik.com/news-events/press-releases/news-details/2026/Rubrik-Promotes-Jesse-Green-to-Chief-Revenue-Officer/default.aspx",
+          "body": {
+            "bytes": 56051,
+            "key": "objects/6c7062f246b0ff454b2c0285ebdb7dd3669d4df61c1638fa118740374a16e847",
+            "sha256": "6c7062f246b0ff454b2c0285ebdb7dd3669d4df61c1638fa118740374a16e847"
+          }
+        },
+        {
+          "observationId": "322a0ab7ef5e32b7502740a948534ff728032944d33a5097959dff29c6a5c7c8",
+          "fetchedAt": "2026-10-20T21:41:40.117588Z",
+          "status": "not_modified",
+          "httpStatus": 304,
+          "finalUrl": "https://ir.rubrik.com/news-events/press-releases/news-details/2026/Rubrik-Promotes-Jesse-Green-to-Chief-Revenue-Officer/default.aspx",
+          "body": {
+            "bytes": 55035,
+            "key": "objects/ef6a588dc87cd0290e9999aa74630734035665a22efe18ea6d045378bc5b9cc5",
+            "sha256": "ef6a588dc87cd0290e9999aa74630734035665a22efe18ea6d045378bc5b9cc5"
+          }
+        },
+        {
+          "observationId": "72ba4216cf300e798be58ce4fa347ca0bdd7e87af99dde7e46e73c880ac99c09",
+          "fetchedAt": "2026-10-20T21:22:27.484088Z",
+          "status": "fetched",
+          "httpStatus": 200,
+          "finalUrl": "https://ir.rubrik.com/news-events/press-releases/news-details/2026/Rubrik-Promotes-Jesse-Green-to-Chief-Revenue-Officer/default.aspx",
+          "body": {
+            "bytes": 55035,
+            "key": "objects/ef6a588dc87cd0290e9999aa74630734035665a22efe18ea6d045378bc5b9cc5",
+            "sha256": "ef6a588dc87cd0290e9999aa74630734035665a22efe18ea6d045378bc5b9cc5"
+          }
+        },
+        {
+          "observationId": "183f38ad1e4d974c488ca2c932606f7b6b22d1037d02df554734f0d2c9287d8d",
+          "fetchedAt": "2026-10-20T21:11:34.350778Z",
+          "status": "fetched",
+          "httpStatus": 200,
+          "finalUrl": "https://ir.rubrik.com/news-events/press-releases/news-details/2026/Rubrik-Promotes-Jesse-Green-to-Chief-Revenue-Officer/default.aspx",
+          "body": {
+            "bytes": 55987,
+            "key": "objects/5dc528e2f04ca40fd00a8ceea4590a8e12646df62c55c1f7e1d043376160f4f9",
+            "sha256": "5dc528e2f04ca40fd00a8ceea4590a8e12646df62c55c1f7e1d043376160f4f9"
+          }
+        }
+      ],
+      "selectedRealAgeSeconds": 26647.602897,
+      "selectedRealAgeHours": 7.402111915833333,
+      "freshnessRuleHours": 30,
+      "expiresAt": "2026-10-26T00:29:40.739122Z",
+      "agePasses": true,
+      "exactFinalCanonicalUrlJoinPasses": true,
+      "anySuccessfulRetainedExactFinalCanonicalJoin": true,
+      "olderReviewSource": {
+        "observationId": "0436baf377955181e6f43f9825470f7dd39652842a333155407122bf187d84ad",
+        "fetchedAt": "2026-10-23T04:14:57.340319Z",
+        "body": {
+          "key": "objects/710d5be834f1c10951fabe47f1b71459efd1a426247346b4e71c8fe2e6cfbbb6",
+          "archiveKey": "state/objects/710d5be834f1c10951fabe47f1b71459efd1a426247346b4e71c8fe2e6cfbbb6",
+          "sha256": "710d5be834f1c10951fabe47f1b71459efd1a426247346b4e71c8fe2e6cfbbb6",
+          "bytes": 57941,
+          "retainedPath": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/710d5be834f1c10951fabe47f1b71459efd1a426247346b4e71c8fe2e6cfbbb6"
+        },
+        "realAgeSecondsNow": 164331.0017
+      },
+      "bodyComparison": {
+        "rawBodyIdentical": false,
+        "wholeNormalizedTextIdentical": false,
+        "olderTextSha256": "3ef9572c64372149dc9d115bdda627f8bb418505e4b5071940a774972b970afc",
+        "latestTextSha256": "f771a4f276112aa88e3423ced87f3002f13a392a8d3eb97d82fbc55c4877b4c2",
+        "olderChars": 8394,
+        "latestChars": 8385,
+        "exactTextChanges": [
+          {
+            "operation": "delete",
+            "oldStart": 6909,
+            "oldEnd": 6916,
+            "latestStart": 6909,
+            "latestEnd": 6909,
+            "oldText": "[email ",
+            "latestText": "",
+            "oldContext": " of Communications, Rubrik 415.244.6565 [email protected] Investor Relations Contact Me",
+            "latestContext": " of Communications, Rubrik 415.244.6565 press@rubrik.com Investor Relations Cont"
+          },
+          {
+            "operation": "insert",
+            "oldStart": 6918,
+            "oldEnd": 6918,
+            "latestStart": 6911,
+            "latestEnd": 6923,
+            "oldText": "",
+            "latestText": "ess@rubrik.c",
+            "oldContext": "nications, Rubrik 415.244.6565 [email protected] Investor Relations Contact Meli",
+            "latestContext": "f Communications, Rubrik 415.244.6565 press@rubrik.com Investor Relations Contact Melissa Fr"
+          },
+          {
+            "operation": "replace",
+            "oldStart": 6919,
+            "oldEnd": 6926,
+            "latestStart": 6924,
+            "latestEnd": 6925,
+            "oldText": "tected]",
+            "latestText": "m",
+            "oldContext": "ications, Rubrik 415.244.6565 [email protected] Investor Relations Contact Melissa Fran",
+            "latestContext": "ons, Rubrik 415.244.6565 press@rubrik.com Investor Relations Contact Melissa Fran"
+          },
+          {
+            "operation": "replace",
+            "oldStart": 7022,
+            "oldEnd": 7024,
+            "latestStart": 7021,
+            "latestEnd": 7033,
+            "oldText": "[e",
+            "latestText": "IR@rubrik.co",
+            "oldContext": "Investor Relations, Rubrik 781.367.0733 [email protected] Source: Rubrik View All ",
+            "latestContext": "Investor Relations, Rubrik 781.367.0733 IR@rubrik.com Source: Rubrik View All News Contact U"
+          },
+          {
+            "operation": "delete",
+            "oldStart": 7025,
+            "oldEnd": 7039,
+            "latestStart": 7034,
+            "latestEnd": 7034,
+            "oldText": "ail protected]",
+            "latestText": "",
+            "oldContext": "estor Relations, Rubrik 781.367.0733 [email protected] Source: Rubrik View All News Contact Us",
+            "latestContext": "tions, Rubrik 781.367.0733 IR@rubrik.com Source: Rubrik View All News Contact Us"
+          },
+          {
+            "operation": "replace",
+            "oldStart": 7127,
+            "oldEnd": 7129,
+            "latestStart": 7122,
+            "latestEnd": 7134,
+            "oldText": "[e",
+            "latestText": "ir@rubrik.co",
+            "oldContext": " Franchi VP, Head of Investor Relations [email protected] Linkedin X Facebook Yout",
+            "latestContext": " Franchi VP, Head of Investor Relations ir@rubrik.com Linkedin X Facebook Youtube Instagram "
+          },
+          {
+            "operation": "delete",
+            "oldStart": 7130,
+            "oldEnd": 7144,
+            "latestStart": 7135,
+            "latestEnd": 7135,
+            "oldText": "ail protected]",
+            "latestText": "",
+            "oldContext": "anchi VP, Head of Investor Relations [email protected] Linkedin X Facebook Youtube Instagram I",
+            "latestContext": "Head of Investor Relations ir@rubrik.com Linkedin X Facebook Youtube Instagram I"
+          }
+        ],
+        "articleComparison": {
+          "startAnchor": "Company Advances Proven Leader for the Next Phase of Growth and Scale",
+          "endAnchor": "Corporate Communications Contact",
+          "endInclusive": false,
+          "olderSha256": "35ab8461b0e72c2267aefc32c9b8c36107e9317999cfd6f1bf184678d877a0ba",
+          "latestSha256": "35ab8461b0e72c2267aefc32c9b8c36107e9317999cfd6f1bf184678d877a0ba",
+          "chars": 5915,
+          "identical": true
+        },
+        "allPriorLiteralQuotesRemain": true
+      }
+    },
+    {
+      "evidenceId": "TR-s1-3",
+      "sourceId": "s1:citation:TR-s1-3",
+      "immutableCanonicalUrl": "https://www.sec.gov/Archives/edgar/data/0001583708/000158370826000039/s-20260528.htm",
+      "selectedNewestRetainedSuccessfulHttpObservation": {
+        "body": {
+          "bytes": 49404,
+          "key": "objects/e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78",
+          "sha256": "e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78"
+        },
+        "contentType": "text/html",
+        "etag": null,
+        "fetchedAt": "2026-10-24T18:30:00.677520Z",
+        "finalUrl": "https://www.sec.gov/Archives/edgar/data/1583708/000158370826000039/s-20260528.htm",
+        "httpStatus": 304,
+        "lastModified": "Thu, 28 May 2026 20:14:10 GMT",
+        "observationId": "a32b2e55b927c37ffd4e5ab9c2e31a242f9b311c01f47651566c421c13bdbe14",
+        "requestedUrl": "https://www.sec.gov/Archives/edgar/data/0001583708/000158370826000039/s-20260528.htm",
+        "reusesObservationId": "04084c3a474478781502b49763bba91fea8708f53f0f5bf468a68fe742513ca8",
+        "sourceId": "s1:citation:TR-s1-3",
+        "status": "not_modified",
+        "transportReused": false
+      },
+      "actual304ReuseNotNewFull200": true,
+      "full200BodyOrigin": {
+        "body": {
+          "bytes": 49404,
+          "key": "objects/e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78",
+          "sha256": "e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78"
+        },
+        "contentType": "text/html",
+        "etag": null,
+        "fetchedAt": "2026-10-20T21:11:29.566045Z",
+        "finalUrl": "https://www.sec.gov/Archives/edgar/data/1583708/000158370826000039/s-20260528.htm",
+        "httpStatus": 200,
+        "lastModified": "Thu, 28 May 2026 20:14:10 GMT",
+        "observationId": "eafc5bf53cc59e4b0cb49f78039670ce6cff0baff0417b91eb465bf05cc533ab",
+        "requestedUrl": "https://www.sec.gov/Archives/edgar/data/0001583708/000158370826000039/s-20260528.htm",
+        "sourceId": "s1:citation:TR-s1-3",
+        "status": "fetched"
+      },
+      "observationReuseChain": [
+        {
+          "body": {
+            "bytes": 49404,
+            "key": "objects/e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78",
+            "sha256": "e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78"
+          },
+          "contentType": "text/html",
+          "etag": null,
+          "fetchedAt": "2026-10-24T18:30:00.677520Z",
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/1583708/000158370826000039/s-20260528.htm",
+          "httpStatus": 304,
+          "lastModified": "Thu, 28 May 2026 20:14:10 GMT",
+          "observationId": "a32b2e55b927c37ffd4e5ab9c2e31a242f9b311c01f47651566c421c13bdbe14",
+          "requestedUrl": "https://www.sec.gov/Archives/edgar/data/0001583708/000158370826000039/s-20260528.htm",
+          "reusesObservationId": "04084c3a474478781502b49763bba91fea8708f53f0f5bf468a68fe742513ca8",
+          "sourceId": "s1:citation:TR-s1-3",
+          "status": "not_modified",
+          "transportReused": false
+        },
+        {
+          "body": {
+            "bytes": 49404,
+            "key": "objects/e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78",
+            "sha256": "e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78"
+          },
+          "contentType": "text/html",
+          "etag": null,
+          "fetchedAt": "2026-10-24T05:39:21.586814Z",
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/1583708/000158370826000039/s-20260528.htm",
+          "httpStatus": 304,
+          "lastModified": "Thu, 28 May 2026 20:14:10 GMT",
+          "observationId": "04084c3a474478781502b49763bba91fea8708f53f0f5bf468a68fe742513ca8",
+          "requestedUrl": "https://www.sec.gov/Archives/edgar/data/0001583708/000158370826000039/s-20260528.htm",
+          "reusesObservationId": "d8ce89d794e65779a37cf9211f91489929be56532848256705af7db69b8509be",
+          "sourceId": "s1:citation:TR-s1-3",
+          "status": "not_modified",
+          "transportReused": false
+        },
+        {
+          "body": {
+            "bytes": 49404,
+            "key": "objects/e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78",
+            "sha256": "e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78"
+          },
+          "contentType": "text/html",
+          "etag": null,
+          "fetchedAt": "2026-10-24T00:05:45.810736Z",
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/1583708/000158370826000039/s-20260528.htm",
+          "httpStatus": 304,
+          "lastModified": "Thu, 28 May 2026 20:14:10 GMT",
+          "observationId": "d8ce89d794e65779a37cf9211f91489929be56532848256705af7db69b8509be",
+          "requestedUrl": "https://www.sec.gov/Archives/edgar/data/0001583708/000158370826000039/s-20260528.htm",
+          "reusesObservationId": "8b81e72c90ff7a592608d7a90c05e99af0b8dc6e18f957c46f580775b8eb81c5",
+          "sourceId": "s1:citation:TR-s1-3",
+          "status": "not_modified",
+          "transportReused": false
+        },
+        {
+          "body": {
+            "bytes": 49404,
+            "key": "objects/e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78",
+            "sha256": "e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78"
+          },
+          "contentType": "text/html",
+          "etag": null,
+          "fetchedAt": "2026-10-23T04:14:48.740843Z",
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/1583708/000158370826000039/s-20260528.htm",
+          "httpStatus": 304,
+          "lastModified": "Thu, 28 May 2026 20:14:10 GMT",
+          "observationId": "8b81e72c90ff7a592608d7a90c05e99af0b8dc6e18f957c46f580775b8eb81c5",
+          "requestedUrl": "https://www.sec.gov/Archives/edgar/data/0001583708/000158370826000039/s-20260528.htm",
+          "reusesObservationId": "040bc3c2f28aeeee0a9a14d5a8bb4b1041939d65cacb39c93347e21470ad037e",
+          "sourceId": "s1:citation:TR-s1-3",
+          "status": "not_modified"
+        },
+        {
+          "body": {
+            "bytes": 49404,
+            "key": "objects/e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78",
+            "sha256": "e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78"
+          },
+          "contentType": "text/html",
+          "etag": null,
+          "fetchedAt": "2026-10-22T01:11:43.598351Z",
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/1583708/000158370826000039/s-20260528.htm",
+          "httpStatus": 304,
+          "lastModified": "Thu, 28 May 2026 20:14:10 GMT",
+          "observationId": "040bc3c2f28aeeee0a9a14d5a8bb4b1041939d65cacb39c93347e21470ad037e",
+          "requestedUrl": "https://www.sec.gov/Archives/edgar/data/0001583708/000158370826000039/s-20260528.htm",
+          "reusesObservationId": "b973eb7cd8627a4f022001ce2579f0478423363590c70a34c1d9610c9e0085fa",
+          "sourceId": "s1:citation:TR-s1-3",
+          "status": "not_modified"
+        },
+        {
+          "body": {
+            "bytes": 49404,
+            "key": "objects/e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78",
+            "sha256": "e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78"
+          },
+          "contentType": "text/html",
+          "etag": null,
+          "fetchedAt": "2026-10-20T21:41:32.536693Z",
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/1583708/000158370826000039/s-20260528.htm",
+          "httpStatus": 304,
+          "lastModified": "Thu, 28 May 2026 20:14:10 GMT",
+          "observationId": "b973eb7cd8627a4f022001ce2579f0478423363590c70a34c1d9610c9e0085fa",
+          "requestedUrl": "https://www.sec.gov/Archives/edgar/data/0001583708/000158370826000039/s-20260528.htm",
+          "reusesObservationId": "86863e44acc6db2e6c110ac972933a9e7d44e75d97671e690fad924a2efbcf09",
+          "sourceId": "s1:citation:TR-s1-3",
+          "status": "not_modified"
+        },
+        {
+          "body": {
+            "bytes": 49404,
+            "key": "objects/e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78",
+            "sha256": "e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78"
+          },
+          "contentType": "text/html",
+          "etag": null,
+          "fetchedAt": "2026-10-20T21:22:36.690545Z",
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/1583708/000158370826000039/s-20260528.htm",
+          "httpStatus": 304,
+          "lastModified": "Thu, 28 May 2026 20:14:10 GMT",
+          "observationId": "86863e44acc6db2e6c110ac972933a9e7d44e75d97671e690fad924a2efbcf09",
+          "requestedUrl": "https://www.sec.gov/Archives/edgar/data/0001583708/000158370826000039/s-20260528.htm",
+          "reusesObservationId": "eafc5bf53cc59e4b0cb49f78039670ce6cff0baff0417b91eb465bf05cc533ab",
+          "sourceId": "s1:citation:TR-s1-3",
+          "status": "not_modified"
+        },
+        {
+          "body": {
+            "bytes": 49404,
+            "key": "objects/e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78",
+            "sha256": "e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78"
+          },
+          "contentType": "text/html",
+          "etag": null,
+          "fetchedAt": "2026-10-20T21:11:29.566045Z",
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/1583708/000158370826000039/s-20260528.htm",
+          "httpStatus": 200,
+          "lastModified": "Thu, 28 May 2026 20:14:10 GMT",
+          "observationId": "eafc5bf53cc59e4b0cb49f78039670ce6cff0baff0417b91eb465bf05cc533ab",
+          "requestedUrl": "https://www.sec.gov/Archives/edgar/data/0001583708/000158370826000039/s-20260528.htm",
+          "sourceId": "s1:citation:TR-s1-3",
+          "status": "fetched"
+        }
+      ],
+      "allExactSourceIdRequestedUrlObservations": [
+        {
+          "observationId": "a32b2e55b927c37ffd4e5ab9c2e31a242f9b311c01f47651566c421c13bdbe14",
+          "fetchedAt": "2026-10-24T18:30:00.677520Z",
+          "status": "not_modified",
+          "httpStatus": 304,
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/1583708/000158370826000039/s-20260528.htm",
+          "body": {
+            "bytes": 49404,
+            "key": "objects/e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78",
+            "sha256": "e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78"
+          }
+        },
+        {
+          "observationId": "04084c3a474478781502b49763bba91fea8708f53f0f5bf468a68fe742513ca8",
+          "fetchedAt": "2026-10-24T05:39:21.586814Z",
+          "status": "not_modified",
+          "httpStatus": 304,
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/1583708/000158370826000039/s-20260528.htm",
+          "body": {
+            "bytes": 49404,
+            "key": "objects/e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78",
+            "sha256": "e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78"
+          }
+        },
+        {
+          "observationId": "d8ce89d794e65779a37cf9211f91489929be56532848256705af7db69b8509be",
+          "fetchedAt": "2026-10-24T00:05:45.810736Z",
+          "status": "not_modified",
+          "httpStatus": 304,
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/1583708/000158370826000039/s-20260528.htm",
+          "body": {
+            "bytes": 49404,
+            "key": "objects/e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78",
+            "sha256": "e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78"
+          }
+        },
+        {
+          "observationId": "8b81e72c90ff7a592608d7a90c05e99af0b8dc6e18f957c46f580775b8eb81c5",
+          "fetchedAt": "2026-10-23T04:14:48.740843Z",
+          "status": "not_modified",
+          "httpStatus": 304,
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/1583708/000158370826000039/s-20260528.htm",
+          "body": {
+            "bytes": 49404,
+            "key": "objects/e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78",
+            "sha256": "e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78"
+          }
+        },
+        {
+          "observationId": "040bc3c2f28aeeee0a9a14d5a8bb4b1041939d65cacb39c93347e21470ad037e",
+          "fetchedAt": "2026-10-22T01:11:43.598351Z",
+          "status": "not_modified",
+          "httpStatus": 304,
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/1583708/000158370826000039/s-20260528.htm",
+          "body": {
+            "bytes": 49404,
+            "key": "objects/e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78",
+            "sha256": "e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78"
+          }
+        },
+        {
+          "observationId": "b973eb7cd8627a4f022001ce2579f0478423363590c70a34c1d9610c9e0085fa",
+          "fetchedAt": "2026-10-20T21:41:32.536693Z",
+          "status": "not_modified",
+          "httpStatus": 304,
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/1583708/000158370826000039/s-20260528.htm",
+          "body": {
+            "bytes": 49404,
+            "key": "objects/e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78",
+            "sha256": "e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78"
+          }
+        },
+        {
+          "observationId": "86863e44acc6db2e6c110ac972933a9e7d44e75d97671e690fad924a2efbcf09",
+          "fetchedAt": "2026-10-20T21:22:36.690545Z",
+          "status": "not_modified",
+          "httpStatus": 304,
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/1583708/000158370826000039/s-20260528.htm",
+          "body": {
+            "bytes": 49404,
+            "key": "objects/e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78",
+            "sha256": "e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78"
+          }
+        },
+        {
+          "observationId": "eafc5bf53cc59e4b0cb49f78039670ce6cff0baff0417b91eb465bf05cc533ab",
+          "fetchedAt": "2026-10-20T21:11:29.566045Z",
+          "status": "fetched",
+          "httpStatus": 200,
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/1583708/000158370826000039/s-20260528.htm",
+          "body": {
+            "bytes": 49404,
+            "key": "objects/e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78",
+            "sha256": "e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78"
+          }
+        }
+      ],
+      "selectedRealAgeSeconds": 26627.664499,
+      "selectedRealAgeHours": 7.3965734719444445,
+      "freshnessRuleHours": 30,
+      "expiresAt": "2026-10-26T00:30:00.677520Z",
+      "agePasses": true,
+      "exactFinalCanonicalUrlJoinPasses": false,
+      "anySuccessfulRetainedExactFinalCanonicalJoin": false,
+      "olderReviewSource": {
+        "observationId": "8b81e72c90ff7a592608d7a90c05e99af0b8dc6e18f957c46f580775b8eb81c5",
+        "fetchedAt": "2026-10-23T04:14:48.740843Z",
+        "body": {
+          "key": "objects/e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78",
+          "archiveKey": "state/objects/e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78",
+          "sha256": "e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78",
+          "bytes": 49404,
+          "retainedPath": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78"
+        },
+        "realAgeSecondsNow": 164339.601176
+      },
+      "bodyComparison": {
+        "rawBodyIdentical": true,
+        "wholeNormalizedTextIdentical": true,
+        "olderTextSha256": "bb99287ad872909d4e04574181aa5464fad4d0d9b561c2e03c14eaf8e9a140bc",
+        "latestTextSha256": "bb99287ad872909d4e04574181aa5464fad4d0d9b561c2e03c14eaf8e9a140bc",
+        "olderChars": 8295,
+        "latestChars": 8295,
+        "exactTextChanges": [],
+        "articleComparison": null,
+        "allPriorLiteralQuotesRemain": true
+      }
+    },
+    {
+      "evidenceId": "TR-varonis-2",
+      "sourceId": "varonis:citation:TR-varonis-2",
+      "immutableCanonicalUrl": "https://www.sec.gov/Archives/edgar/data/1361113/000117184325006721/exh_991.htm",
+      "selectedNewestRetainedSuccessfulHttpObservation": {
+        "body": {
+          "bytes": 223189,
+          "key": "objects/02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6",
+          "sha256": "02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6"
+        },
+        "contentType": "text/html",
+        "etag": null,
+        "fetchedAt": "2026-10-24T18:29:59.188369Z",
+        "finalUrl": "https://www.sec.gov/Archives/edgar/data/1361113/000117184325006721/exh_991.htm",
+        "httpStatus": 304,
+        "lastModified": "Tue, 28 Oct 2025 20:10:53 GMT",
+        "observationId": "0955b2d52ea23b9fb2b92a734ac911d2740e2ab633eb6ba57407394d1462e53f",
+        "requestedUrl": "https://www.sec.gov/Archives/edgar/data/1361113/000117184325006721/exh_991.htm",
+        "reusesObservationId": "4f32345cf7e4417369360e1754fc88390006c4b43631bcf2f967396c91253399",
+        "sourceId": "varonis:citation:TR-varonis-2",
+        "status": "not_modified",
+        "transportReused": false
+      },
+      "actual304ReuseNotNewFull200": true,
+      "full200BodyOrigin": {
+        "body": {
+          "bytes": 223189,
+          "key": "objects/02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6",
+          "sha256": "02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6"
+        },
+        "contentType": "text/html",
+        "etag": null,
+        "fetchedAt": "2026-10-20T21:11:41.473725Z",
+        "finalUrl": "https://www.sec.gov/Archives/edgar/data/1361113/000117184325006721/exh_991.htm",
+        "httpStatus": 200,
+        "lastModified": "Tue, 28 Oct 2025 20:10:53 GMT",
+        "observationId": "a63cf5b96f93abf9c6d1b55089808ad19622d5c9e8bb878d61a066099bfcb21a",
+        "requestedUrl": "https://www.sec.gov/Archives/edgar/data/1361113/000117184325006721/exh_991.htm",
+        "sourceId": "varonis:citation:TR-varonis-2",
+        "status": "fetched"
+      },
+      "observationReuseChain": [
+        {
+          "body": {
+            "bytes": 223189,
+            "key": "objects/02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6",
+            "sha256": "02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6"
+          },
+          "contentType": "text/html",
+          "etag": null,
+          "fetchedAt": "2026-10-24T18:29:59.188369Z",
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/1361113/000117184325006721/exh_991.htm",
+          "httpStatus": 304,
+          "lastModified": "Tue, 28 Oct 2025 20:10:53 GMT",
+          "observationId": "0955b2d52ea23b9fb2b92a734ac911d2740e2ab633eb6ba57407394d1462e53f",
+          "requestedUrl": "https://www.sec.gov/Archives/edgar/data/1361113/000117184325006721/exh_991.htm",
+          "reusesObservationId": "4f32345cf7e4417369360e1754fc88390006c4b43631bcf2f967396c91253399",
+          "sourceId": "varonis:citation:TR-varonis-2",
+          "status": "not_modified",
+          "transportReused": false
+        },
+        {
+          "body": {
+            "bytes": 223189,
+            "key": "objects/02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6",
+            "sha256": "02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6"
+          },
+          "contentType": "text/html",
+          "etag": null,
+          "fetchedAt": "2026-10-24T05:39:47.447453Z",
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/1361113/000117184325006721/exh_991.htm",
+          "httpStatus": 304,
+          "lastModified": "Tue, 28 Oct 2025 20:10:53 GMT",
+          "observationId": "4f32345cf7e4417369360e1754fc88390006c4b43631bcf2f967396c91253399",
+          "requestedUrl": "https://www.sec.gov/Archives/edgar/data/1361113/000117184325006721/exh_991.htm",
+          "reusesObservationId": "0b0f0f5c08e2fdbb5b269ecfe7c5631db2ad3c21a95de7a5635f893c8506a19d",
+          "sourceId": "varonis:citation:TR-varonis-2",
+          "status": "not_modified",
+          "transportReused": false
+        },
+        {
+          "body": {
+            "bytes": 223189,
+            "key": "objects/02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6",
+            "sha256": "02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6"
+          },
+          "contentType": "text/html",
+          "etag": null,
+          "fetchedAt": "2026-10-24T00:05:50.583476Z",
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/1361113/000117184325006721/exh_991.htm",
+          "httpStatus": 304,
+          "lastModified": "Tue, 28 Oct 2025 20:10:53 GMT",
+          "observationId": "0b0f0f5c08e2fdbb5b269ecfe7c5631db2ad3c21a95de7a5635f893c8506a19d",
+          "requestedUrl": "https://www.sec.gov/Archives/edgar/data/1361113/000117184325006721/exh_991.htm",
+          "reusesObservationId": "40c78b36c02eec0c25bc4eb4aecf5152ef57459db24f48a0cfca9d4ad46617b0",
+          "sourceId": "varonis:citation:TR-varonis-2",
+          "status": "not_modified",
+          "transportReused": false
+        },
+        {
+          "body": {
+            "bytes": 223189,
+            "key": "objects/02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6",
+            "sha256": "02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6"
+          },
+          "contentType": "text/html",
+          "etag": null,
+          "fetchedAt": "2026-10-23T04:14:54.235012Z",
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/1361113/000117184325006721/exh_991.htm",
+          "httpStatus": 304,
+          "lastModified": "Tue, 28 Oct 2025 20:10:53 GMT",
+          "observationId": "40c78b36c02eec0c25bc4eb4aecf5152ef57459db24f48a0cfca9d4ad46617b0",
+          "requestedUrl": "https://www.sec.gov/Archives/edgar/data/1361113/000117184325006721/exh_991.htm",
+          "reusesObservationId": "e868ecd4cad976fa29f3d080d179f87576ace35ea23ed7bac8e144416262948d",
+          "sourceId": "varonis:citation:TR-varonis-2",
+          "status": "not_modified"
+        },
+        {
+          "body": {
+            "bytes": 223189,
+            "key": "objects/02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6",
+            "sha256": "02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6"
+          },
+          "contentType": "text/html",
+          "etag": null,
+          "fetchedAt": "2026-10-22T01:11:34.343021Z",
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/1361113/000117184325006721/exh_991.htm",
+          "httpStatus": 304,
+          "lastModified": "Tue, 28 Oct 2025 20:10:53 GMT",
+          "observationId": "e868ecd4cad976fa29f3d080d179f87576ace35ea23ed7bac8e144416262948d",
+          "requestedUrl": "https://www.sec.gov/Archives/edgar/data/1361113/000117184325006721/exh_991.htm",
+          "reusesObservationId": "de96f097d8478ab28f9635d09da4d853fdfd448919a6c7aa378722927b9f9167",
+          "sourceId": "varonis:citation:TR-varonis-2",
+          "status": "not_modified"
+        },
+        {
+          "body": {
+            "bytes": 223189,
+            "key": "objects/02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6",
+            "sha256": "02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6"
+          },
+          "contentType": "text/html",
+          "etag": null,
+          "fetchedAt": "2026-10-20T21:41:25.285490Z",
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/1361113/000117184325006721/exh_991.htm",
+          "httpStatus": 304,
+          "lastModified": "Tue, 28 Oct 2025 20:10:53 GMT",
+          "observationId": "de96f097d8478ab28f9635d09da4d853fdfd448919a6c7aa378722927b9f9167",
+          "requestedUrl": "https://www.sec.gov/Archives/edgar/data/1361113/000117184325006721/exh_991.htm",
+          "reusesObservationId": "34b8ddb7635987c1dcd8506d968147a55160275fbc49e830ce4ce0804f240213",
+          "sourceId": "varonis:citation:TR-varonis-2",
+          "status": "not_modified"
+        },
+        {
+          "body": {
+            "bytes": 223189,
+            "key": "objects/02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6",
+            "sha256": "02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6"
+          },
+          "contentType": "text/html",
+          "etag": null,
+          "fetchedAt": "2026-10-20T21:21:57.696444Z",
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/1361113/000117184325006721/exh_991.htm",
+          "httpStatus": 304,
+          "lastModified": "Tue, 28 Oct 2025 20:10:53 GMT",
+          "observationId": "34b8ddb7635987c1dcd8506d968147a55160275fbc49e830ce4ce0804f240213",
+          "requestedUrl": "https://www.sec.gov/Archives/edgar/data/1361113/000117184325006721/exh_991.htm",
+          "reusesObservationId": "a63cf5b96f93abf9c6d1b55089808ad19622d5c9e8bb878d61a066099bfcb21a",
+          "sourceId": "varonis:citation:TR-varonis-2",
+          "status": "not_modified"
+        },
+        {
+          "body": {
+            "bytes": 223189,
+            "key": "objects/02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6",
+            "sha256": "02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6"
+          },
+          "contentType": "text/html",
+          "etag": null,
+          "fetchedAt": "2026-10-20T21:11:41.473725Z",
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/1361113/000117184325006721/exh_991.htm",
+          "httpStatus": 200,
+          "lastModified": "Tue, 28 Oct 2025 20:10:53 GMT",
+          "observationId": "a63cf5b96f93abf9c6d1b55089808ad19622d5c9e8bb878d61a066099bfcb21a",
+          "requestedUrl": "https://www.sec.gov/Archives/edgar/data/1361113/000117184325006721/exh_991.htm",
+          "sourceId": "varonis:citation:TR-varonis-2",
+          "status": "fetched"
+        }
+      ],
+      "allExactSourceIdRequestedUrlObservations": [
+        {
+          "observationId": "0955b2d52ea23b9fb2b92a734ac911d2740e2ab633eb6ba57407394d1462e53f",
+          "fetchedAt": "2026-10-24T18:29:59.188369Z",
+          "status": "not_modified",
+          "httpStatus": 304,
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/1361113/000117184325006721/exh_991.htm",
+          "body": {
+            "bytes": 223189,
+            "key": "objects/02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6",
+            "sha256": "02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6"
+          }
+        },
+        {
+          "observationId": "4f32345cf7e4417369360e1754fc88390006c4b43631bcf2f967396c91253399",
+          "fetchedAt": "2026-10-24T05:39:47.447453Z",
+          "status": "not_modified",
+          "httpStatus": 304,
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/1361113/000117184325006721/exh_991.htm",
+          "body": {
+            "bytes": 223189,
+            "key": "objects/02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6",
+            "sha256": "02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6"
+          }
+        },
+        {
+          "observationId": "0b0f0f5c08e2fdbb5b269ecfe7c5631db2ad3c21a95de7a5635f893c8506a19d",
+          "fetchedAt": "2026-10-24T00:05:50.583476Z",
+          "status": "not_modified",
+          "httpStatus": 304,
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/1361113/000117184325006721/exh_991.htm",
+          "body": {
+            "bytes": 223189,
+            "key": "objects/02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6",
+            "sha256": "02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6"
+          }
+        },
+        {
+          "observationId": "40c78b36c02eec0c25bc4eb4aecf5152ef57459db24f48a0cfca9d4ad46617b0",
+          "fetchedAt": "2026-10-23T04:14:54.235012Z",
+          "status": "not_modified",
+          "httpStatus": 304,
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/1361113/000117184325006721/exh_991.htm",
+          "body": {
+            "bytes": 223189,
+            "key": "objects/02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6",
+            "sha256": "02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6"
+          }
+        },
+        {
+          "observationId": "e868ecd4cad976fa29f3d080d179f87576ace35ea23ed7bac8e144416262948d",
+          "fetchedAt": "2026-10-22T01:11:34.343021Z",
+          "status": "not_modified",
+          "httpStatus": 304,
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/1361113/000117184325006721/exh_991.htm",
+          "body": {
+            "bytes": 223189,
+            "key": "objects/02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6",
+            "sha256": "02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6"
+          }
+        },
+        {
+          "observationId": "de96f097d8478ab28f9635d09da4d853fdfd448919a6c7aa378722927b9f9167",
+          "fetchedAt": "2026-10-20T21:41:25.285490Z",
+          "status": "not_modified",
+          "httpStatus": 304,
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/1361113/000117184325006721/exh_991.htm",
+          "body": {
+            "bytes": 223189,
+            "key": "objects/02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6",
+            "sha256": "02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6"
+          }
+        },
+        {
+          "observationId": "34b8ddb7635987c1dcd8506d968147a55160275fbc49e830ce4ce0804f240213",
+          "fetchedAt": "2026-10-20T21:21:57.696444Z",
+          "status": "not_modified",
+          "httpStatus": 304,
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/1361113/000117184325006721/exh_991.htm",
+          "body": {
+            "bytes": 223189,
+            "key": "objects/02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6",
+            "sha256": "02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6"
+          }
+        },
+        {
+          "observationId": "a63cf5b96f93abf9c6d1b55089808ad19622d5c9e8bb878d61a066099bfcb21a",
+          "fetchedAt": "2026-10-20T21:11:41.473725Z",
+          "status": "fetched",
+          "httpStatus": 200,
+          "finalUrl": "https://www.sec.gov/Archives/edgar/data/1361113/000117184325006721/exh_991.htm",
+          "body": {
+            "bytes": 223189,
+            "key": "objects/02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6",
+            "sha256": "02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6"
+          }
+        }
+      ],
+      "selectedRealAgeSeconds": 26629.15365,
+      "selectedRealAgeHours": 7.396987125,
+      "freshnessRuleHours": 30,
+      "expiresAt": "2026-10-26T00:29:59.188369Z",
+      "agePasses": true,
+      "exactFinalCanonicalUrlJoinPasses": true,
+      "anySuccessfulRetainedExactFinalCanonicalJoin": true,
+      "olderReviewSource": {
+        "observationId": "40c78b36c02eec0c25bc4eb4aecf5152ef57459db24f48a0cfca9d4ad46617b0",
+        "fetchedAt": "2026-10-23T04:14:54.235012Z",
+        "body": {
+          "key": "objects/02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6",
+          "archiveKey": "state/objects/02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6",
+          "sha256": "02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6",
+          "bytes": 223189,
+          "retainedPath": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6"
+        },
+        "realAgeSecondsNow": 164334.107007
+      },
+      "bodyComparison": {
+        "rawBodyIdentical": true,
+        "wholeNormalizedTextIdentical": true,
+        "olderTextSha256": "7bb6827d7bcb537edff50443b37966e4a2c1ff71bf3014895bea2cf39fea3272",
+        "latestTextSha256": "7bb6827d7bcb537edff50443b37966e4a2c1ff71bf3014895bea2cf39fea3272",
+        "olderChars": 26465,
+        "latestChars": 26465,
+        "exactTextChanges": [],
+        "articleComparison": null,
+        "allPriorLiteralQuotesRemain": true
+      }
+    },
+    {
+      "evidenceId": "TR-witnessai-1",
+      "sourceId": "witnessai:citation:TR-witnessai-1",
+      "immutableCanonicalUrl": "https://witness.ai/blog/witnessai-raises-58m-to-help-enterprises-move-faster-with-ai-safely/",
+      "selectedNewestRetainedSuccessfulHttpObservation": {
+        "body": {
+          "bytes": 148313,
+          "key": "objects/e9b7c2d4fc480397db30f7bdac83c3c2dd70eae6e168baa7d6c2f9fe931c89e0",
+          "sha256": "e9b7c2d4fc480397db30f7bdac83c3c2dd70eae6e168baa7d6c2f9fe931c89e0"
+        },
+        "contentType": "text/html; charset=UTF-8",
+        "etag": null,
+        "fetchedAt": "2026-10-24T18:30:05.057117Z",
+        "finalUrl": "https://witness.ai/blog/witnessai-raises-58m-to-help-enterprises-move-faster-with-ai-safely/",
+        "httpStatus": 200,
+        "lastModified": "Sat, 24 Oct 2026 18:30:05 GMT",
+        "observationId": "47983b13ae72228f140536591b889f77f3b4a2e02ee57bb1e631ad2e38f50a79",
+        "requestedUrl": "https://witness.ai/blog/witnessai-raises-58m-to-help-enterprises-move-faster-with-ai-safely/",
+        "sourceId": "witnessai:citation:TR-witnessai-1",
+        "status": "fetched",
+        "transportId": "2ade76dc052fe2e5b3d64c675d56ee900e34774761906369ec023c8aa6f16626",
+        "transportReused": false
+      },
+      "actual304ReuseNotNewFull200": false,
+      "full200BodyOrigin": {
+        "body": {
+          "bytes": 148313,
+          "key": "objects/e9b7c2d4fc480397db30f7bdac83c3c2dd70eae6e168baa7d6c2f9fe931c89e0",
+          "sha256": "e9b7c2d4fc480397db30f7bdac83c3c2dd70eae6e168baa7d6c2f9fe931c89e0"
+        },
+        "contentType": "text/html; charset=UTF-8",
+        "etag": null,
+        "fetchedAt": "2026-10-24T18:30:05.057117Z",
+        "finalUrl": "https://witness.ai/blog/witnessai-raises-58m-to-help-enterprises-move-faster-with-ai-safely/",
+        "httpStatus": 200,
+        "lastModified": "Sat, 24 Oct 2026 18:30:05 GMT",
+        "observationId": "47983b13ae72228f140536591b889f77f3b4a2e02ee57bb1e631ad2e38f50a79",
+        "requestedUrl": "https://witness.ai/blog/witnessai-raises-58m-to-help-enterprises-move-faster-with-ai-safely/",
+        "sourceId": "witnessai:citation:TR-witnessai-1",
+        "status": "fetched",
+        "transportId": "2ade76dc052fe2e5b3d64c675d56ee900e34774761906369ec023c8aa6f16626",
+        "transportReused": false
+      },
+      "observationReuseChain": [
+        {
+          "body": {
+            "bytes": 148313,
+            "key": "objects/e9b7c2d4fc480397db30f7bdac83c3c2dd70eae6e168baa7d6c2f9fe931c89e0",
+            "sha256": "e9b7c2d4fc480397db30f7bdac83c3c2dd70eae6e168baa7d6c2f9fe931c89e0"
+          },
+          "contentType": "text/html; charset=UTF-8",
+          "etag": null,
+          "fetchedAt": "2026-10-24T18:30:05.057117Z",
+          "finalUrl": "https://witness.ai/blog/witnessai-raises-58m-to-help-enterprises-move-faster-with-ai-safely/",
+          "httpStatus": 200,
+          "lastModified": "Sat, 24 Oct 2026 18:30:05 GMT",
+          "observationId": "47983b13ae72228f140536591b889f77f3b4a2e02ee57bb1e631ad2e38f50a79",
+          "requestedUrl": "https://witness.ai/blog/witnessai-raises-58m-to-help-enterprises-move-faster-with-ai-safely/",
+          "sourceId": "witnessai:citation:TR-witnessai-1",
+          "status": "fetched",
+          "transportId": "2ade76dc052fe2e5b3d64c675d56ee900e34774761906369ec023c8aa6f16626",
+          "transportReused": false
+        }
+      ],
+      "allExactSourceIdRequestedUrlObservations": [
+        {
+          "observationId": "47983b13ae72228f140536591b889f77f3b4a2e02ee57bb1e631ad2e38f50a79",
+          "fetchedAt": "2026-10-24T18:30:05.057117Z",
+          "status": "fetched",
+          "httpStatus": 200,
+          "finalUrl": "https://witness.ai/blog/witnessai-raises-58m-to-help-enterprises-move-faster-with-ai-safely/",
+          "body": {
+            "bytes": 148313,
+            "key": "objects/e9b7c2d4fc480397db30f7bdac83c3c2dd70eae6e168baa7d6c2f9fe931c89e0",
+            "sha256": "e9b7c2d4fc480397db30f7bdac83c3c2dd70eae6e168baa7d6c2f9fe931c89e0"
+          }
+        },
+        {
+          "observationId": "5e9a38151f7f1af3063df63dfe35430a711784a63a0d5f4ae32c446177c78a62",
+          "fetchedAt": "2026-10-24T05:39:47.495388Z",
+          "status": "fetched",
+          "httpStatus": 200,
+          "finalUrl": "https://witness.ai/blog/witnessai-raises-58m-to-help-enterprises-move-faster-with-ai-safely/",
+          "body": {
+            "bytes": 148316,
+            "key": "objects/51baf40cd55b758b0ab20c6a30949bb260c7037d5f5bab34a022c0ec49d87abd",
+            "sha256": "51baf40cd55b758b0ab20c6a30949bb260c7037d5f5bab34a022c0ec49d87abd"
+          }
+        },
+        {
+          "observationId": "2dc54d5186ed6ad4157af573cb614f23c15123abf8ceefbb5461853c8c972bf7",
+          "fetchedAt": "2026-10-24T00:05:54.771994Z",
+          "status": "fetched",
+          "httpStatus": 200,
+          "finalUrl": "https://witness.ai/blog/witnessai-raises-58m-to-help-enterprises-move-faster-with-ai-safely/",
+          "body": {
+            "bytes": 148310,
+            "key": "objects/aa41b33c62cd398724819cbdde7a47d2c49f334bc16bfb57d4848970840aa950",
+            "sha256": "aa41b33c62cd398724819cbdde7a47d2c49f334bc16bfb57d4848970840aa950"
+          }
+        },
+        {
+          "observationId": "babb1c40926b523cdda80be1e184f41d3658f896de82a94573dce6a72fa66584",
+          "fetchedAt": "2026-10-23T04:15:07.434579Z",
+          "status": "fetched",
+          "httpStatus": 200,
+          "finalUrl": "https://witness.ai/blog/witnessai-raises-58m-to-help-enterprises-move-faster-with-ai-safely/",
+          "body": {
+            "bytes": 148316,
+            "key": "objects/fb3e2ba4a5112d42b0a74fdd474e8c8f87793ef2c1c03c83c7f9e4e1def4d8b2",
+            "sha256": "fb3e2ba4a5112d42b0a74fdd474e8c8f87793ef2c1c03c83c7f9e4e1def4d8b2"
+          }
+        },
+        {
+          "observationId": "77d3332af791e0c2d39b8d0c6842aff12fb90b0cac9dc9048711d8ac628e794e",
+          "fetchedAt": "2026-10-22T01:11:29.334396Z",
+          "status": "fetched",
+          "httpStatus": 200,
+          "finalUrl": "https://witness.ai/blog/witnessai-raises-58m-to-help-enterprises-move-faster-with-ai-safely/",
+          "body": {
+            "bytes": 148311,
+            "key": "objects/5a51d5358c663819a9d795bfdb9f3aa86a7214802d191192c22ec3fe04925465",
+            "sha256": "5a51d5358c663819a9d795bfdb9f3aa86a7214802d191192c22ec3fe04925465"
+          }
+        },
+        {
+          "observationId": "0ba7a9ee1dc98cebb7d505cc29024d5d6e1e1f5fd12e61f36dda173470e71b8d",
+          "fetchedAt": "2026-10-20T21:41:28.508280Z",
+          "status": "fetched",
+          "httpStatus": 200,
+          "finalUrl": "https://witness.ai/blog/witnessai-raises-58m-to-help-enterprises-move-faster-with-ai-safely/",
+          "body": {
+            "bytes": 146249,
+            "key": "objects/932a62a8cc252ec3326bd4ccd6c84d0fa7b9ae49b6c7fe5576467027900b312a",
+            "sha256": "932a62a8cc252ec3326bd4ccd6c84d0fa7b9ae49b6c7fe5576467027900b312a"
+          }
+        },
+        {
+          "observationId": "178f701d3f0591fec7986c5c7dcc74cfd28b3a96e01e9e6c7ab858686dc99447",
+          "fetchedAt": "2026-10-20T21:21:47.516951Z",
+          "status": "fetched",
+          "httpStatus": 200,
+          "finalUrl": "https://witness.ai/blog/witnessai-raises-58m-to-help-enterprises-move-faster-with-ai-safely/",
+          "body": {
+            "bytes": 146249,
+            "key": "objects/932a62a8cc252ec3326bd4ccd6c84d0fa7b9ae49b6c7fe5576467027900b312a",
+            "sha256": "932a62a8cc252ec3326bd4ccd6c84d0fa7b9ae49b6c7fe5576467027900b312a"
+          }
+        },
+        {
+          "observationId": "b4cbda37e5dd19d7ea41cbe4d2d6b27774cc85e7738f84b597df2288dd2a08ae",
+          "fetchedAt": "2026-10-20T21:11:57.374040Z",
+          "status": "fetched",
+          "httpStatus": 200,
+          "finalUrl": "https://witness.ai/blog/witnessai-raises-58m-to-help-enterprises-move-faster-with-ai-safely/",
+          "body": {
+            "bytes": 146249,
+            "key": "objects/932a62a8cc252ec3326bd4ccd6c84d0fa7b9ae49b6c7fe5576467027900b312a",
+            "sha256": "932a62a8cc252ec3326bd4ccd6c84d0fa7b9ae49b6c7fe5576467027900b312a"
+          }
+        }
+      ],
+      "selectedRealAgeSeconds": 26623.284902,
+      "selectedRealAgeHours": 7.395356917222222,
+      "freshnessRuleHours": 30,
+      "expiresAt": "2026-10-26T00:30:05.057117Z",
+      "agePasses": true,
+      "exactFinalCanonicalUrlJoinPasses": true,
+      "anySuccessfulRetainedExactFinalCanonicalJoin": true,
+      "olderReviewSource": {
+        "observationId": "babb1c40926b523cdda80be1e184f41d3658f896de82a94573dce6a72fa66584",
+        "fetchedAt": "2026-10-23T04:15:07.434579Z",
+        "body": {
+          "key": "objects/fb3e2ba4a5112d42b0a74fdd474e8c8f87793ef2c1c03c83c7f9e4e1def4d8b2",
+          "archiveKey": "state/objects/fb3e2ba4a5112d42b0a74fdd474e8c8f87793ef2c1c03c83c7f9e4e1def4d8b2",
+          "sha256": "fb3e2ba4a5112d42b0a74fdd474e8c8f87793ef2c1c03c83c7f9e4e1def4d8b2",
+          "bytes": 148316,
+          "retainedPath": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/fb3e2ba4a5112d42b0a74fdd474e8c8f87793ef2c1c03c83c7f9e4e1def4d8b2"
+        },
+        "realAgeSecondsNow": 164320.90744
+      },
+      "bodyComparison": {
+        "rawBodyIdentical": false,
+        "wholeNormalizedTextIdentical": false,
+        "olderTextSha256": "83a35c11cbd9bc5d151a0f89f2134dccd1099c5dfc08b2397d323be0b298fb64",
+        "latestTextSha256": "7b598d01337df7c7e03fa2baf8dc3ca32e17a852e5bb179dfc70e1f8260f0519",
+        "olderChars": 7464,
+        "latestChars": 7461,
+        "exactTextChanges": [
+          {
+            "operation": "replace",
+            "oldStart": 6499,
+            "oldEnd": 6500,
+            "latestStart": 6499,
+            "latestEnd": 6501,
+            "oldText": "C",
+            "latestText": "Ph",
+            "oldContext": "hare this article Subscribe to the Blog Company This field is for validation purp",
+            "latestContext": "hare this article Subscribe to the Blog Phone This field is for validation purpose"
+          },
+          {
+            "operation": "delete",
+            "oldStart": 6501,
+            "oldEnd": 6504,
+            "latestStart": 6502,
+            "latestEnd": 6502,
+            "oldText": "mpa",
+            "latestText": "",
+            "oldContext": "re this article Subscribe to the Blog Company This field is for validation purposes",
+            "latestContext": "e this article Subscribe to the Blog Phone This field is for validation purposes"
+          },
+          {
+            "operation": "replace",
+            "oldStart": 6505,
+            "oldEnd": 6506,
+            "latestStart": 6503,
+            "latestEnd": 6504,
+            "oldText": "y",
+            "latestText": "e",
+            "oldContext": "his article Subscribe to the Blog Company This field is for validation purposes a",
+            "latestContext": " this article Subscribe to the Blog Phone This field is for validation purposes a"
+          },
+          {
+            "operation": "replace",
+            "oldStart": 6765,
+            "oldEnd": 6766,
+            "latestStart": 6763,
+            "latestEnd": 6768,
+            "oldText": "I",
+            "latestText": "Comme",
+            "oldContext": "s, research, and more. Stay in the loop Instagram This field is for validation pu",
+            "latestContext": "s, research, and more. Stay in the loop Comments This field is for validation purpose"
+          },
+          {
+            "operation": "insert",
+            "oldStart": 6767,
+            "oldEnd": 6767,
+            "latestStart": 6769,
+            "latestEnd": 6770,
+            "oldText": "",
+            "latestText": "t",
+            "oldContext": " research, and more. Stay in the loop Instagram This field is for validation pur",
+            "latestContext": "earch, and more. Stay in the loop Comments This field is for validation purposes "
+          },
+          {
+            "operation": "delete",
+            "oldStart": 6768,
+            "oldEnd": 6774,
+            "latestStart": 6771,
+            "latestEnd": 6771,
+            "oldText": "tagram",
+            "latestText": "",
+            "oldContext": "research, and more. Stay in the loop Instagram This field is for validation purposes a",
+            "latestContext": "rch, and more. Stay in the loop Comments This field is for validation purposes a"
+          }
+        ],
+        "articleComparison": {
+          "startAnchor": "Rick Caccia , CEO and Co-Founder, WitnessAI | January 13, 2026",
+          "endAnchor": "We welcome you to come along for the ride.",
+          "endInclusive": true,
+          "olderSha256": "338c02a7e1fafdb6f392077859f08e15c478f10b805cad8ed5e3d7e5194f9f2e",
+          "latestSha256": "338c02a7e1fafdb6f392077859f08e15c478f10b805cad8ed5e3d7e5194f9f2e",
+          "chars": 5233,
+          "identical": true
+        },
+        "allPriorLiteralQuotesRemain": true
+      }
+    }
+  ],
+  "proposedGroups": [
+    {
+      "id": "FC-PROPOSED-20261025-netskope-event-qualifiers",
+      "supplierId": "netskope",
+      "reasonCode": "restore-supported-event-qualifiers",
+      "noteTemplate": "Correction, {date}. Netskope disclosed a planned CFO retirement upon the start of a successor and a search/transition period under terms still being negotiated. The earlier advisory-role claim is removed.",
+      "targets": [
+        {
+          "targetId": "event:EV-netskope-2",
+          "operation": "replace",
+          "original": {
+            "id": "EV-netskope-2",
+            "supplierId": "netskope",
+            "date": "2026-06-03",
+            "type": "exec-change",
+            "text": "CFO Drew Del Matto disclosed intention to retire; remains CFO while successor is sought, then transitions to advisory.",
+            "evidenceIds": [
+              "TR-netskope-5"
+            ],
+            "rung": 1
+          },
+          "originalSha256": "29d1b9c00b1a99c9669dbe0f8de54821881194f2f4919930b72af5f6dbaf42b1",
+          "proposedValue": {
+            "id": "EV-netskope-2",
+            "supplierId": "netskope",
+            "date": "2026-06-03",
+            "type": "exec-change",
+            "text": "Netskope announced that CFO Andrew Del Matto will retire upon the start of a successor. The company intends to search for a new CFO, and he will remain through the search and transition period under terms still being negotiated.",
+            "evidenceIds": [
+              "TR-netskope-5"
+            ],
+            "rung": 1
+          }
+        },
+        {
+          "targetId": "evidence:TR-netskope-5",
+          "operation": "replace",
+          "original": {
+            "id": "TR-netskope-5",
+            "title": "Netskope CFO Retirement Disclosure",
+            "organization": "Netskope, Inc.",
+            "publicationDate": "2026-06-03",
+            "economicPeriod": "Q1 FY2027",
+            "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/2063196/000119312526255439/ck0002063196-20260603.htm",
+            "excerpt": "CFO Drew Del Matto disclosed intention to retire after 40 years; remains CFO while successor is sought.",
+            "sourceClass": "FILING",
+            "interpretation": "",
+            "limitations": "Successor not yet named.",
+            "conflictingEvidenceIds": [],
+            "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-netskope-5",
+            "tags": [
+              "tracker",
+              "network-sase"
+            ],
+            "retrievedAt": "2026-09-25"
+          },
+          "originalSha256": "1eab77e99ddecca66888db8f4c8d0b06658b8cdc4b20078705b1b3fe8087dce3",
+          "proposedValue": {
+            "id": "TR-netskope-5",
+            "title": "Netskope CFO Retirement Disclosure",
+            "organization": "Netskope, Inc.",
+            "publicationDate": "2026-06-03",
+            "economicPeriod": "Q1 FY2027",
+            "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/2063196/000119312526255439/ck0002063196-20260603.htm",
+            "excerpt": "On June 3, 2026, the Company announced that Andrew Del Matto, its Chief Financial Officer, will be retiring effective upon the start of a successor. The Company intends to commence a search for a new Chief Financial Officer, and Mr. Del Matto will remain with the Company through the search and transition period pursuant to terms currently under negotiation.",
+            "sourceClass": "FILING",
+            "interpretation": "",
+            "limitations": "The retained filing does not establish an advisory appointment or a calendar retirement effective date.",
+            "conflictingEvidenceIds": [],
+            "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-netskope-5",
+            "tags": [
+              "tracker",
+              "network-sase"
+            ],
+            "retrievedAt": "2026-09-25"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "evidenceId": "TR-netskope-5",
+          "sourceId": "netskope:citation:TR-netskope-5",
+          "url": "https://www.sec.gov/Archives/edgar/data/2063196/000119312526255439/ck0002063196-20260603.htm",
+          "observationId": "b46a3e6e7a52b607df64e4d7708393dd0e48c4dc9500a170a2420ad8ae0a7989",
+          "body": {
+            "bytes": 48682,
+            "key": "objects/8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea",
+            "sha256": "8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea"
+          },
+          "fetchedAt": "2026-10-24T18:29:52.518219Z"
+        }
+      ]
+    },
+    {
+      "id": "FC-PROPOSED-20261025-rubrik-event-qualifiers",
+      "supplierId": "rubrik",
+      "reasonCode": "restore-supported-event-qualifiers",
+      "noteTemplate": "Correction, {date}. The cited Rubrik release announced Jesse Green's promotion on February 4, 2026 and said Brian McCarthy was leaving for another opportunity. It does not establish the previously stated February 6 resignation date or prior title.",
+      "targets": [
+        {
+          "targetId": "event:EV-rubrik-2",
+          "operation": "replace",
+          "original": {
+            "id": "EV-rubrik-2",
+            "supplierId": "rubrik",
+            "date": "2026-02-06",
+            "type": "exec-change",
+            "text": "Rubrik announced that Brian McCarthy, President of Global Sales and Field Operations, resigned effective February 6, 2026, and promoted Jesse Green, previously President of Rubrik Americas, to Chief Revenue Officer.",
+            "evidenceIds": [
+              "TR-rubrik-3"
+            ],
+            "rung": 4
+          },
+          "originalSha256": "8d14d89e7116c61e49ff538fe62e787371d813e47349570fcd0520674fa1c62f",
+          "proposedValue": {
+            "id": "EV-rubrik-2",
+            "supplierId": "rubrik",
+            "date": "2026-02-04",
+            "type": "exec-change",
+            "text": "Rubrik announced Jesse Green's promotion to Chief Revenue Officer after serving as President, Rubrik Americas. He succeeds Brian McCarthy, who is leaving for another opportunity.",
+            "evidenceIds": [
+              "TR-rubrik-3"
+            ],
+            "rung": 4
+          }
+        },
+        {
+          "targetId": "evidence:TR-rubrik-3",
+          "operation": "replace",
+          "original": {
+            "id": "TR-rubrik-3",
+            "title": "Rubrik Promotes Jesse Green to Chief Revenue Officer",
+            "organization": "Rubrik, Inc.",
+            "publicationDate": "2026-02-06",
+            "economicPeriod": "N/A (leadership announcement)",
+            "canonicalUrl": "https://ir.rubrik.com/news-events/press-releases/news-details/2026/Rubrik-Promotes-Jesse-Green-to-Chief-Revenue-Officer/default.aspx",
+            "excerpt": "Brian McCarthy, President of Global Sales & Field Operations, resigned effective February 6, 2026; Jesse Green, previously President of Rubrik Americas, was promoted to Chief Revenue Officer.",
+            "sourceClass": "IR",
+            "interpretation": "",
+            "limitations": "Company investor-relations press release, corroborated by a related SEC Form 8-K per the underlying research.",
+            "conflictingEvidenceIds": [],
+            "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-rubrik-3",
+            "tags": [
+              "tracker",
+              "data"
+            ],
+            "retrievedAt": "2026-09-25"
+          },
+          "originalSha256": "6cfb75c9f66890dd15d22c7a3cdba08b135dc9ca6138e685f63d91a0a57c69df",
+          "proposedValue": {
+            "id": "TR-rubrik-3",
+            "title": "Rubrik Promotes Jesse Green to Chief Revenue Officer",
+            "organization": "Rubrik, Inc.",
+            "publicationDate": "2026-02-04",
+            "economicPeriod": "N/A (leadership announcement)",
+            "canonicalUrl": "https://ir.rubrik.com/news-events/press-releases/news-details/2026/Rubrik-Promotes-Jesse-Green-to-Chief-Revenue-Officer/default.aspx",
+            "excerpt": "Rubrik, the Security and AI Operations Company, today announced the promotion of Jesse Green to Chief Revenue Officer. Green, who successfully served as President, Rubrik Americas, now will lead the company’s global revenue organization to continue to scale and accelerate the company’s rapid growth and industry leadership. He succeeds Brian McCarthy, who leaves for another opportunity.",
+            "sourceClass": "IR",
+            "interpretation": "",
+            "limitations": "The retained release supports the promotion announcement dated February 4. It does not establish a resignation effective February 6 or McCarthy's prior title. The separately mentioned SEC filing is not part of this bound primary evidence.",
+            "conflictingEvidenceIds": [],
+            "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-rubrik-3",
+            "tags": [
+              "tracker",
+              "data"
+            ],
+            "retrievedAt": "2026-09-25"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "evidenceId": "TR-rubrik-3",
+          "sourceId": "rubrik:citation:TR-rubrik-3",
+          "url": "https://ir.rubrik.com/news-events/press-releases/news-details/2026/Rubrik-Promotes-Jesse-Green-to-Chief-Revenue-Officer/default.aspx",
+          "observationId": "8fa5264576e4414604ca6292b8ad1a9ec22045365ce14ac98abbe2c9a18326fd",
+          "body": {
+            "bytes": 56051,
+            "key": "objects/c9413ba4a31f92f9454354039fc0ff2e90b59510fef7dc956998b4eccdc479ab",
+            "sha256": "c9413ba4a31f92f9454354039fc0ff2e90b59510fef7dc956998b4eccdc479ab"
+          },
+          "fetchedAt": "2026-10-24T18:29:40.739122Z"
+        }
+      ]
+    },
+    {
+      "id": "FC-PROPOSED-20261025-s1-event-qualifiers",
+      "supplierId": "s1",
+      "reasonCode": "restore-supported-event-qualifiers",
+      "noteTemplate": "Correction, {date}. SentinelOne disclosed a planned reduction of approximately 8% of its full-time workforce and an estimated one-time charge of approximately $25 million. The earlier entry omitted the percentage qualification and planned/estimated status.",
+      "targets": [
+        {
+          "targetId": "event:EV-s1-1",
+          "operation": "replace",
+          "original": {
+            "id": "EV-s1-1",
+            "supplierId": "s1",
+            "date": "2026-05-28",
+            "type": "restructuring",
+            "text": "SentinelOne disclosed an 8% workforce reduction and approximately $25 million in charges in an SEC filing dated 2026-05-28.",
+            "evidenceIds": [
+              "TR-s1-3"
+            ],
+            "rung": 1
+          },
+          "originalSha256": "0665e50da5726e5e2fcbb202eaa7655da15f6fe4f49c72a2af0b5963c5e4f78f",
+          "proposedValue": {
+            "id": "EV-s1-1",
+            "supplierId": "s1",
+            "date": "2026-05-28",
+            "type": "restructuring",
+            "text": "SentinelOne disclosed a planned reduction of approximately 8% of its full-time workforce and an estimated one-time charge of approximately $25 million in an SEC filing dated 2026-05-28.",
+            "evidenceIds": [
+              "TR-s1-3"
+            ],
+            "rung": 1
+          }
+        },
+        {
+          "targetId": "evidence:TR-s1-3",
+          "operation": "replace",
+          "original": {
+            "id": "TR-s1-3",
+            "title": "SentinelOne Restructuring Charges - 8-K Item 2.05",
+            "organization": "SentinelOne, Inc.",
+            "publicationDate": "2026-05-28",
+            "economicPeriod": "May 2026",
+            "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/0001583708/000158370826000039/s-20260528.htm",
+            "excerpt": "Workforce reduction of 8% with approximately $25 million in charges, including severance, benefits, and related costs.",
+            "sourceClass": "FILING",
+            "interpretation": "",
+            "limitations": "",
+            "conflictingEvidenceIds": [],
+            "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-s1-3",
+            "tags": [
+              "tracker",
+              "endpoint-xdr"
+            ],
+            "retrievedAt": "2026-09-25"
+          },
+          "originalSha256": "26c50e6237d1ac662287a3ed05ab51a304773df643e5f5860cc2b5fbc795ab80",
+          "proposedValue": {
+            "id": "TR-s1-3",
+            "title": "SentinelOne Restructuring Charges - 8-K Item 2.05",
+            "organization": "SentinelOne, Inc.",
+            "publicationDate": "2026-05-28",
+            "economicPeriod": "May 2026",
+            "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/0001583708/000158370826000039/s-20260528.htm",
+            "excerpt": "The Plan includes a reduction of the Company’s current full-time employees by approximately 8% of the Company’s full-time employees. The Company currently estimates that it will incur a one-time charge of approximately $25 million in connection with the Plan, approximately $15 million of which are cash-based expenditures.",
+            "sourceClass": "FILING",
+            "interpretation": "",
+            "limitations": "The retained filing describes a plan and estimated charges. Substantial completion was expected in Q2 fiscal 2027, subject to local law and consultation requirements.",
+            "conflictingEvidenceIds": [],
+            "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-s1-3",
+            "tags": [
+              "tracker",
+              "endpoint-xdr"
+            ],
+            "retrievedAt": "2026-09-25"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "evidenceId": "TR-s1-3",
+          "sourceId": "s1:citation:TR-s1-3",
+          "url": "https://www.sec.gov/Archives/edgar/data/0001583708/000158370826000039/s-20260528.htm",
+          "observationId": "a32b2e55b927c37ffd4e5ab9c2e31a242f9b311c01f47651566c421c13bdbe14",
+          "body": {
+            "bytes": 49404,
+            "key": "objects/e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78",
+            "sha256": "e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78"
+          },
+          "fetchedAt": "2026-10-24T18:30:00.677520Z"
+        }
+      ]
+    },
+    {
+      "id": "FC-PROPOSED-20261025-varonis-event-qualifiers",
+      "supplierId": "varonis",
+      "reasonCode": "unsupported-workforce-claim-and-eol-date",
+      "noteTemplate": "Correction, {date}. The cited Q3 financial release does not substantiate the workforce percentage, employee count or CEO rationale; the layoff entry is withdrawn until primary evidence is available. The release supports the self-hosted end-of-life decision, with no December 31, 2026 effective date established.",
+      "targets": [
+        {
+          "targetId": "event:EV-varonis-2",
+          "operation": "withdraw",
+          "original": {
+            "id": "EV-varonis-2",
+            "supplierId": "varonis",
+            "date": "2025-10-28",
+            "type": "layoff",
+            "text": "Varonis announced a 5% headcount reduction, approximately 120 employees, disclosed with its Q3 2025 results; CEO Yakov Faitelson described it as reallocating resources toward the highest return on investment.",
+            "evidenceIds": [
+              "TR-varonis-2"
+            ],
+            "rung": 4
+          },
+          "originalSha256": "cfac9152e3ce288fa8bc19aa8b1efe799d0d4a19e358b11f8007b8acc93928cc",
+          "proposedValue": null
+        },
+        {
+          "targetId": "event:EV-varonis-3",
+          "operation": "replace",
+          "original": {
+            "id": "EV-varonis-3",
+            "supplierId": "varonis",
+            "date": "2025-10-28",
+            "type": "restructuring",
+            "text": "Varonis disclosed plans to end-of-life its self-hosted, on-premises product effective December 31, 2026, as part of its Q3 2025 results commentary.",
+            "evidenceIds": [
+              "TR-varonis-2"
+            ],
+            "rung": 4
+          },
+          "originalSha256": "8dfb3b2ba800577054d4a7ec0e04acb122a29e4eb43c4426c4b3cb2b40117bb2",
+          "proposedValue": {
+            "id": "EV-varonis-3",
+            "supplierId": "varonis",
+            "date": "2025-10-28",
+            "type": "restructuring",
+            "text": "Varonis disclosed its decision to end-of-life its self-hosted solution in its Q3 2025 results.",
+            "evidenceIds": [
+              "TR-varonis-2"
+            ],
+            "rung": 4
+          }
+        },
+        {
+          "targetId": "evidence:TR-varonis-2",
+          "operation": "replace",
+          "original": {
+            "id": "TR-varonis-2",
+            "title": "Varonis Reports Third Quarter 2025 Financial Results",
+            "organization": "Varonis Systems, Inc.",
+            "publicationDate": "2025-10-28",
+            "economicPeriod": "Q3 2025 (quarter ended 2025-09-30)",
+            "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1361113/000117184325006721/exh_991.htm",
+            "excerpt": "Announced a 5% headcount reduction (approximately 120 employees) and disclosed plans to end-of-life the company's self-hosted, on-premises product effective December 31, 2026.",
+            "sourceClass": "FILING",
+            "interpretation": "",
+            "limitations": "Company-reported disclosure filed as an SEC exhibit; the underlying research also cites an earnings-call transcript quoting CEO Yakov Faitelson on the same layoff.",
+            "conflictingEvidenceIds": [],
+            "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-varonis-2",
+            "tags": [
+              "tracker",
+              "data"
+            ],
+            "retrievedAt": "2026-09-25"
+          },
+          "originalSha256": "de0d849449402f3f1e38f474fc56dd6dd9bdbcd9761cf0666a0675e706f64bc1",
+          "proposedValue": {
+            "id": "TR-varonis-2",
+            "title": "Varonis Reports Third Quarter 2025 Financial Results",
+            "organization": "Varonis Systems, Inc.",
+            "publicationDate": "2025-10-28",
+            "economicPeriod": "Q3 2025 (quarter ended 2025-09-30)",
+            "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/1361113/000117184325006721/exh_991.htm",
+            "excerpt": "To account for this recent change as well as our decision to end of life our self-hosted solution, we have assumed an even lower renewal rate in our on-prem subscription business for the fourth quarter.",
+            "sourceClass": "FILING",
+            "interpretation": "",
+            "limitations": "The retained Q3 results release supports the self-hosted end-of-life decision but no exact effective date. It does not support the related workforce reduction, employee count or CEO rationale. The earnings-call transcript mentioned in the original record is not part of this bound primary evidence.",
+            "conflictingEvidenceIds": [],
+            "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-varonis-2",
+            "tags": [
+              "tracker",
+              "data"
+            ],
+            "retrievedAt": "2026-09-25"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "evidenceId": "TR-varonis-2",
+          "sourceId": "varonis:citation:TR-varonis-2",
+          "url": "https://www.sec.gov/Archives/edgar/data/1361113/000117184325006721/exh_991.htm",
+          "observationId": "0955b2d52ea23b9fb2b92a734ac911d2740e2ab633eb6ba57407394d1462e53f",
+          "body": {
+            "bytes": 223189,
+            "key": "objects/02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6",
+            "sha256": "02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6"
+          },
+          "fetchedAt": "2026-10-24T18:29:59.188369Z"
+        }
+      ]
+    },
+    {
+      "id": "FC-PROPOSED-20261025-witnessai-event-qualifiers",
+      "supplierId": "witnessai",
+      "reasonCode": "restore-supported-event-qualifiers",
+      "noteTemplate": "Correction, {date}. WitnessAI named Google Ventures and Ballistic Ventures as existing investors, without establishing participation in the $58 million round. They are now described separately from the explicitly named new backers.",
+      "targets": [
+        {
+          "targetId": "event:EV-witnessai-1",
+          "operation": "replace",
+          "original": {
+            "id": "EV-witnessai-1",
+            "supplierId": "witnessai",
+            "date": "2026-01-13",
+            "type": "funding",
+            "text": "WitnessAI raised a $58 million strategic funding round led by Sound Ventures, with participation from Fin Capital, Samsung Ventures, Qualcomm Ventures, Forgepoint Capital Partners, Silver Buckshot Ventures, and existing investors Google Ventures and Ballistic Ventures.",
+            "evidenceIds": [
+              "TR-witnessai-1"
+            ],
+            "rung": 4
+          },
+          "originalSha256": "e12c97d74b051c76a316f0a0f5f6f12f8ca27946861315cec5f2233c2c4dd42f",
+          "proposedValue": {
+            "id": "EV-witnessai-1",
+            "supplierId": "witnessai",
+            "date": "2026-01-13",
+            "type": "funding",
+            "text": "WitnessAI raised $58 million in strategic funding led by Sound Ventures, with participation from Fin Capital, Samsung Ventures, Qualcomm Ventures and Forgepoint Capital Partners. The announcement also named Silver Buckshot Ventures as a new backer and Google Ventures and Ballistic Ventures as existing investors.",
+            "evidenceIds": [
+              "TR-witnessai-1"
+            ],
+            "rung": 4
+          }
+        },
+        {
+          "targetId": "evidence:TR-witnessai-1",
+          "operation": "replace",
+          "original": {
+            "id": "TR-witnessai-1",
+            "title": "WitnessAI Raises $58M to Help Enterprises Move Faster with AI Safely",
+            "organization": "WitnessAI",
+            "publicationDate": "2026-01-13",
+            "economicPeriod": "N/A (funding announcement)",
+            "canonicalUrl": "https://witness.ai/blog/witnessai-raises-58m-to-help-enterprises-move-faster-with-ai-safely/",
+            "excerpt": "WitnessAI raised a $58 million strategic funding round led by Sound Ventures, with Fin Capital, Samsung Ventures, Qualcomm Ventures, Forgepoint Capital Partners, Silver Buckshot Ventures, and existing investors Google Ventures and Ballistic Ventures participating. The release states '500% ARR growth — just in the past 12 months' and headcount up 5x (unaudited).",
+            "sourceClass": "OFFICIAL",
+            "interpretation": "",
+            "limitations": "Company blog/press release.",
+            "conflictingEvidenceIds": [],
+            "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-witnessai-1",
+            "tags": [
+              "tracker",
+              "ai-security"
+            ],
+            "retrievedAt": "2026-09-25"
+          },
+          "originalSha256": "baa258f76d0b5865e8adcbaf317bb7f30e92e3250855abafad299eefaf211e55",
+          "proposedValue": {
+            "id": "TR-witnessai-1",
+            "title": "WitnessAI Raises $58M to Help Enterprises Move Faster with AI Safely",
+            "organization": "WitnessAI",
+            "publicationDate": "2026-01-13",
+            "economicPeriod": "N/A (funding announcement)",
+            "canonicalUrl": "https://witness.ai/blog/witnessai-raises-58m-to-help-enterprises-move-faster-with-ai-safely/",
+            "excerpt": "We’ve seen more than 500% ARR growth — just in the past 12 months, and expanded our headcount by 5x to support customer demand. Enterprises aren’t asking whether they’ll adopt AI anymore. They’re asking how to do it responsibly and at scale. They understand that progress and protection go hand-in-hand. It is what has guided us in every decision we’ve made. Today, we’re sharing a milestone in that journey. WitnessAI has raised $58 million in strategic funding, backed by one of the most diverse and thoughtfully assembled investor groups we could have imagined. We like to think of them as an armada — a coalition of perspectives spanning technology, finance, media, security, policy, and global scale. The round was led by Sound Ventures, with participation from leading strategic investors including Fin Capital, the leading fintech firm backing category-defining financial services and infrastructure platforms; Samsung Ventures and Qualcomm Ventures; and cybersecurity fund Forgepoint Capital Partners. We’re also proud to bring on angels like Silver Buckshot Ventures, the cyber moonshot fund founded by bestselling cybersecurity author and journalist Nicole Perlroth. Together, they join our existing investors Google Ventures and Ballistic Ventures.",
+            "sourceClass": "OFFICIAL",
+            "interpretation": "",
+            "limitations": "Company blog. Google Ventures and Ballistic Ventures are named as existing investors; current-round participation by them is not established.",
+            "conflictingEvidenceIds": [],
+            "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-witnessai-1",
+            "tags": [
+              "tracker",
+              "ai-security"
+            ],
+            "retrievedAt": "2026-09-25"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "evidenceId": "TR-witnessai-1",
+          "sourceId": "witnessai:citation:TR-witnessai-1",
+          "url": "https://witness.ai/blog/witnessai-raises-58m-to-help-enterprises-move-faster-with-ai-safely/",
+          "observationId": "47983b13ae72228f140536591b889f77f3b4a2e02ee57bb1e631ad2e38f50a79",
+          "body": {
+            "bytes": 148313,
+            "key": "objects/e9b7c2d4fc480397db30f7bdac83c3c2dd70eae6e168baa7d6c2f9fe931c89e0",
+            "sha256": "e9b7c2d4fc480397db30f7bdac83c3c2dd70eae6e168baa7d6c2f9fe931c89e0"
+          },
+          "fetchedAt": "2026-10-24T18:30:05.057117Z"
+        }
+      ]
+    }
+  ],
+  "validationResults": [
+    {
+      "groupId": "FC-PROPOSED-20261025-netskope-event-qualifiers",
+      "candidateSha256": "2d9d011cd5f01f75fdbce5cdd6c2c810489783351fbf2611a85b25664c235dea",
+      "evidenceSetSha256": "ca48ca6459e58bb7a928658a888078c2a9c23e145c9e0a837dc9b4f1097ab0dd",
+      "groupReviewPolicySha256": "659d1d11fa03c90fe24eabd017be7c5725049e6962c246364921c3bdfdc0a719",
+      "targetIds": [
+        "event:EV-netskope-2",
+        "evidence:TR-netskope-5"
+      ],
+      "targetSchemasImmutableOriginalsAndConfiguredSourceChecksPassed": true,
+      "latestSourceWithFirstReviewParaphraseExcerpt": {
+        "passed": false,
+        "error": "Correction evidence excerpt not literally in primary source"
+      },
+      "unchangedValidateSourcesAtEvaluatedAt": {
+        "passed": true,
+        "documents": [
+          {
+            "source": {
+              "evidenceId": "TR-netskope-5",
+              "sourceId": "netskope:citation:TR-netskope-5",
+              "url": "https://www.sec.gov/Archives/edgar/data/2063196/000119312526255439/ck0002063196-20260603.htm",
+              "observationId": "b46a3e6e7a52b607df64e4d7708393dd0e48c4dc9500a170a2420ad8ae0a7989",
+              "body": {
+                "bytes": 48682,
+                "key": "objects/8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea",
+                "sha256": "8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea"
+              },
+              "fetchedAt": "2026-10-24T18:29:52.518219Z"
+            },
+            "textChars": 4898,
+            "textSha256": "5e0fe4e6bbdaf7b22e72296934093a8bb5e7ee25c9dedeee14e0a788a3bc2f5c"
+          }
+        ],
+        "error": null
+      },
+      "literalEvidenceExcerpt": {
+        "chars": 359,
+        "sha256": "94f323f23b6a2f710b973333add6165225c91029af1fe37d279592c79b93ec56",
+        "start": 2726,
+        "endExclusive": 3085,
+        "exactContiguousPrimaryText": true
+      }
+    },
+    {
+      "groupId": "FC-PROPOSED-20261025-rubrik-event-qualifiers",
+      "candidateSha256": "5333233cb6a1593592c64e4c694babe95790133d0eb8f1fc092ed88b9efc31ad",
+      "evidenceSetSha256": "99a8159bf8775b26003654cd33624a1dbba2751061b85ab169d3f0c1f3d92c99",
+      "groupReviewPolicySha256": "250735b97897299da85ab0b6e3c996b0011859c47716b830cd1509a3da50174f",
+      "targetIds": [
+        "event:EV-rubrik-2",
+        "evidence:TR-rubrik-3"
+      ],
+      "targetSchemasImmutableOriginalsAndConfiguredSourceChecksPassed": true,
+      "latestSourceWithFirstReviewParaphraseExcerpt": {
+        "passed": false,
+        "error": "Correction evidence excerpt not literally in primary source"
+      },
+      "unchangedValidateSourcesAtEvaluatedAt": {
+        "passed": true,
+        "documents": [
+          {
+            "source": {
+              "evidenceId": "TR-rubrik-3",
+              "sourceId": "rubrik:citation:TR-rubrik-3",
+              "url": "https://ir.rubrik.com/news-events/press-releases/news-details/2026/Rubrik-Promotes-Jesse-Green-to-Chief-Revenue-Officer/default.aspx",
+              "observationId": "8fa5264576e4414604ca6292b8ad1a9ec22045365ce14ac98abbe2c9a18326fd",
+              "body": {
+                "bytes": 56051,
+                "key": "objects/c9413ba4a31f92f9454354039fc0ff2e90b59510fef7dc956998b4eccdc479ab",
+                "sha256": "c9413ba4a31f92f9454354039fc0ff2e90b59510fef7dc956998b4eccdc479ab"
+              },
+              "fetchedAt": "2026-10-24T18:29:40.739122Z"
+            },
+            "textChars": 8385,
+            "textSha256": "f771a4f276112aa88e3423ced87f3002f13a392a8d3eb97d82fbc55c4877b4c2"
+          }
+        ],
+        "error": null
+      },
+      "literalEvidenceExcerpt": {
+        "chars": 388,
+        "sha256": "0e8235ece3c95316d6166ce8de032f13dc678ab80d288699af47609e946d9a30",
+        "start": 1179,
+        "endExclusive": 1567,
+        "exactContiguousPrimaryText": true
+      }
+    },
+    {
+      "groupId": "FC-PROPOSED-20261025-s1-event-qualifiers",
+      "candidateSha256": "f81b00a90d6466cfd8c86cd35af69a2eae22507278ec481944a81f1d8bcb7538",
+      "evidenceSetSha256": "50ad1014981336f64a8fae593566d022031ed41c09266116c7179399c3b7e812",
+      "groupReviewPolicySha256": "26829750c11cb9dbff190710abc4ec4240b02973e99f306036b7b80bda3e0341",
+      "targetIds": [
+        "event:EV-s1-1",
+        "evidence:TR-s1-3"
+      ],
+      "targetSchemasImmutableOriginalsAndConfiguredSourceChecksPassed": true,
+      "latestSourceWithFirstReviewParaphraseExcerpt": {
+        "passed": false,
+        "error": "Correction observation URL differs"
+      },
+      "unchangedValidateSourcesAtEvaluatedAt": {
+        "passed": false,
+        "error": "Correction observation URL differs"
+      },
+      "literalEvidenceExcerpt": {
+        "chars": 323,
+        "sha256": "693d82b79518b6e65dc77dc2a1ed1763ae2cba9c862acfd6a2b4e1a19f700ad7",
+        "start": 3972,
+        "endExclusive": 4295,
+        "exactContiguousPrimaryText": true
+      }
+    },
+    {
+      "groupId": "FC-PROPOSED-20261025-varonis-event-qualifiers",
+      "candidateSha256": "4e219178886a8fa7137f859bbab30fc221c412d3a151f4c21fe3e58e4607c8c9",
+      "evidenceSetSha256": "75dd0233d568eb6f99feddef7c6ccb46bb4ea7350e63786a36014336afe4154a",
+      "groupReviewPolicySha256": "8c953c703e90683485447238472f33fe3b41cbfe3f9ff42df71d9ae51c342657",
+      "targetIds": [
+        "event:EV-varonis-2",
+        "event:EV-varonis-3",
+        "evidence:TR-varonis-2"
+      ],
+      "targetSchemasImmutableOriginalsAndConfiguredSourceChecksPassed": true,
+      "latestSourceWithFirstReviewParaphraseExcerpt": {
+        "passed": false,
+        "error": "Correction evidence excerpt not literally in primary source"
+      },
+      "unchangedValidateSourcesAtEvaluatedAt": {
+        "passed": true,
+        "documents": [
+          {
+            "source": {
+              "evidenceId": "TR-varonis-2",
+              "sourceId": "varonis:citation:TR-varonis-2",
+              "url": "https://www.sec.gov/Archives/edgar/data/1361113/000117184325006721/exh_991.htm",
+              "observationId": "0955b2d52ea23b9fb2b92a734ac911d2740e2ab633eb6ba57407394d1462e53f",
+              "body": {
+                "bytes": 223189,
+                "key": "objects/02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6",
+                "sha256": "02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6"
+              },
+              "fetchedAt": "2026-10-24T18:29:59.188369Z"
+            },
+            "textChars": 26465,
+            "textSha256": "7bb6827d7bcb537edff50443b37966e4a2c1ff71bf3014895bea2cf39fea3272"
+          }
+        ],
+        "error": null
+      },
+      "literalEvidenceExcerpt": {
+        "chars": 202,
+        "sha256": "917cfa9f33b7ad183d7c92a73ec39649d306c996f0e612ebc54f1ae349d8e200",
+        "start": 4747,
+        "endExclusive": 4949,
+        "exactContiguousPrimaryText": true
+      }
+    },
+    {
+      "groupId": "FC-PROPOSED-20261025-witnessai-event-qualifiers",
+      "candidateSha256": "9e58550c0abea03ace9a8de766096d17a93ab5351a7e7cc22d66d9d1c2583d12",
+      "evidenceSetSha256": "4eb1c0db72b11837df513c16a47f05fdf785a160b2328a923e89a0d3f7fbc690",
+      "groupReviewPolicySha256": "95c8992e787fdbe6a744a7dbf502a80d4085e17be48f82da56e6ffa8a1866d50",
+      "targetIds": [
+        "event:EV-witnessai-1",
+        "evidence:TR-witnessai-1"
+      ],
+      "targetSchemasImmutableOriginalsAndConfiguredSourceChecksPassed": true,
+      "latestSourceWithFirstReviewParaphraseExcerpt": {
+        "passed": false,
+        "error": "Correction evidence excerpt not literally in primary source"
+      },
+      "unchangedValidateSourcesAtEvaluatedAt": {
+        "passed": true,
+        "documents": [
+          {
+            "source": {
+              "evidenceId": "TR-witnessai-1",
+              "sourceId": "witnessai:citation:TR-witnessai-1",
+              "url": "https://witness.ai/blog/witnessai-raises-58m-to-help-enterprises-move-faster-with-ai-safely/",
+              "observationId": "47983b13ae72228f140536591b889f77f3b4a2e02ee57bb1e631ad2e38f50a79",
+              "body": {
+                "bytes": 148313,
+                "key": "objects/e9b7c2d4fc480397db30f7bdac83c3c2dd70eae6e168baa7d6c2f9fe931c89e0",
+                "sha256": "e9b7c2d4fc480397db30f7bdac83c3c2dd70eae6e168baa7d6c2f9fe931c89e0"
+              },
+              "fetchedAt": "2026-10-24T18:30:05.057117Z"
+            },
+            "textChars": 7461,
+            "textSha256": "7b598d01337df7c7e03fa2baf8dc3ca32e17a852e5bb179dfc70e1f8260f0519"
+          }
+        ],
+        "error": null
+      },
+      "literalEvidenceExcerpt": {
+        "chars": 1259,
+        "sha256": "31b4432a78e3cce282d0018f2629b10fc18992b15e17316fc7794f8d5d489d7b",
+        "start": 4175,
+        "endExclusive": 5434,
+        "exactContiguousPrimaryText": true
+      }
+    }
+  ],
+  "conditionalVaronisWithdrawal": {
+    "status": "concrete-conditional-proposal-for-independent-admission",
+    "groupId": "FC-PROPOSED-20261025-varonis-event-qualifiers",
+    "atomicTargetIds": [
+      "event:EV-varonis-2",
+      "event:EV-varonis-3",
+      "evidence:TR-varonis-2"
+    ],
+    "targetId": "event:EV-varonis-2",
+    "operation": "withdraw",
+    "proposedValue": null,
+    "productionNoteTemplate": "Correction, {date}. The cited Q3 financial release does not substantiate the workforce percentage, employee count or CEO rationale; the layoff entry is withdrawn until primary evidence is available. The release supports the self-hosted end-of-life decision, with no December 31, 2026 effective date established.",
+    "basis": "The complete retained Q3 financial release does not substantiate the workforce percentage, employee count or CEO rationale. Withdrawal is limited to the unsupported entry until primary evidence is available. It does not assert that no layoff ever occurred.",
+    "completeRetainedBodyAndProvenanceSupportThisNarrowScope": true,
+    "existingOriginalObjectAndItsDatePreservedInProposedCorrectionHistory": true,
+    "primaryWorkforceProofRequiredBeforeRestoreOrReplacement": true,
+    "admitted": false,
+    "published": false
+  },
+  "summary": {
+    "groups": 5,
+    "newTargets": 11,
+    "eventReplacements": 5,
+    "evidenceReplacements": 5,
+    "conditionalEventWithdrawals": 1,
+    "groupsPassingUnchangedValidateSources": 4,
+    "passingSuppliers": [
+      "netskope",
+      "rubrik",
+      "varonis",
+      "witnessai"
+    ],
+    "blockedSuppliers": [
+      "s1"
+    ],
+    "sentinelOneBlocker": "Correction observation URL differs. Immutable canonical/requested URL has /data/0001583708/; every successful retained finalUrl has /data/1583708/. No retained successful exact final/canonical join exists. The rule rejects before excerpt review despite a fresh actual 304 and unchanged body. Do not rewrite finalUrl or rebase timestamps.",
+    "firstReviewExcerptIssue": "First-review companion evidence paraphrases fail the ordinary literal excerpt guard with the fresh sources. These separate candidates use contiguous literal passages. The first two artifacts remain byte-identical.",
+    "latestBodyDifferences": "Rubrik differs only in contact email rendering after an identical release article span. WitnessAI differs only in form honeypot labels after an identical dated article. Other three raw bodies and normalized texts are identical. All prior literal primary excerpts remain in latest bodies.",
+    "recommendation": "After actual H acceptance, send the four passing exact group candidates through real independent admission and the normal publisher. Keep SentinelOne pending an authorized source-identity resolution or actual canonical-matching retained observation. Recheck real source age at actual admission; this observation grants no source-clock extension."
+  },
+  "boundaries": {
+    "independentModelReviews": 0,
+    "admissions": 0,
+    "publicationChanges": 0,
+    "sourceNetworkRequests": 0,
+    "dispatches": 0,
+    "budgetMutations": 0,
+    "contractRuntimeOrGitMutations": 0,
+    "coverageCredit": 0,
+    "freshnessCredit": 0,
+    "acceptedGroupsPreserved": 6,
+    "existingAcceptedCorrectionTargetsPreserved": 12,
+    "allOriginalObjectsAndOldSourceReviewDatesPreserved": true,
+    "currentHMainUnchanged": true,
+    "wholeSiteAccuracyClaim": false
+  },
+  "integrity": {
+    "before": [
+      {
+        "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/remaining-event-qualifier-review-2026-10-25.json",
+        "sha256": "4b5a1b777ff77196d8ae5f1600c626bbce37d0d73c06f0a7630a0e76b40c7d2b",
+        "bytes": 91627,
+        "mtimeNs": 1792892688198037012
+      },
+      {
+        "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/remaining-event-qualifier-review-2026-10-25.md",
+        "sha256": "16f81608f959332100a8117850c25d35fec012669def96d300d21498a3467d2c",
+        "bytes": 7233,
+        "mtimeNs": 1792892688198262261
+      },
+      {
+        "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/AGENTS.md",
+        "sha256": "6224e1d60ea3b26f48ca0fcacbc9fcc1cbad035416bbe5c4ffe57e8cfb963d07",
+        "bytes": 8418,
+        "mtimeNs": 1792800049461125242
+      },
+      {
+        "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/.claude/rules/constraints.md",
+        "sha256": "3bbf4894c99f08ec28719c407b0416a443ec99c65e05729d549386d025827ee1",
+        "bytes": 1721,
+        "mtimeNs": 1792800049458972620
+      },
+      {
+        "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/web/src/data/tracker/originals.json",
+        "sha256": "7d164cb81003db0a66eccbb25c2e8605e33b853b9a6e20cb2c6900794822b4a3",
+        "bytes": 381034,
+        "mtimeNs": 1792800049834720322
+      },
+      {
+        "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/contracts/market.json",
+        "sha256": "24221c946781559c0ff3626e4e479c4647da915d0f2d7559ea88046982532c3c",
+        "bytes": 284062,
+        "mtimeNs": 1792865573453423141
+      },
+      {
+        "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/contracts/factual-corrections.json",
+        "sha256": "9c9fbe0d3d40ece11e1407ce9460086c732f62da88d3b0f220ab9d6f8757da00",
+        "bytes": 32004,
+        "mtimeNs": 1792802031150005119
+      },
+      {
+        "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/contracts/factual-baseline.json",
+        "sha256": "ab3bca0e49a38495d310021857ee2c1a3ca6ebe7979593d1e8b36437cb2a294e",
+        "bytes": 35212,
+        "mtimeNs": 1792800049462000200
+      },
+      {
+        "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/web/src/data/tracker/factualCorrectionPolicy.json",
+        "sha256": "7319ece4c5c4f6c7d515fb9ef7ff13211daf38e041948edd26732e9ccfa2dbc7",
+        "bytes": 1721,
+        "mtimeNs": 1792865573474431887
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/archive-manifest.json",
+        "sha256": "895213b31bb9f75814acc9484cad9aabd3719e07ddd72c621275a9b2568a1e5c",
+        "bytes": 8433031,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/b46a3e6e7a52b607df64e4d7708393dd0e48c4dc9500a170a2420ad8ae0a7989.json",
+        "sha256": "b2cb4527f06c3302f40e1b918c1b60fb0c687056daff38975b5ad7751fa8458a",
+        "bytes": 806,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/f6add4bb1d789d2ff4d5b1dc8f7ad59dae70255f5f1f25744363689e849b110f.json",
+        "sha256": "58cf2b1a0eafdbf71dc257c2cd5b8a0b4d7a8fe87350efc101c24585f26d3e87",
+        "bytes": 806,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/f92e8a79eefc2c2e49a0defb181e01415cf5d9418dfccd478cf8b1754a68c13d.json",
+        "sha256": "f80899c179bad5eb368b9ceeef1f165fce9731ba6c7d0d67b5aa076b8ee7255d",
+        "bytes": 806,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/321040502e04849e2a2a665bfb51a768afa2285186c4fa5ab7065cf93ecfcff2.json",
+        "sha256": "e108e9055a17d5b762c19bdb177b84a02a3cb635404f246e1b8cf94ab6e7aeaf",
+        "bytes": 782,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/785b61bbac276ffce9ef36a3e5cbe6d1d52549fe37e41fec947cb3cfd0230a32.json",
+        "sha256": "113a04f9ed1a9e7119ed88a9e8055598bfa7ba2e9a670df2dd1a064516ebc1f6",
+        "bytes": 782,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/fd2dbb9f013ecaebf782a69aa8e7ba50566b4bb388330e65c0fca629191b70fb.json",
+        "sha256": "35931f2b1bc95d6d5decf937ed6866dca6c2460129b795cc4e906e0b0a814610",
+        "bytes": 782,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/45487adb398b0f36b009cad982d2e40bf245034ccfa3cc0c1fb319073a505c90.json",
+        "sha256": "64761cf85c69d62205f8b7e68341cfa6199b85d674b01315b51b11dabe790bd2",
+        "bytes": 782,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/10133b3e72830a1ed02bb56a2e781ba61b08f1686b168afd2159efc0a5dc10e2.json",
+        "sha256": "0a2a13896baea71fc1fb826072db68f438e840cac9461d551378526d21b40af8",
+        "bytes": 782,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/7749d10c26aa08c7ca08843f9200ac759d7d7a78e262c9dd806f18655edafe8b.json",
+        "sha256": "425f48cd49976351026f633978bb044a86971ce499264aaf423bffa008351eec",
+        "bytes": 688,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea",
+        "sha256": "8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea",
+        "bytes": 48682,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/8fa5264576e4414604ca6292b8ad1a9ec22045365ce14ac98abbe2c9a18326fd.json",
+        "sha256": "7f6dd98b5b4d176174935ee6b07aa7eb61b3d27deecf2bd573167b6315aacd92",
+        "bytes": 891,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/710d5be834f1c10951fabe47f1b71459efd1a426247346b4e71c8fe2e6cfbbb6",
+        "sha256": "710d5be834f1c10951fabe47f1b71459efd1a426247346b4e71c8fe2e6cfbbb6",
+        "bytes": 57941,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/c9413ba4a31f92f9454354039fc0ff2e90b59510fef7dc956998b4eccdc479ab",
+        "sha256": "c9413ba4a31f92f9454354039fc0ff2e90b59510fef7dc956998b4eccdc479ab",
+        "bytes": 56051,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/a32b2e55b927c37ffd4e5ab9c2e31a242f9b311c01f47651566c421c13bdbe14.json",
+        "sha256": "6fd3e7b6de605718a6d80582b19e591bbd15de41156680f665f98078e0068c5c",
+        "bytes": 775,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/04084c3a474478781502b49763bba91fea8708f53f0f5bf468a68fe742513ca8.json",
+        "sha256": "f2457c63daa710f97c1d267f20bcb9f783715387485ea0f2a2d562d111e3cb63",
+        "bytes": 775,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/d8ce89d794e65779a37cf9211f91489929be56532848256705af7db69b8509be.json",
+        "sha256": "6b91af526889b3ccd569eea6bfcc815d958a5d4a996349ea9deaeef76eec608c",
+        "bytes": 775,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/8b81e72c90ff7a592608d7a90c05e99af0b8dc6e18f957c46f580775b8eb81c5.json",
+        "sha256": "c87d271f1ca0e2b84c35ec06449e1331b31d483c93a7c5c0a1057642a5644db5",
+        "bytes": 751,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/040bc3c2f28aeeee0a9a14d5a8bb4b1041939d65cacb39c93347e21470ad037e.json",
+        "sha256": "e840cbd0f01b995ec7b275aa501b4c5de2952dec29663b21871f293d2d44056d",
+        "bytes": 751,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/b973eb7cd8627a4f022001ce2579f0478423363590c70a34c1d9610c9e0085fa.json",
+        "sha256": "a1c0f23b7e697eba40bea3ceb49565c9b2a524945e78f66ecb7e3fb9fea33e51",
+        "bytes": 751,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/86863e44acc6db2e6c110ac972933a9e7d44e75d97671e690fad924a2efbcf09.json",
+        "sha256": "5bc24a9d95115dd1ecee5baa77a82ca72ffa3cd2d844f843d4fc709dec8c57e2",
+        "bytes": 751,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/eafc5bf53cc59e4b0cb49f78039670ce6cff0baff0417b91eb465bf05cc533ab.json",
+        "sha256": "5afc044e343d71079f704d0e64de24de969663d1df9fdd2aa617d6a26bf50cff",
+        "bytes": 657,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78",
+        "sha256": "e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78",
+        "bytes": 49404,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/0955b2d52ea23b9fb2b92a734ac911d2740e2ab633eb6ba57407394d1462e53f.json",
+        "sha256": "cd49d05887ecebf00873528a786872377259b77cb1b79e9422fa266134f6bcc4",
+        "bytes": 777,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/4f32345cf7e4417369360e1754fc88390006c4b43631bcf2f967396c91253399.json",
+        "sha256": "3f9fc02b8cb1d973bd2a4c7d9edf491767ae44830e661660e48bffae570775ca",
+        "bytes": 777,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/0b0f0f5c08e2fdbb5b269ecfe7c5631db2ad3c21a95de7a5635f893c8506a19d.json",
+        "sha256": "96a735813e4b70ee18f109b7fa238bcf930ec596cb7b1d838b733028f01a3c79",
+        "bytes": 777,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/40c78b36c02eec0c25bc4eb4aecf5152ef57459db24f48a0cfca9d4ad46617b0.json",
+        "sha256": "2fba364bb11364d7cd07a99f4c8600954c41a567d297d5d10b87e13127598e93",
+        "bytes": 753,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/e868ecd4cad976fa29f3d080d179f87576ace35ea23ed7bac8e144416262948d.json",
+        "sha256": "cc650d206bed62a5680f66e2db0460a808b9a54a64df185bea3e5f3d94e21f76",
+        "bytes": 753,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/de96f097d8478ab28f9635d09da4d853fdfd448919a6c7aa378722927b9f9167.json",
+        "sha256": "c49b79a8df05fe85e1de029f2a3667578d769ddf1ef10292a83739c8e4af8592",
+        "bytes": 753,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/34b8ddb7635987c1dcd8506d968147a55160275fbc49e830ce4ce0804f240213.json",
+        "sha256": "ecb7eb1fa0db67634064bdf9a7a34215d96e5c574d304145c0935d56fd5ec864",
+        "bytes": 753,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/a63cf5b96f93abf9c6d1b55089808ad19622d5c9e8bb878d61a066099bfcb21a.json",
+        "sha256": "bb0baec06cbd5a614a8bd8823b09b5d58f9f02dc19d3e8f9b3ea663a34723195",
+        "bytes": 659,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6",
+        "sha256": "02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6",
+        "bytes": 223189,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/47983b13ae72228f140536591b889f77f3b4a2e02ee57bb1e631ad2e38f50a79.json",
+        "sha256": "149a5a9e40612d953bef87bc3c577e723a4db724288b17e58862f6a0d6ad3ee4",
+        "bytes": 811,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/fb3e2ba4a5112d42b0a74fdd474e8c8f87793ef2c1c03c83c7f9e4e1def4d8b2",
+        "sha256": "fb3e2ba4a5112d42b0a74fdd474e8c8f87793ef2c1c03c83c7f9e4e1def4d8b2",
+        "bytes": 148316,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/e9b7c2d4fc480397db30f7bdac83c3c2dd70eae6e168baa7d6c2f9fe931c89e0",
+        "sha256": "e9b7c2d4fc480397db30f7bdac83c3c2dd70eae6e168baa7d6c2f9fe931c89e0",
+        "bytes": 148313,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/contracts.py",
+        "sha256": "7a9dbf1c4a59391f79519b2aefe688ec572733e2223fd99fa352688b8d1c2d89",
+        "bytes": 10994,
+        "mtimeNs": 1792863209003882260
+      },
+      {
+        "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/regulatory.py",
+        "sha256": "3b9aae159336752f6a284ae513a26d13046d7ba52252582d289b46d69c9cab4d",
+        "bytes": 14268,
+        "mtimeNs": 1792800049824857040
+      },
+      {
+        "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/discovery.py",
+        "sha256": "2611635de944f025e848d8a7b15dfff2a328ac67a11a122a774eb46b2e1e7f68",
+        "bytes": 70911,
+        "mtimeNs": 1792875045592176818
+      },
+      {
+        "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/documents.py",
+        "sha256": "4e3dbd2dbc6409bd8b8be660cf2b673601ca1c3bc90325fc4fbf6cceddc9b69f",
+        "bytes": 3282,
+        "mtimeNs": 1792800049822791126
+      },
+      {
+        "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/validation.py",
+        "sha256": "38b19ad77aff48ba971589add57a9c1b01d505ca49d3c4738bb447007cd71b08",
+        "bytes": 38753,
+        "mtimeNs": 1792869671766351279
+      },
+      {
+        "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/agents.py",
+        "sha256": "4891387bca57821ff3f65e2f07b353d53ceab9b757ddc183cf7eb1ac9a908bdc",
+        "bytes": 14136,
+        "mtimeNs": 1792800049821703793
+      },
+      {
+        "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/corrections.py",
+        "sha256": "d019310bd6c0dcea7e1400e3c63c0d9c3b67ee282f40a1eb4e14f4617d0af13c",
+        "bytes": 39496,
+        "mtimeNs": 1792800049822513834
+      }
+    ],
+    "after": [
+      {
+        "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/remaining-event-qualifier-review-2026-10-25.json",
+        "sha256": "4b5a1b777ff77196d8ae5f1600c626bbce37d0d73c06f0a7630a0e76b40c7d2b",
+        "bytes": 91627,
+        "mtimeNs": 1792892688198037012
+      },
+      {
+        "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/remaining-event-qualifier-review-2026-10-25.md",
+        "sha256": "16f81608f959332100a8117850c25d35fec012669def96d300d21498a3467d2c",
+        "bytes": 7233,
+        "mtimeNs": 1792892688198262261
+      },
+      {
+        "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/AGENTS.md",
+        "sha256": "6224e1d60ea3b26f48ca0fcacbc9fcc1cbad035416bbe5c4ffe57e8cfb963d07",
+        "bytes": 8418,
+        "mtimeNs": 1792800049461125242
+      },
+      {
+        "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/.claude/rules/constraints.md",
+        "sha256": "3bbf4894c99f08ec28719c407b0416a443ec99c65e05729d549386d025827ee1",
+        "bytes": 1721,
+        "mtimeNs": 1792800049458972620
+      },
+      {
+        "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/web/src/data/tracker/originals.json",
+        "sha256": "7d164cb81003db0a66eccbb25c2e8605e33b853b9a6e20cb2c6900794822b4a3",
+        "bytes": 381034,
+        "mtimeNs": 1792800049834720322
+      },
+      {
+        "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/contracts/market.json",
+        "sha256": "24221c946781559c0ff3626e4e479c4647da915d0f2d7559ea88046982532c3c",
+        "bytes": 284062,
+        "mtimeNs": 1792865573453423141
+      },
+      {
+        "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/contracts/factual-corrections.json",
+        "sha256": "9c9fbe0d3d40ece11e1407ce9460086c732f62da88d3b0f220ab9d6f8757da00",
+        "bytes": 32004,
+        "mtimeNs": 1792802031150005119
+      },
+      {
+        "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/contracts/factual-baseline.json",
+        "sha256": "ab3bca0e49a38495d310021857ee2c1a3ca6ebe7979593d1e8b36437cb2a294e",
+        "bytes": 35212,
+        "mtimeNs": 1792800049462000200
+      },
+      {
+        "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/web/src/data/tracker/factualCorrectionPolicy.json",
+        "sha256": "7319ece4c5c4f6c7d515fb9ef7ff13211daf38e041948edd26732e9ccfa2dbc7",
+        "bytes": 1721,
+        "mtimeNs": 1792865573474431887
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/archive-manifest.json",
+        "sha256": "895213b31bb9f75814acc9484cad9aabd3719e07ddd72c621275a9b2568a1e5c",
+        "bytes": 8433031,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/b46a3e6e7a52b607df64e4d7708393dd0e48c4dc9500a170a2420ad8ae0a7989.json",
+        "sha256": "b2cb4527f06c3302f40e1b918c1b60fb0c687056daff38975b5ad7751fa8458a",
+        "bytes": 806,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/f6add4bb1d789d2ff4d5b1dc8f7ad59dae70255f5f1f25744363689e849b110f.json",
+        "sha256": "58cf2b1a0eafdbf71dc257c2cd5b8a0b4d7a8fe87350efc101c24585f26d3e87",
+        "bytes": 806,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/f92e8a79eefc2c2e49a0defb181e01415cf5d9418dfccd478cf8b1754a68c13d.json",
+        "sha256": "f80899c179bad5eb368b9ceeef1f165fce9731ba6c7d0d67b5aa076b8ee7255d",
+        "bytes": 806,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/321040502e04849e2a2a665bfb51a768afa2285186c4fa5ab7065cf93ecfcff2.json",
+        "sha256": "e108e9055a17d5b762c19bdb177b84a02a3cb635404f246e1b8cf94ab6e7aeaf",
+        "bytes": 782,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/785b61bbac276ffce9ef36a3e5cbe6d1d52549fe37e41fec947cb3cfd0230a32.json",
+        "sha256": "113a04f9ed1a9e7119ed88a9e8055598bfa7ba2e9a670df2dd1a064516ebc1f6",
+        "bytes": 782,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/fd2dbb9f013ecaebf782a69aa8e7ba50566b4bb388330e65c0fca629191b70fb.json",
+        "sha256": "35931f2b1bc95d6d5decf937ed6866dca6c2460129b795cc4e906e0b0a814610",
+        "bytes": 782,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/45487adb398b0f36b009cad982d2e40bf245034ccfa3cc0c1fb319073a505c90.json",
+        "sha256": "64761cf85c69d62205f8b7e68341cfa6199b85d674b01315b51b11dabe790bd2",
+        "bytes": 782,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/10133b3e72830a1ed02bb56a2e781ba61b08f1686b168afd2159efc0a5dc10e2.json",
+        "sha256": "0a2a13896baea71fc1fb826072db68f438e840cac9461d551378526d21b40af8",
+        "bytes": 782,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/7749d10c26aa08c7ca08843f9200ac759d7d7a78e262c9dd806f18655edafe8b.json",
+        "sha256": "425f48cd49976351026f633978bb044a86971ce499264aaf423bffa008351eec",
+        "bytes": 688,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea",
+        "sha256": "8380606be56b56e7c9e732398c82b87560b4cd8f1ccb2b348b41333da3dd21ea",
+        "bytes": 48682,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/8fa5264576e4414604ca6292b8ad1a9ec22045365ce14ac98abbe2c9a18326fd.json",
+        "sha256": "7f6dd98b5b4d176174935ee6b07aa7eb61b3d27deecf2bd573167b6315aacd92",
+        "bytes": 891,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/710d5be834f1c10951fabe47f1b71459efd1a426247346b4e71c8fe2e6cfbbb6",
+        "sha256": "710d5be834f1c10951fabe47f1b71459efd1a426247346b4e71c8fe2e6cfbbb6",
+        "bytes": 57941,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/c9413ba4a31f92f9454354039fc0ff2e90b59510fef7dc956998b4eccdc479ab",
+        "sha256": "c9413ba4a31f92f9454354039fc0ff2e90b59510fef7dc956998b4eccdc479ab",
+        "bytes": 56051,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/a32b2e55b927c37ffd4e5ab9c2e31a242f9b311c01f47651566c421c13bdbe14.json",
+        "sha256": "6fd3e7b6de605718a6d80582b19e591bbd15de41156680f665f98078e0068c5c",
+        "bytes": 775,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/04084c3a474478781502b49763bba91fea8708f53f0f5bf468a68fe742513ca8.json",
+        "sha256": "f2457c63daa710f97c1d267f20bcb9f783715387485ea0f2a2d562d111e3cb63",
+        "bytes": 775,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/d8ce89d794e65779a37cf9211f91489929be56532848256705af7db69b8509be.json",
+        "sha256": "6b91af526889b3ccd569eea6bfcc815d958a5d4a996349ea9deaeef76eec608c",
+        "bytes": 775,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/8b81e72c90ff7a592608d7a90c05e99af0b8dc6e18f957c46f580775b8eb81c5.json",
+        "sha256": "c87d271f1ca0e2b84c35ec06449e1331b31d483c93a7c5c0a1057642a5644db5",
+        "bytes": 751,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/040bc3c2f28aeeee0a9a14d5a8bb4b1041939d65cacb39c93347e21470ad037e.json",
+        "sha256": "e840cbd0f01b995ec7b275aa501b4c5de2952dec29663b21871f293d2d44056d",
+        "bytes": 751,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/b973eb7cd8627a4f022001ce2579f0478423363590c70a34c1d9610c9e0085fa.json",
+        "sha256": "a1c0f23b7e697eba40bea3ceb49565c9b2a524945e78f66ecb7e3fb9fea33e51",
+        "bytes": 751,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/86863e44acc6db2e6c110ac972933a9e7d44e75d97671e690fad924a2efbcf09.json",
+        "sha256": "5bc24a9d95115dd1ecee5baa77a82ca72ffa3cd2d844f843d4fc709dec8c57e2",
+        "bytes": 751,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/eafc5bf53cc59e4b0cb49f78039670ce6cff0baff0417b91eb465bf05cc533ab.json",
+        "sha256": "5afc044e343d71079f704d0e64de24de969663d1df9fdd2aa617d6a26bf50cff",
+        "bytes": 657,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78",
+        "sha256": "e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78",
+        "bytes": 49404,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/0955b2d52ea23b9fb2b92a734ac911d2740e2ab633eb6ba57407394d1462e53f.json",
+        "sha256": "cd49d05887ecebf00873528a786872377259b77cb1b79e9422fa266134f6bcc4",
+        "bytes": 777,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/4f32345cf7e4417369360e1754fc88390006c4b43631bcf2f967396c91253399.json",
+        "sha256": "3f9fc02b8cb1d973bd2a4c7d9edf491767ae44830e661660e48bffae570775ca",
+        "bytes": 777,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/0b0f0f5c08e2fdbb5b269ecfe7c5631db2ad3c21a95de7a5635f893c8506a19d.json",
+        "sha256": "96a735813e4b70ee18f109b7fa238bcf930ec596cb7b1d838b733028f01a3c79",
+        "bytes": 777,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/40c78b36c02eec0c25bc4eb4aecf5152ef57459db24f48a0cfca9d4ad46617b0.json",
+        "sha256": "2fba364bb11364d7cd07a99f4c8600954c41a567d297d5d10b87e13127598e93",
+        "bytes": 753,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/e868ecd4cad976fa29f3d080d179f87576ace35ea23ed7bac8e144416262948d.json",
+        "sha256": "cc650d206bed62a5680f66e2db0460a808b9a54a64df185bea3e5f3d94e21f76",
+        "bytes": 753,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/de96f097d8478ab28f9635d09da4d853fdfd448919a6c7aa378722927b9f9167.json",
+        "sha256": "c49b79a8df05fe85e1de029f2a3667578d769ddf1ef10292a83739c8e4af8592",
+        "bytes": 753,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/34b8ddb7635987c1dcd8506d968147a55160275fbc49e830ce4ce0804f240213.json",
+        "sha256": "ecb7eb1fa0db67634064bdf9a7a34215d96e5c574d304145c0935d56fd5ec864",
+        "bytes": 753,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/a63cf5b96f93abf9c6d1b55089808ad19622d5c9e8bb878d61a066099bfcb21a.json",
+        "sha256": "bb0baec06cbd5a614a8bd8823b09b5d58f9f02dc19d3e8f9b3ea663a34723195",
+        "bytes": 659,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6",
+        "sha256": "02f092fcc42a279250db0bedd375c991bbfa5b3dd12356b9dbb4aba130853df6",
+        "bytes": 223189,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/observations/47983b13ae72228f140536591b889f77f3b4a2e02ee57bb1e631ad2e38f50a79.json",
+        "sha256": "149a5a9e40612d953bef87bc3c577e723a4db724288b17e58862f6a0d6ad3ee4",
+        "bytes": 811,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/fb3e2ba4a5112d42b0a74fdd474e8c8f87793ef2c1c03c83c7f9e4e1def4d8b2",
+        "sha256": "fb3e2ba4a5112d42b0a74fdd474e8c8f87793ef2c1c03c83c7f9e4e1def4d8b2",
+        "bytes": 148316,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/var/tmp/smp-seven-source-40131875060-20261024/extracted/state/objects/e9b7c2d4fc480397db30f7bdac83c3c2dd70eae6e168baa7d6c2f9fe931c89e0",
+        "sha256": "e9b7c2d4fc480397db30f7bdac83c3c2dd70eae6e168baa7d6c2f9fe931c89e0",
+        "bytes": 148313,
+        "mtimeNs": 1792875521000000000
+      },
+      {
+        "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/contracts.py",
+        "sha256": "7a9dbf1c4a59391f79519b2aefe688ec572733e2223fd99fa352688b8d1c2d89",
+        "bytes": 10994,
+        "mtimeNs": 1792863209003882260
+      },
+      {
+        "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/regulatory.py",
+        "sha256": "3b9aae159336752f6a284ae513a26d13046d7ba52252582d289b46d69c9cab4d",
+        "bytes": 14268,
+        "mtimeNs": 1792800049824857040
+      },
+      {
+        "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/discovery.py",
+        "sha256": "2611635de944f025e848d8a7b15dfff2a328ac67a11a122a774eb46b2e1e7f68",
+        "bytes": 70911,
+        "mtimeNs": 1792875045592176818
+      },
+      {
+        "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/documents.py",
+        "sha256": "4e3dbd2dbc6409bd8b8be660cf2b673601ca1c3bc90325fc4fbf6cceddc9b69f",
+        "bytes": 3282,
+        "mtimeNs": 1792800049822791126
+      },
+      {
+        "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/validation.py",
+        "sha256": "38b19ad77aff48ba971589add57a9c1b01d505ca49d3c4738bb447007cd71b08",
+        "bytes": 38753,
+        "mtimeNs": 1792869671766351279
+      },
+      {
+        "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/agents.py",
+        "sha256": "4891387bca57821ff3f65e2f07b353d53ceab9b757ddc183cf7eb1ac9a908bdc",
+        "bytes": 14136,
+        "mtimeNs": 1792800049821703793
+      },
+      {
+        "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/corrections.py",
+        "sha256": "d019310bd6c0dcea7e1400e3c63c0d9c3b67ee282f40a1eb4e14f4617d0af13c",
+        "bytes": 39496,
+        "mtimeNs": 1792800049822513834
+      }
+    ],
+    "allSelectedInputSealsEqual": true,
+    "observationSearchInventory": {
+      "files": 9030,
+      "sealEncoding": "SHA-256 of canonical sorted-path arrays of path, sha256, bytes and mtimeNs.",
+      "beforeSha256": "8c014dd2036806064bfb1d194f1a568b2f0f6aff277f87306dad6947cb52d2f4",
+      "afterSha256": "8c014dd2036806064bfb1d194f1a568b2f0f6aff277f87306dad6947cb52d2f4",
+      "equal": true
+    },
+    "firstReviewArtifactsByteIdenticalAfterChecks": true
+  },
+  "tests": {
+    "immutableOriginalBaselinePassed": true,
+    "fiveGroupShapesElevenTargetsAndConfiguredSourceChecksPassed": true,
+    "fourActualUnchangedValidateSourcesPasses": true,
+    "oneExpectedExactUrlJoinRejection": true,
+    "allFiveSelectedActualObservationsWithinThirtyHours": true,
+    "full200BodyOriginsAnd304ReuseChainsRecorded": true,
+    "rawBodyAndArticleTextComparisonPassed": true,
+    "originalSourceClocksNotRebased": true,
+    "runtime": "Python -B in OrbStack dev VM only."
+  }
+}

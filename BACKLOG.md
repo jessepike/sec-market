@@ -88,6 +88,14 @@ October 25 has one of two gate attempts charged; one remains. Collector timer: 0
 gaps. Verify issue 12 recovery after actual publication.
 No owner source decision is currently required. No refund, reset, purchase or paid fallback.
 
+The [remaining published-record qualifier queue](docs/active/daily-pipeline/accuracy/remaining-record-qualification-status-2026-10-25.md)
+tracks ten supported wording candidates and one unsupported Varonis workforce claim, including
+full literal event groups and metric companion evidence. Independent admission and publication
+remain required. Fix SentinelOne's exact SEC filing transport identity without general URL
+normalization. Preserve WitnessAI's metric-date uncertainty. Keep these future groups outside the
+operational contract until the current scheduled/public acceptance completes; a pending group
+would hold publication. These proposals earn no coverage or accuracy completion credit.
+
 Use the [74-company overview and 557-row CSV](docs/active/daily-pipeline/evaluations/2026-10-24/current-source-coverage.md),
 [evaluation rubric](docs/active/daily-pipeline/evaluation-rubric.md) and [bound scorecard](docs/active/daily-pipeline/evaluations/2026-10-24/html-activation-current-scorecard.md).
 Keep daily intake, document review, historical review, accuracy and value separate. Earlier

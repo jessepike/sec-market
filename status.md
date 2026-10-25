@@ -60,6 +60,12 @@ Preview a87a01d6 passed web 40151036997 and archive canary 40151037023; Vercel
 dpl_5hsHPnXUEDQZrTYv8xW3NzGBwKK1 is READY. Its uncollected fixture must never publish.
 Keep this patch off main until the assigned actual H scheduled/public acceptance.
 
+The [remaining record qualifier review](docs/active/daily-pipeline/accuracy/remaining-record-qualification-status-2026-10-25.md)
+identifies ten supported wording candidates and one unsupported Varonis workforce claim.
+Four event groups pass literal-source validation; independent admission remains. SentinelOne's
+exact SEC request/final issuer-directory spelling needs the narrowly specified transport repair.
+All proposals stay outside the operational correction contract during current-H acceptance.
+
 ## Sources, alerts and next receipts
 
 Diagnostics are exact disabled ad1. Actual Orca run 40129367275 retained 90 leads from 26 pages,
