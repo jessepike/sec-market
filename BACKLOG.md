@@ -112,8 +112,10 @@ public files byte-exact. No coverage credit follows from these captures. Torq's 
 controller and Zenity's27-of48 initial posts prove remaining pagination work. The next bounded
 listing/pagination capture, ac7393c6, passes full preflight and independent review (34 rejected
 mutations, legal repeated-source/order cases, complete prior-report replay). Exact local selection
-is complete; preview/main and one actual capture remain. Retain existing Cyera/Torq primary bodies
-and dates. Its whole-operation bound includes all25 generic probes:257 logical requests.
+is verified on main 5debbd9e with preview web 40193430884/main 40193694591 passing, Vercel preview
+READY/main Git ignored. Actual capture 40193925490 is running from verified 9deb/985 baseline;
+responses, charges, full audit and disabled-plan closure remain pending. Retain existing Cyera/Torq
+primary bodies and dates. Its whole-operation bound includes all 25 generic probes: 257 logical requests.
 No owner source decision is currently required.
 
 Use the [evaluation rubric](docs/active/daily-pipeline/evaluation-rubric.md) and keep the original

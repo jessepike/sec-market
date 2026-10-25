@@ -67,8 +67,11 @@ all four public files byte-exact. Main pushes do not publish.
 
 The next [listing/pagination plan](docs/active/daily-pipeline/accuracy/narrow-listing-pagination-build-spec-2026-10-25.md),
 ac7393c6, covers Abnormal/Cyera press lists, Cato pages 2–5 and Chainguard page 2. Existing full
-validator/preflight and independent review pass; exact operational selection is complete locally.
-Preview/main checks and one actual capture follow. Its whole-operation bound remains 257 requests including
+validator/preflight and independent review pass; exact selection is on main 5debbd9e. Preview web
+40193430884 and main web 40193694591 pass; Vercel preview is READY/main Git ignored.
+Actual single capture 40193925490 started at 12:37:24 UTC from verified 9deb/985 baseline and is
+running. Returned pages, charges, full audit and disabled-plan restoration remain pending.
+Its whole-operation bound remains 257 requests including
 all 25 generic probes. Reuse retained Cyera/Torq primary bodies. Torq's disclosed loading controller
 and Zenity's 27-initial/48-declared posts still require continuation proof.
 

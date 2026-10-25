@@ -1,0 +1,54 @@
+{
+  "result": {
+    "deployments": {
+      "pagination": {
+        "count": 2,
+        "prev": 1792931659066
+      },
+      "deployments": [
+        {
+          "id": "dpl_6bySAuaiKnn8vDEbgajDr92TANuS",
+          "name": "security-market-pulse",
+          "url": "security-market-pulse-jii0p9rqg-pikeholdings.vercel.app",
+          "created": 1792931659066,
+          "state": "CANCELED",
+          "target": "production",
+          "creator": {
+            "uid": "um6xyC6srGbNQRAR3KB77kfs",
+            "username": "jessepike"
+          },
+          "meta": {
+            "githubCommitRef": "main",
+            "githubCommitSha": "5debbd9e3ed855d9c6f5bda25468dac1371532d6",
+            "githubCommitMessage": "chore(qualification): select reviewed listing and pagination capture\n\nSelect exact ac7393 seven-target plan under unchanged H and existing schema1. Full independent parent traversal replay and34 rejected mutations pass; preserve all source authority, runtime limits, facts and holds. Operational d...",
+            "githubRepo": "sec-market",
+            "githubOrg": "jessepike"
+          },
+          "inspectorUrl": "https://vercel.com/pikeholdings/security-market-pulse/6bySAuaiKnn8vDEbgajDr92TANuS",
+          "isRollbackCandidate": false
+        },
+        {
+          "id": "dpl_VJzcEp8n7vbChdhh5xgi8xKQsEqk",
+          "name": "security-market-pulse",
+          "url": "security-market-pulse-mmxk0458b-pikeholdings.vercel.app",
+          "created": 1792931448273,
+          "state": "READY",
+          "target": null,
+          "creator": {
+            "uid": "um6xyC6srGbNQRAR3KB77kfs",
+            "username": "jessepike"
+          },
+          "meta": {
+            "githubCommitRef": "preview",
+            "githubCommitSha": "5debbd9e3ed855d9c6f5bda25468dac1371532d6",
+            "githubCommitMessage": "chore(qualification): select reviewed listing and pagination capture\n\nSelect exact ac7393 seven-target plan under unchanged H and existing schema1. Full independent parent traversal replay and34 rejected mutations pass; preserve all source authority, runtime limits, facts and holds. Operational d...",
+            "githubRepo": "sec-market",
+            "githubOrg": "jessepike"
+          },
+          "inspectorUrl": "https://vercel.com/pikeholdings/security-market-pulse/VJzcEp8n7vbChdhh5xgi8xKQsEqk",
+          "isRollbackCandidate": false
+        }
+      ]
+    }
+  }
+}

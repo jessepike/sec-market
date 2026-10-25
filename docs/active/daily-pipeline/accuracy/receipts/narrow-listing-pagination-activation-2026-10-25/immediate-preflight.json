@@ -1,0 +1,17 @@
+{
+  "archiveCommit": "9deb0c9ce9fe34999da0cf13bb023dfdfecc15c8",
+  "before": {
+    "calls": 80,
+    "documents": 38,
+    "fetches": 985,
+    "gates": 2
+  },
+  "competingWriterObserved": false,
+  "main": "5debbd9e3ed855d9c6f5bda25468dac1371532d6",
+  "planSha256": "ac7393c6fc28d97826916462b0b56ca5fcd7a27521bb838de8df19542b494711",
+  "publicReleaseUnchanged": true,
+  "runtimeLeaseBudgetAndDayChecksStillApply": true,
+  "verdict": "PASS_FOR_SINGLE_BOUNDED_DIAGNOSTIC",
+  "verifiedAt": "2026-10-25T12:37:19.066563+00:00",
+  "wholeOperationMaximumLogicalFetches": 257
+}

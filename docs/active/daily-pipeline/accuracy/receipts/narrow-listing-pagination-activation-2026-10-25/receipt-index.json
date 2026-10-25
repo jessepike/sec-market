@@ -1,0 +1,71 @@
+{
+  "actualRunId": 40193925490,
+  "files": {
+    "archive-ref-immediate.json": {
+      "bytes": 381,
+      "sha256": "353b4a13995da96c2722fdba6e58f013dee44c5c780268eaf91744dbd76f1780"
+    },
+    "budget-immediate.json": {
+      "bytes": 41,
+      "sha256": "17c0b4195b89773cb7b657824e19dbf4ca10813a2a1d431607b9a8964b628eec"
+    },
+    "gate-budget-immediate.json": {
+      "bytes": 14,
+      "sha256": "5452defb75897ca4711b2b086a2efa1ff79112b00a583b24de108522855d8a54"
+    },
+    "immediate-preflight.json": {
+      "bytes": 567,
+      "sha256": "f23e154144fcba9c3cb7dbf30bc074068c803f808af310054ef9274a19263884"
+    },
+    "in-progress-immediate.json": {
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    "lease-immediate.json": {
+      "bytes": 300,
+      "sha256": "954dac83bf95ea9ccff68b28d8c2304ae694143347b5c6adb7bce052ec5a6130"
+    },
+    "main-ref-immediate.json": {
+      "bytes": 338,
+      "sha256": "5f1fb898c67dc968add0849ca5148c3eb565e7d90b73be986adf17d390b808f9"
+    },
+    "main-ref.json": {
+      "bytes": 338,
+      "sha256": "5f1fb898c67dc968add0849ca5148c3eb565e7d90b73be986adf17d390b808f9"
+    },
+    "main-web.json": {
+      "bytes": 12611,
+      "sha256": "da1841ae3055c2a9e2417652f189513db7c259fb958f3a2d1168552a9e8ebec8"
+    },
+    "preview-web.json": {
+      "bytes": 12614,
+      "sha256": "97730a898397af90a7177a4f2589316f0b5f69dc9ed57557e8552e0815c64c6f"
+    },
+    "public-receipt-immediate.json": {
+      "bytes": 1103,
+      "sha256": "5ef1302f26813f928931c6b9085bbd985a95fe10fb8e992d7c3d64415bb87d28"
+    },
+    "queued-immediate.json": {
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    "remote-plan-immediate.json": {
+      "bytes": 8977,
+      "sha256": "ac7393c6fc28d97826916462b0b56ca5fcd7a27521bb838de8df19542b494711"
+    },
+    "remote-plan.json": {
+      "bytes": 8977,
+      "sha256": "ac7393c6fc28d97826916462b0b56ca5fcd7a27521bb838de8df19542b494711"
+    },
+    "run-initial.json": {
+      "bytes": 12628,
+      "sha256": "bf2482731d24982302a7dbe60c1d0a3e6d747dd201729e5e17affaf5990d0c9c"
+    },
+    "vercel-deployments.json": {
+      "bytes": 2407,
+      "sha256": "26aef2123da1a8a216c47dffa9c8514f1046c1295116f957fd865cc77eeaeea1"
+    }
+  },
+  "phase": "actual bounded listing capture activated; terminal result pending",
+  "schemaVersion": 1
+}
