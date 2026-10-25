@@ -1,0 +1,57 @@
+{
+  "kind": "s1-exact-filing-transport-visual-comparison",
+  "visibleChange": false,
+  "captureCommand": "web/scripts/shot.mjs",
+  "localUrl": "http://127.0.0.1:18814/",
+  "productionUrl": "https://securitymarketpulse.com/",
+  "localAgainstPriorPreview": [
+    {
+      "width": 1440,
+      "priorDimensions": [
+        1440,
+        8379
+      ],
+      "currentDimensions": [
+        1440,
+        8379
+      ],
+      "changedPixels": 0,
+      "pixelIdentical": true
+    },
+    {
+      "width": 390,
+      "priorDimensions": [
+        390,
+        7749
+      ],
+      "currentDimensions": [
+        390,
+        7749
+      ],
+      "changedPixels": 0,
+      "pixelIdentical": true
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/s1-transport-production-1440.png",
+      "bytes": 996984,
+      "sha256": "8651f15011d8a0518a5e4f96a43d693c014ea1d33a041f1586e830a088cce1ad"
+    },
+    {
+      "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/s1-transport-local-1440.png",
+      "bytes": 989395,
+      "sha256": "b044622ff53e695fee8334a95746b932c0df81ff6e26ecb810bfd9228765cdd9"
+    },
+    {
+      "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/s1-transport-production-390.png",
+      "bytes": 437240,
+      "sha256": "0c81367ea5540676b295a8ba96173ef98e5e9c41993a3dac9392166ae2af10d9"
+    },
+    {
+      "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/s1-transport-local-390.png",
+      "bytes": 436460,
+      "sha256": "7dc872da46a4cf5e2eb765df88e1ae28e34eb70f8d5c38b19835bab09afcd3df"
+    }
+  ]
+}

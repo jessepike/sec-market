@@ -32,6 +32,18 @@ SUPPLIER_FIELDS = {
 }
 EVIDENCE_MUTABLE = {"title", "publicationDate", "economicPeriod", "excerpt", "limitations"}
 REVIEW_RULES_VERSION = "dated-factual-correction-review-1"
+# This closed transport identity is an opt-in source dependency, not URL normalization.
+S1_TRANSPORT = {
+    "schemaVersion": 1, "rulesVersion": "s1-exact-filing-transport-1",
+    "supplierId": "s1", "sourceId": "s1:citation:TR-s1-3", "evidenceId": "TR-s1-3",
+    "requestedUrl": "https://www.sec.gov/Archives/edgar/data/0001583708/000158370826000039/s-20260528.htm",
+    "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/0001583708/000158370826000039/s-20260528.htm",
+    "finalUrl": "https://www.sec.gov/Archives/edgar/data/1583708/000158370826000039/s-20260528.htm",
+    "configuredSourceSha256": "805521d2061b61699a39e64403905b99564731550501130c3038b3c442f89298",
+    "evidenceSha256": "26c50e6237d1ac662287a3ed05ab51a304773df643e5f5860cc2b5fbc795ab80",
+    "body": {"key": "objects/e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78",
+             "sha256": "e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78", "bytes": 49404},
+}
 PUBLISHER_RULES_VERSION = "dated-publisher-disclosure-classification-1"
 PUBLISHER_OPERATION = "reclassify_publisher_disclosure"
 PUBLISHER_ORIGINAL_SHA256 = "62bb8bcce0698b5f164867d9bc070be77ee4eebde095947dd96eb8a693d0d6fb"
@@ -53,6 +65,61 @@ def _publisher_scope(group):
         return False
     require(group["reviewScope"] == PUBLISHER_DISCLOSURE_SCOPE, "Unknown correction review scope")
     return True
+
+
+def _transport_attestation(group, source, market, evidence=None):
+    if "transportAttestation" not in source:
+        return None
+    _keys(source, {"evidenceId", "sourceId", "url", "observationId", "body", "fetchedAt", "transportAttestation"},
+          "Correction transport source")
+    _reference(source["body"])
+    require(valid_hash(source["observationId"]), "Invalid correction observation ID")
+    _time(source["fetchedAt"])
+    attestation = source["transportAttestation"]
+    # Canonical equality also distinguishes booleans from integers and refuses extra keys.
+    require(canonical(attestation) == canonical(S1_TRANSPORT), "Correction transport attestation differs")
+    require(group["supplierId"] == S1_TRANSPORT["supplierId"]
+            and source["sourceId"] == S1_TRANSPORT["sourceId"]
+            and source["evidenceId"] == S1_TRANSPORT["evidenceId"]
+            and source["url"] == S1_TRANSPORT["requestedUrl"]
+            and canonical(source["body"]) == canonical(S1_TRANSPORT["body"]),
+            "Correction transport source binding differs")
+    matching = [entry for entry in market["sources"] if entry["id"] == source["sourceId"]]
+    require(len(matching) == 1 and digest(matching[0]) == S1_TRANSPORT["configuredSourceSha256"],
+            "Correction transport configured source differs")
+    if evidence is not None:
+        require(digest(evidence) == S1_TRANSPORT["evidenceSha256"], "Correction transport immutable evidence differs")
+    return attestation
+
+
+def _transport_reuse(observation, source, store, admitted_at, transport):
+    """Replay the opt-in transport's actual conditional-response body provenance."""
+    seen, latest = set(), admitted_at
+    expected_id = source["observationId"]
+    while True:
+        require(isinstance(observation, dict) and observation.get("observationId") == expected_id
+                and valid_hash(expected_id) and expected_id not in seen, "Correction transport reuse identity differs")
+        seen.add(expected_id)
+        require(observation.get("sourceId") == source["sourceId"]
+                and observation.get("requestedUrl") == transport["requestedUrl"]
+                and observation.get("finalUrl") == transport["finalUrl"]
+                and canonical(observation.get("body")) == canonical(transport["body"]),
+                "Correction transport reuse binding differs")
+        observed_at = _time(observation.get("fetchedAt"))
+        require(observed_at <= latest, "Correction transport reuse time differs")
+        if observation.get("verifiedAt"):
+            require(_time(observation["verifiedAt"]) <= admitted_at, "Correction observation verification after admission")
+        pair = (observation.get("status"), observation.get("httpStatus"))
+        require(pair in (("fetched", 200), ("not_modified", 304)), "Correction transport reuse HTTP status differs")
+        if pair == ("fetched", 200):
+            require(not observation.get("reusesObservationId") and not observation.get("transportReused"),
+                    "Correction transport full response cannot reuse another observation")
+            return
+        require(not observation.get("transportReused"), "Correction transport requires an actual HTTP observation")
+        expected_id = observation.get("reusesObservationId")
+        require(valid_hash(expected_id) and expected_id not in seen, "Correction transport reuse identity differs")
+        observation = store.read("observations/" + expected_id + ".json")
+        latest = observed_at
 
 
 def group_review_policy(group, market, baseline_sha256):
@@ -82,6 +149,10 @@ def group_review_policy(group, market, baseline_sha256):
                                         "from": "INDEPENDENT", "to": "OFFICIAL",
                                         "mutableFields": ["limitations", "sourceClass"]},
                      checks=sorted(PUBLISHER_DISCLOSURE_CHECKS))
+    transports = [_transport_attestation(group, source, market) for source in group["sources"]
+                  if "transportAttestation" in source]
+    if transports:
+        basis["sourceTransportRules"] = {"rule": S1_TRANSPORT, "attestations": transports}
     return digest(basis)
 
 
@@ -250,7 +321,8 @@ def load_policy(repo, market):
         source_ids = {s["id"]: s for s in market["sources"]}
         for source in group["sources"]:
             _keys(source, {"evidenceId", "sourceId", "url", "observationId", "body", "fetchedAt"}
-                  | ({"proofScope", "visibleText", "disclosureQuoteIds"} if publisher else set()), "Correction source")
+                  | ({"proofScope", "visibleText", "disclosureQuoteIds"} if publisher else set())
+                  | ({"transportAttestation"} if "transportAttestation" in source else set()), "Correction source")
             require(all(isinstance(source[key], str) and source[key] for key in ("evidenceId", "sourceId", "url")), "Invalid correction source binding")
             evidence = records["evidence"].get(source["evidenceId"])
             configured = source_ids.get(source["sourceId"])
@@ -280,6 +352,7 @@ def load_policy(repo, market):
             require(isinstance(evidence.get("organization"), str) and evidence["organization"].strip(), "Correction source organization missing")
             require(valid_hash(source["observationId"]), "Invalid correction observation ID")
             _reference(source["body"])
+            _transport_attestation(group, source, market, evidence)
             _time(source["fetchedAt"])
             evidence_ids.append(source["evidenceId"])
         unique(evidence_ids, "correction evidence source")
@@ -380,19 +453,27 @@ def validate_sources(group, store, market, admitted_at):
     publisher = _publisher_scope(group)
     limit = min(market["model"]["maxDocumentChars"], 30000) if publisher else market["model"]["maxDocumentChars"]
     for source in group["sources"]:
+        transport = _transport_attestation(group, source, market)
         observation = store.read("observations/" + source["observationId"] + ".json")
         require(observation and observation.get("observationId") == source["observationId"] and observation.get("sourceId") == source["sourceId"], "Correction observation/source differs")
         require(observation.get("status") in ("fetched", "not_modified"), "Correction source observation unsuccessful")
-        if publisher:
+        if publisher or transport:
             require((observation["status"], observation.get("httpStatus")) in (("fetched", 200), ("not_modified", 304)),
-                    "Publisher disclosure HTTP status differs")
-        require(observation.get("requestedUrl") == source["url"] and observation.get("finalUrl", source["url"]) == source["url"], "Correction observation URL differs")
+                    "Correction source HTTP status differs")
+        require(observation.get("requestedUrl") == source["url"]
+                and observation.get("finalUrl", source["url"]) == (transport["finalUrl"] if transport else source["url"]),
+                "Correction observation URL differs")
         require(observation.get("body") == source["body"] and observation.get("fetchedAt") == source["fetchedAt"], "Correction observation body or time differs")
         if observation.get("verifiedAt"):
             require(_time(observation["verifiedAt"]) <= at, "Correction observation verification after admission")
         age = (at - _time(source["fetchedAt"])).total_seconds()
         require(0 <= age <= 30 * 3600, "Correction source expired or future at admission")
-        raw = decoded_discovery_body(store.get(source["body"])).decode("utf8", errors="strict")
+        body = store.get(source["body"])
+        if transport:
+            require(digest(body) == transport["body"]["sha256"] and len(body) == transport["body"]["bytes"],
+                    "Correction transport body differs")
+            _transport_reuse(observation, source, store, at, transport)
+        raw = decoded_discovery_body(body).decode("utf8", errors="strict")
         page = Page(raw, source_url=source["url"])
         # Whole decoded source text is retained. No excerpt-only or silent truncation.
         text = _normalize(" ".join(page.text))

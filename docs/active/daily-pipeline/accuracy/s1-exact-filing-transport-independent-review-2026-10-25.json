@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "kind": "independent_s1_exact_filing_transport_review",
+  "date": "2026-10-25",
+  "verdict": "pass_for_dormant_preview_support",
+  "reviewPasses": 2,
+  "materialFindings": [],
+  "minorFindings": [],
+  "frozenMain": "6d5e87feba4ffbc75e50f35cb564cb8fd91708ca",
+  "reviewedFileSha256": {
+    "web/scripts/pipeline/corrections.py": "d742a91d4d23da5db3b426afcef76a80971c47dd54f8e4312065a6994f87b11f",
+    "web/scripts/verify-factual-corrections.mjs": "386093e726ccf9c2bdbe0b9115885ad74360e2c7cd81577554f335e9ee4f2f06",
+    "ops/ci/test_s1_exact_filing_transport.py": "a0b04d59fde295e452ac8d1d892f1455d55843510237ef74ce823488a6b81450",
+    "web/tests/s1-exact-filing-transport.test.mjs": "be7c2f23767d4799e9dfde2ce509bc045386ecca443e980c09ec0550a83d28ba",
+    "ops/ci/fixtures/s1-exact-filing-transport.json": "8d6584024b7caa44189968afb41132f795671fffc1ecc187e9030f1e903abb0e",
+    "docs/active/daily-pipeline/accuracy/s1-exact-filing-transport-spec-2026-10-25.md": "2de15c5d35ad3a5e9da306bf27589db1f5730a79bc612b26a0c7fcce7365398d"
+  },
+  "protectedFileSha256": {
+    "contracts/market.json": "24221c946781559c0ff3626e4e479c4647da915d0f2d7559ea88046982532c3c",
+    "contracts/factual-corrections.json": "9c9fbe0d3d40ece11e1407ce9460086c732f62da88d3b0f220ab9d6f8757da00",
+    "contracts/factual-baseline.json": "ab3bca0e49a38495d310021857ee2c1a3ca6ebe7979593d1e8b36437cb2a294e",
+    "web/src/data/tracker/factualCorrectionPolicy.json": "7319ece4c5c4f6c7d515fb9ef7ff13211daf38e041948edd26732e9ccfa2dbc7",
+    "web/src/data/tracker/originals.json": "7d164cb81003db0a66eccbb25c2e8605e33b853b9a6e20cb2c6900794822b4a3"
+  },
+  "checks": {
+    "pythonFocusedTestsPassed": 10,
+    "javascriptFocusedTestsPassed": 4,
+    "focusedTestsSkipped": 0,
+    "independentMutationCasesRejected": 71,
+    "independentPositiveBoundaryHistoricalChecksPassed": 8,
+    "actualObservationChainLength": 8,
+    "existingGroupReviewPoliciesUnchanged": 6,
+    "actualExistingAdmissionsReplayedUnchanged": 6,
+    "consultedArchiveFiles": 45,
+    "consultedArchiveHashSizeMtimeUnchanged": true,
+    "consultedArchiveTouchedFileSealSha256": "83577c5ace69bc4adeba87e18a778bf857ef199a605b0623cbe8e2c00d9ac368",
+    "protectedFileHashSizeMtimeUnchanged": true,
+    "wholeArchiveReauthenticatedThisReview": false,
+    "genericUrlNormalizationAdded": false,
+    "globalReviewRulesChanged": false
+  },
+  "actualSource": {
+    "latestObservationId": "a32b2e55b927c37ffd4e5ab9c2e31a242f9b311c01f47651566c421c13bdbe14",
+    "latestHttpStatus": 304,
+    "latestFetchedAt": "2026-10-24T18:30:00.677520Z",
+    "fullBodyOriginObservationId": "eafc5bf53cc59e4b0cb49f78039670ce6cff0baff0417b91eb465bf05cc533ab",
+    "fullBodyOriginHttpStatus": 200,
+    "fullBodyOriginFetchedAt": "2026-10-20T21:11:29.566045Z",
+    "bodySha256": "e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78",
+    "bodyBytes": 49404
+  },
+  "reviewUsage": {
+    "networkAttempts": 0,
+    "sourceRequests": 0,
+    "modelCalls": 0,
+    "archiveWrites": 0,
+    "budgetReservations": 0,
+    "operationalChanges": 0,
+    "newAdmissions": 0,
+    "publication": false
+  }
+}

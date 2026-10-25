@@ -63,7 +63,10 @@ Keep this patch off main until the assigned actual H scheduled/public acceptance
 The [remaining record qualifier review](docs/active/daily-pipeline/accuracy/remaining-record-qualification-status-2026-10-25.md)
 identifies ten supported wording candidates and one unsupported Varonis workforce claim.
 Four event groups pass literal-source validation; independent admission remains. SentinelOne's
-exact SEC request/final issuer-directory spelling needs the narrowly specified transport repair.
+exact SEC request/final issuer-directory spelling is handled by the reviewed preview-only
+transport repair. All 828 operational checks and 534 executed application tests pass, with one
+existing fixture skip. Independent review rejected 71 additional mutations; all six old admissions
+replay unchanged. The 1440/390 local renders match the preceding preview pixel for pixel.
 All proposals stay outside the operational correction contract during current-H acceptance.
 
 ## Sources, alerts and next receipts

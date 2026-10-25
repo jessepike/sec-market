@@ -32,6 +32,15 @@ combined WitnessAI metric/event/evidence group replaces the separate WitnessAI e
 Eight groups pass source validation; the remaining SentinelOne group has the exact final-URL
 block above. These counts describe proposed inputs only.
 
+The subsequent inactive transport repair now validates the exact attested SentinelOne filing,
+including the real 200/304 reuse chain. Its independent review passes with 71 additional rejected
+mutations, and all six existing admissions replay unchanged. Full operational checks pass 828
+tests; application checks pass 534 executed tests with one existing fixture skip. Local full-page
+1440/390 renders have zero changed pixels against the preceding preview. This removes the narrow
+transport implementation blocker for a future attested candidate. It does not activate the
+candidate, alter the earlier readiness JSON or admit its wording. See the implementation and
+independent-review artifacts for exact hashes and retained check output.
+
 ## Operational sequence and unchanged gaps
 
 Keep main at 6d5e87fe until the actual current-policy scheduled collector, independent release gate,
@@ -59,6 +68,7 @@ is required for this work. Remaining gaps have source, review or scheduled-execu
 * `remaining-metric-companion-evidence-review-2026-10-25.json`: companion evidence and newer observed bodies.
 * `remaining-metric-admission-readiness-2026-10-25.json`: five bounded groups, including the combined WitnessAI proposal.
 * `s1-exact-filing-transport-spec-2026-10-25.md`: one exact SEC filing transport allowance.
+* `s1-exact-filing-transport-implementation-2026-10-25.md` and `s1-exact-filing-transport-independent-review-2026-10-25.{md,json}`: inactive repair and independent validation.
 
 All paths above are relative to this file's directory. Runtime admission and public publication
 receipts will be linked only after they actually exist.

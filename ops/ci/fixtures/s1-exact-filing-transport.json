@@ -1,0 +1,109 @@
+{
+  "id": "FC-PROPOSED-20261025-s1-event-qualifiers",
+  "supplierId": "s1",
+  "reasonCode": "restore-supported-event-qualifiers",
+  "noteTemplate": "Correction, {date}. SentinelOne disclosed a planned reduction of approximately 8% of its full-time workforce and an estimated one-time charge of approximately $25 million. The earlier entry omitted the percentage qualification and planned/estimated status.",
+  "targets": [
+    {
+      "targetId": "event:EV-s1-1",
+      "operation": "replace",
+      "original": {
+        "id": "EV-s1-1",
+        "supplierId": "s1",
+        "date": "2026-05-28",
+        "type": "restructuring",
+        "text": "SentinelOne disclosed an 8% workforce reduction and approximately $25 million in charges in an SEC filing dated 2026-05-28.",
+        "evidenceIds": [
+          "TR-s1-3"
+        ],
+        "rung": 1
+      },
+      "originalSha256": "0665e50da5726e5e2fcbb202eaa7655da15f6fe4f49c72a2af0b5963c5e4f78f",
+      "proposedValue": {
+        "id": "EV-s1-1",
+        "supplierId": "s1",
+        "date": "2026-05-28",
+        "type": "restructuring",
+        "text": "SentinelOne disclosed a planned reduction of approximately 8% of its full-time workforce and an estimated one-time charge of approximately $25 million in an SEC filing dated 2026-05-28.",
+        "evidenceIds": [
+          "TR-s1-3"
+        ],
+        "rung": 1
+      }
+    },
+    {
+      "targetId": "evidence:TR-s1-3",
+      "operation": "replace",
+      "original": {
+        "id": "TR-s1-3",
+        "title": "SentinelOne Restructuring Charges - 8-K Item 2.05",
+        "organization": "SentinelOne, Inc.",
+        "publicationDate": "2026-05-28",
+        "economicPeriod": "May 2026",
+        "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/0001583708/000158370826000039/s-20260528.htm",
+        "excerpt": "Workforce reduction of 8% with approximately $25 million in charges, including severance, benefits, and related costs.",
+        "sourceClass": "FILING",
+        "interpretation": "",
+        "limitations": "",
+        "conflictingEvidenceIds": [],
+        "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-s1-3",
+        "tags": [
+          "tracker",
+          "endpoint-xdr"
+        ],
+        "retrievedAt": "2026-09-25"
+      },
+      "originalSha256": "26c50e6237d1ac662287a3ed05ab51a304773df643e5f5860cc2b5fbc795ab80",
+      "proposedValue": {
+        "id": "TR-s1-3",
+        "title": "SentinelOne Restructuring Charges - 8-K Item 2.05",
+        "organization": "SentinelOne, Inc.",
+        "publicationDate": "2026-05-28",
+        "economicPeriod": "May 2026",
+        "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/0001583708/000158370826000039/s-20260528.htm",
+        "excerpt": "The Plan includes a reduction of the Company’s current full-time employees by approximately 8% of the Company’s full-time employees. The Company currently estimates that it will incur a one-time charge of approximately $25 million in connection with the Plan, approximately $15 million of which are cash-based expenditures.",
+        "sourceClass": "FILING",
+        "interpretation": "",
+        "limitations": "The retained filing describes a plan and estimated charges. Substantial completion was expected in Q2 fiscal 2027, subject to local law and consultation requirements.",
+        "conflictingEvidenceIds": [],
+        "artifactLabel": "SEC-MARKET-AUTO-001-STEP5 / TR-s1-3",
+        "tags": [
+          "tracker",
+          "endpoint-xdr"
+        ],
+        "retrievedAt": "2026-09-25"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "evidenceId": "TR-s1-3",
+      "sourceId": "s1:citation:TR-s1-3",
+      "url": "https://www.sec.gov/Archives/edgar/data/0001583708/000158370826000039/s-20260528.htm",
+      "observationId": "a32b2e55b927c37ffd4e5ab9c2e31a242f9b311c01f47651566c421c13bdbe14",
+      "body": {
+        "bytes": 49404,
+        "key": "objects/e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78",
+        "sha256": "e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78"
+      },
+      "fetchedAt": "2026-10-24T18:30:00.677520Z",
+      "transportAttestation": {
+        "schemaVersion": 1,
+        "rulesVersion": "s1-exact-filing-transport-1",
+        "supplierId": "s1",
+        "sourceId": "s1:citation:TR-s1-3",
+        "evidenceId": "TR-s1-3",
+        "requestedUrl": "https://www.sec.gov/Archives/edgar/data/0001583708/000158370826000039/s-20260528.htm",
+        "canonicalUrl": "https://www.sec.gov/Archives/edgar/data/0001583708/000158370826000039/s-20260528.htm",
+        "finalUrl": "https://www.sec.gov/Archives/edgar/data/1583708/000158370826000039/s-20260528.htm",
+        "configuredSourceSha256": "805521d2061b61699a39e64403905b99564731550501130c3038b3c442f89298",
+        "evidenceSha256": "26c50e6237d1ac662287a3ed05ab51a304773df643e5f5860cc2b5fbc795ab80",
+        "body": {
+          "key": "objects/e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78",
+          "sha256": "e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78",
+          "bytes": 49404
+        }
+      }
+    }
+  ]
+}

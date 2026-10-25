@@ -124,3 +124,7 @@ unqualified with zero coverage credit. Tests use fictional fetchers and temporar
 
 - Task identities include the collection day. Reconstruct public source rows from the verified plan's original scheduledAt, while checking freshness against the current publication clock. Rebuilding IDs from the publication day makes valid prior-day receipts unjoinable. Preserve original evidence dates.
 - Aggregate-only snapshot replay missed this defect. Before spending a limited external gate attempt, execute the real JavaScript public-source validator and the complete isolated release build against actual archived evidence across midnight. Keep local rehearsal, external gate and public release proof separate.
+
+## 2026-10-25 · One filing redirect does not justify general URL normalization
+
+- SentinelOne's retained SEC filing requests a padded issuer directory and ends at the unpadded directory. One explicit source/evidence/body attestation can bind that actual identity while all other URL spellings remain rejected. Bind the rule only to the using group's review policy so older admissions keep their original hashes. Replay conditional-response provenance with actual observation times; a newer 304 is not a new full download.

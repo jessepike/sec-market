@@ -24,8 +24,38 @@ const shaShape = /^[a-f0-9]{64}$/
 const exactKeys = (value, keys) => value && typeof value === 'object' && !Array.isArray(value) && equal(Object.keys(value).sort(), [...keys].sort())
 const scoped = group => Object.hasOwn(group, 'reviewScope')
 const validUtc = value => typeof value === 'string' && /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$/.test(value) && Number.isFinite(Date.parse(value)) && new Date(value).toISOString().slice(0, 10) === value.slice(0, 10)
+const s1Transport = {
+  schemaVersion: 1, rulesVersion: 's1-exact-filing-transport-1',
+  supplierId: 's1', sourceId: 's1:citation:TR-s1-3', evidenceId: 'TR-s1-3',
+  requestedUrl: 'https://www.sec.gov/Archives/edgar/data/0001583708/000158370826000039/s-20260528.htm',
+  canonicalUrl: 'https://www.sec.gov/Archives/edgar/data/0001583708/000158370826000039/s-20260528.htm',
+  finalUrl: 'https://www.sec.gov/Archives/edgar/data/1583708/000158370826000039/s-20260528.htm',
+  configuredSourceSha256: '805521d2061b61699a39e64403905b99564731550501130c3038b3c442f89298',
+  evidenceSha256: '26c50e6237d1ac662287a3ed05ab51a304773df643e5f5860cc2b5fbc795ab80',
+  body: { key: 'objects/e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78', sha256: 'e9cc9fc8a899fc7367c173837291a7f8f27d0adad52f81e5adf9dfdf04b04b78', bytes: 49404 },
+}
+
+function transportAttestation(group, source, market, evidence) {
+  if (!Object.hasOwn(source, 'transportAttestation')) return null
+  requireThat(exactKeys(source, ['evidenceId', 'sourceId', 'url', 'observationId', 'body', 'fetchedAt', 'transportAttestation']), 'transport source schema differs')
+  requireThat(equal(source.transportAttestation, s1Transport), 'transport attestation differs')
+  requireThat(group.supplierId === s1Transport.supplierId && source.sourceId === s1Transport.sourceId && source.evidenceId === s1Transport.evidenceId && source.url === s1Transport.requestedUrl && equal(source.body, s1Transport.body), 'transport source binding differs')
+  requireThat(typeof source.observationId === 'string' && shaShape.test(source.observationId) && validUtc(source.fetchedAt), 'transport observation or time differs')
+  const configured = market.sources.filter(entry => entry.id === source.sourceId)
+  requireThat(configured.length === 1 && digest(configured[0]) === s1Transport.configuredSourceSha256, 'transport configured source differs')
+  if (evidence !== undefined) requireThat(digest(evidence) === s1Transport.evidenceSha256, 'transport immutable evidence differs')
+  return source.transportAttestation
+}
 
 function verifyScope(group, originals, market) {
+  for (const source of group.sources) {
+    if (Object.hasOwn(source, 'transportAttestation')) {
+      requireThat(exactKeys(group, ['id', 'supplierId', 'reasonCode', 'noteTemplate', 'targets', 'sources']), 'transport group schema differs')
+      const evidence = originals.evidence.find(record => record.id === source.evidenceId)
+      requireThat(evidence, 'transport immutable evidence missing')
+      transportAttestation(group, source, market, evidence)
+    }
+  }
   if (!scoped(group)) {
     requireThat(group.targets.every(target => ['replace', 'withdraw'].includes(target.operation)), 'operation requires its explicit review scope')
     for (const target of group.targets.filter(target => target.targetId.startsWith('evidence:') && target.operation === 'replace')) {
@@ -64,7 +94,8 @@ function verifyScope(group, originals, market) {
 
 // Derive the complete review binding here, independently of the Python gate.
 // Global inventory changes do not relabel an unchanged group's admission.
-function reviewPolicy(group, market, baselineSha256) {
+export function reviewPolicy(group, market, baselineSha256) {
+  requireThat(typeof baselineSha256 === 'string' && shaShape.test(baselineSha256), 'invalid correction review baseline hash')
   const suppliers = market.suppliers.filter(supplier => supplier.id === group.supplierId)
   requireThat(suppliers.length === 1, 'review supplier missing or duplicate')
   const supplier = suppliers[0]
@@ -87,6 +118,8 @@ function reviewPolicy(group, market, baselineSha256) {
     Object.assign(basis, { rulesVersion: 'dated-publisher-disclosure-classification-1', reviewScope: roleScope,
       allowedTransition: roleTransition, checks: roleChecks })
   }
+  const transports = group.sources.filter(source => Object.hasOwn(source, 'transportAttestation')).map(source => transportAttestation(group, source, market))
+  if (transports.length) basis.sourceTransportRules = { rule: s1Transport, attestations: transports }
   return digest(basis)
 }
 

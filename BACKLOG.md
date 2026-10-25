@@ -91,8 +91,9 @@ No owner source decision is currently required. No refund, reset, purchase or pa
 The [remaining published-record qualifier queue](docs/active/daily-pipeline/accuracy/remaining-record-qualification-status-2026-10-25.md)
 tracks ten supported wording candidates and one unsupported Varonis workforce claim, including
 full literal event groups and metric companion evidence. Independent admission and publication
-remain required. Fix SentinelOne's exact SEC filing transport identity without general URL
-normalization. Preserve WitnessAI's metric-date uncertainty. Keep these future groups outside the
+remain required. SentinelOne's exact SEC filing transport repair passes independent review and
+828 operational/534 executed application checks on the future preview; the six old admissions
+remain unchanged. Preserve WitnessAI's metric-date uncertainty. Keep these future groups outside the
 operational contract until the current scheduled/public acceptance completes; a pending group
 would hold publication. These proposals earn no coverage or accuracy completion credit.
 
