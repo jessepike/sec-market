@@ -154,7 +154,11 @@ sources still earn zero qualification credit. The exact disabled ad1 plan is res
 [literal controller inspection](docs/active/daily-pipeline/accuracy/q4-controller-actual-code-next-requests-2026-10-25.md)
 establishes two exact data GET targets for JFrog/Rapid7; the
 [closed two-request diagnostic](docs/active/daily-pipeline/accuracy/q4-initial-data-diagnostic-spec-2026-10-25.md)
-is being implemented locally with its plan dormant. No API response is observed yet.
+passed independent review with zero open material findings, 877 operational tests and the full
+application checks. Both screen widths remain unchanged. Dormant implementation 413611c4 passed
+preview web 40181890668; Vercel dpl_CjiDfWMpisDT9nZbMKKAmQZ9Z1XL is READY.
+The [exact operational selection](docs/active/daily-pipeline/accuracy/q4-initial-data-operational-activation-spec-2026-10-25.md)
+is being validated before its one actual main diagnostic. No API response is observed yet.
 Rubrik still lacks its .news implementation proof and remains excluded from that operation.
 
 The [October 25 recovery scorecard](docs/active/daily-pipeline/evaluations/2026-10-25/recovery-observation.md)

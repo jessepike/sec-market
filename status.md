@@ -71,8 +71,11 @@ The [literal controller inspection](docs/active/daily-pipeline/accuracy/q4-contr
 supports two exact initial-data GET targets for JFrog and Rapid7. Their
 [closed diagnostic implementation](docs/active/daily-pipeline/accuracy/q4-initial-data-diagnostic-spec-2026-10-25.md)
 has passed independent review with no open material findings, 877 operational tests and full
-application checks. Both screen widths remain pixel-identical. Its plan stays dormant and no
-data response has been fetched. The exact two-request operational selection is specified in
+application checks. Both screen widths remain pixel-identical. Dormant implementation 413611c4
+passed preview web 40181890668, with Vercel dpl_CjiDfWMpisDT9nZbMKKAmQZ9Z1XL READY.
+The exact two-request selection now passes independent review and 74 focused route tests;
+it is selected locally for the approved preview/main path. No data response has been fetched.
+The exact two-request operational selection is specified in
 [the activation plan](docs/active/daily-pipeline/accuracy/q4-initial-data-operational-activation-spec-2026-10-25.md). Rubrik
 still lacks the .news controller join. Neither its host nor an API route may be guessed.
 

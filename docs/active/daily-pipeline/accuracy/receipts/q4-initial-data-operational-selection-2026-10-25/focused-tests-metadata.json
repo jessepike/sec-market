@@ -1,0 +1,28 @@
+{
+  "command": [
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "-v",
+    "test_q4_initial_data_capture",
+    "test_q4_controller_capture",
+    "test_leased_source_probe",
+    "test_leased_orca_probe",
+    "test_disabled_qualification_plan"
+  ],
+  "runtime": "OrbStack dev",
+  "exitCode": 0,
+  "tests": 74,
+  "seconds": 2.292,
+  "skipped": 0,
+  "rawSha256": "bdaf193ecb5b289d740f2613eba51a3fa22d31c6fb764e82e1f250f78472a8c2",
+  "rawBytes": 13770,
+  "rawLineCount": 79,
+  "retainedFile": "focused-tests.log.gz",
+  "gzipSha256": "4ad0b9515acb5cd6a58db799d53fbe13e098ded1352a3561ae9ee6092078581f",
+  "gzipBytes": 2436,
+  "byteExactRoundTrip": true,
+  "gzipMtime": 0,
+  "gzipEmbeddedFilename": ""
+}

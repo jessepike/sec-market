@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "verdict": "PASS_LOCAL_REVIEWED_SELECTION_NO_ACTUAL_DATA_REQUEST",
+  "implementationDocument": {
+    "sha256": "03c882000ffc02d80a9691a6a02b8ad2146730a546bfc5ae9951d2c2c8e3f3e0",
+    "bytes": 4572
+  },
+  "governingSpecification": {
+    "sha256": "b5297ae1c6d2172d9cf10a645018da9f74588c970df51e77296db892b0fdbef2",
+    "bytes": 3794
+  },
+  "operationalContract": {
+    "path": "contracts/source-qualification-probes.json",
+    "sha256": "a316e39658c2e9b5872adeb6008ef138618c8b20a080ca78ee458bd3e51f0ddc",
+    "bytes": 6974,
+    "canonicalSha256": "5ec3a0fc8588e64af13f8caeec32f3c4327f3b60c2526123ff49b41d219a8dae",
+    "matchesDormantBytes": true,
+    "maxRequests": 2
+  },
+  "tests": {
+    "command": [
+      "python3",
+      "-B",
+      "-m",
+      "unittest",
+      "-v",
+      "test_q4_initial_data_capture",
+      "test_q4_controller_capture",
+      "test_leased_source_probe",
+      "test_leased_orca_probe",
+      "test_disabled_qualification_plan"
+    ],
+    "runtime": "OrbStack dev",
+    "exitCode": 0,
+    "tests": 74,
+    "seconds": 2.292,
+    "skipped": 0,
+    "rawSha256": "bdaf193ecb5b289d740f2613eba51a3fa22d31c6fb764e82e1f250f78472a8c2",
+    "rawBytes": 13770,
+    "rawLineCount": 79,
+    "retainedFile": "focused-tests.log.gz",
+    "gzipSha256": "4ad0b9515acb5cd6a58db799d53fbe13e098ded1352a3561ae9ee6092078581f",
+    "gzipBytes": 2436,
+    "byteExactRoundTrip": true,
+    "gzipMtime": 0,
+    "gzipEmbeddedFilename": ""
+  },
+  "independentReview": {
+    "verdict": "PASS",
+    "openMaterialFindings": 0,
+    "sourceSeals": 113,
+    "sixAdmissionsReplayed": true,
+    "markdown": {
+      "sha256": "7305e2a6521bba20336b8962f93aad5b254e6abc19c847752d8394327aa5ce6f",
+      "bytes": 6246
+    },
+    "json": {
+      "sha256": "adc616b394cbc3cdf1d216256e9a8357667b87975dde5eb86810d3346e276fc5",
+      "bytes": 43388
+    }
+  },
+  "preservation": {
+    "sourceInputs": 69,
+    "manifestAndInspectionAlsoSealed": true,
+    "allOriginalBytesSizesMtimesUnchanged": true,
+    "protectedFiles": 29,
+    "allProtectedFilesUnchanged": true,
+    "sixAdmissionReplays": 6,
+    "factReferences": 4,
+    "heldQueueEntries": 37,
+    "retainedBudget": {
+      "calls": 72,
+      "documents": 33,
+      "fetches": 450
+    },
+    "retainedGateBudget": {
+      "attempts": 2
+    },
+    "actualNextRunStartingBudgetMustBeRechecked": true
+  },
+  "priorUnchangedImplementationEvidence": {
+    "operationalPassed": 877,
+    "watchdogPassed": 36,
+    "applicationDataPassed": 377,
+    "applicationPipelinePassed": 115,
+    "applicationBrowserPassed": 42,
+    "applicationExistingBrowserSkip": 1,
+    "bothWidthRendersPixelIdentical": true,
+    "rerunForThisSelection": false
+  },
+  "actions": {
+    "sourceRequests": 0,
+    "networkRequests": 0,
+    "modelCalls": 0,
+    "reservations": 0,
+    "archiveWrites": 0,
+    "commits": 0,
+    "pushes": 0,
+    "dispatches": 0,
+    "promotions": 0,
+    "qualificationCredit": false,
+    "coverageCredit": false,
+    "actualInitialDataResponsesCaptured": 0
+  },
+  "limits": [
+    "Only exact local operational selection is complete.",
+    "Parent owns commit/push/promotion, current state and budget check, single actual dispatch and disabled-plan restoration.",
+    "Actual API capture, source qualification, scheduled collection and publication require separate receipts."
+  ],
+  "receiptInventory": {
+    "focused-tests-metadata.json": {
+      "sha256": "a78ae8ed22e519c52839a9133b554459c0fbf17dac917e8553b2ed0454f8b944",
+      "bytes": 703
+    },
+    "focused-tests.log.gz": {
+      "sha256": "4ad0b9515acb5cd6a58db799d53fbe13e098ded1352a3561ae9ee6092078581f",
+      "bytes": 2436
+    },
+    "selection-validation.json": {
+      "sha256": "d35e9725bc508de2ed97570bdadd05ac232b86ea64d5ac8452c8988055958823",
+      "bytes": 33073
+    }
+  }
+}
