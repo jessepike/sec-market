@@ -1,0 +1,96 @@
+{
+  "status": "independent_portability_pass_copied_byte_exact",
+  "files": [
+    {
+      "path": "ops/ci/test_q4_normal_intake.py",
+      "sha256": "17a916e15a248284a366a4f2f1417cd4ae46a6fb8b112792cd56fbfb3b24eca1",
+      "bytes": 25520
+    },
+    {
+      "path": "ops/ci/q4_intake_fixtures.py",
+      "sha256": "a6ceea7740136f64273c42ccfb1067537e46e351451da3ca1063626588b6705e",
+      "bytes": 3655
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/q4-normal-intake-ci-portability-repair-2026-10-25.json",
+      "sha256": "1b6b29c8c2eaebc037dad585d2b0c6456fe07211a955d593b77ddd8c6e256700",
+      "bytes": 1801
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/q4-normal-intake-ci-portability-repair-2026-10-25.md",
+      "sha256": "1487058b24dfd410b36536a823fe22b083ea44fcaf48b631ea2622ca254bb9f8",
+      "bytes": 2121
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/receipts/q4-normal-intake-ci-portability-repair-2026-10-25/focused-absent-initial.log.gz",
+      "sha256": "ea49813dc3cbb9c09ceb286036bcdf0bd79b6df971d40945257045b720148fef",
+      "bytes": 1013
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/receipts/q4-normal-intake-ci-portability-repair-2026-10-25/focused-present-initial.log.gz",
+      "sha256": "53459ddcaeee0f19343b1e1ab0563d2c80f37d3a6b12f83ff2776c17ad457f04",
+      "bytes": 697
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/receipts/q4-normal-intake-ci-portability-repair-2026-10-25/full-absent-driver-import-failure.log.gz",
+      "sha256": "5059204f86c1444b020c3d464bd84076f07a9b3d9653b092265afe68e18bb7d3",
+      "bytes": 27315
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/receipts/q4-normal-intake-ci-portability-repair-2026-10-25/full-absent.log.gz",
+      "sha256": "051d041a994edcd32ea23ea4445c93545c2c565f9b92981099e952fc08770329",
+      "bytes": 28533
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/receipts/q4-normal-intake-ci-portability-repair-2026-10-25/full-present.log.gz",
+      "sha256": "5d0290e3cc2cec85cea502bfe7003ef9e11f7addb47536b4bb2a8a7fb3b7fd30",
+      "bytes": 26034
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/receipts/q4-normal-intake-ci-portability-repair-2026-10-25/hosted-absence-driver-import-failure.json",
+      "sha256": "67f184800ab8b90830b3b11f33bb82bba905c84e2d2d6a192223f1f7ea6dc286",
+      "bytes": 11008
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/receipts/q4-normal-intake-ci-portability-repair-2026-10-25/hosted-absence-driver.py",
+      "sha256": "b96a4760dbab3ae85f20d2cddb6bb83f92b1256c9acfe96a4168791314b0a2fb",
+      "bytes": 2275
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/receipts/q4-normal-intake-ci-portability-repair-2026-10-25/hosted-absence-focused.json",
+      "sha256": "6f64e93484aeace2b304d1edd2510023d0329f82f0282629a05b01d4f78066da",
+      "bytes": 1002
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/receipts/q4-normal-intake-ci-portability-repair-2026-10-25/hosted-absence-full.json",
+      "sha256": "6a493fddd590d91d2df28967aa55a57d498fc5dc699730ccc57a6fe1c0272e03",
+      "bytes": 11008
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/receipts/q4-normal-intake-ci-portability-repair-2026-10-25/old-q4_intake_fixtures.py",
+      "sha256": "6e8f86838a561d563990e18b35d204442f3434a1cdba6aad6c7ce66cb89b38f1",
+      "bytes": 2122
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/receipts/q4-normal-intake-ci-portability-repair-2026-10-25/old-test_q4_normal_intake.py",
+      "sha256": "c6bcd4939a10d4fe38d7bf350a4f30df8e0bd7c288ea2d78c5b7e1b314c197f1",
+      "bytes": 24493
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/receipts/q4-normal-intake-ci-portability-repair-2026-10-25/two-file.diff",
+      "sha256": "200c59675020cdb09b50b25dbe39125305ac584338caf9618e14fc474c1c3538",
+      "bytes": 12062
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/receipts/q4-normal-intake-ci-portability-repair-2026-10-25/verification.json",
+      "sha256": "b517e6931871216b227d2bb817705a9f4376be2cdc848f3f66060a8b0ef40315",
+      "bytes": 37597
+    }
+  ],
+  "codeFileCount": 2,
+  "runtimePolicySeedPayloadChanges": 0,
+  "originalVerificationUnchanged": true,
+  "actualHostedRerun": "pending",
+  "postcopyFocusedTests": "not_repeated; byte-identical to independently tested f329 overlay",
+  "independentResult": "14/14 present,12 passed+2 explicit external-only skips absent; zero frozen reads; package corruption/missing proof reject"
+}

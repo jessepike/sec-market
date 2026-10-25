@@ -22,7 +22,7 @@ import q4_qualification_origin as q4
 import q4_qualification_seed as seed
 import q4_baseline_migration as baseline
 import source_qualification_origin as origins
-from q4_intake_fixtures import ReadOnlyArchive, Overlay
+from q4_intake_fixtures import ARCHIVE, ReadOnlyArchive, Overlay, CommittedSeed
 
 NOW = '2026-10-25T12:30:00Z'
 LATER = '2026-10-25T13:30:00Z'
@@ -31,11 +31,14 @@ LATER = '2026-10-25T13:30:00Z'
 class ActualProofTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.store = ReadOnlyArchive()
+        cls.store = CommittedSeed(ROOT)
         cls.contract = json.loads((ROOT / 'contracts/market.json').read_bytes())
-        with patch.object(socket, 'socket', side_effect=AssertionError('network prohibited')), \
-             patch.object(LocalStore, '__init__', side_effect=AssertionError('frozen initialization prohibited')):
-            cls.checked = seed.validate_seed(ROOT, cls.store, cls.contract, NOW)
+        # Guard-only tests keep their existing mocked-preflight boundary. The
+        # complete unmocked preflight is a separately labeled external test.
+        cls.checked = {'files': cls.store.files, 'manifestSha256': cls.store.manifest_sha256,
+                       'contractSha256': digest(cls.contract),
+                       'preservation': cls.store.manifest['preservation']['summary'],
+                       'qualificationInventory': {}}
         cls.overlay = Overlay(cls.store, cls.checked['files'])
         cls.original = q4.inverse_policy(cls.contract, cls.overlay)
         cls.transition = json.loads(cls.overlay.get(q4.AUTHORITY['transition']))
@@ -44,22 +47,6 @@ class ActualProofTests(unittest.TestCase):
     def tearDownClass(cls):
         cls.store.assert_unchanged()
 
-    def test_actual_complete_graph_and_all_five_inventory_only_origins(self):
-        self.assertEqual(digest(validate_contract(self.contract)), q4.AUTHORITY['activatedContractSha256'])
-        self.assertEqual(len(plan_run(self.original, NOW)['tasks']), 557)
-        self.assertEqual(len(plan_run(self.contract, NOW)['tasks']), 557)
-        self.assertEqual(self.checked['preservation']['reviewQueueEntries'], 38)
-        self.assertEqual(len(self.checked['files']), 55)
-        self.assertFalse(any(k.startswith(('heads/', 'observations/', 'runs/')) for k in self.checked['files']))
-        self.assertEqual([self.checked['qualificationInventory'][s]['documents'] for s in q4.SOURCE_IDS], [206, 323])
-        for sid in ('ping-identity:official:1', 'delinea:official:1', 'sonatype:official:1'):
-            old = origins.qualification_predecessors(self.original, sid, self.overlay, NOW)
-            new = origins.qualification_predecessors(self.contract, sid, self.overlay, NOW)
-            self.assertEqual(old, new)
-            a = origins.resolve_inventory_origin(old[0], self.original, sid, self.overlay, NOW)
-            b = origins.resolve_inventory_origin(new[0], self.contract, sid, self.overlay, NOW)
-            self.assertEqual(a, b)
-            self.assertEqual(b['authority'], 'inventory_only')
 
     def test_entire_forward_inverse_and_every_unlisted_policy_mutation_rejects(self):
         self.assertEqual(q4.validate_rows(self.original, self.contract, self.transition), self.original)
@@ -93,23 +80,6 @@ class ActualProofTests(unittest.TestCase):
             with self.assertRaises(ValueError): q4.resolve(prior, self.contract, sid, self.overlay, '2026-10-24T00:00:00Z')
             with self.assertRaises(ValueError): q4.resolve(prior, self.original, sid, self.overlay, NOW)
 
-    def test_six_correction_admissions_and_group_policies_replay_without_any_work(self):
-        from corrections import load_policy, process_corrections, group_review_policy
-        requests = json.loads((ROOT / 'contracts/factual-corrections.json').read_bytes())
-        new = load_policy(ROOT, self.contract)
-        old_hash = digest({'marketSha256': digest(self.original), 'requestsSha256': digest(requests),
-                           'baselineSha256': requests['baseline']['sha256']})
-        self.assertNotEqual(old_hash, new['policySha256'])
-        self.assertEqual({g['id']: group_review_policy(g, self.original, requests['baseline']['sha256'])
-                          for g in requests['groups']}, new['reviewPolicySha256ByGroup'])
-        class NoModel:
-            def __getattr__(self, name): raise AssertionError('model prohibited')
-        def deny(*_a, **_kw): raise AssertionError('reservation prohibited')
-        with patch.object(socket, 'socket', side_effect=AssertionError('network prohibited')):
-            result = process_corrections(ROOT, self.overlay, self.contract, NoModel(), deny, NOW)
-        self.assertEqual(len(result['admitted']), 6)
-        self.assertEqual(result['pending'], [])
-        self.assertEqual(result['attempts'], [])
 
     def test_seed_rejects_wrong_policy_or_corrupt_immutable_before_any_write(self):
         with self.assertRaises(ValueError): seed.validate_seed(ROOT, self.store, self.original, NOW)
@@ -214,11 +184,12 @@ class ActualProofTests(unittest.TestCase):
         from bootstrap import GuardedRunner
         from engine import Pipeline
         from retained_audit import index_for, activate_compatibility
-        from replay_retained_audit import MemoryStore
-        from q4_intake_fixtures import ARCHIVE
-        state = MemoryStore(ARCHIVE / 'state')  # Constructor is memory-only, never LocalStore initialization.
-        state.memory.update(self.checked['files'])
-        state.memory['heads/budget-2026-10-25.json'] = canonical({'fetches': 985, 'calls': 80, 'documents': 38})
+        temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(temporary.cleanup)
+        state = LocalStore(Path(temporary.name) / 'portable-mechanics')
+        for key, raw in self.checked['files'].items():
+            state.write_once(key, raw)
+        state.write_once('heads/budget-2026-10-25.json', {'fetches': 985, 'calls': 80, 'documents': 38})
         wire, login = [], []
         indexes = dict(zip(q4.SOURCE_IDS, ('f7d84b288a6665280f4b8ade996b0bf64fe9c3fa0ea7a8a15b1adfb0826ccc19',
                                          'cf3c57d1c2080d65656e9f291eca371aefd99909476d413bb5c90155bc742db8')))
@@ -267,11 +238,65 @@ class ActualProofTests(unittest.TestCase):
         self.assertGreaterEqual(len(login), 1)
 
 
+@unittest.skipUnless(ARCHIVE.exists(), 'Full actual archive unavailable; portable committed-proof and ordinary tests still run')
+class ActualArchiveProofTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.store = ReadOnlyArchive()
+        cls.contract = json.loads((ROOT / 'contracts/market.json').read_bytes())
+        with patch.object(socket, 'socket', side_effect=AssertionError('network prohibited')), \
+             patch.object(LocalStore, '__init__', side_effect=AssertionError('frozen initialization prohibited')):
+            cls.checked = seed.validate_seed(ROOT, cls.store, cls.contract, NOW)
+        cls.overlay = Overlay(cls.store, cls.checked['files'])
+        cls.original = q4.inverse_policy(cls.contract, cls.overlay)
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.store.assert_unchanged()
+
+    def test_actual_complete_graph_and_all_five_inventory_only_origins(self):
+        self.assertEqual(digest(validate_contract(self.contract)), q4.AUTHORITY['activatedContractSha256'])
+        self.assertEqual(len(plan_run(self.original, NOW)['tasks']), 557)
+        self.assertEqual(len(plan_run(self.contract, NOW)['tasks']), 557)
+        self.assertEqual(self.checked['preservation']['reviewQueueEntries'], 38)
+        self.assertEqual(len(self.checked['files']), 55)
+        self.assertFalse(any(k.startswith(('heads/', 'observations/', 'runs/')) for k in self.checked['files']))
+        self.assertEqual([self.checked['qualificationInventory'][s]['documents'] for s in q4.SOURCE_IDS], [206, 323])
+        for sid in ('ping-identity:official:1', 'delinea:official:1', 'sonatype:official:1'):
+            old = origins.qualification_predecessors(self.original, sid, self.overlay, NOW)
+            new = origins.qualification_predecessors(self.contract, sid, self.overlay, NOW)
+            self.assertEqual(old, new)
+            a = origins.resolve_inventory_origin(old[0], self.original, sid, self.overlay, NOW)
+            b = origins.resolve_inventory_origin(new[0], self.contract, sid, self.overlay, NOW)
+            self.assertEqual(a, b)
+            self.assertEqual(b['authority'], 'inventory_only')
+
+
+    def test_six_correction_admissions_and_group_policies_replay_without_any_work(self):
+        from corrections import load_policy, process_corrections, group_review_policy
+        requests = json.loads((ROOT / 'contracts/factual-corrections.json').read_bytes())
+        new = load_policy(ROOT, self.contract)
+        old_hash = digest({'marketSha256': digest(self.original), 'requestsSha256': digest(requests),
+                           'baselineSha256': requests['baseline']['sha256']})
+        self.assertNotEqual(old_hash, new['policySha256'])
+        self.assertEqual({g['id']: group_review_policy(g, self.original, requests['baseline']['sha256'])
+                          for g in requests['groups']}, new['reviewPolicySha256ByGroup'])
+        class NoModel:
+            def __getattr__(self, name): raise AssertionError('model prohibited')
+        def deny(*_a, **_kw): raise AssertionError('reservation prohibited')
+        with patch.object(socket, 'socket', side_effect=AssertionError('network prohibited')):
+            result = process_corrections(ROOT, self.overlay, self.contract, NoModel(), deny, NOW)
+        self.assertEqual(len(result['admitted']), 6)
+        self.assertEqual(result['pending'], [])
+        self.assertEqual(result['attempts'], [])
+
+
+
 class OrdinaryDiscoveryTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.contract = json.loads((ROOT / 'contracts/market.json').read_bytes())
-        cls.archive = ReadOnlyArchive()
+        cls.archive = CommittedSeed(ROOT)
         cls.raw = {}
         for sid, sha in zip(q4.SOURCE_IDS, ('f7d84b288a6665280f4b8ade996b0bf64fe9c3fa0ea7a8a15b1adfb0826ccc19',
                                             'cf3c57d1c2080d65656e9f291eca371aefd99909476d413bb5c90155bc742db8')):

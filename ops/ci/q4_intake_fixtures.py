@@ -59,3 +59,42 @@ class Overlay:
             return self.base.get(ref)
         assert digest(raw) == ref['sha256'] and len(raw) == ref['bytes']
         return raw
+
+
+class CommittedSeed:
+    """Authenticated committed inputs for portable Q4 tests, without archive heads."""
+    def __init__(self, repo):
+        import q4_qualification_seed as seed
+        from contracts import canonical
+        self.repo, self.touched, self.files = Path(repo), {}, {}
+        raw = seed._payload(self.repo, seed.PACKAGE)
+        self.manifest = json.loads(raw)
+        assert canonical(self.manifest) == raw and len(self.manifest['files']) == 55
+        self.manifest_sha256 = digest(raw)
+        for entry in self.manifest['files']:
+            pin = {key: entry[key] for key in ('path', 'sha256', 'bytes')}
+            body = seed._payload(self.repo, pin)
+            assert entry['key'] not in self.files
+            self.files[entry['key']] = body
+            path = self.repo / entry['path']
+            self.touched[str(path)] = (digest(body), len(body), path.stat().st_mtime_ns)
+
+    def raw(self, key):
+        return self.files.get(key)
+
+    def read(self, key):
+        raw = self.raw(key)
+        return json.loads(raw) if raw is not None else None
+
+    def get(self, ref):
+        raw = self.raw(ref['key'])
+        if raw is None:
+            raise FileNotFoundError(ref['key'])
+        assert digest(raw) == ref['sha256'] and len(raw) == ref['bytes']
+        return raw
+
+    def assert_unchanged(self):
+        for name, before in self.touched.items():
+            path = Path(name)
+            raw = path.read_bytes()
+            assert (digest(raw), len(raw), path.stat().st_mtime_ns) == before

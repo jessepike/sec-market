@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "status": "local_repair_pass_pending_independent_review",
+  "files": {
+    "ops/ci/test_q4_normal_intake.py": {
+      "oldSha256": "c6bcd4939a10d4fe38d7bf350a4f30df8e0bd7c288ea2d78c5b7e1b314c197f1",
+      "oldBytes": 24493,
+      "newSha256": "17a916e15a248284a366a4f2f1417cd4ae46a6fb8b112792cd56fbfb3b24eca1",
+      "newBytes": 25520
+    },
+    "ops/ci/q4_intake_fixtures.py": {
+      "oldSha256": "6e8f86838a561d563990e18b35d204442f3434a1cdba6aad6c7ce66cb89b38f1",
+      "oldBytes": 2122,
+      "newSha256": "a6ceea7740136f64273c42ccfb1067537e46e351451da3ca1063626588b6705e",
+      "newBytes": 3655
+    }
+  },
+  "verification": {
+    "path": "docs/active/daily-pipeline/accuracy/receipts/q4-normal-intake-ci-portability-repair-2026-10-25/verification.json",
+    "sha256": "b517e6931871216b227d2bb817705a9f4376be2cdc848f3f66060a8b0ef40315",
+    "bytes": 37597
+  },
+  "tests": {
+    "presentFocused": {
+      "run": 14,
+      "passed": 14,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0
+    },
+    "absentFocused": {
+      "run": 14,
+      "passed": 12,
+      "skipped": 2,
+      "failures": 0,
+      "errors": 0
+    },
+    "presentFullOps": {
+      "run": 935,
+      "passed": 935,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0
+    },
+    "absentFullOps": {
+      "run": 935,
+      "passed": 896,
+      "skipped": 39,
+      "preExistingExternalSkips": 37,
+      "newExternalOnlySkips": 2,
+      "failures": 0,
+      "errors": 0,
+      "frozenReadAttempts": 0
+    }
+  },
+  "scope": {
+    "runtimeChanges": 0,
+    "policyChanges": 0,
+    "seedPayloadChanges": 0,
+    "sourceRequests": 0,
+    "modelRequests": 0,
+    "frozenArchiveWrites": 0,
+    "accountOrQuotaOperations": 0,
+    "commits": 0,
+    "pushes": 0
+  },
+  "actualHostedRerun": "pending"
+}

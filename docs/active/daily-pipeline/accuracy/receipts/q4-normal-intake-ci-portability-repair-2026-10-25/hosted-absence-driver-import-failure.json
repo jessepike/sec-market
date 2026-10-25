@@ -1,0 +1,170 @@
+{
+  "kind": "fresh_process_hosted_fixture_absence_simulation",
+  "pattern": "test_*.py",
+  "fixtureAssignedBeforeDiscovery": "/var/tmp/smp-q4-ci-portability-20261025/unavailable-retained-archive",
+  "frozenReadsProhibited": true,
+  "frozenReadAttempts": [],
+  "archivesMovedOrWritten": false,
+  "testsRun": 876,
+  "skipped": 39,
+  "failures": 0,
+  "errors": 3,
+  "skipDetails": [
+    [
+      "test_actual_rejected_pages_replay_under_explicit_v2_modes_without_changing_bytes (test_bounded_candidate_retained_paths.BoundedCandidateRetainedPathTests.test_actual_rejected_pages_replay_under_explicit_v2_modes_without_changing_bytes)",
+      "authenticated bounded-run archive is a local replay input"
+    ],
+    [
+      "test_original_retained_card_reconstructs_exact_warning_without_new_date (test_bounded_v5_warning_replay.BoundedV5WarningReplayTests.test_original_retained_card_reconstructs_exact_warning_without_new_date)",
+      "authenticated actual V4 body is VM-local"
+    ],
+    [
+      "test_actual_roots_pages_and_terminal_are_layout_evidence_not_traversal (test_html_archive_discovery.HtmlArchiveDiscoveryTests.test_actual_roots_pages_and_terminal_are_layout_evidence_not_traversal)",
+      "authenticated response bundles are local replay inputs"
+    ],
+    [
+      "test_authenticated_v2_examples_are_v3_parseable_but_not_rewritten (test_html_archive_v3.HtmlArchiveV3Tests.test_authenticated_v2_examples_are_v3_parseable_but_not_rewritten)",
+      "authenticated V2 target bodies are VM-local"
+    ],
+    [
+      "test_authenticated_v3_page_bodies_replay_only_under_v4 (test_html_archive_v4.HtmlArchiveV4Tests.test_authenticated_v3_page_bodies_replay_only_under_v4)",
+      "authenticated actual-page bundle is local integration evidence; synthetic grammar tests still run"
+    ],
+    [
+      "test_actual_v4_terminal_and_mislink_are_only_reinterpreted_by_v5 (test_html_v5_discovery.HtmlV5DiscoveryTests.test_actual_v4_terminal_and_mislink_are_only_reinterpreted_by_v5)",
+      "authenticated V4 target bundle and archive are local replay inputs"
+    ],
+    [
+      "test_reviewed_actual_parent_bytes_and_original_statuses_preflight_read_only (test_neutral_sec_qualification.ArchivedRelationshipPreflightTests.test_reviewed_actual_parent_bytes_and_original_statuses_preflight_read_only)",
+      "Authenticated local archive unavailable; no network fallback"
+    ],
+    [
+      "test_exact_original_endpoint_authority_and_root_to_missing_page_two (test_orca_qualification.ActualOrcaBodyTests.test_exact_original_endpoint_authority_and_root_to_missing_page_two)",
+      "authenticated archive is a local-only test input"
+    ],
+    [
+      "test_actual_pages_one_two_missing_three_yield_exact_twenty_incomplete (test_ping_discovery.PingDiscoveryTests.test_actual_pages_one_two_missing_three_yield_exact_twenty_incomplete)",
+      "actual immutable archive is supplied only for local replay"
+    ],
+    [
+      "test_actual_terminal_body_is_recognized_without_claiming_traversal (test_ping_discovery.PingDiscoveryTests.test_actual_terminal_body_is_recognized_without_claiming_traversal)",
+      "authenticated terminal body is a local replay input"
+    ],
+    [
+      "test_actual_charged_parent_proofs_and_six_exact_disclosures_read_only (test_q4_controller_capture.ActualQ4ParentTests.test_actual_charged_parent_proofs_and_six_exact_disclosures_read_only)",
+      "Requires frozen authenticated seven-source archive"
+    ],
+    [
+      "test_actual_original_plan_row_body_time_source_and_charge_proofs_reject_mutations (test_q4_controller_capture.ActualQ4ParentTests.test_actual_original_plan_row_body_time_source_and_charge_proofs_reject_mutations)",
+      "Requires frozen authenticated seven-source archive"
+    ],
+    [
+      "test_all_six_old_admissions_and_hashes_replay_unchanged (test_q4_initial_data_capture.ActualProofTests.test_all_six_old_admissions_and_hashes_replay_unchanged)",
+      "Requires actual authenticated 9634 archive"
+    ],
+    [
+      "test_changed_actual_record_plan_wrappers_raw_api_and_html_fail_closed (test_q4_initial_data_capture.ActualProofTests.test_changed_actual_record_plan_wrappers_raw_api_and_html_fail_closed)",
+      "Requires actual authenticated 9634 archive"
+    ],
+    [
+      "test_complete_original_capture_and_two_source_controller_html_joins (test_q4_initial_data_capture.ActualProofTests.test_complete_original_capture_and_two_source_controller_html_joins)",
+      "Requires actual authenticated 9634 archive"
+    ],
+    [
+      "test_real_proof_preflight_capture_finalize_and_replay_in_isolated_writable_overlay (test_q4_initial_data_capture.ActualProofTests.test_real_proof_preflight_capture_finalize_and_replay_in_isolated_writable_overlay)",
+      "Requires actual authenticated 9634 archive"
+    ],
+    [
+      "test_actual_complete_graph_and_all_five_inventory_only_origins (test_q4_normal_intake.ActualArchiveProofTests.test_actual_complete_graph_and_all_five_inventory_only_origins)",
+      "Full actual archive unavailable; portable committed-proof and ordinary tests still run"
+    ],
+    [
+      "test_six_correction_admissions_and_group_policies_replay_without_any_work (test_q4_normal_intake.ActualArchiveProofTests.test_six_correction_admissions_and_group_policies_replay_without_any_work)",
+      "Full actual archive unavailable; portable committed-proof and ordinary tests still run"
+    ],
+    [
+      "test_all_actual_arrays_keep_206_323_records_and_original_3_4_window (test_q4_press_list.ActualPressListTests.test_all_actual_arrays_keep_206_323_records_and_original_3_4_window)",
+      "Requires authenticated actual d660 archive"
+    ],
+    [
+      "test_real_arrays_have_no_fixed_count_ceiling_and_later_calendar_can_be_quiet (test_q4_press_list.ActualPressListTests.test_real_arrays_have_no_fixed_count_ceiling_and_later_calendar_can_be_quiet)",
+      "Requires authenticated actual d660 archive"
+    ],
+    [
+      "test_all_six_old_admission_hashes_and_original_bytes_replay (test_q4_primary_qualification.ActualProofTests.test_all_six_old_admission_hashes_and_original_bytes_replay)",
+      "Requires actual authenticated d660 archive"
+    ],
+    [
+      "test_changed_original_envelope_body_wrapper_html_and_controller_fail_closed (test_q4_primary_qualification.ActualProofTests.test_changed_original_envelope_body_wrapper_html_and_controller_fail_closed)",
+      "Requires actual authenticated d660 archive"
+    ],
+    [
+      "test_real_parent_with_fictional_samples_in_separate_writable_overlay (test_q4_primary_qualification.ActualProofTests.test_real_parent_with_fictional_samples_in_separate_writable_overlay)",
+      "Requires actual authenticated d660 archive"
+    ],
+    [
+      "test_whole_actual_report_graph_row_two_and_original_window_replay_read_only (test_q4_primary_qualification.ActualProofTests.test_whole_actual_report_graph_row_two_and_original_window_replay_read_only)",
+      "Requires actual authenticated d660 archive"
+    ],
+    [
+      "test_actual_audit_identity_is_required (test_q4_retained_primary_template.ActualProofTests.test_actual_audit_identity_is_required)",
+      "Retained actual archive is available only in the offline evidence VM"
+    ],
+    [
+      "test_actual_both_samples_replay_original_hold_and_complete_graph_without_credit (test_q4_retained_primary_template.ActualProofTests.test_actual_both_samples_replay_original_hold_and_complete_graph_without_credit)",
+      "Retained actual archive is available only in the offline evidence VM"
+    ],
+    [
+      "test_actual_identity_headings_and_supplied_metadata_remain_literal (test_q4_retained_primary_template.ActualProofTests.test_actual_identity_headings_and_supplied_metadata_remain_literal)",
+      "Retained actual archive is available only in the offline evidence VM"
+    ],
+    [
+      "test_all_original_identity_clock_plan_and_html_substitutions_fail_at_pins (test_q4_retained_primary_template.ActualProofTests.test_all_original_identity_clock_plan_and_html_substitutions_fail_at_pins)",
+      "Retained actual archive is available only in the offline evidence VM"
+    ],
+    [
+      "test_every_report_field_and_nested_finding_tampering_rejects (test_q4_retained_primary_template.ActualProofTests.test_every_report_field_and_nested_finding_tampering_rejects)",
+      "Retained actual archive is available only in the offline evidence VM"
+    ],
+    [
+      "test_generic_primary_helper_and_original_accepted_zero_are_unchanged (test_q4_retained_primary_template.ActualProofTests.test_generic_primary_helper_and_original_accepted_zero_are_unchanged)",
+      "Retained actual archive is available only in the offline evidence VM"
+    ],
+    [
+      "test_malformed_conflicting_decoy_and_hidden_html_cannot_replace_exact_bodies (test_q4_retained_primary_template.ActualProofTests.test_malformed_conflicting_decoy_and_hidden_html_cannot_replace_exact_bodies)",
+      "Retained actual archive is available only in the offline evidence VM"
+    ],
+    [
+      "test_one_source_failure_cannot_return_complete_proposal (test_q4_retained_primary_template.ActualProofTests.test_one_source_failure_cannot_return_complete_proposal)",
+      "Retained actual archive is available only in the offline evidence VM"
+    ],
+    [
+      "test_original_report_replay_is_required_before_template_extraction (test_q4_retained_primary_template.ActualProofTests.test_original_report_replay_is_required_before_template_extraction)",
+      "Retained actual archive is available only in the offline evidence VM"
+    ],
+    [
+      "test_all_six_actual_admissions_and_policy_hashes_replay_unchanged (test_s1_exact_filing_transport.ActualTransportTests.test_all_six_actual_admissions_and_policy_hashes_replay_unchanged)",
+      "Requires retained read-only seven-source archive"
+    ],
+    [
+      "test_authentic_304_and_full_200_keep_original_clocks_and_literal_body (test_s1_exact_filing_transport.ActualTransportTests.test_authentic_304_and_full_200_keep_original_clocks_and_literal_body)",
+      "Requires retained read-only seven-source archive"
+    ],
+    [
+      "test_freshness_complete_body_literal_excerpt_and_size_guards_remain (test_s1_exact_filing_transport.ActualTransportTests.test_freshness_complete_body_literal_excerpt_and_size_guards_remain)",
+      "Requires retained read-only seven-source archive"
+    ],
+    [
+      "test_missing_attestation_preserves_exact_final_identity (test_s1_exact_filing_transport.ActualTransportTests.test_missing_attestation_preserves_exact_final_identity)",
+      "Requires retained read-only seven-source archive"
+    ],
+    [
+      "test_neighbor_url_spellings_never_pass (test_s1_exact_filing_transport.ActualTransportTests.test_neighbor_url_spellings_never_pass)",
+      "Requires retained read-only seven-source archive"
+    ],
+    [
+      "test_observation_body_id_source_time_status_and_reuse_joins (test_s1_exact_filing_transport.ActualTransportTests.test_observation_body_id_source_time_status_and_reuse_joins)",
+      "Requires retained read-only seven-source archive"
+    ]
+  ]
+}

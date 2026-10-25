@@ -1,0 +1,37 @@
+private-runner-proof	Verify credential persistence helper using fictional data	2026-10-25T13:27:56.3916683Z Traceback (most recent call last):
+private-runner-proof	Verify credential persistence helper using fictional data	2026-10-25T13:27:56.3917686Z   File "/home/runner/work/sec-market/sec-market/ops/ci/test_q4_normal_intake.py", line 34, in setUpClass
+private-runner-proof	Verify credential persistence helper using fictional data	2026-10-25T13:27:56.3918676Z     cls.store = ReadOnlyArchive()
+private-runner-proof	Verify credential persistence helper using fictional data	2026-10-25T13:27:56.3919271Z                 ^^^^^^^^^^^^^^^^^
+private-runner-proof	Verify credential persistence helper using fictional data	2026-10-25T13:27:56.3920205Z   File "/home/runner/work/sec-market/sec-market/ops/ci/q4_intake_fixtures.py", line 14, in __init__
+private-runner-proof	Verify credential persistence helper using fictional data	2026-10-25T13:27:56.3921274Z     raw = (ARCHIVE / 'archive-manifest.json').read_bytes()
+private-runner-proof	Verify credential persistence helper using fictional data	2026-10-25T13:27:56.3922223Z           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+private-runner-proof	Verify credential persistence helper using fictional data	2026-10-25T13:27:56.3923028Z   File "/usr/lib/python3.12/pathlib.py", line 1021, in read_bytes
+private-runner-proof	Verify credential persistence helper using fictional data	2026-10-25T13:27:56.3923798Z     with self.open(mode='rb') as f:
+private-runner-proof	Verify credential persistence helper using fictional data	2026-10-25T13:27:56.3924392Z          ^^^^^^^^^^^^^^^^^^^^
+private-runner-proof	Verify credential persistence helper using fictional data	2026-10-25T13:27:56.3925064Z   File "/usr/lib/python3.12/pathlib.py", line 1015, in open
+private-runner-proof	Verify credential persistence helper using fictional data	2026-10-25T13:27:56.3925927Z     return io.open(self, mode, buffering, encoding, errors, newline)
+private-runner-proof	Verify credential persistence helper using fictional data	2026-10-25T13:27:56.3926742Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+private-runner-proof	Verify credential persistence helper using fictional data	2026-10-25T13:27:56.3928145Z FileNotFoundError: [Errno 2] No such file or directory: '/var/tmp/smp-next-seven-actual-40190857026-20261025/extracted/archive-manifest.json'
+private-runner-proof	Verify credential persistence helper using fictional data	2026-10-25T13:27:56.3929150Z 
+private-runner-proof	Verify credential persistence helper using fictional data	2026-10-25T13:27:56.3929618Z ======================================================================
+private-runner-proof	Verify credential persistence helper using fictional data	2026-10-25T13:27:56.3930558Z ERROR: setUpClass (test_q4_normal_intake.OrdinaryDiscoveryTests)
+private-runner-proof	Verify credential persistence helper using fictional data	2026-10-25T13:27:56.3931526Z ----------------------------------------------------------------------
+private-runner-proof	Verify credential persistence helper using fictional data	2026-10-25T13:27:56.3932513Z Traceback (most recent call last):
+private-runner-proof	Verify credential persistence helper using fictional data	2026-10-25T13:27:56.3933518Z   File "/home/runner/work/sec-market/sec-market/ops/ci/test_q4_normal_intake.py", line 274, in setUpClass
+private-runner-proof	Verify credential persistence helper using fictional data	2026-10-25T13:27:56.3934722Z     cls.archive = ReadOnlyArchive()
+private-runner-proof	Verify credential persistence helper using fictional data	2026-10-25T13:27:56.3935357Z                   ^^^^^^^^^^^^^^^^^
+private-runner-proof	Verify credential persistence helper using fictional data	2026-10-25T13:27:56.3936289Z   File "/home/runner/work/sec-market/sec-market/ops/ci/q4_intake_fixtures.py", line 14, in __init__
+private-runner-proof	Verify credential persistence helper using fictional data	2026-10-25T13:27:56.3937333Z     raw = (ARCHIVE / 'archive-manifest.json').read_bytes()
+private-runner-proof	Verify credential persistence helper using fictional data	2026-10-25T13:27:56.3938059Z           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+private-runner-proof	Verify credential persistence helper using fictional data	2026-10-25T13:27:56.3938837Z   File "/usr/lib/python3.12/pathlib.py", line 1021, in read_bytes
+private-runner-proof	Verify credential persistence helper using fictional data	2026-10-25T13:27:56.3939600Z     with self.open(mode='rb') as f:
+private-runner-proof	Verify credential persistence helper using fictional data	2026-10-25T13:27:56.3940180Z          ^^^^^^^^^^^^^^^^^^^^
+private-runner-proof	Verify credential persistence helper using fictional data	2026-10-25T13:27:56.3940853Z   File "/usr/lib/python3.12/pathlib.py", line 1015, in open
+private-runner-proof	Verify credential persistence helper using fictional data	2026-10-25T13:27:56.3941707Z     return io.open(self, mode, buffering, encoding, errors, newline)
+private-runner-proof	Verify credential persistence helper using fictional data	2026-10-25T13:27:56.3942740Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+private-runner-proof	Verify credential persistence helper using fictional data	2026-10-25T13:27:56.3944119Z FileNotFoundError: [Errno 2] No such file or directory: '/var/tmp/smp-next-seven-actual-40190857026-20261025/extracted/archive-manifest.json'
+private-runner-proof	Verify credential persistence helper using fictional data	2026-10-25T13:27:56.3945100Z 
+private-runner-proof	Verify credential persistence helper using fictional data	2026-10-25T13:27:56.3945606Z ----------------------------------------------------------------------
+private-runner-proof	Verify credential persistence helper using fictional data	2026-10-25T13:27:56.3946301Z Ran 921 tests in 73.080s
+private-runner-proof	Verify credential persistence helper using fictional data	2026-10-25T13:27:56.3946698Z 
+private-runner-proof	Verify credential persistence helper using fictional data	2026-10-25T13:27:56.3947043Z FAILED (errors=2, skipped=38)

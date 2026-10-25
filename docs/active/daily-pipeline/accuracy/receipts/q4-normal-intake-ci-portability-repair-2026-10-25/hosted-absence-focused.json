@@ -1,0 +1,22 @@
+{
+  "kind": "fresh_process_hosted_fixture_absence_simulation",
+  "pattern": "test_q4_normal_intake.py",
+  "fixtureAssignedBeforeDiscovery": "/var/tmp/smp-q4-ci-portability-20261025/unavailable-retained-archive",
+  "frozenReadsProhibited": true,
+  "frozenReadAttempts": [],
+  "archivesMovedOrWritten": false,
+  "testsRun": 14,
+  "skipped": 2,
+  "failures": 0,
+  "errors": 0,
+  "skipDetails": [
+    [
+      "test_actual_complete_graph_and_all_five_inventory_only_origins (test_q4_normal_intake.ActualArchiveProofTests.test_actual_complete_graph_and_all_five_inventory_only_origins)",
+      "Full actual archive unavailable; portable committed-proof and ordinary tests still run"
+    ],
+    [
+      "test_six_correction_admissions_and_group_policies_replay_without_any_work (test_q4_normal_intake.ActualArchiveProofTests.test_six_correction_admissions_and_group_policies_replay_without_any_work)",
+      "Full actual archive unavailable; portable committed-proof and ordinary tests still run"
+    ]
+  ]
+}
