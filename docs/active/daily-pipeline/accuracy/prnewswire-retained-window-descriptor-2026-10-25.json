@@ -1,0 +1,354 @@
+{
+  "schemaVersion": 1,
+  "kind": "prnewswire_retained_window_proposal_v1",
+  "marketSha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+  "archive": {
+    "commit": "9e4a9806fdcc1b7cd6f91314b8b4ff4bb4ef2174",
+    "manifestSha256": "148842177a7e7d9a5fd5c2ea4574576264a957b41958ee4cdf5effa80ea029c2",
+    "manifestBytes": 10012399,
+    "entries": 48420
+  },
+  "externalFiles": [
+    {
+      "path": "docs/active/daily-pipeline/accuracy/narrow-listing-pagination-actual-source-review-2026-10-25.json",
+      "sha256": "e1f0bf0723c1fdce2fc45e69078d925cda381e5d62b5f00266e86bae43eda8b7",
+      "bytes": 87704
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/receipts/narrow-listing-pagination-actual-2026-10-25/actual-diagnostic-audit.json",
+      "sha256": "639596fb532856d0399fc31e3c6164a065c835f1c508a8dd61c1fd75e08b2c7f",
+      "bytes": 260490
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/receipts/next-seven-newsroom-actual-2026-10-25/actual-diagnostic-audit.json",
+      "sha256": "de4fa6b6945d9cf4d0af3b5b984fccbda39953a293d6523434a4f93c3124a0fd",
+      "bytes": 254032
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/receipts/narrow-listing-pagination-actual-2026-10-25/listing-card-pagination-inspection.json",
+      "sha256": "c45181f41973b33d0844b60b1c472a10d0530eb876760eba545bd39cd1683564",
+      "bytes": 308883
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/receipts/narrow-listing-pagination-actual-2026-10-25/primary-supplied-jsonld-and-reuse.json",
+      "sha256": "5311a3097698449e493496003053b0ba428abc148c80dee7fb4a62fed4a92045",
+      "bytes": 54717
+    }
+  ],
+  "originalRuns": [
+    {
+      "runId": "40190857026",
+      "record": {
+        "key": "ci/source-probe-runs/40190857026-1.json",
+        "sha256": "29a164eeceecc2c1796b02c536c9b8ce91f02d1497a09544731f627698992766",
+        "bytes": 89630
+      },
+      "appRevision": "bd38e818f4aa7d2bae2169178a02047d252b260c",
+      "rawPlan": {
+        "bytes": 4162,
+        "key": "objects/3077d93ede8a9fe82302a6b851af61d8666f1c11cea433eed0f2725086c85fc2",
+        "sha256": "3077d93ede8a9fe82302a6b851af61d8666f1c11cea433eed0f2725086c85fc2"
+      },
+      "planCanonicalSha256": "3077d93ede8a9fe82302a6b851af61d8666f1c11cea433eed0f2725086c85fc2"
+    },
+    {
+      "runId": "40193925490",
+      "record": {
+        "key": "ci/source-probe-runs/40193925490-1.json",
+        "sha256": "b8647f4b94b840e240f2d5362e1ab090479c9a08d9a31f85647097dec0bf29b4",
+        "bytes": 104384
+      },
+      "appRevision": "5debbd9e3ed855d9c6f5bda25468dac1371532d6",
+      "rawPlan": {
+        "bytes": 8977,
+        "key": "objects/ac7393c6fc28d97826916462b0b56ca5fcd7a27521bb838de8df19542b494711",
+        "sha256": "ac7393c6fc28d97826916462b0b56ca5fcd7a27521bb838de8df19542b494711"
+      },
+      "planCanonicalSha256": "ac7393c6fc28d97826916462b0b56ca5fcd7a27521bb838de8df19542b494711"
+    }
+  ],
+  "sources": [
+    {
+      "sourceId": "cato:official:1",
+      "originalSourceSha256": "8a03fa1c619021c0b45987ea009a2d35a4ba4cb5b418c4b87196d14af9825b9a",
+      "pages": [
+        {
+          "runId": "40190857026",
+          "resultIndex": 5,
+          "targetId": "cato-index",
+          "targetSha256": "adc7123c4b955c8f6ad93346330e64ad920757c91e9e09f4c5da94434a8233a7",
+          "url": "https://www.prnewswire.com/news/cato-networks/",
+          "body": {
+            "bytes": 225773,
+            "key": "objects/b061ee4f5831e2f53cb4b2f19708f225160a6a932ee6c18f93b5d15fb5edb7a8",
+            "sha256": "b061ee4f5831e2f53cb4b2f19708f225160a6a932ee6c18f93b5d15fb5edb7a8"
+          },
+          "observation": {
+            "bytes": 483,
+            "key": "objects/c4cd629884921ecdfc382472fb2b7286d3bc802b686eab10a17cab238d95dfd0",
+            "sha256": "c4cd629884921ecdfc382472fb2b7286d3bc802b686eab10a17cab238d95dfd0"
+          },
+          "fetchedAt": "2026-10-25T11:59:13.911738Z"
+        },
+        {
+          "runId": "40193925490",
+          "resultIndex": 2,
+          "targetId": "cato-page-2",
+          "targetSha256": "d83244c56a6afa9b3e9c2c9fadb2560d48515f17bb45926a252321e140db6ea2",
+          "url": "https://www.prnewswire.com/news/cato-networks/?page=2&pagesize=25",
+          "body": {
+            "bytes": 223473,
+            "key": "objects/f1aec25583e4165a460cdd8704dcfa3756d7cfd8d0ab6a106966332dc5a99d6c",
+            "sha256": "f1aec25583e4165a460cdd8704dcfa3756d7cfd8d0ab6a106966332dc5a99d6c"
+          },
+          "observation": {
+            "bytes": 521,
+            "key": "objects/4b4b48e009bbd6c91eb8575dc5532f0f8d37bc185499a42a7e9dad3131678fa8",
+            "sha256": "4b4b48e009bbd6c91eb8575dc5532f0f8d37bc185499a42a7e9dad3131678fa8"
+          },
+          "fetchedAt": "2026-10-25T12:41:50.008505Z"
+        },
+        {
+          "runId": "40193925490",
+          "resultIndex": 3,
+          "targetId": "cato-page-3",
+          "targetSha256": "f8a969ef10c091a33774f7f932c6b9824200eba8f333cc7cef5be67fd51bd992",
+          "url": "https://www.prnewswire.com/news/cato-networks/?page=3&pagesize=25",
+          "body": {
+            "bytes": 219907,
+            "key": "objects/8da8bbadc370c91fa843fb8b08c0659aba81dd564d891a6a00346416ebfd996a",
+            "sha256": "8da8bbadc370c91fa843fb8b08c0659aba81dd564d891a6a00346416ebfd996a"
+          },
+          "observation": {
+            "bytes": 521,
+            "key": "objects/1d681c8183cdf25907980ac171312a1f1137ee3229419e1a8337bf87357b5642",
+            "sha256": "1d681c8183cdf25907980ac171312a1f1137ee3229419e1a8337bf87357b5642"
+          },
+          "fetchedAt": "2026-10-25T12:41:56.591188Z"
+        },
+        {
+          "runId": "40193925490",
+          "resultIndex": 4,
+          "targetId": "cato-page-4",
+          "targetSha256": "e7adc8498bddf1581d98793f4944ceac88561421a2aa2ddc68596cbd24b62bf5",
+          "url": "https://www.prnewswire.com/news/cato-networks/?page=4&pagesize=25",
+          "body": {
+            "bytes": 222633,
+            "key": "objects/e0a46b24bd18b9de944654df18ad3bd3b9d5eea5b160feef615fae0b6d5cdafb",
+            "sha256": "e0a46b24bd18b9de944654df18ad3bd3b9d5eea5b160feef615fae0b6d5cdafb"
+          },
+          "observation": {
+            "bytes": 521,
+            "key": "objects/4358f1247634750c082e048341135ecfda83dc9b5b7f0290b9dbad592c7a7194",
+            "sha256": "4358f1247634750c082e048341135ecfda83dc9b5b7f0290b9dbad592c7a7194"
+          },
+          "fetchedAt": "2026-10-25T12:42:01.067330Z"
+        },
+        {
+          "runId": "40193925490",
+          "resultIndex": 5,
+          "targetId": "cato-page-5",
+          "targetSha256": "e73dd22d23537686e64775b7122b6e00551c923176393c94539bc621bbc734a7",
+          "url": "https://www.prnewswire.com/news/cato-networks/?page=5&pagesize=25",
+          "body": {
+            "bytes": 230402,
+            "key": "objects/2ba79bd09d90877cb1d147234eddde48ede5162da7722392854c553cbf93761e",
+            "sha256": "2ba79bd09d90877cb1d147234eddde48ede5162da7722392854c553cbf93761e"
+          },
+          "observation": {
+            "bytes": 521,
+            "key": "objects/faed5a84273d8f8f83695f2f1e0c6aaaa3d020707737e5b7d7bd92898dbf3225",
+            "sha256": "faed5a84273d8f8f83695f2f1e0c6aaaa3d020707737e5b7d7bd92898dbf3225"
+          },
+          "fetchedAt": "2026-10-25T12:42:07.614477Z"
+        }
+      ],
+      "primary": {
+        "url": "https://www.prnewswire.com/news-releases/cato-networks-raises-359-million-at-a-valuation-of-more-than-4-8-billion-302494283.html",
+        "sourceId": "cato:citation:TR-cato-1",
+        "full200": {
+          "key": "observations/d7d36ff4e71b14efbce789c81e9c4f59fb714cda109dc3933995dd45ab140ddc.json",
+          "sha256": "3c9a19b3ddd1f92e332e963651eed81bb3aba48fe67535a7b623a3f6cc948145",
+          "bytes": 873
+        },
+        "latest": {
+          "key": "observations/f4bb402f41bf51f0fa6f0de86573f27f1e00346ed933a18524a92d1a75fdd370.json",
+          "sha256": "f2e957022371324722bb025b5a4576c2c26a0791bed3ab93cac50112d1617773",
+          "bytes": 886
+        },
+        "body": {
+          "bytes": 219126,
+          "key": "objects/2fe0e900031f29fcc0cbf1a8fbc371f48e57bcb59aaa42aa3dbbe7af54728173",
+          "sha256": "2fe0e900031f29fcc0cbf1a8fbc371f48e57bcb59aaa42aa3dbbe7af54728173"
+        },
+        "originalFetchedAt": "2026-10-24T18:29:41.178689Z",
+        "reuseChain": [
+          {
+            "key": "observations/f4bb402f41bf51f0fa6f0de86573f27f1e00346ed933a18524a92d1a75fdd370.json",
+            "sha256": "f2e957022371324722bb025b5a4576c2c26a0791bed3ab93cac50112d1617773",
+            "bytes": 886
+          },
+          {
+            "key": "observations/275cb7e6d51a87516eeff169cf8b803b8ca677cce8e1618ea21fb65f63a02bcf.json",
+            "sha256": "9378490e21d55502da5aafb94e0ada8771992f7db986944419b5a10f98a8fe13",
+            "bytes": 886
+          },
+          {
+            "key": "observations/d7d36ff4e71b14efbce789c81e9c4f59fb714cda109dc3933995dd45ab140ddc.json",
+            "sha256": "3c9a19b3ddd1f92e332e963651eed81bb3aba48fe67535a7b623a3f6cc948145",
+            "bytes": 873
+          }
+        ]
+      },
+      "knownSeedsOutsideList": [
+        {
+          "url": "https://www.prnewswire.com/il/news-releases/cato-networks-exceeds-415m-in-arr-fueled-by-42-yoy-growth-and-enterprise-demand-302833667.html",
+          "sourceId": "cato:citation:TR-cato-3",
+          "full200": {
+            "key": "observations/3d7f10be24556aa2964f6bdf6c74c82975d5c77d87579355cf24eb71ba086172.json",
+            "sha256": "c2859250592ddfd4e9dbdcffc5249010c3c589b9b21cf24303d8e8e55ff3e3fa",
+            "bytes": 892
+          },
+          "latest": {
+            "key": "observations/12ebd03fe58ab3a8239e989a0a55cd9334f992785e0e7a020af4637c5c8fdeda.json",
+            "sha256": "a4c9f72d526e46824be098bdcd3ca98202f1ab75e6eaf6cedf124ec77bd60dea",
+            "bytes": 905
+          },
+          "reuseChain": [
+            {
+              "key": "observations/12ebd03fe58ab3a8239e989a0a55cd9334f992785e0e7a020af4637c5c8fdeda.json",
+              "sha256": "a4c9f72d526e46824be098bdcd3ca98202f1ab75e6eaf6cedf124ec77bd60dea",
+              "bytes": 905
+            },
+            {
+              "key": "observations/3d7f10be24556aa2964f6bdf6c74c82975d5c77d87579355cf24eb71ba086172.json",
+              "sha256": "c2859250592ddfd4e9dbdcffc5249010c3c589b9b21cf24303d8e8e55ff3e3fa",
+              "bytes": 892
+            }
+          ],
+          "body": {
+            "bytes": 70562,
+            "key": "objects/04f50e8510a1445bcbeb6cdc1a85ead05bc6574bdc8ba0af4df3ca7e623a43bd",
+            "sha256": "04f50e8510a1445bcbeb6cdc1a85ead05bc6574bdc8ba0af4df3ca7e623a43bd"
+          },
+          "originalFetchedAt": "2026-10-25T06:46:00.068042Z",
+          "publicationCalendarDay": "2026-07-27"
+        },
+        {
+          "url": "https://www.prnewswire.com/il/news-releases/cato-networks-surpasses-350-million-arr-with-43-yoy-growth-in-2025-302694952.html",
+          "sourceId": "cato:citation:TR-cato-2",
+          "full200": {
+            "key": "observations/23b32afd2660473dd306d147045d385320e408a89d73b43d07bec5c79eb05092.json",
+            "sha256": "58263f03020c4f9d5f12009d2067f9cb69ecac1363b0147cceceaa09dbae1e8f",
+            "bytes": 866
+          },
+          "latest": {
+            "key": "observations/660599732d6bedf2be4fb0a2a1bdb7bdf32bd894228b8c3d04f8edaaea40c795.json",
+            "sha256": "3b3ef6c836648b2991628294622503cf3250abdca05c3899c5f5e6e0c61e9996",
+            "bytes": 879
+          },
+          "reuseChain": [
+            {
+              "key": "observations/660599732d6bedf2be4fb0a2a1bdb7bdf32bd894228b8c3d04f8edaaea40c795.json",
+              "sha256": "3b3ef6c836648b2991628294622503cf3250abdca05c3899c5f5e6e0c61e9996",
+              "bytes": 879
+            },
+            {
+              "key": "observations/3bd6416cb8b73669dcb928bb12f3e430e52ec95d3003758d1cd827c1bdd17c98.json",
+              "sha256": "c9506a1e520ecf6b79c8a3cdfcbf2b7d70ef273859b6bd04219ca2968e4e7d57",
+              "bytes": 879
+            },
+            {
+              "key": "observations/23b32afd2660473dd306d147045d385320e408a89d73b43d07bec5c79eb05092.json",
+              "sha256": "58263f03020c4f9d5f12009d2067f9cb69ecac1363b0147cceceaa09dbae1e8f",
+              "bytes": 866
+            }
+          ],
+          "body": {
+            "bytes": 71379,
+            "key": "objects/504eb1219a2230364e9f87ddb29a25fae52ad1865b0d5e06a88c55a8daedcfcf",
+            "sha256": "504eb1219a2230364e9f87ddb29a25fae52ad1865b0d5e06a88c55a8daedcfcf"
+          },
+          "originalFetchedAt": "2026-10-24T18:30:03.989885Z",
+          "publicationCalendarDay": "2026-02-24"
+        }
+      ]
+    },
+    {
+      "sourceId": "chainguard:official:1",
+      "originalSourceSha256": "80eca52f173a73bc1baeab6b9a5b23f550dde1fdd58c8afd55835ee8ad05ead9",
+      "pages": [
+        {
+          "runId": "40190857026",
+          "resultIndex": 6,
+          "targetId": "chainguard-index",
+          "targetSha256": "14b7ee5b9a2b872091ec5313bb7e7ab7bf6dbf3b7cc23f9ad59a8f946d2750f1",
+          "url": "https://www.prnewswire.com/news/chainguard/",
+          "body": {
+            "bytes": 243971,
+            "key": "objects/eebdec361111f3a6c7d53ec34f0c9a314e7e2a8fce74086ea0bb7dd409e68c0f",
+            "sha256": "eebdec361111f3a6c7d53ec34f0c9a314e7e2a8fce74086ea0bb7dd409e68c0f"
+          },
+          "observation": {
+            "bytes": 477,
+            "key": "objects/60cea72a480a869927aa1a433298002dfa3b9039de8be0a8e56a4f72a355e008",
+            "sha256": "60cea72a480a869927aa1a433298002dfa3b9039de8be0a8e56a4f72a355e008"
+          },
+          "fetchedAt": "2026-10-25T11:59:15.734685Z"
+        },
+        {
+          "runId": "40193925490",
+          "resultIndex": 6,
+          "targetId": "chainguard-page-2",
+          "targetSha256": "584a8ebbe858faf5c5c299d67c41ecb28695a942ff0f6c430bceddc25880b7d9",
+          "url": "https://www.prnewswire.com/news/chainguard/?page=2&pagesize=25",
+          "body": {
+            "bytes": 236549,
+            "key": "objects/13e00b76b06ee3e9a42b2e1660bd827ee8bfdf300104bc6df979211bdef399a1",
+            "sha256": "13e00b76b06ee3e9a42b2e1660bd827ee8bfdf300104bc6df979211bdef399a1"
+          },
+          "observation": {
+            "bytes": 515,
+            "key": "objects/239481b149e56d8921075fbfcf80b34f129f2bb7b45969569ffd2fbc3569d037",
+            "sha256": "239481b149e56d8921075fbfcf80b34f129f2bb7b45969569ffd2fbc3569d037"
+          },
+          "fetchedAt": "2026-10-25T12:42:16.928575Z"
+        }
+      ],
+      "primary": {
+        "url": "https://www.prnewswire.com/news-releases/chainguard-announces-280-million-growth-financing-from-general-catalyst-to-usher-in-next-era-of-trusted-open-source-software-302592279.html",
+        "sourceId": "chainguard:citation:TR-chainguard-2",
+        "full200": {
+          "key": "observations/b947425be110d751b827ff70c95e96a264d96af7e47d41dedc16ff05fb62ab7e.json",
+          "sha256": "e86badfb0d4c5e21340c69b400d26bcce51468a4cd6d4fba1830725a86a35651",
+          "bytes": 989
+        },
+        "latest": {
+          "key": "observations/3cf41845c38fb55d6e61fab671a9fe329f1df4f8be5417f997b3cb2b02a80ae4.json",
+          "sha256": "0905d41bcfd2e7f9afc9a6ba22e38c0ceb79b42350a715b1d84d3e9326a9db53",
+          "bytes": 1002
+        },
+        "body": {
+          "bytes": 219802,
+          "key": "objects/f9629a0df62bacd7ae19421dbcb95edcd79d1dfb306e9d240514e15bc299a6a3",
+          "sha256": "f9629a0df62bacd7ae19421dbcb95edcd79d1dfb306e9d240514e15bc299a6a3"
+        },
+        "originalFetchedAt": "2026-10-25T06:46:06.412965Z",
+        "reuseChain": [
+          {
+            "key": "observations/3cf41845c38fb55d6e61fab671a9fe329f1df4f8be5417f997b3cb2b02a80ae4.json",
+            "sha256": "0905d41bcfd2e7f9afc9a6ba22e38c0ceb79b42350a715b1d84d3e9326a9db53",
+            "bytes": 1002
+          },
+          {
+            "key": "observations/b947425be110d751b827ff70c95e96a264d96af7e47d41dedc16ff05fb62ab7e.json",
+            "sha256": "e86badfb0d4c5e21340c69b400d26bcce51468a4cd6d4fba1830725a86a35651",
+            "bytes": 989
+          }
+        ]
+      },
+      "knownSeedsOutsideList": []
+    }
+  ],
+  "asOf": "2026-10-25T12:42:16.956348Z"
+}

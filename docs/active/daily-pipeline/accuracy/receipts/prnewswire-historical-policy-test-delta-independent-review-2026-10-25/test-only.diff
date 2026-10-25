@@ -1,0 +1,16 @@
+--- /mnt/mac/Users/jessepike/.codex/worktrees/prn-dated-window/sec-market/docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-2026-10-25/original-test_prnewswire_retained_window.py	2026-10-25 06:58:10.819699452 -0700
++++ /mnt/mac/Users/jessepike/.codex/worktrees/prn-dated-window/sec-market/ops/ci/test_prnewswire_retained_window.py	2026-10-25 06:58:10.819885036 -0700
+@@ -82,7 +82,12 @@
+ class RetainedTests(unittest.TestCase):
+     @classmethod
+     def setUpClass(cls):
+-        cls.contract=json.loads((ROOT/'contracts/market.json').read_bytes())
++        # Original actual records stay under their pinned H, even after current policy advances.
++        historical=ROOT/'contracts/html-qualification-seeds/8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db/contracts__8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db.json'
++        historical_raw=historical.read_bytes()
++        assert digest(historical_raw)=='8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db'
++        cls.contract=json.loads(historical_raw)
++        assert digest(cls.contract)=='8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db'
+         cls.raw=DESCRIPTOR.read_bytes(); cls.descriptor=json.loads(cls.raw)
+     def setUp(self):
+         self.store=ReadOnlyActual(); self.addCleanup(self.store.unchanged,self)

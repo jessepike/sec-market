@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "verdict": "PASS",
+  "oldTest": {
+    "sha256": "96f47e4056eb03e3dbaf4a5cf2445696d6ac7c92c50e83ec090330cc8c12cd2d",
+    "bytes": 14277
+  },
+  "newTest": {
+    "sha256": "f059f6b45732ef935dbed9a30dc6e5e8f38f41dae8a183e8dd6a08019bfd888e",
+    "bytes": 14809
+  },
+  "runtimeUnchanged": {
+    "web/scripts/pipeline/prnewswire_press_list.py": {
+      "sha256": "59e277831a29ef697bb37a2caad295e0ce5de0c3573859156ed12b42ae3fe34d",
+      "bytes": 18548
+    },
+    "web/scripts/pipeline/prnewswire_retained_window.py": {
+      "sha256": "5a5f8f8122409b847bae993b2959e3f5922400e13d09c8350aef0aa3cb2c807d",
+      "bytes": 17422
+    },
+    "docs/active/daily-pipeline/accuracy/prnewswire-retained-window-descriptor-2026-10-25.json": {
+      "sha256": "328236fb3b1523a260f654a22b60f600a77d142f998d8d597252dd93bd7f493d",
+      "bytes": 16247
+    }
+  },
+  "fixture": {
+    "path": "contracts/html-qualification-seeds/8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db/contracts__8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db.json",
+    "sha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+    "bytes": 204449,
+    "canonicalSha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db"
+  },
+  "tests": {
+    "focusedPresent": {
+      "run": 26,
+      "passed": 26,
+      "skipped": 0
+    },
+    "focusedAbsent": {
+      "run": 26,
+      "passed": 13,
+      "skipped": 13,
+      "frozenPathsRenamed": false
+    },
+    "fullCombinedJ": {
+      "run": 961,
+      "passed": 961,
+      "skipped": 0
+    }
+  },
+  "verification": {
+    "path": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-2026-10-25/verification.json",
+    "sha256": "360efa494e7ef07bf2fbd047ac166c2533889142c8ab6d77543a2a247ac20e43",
+    "bytes": 12948
+  }
+}

@@ -1,0 +1,195 @@
+{
+  "schemaVersion": 1,
+  "verdict": "PASS",
+  "findings": [],
+  "reviewedAt": "2026-10-25T13:55:15.484363+00:00",
+  "scope": "Pure retained PRN parser and closed proposal verifier only; no caller or policy activation.",
+  "reviewedPins": {
+    "web/scripts/pipeline/prnewswire_press_list.py": {
+      "sha256": "59e277831a29ef697bb37a2caad295e0ce5de0c3573859156ed12b42ae3fe34d",
+      "bytes": 18548
+    },
+    "web/scripts/pipeline/prnewswire_retained_window.py": {
+      "sha256": "5a5f8f8122409b847bae993b2959e3f5922400e13d09c8350aef0aa3cb2c807d",
+      "bytes": 17422
+    },
+    "ops/ci/test_prnewswire_press_list.py": {
+      "sha256": "af9debdd121297942d5f1699f6f20469a5ee36f3bbd05d7d72743fbc6dd142e2",
+      "bytes": 14669
+    },
+    "ops/ci/test_prnewswire_retained_window.py": {
+      "sha256": "96f47e4056eb03e3dbaf4a5cf2445696d6ac7c92c50e83ec090330cc8c12cd2d",
+      "bytes": 14277
+    },
+    "docs/active/daily-pipeline/accuracy/prnewswire-retained-window-descriptor-2026-10-25.json": {
+      "sha256": "328236fb3b1523a260f654a22b60f600a77d142f998d8d597252dd93bd7f493d",
+      "bytes": 16247
+    },
+    "docs/active/daily-pipeline/accuracy/prnewswire-dated-window-parser-build-spec-2026-10-25.md": {
+      "sha256": "156e2c44730328696a0f5cc330db9afb8dae441292b5b793e3c1f8172e6f750c",
+      "bytes": 20058
+    }
+  },
+  "archive": {
+    "commit": "9e4a9806fdcc1b7cd6f91314b8b4ff4bb4ef2174",
+    "manifestSha256": "148842177a7e7d9a5fd5c2ea4574576264a957b41958ee4cdf5effa80ea029c2",
+    "manifestBytes": 10012399,
+    "entries": 48420
+  },
+  "independentPresent": {
+    "testsRun": 26,
+    "passed": 26,
+    "skipped": 0,
+    "extraNegatives": 21,
+    "positiveSourceLocalePathPairs": 12,
+    "fullOriginalDiagnosticReplays": 2,
+    "sixAdmissionReplay": true
+  },
+  "independentAbsent": {
+    "schemaVersion": 1,
+    "verdict": "PASS",
+    "mode": "fresh_process_external_archive_absent_before_discovery",
+    "testsRun": 26,
+    "passed": 13,
+    "passedTestNames": [
+      "test_prnewswire_press_list.PressListTests.test_all_unrecognized_structure_hidden_decoys_and_attribute_ambiguity_reject",
+      "test_prnewswire_press_list.PressListTests.test_calendar_boundaries_and_all_future_rows_remain_explicit",
+      "test_prnewswire_press_list.PressListTests.test_cross_page_increasing_duplicate_and_gap_reject",
+      "test_prnewswire_press_list.PressListTests.test_duplicates_with_same_or_conflicting_dates_reject",
+      "test_prnewswire_press_list.PressListTests.test_equal_dates_across_connected_pages_are_legal",
+      "test_prnewswire_press_list.PressListTests.test_equal_dates_and_timestamps_preserve_distinct_urls_and_titles",
+      "test_prnewswire_press_list.PressListTests.test_impossible_calendar_and_increasing_dates_reject",
+      "test_prnewswire_press_list.PressListTests.test_input_size_and_schema_bounds_reject",
+      "test_prnewswire_press_list.PressListTests.test_metadata_only_page_urls_are_separate_and_conflicts_reject",
+      "test_prnewswire_press_list.PressListTests.test_pager_active_terminal_unknown_controls_and_head_conflicts_reject",
+      "test_prnewswire_press_list.PressListTests.test_prefix_stop_never_claims_older_history_complete",
+      "test_prnewswire_press_list.PressListTests.test_unknown_and_missing_dates_never_drop_urls_or_create_quiet",
+      "test_prnewswire_press_list.PressListTests.test_unsafe_source_transport_and_metadata_urls_reject"
+    ],
+    "skipped": [
+      {
+        "test": "test_prnewswire_press_list.ActualPressListTests.test_actual_all_cards_locale_paths_and_separate_completion",
+        "reason": "Requires authenticated retained 9e4a archive"
+      },
+      {
+        "test": "test_prnewswire_retained_window.RetainedTests.test_actual_complete_proposal_separates_window_history_seed_scope_and_zero_credit",
+        "reason": "Requires authenticated retained 9e4a archive"
+      },
+      {
+        "test": "test_prnewswire_retained_window.RetainedTests.test_both_complete_original_diagnostics_replay_without_frozen_writes",
+        "reason": "Requires authenticated retained 9e4a archive"
+      },
+      {
+        "test": "test_prnewswire_retained_window.RetainedTests.test_duplicate_plan_json_keys_and_nonfinite_constants_reject",
+        "reason": "Requires authenticated retained 9e4a archive"
+      },
+      {
+        "test": "test_prnewswire_retained_window.RetainedTests.test_every_descriptor_scalar_and_missing_extra_fields_reject",
+        "reason": "Requires authenticated retained 9e4a archive"
+      },
+      {
+        "test": "test_prnewswire_retained_window.RetainedTests.test_legitimate_modification_date_difference_is_preserved",
+        "reason": "Requires authenticated retained 9e4a archive"
+      },
+      {
+        "test": "test_prnewswire_retained_window.RetainedTests.test_omitted_card_history_or_boundary_and_forged_credit_cannot_replay",
+        "reason": "Requires authenticated retained 9e4a archive"
+      },
+      {
+        "test": "test_prnewswire_retained_window.RetainedTests.test_original_primary_article_token_exception_is_closed",
+        "reason": "Requires authenticated retained 9e4a archive"
+      },
+      {
+        "test": "test_prnewswire_retained_window.RetainedTests.test_primary_original_full200_and_real304_chain_are_preserved",
+        "reason": "Requires authenticated retained 9e4a archive"
+      },
+      {
+        "test": "test_prnewswire_retained_window.RetainedTests.test_six_existing_admissions_facts_holds_budget_and_expiry_remain_exact",
+        "reason": "Requires authenticated retained 9e4a archive"
+      },
+      {
+        "test": "test_prnewswire_retained_window.RetainedTests.test_source_policy_mutation_rejects_without_historical_authority_bridge",
+        "reason": "Requires authenticated retained 9e4a archive"
+      },
+      {
+        "test": "test_prnewswire_retained_window.RetainedTests.test_store_cannot_forge_record_plan_page_primary_or_clock_even_with_rehashed_body",
+        "reason": "Requires authenticated retained 9e4a archive"
+      },
+      {
+        "test": "test_prnewswire_retained_window.RetainedTests.test_supplied_primary_metadata_identity_conflicts_and_hidden_container_reject",
+        "reason": "Requires authenticated retained 9e4a archive"
+      }
+    ],
+    "frozenReadAttempts": [],
+    "sourceRequests": 0,
+    "modelRequests": 0,
+    "repoWrites": 0
+  },
+  "sourceResults": [
+    {
+      "sourceId": "cato:official:1",
+      "listUrls": 125,
+      "knownUnion": 127,
+      "current": 2,
+      "dailyWindowComplete": true,
+      "historicalEnumerationComplete": false,
+      "sourceScopeComplete": false,
+      "missingSeeds": [
+        {
+          "url": "https://www.prnewswire.com/il/news-releases/cato-networks-exceeds-415m-in-arr-fueled-by-42-yoy-growth-and-enterprise-demand-302833667.html",
+          "publicationDay": "2026-07-27",
+          "calendarWindowState": "older_calendar_day"
+        },
+        {
+          "url": "https://www.prnewswire.com/il/news-releases/cato-networks-surpasses-350-million-arr-with-43-yoy-growth-in-2025-302694952.html",
+          "publicationDay": "2026-02-24",
+          "calendarWindowState": "older_calendar_day"
+        }
+      ]
+    },
+    {
+      "sourceId": "chainguard:official:1",
+      "listUrls": 47,
+      "knownUnion": 47,
+      "current": 5,
+      "dailyWindowComplete": true,
+      "historicalEnumerationComplete": true,
+      "sourceScopeComplete": true,
+      "missingSeeds": []
+    }
+  ],
+  "workerSuite": {
+    "run": 947,
+    "passed": 947,
+    "skipped": 0,
+    "attribution": "Worker full-suite lossless gzip authenticated; independent focused suite rerun separately."
+  },
+  "authorityChecks": [
+    "Exact H and descriptor canonical digest fixed before source proof",
+    "External actual audit files pinned and independently read",
+    "Both complete original diagnostic run/raw-plan/reservation/observation/body graphs replay with unchanged verifier",
+    "Altered or rehashed authored descriptor/report, omitted history/seed gap and replaced external proof reject",
+    "Head canonical/prev/next metadata URLs are separate from body-pager request URLs",
+    "Source-specific locale/path pairs preserve literal identities without normalization"
+  ],
+  "limits": {
+    "qualified": false,
+    "sourceChecksCredited": 0,
+    "modelCalls": 0,
+    "operationalIntake": false,
+    "sourceRequests": 0,
+    "coverageOrFreshnessOrPublicationCredit": false,
+    "knownOlderHistory": "Cato prefix not complete; two absent known seeds both precede Sep25 and remain explicit scope/history gap; no whole-history prerequisite or universal recall claim.",
+    "hostedCI": "Fresh-process local absence simulation only; no new GitHub receipt.",
+    "mainOrCallerIntegration": "Not reviewed or activated by this offline unit."
+  },
+  "preservation": {
+    "archiveInputsRehashedAndSealsVerified": 461,
+    "externalProtectedInputsRehashedAndSealsVerified": 21,
+    "manifestHashVerified": true,
+    "protectedTrackedPinsUnchanged": 15,
+    "frozenWrites": 0,
+    "checkoutWrites": 0
+  },
+  "receiptsRelative": "receipts/prnewswire-dated-window-parser-independent-review-2026-10-25"
+}

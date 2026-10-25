@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "status": "READY_FOR_INDEPENDENT_REVIEW",
+  "worktreeHost": "/Users/jessepike/.codex/worktrees/prn-dated-window/sec-market",
+  "files": {
+    "web/scripts/pipeline/prnewswire_press_list.py": {
+      "sha256": "59e277831a29ef697bb37a2caad295e0ce5de0c3573859156ed12b42ae3fe34d",
+      "bytes": 18548
+    },
+    "web/scripts/pipeline/prnewswire_retained_window.py": {
+      "sha256": "5a5f8f8122409b847bae993b2959e3f5922400e13d09c8350aef0aa3cb2c807d",
+      "bytes": 17422
+    },
+    "ops/ci/test_prnewswire_press_list.py": {
+      "sha256": "af9debdd121297942d5f1699f6f20469a5ee36f3bbd05d7d72743fbc6dd142e2",
+      "bytes": 14669
+    },
+    "ops/ci/test_prnewswire_retained_window.py": {
+      "sha256": "96f47e4056eb03e3dbaf4a5cf2445696d6ac7c92c50e83ec090330cc8c12cd2d",
+      "bytes": 14277
+    },
+    "docs/active/daily-pipeline/accuracy/prnewswire-retained-window-descriptor-2026-10-25.json": {
+      "sha256": "328236fb3b1523a260f654a22b60f600a77d142f998d8d597252dd93bd7f493d",
+      "bytes": 16247
+    },
+    "docs/active/daily-pipeline/accuracy/prnewswire-dated-window-parser-build-spec-2026-10-25.md": {
+      "sha256": "156e2c44730328696a0f5cc330db9afb8dae441292b5b793e3c1f8172e6f750c",
+      "bytes": 20058
+    }
+  },
+  "verification": {
+    "path": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-implementation-2026-10-25/verification.json",
+    "sha256": "68b0294a34b22e80bc99a77cb1363a5e9968d9b5f6a0792ea15300b7e6f6c7e3",
+    "bytes": 7552
+  },
+  "tests": {
+    "focused": 26,
+    "operations": 947,
+    "skips": 0
+  },
+  "actual": {
+    "cato": {
+      "observedUrls": 125,
+      "knownEvidenceUnion": 127,
+      "currentCalendarWindow": 2,
+      "dailyPublisherWindowComplete": true,
+      "historicalEnumerationComplete": false,
+      "missingOlderSeeds": 2
+    },
+    "chainguard": {
+      "observedUrls": 47,
+      "knownEvidenceUnion": 47,
+      "currentCalendarWindow": 5,
+      "dailyPublisherWindowComplete": true,
+      "historicalEnumerationComplete": true,
+      "missingKnownSeeds": 0
+    }
+  },
+  "operationalCredit": 0,
+  "requests": 0,
+  "commitsOrPushes": 0
+}

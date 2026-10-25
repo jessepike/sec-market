@@ -1,0 +1,225 @@
+{
+  "schemaVersion": 1,
+  "kind": "independent_PRN_historical_policy_test_only_delta",
+  "verdict": "PASS",
+  "findings": [],
+  "reviewedAt": "2026-10-25T14:02:54.378369+00:00",
+  "baseCommit": "40fe14bb41f6b10c8edc8527ef7f78d7b4d0dcf8",
+  "changedFile": {
+    "path": "ops/ci/test_prnewswire_retained_window.py",
+    "oldSha256": "96f47e4056eb03e3dbaf4a5cf2445696d6ac7c92c50e83ec090330cc8c12cd2d",
+    "oldBytes": 14277,
+    "newSha256": "f059f6b45732ef935dbed9a30dc6e5e8f38f41dae8a183e8dd6a08019bfd888e",
+    "newBytes": 14809
+  },
+  "onlyChange": "Load committed historical H fixture and assert both its raw and canonical digest before replay; active market remains J.",
+  "historicalFixture": {
+    "path": "contracts/html-qualification-seeds/8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db/contracts__8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db.json",
+    "rawAndCanonicalSha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+    "bytes": 204449
+  },
+  "combinedBaseProof": {
+    "schemaVersion": 1,
+    "baseCommit": "40fe14bb41f6b10c8edc8527ef7f78d7b4d0dcf8",
+    "gitBlobFilesVerified": 2602,
+    "changedTrackedBasePaths": [
+      "docs/active/daily-pipeline/accuracy/prnewswire-dated-window-parser-build-spec-2026-10-25.md"
+    ],
+    "onlyExactSixOverlayFiles": {
+      "web/scripts/pipeline/prnewswire_press_list.py": {
+        "sha256": "59e277831a29ef697bb37a2caad295e0ce5de0c3573859156ed12b42ae3fe34d",
+        "bytes": 18548
+      },
+      "web/scripts/pipeline/prnewswire_retained_window.py": {
+        "sha256": "5a5f8f8122409b847bae993b2959e3f5922400e13d09c8350aef0aa3cb2c807d",
+        "bytes": 17422
+      },
+      "ops/ci/test_prnewswire_press_list.py": {
+        "sha256": "af9debdd121297942d5f1699f6f20469a5ee36f3bbd05d7d72743fbc6dd142e2",
+        "bytes": 14669
+      },
+      "ops/ci/test_prnewswire_retained_window.py": {
+        "sha256": "f059f6b45732ef935dbed9a30dc6e5e8f38f41dae8a183e8dd6a08019bfd888e",
+        "bytes": 14809
+      },
+      "docs/active/daily-pipeline/accuracy/prnewswire-retained-window-descriptor-2026-10-25.json": {
+        "sha256": "328236fb3b1523a260f654a22b60f600a77d142f998d8d597252dd93bd7f493d",
+        "bytes": 16247
+      },
+      "docs/active/daily-pipeline/accuracy/prnewswire-dated-window-parser-build-spec-2026-10-25.md": {
+        "sha256": "156e2c44730328696a0f5cc330db9afb8dae441292b5b793e3c1f8172e6f750c",
+        "bytes": 20058
+      }
+    },
+    "rawGitBlobInventorySha256": "db6a8fa695ebf6945d1ae3965f13bea3ec37c146a174a8e50c8cb3dda5de0cfe",
+    "currentContract": {
+      "rawSha256": "bb9735d073e41a0a22bdcfd315419c59e8791b82be34bc73ead699530147b3e6",
+      "canonicalSha256": "47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a"
+    },
+    "repoWrites": 0
+  },
+  "independentPresent": {
+    "schemaVersion": 1,
+    "verdict": "PASS",
+    "mode": "present",
+    "testsRun": 26,
+    "passed": 26,
+    "skipped": [],
+    "passedNames": [
+      "test_prnewswire_press_list.ActualPressListTests.test_actual_all_cards_locale_paths_and_separate_completion",
+      "test_prnewswire_press_list.PressListTests.test_all_unrecognized_structure_hidden_decoys_and_attribute_ambiguity_reject",
+      "test_prnewswire_press_list.PressListTests.test_calendar_boundaries_and_all_future_rows_remain_explicit",
+      "test_prnewswire_press_list.PressListTests.test_cross_page_increasing_duplicate_and_gap_reject",
+      "test_prnewswire_press_list.PressListTests.test_duplicates_with_same_or_conflicting_dates_reject",
+      "test_prnewswire_press_list.PressListTests.test_equal_dates_across_connected_pages_are_legal",
+      "test_prnewswire_press_list.PressListTests.test_equal_dates_and_timestamps_preserve_distinct_urls_and_titles",
+      "test_prnewswire_press_list.PressListTests.test_impossible_calendar_and_increasing_dates_reject",
+      "test_prnewswire_press_list.PressListTests.test_input_size_and_schema_bounds_reject",
+      "test_prnewswire_press_list.PressListTests.test_metadata_only_page_urls_are_separate_and_conflicts_reject",
+      "test_prnewswire_press_list.PressListTests.test_pager_active_terminal_unknown_controls_and_head_conflicts_reject",
+      "test_prnewswire_press_list.PressListTests.test_prefix_stop_never_claims_older_history_complete",
+      "test_prnewswire_press_list.PressListTests.test_unknown_and_missing_dates_never_drop_urls_or_create_quiet",
+      "test_prnewswire_press_list.PressListTests.test_unsafe_source_transport_and_metadata_urls_reject",
+      "test_prnewswire_retained_window.RetainedTests.test_actual_complete_proposal_separates_window_history_seed_scope_and_zero_credit",
+      "test_prnewswire_retained_window.RetainedTests.test_both_complete_original_diagnostics_replay_without_frozen_writes",
+      "test_prnewswire_retained_window.RetainedTests.test_duplicate_plan_json_keys_and_nonfinite_constants_reject",
+      "test_prnewswire_retained_window.RetainedTests.test_every_descriptor_scalar_and_missing_extra_fields_reject",
+      "test_prnewswire_retained_window.RetainedTests.test_legitimate_modification_date_difference_is_preserved",
+      "test_prnewswire_retained_window.RetainedTests.test_omitted_card_history_or_boundary_and_forged_credit_cannot_replay",
+      "test_prnewswire_retained_window.RetainedTests.test_original_primary_article_token_exception_is_closed",
+      "test_prnewswire_retained_window.RetainedTests.test_primary_original_full200_and_real304_chain_are_preserved",
+      "test_prnewswire_retained_window.RetainedTests.test_six_existing_admissions_facts_holds_budget_and_expiry_remain_exact",
+      "test_prnewswire_retained_window.RetainedTests.test_source_policy_mutation_rejects_without_historical_authority_bridge",
+      "test_prnewswire_retained_window.RetainedTests.test_store_cannot_forge_record_plan_page_primary_or_clock_even_with_rehashed_body",
+      "test_prnewswire_retained_window.RetainedTests.test_supplied_primary_metadata_identity_conflicts_and_hidden_container_reject"
+    ],
+    "frozenReadAttempts": [],
+    "extraChecks": [
+      "current_J_not_accepted_as_original_H",
+      "missing_historical_fixture_rejects",
+      "corrupt_historical_fixture_rejects"
+    ],
+    "currentCanonicalJ": "47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a",
+    "historicalRawAndCanonicalH": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+    "historicalBytes": 204449,
+    "sourceRequests": 0,
+    "modelRequests": 0,
+    "frozenWrites": 0,
+    "repoWrites": 0
+  },
+  "independentAbsent": {
+    "schemaVersion": 1,
+    "verdict": "PASS",
+    "mode": "absent",
+    "testsRun": 26,
+    "passed": 13,
+    "skipped": [
+      {
+        "test": "test_prnewswire_press_list.ActualPressListTests.test_actual_all_cards_locale_paths_and_separate_completion",
+        "reason": "Requires authenticated retained 9e4a archive"
+      },
+      {
+        "test": "test_prnewswire_retained_window.RetainedTests.test_actual_complete_proposal_separates_window_history_seed_scope_and_zero_credit",
+        "reason": "Requires authenticated retained 9e4a archive"
+      },
+      {
+        "test": "test_prnewswire_retained_window.RetainedTests.test_both_complete_original_diagnostics_replay_without_frozen_writes",
+        "reason": "Requires authenticated retained 9e4a archive"
+      },
+      {
+        "test": "test_prnewswire_retained_window.RetainedTests.test_duplicate_plan_json_keys_and_nonfinite_constants_reject",
+        "reason": "Requires authenticated retained 9e4a archive"
+      },
+      {
+        "test": "test_prnewswire_retained_window.RetainedTests.test_every_descriptor_scalar_and_missing_extra_fields_reject",
+        "reason": "Requires authenticated retained 9e4a archive"
+      },
+      {
+        "test": "test_prnewswire_retained_window.RetainedTests.test_legitimate_modification_date_difference_is_preserved",
+        "reason": "Requires authenticated retained 9e4a archive"
+      },
+      {
+        "test": "test_prnewswire_retained_window.RetainedTests.test_omitted_card_history_or_boundary_and_forged_credit_cannot_replay",
+        "reason": "Requires authenticated retained 9e4a archive"
+      },
+      {
+        "test": "test_prnewswire_retained_window.RetainedTests.test_original_primary_article_token_exception_is_closed",
+        "reason": "Requires authenticated retained 9e4a archive"
+      },
+      {
+        "test": "test_prnewswire_retained_window.RetainedTests.test_primary_original_full200_and_real304_chain_are_preserved",
+        "reason": "Requires authenticated retained 9e4a archive"
+      },
+      {
+        "test": "test_prnewswire_retained_window.RetainedTests.test_six_existing_admissions_facts_holds_budget_and_expiry_remain_exact",
+        "reason": "Requires authenticated retained 9e4a archive"
+      },
+      {
+        "test": "test_prnewswire_retained_window.RetainedTests.test_source_policy_mutation_rejects_without_historical_authority_bridge",
+        "reason": "Requires authenticated retained 9e4a archive"
+      },
+      {
+        "test": "test_prnewswire_retained_window.RetainedTests.test_store_cannot_forge_record_plan_page_primary_or_clock_even_with_rehashed_body",
+        "reason": "Requires authenticated retained 9e4a archive"
+      },
+      {
+        "test": "test_prnewswire_retained_window.RetainedTests.test_supplied_primary_metadata_identity_conflicts_and_hidden_container_reject",
+        "reason": "Requires authenticated retained 9e4a archive"
+      }
+    ],
+    "passedNames": [
+      "test_prnewswire_press_list.PressListTests.test_all_unrecognized_structure_hidden_decoys_and_attribute_ambiguity_reject",
+      "test_prnewswire_press_list.PressListTests.test_calendar_boundaries_and_all_future_rows_remain_explicit",
+      "test_prnewswire_press_list.PressListTests.test_cross_page_increasing_duplicate_and_gap_reject",
+      "test_prnewswire_press_list.PressListTests.test_duplicates_with_same_or_conflicting_dates_reject",
+      "test_prnewswire_press_list.PressListTests.test_equal_dates_across_connected_pages_are_legal",
+      "test_prnewswire_press_list.PressListTests.test_equal_dates_and_timestamps_preserve_distinct_urls_and_titles",
+      "test_prnewswire_press_list.PressListTests.test_impossible_calendar_and_increasing_dates_reject",
+      "test_prnewswire_press_list.PressListTests.test_input_size_and_schema_bounds_reject",
+      "test_prnewswire_press_list.PressListTests.test_metadata_only_page_urls_are_separate_and_conflicts_reject",
+      "test_prnewswire_press_list.PressListTests.test_pager_active_terminal_unknown_controls_and_head_conflicts_reject",
+      "test_prnewswire_press_list.PressListTests.test_prefix_stop_never_claims_older_history_complete",
+      "test_prnewswire_press_list.PressListTests.test_unknown_and_missing_dates_never_drop_urls_or_create_quiet",
+      "test_prnewswire_press_list.PressListTests.test_unsafe_source_transport_and_metadata_urls_reject"
+    ],
+    "frozenReadAttempts": [],
+    "extraChecks": [
+      "current_J_not_accepted_as_original_H",
+      "missing_historical_fixture_rejects",
+      "corrupt_historical_fixture_rejects"
+    ],
+    "currentCanonicalJ": "47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a",
+    "historicalRawAndCanonicalH": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+    "historicalBytes": 204449,
+    "sourceRequests": 0,
+    "modelRequests": 0,
+    "frozenWrites": 0,
+    "repoWrites": 0
+  },
+  "workerCombinedFullOps": {
+    "run": 961,
+    "passed": 961,
+    "skipped": 0,
+    "rawSha256": "43a6861f9e2f84b1621048686436a2e15bae04c34d02f53e4b84d61244c9da30",
+    "rawBytes": 178799,
+    "gzipSha256": "a68809ee72055a958df1362c67784bd7e39408761978cd98b4702467246dffb1",
+    "gzipBytes": 26739,
+    "attribution": "Worker actual combined current-J full-suite raw log authenticated; independent focused runs recorded separately."
+  },
+  "priorIndependentReviewSealsPreserved": {
+    "prnewswire-dated-window-parser-independent-review-2026-10-25.md": "928376127ba1347a47e8e9bfd4888abf2688af50de8d362c2ab509cd2b968144",
+    "prnewswire-dated-window-parser-independent-review-2026-10-25.json": "e941e8a6bd2d9b379c55e21c5a86cf528b3244493c7c4dea28a265644462dbcf"
+  },
+  "originalWorkerVerificationSha256": "68b0294a34b22e80bc99a77cb1363a5e9968d9b5f6a0792ea15300b7e6f6c7e3",
+  "boundaries": {
+    "parserVerifierDescriptorChanges": 0,
+    "activeJPolicyChanges": 0,
+    "historicalHToJAuthorityRelaxation": false,
+    "sourceRequests": 0,
+    "modelRequests": 0,
+    "frozenArchiveWrites": 0,
+    "checkoutWrites": 0,
+    "qualificationFreshnessPublicationCredit": false
+  },
+  "receiptsRelative": "receipts/prnewswire-historical-policy-test-delta-independent-review-2026-10-25"
+}

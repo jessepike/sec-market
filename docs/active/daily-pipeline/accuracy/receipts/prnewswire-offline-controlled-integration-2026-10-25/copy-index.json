@@ -1,0 +1,1085 @@
+{
+  "schemaVersion": 1,
+  "verdict": "PASS",
+  "scope": "Byte-exact controlled offline PRN integration only; no caller or policy selection.",
+  "finishHead": "40fe14bb41f6b10c8edc8527ef7f78d7b4d0dcf8",
+  "copiedFiles": 56,
+  "copies": [
+    {
+      "source": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-dated-window/sec-market/web/scripts/pipeline/prnewswire_press_list.py",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/prnewswire_press_list.py",
+      "relativePath": "web/scripts/pipeline/prnewswire_press_list.py",
+      "kind": "reviewed_source_spec_descriptor_test",
+      "sourceSeal": {
+        "sha256": "59e277831a29ef697bb37a2caad295e0ce5de0c3573859156ed12b42ae3fe34d",
+        "bytes": 18548,
+        "mtimeNs": 1792935986822360171
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "59e277831a29ef697bb37a2caad295e0ce5de0c3573859156ed12b42ae3fe34d",
+        "bytes": 18548,
+        "mtimeNs": 1792935986822360171
+      }
+    },
+    {
+      "source": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-dated-window/sec-market/web/scripts/pipeline/prnewswire_retained_window.py",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/prnewswire_retained_window.py",
+      "relativePath": "web/scripts/pipeline/prnewswire_retained_window.py",
+      "kind": "reviewed_source_spec_descriptor_test",
+      "sourceSeal": {
+        "sha256": "5a5f8f8122409b847bae993b2959e3f5922400e13d09c8350aef0aa3cb2c807d",
+        "bytes": 17422,
+        "mtimeNs": 1792935986822662588
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "5a5f8f8122409b847bae993b2959e3f5922400e13d09c8350aef0aa3cb2c807d",
+        "bytes": 17422,
+        "mtimeNs": 1792935986822662588
+      }
+    },
+    {
+      "source": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-dated-window/sec-market/ops/ci/test_prnewswire_press_list.py",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/ops/ci/test_prnewswire_press_list.py",
+      "relativePath": "ops/ci/test_prnewswire_press_list.py",
+      "kind": "reviewed_source_spec_descriptor_test",
+      "sourceSeal": {
+        "sha256": "af9debdd121297942d5f1699f6f20469a5ee36f3bbd05d7d72743fbc6dd142e2",
+        "bytes": 14669,
+        "mtimeNs": 1792936031242386066
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "af9debdd121297942d5f1699f6f20469a5ee36f3bbd05d7d72743fbc6dd142e2",
+        "bytes": 14669,
+        "mtimeNs": 1792936031242386066
+      }
+    },
+    {
+      "source": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-dated-window/sec-market/ops/ci/test_prnewswire_retained_window.py",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/ops/ci/test_prnewswire_retained_window.py",
+      "relativePath": "ops/ci/test_prnewswire_retained_window.py",
+      "kind": "reviewed_source_spec_descriptor_test",
+      "sourceSeal": {
+        "sha256": "f059f6b45732ef935dbed9a30dc6e5e8f38f41dae8a183e8dd6a08019bfd888e",
+        "bytes": 14809,
+        "mtimeNs": 1792936690819885036
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "f059f6b45732ef935dbed9a30dc6e5e8f38f41dae8a183e8dd6a08019bfd888e",
+        "bytes": 14809,
+        "mtimeNs": 1792936690819885036
+      }
+    },
+    {
+      "source": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-dated-window/sec-market/docs/active/daily-pipeline/accuracy/prnewswire-retained-window-descriptor-2026-10-25.json",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/prnewswire-retained-window-descriptor-2026-10-25.json",
+      "relativePath": "docs/active/daily-pipeline/accuracy/prnewswire-retained-window-descriptor-2026-10-25.json",
+      "kind": "reviewed_source_spec_descriptor_test",
+      "sourceSeal": {
+        "sha256": "328236fb3b1523a260f654a22b60f600a77d142f998d8d597252dd93bd7f493d",
+        "bytes": 16247,
+        "mtimeNs": 1792935622804568489
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "328236fb3b1523a260f654a22b60f600a77d142f998d8d597252dd93bd7f493d",
+        "bytes": 16247,
+        "mtimeNs": 1792935622804568489
+      }
+    },
+    {
+      "source": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-dated-window/sec-market/docs/active/daily-pipeline/accuracy/prnewswire-dated-window-parser-build-spec-2026-10-25.md",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/prnewswire-dated-window-parser-build-spec-2026-10-25.md",
+      "relativePath": "docs/active/daily-pipeline/accuracy/prnewswire-dated-window-parser-build-spec-2026-10-25.md",
+      "kind": "reviewed_source_spec_descriptor_test",
+      "sourceSeal": {
+        "sha256": "156e2c44730328696a0f5cc330db9afb8dae441292b5b793e3c1f8172e6f750c",
+        "bytes": 20058,
+        "mtimeNs": 1792935865822334123
+      },
+      "targetBefore": {
+        "sha256": "b6c74fb7c1bf62eeab6270ae3bc2db88c1fc1d3d3371f540f03e2a2e5664bf52",
+        "bytes": 16965,
+        "mtimeNs": 1792936426896100503
+      },
+      "targetAfter": {
+        "sha256": "156e2c44730328696a0f5cc330db9afb8dae441292b5b793e3c1f8172e6f750c",
+        "bytes": 20058,
+        "mtimeNs": 1792935865822334123
+      }
+    },
+    {
+      "source": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-dated-window/sec-market/docs/active/daily-pipeline/accuracy/prnewswire-dated-window-parser-implementation-2026-10-25.md",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/prnewswire-dated-window-parser-implementation-2026-10-25.md",
+      "relativePath": "docs/active/daily-pipeline/accuracy/prnewswire-dated-window-parser-implementation-2026-10-25.md",
+      "kind": "original_worker_or_separate_delta_handback",
+      "sourceSeal": {
+        "sha256": "e1f5d8b50d1f88d2860a81eb48b304d1cce67fcb0c1ade31acd9c58691212f74",
+        "bytes": 6053,
+        "mtimeNs": 1792936298259717848
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "e1f5d8b50d1f88d2860a81eb48b304d1cce67fcb0c1ade31acd9c58691212f74",
+        "bytes": 6053,
+        "mtimeNs": 1792936298259717848
+      }
+    },
+    {
+      "source": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-dated-window/sec-market/docs/active/daily-pipeline/accuracy/prnewswire-dated-window-parser-implementation-2026-10-25.json",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/prnewswire-dated-window-parser-implementation-2026-10-25.json",
+      "relativePath": "docs/active/daily-pipeline/accuracy/prnewswire-dated-window-parser-implementation-2026-10-25.json",
+      "kind": "original_worker_or_separate_delta_handback",
+      "sourceSeal": {
+        "sha256": "f7a8870f14587a9e4650dfc363a21f5ea7d64855d9852376f6f81fae21b635b3",
+        "bytes": 2144,
+        "mtimeNs": 1792936298259405140
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "f7a8870f14587a9e4650dfc363a21f5ea7d64855d9852376f6f81fae21b635b3",
+        "bytes": 2144,
+        "mtimeNs": 1792936298259405140
+      }
+    },
+    {
+      "source": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-dated-window/sec-market/docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-implementation-2026-10-25/actual-readonly-replay.json",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-implementation-2026-10-25/actual-readonly-replay.json",
+      "relativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-implementation-2026-10-25/actual-readonly-replay.json",
+      "kind": "sealed_worker_receipt",
+      "sourceSeal": {
+        "sha256": "550dad5d9c2c9b757dcd15ff292b6143c88ef8a4108a082c94572c5f5d8ce027",
+        "bytes": 156599,
+        "mtimeNs": 1792936198176480148
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "550dad5d9c2c9b757dcd15ff292b6143c88ef8a4108a082c94572c5f5d8ce027",
+        "bytes": 156599,
+        "mtimeNs": 1792936198176480148
+      }
+    },
+    {
+      "source": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-dated-window/sec-market/docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-implementation-2026-10-25/actual-replay.log.gz",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-implementation-2026-10-25/actual-replay.log.gz",
+      "relativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-implementation-2026-10-25/actual-replay.log.gz",
+      "kind": "sealed_worker_receipt",
+      "sourceSeal": {
+        "sha256": "d731b4a3f0dfdc340cb0837e9126341ee8ab0d0651deb5bfbcef9d6e070d2e31",
+        "bytes": 630,
+        "mtimeNs": 1792936296662562010
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "d731b4a3f0dfdc340cb0837e9126341ee8ab0d0651deb5bfbcef9d6e070d2e31",
+        "bytes": 630,
+        "mtimeNs": 1792936296662562010
+      }
+    },
+    {
+      "source": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-dated-window/sec-market/docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-implementation-2026-10-25/derived-report.json",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-implementation-2026-10-25/derived-report.json",
+      "relativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-implementation-2026-10-25/derived-report.json",
+      "kind": "sealed_worker_receipt",
+      "sourceSeal": {
+        "sha256": "f9d5f7a414d4c4fefc32e7d7f54691814bda120aa0854771a47d13e3e9a797f1",
+        "bytes": 415403,
+        "mtimeNs": 1792936198175140732
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "f9d5f7a414d4c4fefc32e7d7f54691814bda120aa0854771a47d13e3e9a797f1",
+        "bytes": 415403,
+        "mtimeNs": 1792936198175140732
+      }
+    },
+    {
+      "source": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-dated-window/sec-market/docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-implementation-2026-10-25/focused-tests.log.gz",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-implementation-2026-10-25/focused-tests.log.gz",
+      "relativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-implementation-2026-10-25/focused-tests.log.gz",
+      "kind": "sealed_worker_receipt",
+      "sourceSeal": {
+        "sha256": "eb4ef4ab4c1fece7ff473f0e118e80a2dbf08b7b8fd40b822f2065a6f844fde8",
+        "bytes": 1014,
+        "mtimeNs": 1792936296657734261
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "eb4ef4ab4c1fece7ff473f0e118e80a2dbf08b7b8fd40b822f2065a6f844fde8",
+        "bytes": 1014,
+        "mtimeNs": 1792936296657734261
+      }
+    },
+    {
+      "source": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-dated-window/sec-market/docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-implementation-2026-10-25/full-ops-tests.log.gz",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-implementation-2026-10-25/full-ops-tests.log.gz",
+      "relativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-implementation-2026-10-25/full-ops-tests.log.gz",
+      "kind": "sealed_worker_receipt",
+      "sourceSeal": {
+        "sha256": "8d257cbf07ca2911ecc39f934f75ef326b1f134cf7afcc4730ce28e6910e6ef3",
+        "bytes": 26300,
+        "mtimeNs": 1792936296662181177
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "8d257cbf07ca2911ecc39f934f75ef326b1f134cf7afcc4730ce28e6910e6ef3",
+        "bytes": 26300,
+        "mtimeNs": 1792936296662181177
+      }
+    },
+    {
+      "source": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-dated-window/sec-market/docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-implementation-2026-10-25/observed-layout-refinements.json",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-implementation-2026-10-25/observed-layout-refinements.json",
+      "relativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-implementation-2026-10-25/observed-layout-refinements.json",
+      "kind": "sealed_worker_receipt",
+      "sourceSeal": {
+        "sha256": "b07ce83cdde81b629b600e4e77d8e7eb1a488ac7d8c6ba5f9dba2f6b7daddc15",
+        "bytes": 12958,
+        "mtimeNs": 1792936197093193442
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "b07ce83cdde81b629b600e4e77d8e7eb1a488ac7d8c6ba5f9dba2f6b7daddc15",
+        "bytes": 12958,
+        "mtimeNs": 1792936197093193442
+      }
+    },
+    {
+      "source": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-dated-window/sec-market/docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-implementation-2026-10-25/replay_actual.py",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-implementation-2026-10-25/replay_actual.py",
+      "relativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-implementation-2026-10-25/replay_actual.py",
+      "kind": "sealed_worker_receipt",
+      "sourceSeal": {
+        "sha256": "1778abfa6ca6891285138c3cf601ffd340591d7931d4e629f35411a1784d72eb",
+        "bytes": 4948,
+        "mtimeNs": 1792936195819104170
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "1778abfa6ca6891285138c3cf601ffd340591d7931d4e629f35411a1784d72eb",
+        "bytes": 4948,
+        "mtimeNs": 1792936195819104170
+      }
+    },
+    {
+      "source": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-dated-window/sec-market/docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-implementation-2026-10-25/test-logs-metadata.json",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-implementation-2026-10-25/test-logs-metadata.json",
+      "relativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-implementation-2026-10-25/test-logs-metadata.json",
+      "kind": "sealed_worker_receipt",
+      "sourceSeal": {
+        "sha256": "b3e63a26df322160485d13994dd606c630d510677a2c0955e312a8f6c4d73c2b",
+        "bytes": 1027,
+        "mtimeNs": 1792936296662843885
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "b3e63a26df322160485d13994dd606c630d510677a2c0955e312a8f6c4d73c2b",
+        "bytes": 1027,
+        "mtimeNs": 1792936296662843885
+      }
+    },
+    {
+      "source": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-dated-window/sec-market/docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-implementation-2026-10-25/verification.json",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-implementation-2026-10-25/verification.json",
+      "relativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-implementation-2026-10-25/verification.json",
+      "kind": "sealed_worker_receipt",
+      "sourceSeal": {
+        "sha256": "68b0294a34b22e80bc99a77cb1363a5e9968d9b5f6a0792ea15300b7e6f6c7e3",
+        "bytes": 7552,
+        "mtimeNs": 1792936298258930474
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "68b0294a34b22e80bc99a77cb1363a5e9968d9b5f6a0792ea15300b7e6f6c7e3",
+        "bytes": 7552,
+        "mtimeNs": 1792936298258930474
+      }
+    },
+    {
+      "source": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-dated-window/sec-market/docs/active/daily-pipeline/accuracy/prnewswire-historical-policy-test-delta-2026-10-25.md",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/prnewswire-historical-policy-test-delta-2026-10-25.md",
+      "relativePath": "docs/active/daily-pipeline/accuracy/prnewswire-historical-policy-test-delta-2026-10-25.md",
+      "kind": "original_worker_or_separate_delta_handback",
+      "sourceSeal": {
+        "sha256": "1b92a997ec811e0ed9ea03825267bae57db572368f80d389b80049f198176dba",
+        "bytes": 3317,
+        "mtimeNs": 1792937044364182524
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "1b92a997ec811e0ed9ea03825267bae57db572368f80d389b80049f198176dba",
+        "bytes": 3317,
+        "mtimeNs": 1792937044364182524
+      }
+    },
+    {
+      "source": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-dated-window/sec-market/docs/active/daily-pipeline/accuracy/prnewswire-historical-policy-test-delta-2026-10-25.json",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/prnewswire-historical-policy-test-delta-2026-10-25.json",
+      "relativePath": "docs/active/daily-pipeline/accuracy/prnewswire-historical-policy-test-delta-2026-10-25.json",
+      "kind": "original_worker_or_separate_delta_handback",
+      "sourceSeal": {
+        "sha256": "6bae657d2c7f1d6f4800547738c08b8c4de38ce6a328799cc79c6534afa7fa8d",
+        "bytes": 1844,
+        "mtimeNs": 1792937044364066857
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "6bae657d2c7f1d6f4800547738c08b8c4de38ce6a328799cc79c6534afa7fa8d",
+        "bytes": 1844,
+        "mtimeNs": 1792937044364066857
+      }
+    },
+    {
+      "source": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-dated-window/sec-market/docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-2026-10-25/build.log.gz",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-2026-10-25/build.log.gz",
+      "relativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-2026-10-25/build.log.gz",
+      "kind": "sealed_worker_receipt",
+      "sourceSeal": {
+        "sha256": "3bc2463bad28dfd4744cdc244e274bd02de0cb47fe5c7cea000a717f9e081377",
+        "bytes": 2994,
+        "mtimeNs": 1792936984213186132
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "3bc2463bad28dfd4744cdc244e274bd02de0cb47fe5c7cea000a717f9e081377",
+        "bytes": 2994,
+        "mtimeNs": 1792936984213186132
+      }
+    },
+    {
+      "source": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-dated-window/sec-market/docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-2026-10-25/focused-absent.log.gz",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-2026-10-25/focused-absent.log.gz",
+      "relativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-2026-10-25/focused-absent.log.gz",
+      "kind": "sealed_worker_receipt",
+      "sourceSeal": {
+        "sha256": "57eb62ac6231408aa4a5b44ee005427f637a49382add15f291573348c2453e0c",
+        "bytes": 1133,
+        "mtimeNs": 1792936984206983050
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "57eb62ac6231408aa4a5b44ee005427f637a49382add15f291573348c2453e0c",
+        "bytes": 1133,
+        "mtimeNs": 1792936984206983050
+      }
+    },
+    {
+      "source": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-dated-window/sec-market/docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-2026-10-25/focused-present.log.gz",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-2026-10-25/focused-present.log.gz",
+      "relativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-2026-10-25/focused-present.log.gz",
+      "kind": "sealed_worker_receipt",
+      "sourceSeal": {
+        "sha256": "70d7dbcc9d2832c10442e828dfe0e337cfeedb7671efaafde906c7360f993733",
+        "bytes": 1014,
+        "mtimeNs": 1792936984206603717
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "70d7dbcc9d2832c10442e828dfe0e337cfeedb7671efaafde906c7360f993733",
+        "bytes": 1014,
+        "mtimeNs": 1792936984206603717
+      }
+    },
+    {
+      "source": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-dated-window/sec-market/docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-2026-10-25/fresh-application.json",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-2026-10-25/fresh-application.json",
+      "relativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-2026-10-25/fresh-application.json",
+      "kind": "sealed_worker_receipt",
+      "sourceSeal": {
+        "sha256": "50bbe423ec2ddbc6996de23a07943671b1ddbfda94330674624c6d189715ac69",
+        "bytes": 1576,
+        "mtimeNs": 1792936984205771884
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "50bbe423ec2ddbc6996de23a07943671b1ddbfda94330674624c6d189715ac69",
+        "bytes": 1576,
+        "mtimeNs": 1792936984205771884
+      }
+    },
+    {
+      "source": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-dated-window/sec-market/docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-2026-10-25/full-present.log.gz",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-2026-10-25/full-present.log.gz",
+      "relativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-2026-10-25/full-present.log.gz",
+      "kind": "sealed_worker_receipt",
+      "sourceSeal": {
+        "sha256": "72453928957b7f79bfd62f1127f21226d199e70912855bfc5afe61576cb50677",
+        "bytes": 26739,
+        "mtimeNs": 1792936984212369965
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "72453928957b7f79bfd62f1127f21226d199e70912855bfc5afe61576cb50677",
+        "bytes": 26739,
+        "mtimeNs": 1792936984212369965
+      }
+    },
+    {
+      "source": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-dated-window/sec-market/docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-2026-10-25/original-test_prnewswire_retained_window.py",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-2026-10-25/original-test_prnewswire_retained_window.py",
+      "relativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-2026-10-25/original-test_prnewswire_retained_window.py",
+      "kind": "sealed_worker_receipt",
+      "sourceSeal": {
+        "sha256": "96f47e4056eb03e3dbaf4a5cf2445696d6ac7c92c50e83ec090330cc8c12cd2d",
+        "bytes": 14277,
+        "mtimeNs": 1792936690819699452
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "96f47e4056eb03e3dbaf4a5cf2445696d6ac7c92c50e83ec090330cc8c12cd2d",
+        "bytes": 14277,
+        "mtimeNs": 1792936690819699452
+      }
+    },
+    {
+      "source": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-dated-window/sec-market/docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-2026-10-25/render-local.log.gz",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-2026-10-25/render-local.log.gz",
+      "relativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-2026-10-25/render-local.log.gz",
+      "kind": "sealed_worker_receipt",
+      "sourceSeal": {
+        "sha256": "096668f71f402076531dfca24e30cf536a15043bc456790e53f8cfc328d064e4",
+        "bytes": 190,
+        "mtimeNs": 1792936984213769798
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "096668f71f402076531dfca24e30cf536a15043bc456790e53f8cfc328d064e4",
+        "bytes": 190,
+        "mtimeNs": 1792936984213769798
+      }
+    },
+    {
+      "source": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-dated-window/sec-market/docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-2026-10-25/render-production.log.gz",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-2026-10-25/render-production.log.gz",
+      "relativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-2026-10-25/render-production.log.gz",
+      "kind": "sealed_worker_receipt",
+      "sourceSeal": {
+        "sha256": "ffd1dd5ea79d342ad15f4aad372bdc3f05e2fdf051e106b307656976018d2772",
+        "bytes": 195,
+        "mtimeNs": 1792936984213524840
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "ffd1dd5ea79d342ad15f4aad372bdc3f05e2fdf051e106b307656976018d2772",
+        "bytes": 195,
+        "mtimeNs": 1792936984213524840
+      }
+    },
+    {
+      "source": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-dated-window/sec-market/docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-2026-10-25/renders.json",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-2026-10-25/renders.json",
+      "relativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-2026-10-25/renders.json",
+      "kind": "sealed_worker_receipt",
+      "sourceSeal": {
+        "sha256": "4f9c93ce1ee9c74e88a1ec69a1abb4690df1e632f33e7b60d32a621c106fb0e5",
+        "bytes": 2573,
+        "mtimeNs": 1792936984206221926
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "4f9c93ce1ee9c74e88a1ec69a1abb4690df1e632f33e7b60d32a621c106fb0e5",
+        "bytes": 2573,
+        "mtimeNs": 1792936984206221926
+      }
+    },
+    {
+      "source": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-dated-window/sec-market/docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-2026-10-25/run-absent-prn.py",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-2026-10-25/run-absent-prn.py",
+      "relativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-2026-10-25/run-absent-prn.py",
+      "kind": "sealed_worker_receipt",
+      "sourceSeal": {
+        "sha256": "ee746bbc6a70055a33b2bba3d71728c8760d3937c90a40fd64bdc754368f2049",
+        "bytes": 1092,
+        "mtimeNs": 1792936984206006176
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "ee746bbc6a70055a33b2bba3d71728c8760d3937c90a40fd64bdc754368f2049",
+        "bytes": 1092,
+        "mtimeNs": 1792936984206006176
+      }
+    },
+    {
+      "source": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-dated-window/sec-market/docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-2026-10-25/test-only.diff",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-2026-10-25/test-only.diff",
+      "relativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-2026-10-25/test-only.diff",
+      "kind": "sealed_worker_receipt",
+      "sourceSeal": {
+        "sha256": "e9fa1f320df4dee39167cdacc40a85fda4d64f0978b5de42b892fd4d7fadd9b0",
+        "bytes": 1038,
+        "mtimeNs": 1792936984205465176
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "e9fa1f320df4dee39167cdacc40a85fda4d64f0978b5de42b892fd4d7fadd9b0",
+        "bytes": 1038,
+        "mtimeNs": 1792936984205465176
+      }
+    },
+    {
+      "source": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-dated-window/sec-market/docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-2026-10-25/verification.json",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-2026-10-25/verification.json",
+      "relativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-2026-10-25/verification.json",
+      "kind": "sealed_worker_receipt",
+      "sourceSeal": {
+        "sha256": "360efa494e7ef07bf2fbd047ac166c2533889142c8ab6d77543a2a247ac20e43",
+        "bytes": 12948,
+        "mtimeNs": 1792937044363789399
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "360efa494e7ef07bf2fbd047ac166c2533889142c8ab6d77543a2a247ac20e43",
+        "bytes": 12948,
+        "mtimeNs": 1792937044363789399
+      }
+    },
+    {
+      "source": "/var/tmp/smp-prn-independent-20261025/handback/docs/active/daily-pipeline/accuracy/prnewswire-dated-window-parser-independent-review-2026-10-25.json",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/prnewswire-dated-window-parser-independent-review-2026-10-25.json",
+      "relativePath": "docs/active/daily-pipeline/accuracy/prnewswire-dated-window-parser-independent-review-2026-10-25.json",
+      "kind": "sealed_independent_review_and_owned_receipt",
+      "sourceSeal": {
+        "sha256": "e941e8a6bd2d9b379c55e21c5a86cf528b3244493c7c4dea28a265644462dbcf",
+        "bytes": 9105,
+        "mtimeNs": 1792936515484593559
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "e941e8a6bd2d9b379c55e21c5a86cf528b3244493c7c4dea28a265644462dbcf",
+        "bytes": 9105,
+        "mtimeNs": 1792936515484593559
+      }
+    },
+    {
+      "source": "/var/tmp/smp-prn-independent-20261025/handback/docs/active/daily-pipeline/accuracy/prnewswire-dated-window-parser-independent-review-2026-10-25.md",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/prnewswire-dated-window-parser-independent-review-2026-10-25.md",
+      "relativePath": "docs/active/daily-pipeline/accuracy/prnewswire-dated-window-parser-independent-review-2026-10-25.md",
+      "kind": "sealed_independent_review_and_owned_receipt",
+      "sourceSeal": {
+        "sha256": "928376127ba1347a47e8e9bfd4888abf2688af50de8d362c2ab509cd2b968144",
+        "bytes": 3350,
+        "mtimeNs": 1792936515484628268
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "928376127ba1347a47e8e9bfd4888abf2688af50de8d362c2ab509cd2b968144",
+        "bytes": 3350,
+        "mtimeNs": 1792936515484628268
+      }
+    },
+    {
+      "source": "/var/tmp/smp-prn-independent-20261025/handback/docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-independent-review-2026-10-25/absent.json",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-independent-review-2026-10-25/absent.json",
+      "relativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-independent-review-2026-10-25/absent.json",
+      "kind": "sealed_independent_review_and_owned_receipt",
+      "sourceSeal": {
+        "sha256": "b1e5b9dd34390f9d88875bdcfa84d35989d23dad8f4888e99251854fc3d174c8",
+        "bytes": 4371,
+        "mtimeNs": 1792936515484001685
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "b1e5b9dd34390f9d88875bdcfa84d35989d23dad8f4888e99251854fc3d174c8",
+        "bytes": 4371,
+        "mtimeNs": 1792936515484001685
+      }
+    },
+    {
+      "source": "/var/tmp/smp-prn-independent-20261025/handback/docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-independent-review-2026-10-25/absent.log",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-independent-review-2026-10-25/absent.log",
+      "relativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-independent-review-2026-10-25/absent.log",
+      "kind": "sealed_independent_review_and_owned_receipt",
+      "sourceSeal": {
+        "sha256": "26dcbeeb1be943ddfbe75a519deaf9d4d8e64709a3102d450afc3beb48a87df5",
+        "bytes": 9447,
+        "mtimeNs": 1792936515484052893
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "26dcbeeb1be943ddfbe75a519deaf9d4d8e64709a3102d450afc3beb48a87df5",
+        "bytes": 9447,
+        "mtimeNs": 1792936515484052893
+      }
+    },
+    {
+      "source": "/var/tmp/smp-prn-independent-20261025/handback/docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-independent-review-2026-10-25/absent.py",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-independent-review-2026-10-25/absent.py",
+      "relativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-independent-review-2026-10-25/absent.py",
+      "kind": "sealed_independent_review_and_owned_receipt",
+      "sourceSeal": {
+        "sha256": "85bc694a3480f3694538b33bac0b47ccde0492774dfc81bfc524f8cdf3ba6ecd",
+        "bytes": 2030,
+        "mtimeNs": 1792936515483962726
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "85bc694a3480f3694538b33bac0b47ccde0492774dfc81bfc524f8cdf3ba6ecd",
+        "bytes": 2030,
+        "mtimeNs": 1792936515483962726
+      }
+    },
+    {
+      "source": "/var/tmp/smp-prn-independent-20261025/handback/docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-independent-review-2026-10-25/closure.json",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-independent-review-2026-10-25/closure.json",
+      "relativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-independent-review-2026-10-25/closure.json",
+      "kind": "sealed_independent_review_and_owned_receipt",
+      "sourceSeal": {
+        "sha256": "458b0c9327fbd5c04118e374bd36a2618e6ed054668be13ba312fd99e5db4e2e",
+        "bytes": 4070,
+        "mtimeNs": 1792936515484357018
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "458b0c9327fbd5c04118e374bd36a2618e6ed054668be13ba312fd99e5db4e2e",
+        "bytes": 4070,
+        "mtimeNs": 1792936515484357018
+      }
+    },
+    {
+      "source": "/var/tmp/smp-prn-independent-20261025/handback/docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-independent-review-2026-10-25/independent-review.json",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-independent-review-2026-10-25/independent-review.json",
+      "relativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-independent-review-2026-10-25/independent-review.json",
+      "kind": "sealed_independent_review_and_owned_receipt",
+      "sourceSeal": {
+        "sha256": "5558dae21df176b09646dd2aa22afa6d3921a0f26bdd5add8338317151984242",
+        "bytes": 24880,
+        "mtimeNs": 1792936515483901393
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "5558dae21df176b09646dd2aa22afa6d3921a0f26bdd5add8338317151984242",
+        "bytes": 24880,
+        "mtimeNs": 1792936515483901393
+      }
+    },
+    {
+      "source": "/var/tmp/smp-prn-independent-20261025/handback/docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-independent-review-2026-10-25/index.json",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-independent-review-2026-10-25/index.json",
+      "relativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-independent-review-2026-10-25/index.json",
+      "kind": "sealed_independent_review_and_owned_receipt",
+      "sourceSeal": {
+        "sha256": "71832432e92379b73086ab64faee33b0f1ebd19ff6d651979dffc4e36674dc55",
+        "bytes": 1103,
+        "mtimeNs": 1792936515484801643
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "71832432e92379b73086ab64faee33b0f1ebd19ff6d651979dffc4e36674dc55",
+        "bytes": 1103,
+        "mtimeNs": 1792936515484801643
+      }
+    },
+    {
+      "source": "/var/tmp/smp-prn-independent-20261025/handback/docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-independent-review-2026-10-25/review.log",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-independent-review-2026-10-25/review.log",
+      "relativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-independent-review-2026-10-25/review.log",
+      "kind": "sealed_independent_review_and_owned_receipt",
+      "sourceSeal": {
+        "sha256": "1a10e77b93215e0e529ec86571eb735a93b5f91b6bdf35cb7b4a7b50e13c24bb",
+        "bytes": 10024,
+        "mtimeNs": 1792936515483853476
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "1a10e77b93215e0e529ec86571eb735a93b5f91b6bdf35cb7b4a7b50e13c24bb",
+        "bytes": 10024,
+        "mtimeNs": 1792936515483853476
+      }
+    },
+    {
+      "source": "/var/tmp/smp-prn-independent-20261025/handback/docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-independent-review-2026-10-25/review.py",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-independent-review-2026-10-25/review.py",
+      "relativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-independent-review-2026-10-25/review.py",
+      "kind": "sealed_independent_review_and_owned_receipt",
+      "sourceSeal": {
+        "sha256": "0fb1bc54fc57848e04fb599595a485d31254d4e78bda097d37cb1b7536a27cc6",
+        "bytes": 6282,
+        "mtimeNs": 1792936515483784060
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "0fb1bc54fc57848e04fb599595a485d31254d4e78bda097d37cb1b7536a27cc6",
+        "bytes": 6282,
+        "mtimeNs": 1792936515483784060
+      }
+    },
+    {
+      "source": "/var/tmp/smp-prn-independent-20261025/handback/docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-independent-review-2026-10-25/seal.py",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-independent-review-2026-10-25/seal.py",
+      "relativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-dated-window-parser-independent-review-2026-10-25/seal.py",
+      "kind": "sealed_independent_review_and_owned_receipt",
+      "sourceSeal": {
+        "sha256": "e47a766fa73fdfe8cf960598bb7b01a91bf47ead3293cbf3d2f7470ecccbab4d",
+        "bytes": 8325,
+        "mtimeNs": 1792936515484137101
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "e47a766fa73fdfe8cf960598bb7b01a91bf47ead3293cbf3d2f7470ecccbab4d",
+        "bytes": 8325,
+        "mtimeNs": 1792936515484137101
+      }
+    },
+    {
+      "source": "/var/tmp/smp-prn-historical-test-delta-independent-20261025/handback/docs/active/daily-pipeline/accuracy/prnewswire-historical-policy-test-delta-independent-review-2026-10-25.json",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/prnewswire-historical-policy-test-delta-independent-review-2026-10-25.json",
+      "relativePath": "docs/active/daily-pipeline/accuracy/prnewswire-historical-policy-test-delta-independent-review-2026-10-25.json",
+      "kind": "sealed_independent_review_and_owned_receipt",
+      "sourceSeal": {
+        "sha256": "9b7b6a9049e123c5ab7aa202195fa37a4b4ed574b024d68ac9315ff6ceaa2a1e",
+        "bytes": 12715,
+        "mtimeNs": 1792936974378763496
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "9b7b6a9049e123c5ab7aa202195fa37a4b4ed574b024d68ac9315ff6ceaa2a1e",
+        "bytes": 12715,
+        "mtimeNs": 1792936974378763496
+      }
+    },
+    {
+      "source": "/var/tmp/smp-prn-historical-test-delta-independent-20261025/handback/docs/active/daily-pipeline/accuracy/prnewswire-historical-policy-test-delta-independent-review-2026-10-25.md",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/prnewswire-historical-policy-test-delta-independent-review-2026-10-25.md",
+      "relativePath": "docs/active/daily-pipeline/accuracy/prnewswire-historical-policy-test-delta-independent-review-2026-10-25.md",
+      "kind": "sealed_independent_review_and_owned_receipt",
+      "sourceSeal": {
+        "sha256": "a9cf814ac34e965dbe1b824fa235b73d1a172f243a2fd6f7f48d4462b6cf6ab2",
+        "bytes": 2230,
+        "mtimeNs": 1792936974378824829
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "a9cf814ac34e965dbe1b824fa235b73d1a172f243a2fd6f7f48d4462b6cf6ab2",
+        "bytes": 2230,
+        "mtimeNs": 1792936974378824829
+      }
+    },
+    {
+      "source": "/var/tmp/smp-prn-historical-test-delta-independent-20261025/handback/docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-independent-review-2026-10-25/absent.json",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-independent-review-2026-10-25/absent.json",
+      "relativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-independent-review-2026-10-25/absent.json",
+      "kind": "sealed_independent_review_and_owned_receipt",
+      "sourceSeal": {
+        "sha256": "4e18c08cc71e0e34e39b949d2531a5706a8a7f645574e8d1e08d9a2828ce8ec9",
+        "bytes": 4711,
+        "mtimeNs": 1792936974373114081
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "4e18c08cc71e0e34e39b949d2531a5706a8a7f645574e8d1e08d9a2828ce8ec9",
+        "bytes": 4711,
+        "mtimeNs": 1792936974373114081
+      }
+    },
+    {
+      "source": "/var/tmp/smp-prn-historical-test-delta-independent-20261025/handback/docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-independent-review-2026-10-25/absent.log",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-independent-review-2026-10-25/absent.log",
+      "relativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-independent-review-2026-10-25/absent.log",
+      "kind": "sealed_independent_review_and_owned_receipt",
+      "sourceSeal": {
+        "sha256": "4eb2aafbe406ccc21fe21bb0cb790f6733fdac293ac80f95298708cbedc3e60d",
+        "bytes": 9761,
+        "mtimeNs": 1792936974373287331
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "4eb2aafbe406ccc21fe21bb0cb790f6733fdac293ac80f95298708cbedc3e60d",
+        "bytes": 9761,
+        "mtimeNs": 1792936974373287331
+      }
+    },
+    {
+      "source": "/var/tmp/smp-prn-historical-test-delta-independent-20261025/handback/docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-independent-review-2026-10-25/combined-base-blobs.raw",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-independent-review-2026-10-25/combined-base-blobs.raw",
+      "relativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-independent-review-2026-10-25/combined-base-blobs.raw",
+      "kind": "sealed_independent_review_and_owned_receipt",
+      "sourceSeal": {
+        "sha256": "db6a8fa695ebf6945d1ae3965f13bea3ec37c146a174a8e50c8cb3dda5de0cfe",
+        "bytes": 357586,
+        "mtimeNs": 1792936974373692039
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "db6a8fa695ebf6945d1ae3965f13bea3ec37c146a174a8e50c8cb3dda5de0cfe",
+        "bytes": 357586,
+        "mtimeNs": 1792936974373692039
+      }
+    },
+    {
+      "source": "/var/tmp/smp-prn-historical-test-delta-independent-20261025/handback/docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-independent-review-2026-10-25/combined-base-verification.json",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-independent-review-2026-10-25/combined-base-verification.json",
+      "relativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-independent-review-2026-10-25/combined-base-verification.json",
+      "kind": "sealed_independent_review_and_owned_receipt",
+      "sourceSeal": {
+        "sha256": "c29050b15f74260997628bf80317de9d3d0dcd880a982c1ba82ff945e79affc3",
+        "bytes": 1692,
+        "mtimeNs": 1792936974374057455
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "c29050b15f74260997628bf80317de9d3d0dcd880a982c1ba82ff945e79affc3",
+        "bytes": 1692,
+        "mtimeNs": 1792936974374057455
+      }
+    },
+    {
+      "source": "/var/tmp/smp-prn-historical-test-delta-independent-20261025/handback/docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-independent-review-2026-10-25/index.json",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-independent-review-2026-10-25/index.json",
+      "relativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-independent-review-2026-10-25/index.json",
+      "kind": "sealed_independent_review_and_owned_receipt",
+      "sourceSeal": {
+        "sha256": "7e47822407324def41746831850eb2823cbfb13efb33eb3f7ec2b55128e8d520",
+        "bytes": 1561,
+        "mtimeNs": 1792936974379321662
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "7e47822407324def41746831850eb2823cbfb13efb33eb3f7ec2b55128e8d520",
+        "bytes": 1561,
+        "mtimeNs": 1792936974379321662
+      }
+    },
+    {
+      "source": "/var/tmp/smp-prn-historical-test-delta-independent-20261025/handback/docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-independent-review-2026-10-25/original-sealed-test.py",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-independent-review-2026-10-25/original-sealed-test.py",
+      "relativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-independent-review-2026-10-25/original-sealed-test.py",
+      "kind": "sealed_independent_review_and_owned_receipt",
+      "sourceSeal": {
+        "sha256": "96f47e4056eb03e3dbaf4a5cf2445696d6ac7c92c50e83ec090330cc8c12cd2d",
+        "bytes": 14277,
+        "mtimeNs": 1792936974374180705
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "96f47e4056eb03e3dbaf4a5cf2445696d6ac7c92c50e83ec090330cc8c12cd2d",
+        "bytes": 14277,
+        "mtimeNs": 1792936974374180705
+      }
+    },
+    {
+      "source": "/var/tmp/smp-prn-historical-test-delta-independent-20261025/handback/docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-independent-review-2026-10-25/present.json",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-independent-review-2026-10-25/present.json",
+      "relativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-independent-review-2026-10-25/present.json",
+      "kind": "sealed_independent_review_and_owned_receipt",
+      "sourceSeal": {
+        "sha256": "dba09ba8e6d7bc7fde8514ffb6aadda2e3f8a2e9bfa5386752374ca4e36898a6",
+        "bytes": 3592,
+        "mtimeNs": 1792936974373049581
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "dba09ba8e6d7bc7fde8514ffb6aadda2e3f8a2e9bfa5386752374ca4e36898a6",
+        "bytes": 3592,
+        "mtimeNs": 1792936974373049581
+      }
+    },
+    {
+      "source": "/var/tmp/smp-prn-historical-test-delta-independent-20261025/handback/docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-independent-review-2026-10-25/present.log",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-independent-review-2026-10-25/present.log",
+      "relativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-independent-review-2026-10-25/present.log",
+      "kind": "sealed_independent_review_and_owned_receipt",
+      "sourceSeal": {
+        "sha256": "47ec8fe5d209d51def0e2daad70284a76f589370fe9de507ded31bc6edbbea80",
+        "bytes": 8191,
+        "mtimeNs": 1792936974373202331
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "47ec8fe5d209d51def0e2daad70284a76f589370fe9de507ded31bc6edbbea80",
+        "bytes": 8191,
+        "mtimeNs": 1792936974373202331
+      }
+    },
+    {
+      "source": "/var/tmp/smp-prn-historical-test-delta-independent-20261025/handback/docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-independent-review-2026-10-25/review.py",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-independent-review-2026-10-25/review.py",
+      "relativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-independent-review-2026-10-25/review.py",
+      "kind": "sealed_independent_review_and_owned_receipt",
+      "sourceSeal": {
+        "sha256": "cfa514d99ca070ec10669bbe10fc19a897ec760f654cd0b4fa15a94bfc66f9cd",
+        "bytes": 3512,
+        "mtimeNs": 1792936974372906706
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "cfa514d99ca070ec10669bbe10fc19a897ec760f654cd0b4fa15a94bfc66f9cd",
+        "bytes": 3512,
+        "mtimeNs": 1792936974372906706
+      }
+    },
+    {
+      "source": "/var/tmp/smp-prn-historical-test-delta-independent-20261025/handback/docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-independent-review-2026-10-25/seal.py",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-independent-review-2026-10-25/seal.py",
+      "relativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-independent-review-2026-10-25/seal.py",
+      "kind": "sealed_independent_review_and_owned_receipt",
+      "sourceSeal": {
+        "sha256": "4b133058e4f900d8d796af132e7edb5adc4df6475ec43745b106f9c3d84272d9",
+        "bytes": 6583,
+        "mtimeNs": 1792936974372980331
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "4b133058e4f900d8d796af132e7edb5adc4df6475ec43745b106f9c3d84272d9",
+        "bytes": 6583,
+        "mtimeNs": 1792936974372980331
+      }
+    },
+    {
+      "source": "/var/tmp/smp-prn-historical-test-delta-independent-20261025/handback/docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-independent-review-2026-10-25/test-only.diff",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-independent-review-2026-10-25/test-only.diff",
+      "relativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-independent-review-2026-10-25/test-only.diff",
+      "kind": "sealed_independent_review_and_owned_receipt",
+      "sourceSeal": {
+        "sha256": "6aaff999e93e729854e0ee85d6ce64bb1a27544557a073c8f6c2cac97fb62b50",
+        "bytes": 1379,
+        "mtimeNs": 1792936974373351289
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "6aaff999e93e729854e0ee85d6ce64bb1a27544557a073c8f6c2cac97fb62b50",
+        "bytes": 1379,
+        "mtimeNs": 1792936974373351289
+      }
+    },
+    {
+      "source": "/var/tmp/smp-prn-historical-test-delta-independent-20261025/handback/docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-independent-review-2026-10-25/worker-combined-J-full-ops.log.gz",
+      "target": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-independent-review-2026-10-25/worker-combined-J-full-ops.log.gz",
+      "relativePath": "docs/active/daily-pipeline/accuracy/receipts/prnewswire-historical-policy-test-delta-independent-review-2026-10-25/worker-combined-J-full-ops.log.gz",
+      "kind": "sealed_independent_review_and_owned_receipt",
+      "sourceSeal": {
+        "sha256": "a68809ee72055a958df1362c67784bd7e39408761978cd98b4702467246dffb1",
+        "bytes": 26739,
+        "mtimeNs": 1792936974377950204
+      },
+      "targetBefore": null,
+      "targetAfter": {
+        "sha256": "a68809ee72055a958df1362c67784bd7e39408761978cd98b4702467246dffb1",
+        "bytes": 26739,
+        "mtimeNs": 1792936974377950204
+      }
+    }
+  ],
+  "currentJRawSha256": "bb9735d073e41a0a22bdcfd315419c59e8791b82be34bc73ead699530147b3e6",
+  "currentJCanonicalSha256": "47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a",
+  "protectedFilesBeforeAndAfter": {
+    "contracts/market.json": {
+      "sha256": "bb9735d073e41a0a22bdcfd315419c59e8791b82be34bc73ead699530147b3e6",
+      "bytes": 287122,
+      "mtimeNs": 1792936426875241385
+    },
+    "contracts/source-qualification-probes.json": {
+      "sha256": "ef9ee1bab6cfe6202b62e8d5605393f045d11fd64bd42ea1bcea769de15c8a01",
+      "bytes": 173,
+      "mtimeNs": 1792936426894661837
+    },
+    "contracts/factual-corrections.json": {
+      "sha256": "9c9fbe0d3d40ece11e1407ce9460086c732f62da88d3b0f220ab9d6f8757da00",
+      "bytes": 32004,
+      "mtimeNs": 1792802031150005119
+    },
+    "web/src/data/tracker/factualCorrectionPolicy.json": {
+      "sha256": "365058911a182610cde401307fb30cc1855930b7940969440a618441cbbef9b2",
+      "bytes": 1721,
+      "mtimeNs": 1792936426998221514
+    },
+    "web/scripts/pipeline/onboarding.py": {
+      "sha256": "f15e008c081f0b9c48e53ab0b4c4388798d2bd54aaade904188b40305aa6bb69",
+      "bytes": 112821,
+      "mtimeNs": 1792863209004844673
+    },
+    "web/scripts/pipeline/discovery.py": {
+      "sha256": "9e1c2d6be5f0a3307d1c577ffed7e1ad8e70a3d05f47b55f72d558c3e8b63646",
+      "bytes": 73652,
+      "mtimeNs": 1792936426982845893
+    },
+    "web/scripts/pipeline/fetcher.py": {
+      "sha256": "82084e87bb41687fec8ebfc969cf0a37294e04312a47a27993f5c359a585adce",
+      "bytes": 10828,
+      "mtimeNs": 1792919139082066117
+    },
+    "web/scripts/pipeline/engine.py": {
+      "sha256": "e471f18006a4899406510cdede42829476ba1945b58c420c61f6edce767a7e19",
+      "bytes": 54002,
+      "mtimeNs": 1792919139081836951
+    },
+    "web/scripts/pipeline/corrections.py": {
+      "sha256": "d742a91d4d23da5db3b426afcef76a80971c47dd54f8e4312065a6994f87b11f",
+      "bytes": 44838,
+      "mtimeNs": 1792919139081579451
+    },
+    "ops/ci/collect.py": {
+      "sha256": "77f3aaeb56514b538452e39d3eda30358ee1bdbba88b593d4da10ee0d71d04ce",
+      "bytes": 26500,
+      "mtimeNs": 1792936426968106814
+    },
+    "ops/ci/q4_qualification_seed.py": {
+      "sha256": "18e736e9aa00b1458ab3b2b77b507a5fa9b7dea24e95124169db8ebf0e1e797f",
+      "bytes": 10147,
+      "mtimeNs": 1792936426968500439
+    },
+    "web/scripts/pipeline/q4_qualification_origin.py": {
+      "sha256": "fc1480799866d9b62360891c48e218242f1e6f01be54dad4767f6ba094b10848",
+      "bytes": 12678,
+      "mtimeNs": 1792936426983385310
+    },
+    "web/scripts/pipeline/q4_retained_primary_template.py": {
+      "sha256": "ac277f7522641e501def1f2613ec5ae7fce07cc148ceaa739483ac611d88669c",
+      "bytes": 15263,
+      "mtimeNs": 1792930601321013420
+    },
+    "status.md": {
+      "sha256": "5b2ef3785ba8696461f6dce485036c6da3033777ccae52b7d214ab25255f43f8",
+      "bytes": 9517,
+      "mtimeNs": 1792936770925182994
+    },
+    "BACKLOG.md": {
+      "sha256": "92d61b72f9f585256abffe26c7f8fc44ab2dc2571406a492c77afa1de60c87fb",
+      "bytes": 22969,
+      "mtimeNs": 1792936426874552760
+    },
+    "lessons.md": {
+      "sha256": "36232b29d360d4a4b1af3c659c8bf2050838d1fbef505d11e481fbe6c6287895",
+      "bytes": 28489,
+      "mtimeNs": 1792936426967848273
+    },
+    "intent.md": {
+      "sha256": "d5df65215bf3b3d4cd9e4ef3f69df14434e25b0e8277008345fb215453f9d871",
+      "bytes": 17252,
+      "mtimeNs": 1792800049802598063
+    },
+    "AGENTS.md": {
+      "sha256": "6224e1d60ea3b26f48ca0fcacbc9fcc1cbad035416bbe5c4ffe57e8cfb963d07",
+      "bytes": 8418,
+      "mtimeNs": 1792800049461125242
+    }
+  },
+  "protectedBytesSizesMtimesUnchanged": true,
+  "onlyPermittedConsumedPinDifference": {
+    "path": "ops/ci/test_prnewswire_retained_window.py",
+    "originalReviewedSha256": "96f47e4056eb03e3dbaf4a5cf2445696d6ac7c92c50e83ec090330cc8c12cd2d",
+    "separatelyReviewedSuccessorSha256": "f059f6b45732ef935dbed9a30dc6e5e8f38f41dae8a183e8dd6a08019bfd888e",
+    "originalBytesPreservedInSeparateWorkerAndReviewerReceipts": true
+  },
+  "validationReused": {
+    "focusedActual": 26,
+    "portableAbsentPassed": 13,
+    "archiveAbsentSkipped": 13,
+    "freshCurrentJCombinedOperations": 961,
+    "buildSecClaimsVerified": 80,
+    "pixelIdenticalFourImages": true,
+    "newUnchangedTestsOrBuildsRepeated": false
+  },
+  "boundaries": {
+    "normalImportedRuntimeModified": false,
+    "contractsCopied": false,
+    "operationalPlanModified": false,
+    "sourceOrModelRequests": 0,
+    "dispatches": 0,
+    "commits": 0,
+    "pushes": 0,
+    "statusWritten": false
+  }
+}

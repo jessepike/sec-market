@@ -1,0 +1,38 @@
+{
+  "focused-tests": {
+    "raw": {
+      "sha256": "e985ad15fdadd0b6d33ca2d4c0c2a61e03bf39a50ce342bc45c83f1bf88ad9c2",
+      "bytes": 4757
+    },
+    "gzip": {
+      "file": "focused-tests.log.gz",
+      "sha256": "eb4ef4ab4c1fece7ff473f0e118e80a2dbf08b7b8fd40b822f2065a6f844fde8",
+      "bytes": 1014
+    },
+    "exactRoundTrip": true
+  },
+  "full-ops-tests": {
+    "raw": {
+      "sha256": "dca6b51540aa1cfd6fa5dcda921e6b67189079617a22189e7016f0470b35f4df",
+      "bytes": 176129
+    },
+    "gzip": {
+      "file": "full-ops-tests.log.gz",
+      "sha256": "8d257cbf07ca2911ecc39f934f75ef326b1f134cf7afcc4730ce28e6910e6ef3",
+      "bytes": 26300
+    },
+    "exactRoundTrip": true
+  },
+  "actual-replay": {
+    "raw": {
+      "sha256": "3386c5c66a32ada397809514b49e792f766fe215366eda000573e2a40566cb76",
+      "bytes": 1277
+    },
+    "gzip": {
+      "file": "actual-replay.log.gz",
+      "sha256": "d731b4a3f0dfdc340cb0837e9126341ee8ab0d0651deb5bfbcef9d6e070d2e31",
+      "bytes": 630
+    },
+    "exactRoundTrip": true
+  }
+}

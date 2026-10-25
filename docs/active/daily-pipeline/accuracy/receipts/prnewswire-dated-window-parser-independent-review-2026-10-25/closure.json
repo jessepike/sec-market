@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "verdict": "PASS",
+  "workerVerification": {
+    "sha256": "68b0294a34b22e80bc99a77cb1363a5e9968d9b5f6a0792ea15300b7e6f6c7e3",
+    "bytes": 7552,
+    "mtimeNs": 1792936298258930474
+  },
+  "workerLogsAuthenticated": {
+    "focused-tests": [
+      "Ran 26 tests in 9.153s",
+      "OK"
+    ],
+    "full-ops-tests": [
+      "Ran 947 tests in 38.398s",
+      "OK"
+    ],
+    "actual-replay": []
+  },
+  "all461ArchiveInputsAnd21ExternalSealsRechecked": true,
+  "archiveManifestSeal": {
+    "sha256": "148842177a7e7d9a5fd5c2ea4574576264a957b41958ee4cdf5effa80ea029c2",
+    "bytes": 10012399,
+    "mtimeNs": 1792932277617133137
+  },
+  "workerProtectedTrackedPinsVerified": {
+    "contracts/market.json": {
+      "sha256": "24221c946781559c0ff3626e4e479c4647da915d0f2d7559ea88046982532c3c",
+      "bytes": 284062
+    },
+    "contracts/source-qualification-probes.json": {
+      "sha256": "ad1c5cc234fe4fa69cbceb5370ac74825a37dc80b08528ca908d14b1352e53b4",
+      "bytes": 173
+    },
+    "contracts/factual-corrections.json": {
+      "sha256": "9c9fbe0d3d40ece11e1407ce9460086c732f62da88d3b0f220ab9d6f8757da00",
+      "bytes": 32004
+    },
+    "web/src/data/tracker/factualCorrectionPolicy.json": {
+      "sha256": "7319ece4c5c4f6c7d515fb9ef7ff13211daf38e041948edd26732e9ccfa2dbc7",
+      "bytes": 1721
+    },
+    "web/scripts/pipeline/onboarding.py": {
+      "sha256": "f15e008c081f0b9c48e53ab0b4c4388798d2bd54aaade904188b40305aa6bb69",
+      "bytes": 112821
+    },
+    "web/scripts/pipeline/discovery.py": {
+      "sha256": "2611635de944f025e848d8a7b15dfff2a328ac67a11a122a774eb46b2e1e7f68",
+      "bytes": 70911
+    },
+    "web/scripts/pipeline/fetcher.py": {
+      "sha256": "82084e87bb41687fec8ebfc969cf0a37294e04312a47a27993f5c359a585adce",
+      "bytes": 10828
+    },
+    "web/scripts/pipeline/engine.py": {
+      "sha256": "e471f18006a4899406510cdede42829476ba1945b58c420c61f6edce767a7e19",
+      "bytes": 54002
+    },
+    "web/scripts/pipeline/corrections.py": {
+      "sha256": "d742a91d4d23da5db3b426afcef76a80971c47dd54f8e4312065a6994f87b11f",
+      "bytes": 44838
+    },
+    "ops/ci/collect.py": {
+      "sha256": "044a560af19cc1e7a6fec9d87cc8461831dab491f7c42d3dd1d789c9bc3fe6d1",
+      "bytes": 26316
+    },
+    "status.md": {
+      "sha256": "0a67aab2107547357ad68c558f18500f0e64a625510037c5ebeae798e3a9cc3b",
+      "bytes": 7799
+    },
+    "BACKLOG.md": {
+      "sha256": "304f6af72b93df942f048f0b0174996fe494ac3224a1f09eb37ee9f5deeeffc3",
+      "bytes": 22084
+    },
+    "lessons.md": {
+      "sha256": "1c2de85432395513f62d6ce7d5ea0db0a3730bda522192d353d2838cb8923285",
+      "bytes": 28119
+    },
+    "intent.md": {
+      "sha256": "d5df65215bf3b3d4cd9e4ef3f69df14434e25b0e8277008345fb215453f9d871",
+      "bytes": 17252
+    },
+    "AGENTS.md": {
+      "sha256": "6224e1d60ea3b26f48ca0fcacbc9fcc1cbad035416bbe5c4ffe57e8cfb963d07",
+      "bytes": 8418
+    }
+  },
+  "workerCodeAndSpecPinsVerified": {
+    "web/scripts/pipeline/prnewswire_press_list.py": {
+      "sha256": "59e277831a29ef697bb37a2caad295e0ce5de0c3573859156ed12b42ae3fe34d",
+      "bytes": 18548
+    },
+    "web/scripts/pipeline/prnewswire_retained_window.py": {
+      "sha256": "5a5f8f8122409b847bae993b2959e3f5922400e13d09c8350aef0aa3cb2c807d",
+      "bytes": 17422
+    },
+    "ops/ci/test_prnewswire_press_list.py": {
+      "sha256": "af9debdd121297942d5f1699f6f20469a5ee36f3bbd05d7d72743fbc6dd142e2",
+      "bytes": 14669
+    },
+    "ops/ci/test_prnewswire_retained_window.py": {
+      "sha256": "96f47e4056eb03e3dbaf4a5cf2445696d6ac7c92c50e83ec090330cc8c12cd2d",
+      "bytes": 14277
+    },
+    "docs/active/daily-pipeline/accuracy/prnewswire-retained-window-descriptor-2026-10-25.json": {
+      "sha256": "328236fb3b1523a260f654a22b60f600a77d142f998d8d597252dd93bd7f493d",
+      "bytes": 16247
+    },
+    "docs/active/daily-pipeline/accuracy/prnewswire-dated-window-parser-build-spec-2026-10-25.md": {
+      "sha256": "156e2c44730328696a0f5cc330db9afb8dae441292b5b793e3c1f8172e6f750c",
+      "bytes": 20058
+    }
+  },
+  "frozenArchiveWrites": 0,
+  "repoWrites": 0
+}

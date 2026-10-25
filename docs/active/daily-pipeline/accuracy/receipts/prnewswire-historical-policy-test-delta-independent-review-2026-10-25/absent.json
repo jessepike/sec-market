@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "verdict": "PASS",
+  "mode": "absent",
+  "testsRun": 26,
+  "passed": 13,
+  "skipped": [
+    {
+      "test": "test_prnewswire_press_list.ActualPressListTests.test_actual_all_cards_locale_paths_and_separate_completion",
+      "reason": "Requires authenticated retained 9e4a archive"
+    },
+    {
+      "test": "test_prnewswire_retained_window.RetainedTests.test_actual_complete_proposal_separates_window_history_seed_scope_and_zero_credit",
+      "reason": "Requires authenticated retained 9e4a archive"
+    },
+    {
+      "test": "test_prnewswire_retained_window.RetainedTests.test_both_complete_original_diagnostics_replay_without_frozen_writes",
+      "reason": "Requires authenticated retained 9e4a archive"
+    },
+    {
+      "test": "test_prnewswire_retained_window.RetainedTests.test_duplicate_plan_json_keys_and_nonfinite_constants_reject",
+      "reason": "Requires authenticated retained 9e4a archive"
+    },
+    {
+      "test": "test_prnewswire_retained_window.RetainedTests.test_every_descriptor_scalar_and_missing_extra_fields_reject",
+      "reason": "Requires authenticated retained 9e4a archive"
+    },
+    {
+      "test": "test_prnewswire_retained_window.RetainedTests.test_legitimate_modification_date_difference_is_preserved",
+      "reason": "Requires authenticated retained 9e4a archive"
+    },
+    {
+      "test": "test_prnewswire_retained_window.RetainedTests.test_omitted_card_history_or_boundary_and_forged_credit_cannot_replay",
+      "reason": "Requires authenticated retained 9e4a archive"
+    },
+    {
+      "test": "test_prnewswire_retained_window.RetainedTests.test_original_primary_article_token_exception_is_closed",
+      "reason": "Requires authenticated retained 9e4a archive"
+    },
+    {
+      "test": "test_prnewswire_retained_window.RetainedTests.test_primary_original_full200_and_real304_chain_are_preserved",
+      "reason": "Requires authenticated retained 9e4a archive"
+    },
+    {
+      "test": "test_prnewswire_retained_window.RetainedTests.test_six_existing_admissions_facts_holds_budget_and_expiry_remain_exact",
+      "reason": "Requires authenticated retained 9e4a archive"
+    },
+    {
+      "test": "test_prnewswire_retained_window.RetainedTests.test_source_policy_mutation_rejects_without_historical_authority_bridge",
+      "reason": "Requires authenticated retained 9e4a archive"
+    },
+    {
+      "test": "test_prnewswire_retained_window.RetainedTests.test_store_cannot_forge_record_plan_page_primary_or_clock_even_with_rehashed_body",
+      "reason": "Requires authenticated retained 9e4a archive"
+    },
+    {
+      "test": "test_prnewswire_retained_window.RetainedTests.test_supplied_primary_metadata_identity_conflicts_and_hidden_container_reject",
+      "reason": "Requires authenticated retained 9e4a archive"
+    }
+  ],
+  "passedNames": [
+    "test_prnewswire_press_list.PressListTests.test_all_unrecognized_structure_hidden_decoys_and_attribute_ambiguity_reject",
+    "test_prnewswire_press_list.PressListTests.test_calendar_boundaries_and_all_future_rows_remain_explicit",
+    "test_prnewswire_press_list.PressListTests.test_cross_page_increasing_duplicate_and_gap_reject",
+    "test_prnewswire_press_list.PressListTests.test_duplicates_with_same_or_conflicting_dates_reject",
+    "test_prnewswire_press_list.PressListTests.test_equal_dates_across_connected_pages_are_legal",
+    "test_prnewswire_press_list.PressListTests.test_equal_dates_and_timestamps_preserve_distinct_urls_and_titles",
+    "test_prnewswire_press_list.PressListTests.test_impossible_calendar_and_increasing_dates_reject",
+    "test_prnewswire_press_list.PressListTests.test_input_size_and_schema_bounds_reject",
+    "test_prnewswire_press_list.PressListTests.test_metadata_only_page_urls_are_separate_and_conflicts_reject",
+    "test_prnewswire_press_list.PressListTests.test_pager_active_terminal_unknown_controls_and_head_conflicts_reject",
+    "test_prnewswire_press_list.PressListTests.test_prefix_stop_never_claims_older_history_complete",
+    "test_prnewswire_press_list.PressListTests.test_unknown_and_missing_dates_never_drop_urls_or_create_quiet",
+    "test_prnewswire_press_list.PressListTests.test_unsafe_source_transport_and_metadata_urls_reject"
+  ],
+  "frozenReadAttempts": [],
+  "extraChecks": [
+    "current_J_not_accepted_as_original_H",
+    "missing_historical_fixture_rejects",
+    "corrupt_historical_fixture_rejects"
+  ],
+  "currentCanonicalJ": "47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a",
+  "historicalRawAndCanonicalH": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+  "historicalBytes": 204449,
+  "sourceRequests": 0,
+  "modelRequests": 0,
+  "frozenWrites": 0,
+  "repoWrites": 0
+}

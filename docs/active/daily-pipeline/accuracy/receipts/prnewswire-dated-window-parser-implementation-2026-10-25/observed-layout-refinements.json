@@ -1,0 +1,380 @@
+{
+  "pages": [
+    {
+      "sourceId": "cato:official:1",
+      "url": "https://www.prnewswire.com/news/cato-networks/",
+      "body": {
+        "bytes": 225773,
+        "key": "objects/b061ee4f5831e2f53cb4b2f19708f225160a6a932ee6c18f93b5d15fb5edb7a8",
+        "sha256": "b061ee4f5831e2f53cb4b2f19708f225160a6a932ee6c18f93b5d15fb5edb7a8"
+      },
+      "metadataSpans": [
+        {
+          "byteOffset": 2635,
+          "byteLength": 77,
+          "literal": "<link rel=\"canonical\" href=\"https://www.prnewswire.com/news/cato-networks/\"/>"
+        },
+        {
+          "byteOffset": 2779,
+          "byteLength": 79,
+          "literal": "<link rel=\"next\" href=\"https://www.prnewswire.com/news/cato-networks/?page=2\"/>"
+        }
+      ],
+      "cardVariants": {
+        "card col-view": 6,
+        "card col-sm-12": 19
+      },
+      "languagePathPairs": [
+        {
+          "language": "en-US",
+          "pathPrefix": "/news-releases/",
+          "cards": 23
+        },
+        {
+          "language": "il",
+          "pathPrefix": "/il/news-releases/",
+          "cards": 2
+        }
+      ],
+      "titleVariants": {
+        "direct_h3_text": 23,
+        "leaf_langspan": 2
+      },
+      "cardContainerPath": "main#main.headline-listing section.container div.row div.col-md-8.col-sm-12 div.card-list.card-list-hr.nativo-section > div.row.newsCards[lang] > div[role=group][aria-label=\"News Release\"].card",
+      "metadataScope": "head canonical/prev/next only; no request-authority grant"
+    },
+    {
+      "sourceId": "chainguard:official:1",
+      "url": "https://www.prnewswire.com/news/chainguard/",
+      "body": {
+        "bytes": 243971,
+        "key": "objects/eebdec361111f3a6c7d53ec34f0c9a314e7e2a8fce74086ea0bb7dd409e68c0f",
+        "sha256": "eebdec361111f3a6c7d53ec34f0c9a314e7e2a8fce74086ea0bb7dd409e68c0f"
+      },
+      "metadataSpans": [
+        {
+          "byteOffset": 2629,
+          "byteLength": 74,
+          "literal": "<link rel=\"canonical\" href=\"https://www.prnewswire.com/news/chainguard/\"/>"
+        },
+        {
+          "byteOffset": 2770,
+          "byteLength": 76,
+          "literal": "<link rel=\"next\" href=\"https://www.prnewswire.com/news/chainguard/?page=2\"/>"
+        }
+      ],
+      "cardVariants": {
+        "card col-view": 25
+      },
+      "languagePathPairs": [
+        {
+          "language": "en-US",
+          "pathPrefix": "/news-releases/",
+          "cards": 24
+        },
+        {
+          "language": "in",
+          "pathPrefix": "/in/news-releases/",
+          "cards": 1
+        }
+      ],
+      "titleVariants": {
+        "direct_h3_text": 24,
+        "leaf_langspan": 1
+      },
+      "cardContainerPath": "main#main.headline-listing section.container div.row div.col-md-8.col-sm-12 div.card-list.card-list-hr.nativo-section > div.row.newsCards[lang] > div[role=group][aria-label=\"News Release\"].card",
+      "metadataScope": "head canonical/prev/next only; no request-authority grant"
+    },
+    {
+      "sourceId": "cato:official:1",
+      "url": "https://www.prnewswire.com/news/cato-networks/?page=2&pagesize=25",
+      "body": {
+        "bytes": 223473,
+        "key": "objects/f1aec25583e4165a460cdd8704dcfa3756d7cfd8d0ab6a106966332dc5a99d6c",
+        "sha256": "f1aec25583e4165a460cdd8704dcfa3756d7cfd8d0ab6a106966332dc5a99d6c"
+      },
+      "metadataSpans": [
+        {
+          "byteOffset": 2642,
+          "byteLength": 84,
+          "literal": "<link rel=\"canonical\" href=\"https://www.prnewswire.com/news/cato-networks/?page=2\"/>"
+        },
+        {
+          "byteOffset": 2772,
+          "byteLength": 72,
+          "literal": "<link rel=\"prev\" href=\"https://www.prnewswire.com/news/cato-networks/\"/>"
+        },
+        {
+          "byteOffset": 2911,
+          "byteLength": 79,
+          "literal": "<link rel=\"next\" href=\"https://www.prnewswire.com/news/cato-networks/?page=3\"/>"
+        }
+      ],
+      "cardVariants": {
+        "card col-sm-12": 21,
+        "card col-view": 4
+      },
+      "languagePathPairs": [
+        {
+          "language": "de",
+          "pathPrefix": "/news-releases/",
+          "cards": 1
+        },
+        {
+          "language": "en-US",
+          "pathPrefix": "/news-releases/",
+          "cards": 21
+        },
+        {
+          "language": "fr",
+          "pathPrefix": "/news-releases/",
+          "cards": 1
+        },
+        {
+          "language": "il",
+          "pathPrefix": "/il/news-releases/",
+          "cards": 2
+        }
+      ],
+      "titleVariants": {
+        "leaf_langspan": 4,
+        "direct_h3_text": 21
+      },
+      "cardContainerPath": "main#main.headline-listing section.container div.row div.col-md-8.col-sm-12 div.card-list.card-list-hr.nativo-section > div.row.newsCards[lang] > div[role=group][aria-label=\"News Release\"].card",
+      "metadataScope": "head canonical/prev/next only; no request-authority grant"
+    },
+    {
+      "sourceId": "cato:official:1",
+      "url": "https://www.prnewswire.com/news/cato-networks/?page=3&pagesize=25",
+      "body": {
+        "bytes": 219907,
+        "key": "objects/8da8bbadc370c91fa843fb8b08c0659aba81dd564d891a6a00346416ebfd996a",
+        "sha256": "8da8bbadc370c91fa843fb8b08c0659aba81dd564d891a6a00346416ebfd996a"
+      },
+      "metadataSpans": [
+        {
+          "byteOffset": 2642,
+          "byteLength": 84,
+          "literal": "<link rel=\"canonical\" href=\"https://www.prnewswire.com/news/cato-networks/?page=3\"/>"
+        },
+        {
+          "byteOffset": 2772,
+          "byteLength": 79,
+          "literal": "<link rel=\"prev\" href=\"https://www.prnewswire.com/news/cato-networks/?page=2\"/>"
+        },
+        {
+          "byteOffset": 2918,
+          "byteLength": 79,
+          "literal": "<link rel=\"next\" href=\"https://www.prnewswire.com/news/cato-networks/?page=4\"/>"
+        }
+      ],
+      "cardVariants": {
+        "card col-sm-12": 24,
+        "card col-view": 1
+      },
+      "languagePathPairs": [
+        {
+          "language": "en-US",
+          "pathPrefix": "/news-releases/",
+          "cards": 25
+        }
+      ],
+      "titleVariants": {
+        "direct_h3_text": 25
+      },
+      "cardContainerPath": "main#main.headline-listing section.container div.row div.col-md-8.col-sm-12 div.card-list.card-list-hr.nativo-section > div.row.newsCards[lang] > div[role=group][aria-label=\"News Release\"].card",
+      "metadataScope": "head canonical/prev/next only; no request-authority grant"
+    },
+    {
+      "sourceId": "cato:official:1",
+      "url": "https://www.prnewswire.com/news/cato-networks/?page=4&pagesize=25",
+      "body": {
+        "bytes": 222633,
+        "key": "objects/e0a46b24bd18b9de944654df18ad3bd3b9d5eea5b160feef615fae0b6d5cdafb",
+        "sha256": "e0a46b24bd18b9de944654df18ad3bd3b9d5eea5b160feef615fae0b6d5cdafb"
+      },
+      "metadataSpans": [
+        {
+          "byteOffset": 2642,
+          "byteLength": 84,
+          "literal": "<link rel=\"canonical\" href=\"https://www.prnewswire.com/news/cato-networks/?page=4\"/>"
+        },
+        {
+          "byteOffset": 2772,
+          "byteLength": 79,
+          "literal": "<link rel=\"prev\" href=\"https://www.prnewswire.com/news/cato-networks/?page=3\"/>"
+        },
+        {
+          "byteOffset": 2918,
+          "byteLength": 79,
+          "literal": "<link rel=\"next\" href=\"https://www.prnewswire.com/news/cato-networks/?page=5\"/>"
+        }
+      ],
+      "cardVariants": {
+        "card col-sm-12": 21,
+        "card col-view": 4
+      },
+      "languagePathPairs": [
+        {
+          "language": "da",
+          "pathPrefix": "/news-releases/",
+          "cards": 1
+        },
+        {
+          "language": "en-US",
+          "pathPrefix": "/news-releases/",
+          "cards": 15
+        },
+        {
+          "language": "fi",
+          "pathPrefix": "/news-releases/",
+          "cards": 1
+        },
+        {
+          "language": "fr",
+          "pathPrefix": "/fr/communiques-de-presse/",
+          "cards": 1
+        },
+        {
+          "language": "il",
+          "pathPrefix": "/il/news-releases/",
+          "cards": 4
+        },
+        {
+          "language": "nl",
+          "pathPrefix": "/nl/persberichten/",
+          "cards": 1
+        },
+        {
+          "language": "no",
+          "pathPrefix": "/news-releases/",
+          "cards": 1
+        },
+        {
+          "language": "sv",
+          "pathPrefix": "/news-releases/",
+          "cards": 1
+        }
+      ],
+      "titleVariants": {
+        "direct_h3_text": 15,
+        "leaf_langspan": 10
+      },
+      "cardContainerPath": "main#main.headline-listing section.container div.row div.col-md-8.col-sm-12 div.card-list.card-list-hr.nativo-section > div.row.newsCards[lang] > div[role=group][aria-label=\"News Release\"].card",
+      "metadataScope": "head canonical/prev/next only; no request-authority grant"
+    },
+    {
+      "sourceId": "cato:official:1",
+      "url": "https://www.prnewswire.com/news/cato-networks/?page=5&pagesize=25",
+      "body": {
+        "bytes": 230402,
+        "key": "objects/2ba79bd09d90877cb1d147234eddde48ede5162da7722392854c553cbf93761e",
+        "sha256": "2ba79bd09d90877cb1d147234eddde48ede5162da7722392854c553cbf93761e"
+      },
+      "metadataSpans": [
+        {
+          "byteOffset": 2642,
+          "byteLength": 84,
+          "literal": "<link rel=\"canonical\" href=\"https://www.prnewswire.com/news/cato-networks/?page=5\"/>"
+        },
+        {
+          "byteOffset": 2772,
+          "byteLength": 79,
+          "literal": "<link rel=\"prev\" href=\"https://www.prnewswire.com/news/cato-networks/?page=4\"/>"
+        },
+        {
+          "byteOffset": 2918,
+          "byteLength": 79,
+          "literal": "<link rel=\"next\" href=\"https://www.prnewswire.com/news/cato-networks/?page=6\"/>"
+        }
+      ],
+      "cardVariants": {
+        "card col-sm-12": 15,
+        "card col-view": 10
+      },
+      "languagePathPairs": [
+        {
+          "language": "de",
+          "pathPrefix": "/news-releases/",
+          "cards": 1
+        },
+        {
+          "language": "en-US",
+          "pathPrefix": "/news-releases/",
+          "cards": 18
+        },
+        {
+          "language": "fr",
+          "pathPrefix": "/news-releases/",
+          "cards": 1
+        },
+        {
+          "language": "il",
+          "pathPrefix": "/il/news-releases/",
+          "cards": 5
+        }
+      ],
+      "titleVariants": {
+        "direct_h3_text": 18,
+        "leaf_langspan": 7
+      },
+      "cardContainerPath": "main#main.headline-listing section.container div.row div.col-md-8.col-sm-12 div.card-list.card-list-hr.nativo-section > div.row.newsCards[lang] > div[role=group][aria-label=\"News Release\"].card",
+      "metadataScope": "head canonical/prev/next only; no request-authority grant"
+    },
+    {
+      "sourceId": "chainguard:official:1",
+      "url": "https://www.prnewswire.com/news/chainguard/?page=2&pagesize=25",
+      "body": {
+        "bytes": 236549,
+        "key": "objects/13e00b76b06ee3e9a42b2e1660bd827ee8bfdf300104bc6df979211bdef399a1",
+        "sha256": "13e00b76b06ee3e9a42b2e1660bd827ee8bfdf300104bc6df979211bdef399a1"
+      },
+      "metadataSpans": [
+        {
+          "byteOffset": 2636,
+          "byteLength": 81,
+          "literal": "<link rel=\"canonical\" href=\"https://www.prnewswire.com/news/chainguard/?page=2\"/>"
+        },
+        {
+          "byteOffset": 2763,
+          "byteLength": 69,
+          "literal": "<link rel=\"prev\" href=\"https://www.prnewswire.com/news/chainguard/\"/>"
+        }
+      ],
+      "cardVariants": {
+        "card col-view": 21,
+        "card col-sm-12": 1
+      },
+      "languagePathPairs": [
+        {
+          "language": "en-US",
+          "pathPrefix": "/news-releases/",
+          "cards": 21
+        },
+        {
+          "language": "in",
+          "pathPrefix": "/in/news-releases/",
+          "cards": 1
+        }
+      ],
+      "titleVariants": {
+        "direct_h3_text": 21,
+        "leaf_langspan": 1
+      },
+      "cardContainerPath": "main#main.headline-listing section.container div.row div.col-md-8.col-sm-12 div.card-list.card-list-hr.nativo-section > div.row.newsCards[lang] > div[role=group][aria-label=\"News Release\"].card",
+      "metadataScope": "head canonical/prev/next only; no request-authority grant"
+    }
+  ],
+  "executedJavaScript": false,
+  "sourceRequests": 0,
+  "qualificationCredit": false,
+  "exactLegacyPrimaryToken": {
+    "sourceId": "cato:citation:TR-cato-1",
+    "bodySha256": "2fe0e900031f29fcc0cbf1a8fbc371f48e57bcb59aaa42aa3dbbe7af54728173",
+    "byteOffset": 158831,
+    "byteLength": 75,
+    "literal": "<ul class=\"dropdown-menu\" role=\"menu\" aria-labelledby=\"langauge-dropdown\"/>",
+    "path": "article.news-release > header.release-header div.dropdown.lang-switch > ul.dropdown-menu",
+    "scope": "offline fixed retained primary reader only; no global HTML or transport change"
+  }
+}

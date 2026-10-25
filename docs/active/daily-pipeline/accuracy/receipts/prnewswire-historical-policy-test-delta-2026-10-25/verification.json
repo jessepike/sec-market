@@ -1,0 +1,356 @@
+{
+  "schemaVersion": 1,
+  "verdict": "PASS",
+  "scope": "Test-only historical H fixture binding; runtime modules and descriptor unchanged.",
+  "originalTest": {
+    "sha256": "96f47e4056eb03e3dbaf4a5cf2445696d6ac7c92c50e83ec090330cc8c12cd2d",
+    "bytes": 14277
+  },
+  "newTest": {
+    "sha256": "f059f6b45732ef935dbed9a30dc6e5e8f38f41dae8a183e8dd6a08019bfd888e",
+    "bytes": 14809
+  },
+  "deltaFile": "test-only.diff",
+  "historicalFixture": {
+    "path": "contracts/html-qualification-seeds/8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db/contracts__8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db.json",
+    "sha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+    "bytes": 204449,
+    "canonicalSha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db"
+  },
+  "freshCombinedApplication": {
+    "baseCommit": "40fe14bb41f6b10c8edc8527ef7f78d7b4d0dcf8",
+    "gitArchiveSha256": "9c471607da37c8d5e970bfa0af15ebc5a248d3deef51593bf1aeb0f5a977decb",
+    "gitArchiveBytes": 243681280,
+    "combinedRoot": "/var/tmp/smp-prn-historical-test-delta-20261025/combined-J",
+    "exactOverlay": {
+      "web/scripts/pipeline/prnewswire_press_list.py": {
+        "sha256": "59e277831a29ef697bb37a2caad295e0ce5de0c3573859156ed12b42ae3fe34d",
+        "bytes": 18548
+      },
+      "web/scripts/pipeline/prnewswire_retained_window.py": {
+        "sha256": "5a5f8f8122409b847bae993b2959e3f5922400e13d09c8350aef0aa3cb2c807d",
+        "bytes": 17422
+      },
+      "ops/ci/test_prnewswire_press_list.py": {
+        "sha256": "af9debdd121297942d5f1699f6f20469a5ee36f3bbd05d7d72743fbc6dd142e2",
+        "bytes": 14669
+      },
+      "ops/ci/test_prnewswire_retained_window.py": {
+        "sha256": "f059f6b45732ef935dbed9a30dc6e5e8f38f41dae8a183e8dd6a08019bfd888e",
+        "bytes": 14809
+      },
+      "docs/active/daily-pipeline/accuracy/prnewswire-retained-window-descriptor-2026-10-25.json": {
+        "sha256": "328236fb3b1523a260f654a22b60f600a77d142f998d8d597252dd93bd7f493d",
+        "bytes": 16247
+      },
+      "docs/active/daily-pipeline/accuracy/prnewswire-dated-window-parser-build-spec-2026-10-25.md": {
+        "sha256": "156e2c44730328696a0f5cc330db9afb8dae441292b5b793e3c1f8172e6f750c",
+        "bytes": 20058
+      }
+    },
+    "currentContract": {
+      "rawSha256": "bb9735d073e41a0a22bdcfd315419c59e8791b82be34bc73ead699530147b3e6",
+      "canonicalSha256": "47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a"
+    }
+  },
+  "protectedCombinedJFilesExact": {
+    "contracts/market.json": {
+      "sha256": "bb9735d073e41a0a22bdcfd315419c59e8791b82be34bc73ead699530147b3e6",
+      "bytes": 287122
+    },
+    "contracts/source-qualification-probes.json": {
+      "sha256": "ef9ee1bab6cfe6202b62e8d5605393f045d11fd64bd42ea1bcea769de15c8a01",
+      "bytes": 173
+    },
+    "contracts/factual-corrections.json": {
+      "sha256": "9c9fbe0d3d40ece11e1407ce9460086c732f62da88d3b0f220ab9d6f8757da00",
+      "bytes": 32004
+    },
+    "web/src/data/tracker/factualCorrectionPolicy.json": {
+      "sha256": "365058911a182610cde401307fb30cc1855930b7940969440a618441cbbef9b2",
+      "bytes": 1721
+    },
+    "web/scripts/pipeline/onboarding.py": {
+      "sha256": "f15e008c081f0b9c48e53ab0b4c4388798d2bd54aaade904188b40305aa6bb69",
+      "bytes": 112821
+    },
+    "web/scripts/pipeline/discovery.py": {
+      "sha256": "9e1c2d6be5f0a3307d1c577ffed7e1ad8e70a3d05f47b55f72d558c3e8b63646",
+      "bytes": 73652
+    },
+    "web/scripts/pipeline/fetcher.py": {
+      "sha256": "82084e87bb41687fec8ebfc969cf0a37294e04312a47a27993f5c359a585adce",
+      "bytes": 10828
+    },
+    "web/scripts/pipeline/engine.py": {
+      "sha256": "e471f18006a4899406510cdede42829476ba1945b58c420c61f6edce767a7e19",
+      "bytes": 54002
+    },
+    "web/scripts/pipeline/corrections.py": {
+      "sha256": "d742a91d4d23da5db3b426afcef76a80971c47dd54f8e4312065a6994f87b11f",
+      "bytes": 44838
+    },
+    "ops/ci/collect.py": {
+      "sha256": "77f3aaeb56514b538452e39d3eda30358ee1bdbba88b593d4da10ee0d71d04ce",
+      "bytes": 26500
+    },
+    "web/scripts/pipeline/q4_qualification_origin.py": {
+      "sha256": "fc1480799866d9b62360891c48e218242f1e6f01be54dad4767f6ba094b10848",
+      "bytes": 12678
+    },
+    "ops/ci/q4_qualification_seed.py": {
+      "sha256": "18e736e9aa00b1458ab3b2b77b507a5fa9b7dea24e95124169db8ebf0e1e797f",
+      "bytes": 10147
+    }
+  },
+  "tests": {
+    "focusedPresent": {
+      "run": 26,
+      "passed": 26,
+      "skipped": 0
+    },
+    "focusedAbsent": {
+      "run": 26,
+      "passed": 13,
+      "skipped": 13,
+      "frozenPathsRenamed": false
+    },
+    "fullCombinedJ": {
+      "run": 961,
+      "passed": 961,
+      "skipped": 0
+    }
+  },
+  "build": {
+    "passed": true,
+    "secClaimsRequired": 80,
+    "secClaimsVerified": 80,
+    "blockers": 0,
+    "drift": 0,
+    "fullJsE2eRepeated": false,
+    "publicLockAnchorRead": "Existing build verification read https://securitymarketpulse.com/issues/lock.json (HTTP200); no market source/model request."
+  },
+  "renderComparison": [
+    {
+      "kind": "production",
+      "width": 1440,
+      "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/prn-dated-window-production-1440.png",
+      "sha256": "5d04b34e2ffb5f520d45a06487e9ef7eb4ae671eb4cf7dce86626a2ffd1a6267",
+      "bytes": 986229,
+      "dimensions": [
+        1440,
+        8358
+      ],
+      "priorPath": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-normal-intake-production-1440.png",
+      "priorSha256": "5d04b34e2ffb5f520d45a06487e9ef7eb4ae671eb4cf7dce86626a2ffd1a6267",
+      "pixelsIdentical": true,
+      "rawBytesIdentical": true,
+      "changedPixels": 0
+    },
+    {
+      "kind": "production",
+      "width": 390,
+      "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/prn-dated-window-production-390.png",
+      "sha256": "6da1a1dd0d2591dedb6bef743460ce9659853c84ff3539a59308c5e0cf347b75",
+      "bytes": 418882,
+      "dimensions": [
+        390,
+        7611
+      ],
+      "priorPath": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-normal-intake-production-390.png",
+      "priorSha256": "6da1a1dd0d2591dedb6bef743460ce9659853c84ff3539a59308c5e0cf347b75",
+      "pixelsIdentical": true,
+      "rawBytesIdentical": true,
+      "changedPixels": 0
+    },
+    {
+      "kind": "local",
+      "width": 1440,
+      "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/prn-dated-window-local-1440.png",
+      "sha256": "b044622ff53e695fee8334a95746b932c0df81ff6e26ecb810bfd9228765cdd9",
+      "bytes": 989395,
+      "dimensions": [
+        1440,
+        8379
+      ],
+      "priorPath": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-normal-intake-local-1440.png",
+      "priorSha256": "b044622ff53e695fee8334a95746b932c0df81ff6e26ecb810bfd9228765cdd9",
+      "pixelsIdentical": true,
+      "rawBytesIdentical": true,
+      "changedPixels": 0
+    },
+    {
+      "kind": "local",
+      "width": 390,
+      "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/prn-dated-window-local-390.png",
+      "sha256": "7dc872da46a4cf5e2eb765df88e1ae28e34eb70f8d5c38b19835bab09afcd3df",
+      "bytes": 436460,
+      "dimensions": [
+        390,
+        7749
+      ],
+      "priorPath": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/q4-normal-intake-local-390.png",
+      "priorSha256": "7dc872da46a4cf5e2eb765df88e1ae28e34eb70f8d5c38b19835bab09afcd3df",
+      "pixelsIdentical": true,
+      "rawBytesIdentical": true,
+      "changedPixels": 0
+    }
+  ],
+  "originalSealedWorkerHandbackUnchanged": {
+    "prnewswire-dated-window-parser-implementation-2026-10-25.md": {
+      "sha256": "e1f5d8b50d1f88d2860a81eb48b304d1cce67fcb0c1ade31acd9c58691212f74",
+      "bytes": 6053
+    },
+    "prnewswire-dated-window-parser-implementation-2026-10-25.json": {
+      "sha256": "f7a8870f14587a9e4650dfc363a21f5ea7d64855d9852376f6f81fae21b635b3",
+      "bytes": 2144
+    },
+    "receipts/prnewswire-dated-window-parser-implementation-2026-10-25/verification.json": {
+      "sha256": "68b0294a34b22e80bc99a77cb1363a5e9968d9b5f6a0792ea15300b7e6f6c7e3",
+      "bytes": 7552
+    }
+  },
+  "logSeals": {
+    "focused-present": {
+      "raw": {
+        "sha256": "88bd98489694986222b12d10932b4e60a380b799c043f4e5c3a8211bcd57d7de",
+        "bytes": 4757
+      },
+      "gzip": {
+        "file": "focused-present.log.gz",
+        "sha256": "70d7dbcc9d2832c10442e828dfe0e337cfeedb7671efaafde906c7360f993733",
+        "bytes": 1014
+      },
+      "roundTripExact": true
+    },
+    "focused-absent": {
+      "raw": {
+        "sha256": "2f4454c633ea8a1d87f31b3212902c907da744366fc99f0e338d01fb021820bb",
+        "bytes": 5557
+      },
+      "gzip": {
+        "file": "focused-absent.log.gz",
+        "sha256": "57eb62ac6231408aa4a5b44ee005427f637a49382add15f291573348c2453e0c",
+        "bytes": 1133
+      },
+      "roundTripExact": true
+    },
+    "full-present": {
+      "raw": {
+        "sha256": "43a6861f9e2f84b1621048686436a2e15bae04c34d02f53e4b84d61244c9da30",
+        "bytes": 178799
+      },
+      "gzip": {
+        "file": "full-present.log.gz",
+        "sha256": "72453928957b7f79bfd62f1127f21226d199e70912855bfc5afe61576cb50677",
+        "bytes": 26739
+      },
+      "roundTripExact": true
+    },
+    "build": {
+      "raw": {
+        "sha256": "6cca2c412db849b8aac2cb7febb4cf4794a3bdc1ea670508e8ae3adbb8f81ee3",
+        "bytes": 7938
+      },
+      "gzip": {
+        "file": "build.log.gz",
+        "sha256": "3bc2463bad28dfd4744cdc244e274bd02de0cb47fe5c7cea000a717f9e081377",
+        "bytes": 2994
+      },
+      "roundTripExact": true
+    },
+    "render-production": {
+      "raw": {
+        "sha256": "dab82b08a2796fe1ecca110dd662629147e47d93b5fc2f48bf8be48d0b603aca",
+        "bytes": 386
+      },
+      "gzip": {
+        "file": "render-production.log.gz",
+        "sha256": "ffd1dd5ea79d342ad15f4aad372bdc3f05e2fdf051e106b307656976018d2772",
+        "bytes": 195
+      },
+      "roundTripExact": true
+    },
+    "render-local": {
+      "raw": {
+        "sha256": "e753ff8dc18057e6fd667f5e5d21f958fa1c1b567d4d4e3f79dc9d39f6db81ec",
+        "bytes": 358
+      },
+      "gzip": {
+        "file": "render-local.log.gz",
+        "sha256": "096668f71f402076531dfca24e30cf536a15043bc456790e53f8cfc328d064e4",
+        "bytes": 190
+      },
+      "roundTripExact": true
+    }
+  },
+  "runtimeUnchanged": {
+    "web/scripts/pipeline/prnewswire_press_list.py": {
+      "sha256": "59e277831a29ef697bb37a2caad295e0ce5de0c3573859156ed12b42ae3fe34d",
+      "bytes": 18548
+    },
+    "web/scripts/pipeline/prnewswire_retained_window.py": {
+      "sha256": "5a5f8f8122409b847bae993b2959e3f5922400e13d09c8350aef0aa3cb2c807d",
+      "bytes": 17422
+    },
+    "docs/active/daily-pipeline/accuracy/prnewswire-retained-window-descriptor-2026-10-25.json": {
+      "sha256": "328236fb3b1523a260f654a22b60f600a77d142f998d8d597252dd93bd7f493d",
+      "bytes": 16247
+    }
+  },
+  "boundaries": {
+    "productionArchiveWrites": 0,
+    "modelCalls": 0,
+    "marketSourceRequests": 0,
+    "operationalPlanChanges": 0,
+    "finishCopies": 0,
+    "commits": 0,
+    "pushes": 0
+  },
+  "receipts": {
+    "build.log.gz": {
+      "sha256": "3bc2463bad28dfd4744cdc244e274bd02de0cb47fe5c7cea000a717f9e081377",
+      "bytes": 2994
+    },
+    "focused-absent.log.gz": {
+      "sha256": "57eb62ac6231408aa4a5b44ee005427f637a49382add15f291573348c2453e0c",
+      "bytes": 1133
+    },
+    "focused-present.log.gz": {
+      "sha256": "70d7dbcc9d2832c10442e828dfe0e337cfeedb7671efaafde906c7360f993733",
+      "bytes": 1014
+    },
+    "fresh-application.json": {
+      "sha256": "50bbe423ec2ddbc6996de23a07943671b1ddbfda94330674624c6d189715ac69",
+      "bytes": 1576
+    },
+    "full-present.log.gz": {
+      "sha256": "72453928957b7f79bfd62f1127f21226d199e70912855bfc5afe61576cb50677",
+      "bytes": 26739
+    },
+    "original-test_prnewswire_retained_window.py": {
+      "sha256": "96f47e4056eb03e3dbaf4a5cf2445696d6ac7c92c50e83ec090330cc8c12cd2d",
+      "bytes": 14277
+    },
+    "render-local.log.gz": {
+      "sha256": "096668f71f402076531dfca24e30cf536a15043bc456790e53f8cfc328d064e4",
+      "bytes": 190
+    },
+    "render-production.log.gz": {
+      "sha256": "ffd1dd5ea79d342ad15f4aad372bdc3f05e2fdf051e106b307656976018d2772",
+      "bytes": 195
+    },
+    "renders.json": {
+      "sha256": "4f9c93ce1ee9c74e88a1ec69a1abb4690df1e632f33e7b60d32a621c106fb0e5",
+      "bytes": 2573
+    },
+    "run-absent-prn.py": {
+      "sha256": "ee746bbc6a70055a33b2bba3d71728c8760d3937c90a40fd64bdc754368f2049",
+      "bytes": 1092
+    },
+    "test-only.diff": {
+      "sha256": "e9fa1f320df4dee39167cdacc40a85fda4d64f0978b5de42b892fd4d7fadd9b0",
+      "bytes": 1038
+    }
+  }
+}

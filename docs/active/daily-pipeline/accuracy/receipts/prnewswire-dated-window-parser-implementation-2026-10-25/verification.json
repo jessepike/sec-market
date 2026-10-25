@@ -1,0 +1,205 @@
+{
+  "schemaVersion": 1,
+  "status": "IMPLEMENTATION_READY_FOR_INDEPENDENT_REVIEW",
+  "worktree": "/mnt/mac/Users/jessepike/.codex/worktrees/prn-dated-window/sec-market",
+  "baseCommit": "43ee9183",
+  "codeAndSpecPins": {
+    "web/scripts/pipeline/prnewswire_press_list.py": {
+      "sha256": "59e277831a29ef697bb37a2caad295e0ce5de0c3573859156ed12b42ae3fe34d",
+      "bytes": 18548
+    },
+    "web/scripts/pipeline/prnewswire_retained_window.py": {
+      "sha256": "5a5f8f8122409b847bae993b2959e3f5922400e13d09c8350aef0aa3cb2c807d",
+      "bytes": 17422
+    },
+    "ops/ci/test_prnewswire_press_list.py": {
+      "sha256": "af9debdd121297942d5f1699f6f20469a5ee36f3bbd05d7d72743fbc6dd142e2",
+      "bytes": 14669
+    },
+    "ops/ci/test_prnewswire_retained_window.py": {
+      "sha256": "96f47e4056eb03e3dbaf4a5cf2445696d6ac7c92c50e83ec090330cc8c12cd2d",
+      "bytes": 14277
+    },
+    "docs/active/daily-pipeline/accuracy/prnewswire-retained-window-descriptor-2026-10-25.json": {
+      "sha256": "328236fb3b1523a260f654a22b60f600a77d142f998d8d597252dd93bd7f493d",
+      "bytes": 16247
+    },
+    "docs/active/daily-pipeline/accuracy/prnewswire-dated-window-parser-build-spec-2026-10-25.md": {
+      "sha256": "156e2c44730328696a0f5cc330db9afb8dae441292b5b793e3c1f8172e6f750c",
+      "bytes": 20058
+    }
+  },
+  "focusedTests": 26,
+  "fullOperationalTests": 947,
+  "testSkips": 0,
+  "testLogs": {
+    "focused-tests": {
+      "raw": {
+        "sha256": "e985ad15fdadd0b6d33ca2d4c0c2a61e03bf39a50ce342bc45c83f1bf88ad9c2",
+        "bytes": 4757
+      },
+      "gzip": {
+        "file": "focused-tests.log.gz",
+        "sha256": "eb4ef4ab4c1fece7ff473f0e118e80a2dbf08b7b8fd40b822f2065a6f844fde8",
+        "bytes": 1014
+      },
+      "exactRoundTrip": true
+    },
+    "full-ops-tests": {
+      "raw": {
+        "sha256": "dca6b51540aa1cfd6fa5dcda921e6b67189079617a22189e7016f0470b35f4df",
+        "bytes": 176129
+      },
+      "gzip": {
+        "file": "full-ops-tests.log.gz",
+        "sha256": "8d257cbf07ca2911ecc39f934f75ef326b1f134cf7afcc4730ce28e6910e6ef3",
+        "bytes": 26300
+      },
+      "exactRoundTrip": true
+    },
+    "actual-replay": {
+      "raw": {
+        "sha256": "3386c5c66a32ada397809514b49e792f766fe215366eda000573e2a40566cb76",
+        "bytes": 1277
+      },
+      "gzip": {
+        "file": "actual-replay.log.gz",
+        "sha256": "d731b4a3f0dfdc340cb0837e9126341ee8ab0d0651deb5bfbcef9d6e070d2e31",
+        "bytes": 630
+      },
+      "exactRoundTrip": true
+    }
+  },
+  "actualReplay": {
+    "file": "actual-readonly-replay.json",
+    "sha256": "550dad5d9c2c9b757dcd15ff292b6143c88ef8a4108a082c94572c5f5d8ce027",
+    "bytes": 156599,
+    "fullOriginalDiagnostics": 2,
+    "existingAdmissions": 6,
+    "archiveInputSeals": 461,
+    "manifestSeal": {
+      "sha256": "148842177a7e7d9a5fd5c2ea4574576264a957b41958ee4cdf5effa80ea029c2",
+      "bytes": 10012399,
+      "mtimeNs": 1792932277617133137
+    },
+    "externalAndProtectedInputSeals": 21,
+    "allSealsUnchanged": true
+  },
+  "protectedTrackedFilesUnchangedFromBase": {
+    "contracts/market.json": {
+      "sha256": "24221c946781559c0ff3626e4e479c4647da915d0f2d7559ea88046982532c3c",
+      "bytes": 284062
+    },
+    "contracts/source-qualification-probes.json": {
+      "sha256": "ad1c5cc234fe4fa69cbceb5370ac74825a37dc80b08528ca908d14b1352e53b4",
+      "bytes": 173
+    },
+    "contracts/factual-corrections.json": {
+      "sha256": "9c9fbe0d3d40ece11e1407ce9460086c732f62da88d3b0f220ab9d6f8757da00",
+      "bytes": 32004
+    },
+    "web/src/data/tracker/factualCorrectionPolicy.json": {
+      "sha256": "7319ece4c5c4f6c7d515fb9ef7ff13211daf38e041948edd26732e9ccfa2dbc7",
+      "bytes": 1721
+    },
+    "web/scripts/pipeline/onboarding.py": {
+      "sha256": "f15e008c081f0b9c48e53ab0b4c4388798d2bd54aaade904188b40305aa6bb69",
+      "bytes": 112821
+    },
+    "web/scripts/pipeline/discovery.py": {
+      "sha256": "2611635de944f025e848d8a7b15dfff2a328ac67a11a122a774eb46b2e1e7f68",
+      "bytes": 70911
+    },
+    "web/scripts/pipeline/fetcher.py": {
+      "sha256": "82084e87bb41687fec8ebfc969cf0a37294e04312a47a27993f5c359a585adce",
+      "bytes": 10828
+    },
+    "web/scripts/pipeline/engine.py": {
+      "sha256": "e471f18006a4899406510cdede42829476ba1945b58c420c61f6edce767a7e19",
+      "bytes": 54002
+    },
+    "web/scripts/pipeline/corrections.py": {
+      "sha256": "d742a91d4d23da5db3b426afcef76a80971c47dd54f8e4312065a6994f87b11f",
+      "bytes": 44838
+    },
+    "ops/ci/collect.py": {
+      "sha256": "044a560af19cc1e7a6fec9d87cc8461831dab491f7c42d3dd1d789c9bc3fe6d1",
+      "bytes": 26316
+    },
+    "status.md": {
+      "sha256": "0a67aab2107547357ad68c558f18500f0e64a625510037c5ebeae798e3a9cc3b",
+      "bytes": 7799
+    },
+    "BACKLOG.md": {
+      "sha256": "304f6af72b93df942f048f0b0174996fe494ac3224a1f09eb37ee9f5deeeffc3",
+      "bytes": 22084
+    },
+    "lessons.md": {
+      "sha256": "1c2de85432395513f62d6ce7d5ea0db0a3730bda522192d353d2838cb8923285",
+      "bytes": 28119
+    },
+    "intent.md": {
+      "sha256": "d5df65215bf3b3d4cd9e4ef3f69df14434e25b0e8277008345fb215453f9d871",
+      "bytes": 17252
+    },
+    "AGENTS.md": {
+      "sha256": "6224e1d60ea3b26f48ca0fcacbc9fcc1cbad035416bbe5c4ffe57e8cfb963d07",
+      "bytes": 8418
+    }
+  },
+  "onlyModifiedTrackedFile": "docs/active/daily-pipeline/accuracy/prnewswire-dated-window-parser-build-spec-2026-10-25.md",
+  "specRefinements": [
+    "Two observed card classes, source-specific language/path pairs and localized leaf title spans.",
+    "Numbered-page canonical and head direction metadata use literal ?page=N; transport/body-pager destinations keep ?page=N&pagesize=25.",
+    "Exact retained Cato primary language-menu token compatibility stays in the offline fixed-primary reader.",
+    "Two older Cato seed URLs remain separate from125 observed list URLs; union127, no current-window counterexample."
+  ],
+  "boundaries": {
+    "sourceRequests": 0,
+    "modelCalls": 0,
+    "frozenArchiveWrites": 0,
+    "operationalCallerChanges": 0,
+    "policyChanges": 0,
+    "qualificationCredit": 0,
+    "uiOrPublicationClaim": false
+  },
+  "remainingDependencies": [
+    "Independent review of this implementation.",
+    "Root-owned separate source-scope/activation/normal-intake integration after J.",
+    "Actual ordinary source intake/freshness/qualification evidence under any later reviewed policy."
+  ],
+  "receiptFiles": {
+    "actual-readonly-replay.json": {
+      "sha256": "550dad5d9c2c9b757dcd15ff292b6143c88ef8a4108a082c94572c5f5d8ce027",
+      "bytes": 156599
+    },
+    "actual-replay.log.gz": {
+      "sha256": "d731b4a3f0dfdc340cb0837e9126341ee8ab0d0651deb5bfbcef9d6e070d2e31",
+      "bytes": 630
+    },
+    "derived-report.json": {
+      "sha256": "f9d5f7a414d4c4fefc32e7d7f54691814bda120aa0854771a47d13e3e9a797f1",
+      "bytes": 415403
+    },
+    "focused-tests.log.gz": {
+      "sha256": "eb4ef4ab4c1fece7ff473f0e118e80a2dbf08b7b8fd40b822f2065a6f844fde8",
+      "bytes": 1014
+    },
+    "full-ops-tests.log.gz": {
+      "sha256": "8d257cbf07ca2911ecc39f934f75ef326b1f134cf7afcc4730ce28e6910e6ef3",
+      "bytes": 26300
+    },
+    "observed-layout-refinements.json": {
+      "sha256": "b07ce83cdde81b629b600e4e77d8e7eb1a488ac7d8c6ba5f9dba2f6b7daddc15",
+      "bytes": 12958
+    },
+    "replay_actual.py": {
+      "sha256": "1778abfa6ca6891285138c3cf601ffd340591d7931d4e629f35411a1784d72eb",
+      "bytes": 4948
+    },
+    "test-logs-metadata.json": {
+      "sha256": "b3e63a26df322160485d13994dd606c630d510677a2c0955e312a8f6c4d73c2b",
+      "bytes": 1027
+    }
+  }
+}
