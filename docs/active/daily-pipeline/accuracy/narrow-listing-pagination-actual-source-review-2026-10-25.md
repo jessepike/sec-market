@@ -1,0 +1,50 @@
+# Actual listing and pagination capture, 25 October 2026
+
+Verdict: **PASS for actual capture, replay and preservation; zero qualification credit.** The run supplies a finite 47-card Chainguard listing with a retained matching primary sample, a 56-card Cyera list with five retained matching samples, a nine-card Abnormal list, and 125 ordered Cato cards. Cato's newly disclosed older continuation stays an explicit historical gap. I recommend reviewing a closed issuer/date-window parser from these retained bytes before requesting more older pages or refetching these primary samples.
+
+## Actual run and archive
+
+Actual run `40193925490` was `workflow_dispatch/main`, application `5debbd9e3ed855d9c6f5bda25468dac1371532d6`, created at `2026-10-25T12:37:24Z` and terminal SUCCESS at `12:43:06Z`. Its real probe ran from `12:41:01.591951Z` to report clock `12:42:16.956348Z`. Artifact `12599212414` is 14,871 bytes, SHA-256 `bbeebd3b706d01c21c6631b20e9f50afa36b74de3cb847ea706d6f82a9b0132c`; its sole receipt equals the archived run record.
+
+Acknowledgement: `9e4a9806fdcc1b7cd6f91314b8b4ff4bb4ef2174`. Manifest: `148842177a7e7d9a5fd5c2ea4574576264a957b41958ee4cdf5effa80ea029c2`, 10,012,399 bytes, 48,420 entries; Git blob `01285c6c16ddeac7e77df3cbf82a28a6d5ed6f16`. The actual bootstrap/escrow/ack chain joins the immediate baseline `9deb0c9ce9fe34999da0cf13bb023dfdfecc15c8`.
+
+Frozen extraction: `/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted`. All 48,420 entries are authenticated: 48,243 unchanged rows reuse previously fully authenticated baseline bytes with exact shared device/inode/size/mtime continuity; all 177 added/changed entries pass raw byte count, SHA-256 and content-address checks. Whole file inventory is exact. Every inherited identity was checked again after cold inspection. Two raw GitHub Contents representations failed byte equality; retained base64 Git blobs match both manifest and Git blob hashes. This involved no market-source retry.
+
+## Actual charges and preserved state
+
+All seven explicit targets returned HTTP 200 HTML at their exact requested/final URLs. The actual ledger moved from 985 to 1,101 fetches; calls stayed 80, documents stayed 38 and gate attempts stayed two. There were 109 generic plus seven explicit reservations, with every count 986–1,101 occurring once. No denial or cancellation/deadline stop occurred. The 257 bound covers all 25 generic candidates plus the seven explicit requests and counts logical reservations rather than physical retry exchanges.
+
+The unchanged legacy probe logic reproduces the entire actual report using frozen responses, reservation receipts and clocks, read-only would-be-write verification and sequential replay scheduling. Only the relocated scratch-plan path is normalized in the output equality comparison. Sockets and frozen LocalStore construction are denied. Actual counter/escrow/lease/time checks are separate from deterministic traversal replay.
+
+All 39,638 baseline immutable entries and 8,605 ordinary heads remain exact. Only the fetch-budget and released-lease heads change. The ordinary snapshot, four fact references, 38 holds, six actual admissions and their review-policy hashes remain unchanged. Private source expiry remains `2026-10-26T15:55:27.307096+00:00`. No ordinary source clock or public expiry is renewed; the normal H receipt stays unchanged. No facts/events, semantic admission, credited check, qualified source or publication result follows from this diagnostic.
+
+Generic retained results include 97 HTTP 200, two 403, two blocked 202, five 404 and two failed 302 observations. The latter are Orca robots/sitemap responses; no unretained redirect destination or body is inferred. Sysdig has one charged `ContractError` without a retained observation, status, final URL or body, all of which stay unknown. The full per-reservation report is retained.
+
+## Issuer cards, current window and older history
+
+The inspection joins exact issuer headings, source-bound response URLs, same-card detail URL/title/date text, active page markers and every literal pagination control. All four observed card sequences have valid written dates in nonincreasing order. Dates below are written calendar days. The 30-day comparison is September 25–October 25, 2026, without inventing timezone offsets or UTC instants; no card sits on either ambiguous boundary day.
+
+| Source | Observed inventory | Calendar-window evidence | Continuation/history evidence |
+| --- | --- | --- | --- |
+| Abnormal | Nine unique cards, August 11–October 14, 2026 | One inside the window; eight older | Exact Press Releases page; no extracted continuation anchor. That absence alone is not accepted terminal proof. |
+| Cyera | 56 unique cards, March 29, 2022–October 16, 2026 | One inside the window; 55 older, with the first older card September 22, 2026 | Exact full-list entry, no extracted continuation anchor; future closed parser must still prove its source-defined finite/window scope. Five exact retained primary samples join this inventory. |
+| Cato / PR Newswire | Pages 1–5, 25 cards each, 125 unique URLs, no cross-page duplicates; July 5, 2022–October 7, 2026 | Page 1 has two current cards, then September 8, 2026 as its first older boundary; all remaining 123 cards are older. Every observed date remains descending across pages. | Active page markers match all requests. Later returned pagers literally disclose pages 6, 7 and 8; no terminal disabled-next marker is present. Those older pages remain unknown history, rather than an automatic daily-window blocker. Preserve all 125 known URLs. |
+| Chainguard / PR Newswire | Pages 1 and 2, 25+22 cards, 47 unique URLs, no duplicates; June 2, 2022–October 14, 2026 | Five inside the window, 42 older | Page 2 is active and has explicit disabled `»` with no href. Both numbered pages and their complete issuer-card inventory are retained. The literal page-1 query backlink is not treated as a newly observed response. |
+
+The old wire first pages retain their original `11:59` clocks; the new pages retain their original `12:41–12:42` clocks. They are not rebased into one synthetic observation. Cato correction headlines and localized `/il/` detail URLs remain in the inventory exactly; no locale/path normalization or new article-request authority is inferred.
+
+D-112 separates fresh complete daily source discovery from historical review. Existing Ping/Delinea/Sonatype `htmlCompleteness` modes still follow `parsed.next` until explicit terminal (`discovery.py:1057–1075`); they contain no older-date stop. `currentWindowDays=30` alone does not create one. A separately reviewed closed PR Newswire issuer/date-window mode could use the positive ordering and older-boundary evidence while preserving known URLs and unknown older history. No qualification is claimed here, and this audit does not recommend pages 6+ merely to exhaust history.
+
+## Retained primary samples and supplied publication metadata
+
+An exact-URL search compared the 237 observed detail URLs with 18,984 observation/small immutable-object metadata files, finding 74 matching observations and seven distinct latest retained full HTTP 200 sample bodies: five Cyera releases, Cato's $359 million financing release and Chainguard's $280 million growth-financing release. All seven pass the existing pure primary-shape check and join an exact issuer-list card. This is a scoped reuse search, with no URL equivalence or global semantic assurance.
+
+The older shape helper reports empty `dateMetadata` because it inspects a limited set of fields. That output does **not** establish that publication metadata is absent. A later inspection of these exact bodies, using existing Page and direct JSON-LD parsing as data, finds supplied publication dates for all seven, with unambiguous written-day joins to their cards. The five Cyera values are date-only and retain unknown timezone. Chainguard explicitly supplies `2025-10-23T11:00:00-04:00`, matching its October 23, 2025, 11:00 ET card; Cato explicitly supplies `2025-06-30T06:00:00-04:00`, matching its June 30, 2025, 06:00 ET card. The offsets come from the primary JSON-LD, not an inference from ET.
+
+`primary-supplied-jsonld-and-reuse.json` retains all supplied JSON-LD identity/date fields with script indices, HTML lines, JSON pointers, original body references and raw-script-text hashes. It also retains each latest actual observation and its authentic 304→200 reuse chain. The selected original 200 clocks and all conditional clocks remain separate. No 304 becomes a downloaded 200 and no historical publication date becomes current. Original sealed preflight text remains unchanged; this richer inspection refines any inference of general metadata absence. These samples require no repeat GET simply to obtain the already retained shape/date proof.
+
+## Replay, callbacks and limits
+
+Publisher callback `40194355947` passed preflight and skipped `publish`; rollback callback `40194376214` passed preflight and skipped `rollback-and-restore`. Overall callback success is not an executed publication or rollback. Root separately restored exact disabled `ad1`; historical audit binds the authentic archived 8,977-byte `ac7393c6…` plan. Operational restoration/promotion and live-public checks have their own root receipts.
+
+The companion JSON and `docs/active/daily-pipeline/accuracy/receipts/narrow-listing-pagination-actual-2026-10-25/` retain authenticated metadata, artifact, manifest/reuse proofs, original bodies, full card/history/continuation inventory, primary metadata/reuse proof, actual callbacks, reproducible helpers and exact lossless log/file seals. One reviewer cold-inspection helper initially had a syntax typo and failed before reading data; the corrected helper and both logs are retained. No application code was changed. This audit made no source/model request, executed no JavaScript, and wrote no shared frozen archive or runtime state. It does not register a source or establish current-event recall or reader value.

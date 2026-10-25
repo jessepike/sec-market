@@ -1,0 +1,88 @@
+{
+  "archiveCommit": "9e4a9806fdcc1b7cd6f91314b8b4ff4bb4ef2174",
+  "ci": {
+    "main-web": {
+      "conclusion": "success",
+      "id": 40194994026
+    },
+    "preview-web": {
+      "conclusion": "success",
+      "id": 40194693409
+    }
+  },
+  "diagnosticRunId": 40193925490,
+  "disabledPlanSha256": "ad1c5cc234fe4fa69cbceb5370ac74825a37dc80b08528ca908d14b1352e53b4",
+  "files": {
+    "archive-ref.json": {
+      "bytes": 381,
+      "sha256": "18abb4b98655e077fb3f1f9cc1b7838abc132401d2030d5d0a992aba1a4c9544"
+    },
+    "budget.json": {
+      "bytes": 42,
+      "sha256": "ba2c7899efcc099fef27d74f883226515c3f60bb63eafdc5841e2975b102518e"
+    },
+    "focused-test-metadata.json": {
+      "bytes": 1194,
+      "sha256": "be01b46bf099d0e5231a9d9c4a93bba605a768162e2f03b339440c4bf1e53250"
+    },
+    "gate-budget.json": {
+      "bytes": 14,
+      "sha256": "5452defb75897ca4711b2b086a2efa1ff79112b00a583b24de108522855d8a54"
+    },
+    "lease.json": {
+      "bytes": 300,
+      "sha256": "f1a9f05aa878604e5fdf656f7d36930961e3b78746a304ab0dbe33bddc10ae67"
+    },
+    "main-ref.json": {
+      "bytes": 338,
+      "sha256": "fbd2e7ced22ab51be8cd0d1049072d511501870ea771772565bc84174d3ca93a"
+    },
+    "main-web.json": {
+      "bytes": 12557,
+      "sha256": "c8a8a56c864f1529010d7c309b824d7557c58afc3e1f4a52a9a75af08b7493ca"
+    },
+    "preview-web.json": {
+      "bytes": 12560,
+      "sha256": "876526886599d464aac5a85bc12e5f09aa1474a4b412bc274cb84028141b1a41"
+    },
+    "public-checks.json": {
+      "bytes": 1011,
+      "sha256": "b29bd057a505bdd9cb2859e2c9d2f70ccfd713afe239b9208422eb4843ddcb33"
+    },
+    "remote-disabled-plan.json": {
+      "bytes": 173,
+      "sha256": "ad1c5cc234fe4fa69cbceb5370ac74825a37dc80b08528ca908d14b1352e53b4"
+    },
+    "restoration-focused-corrected.log.gz": {
+      "bytes": 1275,
+      "sha256": "b070c132f27a8963e887383f463261643c491518aeec3211467359eba335bb8c"
+    },
+    "restoration-focused.log.gz": {
+      "bytes": 339,
+      "sha256": "58e1a8e4a047f35dfb6f4d9299d826ad699812cd5235e89ad1e3e41595185f4e"
+    },
+    "restoration-validation.json": {
+      "bytes": 5286,
+      "sha256": "27667b5a55693d4032731d609d5974e1bde0de8ad5c5467604a42c4d9d9636a4"
+    },
+    "vercel-deployments.json": {
+      "bytes": 2365,
+      "sha256": "e543643dce397366eabb5de598e1a6d8fe438d3abaf9dfa8c77ac9c68edc5e4b"
+    }
+  },
+  "leaseReleased": true,
+  "publicFilesByteExact": true,
+  "publicReleaseId": "fc8bf0984dbeacbe79519574911837d8b638f42215f6547e31ae8968b29951e4",
+  "publicationCredit": false,
+  "qualificationCredit": false,
+  "reviewedMain": "61265b57964f20ac1f721fa8d2351caa52c32a25",
+  "schemaVersion": 1,
+  "settledLedger": {
+    "calls": 80,
+    "documents": 38,
+    "fetches": 1101,
+    "gates": 2
+  },
+  "verdict": "PASS_DISABLED_CLOSURE_AND_UNCHANGED_PUBLICATION",
+  "verifiedAt": "2026-10-25T12:56:52.029508+00:00"
+}

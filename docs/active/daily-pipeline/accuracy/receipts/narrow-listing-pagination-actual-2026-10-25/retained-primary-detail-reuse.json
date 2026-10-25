@@ -1,0 +1,2032 @@
+{
+  "scope": "Exact requestedUrl retained metadata match to237actual issuer detail URLs; no normalized locale/slug equivalents. No semantic admission or refreshed dates.",
+  "literalDetailUrls": 237,
+  "metadataFilesInspected": 18984,
+  "matchedObservations": 74,
+  "matches": [
+    {
+      "key": "state/observations/02cb030deb8d0f506791c647262045eceb1a66c483b6a03cbb1dcb32ea4ef9f4.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 268012,
+          "key": "objects/c64b78abd574277371384c267ea857fb403cf5869024e7151fc50667988b89f2",
+          "sha256": "c64b78abd574277371384c267ea857fb403cf5869024e7151fc50667988b89f2"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-24T18:29:42.932953Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "httpStatus": 200,
+        "lastModified": "Sat, 24 Oct 2026 06:15:27 GMT",
+        "observationId": "02cb030deb8d0f506791c647262045eceb1a66c483b6a03cbb1dcb32ea4ef9f4",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "sourceId": "cyera:citation:TR-cyera-1",
+        "status": "fetched",
+        "transportId": "29c05a33fcaec6bcee328f4ec06b2ada08f61c25bec7f5da2fad71c0b3cb511e",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/040480a01a8dd4d7b822e52cbb51f320c175dda2ab555faf110aa8c70c5eae0d.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 268162,
+          "key": "objects/5b1600cb2ceeb6f68300009f2a8e7c3716299415190e720d35f25cc5c57a2aaf",
+          "sha256": "5b1600cb2ceeb6f68300009f2a8e7c3716299415190e720d35f25cc5c57a2aaf"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-25T06:45:55.072537Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-raises-600-million-at-12-billion-valuation-to-continue-building-the-trust-layer-for-the-ai-era",
+        "httpStatus": 304,
+        "lastModified": "Fri, 23 Oct 2026 23:37:15 GMT",
+        "observationId": "040480a01a8dd4d7b822e52cbb51f320c175dda2ab555faf110aa8c70c5eae0d",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-raises-600-million-at-12-billion-valuation-to-continue-building-the-trust-layer-for-the-ai-era",
+        "reusesObservationId": "8706e25cb9121c6c62e6d4cc1dcb75673c1a0189cf1c6c63223f16f0faf6638a",
+        "sourceId": "cyera:citation:TR-cyera-4",
+        "status": "not_modified",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/07988a0cf440b7f6a3b12d1cfbb1485d9ca292c5758fd5f2532d13dd82413b94.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 267390,
+          "key": "objects/c7e1d3f5c6833dc9ed4633528dfd78a6c4b44996ffa183e6be5692d5d48ad117",
+          "sha256": "c7e1d3f5c6833dc9ed4633528dfd78a6c4b44996ffa183e6be5692d5d48ad117"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-23T11:34:10.678781Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "httpStatus": 304,
+        "lastModified": "Fri, 23 Oct 2026 04:14:44 GMT",
+        "observationId": "07988a0cf440b7f6a3b12d1cfbb1485d9ca292c5758fd5f2532d13dd82413b94",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "reusesObservationId": "7676839a6e2c37a5670a6b74f6956e8283a4a350d6e1b5756e78550d15e2e1ef",
+        "sourceId": "cyera:citation:TR-cyera-1",
+        "status": "not_modified"
+      }
+    },
+    {
+      "key": "state/observations/0902ace57af8f115f8644d38556680b892b26c81d895b4e75b5a12a1f752d2a6.json",
+      "literalSourceIds": [
+        "chainguard:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 219070,
+          "key": "objects/7d8b539bddfc8d8fb62460541f1b04ce1f309277595a4482d535a9c942f4c282",
+          "sha256": "7d8b539bddfc8d8fb62460541f1b04ce1f309277595a4482d535a9c942f4c282"
+        },
+        "contentType": "text/html; charset=UTF-8",
+        "etag": null,
+        "fetchedAt": "2026-10-24T00:05:46.978657Z",
+        "finalUrl": "https://www.prnewswire.com/news-releases/chainguard-announces-280-million-growth-financing-from-general-catalyst-to-usher-in-next-era-of-trusted-open-source-software-302592279.html",
+        "httpStatus": 304,
+        "lastModified": "Sun, 18 Oct 2026 04:37:24 GMT",
+        "observationId": "0902ace57af8f115f8644d38556680b892b26c81d895b4e75b5a12a1f752d2a6",
+        "requestedUrl": "https://www.prnewswire.com/news-releases/chainguard-announces-280-million-growth-financing-from-general-catalyst-to-usher-in-next-era-of-trusted-open-source-software-302592279.html",
+        "reusesObservationId": "10535f0d9eb2870c5734d26099878d392ce2f2a40a0729174bd9b6d5d7c1d274",
+        "sourceId": "chainguard:citation:TR-chainguard-2",
+        "status": "not_modified",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/0e444f173e8f26af3a30f5662f567c428e7821cc1167ec45a04b2982f9681c7d.json",
+      "literalSourceIds": [
+        "chainguard:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 219070,
+          "key": "objects/7d8b539bddfc8d8fb62460541f1b04ce1f309277595a4482d535a9c942f4c282",
+          "sha256": "7d8b539bddfc8d8fb62460541f1b04ce1f309277595a4482d535a9c942f4c282"
+        },
+        "contentType": "text/html; charset=UTF-8",
+        "etag": null,
+        "fetchedAt": "2026-10-22T01:11:50.781648Z",
+        "finalUrl": "https://www.prnewswire.com/news-releases/chainguard-announces-280-million-growth-financing-from-general-catalyst-to-usher-in-next-era-of-trusted-open-source-software-302592279.html",
+        "httpStatus": 304,
+        "lastModified": "Sun, 18 Oct 2026 04:37:24 GMT",
+        "observationId": "0e444f173e8f26af3a30f5662f567c428e7821cc1167ec45a04b2982f9681c7d",
+        "requestedUrl": "https://www.prnewswire.com/news-releases/chainguard-announces-280-million-growth-financing-from-general-catalyst-to-usher-in-next-era-of-trusted-open-source-software-302592279.html",
+        "reusesObservationId": "24e3c1d121b7116092b10c44eb931dcc46ce9ccd7586610fa0ad5ef01b4e50df",
+        "sourceId": "chainguard:citation:TR-chainguard-2",
+        "status": "not_modified"
+      }
+    },
+    {
+      "key": "state/observations/10535f0d9eb2870c5734d26099878d392ce2f2a40a0729174bd9b6d5d7c1d274.json",
+      "literalSourceIds": [
+        "chainguard:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 219070,
+          "key": "objects/7d8b539bddfc8d8fb62460541f1b04ce1f309277595a4482d535a9c942f4c282",
+          "sha256": "7d8b539bddfc8d8fb62460541f1b04ce1f309277595a4482d535a9c942f4c282"
+        },
+        "contentType": "text/html; charset=UTF-8",
+        "etag": null,
+        "fetchedAt": "2026-10-23T04:14:59.639245Z",
+        "finalUrl": "https://www.prnewswire.com/news-releases/chainguard-announces-280-million-growth-financing-from-general-catalyst-to-usher-in-next-era-of-trusted-open-source-software-302592279.html",
+        "httpStatus": 304,
+        "lastModified": "Sun, 18 Oct 2026 04:37:24 GMT",
+        "observationId": "10535f0d9eb2870c5734d26099878d392ce2f2a40a0729174bd9b6d5d7c1d274",
+        "requestedUrl": "https://www.prnewswire.com/news-releases/chainguard-announces-280-million-growth-financing-from-general-catalyst-to-usher-in-next-era-of-trusted-open-source-software-302592279.html",
+        "reusesObservationId": "0e444f173e8f26af3a30f5662f567c428e7821cc1167ec45a04b2982f9681c7d",
+        "sourceId": "chainguard:citation:TR-chainguard-2",
+        "status": "not_modified"
+      }
+    },
+    {
+      "key": "state/observations/15f535ccbaee9939b06ff3445d10ca7f4c05c4b5627f2d6ab673b1f3faa98a03.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 264504,
+          "key": "objects/8db492550825f8c21eb22c0fa64144dd1171bb78b95f878b22553d09566c3807",
+          "sha256": "8db492550825f8c21eb22c0fa64144dd1171bb78b95f878b22553d09566c3807"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-23T04:15:00.595572Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-acquires-ryft-to-extend-its-agentic-ai-security-platform",
+        "httpStatus": 200,
+        "lastModified": "Fri, 23 Oct 2026 04:15:00 GMT",
+        "observationId": "15f535ccbaee9939b06ff3445d10ca7f4c05c4b5627f2d6ab673b1f3faa98a03",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-acquires-ryft-to-extend-its-agentic-ai-security-platform",
+        "sourceId": "cyera:citation:TR-cyera-3",
+        "status": "fetched"
+      }
+    },
+    {
+      "key": "state/observations/1ca393ee06b3cb2826ad5c8db09a5cd3421696940cc39a663cbff5ebe47dd148.json",
+      "literalSourceIds": [
+        "cato:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 218188,
+          "key": "objects/c389766a7bf74f990f0ac569f8c50f54f9f5c29ca21c11399564301ef16d4180",
+          "sha256": "c389766a7bf74f990f0ac569f8c50f54f9f5c29ca21c11399564301ef16d4180"
+        },
+        "contentType": "text/html; charset=UTF-8",
+        "etag": null,
+        "fetchedAt": "2026-10-20T21:21:11.339564Z",
+        "finalUrl": "https://www.prnewswire.com/news-releases/cato-networks-raises-359-million-at-a-valuation-of-more-than-4-8-billion-302494283.html",
+        "httpStatus": 304,
+        "lastModified": "Sun, 18 Oct 2026 20:28:00 GMT",
+        "observationId": "1ca393ee06b3cb2826ad5c8db09a5cd3421696940cc39a663cbff5ebe47dd148",
+        "requestedUrl": "https://www.prnewswire.com/news-releases/cato-networks-raises-359-million-at-a-valuation-of-more-than-4-8-billion-302494283.html",
+        "reusesObservationId": "e8c1b77097e564528d69691dfb266ff243a890231d314bd3711a4af7c6d44952",
+        "sourceId": "cato:citation:TR-cato-1",
+        "status": "not_modified"
+      }
+    },
+    {
+      "key": "state/observations/24e3c1d121b7116092b10c44eb931dcc46ce9ccd7586610fa0ad5ef01b4e50df.json",
+      "literalSourceIds": [
+        "chainguard:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 219070,
+          "key": "objects/7d8b539bddfc8d8fb62460541f1b04ce1f309277595a4482d535a9c942f4c282",
+          "sha256": "7d8b539bddfc8d8fb62460541f1b04ce1f309277595a4482d535a9c942f4c282"
+        },
+        "contentType": "text/html; charset=UTF-8",
+        "etag": null,
+        "fetchedAt": "2026-10-20T21:41:31.099509Z",
+        "finalUrl": "https://www.prnewswire.com/news-releases/chainguard-announces-280-million-growth-financing-from-general-catalyst-to-usher-in-next-era-of-trusted-open-source-software-302592279.html",
+        "httpStatus": 304,
+        "lastModified": "Sun, 18 Oct 2026 04:37:24 GMT",
+        "observationId": "24e3c1d121b7116092b10c44eb931dcc46ce9ccd7586610fa0ad5ef01b4e50df",
+        "requestedUrl": "https://www.prnewswire.com/news-releases/chainguard-announces-280-million-growth-financing-from-general-catalyst-to-usher-in-next-era-of-trusted-open-source-software-302592279.html",
+        "reusesObservationId": "ef032946cf9911767dd80dc2d5362aee53796058ddf1b9b1d9e3febfd9504c62",
+        "sourceId": "chainguard:citation:TR-chainguard-2",
+        "status": "not_modified"
+      }
+    },
+    {
+      "key": "state/observations/24febe3d37f6b4b49362fa8f94c43a17664ebaa5d8fcafa18ce19b33c02cb34c.json",
+      "literalSourceIds": [
+        "cato:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 218188,
+          "key": "objects/c389766a7bf74f990f0ac569f8c50f54f9f5c29ca21c11399564301ef16d4180",
+          "sha256": "c389766a7bf74f990f0ac569f8c50f54f9f5c29ca21c11399564301ef16d4180"
+        },
+        "contentType": "text/html; charset=UTF-8",
+        "etag": null,
+        "fetchedAt": "2026-10-24T00:05:43.108987Z",
+        "finalUrl": "https://www.prnewswire.com/news-releases/cato-networks-raises-359-million-at-a-valuation-of-more-than-4-8-billion-302494283.html",
+        "httpStatus": 304,
+        "lastModified": "Sun, 18 Oct 2026 20:28:00 GMT",
+        "observationId": "24febe3d37f6b4b49362fa8f94c43a17664ebaa5d8fcafa18ce19b33c02cb34c",
+        "requestedUrl": "https://www.prnewswire.com/news-releases/cato-networks-raises-359-million-at-a-valuation-of-more-than-4-8-billion-302494283.html",
+        "reusesObservationId": "99951255d2405747885a6ae322d8cfa2d12e3895d78c9df549b6abd91d54955b",
+        "sourceId": "cato:citation:TR-cato-1",
+        "status": "not_modified",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/253c200aecf280487e4e2196c98d91549e502109a83b5385431506f22b94cd7c.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 265364,
+          "key": "objects/67c63b68b1626c5e53099452cb5e125960802aa27895e5925af87e0b058e3111",
+          "sha256": "67c63b68b1626c5e53099452cb5e125960802aa27895e5925af87e0b058e3111"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-24T18:29:50.137569Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+        "httpStatus": 200,
+        "lastModified": "Fri, 23 Oct 2026 23:54:15 GMT",
+        "observationId": "253c200aecf280487e4e2196c98d91549e502109a83b5385431506f22b94cd7c",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+        "sourceId": "cyera:citation:TR-cyera-2",
+        "status": "fetched",
+        "transportId": "21d346b305c27c500d24c6ddd8e30291d572829a279ad3d5ba77dd761d7c0af0",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/275cb7e6d51a87516eeff169cf8b803b8ca677cce8e1618ea21fb65f63a02bcf.json",
+      "literalSourceIds": [
+        "cato:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 219126,
+          "key": "objects/2fe0e900031f29fcc0cbf1a8fbc371f48e57bcb59aaa42aa3dbbe7af54728173",
+          "sha256": "2fe0e900031f29fcc0cbf1a8fbc371f48e57bcb59aaa42aa3dbbe7af54728173"
+        },
+        "contentType": "text/html; charset=UTF-8",
+        "etag": null,
+        "fetchedAt": "2026-10-25T06:45:58.074850Z",
+        "finalUrl": "https://www.prnewswire.com/news-releases/cato-networks-raises-359-million-at-a-valuation-of-more-than-4-8-billion-302494283.html",
+        "httpStatus": 304,
+        "lastModified": "Tue, 20 Oct 2026 05:55:35 GMT",
+        "observationId": "275cb7e6d51a87516eeff169cf8b803b8ca677cce8e1618ea21fb65f63a02bcf",
+        "requestedUrl": "https://www.prnewswire.com/news-releases/cato-networks-raises-359-million-at-a-valuation-of-more-than-4-8-billion-302494283.html",
+        "reusesObservationId": "d7d36ff4e71b14efbce789c81e9c4f59fb714cda109dc3933995dd45ab140ddc",
+        "sourceId": "cato:citation:TR-cato-1",
+        "status": "not_modified",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/2784b84793f7dfbb1415873576130ba12fd38c1410aa435ba719a1f43c94a18d.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 268012,
+          "key": "objects/c64b78abd574277371384c267ea857fb403cf5869024e7151fc50667988b89f2",
+          "sha256": "c64b78abd574277371384c267ea857fb403cf5869024e7151fc50667988b89f2"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-25T06:46:03.175955Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "httpStatus": 304,
+        "lastModified": "Sat, 24 Oct 2026 06:15:27 GMT",
+        "observationId": "2784b84793f7dfbb1415873576130ba12fd38c1410aa435ba719a1f43c94a18d",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "reusesObservationId": "02cb030deb8d0f506791c647262045eceb1a66c483b6a03cbb1dcb32ea4ef9f4",
+        "sourceId": "cyera:citation:TR-cyera-1",
+        "status": "not_modified",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/2972c05ecedad1daabb2c61c5f7693c7eb3e8f626ee23a6809b299e4602ee9f2.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 265126,
+          "key": "objects/af9630fee776cc0c03e51e18637b51558b28bb6d3f66ec9e8ac7778a20dda132",
+          "sha256": "af9630fee776cc0c03e51e18637b51558b28bb6d3f66ec9e8ac7778a20dda132"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-25T06:45:59.918199Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-acquires-ryft-to-extend-its-agentic-ai-security-platform",
+        "httpStatus": 304,
+        "lastModified": "Sat, 24 Oct 2026 18:30:03 GMT",
+        "observationId": "2972c05ecedad1daabb2c61c5f7693c7eb3e8f626ee23a6809b299e4602ee9f2",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-acquires-ryft-to-extend-its-agentic-ai-security-platform",
+        "reusesObservationId": "dfa19ee94dc00461bfbf14623aaf68956beb55bc0924a11e2e3fcf236470c7b7",
+        "sourceId": "cyera:citation:TR-cyera-3",
+        "status": "not_modified",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/2a0237499451a5f4bd833b4d8c19a0e8d6b804a727c0e027c188e466df56fca7.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 267390,
+          "key": "objects/3a4fe9a290c708cf18abcf9419ed381be2f0cacc9319caf4f5e11214cfc70864",
+          "sha256": "3a4fe9a290c708cf18abcf9419ed381be2f0cacc9319caf4f5e11214cfc70864"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-22T01:11:58.056883Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "httpStatus": 200,
+        "lastModified": "Wed, 21 Oct 2026 19:22:59 GMT",
+        "observationId": "2a0237499451a5f4bd833b4d8c19a0e8d6b804a727c0e027c188e466df56fca7",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "sourceId": "cyera:citation:TR-cyera-1",
+        "status": "fetched"
+      }
+    },
+    {
+      "key": "state/observations/2db35a9a2d0827dc83099485d2df5af2318901b0b34da0060d3d576ac51e9819.json",
+      "literalSourceIds": [
+        "cato:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 218188,
+          "key": "objects/c389766a7bf74f990f0ac569f8c50f54f9f5c29ca21c11399564301ef16d4180",
+          "sha256": "c389766a7bf74f990f0ac569f8c50f54f9f5c29ca21c11399564301ef16d4180"
+        },
+        "contentType": "text/html; charset=UTF-8",
+        "etag": null,
+        "fetchedAt": "2026-10-20T21:41:49.701738Z",
+        "finalUrl": "https://www.prnewswire.com/news-releases/cato-networks-raises-359-million-at-a-valuation-of-more-than-4-8-billion-302494283.html",
+        "httpStatus": 304,
+        "lastModified": "Sun, 18 Oct 2026 20:28:00 GMT",
+        "observationId": "2db35a9a2d0827dc83099485d2df5af2318901b0b34da0060d3d576ac51e9819",
+        "requestedUrl": "https://www.prnewswire.com/news-releases/cato-networks-raises-359-million-at-a-valuation-of-more-than-4-8-billion-302494283.html",
+        "reusesObservationId": "1ca393ee06b3cb2826ad5c8db09a5cd3421696940cc39a663cbff5ebe47dd148",
+        "sourceId": "cato:citation:TR-cato-1",
+        "status": "not_modified"
+      }
+    },
+    {
+      "key": "state/observations/33706a572bc4550664795d1da2dd6fb29092010fb0feeef71b907f57b3206a6f.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 264504,
+          "key": "objects/95ae8af76480a434582aa9a654bf9a713dc52b8cc40950e1a5f4e81dfc4e8ddd",
+          "sha256": "95ae8af76480a434582aa9a654bf9a713dc52b8cc40950e1a5f4e81dfc4e8ddd"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-20T21:41:39.916125Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-acquires-ryft-to-extend-its-agentic-ai-security-platform",
+        "httpStatus": 304,
+        "lastModified": "Mon, 19 Oct 2026 04:29:29 GMT",
+        "observationId": "33706a572bc4550664795d1da2dd6fb29092010fb0feeef71b907f57b3206a6f",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-acquires-ryft-to-extend-its-agentic-ai-security-platform",
+        "reusesObservationId": "b589437b337e6081f9461425eef02ac1f4edda8b017f9a34b8d4d6aa30d8f776",
+        "sourceId": "cyera:citation:TR-cyera-3",
+        "status": "not_modified"
+      }
+    },
+    {
+      "key": "state/observations/33f3d06300606699a820ff0d34f1ce285c32be5c948339b5cc8abb9f6bec882b.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 265126,
+          "key": "objects/af9630fee776cc0c03e51e18637b51558b28bb6d3f66ec9e8ac7778a20dda132",
+          "sha256": "af9630fee776cc0c03e51e18637b51558b28bb6d3f66ec9e8ac7778a20dda132"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-24T05:39:22.504973Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-acquires-ryft-to-extend-its-agentic-ai-security-platform",
+        "httpStatus": 304,
+        "lastModified": "Fri, 23 Oct 2026 23:38:05 GMT",
+        "observationId": "33f3d06300606699a820ff0d34f1ce285c32be5c948339b5cc8abb9f6bec882b",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-acquires-ryft-to-extend-its-agentic-ai-security-platform",
+        "reusesObservationId": "b58e4723bb90c3a88f77fa3f5082901e98a20206fe068e1ebf4aad155b3b3564",
+        "sourceId": "cyera:citation:TR-cyera-3",
+        "status": "not_modified",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/3cf41845c38fb55d6e61fab671a9fe329f1df4f8be5417f997b3cb2b02a80ae4.json",
+      "literalSourceIds": [
+        "chainguard:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 219802,
+          "key": "objects/f9629a0df62bacd7ae19421dbcb95edcd79d1dfb306e9d240514e15bc299a6a3",
+          "sha256": "f9629a0df62bacd7ae19421dbcb95edcd79d1dfb306e9d240514e15bc299a6a3"
+        },
+        "contentType": "text/html; charset=UTF-8",
+        "etag": null,
+        "fetchedAt": "2026-10-25T09:56:03.419230Z",
+        "finalUrl": "https://www.prnewswire.com/news-releases/chainguard-announces-280-million-growth-financing-from-general-catalyst-to-usher-in-next-era-of-trusted-open-source-software-302592279.html",
+        "httpStatus": 304,
+        "lastModified": "Sun, 25 Oct 2026 06:46:06 GMT",
+        "observationId": "3cf41845c38fb55d6e61fab671a9fe329f1df4f8be5417f997b3cb2b02a80ae4",
+        "requestedUrl": "https://www.prnewswire.com/news-releases/chainguard-announces-280-million-growth-financing-from-general-catalyst-to-usher-in-next-era-of-trusted-open-source-software-302592279.html",
+        "reusesObservationId": "b947425be110d751b827ff70c95e96a264d96af7e47d41dedc16ff05fb62ab7e",
+        "sourceId": "chainguard:citation:TR-chainguard-2",
+        "status": "not_modified",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/3fb2300a948ed7fd028d2af9ccfe937fd91b33acd8ab9ca39a1906983fcdcc1c.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 264742,
+          "key": "objects/651da1d036563ce302610c41dd2f62ca9b58e769cf7c1157ea7304285a45a9f8",
+          "sha256": "651da1d036563ce302610c41dd2f62ca9b58e769cf7c1157ea7304285a45a9f8"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-23T04:14:51.233144Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+        "httpStatus": 200,
+        "lastModified": "Fri, 23 Oct 2026 02:00:46 GMT",
+        "observationId": "3fb2300a948ed7fd028d2af9ccfe937fd91b33acd8ab9ca39a1906983fcdcc1c",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+        "sourceId": "cyera:citation:TR-cyera-2",
+        "status": "fetched"
+      }
+    },
+    {
+      "key": "state/observations/54051580f2dbddff56c19e11094bc3524fbc41afcacedb9947cfbb6a0738a111.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 267390,
+          "key": "objects/4b49e5ae2cd5a432490f93de319d96b21bf74f823141168a37b15b2df93cb3d7",
+          "sha256": "4b49e5ae2cd5a432490f93de319d96b21bf74f823141168a37b15b2df93cb3d7"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-20T21:41:22.179780Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "httpStatus": 200,
+        "lastModified": "Fri, 16 Oct 2026 21:23:07 GMT",
+        "observationId": "54051580f2dbddff56c19e11094bc3524fbc41afcacedb9947cfbb6a0738a111",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "sourceId": "cyera:citation:TR-cyera-1",
+        "status": "fetched"
+      }
+    },
+    {
+      "key": "state/observations/57b461f9d9b6720deac940e569bb687186193ba0e363703f9f5e074df2752197.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 267390,
+          "key": "objects/4b49e5ae2cd5a432490f93de319d96b21bf74f823141168a37b15b2df93cb3d7",
+          "sha256": "4b49e5ae2cd5a432490f93de319d96b21bf74f823141168a37b15b2df93cb3d7"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-20T21:21:30.573654Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "httpStatus": 304,
+        "lastModified": "Fri, 16 Oct 2026 20:17:55 GMT",
+        "observationId": "57b461f9d9b6720deac940e569bb687186193ba0e363703f9f5e074df2752197",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "reusesObservationId": "d3d035a49172f544bcb0e8504da1947290969625a640ec1ecad88e0a9186ce71",
+        "sourceId": "cyera:citation:TR-cyera-1",
+        "status": "not_modified"
+      }
+    },
+    {
+      "key": "state/observations/5d5b5c4df6b5d0515bfdea5cc0cbff09297935d37ba0d8085b92f1f2d797dae0.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 267376,
+          "key": "objects/597858144946c7db33749662ca4e808b36ee87c42386d22bc6320059cebd500b",
+          "sha256": "597858144946c7db33749662ca4e808b36ee87c42386d22bc6320059cebd500b"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-20T21:11:55.194036Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-raises-400m-to-meet-rapidly-growing-demand-for-ai-security-among-enterprises",
+        "httpStatus": 200,
+        "lastModified": "Fri, 16 Oct 2026 21:02:47 GMT",
+        "observationId": "5d5b5c4df6b5d0515bfdea5cc0cbff09297935d37ba0d8085b92f1f2d797dae0",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-raises-400m-to-meet-rapidly-growing-demand-for-ai-security-among-enterprises",
+        "sourceId": "cyera:citation:TR-cyera-5",
+        "status": "fetched"
+      }
+    },
+    {
+      "key": "state/observations/5fadc9af5cd787c78d6cab50ea0a4fa78846dd2077c0df604f5e546ad7bddb7b.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 264742,
+          "key": "objects/6d40b80360b3c3913758660a2ed0069a52006e69a8a8bd1942ea625b3acb31fe",
+          "sha256": "6d40b80360b3c3913758660a2ed0069a52006e69a8a8bd1942ea625b3acb31fe"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-20T21:11:33.139142Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+        "httpStatus": 200,
+        "lastModified": "Fri, 16 Oct 2026 20:20:16 GMT",
+        "observationId": "5fadc9af5cd787c78d6cab50ea0a4fa78846dd2077c0df604f5e546ad7bddb7b",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+        "sourceId": "cyera:citation:TR-cyera-2",
+        "status": "fetched"
+      }
+    },
+    {
+      "key": "state/observations/6144921b3ca4ed0ac5e43db21766f74b017149bd6c396b0c5d3a132ea6e04dc8.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 265364,
+          "key": "objects/67c63b68b1626c5e53099452cb5e125960802aa27895e5925af87e0b058e3111",
+          "sha256": "67c63b68b1626c5e53099452cb5e125960802aa27895e5925af87e0b058e3111"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-24T05:39:23.673750Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+        "httpStatus": 304,
+        "lastModified": "Fri, 23 Oct 2026 22:59:01 GMT",
+        "observationId": "6144921b3ca4ed0ac5e43db21766f74b017149bd6c396b0c5d3a132ea6e04dc8",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+        "reusesObservationId": "fdbb61b847f334ce96a576dc8a7f14abd0695533459e886bfc9d0f5a7b5a33a7",
+        "sourceId": "cyera:citation:TR-cyera-2",
+        "status": "not_modified",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/61e2d572a825e0a120f34030e4139ebd21b2c5aff587b618e464f90b89e3e66b.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 265364,
+          "key": "objects/67c63b68b1626c5e53099452cb5e125960802aa27895e5925af87e0b058e3111",
+          "sha256": "67c63b68b1626c5e53099452cb5e125960802aa27895e5925af87e0b058e3111"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-25T09:56:04.509202Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+        "httpStatus": 200,
+        "lastModified": "Sat, 24 Oct 2026 16:30:23 GMT",
+        "observationId": "61e2d572a825e0a120f34030e4139ebd21b2c5aff587b618e464f90b89e3e66b",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+        "sourceId": "cyera:citation:TR-cyera-2",
+        "status": "fetched",
+        "transportId": "e37c2f326755caeee805ff6e4b1a613b12a714d21877534637eb604fc9dd3f51",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/628f2d1203aca8af6638fc6714905ce24f1ffaa5ec417b15750f79d157fd63a8.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 268162,
+          "key": "objects/5b1600cb2ceeb6f68300009f2a8e7c3716299415190e720d35f25cc5c57a2aaf",
+          "sha256": "5b1600cb2ceeb6f68300009f2a8e7c3716299415190e720d35f25cc5c57a2aaf"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-25T09:55:53.751224Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-raises-600-million-at-12-billion-valuation-to-continue-building-the-trust-layer-for-the-ai-era",
+        "httpStatus": 200,
+        "lastModified": "Sun, 25 Oct 2026 09:55:53 GMT",
+        "observationId": "628f2d1203aca8af6638fc6714905ce24f1ffaa5ec417b15750f79d157fd63a8",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-raises-600-million-at-12-billion-valuation-to-continue-building-the-trust-layer-for-the-ai-era",
+        "sourceId": "cyera:citation:TR-cyera-4",
+        "status": "fetched",
+        "transportId": "5cb463d9c375f903c0a5cd5f17bf5b915fa84ce959b5415d9125eef8f0eca7fe",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/6419c428dd2644d6dc3eccc3617c35fcd6570dd899d6ed07b9fd0c9aa7767231.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 264742,
+          "key": "objects/6d40b80360b3c3913758660a2ed0069a52006e69a8a8bd1942ea625b3acb31fe",
+          "sha256": "6d40b80360b3c3913758660a2ed0069a52006e69a8a8bd1942ea625b3acb31fe"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-20T21:41:21.849364Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+        "httpStatus": 200,
+        "lastModified": "Fri, 16 Oct 2026 20:24:18 GMT",
+        "observationId": "6419c428dd2644d6dc3eccc3617c35fcd6570dd899d6ed07b9fd0c9aa7767231",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+        "sourceId": "cyera:citation:TR-cyera-2",
+        "status": "fetched"
+      }
+    },
+    {
+      "key": "state/observations/65326761a5d902b920e8e950648e39f94e1badb9b5b19669dfe8fdcc46b4737a.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 267998,
+          "key": "objects/e8043ea60d67549c1db502cb48b359cc5ed98767770eaa0823f441d9f2cee73a",
+          "sha256": "e8043ea60d67549c1db502cb48b359cc5ed98767770eaa0823f441d9f2cee73a"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-24T00:06:03.504489Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-raises-400m-to-meet-rapidly-growing-demand-for-ai-security-among-enterprises",
+        "httpStatus": 200,
+        "lastModified": "Fri, 23 Oct 2026 23:16:59 GMT",
+        "observationId": "65326761a5d902b920e8e950648e39f94e1badb9b5b19669dfe8fdcc46b4737a",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-raises-400m-to-meet-rapidly-growing-demand-for-ai-security-among-enterprises",
+        "sourceId": "cyera:citation:TR-cyera-5",
+        "status": "fetched",
+        "transportId": "1f0a5840857cf68c2537558aa37893c0d69ea0f7b8e54af97d1bde87f7476d5b",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/6860ca04e8578ceb78e4f097e119832f89115c50a9afa48f99119356190a6d19.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 265126,
+          "key": "objects/af9630fee776cc0c03e51e18637b51558b28bb6d3f66ec9e8ac7778a20dda132",
+          "sha256": "af9630fee776cc0c03e51e18637b51558b28bb6d3f66ec9e8ac7778a20dda132"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-25T09:55:58.521159Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-acquires-ryft-to-extend-its-agentic-ai-security-platform",
+        "httpStatus": 304,
+        "lastModified": "Sat, 24 Oct 2026 18:30:03 GMT",
+        "observationId": "6860ca04e8578ceb78e4f097e119832f89115c50a9afa48f99119356190a6d19",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-acquires-ryft-to-extend-its-agentic-ai-security-platform",
+        "reusesObservationId": "2972c05ecedad1daabb2c61c5f7693c7eb3e8f626ee23a6809b299e4602ee9f2",
+        "sourceId": "cyera:citation:TR-cyera-3",
+        "status": "not_modified",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/6b739bde18ed015ca48c58b30214e7264dd9cf60cbe4568a33c6fdb42ef00ed3.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 264742,
+          "key": "objects/9d1c6c7fc0b5ca8f6d889ea8dfaa5e1ae59200f7f139c1cfe8bebeff6335b954",
+          "sha256": "9d1c6c7fc0b5ca8f6d889ea8dfaa5e1ae59200f7f139c1cfe8bebeff6335b954"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-22T01:11:51.709942Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+        "httpStatus": 200,
+        "lastModified": "Wed, 21 Oct 2026 18:52:22 GMT",
+        "observationId": "6b739bde18ed015ca48c58b30214e7264dd9cf60cbe4568a33c6fdb42ef00ed3",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+        "sourceId": "cyera:citation:TR-cyera-2",
+        "status": "fetched"
+      }
+    },
+    {
+      "key": "state/observations/7033ea5229c238298df5cea584e918f9b59ccc310d6213931d70f507f811f158.json",
+      "literalSourceIds": [
+        "cato:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 218188,
+          "key": "objects/c389766a7bf74f990f0ac569f8c50f54f9f5c29ca21c11399564301ef16d4180",
+          "sha256": "c389766a7bf74f990f0ac569f8c50f54f9f5c29ca21c11399564301ef16d4180"
+        },
+        "contentType": "text/html; charset=UTF-8",
+        "etag": null,
+        "fetchedAt": "2026-10-23T04:14:44.632083Z",
+        "finalUrl": "https://www.prnewswire.com/news-releases/cato-networks-raises-359-million-at-a-valuation-of-more-than-4-8-billion-302494283.html",
+        "httpStatus": 304,
+        "lastModified": "Sun, 18 Oct 2026 20:28:00 GMT",
+        "observationId": "7033ea5229c238298df5cea584e918f9b59ccc310d6213931d70f507f811f158",
+        "requestedUrl": "https://www.prnewswire.com/news-releases/cato-networks-raises-359-million-at-a-valuation-of-more-than-4-8-billion-302494283.html",
+        "reusesObservationId": "c214ad1f3b51795b62ab856aba27b2d1b023fc289d540bcae70c9c496e6a6070",
+        "sourceId": "cato:citation:TR-cato-1",
+        "status": "not_modified"
+      }
+    },
+    {
+      "key": "state/observations/74cd778d88c89f94c2c7bed129c51ab93af3e0c9544289f1ac5c49c81ac9a3f5.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 267998,
+          "key": "objects/e8043ea60d67549c1db502cb48b359cc5ed98767770eaa0823f441d9f2cee73a",
+          "sha256": "e8043ea60d67549c1db502cb48b359cc5ed98767770eaa0823f441d9f2cee73a"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-25T09:55:54.603018Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-raises-400m-to-meet-rapidly-growing-demand-for-ai-security-among-enterprises",
+        "httpStatus": 304,
+        "lastModified": "Sat, 24 Oct 2026 15:51:20 GMT",
+        "observationId": "74cd778d88c89f94c2c7bed129c51ab93af3e0c9544289f1ac5c49c81ac9a3f5",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-raises-400m-to-meet-rapidly-growing-demand-for-ai-security-among-enterprises",
+        "reusesObservationId": "7c5e582a72ee38c17c70d8913c7909249e923e233a78cd62f24dd871d4e0684e",
+        "sourceId": "cyera:citation:TR-cyera-5",
+        "status": "not_modified",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/754a21497abc2b7396d9e815fa2583c9dec23f0271cba4026e946de01e41d7a8.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 267540,
+          "key": "objects/70dff404b87d41d1fafbf0c9865e493418760f0dce741b15d5ba326e7de97b06",
+          "sha256": "70dff404b87d41d1fafbf0c9865e493418760f0dce741b15d5ba326e7de97b06"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-20T21:41:48.943372Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-raises-600-million-at-12-billion-valuation-to-continue-building-the-trust-layer-for-the-ai-era",
+        "httpStatus": 200,
+        "lastModified": "Fri, 16 Oct 2026 22:15:55 GMT",
+        "observationId": "754a21497abc2b7396d9e815fa2583c9dec23f0271cba4026e946de01e41d7a8",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-raises-600-million-at-12-billion-valuation-to-continue-building-the-trust-layer-for-the-ai-era",
+        "sourceId": "cyera:citation:TR-cyera-4",
+        "status": "fetched"
+      }
+    },
+    {
+      "key": "state/observations/7676839a6e2c37a5670a6b74f6956e8283a4a350d6e1b5756e78550d15e2e1ef.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 267390,
+          "key": "objects/c7e1d3f5c6833dc9ed4633528dfd78a6c4b44996ffa183e6be5692d5d48ad117",
+          "sha256": "c7e1d3f5c6833dc9ed4633528dfd78a6c4b44996ffa183e6be5692d5d48ad117"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-23T04:14:44.342902Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "httpStatus": 200,
+        "lastModified": "Fri, 23 Oct 2026 04:14:44 GMT",
+        "observationId": "7676839a6e2c37a5670a6b74f6956e8283a4a350d6e1b5756e78550d15e2e1ef",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "sourceId": "cyera:citation:TR-cyera-1",
+        "status": "fetched"
+      }
+    },
+    {
+      "key": "state/observations/7c5e582a72ee38c17c70d8913c7909249e923e233a78cd62f24dd871d4e0684e.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 267998,
+          "key": "objects/e8043ea60d67549c1db502cb48b359cc5ed98767770eaa0823f441d9f2cee73a",
+          "sha256": "e8043ea60d67549c1db502cb48b359cc5ed98767770eaa0823f441d9f2cee73a"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-25T06:45:55.999169Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-raises-400m-to-meet-rapidly-growing-demand-for-ai-security-among-enterprises",
+        "httpStatus": 304,
+        "lastModified": "Sat, 24 Oct 2026 15:51:20 GMT",
+        "observationId": "7c5e582a72ee38c17c70d8913c7909249e923e233a78cd62f24dd871d4e0684e",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-raises-400m-to-meet-rapidly-growing-demand-for-ai-security-among-enterprises",
+        "reusesObservationId": "88a48254131a6845c8be56b7423870b352dc0d87c1bd769dbe4f9d971213b019",
+        "sourceId": "cyera:citation:TR-cyera-5",
+        "status": "not_modified",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/7d1a78156f1ce5e94493ccb6334f15fbbec1ac5ece24c209b68e04e329e24a07.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 268162,
+          "key": "objects/5b1600cb2ceeb6f68300009f2a8e7c3716299415190e720d35f25cc5c57a2aaf",
+          "sha256": "5b1600cb2ceeb6f68300009f2a8e7c3716299415190e720d35f25cc5c57a2aaf"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-24T00:05:30.924183Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-raises-600-million-at-12-billion-valuation-to-continue-building-the-trust-layer-for-the-ai-era",
+        "httpStatus": 200,
+        "lastModified": "Fri, 23 Oct 2026 23:08:54 GMT",
+        "observationId": "7d1a78156f1ce5e94493ccb6334f15fbbec1ac5ece24c209b68e04e329e24a07",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-raises-600-million-at-12-billion-valuation-to-continue-building-the-trust-layer-for-the-ai-era",
+        "sourceId": "cyera:citation:TR-cyera-4",
+        "status": "fetched",
+        "transportId": "0abd2970e110085d10ad95d87cc8795bab63b445c47af4ec52a2f818d4c11300",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/8706e25cb9121c6c62e6d4cc1dcb75673c1a0189cf1c6c63223f16f0faf6638a.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 268162,
+          "key": "objects/5b1600cb2ceeb6f68300009f2a8e7c3716299415190e720d35f25cc5c57a2aaf",
+          "sha256": "5b1600cb2ceeb6f68300009f2a8e7c3716299415190e720d35f25cc5c57a2aaf"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-24T18:29:53.745378Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-raises-600-million-at-12-billion-valuation-to-continue-building-the-trust-layer-for-the-ai-era",
+        "httpStatus": 200,
+        "lastModified": "Fri, 23 Oct 2026 23:37:15 GMT",
+        "observationId": "8706e25cb9121c6c62e6d4cc1dcb75673c1a0189cf1c6c63223f16f0faf6638a",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-raises-600-million-at-12-billion-valuation-to-continue-building-the-trust-layer-for-the-ai-era",
+        "sourceId": "cyera:citation:TR-cyera-4",
+        "status": "fetched",
+        "transportId": "cff671ff23e218393ac1ac682048c5fe1cb114349a0e5d6e6e011de2d2c2c886",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/88a48254131a6845c8be56b7423870b352dc0d87c1bd769dbe4f9d971213b019.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 267998,
+          "key": "objects/e8043ea60d67549c1db502cb48b359cc5ed98767770eaa0823f441d9f2cee73a",
+          "sha256": "e8043ea60d67549c1db502cb48b359cc5ed98767770eaa0823f441d9f2cee73a"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-24T18:30:07.898511Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-raises-400m-to-meet-rapidly-growing-demand-for-ai-security-among-enterprises",
+        "httpStatus": 200,
+        "lastModified": "Sat, 24 Oct 2026 15:51:20 GMT",
+        "observationId": "88a48254131a6845c8be56b7423870b352dc0d87c1bd769dbe4f9d971213b019",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-raises-400m-to-meet-rapidly-growing-demand-for-ai-security-among-enterprises",
+        "sourceId": "cyera:citation:TR-cyera-5",
+        "status": "fetched",
+        "transportId": "1196c2038e3f4d32d8763f46fbe6174db614b8c152bc50de8a276585563c7d55",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/8c5dec68d3c6506efa09c4e1ba40ee4d32fb2fc8c218fd1c7dc74e67b80c23dc.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 268012,
+          "key": "objects/c64b78abd574277371384c267ea857fb403cf5869024e7151fc50667988b89f2",
+          "sha256": "c64b78abd574277371384c267ea857fb403cf5869024e7151fc50667988b89f2"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-24T00:05:51.825171Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "httpStatus": 200,
+        "lastModified": "Fri, 23 Oct 2026 23:51:26 GMT",
+        "observationId": "8c5dec68d3c6506efa09c4e1ba40ee4d32fb2fc8c218fd1c7dc74e67b80c23dc",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "sourceId": "cyera:citation:TR-cyera-1",
+        "status": "fetched",
+        "transportId": "291b7f5b0cc8c9e1b73b97b6c52607cd06f9dfd48f64faf5aea2b710a132c270",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/90c61f79ff7aaf2e0a3f920f4b980364b7d6d694566ef26fbd8d138e0388dbca.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 264504,
+          "key": "objects/95ae8af76480a434582aa9a654bf9a713dc52b8cc40950e1a5f4e81dfc4e8ddd",
+          "sha256": "95ae8af76480a434582aa9a654bf9a713dc52b8cc40950e1a5f4e81dfc4e8ddd"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-20T21:11:37.429204Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-acquires-ryft-to-extend-its-agentic-ai-security-platform",
+        "httpStatus": 200,
+        "lastModified": "Mon, 19 Oct 2026 04:29:29 GMT",
+        "observationId": "90c61f79ff7aaf2e0a3f920f4b980364b7d6d694566ef26fbd8d138e0388dbca",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-acquires-ryft-to-extend-its-agentic-ai-security-platform",
+        "sourceId": "cyera:citation:TR-cyera-3",
+        "status": "fetched"
+      }
+    },
+    {
+      "key": "state/observations/953b1b8f157c727f4c249e3a1675e8066068679cce2e8aa462ee562468a1e07c.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 267376,
+          "key": "objects/597858144946c7db33749662ca4e808b36ee87c42386d22bc6320059cebd500b",
+          "sha256": "597858144946c7db33749662ca4e808b36ee87c42386d22bc6320059cebd500b"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-20T21:41:45.817702Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-raises-400m-to-meet-rapidly-growing-demand-for-ai-security-among-enterprises",
+        "httpStatus": 200,
+        "lastModified": "Sat, 17 Oct 2026 01:52:32 GMT",
+        "observationId": "953b1b8f157c727f4c249e3a1675e8066068679cce2e8aa462ee562468a1e07c",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-raises-400m-to-meet-rapidly-growing-demand-for-ai-security-among-enterprises",
+        "sourceId": "cyera:citation:TR-cyera-5",
+        "status": "fetched"
+      }
+    },
+    {
+      "key": "state/observations/9852fc5e2b125d6a2134989503fc853b0a5952830cadbd3bcdd21fd2b38b21d5.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 268012,
+          "key": "objects/c64b78abd574277371384c267ea857fb403cf5869024e7151fc50667988b89f2",
+          "sha256": "c64b78abd574277371384c267ea857fb403cf5869024e7151fc50667988b89f2"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-24T05:39:41.692982Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "httpStatus": 304,
+        "lastModified": "Fri, 23 Oct 2026 23:51:26 GMT",
+        "observationId": "9852fc5e2b125d6a2134989503fc853b0a5952830cadbd3bcdd21fd2b38b21d5",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "reusesObservationId": "8c5dec68d3c6506efa09c4e1ba40ee4d32fb2fc8c218fd1c7dc74e67b80c23dc",
+        "sourceId": "cyera:citation:TR-cyera-1",
+        "status": "not_modified",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/99951255d2405747885a6ae322d8cfa2d12e3895d78c9df549b6abd91d54955b.json",
+      "literalSourceIds": [
+        "cato:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 218188,
+          "key": "objects/c389766a7bf74f990f0ac569f8c50f54f9f5c29ca21c11399564301ef16d4180",
+          "sha256": "c389766a7bf74f990f0ac569f8c50f54f9f5c29ca21c11399564301ef16d4180"
+        },
+        "contentType": "text/html; charset=UTF-8",
+        "etag": null,
+        "fetchedAt": "2026-10-23T11:34:11.011806Z",
+        "finalUrl": "https://www.prnewswire.com/news-releases/cato-networks-raises-359-million-at-a-valuation-of-more-than-4-8-billion-302494283.html",
+        "httpStatus": 304,
+        "lastModified": "Sun, 18 Oct 2026 20:28:00 GMT",
+        "observationId": "99951255d2405747885a6ae322d8cfa2d12e3895d78c9df549b6abd91d54955b",
+        "requestedUrl": "https://www.prnewswire.com/news-releases/cato-networks-raises-359-million-at-a-valuation-of-more-than-4-8-billion-302494283.html",
+        "reusesObservationId": "7033ea5229c238298df5cea584e918f9b59ccc310d6213931d70f507f811f158",
+        "sourceId": "cato:citation:TR-cato-1",
+        "status": "not_modified"
+      }
+    },
+    {
+      "key": "state/observations/9c3a58c427079eb68f6a37ddb8eeb55713d4183246b4acfe705c624d967aef7f.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 267540,
+          "key": "objects/56f5aed04d9fec102e7d9e4688b86ec5f55fd7d6f68d1586555b908e84cf83ba",
+          "sha256": "56f5aed04d9fec102e7d9e4688b86ec5f55fd7d6f68d1586555b908e84cf83ba"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-23T11:34:12.818574Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-raises-600-million-at-12-billion-valuation-to-continue-building-the-trust-layer-for-the-ai-era",
+        "httpStatus": 304,
+        "lastModified": "Thu, 22 Oct 2026 23:50:42 GMT",
+        "observationId": "9c3a58c427079eb68f6a37ddb8eeb55713d4183246b4acfe705c624d967aef7f",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-raises-600-million-at-12-billion-valuation-to-continue-building-the-trust-layer-for-the-ai-era",
+        "reusesObservationId": "a589b1322c58232192bf3f73f7656ffe5e9bb272bf8b3d3bdcea3e751d3cf66e",
+        "sourceId": "cyera:citation:TR-cyera-4",
+        "status": "not_modified"
+      }
+    },
+    {
+      "key": "state/observations/9c88958f39a63dbf781f95f885b5a01529fc47299f2c1bedc1852c98216b92d4.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 267540,
+          "key": "objects/70dff404b87d41d1fafbf0c9865e493418760f0dce741b15d5ba326e7de97b06",
+          "sha256": "70dff404b87d41d1fafbf0c9865e493418760f0dce741b15d5ba326e7de97b06"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-20T21:11:58.061527Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-raises-600-million-at-12-billion-valuation-to-continue-building-the-trust-layer-for-the-ai-era",
+        "httpStatus": 200,
+        "lastModified": "Fri, 16 Oct 2026 19:59:12 GMT",
+        "observationId": "9c88958f39a63dbf781f95f885b5a01529fc47299f2c1bedc1852c98216b92d4",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-raises-600-million-at-12-billion-valuation-to-continue-building-the-trust-layer-for-the-ai-era",
+        "sourceId": "cyera:citation:TR-cyera-4",
+        "status": "fetched"
+      }
+    },
+    {
+      "key": "state/observations/a589b1322c58232192bf3f73f7656ffe5e9bb272bf8b3d3bdcea3e751d3cf66e.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 267540,
+          "key": "objects/56f5aed04d9fec102e7d9e4688b86ec5f55fd7d6f68d1586555b908e84cf83ba",
+          "sha256": "56f5aed04d9fec102e7d9e4688b86ec5f55fd7d6f68d1586555b908e84cf83ba"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-23T04:14:46.413075Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-raises-600-million-at-12-billion-valuation-to-continue-building-the-trust-layer-for-the-ai-era",
+        "httpStatus": 200,
+        "lastModified": "Thu, 22 Oct 2026 23:50:42 GMT",
+        "observationId": "a589b1322c58232192bf3f73f7656ffe5e9bb272bf8b3d3bdcea3e751d3cf66e",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-raises-600-million-at-12-billion-valuation-to-continue-building-the-trust-layer-for-the-ai-era",
+        "sourceId": "cyera:citation:TR-cyera-4",
+        "status": "fetched"
+      }
+    },
+    {
+      "key": "state/observations/a89ad0d32d9ccbc9d4b601fbeb62f7a3928bf20a1dc034d7321e93f492cc863b.json",
+      "literalSourceIds": [
+        "cato:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 218188,
+          "key": "objects/c389766a7bf74f990f0ac569f8c50f54f9f5c29ca21c11399564301ef16d4180",
+          "sha256": "c389766a7bf74f990f0ac569f8c50f54f9f5c29ca21c11399564301ef16d4180"
+        },
+        "contentType": "text/html; charset=UTF-8",
+        "etag": null,
+        "fetchedAt": "2026-10-24T05:39:33.854062Z",
+        "finalUrl": "https://www.prnewswire.com/news-releases/cato-networks-raises-359-million-at-a-valuation-of-more-than-4-8-billion-302494283.html",
+        "httpStatus": 304,
+        "lastModified": "Sun, 18 Oct 2026 20:28:00 GMT",
+        "observationId": "a89ad0d32d9ccbc9d4b601fbeb62f7a3928bf20a1dc034d7321e93f492cc863b",
+        "requestedUrl": "https://www.prnewswire.com/news-releases/cato-networks-raises-359-million-at-a-valuation-of-more-than-4-8-billion-302494283.html",
+        "reusesObservationId": "24febe3d37f6b4b49362fa8f94c43a17664ebaa5d8fcafa18ce19b33c02cb34c",
+        "sourceId": "cato:citation:TR-cato-1",
+        "status": "not_modified",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/a9fa379edfeb0873cea4bd8b46611009ff5ee3c3bfb5051dc997cb0b052fcd67.json",
+      "literalSourceIds": [
+        "chainguard:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 219802,
+          "key": "objects/f26cf02658d7131566d9b1d6be9413e46c940d5b1eaf5db5b68435f1c8c66cd9",
+          "sha256": "f26cf02658d7131566d9b1d6be9413e46c940d5b1eaf5db5b68435f1c8c66cd9"
+        },
+        "contentType": "text/html; charset=UTF-8",
+        "etag": null,
+        "fetchedAt": "2026-10-24T18:30:07.591683Z",
+        "finalUrl": "https://www.prnewswire.com/news-releases/chainguard-announces-280-million-growth-financing-from-general-catalyst-to-usher-in-next-era-of-trusted-open-source-software-302592279.html",
+        "httpStatus": 200,
+        "lastModified": "Wed, 21 Oct 2026 15:03:56 GMT",
+        "observationId": "a9fa379edfeb0873cea4bd8b46611009ff5ee3c3bfb5051dc997cb0b052fcd67",
+        "requestedUrl": "https://www.prnewswire.com/news-releases/chainguard-announces-280-million-growth-financing-from-general-catalyst-to-usher-in-next-era-of-trusted-open-source-software-302592279.html",
+        "sourceId": "chainguard:citation:TR-chainguard-2",
+        "status": "fetched",
+        "transportId": "1de94a4314176f3515f41d9d04897f141db1abcb9b192992a924990da49b061a",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/b02646d48f0338fcb3fde2c70f2e112ebecde90074f3ed58adc45526e91e2668.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 268162,
+          "key": "objects/5b1600cb2ceeb6f68300009f2a8e7c3716299415190e720d35f25cc5c57a2aaf",
+          "sha256": "5b1600cb2ceeb6f68300009f2a8e7c3716299415190e720d35f25cc5c57a2aaf"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-24T05:39:43.776982Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-raises-600-million-at-12-billion-valuation-to-continue-building-the-trust-layer-for-the-ai-era",
+        "httpStatus": 304,
+        "lastModified": "Fri, 23 Oct 2026 23:08:54 GMT",
+        "observationId": "b02646d48f0338fcb3fde2c70f2e112ebecde90074f3ed58adc45526e91e2668",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-raises-600-million-at-12-billion-valuation-to-continue-building-the-trust-layer-for-the-ai-era",
+        "reusesObservationId": "7d1a78156f1ce5e94493ccb6334f15fbbec1ac5ece24c209b68e04e329e24a07",
+        "sourceId": "cyera:citation:TR-cyera-4",
+        "status": "not_modified",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/b589437b337e6081f9461425eef02ac1f4edda8b017f9a34b8d4d6aa30d8f776.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 264504,
+          "key": "objects/95ae8af76480a434582aa9a654bf9a713dc52b8cc40950e1a5f4e81dfc4e8ddd",
+          "sha256": "95ae8af76480a434582aa9a654bf9a713dc52b8cc40950e1a5f4e81dfc4e8ddd"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-20T21:22:14.376591Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-acquires-ryft-to-extend-its-agentic-ai-security-platform",
+        "httpStatus": 304,
+        "lastModified": "Mon, 19 Oct 2026 04:29:29 GMT",
+        "observationId": "b589437b337e6081f9461425eef02ac1f4edda8b017f9a34b8d4d6aa30d8f776",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-acquires-ryft-to-extend-its-agentic-ai-security-platform",
+        "reusesObservationId": "90c61f79ff7aaf2e0a3f920f4b980364b7d6d694566ef26fbd8d138e0388dbca",
+        "sourceId": "cyera:citation:TR-cyera-3",
+        "status": "not_modified"
+      }
+    },
+    {
+      "key": "state/observations/b58e4723bb90c3a88f77fa3f5082901e98a20206fe068e1ebf4aad155b3b3564.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 265126,
+          "key": "objects/af9630fee776cc0c03e51e18637b51558b28bb6d3f66ec9e8ac7778a20dda132",
+          "sha256": "af9630fee776cc0c03e51e18637b51558b28bb6d3f66ec9e8ac7778a20dda132"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-24T00:05:42.514466Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-acquires-ryft-to-extend-its-agentic-ai-security-platform",
+        "httpStatus": 200,
+        "lastModified": "Fri, 23 Oct 2026 23:38:05 GMT",
+        "observationId": "b58e4723bb90c3a88f77fa3f5082901e98a20206fe068e1ebf4aad155b3b3564",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-acquires-ryft-to-extend-its-agentic-ai-security-platform",
+        "sourceId": "cyera:citation:TR-cyera-3",
+        "status": "fetched",
+        "transportId": "794908101363b60e416c78c6bfe6b53d615f1af89de4331ed1a0fcf146b7bb2e",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/b60fab16b0d2ff2b57914f8d0afd2c11c7ab6484874df3ca1058845ce6a1430d.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 267376,
+          "key": "objects/43ae5e60273e8df41c9aee57e0ac246d1871816dd9ce33214293f8a10817e996",
+          "sha256": "43ae5e60273e8df41c9aee57e0ac246d1871816dd9ce33214293f8a10817e996"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-22T01:11:31.875482Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-raises-400m-to-meet-rapidly-growing-demand-for-ai-security-among-enterprises",
+        "httpStatus": 200,
+        "lastModified": "Wed, 21 Oct 2026 19:00:41 GMT",
+        "observationId": "b60fab16b0d2ff2b57914f8d0afd2c11c7ab6484874df3ca1058845ce6a1430d",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-raises-400m-to-meet-rapidly-growing-demand-for-ai-security-among-enterprises",
+        "sourceId": "cyera:citation:TR-cyera-5",
+        "status": "fetched"
+      }
+    },
+    {
+      "key": "state/observations/b947425be110d751b827ff70c95e96a264d96af7e47d41dedc16ff05fb62ab7e.json",
+      "literalSourceIds": [
+        "chainguard:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 219802,
+          "key": "objects/f9629a0df62bacd7ae19421dbcb95edcd79d1dfb306e9d240514e15bc299a6a3",
+          "sha256": "f9629a0df62bacd7ae19421dbcb95edcd79d1dfb306e9d240514e15bc299a6a3"
+        },
+        "contentType": "text/html; charset=UTF-8",
+        "etag": null,
+        "fetchedAt": "2026-10-25T06:46:06.412965Z",
+        "finalUrl": "https://www.prnewswire.com/news-releases/chainguard-announces-280-million-growth-financing-from-general-catalyst-to-usher-in-next-era-of-trusted-open-source-software-302592279.html",
+        "httpStatus": 200,
+        "lastModified": "Sun, 25 Oct 2026 06:46:06 GMT",
+        "observationId": "b947425be110d751b827ff70c95e96a264d96af7e47d41dedc16ff05fb62ab7e",
+        "requestedUrl": "https://www.prnewswire.com/news-releases/chainguard-announces-280-million-growth-financing-from-general-catalyst-to-usher-in-next-era-of-trusted-open-source-software-302592279.html",
+        "sourceId": "chainguard:citation:TR-chainguard-2",
+        "status": "fetched",
+        "transportId": "7d4999fc30936f7093fc4b6bb3fcaec4445166210b8c6d09cdd498e8592a4747",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/bb5fd1b44687493f812ed9a05b2848f10f3640ef4b273b0ef4bab0a7409d45db.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 267376,
+          "key": "objects/597858144946c7db33749662ca4e808b36ee87c42386d22bc6320059cebd500b",
+          "sha256": "597858144946c7db33749662ca4e808b36ee87c42386d22bc6320059cebd500b"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-20T21:22:11.507704Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-raises-400m-to-meet-rapidly-growing-demand-for-ai-security-among-enterprises",
+        "httpStatus": 200,
+        "lastModified": "Sat, 17 Oct 2026 01:31:35 GMT",
+        "observationId": "bb5fd1b44687493f812ed9a05b2848f10f3640ef4b273b0ef4bab0a7409d45db",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-raises-400m-to-meet-rapidly-growing-demand-for-ai-security-among-enterprises",
+        "sourceId": "cyera:citation:TR-cyera-5",
+        "status": "fetched"
+      }
+    },
+    {
+      "key": "state/observations/c214ad1f3b51795b62ab856aba27b2d1b023fc289d540bcae70c9c496e6a6070.json",
+      "literalSourceIds": [
+        "cato:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 218188,
+          "key": "objects/c389766a7bf74f990f0ac569f8c50f54f9f5c29ca21c11399564301ef16d4180",
+          "sha256": "c389766a7bf74f990f0ac569f8c50f54f9f5c29ca21c11399564301ef16d4180"
+        },
+        "contentType": "text/html; charset=UTF-8",
+        "etag": null,
+        "fetchedAt": "2026-10-22T01:11:30.366669Z",
+        "finalUrl": "https://www.prnewswire.com/news-releases/cato-networks-raises-359-million-at-a-valuation-of-more-than-4-8-billion-302494283.html",
+        "httpStatus": 304,
+        "lastModified": "Sun, 18 Oct 2026 20:28:00 GMT",
+        "observationId": "c214ad1f3b51795b62ab856aba27b2d1b023fc289d540bcae70c9c496e6a6070",
+        "requestedUrl": "https://www.prnewswire.com/news-releases/cato-networks-raises-359-million-at-a-valuation-of-more-than-4-8-billion-302494283.html",
+        "reusesObservationId": "2db35a9a2d0827dc83099485d2df5af2318901b0b34da0060d3d576ac51e9819",
+        "sourceId": "cato:citation:TR-cato-1",
+        "status": "not_modified"
+      }
+    },
+    {
+      "key": "state/observations/c340c76df49a6e93013e9552ec6a5a6de7331e6be78dcc7f015965e3ed27b259.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 265364,
+          "key": "objects/67c63b68b1626c5e53099452cb5e125960802aa27895e5925af87e0b058e3111",
+          "sha256": "67c63b68b1626c5e53099452cb5e125960802aa27895e5925af87e0b058e3111"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-25T06:46:05.873081Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+        "httpStatus": 304,
+        "lastModified": "Fri, 23 Oct 2026 23:54:15 GMT",
+        "observationId": "c340c76df49a6e93013e9552ec6a5a6de7331e6be78dcc7f015965e3ed27b259",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+        "reusesObservationId": "253c200aecf280487e4e2196c98d91549e502109a83b5385431506f22b94cd7c",
+        "sourceId": "cyera:citation:TR-cyera-2",
+        "status": "not_modified",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/c880a08c671abb37bbdaa66144dcd081e8acf4a00c52e9ad02f58b58437de1b6.json",
+      "literalSourceIds": [
+        "chainguard:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 219070,
+          "key": "objects/7d8b539bddfc8d8fb62460541f1b04ce1f309277595a4482d535a9c942f4c282",
+          "sha256": "7d8b539bddfc8d8fb62460541f1b04ce1f309277595a4482d535a9c942f4c282"
+        },
+        "contentType": "text/html; charset=UTF-8",
+        "etag": null,
+        "fetchedAt": "2026-10-24T05:39:32.960669Z",
+        "finalUrl": "https://www.prnewswire.com/news-releases/chainguard-announces-280-million-growth-financing-from-general-catalyst-to-usher-in-next-era-of-trusted-open-source-software-302592279.html",
+        "httpStatus": 304,
+        "lastModified": "Sun, 18 Oct 2026 04:37:24 GMT",
+        "observationId": "c880a08c671abb37bbdaa66144dcd081e8acf4a00c52e9ad02f58b58437de1b6",
+        "requestedUrl": "https://www.prnewswire.com/news-releases/chainguard-announces-280-million-growth-financing-from-general-catalyst-to-usher-in-next-era-of-trusted-open-source-software-302592279.html",
+        "reusesObservationId": "0902ace57af8f115f8644d38556680b892b26c81d895b4e75b5a12a1f752d2a6",
+        "sourceId": "chainguard:citation:TR-chainguard-2",
+        "status": "not_modified",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/cd5bfce7a2793cfa6e86df485937128eeb94c4629d3f32fdad1de286856a7f2f.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 267376,
+          "key": "objects/7f507d838faf136af0d10b68db116661226ae9cbd5dd6ecce969830daf1cf8f4",
+          "sha256": "7f507d838faf136af0d10b68db116661226ae9cbd5dd6ecce969830daf1cf8f4"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-23T04:14:43.150318Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-raises-400m-to-meet-rapidly-growing-demand-for-ai-security-among-enterprises",
+        "httpStatus": 200,
+        "lastModified": "Fri, 23 Oct 2026 04:14:43 GMT",
+        "observationId": "cd5bfce7a2793cfa6e86df485937128eeb94c4629d3f32fdad1de286856a7f2f",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-raises-400m-to-meet-rapidly-growing-demand-for-ai-security-among-enterprises",
+        "sourceId": "cyera:citation:TR-cyera-5",
+        "status": "fetched"
+      }
+    },
+    {
+      "key": "state/observations/d0c18ee373a3c722817abb252471725836b02bc55c09b42dd206021558326d68.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 267998,
+          "key": "objects/e8043ea60d67549c1db502cb48b359cc5ed98767770eaa0823f441d9f2cee73a",
+          "sha256": "e8043ea60d67549c1db502cb48b359cc5ed98767770eaa0823f441d9f2cee73a"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-24T05:39:47.116248Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-raises-400m-to-meet-rapidly-growing-demand-for-ai-security-among-enterprises",
+        "httpStatus": 304,
+        "lastModified": "Fri, 23 Oct 2026 23:16:59 GMT",
+        "observationId": "d0c18ee373a3c722817abb252471725836b02bc55c09b42dd206021558326d68",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-raises-400m-to-meet-rapidly-growing-demand-for-ai-security-among-enterprises",
+        "reusesObservationId": "65326761a5d902b920e8e950648e39f94e1badb9b5b19669dfe8fdcc46b4737a",
+        "sourceId": "cyera:citation:TR-cyera-5",
+        "status": "not_modified",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/d3d035a49172f544bcb0e8504da1947290969625a640ec1ecad88e0a9186ce71.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 267390,
+          "key": "objects/4b49e5ae2cd5a432490f93de319d96b21bf74f823141168a37b15b2df93cb3d7",
+          "sha256": "4b49e5ae2cd5a432490f93de319d96b21bf74f823141168a37b15b2df93cb3d7"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-20T21:11:45.828778Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "httpStatus": 200,
+        "lastModified": "Fri, 16 Oct 2026 20:17:55 GMT",
+        "observationId": "d3d035a49172f544bcb0e8504da1947290969625a640ec1ecad88e0a9186ce71",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "sourceId": "cyera:citation:TR-cyera-1",
+        "status": "fetched"
+      }
+    },
+    {
+      "key": "state/observations/d77637419a831c5c4d639f0c1a37b7f728ce957c475d6bab3806dec6ad2e1ca1.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 267540,
+          "key": "objects/5e1a332c4fe0fda2ee3de281242e78e2e6803c463cea7a7b04e8ee9e3358a37a",
+          "sha256": "5e1a332c4fe0fda2ee3de281242e78e2e6803c463cea7a7b04e8ee9e3358a37a"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-22T01:12:01.211417Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-raises-600-million-at-12-billion-valuation-to-continue-building-the-trust-layer-for-the-ai-era",
+        "httpStatus": 200,
+        "lastModified": "Wed, 21 Oct 2026 19:30:28 GMT",
+        "observationId": "d77637419a831c5c4d639f0c1a37b7f728ce957c475d6bab3806dec6ad2e1ca1",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-raises-600-million-at-12-billion-valuation-to-continue-building-the-trust-layer-for-the-ai-era",
+        "sourceId": "cyera:citation:TR-cyera-4",
+        "status": "fetched"
+      }
+    },
+    {
+      "key": "state/observations/d7d36ff4e71b14efbce789c81e9c4f59fb714cda109dc3933995dd45ab140ddc.json",
+      "literalSourceIds": [
+        "cato:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 219126,
+          "key": "objects/2fe0e900031f29fcc0cbf1a8fbc371f48e57bcb59aaa42aa3dbbe7af54728173",
+          "sha256": "2fe0e900031f29fcc0cbf1a8fbc371f48e57bcb59aaa42aa3dbbe7af54728173"
+        },
+        "contentType": "text/html; charset=UTF-8",
+        "etag": null,
+        "fetchedAt": "2026-10-24T18:29:41.178689Z",
+        "finalUrl": "https://www.prnewswire.com/news-releases/cato-networks-raises-359-million-at-a-valuation-of-more-than-4-8-billion-302494283.html",
+        "httpStatus": 200,
+        "lastModified": "Tue, 20 Oct 2026 05:55:35 GMT",
+        "observationId": "d7d36ff4e71b14efbce789c81e9c4f59fb714cda109dc3933995dd45ab140ddc",
+        "requestedUrl": "https://www.prnewswire.com/news-releases/cato-networks-raises-359-million-at-a-valuation-of-more-than-4-8-billion-302494283.html",
+        "sourceId": "cato:citation:TR-cato-1",
+        "status": "fetched",
+        "transportId": "cff01ea2f8945f22117d75fc2ad87d899d44ccb698bc1f624117544bfee7cefc",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/dac3117dee2ff9d43ccd71e5d727d1c120355883f400b8101062737b0630bbde.json",
+      "literalSourceIds": [
+        "chainguard:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 219070,
+          "key": "objects/7d8b539bddfc8d8fb62460541f1b04ce1f309277595a4482d535a9c942f4c282",
+          "sha256": "7d8b539bddfc8d8fb62460541f1b04ce1f309277595a4482d535a9c942f4c282"
+        },
+        "contentType": "text/html; charset=UTF-8",
+        "etag": null,
+        "fetchedAt": "2026-10-20T21:11:55.287485Z",
+        "finalUrl": "https://www.prnewswire.com/news-releases/chainguard-announces-280-million-growth-financing-from-general-catalyst-to-usher-in-next-era-of-trusted-open-source-software-302592279.html",
+        "httpStatus": 200,
+        "lastModified": "Sun, 18 Oct 2026 04:37:24 GMT",
+        "observationId": "dac3117dee2ff9d43ccd71e5d727d1c120355883f400b8101062737b0630bbde",
+        "requestedUrl": "https://www.prnewswire.com/news-releases/chainguard-announces-280-million-growth-financing-from-general-catalyst-to-usher-in-next-era-of-trusted-open-source-software-302592279.html",
+        "sourceId": "chainguard:citation:TR-chainguard-2",
+        "status": "fetched"
+      }
+    },
+    {
+      "key": "state/observations/dfa19ee94dc00461bfbf14623aaf68956beb55bc0924a11e2e3fcf236470c7b7.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 265126,
+          "key": "objects/af9630fee776cc0c03e51e18637b51558b28bb6d3f66ec9e8ac7778a20dda132",
+          "sha256": "af9630fee776cc0c03e51e18637b51558b28bb6d3f66ec9e8ac7778a20dda132"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-24T18:30:03.972761Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-acquires-ryft-to-extend-its-agentic-ai-security-platform",
+        "httpStatus": 200,
+        "lastModified": "Sat, 24 Oct 2026 18:30:03 GMT",
+        "observationId": "dfa19ee94dc00461bfbf14623aaf68956beb55bc0924a11e2e3fcf236470c7b7",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-acquires-ryft-to-extend-its-agentic-ai-security-platform",
+        "sourceId": "cyera:citation:TR-cyera-3",
+        "status": "fetched",
+        "transportId": "2142145b2561df39753616b017decd19b967a9a6d6c5f764272b4f098846413c",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/e093d30012f13f5403bd5d9e3f14bc5421ecc3a1714352fd7a2b3e44224580b2.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 268012,
+          "key": "objects/c64b78abd574277371384c267ea857fb403cf5869024e7151fc50667988b89f2",
+          "sha256": "c64b78abd574277371384c267ea857fb403cf5869024e7151fc50667988b89f2"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-25T09:56:01.792304Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "httpStatus": 304,
+        "lastModified": "Sat, 24 Oct 2026 06:15:27 GMT",
+        "observationId": "e093d30012f13f5403bd5d9e3f14bc5421ecc3a1714352fd7a2b3e44224580b2",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "reusesObservationId": "2784b84793f7dfbb1415873576130ba12fd38c1410aa435ba719a1f43c94a18d",
+        "sourceId": "cyera:citation:TR-cyera-1",
+        "status": "not_modified",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/e1846672c92e7983225c8768e6b555631f22671fb034e18a24f370bc7afc6df7.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 267376,
+          "key": "objects/7f507d838faf136af0d10b68db116661226ae9cbd5dd6ecce969830daf1cf8f4",
+          "sha256": "7f507d838faf136af0d10b68db116661226ae9cbd5dd6ecce969830daf1cf8f4"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-23T11:34:09.482044Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-raises-400m-to-meet-rapidly-growing-demand-for-ai-security-among-enterprises",
+        "httpStatus": 304,
+        "lastModified": "Fri, 23 Oct 2026 04:14:43 GMT",
+        "observationId": "e1846672c92e7983225c8768e6b555631f22671fb034e18a24f370bc7afc6df7",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-raises-400m-to-meet-rapidly-growing-demand-for-ai-security-among-enterprises",
+        "reusesObservationId": "cd5bfce7a2793cfa6e86df485937128eeb94c4629d3f32fdad1de286856a7f2f",
+        "sourceId": "cyera:citation:TR-cyera-5",
+        "status": "not_modified"
+      }
+    },
+    {
+      "key": "state/observations/e8c1b77097e564528d69691dfb266ff243a890231d314bd3711a4af7c6d44952.json",
+      "literalSourceIds": [
+        "cato:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 218188,
+          "key": "objects/c389766a7bf74f990f0ac569f8c50f54f9f5c29ca21c11399564301ef16d4180",
+          "sha256": "c389766a7bf74f990f0ac569f8c50f54f9f5c29ca21c11399564301ef16d4180"
+        },
+        "contentType": "text/html; charset=UTF-8",
+        "etag": null,
+        "fetchedAt": "2026-10-20T21:11:45.910004Z",
+        "finalUrl": "https://www.prnewswire.com/news-releases/cato-networks-raises-359-million-at-a-valuation-of-more-than-4-8-billion-302494283.html",
+        "httpStatus": 200,
+        "lastModified": "Sun, 18 Oct 2026 20:28:00 GMT",
+        "observationId": "e8c1b77097e564528d69691dfb266ff243a890231d314bd3711a4af7c6d44952",
+        "requestedUrl": "https://www.prnewswire.com/news-releases/cato-networks-raises-359-million-at-a-valuation-of-more-than-4-8-billion-302494283.html",
+        "sourceId": "cato:citation:TR-cato-1",
+        "status": "fetched"
+      }
+    },
+    {
+      "key": "state/observations/e8d082f2af172e7842b66f16ae718c13e93f74a3fac37fd65d2d2d33261dc1cb.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 267540,
+          "key": "objects/70dff404b87d41d1fafbf0c9865e493418760f0dce741b15d5ba326e7de97b06",
+          "sha256": "70dff404b87d41d1fafbf0c9865e493418760f0dce741b15d5ba326e7de97b06"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-20T21:22:19.854314Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-raises-600-million-at-12-billion-valuation-to-continue-building-the-trust-layer-for-the-ai-era",
+        "httpStatus": 304,
+        "lastModified": "Fri, 16 Oct 2026 19:59:12 GMT",
+        "observationId": "e8d082f2af172e7842b66f16ae718c13e93f74a3fac37fd65d2d2d33261dc1cb",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-raises-600-million-at-12-billion-valuation-to-continue-building-the-trust-layer-for-the-ai-era",
+        "reusesObservationId": "9c88958f39a63dbf781f95f885b5a01529fc47299f2c1bedc1852c98216b92d4",
+        "sourceId": "cyera:citation:TR-cyera-4",
+        "status": "not_modified"
+      }
+    },
+    {
+      "key": "state/observations/ef032946cf9911767dd80dc2d5362aee53796058ddf1b9b1d9e3febfd9504c62.json",
+      "literalSourceIds": [
+        "chainguard:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 219070,
+          "key": "objects/7d8b539bddfc8d8fb62460541f1b04ce1f309277595a4482d535a9c942f4c282",
+          "sha256": "7d8b539bddfc8d8fb62460541f1b04ce1f309277595a4482d535a9c942f4c282"
+        },
+        "contentType": "text/html; charset=UTF-8",
+        "etag": null,
+        "fetchedAt": "2026-10-20T21:21:04.987503Z",
+        "finalUrl": "https://www.prnewswire.com/news-releases/chainguard-announces-280-million-growth-financing-from-general-catalyst-to-usher-in-next-era-of-trusted-open-source-software-302592279.html",
+        "httpStatus": 304,
+        "lastModified": "Sun, 18 Oct 2026 04:37:24 GMT",
+        "observationId": "ef032946cf9911767dd80dc2d5362aee53796058ddf1b9b1d9e3febfd9504c62",
+        "requestedUrl": "https://www.prnewswire.com/news-releases/chainguard-announces-280-million-growth-financing-from-general-catalyst-to-usher-in-next-era-of-trusted-open-source-software-302592279.html",
+        "reusesObservationId": "dac3117dee2ff9d43ccd71e5d727d1c120355883f400b8101062737b0630bbde",
+        "sourceId": "chainguard:citation:TR-chainguard-2",
+        "status": "not_modified"
+      }
+    },
+    {
+      "key": "state/observations/f2412b2bb5a8bbcb761342c3846031a0a989abfd669eb1002e285535f8343ce4.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 264742,
+          "key": "objects/6d40b80360b3c3913758660a2ed0069a52006e69a8a8bd1942ea625b3acb31fe",
+          "sha256": "6d40b80360b3c3913758660a2ed0069a52006e69a8a8bd1942ea625b3acb31fe"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-20T21:22:18.845391Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+        "httpStatus": 304,
+        "lastModified": "Fri, 16 Oct 2026 20:20:16 GMT",
+        "observationId": "f2412b2bb5a8bbcb761342c3846031a0a989abfd669eb1002e285535f8343ce4",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+        "reusesObservationId": "5fadc9af5cd787c78d6cab50ea0a4fa78846dd2077c0df604f5e546ad7bddb7b",
+        "sourceId": "cyera:citation:TR-cyera-2",
+        "status": "not_modified"
+      }
+    },
+    {
+      "key": "state/observations/f4bb402f41bf51f0fa6f0de86573f27f1e00346ed933a18524a92d1a75fdd370.json",
+      "literalSourceIds": [
+        "cato:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 219126,
+          "key": "objects/2fe0e900031f29fcc0cbf1a8fbc371f48e57bcb59aaa42aa3dbbe7af54728173",
+          "sha256": "2fe0e900031f29fcc0cbf1a8fbc371f48e57bcb59aaa42aa3dbbe7af54728173"
+        },
+        "contentType": "text/html; charset=UTF-8",
+        "etag": null,
+        "fetchedAt": "2026-10-25T09:55:56.706174Z",
+        "finalUrl": "https://www.prnewswire.com/news-releases/cato-networks-raises-359-million-at-a-valuation-of-more-than-4-8-billion-302494283.html",
+        "httpStatus": 304,
+        "lastModified": "Tue, 20 Oct 2026 05:55:35 GMT",
+        "observationId": "f4bb402f41bf51f0fa6f0de86573f27f1e00346ed933a18524a92d1a75fdd370",
+        "requestedUrl": "https://www.prnewswire.com/news-releases/cato-networks-raises-359-million-at-a-valuation-of-more-than-4-8-billion-302494283.html",
+        "reusesObservationId": "275cb7e6d51a87516eeff169cf8b803b8ca677cce8e1618ea21fb65f63a02bcf",
+        "sourceId": "cato:citation:TR-cato-1",
+        "status": "not_modified",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/fdbb61b847f334ce96a576dc8a7f14abd0695533459e886bfc9d0f5a7b5a33a7.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 265364,
+          "key": "objects/67c63b68b1626c5e53099452cb5e125960802aa27895e5925af87e0b058e3111",
+          "sha256": "67c63b68b1626c5e53099452cb5e125960802aa27895e5925af87e0b058e3111"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-24T00:05:57.498741Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+        "httpStatus": 200,
+        "lastModified": "Fri, 23 Oct 2026 22:59:01 GMT",
+        "observationId": "fdbb61b847f334ce96a576dc8a7f14abd0695533459e886bfc9d0f5a7b5a33a7",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+        "sourceId": "cyera:citation:TR-cyera-2",
+        "status": "fetched",
+        "transportId": "1860d7dbfd499f46c572daa9528cfe93d90ac22fa3c84a953b2fd503e55f46cf",
+        "transportReused": false
+      }
+    },
+    {
+      "key": "state/observations/ff6913a03ca6030deba6fa9ca62faa973bb800384f8c5ff4c92d9ddcd11e0a44.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 264504,
+          "key": "objects/d3aa686a447faf74e92aafb23732400440d475e5ec811b37fcddbd4cd2b5273c",
+          "sha256": "d3aa686a447faf74e92aafb23732400440d475e5ec811b37fcddbd4cd2b5273c"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-22T01:11:29.181805Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-acquires-ryft-to-extend-its-agentic-ai-security-platform",
+        "httpStatus": 200,
+        "lastModified": "Wed, 21 Oct 2026 18:55:12 GMT",
+        "observationId": "ff6913a03ca6030deba6fa9ca62faa973bb800384f8c5ff4c92d9ddcd11e0a44",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-acquires-ryft-to-extend-its-agentic-ai-security-platform",
+        "sourceId": "cyera:citation:TR-cyera-3",
+        "status": "fetched"
+      }
+    }
+  ],
+  "latestFull200ShapeResults": [
+    {
+      "key": "state/observations/02cb030deb8d0f506791c647262045eceb1a66c483b6a03cbb1dcb32ea4ef9f4.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 268012,
+          "key": "objects/c64b78abd574277371384c267ea857fb403cf5869024e7151fc50667988b89f2",
+          "sha256": "c64b78abd574277371384c267ea857fb403cf5869024e7151fc50667988b89f2"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-24T18:29:42.932953Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "httpStatus": 200,
+        "lastModified": "Sat, 24 Oct 2026 06:15:27 GMT",
+        "observationId": "02cb030deb8d0f506791c647262045eceb1a66c483b6a03cbb1dcb32ea4ef9f4",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "sourceId": "cyera:citation:TR-cyera-1",
+        "status": "fetched",
+        "transportId": "29c05a33fcaec6bcee328f4ec06b2ada08f61c25bec7f5da2fad71c0b3cb511e",
+        "transportReused": false
+      },
+      "existingPrimaryShape": {
+        "canonical": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "heading": "Cyera Announces $400 Million Investment from Goldman Sachs to Build the Trust Layer for the Agentic Enterprise",
+        "readableCharacters": 9775,
+        "dateMetadata": [],
+        "dateMetadataState": "unknown"
+      },
+      "shapeError": null
+    },
+    {
+      "key": "state/observations/dfa19ee94dc00461bfbf14623aaf68956beb55bc0924a11e2e3fcf236470c7b7.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 265126,
+          "key": "objects/af9630fee776cc0c03e51e18637b51558b28bb6d3f66ec9e8ac7778a20dda132",
+          "sha256": "af9630fee776cc0c03e51e18637b51558b28bb6d3f66ec9e8ac7778a20dda132"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-24T18:30:03.972761Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-acquires-ryft-to-extend-its-agentic-ai-security-platform",
+        "httpStatus": 200,
+        "lastModified": "Sat, 24 Oct 2026 18:30:03 GMT",
+        "observationId": "dfa19ee94dc00461bfbf14623aaf68956beb55bc0924a11e2e3fcf236470c7b7",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-acquires-ryft-to-extend-its-agentic-ai-security-platform",
+        "sourceId": "cyera:citation:TR-cyera-3",
+        "status": "fetched",
+        "transportId": "2142145b2561df39753616b017decd19b967a9a6d6c5f764272b4f098846413c",
+        "transportReused": false
+      },
+      "existingPrimaryShape": {
+        "canonical": "https://www.cyera.com/press-releases/cyera-acquires-ryft-to-extend-its-agentic-ai-security-platform",
+        "heading": "Cyera Acquires Ryft to Extend its Agentic AI Security Platform",
+        "readableCharacters": 7983,
+        "dateMetadata": [],
+        "dateMetadataState": "unknown"
+      },
+      "shapeError": null
+    },
+    {
+      "key": "state/observations/61e2d572a825e0a120f34030e4139ebd21b2c5aff587b618e464f90b89e3e66b.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 265364,
+          "key": "objects/67c63b68b1626c5e53099452cb5e125960802aa27895e5925af87e0b058e3111",
+          "sha256": "67c63b68b1626c5e53099452cb5e125960802aa27895e5925af87e0b058e3111"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-25T09:56:04.509202Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+        "httpStatus": 200,
+        "lastModified": "Sat, 24 Oct 2026 16:30:23 GMT",
+        "observationId": "61e2d572a825e0a120f34030e4139ebd21b2c5aff587b618e464f90b89e3e66b",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+        "sourceId": "cyera:citation:TR-cyera-2",
+        "status": "fetched",
+        "transportId": "e37c2f326755caeee805ff6e4b1a613b12a714d21877534637eb604fc9dd3f51",
+        "transportReused": false
+      },
+      "existingPrimaryShape": {
+        "canonical": "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+        "heading": "Cyera Completes Acquisition of Oasis Security",
+        "readableCharacters": 8227,
+        "dateMetadata": [],
+        "dateMetadataState": "unknown"
+      },
+      "shapeError": null
+    },
+    {
+      "key": "state/observations/88a48254131a6845c8be56b7423870b352dc0d87c1bd769dbe4f9d971213b019.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 267998,
+          "key": "objects/e8043ea60d67549c1db502cb48b359cc5ed98767770eaa0823f441d9f2cee73a",
+          "sha256": "e8043ea60d67549c1db502cb48b359cc5ed98767770eaa0823f441d9f2cee73a"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-24T18:30:07.898511Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-raises-400m-to-meet-rapidly-growing-demand-for-ai-security-among-enterprises",
+        "httpStatus": 200,
+        "lastModified": "Sat, 24 Oct 2026 15:51:20 GMT",
+        "observationId": "88a48254131a6845c8be56b7423870b352dc0d87c1bd769dbe4f9d971213b019",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-raises-400m-to-meet-rapidly-growing-demand-for-ai-security-among-enterprises",
+        "sourceId": "cyera:citation:TR-cyera-5",
+        "status": "fetched",
+        "transportId": "1196c2038e3f4d32d8763f46fbe6174db614b8c152bc50de8a276585563c7d55",
+        "transportReused": false
+      },
+      "existingPrimaryShape": {
+        "canonical": "https://www.cyera.com/press-releases/cyera-raises-400m-to-meet-rapidly-growing-demand-for-ai-security-among-enterprises",
+        "heading": "Cyera Raises $400M to Meet Rapidly Growing Demand for AI Security Among Enterprises",
+        "readableCharacters": 10521,
+        "dateMetadata": [],
+        "dateMetadataState": "unknown"
+      },
+      "shapeError": null
+    },
+    {
+      "key": "state/observations/628f2d1203aca8af6638fc6714905ce24f1ffaa5ec417b15750f79d157fd63a8.json",
+      "literalSourceIds": [
+        "cyera:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 268162,
+          "key": "objects/5b1600cb2ceeb6f68300009f2a8e7c3716299415190e720d35f25cc5c57a2aaf",
+          "sha256": "5b1600cb2ceeb6f68300009f2a8e7c3716299415190e720d35f25cc5c57a2aaf"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-25T09:55:53.751224Z",
+        "finalUrl": "https://www.cyera.com/press-releases/cyera-raises-600-million-at-12-billion-valuation-to-continue-building-the-trust-layer-for-the-ai-era",
+        "httpStatus": 200,
+        "lastModified": "Sun, 25 Oct 2026 09:55:53 GMT",
+        "observationId": "628f2d1203aca8af6638fc6714905ce24f1ffaa5ec417b15750f79d157fd63a8",
+        "requestedUrl": "https://www.cyera.com/press-releases/cyera-raises-600-million-at-12-billion-valuation-to-continue-building-the-trust-layer-for-the-ai-era",
+        "sourceId": "cyera:citation:TR-cyera-4",
+        "status": "fetched",
+        "transportId": "5cb463d9c375f903c0a5cd5f17bf5b915fa84ce959b5415d9125eef8f0eca7fe",
+        "transportReused": false
+      },
+      "existingPrimaryShape": {
+        "canonical": "https://www.cyera.com/press-releases/cyera-raises-600-million-at-12-billion-valuation-to-continue-building-the-trust-layer-for-the-ai-era",
+        "heading": "Cyera Raises $600 Million at $12 Billion Valuation to Continue Building the Trust Layer for the AI Era",
+        "readableCharacters": 9628,
+        "dateMetadata": [],
+        "dateMetadataState": "unknown"
+      },
+      "shapeError": null
+    },
+    {
+      "key": "state/observations/b947425be110d751b827ff70c95e96a264d96af7e47d41dedc16ff05fb62ab7e.json",
+      "literalSourceIds": [
+        "chainguard:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 219802,
+          "key": "objects/f9629a0df62bacd7ae19421dbcb95edcd79d1dfb306e9d240514e15bc299a6a3",
+          "sha256": "f9629a0df62bacd7ae19421dbcb95edcd79d1dfb306e9d240514e15bc299a6a3"
+        },
+        "contentType": "text/html; charset=UTF-8",
+        "etag": null,
+        "fetchedAt": "2026-10-25T06:46:06.412965Z",
+        "finalUrl": "https://www.prnewswire.com/news-releases/chainguard-announces-280-million-growth-financing-from-general-catalyst-to-usher-in-next-era-of-trusted-open-source-software-302592279.html",
+        "httpStatus": 200,
+        "lastModified": "Sun, 25 Oct 2026 06:46:06 GMT",
+        "observationId": "b947425be110d751b827ff70c95e96a264d96af7e47d41dedc16ff05fb62ab7e",
+        "requestedUrl": "https://www.prnewswire.com/news-releases/chainguard-announces-280-million-growth-financing-from-general-catalyst-to-usher-in-next-era-of-trusted-open-source-software-302592279.html",
+        "sourceId": "chainguard:citation:TR-chainguard-2",
+        "status": "fetched",
+        "transportId": "7d4999fc30936f7093fc4b6bb3fcaec4445166210b8c6d09cdd498e8592a4747",
+        "transportReused": false
+      },
+      "existingPrimaryShape": {
+        "canonical": "https://www.prnewswire.com/news-releases/chainguard-announces-280-million-growth-financing-from-general-catalyst-to-usher-in-next-era-of-trusted-open-source-software-302592279.html",
+        "heading": "Chainguard Announces $280 Million Growth Financing from General Catalyst to Usher in Next Era of Trusted Open Source Software",
+        "readableCharacters": 6395,
+        "dateMetadata": [],
+        "dateMetadataState": "unknown"
+      },
+      "shapeError": null
+    },
+    {
+      "key": "state/observations/d7d36ff4e71b14efbce789c81e9c4f59fb714cda109dc3933995dd45ab140ddc.json",
+      "literalSourceIds": [
+        "cato:official:1"
+      ],
+      "observation": {
+        "body": {
+          "bytes": 219126,
+          "key": "objects/2fe0e900031f29fcc0cbf1a8fbc371f48e57bcb59aaa42aa3dbbe7af54728173",
+          "sha256": "2fe0e900031f29fcc0cbf1a8fbc371f48e57bcb59aaa42aa3dbbe7af54728173"
+        },
+        "contentType": "text/html; charset=UTF-8",
+        "etag": null,
+        "fetchedAt": "2026-10-24T18:29:41.178689Z",
+        "finalUrl": "https://www.prnewswire.com/news-releases/cato-networks-raises-359-million-at-a-valuation-of-more-than-4-8-billion-302494283.html",
+        "httpStatus": 200,
+        "lastModified": "Tue, 20 Oct 2026 05:55:35 GMT",
+        "observationId": "d7d36ff4e71b14efbce789c81e9c4f59fb714cda109dc3933995dd45ab140ddc",
+        "requestedUrl": "https://www.prnewswire.com/news-releases/cato-networks-raises-359-million-at-a-valuation-of-more-than-4-8-billion-302494283.html",
+        "sourceId": "cato:citation:TR-cato-1",
+        "status": "fetched",
+        "transportId": "cff01ea2f8945f22117d75fc2ad87d899d44ccb698bc1f624117544bfee7cefc",
+        "transportReused": false
+      },
+      "existingPrimaryShape": {
+        "canonical": "https://www.prnewswire.com/news-releases/cato-networks-raises-359-million-at-a-valuation-of-more-than-4-8-billion-302494283.html",
+        "heading": "Cato Networks Raises $359 Million at a Valuation of More Than $4.8 Billion",
+        "readableCharacters": 7314,
+        "dateMetadata": [],
+        "dateMetadataState": "unknown"
+      },
+      "shapeError": null
+    }
+  ],
+  "sourceRequests": 0,
+  "modelCalls": 0
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "key": "state/objects/2a2d58a5b9ebed2919b92cf26cb96d65a5b011f67b4beda10e9ae4a028a9aba3",
+    "rawContentsSha256": "8f060974298e82602758ce480d87790ddead416c07077a166064c1d05e1f2e09",
+    "rawContentsBytes": 286053,
+    "manifestRow": {
+      "bytes": 286057,
+      "key": "state/objects/2a2d58a5b9ebed2919b92cf26cb96d65a5b011f67b4beda10e9ae4a028a9aba3",
+      "sha256": "2a2d58a5b9ebed2919b92cf26cb96d65a5b011f67b4beda10e9ae4a028a9aba3"
+    },
+    "base64GitBlobSha1": "54f5bf527f5240eb6b814c31789359f1789ac6b2",
+    "sourceRetry": false
+  },
+  {
+    "key": "state/objects/e394e2ba9e5868bf8fe2832e9a8fefa9ecd5ddfe9fcfbc168db7db58812aae44",
+    "rawContentsSha256": "10832c0acf58a5369782d76ca2da065b560822a2d55ab1d424589b402d3a847a",
+    "rawContentsBytes": 1045581,
+    "manifestRow": {
+      "bytes": 1045585,
+      "key": "state/objects/e394e2ba9e5868bf8fe2832e9a8fefa9ecd5ddfe9fcfbc168db7db58812aae44",
+      "sha256": "e394e2ba9e5868bf8fe2832e9a8fefa9ecd5ddfe9fcfbc168db7db58812aae44"
+    },
+    "base64GitBlobSha1": "b2407861edbd80d11a6519aac75fa9a0de181099",
+    "sourceRetry": false
+  }
+]

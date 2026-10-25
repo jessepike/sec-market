@@ -144,3 +144,12 @@ exact. These observations provide source-qualification inputs without adding int
 freshness credit. The separate accepted retained-Q4-template proof remains dormant and supplies
 no operational credit. General accuracy, event recall, reader value and multi-day durability
 remain unmeasured.
+
+The later [listing/pagination capture 40193925490](accuracy/narrow-listing-pagination-actual-source-review-2026-10-25.md)
+also passes its full 48,420-entry archive and original report replay. Its 116 retrieval charges
+settle the ledger at 1,101/80/38 with two gates; ordinary facts, holds, six admissions and both
+private/public freshness clocks remain unchanged. Its reviewed disabled-plan closure on main
+61265b57 passes preview/main CI and all four live public files remain byte-exact. Source-qualified
+intake remains 264/557. Retained listing/window/primary proof inputs add no intake, semantic review,
+historical-review, scheduled-run or publication credit. Cato's positive current-window evidence
+and unknown older archive remain distinct; the daily-window parser still requires its own review.

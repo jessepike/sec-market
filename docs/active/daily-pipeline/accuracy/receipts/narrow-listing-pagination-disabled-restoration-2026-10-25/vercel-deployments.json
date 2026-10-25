@@ -1,0 +1,54 @@
+{
+  "result": {
+    "deployments": {
+      "pagination": {
+        "count": 2,
+        "prev": 1792932704515
+      },
+      "deployments": [
+        {
+          "id": "dpl_FYD7SEfVuMCuuLAUyXEbhLHsjh6s",
+          "name": "security-market-pulse",
+          "url": "security-market-pulse-j1pylkleu-pikeholdings.vercel.app",
+          "created": 1792932704515,
+          "state": "CANCELED",
+          "target": "production",
+          "creator": {
+            "uid": "um6xyC6srGbNQRAR3KB77kfs",
+            "username": "jessepike"
+          },
+          "meta": {
+            "githubCommitRef": "main",
+            "githubCommitSha": "61265b57964f20ac1f721fa8d2351caa52c32a25",
+            "githubCommitMessage": "chore(qualification): restore disabled plan after listing capture\n\nActual40193925490 completed with116 retrieval charges and no model calls. Restore exact ad1 under unchanged H;37 focused restoration checks pass. Complete new archive and listing evidence review remains separate.",
+            "githubRepo": "sec-market",
+            "githubOrg": "jessepike"
+          },
+          "inspectorUrl": "https://vercel.com/pikeholdings/security-market-pulse/FYD7SEfVuMCuuLAUyXEbhLHsjh6s",
+          "isRollbackCandidate": false
+        },
+        {
+          "id": "dpl_CHoPRCyvarPF239zDuhbNEccpWxQ",
+          "name": "security-market-pulse",
+          "url": "security-market-pulse-44i6rwlrd-pikeholdings.vercel.app",
+          "created": 1792932460109,
+          "state": "READY",
+          "target": null,
+          "creator": {
+            "uid": "um6xyC6srGbNQRAR3KB77kfs",
+            "username": "jessepike"
+          },
+          "meta": {
+            "githubCommitRef": "preview",
+            "githubCommitSha": "61265b57964f20ac1f721fa8d2351caa52c32a25",
+            "githubCommitMessage": "chore(qualification): restore disabled plan after listing capture\n\nActual40193925490 completed with116 retrieval charges and no model calls. Restore exact ad1 under unchanged H;37 focused restoration checks pass. Complete new archive and listing evidence review remains separate.",
+            "githubRepo": "sec-market",
+            "githubOrg": "jessepike"
+          },
+          "inspectorUrl": "https://vercel.com/pikeholdings/security-market-pulse/CHoPRCyvarPF239zDuhbNEccpWxQ",
+          "isRollbackCandidate": false
+        }
+      ]
+    }
+  }
+}

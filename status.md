@@ -37,7 +37,7 @@ passed under policy H, 8b44bcbe…b445db, on main 71c39356. It started at 09:50:
 | Processing/history |40/41 of 10,655 reviewed; 10,615/10,614 pending; 11 held documents, 1 changed, 291 unknown dates. |
 | Continuity |Four fact references and all 37 old holds preserved; one new HiddenLayer missing-date hold makes queue 38. No new accepted facts/events. |
 | Source expiry |October 26 at 15:55:27.307096 UTC, separate from public expiry. |
-| Latest diagnostic receipt |1,101/5,500 fetches, 80/80 model calls, 38/40 documents, gates 2/2. Full new archive audit is closing. |
+| Settled October 25 ledger |1,101/5,500 fetches, 80/80 model calls, 38/40 documents, gates 2/2; lease released. |
 
 The 264 intake passes comprise 196 citation checks, 48 SEC checks, 17 official announcements and
 three investor/acquirer checks. These measure declared source intake, not general event recall.
@@ -71,9 +71,14 @@ validator/preflight and independent review pass; exact selection is on main 5deb
 40193430884 and main web 40193694591 pass; Vercel preview is READY/main Git ignored.
 Actual single capture 40193925490 completed successfully at 12:43:06 UTC from verified 9deb/985
 baseline. Its receipt records 116 charges, reaching 1,101 fetches, with calls/documents unchanged.
-Acknowledgement 9e4a9806 has 48,420 entries; its full authentication, cold page review and report
-replay are closing. Exact disabled ad1 is restored locally; 37 focused tests pass with no skips.
-Reviewed remote disabled-plan closure follows. No source qualification credit is claimed.
+Acknowledgement 9e4a9806 has 48,420 entries; full authentication, cold page review and report
+replay pass. [Actual audit](docs/active/daily-pipeline/accuracy/narrow-listing-pagination-actual-source-review-2026-10-25.md).
+Chainguard has a finite 47-card listing and retained dated primary; Cato's 125 observed cards
+support a current-window/older-boundary proposal while pages 6–8 remain unknown older history.
+Exact disabled ad1 is verified on main 61265b57; 37 focused tests pass with no
+skips. Preview web 40194693409/main 40194994026 pass, Vercel preview READY/main Git ignored,
+all four public files byte-exact. [Closure proof](docs/active/daily-pipeline/accuracy/receipts/narrow-listing-pagination-disabled-restoration-2026-10-25/verification.json).
+No source qualification credit is claimed.
 Its whole-operation bound remains 257 requests including
 all 25 generic probes. Reuse retained Cyera/Torq primary bodies. Torq's disclosed loading controller
 and Zenity's 27-initial/48-declared posts still require continuation proof.
@@ -82,8 +87,9 @@ The separate [retained-Q4-template proof](docs/active/daily-pipeline/accuracy/q4
 is accepted and committed 7a1aee7b: 921 local operational tests, full application checks and independent
 review pass; both render widths are unchanged. It preserves original run 40188161705's truthful
 accepted-zero result. The [ordinary JFrog/Rapid7 integration](docs/active/daily-pipeline/accuracy/q4-two-source-normal-intake-integration-spec-2026-10-25.md)
-is building in an isolated worktree. Exact successor policy/package, independent implementation
-review, ordinary collection and later genuine timer/publication receipts remain required.
+is built in an isolated worktree: 935 operational tests, full application/80 SEC checks and both
+render widths pass. Independent implementation review is closing. Exact successor activation,
+ordinary collection and later genuine timer/publication receipts remain required.
 
 ## Remaining work and checkout boundary
 

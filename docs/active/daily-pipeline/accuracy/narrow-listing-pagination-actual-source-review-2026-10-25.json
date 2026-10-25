@@ -1,0 +1,1467 @@
+{
+  "schemaVersion": 1,
+  "verdict": "PASS",
+  "scope": "Actual bounded listing/pagination capture and preservation. No recurring-source qualification or semantic credit.",
+  "actualRun": {
+    "id": 40193925490,
+    "appRevision": "5debbd9e3ed855d9c6f5bda25468dac1371532d6",
+    "event": "workflow_dispatch",
+    "branch": "main",
+    "createdAt": "2026-10-25T12:37:24Z",
+    "updatedAt": "2026-10-25T12:43:06Z",
+    "conclusion": "success",
+    "actualProbeStartedAt": "2026-10-25T12:41:01.591951Z",
+    "actualReportCheckedAt": "2026-10-25T12:42:16.956348Z"
+  },
+  "artifact": {
+    "id": 12599212414,
+    "sha256": "bbeebd3b706d01c21c6631b20e9f50afa36b74de3cb847ea706d6f82a9b0132c",
+    "bytes": 14871
+  },
+  "acknowledgedArchive": {
+    "commit": "9e4a9806fdcc1b7cd6f91314b8b4ff4bb4ef2174",
+    "parentCommit": "8626f2ac3c41f44d11b1647c77901c40f4b4664d",
+    "manifestSha256": "148842177a7e7d9a5fd5c2ea4574576264a957b41958ee4cdf5effa80ea029c2",
+    "files": 48420,
+    "ref": "refs/archive/market-evidence"
+  },
+  "manifest": {
+    "sha256": "148842177a7e7d9a5fd5c2ea4574576264a957b41958ee4cdf5effa80ea029c2",
+    "bytes": 10012399,
+    "mtimeNs": 1792932277617133137
+  },
+  "manifestGitBlobSha1": "01285c6c16ddeac7e77df3cbf82a28a6d5ed6f16",
+  "frozenExtractedRoot": "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted",
+  "authentication": {
+    "baselineCommit": "9deb0c9ce9fe34999da0cf13bb023dfdfecc15c8",
+    "baselineManifest": {
+      "sha256": "8da12977648ce0f6ed62f16de0b52c2257977f41404145adbecb363069e037e1",
+      "bytes": 9979636,
+      "mtimeNs": 1792929891173626133
+    },
+    "baselineFullAudit": {
+      "path": "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/receipts/next-seven-newsroom-actual-2026-10-25/actual-diagnostic-audit.json",
+      "sha256": "de4fa6b6945d9cf4d0af3b5b984fccbda39953a293d6523434a4f93c3124a0fd",
+      "bytes": 254032,
+      "mtimeNs": 1792930601274145580
+    },
+    "allEntriesVerified": 48420,
+    "reusedEntries": 48243,
+    "deltaHashesVerified": 177,
+    "method": "Previously fully authenticated9deb exact rows reused via original inode/device/size/mtime;177delta byte hashes/content addresses and whole present inventory exact; entire48243 reused identity set checked again after cold inspection.",
+    "rawApiByteRecovery": [
+      {
+        "key": "state/objects/2a2d58a5b9ebed2919b92cf26cb96d65a5b011f67b4beda10e9ae4a028a9aba3",
+        "rawContentsSha256": "8f060974298e82602758ce480d87790ddead416c07077a166064c1d05e1f2e09",
+        "rawContentsBytes": 286053,
+        "manifestRow": {
+          "bytes": 286057,
+          "key": "state/objects/2a2d58a5b9ebed2919b92cf26cb96d65a5b011f67b4beda10e9ae4a028a9aba3",
+          "sha256": "2a2d58a5b9ebed2919b92cf26cb96d65a5b011f67b4beda10e9ae4a028a9aba3"
+        },
+        "base64GitBlobSha1": "54f5bf527f5240eb6b814c31789359f1789ac6b2",
+        "sourceRetry": false
+      },
+      {
+        "key": "state/objects/e394e2ba9e5868bf8fe2832e9a8fefa9ecd5ddfe9fcfbc168db7db58812aae44",
+        "rawContentsSha256": "10832c0acf58a5369782d76ca2da065b560822a2d55ab1d424589b402d3a847a",
+        "rawContentsBytes": 1045581,
+        "manifestRow": {
+          "bytes": 1045585,
+          "key": "state/objects/e394e2ba9e5868bf8fe2832e9a8fefa9ecd5ddfe9fcfbc168db7db58812aae44",
+          "sha256": "e394e2ba9e5868bf8fe2832e9a8fefa9ecd5ddfe9fcfbc168db7db58812aae44"
+        },
+        "base64GitBlobSha1": "b2407861edbd80d11a6519aac75fa9a0de181099",
+        "sourceRetry": false
+      }
+    ]
+  },
+  "archivedPlan": {
+    "rawSha256": "ac7393c6fc28d97826916462b0b56ca5fcd7a27521bb838de8df19542b494711",
+    "bytes": 8977,
+    "currentPlanIndependent": "Root separately restoredad1. Historical replay uses original archivedac7393 bytes."
+  },
+  "replay": {
+    "passed": true,
+    "productionLogicUnmodified": true,
+    "adapters": "read-only write validation, frozen actual fetch observations/reservations/clocks, sequential scheduling; sole output path relocated back before exact comparison",
+    "networkDenied": true,
+    "LocalStoreConstructionDenied": true
+  },
+  "charges": {
+    "initial": {
+      "calls": 80,
+      "documents": 38,
+      "fetches": 985
+    },
+    "final": {
+      "calls": 80,
+      "documents": 38,
+      "fetches": 1101
+    },
+    "genericReservations": 109,
+    "explicitReservations": 7,
+    "totalReservations": 116,
+    "upperBound": 257,
+    "contiguousChargedCounts": "986through1101 exactly once",
+    "logicalNotPhysicalRetryCount": true,
+    "denials": 0,
+    "gatesUnchanged": true
+  },
+  "genericHttpStatusCounts": {
+    "200": 97,
+    "403": 2,
+    "202": 2,
+    "404": 5,
+    "302": 2,
+    "unknown": 1
+  },
+  "unknownHttpResults": [
+    {
+      "sourceId": "sysdig:official:1",
+      "reservation": {
+        "url": "https://sysdig.com/",
+        "budgetDay": "2026-10-25",
+        "fetchLimit": 5500,
+        "chargedFetchCount": 1077
+      },
+      "reason": "ContractError",
+      "httpStatus": null,
+      "finalUrl": null,
+      "body": null
+    }
+  ],
+  "explicitReached": 7,
+  "explicitUnreached": 0,
+  "explicitHttp200": 7,
+  "explicitResults": [
+    {
+      "target": {
+        "targetId": "abnormal-press-list",
+        "sourceId": "abnormal-security:official:1",
+        "url": "https://abnormal.ai/newsroom/press-releases",
+        "expectedFormat": "html",
+        "proof": {
+          "body": {
+            "bytes": 642600,
+            "key": "objects/72297aca08e3f340a5fe60795fc0dff962faff8d32085bd7ba99459ce930436a",
+            "sha256": "72297aca08e3f340a5fe60795fc0dff962faff8d32085bd7ba99459ce930436a"
+          },
+          "fetchedAt": "2026-10-25T11:59:11.107815Z",
+          "observation": {
+            "bytes": 421,
+            "key": "objects/e5b20a33693513e7e40a35f63aab0c9a51bf48e5137c0e69c03eff999816a78d",
+            "sha256": "e5b20a33693513e7e40a35f63aab0c9a51bf48e5137c0e69c03eff999816a78d"
+          },
+          "priorPlanCanonicalSha256": "3077d93ede8a9fe82302a6b851af61d8666f1c11cea433eed0f2725086c85fc2",
+          "priorPlanRawSha256": "3077d93ede8a9fe82302a6b851af61d8666f1c11cea433eed0f2725086c85fc2",
+          "priorPlanReference": {
+            "bytes": 4162,
+            "key": "objects/3077d93ede8a9fe82302a6b851af61d8666f1c11cea433eed0f2725086c85fc2",
+            "sha256": "3077d93ede8a9fe82302a6b851af61d8666f1c11cea433eed0f2725086c85fc2"
+          },
+          "priorTargetId": "abnormal-security-index",
+          "priorTargetIndex": 0,
+          "priorTargetSha256": "6e766d846a4d0dcb65afa83f732ad680c05935a534a79461cdfad4d0b81cd9d9",
+          "record": {
+            "bytes": 89630,
+            "key": "ci/source-probe-runs/40190857026-1.json",
+            "sha256": "29a164eeceecc2c1796b02c536c9b8ce91f02d1497a09544731f627698992766"
+          },
+          "type": "qualification_observation"
+        },
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "sourceChecksCredited": 0,
+        "qualifiedSources": 0,
+        "modelCalls": 0,
+        "facts": [],
+        "reservation": {
+          "budgetDay": "2026-10-25",
+          "fetchLimit": 5500,
+          "chargedFetchCount": 1095
+        },
+        "observation": {
+          "key": "objects/6bcad0a360ef5e80dbb111e7295d84fb5a1e134d353777821e528098d1123c72",
+          "sha256": "6bcad0a360ef5e80dbb111e7295d84fb5a1e134d353777821e528098d1123c72",
+          "bytes": 451
+        },
+        "budgetDenied": false,
+        "format": "html",
+        "canonicals": [
+          "https://www.abnormal.ai/newsroom/press-releases"
+        ],
+        "advertisedFeeds": [],
+        "reason": "RESPONSE_RETAINED_SCOPE_AND_HISTORY_REVIEW_REQUIRED"
+      },
+      "actualObservation": {
+        "body": {
+          "bytes": 338230,
+          "key": "objects/eb158977ca1cc6bff4e8293c7382398ea84ee905fd3a44b94a6495c775786dc3",
+          "sha256": "eb158977ca1cc6bff4e8293c7382398ea84ee905fd3a44b94a6495c775786dc3"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-25T12:41:43.816890Z",
+        "finalUrl": "https://abnormal.ai/newsroom/press-releases",
+        "httpStatus": 200,
+        "lastModified": null,
+        "requestedUrl": "https://abnormal.ai/newsroom/press-releases",
+        "status": "fetched"
+      },
+      "bodyPath": "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/objects/eb158977ca1cc6bff4e8293c7382398ea84ee905fd3a44b94a6495c775786dc3",
+      "bodyGzip": {
+        "file": "abnormal-press-list-body.html.gz",
+        "sha256": "363da1715ed418f8db2714ed7ef249403318ce880bb7abdf8b3e207e739eeb68",
+        "bytes": 73770,
+        "rawSha256": "eb158977ca1cc6bff4e8293c7382398ea84ee905fd3a44b94a6495c775786dc3",
+        "rawBytes": 338230,
+        "byteExactRoundTrip": true
+      },
+      "inspectionLimit": "Static literal attribute and text inventory only; no script execution, active-DOM or terminal-completeness claim. Existing IndexMarkup can omit links outside its recognized tree.",
+      "qualificationCredit": false
+    },
+    {
+      "target": {
+        "targetId": "cyera-press-list",
+        "sourceId": "cyera:official:1",
+        "url": "https://www.cyera.com/newsroom/press-releases",
+        "expectedFormat": "html",
+        "proof": {
+          "body": {
+            "bytes": 275623,
+            "key": "objects/80317757055e777a6158275017a050a098ef5061a050be929da58e1b3a94542d",
+            "sha256": "80317757055e777a6158275017a050a098ef5061a050be929da58e1b3a94542d"
+          },
+          "fetchedAt": "2026-10-25T11:59:11.295610Z",
+          "observation": {
+            "bytes": 452,
+            "key": "objects/5cb53ea382bafc5bbe43102922c671130505872eb566b78bf44ac0d9c6cc4c85",
+            "sha256": "5cb53ea382bafc5bbe43102922c671130505872eb566b78bf44ac0d9c6cc4c85"
+          },
+          "priorPlanCanonicalSha256": "3077d93ede8a9fe82302a6b851af61d8666f1c11cea433eed0f2725086c85fc2",
+          "priorPlanRawSha256": "3077d93ede8a9fe82302a6b851af61d8666f1c11cea433eed0f2725086c85fc2",
+          "priorPlanReference": {
+            "bytes": 4162,
+            "key": "objects/3077d93ede8a9fe82302a6b851af61d8666f1c11cea433eed0f2725086c85fc2",
+            "sha256": "3077d93ede8a9fe82302a6b851af61d8666f1c11cea433eed0f2725086c85fc2"
+          },
+          "priorTargetId": "cyera-index",
+          "priorTargetIndex": 1,
+          "priorTargetSha256": "411ea1ae20610d3b6106f3c9e6ffb712217f7c6a23a95fc624493a93e8b20a16",
+          "record": {
+            "bytes": 89630,
+            "key": "ci/source-probe-runs/40190857026-1.json",
+            "sha256": "29a164eeceecc2c1796b02c536c9b8ce91f02d1497a09544731f627698992766"
+          },
+          "type": "qualification_observation"
+        },
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "sourceChecksCredited": 0,
+        "qualifiedSources": 0,
+        "modelCalls": 0,
+        "facts": [],
+        "reservation": {
+          "budgetDay": "2026-10-25",
+          "fetchLimit": 5500,
+          "chargedFetchCount": 1096
+        },
+        "observation": {
+          "key": "objects/68ba38e5b523f7aae607d38b83e9cde31383bde9395b109ac377397cdd3b63b4",
+          "sha256": "68ba38e5b523f7aae607d38b83e9cde31383bde9395b109ac377397cdd3b63b4",
+          "bytes": 482
+        },
+        "budgetDenied": false,
+        "format": "html",
+        "canonicals": [
+          "https://www.cyera.com/newsroom/press-releases"
+        ],
+        "advertisedFeeds": [],
+        "reason": "RESPONSE_RETAINED_SCOPE_AND_HISTORY_REVIEW_REQUIRED"
+      },
+      "actualObservation": {
+        "body": {
+          "bytes": 361350,
+          "key": "objects/6363035f70d4352f67b0eb8f4102b3a06f43dfa1dbd0d63c55b37692c41c4941",
+          "sha256": "6363035f70d4352f67b0eb8f4102b3a06f43dfa1dbd0d63c55b37692c41c4941"
+        },
+        "contentType": "text/html; charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-25T12:41:43.919481Z",
+        "finalUrl": "https://www.cyera.com/newsroom/press-releases",
+        "httpStatus": 200,
+        "lastModified": "Fri, 23 Oct 2026 22:53:29 GMT",
+        "requestedUrl": "https://www.cyera.com/newsroom/press-releases",
+        "status": "fetched"
+      },
+      "bodyPath": "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/objects/6363035f70d4352f67b0eb8f4102b3a06f43dfa1dbd0d63c55b37692c41c4941",
+      "bodyGzip": {
+        "file": "cyera-press-list-body.html.gz",
+        "sha256": "8d40d2a85044c098d6dacfc29387ee9dbf4a01b1c980f9a8f92ca31b31563ef9",
+        "bytes": 45138,
+        "rawSha256": "6363035f70d4352f67b0eb8f4102b3a06f43dfa1dbd0d63c55b37692c41c4941",
+        "rawBytes": 361350,
+        "byteExactRoundTrip": true
+      },
+      "inspectionLimit": "Static literal attribute and text inventory only; no script execution, active-DOM or terminal-completeness claim. Existing IndexMarkup can omit links outside its recognized tree.",
+      "qualificationCredit": false
+    },
+    {
+      "target": {
+        "targetId": "cato-page-2",
+        "sourceId": "cato:official:1",
+        "url": "https://www.prnewswire.com/news/cato-networks/?page=2&pagesize=25",
+        "expectedFormat": "html",
+        "proof": {
+          "body": {
+            "bytes": 225773,
+            "key": "objects/b061ee4f5831e2f53cb4b2f19708f225160a6a932ee6c18f93b5d15fb5edb7a8",
+            "sha256": "b061ee4f5831e2f53cb4b2f19708f225160a6a932ee6c18f93b5d15fb5edb7a8"
+          },
+          "fetchedAt": "2026-10-25T11:59:13.911738Z",
+          "observation": {
+            "bytes": 483,
+            "key": "objects/c4cd629884921ecdfc382472fb2b7286d3bc802b686eab10a17cab238d95dfd0",
+            "sha256": "c4cd629884921ecdfc382472fb2b7286d3bc802b686eab10a17cab238d95dfd0"
+          },
+          "priorPlanCanonicalSha256": "3077d93ede8a9fe82302a6b851af61d8666f1c11cea433eed0f2725086c85fc2",
+          "priorPlanRawSha256": "3077d93ede8a9fe82302a6b851af61d8666f1c11cea433eed0f2725086c85fc2",
+          "priorPlanReference": {
+            "bytes": 4162,
+            "key": "objects/3077d93ede8a9fe82302a6b851af61d8666f1c11cea433eed0f2725086c85fc2",
+            "sha256": "3077d93ede8a9fe82302a6b851af61d8666f1c11cea433eed0f2725086c85fc2"
+          },
+          "priorTargetId": "cato-index",
+          "priorTargetIndex": 5,
+          "priorTargetSha256": "adc7123c4b955c8f6ad93346330e64ad920757c91e9e09f4c5da94434a8233a7",
+          "record": {
+            "bytes": 89630,
+            "key": "ci/source-probe-runs/40190857026-1.json",
+            "sha256": "29a164eeceecc2c1796b02c536c9b8ce91f02d1497a09544731f627698992766"
+          },
+          "type": "qualification_observation"
+        },
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "sourceChecksCredited": 0,
+        "qualifiedSources": 0,
+        "modelCalls": 0,
+        "facts": [],
+        "reservation": {
+          "budgetDay": "2026-10-25",
+          "fetchLimit": 5500,
+          "chargedFetchCount": 1097
+        },
+        "observation": {
+          "key": "objects/4b4b48e009bbd6c91eb8575dc5532f0f8d37bc185499a42a7e9dad3131678fa8",
+          "sha256": "4b4b48e009bbd6c91eb8575dc5532f0f8d37bc185499a42a7e9dad3131678fa8",
+          "bytes": 521
+        },
+        "budgetDenied": false,
+        "format": "html",
+        "canonicals": [
+          "https://www.prnewswire.com/news/cato-networks/?page=2"
+        ],
+        "advertisedFeeds": [],
+        "reason": "RESPONSE_RETAINED_SCOPE_AND_HISTORY_REVIEW_REQUIRED"
+      },
+      "actualObservation": {
+        "body": {
+          "bytes": 223473,
+          "key": "objects/f1aec25583e4165a460cdd8704dcfa3756d7cfd8d0ab6a106966332dc5a99d6c",
+          "sha256": "f1aec25583e4165a460cdd8704dcfa3756d7cfd8d0ab6a106966332dc5a99d6c"
+        },
+        "contentType": "text/html;charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-25T12:41:50.008505Z",
+        "finalUrl": "https://www.prnewswire.com/news/cato-networks/?page=2&pagesize=25",
+        "httpStatus": 200,
+        "lastModified": "Sun, 25 Oct 2026 12:41:49 GMT",
+        "requestedUrl": "https://www.prnewswire.com/news/cato-networks/?page=2&pagesize=25",
+        "status": "fetched"
+      },
+      "bodyPath": "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/objects/f1aec25583e4165a460cdd8704dcfa3756d7cfd8d0ab6a106966332dc5a99d6c",
+      "bodyGzip": {
+        "file": "cato-page-2-body.html.gz",
+        "sha256": "69b9e8eef3f996f168e09c3ff29ce6bcdd9d983e6cbfb945857e7dd44059f2af",
+        "bytes": 26360,
+        "rawSha256": "f1aec25583e4165a460cdd8704dcfa3756d7cfd8d0ab6a106966332dc5a99d6c",
+        "rawBytes": 223473,
+        "byteExactRoundTrip": true
+      },
+      "inspectionLimit": "Static literal attribute and text inventory only; no script execution, active-DOM or terminal-completeness claim. Existing IndexMarkup can omit links outside its recognized tree.",
+      "qualificationCredit": false
+    },
+    {
+      "target": {
+        "targetId": "cato-page-3",
+        "sourceId": "cato:official:1",
+        "url": "https://www.prnewswire.com/news/cato-networks/?page=3&pagesize=25",
+        "expectedFormat": "html",
+        "proof": {
+          "body": {
+            "bytes": 225773,
+            "key": "objects/b061ee4f5831e2f53cb4b2f19708f225160a6a932ee6c18f93b5d15fb5edb7a8",
+            "sha256": "b061ee4f5831e2f53cb4b2f19708f225160a6a932ee6c18f93b5d15fb5edb7a8"
+          },
+          "fetchedAt": "2026-10-25T11:59:13.911738Z",
+          "observation": {
+            "bytes": 483,
+            "key": "objects/c4cd629884921ecdfc382472fb2b7286d3bc802b686eab10a17cab238d95dfd0",
+            "sha256": "c4cd629884921ecdfc382472fb2b7286d3bc802b686eab10a17cab238d95dfd0"
+          },
+          "priorPlanCanonicalSha256": "3077d93ede8a9fe82302a6b851af61d8666f1c11cea433eed0f2725086c85fc2",
+          "priorPlanRawSha256": "3077d93ede8a9fe82302a6b851af61d8666f1c11cea433eed0f2725086c85fc2",
+          "priorPlanReference": {
+            "bytes": 4162,
+            "key": "objects/3077d93ede8a9fe82302a6b851af61d8666f1c11cea433eed0f2725086c85fc2",
+            "sha256": "3077d93ede8a9fe82302a6b851af61d8666f1c11cea433eed0f2725086c85fc2"
+          },
+          "priorTargetId": "cato-index",
+          "priorTargetIndex": 5,
+          "priorTargetSha256": "adc7123c4b955c8f6ad93346330e64ad920757c91e9e09f4c5da94434a8233a7",
+          "record": {
+            "bytes": 89630,
+            "key": "ci/source-probe-runs/40190857026-1.json",
+            "sha256": "29a164eeceecc2c1796b02c536c9b8ce91f02d1497a09544731f627698992766"
+          },
+          "type": "qualification_observation"
+        },
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "sourceChecksCredited": 0,
+        "qualifiedSources": 0,
+        "modelCalls": 0,
+        "facts": [],
+        "reservation": {
+          "budgetDay": "2026-10-25",
+          "fetchLimit": 5500,
+          "chargedFetchCount": 1098
+        },
+        "observation": {
+          "key": "objects/1d681c8183cdf25907980ac171312a1f1137ee3229419e1a8337bf87357b5642",
+          "sha256": "1d681c8183cdf25907980ac171312a1f1137ee3229419e1a8337bf87357b5642",
+          "bytes": 521
+        },
+        "budgetDenied": false,
+        "format": "html",
+        "canonicals": [
+          "https://www.prnewswire.com/news/cato-networks/?page=3"
+        ],
+        "advertisedFeeds": [],
+        "reason": "RESPONSE_RETAINED_SCOPE_AND_HISTORY_REVIEW_REQUIRED"
+      },
+      "actualObservation": {
+        "body": {
+          "bytes": 219907,
+          "key": "objects/8da8bbadc370c91fa843fb8b08c0659aba81dd564d891a6a00346416ebfd996a",
+          "sha256": "8da8bbadc370c91fa843fb8b08c0659aba81dd564d891a6a00346416ebfd996a"
+        },
+        "contentType": "text/html;charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-25T12:41:56.591188Z",
+        "finalUrl": "https://www.prnewswire.com/news/cato-networks/?page=3&pagesize=25",
+        "httpStatus": 200,
+        "lastModified": "Sun, 25 Oct 2026 12:41:56 GMT",
+        "requestedUrl": "https://www.prnewswire.com/news/cato-networks/?page=3&pagesize=25",
+        "status": "fetched"
+      },
+      "bodyPath": "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/objects/8da8bbadc370c91fa843fb8b08c0659aba81dd564d891a6a00346416ebfd996a",
+      "bodyGzip": {
+        "file": "cato-page-3-body.html.gz",
+        "sha256": "957c6243a3ede350caffc114f64bf806b5e54b1bde07ad0d9c40c3098146a5c6",
+        "bytes": 26272,
+        "rawSha256": "8da8bbadc370c91fa843fb8b08c0659aba81dd564d891a6a00346416ebfd996a",
+        "rawBytes": 219907,
+        "byteExactRoundTrip": true
+      },
+      "inspectionLimit": "Static literal attribute and text inventory only; no script execution, active-DOM or terminal-completeness claim. Existing IndexMarkup can omit links outside its recognized tree.",
+      "qualificationCredit": false
+    },
+    {
+      "target": {
+        "targetId": "cato-page-4",
+        "sourceId": "cato:official:1",
+        "url": "https://www.prnewswire.com/news/cato-networks/?page=4&pagesize=25",
+        "expectedFormat": "html",
+        "proof": {
+          "body": {
+            "bytes": 225773,
+            "key": "objects/b061ee4f5831e2f53cb4b2f19708f225160a6a932ee6c18f93b5d15fb5edb7a8",
+            "sha256": "b061ee4f5831e2f53cb4b2f19708f225160a6a932ee6c18f93b5d15fb5edb7a8"
+          },
+          "fetchedAt": "2026-10-25T11:59:13.911738Z",
+          "observation": {
+            "bytes": 483,
+            "key": "objects/c4cd629884921ecdfc382472fb2b7286d3bc802b686eab10a17cab238d95dfd0",
+            "sha256": "c4cd629884921ecdfc382472fb2b7286d3bc802b686eab10a17cab238d95dfd0"
+          },
+          "priorPlanCanonicalSha256": "3077d93ede8a9fe82302a6b851af61d8666f1c11cea433eed0f2725086c85fc2",
+          "priorPlanRawSha256": "3077d93ede8a9fe82302a6b851af61d8666f1c11cea433eed0f2725086c85fc2",
+          "priorPlanReference": {
+            "bytes": 4162,
+            "key": "objects/3077d93ede8a9fe82302a6b851af61d8666f1c11cea433eed0f2725086c85fc2",
+            "sha256": "3077d93ede8a9fe82302a6b851af61d8666f1c11cea433eed0f2725086c85fc2"
+          },
+          "priorTargetId": "cato-index",
+          "priorTargetIndex": 5,
+          "priorTargetSha256": "adc7123c4b955c8f6ad93346330e64ad920757c91e9e09f4c5da94434a8233a7",
+          "record": {
+            "bytes": 89630,
+            "key": "ci/source-probe-runs/40190857026-1.json",
+            "sha256": "29a164eeceecc2c1796b02c536c9b8ce91f02d1497a09544731f627698992766"
+          },
+          "type": "qualification_observation"
+        },
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "sourceChecksCredited": 0,
+        "qualifiedSources": 0,
+        "modelCalls": 0,
+        "facts": [],
+        "reservation": {
+          "budgetDay": "2026-10-25",
+          "fetchLimit": 5500,
+          "chargedFetchCount": 1099
+        },
+        "observation": {
+          "key": "objects/4358f1247634750c082e048341135ecfda83dc9b5b7f0290b9dbad592c7a7194",
+          "sha256": "4358f1247634750c082e048341135ecfda83dc9b5b7f0290b9dbad592c7a7194",
+          "bytes": 521
+        },
+        "budgetDenied": false,
+        "format": "html",
+        "canonicals": [
+          "https://www.prnewswire.com/news/cato-networks/?page=4"
+        ],
+        "advertisedFeeds": [],
+        "reason": "RESPONSE_RETAINED_SCOPE_AND_HISTORY_REVIEW_REQUIRED"
+      },
+      "actualObservation": {
+        "body": {
+          "bytes": 222633,
+          "key": "objects/e0a46b24bd18b9de944654df18ad3bd3b9d5eea5b160feef615fae0b6d5cdafb",
+          "sha256": "e0a46b24bd18b9de944654df18ad3bd3b9d5eea5b160feef615fae0b6d5cdafb"
+        },
+        "contentType": "text/html;charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-25T12:42:01.067330Z",
+        "finalUrl": "https://www.prnewswire.com/news/cato-networks/?page=4&pagesize=25",
+        "httpStatus": 200,
+        "lastModified": "Sun, 25 Oct 2026 12:42:00 GMT",
+        "requestedUrl": "https://www.prnewswire.com/news/cato-networks/?page=4&pagesize=25",
+        "status": "fetched"
+      },
+      "bodyPath": "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/objects/e0a46b24bd18b9de944654df18ad3bd3b9d5eea5b160feef615fae0b6d5cdafb",
+      "bodyGzip": {
+        "file": "cato-page-4-body.html.gz",
+        "sha256": "2365ad9fb8ba6ad7e19a6b0b815bcb7d3a6930cc9553b31b8fe5bfefb14e0abc",
+        "bytes": 25935,
+        "rawSha256": "e0a46b24bd18b9de944654df18ad3bd3b9d5eea5b160feef615fae0b6d5cdafb",
+        "rawBytes": 222633,
+        "byteExactRoundTrip": true
+      },
+      "inspectionLimit": "Static literal attribute and text inventory only; no script execution, active-DOM or terminal-completeness claim. Existing IndexMarkup can omit links outside its recognized tree.",
+      "qualificationCredit": false
+    },
+    {
+      "target": {
+        "targetId": "cato-page-5",
+        "sourceId": "cato:official:1",
+        "url": "https://www.prnewswire.com/news/cato-networks/?page=5&pagesize=25",
+        "expectedFormat": "html",
+        "proof": {
+          "body": {
+            "bytes": 225773,
+            "key": "objects/b061ee4f5831e2f53cb4b2f19708f225160a6a932ee6c18f93b5d15fb5edb7a8",
+            "sha256": "b061ee4f5831e2f53cb4b2f19708f225160a6a932ee6c18f93b5d15fb5edb7a8"
+          },
+          "fetchedAt": "2026-10-25T11:59:13.911738Z",
+          "observation": {
+            "bytes": 483,
+            "key": "objects/c4cd629884921ecdfc382472fb2b7286d3bc802b686eab10a17cab238d95dfd0",
+            "sha256": "c4cd629884921ecdfc382472fb2b7286d3bc802b686eab10a17cab238d95dfd0"
+          },
+          "priorPlanCanonicalSha256": "3077d93ede8a9fe82302a6b851af61d8666f1c11cea433eed0f2725086c85fc2",
+          "priorPlanRawSha256": "3077d93ede8a9fe82302a6b851af61d8666f1c11cea433eed0f2725086c85fc2",
+          "priorPlanReference": {
+            "bytes": 4162,
+            "key": "objects/3077d93ede8a9fe82302a6b851af61d8666f1c11cea433eed0f2725086c85fc2",
+            "sha256": "3077d93ede8a9fe82302a6b851af61d8666f1c11cea433eed0f2725086c85fc2"
+          },
+          "priorTargetId": "cato-index",
+          "priorTargetIndex": 5,
+          "priorTargetSha256": "adc7123c4b955c8f6ad93346330e64ad920757c91e9e09f4c5da94434a8233a7",
+          "record": {
+            "bytes": 89630,
+            "key": "ci/source-probe-runs/40190857026-1.json",
+            "sha256": "29a164eeceecc2c1796b02c536c9b8ce91f02d1497a09544731f627698992766"
+          },
+          "type": "qualification_observation"
+        },
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "sourceChecksCredited": 0,
+        "qualifiedSources": 0,
+        "modelCalls": 0,
+        "facts": [],
+        "reservation": {
+          "budgetDay": "2026-10-25",
+          "fetchLimit": 5500,
+          "chargedFetchCount": 1100
+        },
+        "observation": {
+          "key": "objects/faed5a84273d8f8f83695f2f1e0c6aaaa3d020707737e5b7d7bd92898dbf3225",
+          "sha256": "faed5a84273d8f8f83695f2f1e0c6aaaa3d020707737e5b7d7bd92898dbf3225",
+          "bytes": 521
+        },
+        "budgetDenied": false,
+        "format": "html",
+        "canonicals": [
+          "https://www.prnewswire.com/news/cato-networks/?page=5"
+        ],
+        "advertisedFeeds": [],
+        "reason": "RESPONSE_RETAINED_SCOPE_AND_HISTORY_REVIEW_REQUIRED"
+      },
+      "actualObservation": {
+        "body": {
+          "bytes": 230402,
+          "key": "objects/2ba79bd09d90877cb1d147234eddde48ede5162da7722392854c553cbf93761e",
+          "sha256": "2ba79bd09d90877cb1d147234eddde48ede5162da7722392854c553cbf93761e"
+        },
+        "contentType": "text/html;charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-25T12:42:07.614477Z",
+        "finalUrl": "https://www.prnewswire.com/news/cato-networks/?page=5&pagesize=25",
+        "httpStatus": 200,
+        "lastModified": "Sun, 25 Oct 2026 12:42:07 GMT",
+        "requestedUrl": "https://www.prnewswire.com/news/cato-networks/?page=5&pagesize=25",
+        "status": "fetched"
+      },
+      "bodyPath": "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/objects/2ba79bd09d90877cb1d147234eddde48ede5162da7722392854c553cbf93761e",
+      "bodyGzip": {
+        "file": "cato-page-5-body.html.gz",
+        "sha256": "6e310ec91b69cb9e8d69179f2a73102012b0a2282a99e36f4971df23f81f86ba",
+        "bytes": 26053,
+        "rawSha256": "2ba79bd09d90877cb1d147234eddde48ede5162da7722392854c553cbf93761e",
+        "rawBytes": 230402,
+        "byteExactRoundTrip": true
+      },
+      "inspectionLimit": "Static literal attribute and text inventory only; no script execution, active-DOM or terminal-completeness claim. Existing IndexMarkup can omit links outside its recognized tree.",
+      "qualificationCredit": false
+    },
+    {
+      "target": {
+        "targetId": "chainguard-page-2",
+        "sourceId": "chainguard:official:1",
+        "url": "https://www.prnewswire.com/news/chainguard/?page=2&pagesize=25",
+        "expectedFormat": "html",
+        "proof": {
+          "body": {
+            "bytes": 243971,
+            "key": "objects/eebdec361111f3a6c7d53ec34f0c9a314e7e2a8fce74086ea0bb7dd409e68c0f",
+            "sha256": "eebdec361111f3a6c7d53ec34f0c9a314e7e2a8fce74086ea0bb7dd409e68c0f"
+          },
+          "fetchedAt": "2026-10-25T11:59:15.734685Z",
+          "observation": {
+            "bytes": 477,
+            "key": "objects/60cea72a480a869927aa1a433298002dfa3b9039de8be0a8e56a4f72a355e008",
+            "sha256": "60cea72a480a869927aa1a433298002dfa3b9039de8be0a8e56a4f72a355e008"
+          },
+          "priorPlanCanonicalSha256": "3077d93ede8a9fe82302a6b851af61d8666f1c11cea433eed0f2725086c85fc2",
+          "priorPlanRawSha256": "3077d93ede8a9fe82302a6b851af61d8666f1c11cea433eed0f2725086c85fc2",
+          "priorPlanReference": {
+            "bytes": 4162,
+            "key": "objects/3077d93ede8a9fe82302a6b851af61d8666f1c11cea433eed0f2725086c85fc2",
+            "sha256": "3077d93ede8a9fe82302a6b851af61d8666f1c11cea433eed0f2725086c85fc2"
+          },
+          "priorTargetId": "chainguard-index",
+          "priorTargetIndex": 6,
+          "priorTargetSha256": "14b7ee5b9a2b872091ec5313bb7e7ab7bf6dbf3b7cc23f9ad59a8f946d2750f1",
+          "record": {
+            "bytes": 89630,
+            "key": "ci/source-probe-runs/40190857026-1.json",
+            "sha256": "29a164eeceecc2c1796b02c536c9b8ce91f02d1497a09544731f627698992766"
+          },
+          "type": "qualification_observation"
+        },
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "sourceChecksCredited": 0,
+        "qualifiedSources": 0,
+        "modelCalls": 0,
+        "facts": [],
+        "reservation": {
+          "budgetDay": "2026-10-25",
+          "fetchLimit": 5500,
+          "chargedFetchCount": 1101
+        },
+        "observation": {
+          "key": "objects/239481b149e56d8921075fbfcf80b34f129f2bb7b45969569ffd2fbc3569d037",
+          "sha256": "239481b149e56d8921075fbfcf80b34f129f2bb7b45969569ffd2fbc3569d037",
+          "bytes": 515
+        },
+        "budgetDenied": false,
+        "format": "html",
+        "canonicals": [
+          "https://www.prnewswire.com/news/chainguard/?page=2"
+        ],
+        "advertisedFeeds": [],
+        "reason": "RESPONSE_RETAINED_SCOPE_AND_HISTORY_REVIEW_REQUIRED"
+      },
+      "actualObservation": {
+        "body": {
+          "bytes": 236549,
+          "key": "objects/13e00b76b06ee3e9a42b2e1660bd827ee8bfdf300104bc6df979211bdef399a1",
+          "sha256": "13e00b76b06ee3e9a42b2e1660bd827ee8bfdf300104bc6df979211bdef399a1"
+        },
+        "contentType": "text/html;charset=utf-8",
+        "etag": null,
+        "fetchedAt": "2026-10-25T12:42:16.928575Z",
+        "finalUrl": "https://www.prnewswire.com/news/chainguard/?page=2&pagesize=25",
+        "httpStatus": 200,
+        "lastModified": "Sun, 25 Oct 2026 12:42:16 GMT",
+        "requestedUrl": "https://www.prnewswire.com/news/chainguard/?page=2&pagesize=25",
+        "status": "fetched"
+      },
+      "bodyPath": "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/objects/13e00b76b06ee3e9a42b2e1660bd827ee8bfdf300104bc6df979211bdef399a1",
+      "bodyGzip": {
+        "file": "chainguard-page-2-body.html.gz",
+        "sha256": "f82250663ecde89bbefb19a7ba86b70af0af06af0d3d16d2b1baf5bcc7f26e03",
+        "bytes": 26066,
+        "rawSha256": "13e00b76b06ee3e9a42b2e1660bd827ee8bfdf300104bc6df979211bdef399a1",
+        "rawBytes": 236549,
+        "byteExactRoundTrip": true
+      },
+      "inspectionLimit": "Static literal attribute and text inventory only; no script execution, active-DOM or terminal-completeness claim. Existing IndexMarkup can omit links outside its recognized tree.",
+      "qualificationCredit": false
+    }
+  ],
+  "preservation": {
+    "changedBaselineEntries": [
+      "state/heads/budget-2026-10-25.json",
+      "state/heads/cloud-lease.json"
+    ],
+    "immutableBaselineEntriesPreserved": 39638,
+    "normalHeadsPreserved": 8605,
+    "facts": 4,
+    "holds": 38,
+    "sixAdmissions": [
+      {
+        "groupId": "FC-20261023-checkpoint-sase",
+        "reviewPolicySha256": "36bc23722c1131f94ab3c2db1c553505539987aa55738cfa9bb72dfa3871ad6f",
+        "admission": {
+          "bytes": 1522,
+          "key": "objects/1bcaa2ca22fcb4c24597fc477c406abddf9ddb20853a4d290c79322bee46afa9",
+          "sha256": "1bcaa2ca22fcb4c24597fc477c406abddf9ddb20853a4d290c79322bee46afa9"
+        }
+      },
+      {
+        "groupId": "FC-20261023-optiv",
+        "reviewPolicySha256": "4f9e7feb90232a3aafe2cd84265c2e8202c9e009229e7592c5ab87373f64bcf5",
+        "admission": {
+          "bytes": 1014,
+          "key": "objects/580099157608b61895574d2b136c93a940109f82d0a33459388a83f46fbc7bf2",
+          "sha256": "580099157608b61895574d2b136c93a940109f82d0a33459388a83f46fbc7bf2"
+        }
+      },
+      {
+        "groupId": "FC-20261023-splunk",
+        "reviewPolicySha256": "270b7c7a1f7180b3fef2896b7633a87bf0667b9f4a3c75593fa72b959ecb87f6",
+        "admission": {
+          "bytes": 988,
+          "key": "objects/a42addfcd5043dceffcd259fc8bdac7486b012400fae4b82ce0e5b00968e18af",
+          "sha256": "a42addfcd5043dceffcd259fc8bdac7486b012400fae4b82ce0e5b00968e18af"
+        }
+      },
+      {
+        "groupId": "FC-20261023-zscaler",
+        "reviewPolicySha256": "dc8522069fc87cbf0371e0ea29ec80fbf647c1dd7ce816e02a7fb4a94b35a390",
+        "admission": {
+          "bytes": 1460,
+          "key": "objects/f255c470cc078e1d44399f7e2027134b466f23cc5939437d196bef9d7aa04e4b",
+          "sha256": "f255c470cc078e1d44399f7e2027134b466f23cc5939437d196bef9d7aa04e4b"
+        }
+      },
+      {
+        "groupId": "FC-20261023-expel",
+        "reviewPolicySha256": "d1ea72b754450e603d89092cc38d9fa81d165575af2a36745e5938220fd82087",
+        "admission": {
+          "bytes": 1493,
+          "key": "objects/b120ca46429f8e52a09d4fce293c14ddb08319212b2b9a8e0f10b39661deed4c",
+          "sha256": "b120ca46429f8e52a09d4fce293c14ddb08319212b2b9a8e0f10b39661deed4c"
+        }
+      },
+      {
+        "groupId": "XAGE-SOURCE-CLASS-20261023",
+        "reviewPolicySha256": "c01560dba484aa5aa5696c8bfe5b44acefc6337ee1cebe0cd96751849e15646a",
+        "admission": {
+          "bytes": 1340,
+          "key": "objects/ec322362de6fb9e4e20cea0c9ed825990a01bf0c41d5b32662ab6131914f6c98",
+          "sha256": "ec322362de6fb9e4e20cea0c9ed825990a01bf0c41d5b32662ab6131914f6c98"
+        }
+      }
+    ],
+    "sourceExpiry": "2026-10-26T15:55:27.307096+00:00",
+    "sourceOrPublicExpiryRenewed": false,
+    "leaseReleased": true,
+    "allInputSealsUnchanged": true,
+    "consultedArchivedReplayInputs": 269
+  },
+  "issuerCardInventoryAndCalendarWindow": {
+    "abnormal-security:official:1": {
+      "pages": 1,
+      "pageNumbers": [],
+      "rawCardOccurrences": 9,
+      "uniqueDetailUrls": 9,
+      "duplicateOrOverlapOccurrences": [],
+      "writtenDateMinimum": "2026-08-11",
+      "writtenDateMaximum": "2026-10-14",
+      "paginationLinksNotInObservedSet": [],
+      "explicitDisabledNextPages": [],
+      "contiguousObservedNumberedPages": false,
+      "inventoryUrls": [
+        "https://abnormal.ai/newsroom/press-releases/abnormal-ai-achieves-the-aws-ai-competency-for-generative-ai",
+        "https://abnormal.ai/newsroom/press-releases/abnormal-ai-announces-that-softbank-corp-begins-offering-its-enterprise-email-security-platform-in-japan",
+        "https://abnormal.ai/newsroom/press-releases/abnormal-ai-brings-openai-daybreak-models-into-ai-cloud-security-to-protect-against-rogue-ai",
+        "https://abnormal.ai/newsroom/press-releases/abnormal-ai-expands-its-ai-security-suite",
+        "https://abnormal.ai/newsroom/press-releases/abnormal-ai-joins-project-watershed-250-to-strengthen-cybersecurity-for-texas-water-utilities",
+        "https://abnormal.ai/newsroom/press-releases/abnormal-earns-imda-accreditation",
+        "https://abnormal.ai/newsroom/press-releases/abnormal-expands-email-security-platform",
+        "https://abnormal.ai/newsroom/press-releases/abnormal-openai-partnership",
+        "https://abnormal.ai/newsroom/press-releases/abnormal-pursues-fedramp-class-d-certification"
+      ],
+      "qualificationCredit": false,
+      "currentWindowEvidence": {
+        "asOfCalendarDay": "2026-10-25",
+        "cutoffCalendarDay": "2026-09-25",
+        "dateOnlyNoUTCInstantProof": true,
+        "allObservedCardsDated": true,
+        "monotonicDescendingObservedDates": true,
+        "strictlyInsideCalendarWindow": 1,
+        "firstObservedOlderBoundary": {
+          "url": "https://abnormal.ai/newsroom/press-releases/abnormal-ai-expands-its-ai-security-suite",
+          "writtenDate": "Sep 24, 2026",
+          "calendarDay": "2026-09-24"
+        },
+        "boundaryDayCardsHeld": 0,
+        "qualified": false
+      },
+      "historicalCompleteness": "No historical review completeness claim from a fresh index or finite card inventory."
+    },
+    "cato:official:1": {
+      "pages": 5,
+      "pageNumbers": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "rawCardOccurrences": 125,
+      "uniqueDetailUrls": 125,
+      "duplicateOrOverlapOccurrences": [],
+      "writtenDateMinimum": "2022-07-05",
+      "writtenDateMaximum": "2026-10-07",
+      "paginationLinksNotInObservedSet": [
+        "https://www.prnewswire.com/news/cato-networks/?page=1&pagesize=25",
+        "https://www.prnewswire.com/news/cato-networks/?page=6&pagesize=25",
+        "https://www.prnewswire.com/news/cato-networks/?page=7&pagesize=25",
+        "https://www.prnewswire.com/news/cato-networks/?page=8&pagesize=25"
+      ],
+      "explicitDisabledNextPages": [],
+      "contiguousObservedNumberedPages": true,
+      "inventoryUrls": [
+        "https://www.prnewswire.com/fr/communiques-de-presse/le-groupe-carlsberg-choisit-cato-networks-pour-un-deploiement-massif-sase-a-lechelle-mondiale-301901308.html",
+        "https://www.prnewswire.com/il/news-releases/carlsberg-group-selects-cato-networks-for-massive-global-sase-deployment-301900973.html",
+        "https://www.prnewswire.com/il/news-releases/cato-networks-eliminates-enterprise-browser-complexity-with-newest-universal-ztna-addition-302746627.html",
+        "https://www.prnewswire.com/il/news-releases/cato-networks-grew-59-in-2023-302072739.html",
+        "https://www.prnewswire.com/il/news-releases/cato-networks-grew-arr-46-to-more-than-250-million-in-2024-302378007.html",
+        "https://www.prnewswire.com/il/news-releases/cato-networks-has-been-recognized-as-a-representative-vendor-in-the-2022-gartner-market-guide-for-single-vendor-sase-301648484.html",
+        "https://www.prnewswire.com/il/news-releases/cato-networks-introduces-smart-dlp-as-part-of-cato-sse-360-the-first-sse-platform-to-secure-and-optimize-access-to-all-applications-866631696.html",
+        "https://www.prnewswire.com/il/news-releases/cato-networks-introduces-worlds-first-sase-based-xdr-302041997.html",
+        "https://www.prnewswire.com/il/news-releases/cato-networks-opens-london-ai-hub-to-expand-rd-footprint-and-tap-world-class-tech-talent-302786416.html",
+        "https://www.prnewswire.com/il/news-releases/cato-networks-reaches-100-million-arr-in-just-five-years-to-become-fastest-growing-enterprise-network-security-startup-301671242.html",
+        "https://www.prnewswire.com/il/news-releases/cato-sase-cloud-named-leader-and-outperformer-in-gigaom-ssa-radar-report-828211548.html",
+        "https://www.prnewswire.com/il/news-releases/cyber-threat-research-poor-patching-practices-and-unencrypted-protocols-continue-to-haunt-enterprises-302136687.html",
+        "https://www.prnewswire.com/il/news-releases/darling-ingredients-replaces-three-security-and-networking-vendors-with-cato-networks-adopts-sase-platform-302667343.html",
+        "https://www.prnewswire.com/il/news-releases/gnutti-carlo-group-names-cato-networks-as-the-2021-innovation-award-winner-selected-as-one-of-the-year-s-best-suppliers-807298509.html",
+        "https://www.prnewswire.com/news-releases/addie-finch-joins-cato-networks-as-avp-of-channel-resellers-and-strategic-partners-302040200.html",
+        "https://www.prnewswire.com/news-releases/carlsberg-group-on-valinnut-cato-networksin-laajaan-maailmanlaajuiseen-sasen-kayttoon-301903377.html",
+        "https://www.prnewswire.com/news-releases/carlsberg-group-selects-cato-networks-for-massive-global-sase-deployment-301901299.html",
+        "https://www.prnewswire.com/news-releases/carlsberg-group-vaelger-cato-networks-til-omfattende-global-sase-udrulning-301901214.html",
+        "https://www.prnewswire.com/news-releases/carlsberg-group-valjer-cato-networks-for-en-omfattande-global-sase-implementation-301902123.html",
+        "https://www.prnewswire.com/news-releases/carlsberg-group-velger-cato-networks-for-storskala-global-sase-implementering-301903378.html",
+        "https://www.prnewswire.com/news-releases/cato-advances-enterprise-defense-joining-the-openai-daybreak-cyber-partner-program-302805920.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-achieves-aws-security-competency-in-ai-security-302898714.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-acquires-aim-security-to-extend-sase-leadership-and-secure-enterprise-ai-transformation-302543642.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-and-crowdstrike-partner-to-deliver-unified-security-operations-across-the-network-and-endpoint-302832205.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-and-sb-technology-part-of-softbank-group-announce-strategic-partnership-to-deliver-managed-sase-in-japan-302291918.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-announces-americas-partner-award-winners-for-2026-cato-networks-americas-partner-awards-302735096.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-announces-emea-partner-awards-at-2026-emea-partner-summit-302680104.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-announces-inaugural-americas-partner-awards-at-2024-americas-partner-summit-302286390.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-announces-partner-award-winners-at-2025-japan-partner-summit-302504607.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-announces-partner-award-winners-at-2026-apj-partner-summit-302819999.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-appoints-former-palo-alto--netskope-executive-chad-gardner-as-chief-revenue-officer-302898809.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-appoints-karl-soderlund-as-global-channel-chief-to-accelerate-channel-growth-in-sase-market-302367018.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-appoints-tristan-elder-as-vice-president-of-emea-channel-to-drive-partner-growth-across-region-302782358.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-appoints-tristan-elder-as-vice-president-of-emea-channel-to-drive-partner-growth-across-region-302782361.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-becomes-the-first-sase-platform-vendor-to-achieve-pci-dss-v4-0-compliance-302373563.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-breaks-sase-speed-barrier-again-with-5-gbps-encrypted-tunnels-to-sites-and-the-cloud-301848590.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-channel-chief-earns-two-industry-honors-302074759.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-co-founder-and-ceo-shlomo-kramer-named-2024-security-executive-of-the-year-by-sc-media-302251034.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-co-founder-and-ceo-shlomo-kramer-named-2025-most-innovative-tech-startup-leader-by-siliconangle-media-302383814.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-collaborates-with-aws-to-expand-generative-ai-capabilities-in-cato-sase-cloud-platform-302385761.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-debuts-on-2024-forbes-cloud-100-302215856.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-demonstrates-industry-leading-execution-and-value-for-second-year-in-a-row-in-2025-gigaom-radar-report-for-sase-302373325.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-eliminates-enterprise-browser-complexity-with-newest-universal-ztna-addition-302746626.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-empowers-service-providers-to-deliver-true-sase-services-with-cato-private-pop-302476889.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-exceeds-415m-in-arr-fueled-by-42-yoy-growth-and-enterprise-demand-302833667.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-expands-board-of-directors-with-two-industry-leaders-302243148.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-expands-sase-platform-again-with-dem-for-complete-user-experience-delivery-302276280.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-expands-sase-platform-with-microsoft-azure-vwan-integration-for-unified-cloud-networking-302509837.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-expands-sase-presence-in-the-nordics-with-new-point-of-presence-pop-in-copenhagen-899126497.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-extends-zero-trust-access-to-any-device-with-new-browser-extension-302569997.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-extends-ztna-to-protect-against-insider-threats-301873747.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-grew-59-in-2023-302072737.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-grew-arr-46-to-more-than-250-million-in-2024-302377999.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-has-been-recognized-as-a-representative-vendor-in-the-2022-gartner-market-guide-for-single-vendor-sase-301648475.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-im-rahmen-der-single-vendor-sase-quadrant-analysis-als-leader-ausgezeichnet-301784597.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-initiates-fedramp-high-authorization-process-to-accelerate-sase-adoption-and-secure-ai-transformation-across-us-federal-government-302711652.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-integrates-with-cyera-dspm-to-deliver-data-aware-security-operations-302775614.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-introduces-generative-ai-security-controls-for-cato-casb-to-mitigate-shadow-ai-risk-302428212.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-introduces-instant-rbi-featuring-single-click-activation-301804851.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-introduces-smart-dlp-as-part-of-cato-sse-360-the-first-sse-platform-to-secure-and-optimize-access-to-all-applications-301587963.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-introduces-the-industrys-first-gpu-powered-sase-platform-with-native-ai-security-302714659.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-introduces-worlds-first-sase-based-xdr-302041995.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-joins-aws-isv-accelerate-program-302213902.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-joins-mitre-ai-incident-sharing-initiative-to-improve-ai-defenses-302291925.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-joins-the-world-economic-forums-innovator-communities-bringing-real-world-cybersecurity-expertise-to-cross-sector-collaboration-on-the-future-of-tech-302861916.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-launches-agentic-threat-prevention-to-predict-and-mitigate-ai-assisted-attacks-302839274.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-launches-smb-flexpool-to-help-msps-scale-managed-sase-for-small-and-midsize-businesses-302863126.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-leve-359-millions-de-dollars-pour-une-valorisation-de-plus-de-4-8-milliards-de-dollars-302494288.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-named-a-challenger-in-the-gartner-magic-quadrant-for-single-vendor-sase-301907027.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-named-a-leader-in-the-2024-gartner-magic-quadrant-for-single-vendor-sase-302190995.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-named-a-leader-in-the-2025-gartner-magic-quadrant-for-sase-platforms-again-302503366.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-named-a-leader-in-the-2026-gartner-magic-quadrant-for-sase-platforms-for-the-third-consecutive-year-302839193.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-named-a-leader-in-zero-trust-edge-zte-report-by-leading-research-firm-301902583.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-named-official-sase-partner-of-bwt-alpine-formula-one-team-302583819.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-named-sase-leader-again-301994237.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-named-to-2025-forbes-cloud-100-for-a-second-consecutive-year-302548509.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-named-to-2025-fortune-cyber-60-list-for-second-consecutive-year-302291260.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-named-to-2026-fortune-cyber-60-list-for-third-consecutive-year-302599099.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-named-to-duns-100-list-of-the-best-hightech-companies-to-work-for-in-2024-302291040.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-now-available-in-aws-marketplace-to-accelerate-sase-adoption-302320173.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-partners-with-e-further-expanding-global-sase-platform-with-new-uae-pop-302147771.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-raises-238m-in-equity-investment-at-over-3b-valuation-301925727.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-raises-359-million-at-a-valuation-of-more-than-4-8-billion-302494248.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-raises-359-million-at-a-valuation-of-more-than-4-8-billion-302494283.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-reaches-100-million-arr-in-just-five-years-to-become-fastest-growing-enterprise-network-security-startup-301671238.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-recognized-as-global-security-service-edge-sse-leader-301855770.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-recognized-by-frost--sullivan-for-ai-leadership-in-sase-302257564.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-reconnu-comme-leader-du-quadrant-sase-301784589.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-revolutionizes-network-security-with-real-time-machine-learning-powered-protection-301863736.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-sammelt-359-millionen-dollar-ein--unternehmenswert-steigt-auf-mehr-als-4-8-milliarden-dollar-302494290.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-sets-new-benchmark-cutting-time-to-protect-to-45-minutes-with-full-agentic-cve-mitigation-302786546.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-strengthens-channel-leadership-team-to-meet-growing-global-partner-demand-for-sasesse-301716790.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-surpasses-350-million-arr-with-43-yoy-growth-in-2025-302694952.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-to-highlight-ai-defense-in-depth-techniques-and-cloud-risks-in-six-upcoming-talks-302157019.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-to-showcase-new-security-evasion-tactics-at-rsa-conference-2024-302127226.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-transforms-global-partner-program-to-fuel-scalable-and-profitable-sase-growth-for-partners-302446502.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-transforms-security-operations-with-the-worlds-first-sase-native-policy-analysis-engine-302452813.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-unveils-modular-adoption-model-for-ai-native-cybersecurity-platform-302729265.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-unveils-safe-tls-inspection-redefining-encrypted-traffic-monitoring-302308640.html",
+        "https://www.prnewswire.com/news-releases/cato-networks-unveils-worlds-first-auto-adaptive-threat-prevention-engine-in-a-sase-platform-to-stop-attacks-before-compromise-302701477.html",
+        "https://www.prnewswire.com/news-releases/cato-researchers-to-demonstrate-how-to-stop-living-off-the-cloud-attacks-at-rsaconference-2023-301773261.html",
+        "https://www.prnewswire.com/news-releases/cato-sase-cloud-identified-as-a-leader-in-gigaoms-secure-service-access-ssa-ranking-301870154.html",
+        "https://www.prnewswire.com/news-releases/cato-sase-cloud-named-leader-and-outperformer-in-gigaom-radar-report-for-sd-wan-301740409.html",
+        "https://www.prnewswire.com/news-releases/cato-sase-cloud-named-leader-and-outperformer-in-gigaom-ssa-radar-report-301610621.html",
+        "https://www.prnewswire.com/news-releases/cato-shatters-sase-speed-record-302101266.html",
+        "https://www.prnewswire.com/news-releases/cato-unveils-industry-first-ai-driven-networking-and-security-incident-detection-and-response-302092300.html",
+        "https://www.prnewswire.com/news-releases/channel-partners-gain-vendor-level-powers-with-new-msase-framework-from-cato-networks-302177767.html",
+        "https://www.prnewswire.com/news-releases/cyber-threat-research-poor-patching-practices-and-unencrypted-protocols-continue-to-haunt-enterprises-302136684.html",
+        "https://www.prnewswire.com/news-releases/darling-ingredients-replaces-three-security-and-networking-vendors-with-cato-networks-adopts-sase-platform-302667337.html",
+        "https://www.prnewswire.com/news-releases/elkjop-transforms-peak-retail-season-readiness-with-the-cato-sase-cloud-platform-302439840.html",
+        "https://www.prnewswire.com/news-releases/elkjop-transforms-peak-retail-season-readiness-with-the-cato-sase-cloud-platform-302439844.html",
+        "https://www.prnewswire.com/news-releases/esi-reduces-the-time-to-integrate-acquired-companies-by-80-with-the-cato-sase-cloud-platform-302230337.html",
+        "https://www.prnewswire.com/news-releases/frank-rauch-of-cato-networks-recognized-on-crns-2023-top-100-executives-list-301887505.html",
+        "https://www.prnewswire.com/news-releases/frost--sullivan-security-efficacy-test-finds-cato-networks-achieves-near-perfect-protection-against-modern-advanced-threats-302363144.html",
+        "https://www.prnewswire.com/news-releases/gamuda-transforms-it-operations-with-cato-networks-302255814.html",
+        "https://www.prnewswire.com/news-releases/gnutti-carlo-group-names-cato-networks-as-the-2021-innovation-award-winner-selected-as-one-of-the-years-best-suppliers-301617870.html",
+        "https://www.prnewswire.com/news-releases/hafele-recovers-from-ransomware-attack-with-cato-networks-301812813.html",
+        "https://www.prnewswire.com/news-releases/industry-embraces-single-vendor-sase-as-cato-reports-record-growth-301757936.html",
+        "https://www.prnewswire.com/news-releases/networking-and-security-teams-are-converging-finds-cato-networks-survey-301957783.html",
+        "https://www.prnewswire.com/news-releases/new-threat-report-from-cato-networks-reveals-ransomware-gangs-recruiting-penetration-testers-to-improve-effectiveness-of-attacks-302309226.html",
+        "https://www.prnewswire.com/news-releases/new-threat-report-from-cato-networks-uncovers-threat-actor-selling-data-and-source-code-from-major-brands-302221317.html",
+        "https://www.prnewswire.com/news-releases/say-goodbye-to-patching-with-the-worlds-first-sase-native-lan-ngfw-from-cato-networks-302398898.html",
+        "https://www.prnewswire.com/news-releases/shadow-ai-governance-lags-as-ai-adoption-soars-according-to-cato-networks-survey-302631799.html",
+        "https://www.prnewswire.com/news-releases/the-rise-of-the-zero-knowledge-threat-actor-new-llm-jailbreak-technique-discovered-by-cato-networks-enables-easy-creation-of-password-stealing-malware-302403671.html",
+        "https://www.prnewswire.com/nl/persberichten/carlsberg-group-kiest-cato-networks-om-wereldwijd-sase-te-implementeren-301901319.html"
+      ],
+      "qualificationCredit": false,
+      "currentWindowEvidence": {
+        "asOfCalendarDay": "2026-10-25",
+        "cutoffCalendarDay": "2026-09-25",
+        "dateOnlyNoUTCInstantProof": true,
+        "allObservedCardsDated": true,
+        "monotonicDescendingObservedDates": true,
+        "strictlyInsideCalendarWindow": 2,
+        "firstObservedOlderBoundary": {
+          "url": "https://www.prnewswire.com/news-releases/cato-networks-joins-the-world-economic-forums-innovator-communities-bringing-real-world-cybersecurity-expertise-to-cross-sector-collaboration-on-the-future-of-tech-302861916.html",
+          "writtenDate": "Sep 08, 2026, 08:30 ET",
+          "calendarDay": "2026-09-08"
+        },
+        "boundaryDayCardsHeld": 0,
+        "qualified": false
+      },
+      "historicalCompleteness": "Unseen older Cato pages remain unknown; every125 known URL preserved. Not an automatic blocker to a separately reviewed current-window proof."
+    },
+    "chainguard:official:1": {
+      "pages": 2,
+      "pageNumbers": [
+        1,
+        2
+      ],
+      "rawCardOccurrences": 47,
+      "uniqueDetailUrls": 47,
+      "duplicateOrOverlapOccurrences": [],
+      "writtenDateMinimum": "2022-06-02",
+      "writtenDateMaximum": "2026-10-14",
+      "paginationLinksNotInObservedSet": [
+        "https://www.prnewswire.com/news/chainguard/?page=1&pagesize=25"
+      ],
+      "explicitDisabledNextPages": [
+        "https://www.prnewswire.com/news/chainguard/?page=2&pagesize=25"
+      ],
+      "contiguousObservedNumberedPages": true,
+      "inventoryUrls": [
+        "https://www.prnewswire.com/in/news-releases/chainguard-adds-new-members-to-athena-coalition-as-coordinated-open-source-defense-scales-302818945.html",
+        "https://www.prnewswire.com/in/news-releases/chainguard-launches-global-partner-program-to-accelerate-trusted-open-source-software-adoption-302528555.html",
+        "https://www.prnewswire.com/news-releases/chainguard-adds-new-members-to-athena-coalition-as-coordinated-open-source-defense-scales-302818937.html",
+        "https://www.prnewswire.com/news-releases/chainguard-and-cursor-partner-to-secure-agentic-coding-with-trusted-open-source-302748112.html",
+        "https://www.prnewswire.com/news-releases/chainguard-announces-280-million-growth-financing-from-general-catalyst-to-usher-in-next-era-of-trusted-open-source-software-302592279.html",
+        "https://www.prnewswire.com/news-releases/chainguard-announces-chainguard-containers-availability-in-aws-marketplace-for-use-in-the-aws-govcloud-us-region-302566688.html",
+        "https://www.prnewswire.com/news-releases/chainguard-announces-new-products-and-a-free-academy-to-help-developers-secure-the-software-supply-chain-301631090.html",
+        "https://www.prnewswire.com/news-releases/chainguard-announces-partnership-with-datadog-to-strengthen-container-security-and-observability-302409930.html",
+        "https://www.prnewswire.com/news-releases/chainguard-assessed-awardable-for-department-of-defense-work-in-the-p1-marketplace-302535237.html",
+        "https://www.prnewswire.com/news-releases/chainguard-brings-fips-validated-zero-cve-eks-add-ons-to-aws-marketplace-302758188.html",
+        "https://www.prnewswire.com/news-releases/chainguard-customers-have-94-python-ecosystem-coverage-for-their-environments-302697811.html",
+        "https://www.prnewswire.com/news-releases/chainguard-introduces-fips-module-with-industry-leading-cve-commitment-302710378.html",
+        "https://www.prnewswire.com/news-releases/chainguard-introduces-the-guardener-intelligent-continuous-maintenance-for-secure-software-artifacts-302715322.html",
+        "https://www.prnewswire.com/news-releases/chainguard-joins-aws-security-hub-extended-as-supply-chain-partner-302842943.html",
+        "https://www.prnewswire.com/news-releases/chainguard-joins-docker-verified-publisher-program-to-offer-developers-everywhere-access-to-secure-hardened-container-images-302089009.html",
+        "https://www.prnewswire.com/news-releases/chainguard-joins-finos-to-accelerate-trusted-open-source-adoption-for-financial-services-in-the-ai-era-302768756.html",
+        "https://www.prnewswire.com/news-releases/chainguard-launches-athena-the-industry-coalition-to-fix-open-source-vulnerabilities-before-attackers-can-find-them-302799984.html",
+        "https://www.prnewswire.com/news-releases/chainguard-launches-commercial-builds-with-industry-leaders-setting-a-new-standard-for-verifiable-zero-vulnerability-software-302715327.html",
+        "https://www.prnewswire.com/news-releases/chainguard-launches-global-partner-program-to-accelerate-trusted-open-source-software-adoption-302528538.html",
+        "https://www.prnewswire.com/news-releases/chainguard-launches-the-first-unified-repository-for-secure-by-default-open-source-artifacts-302715404.html",
+        "https://www.prnewswire.com/news-releases/chainguard-listed-in-aws-icmp-for-the-us-federal-government-302522632.html",
+        "https://www.prnewswire.com/news-releases/chainguard-named-a-cve-numbering-authority-advancing-open-source-vulnerability-disclosure-302886770.html",
+        "https://www.prnewswire.com/news-releases/chainguard-named-a-leader-in-inaugural-gartner-magic-quadrant-for-software-supply-chain-security-302806535.html",
+        "https://www.prnewswire.com/news-releases/chainguard-raises-356-million-in-series-d-funding-to-be-the-safe-source-for-all-open-source-302435220.html",
+        "https://www.prnewswire.com/news-releases/chainguard-raises-50m-in-series-a-to-make-software-supply-chain-secure-by-default-introduces-secure-container-base-images-301559970.html",
+        "https://www.prnewswire.com/news-releases/chainguard-raises-61-million-series-b-round-as-enterprises-move-to-fortify-open-source-software-301973663.html",
+        "https://www.prnewswire.com/news-releases/chainguard-releases-dedicated-stig-for-fips-ready-chainguard-images-302194349.html",
+        "https://www.prnewswire.com/news-releases/chainguard-research-nine-in-ten-security-leaders-say-ai-attacks-have-changed-their-job-more-than-anything-in-a-decade-but-the-ability-to-act-hasnt-kept-pace-302907743.html",
+        "https://www.prnewswire.com/news-releases/chainguard-research-shows-engineers-struggle-with-burnout-maintenance-and-tool-sprawl-despite-ai-gains-302577843.html",
+        "https://www.prnewswire.com/news-releases/chainguard-surpasses-1-billion-container-build-manifests-doubling-growth-in-six-months-302868581.html",
+        "https://www.prnewswire.com/news-releases/chainguard-surpasses-500-million-container-build-manifests-302679701.html",
+        "https://www.prnewswire.com/news-releases/chainguard-welcomes-new-chief-information-security-officer-and-chief-financial-officer-to-fuel-next-chapter-of-growth-302516746.html",
+        "https://www.prnewswire.com/news-releases/chainguard-welcomes-new-chief-revenue-officer-and-svp-of-product-to-fuel-next-chapter-of-growth-302605321.html",
+        "https://www.prnewswire.com/news-releases/introducing-chainguard-actions-trusted-cicd-workflows-for-developers-and-ai-coding-agents-302715401.html",
+        "https://www.prnewswire.com/news-releases/introducing-chainguard-agent-skills-securing-the-ai-software-development-workflow-302715407.html",
+        "https://www.prnewswire.com/news-releases/introducing-chainguard-catalog-starter-your-choice-of-free-trusted-images-for-modern-application-development-302715321.html",
+        "https://www.prnewswire.com/news-releases/introducing-chainguard-checks-reinventing-continuous-integration-for-the-agentic-era-302907718.html",
+        "https://www.prnewswire.com/news-releases/introducing-chainguard-harness-proven-vulnerabilities-and-ready-to-merge-fixes-from-frontier-ai-no-model-access-required-302907725.html",
+        "https://www.prnewswire.com/news-releases/introducing-chainguard-libraries-for-go-and-net-secure-endpoints-to-protect-organizations-from-supply-chain-attacks-302907708.html",
+        "https://www.prnewswire.com/news-releases/introducing-chainguard-libraries-for-javascript-malware-resistant-dependencies-built-entirely-from-source-302566682.html",
+        "https://www.prnewswire.com/news-releases/introducing-chainguard-libraries-for-python-malware-resistant-dependencies-built-entirely-from-source-302454677.html",
+        "https://www.prnewswire.com/news-releases/introducing-chainguard-libraries-guarded-java-language-dependencies-built-from-source-302409971.html",
+        "https://www.prnewswire.com/news-releases/introducing-chainguard-os-packages-for-secure-custom-container-image-builds-302715314.html",
+        "https://www.prnewswire.com/news-releases/introducing-chainguard-vms-guarded-virtual-machines-reduce-risk-and-engineering-complexity-302409962.html",
+        "https://www.prnewswire.com/news-releases/introducing-chainguard-workspaces-hardened-hardware-isolated-environments-for-faster-agentic-development-302907716.html",
+        "https://www.prnewswire.com/news-releases/new-report-shows-disconnect-between-developers-and-security-teams-on-software-supply-chain-security-priorities-and-responsibilities-301981142.html",
+        "https://www.prnewswire.com/news-releases/software-security-leader-chainguard-raises-140-million-in-series-c-funding-to-secure-the-next-frontier-of-ai-workloads-302206133.html"
+      ],
+      "qualificationCredit": false,
+      "currentWindowEvidence": {
+        "asOfCalendarDay": "2026-10-25",
+        "cutoffCalendarDay": "2026-09-25",
+        "dateOnlyNoUTCInstantProof": true,
+        "allObservedCardsDated": true,
+        "monotonicDescendingObservedDates": true,
+        "strictlyInsideCalendarWindow": 5,
+        "firstObservedOlderBoundary": {
+          "url": "https://www.prnewswire.com/news-releases/chainguard-named-a-cve-numbering-authority-advancing-open-source-vulnerability-disclosure-302886770.html",
+          "writtenDate": "Sep 22, 2026, 17:22 ET",
+          "calendarDay": "2026-09-22"
+        },
+        "boundaryDayCardsHeld": 0,
+        "qualified": false
+      },
+      "historicalCompleteness": "No historical review completeness claim from a fresh index or finite card inventory."
+    },
+    "cyera:official:1": {
+      "pages": 1,
+      "pageNumbers": [],
+      "rawCardOccurrences": 56,
+      "uniqueDetailUrls": 56,
+      "duplicateOrOverlapOccurrences": [],
+      "writtenDateMinimum": "2022-03-29",
+      "writtenDateMaximum": "2026-10-16",
+      "paginationLinksNotInObservedSet": [],
+      "explicitDisabledNextPages": [],
+      "contiguousObservedNumberedPages": false,
+      "inventoryUrls": [
+        "https://www.cyera.com/press-releases/ai-native-security-leader-cyera-doubles-customer-base-in-six-months-reaching-6-billion-valuation",
+        "https://www.cyera.com/press-releases/cyera-accelerates-fedramp-authorization-process-to-enable-secure-data-and-ai-protection-across-government-agencies",
+        "https://www.cyera.com/press-releases/cyera-achieves-fedramp-high-in-process-designation-to-securely-accelerate-ai-adoption",
+        "https://www.cyera.com/press-releases/cyera-acquires-otterize-a-platform-for-securing-cloud-native-non-human-identities-and-data-flows-to-expand-its-data-security-platform",
+        "https://www.cyera.com/press-releases/cyera-acquires-ryft-to-extend-its-agentic-ai-security-platform",
+        "https://www.cyera.com/press-releases/cyera-acquires-trail-security-for-162m-redefining-ai-powered-data-security-with-comprehensive-data-loss-prevention",
+        "https://www.cyera.com/press-releases/cyera-adds-steffan-tomlinson-to-its-board-as-it-defines-the-future-of-ai-security",
+        "https://www.cyera.com/press-releases/cyera-and-snowflake-advance-secure-ai-agent-adoption-for-the-enterprise",
+        "https://www.cyera.com/press-releases/cyera-and-wiz-partner-to-strengthen-cloud-security-with-data-security-posture-management",
+        "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+        "https://www.cyera.com/press-releases/cyera-announces-employee-tender-offer-backed-to-by-cyberstarts-employee-liquidity-fund",
+        "https://www.cyera.com/press-releases/cyera-appoints-renowned-tech-exec-frank-slootman-to-board-of-directors",
+        "https://www.cyera.com/press-releases/cyera-becomes-one-of-the-top-10-fastest-growing-companies-powering-the-new-era-of-ai-and-data-security",
+        "https://www.cyera.com/press-releases/cyera-breaks-world-record-as-the-fastest-growing-data-security-company-in-history",
+        "https://www.cyera.com/press-releases/cyera-closes-major-gaps-in-securing-enterprise-ai",
+        "https://www.cyera.com/press-releases/cyera-completes-acquisition-of-oasis-security",
+        "https://www.cyera.com/press-releases/cyera-delivers-first-to-market-automated-remediations-extending-data-security-posture-management-from-observability-into-security-operations",
+        "https://www.cyera.com/press-releases/cyera-dspm-available-through-new-extended-plan-for-aws-security-hub",
+        "https://www.cyera.com/press-releases/cyera-elevates-steve-rog-to-chief-revenue-officer",
+        "https://www.cyera.com/press-releases/cyera-embeds-human-and-non-human-identity-module-into-data-security-platform",
+        "https://www.cyera.com/press-releases/cyera-expands-executive-leadership-appoints-brandon-sweeney-as-president",
+        "https://www.cyera.com/press-releases/cyera-extends-data-security-to-on-premises-databases-and-file-shares",
+        "https://www.cyera.com/press-releases/cyera-extends-leadership-team-with-key-executive-appointments",
+        "https://www.cyera.com/press-releases/cyera-finds-ghost-data-expands-threat-surface-making-businesses-more-vulnerable-to-ransomware-attacks-compliance-violations",
+        "https://www.cyera.com/press-releases/cyera-integrates-openai-to-accelerate-multi-cloud-data-security-privacy-and-governance",
+        "https://www.cyera.com/press-releases/cyera-introduces-access-trail-to-uncover-details-behind-every-data-touchpoint-across-humans-and-ai",
+        "https://www.cyera.com/press-releases/cyera-introduces-data-detection-and-response-and-unified-data-explorer-for-saas-iaas-and-paas-revolutionizing-security-operations",
+        "https://www.cyera.com/press-releases/cyera-is-a-proud-participant-in-the-microsoft-sentinel-partner-ecosystem",
+        "https://www.cyera.com/press-releases/cyera-labs-introduces-safetype-data-privacy-browser-extension-to-help-companies-use-chatgpt-securely",
+        "https://www.cyera.com/press-releases/cyera-launches-agent-guardian-to-secure-the-autonomous-workforce",
+        "https://www.cyera.com/press-releases/cyera-launches-data-incident-response-service-to-bring-speed-and-focus-to-security-investigations",
+        "https://www.cyera.com/press-releases/cyera-launches-from-stealth-with-60m-to-identify-secure-and-remediate-cloud-data-security-risks",
+        "https://www.cyera.com/press-releases/cyera-launches-industrys-first-dspm-certification-to-close-the-ai-data-security-gap",
+        "https://www.cyera.com/press-releases/cyera-launches-omni-dlp-the-ai-brain-that-finally-makes-dlp-work",
+        "https://www.cyera.com/press-releases/cyera-named-2023-cloud-data-security-product-of-the-year-by-cloud-computing-magazine",
+        "https://www.cyera.com/press-releases/cyera-named-2023-most-innovative-in-cybersecurity-startup-by-top-infosec-innovator-awards",
+        "https://www.cyera.com/press-releases/cyera-named-data-security-platform-of-the-year-in-2023-data-breakthrough-awards-program",
+        "https://www.cyera.com/press-releases/cyera-named-to-fast-companys-list-of-the-worlds-most-innovative-companies-of-2024",
+        "https://www.cyera.com/press-releases/cyera-named-winner-of-global-infosec-awards-for-cutting-edge-data-security",
+        "https://www.cyera.com/press-releases/cyera-raises-400m-to-meet-rapidly-growing-demand-for-ai-security-among-enterprises",
+        "https://www.cyera.com/press-releases/cyera-raises-600-million-at-12-billion-valuation-to-continue-building-the-trust-layer-for-the-ai-era",
+        "https://www.cyera.com/press-releases/cyera-recognized-as-a-leader-in-sensitive-data-discovery-and-classification",
+        "https://www.cyera.com/press-releases/cyera-report-identifies-data-security-posture-management-dspm-as-the-fastest-growing-security-category",
+        "https://www.cyera.com/press-releases/cyera-research-reveals-security-leaders-data-security-concerns-and-investment-priorities",
+        "https://www.cyera.com/press-releases/cyera-secures-100-million-series-b-investment-to-become-the-data-security-platform-enabling-the-ai-revolution",
+        "https://www.cyera.com/press-releases/cyera-secures-the-agentic-ai-era-in-collaboration-with-microsoft-purview-sentinel-entra-and-copilot-studio",
+        "https://www.cyera.com/press-releases/cyera-strengthens-aws-relationship-with-generative-ai-competency-and-new-aws-marketplace-listing-in-ai-agents-tools",
+        "https://www.cyera.com/press-releases/cyera-takes-top-honors-in-globee-and-cloud-security-awards-programs",
+        "https://www.cyera.com/press-releases/cyera-unveils-ai-guardian",
+        "https://www.cyera.com/press-releases/cyera-unveils-cyera-research-labs-with-first-ever-ai-readiness-report-on-data-security",
+        "https://www.cyera.com/press-releases/cyera-unveils-datawatcher-to-transform-how-organizations-protect-their-most-critical-data",
+        "https://www.cyera.com/press-releases/cyeras-ai-security-platform-is-now-available-in-claude-marketplace",
+        "https://www.cyera.com/press-releases/cyeras-data-security-platform-now-available-on-google-cloud-marketplace",
+        "https://www.cyera.com/press-releases/data-security-leader-cyera-raises-300-million-at-1-4-billion-valuation",
+        "https://www.cyera.com/press-releases/data-security-leader-cyera-secures-300-million-in-series-d-funding-reaching-a-3-billion-valuation",
+        "https://www.cyera.com/press-releases/sol-rashidi-joins-cyera-as-chief-strategy-officer-for-data-and-ai-joining-wave-of-industry-leaders-betting-on-the-ai-native-security-revolution"
+      ],
+      "qualificationCredit": false,
+      "currentWindowEvidence": {
+        "asOfCalendarDay": "2026-10-25",
+        "cutoffCalendarDay": "2026-09-25",
+        "dateOnlyNoUTCInstantProof": true,
+        "allObservedCardsDated": true,
+        "monotonicDescendingObservedDates": true,
+        "strictlyInsideCalendarWindow": 1,
+        "firstObservedOlderBoundary": {
+          "url": "https://www.cyera.com/press-releases/cyera-announces-400-million-investment-from-goldman-sachs-to-build-the-trust-layer-for-the-agentic-enterprise",
+          "writtenDate": "Sep 22, 2026",
+          "calendarDay": "2026-09-22"
+        },
+        "boundaryDayCardsHeld": 0,
+        "qualified": false
+      },
+      "historicalCompleteness": "No historical review completeness claim from a fresh index or finite card inventory."
+    }
+  },
+  "currentWindowVersusHistory": {
+    "source": "web/scripts/pipeline/discovery.py:1057",
+    "observation": "Existing Ping/Delinea/Sonatype modes traverse parsed.next until explicit terminal and contain no date-boundary stop. currentWindowDays does not itself create one.",
+    "possibleNextDesign": "Separate closed PR Newswire issuer/date/window mode may prove current-window completion using positive observed ordering and older boundary while preserving all known URLs and explicitly unknown older history. Requires review; no qualification now.",
+    "newOlderPageRequestsRecommendedByThisAudit": false
+  },
+  "primaryDetailReuse": {
+    "literalDetailUrls": 237,
+    "metadataFilesInspected": 18984,
+    "matchedObservations": 74,
+    "distinctFull200Shapes": 7,
+    "suppliedJsonLdDateJoins": 7,
+    "providedMetadataAndOriginalReuseChains": "primary-supplied-jsonld-and-reuse.json",
+    "refinement": "The earlier limited primary-shape dateMetadata=[] is not proof of global metadata absence. Existing Page and direct suppliedJSONLD inspection establish the dates shown here; original preflight receipts remain unchanged.",
+    "bounds": "Exact URL search only; no locale/slug normalization, global archive semantic audit, source freshness renewal or claim admission."
+  },
+  "callbacks": [
+    {
+      "id": 40194355947,
+      "name": "daily exact-artifact publisher",
+      "conclusion": "success",
+      "event": "workflow_run",
+      "headSha": "5debbd9e3ed855d9c6f5bda25468dac1371532d6",
+      "jobs": [
+        {
+          "name": "callback-preflight",
+          "conclusion": "success"
+        },
+        {
+          "name": "publish",
+          "conclusion": "skipped"
+        }
+      ]
+    },
+    {
+      "id": 40194376214,
+      "name": "controlled production rollback acceptance",
+      "conclusion": "success",
+      "event": "workflow_run",
+      "headSha": "5debbd9e3ed855d9c6f5bda25468dac1371532d6",
+      "jobs": [
+        {
+          "name": "preflight",
+          "conclusion": "success"
+        },
+        {
+          "name": "rollback-and-restore",
+          "conclusion": "skipped"
+        }
+      ]
+    }
+  ],
+  "credit": {
+    "qualifiedSources": 0,
+    "sourceChecksCredited": 0,
+    "coverageCredit": false,
+    "semanticAdmission": false,
+    "factsAdded": 0,
+    "modelCalls": 0,
+    "published": false
+  },
+  "reviewer": {
+    "sourceRequests": 0,
+    "modelCalls": 0,
+    "frozenSharedArchiveWrites": 0,
+    "runtimeStateWrites": 0,
+    "executedJavaScript": false
+  },
+  "reviewerHelperCorrection": "Initial cold inspection helper had a missing space in a conditional expression and failed before reading source data. Corrected helper/log retained; no production code change.",
+  "receiptFiles": {
+    "2a2d58a5b9ebed2919b92cf26cb96d65a5b011f67b4beda10e9ae4a028a9aba3-blob-response.json.gz": {
+      "sha256": "819c5e253a77283b009bd8056fe4c1cfc845aabc3c2cfa8617bdf1fd4bffab24",
+      "bytes": 105505
+    },
+    "2a2d58a5b9ebed2919b92cf26cb96d65a5b011f67b4beda10e9ae4a028a9aba3-metadata.json": {
+      "sha256": "f7ca338820b6e71c45230892fe6aadbbb1413ec7d4e353512383ece0fdd9f711",
+      "bytes": 395597
+    },
+    "2a2d58a5b9ebed2919b92cf26cb96d65a5b011f67b4beda10e9ae4a028a9aba3-raw-api-response.bin.gz": {
+      "sha256": "c922b54b852585e7cfd44b16cf59af2d7a3442fa5085024c0454fda20872112b",
+      "bytes": 44625
+    },
+    "abnormal-press-list-body.html.gz": {
+      "sha256": "363da1715ed418f8db2714ed7ef249403318ce880bb7abdf8b3e207e739eeb68",
+      "bytes": 73770
+    },
+    "ack-commit.json": {
+      "sha256": "9cbfaefc8d80be100a77acbbcf100afa632f83f3b69c4a2a07b02f170e7ca8d4",
+      "bytes": 1188
+    },
+    "ack-tree.json": {
+      "sha256": "c7679800cec4b226c86e0f245bd71dc69915505f2ab58ef3131fa352e9839ad2",
+      "bytes": 1276
+    },
+    "actual-diagnostic-audit.json": {
+      "sha256": "639596fb532856d0399fc31e3c6164a065c835f1c508a8dd61c1fd75e08b2c7f",
+      "bytes": 260490
+    },
+    "archive-manifest.json.gz": {
+      "sha256": "9a820f1f6403385197b6f8493a93792a970fc8c8ae69b8ac6a197134fcb69823",
+      "bytes": 3448389
+    },
+    "artifact.json": {
+      "sha256": "575592b85b8063783437888d088d30acf0bded2cbe2c5e7a14361805351e60a7",
+      "bytes": 687
+    },
+    "audit.log.gz": {
+      "sha256": "7f5d5cade68296d4b15849cd2aab5909fedf0f29208ce4ab9ee4ef0c5aedb346",
+      "bytes": 182
+    },
+    "audit_actual_listing.py": {
+      "sha256": "af52bec5910cc29d29670007a3c6e5babfbba3bc45c50439328c765bceca6df3",
+      "bytes": 17882
+    },
+    "baseline-reuse-proof.json.gz": {
+      "sha256": "db70fa284a71fc2115ea2f047ea3d83a56fb519392b846eb9431b2c6ae3ef832",
+      "bytes": 2578712
+    },
+    "bootstrap-commit.json": {
+      "sha256": "f0614312ed573cf713b0d8e5805854408f7bf007fb74e5acfae6b4e37088fdce",
+      "bytes": 1188
+    },
+    "cato-page-2-body.html.gz": {
+      "sha256": "69b9e8eef3f996f168e09c3ff29ce6bcdd9d983e6cbfb945857e7dd44059f2af",
+      "bytes": 26360
+    },
+    "cato-page-3-body.html.gz": {
+      "sha256": "957c6243a3ede350caffc114f64bf806b5e54b1bde07ad0d9c40c3098146a5c6",
+      "bytes": 26272
+    },
+    "cato-page-4-body.html.gz": {
+      "sha256": "2365ad9fb8ba6ad7e19a6b0b815bcb7d3a6930cc9553b31b8fe5bfefb14e0abc",
+      "bytes": 25935
+    },
+    "cato-page-5-body.html.gz": {
+      "sha256": "6e310ec91b69cb9e8d69179f2a73102012b0a2282a99e36f4971df23f81f86ba",
+      "bytes": 26053
+    },
+    "chainguard-page-2-body.html.gz": {
+      "sha256": "f82250663ecde89bbefb19a7ba86b70af0af06af0d3d16d2b1baf5bcc7f26e03",
+      "bytes": 26066
+    },
+    "cold-index-inspection.json": {
+      "sha256": "75043d45b1e112f5cb47ff7e7fa097beffde512a25271129bedb615576c4f892",
+      "bytes": 1080338
+    },
+    "compression-metadata.json": {
+      "sha256": "dd11226455b8cab1d81453d7219a25ec539facb6a7eecdd061ab55c6bb3af406",
+      "bytes": 4751
+    },
+    "cyera-press-list-body.html.gz": {
+      "sha256": "8d40d2a85044c098d6dacfc29387ee9dbf4a01b1c980f9a8f92ca31b31563ef9",
+      "bytes": 45138
+    },
+    "e394e2ba9e5868bf8fe2832e9a8fefa9ecd5ddfe9fcfbc168db7db58812aae44-blob-response.json.gz": {
+      "sha256": "701d5f41896ace48bf0e3e6f2dee9c9d7f83c5307b461e9f6b9937d25e822498",
+      "bytes": 442018
+    },
+    "e394e2ba9e5868bf8fe2832e9a8fefa9ecd5ddfe9fcfbc168db7db58812aae44-metadata.json": {
+      "sha256": "dcdb77238548540de34a2b422cc5b50ea0094ff0faa2107d64b55115622a1118",
+      "bytes": 1442060
+    },
+    "e394e2ba9e5868bf8fe2832e9a8fefa9ecd5ddfe9fcfbc168db7db58812aae44-raw-api-response.bin.gz": {
+      "sha256": "84f53713b427442c4bd5ab6b112c44745684e1c2f4680a7e686e4abb7e3f51d2",
+      "bytes": 226691
+    },
+    "escrow-budget.json": {
+      "sha256": "3260f6c40be90ab98f970a1ece207b7b87de10c19c6b94c5c3788f30f5bf38f6",
+      "bytes": 1219
+    },
+    "escrow-commit.json": {
+      "sha256": "2b1a454c3ff043600e1f839396ecedcd0e8e82a54f977884e3b627828bded006",
+      "bytes": 1188
+    },
+    "finalize_actual_listing.py": {
+      "sha256": "215297ffd6af70ed6c0244940206592da9856db1ac987ed88e2843c042d4c10b",
+      "bytes": 8557
+    },
+    "inspect_listing_pages.py": {
+      "sha256": "5439b3efb4e89da37e394989c030c9d99f2695e8dc3b108872997c236d812290",
+      "bytes": 8021
+    },
+    "inspect_primary_metadata.py": {
+      "sha256": "de12f2a0ceafe42357ee89a5b8829fc923feb00dbc53ef5e475e5ca4d4091d25",
+      "bytes": 5205
+    },
+    "listing-card-pagination-inspection.json": {
+      "sha256": "c45181f41973b33d0844b60b1c472a10d0530eb876760eba545bd39cd1683564",
+      "bytes": 308883
+    },
+    "listing-inspection-final.log.gz": {
+      "sha256": "31ce73a76155748fd7d2770cdd2a2bc9bd3bea7d3c171e212008a38a99cd7dae",
+      "bytes": 1986
+    },
+    "listing-inspection.log.gz": {
+      "sha256": "08765ab10f5d9b4a0eb2d600d65b34cbe1bb0054f663d2a606251310448c7964",
+      "bytes": 672
+    },
+    "primary-metadata-inspection.log.gz": {
+      "sha256": "ea647b39256bfdfee8676b09947e4a0eb39ff485faff8a81ce71d4032645734e",
+      "bytes": 94
+    },
+    "primary-supplied-jsonld-and-reuse.json": {
+      "sha256": "5311a3097698449e493496003053b0ba428abc148c80dee7fb4a62fed4a92045",
+      "bytes": 54717
+    },
+    "primary-written-date-inspection.json": {
+      "sha256": "d5320a5b3357ff4d1cf578a25bc8b07a6525b4b636799d53ff0941048be3e6de",
+      "bytes": 2757
+    },
+    "publisher-callback-jobs.json": {
+      "sha256": "50373f1815c3bfb098527afa35b0f9a4c5f941931978400f93c7e2ba220e0cd6",
+      "bytes": 2688
+    },
+    "publisher-callback.json": {
+      "sha256": "6c805f7bd89394601a688da4207683bebb202919ec4243e894222d9e876df2c8",
+      "bytes": 12626
+    },
+    "publisher-callback.log.gz": {
+      "sha256": "5f5acb6609e2ceb59db190b914a68f603e5eecca71d3ce225d23282c4647b414",
+      "bytes": 3783
+    },
+    "raw-api-byte-recovery.json": {
+      "sha256": "77f69c21d0f58ab64beeb9a356ae8e6a7673751caf4347cdb98d54824b657faa",
+      "bytes": 1105
+    },
+    "receipt.json": {
+      "sha256": "40a83ef814f92acd43406f5275ffaa80bca3d481d329ef8db77db5fbd4630249",
+      "bytes": 154457
+    },
+    "retained-cato-index-page1.html.gz": {
+      "sha256": "8546f06a90a61d27ceec174f5afa800be78498ad6f7e45e5261d4b920df3e1c5",
+      "bytes": 26132
+    },
+    "retained-chainguard-index-page1.html.gz": {
+      "sha256": "f4391da0c8b8678c0885af8a06d584ef8617075b170b5a15388b5f26b5e59dd0",
+      "bytes": 26657
+    },
+    "retained-primary-detail-reuse.json": {
+      "sha256": "83412bf3d39784a5b568747cc9c352caca7a5cd5e782808a261cddffafe4f11c",
+      "bytes": 102731
+    },
+    "rollback-callback-jobs.json": {
+      "sha256": "826b682bb36a376ef21a8474859c8a9d2f9590bb96be32c4379065ce5744a86c",
+      "bytes": 2746
+    },
+    "rollback-callback.json": {
+      "sha256": "84abb5e0a95c846984278ba5fa67f23604578e70c628e62a4ca6b581461a80ba",
+      "bytes": 12651
+    },
+    "rollback-callback.log.gz": {
+      "sha256": "0608e07760c47b54311fb831708040a6e5f7484e3803908c368c953aaad6a3c0",
+      "bytes": 3878
+    },
+    "run.json": {
+      "sha256": "a973693594776ae5ca6b098d48ca1e33a84a33f11766373d1f837b6259ee0745",
+      "bytes": 12631
+    },
+    "run.log.gz": {
+      "sha256": "48ad8acc259cc25ca1ea81cc3d49230d034201a8964c34f315eae4a8176e480a",
+      "bytes": 82926
+    },
+    "source-probe-artifact.zip": {
+      "sha256": "bbeebd3b706d01c21c6631b20e9f50afa36b74de3cb847ea706d6f82a9b0132c",
+      "bytes": 14871
+    }
+  }
+}

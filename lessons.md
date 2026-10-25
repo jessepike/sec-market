@@ -185,3 +185,11 @@ unqualified with zero coverage credit. Tests use fictional fetchers and temporar
   Retrieve the exact Git blob's base64 representation and verify its Git hash, decoded length
   and manifest SHA-256 before using it. Record the differing raw representation; do not retry
   the market source or weaken the archive check.
+
+- An empty helper dateMetadata list does not prove a page lacks publication metadata. Inspect
+  the retained raw markup and all supplied JSON-LD fields. Preserve date-only unknown timezones;
+  an explicit primary offset is independent evidence and is not inferred from an index's ET label.
+- Under D-112, separate a proved current-date window from unknown older archive pages. A sorted,
+  issuer-bound listing with a verified older boundary can support a separately reviewed daily-
+  window parser. An existing all-pages parser cannot silently acquire that rule; keep every
+  known historical URL and the unobserved older-history gap explicit.

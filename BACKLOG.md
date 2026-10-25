@@ -23,7 +23,7 @@ navigation SEC-074 follow reliable current operation.
 | Private review queue | All 37 preceding held identities persist. New HiddenLayer funding candidate lacks a fact date; total 38. No new accepted facts/events. |
 | Private freshness | Actual full/304 observations and immutable rechecks derive expiry October 26 at 15:55:27.307096 UTC. This does not renew public freshness. |
 | Automatic publication | Actual callback 40183462577 and genuine scheduled publisher 40190348786 failed DAILY_GATE_BUDGET_EXHAUSTED; gates remain 2/2, no third gate/new release. Assigned issue 14 updated 11:51:44. Both callback drills skipped. |
-| Latest actual receipt |1,101/5,500 fetches, 80/80 calls, 38/40 documents, gates 2/2. The listing capture charged 116 requests; full new archive audit is closing. |
+| Current allowances |1,101/5,500 fetches, 80/80 calls, 38/40 documents, gates 2/2; released lease. The listing capture charged 116 requests; full archive/report replay passes. |
 | Reader value, sustained operation and general accuracy | Unmeasured. The owner reports no useful real use yet. Five repaired benchmark contradictions do not establish general precision/recall. |
 
 The audited 264 passes comprise 196 citation-integrity checks, 48 SEC checks, 17 official-
@@ -115,9 +115,14 @@ mutations, legal repeated-source/order cases, complete prior-report replay). Exa
 is verified on main 5debbd9e with preview web 40193430884/main 40193694591 passing, Vercel preview
 READY/main Git ignored. Actual capture 40193925490 completed successfully from verified 9deb/985
 baseline with 116 requests, reaching 1,101 fetches. Full acknowledged 9e4a9806 archive and returned-
-page audit are closing. Exact disabled ad1 is restored locally with 37 focused tests passing;
-reviewed remote closure follows. Retain existing Cyera/Torq
+page audit pass. Exact disabled ad1 is verified on main 61265b57, with 37 focused tests,
+preview web 40194693409/main 40194994026 passing, Vercel preview READY/main Git ignored and
+four byte-exact public files. Retain existing Cyera/Torq
 primary bodies and dates. Its whole-operation bound includes all 25 generic probes: 257 logical requests.
+Chainguard's two pages expose 47 unique cards and a true disabled next control. Cato's five observed
+pages expose 125 ordered cards, a verified older boundary and later literal pages 6–8; unknown older
+history must not be turned into a universal daily-window blocker. A separate closed window/parser
+proof is proposed under D-112, preserving all known URLs and existing source-family roles.
 No owner source decision is currently required.
 
 Use the [evaluation rubric](docs/active/daily-pipeline/evaluation-rubric.md) and keep the original
