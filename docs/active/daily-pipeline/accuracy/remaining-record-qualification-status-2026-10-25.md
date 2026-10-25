@@ -26,6 +26,12 @@ URL check. Those checks prove source binding and literal excerpts, not independe
 acceptance. Recheck source age when submitting any candidate. A genuine 304 retains its actual
 observation time and older body provenance; it is not a new full download.
 
+The five metric readiness groups also pass the current policy and source validators. Together,
+the two readiness artifacts describe nine atomic groups and 18 unique targets, provided the
+combined WitnessAI metric/event/evidence group replaces the separate WitnessAI event group.
+Eight groups pass source validation; the remaining SentinelOne group has the exact final-URL
+block above. These counts describe proposed inputs only.
+
 ## Operational sequence and unchanged gaps
 
 Keep main at 6d5e87fe until the actual current-policy scheduled collector, independent release gate,
@@ -51,6 +57,7 @@ is required for this work. Remaining gaps have source, review or scheduled-execu
 * `remaining-event-admission-readiness-2026-10-25.json`: exact literal proposals and source checks.
 * `remaining-metric-qualifier-review-2026-10-25.{md,json}`: metric findings and immutable originals.
 * `remaining-metric-companion-evidence-review-2026-10-25.json`: companion evidence and newer observed bodies.
+* `remaining-metric-admission-readiness-2026-10-25.json`: five bounded groups, including the combined WitnessAI proposal.
 * `s1-exact-filing-transport-spec-2026-10-25.md`: one exact SEC filing transport allowance.
 
 All paths above are relative to this file's directory. Runtime admission and public publication
