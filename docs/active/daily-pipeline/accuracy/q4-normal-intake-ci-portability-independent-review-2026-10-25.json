@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "kind": "independent_test_only_CI_portability_delta_review",
+  "verdict": "PASS",
+  "findings": [],
+  "reviewedAt": "2026-10-25T13:49:48.760548+00:00",
+  "baseCommit": "f32946c11f7db4bf3b63fc0380780ab9bf5d6836",
+  "reviewedFiles": {
+    "ops/ci/test_q4_normal_intake.py": {
+      "oldSha256": "c6bcd4939a10d4fe38d7bf350a4f30df8e0bd7c288ea2d78c5b7e1b314c197f1",
+      "newSha256": "17a916e15a248284a366a4f2f1417cd4ae46a6fb8b112792cd56fbfb3b24eca1",
+      "oldBytes": 24493,
+      "newBytes": 25520
+    },
+    "ops/ci/q4_intake_fixtures.py": {
+      "oldSha256": "6e8f86838a561d563990e18b35d204442f3434a1cdba6aad6c7ce66cb89b38f1",
+      "newSha256": "a6ceea7740136f64273c42ccfb1067537e46e351451da3ca1063626588b6705e",
+      "oldBytes": 2122,
+      "newBytes": 3655
+    }
+  },
+  "baseReconstruction": {
+    "gitBlobFilesVerifiedBeforeAndAfter": 2569,
+    "onlyTwoTestOverlays": true,
+    "rawGitLsTreeSha256": "3b8ffeda3935735f2e1d68e6d7015b53f4126bd0b82d9654eec20adf79cbc30c"
+  },
+  "independentAbsent": {
+    "schemaVersion": 1,
+    "mode": "absent",
+    "verdict": "PASS",
+    "testsRun": 14,
+    "passed": 12,
+    "skipped": [
+      {
+        "test": "test_q4_normal_intake.ActualArchiveProofTests.test_actual_complete_graph_and_all_five_inventory_only_origins",
+        "reason": "Full actual archive unavailable; portable committed-proof and ordinary tests still run"
+      },
+      {
+        "test": "test_q4_normal_intake.ActualArchiveProofTests.test_six_correction_admissions_and_group_policies_replay_without_any_work",
+        "reason": "Full actual archive unavailable; portable committed-proof and ordinary tests still run"
+      }
+    ],
+    "successfulTests": [
+      "test_q4_normal_intake.ActualProofTests.test_H_operational_probe_plan_rejects_under_J_and_disabled_J_is_exact",
+      "test_q4_normal_intake.ActualProofTests.test_entire_forward_inverse_and_every_unlisted_policy_mutation_rejects",
+      "test_q4_normal_intake.ActualProofTests.test_python_zero_credit_baseline_exact_and_mutations_reject",
+      "test_q4_normal_intake.ActualProofTests.test_q4_predecessors_keep_all_items_and_reject_wrong_kind_source_time_or_reference",
+      "test_q4_normal_intake.ActualProofTests.test_seed_rejects_wrong_policy_or_corrupt_immutable_before_any_write",
+      "test_q4_normal_intake.ActualProofTests.test_seed_uses_actual_J_context_immutable_import_and_acknowledgement",
+      "test_q4_normal_intake.ActualProofTests.test_zero_calls_real_subscription_guard_preserves_inventory_and_six_fetch_bound",
+      "test_q4_normal_intake.OrdinaryDiscoveryTests.test_each_actual_array_uses_one_callback_and_preserves_every_unzoned_row",
+      "test_q4_normal_intake.OrdinaryDiscoveryTests.test_genuine_fetcher_200_then_304_preserves_reuse_and_new_check_clock",
+      "test_q4_normal_intake.OrdinaryDiscoveryTests.test_quiet_future_boundary_and_more_rows_use_original_index_clock",
+      "test_q4_normal_intake.OrdinaryDiscoveryTests.test_source_row_cannot_widen_hosts_url_or_registration",
+      "test_q4_normal_intake.OrdinaryDiscoveryTests.test_transport_body_source_final_mime_or_status_failures_never_get_credit"
+    ],
+    "archiveAccessEvents": 0,
+    "deniedFrozenReadAttempts": 0,
+    "committedFilesHashAuthenticated": 55,
+    "payloadBytes": 4742948,
+    "extraAdversarialChecks": [
+      "corrupt_payload_fails",
+      "missing_package_fails_not_skip",
+      "missing_Q4_proof_fails_not_skip"
+    ],
+    "sourceRequests": 0,
+    "modelRequests": 0,
+    "runtimePolicyPackageChanges": 0,
+    "repoWrites": 0
+  },
+  "independentPresent": {
+    "schemaVersion": 1,
+    "mode": "present",
+    "verdict": "PASS",
+    "testsRun": 14,
+    "passed": 14,
+    "skipped": [],
+    "successfulTests": [
+      "test_q4_normal_intake.ActualArchiveProofTests.test_actual_complete_graph_and_all_five_inventory_only_origins",
+      "test_q4_normal_intake.ActualArchiveProofTests.test_six_correction_admissions_and_group_policies_replay_without_any_work",
+      "test_q4_normal_intake.ActualProofTests.test_H_operational_probe_plan_rejects_under_J_and_disabled_J_is_exact",
+      "test_q4_normal_intake.ActualProofTests.test_entire_forward_inverse_and_every_unlisted_policy_mutation_rejects",
+      "test_q4_normal_intake.ActualProofTests.test_python_zero_credit_baseline_exact_and_mutations_reject",
+      "test_q4_normal_intake.ActualProofTests.test_q4_predecessors_keep_all_items_and_reject_wrong_kind_source_time_or_reference",
+      "test_q4_normal_intake.ActualProofTests.test_seed_rejects_wrong_policy_or_corrupt_immutable_before_any_write",
+      "test_q4_normal_intake.ActualProofTests.test_seed_uses_actual_J_context_immutable_import_and_acknowledgement",
+      "test_q4_normal_intake.ActualProofTests.test_zero_calls_real_subscription_guard_preserves_inventory_and_six_fetch_bound",
+      "test_q4_normal_intake.OrdinaryDiscoveryTests.test_each_actual_array_uses_one_callback_and_preserves_every_unzoned_row",
+      "test_q4_normal_intake.OrdinaryDiscoveryTests.test_genuine_fetcher_200_then_304_preserves_reuse_and_new_check_clock",
+      "test_q4_normal_intake.OrdinaryDiscoveryTests.test_quiet_future_boundary_and_more_rows_use_original_index_clock",
+      "test_q4_normal_intake.OrdinaryDiscoveryTests.test_source_row_cannot_widen_hosts_url_or_registration",
+      "test_q4_normal_intake.OrdinaryDiscoveryTests.test_transport_body_source_final_mime_or_status_failures_never_get_credit"
+    ],
+    "archiveAccessEvents": 69451,
+    "deniedFrozenReadAttempts": 0,
+    "committedFilesHashAuthenticated": 55,
+    "payloadBytes": 4742948,
+    "extraAdversarialChecks": [
+      "corrupt_payload_fails",
+      "missing_package_fails_not_skip",
+      "missing_Q4_proof_fails_not_skip"
+    ],
+    "sourceRequests": 0,
+    "modelRequests": 0,
+    "runtimePolicyPackageChanges": 0,
+    "repoWrites": 0
+  },
+  "workerFullSuiteAuthenticated": {
+    "presentFocused": {
+      "run": 14,
+      "passed": 14,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0
+    },
+    "absentFocused": {
+      "run": 14,
+      "passed": 12,
+      "skipped": 2,
+      "failures": 0,
+      "errors": 0
+    },
+    "presentFullOps": {
+      "run": 935,
+      "passed": 935,
+      "skipped": 0,
+      "failures": 0,
+      "errors": 0
+    },
+    "absentFullOps": {
+      "run": 935,
+      "passed": 896,
+      "skipped": 39,
+      "preExistingExternalSkips": 37,
+      "newExternalOnlySkips": 2,
+      "failures": 0,
+      "errors": 0,
+      "frozenReadAttempts": 0
+    }
+  },
+  "protectedOther81PinsVerified": 81,
+  "additionalUniqueAdversarialChecks": 3,
+  "additionalChecksRunInEachMode": true,
+  "mockAttribution": {
+    "guardOnlyImporterTests": "Explicitly supplied checked preflight result; not complete unmocked seed validation.",
+    "fullArchivePositiveTests": "Two retained unmocked seed/current-state and six-correction-admission positives run present; explicitly skip only when external archive absent.",
+    "quotaTest": "Real Pipeline, SubscriptionAgent, GuardedRunner and temporary writable LocalStore; synthetic transport/login status; no model execution."
+  },
+  "preservedFailure": {
+    "actualHostedRun": "40197621420",
+    "attribution": "Parent/worker supplied actual setup failure; runtime canary not reached. No new hosted run claimed.",
+    "localInitialFullAbsentDriver": "Three loader import errors retained in worker gzip; corrected harness full rerun passed; initial run not counted as successful."
+  },
+  "limits": {
+    "actualHostedCI": "Pending root rerun; local absence simulation only.",
+    "JActivationOrAcknowledgementCredit": false,
+    "publicationOrCoverageOrFreshnessCredit": false,
+    "sourceRequests": 0,
+    "modelRequests": 0,
+    "frozenArchiveWrites": 0,
+    "realAccountSessionBudgetWrites": 0,
+    "runtimePolicyPackageChanges": 0,
+    "finishWrites": 0
+  },
+  "priorSealedReviews": "Original implementation106-check review, original83-path worker verification and selected-J test delta unchanged. Separate two-file replacement review only.",
+  "receiptsRelative": "receipts/q4-normal-intake-ci-portability-independent-review-2026-10-25"
+}

@@ -1,0 +1,20 @@
+{
+  "base": "f32946c11f7db4bf3b63fc0380780ab9bf5d6836",
+  "baseGitBlobFilesVerified": 2569,
+  "baseGitBlobInventorySha256": "2315baaeada93bce29ec89ceb7ad4cf315a4b810821ad00a9c5e851177b21bd1",
+  "onlyOverlays": {
+    "ops/ci/test_q4_normal_intake.py": {
+      "oldSha256": "c6bcd4939a10d4fe38d7bf350a4f30df8e0bd7c288ea2d78c5b7e1b314c197f1",
+      "newSha256": "17a916e15a248284a366a4f2f1417cd4ae46a6fb8b112792cd56fbfb3b24eca1",
+      "oldBytes": 24493,
+      "newBytes": 25520
+    },
+    "ops/ci/q4_intake_fixtures.py": {
+      "oldSha256": "6e8f86838a561d563990e18b35d204442f3434a1cdba6aad6c7ce66cb89b38f1",
+      "newSha256": "a6ceea7740136f64273c42ccfb1067537e46e351451da3ca1063626588b6705e",
+      "oldBytes": 2122,
+      "newBytes": 3655
+    }
+  },
+  "repoWrites": 0
+}
