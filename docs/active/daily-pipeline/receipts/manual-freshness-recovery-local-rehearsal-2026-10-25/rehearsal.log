@@ -1,0 +1,9 @@
+{"startedAt": "2026-10-25T07:09:29.883647Z", "kind": "local_rehearsal_only", "appRevision": "6d5e87feba4ffbc75e50f35cb564cb8fd91708ca", "archiveCommit": "a50c594fb8142cee8d667b4da7161a4d48620c11", "archiveManifestSha256": "540bb0449b922b0ea69ab3a088d35b0f3bc8926243a8d5c817ab93c2659abd8e", "archiveBefore": {"files": 45263, "contentSha256": "8e480b3f2fc2e46c7ab34a0af3c4af669ecc78804abcd02ea62f3863a2011077", "fileMtimeSha256": "df8200b0dce56df67483fc244f249ab40d9713f5a09e77010c17aede1cd4c690", "directories": 2475, "directoryMtimeSha256": "d411cc15f7720985711a3708372832f09d8659261609342158f75854a49f79b7"}}
+{"result": "pass", "executedTests": 531, "artifactSha256": "881736ed03b9f077ef5e81825f17505e803fe262b92ee4e5bae3f4ff2a8ddbaa", "snapshotSha256": "efda90573d12a78b02ae53d623b67a03a9639c7c26c8e3986bd321c7e0dc4e55"}
+{"finishedAt": "2026-10-25T07:11:47.672945Z", "passed": false, "archiveUnchanged": true, "archiveAfter": {"files": 45263, "contentSha256": "8e480b3f2fc2e46c7ab34a0af3c4af669ecc78804abcd02ea62f3863a2011077", "fileMtimeSha256": "df8200b0dce56df67483fc244f249ab40d9713f5a09e77010c17aede1cd4c690", "directories": 2475, "directoryMtimeSha256": "d411cc15f7720985711a3708372832f09d8659261609342158f75854a49f79b7"}, "memoryOnlyWrites": 11, "denied": []}
+Traceback (most recent call last):
+  File "/var/tmp/smp-manual-freshness-full-gate-40169973257-20261025/rehearse.py", line 91, in <module>
+    require(core(snapshot)==core(collector),"Actual facts/holds/queue changed during gate projection")
+  File "/var/tmp/smp-manual-freshness-full-gate-40169973257-20261025/application/web/scripts/pipeline/contracts.py", line 37, in require
+    raise ContractError(reason)
+contracts.ContractError: Actual facts/holds/queue changed during gate projection

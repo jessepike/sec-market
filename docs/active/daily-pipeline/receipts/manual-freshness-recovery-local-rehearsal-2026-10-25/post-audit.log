@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "releaseTests": 531,
+  "releaseTestCounts": {
+    "data": 373,
+    "pipeline": 115,
+    "browser": 43
+  },
+  "operationalTests": 805,
+  "validUntil": "2026-10-26T12:45:29.479727+00:00",
+  "reviewQueueEntries": 37,
+  "factProvenanceReferences": 4,
+  "archiveUnchanged": true,
+  "frozenGateBudget": {
+    "attempts": 1
+  },
+  "frozenSourceBudget": {
+    "calls": 72,
+    "documents": 33,
+    "fetches": 444
+  }
+}

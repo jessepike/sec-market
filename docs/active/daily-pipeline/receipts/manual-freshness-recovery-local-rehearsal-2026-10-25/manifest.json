@@ -1,0 +1,90 @@
+{
+  "kind": "local_rehearsal_only",
+  "passed": true,
+  "appRevision": "6d5e87feba4ffbc75e50f35cb564cb8fd91708ca",
+  "archiveCommit": "a50c594fb8142cee8d667b4da7161a4d48620c11",
+  "archiveManifestSha256": "540bb0449b922b0ea69ab3a088d35b0f3bc8926243a8d5c817ab93c2659abd8e",
+  "collectionReceiptSha256": "f2486a623d93da011eaaf11926e09d6ce1533dab26d4a8f2fa2875a95a84d0b6",
+  "releaseTests": 531,
+  "releaseTestCounts": {
+    "browser": 43,
+    "data": 373,
+    "pipeline": 115
+  },
+  "operationalTests": 805,
+  "snapshotSha256": "efda90573d12a78b02ae53d623b67a03a9639c7c26c8e3986bd321c7e0dc4e55",
+  "artifactSha256": "881736ed03b9f077ef5e81825f17505e803fe262b92ee4e5bae3f4ff2a8ddbaa",
+  "localOnlyGateRunId": 0,
+  "externalGate": false,
+  "gateReservations": 0,
+  "sourceCollectionRequests": 0,
+  "modelRequests": 0,
+  "accountRequests": 0,
+  "publication": false,
+  "archiveWrites": 0,
+  "archiveUnchanged": true,
+  "files": [
+    {
+      "path": "certify-sec.log",
+      "sha256": "394334469cd9f5f2dfc22158b5621d6faa2c13a81ccf11771f2881a474d30431",
+      "bytes": 2293
+    },
+    {
+      "path": "gate-receipt.local.json",
+      "sha256": "2b94646271dbc62e7e55cf2075a3e362a6b051f6a178817ab5b59d1377541e0f",
+      "bytes": 1921
+    },
+    {
+      "path": "local-rehearsal-summary.json",
+      "sha256": "027f40b81e68606e1342eba00480f51072a346841fbbd005b19613011e61ae14",
+      "bytes": 4720
+    },
+    {
+      "path": "operational-tests.log",
+      "sha256": "a73810deaca996225a63ee8ef17c1274377fde9d781f9bf6a21ee08269ce2abe",
+      "bytes": 906
+    },
+    {
+      "path": "post-audit.log",
+      "sha256": "f66d216e5710ba907095e9da47b6fa156378268b33f49599085c7acf2af60cc5",
+      "bytes": 433
+    },
+    {
+      "path": "public-source-validator.log",
+      "sha256": "1f75af4fad32e848bf00bff24249df4c2770bb67b76aa54fe4cda7813c1277b9",
+      "bytes": 491
+    },
+    {
+      "path": "refresh-edgar.log",
+      "sha256": "94a504e6940413065f00c125b75c17c8fe54708593a94e44460442567aeaf702",
+      "bytes": 1642
+    },
+    {
+      "path": "refresh-filing-events.log",
+      "sha256": "557237e314672ae15f1ae6a6d54a020033acfee5a5fcafd4f5fd1e528efdc2e5",
+      "bytes": 7303
+    },
+    {
+      "path": "rehearsal.log",
+      "sha256": "155e3c81699c7e43235c32f3f282823f5358fbf68a7fddd72690a400a74ed14e",
+      "bytes": 1761
+    },
+    {
+      "path": "test.log.gz",
+      "sha256": "7eee8bf2ed2809f6f300b55488ca1e83add76ae7dd1f22ac2f2e1baa9d49adb2",
+      "bytes": 25616
+    }
+  ],
+  "testLog": {
+    "encoding": "gzip",
+    "uncompressedBytes": 126879,
+    "uncompressedSha256": "01c1c2968a90373d6ef6525eb9eb3a14881f0948bb6d0ea321d1f1e6c74fe9a9"
+  },
+  "isolatedApplication": "/var/tmp/smp-manual-freshness-full-gate-40169973257-20261025/application",
+  "isolatedGateOutput": "/var/tmp/smp-manual-freshness-full-gate-40169973257-20261025/gate-output",
+  "limitations": [
+    "Live production acknowledgement was substituted with its authentic retained accepted acknowledgement.",
+    "The initial wrapper exited 1 after the gate passed because it required all 8 collector events in the public projection. This post-audit verifies the exact intended partition of 4 current-policy events and 4 quarantined historical records.",
+    "This local rehearsal has no GitHub gate authority, reservation or publication credit."
+  ]
+}
