@@ -72,6 +72,9 @@ Earlier future-preview work remains separate: the [diagnostic response repair](d
 and [remaining-record correction queue](docs/active/daily-pipeline/accuracy/remaining-record-qualification-status-2026-10-25.md).
 Their fixtures must never publish. All proposed corrections remain outside the operational contract
 until independent admission and normal publication can proceed after current acceptance.
+The [bounded Q4 controller capture](docs/active/daily-pipeline/accuracy/q4-controller-diagnostic-spec-2026-10-25.md)
+is now being implemented for six scripts literally disclosed by the three existing candidate
+newsrooms. It stays dormant; no new request, source registration or qualification credit.
 
 ## Prior receipts and remaining acceptance
 
@@ -103,6 +106,9 @@ scheduled-operation gaps. Owner GitHub inbox delivery for issues 10/12/13 is pro
 delivery is not.
 The [557-row ledger](docs/active/daily-pipeline/evaluations/2026-10-24/current-source-coverage.md)
 and [evaluation rubric](docs/active/daily-pipeline/evaluation-rubric.md) keep the measures separate.
+The [October 25 scorecard](docs/active/daily-pipeline/evaluations/2026-10-25/recovery-observation.md)
+uses the actual recovery receipts: release/recovery/continuity pass, coverage and review fail,
+and genuine timer, sustained operation, general accuracy and reader value stay unmeasured.
 
 Implementation: /Users/jessepike/code/projects/sec-market-finish-20261022.
 Preserve original /Users/jessepike/code/projects/sec-market at 0a660a72 with modified status/lessons

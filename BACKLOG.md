@@ -121,6 +121,17 @@ UTC. Issue 12 closed at 07:28:33 UTC after real publication; issue 10 retains co
 scheduled-operation gaps. Manual drill 40173134585 passed without another gate attempt.
 No owner source decision is currently required. No refund, reset, purchase or paid fallback.
 
+Unblock the existing JFrog, Rapid7 and Rubrik candidates through the
+[six-controller capture specification](docs/active/daily-pipeline/accuracy/q4-controller-diagnostic-spec-2026-10-25.md).
+Its separate diagnostic operation is being implemented on future preview. The exact parent HTML
+and charged proof join pass offline; the six JavaScript bodies remain unfetched. Capturing them
+later earns no qualification or coverage credit until actual record/date/paging proof is complete.
+Keep the operational plan disabled and current main fixed during timer acceptance.
+
+The [October 25 recovery scorecard](docs/active/daily-pipeline/evaluations/2026-10-25/recovery-observation.md)
+pins the actual source receipt, gate, publication and rollback. It keeps coverage and historical
+review failures separate from successful manual recovery and unmeasured timer/accuracy/value.
+
 Actual monitor 40165077942 updated assigned issue 10 at 05:19 UTC October 25, after starting
 four hours 37 minutes past its timer. At 06:39 UTC the collector's 05:17 timer had still emitted
 no run, production remained release 19fde803 and its actual validUntil 06:05:06 UTC had passed.
