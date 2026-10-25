@@ -17,6 +17,13 @@ replace the October 23 or 24 baselines or turn manual recovery into timer eviden
 | Genuine timer and sustained operation | Unmeasured for this revision. No current-policy daily timer receipt had appeared when this observation was generated. The earlier overdue window remains a failure in the operational record. |
 | General claim precision, event recall and reader value | Unmeasured. |
 
+The 264 passing checks comprise 196 existing-citation checks, 48 SEC source tasks, 17 official
+announcement checks and three investor/acquirer checks. Independent reporting is 0/74 and release
+distribution is 0/74. The complete family breakdown is in the generated report. The old 121-check
+baseline used the preceding combined definition; the current 264 measures daily source intake
+separately from document processing and historical review. These totals are not a comparable
+before/after measure or proof of broad current-event coverage.
+
 The evaluator's receipt-age pass refers only to the original collection receipt at
 06:53:46 UTC. It is not an oldest-source freshness calculation. The separately verified
 production artifact preserves its actual source-bound validUntil of October 26 at
