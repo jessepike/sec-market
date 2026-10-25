@@ -1,0 +1,2223 @@
+{
+  "schemaVersion": 1,
+  "verdict": "READ_ONLY_TRIAGE_COMPLETE",
+  "archive": {
+    "commit": "9e4a9806fdcc1b7cd6f91314b8b4ff4bb4ef2174",
+    "manifestSha256": "148842177a7e7d9a5fd5c2ea4574576264a957b41958ee4cdf5effa80ea029c2",
+    "entries": 48420
+  },
+  "ordinaryHRunId": "d1b5cbbf41ba2d8dfcb05a7ff2a2b00b7faada68dcaf3224ad4c7702b2d63b22",
+  "ordinaryCoverageReference": {
+    "bytes": 1169694,
+    "key": "objects/d1416d6ff505375b40518089cbff3392cf91edfb3a7befde63093bff8ff8098d",
+    "sha256": "d1416d6ff505375b40518089cbff3392cf91edfb3a7befde63093bff8ff8098d"
+  },
+  "ordinaryCoverageCheckedAt": "2026-10-25T10:00:18.789290Z",
+  "ordinaryHContractSha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+  "currentLocalContractSha256": "47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a",
+  "cases": [
+    {
+      "sourceId": "delinea:citation:TR-delinea-5",
+      "taskId": "8329235c3ad51562c00348887b3a87acaa4632d5409eb75a5df3a7dead4acab4",
+      "url": "https://www.globenewswire.com/news-release/2026/03/05/3250113/0/en/delinea-completes-strongdm-acquisition-to-secure-ai-agents-with-continuous-identity-authorization.html",
+      "sourceContract": {
+        "allowedHosts": [
+          "www.globenewswire.com"
+        ],
+        "evidenceId": "TR-delinea-5",
+        "family": "citation_integrity",
+        "id": "delinea:citation:TR-delinea-5",
+        "kind": "citation",
+        "maxPages": 1,
+        "registration": "verified",
+        "required": true,
+        "scopePrefixes": [
+          "/"
+        ],
+        "seedEvidenceUrls": [],
+        "supplierId": "delinea",
+        "url": "https://www.globenewswire.com/news-release/2026/03/05/3250113/0/en/delinea-completes-strongdm-acquisition-to-secure-ai-agents-with-continuous-identity-authorization.html"
+      },
+      "originalTaskReceipt": {
+        "attemptId": "717a86a1857ba735c9c217834672efdd5443d40c20c5a7bece0664caabc7de8d",
+        "completedAt": "2026-10-25T09:55:49.582910Z",
+        "discoveryComplete": false,
+        "errorCode": "HTTP_403",
+        "itemManifest": {
+          "bytes": 139,
+          "key": "objects/abdb2ad3edb124aefd5232c500626e0df28365750ee9eba487fff9c7877c198a",
+          "sha256": "abdb2ad3edb124aefd5232c500626e0df28365750ee9eba487fff9c7877c198a"
+        },
+        "newFactIds": [],
+        "observationIds": [
+          "1743279a15abba9f887cfc9596fd05590afa63b83371394c2019e316f2e6d7da"
+        ],
+        "outcome": "blocked",
+        "runId": "d1b5cbbf41ba2d8dfcb05a7ff2a2b00b7faada68dcaf3224ad4c7702b2d63b22",
+        "sourceId": "delinea:citation:TR-delinea-5",
+        "startedAt": "2026-10-25T09:55:49.385970Z",
+        "supplierId": "delinea",
+        "taskId": "8329235c3ad51562c00348887b3a87acaa4632d5409eb75a5df3a7dead4acab4",
+        "validatedFacts": []
+      },
+      "originalObservations": [
+        {
+          "reference": {
+            "key": "observations/1743279a15abba9f887cfc9596fd05590afa63b83371394c2019e316f2e6d7da.json",
+            "sha256": "accda0d4e133cd35993b73ba0f61b1f80cedb027faea8a4428cbc8cd890e9be8",
+            "bytes": 439
+          },
+          "value": {
+            "errorCode": "HTTP_403",
+            "fetchedAt": "2026-10-25T09:55:49.580099Z",
+            "httpStatus": 403,
+            "observationId": "1743279a15abba9f887cfc9596fd05590afa63b83371394c2019e316f2e6d7da",
+            "requestedUrl": "https://www.globenewswire.com/news-release/2026/03/05/3250113/0/en/delinea-completes-strongdm-acquisition-to-secure-ai-agents-with-continuous-identity-authorization.html",
+            "sourceId": "delinea:citation:TR-delinea-5",
+            "status": "blocked",
+            "transportReused": false
+          }
+        }
+      ],
+      "classification": "observed_http_403_request_failure",
+      "httpStatus": 403,
+      "unknowns": [
+        "No retained denial response body, Retry-After, response host or access-rule explanation."
+      ],
+      "latestRetainedSuccessfulDownloadHead": {
+        "key": "heads/download-5c601e5fe54ee32aea40225a0ecc058599849a25251c66d663d663bdb3281588.json",
+        "value": {
+          "body": {
+            "bytes": 76366,
+            "key": "objects/a53d58b7dcdd45a4eb8120e2cc2b50277ba4266762c640c67e04c1f0bbcb3143",
+            "sha256": "a53d58b7dcdd45a4eb8120e2cc2b50277ba4266762c640c67e04c1f0bbcb3143"
+          },
+          "contentType": "text/html; charset=utf-8",
+          "etag": null,
+          "fetchedAt": "2026-10-20T21:41:27.583245Z",
+          "finalUrl": "https://www.globenewswire.com/news-release/2026/03/05/3250113/0/en/delinea-completes-strongdm-acquisition-to-secure-ai-agents-with-continuous-identity-authorization.html",
+          "httpStatus": 200,
+          "lastModified": null,
+          "observationId": "06845e12128160d4d58d99cdfba61335991c3ad39042bfdc2c7f3bcc63a57ab1",
+          "requestedUrl": "https://www.globenewswire.com/news-release/2026/03/05/3250113/0/en/delinea-completes-strongdm-acquisition-to-secure-ai-agents-with-continuous-identity-authorization.html",
+          "sourceId": "delinea:citation:TR-delinea-5",
+          "status": "fetched"
+        },
+        "reuseChain": [
+          {
+            "body": {
+              "bytes": 76366,
+              "key": "objects/a53d58b7dcdd45a4eb8120e2cc2b50277ba4266762c640c67e04c1f0bbcb3143",
+              "sha256": "a53d58b7dcdd45a4eb8120e2cc2b50277ba4266762c640c67e04c1f0bbcb3143"
+            },
+            "contentType": "text/html; charset=utf-8",
+            "etag": null,
+            "fetchedAt": "2026-10-20T21:41:27.583245Z",
+            "finalUrl": "https://www.globenewswire.com/news-release/2026/03/05/3250113/0/en/delinea-completes-strongdm-acquisition-to-secure-ai-agents-with-continuous-identity-authorization.html",
+            "httpStatus": 200,
+            "lastModified": null,
+            "observationId": "06845e12128160d4d58d99cdfba61335991c3ad39042bfdc2c7f3bcc63a57ab1",
+            "requestedUrl": "https://www.globenewswire.com/news-release/2026/03/05/3250113/0/en/delinea-completes-strongdm-acquisition-to-secure-ai-agents-with-continuous-identity-authorization.html",
+            "sourceId": "delinea:citation:TR-delinea-5",
+            "status": "fetched"
+          }
+        ]
+      },
+      "dependencies": [
+        "delinea:official:1",
+        "An existing issuer inventory is a separate evidence route; changing a cited source requires a reviewed correction."
+      ],
+      "bestNextStep": "Keep the blocked receipt. Preserve a bounded denial/Retry-After/redirect diagnostic on a future already-authorized ordinary attempt; no endpoint/host bypass or immediate403 retry is supported."
+    },
+    {
+      "sourceId": "sophos:citation:TR-sophos-3",
+      "taskId": "84e2b0c59d7f4338d58b977b836599c4c1b1becb42308aa06fb63e5c122654c9",
+      "url": "https://app.researchpool.com/index.php/provider/moodys-investors-service",
+      "sourceContract": {
+        "allowedHosts": [
+          "app.researchpool.com"
+        ],
+        "evidenceId": "TR-sophos-3",
+        "family": "citation_integrity",
+        "id": "sophos:citation:TR-sophos-3",
+        "kind": "citation",
+        "maxPages": 1,
+        "registration": "verified",
+        "required": true,
+        "scopePrefixes": [
+          "/"
+        ],
+        "seedEvidenceUrls": [],
+        "supplierId": "sophos",
+        "url": "https://app.researchpool.com/index.php/provider/moodys-investors-service"
+      },
+      "originalTaskReceipt": {
+        "attemptId": "9a59c57348c14525672200fc054beeaf4510553dd7b9dc1caedaa5606d472a49",
+        "completedAt": "2026-10-25T09:55:51.315716Z",
+        "discoveryComplete": false,
+        "errorCode": "HTTP_403",
+        "itemManifest": {
+          "bytes": 137,
+          "key": "objects/4a0b21573e9d7f12d61830dc53004c1ec924e8abcaa806df0bd5804a9e27c2d6",
+          "sha256": "4a0b21573e9d7f12d61830dc53004c1ec924e8abcaa806df0bd5804a9e27c2d6"
+        },
+        "newFactIds": [],
+        "observationIds": [
+          "3270e10818a650aa5a7a3efec2b166d88d9ad81da799abb2aae89a92e538f441"
+        ],
+        "outcome": "blocked",
+        "runId": "d1b5cbbf41ba2d8dfcb05a7ff2a2b00b7faada68dcaf3224ad4c7702b2d63b22",
+        "sourceId": "sophos:citation:TR-sophos-3",
+        "startedAt": "2026-10-25T09:55:50.718583Z",
+        "supplierId": "sophos",
+        "taskId": "84e2b0c59d7f4338d58b977b836599c4c1b1becb42308aa06fb63e5c122654c9",
+        "validatedFacts": []
+      },
+      "originalObservations": [
+        {
+          "reference": {
+            "key": "observations/3270e10818a650aa5a7a3efec2b166d88d9ad81da799abb2aae89a92e538f441.json",
+            "sha256": "53cdc0e5bc4b009895a69f3d3ceb32446e6fcb7cdf5baf808d8785483379b584",
+            "bytes": 340
+          },
+          "value": {
+            "errorCode": "HTTP_403",
+            "fetchedAt": "2026-10-25T09:55:51.312943Z",
+            "httpStatus": 403,
+            "observationId": "3270e10818a650aa5a7a3efec2b166d88d9ad81da799abb2aae89a92e538f441",
+            "requestedUrl": "https://app.researchpool.com/index.php/provider/moodys-investors-service",
+            "sourceId": "sophos:citation:TR-sophos-3",
+            "status": "blocked",
+            "transportReused": false
+          }
+        }
+      ],
+      "classification": "observed_http_403_request_failure",
+      "httpStatus": 403,
+      "unknowns": [
+        "No retained denial response body, Retry-After, response host or access-rule explanation."
+      ],
+      "latestRetainedSuccessfulDownloadHead": {
+        "key": "heads/download-c8c607f0181319a7b337927303a0dd28860fdae49afe5d5c92788b9f6887a901.json",
+        "value": null,
+        "reuseChain": []
+      },
+      "dependencies": [
+        "The retained URL is a ResearchPool provider listing; a document-specific replacement needs separately admitted evidence."
+      ],
+      "bestNextStep": "Keep the blocked receipt. Preserve a bounded denial/Retry-After/redirect diagnostic on a future already-authorized ordinary attempt; no endpoint/host bypass or immediate403 retry is supported."
+    },
+    {
+      "sourceId": "sysdig:citation:TR-sysdig-1",
+      "taskId": "e7d0f3fc9640b07b25a184a2880f3108a7d6a1717aa25d5cd75d142811331ef7",
+      "url": "https://sysdig.com/press-releases/sysdig-names-hatem-naguib-as-ceo-to-lead-next-generation-of-ai-driven-cloud-security",
+      "sourceContract": {
+        "allowedHosts": [
+          "sysdig.com"
+        ],
+        "evidenceId": "TR-sysdig-1",
+        "family": "citation_integrity",
+        "id": "sysdig:citation:TR-sysdig-1",
+        "kind": "citation",
+        "maxPages": 1,
+        "registration": "verified",
+        "required": true,
+        "scopePrefixes": [
+          "/"
+        ],
+        "seedEvidenceUrls": [],
+        "supplierId": "sysdig",
+        "url": "https://sysdig.com/press-releases/sysdig-names-hatem-naguib-as-ceo-to-lead-next-generation-of-ai-driven-cloud-security"
+      },
+      "originalTaskReceipt": {
+        "attemptId": "9d6a1dbbe3a98e11b6c58f86ab92ebab085c170e0a14a04eceb205ceac669a44",
+        "completedAt": "2026-10-25T09:55:52.226048Z",
+        "discoveryComplete": false,
+        "errorCode": "Unapproved source/redirect host",
+        "newFactIds": [],
+        "observationIds": [],
+        "outcome": "failed",
+        "runId": "d1b5cbbf41ba2d8dfcb05a7ff2a2b00b7faada68dcaf3224ad4c7702b2d63b22",
+        "sourceId": "sysdig:citation:TR-sysdig-1",
+        "startedAt": "2026-10-25T09:55:51.988724Z",
+        "supplierId": "sysdig",
+        "taskId": "e7d0f3fc9640b07b25a184a2880f3108a7d6a1717aa25d5cd75d142811331ef7",
+        "validatedFacts": []
+      },
+      "originalObservations": [],
+      "classification": "host_policy_exception_without_http_observation",
+      "httpStatus": null,
+      "unknowns": [
+        "No response observation, status, Location, final URL or unapproved hostname is retained."
+      ],
+      "latestRetainedSuccessfulDownloadHead": {
+        "key": "heads/download-5313b3609183bd9fb76c1a2957f384880d9bf9045f573379b5b21ff76ebe5e70.json",
+        "value": null,
+        "reuseChain": []
+      },
+      "dependencies": [
+        "sysdig:official:1",
+        "The candidate root probe is a separate charged operation with no bound response."
+      ],
+      "bestNextStep": "Retain the exact failure. Instrument the existing redirect/final-URL rejection path to retain bounded observed target/stage/status without following an unapproved host. Do not add a guessed www host."
+    },
+    {
+      "sourceId": "axonius:citation:TR-axonius-2",
+      "taskId": "80c74f6e91490f9f7d258a431d190a7ece12d1bb551c97cfa46bfa8d31410456",
+      "url": "https://www.axonius.com/newsroom/press-release/axonius-surpasses-200m-arr-appoints-joe-diamond-ceo",
+      "sourceContract": {
+        "allowedHosts": [
+          "www.axonius.com"
+        ],
+        "evidenceId": "TR-axonius-2",
+        "family": "citation_integrity",
+        "id": "axonius:citation:TR-axonius-2",
+        "kind": "citation",
+        "maxPages": 1,
+        "registration": "verified",
+        "required": true,
+        "scopePrefixes": [
+          "/"
+        ],
+        "seedEvidenceUrls": [],
+        "supplierId": "axonius",
+        "url": "https://www.axonius.com/newsroom/press-release/axonius-surpasses-200m-arr-appoints-joe-diamond-ceo"
+      },
+      "originalTaskReceipt": {
+        "attemptId": "b2d2cad8278d32312c080467f689c429f698eecb94982ac8a03aeb8fada87b6d",
+        "completedAt": "2026-10-25T09:55:58.578846Z",
+        "discoveryComplete": false,
+        "errorCode": "HTTP_429",
+        "itemManifest": {
+          "bytes": 139,
+          "key": "objects/754aa1b3867a88a3ce36b27c3dac8d0391aeb3727e632182dbab5e180a6adec8",
+          "sha256": "754aa1b3867a88a3ce36b27c3dac8d0391aeb3727e632182dbab5e180a6adec8"
+        },
+        "newFactIds": [],
+        "observationIds": [
+          "f0dbed1e09d4853ef49d917993bbff0a5b6edcd1675add5f7861242e3b3958ec"
+        ],
+        "outcome": "blocked",
+        "runId": "d1b5cbbf41ba2d8dfcb05a7ff2a2b00b7faada68dcaf3224ad4c7702b2d63b22",
+        "sourceId": "axonius:citation:TR-axonius-2",
+        "startedAt": "2026-10-25T09:55:58.253258Z",
+        "supplierId": "axonius",
+        "taskId": "80c74f6e91490f9f7d258a431d190a7ece12d1bb551c97cfa46bfa8d31410456",
+        "validatedFacts": []
+      },
+      "originalObservations": [
+        {
+          "reference": {
+            "key": "observations/f0dbed1e09d4853ef49d917993bbff0a5b6edcd1675add5f7861242e3b3958ec.json",
+            "sha256": "1f0a5bb6695a96391bd8f6273d3101e9985c47eae1f9742a5d52ab5189250bf5",
+            "bytes": 368
+          },
+          "value": {
+            "errorCode": "HTTP_429",
+            "fetchedAt": "2026-10-25T09:55:58.576143Z",
+            "httpStatus": 429,
+            "observationId": "f0dbed1e09d4853ef49d917993bbff0a5b6edcd1675add5f7861242e3b3958ec",
+            "requestedUrl": "https://www.axonius.com/newsroom/press-release/axonius-surpasses-200m-arr-appoints-joe-diamond-ceo",
+            "sourceId": "axonius:citation:TR-axonius-2",
+            "status": "blocked",
+            "transportReused": false
+          }
+        }
+      ],
+      "classification": "observed_http_429_request_failure",
+      "httpStatus": 429,
+      "unknowns": [
+        "No retained denial response body, Retry-After, response host or access-rule explanation."
+      ],
+      "latestRetainedSuccessfulDownloadHead": {
+        "key": "heads/download-2975bfc4dbaa538f61e26292b4f83959e3cab8ae5e4a074100b676324348a209.json",
+        "value": {
+          "body": {
+            "bytes": 186365,
+            "key": "objects/fc61e42b58bbb4db54b166aea00855e5e8ead7776fa447754e94d7257df23f68",
+            "sha256": "fc61e42b58bbb4db54b166aea00855e5e8ead7776fa447754e94d7257df23f68"
+          },
+          "contentType": "text/html; charset=utf-8",
+          "etag": null,
+          "fetchedAt": "2026-10-20T21:41:35.056518Z",
+          "finalUrl": "https://www.axonius.com/newsroom/press-release/axonius-surpasses-200m-arr-appoints-joe-diamond-ceo",
+          "httpStatus": 200,
+          "lastModified": null,
+          "observationId": "81026bb89ae5873019554859fb1973440a91951d133a9cfb5759d0d54b99c8a7",
+          "requestedUrl": "https://www.axonius.com/newsroom/press-release/axonius-surpasses-200m-arr-appoints-joe-diamond-ceo",
+          "sourceId": "axonius:citation:TR-axonius-2",
+          "status": "fetched"
+        },
+        "reuseChain": [
+          {
+            "body": {
+              "bytes": 186365,
+              "key": "objects/fc61e42b58bbb4db54b166aea00855e5e8ead7776fa447754e94d7257df23f68",
+              "sha256": "fc61e42b58bbb4db54b166aea00855e5e8ead7776fa447754e94d7257df23f68"
+            },
+            "contentType": "text/html; charset=utf-8",
+            "etag": null,
+            "fetchedAt": "2026-10-20T21:41:35.056518Z",
+            "finalUrl": "https://www.axonius.com/newsroom/press-release/axonius-surpasses-200m-arr-appoints-joe-diamond-ceo",
+            "httpStatus": 200,
+            "lastModified": null,
+            "observationId": "81026bb89ae5873019554859fb1973440a91951d133a9cfb5759d0d54b99c8a7",
+            "requestedUrl": "https://www.axonius.com/newsroom/press-release/axonius-surpasses-200m-arr-appoints-joe-diamond-ceo",
+            "sourceId": "axonius:citation:TR-axonius-2",
+            "status": "fetched"
+          }
+        ]
+      },
+      "dependencies": [
+        "axonius:official:1",
+        "The TR-axonius-1 and TR-axonius-2 tasks request exactly the same URL."
+      ],
+      "bestNextStep": "Keep the four Axonius gaps. Retain Retry-After and host-limited cooldown metadata on the next ordinary request; do not invent the missing header or automatically retry now."
+    },
+    {
+      "sourceId": "cohesity:citation:TR-cohesity-1",
+      "taskId": "68695ad42c8b88b243f351c0557eacd32be4588813cfe402f0d49b5cbf3af571",
+      "url": "https://www.cohesity.com/newsroom/press/cohesity-becomes-worlds-largest-data-protection-provider-after-completing-combination-with-veritas-enterprise-data-protection-business/",
+      "sourceContract": {
+        "allowedHosts": [
+          "www.cohesity.com"
+        ],
+        "evidenceId": "TR-cohesity-1",
+        "family": "citation_integrity",
+        "id": "cohesity:citation:TR-cohesity-1",
+        "kind": "citation",
+        "maxPages": 1,
+        "registration": "verified",
+        "required": true,
+        "scopePrefixes": [
+          "/"
+        ],
+        "seedEvidenceUrls": [],
+        "supplierId": "cohesity",
+        "url": "https://www.cohesity.com/newsroom/press/cohesity-becomes-worlds-largest-data-protection-provider-after-completing-combination-with-veritas-enterprise-data-protection-business/"
+      },
+      "originalTaskReceipt": {
+        "attemptId": "7e3779b578657666bfead6c832e24af0411bdb03c3b55944f51eeb9aaed34980",
+        "completedAt": "2026-10-25T09:56:00.313436Z",
+        "discoveryComplete": false,
+        "errorCode": "HTTP_403",
+        "itemManifest": {
+          "bytes": 141,
+          "key": "objects/cd9c7fa16246e906ae19a99393c6464152783c93df23815161f80ab715b8071d",
+          "sha256": "cd9c7fa16246e906ae19a99393c6464152783c93df23815161f80ab715b8071d"
+        },
+        "newFactIds": [],
+        "observationIds": [
+          "d26e0aab0be3dc8a57641123af75860eee01de439cfe36961555080ecc8c2d45"
+        ],
+        "outcome": "blocked",
+        "runId": "d1b5cbbf41ba2d8dfcb05a7ff2a2b00b7faada68dcaf3224ad4c7702b2d63b22",
+        "sourceId": "cohesity:citation:TR-cohesity-1",
+        "startedAt": "2026-10-25T09:56:00.165021Z",
+        "supplierId": "cohesity",
+        "taskId": "68695ad42c8b88b243f351c0557eacd32be4588813cfe402f0d49b5cbf3af571",
+        "validatedFacts": []
+      },
+      "originalObservations": [
+        {
+          "reference": {
+            "key": "observations/d26e0aab0be3dc8a57641123af75860eee01de439cfe36961555080ecc8c2d45.json",
+            "sha256": "8a040d029ab64ff20f590efc8f8e607cdd25baef05aa3d961fcd1ca4defc624c",
+            "bytes": 447
+          },
+          "value": {
+            "errorCode": "HTTP_403",
+            "fetchedAt": "2026-10-25T09:56:00.310758Z",
+            "httpStatus": 403,
+            "observationId": "d26e0aab0be3dc8a57641123af75860eee01de439cfe36961555080ecc8c2d45",
+            "requestedUrl": "https://www.cohesity.com/newsroom/press/cohesity-becomes-worlds-largest-data-protection-provider-after-completing-combination-with-veritas-enterprise-data-protection-business/",
+            "sourceId": "cohesity:citation:TR-cohesity-1",
+            "status": "blocked",
+            "transportReused": false
+          }
+        }
+      ],
+      "classification": "observed_http_403_request_failure",
+      "httpStatus": 403,
+      "unknowns": [
+        "No retained denial response body, Retry-After, response host or access-rule explanation."
+      ],
+      "latestRetainedSuccessfulDownloadHead": {
+        "key": "heads/download-749d4b7eae94e0f71c1028ab499f1b5bfa93fd4378bfebd5e9e0d79d1f2f91e0.json",
+        "value": {
+          "body": {
+            "bytes": 189409,
+            "key": "objects/f3dea4c649eb1c7c8beb7933735e406ad59af22b9d2f8f530aef387edabe7083",
+            "sha256": "f3dea4c649eb1c7c8beb7933735e406ad59af22b9d2f8f530aef387edabe7083"
+          },
+          "contentType": "text/html;charset=utf-8",
+          "etag": "\"2e3e1-65e4b31842485-gzip\"",
+          "fetchedAt": "2026-10-20T21:41:33.792281Z",
+          "finalUrl": "https://www.cohesity.com/newsroom/press/cohesity-becomes-worlds-largest-data-protection-provider-after-completing-combination-with-veritas-enterprise-data-protection-business/",
+          "httpStatus": 304,
+          "lastModified": "Tue, 20 Oct 2026 20:08:26 GMT",
+          "observationId": "4c7fbb5891e65ce0effaed3e8d00edd7aa46099cea5394ebc61d8a1cfb08b333",
+          "requestedUrl": "https://www.cohesity.com/newsroom/press/cohesity-becomes-worlds-largest-data-protection-provider-after-completing-combination-with-veritas-enterprise-data-protection-business/",
+          "reusesObservationId": "f2563da9f4a009dc929a214739e1ee4fa3f0483a4fdf180e822005a995bb251d",
+          "sourceId": "cohesity:citation:TR-cohesity-1",
+          "status": "not_modified"
+        },
+        "reuseChain": [
+          {
+            "body": {
+              "bytes": 189409,
+              "key": "objects/f3dea4c649eb1c7c8beb7933735e406ad59af22b9d2f8f530aef387edabe7083",
+              "sha256": "f3dea4c649eb1c7c8beb7933735e406ad59af22b9d2f8f530aef387edabe7083"
+            },
+            "contentType": "text/html;charset=utf-8",
+            "etag": "\"2e3e1-65e4b31842485-gzip\"",
+            "fetchedAt": "2026-10-20T21:41:33.792281Z",
+            "finalUrl": "https://www.cohesity.com/newsroom/press/cohesity-becomes-worlds-largest-data-protection-provider-after-completing-combination-with-veritas-enterprise-data-protection-business/",
+            "httpStatus": 304,
+            "lastModified": "Tue, 20 Oct 2026 20:08:26 GMT",
+            "observationId": "4c7fbb5891e65ce0effaed3e8d00edd7aa46099cea5394ebc61d8a1cfb08b333",
+            "requestedUrl": "https://www.cohesity.com/newsroom/press/cohesity-becomes-worlds-largest-data-protection-provider-after-completing-combination-with-veritas-enterprise-data-protection-business/",
+            "reusesObservationId": "f2563da9f4a009dc929a214739e1ee4fa3f0483a4fdf180e822005a995bb251d",
+            "sourceId": "cohesity:citation:TR-cohesity-1",
+            "status": "not_modified"
+          },
+          {
+            "body": {
+              "bytes": 189409,
+              "key": "objects/f3dea4c649eb1c7c8beb7933735e406ad59af22b9d2f8f530aef387edabe7083",
+              "sha256": "f3dea4c649eb1c7c8beb7933735e406ad59af22b9d2f8f530aef387edabe7083"
+            },
+            "contentType": "text/html;charset=utf-8",
+            "etag": "\"2e3e1-65e4b31842485-gzip\"",
+            "fetchedAt": "2026-10-20T21:22:31.243919Z",
+            "finalUrl": "https://www.cohesity.com/newsroom/press/cohesity-becomes-worlds-largest-data-protection-provider-after-completing-combination-with-veritas-enterprise-data-protection-business/",
+            "httpStatus": 304,
+            "lastModified": "Tue, 20 Oct 2026 20:08:26 GMT",
+            "observationId": "f2563da9f4a009dc929a214739e1ee4fa3f0483a4fdf180e822005a995bb251d",
+            "requestedUrl": "https://www.cohesity.com/newsroom/press/cohesity-becomes-worlds-largest-data-protection-provider-after-completing-combination-with-veritas-enterprise-data-protection-business/",
+            "reusesObservationId": "7bc87f42936ad4dff3b9b21e0fefde10d277c6eac3a0ccea7ecf40027bf33d79",
+            "sourceId": "cohesity:citation:TR-cohesity-1",
+            "status": "not_modified"
+          },
+          {
+            "body": {
+              "bytes": 189409,
+              "key": "objects/f3dea4c649eb1c7c8beb7933735e406ad59af22b9d2f8f530aef387edabe7083",
+              "sha256": "f3dea4c649eb1c7c8beb7933735e406ad59af22b9d2f8f530aef387edabe7083"
+            },
+            "contentType": "text/html;charset=utf-8",
+            "etag": "\"2e3e1-65e4b31842485-gzip\"",
+            "fetchedAt": "2026-10-20T21:12:04.667037Z",
+            "finalUrl": "https://www.cohesity.com/newsroom/press/cohesity-becomes-worlds-largest-data-protection-provider-after-completing-combination-with-veritas-enterprise-data-protection-business/",
+            "httpStatus": 200,
+            "lastModified": "Tue, 20 Oct 2026 20:08:26 GMT",
+            "observationId": "7bc87f42936ad4dff3b9b21e0fefde10d277c6eac3a0ccea7ecf40027bf33d79",
+            "requestedUrl": "https://www.cohesity.com/newsroom/press/cohesity-becomes-worlds-largest-data-protection-provider-after-completing-combination-with-veritas-enterprise-data-protection-business/",
+            "sourceId": "cohesity:citation:TR-cohesity-1",
+            "status": "fetched"
+          }
+        ]
+      },
+      "dependencies": [
+        "cohesity:official:1",
+        "cohesity:citation:TR-cohesity-1",
+        "Both current requests use the already-approved www.cohesity.com host."
+      ],
+      "bestNextStep": "Keep the blocked receipt. Preserve a bounded denial/Retry-After/redirect diagnostic on a future already-authorized ordinary attempt; no endpoint/host bypass or immediate403 retry is supported."
+    },
+    {
+      "sourceId": "sophos:citation:TR-sophos-2",
+      "taskId": "924e29253874d0d20447ba4cd6bbfc7a353e9e75b14b0fdcaa085e2f7ccb9413",
+      "url": "https://app.researchpool.com/index.php/provider/s-p-global",
+      "sourceContract": {
+        "allowedHosts": [
+          "app.researchpool.com"
+        ],
+        "evidenceId": "TR-sophos-2",
+        "family": "citation_integrity",
+        "id": "sophos:citation:TR-sophos-2",
+        "kind": "citation",
+        "maxPages": 1,
+        "registration": "verified",
+        "required": true,
+        "scopePrefixes": [
+          "/"
+        ],
+        "seedEvidenceUrls": [],
+        "supplierId": "sophos",
+        "url": "https://app.researchpool.com/index.php/provider/s-p-global"
+      },
+      "originalTaskReceipt": {
+        "attemptId": "97053dcc4419cfb9799e217fbb132a06258a104efad0e78050bd057e53e434b1",
+        "completedAt": "2026-10-25T09:56:10.183747Z",
+        "discoveryComplete": false,
+        "errorCode": "HTTP_403",
+        "itemManifest": {
+          "bytes": 137,
+          "key": "objects/a36c5b2949e9a06cd8842855e6ed21d5dd49d6309e3a23ed18b036ef6448075a",
+          "sha256": "a36c5b2949e9a06cd8842855e6ed21d5dd49d6309e3a23ed18b036ef6448075a"
+        },
+        "newFactIds": [],
+        "observationIds": [
+          "7bf1f746722b6c949cdf83484d2b405c891d524af8f213e5e884ff7113dd2425"
+        ],
+        "outcome": "blocked",
+        "runId": "d1b5cbbf41ba2d8dfcb05a7ff2a2b00b7faada68dcaf3224ad4c7702b2d63b22",
+        "sourceId": "sophos:citation:TR-sophos-2",
+        "startedAt": "2026-10-25T09:56:09.338548Z",
+        "supplierId": "sophos",
+        "taskId": "924e29253874d0d20447ba4cd6bbfc7a353e9e75b14b0fdcaa085e2f7ccb9413",
+        "validatedFacts": []
+      },
+      "originalObservations": [
+        {
+          "reference": {
+            "key": "observations/7bf1f746722b6c949cdf83484d2b405c891d524af8f213e5e884ff7113dd2425.json",
+            "sha256": "aba752e90d5532eef22f190aa3e946c7575bb44bc00189931f2af47389a8acc7",
+            "bytes": 326
+          },
+          "value": {
+            "errorCode": "HTTP_403",
+            "fetchedAt": "2026-10-25T09:56:10.181757Z",
+            "httpStatus": 403,
+            "observationId": "7bf1f746722b6c949cdf83484d2b405c891d524af8f213e5e884ff7113dd2425",
+            "requestedUrl": "https://app.researchpool.com/index.php/provider/s-p-global",
+            "sourceId": "sophos:citation:TR-sophos-2",
+            "status": "blocked",
+            "transportReused": false
+          }
+        }
+      ],
+      "classification": "observed_http_403_request_failure",
+      "httpStatus": 403,
+      "unknowns": [
+        "No retained denial response body, Retry-After, response host or access-rule explanation."
+      ],
+      "latestRetainedSuccessfulDownloadHead": {
+        "key": "heads/download-5f6047cd7ff29c8cd6ca7d9fcc12c554c8e1a4cf1b6cb6eb4918b05a61858c5f.json",
+        "value": null,
+        "reuseChain": []
+      },
+      "dependencies": [
+        "The retained URL is a ResearchPool provider listing; a document-specific replacement needs separately admitted evidence."
+      ],
+      "bestNextStep": "Keep the blocked receipt. Preserve a bounded denial/Retry-After/redirect diagnostic on a future already-authorized ordinary attempt; no endpoint/host bypass or immediate403 retry is supported."
+    },
+    {
+      "sourceId": "axonius:citation:TR-axonius-1",
+      "taskId": "027dc868c7082e89d0ec110b517545a441681e90c7525220cb6e7afb45eb069b",
+      "url": "https://www.axonius.com/newsroom/press-release/axonius-surpasses-200m-arr-appoints-joe-diamond-ceo",
+      "sourceContract": {
+        "allowedHosts": [
+          "www.axonius.com"
+        ],
+        "evidenceId": "TR-axonius-1",
+        "family": "citation_integrity",
+        "id": "axonius:citation:TR-axonius-1",
+        "kind": "citation",
+        "maxPages": 1,
+        "registration": "verified",
+        "required": true,
+        "scopePrefixes": [
+          "/"
+        ],
+        "seedEvidenceUrls": [],
+        "supplierId": "axonius",
+        "url": "https://www.axonius.com/newsroom/press-release/axonius-surpasses-200m-arr-appoints-joe-diamond-ceo"
+      },
+      "originalTaskReceipt": {
+        "attemptId": "e44d33a19f7acda23b65442abbe92abc358af3c690f67f9f0b04dfdccc9dd372",
+        "completedAt": "2026-10-25T09:56:14.463495Z",
+        "discoveryComplete": false,
+        "errorCode": "HTTP_429",
+        "itemManifest": {
+          "bytes": 139,
+          "key": "objects/475bedd78b67dbb46795a865371d3d05981c245e2553d21a485512971e6da72f",
+          "sha256": "475bedd78b67dbb46795a865371d3d05981c245e2553d21a485512971e6da72f"
+        },
+        "newFactIds": [],
+        "observationIds": [
+          "d531f32e33e687bb20795e05153a68a2a5fca80666bdb0094d57e7015cb90af8"
+        ],
+        "outcome": "blocked",
+        "runId": "d1b5cbbf41ba2d8dfcb05a7ff2a2b00b7faada68dcaf3224ad4c7702b2d63b22",
+        "sourceId": "axonius:citation:TR-axonius-1",
+        "startedAt": "2026-10-25T09:56:14.213490Z",
+        "supplierId": "axonius",
+        "taskId": "027dc868c7082e89d0ec110b517545a441681e90c7525220cb6e7afb45eb069b",
+        "validatedFacts": []
+      },
+      "originalObservations": [
+        {
+          "reference": {
+            "key": "observations/d531f32e33e687bb20795e05153a68a2a5fca80666bdb0094d57e7015cb90af8.json",
+            "sha256": "27daa7c02fda5a7083cf24f9a8714cd0f975f78a294219f49e5c62e95c78e814",
+            "bytes": 368
+          },
+          "value": {
+            "errorCode": "HTTP_429",
+            "fetchedAt": "2026-10-25T09:56:14.461142Z",
+            "httpStatus": 429,
+            "observationId": "d531f32e33e687bb20795e05153a68a2a5fca80666bdb0094d57e7015cb90af8",
+            "requestedUrl": "https://www.axonius.com/newsroom/press-release/axonius-surpasses-200m-arr-appoints-joe-diamond-ceo",
+            "sourceId": "axonius:citation:TR-axonius-1",
+            "status": "blocked",
+            "transportReused": false
+          }
+        }
+      ],
+      "classification": "observed_http_429_request_failure",
+      "httpStatus": 429,
+      "unknowns": [
+        "No retained denial response body, Retry-After, response host or access-rule explanation."
+      ],
+      "latestRetainedSuccessfulDownloadHead": {
+        "key": "heads/download-ebc5f7d0cd5aaa0524a4c56110dc9a34e05b459c699073cd5dac4b98948ed251.json",
+        "value": {
+          "body": {
+            "bytes": 186365,
+            "key": "objects/3880404f0a3c9e66a646988f3e7ff59dcfd24b0da9311da96ec5d02f590d6228",
+            "sha256": "3880404f0a3c9e66a646988f3e7ff59dcfd24b0da9311da96ec5d02f590d6228"
+          },
+          "contentType": "text/html; charset=utf-8",
+          "etag": null,
+          "fetchedAt": "2026-10-20T21:41:20.517952Z",
+          "finalUrl": "https://www.axonius.com/newsroom/press-release/axonius-surpasses-200m-arr-appoints-joe-diamond-ceo",
+          "httpStatus": 200,
+          "lastModified": null,
+          "observationId": "cd1bb07ee9d98fd7dab4e88f79ff6b9a49f147fb216f03a47ba4a5f9a1352726",
+          "requestedUrl": "https://www.axonius.com/newsroom/press-release/axonius-surpasses-200m-arr-appoints-joe-diamond-ceo",
+          "sourceId": "axonius:citation:TR-axonius-1",
+          "status": "fetched"
+        },
+        "reuseChain": [
+          {
+            "body": {
+              "bytes": 186365,
+              "key": "objects/3880404f0a3c9e66a646988f3e7ff59dcfd24b0da9311da96ec5d02f590d6228",
+              "sha256": "3880404f0a3c9e66a646988f3e7ff59dcfd24b0da9311da96ec5d02f590d6228"
+            },
+            "contentType": "text/html; charset=utf-8",
+            "etag": null,
+            "fetchedAt": "2026-10-20T21:41:20.517952Z",
+            "finalUrl": "https://www.axonius.com/newsroom/press-release/axonius-surpasses-200m-arr-appoints-joe-diamond-ceo",
+            "httpStatus": 200,
+            "lastModified": null,
+            "observationId": "cd1bb07ee9d98fd7dab4e88f79ff6b9a49f147fb216f03a47ba4a5f9a1352726",
+            "requestedUrl": "https://www.axonius.com/newsroom/press-release/axonius-surpasses-200m-arr-appoints-joe-diamond-ceo",
+            "sourceId": "axonius:citation:TR-axonius-1",
+            "status": "fetched"
+          }
+        ]
+      },
+      "dependencies": [
+        "axonius:official:1",
+        "The TR-axonius-1 and TR-axonius-2 tasks request exactly the same URL."
+      ],
+      "bestNextStep": "Keep the four Axonius gaps. Retain Retry-After and host-limited cooldown metadata on the next ordinary request; do not invent the missing header or automatically retry now."
+    },
+    {
+      "sourceId": "beyondtrust:citation:TR-beyondtrust-1",
+      "taskId": "9b0c53421fc260112caad0a7648fefb2f46a2503983cbdb9550759569b30e708",
+      "url": "https://www.globenewswire.com/news-release/2021/08/17/2282045/0/en/BeyondTrust-Completes-Transaction-with-Clearlake-Capital-and-Francisco-Partners.html",
+      "sourceContract": {
+        "allowedHosts": [
+          "www.globenewswire.com"
+        ],
+        "evidenceId": "TR-beyondtrust-1",
+        "family": "citation_integrity",
+        "id": "beyondtrust:citation:TR-beyondtrust-1",
+        "kind": "citation",
+        "maxPages": 1,
+        "registration": "verified",
+        "required": true,
+        "scopePrefixes": [
+          "/"
+        ],
+        "seedEvidenceUrls": [],
+        "supplierId": "beyondtrust",
+        "url": "https://www.globenewswire.com/news-release/2021/08/17/2282045/0/en/BeyondTrust-Completes-Transaction-with-Clearlake-Capital-and-Francisco-Partners.html"
+      },
+      "originalTaskReceipt": {
+        "attemptId": "770f6e54d2c013653ae8149c9f40ebf03444b6c73f81bb5ff2eb86ed1ccc5424",
+        "completedAt": "2026-10-25T09:56:17.764061Z",
+        "discoveryComplete": false,
+        "errorCode": "HTTP_403",
+        "itemManifest": {
+          "bytes": 147,
+          "key": "objects/75cf6d48663f0bb5f071707180e27011614cfebfaee90a5d6e09d93399cc04cd",
+          "sha256": "75cf6d48663f0bb5f071707180e27011614cfebfaee90a5d6e09d93399cc04cd"
+        },
+        "newFactIds": [],
+        "observationIds": [
+          "188fcf8230953fbe5f001fed51113db04b26d1f3628051bed35162fc8858a2f9"
+        ],
+        "outcome": "blocked",
+        "runId": "d1b5cbbf41ba2d8dfcb05a7ff2a2b00b7faada68dcaf3224ad4c7702b2d63b22",
+        "sourceId": "beyondtrust:citation:TR-beyondtrust-1",
+        "startedAt": "2026-10-25T09:56:17.250689Z",
+        "supplierId": "beyondtrust",
+        "taskId": "9b0c53421fc260112caad0a7648fefb2f46a2503983cbdb9550759569b30e708",
+        "validatedFacts": []
+      },
+      "originalObservations": [
+        {
+          "reference": {
+            "key": "observations/188fcf8230953fbe5f001fed51113db04b26d1f3628051bed35162fc8858a2f9.json",
+            "sha256": "09614c09ffac3cd329ad0cd0ee668c7eab97eb1d8014bf96156d80d36cddeaa8",
+            "bytes": 429
+          },
+          "value": {
+            "errorCode": "HTTP_403",
+            "fetchedAt": "2026-10-25T09:56:17.761346Z",
+            "httpStatus": 403,
+            "observationId": "188fcf8230953fbe5f001fed51113db04b26d1f3628051bed35162fc8858a2f9",
+            "requestedUrl": "https://www.globenewswire.com/news-release/2021/08/17/2282045/0/en/BeyondTrust-Completes-Transaction-with-Clearlake-Capital-and-Francisco-Partners.html",
+            "sourceId": "beyondtrust:citation:TR-beyondtrust-1",
+            "status": "blocked",
+            "transportReused": false
+          }
+        }
+      ],
+      "classification": "observed_http_403_request_failure",
+      "httpStatus": 403,
+      "unknowns": [
+        "No retained denial response body, Retry-After, response host or access-rule explanation."
+      ],
+      "latestRetainedSuccessfulDownloadHead": {
+        "key": "heads/download-e266e3e40a42ece98bd8864fd4f9055f2b2047661e1ebd4ed84c3b4edc24206d.json",
+        "value": {
+          "body": {
+            "bytes": 73797,
+            "key": "objects/026fe20117430e4ab0f7853ee65bbebbe854e4698f8d5cc2e65ea530fa01ae19",
+            "sha256": "026fe20117430e4ab0f7853ee65bbebbe854e4698f8d5cc2e65ea530fa01ae19"
+          },
+          "contentType": "text/html; charset=utf-8",
+          "etag": null,
+          "fetchedAt": "2026-10-20T21:41:23.316093Z",
+          "finalUrl": "https://www.globenewswire.com/news-release/2021/08/17/2282045/0/en/BeyondTrust-Completes-Transaction-with-Clearlake-Capital-and-Francisco-Partners.html",
+          "httpStatus": 200,
+          "lastModified": null,
+          "observationId": "e91c9514430ab19ce16c3a63e82e8589cb331d63da91aa62b7c154fa55946ffe",
+          "requestedUrl": "https://www.globenewswire.com/news-release/2021/08/17/2282045/0/en/BeyondTrust-Completes-Transaction-with-Clearlake-Capital-and-Francisco-Partners.html",
+          "sourceId": "beyondtrust:citation:TR-beyondtrust-1",
+          "status": "fetched"
+        },
+        "reuseChain": [
+          {
+            "body": {
+              "bytes": 73797,
+              "key": "objects/026fe20117430e4ab0f7853ee65bbebbe854e4698f8d5cc2e65ea530fa01ae19",
+              "sha256": "026fe20117430e4ab0f7853ee65bbebbe854e4698f8d5cc2e65ea530fa01ae19"
+            },
+            "contentType": "text/html; charset=utf-8",
+            "etag": null,
+            "fetchedAt": "2026-10-20T21:41:23.316093Z",
+            "finalUrl": "https://www.globenewswire.com/news-release/2021/08/17/2282045/0/en/BeyondTrust-Completes-Transaction-with-Clearlake-Capital-and-Francisco-Partners.html",
+            "httpStatus": 200,
+            "lastModified": null,
+            "observationId": "e91c9514430ab19ce16c3a63e82e8589cb331d63da91aa62b7c154fa55946ffe",
+            "requestedUrl": "https://www.globenewswire.com/news-release/2021/08/17/2282045/0/en/BeyondTrust-Completes-Transaction-with-Clearlake-Capital-and-Francisco-Partners.html",
+            "sourceId": "beyondtrust:citation:TR-beyondtrust-1",
+            "status": "fetched"
+          }
+        ]
+      },
+      "dependencies": [],
+      "bestNextStep": "Keep the blocked receipt. Preserve a bounded denial/Retry-After/redirect diagnostic on a future already-authorized ordinary attempt; no endpoint/host bypass or immediate403 retry is supported."
+    },
+    {
+      "sourceId": "delinea:citation:TR-delinea-3",
+      "taskId": "bad5585718e431590310b82a1fc693e3e18d7137a0194957aa13c61f9a04528f",
+      "url": "https://www.globenewswire.com/news-release/2026/09/23/3367539/0/en/delinea-appoints-timothy-regan-as-chief-financial-officer.html",
+      "sourceContract": {
+        "allowedHosts": [
+          "www.globenewswire.com"
+        ],
+        "evidenceId": "TR-delinea-3",
+        "family": "citation_integrity",
+        "id": "delinea:citation:TR-delinea-3",
+        "kind": "citation",
+        "maxPages": 1,
+        "registration": "verified",
+        "required": true,
+        "scopePrefixes": [
+          "/"
+        ],
+        "seedEvidenceUrls": [],
+        "supplierId": "delinea",
+        "url": "https://www.globenewswire.com/news-release/2026/09/23/3367539/0/en/delinea-appoints-timothy-regan-as-chief-financial-officer.html"
+      },
+      "originalTaskReceipt": {
+        "attemptId": "6b9c2a5de0be57a8f8c4cddff7b5e103ecb2f21a0d601822173996f5a69b1054",
+        "completedAt": "2026-10-25T09:56:18.663018Z",
+        "discoveryComplete": false,
+        "errorCode": "HTTP_403",
+        "itemManifest": {
+          "bytes": 139,
+          "key": "objects/c304c1d07039e6d09f2258f98008b630df781aa234ef891f08ca8bcdec3dd42a",
+          "sha256": "c304c1d07039e6d09f2258f98008b630df781aa234ef891f08ca8bcdec3dd42a"
+        },
+        "newFactIds": [],
+        "observationIds": [
+          "2168f988921559a4e05ce4e5ddfab96770ca17394fb197875c206ae153272b02"
+        ],
+        "outcome": "blocked",
+        "runId": "d1b5cbbf41ba2d8dfcb05a7ff2a2b00b7faada68dcaf3224ad4c7702b2d63b22",
+        "sourceId": "delinea:citation:TR-delinea-3",
+        "startedAt": "2026-10-25T09:56:17.855731Z",
+        "supplierId": "delinea",
+        "taskId": "bad5585718e431590310b82a1fc693e3e18d7137a0194957aa13c61f9a04528f",
+        "validatedFacts": []
+      },
+      "originalObservations": [
+        {
+          "reference": {
+            "key": "observations/2168f988921559a4e05ce4e5ddfab96770ca17394fb197875c206ae153272b02.json",
+            "sha256": "bcb45f8705de522e2f80d516577d694d9723f4da3449f45cd33f89afceac2d8d",
+            "bytes": 399
+          },
+          "value": {
+            "errorCode": "HTTP_403",
+            "fetchedAt": "2026-10-25T09:56:18.660700Z",
+            "httpStatus": 403,
+            "observationId": "2168f988921559a4e05ce4e5ddfab96770ca17394fb197875c206ae153272b02",
+            "requestedUrl": "https://www.globenewswire.com/news-release/2026/09/23/3367539/0/en/delinea-appoints-timothy-regan-as-chief-financial-officer.html",
+            "sourceId": "delinea:citation:TR-delinea-3",
+            "status": "blocked",
+            "transportReused": false
+          }
+        }
+      ],
+      "classification": "observed_http_403_request_failure",
+      "httpStatus": 403,
+      "unknowns": [
+        "No retained denial response body, Retry-After, response host or access-rule explanation."
+      ],
+      "latestRetainedSuccessfulDownloadHead": {
+        "key": "heads/download-d1a92d9bdba6d78a75cfefb19d0567ce8c405ab8dc859c38e3d17dac34f38d7c.json",
+        "value": {
+          "body": {
+            "bytes": 72075,
+            "key": "objects/1ee7964205cbb0a6fd470e737643896fee9baa3dee0eeb49446b65c0bfc1d56a",
+            "sha256": "1ee7964205cbb0a6fd470e737643896fee9baa3dee0eeb49446b65c0bfc1d56a"
+          },
+          "contentType": "text/html; charset=utf-8",
+          "etag": null,
+          "fetchedAt": "2026-10-20T21:41:49.979213Z",
+          "finalUrl": "https://www.globenewswire.com/news-release/2026/09/23/3367539/0/en/delinea-appoints-timothy-regan-as-chief-financial-officer.html",
+          "httpStatus": 200,
+          "lastModified": null,
+          "observationId": "a0a4401f1b56e922ad6d87139acd3bce1574b3554a2020569683adc685472a2a",
+          "requestedUrl": "https://www.globenewswire.com/news-release/2026/09/23/3367539/0/en/delinea-appoints-timothy-regan-as-chief-financial-officer.html",
+          "sourceId": "delinea:citation:TR-delinea-3",
+          "status": "fetched"
+        },
+        "reuseChain": [
+          {
+            "body": {
+              "bytes": 72075,
+              "key": "objects/1ee7964205cbb0a6fd470e737643896fee9baa3dee0eeb49446b65c0bfc1d56a",
+              "sha256": "1ee7964205cbb0a6fd470e737643896fee9baa3dee0eeb49446b65c0bfc1d56a"
+            },
+            "contentType": "text/html; charset=utf-8",
+            "etag": null,
+            "fetchedAt": "2026-10-20T21:41:49.979213Z",
+            "finalUrl": "https://www.globenewswire.com/news-release/2026/09/23/3367539/0/en/delinea-appoints-timothy-regan-as-chief-financial-officer.html",
+            "httpStatus": 200,
+            "lastModified": null,
+            "observationId": "a0a4401f1b56e922ad6d87139acd3bce1574b3554a2020569683adc685472a2a",
+            "requestedUrl": "https://www.globenewswire.com/news-release/2026/09/23/3367539/0/en/delinea-appoints-timothy-regan-as-chief-financial-officer.html",
+            "sourceId": "delinea:citation:TR-delinea-3",
+            "status": "fetched"
+          }
+        ]
+      },
+      "dependencies": [
+        "delinea:official:1",
+        "An existing issuer inventory is a separate evidence route; changing a cited source requires a reviewed correction."
+      ],
+      "bestNextStep": "Keep the blocked receipt. Preserve a bounded denial/Retry-After/redirect diagnostic on a future already-authorized ordinary attempt; no endpoint/host bypass or immediate403 retry is supported."
+    },
+    {
+      "sourceId": "axonius:citation:TR-axonius-3",
+      "taskId": "cdb0043cddaf273245cf6509d97f0043fcb2bc1da893fae619b81fe22385ca61",
+      "url": "https://www.axonius.com/newsroom/press-release/axonius-closes-200m-series-e-funding-round",
+      "sourceContract": {
+        "allowedHosts": [
+          "www.axonius.com"
+        ],
+        "evidenceId": "TR-axonius-3",
+        "family": "citation_integrity",
+        "id": "axonius:citation:TR-axonius-3",
+        "kind": "citation",
+        "maxPages": 1,
+        "registration": "verified",
+        "required": true,
+        "scopePrefixes": [
+          "/"
+        ],
+        "seedEvidenceUrls": [],
+        "supplierId": "axonius",
+        "url": "https://www.axonius.com/newsroom/press-release/axonius-closes-200m-series-e-funding-round"
+      },
+      "originalTaskReceipt": {
+        "attemptId": "26918a57f20c30dfe57fd7141938021d1b21116e5ec11a58cb08b1ab054ba836",
+        "completedAt": "2026-10-25T09:56:21.736150Z",
+        "discoveryComplete": false,
+        "errorCode": "HTTP_429",
+        "itemManifest": {
+          "bytes": 139,
+          "key": "objects/f49f2c1c14ee30238f42136b6f3e7474b43e8f44e3e641e304ef248b024e22b4",
+          "sha256": "f49f2c1c14ee30238f42136b6f3e7474b43e8f44e3e641e304ef248b024e22b4"
+        },
+        "newFactIds": [],
+        "observationIds": [
+          "5cb1c22f49d6a188d620aff26a06d89eda2730e0b3ca2ea044f49e1c5988286d"
+        ],
+        "outcome": "blocked",
+        "runId": "d1b5cbbf41ba2d8dfcb05a7ff2a2b00b7faada68dcaf3224ad4c7702b2d63b22",
+        "sourceId": "axonius:citation:TR-axonius-3",
+        "startedAt": "2026-10-25T09:56:21.070435Z",
+        "supplierId": "axonius",
+        "taskId": "cdb0043cddaf273245cf6509d97f0043fcb2bc1da893fae619b81fe22385ca61",
+        "validatedFacts": []
+      },
+      "originalObservations": [
+        {
+          "reference": {
+            "key": "observations/5cb1c22f49d6a188d620aff26a06d89eda2730e0b3ca2ea044f49e1c5988286d.json",
+            "sha256": "735f6ac6b604db1ef61d85cc3466f8c9bbd1b9191814fde90979b059331441de",
+            "bytes": 359
+          },
+          "value": {
+            "errorCode": "HTTP_429",
+            "fetchedAt": "2026-10-25T09:56:21.732693Z",
+            "httpStatus": 429,
+            "observationId": "5cb1c22f49d6a188d620aff26a06d89eda2730e0b3ca2ea044f49e1c5988286d",
+            "requestedUrl": "https://www.axonius.com/newsroom/press-release/axonius-closes-200m-series-e-funding-round",
+            "sourceId": "axonius:citation:TR-axonius-3",
+            "status": "blocked",
+            "transportReused": false
+          }
+        }
+      ],
+      "classification": "observed_http_429_request_failure",
+      "httpStatus": 429,
+      "unknowns": [
+        "No retained denial response body, Retry-After, response host or access-rule explanation."
+      ],
+      "latestRetainedSuccessfulDownloadHead": {
+        "key": "heads/download-b62c58c5461e2c6b6d2d90f3617ed572436a449e97f9a47ca23f5306f9d29f83.json",
+        "value": {
+          "body": {
+            "bytes": 178337,
+            "key": "objects/e42e1c751309ed8e897c3158e233f80cc726b82a0b027a4161aeb5d1d7db4ffc",
+            "sha256": "e42e1c751309ed8e897c3158e233f80cc726b82a0b027a4161aeb5d1d7db4ffc"
+          },
+          "contentType": "text/html; charset=utf-8",
+          "etag": null,
+          "fetchedAt": "2026-10-20T21:41:46.727421Z",
+          "finalUrl": "https://www.axonius.com/newsroom/press-release/axonius-closes-200m-series-e-funding-round",
+          "httpStatus": 200,
+          "lastModified": null,
+          "observationId": "1a5158d2a27b8e2f73b8e2cb15010dc291d96155bf7ec0311ba247d8204282f6",
+          "requestedUrl": "https://www.axonius.com/newsroom/press-release/axonius-closes-200m-series-e-funding-round",
+          "sourceId": "axonius:citation:TR-axonius-3",
+          "status": "fetched"
+        },
+        "reuseChain": [
+          {
+            "body": {
+              "bytes": 178337,
+              "key": "objects/e42e1c751309ed8e897c3158e233f80cc726b82a0b027a4161aeb5d1d7db4ffc",
+              "sha256": "e42e1c751309ed8e897c3158e233f80cc726b82a0b027a4161aeb5d1d7db4ffc"
+            },
+            "contentType": "text/html; charset=utf-8",
+            "etag": null,
+            "fetchedAt": "2026-10-20T21:41:46.727421Z",
+            "finalUrl": "https://www.axonius.com/newsroom/press-release/axonius-closes-200m-series-e-funding-round",
+            "httpStatus": 200,
+            "lastModified": null,
+            "observationId": "1a5158d2a27b8e2f73b8e2cb15010dc291d96155bf7ec0311ba247d8204282f6",
+            "requestedUrl": "https://www.axonius.com/newsroom/press-release/axonius-closes-200m-series-e-funding-round",
+            "sourceId": "axonius:citation:TR-axonius-3",
+            "status": "fetched"
+          }
+        ]
+      },
+      "dependencies": [
+        "axonius:official:1",
+        "The TR-axonius-1 and TR-axonius-2 tasks request exactly the same URL."
+      ],
+      "bestNextStep": "Keep the four Axonius gaps. Retain Retry-After and host-limited cooldown metadata on the next ordinary request; do not invent the missing header or automatically retry now."
+    },
+    {
+      "sourceId": "bigid:citation:TR-bigid-1",
+      "taskId": "b883c61f24ab1597d9f1b64af8d98573efeb82a271b0505fae4da6db9798f032",
+      "url": "https://tracxn.com/d/companies/bigid/__pHSLjAzI2aqF63ud9QosF69usdaBPTT49_kou_rHtgw/funding-and-investors",
+      "sourceContract": {
+        "allowedHosts": [
+          "tracxn.com"
+        ],
+        "evidenceId": "TR-bigid-1",
+        "family": "citation_integrity",
+        "id": "bigid:citation:TR-bigid-1",
+        "kind": "citation",
+        "maxPages": 1,
+        "registration": "verified",
+        "required": true,
+        "scopePrefixes": [
+          "/"
+        ],
+        "seedEvidenceUrls": [],
+        "supplierId": "bigid",
+        "url": "https://tracxn.com/d/companies/bigid/__pHSLjAzI2aqF63ud9QosF69usdaBPTT49_kou_rHtgw/funding-and-investors"
+      },
+      "originalTaskReceipt": {
+        "attemptId": "d42252cbad2cad1fc03442863c3206aa605947a07c7620d7757e7e3f30d9d14d",
+        "completedAt": "2026-10-25T09:56:21.838234Z",
+        "discoveryComplete": false,
+        "errorCode": "HTTP_403",
+        "itemManifest": {
+          "bytes": 135,
+          "key": "objects/b3198c8ac9284ef5680ff8347bd190c6c70d2797cd918819bf049d80ccfe1a5c",
+          "sha256": "b3198c8ac9284ef5680ff8347bd190c6c70d2797cd918819bf049d80ccfe1a5c"
+        },
+        "newFactIds": [],
+        "observationIds": [
+          "b71d6fc8d363c4734c8c20460a1db59d9750e3848c7d7dba29e4e9df7384bf83"
+        ],
+        "outcome": "blocked",
+        "runId": "d1b5cbbf41ba2d8dfcb05a7ff2a2b00b7faada68dcaf3224ad4c7702b2d63b22",
+        "sourceId": "bigid:citation:TR-bigid-1",
+        "startedAt": "2026-10-25T09:56:21.719721Z",
+        "supplierId": "bigid",
+        "taskId": "b883c61f24ab1597d9f1b64af8d98573efeb82a271b0505fae4da6db9798f032",
+        "validatedFacts": []
+      },
+      "originalObservations": [
+        {
+          "reference": {
+            "key": "observations/b71d6fc8d363c4734c8c20460a1db59d9750e3848c7d7dba29e4e9df7384bf83.json",
+            "sha256": "6d23f2b62c58f89e5dcbafab1219e6dcf363b3e2aa5e05da269121408bf2dc10",
+            "bytes": 370
+          },
+          "value": {
+            "errorCode": "HTTP_403",
+            "fetchedAt": "2026-10-25T09:56:21.835985Z",
+            "httpStatus": 403,
+            "observationId": "b71d6fc8d363c4734c8c20460a1db59d9750e3848c7d7dba29e4e9df7384bf83",
+            "requestedUrl": "https://tracxn.com/d/companies/bigid/__pHSLjAzI2aqF63ud9QosF69usdaBPTT49_kou_rHtgw/funding-and-investors",
+            "sourceId": "bigid:citation:TR-bigid-1",
+            "status": "blocked",
+            "transportReused": false
+          }
+        }
+      ],
+      "classification": "observed_http_403_request_failure",
+      "httpStatus": 403,
+      "unknowns": [
+        "No retained denial response body, Retry-After, response host or access-rule explanation."
+      ],
+      "latestRetainedSuccessfulDownloadHead": {
+        "key": "heads/download-4f95c9275c0cc8a952c20f507507d4f82ea6430ce1ffc32e97c990f70e2184e9.json",
+        "value": {
+          "body": {
+            "bytes": 382395,
+            "key": "objects/b783a64ed0a7516138685bfc8c97d6143b8ed85261c77db0cd32563fb4cba31e",
+            "sha256": "b783a64ed0a7516138685bfc8c97d6143b8ed85261c77db0cd32563fb4cba31e"
+          },
+          "contentType": "text/html",
+          "etag": null,
+          "fetchedAt": "2026-10-20T21:41:21.276514Z",
+          "finalUrl": "https://tracxn.com/d/companies/bigid/__pHSLjAzI2aqF63ud9QosF69usdaBPTT49_kou_rHtgw/funding-and-investors",
+          "httpStatus": 304,
+          "lastModified": "Fri, 09 Oct 2026 16:16:40 GMT",
+          "observationId": "a6a002107f25fb6aaf03a4d2eefb067e8f7348509a74855474798569b01e1258",
+          "requestedUrl": "https://tracxn.com/d/companies/bigid/__pHSLjAzI2aqF63ud9QosF69usdaBPTT49_kou_rHtgw/funding-and-investors",
+          "reusesObservationId": "983018466d3088eaf5951b7dbd09a3c79c1611bb16a319b15a2997767aaf72b5",
+          "sourceId": "bigid:citation:TR-bigid-1",
+          "status": "not_modified"
+        },
+        "reuseChain": [
+          {
+            "body": {
+              "bytes": 382395,
+              "key": "objects/b783a64ed0a7516138685bfc8c97d6143b8ed85261c77db0cd32563fb4cba31e",
+              "sha256": "b783a64ed0a7516138685bfc8c97d6143b8ed85261c77db0cd32563fb4cba31e"
+            },
+            "contentType": "text/html",
+            "etag": null,
+            "fetchedAt": "2026-10-20T21:41:21.276514Z",
+            "finalUrl": "https://tracxn.com/d/companies/bigid/__pHSLjAzI2aqF63ud9QosF69usdaBPTT49_kou_rHtgw/funding-and-investors",
+            "httpStatus": 304,
+            "lastModified": "Fri, 09 Oct 2026 16:16:40 GMT",
+            "observationId": "a6a002107f25fb6aaf03a4d2eefb067e8f7348509a74855474798569b01e1258",
+            "requestedUrl": "https://tracxn.com/d/companies/bigid/__pHSLjAzI2aqF63ud9QosF69usdaBPTT49_kou_rHtgw/funding-and-investors",
+            "reusesObservationId": "983018466d3088eaf5951b7dbd09a3c79c1611bb16a319b15a2997767aaf72b5",
+            "sourceId": "bigid:citation:TR-bigid-1",
+            "status": "not_modified"
+          },
+          {
+            "body": {
+              "bytes": 382395,
+              "key": "objects/b783a64ed0a7516138685bfc8c97d6143b8ed85261c77db0cd32563fb4cba31e",
+              "sha256": "b783a64ed0a7516138685bfc8c97d6143b8ed85261c77db0cd32563fb4cba31e"
+            },
+            "contentType": "text/html",
+            "etag": null,
+            "fetchedAt": "2026-10-20T21:22:17.228209Z",
+            "finalUrl": "https://tracxn.com/d/companies/bigid/__pHSLjAzI2aqF63ud9QosF69usdaBPTT49_kou_rHtgw/funding-and-investors",
+            "httpStatus": 304,
+            "lastModified": "Fri, 09 Oct 2026 16:16:40 GMT",
+            "observationId": "983018466d3088eaf5951b7dbd09a3c79c1611bb16a319b15a2997767aaf72b5",
+            "requestedUrl": "https://tracxn.com/d/companies/bigid/__pHSLjAzI2aqF63ud9QosF69usdaBPTT49_kou_rHtgw/funding-and-investors",
+            "reusesObservationId": "6652fb8eb2115c4905294a06d15719b0353eff8d4caa15252bbf661bc8d64a12",
+            "sourceId": "bigid:citation:TR-bigid-1",
+            "status": "not_modified"
+          },
+          {
+            "body": {
+              "bytes": 382395,
+              "key": "objects/b783a64ed0a7516138685bfc8c97d6143b8ed85261c77db0cd32563fb4cba31e",
+              "sha256": "b783a64ed0a7516138685bfc8c97d6143b8ed85261c77db0cd32563fb4cba31e"
+            },
+            "contentType": "text/html",
+            "etag": null,
+            "fetchedAt": "2026-10-20T21:11:42.095562Z",
+            "finalUrl": "https://tracxn.com/d/companies/bigid/__pHSLjAzI2aqF63ud9QosF69usdaBPTT49_kou_rHtgw/funding-and-investors",
+            "httpStatus": 200,
+            "lastModified": "Fri, 09 Oct 2026 16:16:40 GMT",
+            "observationId": "6652fb8eb2115c4905294a06d15719b0353eff8d4caa15252bbf661bc8d64a12",
+            "requestedUrl": "https://tracxn.com/d/companies/bigid/__pHSLjAzI2aqF63ud9QosF69usdaBPTT49_kou_rHtgw/funding-and-investors",
+            "sourceId": "bigid:citation:TR-bigid-1",
+            "status": "fetched"
+          }
+        ]
+      },
+      "dependencies": [],
+      "bestNextStep": "Keep the blocked receipt. Preserve a bounded denial/Retry-After/redirect diagnostic on a future already-authorized ordinary attempt; no endpoint/host bypass or immediate403 retry is supported."
+    },
+    {
+      "sourceId": "tines:citation:TR-tines-1",
+      "taskId": "9731a5870175e8e99cecf2c1efc16f7a1ad9c7540b477032a813b35839a2f386",
+      "url": "https://www.bloomberg.com/news/articles/2025-02-11/goldman-softbank-back-ai-startup-tines-valued-at-1-13-billion",
+      "sourceContract": {
+        "allowedHosts": [
+          "www.bloomberg.com"
+        ],
+        "evidenceId": "TR-tines-1",
+        "family": "citation_integrity",
+        "id": "tines:citation:TR-tines-1",
+        "kind": "citation",
+        "maxPages": 1,
+        "registration": "verified",
+        "required": true,
+        "scopePrefixes": [
+          "/"
+        ],
+        "seedEvidenceUrls": [],
+        "supplierId": "tines",
+        "url": "https://www.bloomberg.com/news/articles/2025-02-11/goldman-softbank-back-ai-startup-tines-valued-at-1-13-billion"
+      },
+      "originalTaskReceipt": {
+        "attemptId": "251a5b95dc3bd5dfe1b420cfb7a954bd74daf4dfb179789ea9c09ef3360ebbfe",
+        "completedAt": "2026-10-25T09:56:23.786110Z",
+        "discoveryComplete": false,
+        "errorCode": "HTTP_403",
+        "itemManifest": {
+          "bytes": 135,
+          "key": "objects/883d3a3a972bdb25624685b1fe8c851de3228acc3c3eb79b9765af99704557c0",
+          "sha256": "883d3a3a972bdb25624685b1fe8c851de3228acc3c3eb79b9765af99704557c0"
+        },
+        "newFactIds": [],
+        "observationIds": [
+          "1fa3e25f81c21aacd84328da18630d233a28f138673160d85d8d92acdb2c220b"
+        ],
+        "outcome": "blocked",
+        "runId": "d1b5cbbf41ba2d8dfcb05a7ff2a2b00b7faada68dcaf3224ad4c7702b2d63b22",
+        "sourceId": "tines:citation:TR-tines-1",
+        "startedAt": "2026-10-25T09:56:23.258352Z",
+        "supplierId": "tines",
+        "taskId": "9731a5870175e8e99cecf2c1efc16f7a1ad9c7540b477032a813b35839a2f386",
+        "validatedFacts": []
+      },
+      "originalObservations": [
+        {
+          "reference": {
+            "key": "observations/1fa3e25f81c21aacd84328da18630d233a28f138673160d85d8d92acdb2c220b.json",
+            "sha256": "919169aea01225ad136099a7eab6a38317dd1bb17e3e43828bc9a8d5ff844076",
+            "bytes": 378
+          },
+          "value": {
+            "errorCode": "HTTP_403",
+            "fetchedAt": "2026-10-25T09:56:23.783233Z",
+            "httpStatus": 403,
+            "observationId": "1fa3e25f81c21aacd84328da18630d233a28f138673160d85d8d92acdb2c220b",
+            "requestedUrl": "https://www.bloomberg.com/news/articles/2025-02-11/goldman-softbank-back-ai-startup-tines-valued-at-1-13-billion",
+            "sourceId": "tines:citation:TR-tines-1",
+            "status": "blocked",
+            "transportReused": false
+          }
+        }
+      ],
+      "classification": "observed_http_403_request_failure",
+      "httpStatus": 403,
+      "unknowns": [
+        "No retained denial response body, Retry-After, response host or access-rule explanation."
+      ],
+      "latestRetainedSuccessfulDownloadHead": {
+        "key": "heads/download-96d72358e573e8b31256ef0ce41b4dff84a9a2c7c95ad23d57bbbaf927221c13.json",
+        "value": null,
+        "reuseChain": []
+      },
+      "dependencies": [],
+      "bestNextStep": "Keep the blocked receipt. Preserve a bounded denial/Retry-After/redirect diagnostic on a future already-authorized ordinary attempt; no endpoint/host bypass or immediate403 retry is supported."
+    },
+    {
+      "sourceId": "cohesity:official:1",
+      "taskId": "9709ff57e5b23d9ebebf9a75a5a6b381ba3cca1f09d0a40cd3446c98d7a982d1",
+      "url": "https://www.cohesity.com/sitemap.us.xml",
+      "sourceContract": {
+        "allowedHosts": [
+          "www.cohesity.com"
+        ],
+        "family": "official_announcements",
+        "id": "cohesity:official:1",
+        "kind": "sitemap",
+        "maxPages": 60,
+        "registration": "verified",
+        "registrationProof": {
+          "checkedAt": "2026-10-20T21:11:33.971692Z",
+          "endpoint": {
+            "bytes": 341204,
+            "key": "objects/774f5e035b006d0507db4dc02cfd44c316f866c2e3c4f25094dfc3b72618a506",
+            "sha256": "774f5e035b006d0507db4dc02cfd44c316f866c2e3c4f25094dfc3b72618a506"
+          },
+          "matchedExistingEvidence": true,
+          "scope": "Declared official announcement sections of publisher sitemap"
+        },
+        "required": true,
+        "scopePrefixes": [
+          "/newsroom/"
+        ],
+        "seedEvidenceUrls": [
+          "https://www.cohesity.com/newsroom/press/cohesity-becomes-worlds-largest-data-protection-provider-after-completing-combination-with-veritas-enterprise-data-protection-business/"
+        ],
+        "supplierId": "cohesity",
+        "url": "https://www.cohesity.com/sitemap.us.xml"
+      },
+      "originalTaskReceipt": {
+        "attemptId": "2f9b519453bd4df36c09a987a9936d2753f9569af5c0445d50fea2c0ef1afb43",
+        "completedAt": "2026-10-25T09:56:29.260584Z",
+        "discoveryComplete": false,
+        "discoveryRecorded": true,
+        "documentValidations": [],
+        "errorCode": "HTTP_403",
+        "indexSignatureBindings": [],
+        "itemManifest": {
+          "bytes": 162,
+          "key": "objects/ce20a640183dac47e9e0b18974ba92ab3301891ce76d37b5880158efeb17badd",
+          "sha256": "ce20a640183dac47e9e0b18974ba92ab3301891ce76d37b5880158efeb17badd"
+        },
+        "newFactIds": [],
+        "observationIds": [
+          "b4b4bf012ce970af21847c1bc3f2ceca166d2963e9c5c79a5c71ca4e39e9f7f7"
+        ],
+        "outcome": "blocked",
+        "pendingDocuments": 0,
+        "processingManifest": {
+          "bytes": 359,
+          "key": "objects/ff152f4af6cf98f655a24f14076ddd6f217179c64c2397d5a4df02ca0d7dad46",
+          "sha256": "ff152f4af6cf98f655a24f14076ddd6f217179c64c2397d5a4df02ca0d7dad46"
+        },
+        "retainedAuditBindings": [],
+        "retainedAuditCompatibility": {
+          "bytes": 197,
+          "key": "objects/249cd8e93585c8db936678555fe8157bbc78c5ea7ec02274a1b25ffaac0a0dd4",
+          "sha256": "249cd8e93585c8db936678555fe8157bbc78c5ea7ec02274a1b25ffaac0a0dd4"
+        },
+        "retainedAuditDocuments": 0,
+        "retainedAuditUnbound": [],
+        "retainedAuditVersion": 2,
+        "retainedInventoryManifest": {
+          "bytes": 45,
+          "key": "objects/059b804b9552e02af187c0c332d9852f4821095eb8e36bc43c270f867d73d818",
+          "sha256": "059b804b9552e02af187c0c332d9852f4821095eb8e36bc43c270f867d73d818"
+        },
+        "retainedInventoryPredecessors": [
+          {
+            "attemptId": "8c7989a65d81812a0d0ff60433f5de9ebb88a6c164d895559a69c8ca16a24be5",
+            "coverage": {
+              "bytes": 1584749,
+              "key": "objects/84944031bfb3c6e2b8524f79670015ff4d003f240b8c938d7355f83dccafda87",
+              "sha256": "84944031bfb3c6e2b8524f79670015ff4d003f240b8c938d7355f83dccafda87"
+            },
+            "runId": "26863a52238929063d5a6191c7e390dbeacf413920d84ac1b4f2f58bed8cdde7",
+            "taskId": "e581b8b3248d4e254b8c0be5586b3b111fd484ed627e7431a2dede4dd513f9fb"
+          },
+          {
+            "attemptId": "cb116eaab1f80c76fdd519e36f657b350befa0c625b93017a6c9e28650191701",
+            "receipt": {
+              "bytes": 4927,
+              "key": "objects/510ad1990c104139f5019736e245cb2152fa505f012b60fc60ab05fe9cf33052",
+              "sha256": "510ad1990c104139f5019736e245cb2152fa505f012b60fc60ab05fe9cf33052"
+            },
+            "runId": "2c57fb25697bfc4b40df574890334adfa1d6d0df610837e12aa3a71e22515523",
+            "taskId": "c1b5af4af3cd2e2d834c459aed7a38a93f75e2b293b84217e4495665283fda8d"
+          },
+          {
+            "attemptId": "8194271c3cd959a904c6068709cbc74b3a2631946ed4979202d758bbac2d60d6",
+            "coverage": {
+              "bytes": 523435,
+              "key": "objects/d4676c36f29521128203b433bd13358364ffc5f6a0c08b553d37b18b4702638c",
+              "sha256": "d4676c36f29521128203b433bd13358364ffc5f6a0c08b553d37b18b4702638c"
+            },
+            "runId": "a466a48826e856d93851c0e8eedf76b47ab3e5cd957086b78196337792b6698d",
+            "taskId": "2e9825f5b3317619824f12977260c6996a37690945ec45bdf8324de88a7e874b"
+          },
+          {
+            "attemptId": "8e3bc725558daaf19390d9e0bbebb2763e04d0bb91d32f64cd2425f9b18d247a",
+            "receipt": {
+              "bytes": 751,
+              "key": "objects/858c664d9131c969b1561805ea3514ba315501bb881cc657effa571c15cb37be",
+              "sha256": "858c664d9131c969b1561805ea3514ba315501bb881cc657effa571c15cb37be"
+            },
+            "runId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+            "taskId": "37ecebb3db9785cdf87d18169b0fd38e88444ac7dbc88d7e524a464ad79709cd"
+          },
+          {
+            "attemptId": "cb7871d1d14cd328ac257f0160f3e4c1f5113352d8b7a8740707986d56b01083",
+            "receipt": {
+              "bytes": 751,
+              "key": "objects/a7c4847a6c1f04f23c60679c7cdf29d8e6f2786621d42d310b24b7a26466ca98",
+              "sha256": "a7c4847a6c1f04f23c60679c7cdf29d8e6f2786621d42d310b24b7a26466ca98"
+            },
+            "runId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+            "taskId": "37ecebb3db9785cdf87d18169b0fd38e88444ac7dbc88d7e524a464ad79709cd"
+          },
+          {
+            "attemptId": "6b549ec973f24521561946286510d451943e958837ef137a23c328bce5443bbd",
+            "receipt": {
+              "bytes": 5341,
+              "key": "objects/678186131d167d2363d002428db0638254a5ea6c2dbecc0056677dcb5ae333d2",
+              "sha256": "678186131d167d2363d002428db0638254a5ea6c2dbecc0056677dcb5ae333d2"
+            },
+            "runId": "d1b5cbbf41ba2d8dfcb05a7ff2a2b00b7faada68dcaf3224ad4c7702b2d63b22",
+            "taskId": "9709ff57e5b23d9ebebf9a75a5a6b381ba3cca1f09d0a40cd3446c98d7a982d1"
+          },
+          {
+            "attemptId": "16157f6ecc87a7814128eb80a9126816f1a720aaadab114bfbd2a8b4175deee2",
+            "coverage": {
+              "bytes": 462995,
+              "key": "objects/370c35cf48074658a53f920c66b4ba1e4be711a158111fd04a03ad9c8cfde410",
+              "sha256": "370c35cf48074658a53f920c66b4ba1e4be711a158111fd04a03ad9c8cfde410"
+            },
+            "runId": "e054ea73c89fe78db9702f94d2a3b669ce91884f7d7abda0a88698dbcfc7ec50",
+            "taskId": "f4b2d08b552ac0bb8ed15083c7c638b3a1d94377ba598ed22cb7e8aea964401d"
+          },
+          {
+            "attemptId": "756e6a153f7031aa778b4cef1930216db3e4b196db4356d9fe8875e9e5106a77",
+            "coverage": {
+              "bytes": 503331,
+              "key": "objects/12baabcbf3f9eff5fab2022949c57ff5ffbf14b3361a715f67dafc8421ed87cb",
+              "sha256": "12baabcbf3f9eff5fab2022949c57ff5ffbf14b3361a715f67dafc8421ed87cb"
+            },
+            "runId": "e054ea73c89fe78db9702f94d2a3b669ce91884f7d7abda0a88698dbcfc7ec50",
+            "taskId": "f4b2d08b552ac0bb8ed15083c7c638b3a1d94377ba598ed22cb7e8aea964401d"
+          },
+          {
+            "attemptId": "138f0cd30dfe61d47cd10fe4f63300fb18f85dd64c6f91acb9768a9e4d37daf0",
+            "receipt": {
+              "bytes": 4099,
+              "key": "objects/4d4041d3f64d9b7d5f20b8020bb99fb4b084aa7946f7209350ec3c2e3fafd0fb",
+              "sha256": "4d4041d3f64d9b7d5f20b8020bb99fb4b084aa7946f7209350ec3c2e3fafd0fb"
+            },
+            "runId": "f484565fc865f03670ad413a1e4bd5ccb4c6b6b571b5a314f4bc251d591638b0",
+            "taskId": "5d298da75d95b124cef02369f4c102278c221700b6bd25f1d30314ac141cc885"
+          },
+          {
+            "attemptId": "3def80dd72ac85da44ad63200b93415f764a3785f8e593cb961330005f35cdd7",
+            "receipt": {
+              "bytes": 4513,
+              "key": "objects/a2a9ab0d08ad8fd05bd5aaeec4fdabc4cacfeb012cd08c32c20c399f71d03800",
+              "sha256": "a2a9ab0d08ad8fd05bd5aaeec4fdabc4cacfeb012cd08c32c20c399f71d03800"
+            },
+            "runId": "f484565fc865f03670ad413a1e4bd5ccb4c6b6b571b5a314f4bc251d591638b0",
+            "taskId": "5d298da75d95b124cef02369f4c102278c221700b6bd25f1d30314ac141cc885"
+          }
+        ],
+        "revalidationCursors": [],
+        "runId": "d1b5cbbf41ba2d8dfcb05a7ff2a2b00b7faada68dcaf3224ad4c7702b2d63b22",
+        "sourceId": "cohesity:official:1",
+        "startedAt": "2026-10-25T09:56:26.776082Z",
+        "supplierId": "cohesity",
+        "taskId": "9709ff57e5b23d9ebebf9a75a5a6b381ba3cca1f09d0a40cd3446c98d7a982d1",
+        "validatedFacts": []
+      },
+      "originalObservations": [
+        {
+          "reference": {
+            "key": "observations/b4b4bf012ce970af21847c1bc3f2ceca166d2963e9c5c79a5c71ca4e39e9f7f7.json",
+            "sha256": "43b4508af9acd83c80edf676dfba43fb5d8488d62c408daf6e2b1417e9c362be",
+            "bytes": 299
+          },
+          "value": {
+            "errorCode": "HTTP_403",
+            "fetchedAt": "2026-10-25T09:56:27.059547Z",
+            "httpStatus": 403,
+            "observationId": "b4b4bf012ce970af21847c1bc3f2ceca166d2963e9c5c79a5c71ca4e39e9f7f7",
+            "requestedUrl": "https://www.cohesity.com/sitemap.us.xml",
+            "sourceId": "cohesity:official:1",
+            "status": "blocked",
+            "transportReused": false
+          }
+        }
+      ],
+      "classification": "observed_http_403_request_failure",
+      "httpStatus": 403,
+      "unknowns": [
+        "No retained denial response body, Retry-After, response host or access-rule explanation."
+      ],
+      "latestRetainedSuccessfulDownloadHead": {
+        "key": "heads/download-a939d46bd66456d74c2ad2574b3f13c1aa6cc8c87cf548a1f9aa1f8cbf2ed1cd.json",
+        "value": null,
+        "reuseChain": []
+      },
+      "dependencies": [
+        "cohesity:official:1",
+        "cohesity:citation:TR-cohesity-1",
+        "Both current requests use the already-approved www.cohesity.com host."
+      ],
+      "bestNextStep": "Keep the blocked receipt. Preserve a bounded denial/Retry-After/redirect diagnostic on a future already-authorized ordinary attempt; no endpoint/host bypass or immediate403 retry is supported."
+    },
+    {
+      "sourceId": "axonius:official:1",
+      "taskId": "b884fa4ed7d81998eb46e28fdb8525dc04f544f1546827c77823cf729ab055a1",
+      "url": "https://www.axonius.com/sitemap.xml",
+      "sourceContract": {
+        "allowedHosts": [
+          "www.axonius.com"
+        ],
+        "family": "official_announcements",
+        "id": "axonius:official:1",
+        "kind": "sitemap",
+        "maxPages": 60,
+        "registration": "verified",
+        "registrationProof": {
+          "checkedAt": "2026-10-20T21:11:27.072079Z",
+          "endpoint": {
+            "bytes": 126325,
+            "key": "objects/5c05ad756df3479a8debae9ff5470b81d2a8b4c076f9c9c4e7a92bce3a648ab5",
+            "sha256": "5c05ad756df3479a8debae9ff5470b81d2a8b4c076f9c9c4e7a92bce3a648ab5"
+          },
+          "matchedExistingEvidence": true,
+          "scope": "Declared official announcement sections of publisher sitemap"
+        },
+        "required": true,
+        "scopePrefixes": [
+          "/company/newsroom/",
+          "/newsroom/"
+        ],
+        "seedEvidenceUrls": [
+          "https://www.axonius.com/newsroom/press-release/axonius-surpasses-200m-arr-appoints-joe-diamond-ceo",
+          "https://www.axonius.com/newsroom/press-release/axonius-surpasses-200m-arr-appoints-joe-diamond-ceo",
+          "https://www.axonius.com/newsroom/press-release/axonius-closes-200m-series-e-funding-round"
+        ],
+        "supplierId": "axonius",
+        "url": "https://www.axonius.com/sitemap.xml"
+      },
+      "originalTaskReceipt": {
+        "attemptId": "e5fd57c30d1681f8e662a8dec2f0ce825a3716b1f8ba473fabbd5dab6b448501",
+        "completedAt": "2026-10-25T09:56:34.662505Z",
+        "discoveryComplete": false,
+        "discoveryRecorded": true,
+        "documentValidations": [],
+        "errorCode": "HTTP_429",
+        "indexSignatureBindings": [],
+        "itemManifest": {
+          "bytes": 161,
+          "key": "objects/64b96481a103af271ee2eab8e7313c5e32e5750d9f31c86c76bbc58bbdd52090",
+          "sha256": "64b96481a103af271ee2eab8e7313c5e32e5750d9f31c86c76bbc58bbdd52090"
+        },
+        "newFactIds": [],
+        "observationIds": [
+          "317df6ef676d7ca459340694818c6c2b75b3d33d13bab3380f367a98d12c2a89"
+        ],
+        "outcome": "blocked",
+        "pendingDocuments": 0,
+        "processingManifest": {
+          "bytes": 358,
+          "key": "objects/e1739fa209e37c7b53f9a155225995d412eb675106da3fd2bd7d737a25d1a3e5",
+          "sha256": "e1739fa209e37c7b53f9a155225995d412eb675106da3fd2bd7d737a25d1a3e5"
+        },
+        "retainedAuditBindings": [],
+        "retainedAuditCompatibility": {
+          "bytes": 197,
+          "key": "objects/249cd8e93585c8db936678555fe8157bbc78c5ea7ec02274a1b25ffaac0a0dd4",
+          "sha256": "249cd8e93585c8db936678555fe8157bbc78c5ea7ec02274a1b25ffaac0a0dd4"
+        },
+        "retainedAuditDocuments": 0,
+        "retainedAuditUnbound": [],
+        "retainedAuditVersion": 2,
+        "retainedInventoryManifest": {
+          "bytes": 44,
+          "key": "objects/40c443e9e4bc6f577519d6035777872521b7b361f3c5a6c45bc53f337e9ba222",
+          "sha256": "40c443e9e4bc6f577519d6035777872521b7b361f3c5a6c45bc53f337e9ba222"
+        },
+        "retainedInventoryPredecessors": [
+          {
+            "attemptId": "f894c45059bf81d0011aa25925c9f1958552d55cb39f1256dc85f5298f498a6a",
+            "coverage": {
+              "bytes": 1584749,
+              "key": "objects/84944031bfb3c6e2b8524f79670015ff4d003f240b8c938d7355f83dccafda87",
+              "sha256": "84944031bfb3c6e2b8524f79670015ff4d003f240b8c938d7355f83dccafda87"
+            },
+            "runId": "26863a52238929063d5a6191c7e390dbeacf413920d84ac1b4f2f58bed8cdde7",
+            "taskId": "c28d66bc5256a4ea3f93e8be907bc032c6bf2a8b0d19175f02a1bdf536443d52"
+          },
+          {
+            "attemptId": "3101cb3f69a2ae4519ba378f262bdf3d10932f317b771d90076633d2cd7ec7e7",
+            "receipt": {
+              "bytes": 4925,
+              "key": "objects/a3b899ba897f95e55149823d965b2824d9caf1a0d44bb22ea36a22b6aec1dda4",
+              "sha256": "a3b899ba897f95e55149823d965b2824d9caf1a0d44bb22ea36a22b6aec1dda4"
+            },
+            "runId": "2c57fb25697bfc4b40df574890334adfa1d6d0df610837e12aa3a71e22515523",
+            "taskId": "01619e2ea68d9c7f719676d34c39c1f99063221c214f6420762b0c4616863047"
+          },
+          {
+            "attemptId": "bb980fb4055dca78b147d48d6af27cd87227b807c3c8b083910e855596ece2ab",
+            "coverage": {
+              "bytes": 523435,
+              "key": "objects/d4676c36f29521128203b433bd13358364ffc5f6a0c08b553d37b18b4702638c",
+              "sha256": "d4676c36f29521128203b433bd13358364ffc5f6a0c08b553d37b18b4702638c"
+            },
+            "runId": "a466a48826e856d93851c0e8eedf76b47ab3e5cd957086b78196337792b6698d",
+            "taskId": "249c9f2ca6354e5fea995df457035190d8b7538ede7a78103f33384f0f430853"
+          },
+          {
+            "attemptId": "6ff826e306a26df6c33d46f20c2fa1ac4d272f7b3493bad8b888ae740382f561",
+            "receipt": {
+              "bytes": 749,
+              "key": "objects/71ba679dfab24aa512383031c9b974edc95a3b7ecd97e39cab2d69ec6842c892",
+              "sha256": "71ba679dfab24aa512383031c9b974edc95a3b7ecd97e39cab2d69ec6842c892"
+            },
+            "runId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+            "taskId": "148b2facf1c37634b943e70efa63b4ea128a384b1d5d8b9d1b693bd396229ece"
+          },
+          {
+            "attemptId": "74812b4e1ecd0965b60669cbdf4d38745274bf3664229773c3a96b808d789a00",
+            "receipt": {
+              "bytes": 749,
+              "key": "objects/278ef2a661524161b2c9f9390e818eb71bf9fe77aae5dfea3ebde1aa7b583b5d",
+              "sha256": "278ef2a661524161b2c9f9390e818eb71bf9fe77aae5dfea3ebde1aa7b583b5d"
+            },
+            "runId": "be3ec51a71ea46309569073b255f5eeb5191165c012dde7c41aee3bdb752decd",
+            "taskId": "148b2facf1c37634b943e70efa63b4ea128a384b1d5d8b9d1b693bd396229ece"
+          },
+          {
+            "attemptId": "435e9031fd9e74ff35b88179a1fe8b02a83631faf27fed5bf3f9e1ce5d983a43",
+            "receipt": {
+              "bytes": 5339,
+              "key": "objects/ee79864c1b32578f3349b531fae06718e822cd8fc3f50f5f32d05ed2992bd140",
+              "sha256": "ee79864c1b32578f3349b531fae06718e822cd8fc3f50f5f32d05ed2992bd140"
+            },
+            "runId": "d1b5cbbf41ba2d8dfcb05a7ff2a2b00b7faada68dcaf3224ad4c7702b2d63b22",
+            "taskId": "b884fa4ed7d81998eb46e28fdb8525dc04f544f1546827c77823cf729ab055a1"
+          },
+          {
+            "attemptId": "91898063778dfee78b0480278e2d965b641d29dcbc616e0783e7c3ddf574032f",
+            "coverage": {
+              "bytes": 462995,
+              "key": "objects/370c35cf48074658a53f920c66b4ba1e4be711a158111fd04a03ad9c8cfde410",
+              "sha256": "370c35cf48074658a53f920c66b4ba1e4be711a158111fd04a03ad9c8cfde410"
+            },
+            "runId": "e054ea73c89fe78db9702f94d2a3b669ce91884f7d7abda0a88698dbcfc7ec50",
+            "taskId": "e252e13404654a5b50b76ea47a351d3fea55c3ff53217f74b9c499c7c2127287"
+          },
+          {
+            "attemptId": "c267b92bf0409a16a3269a21d59f512d1bf35f04d6bc79e35093364c0602ce6f",
+            "coverage": {
+              "bytes": 503331,
+              "key": "objects/12baabcbf3f9eff5fab2022949c57ff5ffbf14b3361a715f67dafc8421ed87cb",
+              "sha256": "12baabcbf3f9eff5fab2022949c57ff5ffbf14b3361a715f67dafc8421ed87cb"
+            },
+            "runId": "e054ea73c89fe78db9702f94d2a3b669ce91884f7d7abda0a88698dbcfc7ec50",
+            "taskId": "e252e13404654a5b50b76ea47a351d3fea55c3ff53217f74b9c499c7c2127287"
+          },
+          {
+            "attemptId": "892d3f4a13fac05c3b55d9bd4637886fd4616df9a6023d0b8ad7c12de6c3f81c",
+            "receipt": {
+              "bytes": 4511,
+              "key": "objects/30ca0414e25c09f86f5647e2c1fe8d410fe01bf4cc2acd291b49667dd5fc846b",
+              "sha256": "30ca0414e25c09f86f5647e2c1fe8d410fe01bf4cc2acd291b49667dd5fc846b"
+            },
+            "runId": "f484565fc865f03670ad413a1e4bd5ccb4c6b6b571b5a314f4bc251d591638b0",
+            "taskId": "f8aa6ee851ff68f140f6cbd884fd78ea2577e47cef508950d6a652d448d4a57a"
+          },
+          {
+            "attemptId": "cfdfb44b0fb0a0b131ec69f0eaeca1147ee11b5bf172cd65ad8b87d5e3711e31",
+            "receipt": {
+              "bytes": 4097,
+              "key": "objects/74688fc47fc2343fb7613080449ae1cbc756b6525a28f9a1ca320d4f04386f90",
+              "sha256": "74688fc47fc2343fb7613080449ae1cbc756b6525a28f9a1ca320d4f04386f90"
+            },
+            "runId": "f484565fc865f03670ad413a1e4bd5ccb4c6b6b571b5a314f4bc251d591638b0",
+            "taskId": "f8aa6ee851ff68f140f6cbd884fd78ea2577e47cef508950d6a652d448d4a57a"
+          }
+        ],
+        "revalidationCursors": [],
+        "runId": "d1b5cbbf41ba2d8dfcb05a7ff2a2b00b7faada68dcaf3224ad4c7702b2d63b22",
+        "sourceId": "axonius:official:1",
+        "startedAt": "2026-10-25T09:56:32.729217Z",
+        "supplierId": "axonius",
+        "taskId": "b884fa4ed7d81998eb46e28fdb8525dc04f544f1546827c77823cf729ab055a1",
+        "validatedFacts": []
+      },
+      "originalObservations": [
+        {
+          "reference": {
+            "key": "observations/317df6ef676d7ca459340694818c6c2b75b3d33d13bab3380f367a98d12c2a89.json",
+            "sha256": "982c6af4f465e0b975c9b84bd19bdcce408c91bd3562838761fbc7a941fa1f7c",
+            "bytes": 294
+          },
+          "value": {
+            "errorCode": "HTTP_429",
+            "fetchedAt": "2026-10-25T09:56:32.958986Z",
+            "httpStatus": 429,
+            "observationId": "317df6ef676d7ca459340694818c6c2b75b3d33d13bab3380f367a98d12c2a89",
+            "requestedUrl": "https://www.axonius.com/sitemap.xml",
+            "sourceId": "axonius:official:1",
+            "status": "blocked",
+            "transportReused": false
+          }
+        }
+      ],
+      "classification": "observed_http_429_request_failure",
+      "httpStatus": 429,
+      "unknowns": [
+        "No retained denial response body, Retry-After, response host or access-rule explanation."
+      ],
+      "latestRetainedSuccessfulDownloadHead": {
+        "key": "heads/download-8070ff2011b9f4a28b3b88c69e71d3e890ae094efa7aaa2e0dbcd3f7e590c860.json",
+        "value": null,
+        "reuseChain": []
+      },
+      "dependencies": [
+        "axonius:official:1",
+        "The TR-axonius-1 and TR-axonius-2 tasks request exactly the same URL."
+      ],
+      "bestNextStep": "Keep the four Axonius gaps. Retain Retry-After and host-limited cooldown metadata on the next ordinary request; do not invent the missing header or automatically retry now."
+    }
+  ],
+  "counts": {
+    "ordinaryTasks": 14,
+    "boundHTTP403": 9,
+    "boundHTTP429": 4,
+    "hostPolicyExceptionWithoutObservation": 1
+  },
+  "SysdigCandidateSourceContract": {
+    "allowedHosts": [
+      "sysdig.com"
+    ],
+    "family": "official_announcements",
+    "id": "sysdig:official:1",
+    "kind": "official_discovery",
+    "maxPages": 60,
+    "registration": "candidate",
+    "required": true,
+    "scopePrefixes": [
+      "/news",
+      "/press",
+      "/blog",
+      "/company",
+      "/investor",
+      "/resources"
+    ],
+    "seedEvidenceUrls": [
+      "https://sysdig.com/press-releases/sysdig-names-hatem-naguib-as-ceo-to-lead-next-generation-of-ai-driven-cloud-security"
+    ],
+    "supplierId": "sysdig",
+    "url": "https://sysdig.com/"
+  },
+  "separateSysdigChargedProbes": [
+    {
+      "runId": "40131875060",
+      "event": "workflow_dispatch",
+      "appRevision": "ad50865eae2abbe03b3105c363d5804951184e2d",
+      "recordReference": {
+        "key": "ci/source-probe-runs/40131875060-1.json",
+        "sha256": "90f8b45b299dd868fd558d1218fd1e0bcc0fda59c46d9f9a779352d461596aee",
+        "bytes": 90157
+      },
+      "originalSourceResult": {
+        "budgetDenied": false,
+        "checkedAt": "2026-10-24T20:58:15.847124Z",
+        "coverageCredit": false,
+        "endpoints": [],
+        "executionCompleted": true,
+        "facts": [],
+        "fetchReservations": [
+          {
+            "budgetDay": "2026-10-24",
+            "chargedFetchCount": 2066,
+            "fetchLimit": 5500,
+            "url": "https://sysdig.com/"
+          }
+        ],
+        "observations": [],
+        "qualified": false,
+        "reason": "ContractError",
+        "registration": "candidate",
+        "reservationDenials": [],
+        "semanticAdmission": false,
+        "sourceId": "sysdig:official:1",
+        "supplierId": "sysdig"
+      },
+      "httpStatus": null,
+      "classification": "charged_ContractError_without_bound_observation",
+      "limitations": "ContractError is an exception class, not an HTTP status. Its exact cause and target cannot be recovered from this row."
+    },
+    {
+      "runId": "40190857026",
+      "event": "workflow_dispatch",
+      "appRevision": "bd38e818f4aa7d2bae2169178a02047d252b260c",
+      "recordReference": {
+        "key": "ci/source-probe-runs/40190857026-1.json",
+        "sha256": "29a164eeceecc2c1796b02c536c9b8ce91f02d1497a09544731f627698992766",
+        "bytes": 89630
+      },
+      "originalSourceResult": {
+        "budgetDenied": false,
+        "checkedAt": "2026-10-25T11:59:06.487975Z",
+        "coverageCredit": false,
+        "endpoints": [],
+        "executionCompleted": true,
+        "facts": [],
+        "fetchReservations": [
+          {
+            "budgetDay": "2026-10-25",
+            "chargedFetchCount": 961,
+            "fetchLimit": 5500,
+            "url": "https://sysdig.com/"
+          }
+        ],
+        "observations": [],
+        "qualified": false,
+        "reason": "ContractError",
+        "registration": "candidate",
+        "reservationDenials": [],
+        "semanticAdmission": false,
+        "sourceId": "sysdig:official:1",
+        "supplierId": "sysdig"
+      },
+      "httpStatus": null,
+      "classification": "charged_ContractError_without_bound_observation",
+      "limitations": "ContractError is an exception class, not an HTTP status. Its exact cause and target cannot be recovered from this row."
+    },
+    {
+      "runId": "40193925490",
+      "event": "workflow_dispatch",
+      "appRevision": "5debbd9e3ed855d9c6f5bda25468dac1371532d6",
+      "recordReference": {
+        "key": "ci/source-probe-runs/40193925490-1.json",
+        "sha256": "b8647f4b94b840e240f2d5362e1ab090479c9a08d9a31f85647097dec0bf29b4",
+        "bytes": 104384
+      },
+      "originalSourceResult": {
+        "budgetDenied": false,
+        "checkedAt": "2026-10-25T12:41:40.643851Z",
+        "coverageCredit": false,
+        "endpoints": [],
+        "executionCompleted": true,
+        "facts": [],
+        "fetchReservations": [
+          {
+            "budgetDay": "2026-10-25",
+            "chargedFetchCount": 1077,
+            "fetchLimit": 5500,
+            "url": "https://sysdig.com/"
+          }
+        ],
+        "observations": [],
+        "qualified": false,
+        "reason": "ContractError",
+        "registration": "candidate",
+        "reservationDenials": [],
+        "semanticAdmission": false,
+        "sourceId": "sysdig:official:1",
+        "supplierId": "sysdig"
+      },
+      "httpStatus": null,
+      "classification": "charged_ContractError_without_bound_observation",
+      "limitations": "ContractError is an exception class, not an HTTP status. Its exact cause and target cannot be recovered from this row."
+    }
+  ],
+  "proposedFixes": [
+    {
+      "id": "ACCESS-OBSERVABILITY",
+      "withinExistingAuthority": true,
+      "scope": "A proposed code change only; not implemented.",
+      "exactChange": "Use the existing bounded redirect diagnostics on ordinary and any separately authorized explicit diagnostic caller; also retain typed failure information for initial/final-URL checks and a narrow allowlist of denial headers such as Retry-After. Preserve the original exception stage/message and only assign an HTTP status when an actual response supplies it.",
+      "unchanged": [
+        "exact URLs",
+        "allowedHosts",
+        "source scope/registration",
+        "host/DNS/TLS/redirect validation",
+        "HTTP200/actual304 success rules",
+        "source/model/gate limits",
+        "old failure receipts"
+      ],
+      "acceptance": "Offline tests must show the same unapproved-target rejection without a second request, no synthetic HTTP status for pre-response errors, bounded diagnostics, and no intake/freshness credit."
+    },
+    {
+      "id": "AXONIUS-RESPECTFUL-BACKOFF",
+      "withinExistingAuthority": true,
+      "scope": "A proposed code design, subject to bounded tests; not evidence of recovery.",
+      "exactChange": "Preserve actual Retry-After on429 and coordinate a shared host cooldown under the existing daily/runtime limits. If work is deferred, record a typed deferred/unknown outcome linked to the triggering response; do not fabricate another HTTP429 or refund a charged request. Keep403 non-retrying.",
+      "acceptance": "Test valid/invalid/missing Retry-After, concurrent same-host tasks, deadline/day/cancellation and remaining reservation accounting. Reduce repeated requests; never bypass source access or claim recovered data."
+    },
+    {
+      "id": "SYSDIG-HOST-CHANGE",
+      "withinExistingAuthority": false,
+      "scope": "No concrete host-policy fix is supported yet.",
+      "exactChange": null,
+      "requiredEvidence": "A real retained redirect or final-URL diagnostic identifying the rejected target, followed by source ownership/scope verification and a separately reviewed exact policy change if required."
+    }
+  ],
+  "conclusions": [
+    "The thirteen HTTP errors are bound to exact requested URLs, not a proven publisher/WAF/paywall/proxy diagnosis. Their original responses did not retain enough denial metadata to distinguish those causes.",
+    "The Sysdig citation guard rejects an unapproved host, but its exact target/stage is absent; the initial URL itself is in the allowed host list. The generic charged ContractError remains unclassified.",
+    "No endpoint or allowlist defect is established by the retained evidence. New guessed routes, aliases, credentials or access bypass are not supported.",
+    "Older retained successful bytes keep their original clocks and cannot replace a newer failed forced check or grant current intake credit.",
+    "The old H task identifiers are historical. A real J run has its own identifiers; all fourteen relevant source rows are unchanged by J."
+  ],
+  "codePins": {
+    "web/scripts/pipeline/fetcher.py": {
+      "sha256": "82084e87bb41687fec8ebfc969cf0a37294e04312a47a27993f5c359a585adce",
+      "bytes": 10828,
+      "mtimeNs": 1792919139082066117
+    },
+    "web/scripts/pipeline/engine.py": {
+      "sha256": "e471f18006a4899406510cdede42829476ba1945b58c420c61f6edce767a7e19",
+      "bytes": 54002,
+      "mtimeNs": 1792919139081836951
+    },
+    "web/scripts/pipeline/onboarding.py": {
+      "sha256": "f15e008c081f0b9c48e53ab0b4c4388798d2bd54aaade904188b40305aa6bb69",
+      "bytes": 112821,
+      "mtimeNs": 1792863209004844673
+    },
+    "ops/ci/collect.py": {
+      "sha256": "77f3aaeb56514b538452e39d3eda30358ee1bdbba88b593d4da10ee0d71d04ce",
+      "bytes": 26500,
+      "mtimeNs": 1792934078746088073
+    }
+  },
+  "inputSealsBeforeAfter": {
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/archive-manifest.json": {
+      "sha256": "148842177a7e7d9a5fd5c2ea4574576264a957b41958ee4cdf5effa80ea029c2",
+      "bytes": 10012399,
+      "mtimeNs": 1792932277617133137
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/heads/latest-run.json": {
+      "sha256": "f7709a9db99a0c4c6cb4858020bc3f99769f0d5e61dbb95e351efaf1237a2bd0",
+      "bytes": 261,
+      "mtimeNs": 1792922966199237820
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/objects/d1416d6ff505375b40518089cbff3392cf91edfb3a7befde63093bff8ff8098d": {
+      "sha256": "d1416d6ff505375b40518089cbff3392cf91edfb3a7befde63093bff8ff8098d",
+      "bytes": 1169694,
+      "mtimeNs": 1792922968934510621
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/contracts/8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db.json": {
+      "sha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+      "bytes": 204449,
+      "mtimeNs": 1792922965997471591
+    },
+    "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/contracts/market.json": {
+      "sha256": "bb9735d073e41a0a22bdcfd315419c59e8791b82be34bc73ead699530147b3e6",
+      "bytes": 287122,
+      "mtimeNs": 1792934078732829965
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/observations/1743279a15abba9f887cfc9596fd05590afa63b83371394c2019e316f2e6d7da.json": {
+      "sha256": "accda0d4e133cd35993b73ba0f61b1f80cedb027faea8a4428cbc8cd890e9be8",
+      "bytes": 439,
+      "mtimeNs": 1792922969558840688
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/heads/download-5c601e5fe54ee32aea40225a0ecc058599849a25251c66d663d663bdb3281588.json": {
+      "sha256": "cc3a01e2e63e11982638bd1841ce4e76816f85fc16244a631255b95a9791254b",
+      "bytes": 828,
+      "mtimeNs": 1792922966094275609
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/objects/a53d58b7dcdd45a4eb8120e2cc2b50277ba4266762c640c67e04c1f0bbcb3143": {
+      "sha256": "a53d58b7dcdd45a4eb8120e2cc2b50277ba4266762c640c67e04c1f0bbcb3143",
+      "bytes": 76366,
+      "mtimeNs": 1792922968391691853
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/observations/3270e10818a650aa5a7a3efec2b166d88d9ad81da799abb2aae89a92e538f441.json": {
+      "sha256": "53cdc0e5bc4b009895a69f3d3ceb32446e6fcb7cdf5baf808d8785483379b584",
+      "bytes": 340,
+      "mtimeNs": 1792922969597823778
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/observations/f0dbed1e09d4853ef49d917993bbff0a5b6edcd1675add5f7861242e3b3958ec.json": {
+      "sha256": "1f0a5bb6695a96391bd8f6273d3101e9985c47eae1f9742a5d52ab5189250bf5",
+      "bytes": 368,
+      "mtimeNs": 1792922969871101492
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/heads/download-2975bfc4dbaa538f61e26292b4f83959e3cab8ae5e4a074100b676324348a209.json": {
+      "sha256": "3d299e6ad613a4962e426b07cf273729f45a86469f013b9f3af39084a5dedc4e",
+      "bytes": 687,
+      "mtimeNs": 1792922966060513925
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/objects/fc61e42b58bbb4db54b166aea00855e5e8ead7776fa447754e94d7257df23f68": {
+      "sha256": "fc61e42b58bbb4db54b166aea00855e5e8ead7776fa447754e94d7257df23f68",
+      "bytes": 186365,
+      "mtimeNs": 1792922969477218223
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/observations/d26e0aab0be3dc8a57641123af75860eee01de439cfe36961555080ecc8c2d45.json": {
+      "sha256": "8a040d029ab64ff20f590efc8f8e607cdd25baef05aa3d961fcd1ca4defc624c",
+      "bytes": 447,
+      "mtimeNs": 1792922969827953910
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/heads/download-749d4b7eae94e0f71c1028ab499f1b5bfa93fd4378bfebd5e9e0d79d1f2f91e0.json": {
+      "sha256": "9d0d6c10a20a4dd71767e8d59180529f4d55d3e96128048b5c55a77344f340fe",
+      "bytes": 989,
+      "mtimeNs": 1792922966109779871
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/objects/f3dea4c649eb1c7c8beb7933735e406ad59af22b9d2f8f530aef387edabe7083": {
+      "sha256": "f3dea4c649eb1c7c8beb7933735e406ad59af22b9d2f8f530aef387edabe7083",
+      "bytes": 189409,
+      "mtimeNs": 1792922969379053916
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/observations/f2563da9f4a009dc929a214739e1ee4fa3f0483a4fdf180e822005a995bb251d.json": {
+      "sha256": "c618bf92a680b55c77e58ae8e50021aa0affd631fb1ac86936f485edea28e695",
+      "bytes": 989,
+      "mtimeNs": 1792922969872681531
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/observations/7bc87f42936ad4dff3b9b21e0fefde10d277c6eac3a0ccea7ecf40027bf33d79.json": {
+      "sha256": "44c07052beb2b9d8249bb7efea79a964e8334a5cfda20797e0f86a9b0e661060",
+      "bytes": 895,
+      "mtimeNs": 1792922969704043153
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/observations/7bf1f746722b6c949cdf83484d2b405c891d524af8f213e5e884ff7113dd2425.json": {
+      "sha256": "aba752e90d5532eef22f190aa3e946c7575bb44bc00189931f2af47389a8acc7",
+      "bytes": 326,
+      "mtimeNs": 1792922969704330111
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/observations/d531f32e33e687bb20795e05153a68a2a5fca80666bdb0094d57e7015cb90af8.json": {
+      "sha256": "27daa7c02fda5a7083cf24f9a8714cd0f975f78a294219f49e5c62e95c78e814",
+      "bytes": 368,
+      "mtimeNs": 1792922969831578903
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/heads/download-ebc5f7d0cd5aaa0524a4c56110dc9a34e05b459c699073cd5dac4b98948ed251.json": {
+      "sha256": "dd99a73df748dcf4d19e022a10443e2c440cd3b94c2dba8725351c4fad933e42",
+      "bytes": 687,
+      "mtimeNs": 1792922966186196512
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/objects/3880404f0a3c9e66a646988f3e7ff59dcfd24b0da9311da96ec5d02f590d6228": {
+      "sha256": "3880404f0a3c9e66a646988f3e7ff59dcfd24b0da9311da96ec5d02f590d6228",
+      "bytes": 186365,
+      "mtimeNs": 1792922967050079443
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/observations/188fcf8230953fbe5f001fed51113db04b26d1f3628051bed35162fc8858a2f9.json": {
+      "sha256": "09614c09ffac3cd329ad0cd0ee668c7eab97eb1d8014bf96156d80d36cddeaa8",
+      "bytes": 429,
+      "mtimeNs": 1792922969561349183
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/heads/download-e266e3e40a42ece98bd8864fd4f9055f2b2047661e1ebd4ed84c3b4edc24206d.json": {
+      "sha256": "f67a14efcc6225df9b4a5c1e8632061aea175f80aa730a73e9d704c9ae4cab3e",
+      "bytes": 800,
+      "mtimeNs": 1792922966179692942
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/objects/026fe20117430e4ab0f7853ee65bbebbe854e4698f8d5cc2e65ea530fa01ae19": {
+      "sha256": "026fe20117430e4ab0f7853ee65bbebbe854e4698f8d5cc2e65ea530fa01ae19",
+      "bytes": 73797,
+      "mtimeNs": 1792922966355719013
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/observations/2168f988921559a4e05ce4e5ddfab96770ca17394fb197875c206ae153272b02.json": {
+      "sha256": "bcb45f8705de522e2f80d516577d694d9723f4da3449f45cd33f89afceac2d8d",
+      "bytes": 399,
+      "mtimeNs": 1792922969573152494
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/heads/download-d1a92d9bdba6d78a75cfefb19d0567ce8c405ab8dc859c38e3d17dac34f38d7c.json": {
+      "sha256": "c542f3b9adc5fd4090ddbc0ec22fa55b6b7163a949e7acf5d9fe599eaf7a302c",
+      "bytes": 748,
+      "mtimeNs": 1792922966168221964
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/objects/1ee7964205cbb0a6fd470e737643896fee9baa3dee0eeb49446b65c0bfc1d56a": {
+      "sha256": "1ee7964205cbb0a6fd470e737643896fee9baa3dee0eeb49446b65c0bfc1d56a",
+      "bytes": 72075,
+      "mtimeNs": 1792922966702793332
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/observations/5cb1c22f49d6a188d620aff26a06d89eda2730e0b3ca2ea044f49e1c5988286d.json": {
+      "sha256": "735f6ac6b604db1ef61d85cc3466f8c9bbd1b9191814fde90979b059331441de",
+      "bytes": 359,
+      "mtimeNs": 1792922969658966575
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/heads/download-b62c58c5461e2c6b6d2d90f3617ed572436a449e97f9a47ca23f5306f9d29f83.json": {
+      "sha256": "57d2e8be6b5cfa3850c14e48ce1fa6a30430fe2509aedc2f7fcdba9b90fcd4b6",
+      "bytes": 669,
+      "mtimeNs": 1792922966150595165
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/objects/e42e1c751309ed8e897c3158e233f80cc726b82a0b027a4161aeb5d1d7db4ffc": {
+      "sha256": "e42e1c751309ed8e897c3158e233f80cc726b82a0b027a4161aeb5d1d7db4ffc",
+      "bytes": 178337,
+      "mtimeNs": 1792922969158936348
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/observations/b71d6fc8d363c4734c8c20460a1db59d9750e3848c7d7dba29e4e9df7384bf83.json": {
+      "sha256": "6d23f2b62c58f89e5dcbafab1219e6dcf363b3e2aa5e05da269121408bf2dc10",
+      "bytes": 370,
+      "mtimeNs": 1792922969788392196
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/heads/download-4f95c9275c0cc8a952c20f507507d4f82ea6430ce1ffc32e97c990f70e2184e9.json": {
+      "sha256": "9461e157d049e18e063ac21f56bb7e6ebf4d9ced88d2546ad0b75bf7d61d9818",
+      "bytes": 801,
+      "mtimeNs": 1792922966085566335
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/objects/b783a64ed0a7516138685bfc8c97d6143b8ed85261c77db0cd32563fb4cba31e": {
+      "sha256": "b783a64ed0a7516138685bfc8c97d6143b8ed85261c77db0cd32563fb4cba31e",
+      "bytes": 382395,
+      "mtimeNs": 1792922968615310789
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/observations/983018466d3088eaf5951b7dbd09a3c79c1611bb16a319b15a2997767aaf72b5.json": {
+      "sha256": "272f0b3db4278eaf946a70c899bff972cd06200f6e145d0e172c0d743cf29579",
+      "bytes": 801,
+      "mtimeNs": 1792922969743046827
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/observations/6652fb8eb2115c4905294a06d15719b0353eff8d4caa15252bbf661bc8d64a12.json": {
+      "sha256": "09e4b883c866074baa6194703b1f8ebf0ab3f8530c8c373833712a35c43a886c",
+      "bytes": 707,
+      "mtimeNs": 1792922969673718630
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/observations/1fa3e25f81c21aacd84328da18630d233a28f138673160d85d8d92acdb2c220b.json": {
+      "sha256": "919169aea01225ad136099a7eab6a38317dd1bb17e3e43828bc9a8d5ff844076",
+      "bytes": 378,
+      "mtimeNs": 1792922969570940248
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/observations/b4b4bf012ce970af21847c1bc3f2ceca166d2963e9c5c79a5c71ca4e39e9f7f7.json": {
+      "sha256": "43b4508af9acd83c80edf676dfba43fb5d8488d62c408daf6e2b1417e9c362be",
+      "bytes": 299,
+      "mtimeNs": 1792922969785335452
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/observations/317df6ef676d7ca459340694818c6c2b75b3d33d13bab3380f367a98d12c2a89.json": {
+      "sha256": "982c6af4f465e0b975c9b84bd19bdcce408c91bd3562838761fbc7a941fa1f7c",
+      "bytes": 294,
+      "mtimeNs": 1792922969596266240
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/ci/source-probe-runs/40044528648-1.json": {
+      "sha256": "1fda9a60d3cdd5d297c8c95f77a74564828a866545ea876d6c2fcbe8ac5a04bb",
+      "bytes": 78209,
+      "mtimeNs": 1792922965986590237
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/ci/source-probe-runs/40049636626-1.json": {
+      "sha256": "062864ce984d76a23f70673b1f10140b334b27f2cb024a9f22dabe2872dcac7d",
+      "bytes": 97577,
+      "mtimeNs": 1792922965986747445
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/ci/source-probe-runs/40066513321-1.json": {
+      "sha256": "4ef4905070ed2043b093aad72990fe0d45a73f3682d0d3832e0ac2fa966e6ee2",
+      "bytes": 277064,
+      "mtimeNs": 1792922965986966278
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/ci/source-probe-runs/40069462824-1.json": {
+      "sha256": "e737f0436db33a783f3e583cb316865357017b4122d5a9c07474b160e89da4f7",
+      "bytes": 109959,
+      "mtimeNs": 1792922965987159111
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/ci/source-probe-runs/40072784799-1.json": {
+      "sha256": "a94e0e7f162fdc25269b14ac06a36e01e344d58883f0c9387c896cc087c11f51",
+      "bytes": 149516,
+      "mtimeNs": 1792922965987369819
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/ci/source-probe-runs/40075237236-1.json": {
+      "sha256": "5e47181806b8b17cb68e717844903f08cdf3ba42d0fd86de19d218fe3d4f5212",
+      "bytes": 223527,
+      "mtimeNs": 1792922965987645152
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/ci/source-probe-runs/40077375424-1.json": {
+      "sha256": "af8f63ecf77ffa2ea00fdbc062661ddda3340b776d0ec7afdcda00048373cbb0",
+      "bytes": 266592,
+      "mtimeNs": 1792922965988008901
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/ci/source-probe-runs/40079036392-1.json": {
+      "sha256": "925af40c9fa9644df82bf4b153ebba8765203740ba0d839910d670049f567d60",
+      "bytes": 292641,
+      "mtimeNs": 1792922965988457983
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/ci/source-probe-runs/40116695719-1.json": {
+      "sha256": "d8bbbab003961a40ea99408ac908f537211562da3b25772381e33e1724cb51be",
+      "bytes": 318196,
+      "mtimeNs": 1792922965988892108
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/ci/source-probe-runs/40126516584-1.json": {
+      "sha256": "c0cafd9329c7a02c7d32eba45bddc2aea481f760a8461ca6727ceb9bb7a4deae",
+      "bytes": 73098,
+      "mtimeNs": 1792922965989089691
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/ci/source-probe-runs/40129367275-1.json": {
+      "sha256": "7541634dfadd6ec9da732c7d4e32b3abf1ee8462c559f9c13d7e8d6174c25f87",
+      "bytes": 73098,
+      "mtimeNs": 1792922965989216107
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/ci/source-probe-runs/40131875060-1.json": {
+      "sha256": "90f8b45b299dd868fd558d1218fd1e0bcc0fda59c46d9f9a779352d461596aee",
+      "bytes": 90157,
+      "mtimeNs": 1792922965989384898
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/ci/source-probe-runs/40179255547-1.json": {
+      "sha256": "0e5a08ff0c64750dcb441e640fc1dae0926a2cf5ab674920e48058bfd7da02d7",
+      "bytes": 10301,
+      "mtimeNs": 1792922965989455023
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/ci/source-probe-runs/40184027106-1.json": {
+      "sha256": "8653b61d296ee89d411853ed34190d6b7b119d9184dcd7b20b93a3faa413945f",
+      "bytes": 5673,
+      "mtimeNs": 1792923784912735905
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/ci/source-probe-runs/40188161705-1.json": {
+      "sha256": "093fba7150d21255af66a563207b3c3f0490bae36873376203c43d5415be6897",
+      "bytes": 713736,
+      "mtimeNs": 1792927333776130385
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/ci/source-probe-runs/40190857026-1.json": {
+      "sha256": "29a164eeceecc2c1796b02c536c9b8ce91f02d1497a09544731f627698992766",
+      "bytes": 89630,
+      "mtimeNs": 1792929929092068343
+    },
+    "/var/tmp/smp-listing-pagination-actual-40193925490-20261025/extracted/state/ci/source-probe-runs/40193925490-1.json": {
+      "sha256": "b8647f4b94b840e240f2d5362e1ab090479c9a08d9a31f85647097dec0bf29b4",
+      "bytes": 104384,
+      "mtimeNs": 1792932397440895092
+    },
+    "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/fetcher.py": {
+      "sha256": "82084e87bb41687fec8ebfc969cf0a37294e04312a47a27993f5c359a585adce",
+      "bytes": 10828,
+      "mtimeNs": 1792919139082066117
+    },
+    "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/engine.py": {
+      "sha256": "e471f18006a4899406510cdede42829476ba1945b58c420c61f6edce767a7e19",
+      "bytes": 54002,
+      "mtimeNs": 1792919139081836951
+    },
+    "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/onboarding.py": {
+      "sha256": "f15e008c081f0b9c48e53ab0b4c4388798d2bd54aaade904188b40305aa6bb69",
+      "bytes": 112821,
+      "mtimeNs": 1792863209004844673
+    },
+    "/mnt/mac/Users/jessepike/code/projects/sec-market-finish-20261022/ops/ci/collect.py": {
+      "sha256": "77f3aaeb56514b538452e39d3eda30358ee1bdbba88b593d4da10ee0d71d04ce",
+      "bytes": 26500,
+      "mtimeNs": 1792934078746088073
+    }
+  },
+  "allConsultedInputsUnchanged": true,
+  "sourceRequests": 0,
+  "modelRequests": 0,
+  "archiveSessionBudgetWrites": 0,
+  "repoWrites": 0,
+  "failureRecordsReplaced": 0,
+  "freshnessOrPublicationCredit": false
+}

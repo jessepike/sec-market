@@ -193,3 +193,8 @@ unqualified with zero coverage credit. Tests use fictional fetchers and temporar
   issuer-bound listing with a verified older boundary can support a separately reviewed daily-
   window parser. An existing all-pages parser cannot silently acquire that rule; keep every
   known historical URL and the unobserved older-history gap explicit.
+
+- A full local test pass can depend on retained files absent from a GitHub runner. Authenticate
+  committed evidence fixtures for portable source/transport tests; explicitly separate external
+  full-archive replay tests and exercise fresh-process absence before promotion. Inspect the
+  failed step before attributing a canary failure to an expected policy transition.

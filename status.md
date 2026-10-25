@@ -94,8 +94,11 @@ fixture repair, the actual selected-J finish path passes 14 focused, two JavaScr
 test-delta review also passes, including a separate current-archive authentication. The separate
 postcopy proof preserves all 48,420 current archive entries, all 8,605 ordinary heads, four fact
 references, six admissions and 38 holds. Original sealed evidence remains unchanged. Preview/main
-activation is advancing from preview 8ad3881a; actual ordinary J collection and later genuine
-timer/publication receipts remain required.
+activation is held on preview f32946c1: application CI 40197621480 passed on its code parent
+8ad3881a and Vercel preview is READY, but canary 40197621420 failed during test setup because
+two classes require a VM-only archive path. The portable test repair is in progress; this was
+not an actual canary contract-mismatch result. Main remains H on 61265b57. Actual ordinary J
+collection and later genuine timer/publication receipts remain required.
 
 The accepted [PR Newswire parser build](docs/active/daily-pipeline/accuracy/prnewswire-dated-window-parser-build-spec-2026-10-25.md)
 uses retained Cato/Chainguard pages in a separate isolated offline unit. It separates the daily
