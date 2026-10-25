@@ -1,0 +1,52 @@
+
+> security-market-pulse@0.0.0 refresh:filing-events
+> tsx --tsconfig tsconfig.app.json scripts/filing-events.ts
+
+found crwd         2026-04-21 item 5.02 — Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2026-04-21.
+found crwd         2025-12-29 item 5.02 — Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2025-12-29.
+skip  zscaler      2026-09-24 item 5.02 — already a hand-collected exec-change event on this date
+skip  zscaler      2026-09-03 item 2.05 — already a hand-collected restructuring event on this date
+found zscaler      2026-04-16 item 5.02 — Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2026-04-16.
+found panw         2026-08-21 item 5.02 — Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2026-08-21.
+found panw         2026-04-13 item 2.03 — Form 8-K (Item 2.03) reporting the creation of a direct financial obligation, filed 2026-04-13. The filing describes it as: “On April 8, 2026, Palo Alto Networks, Inc. (the ‘Company’) entered into three lease amendments (collectively, the ‘Amendments’) extending the term of the Company’s leases (collectively, the ‘Leases’) of the following properties: (i) Building E comprised of approximately 290,082 rentable square feet and located at 3000 Tannery Way, Santa Clara, California, (ii) Building G comprised of approximately 309,559 square feet and located at 3200 Tannery” …
+found panw         2026-02-11 item 2.03 — Form 8-K (Item 2.03) reporting the creation of a direct financial obligation, filed 2026-02-11. The filing describes it as: “In connection with the consummation of the Merger (as defined below), on February 11, 2026 (the ‘Closing Date’), Palo Alto Networks, Inc., a Delaware corporation (‘PANW’), and CyberArk Software Ltd., a company organized under the laws of the State of Israel (‘CyberArk’), entered into that certain First Supplemental Indenture (the ‘Supplemental Indenture’) to that certain Indenture, dated as of June 10, 2025 (the ‘Indenture’), between CyberArk,” …
+found panw         2025-12-11 item 5.02 — Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2025-12-11.
+found panw         2025-11-19 item 5.02 — Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2025-11-19.
+none  fortinet     no matching 8-K items in the trailing 12-month window
+skip  cloudflare   2026-08-13 item 2.03 — already a hand-collected debt event on this date
+found cloudflare   2026-06-30 item 5.02 — Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2026-06-30.
+found cloudflare   2026-02-10 item 5.02 — Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2026-02-10.
+found okta         2026-09-18 item 5.02 — Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2026-09-18.
+found okta         2026-06-23 item 5.02 — Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2026-06-23.
+found okta         2026-04-22 item 5.02 — Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2026-04-22.
+found okta         2026-03-23 item 5.02 — Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2026-03-23.
+found okta         2026-03-11 item 5.02 — Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2026-03-11.
+found okta         2025-12-19 item 5.02 — Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2025-12-19.
+found sailpoint    2026-06-12 item 5.02 — Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2026-06-12.
+found s1           2026-10-16 item 2.03 — Form 8-K (Item 2.03) reporting the creation of a direct financial obligation, filed 2026-10-16. The filing describes it as: “On October 16, 2026, SentinelOne, Inc. (the ‘Company’) completed its previously announced private offering (the ‘Offering’) of $1,250,000,000 aggregate principal amount of 0.00% Convertible Senior Notes due 2031 (the ‘Notes’), including the exercise in full of the initial purchasers’ option to purchase up to an additional $187,500,000 aggregate principal amount of the Notes (the ‘Option’).”
+skip  s1           2026-05-28 item 2.05 — already a hand-collected restructuring event on this date
+found s1           2026-03-25 item 5.02 — Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2026-03-25.
+skip  s1           2026-03-05 item 5.02 — already a hand-collected exec-change event on this date
+skip  s1           2025-12-04 item 5.02 — already a hand-collected exec-change event on this date
+found rubrik       2026-08-27 item 5.02 — Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2026-08-27.
+found rubrik       2026-02-04 item 5.02 — Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2026-02-04.
+found varonis      2026-10-15 item 5.02 — Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2026-10-15.
+found varonis      2026-06-02 item 5.02 — Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2026-06-02.
+skip  netskope     2026-06-03 item 5.02 — already a hand-collected exec-change event on this date
+none  netskope     no matching 8-K items in the trailing 12-month window
+skip  tenable      2026-10-13 item 2.03 — already a hand-collected debt event on this date
+found tenable      2026-10-06 item 5.02 — Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2026-10-06.
+skip  tenable      2026-09-15 item 2.03 — already a hand-collected debt event on this date
+found qualys       2026-06-11 item 5.02 — Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2026-06-11.
+skip  rapid7       2026-08-31 item 5.02 — already a hand-collected exec-change event on this date
+found rapid7       2026-08-10 item 2.05 — Form 8-K (Item 2.05) reporting costs associated with an exit or disposal activity, filed 2026-08-10.
+skip  rapid7       2026-06-01 item 5.02 — already a hand-collected exec-change event on this date
+found rapid7       2026-02-10 item 5.02 — Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2026-02-10.
+skip  rapid7       2025-11-04 item 5.02 — already a hand-collected exec-change event on this date
+found commvault    2026-09-24 item 5.02 — Form 8-K (Item 5.02) reporting a change in directors or certain officers, filed 2026-09-24.
+skip  commvault    2026-04-13 item 5.02 — already a hand-collected exec-change event on this date
+skip  commvault    2025-12-04 item 5.02 — already a hand-collected exec-change event on this date
+none  jfrog        no matching 8-K items in the trailing 12-month window
+
+wrote 28 filing-driven event(s) to /var/tmp/smp-cross-day-full-gate-40148005688-20261025/application/web/src/data/generated/filingEvents.json
+wrote 28 matching evidence record(s) to /var/tmp/smp-cross-day-full-gate-40148005688-20261025/application/web/src/data/generated/filingEvidence.json

@@ -1,0 +1,53 @@
+{
+  "archiveWrites": 0,
+  "baseRevision": "aefc3fbd0c48d4a32348fa298737b038ece30735",
+  "completeReleaseTests": 531,
+  "externalGate": false,
+  "files": [
+    {
+      "bytes": 2293,
+      "path": "certify-sec.log",
+      "sha256": "394334469cd9f5f2dfc22158b5621d6faa2c13a81ccf11771f2881a474d30431"
+    },
+    {
+      "bytes": 1921,
+      "path": "gate-receipt.json",
+      "sha256": "a93bb3869152f155d0f497dd489b0c5fa20b8fc6ce5b4aa2f969243ab90f574d"
+    },
+    {
+      "bytes": 100,
+      "path": "operational-tests.log",
+      "sha256": "a7a87d746f79c58bc4031de875e54b9bea0b5f9b03ee99992d3da113cf78a70c"
+    },
+    {
+      "bytes": 1635,
+      "path": "refresh-edgar.log",
+      "sha256": "073a407ee6d924724b1e0a66c8dc0df087336acbc486cc03962978b21e881f60"
+    },
+    {
+      "bytes": 7289,
+      "path": "refresh-filing-events.log",
+      "sha256": "aff022cfc3f1c29a98dfca40aa21f1a54546391658d3fed00e4b3ab76239eecf"
+    },
+    {
+      "bytes": 3215,
+      "path": "rehearsal.jsonl",
+      "sha256": "783c2974c73f844918f7a8004027a026e928b96ad274974016c89e87394424a5"
+    },
+    {
+      "bytes": 25713,
+      "encoding": "gzip",
+      "path": "test.log.gz",
+      "sha256": "e3301890a91f4ac5721814ca397c35a31342d936c8cb8a1ee3511d4d8c29cd67",
+      "uncompressedBytes": 127108,
+      "uncompressedSha256": "11af990a4c2c4ba9722e4162a18bdc00bfc93da67c05089c33703b71e2c7a088"
+    }
+  ],
+  "gateReservations": 0,
+  "kind": "local_rehearsal_only",
+  "modelRequests": 0,
+  "operationalTests": 805,
+  "patchedSnapshotModuleSha256": "10b07fad6a1abbaa662ee141c43cd2ebfb6c40b890f35f8f412659fe1fc98b05",
+  "publication": false,
+  "sourceCollectionRequests": 0
+}

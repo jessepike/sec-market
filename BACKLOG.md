@@ -53,15 +53,20 @@ The retained GitHub RSS parser false positive is repaired with a parser-level de
 800 operational and all web checks pass, with old H reports, origins, seeds and the next snapshot
 unchanged. Real DTD/entity input remains rejected. Qualification and current coverage stay separate.
 
-The next required operational receipts are the actual 00:23 UTC October 25 publisher and 05:17 UTC
-collector, plus controlled rollback/restoration of the new accepted release. Preserve the final
-reviewed main while those run. The midnight partition repair passes actual-archive reconstruction
-at all three publisher times without renewing evidence. Manual diagnostics and successful skipped
-callbacks are not scheduled collection or publication proof.
+The next required operational receipts are the actual current-policy scheduled collector, gated
+production update and controlled rollback/restoration. The 00:23 UTC October 25 publisher had not
+emitted by 00:55. Manual publisher 40147731858 failed after gate 40148005688 rejected next-day task
+IDs attached to prior-day receipts. Production is unchanged. The one-line public-inventory repair
+preserves original task IDs and freshness dates; its actual-archive complete local release rehearsal
+passes 531 tests, with 805 operational tests passing. Independent review is clean. This supersedes
+the earlier aggregate-only replay as release evidence. [Repair review](docs/active/daily-pipeline/accuracy/cross-day-public-source-inventory-fix-independent-review-2026-10-25.md).
+Promote through preview, re-enable the temporarily paused publisher and preserve reviewed main
+during real scheduled acceptance. Manual diagnostics and skipped callbacks remain separate.
 
-October 24 usage is 2,095/5,500 fetch reservations, 80/80 models, 40/40 documents and 2/2 gate attempts.
-The next natural allowance starts 00:00 UTC October 25. Assigned issue 12 records publisher budget
-failure; issue 10 retains coverage/history gaps. Verify issue 12 recovery after actual publication.
+October 24 usage ended at 2,095/5,500 fetch reservations, 80/80 models, 40/40 documents and 2/2 gates.
+October 25 has one of two gate attempts charged; one remains. Collector timer: 05:17 UTC, publisher:
+06:23/16:23 UTC. Assigned issue 12 retains publication failure; issue 10 retains coverage/history
+gaps. Verify issue 12 recovery after actual publication.
 No owner source decision is currently required. No refund, reset, purchase or paid fallback.
 
 Use the [74-company overview and 557-row CSV](docs/active/daily-pipeline/evaluations/2026-10-24/current-source-coverage.md),

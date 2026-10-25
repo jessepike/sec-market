@@ -361,7 +361,7 @@ def build_snapshot(contract, plan, coverage, store, now, baseline=None, previous
             tasks_by_supplier.setdefault(task["supplierId"], []).append(task["taskId"])
     gaps = set(verified["gapTaskIds"])
     public_coverage = {k: v for k, v in verified.items() if k != "receipts"}
-    public_coverage["sources"] = inventory(contract, now, verified)
+    public_coverage["sources"] = inventory(contract, plan["scheduledAt"], verified)
     public_coverage["automationEnabled"] = contract["publication"]["enabled"]
     public_coverage["overdueHours"] = contract["schedule"]["overdueHours"]
     public_coverage["scheduledAt"] = plan["scheduledAt"]

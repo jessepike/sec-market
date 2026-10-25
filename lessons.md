@@ -119,3 +119,8 @@ unqualified with zero coverage credit. Tests use fictional fetchers and temporar
 - Scan XML declarations through the XML parser. GitHub's valid RSS included ten HTML doctypes inside article CDATA; a whole-byte substring guard rejected harmless text. A parser-level doctype callback rejects real declarations, including UTF-16 and entity expansion, while preserving the original article bytes and dates. Recognition still does not qualify a source's scope or retention window.
 - Retain bounded redirect response metadata when diagnosing a failed index. Orca page 27 returned five redirects to itself. The failure does not establish a terminal page. A proposed target is not proof of a followed request.
 - A plan's explicit-target limit may exclude surrounding work. The existing seven-target diagnostic also probes 25 candidates, so its whole-operation bound is 257 logical fetch reservations. Include that fanout in the budget and deadline assessment; retain actual charges and incomplete results.
+
+## 2026-10-25 · Cross-day publication needs the actual public validator
+
+- Task identities include the collection day. Reconstruct public source rows from the verified plan's original scheduledAt, while checking freshness against the current publication clock. Rebuilding IDs from the publication day makes valid prior-day receipts unjoinable. Preserve original evidence dates.
+- Aggregate-only snapshot replay missed this defect. Before spending a limited external gate attempt, execute the real JavaScript public-source validator and the complete isolated release build against actual archived evidence across midnight. Keep local rehearsal, external gate and public release proof separate.

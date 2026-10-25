@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "kind": "manual-publication-failure-evidence",
+  "workflowRun": {
+    "id": 40147731858,
+    "attempt": 1,
+    "event": "workflow_dispatch",
+    "ref": "refs/heads/main",
+    "headSha": "aefc3fbd0c48d4a32348fa298737b038ece30735",
+    "createdAt": "2026-10-25T00:42:19Z",
+    "updatedAt": "2026-10-25T00:52:03Z",
+    "conclusion": "failure"
+  },
+  "publisher": {
+    "artifactId": 12582350124,
+    "artifactName": "daily-publication-receipt",
+    "artifactZipSha256": "75554e7f1e4174e65c776a7137320a5abef4e3f7791d0130238dea3d476a2765",
+    "rawReceiptPath": "docs/active/daily-pipeline/receipts/manual-h-publication-40147731858-2026-10-25.json",
+    "rawReceiptSha256": "d633f1802bfc9f8fa9f14ff37fa6156d59e567bff8d8ca33b97d4707bb470e79",
+    "rawReceiptBytes": 89,
+    "result": {
+      "published": false,
+      "reason": "PUBLISHER_FAILED",
+      "errorType": "ContractError"
+    },
+    "failedStep": "Restore acknowledged evidence and publish through independent gate",
+    "receiptRetentionStep": "success",
+    "failureReportStep": "success",
+    "candidateCaptureAndRender": "skipped",
+    "callbackPreflight": "skipped"
+  },
+  "independentGate": {
+    "runId": 40148005688,
+    "attempt": 1,
+    "event": "workflow_dispatch",
+    "ref": "refs/heads/main",
+    "headSha": "aefc3fbd0c48d4a32348fa298737b038ece30735",
+    "createdAt": "2026-10-25T00:46:31Z",
+    "completedAt": "2026-10-25T00:51:22Z",
+    "conclusion": "failure",
+    "failedStep": "Reconstruct, certify and test the candidate",
+    "diagnosticArtifactId": 12581695199,
+    "diagnosticArtifactSha256": "4aad5a069e8160c286d6d5b3cfaf0ed63f64c7ad217e1ed5e708b11b7a909f0e",
+    "diagnosticArtifactSize": 24177,
+    "diagnosticArtifactPath": "/var/tmp/smp-gate-diagnostics-40148005688",
+    "diagnosticArtifactRetainedBy": "parent audit; not duplicated in this receipt"
+  },
+  "observedArchiveTipAfterFailure": {
+    "ref": "refs/archive/market-evidence",
+    "commit": "05e6b330f34047c1987513b11c1759ff0e2c36fa",
+    "parent": "d0172344d5c07e7928c8f9dd1cd6dfb8948b4381",
+    "manifestPath": "docs/active/daily-pipeline/receipts/manual-h-publication-40147731858-archive-manifest-2026-10-25.json",
+    "manifestSha256": "3b87861fcc6f3f21e3e1c3335afa07393f07d89a1cb14a411e73b54a22106414",
+    "manifestBytes": 8434356,
+    "gitBlobSha1": "ab1483bc6a638d1ffb6b17e8e76bd26450e14048",
+    "archiveTarSha256": "8faace6a11d35803becfa64cd52f1340dfc15ff83a199b51d2e92bb96dbbca04",
+    "extractedRoot": "/var/tmp/smp-manual-h-40147731858-20261025/extracted",
+    "entries": 41251,
+    "note": "Observed evidence archive after failure; the publisher receipt reports failure and does not establish a successful publisher acknowledgement."
+  },
+  "priorArchive": {
+    "commit": "ac0260ed95c3bf5090b236e42b3a7090a70c3861",
+    "manifestSha256": "895213b31bb9f75814acc9484cad9aabd3719e07ddd72c621275a9b2568a1e5c",
+    "entries": 41245,
+    "comparison": {
+      "oldEntriesMissing": 0,
+      "newEntries": 6,
+      "changedExistingPaths": [
+        "state/heads/cloud-governance.json",
+        "state/heads/cloud-lease.json",
+        "state/heads/worker-heartbeat.json"
+      ],
+      "unchangedNormalHeads": [
+        "state/heads/latest-run.json",
+        "state/heads/dailySnapshot.json",
+        "state/heads/production.json"
+      ],
+      "unchangedCorrectionGroups": 6,
+      "newOperationalFiles": [
+        "state/gate-requests/82dcdf07ace4e96d9eb461992e81c0bfffe457ec.json",
+        "state/heads/gate-budget-2026-10-25.json",
+        "four governance-session records under state/cloud/sessions/300af08..."
+      ],
+      "gateAttemptsCharged": 1
+    }
+  },
+  "extractedArchiveSeal": {
+    "files": 41255,
+    "directories": 1910,
+    "contentSha256": "0b122b8e0f43adac27780abfbf7ed6cf0444fa531a3ea928a1ed05b6fa5036cf",
+    "fileMtimeSha256": "989e025292798591aa98a9ca7b79b7392ec6485f29bb1c550d5660d7ec1352ae",
+    "directoryMtimeSha256": "a0d6ed9cd47d8ac6b540f54692a99eee90851b881699b1338029fa56e3f24b1d",
+    "sealDefinition": "Sorted file rows [relativePath, byteLength, rawSha256]; separate sorted [relativePath, mtimeNs] file and directory lists, hashed with pipeline contracts.digest.",
+    "verification": "Manifest entries and content-addressed objects verified before extraction; seal recomputed after read-only audit and matched."
+  },
+  "limits": [
+    "This was a manually dispatched recovery attempt, not scheduled-run evidence.",
+    "No candidate artifact was produced; no candidate render or public-byte comparison was possible.",
+    "The independent gate attempt failed and consumed one gate-budget attempt.",
+    "The actual 00:23 scheduled publication had not emitted a run at the time of this receipt.",
+    "No retry, refund, quota change, or publication mutation was performed by this audit."
+  ]
+}
