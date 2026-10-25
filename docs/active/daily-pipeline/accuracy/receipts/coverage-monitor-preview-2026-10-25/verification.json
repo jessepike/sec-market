@@ -1,0 +1,141 @@
+{
+  "runId": 40177951978,
+  "url": "https://github.com/jessepike/sec-market/actions/runs/40177951978",
+  "event": "workflow_dispatch",
+  "branch": "preview",
+  "appRevision": "05965a710f0a1cb84b582e9dc134deecf04535fe",
+  "conclusion": "failure",
+  "checkedAt": "2026-10-25T08:46:36.785971Z",
+  "issueUpdatedAt": "2026-10-25T08:46:50Z",
+  "guardTestsPassed": 36,
+  "coverageBytes": 1337257,
+  "coverageRawSha256": "ac8068379c6c79760331711bfb7bb6387fbc639f9ab6f921713502c6982d47fc",
+  "actualPublicValidUntil": "2026-10-26T12:45:29.479727+00:00",
+  "genericProbeFailureAbsent": true,
+  "remainingReasons": [
+    "SCHEDULED_COLLECTION_RECEIPT_DIFFERS",
+    "OVERDUE_OR_INCOMPLETE_COVERAGE",
+    "DAILY_INTAKE_INCOMPLETE",
+    "PROCESSING_PENDING_10617",
+    "PROCESSING_HELD_10",
+    "HISTORICAL_REVIEW_PENDING_10616",
+    "PUBLIC_DAILY_INTAKE_INCOMPLETE",
+    "PUBLIC_PROCESSING_PENDING_10617",
+    "PUBLIC_PROCESSING_HELD_10",
+    "PUBLIC_HISTORICAL_REVIEW_PENDING_10616",
+    "PUBLIC_COVERAGE_INCOMPLETE_OR_OVERDUE",
+    "HELD_CLAIMS_37"
+  ],
+  "archiveRefUnchanged": "b08469e082606def8ef37d9bfeb1cc9609f48176",
+  "publicAppAckAndCoverageBytesUnchanged": true,
+  "qualificationCredit": 0,
+  "scheduledRunCredit": false,
+  "productionUpdateCredit": false,
+  "files": [
+    {
+      "path": "actual-monitor-result.json",
+      "sha256": "34727f1b2ccf12d6fdd1c5fe44d591794da0bc07bcb94037fdf8bdb254d1f9ec",
+      "bytes": 1444
+    },
+    {
+      "path": "after-app-release.json",
+      "sha256": "1c2f50a1e7600c1802b1e60efc02df7c266201d0bd3146e940d97811d0346055",
+      "bytes": 1636
+    },
+    {
+      "path": "after-archive-ref.json",
+      "sha256": "5342f71e284fa54cc8c8ef5f921ca8bca2eccf7780be01a94a69262fc7356c89",
+      "bytes": 381
+    },
+    {
+      "path": "after-daily-coverage.json.gz",
+      "sha256": "27ca5d6cb7ac73a4e339257baa6872569afee7d988460e5c6e98a9918511e779",
+      "bytes": 110991
+    },
+    {
+      "path": "after-deployment-receipt.json",
+      "sha256": "5ef1302f26813f928931c6b9085bbd985a95fe10fb8e992d7c3d64415bb87d28",
+      "bytes": 1103
+    },
+    {
+      "path": "after-issue10.json",
+      "sha256": "4e2cefc76cf3f3f7bd6a8ccb20c5832b2ba15d2fe1380e35f23f18ca362e2daf",
+      "bytes": 5011
+    },
+    {
+      "path": "before-app-release.json",
+      "sha256": "1c2f50a1e7600c1802b1e60efc02df7c266201d0bd3146e940d97811d0346055",
+      "bytes": 1636
+    },
+    {
+      "path": "before-archive-ref.json",
+      "sha256": "5342f71e284fa54cc8c8ef5f921ca8bca2eccf7780be01a94a69262fc7356c89",
+      "bytes": 381
+    },
+    {
+      "path": "before-daily-coverage.json.gz",
+      "sha256": "27ca5d6cb7ac73a4e339257baa6872569afee7d988460e5c6e98a9918511e779",
+      "bytes": 110991
+    },
+    {
+      "path": "before-deployment-receipt.json",
+      "sha256": "5ef1302f26813f928931c6b9085bbd985a95fe10fb8e992d7c3d64415bb87d28",
+      "bytes": 1103
+    },
+    {
+      "path": "before-issue10.json",
+      "sha256": "7d442e7e8bd3565d2b3c8e8cacd77251179879fb53778054b9cfc21a2ed4c22b",
+      "bytes": 4862
+    },
+    {
+      "path": "daily-pipeline.log-metadata.json",
+      "sha256": "b79162f31729677ec089f589b863cea1be46025261c7f33c45663d82bb3bfda4",
+      "bytes": 263
+    },
+    {
+      "path": "daily-pipeline.log.gz",
+      "sha256": "8304ce81ee1e90d0aad06dbf42d57f02b09b47c3afc966c1c8b545f4028d94d6",
+      "bytes": 6094
+    },
+    {
+      "path": "github-jobs.json",
+      "sha256": "9f7f1ebc5ba7f0ef39a8f12472064bde76ae799b77324de1e795c4a3f2c5e742",
+      "bytes": 3770
+    },
+    {
+      "path": "github-run.json",
+      "sha256": "f7a2c5d6c84ee8fd523fe2821dab19d53fe93edc6053ee47abb2f2d74ae0968d",
+      "bytes": 12339
+    },
+    {
+      "path": "legacy-probe.log-metadata.json",
+      "sha256": "37b70ba1abc4b63cef58aa1ad10177c19f4765a4562ed5ea8c2fb97e11ec3fdf",
+      "bytes": 263
+    },
+    {
+      "path": "legacy-probe.log.gz",
+      "sha256": "bc52f796c69fa5d1cd6e7c0754b9e2f8a5209fa710724c7760516473747b0b5c",
+      "bytes": 5676
+    },
+    {
+      "path": "preview-app-release.json",
+      "sha256": "ca00f05f3f09fd7894f0a8068f726cf2cfad266dcb039ad78f3ab830cb3de147",
+      "bytes": 757
+    },
+    {
+      "path": "preview-deployment.json",
+      "sha256": "e534ed4895d708fb09a8475312c91f37265c998c0b08ed88aa9d5ebabfc20266",
+      "bytes": 1159
+    },
+    {
+      "path": "preview-web-run.json",
+      "sha256": "d5f75ce0a893445fea29c7f639c3b34652610d1fef1c4465784eb5b250d8befb",
+      "bytes": 12366
+    },
+    {
+      "path": "verify-retained-run.py",
+      "sha256": "679343841d96c3e2c127858a107921cecfd2328c9059b6ce46b01a7d1f0d37c2",
+      "bytes": 4666
+    }
+  ]
+}

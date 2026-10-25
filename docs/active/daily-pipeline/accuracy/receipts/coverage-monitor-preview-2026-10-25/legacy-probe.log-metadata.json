@@ -1,0 +1,8 @@
+{
+  "rawSha256": "2fbe2be0b99bf6a7a02a2b3a61fd4c90f64a4d23c18a1f0edb80e96f759a82a6",
+  "rawBytes": 23295,
+  "rawLfCount": 257,
+  "gzipSha256": "bc52f796c69fa5d1cd6e7c0754b9e2f8a5209fa710724c7760516473747b0b5c",
+  "gzipBytes": 5676,
+  "byteExactRoundTrip": true
+}

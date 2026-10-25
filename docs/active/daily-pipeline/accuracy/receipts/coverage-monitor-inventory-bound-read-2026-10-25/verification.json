@@ -1,0 +1,409 @@
+{
+  "schemaVersion": 1,
+  "verdict": "pass_reviewed_future_preview",
+  "implementationDocument": {
+    "path": "/Users/jessepike/code/projects/sec-market-finish-20261022/docs/active/daily-pipeline/accuracy/coverage-monitor-inventory-bound-read-implementation-2026-10-25.md",
+    "sha256": "994aaef3122b216434be545194afec6623f4f88440c5a0065a770cdcc4997d1c",
+    "bytes": 8859
+  },
+  "codeAndProtectedPins": {
+    "ops/watchdog/probe.py": {
+      "sha256": "0b9793222a04511ee0b670bb4a3131ec5cd9662f33dd111a0d319797d3b80ac3",
+      "bytes": 27504
+    },
+    "ops/watchdog/test_probe.py": {
+      "sha256": "24ae33093032fb59b87211af68a94c13a8802202b626159e60ee5b764e529aeb",
+      "bytes": 18208
+    },
+    "ops/watchdog/test_coverage_reader.py": {
+      "sha256": "75b80f03d1010ee4b5db2fdaf14bde017662842b267cd08a78071dcdc481e70f",
+      "bytes": 20677
+    },
+    "docs/active/daily-pipeline/accuracy/coverage-monitor-inventory-bound-read-spec-2026-10-25.md": {
+      "sha256": "5027f5832800fc28bfc1b418d1bc762fe62619baace4f7722995cd9d510a57d3",
+      "bytes": 4707
+    },
+    "docs/active/daily-pipeline/accuracy/coverage-monitor-original-plan-spec-2026-10-25.md": {
+      "sha256": "39267d5bdb052a75d022aa371c4a3e909e7fb9f54335322dae9bda0138826729",
+      "bytes": 4243
+    },
+    "web/scripts/pipeline/engine.py": {
+      "sha256": "e471f18006a4899406510cdede42829476ba1945b58c420c61f6edce767a7e19",
+      "bytes": 54002
+    },
+    "web/scripts/pipeline/fetcher.py": {
+      "sha256": "82084e87bb41687fec8ebfc969cf0a37294e04312a47a27993f5c359a585adce",
+      "bytes": 10828
+    },
+    "web/scripts/pipeline/corrections.py": {
+      "sha256": "d742a91d4d23da5db3b426afcef76a80971c47dd54f8e4312065a6994f87b11f",
+      "bytes": 44838
+    },
+    "web/scripts/pipeline/provenance.py": {
+      "sha256": "7325f346b34fad9bbb306ad52ad847ff76f98d9d92e83b361912063b682805dd",
+      "bytes": 2597
+    },
+    "web/scripts/pipeline/publication.py": {
+      "sha256": "6497c6fbf8494638a79a9b00afa4b18f50d67598fa635c273d82d1553c8ffe84",
+      "bytes": 11899
+    },
+    "contracts/market.json": {
+      "sha256": "24221c946781559c0ff3626e4e479c4647da915d0f2d7559ea88046982532c3c",
+      "bytes": 284062
+    },
+    "contracts/source-qualification-probes.json": {
+      "sha256": "ad1c5cc234fe4fa69cbceb5370ac74825a37dc80b08528ca908d14b1352e53b4",
+      "bytes": 173
+    },
+    "contracts/factual-corrections.json": {
+      "sha256": "9c9fbe0d3d40ece11e1407ce9460086c732f62da88d3b0f220ab9d6f8757da00",
+      "bytes": 32004
+    },
+    "contracts/factual-baseline.json": {
+      "sha256": "ab3bca0e49a38495d310021857ee2c1a3ca6ebe7979593d1e8b36437cb2a294e",
+      "bytes": 35212
+    },
+    "web/src/data/tracker/factualCorrectionPolicy.json": {
+      "sha256": "7319ece4c5c4f6c7d515fb9ef7ff13211daf38e041948edd26732e9ccfa2dbc7",
+      "bytes": 1721
+    },
+    "web/src/data/tracker/originals.json": {
+      "sha256": "7d164cb81003db0a66eccbb25c2e8605e33b853b9a6e20cb2c6900794822b4a3",
+      "bytes": 381034
+    },
+    ".github/workflows/freshness.yml": {
+      "sha256": "3cd45a810ce4a5320bd9404dff6d9fba58d948988031aac4b0dd997f90c796ef",
+      "bytes": 7101
+    },
+    ".github/workflows/subscription-collector.yml": {
+      "sha256": "268fb316bd00670fc76d6a464c449d5e3f3d9e03a083680e2fab813d3daa4fe0",
+      "bytes": 5406
+    },
+    "ops/watchdog/worker.mjs": {
+      "sha256": "0993eb0cc8d4c0ad5a4da84d4cd059c3e22ccd86ff8a071cfae3148d9c996883",
+      "bytes": 3697
+    },
+    "ops/watchdog/wrangler.jsonc": {
+      "sha256": "b7f94fa18b223da05dfa3ae5cd9adf2dc064d507797a016b65ef6a53a46bfbce",
+      "bytes": 243
+    }
+  },
+  "tests": {
+    "runtime": "OrbStack dev",
+    "watchdog": {
+      "command": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "ops/watchdog",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "exitCode": 0,
+      "tests": 36,
+      "rawSha256": "c579c0d5249f89723f49a2a8b9e5da4f6f08eb55180ba04d2e9608c335af9498",
+      "rawBytes": 6471,
+      "rawLineCount": 41,
+      "rawLfCount": 41,
+      "retainedFile": "watchdog-tests.log.gz",
+      "gzipSha256": "bc3f38213b4f7e22ab255a720de52763f61fc9109a2be9db8eabbf395c939e57",
+      "gzipBytes": 1398,
+      "byteExactRoundTrip": true,
+      "gzipMtime": 0,
+      "gzipEmbeddedFilename": ""
+    },
+    "operational": {
+      "command": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "ops/ci",
+        "-p",
+        "test_*.py",
+        "-v"
+      ],
+      "exitCode": 0,
+      "tests": 858,
+      "rawSha256": "04d821c12afed968145dc860f547fa04e67fc2231de45e23912dc1d4a4b718e4",
+      "rawBytes": 159820,
+      "rawLineCount": 863,
+      "rawLfCount": 863,
+      "retainedFile": "operational-tests.log.gz",
+      "gzipSha256": "f4cf38d58deaeea53ebd5f37d38d2767ba10b8f908f202042deea9997cb576da",
+      "gzipBytes": 24031,
+      "byteExactRoundTrip": true,
+      "gzipMtime": 0,
+      "gzipEmbeddedFilename": ""
+    },
+    "skipped": 0,
+    "byteExactGzipLogsVerified": true
+  },
+  "independentReview": {
+    "verdict": "pass_future_preview_only",
+    "passes": 2,
+    "openMaterialFindings": 0,
+    "watchdogTests": 36,
+    "readerMutations": 31,
+    "originalPlanMutations": 27,
+    "markdown": {
+      "sha256": "5e93063fde0d32073dc4044830344e5414fc40490d0d9773b6f374300a61f45c",
+      "bytes": 9819
+    },
+    "json": {
+      "sha256": "afdee5b521e6d497c20c42978dfedbb83509281dd766edca6e41be6f2e731dfa",
+      "bytes": 20356
+    },
+    "consultedInputs": 41,
+    "consultedFilesSeal": "93c917984f13107b4a421758614f6e1ac8ab269b9e304de495714f65165553c6"
+  },
+  "retainedProof": {
+    "currentProduction": {
+      "scope": "Socket-denied offline current-production replay with real GitHubAuthority and retained authenticated gate/API/HTTP inputs. Combined reasons preserve original manual-monitor collection diagnosis; this is not a new Actions run.",
+      "oldReader": {
+        "type": "ValueError",
+        "message": "Production health receipt exceeds byte budget",
+        "readBytes": [
+          1000001
+        ]
+      },
+      "newPublicationInspection": {
+        "healthy": false,
+        "checkedAt": "2026-10-25T08:13:04.369084Z",
+        "runId": "d1b5cbbf41ba2d8dfcb05a7ff2a2b00b7faada68dcaf3224ad4c7702b2d63b22",
+        "reasons": [
+          "OVERDUE_OR_INCOMPLETE_COVERAGE",
+          "DAILY_INTAKE_INCOMPLETE",
+          "PROCESSING_PENDING_10617",
+          "PROCESSING_HELD_10",
+          "HISTORICAL_REVIEW_PENDING_10616",
+          "PUBLIC_DAILY_INTAKE_INCOMPLETE",
+          "PUBLIC_PROCESSING_PENDING_10617",
+          "PUBLIC_PROCESSING_HELD_10",
+          "PUBLIC_HISTORICAL_REVIEW_PENDING_10616",
+          "PUBLIC_COVERAGE_INCOMPLETE_OR_OVERDUE",
+          "HELD_CLAIMS_37"
+        ],
+        "coverageMeasure": "daily_source_intake_v2",
+        "processing": {
+          "changedDocuments": 1,
+          "complete": false,
+          "heldDocuments": 10,
+          "inventoryDocuments": 10655,
+          "pendingDocuments": 10617,
+          "reviewedDocuments": 38,
+          "unknownDateDocuments": 291
+        },
+        "historicalReview": {
+          "complete": false,
+          "heldDocuments": 10,
+          "inventoryDocuments": 10655,
+          "pendingDocuments": 10616,
+          "reviewedDocuments": 39
+        }
+      },
+      "combinedWithActualCollectionReasons": [
+        "SCHEDULED_COLLECTION_RECEIPT_DIFFERS",
+        "OVERDUE_OR_INCOMPLETE_COVERAGE",
+        "DAILY_INTAKE_INCOMPLETE",
+        "PROCESSING_PENDING_10617",
+        "PROCESSING_HELD_10",
+        "HISTORICAL_REVIEW_PENDING_10616",
+        "PUBLIC_DAILY_INTAKE_INCOMPLETE",
+        "PUBLIC_PROCESSING_PENDING_10617",
+        "PUBLIC_PROCESSING_HELD_10",
+        "PUBLIC_HISTORICAL_REVIEW_PENDING_10616",
+        "PUBLIC_COVERAGE_INCOMPLETE_OR_OVERDUE",
+        "HELD_CLAIMS_37"
+      ],
+      "authorityApiFixtures": [
+        "repos/jessepike/sec-market/actions/runs/40172376435",
+        "repos/jessepike/sec-market/actions/artifacts/12590843044",
+        "repos/jessepike/sec-market/actions/artifacts/12590843044/zip"
+      ],
+      "readerEvents": [
+        "authority_verified",
+        [
+          "read",
+          "https://securitymarketpulse.com/deployment-receipt.json",
+          [
+            1000001
+          ]
+        ],
+        [
+          "read",
+          "https://securitymarketpulse.com/app-release.json",
+          [
+            1000001
+          ]
+        ],
+        [
+          "read",
+          "https://securitymarketpulse.com/daily-coverage.json",
+          [
+            1337258
+          ]
+        ],
+        [
+          "read",
+          "https://securitymarketpulse.com/factual-corrections.json",
+          [
+            1000001
+          ]
+        ]
+      ],
+      "publicCoverageSha256": "ac8068379c6c79760331711bfb7bb6387fbc639f9ab6f921713502c6982d47fc",
+      "publicCoverageBytes": 1337257,
+      "allSourceClocksUnchanged": true,
+      "validUntil": "2026-10-26T12:45:29.479727+00:00",
+      "rawCurrentReceiptCheckedAt": "2026-10-25T06:53:46.343333Z",
+      "originalPlanScheduledAt": "2026-10-25T06:45:06.019050Z"
+    },
+    "crossDay": {
+      "scope": "Retained real source-original versus gate-rebuilt/local-public rehearsal coverage; no production or scheduled acceptance claim",
+      "originalPlanSha256": "52f5875609394b7aa52c793fe133c1d10a970f64cc57cff69fe89f21342e30c3",
+      "originalPlanScheduledAt": "2026-10-24T18:28:54.713214Z",
+      "cases": [
+        {
+          "inputKind": "source-original raw",
+          "checkedAt": "2026-10-24T18:32:56.227836Z",
+          "runId": "2c57fb25697bfc4b40df574890334adfa1d6d0df610837e12aa3a71e22515523",
+          "oldReasons": [
+            "DAILY_INTAKE_INCOMPLETE",
+            "PROCESSING_PENDING_10632",
+            "PROCESSING_HELD_5",
+            "HISTORICAL_REVIEW_PENDING_10631"
+          ],
+          "repairedReasons": [
+            "DAILY_INTAKE_INCOMPLETE",
+            "PROCESSING_PENDING_10632",
+            "PROCESSING_HELD_5",
+            "HISTORICAL_REVIEW_PENDING_10631"
+          ],
+          "originalPlanReads": [
+            "runs/2c57fb25697bfc4b40df574890334adfa1d6d0df610837e12aa3a71e22515523/plan.json"
+          ],
+          "coverageUnchanged": true
+        },
+        {
+          "inputKind": "gate-rebuilt raw from retained local rehearsal",
+          "checkedAt": "2026-10-25T00:59:59.916017Z",
+          "runId": "2c57fb25697bfc4b40df574890334adfa1d6d0df610837e12aa3a71e22515523",
+          "oldReasons": [
+            "SEPARATE_COVERAGE_INVALID_OR_UNCOLLECTED"
+          ],
+          "repairedReasons": [
+            "DAILY_INTAKE_INCOMPLETE",
+            "PROCESSING_PENDING_10632",
+            "PROCESSING_HELD_5",
+            "HISTORICAL_REVIEW_PENDING_10631"
+          ],
+          "originalPlanReads": [
+            "runs/2c57fb25697bfc4b40df574890334adfa1d6d0df610837e12aa3a71e22515523/plan.json"
+          ],
+          "coverageUnchanged": true
+        },
+        {
+          "inputKind": "rebuilt public from retained local rehearsal",
+          "checkedAt": "2026-10-25T01:00:34.491456Z",
+          "runId": "2c57fb25697bfc4b40df574890334adfa1d6d0df610837e12aa3a71e22515523",
+          "oldReasons": [
+            "SEPARATE_COVERAGE_INVALID_OR_UNCOLLECTED"
+          ],
+          "repairedReasons": [
+            "DAILY_INTAKE_INCOMPLETE",
+            "PROCESSING_PENDING_10632",
+            "PROCESSING_HELD_5",
+            "HISTORICAL_REVIEW_PENDING_10631"
+          ],
+          "originalPlanReads": [
+            "runs/2c57fb25697bfc4b40df574890334adfa1d6d0df610837e12aa3a71e22515523/plan.json"
+          ],
+          "coverageUnchanged": true
+        }
+      ]
+    },
+    "ownOriginalInputCount": 10,
+    "allOwnOriginalInputsRecheckedUnchanged": true
+  },
+  "scopeLimits": [
+    "No live source/model requests, gate reservations, dispatch, publication, archive writes or main changes by this implementation unit.",
+    "Offline current-production replay uses actual retained GitHub authority and public bytes with sockets denied.",
+    "Cross-day rebuilt raw and public inputs are retained local release rehearsal evidence, never accepted production or scheduled proof.",
+    "Older-public/newer-private fixture isolates plan routing with exact retained H coverage and plans; synthetic routing manifest and stubbed acknowledgement do not attest an accepted older H release.",
+    "Original source clocks and expiry are unchanged. Incomplete-or-overdue alarms do not establish expiry while validUntil remains future.",
+    "Actual preview manual and genuine scheduled-main execution require their own receipts. Parent owns commit and release actions."
+  ],
+  "receipts": {
+    "cross-day-gate-rebuilt-release-input.json.gz": {
+      "sha256": "205e4e1b32fd2b01cde73a15b21f2ab711128eb69fd47cc14abc089aec7a901a",
+      "bytes": 221353
+    },
+    "cross-day-original-plan.json.gz": {
+      "sha256": "c8a0f06f2d163ebc63429896a07b6343c75db67eb4f609555089fdebb1b385cc",
+      "bytes": 28383
+    },
+    "cross-day-original-versus-repaired.json": {
+      "sha256": "82bcc721dc33870cdee44c7c47c49b26628e84a65e20506dfdf3155f1884e7df",
+      "bytes": 2280
+    },
+    "cross-day-rebuilt-artifact-inventory.json.gz": {
+      "sha256": "d89238a1652e1a555f820e52c934511dd74d180dfe6d23504eaf949ac65dde2d",
+      "bytes": 3086
+    },
+    "cross-day-rebuilt-public-coverage.json.gz": {
+      "sha256": "922e75d960b358ea7a0a1e9cd25d6281d2ccd651b3a0bf491719b762e1cd7530",
+      "bytes": 106231
+    },
+    "cross-day-source-original-coverage.json.gz": {
+      "sha256": "30a1eebb86b11c8aa45a023e168940a7cfe8e62cd39c21e41e09e1a77958a6fc",
+      "bytes": 220107
+    },
+    "current-accepted-factual-corrections.json.gz": {
+      "sha256": "f28488111a8dfe6d650209458b0859c7eec5e58528bf031851f48b38dc5502f8",
+      "bytes": 6522
+    },
+    "current-original-coverage.json.gz": {
+      "sha256": "241d0fdf0f006d6eda85b71fcd00237dd47fd764330a8767c2591a134f702294",
+      "bytes": 230662
+    },
+    "current-original-plan.json.gz": {
+      "sha256": "3b41b991089302e6627569d94177dbd32aa40a273991c44b785c330f1c97fda2",
+      "bytes": 28372
+    },
+    "current-original-snapshot.json.gz": {
+      "sha256": "ecb5c73206d1174e1ebea62f8e28e3d1249f6f61150063f531b82a7aa416e91a",
+      "bytes": 102929
+    },
+    "current-production-replay.json": {
+      "sha256": "688b91123464d719bbef71d5667e03c77cd33728bbdd88cf7e5e5e038d118999",
+      "bytes": 3066
+    },
+    "fixture-input-seals.json": {
+      "sha256": "31e0b15f3c228bf91b55ccc4d30dc9bb63f27e60e03489d3c0031b5985bfbdf0",
+      "bytes": 6332
+    },
+    "operational-tests.log-metadata.json": {
+      "sha256": "415c780ad23c6ec729bb8939dbd8803554b283f18fe3ce7771aa65bdf3972c55",
+      "bytes": 562
+    },
+    "operational-tests.log.gz": {
+      "sha256": "f4cf38d58deaeea53ebd5f37d38d2767ba10b8f908f202042deea9997cb576da",
+      "bytes": 24031
+    },
+    "watchdog-tests.log-metadata.json": {
+      "sha256": "37d11e86212824199a5bcdda0def67e0b2d5d52ddeab1628ec110323fb58f907",
+      "bytes": 559
+    },
+    "watchdog-tests.log.gz": {
+      "sha256": "bc3f38213b4f7e22ab255a720de52763f61fc9109a2be9db8eabbf395c939e57",
+      "bytes": 1398
+    }
+  }
+}

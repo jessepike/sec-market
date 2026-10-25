@@ -1,0 +1,40 @@
+{
+  "result": {
+    "deployment": {
+      "id": "dpl_x8eMjP1csPinhA6R8aj81QhnneVT",
+      "name": "security-market-pulse",
+      "url": "security-market-pulse-ff52pu89e-pikeholdings.vercel.app",
+      "type": "LAMBDAS",
+      "state": "READY",
+      "createdAt": 1792917976300,
+      "creator": {
+        "uid": "um6xyC6srGbNQRAR3KB77kfs",
+        "username": "jessepike"
+      },
+      "project": {
+        "id": "prj_g8sZPXo81XT2Xopa1oLrsbYjTehV",
+        "name": "security-market-pulse",
+        "framework": "vite"
+      },
+      "meta": {
+        "githubCommitRef": "preview",
+        "githubCommitSha": "05965a710f0a1cb84b582e9dc134deecf04535fe",
+        "githubCommitMessage": "fix(monitor): authenticate accepted coverage bytes and original collection plans",
+        "githubRepo": "sec-market",
+        "githubOrg": "jessepike"
+      },
+      "alias": [
+        "security-market-pulse-git-preview-pikeholdings.vercel.app"
+      ],
+      "target": null,
+      "regions": [
+        "iad1"
+      ],
+      "buildingAt": 1792917977399,
+      "ready": 1792917999587,
+      "readyState": "READY",
+      "source": "git",
+      "aliasError": null
+    }
+  }
+}

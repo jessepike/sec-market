@@ -148,7 +148,11 @@ coverage/review/timer alarms. The combined repair passes 36 watchdog and 858 ope
 independent review passes 31 reader and 27 original-plan mutations with no open material findings.
 It also binds cross-midnight coverage to its authenticated original plan. See the
 [review](docs/active/daily-pipeline/accuracy/coverage-monitor-inventory-bound-read-independent-review-2026-10-25.md).
-An actual repaired preview monitor run is next; repaired scheduled-main monitoring remains pending.
+Actual manual preview monitor 40177951978 ran repair 05965a71: 36 runner tests pass and the
+generic probe exception is absent. It reaches the exact public backlog/HELD_CLAIMS_37 reasons
+and updated issue 10 at 08:46:50 UTC. The workflow correctly remains red for real gaps.
+[Actual run evidence](docs/active/daily-pipeline/accuracy/coverage-monitor-preview-actual-run-2026-10-25.md)
+retains unchanged public bytes and archive ref. Repaired scheduled-main monitoring remains pending.
 
 Actual monitor 40165077942 updated assigned issue 10 at 05:19 UTC October 25, after starting
 four hours 37 minutes past its timer. At 06:39 UTC the collector's 05:17 timer had still emitted

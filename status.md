@@ -121,9 +121,16 @@ now passes 36 watchdog tests and all 858 operational tests. Independent review p
 and 27 original-plan rejection cases with no open material findings. It also fixes a retained
 cross-midnight monitor error by checking each receipt against its authenticated original plan.
 The [combined review](docs/active/daily-pipeline/accuracy/coverage-monitor-inventory-bound-read-independent-review-2026-10-25.md)
-preserves actual source dates and all backlog/timer alarms. This repair remains on future preview;
-an actual repaired monitor run is next. The actual public expiry stays future; combined incomplete-or-
-overdue reasons do not establish current public expiry. No source qualification credit follows.
+preserves actual source dates and all backlog/timer alarms. Preview repair 05965a71 then executed
+actual manual monitor 40177951978: all 36 runner tests passed, production inspection reached the
+specific public backlog and HELD_CLAIMS_37 alarms, and issue 10 updated at 08:46:50 UTC.
+The generic probe exception is absent. Its workflow remains red for the genuine gaps.
+[Actual run proof](docs/active/daily-pipeline/accuracy/coverage-monitor-preview-actual-run-2026-10-25.md).
+Archive and public bytes remain exact. Main is unchanged; repaired scheduled-main monitoring
+remains pending. Public expiry stays future; the combined incomplete-or-overdue reasons do not
+establish current public expiry. No source qualification or scheduled collection credit follows.
+Web CI 40177941631 passed and Vercel preview dpl_x8eMjP1csPinhA6R8aj81QhnneVT is READY
+with actual app revision 05965a71. Its uncollected fixture remains outside publication.
 The [557-row ledger](docs/active/daily-pipeline/evaluations/2026-10-24/current-source-coverage.md)
 and [evaluation rubric](docs/active/daily-pipeline/evaluation-rubric.md) keep the measures separate.
 The [October 25 scorecard](docs/active/daily-pipeline/evaluations/2026-10-25/recovery-observation.md)
