@@ -98,6 +98,11 @@ Verify actual scheduled collection, gated public bytes, issue 12 recovery and co
 rollback/restoration. Assigned issue 12 retains publication failure; issue 10 retains coverage,
 processing/history and execution gaps. Scheduled monitor 40133102924 updated issue 10 at 21:11 UTC.
 Actual owner GitHub inbox delivery is proven for issues 10/12/13; phone/email delivery is unproved.
+Scheduled monitor 40165077942 ran on main 6d5e87fe at 05:18:55 UTC October 25,
+four hours 37 minutes after its 00:41 timer. Its 20 guard tests passed; the live probe correctly
+remained unhealthy and updated assigned issue 10 at 05:19:16 UTC with current coverage,
+processing/history and pending scheduled/publication evidence. This proves this monitor execution
+and issue update only. The 05:17 collector had not appeared by 05:22 UTC; no new release or drill.
 The [557-row ledger](docs/active/daily-pipeline/evaluations/2026-10-24/current-source-coverage.md)
 and [evaluation rubric](docs/active/daily-pipeline/evaluation-rubric.md) keep the measures separate.
 
