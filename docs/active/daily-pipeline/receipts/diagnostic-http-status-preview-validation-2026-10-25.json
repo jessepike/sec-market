@@ -1,0 +1,167 @@
+{
+  "archiveWrites": 0,
+  "baseRevision": "543c435e35286ee002cd56989f215b6093b033af",
+  "codePins": [
+    {
+      "bytes": 10828,
+      "path": "web/scripts/pipeline/fetcher.py",
+      "sha256": "82084e87bb41687fec8ebfc969cf0a37294e04312a47a27993f5c359a585adce"
+    },
+    {
+      "bytes": 24316,
+      "path": "ops/ci/collect.py",
+      "sha256": "70823c921fb849fa814b7a26f39044448896638b1eae9961a6c0d6b684bbb5fc"
+    },
+    {
+      "bytes": 15035,
+      "path": "ops/ci/test_unexpected_http_status_diagnostics.py",
+      "sha256": "14b99ea73de9f43b1e9ed9b0ff22497f31ca8239655495f2a46b4a757bd84bb9"
+    },
+    {
+      "bytes": 14020,
+      "path": "ops/ci/test_orca_redirect_diagnostics.py",
+      "sha256": "10d9d49bb46fcc90c0c5ab109f81961ee0b561557ca0ad869181cda9f889fc9d"
+    },
+    {
+      "bytes": 284062,
+      "path": "contracts/market.json",
+      "sha256": "24221c946781559c0ff3626e4e479c4647da915d0f2d7559ea88046982532c3c"
+    },
+    {
+      "bytes": 173,
+      "path": "contracts/source-qualification-probes.json",
+      "sha256": "ad1c5cc234fe4fa69cbceb5370ac74825a37dc80b08528ca908d14b1352e53b4"
+    }
+  ],
+  "frozenMain": "6d5e87feba4ffbc75e50f35cb564cb8fd91708ca",
+  "gateReservations": 0,
+  "kind": "local_preview_validation_only",
+  "modelRequests": 0,
+  "observedAt": "2026-10-25T01:31:45.348564+00:00",
+  "operationalTests": {
+    "executed": 818,
+    "result": "pass",
+    "source": "worker handoff; independent focused/adversarial review separate"
+  },
+  "published": false,
+  "sourceRequests": 0,
+  "visual": {
+    "comparisons": [
+      {
+        "equalPixels": true,
+        "sameDimensions": true,
+        "size": [
+          1440,
+          8379
+        ],
+        "view": "1440"
+      },
+      {
+        "equalPixels": true,
+        "sameDimensions": true,
+        "size": [
+          390,
+          7749
+        ],
+        "view": "390"
+      },
+      {
+        "equalPixels": true,
+        "sameDimensions": true,
+        "size": [
+          1440,
+          900
+        ],
+        "view": "fold-1440"
+      },
+      {
+        "equalPixels": true,
+        "sameDimensions": true,
+        "size": [
+          390,
+          844
+        ],
+        "view": "fold-390"
+      }
+    ],
+    "images": [
+      {
+        "bytes": 989395,
+        "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/http-status-base-preview-1440.png",
+        "sha256": "b044622ff53e695fee8334a95746b932c0df81ff6e26ecb810bfd9228765cdd9"
+      },
+      {
+        "bytes": 436460,
+        "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/http-status-base-preview-390.png",
+        "sha256": "7dc872da46a4cf5e2eb765df88e1ae28e34eb70f8d5c38b19835bab09afcd3df"
+      },
+      {
+        "bytes": 133321,
+        "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/http-status-base-preview-fold-1440.png",
+        "sha256": "62a0e5d27f80a3d235134a608ea89b3f31351b3728be51def6b1a058cd247e74"
+      },
+      {
+        "bytes": 55881,
+        "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/http-status-base-preview-fold-390.png",
+        "sha256": "dcf47cf989c55060dee9ca30c84cfb5e31797a738337dc448799a5c3fb0a2193"
+      },
+      {
+        "bytes": 989395,
+        "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/http-status-local-1440.png",
+        "sha256": "b044622ff53e695fee8334a95746b932c0df81ff6e26ecb810bfd9228765cdd9"
+      },
+      {
+        "bytes": 436460,
+        "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/http-status-local-390.png",
+        "sha256": "7dc872da46a4cf5e2eb765df88e1ae28e34eb70f8d5c38b19835bab09afcd3df"
+      },
+      {
+        "bytes": 133321,
+        "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/http-status-local-fold-1440.png",
+        "sha256": "62a0e5d27f80a3d235134a608ea89b3f31351b3728be51def6b1a058cd247e74"
+      },
+      {
+        "bytes": 55881,
+        "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/http-status-local-fold-390.png",
+        "sha256": "dcf47cf989c55060dee9ca30c84cfb5e31797a738337dc448799a5c3fb0a2193"
+      },
+      {
+        "bytes": 996984,
+        "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/http-status-production-1440.png",
+        "sha256": "8651f15011d8a0518a5e4f96a43d693c014ea1d33a041f1586e830a088cce1ad"
+      },
+      {
+        "bytes": 437240,
+        "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/http-status-production-390.png",
+        "sha256": "0c81367ea5540676b295a8ba96173ef98e5e9c41993a3dac9392166ae2af10d9"
+      },
+      {
+        "bytes": 140324,
+        "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/http-status-production-fold-1440.png",
+        "sha256": "4764abbcb551093093063acf62784889455bf1719b00c359314469548ae05914"
+      },
+      {
+        "bytes": 59511,
+        "path": "/Users/jessepike/Documents/Codex/2026-10-22/security-market-pulse/renewal-20261024/http-status-production-fold-390.png",
+        "sha256": "f4151c6dd4bedfb838912f205536c70625d7cdeaa08830bc9b3a296cdc83faa7"
+      }
+    ],
+    "immutableBasePreview": "https://security-market-pulse-jeojf8aea-pikeholdings.vercel.app/",
+    "inspected": true,
+    "local": "http://127.0.0.1:18813/",
+    "production": "https://securitymarketpulse.com/"
+  },
+  "web": {
+    "browserPassed": 42,
+    "browserSkipped": 1,
+    "compressedLogSha256": "2220f5dd4d2ef310afbc23daae69e787b75ca722f0fdfba3f491289d74cf4bbe",
+    "dataTests": 373,
+    "executedTotal": 530,
+    "fixtureNeverPublish": true,
+    "fixtureSnapshotSha256": "e1945874cb3f2cb661bf67671ec2bd760ae363761e21f85e3ea8d044afd91384",
+    "lintBuild": "pass",
+    "pipelineTests": 115,
+    "result": "pass",
+    "uncompressedLogSha256": "7cef1efcdb658b18c93ab751648884c8b3bdc83e187979f8b2c1dc60391469ed"
+  }
+}

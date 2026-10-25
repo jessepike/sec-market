@@ -125,9 +125,12 @@ def _redirect_result(result, handler, error=None):
 
 
 class Fetcher:
-    def __init__(self, store, max_bytes=32_000_000, timeout=30, *, redirect_diagnostics=False):
+    def __init__(self, store, max_bytes=32_000_000, timeout=30, *, redirect_diagnostics=False,
+                 unexpected_status_diagnostics=False):
         require(type(redirect_diagnostics) is bool, "Redirect diagnostic mode must be boolean")
+        require(type(unexpected_status_diagnostics) is bool, "Unexpected status diagnostic mode must be boolean")
         self.redirect_diagnostics = redirect_diagnostics
+        self.unexpected_status_diagnostics = unexpected_status_diagnostics
         self.store, self.max_bytes, self.timeout = store, max_bytes, timeout
         self.rate_lock = threading.Lock()
         self.last_request = {}
@@ -184,5 +187,9 @@ class Fetcher:
             safe_url(response.url, source["allowedHosts"], proxy_dns=self.proxy_dns)
             body = response.read(self.max_bytes + 1)
             require(len(body) <= self.max_bytes, "Source exceeds request size budget")
+            if self.unexpected_status_diagnostics and response.status != 200:
+                return retained({"requestedUrl": url, "finalUrl": response.url, "fetchedAt": utcnow(),
+                    "status": "failed", "httpStatus": response.status, "body": self.store.put(body),
+                    "contentType": response.headers.get("Content-Type", ""), "errorCode": "UNEXPECTED_HTTP_STATUS"})
             require(response.status == 200, "Unexpected source response status")
             return retained({"requestedUrl": url, "finalUrl": response.url, "fetchedAt": utcnow(), "status": "fetched", "httpStatus": 200, "body": self.store.put(body), "etag": response.headers.get("ETag"), "lastModified": response.headers.get("Last-Modified"), "contentType": response.headers.get("Content-Type", "")})

@@ -51,6 +51,13 @@ promotion and its actual state is active. The collector remains active. Main web
 passed. No additional publisher/collection dispatch, reset/refund or extra schedule.
 [Re-enable receipt](docs/active/daily-pipeline/receipts/publisher-reenabled-after-midnight-repair-2026-10-25.json).
 
+Preview-only follow-up: the [diagnostic status repair](docs/active/daily-pipeline/accuracy/diagnostic-unexpected-http-status-independent-review-2026-10-25.md)
+retains failed opened HTTP responses only in opted-in schema-1 diagnostics. All 818 operational
+tests and 530 executed application tests pass (one appropriate fixture skip). Independent origin
+replay preserves the three qualified inventories and all 41,249 archive files. Full/first-screen
+1440/390 renders exactly match the prior preview. The old Check Point status stays unknown.
+Keep this patch off main until the assigned actual H scheduled/public acceptance.
+
 ## Sources, alerts and next receipts
 
 Diagnostics are exact disabled ad1. Actual Orca run 40129367275 retained 90 leads from 26 pages,

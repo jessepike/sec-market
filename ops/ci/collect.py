@@ -253,7 +253,8 @@ def execute_source_probe(root, state, session, contract, maximum_seconds):
             # Reconstruct readiness and retain repeated module/caller denials.
             report = orca.finalize_report(contract, state, qualification_raw, report, budget)
         else:
-            report = probe_sources(contract, state, Fetcher(state, timeout=12), reservation_context=budget,
+            diagnostic_options = {'unexpected_status_diagnostics': True} if selected_plan.get('schemaVersion') == 1 else {}
+            report = probe_sources(contract, state, Fetcher(state, timeout=12, **diagnostic_options), reservation_context=budget,
                                    qualification_plan_path=qualification_plan)
             # The final in-flight request can finish after its deadline/day even
             # when there is no next request to trigger the ordinary guard.

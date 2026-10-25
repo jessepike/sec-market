@@ -190,7 +190,7 @@ class OrcaRedirectRouteTests(unittest.TestCase):
         finally:
             fixture.doCleanups()
 
-    def test_existing_generic_route_keeps_default_constructor(self):
+    def test_schema_one_route_opts_in_to_unexpected_status_diagnostics(self):
         import collect
         import test_leased_source_probe as leased
         fixture=leased.LeasedSourceProbeTests(methodName='runTest')
@@ -198,7 +198,7 @@ class OrcaRedirectRouteTests(unittest.TestCase):
         try:
             with patch.object(collect, 'Fetcher', side_effect=fixture.transport) as factory:
                 result=fixture.run_probe()
-            self.assertEqual(factory.call_args.kwargs, {'timeout':12})
+            self.assertEqual(factory.call_args.kwargs, {'timeout':12, 'unexpected_status_diagnostics':True})
             self.assertFalse(result['coverageCredit'])
         finally:
             fixture.doCleanups()
