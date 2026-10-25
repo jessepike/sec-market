@@ -1,0 +1,349 @@
+{
+  "schemaVersion": 1,
+  "checkpointProfile": "source_probe",
+  "githubRunId": "40179255547",
+  "githubRunAttempt": 1,
+  "githubEventName": "workflow_dispatch",
+  "githubRef": "refs/heads/main",
+  "appRevision": "99617db0f0ef4c70bb6f0b563cac9a40c50e0385",
+  "contractSha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+  "diagnostic": {
+    "schemaVersion": 1,
+    "operation": "bounded_q4_controller_capture",
+    "contractSha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+    "planRawSha256": "007f1f940d48727da9a921d0c1138f27e5249870dd5ed6aaa3da3e844582ba91",
+    "planCanonicalSha256": "e787c1c94704dd3a21ff4e71ffaf35dac1ac18f9d3ea2b0a7e16690da3561600",
+    "planReference": {
+      "key": "objects/007f1f940d48727da9a921d0c1138f27e5249870dd5ed6aaa3da3e844582ba91",
+      "sha256": "007f1f940d48727da9a921d0c1138f27e5249870dd5ed6aaa3da3e844582ba91",
+      "bytes": 5643
+    },
+    "startedAt": "2026-10-25T09:09:32.159902Z",
+    "requests": [
+      {
+        "sourceId": "jfrog:official:1",
+        "url": "https://investors.jfrog.com/js/module/widgets/dist/latest/evergreen.q4Api.min.js",
+        "requestedAt": "2026-10-25T09:09:54.127347Z",
+        "reservation": {
+          "budgetDay": "2026-10-25",
+          "fetchLimit": 5500,
+          "chargedFetchCount": 445
+        },
+        "observation": {
+          "key": "objects/fe5378f490169d6b0b96f04c0d4f8800652d82b177645ea96307c2427a795bcd",
+          "sha256": "fe5378f490169d6b0b96f04c0d4f8800652d82b177645ea96307c2427a795bcd",
+          "bytes": 417
+        },
+        "responseCheckedAt": "2026-10-25T09:09:54.347152Z",
+        "transportError": null,
+        "denial": null
+      },
+      {
+        "sourceId": "jfrog:official:1",
+        "url": "https://investors.jfrog.com/js/module/widgets/dist/latest/evergreen.q4Pager.min.js",
+        "requestedAt": "2026-10-25T09:09:54.349746Z",
+        "reservation": {
+          "budgetDay": "2026-10-25",
+          "fetchLimit": 5500,
+          "chargedFetchCount": 446
+        },
+        "observation": {
+          "key": "objects/9dda71231e47594fda6e7e5a12811cafecc32e253c75a11713f68b42a264a755",
+          "sha256": "9dda71231e47594fda6e7e5a12811cafecc32e253c75a11713f68b42a264a755",
+          "bytes": 419
+        },
+        "responseCheckedAt": "2026-10-25T09:09:54.595504Z",
+        "transportError": null,
+        "denial": null
+      },
+      {
+        "sourceId": "rapid7:official:1",
+        "url": "https://investors.rapid7.com/js/module/widgets/dist/latest/evergreen.q4Api.min.js",
+        "requestedAt": "2026-10-25T09:09:54.597940Z",
+        "reservation": {
+          "budgetDay": "2026-10-25",
+          "fetchLimit": 5500,
+          "chargedFetchCount": 447
+        },
+        "observation": {
+          "key": "objects/1c4e41969ed7ff0b0fcd3c3bc86e2587be8e689ac88b8a19a6178efd71edfaec",
+          "sha256": "1c4e41969ed7ff0b0fcd3c3bc86e2587be8e689ac88b8a19a6178efd71edfaec",
+          "bytes": 419
+        },
+        "responseCheckedAt": "2026-10-25T09:09:54.778589Z",
+        "transportError": null,
+        "denial": null
+      },
+      {
+        "sourceId": "rapid7:official:1",
+        "url": "https://investors.rapid7.com/js/module/widgets/dist/latest/evergreen.q4Pager.min.js",
+        "requestedAt": "2026-10-25T09:09:54.781037Z",
+        "reservation": {
+          "budgetDay": "2026-10-25",
+          "fetchLimit": 5500,
+          "chargedFetchCount": 448
+        },
+        "observation": {
+          "key": "objects/88dcae2e9c56c7c0906dddeb9cf28b292d8f26c3dcd4f57afccd7c5867ad1ac8",
+          "sha256": "88dcae2e9c56c7c0906dddeb9cf28b292d8f26c3dcd4f57afccd7c5867ad1ac8",
+          "bytes": 421
+        },
+        "responseCheckedAt": "2026-10-25T09:09:55.059064Z",
+        "transportError": null,
+        "denial": null
+      },
+      {
+        "sourceId": "rubrik:official:1",
+        "url": "https://ir.rubrik.com/js/module/widgets/dist/latest/evergreen.q4Api.min.js",
+        "requestedAt": "2026-10-25T09:09:55.061778Z",
+        "reservation": {
+          "budgetDay": "2026-10-25",
+          "fetchLimit": 5500,
+          "chargedFetchCount": 449
+        },
+        "observation": {
+          "key": "objects/5dce7d5db11243b6dd5dd893451f4339439de9151633d42b8964a0c5c94f6fae",
+          "sha256": "5dce7d5db11243b6dd5dd893451f4339439de9151633d42b8964a0c5c94f6fae",
+          "bytes": 412
+        },
+        "responseCheckedAt": "2026-10-25T09:09:55.280110Z",
+        "transportError": null,
+        "denial": null
+      },
+      {
+        "sourceId": "rubrik:official:1",
+        "url": "https://ir.rubrik.com/js/module/widgets/dist/latest/evergreen.q4Pager.min.js",
+        "requestedAt": "2026-10-25T09:09:55.282770Z",
+        "reservation": {
+          "budgetDay": "2026-10-25",
+          "fetchLimit": 5500,
+          "chargedFetchCount": 450
+        },
+        "observation": {
+          "key": "objects/2dd85484e3c0581f2e4086ce76dc23b04cd33a53aae190c204762bf85bdecf74",
+          "sha256": "2dd85484e3c0581f2e4086ce76dc23b04cd33a53aae190c204762bf85bdecf74",
+          "bytes": 414
+        },
+        "responseCheckedAt": "2026-10-25T09:09:55.522393Z",
+        "transportError": null,
+        "denial": null
+      }
+    ],
+    "completionDenials": [],
+    "qualified": false,
+    "semanticAdmission": false,
+    "coverageCredit": false,
+    "facts": [],
+    "qualifiedSources": 0,
+    "sourceChecksCredited": 0,
+    "modelCalls": 0,
+    "checkedAt": "2026-10-25T09:09:55.789354Z",
+    "reservationContext": {
+      "budgetDay": "2026-10-25",
+      "contractSha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+      "fetchLimit": 5500,
+      "maximumRuntimeSeconds": 1200,
+      "startedAt": "2026-10-25T09:09:32.159902Z",
+      "initialBudget": {
+        "calls": 72,
+        "documents": 33,
+        "fetches": 444
+      },
+      "probeFetchReservations": 6,
+      "reservationDenials": {},
+      "currentBudget": {
+        "calls": 72,
+        "documents": 33,
+        "fetches": 450
+      }
+    },
+    "budgetDenied": false,
+    "executionCompleted": true,
+    "results": [
+      {
+        "sourceId": "jfrog:official:1",
+        "requestedUrl": "https://investors.jfrog.com/js/module/widgets/dist/latest/evergreen.q4Api.min.js",
+        "observation": {
+          "key": "objects/fe5378f490169d6b0b96f04c0d4f8800652d82b177645ea96307c2427a795bcd",
+          "sha256": "fe5378f490169d6b0b96f04c0d4f8800652d82b177645ea96307c2427a795bcd",
+          "bytes": 417
+        },
+        "captured": true,
+        "finalUrl": "https://investors.jfrog.com/js/module/widgets/dist/latest/evergreen.q4Api.min.js",
+        "fetchedAt": "2026-10-25T09:09:54.344075Z",
+        "httpStatus": 200,
+        "contentType": "application/javascript",
+        "body": {
+          "bytes": 25534,
+          "key": "objects/2ce36889709b0c9ff34e2b657d5abe0600009604d7e5407d41198f9a9c72d5e7",
+          "sha256": "2ce36889709b0c9ff34e2b657d5abe0600009604d7e5407d41198f9a9c72d5e7"
+        },
+        "reason": "JAVASCRIPT_CAPTURED_REVIEW_REQUIRED",
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "facts": [],
+        "qualifiedSources": 0,
+        "sourceChecksCredited": 0,
+        "modelCalls": 0
+      },
+      {
+        "sourceId": "jfrog:official:1",
+        "requestedUrl": "https://investors.jfrog.com/js/module/widgets/dist/latest/evergreen.q4Pager.min.js",
+        "observation": {
+          "key": "objects/9dda71231e47594fda6e7e5a12811cafecc32e253c75a11713f68b42a264a755",
+          "sha256": "9dda71231e47594fda6e7e5a12811cafecc32e253c75a11713f68b42a264a755",
+          "bytes": 419
+        },
+        "captured": true,
+        "finalUrl": "https://investors.jfrog.com/js/module/widgets/dist/latest/evergreen.q4Pager.min.js",
+        "fetchedAt": "2026-10-25T09:09:54.592902Z",
+        "httpStatus": 200,
+        "contentType": "application/javascript",
+        "body": {
+          "bytes": 7642,
+          "key": "objects/4e9d26dabe182ce0694a7e892892b5dc24a502cf14ee1b251542c9b920796a79",
+          "sha256": "4e9d26dabe182ce0694a7e892892b5dc24a502cf14ee1b251542c9b920796a79"
+        },
+        "reason": "JAVASCRIPT_CAPTURED_REVIEW_REQUIRED",
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "facts": [],
+        "qualifiedSources": 0,
+        "sourceChecksCredited": 0,
+        "modelCalls": 0
+      },
+      {
+        "sourceId": "rapid7:official:1",
+        "requestedUrl": "https://investors.rapid7.com/js/module/widgets/dist/latest/evergreen.q4Api.min.js",
+        "observation": {
+          "key": "objects/1c4e41969ed7ff0b0fcd3c3bc86e2587be8e689ac88b8a19a6178efd71edfaec",
+          "sha256": "1c4e41969ed7ff0b0fcd3c3bc86e2587be8e689ac88b8a19a6178efd71edfaec",
+          "bytes": 419
+        },
+        "captured": true,
+        "finalUrl": "https://investors.rapid7.com/js/module/widgets/dist/latest/evergreen.q4Api.min.js",
+        "fetchedAt": "2026-10-25T09:09:54.775895Z",
+        "httpStatus": 200,
+        "contentType": "application/javascript",
+        "body": {
+          "bytes": 25534,
+          "key": "objects/2ce36889709b0c9ff34e2b657d5abe0600009604d7e5407d41198f9a9c72d5e7",
+          "sha256": "2ce36889709b0c9ff34e2b657d5abe0600009604d7e5407d41198f9a9c72d5e7"
+        },
+        "reason": "JAVASCRIPT_CAPTURED_REVIEW_REQUIRED",
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "facts": [],
+        "qualifiedSources": 0,
+        "sourceChecksCredited": 0,
+        "modelCalls": 0
+      },
+      {
+        "sourceId": "rapid7:official:1",
+        "requestedUrl": "https://investors.rapid7.com/js/module/widgets/dist/latest/evergreen.q4Pager.min.js",
+        "observation": {
+          "key": "objects/88dcae2e9c56c7c0906dddeb9cf28b292d8f26c3dcd4f57afccd7c5867ad1ac8",
+          "sha256": "88dcae2e9c56c7c0906dddeb9cf28b292d8f26c3dcd4f57afccd7c5867ad1ac8",
+          "bytes": 421
+        },
+        "captured": true,
+        "finalUrl": "https://investors.rapid7.com/js/module/widgets/dist/latest/evergreen.q4Pager.min.js",
+        "fetchedAt": "2026-10-25T09:09:55.055776Z",
+        "httpStatus": 200,
+        "contentType": "application/javascript",
+        "body": {
+          "bytes": 7642,
+          "key": "objects/4e9d26dabe182ce0694a7e892892b5dc24a502cf14ee1b251542c9b920796a79",
+          "sha256": "4e9d26dabe182ce0694a7e892892b5dc24a502cf14ee1b251542c9b920796a79"
+        },
+        "reason": "JAVASCRIPT_CAPTURED_REVIEW_REQUIRED",
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "facts": [],
+        "qualifiedSources": 0,
+        "sourceChecksCredited": 0,
+        "modelCalls": 0
+      },
+      {
+        "sourceId": "rubrik:official:1",
+        "requestedUrl": "https://ir.rubrik.com/js/module/widgets/dist/latest/evergreen.q4Api.min.js",
+        "observation": {
+          "key": "objects/5dce7d5db11243b6dd5dd893451f4339439de9151633d42b8964a0c5c94f6fae",
+          "sha256": "5dce7d5db11243b6dd5dd893451f4339439de9151633d42b8964a0c5c94f6fae",
+          "bytes": 412
+        },
+        "captured": true,
+        "finalUrl": "https://ir.rubrik.com/js/module/widgets/dist/latest/evergreen.q4Api.min.js",
+        "fetchedAt": "2026-10-25T09:09:55.277144Z",
+        "httpStatus": 200,
+        "contentType": "application/javascript",
+        "body": {
+          "bytes": 25534,
+          "key": "objects/2ce36889709b0c9ff34e2b657d5abe0600009604d7e5407d41198f9a9c72d5e7",
+          "sha256": "2ce36889709b0c9ff34e2b657d5abe0600009604d7e5407d41198f9a9c72d5e7"
+        },
+        "reason": "JAVASCRIPT_CAPTURED_REVIEW_REQUIRED",
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "facts": [],
+        "qualifiedSources": 0,
+        "sourceChecksCredited": 0,
+        "modelCalls": 0
+      },
+      {
+        "sourceId": "rubrik:official:1",
+        "requestedUrl": "https://ir.rubrik.com/js/module/widgets/dist/latest/evergreen.q4Pager.min.js",
+        "observation": {
+          "key": "objects/2dd85484e3c0581f2e4086ce76dc23b04cd33a53aae190c204762bf85bdecf74",
+          "sha256": "2dd85484e3c0581f2e4086ce76dc23b04cd33a53aae190c204762bf85bdecf74",
+          "bytes": 414
+        },
+        "captured": true,
+        "finalUrl": "https://ir.rubrik.com/js/module/widgets/dist/latest/evergreen.q4Pager.min.js",
+        "fetchedAt": "2026-10-25T09:09:55.519322Z",
+        "httpStatus": 200,
+        "contentType": "application/javascript",
+        "body": {
+          "bytes": 7642,
+          "key": "objects/4e9d26dabe182ce0694a7e892892b5dc24a502cf14ee1b251542c9b920796a79",
+          "sha256": "4e9d26dabe182ce0694a7e892892b5dc24a502cf14ee1b251542c9b920796a79"
+        },
+        "reason": "JAVASCRIPT_CAPTURED_REVIEW_REQUIRED",
+        "qualified": false,
+        "semanticAdmission": false,
+        "coverageCredit": false,
+        "facts": [],
+        "qualifiedSources": 0,
+        "sourceChecksCredited": 0,
+        "modelCalls": 0
+      }
+    ],
+    "capturedControllers": 6,
+    "captureComplete": true
+  },
+  "executionCompleted": true,
+  "outcome": "completed_diagnostic",
+  "modelCalls": 0,
+  "apiFallback": false,
+  "semanticAdmission": false,
+  "coverageCredit": false,
+  "sourceChecksCredited": 0,
+  "qualifiedSources": 0,
+  "publication": {
+    "published": false,
+    "reason": "SOURCE_PROBE_DIAGNOSTIC_ONLY"
+  },
+  "facts": [],
+  "archive": {
+    "commit": "9634b916c15b18f38605a168f7642de764670aab",
+    "parentCommit": "d23f89268d043618b924f1a7333b564394f65a85",
+    "manifestSha256": "600e58564c989206856ba48795bf4ce9f6fbbf73a604e806594e95327b53203a",
+    "files": 45307,
+    "ref": "refs/archive/market-evidence"
+  }
+}

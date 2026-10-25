@@ -1,0 +1,69 @@
+{
+  "reviewedMainRevision": "99617db0f0ef4c70bb6f0b563cac9a40c50e0385",
+  "previewCiRun": 40178989663,
+  "mainCiRun": 40179232874,
+  "productionAcknowledgementBytesUnchanged": true,
+  "mainGitDeploymentCanceled": true,
+  "previewDeploymentReady": true,
+  "diagnosticDispatchRun": 40179255547,
+  "diagnosticResultProvenByThisReceipt": false,
+  "gateAttemptsSpent": 2,
+  "sourceContractUnchanged": true,
+  "files": [
+    {
+      "path": "archive-before.json",
+      "sha256": "5342f71e284fa54cc8c8ef5f921ca8bca2eccf7780be01a94a69262fc7356c89",
+      "bytes": 381
+    },
+    {
+      "path": "diagnostic-dispatch-run.json",
+      "sha256": "93840f34bcb1718074645255c660f783f29a2012d2895a3bad166ff1b5633ee9",
+      "bytes": 12365
+    },
+    {
+      "path": "main-after.json",
+      "sha256": "a758eec36db3f82274ec899af970811b3f7bbc09447986648663db87ca9a1739",
+      "bytes": 338
+    },
+    {
+      "path": "main-before.json",
+      "sha256": "56fd31cf3bf9393750db87d87d8f6502343b3b29ecdb0341daf3711a2d0a1f56",
+      "bytes": 338
+    },
+    {
+      "path": "main-web-run.json",
+      "sha256": "52aeb3afd63a3ceb706c59f84067629071049d94e28664eeb990a197408df8a8",
+      "bytes": 12349
+    },
+    {
+      "path": "preview-app-release.json",
+      "sha256": "98c05d8b8cb280091737df0391f25dc8212422da98b210be43a1613a158a3052",
+      "bytes": 757
+    },
+    {
+      "path": "preview-before.json",
+      "sha256": "140213df9268a8bfc6bd2a2ec78864a7e2fd1572c1e4a19e165f4dacb3a0d096",
+      "bytes": 348
+    },
+    {
+      "path": "preview-web-run.json",
+      "sha256": "a044f0ac528fcb5a260ba16969566de5155ace3d465e5bc6a485ef1e4bb229f9",
+      "bytes": 12352
+    },
+    {
+      "path": "production-after.json",
+      "sha256": "5ef1302f26813f928931c6b9085bbd985a95fe10fb8e992d7c3d64415bb87d28",
+      "bytes": 1103
+    },
+    {
+      "path": "production-before.json",
+      "sha256": "5ef1302f26813f928931c6b9085bbd985a95fe10fb8e992d7c3d64415bb87d28",
+      "bytes": 1103
+    },
+    {
+      "path": "vercel-deployments.json",
+      "sha256": "2889a7d5a38f735a1061a88eaf8c93ad7fd0e3abd2f9663ce4980069c1b98033",
+      "bytes": 1942
+    }
+  ]
+}

@@ -1,0 +1,690 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Read-only static controller proof and review-only next-request recommendation; not an executable plan.",
+  "actualRunId": "40179255547",
+  "actualAppRevision": "99617db0f0ef4c70bb6f0b563cac9a40c50e0385",
+  "acknowledgedArchive": "9634b916c15b18f38605a168f7642de764670aab",
+  "archiveManifest": {
+    "path": "/var/tmp/smp-q4-controller-actual-20261025/extracted/archive-manifest.json",
+    "sha256": "600e58564c989206856ba48795bf4ce9f6fbbf73a604e806594e95327b53203a",
+    "bytes": 9326098
+  },
+  "marketCanonicalSha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+  "actualReportReplay": {
+    "captureComplete": true,
+    "capturedControllers": 6,
+    "qualified": false,
+    "semanticAdmission": false,
+    "coverageCredit": false,
+    "facts": [],
+    "qualifiedSources": 0,
+    "sourceChecksCredited": 0,
+    "modelCalls": 0
+  },
+  "actualResultClocks": [
+    {
+      "body": {
+        "bytes": 25534,
+        "key": "objects/2ce36889709b0c9ff34e2b657d5abe0600009604d7e5407d41198f9a9c72d5e7",
+        "sha256": "2ce36889709b0c9ff34e2b657d5abe0600009604d7e5407d41198f9a9c72d5e7"
+      },
+      "captured": true,
+      "contentType": "application/javascript",
+      "coverageCredit": false,
+      "facts": [],
+      "fetchedAt": "2026-10-25T09:09:54.344075Z",
+      "finalUrl": "https://investors.jfrog.com/js/module/widgets/dist/latest/evergreen.q4Api.min.js",
+      "httpStatus": 200,
+      "modelCalls": 0,
+      "observation": {
+        "bytes": 417,
+        "key": "objects/fe5378f490169d6b0b96f04c0d4f8800652d82b177645ea96307c2427a795bcd",
+        "sha256": "fe5378f490169d6b0b96f04c0d4f8800652d82b177645ea96307c2427a795bcd"
+      },
+      "qualified": false,
+      "qualifiedSources": 0,
+      "reason": "JAVASCRIPT_CAPTURED_REVIEW_REQUIRED",
+      "requestedUrl": "https://investors.jfrog.com/js/module/widgets/dist/latest/evergreen.q4Api.min.js",
+      "semanticAdmission": false,
+      "sourceChecksCredited": 0,
+      "sourceId": "jfrog:official:1"
+    },
+    {
+      "body": {
+        "bytes": 7642,
+        "key": "objects/4e9d26dabe182ce0694a7e892892b5dc24a502cf14ee1b251542c9b920796a79",
+        "sha256": "4e9d26dabe182ce0694a7e892892b5dc24a502cf14ee1b251542c9b920796a79"
+      },
+      "captured": true,
+      "contentType": "application/javascript",
+      "coverageCredit": false,
+      "facts": [],
+      "fetchedAt": "2026-10-25T09:09:54.592902Z",
+      "finalUrl": "https://investors.jfrog.com/js/module/widgets/dist/latest/evergreen.q4Pager.min.js",
+      "httpStatus": 200,
+      "modelCalls": 0,
+      "observation": {
+        "bytes": 419,
+        "key": "objects/9dda71231e47594fda6e7e5a12811cafecc32e253c75a11713f68b42a264a755",
+        "sha256": "9dda71231e47594fda6e7e5a12811cafecc32e253c75a11713f68b42a264a755"
+      },
+      "qualified": false,
+      "qualifiedSources": 0,
+      "reason": "JAVASCRIPT_CAPTURED_REVIEW_REQUIRED",
+      "requestedUrl": "https://investors.jfrog.com/js/module/widgets/dist/latest/evergreen.q4Pager.min.js",
+      "semanticAdmission": false,
+      "sourceChecksCredited": 0,
+      "sourceId": "jfrog:official:1"
+    },
+    {
+      "body": {
+        "bytes": 25534,
+        "key": "objects/2ce36889709b0c9ff34e2b657d5abe0600009604d7e5407d41198f9a9c72d5e7",
+        "sha256": "2ce36889709b0c9ff34e2b657d5abe0600009604d7e5407d41198f9a9c72d5e7"
+      },
+      "captured": true,
+      "contentType": "application/javascript",
+      "coverageCredit": false,
+      "facts": [],
+      "fetchedAt": "2026-10-25T09:09:54.775895Z",
+      "finalUrl": "https://investors.rapid7.com/js/module/widgets/dist/latest/evergreen.q4Api.min.js",
+      "httpStatus": 200,
+      "modelCalls": 0,
+      "observation": {
+        "bytes": 419,
+        "key": "objects/1c4e41969ed7ff0b0fcd3c3bc86e2587be8e689ac88b8a19a6178efd71edfaec",
+        "sha256": "1c4e41969ed7ff0b0fcd3c3bc86e2587be8e689ac88b8a19a6178efd71edfaec"
+      },
+      "qualified": false,
+      "qualifiedSources": 0,
+      "reason": "JAVASCRIPT_CAPTURED_REVIEW_REQUIRED",
+      "requestedUrl": "https://investors.rapid7.com/js/module/widgets/dist/latest/evergreen.q4Api.min.js",
+      "semanticAdmission": false,
+      "sourceChecksCredited": 0,
+      "sourceId": "rapid7:official:1"
+    },
+    {
+      "body": {
+        "bytes": 7642,
+        "key": "objects/4e9d26dabe182ce0694a7e892892b5dc24a502cf14ee1b251542c9b920796a79",
+        "sha256": "4e9d26dabe182ce0694a7e892892b5dc24a502cf14ee1b251542c9b920796a79"
+      },
+      "captured": true,
+      "contentType": "application/javascript",
+      "coverageCredit": false,
+      "facts": [],
+      "fetchedAt": "2026-10-25T09:09:55.055776Z",
+      "finalUrl": "https://investors.rapid7.com/js/module/widgets/dist/latest/evergreen.q4Pager.min.js",
+      "httpStatus": 200,
+      "modelCalls": 0,
+      "observation": {
+        "bytes": 421,
+        "key": "objects/88dcae2e9c56c7c0906dddeb9cf28b292d8f26c3dcd4f57afccd7c5867ad1ac8",
+        "sha256": "88dcae2e9c56c7c0906dddeb9cf28b292d8f26c3dcd4f57afccd7c5867ad1ac8"
+      },
+      "qualified": false,
+      "qualifiedSources": 0,
+      "reason": "JAVASCRIPT_CAPTURED_REVIEW_REQUIRED",
+      "requestedUrl": "https://investors.rapid7.com/js/module/widgets/dist/latest/evergreen.q4Pager.min.js",
+      "semanticAdmission": false,
+      "sourceChecksCredited": 0,
+      "sourceId": "rapid7:official:1"
+    },
+    {
+      "body": {
+        "bytes": 25534,
+        "key": "objects/2ce36889709b0c9ff34e2b657d5abe0600009604d7e5407d41198f9a9c72d5e7",
+        "sha256": "2ce36889709b0c9ff34e2b657d5abe0600009604d7e5407d41198f9a9c72d5e7"
+      },
+      "captured": true,
+      "contentType": "application/javascript",
+      "coverageCredit": false,
+      "facts": [],
+      "fetchedAt": "2026-10-25T09:09:55.277144Z",
+      "finalUrl": "https://ir.rubrik.com/js/module/widgets/dist/latest/evergreen.q4Api.min.js",
+      "httpStatus": 200,
+      "modelCalls": 0,
+      "observation": {
+        "bytes": 412,
+        "key": "objects/5dce7d5db11243b6dd5dd893451f4339439de9151633d42b8964a0c5c94f6fae",
+        "sha256": "5dce7d5db11243b6dd5dd893451f4339439de9151633d42b8964a0c5c94f6fae"
+      },
+      "qualified": false,
+      "qualifiedSources": 0,
+      "reason": "JAVASCRIPT_CAPTURED_REVIEW_REQUIRED",
+      "requestedUrl": "https://ir.rubrik.com/js/module/widgets/dist/latest/evergreen.q4Api.min.js",
+      "semanticAdmission": false,
+      "sourceChecksCredited": 0,
+      "sourceId": "rubrik:official:1"
+    },
+    {
+      "body": {
+        "bytes": 7642,
+        "key": "objects/4e9d26dabe182ce0694a7e892892b5dc24a502cf14ee1b251542c9b920796a79",
+        "sha256": "4e9d26dabe182ce0694a7e892892b5dc24a502cf14ee1b251542c9b920796a79"
+      },
+      "captured": true,
+      "contentType": "application/javascript",
+      "coverageCredit": false,
+      "facts": [],
+      "fetchedAt": "2026-10-25T09:09:55.519322Z",
+      "finalUrl": "https://ir.rubrik.com/js/module/widgets/dist/latest/evergreen.q4Pager.min.js",
+      "httpStatus": 200,
+      "modelCalls": 0,
+      "observation": {
+        "bytes": 414,
+        "key": "objects/2dd85484e3c0581f2e4086ce76dc23b04cd33a53aae190c204762bf85bdecf74",
+        "sha256": "2dd85484e3c0581f2e4086ce76dc23b04cd33a53aae190c204762bf85bdecf74"
+      },
+      "qualified": false,
+      "qualifiedSources": 0,
+      "reason": "JAVASCRIPT_CAPTURED_REVIEW_REQUIRED",
+      "requestedUrl": "https://ir.rubrik.com/js/module/widgets/dist/latest/evergreen.q4Pager.min.js",
+      "semanticAdmission": false,
+      "sourceChecksCredited": 0,
+      "sourceId": "rubrik:official:1"
+    }
+  ],
+  "apiSpans": {
+    "baseOptions": {
+      "byteOffset": 5,
+      "byteLength": 1030,
+      "text": "o.widget(\"evergreen.q4Api\",{options:{url:\"\",useJSONP:!1,forcePublic:!1,languageId:null,limit:0,limitSort:0,skip:0,excludeSelection:!1,fetchAllYears:!1,showAllYears:!1,allYearsText:\"All\",startYear:null,forceStartYear:!1,isTimeZoneKey:{PT:\"America/Los_Angeles\",PST:\"America/Los_Angeles\",MT:\"America/Denver\",MST:\"America/Denver\",CT:\"America/Chicago\",CST:\"America/Chicago\",ET:\"America/New_York\",EST:\"America/New_York\",AT:\"America/Halifax\",AST:\"America/Halifax\",GT:\"Asia/Dubai\",GST:\"Asia/Dubai\",GMT:\"Etc/GMT\",BST:\"Europe/London\"},tags:[],titleLength:0,bodyLength:0,shortBodyLength:0,useMoment:!0,dateFormat:{date:\"MM/DD/YYYY\",time:\"h:mm A\"},sortAscending:!1,years:[],minYear:null,maxYear:null,minDate:null,maxDate:null,defaultThumb:\"\",append:!1,cssClass:null,loadingClass:null,loadingMessage:'<p class=\"module_loader\"><i class=\"q4-icon_spinner\"></i><span class=\"sr-only\">Loading ...</span></p>',yearContainer:null,yearTemplate:null,yearTrigger:null,yearSelect:null,getYearFilter:!0,noYearsMessage:\"\",tagSelect:null,tagTrigger:null,acti"
+    },
+    "publicBranch": {
+      "byteOffset": 3686,
+      "byteLength": 108,
+      "text": "_usePublic:function(){return!!this.options.forcePublic||\"function\"!=typeof GetViewType||\"0\"!=GetViewType()},"
+    },
+    "initialYearRequest": {
+      "byteOffset": 5667,
+      "byteLength": 496,
+      "text": "_getYears:function(){var t,n=this,e=this.options;return e.getYearFilter&&!e.limit?(t=o.Deferred(),this._fetchItems(-1).done(function(e){var r=[];o.each(e,function(e,t){-1==o.inArray(t.year,r)&&r.push(t.year)}),n._trigger(\"beforeRenderYears\",null,{items:r}),t.resolve(r,e)}),t):e.fetchAllYears&&!e.limit?(t=o.Deferred(),this._fetchItems(-1).done(function(e){var r=[];o.each(e,function(e,t){-1==o.inArray(t.year,r)&&r.push(t.year)}),t.resolve(r,e)}),t):this._fetchYears()},_filterYears:function(e,t"
+    },
+    "language": {
+      "byteOffset": 6643,
+      "byteLength": 348,
+      "text": "_buildParams:function(){var e=this.options;return this._usePublic()?{LanguageId:e.languageId||(\"function\"==typeof GetLanguageId?GetLanguageId():1)}:{serviceDto:{ViewType:GetViewType(),ViewDate:GetViewDate(),RevisionNumber:GetRevisionNumber(),LanguageId:e.languageId||(\"function\"==typeof GetLanguageId?GetLanguageId():1),Signature:GetSignature()}}},"
+    },
+    "transport": {
+      "byteOffset": 6991,
+      "byteLength": 289,
+      "text": "_callApi:function(e,t){var r=this.options;return this._usePublic()?o.ajax({type:\"GET\",url:r.url+e,data:t,contentType:\"application/json; charset=utf-8\",dataType:r.useJSONP?\"jsonp\":\"json\"}):o.ajax({type:\"POST\",url:e,data:JSON.stringify(t),contentType:\"application/json; charset=utf-8\",dataTy"
+    },
+    "requestParams": {
+      "byteOffset": 7778,
+      "byteLength": 660,
+      "text": "_fetchItems:function(t){var n=this,a=this.options,e=n._usePublic()?1:0,i=o.Deferred(),r=o.grep(this.currentTags,function(e){return 0<e.length}),r=this._usePublic()?{pageSize:a.limit||-1,pageNumber:a.skip,tagList:r.join(\"|\"),includeTags:!0,year:a.fetchAllYears?-1:t,excludeSelection:a.excludeSelection?0:1}:{serviceDto:{ItemCount:a.limit||-1,StartIndex:a.skip,TagList:r,IncludeTags:!0},excludeSelection:a.excludeSelection?0:1,year:a.fetchAllYears?-1:t};return this._callApi(this.contentType.itemsUrl[e],o.extend(!0,this._buildParams(),this.contentType.buildParams.call(this,a),r)).done(function(e){var r,e=o.map(e[n.contentType.itemsResultField],function(e){ret"
+    },
+    "newsContentType": {
+      "byteOffset": 20638,
+      "byteLength": 1162,
+      "text": "q4News:{itemsUrl:[\"/Services/PressReleaseService.svc/GetPressReleaseList\",\"/feed/PressRelease.svc/GetPressReleaseList\"],yearsUrl:[\"/Services/PressReleaseService.svc/GetPressReleaseYearList\",\"/feed/PressRelease.svc/GetPressReleaseYearList\"],itemsResultField:\"GetPressReleaseListResult\",yearsResultField:\"GetPressReleaseYearListResult\",buildParams:function(e){var t=e.loadShortBody?e.loadBody?1:3:e.loadBody?2:0,r={};return this._usePublic()?(r.bodyType=t,r.pressReleaseDateFilter=e.showFuture&&!e.showPast?0:e.showPast&&!e.showFuture?1:3,r.categoryId=e.category):(r.pressReleaseBodyType=t,r.pressReleaseSelection=e.showFuture&&!e.showPast?0:e.showPast&&!e.showFuture?1:3,r.pressReleaseCategoryWorkflowId=e.category),r},parseItem:function(e,t){return{title:this._truncate(t.Headline,e.titleLength),url:t.LinkToDetailPage,dateObj:new Date(t.PressReleaseDate),year:new Date(t.PressReleaseDate).getFullYear(),date:this._formatDate(t.PressReleaseDate),dateFormat:this._preformatDate(t.PressReleaseDate),tags:t.TagsList,category:t.Category,excludeFromLatest:t.ExcludeFromLatest,languageId:t.LanguageId,linkToPage:t.LinkToPage,linkToUrl:t.LinkToUrl,pressReleaseId:t.Pres"
+    },
+    "newsDefaults": {
+      "byteOffset": 25118,
+      "byteLength": 184,
+      "text": "o.widget(\"evergreen.q4News\",o.evergreen.q4Api,{options:{category:\"1cb807d2-208f-4bc3-9133-6a9ad45ac3b0\",loadBody:!1,loadShortBody:!1,template:\"\"}}),o.widget(\"evergreen.q4Sec\",o.evergre"
+    }
+  },
+  "pagerEvidence": {
+    "body": {
+      "bytes": 7642,
+      "key": "objects/4e9d26dabe182ce0694a7e892892b5dc24a502cf14ee1b251542c9b920796a79",
+      "sha256": "4e9d26dabe182ce0694a7e892892b5dc24a502cf14ee1b251542c9b920796a79"
+    },
+    "draw": {
+      "byteOffset": 1461,
+      "byteLength": 831,
+      "text": "_drawPager:function(){var e=this.options,a=this.element;let t,s=null;if(\"string\"==typeof e.content?this.$items=n(e.content):e.content instanceof n&&(this.$items=e.content),this.pages=[],n.isArray(e.pages)&&e.pages.length)this.pages=e.pages,t=this.pages.length,e.startPage&&-1<n.inArray(e.startPage,this.pages)&&(s=e.startPage);else if(this.$items||e.count){t=Math.ceil((this.$items?this.$items.length:e.count)/(e.perPage||1));for(let e=1;e<=t;e++)this.pages.push(e);e.startPage&&(s=Math.max(1,Math.min(t+1,e.startPage)))}a.hasClass(\"pager\")||a.addClass(\"pager\"),a.empty().append('<div class=\"evergreen-pager-status sr-only\" role=\"status\" aria-live=\"polite\"></div><ul class=\"evergreen-pager-list\" />'),this._renderPagers(),this._renderShowPrevNext(),t<=1?a.addClass(\"js--hidden\").attr(\"aria-hidden\",\"true\"):a.hasClass(\"js--hidden\")&"
+    },
+    "slice": {
+      "byteOffset": 3428,
+      "byteLength": 196,
+      "text": "this.$items&&(i=s*t.perPage,this.$items.addClass(\"js--hidden\").attr(\"aria-hidden\",\"true\").slice(i,i+t.perPage).removeClass(\"js--hidden\").attr(\"aria-hidden\",\"false\")),t.pageMessageContainer&&t.page"
+    },
+    "networkLexemesAbsent": {
+      "ajax": true,
+      "fetch(": true,
+      "XMLHttpRequest": true,
+      "/feed/": true,
+      "/Services/": true
+    }
+  },
+  "parents": [
+    {
+      "sourceId": "jfrog:official:1",
+      "supplierId": "jfrog",
+      "sourceSha256": "1e8d43d1828092f65a14bf90b7a5e222d2e4e8e12bccaab23c2a7052f0da7bff",
+      "allowedHosts": [
+        "investors.jfrog.com"
+      ],
+      "scopePrefixes": [
+        "/news",
+        "/press",
+        "/blog",
+        "/company",
+        "/investor",
+        "/resources"
+      ],
+      "parentProof": {
+        "type": "qualification_observation",
+        "record": {
+          "key": "ci/source-probe-runs/40131875060-1.json",
+          "sha256": "90f8b45b299dd868fd558d1218fd1e0bcc0fda59c46d9f9a779352d461596aee",
+          "bytes": 90157
+        },
+        "priorTargetId": "next-jfrog-1",
+        "priorTargetIndex": 4,
+        "priorTargetSha256": "4e1e2dc1db22afa1da23d0d8d7362d2644d51ba58c9eae0a8248784ec00e429f",
+        "priorPlanRawSha256": "98b110fe4fd1beb898ff7ccaa190a3e4eb6dcb61e1da3ed5a5d72151bddd2ce4",
+        "priorPlanCanonicalSha256": "98b110fe4fd1beb898ff7ccaa190a3e4eb6dcb61e1da3ed5a5d72151bddd2ce4",
+        "priorPlanReference": {
+          "bytes": 4256,
+          "key": "objects/98b110fe4fd1beb898ff7ccaa190a3e4eb6dcb61e1da3ed5a5d72151bddd2ce4",
+          "sha256": "98b110fe4fd1beb898ff7ccaa190a3e4eb6dcb61e1da3ed5a5d72151bddd2ce4"
+        },
+        "observation": {
+          "bytes": 489,
+          "key": "objects/97356357732c1f91c9b3fa5485fa4b50a0c83e752abf5caf6e6d0d043731b1bf",
+          "sha256": "97356357732c1f91c9b3fa5485fa4b50a0c83e752abf5caf6e6d0d043731b1bf"
+        },
+        "body": {
+          "bytes": 114902,
+          "key": "objects/ead58a93ed20878e2ffb83512b3e8b52c08d878b3dff19e8d95a1162630ef20d",
+          "sha256": "ead58a93ed20878e2ffb83512b3e8b52c08d878b3dff19e8d95a1162630ef20d"
+        },
+        "fetchedAt": "2026-10-24T20:58:21.814627Z"
+      },
+      "publicFunction": {
+        "byteOffset": 5799,
+        "byteLength": 37,
+        "text": "function GetViewType(){ return '2'; }"
+      },
+      "languageFunction": {
+        "byteOffset": 5883,
+        "byteLength": 39,
+        "text": "function GetLanguageId(){ return '1'; }"
+      },
+      "hasBaseTag": false,
+      "widgetCall": {
+        "byteOffset": 56217,
+        "byteLength": 1165,
+        "text": ".q4News({\r\n        category: '00000000-0000-0000-0000-000000000000',\r\n        tags: [\"\"],\r\n\r\n        limit: 0,\r\n        tagSelect: '#_ctrl0_ctl23_selectEvergreenNewsTag',\r\n        tagTrigger: '._ctrl0_ctl23_divModuleContainer_evergreen-tag-trigger',\r\n\r\n        useMoment: true,\r\n        dateFormat: {\r\n            date: \"MMMM D, YYYY\",\r\n            time: \"h:mm A\",\r\n        },\r\n        showAllYears: true,\r\n        fetchAllYears: false,\r\n        yearSelect: '#_ctrl0_ctl23_selectEvergreenNewsYear',\r\n        yearContainer: '#_ctrl0_ctl23_selectEvergreenNewsYear',\r\n        yearTemplate: '<option value=\"{{value}}\">{{ year }}</option>',\r\n        noYearsMessage: '<option value=\"-\">-</option>',\r\n        allYearsText: 'All',\r\n\r\n        itemNotFoundMessage: $tudio('#_ctrl0_ctl23_divModuleContainertplEvergreenNewsNoItems').html(),\r\n        loadingMessage: $tudio(\"#_ctrl0_ctl23_divModuleContainertplEvergreenNewsLoading\").html(),\r\n\r\n        itemContainer: '#_ctrl0_ctl23_divNewsItemsContainer',\r\n        itemTemplate: $tudio('#_ctrl0_ctl23_divModuleContainertplCardPremiumEvergreenNews').html(),\r\n\r\n        loadShortBody: 0,\r\n        shortBodyLength: 240,\r\n\r\n        "
+      },
+      "pagerConfig": {
+        "byteOffset": 57738,
+        "byteLength": 210,
+        "text": ".q4Pager({\r\n                    content: $tudio(e.target).find('.evergreen-news-item'),\r\n                    perPage: 12,\r\n                    showPrevNext: true,\r\n                    afterChange: function (e) "
+      }
+    },
+    {
+      "sourceId": "rapid7:official:1",
+      "supplierId": "rapid7",
+      "sourceSha256": "05a6202088ab48d007b5969e9230844aa716749d7b9442d145953a51446209b5",
+      "allowedHosts": [
+        "investors.rapid7.com"
+      ],
+      "scopePrefixes": [
+        "/news",
+        "/press",
+        "/blog",
+        "/company",
+        "/investor",
+        "/resources"
+      ],
+      "parentProof": {
+        "type": "qualification_observation",
+        "record": {
+          "key": "ci/source-probe-runs/40131875060-1.json",
+          "sha256": "90f8b45b299dd868fd558d1218fd1e0bcc0fda59c46d9f9a779352d461596aee",
+          "bytes": 90157
+        },
+        "priorTargetId": "next-rapid7-1",
+        "priorTargetIndex": 5,
+        "priorTargetSha256": "01ff363aba40a620d80297d42317d31f39bf208503658c653e609448448d511a",
+        "priorPlanRawSha256": "98b110fe4fd1beb898ff7ccaa190a3e4eb6dcb61e1da3ed5a5d72151bddd2ce4",
+        "priorPlanCanonicalSha256": "98b110fe4fd1beb898ff7ccaa190a3e4eb6dcb61e1da3ed5a5d72151bddd2ce4",
+        "priorPlanReference": {
+          "bytes": 4256,
+          "key": "objects/98b110fe4fd1beb898ff7ccaa190a3e4eb6dcb61e1da3ed5a5d72151bddd2ce4",
+          "sha256": "98b110fe4fd1beb898ff7ccaa190a3e4eb6dcb61e1da3ed5a5d72151bddd2ce4"
+        },
+        "observation": {
+          "bytes": 490,
+          "key": "objects/1d242084cb70aff581e42156c01f3a78a136cfd6bdfce16235fc67c2b379db12",
+          "sha256": "1d242084cb70aff581e42156c01f3a78a136cfd6bdfce16235fc67c2b379db12"
+        },
+        "body": {
+          "bytes": 90652,
+          "key": "objects/9ece5b105eb693076ea90ace3310c9cfbae7747b4e32faca80d9208dd1776479",
+          "sha256": "9ece5b105eb693076ea90ace3310c9cfbae7747b4e32faca80d9208dd1776479"
+        },
+        "fetchedAt": "2026-10-24T20:58:21.972999Z"
+      },
+      "publicFunction": {
+        "byteOffset": 8105,
+        "byteLength": 37,
+        "text": "function GetViewType(){ return '2'; }"
+      },
+      "languageFunction": {
+        "byteOffset": 8189,
+        "byteLength": 39,
+        "text": "function GetLanguageId(){ return '1'; }"
+      },
+      "hasBaseTag": false,
+      "widgetCall": {
+        "byteOffset": 40568,
+        "byteLength": 1159,
+        "text": ".q4News({\r\n        category: '1cb807d2-208f-4bc3-9133-6a9ad45ac3b0',\r\n        tags: [\"\"],\r\n\r\n        limit: 0,\r\n        tagSelect: '#_ctrl0_ctl54_selectEvergreenNewsTag',\r\n        tagTrigger: '._ctrl0_ctl54_divModuleContainer_evergreen-tag-trigger',\r\n\r\n        useMoment: true,\r\n        dateFormat: {\r\n            date: \"MMMM D, YYYY\",\r\n            time: \"h:mm A\",\r\n        },\r\n        showAllYears: false,\r\n        fetchAllYears: false,\r\n        yearSelect: '#_ctrl0_ctl54_selectEvergreenNewsYear',\r\n        yearContainer: '#_ctrl0_ctl54_selectEvergreenNewsYear',\r\n        yearTemplate: '<option value=\"{{value}}\">{{ year }}</option>',\r\n        noYearsMessage: '<option value=\"-\">-</option>',\r\n        allYearsText: 'All',\r\n\r\n        itemNotFoundMessage: $tudio('#_ctrl0_ctl54_divModuleContainertplEvergreenNewsNoItems').html(),\r\n        loadingMessage: $tudio(\"#_ctrl0_ctl54_divModuleContainertplEvergreenNewsLoading\").html(),\r\n\r\n        itemContainer: '#_ctrl0_ctl54_divNewsItemsContainer',\r\n        itemTemplate: $tudio('#_ctrl0_ctl54_divModuleContainertplListEvergreenNews').html(),\r\n\r\n        loadShortBody: 0,\r\n        shortBodyLength: 240,\r\n\r\n        "
+      },
+      "pagerConfig": {
+        "byteOffset": 42083,
+        "byteLength": 210,
+        "text": ".q4Pager({\r\n                    content: $tudio(e.target).find('.evergreen-news-item'),\r\n                    perPage: 0,\r\n                    showPrevNext: false,\r\n                    afterChange: function (e) "
+      }
+    },
+    {
+      "sourceId": "rubrik:official:1",
+      "supplierId": "rubrik",
+      "sourceSha256": "3bdfd09fadc261c1d2b09e84499e76983278f527b1c99e06e8d181d5ad56cab0",
+      "allowedHosts": [
+        "ir.rubrik.com"
+      ],
+      "scopePrefixes": [
+        "/news",
+        "/press",
+        "/blog",
+        "/company",
+        "/investor",
+        "/resources"
+      ],
+      "parentProof": {
+        "type": "qualification_observation",
+        "record": {
+          "key": "ci/source-probe-runs/40131875060-1.json",
+          "sha256": "90f8b45b299dd868fd558d1218fd1e0bcc0fda59c46d9f9a779352d461596aee",
+          "bytes": 90157
+        },
+        "priorTargetId": "next-rubrik-1",
+        "priorTargetIndex": 6,
+        "priorTargetSha256": "c92b54eb936519cacd09bb8be2cb0940ea492e705274e1d665ed0025b3b6a6ff",
+        "priorPlanRawSha256": "98b110fe4fd1beb898ff7ccaa190a3e4eb6dcb61e1da3ed5a5d72151bddd2ce4",
+        "priorPlanCanonicalSha256": "98b110fe4fd1beb898ff7ccaa190a3e4eb6dcb61e1da3ed5a5d72151bddd2ce4",
+        "priorPlanReference": {
+          "bytes": 4256,
+          "key": "objects/98b110fe4fd1beb898ff7ccaa190a3e4eb6dcb61e1da3ed5a5d72151bddd2ce4",
+          "sha256": "98b110fe4fd1beb898ff7ccaa190a3e4eb6dcb61e1da3ed5a5d72151bddd2ce4"
+        },
+        "observation": {
+          "bytes": 520,
+          "key": "objects/d6d8aaf368b4cb48ff4d6e1cc5b4f93500ae2ac093a7d75b9c82927e48bd6be1",
+          "sha256": "d6d8aaf368b4cb48ff4d6e1cc5b4f93500ae2ac093a7d75b9c82927e48bd6be1"
+        },
+        "body": {
+          "bytes": 42385,
+          "key": "objects/c5a34d9cf87cd3e52f567fdf8883ca60e33f7e28a8923bc006469e91cd883a17",
+          "sha256": "c5a34d9cf87cd3e52f567fdf8883ca60e33f7e28a8923bc006469e91cd883a17"
+        },
+        "fetchedAt": "2026-10-24T20:58:22.127737Z"
+      },
+      "publicFunction": {
+        "byteOffset": 6225,
+        "byteLength": 37,
+        "text": "function GetViewType(){ return '2'; }"
+      },
+      "languageFunction": {
+        "byteOffset": 6309,
+        "byteLength": 39,
+        "text": "function GetLanguageId(){ return '1'; }"
+      },
+      "hasBaseTag": false,
+      "widgetCall": {
+        "byteOffset": 19407,
+        "byteLength": 1000,
+        "text": "$('.module-news .module_container--widget').news({\r\n    dateFormat: 'mm/dd/yy',\r\n    yearSelect: '.module_options-year',\r\n    yearContainer: '.module_options-year',\r\n    yearTemplate: '<option value=\"{{value}}\">{{year}}</option>',\r\n    itemNotFoundMessage: '<p class=\"module_message--no-items\" aria-live=\"polite\"><i class=\"q4-icon_warning-line\"></i> No news available right now. Please check back later.</p>',\r\n    itemContainer: '.module_container--content',\r\n    itemTemplate: (\r\n        '<div class=\"module_item\">' +\r\n            '<div class=\"module_date-time\">{{date}}</div>' +\r\n            '<div class=\"module_headline\">' +\r\n                '<a class=\"module_headline-link\" href=\"{{url}}\"{{#blank}} target=\"_blank\"{{/blank}}>{{title}} {{#blank}} <span class=\"sr-only\"> (opens in new window)</span>{{/blank}}</a>'+\r\n            '</div>' +\r\n            '{{#docUrl}}' +\r\n                '<div class=\"module_links q4icons\">' +\r\n                    '<div class=\"module_related-document\">' +\r\n        "
+      },
+      "legacyApiScript": {
+        "byteOffset": 3956,
+        "byteLength": 92,
+        "text": "<script type=\"text/javascript\" src=\"https://widgets.q4app.com/widgets/q4.api.1.13.5.min.js\">"
+      },
+      "missingEvidence": "Retained evergreen code does not define .news; no exact legacy-widget API request is established. The literal external script is outside current allowedHosts."
+    }
+  ],
+  "recommendedDiagnosticRequestCount": 2,
+  "recommendedRequests": [
+    {
+      "sourceId": "jfrog:official:1",
+      "supplierId": "jfrog",
+      "method": "GET",
+      "path": "/feed/PressRelease.svc/GetPressReleaseList",
+      "query": {
+        "LanguageId": "1",
+        "bodyType": 0,
+        "pressReleaseDateFilter": 3,
+        "categoryId": "00000000-0000-0000-0000-000000000000",
+        "pageSize": -1,
+        "pageNumber": 0,
+        "tagList": "",
+        "includeTags": true,
+        "year": -1,
+        "excludeSelection": 1
+      },
+      "body": null,
+      "exampleExactUrl": "https://investors.jfrog.com/feed/PressRelease.svc/GetPressReleaseList?LanguageId=1&bodyType=0&pressReleaseDateFilter=3&categoryId=00000000-0000-0000-0000-000000000000&pageSize=-1&pageNumber=0&tagList=&includeTags=true&year=-1&excludeSelection=1",
+      "urlNote": "One explicit serialization for a future closed plan; no observed API wire request is claimed.",
+      "responseResultField": "GetPressReleaseListResult",
+      "apiBody": {
+        "bytes": 25534,
+        "key": "objects/2ce36889709b0c9ff34e2b657d5abe0600009604d7e5407d41198f9a9c72d5e7",
+        "sha256": "2ce36889709b0c9ff34e2b657d5abe0600009604d7e5407d41198f9a9c72d5e7"
+      },
+      "apiObservation": {
+        "bytes": 417,
+        "key": "objects/fe5378f490169d6b0b96f04c0d4f8800652d82b177645ea96307c2427a795bcd",
+        "sha256": "fe5378f490169d6b0b96f04c0d4f8800652d82b177645ea96307c2427a795bcd"
+      }
+    },
+    {
+      "sourceId": "rapid7:official:1",
+      "supplierId": "rapid7",
+      "method": "GET",
+      "path": "/feed/PressRelease.svc/GetPressReleaseList",
+      "query": {
+        "LanguageId": "1",
+        "bodyType": 0,
+        "pressReleaseDateFilter": 3,
+        "categoryId": "1cb807d2-208f-4bc3-9133-6a9ad45ac3b0",
+        "pageSize": -1,
+        "pageNumber": 0,
+        "tagList": "",
+        "includeTags": true,
+        "year": -1,
+        "excludeSelection": 1
+      },
+      "body": null,
+      "exampleExactUrl": "https://investors.rapid7.com/feed/PressRelease.svc/GetPressReleaseList?LanguageId=1&bodyType=0&pressReleaseDateFilter=3&categoryId=1cb807d2-208f-4bc3-9133-6a9ad45ac3b0&pageSize=-1&pageNumber=0&tagList=&includeTags=true&year=-1&excludeSelection=1",
+      "urlNote": "One explicit serialization for a future closed plan; no observed API wire request is claimed.",
+      "responseResultField": "GetPressReleaseListResult",
+      "apiBody": {
+        "bytes": 25534,
+        "key": "objects/2ce36889709b0c9ff34e2b657d5abe0600009604d7e5407d41198f9a9c72d5e7",
+        "sha256": "2ce36889709b0c9ff34e2b657d5abe0600009604d7e5407d41198f9a9c72d5e7"
+      },
+      "apiObservation": {
+        "bytes": 419,
+        "key": "objects/1c4e41969ed7ff0b0fcd3c3bc86e2587be8e689ac88b8a19a6178efd71edfaec",
+        "sha256": "1c4e41969ed7ff0b0fcd3c3bc86e2587be8e689ac88b8a19a6178efd71edfaec"
+      }
+    }
+  ],
+  "qualificationGranted": false,
+  "networkRequestsMade": 0,
+  "javascriptExecuted": false,
+  "preservationSeals": {
+    "/var/tmp/smp-q4-controller-actual-20261025/extracted/archive-manifest.json": {
+      "sha256": "600e58564c989206856ba48795bf4ce9f6fbbf73a604e806594e95327b53203a",
+      "bytes": 9326098,
+      "mtimeNs": 1792919638759104637
+    },
+    "/var/tmp/smp-q4-controller-actual-20261025/extracted/state/ci/source-probe-runs/40179255547-1.json": {
+      "sha256": "0e5a08ff0c64750dcb441e640fc1dae0926a2cf5ab674920e48058bfd7da02d7",
+      "bytes": 10301,
+      "mtimeNs": 1792919638775560153
+    },
+    "/var/tmp/smp-q4-controller-actual-20261025/extracted/state/objects/007f1f940d48727da9a921d0c1138f27e5249870dd5ed6aaa3da3e844582ba91": {
+      "sha256": "007f1f940d48727da9a921d0c1138f27e5249870dd5ed6aaa3da3e844582ba91",
+      "bytes": 5643,
+      "mtimeNs": 1792919639128868029
+    },
+    "/Users/jessepike/code/projects/sec-market-finish-20261022/contracts/market.json": {
+      "sha256": "24221c946781559c0ff3626e4e479c4647da915d0f2d7559ea88046982532c3c",
+      "bytes": 284062,
+      "mtimeNs": 1792865573453423141
+    },
+    "/var/tmp/smp-q4-controller-actual-20261025/extracted/state/ci/source-probe-runs/40131875060-1.json": {
+      "sha256": "90f8b45b299dd868fd558d1218fd1e0bcc0fda59c46d9f9a779352d461596aee",
+      "bytes": 90157,
+      "mtimeNs": 1792919638775479278
+    },
+    "/var/tmp/smp-q4-controller-actual-20261025/extracted/state/objects/98b110fe4fd1beb898ff7ccaa190a3e4eb6dcb61e1da3ed5a5d72151bddd2ce4": {
+      "sha256": "98b110fe4fd1beb898ff7ccaa190a3e4eb6dcb61e1da3ed5a5d72151bddd2ce4",
+      "bytes": 4256,
+      "mtimeNs": 1792919641032773535
+    },
+    "/var/tmp/smp-q4-controller-actual-20261025/extracted/state/objects/97356357732c1f91c9b3fa5485fa4b50a0c83e752abf5caf6e6d0d043731b1bf": {
+      "sha256": "97356357732c1f91c9b3fa5485fa4b50a0c83e752abf5caf6e6d0d043731b1bf",
+      "bytes": 489,
+      "mtimeNs": 1792919641007463407
+    },
+    "/var/tmp/smp-q4-controller-actual-20261025/extracted/state/objects/ead58a93ed20878e2ffb83512b3e8b52c08d878b3dff19e8d95a1162630ef20d": {
+      "sha256": "ead58a93ed20878e2ffb83512b3e8b52c08d878b3dff19e8d95a1162630ef20d",
+      "bytes": 114902,
+      "mtimeNs": 1792919642035534435
+    },
+    "/var/tmp/smp-q4-controller-actual-20261025/extracted/state/objects/1d242084cb70aff581e42156c01f3a78a136cfd6bdfce16235fc67c2b379db12": {
+      "sha256": "1d242084cb70aff581e42156c01f3a78a136cfd6bdfce16235fc67c2b379db12",
+      "bytes": 490,
+      "mtimeNs": 1792919639479153952
+    },
+    "/var/tmp/smp-q4-controller-actual-20261025/extracted/state/objects/9ece5b105eb693076ea90ace3310c9cfbae7747b4e32faca80d9208dd1776479": {
+      "sha256": "9ece5b105eb693076ea90ace3310c9cfbae7747b4e32faca80d9208dd1776479",
+      "bytes": 90652,
+      "mtimeNs": 1792919641095272856
+    },
+    "/var/tmp/smp-q4-controller-actual-20261025/extracted/state/objects/d6d8aaf368b4cb48ff4d6e1cc5b4f93500ae2ac093a7d75b9c82927e48bd6be1": {
+      "sha256": "d6d8aaf368b4cb48ff4d6e1cc5b4f93500ae2ac093a7d75b9c82927e48bd6be1",
+      "bytes": 520,
+      "mtimeNs": 1792919641782921687
+    },
+    "/var/tmp/smp-q4-controller-actual-20261025/extracted/state/objects/c5a34d9cf87cd3e52f567fdf8883ca60e33f7e28a8923bc006469e91cd883a17": {
+      "sha256": "c5a34d9cf87cd3e52f567fdf8883ca60e33f7e28a8923bc006469e91cd883a17",
+      "bytes": 42385,
+      "mtimeNs": 1792919641587081053
+    },
+    "/var/tmp/smp-q4-controller-actual-20261025/extracted/state/objects/fe5378f490169d6b0b96f04c0d4f8800652d82b177645ea96307c2427a795bcd": {
+      "sha256": "fe5378f490169d6b0b96f04c0d4f8800652d82b177645ea96307c2427a795bcd",
+      "bytes": 417,
+      "mtimeNs": 1792919642276141287
+    },
+    "/var/tmp/smp-q4-controller-actual-20261025/extracted/state/objects/9e1d35bf0726eaae6f295d26fc42e6530706ccea24b64843934c710276d96ffb": {
+      "sha256": "9e1d35bf0726eaae6f295d26fc42e6530706ccea24b64843934c710276d96ffb",
+      "bytes": 585,
+      "mtimeNs": 1792919641088931158
+    },
+    "/var/tmp/smp-q4-controller-actual-20261025/extracted/state/objects/2ce36889709b0c9ff34e2b657d5abe0600009604d7e5407d41198f9a9c72d5e7": {
+      "sha256": "2ce36889709b0c9ff34e2b657d5abe0600009604d7e5407d41198f9a9c72d5e7",
+      "bytes": 25534,
+      "mtimeNs": 1792919639667769289
+    },
+    "/var/tmp/smp-q4-controller-actual-20261025/extracted/state/objects/9dda71231e47594fda6e7e5a12811cafecc32e253c75a11713f68b42a264a755": {
+      "sha256": "9dda71231e47594fda6e7e5a12811cafecc32e253c75a11713f68b42a264a755",
+      "bytes": 419,
+      "mtimeNs": 1792919641085923329
+    },
+    "/var/tmp/smp-q4-controller-actual-20261025/extracted/state/objects/2312aaa295844d9ecc2f89ed06e13f5cf0614ee6433d34c869d43b76fbc81260": {
+      "sha256": "2312aaa295844d9ecc2f89ed06e13f5cf0614ee6433d34c869d43b76fbc81260",
+      "bytes": 588,
+      "mtimeNs": 1792919639558049248
+    },
+    "/var/tmp/smp-q4-controller-actual-20261025/extracted/state/objects/4e9d26dabe182ce0694a7e892892b5dc24a502cf14ee1b251542c9b920796a79": {
+      "sha256": "4e9d26dabe182ce0694a7e892892b5dc24a502cf14ee1b251542c9b920796a79",
+      "bytes": 7642,
+      "mtimeNs": 1792919640071081339
+    },
+    "/var/tmp/smp-q4-controller-actual-20261025/extracted/state/objects/1c4e41969ed7ff0b0fcd3c3bc86e2587be8e689ac88b8a19a6178efd71edfaec": {
+      "sha256": "1c4e41969ed7ff0b0fcd3c3bc86e2587be8e689ac88b8a19a6178efd71edfaec",
+      "bytes": 419,
+      "mtimeNs": 1792919639470989548
+    },
+    "/var/tmp/smp-q4-controller-actual-20261025/extracted/state/objects/aee00b13d297ac7f92846935e591b30703dd7b33f704e33f26528bd602359d09": {
+      "sha256": "aee00b13d297ac7f92846935e591b30703dd7b33f704e33f26528bd602359d09",
+      "bytes": 587,
+      "mtimeNs": 1792919641304429245
+    },
+    "/var/tmp/smp-q4-controller-actual-20261025/extracted/state/objects/88dcae2e9c56c7c0906dddeb9cf28b292d8f26c3dcd4f57afccd7c5867ad1ac8": {
+      "sha256": "88dcae2e9c56c7c0906dddeb9cf28b292d8f26c3dcd4f57afccd7c5867ad1ac8",
+      "bytes": 421,
+      "mtimeNs": 1792919640831376176
+    },
+    "/var/tmp/smp-q4-controller-actual-20261025/extracted/state/objects/fd124459a51b4c68f51ac635734044c0bcbdf5cfd07fe2c073c93feae053cd4c": {
+      "sha256": "fd124459a51b4c68f51ac635734044c0bcbdf5cfd07fe2c073c93feae053cd4c",
+      "bytes": 590,
+      "mtimeNs": 1792919642263720849
+    },
+    "/var/tmp/smp-q4-controller-actual-20261025/extracted/state/objects/5dce7d5db11243b6dd5dd893451f4339439de9151633d42b8964a0c5c94f6fae": {
+      "sha256": "5dce7d5db11243b6dd5dd893451f4339439de9151633d42b8964a0c5c94f6fae",
+      "bytes": 412,
+      "mtimeNs": 1792919640324955992
+    },
+    "/var/tmp/smp-q4-controller-actual-20261025/extracted/state/objects/709941ea08463fc6d7e636ce28bc5ff9c2e0507512d7f5cb42786a9507ed1e3f": {
+      "sha256": "709941ea08463fc6d7e636ce28bc5ff9c2e0507512d7f5cb42786a9507ed1e3f",
+      "bytes": 571,
+      "mtimeNs": 1792919640510543667
+    },
+    "/var/tmp/smp-q4-controller-actual-20261025/extracted/state/objects/2dd85484e3c0581f2e4086ce76dc23b04cd33a53aae190c204762bf85bdecf74": {
+      "sha256": "2dd85484e3c0581f2e4086ce76dc23b04cd33a53aae190c204762bf85bdecf74",
+      "bytes": 414,
+      "mtimeNs": 1792919639680781102
+    },
+    "/var/tmp/smp-q4-controller-actual-20261025/extracted/state/objects/b1c8d812f24d171acafd84312bbad8522854ddf357869dd4ad6196ac0e1772f2": {
+      "sha256": "b1c8d812f24d171acafd84312bbad8522854ddf357869dd4ad6196ac0e1772f2",
+      "bytes": 574,
+      "mtimeNs": 1792919641342583186
+    },
+    "/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/q4_controller_capture.py": {
+      "sha256": "8720cd8bed0c533201c24565ca28b23198f99f8a352213e07774f6f05f15ffb3",
+      "bytes": 23612,
+      "mtimeNs": 1792919139082249242
+    },
+    "/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/onboarding.py": {
+      "sha256": "f15e008c081f0b9c48e53ab0b4c4388798d2bd54aaade904188b40305aa6bb69",
+      "bytes": 112821,
+      "mtimeNs": 1792863209004844673
+    },
+    "/Users/jessepike/code/projects/sec-market-finish-20261022/web/scripts/pipeline/discovery.py": {
+      "sha256": "2611635de944f025e848d8a7b15dfff2a328ac67a11a122a774eb46b2e1e7f68",
+      "bytes": 70911,
+      "mtimeNs": 1792875045592176818
+    },
+    "/Users/jessepike/code/projects/sec-market-finish-20261022/ops/ci/collect.py": {
+      "sha256": "87565d7855266777297fb7de11e94756ffbf9e1b38bbb4f92be2f6f0a557d007",
+      "bytes": 25614,
+      "mtimeNs": 1792919139079123289
+    }
+  },
+  "preservationResult": "Every consulted archived file retains its hash, length, and nanosecond mtime. This is a focused replay, not a second full-archive audit.",
+  "rubrikBindingFailures": {
+    "evergreenNewsWidgetDefinitionCount": 1,
+    "legacyNewsWidgetDefinitionCount": 0,
+    "dotNewsCallOrDefinitionCount": 0,
+    "quotedNewsCount": 0
+  },
+  "existingRouteBoundaries": {
+    "scriptCapture": "q4_controller_capture.py:16-18,111-136 restrict schema2 to exact six scripts.",
+    "ordinaryLiteralTarget": "onboarding.py:529-551 requires RSS/Atom item or HTML link/feed/canonical disclosure, not JS request composition.",
+    "normalDiscoveryScope": "discovery.py:939-941 requires one of source scopePrefixes; /feed is absent for these candidates.",
+    "caller": "ops/ci/collect.py:231-272 routes only existing selected operations."
+  }
+}

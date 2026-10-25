@@ -20,7 +20,9 @@ supersedes the earlier agent-authored main freeze. Independent
 confirms reviewed collector code and diagnostics can advance while accepted production waits
 for its separate exact-code gate. Select the exact reviewed plan, complete preflight/review/CI,
 promote through preview/main, execute once under the shared lease, audit actual bodies and restore
-disabled ad1. Preserve all spent gate attempts; a publisher's budget alert must remain truthful.
+disabled ad1. This actual capture has now passed as 40179255547 on reviewed main 99617db0;
+all six scripts are retained. The local disabled plan is restored; preview/main closure is next.
+Preserve all spent gate attempts; a publisher's budget alert must remain truthful.
 
 | Current measure | Actual evidence |
 |---|---|
@@ -123,7 +125,7 @@ an ordinary retry with unfinished semantic work may spend additional conditional
 that cost, original clocks and allowances. No zero-fetch cold retry or repaired-runtime credit is claimed.
 
 October 24 usage ended at 2,095/5,500 fetch reservations, 80/80 model calls, 40/40 documents and
-2/2 gates. Current October 25 collection usage is 444/5,500 fetches, 72/80 model calls and 33/40
+2/2 gates. Current October 25 collection usage is 450/5,500 fetches, 72/80 model calls and 33/40
 documents. Both October 25 gate attempts are spent; second gate 40172376435 passed under
 publisher 40172130763. Collector cadence remains 05:17 UTC and publisher cadence 06:23/16:23
 UTC. Issue 12 closed at 07:28:33 UTC after real publication; issue 10 retains coverage/history and
@@ -140,9 +142,14 @@ and [independent review](docs/active/daily-pipeline/accuracy/q4-controller-captu
 Preview 49610788 passed web 40175785384 and canary 40175785297, with Vercel
 dpl_69eizZqscVnQjoFHeT3sViWyJat8 READY and its exact app receipt retained in the
 [preview evidence](docs/active/daily-pipeline/receipts/q4-controller-capture-preview-2026-10-25.json).
-The exact parent HTML and charged proof join pass offline; the six JavaScript bodies remain unfetched. Capturing them
-later earns no qualification or coverage credit until actual record/date/paging proof is complete.
-Select this exact plan only for the reviewed single leased operation above, then restore disabled ad1.
+Actual main diagnostic 40179255547 captured all six scripts under exact plan 007f, charging
+six fetches and no model/document/gate use. Its [actual source audit](docs/active/daily-pipeline/accuracy/q4-controller-capture-actual-source-review-2026-10-25.md)
+authenticates all 45,307 archive entries and preserves every baseline immutable entry, normal
+head, admission, fact reference and held identity. Main and preview CI passed on 99617db0;
+Vercel ignored its Git production build and accepted public fc8b stayed unchanged.
+Current-window records, pagination/terminal and primary samples remain unproved; all three
+sources still earn zero qualification credit. The exact disabled ad1 plan is restored locally;
+reviewed preview/main restoration is next. Inspect literal controller code before any next request.
 
 The [October 25 recovery scorecard](docs/active/daily-pipeline/evaluations/2026-10-25/recovery-observation.md)
 pins the actual source receipt, gate, publication and rollback. It keeps coverage and historical

@@ -154,3 +154,13 @@ unqualified with zero coverage credit. Tests use fictional fetchers and temporar
 - A monitor must reconstruct task identities from the authenticated original collection plan.
   Publication or validation across midnight must not change the task day, hide pending-work alarms
   or refresh source dates. Check current private and accepted public plans separately.
+
+## 2026-10-25 · Source diagnostics can advance independently of publication
+
+- A reviewed main move need not publish when the actual Git ignore and domain-assignment controls
+  remain closed. Preserve the accepted release and spent gate allowance; record an ordinary
+  publisher's real capacity hold instead of freezing unrelated source-proof collection.
+- Capturing a shared controller does not establish which widget an index uses. Join its literal
+  initialization and configuration to the actual controller before deriving a data request.
+  Rubrik's retained .news initialization differs from JFrog and Rapid7's .q4News initialization.
+  A platform name or neighboring script cannot supply missing method, parameter or scope proof.

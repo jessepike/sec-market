@@ -1,0 +1,16 @@
+{
+  "jobId": 121126607942,
+  "rawSha256": "1cfb03f079ef2be23eb0d0eaaffa0ef8760cec50b07d5f93eecada90ff851fe0",
+  "rawBytes": 234072,
+  "rawLineCount": 1503,
+  "gzipSha256": "f78062bd7aa7d1a17f89777184e74fc9580877d765c6182297b1dce54bd8ae05",
+  "gzipBytes": 41157,
+  "retainedFile": "collect-and-reconcile.log.gz",
+  "byteExactRoundTrip": true,
+  "gzipMtime": 0,
+  "gzipEmbeddedFilename": "",
+  "runnerGuardSummaries": [
+    "2026-10-25T09:07:55.7052621Z Ran 858 tests in 71.676s",
+    "2026-10-25T09:07:55.7053396Z OK (skipped=19)"
+  ]
+}

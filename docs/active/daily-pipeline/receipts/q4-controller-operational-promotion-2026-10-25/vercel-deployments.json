@@ -1,0 +1,54 @@
+{
+  "result": {
+    "deployments": {
+      "pagination": {
+        "count": 2,
+        "prev": 1792919145396
+      },
+      "deployments": [
+        {
+          "id": "dpl_42bmMD2HAxWtHQB8x9p9Nog9QaBw",
+          "name": "security-market-pulse",
+          "url": "security-market-pulse-r8bxuw0xx-pikeholdings.vercel.app",
+          "created": 1792919145396,
+          "state": "CANCELED",
+          "target": "production",
+          "creator": {
+            "uid": "um6xyC6srGbNQRAR3KB77kfs",
+            "username": "jessepike"
+          },
+          "meta": {
+            "githubCommitRef": "main",
+            "githubCommitSha": "99617db0f0ef4c70bb6f0b563cac9a40c50e0385",
+            "githubCommitMessage": "chore(qualification): select reviewed six-request newsroom diagnostic",
+            "githubRepo": "sec-market",
+            "githubOrg": "jessepike"
+          },
+          "inspectorUrl": "https://vercel.com/pikeholdings/security-market-pulse/42bmMD2HAxWtHQB8x9p9Nog9QaBw",
+          "isRollbackCandidate": false
+        },
+        {
+          "id": "dpl_6GCJUAPfe5b13XtuB6qh4j1GzPQE",
+          "name": "security-market-pulse",
+          "url": "security-market-pulse-oktn3qi8u-pikeholdings.vercel.app",
+          "created": 1792918930892,
+          "state": "READY",
+          "target": null,
+          "creator": {
+            "uid": "um6xyC6srGbNQRAR3KB77kfs",
+            "username": "jessepike"
+          },
+          "meta": {
+            "githubCommitRef": "preview",
+            "githubCommitSha": "99617db0f0ef4c70bb6f0b563cac9a40c50e0385",
+            "githubCommitMessage": "chore(qualification): select reviewed six-request newsroom diagnostic",
+            "githubRepo": "sec-market",
+            "githubOrg": "jessepike"
+          },
+          "inspectorUrl": "https://vercel.com/pikeholdings/security-market-pulse/6GCJUAPfe5b13XtuB6qh4j1GzPQE",
+          "isRollbackCandidate": false
+        }
+      ]
+    }
+  }
+}

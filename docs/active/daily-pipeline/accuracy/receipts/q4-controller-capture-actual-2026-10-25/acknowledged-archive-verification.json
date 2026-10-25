@@ -1,0 +1,14 @@
+{
+  "acknowledgedCommit": "9634b916c15b18f38605a168f7642de764670aab",
+  "extractedVmPath": "/var/tmp/smp-q4-controller-actual-20261025/extracted",
+  "manifestSha256": "600e58564c989206856ba48795bf4ce9f6fbbf73a604e806594e95327b53203a",
+  "manifestGitBlobSha": "f53c21d0d576a8ebba3f57da5173d2b7ef8dec69",
+  "manifestBytes": 9326098,
+  "entriesVerified": 45307,
+  "extractedFiles": 45311,
+  "archiveTarGzBytes": 312332485,
+  "archiveTarGzSha256": "278c1013b6e78c4af518e5ce81c511096fe8587a4e01145a18757dd711387392",
+  "allEntriesAuthenticated": true,
+  "seconds": 8.989,
+  "noLocalStoreInitialization": true
+}
