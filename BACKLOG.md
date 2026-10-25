@@ -45,9 +45,18 @@ Remaining work is explicit:
 | Access failures |14| Resolve 9 HTTP 403, 4 HTTP 429 and 1 unsafe redirect within source/host policy; retained denials stay visible. |
 | Current and historical review |10,615/10,614 pending| Preserve all URLs/dates/holds. Ping Identity, Delinea and Sonatype pass intake but have unfinished history. Upwind revalidation and the exact Sonatype mislinked card still need primary review. Seven Aqua failed revalidations retain their earlier held receipts. |
 | Automatic exact-artifact publication |Pending| Observe the next ordinary publisher with naturally renewed UTC allowance, its independent exact-main gate, actual accepted artifact and production bytes. Do not manually retry, refund, reset or buy capacity. |
-| Repaired scheduled-main monitor |Pending| Observe an actual timer on the repaired main code. Manual preview 40177951978 passed 36 runner checks and reported real backlog reasons without the old byte-limit exception. Issue 10 retains coverage gaps. |
+| Repaired scheduled-main monitor |Actual behavior accepted; real gaps remain red| Genuine scheduled run 40191154739 passed all 36 runner tests and exact-main replay. The public-byte reader and original-plan binding work; issue 10 updated for real coverage/review/held/publisher gaps. |
 | Sustained operation and value |Unmeasured| Retain dated expected/actual schedules, quiet/failure/recovery events and public receipts. Do not invent a clean-day rate or claim useful reader decisions. |
 | Remaining record corrections |Pending| Keep the [nine atomic groups](docs/active/daily-pipeline/accuracy/remaining-record-qualification-status-2026-10-25.md) outside the active contract until independent admission and publication. This includes unsupported Varonis workforce/date wording and SentinelOne's planned workforce action. Preserve WitnessAI's metric-date uncertainty. |
+
+The 254 missing bindings reconcile to 39 official-announcement, 52 investor/acquirer,
+74 independent-reporting, 67 distribution and 22 regulatory obligations. The reviewed four-neutral
+SEC proposal covers four of those 22, not an additional category. After the two-source Q4 integration,
+reuse its existing standalone diagnostic for CrowdStrike Exposure Management and Cortex XSIAM;
+its leased caller, exact then-current policy/package/stamp transition, actual qualification and
+normal receipts still need implementation. The next Microsoft/GitHub/Defender and Cisco/Splunk
+issuer proofs are bounded leads. The 91-primary and 141-reporting/distribution audits supply no
+additional already-qualified recurring bindings; preserve their source-family boundaries.
 
 The reviewed source operation path supersedes the old agent-authored main freeze.
 [Independent decision](docs/active/daily-pipeline/accuracy/main-code-promotion-before-next-gate-decision-review-2026-10-25.md)
