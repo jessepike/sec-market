@@ -153,3 +153,26 @@ private/public freshness clocks remain unchanged. Its reviewed disabled-plan clo
 intake remains 264/557. Retained listing/window/primary proof inputs add no intake, semantic review,
 historical-review, scheduled-run or publication credit. Cato's positive current-window evidence
 and unknown older archive remain distinct; the daily-window parser still requires its own review.
+
+## October 25 actual ordinary J acceptance
+
+[Actual J collector 40199860540](accuracy/q4-two-source-normal-intake-actual-source-review-2026-10-25.md)
+passes all 557-result reconciliation checks and 52,273-entry authentication. Intake is 266/557,
+with 196 citation, 48 SEC, 19 official-announcement and three investor/acquirer checks. JFrog and
+Rapid7 each supplied a normal HTTP 200 index, preserving all 529 original URLs and dates. Current
+gaps are 254 missing bindings, 23 candidates and 14 access failures. Processing/history are
+40/41 reviewed of 11,184; every old fact reference, six admissions and 38 held rows remain exact.
+The settled daily ledger is 1,511 fetches, 80 calls and 39 document reservations, with two gates.
+This run used zero model calls; charged documents and reviewed inventory are separate populations.
+
+The private expiry is October 26 at 20:00:16.075798 UTC. Public expiry remains 12:45:29.479727 UTC
+on the earlier fc8bf098 release. Manual callback 40200771059 skipped publication. Read-only hosted
+canary 40199362753 attempt 2 passed against the new acknowledged J archive; the preceding VM-only
+test-path failure and strict old-policy hold are retained as distinct earlier failures. New PRN
+offline parser checks and renders also pass, with no operational qualification or source credit.
+
+This adds actual ordinary source-intake and deployment-test evidence. It supplies no genuine
+scheduled J receipt, new accepted public release, real Q4 normal 304 observation, semantic review,
+general event recall, multi-day reliability rate or measured reader value. Those remain separate
+acceptance work. Priority Varonis/SentinelOne requests are being prepared for later independent
+admission; no known-record remediation score increases until their accepted public receipt exists.

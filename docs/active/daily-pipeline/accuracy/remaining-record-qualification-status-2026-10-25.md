@@ -43,19 +43,24 @@ independent-review artifacts for exact hashes and retained check output.
 
 ## Operational sequence and unchanged gaps
 
-Keep main at 6d5e87fe until the actual current-policy scheduled collector, independent release gate,
-production byte acknowledgement and approved rollback/restoration have receipts. Preparing these
-groups does not activate them. A pending operational correction group holds publication, so do
-not append speculative groups to the operational contract during that acceptance cycle.
+The earlier agent-authored main freeze is superseded by the reviewed collector-promotion decision
+and continuing D-110 authority. Actual ordinary J run 40199860540 passes 266/557 with a complete
+52,273-entry authentication and 557-result replay. Public intake remains 264/557; actual scheduled
+J collection and a new accepted public release remain pending. Preparing proposals does not admit
+them. A pending requested group blocks publication before gate spending.
 
-The current private daily intake remains 264/557, with 254 missing bindings, 25 unqualified
-candidates and 14 access failures. The exact source queue and 557-row obligation ledger remain
-the authoritative coverage work lists. The next seven-index diagnostic is reviewed but dormant;
-its real responses and completeness still need observation. Processing remains 23/10,655 and
-history 24/10,655. The earlier 177-record audit stays frozen. Its original counts must not be
-presented as a newly regraded inventory, and these proposals must not increase the five-record
-known-contradiction remediation score. General precision, recall and useful reader use remain
-unmeasured.
+The accepted priority-two integration specification prepares only Varonis and SentinelOne for
+separate reviewed operational selection and real admission when October 26 capacity naturally
+renews. Its exact packet, source-age limits and reviewed fallback are in
+`priority-two-correction-integration-spec-2026-10-25.md` and
+`next-utc-priority-correction-plan-2026-10-25.md`. The other seven atomic proposals remain outside
+the active request inventory. No new correction is admitted or published by this update.
+
+Current private gaps are 254 missing bindings, 23 candidates and 14 access failures. Use
+`current-candidate-source-queue-J-2026-10-25.md` and its 557-row JSON; preserve the older frozen
+25-source queue. Processing is 40/11,184, history 41/11,184, with 38 queue holds. The earlier
+177-record audit remains frozen; these proposals do not increase its five-record repaired
+benchmark score. General precision, recall and useful reader use remain unmeasured.
 
 No additional owner decision, new purchase, paid API fallback, quota reset or allowance refund
 is required for this work. Remaining gaps have source, review or scheduled-execution requirements.

@@ -19,11 +19,11 @@ navigation SEC-074 follow reliable current operation.
 | Public release | App 6d5e87fe, release fc8bf098, sequence 4, snapshot 8ba13011. Manual publisher 40172130763 and gate 40172376435 passed; manual drill 40173134585 restored the release with 106 exact host-file comparisons. |
 | Current public data | Intake 264/557; processing 38/history 39 of 10,655, held 10, queue 37. Public expiry October 26 at 12:45:29.479727 UTC. Varonis and six corrections remain live. |
 | Genuine scheduled collection | Actual 40182324149 passed on main 71c39356 under H. GitHub started 4 hours 33 minutes 43 seconds late. All 48,030 archive entries, 557 tasks, old facts/dates/holds and six admissions replay correctly. |
-| Current private processing/history | Processing 40/10,655, pending 10,615; history 41/10,655, pending 10,614; held 11, changed 1, unknown dates 291. |
+| Current private processing/history | Actual J: processing 40/11,184, pending 11,144; history 41/11,184, pending 11,143; held 11, changed one, unknown dates 291. |
 | Private review queue | All 37 preceding held identities persist. New HiddenLayer funding candidate lacks a fact date; total 38. No new accepted facts/events. |
-| Private freshness | Actual full/304 observations and immutable rechecks derive expiry October 26 at 15:55:27.307096 UTC. This does not renew public freshness. |
+| Private freshness | Actual J full/304 observations derive expiry October 26 at 20:00:16.075798 UTC. This does not renew public freshness. |
 | Automatic publication | Actual callback 40183462577 and genuine scheduled publisher 40190348786 failed DAILY_GATE_BUDGET_EXHAUSTED; gates remain 2/2, no third gate/new release. Assigned issue 14 updated 11:51:44. Both callback drills skipped. |
-| Current allowances |1,101/5,500 fetches, 80/80 calls, 38/40 documents, gates 2/2; released lease. The listing capture charged 116 requests; full archive/report replay passes. |
+| Current allowances |1,511/5,500 fetches, 80/80 calls, 39/40 charged documents, gates 2/2; released lease. Ordinary J used 410 fetches/zero calls/one document reservation; full 52,273-entry archive and 557-result replay pass. |
 | Reader value, sustained operation and general accuracy | Unmeasured. The owner reports no useful real use yet. Five repaired benchmark contradictions do not establish general precision/recall. |
 
 The audited 264 passes comprise 196 citation-integrity checks, 48 SEC checks, 17 official-
@@ -38,23 +38,26 @@ Later recovery does not establish uninterrupted freshness.
 
 Remaining work is explicit:
 
-JFrog/Rapid7's exact J integration is now local, with independent implementation review passing
-106 checks and the selected-J finish path passing all 935 operational tests. The new disabled
-plan, seed and zero-credit baseline preserve all previous evidence. Actual ordinary J collection
-is still pending; do not subtract two candidates or add intake credit before that receipt.
-The separate retained Cato/Chainguard PR Newswire parser build is specified and accepted for
-offline work, without caller, source-family, registry, policy or production changes.
+JFrog/Rapid7's [actual ordinary J run 40199860540](docs/active/daily-pipeline/accuracy/q4-two-source-normal-intake-actual-source-review-2026-10-25.md)
+passes 266/557 intake: 196 citation, 48 SEC, 19 official-announcement and three investor/acquirer
+checks. Both new indices returned real HTTP 200; all 529 original URLs/dates survive with zero
+new semantic reviews. Read-only canary 40199362753 attempt 2 passes against that actual archive.
+Actual scheduled J collection and public publication remain pending. Use the new exact
+[23-candidate queue](docs/active/daily-pipeline/accuracy/current-candidate-source-queue-J-2026-10-25.md);
+the old 25-candidate queue remains frozen. The retained Cato/Chainguard PR Newswire offline parser
+passes independent review, 961 combined-J operational checks and unchanged renders. It grants no
+operational source credit; its scope/normal integration is separate work.
 
 | Gap or acceptance | Count/state | Next action |
 |---|---|---|
 | Missing source-family bindings |254| Qualify exact primary, reporting and distribution endpoints in the [557-row roster](docs/active/daily-pipeline/evaluations/2026-10-24/current-source-coverage.md). Keep every missing obligation in the denominator. |
-| Candidate sources |25| Finish each source's scope, current-window, pagination/terminal and readable primary sample. The [current exact queue](docs/active/daily-pipeline/accuracy/current-candidate-source-queue-2026-10-25.md) joins scheduled task IDs and original full/304 clocks. |
+| Candidate sources |23| Finish each source's scope, current window, pagination/terminal and readable primary sample. The [current exact J queue](docs/active/daily-pipeline/accuracy/current-candidate-source-queue-J-2026-10-25.md) joins all actual task IDs and original full/304 clocks. |
 | Access failures |14| The [retained access audit](docs/active/daily-pipeline/accuracy/h-access-failure-triage-2026-10-25.md) binds nine HTTP 403s, four Axonius HTTP 429s and one Sysdig host-policy exception without an observation. No endpoint/allowlist repair is proved. Add bounded redirect/denial/Retry-After telemetry, then respectful host cooldown; keep every failure and charge. The separate charged Sysdig generic ContractError has no proved HTTP status. |
-| Current and historical review |10,615/10,614 pending| Preserve all URLs/dates/holds. Ping Identity, Delinea and Sonatype pass intake but have unfinished history. Upwind revalidation and the exact Sonatype mislinked card still need primary review. Seven Aqua failed revalidations retain their earlier held receipts. |
+| Current and historical review |11,144/11,143 pending| Preserve all URLs/dates/holds. The five qualified HTML/Q4 streams pass intake but have unfinished review. Upwind revalidation and the exact Sonatype mislinked card still need primary review. Seven Aqua failed revalidations retain their earlier held receipts. |
 | Automatic exact-artifact publication |Pending| Observe the next ordinary publisher with naturally renewed UTC allowance, its independent exact-main gate, actual accepted artifact and production bytes. Do not manually retry, refund, reset or buy capacity. |
 | Repaired scheduled-main monitor |Actual behavior accepted; real gaps remain red| Genuine scheduled run 40191154739 passed all 36 runner tests and exact-main replay. The public-byte reader and original-plan binding work; issue 10 updated for real coverage/review/held/publisher gaps. |
 | Sustained operation and value |Unmeasured| Retain dated expected/actual schedules, quiet/failure/recovery events and public receipts. Do not invent a clean-day rate or claim useful reader decisions. |
-| Remaining record corrections |Pending| Keep the [nine atomic groups](docs/active/daily-pipeline/accuracy/remaining-record-qualification-status-2026-10-25.md) outside the active contract until independent admission and publication. This includes unsupported Varonis workforce/date wording and SentinelOne's planned workforce action. Preserve WitnessAI's metric-date uncertainty. |
+| Remaining record corrections |Pending| The [two-group priority build](docs/active/daily-pipeline/accuracy/priority-two-correction-integration-spec-2026-10-25.md) prepares Varonis and SentinelOne requests for independent review after natural UTC renewal, with a reviewed freshness fallback. No packet/admission is selected yet. The other [seven atomic proposals](docs/active/daily-pipeline/accuracy/remaining-record-qualification-status-2026-10-25.md) remain outside the active contract. Preserve WitnessAI's metric-date uncertainty. |
 
 The 254 missing bindings reconcile to 39 official-announcement, 52 investor/acquirer,
 74 independent-reporting, 67 distribution and 22 regulatory obligations. The reviewed four-neutral
@@ -69,7 +72,7 @@ The reviewed source operation path supersedes the old agent-authored main freeze
 [Independent decision](docs/active/daily-pipeline/accuracy/main-code-promotion-before-next-gate-decision-review-2026-10-25.md)
 allows collector fixes and bounded diagnostics through preview/main while accepted production
 waits for its separate gate. Vercel Git production builds remain ignored and automatic
-production-domain assignment disabled. Main now ab6a7c68 passed preview 40182229971 and
+production-domain assignment disabled. Earlier ab6a7c68 passed preview 40182229971 and
 main 40183973802; preview was READY and its main Git production build CANCELED.
 [Promotion proof](docs/active/daily-pipeline/accuracy/q4-initial-data-reviewed-code-promotion-2026-10-25.md).
 
@@ -92,7 +95,8 @@ main web passed, Vercel preview READY and main Git build ignored. Actual article
 completed two exact HTTP 200 captures, but both lack canonical links and use generic H1 text.
 Accepted samples remain zero. The full 48,057-entry acknowledged archive and report replay pass;
 charges867→869, admissions/facts/38 holds/expiry unchanged. Review actual template bytes without
-retrying requests or rewriting the original held result. Normal Q4 activation stays blocked.
+retrying requests or rewriting the original held result. Normal Q4 activation was blocked at that
+stage; the later separately reviewed actual J acceptance above supersedes that operational hold.
 Exact ad1 restoration passes69 checks and is verified remotely on main900a51f9. Closure preview
 40188932479/main40189180649 pass, Vercel preview READY/main Git ignored, public receipt exact.
 The [cold template evidence](docs/active/daily-pipeline/accuracy/q4-primary-retained-template-source-review-2026-10-25.md)
@@ -185,11 +189,11 @@ Sequence this after SEC-072's current-operation fixes and runtime proof. Keep it
 
 Bounded daily collection for all 74 existing suppliers is authorized and implemented. Genuine
 scheduled collector 40182324149 passed 264/557 under H with a fully authenticated archive and
-exact replay. Public intake also remains264/557 from the earlier manual recovery release;
-automatic H publication remains pending after actual daily-gate exhaustion. Current private
-queue 38 retains all 37 preceding holds and one additional missing-date HiddenLayer candidate.
-The293 gaps remain 254 missing bindings,25 unqualified candidates,9 HTTP 403, 4 HTTP 429 and 1 unsafe
-redirect. Old 121/557 keeps its original combined definition.
+exact replay. Actual ordinary J run 40199860540 now passes 266/557; the 291 gaps comprise
+254 missing bindings, 23 candidates, nine HTTP 403, four HTTP 429 and one unapproved host.
+Public intake remains 264/557 from the earlier manual recovery release. Genuine scheduled J
+collection and its publication remain pending after daily-gate exhaustion. The current private
+queue preserves all 38 held identities. Old 121/557 keeps its original combined definition.
 Resolve source registration, blocks, dated evidence, typed ownership/financial adapters and retained
 historical audits within existing budgets. Keep
 task and field ages visible and leave unsupported or unchecked facts held. General partial coverage

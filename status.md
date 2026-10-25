@@ -25,90 +25,76 @@ restored it after baseline 19fde803; all 106 exact host-file checks passed. Varo
 corrections remain live. The preceding release expired at 06:05:06 UTC and was observed overdue
 at 06:39; the recovery does not erase that failure window.
 
-## Genuine timers and remaining publication acceptance
+## Current private collection and remaining acceptance
 
-[Scheduled collector 40182324149](docs/active/daily-pipeline/accuracy/scheduled-h-acceptance-2026-10-25.md)
-passed under policy H, 8b44bcbe…b445db, on main 71c39356. It started at 09:50:43 UTC,
-4h33m43s after 05:17. All 48,030 archive entries and the complete ordinary result replay pass.
+[Actual ordinary J collector 40199860540](docs/active/daily-pipeline/accuracy/q4-two-source-normal-intake-actual-source-review-2026-10-25.md)
+passed on main 40fe14bb. All 52,273 archive entries authenticate and all 557 attempts replay.
+JFrog/Rapid7 each made one normal HTTP 200 index request, retaining 206/323 records and all
+529 original URLs/dates. Both pass intake; neither adds reviewed documents or semantic facts.
 
 | Private result | Current accepted evidence |
 | --- | --- |
-| Intake |264/557; 293 gaps: 254 missing bindings, 25 candidates, 9 HTTP 403, 4 HTTP 429, 1 unsafe redirect. |
-| Processing/history |40/41 of 10,655 reviewed; 10,615/10,614 pending; 11 held documents, 1 changed, 291 unknown dates. |
-| Continuity |Four fact references and all 37 old holds preserved; one new HiddenLayer missing-date hold makes queue 38. No new accepted facts/events. |
-| Source expiry |October 26 at 15:55:27.307096 UTC, separate from public expiry. |
-| Settled October 25 ledger |1,101/5,500 fetches, 80/80 model calls, 38/40 documents, gates 2/2; lease released. |
+| Intake |266/557: 196 citation, 48 SEC, 19 official-announcement and three investor/acquirer checks. |
+| Remaining gaps |291: 254 missing bindings, 23 candidates, nine HTTP 403, four HTTP 429, one unapproved host. |
+| Processing/history |40/41 reviewed of 11,184; 11,144/11,143 pending, 11 held documents, one changed, 291 unknown dates. |
+| Continuity |All four prior fact references, six admissions/group policies and 38 held rows remain exact. No new accepted facts/events. |
+| Source expiry |October 26 at 20:00:16.075798 UTC; public expiry remains separate. |
+| Settled October 25 ledger |1,511/5,500 fetches, 80/80 calls, 39/40 charged documents, gates 2/2; lease released 14:06:46 UTC. This run used zero model calls. |
 
-The 264 intake passes comprise 196 citation checks, 48 SEC checks, 17 official announcements and
-three investor/acquirer checks. These measure declared source intake, not general event recall.
-Automatic callback 40183462577 and actual [scheduled publisher 40190348786](docs/active/daily-pipeline/accuracy/scheduled-publisher-attempt-2026-10-25.md)
-failed DAILY_GATE_BUDGET_EXHAUSTED and updated assigned [issue14](https://github.com/jessepike/sec-market/issues/14).
-Their leases released, public bytes stayed exact and no third gate was used. Successful automatic
-H publication remains unproved. Wait for ordinary next-UTC capacity; do not manually retry a gate
-or publisher, refund counters or add a paid fallback.
+Read-only hosted canary 40199362753 attempt 2 passed against actual J archive 8b3811df at
+14:11 UTC without requests/state changes. Its original attempt reached the strict old-H/new-J
+hold; the preceding 40197621420 failed earlier during VM-only test setup. The separately reviewed
+portable fixture repair cleared that setup failure while keeping ordinary source tests runnable.
+Actual manual callback 40200771059 skipped publication. All four public files remain byte-exact.
+
+[Genuine scheduled H collector 40182324149](docs/active/daily-pipeline/accuracy/scheduled-h-acceptance-2026-10-25.md)
+passed 264/557 on main 71c39356, starting 09:50:43 UTC, 4h33m43s after 05:17. This remains
+historical H evidence. Genuine scheduled J collection and new production publication remain open.
+[Scheduled publisher 40190348786](docs/active/daily-pipeline/accuracy/scheduled-publisher-attempt-2026-10-25.md)
+failed DAILY_GATE_BUDGET_EXHAUSTED and updated assigned issue 14. Wait for ordinary next-UTC
+capacity; do not retry a publisher/gate today, reset/refund counters or add paid fallback.
 
 [Genuine repaired monitor 40191154739](docs/active/daily-pipeline/accuracy/scheduled-monitor-acceptance-2026-10-25.md)
-ran on main bd38e818 at 11:59 UTC: all 36 runner tests and exact-main offline replay pass. The
-1,337,257-byte accepted public reader and original-plan binding work. Its actual workflow remains
-red for real coverage/review/held gaps and publisher failure; it updated assigned issue 10. No reader
-or schedule-matching error recurred. GitHub issue delivery is proven; phone/email is unmeasured.
+passed its 36 runner tests and exact-main replay; its actual workflow correctly stayed red for
+coverage/review/held gaps and publisher failure, updating issue 10. The public-byte reader and
+original-plan binding work. GitHub issue delivery is proven; phone/email and sustained durability
+remain unmeasured.
 
 ## Current source work
 
-[Actual seven-target run 40190857026](docs/active/daily-pipeline/accuracy/next-seven-newsroom-actual-source-review-2026-10-25.md)
-captured all seven exact HTTP 200 HTML targets. Its 116 requests comprise 109 generic reservations
-and seven explicit requests. All 48,245 entries of 9deb0c9c and the complete report replay pass;
-facts, six admissions, 38 holds, ordinary heads and expiry stay exact. No qualification credit.
+Current source policy J is 47b9f226…66593a with exact disabled plan ef9ee1ba. Main 40fe14bb
+passed preview/main application checks; preview was READY and the main Git production build
+CANCELED. Main pushes do not publish. The source audit preserves every preceding diagnostic and
+all 48,420 prior entries. The earlier 25-candidate queue stays frozen; use the new
+[23-candidate J queue](docs/active/daily-pipeline/accuracy/current-candidate-source-queue-J-2026-10-25.md),
+which also joins all 557 actual task results. JFrog/Rapid7 real normal 304 behavior is not yet observed.
 
-[Disabled-plan closure](docs/active/daily-pipeline/accuracy/receipts/seven-newsroom-disabled-restoration-2026-10-25/verification.json)
-is verified on main d0e408cb: exact ad1, 27 focused tests, preview web 40192163849,
-canary 40192163902 and main web 40192406292 pass. Preview Vercel READY/main Git ignored;
-all four public files byte-exact. Main pushes do not publish.
+The independently reviewed [PR Newswire offline parser](docs/active/daily-pipeline/accuracy/prnewswire-dated-window-parser-implementation-2026-10-25.md)
+is on preview 1057c3f0. Current-J combined checks pass 961 operations tests, all 80 SEC claims,
+26 focused tests and a fresh archive-absent run (13 portable passes/13 explicit retained skips).
+All four production/local 1440/390 renders are unchanged; root viewed them. Hosted preview web
+40201083025 and canary 40201083199 pass. No source, caller or J policy is activated by this unit.
+Cato has 125 listing URLs plus two known older seed URLs, two current items and unknown older
+pages 6–8. Chainguard has 47 URLs/five current items and an observed terminal. Their daily-window
+proofs do not establish universal issuer recall or reviewed history. Separate scope/normal
+integration remains required. Retained seven-target/listing captures and original raw plans keep
+their original zero-credit meaning; use their linked actual audit records.
 
-The next [listing/pagination plan](docs/active/daily-pipeline/accuracy/narrow-listing-pagination-build-spec-2026-10-25.md),
-ac7393c6, covers Abnormal/Cyera press lists, Cato pages 2–5 and Chainguard page 2. Existing full
-validator/preflight and independent review pass; exact selection is on main 5debbd9e. Preview web
-40193430884 and main web 40193694591 pass; Vercel preview is READY/main Git ignored.
-Actual single capture 40193925490 completed successfully at 12:43:06 UTC from verified 9deb/985
-baseline. Its receipt records 116 charges, reaching 1,101 fetches, with calls/documents unchanged.
-Acknowledgement 9e4a9806 has 48,420 entries; full authentication, cold page review and report
-replay pass. [Actual audit](docs/active/daily-pipeline/accuracy/narrow-listing-pagination-actual-source-review-2026-10-25.md).
-Chainguard has a finite 47-card listing and retained dated primary; Cato's 125 observed cards
-support a current-window/older-boundary proposal while pages 6–8 remain unknown older history.
-Exact disabled ad1 is verified on main 61265b57; 37 focused tests pass with no
-skips. Preview web 40194693409/main 40194994026 pass, Vercel preview READY/main Git ignored,
-all four public files byte-exact. [Closure proof](docs/active/daily-pipeline/accuracy/receipts/narrow-listing-pagination-disabled-restoration-2026-10-25/verification.json).
-No source qualification credit is claimed.
-Its whole-operation bound remains 257 requests including
-all 25 generic probes. Reuse retained Cyera/Torq primary bodies. Torq's disclosed loading controller
-and Zenity's 27-initial/48-declared posts still require continuation proof.
+The [14-failure access audit](docs/active/daily-pipeline/accuracy/h-access-failure-triage-2026-10-25.md)
+proves no endpoint/host-rule repair. Four 429s belong to Axonius, including repeated exact URL;
+Sysdig's generic ContractError has no proved HTTP status. Bounded failure/redirect/Retry-After
+telemetry and respectful cooldown are next repairs; do not guess aliases or bypass access.
 
-The separate [retained-Q4-template proof](docs/active/daily-pipeline/accuracy/q4-retained-primary-template-implementation-2026-10-25.md)
-is accepted and committed 7a1aee7b: 921 local operational tests, full application checks and independent
-review pass; both render widths are unchanged. It preserves original run 40188161705's truthful
-accepted-zero result. The [ordinary JFrog/Rapid7 integration](docs/active/daily-pipeline/accuracy/q4-two-source-normal-intake-integration-spec-2026-10-25.md)
-is integrated locally under exact policy J, 47b9f226…66593a, with its zero-request disabled plan
-ef9ee1ba. Independent implementation review passes 106 checks. After a test-only historical-H
-fixture repair, the actual selected-J finish path passes 14 focused, two JavaScript and all
-935 operational tests; full application/80 SEC checks and both render widths pass. Independent
-test-delta review also passes, including a separate current-archive authentication. The separate
-postcopy proof preserves all 48,420 current archive entries, all 8,605 ordinary heads, four fact
-references, six admissions and 38 holds. Original sealed evidence remains unchanged. Preview/main
-activation is awaiting fresh hosted checks. Application CI 40197621480 passed on 8ad3881a and
-Vercel preview is READY, but canary 40197621420 failed before runtime during VM-only test setup.
-The [portable repair](docs/active/daily-pipeline/accuracy/q4-normal-intake-ci-portability-repair-2026-10-25.md)
-now passes independent review: 935/935 with archives; 896 passes and 39 explicit skips without
-archives (37 existing and two full-archive-only checks). All ordinary 200/304, 529-URL and quota
-checks run without external files. No runtime/policy/package bytes changed. Main remains H on
-61265b57; actual ordinary J collection and later genuine timer/publication receipts remain required.
-
-The accepted [PR Newswire parser build](docs/active/daily-pipeline/accuracy/prnewswire-dated-window-parser-build-spec-2026-10-25.md)
-uses retained Cato/Chainguard pages in a separate isolated offline unit. It separates the daily
-ordered window from unknown older history and gives no operational qualification or freshness credit.
+The [two priority correction specification](docs/active/daily-pipeline/accuracy/priority-two-correction-integration-spec-2026-10-25.md)
+is accepted for an isolated pending-request build. It targets Varonis's unsupported workforce/date
+wording and SentinelOne's planned 8%/$25 million action, preserving all old six groups. Minimum
+successful independent review is two calls/two documents/zero correction fetches after natural
+October 26 capacity. No operational packet or new admission is selected yet. Pending groups hold
+publication before gate spending; the reviewed fallback protects freshness without deleting history.
 
 ## Remaining work and checkout boundary
 
-The [25-source queue](docs/active/daily-pipeline/accuracy/current-candidate-source-queue-2026-10-25.md),
+The [23-source queue](docs/active/daily-pipeline/accuracy/current-candidate-source-queue-J-2026-10-25.md),
 [remaining record corrections](docs/active/daily-pipeline/accuracy/remaining-record-qualification-status-2026-10-25.md),
 [BACKLOG](BACKLOG.md) and [evaluation rubric](docs/active/daily-pipeline/evaluation-rubric.md) retain
 all gaps and evidence limits. Rubrik's legacy controller, three incomplete feeds, Orca's nonterminal

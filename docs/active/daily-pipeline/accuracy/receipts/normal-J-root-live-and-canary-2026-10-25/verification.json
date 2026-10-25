@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-10-25T14:34:55.046561+00:00",
+  "scope": "root code promotion, actual public-byte comparison and read-only hosted canary evidence",
+  "codeEquivalence": {
+    "web": {
+      "testedPreviewObject": "e9ed4b6f34b5ef47470a846e394cd523c08dad30",
+      "promotedMainObject": "e9ed4b6f34b5ef47470a846e394cd523c08dad30"
+    },
+    "ops": {
+      "testedPreviewObject": "aa9bb5e02a196c5fe974e9af1febfa8cbc302866",
+      "promotedMainObject": "aa9bb5e02a196c5fe974e9af1febfa8cbc302866"
+    },
+    "contracts": {
+      "testedPreviewObject": "888752dd8378a877d486a638869689289ba3d194",
+      "promotedMainObject": "888752dd8378a877d486a638869689289ba3d194"
+    },
+    ".github": {
+      "testedPreviewObject": "52615f5594108b19be5a2ffbcff7fb9a5fa4f21d",
+      "promotedMainObject": "52615f5594108b19be5a2ffbcff7fb9a5fa4f21d"
+    },
+    ".githooks": {
+      "testedPreviewObject": "aad066fda8da7aa78afd4a9f7df5548c9daf2458",
+      "promotedMainObject": "aad066fda8da7aa78afd4a9f7df5548c9daf2458"
+    },
+    "AGENTS.md": {
+      "testedPreviewObject": "3117666596087fe77ac32ecb6f8893e7610c459d",
+      "promotedMainObject": "3117666596087fe77ac32ecb6f8893e7610c459d"
+    },
+    "intent.md": {
+      "testedPreviewObject": "99652e5a99e325541b3d4374dff70a08e1edc0d2",
+      "promotedMainObject": "99652e5a99e325541b3d4374dff70a08e1edc0d2"
+    }
+  },
+  "ordinaryCollector": {
+    "runId": 40199860540,
+    "event": "workflow_dispatch",
+    "headSha": "40fe14bb41f6b10c8edc8527ef7f78d7b4d0dcf8",
+    "actualArchive": "8b3811df40cfdbec9d5ed52252524294566c88e0",
+    "fullSourceAudit": "q4-two-source-normal-intake-actual-source-review-2026-10-25.json"
+  },
+  "canary": {
+    "runId": 40199362753,
+    "attempt": 2,
+    "success": true,
+    "sourceRequests": 0,
+    "archiveChanged": false,
+    "publicationAttempted": false
+  },
+  "public": {
+    "origin": "https://securitymarketpulse.com",
+    "beforeAfterFinalAllByteExact": true,
+    "appRevision": "6d5e87feba4ffbc75e50f35cb564cb8fd91708ca",
+    "dataReleaseId": "fc8bf0984dbeacbe79519574911837d8b638f42215f6547e31ae8968b29951e4",
+    "snapshotSha256": "8ba13011b9d29b875082a551800d57e265238fd7ffd649ff7b99f7072ab25a89",
+    "validUntil": "2026-10-26T12:45:29.479727+00:00",
+    "files": {
+      "deployment-receipt.json": {
+        "sha256": "5ef1302f26813f928931c6b9085bbd985a95fe10fb8e992d7c3d64415bb87d28",
+        "bytes": 1103
+      },
+      "app-release.json": {
+        "sha256": "1c2f50a1e7600c1802b1e60efc02df7c266201d0bd3146e940d97811d0346055",
+        "bytes": 1636
+      },
+      "daily-coverage.json": {
+        "sha256": "ac8068379c6c79760331711bfb7bb6387fbc639f9ab6f921713502c6982d47fc",
+        "bytes": 1337257
+      },
+      "factual-corrections.json": {
+        "sha256": "1dcdfc2bfd3b1f02b44e299421f67c939dc48ca4bf7cfbc712ea53cac0e859cf",
+        "bytes": 27410
+      }
+    }
+  },
+  "actualScheduledJCollectionObserved": false,
+  "newProductionPublicationObserved": false,
+  "receiptFiles": {
+    "cleared-canary-artifact.zip": {
+      "sha256": "4543884dfd6ba7f6a769fa32993dffa85cf24cf82235cec2c135103e02b62f5c",
+      "bytes": 11878
+    },
+    "cleared-canary-attempt2.json": {
+      "sha256": "7e9137d281c39d4be04bd6dcabd9e070c24552ce9a9ee6f66002a45fcd5312ca",
+      "bytes": 510
+    },
+    "cleared-canary-receipt.json": {
+      "sha256": "0f4fd1dacb36993b0065225372f8951bae1a6a6d63e9be0d95351f544935cc56",
+      "bytes": 24153
+    },
+    "main-web.json": {
+      "sha256": "97f2c95a0b29ed54ee048d67bde773e26ee1a5261c5119fb82a2ac1b2318effe",
+      "bytes": 282
+    },
+    "preview-web.json": {
+      "sha256": "dadcd5cde654caef9fc6f10dd9936cb0abb048986b59ef97c80fdb93a45ded7a",
+      "bytes": 282
+    },
+    "vercel-git-deployments.json": {
+      "sha256": "855f9ffd58fc89ca3ad9f835c6ccc00dde2c2987ba92895ca799133b59f6475d",
+      "bytes": 816
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "id": 40199362753,
+  "run_attempt": 2,
+  "event": "push",
+  "path": ".github/workflows/subscription-runtime-canary.yml",
+  "head_branch": "preview",
+  "head_sha": "88671a9790e6d451cb9cb71083c4d8773f62c1a4",
+  "status": "completed",
+  "conclusion": "success",
+  "created_at": "2026-10-25T14:08:33Z",
+  "updated_at": "2026-10-25T14:11:07Z",
+  "html_url": "https://github.com/jessepike/sec-market/actions/runs/40199362753",
+  "repository": {
+    "full_name": "jessepike/sec-market",
+    "private": true
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "sources": [
+    {
+      "sourceId": "jfrog:official:1",
+      "ordinaryLogicalFetches": 1,
+      "newDownloadHead": {
+        "key": "heads/download-e89be28463847248ed1887aac39e5645f48e63a131b5c945ab00b907ff8fe6ee.json",
+        "sha256": "ab48c494b7c604e78bc40bf25d085a30370fbe19bcf3069d7668320c66f287a2",
+        "bytes": 1112,
+        "value": {
+          "body": {
+            "bytes": 282783,
+            "key": "objects/f7d84b288a6665280f4b8ade996b0bf64fe9c3fa0ea7a8a15b1adfb0826ccc19",
+            "sha256": "f7d84b288a6665280f4b8ade996b0bf64fe9c3fa0ea7a8a15b1adfb0826ccc19"
+          },
+          "contentType": "application/json; charset=utf-8",
+          "etag": "\"7297f9bf17701f3a0b2f0810b3eb0be2\"",
+          "fetchedAt": "2026-10-25T14:02:05.056276Z",
+          "finalUrl": "https://investors.jfrog.com/feed/PressRelease.svc/GetPressReleaseList?LanguageId=1&bodyType=0&pressReleaseDateFilter=3&categoryId=00000000-0000-0000-0000-000000000000&pageSize=-1&pageNumber=0&tagList=&includeTags=true&year=-1&excludeSelection=1",
+          "httpStatus": 200,
+          "lastModified": null,
+          "observationId": "189a3aa26bf1e16f720eedd7a8e951a4f2121b9ae95b57ffffb7ba98a9dbbf2f",
+          "requestedUrl": "https://investors.jfrog.com/feed/PressRelease.svc/GetPressReleaseList?LanguageId=1&bodyType=0&pressReleaseDateFilter=3&categoryId=00000000-0000-0000-0000-000000000000&pageSize=-1&pageNumber=0&tagList=&includeTags=true&year=-1&excludeSelection=1",
+          "sourceId": "jfrog:official:1",
+          "status": "fetched",
+          "transportId": "4bbe324d356de9770e4036a9f1923cbb847dd51d679b3cbbf36b56e8a0187b06",
+          "transportReused": false
+        }
+      },
+      "currentTaskHead": {
+        "key": "heads/task-9a9cddc5186b69f3c14469b3aec992e21a35c9cbd9c574850d811e548a1729d0.json",
+        "sha256": "8b82d62a06552823d93527e07928e320451fbc94cd9324aa54e3b1b2a654486e",
+        "bytes": 8242
+      },
+      "legacySourceHead": {
+        "key": "heads/source-4e9e1fbdb2c4930eebf97e3475fea25d715fc8468c914aed30aee68102576105.json",
+        "exists": false,
+        "sha256": null
+      },
+      "factValidations": 0,
+      "documentValidations": 0
+    },
+    {
+      "sourceId": "rapid7:official:1",
+      "ordinaryLogicalFetches": 1,
+      "newDownloadHead": {
+        "key": "heads/download-f97ca1dc9bf2a135e79473a5aaaf4aaf52c8b79974df08e1843a2e7145e2adff.json",
+        "sha256": "b83f607af3dd790a2a7fb462f5e6a42102a20f9c82e08cc3b470fa1260e7e55e",
+        "bytes": 1115,
+        "value": {
+          "body": {
+            "bytes": 414550,
+            "key": "objects/cf3c57d1c2080d65656e9f291eca371aefd99909476d413bb5c90155bc742db8",
+            "sha256": "cf3c57d1c2080d65656e9f291eca371aefd99909476d413bb5c90155bc742db8"
+          },
+          "contentType": "application/json; charset=utf-8",
+          "etag": "\"7a19470393296ded1ed344886ff5ac04\"",
+          "fetchedAt": "2026-10-25T14:02:39.670602Z",
+          "finalUrl": "https://investors.rapid7.com/feed/PressRelease.svc/GetPressReleaseList?LanguageId=1&bodyType=0&pressReleaseDateFilter=3&categoryId=1cb807d2-208f-4bc3-9133-6a9ad45ac3b0&pageSize=-1&pageNumber=0&tagList=&includeTags=true&year=-1&excludeSelection=1",
+          "httpStatus": 200,
+          "lastModified": null,
+          "observationId": "b650f287db7a099fe587de95063ac8b21c26ec9976510bd91eaa4b773924c806",
+          "requestedUrl": "https://investors.rapid7.com/feed/PressRelease.svc/GetPressReleaseList?LanguageId=1&bodyType=0&pressReleaseDateFilter=3&categoryId=1cb807d2-208f-4bc3-9133-6a9ad45ac3b0&pageSize=-1&pageNumber=0&tagList=&includeTags=true&year=-1&excludeSelection=1",
+          "sourceId": "rapid7:official:1",
+          "status": "fetched",
+          "transportId": "e1e3c74357909efe1a6d97614faff471cb8db4e29bd7e3938562d66737b51f4a",
+          "transportReused": false
+        }
+      },
+      "currentTaskHead": {
+        "key": "heads/task-9c04c14085b2f3dd1409821423aed29132ad7b8b5c6d326433e5adacdfb92278.json",
+        "sha256": "886f636bb24a117721a28643380080cd7d234e9a55cd2c40d771c32c7e0e18e4",
+        "bytes": 8163
+      },
+      "legacySourceHead": {
+        "key": "heads/source-f0b50b7884cd9aebedd3993389ef3b00597d003949e83ad3153728f88000b8b6.json",
+        "exists": false,
+        "sha256": null
+      },
+      "factValidations": 0,
+      "documentValidations": 0
+    }
+  ],
+  "normalQ4LogicalFetches": 2,
+  "modelCalls": 0,
+  "factOrDocumentValidations": 0,
+  "note": "Normal source200 download heads and task heads are actual new evidence; original diagnostic objects have not been imported as normal heads."
+}
