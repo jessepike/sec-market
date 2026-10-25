@@ -109,6 +109,12 @@ scheduled collection and public update remain unproved. The earlier 06:38 cutoff
 it used lastCollectionAt plus 30 hours instead of the actual source-bound validUntil. Preserve
 the [live coverage receipt](docs/active/daily-pipeline/receipts/overdue-production-coverage-2026-10-25-0639.json)
 and [live acknowledgement](docs/active/daily-pipeline/receipts/overdue-production-ack-2026-10-25-0639.json).
+Freshness recovery: normal manual collector 40169973257 started at 06:41:14 UTC on unchanged
+main 6d5e87fe, after confirming no active or queued writer. This uses real October 25 allowances
+and source checks. It is a workflow_dispatch recovery, not timer proof. On accepted collection,
+use the one remaining gate attempt for production recovery only after checking for pending
+genuine collectors/publishers; never replace a pending scheduled writer. Keep the genuine timer
+and automatic publication acceptance separate. No allowance refund/reset or new code promotion.
 The [557-row ledger](docs/active/daily-pipeline/evaluations/2026-10-24/current-source-coverage.md)
 and [evaluation rubric](docs/active/daily-pipeline/evaluation-rubric.md) keep the measures separate.
 
