@@ -1,0 +1,31 @@
+{
+  "schema": "smp-independent-final-pin-addendum-v1",
+  "files": [
+    {
+      "path": "independent-tests.json",
+      "bytes": 122,
+      "sha256": "968ee37067d9cfaa943781be7a26b1a7fd6b6ac9f71753de8a5f4cb4092a11c1"
+    },
+    {
+      "path": "independent-tests.log",
+      "bytes": 10004,
+      "sha256": "b170b836c26a38118247956a4284b352fc4663ce29884764a173cdcb915fb00b"
+    },
+    {
+      "path": "normalization-proof.json",
+      "bytes": 293,
+      "sha256": "f4e1024c7e7bdaca5db071b09858425fdaef8730ca298a4e047fd99d04222889"
+    },
+    {
+      "path": "review-addendum.json",
+      "bytes": 1731,
+      "sha256": "d7ad0efc0c769278c3448fae0e14155dd8cf68de107a399202086097da65ca7d"
+    },
+    {
+      "path": "review-addendum.md",
+      "bytes": 1955,
+      "sha256": "dc986fa2dc6c4d713417f0e5575614a0a2dc1940b72cd5bb141725d49a96857c"
+    }
+  ],
+  "selfExcluded": true
+}

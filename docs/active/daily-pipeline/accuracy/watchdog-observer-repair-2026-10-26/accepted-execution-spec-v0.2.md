@@ -1,0 +1,35 @@
+# Watchdog historical fixture and observer-failure alert repair, accepted execution v0.2
+
+Root read and accepted both narrow units on October 26, 2026 before implementation. No finish copy, commit, push, dispatch or GitHub issue write is authorized in this build. The isolated base is `f59d9ec2eee8da6a23031dc640d3d51bbcadb8a7`. This scope is separate from sealed Torq and Abnormal work. It changes no production probe validation, source policy, publication gate, coverage meaning, budget or timeout.
+
+## Confirmed failure
+
+Actual freshness run `40273459773`, job `121411109815`, checked out main `3bb9e40c8f6324aa4f419fbe13022ec4dcaece55`. The relevant watchdog, workflow and market-contract files are byte-identical between that actual checkout and f59. Its 36 watchdog tests produced four failures and three errors. The combined shell step stopped before `python3 ops/watchdog/probe.py --notify`, so this job has no probe result or GitHub alert delivery receipt. An unchanged older issue cannot stand for notification of this failure.
+
+`CoverageReaderTests.setUp` loads live `ROOT/contracts/market.json`, currently canonical J `47b9f22636f0e6ea79cf830ae90aab844d8f554d44110a5bb08f29f00266593a`, while its retained releases, coverage and original plans bind H `8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db`. Its full main-loop test separately reads the current ROOT contract. This is the specific mutable-input problem; no changed production guard is needed.
+
+The exact existing historical contract is already retained at `docs/active/daily-pipeline/evaluations/2026-10-25/inputs/contract.json`, 284,062 bytes, raw SHA-256 `24221c946781559c0ff3626e4e479c4647da915d0f2d7559ea88046982532c3c`, canonical H. A read-only counterfactual changing only historical test context passes all 36 tests in 0.802 seconds. The unmodified f59 baseline reproduces the same four failures and three errors in 0.614 seconds. The exact actual log and all input/log pins are in `read-only-diagnosis-evidence.json` beside this spec.
+
+## Unit A: historical test context only
+
+Own `ops/watchdog/test_coverage_reader.py` and one compressed, pinned historical-contract fixture beside its existing retained fixtures. Copy the exact existing H bytes without changing their clock or contents. Require raw size/hash, canonical H and original plan/release joins. Load that fixture for these historical tests. Give the full-main-loop test a temporary fixture root containing that same pinned contract, rather than reading the real current root. Keep the current-policy synthetic tests in `test_probe.py` using their existing current-policy context.
+
+Preserve every existing positive and negative test and all original expected alarms, dates, 1,337,257-byte body limit, immutable receipt hashes and guard failures. Add a regression proving that current J cannot validate these H receipts, and a regression proving historical fixture tests do not read the mutable current contract. No mutation of retained accepted receipts, generated daily data or production contract is allowed. Keep `ops/watchdog/probe.py` byte-identical.
+
+## Unit B: report failure before a trusted probe completes
+
+Own only the freshness workflow plus bounded workflow/notification tests. Split the watchdog test command and trusted probe command into named steps. The probe retains a success prerequisite on the tests; never run it after failed tests. Capture the trusted probe's JSON and exit status without turning exit 2 into success. A notification acknowledgement requires valid result shape and matching status: healthy true with exit 0, or healthy false with exit 2; an unhealthy result requires an acknowledged open GitHub issue, while a healthy result permits the existing no-alert-needed receipt or an acknowledged closed issue. Preserve the native probe exit and honest health result.
+
+Add a small independent reporting job that runs after the observer job even when its checkout, setup or tests failed. It must not need a checkout or invoke the untested probe. Use the existing GitHub issue channel, existing GitHub token permissions and runner-provided gh/Python tools; no new secret, service, dependency, spend or timeout increase. A separate issue title such as `Daily pipeline observer could not complete` distinguishes observer failure from the existing `Daily pipeline needs attention` health issue. Include the exact actual workflow run URL and failed/skipped test/probe stage. Assign the existing owner only when creating that observer issue. API failures remain failures, with no fabricated delivery claim.
+
+Treat the observer as recovered only after tests pass and a trusted probe result has an acknowledged existing-channel notification outcome. An unhealthy-but-successfully-reported probe can recover the separate observer-failure issue while the real health issue stays open with its actual reasons. The reporter must never modify or close the real health issue on test success alone. It must handle missing outputs, failed/cancelled setup, skipped probe, malformed/absent JSON and failed notification as observer failure. A failure before GitHub can start either job remains a platform-level limitation and cannot be claimed delivered.
+
+The existing `ops/ci/job_alert.py` depends on checked-out source and only accepts collector/publisher jobs; using it alone would miss checkout/setup failures. I recommend the small checkout-independent reporting job for this scope, with its exact trusted inline program exercised by portable tests, and no change to the shared job-alert helper.
+
+## Validation and receipt boundary
+
+Reproduce the exact failing 36-test baseline before edits; retain it. Run all 36 original portable tests after the fixture repair, plus meaningful added regressions. Run the complete local watchdog main loop with `--notify`, using the real retained historical archive/public fixtures and mocked GitHub delivery, and require the honest incomplete-intake, pending/held processing, historical backlog and held-claim reasons plus a captured open-issue payload. This is a local exercised workflow, not a real delivery claim.
+
+Test the exact reporting program and workflow conditions for test/setup failure, skipped probe, trusted unhealthy result, trusted healthy recovery, malformed receipt, notification/API failure, and preservation of the real health issue. Keep native job timeouts and all runtime guards unchanged. Retain a source-diff inventory proving only the accepted fixture/test/workflow surfaces changed and all Torq/Abnormal seals remain exact.
+
+After independent review and root-controlled integration, the next authorized actual native freshness run must supply the precise workflow revision, job outcomes, trusted probe result when reached, and actual GitHub issue response/URL for any observer or health notification. Until that actual receipt exists, delivery remains unverified. No phone or email delivery claim follows from GitHub acknowledgement. Do not dispatch, integrate, publish or write an issue during this diagnosis/spec pass.

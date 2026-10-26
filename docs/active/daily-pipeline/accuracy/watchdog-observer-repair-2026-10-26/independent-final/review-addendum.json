@@ -1,0 +1,45 @@
+{
+  "verdict": "PASS_FINAL_WHITESPACE_NORMALIZED_UNIT_ACTUAL_DELIVERY_UNEXERCISED",
+  "priorIndependentReviewSha256": "464ccc8b9cec788959128a456369d007e257a1c570e498b143ed41af037bf3fd",
+  "finalWorkerIndexSha256": "cc27f3bdf54674a75cb57d8fb8c0e048d4eacff35f231ec361bd418ca4708237",
+  "allFourFinalPayloadsAuthenticated": {
+    ".github/workflows/freshness.yml": {
+      "sha256": "54522c20d51ff154bc2481599bd40d09ea203467d5de7d260577de48c54b355a",
+      "bytes": 17485
+    },
+    "ops/watchdog/test_coverage_reader.py": {
+      "sha256": "cb8db2e3fe1b318a665e893d682317a6b947db70e41c60f0742514ba21b19557",
+      "bytes": 25456
+    },
+    "ops/watchdog/test_freshness_workflow.py": {
+      "sha256": "b6589bab97b668e46fb1279a45e582cc375b512bf118a7a31667481e196e9483",
+      "bytes": 13434
+    },
+    "docs/active/daily-pipeline/accuracy/receipts/coverage-monitor-inventory-bound-read-2026-10-25/current-original-contract.json.gz": {
+      "sha256": "eafdee51b2141d881efa8fd6b9716283ff29555fc75654e57a3ab882ee52895e",
+      "bytes": 26938
+    }
+  },
+  "normalizationProof": {
+    "blankLinesRestored": 22,
+    "restoredBytes": 17705,
+    "restoredSha256": "d79ca36ce55a3ba3c569a481b4c4bda7baa8ffc631e87ec0da46dc47816b2670",
+    "matchesPriorReviewedWorkflow": true,
+    "finalBytes": 17485,
+    "finalSha256": "54522c20d51ff154bc2481599bd40d09ea203467d5de7d260577de48c54b355a"
+  },
+  "finalIndependentTests": {
+    "tests": 55,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "seconds": 0.9672222710214555,
+    "socketsDenied": true
+  },
+  "codeLogicUnchanged": true,
+  "otherThreePayloadPinsUnchanged": true,
+  "finishWrites": 0,
+  "sourceModelRequests": 0,
+  "gateReservations": 0,
+  "actualIssueDelivery": "UNEXERCISED"
+}

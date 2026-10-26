@@ -1,0 +1,10 @@
+{
+  "tests": 16,
+  "failures": 4,
+  "errors": 3,
+  "skips": 0,
+  "seconds": 0.4813599018380046,
+  "expectedCounterexample": true,
+  "base": "f59d9ec2eee8da6a23031dc640d3d51bbcadb8a7",
+  "networkDenied": true
+}

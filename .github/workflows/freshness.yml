@@ -32,6 +32,10 @@ jobs:
   daily-pipeline:
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    outputs:
+      tests_outcome: ${{ steps.watchdog_tests.outcome }}
+      probe_outcome: ${{ steps.watchdog_probe.outcome }}
+      probe_acknowledged: ${{ steps.watchdog_probe.outputs.acknowledged }}
     permissions:
       actions: read
       contents: read
@@ -40,12 +44,200 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
+      - name: Test the independent coverage and publication observer
+        id: watchdog_tests
+        run: python3 -m unittest discover -s ops/watchdog -p 'test_*.py' -v
       - name: Independently check the outside worker, coverage and deployed receipt
+        id: watchdog_probe
+        if: success() && steps.watchdog_tests.outcome == 'success'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          python3 -m unittest discover -s ops/watchdog -p 'test_*.py' -v
-          python3 ops/watchdog/probe.py --notify
+          # BEGIN WATCHDOG_PROBE_RECEIPT
+          python3 - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          import subprocess
+          import sys
+          from datetime import datetime
+
+          MAX_BYTES = 1_000_000
+          REPO = 'jessepike/sec-market'
+
+
+          def unique_object(pairs):
+              result = {}
+              for key, value in pairs:
+                  if key in result:
+                      raise ValueError('DUPLICATE_RECEIPT_KEY')
+                  result[key] = value
+              return result
+
+
+          def constant(_):
+              raise ValueError('NONFINITE_RECEIPT_VALUE')
+
+
+          def acknowledged(raw, code):
+              if not 0 < len(raw) <= MAX_BYTES or type(code) is not int or code not in (0, 2):
+                  return False
+              try:
+                  value = json.loads(raw.decode('utf-8'), object_pairs_hook=unique_object, parse_constant=constant)
+                  if type(value) is not dict or type(value.get('healthy')) is not bool:
+                      return False
+                  healthy, reasons, at = value['healthy'], value.get('reasons'), value.get('checkedAt')
+                  if code != (0 if healthy else 2) or type(reasons) is not list or len(reasons) > 1000:
+                      return False
+                  if not all(type(reason) is str and 0 < len(reason) <= 256 for reason in reasons):
+                      return False
+                  if bool(reasons) == healthy or type(at) is not str or len(at) > 64:
+                      return False
+                  instant = datetime.fromisoformat(at.replace('Z', '+00:00'))
+                  if instant.tzinfo is None or instant.utcoffset().total_seconds() != 0:
+                      return False
+                  sent = value.get('notification')
+                  if type(sent) is not dict:
+                      return False
+                  if sent == {'delivery': 'no_alert_needed'}:
+                      return healthy
+                  if set(sent) != {'delivery', 'url', 'number', 'state', 'notificationTransport'}:
+                      return False
+                  number = sent['number']
+                  return (sent['delivery'] == 'github_issue_updated' and type(number) is int and number > 0
+                          and sent['url'] == 'https://github.com/' + REPO + '/issues/' + str(number)
+                          and sent['state'] == ('closed' if healthy else 'open')
+                          and sent['notificationTransport'] == 'GitHub account notification settings')
+              except (ValueError, TypeError, KeyError, UnicodeError, RecursionError, OverflowError):
+                  return False
+
+
+          def main():
+              receipt = Path(os.environ['RUNNER_TEMP']) / 'smp-watchdog-probe-result.json'
+              with receipt.open('wb') as output:
+                  result = subprocess.run([sys.executable, 'ops/watchdog/probe.py', '--notify'], stdout=output)
+              with receipt.open('rb') as source:
+                  raw = source.read(MAX_BYTES + 1)
+              accepted = acknowledged(raw, result.returncode)
+              with open(os.environ['GITHUB_OUTPUT'], 'a', encoding='utf-8') as output:
+                  output.write('acknowledged=' + ('true' if accepted else 'false') + '\n')
+              if accepted:
+                  print(raw.decode('utf-8'))
+              else:
+                  print('Observer probe receipt is invalid or lacks an acknowledged notification outcome.')
+              return result.returncode if result.returncode != 0 or accepted else 1
+
+
+          if __name__ == '__main__':
+              raise SystemExit(main())
+          PY
+          # END WATCHDOG_PROBE_RECEIPT
+
+  observer-alert:
+    needs: daily-pipeline
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      issues: write
+    steps:
+      - name: Report observer failure independently of checkout and tests
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+          TESTS_OUTCOME: ${{ needs.daily-pipeline.outputs.tests_outcome }}
+          PROBE_OUTCOME: ${{ needs.daily-pipeline.outputs.probe_outcome }}
+          PROBE_ACKNOWLEDGED: ${{ needs.daily-pipeline.outputs.probe_acknowledged }}
+          OBSERVER_JOB_RESULT: ${{ needs.daily-pipeline.result }}
+        run: |
+          # BEGIN WATCHDOG_OBSERVER_REPORTER
+          python3 - <<'PY'
+          import json
+          import os
+          import re
+          import subprocess
+
+          REPO = 'jessepike/sec-market'
+          TITLE = 'Daily pipeline observer could not complete'
+          MAX_BYTES = 1_000_000
+
+
+          def unique_object(pairs):
+              result = {}
+              for key, value in pairs:
+                  if key in result:
+                      raise ValueError('DUPLICATE_OBSERVER_API_KEY')
+                  result[key] = value
+              return result
+
+
+          def constant(_):
+              raise ValueError('NONFINITE_OBSERVER_API_VALUE')
+
+
+          def api(path, payload=None, method=None):
+              args = ['gh', 'api', 'repos/' + REPO + '/' + path, '--header', 'Cache-Control: no-cache']
+              if payload is not None:
+                  args += ['--method', method, '--input', '-']
+              result = subprocess.run(args, input=json.dumps(payload) if payload is not None else None,
+                                      capture_output=True, text=True, timeout=60)
+              if result.returncode or type(result.stdout) is not str or not 0 < len(result.stdout.encode('utf-8')) <= MAX_BYTES:
+                  raise ValueError('OBSERVER_ALERT_API_FAILED_OR_OVERSIZED')
+              return json.loads(result.stdout, object_pairs_hook=unique_object, parse_constant=constant)
+
+
+          def main():
+              run_id = os.environ.get('GITHUB_RUN_ID', '')
+              tests = os.environ.get('TESTS_OUTCOME', '')
+              probe = os.environ.get('PROBE_OUTCOME', '')
+              ack = os.environ.get('PROBE_ACKNOWLEDGED', '')
+              job = os.environ.get('OBSERVER_JOB_RESULT', '')
+              outcomes = {'', 'success', 'failure', 'cancelled', 'skipped'}
+              if (os.environ.get('REPOSITORY') != REPO or not re.fullmatch(r'[1-9][0-9]{0,19}', run_id)
+                      or tests not in outcomes or probe not in outcomes or job not in outcomes
+                      or ack not in {'', 'true', 'false'}):
+                  raise ValueError('OBSERVER_ALERT_INPUT_INVALID')
+              recovered = tests == 'success' and probe in {'success', 'failure'} and ack == 'true' and job in {'success', 'failure'}
+              issues = api('issues?state=open&per_page=100&sort=updated&direction=desc')
+              if type(issues) is not list or len(issues) > 100:
+                  raise ValueError('OBSERVER_ALERT_ISSUE_LIST_INVALID')
+              found = [issue for issue in issues if type(issue) is dict and issue.get('title') == TITLE and 'pull_request' not in issue]
+              if len(found) > 1:
+                  raise ValueError('OBSERVER_ALERT_ISSUE_AMBIGUOUS')
+              existing = found[0] if found else None
+              if existing is not None and (type(existing.get('number')) is not int or existing['number'] <= 0 or existing['number'] == 10 or existing.get('state') != 'open'):
+                  raise ValueError('OBSERVER_ALERT_ISSUE_ID_INVALID')
+              if recovered and existing is None:
+                  print(json.dumps({'delivery': 'no_alert_needed', 'observerRecovered': True, 'healthIssueChanged': False}))
+                  return 0
+              url = 'https://github.com/' + REPO + '/actions/runs/' + run_id
+              body = ('The daily pipeline observer ' + ('recovered after its tests passed and a trusted probe returned an acknowledged notification outcome.'
+                      if recovered else 'could not complete a tested probe with an acknowledged notification outcome.')
+                      + '\n\n[Workflow run and logs](' + url + '). Job: ' + (job or 'missing')
+                      + '. Tests: ' + (tests or 'not reached') + '. Probe: ' + (probe or 'not reached')
+                      + '. Notification outcome acknowledged: ' + (ack or 'missing') + '.'
+                      + '\n\nThis issue tracks observer execution only. The separate Daily pipeline needs attention issue retains actual health gaps. '
+                      + 'Test success alone does not prove freshness or close that health issue. GitHub acknowledgement does not prove phone or email delivery.')
+              state = 'closed' if recovered else 'open'
+              payload = {'body': body, 'state': state} if existing else {'title': TITLE, 'body': body, 'assignees': ['jessepike']}
+              sent = api('issues/' + str(existing['number']) if existing else 'issues', payload, 'PATCH' if existing else 'POST')
+              if (type(sent) is not dict or type(sent.get('number')) is not int or sent['number'] <= 0 or sent['number'] == 10
+                      or existing is not None and sent['number'] != existing['number']
+                      or sent.get('title') != TITLE or sent.get('state') != state or 'pull_request' in sent
+                      or sent.get('html_url') != 'https://github.com/' + REPO + '/issues/' + str(sent['number'])
+                      or existing is None and (type(sent.get('assignees')) is not list
+                          or not any(type(owner) is dict and owner.get('login') == 'jessepike' for owner in sent['assignees']))):
+                  raise ValueError('OBSERVER_ALERT_DELIVERY_ACK_INVALID')
+              print(json.dumps({'delivery': 'github_issue_updated', 'number': sent['number'], 'state': sent['state'],
+                                'url': sent['html_url'], 'observerRecovered': recovered, 'healthIssueChanged': False}))
+              return 0
+
+
+          if __name__ == '__main__':
+              raise SystemExit(main())
+          PY
+          # END WATCHDOG_OBSERVER_REPORTER
+
   probe:
     runs-on: ubuntu-latest
     timeout-minutes: 5

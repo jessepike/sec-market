@@ -1,0 +1,41 @@
+{
+  "schema": "smp-independent-review-index-v1",
+  "files": [
+    {
+      "path": "baseline-counterexample.json",
+      "bytes": 210,
+      "sha256": "2275e364d6ce1b12e6a967df66972cc9b6c597269b928ea90344c983c16bb0f5"
+    },
+    {
+      "path": "baseline-counterexample.log",
+      "bytes": 11106,
+      "sha256": "dcd81669819122de41545298e44e21be41a6cd34f1fbbf4735b35340924d6c61"
+    },
+    {
+      "path": "independent-tests.json",
+      "bytes": 122,
+      "sha256": "c10285e8a181e175f6e2b348e9478d66372aedafcc8f91e2e0d866437d0b0a3a"
+    },
+    {
+      "path": "independent-tests.log",
+      "bytes": 10004,
+      "sha256": "b2c8e1102605f7c384047ae4a464888a6dfbd57ec6ae437a23fffc2ebd155b03"
+    },
+    {
+      "path": "review.json",
+      "bytes": 1949,
+      "sha256": "e4736b852c031716ef2d0c13146a11f36bf14b5340d6bf246d6e2b154d6cb9e2"
+    },
+    {
+      "path": "review.md",
+      "bytes": 3889,
+      "sha256": "464ccc8b9cec788959128a456369d007e257a1c570e498b143ed41af037bf3fd"
+    },
+    {
+      "path": "source-protection.json",
+      "bytes": 1797,
+      "sha256": "40b19a111636490bba51630bca1f0d0b75bf546b16473db83c221438068453ef"
+    }
+  ],
+  "selfExcluded": true
+}

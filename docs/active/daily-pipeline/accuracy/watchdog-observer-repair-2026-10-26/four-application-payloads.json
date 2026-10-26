@@ -1,0 +1,56 @@
+{
+  "status": "REVIEW_READY_NO_FINISH_COPY_AUTHORIZATION",
+  "isolatedBase": "f59d9ec2eee8da6a23031dc640d3d51bbcadb8a7",
+  "sourceRoot": "/var/tmp/smp-watchdog-historical-contract-20261026/app",
+  "files": [
+    {
+      "path": ".github/workflows/freshness.yml",
+      "source": "/var/tmp/smp-watchdog-historical-contract-20261026/app/.github/workflows/freshness.yml",
+      "bytes": 17485,
+      "sha256": "54522c20d51ff154bc2481599bd40d09ea203467d5de7d260577de48c54b355a",
+      "action": "independent_review_only_no_finish_copy_authorized"
+    },
+    {
+      "path": "ops/watchdog/test_coverage_reader.py",
+      "source": "/var/tmp/smp-watchdog-historical-contract-20261026/app/ops/watchdog/test_coverage_reader.py",
+      "bytes": 25456,
+      "sha256": "cb8db2e3fe1b318a665e893d682317a6b947db70e41c60f0742514ba21b19557",
+      "action": "independent_review_only_no_finish_copy_authorized"
+    },
+    {
+      "path": "ops/watchdog/test_freshness_workflow.py",
+      "source": "/var/tmp/smp-watchdog-historical-contract-20261026/app/ops/watchdog/test_freshness_workflow.py",
+      "bytes": 13434,
+      "sha256": "b6589bab97b668e46fb1279a45e582cc375b512bf118a7a31667481e196e9483",
+      "action": "independent_review_only_no_finish_copy_authorized"
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/receipts/coverage-monitor-inventory-bound-read-2026-10-25/current-original-contract.json.gz",
+      "source": "/var/tmp/smp-watchdog-historical-contract-20261026/app/docs/active/daily-pipeline/accuracy/receipts/coverage-monitor-inventory-bound-read-2026-10-25/current-original-contract.json.gz",
+      "bytes": 26938,
+      "sha256": "eafdee51b2141d881efa8fd6b9716283ff29555fc75654e57a3ab882ee52895e",
+      "action": "independent_review_only_no_finish_copy_authorized"
+    }
+  ],
+  "changedTrackedFiles": 2,
+  "newFiles": 2,
+  "allOtherTrackedFilesUnchanged": 3057,
+  "sourceProbeByteIdentical": true,
+  "opsCiWebContractsUnchanged": true,
+  "tests": {
+    "original": 36,
+    "total": 55,
+    "passed": 55,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 0.9409847119823098
+  },
+  "sourceRequests": 0,
+  "apiIssueWrites": 0,
+  "actualDelivery": "unproved; root will execute approved native workflow after review/integration",
+  "commitPushDispatch": false,
+  "selfExcluded": true,
+  "diffCheck": "PASS all four files including additions",
+  "whitespaceOnlyNormalization": 22
+}

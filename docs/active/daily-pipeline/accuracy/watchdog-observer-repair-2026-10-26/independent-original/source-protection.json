@@ -1,0 +1,31 @@
+{
+  "indexSha256": "c57a6a86529d7fd16ec8d2e4c168b7af33afb3517f09f1144be7cbf04940101d",
+  "indexedFileErrors": [],
+  "changedTracked": [
+    ".github/workflows/freshness.yml",
+    "ops/watchdog/test_coverage_reader.py"
+  ],
+  "otherTrackedExact": 3057,
+  "originalHistoricalMethods": 16,
+  "originalAssertionNodesExact": {
+    "test_actual_large_response_uses_exact_authenticated_bound_and_keeps_clocks": true,
+    "test_short_long_and_changed_bytes_fail_before_json_interpretation": true,
+    "test_invalid_json_cannot_pass_even_with_matching_size_and_hash": true,
+    "test_redirect_and_non_200_remain_rejected": true,
+    "test_no_other_receipt_or_untrusted_url_gets_a_larger_limit": true,
+    "test_invalid_entry_types_shapes_hashes_and_absolute_ceiling_fail_before_io": true,
+    "test_production_manifest_identity_and_sequence_are_verified": true,
+    "test_bad_inventory_references_and_gate_joins_fail_before_archive_io": true,
+    "test_inventory_hash_and_exact_path_entry_are_required": true,
+    "test_full_actual_inspection_reaches_honest_backlog_and_held_claim_reasons": true,
+    "test_no_authority_means_no_inventory_allowance_and_failed_authority_stops": true,
+    "test_current_and_cross_day_original_plans_keep_real_clocks_and_specific_alarms": true,
+    "test_invalid_or_missing_original_plans_and_source_joins_fail_closed": true,
+    "test_expired_public_source_is_not_refreshed_by_a_successful_bounded_read": true,
+    "test_newer_private_and_older_rehearsal_public_load_their_own_original_plans": true,
+    "test_complete_main_loop_retains_actual_timer_and_partial_alarms_without_generic_failure": true
+  },
+  "fixtureBytes": 284062,
+  "fixtureRawSha256": "24221c946781559c0ff3626e4e479c4647da915d0f2d7559ea88046982532c3c",
+  "fixtureMatchesExistingHistoricalContract": true
+}

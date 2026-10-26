@@ -1,0 +1,44 @@
+{
+  "verdict": "PASS_FOR_CONTROLLED_INTEGRATION_ACTUAL_DELIVERY_UNEXERCISED",
+  "base": "f59d9ec2eee8da6a23031dc640d3d51bbcadb8a7",
+  "sourceRoot": "/var/tmp/smp-watchdog-historical-contract-20261026/app",
+  "pins": {
+    ".github/workflows/freshness.yml": "54522c20d51ff154bc2481599bd40d09ea203467d5de7d260577de48c54b355a",
+    "ops/watchdog/test_coverage_reader.py": "cb8db2e3fe1b318a665e893d682317a6b947db70e41c60f0742514ba21b19557",
+    "ops/watchdog/test_freshness_workflow.py": "b6589bab97b668e46fb1279a45e582cc375b512bf118a7a31667481e196e9483",
+    "docs/active/daily-pipeline/accuracy/receipts/coverage-monitor-inventory-bound-read-2026-10-25/current-original-contract.json.gz": "eafdee51b2141d881efa8fd6b9716283ff29555fc75654e57a3ab882ee52895e"
+  },
+  "indexedFilesAuthenticated": 4,
+  "unchangedOtherTrackedFiles": 3057,
+  "productionProbeUnchanged": true,
+  "originalHistoricalAssertionBodiesPreserved": 16,
+  "originalOtherWatchdogTestsFileUnchanged": true,
+  "independentTests": {
+    "tests": 55,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "seconds": 0.9474644798319787,
+    "socketsDenied": true
+  },
+  "independentUnrepairedCounterexample": {
+    "tests": 16,
+    "failures": 4,
+    "errors": 3,
+    "skips": 0,
+    "seconds": 0.4813599018380046,
+    "expectedCounterexample": true,
+    "base": "f59d9ec2eee8da6a23031dc640d3d51bbcadb8a7",
+    "networkDenied": true
+  },
+  "actualGithubIssueWrites": 0,
+  "actualSourceRequests": 0,
+  "actualGateReservations": 0,
+  "finishWrites": 0,
+  "findings": [],
+  "limitations": [
+    "No actual workflow or GitHub delivery receipt is claimed by local mocks.",
+    "A cancelled workflow reporter remains a best-effort GitHub job and cannot prove delivery if the platform never starts it.",
+    "Final candidate can inherit the ancestor canary only after an exact full runtime/test/fixture dependency closure comparison; this review alone is no final promotion prerequisite."
+  ]
+}

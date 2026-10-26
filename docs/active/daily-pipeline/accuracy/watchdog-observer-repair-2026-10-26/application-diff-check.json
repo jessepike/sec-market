@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "note": "git diff --no-index returns 1 for file differences; every check has empty output/no whitespace diagnostics.",
+  "files": [
+    {
+      "path": ".github/workflows/freshness.yml",
+      "noIndexDiffExit": 1,
+      "whitespaceDiagnostics": []
+    },
+    {
+      "path": "ops/watchdog/test_coverage_reader.py",
+      "noIndexDiffExit": 1,
+      "whitespaceDiagnostics": []
+    },
+    {
+      "path": "ops/watchdog/test_freshness_workflow.py",
+      "noIndexDiffExit": 1,
+      "whitespaceDiagnostics": []
+    },
+    {
+      "path": "docs/active/daily-pipeline/accuracy/receipts/coverage-monitor-inventory-bound-read-2026-10-25/current-original-contract.json.gz",
+      "noIndexDiffExit": 1,
+      "whitespaceDiagnostics": []
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "testsRun": 55,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "elapsedSeconds": 0.9409847119823098,
+  "sourceRequests": 0,
+  "apiIssueWrites": 0,
+  "socketConnectionsDenied": true,
+  "probeByteIdenticalToBase": true,
+  "whitespaceOnlyNormalization": 22
+}

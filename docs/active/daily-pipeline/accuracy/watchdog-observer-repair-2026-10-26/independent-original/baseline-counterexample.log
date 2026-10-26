@@ -1,0 +1,108 @@
+test_actual_large_response_uses_exact_authenticated_bound_and_keeps_clocks (baseline_watchdog_counterexample.CoverageReaderTests.test_actual_large_response_uses_exact_authenticated_bound_and_keeps_clocks) ... ok
+test_bad_inventory_references_and_gate_joins_fail_before_archive_io (baseline_watchdog_counterexample.CoverageReaderTests.test_bad_inventory_references_and_gate_joins_fail_before_archive_io) ... ok
+test_complete_main_loop_retains_actual_timer_and_partial_alarms_without_generic_failure (baseline_watchdog_counterexample.CoverageReaderTests.test_complete_main_loop_retains_actual_timer_and_partial_alarms_without_generic_failure) ... FAIL
+test_current_and_cross_day_original_plans_keep_real_clocks_and_specific_alarms (baseline_watchdog_counterexample.CoverageReaderTests.test_current_and_cross_day_original_plans_keep_real_clocks_and_specific_alarms) ... FAIL
+test_expired_public_source_is_not_refreshed_by_a_successful_bounded_read (baseline_watchdog_counterexample.CoverageReaderTests.test_expired_public_source_is_not_refreshed_by_a_successful_bounded_read) ... ERROR
+test_full_actual_inspection_reaches_honest_backlog_and_held_claim_reasons (baseline_watchdog_counterexample.CoverageReaderTests.test_full_actual_inspection_reaches_honest_backlog_and_held_claim_reasons) ... ERROR
+test_invalid_entry_types_shapes_hashes_and_absolute_ceiling_fail_before_io (baseline_watchdog_counterexample.CoverageReaderTests.test_invalid_entry_types_shapes_hashes_and_absolute_ceiling_fail_before_io) ... ok
+test_invalid_json_cannot_pass_even_with_matching_size_and_hash (baseline_watchdog_counterexample.CoverageReaderTests.test_invalid_json_cannot_pass_even_with_matching_size_and_hash) ... ok
+test_invalid_or_missing_original_plans_and_source_joins_fail_closed (baseline_watchdog_counterexample.CoverageReaderTests.test_invalid_or_missing_original_plans_and_source_joins_fail_closed) ... ok
+test_inventory_hash_and_exact_path_entry_are_required (baseline_watchdog_counterexample.CoverageReaderTests.test_inventory_hash_and_exact_path_entry_are_required) ... ok
+test_newer_private_and_older_rehearsal_public_load_their_own_original_plans (baseline_watchdog_counterexample.CoverageReaderTests.test_newer_private_and_older_rehearsal_public_load_their_own_original_plans) ... FAIL
+test_no_authority_means_no_inventory_allowance_and_failed_authority_stops (baseline_watchdog_counterexample.CoverageReaderTests.test_no_authority_means_no_inventory_allowance_and_failed_authority_stops) ... FAIL
+test_no_other_receipt_or_untrusted_url_gets_a_larger_limit (baseline_watchdog_counterexample.CoverageReaderTests.test_no_other_receipt_or_untrusted_url_gets_a_larger_limit) ... ok
+test_production_manifest_identity_and_sequence_are_verified (baseline_watchdog_counterexample.CoverageReaderTests.test_production_manifest_identity_and_sequence_are_verified) ... ERROR
+test_redirect_and_non_200_remain_rejected (baseline_watchdog_counterexample.CoverageReaderTests.test_redirect_and_non_200_remain_rejected) ... ok
+test_short_long_and_changed_bytes_fail_before_json_interpretation (baseline_watchdog_counterexample.CoverageReaderTests.test_short_long_and_changed_bytes_fail_before_json_interpretation) ... ok
+
+======================================================================
+ERROR: test_expired_public_source_is_not_refreshed_by_a_successful_bounded_read (baseline_watchdog_counterexample.CoverageReaderTests.test_expired_public_source_is_not_refreshed_by_a_successful_bounded_read)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/tmp/smp-watchdog-historical-contract-20261026/app/ops/watchdog/test_coverage_reader.py", line 262, in test_expired_public_source_is_not_refreshed_by_a_successful_bounded_read
+    coverage={**self.coverage,'runId':run_id}
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/tmp/smp-watchdog-historical-contract-20261026/app/ops/watchdog/test_coverage_reader.py", line 109, in inspect
+    response = Response(self.live[url], url)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/tmp/smp-watchdog-historical-contract-20261026/app/ops/watchdog/probe.py", line 331, in inspect
+    _accepted_release(production, manifest, contract)
+  File "/var/tmp/smp-watchdog-historical-contract-20261026/app/ops/watchdog/probe.py", line 154, in _accepted_release
+    require(type(manifest) is dict and valid_hash(production.get("releaseId"))
+  File "/var/tmp/smp-watchdog-historical-contract-20261026/app/web/scripts/pipeline/contracts.py", line 37, in require
+    raise ContractError(reason)
+contracts.ContractError: ACCEPTED_RELEASE_BINDING_DIFFERS
+
+======================================================================
+ERROR: test_full_actual_inspection_reaches_honest_backlog_and_held_claim_reasons (baseline_watchdog_counterexample.CoverageReaderTests.test_full_actual_inspection_reaches_honest_backlog_and_held_claim_reasons)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/tmp/smp-watchdog-historical-contract-20261026/app/ops/watchdog/test_coverage_reader.py", line 198, in test_full_actual_inspection_reaches_honest_backlog_and_held_claim_reasons
+    raw=probe.canonical(inventory);manifest=copy.deepcopy(self.manifest);test=copy.deepcopy(self.test)
+       ^^^^^^^^^^^^^^
+  File "/var/tmp/smp-watchdog-historical-contract-20261026/app/ops/watchdog/test_coverage_reader.py", line 109, in inspect
+    response = Response(self.live[url], url)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/tmp/smp-watchdog-historical-contract-20261026/app/ops/watchdog/probe.py", line 331, in inspect
+    _accepted_release(production, manifest, contract)
+  File "/var/tmp/smp-watchdog-historical-contract-20261026/app/ops/watchdog/probe.py", line 154, in _accepted_release
+    require(type(manifest) is dict and valid_hash(production.get("releaseId"))
+  File "/var/tmp/smp-watchdog-historical-contract-20261026/app/web/scripts/pipeline/contracts.py", line 37, in require
+    raise ContractError(reason)
+contracts.ContractError: ACCEPTED_RELEASE_BINDING_DIFFERS
+
+======================================================================
+ERROR: test_production_manifest_identity_and_sequence_are_verified (baseline_watchdog_counterexample.CoverageReaderTests.test_production_manifest_identity_and_sequence_are_verified)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/tmp/smp-watchdog-historical-contract-20261026/app/ops/watchdog/test_coverage_reader.py", line 160, in test_production_manifest_identity_and_sequence_are_verified
+    cases=[[],{}, {**self.entry,'extra':True},{**self.entry,'path':'daily-coverage.json'},
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/tmp/smp-watchdog-historical-contract-20261026/app/ops/watchdog/probe.py", line 154, in _accepted_release
+    require(type(manifest) is dict and valid_hash(production.get("releaseId"))
+  File "/var/tmp/smp-watchdog-historical-contract-20261026/app/web/scripts/pipeline/contracts.py", line 37, in require
+    raise ContractError(reason)
+contracts.ContractError: ACCEPTED_RELEASE_BINDING_DIFFERS
+
+======================================================================
+FAIL: test_complete_main_loop_retains_actual_timer_and_partial_alarms_without_generic_failure (baseline_watchdog_counterexample.CoverageReaderTests.test_complete_main_loop_retains_actual_timer_and_partial_alarms_without_generic_failure)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/tmp/smp-watchdog-historical-contract-20261026/app/ops/watchdog/test_coverage_reader.py", line 310, in test_complete_main_loop_retains_actual_timer_and_partial_alarms_without_generic_failure
+    with patch.object(probe,'ROOT',self.fixture_root),patch.object(probe,'api',side_effect=api),patch.object(probe,'utcnow',return_value=NOW),\
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'HELD_CLAIMS_37' not found in ['SCHEDULED_COLLECTION_RECEIPT_DIFFERS', 'OVERDUE_OR_INCOMPLETE_COVERAGE', 'DAILY_INTAKE_INCOMPLETE', 'PROCESSING_PENDING_10617', 'PROCESSING_HELD_10', 'HISTORICAL_REVIEW_PENDING_10616', 'INDEPENDENT_PROBE_FAILED', 'ContractError']
+
+======================================================================
+FAIL: test_current_and_cross_day_original_plans_keep_real_clocks_and_specific_alarms (baseline_watchdog_counterexample.CoverageReaderTests.test_current_and_cross_day_original_plans_keep_real_clocks_and_specific_alarms)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/tmp/smp-watchdog-historical-contract-20261026/app/ops/watchdog/test_coverage_reader.py", line 222, in test_current_and_cross_day_original_plans_keep_real_clocks_and_specific_alarms
+    with self.assertRaisesRegex(ValueError,'AUTHORITY_REQUIRED'):self.inspect()
+AssertionError: 'SEPARATE_COVERAGE_INVALID_OR_UNCOLLECTED' unexpectedly found in ['SEPARATE_COVERAGE_INVALID_OR_UNCOLLECTED']
+
+======================================================================
+FAIL: test_newer_private_and_older_rehearsal_public_load_their_own_original_plans (baseline_watchdog_counterexample.CoverageReaderTests.test_newer_private_and_older_rehearsal_public_load_their_own_original_plans)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/var/tmp/smp-watchdog-historical-contract-20261026/app/ops/watchdog/test_coverage_reader.py", line 284, in test_newer_private_and_older_rehearsal_public_load_their_own_original_plans
+    def live(url):
+AssertionError: 'PUBLIC_PROCESSING_PENDING_10632' not found in ['COVERAGE_CONTRACT_DIFFERS', 'SEPARATE_COVERAGE_INVALID_OR_UNCOLLECTED', 'PUBLIC_SEPARATE_COVERAGE_INVALID_OR_UNCOLLECTED', 'COLLECTION_HAS_NOT_REACHED_PRODUCTION', 'PUBLIC_COVERAGE_INCOMPLETE_OR_OVERDUE', 'HELD_CLAIMS_37']
+
+======================================================================
+FAIL: test_no_authority_means_no_inventory_allowance_and_failed_authority_stops (baseline_watchdog_counterexample.CoverageReaderTests.test_no_authority_means_no_inventory_allowance_and_failed_authority_stops)
+----------------------------------------------------------------------
+contracts.ContractError: ACCEPTED_RELEASE_BINDING_DIFFERS
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/var/tmp/smp-watchdog-historical-contract-20261026/app/ops/watchdog/test_coverage_reader.py", line 214, in test_no_authority_means_no_inventory_allowance_and_failed_authority_stops
+    self.assertNotIn('PUBLIC_SEPARATE_COVERAGE_INVALID_OR_UNCOLLECTED',result['reasons'])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: "AUTHORITY_REQUIRED" does not match "ACCEPTED_RELEASE_BINDING_DIFFERS"
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.481s
+
+FAILED (failures=4, errors=3)

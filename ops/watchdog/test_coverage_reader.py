@@ -6,6 +6,7 @@ import io
 import json
 from pathlib import Path
 import socket
+import tempfile
 import unittest
 from contextlib import redirect_stdout
 from unittest.mock import patch
@@ -18,6 +19,7 @@ spec = importlib.util.spec_from_file_location('coverage_watchdog', Path(__file__
 probe = importlib.util.module_from_spec(spec); spec.loader.exec_module(probe)
 NOW = '2026-10-25T08:13:04.369084Z'
 PINS = {
+    'current-original-contract.json': '24221c946781559c0ff3626e4e479c4647da915d0f2d7559ea88046982532c3c',
     'current-original-plan.json': '0470e19e732f7c8d5bef1fd434a4e1798bdb61f9bf28285199102eda021eb429',
     'current-original-coverage.json': 'f2486a623d93da011eaaf11926e09d6ce1533dab26d4a8f2fa2875a95a84d0b6',
     'current-original-snapshot.json': 'ae75279b62c84bbd072748c7b228aaef5d908dfc5c87c856a7e0b1a173b94563',
@@ -58,7 +60,13 @@ class CoverageReaderTests(unittest.TestCase):
         self.assertEqual(len(self.body), 1337257)
         self.assertEqual(probe.digest(self.body), 'ac8068379c6c79760331711bfb7bb6387fbc639f9ab6f921713502c6982d47fc')
         self.entry = {'path': probe.PUBLIC_COVERAGE_PATH, 'bytes': len(self.body), 'sha256': probe.digest(self.body)}
-        self.contract = json.loads((ROOT / 'contracts/market.json').read_bytes())
+        self.contract = fixture('current-original-contract.json')
+        self.assertEqual(probe.digest(self.contract), '8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db')
+        temporary = tempfile.TemporaryDirectory(prefix='synthetic-watchdog-historical-H-')
+        self.addCleanup(temporary.cleanup)
+        self.fixture_root = Path(temporary.name)
+        (self.fixture_root / 'contracts').mkdir()
+        (self.fixture_root / 'contracts/market.json').write_bytes(probe.canonical(self.contract))
         self.manifest = actual('release')['manifest']; self.production = actual('production')
         self.test = actual('gate-receipt'); self.inventory = actual('accepted-artifact-inventory')
         self.plan = fixture('current-original-plan.json'); self.coverage = fixture('current-original-coverage.json')
@@ -299,7 +307,7 @@ class CoverageReaderTests(unittest.TestCase):
             key=path[len(prefix):].split('?ref=')[0]
             return probe.canonical(self.entries[key])
         output=io.StringIO()
-        with patch.object(probe,'api',side_effect=api),patch.object(probe,'utcnow',return_value=NOW),\
+        with patch.object(probe,'ROOT',self.fixture_root),patch.object(probe,'api',side_effect=api),patch.object(probe,'utcnow',return_value=NOW),\
              patch.object(probe,'inspect_collection',return_value=collection),\
              patch.object(probe,'inspect_corrections',return_value=[]),\
              patch.object(probe,'GitHubAuthority',return_value=self.authority),\
@@ -308,6 +316,70 @@ class CoverageReaderTests(unittest.TestCase):
         result=json.loads(output.getvalue())
         self.assertFalse(result['healthy']);self.assertIn('SCHEDULED_COLLECTION_RECEIPT_DIFFERS',result['reasons'])
         self.assertIn('HELD_CLAIMS_37',result['reasons']);self.assertNotIn('INDEPENDENT_PROBE_FAILED',result['reasons'])
+
+
+    def test_historical_receipts_reject_the_mutable_current_J_contract(self):
+        current = json.loads((ROOT / 'contracts/market.json').read_bytes())
+        self.assertNotEqual(probe.digest(current), probe.digest(self.contract))
+        with self.assertRaisesRegex(ValueError, 'ACCEPTED_RELEASE_BINDING_DIFFERS'):
+            probe._accepted_release(self.production, self.manifest, current)
+        self.assertIn('SEPARATE_COVERAGE_INVALID_OR_UNCOLLECTED',
+                      probe.separate_health(current, self.coverage, plan=self.plan)[0])
+
+    def test_historical_full_main_loop_does_not_read_the_mutable_current_contract(self):
+        original_bytes, original_text = Path.read_bytes, Path.read_text
+        def guarded_bytes(path):
+            self.assertNotEqual(path, ROOT / 'contracts/market.json')
+            return original_bytes(path)
+        def guarded_text(path, *args, **kwargs):
+            self.assertNotEqual(path, ROOT / 'contracts/market.json')
+            return original_text(path, *args, **kwargs)
+        with patch.object(Path, 'read_bytes', guarded_bytes), patch.object(Path, 'read_text', guarded_text):
+            self.test_complete_main_loop_retains_actual_timer_and_partial_alarms_without_generic_failure()
+
+    def test_full_historical_main_loop_notifies_with_honest_alarms_and_open_issue_ack(self):
+        original = actual('actual-monitor-result')
+        collection = {**original, 'reasons': original['reasons'][:6]}
+        collection.pop('notification', None)
+        archive_commit = actual('archive-ref')['object']['sha']
+        sent = []
+        def api(path, raw=False):
+            if path == 'git/ref/archive/market-evidence': return {'object': {'sha': archive_commit}}
+            if path == 'issues?state=open&per_page=100&sort=updated&direction=desc': return []
+            prefix = 'contents/state/'
+            self.assertTrue(raw and path.startswith(prefix))
+            key = path[len(prefix):].split('?ref=')[0]
+            return probe.canonical(self.entries[key])
+        def delivery(args, **kwargs):
+            payload = json.loads(Path(args[-1]).read_bytes()); sent.append((args, payload))
+            return probe.subprocess.CompletedProcess(args, 0,
+                probe.canonical({'number': 10, 'state': 'open',
+                                 'html_url': 'https://github.com/jessepike/sec-market/issues/10'}), b'')
+        output = io.StringIO()
+        with patch.object(probe, 'ROOT', self.fixture_root), patch.object(probe, 'api', side_effect=api), \
+             patch.object(probe, 'utcnow', return_value=NOW), \
+             patch.object(probe, 'inspect_collection', return_value=collection), \
+             patch.object(probe, 'inspect_corrections', return_value=[]), \
+             patch.object(probe, 'GitHubAuthority', return_value=self.authority), \
+             patch.object(probe, 'get_json', side_effect=self.live_read), \
+             patch.object(probe.subprocess, 'run', side_effect=delivery), \
+             patch('sys.argv', ['probe.py', '--notify']), redirect_stdout(output):
+            self.assertEqual(probe.main(), 2)
+        result = json.loads(output.getvalue())
+        self.assertFalse(result['healthy']); self.assertEqual(result['checkedAt'], NOW)
+        for reason in ('SCHEDULED_COLLECTION_RECEIPT_DIFFERS', 'DAILY_INTAKE_INCOMPLETE',
+                       'PROCESSING_PENDING_10617', 'PROCESSING_HELD_10',
+                       'HISTORICAL_REVIEW_PENDING_10616', 'HELD_CLAIMS_37'):
+            self.assertIn(reason, result['reasons'])
+        self.assertNotIn('INDEPENDENT_PROBE_FAILED', result['reasons'])
+        self.assertEqual(result['notification']['delivery'], 'github_issue_updated')
+        self.assertEqual(result['notification']['state'], 'open')
+        self.assertEqual(len(sent), 1)
+        args, payload = sent[0]
+        self.assertEqual(args[0:3], ['gh', 'api', 'repos/jessepike/sec-market/issues'])
+        self.assertEqual(payload['title'], probe.TITLE); self.assertEqual(payload['assignees'], ['jessepike'])
+        self.assertNotIn('state', payload)
+        self.assertIn('HELD_CLAIMS_37', payload['body']); self.assertIn(NOW, payload['body'])
 
 
 if __name__=='__main__':unittest.main()

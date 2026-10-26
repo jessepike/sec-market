@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "TorqSealedFiles": 17,
+  "earlierAbnormalSealedFiles": 65,
+  "earlierTorqArtifacts": 9,
+  "allPinsUnchanged": true,
+  "finishCopies": 0
+}

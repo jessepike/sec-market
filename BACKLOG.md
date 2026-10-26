@@ -68,8 +68,9 @@ that job timeout; 16 focused tests pass and all assertions/budgets remain exact.
 artifacts and no gate charge. The reviewed local [PR Newswire mechanics test repair](docs/active/daily-pipeline/accuracy/prnewswire-mechanics-test-efficiency-2026-10-26.md)
 preserves all 20 original test bodies and 3,058 other tracked files; the complete portable suite
 passes 957 tests plus 61 unchanged explicit archive-only skips (1,018 total) in 261.460 seconds
-including discovery, with a separate unchanged original-H pass. Actual repaired-canary proof
-remains open; main stays 3bb9e40c and public release fc8bf098/sequence 4 is unchanged.
+including discovery, with a separate unchanged original-H pass. Preview canary 40275425806
+and web run 40275425734 on a8d92efa are terminal success; assigned artifact authentication
+remains pending. Main stays 3bb9e40c and public release fc8bf098/sequence 4 is unchanged.
 
 Native scheduled publisher 40271992393 required owner force-cancel after ordinary cancellation
 continued into restoration. It produced no artifact/publication; authenticated archive 5ddcbc51,
@@ -79,6 +80,11 @@ preserves every other guard. Its actual cancellation behavior remains unexercise
 failure and manual intervention remain recorded. Native monitor 40273459773 then failed its
 36-test preflight with four failures and three errors before --notify; issue 10 stayed at its
 October 25 update. The native collector due October 26 at 05:17 UTC remains unobserved.
+The reviewed [watchdog observer repair](docs/active/daily-pipeline/accuracy/watchdog-observer-repair-2026-10-26/report.md)
+now passes all 55 local tests and independent review, with zero skips. It retains the historical
+H contract and every original assertion, leaves the production probe unchanged, and separately
+reports observer failures. Actual notification and failure/recovery delivery remain pending;
+genuine current-J/eight-group native collection and publication receipts remain open.
 
 | Gap or acceptance | Count/state | Next action |
 |---|---|---|

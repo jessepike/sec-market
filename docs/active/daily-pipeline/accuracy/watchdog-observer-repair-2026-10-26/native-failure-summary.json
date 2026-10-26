@@ -1,0 +1,40 @@
+{
+  "status": "AUTHENTIC_NATIVE_FAILURE_SUMMARY_NO_RAW_NATIVE_LOG_COPIED",
+  "runId": "40273459773",
+  "jobId": "121411109815",
+  "actualCheckout": "3bb9e40c8f6324aa4f419fbe13022ec4dcaece55",
+  "testsRun": 36,
+  "failures": 4,
+  "errors": 3,
+  "elapsedTestSeconds": 1.572,
+  "errorsAndFailures": [
+    "ERROR: test_expired_public_source_is_not_refreshed_by_a_successful_bounded_read (test_coverage_reader.CoverageReaderTests.test_expired_public_source_is_not_refreshed_by_a_successful_bounded_read)",
+    "ERROR: test_full_actual_inspection_reaches_honest_backlog_and_held_claim_reasons (test_coverage_reader.CoverageReaderTests.test_full_actual_inspection_reaches_honest_backlog_and_held_claim_reasons)",
+    "ERROR: test_production_manifest_identity_and_sequence_are_verified (test_coverage_reader.CoverageReaderTests.test_production_manifest_identity_and_sequence_are_verified)",
+    "FAIL: test_complete_main_loop_retains_actual_timer_and_partial_alarms_without_generic_failure (test_coverage_reader.CoverageReaderTests.test_complete_main_loop_retains_actual_timer_and_partial_alarms_without_generic_failure)",
+    "FAIL: test_current_and_cross_day_original_plans_keep_real_clocks_and_specific_alarms (test_coverage_reader.CoverageReaderTests.test_current_and_cross_day_original_plans_keep_real_clocks_and_specific_alarms)",
+    "FAIL: test_newer_private_and_older_rehearsal_public_load_their_own_original_plans (test_coverage_reader.CoverageReaderTests.test_newer_private_and_older_rehearsal_public_load_their_own_original_plans)",
+    "FAIL: test_no_authority_means_no_inventory_allowance_and_failed_authority_stops (test_coverage_reader.CoverageReaderTests.test_no_authority_means_no_inventory_allowance_and_failed_authority_stops)"
+  ],
+  "guardReasons": [
+    "ACCEPTED_RELEASE_BINDING_DIFFERS",
+    "SEPARATE_COVERAGE_INVALID_OR_UNCOLLECTED"
+  ],
+  "probeNotifyInvoked": false,
+  "actualAlertReceipt": null,
+  "cause": "Historical H coverage/release/original-plan fixtures were mixed with mutable current J policy; unchanged runtime correctly rejects the mismatch.",
+  "outsideLogs": [
+    {
+      "path": "/var/tmp/smp-watchdog-historical-contract-20261026/actual-job-121411109815.log",
+      "bytes": 33644,
+      "sha256": "c8e1f00c2344ad70cd10a34cc875d48a180e3a97f7bc92f5e860fb537e2e466c",
+      "copyToFinish": false
+    },
+    {
+      "path": "/var/tmp/smp-watchdog-historical-contract-20261026/actual-job-121411109815.log.gz",
+      "bytes": 6708,
+      "sha256": "7bc0e380b119fb507ba7c4d17235c6ccdc6fd04b5c121a030d03a4c2e61a7b58",
+      "copyToFinish": false
+    }
+  ]
+}

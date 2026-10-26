@@ -1,0 +1,77 @@
+{
+  "status": "PASS_HISTORICAL_FIXTURE_REPLAY_ONLY",
+  "exitCode": 2,
+  "transport": "all GitHub/public reads and notification subprocess mocked; sockets denied",
+  "sourceRequests": 0,
+  "apiIssueWrites": 0,
+  "actualDelivery": false,
+  "originalNow": "2026-10-25T08:13:04.369084Z",
+  "originalContractSha256": "8b44bcbec679c178836408c4d98c7230a85572784b0257ef21d21d3b03b445db",
+  "result": {
+    "healthy": false,
+    "checkedAt": "2026-10-25T08:13:04.369084Z",
+    "runId": "d1b5cbbf41ba2d8dfcb05a7ff2a2b00b7faada68dcaf3224ad4c7702b2d63b22",
+    "reasons": [
+      "SCHEDULED_COLLECTION_RECEIPT_DIFFERS",
+      "OVERDUE_OR_INCOMPLETE_COVERAGE",
+      "DAILY_INTAKE_INCOMPLETE",
+      "PROCESSING_PENDING_10617",
+      "PROCESSING_HELD_10",
+      "HISTORICAL_REVIEW_PENDING_10616",
+      "PUBLIC_DAILY_INTAKE_INCOMPLETE",
+      "PUBLIC_PROCESSING_PENDING_10617",
+      "PUBLIC_PROCESSING_HELD_10",
+      "PUBLIC_HISTORICAL_REVIEW_PENDING_10616",
+      "PUBLIC_COVERAGE_INCOMPLETE_OR_OVERDUE",
+      "HELD_CLAIMS_37"
+    ],
+    "publicationEnabled": true,
+    "scheduledRunUrl": "https://github.com/jessepike/sec-market/actions/runs/40082520067",
+    "successfulTasks": 264,
+    "requiredTasks": 557,
+    "coverageMeasure": "daily_source_intake_v2",
+    "processing": {
+      "changedDocuments": 1,
+      "complete": false,
+      "heldDocuments": 10,
+      "inventoryDocuments": 10655,
+      "pendingDocuments": 10617,
+      "reviewedDocuments": 38,
+      "unknownDateDocuments": 291
+    },
+    "historicalReview": {
+      "complete": false,
+      "heldDocuments": 10,
+      "inventoryDocuments": 10655,
+      "pendingDocuments": 10616,
+      "reviewedDocuments": 39
+    },
+    "notification": {
+      "delivery": "github_issue_updated",
+      "url": "https://github.com/jessepike/sec-market/issues/10",
+      "number": 10,
+      "state": "open",
+      "notificationTransport": "GitHub account notification settings"
+    }
+  },
+  "capturedIssueRequests": [
+    {
+      "argv": [
+        "gh",
+        "api",
+        "repos/jessepike/sec-market/issues",
+        "--method",
+        "POST",
+        "--input",
+        "<temporary-payload-file>"
+      ],
+      "payload": {
+        "assignees": [
+          "jessepike"
+        ],
+        "body": "The independent daily pipeline probe needs attention.\n\nChecked: 2026-10-25T08:13:04.369084Z\n\nReasons: SCHEDULED_COLLECTION_RECEIPT_DIFFERS, OVERDUE_OR_INCOMPLETE_COVERAGE, DAILY_INTAKE_INCOMPLETE, PROCESSING_PENDING_10617, PROCESSING_HELD_10, HISTORICAL_REVIEW_PENDING_10616, PUBLIC_DAILY_INTAKE_INCOMPLETE, PUBLIC_PROCESSING_PENDING_10617, PUBLIC_PROCESSING_HELD_10, PUBLIC_HISTORICAL_REVIEW_PENDING_10616, PUBLIC_COVERAGE_INCOMPLETE_OR_OVERDUE, HELD_CLAIMS_37\n\nNo missing check is counted as fresh. Inspect the daily coverage receipt and the private refs/archive/market-evidence ref.\n\n[Daily coverage](https://securitymarketpulse.com/daily-coverage.json)",
+        "title": "Daily pipeline needs attention"
+      }
+    }
+  ]
+}

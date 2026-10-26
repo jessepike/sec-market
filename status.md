@@ -70,7 +70,9 @@ The independently reviewed local [PR Newswire mechanics test repair](docs/active
 preserves all 20 original test bodies and 3,058 other tracked files. Its full portable suite
 passes 1,018 tests: 957 passes and the same 61 explicit archive-only skips, in 261.460 seconds
 including discovery. The separate unchanged original-H replay passes. This local result has
-no actual canary credit; main stays 3bb9e40c and public release fc8bf098/sequence 4 remains current.
+no actual canary credit. Preview canary 40275425806 and web run 40275425734 on a8d92efa
+are now terminal success; assigned artifact authentication remains pending. Main stays 3bb9e40c
+and public release fc8bf098/sequence 4 remains current.
 
 Native scheduled publisher 40271992393 started old main at 05:00:49 UTC. Ordinary cancellation
 did not stop its always() job; owner force-cancel ended it before any remotely persisted
@@ -87,6 +89,11 @@ publisher 40190348786 remain dated historical evidence; their spent allowances w
 Genuine monitor 40191154739 proved its repaired reader and delivery, then correctly reported
 coverage/review/held/publisher gaps. Later native monitor 40273459773 failed its 36-test preflight
 with four failures and three errors before --notify; issue 10 remained at its October 25 update.
+The reviewed [watchdog observer repair](docs/active/daily-pipeline/accuracy/watchdog-observer-repair-2026-10-26/report.md)
+now passes all 55 local tests and independent review, with zero skips. It retains the historical
+H contract and every original assertion, leaves the production probe unchanged, and separately
+reports observer failures. Actual notification and failure/recovery delivery remain pending;
+genuine current-J/eight-group native collection and publication receipts remain open.
 Sustained durability and phone/email delivery remain unmeasured.
 
 ## Current source work
